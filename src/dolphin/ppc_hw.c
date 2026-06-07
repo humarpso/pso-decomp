@@ -28,6 +28,14 @@ void PPCMtdec(u32 val) {
     __PPCMtdec(val);
 }
 
+asm void PPCSync(void) {
+#include "orig_asm/dolphin/ppc_hw/PPCSync.inc"
+}
+
+asm void PPCHalt(void) {
+#include "orig_asm/dolphin/ppc_hw/PPCHalt.inc"
+}
+
 u32 PPCMfhid2(void) {
     return __PPCMfhid2();
 }
@@ -38,4 +46,12 @@ void PPCMthid2(u32 val) {
 
 void PPCMtwpar(u32 val) {
     __PPCMtwpar(val);
+}
+
+void PPCEnableDPM(void) {
+    PPCMthid0(PPCMfhid0() | 0x200);
+}
+
+asm void PPCSetFpNonIEEEMode(void) {
+#include "orig_asm/dolphin/ppc_hw/PPCSetFpNonIEEEMode.inc"
 }

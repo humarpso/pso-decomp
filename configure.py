@@ -456,6 +456,8 @@ config.libs = [
             NonMatching("os_arena.c"),
             NonMatching("os_context.c"),
             NonMatching("os_interrupt.c"),
+            NonMatching("os_misc.c"),
+            NonMatching("os_time.c"),
         ],
     },
     # ------------------------------------------------------------------
