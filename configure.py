@@ -454,9 +454,12 @@ config.libs = [
         "objects": [
             NonMatching("ppc_hw.c"),
             NonMatching("os_arena.c"),
+            NonMatching("os_cache.c"),
             NonMatching("os_context.c"),
+            NonMatching("os_error.c"),
             NonMatching("os_interrupt.c"),
             NonMatching("os_misc.c"),
+            NonMatching("os_report.c"),
             NonMatching("os_time.c"),
         ],
     },
@@ -468,10 +471,9 @@ config.libs = [
         "mw_version": "GC/2.6",
         "cflags": cflags_runtime,
         "progress_category": "runtime",
-        "src_dir": "libs/PowerPC_EABI_Support",
+        "src_dir": "src/runtime",
         "objects": [
-            # Runtime objects require assembly; added when asm files exist:
-            # Matching("Runtime/Src/__init_cpp_exceptions.cpp"),
+            Matching("runtime.c"),
         ],
     },
 ]

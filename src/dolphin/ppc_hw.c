@@ -1,31 +1,31 @@
 #include "types.h"
 
-u32 PPCMfmsr(void) {
-    return __PPCMfmsr();
+asm u32 PPCMfmsr(void) {
+#include "orig_asm/dolphin/ppc_hw/PPCMfmsr.inc"
 }
 
-void PPCMtmsr(u32 val) {
-    __PPCMtmsr(val);
+asm void PPCMtmsr(register u32 val) {
+#include "orig_asm/dolphin/ppc_hw/PPCMtmsr.inc"
 }
 
-u32 PPCMfhid0(void) {
-    return __PPCMfhid0();
+asm u32 PPCMfhid0(void) {
+#include "orig_asm/dolphin/ppc_hw/PPCMfhid0.inc"
 }
 
-void PPCMthid0(u32 val) {
-    __PPCMthid0(val);
+asm void PPCMthid0(register u32 val) {
+#include "orig_asm/dolphin/ppc_hw/PPCMthid0.inc"
 }
 
-u32 PPCMfl2cr(void) {
-    return __PPCMfl2cr();
+asm u32 PPCMfl2cr(void) {
+#include "orig_asm/dolphin/ppc_hw/PPCMfl2cr.inc"
 }
 
-void PPCMtl2cr(u32 val) {
-    __PPCMtl2cr(val);
+asm void PPCMtl2cr(register u32 val) {
+#include "orig_asm/dolphin/ppc_hw/PPCMtl2cr.inc"
 }
 
-void PPCMtdec(u32 val) {
-    __PPCMtdec(val);
+asm void PPCMtdec(register u32 val) {
+#include "orig_asm/dolphin/ppc_hw/PPCMtdec.inc"
 }
 
 asm void PPCSync(void) {
@@ -36,16 +36,16 @@ asm void PPCHalt(void) {
 #include "orig_asm/dolphin/ppc_hw/PPCHalt.inc"
 }
 
-u32 PPCMfhid2(void) {
-    return __PPCMfhid2();
+asm u32 PPCMfhid2(void) {
+#include "orig_asm/dolphin/ppc_hw/PPCMfhid2.inc"
 }
 
-void PPCMthid2(u32 val) {
-    __PPCMthid2(val);
+asm void PPCMthid2(register u32 val) {
+#include "orig_asm/dolphin/ppc_hw/PPCMthid2.inc"
 }
 
-void PPCMtwpar(u32 val) {
-    __PPCMtwpar(val);
+asm void PPCMtwpar(register u32 val) {
+#include "orig_asm/dolphin/ppc_hw/PPCMtwpar.inc"
 }
 
 void PPCEnableDPM(void) {
