@@ -1471,3 +1471,21 @@ asm void func_800386F0(void) {
 asm void func_80038714(void) {
 #include "orig_asm/game/stubs/func_80038714.inc"
 }
+
+void* func_80036444(void* a, void* b, void* c, void* d, void* e) {
+    return e;
+}
+
+void* func_8003644C(void* a, void* b, void* c, void* d, void* e) {
+    return e;
+}
+
+extern void func_80010884(void);
+asm void func_80010AFC(void) {
+#include "orig_asm/game/stubs/func_80010AFC.inc"
+}
+
+extern void func_80012664(void);
+asm void func_800129F0(void) {
+#include "orig_asm/game/stubs/func_800129F0.inc"
+}

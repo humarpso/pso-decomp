@@ -441,6 +441,8 @@ config.libs = [
             NonMatching("init.c", progress_category="runtime"),
             NonMatching("game/stubs.c"),
             NonMatching("game/bitstream.c"),
+            NonMatching("game/math_util.c"),
+            NonMatching("game/dispatch.c"),
         ],
     },
     # ------------------------------------------------------------------
