@@ -440,6 +440,7 @@ config.libs = [
         "objects": [
             NonMatching("init.c", progress_category="runtime"),
             NonMatching("game/stubs.c"),
+            NonMatching("game/bitstream.c"),
         ],
     },
     # ------------------------------------------------------------------
@@ -457,6 +458,7 @@ config.libs = [
             NonMatching("os_cache.c"),
             NonMatching("os_context.c"),
             NonMatching("os_error.c"),
+            NonMatching("os_exception_init.c"),
             NonMatching("os_interrupt.c"),
             NonMatching("os_misc.c"),
             NonMatching("os_report.c"),

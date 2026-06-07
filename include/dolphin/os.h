@@ -55,8 +55,9 @@ typedef struct OSContext {
 } OSContext;
 
 OSContext* OSGetCurrentContext(void);
-void OSSaveContext(OSContext* context);
+s32 OSSaveContext(OSContext* context);
 void OSLoadContext(OSContext* context);
+void OSClearContext(OSContext* context);
 void OSSetCurrentContext(OSContext* context);
 
 void OSResetSystem(int reset, u32 resetCode, BOOL forceMenu);

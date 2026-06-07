@@ -20,8 +20,9 @@ extern int vprintf(const char *fmt, va_list args);
 
 
 
-
-
+asm void OSReport_prologue(void) {
+#include "orig_asm/dolphin/os_report/OSReport_prologue.inc"
+}
 
 
 
