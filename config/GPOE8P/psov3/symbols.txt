@@ -1,0 +1,46 @@
+// PsoV3.dol (files/PsoV3.dol) Symbol Map
+// SHA1: 0d85744b51d7379efb025a943d0cd5aaae2191a3
+//
+// This is the ACTUAL GAME BINARY loaded by the boot DOL (sys/main.dol).
+// Contains ~21,155 functions, 4,251 KB code.
+//
+// Format: symbol_name = .section:0xADDRESS; // type:<type> size:0x<SIZE> scope:<scope>
+//
+// Section layout:
+//   .init:   0x8000C000 - 0x8000E520 (9.3 KB init code)
+//   .text:   0x8000F740 - 0x80433F20 (4,242 KB main code)
+//   .data4:  0x80434040 - 0x80480540 (305 KB rodata)
+//   .data5:  0x804805E0 - 0x804FE020 (503 KB data)
+//   .data6:  0x805D2600 - 0x805D49A0 (8.9 KB sdata, r13=0x805DA600)
+//   .data7:  0x805D7D00 - 0x805E1200 (37 KB sdata2, r2-relative)
+//   .bss:    0x804FE020 - 0x805E1224 (909 KB bss)
+//
+// r13 (SDA base) = 0x805DA600
+//
+// Key data locations:
+//   TProtocol_name  = 0x805D3578 -> "TProtocol" at 0x804495DC
+//   TObject_name    = 0x805D3734 -> "TObject" at 0x8044CB78
+//   TMainTask_name  = 0x805D3738 -> "TMainTask" at 0x8044CB80
+//   TTcpSocket_name = 0x805D28B0 -> "TTcpSocket" at 0x80438878
+//   port_map_copyright (Lobby) = 0x805D3570 -> 0x80449568
+//   port_map_copyright (Port)  = 0x805D3574 -> 0x804495A4
+
+// --- PSO Engine: PSOV3Encryption ---
+PSOV3Encryption_next = .text:0x8036AC14; // type:function size:0x58 scope:global
+PSOV3Encryption_update_stream = .text:0x8036AC6C; // type:function size:0x64 scope:global
+PSOV3Encryption_init = .text:0x8036ACD0; // type:function size:0x15C scope:global
+
+// --- PSO Engine: TObject ---
+TObject_ctor = .text:0x8022AA70; // type:function scope:global
+// TObject_dtor, run_tasks, etc. — TBD (near 0x8022AA70)
+
+// --- PSO Engine: TMainTask ---
+TMainTask_ctor = .text:0x8022A50C; // type:function size:0x58 scope:global
+
+// --- PSO Engine: TTcpSocket ---
+// TTcpSocket_ctor near 0x801E0BB4
+
+// --- PSO Engine: TProtocol ---
+TProtocol_ctor = .text:0x801DEB84; // type:function scope:global
+// recv_pso_regist_connect uses "DreamCast Port Map" at 0x801DAD80
+// another variant uses "DreamCast Lobby Server" at 0x801DAAB8

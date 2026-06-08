@@ -293,4 +293,294 @@ public:
     };
 };
 
+#define _gc_tag_packet_templ(name, members)	\
+template<bool has_gc_tag = false>		\
+struct name {					\
+	packet_header header;			\
+	members					\
+};						\
+						\
+template<>					\
+struct name<true> {				\
+	packet_header header;			\
+	TPlyGuildCardTag tag;			\
+	members					\
+}
+
+_gc_tag_packet_templ(regist,
+	TPlySmth smth;
+	u32 sub_version;
+	u8 is_extended;
+	u8 language;
+);
+
+class TRegister : public regist<false> {
+public:
+	char serial_number[16];
+	char access_key[16];
+public:
+	void bswap() {
+		header.bswap();
+		smth.bswap();
+		bswap_32(&sub_version);
+	};
+};
+
+class TSendPsoRegist : public regist<false> {
+public:
+	char serial_number[48];
+	char access_key[48];
+	char password[48];
+public:
+	void bswap() {
+		header.bswap();
+		smth.bswap();
+		bswap_32(&sub_version);
+	};
+};
+
+template<bool is_lobby>
+class TRecvExit {
+public:
+	packet_header header;
+	char client_id;
+	char leader_id;
+	char disable_udp;
+public:
+	void bswap() {
+		header.bswap();
+	};
+};
+
+class TCreateGame {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+	char name[16];
+	char password[16];
+	u8 difficulty;
+	u8 battle_mode;
+	u8 challenge_mode;
+	u8 episode;
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+	};
+};
+
+class TFindUser {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+	u32 target_gc;
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+		bswap_32(&target_gc);
+	};
+};
+
+class TRoomChange {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+	};
+};
+
+class TPsoDataBuf {
+public:
+	void recv_pso_data_buf(size_t size) {};
+};
+
+class TPsoDataLong : public TPsoDataBuf {
+public:
+	union {
+		union long_game_command_union pkt;
+		u8 bytes[0x8000];
+	};
+};
+
+class TPsoData : public TPsoDataBuf {
+public:
+	union game_command_union pkt;
+};
+
+class TRecvPsoDataLong {
+public:
+	packet_header header;
+	TPsoDataLong data;
+public:
+	void bswap() {
+		header.bswap();
+	};
+};
+
+class TRecvPsoData {
+public:
+	packet_header header;
+	TPsoData data;
+public:
+	void bswap() {
+		header.bswap();
+	};
+};
+
+template<int action_type = 0>
+class TSendAction {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+	};
+};
+
+template<>
+class TSendAction<1> {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+	char name[16];
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+	};
+};
+
+template<>
+class TSendAction<2> {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+	char password[16];
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+	};
+};
+
+template<>
+class TSendAction<3> {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+	char name[16];
+	char password[16];
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+	};
+};
+
+class TMessageBox {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+	char mesg[512];
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+	};
+};
+
+class TRecvPort {
+public:
+	packet_header header;
+	u32 ip_addr;
+	short port;
+public:
+	void bswap() {
+		header.bswap();
+		bswap_32(&ip_addr);
+		bswap_16(as(u16 *, &port));
+	};
+};
+
+class TSendDownloadHead {
+public:
+	packet_header header;
+	char filename[16];
+public:
+	void bswap() {
+		header.bswap();
+	};
+};
+
+class TPlyGuildCardTagPacket {
+public:
+	packet_header header;
+	TPlyGuildCardTag tag;
+};
+
+class TPlyRecvLogin : public TPlyGuildCardTagPacket {
+public:
+	TPlyClientConfig client_config;
+public:
+	void bswap() {
+		header.bswap();
+		tag.bswap();
+	};
+};
+
+class TPlyStartGame {
+public:
+	packet_header header;
+	TPlyJoinLobbyData lobby_data[4];
+	TPlyMeetUserExtension extension;
+	u8 mbr_0xe8[4];
+public:
+	void bswap() {
+		header.bswap();
+		for (int i = 0; i < 4; ++i) {
+			lobby_data[i].bswap();
+		}
+		extension.bswap();
+	};
+};
+
+struct TPlyChallenge {
+	u8 data[320];
+	void bswap() {};
+};
+
+struct TPlyChoiceSearchConfig {
+	u8 data[320];
+	void bswap() {};
+};
+
+class TPlyJoinData {
+public:
+	packet_header header;
+	TPlyCharData char_data;
+	TPlyChallenge challenge;
+	TPlyChoiceSearchConfig choice_search_config;
+	char info_board[172];
+	u32 blocked_senders[30];
+	u32 auto_reply_enabled;
+	char auto_reply[512];
+public:
+	void bswap() {
+		header.bswap();
+		char_data.bswap();
+		challenge.bswap();
+		choice_search_config.bswap();
+		for (int i = 0; i < 30; ++i) {
+			bswap_32(&blocked_senders[i]);
+		}
+		bswap_32(&auto_reply_enabled);
+	};
+};
+
 #endif

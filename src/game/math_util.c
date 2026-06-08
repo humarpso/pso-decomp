@@ -13,3 +13,19 @@ extern f32 glob_8003EC58;
 void func_80035904(u32 value) {
     glob_8003EC58 = (f32)(u16)value;
 }
+
+void func_80037FA8(s8* data) {
+    s32 val;
+    val = data[2];
+    if (val > 89) {
+        data[2] = 89;
+    } else if (val < -89) {
+        data[2] = -89;
+    }
+    val = data[3];
+    if (val > 89) {
+        data[3] = 89;
+    } else if (val < -89) {
+        data[3] = -89;
+    }
+}

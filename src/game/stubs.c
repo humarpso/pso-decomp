@@ -705,10 +705,6 @@ asm void func_80037F7C(void) {
 #include "orig_asm/game/stubs/func_80037F7C.inc"
 }
 
-asm void func_80037FF0(void) {
-#include "orig_asm/game/stubs/func_80037FF0.inc"
-}
-
 asm void func_800383C4(void) {
 #include "orig_asm/game/stubs/func_800383C4.inc"
 }
@@ -732,7 +728,7 @@ extern void func_80010CAC(void);
 extern void func_80010DA8(void);
 extern void func_80013A40(void);
 extern void func_800155DC(void);
-extern void func_80015934(void);
+extern void func_80015934(void* buffer, void* callback);
 extern void func_800159D8(void);
 extern void func_80015A64(void);
 extern void func_80015CB0(void);
@@ -827,8 +823,10 @@ asm void func_80016FB0(void) {
 #include "orig_asm/game/stubs/func_80016FB0.inc"
 }
 
-asm void func_800173AC(void) {
-#include "orig_asm/game/stubs/func_800173AC.inc"
+extern void func_800173C8(void);
+
+void func_80017398(void) {
+    func_80015934((void*)0x80040B00, (void*)func_800173C8);
 }
 
 asm void func_80017448(void) {

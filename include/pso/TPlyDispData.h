@@ -62,6 +62,9 @@ struct disp_data_part2 {
         bswap32(&proportions.x);
         bswap32(&proportions.y);
     };
+    bool is_valid() {
+        return false;
+    };
 
     char name[16];
     u32 smth[2];

@@ -1,5 +1,7 @@
 #include <global_types.h>
 #include <string.h>
+#include <stdio.h>
+#include <stddef.h>
 #include "pso/forward.h"
 #include "pso/macros.h"
 #include "pso/TMainTask.h"

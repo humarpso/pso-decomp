@@ -32,22 +32,38 @@ extern TPlyMeetUserExtension meet_user_settings;
 extern u32 game_variations[16][2];
 extern void copy_packet(struct packet *pkt);
 
-struct TPlyChallenge {
-    u8 data[320];
-};
-
-struct TPlyChoiceSearchConfig {
-    u8 data[320];
-};
-
-struct TBlockedSenders {
-    u8 data[256];
-};
-
-struct TRecvPsoRegistConnect {
+class TBlockedSenders {
+public:
     packet_header header;
+    u32 blocked_senders[30];
+public:
+    void bswap() {
+        header.bswap();
+        for (int i = 0; i < 30; ++i) {
+            bswap_32(&blocked_senders[i]);
+        }
+    };
+};
+
+class TSendPsoRegistConnect {
+public:
+    packet_header header;
+    char serial_number[17];
+    char access_key[17];
+    u16 padding;
+public:
+    void bswap() {
+        header.bswap();
+    };
+};
+
+class TRecvPsoRegistConnect {
+public:
+    packet_header header;
+    char copyright[64];
     u32 server_key;
     u32 client_key;
+public:
     void bswap() {
         header.bswap();
         bswap_32(&server_key);
