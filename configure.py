@@ -466,6 +466,11 @@ config.libs = [
             NonMatching("pso/THeap.cpp"),
             NonMatching("pso/TMainTask.cpp"),
             NonMatching("pso/TSocket.cpp"),
+            NonMatching("pso/TTcpSocket.cpp"),
+            NonMatching("pso/TProtocol.cpp"),
+            NonMatching("pso/PSOV3Encryption.cpp"),
+            NonMatching("pso/PSOV3EncryptionTCP.cpp"),
+            NonMatching("pso/protocol.cpp"),
         ],
     },
     # ------------------------------------------------------------------
@@ -506,6 +511,7 @@ config.libs = [
         "objects": [
             Matching("runtime.c"),
             NonMatching("string.c"),
+            NonMatching("shift.c"),
         ],
     },
 ]

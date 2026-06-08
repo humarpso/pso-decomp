@@ -7,12 +7,15 @@
 #include "pso/forward.h"
 #include "pso/TSocket.h"
 #include "pso/TObject.h"
+#include "pso/PSOV3EncryptionTCP.h"
 
 EXTERN_OBJECT_NAME(TTcpSocket);
 extern TTcpSocket *tcp_socket_table[16];
 
 class TTcpSocket : public TSocket {
 public:
+    PSOV3EncryptionTCP m_send_crypt;
+    PSOV3EncryptionTCP m_recv_crypt;
     int m_is_encrypted;
 public:
     TTcpSocket(TObject *parent) : TSocket(parent) {
