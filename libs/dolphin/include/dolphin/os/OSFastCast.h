@@ -1,0 +1,84 @@
+#ifndef _DOLPHIN_OS_OSFASTCAST_H
+#define _DOLPHIN_OS_OSFASTCAST_H
+
+#include "types.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define OS_GQR_U8 (0x0004)
+#define OS_GQR_U16 (0x0005)
+#define OS_GQR_S8 (0x0006)
+#define OS_GQR_S16 (0x0007)
+
+#define OS_FASTCAST_U8 (2)
+#define OS_FASTCAST_U16 (3)
+#define OS_FASTCAST_S8 (4)
+#define OS_FASTCAST_S16 (5)
+
+static inline void OSInitFastCast() {
+	asm {
+}
+}
+
+static inline s16 __OSf32tos16(register f32 inF) {
+    register s16 out;
+    u32 tmp;
+    register u32* tmpPtr = &tmp;
+	asm {
+}
+
+    return out;
+}
+
+static inline void OSf32tos16(f32* f, s16* out) {
+    *out = __OSf32tos16(*f);
+}
+
+static inline u8 __OSf32tou8(register f32 inF) {
+    register u8 out;
+    u32 tmp;
+    register u32* tmpPtr = &tmp;
+	asm {
+}
+
+    return out;
+}
+
+static inline void OSf32tou8(f32* f, u8* out) {
+    *out = __OSf32tou8(*f);
+}
+
+static inline s8 __OSf32tos8(register f32 inF) {
+    register s8 out;
+    u32 tmp;
+    register u32* tmpPtr = &tmp;
+	asm {
+}
+
+    return out;
+}
+
+static inline void OSf32tos8(f32* f, s8* out) {
+    *out = __OSf32tos8(*f);
+}
+
+static inline float __OSs16tof32(register s16* s) {
+    register float f;
+
+    asm {
+}
+
+    return f;
+}
+
+static inline void OSs16tof32(register s16* s, volatile register f32* f) {
+    *f = __OSs16tof32(s);
+}
+
+#ifdef __cplusplus
+};
+#endif
+
+#endif

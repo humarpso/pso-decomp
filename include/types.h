@@ -29,10 +29,30 @@ typedef int BOOL;
 #define FALSE 0
 
 #ifndef NULL
+#ifdef __cplusplus
+#define NULL 0
+#else
 #define NULL ((void*)0)
 #endif
+#endif
 
+#ifndef _SIZE_T_DEFINED
+#define _SIZE_T_DEFINED
+#ifndef __SIZE_TYPE__
 typedef unsigned long size_t;
+#else
+typedef __SIZE_TYPE__ size_t;
+#endif
+#endif
+
+#if !defined(__cplusplus) || __cplusplus < 201103L
+#ifndef nullptr
+#define nullptr NULL
+#endif
+#ifndef override
+#define override
+#endif
+#endif
 
 #define AT_ADDRESS(addr) : (addr)
 #define ATTRIBUTE_ALIGN(num) __attribute__((aligned(num)))

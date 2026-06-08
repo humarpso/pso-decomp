@@ -25,26 +25,74 @@ extern TObject global_obj1;
 extern TObject global_obj2;
 
 enum object_flags {
-    OBJ_NONE                    = 0x0000,
-    OBJ_QUEUE_DESTRUCTION       = 0x0001,
-    OBJ_CHILD_QUEUE_DESTRUCTION = 0x0002,
-    OBJ_BIT_2                   = 0x0004,
-    OBJ_BIT_3                   = 0x0008,
-    OBJ_DISALLOW_UPDATE         = 0x000F,
-    OBJ_DISALLOW_RENDER         = 0x0010,
-    OBJ_DISALLOW_DESTRUCTION    = 0x0020,
-    OBJ_DISALLOW_RENDER_SHADOWS = 0x0100,
-    OBJ_BIT_9                   = 0x0200,
-    OBJ_BIT_10                  = 0x0400,
-    OBJ_BIT_11                  = 0x0800,
-    OBJ_BIT_12                  = 0x1000,
-    OBJ_BIT_13                  = 0x2000,
-    OBJ_BIT_14                  = 0x4000,
-    OBJ_BIT_15                  = 0x8000,
-    OBJ_ALL_BITS                = 0xFFFF
+    NONE                    = 0x0000,
+    QUEUE_DESTRUCTION       = 0x0001,
+    CHILD_QUEUE_DESTRUCTION = 0x0002,
+    BIT_2                   = 0x0004,
+    BIT_3                   = 0x0008,
+    DISALLOW_UPDATE         = 0x000F,
+    DISALLOW_RENDER         = 0x0010,
+    DISALLOW_DESTRUCTION    = 0x0020,
+    DISALLOW_RENDER_SHADOWS = 0x0100,
+    BIT_9                   = 0x0200,
+    BIT_10                  = 0x0400,
+    BIT_11                  = 0x0800,
+    BIT_12                  = 0x1000,
+    BIT_13                  = 0x2000,
+    BIT_14                  = 0x4000,
+    BIT_15                  = 0x8000,
+    ALL_BITS                = 0xFFFF
 };
 
 class TObject {
+#ifdef TOBJECT_CPP
+    #define _delete_children() { \
+        while (m_down != NULL) { \
+            delete m_down; \
+        } \
+    }
+    #define add_parent(parent, set_parent) { \
+        if (set_parent) { \
+            m_up = parent; \
+        } \
+        if (parent == NULL) { \
+            m_prev = this; \
+            m_next = NULL; \
+        } else { \
+            TObject *child = parent->m_down; \
+            if (child != NULL) { \
+                m_prev = child->m_next; \
+                m_next = NULL; \
+                child->m_prev->m_next = this; \
+                child->m_prev = this; \
+            } else { \
+                m_prev = this; \
+                parent->m_down = this; \
+                m_next = NULL; \
+            } \
+        } \
+    }
+    #define remove_parent() { \
+        if (m_up != NULL) { \
+            if (m_prev == this) { \
+                m_up->m_down = NULL; \
+            } else if (m_up->m_down == this) { \
+                m_up->m_down = m_next; \
+                m_prev->m_next = NULL; \
+                if (m_next != NULL) { \
+                    m_next->m_prev = m_prev; \
+                } \
+            } else { \
+                m_prev->m_next = m_next; \
+                if (m_next != NULL) { \
+                    m_next->m_prev = m_prev; \
+                } else { \
+                    m_up->m_down->m_prev = m_prev; \
+                } \
+            } \
+        } \
+    }
+#endif
 public:
     const char *m_name;
     u16 m_flags;
@@ -55,17 +103,17 @@ public:
     TObject *m_down;
 
 public:
-    void allow_rendering_shadows()    { m_flags &= ~OBJ_DISALLOW_RENDER_SHADOWS; }
-    void disallow_rendering_shadows() { m_flags |= OBJ_DISALLOW_RENDER_SHADOWS; }
-    void clear_flag_9()               { m_flags &= ~OBJ_BIT_9; }
-    void set_flag_9()                 { m_flags |= OBJ_BIT_9; }
-    u32  get_flag_9()                 { return m_flags & OBJ_BIT_9; }
-    void allow_rendering()            { m_flags &= ~OBJ_DISALLOW_RENDER; }
-    void disallow_rendering()         { m_flags |= OBJ_DISALLOW_RENDER; }
-    void clear_flag_3()               { m_flags &= ~OBJ_BIT_3; }
-    void set_flag_3()                 { m_flags |= OBJ_BIT_3; }
-    void toggle_flag_3()              { m_flags ^= OBJ_BIT_3; }
-    void queue_destruction()          { m_flags |= OBJ_QUEUE_DESTRUCTION; }
+    void allow_rendering_shadows()    { m_flags &= ~DISALLOW_RENDER_SHADOWS; }
+    void disallow_rendering_shadows() { m_flags |= DISALLOW_RENDER_SHADOWS; }
+    void clear_flag_9()               { m_flags &= ~BIT_9; }
+    void set_flag_9()                 { m_flags |= BIT_9; }
+    u32  get_flag_9()                 { return m_flags & BIT_9; }
+    void allow_rendering()            { m_flags &= ~DISALLOW_RENDER; }
+    void disallow_rendering()         { m_flags |= DISALLOW_RENDER; }
+    void clear_flag_3()               { m_flags &= ~BIT_3; }
+    void set_flag_3()                 { m_flags |= BIT_3; }
+    void toggle_flag_3()              { m_flags ^= BIT_3; }
+    void queue_destruction()          { m_flags |= QUEUE_DESTRUCTION; }
 
     TObject(TObject *parent = NULL);
     virtual ~TObject();

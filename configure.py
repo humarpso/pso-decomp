@@ -399,6 +399,22 @@ cflags_dolphin = [
     "-fp_contract off",
 ]
 
+# Dolphin SDK / PSO flags with -O3 optimization (for files originally compiled at -O3)
+cflags_base_O3 = [x if x != "-O4,p" else "-O3,p" for x in cflags_base]
+
+cflags_dolphin_O3 = [
+    *cflags_base_O3,
+    "-i libs/dolphin/include",
+    "-char unsigned",
+    "-fp_contract off",
+]
+
+cflags_pso_O3 = [
+    *cflags_base_O3,
+    "-char signed",
+    "-use_lmw_stmw on",
+]
+
 # PowerPC EABI runtime flags
 cflags_runtime = [
     *cflags_base,
@@ -443,6 +459,13 @@ config.libs = [
             NonMatching("game/bitstream.c"),
             NonMatching("game/math_util.c"),
             NonMatching("game/dispatch.c"),
+            NonMatching("game/lookup.c"),
+            NonMatching("game/mask_table.c"),
+            # PSO game object / logic code (C++)
+            NonMatching("pso/TObject.cpp"),
+            NonMatching("pso/THeap.cpp"),
+            NonMatching("pso/TMainTask.cpp"),
+            NonMatching("pso/TSocket.cpp"),
         ],
     },
     # ------------------------------------------------------------------
@@ -467,6 +490,8 @@ config.libs = [
             NonMatching("os_reset.c"),
             NonMatching("os_time.c"),
             NonMatching("os_funcs.c"),
+            NonMatching("exi.c"),
+            NonMatching("gx.c"),
         ],
     },
     # ------------------------------------------------------------------
@@ -480,6 +505,7 @@ config.libs = [
         "src_dir": "src/runtime",
         "objects": [
             Matching("runtime.c"),
+            NonMatching("string.c"),
         ],
     },
 ]

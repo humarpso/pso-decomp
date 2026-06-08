@@ -108,6 +108,12 @@ asm static void __restore_gpr(void) {
 #include "orig_asm/runtime/runtime/__restore_gpr.inc"
 }
 
+static const f64 __fp2u_constants[] = { 0.0, 4294967296.0, 2147483648.0 };
+
+asm u32 __cvt_fp2unsigned(void) {
+#include "orig_asm/runtime/runtime/__cvt_fp2unsigned.inc"
+}
+
 #ifdef __cplusplus
 }
 #endif

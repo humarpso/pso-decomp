@@ -23,6 +23,16 @@
     o(tl_particle, TL_PARTICLE) \
     TL_PARTICLE_MODEL_OBJECTS
 
+#define TL_OBJECTS_AT_TL_00_WITHOUT_TL_PARTICLE \
+    TL_00_OBJECTS \
+    TL_02_OBJECTS \
+    TL_PARTICLE_MODEL_OBJECTS
+
+#define TL_OBJECTS_AT_TL_02 \
+    TL_02_OBJECTS \
+    o(tl_particle, TL_PARTICLE) \
+    TL_PARTICLE_MODEL_OBJECTS
+
 #define TL_00_OBJECTS \
     o(tl_00, TL_00) \
     o(tl_camera, TL_CAMERA) \
@@ -59,6 +69,28 @@
 #define FOREACH_NODE_NODECL_MULTI_ITER(type, first, varname, ...) \
     for (varname = (type *)(first); varname != NULL; varname = (type *)(varname->m_next), __VA_ARGS__)
 
+#define __packed__
+
+#define WEAK_FUNC __declspec(weak)
+
 #define as(type, var) reinterpret_cast<type>(var)
+
+#define PRIVATE_MEMBER_GETTER(type, name) \
+    type name() { \
+        return m_##name; \
+    }
+
+#define PRIVATE_MEMBER_SETTER(type, name) \
+    void set_##name(type val) { \
+        m_##name = val; \
+    }
+
+#define PRIVATE_MEMBER_ACCESSORS(type, name) \
+    PRIVATE_MEMBER_GETTER(type &, name); \
+    PRIVATE_MEMBER_SETTER(type, name)
+
+#define PRIVATE_MEMBER_ACCESSORS_NON_REF(type, name) \
+    PRIVATE_MEMBER_GETTER(type, name); \
+    PRIVATE_MEMBER_SETTER(type, name)
 
 #endif
