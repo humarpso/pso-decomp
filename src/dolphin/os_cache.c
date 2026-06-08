@@ -32,12 +32,12 @@ asm void __OSEnableIcache(void) {
 #include "orig_asm/dolphin/os_cache/__OSEnableIcache.inc"
 }
 
+extern u32 OSDisableInterrupts(void);
+extern void func_80011200(void);
+extern void OSRestoreInterrupts(u32 state);
+
 void LCEnable(void) {
     u32 state;
-    extern void func_80011200(void);
-    extern u32 OSDisableInterrupts(void);
-    extern void OSRestoreInterrupts(u32 state);
-
     state = OSDisableInterrupts();
     func_80011200();
     OSRestoreInterrupts(state);

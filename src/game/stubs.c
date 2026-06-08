@@ -11,6 +11,11 @@ extern f32 glob_8003ECF4;
 extern f32 glob_8003ECF8;
 extern u8  glob_8003ED00;
 
+extern void func_8001255C(void);
+extern void func_80020138(void);
+extern void func_80022484(void);
+extern void func_80035458(void);
+
 void func_800221DC(void) {
 }
 
@@ -284,9 +289,11 @@ asm void func_80029158(void) {
 
 extern void func_8001218C(void);
 extern void func_800121B4(void);
-extern void func_80014DF4(void);
+extern void func_80014DFC(void);
 extern void func_8000F9B4(void);
 extern void func_8001437C(void);
+
+void func_8001152C(void) {}
 
 asm void func_800102C0(void) {
 #include "orig_asm/game/stubs/func_800102C0.inc"
@@ -308,504 +315,22 @@ asm void func_80013ED0(void) {
 #include "orig_asm/game/stubs/func_80013ED0.inc"
 }
 
-asm void func_80014098(void) {
-#include "orig_asm/game/stubs/func_80014098.inc"
-}
-
 asm s32 func_800140A0(void) {
 #include "orig_asm/game/stubs/func_800140A0.inc"
-}
-
-asm void func_800140D8(void) {
-#include "orig_asm/game/stubs/func_800140D8.inc"
 }
 
 asm s32 func_800140E0(void) {
 #include "orig_asm/game/stubs/func_800140E0.inc"
 }
 
-asm void func_8001457C(void) {
-#include "orig_asm/game/stubs/func_8001457C.inc"
-}
-
 asm void func_80014584(void) {
 #include "orig_asm/game/stubs/func_80014584.inc"
 }
 
-asm void func_80014DD4(void) {
-#include "orig_asm/game/stubs/func_80014DD4.inc"
-}
-
-asm void func_80014DDC(void) {
-#include "orig_asm/game/stubs/func_80014DDC.inc"
-}
-
-asm void func_80014E48(void) {
-#include "orig_asm/game/stubs/func_80014E48.inc"
-}
-
-asm void func_80014E50(void) {
-#include "orig_asm/game/stubs/func_80014E50.inc"
-}
-
-asm void func_8000FB24(void) {
-#include "orig_asm/game/stubs/func_8000FB24.inc"
-}
-
-asm void func_8000FC88(void) {
-#include "orig_asm/game/stubs/func_8000FC88.inc"
-}
-
-asm void func_80010040(void) {
-#include "orig_asm/game/stubs/func_80010040.inc"
-}
-
-asm void func_800104B0(void) {
-#include "orig_asm/game/stubs/func_800104B0.inc"
-}
-
-asm void func_80010700(void) {
-#include "orig_asm/game/stubs/func_80010700.inc"
-}
-
-asm void func_80010768(void) {
-#include "orig_asm/game/stubs/func_80010768.inc"
-}
-
-asm void func_80010884(void) {
-#include "orig_asm/game/stubs/func_80010884.inc"
-}
-
-asm void func_80010E34(void) {
-#include "orig_asm/game/stubs/func_80010E34.inc"
-}
-
-asm void func_800112CC(void) {
-#include "orig_asm/game/stubs/func_800112CC.inc"
-}
-
-asm void func_8001132C(void) {
-#include "orig_asm/game/stubs/func_8001132C.inc"
-}
-
-asm void func_800113C4(void) {
-#include "orig_asm/game/stubs/func_800113C4.inc"
-}
-
-asm void func_80011524(void) {
-#include "orig_asm/game/stubs/func_80011524.inc"
-}
-
-asm void func_80011A50(void) {
-#include "orig_asm/game/stubs/func_80011A50.inc"
-}
-
-asm void func_80011D7C(void) {
-#include "orig_asm/game/stubs/func_80011D7C.inc"
-}
-
-asm void func_80011E44(void) {
-#include "orig_asm/game/stubs/func_80011E44.inc"
-}
-
-asm void func_80011F8C(void) {
-#include "orig_asm/game/stubs/func_80011F8C.inc"
-}
-
-asm void func_80012208(void) {
-#include "orig_asm/game/stubs/func_80012208.inc"
-}
-
-asm void func_80012554(void) {
-#include "orig_asm/game/stubs/func_80012554.inc"
-}
-
-asm void func_800125DC(void) {
-#include "orig_asm/game/stubs/func_800125DC.inc"
-}
-
-asm void func_80012664(void) {
-#include "orig_asm/game/stubs/func_80012664.inc"
-}
-
-asm void func_80012BD0(void) {
-#include "orig_asm/game/stubs/func_80012BD0.inc"
-}
-
-asm void func_80012CF0(void) {
-#include "orig_asm/game/stubs/func_80012CF0.inc"
-}
-
-asm void func_80012D60(void) {
-#include "orig_asm/game/stubs/func_80012D60.inc"
-}
-
-asm void func_80012DAC(void) {
-#include "orig_asm/game/stubs/func_80012DAC.inc"
-}
-
-asm void func_80013060(void) {
-#include "orig_asm/game/stubs/func_80013060.inc"
-}
-
-asm void func_800130A8(void) {
-#include "orig_asm/game/stubs/func_800130A8.inc"
-}
-
-asm void func_80013350(void) {
-#include "orig_asm/game/stubs/func_80013350.inc"
-}
-
-asm void func_80013444(void) {
-#include "orig_asm/game/stubs/func_80013444.inc"
-}
-
-asm void func_80013EF0(void) {
-#include "orig_asm/game/stubs/func_80013EF0.inc"
-}
-
-asm void func_800141BC(void) {
-#include "orig_asm/game/stubs/func_800141BC.inc"
-}
-
-asm void func_800145AC(void) {
-#include "orig_asm/game/stubs/func_800145AC.inc"
-}
-
-asm void func_80014768(void) {
-#include "orig_asm/game/stubs/func_80014768.inc"
-}
-
-asm void func_800149F0(void) {
-#include "orig_asm/game/stubs/func_800149F0.inc"
-}
-
-asm void func_80014B60(void) {
-#include "orig_asm/game/stubs/func_80014B60.inc"
-}
-
-asm void func_80014C4C(void) {
-#include "orig_asm/game/stubs/func_80014C4C.inc"
-}
-
-asm void func_80014D70(void) {
-#include "orig_asm/game/stubs/func_80014D70.inc"
-}
-
-asm void func_80014DF4(void) {
-#include "orig_asm/game/stubs/func_80014DF4.inc"
-}
-
-asm void func_80014EBC(void) {
-#include "orig_asm/game/stubs/func_80014EBC.inc"
-}
-
-asm void func_80015E34(void) {
-#include "orig_asm/game/stubs/func_80015E34.inc"
-}
+void func_8001040C(void) {}
 
 asm void DVDConvertPathToEntrynum(void) {
 #include "orig_asm/game/stubs/DVDConvertPathToEntrynum.inc"
-}
-
-asm void func_800161A4(void) {
-#include "orig_asm/game/stubs/func_800161A4.inc"
-}
-
-asm void func_800163CC(void) {
-#include "orig_asm/game/stubs/func_800163CC.inc"
-}
-
-asm void func_80016490(void) {
-#include "orig_asm/game/stubs/func_80016490.inc"
-}
-
-asm void func_80016550(void) {
-#include "orig_asm/game/stubs/func_80016550.inc"
-}
-
-asm void func_80017288(void) {
-#include "orig_asm/game/stubs/func_80017288.inc"
-}
-
-asm void func_80018370(void) {
-#include "orig_asm/game/stubs/func_80018370.inc"
-}
-
-asm void func_800183B4(void) {
-#include "orig_asm/game/stubs/func_800183B4.inc"
-}
-
-asm void func_80018400(void) {
-#include "orig_asm/game/stubs/func_80018400.inc"
-}
-
-asm void func_800184BC(void) {
-#include "orig_asm/game/stubs/func_800184BC.inc"
-}
-
-asm void func_80018734(void) {
-#include "orig_asm/game/stubs/func_80018734.inc"
-}
-
-asm void func_80018818(void) {
-#include "orig_asm/game/stubs/func_80018818.inc"
-}
-
-asm void func_8001896C(void) {
-#include "orig_asm/game/stubs/func_8001896C.inc"
-}
-
-asm void func_800189D4(void) {
-#include "orig_asm/game/stubs/func_800189D4.inc"
-}
-
-asm void func_80018A74(void) {
-#include "orig_asm/game/stubs/func_80018A74.inc"
-}
-
-asm void func_80018ACC(void) {
-#include "orig_asm/game/stubs/func_80018ACC.inc"
-}
-
-asm void func_800191BC(void) {
-#include "orig_asm/game/stubs/func_800191BC.inc"
-}
-
-asm void func_8001982C(void) {
-#include "orig_asm/game/stubs/func_8001982C.inc"
-}
-
-asm void func_8001A490(void) {
-#include "orig_asm/game/stubs/func_8001A490.inc"
-}
-
-asm void func_8001A704(void) {
-#include "orig_asm/game/stubs/func_8001A704.inc"
-}
-
-asm void func_8001A7AC(void) {
-#include "orig_asm/game/stubs/func_8001A7AC.inc"
-}
-
-asm void func_8001A844(void) {
-#include "orig_asm/game/stubs/func_8001A844.inc"
-}
-
-asm void func_8001AFEC(void) {
-#include "orig_asm/game/stubs/func_8001AFEC.inc"
-}
-
-asm void func_8001B120(void) {
-#include "orig_asm/game/stubs/func_8001B120.inc"
-}
-
-asm void func_8001B430(void) {
-#include "orig_asm/game/stubs/func_8001B430.inc"
-}
-
-asm void func_8001BF1C(void) {
-#include "orig_asm/game/stubs/func_8001BF1C.inc"
-}
-
-asm void func_8001C0B0(void) {
-#include "orig_asm/game/stubs/func_8001C0B0.inc"
-}
-
-asm void func_8001C164(void) {
-#include "orig_asm/game/stubs/func_8001C164.inc"
-}
-
-asm void func_8001C1E0(void) {
-#include "orig_asm/game/stubs/func_8001C1E0.inc"
-}
-
-asm void func_8001C280(void) {
-#include "orig_asm/game/stubs/func_8001C280.inc"
-}
-
-asm void func_8001CA4C(void) {
-#include "orig_asm/game/stubs/func_8001CA4C.inc"
-}
-
-asm void func_8001D2D0(void) {
-#include "orig_asm/game/stubs/func_8001D2D0.inc"
-}
-
-asm void func_8001D478(void) {
-#include "orig_asm/game/stubs/func_8001D478.inc"
-}
-
-asm void func_8001D4F4(void) {
-#include "orig_asm/game/stubs/func_8001D4F4.inc"
-}
-
-asm void func_8001D604(void) {
-#include "orig_asm/game/stubs/func_8001D604.inc"
-}
-
-asm void func_8001E790(void) {
-#include "orig_asm/game/stubs/func_8001E790.inc"
-}
-
-asm void func_8001E7EC(void) {
-#include "orig_asm/game/stubs/func_8001E7EC.inc"
-}
-
-asm void func_8001E9AC(void) {
-#include "orig_asm/game/stubs/func_8001E9AC.inc"
-}
-
-asm void func_8001EB38(void) {
-#include "orig_asm/game/stubs/func_8001EB38.inc"
-}
-
-asm void func_8001EBD8(void) {
-#include "orig_asm/game/stubs/func_8001EBD8.inc"
-}
-
-asm void func_8001F41C(void) {
-#include "orig_asm/game/stubs/func_8001F41C.inc"
-}
-
-asm void func_80020130(void) {
-#include "orig_asm/game/stubs/func_80020130.inc"
-}
-
-asm void func_800203A4(void) {
-#include "orig_asm/game/stubs/func_800203A4.inc"
-}
-
-asm void func_80020730(void) {
-#include "orig_asm/game/stubs/func_80020730.inc"
-}
-
-asm void func_800208EC(void) {
-#include "orig_asm/game/stubs/func_800208EC.inc"
-}
-
-asm void func_80020A28(void) {
-#include "orig_asm/game/stubs/func_80020A28.inc"
-}
-
-asm void func_80022340(void) {
-#include "orig_asm/game/stubs/func_80022340.inc"
-}
-
-asm void func_8002237C(void) {
-#include "orig_asm/game/stubs/func_8002237C.inc"
-}
-
-asm void func_800223BC(void) {
-#include "orig_asm/game/stubs/func_800223BC.inc"
-}
-
-asm void func_800223F8(void) {
-#include "orig_asm/game/stubs/func_800223F8.inc"
-}
-
-asm void func_8002247C(void) {
-#include "orig_asm/game/stubs/func_8002247C.inc"
-}
-
-asm void func_80022598(void) {
-#include "orig_asm/game/stubs/func_80022598.inc"
-}
-
-asm void func_80031F00(void) {
-#include "orig_asm/game/stubs/func_80031F00.inc"
-}
-
-asm void func_80032160(void) {
-#include "orig_asm/game/stubs/func_80032160.inc"
-}
-
-asm void func_800322DC(void) {
-#include "orig_asm/game/stubs/func_800322DC.inc"
-}
-
-asm void func_80032A6C(void) {
-#include "orig_asm/game/stubs/func_80032A6C.inc"
-}
-
-asm void func_80032CC8(void) {
-#include "orig_asm/game/stubs/func_80032CC8.inc"
-}
-
-asm void func_80032D68(void) {
-#include "orig_asm/game/stubs/func_80032D68.inc"
-}
-
-asm void func_800330D4(void) {
-#include "orig_asm/game/stubs/func_800330D4.inc"
-}
-
-asm void func_80033248(void) {
-#include "orig_asm/game/stubs/func_80033248.inc"
-}
-
-asm void func_80033374(void) {
-#include "orig_asm/game/stubs/func_80033374.inc"
-}
-
-asm void func_80033940(void) {
-#include "orig_asm/game/stubs/func_80033940.inc"
-}
-
-asm void func_80033A34(void) {
-#include "orig_asm/game/stubs/func_80033A34.inc"
-}
-
-asm void func_80033B10(void) {
-#include "orig_asm/game/stubs/func_80033B10.inc"
-}
-
-asm void func_80033B80(void) {
-#include "orig_asm/game/stubs/func_80033B80.inc"
-}
-
-asm void func_800344B4(void) {
-#include "orig_asm/game/stubs/func_800344B4.inc"
-}
-
-asm void func_80034580(void) {
-#include "orig_asm/game/stubs/func_80034580.inc"
-}
-
-asm void func_80034924(void) {
-#include "orig_asm/game/stubs/func_80034924.inc"
-}
-
-asm void func_80034A20(void) {
-#include "orig_asm/game/stubs/func_80034A20.inc"
-}
-
-asm void func_80034ABC(void) {
-#include "orig_asm/game/stubs/func_80034ABC.inc"
-}
-
-asm void func_80034D4C(void) {
-#include "orig_asm/game/stubs/func_80034D4C.inc"
-}
-
-asm void func_80034EB8(void) {
-#include "orig_asm/game/stubs/func_80034EB8.inc"
-}
-
-asm void func_80035150(void) {
-#include "orig_asm/game/stubs/func_80035150.inc"
-}
-
-asm void func_80035314(void) {
-#include "orig_asm/game/stubs/func_80035314.inc"
-}
-
-asm void func_80035450(void) {
-#include "orig_asm/game/stubs/func_80035450.inc"
-}
-
-asm void func_80035534(void) {
-#include "orig_asm/game/stubs/func_80035534.inc"
 }
 
 asm void func_8000FC4C(void) {
@@ -1272,6 +797,8 @@ asm void func_80013D78(void) {
 #include "orig_asm/game/stubs/func_80013D78.inc"
 }
 
+extern void func_80015E3C(void);
+
 asm void func_80015038(void) {
 #include "orig_asm/game/stubs/func_80015038.inc"
 }
@@ -1480,12 +1007,68 @@ void* func_8003644C(void* a, void* b, void* c, void* d, void* e) {
     return e;
 }
 
-extern void func_80010884(void);
+extern void func_8001088C(void);
 asm void func_80010AFC(void) {
 #include "orig_asm/game/stubs/func_80010AFC.inc"
 }
 
-extern void func_80012664(void);
+extern void func_8001266C(void);
 asm void func_800129F0(void) {
 #include "orig_asm/game/stubs/func_800129F0.inc"
+}
+
+asm void func_80011D7C(void) {
+#include "orig_asm/game/stubs/func_80011D7C.inc"
+}
+
+asm void func_80012D60(void) {
+#include "orig_asm/game/stubs/func_80012D60.inc"
+}
+
+asm void func_80014098(void) {
+#include "orig_asm/game/stubs/func_80014098.inc"
+}
+
+asm void func_800140D8(void) {
+#include "orig_asm/game/stubs/func_800140D8.inc"
+}
+
+asm void func_8001457C(void) {
+#include "orig_asm/game/stubs/func_8001457C.inc"
+}
+
+asm void func_80015E34(void) {
+#include "orig_asm/game/stubs/func_80015E34.inc"
+}
+
+asm void func_80018370(void) {
+#include "orig_asm/game/stubs/func_80018370.inc"
+}
+
+asm void func_800203A4(void) {
+#include "orig_asm/game/stubs/func_800203A4.inc"
+}
+
+asm void func_800208EC(void) {
+#include "orig_asm/game/stubs/func_800208EC.inc"
+}
+
+asm void func_80022340(void) {
+#include "orig_asm/game/stubs/func_80022340.inc"
+}
+
+asm void func_8002237C(void) {
+#include "orig_asm/game/stubs/func_8002237C.inc"
+}
+
+asm void func_800223BC(void) {
+#include "orig_asm/game/stubs/func_800223BC.inc"
+}
+
+asm void func_80022598(void) {
+#include "orig_asm/game/stubs/func_80022598.inc"
+}
+
+asm void func_80035534(void) {
+#include "orig_asm/game/stubs/func_80035534.inc"
 }

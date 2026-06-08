@@ -3,7 +3,7 @@
 extern void __init_registers(void);
 extern void __init_hardware(void);
 extern void func_8001040C(void);
-extern void func_80011524(void);
+extern void func_8001152C(void);
 extern void func_8000FA38(void);
 extern void func_800277E8(void *);
 extern void func_8000E364(void *, u32, u32);

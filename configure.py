@@ -450,7 +450,7 @@ config.libs = [
     # ------------------------------------------------------------------
     {
         "lib": "dolphin_sdk",
-        "mw_version": "GC/2.6",
+        "mw_version": "GC/1.2.5",
         "cflags": cflags_dolphin,
         "progress_category": "sdk",
         "src_dir": "src/dolphin",
@@ -464,7 +464,9 @@ config.libs = [
             NonMatching("os_interrupt.c"),
             NonMatching("os_misc.c"),
             NonMatching("os_report.c"),
+            NonMatching("os_reset.c"),
             NonMatching("os_time.c"),
+            NonMatching("os_funcs.c"),
         ],
     },
     # ------------------------------------------------------------------
@@ -726,9 +728,10 @@ def _standalone_generate_build(cfg: ProjectConfig) -> None:
     n.comment("Compile rules")
 
     # C/C++ compilation with CodeWarrior
+    # Uses $cc variable to allow per-library compiler version selection
     n.rule(
         name="cc",
-        command=f"{wrapper_str}{cc_path} $cflags -c $in -o $out",
+        command=f"{wrapper_str}$cc $cflags -c $in -o $out",
         description="CC $out",
         depfile="$out.d",
         deps="gcc",
@@ -800,13 +803,16 @@ def _standalone_generate_build(cfg: ProjectConfig) -> None:
             cflags_list = list(obj_cflags) + list(extra_cflags)
             cflags_str = " ".join(cflags_list)
 
+            # Determine compiler path for this library
+            obj_cc_path = str(compilers_path / lib_mw_version / "mwcceppc.exe")
+
             # Compile from source
             n.build(
                 outputs=str(src_obj_path),
                 rule="cc",
                 inputs=str(src_path),
                 implicit=tool_deps,
-                variables={"cflags": cflags_str},
+                variables={"cflags": cflags_str, "cc": obj_cc_path},
             )
             all_src_objects.append(str(src_obj_path))
 
