@@ -137,6 +137,12 @@ parser.add_argument(
     action="store_false",
     help="disable progress calculation",
 )
+parser.add_argument(
+    "--target",
+    choices=["psov3", "main"],
+    default="psov3",
+    help="DOL target to build (default: psov3 — the game binary)",
+)
 args = parser.parse_args()
 
 # ===================================================================
@@ -147,7 +153,14 @@ config.version = str(args.version)
 config.build_dir = args.build_dir
 config.non_matching = args.non_matching
 config.generate_map = args.map
-config.dtk_path = args.dtk
+# Use local patched dtk binary if available, otherwise use --dtk arg or download
+_local_dtk = Path("tools/dtk")
+if args.dtk is not None:
+    config.dtk_path = args.dtk
+elif _local_dtk.is_file():
+    config.dtk_path = _local_dtk
+else:
+    config.dtk_path = None
 config.objdiff_path = args.objdiff
 config.compilers_path = args.compilers
 config.binutils_path = args.binutils
@@ -170,16 +183,20 @@ config.build_rels = False
 # ---------------------------------------------------------------------------
 config.binutils_tag = "2.42-1"
 config.compilers_tag = "20251118"
-config.dtk_tag = "v1.7.6"
+config.dtk_tag = "v1.8.3"
 config.objdiff_tag = "v3.6.1"
 config.sjiswrap_tag = "v1.2.2"
 config.wibo_tag = "1.0.0"
 
 # ---------------------------------------------------------------------------
-# Paths
+# Paths — select DOL target
 # ---------------------------------------------------------------------------
-config.config_path = Path("config") / config.version / "config.yml"
-config.check_sha_path = Path("config") / config.version / "build.sha1"
+if args.target == "psov3":
+    config.config_path = Path("config") / config.version / "psov3" / "config.yml"
+    config.check_sha_path = Path("config") / config.version / "psov3" / "build.sha1"
+else:
+    config.config_path = Path("config") / config.version / "config.yml"
+    config.check_sha_path = Path("config") / config.version / "build.sha1"
 
 # ---------------------------------------------------------------------------
 # Assembler flags
@@ -272,37 +289,66 @@ cflags_runtime = [
 # then add the Object here.
 # ===================================================================
 
-config.libs = [
-    # ------------------------------------------------------------------
-    # Initialization code (covers .init section)
-    # ------------------------------------------------------------------
-    {
-        "lib": "init",
-        "mw_version": "GC/2.6",
-        "cflags": cflags_pso,
-        "progress_category": "runtime",
-        "src_dir": "src",
-        "objects": [
-            NonMatching("init.c"),
-        ],
-    },
-    # ------------------------------------------------------------------
-    # Main game code (monolithic until TUs are broken out)
-    # As you identify TU boundaries via duplicate .sdata2 floats,
-    # sinit functions, or cross-referencing with pso-gc-reference,
-    # break files out of main.c into their own splits and objects.
-    # ------------------------------------------------------------------
-    {
-        "lib": "pso_main",
-        "mw_version": "GC/2.6",
-        "cflags": cflags_pso,
-        "progress_category": "game",
-        "src_dir": "src",
-        "objects": [
-            NonMatching("main.c"),
-        ],
-    },
-]
+if args.target == "psov3":
+    config.libs = [
+        # ------------------------------------------------------------------
+        # PsoV3.dol — Initialization code (.init section)
+        # ------------------------------------------------------------------
+        {
+            "lib": "psov3_init",
+            "mw_version": "GC/2.6",
+            "cflags": cflags_pso,
+            "progress_category": "runtime",
+            "src_dir": "src",
+            "objects": [
+                NonMatching("psov3_init.c"),
+            ],
+        },
+        # ------------------------------------------------------------------
+        # PsoV3.dol — Game code (monolithic until TUs are broken out)
+        # As you identify TU boundaries, break files out of psov3_main.c
+        # into their own splits and objects.
+        # ------------------------------------------------------------------
+        {
+            "lib": "psov3_main",
+            "mw_version": "GC/2.6",
+            "cflags": cflags_pso,
+            "progress_category": "game",
+            "src_dir": "src",
+            "objects": [
+                NonMatching("psov3_main.c"),
+            ],
+        },
+    ]
+else:
+    config.libs = [
+        # ------------------------------------------------------------------
+        # main.dol — Initialization code (.init section)
+        # ------------------------------------------------------------------
+        {
+            "lib": "init",
+            "mw_version": "GC/2.6",
+            "cflags": cflags_pso,
+            "progress_category": "runtime",
+            "src_dir": "src",
+            "objects": [
+                NonMatching("init.c"),
+            ],
+        },
+        # ------------------------------------------------------------------
+        # main.dol — Boot DOL code (monolithic)
+        # ------------------------------------------------------------------
+        {
+            "lib": "pso_main",
+            "mw_version": "GC/2.6",
+            "cflags": cflags_pso,
+            "progress_category": "game",
+            "src_dir": "src",
+            "objects": [
+                NonMatching("main.c"),
+            ],
+        },
+    ]
 
 # ===================================================================
 # Progress Categories

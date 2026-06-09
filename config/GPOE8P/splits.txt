@@ -1,8 +1,3 @@
-# PSO Episode I & II Plus (GPOE8P) - DOL Section Layout
-#
-# Section boundaries are derived from dtk analysis.
-# As TU boundaries are identified, break files out of the monolithic splits.
-
 Sections:
 	.init       type:code align:4
 	extab       type:rodata align:4
@@ -18,15 +13,12 @@ Sections:
 	.sdata2     type:rodata align:8
 	.sbss2      type:bss align:8
 
-src/init.c:
-	.init       start:0x8000C000 end:0x8000E510
-	extab       start:0x8000E520 end:0x8000E644
-	extabindex  start:0x8000E660 end:0x8000E77C
-	.ctors      start:0x80038860 end:0x80038868
-	.dtors      start:0x80038880 end:0x80038888
-
 src/main.c:
+	extab       start:0x8000E520 end:0x8000E644
+	extabindex  start:0x8000E660 end:0x8000E75C
 	.text       start:0x8000E780 end:0x8003884C
+	.ctors      start:0x80038860 end:0x80038864
+	.dtors      start:0x80038880 end:0x80038888
 	.rodata     start:0x800388A0 end:0x80039028
 	.data       start:0x80039040 end:0x8003FDD4
 	.bss        start:0x8003FDE0 end:0x80046830
@@ -34,3 +26,6 @@ src/main.c:
 	.sbss       start:0x80046960 end:0x80046D01
 	.sdata2     start:0x80046D20 end:0x800470D8
 	.sbss2      start:0x800470E0 end:0x800470E4
+
+src/init.c:
+	.init       start:0x8000C000 end:0x8000E46C

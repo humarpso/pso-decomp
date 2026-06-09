@@ -1,0 +1,18 @@
+name: psov3
+object_base: orig/GPOE8P/P-GPOE
+object: files/PsoV3.dol
+hash: 0d85744b51d7379efb025a943d0cd5aaae2191a3
+splits: config/GPOE8P/psov3/splits.txt
+symbols: config/GPOE8P/psov3/symbols.txt
+quick_analysis: false
+symbols_known: false
+fill_gaps: false
+detect_objects: true
+detect_strings: true
+mw_comment_version: 10
+
+# Workaround for dtk "Unpaired epilogue" bug
+# See https://github.com/encounter/decomp-toolkit/issues/140
+skip_cfa_ranges:
+- start: .text:0x8042E9FC
+  end: .text:0x8042EA10
