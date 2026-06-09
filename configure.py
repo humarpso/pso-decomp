@@ -281,6 +281,34 @@ cflags_runtime = [
 ]
 
 # ===================================================================
+# Library Helpers
+# ===================================================================
+
+def DolphinLib(lib_name: str, objects: list) -> dict:
+    """A Dolphin SDK library. Use when registering SDK source files."""
+    return {
+        "lib": lib_name,
+        "mw_version": "GC/2.6",
+        "cflags": cflags_dolphin,
+        "progress_category": "sdk",
+        "src_dir": "libs/dolphin/src",
+        "objects": objects,
+    }
+
+
+def RuntimeLib(lib_name: str, objects: list) -> dict:
+    """A PowerPC EABI runtime library."""
+    return {
+        "lib": lib_name,
+        "mw_version": "GC/2.6",
+        "cflags": cflags_runtime,
+        "progress_category": "runtime",
+        "src_dir": "libs/PowerPC_EABI_Support",
+        "objects": objects,
+    }
+
+
+# ===================================================================
 # Library / Object Definitions
 # ===================================================================
 # Object names MUST match the TU names in splits.txt.
