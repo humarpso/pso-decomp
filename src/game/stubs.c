@@ -43,7 +43,9 @@ void func_80031EF8(void) {
 void func_80031EFC(void) {
 }
 
-void func_800291F0(void) {
+extern void func_80029618(void);
+asm void func_800291F0(void) {
+#include "orig_asm/game/stubs/func_800291F0.inc"
 }
 
 void func_80036A88(void) {
@@ -210,9 +212,10 @@ void func_8001407C(u32* ptr) {
     ptr[0] = 0;
 }
 
-extern u32 glob_8004002C;
+typedef struct { u8 _pad[0x4C]; u32 field_4C; } BssStruct_8003FFE0;
+extern BssStruct_8003FFE0 bss_8003FFE0;
 u32 func_80013D90(void) {
-    return glob_8004002C;
+    return bss_8003FFE0.field_4C;
 }
 
 void* func_8001915C(void* a, void* b, u8* c) {
@@ -825,8 +828,8 @@ asm void func_80016FB0(void) {
 
 extern void func_800173C8(void);
 
-void func_80017398(void) {
-    func_80015934((void*)0x80040B00, (void*)func_800173C8);
+asm void func_80017398(void) {
+#include "orig_asm/game/stubs/func_80017398.inc"
 }
 
 asm void func_80017448(void) {

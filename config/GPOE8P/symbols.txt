@@ -1235,6 +1235,9 @@ func_80038714 = .text:0x80038714; // type:function size:0x24 scope:global
 func_80038738 = .text:0x80038738; // type:function size:0xD4 scope:global
 func_8003880C = .text:0x8003880C; // type:function size:0x54 scope:global
 
+// --- .bss ---
+bss_8003FFE0 = .bss:0x8003FFE0; // type:object size:0x50 scope:global
+
 // --- .sdata ---
 _SDA_BASE_ = .sdata:0x80046840; // type:object size:0x0 scope:global
 

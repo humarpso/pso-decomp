@@ -461,18 +461,35 @@ config.libs = [
             NonMatching("game/dispatch.c"),
             NonMatching("game/lookup.c"),
             NonMatching("game/mask_table.c"),
-            # PSO game object / logic code (C++)
-            NonMatching("pso/TObject.cpp"),
-            NonMatching("pso/THeap.cpp"),
-            NonMatching("pso/TMainTask.cpp"),
-            NonMatching("pso/TSocket.cpp"),
-            NonMatching("pso/TTcpSocket.cpp"),
-            NonMatching("pso/TProtocol.cpp"),
-            NonMatching("pso/PSOV3Encryption.cpp"),
-            NonMatching("pso/PSOV3EncryptionTCP.cpp"),
-            NonMatching("pso/protocol.cpp"),
         ],
     },
+    # ------------------------------------------------------------------
+    # PSO Engine Code (targets PsoV3.dol — NOT main.dol)
+    # These files are adapted from pso-gc-reference and target the game
+    # binary at orig/GPOE8P/P-GPOE/files/PsoV3.dol (30K functions, 4.15 MB).
+    # They are NOT in the main.dol build pipeline because PsoV3.dol is a
+    # separate binary that requires its own analysis and address resolution.
+    # Source files remain in src/pso/ for reference. Symbol database at
+    # build/analysis/psov3_dol_symbols.txt and config/GPOE8P/psov3_symbols.txt.
+    # ------------------------------------------------------------------
+    # {
+    #     "lib": "pso_engine",
+    #     "mw_version": "GC/2.6",
+    #     "cflags": cflags_pso,
+    #     "progress_category": "game",
+    #     "src_dir": "src",
+    #     "objects": [
+    #         NonMatching("pso/TObject.cpp"),
+    #         NonMatching("pso/THeap.cpp"),
+    #         NonMatching("pso/TMainTask.cpp"),
+    #         NonMatching("pso/TSocket.cpp"),
+    #         NonMatching("pso/TTcpSocket.cpp"),
+    #         NonMatching("pso/TProtocol.cpp"),
+    #         NonMatching("pso/PSOV3Encryption.cpp"),
+    #         NonMatching("pso/PSOV3EncryptionTCP.cpp"),
+    #         NonMatching("pso/protocol.cpp"),
+    #     ],
+    # },
     # ------------------------------------------------------------------
     # Dolphin SDK
     # ------------------------------------------------------------------
