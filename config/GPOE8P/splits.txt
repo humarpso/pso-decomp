@@ -1,12 +1,7 @@
 # PSO Episode I & II Plus (GPOE8P) - DOL Section Layout
 #
-# This file maps source files to address ranges in the DOL.
-# As decomp progresses, the monolithic ranges below will be split
-# into per-source-file ranges.
-#
-# Format:
-#   source_file.c:
-#       .section    start:0xADDRESS end:0xADDRESS
+# Section boundaries are derived from dtk analysis.
+# As TU boundaries are identified, break files out of the monolithic splits.
 
 Sections:
 	.init       type:code align:4
@@ -23,22 +18,12 @@ Sections:
 	.sdata2     type:rodata align:8
 	.sbss2      type:bss align:8
 
-# ============================================================================
-# Initialization code (.init section)
-# ============================================================================
-
 src/init.c:
 	.init       start:0x8000C000 end:0x8000E510
 	extab       start:0x8000E520 end:0x8000E644
 	extabindex  start:0x8000E660 end:0x8000E77C
 	.ctors      start:0x80038860 end:0x80038868
 	.dtors      start:0x80038880 end:0x80038888
-
-# ============================================================================
-# Main game code (.text section)
-# This is the bulk of the decomp work. As functions are identified and
-# decomped, this monolithic block will be split into individual source files.
-# ============================================================================
 
 src/main.c:
 	.text       start:0x8000E780 end:0x8003884C

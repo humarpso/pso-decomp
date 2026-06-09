@@ -1243,3 +1243,4 @@ _SDA_BASE_ = .sdata:0x80046840; // type:object size:0x0 scope:global
 
 // --- .sdata2 ---
 _SDA2_BASE_ = .sdata2:0x80046D20; // type:object size:0x0 scope:global
+dummy_pad_symbol = .text:0x8003884C; // type:object size:0x0 scope:local
