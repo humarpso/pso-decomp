@@ -134,7 +134,8 @@ extern "C" {
 
 #define OS_CONTEXT_STATE_FPSAVED 0x01u
 
-typedef struct OSContext {
+typedef struct OSContext
+{
  u32 gpr[32];
  u32 cr;
  u32 lr;
@@ -148,23 +149,22 @@ typedef struct OSContext {
  u16 mode;
  u16 state;
  u32 gqr[8];
- u32 psf_pad;
  f64 psf[32];
 } OSContext;
 
 u32 OSGetStackPointer(void);
-void OSDumpContext(OSContext* context);
-void OSLoadContext(OSContext* context);
-u32 OSSaveContext(OSContext* context);
-void OSClearContext(OSContext* context);
-OSContext* OSGetCurrentContext(void);
-void OSSetCurrentContext(OSContext* context);
-void OSLoadFPUContext(OSContext* fpucontext);
-void OSSaveFPUContext(OSContext* fpucontext);
+void OSDumpContext(OSContext *context);
+void OSLoadContext(OSContext *context);
+u32 OSSaveContext(OSContext *context);
+void OSClearContext(OSContext *context);
+OSContext *OSGetCurrentContext(void);
+void OSSetCurrentContext(OSContext *context);
+void OSLoadFPUContext(OSContext *fpuContext);
+void OSSaveFPUContext(OSContext *fpuContext);
 u32 OSSwitchStack(u32 newsp);
 int OSSwitchFiber(u32 pc, u32 newsp);
-void OSInitContext(OSContext* context, u32 pc, u32 newsp);
-void OSFillFPUContext(OSContext* context);
+void OSInitContext(OSContext *context, u32 pc, u32 newsp);
+void OSFillFPUContext(OSContext *context);
 
 #ifdef __cplusplus
 }

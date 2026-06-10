@@ -1,33 +1,41 @@
-#ifndef _DOLPHIN_OSMESSAGE_H_
-#define _DOLPHIN_OSMESSAGE_H_
+#ifndef _DOLPHIN_OS_OSMESSAGE_H
+#define _DOLPHIN_OS_OSMESSAGE_H
 
-#include <dolphin/os/OSThread.h>
+#include "types.h"
+#include "dolphin/os/OSUtil.h"
+#include "dolphin/os/OSThread.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+typedef struct OSMessageQueue OSMessageQueue;
+
 typedef void* OSMessage;
 
-#define OS_MESSAGE_NOBLOCK 0
-#define OS_MESSAGE_BLOCK   1
+struct OSMessageQueue {
+	OSThreadQueue queueSend;
+	OSThreadQueue queueReceive;
+	OSMessage* msgArray;
+	int msgCount;
+	int firstIndex;
+	int usedCount;
+};
 
-typedef struct {
-    OSThreadQueue queueSend;
-    OSThreadQueue queueReceive;
-    void* msgArray;
-    s32 msgCount;
-    s32 firstIndex;
-    s32 usedCount;
-} OSMessageQueue;
+#define OS_MESSAGE_NOBLOCK (0)
+#define OS_MESSAGE_BLOCK   (1)
 
-void OSInitMessageQueue(OSMessageQueue* mq, void* msgArray, s32 msgCount);
-int OSSendMessage(OSMessageQueue* mq, void* msg, s32 flags);
-int OSReceiveMessage(OSMessageQueue* mq, void* msg, s32 flags);
-int OSJamMessage(OSMessageQueue* mq, void* msg, s32 flags);
+typedef enum {
+	OS_MSG_PERSISTENT = (1 << 0),
+} OSMessageFlags;
+
+void OSInitMessageQueue(OSMessageQueue* queue, OSMessage* msgArray, int msgCount);
+BOOL OSSendMessage(OSMessageQueue* queue, OSMessage msg, int flags);
+BOOL OSJamMessage(OSMessageQueue* queue, OSMessage msg, int flags);
+BOOL OSReceiveMessage(OSMessageQueue* queue, OSMessage* msgPtr, int flags);
 
 #ifdef __cplusplus
-}
+};
 #endif
 
 #endif

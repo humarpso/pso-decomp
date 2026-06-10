@@ -1,441 +1,361 @@
-#include <dolphin/dolphin.h>
-#include <dolphin/exi.h>
 #include <dolphin/os.h>
-#include <dolphin/si.h>
+#include <dolphin/base/PPCArch.h>
 #include <dolphin/db.h>
+#include <dolphin/exi.h>
+#include <string.h>
+#include <macros.h>
+#include "os/__os.h"
 
-#include "__os.h"
+void EnableMetroTRKInterrupts(void);
 
-#define NOP 0x60000000
-
-
-extern void EnableMetroTRKInterrupts(void);
-extern void __OSInitMemoryProtection(void);
-
-#define DB_EXCEPTIONRET_OFFSET 0xC
-#define DB_EXCEPTIONDEST_OFFSET 0x8
 #define OS_CURRENTCONTEXT_PADDR 0x00C0
+
 #define OS_EXCEPTIONTABLE_ADDR 0x3000
-#define OS_DBJUMPPOINT_ADDR 0x60
+#define OS_DBJUMPPOINT_ADDR    0x60
+#define OS_BI2_DEBUG_ADDRESS    0x800000F4
+#define OS_BI2_DEBUGFLAG_OFFSET 0xC
+#define PAD3_BUTTON_ADDR        0x800030E4
+#define OS_DVD_DEVICECODE       0x800030E6
+#define DEBUGFLAG_ADDR          0x800030E8
+#define OS_DEBUG_ADDRESS_2      0x800030E9
+#define DB_EXCEPTIONRET_OFFSET  0xC
+#define DB_EXCEPTIONDEST_OFFSET 0x8
 
-#if SDK_REVISION < 1
-#define BUILD_DATE  "Apr  5 2004"
-#define DBUILD_TIME "03:55:13"
-#define RBUILD_TIME "04:13:58"
-#elif SDK_REVISION < 2
-#define BUILD_DATE  "May 21 2004"
-#define DBUILD_TIME "09:15:32"
-#define RBUILD_TIME "09:28:09"
-#else
-#define BUILD_DATE  "Nov 10 2004"
-#define DBUILD_TIME "06:08:19"
-#define RBUILD_TIME "06:26:41"
-#endif
-
-#if DEBUG
-const char* __OSVersion = "<< Dolphin SDK - OS\tdebug build: "BUILD_DATE" "DBUILD_TIME" (0x2301) >>";
-#else
-const char* __OSVersion = "<< Dolphin SDK - OS\trelease build: "BUILD_DATE" "RBUILD_TIME" (0x2301) >>";
-#endif
-
-static DVDDriveInfo DriveInfo;
-static DVDCommandBlock DriveBlock;
-OSExecParams __OSRebootParams;
-
-extern u32 __DVDLongFileNameFlag;
-extern u32 __PADSpec;
-
-
-extern u8 __ArenaLo[];
+extern unsigned long __DVDLongFileNameFlag;
+extern unsigned long __PADSpec;
+extern unsigned char __ArenaLo[];
 extern char _stack_addr[];
-extern u8 __ArenaHi[];
-
-static OSBootInfo* BootInfo;
-static u32* BI2DebugFlag;
-static u32 BI2DebugFlagHolder;
-
-OSTime __OSStartTime;
-BOOL __OSInIPL;
-void (**OSExceptionTable)(u8, OSContext*);
-BOOL AreWeInitialized;
-f32 ZeroPS[2];
-f64 ZeroF;
-BOOL __OSIsGcam;
-
-
-static void __OSInitFPRs(void);
-static void OSExceptionInit(void);
-
+extern unsigned char __ArenaHi[];
 
 void __OSEVStart(void);
 void __OSEVEnd(void);
 void __OSEVSetNumber(void);
 void __OSExceptionVector(void);
+
 void __DBVECTOR(void);
 void __OSDBINTSTART(void);
 void __OSDBINTEND(void);
 void __OSDBJUMPSTART(void);
 void __OSDBJUMPEND(void);
 
-u32 __OSIsDebuggerPresent(void) {
-    return *(u32*)OSPhysicalToCached(0x40);
+#define NOP 0x60000000
+
+static OSBootInfo* BootInfo;
+static volatile u32* BI2DebugFlag;
+static u32* BI2DebugFlagHolder;
+static f64 ZeroPS;
+static f64 ZeroF;
+static BOOL __OSIsGcam;
+static BOOL AreWeInitialized;
+
+typedef void (*OSExceptionHandler)(u8, struct OSContext*);
+static OSExceptionHandler* OSExceptionTable;
+
+static void* __OSSavedRegionEnd;
+static void* __OSSavedRegionStart;
+static BOOL __OSInIPL;
+OSTime __OSStartTime;
+
+static DVDDriveInfo DriveInfo __attribute__((aligned(0x20)));
+static DVDCommandBlock DriveBlock;
+
+static asm void __OSInitFPRs(void);
+static void OSExceptionInit(void);
+static void OSDefaultExceptionHandler(u8 exception,
+                                      OSContext* context);
+
+static asm void __OSInitFPRs(void) {
+#include "orig_asm/os/OS/__OSInitFPRs.inc"
 }
 
-
-#ifdef __GEKKO__
-asm void __OSFPRInit(void) {
-#include "orig_asm/os/OS/__OSFPRInit.inc"
-}
-#endif
-
-static void DisableWriteGatherPipe(void) {
-    u32 hid2;
-
-    hid2 = PPCMfhid2();
-    hid2 &= ~0x40000000;
-    PPCMthid2(hid2);
+unsigned long OSGetConsoleType()
+{
+	if ((!BootInfo) || (BootInfo->consoleType == 0)) {
+		return OS_CONSOLE_ARTHUR;
+	}
+	return BootInfo->consoleType;
 }
 
-u32 OSGetConsoleType(void) {
-    if (!BootInfo || BootInfo->consoleType == 0) {
-        return OS_CONSOLE_ARTHUR;
-    }
-    return BootInfo->consoleType;
+volatile u16 __OSDeviceCode AT_ADDRESS(0x800030E6);
+
+static void ClearArena()
+{
+	if (OSGetResetCode() != -0x80000000) {
+		__OSSavedRegionStart = NULL;
+		__OSSavedRegionEnd   = NULL;
+		memset(OSGetArenaLo(), 0, (u8*)OSGetArenaHi() - (u8*)OSGetArenaLo());
+		return;
+	}
+
+	__OSSavedRegionStart = BOOT_REGION_START;
+	__OSSavedRegionEnd   = BOOT_REGION_END;
+
+	if (BOOT_REGION_START == NULL) {
+		memset(OSGetArenaLo(), 0, (u8*)OSGetArenaHi() - (u8*)OSGetArenaLo());
+		return;
+	}
+
+	if ((u8*)OSGetArenaLo() < (u8*)__OSSavedRegionStart) {
+		if ((u8*)OSGetArenaHi() <= (u8*)__OSSavedRegionStart) {
+			memset(OSGetArenaLo(), 0,
+			       (u8*)OSGetArenaHi() - (u8*)OSGetArenaLo());
+			return;
+		}
+
+		memset(OSGetArenaLo(), 0,
+		       (u8*)__OSSavedRegionStart - (u8*)OSGetArenaLo());
+
+		if ((u8*)OSGetArenaHi() > (u8*)__OSSavedRegionEnd) {
+			memset(__OSSavedRegionEnd, 0,
+			       (u8*)OSGetArenaHi() - (u8*)__OSSavedRegionEnd);
+		}
+	}
 }
 
-
-#undef NULL
-#define NULL 0
-
-static void ClearArena(void) {
-    if (!((OSGetResetCode() & 0x80000000) ? TRUE : FALSE)) {
-        memset(OSGetArenaLo(), 0, (u32)OSGetArenaHi() - (u32)OSGetArenaLo());
-        return;
-    }
-
-    if (*(u32*)&__OSRebootParams.regionStart == 0) {
-        memset(OSGetArenaLo(), 0, (u32)OSGetArenaHi() - (u32)OSGetArenaLo());
-        return;
-    }
-
-    ASSERTLINE(683, __OSRebootParams.regionEnd != NULL);
-
-    if ((u32)OSGetArenaLo() < *(u32*)&__OSRebootParams.regionStart) {
-        if ((u32)OSGetArenaHi() <= *(u32*)&__OSRebootParams.regionStart) {
-            memset(OSGetArenaLo(), 0, (u32)OSGetArenaHi() - (u32)OSGetArenaLo());
-            return;
-        }
-
-        memset(OSGetArenaLo(), 0, *(u32*)&__OSRebootParams.regionStart - (u32)OSGetArenaLo());
-
-        if ((u32)OSGetArenaHi() > (u32)__OSRebootParams.regionEnd) {
-            memset(__OSRebootParams.regionEnd, 0, (u32)OSGetArenaHi() - (u32)__OSRebootParams.regionEnd);
-        }
-    }
+static void InquiryCallback(s32 result, struct DVDCommandBlock* block)
+{
+	switch (block->state) {
+	case 0:
+		__OSDeviceCode = DriveInfo.deviceCode | 0x8000;
+		break;
+	default:
+		__OSDeviceCode = 1;
+		break;
+	}
 }
 
-static void InquiryCallback(s32, DVDCommandBlock* block) {
-    switch (block->state) {
-    case 0:
-        __OSDeviceCode = (u16)(0x8000 | DriveInfo.deviceCode);
-        break;
-    default:
-        __OSDeviceCode = 1;
-        break;
-    }
-}
+void OSInit()
+{
+	u32 consoleType;
+	BI2Debug* bi2DebugInfo;
 
-void OSInit(void) {
-    u32 consoleType;
-    void* bi2StartAddr;
+	if (AreWeInitialized != 0)
+		return;
 
-    if (AreWeInitialized == FALSE) {
-        AreWeInitialized = TRUE;
+	AreWeInitialized = 1;
+	__OSStartTime    = __OSGetSystemTime();
+	OSDisableInterrupts();
+	PPCDisableSpeculation();
+	PPCSetFpNonIEEEMode();
+	BootInfo              = (struct OSBootInfo_s*)OSPhysicalToCached(0);
+	BI2DebugFlag          = NULL;
+	__DVDLongFileNameFlag = 0;
+	bi2DebugInfo          = (BI2Debug*)*(BI2Debug**)OS_BI2_DEBUG_ADDRESS;
+	if (bi2DebugInfo != NULL) {
+		BI2DebugFlag               = &bi2DebugInfo->debugFlag;
+		__PADSpec                  = bi2DebugInfo->padSpec;
+		*((u8*)DEBUGFLAG_ADDR)     = (u8)*BI2DebugFlag;
+		*((u8*)OS_DEBUG_ADDRESS_2) = (u8)__PADSpec;
+	} else if (BootInfo->arenaHi) {
+		BI2DebugFlagHolder = (u32*)*((u8*)DEBUGFLAG_ADDR);
+		BI2DebugFlag       = (u32*)&BI2DebugFlagHolder;
+		__PADSpec          = (u32) * ((u8*)OS_DEBUG_ADDRESS_2);
+	}
 
-        __OSStartTime = __OSGetSystemTime();
-        OSDisableInterrupts();
+	__DVDLongFileNameFlag = 1;
 
-        __OSGetExecParams(&__OSRebootParams);
-        PPCMtmmcr0(0);
-        PPCMtmmcr1(0);
-        PPCMtpmc1(0);
-        PPCMtpmc2(0);
-        PPCMtpmc3(0);
-        PPCMtpmc4(0);
-        PPCDisableSpeculation();
-        PPCSetFpNonIEEEMode();
+	OSSetArenaLo((!BootInfo->arenaLo) ? &__ArenaLo : BootInfo->arenaLo);
+	if ((!BootInfo->arenaLo) && (BI2DebugFlag) && (*(u32*)BI2DebugFlag < 2)) {
+		OSSetArenaLo((void*)(((u32)(char*)&_stack_addr + 0x1F) & 0xFFFFFFE0));
+	}
+	OSSetArenaHi((!BootInfo->arenaHi) ? &__ArenaHi : BootInfo->arenaHi);
+	OSExceptionInit();
+	__OSInitSystemCall();
+	OSInitAlarm();
+	__OSModuleInit();
+	__OSInterruptInit();
+	__OSSetInterruptHandler(0x16, &__OSResetSWInterruptHandler);
+	__OSContextInit();
+	__OSCacheInit();
+	EXIInit();
+	SIInit();
+	__OSInitSram();
+	__OSThreadInit();
+	__OSInitAudioSystem();
+	PPCMthid2(PPCMfhid2() & 0xbfffffff);
+	if ((BootInfo->consoleType & OS_CONSOLE_DEVELOPMENT) != 0) {
+		BootInfo->consoleType = OS_CONSOLE_DEVHW1;
+	} else {
+		BootInfo->consoleType = OS_CONSOLE_RETAIL1;
+	}
+	BootInfo->consoleType += (__PIRegs[11] & 0xF0000000) >> 28;
+	if (__OSInIPL == 0) {
+		__OSInitMemoryProtection();
+	}
 
-        BootInfo = (OSBootInfo*)OSPhysicalToCached(0);
-        BI2DebugFlag = 0;
-        __DVDLongFileNameFlag = 0;
+	OSReport("\nDolphin OS $Revision: 54 $.\n");
+	OSReport("Kernel built : %s %s\n", "Jun  5 2002", "02:09:12");
 
-        bi2StartAddr = (void*)(*(u32*)OSPhysicalToCached(0xF4));
-        if (bi2StartAddr) {
-            BI2DebugFlag = (void*)((char*)bi2StartAddr + 0xC);
-            __PADSpec = ((u32*)bi2StartAddr)[9];
-            *(u8*)OSPhysicalToCached(0x30E8) = *BI2DebugFlag;
-            *(u8*)OSPhysicalToCached(0x30E9) = __PADSpec;
-        } else if (BootInfo->arenaHi) {
-            BI2DebugFlagHolder = *(u8*)OSPhysicalToCached(0x30E8);
-            BI2DebugFlag = &BI2DebugFlagHolder;
-            __PADSpec = *(u8*)OSPhysicalToCached(0x30E9);
-        }
+	OSReport("Console Type : ");
 
-        __DVDLongFileNameFlag = 1;
+	consoleType = OSGetConsoleType();
+	if ((consoleType & 0x10000000) == OS_CONSOLE_RETAIL) {
+		OSReport("Retail %d\n", consoleType);
+	} else {
+		switch (consoleType) {
+		case OS_CONSOLE_EMULATOR:
+			OSReport("Mac Emulator\n");
+			break;
+		case OS_CONSOLE_PC_EMULATOR:
+			OSReport("PC Emulator\n");
+			break;
+		case OS_CONSOLE_ARTHUR:
+			OSReport("EPPC Arthur\n");
+			break;
+		case OS_CONSOLE_MINNOW:
+			OSReport("EPPC Minnow\n");
+			break;
+		default:
+			OSReport("Development HW%d\n", ((u32)consoleType - 0x10000000) - 3);
+			break;
+		}
+	}
 
-        OSSetArenaLo((!BootInfo->arenaLo) ? &__ArenaLo : BootInfo->arenaLo);
-        if ((!BootInfo->arenaLo) && (BI2DebugFlag) && (*(u32*)BI2DebugFlag < 2)) {
-            OSSetArenaLo((void*)(((u32)(char*)&_stack_addr + 0x1F) & 0xFFFFFFE0));
-        }
-        OSSetArenaHi((!BootInfo->arenaHi) ? &__ArenaHi : BootInfo->arenaHi);
+	OSReport("Memory %d MB\n", (u32)BootInfo->memorySize >> 0x14U);
+	OSReport("Arena : 0x%x - 0x%x\n", OSGetArenaLo(), OSGetArenaHi());
 
-        OSExceptionInit();
-        __OSInitSystemCall();
-        OSInitAlarm();
-        __OSModuleInit();
-        __OSInterruptInit();
-        __OSSetInterruptHandler(0x16, &__OSResetSWInterruptHandler);
-        __OSContextInit();
-        __OSCacheInit();
-        EXIInit();
-        SIInit();
-        __OSInitSram();
-        __OSThreadInit();
-        __OSInitAudioSystem();
+	if (BI2DebugFlag && ((*BI2DebugFlag) >= 2)) {
+		EnableMetroTRKInterrupts();
+	}
+	ClearArena();
+	OSEnableInterrupts();
+	if (__OSInIPL == 0) {
+		DVDInit();
 
-        DisableWriteGatherPipe();
+		if (__OSIsGcam) {
+			__OSDeviceCode = 0x9000;
+			return;
+		}
 
-        if (!__OSInIPL) {
-            __OSInitMemoryProtection();
-        }
-
-        OSReport("\nDolphin OS\n");
-#if DEBUG
-        OSReport("Kernel built : %s %s\n", BUILD_DATE, DBUILD_TIME);
-#else
-        OSReport("Kernel built : %s %s\n", BUILD_DATE, RBUILD_TIME);
-#endif
-        OSReport("Console Type : ");
-
-        consoleType = OSGetConsoleType();
-        switch (consoleType & 0xF0000000) {
-        case OS_CONSOLE_RETAIL:
-            OSReport("Retail %d\n", consoleType);
-            break;
-        case OS_CONSOLE_DEVELOPMENT:
-        case OS_CONSOLE_TDEV:
-            switch (consoleType & 0x0FFFFFFF) {
-            case OS_CONSOLE_EMULATOR:
-                OSReport("Mac Emulator\n");
-                break;
-            case OS_CONSOLE_PC_EMULATOR:
-                OSReport("PC Emulator\n");
-                break;
-            case OS_CONSOLE_ARTHUR:
-                OSReport("EPPC Arthur\n");
-                break;
-            case OS_CONSOLE_MINNOW:
-                OSReport("EPPC Minnow\n");
-                break;
-            default:
-                OSReport("Development HW%d (%08x)\n", (consoleType & 0xFFFFFFF) - 3, consoleType);
-                break;
-            }
-            break;
-        default:
-            OSReport("%08x\n", consoleType);
-            break;
-        }
-
-        OSReport("Memory %d MB\n", (u32)BootInfo->memorySize >> 0x14U);
-        OSReport("Arena : 0x%x - 0x%x\n", OSGetArenaLo(), OSGetArenaHi());
-        OSRegisterVersion(__OSVersion);
-
-
-        if (BI2DebugFlag && ((*BI2DebugFlag) >= 2)) {
-            EnableMetroTRKInterrupts();
-        }
-
-        ClearArena();
-        OSEnableInterrupts();
-
-        if (!__OSInIPL) {
-            DVDInit();
-
-            if (__OSIsGcam) {
-                __OSDeviceCode = 0x9000;
-                return;
-            }
-
-            DCInvalidateRange(&DriveInfo, sizeof(DriveInfo));
-            DVDInquiryAsync(&DriveBlock, &DriveInfo, InquiryCallback);
-        }
-    }
+		DCInvalidateRange(&DriveInfo, 0x20);
+		DVDInquiryAsync(&DriveBlock, &DriveInfo, InquiryCallback);
+	}
 }
 
 static u32 __OSExceptionLocations[] = {
-    0x00000100, 0x00000200, 0x00000300, 0x00000400, 0x00000500, 0x00000600, 0x00000700, 0x00000800,
-    0x00000900, 0x00000C00, 0x00000D00, 0x00000F00, 0x00001300, 0x00001400, 0x00001700,
+	0x00000100, 0x00000200, 0x00000300, 0x00000400, 0x00000500,
+	0x00000600, 0x00000700, 0x00000800, 0x00000900, 0x00000C00,
+	0x00000D00, 0x00000F00, 0x00001300, 0x00001400, 0x00001700,
 };
 
-#if DEBUG
-char * __OSExceptionNames[17] = {
-	"System reset",
-	"MachineCheck",
-	"DSI",
-	"ISI",
-	"External Int.",
-	"Alignment",
-	"Program",
-	"FP Unavailable",
-	"Decrementer",
-	"System call",
-	"Trace",
-	"Perf mon",
-	"IABR",
-	"SMI",
-	"Thermal Int.",
-    "Protection error",
-    "FP Exception",
-};
-#endif
+static void OSExceptionInit(void)
+{
+	__OSException exception;
+	void* destAddr;
 
-static void OSExceptionInit(void) {
-    __OSException exception;
-    void* destAddr;
+	u32* opCodeAddr;
+	u32 oldOpCode;
 
+	u8* handlerStart;
+	u32 handlerSize;
 
+	opCodeAddr   = (u32*)__OSEVSetNumber;
+	oldOpCode    = *opCodeAddr;
+	handlerStart = (u8*)__OSEVStart;
+	handlerSize  = (u32)((u8*)__OSEVEnd - (u8*)__OSEVStart);
 
-    u32* opCodeAddr;
-    u32 oldOpCode;
+	destAddr = (void*)OSPhysicalToCached(OS_DBJUMPPOINT_ADDR);
+	if (*(u32*)destAddr == 0)
+	{
+		DBPrintf("Installing OSDBIntegrator\n");
+		memcpy(destAddr, (void*)__OSDBINTSTART,
+		       (u32)__OSDBJUMPSTART - (u32)__OSDBINTSTART);
+		DCFlushRangeNoSync(destAddr,
+		                   (u32)__OSDBJUMPSTART - (u32)__OSDBINTSTART);
+		__sync();
+		ICInvalidateRange(destAddr, (u32)__OSDBJUMPSTART - (u32)__OSDBINTSTART);
+	}
 
+	for (exception = 0; exception < __OS_EXCEPTION_MAX; exception++) {
+		if (BI2DebugFlag && (*BI2DebugFlag >= 2)
+		    && __DBIsExceptionMarked(exception)) {
+			DBPrintf(">>> OSINIT: exception %d commandeered by TRK\n",
+			         exception);
+			continue;
+		}
 
-    u8* handlerStart;
-    u32 handlerSize;
+		*opCodeAddr = oldOpCode | exception;
 
-    ASSERTMSGLINE(1063, ((u32)&__OSEVEnd - (u32)&__OSEVStart) <= 0x100, "OSExceptionInit(): too big exception vector code.");
+		if (__DBIsExceptionMarked(exception)) {
+			DBPrintf(">>> OSINIT: exception %d vectored to debugger\n",
+			         exception);
+			memcpy((void*)__DBVECTOR, (void*)__OSDBJUMPSTART,
+			       (u32)__OSDBJUMPEND - (u32)__OSDBJUMPSTART);
+		} else {
+			u32* ops = (u32*)__DBVECTOR;
+			int cb;
 
+			for (cb = 0; cb < (u32)__OSDBJUMPEND - (u32)__OSDBJUMPSTART;
+			     cb += sizeof(u32)) {
+				*ops++ = NOP;
+			}
+		}
 
-    opCodeAddr = (u32*)__OSEVSetNumber;
-    oldOpCode = *opCodeAddr;
-    handlerStart = (u8*)__OSEVStart;
-    handlerSize = (u32)((u8*)__OSEVEnd - (u8*)__OSEVStart);
+		destAddr
+		    = (void*)OSPhysicalToCached(__OSExceptionLocations[(u32)exception]);
+		memcpy(destAddr, handlerStart, handlerSize);
+		DCFlushRangeNoSync(destAddr, handlerSize);
+		__sync();
+		ICInvalidateRange(destAddr, handlerSize);
+	}
+	OSExceptionTable = (void*)OSPhysicalToCached(OS_EXCEPTIONTABLE_ADDR);
 
+	for (exception = 0; exception < __OS_EXCEPTION_MAX; exception++) {
+		__OSSetExceptionHandler(exception, OSDefaultExceptionHandler);
+	}
 
-    destAddr = (void*)OSPhysicalToCached(OS_DBJUMPPOINT_ADDR);
-    if (*(u32*)destAddr == 0)
-    {
-        DBPrintf("Installing OSDBIntegrator\n");
-        memcpy(destAddr, (void*)__OSDBINTSTART, (u32)__OSDBINTEND - (u32)__OSDBINTSTART);
-        DCFlushRangeNoSync(destAddr, (u32)__OSDBINTEND - (u32)__OSDBINTSTART);
-        __sync();
-        ICInvalidateRange(destAddr, (u32)__OSDBINTEND - (u32)__OSDBINTSTART);
-    }
+	*opCodeAddr = oldOpCode;
 
-
-    for (exception = 0; exception < __OS_EXCEPTION_MAX; exception++) {
-        if (BI2DebugFlag && (*BI2DebugFlag >= 2) && __DBIsExceptionMarked(exception)) {
-
-            DBPrintf(">>> OSINIT: exception %d commandeered by TRK\n", exception);
-            continue;
-        }
-
-
-
-        *opCodeAddr = oldOpCode | exception;
-
-
-        if (__DBIsExceptionMarked(exception)) {
-            DBPrintf(">>> OSINIT: exception %d vectored to debugger\n", exception);
-            memcpy((void*)__DBVECTOR, (void*)__OSDBJUMPSTART, (u32)__OSDBJUMPEND - (u32)__OSDBJUMPSTART);
-        } else {
-
-            u32* ops = (u32*)__DBVECTOR;
-            int cb;
-
-            for (cb = 0; cb < (u32)__OSDBJUMPEND - (u32)__OSDBJUMPSTART; cb += sizeof(u32)) {
-                *ops++ = NOP;
-            }
-        }
-
-
-        destAddr = (void*)OSPhysicalToCached(__OSExceptionLocations[(u32)exception]);
-        memcpy(destAddr, handlerStart, handlerSize);
-        DCFlushRangeNoSync(destAddr, handlerSize);
-        __sync();
-        ICInvalidateRange(destAddr, handlerSize);
-    }
-
-    OSExceptionTable = (void*)OSPhysicalToCached(OS_EXCEPTIONTABLE_ADDR);
-
-
-    for (exception = 0; exception < __OS_EXCEPTION_MAX; exception++) {
-        __OSSetExceptionHandler(exception, OSDefaultExceptionHandler);
-    }
-
-
-
-    *opCodeAddr = oldOpCode;
-
-    DBPrintf("Exceptions initialized...\n");
+	DBPrintf("Exceptions initialized...\n");
 }
 
-#ifdef __GEKKO__
 static asm void __OSDBIntegrator(void) {
 #include "orig_asm/os/OS/__OSDBIntegrator.inc"
 }
-#endif
 
-#ifdef __GEKKO__
 static asm void __OSDBJump(void) {
 #include "orig_asm/os/OS/__OSDBJump.inc"
 }
-#endif
 
-__OSExceptionHandler __OSSetExceptionHandler(__OSException exception, __OSExceptionHandler handler) {
-    __OSExceptionHandler oldHandler;
+__OSExceptionHandler __OSSetExceptionHandler(__OSException exception,
+                                             __OSExceptionHandler handler)
+{
+	__OSExceptionHandler oldHandler;
 
-    ASSERTMSGLINE(1205, exception < __OS_EXCEPTION_MAX, "__OSSetExceptionHandler(): unknown exception.");
-
-    oldHandler = OSExceptionTable[exception];
-    OSExceptionTable[exception] = handler;
-    return oldHandler;
+	oldHandler                  = OSExceptionTable[exception];
+	OSExceptionTable[exception] = handler;
+	return oldHandler;
 }
 
-__OSExceptionHandler __OSGetExceptionHandler(__OSException exception) {
-    ASSERTMSGLINE(1228, exception < __OS_EXCEPTION_MAX, "__OSGetExceptionHandler(): unknown exception.");
-    return OSExceptionTable[exception];
+__OSExceptionHandler __OSGetExceptionHandler(__OSException exception)
+{
+	return OSExceptionTable[exception];
 }
 
-#ifdef __GEKKO__
 static asm void OSExceptionVector(void) {
 #include "orig_asm/os/OS/OSExceptionVector.inc"
 }
-#endif
 
-void __OSUnhandledException(__OSException exception, OSContext* context, u32 dsisr, u32 dar);
-
-#ifdef __GEKKO__
-asm void OSDefaultExceptionHandler(__REGISTER __OSException exception, __REGISTER OSContext* context) {
+void __OSUnhandledException(__OSException exception, OSContext* context,
+                            u32 dsisr, u32 dar);
+asm void OSDefaultExceptionHandler(register __OSException exception,
+                                   register OSContext* context) {
 #include "orig_asm/os/OS/OSDefaultExceptionHandler.inc"
 }
-#endif
 
-#ifdef __GEKKO__
-void __OSPSInit(void) {
+void __OSPSInit(void)
+{
 	PPCMthid2(PPCMfhid2() | 0x80000000 | 0x20000000);
 	ICFlashInvalidate();
 	__sync();
-
-    asm {
+	asm {
 }
 }
-#endif
 
-u32 __OSGetDIConfig(void) {
-    return (__DIRegs[9] & 0xFF);
-}
+#define DI_CONFIG_IDX         0x9
+#define DI_CONFIG_CONFIG_MASK 0xFF
 
-void OSRegisterVersion(const char* id) {
-    OSReport("%s\n", id);
+u32 __OSGetDIConfig(void)
+{
+	return (__DIRegs[DI_CONFIG_IDX] & DI_CONFIG_CONFIG_MASK);
 }

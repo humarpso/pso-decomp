@@ -18,3 +18,42 @@ pso/PSOV3Encryption.cpp:
 
 base/PPCArch.c:
 	.text       start:0x8036F8BC end:0x8036F958
+
+db/db.c:
+	.text       start:0x8036F958 end:0x8036FA44
+
+os/OS.c:
+	.text       start:0x8036FA44 end:0x803703A0
+
+os/OSAlarm.c:
+	.text       start:0x803703A0 end:0x80370A4C
+
+os/OSArena.c:
+	.text       start:0x80370D5C end:0x80370D7C
+
+os/OSAudioSystem.c:
+	.text       start:0x80370D7C end:0x80371010
+
+os/OSError.c:
+	.text       start:0x80371FA4 end:0x803721C0
+
+os/OSInterrupt.c:
+	.text       start:0x80372218 end:0x80372A84
+
+os/OSReset.c:
+	.text       start:0x80373B44 end:0x80373F28
+
+os/OSSync.c:
+	.text       start:0x80374CE0 end:0x80374D64
+
+dvd/dvdqueue.c:
+	.text       start:0x8037ACD4 end:0x8037AECC
+
+dvd/dvderror.c:
+	.text       start:0x8037AECC end:0x8037B064
+
+dvd/fstload.c:
+	.text       start:0x8037B064 end:0x8037B2A4
+
+gx/GXInit.c:
+	.text       start:0x80387A4C end:0x80388B3C

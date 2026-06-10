@@ -245,16 +245,19 @@ cflags_base = [
     "-str reuse",
     "-maxerrors 1",
     "-nosyspath",
-    # Include paths
-    "-i include",
-    "-i src",
-    "-i libs",
+    # Generated headers only — per-group include paths live in
+    # cflags_pso / cflags_dolphin / cflags_runtime below so SDK code
+    # never sees game headers and vice versa.
     f"-i build/{config.version}/include",
 ]
 
 # PSO main game code flags
 cflags_pso = [
     *cflags_base,
+    "-i include",
+    "-i src",
+    "-i libs/dolphin/include",
+    "-i libs/dolphin/include/dolphin",  # for "types.h" includes inside SDK headers
     "-char signed",
     "-use_lmw_stmw on",
 ]
@@ -263,6 +266,9 @@ cflags_pso = [
 cflags_dolphin = [
     *cflags_base,
     "-i libs/dolphin/include",
+    "-i libs/dolphin/include/dolphin",  # for "types.h" includes inside SDK headers
+    "-i libs/dolphin/include/libc",
+    "-i libs/dolphin/src",
     "-char unsigned",
     "-fp_contract off",
 ]
@@ -367,6 +373,39 @@ if args.target == "psov3":
             "base",
             [
                 Matching("base/PPCArch.c"),
+            ],
+        ),
+        DolphinLib(
+            "db",
+            [
+                NonMatching("db/db.c"),
+            ],
+        ),
+        DolphinLib(
+            "os",
+            [
+                NonMatching("os/OS.c"),
+                NonMatching("os/OSAlarm.c"),
+                NonMatching("os/OSArena.c"),
+                NonMatching("os/OSAudioSystem.c"),
+                NonMatching("os/OSError.c"),
+                NonMatching("os/OSInterrupt.c"),
+                NonMatching("os/OSReset.c"),
+                NonMatching("os/OSSync.c"),
+            ],
+        ),
+        DolphinLib(
+            "dvd",
+            [
+                NonMatching("dvd/dvdqueue.c"),
+                NonMatching("dvd/dvderror.c"),
+                NonMatching("dvd/fstload.c"),
+            ],
+        ),
+        DolphinLib(
+            "gx",
+            [
+                NonMatching("gx/GXInit.c"),
             ],
         ),
     ]

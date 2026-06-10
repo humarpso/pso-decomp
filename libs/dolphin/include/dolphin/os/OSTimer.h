@@ -1,18 +1,23 @@
-#ifndef _DOLPHIN_OSTIMER_H_
-#define _DOLPHIN_OSTIMER_H_
+#ifndef DOLPHIN_OS_TIMER_H
+#define DOLPHIN_OS_TIMER_H
 
-#include <dolphin/types.h>
+#include "types.h"
+#include "dolphin/os/OSAlarm.h"
+#include "dolphin/os/OSMessage.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-typedef void (*OSTimerCallback)(void);
-
-OSTimerCallback OSSetTimerCallback(OSTimerCallback callback);
-void OSInitTimer(u32 time, u32 mode);
-void OSStartTimer(void);
-void OSStopTimer(void);
+typedef struct OSTimer_s {
+    OSAlarm alarm;
+    struct OSTimer_s* next;
+    struct OSTimer_s* prev;
+    OSTime interval;
+    OSTime value;
+    OSMessageQueue* mq;
+    OSMessage msg;
+} OSTimer;
 
 #ifdef __cplusplus
 }

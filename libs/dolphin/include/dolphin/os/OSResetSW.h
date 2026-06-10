@@ -1,7 +1,7 @@
-#ifndef _DOLPHIN_OSRESETSW_H_
-#define _DOLPHIN_OSRESETSW_H_
+#ifndef OSRESETSW_H
+#define OSRESETSW_H
 
-#include <dolphin/types.h>
+#include "types.h"
 
 #ifdef __cplusplus
 extern "C" {

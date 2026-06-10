@@ -1,36 +1,39 @@
-#ifndef _DOLPHIN_OSRESET_H_
-#define _DOLPHIN_OSRESET_H_
+#ifndef OSRESET_H
+#define OSRESET_H
 
-#include <dolphin/types.h>
+#include "types.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#define OS_RESET_RESTART  0
+#define OS_RESETCODE_RESTART 0x80000000
+
+#define OS_RESET_RESTART 0
 #define OS_RESET_HOTRESET 1
 #define OS_RESET_SHUTDOWN 2
 
-typedef struct OSResetFunctionInfo OSResetFunctionInfo;
-typedef struct OSResetFunctionQueue {
-    OSResetFunctionInfo* head;
-    OSResetFunctionInfo* tail;
-} OSResetFunctionQueue;
-
-typedef BOOL (*OSResetFunction)(BOOL);
-
-struct OSResetFunctionInfo {
-    OSResetFunction func;
-    u32 priority;
-    OSResetFunctionInfo* next;
-    OSResetFunctionInfo* prev;
+struct OSResetFunctionQueue {
+	struct OSResetFunctionInfo* head;
+	struct OSResetFunctionInfo* tail;
 };
 
-void OSRegisterResetFunction(OSResetFunctionInfo* info);
-void OSUnregisterResetFunction(OSResetFunctionInfo* info);
-void OSResetSystem(int reset, u32 resetCode, BOOL forceMenu);
+typedef BOOL (*OSResetFunction)(BOOL final);
+typedef struct OSResetFunctionInfo OSResetFunctionInfo;
+
+struct OSResetFunctionInfo {
+  OSResetFunction func;
+  u32 priority;
+
+  OSResetFunctionInfo* next;
+  OSResetFunctionInfo* prev;
+};
+
 u32 OSGetResetCode();
-u32 OSSetBootDol(u32 dolOffset);
+void OSResetSystem(int reset, u32 resetCode, BOOL forceMenu);
+BOOL OSGetResetSwitchState();
+void OSGetSaveRegion(void** start, void** end);
+void OSRegisterResetFunction(OSResetFunctionInfo* info);
 
 #ifdef __cplusplus
 }

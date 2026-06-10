@@ -1,7 +1,7 @@
 #ifndef _DOLPHIN_AI_H_
 #define _DOLPHIN_AI_H_
 
-#include <dolphin/types.h>
+#include "types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -13,8 +13,8 @@ typedef void (*AIDCallback)();
 #define AI_STREAM_START 1
 #define AI_STREAM_STOP 0
 
-#define AI_SAMPLERATE_32KHZ  0
-#define AI_SAMPLERATE_48KHZ  1
+#define AI_SAMPLERATE_32KHZ 0
+#define AI_SAMPLERATE_48KHZ 1
 
 AIDCallback AIRegisterDMACallback(AIDCallback callback);
 void AIInitDMA(u32 start_addr, u32 length);

@@ -11,7 +11,7 @@ typedef void (*GXDrawSyncCallback)(u16 token);
 typedef void (*GXDrawDoneCallback)(void);
 
 BOOL IsWriteGatherBufferEmpty(void);
-GXFifoObj* GXInit(void* base, u32 size);
+GXFifoObj *GXInit(void *base, u32 size);
 
 void GXSetMisc(GXMiscToken token, u32 val);
 void GXFlush(void);

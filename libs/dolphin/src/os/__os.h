@@ -3,14 +3,14 @@
 
 #include <dolphin/os.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+extern char* __OSExceptionNames[15];
+extern OSTime __OSStartTime;
 
-extern char* __OSExceptionNames[17];
-
-u32 __OSIsDebuggerPresent(void);
+unsigned long __OSIsDebuggerPresent(void);
 void __OSPSInit(void);
+
+extern void* BOOT_REGION_START AT_ADDRESS(0x812FDFF0);
+extern void* BOOT_REGION_END AT_ADDRESS(0x812FDFEC);
 
 extern volatile int __OSCurrHeap;
 
@@ -21,21 +21,21 @@ void __OSCacheInit(void);
 
 void __OSContextInit(void);
 
-void __OSUnhandledException(__OSException exception, OSContext* context, u32 dsisr, u32 dar);
+void __OSInitMemoryProtection(void);
 
-void __OSGetExecParams(OSExecParams* params);
-void __OSSetExecParams(const OSExecParams* params, OSExecParams* addr);
-void __OSBootDolSimple(u32 doloffset, u32 restartCode, void* regionStart, void* regionEnd, BOOL argsUseDefault, s32 argc, char** argv);
-void __OSBootDol(u32 doloffset, u32 restartCode, const char** argv);
+void __OSUnhandledException(unsigned char exception, struct OSContext* context,
+                            unsigned long dsisr, unsigned long dar);
 
 extern void __RAS_OSDisableInterrupts_begin(void);
 extern void __RAS_OSDisableInterrupts_end(void);
 
-extern u64 __OSSpuriousInterrupts;
+extern unsigned long long __OSSpuriousInterrupts;
 extern char* __OSInterruptNames[33];
 extern char* __OSPIErrors[8];
+extern OSErrorHandlerEx __OSErrorTable[16];
 
-__OSInterruptHandler __OSSetInterruptHandler(__OSInterrupt interrupt, __OSInterruptHandler handler);
+__OSInterruptHandler __OSSetInterruptHandler(__OSInterrupt interrupt,
+                                             __OSInterruptHandler handler);
 __OSInterruptHandler __OSGetInterruptHandler(__OSInterrupt interrupt);
 void __OSInterruptInit(void);
 OSInterruptMask __OSMaskInterrupts(OSInterruptMask global);
@@ -43,32 +43,31 @@ OSInterruptMask __OSUnmaskInterrupts(OSInterruptMask global);
 void __OSDispatchInterrupt(__OSException exception, OSContext* context);
 void __OSModuleInit(void);
 
-void __OSInitMemoryProtection(void);
+void __OSUnlockAllMutex(struct OSThread* thread);
+int __OSCheckDeadLock(struct OSThread* thread);
+int __OSCheckMutexes(struct OSThread* thread);
 
-void __OSUnlockAllMutex(OSThread* thread);
-int __OSCheckDeadLock(OSThread* thread);
-int __OSCheckMutexes(OSThread* thread);
+void __OSResetSWInterruptHandler(__OSInterrupt exception,
+                                 struct OSContext* context);
 
-void __OSDoHotReset(u32 resetCode);
-void __OSShutdownDevices(BOOL doRecal);
-int __OSCallResetFunctions(BOOL final);
+void __OSDoHotReset(s32);
 
-void __OSResetSWInterruptHandler(s16 exception, OSContext* context);
-void __OSSetResetButtonTimer(u8 min);
+void __OSReboot(u32, u32);
 
-int __OSGetRTC(u32* rtc);
-int __OSSetRTC(u32 rtc);
-void __OSInitSram(void);
-OSSram* __OSLockSram(void);
-OSSramEx* __OSLockSramEx(void);
-int __OSUnlockSram(BOOL commit);
-int __OSUnlockSramEx(BOOL commit);
+int __OSGetRTC(unsigned long* rtc);
+int __OSSetRTC(unsigned long rtc);
+void __OSInitSram();
+struct OSSram* __OSLockSram(void);
+struct OSSramEx* __OSLockSramEx(void);
+int __OSUnlockSram(int commit);
+int __OSUnlockSramEx(int commit);
 int __OSSyncSram(void);
 int __OSCheckSram(void);
-int __OSReadROM(void* buffer, s32 length, s32 offset);
-int __OSReadROMAsync(void* buffer, s32 length, s32 offset, void (*callback)());
-u8 __OSGetBootMode(void);
-void __OSSetBootMode(u8 ntd);
+int __OSReadROM(void* buffer, long length, long offset);
+int __OSReadROMAsync(void* buffer, long length, long offset,
+                     void (*callback)());
+unsigned char __OSGetBootMode(void);
+void __OSSetBootMode(unsigned char ntd);
 
 extern void __OSSystemCallVectorStart();
 extern void __OSSystemCallVectorEnd();
@@ -76,36 +75,30 @@ extern void __OSSystemCallVectorEnd();
 void __OSInitSystemCall(void);
 
 void __OSThreadInit(void);
-s32 __OSGetEffectivePriority(OSThread* thread);
-void __OSPromoteThread(OSThread* thread, s32 priority);
+long __OSGetEffectivePriority(struct OSThread* thread);
+void __OSPromoteThread(struct OSThread* thread, long priority);
 void __OSReschedule(void);
 
-void __OSSetTime(OSTime time);
-OSTime __OSGetSystemTime();
-void __OSSetTick(__REGISTER OSTick newTicks);
-OSTime __OSTimeToSystemTime(OSTime time);
+void __OSSetTime(long long time);
+long long __OSGetSystemTime();
+void __OSSetTick(register unsigned long newTicks);
+
+extern u32 __OSGetDIConfig(void);
 
 __declspec(section ".init") asm void __init_hardware(void);
-__declspec(section ".init") asm void __flush_cache(void* address, unsigned int size);
+__declspec(section ".init") asm void __flush_cache(void* address,
+                                                   unsigned int size);
 void __init_user(void);
+void __init_cpp(void);
+void __fini_cpp(void);
 void _ExitProcess(void);
 
-DECL_WEAK void InitMetroTRK_BBA();
-
-__declspec(section ".init") void __start(void);
+void __start(void);
 
 __declspec(section ".init") extern void __start(void);
-__declspec(section ".init") void __copy_rom_section(void* dst, const void* src, u32 size);
-__declspec(section ".init") void __init_bss_section(void* dst, u32 size);
-__declspec(section ".init") extern void __init_registers(void);
-__declspec(section ".init") extern void __init_data(void);
 
-OSTime __get_clock(void);
-u32 __get_time(void);
+long long __get_clock(void);
+unsigned long __get_time(void);
 int __to_gm_time(void);
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
