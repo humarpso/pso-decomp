@@ -285,10 +285,15 @@ cflags_runtime = [
 # ===================================================================
 
 def DolphinLib(lib_name: str, objects: list) -> dict:
-    """A Dolphin SDK library. Use when registering SDK source files."""
+    """A Dolphin SDK library. Use when registering SDK source files.
+
+    The SDK copy embedded in PsoV3.dol was prebuilt by Nintendo with an
+    older compiler than the game code — GC/1.2.5n matches its prologue
+    style (mflr/stw/stwu, 0x8 frames), same as tp's DolphinLib.
+    """
     return {
         "lib": lib_name,
-        "mw_version": "GC/2.6",
+        "mw_version": "GC/1.2.5n",
         "cflags": cflags_dolphin,
         "progress_category": "sdk",
         "src_dir": "libs/dolphin/src",
@@ -353,6 +358,17 @@ if args.target == "psov3":
                 NonMatching("pso/PSOV3Encryption.cpp"),
             ],
         },
+        # ------------------------------------------------------------------
+        # PsoV3.dol — Embedded Dolphin SDK copy.
+        # TU boundaries transferred from the tp and ac-decomp donors
+        # (see WORKFLOW.md Section 4b). Source lives in libs/dolphin/src.
+        # ------------------------------------------------------------------
+        DolphinLib(
+            "base",
+            [
+                Matching("base/PPCArch.c"),
+            ],
+        ),
     ]
 else:
     config.libs = [

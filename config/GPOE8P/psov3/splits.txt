@@ -15,3 +15,6 @@ Sections:
 
 pso/PSOV3Encryption.cpp:
 	.text       start:0x8036AC14 end:0x8036AE2C
+
+base/PPCArch.c:
+	.text       start:0x8036F8BC end:0x8036F958

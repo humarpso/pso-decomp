@@ -1,4 +1,4 @@
-#include "dolphin/BASE/ppcarch.h"
+#include "dolphin/base/PPCArch.h"
 
 asm u32 PPCMfmsr(void) {
 #include "orig_asm/base/PPCArch/PPCMfmsr.inc"
