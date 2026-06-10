@@ -333,9 +333,10 @@ if args.target == "psov3":
             ],
         },
         # ------------------------------------------------------------------
-        # PsoV3.dol — Game code (monolithic until TUs are broken out)
-        # As you identify TU boundaries, break files out of psov3_main.c
-        # into their own splits and objects.
+        # PsoV3.dol — Game code.
+        # Each object here MUST have a matching split in
+        # config/GPOE8P/psov3/splits.txt (unit name == object path).
+        # Objects without a split are silently ignored by the build.
         # ------------------------------------------------------------------
         {
             "lib": "psov3_main",
@@ -344,7 +345,7 @@ if args.target == "psov3":
             "progress_category": "game",
             "src_dir": "src",
             "objects": [
-                NonMatching("psov3_main.c"),
+                NonMatching("pso/PSOV3Encryption.cpp"),
             ],
         },
     ]

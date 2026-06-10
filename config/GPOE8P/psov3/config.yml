@@ -6,7 +6,9 @@ splits: config/GPOE8P/psov3/splits.txt
 symbols: config/GPOE8P/psov3/symbols.txt
 quick_analysis: false
 symbols_known: false
-fill_gaps: false
+# fill_gaps MUST be true: with false, dtk drops bytes not covered by symbols
+# during extraction, sections shrink, and the relinked DOL no longer matches.
+fill_gaps: true
 detect_objects: true
 detect_strings: true
 mw_comment_version: 10

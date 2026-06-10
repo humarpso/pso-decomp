@@ -54,8 +54,8 @@ void PSOV3Encryption::init(u32 seed) {
 
 PSOV3Encryption::~PSOV3Encryption() {
 	memset(m_buffer, 0, sizeof(m_buffer));
-	m_buffer_start = nullptr;
-	m_buffer_end = nullptr;
+	m_buffer_start = NULL;
+	m_buffer_end = NULL;
 }
 
 PSOV3Encryption::PSOV3Encryption() : PSOEncryption() {
