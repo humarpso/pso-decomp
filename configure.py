@@ -313,8 +313,13 @@ def RuntimeLib(lib_name: str, objects: list) -> dict:
 # ===================================================================
 # Object names MUST match the TU names in splits.txt.
 # When you break a new source file out of the monolithic split,
-# add the corresponding split in config/GPOE8P/splits.txt first,
+# add the corresponding split in config/GPOE8P/psov3/splits.txt first,
 # then add the Object here.
+#
+# End state: one object per real TU — the
+# auto_* placeholder units shrink to zero as TUs are broken out.
+# SDK TU boundaries can be transferred from tp and ac-decomp
+# instead of discovered. See WORKFLOW.md Section 4b for the roadmap.
 # ===================================================================
 
 if args.target == "psov3":
