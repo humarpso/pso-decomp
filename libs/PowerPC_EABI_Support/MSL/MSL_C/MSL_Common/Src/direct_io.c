@@ -1,19 +1,12 @@
-#include "buffer_io.h"
-#include "critical_regions.h"
-#include "direct_io.h"
-#include "FILE_POS.h"
-#include "misc_io.h"
-#include "wchar_io.h"
-#include <cstring>
+#include "MSL_C/direct_io.h"
+#include "MSL_C/buffer_io.h"
+#include "MSL_C/string.h"
+#include "MSL_C/wchar_io.h"
+
+size_t __fwrite(const void* buffer, size_t size, size_t count, FILE* stream);
 
 size_t fwrite(const void* buffer, size_t size, size_t count, FILE* stream) {
-    size_t retval;
-
-    __begin_critical_region(stdin_access);
-    retval = __fwrite(buffer, size, count, stream);
-    __end_critical_region(stdin_access);
-
-    return (retval);
+    __fwrite(buffer, size, count, stream);
 }
 
 size_t __fwrite(const void* buffer, size_t size, size_t count, FILE* stream) {
@@ -21,10 +14,8 @@ size_t __fwrite(const void* buffer, size_t size, size_t count, FILE* stream) {
     size_t num_bytes, bytes_to_go, bytes_written;
     int ioresult, always_buffer;
 
-#ifndef __NO_WIDE_CHAR
     if (fwide(stream, 0) == 0)
         fwide(stream, -1);
-#endif
 
     bytes_to_go = size * count;
 
@@ -37,20 +28,15 @@ size_t __fwrite(const void* buffer, size_t size, size_t count, FILE* stream) {
     always_buffer = !stream->file_mode.binary_io || stream->file_mode.buffer_mode == _IOFBF ||
                     stream->file_mode.buffer_mode == _IOLBF;
 
-    if (stream->file_state.io_state == __neutral) {
-        if (stream->file_mode.io_mode & __write) {
-            if (stream->file_mode.io_mode & __append) {
-                #if PLATFORM_GCN
-                if (fseek(stream, 0, SEEK_END))
-                #else
-                if (_fseek(stream, 0, SEEK_END))
-                #endif
-                    return 0;
-            }
-            stream->file_state.io_state = __writing;
-
-            __prep_buffer(stream);
+    if (stream->file_state.io_state == __neutral && stream->file_mode.io_mode & __write) {
+        if (stream->file_mode.io_mode & __append) {
+            if (fseek(stream, 0, 2))
+                return 0;
         }
+
+        stream->file_state.io_state = __writing;
+
+        __prep_buffer(stream);
     }
 
     if (stream->file_state.io_state != __writing) {
@@ -72,26 +58,22 @@ size_t __fwrite(const void* buffer, size_t size, size_t count, FILE* stream) {
             if (num_bytes > bytes_to_go)
                 num_bytes = bytes_to_go;
 
-            if (stream->file_mode.buffer_mode == _IOLBF && num_bytes)
-                if ((newline = (unsigned char*)__memrchr(write_ptr, '\n', num_bytes)) != NULL)
-                    num_bytes = newline + 1 - write_ptr;
+            if (stream->file_mode.buffer_mode == 1 && num_bytes > 0 && (newline = __memrchr(write_ptr, '\n', num_bytes))) {
+                num_bytes = (size_t)newline + 1 - (size_t)write_ptr;
+            }
 
             if (num_bytes) {
                 memcpy(stream->buffer_ptr, write_ptr, num_bytes);
 
                 write_ptr += num_bytes;
-                #if PLATFORM_GCN
                 bytes_written += num_bytes;
-                #endif
                 bytes_to_go -= num_bytes;
 
                 stream->buffer_ptr += num_bytes;
                 stream->buffer_length -= num_bytes;
             }
 
-            if (!stream->buffer_length || newline != NULL ||
-                (stream->file_mode.buffer_mode == _IONBF))
-            {
+            if (!stream->buffer_length || newline != NULL || (stream->file_mode.buffer_mode == _IONBF)) {
                 ioresult = __flush_buffer(stream, NULL);
 
                 if (ioresult) {
@@ -100,9 +82,6 @@ size_t __fwrite(const void* buffer, size_t size, size_t count, FILE* stream) {
                     break;
                 }
             }
-            #if !PLATFORM_GCN
-            bytes_written += num_bytes;
-            #endif
         } while (bytes_to_go && always_buffer);
     }
 
@@ -114,17 +93,10 @@ size_t __fwrite(const void* buffer, size_t size, size_t count, FILE* stream) {
         stream->buffer_size = bytes_to_go;
         stream->buffer_ptr = write_ptr + bytes_to_go;
 
-    #if PLATFORM_GCN
         if (__flush_buffer(stream, &num_bytes) != __no_io_error)
             set_error(stream);
 
         bytes_written += num_bytes;
-    #else
-        if (__flush_buffer(stream, &num_bytes) != __no_io_error)
-            set_error(stream);
-        else
-            bytes_written += num_bytes;
-    #endif
 
         stream->buffer = save_buffer;
         stream->buffer_size = save_size;
@@ -137,9 +109,5 @@ size_t __fwrite(const void* buffer, size_t size, size_t count, FILE* stream) {
     if (stream->file_mode.buffer_mode != _IOFBF)
         stream->buffer_length = 0;
 
-    #if PLATFORM_GCN
     return ((bytes_written + size - 1) / size);
-    #else
-    return bytes_written / size;
-    #endif
 }

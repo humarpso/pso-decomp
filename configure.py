@@ -277,7 +277,13 @@ cflags_dolphin = [
 # PowerPC EABI runtime flags
 cflags_runtime = [
     *cflags_base,
-    "-i libs/dolphin/include/libc",
+    # ac-donor MSL_C/ + libc/ headers first (the MSL sources are ac's
+    # no-threads build, which is what PSO's MSL actually is). Do NOT mix in
+    # libs/dolphin/include/libc here — its stdio.h shares the same include
+    # guard but lacks the FILE typedef.
+    "-i libs/PowerPC_EABI_Support/include",
+    "-i libs/PowerPC_EABI_Support/include/libc",
+    "-i libs/dolphin/include/dolphin",
     "-i libs/PowerPC_EABI_Support/Runtime/Inc",
     "-i libs/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
     "-i libs/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
