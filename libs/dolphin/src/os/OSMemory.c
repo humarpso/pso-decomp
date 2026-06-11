@@ -2,7 +2,7 @@
 #include <dolphin/os.h>
 #include <dolphin/dvd.h>
 
-#include "__os.h"
+#include "os/__os.h"
 
 #define TRUNC(n, a) (((u32)(n)) & ~((a)-1))
 #define ROUND(n, a) (((u32)(n) + (a)-1) & ~((a)-1))

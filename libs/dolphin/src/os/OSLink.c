@@ -1,7 +1,7 @@
 #include <dolphin/dolphin.h>
 #include <dolphin/os.h>
 
-#include "__os.h"
+#include "os/__os.h"
 
 #define SHN_UNDEF 0
 #define SHN_LORESERVE 0xff00
@@ -119,7 +119,7 @@ void OSNotifyLink(OSModuleInfo* module) {}
 void OSNotifyUnlink(OSModuleInfo* module) {}
 #pragma dont_inline reset
 
-void OSSetStringTable(void* stringTable) {
+void OSSetStringTable(const void* stringTable) {
     __OSStringTable = stringTable;
 }
 

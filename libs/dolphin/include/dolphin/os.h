@@ -7,13 +7,17 @@
 #include "dolphin/os/OSCache.h"
 #include "dolphin/os/OSContext.h"
 #include "dolphin/os/OSError.h"
+#include "dolphin/os/OSException.h"
+#include "dolphin/os/OSExec.h"
 #include "dolphin/os/OSInterrupt.h"
 #include "dolphin/os/OSL2.h"
 #include "dolphin/os/OSModule.h"
+#include "dolphin/os/OSMutex.h"
 #include "dolphin/os/OSLink.h"
 #include "dolphin/os/OSMemory.h"
 #include "dolphin/os/OSMessage.h"
 #include "dolphin/os/OSReset.h"
+#include "dolphin/os/OSResetSW.h"
 #include "dolphin/os/OSFont.h"
 #include <dolphin/os/OSTime.h>
 #include <dolphin/os/OSAlarm.h>
@@ -24,6 +28,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+extern OSExecParams __OSRebootParams;
 
 
 extern void __OSPSInit();
@@ -99,6 +105,8 @@ typedef struct OSBootInfo_s {
 #define OS_PHYSICAL_MASK 0x3FFF
 
 #define OS_BASE_CACHED (OS_CACHED_REGION_PREFIX << 16)
+
+#define DOLPHIN_ALIGNMENT 32
 #define OS_BASE_UNCACHED (OS_UNCACHED_REGION_PREFIX << 16)
 
 typedef struct BI2Debug {
@@ -119,6 +127,7 @@ volatile int __OSTVMode : (OS_BASE_CACHED | 0x00CC);
 OSThread *__gUnkThread1 : (OS_BASE_CACHED | 0x00D8);
 OSThreadQueue __OSActiveThreadQueue : (OS_BASE_CACHED | 0x00DC);
 OSThread *__gCurrentThread : (OS_BASE_CACHED | 0x00E4);
+OSThread *__OSCurrentThread : (OS_BASE_CACHED | 0x00E4);
 u32 __OSSimulatedMemSize  : (OS_BASE_CACHED | 0x00F0);
 u32 __OSBusClock  : (OS_BASE_CACHED | 0x00F8);
 u32 __OSCoreClock : (OS_BASE_CACHED | 0x00FC);

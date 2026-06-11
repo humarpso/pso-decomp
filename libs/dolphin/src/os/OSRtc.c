@@ -1,7 +1,7 @@
 #include <dolphin/exi.h>
 #include <dolphin/os.h>
 
-#include "__os.h"
+#include "os/__os.h"
 
 static SramControl Scb ATTRIBUTE_ALIGN(DOLPHIN_ALIGNMENT);
 

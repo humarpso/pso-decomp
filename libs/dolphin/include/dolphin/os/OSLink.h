@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-#define OS_MODULE_VERSION 2
+#define OS_MODULE_VERSION 3
 
 typedef struct OSModuleHeader OSModuleHeader;
 
@@ -25,7 +25,7 @@ struct OSModuleQueue {
 };
 
 OSModuleQueue __OSModuleList AT_ADDRESS(0x800030C8);
-void* __OSStringTable AT_ADDRESS(0x800030D0);
+const void* __OSStringTable AT_ADDRESS(0x800030D0);
 
 struct OSModuleLink {
     OSModuleInfo* next;

@@ -1,7 +1,7 @@
 #include <dolphin/dolphin.h>
 #include <dolphin/os.h>
 
-#include "__os.h"
+#include "os/__os.h"
 
 static OSResetCallback ResetCallback;
 static BOOL Down;

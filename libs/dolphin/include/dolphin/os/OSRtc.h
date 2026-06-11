@@ -21,7 +21,15 @@ extern "C" {
 #define RTC_CMD_WRITE 0xA0000000
 
 #define RTC_SRAM_ADDR 0x00000100
+#define OS_EURGB60_OFF 0
+#define OS_EURGB60_ON 1
+
+#define OS_VIDEO_MODE_NTSC 0
+#define OS_VIDEO_MODE_PAL 1
+#define OS_VIDEO_MODE_MPAL 2
+
 #define RTC_SRAM_SIZE 64
+#define SRAM_SIZE RTC_SRAM_SIZE
 
 #define RTC_CHAN EXI_CHAN_0
 #define RTC_DEVICE 1
@@ -59,6 +67,8 @@ typedef struct SramControlBlock {
   void (*callback)(void);
 } SramControlBlock;
 
+typedef SramControlBlock SramControl;
+
 static inline BOOL ReadSram(void* buffer);
 static void WriteSramCallback(s32 chan, OSContext* ctx);
 static BOOL WriteSram(void* buffer, u32 offset, u32 size);
@@ -73,6 +83,8 @@ extern void OSSetSoundMode(u32 mode);
 extern u32 OSGetProgressiveMode();
 extern void OSSetProgressiveMode(u32 on);
 extern void __OSSetBootMode(u8 mode);
+extern u16 OSGetGbsMode(void);
+extern void OSSetGbsMode(u16 mode);
 extern u16 OSGetWirelessID(s32 chan);
 extern void OSSetWirelessID(s32 chan, u16 id);
 

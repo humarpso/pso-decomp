@@ -1,7 +1,7 @@
 #include <dolphin/dolphin.h>
 #include <dolphin/os.h>
 
-#include "__os.h"
+#include "os/__os.h"
 
 #define ENQUEUE_THREAD(thread, queue, link)       \
     do {                                          \
@@ -542,7 +542,7 @@ void OSCancelThread(OSThread* thread) {
     OSRestoreInterrupts(enabled);
 }
 
-int OSJoinThread(OSThread* thread, void* val) {
+int OSJoinThread(OSThread* thread, void** val) {
     BOOL enabled = OSDisableInterrupts();
 
     ASSERTMSG1LINE(LINE(1061, 1092, 1092), __OSIsThreadActive(thread) != 0, "OSJoinThread(): thread %p is not active.", thread);

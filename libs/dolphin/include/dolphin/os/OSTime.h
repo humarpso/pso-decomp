@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+#define __OSSystemTime (OSTime*)0x800030D8
+
 #define OSDiffTick(tick1, tick0) ((s32)(tick1) - (s32)(tick0))
 
 typedef s64 OSTime;

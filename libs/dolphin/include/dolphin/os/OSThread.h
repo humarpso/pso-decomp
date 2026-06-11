@@ -90,7 +90,13 @@ enum OS_THREAD_STATE
 
 #define OS_THREAD_STACK_MAGIC 0xDEADBABE
 
-    void OSInitThreadQueue(OSThreadQueue *queue);
+    typedef void (*OSSwitchThreadCallback)(OSThread*, OSThread*);
+OSSwitchThreadCallback OSSetSwitchThreadCallback(OSSwitchThreadCallback callback);
+void OSClearStack(u8 val);
+
+#define OS_THREAD_SPECIFIC_MAX 2
+
+void OSInitThreadQueue(OSThreadQueue *queue);
     OSThread *OSGetCurrentThread(void);
     BOOL OSIsThreadSuspended(OSThread *thread);
     BOOL OSIsThreadTerminated(OSThread *thread);

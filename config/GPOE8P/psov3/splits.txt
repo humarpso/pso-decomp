@@ -49,11 +49,41 @@ os/OSError.c:
 os/OSInterrupt.c:
 	.text       start:0x80372218 end:0x80372A84
 
+os/OSLink.c:
+	.text       start:0x80372A84 end:0x80373208
+
+os/OSMessage.c:
+	.text       start:0x80373208 end:0x8037340C
+
+os/OSMemory.c:
+	.text       start:0x8037340C end:0x803736EC
+
+os/OSMutex.c:
+	.text       start:0x803736EC end:0x80373938
+
+os/OSReboot.c:
+	.text       start:0x80373938 end:0x80373B44
+
 os/OSReset.c:
 	.text       start:0x80373B44 end:0x80373F28
 
+os/OSResetSW.c:
+	.text       start:0x80373F28 end:0x803742B4
+
+os/OSRtc.c:
+	.text       start:0x803742B4 end:0x80374CE0
+
 os/OSSync.c:
 	.text       start:0x80374CE0 end:0x80374D64
+
+os/OSThread.c:
+	.text       start:0x80374D64 end:0x80375F08
+
+os/OSTime.c:
+	.text       start:0x80375F08 end:0x8037632C
+
+os/__ppc_eabi_init.cpp:
+	.text       start:0x8037632C end:0x803763C0
 
 dvd/dvdqueue.c:
 	.text       start:0x8037ACD4 end:0x8037AECC

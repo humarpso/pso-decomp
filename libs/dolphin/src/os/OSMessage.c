@@ -1,7 +1,7 @@
 #include <dolphin/dolphin.h>
 #include <dolphin/os.h>
 
-void OSInitMessageQueue(OSMessageQueue* mq, void* msgArray, s32 msgCount) {
+void OSInitMessageQueue(OSMessageQueue* mq, OSMessage* msgArray, int msgCount) {
     OSInitThreadQueue(&mq->queueSend);
     OSInitThreadQueue(&mq->queueReceive);
     mq->msgArray = msgArray;
@@ -10,7 +10,7 @@ void OSInitMessageQueue(OSMessageQueue* mq, void* msgArray, s32 msgCount) {
     mq->usedCount = 0;
 }
 
-int OSSendMessage(OSMessageQueue* mq, void* msg, s32 flags) {
+BOOL OSSendMessage(OSMessageQueue* mq, OSMessage msg, int flags) {
     BOOL enabled;
     s32 lastIndex;
 
@@ -30,7 +30,7 @@ int OSSendMessage(OSMessageQueue* mq, void* msg, s32 flags) {
     return 1;
 }
 
-int OSReceiveMessage(OSMessageQueue* mq, void* msg, s32 flags) {
+BOOL OSReceiveMessage(OSMessageQueue* mq, OSMessage* msg, int flags) {
     BOOL enabled = OSDisableInterrupts();
 
     while(mq->usedCount == 0) {
@@ -51,7 +51,7 @@ int OSReceiveMessage(OSMessageQueue* mq, void* msg, s32 flags) {
     return 1;
 }
 
-int OSJamMessage(OSMessageQueue* mq, void* msg, s32 flags) {
+BOOL OSJamMessage(OSMessageQueue* mq, OSMessage msg, int flags) {
     BOOL enabled = OSDisableInterrupts();
 
     while(mq->msgCount <= mq->usedCount) {
