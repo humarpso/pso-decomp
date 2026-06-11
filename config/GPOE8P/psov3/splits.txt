@@ -96,3 +96,85 @@ dvd/fstload.c:
 
 gx/GXInit.c:
 	.text       start:0x80387A4C end:0x80388B3C
+
+TRK_MINNOW_DOLPHIN/mainloop.c:
+	.text       start:0x8038F7D8 end:0x8038F8D0
+
+TRK_MINNOW_DOLPHIN/nubevent.c:
+	.text       start:0x8038F8D0 end:0x8038FAF8
+
+TRK_MINNOW_DOLPHIN/nubinit.c:
+	.text       start:0x8038FAF8 end:0x8038FC78
+
+TRK_MINNOW_DOLPHIN/msgbuf.c:
+	.text       start:0x8038FE54 end:0x80390880
+
+TRK_MINNOW_DOLPHIN/serpoll.c:
+	.text       start:0x80390880 end:0x80390C4C
+
+TRK_MINNOW_DOLPHIN/usr_put.c:
+	.text       start:0x80390C4C end:0x80390CD8
+
+TRK_MINNOW_DOLPHIN/dispatch.c:
+	.text       start:0x80390CD8 end:0x80390D74
+
+TRK_MINNOW_DOLPHIN/mpc_7xx_603e.c:
+	.text       start:0x80395A70 end:0x80395DE8
+
+TRK_MINNOW_DOLPHIN/main_TRK.c:
+	.text       start:0x80395DE8 end:0x80395E2C
+
+TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c:
+	.text       start:0x80395E2C end:0x803962D8
+
+TRK_MINNOW_DOLPHIN/targcont.c:
+	.text       start:0x803962D8 end:0x8039630C
+
+PowerPC_EABI_Support/Runtime/Src/__va_arg.c:
+	.text       start:0x80396524 end:0x803965EC
+
+PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c:
+	.text       start:0x803965EC end:0x8039664C
+	.dtors      start:0x80434028 end:0x8043402C
+
+PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp:
+	.text       start:0x80397334 end:0x8039739C
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c:
+	.text       start:0x80397454 end:0x80397520
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c:
+	.text       start:0x80397A88 end:0x80397B90
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c:
+	.text       start:0x8039980C end:0x80399904
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/direct_io.c:
+	.text       start:0x80399964 end:0x80399C90
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c:
+	.text       start:0x80399E88 end:0x8039A154
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c:
+	.text       start:0x8039A154 end:0x8039A298
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c:
+	.text       start:0x8039A4C4 end:0x8039A634
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c:
+	.text       start:0x8039A914 end:0x8039A924
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/wchar_io.c:
+	.text       start:0x8039F774 end:0x8039F7FC
+
+amcstubs/AmcExi2Stubs.c:
+	.text       start:0x803A2DA0 end:0x803A2DD0
+
+odenotstub/odenotstub.c:
+	.text       start:0x803A2DD0 end:0x803A2DD8
+
+odemuexi2/DebuggerDriver.c:
+	.text       start:0x803A2DD8 end:0x803A3858
+
+si/SISamplingRate.c:
+	.text       start:0x80432580 end:0x80432688

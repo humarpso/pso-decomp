@@ -277,6 +277,7 @@ cflags_dolphin = [
 # PowerPC EABI runtime flags
 cflags_runtime = [
     *cflags_base,
+    "-i libs/dolphin/include/libc",
     "-i libs/PowerPC_EABI_Support/Runtime/Inc",
     "-i libs/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
     "-i libs/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
@@ -285,6 +286,24 @@ cflags_runtime = [
     "-common off",
     "-char signed",
     "-inline deferred,auto",
+]
+
+# MetroTRK debugger flags (mirrors ac-decomp's TRK_MINNOW_DOLPHIN lib)
+cflags_trk = [
+    *cflags_base,
+    "-i libs",
+    "-i libs/dolphin/include",
+    "-i libs/dolphin/include/dolphin",
+    "-i libs/dolphin/include/libc",
+    "-i libs/PowerPC_EABI_Support/Runtime/Inc",
+    "-i libs/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
+    "-i libs/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
+    "-sdata 0",
+    "-sdata2 0",
+    "-inline auto,deferred",
+    "-rostr",
+    "-char signed",
+    "-use_lmw_stmw on",
 ]
 
 # ===================================================================
@@ -309,13 +328,30 @@ def DolphinLib(lib_name: str, objects: list) -> dict:
 
 
 def RuntimeLib(lib_name: str, objects: list) -> dict:
-    """A PowerPC EABI runtime library."""
+    """A PowerPC EABI runtime / MSL library.
+
+    Unit names carry the full PowerPC_EABI_Support/... prefix (same as tp)
+    so src_dir is libs/.
+    """
     return {
         "lib": lib_name,
         "mw_version": "GC/2.6",
         "cflags": cflags_runtime,
         "progress_category": "runtime",
-        "src_dir": "libs/PowerPC_EABI_Support",
+        "src_dir": "libs",
+        "objects": objects,
+    }
+
+
+def TRKLib(lib_name: str, objects: list) -> dict:
+    """MetroTRK debugger library. Prebuilt like the SDK; flags and compiler
+    follow ac-decomp's TRK_MINNOW_DOLPHIN settings (GC/1.3)."""
+    return {
+        "lib": lib_name,
+        "mw_version": "GC/1.3",
+        "cflags": cflags_trk,
+        "progress_category": "sdk",
+        "src_dir": "libs",
         "objects": objects,
     }
 
@@ -420,6 +456,68 @@ if args.target == "psov3":
             "gx",
             [
                 NonMatching("gx/GXInit.c"),
+            ],
+        ),
+        DolphinLib(
+            "si",
+            [
+                NonMatching("si/SISamplingRate.c"),
+            ],
+        ),
+        DolphinLib(
+            "amcstubs",
+            [
+                Matching("amcstubs/AmcExi2Stubs.c"),
+            ],
+        ),
+        DolphinLib(
+            "odenotstub",
+            [
+                Matching("odenotstub/odenotstub.c"),
+            ],
+        ),
+        DolphinLib(
+            "odemuexi2",
+            [
+                NonMatching("odemuexi2/DebuggerDriver.c"),
+            ],
+        ),
+        TRKLib(
+            "TRK_MINNOW_DOLPHIN",
+            [
+                Matching("TRK_MINNOW_DOLPHIN/mainloop.c"),
+                NonMatching("TRK_MINNOW_DOLPHIN/nubevent.c"),
+                NonMatching("TRK_MINNOW_DOLPHIN/nubinit.c"),
+                NonMatching("TRK_MINNOW_DOLPHIN/msgbuf.c"),
+                NonMatching("TRK_MINNOW_DOLPHIN/serpoll.c"),
+                NonMatching("TRK_MINNOW_DOLPHIN/usr_put.c"),
+                NonMatching("TRK_MINNOW_DOLPHIN/dispatch.c"),
+                Matching("TRK_MINNOW_DOLPHIN/mpc_7xx_603e.c"),
+                NonMatching("TRK_MINNOW_DOLPHIN/main_TRK.c"),
+                NonMatching("TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c"),
+                Matching("TRK_MINNOW_DOLPHIN/targcont.c"),
+            ],
+        ),
+        RuntimeLib(
+            "Runtime.PPCEABI.H",
+            [
+                Matching("PowerPC_EABI_Support/Runtime/Src/__va_arg.c"),
+                NonMatching("PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c"),
+                NonMatching("PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp"),
+            ],
+        ),
+        RuntimeLib(
+            "MSL_C.PPCEABI.bare.H",
+            [
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c"),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c"),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c"),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/direct_io.c"),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c"),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c"),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c"),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c"),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/wchar_io.c"),
             ],
         ),
     ]

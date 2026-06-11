@@ -41,6 +41,9 @@ static XY XYPAL[12] = {
     {0x009C, 0x02},
 };
 
+
+
+
 void SISetSamplingRate(u32 msec) {
     XY* xy;
     BOOL progressive;
@@ -73,6 +76,9 @@ void SISetSamplingRate(u32 msec) {
     SISetXY((progressive ? 2 : 1) * xy[msec].line, xy[msec].count);
     OSRestoreInterrupts(enabled);
 }
+
+
+
 
 void SIRefreshSamplingRate(void) {
     SISetSamplingRate(SamplingRate);
