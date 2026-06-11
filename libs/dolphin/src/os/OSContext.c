@@ -1,7 +1,7 @@
 #include <dolphin/dolphin.h>
 #include <dolphin/os.h>
 
-#include "__os.h"
+#include "os/__os.h"
 
 extern void __RAS_OSDisableInterrupts_begin();
 extern void __RAS_OSDisableInterrupts_end();

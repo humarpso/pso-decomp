@@ -8,6 +8,7 @@
 #include "dolphin/os/OSContext.h"
 #include "dolphin/os/OSError.h"
 #include "dolphin/os/OSInterrupt.h"
+#include "dolphin/os/OSL2.h"
 #include "dolphin/os/OSModule.h"
 #include "dolphin/os/OSLink.h"
 #include "dolphin/os/OSMemory.h"

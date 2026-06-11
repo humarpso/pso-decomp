@@ -36,6 +36,8 @@ typedef int BOOL;
 
 #define ATTRIBUTE_ALIGN(num) __attribute__((aligned(num)))
 
+#define __REGISTER register
+
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
 

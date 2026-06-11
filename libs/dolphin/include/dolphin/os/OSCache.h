@@ -5,7 +5,13 @@
 extern "C" {
 #endif
 
+#ifndef LC_BASE_PREFIX
+#define LC_BASE_PREFIX 0xE000
+#endif
+#define LC_BASE (LC_BASE_PREFIX << 16)
+
 void DCEnable(void);
+void LCEnable(void);
 void DCInvalidateRange(void*, u32);
 void DCFlushRange(void*, u32);
 void DCStoreRange(void*, u32);

@@ -271,6 +271,7 @@ cflags_dolphin = [
     "-i libs/dolphin/src",
     "-char unsigned",
     "-fp_contract off",
+    "-D__GEKKO__",  # donor SDK sources guard asm functions with this
 ]
 
 # PowerPC EABI runtime flags
@@ -386,8 +387,11 @@ if args.target == "psov3":
             [
                 NonMatching("os/OS.c"),
                 NonMatching("os/OSAlarm.c"),
+                NonMatching("os/OSAlloc.c"),
                 NonMatching("os/OSArena.c"),
                 NonMatching("os/OSAudioSystem.c"),
+                NonMatching("os/OSCache.c"),
+                NonMatching("os/OSContext.c"),
                 NonMatching("os/OSError.c"),
                 NonMatching("os/OSInterrupt.c"),
                 NonMatching("os/OSReset.c"),
