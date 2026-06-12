@@ -86,8 +86,8 @@ BOOL OSGetResetButtonState(void) {
 
     LastState = state;
 
-    if (__gUnknown800030E3 & 0x1F) {
-        OSTime fire = (__gUnknown800030E3 & 0x1F) * 60;
+    if (__gUnknown800030E3 & 0x3F) {
+        OSTime fire = (__gUnknown800030E3 & 0x3F) * 60;
         fire = __OSStartTime + OSSecondsToTicks(fire);
         if (fire < now) {
             now -= fire;

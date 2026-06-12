@@ -4,6 +4,9 @@
 
 #include "gx/__gx.h"
 
+
+
+
 void GXSetTevOp(GXTevStageID id, GXTevMode mode)
 {
     GXTevColorArg carg = GX_CC_RASC;
@@ -45,6 +48,9 @@ void GXSetTevOp(GXTevStageID id, GXTevMode mode)
 }
 
 
+
+
+
 void GXSetTevColorIn(GXTevStageID stage, GXTevColorArg a, GXTevColorArg b, GXTevColorArg c, GXTevColorArg d)
 {
     u32 *pTevReg;
@@ -66,6 +72,9 @@ void GXSetTevColorIn(GXTevStageID stage, GXTevColorArg a, GXTevColorArg b, GXTev
     gx->bpSentNot = GX_FALSE;
 }
 
+
+
+
 void GXSetTevAlphaIn(GXTevStageID stage, GXTevAlphaArg a, GXTevAlphaArg b, GXTevAlphaArg c, GXTevAlphaArg d)
 {
     u32 *pTevReg;
@@ -86,6 +95,9 @@ void GXSetTevAlphaIn(GXTevStageID stage, GXTevAlphaArg a, GXTevAlphaArg b, GXTev
     GX_WRITE_RAS_REG(*pTevReg);
     gx->bpSentNot = GX_FALSE;
 }
+
+
+
 
 void GXSetTevColorOp(GXTevStageID stage, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID out_reg)
 {
@@ -109,6 +121,9 @@ void GXSetTevColorOp(GXTevStageID stage, GXTevOp op, GXTevBias bias, GXTevScale 
     GX_WRITE_RAS_REG(*pTevReg);
     gx->bpSentNot = GX_FALSE;
 }
+
+
+
 
 void GXSetTevAlphaOp(GXTevStageID stage, GXTevOp op, GXTevBias bias, GXTevScale scale, GXBool clamp, GXTevRegID out_reg)
 {
@@ -210,6 +225,9 @@ void GXSetTevKColor(GXTevKColorID id, GXColor color)
     gx->bpSentNot = GX_FALSE;
 }
 
+
+
+
 void GXSetTevKColorSel(GXTevStageID stage, GXTevKColorSel sel)
 {
     u32 *Kreg;
@@ -227,6 +245,9 @@ void GXSetTevKColorSel(GXTevStageID stage, GXTevKColorSel sel)
     GX_WRITE_RAS_REG(*Kreg);
     gx->bpSentNot = GX_FALSE;
 }
+
+
+
 
 void GXSetTevKAlphaSel(GXTevStageID stage, GXTevKAlphaSel sel)
 {
@@ -246,6 +267,9 @@ void GXSetTevKAlphaSel(GXTevStageID stage, GXTevKAlphaSel sel)
     gx->bpSentNot = GX_FALSE;
 }
 
+
+
+
 void GXSetTevSwapMode(GXTevStageID stage, GXTevSwapSel ras_sel, GXTevSwapSel tex_sel)
 {
     u32 *pTevReg;
@@ -260,6 +284,9 @@ void GXSetTevSwapMode(GXTevStageID stage, GXTevSwapSel ras_sel, GXTevSwapSel tex
     GX_WRITE_RAS_REG(*pTevReg);
     gx->bpSentNot = GX_FALSE;
 }
+
+
+
 
 void GXSetTevSwapModeTable(GXTevSwapSel table, GXTevColorChan red, GXTevColorChan green, GXTevColorChan blue, GXTevColorChan alpha)
 {
@@ -295,6 +322,9 @@ void GXSetTevClampMode(void)
     ASSERTMSGLINE(0x294, 0, "GXSetTevClampMode: not available on this hardware");
 }
 
+
+
+
 void GXSetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, u8 ref1)
 {
     u32 reg = 0;
@@ -311,6 +341,9 @@ void GXSetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, 
     GX_WRITE_RAS_REG(reg);
     gx->bpSentNot = GX_FALSE;
 }
+
+
+
 
 void GXSetZTexture(GXZTexOp op, GXTexFmt fmt, u32 bias)
 {
@@ -349,6 +382,9 @@ void GXSetZTexture(GXZTexOp op, GXTexFmt fmt, u32 bias)
     GX_WRITE_RAS_REG(zenv1);
     gx->bpSentNot = GX_FALSE;
 }
+
+
+
 
 void GXSetTevOrder(GXTevStageID stage, GXTexCoordID coord, GXTexMapID map, GXChannelID color)
 {
@@ -390,6 +426,9 @@ void GXSetTevOrder(GXTevStageID stage, GXTexCoordID coord, GXTexMapID map, GXCha
     gx->bpSentNot = GX_FALSE;
     gx->dirtyState |= 1;
 }
+
+
+
 
 void GXSetNumTevStages(u8 nStages)
 {

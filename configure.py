@@ -424,30 +424,30 @@ if args.target == "psov3":
         DolphinLib(
             "db",
             [
-                NonMatching("db/db.c"),
+                Matching("db/db.c"),
             ],
         ),
         DolphinLib(
             "os",
             [
                 NonMatching("os/OS.c"),
-                NonMatching("os/OSAlarm.c"),
-                NonMatching("os/OSAlloc.c"),
-                NonMatching("os/OSArena.c"),
-                NonMatching("os/OSAudioSystem.c"),
+                Matching("os/OSAlarm.c"),
+                Matching("os/OSAlloc.c"),
+                Matching("os/OSArena.c"),
+                Matching("os/OSAudioSystem.c"),
                 NonMatching("os/OSCache.c"),
                 NonMatching("os/OSContext.c"),
                 NonMatching("os/OSError.c"),
-                NonMatching("os/OSInterrupt.c"),
+                Matching("os/OSInterrupt.c"),
                 NonMatching("os/OSLink.c"),
-                NonMatching("os/OSMessage.c"),
+                Matching("os/OSMessage.c"),
                 NonMatching("os/OSMemory.c"),
-                NonMatching("os/OSMutex.c"),
+                Matching("os/OSMutex.c"),
                 NonMatching("os/OSReboot.c"),
-                NonMatching("os/OSReset.c"),
-                NonMatching("os/OSResetSW.c"),
+                Matching("os/OSReset.c"),
+                Matching("os/OSResetSW.c"),
                 NonMatching("os/OSRtc.c"),
-                NonMatching("os/OSSync.c"),
+                Matching("os/OSSync.c"),
                 NonMatching("os/OSThread.c"),
                 NonMatching("os/OSTime.c"),
                 Matching("os/__ppc_eabi_init.cpp"),
@@ -456,8 +456,8 @@ if args.target == "psov3":
         DolphinLib(
             "dvd",
             [
-                NonMatching("dvd/dvdqueue.c"),
-                NonMatching("dvd/dvderror.c"),
+                Matching("dvd/dvdqueue.c"),
+                Matching("dvd/dvderror.c"),
                 NonMatching("dvd/fstload.c"),
             ],
         ),
@@ -465,6 +465,8 @@ if args.target == "psov3":
             "gx",
             [
                 NonMatching("gx/GXInit.c"),
+                Matching("gx/GXGeometry.c"),
+                Matching("gx/GXTev.c"),
             ],
         ),
         DolphinLib(
@@ -495,16 +497,17 @@ if args.target == "psov3":
             "TRK_MINNOW_DOLPHIN",
             [
                 Matching("TRK_MINNOW_DOLPHIN/mainloop.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/nubevent.c"),
+                Matching("TRK_MINNOW_DOLPHIN/nubevent.c"),
                 NonMatching("TRK_MINNOW_DOLPHIN/nubinit.c"),
                 NonMatching("TRK_MINNOW_DOLPHIN/msgbuf.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/serpoll.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/usr_put.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/dispatch.c"),
+                Matching("TRK_MINNOW_DOLPHIN/serpoll.c"),
+                Matching("TRK_MINNOW_DOLPHIN/usr_put.c"),
+                Matching("TRK_MINNOW_DOLPHIN/dispatch.c"),
                 Matching("TRK_MINNOW_DOLPHIN/mpc_7xx_603e.c"),
-                NonMatching("TRK_MINNOW_DOLPHIN/main_TRK.c"),
+                Matching("TRK_MINNOW_DOLPHIN/main_TRK.c"),
                 NonMatching("TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c"),
                 Matching("TRK_MINNOW_DOLPHIN/targcont.c"),
+                Matching("TRK_MINNOW_DOLPHIN/mutex_TRK.c"),
             ],
         ),
         RuntimeLib(
@@ -512,19 +515,41 @@ if args.target == "psov3":
             [
                 Matching("PowerPC_EABI_Support/Runtime/Src/__va_arg.c"),
                 NonMatching("PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c"),
-                NonMatching("PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp"),
+                Matching("PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp"),
             ],
         ),
         RuntimeLib(
             "MSL_C.PPCEABI.bare.H",
             [
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c"),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c"),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c"),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c"),
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c"),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/direct_io.c"),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c"),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c"),
-                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c"),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/direct_io.c"),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c"),
+                # file_io.c: PSO's fclose keeps a real `bl fflush`; -inline
+                # deferred would fold fflush into fclose and reverse the
+                # emission order, so this TU drops deferred. extra_cflags
+                # can't cancel it (deferred is sticky), hence full override.
+                Matching(
+                    "PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/file_io.c",
+                    cflags=[
+                        f if f != "-inline deferred,auto" else "-inline auto"
+                        for f in cflags_runtime
+                    ],
+                ),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c"),
+                Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c"),
+                # mem_funcs.c: PSO's copy of these MSL copy loops predates the
+                # rest of the runtime — GC/2.6 emits clrlwi/pipelined loops
+                # that can't match; GC/1.3 with plain -inline auto is exact.
+                Matching(
+                    "PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem_funcs.c",
+                    mw_version="GC/1.3",
+                    cflags=[
+                        f if f != "-inline deferred,auto" else "-inline auto"
+                        for f in cflags_runtime
+                    ],
+                ),
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c"),
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/wchar_io.c"),
             ],

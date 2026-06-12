@@ -5,6 +5,9 @@
 
 #include "gx/__gx.h"
 
+
+
+
 void __GXSetDirtyState(void)
 {
     if (gx->dirtyState & 1) {
@@ -28,6 +31,9 @@ void __GXSetDirtyState(void)
     gx->dirtyState = 0;
 }
 
+
+
+
 void GXBegin(GXPrimitive type, GXVtxFmt vtxfmt, u16 nverts)
 {
     ASSERTMSGLINE(346, vtxfmt < GX_MAX_VTXFMT,   "GXBegin: Format Index is out of range");
@@ -49,6 +55,9 @@ void GXBegin(GXPrimitive type, GXVtxFmt vtxfmt, u16 nverts)
     GX_WRITE_U16(nverts);
 }
 
+
+
+
 void __GXSendFlushPrim(void)
 {
     u32 i;
@@ -61,6 +70,9 @@ void __GXSendFlushPrim(void)
     }
     gx->bpSentNot = GX_TRUE;
 }
+
+
+
 
 void GXSetLineWidth(u8 width, GXTexOffset texOffsets)
 {
@@ -79,6 +91,9 @@ void GXGetLineWidth(u8 *width, GXTexOffset *texOffsets)
     *texOffsets = GET_REG_FIELD(gx->lpSize, 3, 16);
 }
 
+
+
+
 void GXSetPointSize(u8 pointSize, GXTexOffset texOffsets)
 {
     CHECK_GXBEGIN(471, "GXSetPointSize");
@@ -96,6 +111,9 @@ void GXGetPointSize(u8 *pointSize, GXTexOffset *texOffsets)
     *texOffsets = GET_REG_FIELD(gx->lpSize, 3, 19);
 }
 
+
+
+
 void GXEnableTexOffsets(GXTexCoordID coord, u8 line_enable, u8 point_enable)
 {
     CHECK_GXBEGIN(516, "GXEnableTexOffsets");
@@ -107,6 +125,9 @@ void GXEnableTexOffsets(GXTexCoordID coord, u8 line_enable, u8 point_enable)
     GX_WRITE_RAS_REG(gx->suTs0[coord]);
     gx->bpSentNot = GX_FALSE;
 }
+
+
+
 
 void GXSetCullMode(GXCullMode mode)
 {
@@ -133,6 +154,9 @@ void GXGetCullMode(GXCullMode *mode)
     }
 }
 
+
+
+
 void GXSetCoPlanar(GXBool enable)
 {
     u32 reg;
@@ -144,6 +168,9 @@ void GXSetCoPlanar(GXBool enable)
     GX_WRITE_RAS_REG(reg);
     GX_WRITE_RAS_REG(gx->genMode);
 }
+
+
+
 
 void __GXSetGenMode(void)
 {

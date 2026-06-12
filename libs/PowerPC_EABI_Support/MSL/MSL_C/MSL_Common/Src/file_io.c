@@ -4,26 +4,6 @@
 #include "FILE_POS.h"
 #include <cctype>
 
-int fclose(FILE* file) {
-    int flush_result, close_result;
-
-    if (file == NULL)
-        return (-1);
-    if (file->file_mode.file_kind == __closed_file)
-        return (0);
-
-    flush_result = fflush(file);
-
-    close_result = (*file->close_fn)(file->handle);
-
-    file->file_mode.file_kind = __closed_file;
-    file->handle = NULL;
-
-    if (file->file_state.free_buffer)
-        free((FILE*)file->buffer);
-    return ((flush_result || close_result) ? -1 : 0);
-}
-
 int fflush(FILE* file) {
     int pos;
 
@@ -69,6 +49,28 @@ int fflush(FILE* file) {
     file->buffer_length = 0;
     return 0;
 }
+
+#pragma dont_inline on
+int fclose(FILE* file) {
+    int flush_result, close_result;
+
+    if (file == NULL)
+        return (-1);
+    if (file->file_mode.file_kind == __closed_file)
+        return (0);
+
+    flush_result = fflush(file);
+
+    close_result = (*file->close_fn)(file->handle);
+
+    file->file_mode.file_kind = __closed_file;
+    file->handle = NULL;
+
+    if (file->file_state.free_buffer)
+        free((FILE*)file->buffer);
+    return ((flush_result || close_result) ? -1 : 0);
+}
+#pragma dont_inline off
 
 int __msl_strnicmp(const char* str1, const char* str2, int n) {
     int i;

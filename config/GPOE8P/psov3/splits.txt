@@ -21,21 +21,29 @@ base/PPCArch.c:
 
 db/db.c:
 	.text       start:0x8036F958 end:0x8036FA44
+	.data       start:0x804F3A58 end:0x804F3A70
+	.sbss       start:0x805D7028 end:0x805D7030
 
 os/OS.c:
 	.text       start:0x8036FA44 end:0x803703A0
 
 os/OSAlarm.c:
 	.text       start:0x803703A0 end:0x80370A4C
+	.sbss       start:0x805D7060 end:0x805D7068
 
 os/OSAlloc.c:
 	.text       start:0x80370A4C end:0x80370D5C
+	.sdata      start:0x805D4508 end:0x805D4510
+	.sbss       start:0x805D7068 end:0x805D7078
 
 os/OSArena.c:
 	.text       start:0x80370D5C end:0x80370D7C
+	.sdata      start:0x805D4510 end:0x805D4514
+	.sbss       start:0x805D7078 end:0x805D707C
 
 os/OSAudioSystem.c:
 	.text       start:0x80370D7C end:0x80371010
+	.data       start:0x804F3C30 end:0x804F3CB0
 
 os/OSCache.c:
 	.text       start:0x80371010 end:0x80371590
@@ -48,6 +56,8 @@ os/OSError.c:
 
 os/OSInterrupt.c:
 	.text       start:0x80372218 end:0x80372A84
+	.data       start:0x804F43D8 end:0x804F4408
+	.sbss       start:0x805D7080 end:0x805D7098
 
 os/OSLink.c:
 	.text       start:0x80372A84 end:0x80373208
@@ -66,9 +76,11 @@ os/OSReboot.c:
 
 os/OSReset.c:
 	.text       start:0x80373B44 end:0x80373F28
+	.sbss       start:0x805D70A8 end:0x805D70B0
 
 os/OSResetSW.c:
 	.text       start:0x80373F28 end:0x803742B4
+	.sbss       start:0x805D70B0 end:0x805D70D0
 
 os/OSRtc.c:
 	.text       start:0x803742B4 end:0x80374CE0
@@ -87,9 +99,11 @@ os/__ppc_eabi_init.cpp:
 
 dvd/dvdqueue.c:
 	.text       start:0x8037ACD4 end:0x8037AECC
+	.bss        start:0x80544758 end:0x80544778
 
 dvd/dvderror.c:
 	.text       start:0x8037AECC end:0x8037B064
+	.data       start:0x804F4748 end:0x804F4790
 
 dvd/fstload.c:
 	.text       start:0x8037B064 end:0x8037B2A4
@@ -97,11 +111,19 @@ dvd/fstload.c:
 gx/GXInit.c:
 	.text       start:0x80387A4C end:0x80388B3C
 
+gx/GXGeometry.c:
+	.text       start:0x8038A3C8 end:0x8038A7A8
+
+gx/GXTev.c:
+	.text       start:0x8038D51C end:0x8038DDF8
+	.data       start:0x804F52D0 end:0x804F52F8
+
 TRK_MINNOW_DOLPHIN/mainloop.c:
 	.text       start:0x8038F7D8 end:0x8038F8D0
 
 TRK_MINNOW_DOLPHIN/nubevent.c:
 	.text       start:0x8038F8D0 end:0x8038FAF8
+	.bss        start:0x80545138 end:0x80545160
 
 TRK_MINNOW_DOLPHIN/nubinit.c:
 	.text       start:0x8038FAF8 end:0x8038FC78
@@ -111,18 +133,25 @@ TRK_MINNOW_DOLPHIN/msgbuf.c:
 
 TRK_MINNOW_DOLPHIN/serpoll.c:
 	.text       start:0x80390880 end:0x80390C4C
+	.bss        start:0x80546B18 end:0x80546B30
 
 TRK_MINNOW_DOLPHIN/usr_put.c:
 	.text       start:0x80390C4C end:0x80390CD8
 
 TRK_MINNOW_DOLPHIN/dispatch.c:
 	.text       start:0x80390CD8 end:0x80390D74
+	.data       start:0x804F5408 end:0x804F5490
+	.bss        start:0x80546B30 end:0x80546B38
+
+TRK_MINNOW_DOLPHIN/mutex_TRK.c:
+	.text       start:0x80393E94 end:0x80393EAC
 
 TRK_MINNOW_DOLPHIN/mpc_7xx_603e.c:
 	.text       start:0x80395A70 end:0x80395DE8
 
 TRK_MINNOW_DOLPHIN/main_TRK.c:
 	.text       start:0x80395DE8 end:0x80395E2C
+	.bss        start:0x805470C8 end:0x805470CC
 
 TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c:
 	.text       start:0x80395E2C end:0x803962D8
@@ -139,12 +168,17 @@ PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c:
 
 PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp:
 	.text       start:0x80397334 end:0x8039739C
+	.bss        start:0x80549300 end:0x8054930C
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c:
 	.text       start:0x80397454 end:0x80397520
+	.bss        start:0x80549310 end:0x80549410
+	.sbss       start:0x805D7318 end:0x805D7328
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c:
 	.text       start:0x80397A88 end:0x80397B90
+	.data       start:0x804F5558 end:0x804F5698
+	.bss        start:0x80549448 end:0x80549748
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c:
 	.text       start:0x8039980C end:0x80399904
@@ -152,14 +186,21 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c:
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/direct_io.c:
 	.text       start:0x80399964 end:0x80399C90
 
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/file_io.c:
+	.text       start:0x80399C90 end:0x80399E88
+
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c:
 	.text       start:0x80399E88 end:0x8039A154
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c:
 	.text       start:0x8039A154 end:0x8039A298
+	.sdata2     start:0x805E05C8 end:0x805E05CC
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c:
 	.text       start:0x8039A4C4 end:0x8039A634
+
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem_funcs.c:
+	.text       start:0x8039A634 end:0x8039A914
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c:
 	.text       start:0x8039A914 end:0x8039A924
