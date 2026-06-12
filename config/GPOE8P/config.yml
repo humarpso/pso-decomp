@@ -6,15 +6,11 @@ splits: config/GPOE8P/splits.txt
 symbols: config/GPOE8P/symbols.txt
 quick_analysis: true
 symbols_known: false
-fill_gaps: false
+# fill_gaps MUST be true: with false, dtk drops bytes not covered by symbols
+# during extraction, sections shrink, and the relinked DOL no longer matches.
+fill_gaps: true
 mw_comment_version: 10
 
 force_active: [
   InitMetroTRK,
 ]
-
-# Workaround for dtk "Unpaired epilogue" bug at .text:0x80035698
-# See https://github.com/encounter/decomp-toolkit/issues/140
-skip_cfa_ranges:
-- start: .text:0x80035690
-  end: .text:0x800356A4

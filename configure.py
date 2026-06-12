@@ -197,6 +197,9 @@ if args.target == "psov3":
 else:
     config.config_path = Path("config") / config.version / "config.yml"
     config.check_sha_path = Path("config") / config.version / "build.sha1"
+    # Separate output namespace (build/GPOE8P-main/) so switching targets
+    # doesn't clobber the psov3 target's split/obj artifacts.
+    config.version = f"{config.version}-main"
 
 # ---------------------------------------------------------------------------
 # Assembler flags

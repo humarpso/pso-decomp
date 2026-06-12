@@ -28014,6 +28014,7 @@ fn_8042E7B8 = .text:0x8042E7B8; // type:function size:0x94
 fn_8042E84C = .text:0x8042E84C; // type:function size:0x6C
 fn_8042E8B8 = .text:0x8042E8B8; // type:function size:0xC
 fn_8042E8C4 = .text:0x8042E8C4; // type:function size:0x138
+fn_8042E9FC = .text:0x8042E9FC; // type:function size:0x14
 fn_8042EA10 = .text:0x8042EA10; // type:function size:0xC4
 fn_8042EAD4 = .text:0x8042EAD4; // type:function size:0xD0
 fn_8042EBA4 = .text:0x8042EBA4; // type:function size:0x70
