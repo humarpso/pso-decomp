@@ -13,6 +13,25 @@ Sections:
 	.sdata2     type:rodata align:8
 	.sbss2      type:bss align:16
 
+pso/TSocket.cpp:
+	.text       start:0x80078C6C end:0x800790F0
+
+pso/PSOV3EncryptionTCP.cpp:
+	.text       start:0x8007BF8C end:0x8007C0CC
+
+pso/THeap.cpp:
+	.text       start:0x8014106C end:0x80141290
+
+pso/TProtocol.cpp:
+	.text       start:0x801DCB40 end:0x801DEEEC
+
+pso/TMainTask.cpp:
+	.text       start:0x80229890 end:0x8022A564
+
+pso/TObject.cpp:
+	.text       start:0x8022A618 end:0x8022ACA8
+	.ctors      start:0x80433FAC end:0x80433FB0
+
 pso/PSOV3Encryption.cpp:
 	.text       start:0x8036AC14 end:0x8036AE2C
 
@@ -143,6 +162,11 @@ TRK_MINNOW_DOLPHIN/dispatch.c:
 	.data       start:0x804F5408 end:0x804F5490
 	.bss        start:0x80546B30 end:0x80546B38
 
+TRK_MINNOW_DOLPHIN/msghndlr.c:
+	.text       start:0x80390D74 end:0x803935D4
+	.data       start:0x804F5490 end:0x804F54C8
+	.bss        start:0x80546B38 end:0x80546B40
+
 TRK_MINNOW_DOLPHIN/mutex_TRK.c:
 	.text       start:0x80393E94 end:0x80393EAC
 
@@ -158,6 +182,9 @@ TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c:
 
 TRK_MINNOW_DOLPHIN/targcont.c:
 	.text       start:0x803962D8 end:0x8039630C
+
+TRK_MINNOW_DOLPHIN/mslsupp.c:
+	.text       start:0x803963AC end:0x80396524
 
 PowerPC_EABI_Support/Runtime/Src/__va_arg.c:
 	.text       start:0x80396524 end:0x803965EC

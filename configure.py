@@ -407,6 +407,12 @@ if args.target == "psov3":
             "progress_category": "game",
             "src_dir": "src",
             "objects": [
+                NonMatching("pso/TSocket.cpp"),
+                NonMatching("pso/PSOV3EncryptionTCP.cpp"),
+                NonMatching("pso/THeap.cpp"),
+                NonMatching("pso/TProtocol.cpp"),
+                NonMatching("pso/TMainTask.cpp"),
+                NonMatching("pso/TObject.cpp"),
                 NonMatching("pso/PSOV3Encryption.cpp"),
             ],
         },
@@ -500,6 +506,7 @@ if args.target == "psov3":
                 Matching("TRK_MINNOW_DOLPHIN/nubevent.c"),
                 NonMatching("TRK_MINNOW_DOLPHIN/nubinit.c"),
                 NonMatching("TRK_MINNOW_DOLPHIN/msgbuf.c"),
+                Matching("TRK_MINNOW_DOLPHIN/msghndlr.c"),
                 Matching("TRK_MINNOW_DOLPHIN/serpoll.c"),
                 Matching("TRK_MINNOW_DOLPHIN/usr_put.c"),
                 Matching("TRK_MINNOW_DOLPHIN/dispatch.c"),
@@ -508,6 +515,7 @@ if args.target == "psov3":
                 NonMatching("TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c"),
                 Matching("TRK_MINNOW_DOLPHIN/targcont.c"),
                 Matching("TRK_MINNOW_DOLPHIN/mutex_TRK.c"),
+                Matching("TRK_MINNOW_DOLPHIN/mslsupp.c"),
             ],
         ),
         RuntimeLib(
