@@ -147,6 +147,9 @@ TRK_MINNOW_DOLPHIN/nubevent.c:
 TRK_MINNOW_DOLPHIN/nubinit.c:
 	.text       start:0x8038FAF8 end:0x8038FC78
 
+TRK_MINNOW_DOLPHIN/msg.c:
+	.text       start:0x8038FC78 end:0x8038FE54
+
 TRK_MINNOW_DOLPHIN/msgbuf.c:
 	.text       start:0x8038FE54 end:0x80390880
 
@@ -182,6 +185,9 @@ TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c:
 
 TRK_MINNOW_DOLPHIN/targcont.c:
 	.text       start:0x803962D8 end:0x8039630C
+
+TRK_MINNOW_DOLPHIN/target_options.c:
+	.text       start:0x8039630C end:0x80396328
 
 TRK_MINNOW_DOLPHIN/mslsupp.c:
 	.text       start:0x803963AC end:0x80396524

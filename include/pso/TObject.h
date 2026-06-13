@@ -61,7 +61,7 @@ class TObject {
         } else { \
             TObject *child = parent->m_down; \
             if (child != NULL) { \
-                m_prev = child->m_next; \
+                m_prev = child->m_prev; \
                 m_next = NULL; \
                 child->m_prev->m_next = this; \
                 child->m_prev = this; \
