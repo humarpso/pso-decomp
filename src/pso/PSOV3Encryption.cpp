@@ -27,7 +27,7 @@ void PSOV3Encryption::update_stream() {
 
 void PSOV3Encryption::init(u32 seed) {
 	const size_t size = (sizeof(m_buffer)/sizeof(*m_buffer))-1;
-	m_buffer_end = &m_buffer[size+1];
+	m_buffer_end = &m_buffer[size];
 	m_buffer_start = m_buffer;
 	u32 value = 0;
 
