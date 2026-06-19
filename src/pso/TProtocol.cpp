@@ -632,6 +632,7 @@ void TProtocol::recv_port(packet &pkt) {
 	new_port = tmp.port;
 
 	close();
+	m_is_encrypted = false;
 	m_connected = false;
 	m_packet_offset = 0;
 	m_packet_size = 0;

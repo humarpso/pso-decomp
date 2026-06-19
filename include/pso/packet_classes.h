@@ -149,20 +149,26 @@ public:
     };
 };
 
+class TGenGuildCardTag {
+public:
+    u8 tag0;
+    u8 tag1;
+    u16 tag2;
+    u32 guildcard_number;
+public:
+    TGenGuildCardTag() {};
+
+    void bswap() {
+        bswap_32(&guildcard_number);
+        bswap_16(&tag2);
+    };
+};
+
 class TRecvGenerateID {
 public:
     packet_header header;
     u32 client_id;
-    struct {
-        u8 tag0;
-        u8 tag1;
-        u16 tag2;
-        u32 guildcard_number;
-        void bswap() {
-            bswap_32(&guildcard_number);
-            bswap_16(&tag2);
-        };
-    } tag;
+    TGenGuildCardTag tag;
 public:
     void bswap() {
         header.bswap();
