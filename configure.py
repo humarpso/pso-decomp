@@ -420,6 +420,7 @@ if args.target == "psov3":
             "src_dir": "src",
             "objects": [
                 NonMatching("pso/TSocket.cpp"),
+                NonMatching("pso/TTcpSocket.cpp"),
                 NonMatching("pso/PSOV3EncryptionTCP.cpp"),
                 NonMatching("pso/THeap.cpp"),
                 NonMatching("pso/TProtocol.cpp"),
