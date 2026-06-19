@@ -424,6 +424,8 @@ if args.target == "psov3":
                 NonMatching("pso/PSOV3EncryptionTCP.cpp"),
                 NonMatching("pso/THeap.cpp"),
                 NonMatching("pso/TProtocol.cpp"),
+                NonMatching("pso/pso_vec.cpp"),
+                NonMatching("pso/pso_date.cpp"),
                 NonMatching("pso/TMainTask.cpp"),
                 NonMatching("pso/TObject.cpp"),
                 NonMatching("pso/PSOV3Encryption.cpp"),

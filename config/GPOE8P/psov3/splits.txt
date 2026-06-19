@@ -13,6 +13,9 @@ Sections:
 	.sdata2     type:rodata align:8
 	.sbss2      type:bss align:16
 
+pso/pso_vec.cpp:
+	.text       start:0x8001922C end:0x80019248
+
 pso/TTcpSocket.cpp:
 	.text       start:0x80078490 end:0x80078C6C
 
@@ -27,6 +30,9 @@ pso/THeap.cpp:
 
 pso/TProtocol.cpp:
 	.text       start:0x801DCB40 end:0x801DEEEC
+
+pso/pso_date.cpp:
+	.text       start:0x801E2BD4 end:0x801E2C50
 
 pso/TMainTask.cpp:
 	.text       start:0x80229890 end:0x8022A564
