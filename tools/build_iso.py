@@ -6,10 +6,10 @@ Rebuilds the original Phantasy Star Online Episode I & II Plus ISO
 from the decompiled/recompiled DOL and original game files.
 
 Usage:
-    python tools/build_iso.py build              # Build ISO from current DOL
-    python tools/build_iso.py verify             # Verify built ISO against original
-    python tools/build_iso.py check-dol          # Quick DOL-only hash check
-    python tools/build_iso.py compare-sections   # Section-by-section comparison
+    python tools/build_iso.py build [--target psov3|main]
+    python tools/build_iso.py verify
+    python tools/build_iso.py check-dol [--target psov3|main]
+    python tools/build_iso.py compare-sections [--target psov3|main]
 """
 
 import argparse
@@ -26,8 +26,24 @@ ORIG_DIR = ROOT / "orig" / "GPOE8P" / "P-GPOE"
 BUILD_DIR = ROOT / "build" / "GPOE8P"
 
 # Known hashes
-EXPECTED_DOL_SHA1 = "5f74659ed8968974ad3d334c4f22843800357dfe"
 EXPECTED_ISO_SHA1 = "0ff155311f4cc57951c03baeb1a8cc15de5fe1cd"
+
+TARGETS = {
+    "psov3": {
+        "relative_path": Path("files/PsoV3.dol"),
+        "build_path": BUILD_DIR / "psov3.dol",
+        "sha1": "0d85744b51d7379efb025a943d0cd5aaae2191a3",
+    },
+    "main": {
+        "relative_path": Path("sys/main.dol"),
+        "build_path": BUILD_DIR.parent / "GPOE8P-main" / "pso.dol",
+        "sha1": "5f74659ed8968974ad3d334c4f22843800357dfe",
+    },
+}
+
+
+def target_info(args):
+    return TARGETS[args.target]
 
 
 def sha1_file(path: Path) -> str:
@@ -91,8 +107,9 @@ def parse_dol_header(path: Path) -> dict:
 
 def cmd_check_dol(args):
     """Quick DOL hash check."""
-    built_dol = BUILD_DIR / "main.dol"
-    orig_dol = ORIG_DIR / "sys" / "main.dol"
+    target = target_info(args)
+    built_dol = target["build_path"]
+    orig_dol = ORIG_DIR / target["relative_path"]
 
     if not orig_dol.exists():
         print(f"ERROR: Original DOL not found at {orig_dol}")
@@ -100,7 +117,7 @@ def cmd_check_dol(args):
 
     orig_hash = sha1_file(orig_dol)
     print(f"Original DOL SHA1: {orig_hash}")
-    assert orig_hash == EXPECTED_DOL_SHA1, "Original DOL hash mismatch!"
+    assert orig_hash == target["sha1"], "Original DOL hash mismatch!"
 
     if not built_dol.exists():
         print(f"Built DOL not found at {built_dol}")
@@ -110,7 +127,7 @@ def cmd_check_dol(args):
     built_hash = sha1_file(built_dol)
     print(f"Built DOL SHA1:    {built_hash}")
 
-    if built_hash == EXPECTED_DOL_SHA1:
+    if built_hash == target["sha1"]:
         print("\nMATCH! Built DOL is byte-identical to original.")
         return 0
     else:
@@ -121,8 +138,9 @@ def cmd_check_dol(args):
 
 def cmd_compare_sections(args):
     """Section-by-section comparison between built and original DOL."""
-    built_dol = BUILD_DIR / "main.dol"
-    orig_dol = ORIG_DIR / "sys" / "main.dol"
+    target = target_info(args)
+    built_dol = target["build_path"]
+    orig_dol = ORIG_DIR / target["relative_path"]
 
     if not orig_dol.exists():
         print(f"ERROR: Original DOL not found at {orig_dol}")
@@ -207,11 +225,14 @@ def cmd_compare_sections(args):
 
 def cmd_build(args):
     """Build ISO from decompiled DOL + original game files."""
-    built_dol = BUILD_DIR / "main.dol"
+    target = target_info(args)
+    built_dol = target["build_path"]
 
     if not built_dol.exists():
-        print("No built DOL found. Running ninja first...")
-        result = subprocess.run(["ninja"], cwd=ROOT)
+        print("No built DOL found. Configuring and running ninja first...")
+        result = subprocess.run([sys.executable, "configure.py", "--target", args.target], cwd=ROOT)
+        if result.returncode == 0:
+            result = subprocess.run(["ninja"], cwd=ROOT)
         if result.returncode != 0:
             print("Build failed!")
             return 1
@@ -244,8 +265,9 @@ def cmd_build(args):
     # Copy original structure
     shutil.copytree(ORIG_DIR, stage_dir)
 
-    # Replace DOL with built version
-    stage_dol = stage_dir / "sys" / "main.dol"
+    # Replace only the selected executable. Every other DOL, REL, and asset
+    # remains the exact file copied from the legal original extraction.
+    stage_dol = stage_dir / target["relative_path"]
     shutil.copy2(built_dol, stage_dol)
     print(f"Replaced DOL: {sha1_file(stage_dol)}")
 
@@ -274,7 +296,7 @@ def cmd_build(args):
     else:
         print(f"\nISO mismatch (expected {EXPECTED_ISO_SHA1})")
         dol_hash = sha1_file(stage_dol)
-        if dol_hash != EXPECTED_DOL_SHA1:
+        if dol_hash != target["sha1"]:
             print("DOL doesn't match yet - this is expected during development")
         return 1
 
@@ -305,10 +327,13 @@ def main():
     )
     sub = parser.add_subparsers(dest="command")
 
-    sub.add_parser("build", help="Build ISO from decompiled DOL")
+    build = sub.add_parser("build", help="Build ISO from selected DOL and pass-through disc files")
     sub.add_parser("verify", help="Verify built ISO against original")
-    sub.add_parser("check-dol", help="Quick DOL hash check")
-    sub.add_parser("compare-sections", help="Section-by-section comparison")
+    check = sub.add_parser("check-dol", help="Quick selected-DOL hash check")
+    compare = sub.add_parser("compare-sections", help="Compare selected-DOL sections")
+    for command in (build, check, compare):
+        command.add_argument("--target", choices=TARGETS, default="psov3",
+                             help="executable to replace/check (default: psov3)")
 
     args = parser.parse_args()
 

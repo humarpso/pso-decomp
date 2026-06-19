@@ -173,9 +173,9 @@ if not is_windows():
 if not config.non_matching:
     config.asm_dir = None
 
-# Most PSO "REL" modules are raw data files, not actual relocatable modules.
-# Disable REL building until proper REL modules (movie.rel, QtOffChallenge.rel)
-# are analyzed and split from the data-only files.
+# PSO uses `.rel` as a generic data-file extension. `movie.rel` is the only
+# verified standard CodeWarrior REL module; it needs its own non-empty module
+# config, symbols, splits, and source plan before enabling REL linking.
 config.build_rels = False
 
 # ---------------------------------------------------------------------------
@@ -388,7 +388,7 @@ def TRKLib(lib_name: str, objects: list) -> dict:
 # End state: one object per real TU — the
 # auto_* placeholder units shrink to zero as TUs are broken out.
 # SDK TU boundaries can be transferred from tp and ac-decomp
-# instead of discovered. See WORKFLOW.md Section 4b for the roadmap.
+# instead of discovered. See WORKFLOW.md's SDK/runtime loop for the process.
 # ===================================================================
 
 if args.target == "psov3":
@@ -431,7 +431,7 @@ if args.target == "psov3":
         # ------------------------------------------------------------------
         # PsoV3.dol — Embedded Dolphin SDK copy.
         # TU boundaries transferred from the tp and ac-decomp donors
-        # (see WORKFLOW.md Section 4b). Source lives in libs/dolphin/src.
+        # (see WORKFLOW.md's SDK/runtime loop). Source lives in libs/dolphin/src.
         # ------------------------------------------------------------------
         DolphinLib(
             "base",
