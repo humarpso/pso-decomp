@@ -34,6 +34,9 @@
 #define DISALLOW_OR_ALLOW_CHILD(flags, old_flags, flag_name) \
     X_OR_Y_CHILD(flags, old_flags, allow, disallow, flag_name)
 
+#define ALLOW_OR_DISALLOW_CHILD(flags, old_flags, flag_name) \
+    X_OR_Y_CHILD(flags, old_flags, disallow, allow, flag_name)
+
 #define o(var, name) extern const char *var##_name;
 TL_OBJECTS
 #undef o

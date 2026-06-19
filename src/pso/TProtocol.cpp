@@ -460,7 +460,7 @@ int TProtocol::send_login3() {
 	return ret;
 }
 
-void TProtocol::send_login2(int disable_udp) {
+int TProtocol::send_login2(int disable_udp) {
 	m_udp_disabled = disable_udp;
 	TRegister tmp;
 
@@ -476,6 +476,7 @@ void TProtocol::send_login2(int disable_udp) {
 
 	tmp.bswap();
 	send(as(u8 *, &tmp), sizeof(tmp));
+	return 0;
 }
 
 void TProtocol::send_regist() {
@@ -757,7 +758,7 @@ void TProtocol::recv_start_game(packet &pkt) {
 
 	lobby_entry_idx = -1;
 	for (int i = 0; i < tmp.header.flags && i < 4; ++i) {
-		if (tmp.lobby_data[i].tag == m_guildcard_tag) {
+		if ((tmp.lobby_data[i].tag == m_guildcard_tag) == 1) {
 			lobby_entry_idx = i;
 		}
 	}
@@ -1051,7 +1052,7 @@ TProtocol::TProtocol(TObject *parent, u16 sub_version, int language, char *seria
 
 	copy(serial_number);
 	copy(access_key);
-	copy(password);
+	strncpy(m_password, password, sizeof(m_serial_number));
 
 	fill_with(client_config, 0);
 

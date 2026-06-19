@@ -91,7 +91,7 @@ void TMainTask::run_tl_camera_tasks() {
 }
 
 void TMainTask::render() {
-    DISALLOW_OR_ALLOW_CHILD(render_flags, old_render_flags, rendering);
+    ALLOW_OR_DISALLOW_CHILD(render_flags, old_render_flags, rendering);
     task_flags |= 2;
     some_main_task_flag = 0;
     render_geometry();
@@ -255,7 +255,7 @@ void TMainTask::render_shadows() {
     camera_stuff();
     DISALLOW_OR_ALLOW_CHILD(render_shadow_flags, old_render_shadow_flags, rendering_shadows);
 
-    set_depth_buffer_settings_2();
+    set_depth_buffer_settings_3();
     set_depth_buffer_settings_id(1);
     save_depth_buffer_settings();
 

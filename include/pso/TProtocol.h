@@ -254,7 +254,7 @@ public:
     void recv_pso_regist_check(packet &pkt);
 
     void send_regist();
-    void send_login2(int disable_udp);
+    int send_login2(int disable_udp);
     int send_login3();
     void send_logout();
     void send_chat(TPlyGuildCardTag &tag, char *mesg);
