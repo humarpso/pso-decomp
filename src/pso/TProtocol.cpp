@@ -951,15 +951,16 @@ void TProtocol::parse_packet() {
 			if (m_is_encrypted) {
 				m_recv_crypt.encrypt(&m_packet.pkt.header, sizeof(packet_header));
 			}
+			const int &packet_size = m_packet_size = to_be_uint16_t(m_packet.pkt.header.size);
+			if (packet_size > max_packet_size || !packet_size) {
+				m_packet_size = 0;
+				m_packet_offset = 0;
+				m_is_invalid_packet = true;
+				break;
+			}
 		}
 
-		const int &packet_size = m_packet_size = to_be_uint16_t(m_packet.pkt.header.size);
-		if (packet_size > max_packet_size || !packet_size) {
-			m_packet_size = 0;
-			m_packet_offset = 0;
-			m_is_invalid_packet = true;
-			break;
-		} else if (m_packet_size > 0 && m_packet_offset >= m_packet_size) {
+		if (m_packet_size > 0 && m_packet_offset >= m_packet_size) {
 			if (m_is_encrypted) {
 				m_recv_crypt.encrypt(&m_packet.pkt.data, m_packet_size-sizeof(packet_header));
 			}
