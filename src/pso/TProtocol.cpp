@@ -622,6 +622,24 @@ void TProtocol::recv_battle_data(packet &pkt) {
 };
 
 void TProtocol::seq_jump(u8 *some_struct, TPlyMeetUserExtension &extension) {
+	TRecvPort *port_info = (TRecvPort *)some_struct;
+
+	new_ip_addr = port_info->ip_addr;
+	new_port = port_info->port;
+	meet_user_settings = extension;
+
+	close();
+	m_is_encrypted = false;
+	m_connected = false;
+	m_has_meet_user_settings = true;
+	m_packet_offset = 0;
+	m_packet_size = 0;
+
+	if (send_login3()) {
+		m_is_invalid_packet = true;
+	} else {
+		recv();
+	}
 }
 
 void TProtocol::recv_port(packet &pkt) {
@@ -933,7 +951,7 @@ int TProtocol::handle_command(struct packet *pkt) {
 		{ 0xD5, &recv_text },
 		{ 0, nullptr }
 	};
-	for (int i = 0; !handlers[i].command; ++i) {
+	for (int i = 0; handlers[i].command; ++i) {
 		if (pkt->pkt.header.command == handlers[i].command) {
 			(this->*handlers[i].handler)(*pkt);
 			return 0;
