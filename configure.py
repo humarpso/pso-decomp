@@ -263,6 +263,18 @@ cflags_pso = [
     "-i libs/dolphin/include/dolphin",  # for "types.h" includes inside SDK headers
     "-char signed",
     "-use_lmw_stmw on",
+    # Sega's game code was built optimize-for-SIZE, not speed: the original
+    # uses stmw/lmw register save-restore and un-scheduled prologues. -O4,s
+    # reproduces that (verified via locate_func masked scan, 2026-06-12).
+    # Overrides cflags_base's -O4,p for game TUs only (MWCC: last -O wins);
+    # SDK/runtime keep their own optimization via cflags_dolphin/runtime.
+    "-O4,s",
+    # ...and with auto-inlining OFF. The original keeps operator new/delete,
+    # accessors, etc. as real out-of-line calls. Switching -inline auto ->
+    # off took locate_func FOUND counts from 6->83 (TProtocol), 2->16
+    # (TMainTask), 5->13 (TObject) with zero regressions (2026-06-12).
+    # Overrides cflags_base's -inline auto for game TUs only (last wins).
+    "-inline off",
 ]
 
 # Dolphin SDK library flags
