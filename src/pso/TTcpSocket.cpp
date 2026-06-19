@@ -122,8 +122,8 @@ short TTcpSocket::send(u8 *data, size_t size) {
 							m_is_invalid_packet |= 1;
 							log(get_sock_status_name(ret));
 							close();
-							return ret;
 						}
+						return ret;
 					}
 				}
 			}
