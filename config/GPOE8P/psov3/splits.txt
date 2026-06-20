@@ -37,6 +37,9 @@ pso/pso_const_ids6.cpp:
 pso/TItemEffBringer.cpp:
 	.text       start:0x80108254 end:0x8010834C
 
+pso/TItemEffLavis.cpp:
+	.text       start:0x80109670 end:0x801096CC
+
 pso/TItemShoot.cpp:
 	.text       start:0x8011BB2C end:0x8011BC48
 
