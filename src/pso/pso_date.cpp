@@ -12,6 +12,19 @@ struct DateStamp {
     u8 _pad;
 };
 
+void DateToSeconds(DateStamp* date, int* out) {
+    int cumdays[12] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
+    int y = date->year - 2000;
+    int days = y * 365 + (u32)(y + 2) / 4;
+    if (((y + 2) & 3) == 0 && date->month <= 2) {
+        days -= 1;
+    }
+    days += cumdays[date->month - 1];
+    days += date->day;
+    days -= 1;
+    *out = ((days * 24 + date->hour) * 60 + date->minute) * 60 + date->second;
+}
+
 int getDateStamp(DateStamp* out) {
     OSCalendarTime cal;
     OSTicksToCalendarTime(OSGetTime(), &cal);

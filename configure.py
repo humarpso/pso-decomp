@@ -425,6 +425,7 @@ if args.target == "psov3":
                 NonMatching("pso/THeap.cpp"),
                 NonMatching("pso/TProtocol.cpp"),
                 NonMatching("pso/pso_vec.cpp"),
+                NonMatching("pso/obj_band.cpp"),
                 NonMatching("pso/pso_date.cpp"),
                 NonMatching("pso/TMainTask.cpp"),
                 NonMatching("pso/TObject.cpp"),
