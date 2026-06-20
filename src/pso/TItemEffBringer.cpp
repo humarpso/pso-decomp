@@ -1,7 +1,7 @@
 #include "pso/TItemEffBringer.h"
 
-extern "C" void  fn_8011BC48(TItemEffBringer*);
-extern "C" void* fn_8011BBDC(TItemEffBringer*, int);
+extern "C" void  __ct__10TItemShootFv(TItemEffBringer*);
+extern "C" void* __dt__10TItemShootFv(TItemEffBringer*, int);
 extern "C" void  fn_80086C44(s32);
 extern "C" void  fn_8022A5C8(TItemEffBringer*);
 extern "C" void  fn_80087350(void*, int);
@@ -23,7 +23,7 @@ void* TItemEffBringer_dt(TItemEffBringer* self, int free) {
         for (int i = 0; i < self->m_count; i++) {
             fn_80086C44(self->m_particles[i]);
         }
-        fn_8011BBDC(self, 0);
+        __dt__10TItemShootFv(self, 0);
         if ((s16)free > 0) {
             fn_8022A5C8(self);
         }

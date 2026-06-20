@@ -430,6 +430,7 @@ if args.target == "psov3":
                 NonMatching("pso/TMainTask.cpp"),
                 NonMatching("pso/TObject.cpp"),
                 NonMatching("pso/PSOV3Encryption.cpp"),
+                NonMatching("pso/TItemShoot.cpp"),
             ],
         },
         # ------------------------------------------------------------------
