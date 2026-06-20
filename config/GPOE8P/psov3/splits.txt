@@ -28,6 +28,12 @@ pso/PSOV3EncryptionTCP.cpp:
 pso/TItemShoot.cpp:
 	.text       start:0x8011BB2C end:0x8011BC48
 
+pso/item_param.cpp:
+	.text       start:0x8011CC58 end:0x8011CDC4
+
+pso/item_pmt.cpp:
+	.text       start:0x8011CDC4 end:0x8011CEC0
+
 pso/THeap.cpp:
 	.text       start:0x8014106C end:0x80141290
 
