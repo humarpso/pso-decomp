@@ -19,6 +19,9 @@ pso/pso_vec.cpp:
 pso/pso_obj_accessors.cpp:
 	.text       start:0x800192F4 end:0x800193D0
 
+pso/pso_obj_flags.cpp:
+	.text       start:0x80019598 end:0x800195D8
+
 pso/TTcpSocket.cpp:
 	.text       start:0x80078490 end:0x80078C6C
 
@@ -27,6 +30,9 @@ pso/TSocket.cpp:
 
 pso/PSOV3EncryptionTCP.cpp:
 	.text       start:0x8007BF8C end:0x8007C0CC
+
+pso/pso_const_ids6.cpp:
+	.text       start:0x8010064C end:0x80100674
 
 pso/TItemEffBringer.cpp:
 	.text       start:0x80108254 end:0x8010834C
@@ -46,6 +52,18 @@ pso/THeap.cpp:
 pso/obj_band.cpp:
 	.text       start:0x80142E98 end:0x80142EEC
 
+pso/pso_const_ids7.cpp:
+	.text       start:0x8017B878 end:0x8017B8A0
+
+pso/pso_const_ids5.cpp:
+	.text       start:0x801C0064 end:0x801C00C4
+
+pso/pso_const_ids2.cpp:
+	.text       start:0x801D269C end:0x801D281C
+
+pso/pso_const_ids4.cpp:
+	.text       start:0x801D78E4 end:0x801D7964
+
 pso/TProtocol.cpp:
 	.text       start:0x801DCB40 end:0x801DEEEC
 
@@ -59,6 +77,12 @@ pso/TMainTask.cpp:
 pso/TObject.cpp:
 	.text       start:0x8022A618 end:0x8022ACA8
 	.ctors      start:0x80433FAC end:0x80433FB0
+
+pso/pso_const_ids3.cpp:
+	.text       start:0x802A7798 end:0x802A7848
+
+pso/pso_const_ids.cpp:
+	.text       start:0x80329478 end:0x80329600
 
 pso/PSOV3Encryption.cpp:
 	.text       start:0x8036AC14 end:0x8036AE2C
