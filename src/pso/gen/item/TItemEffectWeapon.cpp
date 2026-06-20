@@ -1,4 +1,4 @@
-#include "pso/TItemEffectWeapon.h"
+#include "pso/gen/item/TItemEffectWeapon.h"
 
 extern "C" void  fn_80364328(TItemEffectWeapon*);
 extern "C" void* fn_80115728(TItemEffectWeapon*, int);

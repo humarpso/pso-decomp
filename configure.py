@@ -394,19 +394,6 @@ def TRKLib(lib_name: str, objects: list) -> dict:
 if args.target == "psov3":
     config.libs = [
         # ------------------------------------------------------------------
-        # PsoV3.dol — Initialization code (.init section)
-        # ------------------------------------------------------------------
-        {
-            "lib": "psov3_init",
-            "mw_version": "GC/2.6",
-            "cflags": cflags_pso,
-            "progress_category": "runtime",
-            "src_dir": "src",
-            "objects": [
-                NonMatching("psov3_init.c"),
-            ],
-        },
-        # ------------------------------------------------------------------
         # PsoV3.dol — Game code.
         # Each object here MUST have a matching split in
         # config/GPOE8P/psov3/splits.txt (unit name == object path).
@@ -430,6 +417,7 @@ if args.target == "psov3":
                 NonMatching("pso/TMainTask.cpp"),
                 NonMatching("pso/TObject.cpp"),
                 NonMatching("pso/PSOV3Encryption.cpp"),
+                NonMatching("pso/TItemEffBringer.cpp"),
                 NonMatching("pso/TItemShoot.cpp"),
                 NonMatching("pso/item_pmt.cpp"),
                 NonMatching("pso/item_param.cpp"),

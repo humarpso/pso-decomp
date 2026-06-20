@@ -1,32 +1,19 @@
 #include "pso/TItemEffBringer.h"
 
-extern "C" void  __ct__10TItemShootFv(TItemEffBringer*);
-extern "C" void* __dt__10TItemShootFv(TItemEffBringer*, int);
-extern "C" void  fn_80086C44(s32);
-extern "C" void  fn_8022A5C8(TItemEffBringer*);
-extern "C" void  fn_80087350(void*, int);
-extern "C" void  fn_803D9370(void*, Vec*);
+extern "C" void fn_80087350(Vec*, int);
+extern "C" void fn_803D9370(Vec*, Vec*);
+extern "C" void fn_80086C44(s32);
 
-extern void* __vt__15TItemEffBringer[];
-
-void TItemEffBringer_step(TItemEffBringer* self) {
-    Vec local = self->m_vec1;
-    for (int i = 0; i < self->m_count; i++) {
-        fn_80087350(&local, 0x9c);
-        fn_803D9370(&local, &self->m_pos);
+void TItemEffBringer::hook() {
+    Vec work = this->m_pos;
+    for (int i = 0; i != this->m_particle_count; i++) {
+        fn_80087350(&work, 0x9C);
+        fn_803D9370(&work, &this->m_84);
     }
 }
 
-void* TItemEffBringer_dt(TItemEffBringer* self, int free) {
-    if (self != nullptr) {
-        self->m_vtable = __vt__15TItemEffBringer;
-        for (int i = 0; i < self->m_count; i++) {
-            fn_80086C44(self->m_particles[i]);
-        }
-        __dt__10TItemShootFv(self, 0);
-        if ((s16)free > 0) {
-            fn_8022A5C8(self);
-        }
+TItemEffBringer::~TItemEffBringer() {
+    for (int i = 0; i != this->m_particle_count; i++) {
+        fn_80086C44(this->m_particles[i]);
     }
-    return self;
 }
