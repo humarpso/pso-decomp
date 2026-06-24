@@ -13,6 +13,9 @@ Sections:
 	.sdata2     type:rodata align:8
 	.sbss2      type:bss align:16
 
+pso/pso_carve_8000feac.cpp:
+	.text       start:0x8000FEAC end:0x80010348
+
 pso/pso_vec.cpp:
 	.text       start:0x8001922C end:0x80019248
 
@@ -67,6 +70,12 @@ pso/pso_carve_8012105c.cpp:
 pso/pso_carve_8013def8.cpp:
 	.text       start:0x8013DEF8 end:0x8013E044
 
+pso/pso_carve_8013e134.cpp:
+	.text       start:0x8013E134 end:0x8013E240
+
+pso/pso_carve_8013e26c.cpp:
+	.text       start:0x8013E26C end:0x8013E2D4
+
 pso/pso_carve_8013e2e4.cpp:
 	.text       start:0x8013E2E4 end:0x8013EB34
 
@@ -112,6 +121,9 @@ pso/pso_carve_801bf460.cpp:
 pso/pso_carve_801bf6b0.cpp:
 	.text       start:0x801BF6B0 end:0x801BF964
 
+pso/pso_carve_801bffa0.cpp:
+	.text       start:0x801BFFA0 end:0x801C0064
+
 pso/pso_const_ids5.cpp:
 	.text       start:0x801C0064 end:0x801C00C4
 
@@ -126,6 +138,9 @@ pso/pso_carve_801c210c.cpp:
 
 pso/pso_carve_801c6f2c.cpp:
 	.text       start:0x801C6F2C end:0x801C6FF8
+
+pso/pso_carve_801d0d10.cpp:
+	.text       start:0x801D0D10 end:0x801D0F0C
 
 pso/pso_carve_801d0ff4.cpp:
 	.text       start:0x801D0FF4 end:0x801D1568
@@ -165,17 +180,29 @@ pso/TObject.cpp:
 	.text       start:0x8022A618 end:0x8022ACA8
 	.ctors      start:0x80433FAC end:0x80433FB0
 
+pso/pso_carve_802a5f60.cpp:
+	.text       start:0x802A5F60 end:0x802A6168
+
 pso/pso_const_ids3.cpp:
 	.text       start:0x802A7798 end:0x802A7848
 
+pso/pso_carve_802a7b8c.cpp:
+	.text       start:0x802A7B8C end:0x802A7BD8
+
 pso/pso_carve_802c4518.cpp:
 	.text       start:0x802C4518 end:0x802C47E8
+
+pso/pso_carve_80312e0c.cpp:
+	.text       start:0x80312E0C end:0x80313270
 
 pso/pso_const_ids.cpp:
 	.text       start:0x80329478 end:0x80329600
 
 pso/pso_carve_8032a154.cpp:
 	.text       start:0x8032A154 end:0x8032A1D0
+
+pso/pso_carve_80354f7c.cpp:
+	.text       start:0x80354F7C end:0x80355204
 
 pso/PSOV3Encryption.cpp:
 	.text       start:0x8036AC14 end:0x8036AE2C
