@@ -2,13 +2,15 @@
 
 extern "C" {
 
-int TObjEneBalClaw__vt28(void);
+void TObjEneBalClaw__vt59(void);
+void TObjEneBalClaw__vt57(void);
 void fn_8008DC04(void* p);
+void fn_8008DC14(void);
 
-int fn_8008DBF4(void) { return 0; }
-int fn_8008DBF8(void) { return 0; }
+void TObjEneBalClaw__vt59(void) {  }
+void TObjEneBalClaw__vt57(void) {  }
 int TObjEneBalClaw__vt28(void) { return 0; }
 void fn_8008DC04(void* p) { *(u32*)((char*)p + 0x388) &= 0xfffeffff; }
-int fn_8008DC14(void) { return 0; }
+void fn_8008DC14(void) {  }
 
 }

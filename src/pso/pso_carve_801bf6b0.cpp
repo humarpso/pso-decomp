@@ -21,6 +21,7 @@ int fn_801BF864(void* p);
 int fn_801BF888(void* p);
 int fn_801BF8AC(void* p);
 int fn_801BF8CC(void* p);
+void fn_801BF914(void);
 s16 fn_801BF92C(void* p);
 void* fn_801BF934(void* p);
 void fn_801BF93C(void* p, s16 v);
@@ -58,7 +59,7 @@ int fn_801BF8AC(void* p) { return fn_801BF8CC(p); }
 int fn_801BF8CC(void* p) { return fn_8001BF40(p); }
 int fn_801BF8EC(void) { return 0; }
 int fn_801BF8F8(void) { return 0; }
-int fn_801BF914(void) { return 0; }
+void fn_801BF914(void) {  }
 int fn_801BF918(void) { return 0; }
 s16 fn_801BF92C(void* p) { return *(s16*)((char*)p + 0x2); }
 void* fn_801BF934(void* p) { return (char*)p + 0xc; }

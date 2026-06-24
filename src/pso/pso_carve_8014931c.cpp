@@ -2,11 +2,12 @@
 
 extern "C" {
 
+void TObjNpcBase__vt86(void);
 void fn_80149358(void* p, s32 v);
 void fn_80149360(void* p, s32 v);
 void fn_80149368(void* p);
 
-int fn_8014931C(void) { return 0; }
+void TObjNpcBase__vt86(void) {  }
 int fn_80149320(void) { return 0; }
 void fn_80149358(void* p, s32 v) { *(s32*)((char*)p + 0x3ac) = v; }
 void fn_80149360(void* p, s32 v) { *(s32*)((char*)p + 0x3a8) = v; }

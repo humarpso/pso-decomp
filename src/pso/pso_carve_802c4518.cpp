@@ -15,6 +15,7 @@ void fn_802C46AC(void* p);
 int fn_802C46BC(void* p);
 int fn_802C46E0(void* p);
 int fn_802C4748(void* p);
+void TAdSelectGameModeGC__vt2(void);
 int fn_802C476C(void* p);
 int fn_801A2F7C(void*);
 int fn_801C1CA8(void*);
@@ -44,7 +45,7 @@ int fn_802C46E0(void* p) { return fn_801C1CA8(p); }
 int fn_802C4700(void) { return 0; }
 int fn_802C4724(void) { return 0; }
 int fn_802C4748(void* p) { return fn_802C4288(p); }
-int fn_802C4768(void) { return 0; }
+void TAdSelectGameModeGC__vt2(void) {  }
 int fn_802C476C(void* p) { return fn_801A2F7C(p); }
 int fn_802C478C(void) { return 0; }
 

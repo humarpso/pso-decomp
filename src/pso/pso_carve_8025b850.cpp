@@ -4,12 +4,13 @@ extern "C" {
 
 int fn_8025B850(void* p);
 s32 fn_8025B8C8(void* p);
+void fn_8025B928(void);
 
 int fn_8025B850(void* p) { return *(u16*)((char*)p + 0x0) & 0x4; }
 int fn_8025B85C(void) { return 0; }
 s32 fn_8025B8C8(void* p) { return *(s32*)((char*)p + 0x70); }
 int fn_8025B8D0(void) { return 0; }
-int fn_8025B928(void) { return 0; }
+void fn_8025B928(void) {  }
 int fn_8025B92C(void) { return 0; }
 int fn_8025B9D8(void) { return 0; }
 int fn_8025BA28(void) { return 0; }

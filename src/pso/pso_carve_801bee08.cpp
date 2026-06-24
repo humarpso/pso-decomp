@@ -4,6 +4,8 @@ extern "C" {
 
 void fn_801BEE24(void* p, s16 v);
 void fn_801BEE2C(void* p, s16 v);
+void fn_801BEEE0(void* p, void* q);
+void fn_801BEF30(void* p, void* q);
 void fn_801BEF60(void* p, s32 v);
 int fn_801BF014(void* p, int a1);
 int fn_801BF060(void* p, int a1);
@@ -28,9 +30,9 @@ void fn_801BEE2C(void* p, s16 v) { *(s16*)((char*)p + 0x2bc) = v; }
 int fn_801BEE34(void) { return 0; }
 int fn_801BEE68(void) { return 0; }
 int fn_801BEEAC(void) { return 0; }
-int fn_801BEEE0(void) { return 0; }
+void fn_801BEEE0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 int fn_801BEEEC(void) { return 0; }
-int fn_801BEF30(void) { return 0; }
+void fn_801BEF30(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 int fn_801BEF44(void) { return 0; }
 void fn_801BEF60(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }
 int fn_801BEF68(void) { return 0; }

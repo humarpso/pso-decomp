@@ -1,0 +1,13 @@
+#include "types.h"
+
+extern "C" {
+
+void fn_80070550(void);
+
+int fn_800703D0(void) { return 0; }
+int fn_800704CC(void) { return 0; }
+void fn_80070550(void) {  }
+int fn_80070554(void) { return 0; }
+int fn_80070598(void) { return 0; }
+
+}

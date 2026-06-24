@@ -2,6 +2,8 @@
 
 extern "C" {
 
+void fn_8012105C(void);
+void fn_80121060(void);
 u8 fn_80121064(void* p);
 void fn_8012106C(void* p, u32 v);
 void fn_8012107C(void* p, u32 v);
@@ -16,8 +18,8 @@ void* fn_80121178(void* p);
 int fn_80121180(void*);
 int fn_801D2F4C(void*);
 
-int fn_8012105C(void) { return 0; }
-int fn_80121060(void) { return 0; }
+void fn_8012105C(void) {  }
+void fn_80121060(void) {  }
 u8 fn_80121064(void* p) { return *(u8*)((char*)p + 0x1d3); }
 void fn_8012106C(void* p, u32 v) { *(u32*)((char*)p + 0x1b8) |= v; }
 void fn_8012107C(void* p, u32 v) { *(u32*)((char*)p + 0x1b8) &= ~v; }

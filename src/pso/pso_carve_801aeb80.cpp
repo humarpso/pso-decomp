@@ -1,0 +1,33 @@
+#include "types.h"
+
+extern "C" {
+
+void fn_801AEB80(void);
+int fn_801AF288(void);
+
+void fn_801AEB80(void) {  }
+int fn_801AEB84(void) { return 0; }
+int fn_801AEBE8(void) { return 0; }
+int fn_801AEC4C(void) { return 0; }
+int fn_801AECB0(void) { return 0; }
+int fn_801AED14(void) { return 0; }
+int fn_801AED78(void) { return 0; }
+int fn_801AEDC4(void) { return 0; }
+int fn_801AEE10(void) { return 0; }
+int fn_801AEE3C(void) { return 0; }
+int fn_801AEE84(void) { return 0; }
+int fn_801AEECC(void) { return 0; }
+int fn_801AEEF8(void) { return 0; }
+int fn_801AEF80(void) { return 0; }
+int fn_801AEFAC(void) { return 0; }
+int fn_801AEFFC(void) { return 0; }
+int fn_801AF03C(void) { return 0; }
+int fn_801AF078(void) { return 0; }
+int fn_801AF0C8(void) { return 0; }
+int fn_801AF118(void) { return 0; }
+int fn_801AF168(void) { return 0; }
+int fn_801AF1B8(void) { return 0; }
+int fn_801AF288(void) { return 199; }
+int fn_801AF290(void) { return 0; }
+
+}

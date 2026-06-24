@@ -1,0 +1,12 @@
+#include "types.h"
+
+extern "C" {
+
+s32 fn_803204B0(void* p);
+
+s32 fn_803204B0(void* p) { return *(s32*)((char*)p + 0x4); }
+int fn_803204B8(void) { return 0; }
+int fn_80320534(void) { return 0; }
+int fn_803205A0(void) { return 0; }
+
+}
