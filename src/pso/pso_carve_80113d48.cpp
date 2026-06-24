@@ -2,6 +2,7 @@
 
 extern "C" {
 
+void fn_80113D48(void* p, f32 v);
 int fn_80113D58(void* p);
 int fn_80113D84(void* p, u32 m);
 s16 fn_80113D90(void* p);
@@ -22,7 +23,7 @@ int fn_8010EE54(void*);
 int fn_8010EE68(void*);
 int fn_8010EE7C(void*);
 
-int fn_80113D48(void) { return 0; }
+void fn_80113D48(void* p, f32 v) { *(f32*)((char*)p + 0xc8) *= v; }
 int fn_80113D58(void* p) { return (fn_80113D84(p, 64)) == 0; }
 int fn_80113D84(void* p, u32 m) { return *(u32*)((char*)p + 0x64) & m; }
 s16 fn_80113D90(void* p) { return *(s16*)((char*)p + 0x19a); }

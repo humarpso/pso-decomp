@@ -7,6 +7,7 @@ s32 fn_801528E4(void* p);
 u16 fn_801528EC(void* p);
 s32 fn_80152978(void* p);
 s32 fn_80152980(void* p);
+void fn_801529AC(void* p, void* q);
 s32 fn_801529C8(void* p);
 void fn_801529D0(void* p);
 void fn_80152A30(void);
@@ -25,7 +26,7 @@ int fn_8015296C(void) { return 0; }
 s32 fn_80152978(void* p) { return *(s32*)((char*)p + 0x80); }
 s32 fn_80152980(void* p) { return *(s32*)((char*)p + 0x90); }
 int fn_80152988(void) { return 0; }
-int fn_801529AC(void) { return 0; }
+void fn_801529AC(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
 s32 fn_801529C8(void* p) { return *(s32*)((char*)p + 0x8c); }
 void fn_801529D0(void* p) { *(s32*)((char*)p + 0x8c) = 0; *(s32*)((char*)p + 0x90) = 0; }
 int fn_801529E0(void) { return 0; }

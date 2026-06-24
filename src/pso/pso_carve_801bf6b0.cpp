@@ -5,6 +5,7 @@ extern "C" {
 f32 fn_801BF6B0(void* p);
 void* fn_801BF6B8(void* p);
 void fn_801BF6C0(void* p, f32 v);
+void fn_801BF6C8(void* p, f32 a, f32 b);
 void fn_801BF6D4(void* p, s16 v);
 void fn_801BF6DC(void* p, s16 v);
 int fn_801BF6E4(void* p);
@@ -37,7 +38,7 @@ int fn_8013DF44(void*);
 f32 fn_801BF6B0(void* p) { return *(f32*)((char*)p + 0x8); }
 void* fn_801BF6B8(void* p) { return (char*)p + 0xc; }
 void fn_801BF6C0(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
-int fn_801BF6C8(void) { return 0; }
+void fn_801BF6C8(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xc) = a; *(f32*)((char*)p + 0x10) = b; }
 void fn_801BF6D4(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 void fn_801BF6DC(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 int fn_801BF6E4(void* p) { return fn_8013DF3C((char*)p + 0x4); }
