@@ -8,8 +8,6 @@ s32 fn_802A6054(void* p);
 void fn_802A6070(void* p, s32 v);
 void fn_802A6078(void* p, s32 v);
 int fn_802A6080(void);
-int TObjSuisoChip__vt6(void* p);
-int fn_801809B4(void*);
 
 int fn_802A5F60(void) { return 0; }
 int fn_802A5F94(void) { return 0; }
@@ -20,7 +18,7 @@ int fn_802A605C(void) { return 0; }
 void fn_802A6070(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void fn_802A6078(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 int fn_802A6080(void) { return 8; }
-int TObjSuisoChip__vt6(void* p) { return fn_801809B4(p); }
+int TObjSuisoChip__vt6(void) { return 0; }
 int fn_802A60A8(void) { return 0; }
 int fn_802A60CC(void) { return 0; }
 

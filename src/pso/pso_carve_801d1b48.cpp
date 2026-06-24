@@ -3,6 +3,10 @@
 extern "C" {
 
 void fn_801D2618(void* p, f32 v);
+void fn_801D2620(void* p);
+void fn_801D2630(void* p);
+int fn_801D2680(void* p);
+void fn_801D268C(void* p);
 
 int fn_801D1B48(void) { return 0; }
 int fn_801D1B7C(void) { return 0; }
@@ -51,11 +55,11 @@ int fn_801D24F4(void) { return 0; }
 int fn_801D2540(void) { return 0; }
 int fn_801D25AC(void) { return 0; }
 void fn_801D2618(void* p, f32 v) { *(f32*)((char*)p + 0xc0) = v; }
-int fn_801D2620(void) { return 0; }
-int fn_801D2630(void) { return 0; }
+void fn_801D2620(void* p) { *(u32*)((char*)p + 0xb0) |= 0x40; }
+void fn_801D2630(void* p) { *(u32*)((char*)p + 0xb0) &= 0xffffffbf; }
 int fn_801D2640(void) { return 0; }
 int fn_801D2658(void) { return 0; }
-int fn_801D2680(void) { return 0; }
-int fn_801D268C(void) { return 0; }
+int fn_801D2680(void* p) { return (*(u32*)((char*)p + 0xb0) >> 6) & 0x1; }
+void fn_801D268C(void* p) { *(u32*)((char*)p + 0xb0) |= 0x80; }
 
 }

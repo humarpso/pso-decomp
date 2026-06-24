@@ -3,6 +3,9 @@
 extern "C" {
 
 u8 fn_80121064(void* p);
+void fn_8012106C(void* p, u32 v);
+void fn_8012107C(void* p, u32 v);
+void fn_8012108C(void* p);
 void fn_801210C0(void* p, s16 v);
 void fn_801210C8(void* p, s16 v);
 int fn_801210D0(void* p);
@@ -16,9 +19,9 @@ int fn_801D2F4C(void*);
 int fn_8012105C(void) { return 0; }
 int fn_80121060(void) { return 0; }
 u8 fn_80121064(void* p) { return *(u8*)((char*)p + 0x1d3); }
-int fn_8012106C(void) { return 0; }
-int fn_8012107C(void) { return 0; }
-int fn_8012108C(void) { return 0; }
+void fn_8012106C(void* p, u32 v) { *(u32*)((char*)p + 0x1b8) |= v; }
+void fn_8012107C(void* p, u32 v) { *(u32*)((char*)p + 0x1b8) &= ~v; }
+void fn_8012108C(void* p) { fn_8012106C(p, 8); }
 int fn_801210B0(void) { return 0; }
 void fn_801210C0(void* p, s16 v) { *(s16*)((char*)p + 0x118) = v; }
 void fn_801210C8(void* p, s16 v) { *(s16*)((char*)p + 0x116) = v; }

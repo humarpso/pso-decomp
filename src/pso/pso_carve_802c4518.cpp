@@ -11,6 +11,7 @@ void fn_802C45E0(void* p, u8 v);
 void fn_802C45E8(void* p, u8 v);
 void fn_802C45F0(void* p, u8 v);
 void fn_802C45F8(void* p, u8 v);
+void fn_802C46AC(void* p);
 int fn_802C46BC(void* p);
 int fn_802C46E0(void* p);
 int fn_802C4748(void* p);
@@ -37,7 +38,7 @@ int fn_802C4648(void) { return 0; }
 int fn_802C4668(void) { return 0; }
 int fn_802C4688(void) { return 0; }
 int fn_802C4698(void) { return 0; }
-int fn_802C46AC(void) { return 0; }
+void fn_802C46AC(void* p) { *(u8*)((char*)p + 0x7) |= 0x40; }
 int fn_802C46BC(void* p) { return fn_801D7D4C((char*)p + 0x24); }
 int fn_802C46E0(void* p) { return fn_801C1CA8(p); }
 int fn_802C4700(void) { return 0; }

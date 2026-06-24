@@ -4,6 +4,7 @@ extern "C" {
 
 int fn_801D5814(void* p);
 void fn_801D5838(void* p);
+int fn_801D5844(void* p);
 void* fn_801D587C(void* p);
 void fn_801D5884(void* p, u8 v);
 void fn_801D58C8(void* p);
@@ -18,7 +19,7 @@ int fn_80102E68(void*);
 int fn_801D5804(void) { return 0; }
 int fn_801D5814(void* p) { return fn_80102E68((char*)p + 0x8); }
 void fn_801D5838(void* p) { *(s32*)((char*)p + 0x0) = 1; }
-int fn_801D5844(void) { return 0; }
+int fn_801D5844(void* p) { return *(u32*)((char*)p + 0x0) == 0; }
 int fn_801D5854(void) { return 0; }
 int fn_801D5868(void) { return 0; }
 void* fn_801D587C(void* p) { return (char*)p + 0x44; }

@@ -1,0 +1,16 @@
+#ifndef PSO_TITEMTIMER_H
+#define PSO_TITEMTIMER_H
+
+#include "pso/TObject.h"
+#include "types.h"
+
+class TItemTimer : public TObject {
+public:
+    virtual ~TItemTimer();
+    virtual void run_task();
+
+    s32 m_1C;
+    void* m_20;
+};
+
+#endif

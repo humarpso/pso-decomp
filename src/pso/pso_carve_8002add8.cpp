@@ -2,6 +2,7 @@
 
 extern "C" {
 
+int fn_8002ADD8(void* p);
 int fn_8002AE38(void* p);
 void fn_8002AE5C(void* p, f32 v);
 void fn_8002AE74(void* p, s16 v);
@@ -12,7 +13,7 @@ void fn_8002AEAC(void* p);
 void fn_8002AEB8(void* p, s32 v);
 int fn_801A529C(void*, int);
 
-int fn_8002ADD8(void) { return 0; }
+int fn_8002ADD8(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }
 int fn_8002ADE4(void) { return 0; }
 int fn_8002AE08(void) { return 0; }
 int fn_8002AE38(void* p) { return fn_801A529C(p, 2); }
