@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int fn_801BE244(void* p);
-int fn_801BE268(void* p);
-int fn_801BE28C(void);
+int TObjPlayer__vt74(void* p);
+int TObjPlayer__vt75(void* p);
+int TObjPlayer__vt77(void);
 void fn_801BE2C0(void* p, s32 v);
 s32 fn_801BE2C8(void* p);
 int fn_801BE2E8(void* p);
@@ -15,9 +15,9 @@ int fn_8001BED8(void*, int);
 int fn_801D62D0(void*);
 int fn_801D6350(void*);
 
-int fn_801BE244(void* p) { return fn_801D62D0((char*)p + 0x4ac); }
-int fn_801BE268(void* p) { return fn_801D6350((char*)p + 0x4ac); }
-int fn_801BE28C(void) { return 0; }
+int TObjPlayer__vt74(void* p) { return fn_801D62D0((char*)p + 0x4ac); }
+int TObjPlayer__vt75(void* p) { return fn_801D6350((char*)p + 0x4ac); }
+int TObjPlayer__vt77(void) { return 0; }
 int fn_801BE294(void) { return 0; }
 void fn_801BE2C0(void* p, s32 v) { *(s32*)((char*)p + 0x370) = v; }
 s32 fn_801BE2C8(void* p) { return *(s32*)((char*)p + 0x370); }

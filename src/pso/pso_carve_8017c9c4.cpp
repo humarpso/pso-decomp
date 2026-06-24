@@ -2,24 +2,24 @@
 
 extern "C" {
 
-int fn_8017C9C4(void);
-int fn_8017C9CC(void);
-int fn_8017C9D4(void);
-int fn_8017C9DC(void);
-int fn_8017C9E4(void* p);
-int fn_8017CA04(void* p);
-int fn_8017CA24(void* p);
+int TOVS2Wall01__vt24(void);
+int TOVS2Wall01__vt25(void);
+int TOVS2Wall01__vt18(void);
+int TOVS2Wall01__vt19(void);
+int TOVS2Wall01__vt20(void* p);
+int TOVS2Wall01__vt21(void* p);
+int TOVS2Wall01__vt22(void* p);
 void fn_8017CA48(void* p, s32 v);
 s32 fn_8017CA50(void* p);
 int fn_8017BD48(void*);
 
-int fn_8017C9C4(void) { return 1; }
-int fn_8017C9CC(void) { return 1; }
-int fn_8017C9D4(void) { return 1; }
-int fn_8017C9DC(void) { return 1; }
-int fn_8017C9E4(void* p) { return fn_8017BD48(p); }
-int fn_8017CA04(void* p) { return fn_8017BD48(p); }
-int fn_8017CA24(void* p) { return fn_8017BD48(p); }
+int TOVS2Wall01__vt24(void) { return 1; }
+int TOVS2Wall01__vt25(void) { return 1; }
+int TOVS2Wall01__vt18(void) { return 1; }
+int TOVS2Wall01__vt19(void) { return 1; }
+int TOVS2Wall01__vt20(void* p) { return fn_8017BD48(p); }
+int TOVS2Wall01__vt21(void* p) { return fn_8017BD48(p); }
+int TOVS2Wall01__vt22(void* p) { return fn_8017BD48(p); }
 int fn_8017CA44(void) { return 0; }
 void fn_8017CA48(void* p, s32 v) { *(s32*)((char*)p + 0x33c) = v; }
 s32 fn_8017CA50(void* p) { return *(s32*)((char*)p + 0x33c); }
