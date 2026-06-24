@@ -6,6 +6,9 @@
 
 class TEffect : public TObject {
 public:
+ void* m_1c;
+
+public:
     virtual ~TEffect();
 };
 

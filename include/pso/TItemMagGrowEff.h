@@ -6,6 +6,10 @@
 
 class TItemMagGrowEff : public TObject {
 public:
+    u8 _pad1C[0x4];
+ void* m_20;
+ void* m_24;
+
     virtual ~TItemMagGrowEff();
     virtual void run_task();
 };

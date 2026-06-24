@@ -1,3 +1,5 @@
 #include "pso/TEffect.h"
 
-TEffect::~TEffect() {}
+TEffect::~TEffect() {
+    m_1c = nullptr;
+}

@@ -6,6 +6,8 @@
 
 class TItemTexLoad : public TObject {
 public:
+ void* m_1c;
+
     virtual ~TItemTexLoad();
     virtual void run_task();
 };

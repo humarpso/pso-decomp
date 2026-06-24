@@ -1,0 +1,18 @@
+#ifndef PSO_TOBJBOSS5CTRL_H
+#define PSO_TOBJBOSS5CTRL_H
+
+#include "pso/TObject.h"
+#include "types.h"
+
+class TObjBoss5Ctrl : public TObject {
+public:
+ void* m_1c;
+ void* m_20;
+ void* m_24;
+ void* m_28;
+public:
+    virtual ~TObjBoss5Ctrl();
+    virtual void run_task();
+};
+
+#endif
