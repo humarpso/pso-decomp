@@ -6,6 +6,10 @@
 
 class TItemEffHeaven : public TObject {
 public:
+ u8 _pad1c[0x10];
+ void* m_arr[3];
+
+public:
     virtual ~TItemEffHeaven();
     virtual void run_task();
 };

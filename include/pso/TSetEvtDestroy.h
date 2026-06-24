@@ -6,6 +6,11 @@
 
 class TSetEvtDestroy : public TObject {
 public:
+ s16* m_1c;
+ u8 _pad20[0x10];
+ void* m_30;
+
+public:
     virtual ~TSetEvtDestroy();
     virtual void run_task();
 };

@@ -6,6 +6,10 @@
 
 class TChCrLoadGmNjReq : public TObject {
 public:
+ u8 _pad1c[0x4c];
+ void* m_68;
+
+public:
     virtual ~TChCrLoadGmNjReq();
     virtual void run_task();
 };

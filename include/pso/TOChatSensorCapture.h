@@ -6,6 +6,10 @@
 
 class TOChatSensorCapture : public TObject {
 public:
+ u8 _pad1c[0x10];
+ void* m_arr[4];
+
+public:
     virtual ~TOChatSensorCapture();
     virtual void run_task();
 };

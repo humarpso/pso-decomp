@@ -6,6 +6,11 @@
 
 class TObjChallenge4PRetry : public TObject {
 public:
+ u8 _pad1c[0x04];
+ s32 m_20;
+ s32 m_24;
+
+public:
     virtual ~TObjChallenge4PRetry();
     virtual void run_task();
 };

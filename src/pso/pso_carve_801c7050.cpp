@@ -1,0 +1,14 @@
+#include "types.h"
+
+extern "C" {
+
+int fn_801C7050(void* p);
+int fn_801C7074(void* p);
+int fn_801C7098(void* p);
+int fn_8001BEF8(void*, int);
+
+int fn_801C7050(void* p) { return fn_8001BEF8(p, 16); }
+int fn_801C7074(void* p) { return fn_8001BEF8(p, 8); }
+int fn_801C7098(void* p) { return fn_8001BEF8(p, 2); }
+
+}

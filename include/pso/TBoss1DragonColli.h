@@ -6,6 +6,9 @@
 
 class TBoss1DragonColli : public TObject {
 public:
+ void* m_objs[3];
+
+public:
     virtual ~TBoss1DragonColli();
 };
 
