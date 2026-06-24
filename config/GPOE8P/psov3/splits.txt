@@ -49,6 +49,18 @@ pso/pso_carve_80102bd0.cpp:
 pso/TItemEffBringer.cpp:
 	.text       start:0x80108254 end:0x8010834C
 
+pso/TItemEffCane.cpp:
+	.text       start:0x801086B8 end:0x801087B8
+
+pso/TItemEffEquip.cpp:
+	.text       start:0x80108974 end:0x80108A20
+
+pso/TItemEffFlame.cpp:
+	.text       start:0x80108D6C end:0x80108F04
+
+pso/TItemEffLandHit.cpp:
+	.text       start:0x80109568 end:0x801095EC
+
 pso/TItemEffLavis.cpp:
 	.text       start:0x80109670 end:0x801096CC
 
