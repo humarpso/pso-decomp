@@ -2,6 +2,10 @@
 
 extern "C" {
 
+int fn_801058F8(void*);
+int fn_801AFF50(void*);
+int fn_801AFF80(void*);
+void fn_801BCB2C(void* p);
 void fn_801BCA0C(void);
 void fn_801BCA10(void);
 void fn_801BCAB0(void);
@@ -21,7 +25,7 @@ int fn_801BCA14(void) { return 0; }
 void fn_801BCAB0(void) {  }
 int fn_801BCAB4(void) { return 0; }
 void fn_801BCB28(void) {  }
-int fn_801BCB2C(void) { return 0; }
+void fn_801BCB2C(void* p) { if (fn_801058F8(p) != 0) { fn_801AFF80(p); fn_801AFF50(p); } }
 int fn_801BCB70(void) { return 0; }
 int fn_801BCC30(void* p) { return fn_801AFDD8(p); }
 void fn_801BCC50(void) {  }

@@ -2,12 +2,14 @@
 
 extern "C" {
 
+int fn_800BBA18(void*, void*);
+void fn_800F4F98(void* p);
 void fn_800F4F14(void);
 void fn_800F4FC8(void);
 
 void fn_800F4F14(void) {  }
 int fn_800F4F18(void) { return 0; }
-int fn_800F4F98(void) { return 0; }
+void fn_800F4F98(void* p) { if (*(short*)((char*)p + 0x326) != 15) { fn_800BBA18(p, (void*)15); } }
 void fn_800F4FC8(void) {  }
 
 }

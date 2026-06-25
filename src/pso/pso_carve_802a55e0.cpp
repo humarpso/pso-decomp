@@ -2,6 +2,9 @@
 
 extern "C" {
 
+int fn_802657E4(void*);
+int fn_802A57FC(void* a0 = 0);
+void fn_802A599C(void* p);
 int fn_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void fn_802A596C(void* p, void* a1, void* a2);
 void fn_802A56C4(void* p);
@@ -24,12 +27,12 @@ int fn_802A5748(void* p) { return queue_destruction__7TObjectFv(p); }
 void fn_802A5768(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) fn_80265C10(m); }
 int fn_802A5794(void) { return 0; }
 int fn_802A57C8(void) { return 0; }
-int fn_802A57FC(void) { return 0; }
+int fn_802A57FC(void*) { return 0; }
 int fn_802A5830(void) { return 0; }
 int fn_802A58AC(void*, void*, void*, void*) { return 0; }
 void fn_802A596C(void* p, void* a1, void* a2) { fn_802A58AC(p, (void*)0, a1, a2); }
 int TWindowMessageYesNo__vt2(void) { return 0; }
-int fn_802A599C(void) { return 0; }
+void fn_802A599C(void* p) { if (fn_802A57FC(p) != 0) { fn_802657E4(*(void**)((char*)p + 0x28)); } }
 int fn_802A59D8(void) { return 0; }
 
 }
