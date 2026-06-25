@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_80152A78(void* a0 = 0);
+void* fn_80152A48(void* p);
 s32 fn_801528DC(void* p);
 s32 fn_801528E4(void* p);
 u16 fn_801528EC(void* p);
@@ -32,8 +34,8 @@ void fn_801529D0(void* p) { *(s32*)((char*)p + 0x8c) = 0; *(s32*)((char*)p + 0x9
 int fn_801529E0(void) { return 0; }
 void fn_80152A30(void) {  }
 int fn_80152A34(void) { return 0; }
-int fn_80152A48(void) { return 0; }
-int fn_80152A78(void) { return 0; }
+void* fn_80152A48(void* p) { fn_80152A78(p); return p; }
+int fn_80152A78(void*) { return 0; }
 int fn_80152A98(void) { return 0; }
 int fn_80152ACC(void) { return 0; }
 int fn_80152B08(void) { return 0; }

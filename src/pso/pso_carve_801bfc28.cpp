@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_801BFC90(void* a0 = 0);
+void* fn_801BFC60(void* p);
 int fn_8001BF10(void*);
 int fn_801BF964(void*);
 int fn_801BF9A4(void*);
@@ -12,8 +14,8 @@ int fn_801C68B0(void*);
 void fn_801BFD3C(void* p);
 
 void* fn_801BFC28(void* p) { fn_8001BF10(p); fn_801BF9A4(p); return p; }
-int fn_801BFC60(void) { return 0; }
-int fn_801BFC90(void) { return 0; }
+void* fn_801BFC60(void* p) { fn_801BFC90(p); return p; }
+int fn_801BFC90(void*) { return 0; }
 void* fn_801BFCAC(void* p) { fn_801C5BB0(p); return p; }
 void* fn_801BFCDC(void* p) { fn_801BF964(p); return p; }
 void* fn_801BFD0C(void* p) { fn_801BFD3C(p); return p; }

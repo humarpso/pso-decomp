@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_801C0228(void* a0 = 0);
+void* fn_801C03E0(void* p, void* a1);
 int fn_801C00FC(void);
 int fn_801C0104(void);
 void fn_801C011C(void* p, s16 v);
@@ -30,7 +32,7 @@ int fn_801C013C(void* p) { return fn_8001BEE8((char*)p + 0x10, 2); }
 int fn_801C0164(void) { return 0; }
 int fn_801C01BC(void* p) { return fn_8001960C(p); }
 int fn_801C01DC(void) { return 0; }
-int fn_801C0228(void) { return 0; }
+int fn_801C0228(void*) { return 0; }
 void fn_801C0258(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); }
 int fn_801C0274(void) { return 0; }
 int fn_801C029C(void) { return 0; }
@@ -39,7 +41,7 @@ int fn_801C030C(void) { return 0; }
 int fn_801C0350(void) { return 0; }
 int fn_801C0378(void) { return 0; }
 int fn_801C03AC(void) { return 0; }
-int fn_801C03E0(void) { return 0; }
+void* fn_801C03E0(void* p, void* a1) { fn_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 int fn_801C041C(void) { return 0; }
 void fn_801C0438(void* p) { *(u8*)((char*)p + 0x0) = 130; *(u8*)((char*)p + 0x1) = 1; }
 int fn_801C044C(void) { return 0; }

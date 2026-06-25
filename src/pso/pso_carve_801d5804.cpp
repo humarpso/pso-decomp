@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_801D5A0C(void* a0 = 0);
+void fn_801D59E8(void* p, void* a1);
 int fn_801D5814(void* p);
 void fn_801D5838(void* p);
 int fn_801D5844(void* p);
@@ -34,8 +36,8 @@ int fn_801D5968(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x4); }
 int fn_801D598C(void) { return 0; }
 int fn_801D59A0(void) { return 0; }
 void fn_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
-int fn_801D59E8(void) { return 0; }
-int fn_801D5A0C(void) { return 0; }
+void fn_801D59E8(void* p, void* a1) { fn_801D5A0C(a1); }
+int fn_801D5A0C(void*) { return 0; }
 int fn_801D5A28(void) { return 0; }
 void fn_801D5A64(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 int fn_801D5A70(void) { return 0; }
