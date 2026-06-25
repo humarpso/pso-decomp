@@ -10,7 +10,7 @@ M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_802C9600();
 
-void fn_802C8B74(void *arg0) {
+void TOTrapChainSawDamage__vt22(void *arg0) {
     fn_802C9600();
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
         fn_80154764(arg0, 1, 0x100);

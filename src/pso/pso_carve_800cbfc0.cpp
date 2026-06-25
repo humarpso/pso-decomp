@@ -8,7 +8,7 @@ extern "C" {
 
 u32 fn_800BADDC();
 
-void fn_800CBFC0(void *arg0) {
+void TObjEneMe1Gee__vt99(void *arg0) {
     if (fn_800BADDC() == 0U) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFEFFFFFF);
         return;

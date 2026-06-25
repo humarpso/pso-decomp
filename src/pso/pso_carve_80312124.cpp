@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_803112A4(void *, M2C_UNK);
 
-void fn_80312124(void *arg0) {
+void TPlayerBattleCtrl4P__vt13(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x240) - 1;

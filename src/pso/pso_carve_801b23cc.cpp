@@ -10,7 +10,7 @@ s32 fn_80016C54(s32);
 s32 fn_801B12A8(s32);
 s32 fn_801B19EC();
 
-s32 fn_801B23CC(s32 arg0) {
+s32 TObjPlayer__vt38(s32 arg0) {
     if ((fn_801B19EC() == 0) || (fn_801B12A8(arg0) != 0)) {
         return 0;
     }

@@ -10,7 +10,7 @@ s32 fn_8006B368();
 s32 fn_8019CCF0(s32);
 s32 fn_8030A7B0();
 
-s32 fn_80185FE0(s32 arg0) {
+s32 TObjCityMainWarp__vt14(s32 arg0) {
     if ((fn_8030A7B0() == 1) && (fn_8006B368() == 0)) {
         return 0;
     }

@@ -1,0 +1,27 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 fn_80077760(M2C_UNK);
+void *fn_80223B88(void *, M2C_UNK);
+M2C_UNK fn_802541E0();
+M2C_UNK fn_8025A9B4(void *);
+M2C_UNK fn_8025AD38(void *, s32);
+
+void TWindowHelpItem__vt4(void *arg0) {
+    void *temp_r30;
+    void *temp_r31;
+
+    fn_802541E0();
+    temp_r30 = fn_80223B88(arg0, 5);
+    temp_r31 = fn_80223B88(arg0, 6);
+    fn_8025AD38(temp_r30, fn_80077760(0xA1));
+    fn_8025A9B4(temp_r30);
+    M2C_FIELD(temp_r31, s32 *, 0x20) = (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x68), u8 *, 5);
+}
+
+}

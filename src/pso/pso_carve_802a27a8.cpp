@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_802A1A00();
 M2C_UNK fn_802A26E0(void *);
 
-void fn_802A27A8(void *arg0) {
+void TChCrTagName__vt1(void *arg0) {
     fn_802A1A00();
     fn_802A26E0(arg0);
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) (M2C_FIELD(arg0, s32 *, 0x44) + 1);

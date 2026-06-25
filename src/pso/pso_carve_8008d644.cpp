@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_80016FF8();
 M2C_UNK fn_8008D5C0(s32);
 
-s32 fn_8008D644(s32 arg0) {
+s32 TObjEneBalClaw__vt34(s32 arg0) {
     if (fn_80016FF8() != 0) {
         fn_8008D5C0(arg0);
         return 1;

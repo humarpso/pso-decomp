@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
-void fn_800587F8(void *arg0) {
+void TBoss4Type3__vt37(void *arg0) {
     fn_8022675C(0x4003C12B, 0, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x52C) = 0;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x62;

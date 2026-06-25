@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80193378();
 M2C_UNK fn_801933C8();
 
-void fn_801934E0(void *arg0) {
+void TObjLazerFence4__vt1(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);

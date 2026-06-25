@@ -10,7 +10,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
 M2C_UNK fn_802E3D8C(s32, M2C_UNK *);
 M2C_UNK fn_803D8910(M2C_UNK *, s32);
 
-void fn_802E3D40(s32 arg0) {
+void TItemAttackCol__vt5(s32 arg0) {
     M2C_UNK sp8;
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0xD0);

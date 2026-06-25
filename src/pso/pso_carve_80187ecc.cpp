@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TObjMesBase__vt12();
 M2C_UNK fn_801B4A18(void *, M2C_UNK);
 
-void fn_80187ECC(void *arg0) {
+void TObjGbAdvance__vt12(void *arg0) {
     TObjMesBase__vt12();
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) != 0) {
         fn_801B4A18(arg0, -1);

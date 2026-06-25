@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80057048(void *, M2C_UNK);
 
-void fn_80055AD4(void *arg0) {
+void TBoss4Type2__vt24(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;

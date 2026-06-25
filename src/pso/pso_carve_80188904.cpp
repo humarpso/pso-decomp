@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_801B4A18(void *, M2C_UNK);
 
-void fn_80188904(void *arg0) {
+void TObjContainerAbeEnemy__vt78(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

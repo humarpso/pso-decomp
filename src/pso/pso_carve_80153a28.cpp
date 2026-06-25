@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80153F3C();
 
-void fn_80153A28(void *arg0) {
+void TObjFogCollisionSwitch__vt11(void *arg0) {
     s32 temp_r0;
 
     fn_80153F3C();

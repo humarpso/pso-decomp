@@ -11,7 +11,7 @@ M2C_UNK fn_80268048();
 s32 fn_8026C9DC(s32);
 M2C_UNK fn_8027E278(void *);
 
-void fn_8027E49C(void *arg0) {
+void TWindowSubShortCutList__vt1(void *arg0) {
     fn_80268048();
     if ((fn_8013AD38(arg0) == 0) && (fn_8026C9DC(M2C_FIELD(arg0, s32 *, 0x88)) != 0)) {
         fn_8027E278(arg0);
