@@ -550,6 +550,9 @@ pso/pso_carve_80063714.cpp:
 pso/pso_carve_80064764.cpp:
 	.text       start:0x80064764 end:0x80064828
 
+pso/pso_carve_80064a60.cpp:
+	.text       start:0x80064A60 end:0x80064AB0
+
 pso/pso_carve_80064d88.cpp:
 	.text       start:0x80064D88 end:0x80064DB8
 
@@ -4662,6 +4665,9 @@ pso/pso_carve_802a12b8.cpp:
 pso/pso_carve_802a1440.cpp:
 	.text       start:0x802A1440 end:0x802A1488
 
+pso/pso_carve_802a14e4.cpp:
+	.text       start:0x802A14E4 end:0x802A1544
+
 pso/pso_carve_802a1588.cpp:
 	.text       start:0x802A1588 end:0x802A15BC
 
@@ -4952,6 +4958,9 @@ pso/pso_carve_802c327c.cpp:
 
 pso/TAdStorySelectGC.cpp:
 	.text       start:0x802C33A8 end:0x802C3400
+
+pso/pso_carve_802c367c.cpp:
+	.text       start:0x802C367C end:0x802C36D8
 
 pso/pso_carve_802c3bb4.cpp:
 	.text       start:0x802C3BB4 end:0x802C3BE0

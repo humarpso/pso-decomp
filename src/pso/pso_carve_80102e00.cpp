@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_80102FA0(void*);
+void* fn_80102F50(void* p);
 int bswap_16__FPUs(void*);
 int bswap__9TItemDataFv(void*);
 int fn_8001960C(void*);
@@ -16,6 +18,6 @@ void fn_80102E68(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 
 void fn_80102EBC(void* p) { *(u8*)((char*)p + 0x0) = 94; *(u8*)((char*)p + 0x1) = 6; }
 void fn_80102ED0(void* p) { fn_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); fn_80102CE0((char*)p + 0x8); bswap__9TItemDataFv((char*)p + 0x10); }
 void fn_80102F1C(void* p) { fn_80102ED0(p); fn_801E4570(p); }
-int fn_80102F50(void) { return 0; }
+void* fn_80102F50(void* p) { fn_80102FA0(p); *(unsigned char*)((char*)p + 0x24) = 2; *(unsigned char*)((char*)p + 0x25) = 0; *(unsigned char*)((char*)p + 0x26) = 0; *(unsigned char*)((char*)p + 0x27) = 0; *(unsigned char*)((char*)p + 0x1) = 10; return p; }
 
 }

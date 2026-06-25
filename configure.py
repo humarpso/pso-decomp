@@ -2483,6 +2483,9 @@ if args.target == "psov3":
                 NonMatching("pso/pso_carve_802b22e0.cpp"),
                 NonMatching("pso/pso_carve_8004d184.cpp"),
                 NonMatching("pso/pso_carve_802b3178.cpp"),
+                NonMatching("pso/pso_carve_80064a60.cpp"),
+                NonMatching("pso/pso_carve_802c367c.cpp"),
+                NonMatching("pso/pso_carve_802a14e4.cpp"),
             ],
         },
         # ------------------------------------------------------------------

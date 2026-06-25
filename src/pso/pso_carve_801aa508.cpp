@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_801AA6E4(void* a0 = 0, void* a1 = 0);
+void* fn_801AA66C(void* p, void* a1);
 int fn_801AA64C(void* a0 = 0);
 void* fn_801AA61C(void* p);
 s16 fn_801AA508(void* p);
@@ -20,7 +22,7 @@ int fn_801AA5C0(void) { return 0; }
 void* fn_801AA61C(void* p) { fn_801AA64C(p); return p; }
 int fn_801AA64C(void*) { return 0; }
 u16 fn_801AA664(void* p) { return *(u16*)((char*)p + 0x0); }
-int fn_801AA66C(void) { return 0; }
-int fn_801AA6E4(void) { return 0; }
+void* fn_801AA66C(void* p, void* a1) { *(short*)(p) = *(unsigned short*)(a1); *(short*)((char*)p + 0x2) = *(short*)((char*)a1 + 0x2); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); fn_801AA6E4((char*)p + 0x8, (char*)a1 + 0x8); fn_801AA6E4((char*)p + 0xc, (char*)a1 + 0xc); fn_801AA6E4((char*)p + 0x10, (char*)a1 + 0x10); fn_801AA6E4((char*)p + 0x14, (char*)a1 + 0x14); return p; }
+int fn_801AA6E4(void*, void*) { return 0; }
 
 }
