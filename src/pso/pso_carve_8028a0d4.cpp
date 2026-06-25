@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_8028A0D4(void *arg0, s16 *arg1) {
+void TODoorFourLightRuins__vt4(void *arg0, s16 *arg1) {
     if ((s16) *arg1 == 1) {
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
     }

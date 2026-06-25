@@ -4,7 +4,7 @@ extern "C" {
 
 int fn_802657E4(void*);
 int fn_802A57FC(void* a0 = 0);
-void fn_802A599C(void* p);
+void TWindowMessageYesNo__vt1(void* p);
 int fn_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void fn_802A596C(void* p, void* a1, void* a2);
 void fn_802A56C4(void* p);
@@ -32,7 +32,7 @@ int fn_802A5830(void) { return 0; }
 int fn_802A58AC(void*, void*, void*, void*) { return 0; }
 void fn_802A596C(void* p, void* a1, void* a2) { fn_802A58AC(p, (void*)0, a1, a2); }
 int TWindowMessageYesNo__vt2(void) { return 0; }
-void fn_802A599C(void* p) { if (fn_802A57FC(p) != 0) { fn_802657E4(*(void**)((char*)p + 0x28)); } }
+void TWindowMessageYesNo__vt1(void* p) { if (fn_802A57FC(p) != 0) { fn_802657E4(*(void**)((char*)p + 0x28)); } }
 int fn_802A59D8(void) { return 0; }
 
 }

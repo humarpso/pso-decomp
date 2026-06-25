@@ -2,12 +2,12 @@
 
 extern "C" {
 
-void fn_801182BC(void);
+void TItemProShield__vt49(void);
 int TItemProShield__vt44(void* p);
 int fn_8010B5E8(void*);
 
 int TItemProShield__vt44(void* p) { return fn_8010B5E8(p); }
-void fn_801182BC(void) {  }
+void TItemProShield__vt49(void) {  }
 int fn_801182C0(void) { return 0; }
 int fn_80118300(void) { return 0; }
 

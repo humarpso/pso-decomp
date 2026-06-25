@@ -3,13 +3,13 @@
 extern "C" {
 
 int fn_800BBA18(void*, void*);
-void fn_800EFED8(void* p);
+void TObjEneRe4Sorcerer__vt61(void* p);
 void TObjEneRe4Sorcerer__vt59(void);
 void TObjEneRe4Sorcerer__vt26(void);
 
 void TObjEneRe4Sorcerer__vt59(void) {  }
 int fn_800EFE94(void) { return 0; }
-void fn_800EFED8(void* p) { if (*(short*)((char*)p + 0x326) != 9) { fn_800BBA18(p, (void*)9); } }
+void TObjEneRe4Sorcerer__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 9) { fn_800BBA18(p, (void*)9); } }
 void TObjEneRe4Sorcerer__vt26(void) {  }
 
 }

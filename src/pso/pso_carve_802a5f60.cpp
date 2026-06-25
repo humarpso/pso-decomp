@@ -22,7 +22,7 @@ void fn_802A6070(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void fn_802A6078(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 int fn_802A6080(void) { return 8; }
 int TObjSuisoChip__vt6(void) { return 0; }
-void fn_802A60A8(void* p) { fn_8018085C(p, (char*)p + 0x234); }
+void TObjSuisoChip__vt8(void* p) { fn_8018085C(p, (char*)p + 0x234); }
 int fn_802A60CC(void) { return 0; }
 
 }

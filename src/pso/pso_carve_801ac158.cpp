@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void fn_801AC158(void);
+void TPhotonLaser__vt2(void);
 int fn_801E2EFC(void);
 int fn_801E2F20(void);
 
-void fn_801AC158(void) { fn_801E2EFC(); fn_801E2F20(); }
+void TPhotonLaser__vt2(void) { fn_801E2EFC(); fn_801E2F20(); }
 
 }
