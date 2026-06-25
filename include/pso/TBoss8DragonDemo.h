@@ -1,0 +1,11 @@
+#ifndef PSO_TBOSS8DRAGONDEMO_H
+#define PSO_TBOSS8DRAGONDEMO_H
+#include "pso/TObject.h"
+#include "types.h"
+
+class TBoss8DragonDemo : public TObject {
+public:
+    virtual ~TBoss8DragonDemo();
+};
+
+#endif
