@@ -2,6 +2,10 @@
 
 extern "C" {
 
+int fn_8039664C(void*, void*, void*);
+void* fn_801C01DC(void* p, void* a1);
+void* fn_801C030C(void* p, void* a1);
+void* fn_801C06BC(void* p, void* a1);
 int fn_801C0228(void* a0 = 0);
 void* fn_801C03E0(void* p, void* a1);
 int fn_801C00FC(void);
@@ -31,13 +35,13 @@ int fn_801C0134(void) { return 255; }
 int fn_801C013C(void* p) { return fn_8001BEE8((char*)p + 0x10, 2); }
 int fn_801C0164(void) { return 0; }
 int fn_801C01BC(void* p) { return fn_8001960C(p); }
-int fn_801C01DC(void) { return 0; }
+void* fn_801C01DC(void* p, void* a1) { fn_801C0228(p); *(unsigned char*)((char*)p + 0x4) = *(unsigned char*)((char*)a1 + 0x4); fn_8039664C((char*)p + 0x5, (char*)a1 + 0x5, (void*)3); return p; }
 int fn_801C0228(void*) { return 0; }
 void fn_801C0258(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); }
 int fn_801C0274(void) { return 0; }
 int fn_801C029C(void) { return 0; }
 int fn_801C02D0(void) { return 0; }
-int fn_801C030C(void) { return 0; }
+void* fn_801C030C(void* p, void* a1) { fn_801C0228(p); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
 int fn_801C0350(void) { return 0; }
 int fn_801C0378(void) { return 0; }
 int fn_801C03AC(void) { return 0; }
@@ -60,7 +64,7 @@ int fn_801C05FC(void) { return 0; }
 void fn_801C0630(void* p) { *(u8*)((char*)p + 0x0) = 34; *(u8*)((char*)p + 0x1) = 1; }
 int fn_801C0644(void) { return 0; }
 int fn_801C0678(void) { return 0; }
-int fn_801C06BC(void) { return 0; }
+void* fn_801C06BC(void* p, void* a1) { fn_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); *(short*)((char*)p + 0x8) = *(short*)((char*)a1 + 0x8); *(short*)((char*)p + 0xa) = *(unsigned short*)((char*)a1 + 0xa); return p; }
 int fn_801C0708(void) { return 0; }
 int fn_801C0734(void) { return 0; }
 int fn_801C0768(void) { return 0; }

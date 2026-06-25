@@ -2,10 +2,14 @@
 
 extern "C" {
 
+int fn_80154764(void*, void*, void*);
+int fn_80154788(void*, void*, void*);
+void fn_801675EC(void* p);
+void fn_80167640(void* p);
 void TOFenceAncient04__vt14(void);
 
 void TOFenceAncient04__vt14(void) {  }
-int fn_801675EC(void) { return 0; }
-int fn_80167640(void) { return 0; }
+void fn_801675EC(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; { int i; for (i = 0; i < 4; i++) { fn_80154764(p, (void*)i, (void*)8); } } }
+void fn_80167640(void* p) { *(int*)((char*)p + 0xac) = 1; *(int*)((char*)p + 0xd0) = 1; { int i; for (i = 0; i < 4; i++) { fn_80154788(p, (void*)i, (void*)8); } } }
 
 }

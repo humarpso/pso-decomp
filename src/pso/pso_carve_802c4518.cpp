@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_80203220(void*);
+void fn_802C4520(void* p);
 int fn_8011E204(void*, void*);
 int fn_8011E238(void*, void*);
 void fn_802C4518(void* p, u8 v);
@@ -25,7 +27,7 @@ int fn_801D7D4C(void*);
 int fn_802C4288(void*);
 
 void fn_802C4518(void* p, u8 v) { *(u8*)((char*)p + 0x173) = v; }
-int fn_802C4520(void) { return 0; }
+void fn_802C4520(void* p) { { int i; for (i = 0; i < 30; i++) { fn_80203220((char*)p + 0x4 + i * 28); } } }
 int fn_802C456C(void) { return 0; }
 int fn_802C457C(void) { return 0; }
 void* fn_802C45C0(void* p) { return (char*)p + 0x408; }

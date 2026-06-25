@@ -2,6 +2,7 @@
 
 extern "C" {
 
+void fn_800CBA7C(void);
 int TObjEneMe1Gee__vt102(void* p);
 int fn_800B97B4(void*);
 
@@ -10,6 +11,6 @@ int fn_800CB968(void) { return 0; }
 int fn_800CB9B0(void) { return 0; }
 int fn_800CB9FC(void) { return 0; }
 int fn_800CBA38(void) { return 0; }
-int fn_800CBA7C(void) { return 0; }
+void fn_800CBA7C(void) {  }
 
 }
