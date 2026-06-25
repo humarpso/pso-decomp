@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_80147A80(void*);
+void fn_802A5D28(void* p);
 int memset(void*, void*, void*);
 int fn_802A5B74(void* a0 = 0, void* a1 = 0);
 int fn_802A5BFC(void* a0 = 0, void* a1 = 0);
@@ -22,7 +24,7 @@ int fn_802A5C3C(void) { return 0; }
 int fn_802A5C7C(void) { return 0; }
 void fn_802A5CB8(void* p) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)p + 0x8); }
 int fn_802A5CC4(void) { return 0; }
-int fn_802A5D28(void) { return 0; }
+void fn_802A5D28(void* p) { if (*(unsigned int*)((char*)p + 0x8) != 0) { fn_80147A80(*(void**)((char*)p + 0x8)); *(int*)((char*)p + 0x8) = 0; } }
 int fn_802A5D68(void) { return 0; }
 int fn_802A5DC0(void) { return 0; }
 int fn_802A5E28(void) { return 0; }

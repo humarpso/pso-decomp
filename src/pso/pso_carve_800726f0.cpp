@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int fn_80244A14(void*);
+void fn_80072B70(void* p);
 int bswap_16__FPUs(void*);
 int fn_8001960C(void*);
 int fn_801E4570(void*);
@@ -37,6 +39,6 @@ int fn_80072A78(void) { return 0; }
 int fn_80072AB8(void) { return 0; }
 int fn_80072B10(void* p) { return bswap_32__FPUl(p); }
 int fn_80072B30(void) { return 0; }
-int fn_80072B70(void) { return 0; }
+void fn_80072B70(void* p) { if (*(unsigned int*)((char*)p + 0x30) != 0) { fn_80244A14(*(void**)((char*)p + 0x30)); *(int*)((char*)p + 0x30) = 0; } }
 
 }

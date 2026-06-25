@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int queue_destruction__7TObjectFv(void*);
+void fn_801BC8B0(void* p);
 int fn_801058F8(void*);
 int fn_801AFF50(void*);
 int fn_801AFF80(void*);
@@ -16,7 +18,7 @@ int fn_801AFDD8(void*);
 
 int fn_801BC81C(void) { return 0; }
 int fn_801BC858(void) { return 0; }
-int fn_801BC8B0(void) { return 0; }
+void fn_801BC8B0(void* p) { if (*(unsigned int*)((char*)p + 0x548) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x548)); *(int*)((char*)p + 0x548) = 0; } }
 int fn_801BC8F0(void) { return 0; }
 int fn_801BC948(void) { return 0; }
 void fn_801BCA0C(void) {  }
