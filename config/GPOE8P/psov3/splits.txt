@@ -2131,7 +2131,7 @@ pso/TItemEffLandHit.cpp:
 pso/TItemEffLavis.cpp:
 	.text       start:0x80109670 end:0x801096CC
 
-pso/TItemShootModel.cpp:
+pso/TItemShootModel_dtor.cpp:
 	.text       start:0x80109798 end:0x801097F0
 
 pso/TItemEffNeedle.cpp:
@@ -2404,25 +2404,31 @@ pso/pso_carve_8011b1cc.cpp:
 pso/pso_carve_8011b24c.cpp:
 	.text       start:0x8011B24C end:0x8011B260
 
-pso/pso_carve_8011b2d4.cpp:
-	.text       start:0x8011B2D4 end:0x8011B2E4
+pso/TItemShootModelRotZ.cpp:
+	.text       start:0x8011B260 end:0x8011B328
 
-pso/pso_carve_8011b434.cpp:
-	.text       start:0x8011B434 end:0x8011B444
+pso/TItemShootGun.cpp:
+	.text       start:0x8011B3B0 end:0x8011B444
+
+pso/TItemShootModel.cpp:
+	.text       start:0x8011B8F8 end:0x8011BA54
 
 pso/TItemShoot.cpp:
-	.text       start:0x8011BB2C end:0x8011BC48
+	.text       start:0x8011BB2C end:0x8011BD88
 
-pso/TItemShootModelRotZ.cpp:
+pso/TItemShootModelRotZ_dtor.cpp:
 	.text       start:0x8011BF3C end:0x8011BF94
 
 pso/pso_carve_8011bf94.cpp:
 	.text       start:0x8011BF94 end:0x8011BF9C
 
+pso/TItemShootHook.cpp:
+	.text       start:0x8011BF9C end:0x8011BFA0
+
 pso/pso_carve_8011bfa0.cpp:
 	.text       start:0x8011BFA0 end:0x8011BFA8
 
-pso/TItemShootGun.cpp:
+pso/TItemShootGun_dtor.cpp:
 	.text       start:0x8011BFA8 end:0x8011C000
 
 pso/pso_carve_8011c55c.cpp:

@@ -6,6 +6,7 @@
 
 class TItemShootModelRotZ : public TItemShootModel {
 public:
+    TItemShootModelRotZ(void* owner, const Vec* pos, const Vec* dir, f32 life);
     virtual ~TItemShootModelRotZ();
     virtual void render();
     virtual void hook();

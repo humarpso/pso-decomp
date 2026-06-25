@@ -8,9 +8,9 @@
 class TItemShoot : public TObject {
 public:
  Vec m_pos;
- u8 _pad28[0x04];
+ s32 m_28;
  s32 m_count;
- u8 _pad30[0x04];
+ s32 m_30;
  f32 m_life;
  Vec m_dir;
  Vec m_44;
@@ -18,6 +18,7 @@ public:
  void* m_54;
 
 public:
+    TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life);
     virtual ~TItemShoot();
     virtual void run_task();
     virtual void hook();
