@@ -6,15 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 obj_testFlags30(M2C_UNK);
+s32 obj_testFlags30(u32, s32);
 u32 fn_801BA74C(s32);
 
 s32 fn_80310BA8(void) {
     s32 var_r31;
+    u32 var_r3;
 
     var_r31 = 0;
 loop_1:
-    if ((fn_801BA74C(var_r31) != 0U) && (obj_testFlags30(0x02000000) != 0)) {
+    var_r3 = fn_801BA74C(var_r31);
+    if ((var_r3 != 0U) && (obj_testFlags30(var_r3, 0x02000000) != 0)) {
         return 0;
     }
     var_r31 += 1;

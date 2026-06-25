@@ -8,11 +8,11 @@ extern "C" {
 
 s32 fn_800196EC();
 s32 fn_800196F4();
-s32 fn_801AA17C(M2C_UNK *, s32);
+s32 fn_801AA17C(void *, s32);
 u32 fn_801BA74C(s32);
 
 s32 fn_801A85A0(void) {
-    M2C_UNK sp8;
+    struct { u8 _pad[0x20]; } sp8;
     s32 temp_r31;
     s32 var_r30;
 
