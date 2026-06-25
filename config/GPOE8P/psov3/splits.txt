@@ -1510,8 +1510,17 @@ pso/TItemEffLandHit.cpp:
 pso/TItemEffLavis.cpp:
 	.text       start:0x80109670 end:0x801096CC
 
+pso/TItemEffNeedle.cpp:
+	.text       start:0x80109F40 end:0x80109F98
+
+pso/TItemEffNeedleBase.cpp:
+	.text       start:0x80109F98 end:0x80109FF0
+
 pso/pso_carve_80109ff0.cpp:
 	.text       start:0x80109FF0 end:0x80109FF8
+
+pso/TItemEffNeedlePos.cpp:
+	.text       start:0x80109FF8 end:0x8010A050
 
 pso/pso_carve_8010a050.cpp:
 	.text       start:0x8010A050 end:0x8010A060
@@ -1660,11 +1669,17 @@ pso/pso_carve_8011b1cc.cpp:
 pso/TItemShoot.cpp:
 	.text       start:0x8011BB2C end:0x8011BC48
 
+pso/TItemShootModelRotZ.cpp:
+	.text       start:0x8011BF3C end:0x8011BF94
+
 pso/pso_carve_8011bf94.cpp:
 	.text       start:0x8011BF94 end:0x8011BF9C
 
 pso/pso_carve_8011bfa0.cpp:
 	.text       start:0x8011BFA0 end:0x8011BFA8
+
+pso/TItemShootGun.cpp:
+	.text       start:0x8011BFA8 end:0x8011C000
 
 pso/item_param.cpp:
 	.text       start:0x8011CC58 end:0x8011CDC4

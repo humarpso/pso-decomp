@@ -57,7 +57,7 @@ void fn_801C19D8(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void fn_801C19E0(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 void fn_801C19E8(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 void fn_801C19F4(void* p) { *(s32*)((char*)p + 0x0) = 1; }
-int fn_801C1A00(void) { return 0; }
+void* fn_801C1A00(void* p) { fn_801C1A30(p); return p; }
 void fn_801C1A30(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 int fn_801C1A40(void) { return 0; }
 int fn_801C1A70(void) { return 0; }

@@ -2,10 +2,12 @@
 
 extern "C" {
 
+int fn_8003F110(void*);
+int fn_801E4570(void*);
 void fn_800481B4(void* p);
 void fn_8004824C(void* p);
 
-int fn_80048180(void) { return 0; }
+void fn_80048180(void* p) { fn_8003F110(p); fn_801E4570(p); }
 void fn_800481B4(void* p) { *(u8*)((char*)p + 0x0) = 133; *(u8*)((char*)p + 0x1) = 5; }
 int fn_800481C8(void) { return 0; }
 int fn_80048218(void) { return 0; }

@@ -2,9 +2,10 @@
 
 extern "C" {
 
+int fn_80077AA4(void*);
 s32 fn_802428F8(void* p);
 
-int fn_802428C4(void) { return 0; }
+void* fn_802428C4(void* p) { fn_80077AA4((char*)p + 0x58); return p; }
 s32 fn_802428F8(void* p) { return *(s32*)((char*)p + 0x4); }
 
 }

@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int bswap_16__FPUs(void*);
+int bswap_32__FPUl(void*);
 f32 fn_801D2858(void* p);
 s32 fn_801D2870(void* p);
 s32 fn_801D2878(void* p);
@@ -42,7 +44,7 @@ s32 fn_801D2870(void* p) { return *(s32*)((char*)p + 0x4); }
 s32 fn_801D2878(void* p) { return *(s32*)((char*)p + 0xc); }
 int fn_801D2880(void* p) { return bswap_32__FPUl(p); }
 int fn_801D28A0(void) { return 0; }
-int fn_801D28DC(void) { return 0; }
+void fn_801D28DC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
 int fn_801D2910(void) { return 0; }
 int fn_801D2964(void) { return 0; }
 int fn_801D29A8(void* p) { return fn_8001BEE8((char*)p + 0x40, 62); }
@@ -63,7 +65,7 @@ f32 fn_801D2AF4(void* p) { return *(f32*)((char*)p + 0x10); }
 int fn_801D2AFC(void) { return 0; }
 int fn_801D2B08(void* p) { return fn_801D7BF4((char*)p + 0x24); }
 int fn_801D2B2C(void) { return 0; }
-int fn_801D2B84(void) { return 0; }
+void fn_801D2B84(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); }
 int fn_801D2BB8(void) { return 0; }
 int fn_801D2C18(void) { return 0; }
 void fn_801D2C74(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }

@@ -2,12 +2,14 @@
 
 extern "C" {
 
+int bswap_16__FPUs(void*);
+int fn_801E4570(void*);
 int fn_8001960C(void* p);
 int bswap_16__FPUs(void*);
 
-int fn_800195D8(void) { return 0; }
+void fn_800195D8(void* p) { fn_8001960C(p); bswap_16__FPUs((char*)p + 0x4); }
 int fn_8001960C(void* p) { return bswap_16__FPUs((char*)p + 0x2); }
-int fn_80019630(void) { return 0; }
+void fn_80019630(void* p) { fn_800195D8(p); fn_801E4570(p); }
 int fn_80019664(void) { return 0; }
 
 }

@@ -2,6 +2,7 @@
 
 extern "C" {
 
+int fn_801BF690(void*);
 void fn_801BF47C(void* p);
 int fn_801BF4B8(void* p);
 int fn_801BF4DC(void* p);
@@ -32,6 +33,6 @@ void fn_801BF5F0(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 int fn_801BF5F8(void) { return 0; }
 int fn_801BF60C(void) { return 0; }
 int fn_801BF640(void* p) { return fn_801BFFA0(p); }
-int fn_801BF660(void) { return 0; }
+void* fn_801BF660(void* p) { fn_801BF690(p); return p; }
 
 }
