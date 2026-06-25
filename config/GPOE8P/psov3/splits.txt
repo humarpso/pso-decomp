@@ -2173,6 +2173,9 @@ pso/pso_carve_80105b28.cpp:
 pso/pso_carve_80105b5c.cpp:
 	.text       start:0x80105B5C end:0x80105BA8
 
+pso/pso_carve_80105ba8.cpp:
+	.text       start:0x80105BA8 end:0x80105BE8
+
 pso/TItemDisconnectCtrl.cpp:
 	.text       start:0x80105C18 end:0x80105CBC
 
@@ -4179,6 +4182,9 @@ pso/pso_carve_801bf460.cpp:
 
 pso/pso_carve_801bf6b0.cpp:
 	.text       start:0x801BF6B0 end:0x801BF964
+
+pso/pso_carve_801bf978.cpp:
+	.text       start:0x801BF978 end:0x801BF9A4
 
 pso/pso_carve_801bf9a4.cpp:
 	.text       start:0x801BF9A4 end:0x801BF9CC
