@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv();
 
-void fn_802AA12C(void *arg0) {
+void TBGLightning__vt1(void *arg0) {
     int temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, u8 *, 0x1D) + 1;

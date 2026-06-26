@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv();
 
-void fn_802AD3CC(void *arg0) {
+void TWindowEffectLight__vt1(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x26) + 1;

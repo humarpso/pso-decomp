@@ -10,7 +10,7 @@ s32 fn_80223B88(void *, s32);
 M2C_UNK fn_8024503C(void *, s32, s32);
 s32 fn_8026C63C(void *);
 
-void fn_80270860(void *arg0, void *arg1) {
+void TWindowSoundBalance__sub_80270860(void *arg0, void *arg1) {
     s32 temp;
 
     temp = fn_80223B88(arg0, (s32) ((s8 *) arg0)[0x61]);
