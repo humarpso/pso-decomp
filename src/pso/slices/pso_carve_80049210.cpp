@@ -11,7 +11,7 @@ M2C_UNK fn_80048E80();
 M2C_UNK fn_80048F40();
 M2C_UNK fn_80049000();
 
-void fn_80049210(void *arg0) {
+void TObjVoloptCage__sub_80049210(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

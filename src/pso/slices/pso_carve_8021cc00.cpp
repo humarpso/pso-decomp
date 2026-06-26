@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
 M2C_UNK fn_801F8FD4(void *);
 
-void fn_8021CC00(void *arg0) {
+void TShopEquipmentSellWindow__sub_8021CC00(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38C) != 0U) {
         fn_801F8FD4(M2C_FIELD(arg0, void **, 0x38C));
     }

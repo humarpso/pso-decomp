@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8025D338(void *, void *);
+M2C_UNK TWindowKeyBoardSoft__sub_8025D338(void *, void *);
 s32 fn_8025D378(void *, void *);
 M2C_UNK fn_803E6868(void *, void *);
 
-void fn_8025D994(void *arg0) {
+void TWindowKeyBoardSoft__sub_8025D994(void *arg0) {
     struct { u8 _pad[0x100]; } sp108;
     struct { u8 _pad[0x100]; } sp8;
 
@@ -22,7 +22,7 @@ void fn_8025D994(void *arg0) {
                 M2C_FIELD(arg0, s32 *, 0xA8) = 1;
             }
         } while (fn_8025D378(arg0, &sp8) == 0);
-        fn_8025D338(arg0, &sp8);
+        TWindowKeyBoardSoft__sub_8025D338(arg0, &sp8);
     }
 }
 

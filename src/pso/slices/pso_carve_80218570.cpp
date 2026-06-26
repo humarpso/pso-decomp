@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_801E1E38(s32);
 
-s32 fn_80218570(void *arg0) {
+s32 TQuestListVM__sub_80218570(void *arg0) {
     s32 temp_r3;
     s32 var_r30;
 

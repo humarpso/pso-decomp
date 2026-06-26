@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_80223938(void);
+void TShopWindowBase__vt9(void);
 
-void fn_80223938(void) {  }
+void TShopWindowBase__vt9(void) {  }
 
 }

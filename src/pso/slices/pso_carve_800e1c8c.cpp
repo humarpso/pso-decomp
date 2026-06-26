@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_800E1C8C(void *arg0, s32 arg1, s32 arg2) {
+void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x39C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x3A0) = arg2;
 }

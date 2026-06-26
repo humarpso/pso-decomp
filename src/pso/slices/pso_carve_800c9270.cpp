@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80143504();
 
-void fn_800C9270(void *arg0, s32 arg1) {
+void TObjEneMe1Gee__sub_800C9270(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

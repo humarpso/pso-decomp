@@ -12,7 +12,7 @@ M2C_UNK fn_80073DC4(void *, M2C_UNK);
 M2C_UNK fn_80244A14(u32);
 s32 fn_80265BF8(u32);
 
-void fn_802166B8(void *arg0) {
+void TMedicalCenterSequence__sub_802166B8(void *arg0) {
     s32 temp_r3;
 
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (fn_8007341C((u32) M2C_FIELD(arg0, u32 *, 0x30)) != 0)) {

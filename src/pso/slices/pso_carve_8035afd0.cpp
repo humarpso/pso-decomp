@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK __dl__FPv();
 
-s32 fn_8035AFD0(s32 arg0, s16 arg1) {
+s32 TObjPlayer__sub_8035AFD0(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv();
 
-void fn_802A4628(void *arg0) {
+void TObjEneMe1GiGueMissile__sub_802A4628(void *arg0) {
     f32 temp_f1;
 
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x24);

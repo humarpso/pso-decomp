@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8021884C(void);
+void TQuestListVM__sub_8021884C(void);
 
-void fn_8021884C(void) {  }
+void TQuestListVM__sub_8021884C(void) {  }
 
 }

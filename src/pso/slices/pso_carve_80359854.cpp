@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80351DFC();
 
-void fn_80359854(void *arg0) {
+void TObjStendGlassLobby__sub_80359854(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 1) {
         M2C_FIELD(arg0, s32 *, 0xD0) = 0;
     } else {

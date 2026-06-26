@@ -2,8 +2,8 @@
 
 extern "C" {
 
-int fn_8032263C(void);
+int TBoss6Kakusan__sub_8032263C(void);
 
-int fn_8032263C(void) { return 0; }
+int TBoss6Kakusan__sub_8032263C(void) { return 0; }
 
 }

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-int fn_802948F4(void);
+int TObjCMName__sub_802948F4(void);
 
-int fn_802948F4(void) { return 0; }
+int TObjCMName__sub_802948F4(void) { return 0; }
 
 }

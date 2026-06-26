@@ -17,7 +17,7 @@ int fn_80313184(void* p);
 int fn_803131F0(void* p);
 int fn_80313218(void* p);
 void fn_80313248(void* p, s16 v);
-int fn_80313268(void);
+int TObjEneDelDepthBomb__sub_80313268(void);
 int fn_8001BED8(void*, int);
 int fn_8001BEF8(void*, int);
 
@@ -41,6 +41,6 @@ void fn_80313250(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) + arg1);
 }
 int fn_80313260(void*) { return 4; }
-int fn_80313268(void) { return 0; }
+int TObjEneDelDepthBomb__sub_80313268(void) { return 0; }
 
 }

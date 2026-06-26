@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8008C9F8(void);
+void TEnding__sub_8008C9F8(void);
 
-void fn_8008C9F8(void) {  }
+void TEnding__sub_8008C9F8(void) {  }
 
 }

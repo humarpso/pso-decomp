@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80113E8C(u32);
 
-s32 fn_80110F90(void *arg0) {
+s32 TItemMagSub__sub_80110F90(void *arg0) {
     s32 var_r31;
 
     var_r31 = 0;

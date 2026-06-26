@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80255850(u32);
 
-void fn_80330F0C(void *arg0, s32 arg1) {
+void TWindowSubTradeMain__sub_80330F0C(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) && (arg1 != (s32) M2C_FIELD(arg0, s32 *, 0x24))) {
         M2C_FIELD(arg0, s32 *, 0x24) = arg1;
         fn_80255850(M2C_FIELD(arg0, u32 *, 0x4C));

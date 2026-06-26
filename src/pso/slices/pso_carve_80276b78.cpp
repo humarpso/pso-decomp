@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80276A38(void *, s32, M2C_UNK);
 
-void fn_80276B78(void *arg0) {
+void TWindowSubCustomEquip__sub_80276B78(void *arg0) {
     s32 temp_r3;
     s32 var_r4;
 

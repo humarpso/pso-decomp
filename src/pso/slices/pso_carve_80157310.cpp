@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_80157310(void);
+void TOAttackableCol__sub_80157310(void);
 
-void fn_80157310(void) {  }
+void TOAttackableCol__sub_80157310(void) {  }
 
 }

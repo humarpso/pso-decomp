@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_80019478(s32);
 f32 fn_800194A4(s32);
 
-void fn_802CAFFC(void *arg0) {
+void TObjEneMe1GiGue__sub_802CAFFC(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x438) = fn_800194A4(M2C_FIELD(arg0, s32 *, 0x318));
     M2C_FIELD(arg0, s32 *, 0x434) = fn_80019478(M2C_FIELD(arg0, s32 *, 0x318));
 }

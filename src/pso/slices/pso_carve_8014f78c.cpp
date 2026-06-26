@@ -10,7 +10,7 @@ M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK fn_80156720(u32);
 
-void *fn_8014F78C(void *arg0, s16 arg1) {
+void *TNpcPlayer__sub_8014F78C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xA8) != 0U) {
             fn_80156720(M2C_FIELD(arg0, u32 *, 0xA8));

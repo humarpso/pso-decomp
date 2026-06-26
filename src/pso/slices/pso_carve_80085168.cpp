@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 
-void fn_80085168(void *arg0) {
+void TObjCamera__sub_80085168(void *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x14) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0x14)) != 0)) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0x14));
     }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_800B3940(void *arg0) {
+void TObjEneBm3FlyNest__sub_800B3940(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

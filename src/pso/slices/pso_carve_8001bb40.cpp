@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_8001BB40(void *arg0, f32 farg0) {
+void TAdRicoRingCtrl__sub_8001BB40(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = farg0;
     M2C_FIELD(arg0, f32 *, 0x20) = farg0;
     M2C_FIELD(arg0, f32 *, 0x24) = farg0;

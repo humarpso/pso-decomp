@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80177608(void *, s32, s32, s32, s32, f32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
-void fn_80177760(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
+void TOSwitchAttack__sub_80177760(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     void *temp_r3;
     temp_r3 = (void *)__nw__7TObjectFUl(0x30);
     if (temp_r3 != (void *)0U) {

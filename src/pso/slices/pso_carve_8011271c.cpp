@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8011271C(void);
+void TItemMag__sub_8011271C(void);
 
-void fn_8011271C(void) {  }
+void TItemMag__sub_8011271C(void) {  }
 
 }

@@ -8,11 +8,11 @@ extern "C" {
 
 s32 fn_80080750();
 M2C_UNK fn_80158298(void *);
-M2C_UNK fn_80158604(void *);
+M2C_UNK TORainbowCave01__sub_80158604(void *);
 
-void fn_80158408(void *arg0) {
+void TORainbowCave01__sub_80158408(void *arg0) {
     if (fn_80080750() == 1) {
-        fn_80158604(arg0);
+        TORainbowCave01__sub_80158604(arg0);
         return;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) {

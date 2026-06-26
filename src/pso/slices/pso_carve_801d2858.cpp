@@ -23,7 +23,7 @@ void fn_801D2AA8(void* p, s32 v);
 void fn_801D2AC4(void* p, f32 v);
 int fn_801D2ACC(void* p);
 f32 fn_801D2AF4(void* p);
-int fn_801D2B08(void* p);
+int TObjPlayer__sub_801D2B08(void* p);
 void fn_801D2C74(void* p, s32 v);
 void fn_801D2C7C(void* p, u8 v);
 int fn_801D2C84(void* p);
@@ -65,7 +65,7 @@ void fn_801D2AC4(void* p, f32 v) { *(f32*)((char*)p + 0x3c) = v; }
 int fn_801D2ACC(void* p) { return fn_8001BED8((char*)p + 0x40, 4); }
 f32 fn_801D2AF4(void* p) { return *(f32*)((char*)p + 0x10); }
 int fn_801D2AFC(void) { return 0; }
-int fn_801D2B08(void* p) { return fn_801D7BF4((char*)p + 0x24); }
+int TObjPlayer__sub_801D2B08(void* p) { return fn_801D7BF4((char*)p + 0x24); }
 int fn_801D2B2C(void) { return 0; }
 void fn_801D2B84(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); }
 int fn_801D2BB8(void) { return 0; }

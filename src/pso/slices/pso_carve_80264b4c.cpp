@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_80264B4C(void *arg0, s32 arg1) {
+void TWindowMakeTeam__sub_80264B4C(void *arg0, s32 arg1) {
     switch (arg1) {
     case 0:
         M2C_FIELD(arg0, s8 *, 0x1C) = 3;

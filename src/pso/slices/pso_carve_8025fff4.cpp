@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void fn_8025FFF4(void* p);
+void TWindowKeyBoardHard__sub_8025FFF4(void* p);
 int fn_8025CC48(void*);
 
-void fn_8025FFF4(void* p) { void* m = *(void**)((char*)p + 0x70); if (m) fn_8025CC48(m); }
+void TWindowKeyBoardHard__sub_8025FFF4(void* p) { void* m = *(void**)((char*)p + 0x70); if (m) fn_8025CC48(m); }
 
 }

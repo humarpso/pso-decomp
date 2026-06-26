@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_8002AEB8(s32, s32);
 s32 fn_80113F00(s32);
 
-void fn_80112EE4(void *arg0) {
+void TItemMag__sub_80112EE4(void *arg0) {
     u32 temp_r3;
     s32 temp_r4;
 

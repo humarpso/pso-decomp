@@ -5,11 +5,11 @@ extern "C" {
 int fn_80156780(void*);
 int fn_800BA934(void* a0 = 0);
 void fn_800BAB58(void* p);
-void fn_800BA930(void);
+void TObjEneDD__vt85(void);
 void fn_800BAB8C(void* p);
 void fn_800BAB98(void* p);
 
-void fn_800BA930(void) {  }
+void TObjEneDD__vt85(void) {  }
 int fn_800BA934(void*) { return 0; }
 int fn_800BA9BC(void) { return 0; }
 int fn_800BAA2C(void) { return 0; }

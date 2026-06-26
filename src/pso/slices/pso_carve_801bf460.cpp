@@ -8,7 +8,7 @@ int fn_801BF4B8(void* p);
 int fn_801BF4DC(void* p);
 int fn_801BF500(void* p);
 int fn_801BF524(void* p);
-s16 fn_801BF57C(void* p);
+s16 TObjPlayer__sub_801BF57C(void* p);
 void fn_801BF5F0(void* p, s32 v);
 int fn_801BF640(void* p);
 int fn_8001BED8(void*, int);
@@ -27,7 +27,7 @@ int fn_801BF500(void* p) { return fn_8001BEE8(p, 2); }
 int fn_801BF524(void* p) { return fn_8001BED8(p, 2); }
 int fn_801BF548(void) { return 0; }
 int fn_801BF560(void) { return 0; }
-s16 fn_801BF57C(void* p) { return *(s16*)((char*)p + 0x0); }
+s16 TObjPlayer__sub_801BF57C(void* p) { return *(s16*)((char*)p + 0x0); }
 int fn_801BF584(void) { return 0; }
 void fn_801BF5F0(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 int fn_801BF5F8(void) { return 0; }

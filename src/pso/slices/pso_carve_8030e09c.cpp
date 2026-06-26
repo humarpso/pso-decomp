@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_8030E09C(void *arg0, s32 arg1) {
+void TAdChrSelASlotGC__sub_8030E09C(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = arg1;

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8028783C(s32, M2C_UNK);
 
-void fn_80277310(void *arg0) {
+void TWindowSubCustomSelect__sub_80277310(void *arg0) {
     fn_8022675C(0x52D01, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x73) = (u8) (M2C_FIELD(arg0, u8 *, 0x73) | 1);
     fn_8028783C(M2C_FIELD(arg0, s32 *, 0x7C), 2);

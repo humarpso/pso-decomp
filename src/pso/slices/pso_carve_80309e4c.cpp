@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK __dl__FPv(s32);
 M2C_UNK fn_8030A0C8(s32, M2C_UNK);
 
-s32 fn_80309E4C(s32 arg0, s16 arg1) {
+s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         fn_8030A0C8(arg0 + 4, -1);
         if (arg1 > 0) {

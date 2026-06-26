@@ -13,7 +13,7 @@ M2C_UNK fn_8019E97C(void *);
 M2C_UNK fn_8019EA7C(void *);
 M2C_UNK fn_8019EB94(void *);
 
-void fn_8019F22C(void *arg0) {
+void TObjWarpBoss__sub_8019F22C(void *arg0) {
     s16 temp_r0;
 
     fn_8019E308();

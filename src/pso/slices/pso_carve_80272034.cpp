@@ -17,7 +17,7 @@ int fn_802720B0(void) { return 0; }
 int fn_802720FC(void) { return 0; }
 int fn_80272134(void) { return 0; }
 void fn_80272180(void) { fn_8026CBB8(133); fn_802754EC(); }
-void fn_802721A8(void* p) { fn_80265BF8(*(void**)((char*)p + 0x84)); fn_8007A8F8(); fn_8007B6D8(); fn_802421C4(); }
+void TWindowSubComCard__sub_802721A8(void* p) { fn_80265BF8(*(void**)((char*)p + 0x84)); fn_8007A8F8(); fn_8007B6D8(); fn_802421C4(); }
 int fn_802721D8(void) { return 0; }
 int fn_80272240(void) { return 0; }
 

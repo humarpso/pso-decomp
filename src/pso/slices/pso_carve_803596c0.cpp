@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_803596C0(void);
+void TObjStendGlassLobby__sub_803596C0(void);
 
-void fn_803596C0(void) {  }
+void TObjStendGlassLobby__sub_803596C0(void) {  }
 
 }

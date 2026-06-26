@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_803280C8(M2C_UNK);
 
-void fn_80086218(void *arg0) {
+void TParticleCtrl__sub_80086218(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x24) = (u16) (M2C_FIELD(arg0, u16 *, 0x24) | 0x2000);
     fn_803280C8(0x1F);
 }

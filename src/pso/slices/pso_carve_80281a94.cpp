@@ -11,7 +11,7 @@ s32 fn_80265BF8(s32);
 s32 fn_802837A8();
 M2C_UNK fn_80284CB8(s32);
 
-void fn_80281A94(void *arg0) {
+void TWindowSubSymbolChat__sub_80281A94(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_80265BF8(M2C_FIELD(arg0, s32 *, 0x38));

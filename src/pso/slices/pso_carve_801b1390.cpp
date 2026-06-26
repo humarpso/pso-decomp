@@ -11,7 +11,7 @@ s32 fn_801B12A8();
 M2C_UNK fn_801B1CE8(s32, M2C_UNK);
 M2C_UNK fn_801BF228(s32);
 
-void fn_801B1390(s32 arg0) {
+void TObjPlayer__sub_801B1390(s32 arg0) {
     if ((fn_801B12A8() == 0) && (fn_801B102C(arg0) == 0)) {
         fn_801BF228(arg0 + 0x384);
     }

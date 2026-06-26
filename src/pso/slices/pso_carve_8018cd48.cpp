@@ -11,7 +11,7 @@ s32 fn_8018D3C0(M2C_UNK);
 s32 fn_8018D900(M2C_UNK);
 s32 fn_8018D93C(M2C_UNK);
 
-void fn_8018CD48(void *arg0) {
+void TObjContainerJungEnemy__sub_8018CD48(void *arg0) {
     s32 var_r0;
     s32 temp_r3 = M2C_FIELD(arg0, s32 *, 0x88);
     if (temp_r3 < 0) {

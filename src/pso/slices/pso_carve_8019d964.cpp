@@ -10,7 +10,7 @@ M2C_UNK fn_8019DD24(s32, M2C_UNK);
 u32 fn_801BA74C(u16);
 M2C_UNK fn_80244A14(u32);
 
-void fn_8019D964(void *arg0) {
+void TObjWarpBase__vt12(void *arg0) {
     u32 temp_r3;
 
     temp_r3 = (u32) M2C_FIELD(arg0, u32 *, 0xB0);

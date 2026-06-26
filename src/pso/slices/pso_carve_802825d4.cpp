@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80265680(s32, s16);
 
-void fn_802825D4(void *arg0) {
+void TWindowSubSymbolChat__sub_802825D4(void *arg0) {
     fn_80265680(M2C_FIELD(arg0, s32 *, 0x38), (s16) M2C_FIELD(arg0, s32 *, 0x20));
 }
 

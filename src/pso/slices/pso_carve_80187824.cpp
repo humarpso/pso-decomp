@@ -12,7 +12,7 @@ M2C_UNK fn_80186F84();
 M2C_UNK fn_8018709C();
 M2C_UNK fn_801871D0();
 
-void fn_80187824(void *arg0) {
+void TObjCityMainWarpChallenge__sub_80187824(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xDE);

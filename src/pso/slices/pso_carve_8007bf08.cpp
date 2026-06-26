@@ -10,7 +10,7 @@ s32 fn_8007A8F8();
 s32 fn_8007BD94();
 M2C_UNK fn_8007BF48(s32);
 
-void fn_8007BF08(void) {
+void TWindowSubComCard__sub_8007BF08(void) {
     s32 temp_r31;
 
     temp_r31 = fn_8007A8F8();

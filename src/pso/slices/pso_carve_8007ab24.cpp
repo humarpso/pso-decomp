@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8007AB54();
 
-s32 fn_8007AB24(s32 arg0) {
+s32 TWindowSubComCard__sub_8007AB24(s32 arg0) {
     fn_8007AB54();
     return arg0;
 }

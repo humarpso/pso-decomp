@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_801BAC48(void);
+void TObjPlayer__sub_801BAC48(void);
 
-void fn_801BAC48(void) {  }
+void TObjPlayer__sub_801BAC48(void) {  }
 
 }

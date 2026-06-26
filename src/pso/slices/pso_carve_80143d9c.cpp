@@ -11,7 +11,7 @@ M2C_UNK fn_80143F6C();
 M2C_UNK fn_801442D4(s32);
 M2C_UNK fn_8022743C();
 
-s32 fn_80143D9C(s32 arg0, s16 arg1) {
+s32 TMovie__sub_80143D9C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         fn_80143F6C();
         fn_801442D4(arg0);

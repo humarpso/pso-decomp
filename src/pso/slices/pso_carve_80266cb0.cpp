@@ -10,7 +10,7 @@ M2C_UNK fn_80187D24(void *);
 M2C_UNK fn_80187D34();
 M2C_UNK fn_8028783C(M2C_UNK, M2C_UNK);
 
-void fn_80266CB0(void *arg0) {
+void TWindowSubTradeMain__sub_80266CB0(void *arg0) {
     fn_80187D34();
     fn_80187D24(arg0);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {

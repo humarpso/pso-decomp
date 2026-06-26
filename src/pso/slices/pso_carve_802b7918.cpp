@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_802B7918(void *arg0) {
+void TBoss6Type1__sub_802B7918(void *arg0) {
     void *temp_r3;
     void *temp_r4;
 

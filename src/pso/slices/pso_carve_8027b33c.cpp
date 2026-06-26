@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80255850(s32, s32);
 s32 fn_80266E0C(s32);
 
-void fn_8027B33C(void *arg0) {
+void TWindowSubMag__sub_8027B33C(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_80266E0C(M2C_FIELD(arg0, s32 *, 0x34));

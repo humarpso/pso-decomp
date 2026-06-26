@@ -5,14 +5,14 @@ extern "C" {
 void fn_801BE9F0(void *arg0);
 void fn_801BEA14(void *arg0);
 int fn_801C0228(void*);
-int fn_801BE690(void* p);
+int TObjPlayer__sub_801BE690(void* p);
 int fn_801BE6E4(void* p);
 int fn_801BE704(void* p);
 int fn_801BE728(void* p);
 void fn_801BE74C(void* p, s32 v);
-s32 fn_801BE754(void* p);
+s32 TObjPlayer__sub_801BE754(void* p);
 int fn_801BE75C(void* p);
-void fn_801BE768(void* p);
+void TObjPlayer__sub_801BE768(void* p);
 int fn_801BE778(void* p);
 void fn_801BE784(void* p, u8 v);
 u8 fn_801BE78C(void* p);
@@ -58,7 +58,7 @@ int fn_801BEBEC(void* p);
 u8 fn_801BEC10(void* p);
 int fn_801BEC18(void* p);
 u8 fn_801BEC3C(void* p);
-int fn_801BEC44(void* p);
+int TPlyPhotonChair__sub_801BEC44(void* p);
 int fn_800495E0(void*, int);
 int fn_8011E204(void*, int);
 int fn_8011E238(void*, int);
@@ -77,15 +77,15 @@ int fn_801BEDB0(void*);
 int fn_801BEDB8(void*);
 
 int fn_801BE66C(void) { return 0; }
-int fn_801BE690(void* p) { return fn_800495E0(p, 4); }
+int TObjPlayer__sub_801BE690(void* p) { return fn_800495E0(p, 4); }
 void* fn_801BE6B4(void* p) { fn_801C0228(p); return p; }
 int fn_801BE6E4(void* p) { return fn_801BE704(p); }
 int fn_801BE704(void* p) { return fn_8011E204(p, 16384); }
 int fn_801BE728(void* p) { return fn_8011E238(p, 16384); }
 void fn_801BE74C(void* p, s32 v) { *(s32*)((char*)p + 0x3b4) = v; }
-s32 fn_801BE754(void* p) { return *(s32*)((char*)p + 0x3b4); }
+s32 TObjPlayer__sub_801BE754(void* p) { return *(s32*)((char*)p + 0x3b4); }
 int fn_801BE75C(void* p) { return (*(u32*)((char*)p + 0x334) >> 30) & 0x1; }
-void fn_801BE768(void* p) { *(u32*)((char*)p + 0x334) &= 0xfffffffd; }
+void TObjPlayer__sub_801BE768(void* p) { *(u32*)((char*)p + 0x334) &= 0xfffffffd; }
 int fn_801BE778(void* p) { return (*(u32*)((char*)p + 0x334) >> 1) & 0x1; }
 void fn_801BE784(void* p, u8 v) { *(u8*)((char*)p + 0x2e7) = v; }
 u8 fn_801BE78C(void* p) { return *(u8*)((char*)p + 0x33a); }
@@ -146,6 +146,6 @@ int fn_801BEBEC(void* p) { return fn_801BEDB0((char*)p + 0x374); }
 u8 fn_801BEC10(void* p) { return *(u8*)((char*)p + 0x23f); }
 int fn_801BEC18(void* p) { return fn_801BEDB8((char*)p + 0x374); }
 u8 fn_801BEC3C(void* p) { return *(u8*)((char*)p + 0x223); }
-int fn_801BEC44(void* p) { return (*(u32*)((char*)p + 0x334) >> 26) & 0x1; }
+int TPlyPhotonChair__sub_801BEC44(void* p) { return (*(u32*)((char*)p + 0x334) >> 26) & 0x1; }
 
 }

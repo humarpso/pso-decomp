@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80077310();
+s32 TWindowSubSymbolChat__sub_80077310();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 fn_80284D4C();
+s32 TWindowSubSymbolChat__sub_80284D4C();
 M2C_UNK fn_8028783C(s32, M2C_UNK);
 
-void fn_80284E8C(void *arg0) {
+void TWindowSubSymbolChatParts__sub_80284E8C(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = fn_80284D4C();
-    if (((s8) M2C_FIELD(arg0, u8 *, 0x71) != 0) || (temp_r3 >= (s16) M2C_FIELD(arg0, s16 *, 0x76)) || (fn_80077310() < 2)) {
+    temp_r3 = TWindowSubSymbolChat__sub_80284D4C();
+    if (((s8) M2C_FIELD(arg0, u8 *, 0x71) != 0) || (temp_r3 >= (s16) M2C_FIELD(arg0, s16 *, 0x76)) || (TWindowSubSymbolChat__sub_80077310() < 2)) {
         fn_8022675C(0x53F06, 0, 0, 0);
         return;
     }

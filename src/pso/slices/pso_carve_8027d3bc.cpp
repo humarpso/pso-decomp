@@ -10,7 +10,7 @@ M2C_UNK fn_8027D230(void *);
 s32 fn_8027D2A0(void *, u8);
 s32 fn_8027DB20();
 
-void fn_8027D3BC(void *arg0) {
+void TWindowSubQuestBoardSelect__sub_8027D3BC(void *arg0) {
     u8 temp_r3;
 
     if ((fn_8027DB20() == 0) && (fn_8027D2A0(arg0, M2C_FIELD(arg0, u8 *, 0x61)) == 0)) {

@@ -14,7 +14,7 @@ void * fn_802C6920();
 M2C_UNK fn_802E0024(s32, s32);
 M2C_UNK fn_802E0064(s32, s32);
 
-void fn_802DFC0C(void *arg0, s32 arg1) {
+void TAdMultiPlyChrSelectGC__sub_802DFC0C(void *arg0, s32 arg1) {
     void *temp_r3;
     s32 sp14;
     s32 sp10;

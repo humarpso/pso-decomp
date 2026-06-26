@@ -8,7 +8,7 @@ extern "C" {
 
 s16 fn_80226328();
 
-void fn_8026B390(void *arg0) {
+void TWindowOptionCtrl__sub_8026B390(void *arg0) {
     s16 temp_r3;
 
     temp_r3 = fn_80226328();

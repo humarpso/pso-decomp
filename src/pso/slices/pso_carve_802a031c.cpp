@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_8000F8FC();
 s32 fn_8030A808();
 
-s32 fn_802A031C(void *arg0) {
+s32 TODoorFourLightBase__vt17(void *arg0) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0xC8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);

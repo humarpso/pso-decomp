@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8011E238(void *, M2C_UNK);
 
-void fn_801A1D94(void *arg0) {
+void TObjRoomId__sub_801A1D94(void *arg0) {
     fn_8011E238(arg0, 0x02000000);
 }
 

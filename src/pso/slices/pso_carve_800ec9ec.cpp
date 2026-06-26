@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800EC9EC(s32 arg0, s16 arg1);
+s32 TObjEneSlimeOne__sub_800EC9EC(s32 arg0, s16 arg1);
 int __dl__FPv();
 void fn_800ECA28(void *arg0, s32 arg1);
 void TObjEneRe4Bit__vt104(void);
 void TObjEneRe4Bit__vt103(void);
 
-s32 fn_800EC9EC(s32 arg0, s16 arg1) {
+s32 TObjEneSlimeOne__sub_800EC9EC(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

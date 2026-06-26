@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_800BB90C(void *arg0);
+void TObjEneDD__vt77(void *arg0);
 M2C_UNK fn_800F6960();
 void fn_800BBA04(void* p, s32 v);
 
-void fn_800BB90C(void *arg0) {
+void TObjEneDD__vt77(void *arg0) {
     s16 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, s16 *, 0x326);

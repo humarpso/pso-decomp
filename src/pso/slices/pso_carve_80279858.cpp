@@ -10,7 +10,7 @@ M2C_UNK fn_801B7B10();
 u32 fn_801BA74C(s32);
 M2C_UNK fn_80244A14(void *);
 
-void fn_80279858(void *arg0, s32 arg1) {
+void TWindowSubItem__sub_80279858(void *arg0, s32 arg1) {
     if (fn_801BA74C(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) {
         switch (arg1) {
         case 0:

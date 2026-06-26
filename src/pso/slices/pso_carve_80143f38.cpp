@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80143E90();
-M2C_UNK fn_80143ECC();
+M2C_UNK TMovie__sub_80143ECC();
 
-void fn_80143F38(void *arg0) {
+void TMovie__sub_80143F38(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != 0) {
-        fn_80143ECC();
+        TMovie__sub_80143ECC();
         return;
     }
     fn_80143E90();

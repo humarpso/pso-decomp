@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_802E3C30(void *arg0) {
+void TItemAttackCol__sub_802E3C30(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x104) = (s32) (M2C_FIELD(arg0, s32 *, 0x104) + 0xCCC);
     M2C_FIELD(arg0, s32 *, 0x11C) = (s32) (M2C_FIELD(arg0, s32 *, 0x11C) - 0xCCC);
 }

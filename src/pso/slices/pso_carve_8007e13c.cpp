@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8007E0CC();
 
-s32 fn_8007E13C(s32 arg0) {
+s32 TObjBoss2Tunnel__sub_8007E13C(s32 arg0) {
     fn_8007E0CC();
     return arg0;
 }

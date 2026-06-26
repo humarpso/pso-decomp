@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 fn_800BBA7C(void *arg0) {
+u8 TObjEneDD__vt84(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x374) != M2C_FIELD(arg0, s16 *, 0x326));
 }
 

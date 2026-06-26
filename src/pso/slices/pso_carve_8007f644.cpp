@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8007F5A4();
 
-void fn_8007F644(void *arg0) {
+void TDLGraph__sub_8007F644(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     fn_8007F5A4();
 }

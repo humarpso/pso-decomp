@@ -10,7 +10,7 @@ void *fn_8001E1D8(M2C_UNK, void *);
 M2C_UNK fn_80052420(u16, s32);
 f32 fn_802394B0(s32);
 
-void fn_80056938(void *arg0) {
+void TBoss4Type2__sub_80056938(void *arg0) {
     s16 temp_r31;
     void *temp_r4;
 

@@ -12,7 +12,7 @@ void fn_8010C738(void *);
 void fn_80100DA4(void *arg0);
 void fn_80104394(void *);
 int fn_80100D10(void* p);
-void fn_80100D94(void* p, u8 v);
+void TItemMag__sub_80100D94(void* p, u8 v);
 void fn_80100D9C(void* p, u8 v);
 
 int fn_80100CC8(void) { return 0; }
@@ -24,7 +24,7 @@ void fn_80100D68(void *arg0) {
     fn_80101CFC(arg0, &sp8);
     fn_8010C738(&sp8);
 }
-void fn_80100D94(void* p, u8 v) { *(u8*)((char*)p + 0xee) = v; }
+void TItemMag__sub_80100D94(void* p, u8 v) { *(u8*)((char*)p + 0xee) = v; }
 void fn_80100D9C(void* p, u8 v) { *(u8*)((char*)p + 0xed) = v; }
 void fn_80100DA4(void *arg0) {
     M2C_UNK sp8[4];

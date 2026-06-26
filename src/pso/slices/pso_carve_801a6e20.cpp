@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_801A6D00();
 
-u8 fn_801A6E20(void *arg0) {
+u8 TAdSelectCurGC__sub_801A6E20(void *arg0) {
     return (u8) ((M2C_FIELD(arg0, s32 *, 0x48) & fn_801A6D00()) != 0);
 }
 

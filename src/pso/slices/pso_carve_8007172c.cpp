@@ -8,7 +8,7 @@ extern "C" {
 
 void *fn_80202990(M2C_UNK);
 
-s16 fn_8007172C(void) {
+s16 TObjOnlineEnding__sub_8007172C(void) {
     if (fn_80202990(0xFFFF) == NULL) {
         return 0x3E7;
     }

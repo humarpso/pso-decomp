@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 fn_80154CB4(u16);
 M2C_UNK fn_802A445C(void *, M2C_UNK);
-M2C_UNK fn_802A4628(void *);
+M2C_UNK TObjEneMe1GiGueMissile__sub_802A4628(void *);
 M2C_UNK fn_802A4668(void *);
 M2C_UNK fn_802A4694(void *);
 
@@ -21,7 +21,7 @@ void fn_802A4C44(void *arg0) {
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB8) == 1) {
         fn_802A4694(arg0);
-        fn_802A4628(arg0);
+        TObjEneMe1GiGueMissile__sub_802A4628(arg0);
         fn_802A445C(arg0, 1);
         return;
     }

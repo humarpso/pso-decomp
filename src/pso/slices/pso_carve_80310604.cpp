@@ -9,7 +9,7 @@ void fn_80310664(void* p);
 int fn_803112AC(void*, int);
 
 int fn_80310604(void* p) { return fn_803112AC(p, 0); }
-void fn_80310628(void* p, void* a1, void* a2) { fn_8022727C(a1); fn_801C23A8((void*)-50, a2); }
+void TPlayerBattleCtrl4P__sub_80310628(void* p, void* a1, void* a2) { fn_8022727C(a1); fn_801C23A8((void*)-50, a2); }
 void fn_80310664(void* p) { *(s32*)((char*)p + 0x260) = 0; *(s32*)((char*)p + 0x290) = 0; }
 
 }

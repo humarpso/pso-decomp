@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8016AB20();
 
-void fn_80177D60(void *arg0) {
+void TOSwitchItem__sub_80177D60(void *arg0) {
     f32 temp_f0;
 
     fn_8016AB20();

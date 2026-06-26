@@ -9,9 +9,9 @@ extern "C" {
 u32 fn_80225924(s32);
 s32 fn_80266E0C(s32);
 M2C_UNK fn_80269C6C(u32, s32, M2C_UNK);
-s32 fn_8027FAF0();
+s32 TWindowSubShortMail__sub_8027FAF0();
 
-void fn_8027E6FC(void *arg0) {
+void TWindowSubShortMail__sub_8027E6FC(void *arg0) {
     s32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
@@ -19,7 +19,7 @@ void fn_8027E6FC(void *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x24) != temp_r3) {
             M2C_FIELD(arg0, s32 *, 0x24) = temp_r3;
             if (fn_80225924(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) {
-                fn_80269C6C(M2C_FIELD(arg0, u32 *, 0x3C), fn_8027FAF0(), 0x482);
+                fn_80269C6C(M2C_FIELD(arg0, u32 *, 0x3C), TWindowSubShortMail__sub_8027FAF0(), 0x482);
             }
         }
     }

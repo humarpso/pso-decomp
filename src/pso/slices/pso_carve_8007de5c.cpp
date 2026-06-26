@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8007DE80(f32);
 
-void fn_8007DE5C(void *arg0) {
+void TObjBoss2Tunnel__sub_8007DE5C(void *arg0) {
     fn_8007DE80(M2C_FIELD(arg0, f32 *, 0x1C));
 }
 

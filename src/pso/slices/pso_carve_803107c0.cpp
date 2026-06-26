@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_803107C0(void *arg0) {
+s32 TPlayerBattleCtrl4P__sub_803107C0(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x260) = 2;
     return 1;
 }

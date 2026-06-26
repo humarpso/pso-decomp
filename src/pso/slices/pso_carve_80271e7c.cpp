@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8007BCF4();
 
-void fn_80271E7C(void *arg0) {
+void TWindowSubComCard__sub_80271E7C(void *arg0) {
     if (M2C_FIELD(arg0, u8 *, 0x1D) & 2) {
         fn_8007BCF4();
         M2C_FIELD(arg0, u8 *, 0x1D) = (u8) (M2C_FIELD(arg0, u8 *, 0x1D) & 0xFFFFFFFD);

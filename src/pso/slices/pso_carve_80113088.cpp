@@ -8,15 +8,15 @@ extern "C" {
 
 M2C_UNK fn_80100564(void *, M2C_UNK);
 M2C_UNK fn_80112E20(void *, M2C_UNK);
-M2C_UNK fn_80112EE4(void *);
+M2C_UNK TItemMag__sub_80112EE4(void *);
 M2C_UNK fn_80112F44(void *);
 M2C_UNK fn_80112FB4();
 
-void fn_80113088(void *arg0) {
+void TItemMag__sub_80113088(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1CC) == 0) {
         fn_80112FB4();
     }
-    fn_80112EE4(arg0);
+    TItemMag__sub_80112EE4(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1D0) <= (s32) M2C_FIELD(arg0, s32 *, 0x1CC)) {
         fn_80112F44(arg0);
         fn_80112E20(arg0, 1);

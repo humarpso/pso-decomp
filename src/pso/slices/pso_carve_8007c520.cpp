@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8007C48C();
 
-s32 fn_8007C520(s32 arg0) {
+s32 TItemDrop__sub_8007C520(s32 arg0) {
     fn_8007C48C();
     return arg0;
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8017E664(f32);
 
-s32 fn_8017E6C8(void *arg0) {
+s32 TObjBgmCol__sub_8017E6C8(void *arg0) {
     f32 temp_f0;
 
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x98);

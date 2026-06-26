@@ -9,7 +9,7 @@ extern "C" {
 s32 obj_testFlags30(u32, s32);
 u32 fn_801BA74C(s32);
 
-s32 fn_80310BA8(void) {
+s32 TPlayerBattleCtrl4P__sub_80310BA8(void) {
     s32 var_r31;
     u32 var_r3;
 

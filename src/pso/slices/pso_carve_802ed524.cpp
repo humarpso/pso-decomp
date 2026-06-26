@@ -8,7 +8,7 @@ extern "C" {
 
 void *fn_8001E1D8(M2C_UNK);
 
-f32 fn_802ED524(void) {
+f32 TBoss7PhotonBullet__sub_802ED524(void) {
     return M2C_FIELD(fn_8001E1D8(0xF), f32 *, 4);
 }
 

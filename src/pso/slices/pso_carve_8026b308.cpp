@@ -8,7 +8,7 @@ extern "C" {
 
 void *fn_8001ED80();
 
-void fn_8026B308(void *arg0, s16 arg1, s8 arg2) {
+void TWindowOptionCtrl__sub_8026B308(void *arg0, s16 arg1, s8 arg2) {
     void *temp_r3;
 
     temp_r3 = fn_8001ED80();

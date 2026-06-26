@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80112E20(void *, M2C_UNK);
 
-void fn_80113170(void *arg0) {
+void TItemMag__sub_80113170(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);

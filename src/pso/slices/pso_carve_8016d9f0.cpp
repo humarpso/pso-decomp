@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80158360(f32);
 
-void fn_8016D9F0(void *arg0) {
+void TOKurage__sub_8016D9F0(void *arg0) {
     f32 temp_f0;
 
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);

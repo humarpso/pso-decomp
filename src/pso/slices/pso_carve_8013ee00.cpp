@@ -10,7 +10,7 @@ M2C_UNK fn_80071F1C(s32, M2C_UNK);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK fn_8013E624(s32, M2C_UNK);
 
-s32 fn_8013EE00(s32 arg0, s16 arg1) {
+s32 TLockOnCursor__sub_8013EE00(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         fn_8013E624(arg0 + 0x14, -1);
         fn_8013E624(arg0 + 0xC, -1);

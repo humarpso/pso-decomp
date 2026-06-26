@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80143C00();
 
-s32 fn_80143ECC(void *arg0) {
+s32 TMovie__sub_80143ECC(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x58) >= 2) {
         fn_80143C00();
     }

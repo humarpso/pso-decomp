@@ -8,7 +8,7 @@ extern "C" {
 
 u32 fn_802B16BC();
 
-void fn_802ABD4C(void *arg0) {
+void TBoss6PlotFalz__sub_802ABD4C(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x384) == 0U) {
         M2C_FIELD(arg0, u32 *, 0x384) = fn_802B16BC();
     }

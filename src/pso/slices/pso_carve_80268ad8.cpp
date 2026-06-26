@@ -10,7 +10,7 @@ u16 *fn_80223B88(void *, s16);
 M2C_UNK fn_8024503C(s32, u16 *, s32);
 s32 fn_80249604(void *);
 
-void fn_80268AD8(void *arg0, s32 arg1) {
+void TWindowChoiceSetting__sub_80268AD8(void *arg0, s32 arg1) {
     u16 *temp_r3;
 
     temp_r3 = fn_80223B88(arg0, M2C_FIELD(arg0, s16 *, 0x74));

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_800EACE8(void *arg0) {
+void TObjEneSlimeOne__sub_800EACE8(void *arg0) {
     void *temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, void **, 0x38C);

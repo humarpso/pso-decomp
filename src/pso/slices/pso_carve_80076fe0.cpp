@@ -3,7 +3,7 @@
 extern "C" {
 
 int fn_80077718(void*);
-void fn_80077310(void* p);
+void TWindowSubSymbolChat__sub_80077310(void* p);
 void fn_80077334(void* p);
 int fn_80076FE0(void* p);
 
@@ -21,7 +21,7 @@ int fn_800771E4(void) { return 0; }
 int fn_80077214(void) { return 0; }
 int fn_8007728C(void) { return 0; }
 int fn_800772D8(void) { return 0; }
-void fn_80077310(void* p) { fn_80077718(p); fn_80077098(); }
+void TWindowSubSymbolChat__sub_80077310(void* p) { fn_80077718(p); fn_80077098(); }
 void fn_80077334(void* p) { fn_80077718(p); fn_800770D0(); }
 
 }

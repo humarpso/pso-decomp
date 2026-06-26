@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_800BBA04(void *, M2C_UNK);
 M2C_UNK fn_800BBA18(void *, M2C_UNK);
 
-void fn_8030535C(void *arg0, s32 arg1) {
+void TObjEneDellBiter__sub_8030535C(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         fn_800BBA04(arg0, 0);

@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_802FC8CC(void *, M2C_UNK);
 
-void fn_802FC8EC(void *arg0) {
+void TBoss8Dragon__sub_802FC8EC(void *arg0) {
     fn_802FC8CC(arg0, 0);
 }
 

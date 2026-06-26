@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_800C6C10();
 
-void fn_8004B2EC(void *arg0) {
+void TBoss4DarkFalz__sub_8004B2EC(void *arg0) {
     if (fn_800C6C10() != 0) {
         M2C_FIELD(arg0, s32 *, 0x378) = 0;
         return;

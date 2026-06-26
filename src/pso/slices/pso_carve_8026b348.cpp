@@ -10,7 +10,7 @@ M2C_UNK fn_802260F0();
 M2C_UNK fn_802263A8(s16);
 M2C_UNK fn_8022743C();
 
-void fn_8026B348(void *arg0) {
+void TWindowOptionCtrl__sub_8026B348(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x1E) != (s16) M2C_FIELD(arg0, s16 *, 0x20)) {
         fn_8022743C();
         fn_802263A8(M2C_FIELD(arg0, s16 *, 0x20));

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8028783C(s32, M2C_UNK);
 
-void fn_80286204(void *arg0) {
+void TWindowSubSymbolChatPartsSet__sub_80286204(void *arg0) {
     fn_8022675C(0x52D01, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x68) = (u8) (M2C_FIELD(arg0, u8 *, 0x68) | 1);
     fn_8028783C(M2C_FIELD(arg0, s32 *, 0x88), 2);

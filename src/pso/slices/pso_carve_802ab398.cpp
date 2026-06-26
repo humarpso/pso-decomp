@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_800C6C10();
 
-void fn_802AB398(void *arg0) {
+void TBoss6PlotFalz__sub_802AB398(void *arg0) {
     if (fn_800C6C10() != 0) {
         M2C_FIELD(arg0, s32 *, 0x374) = 0;
         return;

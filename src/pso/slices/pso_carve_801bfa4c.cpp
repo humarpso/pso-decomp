@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK __dl__FPv(s32);
-M2C_UNK fn_801BFA98(s32, s32);
+M2C_UNK TObjPlayer__sub_801BFA98(s32, s32);
 
-s32 fn_801BFA4C(s32 arg0, s16 arg1) {
+s32 TObjPlayer__sub_801BFA4C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        fn_801BFA98(arg0, 0);
+        TObjPlayer__sub_801BFA98(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

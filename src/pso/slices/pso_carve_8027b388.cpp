@@ -10,7 +10,7 @@ M2C_UNK fn_80105984(M2C_UNK *);
 M2C_UNK fn_8010D614(s32, M2C_UNK *);
 s32 fn_801143E8(M2C_UNK *, s32);
 
-s32 fn_8027B388(void *arg0) {
+s32 TWindowSubMag__sub_8027B388(void *arg0) {
     M2C_UNK sp8;
     s32 var_r31;
 

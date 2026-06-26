@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_80294084(void *);
 
-void fn_802940F8(void *arg0) {
+void TChCrEffFade__vt1(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + M2C_FIELD(arg0, s32 *, 0x1C));

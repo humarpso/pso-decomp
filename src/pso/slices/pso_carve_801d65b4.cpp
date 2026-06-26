@@ -5,7 +5,7 @@ extern "C" {
 int fn_801C0228(void*);
 void fn_801D6644(void* p);
 int fn_801D6654(void* p);
-int fn_801D66AC(void* p);
+int TFontSmallLobby__sub_801D66AC(void* p);
 s32 fn_801D66D4(void* p);
 s32 fn_801D66DC(void* p);
 int fn_801D66E4(void* p);
@@ -23,7 +23,7 @@ int fn_801D6614(void) { return 0; }
 void fn_801D6644(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 int fn_801D6654(void* p) { return fn_8001BEE8((char*)p + 0x40, 2); }
 void* fn_801D667C(void* p) { fn_801C0228(p); return p; }
-int fn_801D66AC(void* p) { return fn_8001BED8((char*)p + 0x40, 2); }
+int TFontSmallLobby__sub_801D66AC(void* p) { return fn_8001BED8((char*)p + 0x40, 2); }
 s32 fn_801D66D4(void* p) { return *(s32*)((char*)p + 0x0); }
 s32 fn_801D66DC(void* p) { return *(s32*)((char*)p + 0x4); }
 int fn_801D66E4(void* p) { return fn_8001BEE8((char*)p + 0x40, 32); }

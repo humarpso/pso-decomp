@@ -11,7 +11,7 @@ M2C_UNK fn_8022743C();
 M2C_UNK fn_802274B8();
 M2C_UNK fn_8036A648(s32);
 
-void fn_8026B3C4(void *arg0, s32 arg1) {
+void TWindowOptionCtrl__sub_8026B3C4(void *arg0, s32 arg1) {
     fn_8022743C();
     fn_8022743C();
     fn_802260C4();

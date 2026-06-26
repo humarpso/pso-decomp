@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_802034A8();
 
-void fn_8019DDF0(void *arg0) {
+void TObjWarpBossMulti__sub_8019DDF0(void *arg0) {
     s32 temp_r0;
 
     if (fn_802034A8() == 0) {

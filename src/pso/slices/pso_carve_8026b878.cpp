@@ -10,7 +10,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8026CBA4(M2C_UNK);
 s32 fn_80270DCC(s32, s32);
 
-s32 fn_8026B878(void) {
+s32 TWindowOptionCtrl__sub_8026B878(void) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x68);

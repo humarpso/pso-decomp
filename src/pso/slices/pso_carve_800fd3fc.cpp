@@ -12,7 +12,7 @@ M2C_UNK fn_80229080(s32);
 M2C_UNK fn_802290E0();
 s32 __nw__7TObjectFUl(M2C_UNK);
 
-s32 fn_800FD3FC(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 TOCtrlDubchik__sub_800FD3FC(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
     fn_802290E0();

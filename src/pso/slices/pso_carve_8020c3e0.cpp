@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8020C3E0(void *arg0, s32 arg1) {
+s32 TObjEnemy__sub_8020C3E0(void *arg0, s32 arg1) {
     void *temp_r5;
 
     temp_r5 = M2C_FIELD(arg0, void **, 0x80);

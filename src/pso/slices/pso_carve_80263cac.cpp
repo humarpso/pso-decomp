@@ -10,7 +10,7 @@ M2C_UNK fn_801B56A4();
 u32 fn_801BA74C(s32);
 M2C_UNK fn_8026400C(void *, s32);
 M2C_UNK fn_802640E4(void *);
-M2C_UNK fn_80264634(void *);
+M2C_UNK TWindowMainMenu__sub_80264634(void *);
 
 void fn_80263CAC(void *arg0) {
     s32 temp_r4;
@@ -19,7 +19,7 @@ void fn_80263CAC(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (temp_r4 & ~5);
     fn_8026400C(arg0, temp_r4);
     fn_802640E4(arg0);
-    fn_80264634(arg0);
+    TWindowMainMenu__sub_80264634(arg0);
     if (fn_801BA74C(M2C_FIELD(arg0, s32 *, 0x54)) != 0U) {
         fn_801B56A4();
     }

@@ -10,7 +10,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_80255CCC(s32, s32, s32);
 s32 fn_8026CBB8(M2C_UNK);
 
-s32 fn_80330F4C(void *arg0) {
+s32 TWindowSubTradeMain__sub_80330F4C(void *arg0) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0xBC);

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8025CBC0(u32);
+M2C_UNK TKeyBoardControl__sub_8025CBC0(u32);
 M2C_UNK fn_8025FF8C(void *);
 
-void fn_8025FE9C(void *arg0) {
+void TKeyBoardControl__sub_8025FE9C(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 0x1000);
-        fn_8025CBC0(M2C_FIELD(arg0, u32 *, 0x70));
+        TKeyBoardControl__sub_8025CBC0(M2C_FIELD(arg0, u32 *, 0x70));
         fn_8025FF8C(arg0);
     }
 }

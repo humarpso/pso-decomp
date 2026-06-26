@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_8025A260(u16 *, M2C_UNK);
 M2C_UNK fn_8025A2D4(u16 *, M2C_UNK);
 
-void fn_8025A12C(u16 *arg0) {
+void TWindowHelpItem__sub_8025A12C(u16 *arg0) {
     s32 temp_r3;
     u16 temp_r0;
 

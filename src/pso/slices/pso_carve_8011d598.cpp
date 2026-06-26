@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void fn_8011D5A4(void* p);
+void TItemTimer__sub_8011D5A4(void* p);
 
 int fn_8011D598(void) { return 0; }
-void fn_8011D5A4(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+void TItemTimer__sub_8011D5A4(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 
 }
