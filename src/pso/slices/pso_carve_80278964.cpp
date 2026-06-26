@@ -1,0 +1,30 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+M2C_UNK fn_80266E34(void *);
+M2C_UNK fn_80266F78(void *, M2C_UNK);
+M2C_UNK fn_80267104(void *, u32, s32, M2C_UNK);
+M2C_UNK fn_80279044(void *);
+s32 fn_8027AA78(u32);
+
+void fn_80278964(void *arg0) {
+    u32 var_r31;
+
+    var_r31 = 0U;
+    do {
+        fn_80267104(arg0, var_r31, fn_8027AA78(var_r31), 1);
+        var_r31 += 1;
+    } while (var_r31 < 5U);
+    if (M2C_FIELD(arg0, s16 *, 0x72) <= 0) {
+        fn_80266F78(arg0, -1);
+    }
+    fn_80279044(arg0);
+    fn_80266E34(arg0);
+}
+
+}
