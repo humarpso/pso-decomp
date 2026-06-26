@@ -1,7 +1,12 @@
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+void fn_80313250(void *arg0, s32 arg1);
 int fn_801AA64C(void*);
 int fn_80313260(void* a0 = 0);
 void fn_803130BC(void* p);
@@ -32,7 +37,9 @@ int fn_803131C8(void*, void*) { return 0; }
 int fn_803131F0(void* p) { return fn_8001BED8((char*)p + 0x4, 1); }
 int fn_80313218(void* p) { return (fn_8001BEF8((char*)p + 0x4, 1)) == 0; }
 void fn_80313248(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-int fn_80313250(void) { return 0; }
+void fn_80313250(void *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) + arg1);
+}
 int fn_80313260(void*) { return 4; }
 int fn_80313268(void) { return 0; }
 

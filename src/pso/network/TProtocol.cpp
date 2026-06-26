@@ -1123,3 +1123,8 @@ TProtocol::TProtocol(TObject *parent, u16 sub_version, int language, char *seria
 
 #undef fill_with
 #undef copy
+
+extern "C" void fn_801DEEB8(void *p) {
+	((packet_header *)p)->bswap();
+	bswap_16((u16 *)((char *)p + 4));
+}

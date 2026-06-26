@@ -2,6 +2,9 @@
 
 extern "C" {
 
+s32 fn_801C1F80(s32 arg0, s16 arg1);
+int __dl__FPv();
+s32 fn_801C1FBC(s32 arg0, s16 arg1);
 int fn_801C0228(void*);
 int fn_801C1C30(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int fn_801C1D7C(void* a0 = 0, void* a1 = 0, void* a2 = 0);
@@ -108,7 +111,17 @@ void fn_801C1F1C(void* p) { fn_801C1F40((char*)p + 0x4c); }
 int fn_801C1F40(void*) { return 0; }
 int fn_801C1F50(void* p) { return fn_8001BEF8((char*)p + 0x40, 2); }
 void fn_801C1F78(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-int fn_801C1F80(void) { return 0; }
-int fn_801C1FBC(void) { return 0; }
+s32 fn_801C1F80(s32 arg0, s16 arg1) {
+    if ((arg0 != 0) && (arg1 > 0)) {
+        __dl__FPv();
+    }
+    return arg0;
+}
+s32 fn_801C1FBC(s32 arg0, s16 arg1) {
+    if ((arg0 != 0) && (arg1 > 0)) {
+        __dl__FPv();
+    }
+    return arg0;
+}
 
 }

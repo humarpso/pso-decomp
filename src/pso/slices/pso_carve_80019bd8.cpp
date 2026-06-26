@@ -14,7 +14,7 @@ M2C_UNK fn_80141F1C();
 s32 fn_8022A564();
 M2C_UNK render_nodes__7TObjectFv(void *);
 
-void fn_80019BD8(void *arg0) {
+void TAdDrawLineCtrl__vt2(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
         if (fn_8022A564() == 0) {
             set_depth_buffer_settings_2__Fv();

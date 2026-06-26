@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80244A14(void *);
 M2C_UNK fn_803112AC(void *, M2C_UNK);
 
-void fn_803120D8(void *arg0) {
+void TPlayerBattleCtrl4P__vt14(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x20);
     if ((u32) temp_r3 != 0U) {
         fn_80244A14(temp_r3);

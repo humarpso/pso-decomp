@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_801D91B8(void *, void *);
 s32 fn_802034EC();
 
-s32 fn_801B0F34(void *arg0, s32 arg1) {
+s32 TObjPlayer__vt12(void *arg0, s32 arg1) {
     s32 temp_r31;
     s32 temp_r3;
     void *temp_r4;

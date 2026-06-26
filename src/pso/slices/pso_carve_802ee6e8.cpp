@@ -1,7 +1,14 @@
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+void TBoss7Joint__vt91(void *arg0);
+M2C_UNK fn_800BA190(void *);
+M2C_UNK fn_800BA1C8(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int fn_8001960C(void*);
@@ -32,6 +39,12 @@ void fn_802EE7CC(void* p) { fn_802EE704(p); fn_801E4570(p); }
 void fn_802EE800(void* p) { *(u8*)((char*)p + 0x0) = 170; *(u8*)((char*)p + 0x1) = 3; }
 int fn_802EE814(void* p) { return *(u32*)((char*)p + 0x3bc) & 0x1; }
 int fn_802EE820(void) { return 0; }
-int fn_802EE8CC(void) { return 0; }
+void TBoss7Joint__vt91(void *arg0) {
+    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 6) {
+        fn_800BA1C8(arg0);
+        return;
+    }
+    fn_800BA190(arg0);
+}
 
 }

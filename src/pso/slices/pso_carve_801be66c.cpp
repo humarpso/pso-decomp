@@ -2,6 +2,8 @@
 
 extern "C" {
 
+void fn_801BE9F0(void *arg0);
+void fn_801BEA14(void *arg0);
 int fn_801C0228(void*);
 int fn_801BE690(void* p);
 int fn_801BE6E4(void* p);
@@ -110,8 +112,12 @@ int fn_801BE934(void) { return 0; }
 int fn_801BE980(void) { return 0; }
 int fn_801BE9A8(void) { return 0; }
 int fn_801BE9CC(void) { return 0; }
-int fn_801BE9F0(void) { return 0; }
-int fn_801BEA14(void) { return 0; }
+void fn_801BE9F0(void *arg0) {
+    fn_8011E204(arg0, 0x02000000);
+}
+void fn_801BEA14(void *arg0) {
+    fn_800495E0(arg0, 0x02000000);
+}
 int fn_801BEA38(void) { return 0; }
 void fn_801BEA4C(void* p) { *(u32*)((char*)p + 0x334) |= 0x2; }
 int fn_801BEA5C(void) { return 0; }

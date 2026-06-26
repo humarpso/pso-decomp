@@ -2,6 +2,7 @@
 
 extern "C" {
 
+void fn_801F32F0(void *arg0);
 int fn_801F3360(void* p);
 int fn_801F3384(void* p);
 int fn_801F33A8(void* p);
@@ -20,7 +21,9 @@ int fn_801B3540(void*);
 int fn_801B3564(void*);
 
 int fn_801F32CC(void) { return 0; }
-int fn_801F32F0(void) { return 0; }
+void fn_801F32F0(void *arg0) {
+    fn_800822E8(arg0, 0x40000);
+}
 int fn_801F3314(void) { return 0; }
 int fn_801F3338(void) { return 0; }
 int fn_801F3360(void* p) { return fn_800822E8(p, 24576); }

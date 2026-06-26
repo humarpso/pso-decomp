@@ -2,6 +2,8 @@
 
 extern "C" {
 
+s32 fn_80355098(s32 arg0, s16 arg1);
+int __dl__FPv();
 int fn_8001BF10(void*);
 int fn_8001BF40(void*);
 int fn_80052EA0(void*, void*);
@@ -31,7 +33,12 @@ int fn_80354FF8(void* p) { return fn_8001BEF8(p, 1); }
 int fn_8035501C(void* p) { return fn_8001BEE8(p, 3); }
 int fn_80355040(void* p) { return fn_8001BED8(p, 1); }
 void fn_80355064(void* p) { fn_8001BF40(p); *(int*)((char*)p + 0x4) = 0; }
-int fn_80355098(void) { return 0; }
+s32 fn_80355098(s32 arg0, s16 arg1) {
+    if ((arg0 != 0) && (arg1 > 0)) {
+        __dl__FPv();
+    }
+    return arg0;
+}
 void* fn_803550D4(void* p) { fn_8001BF10(p); fn_80355064(p); return p; }
 int fn_8035510C(void*, void*) { return 0; }
 int fn_80355124(void) { return 0; }

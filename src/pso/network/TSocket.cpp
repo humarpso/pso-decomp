@@ -6,6 +6,8 @@
 #include "pso/TObject.h"
 #include "pso/TSocket.h"
 
+extern const char *sock_status_names[];
+
 int TSocket::is_empty() {
     if (all_parents_unqueued_for_destruction()) {
         return !m_size;
@@ -52,6 +54,10 @@ TSocket::TSocket(TObject *parent) : TObject(parent) {
     m_buffer_offset = 0;
     m_buffer_cleared = true;
     m_callback = nullptr;
+}
+
+char *get_sock_status_name(s16 status) {
+    return (char *)sock_status_names[-status & 0xF];
 }
 
 u16 to_be_uint16_t(u16 val) {

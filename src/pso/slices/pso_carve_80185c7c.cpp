@@ -15,7 +15,7 @@ M2C_UNK fn_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 fn_802664A8(M2C_UNK, s32, s16);
 M2C_UNK fn_8026CBB8(M2C_UNK);
 
-void fn_80185C7C(void *arg0, s16 arg1) {
+void TObjCityAreaWarp__vt13(void *arg0, s16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
         M2C_FIELD(arg0, u32 *, 0xB0) = fn_802664A8(fn_8026CBB8(0x33), 1, arg1);
         fn_80266200(M2C_FIELD(arg0, u32 *, 0xB0), fn_80132F2C(9, 0x24), 0xA, 0, -1);

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_800FE5A0(void *);
 
-void fn_800FE510(void *arg0) {
+void TObjWaitEntryHairMoveSim__vt1(void *arg0) {
     if ((s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), s32 *, 0xCFC) == 0) {
         fn_800FE5A0(arg0);
         queue_destruction__7TObjectFv(arg0);
