@@ -8,14 +8,14 @@ extern "C" {
 
 u16 *TWindowSubStatusDisp__sub_80223B88(void *, s16);
 M2C_UNK fn_8024503C(s32, u16 *, s32);
-s32 fn_80249604(void *);
+s32 TWindowSubComCard__sub_80249604(void *);
 
 void TWindowChoiceSetting__sub_80268AD8(void *arg0, s32 arg1) {
     u16 *temp_r3;
 
     temp_r3 = TWindowSubStatusDisp__sub_80223B88(arg0, M2C_FIELD(arg0, s16 *, 0x74));
     if (*temp_r3 & 1) {
-        fn_8024503C(arg1, temp_r3, fn_80249604(arg0));
+        fn_8024503C(arg1, temp_r3, TWindowSubComCard__sub_80249604(arg0));
     }
 }
 
