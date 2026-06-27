@@ -1,0 +1,83 @@
+#ifndef PSO_BOSS_TBOSS4TYPE3_H
+#define PSO_BOSS_TBOSS4TYPE3_H
+
+#include "types.h"
+
+struct TBoss4Type3
+{
+    u8 _pad1C[0x8];
+    u32 m_24;
+    u8 _pad28[0x8];
+    u32 m_30;
+    u32 m_34;
+    u32 m_38;
+    u32 m_3c;
+    u32 m_40;
+    void* m_44;
+    u8 _pad48[0x8];
+    void* m_50;
+    u8 _pad54[0xC];
+    u32 m_60;
+    u8 _pad64[0x10];
+    void* m_74;
+    u8 _pad78[0x230];
+    u32 m_2a8;
+    u8 _pad2AC[0x50];
+    void* m_2fc;
+    u8 _pad300[0x2C];
+    s16 m_32c;
+    u8 _pad32E[0x10];
+    u16 m_33e;
+    u8 _pad340[0x34];
+    u32 m_374;
+    void* m_378;
+    u8 _pad37C[0x10];
+    u32 m_38c;
+    u32 m_390;
+    u32 m_394;
+    u32 m_398;
+    u8 _pad39C[0x4];
+    u32 m_3a0;
+    u32 m_3a4;
+    u32 m_3a8;
+    u32 m_3ac;
+    u8 _pad3B0[0x4];
+    u32 m_3b4;
+    u16 m_3b8;
+    u16 m_3ba;
+    u32 m_3bc;
+    u8 _pad3C0[0x4];
+    u32 m_3c4;
+    u8 _pad3C8[0x4];
+    u32 m_3cc;
+    u32 m_3d0;
+    u32 m_3d4;
+    u32 m_3d8;
+    u8 _pad3DC[0x4];
+    u32 m_3e0;
+    u32 m_3e4;
+    u8 _pad3E8[0x8];
+    u32 m_3f0;
+    u8 _pad3F4[0x8];
+    u32 m_3fc;
+    u8 _pad400[0x24];
+    u32 m_424;
+    u32 m_428;
+    u32 m_42c;
+    u32 m_430;
+    u32 m_434;
+    u8 _pad438[0x18];
+    void* m_450;
+    u8 _pad454[0x8];
+    void* m_45c;
+    u8 _pad460[0x14];
+    void* m_474;
+    u8 _pad478[0xA4];
+    u32 m_51c;
+    u32 m_520;
+    u32 m_524;
+    u32 m_528;
+    u32 m_52c;
+};
+
+#endif

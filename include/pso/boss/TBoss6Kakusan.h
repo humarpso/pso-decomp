@@ -1,0 +1,21 @@
+#ifndef PSO_BOSS_TBOSS6KAKUSAN_H
+#define PSO_BOSS_TBOSS6KAKUSAN_H
+
+#include "types.h"
+
+struct TBoss6Kakusan
+{
+    u32 m_1c;
+    u16 m_20;
+    u8 _pad22[0xA];
+    u32 m_2c;
+    void* m_30;
+    u8 _pad34[0x8];
+    void* m_3c;
+    u8 _pad40[0x8];
+    void* m_48;
+    u8 _pad4C[0x8];
+    u32 m_54;
+};
+
+#endif

@@ -1,0 +1,89 @@
+#ifndef PSO_BOSS_TBOSS8DRAGON_H
+#define PSO_BOSS_TBOSS8DRAGON_H
+
+#include "types.h"
+
+struct TBoss8Dragon
+{
+    u8 _pad1C[0x8];
+    u32 m_24;
+    u8 _pad28[0xC];
+    u32 m_34;
+    void* m_38;
+    u8 _pad3C[0x74];
+    u32 m_b0;
+    u8 _padB4[0x4];
+    s16 m_b8;
+    u8 _padBA[0x1F6];
+    u32 m_2b0;
+    u8 _pad2B4[0x4];
+    s16 m_2b8;
+    u8 _pad2BA[0x6C];
+    s16 m_326;
+    u8 _pad328[0x28];
+    u32 m_350;
+    u8 _pad354[0x6C];
+    u32 m_3c0;
+    void* m_3c4;
+    u8 _pad3C8[0x18];
+    u32 m_3e0;
+    u32 m_3e4;
+    u8 _pad3E8[0x28];
+    void* m_410;
+    u8 _pad414[0x8];
+    void* m_41c;
+    u8 _pad420[0x8];
+    void* m_428;
+    u8 _pad42C[0xBC];
+    void* m_4e8;
+    u8 _pad4EC[0x100];
+    void* m_5ec;
+    u8 _pad5F0[0x20];
+    void* m_610;
+    u8 _pad614[0x20];
+    void* m_634;
+    u8 _pad638[0x8];
+    void* m_640;
+    u8 _pad644[0x8];
+    u32 m_64c;
+    u32 m_650;
+    u32 m_654;
+    u8 _pad658[0x1C];
+    u32 m_674;
+    u16 m_678;
+    u16 m_67a;
+    u32 m_67c;
+    u32 m_680;
+    u32 m_684;
+    u8 _pad688[0x10];
+    u32 m_698;
+    u32 m_69c;
+    u8 _pad6A0[0x30];
+    u32 m_6d0;
+    u32 m_6d4;
+    u32 m_6d8;
+    void* m_6dc;
+    u8 _pad6E0[0x6C];
+    u32 m_74c;
+    u16 m_750;
+    u8 _pad752[0x2];
+    u32 m_754;
+    u32 m_758;
+    u8 _pad75C[0x8];
+    void* m_764;
+    u8 _pad768[0xE4];
+    u32 m_84c;
+    u32 m_850;
+    u32 m_854;
+    u32 m_858;
+    u32 m_85c;
+    u32 m_860;
+    u8 _pad864[0x2C];
+    u32 m_890;
+    u32 m_894;
+    u32 m_898;
+    u32 m_89c;
+    u32 m_8a0;
+};
+
+#endif

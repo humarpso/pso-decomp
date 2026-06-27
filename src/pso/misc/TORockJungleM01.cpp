@@ -1,0 +1,23 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TORockJungleM01__vt1(void* p);
+void TORockJungleM01__vt16(s32 arg0);
+
+int fn_800D7BB0(void*);
+int fn_80174EA0(void*);
+
+void TORockJungleM01__vt1(void* p) { fn_800D7BB0((char*)p + 0xbc); fn_80174EA0(p); }
+
+M2C_UNK fn_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+
+void TORockJungleM01__vt16(s32 arg0) {
+    fn_8022675C(0x4BC19, arg0 + 0x38, 0, 0);
+}
+
+}

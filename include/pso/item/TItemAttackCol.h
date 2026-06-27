@@ -1,0 +1,47 @@
+#ifndef PSO_ITEM_TITEMATTACKCOL_H
+#define PSO_ITEM_TITEMATTACKCOL_H
+
+#include "types.h"
+
+struct TItemAttackCol
+{
+    u8 _pad1C[0x8];
+    void* m_24;
+    u8 _pad28[0x8];
+    u32 m_30;
+    u8 _pad34[0x74];
+    u16 m_a8;
+    u8 _padAA[0x2];
+    u32 m_ac;
+    u8 _padB0[0x8];
+    u32 m_b8;
+    u8 _padBC[0x8];
+    void* m_c4;
+    u8 _padC8[0x8];
+    void* m_d0;
+    u8 _padD4[0xC];
+    void* m_e0;
+    u32 m_e4;
+    u32 m_e8;
+    u32 m_ec;
+    u32 m_f0;
+    u32 m_f4;
+    u32 m_f8;
+    void* m_fc;
+    u32 m_100;
+    u8 _pad104[0x4];
+    void* m_108;
+    u8 _pad10C[0x8];
+    u32 m_114;
+    u32 m_118;
+    u32 m_11c;
+    u8 _pad120[0xC];
+    u32 m_12c;
+    u32 m_130;
+    u32 m_134;
+    u32 m_138;
+    u32 m_13c;
+    u32 m_140;
+};
+
+#endif
