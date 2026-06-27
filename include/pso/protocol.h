@@ -18,4 +18,13 @@ struct packet_header {
     void bswap() { bswap_16(&size); };
 };
 
+/* Shared wire formats, derived from newserv (MIT; see reference/newserv-LICENSE).
+ * - protocol_types.h : shared payload/header structs (ItemData, vectors, ...)
+ * - subcmd_6x.h      : the G_*_6xNN 0x60 game subcommand formats
+ * - commands.h       : the main S_/C_/SC_* command formats
+ */
+#include "pso/protocol/protocol_types.h"
+#include "pso/protocol/subcmd_6x.h"
+#include "pso/protocol/commands.h"
+
 #endif

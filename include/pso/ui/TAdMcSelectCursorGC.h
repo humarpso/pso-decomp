@@ -1,0 +1,20 @@
+#ifndef PSO_UI_TADMCSELECTCURSORGC_H
+#define PSO_UI_TADMCSELECTCURSORGC_H
+
+#include "types.h"
+
+struct TAdMcSelectCursorGC
+{
+    u32 m_1c;
+    u32 m_20;
+    u32 m_24;
+    u8 _pad28[0x100];
+    u32 m_128;
+    u32 m_12c;
+    u8 _pad130[0x4];
+    u32 m_134;
+    u32 m_138;
+    u32 m_13c;
+};
+
+#endif
