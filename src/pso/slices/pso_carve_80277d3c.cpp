@@ -14,7 +14,7 @@ M2C_UNK fn_801BA0F0(s32, s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 u32 fn_801C675C(s32, s32);
 
-void fn_80277D3C(s32 arg0, s32 arg1, s32 arg2) {
+void TWindowShortListCtrl__sub_80277D3C(s32 arg0, s32 arg1, s32 arg2) {
     u32 temp_r31;
     s32 temp_r3;
     s32 temp_r0;

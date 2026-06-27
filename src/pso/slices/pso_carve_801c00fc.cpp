@@ -17,7 +17,7 @@ int fn_801C01BC(void* p);
 void fn_801C0258(void* p, void* q);
 void fn_801C0438(void* p);
 void fn_801C0480(void* p);
-void fn_801C04C8(void* p);
+void TFontSmallLobby__sub_801C04C8(void* p);
 void fn_801C0510(void* p);
 void fn_801C0558(void* p);
 void fn_801C05A0(void* p);
@@ -51,7 +51,7 @@ void fn_801C0438(void* p) { *(u8*)((char*)p + 0x0) = 130; *(u8*)((char*)p + 0x1)
 int fn_801C044C(void) { return 0; }
 void fn_801C0480(void* p) { *(u8*)((char*)p + 0x0) = 129; *(u8*)((char*)p + 0x1) = 1; }
 int fn_801C0494(void) { return 0; }
-void fn_801C04C8(void* p) { *(u8*)((char*)p + 0x0) = 123; *(u8*)((char*)p + 0x1) = 1; }
+void TFontSmallLobby__sub_801C04C8(void* p) { *(u8*)((char*)p + 0x0) = 123; *(u8*)((char*)p + 0x1) = 1; }
 int fn_801C04DC(void) { return 0; }
 void fn_801C0510(void* p) { *(u8*)((char*)p + 0x0) = 122; *(u8*)((char*)p + 0x1) = 1; }
 int fn_801C0524(void) { return 0; }

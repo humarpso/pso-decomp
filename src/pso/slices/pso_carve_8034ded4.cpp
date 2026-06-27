@@ -8,7 +8,7 @@ extern "C" {
 
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 
-u8 fn_8034DED4(void *arg0) {
+u8 TTecReverser__sub_8034DED4(void *arg0) {
     int var_r31;
 
     var_r31 = 0;

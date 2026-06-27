@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_8008100C(void *arg0) {
+void TWindowKeyBoardSoft__sub_8008100C(void *arg0) {
     s16 *temp_r3;
 
     M2C_FIELD(arg0, s32 *, 4) = 0;

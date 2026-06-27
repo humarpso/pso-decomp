@@ -33,6 +33,6 @@ void fn_801BF5F0(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 int fn_801BF5F8(void) { return 0; }
 int fn_801BF60C(void) { return 0; }
 int fn_801BF640(void* p) { return fn_801BFFA0(p); }
-void* fn_801BF660(void* p) { fn_801BF690(p); return p; }
+void* TObjPlayer__sub_801BF660(void* p) { fn_801BF690(p); return p; }
 
 }
