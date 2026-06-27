@@ -16,8 +16,8 @@ void TObjEneRe4Bit__vt86(void *arg0) {
 }
 void TObjEneRe4Bit__sub_800ED600(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
 void TObjEneRe4Bit__vt59(void) {  }
-int fn_800ED630(void) { return 0; }
-int fn_800ED674(void) { return 0; }
+int TObjEneRe4Bit__vt60(void) { return 0; }
+int TObjEneRe4Bit__vt61(void) { return 0; }
 void TObjEneRe4Bit__vt26(void) {  }
 
 }

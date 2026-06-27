@@ -41,7 +41,7 @@ s32 fn_80355098(s32 arg0, s16 arg1) {
 }
 void* fn_803550D4(void* p) { TObjPlayer__sub_8001BF10(p); fn_80355064(p); return p; }
 int fn_8035510C(void*, void*) { return 0; }
-int fn_80355124(void) { return 0; }
+int TAdPlyPltAnimCtrlGC__vt2(void) { return 0; }
 int fn_80355148(void) { return 0; }
 int fn_80355168(void*) { return 0; }
 void fn_803551C0(void* p, void* a1) { fn_80355168(p); TWindowSubSymbolChatPartsSet__sub_80052EA0((char*)p + 0x24, a1); *(int*)((char*)p + 0x1c) = 1; }

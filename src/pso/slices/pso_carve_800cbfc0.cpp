@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 fn_800BADDC();
+u32 TObjEneDD__vt98();
 
 void TObjEneMe1Gee__vt99(void *arg0) {
-    if (fn_800BADDC() == 0U) {
+    if (TObjEneDD__vt98() == 0U) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFEFFFFFF);
         return;
     }

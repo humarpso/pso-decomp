@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8011D4D8(void *, s32, s32, s32);
+M2C_UNK TItemTimer__ct(void *, s32, s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
 void fn_80103448(s32 arg0, s32 arg1, s32 arg2) {
@@ -14,7 +14,7 @@ void fn_80103448(s32 arg0, s32 arg1, s32 arg2) {
     if (arg0 != 0) {
         temp_r3 = (void *)__nw__7TObjectFUl(0x28);
         if (temp_r3 != (void *)0U) {
-            fn_8011D4D8(temp_r3, arg0, arg1, arg2);
+            TItemTimer__ct(temp_r3, arg0, arg1, arg2);
         }
     }
 }

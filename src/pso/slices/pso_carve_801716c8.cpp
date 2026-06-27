@@ -5,6 +5,6 @@ extern "C" {
 void TOMineIcon02__vt82(void);
 
 void TOMineIcon02__vt82(void) {  }
-int fn_801716CC(void) { return 0; }
+int TOMineIcon02__vt80(void) { return 0; }
 
 }

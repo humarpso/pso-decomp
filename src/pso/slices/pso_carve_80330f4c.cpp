@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 __nw__7TObjectFUl(M2C_UNK);
-s32 fn_80255CCC(s32, s32, s32);
+s32 TWindowHelpItem__ct(s32, s32, s32);
 s32 fn_8026CBB8(M2C_UNK);
 
 s32 TWindowSubTradeMain__sub_80330F4C(void *arg0) {
@@ -15,7 +15,7 @@ s32 TWindowSubTradeMain__sub_80330F4C(void *arg0) {
 
     var_r31 = __nw__7TObjectFUl(0xBC);
     if (var_r31 != 0) {
-        var_r31 = fn_80255CCC(var_r31, fn_8026CBB8(2), M2C_FIELD(arg0, s32 *, 0x28));
+        var_r31 = TWindowHelpItem__ct(var_r31, fn_8026CBB8(2), M2C_FIELD(arg0, s32 *, 0x28));
     }
     M2C_FIELD(arg0, s32 *, 0x24) = -1;
     return var_r31;

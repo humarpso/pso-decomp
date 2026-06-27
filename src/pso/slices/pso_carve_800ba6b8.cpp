@@ -32,6 +32,6 @@ int fn_800BA828(void) { return 0; }
 int fn_800BA838(void) { return 0; }
 int fn_800BA870(void) { return 0; }
 int fn_800BA88C(void) { return 0; }
-int fn_800BA8A8(void) { return 0; }
+int TObjEneDD__vt87(void) { return 0; }
 
 }

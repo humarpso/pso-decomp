@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss7Joint__vt91(void *arg0);
-M2C_UNK fn_800BA190(void *);
-M2C_UNK fn_800BA1C8(void *);
+M2C_UNK TObjEneDD__vt91(void *);
+M2C_UNK TObjEneDD__vt90(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int fn_8001960C(void*);
@@ -41,10 +41,10 @@ int TBoss7Joint__sub_802EE814(void* p) { return *(u32*)((char*)p + 0x3bc) & 0x1;
 int fn_802EE820(void) { return 0; }
 void TBoss7Joint__vt91(void *arg0) {
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 6) {
-        fn_800BA1C8(arg0);
+        TObjEneDD__vt90(arg0);
         return;
     }
-    fn_800BA190(arg0);
+    TObjEneDD__vt91(arg0);
 }
 
 }

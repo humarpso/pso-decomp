@@ -8,14 +8,14 @@ extern "C" {
 
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_80287AD8(s32);
-s32 fn_80287FBC();
+s32 TWindowTimer__ct();
 
 s32 fn_80287E08(void) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != 0) {
-        var_r31 = fn_80287FBC();
+        var_r31 = TWindowTimer__ct();
     }
     fn_80287AD8(var_r31);
     return var_r31;

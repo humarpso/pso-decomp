@@ -3,9 +3,9 @@
 extern "C" {
 
 int fn_800B1978(void*);
-int fn_800BA8E8(void*);
+int TObjEneDD__vt86(void*);
 void TObjEneBm3Fly__vt87(void* p);
 
-void TObjEneBm3Fly__vt87(void* p) { fn_800BA8E8(p); fn_800B1978(p); }
+void TObjEneBm3Fly__vt87(void* p) { TObjEneDD__vt86(p); fn_800B1978(p); }
 
 }

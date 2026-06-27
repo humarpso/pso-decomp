@@ -8,6 +8,6 @@ void TOTrapChainSawKey__vt25(void);
 
 void TOTrapChainSawKey__vt25(void) {  }
 void TOTrapChainSawKey__vt15(void* p) { if (*(int*)((char*)p + 0xf0) != 1) { fn_802C91DC(p); } }
-int fn_802C8514(void) { return 0; }
+int TOTrapChainSawKey__vt23(void) { return 0; }
 
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8007FE04(void *, void *, M2C_UNK);
+M2C_UNK TDuelEffectCtrl__ct(void *, void *, M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80244A14(void *);
 s32 TPlayerBattleCtrl4P__sub_80310BA8(void *);
@@ -21,7 +21,7 @@ void TPlayerBattleCtrl4P__vt12(void *arg0) {
         {
             void *temp = __nw__7TObjectFUl(0x28);
             if (temp != 0) {
-                fn_8007FE04(temp, arg0, 0);
+                TDuelEffectCtrl__ct(temp, arg0, 0);
             }
         }
         M2C_FIELD(arg0, s32 *, 0x240) = 0x96;

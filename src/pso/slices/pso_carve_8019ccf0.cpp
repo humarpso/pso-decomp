@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8019D880(s32);
+s32 TObjWarpBase__vt13(s32);
 s32 fn_801B5680();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TRaderMapCore__sub_8030A808();
@@ -27,7 +27,7 @@ loop_2:
         goto loop_2;
     }
 block_6:
-    return fn_8019D880(arg0);
+    return TObjWarpBase__vt13(arg0);
 }
 
 }

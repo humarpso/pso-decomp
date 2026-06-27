@@ -5,6 +5,6 @@ extern "C" {
 void TTecKafun__vt2(void);
 
 void TTecKafun__vt2(void) {  }
-int fn_802A97EC(void) { return 0; }
+int TTecKafun__vt1(void) { return 0; }
 
 }

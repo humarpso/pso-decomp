@@ -10,6 +10,6 @@ void fn_802A16A8(void* p) { *(u8*)((char*)p + 0x0) = 0; *(u8*)((char*)p + 0x1) =
 s32 fn_802A16C0(void* p) { return *(s32*)((char*)p + 0x3e8); }
 void TAdSelectTxtGC__vt2(void) {  }
 int fn_802A16CC(void) { return 0; }
-int fn_802A1740(void) { return 0; }
+int TAdSelectTxtGC__vt1(void) { return 0; }
 
 }

@@ -11,6 +11,6 @@ int fn_800B9C88(void* p) { return fn_801A85A0(p); }
 int fn_800B9CA8(void* p) { return fn_800C6C10(p); }
 int fn_800B9CC8(void) { return 0; }
 int fn_800B9CF4(void) { return 0; }
-int fn_800B9D20(void) { return 0; }
+int TObjEneDD__vt97(void) { return 0; }
 
 }

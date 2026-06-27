@@ -5,6 +5,6 @@ extern "C" {
 void TORevlightCave01__sub_80173478(void);
 
 void TORevlightCave01__sub_80173478(void) {  }
-int fn_8017347C(void) { return 0; }
+int TORevlightCave01__vt1(void) { return 0; }
 
 }

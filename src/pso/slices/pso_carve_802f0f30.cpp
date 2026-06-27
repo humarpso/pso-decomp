@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8019C758(void *);
+M2C_UNK TObjAreaWarpForest__vt1(void *);
 s32 fn_802F2070();
 
 void fn_802F0F30(void *arg0) {
     if (fn_802F2070() != 0) {
         M2C_FIELD(arg0, s32 *, 0xDC) = 1;
     }
-    fn_8019C758(arg0);
+    TObjAreaWarpForest__vt1(arg0);
 }
 
 }

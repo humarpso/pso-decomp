@@ -8,14 +8,14 @@ extern "C" {
 
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8026CBA4(M2C_UNK);
-s32 fn_802A80A0(s32, s32);
+s32 TWindowSnapShot__ct(s32, s32);
 
 s32 TWindowOptionCtrl__sub_8026B828(void) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != 0) {
-        var_r31 = fn_802A80A0(var_r31, fn_8026CBA4(0xCF));
+        var_r31 = TWindowSnapShot__ct(var_r31, fn_8026CBA4(0xCF));
     }
     return var_r31;
 }

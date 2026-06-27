@@ -9,7 +9,7 @@ int queue_destruction__7TObjectFv(void*);
 int TObjIllGillKage__sub_80365450(void* p) { return queue_destruction__7TObjectFv(p); }
 int fn_80365470(void) { return 0; }
 int fn_803654D0(void) { return 0; }
-int fn_80365550(void) { return 0; }
+int TObjIllGillKage__vt1(void) { return 0; }
 void TObjIllGillKage__vt2(void) {  }
 
 }

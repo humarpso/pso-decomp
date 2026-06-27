@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800BA190(void *);
-M2C_UNK fn_800BA1C8(void *);
+M2C_UNK TObjEneDD__vt91(void *);
+M2C_UNK TObjEneDD__vt90(void *);
 
 void TBoss2Joint__vt91(void *arg0) {
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 6) {
-        fn_800BA1C8(arg0);
+        TObjEneDD__vt90(arg0);
         return;
     }
-    fn_800BA190(arg0);
+    TObjEneDD__vt91(arg0);
 }
 
 }

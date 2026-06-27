@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801087B8(u32, s32, u32, s32, M2C_UNK);
+M2C_UNK TItemEffCane__ct(u32, s32, u32, s32, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 
@@ -15,11 +15,11 @@ void fn_80108620(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     if ((arg0 != 0) && (arg1 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(arg1) != 0)) {
         obj = __nw__7TObjectFUl(0x28);
         if (obj != 0U) {
-            fn_801087B8(obj, arg0, arg1, arg2, 0x1BD);
+            TItemEffCane__ct(obj, arg0, arg1, arg2, 0x1BD);
         }
         obj = __nw__7TObjectFUl(0x28);
         if (obj != 0U) {
-            fn_801087B8(obj, arg0, arg1, arg3, 0x1BD);
+            TItemEffCane__ct(obj, arg0, arg1, arg3, 0x1BD);
         }
     }
 }

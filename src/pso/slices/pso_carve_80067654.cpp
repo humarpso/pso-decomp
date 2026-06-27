@@ -13,6 +13,6 @@ void fn_80067658(void) {  }
 void fn_8006765C(void) {  }
 void fn_80067660(void) {  }
 void fn_80067664(void) {  }
-int fn_80067668(void) { return 0; }
+int TCameraCtrl__vt11(void) { return 0; }
 
 }

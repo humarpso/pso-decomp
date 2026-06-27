@@ -8,14 +8,14 @@ extern "C" {
 
 M2C_UNK fn_800B98C0(void *);
 s32 fn_800BA828(u16);
-M2C_UNK fn_800BBB88(void *);
+M2C_UNK TObjEneDD__vt81(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
 void TObjEneEpsilon__vt81(void *arg0) {
     if ((fn_800BA828(M2C_FIELD(arg0, u16 *, 0x38C)) != 0) && (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x38C)) == 0U)) {
         fn_800B98C0(arg0);
     }
-    fn_800BBB88(arg0);
+    TObjEneDD__vt81(arg0);
 }
 
 }

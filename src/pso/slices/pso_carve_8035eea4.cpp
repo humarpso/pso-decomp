@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800BA8E8();
+M2C_UNK TObjEneDD__vt86();
 M2C_UNK TObjEneEpsilonGuard__sub_8035EF04(void *);
 
 void TObjEneEpsilonGuard__vt87(void *arg0) {
-    fn_800BA8E8();
+    TObjEneDD__vt86();
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x400000) {
         M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) | 0x80);
     } else {

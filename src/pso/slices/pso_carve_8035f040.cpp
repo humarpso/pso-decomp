@@ -11,6 +11,6 @@ void TObjEneEpsilonGuard__vt59(void) {  }
 void TObjEneEpsilonGuard__vt60(void) {  }
 void TObjEneEpsilonGuard__vt61(void) {  }
 void TObjEneEpsilonGuard__vt26(void) {  }
-int fn_8035F050(void) { return 0; }
+int TObjEneEpsilonGuard__vt85(void) { return 0; }
 
 }
