@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_801A6D10();
 
-u8 fn_801A6DA0(void *arg0) {
+u8 TWindowShortListCtrl__sub_801A6DA0(void *arg0) {
     return (u8) ((M2C_FIELD(arg0, s32 *, 0x4C) & fn_801A6D10()) != 0);
 }
 

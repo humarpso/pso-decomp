@@ -14,7 +14,7 @@ s32 fn_801207E8(void *, M2C_UNK, M2C_UNK *);
 s32 fn_80121CA8(void *);
 M2C_UNK fn_80230AF0(void *, M2C_UNK *, s32, s32);
 int fn_80121200(void*);
-int fn_803D96A8(void*, void*);
+int TObjContainerIdo__sub_803D96A8(void*, void*);
 void fn_80122680(void* p);
 void fn_801225F8(void* p, s16 v);
 
@@ -33,6 +33,6 @@ void fn_80122600(void *arg0) {
         fn_8011F5E0(arg0);
     }
 }
-void fn_80122680(void* p) { if (fn_80121200(p) == 1) { fn_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }
+void fn_80122680(void* p) { if (fn_80121200(p) == 1) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 }

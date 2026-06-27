@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_8019750C(void *);
 M2C_UNK fn_801975DC(void *);
 M2C_UNK fn_801F9C54(s16);
-s32 fn_8030A808();
+s32 TRaderMapCore__sub_8030A808();
 
 void TObjRaderCol__vt1(void *arg0) {
     s32 temp_r0;
@@ -21,7 +21,7 @@ void TObjRaderCol__vt1(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x98) = 1;
         return;
     case 1:
-        if (fn_8030A808() == 1) {
+        if (TRaderMapCore__sub_8030A808() == 1) {
             fn_8019750C(arg0);
             return;
         }

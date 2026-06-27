@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80077760(s32);
+s32 TWindowSubStatusDisp__sub_80077760(s32);
 
 s32 fn_80338858(void *arg0, s8 arg1) {
     if (arg1 == 0) {
         return 0;
     }
-    return fn_80077760(arg1 + 0x10D);
+    return TWindowSubStatusDisp__sub_80077760(arg1 + 0x10D);
 }
 
 }

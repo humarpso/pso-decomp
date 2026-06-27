@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80223B88(void *, s32);
+s32 TWindowSubStatusDisp__sub_80223B88(void *, s32);
 M2C_UNK fn_8024503C(void *, s32, s32);
 s32 fn_8026C63C(void *);
 
 void TWindowSoundBalance__sub_80270860(void *arg0, void *arg1) {
     s32 temp;
 
-    temp = fn_80223B88(arg0, (s32) ((s8 *) arg0)[0x61]);
+    temp = TWindowSubStatusDisp__sub_80223B88(arg0, (s32) ((s8 *) arg0)[0x61]);
     fn_8024503C(arg1, temp, fn_8026C63C(arg0));
 }
 

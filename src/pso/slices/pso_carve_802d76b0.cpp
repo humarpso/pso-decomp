@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80141F1C();
-M2C_UNK fn_80143098();
+M2C_UNK TObjEneRe7Berura__sub_80143098();
 M2C_UNK fn_80143118();
-M2C_UNK fn_803DB470(s32);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK fn_803E46BC(s32);
 M2C_UNK fn_803E4BC4(void *);
 M2C_UNK fn_803E4BD0();
@@ -28,11 +28,11 @@ void TObjNpcEnemy__sub_802D76B0(void *arg0) {
         fn_803E4BD0();
         return;
     case 1:
-        fn_80143098();
+        TObjEneRe7Berura__sub_80143098();
         return;
     case 2:
         fn_803E4BC4(arg0);
-        fn_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
         fn_80141F1C();
         fn_803E4BD0();
         return;

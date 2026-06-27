@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK __dl__FPv(s32 *);
-M2C_UNK fn_80147A80(s32);
+M2C_UNK TOBoss4Rock__sub_80147A80(s32);
 
 s32 *fn_8010FE20(s32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        fn_80147A80(*arg0);
+        TOBoss4Rock__sub_80147A80(*arg0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

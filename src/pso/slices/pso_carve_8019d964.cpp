@@ -7,17 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8019DD24(s32, M2C_UNK);
-u32 fn_801BA74C(u16);
-M2C_UNK fn_80244A14(u32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+M2C_UNK TWindowSubComCard__sub_80244A14(u32);
 
 void TObjWarpBase__vt12(void *arg0) {
     u32 temp_r3;
 
     temp_r3 = (u32) M2C_FIELD(arg0, u32 *, 0xB0);
     if (temp_r3 != 0U) {
-        fn_80244A14(temp_r3);
+        TWindowSubComCard__sub_80244A14(temp_r3);
         M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
-        temp_r3 = fn_801BA74C(M2C_FIELD(arg0, u16 *, 0xB8));
+        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xB8));
         if (temp_r3 != 0U) {
             fn_8019DD24(temp_r3 + 0x550, 4);
         }

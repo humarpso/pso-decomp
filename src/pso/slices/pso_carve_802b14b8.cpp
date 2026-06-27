@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80226578(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_802B129C();
 
 void fn_802B14B8(s32 arg0) {
     fn_802B129C();
-    fn_80226578(0x40033520, arg0, 0, 0, 0);
+    TOTrapAncient01__sub_80226578(0x40033520, arg0, 0, 0, 0);
 }
 
 }

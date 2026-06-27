@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 fn_801BA74C(u16);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
 void fn_80117454(void *arg0) {
     s32 temp_r3;
 
-    if (fn_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C)) == 0U) {
+    if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C)) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

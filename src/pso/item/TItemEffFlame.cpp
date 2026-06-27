@@ -1,9 +1,9 @@
 #include "pso/TItemEffFlame.h"
 
-extern "C" void fn_80086C44(void*);
+extern "C" void TBoss4Type2__sub_80086C44(void*);
 
 void TItemEffFlame::run_task() {}
 
 TItemEffFlame::~TItemEffFlame() {
-    fn_80086C44(this->m_1c);
+    TBoss4Type2__sub_80086C44(this->m_1c);
 }

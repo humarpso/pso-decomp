@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *fn_80202990(M2C_UNK);
+void *TWindowSubComCard__sub_80202990(M2C_UNK);
 
 s16 TObjOnlineEnding__sub_8007172C(void) {
-    if (fn_80202990(0xFFFF) == NULL) {
+    if (TWindowSubComCard__sub_80202990(0xFFFF) == NULL) {
         return 0x3E7;
     }
-    return M2C_FIELD(fn_80202990(0xFFFF), s16 *, 0x2228);
+    return M2C_FIELD(TWindowSubComCard__sub_80202990(0xFFFF), s16 *, 0x2228);
 }
 
 }

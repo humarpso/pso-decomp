@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800C3B80();
+s32 TObjEneRe2Flower__sub_800C3B80();
 
 void fn_800C3CD8(void *arg0) {
     void *temp_r3;
     void *temp_r3_2;
 
-    if (fn_800C3B80() != 0) {
+    if (TObjEneRe2Flower__sub_800C3B80() != 0) {
         temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
         M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) & 0xFFFFFFFE);
         return;

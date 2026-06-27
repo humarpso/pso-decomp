@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_802A5748(void *);
+M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK fn_802E0008(s32);
 s32 fn_802E00C4(s32);
 
@@ -15,7 +15,7 @@ void fn_802DD2B0(void *arg0) {
     void *temp_r3;
     temp_r3 = M2C_FIELD(arg0, void **, 0x8C);
     if ((u32) temp_r3 != 0U) {
-        fn_802A5748(temp_r3);
+        TWindowSubComCard__sub_802A5748(temp_r3);
         M2C_FIELD(arg0, u32 *, 0x8C) = 0U;
     }
     temp_r3 = M2C_FIELD(arg0, void **, 0x74);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_80244A14(void *);
+M2C_UNK TWindowSubComCard__sub_80244A14(void *);
 M2C_UNK fn_8025EC04(s32);
 
 void fn_80247534(void *arg0) {
@@ -21,11 +21,11 @@ void fn_80247534(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x34) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-        fn_80244A14(M2C_FIELD(arg0, void **, 0x2C));
+        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x2C));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        fn_80244A14(M2C_FIELD(arg0, void **, 0x24));
+        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x24));
         M2C_FIELD(arg0, u32 *, 0x24) = 0U;
     }
 }

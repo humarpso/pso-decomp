@@ -31,7 +31,7 @@ int fn_802838F4(void* p) { return *(u8*)((char*)p + 0x68) & 0x1; }
 int TWindowSubSymbolChat__sub_80283900(void* p) { return *(u8*)((char*)p + 0x68) & 0x2; }
 void TWindowSubSymbolChat__sub_8028390C(void* p) { *(u8*)((char*)p + 0x60) &= 0xfffffffd; }
 void TWindowSubSymbolChat__sub_8028391C(void* p) { *(u8*)((char*)p + 0x60) &= 0xfffffffb; }
-int fn_8028392C(void) { return 0; }
+int TWindowSubSymbolChat__sub_8028392C(void) { return 0; }
 int fn_80283944(void) { return 0; }
 void TWindowSubSymbolChat__sub_80283954(void* p) { *(u8*)((char*)p + 0x60) |= 0x1; }
 void TWindowSubSymbolChat__sub_80283964(void* p) { *(u8*)((char*)p + 0x60) |= 0x2; }

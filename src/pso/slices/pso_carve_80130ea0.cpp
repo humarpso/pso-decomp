@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80121200();
-M2C_UNK fn_803D9BA0(s32);
-M2C_UNK fn_803D9C00(s32);
+M2C_UNK TBoss7Tentacle__sub_803D9BA0(s32);
+M2C_UNK TOHangerMachine01__sub_803D9C00(s32);
 
 void fn_80130EA0(s32 arg0) {
     s32 temp_r3;
@@ -16,10 +16,10 @@ void fn_80130EA0(s32 arg0) {
     temp_r3 = fn_80121200();
     switch (temp_r3) {
     case 1:
-        fn_803D9C00(arg0 + 0x20C);
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x20C);
         return;
     case 2:
-        fn_803D9BA0(arg0 + 0x1FC);
+        TBoss7Tentacle__sub_803D9BA0(arg0 + 0x1FC);
         return;
     }
 }

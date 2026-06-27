@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803154A8(void *, M2C_UNK);
+M2C_UNK TObjEneDelDepth__sub_803154A8(void *, M2C_UNK);
 s32 fn_8031624C(void *);
 s32 fn_80316420(s32);
 
@@ -14,10 +14,10 @@ void fn_8031467C(void *arg0) {
     if (fn_80316420(M2C_FIELD(arg0, s32 *, 0x37C)) == 1) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFFFFFF);
         if (fn_8031624C(arg0) != 0) {
-            fn_803154A8(arg0, 7);
+            TObjEneDelDepth__sub_803154A8(arg0, 7);
             return;
         }
-        fn_803154A8(arg0, 6);
+        TObjEneDelDepth__sub_803154A8(arg0, 6);
     }
 }
 

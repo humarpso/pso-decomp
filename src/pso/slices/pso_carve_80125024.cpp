@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80101048();
 s32 fn_80121200();
-M2C_UNK fn_803D929C(M2C_UNK, s32);
+M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 
 void fn_80125024(void *arg0) {
     s32 temp_r3;
@@ -17,11 +17,11 @@ void fn_80125024(void *arg0) {
     switch (temp_r3) {
     case 1:
         fn_80101048();
-        fn_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     case 4:
         fn_80101048();
-        fn_803D929C(0, -M2C_FIELD(arg0, s32 *, 0x1F8));
+        TObjBoss2Tunnel__sub_803D929C(0, -M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     }
 }

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 fn_80229220(u16);
+u8 TODoorAncient08__sub_80229220(u16);
 
 void fn_8016A8FC(void *arg0) {
     u8 temp_r3;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
-        temp_r3 = fn_80229220((u16) M2C_FIELD(arg0, s32 *, 0xC8));
+        temp_r3 = TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xC8));
         if (temp_r3 == 0) {
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
         }

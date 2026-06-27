@@ -8,8 +8,8 @@ extern "C" {
 
 s16 fn_8001925C(s32);
 s16 fn_80019264(s32);
-s32 fn_801BA74C(s16);
-void *fn_80223B88(void *, M2C_UNK);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
+void *TWindowSubStatusDisp__sub_80223B88(void *, M2C_UNK);
 s16 fn_80255DF4(s32);
 s16 fn_80255DFC(s32);
 s16 fn_80255E04(s32);
@@ -22,17 +22,17 @@ void TWindowSubStatusDisp__vt13(void *arg0) {
     void *temp_r31_4;
     void *temp_r31_5;
 
-    temp_r3 = fn_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
     if (temp_r3 != 0) {
-        temp_r31 = fn_80223B88(arg0, 2);
+        temp_r31 = TWindowSubStatusDisp__sub_80223B88(arg0, 2);
         M2C_FIELD(temp_r31, s32 *, 0x20) = (s32) fn_80255E04(temp_r3);
-        temp_r31_2 = fn_80223B88(arg0, 8);
+        temp_r31_2 = TWindowSubStatusDisp__sub_80223B88(arg0, 8);
         M2C_FIELD(temp_r31_2, s32 *, 0x20) = (s32) fn_8001925C(temp_r3);
-        temp_r31_3 = fn_80223B88(arg0, 0xE);
+        temp_r31_3 = TWindowSubStatusDisp__sub_80223B88(arg0, 0xE);
         M2C_FIELD(temp_r31_3, s32 *, 0x20) = (s32) fn_80019264(temp_r3);
-        temp_r31_4 = fn_80223B88(arg0, 0x14);
+        temp_r31_4 = TWindowSubStatusDisp__sub_80223B88(arg0, 0x14);
         M2C_FIELD(temp_r31_4, s32 *, 0x20) = (s32) fn_80255DFC(temp_r3);
-        temp_r31_5 = fn_80223B88(arg0, 0x1A);
+        temp_r31_5 = TWindowSubStatusDisp__sub_80223B88(arg0, 0x1A);
         M2C_FIELD(temp_r31_5, s32 *, 0x20) = (s32) fn_80255DF4(temp_r3);
     }
 }

@@ -12,13 +12,13 @@ M2C_UNK fn_8003F108(s32);
 s32 fn_80087278(s32, s32, M2C_UNK);
 M2C_UNK fn_80087638(s32, s32);
 s32 fn_80102CB4(s32);
-s32 fn_801B12A8(s32);
+s32 TObjPlayer__sub_801B12A8(s32);
 s32 fn_802034B0();
 
 void fn_8011D7DC(void *arg0) {
     s32 temp_r3;
 
-    if ((fn_801B12A8(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (fn_80102CB4(M2C_FIELD(arg0, s32 *, 0x28)) == 0)) {
+    if ((TObjPlayer__sub_801B12A8(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (fn_80102CB4(M2C_FIELD(arg0, s32 *, 0x28)) == 0)) {
         fn_8003F108(M2C_FIELD(arg0, s32 *, 0x28));
         if ((fn_802034B0() == 1) && (obj_testFlags30(M2C_FIELD(arg0, s32 *, 0x28), 0x800) == 0)) {
             temp_r3 = fn_80087278(M2C_FIELD(arg0, s32 *, 0x28) + 0x2FC, M2C_FIELD(arg0, s32 *, 0x2C), 0x10);

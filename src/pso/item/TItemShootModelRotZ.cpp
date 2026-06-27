@@ -5,9 +5,9 @@ s32   fn_8011BADC(TItemShootModelRotZ*);
 void  fn_8023E480(void*);
 void  fn_801E2EFC(void);
 void  fn_803D9B2C(void);
-void  fn_803D9C00(Vec*);
+void  TOHangerMachine01__sub_803D9C00(Vec*);
 void  fn_803D99F8(void*, s32);
-void  fn_803DB470(void*);
+void  TObjBoss2Tunnel__sub_803DB470(void*);
 void  fn_803D9B78(void);
 void  fn_801E2F20(void);
 extern const char* lbl_805D2C70;
@@ -19,9 +19,9 @@ void TItemShootModelRotZ::render() {
             fn_8023E480(this->m_5C);
             fn_801E2EFC();
             fn_803D9B2C();
-            fn_803D9C00(&this->m_pos);
+            TOHangerMachine01__sub_803D9C00(&this->m_pos);
             fn_803D99F8(&this->m_28, 1);
-            fn_803DB470(this->m_58);
+            TObjBoss2Tunnel__sub_803DB470(this->m_58);
             fn_803D9B78();
             fn_801E2F20();
         }

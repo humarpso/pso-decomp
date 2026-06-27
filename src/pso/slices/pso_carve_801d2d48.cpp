@@ -21,7 +21,7 @@ int fn_801D2E6C(void) { return 0; }
 int fn_801D2EA8(void) { return 0; }
 int fn_801D2EE8(void) { return 0; }
 int fn_801D2F0C(void) { return 0; }
-int fn_801D2F4C(void) { return 0; }
+int TObjPlayer__sub_801D2F4C(void) { return 0; }
 int fn_801D2F8C(void) { return 0; }
 
 }

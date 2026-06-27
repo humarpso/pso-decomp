@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_801C5454();
 
-s32 fn_801C57A0(s32 arg0) {
+s32 TObjPlayer__sub_801C57A0(s32 arg0) {
     fn_801C5454();
     return arg0;
 }

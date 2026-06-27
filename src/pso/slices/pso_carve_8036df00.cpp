@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8007341C(u32);
-s32 fn_80265BF8(u32);
+s32 TWindowSubComCard__sub_8007341C(u32);
+s32 TWindowSubComCard__sub_80265BF8(u32);
 M2C_UNK fn_8036E19C(void *, M2C_UNK);
 M2C_UNK fn_8036E224(void *);
 M2C_UNK fn_8036E26C(void *);
@@ -21,8 +21,8 @@ void fn_8036DF00(void *arg0) {
     if (fn_8036E624() == 0) {
         temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x34);
         if (temp_r3_2 != 0U) {
-            if (fn_8007341C(temp_r3_2) != 0) {
-                temp_r3 = fn_80265BF8(M2C_FIELD(arg0, u32 *, 0x34));
+            if (TWindowSubComCard__sub_8007341C(temp_r3_2) != 0) {
+                temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x34));
                 switch (temp_r3) {
                 case 0:
                     fn_8036E858(arg0, 6);

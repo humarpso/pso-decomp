@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 fn_800495E0(void *arg0, s32 arg1) {
+u8 TObjPlayer__sub_800495E0(void *arg0, s32 arg1) {
     return (u8) ((M2C_FIELD(arg0, s32 *, 0x334) & arg1) != 0);
 }
 

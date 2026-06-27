@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802034A8();
+s32 TOKeyMachine01__sub_802034A8();
 
 void fn_80228500(void *arg0) {
-    if (fn_802034A8() != 0xF) {
+    if (TOKeyMachine01__sub_802034A8() != 0xF) {
         M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFE);
     }
 }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80077760(s32);
+M2C_UNK TWindowSubStatusDisp__sub_80077760(s32);
 
 void fn_803387F8(void *arg0, s8 arg1) {
-    fn_80077760(arg1 + 0x113);
+    TWindowSubStatusDisp__sub_80077760(arg1 + 0x113);
 }
 
 }

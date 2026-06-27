@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800EAE78(void *, s32);
+M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, s32);
 
 void fn_800E969C(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
-        fn_800EAE78(arg0, 5);
+        TObjEneSlimeOne__sub_800EAE78(arg0, 5);
     }
 }
 

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8003F108();
 f32 fn_80141CF8(s32, s32);
-s32 fn_801BA74C(s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 s32 fn_80182C78(s32 arg0, s32 arg1, f32 farg0) {
     s32 temp_r3;
@@ -17,7 +17,7 @@ s32 fn_80182C78(s32 arg0, s32 arg1, f32 farg0) {
 
     var_r30 = 0;
 loop_1:
-    temp_r3 = fn_801BA74C(var_r30);
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r30);
     if ((temp_r3 != 0) && ((temp_r3_2 = fn_8003F108(), ((temp_r3_2 == 0) != 0)) || (temp_r3_2 == 0x12)) && (fn_80141CF8(arg1, temp_r3 + 0x38) < farg0)) {
         return 1;
     }

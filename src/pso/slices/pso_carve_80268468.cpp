@@ -12,8 +12,8 @@ s32 fn_80266B18(void *, s32);
 void TWindowChoiceSetting__sub_802688F8(void *arg0);
 void TWindowChoiceSetting__sub_80268794(void *arg0);
 s32 fn_80249604();
-void fn_80268494(void *arg0);
-M2C_UNK fn_80223B88(void *, s16);
+void TWindowSubComCard__sub_80268494(void *arg0);
+M2C_UNK TWindowSubStatusDisp__sub_80223B88(void *, s16);
 M2C_UNK fn_80269064();
 void fn_80268468(void* p);
 void TWindowSubTradeMain__sub_80268478(void* p);
@@ -22,14 +22,14 @@ int fn_80268488(void* p);
 void fn_80268468(void* p) { *(u16*)((char*)p + 0x70) &= 0xffffffbf; }
 void TWindowSubTradeMain__sub_80268478(void* p) { *(u16*)((char*)p + 0x70) &= 0xffffff7f; }
 int fn_80268488(void* p) { return *(u16*)((char*)p + 0x0) & 0x80; }
-void fn_80268494(void *arg0) {
-    fn_80223B88(arg0, M2C_FIELD(arg0, s16 *, 0x74));
+void TWindowSubComCard__sub_80268494(void *arg0) {
+    TWindowSubStatusDisp__sub_80223B88(arg0, M2C_FIELD(arg0, s16 *, 0x74));
     fn_80269064();
 }
 int fn_802684BC(void) { return 0; }
 int fn_8026853C(void) { return 0; }
 int fn_802685C4(void) { return 0; }
-int fn_80268650(void) { return 0; }
+int TWindowMakeTeam__sub_80268650(void) { return 0; }
 int fn_802686D4(void) { return 0; }
 int fn_80268738(void) { return 0; }
 void TWindowChoiceSetting__sub_80268794(void *arg0) {

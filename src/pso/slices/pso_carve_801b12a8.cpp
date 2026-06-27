@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK obj_testFlags30(void *, M2C_UNK);
 
-void fn_801B12A8(void *arg0) {
+void TObjPlayer__sub_801B12A8(void *arg0) {
     obj_testFlags30(arg0, 0x02000000);
 }
 

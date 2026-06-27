@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 fn_80229220(u16);
+u8 TODoorAncient08__sub_80229220(u16);
 
 void fn_802C9764(void *arg0) {
     s32 var_r0;
@@ -25,7 +25,7 @@ void fn_802C9764(void *arg0) {
         }
     }
     M2C_FIELD(arg0, s32 *, 0xE8) = var_r0;
-    if (fn_80229220((u16) M2C_FIELD(arg0, s32 *, 0xE8)) == 1) {
+    if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xE8)) == 1) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 1;
     } else {
         M2C_FIELD(arg0, s32 *, 0xF0) = 0;

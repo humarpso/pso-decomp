@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_801B7B10();
-u32 fn_801BA74C(s32);
-M2C_UNK fn_80244A14(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK TWindowSubComCard__sub_80244A14(void *);
 
 void TWindowSubItem__sub_80279858(void *arg0, s32 arg1) {
-    if (fn_801BA74C(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) {
+    if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) {
         switch (arg1) {
         case 0:
             fn_801B7B10();
@@ -19,11 +19,11 @@ void TWindowSubItem__sub_80279858(void *arg0, s32 arg1) {
             return;
         case 1:
             if (M2C_FIELD(arg0, void **, 0x38) != NULL) {
-                fn_80244A14(M2C_FIELD(arg0, void **, 0x38));
+                TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x38));
                 M2C_FIELD(arg0, u32 *, 0x38) = 0U;
             }
             if (M2C_FIELD(arg0, void **, 0x34) != NULL) {
-                fn_80244A14(M2C_FIELD(arg0, void **, 0x34));
+                TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x34));
                 M2C_FIELD(arg0, u32 *, 0x34) = 0U;
             }
             M2C_FIELD(arg0, s8 *, 0x1C) = 0xA;

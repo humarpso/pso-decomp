@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801E1E38(s32);
+s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 
 s32 TQuestListVM__sub_80218570(void *arg0) {
     s32 temp_r3;
@@ -15,7 +15,7 @@ s32 TQuestListVM__sub_80218570(void *arg0) {
     var_r30 = 0;
     M2C_FIELD(arg0, s32 *, 0x23A4) = 0;
     do {
-        if (fn_801E1E38(var_r30) != 0) {
+        if (TAdPlayerLoadGC__sub_801E1E38(var_r30) != 0) {
             M2C_FIELD(arg0, s32 *, 0x23A4) = (s32) (M2C_FIELD(arg0, s32 *, 0x23A4) | (1 << var_r30));
         }
         var_r30 += 1;

@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_8000F8FC();
 s32 fn_80083F9C();
 s32 fn_80084854();
-u32 fn_801BA74C(s32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 s32 fn_80083FBC(void) {
     s32 flag;
@@ -22,7 +22,7 @@ s32 fn_80083FBC(void) {
     if (fn_8000F8FC() == 0xF) {
         counter = 0;
         do {
-            if ((fn_801BA74C(counter) != 0U) && (fn_80084854() == 0)) {
+            if ((TPlayerBattleCtrl4P__sub_801BA74C(counter) != 0U) && (fn_80084854() == 0)) {
                 flag = 0;
             }
             counter += 1;

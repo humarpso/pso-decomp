@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *fn_80202990();
+void *TWindowSubComCard__sub_80202990();
 
 s32 fn_801A51F0(void) {
     void *temp_r3;
 
-    temp_r3 = fn_80202990();
+    temp_r3 = TWindowSubComCard__sub_80202990();
     if (temp_r3 == NULL) {
         return 0;
     }

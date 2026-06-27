@@ -8,12 +8,12 @@ extern "C" {
 
 s32 fn_80182E60();
 s32 fn_8030A7B0();
-s32 fn_8030A808();
+s32 TRaderMapCore__sub_8030A808();
 
 s32 fn_801821D8(void) {
     s32 temp_r3;
 
-    if (fn_8030A808() == 1) {
+    if (TRaderMapCore__sub_8030A808() == 1) {
         if (fn_8030A7B0() == 1) {
             return 0;
         }

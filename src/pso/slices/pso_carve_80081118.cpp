@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK __dl__FPv(u32 *);
-M2C_UNK fn_80147A80(u32);
+M2C_UNK TOBoss4Rock__sub_80147A80(u32);
 
 u32 *TWindowKeyBoardBase__sub_80081118(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *arg0 != 0U) {
-            fn_80147A80(*arg0);
+            TOBoss4Rock__sub_80147A80(*arg0);
         }
         if (arg1 > 0) {
             __dl__FPv(arg0);

@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8004D990();
-M2C_UNK fn_80226578(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 
 void fn_8004CC48(s32 arg0) {
     if (fn_8004D990() > 0) {
-        fn_80226578(0x4003A30A, arg0, 0, -0x20, 2);
+        TOTrapAncient01__sub_80226578(0x4003A30A, arg0, 0, -0x20, 2);
     }
 }
 

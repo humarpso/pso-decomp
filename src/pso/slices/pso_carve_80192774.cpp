@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
-u8 fn_80229220(u16);
+u8 TODoorAncient08__sub_80229220(u16);
 
 void fn_80192774(void *arg0) {
-    if (fn_80229220((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
+    if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
         fn_80154788(arg0, 0, 1);
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     }

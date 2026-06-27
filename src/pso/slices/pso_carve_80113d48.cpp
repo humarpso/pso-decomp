@@ -34,7 +34,7 @@ int fn_80113DE8(void* p) { return fn_8010EE7C((char*)p + 0x198); }
 int fn_80113E0C(void* p) { return fn_8010EE54((char*)p + 0x198); }
 int TItemMag__sub_80113E30(void* p) { return *(u32*)((char*)p + 0x18c) & 0x10; }
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }
-int fn_80113E48(void) { return 0; }
+int TItemMag__sub_80113E48(void) { return 0; }
 u8 TItemMag__sub_80113E74(void* p) { return *(u8*)((char*)p + 0xe); }
 s16 fn_80113E7C(void* p) { return *(s16*)((char*)p + 0x0); }
 s16 fn_80113E84(void* p) { return *(s16*)((char*)p + 0x2); }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80202990(M2C_UNK);
+s32 TWindowSubComCard__sub_80202990(M2C_UNK);
 
 s32 fn_8034C2D8(void) {
-    return fn_80202990(0xFFFF) + 0x20FC;
+    return TWindowSubComCard__sub_80202990(0xFFFF) + 0x20FC;
 }
 
 }

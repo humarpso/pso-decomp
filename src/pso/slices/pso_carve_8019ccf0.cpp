@@ -8,16 +8,16 @@ extern "C" {
 
 s32 fn_8019D880(s32);
 s32 fn_801B5680();
-u32 fn_801BA74C(s32);
-s32 fn_8030A808();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TRaderMapCore__sub_8030A808();
 
 s32 fn_8019CCF0(s32 arg0) {
     s32 var_r31;
 
-    if (fn_8030A808() == 1) {
+    if (TRaderMapCore__sub_8030A808() == 1) {
         var_r31 = 0;
 loop_2:
-        if ((fn_801BA74C(var_r31) != 0U) && (fn_801B5680() != 0)) {
+        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) && (fn_801B5680() != 0)) {
             return 0;
         }
         var_r31 += 1;

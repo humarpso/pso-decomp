@@ -8,11 +8,11 @@ extern "C" {
 
 u32 fn_80101AB0(s32);
 M2C_UNK fn_80102BFC(u32, M2C_UNK);
-s32 fn_8030A808();
+s32 TRaderMapCore__sub_8030A808();
 
 void fn_80220588(void *arg0, void *arg1) {
     u32 temp_r3;
-    if ((fn_8030A808() == 1) && ((temp_r3 = fn_80101AB0(M2C_FIELD(arg1, s32 *, 0xC))) != 0U) && ((s32) M2C_FIELD(arg0, s32 *, 0x168) != 0)) {
+    if ((TRaderMapCore__sub_8030A808() == 1) && ((temp_r3 = fn_80101AB0(M2C_FIELD(arg1, s32 *, 0xC))) != 0U) && ((s32) M2C_FIELD(arg0, s32 *, 0x168) != 0)) {
         fn_80102BFC(temp_r3, 0x80);
     }
 }

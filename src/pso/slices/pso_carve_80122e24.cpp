@@ -3,9 +3,9 @@
 extern "C" {
 
 int fn_80121200(void*);
-int fn_803D9BA0(void*);
+int TBoss7Tentacle__sub_803D9BA0(void*);
 void fn_80122E24(void* p);
 
-void fn_80122E24(void* p) { if (fn_80121200(p) == 1) { fn_803D9BA0((char*)p + 0x1f8); } }
+void fn_80122E24(void* p) { if (fn_80121200(p) == 1) { TBoss7Tentacle__sub_803D9BA0((char*)p + 0x1f8); } }
 
 }

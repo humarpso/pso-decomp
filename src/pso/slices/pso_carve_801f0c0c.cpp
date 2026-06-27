@@ -3,8 +3,8 @@
 extern "C" {
 
 int fn_801F0C0C(void* p);
-int fn_8006D460(void*);
+int TCameraCtrl__sub_8006D460(void*);
 
-int fn_801F0C0C(void* p) { return fn_8006D460(p); }
+int fn_801F0C0C(void* p) { return TCameraCtrl__sub_8006D460(p); }
 
 }

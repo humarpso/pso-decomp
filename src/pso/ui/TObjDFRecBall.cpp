@@ -1,9 +1,9 @@
 #include "pso/TObjDFRecBall.h"
 
-extern "C" void fn_80086C44(void*);
+extern "C" void TBoss4Type2__sub_80086C44(void*);
 
 void TObjDFRecBall::run_task() {}
 
 TObjDFRecBall::~TObjDFRecBall() {
-    if (m_44 != nullptr) fn_80086C44(m_44);
+    if (m_44 != nullptr) TBoss4Type2__sub_80086C44(m_44);
 }

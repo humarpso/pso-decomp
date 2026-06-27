@@ -11,7 +11,7 @@ M2C_UNK fn_800F083C();
 M2C_UNK fn_800F0840();
 M2C_UNK fn_800F0878();
 s32 fn_800F08AC(s32, s32);
-M2C_UNK fn_80143098(void *);
+M2C_UNK TObjEneRe7Berura__sub_80143098(void *);
 
 void fn_800F08CC(void *arg0, s32 arg1) {
     s32 temp_r31;
@@ -20,7 +20,7 @@ void fn_800F08CC(void *arg0, s32 arg1) {
     fn_800F0878();
     fn_800F083C();
     M2C_FIELD(arg0, s32 *, 0x34) = fn_800F08AC(temp_r31, arg1);
-    fn_80143098(arg0);
+    TObjEneRe7Berura__sub_80143098(arg0);
     fn_800F0810();
     fn_800F0840();
     M2C_FIELD(arg0, s32 *, 0x34) = temp_r31;

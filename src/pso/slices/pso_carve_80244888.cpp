@@ -13,7 +13,7 @@ int fn_8024491C(void) { return 0; }
 int fn_80244958(void) { return 0; }
 int fn_80244994(void) { return 0; }
 int fn_802449E0(void) { return 0; }
-int fn_80244A14(void) { return 0; }
-int fn_80244A4C(void) { return 0; }
+int TWindowSubComCard__sub_80244A14(void) { return 0; }
+int TWindowSubTradeMain__sub_80244A4C(void) { return 0; }
 
 }

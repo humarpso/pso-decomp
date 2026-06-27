@@ -64,7 +64,7 @@ int fn_801C18E0(void) { return 0; }
 int fn_801C1914(void) { return 0; }
 int fn_801C1978(void) { return 0; }
 f32 fn_801C19A4(void* p) { return *(f32*)((char*)p + 0xc); }
-int fn_801C19AC(void) { return 0; }
+int TWindowDuelResult__sub_801C19AC(void) { return 0; }
 void fn_801C19C8(void* p, f32 v) { *(f32*)((char*)p + 0x0) = v; }
 s32 fn_801C19D0(void* p) { return *(s32*)((char*)p + 0x4); }
 void fn_801C19D8(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }

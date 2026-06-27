@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80244A4C(u32);
+M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 M2C_UNK fn_80244B64(u32);
 s32 fn_8024C804();
 s32 fn_8024D960(void *);
@@ -16,7 +16,7 @@ s32 fn_8026CBB8(M2C_UNK);
 void fn_8024DC58(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         if (fn_8024C804() != 0) {
-            fn_80244A4C(M2C_FIELD(arg0, u32 *, 0x2C));
+            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x2C));
             return;
         }
         fn_80244B64(M2C_FIELD(arg0, u32 *, 0x2C));

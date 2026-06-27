@@ -8,8 +8,8 @@ extern "C" {
 
 s32 fn_8018D3B8(M2C_UNK);
 s32 fn_8018D3C0(M2C_UNK);
-s32 fn_8018D900(M2C_UNK);
-s32 fn_8018D93C(M2C_UNK);
+s32 TObjContainerJungEx__sub_8018D900(M2C_UNK);
+s32 TObjContainerJungEx__sub_8018D93C(M2C_UNK);
 
 void TObjContainerJungEnemy__sub_8018CD48(void *arg0) {
     s32 var_r0;
@@ -32,11 +32,11 @@ void TObjContainerJungEnemy__sub_8018CD48(void *arg0) {
         return;
     default:
     case 1:
-        M2C_FIELD(arg0, s32 *, 0x368) = fn_8018D93C(0);
-        M2C_FIELD(arg0, s32 *, 0x36C) = fn_8018D93C(1);
-        M2C_FIELD(arg0, s32 *, 0x370) = fn_8018D93C(2);
-        M2C_FIELD(arg0, s32 *, 0x374) = fn_8018D93C(3);
-        M2C_FIELD(arg0, s32 *, 0x24) = fn_8018D900(0);
+        M2C_FIELD(arg0, s32 *, 0x368) = TObjContainerJungEx__sub_8018D93C(0);
+        M2C_FIELD(arg0, s32 *, 0x36C) = TObjContainerJungEx__sub_8018D93C(1);
+        M2C_FIELD(arg0, s32 *, 0x370) = TObjContainerJungEx__sub_8018D93C(2);
+        M2C_FIELD(arg0, s32 *, 0x374) = TObjContainerJungEx__sub_8018D93C(3);
+        M2C_FIELD(arg0, s32 *, 0x24) = TObjContainerJungEx__sub_8018D900(0);
         return;
     }
 }

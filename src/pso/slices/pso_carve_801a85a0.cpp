@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_800196EC();
 s32 fn_800196F4();
 s32 fn_801AA17C(void *, s32);
-u32 fn_801BA74C(s32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 s32 fn_801A85A0(void) {
     struct { u8 _pad[0x20]; } sp8;
@@ -19,7 +19,7 @@ s32 fn_801A85A0(void) {
     temp_r31 = fn_800196EC();
     var_r30 = 0;
 loop_1:
-    if ((fn_801BA74C(var_r30) != 0U) && (temp_r31 == fn_800196F4()) && (fn_801AA17C(&sp8, var_r30) == 2)) {
+    if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) && (temp_r31 == fn_800196F4()) && (fn_801AA17C(&sp8, var_r30) == 2)) {
         return 1;
     }
     var_r30 += 1;

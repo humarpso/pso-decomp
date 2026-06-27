@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_800495BC();
 M2C_UNK fn_801B5408(s32, M2C_UNK);
-s32 fn_801BA74C(s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 void fn_8029A110(void) {
     s32 var_r31;
@@ -16,7 +16,7 @@ void fn_8029A110(void) {
 
     var_r31 = 0;
     do {
-        var_r30 = fn_801BA74C(var_r31);
+        var_r30 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
         if (var_r30 != 0) {
             if (fn_800495BC() == 0) {
                 fn_801B5408(var_r30, -1);

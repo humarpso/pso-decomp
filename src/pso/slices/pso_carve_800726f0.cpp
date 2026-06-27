@@ -5,7 +5,7 @@ extern "C" {
 s32 fn_80072B30(void);
 s32 fn_8006FBE4();
 s32 fn_8006F23C();
-int fn_80244A14(void*);
+int TWindowSubComCard__sub_80244A14(void*);
 void fn_80072B70(void* p);
 int bswap_16__FPUs(void*);
 int fn_8001960C(void*);
@@ -47,6 +47,6 @@ s32 fn_80072B30(void) {
     }
     return 1;
 }
-void fn_80072B70(void* p) { if (*(unsigned int*)((char*)p + 0x30) != 0) { fn_80244A14(*(void**)((char*)p + 0x30)); *(int*)((char*)p + 0x30) = 0; } }
+void fn_80072B70(void* p) { if (*(unsigned int*)((char*)p + 0x30) != 0) { TWindowSubComCard__sub_80244A14(*(void**)((char*)p + 0x30)); *(int*)((char*)p + 0x30) = 0; } }
 
 }

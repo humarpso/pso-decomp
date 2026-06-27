@@ -8,10 +8,10 @@ extern "C" {
 
 M2C_UNK fn_801A9870(void *);
 M2C_UNK fn_801A9BAC(void *);
-s32 fn_801BA74C(u16);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
 void fn_801A9C64(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x38) = fn_801BA74C(M2C_FIELD(arg0, u16 *, 0x3C));
+    M2C_FIELD(arg0, s32 *, 0x38) = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x3C));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x4C) != 0) {
         fn_801A9870(arg0);
         return;

@@ -4,7 +4,7 @@ extern "C" {
 
 s32 fn_80355098(s32 arg0, s16 arg1);
 int __dl__FPv();
-int fn_8001BF10(void*);
+int TObjPlayer__sub_8001BF10(void*);
 int fn_8001BF40(void*);
 int fn_80052EA0(void*, void*);
 int fn_8035510C(void* a0 = 0, void* a1 = 0);
@@ -39,7 +39,7 @@ s32 fn_80355098(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-void* fn_803550D4(void* p) { fn_8001BF10(p); fn_80355064(p); return p; }
+void* fn_803550D4(void* p) { TObjPlayer__sub_8001BF10(p); fn_80355064(p); return p; }
 int fn_8035510C(void*, void*) { return 0; }
 int fn_80355124(void) { return 0; }
 int fn_80355148(void) { return 0; }

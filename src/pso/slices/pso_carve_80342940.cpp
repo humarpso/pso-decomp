@@ -10,7 +10,7 @@ M2C_UNK fn_803428C4(s32);
 M2C_UNK fn_8034330C(s32);
 M2C_UNK fn_803435A0(s32);
 M2C_UNK fn_80347C50();
-M2C_UNK fn_80348248();
+M2C_UNK TWindowDD__sub_80348248();
 M2C_UNK fn_8034827C();
 s32 fn_803482B0(s32);
 s32 fn_80348304(s32);
@@ -24,7 +24,7 @@ void fn_80342940(s32 arg0) {
         return;
     }
     if (fn_803482B0(arg0) != 0) {
-        fn_80348248();
+        TWindowDD__sub_80348248();
         fn_8034330C(arg0);
     }
 }

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80101514(void *);
 M2C_UNK fn_80101580(void *, M2C_UNK);
 
-void fn_801015EC(void *arg0, s8 arg1) {
+void TItem__sub_801015EC(void *arg0, s8 arg1) {
     if (arg1 == 3) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 0;
     }

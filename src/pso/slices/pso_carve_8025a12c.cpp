@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8025A260(u16 *, M2C_UNK);
-M2C_UNK fn_8025A2D4(u16 *, M2C_UNK);
+M2C_UNK TWindowHelpItem__sub_8025A2D4(u16 *, M2C_UNK);
 
 void TWindowHelpItem__sub_8025A12C(u16 *arg0) {
     s32 temp_r3;
@@ -17,7 +17,7 @@ void TWindowHelpItem__sub_8025A12C(u16 *arg0) {
     temp_r3 = temp_r0 & 4;
     if ((temp_r3 != 0) || (temp_r0 & 8)) {
         if (temp_r3 == 0) {
-            fn_8025A2D4(arg0, 0);
+            TWindowHelpItem__sub_8025A2D4(arg0, 0);
         }
         if (!(*arg0 & 8)) {
             fn_8025A260(arg0, 0);

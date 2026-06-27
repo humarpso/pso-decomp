@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 fn_801BA74C(s32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 s32 fn_8006FBE4(void) {
     s32 count;
@@ -14,7 +14,7 @@ s32 fn_8006FBE4(void) {
 
     count = 0;
     for (i = 0; i < 4; i += 1) {
-        if (fn_801BA74C(i) != 0U) {
+        if (TPlayerBattleCtrl4P__sub_801BA74C(i) != 0U) {
             count += 1;
         }
     }

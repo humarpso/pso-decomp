@@ -8,12 +8,12 @@ extern "C" {
 
 M2C_UNK fn_80049574(s32);
 M2C_UNK fn_801B5408(s32, s32);
-s32 fn_801BA74C(s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 void fn_80186D50(void *arg0, s32 arg1) {
     s32 temp_r3;
 
-    temp_r3 = fn_801BA74C(arg1);
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
     if (temp_r3 != 0) {
         fn_801B5408(temp_r3, -1);
         fn_80049574(temp_r3);

@@ -10,7 +10,7 @@ M2C_UNK fn_801A5778();
 M2C_UNK fn_8038A058();
 M2C_UNK fn_803DB05C(s32, u16, s16, s32);
 
-void fn_801A5730(void *arg0, void *arg1, s32 arg2) {
+void TLanguage__sub_801A5730(void *arg0, void *arg1, s32 arg2) {
     fn_801A5778();
     fn_803DB05C(arg2, M2C_FIELD(arg1, u16 *, 4), M2C_FIELD(arg1, s16 *, 0xA), M2C_FIELD(arg1, s32 *, 0));
     fn_8038A058();

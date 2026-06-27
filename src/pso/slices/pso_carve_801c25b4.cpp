@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 obj_testFlags30(u32, M2C_UNK);
-u32 fn_801BA74C(s32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 s32 fn_801C25B4(void) {
     u32 temp_r3;
@@ -15,7 +15,7 @@ s32 fn_801C25B4(void) {
 
     var_r31 = 0;
 loop_1:
-    temp_r3 = fn_801BA74C(var_r31);
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
     if ((temp_r3 != 0U) && (obj_testFlags30(temp_r3, 0x02000000) != 0)) {
         return 0;
     }

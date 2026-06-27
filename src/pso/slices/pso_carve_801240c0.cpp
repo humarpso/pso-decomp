@@ -12,7 +12,7 @@ M2C_UNK TObjCamera__sub_80085168(u32);
 s32 fn_80101AB0(s32);
 u32 fn_80102AA8();
 s8 fn_80102C30();
-s32 fn_80102C4C(s32);
+s32 TItemMag__sub_80102C4C(s32);
 s32 fn_801207E8(s32, s32, M2C_UNK *);
 
 void fn_801240C0(void *arg0) {
@@ -26,7 +26,7 @@ void fn_801240C0(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
         temp_r3 = fn_80101AB0(M2C_FIELD(arg0, s32 *, 0x1C));
         if ((temp_r3 != 0) && (fn_80102C30() == 2) && (fn_801207E8(temp_r3, M2C_FIELD(arg0, s32 *, 0x20), &sp8) != 0)) {
-            if (fn_80102C4C(temp_r3) == 0) {
+            if (TItemMag__sub_80102C4C(temp_r3) == 0) {
                 fn_80084E98(M2C_FIELD(arg0, u32 *, 0x24), &sp8);
                 return;
             }

@@ -13,7 +13,7 @@ M2C_UNK fn_8023F18C();
 M2C_UNK fn_80244B1C(u32);
 u32 fn_8026BB68(void *);
 
-s32 fn_8026B414(void *arg0, s32 arg1) {
+s32 TWindowOptionCtrl__sub_8026B414(void *arg0, s32 arg1) {
     if (fn_80132E58((s8) arg1) != 0) {
         fn_8023F160();
         fn_8023F18C();
