@@ -4114,6 +4114,12 @@ if args.target == "psov3":
                 NonMatching("pso/slices/pso_carve_802adcd8.cpp"),
                 NonMatching("pso/slices/pso_carve_802ecb10.cpp"),
                 NonMatching("pso/slices/pso_carve_80310b4c.cpp"),
+                NonMatching("pso/slices/pso_carve_801a529c.cpp"),
+                NonMatching("pso/slices/pso_carve_801b4c98.cpp"),
+                NonMatching("pso/slices/pso_carve_801f2498.cpp"),
+                NonMatching("pso/slices/pso_carve_8026017c.cpp"),
+                NonMatching("pso/slices/pso_carve_802b20fc.cpp"),
+                NonMatching("pso/slices/pso_carve_8034e14c.cpp"),
             ],
         },
         # ------------------------------------------------------------------

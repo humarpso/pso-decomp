@@ -8,18 +8,18 @@ extern "C" {
 
 s32 fn_8000F8FC();
 M2C_UNK fn_8021170C();
-M2C_UNK fn_8021339C();
+M2C_UNK THunterGuildSeqOffline__sub_8021339C();
 M2C_UNK fn_80213CA4();
 M2C_UNK fn_80214A5C();
-M2C_UNK fn_802155B4();
+M2C_UNK TQuestListOnline__sub_802155B4();
 
 void fn_80211F0C(void) {
     if (fn_8000F8FC() == 0xE) {
-        fn_8021339C();
+        THunterGuildSeqOffline__sub_8021339C();
         fn_8021170C();
     }
     if (fn_8000F8FC() == 0xF) {
-        fn_802155B4();
+        TQuestListOnline__sub_802155B4();
         fn_80214A5C();
         fn_80213CA4();
     }

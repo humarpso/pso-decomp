@@ -15,7 +15,7 @@ int fn_801AFDBC(void) { return 0; }
 int fn_801AFDD8(void) { return 0; }
 int fn_801AFE78(void) { return 0; }
 int fn_801AFEB4(void) { return 0; }
-int fn_801AFEE0(void) { return 0; }
+int TFontSmallLobby__sub_801AFEE0(void) { return 0; }
 int fn_801AFF0C(void) { return 0; }
 int fn_801AFF50(void) { return 0; }
 int fn_801AFF80(void) { return 0; }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_800112A4(s32, s32);
-u8 fn_8010B734();
+u8 TItemProShield__sub_8010B734();
 s32 fn_8011724C(void *);
 s32 fn_80117270(void *);
 s32 fn_801172A4(void *);
@@ -17,7 +17,7 @@ void fn_801172D8(void *arg0) {
     u8 temp_r3;
 
     var_r31 = 0;
-    temp_r3 = fn_8010B734();
+    temp_r3 = TItemProShield__sub_8010B734();
     switch ((s32) temp_r3) {
     case 0:
         var_r31 = fn_801172A4(arg0);

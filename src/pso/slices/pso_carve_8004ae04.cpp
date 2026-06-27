@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 fn_8004C1BC();
+u32 TBoss4DarkFalz__sub_8004C1BC();
 s32 fn_8004C1E4();
 
 u8 fn_8004AE04(void) {
     int var_r31;
 
     var_r31 = 0;
-    if (fn_8004C1BC() != 0U) {
-        fn_8004C1BC();
+    if (TBoss4DarkFalz__sub_8004C1BC() != 0U) {
+        TBoss4DarkFalz__sub_8004C1BC();
         if (fn_8004C1E4() != 3) {
-            fn_8004C1BC();
+            TBoss4DarkFalz__sub_8004C1BC();
             if (fn_8004C1E4() != 4) {
                 var_r31 = 1;
             }

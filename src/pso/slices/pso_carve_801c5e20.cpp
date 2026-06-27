@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s16 obj_getS16_2BA(s32);
-s16 fn_80076B5C(s32);
+s16 TItemProShield__sub_80076B5C(s32);
 M2C_UNK fn_801C5E68();
 
 void fn_801C5E20(void *arg0, s32 arg1) {
     fn_801C5E68();
-    M2C_FIELD(arg0, s16 *, 0x16) = fn_80076B5C(arg1);
+    M2C_FIELD(arg0, s16 *, 0x16) = TItemProShield__sub_80076B5C(arg1);
     M2C_FIELD(arg0, s16 *, 0x18) = obj_getS16_2BA(arg1);
 }
 

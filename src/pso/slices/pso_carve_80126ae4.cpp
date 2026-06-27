@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8010069C(s32);
-u8 fn_8010B734();
+u8 TItemProShield__sub_8010B734();
 
 void fn_80126AE4(s32 arg0) {
-    if (fn_8010B734() == 6) {
+    if (TItemProShield__sub_8010B734() == 6) {
         fn_8010069C(arg0);
     }
 }

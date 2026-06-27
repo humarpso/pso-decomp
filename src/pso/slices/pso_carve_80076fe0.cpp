@@ -8,8 +8,8 @@ void fn_80077334(void* p);
 int fn_80076FE0(void* p);
 
 int fn_80076FE0(void* p) { return (*(u32*)((char*)p + 0x1c) >> 9) & 0x1; }
-int fn_80076FEC(void) { return 0; }
-int fn_80077034(void) { return 0; }
+int TWindowSubSymbolChat__sub_80076FEC(void) { return 0; }
+int TWindowSubSymbolChat__sub_80077034(void) { return 0; }
 int fn_8007706C(void) { return 0; }
 int fn_80077098(void) { return 0; }
 int fn_800770D0(void) { return 0; }

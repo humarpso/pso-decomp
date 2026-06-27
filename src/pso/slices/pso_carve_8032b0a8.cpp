@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80202BA0();
-s32 fn_8032B584();
+s32 TAdPsoPassSaveGC__sub_8032B584();
 M2C_UNK strncpy(s32, s32, M2C_UNK);
 
 void fn_8032B0A8(s32 arg0, s32 arg1, s32 arg2) {
@@ -17,7 +17,7 @@ void fn_8032B0A8(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3 != 0) {
         strncpy(temp_r3 + 0x1152C, arg0, 0xF);
         strncpy(temp_r3 + 0x1153C, arg1, 0xF);
-        if (fn_8032B584() != 0) {
+        if (TAdPsoPassSaveGC__sub_8032B584() != 0) {
             strncpy(temp_r3 + 0x1154C, arg2, 0xF);
         }
     }

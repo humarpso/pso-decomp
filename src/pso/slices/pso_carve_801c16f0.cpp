@@ -47,7 +47,7 @@ void fn_801C1F14(void* p, s16 v);
 int fn_801C1F50(void* p);
 void fn_801C1F78(void* p, s16 v);
 int fn_8001BED8(void*, int);
-int fn_8001BEE8(void*, int);
+int TAdRicoRing__sub_8001BEE8(void*, int);
 int fn_8001BEF8(void*, int);
 
 int fn_801C16F0(void) { return 0; }
@@ -79,7 +79,7 @@ int fn_801C1AC8(void) { return 0; }
 void fn_801C1B0C(void) {  }
 int fn_801C1B10(void* p) { return fn_8001BED8((char*)p + 0x1c, 2); }
 int fn_801C1B38(void* p) { return fn_8001BED8((char*)p + 0x1c, 1); }
-int fn_801C1B60(void* p) { return fn_8001BEE8((char*)p + 0x1c, 1); }
+int fn_801C1B60(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x1c, 1); }
 s32 fn_801C1B88(void* p) { return *(s32*)((char*)p + 0x0); }
 f32 fn_801C1B90(void* p) { return *(f32*)((char*)p + 0x8); }
 u16 fn_801C1B98(void* p) { return *(u16*)((char*)p + 0x4); }

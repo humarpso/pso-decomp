@@ -8,20 +8,20 @@ extern "C" {
 
 s32 fn_8000F8FC();
 M2C_UNK fn_80211700();
-M2C_UNK fn_80213374();
+M2C_UNK THunterGuildSeqOffline__sub_80213374();
 M2C_UNK fn_80213C7C();
 M2C_UNK fn_80214A34();
-M2C_UNK fn_80215498();
+M2C_UNK TQuestListOnline__sub_80215498();
 
 void fn_80211EC4(void) {
     if (fn_8000F8FC() == 0xE) {
         fn_80211700();
-        fn_80213374();
+        THunterGuildSeqOffline__sub_80213374();
     }
     if (fn_8000F8FC() == 0xF) {
         fn_80213C7C();
         fn_80214A34();
-        fn_80215498();
+        TQuestListOnline__sub_80215498();
     }
 }
 

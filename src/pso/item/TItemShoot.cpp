@@ -4,12 +4,12 @@ extern "C" void  disallow_rendering__7TObjectFv(TObject*);
 extern "C" void  allow_rendering__7TObjectFv(TObject*);
 extern "C" void  queue_destruction__7TObjectFv(TObject*);
 extern "C" u32   fn_80100490(void*);
-extern "C" void  fn_803D8910(Vec*, Vec*);
+extern "C" void  TBoss4Zako__sub_803D8910(Vec*, Vec*);
 extern "C" void  fn_80084E98(void*, Vec*);
 
 extern "C" Vec*  VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 extern "C" void  fn_803D9370(Vec*, const Vec*);
-extern "C" f32   fn_803D8BD8(Vec*);
+extern "C" f32   TBoss6Kakusan__sub_803D8BD8(Vec*);
 extern "C" void  fn_803D97B4(Vec*);
 extern "C" f64   fn_80019760(f32, f32);
 extern "C" void  fn_8014220C(Vec*, s32*, s32*);
@@ -25,7 +25,7 @@ TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
     VecCopy__FP3VecPC3Vec(&this->m_dir, VecCopy__FP3VecPC3Vec(&this->m_44, dir));
     this->m_life = life;
     fn_803D9370(&this->m_dir, pos);
-    f32 len = fn_803D8BD8(&this->m_dir);
+    f32 len = TBoss6Kakusan__sub_803D8BD8(&this->m_dir);
     fn_803D97B4(&this->m_dir);
     f32 scale = len / life;
     this->m_dir.x *= scale;
@@ -49,7 +49,7 @@ void TItemShoot::run_task() {
         queue_destruction__7TObjectFv(this);
     }
     allow_rendering__7TObjectFv(this);
-    fn_803D8910(&this->m_pos, &this->m_dir);
+    TBoss4Zako__sub_803D8910(&this->m_pos, &this->m_dir);
     if (this->m_50 != nullptr) {
         fn_80084E98(this->m_50, &this->m_pos);
     }

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_800740FC(u32);
 s32 fn_801329B0();
 M2C_UNK fn_80186AE4(u32);
-s32 fn_80186AF4();
+s32 TObjCityMainWarp__sub_80186AF4();
 M2C_UNK fn_8019DD14(s32, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK fn_80207718(s32);
@@ -26,7 +26,7 @@ void fn_8019CD60(void *arg0, u16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
         M2C_FIELD(arg0, u32 *, 0xB0) = fn_802664A8(fn_8026CBB8(0x33), 1, arg1);
         if (fn_8030A7B0() == 1) {
-            fn_80266200(M2C_FIELD(arg0, u32 *, 0xB0), fn_80186AF4(), 2, 0, -1);
+            fn_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjCityMainWarp__sub_80186AF4(), 2, 0, -1);
         } else {
             fn_80207718(M2C_FIELD(arg0, s32 *, 0xBC));
             fn_80266200(M2C_FIELD(arg0, u32 *, 0xB0), fn_801329B0(), 2, 0, -1);

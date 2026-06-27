@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-u32 fn_80087278(s32, M2C_UNK, M2C_UNK);
+u32 TOSwitchAttack__sub_80087278(s32, M2C_UNK, M2C_UNK);
 M2C_UNK fn_80087638(u32, u16);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
@@ -21,7 +21,7 @@ void fn_801C6280(void *arg0) {
     if (temp_r0 < 0) {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C));
         if (temp_r3 != 0U) {
-            temp2 = fn_80087278(temp_r3 + 0x2FC, 0x20, 0x10);
+            temp2 = TOSwitchAttack__sub_80087278(temp_r3 + 0x2FC, 0x20, 0x10);
             if (temp2 != 0U) {
                 fn_80087638(temp2, M2C_FIELD(arg0, u16 *, 0x1C));
             }

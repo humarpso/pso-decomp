@@ -13,7 +13,7 @@ M2C_UNK fn_801C05A0(M2C_UNK *);
 M2C_UNK fn_801C05B4(M2C_UNK *);
 int fn_801C0228(void*);
 int fn_801B189C(void* p);
-int fn_80019734(void*);
+int TObjPlayer__sub_80019734(void*);
 
 void* fn_801B1818(void* p) { fn_801C0228(p); return p; }
 void fn_801B1848(s32 arg0) {
@@ -25,6 +25,6 @@ void fn_801B1848(s32 arg0) {
         fn_801C05B4((M2C_UNK *)&sp8);
     }
 }
-int fn_801B189C(void* p) { return fn_80019734((char*)p + 0x828); }
+int fn_801B189C(void* p) { return TObjPlayer__sub_80019734((char*)p + 0x828); }
 
 }

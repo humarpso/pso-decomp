@@ -12,7 +12,7 @@ M2C_UNK fn_801C0A48(void *);
 M2C_UNK fn_801C0A5C(void *);
 
 struct S801B4630 { s8 b[2]; s16 h; };
-void fn_801B4630(s32 arg0) {
+void TObjPlayer__sub_801B4630(s32 arg0) {
     struct S801B4630 sp8;
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {

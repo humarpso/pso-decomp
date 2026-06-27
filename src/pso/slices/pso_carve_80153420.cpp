@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80153A0C();
+s32 TObjFogCollisionSwitch__sub_80153A0C();
 u8 TODoorAncient08__sub_80229220(u16);
 
 u8 fn_80153420(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = fn_80153A0C();
+    temp_r31 = TObjFogCollisionSwitch__sub_80153A0C();
     return (u8) (temp_r31 == TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0x8C)));
 }
 

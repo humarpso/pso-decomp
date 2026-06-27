@@ -62,7 +62,7 @@ int fn_8013EAD4(void* p);
 int fn_8013EB04(void* p);
 s32 fn_8013EB2C(void* p);
 int fn_8001BED8(void*, int);
-int fn_8001BEE8(void*, int);
+int TAdRicoRing__sub_8001BEE8(void*, int);
 int fn_8001BEF8(void*, int);
 int fn_8013B2A4(void*);
 int fn_8013DEF8(void*);
@@ -137,10 +137,10 @@ void fn_8013EA00(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 int TLockOnCursor__sub_8013EA08(void* p) { return fn_8001BEF8((char*)p + 0x8, 2); }
 void fn_8013EA30(void* p) { fn_8013E378((char*)p + 0xc, (char*)p + 0x14); }
 int fn_8013EA5C(void* p) { return fn_8001BED8((char*)p + 0x8, 1); }
-int fn_8013EA84(void* p) { return fn_8001BEE8((char*)p + 0x8, 1); }
+int fn_8013EA84(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x8, 1); }
 int fn_8013EAAC(void* p) { return fn_8001BED8((char*)p + 0x8, 2); }
 int fn_8013EAD4(void* p) { return (fn_8001BEF8((char*)p + 0x1c, 2)) == 0; }
-int fn_8013EB04(void* p) { return fn_8001BEE8((char*)p + 0x8, 2); }
+int fn_8013EB04(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x8, 2); }
 s32 fn_8013EB2C(void* p) { return *(s32*)((char*)p + 0x4); }
 
 }

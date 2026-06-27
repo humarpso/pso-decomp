@@ -9,7 +9,7 @@ extern "C" {
 void fn_80101CFC(void *, void *);
 void fn_8010CD0C(void *);
 
-void fn_80101A1C(void *arg0) {
+void TItemObject__sub_80101A1C(void *arg0) {
     M2C_UNK sp8[4];
 
     fn_80101CFC(arg0, &sp8);

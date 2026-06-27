@@ -3,9 +3,9 @@
 extern "C" {
 
 int fn_80105A60(void*);
-int fn_801E4464(void*);
+int TLobby__sub_801E4464(void*);
 void fn_80105A2C(void* p);
 
-void fn_80105A2C(void* p) { fn_80105A60(p); fn_801E4464(p); }
+void fn_80105A2C(void* p) { fn_80105A60(p); TLobby__sub_801E4464(p); }
 
 }

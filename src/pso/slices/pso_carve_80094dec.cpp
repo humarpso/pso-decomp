@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80141FA8(s32);
+s32 TBoss4Type2__sub_80141FA8(s32);
 
 s32 fn_80094DEC(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
@@ -15,7 +15,7 @@ s32 fn_80094DEC(void *arg0, s32 arg1, s32 arg2) {
     s32 var_r31;
 
     var_r31 = 0;
-    temp_r3 = fn_80141FA8(M2C_FIELD(arg0, s32 *, 0x60));
+    temp_r3 = TBoss4Type2__sub_80141FA8(M2C_FIELD(arg0, s32 *, 0x60));
     if (temp_r3 > arg2) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + arg2);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4BC);

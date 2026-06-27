@@ -19,7 +19,7 @@ int fn_80011350(void) { return 0; }
 int fn_80011378(void) { return 0; }
 int fn_800113A8(void) { return 0; }
 int fn_800113E4(void) { return 0; }
-int fn_8001140C(void) { return 0; }
+int TItemProShield__sub_8001140C(void) { return 0; }
 int fn_8001144C(void) { return 0; }
 int fn_8001148C(void) { return 0; }
 

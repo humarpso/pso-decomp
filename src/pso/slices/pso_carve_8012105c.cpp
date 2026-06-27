@@ -15,7 +15,7 @@ int fn_801210D0(void* p);
 void* fn_801210F4(void* p);
 int fn_80121118(void* p);
 void fn_80121170(void* p, s16 v);
-void* fn_80121178(void* p);
+void* TObjPlayer__sub_80121178(void* p);
 int TObjPlayer__sub_80121180(void*);
 int TObjPlayer__sub_801D2F4C(void*);
 
@@ -29,11 +29,11 @@ int fn_801210B0(void) { return 0; }
 void fn_801210C0(void* p, s16 v) { *(s16*)((char*)p + 0x118) = v; }
 void fn_801210C8(void* p, s16 v) { *(s16*)((char*)p + 0x116) = v; }
 int fn_801210D0(void* p) { return TObjPlayer__sub_801D2F4C((char*)p + 0x7cc); }
-void* fn_801210F4(void* p) { return fn_80121178((char*)p + 0x7cc); }
+void* fn_801210F4(void* p) { return TObjPlayer__sub_80121178((char*)p + 0x7cc); }
 int fn_80121118(void* p) { return TObjPlayer__sub_80121180((char*)p + 0x7cc); }
 void fn_8012113C(void* p) { obj_testFlags30(p, (void*)1048576); }
 int fn_80121160(void) { return 0; }
 void fn_80121170(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-void* fn_80121178(void* p) { return (char*)p + 0x30; }
+void* TObjPlayer__sub_80121178(void* p) { return (char*)p + 0x30; }
 
 }

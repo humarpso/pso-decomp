@@ -6,18 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 fn_8010B734();
+u8 TItemProShield__sub_8010B734();
 s32 fn_80121200();
-M2C_UNK fn_803D8B5C(M2C_UNK, f32, f32, f32);
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 
 void fn_8012FFE4(void *arg0) {
     f32 temp_f1;
 
-    if (fn_8010B734() == 5) {
+    if (TItemProShield__sub_8010B734() == 5) {
         switch (fn_80121200()) {
         case 1:
             temp_f1 = M2C_FIELD(arg0, f32 *, 0x1F8);
-            fn_803D8B5C(0, temp_f1, temp_f1, temp_f1);
+            TOMonitorMachine01__sub_803D8B5C(0, temp_f1, temp_f1, temp_f1);
             break;
         }
     }

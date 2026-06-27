@@ -10,7 +10,7 @@ s32 fn_801FE854();
 M2C_UNK fn_802C5BCC(void *, s32 *, s32 *);
 M2C_UNK fn_802C6418();
 M2C_UNK fn_802C658C();
-void * fn_802C6920();
+void * TAdMultiPlyChrSelectGC__sub_802C6920();
 M2C_UNK fn_802E0024(s32, s32);
 M2C_UNK fn_802E0064(s32, s32);
 
@@ -23,7 +23,7 @@ void TAdMultiPlyChrSelectGC__sub_802DFC0C(void *arg0, s32 arg1) {
 
     switch (arg1) {
     case 10:
-        temp_r3 = fn_802C6920();
+        temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
         fn_802C5BCC(temp_r3, &sp14, &sp10);
         fn_802C6418();
         fn_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), sp14);
@@ -31,10 +31,10 @@ void TAdMultiPlyChrSelectGC__sub_802DFC0C(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x9C) = 1;
         return;
     case 4:
-        fn_802C6920();
+        TAdMultiPlyChrSelectGC__sub_802C6920();
         fn_802C658C();
         if (fn_801FE854() == 0) {
-            temp_r3 = fn_802C6920();
+            temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
             fn_802C5BCC(temp_r3, &spC, &sp8);
             fn_802C6418();
             fn_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), spC);

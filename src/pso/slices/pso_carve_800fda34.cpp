@@ -12,7 +12,7 @@ s32 fn_800FDD68(M2C_UNK *);
 M2C_UNK fn_800FE154(M2C_UNK *, M2C_UNK);
 M2C_UNK fn_800FE1C4(M2C_UNK *, s32, M2C_UNK);
 
-s32 fn_800FDA34(s32 arg0) {
+s32 TGStream__sub_800FDA34(s32 arg0) {
     M2C_UNK sp8[0xC];
     s32 temp_r31;
     s32 temp_r3;

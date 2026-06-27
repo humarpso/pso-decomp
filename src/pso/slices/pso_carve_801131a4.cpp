@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80112BC4(void *, M2C_UNK);
-M2C_UNK fn_80112E20(void *, M2C_UNK);
+M2C_UNK TItemMag__sub_80112E20(void *, M2C_UNK);
 
 void TItemMag__sub_801131A4(void *arg0) {
     s32 temp_r0;
@@ -18,7 +18,7 @@ void TItemMag__sub_801131A4(void *arg0) {
         return;
     }
     if (temp_r0 > 0x5A) {
-        fn_80112E20(arg0, 1);
+        TItemMag__sub_80112E20(arg0, 1);
     }
 }
 

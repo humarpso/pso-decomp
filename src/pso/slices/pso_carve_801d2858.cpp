@@ -36,7 +36,7 @@ void fn_801D2CE4(void* p, s16 v);
 void* fn_801D2CEC(void* p);
 int bswap_32__FPUl(void*);
 int fn_8001BED8(void*, int);
-int fn_8001BEE8(void*, int);
+int TAdRicoRing__sub_8001BEE8(void*, int);
 int fn_8001BEF8(void*, int);
 int fn_801D7BF4(void*);
 
@@ -49,8 +49,8 @@ void* fn_801D28A0(void* p, void* a1) { fn_801C0228(p); *(void**)((char*)p + 0x4)
 void fn_801D28DC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
 int fn_801D2910(void) { return 0; }
 int fn_801D2964(void) { return 0; }
-int fn_801D29A8(void* p) { return fn_8001BEE8((char*)p + 0x40, 62); }
-int fn_801D29D0(void* p) { return fn_8001BEE8((char*)p + 0x40, 4); }
+int fn_801D29A8(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 62); }
+int fn_801D29D0(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 4); }
 int fn_801D29F8(void* p) { return fn_8001BED8((char*)p + 0x40, 8); }
 int fn_801D2A20(void* p) { return (fn_8001BEF8((char*)p + 0x40, 1)) == 0; }
 int fn_801D2A50(void* p) { return fn_8001BEF8((char*)p + 0x40, 8); }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *fn_8024CC8C();
+void *TWindowCtrlMain__sub_8024CC8C();
 
 void fn_8024CC2C(f32 farg0) {
-    M2C_FIELD(fn_8024CC8C(), f32 *, 0x18) = farg0;
+    M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x18) = farg0;
 }
 
 }

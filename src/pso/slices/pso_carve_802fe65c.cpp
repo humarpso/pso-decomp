@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803D8910(s32, s32, s32);
+M2C_UNK TBoss4Zako__sub_803D8910(s32, s32, s32);
 
 void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1) {
-    fn_803D8910(arg1 + 0x308, arg0 + 0xC0, arg0);
+    TBoss4Zako__sub_803D8910(arg1 + 0x308, arg0 + 0xC0, arg0);
 }
 
 }

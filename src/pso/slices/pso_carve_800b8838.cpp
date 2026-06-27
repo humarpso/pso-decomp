@@ -22,7 +22,7 @@ s32 fn_800B88A8(s32 arg0, s16 arg1) {
 }
 void* fn_800B88E4(void* p) { fn_800B8898(p); return p; }
 int fn_800B8914(void) { return 0; }
-int fn_800B8938(void) { return 0; }
+int TObjEneBm5Wolf__sub_800B8938(void) { return 0; }
 int fn_800B896C(void*, void*, void*) { return 0; }
 int fn_800B89A4(void*, void*, void*) { return 0; }
 s32 fn_800B89E8(s32 arg0, s16 arg1) {
@@ -31,6 +31,6 @@ s32 fn_800B89E8(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-int fn_800B8A24(void) { return 0; }
+int TObjEneBm5Wolf__sub_800B8A24(void) { return 0; }
 
 }

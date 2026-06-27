@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80019690();
-M2C_UNK fn_800FAE1C(void *);
+M2C_UNK TFogCtrl__sub_800FAE1C(void *);
 
 void fn_800FADB4(void *arg0) {
     s32 temp_r3;
@@ -16,10 +16,10 @@ void fn_800FADB4(void *arg0) {
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x1C);
         if (temp_r3 & 1) {
             M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r3 & 0xFFFFFFFE);
-            fn_800FAE1C(arg0);
+            TFogCtrl__sub_800FAE1C(arg0);
         }
     } else {
-        fn_800FAE1C(arg0);
+        TFogCtrl__sub_800FAE1C(arg0);
         M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFFFE);
     }
 }

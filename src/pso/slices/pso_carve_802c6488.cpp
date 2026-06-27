@@ -8,12 +8,12 @@ extern "C" {
 
 s32 fn_80299454();
 s32 fn_802C6558();
-s32 fn_802C6920();
+s32 TAdMultiPlyChrSelectGC__sub_802C6920();
 
 s32 fn_802C6488(void) {
     if (fn_80299454() != 0) {
         if (fn_802C6558() > 0) {
-            return fn_802C6920();
+            return TAdMultiPlyChrSelectGC__sub_802C6920();
         }
         return 0;
     }

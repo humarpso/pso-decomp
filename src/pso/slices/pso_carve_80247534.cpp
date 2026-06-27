@@ -8,10 +8,10 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TWindowSubComCard__sub_80244A14(void *);
-M2C_UNK fn_8025EC04(s32);
+M2C_UNK TKeyBoardControl__sub_8025EC04(s32);
 
 void fn_80247534(void *arg0) {
-    fn_8025EC04(M2C_FIELD(arg0, s32 *, 0x28));
+    TKeyBoardControl__sub_8025EC04(M2C_FIELD(arg0, s32 *, 0x28));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x30));
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;

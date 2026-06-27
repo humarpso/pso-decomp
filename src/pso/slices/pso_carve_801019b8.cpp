@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80101CFC(s32, void *);
-M2C_UNK fn_80104FCC(s32, void *, s32 *);
+M2C_UNK TWindowHelpItem__sub_80104FCC(s32, void *, s32 *);
 M2C_UNK init__9TItemDataFv(void *);
 
 void fn_801019B8(s32 arg0, s32 arg1, s16 *arg2) {
@@ -16,7 +16,7 @@ void fn_801019B8(s32 arg0, s32 arg1, s16 *arg2) {
 
     init__9TItemDataFv(spC);
     fn_80101CFC(arg0, spC);
-    fn_80104FCC(arg1, spC, &sp8);
+    TWindowHelpItem__sub_80104FCC(arg1, spC, &sp8);
     if (arg2 != NULL) {
         *arg2 = (s16) sp8;
     }

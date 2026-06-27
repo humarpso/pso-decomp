@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8018DE10();
-M2C_UNK fn_8018DEC8();
+M2C_UNK TObjDoaEx01__sub_8018DEC8();
 
 void TObjDoaEx01__vt2(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        fn_8018DEC8();
+        TObjDoaEx01__sub_8018DEC8();
         return;
     }
     fn_8018DE10();

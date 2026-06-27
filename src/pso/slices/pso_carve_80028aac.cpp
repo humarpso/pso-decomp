@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80141FA8(s32, s32);
+s32 TBoss4Type2__sub_80141FA8(s32, s32);
 
 void fn_80028AAC(void *arg0, s32 arg1, s32 arg2) {
-    if (fn_80141FA8(arg1, arg2) >= 0) {
+    if (TBoss4Type2__sub_80141FA8(arg1, arg2) >= 0) {
         M2C_FIELD(arg0, s32 *, 0x65C) = 1;
         return;
     }

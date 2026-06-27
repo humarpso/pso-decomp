@@ -10,7 +10,7 @@ extern "C" char* const lbl_805D2C78;
 extern "C" void*    fn_8007EB94(int size);
 extern "C" void*    fn_8010FE6C(void* obj, const char* file, int flags);
 extern "C" void     fn_8010FE20(void* obj, int flag);
-extern "C" void*    fn_8001A468(void* pmt);
+extern "C" void*    TItemMag__sub_8001A468(void* pmt);
 extern "C" TObject* fn_80107A68(int arg);
 
 extern "C" {
@@ -34,7 +34,7 @@ void load_item_pmt() {
     }
     item_pmt = p;
     if (p != NULL) {
-        item_pmt_tbl = fn_8001A468(p);
+        item_pmt_tbl = TItemMag__sub_8001A468(p);
     }
 }
 

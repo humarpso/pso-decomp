@@ -8,11 +8,11 @@ extern "C" {
 
 s32 fn_80019248();
 s32 obj_getField1c(s32);
-M2C_UNK fn_80242EBC(M2C_UNK, M2C_UNK, s16);
+M2C_UNK TBoss4Type3__sub_80242EBC(M2C_UNK, M2C_UNK, s16);
 
 void fn_801B13EC(s32 arg0) {
     if (fn_80019248() != 0) {
-        fn_80242EBC(0xC0, 0xF, obj_getField1c(arg0));
+        TBoss4Type3__sub_80242EBC(0xC0, 0xF, obj_getField1c(arg0));
     }
 }
 

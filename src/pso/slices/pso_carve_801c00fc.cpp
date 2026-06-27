@@ -24,7 +24,7 @@ void fn_801C05A0(void* p);
 void fn_801C05E8(void* p);
 void fn_801C0630(void* p);
 int fn_8001960C(void*);
-int fn_8001BEE8(void*, int);
+int TAdRicoRing__sub_8001BEE8(void*, int);
 
 int fn_801C00FC(void) { return 0; }
 int fn_801C0104(void) { return 0; }
@@ -32,7 +32,7 @@ int fn_801C010C(void) { return 0; }
 void fn_801C011C(void* p, s16 v) { *(s16*)((char*)p + 0x4) = v; }
 int fn_801C0124(void) { return 0; }
 int fn_801C0134(void) { return 255; }
-int TFontSmallLobby__sub_801C013C(void* p) { return fn_8001BEE8((char*)p + 0x10, 2); }
+int TFontSmallLobby__sub_801C013C(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x10, 2); }
 int fn_801C0164(void) { return 0; }
 int fn_801C01BC(void* p) { return fn_8001960C(p); }
 void* fn_801C01DC(void* p, void* a1) { fn_801C0228(p); *(unsigned char*)((char*)p + 0x4) = *(unsigned char*)((char*)a1 + 0x4); fn_8039664C((char*)p + 0x5, (char*)a1 + 0x5, (void*)3); return p; }

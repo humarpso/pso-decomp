@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80048CDC();
+M2C_UNK TObjVoloptCage__sub_80048CDC();
 M2C_UNK fn_80048E80();
 M2C_UNK fn_80048F40();
 M2C_UNK fn_80049000();
@@ -26,7 +26,7 @@ void TObjVoloptCage__sub_80049210(void *arg0) {
         fn_80048E80();
         return;
     case 5:
-        fn_80048CDC();
+        TObjVoloptCage__sub_80048CDC();
         return;
     }
 }

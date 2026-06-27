@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 fn_8001973C(f32);
+f32 TObjFish__sub_8001973C(f32);
 
 s32 fn_8023D40C(void *arg0) {
     f32 temp_f1;
     f32 temp_f30;
     f32 temp_f31;
 
-    temp_f30 = fn_8001973C(M2C_FIELD(arg0, f32 *, 0x28));
-    temp_f31 = fn_8001973C(M2C_FIELD(arg0, f32 *, 0x2C));
-    temp_f1 = fn_8001973C(M2C_FIELD(arg0, f32 *, 0x30));
+    temp_f30 = TObjFish__sub_8001973C(M2C_FIELD(arg0, f32 *, 0x28));
+    temp_f31 = TObjFish__sub_8001973C(M2C_FIELD(arg0, f32 *, 0x2C));
+    temp_f1 = TObjFish__sub_8001973C(M2C_FIELD(arg0, f32 *, 0x30));
     if (temp_f30 > temp_f31) {
         if (temp_f30 > temp_f1) {
             return 0;

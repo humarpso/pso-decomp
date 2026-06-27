@@ -33,7 +33,7 @@ int fn_8030A264(void*, int, int);
 int fn_8030A2CC(void*, int, int);
 
 void fn_801BEE08(void* p, f32 a, f32 b, f32 c) { *(f32*)((char*)p + 0x38) = a; *(f32*)((char*)p + 0x3c) = b; *(f32*)((char*)p + 0x40) = c; }
-int fn_801BEE18(void) { return 0; }
+int TObjPlayer__sub_801BEE18(void) { return 0; }
 void fn_801BEE24(void* p, s16 v) { *(s16*)((char*)p + 0x2be) = v; }
 void fn_801BEE2C(void* p, s16 v) { *(s16*)((char*)p + 0x2bc) = v; }
 void fn_801BEE34(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }

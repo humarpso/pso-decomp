@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8007F6F8(M2C_UNK, M2C_UNK);
+M2C_UNK TDLGraph__sub_8007F6F8(M2C_UNK, M2C_UNK);
 
 void fn_801F9030(void) {
-    fn_8007F6F8(1, 1);
+    TDLGraph__sub_8007F6F8(1, 1);
 }
 
 }
