@@ -6,6 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void fn_801C0FC8(void* p);
+int fn_801C0F10(void* a0 = 0);
+void* fn_801C0EC4(void* p, void* a1);
+void* fn_801C0F70(void* p);
 s32 fn_801C0AD8();
 s32 TLobby__sub_801E4570(s32);
 s32 fn_8001960C();
@@ -13,7 +17,6 @@ s32 bswap_32__FPUl(s32);
 s32 fn_801C0228();
 s32 bswap_16__FPUs(s32);
 s32 bswap__9TItemDataFv(s32);
-void fn_801C0FC8(void* p);
 
 void fn_801C0B50(s32 arg0) {
     fn_801C0AD8();
@@ -72,9 +75,9 @@ void fn_801C0E90(s32 arg0) {
     fn_8001960C();
     bswap__9TItemDataFv(arg0 + 4);
 }
-int fn_801C0EC4(void) { return 0; }
-int fn_801C0F10(void) { return 0; }
-int fn_801C0F70(void) { return 0; }
+void* fn_801C0EC4(void* p, void* a1) { fn_801C0F10(p); *(unsigned char*)((char*)p + 0x18) = *(unsigned char*)((char*)a1 + 0x18); *(unsigned char*)((char*)p + 0x19) = *(unsigned char*)((char*)a1 + 0x19); *(short*)((char*)p + 0x1a) = *(unsigned short*)((char*)a1 + 0x1a); return p; }
+int fn_801C0F10(void*) { return 0; }
+void* fn_801C0F70(void* p) { fn_801C0FC8(p); *(unsigned char*)(p) = 43; *(unsigned char*)((char*)p + 0x18) = 2; *(unsigned char*)((char*)p + 0x19) = 0; *(unsigned char*)((char*)p + 0x1a) = 0; *(unsigned char*)((char*)p + 0x1b) = 0; *(unsigned char*)((char*)p + 0x1) = 7; return p; }
 void fn_801C0FC8(void* p) { *(u8*)((char*)p + 0x0) = 43; *(u8*)((char*)p + 0x1) = 6; }
 int fn_801C0FDC(void) { return 0; }
 void fn_801C1010(s32 arg0) {
