@@ -1,7 +1,13 @@
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+s32 TPhotonMylla__sub_80154CB4(u16);
+s16 obj_getField1c(s32);
 s32 fn_800D1B7C(s32 arg0, s16 arg1);
 int __dl__FPv();
 s32 fn_800D1CBC(s32 arg0, s16 arg1);
@@ -21,8 +27,12 @@ s32 fn_800D1B7C(s32 arg0, s16 arg1) {
     return arg0;
 }
 void* fn_800D1BB8(void* p) { fn_800D1B6C(p); return p; }
-int fn_800D1BE8(void) { return 0; }
-int TObjEneBm5GibonU__sub_800D1C0C(void) { return 0; }
+void fn_800D1BE8(void *arg0) {
+    TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 8));
+}
+void TObjEneBm5GibonU__sub_800D1C0C(void *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s16 *, 8) = obj_getField1c(arg1);
+}
 int fn_800D1C40(void*, void*, void*) { return 0; }
 int fn_800D1C78(void*, void*, void*) { return 0; }
 s32 fn_800D1CBC(s32 arg0, s16 arg1) {

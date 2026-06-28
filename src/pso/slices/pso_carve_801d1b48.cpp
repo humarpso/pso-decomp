@@ -2,19 +2,6 @@
 
 extern "C" {
 
-int fn_8012AF00(void*);
-void* fn_801D23C0(void* p);
-int fn_801C0228(void*);
-void* fn_801D1C34(void* p, void* a1);
-int bswap_16__FPUs(void*);
-int bswap_32__FPUl(void*);
-int fn_8001960C(void*);
-int fn_801C01BC(void*);
-int fn_801D1A84(void*);
-int fn_801D2B2C(void*);
-int fn_801D2C18(void*);
-int TLobby__sub_801E4570(void*);
-int TLobby__sub_801E45D0(void*);
 void fn_801D1CC0(void* p);
 void fn_801D1F44(void* p);
 void fn_801D2618(void* p, f32 v);
@@ -22,6 +9,18 @@ void fn_801D2620(void* p);
 void fn_801D2630(void* p);
 int fn_801D2680(void* p);
 void fn_801D268C(void* p);
+int TLobby__sub_801E4570(void*);
+int TLobby__sub_801E45D0(void*);
+int bswap_16__FPUs(void*);
+int bswap_32__FPUl(void*);
+int fn_8001960C(void*);
+s32 fn_8012125C(s32);
+int fn_8012AF00(void*);
+int fn_801C01BC(void*);
+int fn_801C0228(void*);
+int fn_801D1A84(void*);
+int fn_801D2B2C(void*);
+int fn_801D2C18(void*);
 
 void fn_801D1B48(void* p) { fn_801D1A84(p); TLobby__sub_801E4570(p); }
 void fn_801D1B7C(void* p) { fn_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }

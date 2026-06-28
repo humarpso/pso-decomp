@@ -26,7 +26,15 @@ u8 fn_800BA6D0(void *arg0) {
 }
 void fn_800BA728(void* p, void* a1) { fn_800BA754(a1, (char*)p + 0x2fc, p); }
 int fn_800BA754(void*, void*, void*) { return 0; }
-int fn_800BA7AC(void) { return 0; }
+u8 fn_800BA7AC(void *arg0) {
+    int var_r31;
+
+    var_r31 = 0;
+    if ((arg0 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(M2C_FIELD(arg0, s32 *, 0x30) & 0x06040800)) {
+        var_r31 = 1;
+    }
+    return (u8)var_r31;
+}
 int fn_800BA804(void) { return 0; }
 int fn_800BA828(void) { return 0; }
 int fn_800BA838(void) { return 0; }

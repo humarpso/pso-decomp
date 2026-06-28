@@ -39,7 +39,9 @@ u8 TItemMag__sub_80113E74(void* p) { return *(u8*)((char*)p + 0xe); }
 s16 fn_80113E7C(void* p) { return *(s16*)((char*)p + 0x0); }
 s16 fn_80113E84(void* p) { return *(s16*)((char*)p + 0x2); }
 int fn_80113E8C(void* p) { return (*(u32*)((char*)p + 0x334) >> 9) & 0x1; }
-int fn_80113E98(void) { return 0; }
+s32 fn_80113E98(s32 arg0) {
+    return (s32) fn_80113EEC((void*)(arg0 + 0x4AC));
+}
 int fn_80113EC8(void) { return 0; }
 int fn_80113EDC(void) { return 0; }
 f32 fn_80113EEC(void* p) { return *(f32*)((char*)p + 0x3c); }

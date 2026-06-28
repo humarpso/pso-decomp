@@ -6,11 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 fn_800BBA18(void * a0 = 0, s32 a1 = 0);
 void fn_802D0944(void *arg0);
 void fn_802D093C(void);
 void fn_802D0940(void);
 
-int fn_802D0900(void) { return 0; }
+s32 fn_802D0900(void *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0x438) & 2) {
+        fn_800BBA18(arg0, 8);
+        return 1;
+    }
+    return 0;
+}
 void fn_802D093C(void) {  }
 void fn_802D0940(void) {  }
 void fn_802D0944(void *arg0) {

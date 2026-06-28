@@ -1,0 +1,82 @@
+#ifndef PSO_BOSS_TBOSS2DEROLLE_H
+#define PSO_BOSS_TBOSS2DEROLLE_H
+
+#include "types.h"
+
+struct TBoss2DeRolLe
+{
+    u16 m_1c;
+    u8 _pad1E[0x6];
+    u32 m_24;
+    u8 _pad28[0x4];
+    s16 m_2c;
+    u8 _pad2E[0x6];
+    u32 m_34;
+    void* m_38;
+    u8 _pad3C[0x74];
+    u32 m_b0;
+    u8 _padB4[0x4];
+    s16 m_b8;
+    u8 _padBA[0x1FE];
+    u16 m_2b8;
+    u8 _pad2BA[0x6C];
+    s16 m_326;
+    u8 _pad328[0x4];
+    u16 m_32c;
+    u8 _pad32E[0x22];
+    u32 m_350;
+    u8 _pad354[0x6C];
+    u32 m_3c0;
+    u32 m_3c4;
+    u32 m_3c8;
+    u32 m_3cc;
+    u32 m_3d0;
+    u32 m_3d4;
+    void* m_3d8;
+    u8 _pad3DC[0x18];
+    u32 m_3f4;
+    u8 _pad3F8[0xC];
+    void* m_404;
+    u8 _pad408[0x68];
+    void* m_470;
+    u8 _pad474[0xC8];
+    u32 m_53c;
+    u8 _pad540[0xD8];
+    u32 m_618;
+    u32 m_61c;
+    u8 _pad620[0x30];
+    u32 m_650;
+    u32 m_654;
+    u32 m_658;
+    u32 m_65c;
+    u32 m_660;
+    void* m_664;
+    u8 _pad668[0x1C];
+    void* m_684;
+    u8 _pad688[0x20];
+    u32 m_6a8;
+    u32 m_6ac;
+    u32 m_6b0;
+    u32 m_6b4;
+    u32 m_6b8;
+    void* m_6bc;
+    u8 _pad6C0[0x8];
+    u32 m_6c8;
+    u32 m_6cc;
+    u32 m_6d0;
+    u8 _pad6D4[0x8];
+    u32 m_6dc;
+    u32 m_6e0;
+    u32 m_6e4;
+    u32 m_6e8;
+    u32 m_6ec;
+    u32 m_6f0;
+    u32 m_6f4;
+    u32 m_6f8;
+    u8 _pad6FC[0x40];
+    u32 m_73c;
+    u8 _pad740[0x18];
+    u32 m_758;
+};
+
+#endif

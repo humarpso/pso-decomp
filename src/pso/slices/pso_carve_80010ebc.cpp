@@ -1,7 +1,15 @@
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+s32 fn_800109B0(void *, s32);
+s32 obj_getArrU16_FC(s32, s32);
+s32 fn_80019690();
+s32 obj_getField1c(u32);
 void fn_80010EBC(void);
 void fn_80010EC0(void);
 void fn_80010EC4(void);
@@ -13,10 +21,30 @@ void fn_80010EBC(void) {  }
 void fn_80010EC0(void) {  }
 void fn_80010EC4(void) {  }
 void fn_80010EC8(void) {  }
-int fn_80010ECC(void) { return 0; }
+void fn_80010ECC(void *arg0, s32 arg1) {
+    s32 var_r31;
+
+    if (arg1 != 0) {
+        if (fn_80019690() != 0) {
+            var_r31 = 0;
+            do {
+                fn_800109B0(arg0, obj_getArrU16_FC(arg1, var_r31));
+                var_r31 += 1;
+            } while (var_r31 != 4);
+            return;
+        }
+        if (M2C_FIELD(arg0, u16 *, 0x2D6) == 0xFFFF) {
+            M2C_FIELD(arg0, u16 *, 0x2D6) = fn_80010F4C((void*)(arg1));
+        }
+    }
+}
 u16 fn_80010F4C(void* p) { return *(u16*)((char*)p + 0x2d6); }
-int TOMineTrap__sub_80010F54(void) { return 0; }
-int fn_80010FCC(void) { return 0; }
+int TOMineTrap__sub_80010F54(void* a0 = 0, void* a1 = 0) { return 0; }
+void fn_80010FCC(s32 arg0, u32 arg1) {
+    if (arg1 != 0U) {
+        TOMineTrap__sub_80010F54((void*)(arg0), (void*)(obj_getField1c(arg1)));
+    }
+}
 void fn_80011010(void) {  }
 
 }

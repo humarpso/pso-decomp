@@ -6,6 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 obj_testFlags30(s32, s32);
+s32 fn_801B25C4();
+s32 fn_801BEAB0(s32);
+s32 fn_801D0BC0(s32, s32, s32);
 void fn_801CBABC(s32 arg0);
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
@@ -28,6 +32,18 @@ void fn_801CBABC(s32 arg0) {
 void fn_801CBB10(void) {  }
 int fn_801CBB14(void) { return 0; }
 void fn_801CBB80(void) {  }
-int fn_801CBB84(void) { return 0; }
+void fn_801CBB84(s32 arg0) {
+    if (fn_801B25C4() != 0) {
+        fn_801D0BC0(arg0, 0x13, 5);
+        return;
+    }
+    if (fn_801BEAB0(arg0) != 0) {
+        if (obj_testFlags30(arg0, 0x400) != 0) {
+            fn_801D0BC0(arg0, 0xE, 5);
+            return;
+        }
+        fn_801D0BC0(arg0, 0xD, 5);
+    }
+}
 
 }

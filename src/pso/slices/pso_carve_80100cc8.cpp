@@ -6,6 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 fn_8000F8FC();
+s32 fn_801A2FE0();
+s32 TItemMag__sub_80102C4C();
 void fn_80100D68(void *arg0);
 void fn_80101CFC(void *, void *);
 void fn_8010C738(void *);
@@ -15,9 +18,22 @@ int fn_80100D10(void* p);
 void TItemMag__sub_80100D94(void* p, u8 v);
 void fn_80100D9C(void* p, u8 v);
 
-int fn_80100CC8(void) { return 0; }
+u8 fn_80100CC8(void) {
+    int var_r31;
+
+    var_r31 = 0;
+    if ((fn_8000F8FC() != 0xE) || (fn_801A2FE0() == 0)) {
+        var_r31 = 1;
+    }
+    return (u8)var_r31;
+}
 int fn_80100D10(void* p) { return *(u16*)((char*)p + 0x4) & 0x400; }
-int fn_80100D1C(void) { return 0; }
+s32 fn_80100D1C(void *arg0) {
+    if ((TItemMag__sub_80102C4C() == 0) && ((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U)) {
+        return 1;
+    }
+    return 0;
+}
 void fn_80100D68(void *arg0) {
     M2C_UNK sp8[4];
 

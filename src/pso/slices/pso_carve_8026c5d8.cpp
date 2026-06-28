@@ -2,6 +2,7 @@
 
 extern "C" {
 
+s32 fn_80202BA0();
 void fn_8026C600(void* p);
 void fn_8026C610(void* p);
 void fn_8026C620(void* p);
@@ -11,7 +12,9 @@ s16 TWindowOptionCtrl__sub_8026C648(void* p);
 s16 TWindowOptionCtrl__sub_8026C650(void* p);
 int TWindowOptionCtrl__sub_8026C658(void* p);
 
-int fn_8026C5D8(void) { return 0; }
+s32 fn_8026C5D8(void) {
+    return fn_80202BA0() + 0x1154C;
+}
 void fn_8026C600(void* p) { *(u16*)((char*)p + 0x70) |= 0x400; }
 void fn_8026C610(void* p) { *(u16*)((char*)p + 0x70) |= 0x100; }
 void fn_8026C620(void* p) { *(u16*)((char*)p + 0x70) &= 0xfffffffb; }

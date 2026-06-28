@@ -2,9 +2,13 @@
 
 extern "C" {
 
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void TBoss2Joint__vt59(void);
 
-int fn_80036C4C(void) { return 0; }
+void fn_80036C4C(s32 arg0) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+}
 void TBoss2Joint__vt59(void) {  }
 
 }

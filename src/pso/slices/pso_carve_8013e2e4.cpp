@@ -2,6 +2,9 @@
 
 extern "C" {
 
+s32 fn_80071F1C(s32, s32);
+s32 __dl__FPv(void* a0 = 0);
+s32 init__6gc_tagFv();
 int fn_8013E378(void* a0 = 0, void* a1 = 0);
 int fn_8013E854(void* a0 = 0);
 void fn_8013E830(void* p, void* a1, void* a2);
@@ -72,7 +75,7 @@ int fn_8013DF44(void*);
 int fn_8013DF4C(void*);
 int fn_8013DF54(void*);
 int fn_8013DFC4(void*);
-int fn_8013E1C8(void*);
+int fn_8013E1C8(void*, void* a1 = 0);
 
 int fn_8013E2E4(void* p) { return fn_8013B2A4((char*)p + 0x24); }
 u16 fn_8013E308(void* p) { return *(u16*)((char*)p + 0x4); }
@@ -94,8 +97,21 @@ s16 fn_8013E570(void* p) { return *(s16*)((char*)p + 0x6); }
 int fn_8013E578(void* p) { return fn_8001BED8((char*)p + 0x20, 4); }
 int fn_8013E5A0(void* p) { return fn_8013E338((char*)p + 0x60); }
 int fn_8013E5C4(void* p) { return fn_8013E358((char*)p + 0x60); }
-int fn_8013E5E8(void) { return 0; }
-int fn_8013E624(void) { return 0; }
+s32 fn_8013E5E8(s32 arg0, s16 arg1) {
+    if ((arg0 != 0) && (arg1 > 0)) {
+        __dl__FPv();
+    }
+    return arg0;
+}
+s32 fn_8013E624(s32 arg0, s16 arg1) {
+    if (arg0 != 0) {
+        fn_80071F1C(arg0, -1);
+        if (arg1 > 0) {
+            __dl__FPv((void*)(arg0));
+        }
+    }
+    return arg0;
+}
 void TMainCursor__sub_8013E670(void* p, s16 a1) { TMainCursor__sub_8013E694((char*)p + 0x24, a1); }
 void TMainCursor__sub_8013E694(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 int TMainCursor__sub_8013E69C(void* p) { return fn_8013E6C0((char*)p + 0x60); }
@@ -107,7 +123,11 @@ int fn_8013E72C(void) { return 0; }
 void fn_8013E754(void* p, s16 v) { *(s16*)((char*)p + 0x6) = v; }
 int TMainCursor__sub_8013E75C(void* p) { return fn_8013E1C8((char*)p + 0x60); }
 int fn_8013E780(void) { return 0; }
-int fn_8013E7B8(void) { return 0; }
+void fn_8013E7B8(s32 arg0) {
+    init__6gc_tagFv();
+    fn_8013E1C8((void*)(arg0), (void*)(0xFFFF));
+    fn_8013E754((void*)(arg0), 0);
+}
 int fn_8013E800(void) { return 0; }
 s32 fn_8013E810(void* p) { return *(s32*)((char*)p + 0xc); }
 s32 fn_8013E818(void* p) { return *(s32*)((char*)p + 0x8); }

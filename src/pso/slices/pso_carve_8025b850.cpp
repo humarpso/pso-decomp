@@ -1,7 +1,14 @@
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+s32 TWindowKeyBoardSoft__sub_8025D994();
+s32 TWindowKeyBoardSoft__sub_8025DA18();
+s32 TWindowKeyBoardSoft__sub_8025DA98();
 int fn_8025B850(void* p);
 s32 fn_8025B8C8(void* p);
 void fn_8025B928(void);
@@ -12,7 +19,22 @@ s32 fn_8025B8C8(void* p) { return *(s32*)((char*)p + 0x70); }
 int TWindowKeyBoardSoft__vt2(void) { return 0; }
 void fn_8025B928(void) {  }
 int fn_8025B92C(void) { return 0; }
-int fn_8025B9D8(void) { return 0; }
+void fn_8025B9D8(void *arg0) {
+    u16 temp_r4;
+
+    temp_r4 = M2C_FIELD(arg0, u16 *, 0x60);
+    if (temp_r4 & 4) {
+        if (M2C_FIELD(arg0, s32 *, 0xB4) & 0x20) {
+            TWindowKeyBoardSoft__sub_8025DA18();
+            return;
+        }
+        TWindowKeyBoardSoft__sub_8025D994();
+        return;
+    }
+    if (temp_r4 & 2) {
+        TWindowKeyBoardSoft__sub_8025DA98();
+    }
+}
 int fn_8025BA28(void) { return 0; }
 int fn_8025BA44(void) { return 0; }
 int TWindowKeyBoardSoft__vt14(void) { return 0; }
@@ -35,7 +57,22 @@ int TWindowKeyBoardSoft__vt20(void) { return 0; }
 int fn_8025C24C(void) { return 0; }
 int TWindowKeyBoardSoft__vt1(void) { return 0; }
 int TWindowKeyBoardSoft__vt21(void) { return 0; }
-int fn_8025C3EC(void) { return 0; }
+void fn_8025C3EC(void *arg0) {
+    u16 temp_r4;
+
+    temp_r4 = M2C_FIELD(arg0, u16 *, 0x60);
+    if (temp_r4 & 4) {
+        if (M2C_FIELD(arg0, s32 *, 0xB4) & 0x20) {
+            TWindowKeyBoardSoft__sub_8025DA18();
+            return;
+        }
+        TWindowKeyBoardSoft__sub_8025D994();
+        return;
+    }
+    if (temp_r4 & 2) {
+        TWindowKeyBoardSoft__sub_8025DA98();
+    }
+}
 int TWindowKeyBoardSoft__vt19(void) { return 0; }
 int TWindowKeyBoardSoft__vt0(void) { return 0; }
 

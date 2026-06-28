@@ -2,10 +2,26 @@
 
 extern "C" {
 
+s32 TWindowMessageScroll__ct(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 fn_80269DA4(s32 a0 = 0, s32 a1 = 0);
+s32 fn_80269CA4(s32 a0 = 0);
+s32 fn_80269C90(void);
+s32 __nw__7TObjectFUl(s32 a0 = 0);
 void fn_8035D540(void* p, f32 v);
 
 void fn_8035D540(void* p, f32 v) { *(f32*)((char*)p + 0x94) = v; }
-int fn_8035D548(void) { return 0; }
+s32 fn_8035D548(s32 arg0, s32 arg1, s32 arg2) {
+    s32 var_r31;
+
+    fn_80269CA4(0x23);
+    fn_80269DA4(arg1, 1);
+    var_r31 = __nw__7TObjectFUl(0x9C);
+    if (var_r31 != 0) {
+        var_r31 = TWindowMessageScroll__ct(var_r31, arg0, arg2);
+    }
+    fn_80269C90();
+    return var_r31;
+}
 int TWindowMessageScroll__vt1(void) { return 0; }
 
 }

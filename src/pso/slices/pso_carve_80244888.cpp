@@ -2,18 +2,14 @@
 
 extern "C" {
 
-int TWindowSubSymbolChatPartsSet__sub_80052EA0(void*);
-void TWindowSubTradeMain__sub_802448E4(void* p);
 void fn_802448C0(void* p);
+s32 TWindowCtrlMain__sub_8024CE24();
+int TWindowSubSymbolChatPartsSet__sub_80052EA0(void*);
+s32 fn_8022675C(s32, s32, s32, s32);
+s32 fn_80246948();
+s32 set_parent__7TObjectFP7TObject(s32, s32);
 
 int fn_80244888(void) { return 0; }
 void fn_802448C0(void* p) { *(f32*)((char*)p + 0x40) = *(f32*)((char*)p + 0x30); *(f32*)((char*)p + 0x44) = *(f32*)((char*)p + 0x34); *(f32*)((char*)p + 0x48) = *(f32*)((char*)p + 0x38); *(f32*)((char*)p + 0x4c) = *(f32*)((char*)p + 0x3c); }
-void TWindowSubTradeMain__sub_802448E4(void* p) { TWindowSubSymbolChatPartsSet__sub_80052EA0((char*)p + 0x30); *(int*)((char*)p + 0x50) = 3; }
-int fn_8024491C(void) { return 0; }
-int fn_80244958(void) { return 0; }
-int fn_80244994(void) { return 0; }
-int fn_802449E0(void) { return 0; }
-int TWindowSubComCard__sub_80244A14(void) { return 0; }
-int TWindowSubTradeMain__sub_80244A4C(void) { return 0; }
 
 }

@@ -2,16 +2,16 @@
 
 extern "C" {
 
+void fn_801D67C8(void* p);
+void fn_801D6834(void* p);
+void fn_801D687C(void* p);
+void fn_801D68C4(void* p);
+int TLobby__sub_801E4570(void*);
 int bswap_16__FPUs(void*);
 int fn_8001960C(void*);
 int fn_801C01BC(void*);
 int fn_801C0228(void*);
 int fn_801D6644(void*);
-int TLobby__sub_801E4570(void*);
-void fn_801D67C8(void* p);
-void fn_801D6834(void* p);
-void fn_801D687C(void* p);
-void fn_801D68C4(void* p);
 
 void fn_801D67C8(void* p) { *(s16*)((char*)p + 0x2) = 6; }
 void* fn_801D67D4(void* p) { fn_801D6644(p); return p; }

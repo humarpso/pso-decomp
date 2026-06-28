@@ -1,7 +1,13 @@
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+s32 fn_801AF288();
+s32 fn_801BE934(s32);
 void fn_801BE9F0(void *arg0);
 void fn_801BEA14(void *arg0);
 int fn_801C0228(void*);
@@ -76,7 +82,9 @@ int fn_801BEDA8(void*);
 int fn_801BEDB0(void*);
 int fn_801BEDB8(void*);
 
-int fn_801BE66C(void) { return 0; }
+void fn_801BE66C(s32 arg0) {
+    fn_8011E204((void*)(arg0), 0x200000);
+}
 int TObjPlayer__sub_801BE690(void* p) { return TObjPlayer__sub_800495E0(p, 4); }
 void* fn_801BE6B4(void* p) { fn_801C0228(p); return p; }
 int fn_801BE6E4(void* p) { return fn_801BE704(p); }
@@ -108,10 +116,26 @@ void fn_801BE8E4(void* p, s32 v) { *(s32*)((char*)p + 0x3dc) = v; }
 void fn_801BE8EC(void* p, s32 v) { *(s32*)((char*)p + 0x3d8) = v; }
 int fn_801BE8F4(void) { return 0; }
 int fn_801BE918(void) { return 0; }
-int fn_801BE934(void) { return 0; }
-int fn_801BE980(void) { return 0; }
-int fn_801BE9A8(void) { return 0; }
-int fn_801BE9CC(void) { return 0; }
+s32 fn_801BE934(s32 arg0) {
+    s32 var_r31;
+
+    var_r31 = arg0;
+    if (var_r31 < 0) {
+        var_r31 = 0;
+    } else if (var_r31 > fn_801AF288()) {
+        var_r31 = fn_801AF288();
+    }
+    return var_r31;
+}
+void fn_801BE980(void *arg0) {
+    fn_801BE934(M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x18));
+}
+void fn_801BE9A8(s32 arg0) {
+    fn_8011E204((void*)(arg0), 0x20000);
+}
+void fn_801BE9CC(s32 arg0) {
+    fn_8011E238((void*)(arg0), 0x20000);
+}
 void fn_801BE9F0(void *arg0) {
     fn_8011E204(arg0, 0x02000000);
 }
@@ -120,7 +144,9 @@ void fn_801BEA14(void *arg0) {
 }
 int fn_801BEA38(void) { return 0; }
 void fn_801BEA4C(void* p) { *(u32*)((char*)p + 0x334) |= 0x2; }
-int fn_801BEA5C(void) { return 0; }
+void fn_801BEA5C(s32 arg0) {
+    fn_8011E238((void*)(arg0), 0x400000);
+}
 int fn_801BEA80(void* p) { return TObjPlayer__sub_800495E0(p, 48); }
 int fn_801BEAA4(void* p) { return *(u32*)((char*)p + 0x30) & 0x10000; }
 int fn_801BEAB0(void* p) { return *(u32*)((char*)p + 0x30) & 0x200; }

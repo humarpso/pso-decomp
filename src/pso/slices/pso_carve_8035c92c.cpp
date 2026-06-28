@@ -2,6 +2,7 @@
 
 extern "C" {
 
+s32 fn_8035C2B4();
 int fn_8035C96C(void* p);
 int fn_8035C2E4(void*);
 

@@ -2,11 +2,16 @@
 
 extern "C" {
 
+s32 fn_801C2060(s32, s32);
+s32 fn_801D38F4(s32, s32, s32, s32);
+s32 fn_801D5814(s32, s32);
+s32 fn_801D5844(s32);
+s32 fn_801D5854(s32, s32);
 s32 fn_801D3518(s32 arg0, s16 arg1);
 int __dl__FPv();
 int fn_801D3B00(void*, void*, void*, void*);
 int fn_801D5804(void*);
-int fn_801D5838(void);
+int fn_801D5838(void* a0 = 0);
 int fn_801D5868(void*, void*);
 void fn_801D371C(void* p, void* q);
 
@@ -16,7 +21,20 @@ s32 fn_801D3518(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-int fn_801D3554(void) { return 0; }
+void fn_801D3554(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    s32 temp_r31;
+    s32 temp_r30;
+
+    temp_r31 = fn_801D5868((void*)(arg0), (void*)(0));
+    temp_r30 = fn_801D5854(arg0, 0);
+    if (fn_801D5844(temp_r31) != 0) {
+        fn_801D5838((void*)(temp_r31));
+        fn_801C2060(temp_r30, arg4);
+        fn_801D5814(temp_r30, arg3);
+        fn_801D38F4(arg0, arg2, arg1, 0);
+        fn_801D5804((void*)(arg0));
+    }
+}
 int fn_801D35FC(void) { return 0; }
 int fn_801D36B4(void) { return 0; }
 void fn_801D371C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }

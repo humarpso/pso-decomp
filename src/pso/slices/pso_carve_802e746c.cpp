@@ -1,12 +1,33 @@
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+s32 *fn_8007EB94(s32);
+s32 *fn_8009705C(s32 *, s32);
+s32 TOBoss4Rock__sub_80147AA8(s32);
+s32 fn_802E75B8(void *, s32 *);
 void fn_802E746C(void);
 void fn_802E7470(void);
 
 void fn_802E746C(void) {  }
 void fn_802E7470(void) {  }
-int fn_802E7474(void) { return 0; }
+void fn_802E7474(void *arg0, s32 arg1) {
+    s32 *temp_r4;
+    s32 *var_r0;
+
+    var_r0 = fn_8007EB94(0x10);
+    if (var_r0 != NULL) {
+        var_r0 = fn_8009705C(var_r0, arg1);
+    }
+    M2C_FIELD(arg0, s32 **, 0x1C) = var_r0;
+    temp_r4 = M2C_FIELD(arg0, s32 **, 0x1C);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *temp_r4;
+    fn_802E75B8(arg0, temp_r4);
+    M2C_FIELD(arg0, s32 *, 0x28) = TOBoss4Rock__sub_80147AA8(M2C_FIELD(arg0, s32 *, 0x24) * 0x2C);
+}
 
 }
