@@ -1,0 +1,22 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TWindowSubEquipKind__vt1(void *arg0);
+M2C_UNK fn_80268048();
+
+void TWindowSubEquipKind__vt1(void *arg0) {
+    int temp_r3;
+
+    fn_80268048();
+    temp_r3 = M2C_FIELD(arg0, s16 *, 0x8A);
+    if (temp_r3 != 0) {
+        M2C_FIELD(arg0, s16 *, 0x8A) = (s16) (temp_r3 - 1);
+    }
+}
+
+}

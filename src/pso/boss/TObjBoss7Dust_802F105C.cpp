@@ -1,0 +1,25 @@
+#include "types.h"
+
+extern "C" {
+
+void TObjBoss7Dust__vt2(void* p);
+void fn_802F105C(void);
+void fn_802F1084(void);
+void fn_802F10AC(void);
+int fn_802F0E24(void);
+int fn_802F0E94(void);
+int fn_802F1200(void*, void*);
+int fn_802F141C(void);
+int fn_802F1450(void);
+int fn_802F1454(void);
+int fn_802F19C0(void);
+int fn_802F2C4C(void);
+int fn_802F2C50(void);
+int fn_802F2C84(void);
+
+void fn_802F105C(void) { fn_802F1450(); fn_802F2C4C(); fn_802F0E24(); }
+void fn_802F1084(void) { fn_802F2C50(); fn_802F19C0(); fn_802F141C(); }
+void fn_802F10AC(void) { fn_802F0E94(); fn_802F2C84(); fn_802F1454(); }
+void TObjBoss7Dust__vt2(void* p) { fn_802F1200((char*)p + 0x24, *(void**)((char*)p + 0x20)); }
+
+}

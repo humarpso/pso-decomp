@@ -1,0 +1,28 @@
+#ifndef PSO_NPC_TOBJNPCENEMY_H
+#define PSO_NPC_TOBJNPCENEMY_H
+
+#include "types.h"
+
+struct TObjNpcEnemy
+{
+    u8 _pad1C[0x8];
+    u32 m_24;
+    u8 _pad28[0x10];
+    void* m_38;
+    u8 _pad3C[0x20];
+    u32 m_5c;
+    u32 m_60;
+    u32 m_64;
+    u8 _pad68[0x50];
+    u16 m_b8;
+    u8 _padBA[0x26C];
+    s16 m_326;
+    u8 _pad328[0x28];
+    u32 m_350;
+    u8 _pad354[0x3C];
+    u32 m_390;
+    u8 _pad394[0x24];
+    u32 m_3b8;
+};
+
+#endif

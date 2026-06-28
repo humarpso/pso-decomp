@@ -1,0 +1,16 @@
+#ifndef PSO_MISC_TWINDOWDUELRESULT_H
+#define PSO_MISC_TWINDOWDUELRESULT_H
+
+#include "types.h"
+
+struct TWindowDuelResult
+{
+    u8 _pad1C[0x4];
+    s16 m_20;
+    u8 _pad22[0x2];
+    void* m_24;
+    u8 _pad28[0x40];
+    u32 m_68;
+};
+
+#endif
