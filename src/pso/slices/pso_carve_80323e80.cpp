@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 
-void fn_80323E80(s32 arg0) {
+void TBoss6Mine__sub_80323E80(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
 }
 

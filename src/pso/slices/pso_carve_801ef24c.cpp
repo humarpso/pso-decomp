@@ -3,8 +3,8 @@
 extern "C" {
 
 int fn_801EF24C(void* p);
-int fn_80186634(void*);
+int TObjCityMainWarp__sub_80186634(void*);
 
-int fn_801EF24C(void* p) { return fn_80186634(p); }
+int fn_801EF24C(void* p) { return TObjCityMainWarp__sub_80186634(p); }
 
 }

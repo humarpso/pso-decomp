@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_80019690();
 M2C_UNK TFogCtrl__sub_800FAE1C(void *);
 
-void fn_800FADB4(void *arg0) {
+void TFogCtrl__sub_800FADB4(void *arg0) {
     s32 temp_r3;
 
     if (fn_80019690() == 0) {

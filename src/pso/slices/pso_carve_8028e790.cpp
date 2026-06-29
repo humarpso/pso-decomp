@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8028E790(void);
+void TCharaMaking__sub_8028E790(void);
 
-void fn_8028E790(void) {  }
+void TCharaMaking__sub_8028E790(void) {  }
 
 }

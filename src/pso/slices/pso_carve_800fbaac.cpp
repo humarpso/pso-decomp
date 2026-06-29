@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_800FBAAC(void);
+void TFogCtrl__sub_800FBAAC(void);
 
-void fn_800FBAAC(void) {  }
+void TFogCtrl__sub_800FBAAC(void) {  }
 
 }

@@ -3,8 +3,8 @@
 extern "C" {
 
 int queue_destruction__7TObjectFv(void*);
-void fn_802ABB84(void* p);
+void TBoss6PlotFalz__sub_802ABB84(void* p);
 
-void fn_802ABB84(void* p) { if (*(unsigned int*)((char*)p + 0x384) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x384)); *(int*)((char*)p + 0x384) = 0; } }
+void TBoss6PlotFalz__sub_802ABB84(void* p) { if (*(unsigned int*)((char*)p + 0x384) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x384)); *(int*)((char*)p + 0x384) = 0; } }
 
 }

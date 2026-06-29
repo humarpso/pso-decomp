@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void* fn_800696C8(void* p);
+void* TCameraCtrl__sub_800696C8(void* p);
 
-void* fn_800696C8(void* p) { return (char*)p + 0x68; }
+void* TCameraCtrl__sub_800696C8(void* p) { return (char*)p + 0x68; }
 
 }

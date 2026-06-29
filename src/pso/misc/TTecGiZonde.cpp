@@ -8,8 +8,8 @@ extern "C" {
 
 void TTecGiZonde__vt1(void *arg0);
 u32 TPhotonMylla__sub_80154CB4(u16);
-s32 fn_80231C58(void *);
-M2C_UNK fn_80232598(void *);
+s32 TTecGiZonde__sub_80231C58(void *);
+M2C_UNK TTecGiZonde__sub_80232598(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void TTecGiZonde__vt1(void *arg0) {
@@ -22,8 +22,8 @@ void TTecGiZonde__vt1(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (fn_80231C58(arg0) == 1) {
-        fn_80232598(arg0);
+    if (TTecGiZonde__sub_80231C58(arg0) == 1) {
+        TTecGiZonde__sub_80232598(arg0);
     }
     queue_destruction__7TObjectFv(arg0);
 }

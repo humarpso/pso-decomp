@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 obj_testFlags30(s32, s32);
-s32 fn_801B25C4();
+s32 TObjPlayer__sub_801B25C4();
 s32 fn_801BEAB0(s32);
 s32 fn_801D0BC0(s32, s32, s32);
 void fn_801CBABC(s32 arg0);
@@ -15,11 +15,11 @@ s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 M2C_UNK fn_801D1CC0(M2C_UNK *);
 M2C_UNK fn_801D1CD4(M2C_UNK *);
-int fn_801C0228(void*);
+int TFontSmallLobby__sub_801C0228(void*);
 void fn_801CBB10(void);
 void fn_801CBB80(void);
 
-void* fn_801CBA8C(void* p) { fn_801C0228(p); return p; }
+void* fn_801CBA8C(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 void fn_801CBABC(s32 arg0) {
     s8 sp8[8];
 
@@ -33,7 +33,7 @@ void fn_801CBB10(void) {  }
 int fn_801CBB14(void) { return 0; }
 void fn_801CBB80(void) {  }
 void fn_801CBB84(s32 arg0) {
-    if (fn_801B25C4() != 0) {
+    if (TObjPlayer__sub_801B25C4() != 0) {
         fn_801D0BC0(arg0, 0x13, 5);
         return;
     }

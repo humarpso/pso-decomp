@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 obj_getField1c(u32);
-s32 fn_801B12CC();
-s32 fn_801B71AC(u32);
+s32 TObjPlayer__sub_801B12CC();
+s32 TObjPlayer__sub_801B71AC(u32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 fn_8024AEF0(u16);
+s32 TWindowCtrl__sub_8024AEF0(u16);
 s32 TRaderMapCore__sub_8030A808();
-s32 fn_801B130C();
-s32 fn_801B71DC(void *);
-s32 fn_8024AEAC(u16);
+s32 TObjPlayer__sub_801B130C();
+s32 TObjPlayer__sub_801B71DC(void *);
+s32 TWindowCtrl__sub_8024AEAC(u16);
 s32 fn_80019690();
 s32 fn_801D5DAC();
 s32 fn_801FF5E4(s32);
@@ -41,34 +41,34 @@ void fn_80223760(void *arg0) {
     s32 var_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        fn_8024AEF0(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
+        TWindowCtrl__sub_8024AEF0(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
         if (TRaderMapCore__sub_8030A808() != 1) {
             var_r31 = 0;
             do {
                 if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
-                    fn_801B12CC();
+                    TObjPlayer__sub_801B12CC();
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        fn_801B71AC(M2C_FIELD(arg0, u32 *, 0x24));
+        TObjPlayer__sub_801B71AC(M2C_FIELD(arg0, u32 *, 0x24));
     }
 }
 void fn_802237D8(void *arg0) {
     s32 var_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        fn_801B71DC(M2C_FIELD(arg0, void **, 0x24));
+        TObjPlayer__sub_801B71DC(M2C_FIELD(arg0, void **, 0x24));
         if (TRaderMapCore__sub_8030A808() != 1) {
             var_r31 = 0;
             do {
                 if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
-                    fn_801B130C();
+                    TObjPlayer__sub_801B130C();
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        fn_8024AEAC(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
+        TWindowCtrl__sub_8024AEAC(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
     }
 }
 

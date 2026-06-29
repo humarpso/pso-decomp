@@ -8,12 +8,12 @@ extern "C" {
 
 void TContainerAncient01__vt4(void *arg0, s16 *arg1, s32 arg2);
 
-M2C_UNK fn_8018B700();
+M2C_UNK TContainerAncient01__sub_8018B700();
 
 void TContainerAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
         if ((s16) *arg1 == 1) {
-            fn_8018B700();
+            TContainerAncient01__sub_8018B700();
             M2C_FIELD(arg0, s32 *, 0x35C) = 1;
         }
     } else if ((s16) *arg1 == 1) {

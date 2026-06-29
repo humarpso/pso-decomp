@@ -11,7 +11,7 @@ s32 fn_802C6508();
 s32 fn_802C6558();
 M2C_UNK fn_802E0008(s32);
 s32 fn_802E0124(s32);
-M2C_UNK fn_802E644C(s32);
+M2C_UNK TAdGameStartGC__sub_802E644C(s32);
 
 void fn_802DCE10(void *arg0) {
     s32 temp_r31;
@@ -21,7 +21,7 @@ void fn_802DCE10(void *arg0) {
         temp_r31 = fn_802C6508();
         temp_r3 = fn_802C6558();
         if (temp_r3 != temp_r31) {
-            fn_802E644C(M2C_FIELD(arg0, s32 *, 0x78));
+            TAdGameStartGC__sub_802E644C(M2C_FIELD(arg0, s32 *, 0x78));
         }
     }
     fn_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));

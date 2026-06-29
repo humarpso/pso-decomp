@@ -10,14 +10,14 @@ M2C_UNK fn_80266E34(void *);
 M2C_UNK fn_80266F78(void *, M2C_UNK);
 M2C_UNK fn_80267104(void *, u32, s32, M2C_UNK);
 M2C_UNK fn_80279044(void *);
-s32 fn_8027AA78(u32);
+s32 TWindowSubItem__sub_8027AA78(u32);
 
 void fn_80278964(void *arg0) {
     u32 var_r31;
 
     var_r31 = 0U;
     do {
-        fn_80267104(arg0, var_r31, fn_8027AA78(var_r31), 1);
+        fn_80267104(arg0, var_r31, TWindowSubItem__sub_8027AA78(var_r31), 1);
         var_r31 += 1;
     } while (var_r31 < 5U);
     if (M2C_FIELD(arg0, s16 *, 0x72) <= 0) {

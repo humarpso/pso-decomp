@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjLazerFenceExtra__vt1(void *arg0);
-M2C_UNK fn_801926D0();
-M2C_UNK fn_80192774();
+M2C_UNK TObjLazerFenceExtra__sub_801926D0();
+M2C_UNK TObjLazerFenceExtra__sub_80192774();
 
 void TObjLazerFenceExtra__vt1(void *arg0) {
     s32 temp_r0;
@@ -16,10 +16,10 @@ void TObjLazerFenceExtra__vt1(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
     switch (temp_r0) {
     case 0:
-        fn_801926D0();
+        TObjLazerFenceExtra__sub_801926D0();
         return;
     case 1:
-        fn_80192774();
+        TObjLazerFenceExtra__sub_80192774();
         return;
     }
 }

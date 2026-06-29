@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_80019248();
 s32 obj_getField1c(s32);
 s32 fn_8002AE08(u16);
-M2C_UNK fn_801B59C4(s32);
+M2C_UNK TObjPlayer__sub_801B59C4(s32);
 M2C_UNK fn_801C1E74(s32);
 M2C_UNK fn_801C1EA4(s32);
 M2C_UNK fn_801C1EC4(s32);
@@ -17,7 +17,7 @@ M2C_UNK fn_801C1EF4(s32);
 s32 fn_801C1F50(s32);
 s32 fn_803517F8(s32, s32);
 
-void fn_801B5D38(s32 arg0) {
+void TObjPlayer__sub_801B5D38(s32 arg0) {
     if (fn_80019248() != 0) {
         if (fn_803517F8(arg0 + 0x550, fn_8002AE08(obj_getField1c(arg0))) != 0) {
             fn_801C1EF4(arg0 + 0x500);
@@ -30,7 +30,7 @@ void fn_801B5D38(s32 arg0) {
                 fn_801C1E74(arg0 + 0x500);
             }
         }
-        fn_801B59C4(arg0);
+        TObjPlayer__sub_801B59C4(arg0);
     }
 }
 

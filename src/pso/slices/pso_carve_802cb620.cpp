@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8006A088(M2C_UNK);
+M2C_UNK TCameraCtrl__sub_8006A088(M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 
 void fn_802CB620(void *arg0, u32 arg1) {
     if ((arg1 == TPlayerBattleCtrl4P__sub_801BA74C(0)) && ((s32) M2C_FIELD(arg0, s32 *, 0x3F4) <= 0)) {
         M2C_FIELD(arg0, s32 *, 0x3F4) = 0x1E;
-        fn_8006A088(1);
+        TCameraCtrl__sub_8006A088(1);
     }
 }
 

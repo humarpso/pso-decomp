@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8032013C(M2C_UNK);
 
-void fn_8031D7E8(s32 arg0) {
+void TObjEneRecon__sub_8031D7E8(s32 arg0) {
     TOTrapAncient01__sub_80226578(fn_8032013C(0x4003AD07), arg0, arg0 + 0x38, 0, 0);
 }
 

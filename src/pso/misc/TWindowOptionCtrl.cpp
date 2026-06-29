@@ -22,7 +22,7 @@ M2C_UNK fn_802274B8();
 M2C_UNK fn_8023F160();
 M2C_UNK fn_8023F18C();
 M2C_UNK fn_80244B1C(u32);
-u32 fn_8026BB68(void *);
+u32 TWindowOptionCtrl__sub_8026BB68(void *);
 M2C_UNK fn_8036A648(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -73,7 +73,7 @@ s32 TWindowOptionCtrl__sub_8026B414(void *arg0, s32 arg1) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x28));
             M2C_FIELD(arg0, u32 *, 0x28) = 0U;
         }
-        M2C_FIELD(arg0, u32 *, 0x28) = fn_8026BB68(arg0);
+        M2C_FIELD(arg0, u32 *, 0x28) = TWindowOptionCtrl__sub_8026BB68(arg0);
         fn_80244B1C(M2C_FIELD(arg0, u32 *, 0x28));
         return 1;
     }

@@ -9,21 +9,21 @@ extern "C" {
 M2C_UNK fn_80342B5C(s32);
 M2C_UNK fn_8034330C(s32);
 M2C_UNK fn_803435A0(s32);
-M2C_UNK fn_80347C50();
-M2C_UNK fn_8034827C();
-s32 fn_803482B0(s32);
-s32 fn_80348304(s32);
+M2C_UNK TWindowDD__sub_80347C50();
+M2C_UNK TWindowDD__sub_8034827C();
+s32 TWindowDD__sub_803482B0(s32);
+s32 TWindowDD__sub_80348304(s32);
 
 void fn_80342BB4(s32 arg0) {
-    fn_80347C50();
-    if (fn_80348304(arg0) != 0) {
-        fn_8034827C();
+    TWindowDD__sub_80347C50();
+    if (TWindowDD__sub_80348304(arg0) != 0) {
+        TWindowDD__sub_8034827C();
         fn_80342B5C(arg0);
         fn_803435A0(arg0);
         return;
     }
-    if (fn_803482B0(arg0) != 0) {
-        fn_8034827C();
+    if (TWindowDD__sub_803482B0(arg0) != 0) {
+        TWindowDD__sub_8034827C();
         fn_8034330C(arg0);
     }
 }

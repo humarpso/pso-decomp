@@ -8,7 +8,7 @@ extern "C" {
 
 u8 fn_8013DF44(s32);
 s32 fn_8013DF5C(s32, u8, u8);
-s32 fn_801C1C68(s32, s32);
+s32 TWindowActionPalette__sub_801C1C68(s32, s32);
 s32 fn_801D84F0(s32);
 
 s32 fn_801D7AC8(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4) {
@@ -36,7 +36,7 @@ s32 fn_801D7AC8(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4) {
         }
     }
 block_8:
-    var_r29 = fn_801C1C68(arg0, arg4);
+    var_r29 = TWindowActionPalette__sub_801C1C68(arg0, arg4);
     var_r30 = 0;
 loop_9:
     if (fn_8013DF44(var_r29) == 1) {

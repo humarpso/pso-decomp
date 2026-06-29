@@ -8,12 +8,12 @@ extern "C" {
 
 s32 fn_8023EB84();
 s32 fn_8023EBB4();
-void fn_80300338(void);
+void TAdMultiSelGameModeGC__sub_80300338(void);
 int fn_8000F9CC(int);
 int fn_80300CE4(void);
 
-void fn_80300338(void) { fn_80300CE4(); fn_8000F9CC(14); }
-void fn_80300360(void *arg0) {
+void TAdMultiSelGameModeGC__sub_80300338(void) { fn_80300CE4(); fn_8000F9CC(14); }
+void TAdMultiSelGameModeGC__sub_80300360(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);

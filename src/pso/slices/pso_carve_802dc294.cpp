@@ -12,7 +12,7 @@ s32 fn_802D50A8(s32, s32);
 s32 fn_802E00BC(s32, s32);
 s32 fn_802E00C4(s32);
 u32 fn_802E0100();
-s32 fn_803490AC();
+s32 TAdChrMoveEffectGC__sub_803490AC();
 int fn_802DC2F0(void* p);
 int fn_8023EC14(void*);
 
@@ -28,14 +28,14 @@ void fn_802DC310(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x58) = 0;
         }
         if (fn_802E0100() != 0U) {
-            fn_803490AC();
+            TAdChrMoveEffectGC__sub_803490AC();
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
         return;
     }
     if (fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) == 0x1D) {
         if (fn_802E0100() != 0U) {
-            fn_803490AC();
+            TAdChrMoveEffectGC__sub_803490AC();
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
         fn_802D50A8(M2C_FIELD(arg0, s32 *, 0x68), 1);

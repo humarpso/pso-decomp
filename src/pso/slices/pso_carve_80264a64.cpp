@@ -8,12 +8,12 @@ extern "C" {
 
 s32 TWindowSubStatusDisp__sub_80077760(s32);
 s8 fn_8013AD64();
-void fn_80264A64(void);
+void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 int fn_80264A6C(void* p);
 int fn_801A529C(void*, int);
 
-void fn_80264A64(void) {  }
+void TWindowMainMenu__sub_80264A64(void) {  }
 void TWindowMainMenu__vt7(void) {  }
 int fn_80264A6C(void* p) { return fn_801A529C(p, 4); }
 void TWindowMakeTeam__sub_80264A90(s8 arg0) {
@@ -22,7 +22,7 @@ void TWindowMakeTeam__sub_80264A90(s8 arg0) {
 void TWindowMakeTeam__sub_80264AB8(s8 arg0) {
     TWindowSubStatusDisp__sub_80077760(arg0 + 0x110);
 }
-u8 fn_80264AE0(void *arg0) {
+u8 TWindowMakeTeam__sub_80264AE0(void *arg0) {
     if (fn_8013AD64() == 1) {
         return 0U;
     }

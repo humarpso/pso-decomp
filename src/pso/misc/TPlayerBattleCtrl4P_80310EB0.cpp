@@ -11,7 +11,7 @@ M2C_UNK TObjPlayer__sub_801B5408(u32, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 M2C_UNK fn_8024A01C();
 M2C_UNK fn_8024ACEC(u32);
-M2C_UNK fn_8024AEAC(u32);
+M2C_UNK TWindowCtrl__sub_8024AEAC(u32);
 
 void TPlayerBattleCtrl4P__sub_80310EB0(void *arg0, u16 arg1, s32 arg2) {
     u32 id;
@@ -25,7 +25,7 @@ void TPlayerBattleCtrl4P__sub_80310EB0(void *arg0, u16 arg1, s32 arg2) {
     if (arg2 != 0) {
         fn_8024ACEC(id);
         fn_8024A01C();
-        fn_8024AEAC(id);
+        TWindowCtrl__sub_8024AEAC(id);
     }
 }
 

@@ -2,12 +2,12 @@
 
 extern "C" {
 
-int fn_8032A15C();
-u32 fn_8032A14C();
+int TAdMcSelectGC__sub_8032A15C();
+u32 TAdMcSelectGC__sub_8032A14C();
 
-void fn_80329E08(void) {
-    if (fn_8032A14C() != 0U) {
-        fn_8032A15C();
+void TAdMcSelectGC__sub_80329E08(void) {
+    if (TAdMcSelectGC__sub_8032A14C() != 0U) {
+        TAdMcSelectGC__sub_8032A15C();
     }
 }
 

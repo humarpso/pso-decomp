@@ -11,7 +11,7 @@ void TWindowSubCustomEquip__sub_80276C64(void *arg0);
 void TWindowSubCustomEquip__sub_80276CBC(void *arg0);
 s32 TWindowSubCustomEquip__sub_80275D9C();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_80276A38(void *, s32, M2C_UNK);
+M2C_UNK TWindowSubCustomEquip__sub_80276A38(void *, s32, M2C_UNK);
 M2C_UNK fn_8028783C(s32, M2C_UNK);
 
 void TWindowSubCustomEquip__sub_80276B78(void *arg0) {
@@ -33,14 +33,14 @@ void TWindowSubCustomEquip__sub_80276B78(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x68) & 0x8000) {
         M2C_FIELD(arg0, s8 *, 0x64) = 0;
         M2C_FIELD(arg0, s8 *, 0x65) = 1;
-        fn_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68), 9);
-        fn_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68) + 0x8000, 0);
+        TWindowSubCustomEquip__sub_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68), 9);
+        TWindowSubCustomEquip__sub_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68) + 0x8000, 0);
         return;
     }
     M2C_FIELD(arg0, s8 *, 0x64) = 1;
     M2C_FIELD(arg0, s8 *, 0x65) = 0;
-    fn_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68) + 0x8000, 9);
-    fn_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68), 0);
+    TWindowSubCustomEquip__sub_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68) + 0x8000, 9);
+    TWindowSubCustomEquip__sub_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68), 0);
 }
 
 void TWindowSubCustomEquip__sub_80276C64(void *arg0) {

@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int fn_8031058C(void* p);
-int fn_803104CC(void*);
+int TPlayerBattleCtrl4P__sub_8031058C(void* p);
+int TPlayerBattleCtrl4P__sub_803104CC(void*);
 
-int fn_8031058C(void* p) { return fn_803104CC(p); }
+int TPlayerBattleCtrl4P__sub_8031058C(void* p) { return TPlayerBattleCtrl4P__sub_803104CC(p); }
 
 }

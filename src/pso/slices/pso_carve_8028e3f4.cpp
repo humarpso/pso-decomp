@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8000F8FC();
-s32 fn_8006B368();
+s32 TCameraCtrl__sub_8006B368();
 
-s32 fn_8028E3F4(void) {
-    if ((fn_8000F8FC() == 0xF) || (fn_8006B368() != 0)) {
+s32 TCharaMaking__sub_8028E3F4(void) {
+    if ((fn_8000F8FC() == 0xF) || (TCameraCtrl__sub_8006B368() != 0)) {
         return 1;
     }
     return 0;

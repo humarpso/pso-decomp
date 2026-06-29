@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void fn_801337F8(void);
-void fn_801337FC(void);
+void TObjLight__sub_801337F8(void);
+void TObjLight__sub_801337FC(void);
 
-void fn_801337F8(void) {  }
-void fn_801337FC(void) {  }
+void TObjLight__sub_801337F8(void) {  }
+void TObjLight__sub_801337FC(void) {  }
 
 }

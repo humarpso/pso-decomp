@@ -10,8 +10,8 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_801FC1A4();
 u32 TWindowSubComCard__sub_80202990(s32);
 s32 fn_802116EC();
-s32 fn_8024AF74(u16);
-s32 fn_8024B054(u16);
+s32 TWindowCtrl__sub_8024AF74(u16);
+s32 TWindowCtrl__sub_8024B054(u16);
 int fn_8006E87C(void* p);
 int TObjPlayer__sub_800495E0(void*, int);
 
@@ -30,12 +30,12 @@ s32 TObjBagWarnWin4P__sub_8006E8F0(void) {
     s32 var_r30;
 
     for (var_r31 = 0; var_r31 < 4; var_r31++) {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) && (fn_8024AF74(obj_getField1c()) != 0)) {
+        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) && (TWindowCtrl__sub_8024AF74(obj_getField1c()) != 0)) {
             return 0;
         }
     }
     for (var_r31 = 0; var_r31 < 4; var_r31++) {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) && (fn_8024B054(obj_getField1c()) != 0)) {
+        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) && (TWindowCtrl__sub_8024B054(obj_getField1c()) != 0)) {
             return 0;
         }
     }

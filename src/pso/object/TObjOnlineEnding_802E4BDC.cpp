@@ -14,7 +14,7 @@ s32 fn_8006F00C();
 s32 fn_8006F094(M2C_UNK);
 s32 fn_80070AB0();
 s32 fn_80070ACC();
-s32 fn_800718D0();
+s32 TWindowSubStatusDisp__sub_800718D0();
 
 void TObjOnlineEnding__sub_802E4BDC(void *arg0) {
     s32 temp_r31;
@@ -31,7 +31,7 @@ void TObjOnlineEnding__sub_802E4BDC(void *arg0) {
             var_r29 = __nw__7TObjectFUl(0x68);
             if (var_r29 != 0) {
                 temp_r30_2 = TObjOnlineEnding__sub_8007172C();
-                temp_r31 = fn_800718D0();
+                temp_r31 = TWindowSubStatusDisp__sub_800718D0();
                 var_r29 = TWindowChallengeResult__ct(var_r29, fn_80070ACC(), temp_r31, temp_r30_2);
             }
             M2C_FIELD(arg0, s32 *, 0x154) = var_r29;

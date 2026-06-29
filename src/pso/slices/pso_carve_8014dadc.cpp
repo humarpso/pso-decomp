@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801528A8(s32, M2C_UNK, u8);
+M2C_UNK TNpcPlayer__sub_801528A8(s32, M2C_UNK, u8);
 M2C_UNK fn_801CCBB8(s32, u8, M2C_UNK);
 
 void fn_8014DADC(void *arg0) {
@@ -18,23 +18,23 @@ void fn_8014DADC(void *arg0) {
     if (temp_r4 & 4) {
         fn_801CCBB8(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 0);
         fn_801CCBB8(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 1);
-        fn_801528A8(temp_r31 + 0x428, 0, M2C_FIELD(arg0, u8 *, 0x50));
-        fn_801528A8(temp_r31 + 0x428, 1, M2C_FIELD(arg0, u8 *, 0x50));
+        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 0, M2C_FIELD(arg0, u8 *, 0x50));
+        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 1, M2C_FIELD(arg0, u8 *, 0x50));
     } else if (temp_r4 & 8) {
         fn_801CCBB8(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 3);
         fn_801CCBB8(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 4);
-        fn_801528A8(temp_r31 + 0x428, 3, M2C_FIELD(arg0, u8 *, 0x50));
-        fn_801528A8(temp_r31 + 0x428, 4, M2C_FIELD(arg0, u8 *, 0x50));
+        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 3, M2C_FIELD(arg0, u8 *, 0x50));
+        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 4, M2C_FIELD(arg0, u8 *, 0x50));
     } else if (temp_r4 & 0x10) {
         fn_801CCBB8(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 6);
         fn_801CCBB8(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 8);
-        fn_801528A8(temp_r31 + 0x428, 6, M2C_FIELD(arg0, u8 *, 0x50));
-        fn_801528A8(temp_r31 + 0x428, 8, M2C_FIELD(arg0, u8 *, 0x50));
+        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 6, M2C_FIELD(arg0, u8 *, 0x50));
+        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 8, M2C_FIELD(arg0, u8 *, 0x50));
     }
     fn_801CCBB8(temp_r31, M2C_FIELD(arg0, u8 *, 0x51), 0xF);
     fn_801CCBB8(temp_r31, M2C_FIELD(arg0, u8 *, 0x51), 0x10);
-    fn_801528A8(temp_r31 + 0x428, 0xF, M2C_FIELD(arg0, u8 *, 0x51));
-    fn_801528A8(temp_r31 + 0x428, 0x10, M2C_FIELD(arg0, u8 *, 0x51));
+    TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 0xF, M2C_FIELD(arg0, u8 *, 0x51));
+    TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 0x10, M2C_FIELD(arg0, u8 *, 0x51));
 }
 
 }

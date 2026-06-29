@@ -4,9 +4,9 @@ extern "C" {
 
 s32 fn_8000F8FC();
 s32 fn_80019690();
-int fn_8004B07C(void);
+int TBoss4DarkFalz__sub_8004B07C(void);
 
-u8 fn_8004B034(void) {
+u8 TBoss4DarkFalz__sub_8004B034(void) {
     int var_r31;
 
     var_r31 = 0;
@@ -15,6 +15,6 @@ u8 fn_8004B034(void) {
     }
     return (u8)var_r31;
 }
-int fn_8004B07C(void) { return 0; }
+int TBoss4DarkFalz__sub_8004B07C(void) { return 0; }
 
 }

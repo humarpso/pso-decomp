@@ -9,15 +9,15 @@ extern "C" {
 void TLockOnCursor__vt1(s32 arg0);
 
 s32 fn_8013DF08(s32);
-M2C_UNK fn_8013EB80(s32);
-M2C_UNK fn_8013EB8C(s32);
+M2C_UNK TLockOnCursor__sub_8013EB80(s32);
+M2C_UNK TLockOnCursor__sub_8013EB8C(s32);
 
 void TLockOnCursor__vt1(s32 arg0) {
     if (fn_8013DF08(arg0 + 0x520) != 0) {
-        fn_8013EB8C(arg0 + 0x520);
+        TLockOnCursor__sub_8013EB8C(arg0 + 0x520);
         return;
     }
-    fn_8013EB80(arg0 + 0x520);
+    TLockOnCursor__sub_8013EB80(arg0 + 0x520);
 }
 
 }

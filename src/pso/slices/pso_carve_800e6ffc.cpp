@@ -3,8 +3,8 @@
 extern "C" {
 
 int fn_800E6FFC(void* p);
-int fn_800B97B4(void*);
+int TObjEneEpsilon__sub_800B97B4(void*);
 
-int fn_800E6FFC(void* p) { return fn_800B97B4(p); }
+int fn_800E6FFC(void* p) { return TObjEneEpsilon__sub_800B97B4(p); }
 
 }

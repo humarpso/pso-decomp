@@ -7,11 +7,11 @@ void TPlyPhotonChair__sub_8035B538(void* p, s16 v);
 void TPlyPhotonChair__sub_8035B540(void* p, void* a1);
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
 void TPlyPhotonChair__sub_8035B574(void* p);
-int fn_8035B520(void* p);
+int TPlyPhotonChair__sub_8035B520(void* p);
 
 int fn_8002F588(void*, void*);
 
-int fn_8035B520(void* p) { return *(u32*)((char*)p + 0x94) == 0; }
+int TPlyPhotonChair__sub_8035B520(void* p) { return *(u32*)((char*)p + 0x94) == 0; }
 u16 TPlyPhotonChair__sub_8035B530(void* p) { return *(u16*)((char*)p + 0x90); }
 void TPlyPhotonChair__sub_8035B538(void* p, s16 v) { *(s16*)((char*)p + 0x90) = v; }
 void TPlyPhotonChair__sub_8035B540(void* p, void* a1) { fn_8002F588(a1, p); }

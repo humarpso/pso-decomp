@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8030A7B0();
 
-u8 fn_801060F4(void) {
+u8 TItemDrop__sub_801060F4(void) {
     return (u8) (fn_8030A7B0() != 1);
 }
 

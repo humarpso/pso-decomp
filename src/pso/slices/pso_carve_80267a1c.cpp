@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 fn_80266B18(void *, s32);
+s32 TWindowMenu__sub_80266B18(void *, s32);
 
 void fn_80267A1C(void *arg0) {
     s16 var_r31;
@@ -24,7 +24,7 @@ loop_1:
     } else {
 block_4:
         if (var_r31 != (s16) M2C_FIELD(arg0, s16 *, 0x74)) {
-            if (fn_80266B18(arg0, var_r31) != 0) {
+            if (TWindowMenu__sub_80266B18(arg0, var_r31) != 0) {
                 M2C_FIELD(arg0, s16 *, 0x74) = var_r31;
             } else {
                 goto loop_1;

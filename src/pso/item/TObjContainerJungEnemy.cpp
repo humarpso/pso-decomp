@@ -9,7 +9,7 @@ extern "C" {
 void TObjContainerJungEnemy__sub_8018CD48(void *arg0);
 void TObjContainerJungEnemy__vt78(void *arg0);
 
-M2C_UNK fn_801B4A18(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 
 void TObjContainerJungEnemy__vt78(void *arg0) {
     s16 temp_r0;
@@ -18,7 +18,7 @@ void TObjContainerJungEnemy__vt78(void *arg0) {
     switch (temp_r0) {
     case 0:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x364) != 0) {
-            fn_801B4A18(arg0, -1);
+            TObjPlayer__sub_801B4A18(arg0, -1);
         }
     case 1:
         return;

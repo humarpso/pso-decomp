@@ -15,10 +15,10 @@ s32 TObjBoss2Tunnel__sub_8007E100(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-M2C_UNK fn_8007E0CC();
+M2C_UNK TObjBoss2Tunnel__sub_8007E0CC();
 
 s32 TObjBoss2Tunnel__sub_8007E13C(s32 arg0) {
-    fn_8007E0CC();
+    TObjBoss2Tunnel__sub_8007E0CC();
     return arg0;
 }
 

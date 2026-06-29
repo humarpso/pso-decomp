@@ -8,7 +8,7 @@ extern "C" {
 
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
-s32 fn_803472F8(u16 arg0) {
+s32 TWindowDD__sub_803472F8(u16 arg0) {
     s32 temp_r3_2;
     void *temp_r3;
 

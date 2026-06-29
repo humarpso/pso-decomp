@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u16 obj_getField1c(s32);
-s32 fn_801B472C(s32);
+s32 TObjPlayer__sub_801B472C(s32);
 M2C_UNK fn_801C1F1C(s32);
 s32 fn_801CBD00();
 M2C_UNK fn_801D6158(s32);
 M2C_UNK fn_801D6230(s32, s32, s32);
 
-void fn_801B47F4(s32 arg0) {
+void TObjPlayer__sub_801B47F4(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_801CBD00();
@@ -22,7 +22,7 @@ void fn_801B47F4(s32 arg0) {
         return;
     }
     fn_801C1F1C(arg0 + 0x4AC);
-    if (fn_801B472C(arg0) != 0) {
+    if (TObjPlayer__sub_801B472C(arg0) != 0) {
         fn_801D6230(arg0 + 0x4AC, arg0, temp_r3);
     }
 }

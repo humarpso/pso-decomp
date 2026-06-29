@@ -8,7 +8,7 @@ extern "C" {
 
 void TAdTitleTexGC__vt1(void *arg0);
 
-M2C_UNK fn_802A4EF4();
+M2C_UNK TAdTitleTexGC__sub_802A4EF4();
 
 void TAdTitleTexGC__vt1(void *arg0) {
     s32 temp_r4;
@@ -25,7 +25,7 @@ void TAdTitleTexGC__vt1(void *arg0) {
     }
     temp_r4_3 = M2C_FIELD(arg0, u32 *, 0x7C);
     M2C_FIELD(arg0, u32 *, 0x7C) = (temp_r4_3 <= 0xFFU) ? temp_r4_3 : 0xFFU;
-    fn_802A4EF4();
+    TAdTitleTexGC__sub_802A4EF4();
 }
 
 }

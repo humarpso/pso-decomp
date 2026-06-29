@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneDD__vt77(void *arg0);
 M2C_UNK fn_800F6960();
-void fn_800BBA04(void* p, s32 v);
+void TObjEneDD__sub_800BBA04(void* p, s32 v);
 
 void TObjEneDD__vt77(void *arg0) {
     s16 temp_r31;
@@ -17,10 +17,10 @@ void TObjEneDD__vt77(void *arg0) {
     fn_800F6960();
     M2C_FIELD(arg0, s16 *, 0x326) = temp_r31;
 }
-int fn_800BB940(void) { return 0; }
-int fn_800BB980(void) { return 0; }
-int fn_800BB9AC(void) { return 0; }
-void fn_800BBA04(void* p, s32 v) { *(s32*)((char*)p + 0x378) = v; }
-int fn_800BBA0C(void) { return 0; }
+int TObjEneDD__sub_800BB940(void) { return 0; }
+int TObjEneDD__sub_800BB980(void) { return 0; }
+int TObjEneDD__sub_800BB9AC(void) { return 0; }
+void TObjEneDD__sub_800BBA04(void* p, s32 v) { *(s32*)((char*)p + 0x378) = v; }
+int TObjEneDD__sub_800BBA0C(void) { return 0; }
 
 }

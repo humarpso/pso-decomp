@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
 u8 TODoorAncient08__sub_80229220(u16);
 
-void fn_80193378(void *arg0) {
+void TObjLazerFence4__sub_80193378(void *arg0) {
     if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, u16 *, 0xBA)) == 0) {
         fn_80154788(arg0, 0, 1);
         M2C_FIELD(arg0, s32 *, 0xAC) = 0;

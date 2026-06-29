@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_800962F4(void* p);
+void TObjEneRe7BeruraPunch__sub_800962F4(void* p);
 
-void fn_800962F4(void* p) { *(s32*)((char*)p + 0xb4) = 0; }
+void TObjEneRe7BeruraPunch__sub_800962F4(void* p) { *(s32*)((char*)p + 0xb4) = 0; }
 
 }

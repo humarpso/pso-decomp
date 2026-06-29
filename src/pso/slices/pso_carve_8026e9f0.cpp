@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void fn_8026E9F0(void *arg0) {
+void TWindowShortListCtrl__sub_8026E9F0(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x30));
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;

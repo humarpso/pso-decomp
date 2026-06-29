@@ -9,7 +9,7 @@ extern "C" {
 s32 TBoss4Type2__sub_80141FA8(s32);
 void TObjEneMorfos__vt59(void);
 
-s32 fn_80334808(void *arg0, s32 arg1, s32 arg2) {
+s32 TObjEneMorfos__sub_80334808(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r31;
 
@@ -25,8 +25,8 @@ s32 fn_80334808(void *arg0, s32 arg1, s32 arg2) {
     }
     return var_r31;
 }
-int fn_80334884(void) { return 0; }
-int fn_803348F0(void) { return 0; }
+int TObjEneMorfos__sub_80334884(void) { return 0; }
+int TObjEneMorfos__sub_803348F0(void) { return 0; }
 void TObjEneMorfos__vt59(void) {  }
 
 }

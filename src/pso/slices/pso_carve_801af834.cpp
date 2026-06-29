@@ -10,7 +10,7 @@ s32 fn_801AEECC();
 M2C_UNK fn_801C2678();
 M2C_UNK fn_803100FC();
 
-void fn_801AF834(void) {
+void TObjPlayer__sub_801AF834(void) {
     if (fn_801AEECC() != 0) {
         fn_803100FC();
         return;

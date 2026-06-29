@@ -11,7 +11,7 @@ s32 fn_8024D92C();
 s32 fn_8024D960(s32);
 s32 fn_8026CBB8(s32);
 
-s32 fn_8024B0E0(s8 arg0, s32 arg1) {
+s32 TWindowCtrl__sub_8024B0E0(s8 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r3;
 

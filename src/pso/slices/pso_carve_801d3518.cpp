@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 fn_801C2060(s32, s32);
+s32 TObjPlayer__sub_801C2060(s32, s32);
 s32 fn_801D38F4(s32, s32, s32, s32);
 s32 fn_801D5814(s32, s32);
 s32 fn_801D5844(s32);
@@ -29,7 +29,7 @@ void fn_801D3554(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     temp_r30 = fn_801D5854(arg0, 0);
     if (fn_801D5844(temp_r31) != 0) {
         fn_801D5838((void*)(temp_r31));
-        fn_801C2060(temp_r30, arg4);
+        TObjPlayer__sub_801C2060(temp_r30, arg4);
         fn_801D5814(temp_r30, arg3);
         fn_801D38F4(arg0, arg2, arg1, 0);
         fn_801D5804((void*)(arg0));

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8009EB14(f32);
+M2C_UNK TObjEneMe1Canadin__sub_8009EB14(f32);
 
-void fn_8009EABC(void *arg0) {
-    fn_8009EB14(M2C_FIELD(arg0, f32 *, 0x3E8) + M2C_FIELD(arg0, f32 *, 0x3C));
+void TObjEneMe1Canadin__sub_8009EABC(void *arg0) {
+    TObjEneMe1Canadin__sub_8009EB14(M2C_FIELD(arg0, f32 *, 0x3E8) + M2C_FIELD(arg0, f32 *, 0x3C));
 }
 
 }

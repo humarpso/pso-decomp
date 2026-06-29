@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TWindowSubComCard__sub_80244A14(void *);
 
-void fn_802185F4(void *arg0) {
+void TQuestListVM__sub_802185F4(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2378) != 0U) {
         TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x2378));
         M2C_FIELD(arg0, u32 *, 0x2378) = 0U;

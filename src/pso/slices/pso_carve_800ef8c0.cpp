@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_800EF8C0(void *arg0) {
+void TObjEneRe4Sorcerer__sub_800EF8C0(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3E8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3E8) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) >= 3) {
         M2C_FIELD(arg0, s32 *, 0x3E8) = 0;

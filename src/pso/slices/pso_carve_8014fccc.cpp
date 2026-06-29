@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8014F424(void *, s32, s32, s32);
 
-s32 fn_8014FCCC(void *arg0, s32 arg1) {
+s32 TNpcPlayer__sub_8014FCCC(void *arg0, s32 arg1) {
     s32 temp_r6;
 
     temp_r6 = M2C_FIELD(arg0, s32 *, 0x94);

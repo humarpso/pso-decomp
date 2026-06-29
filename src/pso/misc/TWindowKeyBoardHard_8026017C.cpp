@@ -9,13 +9,13 @@ extern "C" {
 void TWindowKeyBoardHard__vt2(void *arg0);
 s32 TWindowKeyBoardHard__sub_80260444();
 s32 fn_80244CF4(void *);
-M2C_UNK fn_80260020(void *, s32);
+M2C_UNK TWindowKeyBoardHard__sub_80260020(void *, s32);
 
 void TWindowKeyBoardHard__vt2(void *arg0) {
     s32 temp;
     if (((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0) && (TWindowKeyBoardHard__sub_80260444() == 0)) {
         temp = fn_80244CF4(arg0);
-        fn_80260020(arg0, temp);
+        TWindowKeyBoardHard__sub_80260020(arg0, temp);
     }
 }
 

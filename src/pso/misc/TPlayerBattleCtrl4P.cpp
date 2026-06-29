@@ -16,9 +16,9 @@ int TPlayerBattleCtrl4P__sub_803112A4(void*, void*);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80244A14(void *);
 void *__nw__7TObjectFUl(M2C_UNK);
-int fn_80311618(void*);
+int TPlayerBattleCtrl4P__sub_80311618(void*);
 
-void TPlayerBattleCtrl4P__vt15(void* p) { fn_80311618(p); TPlayerBattleCtrl4P__sub_803112A4((void*)(p), (void*)((void*)1)); }
+void TPlayerBattleCtrl4P__vt15(void* p) { TPlayerBattleCtrl4P__sub_80311618(p); TPlayerBattleCtrl4P__sub_803112A4((void*)(p), (void*)((void*)1)); }
 
 void TPlayerBattleCtrl4P__vt14(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x20);

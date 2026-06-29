@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u16 fn_801A1DB8(u16);
+u16 TObjRoomId__sub_801A1DB8(u16);
 s32 fn_8036CDA8();
 
 s32 fn_8036C3A8(void *arg0) {
     if (fn_8036CDA8() == 0) {
         return 0;
     }
-    return (u32) __cntlzw(fn_801A1DB8(M2C_FIELD(arg0, u16 *, 4))) >> 5;
+    return (u32) __cntlzw(TObjRoomId__sub_801A1DB8(M2C_FIELD(arg0, u16 *, 4))) >> 5;
 }
 
 }

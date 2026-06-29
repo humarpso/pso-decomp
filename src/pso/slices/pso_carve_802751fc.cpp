@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_801A52E8(s32, s32, s32);
 
-void fn_802751FC(s32 arg0, s32 arg1) {
+void TWindowSubComCard__sub_802751FC(s32 arg0, s32 arg1) {
     fn_801A52E8(arg0, arg1 << 0x12, 0xFFFBFFFF);
 }
 

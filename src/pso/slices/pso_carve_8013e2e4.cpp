@@ -8,7 +8,7 @@ s32 init__6gc_tagFv();
 int fn_8013E378(void* a0 = 0, void* a1 = 0);
 int fn_8013E854(void* a0 = 0);
 void fn_8013E830(void* p, void* a1, void* a2);
-void fn_8013EA30(void* p);
+void TLockOnCursor__sub_8013EA30(void* p);
 int fn_8013E2E4(void* p);
 u16 fn_8013E308(void* p);
 int fn_8013E310(void* p);
@@ -22,19 +22,19 @@ int TMainCursor__sub_8013E4A8(void* p);
 int TMainCursor__sub_8013E4D0(void* p);
 int TMainCursor__sub_8013E4F8(void* p);
 int TMainCursor__sub_8013E520(void* p);
-u8 fn_8013E548(void* p);
-s16 fn_8013E570(void* p);
-int fn_8013E578(void* p);
-int fn_8013E5A0(void* p);
-int fn_8013E5C4(void* p);
+u8 TMainCursor__sub_8013E548(void* p);
+s16 TMainCursor__sub_8013E570(void* p);
+int TMainCursor__sub_8013E578(void* p);
+int TMainCursor__sub_8013E5A0(void* p);
+int TMainCursor__sub_8013E5C4(void* p);
 void TMainCursor__sub_8013E670(void* p, s16 a1);
 void TMainCursor__sub_8013E694(void* p, s16 v);
 int TMainCursor__sub_8013E69C(void* p);
-int fn_8013E6C0(void* p);
+int TMainCursor__sub_8013E6C0(void* p);
 int TMainCursor__sub_8013E6E0(void* p);
-int fn_8013E704(void* p);
+int TMainCursor__sub_8013E704(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
-void fn_8013E754(void* p, s16 v);
+void TMainCursor__sub_8013E754(void* p, s16 v);
 int TMainCursor__sub_8013E75C(void* p);
 s32 fn_8013E810(void* p);
 s32 fn_8013E818(void* p);
@@ -58,12 +58,12 @@ int fn_8013E9C0(void* p);
 int fn_8013E9E0(void* p);
 void fn_8013EA00(void* p, s32 v);
 int TLockOnCursor__sub_8013EA08(void* p);
-int fn_8013EA5C(void* p);
-int fn_8013EA84(void* p);
-int fn_8013EAAC(void* p);
-int fn_8013EAD4(void* p);
-int fn_8013EB04(void* p);
-s32 fn_8013EB2C(void* p);
+int TLockOnCursor__sub_8013EA5C(void* p);
+int TLockOnCursor__sub_8013EA84(void* p);
+int TLockOnCursor__sub_8013EAAC(void* p);
+int TLockOnCursor__sub_8013EAD4(void* p);
+int TLockOnCursor__sub_8013EB04(void* p);
+s32 TLockOnCursor__sub_8013EB2C(void* p);
 int fn_8001BED8(void*, int);
 int TAdRicoRing__sub_8001BEE8(void*, int);
 int fn_8001BEF8(void*, int);
@@ -92,18 +92,18 @@ int TMainCursor__sub_8013E4A8(void* p) { return fn_8001BEF8((char*)p + 0x20, 2);
 int TMainCursor__sub_8013E4D0(void* p) { return fn_8001BEF8((char*)p + 0x20, 8); }
 int TMainCursor__sub_8013E4F8(void* p) { return fn_8001BEF8((char*)p + 0x20, 4); }
 int TMainCursor__sub_8013E520(void* p) { return fn_8001BEF8((char*)p + 0x20, 1); }
-u8 fn_8013E548(void* p) { return (u8)(fn_8013E570((char*)p + 0x60)); }
-s16 fn_8013E570(void* p) { return *(s16*)((char*)p + 0x6); }
-int fn_8013E578(void* p) { return fn_8001BED8((char*)p + 0x20, 4); }
-int fn_8013E5A0(void* p) { return fn_8013E338((char*)p + 0x60); }
-int fn_8013E5C4(void* p) { return fn_8013E358((char*)p + 0x60); }
-s32 fn_8013E5E8(s32 arg0, s16 arg1) {
+u8 TMainCursor__sub_8013E548(void* p) { return (u8)(TMainCursor__sub_8013E570((char*)p + 0x60)); }
+s16 TMainCursor__sub_8013E570(void* p) { return *(s16*)((char*)p + 0x6); }
+int TMainCursor__sub_8013E578(void* p) { return fn_8001BED8((char*)p + 0x20, 4); }
+int TMainCursor__sub_8013E5A0(void* p) { return fn_8013E338((char*)p + 0x60); }
+int TMainCursor__sub_8013E5C4(void* p) { return fn_8013E358((char*)p + 0x60); }
+s32 TMainCursor__sub_8013E5E8(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }
     return arg0;
 }
-s32 fn_8013E624(s32 arg0, s16 arg1) {
+s32 TMainCursor__sub_8013E624(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         fn_80071F1C(arg0, -1);
         if (arg1 > 0) {
@@ -114,19 +114,19 @@ s32 fn_8013E624(s32 arg0, s16 arg1) {
 }
 void TMainCursor__sub_8013E670(void* p, s16 a1) { TMainCursor__sub_8013E694((char*)p + 0x24, a1); }
 void TMainCursor__sub_8013E694(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-int TMainCursor__sub_8013E69C(void* p) { return fn_8013E6C0((char*)p + 0x60); }
-int fn_8013E6C0(void* p) { return fn_8013DF4C(p); }
-int TMainCursor__sub_8013E6E0(void* p) { return fn_8013E704((char*)p + 0x60); }
-int fn_8013E704(void* p) { return fn_8013DF54(p); }
+int TMainCursor__sub_8013E69C(void* p) { return TMainCursor__sub_8013E6C0((char*)p + 0x60); }
+int TMainCursor__sub_8013E6C0(void* p) { return fn_8013DF4C(p); }
+int TMainCursor__sub_8013E6E0(void* p) { return TMainCursor__sub_8013E704((char*)p + 0x60); }
+int TMainCursor__sub_8013E704(void* p) { return fn_8013DF54(p); }
 void TMainCursor__sub_8013E724(void* p, f32 v) { *(f32*)((char*)p + 0x2c) = v; }
-int fn_8013E72C(void) { return 0; }
-void fn_8013E754(void* p, s16 v) { *(s16*)((char*)p + 0x6) = v; }
+int TMainCursor__sub_8013E72C(void) { return 0; }
+void TMainCursor__sub_8013E754(void* p, s16 v) { *(s16*)((char*)p + 0x6) = v; }
 int TMainCursor__sub_8013E75C(void* p) { return fn_8013E1C8((char*)p + 0x60); }
 int fn_8013E780(void) { return 0; }
 void fn_8013E7B8(s32 arg0) {
     init__6gc_tagFv();
     fn_8013E1C8((void*)(arg0), (void*)(0xFFFF));
-    fn_8013E754((void*)(arg0), 0);
+    TMainCursor__sub_8013E754((void*)(arg0), 0);
 }
 int fn_8013E800(void) { return 0; }
 s32 fn_8013E810(void* p) { return *(s32*)((char*)p + 0xc); }
@@ -155,12 +155,12 @@ int fn_8013E9C0(void* p) { return fn_8013DF4C(p); }
 int fn_8013E9E0(void* p) { return fn_8013DF54(p); }
 void fn_8013EA00(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 int TLockOnCursor__sub_8013EA08(void* p) { return fn_8001BEF8((char*)p + 0x8, 2); }
-void fn_8013EA30(void* p) { fn_8013E378((char*)p + 0xc, (char*)p + 0x14); }
-int fn_8013EA5C(void* p) { return fn_8001BED8((char*)p + 0x8, 1); }
-int fn_8013EA84(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x8, 1); }
-int fn_8013EAAC(void* p) { return fn_8001BED8((char*)p + 0x8, 2); }
-int fn_8013EAD4(void* p) { return (fn_8001BEF8((char*)p + 0x1c, 2)) == 0; }
-int fn_8013EB04(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x8, 2); }
-s32 fn_8013EB2C(void* p) { return *(s32*)((char*)p + 0x4); }
+void TLockOnCursor__sub_8013EA30(void* p) { fn_8013E378((char*)p + 0xc, (char*)p + 0x14); }
+int TLockOnCursor__sub_8013EA5C(void* p) { return fn_8001BED8((char*)p + 0x8, 1); }
+int TLockOnCursor__sub_8013EA84(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x8, 1); }
+int TLockOnCursor__sub_8013EAAC(void* p) { return fn_8001BED8((char*)p + 0x8, 2); }
+int TLockOnCursor__sub_8013EAD4(void* p) { return (fn_8001BEF8((char*)p + 0x1c, 2)) == 0; }
+int TLockOnCursor__sub_8013EB04(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x8, 2); }
+s32 TLockOnCursor__sub_8013EB2C(void* p) { return *(s32*)((char*)p + 0x4); }
 
 }

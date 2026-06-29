@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_801B7C78(s32, M2C_UNK, M2C_UNK);
 s32 fn_801CCFC0(s32, M2C_UNK);
 
-s32 fn_8014FD78(void *arg0, s32 arg1, s32 arg2) {
+s32 TNpcPlayer__sub_8014FD78(void *arg0, s32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
         if ((arg2 != 0) && (fn_801B7C78(M2C_FIELD(arg0, s32 *, 0x94), 3, 0) != -1)) {

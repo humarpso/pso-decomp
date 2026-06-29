@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_803285C0();
-M2C_UNK fn_80328874();
-M2C_UNK fn_80328904();
+M2C_UNK TAdDialingGC__sub_80328874();
+M2C_UNK TAdDialingGC__sub_80328904();
 
-void fn_803287CC(void *arg0) {
+void TAdDialingGC__sub_803287CC(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
@@ -22,13 +22,13 @@ void fn_803287CC(void *arg0) {
         break;
     case 1:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 2) {
-            fn_80328874();
+            TAdDialingGC__sub_80328874();
             return;
         }
         break;
     case 2:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 2) {
-            fn_80328904();
+            TAdDialingGC__sub_80328904();
         }
         break;
     }

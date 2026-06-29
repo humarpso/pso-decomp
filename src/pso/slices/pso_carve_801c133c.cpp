@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801C0228();
+M2C_UNK TFontSmallLobby__sub_801C0228();
 
-void *fn_801C133C(void *arg0, void *arg1) {
-    fn_801C0228();
+void *TObjPlayer__sub_801C133C(void *arg0, void *arg1) {
+    TFontSmallLobby__sub_801C0228();
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
     M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
     return arg0;

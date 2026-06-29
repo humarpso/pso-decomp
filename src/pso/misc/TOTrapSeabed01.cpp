@@ -8,12 +8,12 @@ extern "C" {
 
 void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0);
 
-M2C_UNK fn_80178F54(s32, s32, f32);
+M2C_UNK TOTrap__sub_80178F54(s32, s32, f32);
 M2C_UNK fn_802C9D38();
 
 void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0) {
     fn_802C9D38();
-    fn_80178F54(arg0, arg1, farg0);
+    TOTrap__sub_80178F54(arg0, arg1, farg0);
 }
 
 }

@@ -10,7 +10,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_80287B60(s32);
 s32 TWindowTimer__ct();
 
-s32 fn_80287E50(void) {
+s32 TWindowTimer__sub_80287E50(void) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x64);

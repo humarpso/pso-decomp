@@ -5,9 +5,9 @@ extern "C" {
 void TWindowMainMenu4P__vt1(void* p);
 void TWindowMainMenu4P__vt2(void);
 int fn_80263FE0(void*);
-int fn_802647CC(void*);
+int TWindowMainMenu__sub_802647CC(void*);
 
 void TWindowMainMenu4P__vt2(void) {  }
-void TWindowMainMenu4P__vt1(void* p) { fn_802647CC(p); fn_80263FE0(p); }
+void TWindowMainMenu4P__vt1(void* p) { TWindowMainMenu__sub_802647CC(p); fn_80263FE0(p); }
 
 }

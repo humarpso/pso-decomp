@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8006B370(f32);
+s32 TCameraCtrl__sub_8006B370(f32);
 
 u8 fn_800FD7C0(void *arg0) {
     int var_r31;
 
     var_r31 = 0;
-    if ((fn_8006B370(M2C_FIELD(arg0, f32 *, 0)) != 0) || (fn_8006B370(M2C_FIELD(arg0, f32 *, 4)) != 0)) {
+    if ((TCameraCtrl__sub_8006B370(M2C_FIELD(arg0, f32 *, 0)) != 0) || (TCameraCtrl__sub_8006B370(M2C_FIELD(arg0, f32 *, 4)) != 0)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

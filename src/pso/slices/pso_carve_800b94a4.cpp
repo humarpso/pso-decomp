@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800B9514(void *, s32);
-M2C_UNK fn_800BB158(void *, s32, f32, f32, f32);
+M2C_UNK TObjEneEpsilon__sub_800B9514(void *, s32);
+M2C_UNK TObjEneDD__sub_800BB158(void *, s32, f32, f32, f32);
 f32 fn_803D64C0(s32);
 f32 fn_803D64DC(s32);
 
-void fn_800B94A4(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+void TObjEneEpsilon__sub_800B94A4(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f31;
     f32 temp_f30;
 
     temp_f30 = farg0;
-    fn_800B9514(arg0, arg2);
+    TObjEneEpsilon__sub_800B9514(arg0, arg2);
     temp_f31 = fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    fn_800BB158(arg0, arg1, fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    TObjEneDD__sub_800BB158(arg0, arg1, fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
 }
 
 }

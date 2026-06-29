@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(u16);
-s32 fn_802AB0BC();
+s32 TBoss6PlotFalz__sub_802AB0BC();
 s32 fn_802AC18C();
-u16 fn_802BB694(void *);
+u16 TBoss6Type2__sub_802BB694(void *);
 M2C_UNK TBoss6Type2__sub_802BD938(void *, M2C_UNK *);
-M2C_UNK fn_802BDD6C(void *, s32, M2C_UNK *);
+M2C_UNK TBoss6Type2__sub_802BDD6C(void *, s32, M2C_UNK *);
 
-void fn_802BDB7C(void *arg0) {
+void TBoss6Type2__sub_802BDB7C(void *arg0) {
     M2C_UNK sp8;
     s32 temp_r0;
     s32 var_r31;
@@ -36,11 +36,11 @@ void fn_802BDB7C(void *arg0) {
     case 0x20:
     case 0x21:
         temp_r31 = M2C_FIELD(arg0, u16 *, 0x466);
-        temp_r3 = fn_802BB694(arg0);
+        temp_r3 = TBoss6Type2__sub_802BB694(arg0);
         var_r30 = temp_r3;
         if ((u16) temp_r3 == 0xFFFF) {
             TPlayerBattleCtrl4P__sub_801BA74C(temp_r31);
-            if (fn_802AB0BC() != 0) {
+            if (TBoss6PlotFalz__sub_802AB0BC() != 0) {
                 var_r30 = temp_r31;
             }
         }
@@ -52,7 +52,7 @@ void fn_802BDB7C(void *arg0) {
         break;
     }
     TBoss6Type2__sub_802BD938(arg0, &sp8);
-    fn_802BDD6C(arg0, var_r31, &sp8);
+    TBoss6Type2__sub_802BDD6C(arg0, var_r31, &sp8);
 }
 
 }

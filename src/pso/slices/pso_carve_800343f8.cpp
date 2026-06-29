@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80037480(void *);
+M2C_UNK TBoss2LaserLight__sub_80037480(void *);
 
 void fn_800343F8(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6B8) != 0U) {
-        fn_80037480(M2C_FIELD(arg0, void **, 0x6B8));
+        TBoss2LaserLight__sub_80037480(M2C_FIELD(arg0, void **, 0x6B8));
     }
     M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x10);
 }

@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int fn_80057578(void* p);
-int fn_800574E0(void*);
+int TBoss4Type2__sub_80057578(void* p);
+int TBoss4Type2__sub_800574E0(void*);
 
-int fn_80057578(void* p) { return fn_800574E0(p); }
+int TBoss4Type2__sub_80057578(void* p) { return TBoss4Type2__sub_800574E0(p); }
 
 }

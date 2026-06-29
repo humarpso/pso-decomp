@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_802340D0(void *arg0, s16 arg1) {
+void TTecLuker__sub_802340D0(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 0) = arg1;
     M2C_FIELD(arg0, s16 *, 2) = 0;
     M2C_FIELD(arg0, s32 *, 4) = 0;

@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TWindowSubComCard__sub_80244A14(void *);
-void fn_80288BE4(void);
+void TQuestListChallenge__sub_80288BE4(void);
 
-void fn_80288B5C(void *arg0) {
+void TQuestListChallenge__sub_80288B5C(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
         TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x34));
         M2C_FIELD(arg0, u32 *, 0x34) = 0U;
@@ -27,6 +27,6 @@ void fn_80288B5C(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x40) = 0U;
     }
 }
-void fn_80288BE4(void) {  }
+void TQuestListChallenge__sub_80288BE4(void) {  }
 
 }

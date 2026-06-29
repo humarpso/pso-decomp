@@ -3,8 +3,8 @@
 extern "C" {
 
 int fn_80116CD8(void* p);
-int fn_801160E0(void*);
+int TItemObject__sub_801160E0(void*);
 
-int fn_80116CD8(void* p) { return fn_801160E0(*(void**)((char*)p + 0xf0)); }
+int fn_80116CD8(void* p) { return TItemObject__sub_801160E0(*(void**)((char*)p + 0xf0)); }
 
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_801E0CE0(M2C_UNK);
-s32 fn_801E1B50(M2C_UNK);
+s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80244A14(void *);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 s32 fn_8030C4F8(M2C_UNK, M2C_UNK);
@@ -20,8 +20,8 @@ void fn_8030ED88(void *arg0) {
         TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x70));
         M2C_FIELD(arg0, u32 *, 0x70) = 0U;
     }
-    if ((u32) (fn_801E1B50(1) + 0x10000) != 0xFFFFU) {
-        if ((fn_801E0CE0(1) != 0) && (fn_801E1B50(1) == 0)) {
+    if ((u32) (TAdPlayerLoadGC__sub_801E1B50(1) + 0x10000) != 0xFFFFU) {
+        if ((fn_801E0CE0(1) != 0) && (TAdPlayerLoadGC__sub_801E1B50(1) == 0)) {
             M2C_FIELD(arg0, s32 *, 0x74) = fn_8030C688(fn_803100F4(), 1);
             M2C_FIELD(arg0, s32 *, 0x1C) = 0xA;
             return;

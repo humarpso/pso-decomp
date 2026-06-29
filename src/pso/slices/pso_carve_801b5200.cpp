@@ -8,17 +8,17 @@ extern "C" {
 
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
-M2C_UNK fn_801C0A90(void *);
-M2C_UNK fn_801C0AA4(void *);
+M2C_UNK TObjPlayer__sub_801C0A90(void *);
+M2C_UNK TObjPlayer__sub_801C0AA4(void *);
 
 struct S801B5200 { s8 b[2]; s16 h; };
-void fn_801B5200(s32 arg0) {
+void TObjPlayer__sub_801B5200(s32 arg0) {
     struct S801B5200 sp8;
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
-        fn_801C0A90(&sp8);
+        TObjPlayer__sub_801C0A90(&sp8);
         sp8.h = obj_getField1c(arg0);
-        fn_801C0AA4(&sp8);
+        TObjPlayer__sub_801C0AA4(&sp8);
     }
 }
 

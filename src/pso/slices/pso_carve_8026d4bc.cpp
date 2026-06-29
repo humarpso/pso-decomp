@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8026D4BC(void);
+void TWindowReturnCity__sub_8026D4BC(void);
 
-void fn_8026D4BC(void) {  }
+void TWindowReturnCity__sub_8026D4BC(void) {  }
 
 }

@@ -9,9 +9,9 @@ extern "C" {
 s32 TWindowHelpItem__sub_80104FCC(s32, M2C_UNK, M2C_UNK *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 TWindowSubStatusDisp__sub_80223B88(void *, M2C_UNK);
-M2C_UNK fn_8025A238(s32, M2C_UNK);
+M2C_UNK TWindowHelpItem__sub_8025A238(s32, M2C_UNK);
 
-void fn_802540AC(void *arg0) {
+void TWindowHelpItem__sub_802540AC(void *arg0) {
     M2C_UNK sp8;
     s32 a;
     s32 b;
@@ -29,18 +29,18 @@ void fn_802540AC(void *arg0) {
         e = TWindowSubStatusDisp__sub_80223B88(arg0, 4);
         if (M2C_FIELD(arg0, u32 *, 0x70) != 0) {
             if (TWindowHelpItem__sub_80104FCC(temp_r3, M2C_FIELD(arg0, u32 *, 0x70), &sp8) != 0) {
-                fn_8025A238(a, 1);
-                fn_8025A238(b, 1);
-                fn_8025A238(c, 1);
-                fn_8025A238(d, 1);
-                fn_8025A238(e, 1);
+                TWindowHelpItem__sub_8025A238(a, 1);
+                TWindowHelpItem__sub_8025A238(b, 1);
+                TWindowHelpItem__sub_8025A238(c, 1);
+                TWindowHelpItem__sub_8025A238(d, 1);
+                TWindowHelpItem__sub_8025A238(e, 1);
                 return;
             }
-            fn_8025A238(a, 0);
-            fn_8025A238(b, 0);
-            fn_8025A238(c, 0);
-            fn_8025A238(d, 0);
-            fn_8025A238(e, 0);
+            TWindowHelpItem__sub_8025A238(a, 0);
+            TWindowHelpItem__sub_8025A238(b, 0);
+            TWindowHelpItem__sub_8025A238(c, 0);
+            TWindowHelpItem__sub_8025A238(d, 0);
+            TWindowHelpItem__sub_8025A238(e, 0);
         }
     }
 }

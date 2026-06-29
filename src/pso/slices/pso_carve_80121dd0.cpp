@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8011B704(u32, M2C_UNK, M2C_UNK);
+M2C_UNK TItemShootParticle__sub_8011B704(u32, M2C_UNK, M2C_UNK);
 u32 fn_8011B86C(void *, s32, s32, f32);
 u32 fn_8011BA54();
 M2C_UNK set_parent__7TObjectFP7TObject(u32, u32);
@@ -29,7 +29,7 @@ u32 fn_80121DD0(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
                 M2C_FIELD(temp_r5, s32 *, 0x1C) = 0x8000;
             }
         }
-        fn_8011B704(temp_r30, 0xDD, 0);
+        TItemShootParticle__sub_8011B704(temp_r30, 0xDD, 0);
         set_parent__7TObjectFP7TObject(temp_r30, temp_r31);
     }
     return temp_r31;

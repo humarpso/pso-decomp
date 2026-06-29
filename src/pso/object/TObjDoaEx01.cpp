@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjDoaEx01__vt2(void *arg0);
 
-M2C_UNK fn_8018DE10();
+M2C_UNK TObjDoaEx01__sub_8018DE10();
 M2C_UNK TObjDoaEx01__sub_8018DEC8();
 
 void TObjDoaEx01__vt2(void *arg0) {
@@ -16,7 +16,7 @@ void TObjDoaEx01__vt2(void *arg0) {
         TObjDoaEx01__sub_8018DEC8();
         return;
     }
-    fn_8018DE10();
+    TObjDoaEx01__sub_8018DE10();
 }
 
 }

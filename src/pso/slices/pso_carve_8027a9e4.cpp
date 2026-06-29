@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
-void fn_8027AA50(void *arg0);
+void TWindowSubItem__sub_8027AA50(void *arg0);
 M2C_UNK TWindowSubStatusDisp__sub_80223B88(void *, s16);
 M2C_UNK fn_80249058();
 int fn_80266CF8(void*);
@@ -16,28 +16,28 @@ int fn_80266DB0(void*);
 int fn_80266EB8(void*);
 int fn_8027ABFC(void* a0 = 0);
 void TWindowSubItem__sub_8027ABA8(void* p);
-void fn_8027A9E4(void* p);
-void fn_8027AA3C(void* p);
+void TWindowSubItem__sub_8027A9E4(void* p);
+void TWindowSubItem__sub_8027AA3C(void* p);
 void TWindowSubItem__sub_8027AA48(void* p, s16 v);
 
-void fn_8027A9E4(void* p) { *(u16*)((char*)p + 0x60) |= 0x10; }
+void TWindowSubItem__sub_8027A9E4(void* p) { *(u16*)((char*)p + 0x60) |= 0x10; }
 void TWindowSubItem__sub_8027A9F4(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & 0xFFFFFFFD);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
         fn_8028783C(M2C_FIELD(arg0, s32 *, 0x70), 1);
     }
 }
-int fn_8027AA30(void) { return 0; }
-void fn_8027AA3C(void* p) { *(s16*)((char*)p + 0x88) = -1; }
+int TWindowSubItem__sub_8027AA30(void) { return 0; }
+void TWindowSubItem__sub_8027AA3C(void* p) { *(s16*)((char*)p + 0x88) = -1; }
 void TWindowSubItem__sub_8027AA48(void* p, s16 v) { *(s16*)((char*)p + 0x74) = v; }
-void fn_8027AA50(void *arg0) {
+void TWindowSubItem__sub_8027AA50(void *arg0) {
     TWindowSubStatusDisp__sub_80223B88(arg0, M2C_FIELD(arg0, s16 *, 0x88));
     fn_80249058();
 }
-int fn_8027AA78(void) { return 0; }
+int TWindowSubItem__sub_8027AA78(void) { return 0; }
 int TWindowSubItem__sub_8027AA80(void) { return 0; }
 int TWindowSubItem__sub_8027AB10(void) { return 0; }
-void TWindowSubItem__sub_8027ABA8(void* p) { fn_80266D78(p); fn_80266DB0(p); fn_8027ABFC(p); fn_80266CF8(p); fn_80266EB8(p); fn_8027AA3C(p); }
+void TWindowSubItem__sub_8027ABA8(void* p) { fn_80266D78(p); fn_80266DB0(p); fn_8027ABFC(p); fn_80266CF8(p); fn_80266EB8(p); TWindowSubItem__sub_8027AA3C(p); }
 int fn_8027ABFC(void*) { return 0; }
 
 }

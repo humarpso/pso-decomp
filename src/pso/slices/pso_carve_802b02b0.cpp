@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802AACA4(void *);
-s32 fn_802AACEC(void *);
-M2C_UNK fn_802AB2B8(void *, M2C_UNK);
-M2C_UNK fn_802AB490(void *);
+s32 TBoss6PlotFalz__sub_802AACA4(void *);
+s32 TBoss6PlotFalz__sub_802AACEC(void *);
+M2C_UNK TBoss6PlotFalz__sub_802AB2B8(void *, M2C_UNK);
+M2C_UNK TBoss6PlotFalz__sub_802AB490(void *);
 M2C_UNK fn_802AC4D8();
 M2C_UNK fn_802AC678();
 
@@ -17,18 +17,18 @@ void fn_802B02B0(void *arg0) {
     s32 temp_r0;
 
     fn_802AC4D8();
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x3CC) > 1) && (fn_802AACEC(arg0) != 0)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x3CC) > 1) && (TBoss6PlotFalz__sub_802AACEC(arg0) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x3CC) = 0x2CA;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3CC) + 1;
     M2C_FIELD(arg0, s32 *, 0x3CC) = temp_r0;
     if (temp_r0 > 0x2CA) {
-        if (fn_802AACA4(arg0) != 0) {
-            fn_802AB2B8(arg0, 8);
+        if (TBoss6PlotFalz__sub_802AACA4(arg0) != 0) {
+            TBoss6PlotFalz__sub_802AB2B8(arg0, 8);
             return;
         }
         fn_802AC678();
-        fn_802AB490(arg0);
+        TBoss6PlotFalz__sub_802AB490(arg0);
     }
 }
 

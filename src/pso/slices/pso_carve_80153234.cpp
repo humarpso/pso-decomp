@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_80153234(void *arg0, s32 arg1, s32 arg2) {
+void TObjFogCollisionPoison__sub_80153234(void *arg0, s32 arg1, s32 arg2) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) <= arg1) {
         M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
         M2C_FIELD(arg0, s32 *, 0x20) = arg1;

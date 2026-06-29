@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800BBA18(void *, s16);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, s16);
 
 void fn_8005FAFC(void *arg0) {
     s16 *ptr;
@@ -14,7 +14,7 @@ void fn_8005FAFC(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) ptr;
     ptr = (s16 *) M2C_FIELD(arg0, s32 *, 0x4BC);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != *ptr) {
-        fn_800BBA18(arg0, *ptr);
+        TObjEneDD__sub_800BBA18(arg0, *ptr);
     }
 }
 

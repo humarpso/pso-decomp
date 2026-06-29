@@ -10,7 +10,7 @@ s32 fn_80265660(s32, s32);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 s32 fn_8026F664(s32);
 
-s32 fn_8028195C(void *arg0) {
+s32 TWindowSubSymbolChat__sub_8028195C(void *arg0) {
     if (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x38)) != 0x20) {
         return 0;
     }

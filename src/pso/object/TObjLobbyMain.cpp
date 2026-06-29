@@ -12,9 +12,9 @@ M2C_UNK TObjLobbyMain__sub_8035255C(void *);
 M2C_UNK TObjLobbyMain__sub_803525F0(void *);
 M2C_UNK TObjLobbyMain__sub_80352690(void *);
 s32 fn_80080750();
-M2C_UNK fn_80352360(void *);
-M2C_UNK fn_803524F8(void *);
-M2C_UNK fn_80352624(void *);
+M2C_UNK TObjLobbyMain__sub_80352360(void *);
+M2C_UNK TObjLobbyMain__sub_803524F8(void *);
+M2C_UNK TObjLobbyMain__sub_80352624(void *);
 
 void TObjLobbyMain__vt1(void *arg0) {
     s32 temp_r0;
@@ -25,7 +25,7 @@ void TObjLobbyMain__vt1(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
     switch (temp_r0) {
     case 0:
-        fn_80352624(arg0);
+        TObjLobbyMain__sub_80352624(arg0);
         break;
     case 1:
         TObjLobbyMain__sub_803525F0(arg0);
@@ -35,9 +35,9 @@ void TObjLobbyMain__vt1(void *arg0) {
         TObjLobbyMain__sub_80352690(arg0);
         break;
     }
-    fn_803524F8(arg0);
+    TObjLobbyMain__sub_803524F8(arg0);
     TObjLobbyMain__sub_8035255C(arg0);
-    fn_80352360(arg0);
+    TObjLobbyMain__sub_80352360(arg0);
 }
 
 }

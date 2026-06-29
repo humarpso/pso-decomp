@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_80310904(void* p);
+void TPlayerBattleCtrl4P__sub_80310904(void* p);
 
-void fn_80310904(void* p) { *(s32*)((char*)p + 0x260) = 1; }
+void TPlayerBattleCtrl4P__sub_80310904(void* p) { *(s32*)((char*)p + 0x260) = 1; }
 
 }

@@ -10,10 +10,10 @@ void TBoss6Tube__vt1(void *arg0);
 
 s32 fn_800B9C88();
 s32 fn_802B1018();
-M2C_UNK fn_802B1218(void *);
-M2C_UNK fn_802B138C(void *);
-M2C_UNK fn_802B14B8(void *);
-M2C_UNK fn_802B1500(void *);
+M2C_UNK TBoss6Tube__sub_802B1218(void *);
+M2C_UNK TBoss6Tube__sub_802B138C(void *);
+M2C_UNK TBoss6Tube__sub_802B14B8(void *);
+M2C_UNK TBoss6Tube__sub_802B1500(void *);
 
 void TBoss6Tube__vt1(void *arg0) {
     s32 temp_r0;
@@ -22,14 +22,14 @@ void TBoss6Tube__vt1(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
         switch (temp_r0) {
         case 0:
-            fn_802B1500(arg0);
+            TBoss6Tube__sub_802B1500(arg0);
             return;
         case 1:
-            fn_802B14B8(arg0);
-            fn_802B1218(arg0);
+            TBoss6Tube__sub_802B14B8(arg0);
+            TBoss6Tube__sub_802B1218(arg0);
             return;
         case 2:
-            fn_802B138C(arg0);
+            TBoss6Tube__sub_802B138C(arg0);
             break;
         }
     }

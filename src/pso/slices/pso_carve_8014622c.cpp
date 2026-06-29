@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801A3FEC();
+M2C_UNK TLobby__sub_801A3FEC();
 s8 func_801A5E54__Fv();
 s16 fn_80426BD8();
 
@@ -19,7 +19,7 @@ loop_1:
         return 0;
     }
     var_r31 += 1;
-    fn_801A3FEC();
+    TLobby__sub_801A3FEC();
     if (func_801A5E54__Fv() != 0) {
         return 1;
     }

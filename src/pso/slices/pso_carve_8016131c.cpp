@@ -12,7 +12,7 @@ s32 TRaderMapCore__sub_8030A808();
 void TODoorCave01__vt18(void);
 
 void TODoorCave01__vt18(void) {  }
-int fn_80161320(void) { return 0; }
+int TODoorCave01__sub_80161320(void) { return 0; }
 int TODoorCave01__vt4(void) { return 0; }
 s32 TODoorCave01__vt17(void *arg0) {
     s32 temp_r0;

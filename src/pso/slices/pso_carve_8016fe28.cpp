@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void* fn_8016FE28(void* p);
+void* TOMineTrap__sub_8016FE28(void* p);
 
-void* fn_8016FE28(void* p) { return (char*)p + 0x334; }
+void* TOMineTrap__sub_8016FE28(void* p) { return (char*)p + 0x334; }
 
 }

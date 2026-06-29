@@ -8,10 +8,10 @@ extern "C" {
 
 void TObjBoss2Tunnel__sub_8007DE5C(void *arg0);
 
-M2C_UNK fn_8007DE80(f32);
+M2C_UNK TObjBoss2Tunnel__sub_8007DE80(f32);
 
 void TObjBoss2Tunnel__sub_8007DE5C(void *arg0) {
-    fn_8007DE80(M2C_FIELD(arg0, f32 *, 0x1C));
+    TObjBoss2Tunnel__sub_8007DE80(M2C_FIELD(arg0, f32 *, 0x1C));
 }
 
 }

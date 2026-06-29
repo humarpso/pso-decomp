@@ -14,7 +14,7 @@ s32 fn_8011F5E0(void *);
 s32 fn_801207E8(void *, s32, s32 *);
 s32 fn_80121CA8(void *);
 s16 fn_801251AC(s32);
-s32 fn_802314FC(s32, s32 *, s32);
+s32 TTecGiFoie__sub_802314FC(s32, s32 *, s32);
 s32 TItemProArmor__sub_80102C3C(void *);
 s32 TItemProArmor__sub_80117D9C(s32, u32, s32, s32);
 s32 TItemProArmor__sub_80364300(s32);
@@ -31,7 +31,7 @@ void fn_80125BE4(void *arg0) {
 
     if (fn_8011E384() != 0) {
         if ((fn_801251AC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (fn_801207E8(arg0, 0, &sp8) != 0)) {
-            fn_802314FC(M2C_FIELD(arg0, s32 *, 0xF0), &sp8, fn_80121CA8(arg0));
+            TTecGiFoie__sub_802314FC(M2C_FIELD(arg0, s32 *, 0xF0), &sp8, fn_80121CA8(arg0));
             fn_8011E618(arg0);
         }
     } else {

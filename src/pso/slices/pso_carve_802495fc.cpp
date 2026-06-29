@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80244DFC(s32, s32, s32, s32);
-void *fn_8024CDD0(s32);
+void *TWindowCtrlMain__sub_8024CDD0(s32);
 s16 fn_802495FC(void* p);
 int TWindowSubComCard__sub_80249604(void* p);
 int TWindowChoiceSetting__sub_80249610(void* p);
@@ -16,7 +16,7 @@ s16 fn_802495FC(void* p) { return *(s16*)((char*)p + 0x74); }
 int TWindowSubComCard__sub_80249604(void* p) { return (*(u16*)((char*)p + 0x70) >> 1) & 0x1; }
 int TWindowChoiceSetting__sub_80249610(void* p) { return (*(u16*)((char*)p + 0x70) >> 5) & 0x1; }
 void fn_8024961C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    fn_80244DFC(arg0, arg1, arg2, M2C_FIELD(fn_8024CDD0(arg3), s32 *, 0x14));
+    fn_80244DFC(arg0, arg1, arg2, M2C_FIELD(TWindowCtrlMain__sub_8024CDD0(arg3), s32 *, 0x14));
 }
 
 }

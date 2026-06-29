@@ -9,7 +9,7 @@ extern "C" {
 u32 TOBoss4Rock__sub_80147AA8();
 s32 fn_802A604C(void *, s32);
 s32 fn_802A6054();
-s32 fn_800FDADC(s32, s32);
+s32 TGStream__sub_800FDADC(s32, s32);
 s32 fn_802A605C(void *);
 s32 fn_800FD944(s32);
 void fn_802A5CB8(void* p);
@@ -37,7 +37,7 @@ s32 fn_802A5D68(void *arg0) {
     return 1;
 }
 s32 fn_802A5DC0(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0xC) = fn_800FDADC(arg1, M2C_FIELD(arg0, s32 *, 8));
+    M2C_FIELD(arg0, s32 *, 0xC) = TGStream__sub_800FDADC(arg1, M2C_FIELD(arg0, s32 *, 8));
     if (fn_802A605C(arg0) == 0) {
         fn_802A604C(arg0, 2);
         fn_802A5D28((void*)(arg0));

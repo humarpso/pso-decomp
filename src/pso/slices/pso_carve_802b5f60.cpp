@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802B7E6C();
+s32 TBoss6Type1__sub_802B7E6C();
 
-int fn_802B5F60(void *arg0) {
+int TBoss6Type1__sub_802B5F60(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x414) == 0) {
         return 0;
     }
-    return fn_802B7E6C() >= (s32) M2C_FIELD(arg0, s32 *, 0x490) ? 1 : 0;
+    return TBoss6Type1__sub_802B7E6C() >= (s32) M2C_FIELD(arg0, s32 *, 0x490) ? 1 : 0;
 }
 
 }

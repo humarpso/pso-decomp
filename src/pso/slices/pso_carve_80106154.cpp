@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_80104404();
 s32 fn_8030A7B0();
 
-u8 fn_80106154(void) {
+u8 TItemDrop__sub_80106154(void) {
     int var_r31;
 
     var_r31 = 0;

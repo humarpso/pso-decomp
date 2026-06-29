@@ -8,15 +8,15 @@ extern "C" {
 
 s32 fn_8024477C(void);
 s32 TWindowSubStatusDisp__sub_80223B88(void * a0 = 0, s32 a1 = 0);
-s32 fn_80342144(void* p);
+s32 TWindowDD__sub_80342144(void* p);
 s32 TWindowDD__sub_8034218C(void* p);
 
-s32 fn_80342144(void* p) { return *(s32*)((char*)p + 0x74); }
-int fn_8034214C(void) { return 0; }
-int fn_80342158(void) { return 0; }
-int fn_8034217C(void) { return 0; }
+s32 TWindowDD__sub_80342144(void* p) { return *(s32*)((char*)p + 0x74); }
+int TWindowDD__sub_8034214C(void) { return 0; }
+int TWindowDD__sub_80342158(void) { return 0; }
+int TWindowDD__sub_8034217C(void) { return 0; }
 s32 TWindowDD__sub_8034218C(void* p) { return *(s32*)((char*)p + 0x6c); }
-s32 fn_80342194(void *arg0) {
+s32 TWindowDD__sub_80342194(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
         TWindowSubStatusDisp__sub_80223B88(arg0, M2C_FIELD(arg0, s32 *, 0x6C));
         return fn_8024477C();

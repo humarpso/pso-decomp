@@ -5,7 +5,7 @@ extern "C" {
 s32 TBoss3VoloptCtrl__ct();
 s32 fn_8007B858();
 s32 fn_8007BB2C();
-s32 fn_80133D78();
+s32 TObjLight__sub_80133D78();
 s32 TOKeyMachine01__sub_802034A8();
 s32 fn_80227FB4();
 u32 __nw__7TObjectFUl(s32);
@@ -30,7 +30,7 @@ s32 fn_801403EC(void) {
     if (fn_8007BB2C() != 0) {
         return 0;
     }
-    fn_80133D78();
+    TObjLight__sub_80133D78();
     fn_8007B858();
     if (__nw__7TObjectFUl(0x24) != 0U) {
         TBoss3VoloptCtrl__ct();
@@ -44,7 +44,7 @@ s32 fn_8014047C(void) {
     if (fn_8007BB2C() != 0) {
         return 0;
     }
-    fn_80133D78();
+    TObjLight__sub_80133D78();
     fn_8007B858();
     fn_800867E4(0x10000);
     fn_8034A8FC();

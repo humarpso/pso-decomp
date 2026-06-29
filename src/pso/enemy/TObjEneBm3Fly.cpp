@@ -4,9 +4,9 @@ extern "C" {
 
 void TObjEneBm3Fly__vt87(void* p);
 
-int fn_800B1978(void*);
+int TObjEneBm3Fly__sub_800B1978(void*);
 int TObjEneDD__vt86(void*);
 
-void TObjEneBm3Fly__vt87(void* p) { TObjEneDD__vt86(p); fn_800B1978(p); }
+void TObjEneBm3Fly__vt87(void* p) { TObjEneDD__vt86(p); TObjEneBm3Fly__sub_800B1978(p); }
 
 }

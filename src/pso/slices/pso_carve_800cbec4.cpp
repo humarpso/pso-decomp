@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800CBF58(f32);
+M2C_UNK TObjEneMe1Gee__sub_800CBF58(f32);
 
-void fn_800CBEC4(void *arg0) {
-    fn_800CBF58(M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E8));
+void TObjEneMe1Gee__sub_800CBEC4(void *arg0) {
+    TObjEneMe1Gee__sub_800CBF58(M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E8));
 }
 
 }

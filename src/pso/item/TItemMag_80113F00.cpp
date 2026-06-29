@@ -3,14 +3,14 @@
 extern "C" {
 
 f32 TItemMag__sub_80113F08(void* p);
-s32 fn_80113F00(void* p);
+s32 TItemMag__sub_80113F00(void* p);
 int fn_80113F10(void* p);
 void fn_80113F38(void* p, u32 v);
 void fn_80113F48(void* p, u32 v);
 int fn_80113F58(void* p, u32 m);
 int fn_8001BEF8(void*, int);
 
-s32 fn_80113F00(void* p) { return *(s32*)((char*)p + 0x0); }
+s32 TItemMag__sub_80113F00(void* p) { return *(s32*)((char*)p + 0x0); }
 f32 TItemMag__sub_80113F08(void* p) { return *(f32*)((char*)p + 0x8); }
 int fn_80113F10(void* p) { return fn_8001BEF8((char*)p + 0x4, 1); }
 void fn_80113F38(void* p, u32 v) { *(u32*)((char*)p + 0x4) &= ~v; }

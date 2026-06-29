@@ -16,8 +16,8 @@ void TObjIllGillKage__vt2(void);
 int queue_destruction__7TObjectFv(void*);
 
 int TObjIllGillKage__sub_80365450(void* p) { return queue_destruction__7TObjectFv(p); }
-int fn_80365470(void) { return 0; }
-void fn_803654D0(void *arg0) {
+int TObjIllGillKage__sub_80365470(void) { return 0; }
+void TObjIllGillKage__sub_803654D0(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x90) = 1;

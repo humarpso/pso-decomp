@@ -5,6 +5,6 @@ extern "C" {
 void TObjSeabedSuisoBrakable__vt15(void);
 
 void TObjSeabedSuisoBrakable__vt15(void) {  }
-int fn_802A65B8(void) { return 0; }
+int TObjSeabedSuisoBrakable__sub_802A65B8(void) { return 0; }
 
 }

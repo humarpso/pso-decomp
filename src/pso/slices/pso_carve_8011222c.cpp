@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 fn_8001972C(s32);
+u8 TObjPlayer__sub_8001972C(s32);
 M2C_UNK fn_80110B50(s32, M2C_UNK);
 s32 fn_80111828();
 
@@ -15,7 +15,7 @@ void fn_8011222C(s32 arg0) {
     u8 temp_r3;
 
     temp_r31 = fn_80111828();
-    temp_r3 = fn_8001972C(arg0);
+    temp_r3 = TObjPlayer__sub_8001972C(arg0);
     switch ((s32) temp_r3) {
     case 1:
         if (temp_r31 & 0x108) {

@@ -11,10 +11,10 @@ u16 fn_801A20C8(s32);
 u16 fn_801A210C(s32);
 s32 fn_8020335C(void);
 s32 TOKeyMachine01__sub_802034A8(void);
-int fn_801A1E2C(void);
+int TObjRoomId__sub_801A1E2C(void);
 void fn_801A1FD8(void);
 
-int fn_801A1E2C(void) { return 0; }
+int TObjRoomId__sub_801A1E2C(void) { return 0; }
 void TObjRoomId__sub_801A1E34(void *arg0, s16 arg1) {
     u32 temp_r3;
 

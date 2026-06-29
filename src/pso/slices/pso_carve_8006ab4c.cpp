@@ -8,12 +8,12 @@ extern "C" {
 
 s32 fn_80019690();
 s32 fn_8001A430();
-M2C_UNK fn_8006AF9C(void *, M2C_UNK);
+M2C_UNK TCameraCtrl__sub_8006AF9C(void *, M2C_UNK);
 
-void fn_8006AB4C(void *arg0) {
+void TCameraCtrl__sub_8006AB4C(void *arg0) {
     if ((fn_80019690() == 0) && (fn_8001A430() != 1)) {
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0) {
-            fn_8006AF9C(arg0, 0);
+            TCameraCtrl__sub_8006AF9C(arg0, 0);
         }
         M2C_FIELD(arg0, u8 *, 0x1C) = 0U;
     }

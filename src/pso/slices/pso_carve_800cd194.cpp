@@ -9,8 +9,8 @@ extern "C" {
 s32 fn_800BB858();
 M2C_UNK fn_800D10A0(void *);
 M2C_UNK fn_800D11AC(void *);
-M2C_UNK fn_800D184C(void *);
-M2C_UNK fn_800D187C(void *);
+M2C_UNK TObjEneBm5GibonU__sub_800D184C(void *);
+M2C_UNK TObjEneBm5GibonU__sub_800D187C(void *);
 
 void fn_800CD194(void *arg0) {
     s32 temp_r31;
@@ -20,9 +20,9 @@ void fn_800CD194(void *arg0) {
         fn_800D10A0(arg0);
         if (temp_r31 != (s32) M2C_FIELD(arg0, s32 *, 0x464)) {
             if (temp_r31 != 0) {
-                fn_800D184C(arg0);
+                TObjEneBm5GibonU__sub_800D184C(arg0);
             } else {
-                fn_800D187C(arg0);
+                TObjEneBm5GibonU__sub_800D187C(arg0);
             }
         }
         fn_800D11AC(arg0);

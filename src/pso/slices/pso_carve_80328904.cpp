@@ -6,31 +6,31 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80328848(M2C_UNK);
-M2C_UNK fn_80328A4C();
+M2C_UNK TAdDialingGC__sub_80328848(M2C_UNK);
+M2C_UNK TAdDialingGC__sub_80328A4C();
 
-void fn_80328904(void *arg0) {
+void TAdDialingGC__sub_80328904(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x9C);
     switch (temp_r0) {
     case 11:
-        fn_80328848(0x11);
+        TAdDialingGC__sub_80328848(0x11);
         return;
     case 12:
-        fn_80328848(0x12);
+        TAdDialingGC__sub_80328848(0x12);
         return;
     case 13:
-        fn_80328848(0x13);
+        TAdDialingGC__sub_80328848(0x13);
         return;
     case 14:
-        fn_80328A4C();
+        TAdDialingGC__sub_80328A4C();
         return;
     case 15:
-        fn_80328848(0x16);
+        TAdDialingGC__sub_80328848(0x16);
         return;
     default:
-        fn_80328848(0x10);
+        TAdDialingGC__sub_80328848(0x10);
         return;
     }
 }

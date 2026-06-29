@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801B56A4();
+M2C_UNK TObjPlayer__sub_801B56A4();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK fn_8026400C(void *, s32);
 M2C_UNK fn_802640E4(void *);
@@ -21,7 +21,7 @@ void fn_80263CAC(void *arg0) {
     fn_802640E4(arg0);
     TWindowMainMenu__sub_80264634(arg0);
     if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x54)) != 0U) {
-        fn_801B56A4();
+        TObjPlayer__sub_801B56A4();
     }
 }
 

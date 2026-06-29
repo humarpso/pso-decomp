@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowHelpItem__sub_8025A12C(u16 *arg0);
 M2C_UNK TWindowHelpItem__sub_8025A2D4(u16 *, M2C_UNK);
-M2C_UNK fn_8025A260(u16 *, M2C_UNK);
+M2C_UNK TWindowHelpItem__sub_8025A260(u16 *, M2C_UNK);
 
 void TWindowHelpItem__sub_8025A12C(u16 *arg0) {
     s32 temp_r3;
@@ -21,7 +21,7 @@ void TWindowHelpItem__sub_8025A12C(u16 *arg0) {
             TWindowHelpItem__sub_8025A2D4(arg0, 0);
         }
         if (!(*arg0 & 8)) {
-            fn_8025A260(arg0, 0);
+            TWindowHelpItem__sub_8025A260(arg0, 0);
         }
     }
 }

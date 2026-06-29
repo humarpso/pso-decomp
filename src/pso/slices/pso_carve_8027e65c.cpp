@@ -14,9 +14,9 @@ s32 fn_8022598C(s32);
 u32 fn_80225CA8();
 s32 fn_80225CB0();
 M2C_UNK fn_80225E80(s32, s32);
-M2C_UNK fn_8027FAD0(s32);
+M2C_UNK TWindowSubShortMail__sub_8027FAD0(s32);
 
-void fn_8027E65C(void *arg0) {
+void TWindowSubShortMail__sub_8027E65C(void *arg0) {
     s32 temp_r31;
     s32 temp_r31_2;
     s32 temp_r30;
@@ -30,7 +30,7 @@ void fn_8027E65C(void *arg0) {
     for (var_r29 = 0; var_r29 < temp_r31_2; var_r29 += 1) {
         temp_r30 = fn_8022598C(var_r29);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == fn_80225CA8()) {
-            fn_8027FAD0(temp_r30);
+            TWindowSubShortMail__sub_8027FAD0(temp_r30);
             return;
         }
     }

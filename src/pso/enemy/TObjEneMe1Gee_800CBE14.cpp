@@ -8,10 +8,10 @@ extern "C" {
 
 void TObjEneMe1Gee__sub_800CBE14(void *arg0);
 
-M2C_UNK fn_800CBE6C(f32);
+M2C_UNK TObjEneMe1Gee__sub_800CBE6C(f32);
 
 void TObjEneMe1Gee__sub_800CBE14(void *arg0) {
-    fn_800CBE6C(M2C_FIELD(arg0, f32 *, 0x3E8) + M2C_FIELD(arg0, f32 *, 0x3C));
+    TObjEneMe1Gee__sub_800CBE6C(M2C_FIELD(arg0, f32 *, 0x3E8) + M2C_FIELD(arg0, f32 *, 0x3C));
 }
 
 }

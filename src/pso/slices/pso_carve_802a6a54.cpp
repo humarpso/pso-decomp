@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_802A6844();
-M2C_UNK fn_802A69BC();
+M2C_UNK TObjSeabedSuisoBrakable__sub_802A6844();
+M2C_UNK TObjSeabedSuisoBrakable__sub_802A69BC();
 
-void fn_802A6A54(void *arg0) {
+void TObjSeabedSuisoBrakable__sub_802A6A54(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
     switch (temp_r0) {
     case 2:
-        fn_802A69BC();
+        TObjSeabedSuisoBrakable__sub_802A69BC();
         return;
     case 3:
-        fn_802A6844();
+        TObjSeabedSuisoBrakable__sub_802A6844();
     case 0:
         return;
     }

@@ -8,12 +8,12 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TWindowSubComCard__sub_80244A14(void *);
-M2C_UNK fn_802C4D88(s32);
+M2C_UNK TAdPlyChrSelPlateGC__sub_802C4D88(s32);
 M2C_UNK fn_802C7498(s32, M2C_UNK);
-M2C_UNK fn_802D6D88(s32);
+M2C_UNK TAdSubPlyItemGC__sub_802D6D88(s32);
 u32 fn_8030CB08(void *, M2C_UNK, M2C_UNK);
 s32 fn_8030E34C(s32);
-M2C_UNK fn_8032572C(s32);
+M2C_UNK TAdChrSelMovePlateGC__sub_8032572C(s32);
 
 void fn_8030D5DC(void *arg0) {
     s32 temp_r0;
@@ -61,16 +61,16 @@ void fn_8030D5DC(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        fn_802C4D88(M2C_FIELD(arg0, s32 *, 0x34));
-        fn_802D6D88(M2C_FIELD(arg0, s32 *, 0x3C));
-        fn_8032572C(M2C_FIELD(arg0, s32 *, 0x44));
+        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x34));
+        TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x3C));
+        TAdChrSelMovePlateGC__sub_8032572C(M2C_FIELD(arg0, s32 *, 0x44));
         break;
     case 1:
-        fn_802C4D88(M2C_FIELD(arg0, s32 *, 0x34));
-        fn_802C4D88(M2C_FIELD(arg0, s32 *, 0x38));
-        fn_802D6D88(M2C_FIELD(arg0, s32 *, 0x3C));
-        fn_802D6D88(M2C_FIELD(arg0, s32 *, 0x40));
-        fn_8032572C(M2C_FIELD(arg0, s32 *, 0x44));
+        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x34));
+        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x38));
+        TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x3C));
+        TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x40));
+        TAdChrSelMovePlateGC__sub_8032572C(M2C_FIELD(arg0, s32 *, 0x44));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x4C));
             M2C_FIELD(arg0, u32 *, 0x4C) = 0U;
@@ -81,8 +81,8 @@ void fn_8030D5DC(void *arg0) {
         }
         break;
     case 2:
-        fn_802C4D88(M2C_FIELD(arg0, s32 *, 0x38));
-        fn_802D6D88(M2C_FIELD(arg0, s32 *, 0x40));
+        TAdPlyChrSelPlateGC__sub_802C4D88(M2C_FIELD(arg0, s32 *, 0x38));
+        TAdSubPlyItemGC__sub_802D6D88(M2C_FIELD(arg0, s32 *, 0x40));
         break;
     }
     fn_802C7498(M2C_FIELD(arg0, s32 *, 0x2C), 0);

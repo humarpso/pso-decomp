@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int fn_800BBA18(void*, void*);
+int TObjEneDD__sub_800BBA18(void*, void*);
 void fn_80362080(void* p);
 void fn_80362038(void);
 void fn_803620B0(void);
@@ -18,11 +18,11 @@ void fn_8036203C(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 8) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x438);
         if (!(temp_r4 & 2) && !(temp_r4 & 0x40)) {
-            fn_800BBA18((void*)(arg0), (void*)(8));
+            TObjEneDD__sub_800BBA18((void*)(arg0), (void*)(8));
         }
     }
 }
-void fn_80362080(void* p) { if (*(short*)((char*)p + 0x326) != 9) { fn_800BBA18(p, (void*)9); } }
+void fn_80362080(void* p) { if (*(short*)((char*)p + 0x326) != 9) { TObjEneDD__sub_800BBA18(p, (void*)9); } }
 void fn_803620B0(void) {  }
 
 }

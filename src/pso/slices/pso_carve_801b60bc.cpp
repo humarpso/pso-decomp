@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8012121C();
 
-s32 fn_801B60BC(void *arg0, s16 arg1) {
+s32 TObjPlayer__sub_801B60BC(void *arg0, s16 arg1) {
     if ((fn_8012121C() != 0) && (arg1 == (s16) M2C_FIELD(arg0, s16 *, 0xBC))) {
         return 1;
     }

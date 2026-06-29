@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TBoss4Type2__sub_80141FA8(s32);
 
-s32 fn_80094DEC(void *arg0, s32 arg1, s32 arg2) {
+s32 TObjEneRe7Berura__sub_80094DEC(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;

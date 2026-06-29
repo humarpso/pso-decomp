@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802AB110();
+s32 TBoss6PlotFalz__sub_802AB110();
 
-s32 fn_802AB0BC(void *arg0) {
-    if ((fn_802AB110() != 0) && !(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000800)) {
+s32 TBoss6PlotFalz__sub_802AB0BC(void *arg0) {
+    if ((TBoss6PlotFalz__sub_802AB110() != 0) && !(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000800)) {
         return 1;
     }
     return 0;

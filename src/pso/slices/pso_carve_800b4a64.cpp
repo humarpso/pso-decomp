@@ -8,8 +8,8 @@ extern "C" {
 
 M2C_UNK fn_800B7EA0(void *);
 M2C_UNK fn_800B7F60(void *);
-M2C_UNK fn_800B8570(void *);
-M2C_UNK fn_800B85A0(void *);
+M2C_UNK TObjEneBm5Wolf__sub_800B8570(void *);
+M2C_UNK TObjEneBm5Wolf__sub_800B85A0(void *);
 s32 fn_800BB858();
 
 void fn_800B4A64(void *arg0) {
@@ -20,9 +20,9 @@ void fn_800B4A64(void *arg0) {
         fn_800B7EA0(arg0);
         if (temp_r31 != (s32) M2C_FIELD(arg0, s32 *, 0x3D8)) {
             if (temp_r31 != 0) {
-                fn_800B8570(arg0);
+                TObjEneBm5Wolf__sub_800B8570(arg0);
             } else {
-                fn_800B85A0(arg0);
+                TObjEneBm5Wolf__sub_800B85A0(arg0);
             }
         }
         fn_800B7F60(arg0);

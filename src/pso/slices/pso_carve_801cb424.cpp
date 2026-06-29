@@ -8,11 +8,11 @@ extern "C" {
 
 s16 ret_801D26AC(void);
 s32 fn_801D0BC0(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
-s32 fn_801BE4A8(void * a0 = 0);
+s32 TObjPlayer__sub_801BE4A8(void * a0 = 0);
 s32 fn_801BA650(void * a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_isState2_324(void * a0 = 0);
 s32 fn_80010550(s32);
-u32 fn_801B5EA4();
+u32 TObjPlayer__sub_801B5EA4();
 s32 fn_801D0888();
 void fn_801CB424(void);
 void fn_801CB52C(void);
@@ -22,7 +22,7 @@ int fn_801BA2F4(void*);
 
 void fn_801CB424(void) {  }
 void fn_801CB428(s32 arg0) {
-    if (fn_801B5EA4() == 0U) {
+    if (TObjPlayer__sub_801B5EA4() == 0U) {
         fn_80010550(arg0);
     }
 }
@@ -32,7 +32,7 @@ void fn_801CB464(void *arg0) {
     if (obj_isState2_324(arg0) != 0) {
         M2C_FIELD(arg0, s16 *, 0xBA) = ret_801D26AC();
     }
-    fn_801BA650(arg0, 0xB, fn_801BE4A8(arg0));
+    fn_801BA650(arg0, 0xB, TObjPlayer__sub_801BE4A8(arg0));
 }
 int fn_801CB4D0(void) { return 0; }
 void fn_801CB52C(void) {  }

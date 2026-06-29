@@ -8,8 +8,8 @@ extern "C" {
 
 void TObjEneRe4Bit__sub_800ECFE4(void *arg0, s32 arg1);
 
-M2C_UNK fn_800BBA04(void *, M2C_UNK);
-M2C_UNK fn_800BBA18(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK fn_800ED4BC();
 M2C_UNK fn_800ED578(void *);
 
@@ -18,19 +18,19 @@ void TObjEneRe4Bit__sub_800ECFE4(void *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        fn_800BBA04(arg0, 1);
+        TObjEneDD__sub_800BBA04(arg0, 1);
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFEFFF);
         break;
     case 3:
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x3CC);
         if (temp_r4 & 1) {
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFE);
-            fn_800BBA18(arg0, 2);
+            TObjEneDD__sub_800BBA18(arg0, 2);
             break;
         }
         if (temp_r4 & 2) {
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFD);
-            fn_800BBA18(arg0, 3);
+            TObjEneDD__sub_800BBA18(arg0, 3);
         }
         break;
     case 5:

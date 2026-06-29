@@ -2,10 +2,10 @@
 
 extern "C" {
 
-int fn_8004B77C(void*);
-int fn_8004BA18(void*);
-void fn_8004CAF4(void* p);
+int TBoss4DarkFalz__sub_8004B77C(void*);
+int TBoss4DarkFalz__sub_8004BA18(void*);
+void TBoss4DarkFalz__sub_8004CAF4(void* p);
 
-void fn_8004CAF4(void* p) { fn_8004BA18(p); fn_8004B77C(p); }
+void TBoss4DarkFalz__sub_8004CAF4(void* p) { TBoss4DarkFalz__sub_8004BA18(p); TBoss4DarkFalz__sub_8004B77C(p); }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 u32 TWindowCtrl__sub_8024C5FC();
 M2C_UNK fn_8024D87C(u32, s32, s32);
 
-void fn_8024B650(void *arg0, s32 arg1, s32 arg2) {
+void TWindowCtrl__sub_8024B650(void *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
 
     temp_r3 = TWindowCtrl__sub_8024C5FC();

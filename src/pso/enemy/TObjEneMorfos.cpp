@@ -5,9 +5,9 @@ extern "C" {
 void TObjEneMorfos__vt26(void);
 void TObjEneMorfos__vt61(void* p);
 
-int fn_800BBA18(void*, void*);
+int TObjEneDD__sub_800BBA18(void*, void*);
 
-void TObjEneMorfos__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { fn_800BBA18(p, (void*)11); } }
+void TObjEneMorfos__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { TObjEneDD__sub_800BBA18(p, (void*)11); } }
 void TObjEneMorfos__vt26(void) {  }
 
 }

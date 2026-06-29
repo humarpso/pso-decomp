@@ -22,7 +22,7 @@ M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, M2C_UNK);
 u32 fn_802664A8(M2C_UNK, M2C_UNK, u16);
 M2C_UNK fn_8026CBB8(M2C_UNK);
 
-void fn_8021CAB8(void *arg0) {
+void TShopEquipmentSellWindow__sub_8021CAB8(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
 

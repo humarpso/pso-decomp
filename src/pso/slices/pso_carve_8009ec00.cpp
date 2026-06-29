@@ -8,7 +8,7 @@ extern "C" {
 
 u32 TObjEneDD__vt98();
 
-void fn_8009EC00(void *arg0) {
+void TObjEneMe1Canadin__sub_8009EC00(void *arg0) {
     if (TObjEneDD__vt98() == 0U) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFEFFFFFF);
         return;

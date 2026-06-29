@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802ABA9C();
-s32 fn_802AB2B8(void *, s32);
-int fn_802AACEC(void*);
-int fn_802AC86C(void*, void*);
+s32 TBoss6PlotFalz__sub_802ABA9C();
+s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
+int TBoss6PlotFalz__sub_802AACEC(void*);
+int TBoss6PlotFalz__sub_802AC86C(void*, void*);
 void fn_802B04D8(void* p);
-int fn_802ABC64(void*);
+int TBoss6PlotFalz__sub_802ABC64(void*);
 int fn_802AC4D8(void);
 int fn_802AC678(void*);
 void fn_802B0448(void* p);
@@ -19,11 +19,11 @@ void fn_802B03F4(void);
 
 void fn_802B03F4(void) {  }
 void fn_802B03F8(s32 arg0) {
-    if ((fn_802ABA9C() == 0) || (fn_802AACEC((void*)(arg0)) != 0)) {
-        fn_802AC86C((void*)(arg0), (void*)(7));
+    if ((TBoss6PlotFalz__sub_802ABA9C() == 0) || (TBoss6PlotFalz__sub_802AACEC((void*)(arg0)) != 0)) {
+        TBoss6PlotFalz__sub_802AC86C((void*)(arg0), (void*)(7));
     }
 }
-void fn_802B0448(void* p) { fn_802AC678(p); fn_802AC4D8(); *(int*)((char*)p + 0x3d0) = 0; *(int*)((char*)p + 0x3cc) = 0; fn_802ABC64(p); }
+void fn_802B0448(void* p) { fn_802AC678(p); fn_802AC4D8(); *(int*)((char*)p + 0x3d0) = 0; *(int*)((char*)p + 0x3cc) = 0; TBoss6PlotFalz__sub_802ABC64(p); }
 void fn_802B048C(void *arg0) {
     s32 temp_r0;
 
@@ -31,9 +31,9 @@ void fn_802B048C(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3CC) + 1;
     M2C_FIELD(arg0, s32 *, 0x3CC) = temp_r0;
     if (temp_r0 > 0x198) {
-        fn_802AB2B8(arg0, 6);
+        TBoss6PlotFalz__sub_802AB2B8(arg0, 6);
     }
 }
-void fn_802B04D8(void* p) { if (fn_802AACEC(p) != 0) { fn_802AC86C(p, (void*)6); } }
+void fn_802B04D8(void* p) { if (TBoss6PlotFalz__sub_802AACEC(p) != 0) { TBoss6PlotFalz__sub_802AC86C(p, (void*)6); } }
 
 }

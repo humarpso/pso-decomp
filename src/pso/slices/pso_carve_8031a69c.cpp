@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8031A69C(void);
+void TObjEneMe3SinowZoa__sub_8031A69C(void);
 
-void fn_8031A69C(void) {  }
+void TObjEneMe3SinowZoa__sub_8031A69C(void) {  }
 
 }

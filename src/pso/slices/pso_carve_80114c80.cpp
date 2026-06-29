@@ -8,7 +8,7 @@ extern "C" {
 
 f32 fn_803D64C0(s32);
 
-void fn_80114C80(f32 *arg0, s32 *arg1, void *arg2) {
+void TItemMagSub__sub_80114C80(f32 *arg0, s32 *arg1, void *arg2) {
     *arg1 = *arg1 + M2C_FIELD(arg2, s32 *, 0xC);
     *arg0 = M2C_FIELD(arg2, f32 *, 0) * fn_803D64C0(*arg1 + M2C_FIELD(arg2, s32 *, 8));
 }

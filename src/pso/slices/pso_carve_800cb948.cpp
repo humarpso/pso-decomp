@@ -8,14 +8,14 @@ extern "C" {
 
 s32 fn_800F5EB4();
 s32 TOKeyMachine01__sub_802034A8();
-s32 fn_800BBA18(void * a0 = 0, s32 a1 = 0);
+s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 void TObjEneMe1Gee__vt105(void);
 int TObjEneMe1Gee__vt102(void* p);
-int fn_800B97B4(void*);
+int TObjEneEpsilon__sub_800B97B4(void*);
 
-int TObjEneMe1Gee__vt102(void* p) { return fn_800B97B4(p); }
-int fn_800CB968(void) { return 0; }
-s32 fn_800CB9B0(s32 arg0, s32 arg1) {
+int TObjEneMe1Gee__vt102(void* p) { return TObjEneEpsilon__sub_800B97B4(p); }
+int TObjEneMe1Gee__sub_800CB968(void) { return 0; }
+s32 TObjEneMe1Gee__sub_800CB9B0(s32 arg0, s32 arg1) {
     s32 var_r3;
 
     if (arg1 == 0x3A843) {
@@ -28,9 +28,9 @@ s32 fn_800CB9B0(s32 arg0, s32 arg1) {
     var_r3 = fn_800F5EB4();
     return var_r3;
 }
-s32 fn_800CB9FC(void *arg0) {
+s32 TObjEneMe1Gee__sub_800CB9FC(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
-        fn_800BBA18(arg0, 0xF);
+        TObjEneDD__sub_800BBA18(arg0, 0xF);
         return 1;
     }
     return 0;

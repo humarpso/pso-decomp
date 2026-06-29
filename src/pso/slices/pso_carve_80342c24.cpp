@@ -8,22 +8,22 @@ extern "C" {
 
 M2C_UNK fn_8034330C(void *);
 M2C_UNK fn_803435A0(void *);
-M2C_UNK fn_80347B70();
+M2C_UNK TWindowDD__sub_80347B70();
 M2C_UNK TWindowDD__sub_80348248();
-M2C_UNK fn_8034827C();
-s32 fn_803482B0(void *);
-s32 fn_80348304(void *);
+M2C_UNK TWindowDD__sub_8034827C();
+s32 TWindowDD__sub_803482B0(void *);
+s32 TWindowDD__sub_80348304(void *);
 
 void fn_80342C24(void *arg0) {
-    fn_80347B70();
-    if (fn_80348304(arg0) != 0) {
-        fn_8034827C();
+    TWindowDD__sub_80347B70();
+    if (TWindowDD__sub_80348304(arg0) != 0) {
+        TWindowDD__sub_8034827C();
         M2C_FIELD(arg0, s32 *, 0xB4) = 0x14;
         M2C_FIELD(arg0, s32 *, 0x8C) = -0x3C;
         fn_803435A0(arg0);
         return;
     }
-    if (fn_803482B0(arg0) != 0) {
+    if (TWindowDD__sub_803482B0(arg0) != 0) {
         TWindowDD__sub_80348248();
         fn_8034330C(arg0);
     }

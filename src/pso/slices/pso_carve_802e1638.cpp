@@ -8,9 +8,9 @@ extern "C" {
 
 s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1530(M2C_UNK);
-s32 fn_801E1B50(M2C_UNK);
+s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
-s32 fn_801E1F40(M2C_UNK);
+s32 TAdPlayerLoadGC__sub_801E1F40(M2C_UNK);
 s32 fn_801FF310();
 s32 fn_801FF384();
 s32 fn_801FF3F4();
@@ -28,7 +28,7 @@ s32 fn_802E1638(void *arg0) {
     s32 var_r31_2;
     s32 var_r3;
 
-    if (fn_801E1B50(0) != 0) {
+    if (TAdPlayerLoadGC__sub_801E1B50(0) != 0) {
         M2C_FIELD(arg0, s32 *, 0x40) = (s32) (M2C_FIELD(arg0, s32 *, 0x40) + 1);
         return 2;
     }
@@ -50,7 +50,7 @@ s32 fn_802E1638(void *arg0) {
             return 0x20;
         }
     } else {
-        if (fn_801E1F40(0) != 0) {
+        if (TAdPlayerLoadGC__sub_801E1F40(0) != 0) {
             return 0x40;
         }
         if (fn_802E1528() != 0) {

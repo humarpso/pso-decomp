@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8001BF40();
 
-void fn_801BF9A4(void *arg0) {
+void TObjPlayer__sub_801BF9A4(void *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
     fn_8001BF40();
 }

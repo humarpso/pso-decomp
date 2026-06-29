@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_802AC17C();
 s32 fn_802BC6E8(void *);
 
-s32 fn_802BA860(void *arg0) {
+s32 TBoss6Type2__sub_802BA860(void *arg0) {
     s32 temp;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x418) != 0) {
         return 0;

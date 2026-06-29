@@ -8,13 +8,13 @@ extern "C" {
 
 s32 obj_testFlags30(u32, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 fn_8024CE58();
+s32 TWindowCtrlMain__sub_8024CE58();
 
 s32 fn_80075854(void) {
     s32 var_r31;
     u32 temp_r3;
 
-    if (fn_8024CE58() == 0) {
+    if (TWindowCtrlMain__sub_8024CE58() == 0) {
         return 0;
     }
     var_r31 = 0;

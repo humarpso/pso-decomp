@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 fn_801E1510();
+s32 TAdPlayerLoadGC__sub_801E1510();
 s32 fn_8029359C(void *);
 M2C_UNK fn_80293610(void *);
 
 void fn_8029364C(void *arg0) {
-    if (fn_801E1510() != 1) {
+    if (TAdPlayerLoadGC__sub_801E1510() != 1) {
         if (fn_8029359C(arg0) == 1) {
             queue_destruction__7TObjectFv(arg0);
         }

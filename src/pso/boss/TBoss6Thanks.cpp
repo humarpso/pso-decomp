@@ -16,8 +16,8 @@ void TBoss6Thanks__sub_8035CF18(void *arg0) {
     }
 }
 
-int fn_8035CCD0(void*);
+int TBoss6Thanks__sub_8035CCD0(void*);
 
-void TBoss6Thanks__sub_8035CF38(void* p) { if (fn_8035CCD0(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+void TBoss6Thanks__sub_8035CF38(void* p) { if (TBoss6Thanks__sub_8035CCD0(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
 
 }

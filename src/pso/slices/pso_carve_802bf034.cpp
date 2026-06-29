@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int fn_802BAFEC(void*, void*);
+int TBoss6Type2__sub_802BAFEC(void*, void*);
 void fn_802BF034(void* p);
 
-void fn_802BF034(void* p) { if (*(int*)((char*)p + 0x460) == 4) { fn_802BAFEC(p, (void*)0); } }
+void fn_802BF034(void* p) { if (*(int*)((char*)p + 0x460) == 4) { TBoss6Type2__sub_802BAFEC(p, (void*)0); } }
 
 }

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8004CA80(void);
+void TBoss4DarkFalz__sub_8004CA80(void);
 
-void fn_8004CA80(void) {  }
+void TBoss4DarkFalz__sub_8004CA80(void) {  }
 
 }

@@ -12,7 +12,7 @@ s32 fn_802034EC(s32);
 M2C_UNK fn_802661D4(s32, s32, M2C_UNK, s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, s32);
 
-void fn_80279CB8(s32 arg1, s32 arg2, s32 arg3) {
+void TWindowSubItem__sub_80279CB8(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
     s32 temp_r3;
 

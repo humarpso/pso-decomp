@@ -8,12 +8,12 @@ extern "C" {
 
 s32 fn_800196EC();
 M2C_UNK fn_80087350(s32, M2C_UNK);
-M2C_UNK fn_801B1CE8(s32, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801B1CE8(s32, M2C_UNK);
 
-void fn_801020E0(s32 arg0, s16 arg1, s32 arg2) {
+void TItem__sub_801020E0(s32 arg0, s16 arg1, s32 arg2) {
     if (arg1 == fn_800196EC()) {
         fn_80087350(arg0 + 0x38, 0x9B);
-        fn_801B1CE8(arg2, 0x52802);
+        TObjPlayer__sub_801B1CE8(arg2, 0x52802);
     }
 }
 

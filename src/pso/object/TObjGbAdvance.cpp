@@ -9,12 +9,12 @@ extern "C" {
 void TObjGbAdvance__vt12(void *arg0);
 
 M2C_UNK TObjMesBase__vt12();
-M2C_UNK fn_801B4A18(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 
 void TObjGbAdvance__vt12(void *arg0) {
     TObjMesBase__vt12();
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) != 0) {
-        fn_801B4A18(arg0, -1);
+        TObjPlayer__sub_801B4A18(arg0, -1);
     }
 }
 

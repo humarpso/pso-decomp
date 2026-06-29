@@ -9,14 +9,14 @@ extern "C" {
 s32 TMovie__sub_80143D9C(s32 arg0, s16 arg1);
 
 M2C_UNK __dl__FPv(s32);
-M2C_UNK fn_80143F6C();
-M2C_UNK fn_801442D4(s32);
+M2C_UNK TMovie__sub_80143F6C();
+M2C_UNK TMovie__sub_801442D4(s32);
 M2C_UNK fn_8022743C();
 
 s32 TMovie__sub_80143D9C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        fn_80143F6C();
-        fn_801442D4(arg0);
+        TMovie__sub_80143F6C();
+        TMovie__sub_801442D4(arg0);
         fn_8022743C();
         if (arg1 > 0) {
             __dl__FPv(arg0);

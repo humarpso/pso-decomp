@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8011E204(void *, M2C_UNK);
 
-void fn_801BE3B4(void *arg0) {
+void TObjPlayer__sub_801BE3B4(void *arg0) {
     fn_8011E204(arg0, 0x400000);
 }
 

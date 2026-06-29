@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_801AFDA8();
 M2C_UNK fn_801BE8E4(s32, M2C_UNK);
 
-void fn_801B54E0(s32 arg0) {
+void TObjPlayer__sub_801B54E0(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_801AFDA8();

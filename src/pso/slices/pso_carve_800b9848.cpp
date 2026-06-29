@@ -3,10 +3,10 @@
 extern "C" {
 
 int TObjEneEpsilon__vt101(void* p);
-int fn_800B9778(void*);
+int TObjEneEpsilon__sub_800B9778(void*);
 
-int fn_800B9848(void) { return 0; }
-int TObjEneEpsilon__vt101(void* p) { return fn_800B9778(p); }
+int TObjEneEpsilon__sub_800B9848(void) { return 0; }
+int TObjEneEpsilon__vt101(void* p) { return TObjEneEpsilon__sub_800B9778(p); }
 int fn_800B98A4(void) { return 0; }
 int fn_800B98C0(void) { return 0; }
 int fn_800B98D8(void) { return 0; }

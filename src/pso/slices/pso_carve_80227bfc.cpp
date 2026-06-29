@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u16 fn_8006A5DC();
+u16 TCameraCtrl__sub_8006A5DC();
 
 s32 fn_80227BFC(void) {
-    if ((fn_8006A5DC() == 5) || (fn_8006A5DC() == 9)) {
+    if ((TCameraCtrl__sub_8006A5DC() == 5) || (TCameraCtrl__sub_8006A5DC() == 9)) {
         return 1;
     }
     return 0;

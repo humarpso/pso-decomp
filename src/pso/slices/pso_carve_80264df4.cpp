@@ -8,7 +8,7 @@ s32 fn_80268738(s32, s32, s32);
 s32 fn_80268BE4(s32);
 void TWindowMakeTeam__vt2(void);
 
-s32 fn_80264DF4(void) {
+s32 TWindowMakeTeam__sub_80264DF4(void) {
     s32 temp_r31;
 
     temp_r31 = fn_80268BE4(5);

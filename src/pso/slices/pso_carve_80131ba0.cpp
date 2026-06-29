@@ -12,11 +12,11 @@ s32 fn_8025CA70(s32);
 int fn_80131BA0(void* p);
 int TWindowSubComCard__sub_80131C10(void* p);
 int TWindowSubComCard__sub_80131C34(void* p);
-int fn_80131FA0(void*);
-int fn_80131FAC(void*);
-int fn_8025C5F4(void*);
+int TKeyBoardControl__sub_80131FA0(void*);
+int TKeyBoardControl__sub_80131FAC(void*);
+int TWindowKeyBoardSoft__sub_8025C5F4(void*);
 
-int fn_80131BA0(void* p) { return fn_8025C5F4(*(void**)((char*)p + 0x20)); }
+int fn_80131BA0(void* p) { return TWindowKeyBoardSoft__sub_8025C5F4(*(void**)((char*)p + 0x20)); }
 s32 fn_80131BC4(void *arg0) {
     s32 temp_r3;
 
@@ -25,8 +25,8 @@ s32 fn_80131BC4(void *arg0) {
     fn_8025C974(M2C_FIELD(arg0, s32 *, 0x20), temp_r3);
     return temp_r3;
 }
-int TWindowSubComCard__sub_80131C10(void* p) { return fn_80131FA0(*(void**)((char*)p + 0x20)); }
-int TWindowSubComCard__sub_80131C34(void* p) { return fn_80131FAC(*(void**)((char*)p + 0x20)); }
+int TWindowSubComCard__sub_80131C10(void* p) { return TKeyBoardControl__sub_80131FA0(*(void**)((char*)p + 0x20)); }
+int TWindowSubComCard__sub_80131C34(void* p) { return TKeyBoardControl__sub_80131FAC(*(void**)((char*)p + 0x20)); }
 int TKeyBoardControl__vt2(void) { return 0; }
 
 }

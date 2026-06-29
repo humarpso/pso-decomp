@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv();
 
-void fn_80323844(void *arg0) {
+void TBoss6GravBall__sub_80323844(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4) + 1;

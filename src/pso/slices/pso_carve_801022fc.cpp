@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8010319C(s32);
-s32 fn_801B4A18(void *, s32);
-void fn_80102420(void);
+s32 TObjPlayer__sub_801B4A18(void *, s32);
+void TItem__sub_80102420(void);
 
-int fn_801022FC(void) { return 0; }
-void fn_801023A8(void *arg0) {
+int TItem__sub_801022FC(void) { return 0; }
+void TItem__sub_801023A8(void *arg0) {
     s16 temp_r3;
     s32 temp_r4;
 
@@ -26,8 +26,8 @@ void fn_801023A8(void *arg0) {
             M2C_FIELD(arg0, s16 *, 0xE6) = (s16) (temp_r3 + 1);
         }
     }
-    fn_801B4A18(arg0, -1);
+    TObjPlayer__sub_801B4A18(arg0, -1);
 }
-void fn_80102420(void) {  }
+void TItem__sub_80102420(void) {  }
 
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjEneRe2Flower__sub_800C3B80();
 
-void fn_800C3CD8(void *arg0) {
+void TObjEneRe2Flower__sub_800C3CD8(void *arg0) {
     void *temp_r3;
     void *temp_r3_2;
 

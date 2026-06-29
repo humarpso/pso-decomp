@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_802BD344(s32, s32);
+M2C_UNK TBoss6Type2__sub_802BD344(s32, s32);
 M2C_UNK fn_8032FE44();
 
 void fn_8032FDEC(void *arg0) {
@@ -20,7 +20,7 @@ void fn_8032FDEC(void *arg0) {
             fn_8032FE44();
             return;
         }
-        fn_802BD344(M2C_FIELD(arg0, s32 *, 0x378), temp_r4 - temp_r0);
+        TBoss6Type2__sub_802BD344(M2C_FIELD(arg0, s32 *, 0x378), temp_r4 - temp_r0);
         M2C_FIELD(arg0, s32 *, 0x404) = (s32) M2C_FIELD(arg0, s16 *, 0x32C);
     }
 }

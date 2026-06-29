@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_800740FC(u32);
 s32 fn_801329B0();
-M2C_UNK fn_80186AE4(u32);
+M2C_UNK TObjCityMainWarp__sub_80186AE4(u32);
 s32 TObjCityMainWarp__sub_80186AF4();
 M2C_UNK fn_8019DD14(s32, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
@@ -33,7 +33,7 @@ void fn_8019CD60(void *arg0, u16 arg1) {
         }
         fn_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
         fn_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
-        fn_80186AE4(M2C_FIELD(arg0, u32 *, 0xB0));
+        TObjCityMainWarp__sub_80186AE4(M2C_FIELD(arg0, u32 *, 0xB0));
         fn_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, u16 *, 0xB8) = arg1;
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xB8));

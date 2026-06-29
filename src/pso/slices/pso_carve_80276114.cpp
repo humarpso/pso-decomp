@@ -6,28 +6,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801B5B2C(M2C_UNK, M2C_UNK);
+s32 TObjPlayer__sub_801B5B2C(M2C_UNK, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
-s16 fn_801C1D7C(s32, s32, s32);
-s16 fn_801C1DE0(s32, s32, s32);
-s32 fn_802760AC(void *, u8);
-s32 fn_802760DC(void *, u8);
+s16 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
+s16 TWindowActionPalette__sub_801C1DE0(s32, s32, s32);
+s32 TWindowSubCustomEquip__sub_802760AC(void *, u8);
+s32 TWindowSubCustomEquip__sub_802760DC(void *, u8);
 
-void fn_80276114(void *arg0, void *arg1) {
+void TWindowSubCustomEquip__sub_80276114(void *arg0, void *arg1) {
     s32 temp_r31;
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r29;
 
-    if ((temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20)), (temp_r3 == 0U)) || (temp_r29 = fn_801B5B2C(temp_r3, 0), ((temp_r29 == 0) != 0))) {
+    if ((temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20)), (temp_r3 == 0U)) || (temp_r29 = TObjPlayer__sub_801B5B2C(temp_r3, 0), ((temp_r29 == 0) != 0))) {
         M2C_FIELD(arg1, s16 *, 0) = 0;
         M2C_FIELD(arg1, s16 *, 2) = 0;
         return;
     }
-    temp_r31 = fn_802760AC(arg0, M2C_FIELD(arg0, u8 *, 0x62));
-    temp_r3_2 = fn_802760DC(arg0, M2C_FIELD(arg0, u8 *, 0x61));
-    M2C_FIELD(arg1, s16 *, 0) = fn_801C1DE0(temp_r29, temp_r31, temp_r3_2);
-    M2C_FIELD(arg1, s16 *, 2) = fn_801C1D7C(temp_r29, temp_r31, temp_r3_2);
+    temp_r31 = TWindowSubCustomEquip__sub_802760AC(arg0, M2C_FIELD(arg0, u8 *, 0x62));
+    temp_r3_2 = TWindowSubCustomEquip__sub_802760DC(arg0, M2C_FIELD(arg0, u8 *, 0x61));
+    M2C_FIELD(arg1, s16 *, 0) = TWindowActionPalette__sub_801C1DE0(temp_r29, temp_r31, temp_r3_2);
+    M2C_FIELD(arg1, s16 *, 2) = TWindowActionPalette__sub_801C1D7C(temp_r29, temp_r31, temp_r3_2);
 }
 
 }

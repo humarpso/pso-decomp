@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 obj_isState2_324(s32);
-M2C_UNK fn_801BE3B4(s32);
+M2C_UNK TObjPlayer__sub_801BE3B4(s32);
 M2C_UNK fn_801C5AB8(s32);
 
-void fn_801B0FAC(s32 arg0) {
+void TObjPlayer__sub_801B0FAC(s32 arg0) {
     fn_801C5AB8(arg0 + 0x634);
     if (obj_isState2_324(arg0) != 0) {
-        fn_801BE3B4(arg0);
+        TObjPlayer__sub_801BE3B4(arg0);
     }
 }
 

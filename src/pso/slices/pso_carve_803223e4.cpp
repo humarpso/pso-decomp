@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8025B8C8(u32);
 
-s32 fn_803223E4(void *arg0) {
+s32 TAdEnterSerialAccessGC__sub_803223E4(void *arg0) {
     u32 temp_r3 = M2C_FIELD(arg0, u32 *, 0x20);
     if (temp_r3 == 0U) {
         return 0;

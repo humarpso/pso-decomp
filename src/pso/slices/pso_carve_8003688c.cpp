@@ -2,10 +2,10 @@
 
 extern "C" {
 
-int fn_8003691C(void* p);
-int fn_80036A90(void*, int);
+int TBoss2Joint__sub_8003691C(void* p);
+int TBoss2Joint__sub_80036A90(void*, int);
 
-int fn_8003688C(void) { return 0; }
-int fn_8003691C(void* p) { return fn_80036A90(p, 1); }
+int TBoss2Joint__sub_8003688C(void) { return 0; }
+int TBoss2Joint__sub_8003691C(void* p) { return TBoss2Joint__sub_80036A90(p, 1); }
 
 }

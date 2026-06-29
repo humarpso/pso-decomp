@@ -8,7 +8,7 @@ extern "C" {
 
 void *fn_8001ED80();
 
-s16 fn_8026B2E4(void) {
+s16 TWindowOptionCtrl__sub_8026B2E4(void) {
     return M2C_FIELD(fn_8001ED80(), s16 *, 0xC);
 }
 

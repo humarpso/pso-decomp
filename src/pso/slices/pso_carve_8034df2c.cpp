@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801B1848();
+M2C_UNK TObjPlayer__sub_801B1848();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 void fn_8034DF2C(void) {
@@ -15,7 +15,7 @@ void fn_8034DF2C(void) {
     var_r31 = 0;
     do {
         if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
-            fn_801B1848();
+            TObjPlayer__sub_801B1848();
         }
         var_r31 += 1;
     } while (var_r31 < 4);

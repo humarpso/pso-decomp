@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_80205FD0(void);
+void TScene__sub_80205FD0(void);
 
-void fn_80205FD0(void) {  }
+void TScene__sub_80205FD0(void) {  }
 
 }

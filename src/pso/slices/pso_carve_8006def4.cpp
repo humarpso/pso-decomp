@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8006DEF4(void);
+void TCameraCtrl__sub_8006DEF4(void);
 
-void fn_8006DEF4(void) {  }
+void TCameraCtrl__sub_8006DEF4(void) {  }
 
 }

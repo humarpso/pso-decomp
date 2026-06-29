@@ -11,12 +11,12 @@ M2C_UNK fn_80265C30(s32);
 M2C_UNK fn_80265F60(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 s32 fn_80266508(s32, M2C_UNK);
-s32 fn_802D4D9C();
+s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
 
 s32 fn_802D3ADC(s32 arg0, s32 arg1) {
     s32 var_r31 = arg1;
 
-    if (fn_802D4D9C() != 0) {
+    if (TAdSinglePlyChrSelectGC__sub_802D4D9C() != 0) {
         var_r31 = fn_80266508(arg1, 4);
         TObjCityMainWarp__sub_80266354(var_r31, fn_80132F2C(0x1E, 1), 6, 0);
         TObjCityMainWarp__sub_80266354(var_r31, fn_80132F2C(0x1E, 2), 6, 1);

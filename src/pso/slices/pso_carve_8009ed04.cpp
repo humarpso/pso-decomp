@@ -10,7 +10,7 @@ f32 fn_8002ADE4(f32);
 M2C_UNK fn_8009E334(void *);
 M2C_UNK fn_8009E350(void *);
 
-void fn_8009ED04(void *arg0) {
+void TObjEneMe1Canadin__sub_8009ED04(void *arg0) {
     if ((s32) fn_8002ADE4(M2C_FIELD(arg0, f32 *, 0x354)) == 0) {
         fn_8009E350(arg0);
         return;

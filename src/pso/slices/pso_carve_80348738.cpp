@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_803487DC();
-M2C_UNK fn_80348818(M2C_UNK, s32, s32);
+s32 TWindowDD__sub_803487DC();
+M2C_UNK TWindowDD__sub_80348818(M2C_UNK, s32, s32);
 
-void fn_80348738(s32 arg0, s32 arg1) {
-    if (fn_803487DC() > 0xF) {
-        fn_80348818(0xA, arg0, arg1);
+void TWindowDD__sub_80348738(s32 arg0, s32 arg1) {
+    if (TWindowDD__sub_803487DC() > 0xF) {
+        TWindowDD__sub_80348818(0xA, arg0, arg1);
         return;
     }
-    fn_80348818(0x20, arg0, arg1);
+    TWindowDD__sub_80348818(0x20, arg0, arg1);
 }
 
 }

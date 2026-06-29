@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80348AE8(void **arg0) {
+s32 TWindowDD__sub_80348AE8(void **arg0) {
     return *M2C_FIELD(M2C_FIELD(*arg0, void **, 0x20), s32 **, 0xC);
 }
 

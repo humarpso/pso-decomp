@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjWarpString__vt1(void *arg0);
-M2C_UNK fn_8019B6E4();
-M2C_UNK fn_8019B728();
-M2C_UNK fn_8019B744();
-M2C_UNK fn_8019B77C();
+M2C_UNK TObjWarpString__sub_8019B6E4();
+M2C_UNK TObjWarpString__sub_8019B728();
+M2C_UNK TObjWarpString__sub_8019B744();
+M2C_UNK TObjWarpString__sub_8019B77C();
 
 void TObjWarpString__vt1(void *arg0) {
     s32 temp_r0;
@@ -18,16 +18,16 @@ void TObjWarpString__vt1(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x4C);
     switch (temp_r0) {
     case 0:
-        fn_8019B77C();
+        TObjWarpString__sub_8019B77C();
         return;
     case 1:
-        fn_8019B744();
+        TObjWarpString__sub_8019B744();
         return;
     case 2:
-        fn_8019B728();
+        TObjWarpString__sub_8019B728();
         return;
     case 3:
-        fn_8019B6E4();
+        TObjWarpString__sub_8019B6E4();
         return;
     }
 }

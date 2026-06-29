@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801D6614(s16);
+s32 TFontSmallLobby__sub_801D6614(s16);
 
 s16 fn_801D5E28(void *arg0) {
     s16 var_r31;
 
     var_r31 = M2C_FIELD(arg0, s16 *, 2);
-    if (fn_801D6614(var_r31) == 0) {
+    if (TFontSmallLobby__sub_801D6614(var_r31) == 0) {
         var_r31 = 0;
     }
     return var_r31;

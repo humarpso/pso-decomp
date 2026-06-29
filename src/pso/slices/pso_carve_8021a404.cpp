@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_803094E8(void *a, s32 b);
 
-void fn_8021A404(void *arg0, void *arg1) {
+void TShopArmorListWindow__sub_8021A404(void *arg0, void *arg1) {
     void *r3 = M2C_FIELD(arg0, void **, 0x3C);
     if (r3 != 0) {
         s32 r4 = M2C_FIELD(arg1, s32 *, 0x10);

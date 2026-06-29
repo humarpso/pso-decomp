@@ -3,9 +3,9 @@
 extern "C" {
 
 void TWindowSubCustomEquip__sub_80276828(void* p);
-int fn_8027654C(void*, void*);
-int fn_802766C8(void*, void*);
+int TWindowSubCustomEquip__sub_8027654C(void*, void*);
+int TWindowSubCustomEquip__sub_802766C8(void*, void*);
 
-void TWindowSubCustomEquip__sub_80276828(void* p) { fn_802766C8(p, (void*)9); fn_802766C8(p, (void*)0); fn_8027654C(p, (void*)9); }
+void TWindowSubCustomEquip__sub_80276828(void* p) { TWindowSubCustomEquip__sub_802766C8(p, (void*)9); TWindowSubCustomEquip__sub_802766C8(p, (void*)0); TWindowSubCustomEquip__sub_8027654C(p, (void*)9); }
 
 }

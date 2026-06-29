@@ -9,7 +9,7 @@ extern "C" {
 s32 TObjFogCollisionSwitch__sub_80153A0C();
 u8 TODoorAncient08__sub_80229220(u16);
 
-u8 fn_80153420(void *arg0) {
+u8 TObjFogCollisionPoison__sub_80153420(void *arg0) {
     s32 temp_r31;
 
     temp_r31 = TObjFogCollisionSwitch__sub_80153A0C();

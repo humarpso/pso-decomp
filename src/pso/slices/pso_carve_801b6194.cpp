@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s16 fn_801B6194(s32 arg0, s16 *arg1, s16 arg2) {
+s16 TObjPlayer__sub_801B6194(s32 arg0, s16 *arg1, s16 arg2) {
     s16 temp_r3;
     s16 var_r6;
 

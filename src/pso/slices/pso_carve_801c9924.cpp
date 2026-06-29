@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 obj_testFlags30(s32, s32);
-s32 fn_801B25C4(s32);
+s32 TObjPlayer__sub_801B25C4(s32);
 s32 fn_801BEAB0();
 s32 fn_801CB874(s32);
 s32 fn_801D0BC0(s32, s32, s32);
@@ -27,7 +27,7 @@ void fn_801C9A18(s32 arg0) {
         fn_801D0BC0(arg0, 0xA, 5);
         return;
     }
-    if (fn_801B25C4(arg0) != 0) {
+    if (TObjPlayer__sub_801B25C4(arg0) != 0) {
         fn_801D0BC0(arg0, 0x13, 5);
     }
 }

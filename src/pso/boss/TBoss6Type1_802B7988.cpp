@@ -10,10 +10,10 @@ void TBoss6Type1__sub_802B7988(void *arg0);
 
 M2C_UNK TBoss6Type1__sub_802B78BC(void *);
 M2C_UNK TBoss6Type1__sub_802B7918(void *);
-M2C_UNK fn_802B7944();
+M2C_UNK TBoss6Type1__sub_802B7944();
 
 void TBoss6Type1__sub_802B7988(void *arg0) {
-    fn_802B7944();
+    TBoss6Type1__sub_802B7944();
     if (M2C_FIELD(arg0, s32 *, 0x418) & 1) {
         TBoss6Type1__sub_802B7918(arg0);
     }

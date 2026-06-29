@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8013379C(void);
+void TObjLight__sub_8013379C(void);
 
-void fn_8013379C(void) {  }
+void TObjLight__sub_8013379C(void) {  }
 
 }

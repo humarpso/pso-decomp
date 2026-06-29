@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801F9110();
-s32 fn_801F9144();
+s32 TRaderMapCore__sub_801F9110();
+s32 TRaderMapCore__sub_801F9144();
 void fn_8024C6CC(void* p);
 void fn_8024C6DC(void* p);
 void fn_8024C6EC(void* p);
@@ -38,11 +38,11 @@ void fn_8024C74C(void* p) { *(u16*)((char*)p + 0x1c) |= 0x10; }
 void fn_8024C75C(void* p) { *(u16*)((char*)p + 0x1c) &= 0xffffffef; }
 void fn_8024C76C(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) | 1);
-    fn_801F9110();
+    TRaderMapCore__sub_801F9110();
 }
 void fn_8024C798(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) & 0xFFFE);
-    fn_801F9144();
+    TRaderMapCore__sub_801F9144();
 }
 int fn_8024C7C4(void) { return 0; }
 int fn_8024C7D4(void* p) { return (*(u16*)((char*)p + 0x1c) >> 1) & 0x1; }

@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8028E3F4();
+s32 TCharaMaking__sub_8028E3F4();
 
-s32 fn_8028E434(void *arg0) {
+s32 TCharaMaking__sub_8028E434(void *arg0) {
     s8 temp;
 
     if (!(M2C_FIELD(arg0, s8 *, 0x32) & 0xA)) {
@@ -19,7 +19,7 @@ s32 fn_8028E434(void *arg0) {
         (temp >= 7)) {
         return M2C_FIELD(arg0, s8 *, 0x31);
     }
-    if (fn_8028E3F4() != 0) {
+    if (TCharaMaking__sub_8028E3F4() != 0) {
         return 0x12 - M2C_FIELD(arg0, s8 *, 0x1C);
     }
     return M2C_FIELD(arg0, s8 *, 0x31);

@@ -8,7 +8,7 @@ extern "C" {
 
 void *fn_8001E1D8(M2C_UNK);
 
-s32 fn_8004B354(void *arg0) {
+s32 TBoss4DarkFalz__sub_8004B354(void *arg0) {
     s32 var_r4;
 
     var_r4 = M2C_FIELD(fn_8001E1D8(0x35), s32 *, 0x18);

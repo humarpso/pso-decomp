@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8022675C(s32, s32, s32, s32);
-s32 fn_802AB2B8(void *, s32);
-int fn_802AACEC(void*);
-int fn_802AC86C(void*, void*);
+s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
+int TBoss6PlotFalz__sub_802AACEC(void*);
+int TBoss6PlotFalz__sub_802AC86C(void*, void*);
 void fn_802B09F4(void* p);
 void fn_802B0A34(void* p);
 
@@ -19,10 +19,10 @@ void fn_802B0984(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) > 0x12C) {
-        fn_802AB2B8(arg0, 1);
+        TBoss6PlotFalz__sub_802AB2B8(arg0, 1);
     }
 }
-void fn_802B09F4(void* p) { if (fn_802AACEC(p) != 0) { fn_802AC86C(p, (void*)2); } }
+void fn_802B09F4(void* p) { if (TBoss6PlotFalz__sub_802AACEC(p) != 0) { TBoss6PlotFalz__sub_802AC86C(p, (void*)2); } }
 void fn_802B0A34(void* p) { *(s32*)((char*)p + 0x3d0) = 0; *(s32*)((char*)p + 0x3cc) = 0; }
 
 }

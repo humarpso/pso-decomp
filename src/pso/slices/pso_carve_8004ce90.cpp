@@ -6,21 +6,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8004BA70();
+s32 TBoss4DarkFalz__sub_8004BA70();
 s32 fn_8022675C(s32, s32, s32, s32);
 s32 fn_8022743C();
 s32 TOTrapAncient01__sub_80226578(s32, s32, s32, s32, s32);
-s32 fn_8004B07C(s32);
-s32 fn_8004B1BC(s32, s32);
-s32 fn_8004B354();
-s32 fn_8004B3BC(s32);
-s32 fn_8004B77C(s32);
-s32 fn_8004BA18(s32);
+s32 TBoss4DarkFalz__sub_8004B07C(s32);
+s32 TBoss4DarkFalz__sub_8004B1BC(s32, s32);
+s32 TBoss4DarkFalz__sub_8004B354();
+s32 TBoss4DarkFalz__sub_8004B3BC(s32);
+s32 TBoss4DarkFalz__sub_8004B77C(s32);
+s32 TBoss4DarkFalz__sub_8004BA18(s32);
 void fn_8004CE90(void);
 
 void fn_8004CE90(void) {  }
 void fn_8004CE94(void *arg0) {
-    fn_8004BA70();
+    TBoss4DarkFalz__sub_8004BA70();
     fn_8022743C();
     fn_8022675C(0x4003A80B, 0, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x380) = 0;
@@ -29,15 +29,15 @@ void fn_8004CEE4(s32 arg0) {
     TOTrapAncient01__sub_80226578(0x4003A30A, arg0, 0, -0x18, 2);
 }
 void fn_8004CF1C(s32 arg0) {
-    if ((fn_8004B354() != 0) || (fn_8004B07C(arg0) != 0)) {
-        fn_8004B1BC(arg0, 5);
+    if ((TBoss4DarkFalz__sub_8004B354() != 0) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
+        TBoss4DarkFalz__sub_8004B1BC(arg0, 5);
     }
 }
 void fn_8004CF6C(s32 arg0) {
     fn_8022675C(0x4003AD0C, 0, 0, 0);
-    fn_8004BA18(arg0);
-    fn_8004B77C(arg0);
-    fn_8004B3BC(arg0);
+    TBoss4DarkFalz__sub_8004BA18(arg0);
+    TBoss4DarkFalz__sub_8004B77C(arg0);
+    TBoss4DarkFalz__sub_8004B3BC(arg0);
 }
 
 }

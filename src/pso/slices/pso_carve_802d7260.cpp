@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *fn_802D732C();
+void *TObjNpcEnemy__sub_802D732C();
 
 void fn_802D7260(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     void *temp_r3;
 
-    temp_r3 = fn_802D732C();
+    temp_r3 = TObjNpcEnemy__sub_802D732C();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s16 *, 0) = arg0;
         M2C_FIELD(temp_r3, s16 *, 2) = 0;

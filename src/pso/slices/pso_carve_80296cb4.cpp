@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_80296CB4(void *arg0) {
+void TObjCMAssignMenu__sub_80296CB4(void *arg0) {
     s32 temp_r0;
     s32 var_ctr;
     s32 var_r4;

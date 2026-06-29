@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TOVS2Wall01__vt4(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK fn_8017BCC8();
+M2C_UNK TOVS2Wall01__sub_8017BCC8();
 
 void TOVS2Wall01__vt4(void *arg0, s16 *arg1, s32 arg2) {
     s32 temp_r0;
@@ -23,7 +23,7 @@ void TOVS2Wall01__vt4(void *arg0, s16 *arg1, s32 arg2) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x33C) = 0;
         if (arg2 != 0) {
-            fn_8017BCC8();
+            TOVS2Wall01__sub_8017BCC8();
         }
     }
 }

@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK fn_802340A0(s32);
+M2C_UNK TTecLuker__sub_802340A0(s32);
 
-void fn_80233DA8(void) {
+void TTecLuker__sub_80233DA8(void) {
     s32 var_r31;
     u32 temp_r3;
 
@@ -17,7 +17,7 @@ void fn_80233DA8(void) {
     do {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
         if (temp_r3 != 0U) {
-            fn_802340A0(temp_r3 + 0x830);
+            TTecLuker__sub_802340A0(temp_r3 + 0x830);
         }
         var_r31 += 1;
     } while (var_r31 < 4);

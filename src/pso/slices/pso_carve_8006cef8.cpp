@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_80019690();
 void *fn_803DEB74(M2C_UNK);
 
-s32 fn_8006CEF8(void) {
+s32 TCameraCtrl__sub_8006CEF8(void) {
     if (fn_80019690() != 0) {
         return 0;
     }

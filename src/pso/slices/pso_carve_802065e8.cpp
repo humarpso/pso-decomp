@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void fn_802065E8(void);
-void fn_802065EC(void);
+void TScene__sub_802065E8(void);
+void TScene__sub_802065EC(void);
 
-void fn_802065E8(void) {  }
-void fn_802065EC(void) {  }
+void TScene__sub_802065E8(void) {  }
+void TScene__sub_802065EC(void) {  }
 
 }

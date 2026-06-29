@@ -8,11 +8,11 @@ extern "C" {
 
 s32 fn_8000F8FC();
 int fn_80132F2C(void*, void*);
-void fn_80170570(void);
+void TOMineTrap__sub_80170570(void);
 
-void fn_80170570(void) {  }
-void fn_80170574(void) { fn_80132F2C((void*)16, (void*)16); }
-void fn_8017059C(void *arg0) {
+void TOMineTrap__sub_80170570(void) {  }
+void TOMineTrap__sub_80170574(void) { fn_80132F2C((void*)16, (void*)16); }
+void TOMineTrap__sub_8017059C(void *arg0) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0x348) = (s32) M2C_FIELD(arg0, f32 *, 0x70);

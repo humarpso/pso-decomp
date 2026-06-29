@@ -9,12 +9,12 @@ extern "C" {
 s32 fn_80099EF8();
 M2C_UNK TItem__sub_801015EC(s32, M2C_UNK);
 M2C_UNK fn_8011AA44(s32, s32);
-u32 fn_801B8E68(u32, s32);
+u32 TObjPlayer__sub_801B8E68(u32, s32);
 M2C_UNK fn_8020C5E0(s32);
 
-void fn_8010213C(s32 arg0, s32 arg1, u32 arg2) {
+void TItem__sub_8010213C(s32 arg0, s32 arg1, u32 arg2) {
     fn_8011AA44(arg1, fn_80099EF8());
-    if ((arg2 != 0U) && (fn_801B8E68(arg2, arg0) != 0U)) {
+    if ((arg2 != 0U) && (TObjPlayer__sub_801B8E68(arg2, arg0) != 0U)) {
         TItem__sub_801015EC(arg0, 1);
         fn_8020C5E0(arg0);
     }

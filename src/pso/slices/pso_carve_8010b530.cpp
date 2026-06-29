@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_801103F4(s16);
-s32 fn_8001972C();
-void fn_8010B620(void);
+s32 TObjPlayer__sub_8001972C();
+void TItemEquipBase__sub_8010B620(void);
 
-void fn_8010B530(void *arg0) {
+void TItemEquipBase__sub_8010B530(void *arg0) {
     s16 temp = M2C_FIELD(arg0, s16 *, 0x172);
     if (temp != -1) {
         fn_801103F4(temp);
@@ -23,10 +23,10 @@ void fn_8010B530(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x184) = 0;
     }
 }
-int fn_8010B58C(void* a0 = 0, void* a1 = 0) { return 0; }
-void fn_8010B5E8(s32 arg0) {
-    fn_8010B58C((void*)(arg0), (void*)(fn_8001972C()));
+int TItemEquipBase__sub_8010B58C(void* a0 = 0, void* a1 = 0) { return 0; }
+void TItemEquipBase__sub_8010B5E8(s32 arg0) {
+    TItemEquipBase__sub_8010B58C((void*)(arg0), (void*)(TObjPlayer__sub_8001972C()));
 }
-void fn_8010B620(void) {  }
+void TItemEquipBase__sub_8010B620(void) {  }
 
 }

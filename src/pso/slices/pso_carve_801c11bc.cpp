@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void fn_801C11BC(void *arg0)
+void TObjPlayer__sub_801C11BC(void *arg0)
 {
   *((s16 *) (((s8 *) arg0) + 4)) = 0;
   *((s16 *) (((s8 *) arg0) + 6)) = 0;

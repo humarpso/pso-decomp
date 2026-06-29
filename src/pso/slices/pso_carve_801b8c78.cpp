@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_801D49F4(s32, void *, s32, s32, void *);
 
-void fn_801B8C78(void *arg0, s32 arg1, s32 arg2) {
+void TObjPlayer__sub_801B8C78(void *arg0, s32 arg1, s32 arg2) {
     fn_801D49F4(M2C_FIELD(arg0, s32 *, 0xD00), arg0, arg1, arg2, arg0);
 }
 

@@ -8,12 +8,12 @@ extern "C" {
 
 s32 fn_8000F8FC();
 s32 fn_80019690();
-s32 fn_802AAC74(void);
+s32 TBoss6PlotFalz__sub_802AAC74(void);
 void TBoss6PlotFalz__sub_802AAC98(void* p);
-int fn_802AACEC(void);
+int TBoss6PlotFalz__sub_802AACEC(void);
 
-s32 fn_802AAC00(void *arg0, s16 *arg1, s16 *arg2) {
-    if (fn_802AAC74() < 1) {
+s32 TBoss6PlotFalz__sub_802AAC00(void *arg0, s16 *arg1, s16 *arg2) {
+    if (TBoss6PlotFalz__sub_802AAC74() < 1) {
         return 0;
     }
     *arg1 = M2C_FIELD(arg0, s16 *, 0x2C) + M2C_FIELD(arg0, s32 *, 0x3C8);
@@ -21,9 +21,9 @@ s32 fn_802AAC00(void *arg0, s16 *arg1, s16 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) + 1);
     return 1;
 }
-s32 fn_802AAC74(void) { return 0; }
+s32 TBoss6PlotFalz__sub_802AAC74(void) { return 0; }
 void TBoss6PlotFalz__sub_802AAC98(void* p) { *(s32*)((char*)p + 0x3c8) = 1; }
-u8 fn_802AACA4(void) {
+u8 TBoss6PlotFalz__sub_802AACA4(void) {
     s32 var_r31;
 
     var_r31 = 0;
@@ -32,6 +32,6 @@ u8 fn_802AACA4(void) {
     }
     return (u8) var_r31;
 }
-int fn_802AACEC(void) { return 0; }
+int TBoss6PlotFalz__sub_802AACEC(void) { return 0; }
 
 }

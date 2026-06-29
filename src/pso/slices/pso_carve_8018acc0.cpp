@@ -2,8 +2,8 @@
 
 extern "C" {
 
-int fn_8018ACC0(void);
+int TContainerAncient01__sub_8018ACC0(void);
 
-int fn_8018ACC0(void) { return 1; }
+int TContainerAncient01__sub_8018ACC0(void) { return 1; }
 
 }

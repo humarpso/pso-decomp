@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80154954(void *, s16 *);
 s32 fn_80156A80(void *, s16 *, M2C_UNK);
 
-void fn_801709EC(void *arg0) {
+void TOMineTrap__sub_801709EC(void *arg0) {
     s16 sp8;
 
     if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x4000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (fn_80156A80(arg0, &sp8, 1) != 0)) {

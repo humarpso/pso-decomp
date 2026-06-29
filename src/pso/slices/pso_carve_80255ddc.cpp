@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 fn_80211608();
-s32 fn_80255DDC(void* p);
+s32 TWindowHelpItem__sub_80255DDC(void* p);
 void TWindowHelpItem__sub_80255DE4(void* p);
 s16 fn_80255DF4(void* p);
 s16 fn_80255DFC(void* p);
@@ -17,7 +17,7 @@ s16 fn_80255E04(void* p);
 s16 TWindowSubStatusDisp__sub_80255E0C(void* p);
 void TWindowSubMag__sub_80255E14(void* p);
 
-s32 fn_80255DDC(void* p) { return *(s32*)((char*)p + 0x1c); }
+s32 TWindowHelpItem__sub_80255DDC(void* p) { return *(s32*)((char*)p + 0x1c); }
 void TWindowHelpItem__sub_80255DE4(void* p) { *(u16*)((char*)p + 0x0) |= 0x20; }
 s16 fn_80255DF4(void* p) { return *(s16*)((char*)p + 0x2fa); }
 s16 fn_80255DFC(void* p) { return *(s16*)((char*)p + 0x2f8); }

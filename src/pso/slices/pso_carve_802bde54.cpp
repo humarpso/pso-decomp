@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_802BD6D0(void *, s32, s32);
+M2C_UNK TBoss6Type2__sub_802BD6D0(void *, s32, s32);
 M2C_UNK fn_8032E710(s32, u16);
 
-void fn_802BDE54(void *arg0, void *arg1) {
+void TBoss6Type2__sub_802BDE54(void *arg0, void *arg1) {
     M2C_FIELD(arg0, u8 *, 0x478) = (u8) M2C_FIELD(arg1, u8 *, 8);
     M2C_FIELD(arg0, s32 *, 0x47C) = (s32) (s8) M2C_FIELD(arg1, u8 *, 9);
-    fn_802BD6D0(arg0, M2C_FIELD(arg1, s8 *, 0xA), M2C_FIELD(arg1, s8 *, 0xB));
+    TBoss6Type2__sub_802BD6D0(arg0, M2C_FIELD(arg1, s8 *, 0xA), M2C_FIELD(arg1, s8 *, 0xB));
     M2C_FIELD(arg0, u16 *, 0x464) = (u16) (s8) M2C_FIELD(arg1, u8 *, 0xC);
     M2C_FIELD(arg0, u16 *, 0x466) = (u16) (s8) M2C_FIELD(arg1, u8 *, 0xD);
     M2C_FIELD(arg0, u16 *, 0x468) = (u16) (s8) M2C_FIELD(arg1, u8 *, 0xE);

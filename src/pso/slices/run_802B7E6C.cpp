@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802B7E6C(void *arg0) {
+s32 TBoss6Type1__sub_802B7E6C(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x4B0) - M2C_FIELD(arg0, s16 *, 0x32C);
 }
 
-void fn_802B7E7C(void *arg0) {
+void TBoss6Type1__sub_802B7E7C(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4B0) = (s32) M2C_FIELD(arg0, s16 *, 0x32C);
 }
 

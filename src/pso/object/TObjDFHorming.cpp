@@ -9,7 +9,7 @@ extern "C" {
 u8 TObjDFHorming__sub_8004AD4C(void);
 
 u32 fn_8004C1AC();
-s32 fn_8004C1D4();
+s32 TBoss4DarkFalz__sub_8004C1D4();
 
 u8 TObjDFHorming__sub_8004AD4C(void) {
     int var_r31;
@@ -17,9 +17,9 @@ u8 TObjDFHorming__sub_8004AD4C(void) {
     var_r31 = 0;
     if (fn_8004C1AC() != 0U) {
         fn_8004C1AC();
-        if (fn_8004C1D4() != 3) {
+        if (TBoss4DarkFalz__sub_8004C1D4() != 3) {
             fn_8004C1AC();
-            if (fn_8004C1D4() != 2) {
+            if (TBoss4DarkFalz__sub_8004C1D4() != 2) {
                 var_r31 = 1;
             }
         }

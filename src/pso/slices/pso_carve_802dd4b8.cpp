@@ -14,7 +14,7 @@ M2C_UNK fn_802D50A8(u32, M2C_UNK);
 M2C_UNK fn_802E0008(s32);
 s32 fn_802E00C4(s32);
 u32 fn_802E0100();
-M2C_UNK fn_803490AC();
+M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 
 void fn_802DD4B8(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
@@ -45,7 +45,7 @@ void fn_802DD4B8(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x80) = 0U;
         }
         if (fn_802E0100() != 0U) {
-            fn_803490AC();
+            TAdChrMoveEffectGC__sub_803490AC();
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 0x12;
     }

@@ -9,7 +9,7 @@ extern "C" {
 void TWindowKeyBoardSoft__sub_8025D994(void *arg0);
 void TWindowKeyBoardSoft__sub_8025DA18(void *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025D338(void *, void *);
-s32 fn_8025D378(void *, void *);
+s32 TWindowKeyBoardSoft__sub_8025D378(void *, void *);
 M2C_UNK fn_803E6868(void *, void *);
 M2C_UNK fn_803E689C(void *, void *);
 
@@ -24,7 +24,7 @@ void TWindowKeyBoardSoft__sub_8025D994(void *arg0) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0xA8) > (s32) M2C_FIELD(arg0, s32 *, 0xAC)) {
                 M2C_FIELD(arg0, s32 *, 0xA8) = 1;
             }
-        } while (fn_8025D378(arg0, &sp8) == 0);
+        } while (TWindowKeyBoardSoft__sub_8025D378(arg0, &sp8) == 0);
         TWindowKeyBoardSoft__sub_8025D338(arg0, &sp8);
     }
 }
@@ -40,7 +40,7 @@ void TWindowKeyBoardSoft__sub_8025DA18(void *arg0) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0xA8) <= 0) {
                 M2C_FIELD(arg0, s32 *, 0xA8) = (s32) M2C_FIELD(arg0, s32 *, 0xAC);
             }
-        } while (fn_8025D378(arg0, sp8) == 0);
+        } while (TWindowKeyBoardSoft__sub_8025D378(arg0, sp8) == 0);
         TWindowKeyBoardSoft__sub_8025D338(arg0, sp8);
     }
 }

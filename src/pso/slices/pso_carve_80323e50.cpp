@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_80323E50(void *arg0) {
+void TBoss6Mine__sub_80323E50(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x380) != 7) {
         M2C_FIELD(arg0, s32 *, 0x380) = 7;
     }

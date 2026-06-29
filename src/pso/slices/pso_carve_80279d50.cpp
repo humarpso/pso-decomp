@@ -11,7 +11,7 @@ s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK fn_802661D4(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 
-void fn_80279D50(s32 arg0, s32 arg1) {
+void TWindowSubItem__sub_80279D50(s32 arg0, s32 arg1) {
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         fn_802661D4(arg1, TWindowSubStatusDisp__sub_80077760(0x5F), 6, 6);
         return;

@@ -8,7 +8,7 @@ extern "C" {
 
 s16 obj_getField1c(u32);
 
-void fn_8006782C(void *arg0, u32 arg1) {
+void TCameraCtrl__sub_8006782C(void *arg0, u32 arg1) {
     M2C_FIELD(arg0, u32 *, 0x1C) = arg1;
     if (arg1 != 0U) {
         M2C_FIELD(arg0, s16 *, 0x20) = obj_getField1c(arg1);

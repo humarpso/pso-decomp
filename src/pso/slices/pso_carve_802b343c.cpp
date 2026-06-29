@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B73AC();
-M2C_UNK fn_802B865C(void *, s32);
+M2C_UNK TBoss6Type1__sub_802B865C(void *, s32);
 
 void fn_802B343C(void *arg0) {
     s32 temp_r0;
@@ -22,13 +22,13 @@ void fn_802B343C(void *arg0) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x374);
         switch (temp_r4) {
         case 11:
-            fn_802B865C(arg0, 0x1C);
+            TBoss6Type1__sub_802B865C(arg0, 0x1C);
             return;
         case 16:
-            fn_802B865C(arg0, 0x24);
+            TBoss6Type1__sub_802B865C(arg0, 0x24);
             return;
         default:
-            fn_802B865C(arg0, temp_r4 - 1);
+            TBoss6Type1__sub_802B865C(arg0, temp_r4 - 1);
             break;
         }
     }

@@ -11,7 +11,7 @@ s32 fn_800F5EB4(s32, M2C_UNK);
 M2C_UNK fn_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 s32 TObjEneDellBiter__sub_803059BC(s32, s32);
 
-void fn_80305BDC(s32 arg0) {
+void TObjEneDellBiter__sub_80305BDC(s32 arg0) {
     if (TObjEneDellBiter__sub_803059BC(arg0, arg0 + 0x38) != 0) {
         fn_800D8988(arg0 + 0x38);
         return;

@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneRe4Sorcerer__sub_800EF0F4(void *arg0, s32 arg1);
 
-M2C_UNK fn_800BBA18(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
 void TObjEneRe4Sorcerer__sub_800EF0F4(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -17,7 +17,7 @@ void TObjEneRe4Sorcerer__sub_800EF0F4(void *arg0, s32 arg1) {
         break;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x4E4) >= 2) {
-            fn_800BBA18(arg0, 1);
+            TObjEneDD__sub_800BBA18(arg0, 1);
         }
         break;
     case 5:

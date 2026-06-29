@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_80066E84(void);
+void TBoss5GryphonSnarl__sub_80066E84(void);
 
-void fn_80066E84(void) {  }
+void TBoss5GryphonSnarl__sub_80066E84(void) {  }
 
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801151A8(void *arg0) {
+s32 TItemMagSub__sub_801151A8(void *arg0) {
     s32 temp_r3;
     void **temp_r4_2;
     void *temp_r3_2;

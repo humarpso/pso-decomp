@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8025A900(void);
+void TWindowHelpItem__sub_8025A900(void);
 
-void fn_8025A900(void) {  }
+void TWindowHelpItem__sub_8025A900(void) {  }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_8013E308(s32);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 
-s32 fn_801B49C0(u16 arg0) {
+s32 TObjPlayer__sub_801B49C0(u16 arg0) {
     u32 temp_r3;
     void *temp_r3_2;
 

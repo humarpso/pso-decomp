@@ -8,7 +8,7 @@ s32 fn_802034EC();
 void TObjPlayer__sub_801BCED8(void* p);
 int queue_destruction__7TObjectFv(void*);
 
-void fn_801BCE90(s32 arg0) {
+void TObjPlayer__sub_801BCE90(s32 arg0) {
     if (fn_802034EC() != 0) {
         fn_801BE9A8(arg0);
         return;

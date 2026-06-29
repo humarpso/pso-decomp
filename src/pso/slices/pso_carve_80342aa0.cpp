@@ -10,12 +10,12 @@ s32 fn_80342F84();
 s32 fn_803430BC(void *);
 M2C_UNK fn_8034330C(void *);
 M2C_UNK fn_803435A0(void *);
-M2C_UNK fn_80347B70(void *);
-M2C_UNK fn_80347C50();
+M2C_UNK TWindowDD__sub_80347B70(void *);
+M2C_UNK TWindowDD__sub_80347C50();
 M2C_UNK TWindowDD__sub_80348248();
-M2C_UNK fn_8034827C();
-s32 fn_803482B0(void *);
-s32 fn_80348304(void *);
+M2C_UNK TWindowDD__sub_8034827C();
+s32 TWindowDD__sub_803482B0(void *);
+s32 TWindowDD__sub_80348304(void *);
 
 void fn_80342AA0(void *arg0) {
     s32 temp_r0;
@@ -25,12 +25,12 @@ void fn_80342AA0(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
     switch (temp_r0) {
     case 0:
-        fn_80347C50();
-        fn_80347B70(arg0);
-        if (fn_80348304(arg0) != 0) {
-            fn_8034827C();
+        TWindowDD__sub_80347C50();
+        TWindowDD__sub_80347B70(arg0);
+        if (TWindowDD__sub_80348304(arg0) != 0) {
+            TWindowDD__sub_8034827C();
             var_r31 = fn_803430BC(arg0) == 0;
-        } else if (fn_803482B0(arg0) != 0) {
+        } else if (TWindowDD__sub_803482B0(arg0) != 0) {
             TWindowDD__sub_80348248();
             fn_8034330C(arg0);
         }

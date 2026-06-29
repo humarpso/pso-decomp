@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8014F57C(void *, s32);
 
-s32 fn_8014FD24(void *arg0) {
+s32 TNpcPlayer__sub_8014FD24(void *arg0) {
     if (fn_8014F57C(arg0, M2C_FIELD(arg0, s32 *, 0x94) + 0x38) != 0) {
         M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 2);
         return 1;

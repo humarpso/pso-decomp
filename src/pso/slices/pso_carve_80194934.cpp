@@ -10,7 +10,7 @@ s32 TObjMapCsn__sub_8007A728();
 s32 TObjMapCsn__ct(s32, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 
-s32 fn_80194934(s32 arg0) {
+s32 TObjMapCsn__sub_80194934(s32 arg0) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x254);

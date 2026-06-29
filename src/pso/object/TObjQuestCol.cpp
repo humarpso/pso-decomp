@@ -10,9 +10,9 @@ s32 TObjQuestCol__vt13(void *arg0);
 void TObjQuestCol__vt14(void* p);
 s32 fn_80196B80(f32);
 int fn_80197094(void*);
-int fn_801F5BD4(void*);
+int TQuestThread__sub_801F5BD4(void*);
 
-void TObjQuestCol__vt14(void* p) { fn_80197094(p); fn_801F5BD4(*(void**)((char*)p + 0xb0)); }
+void TObjQuestCol__vt14(void* p) { fn_80197094(p); TQuestThread__sub_801F5BD4(*(void**)((char*)p + 0xb0)); }
 
 s32 TObjQuestCol__vt13(void *arg0) {
     return (u32)__cntlzw(1 - fn_80196B80(M2C_FIELD(arg0, f32 *, 0xAC))) >> 5;

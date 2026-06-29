@@ -4,7 +4,7 @@ extern "C" {
 
 s32 TLobby__sub_80076BC8(void *);
 s32 fn_80076F88(void *);
-s32 fn_80348C78(void *);
+s32 TWindowDD__sub_80348C78(void *);
 void fn_80076D1C(void);
 int fn_80076E2C(void);
 int fn_80076CD0(void);
@@ -19,7 +19,7 @@ void fn_80076C68(s32 *arg0) {
         TLobby__sub_80076BC8((s8 *)arg0 + 4);
         return;
     case 2:
-        fn_80348C78((s8 *)arg0 + 4);
+        TWindowDD__sub_80348C78((s8 *)arg0 + 4);
         return;
     case 3:
         fn_80076F88((s8 *)arg0 + 4);

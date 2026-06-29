@@ -20,7 +20,7 @@ int TObjEneMe1Canadin__vt114(void);
 
 void TObjEneMe1CanadinLeader__sub_8009E238(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x40; }
 void TObjEneMe1CanadinLeader__sub_8009E248(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x20; }
-int fn_8009E258(void) { return 0; }
+int TObjEneMe1CanadinLeader__sub_8009E258(void) { return 0; }
 void TObjEneMe1CanadinLeader__sub_8009E26C(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x8; }
 void fn_8009E27C(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x4; }
 void fn_8009E28C(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x2; }

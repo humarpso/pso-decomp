@@ -8,7 +8,7 @@ extern "C" {
 
 void TNpcPlayer__sub_801509D0(void *arg0);
 
-M2C_UNK fn_80150050(void *);
+M2C_UNK TNpcPlayer__sub_80150050(void *);
 M2C_UNK TNpcPlayer__sub_801529D0(s32);
 
 void TNpcPlayer__sub_801509D0(void *arg0) {
@@ -19,7 +19,7 @@ void TNpcPlayer__sub_801509D0(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x28);
     switch (temp_r0) {
     case 0:
-        fn_80150050(arg0);
+        TNpcPlayer__sub_80150050(arg0);
         M2C_FIELD(arg0, s32 *, 0x28) = 1;
     case 1:
         return;

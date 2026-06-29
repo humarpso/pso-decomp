@@ -15,17 +15,17 @@ void TItemMag__sub_801131E4(void *arg0);
 int TItemMag__sub_80112E20(void*, void*);
 M2C_UNK TItemMag__sub_80112EE4(void *);
 M2C_UNK fn_80100564(void *, M2C_UNK);
-M2C_UNK fn_80112BC4(void *, M2C_UNK);
-M2C_UNK fn_80112F44(void *);
-M2C_UNK fn_80112FB4();
+M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
+M2C_UNK TItemMag__sub_80112F44(void *);
+M2C_UNK TItemMag__sub_80112FB4();
 
 void TItemMag__sub_80113088(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1CC) == 0) {
-        fn_80112FB4();
+        TItemMag__sub_80112FB4();
     }
     TItemMag__sub_80112EE4(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1D0) <= (s32) M2C_FIELD(arg0, s32 *, 0x1CC)) {
-        fn_80112F44(arg0);
+        TItemMag__sub_80112F44(arg0);
         TItemMag__sub_80112E20((void*)(arg0), (void*)(1));
     }
     if ((M2C_FIELD(arg0, s32 *, 0x1CC) % 60) == 0) {
@@ -51,7 +51,7 @@ void TItemMag__sub_801131A4(void *arg0) {
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);
     if (temp_r0 == 0x5A) {
-        fn_80112BC4(arg0, 0x11);
+        TItemMag__sub_80112BC4(arg0, 0x11);
         return;
     }
     if (temp_r0 > 0x5A) {
@@ -67,7 +67,7 @@ void TItemMag__sub_801131E4(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);
     if (temp_r0 == 0x5A) {
         if (obj_getS16_32C(M2C_FIELD(arg0, s32 *, 0xF0)) > 0) {
-            fn_80112BC4(arg0, 0xF);
+            TItemMag__sub_80112BC4(arg0, 0xF);
         }
     } else if (temp_r0 > 0x5A) {
         TItemMag__sub_80112E20((void*)(arg0), (void*)(1));

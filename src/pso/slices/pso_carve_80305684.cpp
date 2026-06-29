@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_80305684(void);
+void TObjEneDellBiter__sub_80305684(void);
 
-void fn_80305684(void) {  }
+void TObjEneDellBiter__sub_80305684(void) {  }
 
 }
