@@ -1842,6 +1842,9 @@ pso/misc/TWindowKeyBoardBase_80081118.cpp:
 pso/slices/pso_carve_80081944.cpp:
 	.text       start:0x80081944 end:0x8008194C
 
+pso/slices/pso_carve_8008194c.cpp:
+	.text       start:0x8008194C end:0x8008197C
+
 pso/slices/pso_carve_80081b24.cpp:
 	.text       start:0x80081B24 end:0x80081B2C
 
@@ -4046,6 +4049,9 @@ pso/slices/pso_carve_80116568.cpp:
 
 pso/slices/pso_carve_8011679c.cpp:
 	.text       start:0x8011679C end:0x801167E8
+
+pso/slices/pso_carve_80116bbc.cpp:
+	.text       start:0x80116BBC end:0x80116BEC
 
 pso/slices/pso_carve_80116cd8.cpp:
 	.text       start:0x80116CD8 end:0x80116CFC
@@ -7143,6 +7149,42 @@ pso/slices/pso_carve_801be244.cpp:
 pso/slices/pso_carve_801be3b4.cpp:
 	.text       start:0x801BE3B4 end:0x801BE3D8
 
+pso/slices/pso_carve_801be3d8.cpp:
+	.text       start:0x801BE3D8 end:0x801BE40C
+
+pso/slices/pso_carve_801be40c.cpp:
+	.text       start:0x801BE40C end:0x801BE440
+
+pso/slices/pso_carve_801be440.cpp:
+	.text       start:0x801BE440 end:0x801BE474
+
+pso/slices/pso_carve_801be474.cpp:
+	.text       start:0x801BE474 end:0x801BE4A8
+
+pso/slices/pso_carve_801be4a8.cpp:
+	.text       start:0x801BE4A8 end:0x801BE4DC
+
+pso/slices/pso_carve_801be4dc.cpp:
+	.text       start:0x801BE4DC end:0x801BE510
+
+pso/slices/pso_carve_801be510.cpp:
+	.text       start:0x801BE510 end:0x801BE544
+
+pso/slices/pso_carve_801be544.cpp:
+	.text       start:0x801BE544 end:0x801BE578
+
+pso/slices/pso_carve_801be578.cpp:
+	.text       start:0x801BE578 end:0x801BE5AC
+
+pso/slices/pso_carve_801be5ac.cpp:
+	.text       start:0x801BE5AC end:0x801BE5E0
+
+pso/slices/pso_carve_801be5e0.cpp:
+	.text       start:0x801BE5E0 end:0x801BE614
+
+pso/slices/pso_carve_801be614.cpp:
+	.text       start:0x801BE614 end:0x801BE648
+
 pso/slices/pso_carve_801be648.cpp:
 	.text       start:0x801BE648 end:0x801BE66C
 
@@ -7643,6 +7685,9 @@ pso/slices/pso_carve_801d0b24.cpp:
 
 pso/slices/pso_carve_801d0d10.cpp:
 	.text       start:0x801D0D10 end:0x801D0F0C
+
+pso/slices/pso_carve_801d0f0c.cpp:
+	.text       start:0x801D0F0C end:0x801D0F40
 
 pso/slices/pso_carve_801d0f40.cpp:
 	.text       start:0x801D0F40 end:0x801D0FAC
