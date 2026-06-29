@@ -1751,6 +1751,9 @@ pso/enemy/TObjEneRe7Berura_80092C90.cpp:
 pso/slices/pso_carve_80094db4.cpp:
 	.text       start:0x80094DB4 end:0x80094DC0
 
+pso/slices/pso_carve_80094dc0.cpp:
+	.text       start:0x80094DC0 end:0x80094DEC
+
 pso/slices/pso_carve_80094dec.cpp:
 	.text       start:0x80094DEC end:0x80094EA8
 
@@ -3398,6 +3401,9 @@ pso/item/TItemMagSub_80110F90.cpp:
 pso/slices/pso_carve_801112b0.cpp:
 	.text       start:0x801112B0 end:0x8011137C
 
+pso/slices/pso_carve_80111828.cpp:
+	.text       start:0x80111828 end:0x80111978
+
 pso/slices/pso_carve_8011222c.cpp:
 	.text       start:0x8011222C end:0x80112360
 
@@ -3793,6 +3799,9 @@ pso/slices/pso_carve_801227e0.cpp:
 
 pso/slices/pso_carve_80122924.cpp:
 	.text       start:0x80122924 end:0x80122958
+
+pso/slices/pso_carve_80122b74.cpp:
+	.text       start:0x80122B74 end:0x80122BE4
 
 pso/slices/pso_carve_80122e24.cpp:
 	.text       start:0x80122E24 end:0x80122E60
@@ -4342,6 +4351,9 @@ pso/slices/pso_carve_8013ccec.cpp:
 
 pso/slices/pso_carve_8013cd88.cpp:
 	.text       start:0x8013CD88 end:0x8013CDE4
+
+pso/slices/pso_carve_8013d434.cpp:
+	.text       start:0x8013D434 end:0x8013D4A0
 
 pso/misc/TLockOnCursor_8013DA64.cpp:
 	.text       start:0x8013DA64 end:0x8013DAB0
@@ -9206,6 +9218,9 @@ pso/misc/TWindowSubItem.cpp:
 pso/misc/TWindowSubItem_80279858.cpp:
 	.text       start:0x80279858 end:0x802798F4
 
+pso/slices/pso_carve_80279cb8.cpp:
+	.text       start:0x80279CB8 end:0x80279D50
+
 pso/slices/pso_carve_80279d50.cpp:
 	.text       start:0x80279D50 end:0x80279DC0
 
@@ -9253,6 +9268,9 @@ pso/misc/TWindowSubQuestBoard.cpp:
 
 pso/slices/pso_carve_8027d1c8.cpp:
 	.text       start:0x8027D1C8 end:0x8027D1F8
+
+pso/slices/pso_carve_8027d2ec.cpp:
+	.text       start:0x8027D2EC end:0x8027D3BC
 
 pso/misc/TWindowSubQuestBoardSelect_8027D3BC.cpp:
 	.text       start:0x8027D3BC end:0x8027D444
@@ -10549,6 +10567,9 @@ pso/slices/pso_carve_802cabe4.cpp:
 
 pso/slices/pso_carve_802cac80.cpp:
 	.text       start:0x802CAC80 end:0x802CAC88
+
+pso/slices/pso_carve_802cac88.cpp:
+	.text       start:0x802CAC88 end:0x802CACD8
 
 pso/slices/pso_carve_802cad50.cpp:
 	.text       start:0x802CAD50 end:0x802CAD98
@@ -13076,6 +13097,9 @@ pso/slices/pso_carve_8036c3f8.cpp:
 
 pso/slices/pso_carve_8036c440.cpp:
 	.text       start:0x8036C440 end:0x8036C490
+
+pso/slices/pso_carve_8036c4e0.cpp:
+	.text       start:0x8036C4E0 end:0x8036C5C8
 
 pso/slices/pso_carve_8036c5c8.cpp:
 	.text       start:0x8036C5C8 end:0x8036C64C
