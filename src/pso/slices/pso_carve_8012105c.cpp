@@ -32,7 +32,7 @@ int fn_801210D0(void* p) { return TObjPlayer__sub_801D2F4C((char*)p + 0x7cc); }
 void* fn_801210F4(void* p) { return TObjPlayer__sub_80121178((char*)p + 0x7cc); }
 int fn_80121118(void* p) { return TObjPlayer__sub_80121180((char*)p + 0x7cc); }
 void fn_8012113C(void* p) { obj_testFlags30(p, (void*)1048576); }
-int fn_80121160(void) { return 0; }
+void* fn_80121160(void* a0, int a1) {  return (char*)(*(int*)((char*)a0 + 0xdb4)) + a1 * 48; }
 void fn_80121170(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 void* TObjPlayer__sub_80121178(void* p) { return (char*)p + 0x30; }
 

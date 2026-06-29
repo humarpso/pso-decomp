@@ -29,7 +29,7 @@ s32 fn_801D66DC(void* p) { return *(s32*)((char*)p + 0x4); }
 int fn_801D66E4(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 32); }
 void fn_801D670C(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void fn_801D6714(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
-int fn_801D671C(void) { return 0; }
+void fn_801D671C(void* a0, int a1) { *(int*)((char*)a0 + 0x4) = (*(int*)((char*)a0 + 0x4) + a1); }
 int fn_801D672C(void* p) { return fn_8001BED8((char*)p + 0x40, 32); }
 int fn_801D6754(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 16); }
 int fn_801D677C(void* p) { return fn_8001BED8((char*)p + 0x40, 16); }

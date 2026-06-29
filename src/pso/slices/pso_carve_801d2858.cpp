@@ -64,7 +64,7 @@ int fn_801D2AB0(void) { return 0; }
 void fn_801D2AC4(void* p, f32 v) { *(f32*)((char*)p + 0x3c) = v; }
 int fn_801D2ACC(void* p) { return fn_8001BED8((char*)p + 0x40, 4); }
 f32 fn_801D2AF4(void* p) { return *(f32*)((char*)p + 0x10); }
-int fn_801D2AFC(void) { return 0; }
+void* fn_801D2AFC(void* a0, int a1) {  return (char*)a0 + a1 * 24; }
 int TObjPlayer__sub_801D2B08(void* p) { return fn_801D7BF4((char*)p + 0x24); }
 int fn_801D2B2C(void) { return 0; }
 void fn_801D2B84(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); }

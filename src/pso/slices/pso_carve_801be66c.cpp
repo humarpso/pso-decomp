@@ -115,7 +115,7 @@ int fn_801BE890(void) { return 0; }
 void fn_801BE8E4(void* p, s32 v) { *(s32*)((char*)p + 0x3dc) = v; }
 void fn_801BE8EC(void* p, s32 v) { *(s32*)((char*)p + 0x3d8) = v; }
 int fn_801BE8F4(void) { return 0; }
-int fn_801BE918(void) { return 0; }
+void* fn_801BE918(void* a0, int a1, void* a2, void* a3) { *(float*)((char*)a2 + 0x0) = *(float*)((char*)a0 + a1 * 8 + 0x6b0); *(float*)((char*)a3 + 0x0) = *(float*)((char*)a0 + a1 * 8 + 0x6b4); return (char*)a0 + a1 * 8; }
 s32 fn_801BE934(s32 arg0) {
     s32 var_r31;
 
