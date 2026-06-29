@@ -310,6 +310,9 @@ pso/slices/pso_carve_8001e2a8.cpp:
 pso/slices/pso_carve_8001e2b8.cpp:
 	.text       start:0x8001E2B8 end:0x8001E2C0
 
+pso/slices/pso_carve_8001e2c0.cpp:
+	.text       start:0x8001E2C0 end:0x8001E300
+
 pso/slices/run_8001E41C.cpp:
 	.text       start:0x8001E41C end:0x8001E53C
 
@@ -414,6 +417,9 @@ pso/boss/TBoss1Dragon.cpp:
 
 pso/slices/pso_carve_8002962c.cpp:
 	.text       start:0x8002962C end:0x8002967C
+
+pso/slices/pso_carve_8002a384.cpp:
+	.text       start:0x8002A384 end:0x8002A3A0
 
 pso/slices/pso_carve_8002aa74.cpp:
 	.text       start:0x8002AA74 end:0x8002AA7C
