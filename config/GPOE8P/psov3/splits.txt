@@ -133,6 +133,9 @@ pso/ui/TAdDrawLineTask.cpp:
 pso/menu/TAdDrawLineTask.cpp:
 	.text       start:0x8001A0B4 end:0x8001A10C
 
+pso/slices/pso_carve_8001a430.cpp:
+	.text       start:0x8001A430 end:0x8001A438
+
 pso/slices/pso_carve_8001a438.cpp:
 	.text       start:0x8001A438 end:0x8001A448
 
@@ -6378,6 +6381,9 @@ pso/object/TObjRain_80197BEC.cpp:
 pso/object/TObjRain.cpp:
 	.text       start:0x80197C2C end:0x80197C84
 
+pso/slices/pso_carve_80197ce8.cpp:
+	.text       start:0x80197CE8 end:0x80197D28
+
 pso/object/TObjRainCtrl.cpp:
 	.text       start:0x80197D28 end:0x80197E08
 
@@ -8589,6 +8595,9 @@ pso/slices/pso_carve_801f6b98.cpp:
 
 pso/slices/pso_carve_801f6bb0.cpp:
 	.text       start:0x801F6BB0 end:0x801F6BCC
+
+pso/slices/pso_carve_801f6bcc.cpp:
+	.text       start:0x801F6BCC end:0x801F6C0C
 
 pso/misc/TQuestVmDownLoadServer.cpp:
 	.text       start:0x801F6DC4 end:0x801F6E08
