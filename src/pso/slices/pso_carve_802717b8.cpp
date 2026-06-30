@@ -1,0 +1,38 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+M2C_UNK TRaderMapCore__sub_801F9144();
+M2C_UNK TRaderMapCore__sub_801F9770();
+s32 fn_80246948();
+M2C_UNK TWindowCtrl__sub_80271DFC();
+M2C_UNK fn_80271E18();
+M2C_UNK fn_80271E34();
+extern f32 lbl_805DD480;
+
+void fn_802717B8(void *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
+        if (fn_80246948() != 0) {
+            M2C_FIELD(arg0, s32 *, 0x6C) = 0;
+            fn_80271E18();
+            fn_80271E34();
+        }
+    } else if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2) && (fn_80246948() == 0)) {
+        M2C_FIELD(arg0, s32 *, 0x6C) = 1;
+        TRaderMapCore__sub_801F9770();
+        TRaderMapCore__sub_801F9144();
+        TWindowCtrl__sub_80271DFC();
+        {
+            f32 c = lbl_805DD480;
+            M2C_FIELD(arg0, f32 *, 0x60) = c;
+            M2C_FIELD(arg0, f32 *, 0x64) = c;
+            M2C_FIELD(arg0, f32 *, 0x68) = c;
+        }
+    }
+}
+
+}
