@@ -254,9 +254,16 @@ cflags_base = [
     f"-i build/{config.version}/include",
 ]
 
-# PSO main game code flags
+# PSO main game code flags. Do not pass the base speed/auto-inline flags and
+# then override them later; some MWCC/wibo rebuild paths are fragile with
+# duplicate optimization switches. SDK/runtime still use cflags_base unchanged.
+cflags_pso_base = [
+    f for f in cflags_base
+    if f not in ("-O4,p", "-inline auto")
+]
+
 cflags_pso = [
-    *cflags_base,
+    *cflags_pso_base,
     "-i include",
     "-i src",
     "-i libs/dolphin/include",
@@ -266,14 +273,12 @@ cflags_pso = [
     # Sega's game code was built optimize-for-SIZE, not speed: the original
     # uses stmw/lmw register save-restore and un-scheduled prologues. -O4,s
     # reproduces that (verified via locate_func masked scan, 2026-06-12).
-    # Overrides cflags_base's -O4,p for game TUs only (MWCC: last -O wins);
     # SDK/runtime keep their own optimization via cflags_dolphin/runtime.
     "-O4,s",
     # ...and with auto-inlining OFF. The original keeps operator new/delete,
     # accessors, etc. as real out-of-line calls. Switching -inline auto ->
     # off took locate_func FOUND counts from 6->83 (TProtocol), 2->16
     # (TMainTask), 5->13 (TObject) with zero regressions (2026-06-12).
-    # Overrides cflags_base's -inline auto for game TUs only (last wins).
     "-inline off",
 ]
 
