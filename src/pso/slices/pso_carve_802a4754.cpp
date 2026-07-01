@@ -7,11 +7,11 @@ extern "C" {
 void fn_80156720(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804DCFD0[];
+extern M2C_UNK __vt__12TNeedleShoot[];
 
-void *TNeedleShoot__vt0(void *arg0, s16 arg1) {
+void *__dt__12TNeedleShootFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DCFD0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TNeedleShoot;
         if (M2C_FIELD(arg0, void **, 0x68) != NULL) { fn_80156720(M2C_FIELD(arg0, void **, 0x68)); M2C_FIELD(arg0, M2C_UNK *, 0x68) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

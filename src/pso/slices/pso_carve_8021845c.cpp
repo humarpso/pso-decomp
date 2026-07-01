@@ -19,7 +19,7 @@ struct VObj_8021845C : Base_8021845C {
 
 extern "C" {
 
-s32 fn_80223A48(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
 
 s32 TQuestListVM__vt8(void *arg0) {
     void *temp_r3;
@@ -29,7 +29,7 @@ s32 TQuestListVM__vt8(void *arg0) {
         if (((VObj_8021845C *)temp_r3)->m8() == 0) {
             return 0;
         }
-        return fn_80223A48(arg0) ? 1 : 0;
+        return TShopWindowBase__sub_80223A48(arg0) ? 1 : 0;
     }
     return 1;
 }

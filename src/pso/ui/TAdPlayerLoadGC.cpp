@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TAdPlayerLoadGC__vt2(void);
+void render__15TAdPlayerLoadGCFv(void);
 
-void TAdPlayerLoadGC__vt2(void) {  }
+void render__15TAdPlayerLoadGCFv(void) {  }
 
 }

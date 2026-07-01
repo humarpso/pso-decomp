@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjDoorJung__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8018F40C(void *arg0) {
+void *TObjDoorJung__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
         o = TObjDoorJung__ct(o, tl_05, arg0);

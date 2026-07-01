@@ -11,7 +11,7 @@ s32 fn_801A85A0();
 extern void *lbl_805D4DD8;
 extern s32 lbl_805D4DDC;
 
-void TObjBoss5FloorStone__vt2(void) {
+void render__19TObjBoss5FloorStoneFv(void) {
     if (fn_801A85A0() == 0) {
         TObjBoss5FloorStone__sub_80066FEC(lbl_805D4DDC, M2C_FIELD(M2C_FIELD(lbl_805D4DD8, void **, 0x42C), s32 *, 0x58));
     }

@@ -22,7 +22,7 @@ struct VObj_80223AA4 : Base_80223AA4 {
     virtual void m9();
 };
 
-void fn_80223AA4(void *arg0) {
+void TShopWindowBase__sub_80223AA4(void *arg0) {
     if ((s32) lbl_805D55C0 == 0) {
         ((VObj_80223AA4 *)arg0)->m9();
     }

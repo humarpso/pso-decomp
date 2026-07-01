@@ -20,7 +20,7 @@ struct VObj_8034A63C : Base_8034A63C {
 
 extern "C" {
 
-void TAdPsoPassSaveGC__vt2(void *arg0) {
+void render__16TAdPsoPassSaveGCFv(void *arg0) {
     struct VObj_8034A63C *o = (struct VObj_8034A63C *)arg0;
     o->m10();
 }

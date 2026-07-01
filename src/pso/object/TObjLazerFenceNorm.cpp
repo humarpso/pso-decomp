@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLazerFenceNorm__vt1(void *arg0);
+void run_task__18TObjLazerFenceNormFv(void *arg0);
 M2C_UNK TObjLazerFenceNorm__sub_80192CCC();
 M2C_UNK TObjLazerFenceNorm__sub_80192D70();
 
-void TObjLazerFenceNorm__vt1(void *arg0) {
+void run_task__18TObjLazerFenceNormFv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);

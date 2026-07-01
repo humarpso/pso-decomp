@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss8DragonEffBullet__vt2(void);
+void render__21TBoss8DragonEffBulletFv(void);
 
-void TBoss8DragonEffBullet__vt2(void) {  }
+void render__21TBoss8DragonEffBulletFv(void) {  }
 
 }

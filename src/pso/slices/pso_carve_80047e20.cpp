@@ -9,7 +9,7 @@ void queue_destruction__7TObjectFv(void *);
 void fn_800450D0(void *);
 void fn_800445A4(void *);
 void fn_800D7C58(void *, int);
-void TObjEnemyCustom__vt0(void *, int);
+void __dt__15TObjEnemyCustomFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_80484610[];
 
@@ -22,7 +22,7 @@ void *fn_80047E20(void *arg0, s16 arg1) {
         fn_800450D0(arg0);
         fn_800445A4(arg0);
         fn_800D7C58((s8 *)arg0 + 0x490, -1);
-        TObjEnemyCustom__vt0(arg0, 0);
+        __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -2,14 +2,14 @@
 
 extern "C" {
 
-void TAdFloorLoadPrtGC__vt1(void);
-void TAdFloorLoadPrtGC__vt2(void);
+void run_task__17TAdFloorLoadPrtGCFv(void);
+void render__17TAdFloorLoadPrtGCFv(void);
 void fn_8034AD28(void);
 void fn_8034AD2C(void);
 
 void fn_8034AD28(void) {  }
 void fn_8034AD2C(void) {  }
-void TAdFloorLoadPrtGC__vt2(void) {  }
-void TAdFloorLoadPrtGC__vt1(void) {  }
+void render__17TAdFloorLoadPrtGCFv(void) {  }
+void run_task__17TAdFloorLoadPrtGCFv(void) {  }
 
 }

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TOKeyCol__vt2(void);
+void render__8TOKeyColFv(void);
 
-void TOKeyCol__vt2(void) {  }
+void render__8TOKeyColFv(void) {  }
 
 }

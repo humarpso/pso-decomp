@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecGiBarta__vt1(void *arg0);
+void run_task__11TTecGiBartaFv(void *arg0);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_8023A244(void *);
 M2C_UNK fn_8023A4D0(void *);
 M2C_UNK fn_8023A694(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TTecGiBarta__vt1(void *arg0) {
+void run_task__11TTecGiBartaFv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xC8));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv(arg0);

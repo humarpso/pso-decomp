@@ -20,7 +20,7 @@ struct VObj_80307F6C : Base_80307F6C {
 
 extern "C" {
 
-void TAdVIConfigGC__vt2(void *arg0) {
+void render__13TAdVIConfigGCFv(void *arg0) {
     struct VObj_80307F6C *o = (struct VObj_80307F6C *)arg0;
     o->m10();
 }

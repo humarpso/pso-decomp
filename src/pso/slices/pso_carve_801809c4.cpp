@@ -19,7 +19,7 @@ struct VObj_801809C4 : Base_801809C4 {
 
 extern "C" {
 
-void fn_801809C4(void *arg0) {
+void TObjChip__sub_801809C4(void *arg0) {
     struct VObj_801809C4 *o = (struct VObj_801809C4 *)arg0;
     o->m9();
 }

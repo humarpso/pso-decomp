@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdGameStartShadowGC__vt1(void *arg0);
-void TAdGameStartShadowGC__vt2(void* p);
+void run_task__20TAdGameStartShadowGCFv(void *arg0);
+void render__20TAdGameStartShadowGCFv(void* p);
 
 int fn_8001A430(void*);
 int fn_80320B38(void*);
 
-void TAdGameStartShadowGC__vt2(void* p) { if (fn_8001A430(p) != 1) { fn_80320B38(p); } }
+void render__20TAdGameStartShadowGCFv(void* p) { if (fn_8001A430(p) != 1) { fn_80320B38(p); } }
 
-void TAdGameStartShadowGC__vt1(void *arg0) {
+void run_task__20TAdGameStartShadowGCFv(void *arg0) {
     s32 temp_r0;
     s32 var_r0;
     s32 var_r0_2;

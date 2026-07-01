@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjLiveCamera__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8030B768(void *arg0) {
+void *TObjLiveCamera__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
         o = TObjLiveCamera__ct(o, tl_05, arg0);

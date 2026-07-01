@@ -8,12 +8,12 @@ extern "C" {
 
 M2C_UNK __ct__7TObjectFP7TObject();
 s32 TWindowSubMag__sub_8027B7FC(void *);
-extern M2C_UNK lbl_804D16C0[];
+extern M2C_UNK __vt__13TWindowSubMag[];
 extern s32 lbl_805D3A68;
 
 void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D16C0;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowSubMag;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A68;
     M2C_FIELD(arg0, s32 *, 0x30) = arg1;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;

@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *__ct__10TObjCMIconFv(void *, void *);
 
-void *fn_8029997C(void *arg0) {
+void *TObjCMIcon__sub_8029997C(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
         o = __ct__10TObjCMIconFv(o, arg0);

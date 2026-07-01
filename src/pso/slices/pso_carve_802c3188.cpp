@@ -21,7 +21,7 @@ struct VObj_802C3188 : Base_802C3188 {
 
 extern "C" {
 
-void TObjPathObj__vt1(void *arg0) {
+void run_task__11TObjPathObjFv(void *arg0) {
     struct VObj_802C3188 *o = (struct VObj_802C3188 *)arg0;
     o->m11();
 }

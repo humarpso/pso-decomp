@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TChCrEffFade__vt2(void *arg0);
+void render__12TChCrEffFadeFv(void *arg0);
 
 M2C_UNK fn_80068EF0();
 M2C_UNK fn_80069024();
 M2C_UNK fn_80293E58(void *, f32);
 M2C_UNK fn_80293F98(void *, f32);
 
-void TChCrEffFade__vt2(void *arg0) {
+void render__12TChCrEffFadeFv(void *arg0) {
     f32 temp_f0;
     s32 temp_r0;
 

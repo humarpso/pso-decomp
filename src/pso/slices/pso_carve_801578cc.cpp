@@ -11,7 +11,7 @@ s32 TObjPlayer__sub_801B4A18(void *, s32);
 u8 TODoorAncient08__sub_80229220(u16);
 int fn_8020C5E0(void*);
 int queue_destruction__7TObjectFv(void*);
-void TOAttackableCol__vt2(void);
+void render__15TOAttackableColFv(void);
 
 void TOAttackableCol__sub_801578CC(void* p) { fn_8020C5E0(p); queue_destruction__7TObjectFv(p); }
 void TOAttackableCol__sub_80157900(void *arg0) {
@@ -24,8 +24,8 @@ void TOAttackableCol__sub_80157900(void *arg0) {
         TOAttackableCol__sub_801575AC(arg0, 1);
     }
 }
-int TOAttackableCol__vt1(void) { return 0; }
-void TOAttackableCol__vt2(void) {  }
+int run_task__15TOAttackableColFv(void) { return 0; }
+void render__15TOAttackableColFv(void) {  }
 int TOAttackableCol__sub_80157A28(void) { return 0; }
 
 }

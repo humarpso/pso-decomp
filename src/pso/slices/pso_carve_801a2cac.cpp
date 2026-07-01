@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjBgmCol__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A2CAC(void *arg0) {
+void *TObjBgmCol__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {
         o = TObjBgmCol__ct(o, tl_05, arg0);

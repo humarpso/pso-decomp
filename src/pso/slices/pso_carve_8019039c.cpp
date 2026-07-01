@@ -2,11 +2,11 @@
 
 extern "C" {
 
-void fn_8019039C(void* p, void* q);
-void TObjEnvSoundGlobal__vt2(void);
+void TObjEnvSoundGlobal__sub_8019039C(void* p, void* q);
+void render__18TObjEnvSoundGlobalFv(void);
 
-void fn_8019039C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
-void TObjEnvSoundGlobal__vt2(void) {  }
-int TObjEnvSoundGlobal__vt1(void) { return 0; }
+void TObjEnvSoundGlobal__sub_8019039C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
+void render__18TObjEnvSoundGlobalFv(void) {  }
+int run_task__18TObjEnvSoundGlobalFv(void) { return 0; }
 
 }

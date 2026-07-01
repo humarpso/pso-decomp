@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjTank__vt1(void);
+void run_task__8TObjTankFv(void);
 
-void TObjTank__vt1(void) {  }
+void run_task__8TObjTankFv(void) {  }
 
 }

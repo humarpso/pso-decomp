@@ -7,17 +7,17 @@ extern "C" {
 void fn_80154A00(void *);
 void fn_80156720(void *);
 void fn_80156DF0(void *, int);
-void TOKey__vt0(void *, int);
+void __dt__5TOKeyFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804B839C[];
+extern M2C_UNK __vt__13TLazerFenceSw[];
 
-void *TLazerFenceSw__vt0(void *arg0, s16 arg1) {
+void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B839C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TLazerFenceSw;
         fn_80154A00(arg0);
         fn_80156720(arg0);
         fn_80156DF0((s8 *)arg0 + 0xF0, -1);
-        TOKey__vt0(arg0, 0);
+        __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

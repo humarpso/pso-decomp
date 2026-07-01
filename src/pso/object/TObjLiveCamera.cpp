@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TObjLiveCamera__vt1(void);
-void TObjLiveCamera__vt2(void);
+void run_task__14TObjLiveCameraFv(void);
+void render__14TObjLiveCameraFv(void);
 
-void TObjLiveCamera__vt2(void) {  }
-void TObjLiveCamera__vt1(void) {  }
+void render__14TObjLiveCameraFv(void) {  }
+void run_task__14TObjLiveCameraFv(void) {  }
 
 }

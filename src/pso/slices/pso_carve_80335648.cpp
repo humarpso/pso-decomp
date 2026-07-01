@@ -20,7 +20,7 @@ struct VObj_80335648 : Base_80335648 {
 
 extern "C" {
 
-void TAdTrialAgreementGC__vt2(void *arg0) {
+void render__19TAdTrialAgreementGCFv(void *arg0) {
     struct VObj_80335648 *o = (struct VObj_80335648 *)arg0;
     o->m10();
 }

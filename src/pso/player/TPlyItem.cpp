@@ -1,7 +1,7 @@
 #include "pso/TPlyItem.h"
 
-extern "C" void fn_801D5B10(void*, int);
+extern "C" void TItemList__sub_801D5B10(void*, int);
 
 TPlyItem::~TPlyItem() {
-    fn_801D5B10((char*)this + 0x20, -1);
+    TItemList__sub_801D5B10((char*)this + 0x20, -1);
 }

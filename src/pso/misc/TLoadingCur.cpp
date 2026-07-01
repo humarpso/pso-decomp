@@ -2,10 +2,10 @@
 
 extern "C" {
 
-int TLoadingCur__vt2(void* p);
+int render__11TLoadingCurFv(void* p);
 
 int TLoadingCur__sub_8001CCD4(void*);
 
-int TLoadingCur__vt2(void* p) { return TLoadingCur__sub_8001CCD4(p); }
+int render__11TLoadingCurFv(void* p) { return TLoadingCur__sub_8001CCD4(p); }
 
 }

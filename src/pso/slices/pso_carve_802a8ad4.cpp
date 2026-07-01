@@ -8,11 +8,11 @@ void fn_803DA16C(void *);
 void __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804DDF1C[];
+extern M2C_UNK __vt__16TEffIndirectCtrl[];
 
-void *TEffIndirectCtrl__vt0(void *arg0, s16 arg1) {
+void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DDF1C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TEffIndirectCtrl;
         if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { fn_803DA16C(M2C_FIELD(arg0, void **, 0x2C)); __dl__FPv(M2C_FIELD(arg0, void **, 0x2C)); }
         if (M2C_FIELD(arg0, void **, 0x28) != NULL) { __dl__FPv(M2C_FIELD(arg0, void **, 0x28)); }
         __dt__7TObjectFv(arg0, 0);

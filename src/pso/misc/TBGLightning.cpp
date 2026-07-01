@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBGLightning__vt1(void *arg0);
+void run_task__12TBGLightningFv(void *arg0);
 
 M2C_UNK queue_destruction__7TObjectFv();
 
-void TBGLightning__vt1(void *arg0) {
+void run_task__12TBGLightningFv(void *arg0) {
     int temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, u8 *, 0x1D) + 1;

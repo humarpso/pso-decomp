@@ -7,11 +7,11 @@ extern "C" {
 void TWindowDD__sub_80348520(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804EFD50[];
+extern M2C_UNK __vt__9TWindowDD[];
 
-void *TWindowDD__vt0(void *arg0, s16 arg1) {
+void *__dt__9TWindowDDFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EFD50;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TWindowDD;
         TWindowDD__sub_80348520(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

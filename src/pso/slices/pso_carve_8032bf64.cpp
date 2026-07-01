@@ -19,7 +19,7 @@ struct VObj_8032BF64 : Base_8032BF64 {
 
 extern "C" {
 
-void TAdSnAkPassConfirmGC__vt1(void *arg0) {
+void run_task__20TAdSnAkPassConfirmGCFv(void *arg0) {
     struct VObj_8032BF64 *o = (struct VObj_8032BF64 *)arg0;
     o->m9();
 }

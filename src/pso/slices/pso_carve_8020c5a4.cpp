@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8020BF14(void *, M2C_UNK);
+M2C_UNK send_6x76_set_entity_set_flags(void *, M2C_UNK);
 
 s32 fn_8020C5A4(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
-        fn_8020BF14(arg0, 8);
+        send_6x76_set_entity_set_flags(arg0, 8);
         return 1;
     }
     return 0;

@@ -4,7 +4,7 @@ extern "C" {
 
 void TObjEneMe3ShinowaMirage__vt110(void);
 
-int TObjEneMe3ShinowaMirage__vt2(void) { return 0; }
+int render__23TObjEneMe3ShinowaMirageFv(void) { return 0; }
 void TObjEneMe3ShinowaMirage__vt110(void) {  }
 
 }

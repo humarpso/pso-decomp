@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjTradeCollision__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_802C80A4(void *arg0) {
+void *TObjTradeCollision__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
         o = TObjTradeCollision__ct(o, tl_05, arg0);

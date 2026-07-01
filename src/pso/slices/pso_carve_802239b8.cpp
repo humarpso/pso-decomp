@@ -8,7 +8,7 @@ extern "C" {
 
 s32 obj_getField1c(void *);
 
-s32 fn_802239B8(void *arg0) {
+s32 TShopWindowBase__sub_802239B8(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x24);
     if (temp_r3 != NULL) {
         return obj_getField1c(temp_r3);

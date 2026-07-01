@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubSymbolChat__vt2(void);
+void render__20TWindowSubSymbolChatFv(void);
 
-void TWindowSubSymbolChat__vt2(void) {  }
+void render__20TWindowSubSymbolChatFv(void) {  }
 
 }

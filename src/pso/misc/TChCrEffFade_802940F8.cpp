@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TChCrEffFade__vt1(void *arg0);
+void run_task__12TChCrEffFadeFv(void *arg0);
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TChCrEffFade__sub_80294084(void *);
 
-void TChCrEffFade__vt1(void *arg0) {
+void run_task__12TChCrEffFadeFv(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + M2C_FIELD(arg0, s32 *, 0x1C));

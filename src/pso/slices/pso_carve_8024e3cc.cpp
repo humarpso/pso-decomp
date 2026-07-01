@@ -32,7 +32,7 @@ void fn_8024E400(s32 arg0, s32 arg1) {
 void TWindowDeposit__sub_8024E434(void *arg0, s32 arg1) {
     fn_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
 }
-int TWindowDeposit__vt2(void) { return 0; }
-void TWindowDeposit__vt1(void* p) { fn_8024664C(p); fn_80257C28(p, (char*)p + 0x24); }
+int render__14TWindowDepositFv(void) { return 0; }
+void run_task__14TWindowDepositFv(void* p) { fn_8024664C(p); fn_80257C28(p, (char*)p + 0x24); }
 
 }

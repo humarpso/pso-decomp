@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjEvtCollision__vt2(void);
+void render__16TObjEvtCollisionFv(void);
 
-void TObjEvtCollision__vt2(void) {  }
+void render__16TObjEvtCollisionFv(void) {  }
 
 }

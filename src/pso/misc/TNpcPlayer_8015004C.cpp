@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TNpcPlayer__vt2(void);
+void render__10TNpcPlayerFv(void);
 
-void TNpcPlayer__vt2(void) {  }
+void render__10TNpcPlayerFv(void) {  }
 
 }

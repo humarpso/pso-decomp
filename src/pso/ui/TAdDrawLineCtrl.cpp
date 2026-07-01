@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdDrawLineCtrl__vt2(void *arg0);
+void render__15TAdDrawLineCtrlFv(void *arg0);
 
 s32 fn_8000F8FC();
 s32 fn_8001A430();
@@ -16,7 +16,7 @@ M2C_UNK fn_80141F1C();
 s32 fn_8022A564();
 M2C_UNK render_nodes__7TObjectFv(void *);
 
-void TAdDrawLineCtrl__vt2(void *arg0) {
+void render__15TAdDrawLineCtrlFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
         if (fn_8022A564() == 0) {
             set_depth_buffer_settings_2__Fv();

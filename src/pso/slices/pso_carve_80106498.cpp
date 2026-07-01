@@ -10,7 +10,7 @@ M2C_UNK TOBoss4Rock__sub_80147A80(s32);
 extern s32 lbl_805D5468;
 extern s32 lbl_805D546C;
 
-void TItemDrop__vt3(void) {
+void run_task__9TItemDropFv(void) {
     TOBoss4Rock__sub_80147A80(lbl_805D546C);
     lbl_805D546C = 0;
     TOBoss4Rock__sub_80147A80(lbl_805D5468);

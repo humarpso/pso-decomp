@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjBigTuitate__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8019ACCC(void *arg0) {
+void *TObjBigTuitate__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xCC);
     if (o != NULL) {
         o = TObjBigTuitate__ct(o, tl_05, arg0);

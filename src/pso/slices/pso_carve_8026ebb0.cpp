@@ -9,7 +9,7 @@ extern "C" {
 s32 TObjCityMainWarp__sub_80186AE4();
 void *fn_802664A8(s32, s32, s32);
 s32 TWindowOptionCtrl__sub_8026C610(void *);
-void TWindowShortListCtrl__vt2(void);
+void render__20TWindowShortListCtrlFv(void);
 
 int TWindowShortListCtrl__sub_8026EBB0(void* a0 = 0, void* a1 = 0, void* a2 = 0) { return 0; }
 void *TWindowShortListCtrl__sub_8026EC50(void *arg0, s32 arg1, s32 arg2) {
@@ -22,6 +22,6 @@ void *TWindowShortListCtrl__sub_8026EC50(void *arg0, s32 arg1, s32 arg2) {
     TWindowShortListCtrl__sub_8026EBB0((void*)(arg0), (void*)(temp_r31), (void*)(arg2));
     return temp_r31;
 }
-void TWindowShortListCtrl__vt2(void) {  }
+void render__20TWindowShortListCtrlFv(void) {  }
 
 }

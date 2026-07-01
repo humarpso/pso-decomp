@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TAdMultiChgGameModeGC__vt2(void);
+void render__21TAdMultiChgGameModeGCFv(void);
 void fn_802FFC78(void);
 void fn_802FFC7C(void);
 s32 TAdMultiChgGameModeGC__sub_802FFC84(void);
@@ -11,7 +11,7 @@ s32 fn_802C658C(u32);
 
 void fn_802FFC78(void) {  }
 void fn_802FFC7C(void) {  }
-void TAdMultiChgGameModeGC__vt2(void) {  }
+void render__21TAdMultiChgGameModeGCFv(void) {  }
 s32 TAdMultiChgGameModeGC__sub_802FFC84(void) {
     u32 var_r31;
 

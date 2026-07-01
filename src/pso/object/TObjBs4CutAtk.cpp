@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjBs4CutAtk__vt2(void);
+void render__13TObjBs4CutAtkFv(void);
 
-void TObjBs4CutAtk__vt2(void) {  }
+void render__13TObjBs4CutAtkFv(void) {  }
 
 }

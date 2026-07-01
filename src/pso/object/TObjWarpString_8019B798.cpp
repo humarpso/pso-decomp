@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjWarpString__vt1(void *arg0);
+void run_task__14TObjWarpStringFv(void *arg0);
 M2C_UNK TObjWarpString__sub_8019B6E4();
 M2C_UNK TObjWarpString__sub_8019B728();
 M2C_UNK TObjWarpString__sub_8019B744();
 M2C_UNK TObjWarpString__sub_8019B77C();
 
-void TObjWarpString__vt1(void *arg0) {
+void run_task__14TObjWarpStringFv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x4C);

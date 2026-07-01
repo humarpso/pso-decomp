@@ -6,11 +6,11 @@ extern "C" {
 
 void fn_8014B84C(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804AA8B0[];
+extern M2C_UNK __vt__14TObjNpcMaleOld[];
 
-void *TObjNpcMaleOld__vt0(void *arg0, s16 arg1) {
+void *__dt__14TObjNpcMaleOldFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804AA8B0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjNpcMaleOld;
         fn_8014B84C(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

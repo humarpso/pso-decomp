@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss5GryphonLightningWing__vt2(void);
+void render__26TBoss5GryphonLightningWingFv(void);
 
-void TBoss5GryphonLightningWing__vt2(void) {  }
+void render__26TBoss5GryphonLightningWingFv(void) {  }
 
 }

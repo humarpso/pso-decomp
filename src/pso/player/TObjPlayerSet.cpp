@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TObjPlayerSet__vt1(void);
-void TObjPlayerSet__vt2(void);
+void run_task__13TObjPlayerSetFv(void);
+void render__13TObjPlayerSetFv(void);
 
-void TObjPlayerSet__vt2(void) {  }
-void TObjPlayerSet__vt1(void) {  }
+void render__13TObjPlayerSetFv(void) {  }
+void run_task__13TObjPlayerSetFv(void) {  }
 
 }

@@ -6,20 +6,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjEnemy__vt0(void *, M2C_UNK);
+M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 M2C_UNK fn_80156720(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TObjEneDelDepth__sub_80316644(s32, M2C_UNK);
-extern M2C_UNK lbl_804E8610[];
+extern M2C_UNK __vt__15TObjEneDelDepth[];
 
-void *TObjEneDelDepth__vt0(void *arg0, s16 arg1) {
+void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E8610;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjEneDelDepth;
         fn_80156720(arg0);
         M2C_FIELD(arg0, s32 *, 0x380) = 0;
         TObjEneDelDepth__sub_80316644(M2C_FIELD(arg0, s32 *, 0x37C), 1);
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;
-        TObjEnemy__vt0(arg0, 0);
+        __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

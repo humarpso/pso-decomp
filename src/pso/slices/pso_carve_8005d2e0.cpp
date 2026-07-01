@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TBoss4Type2__sub_80086C44(void *);
-M2C_UNK TObjEnemy__vt0(void *, M2C_UNK);
+M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 M2C_UNK fn_80156720(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804876F8[];
@@ -21,7 +21,7 @@ void *TBoss4Zako__sub_8005D2E0(void *arg0, s16 arg1) {
             TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x3B4));
             M2C_FIELD(arg0, u32 *, 0x3B4) = 0U;
         }
-        TObjEnemy__vt0(arg0, 0);
+        __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

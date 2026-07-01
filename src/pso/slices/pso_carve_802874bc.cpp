@@ -8,12 +8,12 @@ extern "C" {
 
 M2C_UNK __ct__7TObjectFP7TObject();
 s32 TWindowSubTechnique__sub_80286E88(void *);
-extern M2C_UNK lbl_804D2E34[];
+extern M2C_UNK __vt__19TWindowSubTechnique[];
 extern s32 lbl_805D3AD0;
 
 void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D2E34;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSubTechnique;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AD0;
     M2C_FIELD(arg0, s32 *, 0x30) = arg1;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;

@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjEneRecobox__ct(void *, void *, void *);
 extern void *tl_04;
 
-void *fn_80320214(void *arg0) {
+void *TObjEneRecobox__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x4F4);
     if (o != NULL) {
         o = TObjEneRecobox__ct(o, tl_04, arg0);

@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjEvtCollision__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_80190CAC(void *arg0) {
+void *TObjEvtCollision__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
         o = TObjEvtCollision__ct(o, tl_05, arg0);

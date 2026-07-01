@@ -21,7 +21,7 @@ extern void *lbl_805D5488;
 extern s32 lbl_805D548C;
 extern s32 lbl_805D5490;
 
-void fn_801105AC(void) {
+void TItemLoad__sub_801105AC(void) {
     TOBoss4Rock__sub_80147A80(lbl_805D548C);
     if ((void *) lbl_805D5484 != NULL) {
         ((VObj_801105AC *)lbl_805D5484)->m0(1);

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjRaderCol__vt1(void *arg0);
+void run_task__12TObjRaderColFv(void *arg0);
 M2C_UNK TRaderMapCore__sub_801F9C54(s16);
 s32 TRaderMapCore__sub_8030A808();
 M2C_UNK TObjRaderCol__sub_8019750C(void *);
 M2C_UNK TObjRaderCol__sub_801975DC(void *);
 
-void TObjRaderCol__vt1(void *arg0) {
+void run_task__12TObjRaderColFv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x98);

@@ -11,7 +11,7 @@ s32 obj_testFlags30(s32, s32);
 s32 TObjPlayer__sub_801B53BC(s32, s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
-void TObjGrassWeb__vt2(void);
+void render__12TObjGrassWebFv(void);
 
 void TObjGrassWeb__sub_800BC880(void *arg0) {
     s32 temp_r3;
@@ -22,7 +22,7 @@ void TObjGrassWeb__sub_800BC880(void *arg0) {
         TObjPlayer__sub_801B53BC(temp_r3, M2C_FIELD(arg0, s32 *, 0x84), 1);
     }
 }
-int TObjGrassWeb__vt1(void) { return 0; }
-void TObjGrassWeb__vt2(void) {  }
+int run_task__12TObjGrassWebFv(void) { return 0; }
+void render__12TObjGrassWebFv(void) {  }
 
 }

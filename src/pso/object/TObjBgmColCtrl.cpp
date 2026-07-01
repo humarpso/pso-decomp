@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjBgmColCtrl__vt2(void);
+void render__14TObjBgmColCtrlFv(void);
 
-void TObjBgmColCtrl__vt2(void) {  }
+void render__14TObjBgmColCtrlFv(void) {  }
 
 }

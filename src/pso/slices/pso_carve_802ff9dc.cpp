@@ -7,11 +7,11 @@ extern "C" {
 void fn_802FF760(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804E6680[];
+extern M2C_UNK __vt__17TAdMultiConfirmGC[];
 
-void *TAdMultiConfirmGC__vt0(void *arg0, s16 arg1) {
+void *__dt__17TAdMultiConfirmGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E6680;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TAdMultiConfirmGC;
         fn_802FF760(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

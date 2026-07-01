@@ -7,11 +7,11 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void fn_80246674(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804D006C[];
+extern M2C_UNK __vt__22TWindowLoadItemTexture[];
 
-void *TWindowLoadItemTexture__vt0(void *arg0, s16 arg1) {
+void *__dt__22TWindowLoadItemTextureFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D006C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TWindowLoadItemTexture;
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x6C));
         fn_80246674(arg0, 0);
         if (arg1 > 0) {

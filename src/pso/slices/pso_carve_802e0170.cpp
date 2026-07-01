@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TWindowTradeRequest__vt2(void);
+void render__19TWindowTradeRequestFv(void);
 
-void TWindowTradeRequest__vt2(void) {  }
-int TWindowTradeRequest__vt1(void) { return 0; }
+void render__19TWindowTradeRequestFv(void) {  }
+int run_task__19TWindowTradeRequestFv(void) { return 0; }
 
 }

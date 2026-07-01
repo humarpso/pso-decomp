@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TAdBackGC__vt1(void);
+void run_task__9TAdBackGCFv(void);
 
-void TAdBackGC__vt1(void) {  }
+void run_task__9TAdBackGCFv(void) {  }
 
 }

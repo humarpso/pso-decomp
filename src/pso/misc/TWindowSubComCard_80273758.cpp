@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubComCard__vt2(void);
+void render__17TWindowSubComCardFv(void);
 
-void TWindowSubComCard__vt2(void) {  }
+void render__17TWindowSubComCardFv(void) {  }
 
 }

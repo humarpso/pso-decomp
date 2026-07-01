@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss6DPB__vt2(void);
+void render__9TBoss6DPBFv(void);
 
-void TBoss6DPB__vt2(void) {  }
+void render__9TBoss6DPBFv(void) {  }
 
 }

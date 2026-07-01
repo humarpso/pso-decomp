@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TODoorFourLightSeabedU__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A275C(void *arg0) {
+void *TODoorFourLightSeabedU__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
         o = TODoorFourLightSeabedU__ct(o, tl_05, arg0);

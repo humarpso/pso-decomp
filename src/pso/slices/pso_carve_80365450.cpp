@@ -12,7 +12,7 @@ s32 TObjPlayer__sub_801B53BC(s32, s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 int TObjIllGillKage__sub_80365450(void* p);
-void TObjIllGillKage__vt2(void);
+void render__15TObjIllGillKageFv(void);
 int queue_destruction__7TObjectFv(void*);
 
 int TObjIllGillKage__sub_80365450(void* p) { return queue_destruction__7TObjectFv(p); }
@@ -26,7 +26,7 @@ void TObjIllGillKage__sub_803654D0(void *arg0) {
         TObjPlayer__sub_801B53BC(temp_r3, M2C_FIELD(arg0, s32 *, 0x94), 3);
     }
 }
-int TObjIllGillKage__vt1(void) { return 0; }
-void TObjIllGillKage__vt2(void) {  }
+int run_task__15TObjIllGillKageFv(void) { return 0; }
+void render__15TObjIllGillKageFv(void) {  }
 
 }

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TItemReverseTechPart2__vt2(void);
+void render__21TItemReverseTechPart2Fv(void);
 
-void TItemReverseTechPart2__vt2(void) {  }
+void render__21TItemReverseTechPart2Fv(void) {  }
 
 }

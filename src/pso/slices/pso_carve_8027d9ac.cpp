@@ -7,11 +7,11 @@ extern "C" {
 void fn_80288070(void *, int);
 void fn_80246674(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804D19BC[];
+extern M2C_UNK __vt__26TWindowSubQuestBoardSelect[];
 
-void *TWindowSubQuestBoardSelect__vt0(void *arg0, s16 arg1) {
+void *__dt__26TWindowSubQuestBoardSelectFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D19BC;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__26TWindowSubQuestBoardSelect;
         fn_80288070(M2C_FIELD(arg0, void **, 0x64), 1);
         fn_80246674(arg0, 0);
         if (arg1 > 0) {

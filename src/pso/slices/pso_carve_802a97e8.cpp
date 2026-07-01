@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TTecKafun__vt2(void);
+void render__9TTecKafunFv(void);
 
-void TTecKafun__vt2(void) {  }
-int TTecKafun__vt1(void) { return 0; }
+void render__9TTecKafunFv(void) {  }
+int run_task__9TTecKafunFv(void) { return 0; }
 
 }

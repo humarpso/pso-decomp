@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TItemTimer__ct(void *, s32, s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
-void fn_80103448(s32 arg0, s32 arg1, s32 arg2) {
+void TItemAttacker__sub_80103448(s32 arg0, s32 arg1, s32 arg2) {
     void *temp_r3;
     if (arg0 != 0) {
         temp_r3 = (void *)__nw__7TObjectFUl(0x28);

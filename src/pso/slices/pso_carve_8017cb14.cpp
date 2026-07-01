@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjGoalWarpAncient__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8017CB14(void *arg0) {
+void *TObjGoalWarpAncient__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
         o = TObjGoalWarpAncient__ct(o, tl_05, arg0);

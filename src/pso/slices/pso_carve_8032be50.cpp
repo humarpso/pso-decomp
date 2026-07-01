@@ -20,7 +20,7 @@ struct VObj_8032BE50 : Base_8032BE50 {
 
 extern "C" {
 
-void TAdSnAkPassConfirmGC__vt2(void *arg0) {
+void render__20TAdSnAkPassConfirmGCFv(void *arg0) {
     struct VObj_8032BE50 *o = (struct VObj_8032BE50 *)arg0;
     o->m10();
 }

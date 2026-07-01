@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjBoss5FloorStone__vt1(void);
+void run_task__19TObjBoss5FloorStoneFv(void);
 
-void TObjBoss5FloorStone__vt1(void) {  }
+void run_task__19TObjBoss5FloorStoneFv(void) {  }
 
 }

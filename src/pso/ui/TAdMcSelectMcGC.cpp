@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMcSelectMcGC__vt2(void *arg0);
+void render__15TAdMcSelectMcGCFv(void *arg0);
 
 s32 fn_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
@@ -16,7 +16,7 @@ M2C_UNK fn_80141F50();
 s32 fn_8022A564();
 M2C_UNK fn_8032A6F4(void *);
 
-void TAdMcSelectMcGC__vt2(void *arg0) {
+void render__15TAdMcSelectMcGCFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 1) {
         if (fn_8001A430() == 1) {
             return;

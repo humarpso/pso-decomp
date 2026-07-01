@@ -14,7 +14,7 @@ s32 TObjTombstone__sub_80076098(void *);
 M2C_UNK TObjTombstone__sub_80076190(void *);
 extern s32 lbl_805D4E4C;
 
-void TObjTombstone__vt1(void *arg0) {
+void run_task__13TObjTombstoneFv(void *arg0) {
     if (fn_80075008() != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;

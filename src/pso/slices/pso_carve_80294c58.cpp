@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *__ct__10TObjCMNameFv(void *, void *);
 
-void *fn_80294C58(void *arg0) {
+void *TObjCMName__sub_80294C58(void *arg0) {
     void *o = __nw__7TObjectFUl(0x34);
     if (o != NULL) {
         o = __ct__10TObjCMNameFv(o, arg0);

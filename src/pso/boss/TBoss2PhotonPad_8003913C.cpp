@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss2PhotonPad__vt2(void);
+void render__15TBoss2PhotonPadFv(void);
 
-void TBoss2PhotonPad__vt2(void) {  }
+void render__15TBoss2PhotonPadFv(void) {  }
 
 }

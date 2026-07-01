@@ -8,11 +8,11 @@ void fn_802D29B8(void *);
 void TWindowSubComCard__sub_80244A14(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804EF5C8[];
+extern M2C_UNK __vt__22TWindowSubTradeMessage[];
 
-void *TWindowSubTradeMessage__vt0(void *arg0, s16 arg1) {
+void *__dt__22TWindowSubTradeMessageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EF5C8;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TWindowSubTradeMessage;
         fn_802D29B8(arg0);
         if (M2C_FIELD(arg0, void **, 0x28) != NULL) { TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x28)); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }
         __dt__7TObjectFv(arg0, 0);

@@ -11,15 +11,15 @@ int fn_8024DF5C(void* a0 = 0);
 int fn_8024DFF4(void* a0 = 0);
 int fn_8024E0F0(void* a0 = 0);
 void fn_8024E094(void* p);
-void TWindowCtrlPlayer__vt1(void* p);
-void TWindowCtrlPlayer__vt2(void);
+void run_task__17TWindowCtrlPlayerFv(void* p);
+void render__17TWindowCtrlPlayerFv(void);
 
 int fn_8024DE60(void*) { return 0; }
 int fn_8024DF5C(void*) { return 0; }
 int fn_8024DFF4(void*) { return 0; }
 void fn_8024E094(void* p) { fn_8024DFF4(p); fn_8024DF5C(p); fn_8024DE60(p); fn_8024DCE8(p); fn_8024DC58(p); fn_8024DAC4(p); fn_8024DAAC(p); }
 int fn_8024E0F0(void*) { return 0; }
-void TWindowCtrlPlayer__vt2(void) {  }
-void TWindowCtrlPlayer__vt1(void* p) { fn_8024E0F0(p); fn_8024E094(p); }
+void render__17TWindowCtrlPlayerFv(void) {  }
+void run_task__17TWindowCtrlPlayerFv(void* p) { fn_8024E0F0(p); fn_8024E094(p); }
 
 }

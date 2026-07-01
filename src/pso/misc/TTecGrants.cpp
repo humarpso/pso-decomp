@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecGrants__vt2(void);
+void render__10TTecGrantsFv(void);
 
-void TTecGrants__vt2(void) {  }
+void render__10TTecGrantsFv(void) {  }
 
 }

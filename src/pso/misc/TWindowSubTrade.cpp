@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubTrade__vt2(void);
+void render__15TWindowSubTradeFv(void);
 
-void TWindowSubTrade__vt2(void) {  }
+void render__15TWindowSubTradeFv(void) {  }
 
 }

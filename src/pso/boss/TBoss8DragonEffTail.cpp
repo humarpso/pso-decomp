@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TBoss8DragonEffTail__vt2(void);
+void render__19TBoss8DragonEffTailFv(void);
 void fn_802FE48C(void);
 
 void fn_802FE48C(void) {  }
-void TBoss8DragonEffTail__vt2(void) {  }
+void render__19TBoss8DragonEffTailFv(void) {  }
 
 }

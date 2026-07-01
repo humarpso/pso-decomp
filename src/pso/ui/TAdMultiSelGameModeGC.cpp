@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TAdMultiSelGameModeGC__vt2(void);
+void render__21TAdMultiSelGameModeGCFv(void);
 
-void TAdMultiSelGameModeGC__vt2(void) {  }
+void render__21TAdMultiSelGameModeGCFv(void) {  }
 
 }

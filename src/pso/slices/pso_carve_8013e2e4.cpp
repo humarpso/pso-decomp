@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 fn_80071F1C(s32, s32);
+s32 TPlyDispConfig__sub_80071F1C(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
 int fn_8013E378(void* a0 = 0, void* a1 = 0);
@@ -105,7 +105,7 @@ s32 TMainCursor__sub_8013E5E8(s32 arg0, s16 arg1) {
 }
 s32 TMainCursor__sub_8013E624(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        fn_80071F1C(arg0, -1);
+        TPlyDispConfig__sub_80071F1C(arg0, -1);
         if (arg1 > 0) {
             __dl__FPv((void*)(arg0));
         }

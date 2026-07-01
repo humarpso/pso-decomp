@@ -11,7 +11,7 @@ s32 TOBoss4Rock__sub_80147AA8(M2C_UNK);
 extern s32 lbl_805D5468;
 extern s32 lbl_805D546C;
 
-void TItemDrop__vt2(void) {
+void __dt__9TItemDropFv(void) {
     lbl_805D5468 = TOBoss4Rock__sub_80147AA8(0x88);
     lbl_805D546C = TOBoss4Rock__sub_80147AA8(0xD);
     TItemDrop__sub_801063D8();

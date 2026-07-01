@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TWindowArea__vt1(void* p);
+void run_task__11TWindowAreaFv(void* p);
 int fn_8024664C(void*);
 int fn_80257C28(void*, void*);
 
-void TWindowArea__vt1(void* p) { fn_8024664C(p); fn_80257C28(p, (char*)p + 0x24); }
+void run_task__11TWindowAreaFv(void* p) { fn_8024664C(p); fn_80257C28(p, (char*)p + 0x24); }
 
 }

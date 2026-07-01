@@ -13,7 +13,7 @@ M2C_UNK TWindowSoundBalance__sub_80270860(s32, void *, f32, f32);
 extern const f32 lbl_805DD40C;
 extern const f32 lbl_805DD410;
 
-void TWindowSoundBalance__vt2(s32 arg0) {
+void render__19TWindowSoundBalanceFv(s32 arg0) {
     f32 temp_f1;
     f32 temp_f2;
     void *temp_r3;

@@ -7,7 +7,7 @@ extern "C" {
 void fn_80156720(void *);
 void fn_800D7C58(void *, int);
 void fn_800D75F4(void *, int);
-void TObjEnemyCustom__vt0(void *, int);
+void __dt__15TObjEnemyCustomFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804E135C[];
 
@@ -17,7 +17,7 @@ void *fn_802CD780(void *arg0, s16 arg1) {
         fn_80156720(arg0);
         fn_800D7C58((s8 *)arg0 + 0x418, -1);
         fn_800D75F4((s8 *)arg0 + 0x3FC, -1);
-        TObjEnemyCustom__vt0(arg0, 0);
+        __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

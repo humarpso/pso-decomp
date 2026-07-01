@@ -6,11 +6,11 @@ extern "C" {
 
 void TBoss4Zako__sub_8005D2E0(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804875AC[];
+extern M2C_UNK __vt__9TBoss4Uro[];
 
-void *TBoss4Uro__vt0(void *arg0, s16 arg1) {
+void *__dt__9TBoss4UroFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804875AC;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TBoss4Uro;
         TBoss4Zako__sub_8005D2E0(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubTechnique__vt2(void);
+void render__19TWindowSubTechniqueFv(void);
 
-void TWindowSubTechnique__vt2(void) {  }
+void render__19TWindowSubTechniqueFv(void) {  }
 
 }

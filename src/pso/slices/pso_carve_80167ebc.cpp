@@ -6,11 +6,11 @@ extern "C" {
 
 void fn_80168C04(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804B22E8[];
+extern M2C_UNK __vt__22TOHangceilingCave01Key[];
 
-void *TOHangceilingCave01Key__vt0(void *arg0, s16 arg1) {
+void *__dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B22E8;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TOHangceilingCave01Key;
         fn_80168C04(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

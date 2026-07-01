@@ -17,7 +17,7 @@ struct VObj_8032C504 : Base_8032C504 {
 
 extern "C" {
 
-void TAdExNetConfirmGC__vt2(void *arg0) {
+void render__17TAdExNetConfirmGCFv(void *arg0) {
     struct VObj_8032C504 *o = (struct VObj_8032C504 *)arg0;
     o->m7();
 }

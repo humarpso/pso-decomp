@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TOCakeshopCave01__vt1(void* p);
+void run_task__16TOCakeshopCave01Fv(void* p);
 
 int TOCakeshopCave01__sub_80159E24(void*, void*);
 
-void TOCakeshopCave01__vt1(void* p) { { int i; for (i = 0; i < 8; i++) { TOCakeshopCave01__sub_80159E24(p, (void*)i); } } }
+void run_task__16TOCakeshopCave01Fv(void* p) { { int i; for (i = 0; i < 8; i++) { TOCakeshopCave01__sub_80159E24(p, (void*)i); } } }
 
 }

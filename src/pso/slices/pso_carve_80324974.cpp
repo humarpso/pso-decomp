@@ -7,7 +7,7 @@ extern "C" {
 void TBoss4Type2__sub_80086C44(void *);
 void fn_80156720(void *);
 void TBoss6Type1__sub_802B5DD4(void *);
-void TObjEnemy__vt0(void *, int);
+void __dt__9TObjEnemyFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804ECBAC[];
 
@@ -17,7 +17,7 @@ void *TBoss6Mine__sub_80324974(void *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, void **, 0x3CC) != NULL) { TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x3CC)); M2C_FIELD(arg0, M2C_UNK *, 0x3CC) = 0; }
         fn_80156720(arg0);
         if (M2C_FIELD(arg0, void **, 0x378) != NULL) { TBoss6Type1__sub_802B5DD4(M2C_FIELD(arg0, void **, 0x378)); }
-        TObjEnemy__vt0(arg0, 0);
+        __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

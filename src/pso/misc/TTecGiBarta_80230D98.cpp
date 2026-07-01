@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecGiBarta__vt2(void);
+void render__11TTecGiBartaFv(void);
 
-void TTecGiBarta__vt2(void) {  }
+void render__11TTecGiBartaFv(void) {  }
 
 }

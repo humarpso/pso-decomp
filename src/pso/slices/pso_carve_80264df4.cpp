@@ -6,7 +6,7 @@ s32 TWindowSubStatusDisp__sub_80077760(s32);
 s32 fn_802686D4(s32, s32, s32, s32);
 s32 fn_80268738(s32, s32, s32);
 s32 fn_80268BE4(s32);
-void TWindowMakeTeam__vt2(void);
+void render__15TWindowMakeTeamFv(void);
 
 s32 TWindowMakeTeam__sub_80264DF4(void) {
     s32 temp_r31;
@@ -19,6 +19,6 @@ s32 TWindowMakeTeam__sub_80264DF4(void) {
     fn_80268738(temp_r31, TWindowSubStatusDisp__sub_80077760(0x51), 4);
     return temp_r31;
 }
-void TWindowMakeTeam__vt2(void) {  }
+void render__15TWindowMakeTeamFv(void) {  }
 
 }

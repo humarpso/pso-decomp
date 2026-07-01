@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8022988C(void *);
+M2C_UNK TMainTask__sub_8022988C(void *);
 M2C_UNK render_clipout_and_fade__9TMainTaskFv();
 M2C_UNK empty_func__7TObjectFv(void *);
 M2C_UNK fn_803384D4();
@@ -15,7 +15,7 @@ void render_screen_overlay__9TMainTaskFv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x1C) & 0x100) {
         render_clipout_and_fade__9TMainTaskFv();
         empty_func__7TObjectFv(arg0);
-        fn_8022988C(arg0);
+        TMainTask__sub_8022988C(arg0);
         fn_803384D4();
     }
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFE7F);

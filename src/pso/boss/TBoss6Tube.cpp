@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Tube__vt1(void *arg0);
+void run_task__10TBoss6TubeFv(void *arg0);
 
 s32 fn_800B9C88();
 s32 fn_802B1018();
@@ -15,7 +15,7 @@ M2C_UNK TBoss6Tube__sub_802B138C(void *);
 M2C_UNK TBoss6Tube__sub_802B14B8(void *);
 M2C_UNK TBoss6Tube__sub_802B1500(void *);
 
-void TBoss6Tube__vt1(void *arg0) {
+void run_task__10TBoss6TubeFv(void *arg0) {
     s32 temp_r0;
 
     if ((fn_802B1018() == 0) && (fn_800B9C88() == 0)) {

@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TBGLightningCtrl__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_802A9C8C(void *arg0) {
+void *TBGLightningCtrl__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x94);
     if (o != NULL) {
         o = TBGLightningCtrl__ct(o, tl_05, arg0);

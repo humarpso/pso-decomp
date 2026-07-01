@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjMapCsn__vt2(void);
+void render__10TObjMapCsnFv(void);
 
-void TObjMapCsn__vt2(void) {  }
+void render__10TObjMapCsnFv(void) {  }
 
 }

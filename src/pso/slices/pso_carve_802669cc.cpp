@@ -9,11 +9,11 @@ void fn_80288070(void *, int);
 void TOBoss4Rock__sub_80147A80(void *);
 void fn_802443F0(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804D05E0[];
+extern M2C_UNK __vt__11TWindowMenu[];
 
-void *TWindowMenu__vt0(void *arg0, s16 arg1) {
+void *__dt__11TWindowMenuFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D05E0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TWindowMenu;
         fn_8026D9D0(M2C_FIELD(arg0, void **, 0x84), 1);
         fn_80288070(M2C_FIELD(arg0, void **, 0x88), 1);
         TOBoss4Rock__sub_80147A80(M2C_FIELD(arg0, void **, 0x80));

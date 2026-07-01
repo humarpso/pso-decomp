@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80105AF4();
+M2C_UNK build_6x05_write_switch_flag();
 
-void *fn_80105AB4(void *arg0) {
-    fn_80105AF4();
+void *build_6x06_send_guild_card(void *arg0) {
+    build_6x05_write_switch_flag();
     M2C_FIELD(arg0, s8 *, 0) = 0x60;
     M2C_FIELD(arg0, s8 *, 1) = 6;
     return arg0;

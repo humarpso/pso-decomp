@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubItem__vt2(void);
+void render__14TWindowSubItemFv(void);
 
-void TWindowSubItem__vt2(void) {  }
+void render__14TWindowSubItemFv(void) {  }
 
 }

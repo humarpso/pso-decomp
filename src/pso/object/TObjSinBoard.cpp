@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjSinBoard__vt1(void);
+void run_task__12TObjSinBoardFv(void);
 
-void TObjSinBoard__vt1(void) {  }
+void run_task__12TObjSinBoardFv(void) {  }
 
 }

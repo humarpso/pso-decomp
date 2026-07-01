@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBGLightningCtrl__vt2(void);
+void render__16TBGLightningCtrlFv(void);
 
-void TBGLightningCtrl__vt2(void) {  }
+void render__16TBGLightningCtrlFv(void) {  }
 
 }

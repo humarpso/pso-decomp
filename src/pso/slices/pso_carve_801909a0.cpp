@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TObjEnvSound__vt2(void);
+void render__12TObjEnvSoundFv(void);
 
-void TObjEnvSound__vt2(void) {  }
-int TObjEnvSound__vt1(void) { return 0; }
+void render__12TObjEnvSoundFv(void) {  }
+int run_task__12TObjEnvSoundFv(void) { return 0; }
 
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOHealGeneral__vt1(void *arg0);
+void run_task__13TOHealGeneralFv(void *arg0);
 
 s32 fn_80080750();
 M2C_UNK fn_80169168(void *);
@@ -14,7 +14,7 @@ M2C_UNK fn_8016916C(void *);
 M2C_UNK fn_80169230(void *);
 M2C_UNK fn_80169334(void *);
 
-void TOHealGeneral__vt1(void *arg0) {
+void run_task__13TOHealGeneralFv(void *arg0) {
     s32 temp_r0;
 
     if (fn_80080750() == 1) {

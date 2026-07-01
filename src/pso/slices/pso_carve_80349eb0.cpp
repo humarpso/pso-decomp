@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80349DC8();
 s32 fn_80349E5C();
-void TAdLoadQuestLineGC__vt1(void);
+void run_task__18TAdLoadQuestLineGCFv(void);
 
 void fn_80349EB0(void *arg0) {
     s32 temp_r0;
@@ -23,7 +23,7 @@ void fn_80349EB0(void *arg0) {
         return;
     }
 }
-int TAdLoadQuestLineGC__vt2(void) { return 0; }
-void TAdLoadQuestLineGC__vt1(void) {  }
+int render__18TAdLoadQuestLineGCFv(void) { return 0; }
+void run_task__18TAdLoadQuestLineGCFv(void) {  }
 
 }

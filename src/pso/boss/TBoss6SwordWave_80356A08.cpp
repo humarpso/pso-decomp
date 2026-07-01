@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss6SwordWave__vt2(void);
+void render__15TBoss6SwordWaveFv(void);
 
-void TBoss6SwordWave__vt2(void) {  }
+void render__15TBoss6SwordWaveFv(void) {  }
 
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_802109A4();
-M2C_UNK fn_8022397C(void *);
+M2C_UNK TShopWindowBase__sub_8022397C(void *);
 
 void TShopKeepItemWindow__sub_802218B4(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
@@ -17,7 +17,7 @@ void TShopKeepItemWindow__sub_802218B4(void *arg0) {
     if (temp_r12 != NULL) {
         temp_r12(M2C_FIELD(arg0, s32 *, 0x380));
     }
-    fn_8022397C(arg0);
+    TShopWindowBase__sub_8022397C(arg0);
     fn_802109A4();
     queue_destruction__7TObjectFv(arg0);
 }

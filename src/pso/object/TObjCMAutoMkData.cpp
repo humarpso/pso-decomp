@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjCMAutoMkData__vt2(void *arg0);
+void render__16TObjCMAutoMkDataFv(void *arg0);
 
 M2C_UNK fn_80290D1C(f32);
 
-void TObjCMAutoMkData__vt2(void *arg0) {
+void render__16TObjCMAutoMkDataFv(void *arg0) {
     fn_80290D1C(M2C_FIELD(arg0, f32 *, 0x38));
 }
 

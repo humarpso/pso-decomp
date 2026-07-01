@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdTitleTexGC__vt1(void *arg0);
+void run_task__13TAdTitleTexGCFv(void *arg0);
 
 M2C_UNK TAdTitleTexGC__sub_802A4EF4();
 
-void TAdTitleTexGC__vt1(void *arg0) {
+void run_task__13TAdTitleTexGCFv(void *arg0) {
     s32 temp_r4;
     u32 temp_r4_2;
     u32 temp_r4_3;

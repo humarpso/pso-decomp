@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TKomorebi__vt1(void);
+void run_task__9TKomorebiFv(void);
 
-void TKomorebi__vt1(void) {  }
+void run_task__9TKomorebiFv(void) {  }
 
 }

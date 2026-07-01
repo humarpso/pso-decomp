@@ -9,7 +9,7 @@ void fn_80184AD0(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804B5DD8[];
 
-void *fn_8018466C(void *arg0, s16 arg1) {
+void *TObjCity_Season_ValentineHeart__sub_8018466C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5DD8;
         if (M2C_FIELD(arg0, void **, 0xB4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xB4)); M2C_FIELD(arg0, M2C_UNK *, 0xB4) = 0; }

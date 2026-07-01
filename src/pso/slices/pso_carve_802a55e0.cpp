@@ -15,7 +15,7 @@ s32 TObjCityMainWarp__sub_80266354(s32, s32, s32, s32);
 s32 fn_802664A8(s32, s32, s32);
 int TWindowMenu__sub_802657E4(void*);
 int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
-void TWindowMessageYesNo__vt1(void* p);
+void run_task__19TWindowMessageYesNoFv(void* p);
 int fn_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void fn_802A596C(void* p, void* a1, void* a2);
 void fn_802A56C4(void* p);
@@ -67,8 +67,8 @@ void fn_802A5830(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
 }
 int fn_802A58AC(void*, void*, void*, void*) { return 0; }
 void fn_802A596C(void* p, void* a1, void* a2) { fn_802A58AC(p, (void*)0, a1, a2); }
-int TWindowMessageYesNo__vt2(void) { return 0; }
-void TWindowMessageYesNo__vt1(void* p) { if (TWindowSubComCard__sub_802A57FC(p) != 0) { TWindowMenu__sub_802657E4(*(void**)((char*)p + 0x28)); } }
+int render__19TWindowMessageYesNoFv(void) { return 0; }
+void run_task__19TWindowMessageYesNoFv(void* p) { if (TWindowSubComCard__sub_802A57FC(p) != 0) { TWindowMenu__sub_802657E4(*(void**)((char*)p + 0x28)); } }
 int TWindowMessageYesNo__sub_802A59D8(void) { return 0; }
 
 }

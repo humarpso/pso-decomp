@@ -102,7 +102,7 @@ VA
 
 extern "C" {
 
-void TObjEneSlime__vt1(void *arg0) {
+void run_task__12TObjEneSlimeFv(void *arg0) {
     s32 sp8;
 
     if ((fn_80080750() == 0) && (fn_800EB8DC(arg0) != 0)) {

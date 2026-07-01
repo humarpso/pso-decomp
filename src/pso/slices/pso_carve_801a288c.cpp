@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TODoorFourLightSpace__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A288C(void *arg0) {
+void *TODoorFourLightSpace__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
         o = TODoorFourLightSpace__ct(o, tl_05, arg0);

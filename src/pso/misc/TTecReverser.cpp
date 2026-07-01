@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecReverser__vt2(void);
+void render__12TTecReverserFv(void);
 
-void TTecReverser__vt2(void) {  }
+void render__12TTecReverserFv(void) {  }
 
 }

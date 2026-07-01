@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 queue_destruction__7TObjectFv();
-void TTecGiZonde__vt2(void);
+void render__11TTecGiZondeFv(void);
 
-void TTecGiZonde__vt2(void) {  }
+void render__11TTecGiZondeFv(void) {  }
 void fn_8023A4D0(void *arg0) {
     f32 temp_f1;
 

@@ -14,7 +14,7 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 extern void *lbl_805D4DD8;
 extern s32 lbl_805D4DDC;
 
-void TObjBoss5FloorGrass__vt2(void) {
+void render__19TObjBoss5FloorGrassFv(void) {
     if (fn_801A85A0() == 0) {
         fn_803D9B2C();
         fn_803DA798(lbl_805D4DDC);

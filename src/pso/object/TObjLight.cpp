@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjLight__vt2(void);
+void render__9TObjLightFv(void);
 
-void TObjLight__vt2(void) {  }
+void render__9TObjLightFv(void) {  }
 
 }

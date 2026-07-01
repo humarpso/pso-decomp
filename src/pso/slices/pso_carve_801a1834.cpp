@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjLuker__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A1834(void *arg0) {
+void *TObjLuker__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
         o = TObjLuker__ct(o, tl_05, arg0);

@@ -13,7 +13,7 @@ s32 fn_802115F4(u32);
 s32 fn_80211600(u32);
 s32 fn_80211608(u32);
 s32 fn_80222CFC(M2C_UNK);
-f32 fn_8022393C(void *);
+f32 TShopWindowBase__sub_8022393C(void *);
 M2C_UNK fn_8024422C(u32, f32, f32);
 M2C_UNK TWindowSubComCard__sub_80244A14(u32);
 M2C_UNK fn_80265C30(u32);
@@ -35,8 +35,8 @@ void TShopEquipmentSellWindow__sub_8021CAB8(void *arg0) {
             fn_80265F60(M2C_FIELD(arg0, u32 *, 0x390));
             fn_80265C30(M2C_FIELD(arg0, u32 *, 0x390));
             fn_8013AD28(M2C_FIELD(arg0, u32 *, 0x390));
-            temp_f31 = fn_8022393C(arg0);
-            fn_8024422C(M2C_FIELD(arg0, u32 *, 0x390), fn_8022393C(arg0), temp_f31);
+            temp_f31 = TShopWindowBase__sub_8022393C(arg0);
+            fn_8024422C(M2C_FIELD(arg0, u32 *, 0x390), TShopWindowBase__sub_8022393C(arg0), temp_f31);
         }
         M2C_FIELD(arg0, s32 *, 0x37C) = fn_80211600(M2C_FIELD(arg0, u32 *, 0x394));
         TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, u32 *, 0x394));

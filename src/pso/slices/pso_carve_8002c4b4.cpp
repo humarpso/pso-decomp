@@ -8,11 +8,11 @@ void fn_800BC5A0(void *, int);
 void queue_destruction__7TObjectFv(void *);
 void fn_800BC40C(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_80481FD0[];
+extern M2C_UNK __vt__15TObjBoss1Crater[];
 
-void *TObjBoss1Crater__vt0(void *arg0, s16 arg1) {
+void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80481FD0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjBoss1Crater;
         if (M2C_FIELD(arg0, void **, 0xB4) != NULL) { fn_800BC5A0(M2C_FIELD(arg0, void **, 0xB4), 1); M2C_FIELD(arg0, M2C_UNK *, 0xB4) = 0; }
         if (M2C_FIELD(arg0, void **, 0xB0) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xB0)); M2C_FIELD(arg0, M2C_UNK *, 0xB0) = 0; }
         fn_800BC40C(arg0, 0);

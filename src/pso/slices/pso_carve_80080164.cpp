@@ -17,7 +17,7 @@ M2C_UNK fn_803DEEAC();
 M2C_UNK fn_803DF160(M2C_UNK, M2C_UNK);
 extern s32 lbl_805D63F0;
 
-void TDuelEffectNumber__vt2(void *arg0) {
+void render__17TDuelEffectNumberFv(void *arg0) {
     char sp8[0x20];
 
     fn_800800EC(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0x24));

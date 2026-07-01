@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjLaboDesignBase__ct(void *, void *, void *, int);
 extern void *tl_05;
 
-void *fn_80364E28(void *arg0) {
+void *TObjLaboDesignBase__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
         o = TObjLaboDesignBase__ct(o, tl_05, arg0, 0);

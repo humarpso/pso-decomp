@@ -8,11 +8,11 @@ void TWindowSubComCard__sub_80244A14(void *);
 void queue_destruction__7TObjectFv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804CA190[];
+extern M2C_UNK __vt__23TShopJudgmentItemWindow[];
 
-void *TShopJudgmentItemWindow__vt0(void *arg0, s16 arg1) {
+void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CA190;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TShopJudgmentItemWindow;
         if (M2C_FIELD(arg0, void **, 0x154) != NULL) { TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x154)); M2C_FIELD(arg0, M2C_UNK *, 0x154) = 0; }
         if (M2C_FIELD(arg0, void **, 0x160) != NULL) { TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x160)); M2C_FIELD(arg0, M2C_UNK *, 0x160) = 0; }
         if (M2C_FIELD(arg0, void **, 0x158) != NULL) { TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x158)); M2C_FIELD(arg0, M2C_UNK *, 0x158) = 0; }

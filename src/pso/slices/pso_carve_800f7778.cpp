@@ -10,13 +10,13 @@ M2C_UNK fn_80018FE0(void *, M2C_UNK);
 M2C_UNK TObjEnemy__sub_800F790C(void *);
 M2C_UNK TObjEnemy__sub_8020C3E0(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_80497C78[];
+extern M2C_UNK __vt__9TObjEnemy[];
 
-void *TObjEnemy__vt0(void *arg0, s16 arg1) {
+void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
     u16 temp_r0;
 
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80497C78;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TObjEnemy;
         TObjEnemy__sub_800F790C(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
             temp_r0 = M2C_FIELD(arg0, u16 *, 0x1C);

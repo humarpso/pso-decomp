@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjContainerAbeEnemy__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A2C60(void *arg0) {
+void *TObjContainerAbeEnemy__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
         o = TObjContainerAbeEnemy__ct(o, tl_05, arg0);

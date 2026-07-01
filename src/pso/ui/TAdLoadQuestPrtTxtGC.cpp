@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TAdLoadQuestPrtTxtGC__vt2(void);
+void render__20TAdLoadQuestPrtTxtGCFv(void);
 
-void TAdLoadQuestPrtTxtGC__vt2(void) {  }
+void render__20TAdLoadQuestPrtTxtGCFv(void) {  }
 
 }

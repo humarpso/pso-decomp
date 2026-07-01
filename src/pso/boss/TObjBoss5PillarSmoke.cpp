@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TObjBoss5PillarSmoke__vt1(void);
-void TObjBoss5PillarSmoke__vt2(void);
+void run_task__20TObjBoss5PillarSmokeFv(void);
+void render__20TObjBoss5PillarSmokeFv(void);
 
-void TObjBoss5PillarSmoke__vt2(void) {  }
-void TObjBoss5PillarSmoke__vt1(void) {  }
+void render__20TObjBoss5PillarSmokeFv(void) {  }
+void run_task__20TObjBoss5PillarSmokeFv(void) {  }
 
 }

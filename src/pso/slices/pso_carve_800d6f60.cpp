@@ -11,7 +11,7 @@ void fn_800C68FC(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_80494728[];
 
-void *fn_800D6F60(void *arg0, s16 arg1) {
+void *TObjEneMerillLia__sub_800D6F60(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494728;
         fn_800F6EB0(arg0);

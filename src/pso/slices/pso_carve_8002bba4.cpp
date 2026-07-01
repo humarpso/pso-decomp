@@ -7,11 +7,11 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_80481C40[];
+extern M2C_UNK __vt__21TBoss1DragonEffBullet[];
 
-void *TBoss1DragonEffBullet__vt0(void *arg0, s16 arg1) {
+void *__dt__21TBoss1DragonEffBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80481C40;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TBoss1DragonEffBullet;
         if (M2C_FIELD(arg0, void **, 0x48) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x48)); M2C_FIELD(arg0, M2C_UNK *, 0x48) = 0; }
         if (M2C_FIELD(arg0, void **, 0x44) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x44)); M2C_FIELD(arg0, M2C_UNK *, 0x44) = 0; }
         __dt__7TObjectFv(arg0, 0);

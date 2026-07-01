@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLobbyMain__vt1(void *arg0);
+void run_task__13TObjLobbyMainFv(void *arg0);
 M2C_UNK TObjLobbyMain__sub_803520D8(void *);
 M2C_UNK TObjLobbyMain__sub_8035255C(void *);
 M2C_UNK TObjLobbyMain__sub_803525F0(void *);
@@ -16,7 +16,7 @@ M2C_UNK TObjLobbyMain__sub_80352360(void *);
 M2C_UNK TObjLobbyMain__sub_803524F8(void *);
 M2C_UNK TObjLobbyMain__sub_80352624(void *);
 
-void TObjLobbyMain__vt1(void *arg0) {
+void run_task__13TObjLobbyMainFv(void *arg0) {
     s32 temp_r0;
 
     if (fn_80080750() == 1) {

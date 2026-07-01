@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TBoss5GryphonDemo__vt2(void);
+void render__17TBoss5GryphonDemoFv(void);
 
-void TBoss5GryphonDemo__vt2(void) {  }
-int TBoss5GryphonDemo__vt1(void) { return 0; }
+void render__17TBoss5GryphonDemoFv(void) {  }
+int run_task__17TBoss5GryphonDemoFv(void) { return 0; }
 
 }

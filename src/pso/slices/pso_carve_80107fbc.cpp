@@ -7,11 +7,11 @@ extern "C" {
 void TBoss4Type2__sub_80086C44(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_8049EFD0[];
+extern M2C_UNK __vt__13TItemEffArmor[];
 
-void *TItemEffArmor__vt0(void *arg0, s16 arg1) {
+void *__dt__13TItemEffArmorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049EFD0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TItemEffArmor;
         TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x1C));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

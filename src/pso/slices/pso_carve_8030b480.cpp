@@ -2,10 +2,10 @@
 
 extern "C" {
 
-int TObjLiveMonitor__vt1(void* p);
+int run_task__15TObjLiveMonitorFv(void* p);
 int fn_8030B370(void*);
 
-int TObjLiveMonitor__vt2(void) { return 0; }
-int TObjLiveMonitor__vt1(void* p) { return fn_8030B370(p); }
+int render__15TObjLiveMonitorFv(void) { return 0; }
+int run_task__15TObjLiveMonitorFv(void* p) { return fn_8030B370(p); }
 
 }

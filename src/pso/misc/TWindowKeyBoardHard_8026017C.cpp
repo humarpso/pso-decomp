@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowKeyBoardHard__vt2(void *arg0);
+void render__19TWindowKeyBoardHardFv(void *arg0);
 s32 TWindowKeyBoardHard__sub_80260444();
 s32 fn_80244CF4(void *);
 M2C_UNK TWindowKeyBoardHard__sub_80260020(void *, s32);
 
-void TWindowKeyBoardHard__vt2(void *arg0) {
+void render__19TWindowKeyBoardHardFv(void *arg0) {
     s32 temp;
     if (((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0) && (TWindowKeyBoardHard__sub_80260444() == 0)) {
         temp = fn_80244CF4(arg0);

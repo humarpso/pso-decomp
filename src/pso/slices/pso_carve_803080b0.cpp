@@ -19,7 +19,7 @@ struct VObj_803080B0 : Base_803080B0 {
 
 extern "C" {
 
-void TAdVIConfigGC__vt1(void *arg0) {
+void run_task__13TAdVIConfigGCFv(void *arg0) {
     struct VObj_803080B0 *o = (struct VObj_803080B0 *)arg0;
     o->m9();
 }

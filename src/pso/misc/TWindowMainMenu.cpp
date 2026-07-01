@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TWindowMainMenu__vt1(void);
-void TWindowMainMenu__vt2(void);
+void run_task__15TWindowMainMenuFv(void);
+void render__15TWindowMainMenuFv(void);
 
-void TWindowMainMenu__vt2(void) {  }
-void TWindowMainMenu__vt1(void) {  }
+void render__15TWindowMainMenuFv(void) {  }
+void run_task__15TWindowMainMenuFv(void) {  }
 
 }

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjRaderHideCol__vt2(void);
+void render__16TObjRaderHideColFv(void);
 
-void TObjRaderHideCol__vt2(void) {  }
+void render__16TObjRaderHideColFv(void) {  }
 
 }

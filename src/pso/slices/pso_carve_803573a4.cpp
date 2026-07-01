@@ -18,7 +18,7 @@ M2C_UNK fn_803DF768(M2C_UNK);
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 
-void TItemEffOrgaFlowShot__vt2(s32 arg0) {
+void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     fn_801E2EFC();
     lbl_805D5660 = some_id_805c6f74;
     set_depth_buffer_settings_1__Fv();

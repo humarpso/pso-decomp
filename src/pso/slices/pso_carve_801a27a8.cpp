@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TODoorLabo__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A27A8(void *arg0) {
+void *TODoorLabo__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
         o = TODoorLabo__ct(o, tl_05, arg0);

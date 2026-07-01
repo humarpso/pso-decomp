@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80101CFC(M2C_UNK, M2C_UNK *);
 s32 fn_801049C8(M2C_UNK *, s32);
 u32 fn_801D5764(void *);
-s32 fn_801D5ABC(void *);
+s32 TItemList__sub_801D5ABC(void *);
 extern s32 lbl_805D5DF4;
 extern s32 lbl_805D5DFC;
 
@@ -21,7 +21,7 @@ void fn_801D551C(void *arg0) {
 
     var_r31 = M2C_FIELD(arg0, void **, 0x14);
     while (var_r31 != NULL) {
-        if ((fn_801D5ABC(var_r31) != 0) && ((temp = fn_801D5764(var_r31)) != 0U)) {
+        if ((TItemList__sub_801D5ABC(var_r31) != 0) && ((temp = fn_801D5764(var_r31)) != 0U)) {
             fn_80101CFC(temp, &sp8[0]);
             if (fn_801049C8(&sp8[0], lbl_805D5DFC) != 0) {
                 lbl_805D5DF4 += 1;

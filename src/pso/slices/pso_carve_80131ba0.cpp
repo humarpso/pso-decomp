@@ -27,6 +27,6 @@ s32 fn_80131BC4(void *arg0) {
 }
 int TWindowSubComCard__sub_80131C10(void* p) { return TKeyBoardControl__sub_80131FA0(*(void**)((char*)p + 0x20)); }
 int TWindowSubComCard__sub_80131C34(void* p) { return TKeyBoardControl__sub_80131FAC(*(void**)((char*)p + 0x20)); }
-int TKeyBoardControl__vt2(void) { return 0; }
+int render__16TKeyBoardControlFv(void) { return 0; }
 
 }

@@ -7,11 +7,11 @@ extern "C" {
 void fn_80156720(void *);
 void __dt__7TEffectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804CCAE0[];
+extern M2C_UNK __vt__19TTecPlayerInfluence[];
 
-void *TTecPlayerInfluence__vt0(void *arg0, s16 arg1) {
+void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CCAE0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TTecPlayerInfluence;
         if (M2C_FIELD(arg0, void **, 0xDC) != NULL) { fn_80156720(M2C_FIELD(arg0, void **, 0xDC)); }
         __dt__7TEffectFv(arg0, 0);
         if (arg1 > 0) {

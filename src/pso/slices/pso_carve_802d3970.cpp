@@ -11,7 +11,7 @@ int fn_802D399C(void* p);
 int fn_802D39BC(void* p);
 int fn_802D39DC(void* p);
 int fn_802D39FC(void* p);
-void fn_802D3A94(void* p);
+void build_6xA6_modify_trade_proposal(void* p);
 int TLobby__sub_802D245C(void);
 int fn_802D2518(void);
 int fn_802D37C8(void);
@@ -26,6 +26,6 @@ int fn_802D39DC(void* p) { return fn_802D38B4(p); }
 int fn_802D39FC(void* p) { return fn_802D38B4(p); }
 void fn_802D3A1C(void* p) { fn_8001960C(p); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
 void fn_802D3A58(void* p, void* a1) { fn_802D237C(p); TLobby__sub_801E44D8(p, a1); }
-void fn_802D3A94(void* p) { *(u8*)((char*)p + 0x0) = 166; *(u8*)((char*)p + 0x1) = 4; }
+void build_6xA6_modify_trade_proposal(void* p) { *(u8*)((char*)p + 0x0) = 166; *(u8*)((char*)p + 0x1) = 4; }
 
 }

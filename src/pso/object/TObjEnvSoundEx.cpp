@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjEnvSoundEx__vt2(void);
+void render__14TObjEnvSoundExFv(void);
 
-void TObjEnvSoundEx__vt2(void) {  }
+void render__14TObjEnvSoundExFv(void) {  }
 
 }

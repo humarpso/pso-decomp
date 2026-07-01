@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjAreaWarpQuest__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A29BC(void *arg0) {
+void *TObjAreaWarpQuest__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
         o = TObjAreaWarpQuest__ct(o, tl_05, arg0);

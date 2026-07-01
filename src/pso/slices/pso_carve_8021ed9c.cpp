@@ -7,11 +7,11 @@ extern "C" {
 void TWindowSubComCard__sub_80244A14(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804CA068[];
+extern M2C_UNK __vt__18TShopGetItemWindow[];
 
-void *TShopGetItemWindow__vt0(void *arg0, s16 arg1) {
+void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CA068;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TShopGetItemWindow;
         if (M2C_FIELD(arg0, void **, 0x28) != NULL) { TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x28)); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }
         if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x2C)); M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0; }
         if (M2C_FIELD(arg0, void **, 0x30) != NULL) { TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x30)); M2C_FIELD(arg0, M2C_UNK *, 0x30) = 0; }

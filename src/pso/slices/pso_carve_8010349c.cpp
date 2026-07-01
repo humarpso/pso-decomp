@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_801031CC();
 
-void fn_8010349C(u32 arg0) {
+void TItemAttacker__sub_8010349C(u32 arg0) {
     if (arg0 != 0U) {
         fn_801031CC();
     }

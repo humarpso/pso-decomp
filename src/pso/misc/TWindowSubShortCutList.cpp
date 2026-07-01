@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubShortCutList__vt1(void *arg0);
+void run_task__22TWindowSubShortCutListFv(void *arg0);
 s32 fn_8013AD38(void *);
 M2C_UNK fn_80268048();
 s32 fn_8026C9DC(s32);
 M2C_UNK fn_8027E278(void *);
 
-void TWindowSubShortCutList__vt1(void *arg0) {
+void run_task__22TWindowSubShortCutListFv(void *arg0) {
     fn_80268048();
     if ((fn_8013AD38(arg0) == 0) && (fn_8026C9DC(M2C_FIELD(arg0, s32 *, 0x88)) != 0)) {
         fn_8027E278(arg0);

@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjMapWarpAncient__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8017CED8(void *arg0) {
+void *TObjMapWarpAncient__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x11C);
     if (o != NULL) {
         o = TObjMapWarpAncient__ct(o, tl_05, arg0);

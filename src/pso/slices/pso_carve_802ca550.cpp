@@ -4,7 +4,7 @@ extern "C" {
 
 void TOTrapSeabed01__vt82(void);
 
-int TOTrapSeabed01__vt2(void) { return 0; }
+int render__14TOTrapSeabed01Fv(void) { return 0; }
 void TOTrapSeabed01__vt82(void) {  }
 
 }

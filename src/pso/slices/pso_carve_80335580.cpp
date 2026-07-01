@@ -16,7 +16,7 @@ struct VObj_80335580 : Base_80335580 {
 
 extern "C" {
 
-void TAdTrialModemChkGC__vt1(void *arg0) {
+void run_task__18TAdTrialModemChkGCFv(void *arg0) {
     struct VObj_80335580 *o = (struct VObj_80335580 *)arg0;
     o->m6();
 }

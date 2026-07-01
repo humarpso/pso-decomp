@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TObjBoss2Dust__vt2(void* p);
+void render__13TObjBoss2DustFv(void* p);
 void fn_8003A95C(void);
 void fn_8003A984(void);
 void fn_8003A9AC(void);
@@ -20,6 +20,6 @@ int TObjBoss2Tunnel__sub_8003C64C(void);
 void fn_8003A95C(void) { fn_8003AD50(); TObjBoss2Tunnel__sub_8003C648(); fn_8003A874(); }
 void fn_8003A984(void) { TObjBoss2Tunnel__sub_8003C64C(); fn_8003B2B0(); fn_8003AD1C(); }
 void fn_8003A9AC(void) { fn_8003A8D0(); TObjBoss2Tunnel__sub_8003C688(); fn_8003AD54(); }
-void TObjBoss2Dust__vt2(void* p) { fn_8003AB00((char*)p + 0x24, *(void**)((char*)p + 0x20)); }
+void render__13TObjBoss2DustFv(void* p) { fn_8003AB00((char*)p + 0x24, *(void**)((char*)p + 0x20)); }
 
 }

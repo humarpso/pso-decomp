@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecRaZonde__vt2(void);
+void render__11TTecRaZondeFv(void);
 
-void TTecRaZonde__vt2(void) {  }
+void render__11TTecRaZondeFv(void) {  }
 
 }

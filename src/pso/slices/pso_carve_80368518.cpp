@@ -7,17 +7,17 @@ extern "C" {
 void TObjEneIllGill__sub_80366A74(void *);
 void fn_80156720(void *);
 void fn_800D75F4(void *, int);
-void TObjEnemy__vt0(void *, int);
+void __dt__9TObjEnemyFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804F3038[];
+extern M2C_UNK __vt__14TObjEneIllGill[];
 
-void *TObjEneIllGill__vt0(void *arg0, s16 arg1) {
+void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3038;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjEneIllGill;
         TObjEneIllGill__sub_80366A74(arg0);
         fn_80156720(arg0);
         fn_800D75F4((s8 *)arg0 + 0x374, -1);
-        TObjEnemy__vt0(arg0, 0);
+        __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

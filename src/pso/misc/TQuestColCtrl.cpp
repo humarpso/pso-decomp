@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TQuestColCtrl__vt2(void);
+void render__13TQuestColCtrlFv(void);
 
-void TQuestColCtrl__vt2(void) {  }
+void render__13TQuestColCtrlFv(void) {  }
 
 }

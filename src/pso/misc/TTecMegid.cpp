@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TTecMegid__vt2(void);
+void render__9TTecMegidFv(void);
 void TTecMegid__sub_802355E0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TTecMegid__sub_80235638(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TTecMegid__ct(u32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
@@ -23,6 +23,6 @@ void TTecMegid__sub_80235638(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         TTecMegid__sub_80235940(obj, arg0, arg1, arg2, arg3);
     }
 }
-void TTecMegid__vt2(void) {  }
+void render__9TTecMegidFv(void) {  }
 
 }

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubEquip__vt2(void);
+void render__15TWindowSubEquipFv(void);
 
-void TWindowSubEquip__vt2(void) {  }
+void render__15TWindowSubEquipFv(void) {  }
 
 }

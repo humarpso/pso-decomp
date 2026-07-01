@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TSwitch__vt1(void);
-void TSwitch__vt2(void);
+void run_task__7TSwitchFv(void);
+void render__7TSwitchFv(void);
 
-void TSwitch__vt2(void) {  }
-void TSwitch__vt1(void) {  }
+void render__7TSwitchFv(void) {  }
+void run_task__7TSwitchFv(void) {  }
 
 }

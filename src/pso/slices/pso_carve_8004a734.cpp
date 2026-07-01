@@ -20,7 +20,7 @@ extern s32 lbl_805D4D50;
 extern s32 some_id_805c6f74;
 extern f32 lbl_805D88F4;
 
-void TObjVoloptShutter__vt2(void *arg0) {
+void render__17TObjVoloptShutterFv(void *arg0) {
     fn_800D8A2C();
     fn_803DA798(lbl_805D4D50);
     fn_803D9B2C();

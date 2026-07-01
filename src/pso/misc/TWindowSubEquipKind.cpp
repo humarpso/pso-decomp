@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubEquipKind__vt1(void *arg0);
+void run_task__19TWindowSubEquipKindFv(void *arg0);
 M2C_UNK fn_80268048();
 
-void TWindowSubEquipKind__vt1(void *arg0) {
+void run_task__19TWindowSubEquipKindFv(void *arg0) {
     int temp_r3;
 
     fn_80268048();

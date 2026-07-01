@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TDuelEffectCtrl__vt2(void);
+void render__15TDuelEffectCtrlFv(void);
 
-void TDuelEffectCtrl__vt2(void) {  }
-int TDuelEffectCtrl__vt1(void) { return 0; }
+void render__15TDuelEffectCtrlFv(void) {  }
+int run_task__15TDuelEffectCtrlFv(void) { return 0; }
 
 }

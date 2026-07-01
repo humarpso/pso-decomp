@@ -7,11 +7,11 @@ extern "C" {
 void fn_800BC5A0(void *, int);
 void fn_800BC40C(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804E6194[];
+extern M2C_UNK __vt__19TBoss8DragonEffTail[];
 
-void *TBoss8DragonEffTail__vt0(void *arg0, s16 arg1) {
+void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E6194;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss8DragonEffTail;
         fn_800BC5A0(M2C_FIELD(arg0, void **, 0xB8), 1);
         M2C_FIELD(arg0, M2C_UNK *, 0xB8) = 0;
         fn_800BC40C(arg0, 0);

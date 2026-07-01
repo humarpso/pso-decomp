@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjQuestCol__ct(void *, void *, void *);
 extern void *lbl_805D5C50;
 
-void *fn_80196A8C(void *arg0) {
+void *TObjQuestCol__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
         o = TObjQuestCol__ct(o, lbl_805D5C50, arg0);

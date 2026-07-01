@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TBoss8DragonDemo__vt2(void);
+void render__16TBoss8DragonDemoFv(void);
 
-void TBoss8DragonDemo__vt2(void) {  }
-int TBoss8DragonDemo__vt1(void) { return 0; }
+void render__16TBoss8DragonDemoFv(void) {  }
+int run_task__16TBoss8DragonDemoFv(void) { return 0; }
 
 }

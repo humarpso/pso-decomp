@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss5GryphonTornado__vt2(void);
+void render__20TBoss5GryphonTornadoFv(void);
 
-void TBoss5GryphonTornado__vt2(void) {  }
+void render__20TBoss5GryphonTornadoFv(void) {  }
 
 }

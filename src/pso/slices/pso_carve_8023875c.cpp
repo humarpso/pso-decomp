@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TTecRaFoie__vt2(void);
+void render__10TTecRaFoieFv(void);
 
-void TTecRaFoie__vt2(void) {  }
-int TTecRaFoie__vt1(void) { return 0; }
+void render__10TTecRaFoieFv(void) {  }
+int run_task__10TTecRaFoieFv(void) { return 0; }
 
 }

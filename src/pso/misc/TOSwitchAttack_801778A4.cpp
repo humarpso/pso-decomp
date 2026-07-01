@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TOSwitchAttack__vt2(void);
+void render__14TOSwitchAttackFv(void);
 
-void TOSwitchAttack__vt2(void) {  }
+void render__14TOSwitchAttackFv(void) {  }
 
 }

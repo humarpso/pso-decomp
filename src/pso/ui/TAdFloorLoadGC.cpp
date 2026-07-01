@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TAdFloorLoadGC__vt1(void);
-void TAdFloorLoadGC__vt2(void);
+void run_task__14TAdFloorLoadGCFv(void);
+void render__14TAdFloorLoadGCFv(void);
 
-void TAdFloorLoadGC__vt2(void) {  }
-void TAdFloorLoadGC__vt1(void) {  }
+void render__14TAdFloorLoadGCFv(void) {  }
+void run_task__14TAdFloorLoadGCFv(void) {  }
 
 }

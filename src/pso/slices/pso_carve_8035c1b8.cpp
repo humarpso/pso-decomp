@@ -7,11 +7,11 @@ extern "C" {
 void __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804F1E40[];
+extern M2C_UNK __vt__19TObjBoss8PillerCtrl[];
 
-void *TObjBoss8PillerCtrl__vt0(void *arg0, s16 arg1) {
+void *__dt__19TObjBoss8PillerCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F1E40;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TObjBoss8PillerCtrl;
         if (M2C_FIELD(arg0, void **, 0x30) != NULL) { __dl__FPv(M2C_FIELD(arg0, void **, 0x30)); M2C_FIELD(arg0, M2C_UNK *, 0x30) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

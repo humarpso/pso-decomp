@@ -6,20 +6,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjEnemy__vt0(void *, M2C_UNK);
+M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 M2C_UNK fn_80154A00(void *);
 M2C_UNK fn_801566CC(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_803088D0(void *);
-extern M2C_UNK lbl_804E73E0[];
+extern M2C_UNK __vt__14TBoss7Crawfish[];
 
-void *TBoss7Crawfish__vt0(void *arg0, s16 arg1) {
+void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E73E0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss7Crawfish;
         fn_80154A00(arg0);
         fn_801566CC(arg0);
         fn_803088D0(arg0);
-        TObjEnemy__vt0(arg0, 0);
+        __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

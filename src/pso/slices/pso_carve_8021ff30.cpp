@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK fn_80073DC4(void *, s32);
-s32 fn_802239EC(void *);
-s32 fn_80223A48(void *);
+s32 TShopWindowBase__sub_802239EC(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
 extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
 }
@@ -28,7 +28,7 @@ struct VObj_8021FF30 : Base_8021FF30 {
 extern "C" {
 
 void fn_8021FF30(void *arg0) {
-    if ((((VObj_8021FF30*)arg0)->m8() != 0) && ((fn_80223A48(arg0) != 0) || (fn_802239EC(arg0) != 0))) {
+    if ((((VObj_8021FF30*)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_8021FF30*)arg0)->m4(lbl_805D6248, 1);
         fn_80073DC4(arg0, lbl_805D624C);
     }

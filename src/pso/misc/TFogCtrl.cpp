@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TFogCtrl__vt2(void);
+void render__8TFogCtrlFv(void);
 
-void TFogCtrl__vt2(void) {  }
+void render__8TFogCtrlFv(void) {  }
 
 }

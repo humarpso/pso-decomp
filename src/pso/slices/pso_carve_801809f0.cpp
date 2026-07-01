@@ -14,7 +14,7 @@ struct VObj_801809F0 : Base_801809F0 {
     virtual void m4(); virtual void m5(); virtual int m6(); virtual void m7();
 };
 
-void fn_801809F0(void *arg0) {
+void TObjChip__sub_801809F0(void *arg0) {
     struct VObj_801809F0 *o = (struct VObj_801809F0 *)arg0;
     o->m7();
     if (o->m6() == 1) {

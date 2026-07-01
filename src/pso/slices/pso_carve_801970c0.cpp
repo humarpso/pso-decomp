@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjRaderIcon__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801970C0(void *arg0) {
+void *TObjRaderIcon__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xA4);
     if (o != NULL) {
         o = TObjRaderIcon__ct(o, tl_05, arg0);

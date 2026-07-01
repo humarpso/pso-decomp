@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjContainerBase__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_80188A5C(void *arg0) {
+void *TObjContainerBase__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
         o = TObjContainerBase__ct(o, tl_05, arg0);

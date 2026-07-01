@@ -2,12 +2,12 @@
 
 extern "C" {
 
-void TWindowMainMenu4P__vt1(void* p);
-void TWindowMainMenu4P__vt2(void);
+void run_task__17TWindowMainMenu4PFv(void* p);
+void render__17TWindowMainMenu4PFv(void);
 int fn_80263FE0(void*);
 int TWindowMainMenu__sub_802647CC(void*);
 
-void TWindowMainMenu4P__vt2(void) {  }
-void TWindowMainMenu4P__vt1(void* p) { TWindowMainMenu__sub_802647CC(p); fn_80263FE0(p); }
+void render__17TWindowMainMenu4PFv(void) {  }
+void run_task__17TWindowMainMenu4PFv(void* p) { TWindowMainMenu__sub_802647CC(p); fn_80263FE0(p); }
 
 }

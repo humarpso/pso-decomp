@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TShopGenerator__ct(void *, void *);
 
-void *fn_8021E1B4(void *arg0) {
+void *TShopGenerator__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
         o = TShopGenerator__ct(o, arg0);

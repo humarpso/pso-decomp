@@ -7,11 +7,11 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void fn_800BC40C(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_80483238[];
+extern M2C_UNK __vt__18TBoss2PhotonBullet[];
 
-void *TBoss2PhotonBullet__vt0(void *arg0, s16 arg1) {
+void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80483238;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TBoss2PhotonBullet;
         if (M2C_FIELD(arg0, void **, 0xE4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xE4)); M2C_FIELD(arg0, M2C_UNK *, 0xE4) = 0; }
         fn_800BC40C(arg0, 0);
         if (arg1 > 0) {

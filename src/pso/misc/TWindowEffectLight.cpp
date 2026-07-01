@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowEffectLight__vt1(void *arg0);
+void run_task__18TWindowEffectLightFv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv();
 
-void TWindowEffectLight__vt1(void *arg0) {
+void run_task__18TWindowEffectLightFv(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x26) + 1;

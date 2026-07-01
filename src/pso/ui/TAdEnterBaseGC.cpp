@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TAdEnterBaseGC__vt2(void);
+void render__14TAdEnterBaseGCFv(void);
 void fn_8032AC94(void);
 
 void fn_8032AC94(void) {  }
-void TAdEnterBaseGC__vt2(void) {  }
+void render__14TAdEnterBaseGCFv(void) {  }
 
 }

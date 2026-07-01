@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80071F1C(s32, M2C_UNK);
+M2C_UNK TPlyDispConfig__sub_80071F1C(s32, M2C_UNK);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK TLockOnCursor__sub_8013ED68(s32, M2C_UNK);
 
 s32 TLockOnCursor__sub_8013ED0C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TLockOnCursor__sub_8013ED68(arg0 + 0x9C, -1);
-        fn_80071F1C(arg0, -1);
+        TPlyDispConfig__sub_80071F1C(arg0, -1);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

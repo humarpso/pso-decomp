@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubLog__vt2(void);
+void render__13TWindowSubLogFv(void);
 
-void TWindowSubLog__vt2(void) {  }
+void render__13TWindowSubLogFv(void) {  }
 
 }

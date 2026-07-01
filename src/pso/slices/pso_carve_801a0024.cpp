@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjWarpJung__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A0024(void *arg0) {
+void *TObjWarpJung__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
         o = TObjWarpJung__ct(o, tl_05, arg0);

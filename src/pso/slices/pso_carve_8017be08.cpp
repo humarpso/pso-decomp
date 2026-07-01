@@ -9,6 +9,6 @@ int TObjPlayer__sub_801B4A18(void*, int);
 
 void TOVS2Wall01__sub_8017BE08(void* p) { fn_8020C5E0(p); queue_destruction__7TObjectFv(p); }
 int TOVS2Wall01__sub_8017BE3C(void* p) { return TObjPlayer__sub_801B4A18(p, -1); }
-int TOVS2Wall01__vt1(void) { return 0; }
+int run_task__11TOVS2Wall01Fv(void) { return 0; }
 
 }

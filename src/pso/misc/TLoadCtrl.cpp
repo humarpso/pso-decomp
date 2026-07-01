@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TLoadCtrl__vt2(void);
+void render__9TLoadCtrlFv(void);
 
-void TLoadCtrl__vt2(void) {  }
+void render__9TLoadCtrlFv(void) {  }
 
 }

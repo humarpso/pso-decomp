@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjDoaEx01__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8018E15C(void *arg0) {
+void *TObjDoaEx01__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);
     if (o != NULL) {
         o = TObjDoaEx01__ct(o, tl_05, arg0);

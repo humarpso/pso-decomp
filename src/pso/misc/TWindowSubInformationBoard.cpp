@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubInformationBoard__vt2(void);
+void render__26TWindowSubInformationBoardFv(void);
 
-void TWindowSubInformationBoard__vt2(void) {  }
+void render__26TWindowSubInformationBoardFv(void) {  }
 
 }

@@ -11,7 +11,7 @@ M2C_UNK fn_8008CC5C();
 M2C_UNK TEndingAB__sub_8008CCC0(s32);
 extern s32 lbl_805D4F10;
 
-void TEndingAB__vt2(s32 arg0) {
+void render__9TEndingABFv(s32 arg0) {
     if ((s32) lbl_805D4F10 != 0) {
         fn_8008CC5C();
         fn_8008CB54(arg0);

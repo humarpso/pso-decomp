@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_8034960C();
 s32 fn_80349728();
 s32 fn_80349844();
-void TAdLoadQuestCellGC__vt1(void);
+void run_task__18TAdLoadQuestCellGCFv(void);
 
 void fn_8034999C(void *arg0) {
     s32 temp_r0;
@@ -27,7 +27,7 @@ void fn_8034999C(void *arg0) {
         return;
     }
 }
-int TAdLoadQuestCellGC__vt2(void) { return 0; }
-void TAdLoadQuestCellGC__vt1(void) {  }
+int render__18TAdLoadQuestCellGCFv(void) { return 0; }
+void run_task__18TAdLoadQuestCellGCFv(void) {  }
 
 }

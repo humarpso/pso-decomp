@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowKeyBoardBase__vt1(void* p);
-void TWindowKeyBoardBase__vt2(void *arg0);
+void run_task__19TWindowKeyBoardBaseFv(void* p);
+void render__19TWindowKeyBoardBaseFv(void *arg0);
 s32 fn_80244CF4(void *);
 M2C_UNK fn_80245F98(void *, s32);
 int fn_80246258(void*);
@@ -16,7 +16,7 @@ s32 fn_8025CB10(void *);
 M2C_UNK fn_8025E6DC(void *, s32);
 s32 fn_8025EB68();
 
-void TWindowKeyBoardBase__vt2(void *arg0) {
+void render__19TWindowKeyBoardBaseFv(void *arg0) {
     s32 temp_r31;
 
     if ((fn_8025EB68() == 0) && ((fn_8025CB10(arg0) != 0) || (M2C_FIELD(arg0, u16 *, 0x62) & 2))) {
@@ -28,6 +28,6 @@ void TWindowKeyBoardBase__vt2(void *arg0) {
     }
 }
 
-void TWindowKeyBoardBase__vt1(void* p) { fn_8024664C(p); fn_80246258(p); }
+void run_task__19TWindowKeyBoardBaseFv(void* p) { fn_8024664C(p); fn_80246258(p); }
 
 }

@@ -11,7 +11,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 s32 TObjEneDelDepth__ct(s32, s32, s32);
 extern s32 tl_04;
 
-s32 fn_80315C64(s32 arg0) {
+s32 TObjEneDelDepth__create(s32 arg0) {
     s32 var_r31;
     s32 var_r4;
 

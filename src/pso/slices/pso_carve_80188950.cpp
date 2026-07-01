@@ -10,11 +10,11 @@ M2C_UNK fn_80154A00(M2C_UNK *);
 M2C_UNK fn_80156720(void *);
 M2C_UNK fn_8015C8D8(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804B6518[];
+extern M2C_UNK __vt__21TObjContainerAbeEnemy[];
 
-void *TObjContainerAbeEnemy__vt0(void *arg0, s16 arg1) {
+void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B6518;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TObjContainerAbeEnemy;
         fn_80154A00((M2C_UNK *)arg0);
         fn_80156720(arg0);
         fn_8015C8D8(arg0, 0);

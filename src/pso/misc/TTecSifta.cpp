@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecSifta__vt2(void);
+void render__9TTecSiftaFv(void);
 
-void TTecSifta__vt2(void) {  }
+void render__9TTecSiftaFv(void) {  }
 
 }

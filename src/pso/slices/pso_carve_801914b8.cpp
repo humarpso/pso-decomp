@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjHashiVersus1__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801914B8(void *arg0) {
+void *TObjHashiVersus1__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
         o = TObjHashiVersus1__ct(o, tl_05, arg0);

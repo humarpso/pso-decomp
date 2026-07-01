@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TWindowMessagePage__vt2(void* p);
-int TWindowMessage__vt2(void*);
+int render__18TWindowMessagePageFv(void* p);
+int render__14TWindowMessageFv(void*);
 
-int TWindowMessagePage__vt2(void* p) { return TWindowMessage__vt2(p); }
+int render__18TWindowMessagePageFv(void* p) { return render__14TWindowMessageFv(p); }
 
 }

@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjItemLight__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A2CF8(void *arg0) {
+void *TObjItemLight__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
         o = TObjItemLight__ct(o, tl_05, arg0);

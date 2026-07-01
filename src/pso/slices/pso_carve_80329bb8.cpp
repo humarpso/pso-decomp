@@ -20,7 +20,7 @@ struct VObj_80329BB8 : Base_80329BB8 {
 
 extern "C" {
 
-void TAdLicAgreementGC__vt2(void *arg0) {
+void render__17TAdLicAgreementGCFv(void *arg0) {
     struct VObj_80329BB8 *o = (struct VObj_80329BB8 *)arg0;
     o->m10();
 }

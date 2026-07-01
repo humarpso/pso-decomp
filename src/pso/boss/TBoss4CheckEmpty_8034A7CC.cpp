@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss4CheckEmpty__vt2(void);
+void render__16TBoss4CheckEmptyFv(void);
 
-void TBoss4CheckEmpty__vt2(void) {  }
+void render__16TBoss4CheckEmptyFv(void) {  }
 
 }

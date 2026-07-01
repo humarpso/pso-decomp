@@ -7,11 +7,11 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void fn_802E49F4(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804E353C[];
+extern M2C_UNK __vt__14TItemAttackCol[];
 
-void *TItemAttackCol__vt0(void *arg0, s16 arg1) {
+void *__dt__14TItemAttackColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E353C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TItemAttackCol;
         if (M2C_FIELD(arg0, void **, 0x12C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x12C)); M2C_FIELD(arg0, M2C_UNK *, 0x12C) = 0; }
         if (M2C_FIELD(arg0, void **, 0x130) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x130)); M2C_FIELD(arg0, M2C_UNK *, 0x130) = 0; }
         if (M2C_FIELD(arg0, void **, 0x134) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x134)); M2C_FIELD(arg0, M2C_UNK *, 0x134) = 0; }

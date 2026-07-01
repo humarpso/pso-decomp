@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdTitleTexGC__vt2(void *arg0);
+void render__13TAdTitleTexGCFv(void *arg0);
 
 s32 fn_8001A430();
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK fn_802A4D74(void *, s32, s32, s32);
 M2C_UNK fn_802A4DE8(void *, s32);
 
-void TAdTitleTexGC__vt2(void *arg0) {
+void render__13TAdTitleTexGCFv(void *arg0) {
     s32 temp_r31;
 
     if (fn_8001A430() != 1) {

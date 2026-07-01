@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowReturnCity__vt2(void);
+void render__17TWindowReturnCityFv(void);
 
-void TWindowReturnCity__vt2(void) {  }
+void render__17TWindowReturnCityFv(void) {  }
 
 }

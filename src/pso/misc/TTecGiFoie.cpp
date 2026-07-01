@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecGiFoie__vt2(void);
+void render__10TTecGiFoieFv(void);
 
-void TTecGiFoie__vt2(void) {  }
+void render__10TTecGiFoieFv(void) {  }
 
 }

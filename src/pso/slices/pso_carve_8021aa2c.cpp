@@ -8,8 +8,8 @@ extern "C" {
 
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
 M2C_UNK fn_801F8FD4(s32);
-s32 fn_802239EC(void *);
-s32 fn_80223A48(void *);
+s32 TShopWindowBase__sub_802239EC(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
 
 }
 
@@ -29,7 +29,7 @@ struct VObj_8021AA2C : Base_8021AA2C {
 extern "C" {
 
 void TShopArmorListWindow__sub_8021AA2C(void *arg0) {
-    if ((((VObj_8021AA2C *)arg0)->m8() != 0) && ((fn_80223A48(arg0) != 0) || (fn_802239EC(arg0) != 0))) {
+    if ((((VObj_8021AA2C *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_8021AA2C *)arg0)->m4(0xB, 1);
         fn_801F8FD4(M2C_FIELD(arg0, s32 *, 0x2C));
         fn_80073DC4(arg0, 1);

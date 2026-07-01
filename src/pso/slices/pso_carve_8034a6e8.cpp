@@ -19,7 +19,7 @@ struct VObj_8034A6E8 : Base_8034A6E8 {
 
 extern "C" {
 
-void TAdPsoPassSaveGC__vt1(void *arg0) {
+void run_task__16TAdPsoPassSaveGCFv(void *arg0) {
     struct VObj_8034A6E8 *o = (struct VObj_8034A6E8 *)arg0;
     o->m9();
 }

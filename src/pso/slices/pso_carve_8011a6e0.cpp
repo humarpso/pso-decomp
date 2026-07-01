@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *__ct__20TItemReverseTechCtrlFv(void *, void *);
 
-void *fn_8011A6E0(void *arg0) {
+void *TItemReverseTechCtrl__sub_8011A6E0(void *arg0) {
     void *o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
         o = __ct__20TItemReverseTechCtrlFv(o, arg0);

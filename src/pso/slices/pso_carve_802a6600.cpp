@@ -6,16 +6,16 @@ extern "C" {
 
 void fn_80154A00(void *);
 void fn_80156720(void *);
-void TORockCaveBrakable__vt0(void *, int);
+void __dt__18TORockCaveBrakableFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804DD7A4[];
+extern M2C_UNK __vt__23TObjSeabedSuisoBrakable[];
 
-void *TObjSeabedSuisoBrakable__vt0(void *arg0, s16 arg1) {
+void *__dt__23TObjSeabedSuisoBrakableFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DD7A4;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TObjSeabedSuisoBrakable;
         fn_80154A00(arg0);
         fn_80156720(arg0);
-        TORockCaveBrakable__vt0(arg0, 0);
+        __dt__18TORockCaveBrakableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

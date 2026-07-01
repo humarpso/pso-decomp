@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss7TentacleNeedle__vt1(void *arg0);
+void run_task__20TBoss7TentacleNeedleFv(void *arg0);
 
 M2C_UNK fn_802EF954();
 M2C_UNK fn_802EF99C();
 M2C_UNK fn_802EFB1C();
 M2C_UNK fn_802EFBA4();
 
-void TBoss7TentacleNeedle__vt1(void *arg0) {
+void run_task__20TBoss7TentacleNeedleFv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x38);

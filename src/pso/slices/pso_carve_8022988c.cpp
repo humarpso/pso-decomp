@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_8022988C(void);
+void TMainTask__sub_8022988C(void);
 
-void fn_8022988C(void) {  }
+void TMainTask__sub_8022988C(void) {  }
 
 }

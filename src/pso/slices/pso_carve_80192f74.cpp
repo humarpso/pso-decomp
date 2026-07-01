@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjLazerFenceNorm__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_80192F74(void *arg0) {
+void *TObjLazerFenceNorm__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
         o = TObjLazerFenceNorm__ct(o, tl_05, arg0);

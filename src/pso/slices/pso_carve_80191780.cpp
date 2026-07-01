@@ -8,16 +8,16 @@ extern "C" {
 
 M2C_UNK fn_80154A00(void *);
 M2C_UNK fn_80156720(void *);
-M2C_UNK TObjHashiBase__vt0(void *, M2C_UNK);
+M2C_UNK __dt__13TObjHashiBaseFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804B7DEC[];
+extern M2C_UNK __vt__9TObjHashi[];
 
-void *TObjHashi__vt0(void *arg0, s16 arg1) {
+void *__dt__9TObjHashiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B7DEC;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TObjHashi;
         fn_80154A00(arg0);
         fn_80156720(arg0);
-        TObjHashiBase__vt0(arg0, 0);
+        __dt__13TObjHashiBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

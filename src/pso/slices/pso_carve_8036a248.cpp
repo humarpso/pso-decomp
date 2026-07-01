@@ -12,13 +12,13 @@ extern "C" {
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804F3440[];
+extern M2C_UNK __vt__23TAdDialingMessageWindow[];
 
-void *TAdDialingMessageWindow__vt0(void *arg0, s16 arg1) {
+void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1) {
     void *temp_r3;
 
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3440;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TAdDialingMessageWindow;
         if (M2C_FIELD(arg0, void **, 0x24) != NULL) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x24));
         }

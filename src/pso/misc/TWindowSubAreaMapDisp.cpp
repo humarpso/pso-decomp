@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubAreaMapDisp__vt2(void *arg0);
+void render__21TWindowSubAreaMapDispFv(void *arg0);
 s32 fn_80244CF4();
 M2C_UNK fn_80245F98(void *, s32);
 M2C_UNK fn_80271848(void *, s32);
 M2C_UNK fn_80271A6C(void *, s32);
 M2C_UNK fn_80288030(s32, s32);
 
-void TWindowSubAreaMapDisp__vt2(void *arg0) {
+void render__21TWindowSubAreaMapDispFv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_80244CF4();

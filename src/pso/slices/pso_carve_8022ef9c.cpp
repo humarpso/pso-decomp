@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TTecLuker__sub_80234F28();
 extern s8 lbl_805D63A8;
 
-void TTecCtrl__vt1(void) {
+void run_task__8TTecCtrlFv(void) {
     lbl_805D63A8 = 0;
     TTecLuker__sub_80234F28();
 }

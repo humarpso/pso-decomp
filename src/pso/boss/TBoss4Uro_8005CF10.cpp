@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss4Uro__vt2(void);
+void render__9TBoss4UroFv(void);
 
-void TBoss4Uro__vt2(void) {  }
+void render__9TBoss4UroFv(void) {  }
 
 }

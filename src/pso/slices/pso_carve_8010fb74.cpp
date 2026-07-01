@@ -9,12 +9,12 @@ extern "C" {
 M2C_UNK fn_8001BED8(s32, M2C_UNK);
 M2C_UNK TAdRicoRing__sub_8001BEE8(s32, M2C_UNK);
 M2C_UNK fn_8010FBD4(s32);
-s32 fn_801107B8();
+s32 TItemLoad__sub_801107B8();
 
 void fn_8010FB74(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = fn_801107B8();
+    temp_r3 = TItemLoad__sub_801107B8();
     if (temp_r3 != 2) {
         if (temp_r3 == 3) {
             TAdRicoRing__sub_8001BEE8(arg0 + 0x1C, 1);

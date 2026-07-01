@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjLuker__vt2(void);
+void render__9TObjLukerFv(void);
 
-void TObjLuker__vt2(void) {  }
+void render__9TObjLukerFv(void) {  }
 
 }

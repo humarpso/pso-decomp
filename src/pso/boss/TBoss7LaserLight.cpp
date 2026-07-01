@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss7LaserLight__vt2(void);
+void render__16TBoss7LaserLightFv(void);
 
-void TBoss7LaserLight__vt2(void) {  }
+void render__16TBoss7LaserLightFv(void) {  }
 
 }

@@ -16,7 +16,7 @@ extern "C" {
 
 M2C_UNK fn_80175134(void *);
 
-void TObjSeabedSuisoBrakable__vt2(void *arg0) {
+void render__23TObjSeabedSuisoBrakableFv(void *arg0) {
     struct VObj_802A63F8 *o = (struct VObj_802A63F8 *)arg0;
     o->m12();
     fn_80175134(arg0);

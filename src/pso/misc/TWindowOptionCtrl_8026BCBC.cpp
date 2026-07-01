@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowOptionCtrl__vt2(void);
+void render__17TWindowOptionCtrlFv(void);
 
-void TWindowOptionCtrl__vt2(void) {  }
+void render__17TWindowOptionCtrlFv(void) {  }
 
 }

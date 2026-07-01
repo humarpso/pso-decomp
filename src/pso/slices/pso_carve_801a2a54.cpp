@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjMapWarpForest__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A2A54(void *arg0) {
+void *TObjMapWarpForest__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x110);
     if (o != NULL) {
         o = TObjMapWarpForest__ct(o, tl_05, arg0);

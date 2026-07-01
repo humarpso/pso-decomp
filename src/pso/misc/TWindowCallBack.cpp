@@ -10,7 +10,7 @@ int fn_802ACD0C(void* p);
 void fn_802ACD2C(void* p);
 int fn_802ACD40(void* p);
 void fn_802ACD60(void* p);
-void fn_802ACD94(void* p);
+void build_6xA3_olga_flow_boss_actions(void* p);
 int TLobby__sub_801E4570(void*);
 int fn_8001960C(void*);
 
@@ -21,7 +21,7 @@ int fn_802ACD0C(void* p) { return fn_8001960C(p); }
 void fn_802ACD2C(void* p) { *(u8*)((char*)p + 0x0) = 165; *(u8*)((char*)p + 0x1) = 5; }
 int fn_802ACD40(void* p) { return fn_8001960C(p); }
 void fn_802ACD60(void* p) { fn_802ACD40(p); TLobby__sub_801E4570(p); }
-void fn_802ACD94(void* p) { *(u8*)((char*)p + 0x0) = 163; *(u8*)((char*)p + 0x1) = 5; }
+void build_6xA3_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 163; *(u8*)((char*)p + 0x1) = 5; }
 void TWindowCallBack__sub_802ACDA8(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
 
 }

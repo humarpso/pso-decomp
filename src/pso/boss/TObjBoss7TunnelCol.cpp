@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TObjBoss7TunnelCol__vt1(void);
-void TObjBoss7TunnelCol__vt2(void);
+void run_task__18TObjBoss7TunnelColFv(void);
+void render__18TObjBoss7TunnelColFv(void);
 
-void TObjBoss7TunnelCol__vt2(void) {  }
-void TObjBoss7TunnelCol__vt1(void) {  }
+void render__18TObjBoss7TunnelColFv(void) {  }
+void run_task__18TObjBoss7TunnelColFv(void) {  }
 
 }

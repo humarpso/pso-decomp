@@ -14,7 +14,7 @@ s32 fn_8033C024(void *, s32);
 int fn_8033C178(void* p);
 void fn_8033C198(void);
 int fn_8033C19C(void* p);
-void TCheckMemoryCard__vt2(void);
+void render__16TCheckMemoryCardFv(void);
 int fn_8033BC34(void*, int, int, int, int);
 int fn_8033BF90(void*);
 
@@ -94,6 +94,6 @@ void fn_8033C2E8(void *arg0) {
     }
 }
 int fn_8033C3D0(void) { return 0; }
-void TCheckMemoryCard__vt2(void) {  }
+void render__16TCheckMemoryCardFv(void) {  }
 
 }

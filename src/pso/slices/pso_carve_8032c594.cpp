@@ -16,7 +16,7 @@ struct VObj_8032C594 : Base_8032C594 {
 
 extern "C" {
 
-void TAdExNetConfirmGC__vt1(void *arg0) {
+void run_task__17TAdExNetConfirmGCFv(void *arg0) {
     struct VObj_8032C594 *o = (struct VObj_8032C594 *)arg0;
     o->m6();
 }

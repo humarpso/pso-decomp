@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjCityMainWarpChallenge__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A2D44(void *arg0) {
+void *TObjCityMainWarpChallenge__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x180);
     if (o != NULL) {
         o = TObjCityMainWarpChallenge__ct(o, tl_05, arg0);

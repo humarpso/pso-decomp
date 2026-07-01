@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss6Kakusan__vt2(void);
+void render__13TBoss6KakusanFv(void);
 
-void TBoss6Kakusan__vt2(void) {  }
+void render__13TBoss6KakusanFv(void) {  }
 
 }

@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *__ct__14TObjCMHairMenuFv(void *, void *);
 
-void *fn_80296410(void *arg0) {
+void *TObjCMHairMenu__sub_80296410(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
         o = __ct__14TObjCMHairMenuFv(o, arg0);

@@ -11,11 +11,11 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_80154A00(void *);
 M2C_UNK fn_80156720(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804C3638[];
+extern M2C_UNK __vt__12TPhotonLaser[];
 
-void *TPhotonLaser__vt0(void *arg0, s16 arg1) {
+void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3638;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TPhotonLaser;
         fn_80154A00(arg0);
         fn_80156720(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x364) != 0U) {

@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TOCapsuleLabo__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_802AF27C(void *arg0) {
+void *TOCapsuleLabo__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
         o = TOCapsuleLabo__ct(o, tl_05, arg0);

@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TWindowChat__vt2(void);
+void render__11TWindowChatFv(void);
 
-void TWindowChat__vt2(void) {  }
-int TWindowChat__vt1(void) { return 0; }
+void render__11TWindowChatFv(void) {  }
+int run_task__11TWindowChatFv(void) { return 0; }
 
 }

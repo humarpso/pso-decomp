@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubAreaMap__vt2(void);
+void render__17TWindowSubAreaMapFv(void);
 
-void TWindowSubAreaMap__vt2(void) {  }
+void render__17TWindowSubAreaMapFv(void) {  }
 
 }

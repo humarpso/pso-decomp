@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecGiZonde__vt1(void *arg0);
+void run_task__11TTecGiZondeFv(void *arg0);
 u32 TPhotonMylla__sub_80154CB4(u16);
 s32 TTecGiZonde__sub_80231C58(void *);
 M2C_UNK TTecGiZonde__sub_80232598(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TTecGiZonde__vt1(void *arg0) {
+void run_task__11TTecGiZondeFv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xC8));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv(arg0);

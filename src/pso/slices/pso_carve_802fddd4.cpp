@@ -15,7 +15,7 @@ void fn_802FDE74(void);
 void fn_802FDE78(void);
 void fn_802FDE7C(void);
 void fn_802FDE80(void);
-void fn_802FDEFC(void* p);
+void build_6xA8_gol_dragon_boss_actions(void* p);
 
 int fn_802FDDD4(void) { return 0; }
 void fn_802FDE68(void) {  }
@@ -27,6 +27,6 @@ void fn_802FDE7C(void) {  }
 void fn_802FDE80(void) {  }
 void fn_802FDE84(void* p) { fn_802FDEB8(p); TLobby__sub_801E4570(p); }
 void fn_802FDEB8(void* p) { fn_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
-void fn_802FDEFC(void* p) { *(u8*)((char*)p + 0x0) = 168; *(u8*)((char*)p + 0x1) = 6; }
+void build_6xA8_gol_dragon_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 168; *(u8*)((char*)p + 0x1) = 6; }
 
 }

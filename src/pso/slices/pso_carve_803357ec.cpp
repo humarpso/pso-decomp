@@ -19,7 +19,7 @@ struct VObj_803357EC : Base_803357EC {
 
 extern "C" {
 
-void TAdTrialAgreementGC__vt1(void *arg0) {
+void run_task__19TAdTrialAgreementGCFv(void *arg0) {
     struct VObj_803357EC *o = (struct VObj_803357EC *)arg0;
     o->m9();
 }

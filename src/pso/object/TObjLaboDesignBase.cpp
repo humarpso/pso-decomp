@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjLaboDesignBase__vt1(void);
+void run_task__18TObjLaboDesignBaseFv(void);
 
-void TObjLaboDesignBase__vt1(void) {  }
+void run_task__18TObjLaboDesignBaseFv(void) {  }
 
 }

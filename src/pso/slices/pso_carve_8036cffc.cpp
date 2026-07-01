@@ -7,11 +7,11 @@ extern "C" {
 void TBoss4Type2__sub_80086C44(void *);
 void fn_801A25B4(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804F3688[];
+extern M2C_UNK __vt__17TObjEneHoldEffect[];
 
-void *TObjEneHoldEffect__vt0(void *arg0, s16 arg1) {
+void *__dt__17TObjEneHoldEffectFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3688;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjEneHoldEffect;
         if (M2C_FIELD(arg0, void **, 0x90) != NULL) { TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x90)); M2C_FIELD(arg0, M2C_UNK *, 0x90) = 0; }
         fn_801A25B4(arg0, 0);
         if (arg1 > 0) {

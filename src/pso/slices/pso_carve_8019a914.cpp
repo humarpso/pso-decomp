@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjTank__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8019A914(void *arg0) {
+void *TObjTank__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
         o = TObjTank__ct(o, tl_05, arg0);

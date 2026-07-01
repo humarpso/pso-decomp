@@ -7,8 +7,8 @@ void TCheckRoomSequence__vt10(void* p);
 int fn_80073DC4(void*, void*);
 int fn_80211210(void);
 int fn_802237D8(void*);
-int fn_8022397C(void*);
+int TShopWindowBase__sub_8022397C(void*);
 
-void TCheckRoomSequence__vt10(void* p) { fn_802237D8(p); fn_8022397C(p); fn_80211210(); fn_80073DC4(p, (void*)1); }
+void TCheckRoomSequence__vt10(void* p) { fn_802237D8(p); TShopWindowBase__sub_8022397C(p); fn_80211210(); fn_80073DC4(p, (void*)1); }
 
 }

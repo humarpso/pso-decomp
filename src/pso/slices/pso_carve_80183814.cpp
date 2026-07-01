@@ -8,7 +8,7 @@ void fn_801A25B4(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804B5C58[];
 
-void *fn_80183814(void *arg0, s16 arg1) {
+void *TObjCity_Season_FireWorkCtrl__sub_80183814(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5C58;
         fn_801A25B4(arg0, 0);

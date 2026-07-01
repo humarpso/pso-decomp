@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjLazerFenceExtra__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801929F0(void *arg0) {
+void *TObjLazerFenceExtra__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
         o = TObjLazerFenceExtra__ct(o, tl_05, arg0);

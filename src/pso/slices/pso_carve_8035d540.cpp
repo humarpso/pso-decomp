@@ -22,6 +22,6 @@ s32 fn_8035D548(s32 arg0, s32 arg1, s32 arg2) {
     fn_80269C90();
     return var_r31;
 }
-int TWindowMessageScroll__vt1(void) { return 0; }
+int run_task__20TWindowMessageScrollFv(void) { return 0; }
 
 }

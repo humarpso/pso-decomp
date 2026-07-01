@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8003CFEC(M2C_UNK);
-M2C_UNK TObjEnemyCustom__vt0(void *, M2C_UNK);
+M2C_UNK __dt__15TObjEnemyCustomFv(void *, M2C_UNK);
 M2C_UNK fn_80156720(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_80483A10[];
@@ -17,7 +17,7 @@ void *fn_8004082C(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80483A10;
         fn_80156720(arg0);
         fn_8003CFEC(0);
-        TObjEnemyCustom__vt0(arg0, 0);
+        __dt__15TObjEnemyCustomFv(arg0, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

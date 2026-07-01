@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TTecRaBarta__vt2(void);
+void render__11TTecRaBartaFv(void);
 
-void TTecRaBarta__vt2(void) {  }
-int TTecRaBarta__vt1(void) { return 0; }
+void render__11TTecRaBartaFv(void) {  }
+int run_task__11TTecRaBartaFv(void) { return 0; }
 
 }

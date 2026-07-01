@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TODoorFourLightRuins__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_801A2840(void *arg0) {
+void *TODoorFourLightRuins__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
         o = TODoorFourLightRuins__ct(o, tl_05, arg0);

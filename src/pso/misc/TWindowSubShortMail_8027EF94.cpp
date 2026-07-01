@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubShortMail__vt2(void);
+void render__19TWindowSubShortMailFv(void);
 
-void TWindowSubShortMail__vt2(void) {  }
+void render__19TWindowSubShortMailFv(void) {  }
 
 }

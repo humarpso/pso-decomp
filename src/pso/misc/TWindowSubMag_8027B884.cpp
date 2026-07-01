@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubMag__vt2(void);
+void render__13TWindowSubMagFv(void);
 
-void TWindowSubMag__vt2(void) {  }
+void render__13TWindowSubMagFv(void) {  }
 
 }

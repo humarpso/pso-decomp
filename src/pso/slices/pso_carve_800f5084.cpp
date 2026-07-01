@@ -9,11 +9,11 @@ void fn_80156720(void *);
 void fn_800D75F4(void *, int);
 void fn_800B9A34(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_80497A8C[];
+extern M2C_UNK __vt__16TObjEneMe3Stelth[];
 
-void *TObjEneMe3Stelth__vt0(void *arg0, s16 arg1) {
+void *__dt__16TObjEneMe3StelthFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80497A8C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjEneMe3Stelth;
         if (M2C_FIELD(arg0, void **, 0x444) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x444)); M2C_FIELD(arg0, M2C_UNK *, 0x444) = 0; }
         if (M2C_FIELD(arg0, void **, 0x448) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x448)); M2C_FIELD(arg0, M2C_UNK *, 0x448) = 0; }
         fn_80156720(arg0);

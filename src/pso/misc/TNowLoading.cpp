@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TNowLoading__vt2(void);
+void render__11TNowLoadingFv(void);
 
-void TNowLoading__vt2(void) {  }
+void render__11TNowLoadingFv(void) {  }
 
 }

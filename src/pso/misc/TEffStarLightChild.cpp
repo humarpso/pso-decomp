@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TEffStarLightChild__vt2(void);
+void render__18TEffStarLightChildFv(void);
 
-void TEffStarLightChild__vt2(void) {  }
+void render__18TEffStarLightChildFv(void) {  }
 
 }

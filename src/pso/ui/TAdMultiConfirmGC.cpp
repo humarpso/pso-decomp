@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TAdMultiConfirmGC__vt2(void);
+void render__17TAdMultiConfirmGCFv(void);
 
-void TAdMultiConfirmGC__vt2(void) {  }
+void render__17TAdMultiConfirmGCFv(void) {  }
 
 }

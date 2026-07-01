@@ -11,11 +11,11 @@ M2C_UNK fn_80101B20(void *);
 M2C_UNK fn_80102A58(void *);
 M2C_UNK fn_801566CC(void *);
 M2C_UNK fn_80156990(void *, M2C_UNK);
-extern void *lbl_8049EA90[];
+extern void *__vt__5TItem[];
 
-void *TItem__vt0(void *arg0, s16 arg1) {
+void *__dt__5TItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void **, 0x18) = (void *) lbl_8049EA90;
+        M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__5TItem;
         TItem__sub_801015EC(arg0, 3);
         fn_801566CC(arg0);
         fn_80101B20(arg0);

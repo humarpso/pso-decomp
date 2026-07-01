@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TPlyOnCreated__vt1(void *arg0);
+void run_task__13TPlyOnCreatedFv(void *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TPlyOnCreated__vt1(void *arg0) {
+void run_task__13TPlyOnCreatedFv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C)) != 0U) {

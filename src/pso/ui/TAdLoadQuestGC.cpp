@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TAdLoadQuestGC__vt1(void);
-void TAdLoadQuestGC__vt2(void);
+void run_task__14TAdLoadQuestGCFv(void);
+void render__14TAdLoadQuestGCFv(void);
 s32 fn_803095E8(s32 arg0);
 s32 TWindowCost__ct(s32, s32, s32, s32);
 s32 TWindowSubStatusDisp__sub_80077760(s32);
@@ -23,7 +23,7 @@ s32 fn_803095E8(s32 arg0) {
     }
     return var_r30;
 }
-void TAdLoadQuestGC__vt2(void) {  }
-void TAdLoadQuestGC__vt1(void) {  }
+void render__14TAdLoadQuestGCFv(void) {  }
+void run_task__14TAdLoadQuestGCFv(void) {  }
 
 }

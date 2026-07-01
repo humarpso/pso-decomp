@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjSinBoard__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_80198288(void *arg0) {
+void *TObjSinBoard__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
         o = TObjSinBoard__ct(o, tl_05, arg0);

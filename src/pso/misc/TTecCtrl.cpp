@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecCtrl__vt2(void);
+void render__8TTecCtrlFv(void);
 
-void TTecCtrl__vt2(void) {  }
+void render__8TTecCtrlFv(void) {  }
 
 }

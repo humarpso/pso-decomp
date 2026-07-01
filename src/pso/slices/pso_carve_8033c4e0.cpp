@@ -12,13 +12,13 @@ extern "C" {
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TWindowSubComCard__sub_80244A14(void *);
-extern M2C_UNK lbl_804EF9A0[];
+extern M2C_UNK __vt__16TCheckMemoryCard[];
 
-void *TCheckMemoryCard__vt0(void *arg0, s16 arg1) {
+void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
     void *temp_r3;
 
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EF9A0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TCheckMemoryCard;
         temp_r3 = M2C_FIELD(arg0, void **, 0x30);
         if (temp_r3 != NULL) {
             if (temp_r3 != NULL) {

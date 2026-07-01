@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjEneDellBiter__ct(void *, void *, void *);
 extern void *tl_04;
 
-void *fn_8030680C(void *arg0) {
+void *TObjEneDellBiter__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x4E4);
     if (o != NULL) {
         o = TObjEneDellBiter__ct(o, tl_04, arg0);

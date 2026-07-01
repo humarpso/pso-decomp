@@ -52,6 +52,6 @@ s32 TObjBagWarnWin4P__sub_8006E8F0(void) {
     } while (var_r30 < 4);
     return var_r31;
 }
-int TObjBagWarnWin4P__vt1(void) { return 0; }
+int run_task__16TObjBagWarnWin4PFv(void) { return 0; }
 
 }

@@ -26,6 +26,6 @@ void TBoss7Crawfish__vt48(void) {  }
 f32 TBoss7Crawfish__sub_803094D8(void* p) { return *(f32*)((char*)p + 0xc8); }
 void TBoss7Crawfish__sub_803094E0(void* p, s16 v) { *(s16*)((char*)p + 0xb8) = v; }
 int fn_803094E8(void* p) { return fn_80269078(p); }
-void TWindowCost__vt1(void* p) { fn_8024664C(p); fn_80257C28(p, (char*)p + 0x24); }
+void run_task__11TWindowCostFv(void* p) { fn_8024664C(p); fn_80257C28(p, (char*)p + 0x24); }
 
 }

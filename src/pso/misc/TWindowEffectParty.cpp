@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowEffectParty__vt2(void);
+void render__18TWindowEffectPartyFv(void);
 
-void TWindowEffectParty__vt2(void) {  }
+void render__18TWindowEffectPartyFv(void) {  }
 
 }

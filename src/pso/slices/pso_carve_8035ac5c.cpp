@@ -7,11 +7,11 @@ extern "C" {
 void TBoss7LaserPtcl__sub_8035AA98(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK lbl_804F1C70[];
+extern M2C_UNK __vt__15TBoss7LaserPtcl[];
 
-void *TBoss7LaserPtcl__vt0(void *arg0, s16 arg1) {
+void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F1C70;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss7LaserPtcl;
         TBoss7LaserPtcl__sub_8035AA98(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

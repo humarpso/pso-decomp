@@ -8,12 +8,12 @@ extern "C" {
 
 s32 fn_8027E3B4(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8026CBB8(s32 a0 = 0);
-void TWindowSubShortCut__vt2(void);
+void render__18TWindowSubShortCutFv(void);
 
 void fn_8027DD18(void *arg0) {
     s32 tmp = fn_8026CBB8(0x72);
     fn_8027E3B4(tmp, M2C_FIELD(arg0, s32 *, 0x24));
 }
-void TWindowSubShortCut__vt2(void) {  }
+void render__18TWindowSubShortCutFv(void) {  }
 
 }

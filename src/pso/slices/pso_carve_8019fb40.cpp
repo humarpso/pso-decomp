@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjWarpJungMain__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8019FB40(void *arg0) {
+void *TObjWarpJungMain__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
         o = TObjWarpJungMain__ct(o, tl_05, arg0);

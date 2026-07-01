@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecResta__vt2(void);
+void render__9TTecRestaFv(void);
 
-void TTecResta__vt2(void) {  }
+void render__9TTecRestaFv(void) {  }
 
 }

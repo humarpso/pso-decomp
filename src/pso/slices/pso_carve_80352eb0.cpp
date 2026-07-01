@@ -11,7 +11,7 @@ M2C_UNK fn_803DA798(s32);
 extern s32 lbl_805D6EE0;
 extern s32 lbl_805D6EE4;
 
-void TEndingPic__vt2(s32 arg0) {
+void render__10TEndingPicFv(s32 arg0) {
     if ((s32) lbl_805D6EE0 != 0) {
         fn_803DA798(lbl_805D6EE4);
         fn_80352D10(arg0);

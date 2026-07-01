@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss5GryphonSnarl__vt2(void);
+void render__18TBoss5GryphonSnarlFv(void);
 
-void TBoss5GryphonSnarl__vt2(void) {  }
+void render__18TBoss5GryphonSnarlFv(void) {  }
 
 }
