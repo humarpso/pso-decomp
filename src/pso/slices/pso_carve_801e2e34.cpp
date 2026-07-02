@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_803764EC(M2C_UNK *, M2C_UNK *);
-M2C_UNK fn_8037653C(s32, M2C_UNK *);
+M2C_UNK PSMTXInverse(s32, M2C_UNK *);
 M2C_UNK GXLoadPosMtxImm(s32, M2C_UNK);
 M2C_UNK GXLoadNrmMtxImm(M2C_UNK *, M2C_UNK);
 M2C_UNK fn_803D7CA4(void *);
@@ -31,7 +31,7 @@ void fn_801E2E34(void *arg0) {
         }
         if (((u32) M2C_FIELD(var_r31, u32 *, 4) != 0U) && !(M2C_FIELD(var_r31, s32 *, 0) & 8)) {
             GXLoadPosMtxImm(lbl_805D7774, 0);
-            fn_8037653C(lbl_805D7774, sp8);
+            PSMTXInverse(lbl_805D7774, sp8);
             fn_803764EC(sp8, sp38);
             GXLoadNrmMtxImm(sp38, 0);
             M2C_FIELD(lbl_805D4698, M2C_UNK (**)(u32, void *), 0xC)(M2C_FIELD(var_r31, u32 *, 4), lbl_805D4698);

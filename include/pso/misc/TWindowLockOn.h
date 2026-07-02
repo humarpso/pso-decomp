@@ -1,0 +1,26 @@
+#ifndef PSO_MISC_TWINDOWLOCKON_H
+#define PSO_MISC_TWINDOWLOCKON_H
+
+#include "types.h"
+
+struct TWindowLockOn
+{
+    u8 _pad1C[0x4];
+    u16 m_20;
+    u8 _pad22[0x2];
+    void* m_24;
+    u8 _pad28[0x28];
+    u32 m_50;
+    u8 _pad54[0x8];
+    u32 m_5c;
+    u16 m_60;
+    u8 _pad62[0x2];
+    u32 m_64;
+    void* m_68;
+    u8 _pad6C[0x4];
+    u32 m_70;
+    u32 m_74;
+    u32 m_78;
+};
+
+#endif
