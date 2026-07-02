@@ -8,11 +8,11 @@ int fn_801D342C(void* p);
 int fn_801D345C(void* p);
 int fn_801D3484(void* p);
 int fn_801D34A8(void* p);
-void fn_801D34CC(void);
-void fn_801D34D0(void);
-void fn_801D34D4(void);
-void fn_801D34D8(void);
-void fn_801D34DC(void);
+void handle_6x54(void);
+void handle_6x8C(void);
+void handle_6x65(void);
+void handle_6x8B(void);
+void handle_6x64(void);
 int fn_8001BEF8(void*, int);
 int fn_8011E204(void*, int);
 int fn_80121248(void*, int);
@@ -24,10 +24,10 @@ int fn_801D342C(void* p) { return (fn_8001BEF8((char*)p + 0xc, 32)) == 0; }
 int fn_801D345C(void* p) { return fn_80121248((char*)p + 0x30, 0); }
 int fn_801D3484(void* p) { return TObjPlayer__sub_801BF4DC((char*)p + 0x340); }
 int fn_801D34A8(void* p) { return fn_8011E204(p, 128); }
-void fn_801D34CC(void) {  }
-void fn_801D34D0(void) {  }
-void fn_801D34D4(void) {  }
-void fn_801D34D8(void) {  }
-void fn_801D34DC(void) {  }
+void handle_6x54(void) {  }
+void handle_6x8C(void) {  }
+void handle_6x65(void) {  }
+void handle_6x8B(void) {  }
+void handle_6x64(void) {  }
 
 }

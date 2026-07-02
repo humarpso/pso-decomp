@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80214E08();
 
-void fn_801D9EB4(void *arg0, void *arg1) {
+void handle_cmd_AC(void *arg0, void *arg1) {
     if ((u8) M2C_FIELD(arg1, u8 *, 1) == 0) {
         fn_80214E08();
         return;

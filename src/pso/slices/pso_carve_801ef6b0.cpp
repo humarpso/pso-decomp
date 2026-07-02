@@ -2,12 +2,12 @@
 
 extern "C" {
 
-int fn_801EF6B0(void);
-int fn_801EF6D4(void);
+int qst_op_cine_disable(void);
+int qst_op_cine_enable(void);
 int TCineCtrl__sub_80077E1C(void*);
 int TCineCtrl__sub_80077F08(void*);
 
-int fn_801EF6B0(void) { return TCineCtrl__sub_80077E1C((void*)(0)); }
-int fn_801EF6D4(void) { return TCineCtrl__sub_80077F08((void*)(0)); }
+int qst_op_cine_disable(void) { return TCineCtrl__sub_80077E1C((void*)(0)); }
+int qst_op_cine_enable(void) { return TCineCtrl__sub_80077F08((void*)(0)); }
 
 }

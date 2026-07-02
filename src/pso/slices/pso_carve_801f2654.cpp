@@ -11,7 +11,7 @@ extern s32 lbl_805D5E8C;
 extern s32 lbl_805D5E90;
 extern s32 lbl_805D5E98;
 
-void fn_801F2654(void) {
+void qst_op_ret(void) {
     u32 temp_r31;
 
     temp_r31 = (u32) (-lbl_805D5E8C & ~lbl_805D5E8C) >> 0x1FU;

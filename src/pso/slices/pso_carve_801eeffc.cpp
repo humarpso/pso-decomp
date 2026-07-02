@@ -2,18 +2,18 @@
 
 extern "C" {
 
-int fn_801EEFFC(void);
-int fn_801EF020(void);
-int fn_801EF044(void);
+int qst_op_clr_qt_cancel(void);
+int qst_op_clr_qt_success(void);
+int qst_op_clr_qt_failure(void);
 int fn_801F3728(void*);
 int fn_801F3738(void*);
 int fn_801F3748(void*);
 
-int fn_801EEFFC(void) { return fn_801F3728((void*)(-1)); }
-int fn_801EF020(void) { return fn_801F3738((void*)(-1)); }
-int fn_801EF044(void) { return fn_801F3748((void*)(-1)); }
-int fn_801EF068(void) { return 0; }
-int fn_801EF08C(void) { return 0; }
-int fn_801EF0B0(void) { return 0; }
+int qst_op_clr_qt_cancel(void) { return fn_801F3728((void*)(-1)); }
+int qst_op_clr_qt_success(void) { return fn_801F3738((void*)(-1)); }
+int qst_op_clr_qt_failure(void) { return fn_801F3748((void*)(-1)); }
+int qst_op_set_qt_cancel(void) { return 0; }
+int qst_op_set_qt_success(void) { return 0; }
+int qst_op_set_qt_failure(void) { return 0; }
 
 }

@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void fn_801E3F9C(void);
-void fn_801E3FA0(void);
+void handle_6x03(void);
+void handle_6x02(void);
 
-void fn_801E3F9C(void) {  }
-void fn_801E3FA0(void) {  }
+void handle_6x03(void) {  }
+void handle_6x02(void) {  }
 
 }

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_801F26A4(void);
+void qst_op_nop(void);
 
-void fn_801F26A4(void) {  }
+void qst_op_nop(void) {  }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_801DF310(M2C_UNK *);
 M2C_UNK fn_801DF394(M2C_UNK *);
 
-void fn_801DB10C(void *arg0) {
+void handle_cmd_88(void *arg0) {
     char sp8[0xC4];
     M2C_UNK (*temp_r12)(M2C_UNK *);
 

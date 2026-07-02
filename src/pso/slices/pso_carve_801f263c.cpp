@@ -1,4 +1,4 @@
 extern "C" {
     extern int lbl_805D5E98;
-void fn_801F263C(void) { lbl_805D5E98 = 1; }
+void qst_op_sync(void) { lbl_805D5E98 = 1; }
 }

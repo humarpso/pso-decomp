@@ -10,7 +10,7 @@ s32 TODoorVoShip__sub_801F44BC(s32);
 M2C_UNK fn_801F45FC(s32);
 M2C_UNK fn_801F4830(s32);
 
-void fn_801F2498(s32 arg0) {
+void qst_op_grev(s32 arg0) {
     u16 v = arg0;
     if (TODoorVoShip__sub_801F44BC(v) != 0) {
         fn_801F45FC(v);

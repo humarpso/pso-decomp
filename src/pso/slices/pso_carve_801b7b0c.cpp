@@ -13,10 +13,10 @@ s32 obj_testFlags30(s32, s32);
 s32 fn_800495BC(s32);
 s32 fn_800822E8(s32, s32);
 u32 fn_801BE778();
-void fn_801B7B0C(void);
-void fn_801B7B54(void);
+void handle_6x99(void);
+void handle_6x98(void);
 
-void fn_801B7B0C(void) {  }
+void handle_6x99(void) {  }
 void fn_801B7B10(void *arg0) {
     void *p;
     if (fn_80019248(arg0) != 0) {
@@ -26,7 +26,7 @@ void fn_801B7B10(void *arg0) {
         }
     }
 }
-void fn_801B7B54(void) {  }
+void handle_6x98(void) {  }
 int fn_801B7B58(void) { return 0; }
 s32 fn_801B7BC0(u32 arg0) {
     if ((arg0 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {

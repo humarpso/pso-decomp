@@ -9,7 +9,7 @@ extern "C" {
 void TWindowSubSymbolChat__sub_80281A94(void *arg0);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 M2C_UNK TWindowSubSymbolChat__sub_802484C0(s32);
-s32 fn_802837A8();
+s32 TWindowSubSymbolChat__sub_802837A8();
 M2C_UNK fn_80284CB8(s32);
 
 void TWindowSubSymbolChat__sub_80281A94(void *arg0) {
@@ -23,7 +23,7 @@ void TWindowSubSymbolChat__sub_80281A94(void *arg0) {
     case 26:
         fn_80284CB8(M2C_FIELD(arg0, s32 *, 0x4C));
         TWindowSubSymbolChat__sub_802484C0(M2C_FIELD(arg0, s32 *, 0x30));
-        if (fn_802837A8() <= 0) {
+        if (TWindowSubSymbolChat__sub_802837A8() <= 0) {
             M2C_FIELD(arg0, s8 *, 0x1C) = 4;
             return;
         }

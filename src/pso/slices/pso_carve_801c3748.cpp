@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_801C3748(void);
+void handle_6x7E(void);
 
-void fn_801C3748(void) {  }
+void handle_6x7E(void) {  }
 
 }

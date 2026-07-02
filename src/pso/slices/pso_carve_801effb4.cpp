@@ -11,7 +11,7 @@ M2C_UNK TObjPlayer__sub_801B57BC(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 
-void fn_801EFFB4(void) {
+void qst_op_p_action_enable(void) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

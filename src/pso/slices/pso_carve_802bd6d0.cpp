@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TBoss6Type2__sub_802BBFA4(void *);
-M2C_UNK fn_802BC62C(void *);
+M2C_UNK TBoss6Type2__sub_802BC62C(void *);
 u32 TBoss6Type2__sub_802BD8B0(s32);
 M2C_UNK fn_8032E718(void *, u32, s32);
 
@@ -21,7 +21,7 @@ void TBoss6Type2__sub_802BD6D0(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x42C) = arg2;
     TBoss6Type2__sub_802BBFA4(arg0);
     if ((temp_r31 != (u32) M2C_FIELD(arg0, u32 *, 0x2E4)) || (temp_r30 != (s32) M2C_FIELD(arg0, s32 *, 0x42C))) {
-        fn_802BC62C(arg0);
+        TBoss6Type2__sub_802BC62C(arg0);
     }
     if (M2C_FIELD(arg0, void **, 0x410) != 0) {
         fn_8032E718(M2C_FIELD(arg0, void **, 0x410), M2C_FIELD(arg0, u32 *, 0x2E4), M2C_FIELD(arg0, s32 *, 0x42C));
