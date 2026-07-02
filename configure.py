@@ -2717,6 +2717,8 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TWindowSubTradeMessage_80339A80.cpp"),
                 NonMatching("pso/misc/TWindowTimer_80287F64.cpp"),
                 NonMatching("pso/misc/TWindowUserSort_80288328.cpp"),
+                NonMatching("pso/boss/TBoss5GryphonLightningEff_8032514C.cpp"),
+                NonMatching("pso/item/TItemEffArmorParticle_803644B8.cpp"),
             ],
         },
         # ------------------------------------------------------------------
