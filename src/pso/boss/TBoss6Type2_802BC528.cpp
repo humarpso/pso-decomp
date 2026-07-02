@@ -1,0 +1,45 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TBoss6Type2__sub_802BC528(void *arg0);
+s32 TBoss6PlotFalz__sub_802AB0BC();
+M2C_UNK TBoss6Type2__sub_802BC3DC(void *);
+M2C_UNK TBoss6Type2__sub_802BC420(void *);
+s32 TBoss6Type2__sub_802BC5F8();
+M2C_UNK TBoss6Type2__sub_802BC65C(void *);
+void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+
+void TBoss6Type2__sub_802BC528(void *arg0) {
+    s32 temp_r0;
+    void *temp_r31;
+
+    if (TBoss6Type2__sub_802BC5F8() != 0) {
+        TBoss6Type2__sub_802BC3DC(arg0);
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x518);
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x51C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x518) = (s32) (M2C_FIELD(arg0, s32 *, 0x518) - 1);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x518) < -0x12C) {
+            M2C_FIELD(arg0, s32 *, 0x518) = -0x12C;
+        }
+        if (((s32) M2C_FIELD(arg0, s32 *, 0x418) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x518) == -0x12C)) {
+            temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x55C));
+            if ((TBoss6PlotFalz__sub_802AB0BC() != 0) && ((s16) M2C_FIELD(temp_r31, s16 *, 0x326) == 1)) {
+                TBoss6Type2__sub_802BC65C(arg0);
+            }
+        }
+    } else {
+        if (temp_r0 == 0) {
+            TBoss6Type2__sub_802BC420(arg0);
+        }
+        M2C_FIELD(arg0, s32 *, 0x518) = (s32) (M2C_FIELD(arg0, s32 *, 0x518) - 1);
+    }
+}
+
+}

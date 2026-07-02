@@ -1,0 +1,35 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void TBoss1DragonEffTail__sub_8002BF88(void* p);
+void TBoss1DragonEffTail__sub_8002BFB0(void* p);
+int TBoss1DragonEffTail__sub_8002BFD8(void* p);
+void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+int fn_8002B094(void*);
+void fn_800BC40C(void *, int);
+void fn_800BC5A0(void *, int);
+
+void TBoss1DragonEffTail__sub_8002BF88(void* p) { *(int*)((char*)p + 0xbc) = 1; TBoss1DragonEffTail__sub_8002BFD8(p); }
+void TBoss1DragonEffTail__sub_8002BFB0(void* p) { *(int*)((char*)p + 0xbc) = 0; TBoss1DragonEffTail__sub_8002BFD8(p); }
+int TBoss1DragonEffTail__sub_8002BFD8(void* p) { return fn_8002B094(*(void**)((char*)p + 0xb8)); }
+
+extern M2C_UNK __vt__19TBoss1DragonEffTail[];
+
+void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss1DragonEffTail;
+        fn_800BC5A0(M2C_FIELD(arg0, void **, 0xB8), 1);
+        M2C_FIELD(arg0, M2C_UNK *, 0xB8) = 0;
+        fn_800BC40C(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}

@@ -1,0 +1,10 @@
+#include "types.h"
+
+extern "C" {
+
+void TBoss7Tentacle__sub_802F09C8(void* a0);
+
+    extern int lbl_8047407C[];
+void TBoss7Tentacle__sub_802F09C8(void* a0) { *(int*)((char*)a0 + 0x13c) = lbl_8047407C[*(int*)((char*)a0 + 0x4c)]; *(int*)((char*)a0 + 0x140) = 0; }
+
+}

@@ -1,0 +1,10 @@
+#include "types.h"
+
+extern "C" {
+
+void TBoss6Type1__sub_802B4964(void* p);
+int queue_destruction__7TObjectFv(void*);
+
+void TBoss6Type1__sub_802B4964(void* p) { if (*(unsigned int*)((char*)p + 0x680) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x680)); *(int*)((char*)p + 0x680) = 0; } }
+
+}

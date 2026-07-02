@@ -1,0 +1,43 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TOChatSensor__sub_8015AE58(void *arg0);
+
+extern s32 *lbl_805D58D4;
+
+void TOChatSensor__sub_8015AE58(void *arg0) {
+    f32 temp_f0;
+    s32 temp_r5;
+
+    M2C_FIELD(arg0, u32 *, 0x90) = (u32) M2C_FIELD(arg0, u32 *, 0x5C);
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x90) >= 2U) {
+        M2C_FIELD(arg0, u32 *, 0x90) = 0U;
+    }
+    M2C_FIELD(arg0, u32 *, 0x98) = (u32) M2C_FIELD(arg0, u32 *, 0x60);
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x98) >= 2U) {
+        M2C_FIELD(arg0, u32 *, 0x90) = 0U;
+    }
+    temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (temp_f0 * temp_f0);
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x90) == 0U) {
+        M2C_FIELD(arg0, s32 *, 0x94) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    } else {
+        M2C_FIELD(arg0, u16 *, 0x94) = (u16) M2C_FIELD(arg0, s32 *, 0x84);
+        if ((u16) M2C_FIELD(arg0, u16 *, 0x94) > 0x100U) {
+            M2C_FIELD(arg0, u16 *, 0x94) = 0xFFFF;
+        }
+    }
+    M2C_FIELD(arg0, s32 *, 0xCC) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
+    temp_r5 = M2C_FIELD(arg0, s32 *, 0xCC);
+    if ((temp_r5 != 0) && ((temp_r5 < 0) || ((s32) *lbl_805D58D4 <= temp_r5))) {
+        M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+}
+
+}
