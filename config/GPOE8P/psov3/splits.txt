@@ -2354,6 +2354,9 @@ pso/misc/TPlyGuildCardTag_8007B7EC.cpp:
 pso/slices/pso_carve_8007b834.cpp:
 	.text       start:0x8007B834 end:0x8007B858
 
+pso/slices/pso_carve_8007b858.cpp:
+	.text       start:0x8007B858 end:0x8007BA20
+
 pso/slices/pso_carve_8007bb2c.cpp:
 	.text       start:0x8007BB2C end:0x8007BBEC
 
@@ -6448,6 +6451,9 @@ pso/slices/pso_carve_801233f4.cpp:
 
 pso/slices/pso_carve_80123490.cpp:
 	.text       start:0x80123490 end:0x801234CC
+
+pso/slices/pso_carve_80123524.cpp:
+	.text       start:0x80123524 end:0x801236B4
 
 pso/slices/pso_carve_801236b4.cpp:
 	.text       start:0x801236B4 end:0x801236F8
@@ -15369,6 +15375,9 @@ pso/misc/TWindowKeyBoardSoft.cpp:
 
 pso/misc/TWindowKeyBoardSoft_8025D994.cpp:
 	.text       start:0x8025D994 end:0x8025DA98
+
+pso/slices/pso_carve_8025da98.cpp:
+	.text       start:0x8025DA98 end:0x8025DBDC
 
 pso/misc/TWindowKeyBoardBase.cpp:
 	.text       start:0x8025E8B4 end:0x8025E968
