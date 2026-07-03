@@ -19,15 +19,5 @@ s32 bswap_16__FPUs(s32);
 s32 bswap__9TItemDataFv(s32);
 
 int TObjPlayer__sub_801C0FDC(void) { return 0; }
-void TObjPlayer__sub_801C1010(s32 arg0) {
-    fn_8001960C();
-    bswap_16__FPUs(arg0 + 6);
-    bswap_16__FPUs(arg0 + 4);
-    bswap_32__FPUl(arg0 + 8);
-    bswap_32__FPUl(arg0 + 0xC);
-    bswap_32__FPUl(arg0 + 0x10);
-    bswap_32__FPUl(arg0 + 0x14);
-}
-int TObjPlayer__sub_801C106C(void) { return 0; }
 
 }
