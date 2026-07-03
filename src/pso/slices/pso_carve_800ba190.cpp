@@ -12,9 +12,5 @@ int TObjEneDD__vt91(void) { return 0; }
 int TObjEneDD__vt90(void) { return 0; }
 int TObjEneDD__vt89(void) { return 0; }
 int TObjEneDD__vt88(void) { return 0; }
-int TObjEneDD__sub_800BA288(void* p) { return fn_80019528(p, 8); }
-int TObjEneDD__sub_800BA2AC(void* p) { return fn_80019528(p, 4); }
-int TObjEneDD__sub_800BA2D0(void* p) { return fn_80019528(p, 2); }
-int TObjEneDD__sub_800BA2F4(void* p) { return fn_80019528(p, 1); }
 
 }

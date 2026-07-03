@@ -10,13 +10,13 @@ void TWindowSubTradeMain__sub_80330F0C(void *arg0, s32 arg1);
 s32 TWindowSubTradeMain__sub_80330F4C(void *arg0);
 s32 TWindowHelpItem__ct(s32, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_80255850(u32);
+M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 fn_8026CBB8(M2C_UNK);
 
 void TWindowSubTradeMain__sub_80330F0C(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) && (arg1 != (s32) M2C_FIELD(arg0, s32 *, 0x24))) {
         M2C_FIELD(arg0, s32 *, 0x24) = arg1;
-        fn_80255850(M2C_FIELD(arg0, u32 *, 0x4C));
+        TWindowHelpItem__set_displayed_item_by_id(M2C_FIELD(arg0, u32 *, 0x4C));
     }
 }
 

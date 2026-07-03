@@ -24,7 +24,7 @@ s32 fn_8013AD44(void *);
 M2C_UNK fn_801F8FD4(void *);
 M2C_UNK TQuestListVM__sub_802185F4(void *);
 M2C_UNK fn_80219EC4(void *);
-M2C_UNK TWindowSubComCard__sub_80244A14(void *);
+M2C_UNK TWindow__close(void *);
 
 void fn_80218850(void *arg0) {
     void *p;
@@ -32,7 +32,7 @@ void fn_80218850(void *arg0) {
     p = M2C_FIELD(arg0, void **, 0x2374);
     if ((p != NULL) && (fn_8013AD44(p) != 0)) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2380) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x2380));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x2380));
             M2C_FIELD(arg0, u32 *, 0x2380) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2374) != 0U) {

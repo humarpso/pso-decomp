@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019690();
+s32 is_split_screen();
 s32 fn_800196EC();
 s32 fn_800196F4(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -16,7 +16,7 @@ s32 fn_80104860(void) {
     s32 temp_r31;
     s32 temp_r3;
 
-    if (fn_80019690() != 0) {
+    if (is_split_screen() != 0) {
         return 0;
     }
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

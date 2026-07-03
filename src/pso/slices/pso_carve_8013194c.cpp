@@ -45,6 +45,5 @@ void fn_801319F4(void *arg0) {
     }
 }
 int fn_80131A5C(void* p) { return TKeyBoardControl__sub_80131F90(*(void**)((char*)p + 0x20)); }
-int TWindowMakeTeam__sub_80131A80(void* p) { return fn_80244D2C(*(void**)((char*)p + 0x20)); }
 
 }

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_80244A14(void *);
+s32 TWindow__close(void *);
 int fn_802C3BB4(void*);
 int fn_8033A138(void);
 int fn_801FF5E4(void*);
 
 void fn_8033A088(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x3C));
+        TWindow__close(M2C_FIELD(arg0, void **, 0x3C));
         M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
         M2C_FIELD(arg0, s32 *, 0x38) = 7;
     }

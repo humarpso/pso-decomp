@@ -9,7 +9,7 @@ extern "C" {
 void TLobby__sub_80138080(void);
 void TLobby__sub_8013703C();
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80244A14(u32);
+M2C_UNK TWindow__close(u32);
 M2C_UNK fn_801DB7EC(void *);
 
 extern void *lbl_805D5580;
@@ -26,27 +26,27 @@ void TLobby__sub_80138080(void) {
     TLobby__sub_8013990C(6);
     t = lbl_805D55E0;
     if (t != 0U) {
-        TWindowSubComCard__sub_80244A14(t);
+        TWindow__close(t);
         lbl_805D55E0 = 0U;
     }
     t = lbl_805D55E4;
     if (t != 0U) {
-        TWindowSubComCard__sub_80244A14(t);
+        TWindow__close(t);
         lbl_805D55E4 = 0U;
     }
     t = lbl_805D55CC;
     if (t != 0U) {
-        TWindowSubComCard__sub_80244A14(t);
+        TWindow__close(t);
         lbl_805D55CC = 0U;
     }
     t = lbl_805D55C8;
     if (t != 0U) {
-        TWindowSubComCard__sub_80244A14(t);
+        TWindow__close(t);
         lbl_805D55C8 = 0U;
     }
     t = lbl_805D55D0;
     if (t != 0U) {
-        TWindowSubComCard__sub_80244A14(t);
+        TWindow__close(t);
         lbl_805D55D0 = 0U;
     }
     M2C_FIELD(lbl_805D5580, void **, 0xBBE4) = (void *)&TLobby__sub_8013703C;

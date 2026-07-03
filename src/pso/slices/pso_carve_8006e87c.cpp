@@ -25,33 +25,5 @@ s32 fn_8006E8A0(void) {
     }
     return fn_8030A770() != 0 ? 1 : 0;
 }
-s32 TObjBagWarnWin4P__sub_8006E8F0(void) {
-    s32 var_r31;
-    s32 var_r30;
-
-    for (var_r31 = 0; var_r31 < 4; var_r31++) {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) && (TWindowCtrl__sub_8024AF74(obj_getField1c()) != 0)) {
-            return 0;
-        }
-    }
-    for (var_r31 = 0; var_r31 < 4; var_r31++) {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) && (TWindowCtrl__sub_8024B054(obj_getField1c()) != 0)) {
-            return 0;
-        }
-    }
-    if (fn_802116EC() != 0) {
-        return 0;
-    }
-    var_r31 = 0;
-    var_r30 = 0;
-    do {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) && (TWindowSubComCard__sub_80202990(var_r30) != 0U) && (fn_801FC1A4() != 0)) {
-            var_r31 = 1;
-        }
-        var_r30 += 1;
-    } while (var_r30 < 4);
-    return var_r31;
-}
-int run_task__16TObjBagWarnWin4PFv(void) { return 0; }
 
 }

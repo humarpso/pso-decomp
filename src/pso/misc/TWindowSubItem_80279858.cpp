@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowSubItem__sub_80279858(void *arg0, s32 arg1);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK TWindowSubComCard__sub_80244A14(void *);
+M2C_UNK TWindow__close(void *);
 M2C_UNK fn_801B7B10();
 
 void TWindowSubItem__sub_80279858(void *arg0, s32 arg1) {
@@ -20,11 +20,11 @@ void TWindowSubItem__sub_80279858(void *arg0, s32 arg1) {
             return;
         case 1:
             if (M2C_FIELD(arg0, void **, 0x38) != NULL) {
-                TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x38));
+                TWindow__close(M2C_FIELD(arg0, void **, 0x38));
                 M2C_FIELD(arg0, u32 *, 0x38) = 0U;
             }
             if (M2C_FIELD(arg0, void **, 0x34) != NULL) {
-                TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x34));
+                TWindow__close(M2C_FIELD(arg0, void **, 0x34));
                 M2C_FIELD(arg0, u32 *, 0x34) = 0U;
             }
             M2C_FIELD(arg0, s8 *, 0x1C) = 0xA;

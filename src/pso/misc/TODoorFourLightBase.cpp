@@ -9,7 +9,7 @@ extern "C" {
 s32 TODoorFourLightBase__vt17(void *arg0);
 void TODoorFourLightBase__vt4(void *arg0, s16 *arg1);
 
-s32 fn_8000F8FC();
+s32 get_main_phase();
 s32 TRaderMapCore__sub_8030A808();
 
 s32 TODoorFourLightBase__vt17(void *arg0) {
@@ -22,7 +22,7 @@ s32 TODoorFourLightBase__vt17(void *arg0) {
     } else if (temp_r0 < 0) {
         M2C_FIELD(arg0, s32 *, 0xCC) = 1;
     } else if ((s32) M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
-        if ((fn_8000F8FC() == 0xF) || (TRaderMapCore__sub_8030A808() == 1)) {
+        if ((get_main_phase() == 0xF) || (TRaderMapCore__sub_8030A808() == 1)) {
             M2C_FIELD(arg0, s32 *, 0xCC) = 3;
         } else {
             M2C_FIELD(arg0, s32 *, 0xCC) = 2;

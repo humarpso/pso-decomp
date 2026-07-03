@@ -22,6 +22,5 @@ s32 fn_8009E6B4(void *arg0) {
     return 0;
 }
 int TObjEneMe1Canadin__vt106(void) { return 0; }
-void TObjEneMe1Canadin__vt105(void) {  }
 
 }

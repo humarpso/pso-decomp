@@ -19,17 +19,5 @@ int fn_802627E4(void* p) { return (*(u32*)((char*)p + 0x60) >> 7) & 0x1; }
 int fn_802627F0(void* p) { return (*(u32*)((char*)p + 0x60) >> 6) & 0x1; }
 int fn_802627FC(void* p) { return (*(u32*)((char*)p + 0x60) >> 5) & 0x1; }
 int fn_80262808(void* p) { return *(u16*)((char*)p + 0x62) & 0x8; }
-void TWindowSubMag__sub_80262814(void *arg0, s32 arg1) {
-    u16 *temp_r3;
-
-    temp_r3 = TWindowSubStatusDisp__sub_80223B88(arg0, 0);
-    *temp_r3 |= 2;
-    if (fn_8011D098(M2C_FIELD(arg0, s32 *, 0x6C), arg1) != 0) {
-        M2C_FIELD(arg0, s8 *, 0x60) = 1;
-        return;
-    }
-    M2C_FIELD(arg0, s8 *, 0x60) = 2;
-}
-int fn_8026287C(void) { return 0; }
 
 }

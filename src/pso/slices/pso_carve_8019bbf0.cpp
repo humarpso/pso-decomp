@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8000F8FC();
+s32 get_main_phase();
 M2C_UNK fn_800740FC(u32);
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK TObjCityMainWarp__sub_80186AE4(u32);
@@ -19,7 +19,7 @@ M2C_UNK fn_8026CBB8(M2C_UNK);
 void fn_8019BBF0(void *arg0, s16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
         M2C_FIELD(arg0, u32 *, 0xB0) = fn_802664A8(fn_8026CBB8(0x33), 1, arg1);
-        if (fn_8000F8FC() == 0xE) {
+        if (get_main_phase() == 0xE) {
             fn_80266200(M2C_FIELD(arg0, u32 *, 0xB0), fn_80132F2C(9, 0x26), 3, 0, -1);
         } else {
             fn_80266200(M2C_FIELD(arg0, u32 *, 0xB0), fn_80132F2C(9, 0x23), 2, 0, -1);

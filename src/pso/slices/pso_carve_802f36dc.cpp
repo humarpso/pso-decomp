@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019690();
-u32 fn_800F6A44();
+s32 is_split_screen();
+u32 get_enemy_entity();
 M2C_UNK fn_802F3C84(u32, s32);
 extern u32 lbl_805D6978;
 
@@ -15,7 +15,7 @@ bool fn_802F36DC(void) {
     s32 i;
     s32 count;
 
-    if (fn_80019690() != 0) {
+    if (is_split_screen() != 0) {
         return 1;
     }
     if (lbl_805D6978 == 0U) {
@@ -25,7 +25,7 @@ bool fn_802F36DC(void) {
     i = 0;
     do {
         fn_802F3C84(lbl_805D6978, i);
-        if (fn_800F6A44() != 0U) {
+        if (get_enemy_entity() != 0U) {
             count += 1;
         }
         i += 1;

@@ -6,7 +6,7 @@ f32 fn_801C19A4(void* p);
 int TAdRicoRing__sub_8001BEE8(void*, int);
 s32 TLobby__sub_801E44D8(s32, s32);
 s32 TLobby__sub_801E4534(s32);
-s32 TLobby__sub_801E4570(s32);
+s32 TLobby__send_and_handle_60(s32);
 int __dl__FPv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);

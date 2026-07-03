@@ -16,10 +16,5 @@ void fn_80246FB0(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFFFFFD);
     fn_8024792C(arg0);
 }
-void TWindowSubShortCut__sub_80246FF0(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) fn_80247D2C(m); }
-int fn_8024701C(void) { return 0; }
-int fn_80247080(void) { return 0; }
-int fn_80247128(void) { return 0; }
-int fn_802471AC(void) { return 0; }
 
 }

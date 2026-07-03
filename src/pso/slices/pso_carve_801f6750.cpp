@@ -15,7 +15,7 @@ s32 TAdPlayerLoadGC__sub_801E1F40(s32);
 s32 fn_801E24F8(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_801F6554(void *);
 M2C_UNK fn_801F6594(void *, s32, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80244A14(u32);
+M2C_UNK TWindow__close(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 
 void fn_801F6750(void *arg0) {
@@ -50,12 +50,12 @@ void fn_801F6750(void *arg0) {
             fn_801F6554(arg0);
             M2C_FIELD(arg0, s32 *, 0x24) = 4;
         }
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, u32 *, 0x38));
+        TWindow__close(M2C_FIELD(arg0, u32 *, 0x38));
         M2C_FIELD(arg0, u32 *, 0x38) = 0U;
     }
     if (((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) && (TWindowSubComCard__sub_80073DB8(M2C_FIELD(arg0, u32 *, 0x38)) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x24) = 4;
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, u32 *, 0x38));
+        TWindow__close(M2C_FIELD(arg0, u32 *, 0x38));
         M2C_FIELD(arg0, u32 *, 0x38) = 0U;
         fn_801F6554(arg0);
     }

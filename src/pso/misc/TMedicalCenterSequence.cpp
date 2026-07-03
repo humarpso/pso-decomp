@@ -11,7 +11,7 @@ void TMedicalCenterSequence__sub_802166B8(void *arg0);
 s32 TWindowSubComCard__sub_8007341C(u32);
 s32 TWindowSubComCard__sub_80073DB8(u32);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80244A14(u32);
+M2C_UNK TWindow__close(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 
 void TMedicalCenterSequence__sub_802166B8(void *arg0) {
@@ -20,13 +20,13 @@ void TMedicalCenterSequence__sub_802166B8(void *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (TWindowSubComCard__sub_8007341C((u32) M2C_FIELD(arg0, u32 *, 0x30)) != 0)) {
         temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x30));
         if (temp_r3 == 0) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, u32 *, 0x30));
+            TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
             fn_80073DC4(arg0, 4);
             return;
         }
         if (temp_r3 == 1) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, u32 *, 0x30));
+            TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
             fn_80073DC4(arg0, 5);
             return;
@@ -35,7 +35,7 @@ void TMedicalCenterSequence__sub_802166B8(void *arg0) {
     }
 block_6:
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (TWindowSubComCard__sub_80073DB8((u32) M2C_FIELD(arg0, u32 *, 0x30)) != 0)) {
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, u32 *, 0x30));
+        TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
         fn_80073DC4(arg0, 5);
     }

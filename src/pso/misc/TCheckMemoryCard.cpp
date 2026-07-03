@@ -9,7 +9,7 @@ struct VObj_8033C4E0 : Base_8033C4E0 { virtual void m0(int); };
 extern "C" {
 
 void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1);
-M2C_UNK TWindowSubComCard__sub_80244A14(void *);
+M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 
@@ -28,7 +28,7 @@ void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, void **, 0x30) = NULL;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x34));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x34));
             M2C_FIELD(arg0, u32 *, 0x34) = 0U;
         }
         __dt__7TObjectFv(arg0, 0);

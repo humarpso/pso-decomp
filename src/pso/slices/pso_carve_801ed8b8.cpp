@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019690();
+s32 is_split_screen();
 u32 fn_8006F094(M2C_UNK);
 M2C_UNK fn_80071500(u32);
 M2C_UNK fn_80292950(u32);
@@ -18,7 +18,7 @@ void fn_801ED8B8(void) {
 
     temp_r30 = lbl_80512220[0];
     temp_r31 = fn_8006F094(-1);
-    if (fn_80019690() == 1) {
+    if (is_split_screen() == 1) {
         if (temp_r30 < temp_r31) {
             fn_80292950(temp_r30);
             return;

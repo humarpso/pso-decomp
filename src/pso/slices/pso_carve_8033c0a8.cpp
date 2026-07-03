@@ -94,6 +94,5 @@ void fn_8033C2E8(void *arg0) {
     }
 }
 int fn_8033C3D0(void) { return 0; }
-void render__16TCheckMemoryCardFv(void) {  }
 
 }

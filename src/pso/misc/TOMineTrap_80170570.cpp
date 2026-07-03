@@ -9,7 +9,7 @@ extern "C" {
 void TOMineTrap__sub_80170570(void);
 void TOMineTrap__sub_80170574(void);
 void TOMineTrap__sub_8017059C(void *arg0);
-s32 fn_8000F8FC();
+s32 get_main_phase();
 int fn_80132F2C(void*, void*);
 
 void TOMineTrap__sub_80170570(void) {  }
@@ -27,7 +27,7 @@ void TOMineTrap__sub_8017059C(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x344) = 1;
         return;
     }
-    if (fn_8000F8FC() == 0xE) {
+    if (get_main_phase() == 0xE) {
         M2C_FIELD(arg0, s32 *, 0x344) = 0;
         M2C_FIELD(arg0, s32 *, 0x8C) = 0x1E;
         return;

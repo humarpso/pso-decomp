@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjWarpBase__vt12(void *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
-M2C_UNK TWindowSubComCard__sub_80244A14(u32);
+M2C_UNK TWindow__close(u32);
 M2C_UNK fn_8019DD24(s32, M2C_UNK);
 
 void TObjWarpBase__vt12(void *arg0) {
@@ -16,7 +16,7 @@ void TObjWarpBase__vt12(void *arg0) {
 
     temp_r3 = (u32) M2C_FIELD(arg0, u32 *, 0xB0);
     if (temp_r3 != 0U) {
-        TWindowSubComCard__sub_80244A14(temp_r3);
+        TWindow__close(temp_r3);
         M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xB8));
         if (temp_r3 != 0U) {

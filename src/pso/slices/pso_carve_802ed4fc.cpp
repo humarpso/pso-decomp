@@ -8,7 +8,7 @@ extern "C" {
 
 void *fn_8001E1D8(M2C_UNK);
 
-s32 fn_802ED4FC(void) {
+s32 TBoss7Joint_get_shell_max_hp(void) {
     return M2C_FIELD(fn_8001E1D8(0xF), s32 *, 0x1C);
 }
 

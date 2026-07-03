@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 TObjRoomId__sub_801A1DDC(void *arg0);
-s32 fn_80019690();
+s32 is_split_screen();
 
 extern s32 lbl_805D53A0;
 
 u8 TObjRoomId__sub_801A1DDC(void *arg0) {
-    if (fn_80019690() != 0) {
+    if (is_split_screen() != 0) {
         return 1U;
     }
     return (u8) (M2C_FIELD(arg0, u16 *, 0x1C) == lbl_805D53A0);

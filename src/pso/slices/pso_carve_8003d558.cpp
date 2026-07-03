@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8000F8FC();
+s32 get_main_phase();
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 M2C_UNK fn_8003CAD0();
 s32 fn_8003D1E8(void *);
@@ -61,7 +61,7 @@ void fn_8003D558(void *arg0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        if (fn_8000F8FC() == 0xF) {
+        if (get_main_phase() == 0xF) {
             if (fn_800C6C10() != 0) {
                 fn_8003DD4C(arg0);
             }

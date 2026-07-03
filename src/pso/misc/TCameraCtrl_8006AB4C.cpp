@@ -8,11 +8,11 @@ extern "C" {
 
 void TCameraCtrl__sub_8006AB4C(void *arg0);
 M2C_UNK TCameraCtrl__sub_8006AF9C(void *, M2C_UNK);
-s32 fn_80019690();
+s32 is_split_screen();
 s32 fn_8001A430();
 
 void TCameraCtrl__sub_8006AB4C(void *arg0) {
-    if ((fn_80019690() == 0) && (fn_8001A430() != 1)) {
+    if ((is_split_screen() == 0) && (fn_8001A430() != 1)) {
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0) {
             TCameraCtrl__sub_8006AF9C(arg0, 0);
         }

@@ -17,7 +17,7 @@ M2C_UNK fn_801F43A0();
 M2C_UNK fn_801F43A8();
 M2C_UNK fn_8020B2DC();
 M2C_UNK fn_8020B308(s32);
-extern s32 lbl_805D5EDC;
+extern s32 evt2_random_enemies_mode;
 extern s32 lbl_805D60E0;
 extern s32 lbl_805D60E4;
 extern s32 lbl_805D60E8;
@@ -30,7 +30,7 @@ void fn_801F41D4(void) {
     lbl_805D60E4 = 0;
     lbl_805D60E8 = 0;
     lbl_805D60EC = 0;
-    switch ((s32) lbl_805D5EDC) {
+    switch ((s32) evt2_random_enemies_mode) {
     case 1:
         fn_801F43A8();
         fn_801F42D4();

@@ -8,7 +8,7 @@ extern "C" {
 
 void render__15TAdDrawLineCtrlFv(void *arg0);
 
-s32 fn_8000F8FC();
+s32 get_main_phase();
 s32 fn_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
@@ -22,7 +22,7 @@ void render__15TAdDrawLineCtrlFv(void *arg0) {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
         }
-    } else if ((fn_8000F8FC() != 2) || (fn_8001A430() != 1)) {
+    } else if ((get_main_phase() != 2) || (fn_8001A430() != 1)) {
 block_5:
         fn_80141F1C();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {

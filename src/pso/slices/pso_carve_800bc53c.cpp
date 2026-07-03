@@ -43,6 +43,5 @@ u32 *fn_800BC688(u32 *arg0, s16 arg1) {
 int fn_800BC6E4(void) { return 0; }
 int fn_800BC71C(void) { return 0; }
 int fn_800BC758(void) { return 0; }
-int TObjGrassWeb__sub_800BC778(void* p) { return queue_destruction__7TObjectFv(p); }
 
 }

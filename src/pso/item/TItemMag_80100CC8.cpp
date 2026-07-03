@@ -14,7 +14,7 @@ void fn_80100D68(void *arg0);
 void fn_80100D9C(void* p, u8 v);
 void fn_80100DA4(void *arg0);
 s32 TItemMag__sub_80102C4C();
-s32 fn_8000F8FC();
+s32 get_main_phase();
 void fn_80101CFC(void *, void *);
 void fn_80104394(void *);
 void fn_8010C738(void *);
@@ -24,7 +24,7 @@ u8 fn_80100CC8(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((fn_8000F8FC() != 0xE) || (fn_801A2FE0() == 0)) {
+    if ((get_main_phase() != 0xE) || (fn_801A2FE0() == 0)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

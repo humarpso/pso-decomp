@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TBoss6Type2__sub_802BC364(void *arg0);
-s32 fn_80019690();
+s32 is_split_screen();
 
 extern s32 lbl_805D53A0;
 
@@ -18,7 +18,7 @@ s32 TBoss6Type2__sub_802BC364(void *arg0) {
     if ((u16) M2C_FIELD(arg0, u16 *, 0x55C) == 0xFFFF) {
         return 1;
     }
-    if (fn_80019690() != 0) {
+    if (is_split_screen() != 0) {
         return 0;
     }
     return (lbl_805D53A0 - (s32) M2C_FIELD(arg0, u16 *, 0x55C)) != 0 ? 1 : 0;

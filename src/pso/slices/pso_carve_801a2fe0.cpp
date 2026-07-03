@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019690();
+s32 is_split_screen();
 s32 fn_8002ADD0();
 extern s32 lbl_805D53A0;
 
 s32 fn_801A2FE0(void) {
-    if (fn_80019690() != 0) {
+    if (is_split_screen() != 0) {
         return fn_8002ADD0();
     }
     return lbl_805D53A0;

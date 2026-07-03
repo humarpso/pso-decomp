@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8000F8FC();
-s32 fn_80019690();
+s32 get_main_phase();
+s32 is_split_screen();
 extern s32 lbl_805D66F8;
 
 void fn_802AC194(void) {
     lbl_805D66F8 = 0;
-    if ((fn_8000F8FC() == 0xF) || (fn_80019690() != 0)) {
+    if ((get_main_phase() == 0xF) || (is_split_screen() != 0)) {
         lbl_805D66F8 = 1;
     }
 }

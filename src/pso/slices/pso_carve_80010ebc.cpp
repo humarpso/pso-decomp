@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_800109B0(void *, s32);
 s32 obj_getArrU16_FC(s32, s32);
-s32 fn_80019690();
+s32 is_split_screen();
 s32 obj_getField1c(u32);
 void fn_80010EBC(void);
 void fn_80010EC0(void);
@@ -25,7 +25,7 @@ void fn_80010ECC(void *arg0, s32 arg1) {
     s32 var_r31;
 
     if (arg1 != 0) {
-        if (fn_80019690() != 0) {
+        if (is_split_screen() != 0) {
             var_r31 = 0;
             do {
                 fn_800109B0(arg0, obj_getArrU16_FC(arg1, var_r31));

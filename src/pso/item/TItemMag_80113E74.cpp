@@ -1,0 +1,34 @@
+#include "types.h"
+
+extern "C" {
+
+void TItemMag__sub_80113D48(void* p, f32 v);
+int TItemMag__sub_80113D58(void* p);
+int TItemMagSub__sub_80113D84(void* p, u32 m);
+s16 fn_80113D90(void* p);
+s16 fn_80113D98(void* p);
+int fn_80113DA0(void* p);
+int fn_80113DC4(void* p);
+int fn_80113DE8(void* p);
+int fn_80113E0C(void* p);
+int TItemMag__sub_80113E30(void* p);
+void TItemMag__sub_80113E3C(void* p);
+u8 TItemMag__sub_80113E74(void* p);
+s16 TItemMag__sub_80113E7C(void* p);
+s16 TItemMag__sub_80113E84(void* p);
+int TItemMag__sub_80113E8C(void* p);
+f32 TItemMag__sub_80113EEC(void* p);
+int fn_8010EE40(void*);
+int fn_8010EE54(void*);
+int fn_8010EE68(void*);
+int fn_8010EE7C(void*);
+
+u8 TItemMag__sub_80113E74(void* p) { return *(u8*)((char*)p + 0xe); }
+s16 TItemMag__sub_80113E7C(void* p) { return *(s16*)((char*)p + 0x0); }
+s16 TItemMag__sub_80113E84(void* p) { return *(s16*)((char*)p + 0x2); }
+int TItemMag__sub_80113E8C(void* p) { return (*(u32*)((char*)p + 0x334) >> 9) & 0x1; }
+s32 TItemMag__sub_80113E98(s32 arg0) {
+    return (s32) TItemMag__sub_80113EEC((void*)(arg0 + 0x4AC));
+}
+
+}

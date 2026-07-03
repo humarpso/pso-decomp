@@ -8,7 +8,7 @@ extern "C" {
 
 void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1);
 M2C_UNK TWindowOptionCtrl__sub_8026B348(void *);
-M2C_UNK TWindowSubComCard__sub_80244A14(void *);
+M2C_UNK TWindow__close(void *);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -20,7 +20,7 @@ void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__17TWindowOptionCtrl;
         TWindowOptionCtrl__sub_8026B348(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x44));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x44));
             M2C_FIELD(arg0, u32 *, 0x44) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
@@ -28,27 +28,27 @@ void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x40) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x3C));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x3C));
             M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x38));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x38));
             M2C_FIELD(arg0, u32 *, 0x38) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x34));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x34));
             M2C_FIELD(arg0, u32 *, 0x34) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x30));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x30));
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x2C));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x2C));
             M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x28));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x28));
             M2C_FIELD(arg0, u32 *, 0x28) = 0U;
         }
         __dt__7TObjectFv(arg0, 0);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019690();
+s32 is_split_screen();
 s32 fn_800196EC();
 s32 fn_8020C1F0(s32, s32);
 void *__nw__7TObjectFUl(M2C_UNK);
@@ -18,7 +18,7 @@ extern s32 tl_05;
 
 void fn_802FE964(void) {
     void *obj;
-    if ((fn_80019690() == 0) && ((obj = __nw__7TObjectFUl(0x13C)) != 0)) {
+    if ((is_split_screen() == 0) && ((obj = __nw__7TObjectFUl(0x13C)) != 0)) {
         TObjLiveCameraCtrl__ct(obj, tl_05);
     }
     fn_8030B5E8(tl_05);

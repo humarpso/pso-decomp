@@ -24,6 +24,5 @@ void fn_802A882C(void *arg0) {
     TEffIndirectCtrl__sub_802A8E4C(M2C_FIELD(arg0, s32 *, 0x1C), (s32) M2C_FIELD(arg0, f32 *, 0x48), (s32) M2C_FIELD(arg0, f32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x40), M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 6));
     DCFlushRange(M2C_FIELD(arg0, s32 *, 0x1C), 0x1000);
 }
-void render__16TEffIndirectCtrlFv(void) {  }
 
 }

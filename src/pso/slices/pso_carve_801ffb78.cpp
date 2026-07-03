@@ -1,0 +1,59 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+M2C_UNK __dl__FPv(u32 *);
+u32 *fn_8007EB94(M2C_UNK);
+M2C_UNK fn_801FFC74(u32 *, s32);
+u32 *fn_801FFD78();
+M2C_UNK fn_801FFF98(s32);
+u32 fn_80201204(u32 *, M2C_UNK);
+M2C_UNK fn_80201254();
+s32 fn_80202958();
+M2C_UNK fn_80202BB0(M2C_UNK);
+M2C_UNK memcpy(s32, s32, u32);
+extern s32 lbl_80513910[];
+extern s32 lbl_805D5F68;
+extern s32 lbl_805D5F98;
+
+s32 fn_801FFB78(s32 arg0) {
+    s32 temp_r3;
+    u32 *var_r31;
+    u32 temp_r30;
+
+    fn_80202BB0(0);
+    temp_r3 = fn_80202958();
+    lbl_80513910[1] = temp_r3;
+    lbl_80513910[0] = temp_r3;
+    memcpy(lbl_805D5F68, lbl_805D5F98 + 0x2048, 0xE28C);
+    fn_801FFF98(lbl_805D5F68);
+    var_r31 = fn_8007EB94(0xE28C);
+    if (var_r31 != NULL) {
+        var_r31 = fn_801FFD78();
+    }
+    fn_801FFC74(var_r31, lbl_805D5F68);
+    temp_r30 = *var_r31;
+    *var_r31 = 0U;
+    if (temp_r30 != fn_80201204(var_r31, 0xE28C)) {
+        if (arg0 != 0) {
+            __dl__FPv(var_r31);
+            return 0;
+        }
+        fn_80201254();
+        goto block_9;
+    }
+    if (arg0 != 0) {
+        __dl__FPv(var_r31);
+        return 1;
+    }
+    fn_80202BB0(1);
+block_9:
+    __dl__FPv(var_r31);
+    return 1;
+}
+
+}

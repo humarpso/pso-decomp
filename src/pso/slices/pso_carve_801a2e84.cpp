@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019690();
+s32 is_split_screen();
 M2C_UNK TObjPlayer__sub_801BDEF8(s32, s32, u32);
 u32 fn_802029E8(s32);
 s32 fn_802C64D0(s32);
@@ -18,7 +18,7 @@ void fn_801A2E84(void) {
     u32 temp_r3;
     u32 temp_r3_2;
 
-    if (fn_80019690() != 0) {
+    if (is_split_screen() != 0) {
         var_r31 = 0;
         do {
             if (fn_802C64D0(var_r31) != 0) {

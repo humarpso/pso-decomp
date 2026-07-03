@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_801FE338(s32);
 M2C_UNK TWindowSubComCard__sub_802183BC(u32);
-M2C_UNK TWindowSubComCard__sub_80244A14(void *);
+M2C_UNK TWindow__close(void *);
 M2C_UNK fn_80266130(u32);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 s32 TWindowSubComCard__sub_802A5794(u32);
@@ -27,7 +27,7 @@ void fn_802DE3A4(void *arg0) {
 
     if (fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x68)) == 1) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x7C));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x7C));
             M2C_FIELD(arg0, u32 *, 0x7C) = 0U;
         }
         fn_802C6A10();

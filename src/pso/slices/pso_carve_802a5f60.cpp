@@ -51,7 +51,5 @@ void fn_802A6070(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void fn_802A6078(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 int fn_802A6080(void) { return 8; }
 int TObjSuisoChip__vt6(void) { return 0; }
-void TObjSuisoChip__vt8(void* p) { TObjChip__vt8(p, (char*)p + 0x234); }
-int TObjSuisoChip__vt10(void) { return 0; }
 
 }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019690();
+s32 is_split_screen();
 extern void *lbl_805D63F8;
 
 s32 TWindowCtrl__sub_8024C680(void) {
-    if (fn_80019690() != 0) {
+    if (is_split_screen() != 0) {
         return 0;
     }
     if ((void *) lbl_805D63F8 == NULL) {

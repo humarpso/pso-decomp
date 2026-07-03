@@ -14,33 +14,5 @@ void TOMineTrap__sub_80170350(void);
 void TOMineTrap__sub_80170354(void);
 
 s32 TOMineTrap__sub_801702C8(void) { return 0; }
-int TOMineTrap__sub_80170340(void) { return 1; }
-int TOMineTrap__sub_80170348(void) { return 1; }
-void TOMineTrap__sub_80170350(void) {  }
-void TOMineTrap__sub_80170354(void) {  }
-s32 TOMineTrap__sub_80170358(void *arg0, u32 arg1) {
-    if (TOMineTrap__sub_801702C8() == 1) {
-        return 0;
-    }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 2) && (arg1 == (u32) M2C_FIELD(arg0, u32 *, 0x2A8))) {
-        return 0;
-    }
-    if (fn_80019248(arg1) != 0) {
-        return 1;
-    }
-    return 0;
-}
-s32 TOMineTrap__sub_801703D4(void *arg0, u32 arg1) {
-    if (TOMineTrap__sub_801702C8() == 1) {
-        return 0;
-    }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 2) && (arg1 == (u32) M2C_FIELD(arg0, u32 *, 0x2A8))) {
-        return 0;
-    }
-    if (fn_80019248(arg1) != 0) {
-        return 1;
-    }
-    return 0;
-}
 
 }

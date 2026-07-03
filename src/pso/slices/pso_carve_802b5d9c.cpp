@@ -12,16 +12,5 @@ void TBoss6Type1__sub_802B5DFC(void* p);
 
 int TBoss6Type1__sub_802B5D9C(void) { return 0; }
 int TBoss6Type1__sub_802B5DD4(void) { return 0; }
-void TBoss6Type1__sub_802B5DFC(void* p) { *(s32*)((char*)p + 0x4e0) = 0; *(s32*)((char*)p + 0x4e4) = 0; }
-s32 TBoss6Type1__sub_802B5E0C(void *arg0) {
-    return TBoss6PlotFalz__sub_802AAC74(M2C_FIELD(arg0, s32 *, 0x3F8)) > 0x20;
-}
-int TBoss6Type1__sub_802B5E48(void) { return 0; }
-s32 TBoss6Type1__sub_802B5E88(void *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x414) == 0) && (TBoss6Type1__sub_802B7E6C() >= (s32) M2C_FIELD(arg0, s32 *, 0x48C))) {
-        return 1;
-    }
-    return 0;
-}
 
 }

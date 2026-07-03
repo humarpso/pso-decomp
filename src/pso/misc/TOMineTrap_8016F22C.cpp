@@ -11,7 +11,7 @@ u32 TOMineTrapDisp__ct(u32, s32, u16, s32);
 s32 TOMineTrap__sub_80171338(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
-s32 fn_80019690();
+s32 is_split_screen();
 
 extern s32 lbl_805D53A0;
 
@@ -19,7 +19,7 @@ void TOMineTrap__vt81(s32 arg0) {
     u32 var_r31;
     u16 var_r30;
 
-    if (fn_80019690() == 0) {
+    if (is_split_screen() == 0) {
         var_r31 = __nw__7TObjectFUl(0xB0);
         if (var_r31 != 0U) {
             var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) lbl_805D53A0, TOMineTrap__sub_80171338(arg0));

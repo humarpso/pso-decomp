@@ -4,7 +4,7 @@ extern "C" {
 s32 fn_801B0974(void);
 void THunterGuildSeqOffline__sub_80212304(void*);
 void THunterGuildSeqOffline__sub_80212230(void*);
-void TWindowSubComCard__sub_80244A14(s32);
+void TWindow__close(s32);
 void* memset(void*, int, unsigned long);
 extern const char* lbl_805D3650;
 extern s32 lbl_805D6180;
@@ -29,7 +29,7 @@ void TMemberCheck::run_task() {
 
 TMemberCheck::~TMemberCheck() {
     if (m_1C != 0) {
-        TWindowSubComCard__sub_80244A14(m_1C);
+        TWindow__close(m_1C);
         m_1C = 0;
     }
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 void TBoss4Type3__sub_8005951C(void *arg0);
 M2C_UNK TBoss4Type3__sub_80242EBC(M2C_UNK, M2C_UNK, s16);
-s32 fn_80019690();
+s32 is_split_screen();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern s32 lbl_805D4D80;
@@ -23,7 +23,7 @@ void TBoss4Type3__sub_8005951C(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 0x10) {
         var_r30 = 0;
     }
-    if (fn_80019690() != 0) {
+    if (is_split_screen() != 0) {
         if (M2C_FIELD(arg0, u16 *, 0x3BA) == 0xFFFF) {
             var_r30 = 0;
         }

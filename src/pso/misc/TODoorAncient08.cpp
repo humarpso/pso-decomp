@@ -15,8 +15,8 @@ void TODoorAncient08__vt4(void *arg0, s16 *arg1) {
     }
 }
 
-s32 fn_8000F8FC();
-s32 fn_80019690();
+s32 get_main_phase();
+s32 is_split_screen();
 
 s32 TODoorAncient08__vt17(void *arg0) {
     s32 temp_r0;
@@ -27,7 +27,7 @@ s32 TODoorAncient08__vt17(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xCC) = 0;
     } else if (temp_r0 < 0) {
         M2C_FIELD(arg0, s32 *, 0xCC) = 1;
-    } else if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) < 0) && ((fn_8000F8FC() == 0xF) || (fn_80019690() == 1))) {
+    } else if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) < 0) && ((get_main_phase() == 0xF) || (is_split_screen() == 1))) {
         M2C_FIELD(arg0, s32 *, 0xCC) = 3;
     } else {
         M2C_FIELD(arg0, s32 *, 0xCC) = 2;

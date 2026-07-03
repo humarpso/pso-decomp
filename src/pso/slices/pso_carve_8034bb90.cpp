@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
-s32 TWindowShortListCtrl__sub_801A6DA0(void *, M2C_UNK, s32);
+s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 s32 fn_801AFD84();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 fn_802693B4(u32);
@@ -31,7 +31,7 @@ void fn_8034BB90(void *arg0) {
         }
         if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x24)) != 0U) {
             temp_r5 = fn_801AFD84() * 0x50;
-            if (TWindowShortListCtrl__sub_801A6DA0(lbl_8050E208 + temp_r5 + 0x20, 4, temp_r5) != 0) {
+            if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + temp_r5 + 0x20, 4, temp_r5) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 1;
             }
         } else {

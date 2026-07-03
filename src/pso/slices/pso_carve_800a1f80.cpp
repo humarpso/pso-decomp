@@ -9,14 +9,14 @@ extern "C" {
 M2C_UNK fn_80040B68(void *, M2C_UNK);
 M2C_UNK fn_800A0728();
 s32 fn_800A3224();
-u32 fn_800F6A44(u16);
+u32 get_enemy_entity(u16);
 
 void fn_800A1F80(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if (temp_r0 != 4) {
-        if ((temp_r0 == 2) && (fn_800A3224() != 0) && (fn_800F6A44(M2C_FIELD(arg0, u16 *, 0x428)) != 0U)) {
+        if ((temp_r0 == 2) && (fn_800A3224() != 0) && (get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x428)) != 0U)) {
             fn_800A0728();
             return;
         }

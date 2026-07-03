@@ -14,7 +14,7 @@ M2C_UNK TDuelEffectCtrl__ct(void *, void *, M2C_UNK);
 s32 TPlayerBattleCtrl4P__sub_80310BA8(void *);
 int TPlayerBattleCtrl4P__sub_803112A4(void*, void*);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80244A14(void *);
+M2C_UNK TWindow__close(void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 int TPlayerBattleCtrl4P__sub_80311618(void*);
 
@@ -23,7 +23,7 @@ void TPlayerBattleCtrl4P__vt15(void* p) { TPlayerBattleCtrl4P__sub_80311618(p); 
 void TPlayerBattleCtrl4P__vt14(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x20);
     if ((u32) temp_r3 != 0U) {
-        TWindowSubComCard__sub_80244A14(temp_r3);
+        TWindow__close(temp_r3);
         M2C_FIELD(arg0, u32 *, 0x20) = 0U;
     }
     TPlayerBattleCtrl4P__sub_803112AC(arg0, 2);
@@ -43,7 +43,7 @@ void TPlayerBattleCtrl4P__vt12(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24C) = (s32) (M2C_FIELD(arg0, s32 *, 0x24C) - 1);
     if ((TPlayerBattleCtrl4P__sub_80310BA8(arg0) != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0x24C) >= 0)) {
         if (M2C_FIELD(arg0, void **, 0x20) != (void *) 0) {
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x20));
+        TWindow__close(M2C_FIELD(arg0, void **, 0x20));
         M2C_FIELD(arg0, u32 *, 0x20) = 0U;
         {
             void *temp = __nw__7TObjectFUl(0x28);

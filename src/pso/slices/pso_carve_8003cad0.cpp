@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 fn_8000F8FC();
+s32 get_main_phase();
 s32 fn_80040C7C(s32);
 s32 TODoorVoShip__sub_801F44BC(s32);
 s32 fn_801F4830(s32);
@@ -13,7 +13,7 @@ int fn_80242D74(void*);
 
 void fn_8003CAD0(void) {
     fn_801F4830(0x2A);
-    if (fn_8000F8FC() == 0xF) {
+    if (get_main_phase() == 0xF) {
         fn_80040C7C(0);
         return;
     }

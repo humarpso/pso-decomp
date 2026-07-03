@@ -8,22 +8,22 @@ extern "C" {
 
 s32 obj_testFlags30(s32, M2C_UNK);
 M2C_UNK fn_80257CB8(s32);
-M2C_UNK fn_80263014(s32, s32);
-M2C_UNK fn_80263370(s32, s32);
-M2C_UNK fn_802634E8(s32, s32);
+M2C_UNK TWindowLockOn__update_for_enemy(s32, s32);
+M2C_UNK TWindowLockOn__update_for_item(s32, s32);
+M2C_UNK TWindowLockOn__update_for_other_player(s32, s32);
 
-void fn_802635D0(s32 arg0, s32 arg1) {
+void TWindowLockOn__sub_802635D0(s32 arg0, s32 arg1) {
     fn_80257CB8(arg0 + 0x24);
     if (obj_testFlags30(arg1, 0x10000000) != 0) {
-        fn_802634E8(arg0, arg1);
+        TWindowLockOn__update_for_other_player(arg0, arg1);
         return;
     }
     if (obj_testFlags30(arg1, 0x80000000) != 0) {
-        fn_80263370(arg0, arg1);
+        TWindowLockOn__update_for_item(arg0, arg1);
         return;
     }
     if (obj_testFlags30(arg1, 0x20000000) != 0) {
-        fn_80263014(arg0, arg1);
+        TWindowLockOn__update_for_enemy(arg0, arg1);
     }
 }
 

@@ -27,7 +27,7 @@ void *TOTrapAncient02__ct(void *, void *, void *);
 M2C_UNK TOTrapAncient02__sub_8017B16C(void *);
 M2C_UNK TOTrapAncient02__sub_8017B2C4(void *);
 void *__nw__7TObjectFUl(int);
-s32 fn_80019690();
+s32 is_split_screen();
 s32 fn_8001A430();
 s32 fn_8032BCBC(void *);
 M2C_UNK func_80141618__Fv();
@@ -39,7 +39,7 @@ extern const f32 lbl_805DBAA4;
 void TOTrapAncient02__sub_8017B3B4(void *arg0) {
     if (fn_8001A430() != 1) {
         M2C_FIELD(arg0, s32 *, 0x340) = ((V_B *) arg0)->m8(lbl_805DBAA4, lbl_805DBA94);
-        if (((s32) M2C_FIELD(arg0, s32 *, 0x340) == 1) && (((s32) M2C_FIELD(arg0, s32 *, 0x358) == 0) || (fn_80019690() != 0) || (fn_8032BCBC(arg0) == 0))) {
+        if (((s32) M2C_FIELD(arg0, s32 *, 0x340) == 1) && (((s32) M2C_FIELD(arg0, s32 *, 0x358) == 0) || (is_split_screen() != 0) || (fn_8032BCBC(arg0) == 0))) {
             set_depth_buffer_settings_id__FUl(3);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x358) != 0) {
                 TOTrapAncient02__sub_8017B16C(arg0);

@@ -14,7 +14,7 @@ M2C_UNK TLobby__sub_80138858();
 M2C_UNK TOBoss4Rock__sub_80147A80(s32);
 s32 TWindowSubComCard__sub_80131C10(u32);
 s32 TWindowSubComCard__sub_80131C34(u32);
-M2C_UNK TWindowSubComCard__sub_80244A14(s32);
+M2C_UNK TWindow__close(s32);
 s32 fn_80131BC4(u32);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK send_action__9TProtocolFR13GameListEntryPcPc(GBig_80138D3C *, GLE_80138D3C *, M2C_UNK *, s32, GBig_80138D3C *);
@@ -41,7 +41,7 @@ void TLobby__sub_80138D3C(void) {
             TOBoss4Rock__sub_80147A80(temp_r3);
             queue_destruction__7TObjectFv(lbl_805D55F4);
             lbl_805D55F4 = 0U;
-            TWindowSubComCard__sub_80244A14(lbl_805D55F0);
+            TWindow__close(lbl_805D55F0);
             lbl_805D55F0 = 0;
             TLobby__sub_8013872C();
         }

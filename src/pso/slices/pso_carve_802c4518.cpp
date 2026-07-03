@@ -19,7 +19,7 @@ int TWindowActionPalette__sub_801C1CA8(void*);
 int fn_801D7D4C(void*);
 int fn_802C4288(void*);
 s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
-s32 fn_8000F8FC();
+s32 get_main_phase();
 int fn_8011E204(void*, void*);
 int fn_8011E238(void*, void*);
 int fn_801A2F7C(void*);

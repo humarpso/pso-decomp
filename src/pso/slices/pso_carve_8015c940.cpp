@@ -17,6 +17,5 @@ void fn_8015C978(s32 arg0) {
     bswap_32__FPUl(arg0 + 0xC);
 }
 void fn_8015C9BC(void* p) { *(u8*)((char*)p + 0x0) = 103; *(u8*)((char*)p + 0x1) = 4; }
-void TOCtrlDubchik__sub_8015C9D0(void) {  }
 
 }

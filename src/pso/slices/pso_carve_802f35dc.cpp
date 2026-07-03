@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 fn_800F6A44();
+u32 get_enemy_entity();
 M2C_UNK fn_802F3C84(u32, s32);
 M2C_UNK TBoss8Dragon__sub_802FCCD0();
 extern u32 lbl_805D6978;
@@ -18,7 +18,7 @@ void fn_802F35DC(void) {
         var_r31 = 1;
         do {
             fn_802F3C84(lbl_805D6978, var_r31);
-            if (fn_800F6A44() != 0U) {
+            if (get_enemy_entity() != 0U) {
                 TBoss8Dragon__sub_802FCCD0();
             }
             var_r31 += 1;

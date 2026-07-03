@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8000F8FC();
-s32 fn_80019690();
+s32 get_main_phase();
+s32 is_split_screen();
 M2C_UNK TBoss6Thanks__sub_8035CB64();
 s32 fn_8035D2EC();
 extern s32 lbl_805D5550;
 
 s32 fn_8035D290(void) {
-    if (((s32) lbl_805D5550 == 0) || ((fn_8000F8FC() == 0xE) && (fn_80019690() == 0)) || (fn_8035D2EC() == 0)) {
+    if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (fn_8035D2EC() == 0)) {
         return 0;
     }
     TBoss6Thanks__sub_8035CB64();

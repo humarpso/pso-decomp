@@ -28,6 +28,5 @@ void fn_8034999C(void *arg0) {
     }
 }
 int render__18TAdLoadQuestCellGCFv(void) { return 0; }
-void run_task__18TAdLoadQuestCellGCFv(void) {  }
 
 }

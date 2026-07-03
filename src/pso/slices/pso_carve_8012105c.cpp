@@ -34,6 +34,5 @@ int fn_80121118(void* p) { return TObjPlayer__sub_80121180((char*)p + 0x7cc); }
 void fn_8012113C(void* p) { obj_testFlags30(p, (void*)1048576); }
 void* fn_80121160(void* a0, int a1) {  return (char*)(*(int*)((char*)a0 + 0xdb4)) + a1 * 48; }
 void fn_80121170(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-void* TObjPlayer__sub_80121178(void* p) { return (char*)p + 0x30; }
 
 }

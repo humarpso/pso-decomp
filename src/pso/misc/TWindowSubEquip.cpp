@@ -11,7 +11,7 @@ void TWindowSubEquip__sub_80277CBC(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_80099EF8();
 u32 fn_801C675C(s32, s32);
-M2C_UNK fn_80255850(s32, s32);
+M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
 M2C_UNK fn_802558D0(s32, s32);
 s32 fn_80266E0C(s32);
 
@@ -21,7 +21,7 @@ void TWindowSubEquip__sub_80277C70(void *arg0) {
     temp_r3 = fn_80266E0C(M2C_FIELD(arg0, s32 *, 0x38));
     if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x24)) {
         M2C_FIELD(arg0, s32 *, 0x24) = temp_r3;
-        fn_80255850(M2C_FIELD(arg0, s32 *, 0x30), temp_r3);
+        TWindowHelpItem__set_displayed_item_by_id(M2C_FIELD(arg0, s32 *, 0x30), temp_r3);
     }
 }
 

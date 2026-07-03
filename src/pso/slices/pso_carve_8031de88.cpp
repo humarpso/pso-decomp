@@ -13,17 +13,5 @@ void TObjEneRecon__vt59(void);
 void TObjEneRecon__vt26(void);
 
 int TObjEneRecon__sub_8031DE88(void) { return 0; }
-void TObjEneRecon__sub_8031DEF0(void *arg0) {
-    TObjEneEpsilon__sub_800B96A4();
-    M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x398) + M2C_FIELD(arg0, f32 *, 0x464));
-}
-void TObjEneRecon__sub_8031DF2C(void *arg0) {
-    TObjEneEpsilon__sub_800B96A4();
-    M2C_FIELD(arg0, f32 *, 0x398) = (f32) M2C_FIELD(arg0, f32 *, 0x460);
-}
-void TObjEneRecon__vt59(void) {  }
-void TObjEneRecon__vt60(void* p) { if (*(short*)((char*)p + 0x326) != 6) { TObjEneDD__sub_800BBA18(p, (void*)6); } }
-int TObjEneRecon__vt61(void) { return 0; }
-void TObjEneRecon__vt26(void) {  }
 
 }

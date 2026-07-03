@@ -8,12 +8,12 @@ extern "C" {
 
 void TOKeyJungleMain__sub_801F4738(s32 arg0, u16 arg1);
 
-s32 fn_8000F8FC();
+s32 get_main_phase();
 M2C_UNK fn_801F3778(int, M2C_UNK, s32);
 M2C_UNK fn_801F469C(s32, u16);
 
 void TOKeyJungleMain__sub_801F4738(s32 arg0, u16 arg1) {
-    if (fn_8000F8FC() == 0xF) {
+    if (get_main_phase() == 0xF) {
         fn_801F3778(arg1, 0, arg0);
         return;
     }

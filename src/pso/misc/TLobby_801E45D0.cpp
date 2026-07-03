@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_801E45D0(s32 arg0);
-M2C_UNK TLobby__sub_801E4570();
+M2C_UNK TLobby__send_and_handle_60();
 M2C_UNK fn_801A5544(void *, s32);
 M2C_UNK fn_801E3FA4(s32);
 
@@ -19,7 +19,7 @@ void TLobby__sub_801E45D0(s32 arg0) {
     void *var_r31;
 
     if ((s32) lbl_805D5598 == 1) {
-        TLobby__sub_801E4570();
+        TLobby__send_and_handle_60();
         return;
     }
     if ((void *) lbl_805D5E48 != NULL) {

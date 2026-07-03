@@ -22,8 +22,5 @@ void fn_80141CB0(void) {  }
 void fn_80141CB4(void) {  }
 void fn_80141CB8(void) {  }
 int fn_80141CBC(void) { return 0; }
-void TOTrapAncient02R__sub_80141CF0(void) {  }
-void fn_80141CF4(void) {  }
-int fn_80141CF8(void) { return 0; }
 
 }

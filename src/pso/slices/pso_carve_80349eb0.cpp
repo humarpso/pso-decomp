@@ -24,6 +24,5 @@ void fn_80349EB0(void *arg0) {
     }
 }
 int render__18TAdLoadQuestLineGCFv(void) { return 0; }
-void run_task__18TAdLoadQuestLineGCFv(void) {  }
 
 }

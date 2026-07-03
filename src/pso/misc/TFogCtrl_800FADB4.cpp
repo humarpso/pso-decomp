@@ -8,12 +8,12 @@ extern "C" {
 
 void TFogCtrl__sub_800FADB4(void *arg0);
 M2C_UNK TFogCtrl__sub_800FAE1C(void *);
-s32 fn_80019690();
+s32 is_split_screen();
 
 void TFogCtrl__sub_800FADB4(void *arg0) {
     s32 temp_r3;
 
-    if (fn_80019690() == 0) {
+    if (is_split_screen() == 0) {
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x1C);
         if (temp_r3 & 1) {
             M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r3 & 0xFFFFFFFE);

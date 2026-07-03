@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_800112A4(s32, s16);
-M2C_UNK fn_8001144C(s32, s16);
+M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
 s16 obj_getS16_32E(s32);
 s32 fn_802034EC();
 
@@ -22,7 +22,7 @@ void fn_8012BAA4(void *arg0) {
             M2C_FIELD(arg0, s16 *, 0x1F8) = temp_r3;
         }
         if (temp_r0 > 0) {
-            fn_8001144C(M2C_FIELD(arg0, s32 *, 0xF0), temp_r0);
+            TObjectV8047c128_subtract_hp(M2C_FIELD(arg0, s32 *, 0xF0), temp_r0);
             fn_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), (s16) (temp_r0 / 2));
         }
     }

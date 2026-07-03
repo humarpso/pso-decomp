@@ -9,7 +9,7 @@ extern "C" {
 void TObjFogCollisionPoison__sub_80153340(void);
 M2C_UNK TObjFogCollisionPoison__sub_801532C8(void *, s32, s32);
 void *__nw__7TObjectFUl(M2C_UNK);
-s32 fn_80019690();
+s32 is_split_screen();
 
 extern s32 tl_05;
 extern s32 lbl_805D53A0;
@@ -18,7 +18,7 @@ void TObjFogCollisionPoison__sub_80153340(void) {
     s32 var_r31;
     void *obj;
 
-    if (fn_80019690() == 0) {
+    if (is_split_screen() == 0) {
         obj = __nw__7TObjectFUl(0x30);
         if (obj != NULL) {
             TObjFogCollisionPoison__sub_801532C8(obj, tl_05, lbl_805D53A0);

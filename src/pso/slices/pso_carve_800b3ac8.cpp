@@ -16,37 +16,5 @@ void TObjEneBm3FlyNest__sub_800B3CBC(void);
 
 int TObjEneBm3FlyNest__sub_800B3AC8(void) { return 0; }
 int TObjEneBm3FlyNest__sub_800B3ADC(void) { return 0; }
-void TObjEneBm3FlyNest__sub_800B3B94(void* p) { TObjEneDD__sub_800BAAE4(p, (char*)p + 0x2fc, (void*)0); }
-void TObjEneBm3FlyNest__sub_800B3BBC(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
-void TObjEneBm3FlyNest__sub_800B3BE8(void) {  }
-void TObjEneBm3FlyNest__sub_800B3BEC(void *arg0) {
-    s16 temp_r0;
-
-    if (((s16) M2C_FIELD(arg0, s16 *, 0x326) == 3) && (fn_800B9B84() != 0)) {
-        fn_800BB780(arg0);
-        return;
-    }
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
-    if (temp_r0 == 4) {
-        fn_800BB780(arg0);
-        return;
-    }
-    if (temp_r0 != 7) {
-        TObjEneDD__sub_800BBA18(arg0, 7);
-    }
-}
-void TObjEneBm3FlyNest__sub_800B3C64(void *arg0) {
-    s16 temp_r0;
-
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
-    if ((temp_r0 != 9) && (temp_r0 != 8) && (temp_r0 != 4)) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) == 0) {
-            TObjEneDD__sub_800BBA18(arg0, 4);
-            return;
-        }
-        TObjEneDD__sub_800BBA18(arg0, 8);
-    }
-}
-void TObjEneBm3FlyNest__sub_800B3CBC(void) {  }
 
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_801E0CE0(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80244A14(void *);
+M2C_UNK TWindow__close(void *);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 s32 fn_8030C4F8(M2C_UNK, M2C_UNK);
 s32 fn_8030C688(M2C_UNK, M2C_UNK);
@@ -32,7 +32,7 @@ void fn_8030ED88(void *arg0) {
     }
     if (fn_803100EC(arg0) < 0xC) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
-            TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x40));
+            TWindow__close(M2C_FIELD(arg0, void **, 0x40));
             M2C_FIELD(arg0, u32 *, 0x40) = 0U;
         }
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;

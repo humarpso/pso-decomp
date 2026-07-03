@@ -44,6 +44,5 @@ int fn_8035510C(void*, void*) { return 0; }
 int render__19TAdPlyPltAnimCtrlGCFv(void) { return 0; }
 int TAdPlyPltAnimCtrlGC__sub_80355148(void) { return 0; }
 int TAdPlyPltAnimCtrlGC__sub_80355168(void*) { return 0; }
-void TAdPlyPltAnimCtrlGC__sub_803551C0(void* p, void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168(p); TWindowSubSymbolChatPartsSet__sub_80052EA0((char*)p + 0x24, a1); *(int*)((char*)p + 0x1c) = 1; }
 
 }

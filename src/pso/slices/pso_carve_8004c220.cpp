@@ -1,0 +1,22 @@
+#include "types.h"
+
+extern "C" {
+
+void TBoss4DarkFalz__sub_8004C278(void* p);
+int bswap_16__FPUs(void*);
+int bswap_32__FPUl(void*);
+int fn_8001960C(void*);
+void TBoss4DarkFalz__sub_8004C244(void* p);
+int TLobby__send_and_handle_60(void*);
+int TBoss4DarkFalz__sub_8004C1C4(void* p);
+s32 TBoss4DarkFalz__sub_8004C1D4(void* p);
+s32 TBoss4DarkFalz__sub_8004C1DC(void* p);
+s32 TBoss4DarkFalz__sub_8004C1E4(void* p);
+void* TBoss4DarkFalz__sub_8004C1EC(void* p);
+int TBoss4DarkFalz__sub_8004C220(void* p);
+void TBoss4DarkFalz__sub_8004C2C4(void* p);
+int VecCopy__FP3VecPC3Vec(void*, void* a1 = 0);
+
+int TBoss4DarkFalz__sub_8004C220(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x38); }
+
+}

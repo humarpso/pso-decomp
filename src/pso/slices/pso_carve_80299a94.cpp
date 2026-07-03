@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019690();
+s32 is_split_screen();
 M2C_UNK fn_8007B858();
 s32 fn_8007BB2C();
 M2C_UNK TObjLight__sub_80133D78();
@@ -26,7 +26,7 @@ s32 fn_80299A94(void) {
     }
     TObjLight__sub_80133D78();
     fn_8007B858();
-    if ((fn_80019690() == 0) && ((obj = (void*)__nw__7TObjectFUl(0x3C)) != 0)) {
+    if ((is_split_screen() == 0) && ((obj = (void*)__nw__7TObjectFUl(0x3C)) != 0)) {
         fn_8029F4C4(obj, tl_particlemodel);
     }
     fn_802B0F8C();

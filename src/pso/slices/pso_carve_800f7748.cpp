@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8000F8FC();
+s32 get_main_phase();
 extern s32 lbl_805D5328;
 
 void fn_800F7748(void) {
-    if (fn_8000F8FC() == 0xE) {
+    if (get_main_phase() == 0xE) {
         lbl_805D5328 = 0;
     }
 }

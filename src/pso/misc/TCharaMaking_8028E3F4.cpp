@@ -9,10 +9,10 @@ extern "C" {
 s32 TCharaMaking__sub_8028E3F4(void);
 s32 TCharaMaking__sub_8028E434(void *arg0);
 s32 TCameraCtrl__sub_8006B368();
-s32 fn_8000F8FC();
+s32 get_main_phase();
 
 s32 TCharaMaking__sub_8028E3F4(void) {
-    if ((fn_8000F8FC() == 0xF) || (TCameraCtrl__sub_8006B368() != 0)) {
+    if ((get_main_phase() == 0xF) || (TCameraCtrl__sub_8006B368() != 0)) {
         return 1;
     }
     return 0;

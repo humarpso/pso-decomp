@@ -6,23 +6,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TWindowSubComCard__sub_80244A14(void *);
+M2C_UNK TWindow__close(void *);
 
 void fn_80216B44(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x38));
+        TWindow__close(M2C_FIELD(arg0, void **, 0x38));
         M2C_FIELD(arg0, u32 *, 0x38) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x44));
+        TWindow__close(M2C_FIELD(arg0, void **, 0x44));
         M2C_FIELD(arg0, u32 *, 0x44) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x40));
+        TWindow__close(M2C_FIELD(arg0, void **, 0x40));
         M2C_FIELD(arg0, u32 *, 0x40) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
-        TWindowSubComCard__sub_80244A14(M2C_FIELD(arg0, void **, 0x3C));
+        TWindow__close(M2C_FIELD(arg0, void **, 0x3C));
         M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
     }
 }

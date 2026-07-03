@@ -21,7 +21,7 @@ M2C_UNK fn_8029A0A0(void *);
 M2C_UNK fn_8029A0D8(void *);
 M2C_UNK fn_8029A110();
 extern M2C_UNK lbl_804651E8[];
-extern s32 lbl_805D5EDC;
+extern s32 evt2_random_enemies_mode;
 
 void fn_8029A1E4(void *arg0) {
     s32 temp_r3;
@@ -37,7 +37,7 @@ void fn_8029A1E4(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         if (TCameraCtrl__sub_8006B368() == 1) {
             fn_801A3B84();
-            lbl_805D5EDC = 0;
+            evt2_random_enemies_mode = 0;
             fn_8000F950();
         }
         return;

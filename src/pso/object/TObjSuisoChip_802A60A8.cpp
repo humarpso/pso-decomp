@@ -1,0 +1,27 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 fn_802A5C7C(void *);
+s32 fn_802A5CB8(void *);
+s32 fn_802A5CC4(void *, s32);
+s32 fn_802A5D68(void *);
+s32 fn_802A5DC0(void *, s32);
+s32 fn_802A5E28();
+int TObjChip__vt8(void*, void*);
+int fn_802A5D28(void*);
+int fn_802A5E84(void*);
+int fn_802A6044(void);
+void fn_802A604C(void* p, s32 v);
+s32 fn_802A6054(void* p);
+void fn_802A6070(void* p, s32 v);
+void fn_802A6078(void* p, s32 v);
+int fn_802A6080(void);
+
+void TObjSuisoChip__vt8(void* p) { TObjChip__vt8(p, (char*)p + 0x234); }
+
+}

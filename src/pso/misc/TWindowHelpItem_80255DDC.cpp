@@ -1,0 +1,23 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
+s32 fn_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 fn_80211608();
+s32 TWindowHelpItem__sub_80255DDC(void* p);
+void TWindowHelpItem__sub_80255DE4(void* p);
+s16 fn_80255DF4(void* p);
+s16 fn_80255DFC(void* p);
+s16 fn_80255E04(void* p);
+s16 TWindowSubStatusDisp__sub_80255E0C(void* p);
+void TWindowSubMag__sub_80255E14(void* p);
+
+s32 TWindowHelpItem__sub_80255DDC(void* p) { return *(s32*)((char*)p + 0x1c); }
+void TWindowHelpItem__sub_80255DE4(void* p) { *(u16*)((char*)p + 0x0) |= 0x20; }
+
+}
