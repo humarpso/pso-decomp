@@ -1,0 +1,16 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 TObjEneRe7Berura__sub_80094EE0();
+
+void TObjEneRe7Berura__sub_80094EA8(void *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x4B8) = TObjEneRe7Berura__sub_80094EE0();
+    M2C_FIELD(arg0, s32 *, 0x4BC) = 0;
+}
+
+}
