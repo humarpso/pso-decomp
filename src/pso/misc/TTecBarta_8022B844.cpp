@@ -1,0 +1,29 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void TTecBarta__sub_8022B844(void *arg0, void *arg1, void *arg2, void *arg3);
+void TTecBarta__sub_8022B89C(void *arg0, void *arg1, void *arg2, void *arg3);
+void *TTecBarta__ct(void *, void *, void *, void *, void *);
+void *TTecBarta__sub_8022BCB8(void *, void *, void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+
+void TTecBarta__sub_8022B844(void *arg0, void *arg1, void *arg2, void *arg3) {
+    void *o;
+    o = __nw__7TObjectFUl(0x178);
+    if (o != NULL) {
+        TTecBarta__ct(o, arg0, arg1, arg2, arg3);
+    }
+}
+
+void TTecBarta__sub_8022B89C(void *arg0, void *arg1, void *arg2, void *arg3) {
+    void *o;
+    o = __nw__7TObjectFUl(0x178);
+    if (o != NULL) {
+        TTecBarta__sub_8022BCB8(o, arg0, arg1, arg2, arg3);
+    }
+}
+
+}
