@@ -2756,6 +2756,10 @@ pso/misc/TEnding_8008C6F0.cpp:
 pso/misc/TEndingC.cpp:
 	.text       start:0x8008C6F4 end:0x8008C6FC
 
+pso/slices/pso_carve_8008c6fc.cpp:
+	.text       start:0x8008C6FC end:0x8008C83C
+	.rodata     start:0x80439598 end:0x804395A0
+
 pso/misc/TEnding.cpp:
 	.text       start:0x8008C9F8 end:0x8008C9FC
 
@@ -3019,6 +3023,9 @@ pso/slices/pso_carve_8009bda8.cpp:
 
 pso/slices/pso_carve_8009be64.cpp:
 	.text       start:0x8009BE64 end:0x8009BF0C
+
+pso/slices/pso_carve_8009d800.cpp:
+	.text       start:0x8009D800 end:0x8009DA18
 
 pso/enemy/TObjEneMe1Canadin_8009DA18.cpp:
 	.text       start:0x8009DA18 end:0x8009DB08
@@ -3836,6 +3843,9 @@ pso/enemy/TObjEneMe1Gee_800C91B4.cpp:
 
 pso/enemy/TObjEneMe1Gee_800C9270.cpp:
 	.text       start:0x800C9270 end:0x800C9318
+
+pso/enemy/TObjEneMe1Gee_800CA970.cpp:
+	.text       start:0x800CA970 end:0x800CAB78
 
 pso/enemy/TObjEneMe1Gee_800CAB78.cpp:
 	.text       start:0x800CAB78 end:0x800CAC60
@@ -10878,6 +10888,10 @@ pso/slices/pso_carve_801adc7c.cpp:
 pso/slices/pso_carve_801adc94.cpp:
 	.text       start:0x801ADC94 end:0x801ADD10
 
+pso/slices/pso_carve_801adef4.cpp:
+	.text       start:0x801ADEF4 end:0x801AE174
+	.rodata     start:0x80446ED8 end:0x80446EE0
+
 pso/slices/pso_carve_801ae174.cpp:
 	.text       start:0x801AE174 end:0x801AE1F8
 
@@ -11244,6 +11258,9 @@ pso/slices/pso_carve_801b90c0.cpp:
 
 pso/slices/pso_carve_801b91b0.cpp:
 	.text       start:0x801B91B0 end:0x801B91F0
+
+pso/player/TObjPlayer_801B93F0.cpp:
+	.text       start:0x801B93F0 end:0x801B9544
 
 pso/player/TObjPlayer_801B95C8.cpp:
 	.text       start:0x801B95C8 end:0x801B9634
@@ -15249,6 +15266,9 @@ pso/slices/pso_carve_8025823c.cpp:
 
 pso/slices/pso_carve_8025829c.cpp:
 	.text       start:0x8025829C end:0x802582C4
+
+pso/slices/pso_carve_802582c4.cpp:
+	.text       start:0x802582C4 end:0x80258518
 
 pso/slices/pso_carve_80258518.cpp:
 	.text       start:0x80258518 end:0x802586FC
@@ -22090,6 +22110,9 @@ pso/slices/pso_carve_8035dd74.cpp:
 
 pso/enemy/TObjEneEpsilonGuard_8035E3B8.cpp:
 	.text       start:0x8035E3B8 end:0x8035E430
+
+pso/enemy/TObjEneEpsilonGuard_8035E68C.cpp:
+	.text       start:0x8035E68C end:0x8035E8C0
 
 pso/enemy/TObjEneEpsilonGuard_8035E9DC.cpp:
 	.text       start:0x8035E9DC end:0x8035EA90

@@ -3467,6 +3467,9 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TWindowSubShortMail_8027FA38.cpp"),
                 NonMatching("pso/misc/TWindowSubTrade_802B2044.cpp"),
                 NonMatching("pso/misc/TWindowSubTradeMessage_80339AF8.cpp"),
+                NonMatching("pso/player/TObjPlayer_801B93F0.cpp"),
+                NonMatching("pso/enemy/TObjEneMe1Gee_800CA970.cpp"),
+                NonMatching("pso/enemy/TObjEneEpsilonGuard_8035E68C.cpp"),
             ],
         },
         # ------------------------------------------------------------------
