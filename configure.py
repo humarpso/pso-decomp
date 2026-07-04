@@ -3544,6 +3544,7 @@ if args.target == "psov3":
                 NonMatching("pso/item/TItemLockCountCtrl_8011099C.cpp"),
                 NonMatching("pso/item/TItemMagGrowEff_8011488C.cpp"),
                 NonMatching("pso/item/TItemObject_801164C4.cpp"),
+                NonMatching("pso/misc/TLockOnCursor_8013DE3C.cpp"),
             ],
         },
         # ------------------------------------------------------------------

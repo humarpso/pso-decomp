@@ -7666,7 +7666,7 @@ pso/misc/TLockOnCursor_8013DA64.cpp:
 pso/misc/TLockOnCursor_8013DDF0.cpp:
 	.text       start:0x8013DDF0 end:0x8013DE3C
 
-pso/slices/pso_carve_8013de3c.cpp:
+pso/misc/TLockOnCursor_8013DE3C.cpp:
 	.text       start:0x8013DE3C end:0x8013DEF8
 
 pso/slices/pso_carve_8013def8.cpp:
