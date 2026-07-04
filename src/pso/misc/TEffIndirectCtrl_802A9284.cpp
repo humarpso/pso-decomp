@@ -1,4 +1,3 @@
-#pragma fp_contract on
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,9 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_802A83F4();
+void TEffIndirectCtrl__sub_802A9284(void);
 M2C_UNK TEffIndirectCtrl__sub_802A942C();
+M2C_UNK fn_802A83F4();
 M2C_UNK xfree__FPv(s32);
+
 extern M2C_UNK lbl_80540AF0[];
 
 void TEffIndirectCtrl__sub_802A9284(void) {

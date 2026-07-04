@@ -6,7 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TItemDrop__sub_8010619C(void *arg0, void *arg1);
 s8 fn_80107790(s32, s32, s32, s32, s32);
+
 extern void *lbl_805D5460;
 
 void TItemDrop__sub_8010619C(void *arg0, void *arg1) {

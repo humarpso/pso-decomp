@@ -6,10 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+void *TItemMagGrowEff__ct(void *arg0, void *arg1, u32 arg2);
 s32 TBoss4Type2__sub_800874F4(s32, M2C_UNK);
 M2C_UNK TItemMagGrowEff__sub_80115924(u32);
 M2C_UNK __ct__7TObjectFP7TObject();
+M2C_UNK queue_destruction__7TObjectFv(void *);
+
 extern M2C_UNK __vt__15TItemMagGrowEff[];
 extern s32 lbl_805D2C14;
 

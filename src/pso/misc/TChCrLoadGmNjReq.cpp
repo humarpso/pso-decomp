@@ -4,7 +4,9 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
+void *TChCrLoadGmNjReq__ct(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
+
 extern M2C_UNK __vt__16TChCrLoadGmNjReq[];
 extern void *lbl_805D3B58;
 void strncpy(void *, void *, int);

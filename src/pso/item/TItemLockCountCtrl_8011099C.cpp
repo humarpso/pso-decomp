@@ -6,8 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TItemLockCountCtrl__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 TOBoss4Rock__sub_80147AA8(s32);
 M2C_UNK __ct__7TObjectFP7TObject();
+
 M2C_UNK memset(s32, M2C_UNK, s32);
 extern M2C_UNK __vt__18TItemLockCountCtrl[];
 extern s32 lbl_805D2BF8;
