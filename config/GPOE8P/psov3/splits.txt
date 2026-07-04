@@ -1297,6 +1297,9 @@ pso/slices/pso_carve_800502b4.cpp:
 pso/ui/TObjDFYutai.cpp:
 	.text       start:0x8005049C end:0x800504F4
 
+pso/slices/pso_carve_800504f4.cpp:
+	.text       start:0x800504F4 end:0x800505A8
+
 pso/boss/TBoss4Type3_800505A8.cpp:
 	.text       start:0x800505A8 end:0x80050600
 
@@ -1726,6 +1729,10 @@ pso/slices/pso_carve_80067064.cpp:
 pso/boss/TObjBoss5Ctrl.cpp:
 	.text       start:0x8006715C end:0x800672BC
 
+pso/slices/pso_carve_800672bc.cpp:
+	.text       start:0x800672BC end:0x800673D0
+	.rodata     start:0x80438138 end:0x80438140
+
 pso/slices/pso_carve_800673d0.cpp:
 	.text       start:0x800673D0 end:0x80067410
 
@@ -1967,6 +1974,9 @@ pso/slices/pso_carve_8006fbe4.cpp:
 pso/slices/pso_carve_8006fc34.cpp:
 	.text       start:0x8006FC34 end:0x8006FC7C
 
+pso/slices/pso_carve_8006ff98.cpp:
+	.text       start:0x8006FF98 end:0x80070024
+
 pso/slices/pso_carve_800703d0.cpp:
 	.text       start:0x800703D0 end:0x80070600
 
@@ -1978,6 +1988,9 @@ pso/slices/run_80070AB0.cpp:
 
 pso/slices/pso_carve_8007154c.cpp:
 	.text       start:0x8007154C end:0x80071588
+
+pso/slices/pso_carve_80071588.cpp:
+	.text       start:0x80071588 end:0x800715FC
 
 pso/slices/pso_carve_800715fc.cpp:
 	.text       start:0x800715FC end:0x80071640
@@ -2024,6 +2037,9 @@ pso/slices/pso_carve_80072188.cpp:
 pso/slices/pso_carve_80072218.cpp:
 	.text       start:0x80072218 end:0x80072230
 
+pso/slices/pso_carve_80072358.cpp:
+	.text       start:0x80072358 end:0x800723B8
+
 pso/slices/pso_carve_800726f0.cpp:
 	.text       start:0x800726F0 end:0x80072BB0
 
@@ -2050,6 +2066,9 @@ pso/slices/pso_carve_80072e5c.cpp:
 
 pso/slices/pso_carve_80072e74.cpp:
 	.text       start:0x80072E74 end:0x80072ED4
+
+pso/slices/pso_carve_80072ed4.cpp:
+	.text       start:0x80072ED4 end:0x80072FD8
 
 pso/menu/TObjChallengeRetry.cpp:
 	.text       start:0x80073220 end:0x80073360
@@ -2393,6 +2412,12 @@ pso/item/TItemDrop.cpp:
 pso/slices/pso_carve_8007ce14.cpp:
 	.text       start:0x8007CE14 end:0x8007CEB4
 
+pso/slices/pso_carve_8007cf0c.cpp:
+	.text       start:0x8007CF0C end:0x8007CFCC
+
+pso/slices/pso_carve_8007cfcc.cpp:
+	.text       start:0x8007CFCC end:0x8007D1D0
+
 pso/slices/pso_carve_8007dd24.cpp:
 	.text       start:0x8007DD24 end:0x8007DD28
 
@@ -2614,6 +2639,9 @@ pso/slices/pso_carve_8008350c.cpp:
 
 pso/slices/pso_carve_80083550.cpp:
 	.text       start:0x80083550 end:0x80083594
+
+pso/slices/pso_carve_8008362c.cpp:
+	.text       start:0x8008362C end:0x800836E8
 
 pso/slices/pso_carve_800838c4.cpp:
 	.text       start:0x800838C4 end:0x80083914
@@ -2870,6 +2898,9 @@ pso/slices/pso_carve_80092a7c.cpp:
 
 pso/enemy/TObjEneRe7Berura_80092C90.cpp:
 	.text       start:0x80092C90 end:0x80092CCC
+
+pso/enemy/TObjEneRe7Berura_80093180.cpp:
+	.text       start:0x80093180 end:0x800931C8
 
 pso/enemy/TObjEneRe7Berura_800931C8.cpp:
 	.text       start:0x800931C8 end:0x8009331C
@@ -5369,6 +5400,9 @@ pso/item/TItemDrop_80105E4C.cpp:
 pso/item/TItemDrop_801060F4.cpp:
 	.text       start:0x801060F4 end:0x8010619C
 
+pso/slices/pso_carve_8010619c.cpp:
+	.text       start:0x8010619C end:0x801061E0
+
 pso/item/TItemDrop_80106354.cpp:
 	.text       start:0x80106354 end:0x801063D8
 
@@ -6031,6 +6065,9 @@ pso/slices/pso_carve_80119024.cpp:
 
 pso/item/TItemReverseTechBG.cpp:
 	.text       start:0x8011979C end:0x801197F4
+
+pso/slices/pso_carve_801197f4.cpp:
+	.text       start:0x801197F4 end:0x801198F8
 
 pso/item/TItemReverseTechPart2_801198F8.cpp:
 	.text       start:0x801198F8 end:0x801198FC
@@ -7208,6 +7245,9 @@ pso/misc/TLobby_80137C90.cpp:
 
 pso/misc/TLobby_80137E60.cpp:
 	.text       start:0x80137E60 end:0x80137ED4
+
+pso/misc/TLobby_80137ED4.cpp:
+	.text       start:0x80137ED4 end:0x80137FEC
 
 pso/misc/TLobby_80137FEC.cpp:
 	.text       start:0x80137FEC end:0x80138018
@@ -10131,8 +10171,14 @@ pso/object/TObjQuestCol2_801957B0.cpp:
 pso/object/TObjQuestCol2.cpp:
 	.text       start:0x80195874 end:0x801958A4
 
+pso/slices/pso_carve_801958a4.cpp:
+	.text       start:0x801958A4 end:0x80195954
+
 pso/object/TObjQuestColALock2.cpp:
 	.text       start:0x80195954 end:0x801959A0
+
+pso/slices/pso_carve_80195a9c.cpp:
+	.text       start:0x80195A9C end:0x80195B84
 
 pso/object/TObjQuestColALock2_80195B84.cpp:
 	.text       start:0x80195B84 end:0x80195BEC
@@ -10163,6 +10209,9 @@ pso/object/TObjQuestColApc_801964C4.cpp:
 
 pso/object/TObjQuestColALock.cpp:
 	.text       start:0x801965F8 end:0x8019662C
+
+pso/slices/pso_carve_8019662c.cpp:
+	.text       start:0x8019662C end:0x80196714
 
 pso/object/TObjQuestColALock_80196714.cpp:
 	.text       start:0x80196714 end:0x8019677C
@@ -13799,6 +13848,9 @@ pso/misc/TQuestListOnline.cpp:
 pso/misc/TQuestListOnline_80218160.cpp:
 	.text       start:0x80218160 end:0x802181B0
 
+pso/slices/pso_carve_8021824c.cpp:
+	.text       start:0x8021824C end:0x80218310
+
 pso/misc/TWindowSubComCard.cpp:
 	.text       start:0x802183B4 end:0x8021845C
 
@@ -14811,6 +14863,9 @@ pso/misc/TWindowChat_80247AAC.cpp:
 pso/slices/pso_carve_80247ab0.cpp:
 	.text       start:0x80247AB0 end:0x80247B40
 
+pso/slices/pso_carve_80247b40.cpp:
+	.text       start:0x80247B40 end:0x80247C68
+
 pso/misc/TWindowChat.cpp:
 	.text       start:0x80247C68 end:0x80247D2C
 
@@ -14993,6 +15048,9 @@ pso/misc/TWindowCtrl_8024B760.cpp:
 
 pso/misc/TWindowCtrl_8024B9C0.cpp:
 	.text       start:0x8024B9C0 end:0x8024BB30
+
+pso/misc/TWindowCtrl_8024BBBC.cpp:
+	.text       start:0x8024BBBC end:0x8024BC7C
 
 pso/misc/TWindowCtrl_8024BFB8.cpp:
 	.text       start:0x8024BFB8 end:0x8024C024
@@ -15192,6 +15250,9 @@ pso/misc/TWindowFukidasi_80252BF8.cpp:
 pso/misc/TWindowGetComCard.cpp:
 	.text       start:0x80252C38 end:0x80252CCC
 
+pso/slices/pso_carve_80252f10.cpp:
+	.text       start:0x80252F10 end:0x80252FCC
+
 pso/slices/pso_carve_802531a0.cpp:
 	.text       start:0x802531A0 end:0x802531A4
 
@@ -15249,6 +15310,9 @@ pso/misc/TWindowInputNumber_802569F0.cpp:
 pso/slices/pso_carve_80256bf8.cpp:
 	.text       start:0x80256BF8 end:0x80256C00
 
+pso/slices/pso_carve_802572f0.cpp:
+	.text       start:0x802572F0 end:0x8025737C
+
 pso/ui/TAdChrMoveEffectGC_80257720.cpp:
 	.text       start:0x80257720 end:0x80257784
 
@@ -15293,6 +15357,12 @@ pso/slices/pso_carve_80258e2c.cpp:
 
 pso/slices/pso_carve_80259408.cpp:
 	.text       start:0x80259408 end:0x8025941C
+
+pso/slices/pso_carve_80259838.cpp:
+	.text       start:0x80259838 end:0x802598E4
+
+pso/slices/pso_carve_802598e4.cpp:
+	.text       start:0x802598E4 end:0x8025995C
 
 pso/slices/pso_carve_80259ce0.cpp:
 	.text       start:0x80259CE0 end:0x80259CE4
@@ -15730,6 +15800,9 @@ pso/misc/TWindowOptionCtrl_8026B4A4.cpp:
 pso/misc/TWindowOptionCtrl_8026B828.cpp:
 	.text       start:0x8026B828 end:0x8026B8C8
 
+pso/slices/pso_carve_8026b8c8.cpp:
+	.text       start:0x8026B8C8 end:0x8026B9B8
+
 pso/misc/TWindowOptionCtrl_8026BCBC.cpp:
 	.text       start:0x8026BCBC end:0x8026BCC0
 
@@ -15834,6 +15907,9 @@ pso/slices/pso_carve_8026ebb0.cpp:
 
 pso/misc/TWindowShortListCtrl_8026EC50.cpp:
 	.text       start:0x8026EC50 end:0x8026ECBC
+
+pso/slices/pso_carve_8026f414.cpp:
+	.text       start:0x8026F414 end:0x8026F4F8
 
 pso/slices/pso_carve_8026f638.cpp:
 	.text       start:0x8026F638 end:0x8026F6A4
@@ -16208,6 +16284,9 @@ pso/misc/TWindowSubShortMail_8027EB10.cpp:
 pso/misc/TWindowSubShortMail_8027EF94.cpp:
 	.text       start:0x8027EF94 end:0x8027EF98
 
+pso/slices/pso_carve_8027f8e4.cpp:
+	.text       start:0x8027F8E4 end:0x8027FA38
+
 pso/misc/TWindowSubShortMail_8027FA38.cpp:
 	.text       start:0x8027FA38 end:0x8027FAD0
 
@@ -16256,8 +16335,14 @@ pso/misc/TWindowSubSymbolChat_8028195C.cpp:
 pso/misc/TWindowSubSymbolChat_80281A94.cpp:
 	.text       start:0x80281A94 end:0x80281B18
 
+pso/misc/TWindowSubSymbolChat_80281DE8.cpp:
+	.text       start:0x80281DE8 end:0x80281EA8
+
 pso/misc/TWindowSubSymbolChat_802821D0.cpp:
 	.text       start:0x802821D0 end:0x80282288
+
+pso/misc/TWindowSubSymbolChat_80282288.cpp:
+	.text       start:0x80282288 end:0x8028233C
 
 pso/misc/TWindowSubSymbolChat_802825D4.cpp:
 	.text       start:0x802825D4 end:0x80282600
@@ -16664,6 +16749,9 @@ pso/slices/pso_carve_80291d94.cpp:
 pso/slices/pso_carve_80292268.cpp:
 	.text       start:0x80292268 end:0x80292270
 
+pso/slices/pso_carve_80292678.cpp:
+	.text       start:0x80292678 end:0x802926EC
+
 pso/slices/pso_carve_802926ec.cpp:
 	.text       start:0x802926EC end:0x80292730
 
@@ -16726,6 +16814,9 @@ pso/misc/TChCrEffFade_802940F8.cpp:
 
 pso/menu/TChCrEffFade.cpp:
 	.text       start:0x80294154 end:0x802941AC
+
+pso/misc/TChCrEffFade_802941AC.cpp:
+	.text       start:0x802941AC end:0x8029427C
 
 pso/slices/pso_carve_8029427c.cpp:
 	.text       start:0x8029427C end:0x802942D0
@@ -16843,6 +16934,9 @@ pso/slices/pso_carve_80299c4c.cpp:
 
 pso/slices/pso_carve_80299d38.cpp:
 	.text       start:0x80299D38 end:0x80299D68
+
+pso/slices/pso_carve_80299d68.cpp:
+	.text       start:0x80299D68 end:0x80299E44
 
 pso/slices/pso_carve_80299e44.cpp:
 	.text       start:0x80299E44 end:0x80299E84
@@ -18340,6 +18434,9 @@ pso/enemy/TObjEneMe1GiGue.cpp:
 pso/slices/pso_carve_802cb620.cpp:
 	.text       start:0x802CB620 end:0x802CB678
 
+pso/slices/pso_carve_802cc350.cpp:
+	.text       start:0x802CC350 end:0x802CC45C
+
 pso/slices/pso_carve_802cd054.cpp:
 	.text       start:0x802CD054 end:0x802CD058
 
@@ -18629,6 +18726,12 @@ pso/slices/pso_carve_802dc294.cpp:
 pso/slices/pso_carve_802dc440.cpp:
 	.text       start:0x802DC440 end:0x802DC51C
 
+pso/slices/pso_carve_802dc760.cpp:
+	.text       start:0x802DC760 end:0x802DC8A0
+
+pso/slices/pso_carve_802dcb80.cpp:
+	.text       start:0x802DCB80 end:0x802DCCA4
+
 pso/slices/pso_carve_802dcd14.cpp:
 	.text       start:0x802DCD14 end:0x802DCD90
 
@@ -18653,6 +18756,9 @@ pso/slices/pso_carve_802dd4b8.cpp:
 pso/slices/pso_carve_802dd5c8.cpp:
 	.text       start:0x802DD5C8 end:0x802DD714
 
+pso/slices/pso_carve_802dd714.cpp:
+	.text       start:0x802DD714 end:0x802DD8E0
+
 pso/slices/pso_carve_802de094.cpp:
 	.text       start:0x802DE094 end:0x802DE120
 
@@ -18676,6 +18782,9 @@ pso/slices/pso_carve_802de50c.cpp:
 
 pso/slices/pso_carve_802de69c.cpp:
 	.text       start:0x802DE69C end:0x802DE7D0
+
+pso/slices/pso_carve_802dec44.cpp:
+	.text       start:0x802DEC44 end:0x802DEDA8
 
 pso/ui/TAdMultiPlyChrSelectGC.cpp:
 	.text       start:0x802DFC0C end:0x802DFCCC
@@ -19811,6 +19920,9 @@ pso/slices/pso_carve_8030d5dc.cpp:
 pso/ui/TAdChrSelASlotGC.cpp:
 	.text       start:0x8030E09C end:0x8030E10C
 
+pso/ui/TAdChrSelASlotGC_8030E10C.cpp:
+	.text       start:0x8030E10C end:0x8030E284
+
 pso/ui/TAdChrSelASlotGC_8030E284.cpp:
 	.text       start:0x8030E284 end:0x8030E2E4
 
@@ -19835,8 +19947,14 @@ pso/slices/pso_carve_8030f034.cpp:
 pso/slices/pso_carve_8030f45c.cpp:
 	.text       start:0x8030F45C end:0x8030F6B0
 
+pso/slices/pso_carve_8030f6b0.cpp:
+	.text       start:0x8030F6B0 end:0x8030F874
+
 pso/ui/TAdChrSelBSlotGC.cpp:
 	.text       start:0x8030FE04 end:0x8030FE74
+
+pso/ui/TAdChrSelBSlotGC_8030FE74.cpp:
+	.text       start:0x8030FE74 end:0x80310050
 
 pso/ui/TAdChrSelBSlotGC_80310050.cpp:
 	.text       start:0x80310050 end:0x803100A4
@@ -20974,6 +21092,9 @@ pso/slices/pso_carve_80338858.cpp:
 pso/slices/pso_carve_80338a9c.cpp:
 	.text       start:0x80338A9C end:0x80338AA0
 
+pso/slices/pso_carve_80338b14.cpp:
+	.text       start:0x80338B14 end:0x80338B88
+
 pso/slices/pso_carve_80338b88.cpp:
 	.text       start:0x80338B88 end:0x80338BB4
 
@@ -21072,6 +21193,12 @@ pso/slices/pso_carve_8033b190.cpp:
 
 pso/slices/pso_carve_8033b4b4.cpp:
 	.text       start:0x8033B4B4 end:0x8033B504
+
+pso/slices/pso_carve_8033b504.cpp:
+	.text       start:0x8033B504 end:0x8033B56C
+
+pso/slices/pso_carve_8033b56c.cpp:
+	.text       start:0x8033B56C end:0x8033B5F0
 
 pso/slices/pso_carve_8033b5f0.cpp:
 	.text       start:0x8033B5F0 end:0x8033B640
