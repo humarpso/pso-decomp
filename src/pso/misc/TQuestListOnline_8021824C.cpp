@@ -6,9 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
+void *__dt__16TQuestListOnlineFv(void *arg0, s16 arg1);
 M2C_UNK TWindow__close(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
+
 extern M2C_UNK __vt__16TQuestListOnline[];
 extern s32 lbl_805D61E0;
 

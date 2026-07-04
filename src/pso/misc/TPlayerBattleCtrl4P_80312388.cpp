@@ -6,8 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 fn_801D7064(M2C_UNK *);
+void TPlayerBattleCtrl4P__vt8(void *arg0);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112A4(void *, M2C_UNK);
+u8 fn_801D7064(M2C_UNK *);
+
 extern M2C_UNK lbl_8050EA40[];
 
 void TPlayerBattleCtrl4P__vt8(void *arg0) {

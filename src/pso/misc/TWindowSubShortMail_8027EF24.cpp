@@ -6,11 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
+s32 TWindowSubShortMail__sub_8027EF24(void *arg0);
 M2C_UNK TWindowShortListCtrl__sub_80221828(s32);
+s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 M2C_UNK fn_80267B90(s32, s32);
 s32 fn_80267F38(M2C_UNK, M2C_UNK *, M2C_UNK, s16);
 M2C_UNK fn_8026CBB8(M2C_UNK);
+
 extern M2C_UNK lbl_8044FAC4[];
 
 s32 TWindowSubShortMail__sub_8027EF24(void *arg0) {
