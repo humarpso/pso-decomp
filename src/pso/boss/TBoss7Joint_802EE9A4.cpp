@@ -4,7 +4,9 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
+void TBoss7Joint__sub_802EE9A4(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
+
 struct VOff_802EE9A4_arg0 { char pad_0[0x2FC]; char f_2FC[1]; };
 
 void TBoss7Joint__sub_802EE9A4(void *arg0) {

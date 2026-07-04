@@ -4,15 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void fn_802E80C8(void *);
-void fn_803E4BC4(void);
-void fn_803D9B2C(void);
+void render__20TBoss7TentacleNeedleFv(void *arg0);
 void TOHangerMachine01__sub_803D9C00(void *);
+void fn_802E80C8(void *);
 void fn_803D99F8(void *, int);
-extern void *lbl_805D6948;
-void fn_803E4AF4(void *, void *, f32);
+void fn_803D9B2C(void);
 void fn_803D9B78(void);
+void fn_803E4AF4(void *, void *, f32);
+void fn_803E4BC4(void);
 void fn_803E4BD0(void);
+
+extern void *lbl_805D6948;
 
 void render__20TBoss7TentacleNeedleFv(void *arg0) {
     fn_802E80C8(arg0);

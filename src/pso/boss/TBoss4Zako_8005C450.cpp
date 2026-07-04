@@ -4,10 +4,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TBoss4Zako__sub_8005C368(void *);
+void TBoss4Zako__vt4(void *arg0);
 void TBoss4Zako__sub_8005C218(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss4Zako__sub_8005C368(void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+
 struct VOff_8005C450_arg0 { char pad_0[0x38]; char f_38[1]; };
 
 void TBoss4Zako__vt4(void *arg0) {

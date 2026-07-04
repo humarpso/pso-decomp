@@ -6,12 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TWindowOptionCtrl__sub_8026B6CC(void);
+s32 TWindowOptionCtrl__sub_8026B2E4();
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK fn_80248968(s32, s32);
 M2C_UNK fn_80248AA8(s32, s32, M2C_UNK);
 s32 fn_80248C48(M2C_UNK, M2C_UNK *);
-s32 TWindowOptionCtrl__sub_8026B2E4();
 s32 fn_8026CBA4(M2C_UNK);
+
 extern M2C_UNK lbl_8044F49C[];
 
 s32 TWindowOptionCtrl__sub_8026B6CC(void) {

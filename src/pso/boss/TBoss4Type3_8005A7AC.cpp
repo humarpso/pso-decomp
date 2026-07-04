@@ -4,14 +4,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void fn_800D8A2C(void *);
-void fn_803D9B2C(void);
-void TOHangerMachine01__sub_803D9C00(void *);
-void fn_803D9214(int, void *);
+void TBoss4Type3__sub_8005A7AC(void *arg0);
 void TBoss4Type3__sub_8005A438(void *);
-void fn_803D9B78(void);
+void TOHangerMachine01__sub_803D9C00(void *);
 void fn_80051E9C(int, f32);
+void fn_800D8A2C(void *);
 void fn_801E2F20(void);
+void fn_803D9214(int, void *);
+void fn_803D9B2C(void);
+void fn_803D9B78(void);
 
 void TBoss4Type3__sub_8005A7AC(void *arg0) {
     fn_800D8A2C(arg0);

@@ -4,12 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *__nw__7TObjectFUl(int);
+void TAdChrSelBSlotGC__sub_8030FD54(void *arg0);
 void *__ct__15TAdChrSelSlotGCFv(void *, void *);
-extern M2C_UNK lbl_804758D8[];
-void *__ct__19TAdPlyChrSelPlateGCFv(void *, void *, void *);
 void *__ct__15TAdSubPlyItemGCFv(void *, void *);
+void *__ct__19TAdPlyChrSelPlateGCFv(void *, void *, void *);
 void *__ct__20TAdChrSelMovePlateGCFv(void *, void *);
+void *__nw__7TObjectFUl(int);
+
+extern M2C_UNK lbl_804758D8[];
 
 void TAdChrSelBSlotGC__sub_8030FD54(void *arg0) {
     void *o;

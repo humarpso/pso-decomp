@@ -4,6 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
+void TAdYesNoBaseGC__sub_8032C188(void *arg0, void *arg1, void *arg2);
 void TWindowSubSymbolChatPartsSet__sub_80052EA0(void *);
 
 void TAdYesNoBaseGC__sub_8032C188(void *arg0, void *arg1, void *arg2) {

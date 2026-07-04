@@ -4,11 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
+void TPlayerBattleCtrl4P__vt27(void *arg0);
+void *THunterGuildSeqOffline__sub_800F8878(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+void queue_destruction__7TObjectFv(void *);
+
 extern void *tl_00;
 extern M2C_UNK TPlayerBattleCtrl4P__sub_80311808[];
-void *__nw__7TObjectFUl(int);
-void *THunterGuildSeqOffline__sub_800F8878(void *, void *, void *);
-void queue_destruction__7TObjectFv(void *);
 
 void TPlayerBattleCtrl4P__vt27(void *arg0) {
     void *o;

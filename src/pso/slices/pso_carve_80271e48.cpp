@@ -6,18 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801DB684(s32, s32, s32);
-s32 fn_8020102C();
-s32 fn_80201058();
+M2C_UNK fn_80077798(s32, M2C_UNK *);
+M2C_UNK fn_801DB1B4(s32, M2C_UNK *);
 extern s32 lbl_805D5580;
 
-void TLobby__sub_8013731C(void) {
-    s32 temp_r31;
-    s32 temp_r4;
+void fn_80271E48(s32 arg0, s32 arg1) {
+    M2C_UNK sp8[4];
 
-    temp_r31 = fn_8020102C();
-    temp_r4 = fn_80201058();
-    fn_801DB684(lbl_805D5580, temp_r4, temp_r31);
+    fn_80077798(arg1, sp8);
+    fn_801DB1B4(lbl_805D5580, sp8);
 }
 
 }
