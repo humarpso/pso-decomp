@@ -1,0 +1,28 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void TLazerFenceSw__vt16(void *arg0);
+void TLazerFenceSw__vt17(void *arg0);
+void fn_8016A604(void *);
+void fn_8016A8D0(void *);
+
+extern const f32 lbl_805DBE84;
+
+void TLazerFenceSw__vt16(void *arg0) {
+    fn_8016A8D0(arg0);
+    M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DBE84;
+    M2C_FIELD(arg0, f32 *, 0xEC) = lbl_805DBE84;
+}
+
+extern const f32 lbl_805DBE84;
+
+void TLazerFenceSw__vt17(void *arg0) {
+    fn_8016A604(arg0);
+    M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DBE84;
+    M2C_FIELD(arg0, f32 *, 0xEC) = lbl_805DBE84;
+}
+
+}
