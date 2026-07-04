@@ -3478,6 +3478,10 @@ if args.target == "psov3":
                 NonMatching("pso/ui/TAdChrSelASlotGC_8030E10C.cpp"),
                 NonMatching("pso/ui/TAdChrSelBSlotGC_8030FE74.cpp"),
                 NonMatching("pso/misc/TChCrEffFade_802941AC.cpp"),
+                NonMatching("pso/misc/TQuestThread_801F5ED0.cpp"),
+                NonMatching("pso/misc/TWindowSubMag_8027B778.cpp"),
+                NonMatching("pso/misc/TWindowSubMag_8027BF1C.cpp"),
+                NonMatching("pso/boss/TBoss3VoloptP01_80043EE8.cpp"),
             ],
         },
         # ------------------------------------------------------------------
