@@ -1,0 +1,22 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 TObjPlayer__sub_801B5680();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK TPlayerBattleCtrl4P__sub_803112A4(s32, M2C_UNK);
+extern s8 lbl_8050E208[];
+extern s32 lbl_805D53A0;
+
+void TPlayerBattleCtrl4P__vt24(s32 arg0) {
+    if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) && (TObjPlayer__sub_801B5680() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 6) != 0)) {
+        TPlayerBattleCtrl4P__sub_803112A4(arg0, 5);
+    }
+}
+
+}
