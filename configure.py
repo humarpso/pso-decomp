@@ -3482,6 +3482,8 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TWindowSubMag_8027B778.cpp"),
                 NonMatching("pso/misc/TWindowSubMag_8027BF1C.cpp"),
                 NonMatching("pso/boss/TBoss3VoloptP01_80043EE8.cpp"),
+                NonMatching("pso/misc/TLobby_80070A00.cpp"),
+                NonMatching("pso/misc/TChCrTagInformationStr.cpp"),
             ],
         },
         # ------------------------------------------------------------------

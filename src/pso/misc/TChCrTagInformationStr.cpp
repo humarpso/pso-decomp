@@ -6,7 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *__ct__22TChCrTagInformationStrFv(void *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK __ct__7TObjectFP7TObject();
+
 extern M2C_UNK __vt__22TChCrTagInformationStr[];
 extern s32 lbl_805D40B8;
 extern const f32 lbl_805DF108;
