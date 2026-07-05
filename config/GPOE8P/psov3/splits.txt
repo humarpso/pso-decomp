@@ -1384,6 +1384,9 @@ pso/slices/pso_carve_8004fc90.cpp:
 pso/slices/pso_carve_8004fff8.cpp:
 	.text       start:0x8004FFF8 end:0x80050050
 
+pso/slices/pso_carve_80050134.cpp:
+	.text       start:0x80050134 end:0x80050194
+
 pso/slices/pso_carve_800502b4.cpp:
 	.text       start:0x800502B4 end:0x800502FC
 
@@ -1963,6 +1966,9 @@ pso/misc/TCameraCtrl_8006B3D8.cpp:
 
 pso/misc/TCameraCtrl_8006B654.cpp:
 	.text       start:0x8006B654 end:0x8006B6A8
+
+pso/slices/pso_carve_8006b738.cpp:
+	.text       start:0x8006B738 end:0x8006B798
 
 pso/misc/TCameraCtrl_8006B91C.cpp:
 	.text       start:0x8006B91C end:0x8006B954
@@ -11125,6 +11131,9 @@ pso/slices/pso_carve_80198c84.cpp:
 pso/slices/pso_carve_80198d98.cpp:
 	.text       start:0x80198D98 end:0x80198DCC
 
+pso/slices/pso_carve_801993b0.cpp:
+	.text       start:0x801993B0 end:0x80199410
+
 pso/slices/pso_carve_80199ea0.cpp:
 	.text       start:0x80199EA0 end:0x80199F14
 
@@ -11557,6 +11566,9 @@ pso/ui/TAdDialingGC_801A4C9C.cpp:
 
 pso/slices/pso_carve_801a4ca4.cpp:
 	.text       start:0x801A4CA4 end:0x801A4D30
+
+pso/slices/pso_carve_801a4fc0.cpp:
+	.text       start:0x801A4FC0 end:0x801A5068
 
 pso/slices/pso_carve_801a5068.cpp:
 	.text       start:0x801A5068 end:0x801A513C
@@ -22828,6 +22840,9 @@ pso/slices/pso_carve_8033cc80.cpp:
 
 pso/slices/pso_carve_8033cdd8.cpp:
 	.text       start:0x8033CDD8 end:0x8033CDF8
+
+pso/slices/pso_carve_8033d11c.cpp:
+	.text       start:0x8033D11C end:0x8033D1AC
 
 pso/slices/pso_carve_8033d2d4.cpp:
 	.text       start:0x8033D2D4 end:0x8033D324
