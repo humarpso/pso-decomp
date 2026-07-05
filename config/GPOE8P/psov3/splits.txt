@@ -15738,29 +15738,8 @@ pso/misc/TSwitch_802293D8.cpp:
 pso/object/TSwitch.cpp:
 	.text       start:0x8022948C end:0x802294E4
 
-pso/slices/pso_carve_802294e4.cpp:
-	.text       start:0x802294E4 end:0x8022953C
-
-pso/slices/pso_carve_8022953c.cpp:
-	.text       start:0x8022953C end:0x80229540
-
-pso/slices/pso_carve_80229540.cpp:
-	.text       start:0x80229540 end:0x802295EC
-
-pso/slices/pso_carve_802295ec.cpp:
-	.text       start:0x802295EC end:0x802296A0
-
-pso/slices/pso_carve_802296a0.cpp:
-	.text       start:0x802296A0 end:0x80229754
-
-pso/slices/pso_carve_80229754.cpp:
-	.text       start:0x80229754 end:0x802297F0
-
-pso/slices/pso_carve_802297f0.cpp:
-	.text       start:0x802297F0 end:0x8022988C
-
-pso/slices/pso_carve_8022988c.cpp:
-	.text       start:0x8022988C end:0x80229890
+pso/misc/TMainTask.cpp:
+	.text       start:0x802294E4 end:0x80229890
 
 pso/system/TMainTask.cpp:
 	.text       start:0x80229890 end:0x8022A564
