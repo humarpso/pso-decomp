@@ -6,7 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TWindowMenu__sub_80266B70(void *arg0, s32 arg1);
 s32 TWindowChoiceSetting__sub_801A6F38(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+
 extern s8 lbl_8050E208[];
 
 s32 TWindowMenu__sub_80266B70(void *arg0, s32 arg1) {

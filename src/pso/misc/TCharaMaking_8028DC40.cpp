@@ -6,14 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_8007341C(void *);
+s32 TCharaMaking__sub_8028DC40(void);
+s32 fn_8028EBCC(void*);
 
-s32 TQuestThread__sub_801F4A38(void *arg0) {
-    void *temp_r3 = M2C_FIELD(arg0, void **, 0x60);
-    if (temp_r3 != NULL) {
-        return TWindowSubComCard__sub_8007341C(temp_r3);
+extern u32 lbl_805D6524;
+
+s32 TCharaMaking__sub_8028DC40(void) {
+    if ((u32) lbl_805D6524 == 0U) {
+        return -1;
     }
-    return 0;
+    return fn_8028EBCC((void*)lbl_805D6524);
 }
 
 }

@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TWindowCtrl__sub_8024B0E0(s8 arg0, s32 arg1);
+void TWindowCtrl__sub_8024B15C(s8 *arg0);
 s32 TWindowCtrl__sub_8024C5FC(s32);
 s32 fn_8024D92C();
 s32 fn_8024D960(s32);
@@ -27,6 +29,20 @@ s32 TWindowCtrl__sub_8024B0E0(s8 arg0, s32 arg1) {
         var_r3 = 0x43;
     }
     return fn_8026CBB8(var_r3 + arg0);
+}
+
+extern void *lbl_805D63F8;
+
+void TWindowCtrl__sub_8024B15C(s8 *arg0) {
+    s8 temp_r4;
+
+    if ((void *) lbl_805D63F8 != NULL) {
+        temp_r4 = *arg0;
+        if ((temp_r4 >= 0) && (temp_r4 < 4)) {
+            M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) & ~(0x40 << temp_r4));
+            *arg0 = -1;
+        }
+    }
 }
 
 }

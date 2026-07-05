@@ -6,14 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 obj_testFlags30(s32, M2C_UNK);
-s32 TObjPlayer__sub_801B19EC();
+s32 TAdEnterSerialAccessGC__sub_803223E4(void *arg0);
+s32 fn_8025B8C8(u32);
 
-s32 TObjPlayer__sub_801B2654(s32 arg0) {
-    if (TObjPlayer__sub_801B19EC() != 0) {
-        return obj_testFlags30(arg0, 8);
+s32 TAdEnterSerialAccessGC__sub_803223E4(void *arg0) {
+    u32 temp_r3 = M2C_FIELD(arg0, u32 *, 0x20);
+    if (temp_r3 == 0U) {
+        return 0;
     }
-    return 0;
+    return fn_8025B8C8(temp_r3);
 }
 
 }

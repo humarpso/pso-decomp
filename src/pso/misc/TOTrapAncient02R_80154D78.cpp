@@ -2,10 +2,11 @@
 
 extern "C" {
 
+void TOTrapAncient02R__sub_80154D78(void);
+void fn_80154D7C(void);
+s32 fn_80154DBC(u32 arg0);
 u32 fn_80040B28(s32);
 int fn_80154E28(void*, void*);
-void fn_80154D7C(void);
-void TOTrapAncient02R__sub_80154D78(void);
 
 void TOTrapAncient02R__sub_80154D78(void) {  }
 void fn_80154D7C(void) { { int i; for (i = 0; i < 16; i++) { fn_80154E28((void*)i, (void*)0); } } }

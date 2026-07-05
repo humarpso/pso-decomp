@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TQuestThread__sub_801F4D20(void *arg0);
 s32 TWindowSubComCard__sub_8007341C(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 

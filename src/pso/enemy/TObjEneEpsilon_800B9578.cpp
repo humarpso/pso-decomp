@@ -6,9 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TObjEneEpsilon__sub_800B9578(void *arg0);
+s32 TObjEneDD__sub_800BA828(u16);
 s32 TObjEneEpsilon__sub_800B95E0(void *);
 M2C_UNK fn_800B98C0(void *);
-s32 TObjEneDD__sub_800BA828(u16);
 
 struct Base_800B9578 { char pad[0x18]; };
 struct VObj_800B9578 : Base_800B9578 {
