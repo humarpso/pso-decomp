@@ -3018,6 +3018,9 @@ pso/slices/pso_carve_80088588.cpp:
 pso/slices/pso_carve_800885b4.cpp:
 	.text       start:0x800885B4 end:0x8008861C
 
+pso/slices/pso_carve_8008861c.cpp:
+	.text       start:0x8008861C end:0x80088670
+
 pso/slices/pso_carve_80088670.cpp:
 	.text       start:0x80088670 end:0x8008869C
 
@@ -3952,6 +3955,12 @@ pso/slices/pso_carve_800bbe1c.cpp:
 
 pso/slices/pso_carve_800bbe5c.cpp:
 	.text       start:0x800BBE5C end:0x800BBE64
+
+pso/slices/pso_carve_800bc050.cpp:
+	.text       start:0x800BC050 end:0x800BC080
+
+pso/slices/pso_carve_800bc220.cpp:
+	.text       start:0x800BC220 end:0x800BC250
 
 pso/slices/pso_carve_800bc3c4.cpp:
 	.text       start:0x800BC3C4 end:0x800BC40C
@@ -10088,6 +10097,9 @@ pso/misc/TOSensor_8017584C.cpp:
 pso/misc/TOSensorAncient01_80175858.cpp:
 	.text       start:0x80175858 end:0x8017585C
 
+pso/slices/pso_carve_801758d0.cpp:
+	.text       start:0x801758D0 end:0x801758FC
+
 pso/misc/TOSensorAncient01.cpp:
 	.text       start:0x80175C44 end:0x80175C90
 
@@ -13516,6 +13528,9 @@ pso/slices/pso_carve_801d9624.cpp:
 pso/slices/pso_carve_801d968c.cpp:
 	.text       start:0x801D968C end:0x801D96CC
 
+pso/slices/pso_carve_801d9764.cpp:
+	.text       start:0x801D9764 end:0x801D97C8
+
 pso/slices/pso_carve_801d9964.cpp:
 	.text       start:0x801D9964 end:0x801D9988
 
@@ -14156,6 +14171,9 @@ pso/slices/pso_carve_801f2c94.cpp:
 pso/slices/pso_carve_801f2ce0.cpp:
 	.text       start:0x801F2CE0 end:0x801F2D2C
 
+pso/slices/pso_carve_801f2d2c.cpp:
+	.text       start:0x801F2D2C end:0x801F2D44
+
 pso/slices/pso_carve_801f2d88.cpp:
 	.text       start:0x801F2D88 end:0x801F2E64
 
@@ -14755,6 +14773,9 @@ pso/slices/pso_carve_8020876c.cpp:
 
 pso/slices/pso_carve_802087b8.cpp:
 	.text       start:0x802087B8 end:0x80208804
+
+pso/slices/pso_carve_80208804.cpp:
+	.text       start:0x80208804 end:0x8020881C
 
 pso/slices/pso_carve_80208884.cpp:
 	.text       start:0x80208884 end:0x80208898
@@ -15400,6 +15421,9 @@ pso/misc/TShopJudgmentItemWindow_802205E4.cpp:
 
 pso/misc/TShopJudgmentItemWindow_80220940.cpp:
 	.text       start:0x80220940 end:0x802209D8
+
+pso/slices/pso_carve_80221344.cpp:
+	.text       start:0x80221344 end:0x80221440
 
 pso/misc/TShopJudgmentItemWindow.cpp:
 	.text       start:0x802215F8 end:0x80221638
