@@ -6,11 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+void run_task__13TPhotonYoullaFv(void *arg0);
 M2C_UNK fn_8002AE74(void *, M2C_UNK);
 M2C_UNK fn_80143504(void *);
 M2C_UNK fn_801A7680(void *);
 M2C_UNK fn_801A7748(void *, M2C_UNK);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+
 extern const f64 lbl_80446F18;
 extern const f32 lbl_805DC264;
 extern const f32 lbl_805DC268;

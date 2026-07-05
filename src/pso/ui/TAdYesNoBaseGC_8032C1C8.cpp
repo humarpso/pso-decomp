@@ -6,13 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_8007341C(u32);
-s32 fn_801A6D60(void *, M2C_UNK);
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-M2C_UNK TWindow__close(void *);
-s32 TWindowSubComCard__sub_80265BF8(u32);
+void TAdYesNoBaseGC__vt6(void *arg0);
 u32 TAdYesNoBaseGC__sub_8032C0B4();
 u32 TAdYesNoBaseGC__sub_8032C118(void *);
+s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 TWindowSubComCard__sub_8007341C(u32);
+s32 TWindowSubComCard__sub_80265BF8(u32);
+M2C_UNK TWindow__close(void *);
+s32 fn_801A6D60(void *, M2C_UNK);
+
 extern const f64 lbl_804772F0;
 extern s8 lbl_8050E208[];
 extern s8 lbl_8050E3B8[];

@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TOTrapChainSawEdge__vt20(void *arg0);
+
 extern M2C_UNK lbl_80471F80;
 extern const f32 lbl_805DE620;
 

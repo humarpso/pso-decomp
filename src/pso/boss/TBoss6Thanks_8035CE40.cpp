@@ -6,9 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void TBoss6Thanks__sub_8035CE40(void *arg0);
 M2C_UNK TBoss6Thanks__sub_8035CB88(void *);
+M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+
 extern M2C_UNK lbl_80479C08;
 extern const f32 lbl_805E01A4;
 extern const f32 lbl_805E01A8;

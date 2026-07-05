@@ -6,14 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8001A8F0(u32, void *);
-s32 fn_8001A990();
+void run_task__7TEndingFv(void *arg0);
 M2C_UNK TAdRicoRingCtrl__sub_8001B4A0(s32, f32);
 M2C_UNK THunterGuildSeqOffline__sub_800F8878(u32, s32, M2C_UNK *);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_8023E834();
-u32 __cvt_fp2unsigned(f32);
+M2C_UNK fn_8001A8F0(u32, void *);
+s32 fn_8001A990();
 extern void fn_8008C4BC();
+M2C_UNK fn_8023E834();
+
+u32 __cvt_fp2unsigned(f32);
 extern const f64 lbl_80439598;
 extern u32 lbl_805D4F08;
 extern s32 tl_fade;

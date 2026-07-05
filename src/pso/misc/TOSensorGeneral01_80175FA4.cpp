@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TOSensorGeneral01__vt14(void *arg0);
+
 extern M2C_UNK lbl_80442A78;
 extern const f32 lbl_805DB9B0;
 extern const f32 lbl_805DB9B4;

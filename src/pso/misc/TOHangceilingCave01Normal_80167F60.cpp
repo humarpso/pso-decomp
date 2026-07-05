@@ -6,8 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TOHangceilingCave01Normal__vt77(void *arg0);
 void *fn_8001ED9C(s32, s32);
 M2C_UNK fn_801682E4(void *, M2C_UNK, s32 *, f32);
+
 extern const f64 lbl_80441850[];
 extern s32 lbl_805D59D0;
 extern s32 *lbl_805D59D4;

@@ -6,7 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TObjFogCollisionPoison__vt11(void *arg0);
 f32 fn_8002ADE4(f32);
+
 extern const f64 lbl_80440088;
 extern s32 lbl_805D5550;
 extern const f32 lbl_805DB250;

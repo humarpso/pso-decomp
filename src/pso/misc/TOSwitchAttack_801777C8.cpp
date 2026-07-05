@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TOSwitchAttack__sub_801777C8(void *arg0);
+
 extern const f64 lbl_80442C78;
 extern s32 lbl_805D5550;
 extern const f32 lbl_805DBA00;
