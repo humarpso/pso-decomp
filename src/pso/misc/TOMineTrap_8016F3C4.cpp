@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TOMineTrap__vt10(void);
 u16 TOMineTrap__sub_80171338();
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 

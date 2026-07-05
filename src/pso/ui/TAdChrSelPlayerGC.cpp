@@ -6,9 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TAdChrSelPlayerGC__ct(void *arg0, s32 arg1);
 s32 TOBoss4Rock__sub_80147AA8(M2C_UNK);
 M2C_UNK fn_802E0CB0(void *, s32);
 M2C_UNK fn_8033FD48(void *, s32);
+
 extern s32 lbl_805D3F78;
 
 void TAdChrSelPlayerGC__ct(void *arg0, s32 arg1) {

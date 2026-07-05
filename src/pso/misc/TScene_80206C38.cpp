@@ -6,12 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TScene__sub_80206C38(s32 arg0);
+s32 TOKeyMachine01__sub_802034A8();
+s32 TRaderMapCore__sub_8030A808();
 u32 fn_8007EBFC(s32);
 s32 fn_800F9D80(char *);
 M2C_UNK fn_800F9DF4(char *, u32);
 M2C_UNK fn_801317E4(char *, s32, const char *);
-s32 TOKeyMachine01__sub_802034A8();
-s32 TRaderMapCore__sub_8030A808();
+
 extern const char lbl_8044A940[];
 extern const char lbl_8044A9A4[];
 extern u32 lbl_805D6004;
