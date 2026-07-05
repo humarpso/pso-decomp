@@ -24388,7 +24388,7 @@ pso/boss/TObjBoss8PillerCtrl_8035C1B8.cpp:
 pso/boss/TBoss4Thanks_8035C2B4.cpp:
 	.text       start:0x8035C2B4 end:0x8035C35C
 
-pso/slices/pso_carve_8035c5c4.cpp:
+pso/boss/TBoss4Thanks_8035C5C4.cpp:
 	.text       start:0x8035C5C4 end:0x8035C69C
 	.rodata     start:0x80479B88 end:0x80479B90
 
