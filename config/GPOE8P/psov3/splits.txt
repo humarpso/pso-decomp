@@ -15149,6 +15149,9 @@ pso/slices/pso_carve_80213f78.cpp:
 pso/slices/pso_carve_80213fd0.cpp:
 	.text       start:0x80213FD0 end:0x80214058
 
+pso/slices/pso_carve_802143ac.cpp:
+	.text       start:0x802143AC end:0x80214490
+
 pso/slices/pso_carve_80214490.cpp:
 	.text       start:0x80214490 end:0x80214544
 
