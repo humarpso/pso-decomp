@@ -3706,6 +3706,7 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TShopJudgmentItemWindow_80221344.cpp"),
                 NonMatching("pso/misc/TScene_80206F20.cpp"),
                 NonMatching("pso/misc/TMainTask.cpp"),
+                NonMatching("pso/misc/TPlySmth.cpp"),
             ],
         },
         # ------------------------------------------------------------------
