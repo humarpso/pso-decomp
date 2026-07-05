@@ -18510,6 +18510,9 @@ pso/misc/TChCrTagInformation_802A1E6C.cpp:
 pso/misc/TChCrTagInformation.cpp:
 	.text       start:0x802A1F10 end:0x802A1F4C
 
+pso/slices/pso_carve_802a1f4c.cpp:
+	.text       start:0x802A1F4C end:0x802A1FAC
+
 pso/misc/TChCrTagInformation_802A1FAC.cpp:
 	.text       start:0x802A1FAC end:0x802A200C
 
@@ -19126,6 +19129,9 @@ pso/slices/pso_carve_802b0984.cpp:
 pso/boss/TBoss6EmptyWarp_802B0E2C.cpp:
 	.text       start:0x802B0E2C end:0x802B0E4C
 
+pso/slices/pso_carve_802b0edc.cpp:
+	.text       start:0x802B0EDC end:0x802B0F3C
+
 pso/boss/TBoss6EmptyWarp_802B0F3C.cpp:
 	.text       start:0x802B0F3C end:0x802B0F8C
 
@@ -19146,6 +19152,9 @@ pso/boss/TBoss6Tube_802B14B8.cpp:
 
 pso/boss/TBoss6Tube.cpp:
 	.text       start:0x802B1564 end:0x802B15F4
+
+pso/slices/pso_carve_802b15f4.cpp:
+	.text       start:0x802B15F4 end:0x802B1654
 
 pso/slices/pso_carve_802b16bc.cpp:
 	.text       start:0x802B16BC end:0x802B1704
@@ -23222,6 +23231,9 @@ pso/menu/TChallenge4PResult.cpp:
 
 pso/ui/TAdFloorLoadCamGC.cpp:
 	.text       start:0x8034BE30 end:0x8034BE5C
+
+pso/slices/pso_carve_8034c0c0.cpp:
+	.text       start:0x8034C0C0 end:0x8034C120
 
 pso/slices/pso_carve_8034c18c.cpp:
 	.text       start:0x8034C18C end:0x8034C1D0
