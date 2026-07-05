@@ -14729,7 +14729,7 @@ pso/misc/TScene_80206A88.cpp:
 pso/misc/TScene_80206C38.cpp:
 	.text       start:0x80206C38 end:0x80206D3C
 
-pso/slices/pso_carve_80206f20.cpp:
+pso/misc/TScene_80206F20.cpp:
 	.text       start:0x80206F20 end:0x80207038
 
 pso/misc/TSceneSora.cpp:
