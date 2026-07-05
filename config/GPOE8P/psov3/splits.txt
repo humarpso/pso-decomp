@@ -14151,6 +14151,9 @@ pso/misc/TRaderMapCore_801F959C.cpp:
 pso/misc/TRaderMapCore_801FA678.cpp:
 	.text       start:0x801FA678 end:0x801FA6CC
 
+pso/slices/pso_carve_801fb23c.cpp:
+	.text       start:0x801FB23C end:0x801FB2B8
+
 pso/slices/pso_carve_801fb2b8.cpp:
 	.text       start:0x801FB2B8 end:0x801FB30C
 
@@ -14183,6 +14186,33 @@ pso/slices/pso_carve_801fc1c4.cpp:
 
 pso/slices/pso_carve_801fc2ac.cpp:
 	.text       start:0x801FC2AC end:0x801FC2FC
+
+pso/slices/pso_carve_801fc2fc.cpp:
+	.text       start:0x801FC2FC end:0x801FC334
+
+pso/slices/pso_carve_801fc334.cpp:
+	.text       start:0x801FC334 end:0x801FC36C
+
+pso/slices/pso_carve_801fc36c.cpp:
+	.text       start:0x801FC36C end:0x801FC3A4
+
+pso/slices/pso_carve_801fc3a4.cpp:
+	.text       start:0x801FC3A4 end:0x801FC3DC
+
+pso/slices/pso_carve_801fc3dc.cpp:
+	.text       start:0x801FC3DC end:0x801FC414
+
+pso/slices/pso_carve_801fc414.cpp:
+	.text       start:0x801FC414 end:0x801FC44C
+
+pso/slices/pso_carve_801fc44c.cpp:
+	.text       start:0x801FC44C end:0x801FC484
+
+pso/slices/pso_carve_801fc484.cpp:
+	.text       start:0x801FC484 end:0x801FC4BC
+
+pso/slices/pso_carve_801fc4bc.cpp:
+	.text       start:0x801FC4BC end:0x801FC4F4
 
 pso/slices/pso_carve_801fc858.cpp:
 	.text       start:0x801FC858 end:0x801FC8B4
