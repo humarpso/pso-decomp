@@ -206,7 +206,7 @@ pso/slices/run_8001A988.cpp:
 pso/menu/TAdEndText.cpp:
 	.text       start:0x8001B138 end:0x8001B190
 
-pso/slices/pso_carve_8001b324.cpp:
+pso/ui/TAdEndText.cpp:
 	.text       start:0x8001B324 end:0x8001B370
 
 pso/slices/pso_carve_8001b41c.cpp:
@@ -221,7 +221,7 @@ pso/menu/TAdRicoRing.cpp:
 pso/ui/TAdRicoRingCtrl.cpp:
 	.text       start:0x8001BE00 end:0x8001BE48
 
-pso/slices/pso_carve_8001be48.cpp:
+pso/ui/TAdRicoRingCtrl_8001BE48.cpp:
 	.text       start:0x8001BE48 end:0x8001BE80
 
 pso/ui/TAdRicoRingCtrl_8001BED0.cpp:
@@ -979,7 +979,7 @@ pso/boss/TBoss3Volopt.cpp:
 pso/boss/TBoss3Volopt_8003ED78.cpp:
 	.text       start:0x8003ED78 end:0x8003EDC0
 
-pso/slices/pso_carve_8003edc0.cpp:
+pso/boss/TBoss3Volopt_8003EDC0.cpp:
 	.text       start:0x8003EDC0 end:0x8003EE10
 
 pso/slices/pso_carve_8003f0e8.cpp:
@@ -1087,7 +1087,7 @@ pso/slices/pso_carve_80041c78.cpp:
 pso/boss/TBoss3VoloptMonitor.cpp:
 	.text       start:0x800420D8 end:0x80042148
 
-pso/slices/pso_carve_800423d4.cpp:
+pso/boss/TBoss3VoloptMonitor_800423D4.cpp:
 	.text       start:0x800423D4 end:0x80042408
 
 pso/boss/TBoss3VoloptMonitor_800424C4.cpp:
@@ -1321,7 +1321,7 @@ pso/boss/TBoss4DarkFalz_8004C798.cpp:
 pso/boss/TBoss4DarkFalz_8004C8A8.cpp:
 	.text       start:0x8004C8A8 end:0x8004C8F0
 
-pso/slices/pso_carve_8004c8f0.cpp:
+pso/boss/TBoss4DarkFalz_8004C8F0.cpp:
 	.text       start:0x8004C8F0 end:0x8004C93C
 
 pso/boss/TBoss4DarkFalz_8004C93C.cpp:
@@ -2442,7 +2442,7 @@ pso/slices/pso_carve_80077788.cpp:
 pso/misc/TWindowSubComCard_80077870.cpp:
 	.text       start:0x80077870 end:0x80077878
 
-pso/slices/pso_carve_80077878.cpp:
+pso/misc/TWindowSubComCard_80077878.cpp:
 	.text       start:0x80077878 end:0x800778AC
 
 pso/misc/TWindowSubComCard_800778AC.cpp:
@@ -3169,7 +3169,7 @@ pso/enemy/TObjEneRe7Berura_800953F8.cpp:
 pso/enemy/TObjEneRe7Berura_80095890.cpp:
 	.text       start:0x80095890 end:0x80095924
 
-pso/slices/pso_carve_80095924.cpp:
+pso/enemy/TObjEneRe7Berura_80095924.cpp:
 	.text       start:0x80095924 end:0x800959AC
 
 pso/enemy/TObjEneRe7Berura_800959AC.cpp:
@@ -4899,7 +4899,7 @@ pso/enemy/TObjEneRe4Sorcerer_800EFED8.cpp:
 pso/enemy/TObjEneRe4Sorcerer_800F032C.cpp:
 	.text       start:0x800F032C end:0x800F03C0
 
-pso/slices/pso_carve_800f03c0.cpp:
+pso/enemy/TObjEneRe4Sorcerer_800F03C0.cpp:
 	.text       start:0x800F03C0 end:0x800F0418
 
 pso/enemy/TObjEneRe4Sorcerer_800F0418.cpp:
@@ -5229,7 +5229,7 @@ pso/misc/TFogCtrl_800FBA58.cpp:
 pso/misc/TFogCtrl_800FBAAC.cpp:
 	.text       start:0x800FBAAC end:0x800FBAB0
 
-pso/slices/pso_carve_800fbc04.cpp:
+pso/misc/TFogCtrl_800FBC04.cpp:
 	.text       start:0x800FBC04 end:0x800FBC5C
 
 pso/slices/pso_carve_800fc0d8.cpp:
@@ -7711,13 +7711,13 @@ pso/misc/TLobby_80137360.cpp:
 pso/misc/TLobby_801379C0.cpp:
 	.text       start:0x801379C0 end:0x80137A14
 
-pso/slices/pso_carve_80137a14.cpp:
+pso/misc/TLobby_80137A14.cpp:
 	.text       start:0x80137A14 end:0x80137B50
 
 pso/misc/TLobby_80137C90.cpp:
 	.text       start:0x80137C90 end:0x80137D00
 
-pso/slices/pso_carve_80137d00.cpp:
+pso/misc/TLobby_80137D00.cpp:
 	.text       start:0x80137D00 end:0x80137D7C
 
 pso/misc/TLobby_80137E60.cpp:
@@ -7762,14 +7762,11 @@ pso/misc/TLobby_80138F24.cpp:
 pso/misc/TLobby_8013900C.cpp:
 	.text       start:0x8013900C end:0x80139094
 
-pso/slices/pso_carve_80139274.cpp:
+pso/misc/TLobby_80139274.cpp:
 	.text       start:0x80139274 end:0x801392F8
 
-pso/slices/pso_carve_801393f8.cpp:
-	.text       start:0x801393F8 end:0x80139498
-
-pso/slices/pso_carve_80139498.cpp:
-	.text       start:0x80139498 end:0x80139538
+pso/misc/TLobby_801393F8.cpp:
+	.text       start:0x801393F8 end:0x80139538
 
 pso/misc/TLobby_8013A14C.cpp:
 	.text       start:0x8013A14C end:0x8013A1C0
@@ -8282,7 +8279,7 @@ pso/misc/TMovie_801443C0.cpp:
 pso/misc/TMovie_80144484.cpp:
 	.text       start:0x80144484 end:0x801444C0
 
-pso/slices/pso_carve_801444c0.cpp:
+pso/misc/TMovie_801444C0.cpp:
 	.text       start:0x801444C0 end:0x80144778
 
 pso/slices/run_801449DC.cpp:
@@ -8881,7 +8878,7 @@ pso/slices/pso_carve_80156e48.cpp:
 pso/misc/TOAirconCave01.cpp:
 	.text       start:0x80156F18 end:0x80156F64
 
-pso/slices/pso_carve_80156f64.cpp:
+pso/misc/TOAirconCave01_80156F64.cpp:
 	.text       start:0x80156F64 end:0x80156F9C
 
 pso/misc/TOAirconCave01_80156FEC.cpp:
@@ -8890,7 +8887,7 @@ pso/misc/TOAirconCave01_80156FEC.cpp:
 pso/misc/TOAirconCave02.cpp:
 	.text       start:0x80157154 end:0x801571A0
 
-pso/slices/pso_carve_801571a0.cpp:
+pso/misc/TOAirconCave02_801571A0.cpp:
 	.text       start:0x801571A0 end:0x801571D8
 
 pso/misc/TOAirconCave02_80157228.cpp:
@@ -8950,7 +8947,7 @@ pso/misc/TOBarrierEnergy01_80157ECC.cpp:
 pso/misc/TOBarrierEnergy01_80157FC8.cpp:
 	.text       start:0x80157FC8 end:0x80158014
 
-pso/slices/pso_carve_80158014.cpp:
+pso/misc/TOBarrierEnergy01_80158014.cpp:
 	.text       start:0x80158014 end:0x80158078
 
 pso/misc/TOBarrierEnergy01_80158120.cpp:
@@ -9154,7 +9151,7 @@ pso/misc/TODoorAncient01.cpp:
 pso/misc/TODoorAncient01_8015DFEC.cpp:
 	.text       start:0x8015DFEC end:0x8015E038
 
-pso/slices/pso_carve_8015e038.cpp:
+pso/misc/TODoorAncient01_8015E038.cpp:
 	.text       start:0x8015E038 end:0x8015E09C
 
 pso/misc/TODoorAncient01_8015E120.cpp:
@@ -9166,7 +9163,7 @@ pso/misc/TODoorAncient03.cpp:
 pso/misc/TODoorAncient03_8015E498.cpp:
 	.text       start:0x8015E498 end:0x8015E4E4
 
-pso/slices/pso_carve_8015e4e4.cpp:
+pso/misc/TODoorAncient03_8015E4E4.cpp:
 	.text       start:0x8015E4E4 end:0x8015E548
 
 pso/misc/TODoorAncient03_8015E5CC.cpp:
@@ -9178,7 +9175,7 @@ pso/misc/TODoorAncient04.cpp:
 pso/misc/TODoorAncient04_8015E944.cpp:
 	.text       start:0x8015E944 end:0x8015E990
 
-pso/slices/pso_carve_8015e990.cpp:
+pso/misc/TODoorAncient04_8015E990.cpp:
 	.text       start:0x8015E990 end:0x8015E9F4
 
 pso/misc/TODoorAncient04_8015EA78.cpp:
@@ -9211,7 +9208,7 @@ pso/misc/TODoorAncient08_80160308.cpp:
 pso/misc/TODoorAncient08_80160500.cpp:
 	.text       start:0x80160500 end:0x8016054C
 
-pso/slices/pso_carve_8016054c.cpp:
+pso/misc/TODoorAncient08_8016054C.cpp:
 	.text       start:0x8016054C end:0x801605B0
 
 pso/misc/TODoorAncient08_80160634.cpp:
@@ -9229,7 +9226,7 @@ pso/misc/TODoorAncient09_80160E38.cpp:
 pso/misc/TODoorAncient09_80161030.cpp:
 	.text       start:0x80161030 end:0x8016107C
 
-pso/slices/pso_carve_8016107c.cpp:
+pso/misc/TODoorAncient09_8016107C.cpp:
 	.text       start:0x8016107C end:0x801610E0
 
 pso/misc/TODoorAncient09_80161164.cpp:
@@ -9247,7 +9244,7 @@ pso/misc/TODoorCave01_801613BC.cpp:
 pso/misc/TODoorCave01.cpp:
 	.text       start:0x801619E4 end:0x80161A30
 
-pso/slices/pso_carve_80161a30.cpp:
+pso/misc/TODoorCave01_80161A30.cpp:
 	.text       start:0x80161A30 end:0x80161A94
 
 pso/misc/TODoorCave01_80161B7C.cpp:
@@ -9259,7 +9256,7 @@ pso/misc/TODoorCave02.cpp:
 pso/misc/TODoorCave02_8016206C.cpp:
 	.text       start:0x8016206C end:0x801620B8
 
-pso/slices/pso_carve_801620b8.cpp:
+pso/misc/TODoorCave02_801620B8.cpp:
 	.text       start:0x801620B8 end:0x8016211C
 
 pso/misc/TODoorCave02_80162204.cpp:
@@ -9280,7 +9277,7 @@ pso/misc/TODoorMachine01.cpp:
 pso/misc/TODoorMachine01_80162F58.cpp:
 	.text       start:0x80162F58 end:0x80162FA4
 
-pso/slices/pso_carve_80162fa4.cpp:
+pso/misc/TODoorMachine01_80162FA4.cpp:
 	.text       start:0x80162FA4 end:0x80163008
 
 pso/misc/TODoorMachine01_801630F0.cpp:
@@ -9292,7 +9289,7 @@ pso/misc/TODoorMachine02.cpp:
 pso/misc/TODoorMachine02_80163560.cpp:
 	.text       start:0x80163560 end:0x801635AC
 
-pso/slices/pso_carve_801635ac.cpp:
+pso/misc/TODoorMachine02_801635AC.cpp:
 	.text       start:0x801635AC end:0x80163610
 
 pso/misc/TODoorMachine02_801636F8.cpp:
@@ -9313,7 +9310,7 @@ pso/misc/TODoorVS2Door01_80163F68.cpp:
 pso/misc/TODoorVS2Door01_801641A4.cpp:
 	.text       start:0x801641A4 end:0x801641F0
 
-pso/slices/pso_carve_801641f0.cpp:
+pso/misc/TODoorVS2Door01_801641F0.cpp:
 	.text       start:0x801641F0 end:0x80164254
 
 pso/misc/TODoorVS2Door01_801642D8.cpp:
@@ -9349,7 +9346,7 @@ pso/slices/pso_carve_8016570c.cpp:
 pso/system/TODummyKeyCave01Sound.cpp:
 	.text       start:0x8016582C end:0x801658D0
 
-pso/slices/pso_carve_801658d0.cpp:
+pso/misc/TODummyKeyCave01Sound.cpp:
 	.text       start:0x801658D0 end:0x80165940
 
 pso/misc/TODummyKeyCave01_80165E3C.cpp:
@@ -9364,19 +9361,19 @@ pso/misc/TODummyKeyCave01_80165E90.cpp:
 pso/misc/TOExplosiveMachine03.cpp:
 	.text       start:0x80165F84 end:0x80166024
 
-pso/slices/pso_carve_80166024.cpp:
+pso/misc/TOExplosiveMachine03_80166024.cpp:
 	.text       start:0x80166024 end:0x801660F4
 
 pso/misc/TOExplosiveMachine02.cpp:
 	.text       start:0x801660F4 end:0x80166194
 
-pso/slices/pso_carve_80166194.cpp:
+pso/misc/TOExplosiveMachine02_80166194.cpp:
 	.text       start:0x80166194 end:0x80166264
 
 pso/misc/TOExplosiveMachine01.cpp:
 	.text       start:0x80166264 end:0x80166304
 
-pso/slices/pso_carve_80166304.cpp:
+pso/misc/TOExplosiveMachine01_80166304.cpp:
 	.text       start:0x80166304 end:0x801663D4
 
 pso/slices/pso_carve_801665dc.cpp:
@@ -9427,7 +9424,7 @@ pso/misc/TOFenceAncient04.cpp:
 pso/misc/TOFenceAncient04_80167694.cpp:
 	.text       start:0x80167694 end:0x801676E0
 
-pso/slices/pso_carve_801676e0.cpp:
+pso/misc/TOFenceAncient04_801676E0.cpp:
 	.text       start:0x801676E0 end:0x8016775C
 
 pso/misc/TOFenceAncient04_80167810.cpp:
@@ -9578,7 +9575,7 @@ pso/misc/TOKeyAncient02.cpp:
 pso/misc/TOKeyAncient02_8016B4EC.cpp:
 	.text       start:0x8016B4EC end:0x8016B538
 
-pso/slices/pso_carve_8016b538.cpp:
+pso/misc/TOKeyAncient02_8016B538.cpp:
 	.text       start:0x8016B538 end:0x8016B5A4
 
 pso/misc/TOKeyAncient02_8016B63C.cpp:
@@ -9596,7 +9593,7 @@ pso/misc/TOKeyAncient03.cpp:
 pso/misc/TOKeyAncient03_8016BBD4.cpp:
 	.text       start:0x8016BBD4 end:0x8016BC20
 
-pso/slices/pso_carve_8016bc20.cpp:
+pso/misc/TOKeyAncient03_8016BC20.cpp:
 	.text       start:0x8016BC20 end:0x8016BC84
 
 pso/misc/TOKeyAncient03_8016BD08.cpp:
@@ -9614,7 +9611,7 @@ pso/misc/TOKeyCave01.cpp:
 pso/misc/TOKeyCave01_8016C3C4.cpp:
 	.text       start:0x8016C3C4 end:0x8016C410
 
-pso/slices/pso_carve_8016c410.cpp:
+pso/misc/TOKeyCave01_8016C410.cpp:
 	.text       start:0x8016C410 end:0x8016C474
 
 pso/misc/TOKeyCave01_8016C5A0.cpp:
@@ -9635,7 +9632,7 @@ pso/misc/TOKeyCol_8016C904.cpp:
 pso/misc/TOKeyCol_8016C908.cpp:
 	.text       start:0x8016C908 end:0x8016C9AC
 
-pso/slices/pso_carve_8016c9ac.cpp:
+pso/misc/TOKeyCol_8016C9AC.cpp:
 	.text       start:0x8016C9AC end:0x8016CA60
 
 pso/misc/TOKeyGenericSw.cpp:
@@ -9662,7 +9659,7 @@ pso/slices/pso_carve_8016d0b8.cpp:
 pso/misc/TOKeyMachine01_8016D658.cpp:
 	.text       start:0x8016D658 end:0x8016D6A4
 
-pso/slices/pso_carve_8016d6a4.cpp:
+pso/misc/TOKeyMachine01_8016D6A4.cpp:
 	.text       start:0x8016D6A4 end:0x8016D714
 
 pso/misc/TOKeyMachine01_8016D798.cpp:
@@ -9719,7 +9716,7 @@ pso/misc/TOMineTrap_80170628.cpp:
 pso/misc/TOMineTrap_801706D0.cpp:
 	.text       start:0x801706D0 end:0x8017070C
 
-pso/slices/pso_carve_80170830.cpp:
+pso/misc/TOMineTrap_80170830.cpp:
 	.text       start:0x80170830 end:0x801708A4
 
 pso/misc/TOMineTrap_801708A4.cpp:
@@ -9806,7 +9803,7 @@ pso/misc/TOMonumentAncient01.cpp:
 pso/misc/TOMonumentAncient01_801726D4.cpp:
 	.text       start:0x801726D4 end:0x80172720
 
-pso/slices/pso_carve_80172720.cpp:
+pso/misc/TOMonumentAncient01_80172720.cpp:
 	.text       start:0x80172720 end:0x80172758
 
 pso/misc/TOMonumentAncient01_801727A8.cpp:
@@ -9929,7 +9926,7 @@ pso/misc/TOSensorAncient01_80175858.cpp:
 pso/misc/TOSensorAncient01.cpp:
 	.text       start:0x80175C44 end:0x80175C90
 
-pso/slices/pso_carve_80175c90.cpp:
+pso/misc/TOSensorAncient01_80175C90.cpp:
 	.text       start:0x80175C90 end:0x80175D0C
 
 pso/misc/TOSensorAncient01_80175DD4.cpp:
@@ -9945,7 +9942,7 @@ pso/slices/pso_carve_80175fa4.cpp:
 pso/misc/TOSensorGeneral01_80176258.cpp:
 	.text       start:0x80176258 end:0x801762A4
 
-pso/slices/pso_carve_801762a4.cpp:
+pso/misc/TOSensorGeneral01_801762A4.cpp:
 	.text       start:0x801762A4 end:0x80176308
 
 pso/misc/TOSensorGeneral01_8017638C.cpp:
@@ -10600,7 +10597,7 @@ pso/misc/TContainerAncient01_8018B878.cpp:
 pso/misc/TContainerAncient01_8018BAE0.cpp:
 	.text       start:0x8018BAE0 end:0x8018BB2C
 
-pso/slices/pso_carve_8018bb2c.cpp:
+pso/misc/TContainerAncient01_8018BB2C.cpp:
 	.text       start:0x8018BB2C end:0x8018BB64
 
 pso/misc/TContainerAncient01_8018BC98.cpp:
@@ -10927,7 +10924,7 @@ pso/misc/TMotorcycle.cpp:
 pso/misc/TMotorcycle_80195014.cpp:
 	.text       start:0x80195014 end:0x80195060
 
-pso/slices/pso_carve_80195060.cpp:
+pso/misc/TMotorcycle_80195060.cpp:
 	.text       start:0x80195060 end:0x801950B8
 
 pso/misc/TMotorcycle_80195160.cpp:
@@ -11537,7 +11534,7 @@ pso/misc/TLobby_801A3FEC.cpp:
 pso/misc/TLobby_801A497C.cpp:
 	.text       start:0x801A497C end:0x801A49B0
 
-pso/slices/pso_carve_801a4c1c.cpp:
+pso/misc/TLobby_801A4C1C.cpp:
 	.text       start:0x801A4C1C end:0x801A4C6C
 
 pso/slices/pso_carve_801a4c6c.cpp:
@@ -12262,7 +12259,7 @@ pso/player/TObjPlayer_801BD314.cpp:
 pso/player/TObjPlayer_801BD384.cpp:
 	.text       start:0x801BD384 end:0x801BD424
 
-pso/slices/pso_carve_801bdf5c.cpp:
+pso/player/TObjPlayer_801BDF5C.cpp:
 	.text       start:0x801BDF5C end:0x801BDFC4
 
 pso/player/TObjPlayer_801BE03C.cpp:
@@ -13572,7 +13569,7 @@ pso/network/TGameProtocol.cpp:
 pso/misc/TGameProtocol.cpp:
 	.text       start:0x801E4374 end:0x801E43E4
 
-pso/slices/pso_carve_801e43e4.cpp:
+pso/misc/TLobby_801E43E4.cpp:
 	.text       start:0x801E43E4 end:0x801E4464
 
 pso/misc/TLobby_801E45D0.cpp:
@@ -14160,7 +14157,7 @@ pso/slices/pso_carve_801fb2b8.cpp:
 pso/misc/TRaderMapCore_801FB6A8.cpp:
 	.text       start:0x801FB6A8 end:0x801FB71C
 
-pso/slices/pso_carve_801fb8ac.cpp:
+pso/misc/TRaderMapCore_801FB8AC.cpp:
 	.text       start:0x801FB8AC end:0x801FB904
 
 pso/misc/TRaderMapCore_801FB964.cpp:
@@ -16168,7 +16165,7 @@ pso/misc/TWindowCtrl_8024BFB8.cpp:
 pso/misc/TWindowCtrl.cpp:
 	.text       start:0x8024C124 end:0x8024C160
 
-pso/slices/pso_carve_8024c530.cpp:
+pso/misc/TWindowCtrl_8024C530.cpp:
 	.text       start:0x8024C530 end:0x8024C56C
 
 pso/misc/TWindowCtrl_8024C56C.cpp:
@@ -18270,7 +18267,7 @@ pso/slices/pso_carve_8029b2a4.cpp:
 pso/misc/TODoorJungleMain_8029B324.cpp:
 	.text       start:0x8029B324 end:0x8029B370
 
-pso/slices/pso_carve_8029b370.cpp:
+pso/misc/TODoorJungleMain_8029B370.cpp:
 	.text       start:0x8029B370 end:0x8029B3C8
 
 pso/misc/TODoorJungleMain_8029B8A0.cpp:
@@ -18339,7 +18336,7 @@ pso/misc/TOKeyJungleMain_8029CEF4.cpp:
 pso/misc/TOKeyJungleMain_8029CF68.cpp:
 	.text       start:0x8029CF68 end:0x8029CFB4
 
-pso/slices/pso_carve_8029cfb4.cpp:
+pso/misc/TOKeyJungleMain_8029CFB4.cpp:
 	.text       start:0x8029CFB4 end:0x8029CFEC
 
 pso/misc/TOKeyJungleMain_8029D3A4.cpp:
@@ -18732,7 +18729,7 @@ pso/object/TObjSeabedSuisoBrakable_802A6818.cpp:
 pso/object/TObjSeabedSuisoBrakable_802A6844.cpp:
 	.text       start:0x802A6844 end:0x802A69BC
 
-pso/slices/pso_carve_802a69bc.cpp:
+pso/object/TObjSeabedSuisoBrakable_802A69BC.cpp:
 	.text       start:0x802A69BC end:0x802A6A54
 
 pso/object/TObjSeabedSuisoBrakable_802A6A54.cpp:
@@ -18744,7 +18741,7 @@ pso/object/TObjSeabedSuisoBrakable_802A6B4C.cpp:
 pso/object/TObjSeabedSuisoBrakable_802A6EFC.cpp:
 	.text       start:0x802A6EFC end:0x802A6F04
 
-pso/slices/pso_carve_802a6f40.cpp:
+pso/object/TObjSeabedSuisoBrakable_802A6F40.cpp:
 	.text       start:0x802A6F40 end:0x802A6F98
 
 pso/object/TObjSeabedSuisoBrakable.cpp:
@@ -18861,7 +18858,7 @@ pso/misc/TEffIndirectCtrl_802A8AD4.cpp:
 pso/misc/TEffIndirectCtrl_802A9284.cpp:
 	.text       start:0x802A9284 end:0x802A92E8
 
-pso/slices/pso_carve_802a942c.cpp:
+pso/misc/TEffIndirectCtrl_802A942C.cpp:
 	.text       start:0x802A942C end:0x802A9478
 
 pso/misc/TEffIndirectCtrl.cpp:
@@ -18924,7 +18921,7 @@ pso/misc/TOMekaFish00.cpp:
 pso/misc/TOMekaFish00_802AA984.cpp:
 	.text       start:0x802AA984 end:0x802AA9DC
 
-pso/slices/pso_carve_802aaba4.cpp:
+pso/boss/TBoss6PlotFalz_802AABA4.cpp:
 	.text       start:0x802AABA4 end:0x802AABEC
 
 pso/boss/TBoss6PlotFalz_802AABEC.cpp:
