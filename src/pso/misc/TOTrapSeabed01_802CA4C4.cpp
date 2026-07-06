@@ -1,0 +1,43 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TOTrapSeabed01__sub_802CA4C4(u8 *arg0);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TOTrapSeabed01__sub_802CA3EC(void *, s32);
+s32 TRaderMapCore__sub_8030A808();
+M2C_UNK fn_80141A30();
+M2C_UNK fn_801E2EFC();
+M2C_UNK fn_801E2F20();
+M2C_UNK fn_803D9214(M2C_UNK, s32);
+M2C_UNK fn_803D9B2C();
+M2C_UNK fn_803D9B78();
+M2C_UNK fn_803DA798(s32);
+M2C_UNK func_80141618__Fv();
+M2C_UNK set_depth_buffer_settings_3__Fv();
+M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
+
+extern s32 lbl_805D6814;
+
+void TOTrapSeabed01__sub_802CA4C4(u8 *arg0) {
+    if ((TRaderMapCore__sub_8030A808() != 1) || ((s32) M2C_FIELD(arg0, s32 *, 0x34C) == 0)) {
+        set_depth_buffer_settings_3__Fv();
+        set_depth_buffer_settings_id__FUl(1);
+        fn_801E2EFC();
+        fn_803DA798(lbl_805D6814);
+        fn_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TOTrapSeabed01__sub_802CA3EC(arg0, M2C_FIELD(arg0, s32 *, 0x34));
+        fn_803D9B78();
+        fn_801E2F20();
+        func_80141618__Fv();
+        fn_80141A30();
+    }
+}
+
+}

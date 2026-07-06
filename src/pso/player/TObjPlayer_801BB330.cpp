@@ -1,0 +1,88 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void run_task__10TObjPlayerFv(u8 *arg0);
+s32 TObjPlayer__sub_80019734(void *);
+s32 TObjPlayer__sub_800495E0(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK TObjPlayer__sub_801563D0(void *);
+M2C_UNK TObjPlayer__sub_801564A0(void *);
+M2C_UNK TObjPlayer__sub_801AF1B8(void *);
+M2C_UNK TObjPlayer__sub_801B4910(void *);
+M2C_UNK TObjPlayer__sub_801B4B70(void *);
+M2C_UNK TObjPlayer__sub_801B6F8C(void *);
+M2C_UNK TObjPlayer__sub_801B7120(void *);
+M2C_UNK fn_80018E08(void *);
+M2C_UNK fn_80041B08(void *);
+M2C_UNK fn_80143504(void *);
+M2C_UNK fn_8015659C(void *);
+M2C_UNK fn_801BA168();
+M2C_UNK fn_801C5D44(void *, void *);
+M2C_UNK fn_801D0BC0(void *, s16, M2C_UNK);
+
+s32 obj_testFlags30(void *, M2C_UNK);
+
+void run_task__10TObjPlayerFv(u8 *arg0) {
+    s16 temp_r0;
+    s16 temp_r0_2;
+
+    fn_801BA168();
+    TObjPlayer__sub_801B4910(arg0);
+    TObjPlayer__sub_801B7120(arg0);
+    TObjPlayer__sub_801B6F8C(arg0);
+    fn_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 1);
+    fn_80143504(arg0);
+    fn_80018E08(arg0);
+    fn_80041B08(arg0);
+    fn_801C5D44(arg0 + 0x84C, arg0);
+    if (obj_testFlags30(arg0, 0x800) != 0) {
+        TObjPlayer__sub_80154E3C(arg0);
+    } else if (TObjPlayer__sub_80019734(arg0 + 0x828) == 0) {
+        temp_r0 = M2C_FIELD(arg0, s16 *, 0x324);
+        switch (temp_r0) {
+        case 1:
+            TObjPlayer__sub_80154E3C(arg0);
+            TObjPlayer__sub_801564A0(arg0);
+            TObjPlayer__sub_801563D0(arg0);
+            break;
+        case 6:
+        case 2:
+            TObjPlayer__sub_80154E3C(arg0);
+            break;
+        case 3:
+            TObjPlayer__sub_80154E3C(arg0);
+            TObjPlayer__sub_801564A0(arg0);
+            TObjPlayer__sub_801563D0(arg0);
+            break;
+        }
+    } else {
+        temp_r0_2 = M2C_FIELD(arg0, s16 *, 0x324);
+        switch (temp_r0_2) {
+        case 3:
+        case 1:
+            fn_8015659C(arg0);
+            TObjPlayer__sub_801564A0(arg0);
+            TObjPlayer__sub_801563D0(arg0);
+            break;
+        case 2:
+            if (TObjPlayer__sub_800495E0(arg0, 4) != 0) {
+                TObjPlayer__sub_80154E3C(arg0);
+            } else {
+                fn_8015659C(arg0);
+            }
+            break;
+        case 6:
+            TObjPlayer__sub_80154E3C(arg0);
+            break;
+        }
+    }
+    TObjPlayer__sub_801AF1B8(arg0);
+    TObjPlayer__sub_801B4B70(arg0);
+}
+
+}
