@@ -6,18 +6,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8001ED9C(s32, M2C_UNK);
+void render__15TOKeyJungleMainFv(u8 *arg0);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 fn_8001ED9C(s32, M2C_UNK);
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK fn_803DA798();
-M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK fn_803DC894(s32, s32, f32);
+
 extern s32 lbl_805D65E0;
 
 struct Base { char pad[0x18]; };

@@ -6,9 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TODoorCave01__vt15(u8 *arg0);
 M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
 s32 fn_80158360(f32);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+
 extern const f32 lbl_805DB490;
 
 void TODoorCave01__vt15(u8 *arg0) {

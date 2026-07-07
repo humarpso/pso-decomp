@@ -3,7 +3,6 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct TORevlightCave01Base {
     char pad0[0x18];
 };
@@ -18,7 +17,9 @@ struct TORevlightCave01 : TORevlightCave01Base {
 
 extern "C" {
 
+void *TORevlightCave01__ct(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK fn_8015858C();
+
 extern const M2C_UNK lbl_80442498[];
 extern const M2C_UNK __vt__16TORevlightCave01[];
 extern s32 lbl_805D30D8;

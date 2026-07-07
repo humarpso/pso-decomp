@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TBoss4Type3__vt25(u8 *arg0);
 M2C_UNK fn_8022675C(int, void *, int, int);
 
 void TBoss4Type3__vt25(u8 *arg0) {

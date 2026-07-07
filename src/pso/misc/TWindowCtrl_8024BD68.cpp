@@ -6,8 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80076CD0(void *);
+void TWindowCtrl__sub_8024BD68(u8 *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TWindowCtrl__sub_8024AF74(s32);
+s32 TWindowCtrl__sub_8024AFB8(void *, s32);
+s32 TWindowCtrl__sub_8024B054(s32);
+s32 TWindowCtrl__sub_8024C680();
+s32 fn_80076CD0(void *);
 s32 fn_801CBD00();
 M2C_UNK fn_802472A8(u32);
 M2C_UNK fn_8024735C(u32);
@@ -15,10 +20,7 @@ M2C_UNK fn_80247DFC(u32);
 s32 fn_80247E44(u32);
 M2C_UNK fn_80247E50(u32);
 s32 fn_80247EA8(u32);
-s32 TWindowCtrl__sub_8024AF74(s32);
-s32 TWindowCtrl__sub_8024AFB8(void *, s32);
-s32 TWindowCtrl__sub_8024B054(s32);
-s32 TWindowCtrl__sub_8024C680();
+
 extern s32 lbl_805D53A0;
 
 void TWindowCtrl__sub_8024BD68(u8 *arg0) {

@@ -6,9 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TParticleCtrl__sub_80088010(void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+void run_task__19TOMonumentAncient02Fv(u8 *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK TParticleCtrl__sub_80088010(void *);
 s32 TRaderMapCore__sub_8030A808();
 
 void run_task__19TOMonumentAncient02Fv(u8 *arg0) {

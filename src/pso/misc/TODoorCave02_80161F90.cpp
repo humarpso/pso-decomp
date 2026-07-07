@@ -6,14 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801582C4(void *, f32);
+void render__12TODoorCave02Fv(u8 *arg0);
 M2C_UNK TODoorCave02__sub_80161EE0(void *, void *);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+s32 fn_801582C4(void *, f32);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK fn_803DA798(s32);
 M2C_UNK fn_803DC894(void *, s32, f32);
+
 extern u8 *lbl_805D5964;
 extern const f32 lbl_805DB4C4;
 
