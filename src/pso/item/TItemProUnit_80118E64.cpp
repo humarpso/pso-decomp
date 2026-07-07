@@ -6,10 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 M2C_UNK TItemEquipBase__ct();
+M2C_UNK TItemProUnit__sub_80118D58(void *);
 s16 fn_8010CD98(void *);
 u8 *fn_8010EA38(void *);
-M2C_UNK TItemProUnit__sub_80118D58(void *);
+
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern M2C_UNK __vt__12TItemProUnit[];
 extern s32 lbl_805D2C40;

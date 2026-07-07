@@ -3949,6 +3949,13 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TOMonumentAncient02_80172A34.cpp"),
                 NonMatching("pso/misc/TORevlightCave01_801736BC.cpp"),
                 NonMatching("pso/object/TObjComputer_801881D4.cpp"),
+                NonMatching("pso/boss/TBoss5GryphonShockWave_80066948.cpp"),
+                NonMatching("pso/item/TItemProUnit_80118E64.cpp"),
+                NonMatching("pso/misc/TODoorAncient05_8015ECB8.cpp"),
+                NonMatching("pso/misc/TODoorAncient06_8015F220.cpp"),
+                NonMatching("pso/misc/TODoorAncient07_8015F798.cpp"),
+                NonMatching("pso/misc/TODoorCave02_80161D3C.cpp"),
+                NonMatching("pso/misc/TOTrap_80179140.cpp"),
             ],
         },
         # ------------------------------------------------------------------

@@ -2067,7 +2067,7 @@ pso/boss/TBoss5GryphonShockWave_800666F8.cpp:
 pso/boss/TBoss5GryphonShockWave.cpp:
 	.text       start:0x800668D4 end:0x80066948
 
-pso/slices/pso_carve_80066948.cpp:
+pso/boss/TBoss5GryphonShockWave_80066948.cpp:
 	.text       start:0x80066948 end:0x80066A4C
 
 pso/slices/pso_carve_80066a4c.cpp:
@@ -7298,7 +7298,7 @@ pso/slices/pso_carve_8011892c.cpp:
 pso/item/TItemProUnit_80118A48.cpp:
 	.text       start:0x80118A48 end:0x80118A78
 
-pso/slices/pso_carve_80118e64.cpp:
+pso/item/TItemProUnit_80118E64.cpp:
 	.text       start:0x80118E64 end:0x80118F5C
 
 pso/item/TItemProUnit_80118FB4.cpp:
@@ -10264,7 +10264,7 @@ pso/misc/TODoorAncient04_8015E990.cpp:
 pso/misc/TODoorAncient04_8015EA78.cpp:
 	.text       start:0x8015EA78 end:0x8015EAE0
 
-pso/slices/pso_carve_8015ecb8.cpp:
+pso/misc/TODoorAncient05_8015ECB8.cpp:
 	.text       start:0x8015ECB8 end:0x8015ED74
 
 pso/misc/TODoorAncient05.cpp:
@@ -10276,7 +10276,7 @@ pso/misc/TODoorAncient05_8015EE50.cpp:
 pso/misc/TODoorAncient05_8015EFE0.cpp:
 	.text       start:0x8015EFE0 end:0x8015F048
 
-pso/slices/pso_carve_8015f220.cpp:
+pso/misc/TODoorAncient06_8015F220.cpp:
 	.text       start:0x8015F220 end:0x8015F2DC
 
 pso/misc/TODoorAncient06.cpp:
@@ -10288,7 +10288,7 @@ pso/misc/TODoorAncient06_8015F3B8.cpp:
 pso/misc/TODoorAncient06_8015F558.cpp:
 	.text       start:0x8015F558 end:0x8015F5C0
 
-pso/slices/pso_carve_8015f798.cpp:
+pso/misc/TODoorAncient07_8015F798.cpp:
 	.text       start:0x8015F798 end:0x8015F854
 
 pso/misc/TODoorAncient07.cpp:
@@ -10363,7 +10363,7 @@ pso/misc/TODoorCave01_80161B7C.cpp:
 pso/misc/TODoorCave02.cpp:
 	.text       start:0x80161D38 end:0x80161D3C
 
-pso/slices/pso_carve_80161d3c.cpp:
+pso/misc/TODoorCave02_80161D3C.cpp:
 	.text       start:0x80161D3C end:0x80161DF8
 
 pso/misc/TODoorCave02_80161F90.cpp:
@@ -11210,7 +11210,7 @@ pso/misc/TOTrap_80178EB8.cpp:
 pso/misc/TOTrap.cpp:
 	.text       start:0x80178EF8 end:0x80178F54
 
-pso/slices/pso_carve_80179140.cpp:
+pso/misc/TOTrap_80179140.cpp:
 	.text       start:0x80179140 end:0x801791EC
 
 pso/misc/TOTrap_801791EC.cpp:

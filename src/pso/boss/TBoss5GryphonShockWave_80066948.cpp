@@ -6,11 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 fn_8007E9EC(void *);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+f32 fn_8007E9EC(void *);
 M2C_UNK fn_803D9370(void *, void *);
+
 extern M2C_UNK __vt__22TBoss5GryphonShockWave[];
 extern s32 lbl_805D2818;
 extern const f32 lbl_805D8EEC;
