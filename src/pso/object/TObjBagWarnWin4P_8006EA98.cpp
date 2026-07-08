@@ -6,10 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TObjBagWarnWin4P__sub_8006EA98(u8 *arg0);
 s32 fn_8006EF6C(M2C_UNK);
 M2C_UNK fn_80269C6C(u32, void *, M2C_UNK);
 u32 fn_80269CC0(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8026CBB8(M2C_UNK);
+
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 extern M2C_UNK lbl_80488E48[];
 

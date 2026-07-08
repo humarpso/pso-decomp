@@ -6,9 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8007EB94(M2C_UNK);
+void TObjEneRe7BeruraPunch__sub_800966BC(u8 *arg0);
 M2C_UNK TObjEneRe7BeruraPunch__sub_800963B0(void *);
+s32 fn_8007EB94(M2C_UNK);
 s32 fn_800BC5EC(s32, s32);
+
 extern const f32 lbl_805D9794;
 
 struct EneBBase { char pad[0x14]; };

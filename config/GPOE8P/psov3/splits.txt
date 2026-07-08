@@ -2303,7 +2303,7 @@ pso/object/TObjBagWarnWin4P_8006E8F0.cpp:
 pso/slices/pso_carve_8006e9e8.cpp:
 	.text       start:0x8006E9E8 end:0x8006EA98
 
-pso/slices/pso_carve_8006ea98.cpp:
+pso/object/TObjBagWarnWin4P_8006EA98.cpp:
 	.text       start:0x8006EA98 end:0x8006EB1C
 
 pso/ui/TObjBagWarnWin4P.cpp:
@@ -3583,7 +3583,7 @@ pso/enemy/TObjEneRe7BeruraPunch_800963B0.cpp:
 pso/enemy/TObjEneRe7BeruraPunch_80096608.cpp:
 	.text       start:0x80096608 end:0x800966BC
 
-pso/slices/pso_carve_800966bc.cpp:
+pso/enemy/TObjEneRe7BeruraPunch_800966BC.cpp:
 	.text       start:0x800966BC end:0x80096750
 
 pso/slices/pso_carve_800967c0.cpp:
@@ -9864,7 +9864,7 @@ pso/object/TObjFogCollisionSwitch_80153AD4.cpp:
 pso/object/TObjFogCollisionSwitch_80153B18.cpp:
 	.text       start:0x80153B18 end:0x80153B64
 
-pso/slices/pso_carve_80153eb4.cpp:
+pso/object/TObjFogCollision_80153EB4.cpp:
 	.text       start:0x80153EB4 end:0x80153F3C
 
 pso/slices/pso_carve_80153f3c.cpp:
@@ -11515,7 +11515,7 @@ pso/slices/pso_carve_80181b60.cpp:
 pso/slices/pso_carve_80181e10.cpp:
 	.text       start:0x80181E10 end:0x80181E30
 
-pso/slices/pso_carve_80181e90.cpp:
+pso/object/TObjCityDoor_Lobby.cpp:
 	.text       start:0x80181E90 end:0x80181F10
 
 pso/slices/pso_carve_80181ff4.cpp:
@@ -26389,7 +26389,7 @@ pso/enemy/TObjEneEpsilonGuard_8035DD68.cpp:
 pso/slices/pso_carve_8035dd74.cpp:
 	.text       start:0x8035DD74 end:0x8035DE48
 
-pso/slices/pso_carve_8035def8.cpp:
+pso/enemy/TObjEneEpsilonGuard_8035DEF8.cpp:
 	.text       start:0x8035DEF8 end:0x8035DF78
 
 pso/enemy/TObjEneEpsilonGuard_8035E3B8.cpp:
@@ -26781,6 +26781,9 @@ pso/slices/pso_carve_8036b944.cpp:
 
 pso/slices/pso_carve_8036b9d0.cpp:
 	.text       start:0x8036B9D0 end:0x8036BA44
+
+pso/slices/pso_carve_8036bb0c.cpp:
+	.text       start:0x8036BB0C end:0x8036BB6C
 
 pso/slices/pso_carve_8036bb6c.cpp:
 	.text       start:0x8036BB6C end:0x8036BBCC

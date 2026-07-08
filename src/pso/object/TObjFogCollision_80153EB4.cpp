@@ -6,8 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 fn_80141CF8(void *, s32);
+s32 TObjFogCollision__sub_80153EB4(u8 *arg0, u16 arg1);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+f32 fn_80141CF8(void *, s32);
+
 extern const f32 lbl_805DB26C;
 
 s32 TObjFogCollision__sub_80153EB4(u8 *arg0, u16 arg1) {
