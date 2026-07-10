@@ -9,7 +9,7 @@ extern "C" {
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK fn_80143504(void *);
 M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
+M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D6FA0;
 
 void fn_80360110(void *arg0) {
@@ -17,13 +17,13 @@ void fn_80360110(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0x43C) = 1;
         M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(lbl_805D6FA0, 0);
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        fn_80154788(arg0, 1, 1);
+        set_indexed_flags(arg0, 1, 1);
         fn_80154764(arg0, 0, 1);
     } else {
         M2C_FIELD(arg0, s16 *, 0x43C) = 0;
         M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(lbl_805D6FA0, 1);
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-        fn_80154788(arg0, 0, 1);
+        set_indexed_flags(arg0, 0, 1);
         fn_80154764(arg0, 1, 1);
     }
     fn_80143504(arg0);

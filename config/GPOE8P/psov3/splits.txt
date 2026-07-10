@@ -7308,6 +7308,9 @@ pso/slices/pso_carve_80117dd8.cpp:
 pso/slices/pso_carve_80117e14.cpp:
 	.text       start:0x80117E14 end:0x80117E50
 
+pso/item/TItemProShield_801181D0.cpp:
+	.text       start:0x801181D0 end:0x8011829C
+
 pso/item/TItemProShield_8011829C.cpp:
 	.text       start:0x8011829C end:0x80118300
 
@@ -9927,6 +9930,9 @@ pso/slices/pso_carve_801542f4.cpp:
 
 pso/slices/run_8015472C.cpp:
 	.text       start:0x8015472C end:0x80154788
+
+pso/slices/pso_carve_80154788.cpp:
+	.text       start:0x80154788 end:0x801547AC
 
 pso/slices/pso_carve_80154b28.cpp:
 	.text       start:0x80154B28 end:0x80154B60
@@ -13573,6 +13579,9 @@ pso/player/TObjPlayer_801B6BBC.cpp:
 pso/player/TObjPlayer_801B7120.cpp:
 	.text       start:0x801B7120 end:0x801B71AC
 
+pso/slices/pso_carve_801b71ac.cpp:
+	.text       start:0x801B71AC end:0x801B71DC
+
 pso/player/TObjPlayer_801B71DC.cpp:
 	.text       start:0x801B71DC end:0x801B7248
 
@@ -15516,6 +15525,9 @@ pso/slices/pso_carve_801eeffc.cpp:
 
 pso/slices/pso_carve_801ef24c.cpp:
 	.text       start:0x801EF24C end:0x801EF26C
+
+pso/slices/pso_carve_801ef52c.cpp:
+	.text       start:0x801EF52C end:0x801EF560
 
 pso/slices/pso_carve_801ef560.cpp:
 	.text       start:0x801EF560 end:0x801EF5D0
@@ -18037,6 +18049,9 @@ pso/slices/pso_carve_80249de4.cpp:
 pso/slices/pso_carve_80249e80.cpp:
 	.text       start:0x80249E80 end:0x80249ED8
 
+pso/slices/pso_carve_8024a01c.cpp:
+	.text       start:0x8024A01C end:0x8024A054
+
 pso/slices/pso_carve_8024a054.cpp:
 	.text       start:0x8024A054 end:0x8024A08C
 
@@ -20202,6 +20217,10 @@ pso/slices/pso_carve_80293d58.cpp:
 
 pso/misc/TChCrEffFade.cpp:
 	.text       start:0x8029400C end:0x80294084
+
+pso/misc/TChCrEffFade_80294084.cpp:
+	.text       start:0x80294084 end:0x802940F8
+	.rodata     start:0x80464F20 end:0x80464F28
 
 pso/misc/TChCrEffFade_802940F8.cpp:
 	.text       start:0x802940F8 end:0x80294154
@@ -23731,6 +23750,9 @@ pso/misc/TPlyPtclObjectRightHand.cpp:
 pso/misc/TPlyPtclObjectRightHand_8030A3BC.cpp:
 	.text       start:0x8030A3BC end:0x8030A400
 
+pso/misc/TPlyPtclObjectLeftHand_8030A400.cpp:
+	.text       start:0x8030A400 end:0x8030A470
+
 pso/misc/TPlyPtclObjectLeftHand.cpp:
 	.text       start:0x8030A470 end:0x8030A4C8
 
@@ -25488,6 +25510,9 @@ pso/misc/TWindowDD_80340F70.cpp:
 
 pso/misc/TWindowDD_80341108.cpp:
 	.text       start:0x80341108 end:0x80341174
+
+pso/slices/pso_carve_80341174.cpp:
+	.text       start:0x80341174 end:0x803411A8
 
 pso/misc/TWindowDD_803411A8.cpp:
 	.text       start:0x803411A8 end:0x803411E8

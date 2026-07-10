@@ -9,13 +9,13 @@ extern "C" {
 void run_task__12TChCrEffFadeFv(void *arg0);
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TChCrEffFade__sub_80294084(void *);
+M2C_UNK update_fade__12TChCrEffFadeFPv(void *);
 
 void run_task__12TChCrEffFadeFv(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + M2C_FIELD(arg0, s32 *, 0x1C));
-    TChCrEffFade__sub_80294084(arg0);
+    update_fade__12TChCrEffFadeFPv(arg0);
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x24);
     if ((temp_r3 <= 0) || (temp_r3 >= (s32) M2C_FIELD(arg0, s32 *, 0x20))) {
         queue_destruction__7TObjectFv(arg0);

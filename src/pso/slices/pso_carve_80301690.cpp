@@ -24,7 +24,7 @@ struct VObj_80301690 : Base_80301690 {
 extern "C" {
 
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
-M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
+M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
 void fn_80301690(void *arg0) {
     s16 temp_r0;
@@ -57,7 +57,7 @@ void fn_80301690(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0x328) = 0;
         ((VObj_80301690 *) arg0)->m100();
         obj_setFlags30(arg0, 0x04040000);
-        fn_80154788(arg0, 0, 0x0A000000);
+        set_indexed_flags(arg0, 0, 0x0A000000);
         break;
     }
 }

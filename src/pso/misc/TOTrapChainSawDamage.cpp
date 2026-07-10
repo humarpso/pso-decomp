@@ -9,7 +9,7 @@ extern "C" {
 void TOTrapChainSawDamage__vt22(void *arg0);
 
 M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
+M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_802C9600();
 
 void TOTrapChainSawDamage__vt22(void *arg0) {
@@ -18,7 +18,7 @@ void TOTrapChainSawDamage__vt22(void *arg0) {
         fn_80154764(arg0, 1, 0x100);
         return;
     }
-    fn_80154788(arg0, 1, 0x100);
+    set_indexed_flags(arg0, 1, 0x100);
 }
 
 }

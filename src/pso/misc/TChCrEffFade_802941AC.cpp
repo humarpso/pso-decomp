@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK TChCrEffFade__sub_80294084(void *);
+M2C_UNK update_fade__12TChCrEffFadeFPv(void *);
 M2C_UNK __ct__7TObjectFP7TObject(s32, s32);
 
 extern M2C_UNK __vt__12TChCrEffFade[];
@@ -38,7 +38,7 @@ void *__ct__12TChCrEffFadeFv(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         M2C_FIELD(arg0, s32 *, 0x24) = 0;
     }
-    TChCrEffFade__sub_80294084(arg0);
+    update_fade__12TChCrEffFadeFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x2C) = arg3;
     return arg0;
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 obj_getField1c(u32);
 s32 TObjPlayer__sub_801B12CC();
-s32 TObjPlayer__sub_801B71AC(u32);
+s32 clear_lobby_flag__10TObjPlayerFPv(u32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowCtrl__sub_8024AEF0(u16);
 s32 TRaderMapCore__sub_8030A808();
@@ -51,7 +51,7 @@ void fn_80223760(void *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        TObjPlayer__sub_801B71AC(M2C_FIELD(arg0, u32 *, 0x24));
+        clear_lobby_flag__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0x24));
     }
 }
 void fn_802237D8(void *arg0) {

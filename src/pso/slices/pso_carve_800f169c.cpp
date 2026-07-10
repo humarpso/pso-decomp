@@ -13,7 +13,7 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 fn_800D7310(void *, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK fn_80143504();
-M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
+M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK, s32);
 extern const f32 lbl_805DA828;
 extern const f32 lbl_805DA830;
@@ -69,7 +69,7 @@ void fn_800F169C(u8 *arg0, s32 arg1) {
             TObjEneDD__sub_800BBA18(arg0, 6);
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFFE);
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 0x40000);
-            fn_80154788(arg0, 0, 0x08000000);
+            set_indexed_flags(arg0, 0, 0x08000000);
         }
         return;
     case 0:

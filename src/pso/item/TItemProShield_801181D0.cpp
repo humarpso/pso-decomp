@@ -1,0 +1,49 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1);
+s32 TItemMag__sub_80102C4C(void *);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
+M2C_UNK fn_800FFA88(u32, s32);
+M2C_UNK fn_80100E00(void *);
+M2C_UNK fn_801E2EFC();
+M2C_UNK fn_801E2F20();
+M2C_UNK fn_8023E480(s32);
+M2C_UNK fn_80363FEC();
+M2C_UNK fn_80364028();
+M2C_UNK fn_8036414C();
+M2C_UNK fn_80364198();
+M2C_UNK fn_803D97F0();
+M2C_UNK fn_803D9B78();
+
+s32 obj_testFlags30(void *, M2C_UNK);
+extern s32 some_id_805c6f74;
+
+void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (obj_testFlags30(arg0, 0x08000000) == 0) && (TItemMag__sub_80102C4C(arg0) == 0)) {
+        fn_800FFA88(M2C_FIELD(arg0, u32 *, 0xF0), arg1);
+        fn_803D97F0();
+        fn_80364198();
+        some_id_805c6f74 &= 0xFFFFFFEF;
+        fn_80100E00(arg0);
+        fn_80364028();
+        if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {
+            fn_801E2EFC();
+        }
+        fn_8023E480(M2C_FIELD(arg0, s32 *, 0x24));
+        TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0xF4));
+        if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {
+            fn_801E2F20();
+        }
+        fn_80363FEC();
+        fn_8036414C();
+        fn_803D9B78();
+    }
+}
+
+}

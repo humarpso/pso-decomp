@@ -8,11 +8,11 @@ extern "C" {
 
 void TObjLazerFenceNorm__sub_80192D70(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
-M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
+M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
 void TObjLazerFenceNorm__sub_80192D70(void *arg0) {
     if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
-        fn_80154788(arg0, 0, 1);
+        set_indexed_flags(arg0, 0, 1);
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     }
 }

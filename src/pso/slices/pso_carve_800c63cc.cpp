@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
-M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
+M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
 }
 
@@ -48,7 +48,7 @@ void fn_800C63CC(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0x328) = 0;
         ((CV *)arg0)->vf100();
         obj_setFlags30(arg0, 0x04040000);
-        fn_80154788(arg0, 0, 0x0A000000);
+        set_indexed_flags(arg0, 0, 0x0A000000);
         break;
     }
 }

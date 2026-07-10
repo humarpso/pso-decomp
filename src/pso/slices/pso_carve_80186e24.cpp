@@ -10,7 +10,7 @@ M2C_UNK fn_800740FC(u32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 u32 fn_80186BBC(f32);
 M2C_UNK TWindow__close(void *);
-M2C_UNK fn_8024A01C();
+M2C_UNK request_active_window_close();
 M2C_UNK fn_8024A054();
 M2C_UNK fn_8024ACEC(s32);
 M2C_UNK fn_8024AD30(s32);
@@ -43,7 +43,7 @@ void fn_80186E24(void *arg0) {
                     fn_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
                 }
                 fn_8024ACEC(lbl_805D53A0);
-                fn_8024A01C();
+                request_active_window_close();
                 TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
             }
         } else {

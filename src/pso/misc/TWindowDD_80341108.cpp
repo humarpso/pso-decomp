@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowDD__sub_80341108(s32 arg0);
-M2C_UNK TWindowDD__sub_80341174(s32, void *);
+M2C_UNK draw_entry_if_visible__9TWindowDDFPvPv(s32, void *);
 M2C_UNK TWindowDD__sub_80348AFC(s32, void *);
 void *fn_80244CF4();
 M2C_UNK fn_80257BC0(s32, s32, void *, f32);
@@ -20,7 +20,7 @@ void TWindowDD__sub_80341108(s32 arg0) {
 
     temp_r3 = fn_80244CF4();
     TWindowDD__sub_80348AFC(arg0, temp_r3);
-    TWindowDD__sub_80341174(arg0, temp_r3);
+    draw_entry_if_visible__9TWindowDDFPvPv(arg0, temp_r3);
     temp_f1 = M2C_FIELD(temp_r3, f32 *, 0x14);
     M2C_FIELD(temp_r3, f32 *, 0x14) = (f32) (temp_f1 + lbl_805DFC90);
     fn_80257BC0(arg0, arg0 + 0x24, temp_r3, temp_f1);

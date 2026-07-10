@@ -8,7 +8,7 @@ extern "C" {
 
 void init_params__15TOAttackableColFPv(void *arg0);
 M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
+M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
 extern const f32 lbl_805DB2C8;
 
@@ -38,7 +38,7 @@ void init_params__15TOAttackableColFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x34C) = -1;
     }
     if (M2C_FIELD(arg0, f32 *, 0x6C) < lbl_805DB2C8) {
-        fn_80154788(arg0, 0, 0x08000000);
+        set_indexed_flags(arg0, 0, 0x08000000);
     } else {
         fn_80154764(arg0, 0, 0x08000000);
     }

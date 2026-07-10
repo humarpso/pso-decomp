@@ -3,7 +3,7 @@
 extern "C" {
 
 int fn_80154764(void*, void*, void*);
-int fn_80154788(void*, void*, void*);
+int set_indexed_flags(void*, void*, void*);
 void TOFenceAncient02__vt13(void* p);
 void TOFenceAncient02__vt12(void* p);
 void TOFenceAncient02__vt14(void);

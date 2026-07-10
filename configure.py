@@ -3985,6 +3985,9 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TWindowMenu_8026667C.cpp"),
                 NonMatching("pso/misc/TWindowSubEquipKind_80278EA8.cpp"),
                 NonMatching("pso/misc/TWindowSubShortCutList_8027E418.cpp"),
+                NonMatching("pso/item/TItemProShield_801181D0.cpp"),
+                NonMatching("pso/misc/TPlyPtclObjectLeftHand_8030A400.cpp"),
+                NonMatching("pso/misc/TChCrEffFade_80294084.cpp"),
             ],
         },
         # ------------------------------------------------------------------
