@@ -13579,7 +13579,7 @@ pso/player/TObjPlayer_801B6BBC.cpp:
 pso/player/TObjPlayer_801B7120.cpp:
 	.text       start:0x801B7120 end:0x801B71AC
 
-pso/slices/pso_carve_801b71ac.cpp:
+pso/player/TObjPlayer_801B71AC.cpp:
 	.text       start:0x801B71AC end:0x801B71DC
 
 pso/player/TObjPlayer_801B71DC.cpp:
@@ -25511,7 +25511,7 @@ pso/misc/TWindowDD_80340F70.cpp:
 pso/misc/TWindowDD_80341108.cpp:
 	.text       start:0x80341108 end:0x80341174
 
-pso/slices/pso_carve_80341174.cpp:
+pso/misc/TWindowDD_80341174.cpp:
 	.text       start:0x80341174 end:0x803411A8
 
 pso/misc/TWindowDD_803411A8.cpp:

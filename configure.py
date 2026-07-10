@@ -3988,6 +3988,8 @@ if args.target == "psov3":
                 NonMatching("pso/item/TItemProShield_801181D0.cpp"),
                 NonMatching("pso/misc/TPlyPtclObjectLeftHand_8030A400.cpp"),
                 NonMatching("pso/misc/TChCrEffFade_80294084.cpp"),
+                NonMatching("pso/player/TObjPlayer_801B71AC.cpp"),
+                NonMatching("pso/misc/TWindowDD_80341174.cpp"),
             ],
         },
         # ------------------------------------------------------------------

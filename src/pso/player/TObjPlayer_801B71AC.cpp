@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void clear_lobby_flag__10TObjPlayerFPv(void *arg0);
+
 M2C_UNK obj_clearFlags30(void *, int);
 extern s32 lbl_805D55C0;
 
