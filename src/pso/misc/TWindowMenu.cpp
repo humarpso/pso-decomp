@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowMenu__sub_80265894(void *arg0);
-void TWindowMenu__sub_80265920(void *arg0);
+void select_next_item__11TWindowMenuFPv(void *arg0);
+void move_cursor_prev__11TWindowMenuFPv(void *arg0);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 
-void TWindowMenu__sub_80265894(void *arg0) {
+void select_next_item__11TWindowMenuFPv(void *arg0) {
     s16 var_r31;
 
     fn_8022675C(0x54100, 0, 0, 0);
@@ -35,7 +35,7 @@ block_4:
     }
 }
 
-void TWindowMenu__sub_80265920(void *arg0) {
+void move_cursor_prev__11TWindowMenuFPv(void *arg0) {
     s16 var_r31;
 
     fn_8022675C(0x54100, 0, 0, 0);

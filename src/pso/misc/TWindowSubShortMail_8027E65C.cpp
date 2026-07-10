@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubShortMail__sub_8027E65C(void *arg0);
+void close__19TWindowSubShortMailFPv(void *arg0);
 M2C_UNK TLobby__sub_80225828(s32, s32);
 M2C_UNK TOBoss4Rock__sub_80147A80(s32);
 M2C_UNK TWindowSubShortMail__sub_8027FAD0(s32);
@@ -17,7 +17,7 @@ u32 fn_80225CA8();
 s32 fn_80225CB0();
 M2C_UNK fn_80225E80(s32, s32);
 
-void TWindowSubShortMail__sub_8027E65C(void *arg0) {
+void close__19TWindowSubShortMailFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r31_2;
     s32 temp_r30;

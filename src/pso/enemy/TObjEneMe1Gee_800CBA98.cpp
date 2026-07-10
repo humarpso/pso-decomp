@@ -39,14 +39,14 @@ struct VObj_800CBA98 : Base_800CBA98 {
 
 extern "C" {
 
-s32 TObjEneMe1Gee__sub_800CBA98(void *arg0);
+s32 check_can_attack__13TObjEneMe1GeeFPv(void *arg0);
 s32 TObjEneMe1Gee__sub_800CBB34(void *, f32 *, f32);
 void *TPhotonMylla__sub_80154CB4(u16);
 
 extern const f32 lbl_805DA0FC;
 extern const f32 lbl_805DA138;
 
-s32 TObjEneMe1Gee__sub_800CBA98(void *arg0) {
+s32 check_can_attack__13TObjEneMe1GeeFPv(void *arg0) {
     f32 sp8;
     s32 var_r31;
     void *temp_r3;

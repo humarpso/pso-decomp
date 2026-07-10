@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe7BeruraPunch__sub_800966BC(u8 *arg0);
+void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 M2C_UNK TObjEneRe7BeruraPunch__sub_800963B0(void *);
 s32 fn_8007EB94(M2C_UNK);
 s32 fn_800BC5EC(s32, s32);
@@ -18,7 +18,7 @@ struct EneBVObj : EneBBase {
     virtual void m0();
     virtual void m1(M2C_UNK);
 };
-void TObjEneRe7BeruraPunch__sub_800966BC(u8 *arg0) {
+void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
     s32 var_r0;
     u32 var_a;
 

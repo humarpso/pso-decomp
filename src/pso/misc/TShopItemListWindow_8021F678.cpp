@@ -27,7 +27,7 @@ struct VObj_8021F708 : Base_8021F708 {
 extern "C" {
 
 void TShopItemListWindow__sub_8021F678(void *arg0);
-void TShopItemListWindow__sub_8021F708(void *arg0);
+void update__19TShopItemListWindowFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 fn_80073DC4(void *, s32);
@@ -42,7 +42,7 @@ void TShopItemListWindow__sub_8021F678(void *arg0) {
     }
 }
 
-void TShopItemListWindow__sub_8021F708(void *arg0) {
+void update__19TShopItemListWindowFPv(void *arg0) {
     VObj_8021F708 *o = (VObj_8021F708 *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m4(0xB, 1);

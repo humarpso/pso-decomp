@@ -16,7 +16,7 @@ extern const f32 lbl_805DA0B4;
 extern const f32 lbl_805DA0B8;
 extern const f32 lbl_805DA0E8;
 
-void TObjEneMe1Gee__sub_800CC010(s32 arg0, void *arg1) {
+void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1) {
     f32 temp_f1;
     f32 temp_f31;
     s32 temp_r31;

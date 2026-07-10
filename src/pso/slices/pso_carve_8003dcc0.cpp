@@ -6,7 +6,7 @@ extern "C" {
     extern int lbl_805D4C1C;
     extern int lbl_805D4C24;
     extern int lbl_805D4C2C;
-void fn_8003DCC0(void* a0) {
+void reset_vol_opt_state(void* a0) {
     *(int*)((char*)a0 + 0x3a8) = 0;
     lbl_805D4C14 = -1;
     fn_8003EA2C((void*)0);

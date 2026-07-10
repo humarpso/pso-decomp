@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801B487C(void *arg0);
+s32 is_target_valid__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_801B5680();
 s32 check_flag_0x40000000__10TObjPlayerFPv(void *);
 s32 fn_800822E8(void *, M2C_UNK);
 s32 fn_8013E940(u32);
 
-s32 TObjPlayer__sub_801B487C(void *arg0) {
+s32 is_target_valid__10TObjPlayerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x424) == 0U) {
         return 0;
     }

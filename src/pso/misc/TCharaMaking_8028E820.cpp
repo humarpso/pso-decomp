@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TCharaMaking__sub_8028E820(s32 arg0);
+s32 update_main_menu__12TCharaMakingFi(s32 arg0);
 s32 TObjCMMainMenu__sub_8028EBF0(s32);
 s32 TObjCMMainMenu__sub_8028EC04(s32);
 M2C_UNK fn_8028D8F4();
@@ -19,7 +19,7 @@ extern s32 tl_03;
 extern s32 lbl_805D6524;
 extern s32 lbl_805D652C;
 
-s32 TCharaMaking__sub_8028E820(s32 arg0) {
+s32 update_main_menu__12TCharaMakingFi(s32 arg0) {
     M2C_UNK var_r3;
 
     if (TObjCMMainMenu__sub_8028EC04(lbl_805D6524) != 0) {

@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801393F8(void);
-void TLobby__sub_80139498(void);
+void update_menu_window__6TLobbyFv(void);
+void handle_warp_menu_input__6TLobbyFv(void);
 M2C_UNK open_city_warp_menu__6TLobbyFv();
 M2C_UNK TLobby__sub_80137FEC();
-M2C_UNK TLobby__sub_80138140();
+M2C_UNK open_warp_menu__6TLobbyFv();
 M2C_UNK TLobby__sub_801381D0();
 M2C_UNK open_menu_window__6TLobbyFv();
 M2C_UNK TLobby__sub_801382F0();
-M2C_UNK TLobby__sub_80138354();
+M2C_UNK create_warp_menu__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowSubComCard__sub_8007341C(void*);
 s32 TWindowSubComCard__sub_80073DB8(u32);
@@ -22,7 +22,7 @@ s32 TWindowSubComCard__sub_80265BF8(void*);
 
 extern u32 lbl_805D55E4;
 
-void TLobby__sub_801393F8(void) {
+void update_menu_window__6TLobbyFv(void) {
     s32 temp_r31;
 
     if ((u32) lbl_805D55E4 != 0U) {
@@ -49,7 +49,7 @@ void TLobby__sub_801393F8(void) {
 
 extern u32 lbl_805D55E0;
 
-void TLobby__sub_80139498(void) {
+void handle_warp_menu_input__6TLobbyFv(void) {
     s32 temp_r3;
 
     if ((u32) lbl_805D55E0 != 0U) {
@@ -57,10 +57,10 @@ void TLobby__sub_80139498(void) {
             temp_r3 = TWindowSubComCard__sub_80265BF8((void*)(lbl_805D55E0));
             switch (temp_r3) {
             case 0:
-                TLobby__sub_80138354();
+                create_warp_menu__6TLobbyFv();
                 return;
             case 1:
-                TLobby__sub_80138140();
+                open_warp_menu__6TLobbyFv();
                 return;
             case 2:
                 TLobby__sub_80137FEC();

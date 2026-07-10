@@ -14,12 +14,12 @@ struct VObj_80220940 : Base_80220940 {
 
 extern "C" {
 
-void TShopJudgmentItemWindow__sub_80220940(void *arg0);
+void update__23TShopJudgmentItemWindowFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 fn_80073DC4(void *, s32);
 
-void TShopJudgmentItemWindow__sub_80220940(void *arg0) {
+void update__23TShopJudgmentItemWindowFPv(void *arg0) {
     VObj_80220940 *o = (VObj_80220940 *)arg0;
     s32 c = *(s32 *)((s8 *)arg0 + 0x14C) - 1;
     *(s32 *)((s8 *)arg0 + 0x14C) = c;

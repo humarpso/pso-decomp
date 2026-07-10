@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBalClaw__sub_8008D818(void *arg0);
+void update_claw_angle__14TObjEneBalClawFPv(void *arg0);
 
 extern f32 lbl_805D9600;
 
-void TObjEneBalClaw__sub_8008D818(void *arg0) {
+void update_claw_angle__14TObjEneBalClawFPv(void *arg0) {
     f32 temp_f0;
     f32 temp_f0_2;
     f32 temp_f1;

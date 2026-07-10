@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowCtrl__sub_8024B9C0(void *arg0);
 void TWindowCtrl__sub_8024BA18(void *arg0);
-void TWindowCtrl__sub_8024BA9C(s32 arg0);
+void handle_controller__11TWindowCtrlFi(s32 arg0);
 s32 TOKeyMachine01__sub_802034A8();
 s32 TRaderMapCore__sub_801F907C();
 s32 TWindowCtrl__sub_8024AF74(s32);
@@ -48,7 +48,7 @@ void TWindowCtrl__sub_8024BA18(void *arg0) {
 extern u8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
 
-void TWindowCtrl__sub_8024BA9C(s32 arg0) {
+void handle_controller__11TWindowCtrlFi(s32 arg0) {
     if ((TOKeyMachine01__sub_802034A8() == 0xF) && (TWindowCtrl__sub_8024B054(lbl_805D53A0) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) == 0) && (TWindowCtrl__sub_8024AF74(lbl_805D53A0) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(lbl_805D53A0), (M2C_UNK *)lbl_8050E208) != 0)) {
         fn_800FC924(lbl_805D53A0);
     }

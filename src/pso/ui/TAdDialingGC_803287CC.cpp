@@ -8,7 +8,7 @@ extern "C" {
 
 void TAdDialingGC__sub_803287CC(void *arg0);
 M2C_UNK TAdDialingGC__sub_80328874();
-M2C_UNK TAdDialingGC__sub_80328904();
+M2C_UNK handle_state__12TAdDialingGCFPv();
 M2C_UNK fn_803285C0();
 
 void TAdDialingGC__sub_803287CC(void *arg0) {
@@ -29,7 +29,7 @@ void TAdDialingGC__sub_803287CC(void *arg0) {
         break;
     case 2:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 2) {
-            TAdDialingGC__sub_80328904();
+            handle_state__12TAdDialingGCFPv();
         }
         break;
     }

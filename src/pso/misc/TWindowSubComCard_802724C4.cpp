@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_802724C4(s32 arg0, s32 arg1);
-s32 TWindowSubComCard__sub_80272558(s32 arg0);
+s32 create_keyboard__17TWindowSubComCardFii(s32 arg0, s32 arg1);
+s32 create_keyboard__17TWindowSubComCardFi(s32 arg0);
 s32 TWindowSubComCard__sub_802725F4(void);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -24,7 +24,7 @@ M2C_UNK fn_80275254(s32);
 
 extern s32 lbl_805D53A0;
 
-s32 TWindowSubComCard__sub_802724C4(s32 arg0, s32 arg1) {
+s32 create_keyboard__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x2C);
@@ -40,7 +40,7 @@ s32 TWindowSubComCard__sub_802724C4(s32 arg0, s32 arg1) {
 
 extern s32 lbl_805D53A0;
 
-s32 TWindowSubComCard__sub_80272558(s32 arg0) {
+s32 create_keyboard__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r31;
     s32 var_r30;
 

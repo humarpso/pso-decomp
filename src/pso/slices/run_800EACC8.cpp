@@ -22,7 +22,7 @@ void TObjEneSlimeOne__sub_800EACE8(void *arg0) {
     M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 1);
 }
 
-void TObjEneSlimeOne__sub_800EACFC(void *arg0, s32 arg1) {
+void set_display_mode__15TObjEneSlimeOneFPvi(void *arg0, s32 arg1) {
     void *temp_r5;
     void *temp_r5_2;
     void *temp_r6;

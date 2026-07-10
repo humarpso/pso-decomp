@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_801389A0(void);
-void TLobby__sub_80138A0C(void);
-void TLobby__sub_80138AC4(void);
+void handle_short_list_input__6TLobbyFv(void);
+void update_short_list__6TLobbyFv(void);
 M2C_UNK TAdScrollWinGC__sub_803274D0(u32);
 M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
@@ -40,7 +40,7 @@ void TLobby__sub_801389A0(void) {
 extern s8 lbl_8050E208[];
 extern u32 lbl_805D55DC;
 
-void TLobby__sub_80138A0C(void) {
+void handle_short_list_input__6TLobbyFv(void) {
     void *temp_r31;
 
     if ((u32) lbl_805D55DC != 0U) {
@@ -67,7 +67,7 @@ void TLobby__sub_80138A0C(void) {
 extern s8 lbl_8050E208[];
 extern u32 lbl_805D55CC;
 
-void TLobby__sub_80138AC4(void) {
+void update_short_list__6TLobbyFv(void) {
     void *temp_r31;
 
     if ((u32) lbl_805D55CC != 0U) {

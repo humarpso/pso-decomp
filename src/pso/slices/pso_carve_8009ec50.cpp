@@ -16,7 +16,7 @@ extern const f32 lbl_805D9898;
 extern const f32 lbl_805D989C;
 extern const f32 lbl_805D98D0;
 
-void TObjEneMe1Canadin__sub_8009EC50(s32 arg0, void *arg1) {
+void calc_move_vector__17TObjEneMe1CanadinFiPv(s32 arg0, void *arg1) {
     f32 temp_f1;
     f32 temp_f31;
     s32 temp_r31;

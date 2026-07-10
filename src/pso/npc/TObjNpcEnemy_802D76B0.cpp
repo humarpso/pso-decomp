@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjNpcEnemy__sub_802D76B0(void *arg0);
+void update_state__12TObjNpcEnemyFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjEneRe7Berura__sub_80143098();
 M2C_UNK fn_80141F1C();
@@ -15,7 +15,7 @@ M2C_UNK fn_803E46BC(s32);
 M2C_UNK fn_803E4BC4(void *);
 M2C_UNK fn_803E4BD0();
 
-void TObjNpcEnemy__sub_802D76B0(void *arg0) {
+void update_state__12TObjNpcEnemyFPv(void *arg0) {
     void *sp4;
     u16 temp_r0;
 

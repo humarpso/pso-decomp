@@ -10,7 +10,7 @@ void TWindowOptionCtrl__sub_8026B308(void *arg0, s16 arg1, s8 arg2);
 void TWindowOptionCtrl__sub_8026B348(void *arg0);
 void TWindowOptionCtrl__sub_8026B390(void *arg0);
 void TWindowOptionCtrl__sub_8026B3C4(void *arg0, s32 arg1);
-s32 TWindowOptionCtrl__sub_8026B414(void *arg0, s32 arg1);
+s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 void *fn_8001ED80();
 s32 fn_80132E58(s8);
 M2C_UNK fn_802260C4();
@@ -61,7 +61,7 @@ void TWindowOptionCtrl__sub_8026B3C4(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, u8 *, 0x1D) = (u8) (M2C_FIELD(arg0, u8 *, 0x1D) | 2);
 }
 
-s32 TWindowOptionCtrl__sub_8026B414(void *arg0, s32 arg1) {
+s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
     if (fn_80132E58((s8) arg1) != 0) {
         fn_8023F160();
         fn_8023F18C();

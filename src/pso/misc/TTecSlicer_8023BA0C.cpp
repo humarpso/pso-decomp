@@ -10,7 +10,7 @@ void run_task__10TTecSlicerFv(u8 *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK TTecSlicer__sub_8023B670(void *, s32);
 M2C_UNK TTecSlicer__sub_8023B6BC(void *);
-M2C_UNK TTecSlicer__sub_8023B7E4(void *);
+M2C_UNK update__10TTecSlicerFi(void *);
 M2C_UNK __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK allow_rendering__7TObjectFv(void *);
@@ -41,7 +41,7 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
         __ct__14TSlicerHistoryFv(new_obj, arg0, M2C_FIELD(arg0, s32 *, 0x24), var_r31, M2C_FIELD(arg0, s32 *, 0x118));
     }
     if (fn_8001BEF8(arg0 + 0xC0, 1) == 0) {
-        TTecSlicer__sub_8023B7E4(arg0);
+        update__10TTecSlicerFi(arg0);
     }
     TTecSlicer__sub_8023B6BC(arg0);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x124) != 0U) {

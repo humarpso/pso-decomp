@@ -12,7 +12,7 @@ extern s32 lbl_805D5550;
 extern const f32 lbl_805DBA78;
 extern const f32 lbl_805DBA7C;
 
-void TOTrapAncient02R__sub_8017A210(void *arg0) {
+void calc_trap_count__16TOTrapAncient02RFPv(void *arg0) {
     s32 temp_r4;
 
     M2C_FIELD(arg0, s32 *, 0x360) = (s32) (M2C_FIELD(arg0, f32 *, 0x70) + ((lbl_805DBA7C * (f32) lbl_805D5550) + lbl_805DBA78));

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubItem__sub_80279CB8(s32 arg1, s32 arg2, s32 arg3);
+void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void TWindowSubItem__sub_80279D50(s32 arg0, s32 arg1);
 s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 s32 TOKeyMachine01__sub_802034A8();
@@ -25,7 +25,7 @@ M2C_UNK fn_80263AF8(s32, M2C_UNK);
 M2C_UNK fn_802661D4(s32, s32, M2C_UNK, s32);
 s32 fn_8026CBB8(M2C_UNK);
 
-void TWindowSubItem__sub_80279CB8(s32 arg1, s32 arg2, s32 arg3) {
+void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
     s32 temp_r3;
 

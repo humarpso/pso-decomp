@@ -8,13 +8,13 @@ extern "C" {
 
 void TOMineTrap__sub_80170570(void);
 void TOMineTrap__sub_80170574(void);
-void TOMineTrap__sub_8017059C(void *arg0);
+void update_state__10TOMineTrapFPv(void *arg0);
 s32 get_main_phase();
 int fn_80132F2C(void*, void*);
 
 void TOMineTrap__sub_80170570(void) {  }
 void TOMineTrap__sub_80170574(void) { fn_80132F2C((void*)16, (void*)16); }
-void TOMineTrap__sub_8017059C(void *arg0) {
+void update_state__10TOMineTrapFPv(void *arg0) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0x348) = (s32) M2C_FIELD(arg0, f32 *, 0x70);

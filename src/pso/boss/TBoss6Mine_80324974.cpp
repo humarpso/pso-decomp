@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TBoss6Mine__sub_80324974(void *arg0, s16 arg1);
+void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1);
 void TBoss4Type2__sub_80086C44(void *);
 void TBoss6Type1__sub_802B5DD4(void *);
 void __dl__7TObjectFPv(void *);
@@ -13,7 +13,7 @@ void fn_80156720(void *);
 
 extern M2C_UNK lbl_804ECBAC[];
 
-void *TBoss6Mine__sub_80324974(void *arg0, s16 arg1) {
+void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ECBAC;
         if (M2C_FIELD(arg0, void **, 0x3CC) != NULL) { TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x3CC)); M2C_FIELD(arg0, M2C_UNK *, 0x3CC) = 0; }

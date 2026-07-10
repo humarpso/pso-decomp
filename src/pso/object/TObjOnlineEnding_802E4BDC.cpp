@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjOnlineEnding__sub_802E4BDC(void *arg0);
+void create_result_window__16TObjOnlineEndingFPv(void *arg0);
 s32 TObjOnlineEnding__sub_8007172C();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -16,7 +16,7 @@ s32 fn_80070AB0();
 s32 fn_80070ACC();
 s32 TWindowSubStatusDisp__sub_800718D0();
 
-void TObjOnlineEnding__sub_802E4BDC(void *arg0) {
+void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r30_2;
     s32 temp_r30;

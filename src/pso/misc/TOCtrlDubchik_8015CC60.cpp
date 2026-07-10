@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOCtrlDubchik__sub_8015CC60(u8 *arg0);
+void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 M2C_UNK fn_80011734(void *, void *, f32);
 f32 fn_803D64C0(s32, s32, f32);
 
@@ -14,7 +14,7 @@ extern const f64 lbl_80440990;
 extern const f32 lbl_805DB3B4;
 extern const f32 lbl_805DB3B8;
 
-void TOCtrlDubchik__sub_8015CC60(u8 *arg0) {
+void update_spin__13TOCtrlDubchikFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r4;
 

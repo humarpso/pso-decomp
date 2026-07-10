@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubItem__sub_80279858(void *arg0, s32 arg1);
+void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK fn_801B7B10();
 
-void TWindowSubItem__sub_80279858(void *arg0, s32 arg1) {
+void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) {
         switch (arg1) {
         case 0:

@@ -18,13 +18,13 @@ struct V_A : Base_A {
 
 extern "C" {
 
-void THunterGuildSeqOffline__sub_80212D9C(void *arg0);
+void handle_select__22THunterGuildSeqOfflineFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
 
-void THunterGuildSeqOffline__sub_80212D9C(void *arg0) {
+void handle_select__22THunterGuildSeqOfflineFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0x34);
     if (p != NULL) {
         if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 1) {

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TCameraCtrl__sub_80069B38(u8 *arg0);
+void update_position__11TCameraCtrlFPv(u8 *arg0);
 s32 fn_801A2FE0();
 
 s32 is_split_screen();
 
-void TCameraCtrl__sub_80069B38(u8 *arg0) {
+void update_position__11TCameraCtrlFPv(u8 *arg0) {
     u8 *temp_r3;
 
     M2C_FIELD(arg0, f32 *, 0x178) = (f32) M2C_FIELD(arg0, f32 *, 0x1A0);

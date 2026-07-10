@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubTradeMain__sub_80330FAC(void *arg0, s32 arg1);
+s32 create_input_number__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
 M2C_UNK TWindowInputNumber__sub_80256138(s32, f32);
 M2C_UNK TWindowInputNumber__sub_80256170(s32, s32);
@@ -16,7 +16,7 @@ s32 fn_8026CBB8(M2C_UNK);
 
 extern f32 lbl_805DF858;
 
-s32 TWindowSubTradeMain__sub_80330FAC(void *arg0, s32 arg1) {
+s32 create_input_number__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x7C);

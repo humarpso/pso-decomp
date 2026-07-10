@@ -12,10 +12,10 @@ u32 fn_8007EB94(s32);
 u32 fn_802880BC(u32, s32, s16);
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8026906C(void);
-void TWindowChoiceSetting__sub_8026886C(void *arg0);
+void move_next_choice__20TWindowChoiceSettingFPv(void *arg0);
 s32 fn_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
-void TWindowChoiceSetting__sub_802688F8(void *arg0);
+void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0);
 void TWindowChoiceSetting__sub_80268794(void *arg0);
 s32 TWindowSubComCard__sub_80249604();
 void TWindowSubComCard__sub_80268494(void *arg0);
@@ -41,7 +41,7 @@ void TWindowChoiceSetting__sub_802687F8(void *arg0) {
         }
     }
 }
-void TWindowChoiceSetting__sub_8026886C(void *arg0) {
+void move_next_choice__20TWindowChoiceSettingFPv(void *arg0) {
     s16 var_r31;
 
     fn_8022675C(0x54100, 0, 0, 0);
@@ -64,7 +64,7 @@ block_4:
         }
     }
 }
-void TWindowChoiceSetting__sub_802688F8(void *arg0) {
+void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0) {
     s16 var_r31;
 
     fn_8022675C(0x54100, 0, 0, 0);

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowDD__sub_8034725C(s16 arg0);
+s32 classify_id__9TWindowDDFs(s16 arg0);
 s32 TWindowDD__sub_803472F8(u16 arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TWindowDD__sub_80347204(s16);
 s32 TWindowDD__sub_80347238();
 
-s32 TWindowDD__sub_8034725C(s16 arg0) {
+s32 classify_id__9TWindowDDFs(s16 arg0) {
     s32 var_r3;
 
     if (arg0 == 0x2E4) {

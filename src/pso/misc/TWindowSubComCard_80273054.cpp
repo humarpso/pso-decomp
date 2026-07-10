@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_80273054(void *arg0);
+s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_802A5768(s32, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
@@ -16,7 +16,7 @@ M2C_UNK fn_802A58AC(s32, s32, s32, s32, f32);
 
 extern const f32 lbl_805DD520;
 
-s32 TWindowSubComCard__sub_80273054(void *arg0) {
+s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0) {
     s32 temp_r29;
 
     temp_r29 = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);

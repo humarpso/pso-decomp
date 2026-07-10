@@ -5,13 +5,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *__nw__7TObjectFUl(int);
-void *TObjTombstone__sub_800764E0(void *, void *, void *, void *);
+void *init__13TObjTombstoneFPviii(void *, void *, void *, void *);
 
 void * fn_8007666C(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x238);
     if (o != NULL) {
-        o = TObjTombstone__sub_800764E0(o, arg0, arg1, arg2);
+        o = init__13TObjTombstoneFPviii(o, arg0, arg1, arg2);
     }
     return o;
 }

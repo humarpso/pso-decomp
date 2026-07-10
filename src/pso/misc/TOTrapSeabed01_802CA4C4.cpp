@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOTrapSeabed01__sub_802CA4C4(u8 *arg0);
+void draw__14TOTrapSeabed01FPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOTrapSeabed01__sub_802CA3EC(void *, s32);
 s32 TRaderMapCore__sub_8030A808();
@@ -23,7 +23,7 @@ M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 
 extern s32 lbl_805D6814;
 
-void TOTrapSeabed01__sub_802CA4C4(u8 *arg0) {
+void draw__14TOTrapSeabed01FPv(u8 *arg0) {
     if ((TRaderMapCore__sub_8030A808() != 1) || ((s32) M2C_FIELD(arg0, s32 *, 0x34C) == 0)) {
         set_depth_buffer_settings_3__Fv();
         set_depth_buffer_settings_id__FUl(1);

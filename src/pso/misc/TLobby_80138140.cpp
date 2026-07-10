@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80138140(void);
+void open_warp_menu__6TLobbyFv(void);
 s32 TLobby__sub_8013A14C(M2C_UNK);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowOptionCtrl__sub_80266160(s32);
@@ -20,7 +20,7 @@ extern s32 lbl_805D5594;
 extern s32 lbl_805D55E0;
 extern s32 lbl_805D55E4;
 
-void TLobby__sub_80138140(void) {
+void open_warp_menu__6TLobbyFv(void) {
     s32 temp_r3;
     TWindowOptionCtrl__sub_80266160(lbl_805D55E0);
     temp_r3 = fn_8026CBB8(0xB5);

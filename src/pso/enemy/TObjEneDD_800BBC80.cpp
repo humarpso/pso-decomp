@@ -11,13 +11,13 @@ struct VObj800BBC80 : VBase800BBC80 {
 
 extern "C" {
 
-void TObjEneDD__sub_800BBC80(u8 *arg0);
+void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK fn_8003F0E8(void *);
 
 extern const f32 lbl_805D9E8C;
 
-void TObjEneDD__sub_800BBC80(u8 *arg0) {
+void init_position_vectors__9TObjEneDDFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TPlayerBattleCtrl4P__sub_80312A80(void *arg0, s16 arg1);
+void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1);
 M2C_UNK TPlayerBattleCtrl4P__sub_803101D4(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -15,7 +15,7 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 extern M2C_UNK lbl_804E80A8[];
 extern s32 lbl_805D6AA8;
 
-void *TPlayerBattleCtrl4P__sub_80312A80(void *arg0, s16 arg1) {
+void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E80A8;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {

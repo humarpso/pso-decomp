@@ -12,7 +12,7 @@ struct VObj80185B58 : VBase80185B58 {
 
 extern "C" {
 
-void TObjCityAreaWarp__sub_80185B58(u8 *arg0);
+void do_warp__16TObjCityAreaWarpFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
@@ -27,7 +27,7 @@ extern s32 lbl_805D5B2C;
 extern const f32 lbl_805DBC80;
 extern const f32 lbl_805DBC84;
 
-void TObjCityAreaWarp__sub_80185B58(u8 *arg0) {
+void do_warp__16TObjCityAreaWarpFPv(u8 *arg0) {
     if (((VObj80185B58 *) arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
         fn_803DA798(lbl_805D5B2C);
         fn_803D9B2C();

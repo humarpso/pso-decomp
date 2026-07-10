@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TCameraCtrl__sub_8006C7FC(void *arg0);
+void update__11TCameraCtrlFPv(void *arg0);
 void *TCameraCtrl__sub_8006C88C(void *arg0, s16 arg1);
 void *TCameraCtrl__vt10(void);
 void *TCameraCtrl__sub_8006A03C(u32);
@@ -27,7 +27,7 @@ void *TCameraCtrl__vt10(void) {
 extern u32 lbl_805D4DF0;
 extern const f32 lbl_805D9038;
 
-void TCameraCtrl__sub_8006C7FC(void *arg0) {
+void update__11TCameraCtrlFPv(void *arg0) {
     void *temp_r31;
     void *temp_r3;
 

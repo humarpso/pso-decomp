@@ -18,7 +18,7 @@ extern s32 lbl_805D5594;
 extern s32 lbl_805D55E0;
 extern s32 lbl_805D55E4;
 
-void TLobby__sub_80138354(void) {
+void create_warp_menu__6TLobbyFv(void) {
     s32 temp_r3;
     TWindowOptionCtrl__sub_80266160(lbl_805D55E0);
     temp_r3 = fn_8026CBB8(0xB5);

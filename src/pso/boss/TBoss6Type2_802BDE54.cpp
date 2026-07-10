@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1);
-M2C_UNK TBoss6Type2__sub_802BD6D0(void *, s32, s32);
+M2C_UNK set_target_state__11TBoss6Type2FPvii(void *, s32, s32);
 M2C_UNK fn_8032E710(s32, u16);
 
 void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, u8 *, 0x478) = (u8) M2C_FIELD(arg1, u8 *, 8);
     M2C_FIELD(arg0, s32 *, 0x47C) = (s32) (s8) M2C_FIELD(arg1, u8 *, 9);
-    TBoss6Type2__sub_802BD6D0(arg0, M2C_FIELD(arg1, s8 *, 0xA), M2C_FIELD(arg1, s8 *, 0xB));
+    set_target_state__11TBoss6Type2FPvii(arg0, M2C_FIELD(arg1, s8 *, 0xA), M2C_FIELD(arg1, s8 *, 0xB));
     M2C_FIELD(arg0, u16 *, 0x464) = (u16) (s8) M2C_FIELD(arg1, u8 *, 0xC);
     M2C_FIELD(arg0, u16 *, 0x466) = (u16) (s8) M2C_FIELD(arg1, u8 *, 0xD);
     M2C_FIELD(arg0, u16 *, 0x468) = (u16) (s8) M2C_FIELD(arg1, u8 *, 0xE);

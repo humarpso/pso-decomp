@@ -9,7 +9,7 @@ struct VObj_80298AD0 : Base_80298AD0 { virtual void m0(int); };
 extern "C" {
 
 void *TObjCMMainMenu__sub_80298A88(void *arg0);
-void *TObjCMMainMenu__sub_80298AD0(void *arg0, s16 arg1);
+void *destroy__14TObjCMMainMenuFPvs(void *arg0, s16 arg1);
 void *TObjCMMainMenu__ct(void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -25,7 +25,7 @@ void *TObjCMMainMenu__sub_80298A88(void *arg0) {
 
 extern M2C_UNK lbl_804DBDA8[];
 
-void *TObjCMMainMenu__sub_80298AD0(void *arg0, s16 arg1) {
+void *destroy__14TObjCMMainMenuFPvs(void *arg0, s16 arg1) {
     void *temp_r3;
     void *temp_r5;
 

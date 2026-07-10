@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_801383E4(void);
 void TLobby__sub_80138410(void);
-void TLobby__sub_8013844C(void);
+void update_state__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80137CC8();
 M2C_UNK TLobby__sub_801397E8();
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
@@ -43,7 +43,7 @@ extern s32 lbl_805D55D8;
 extern s32 lbl_805D55FC;
 extern u32 lbl_805D5604;
 
-void TLobby__sub_8013844C(void) {
+void update_state__6TLobbyFv(void) {
     if ((u32) lbl_805D5604 != 0U) {
         if ((s32) lbl_805D55FC == 0) {
             if ((s32) lbl_805D5594 != 0xC) {

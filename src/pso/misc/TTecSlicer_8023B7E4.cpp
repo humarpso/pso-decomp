@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecSlicer__sub_8023B7E4(s32 arg0);
+void update__10TTecSlicerFi(s32 arg0);
 M2C_UNK TTecSlicer__sub_8023B5D8(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK fn_8001BED8(s32, M2C_UNK);
@@ -17,7 +17,7 @@ M2C_UNK fn_803D97B4(s32);
 
 extern f32 lbl_805DC958;
 
-void TTecSlicer__sub_8023B7E4(s32 arg0) {
+void update__10TTecSlicerFi(s32 arg0) {
     if (fn_80141CF8(arg0 + 0x38, arg0 + 0xA8) < lbl_805DC958) {
         TTecSlicer__sub_8023B5D8(arg0);
         if (fn_8023B454(arg0 + 0xC8, arg0 + 0xA8, arg0 + 0xC4, arg0 + 0xC6, arg0 + 0xBC) == 0) {
