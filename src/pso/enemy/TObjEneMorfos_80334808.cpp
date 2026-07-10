@@ -9,7 +9,7 @@ extern "C" {
 s32 TBoss4Type2__sub_80141FA8(s32);
 void TObjEneMorfos__vt59(void);
 
-s32 TObjEneMorfos__sub_80334808(void *arg0, s32 arg1, s32 arg2) {
+s32 approach_value__13TObjEneMorfosFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r31;
 

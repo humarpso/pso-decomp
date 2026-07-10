@@ -15,7 +15,7 @@ int TObjIllGillKage__sub_80365450(void* p);
 void render__15TObjIllGillKageFv(void);
 int queue_destruction__7TObjectFv(void*);
 
-void TObjIllGillKage__sub_803654D0(void *arg0) {
+void attack_target__15TObjIllGillKageFPv(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x90) = 1;

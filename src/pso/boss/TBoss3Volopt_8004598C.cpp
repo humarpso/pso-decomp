@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3Volopt__sub_8004598C(void *arg0, u16 arg1);
+void create_cage__12TBoss3VoloptFPvUs(void *arg0, u16 arg1);
 M2C_UNK TObjVoloptCage__ct(void *, void *, u16, u16, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void *__nw__7TObjectFUl(M2C_UNK);
@@ -14,7 +14,7 @@ void *__nw__7TObjectFUl(M2C_UNK);
 extern u16 lbl_805D2710;
 extern s32 lbl_805D2714;
 
-void TBoss3Volopt__sub_8004598C(void *arg0, u16 arg1) {
+void create_cage__12TBoss3VoloptFPvUs(void *arg0, u16 arg1) {
     void *temp_r3;
     M2C_FIELD(arg0, u16 *, 0x338) = arg1;
     M2C_FIELD(arg0, u32 *, 0x2A8) = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x338));

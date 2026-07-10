@@ -9,12 +9,12 @@ extern "C" {
 void run_task__12TAdDialingGCFv(void *arg0);
 void render__12TAdDialingGCFv(void* p);
 
-int TAdDialingGC__sub_803287CC(void*);
+int update__12TAdDialingGCFPv(void*);
 int TAdDialingGC__sub_80328B20(void*);
 int TAdDialingGC__sub_80328C10(void*);
 int TAdDialingGC__sub_80328C4C(void*);
 
-void render__12TAdDialingGCFv(void* p) { TAdDialingGC__sub_80328B20(p); TAdDialingGC__sub_80328C4C(p); TAdDialingGC__sub_80328C10(p); TAdDialingGC__sub_803287CC(p); }
+void render__12TAdDialingGCFv(void* p) { TAdDialingGC__sub_80328B20(p); TAdDialingGC__sub_80328C4C(p); TAdDialingGC__sub_80328C10(p); update__12TAdDialingGCFPv(p); }
 
 M2C_UNK fn_80328210();
 M2C_UNK fn_803282B8();

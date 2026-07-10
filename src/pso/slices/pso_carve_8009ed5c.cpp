@@ -111,7 +111,7 @@ struct VBase_8009ED5C {
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009ED5C(void *arg0) {
+void update__17TObjEneMe1CanadinFPv(void *arg0) {
     struct VBase_8009ED5C *o = (struct VBase_8009ED5C *)arg0;
     M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3F8) - M2C_FIELD(arg0, f32 *, 0x3C));
     if (M2C_FIELD(arg0, f32 *, 0x3F4) < lbl_805D98D0) {

@@ -12,7 +12,7 @@ void TBoss6Type2__sub_802BA20C(void* p, void* q);
 int TBoss6Type2__sub_802BA394(void* p);
 int TBoss6PlotFalz__sub_802AAFCC(void*);
 
-s32 TBoss6Type2__sub_802BA31C(void *arg0) {
+s32 check_target__11TBoss6Type2FPv(void *arg0) {
     if (M2C_FIELD(arg0, u16 *, 0x464) == 0xFFFF) {
         return 0;
     }

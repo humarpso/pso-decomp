@@ -17,7 +17,7 @@ int TOMineTrap__sub_80170340(void) { return 1; }
 int TOMineTrap__sub_80170348(void) { return 1; }
 void TOMineTrap__sub_80170350(void) {  }
 void TOMineTrap__sub_80170354(void) {  }
-s32 TOMineTrap__sub_80170358(void *arg0, u32 arg1) {
+s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     if (TOMineTrap__sub_801702C8() == 1) {
         return 0;
     }

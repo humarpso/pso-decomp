@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowSubSymbolChatParts__sub_80284E34(void *arg0);
 void add_part__25TWindowSubSymbolChatPartsFPv(void *arg0);
-void TWindowSubSymbolChatParts__sub_80284F34(void *arg0);
+void handle_add__25TWindowSubSymbolChatPartsFPv(void *arg0);
 s32 TWindowSubSymbolChat__sub_80077310();
 s32 TWindowSubSymbolChat__sub_80283974();
 s32 TWindowSubSymbolChat__sub_80284D4C();
@@ -36,7 +36,7 @@ void add_part__25TWindowSubSymbolChatPartsFPv(void *arg0) {
     fn_8028783C(M2C_FIELD(arg0, s32 *, 0x88), 2);
 }
 
-void TWindowSubSymbolChatParts__sub_80284F34(void *arg0) {
+void handle_add__25TWindowSubSymbolChatPartsFPv(void *arg0) {
     if (TWindowSubSymbolChat__sub_80284D4C() >= (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
         fn_8022675C(0x53F06, 0, 0, 0);
         return;

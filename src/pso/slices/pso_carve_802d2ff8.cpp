@@ -17,7 +17,7 @@ extern s32 lbl_805D688C;
 extern s32 lbl_805D6890;
 extern u32 lbl_805D689C;
 
-void TLobby__sub_802D2FF8(s32 arg0) {
+void reset__6TLobbyFi(s32 arg0) {
     if (fn_80246CB8() == 0) {
         lbl_805D688B = 0;
         lbl_805D688A = 4;

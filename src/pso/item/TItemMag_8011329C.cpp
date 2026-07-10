@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMag__sub_8011329C(void *arg0);
+void update__8TItemMagFPv(void *arg0);
 M2C_UNK fn_80111758(void *, M2C_UNK);
 
 s32 obj_testFlags30(void *, M2C_UNK);
 extern const f32 lbl_805DABA4;
 extern const f32 lbl_805DABA8;
 
-void TItemMag__sub_8011329C(void *arg0) {
+void update__8TItemMagFPv(void *arg0) {
     f32 temp_f1;
 
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x1C8);

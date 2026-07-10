@@ -12,7 +12,7 @@ int TOHangerMachine01__sub_803D9C00(void*);
 int TBoss8DragonColli__sub_802F310C(void* a0 = 0);
 int TBoss8DragonColli__sub_802F3144(void* a0 = 0);
 void TBoss8DragonColli__sub_802F3074(void* p);
-void TBoss8DragonColli__sub_802F3094(void* p, void* a1, void* a2);
+void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2);
 void TBoss8DragonColli__sub_802F3070(void);
 
 int TBoss8DragonColli__sub_802F310C(void*) { return 0; }

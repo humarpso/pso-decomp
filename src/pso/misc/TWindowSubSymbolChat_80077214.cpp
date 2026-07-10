@@ -9,7 +9,7 @@ void TWindowSubSymbolChat__sub_80077310(void* p);
 void fn_80077334(void* p);
 int fn_80076FE0(void* p);
 
-void TWindowSubSymbolChat__sub_80077214(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 temp;
 
     temp = TWindowSubSymbolChat__sub_80077108((void*)(arg0), (void*)(0));

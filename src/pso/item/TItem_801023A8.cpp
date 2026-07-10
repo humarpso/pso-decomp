@@ -10,7 +10,7 @@ s32 fn_8010319C(s32);
 s32 TObjPlayer__sub_801B4A18(void *, s32);
 void TItem__sub_80102420(void);
 
-void TItem__sub_801023A8(void *arg0) {
+void update_timer__5TItemFPv(void *arg0) {
     s16 temp_r3;
     s32 temp_r4;
 

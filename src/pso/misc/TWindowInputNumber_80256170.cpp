@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowInputNumber__sub_80256170(void *arg0, s32 arg1);
+void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1);
 u32 fn_8007EB94(M2C_UNK);
 u32 fn_802880BC(u32, s32, s16);
 
 extern const f32 lbl_805DCE18;
 
 struct WindowNum { char pad[0x70]; };
-void TWindowInputNumber__sub_80256170(void *arg0, s32 arg1) {
+void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1) {
     u32 var_r0;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) == 0U) {

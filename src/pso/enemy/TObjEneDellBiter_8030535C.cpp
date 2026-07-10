@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDellBiter__sub_8030535C(void *arg0, s32 arg1);
+void update_state__16TObjEneDellBiterFPvi(void *arg0, s32 arg1);
 
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
-void TObjEneDellBiter__sub_8030535C(void *arg0, s32 arg1) {
+void update_state__16TObjEneDellBiterFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         TObjEneDD__sub_800BBA04(arg0, 0);

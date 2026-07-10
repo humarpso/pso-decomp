@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowSubEquip__sub_80277C70(void *arg0);
-void TWindowSubEquip__sub_80277CBC(void *arg0);
+void update__15TWindowSubEquipFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_80099EF8();
 u32 fn_801C675C(s32, s32);
@@ -25,7 +25,7 @@ void TWindowSubEquip__sub_80277C70(void *arg0) {
     }
 }
 
-void TWindowSubEquip__sub_80277CBC(void *arg0) {
+void update__15TWindowSubEquipFPv(void *arg0) {
     s32 temp_r3;
     s32 var_r3;
     s32 temp_r0;

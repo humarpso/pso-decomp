@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_802D2B64(s32 arg0);
-M2C_UNK TLobby__sub_802D2FF8();
+M2C_UNK reset__6TLobbyFi();
 M2C_UNK TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 
 extern u8 lbl_805D688B;
@@ -17,11 +17,11 @@ void TLobby__sub_802D2B64(s32 arg0) {
         switch (arg0) {
         case 0:
             TWindowSubStatusDisp__sub_80077760(0xEC);
-            TLobby__sub_802D2FF8();
+            reset__6TLobbyFi();
             return;
         case 1:
             TWindowSubStatusDisp__sub_80077760(0xEB);
-            TLobby__sub_802D2FF8();
+            reset__6TLobbyFi();
             break;
         }
     }

@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjEneMerillLia__sub_800D6F60(void *arg0, s16 arg1);
+void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void fn_800C68FC(void *, int);
 void fn_800D75F4(void *, int);
@@ -13,7 +13,7 @@ void fn_80156720(void *);
 
 extern M2C_UNK lbl_80494728[];
 
-void *TObjEneMerillLia__sub_800D6F60(void *arg0, s16 arg1) {
+void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494728;
         fn_800F6EB0(arg0);

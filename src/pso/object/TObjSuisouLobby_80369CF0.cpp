@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjSuisouLobby__sub_80369CF0(void *arg0);
+void update_particle__15TObjSuisouLobbyFPv(void *arg0);
 void TObjSuisouLobby__sub_80369D68(void);
 void *TObjSuisouLobby__sub_80369D6C(void *arg0);
 void *TObjSuisouLobby__ct(void *, void *, void *);
@@ -14,7 +14,7 @@ s32 TParticleCtrl__sub_80088000(void *);
 s32 TParticleCtrl__sub_80088010(void *);
 void *__nw__7TObjectFUl(int);
 
-void TObjSuisouLobby__sub_80369CF0(void *arg0) {
+void update_particle__15TObjSuisouLobbyFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) == 3) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xD4) != 0U) {
             TParticleCtrl__sub_80088000(M2C_FIELD(arg0, void **, 0xD4));

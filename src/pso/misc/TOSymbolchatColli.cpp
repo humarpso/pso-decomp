@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOSymbolchatColli__sub_801786C4(void *arg0);
+s32 get_state__17TOSymbolchatColliFPv(void *arg0);
 
 u8 TODoorAncient08__sub_80229220(u16);
 
-s32 TOSymbolchatColli__sub_801786C4(void *arg0) {
+s32 get_state__17TOSymbolchatColliFPv(void *arg0) {
     if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, u16 *, 0x37C)) == 1) {
         return 3;
     }
