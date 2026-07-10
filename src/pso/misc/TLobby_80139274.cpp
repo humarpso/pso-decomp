@@ -9,7 +9,7 @@ extern "C" {
 void TLobby__sub_80139274(void);
 M2C_UNK TLobby__sub_80138018();
 M2C_UNK TLobby__sub_80138080();
-M2C_UNK TLobby__sub_80138858();
+M2C_UNK TLobby__close_all_windows();
 M2C_UNK TLobby__sub_80139860();
 s32 TWindowSubComCard__sub_8007341C(void*);
 s32 TWindowSubComCard__sub_80073DB8(u32);
@@ -33,10 +33,10 @@ void TLobby__sub_80139274(void) {
                 return;
             }
         } else if (TWindowSubComCard__sub_80073DB8(lbl_805D55E4) != 0) {
-            TLobby__sub_80138858();
+            TLobby__close_all_windows();
         }
     } else {
-        TLobby__sub_80138858();
+        TLobby__close_all_windows();
     }
 }
 

@@ -29,7 +29,7 @@ M2C_UNK fn_80229080();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 extern s32 lbl_805D53A0;
 
-s32 TLobby__sub_802D2E28(s32 arg0, s32 arg1, s32 arg2) {
+s32 TLobby__show_event_message(s32 arg0, s32 arg1, s32 arg2) {
     void *temp_r3;
 
     switch (arg1) {

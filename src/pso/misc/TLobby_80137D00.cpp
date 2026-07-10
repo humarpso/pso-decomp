@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_80137D00(void);
-M2C_UNK TLobby__sub_80138858();
+M2C_UNK TLobby__close_all_windows();
 s32 TWindowSubComCard__sub_8007341C(u32);
 s32 TWindowSubComCard__sub_80073DB8(u32);
 s32 TWindowSubComCard__sub_80265BF8(void*);
@@ -23,14 +23,14 @@ void TLobby__sub_80137D00(void) {
         temp_r31 = TWindowSubComCard__sub_80265BF8((void*)lbl_805D55E4);
         if (TWindowSubComCard__sub_8007341C(lbl_805D55E4) != 0) {
             fn_801DB0AC(lbl_805D5580, temp_r31);
-            TLobby__sub_80138858();
+            TLobby__close_all_windows();
             return;
         }
         if (TWindowSubComCard__sub_80073DB8(lbl_805D55E4) != 0) {
-            TLobby__sub_80138858();
+            TLobby__close_all_windows();
         }
     } else {
-        TLobby__sub_80138858();
+        TLobby__close_all_windows();
     }
 }
 

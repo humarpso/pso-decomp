@@ -10,7 +10,7 @@ extern "C" {
 
 void TLobby__sub_80138D3C(void);
 M2C_UNK TLobby__sub_8013872C();
-M2C_UNK TLobby__sub_80138858();
+M2C_UNK TLobby__close_all_windows();
 M2C_UNK TOBoss4Rock__sub_80147A80(s32);
 s32 TWindowSubComCard__sub_80131C10(u32);
 s32 TWindowSubComCard__sub_80131C34(u32);
@@ -32,7 +32,7 @@ void TLobby__sub_80138D3C(void) {
         if (TWindowSubComCard__sub_80131C10(lbl_805D55F4) != 0) {
             queue_destruction__7TObjectFv(lbl_805D55F4);
             lbl_805D55F4 = 0U;
-            TLobby__sub_80138858();
+            TLobby__close_all_windows();
             return;
         }
         if (TWindowSubComCard__sub_80131C34(lbl_805D55F4) != 0) {

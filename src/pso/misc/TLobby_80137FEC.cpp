@@ -8,13 +8,13 @@ extern "C" {
 
 void TLobby__sub_80137FEC(void);
 M2C_UNK TLobby__sub_80137CC8();
-M2C_UNK TLobby__sub_80138858();
+M2C_UNK TLobby__close_all_windows();
 M2C_UNK send_text_list__9TProtocolFv(s32);
 
 extern s32 lbl_805D5580;
 
 void TLobby__sub_80137FEC(void) {
-    TLobby__sub_80138858();
+    TLobby__close_all_windows();
     TLobby__sub_80137CC8();
     send_text_list__9TProtocolFv(lbl_805D5580);
 }

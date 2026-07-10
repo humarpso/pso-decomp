@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjSeabedSuisoBrakable__sub_802A6844(void *arg0);
+void TObjSeabedSuisoBrakable__update_switch_lock(void *arg0);
 M2C_UNK TOComputerMachine01__sub_8023DDC8(s32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
 u8 TODoorAncient08__sub_80229220(u16);
 s32 TObjSeabedSuisoBrakable__sub_802A71F8(M2C_UNK);
@@ -15,7 +15,7 @@ s32 *TObjSeabedSuisoBrakable__sub_802A7220(M2C_UNK);
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D6678;
 
-void TObjSeabedSuisoBrakable__sub_802A6844(void *arg0) {
+void TObjSeabedSuisoBrakable__update_switch_lock(void *arg0) {
     s32 *temp_r3;
     s32 *temp_r3_2;
     s32 *temp_r3_3;

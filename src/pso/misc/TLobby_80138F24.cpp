@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_80138F24(void);
 M2C_UNK TLobby__sub_8013872C();
-M2C_UNK TLobby__sub_80138858();
+M2C_UNK TLobby__close_all_windows();
 s32 TWindowMakeTeam__sub_80264AE0(u32);
 s32 TWindowMakeTeam__sub_80264B24(u32);
 s32 TWindowMakeTeam__sub_80264B38(u32);
@@ -43,11 +43,11 @@ void TLobby__sub_80138F24(void) {
                 TLobby__sub_8013872C();
                 return;
             }
-            TLobby__sub_80138858();
+            TLobby__close_all_windows();
             return;
         }
         if (fn_8013AD50(lbl_805D55EC) != 0) {
-            TLobby__sub_80138858();
+            TLobby__close_all_windows();
         }
     }
 }

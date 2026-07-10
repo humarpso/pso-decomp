@@ -29,7 +29,7 @@ extern void *lbl_805D6E58;
 extern void *lbl_805D6E5C;
 extern void *lbl_805D6E60;
 
-void fn_80346BB8(void) {
+void ws_data_load(void) {
     void *temp_r3;
     void *temp_r3_2;
     void *temp_r3_3;

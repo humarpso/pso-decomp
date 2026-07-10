@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemMag__sub_80110C04(u32 arg0, s32 arg1);
+s32 TItemMag__check_evolution_cond(u32 arg0, s32 arg1);
 u8 TItemProShield__sub_8010B734();
 s32 fn_8010590C();
 s16 fn_80113D90(s32);
@@ -16,7 +16,7 @@ s16 fn_80113DC4(s32);
 s16 fn_80113DE8(s32);
 s16 fn_80113E0C();
 
-s32 TItemMag__sub_80110C04(u32 arg0, s32 arg1) {
+s32 TItemMag__check_evolution_cond(u32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r30;
 

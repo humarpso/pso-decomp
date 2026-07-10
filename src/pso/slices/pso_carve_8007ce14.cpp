@@ -9,14 +9,14 @@ extern "C" {
 s32 fn_8007CB50();
 s32 fn_8007CBC4();
 M2C_UNK fn_8007CC68();
-M2C_UNK fn_8007CFCC(M2C_UNK, s32 *);
+M2C_UNK memcard_check_snapshot(M2C_UNK, s32 *);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 extern s32 lbl_805D4E94;
 
 s32 fn_8007CE14(void) {
     s32 sp8;
 
-    fn_8007CFCC(1, &sp8);
+    memcard_check_snapshot(1, &sp8);
     if (sp8 == 1) {
         if ((s32) lbl_805D4E94 != 0) {
             return -9;

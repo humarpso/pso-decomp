@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TMovie__sub_801444C0(void *arg0);
+s32 TMovie__check_skip_input(void *arg0);
 s32 TMovie__sub_80143EFC(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK fn_8000F91C(M2C_UNK);
@@ -22,7 +22,7 @@ s8 func_801A5E54__Fv();
 extern s8 lbl_8050E208[];
 extern s8 lbl_8050E3B8[];
 
-s32 TMovie__sub_801444C0(void *arg0) {
+s32 TMovie__check_skip_input(void *arg0) {
     void *var_r31;
     s32 var_r30;
     s8 temp_r3;

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubTradeMain__sub_80330D74(void *arg0, s32 arg1);
+void TWindowSubTradeMain__set_labels(void *arg0, s32 arg1);
 s32 fn_8026CBB8(s32);
 M2C_UNK fn_802A5628(u32, s32);
 M2C_UNK fn_80330B84(void *, u32, s32);
 
-void TWindowSubTradeMain__sub_80330D74(void *arg0, s32 arg1) {
+void TWindowSubTradeMain__set_labels(void *arg0, s32 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x30), fn_8026CBB8(arg1 + 0x5C));
     }

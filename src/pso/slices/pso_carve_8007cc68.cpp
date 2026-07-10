@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8007CFCC(M2C_UNK, M2C_UNK);
+s32 memcard_check_snapshot(M2C_UNK, M2C_UNK);
 s32 fn_802432CC(M2C_UNK, M2C_UNK *, s32);
 extern M2C_UNK lbl_80438A08[];
 extern s16 lbl_805D4E8A;
 extern s32 lbl_805D4E90;
 
 s32 fn_8007CC68(void) {
-    if (fn_8007CFCC(1, 0) == 0) {
+    if (memcard_check_snapshot(1, 0) == 0) {
         return 0;
     }
     if (fn_802432CC(1, lbl_80438A08, lbl_805D4E90) != 0) {

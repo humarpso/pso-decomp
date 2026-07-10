@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjSeabedSuisoBrakable__sub_802A6A54(void *arg0);
-M2C_UNK TObjSeabedSuisoBrakable__sub_802A6844();
+M2C_UNK TObjSeabedSuisoBrakable__update_switch_lock();
 M2C_UNK TObjSeabedSuisoBrakable__sub_802A69BC();
 
 void TObjSeabedSuisoBrakable__sub_802A6A54(void *arg0) {
@@ -19,7 +19,7 @@ void TObjSeabedSuisoBrakable__sub_802A6A54(void *arg0) {
         TObjSeabedSuisoBrakable__sub_802A69BC();
         return;
     case 3:
-        TObjSeabedSuisoBrakable__sub_802A6844();
+        TObjSeabedSuisoBrakable__update_switch_lock();
     case 0:
         return;
     }

@@ -17,7 +17,7 @@ s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
 s32 fn_801E2404(M2C_UNK, M2C_UNK);
 extern M2C_UNK lbl_80438A08[];
 
-s32 fn_8007CFCC(s32 arg0, s32 *arg1) {
+s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     s32 temp_r3;
 
     if (TAdPlayerLoadGC__sub_80076BBC() != 0) {
