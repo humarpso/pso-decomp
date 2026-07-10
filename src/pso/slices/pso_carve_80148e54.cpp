@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80011080(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
-M2C_UNK TObjEneRe7Berura__sub_80143098(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK fn_803D8C7C(M2C_UNK, void *);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK fn_803D97F0(M2C_UNK);
@@ -44,7 +44,7 @@ void fn_80148E54(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x394) != 0) {
             fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
-            TObjEneRe7Berura__sub_80143098(arg0);
+            draw__16TObjEneRe7BeruraFPv(arg0);
         }
         fn_803E4BD0();
         fn_803D9B78();

@@ -14,7 +14,7 @@ extern "C" {
 
 void render__15TBoss3VoloptP01Fv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjEneRe7Berura__sub_80143098(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 f32 TObjFish__sub_8001973C();
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
@@ -64,7 +64,7 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
                     M2C_FIELD(lbl_805D4CCC, u8 *, 4) = 0xCC;
                     M2C_FIELD(lbl_805D4CCC, u8 *, 5) = 0xFF;
                 }
-                TObjEneRe7Berura__sub_80143098(arg0);
+                draw__16TObjEneRe7BeruraFPv(arg0);
             }
         }
         fn_803D9B78();

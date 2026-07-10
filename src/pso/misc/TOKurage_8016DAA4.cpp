@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOKurage__sub_8016DAA4(u8 *arg0);
+void init__8TOKurageFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 extern const f32 lbl_805DB7A8;
 extern const f32 lbl_805DB7AC;
 
-void TOKurage__sub_8016DAA4(u8 *arg0) {
+void init__8TOKurageFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0xE4, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0xD8) = (f32) lbl_805DB7A8;

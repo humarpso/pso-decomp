@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjGyaranzoMissile__sub_801314BC(void *arg0, f32 farg0);
+f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0);
 f32 fn_8001978C();
 f32 fn_803D8D00();
 
 extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
 
-f32 TObjGyaranzoMissile__sub_801314BC(void *arg0, f32 farg0) {
+f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TODoorAncient05__sub_8015EE50(void);
+void reset__15TODoorAncient05Fv(void);
 M2C_UNK TOBoss4Rock__sub_80147A80(void*);
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
@@ -15,7 +15,7 @@ extern void *lbl_805D5918;
 extern void *lbl_805D591C;
 extern void *lbl_805D5920;
 
-void TODoorAncient05__sub_8015EE50(void) {
+void reset__15TODoorAncient05Fv(void) {
     if (lbl_805D5920 != NULL) {
         TOBoss4Rock__sub_80147A80(lbl_805D5920);
         lbl_805D5920 = NULL;

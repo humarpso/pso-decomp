@@ -15,7 +15,7 @@ extern M2C_UNK lbl_804C8914[];
 extern u32 lbl_805D5F6C;
 extern s32 lbl_805D5F8C;
 
-s32 fn_801FD9CC(void) {
+s32 pso_system_load_gc(void) {
     s32 var_r31;
 
     var_r31 = 0xFFFF0000;

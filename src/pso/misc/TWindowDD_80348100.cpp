@@ -7,7 +7,7 @@ void TWindowDD__sub_8034815C(int a0, void* a1);
 void TWindowDD__sub_803481B8(int a0, void* a1);
 int TWindowDD__sub_80347FD8(void);
 int TWindowDD__sub_80348048(void);
-int TWindowDD__sub_80348080(void);
+int update__9TWindowDDFPvi(void);
 
     extern const float lbl_805DFB94;
     extern const float lbl_805DFB98;
@@ -25,6 +25,6 @@ void TWindowDD__sub_8034815C(int a0, void* a1) { TWindowDD__sub_80348048(); *(fl
     extern const float lbl_805DFB70;
     extern const float lbl_805DFB74;
     extern const float lbl_805DFB78;
-void TWindowDD__sub_803481B8(int a0, void* a1) { TWindowDD__sub_80348080(); *(float*)((char*)a1 + 0x30) = lbl_805DFB6C; *(float*)((char*)a1 + 0x40) = lbl_805DFB6C; *(float*)((char*)a1 + 0x34) = lbl_805DFB70; *(float*)((char*)a1 + 0x44) = lbl_805DFB70; *(float*)((char*)a1 + 0x38) = lbl_805DFB74; *(float*)((char*)a1 + 0x48) = lbl_805DFB74; *(float*)((char*)a1 + 0x3c) = lbl_805DFB78; *(float*)((char*)a1 + 0x4c) = lbl_805DFB78; }
+void TWindowDD__sub_803481B8(int a0, void* a1) { update__9TWindowDDFPvi(); *(float*)((char*)a1 + 0x30) = lbl_805DFB6C; *(float*)((char*)a1 + 0x40) = lbl_805DFB6C; *(float*)((char*)a1 + 0x34) = lbl_805DFB70; *(float*)((char*)a1 + 0x44) = lbl_805DFB70; *(float*)((char*)a1 + 0x38) = lbl_805DFB74; *(float*)((char*)a1 + 0x48) = lbl_805DFB74; *(float*)((char*)a1 + 0x3c) = lbl_805DFB78; *(float*)((char*)a1 + 0x4c) = lbl_805DFB78; }
 
 }

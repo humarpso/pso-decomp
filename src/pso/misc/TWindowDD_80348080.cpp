@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowDD__sub_80348080(void *arg0, s32 arg1);
+void update__9TWindowDDFPvi(void *arg0, s32 arg1);
 M2C_UNK TWindowDD__sub_80340E20(u32, s32);
 M2C_UNK TWindowDD__sub_80340E50(u32, s32, s32);
 M2C_UNK TWindowDD__sub_80341AF8(s32);
@@ -16,7 +16,7 @@ s32 TWindowDD__sub_8034217C(s32);
 
 extern f32 lbl_805DFB54;
 
-void TWindowDD__sub_80348080(void *arg0, s32 arg1) {
+void update__9TWindowDDFPvi(void *arg0, s32 arg1) {
     TWindowDD__sub_80341AF8(arg1);
     TWindowDD__sub_80341B1C(arg1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {

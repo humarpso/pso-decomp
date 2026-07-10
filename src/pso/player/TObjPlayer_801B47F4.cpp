@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801B47F4(s32 arg0);
+void update_target__10TObjPlayerFi(s32 arg0);
 s32 TObjPlayer__sub_801B472C(s32);
 M2C_UNK fn_801C1F1C(s32);
 s32 fn_801CBD00();
@@ -15,7 +15,7 @@ M2C_UNK fn_801D6230(s32, s32, s32);
 
 u16 obj_getField1c(s32);
 
-void TObjPlayer__sub_801B47F4(s32 arg0) {
+void update_target__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_801CBD00();

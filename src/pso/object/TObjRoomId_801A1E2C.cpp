@@ -15,7 +15,7 @@ int TObjRoomId__sub_801A1E2C(void);
 void fn_801A1FD8(void);
 
 int TObjRoomId__sub_801A1E2C(void) { return 0; }
-void TObjRoomId__sub_801A1E34(void *arg0, s16 arg1) {
+void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
     u32 temp_r3;
 
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) < 0x1000U) {

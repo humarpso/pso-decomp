@@ -13,7 +13,7 @@ M2C_UNK fn_800D8A2C();
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK fn_80143024(void *);
-M2C_UNK TObjEneRe7Berura__sub_80143098(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK fn_801E2F20();
 s32 fn_8022A564(void *);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
@@ -80,7 +80,7 @@ void fn_8008E74C(u8 *arg0) {
                         }
                         if (var_r29 != 0) {
                             if (temp_r3 == 1) {
-                                TObjEneRe7Berura__sub_80143098(arg0);
+                                draw__16TObjEneRe7BeruraFPv(arg0);
                             } else {
                                 fn_80143024(arg0);
                             }
@@ -90,7 +90,7 @@ void fn_8008E74C(u8 *arg0) {
                         var_r30 = 0;
                     }
                 } else if (temp_r3 == 1) {
-                    TObjEneRe7Berura__sub_80143098(arg0);
+                    draw__16TObjEneRe7BeruraFPv(arg0);
                 } else {
                     fn_80143024(arg0);
                 }

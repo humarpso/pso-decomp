@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_8035DEF8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void set_target__19TObjEneEpsilonGuardFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *);
 
 struct GuardBase { char pad[0x18]; };
@@ -27,7 +27,7 @@ struct GuardVObj : GuardBase {
     virtual void m52(); virtual void m53();
 };
 
-void TObjEneEpsilonGuard__sub_8035DEF8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void set_target__19TObjEneEpsilonGuardFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     (void)arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38);
     M2C_FIELD(arg0, s32 *, 0x60) = arg2;

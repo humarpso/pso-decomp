@@ -8,7 +8,7 @@ extern "C" {
 
 void update_state__12TObjNpcEnemyFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjEneRe7Berura__sub_80143098();
+M2C_UNK draw__16TObjEneRe7BeruraFPv();
 M2C_UNK fn_80141F1C();
 M2C_UNK fn_80143118();
 M2C_UNK fn_803E46BC(s32);
@@ -29,7 +29,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
         fn_803E4BD0();
         return;
     case 1:
-        TObjEneRe7Berura__sub_80143098();
+        draw__16TObjEneRe7BeruraFPv();
         return;
     case 2:
         fn_803E4BC4(arg0);

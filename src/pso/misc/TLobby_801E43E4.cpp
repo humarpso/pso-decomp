@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801E43E4(void *arg0, u32 arg1);
+void send_command__6TLobbyFPvUi(void *arg0, u32 arg1);
 M2C_UNK bswap_32__FPUl(s32 *);
 M2C_UNK fn_801E3FA4(void *);
 M2C_UNK send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
@@ -15,7 +15,7 @@ extern u32 lbl_805D53A0;
 extern u32 lbl_805D5580;
 extern s32 lbl_805D5E50;
 
-void TLobby__sub_801E43E4(void *arg0, u32 arg1) {
+void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
     s32 sp8;
 
     sp8 = M2C_FIELD(arg0, s32 *, 4);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe7Berura__sub_80143098(u8 *arg0);
+void draw__16TObjEneRe7BeruraFPv(u8 *arg0);
 M2C_UNK TObjEneRe7Berura__sub_803E4CE0(s32);
 M2C_UNK TPlyPhotonChair__sub_80142770(s32);
 M2C_UNK TPlyPhotonChair__sub_80142774();
@@ -18,7 +18,7 @@ M2C_UNK fn_803E4BD0();
 
 extern s32 lbl_805D7810;
 
-void TObjEneRe7Berura__sub_80143098(u8 *arg0) {
+void draw__16TObjEneRe7BeruraFPv(u8 *arg0) {
     fn_803E4BC4();
     TPlyPhotonChair__sub_80142774();
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {

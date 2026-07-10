@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjEneRe7Berura__sub_80143098(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
@@ -34,7 +34,7 @@ void fn_800210BC(u8 *arg0) {
     TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
     TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x64));
     TOMonitorMachine01__sub_803D8B5C(0, lbl_805D7F24, lbl_805D7F24, lbl_805D7F24);
-    TObjEneRe7Berura__sub_80143098(arg0);
+    draw__16TObjEneRe7BeruraFPv(arg0);
     fn_803D9B78();
     TObjEneRe7Berura__sub_803E4CE0(NULL);
     M2C_FIELD(arg0, s32 *, 0x34) = temp_r31;

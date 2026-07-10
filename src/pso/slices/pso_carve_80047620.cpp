@@ -36,7 +36,7 @@ s32 fn_800D7B1C(void *, void *);
 M2C_UNK fn_800D8A2C();
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
-M2C_UNK TObjEneRe7Berura__sub_80143098(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK fn_801E2F20();
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK fn_803D9B2C();
@@ -63,7 +63,7 @@ void fn_80047620(u8 *arg0) {
         if (fn_80080750() == 1) {
             fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
-            TObjEneRe7Berura__sub_80143098(arg0);
+            draw__16TObjEneRe7BeruraFPv(arg0);
         }
         fn_803D9B78();
         TObjLight__sub_80134098();

@@ -34,7 +34,7 @@ s32 fn_801B7BC0(u32 arg0) {
     }
     return 0;
 }
-s32 TWindowSubItem__sub_801B7BFC(s32 arg0) {
+s32 is_usable__14TWindowSubItemFi(s32 arg0) {
     if ((fn_801BE778() != 0U) || (fn_800822E8(arg0, 0x43001E) == 0) || (obj_testFlags30(arg0, 0x20) != 0) || (fn_800495BC(arg0) != 0)) {
         return 0;
     }

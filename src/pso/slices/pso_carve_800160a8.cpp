@@ -11,7 +11,7 @@ s32 obj_testFlags30(s32, s32);
 M2C_UNK create_font_small_task_default_color(u32, M2C_UNK, M2C_UNK, s32, M2C_UNK *, s16);
 extern M2C_UNK lbl_805D7DAC;
 
-void fn_800160A8(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+void show_tp_font(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     if ((obj_testFlags30(arg0, 0x02000000) == 0) && (fn_80019248(arg0) == 0) && (arg1 != 0U)) {
         create_font_small_task_default_color(arg1, 0xFF00B2FF, 0x14, arg2, &lbl_805D7DAC, arg3);
     }

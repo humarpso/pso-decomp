@@ -34,7 +34,7 @@ struct VObj_8021C8E0 : Base_8021C8E0 {
 
 extern "C" {
 
-void TShopEquipmentSellWindow__sub_8021C8E0(void *arg0);
+void update__24TShopEquipmentSellWindowFPv(void *arg0);
 void TShopEquipmentSellWindow__vt4(void *arg0);
 void TShopEquipmentSellWindow__vt5(void *arg0);
 int TShopWindowBase__sub_802239EC(void *);
@@ -55,7 +55,7 @@ void TShopEquipmentSellWindow__vt4(void *arg0) {
     }
 }
 
-void TShopEquipmentSellWindow__sub_8021C8E0(void *arg0) {
+void update__24TShopEquipmentSellWindowFPv(void *arg0) {
     VObj_8021C8E0 *o = (VObj_8021C8E0 *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m4(0xc, 1);

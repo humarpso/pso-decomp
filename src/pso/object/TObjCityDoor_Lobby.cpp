@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TObjCityDoor_Lobby__sub_80181E90(u8 *arg0, s16 arg1);
+u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1);
 u32 TObjMapCsn__sub_8007A728();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_80140E38(u32, void *);
@@ -14,7 +14,7 @@ M2C_UNK fn_801A25B4(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804B5A00[];
 
-u8 *TObjCityDoor_Lobby__sub_80181E90(u8 *arg0, s16 arg1) {
+u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5A00;
         if (((s32) M2C_FIELD(arg0, s32 *, 0x250) != 0) && (TObjMapCsn__sub_8007A728() != 0U)) {

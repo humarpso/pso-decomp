@@ -14,7 +14,7 @@ struct Fn80040464VObj : Fn80040464Base {
 extern "C" {
 
 s32 fn_80080750();
-M2C_UNK TObjEneRe7Berura__sub_80143098(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
@@ -46,7 +46,7 @@ void fn_80040464(u8 *arg0) {
         if (fn_80080750() == 1) {
             fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
-            TObjEneRe7Berura__sub_80143098(arg0);
+            draw__16TObjEneRe7BeruraFPv(arg0);
         }
         fn_803D9B78();
     }

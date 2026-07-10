@@ -19,7 +19,7 @@ extern const u32 lbl_805D6894;
 extern const u32 lbl_805D6898;
 extern const u32 lbl_805D689C;
 
-void TLobby__sub_802D2F7C(void) {
+void reset__6TLobbyFv(void) {
     if (fn_80246CB8() == 0) {
         lbl_805D688A = 4;
         lbl_805D688B = 0;

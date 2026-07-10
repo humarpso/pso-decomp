@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TShopArmorListWindow__sub_8021AA2C(void *arg0);
+void update__20TShopArmorListWindowFPv(void *arg0);
 void handle_select__20TShopArmorListWindowFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -30,7 +30,7 @@ struct VObj_8021AA2C : Base_8021AA2C {
 
 extern "C" {
 
-void TShopArmorListWindow__sub_8021AA2C(void *arg0) {
+void update__20TShopArmorListWindowFPv(void *arg0) {
     if ((((VObj_8021AA2C *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_8021AA2C *)arg0)->m4(0xB, 1);
         fn_801F8FD4(M2C_FIELD(arg0, s32 *, 0x2C));

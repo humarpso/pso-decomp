@@ -12,7 +12,7 @@ s32 fn_801FBA48(u16);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805DC56C;
 
-void TRaderMapCore__sub_801FB23C(void *arg0) {
+void update_target__13TRaderMapCoreFPv(void *arg0) {
     u32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

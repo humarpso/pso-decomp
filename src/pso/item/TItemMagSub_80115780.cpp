@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMagSub__sub_80115780(u8 *arg0);
+void reset__11TItemMagSubFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 
 extern const f32 lbl_805DABC8;
 
-void TItemMagSub__sub_80115780(u8 *arg0) {
+void reset__11TItemMagSubFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, M2C_FIELD(arg0, s32 *, 0x20) + 0x2FC);
     M2C_FIELD(arg0, s32 *, 0x48) = 0;
     M2C_FIELD(arg0, s32 *, 0x44) = 0;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TWindowSubMag__sub_8027B5B0(void *arg0);
+void *create__13TWindowSubMagFPv(void *arg0);
 M2C_UNK fn_80244D2C(void *);
 M2C_UNK fn_80263AB0(void *, s32);
 M2C_UNK fn_80263AF8(s32, M2C_UNK);
@@ -15,7 +15,7 @@ M2C_UNK fn_8026CBB8(M2C_UNK);
 
 extern M2C_UNK lbl_8044FA00[];
 
-void *TWindowSubMag__sub_8027B5B0(void *arg0) {
+void *create__13TWindowSubMagFPv(void *arg0) {
     void *temp_r31;
     M2C_UNK temp_r3;
 

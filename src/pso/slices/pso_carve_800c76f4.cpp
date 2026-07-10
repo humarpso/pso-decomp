@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80080750();
-M2C_UNK TObjEneRe7Berura__sub_80143098(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
@@ -41,7 +41,7 @@ void fn_800C76F4(u8 *arg0) {
         if (fn_80080750() == 1) {
             fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
-            TObjEneRe7Berura__sub_80143098(arg0);
+            draw__16TObjEneRe7BeruraFPv(arg0);
         }
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800)) {
             some_id_805c6f74 |= 0x400;
