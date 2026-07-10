@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm5Wolf__sub_800B8630(void);
+void release_global_805D5120__14TObjEneBm5WolfFv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 lbl_805D5120;
 
-void TObjEneBm5Wolf__sub_800B8630(void) {
+void release_global_805D5120__14TObjEneBm5WolfFv(void) {
     if ((u32) lbl_805D5120 != 0U) {
         fn_8001FE7C((void*)lbl_805D5120, 1);
         lbl_805D5120 = 0U;

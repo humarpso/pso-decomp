@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1);
-M2C_UNK TWindowDD__sub_803411E8(u32, s32);
+M2C_UNK init_and_set_field50__9TWindowDDFPvPv(u32, s32);
 M2C_UNK TWindowDD__sub_803412A0(u32);
 M2C_UNK TWindowDD__sub_803412F0(u32, s32);
 s32 TWindowDD__sub_80348B70(s32);
@@ -24,7 +24,7 @@ s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1) {
     if ((temp_r30 != 0U) && ((temp_r4 = TWindowDD__sub_80348B70(arg1)) != 0)) {
         TWindowDD__sub_803412F0(temp_r30, temp_r4);
         TWindowDD__sub_803412A0(temp_r30);
-        TWindowDD__sub_803411E8(temp_r30, lbl_805DFB50);
+        init_and_set_field50__9TWindowDDFPvPv(temp_r30, lbl_805DFB50);
         var_r31 = 1;
     }
     return var_r31;

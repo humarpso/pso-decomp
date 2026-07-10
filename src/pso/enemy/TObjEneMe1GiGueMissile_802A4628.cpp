@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1GiGueMissile__sub_802A4628(void *arg0);
+void update_lifetime__22TObjEneMe1GiGueMissileFPv(void *arg0);
 
 M2C_UNK queue_destruction__7TObjectFv();
 
-void TObjEneMe1GiGueMissile__sub_802A4628(void *arg0) {
+void update_lifetime__22TObjEneMe1GiGueMissileFPv(void *arg0) {
     f32 temp_f1;
 
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x24);

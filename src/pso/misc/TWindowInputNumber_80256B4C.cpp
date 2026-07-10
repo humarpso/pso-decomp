@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowInputNumber__sub_80256B4C(void *arg0, s32 arg1);
+s32 is_locked__18TWindowInputNumberFPvi(void *arg0, s32 arg1);
 s32 TWindowChoiceSetting__sub_801A6F38(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern s8 lbl_8050E208[];
 
-s32 TWindowInputNumber__sub_80256B4C(void *arg0, s32 arg1) {
+s32 is_locked__18TWindowInputNumberFPvi(void *arg0, s32 arg1) {
     if (M2C_FIELD(arg0, u16 *, 0x60) & 0x20) {
         return 0;
     }

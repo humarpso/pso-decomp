@@ -7,7 +7,7 @@ void fn_801058E8(void* p);
 int fn_8010590C(void* p);
 int fn_80105934(void* p);
 int fn_8010595C(void* p);
-void TWindowSubStatusDisp__sub_801059B4(void* p);
+void clear_fields__20TWindowSubStatusDispFPv(void* p);
 int fn_801C675C(void*, int);
 
 void fn_801058E8(void* p) { *(u8*)((char*)p + 0x7) |= 0x1; }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TLoadingCur__sub_801A6DE0(void *arg0);
+u8 is_flag_set__11TLoadingCurFPv(void *arg0);
 
 s32 fn_801A6CEC();
 
-u8 TLoadingCur__sub_801A6DE0(void *arg0) {
+u8 is_flag_set__11TLoadingCurFPv(void *arg0) {
     return (u8) ((M2C_FIELD(arg0, s32 *, 0x48) & fn_801A6CEC()) != 0);
 }
 

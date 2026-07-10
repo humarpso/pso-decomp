@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3VoloptMonitor__sub_800423D4(void);
+void release__19TBoss3VoloptMonitorFv(void);
 void fn_803DA16C(void*);
 
 extern u32 lbl_805D4CA4;
 
-void TBoss3VoloptMonitor__sub_800423D4(void) {
+void release__19TBoss3VoloptMonitorFv(void) {
     if ((u32) lbl_805D4CA4 != 0U) {
         fn_803DA16C((void*)lbl_805D4CA4);
         lbl_805D4CA4 = 0U;

@@ -10,7 +10,7 @@ void update__11TCameraCtrlFPv(void *arg0);
 void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void *TCameraCtrl__vt10(void);
 void *TCameraCtrl__sub_8006A03C(u32);
-void *TCameraCtrl__sub_8006C8E4(void *);
+void *init_subobject__11TCameraCtrlFPv(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -19,7 +19,7 @@ void fn_800686BC(void *, int);
 void *TCameraCtrl__vt10(void) {
     void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
-        o = TCameraCtrl__sub_8006C8E4(o);
+        o = init_subobject__11TCameraCtrlFPv(o);
     }
     return o;
 }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss7LaserPtcl__sub_8035A970(void *arg0);
+void update_position__15TBoss7LaserPtclFPv(void *arg0);
 
 extern const f32 lbl_805DE9F0;
 
-void TBoss7LaserPtcl__sub_8035A970(void *arg0) {
+void update_position__15TBoss7LaserPtclFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) * M2C_FIELD(arg0, f32 *, 0x4C));
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805DE9F0 - M2C_FIELD(arg0, f32 *, 0x24));
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x34) * M2C_FIELD(arg0, f32 *, 0x4C));

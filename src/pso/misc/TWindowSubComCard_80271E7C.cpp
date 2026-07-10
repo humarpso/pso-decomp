@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_80271E7C(void *arg0);
+void handle_close_flag__17TWindowSubComCardFPv(void *arg0);
 M2C_UNK TLobby__sub_8007BCF4();
 
-void TWindowSubComCard__sub_80271E7C(void *arg0) {
+void handle_close_flag__17TWindowSubComCardFPv(void *arg0) {
     if (M2C_FIELD(arg0, u8 *, 0x1D) & 2) {
         TLobby__sub_8007BCF4();
         M2C_FIELD(arg0, u8 *, 0x1D) = (u8) (M2C_FIELD(arg0, u8 *, 0x1D) & 0xFFFFFFFD);

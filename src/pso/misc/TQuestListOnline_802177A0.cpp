@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestListOnline__sub_802177A0(void *arg0);
-void TQuestListOnline__sub_802177E4(void *arg0);
-void TQuestListOnline__sub_80217828(void *arg0);
+void invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
+void invoke_callback_34_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
+void invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TQuestListOnline__sub_802177A0(void *arg0) {
+void invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x2C);
@@ -21,7 +21,7 @@ void TQuestListOnline__sub_802177A0(void *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void TQuestListOnline__sub_802177E4(void *arg0) {
+void invoke_callback_34_and_queue_destruction__16TQuestListOnlineFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x34);
@@ -31,7 +31,7 @@ void TQuestListOnline__sub_802177E4(void *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void TQuestListOnline__sub_80217828(void *arg0) {
+void invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);

@@ -102,9 +102,9 @@ struct VObj_800E3B34 : Base_800E3B34 {
 
 extern "C" {
 
-void TObjEneMe3ShinowaMirage__sub_800E3B34(void *arg0);
+void set_flag_0x100__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 
-void TObjEneMe3ShinowaMirage__sub_800E3B34(void *arg0) {
+void set_flag_0x100__23TObjEneMe3ShinowaMirageFPv(void *arg0) {
     struct VObj_800E3B34 *o = (struct VObj_800E3B34 *)arg0;
     M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 0x100);
     o->m92();

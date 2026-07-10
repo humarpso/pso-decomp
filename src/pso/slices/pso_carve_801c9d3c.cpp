@@ -15,7 +15,7 @@ M2C_UNK fn_801B4430(u32);
 M2C_UNK TObjPlayer__sub_801B4630(u32);
 M2C_UNK fn_801D17C0(M2C_UNK *);
 M2C_UNK fn_801D17D4(M2C_UNK *);
-M2C_UNK TFontSmallLobby__sub_801D645C(s32);
+M2C_UNK update_if_ready__15TFontSmallLobbyFPv(s32);
 
 struct Local801C9D3C {
     s16 field0;
@@ -33,7 +33,7 @@ void fn_801C9D3C(u32 arg0) {
     } else {
         fn_801B4430(arg0);
     }
-    TFontSmallLobby__sub_801D645C(arg0 + 0x4AC);
+    update_if_ready__15TFontSmallLobbyFPv(arg0 + 0x4AC);
     if ((arg0 == 0U) || (obj_isState2_324(arg0) == 0)) {
         fn_801D17C0((M2C_UNK *)&sp8);
         sp8.fieldA = obj_getField1c(arg0);

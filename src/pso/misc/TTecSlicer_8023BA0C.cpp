@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__10TTecSlicerFv(u8 *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
-M2C_UNK TTecSlicer__sub_8023B670(void *, s32);
+M2C_UNK destroy_on_collision__10TTecSlicerFi(void *, s32);
 M2C_UNK TTecSlicer__sub_8023B6BC(void *);
 M2C_UNK update__10TTecSlicerFi(void *);
 M2C_UNK __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
@@ -53,7 +53,7 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     }
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x5C);
     M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (temp_r4 + M2C_FIELD(arg0, s32 *, 0x138));
-    TTecSlicer__sub_8023B670(arg0, temp_r4);
+    destroy_on_collision__10TTecSlicerFi(arg0, temp_r4);
     M2C_FIELD(arg0, u32 *, 0x108) = 0U;
     M2C_FIELD(arg0, u32 *, 0x10C) = 0U;
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 void TMovie__sub_80143F38(void *arg0);
 
-M2C_UNK TMovie__sub_80143E90();
+M2C_UNK stop_if_advanced__6TMovieFPv();
 M2C_UNK TMovie__sub_80143ECC();
 
 void TMovie__sub_80143F38(void *arg0) {
@@ -16,7 +16,7 @@ void TMovie__sub_80143F38(void *arg0) {
         TMovie__sub_80143ECC();
         return;
     }
-    TMovie__sub_80143E90();
+    stop_if_advanced__6TMovieFPv();
 }
 
 }

@@ -8,8 +8,8 @@ extern "C" {
 
 s32 TObjPlayer__sub_801BF548();
 s32 TObjPlayer__sub_801BF640();
-int TWindowSubStatusDisp__sub_801059B4(void*);
-void* TObjPlayer__sub_801BF72C(void* p);
+int clear_fields__20TWindowSubStatusDispFPv(void*);
+void* reset_sub_status_disp__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_801BF6B0(void* p);
 void* TObjPlayer__sub_801BF6B8(void* p);
 void TObjPlayer__sub_801BF6C0(void* p, f32 v);

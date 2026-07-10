@@ -13,7 +13,7 @@ void TBoss6PlotFalz__sub_802AAC98(void* p);
 int TBoss6PlotFalz__sub_802AACEC(void);
 
 void TBoss6PlotFalz__sub_802AAC98(void* p) { *(s32*)((char*)p + 0x3c8) = 1; }
-u8 TBoss6PlotFalz__sub_802AACA4(void) {
+u8 is_ending_or_split_screen__14TBoss6PlotFalzFv(void) {
     s32 var_r31;
 
     var_r31 = 0;

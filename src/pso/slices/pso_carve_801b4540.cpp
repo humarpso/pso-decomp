@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK fn_8011E204(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801AF5B0();
+M2C_UNK play_voice_pair__10TObjPlayerFPv();
 
 struct Base_801B4540 { char pad[0x18]; };
 struct VObj_801B4540 : Base_801B4540 {
@@ -30,7 +30,7 @@ struct VObj_801B4540 : Base_801B4540 {
 
 void fn_801B4540(void *arg0) {
     struct VObj_801B4540 *o = (struct VObj_801B4540 *)arg0;
-    TObjPlayer__sub_801AF5B0();
+    play_voice_pair__10TObjPlayerFPv();
     o->m53();
     obj_clearFlags30(arg0, 0xE00);
     fn_8011E204(arg0, 1);

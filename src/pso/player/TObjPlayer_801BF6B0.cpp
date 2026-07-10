@@ -8,8 +8,8 @@ extern "C" {
 
 s32 TObjPlayer__sub_801BF548();
 s32 TObjPlayer__sub_801BF640();
-int TWindowSubStatusDisp__sub_801059B4(void*);
-void* TObjPlayer__sub_801BF72C(void* p);
+int clear_fields__20TWindowSubStatusDispFPv(void*);
+void* reset_sub_status_disp__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_801BF6B0(void* p);
 void* TObjPlayer__sub_801BF6B8(void* p);
 void TObjPlayer__sub_801BF6C0(void* p, f32 v);
@@ -51,7 +51,7 @@ void TObjPlayer__sub_801BF6D4(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 void TObjPlayer__sub_801BF6DC(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 int TObjPlayer__sub_801BF6E4(void* p) { return fn_8013DF3C((char*)p + 0x4); }
 int TObjPlayer__sub_801BF708(void* p) { return fn_8013DF44((char*)p + 0x4); }
-void* TObjPlayer__sub_801BF72C(void* p) { TWindowSubStatusDisp__sub_801059B4(p); *(short*)((char*)p + 0x18) = 0; *(short*)((char*)p + 0x16) = 0; return p; }
+void* reset_sub_status_disp__10TObjPlayerFPv(void* p) { clear_fields__20TWindowSubStatusDispFPv(p); *(short*)((char*)p + 0x18) = 0; *(short*)((char*)p + 0x16) = 0; return p; }
 s32 update_timer__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
 

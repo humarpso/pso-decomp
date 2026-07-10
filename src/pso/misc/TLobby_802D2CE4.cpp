@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_802D2CE4(void);
-void TLobby__sub_802D2D20(void);
+void clear_flag400__6TLobbyFv(void);
+void check_flags_and_proceed__6TLobbyFv(void);
 M2C_UNK TLobby__sub_802D2D64();
 M2C_UNK fn_801DA2A4(s32);
 
 extern s32 lbl_805D5580;
 extern u16 lbl_805D6888;
 
-void TLobby__sub_802D2CE4(void) {
+void clear_flag400__6TLobbyFv(void) {
     if (lbl_805D6888 & 0x400) {
         fn_801DA2A4(lbl_805D5580);
         lbl_805D6888 &= 0xFFFFFBFF;
@@ -25,7 +25,7 @@ extern u32 lbl_805D6894;
 extern u32 lbl_805D6898;
 extern u32 lbl_805D689C;
 
-void TLobby__sub_802D2D20(void) {
+void check_flags_and_proceed__6TLobbyFv(void) {
     if (((u32) lbl_805D6894 == 0U) && ((u32) lbl_805D6898 == 0U) && ((u32) lbl_805D689C == 0U)) {
         TLobby__sub_802D2D64();
     }

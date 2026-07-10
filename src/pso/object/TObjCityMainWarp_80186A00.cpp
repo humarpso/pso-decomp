@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjCityMainWarp__sub_80186A00(void);
+void set_active_bit__16TObjCityMainWarpFv(void);
 s32 TObjCityMainWarp__sub_80186A3C();
 
 extern s32 lbl_805D5B50;
 
-void TObjCityMainWarp__sub_80186A00(void) {
+void set_active_bit__16TObjCityMainWarpFv(void) {
     s32 temp_r3;
 
     temp_r3 = TObjCityMainWarp__sub_80186A3C();

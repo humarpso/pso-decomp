@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_80077878(void);
+void release__17TWindowSubComCardFv(void);
 void __dl__FPv(void*);
 
 extern u32 lbl_805D4E5C;
 
-void TWindowSubComCard__sub_80077878(void) {
+void release__17TWindowSubComCardFv(void) {
     if ((u32) lbl_805D4E5C != 0U) {
         __dl__FPv((void*)lbl_805D4E5C);
         lbl_805D4E5C = 0U;

@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 fn_80011014(s32);
-s32 TObjEneDD__sub_800B9F64();
+s32 get_random_scaled__9TObjEneDDFv();
 f32 fn_803D64C0(s32, f32);
 f32 fn_803D64DC(s32, f32);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
@@ -21,7 +21,7 @@ void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1) {
     f32 temp_f31;
     s32 temp_r31;
 
-    temp_r31 = TObjEneDD__sub_800B9F64();
+    temp_r31 = get_random_scaled__9TObjEneDDFv();
     f32 fv = fn_80011014(arg0);
     temp_f31 = (lbl_805DA0E8 * fv) + lbl_805DA0B8;
     temp_f1 = temp_f31 * fn_803D64C0(temp_r31, fv);

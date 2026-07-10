@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOKeyJungleMain__sub_8029CFB4(void);
+void release_static_resource__15TOKeyJungleMainFv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 lbl_805D65E0;
 
-void TOKeyJungleMain__sub_8029CFB4(void) {
+void release_static_resource__15TOKeyJungleMainFv(void) {
     if ((u32) lbl_805D65E0 != 0U) {
         fn_8001FE7C((void*)lbl_805D65E0, 1);
         lbl_805D65E0 = 0U;

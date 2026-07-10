@@ -21,7 +21,7 @@ void TWindowSubItem__sub_8027AA3C(void* p);
 void TWindowSubItem__sub_8027AA48(void* p, s16 v);
 
 void TWindowSubItem__sub_8027A9E4(void* p) { *(u16*)((char*)p + 0x60) |= 0x10; }
-void TWindowSubItem__sub_8027A9F4(void *arg0) {
+void clear_flag_and_release__14TWindowSubItemFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & 0xFFFFFFFD);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
         fn_8028783C(M2C_FIELD(arg0, s32 *, 0x70), 1);

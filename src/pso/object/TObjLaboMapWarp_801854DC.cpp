@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLaboMapWarp__sub_801854DC(void);
+void release_static_resource__15TObjLaboMapWarpFv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 lbl_805D5B58;
 
-void TObjLaboMapWarp__sub_801854DC(void) {
+void release_static_resource__15TObjLaboMapWarpFv(void) {
     if ((u32) lbl_805D5B58 != 0U) {
         fn_8001FE7C((void*)lbl_805D5B58, 1);
         lbl_805D5B58 = 0U;

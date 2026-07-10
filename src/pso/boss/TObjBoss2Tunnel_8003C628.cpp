@@ -9,7 +9,7 @@ extern "C" {
 void TObjBoss2Tunnel__sub_8003C628(void);
 void TObjBoss2Tunnel__sub_8003C638(void);
 void TObjBoss2Tunnel__sub_8003C648(void);
-void *TObjBoss2Tunnel__sub_8003C64C(void);
+void *create__15TObjBoss2TunnelFv(void);
 void clear_target_flags__15TObjBoss2TunnelFv(void);
 void *TObjBoss2Tunnel__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -30,7 +30,7 @@ void TObjBoss2Tunnel__sub_8003C648(void) {  }
 
 extern void *tl_02;
 
-void *TObjBoss2Tunnel__sub_8003C64C(void) {
+void *create__15TObjBoss2TunnelFv(void) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
         o = TObjBoss2Tunnel__ct(o, tl_02);

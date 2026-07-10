@@ -11,7 +11,7 @@ s32 TBoss6Type1__sub_802B7E6C();
 void TBoss6Type1__sub_802B5DFC(void* p);
 
 void TBoss6Type1__sub_802B5DFC(void* p) { *(s32*)((char*)p + 0x4e0) = 0; *(s32*)((char*)p + 0x4e4) = 0; }
-s32 TBoss6Type1__sub_802B5E0C(void *arg0) {
+s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *arg0) {
     return TBoss6PlotFalz__sub_802AAC74(M2C_FIELD(arg0, s32 *, 0x3F8)) > 0x20;
 }
 

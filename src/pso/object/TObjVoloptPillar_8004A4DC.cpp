@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjVoloptPillar__sub_8004A4DC(void);
+void cache_target_values__16TObjVoloptPillarFv(void);
 
 extern u8 *lbl_805D4C10;
 extern s32 lbl_805D4D38;
@@ -14,7 +14,7 @@ extern s32 lbl_805D4D3C;
 extern s32 lbl_805D4D40;
 extern s32 lbl_805D4D44;
 
-void TObjVoloptPillar__sub_8004A4DC(void) {
+void cache_target_values__16TObjVoloptPillarFv(void) {
     lbl_805D4D38 = M2C_FIELD(M2C_FIELD(lbl_805D4C10, void **, 0x42C), s32 *, 0x178);
     lbl_805D4D40 = M2C_FIELD(M2C_FIELD(lbl_805D4C10, void **, 0x42C), s32 *, 0x17C);
     lbl_805D4D3C = M2C_FIELD(M2C_FIELD(lbl_805D4C10, void **, 0x42C), s32 *, 0x158);

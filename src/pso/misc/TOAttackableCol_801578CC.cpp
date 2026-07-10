@@ -13,7 +13,7 @@ int fn_8020C5E0(void*);
 int queue_destruction__7TObjectFv(void*);
 void render__15TOAttackableColFv(void);
 
-void TOAttackableCol__sub_801578CC(void* p) { fn_8020C5E0(p); queue_destruction__7TObjectFv(p); }
+void release__15TOAttackableColFPv(void* p) { fn_8020C5E0(p); queue_destruction__7TObjectFv(p); }
 void TOAttackableCol__sub_80157900(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;

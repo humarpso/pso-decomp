@@ -8,7 +8,7 @@ extern "C" {
 
 void free_parts__12TBoss3VoloptFv(void);
 M2C_UNK destroy__20TBoss3VoloptHiraisinFv();
-M2C_UNK TBoss3VoloptMonitor__sub_800423D4();
+M2C_UNK release__19TBoss3VoloptMonitorFv();
 M2C_UNK destroy__15TBoss3VoloptP01Fv();
 M2C_UNK destroy__14TObjVoloptCageFv();
 void fn_8001FE7C(void*, int);
@@ -27,7 +27,7 @@ void free_parts__12TBoss3VoloptFv(void) {
     fn_80040788();
     fn_800479D0();
     destroy__20TBoss3VoloptHiraisinFv();
-    TBoss3VoloptMonitor__sub_800423D4();
+    release__19TBoss3VoloptMonitorFv();
 }
 
 }

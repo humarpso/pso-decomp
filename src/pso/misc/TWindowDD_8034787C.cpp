@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowDD__sub_8034787C(s16 arg0);
+s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s16 arg0);
 s32 TWindowDD__sub_80347858();
 
-s32 TWindowDD__sub_8034787C(s16 arg0) {
+s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s16 arg0) {
     if (arg0 == 0x2C8) {
         return 0;
     }

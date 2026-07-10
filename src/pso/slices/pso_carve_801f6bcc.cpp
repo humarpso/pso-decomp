@@ -11,7 +11,7 @@ void *__nw__7TObjectFUl(M2C_UNK);
 extern u32 lbl_805D5F24;
 extern s32 tl_00;
 
-void TQuestVmDownLoadServer__sub_801F6BCC(void) {
+void create__22TQuestVmDownLoadServerFv(void) {
     void *temp_r3;
 
     if ((u32) lbl_805D5F24 == 0U) {

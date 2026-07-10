@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801C0FC8(void* p);
 int TObjPlayer__sub_801C0F10(void* a0 = 0);
-void* TObjPlayer__sub_801C0EC4(void* p, void* a1);
+void* copy__10TObjPlayerFPvPv(void* p, void* a1);
 void* init_pkt_6x2B__10TObjPlayerFPv(void* p);
 s32 bswap_pkt_u16x2_u32__10TObjPlayerFPv();
 s32 TLobby__send_and_handle_60(s32);

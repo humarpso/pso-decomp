@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_801FE338(s32);
-M2C_UNK TWindowSubComCard__sub_802183BC(u32);
+M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(u32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK fn_80266130(u32);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
@@ -42,7 +42,7 @@ void fn_802DE3A4(void *arg0) {
     }
     if (TWindowSubComCard__sub_802A57C8(M2C_FIELD(arg0, u32 *, 0x98)) != 0) {
         fn_80266130(M2C_FIELD(arg0, u32 *, 0x7C));
-        TWindowSubComCard__sub_802183BC(M2C_FIELD(arg0, u32 *, 0x7C));
+        clear_flag_and_release__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x7C));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x98) != 0U) {
             TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x98));
             M2C_FIELD(arg0, u32 *, 0x98) = 0U;
@@ -55,7 +55,7 @@ void fn_802DE3A4(void *arg0) {
         switch (temp_r3) {
         case 1:
             fn_80266130(M2C_FIELD(arg0, u32 *, 0x7C));
-            TWindowSubComCard__sub_802183BC(M2C_FIELD(arg0, u32 *, 0x7C));
+            clear_flag_and_release__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x7C));
             if ((u32) M2C_FIELD(arg0, u32 *, 0x98) != 0U) {
                 TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x98));
                 M2C_FIELD(arg0, u32 *, 0x98) = 0U;

@@ -8,7 +8,7 @@ extern "C" {
 
 void *__dt__6TMovieFv(void *arg0, s16 arg1);
 M2C_UNK close__6TMovieFis(u32, M2C_UNK);
-M2C_UNK TMovie__sub_80144484(void *);
+M2C_UNK render_until_finished__6TMovieFv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK fn_8022776C();
@@ -23,7 +23,7 @@ void *__dt__6TMovieFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = __vt__6TMovie;
-        TMovie__sub_80144484(arg0);
+        render_until_finished__6TMovieFv(arg0);
         render_tick__Fv();
         t = M2C_FIELD(arg0, u32 *, 0x20);
         if (t != 0U) {

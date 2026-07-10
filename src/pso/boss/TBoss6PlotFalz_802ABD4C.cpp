@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802ABD4C(void *arg0);
+void ensure_field384__14TBoss6PlotFalzFPv(void *arg0);
 
 u32 fn_802B16BC();
 
-void TBoss6PlotFalz__sub_802ABD4C(void *arg0) {
+void ensure_field384__14TBoss6PlotFalzFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x384) == 0U) {
         M2C_FIELD(arg0, u32 *, 0x384) = fn_802B16BC();
     }

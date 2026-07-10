@@ -4,20 +4,20 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TPlyPhotonChair__sub_801425E8(void *);
+void update_parts2__15TPlyPhotonChairFPv(void *);
 void TPlyPhotonChair__sub_80142568(void *);
 void fn_8013E2DC(void);
 void fn_803E46BC(void);
-void TPlyPhotonChair__sub_801425AC(void *);
+void update_parts__15TPlyPhotonChairFPv(void *);
 struct VOff_8013B524_arg0 { char pad_0[0x4C]; char f_4C[1]; };
 
 void fn_8013B524(void *arg0) {
     struct VOff_8013B524_arg0 *self = (struct VOff_8013B524_arg0 *)arg0;
-    TPlyPhotonChair__sub_801425E8(self->f_4C);
+    update_parts2__15TPlyPhotonChairFPv(self->f_4C);
     TPlyPhotonChair__sub_80142568(self->f_4C);
     fn_8013E2DC();
     fn_803E46BC();
-    TPlyPhotonChair__sub_801425AC(self->f_4C);
+    update_parts__15TPlyPhotonChairFPv(self->f_4C);
 }
 
 }

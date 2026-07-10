@@ -11,7 +11,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK TWindowSubComCard__sub_8024AB98(s32);
-M2C_UNK TWindowSubComCard__sub_80271E7C(void *);
+M2C_UNK handle_close_flag__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowSubComCard__sub_80271EC0(void *);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 extern void* __vt__17TWindowSubComCard[];
@@ -19,7 +19,7 @@ extern void* __vt__17TWindowSubComCard[];
 void *__dt__17TWindowSubComCardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__17TWindowSubComCard;
-        TWindowSubComCard__sub_80271E7C(arg0);
+        handle_close_flag__17TWindowSubComCardFPv(arg0);
         TWindowSubComCard__sub_80271EC0(arg0);
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0x26) {
             TWindowSubComCard__sub_8024AB98(M2C_FIELD(arg0, s32 *, 0x20));

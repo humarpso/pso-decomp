@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubSymbolChat__sub_802837A8(void);
+s32 compute_total_height__20TWindowSubSymbolChatFv(void);
 s32 TWindowSubSymbolChat__sub_802837DC(void);
 void* TWindowSubSymbolChat__sub_80283800(void* p);
 unsigned char TWindowSubSymbolChat__sub_80283808(void);
@@ -16,7 +16,7 @@ s32 TWindowSubSymbolChat__sub_80077310();
 M2C_UNK TWindowSubSymbolChat__sub_80283850();
 s32 fn_80077334(void);
 
-s32 TWindowSubSymbolChat__sub_802837A8(void) {
+s32 compute_total_height__20TWindowSubSymbolChatFv(void) {
     s32 temp_r31;
 
     s32 temp_r3;

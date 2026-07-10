@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TODoorVS2Door01__sub_80163F68(void *arg0);
+u8 is_open__15TODoorVS2Door01FPv(void *arg0);
 
 s32 fn_801582C4();
 
-u8 TODoorVS2Door01__sub_80163F68(void *arg0) {
+u8 is_open__15TODoorVS2Door01FPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;

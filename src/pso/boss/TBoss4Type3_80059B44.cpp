@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss4Type3__sub_80059B44(void);
+s32 get_random_scaled__11TBoss4Type3Fv(void);
 f32 fn_80011014();
 
 extern f32 lbl_805D8C80;
 
-s32 TBoss4Type3__sub_80059B44(void) {
+s32 get_random_scaled__11TBoss4Type3Fv(void) {
     return (s32) (lbl_805D8C80 * fn_80011014());
 }
 

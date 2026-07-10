@@ -12,7 +12,7 @@ void TObjCityMainWarp__sub_80186634(void) { lbl_805D5B50 = 0; }
 
 s32 TObjCityMainWarp__sub_80186A3C();
 
-void TObjCityMainWarp__sub_80186640(void) {
+void clear_active_bit__16TObjCityMainWarpFv(void) {
     s32 temp_r3;
 
     temp_r3 = TObjCityMainWarp__sub_80186A3C();

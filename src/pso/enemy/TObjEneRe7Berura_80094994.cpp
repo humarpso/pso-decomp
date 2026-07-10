@@ -60,7 +60,7 @@ extern "C" {
 void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK, s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TObjEneRe7Berura__sub_80094EA8(void *);
+M2C_UNK init_fields4B8__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK fn_800A0554(void *);
 M2C_UNK fn_800D8C48(void *);
 
@@ -77,7 +77,7 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
         TObjEneDD__sub_800BBA04(arg0, 3, temp_r5);
         fn_800A0554(arg0 + 0x3D8);
         fn_800D8C48(arg0 + 0x38);
-        TObjEneRe7Berura__sub_80094EA8(arg0);
+        init_fields4B8__16TObjEneRe7BeruraFPv(arg0);
         return;
     case 3:
         if (((V_Sub *) (arg0 + 0x3D8))->m5() != 0) {

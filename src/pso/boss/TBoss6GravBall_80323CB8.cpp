@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
-void TBoss6GravBall__sub_803232DC(void *);
+void init_parts__14TBoss6GravBallFPv(void *);
 void TBoss6GravBall__sub_80323348(void *);
 void __dl__7TObjectFPv(void *);
 void fn_80156990(void *, int);
@@ -15,7 +15,7 @@ extern M2C_UNK __vt__14TBoss6GravBall[];
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss6GravBall;
-        TBoss6GravBall__sub_803232DC(arg0);
+        init_parts__14TBoss6GravBallFPv(arg0);
         TBoss6GravBall__sub_80323348(arg0);
         fn_80156990(arg0, 0);
         if (arg1 > 0) {

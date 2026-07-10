@@ -10,13 +10,13 @@ struct VObj_802235A0 {
 
 extern "C" {
 
-M2C_UNK TMedicalCenterMes__sub_802229F4(void *);
+M2C_UNK close__17TMedicalCenterMesFPv(void *);
 
 void fn_802235A0(void *arg0) {
     VObj_802235A0 *temp_r3;
 
     if (M2C_FIELD(arg0, VObj_802235A0 **, 0x28) != NULL) {
-        TMedicalCenterMes__sub_802229F4(M2C_FIELD(arg0, VObj_802235A0 **, 0x28));
+        close__17TMedicalCenterMesFPv(M2C_FIELD(arg0, VObj_802235A0 **, 0x28));
         temp_r3 = M2C_FIELD(arg0, VObj_802235A0 **, 0x28);
         if (temp_r3 != NULL) {
             temp_r3->m0(1);

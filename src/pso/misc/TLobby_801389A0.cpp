@@ -9,7 +9,7 @@ extern "C" {
 void update_scroll_close__6TLobbyFv(void);
 void handle_short_list_input__6TLobbyFv(void);
 void update_short_list__6TLobbyFv(void);
-M2C_UNK TAdScrollWinGC__sub_803274D0(u32);
+M2C_UNK close__14TAdScrollWinGCFPv(u32);
 M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
@@ -26,7 +26,7 @@ extern u32 lbl_805D55F8;
 void update_scroll_close__6TLobbyFv(void) {
     if ((u32) lbl_805D55F8 != 0U) {
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 0xE) != 0) {
-            TAdScrollWinGC__sub_803274D0(lbl_805D55F8);
+            close__14TAdScrollWinGCFPv(lbl_805D55F8);
             lbl_805D55F8 = 0U;
             destroy_lobby_ui__6TLobbyFv();
             fn_801A66B8();

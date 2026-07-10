@@ -12,7 +12,7 @@ void destroy_owned_object__10TObjPlayerFPv(void* p);
 int fn_801058F8(void*);
 int fn_801AFF50(void*);
 int fn_801AFF80(void*);
-void TObjPlayer__sub_801BCB2C(void* p);
+void update_if_active__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCA0C(void);
 void TObjPlayer__sub_801BCA10(void);
 void TObjPlayer__sub_801BCAB0(void);
@@ -34,6 +34,6 @@ void TObjPlayer__sub_801BCAB4(s32 arg0) {
     }
 }
 void TObjPlayer__sub_801BCB28(void) {  }
-void TObjPlayer__sub_801BCB2C(void* p) { if (fn_801058F8(p) != 0) { fn_801AFF80(p); fn_801AFF50(p); } }
+void update_if_active__10TObjPlayerFPv(void* p) { if (fn_801058F8(p) != 0) { fn_801AFF80(p); fn_801AFF50(p); } }
 
 }

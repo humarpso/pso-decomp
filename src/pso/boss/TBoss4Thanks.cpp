@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss4Thanks__sub_8035C69C(void *arg0);
-void TBoss4Thanks__sub_8035C6BC(void* p);
+void mark_done__12TBoss4ThanksFPv(void* p);
 
 void TBoss4Thanks__sub_8035C69C(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 1) {
@@ -18,6 +18,6 @@ void TBoss4Thanks__sub_8035C69C(void *arg0) {
 
 int TBoss4Thanks__sub_8035C4A4(void*);
 
-void TBoss4Thanks__sub_8035C6BC(void* p) { if (TBoss4Thanks__sub_8035C4A4(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+void mark_done__12TBoss4ThanksFPv(void* p) { if (TBoss4Thanks__sub_8035C4A4(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
 
 }

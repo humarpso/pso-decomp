@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdExNetConfirmGC__sub_80146158(void);
+s32 is_confirmed__17TAdExNetConfirmGCFv(void);
 
 M2C_UNK fn_8042EE4C(s32 *);
 
-s32 TAdExNetConfirmGC__sub_80146158(void) {
+s32 is_confirmed__17TAdExNetConfirmGCFv(void) {
     s32 sp8;
 
     fn_8042EE4C(&sp8);

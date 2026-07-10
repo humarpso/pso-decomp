@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestListOnline__sub_802178A0(void *arg0);
+void invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TQuestListOnline__sub_802178A0(void *arg0) {
+void invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x30);

@@ -19,7 +19,7 @@ void TWindowMakeTeam__sub_80264A90(s8 arg0) {
 void TWindowMakeTeam__sub_80264AB8(s8 arg0) {
     TWindowSubStatusDisp__sub_80077760(arg0 + 0x110);
 }
-u8 TWindowMakeTeam__sub_80264AE0(void *arg0) {
+u8 is_enabled__15TWindowMakeTeamFPv(void *arg0) {
     if (fn_8013AD64() == 1) {
         return 0U;
     }

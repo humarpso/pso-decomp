@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneBm9Mericarol__sub_802D09AC(void);
-void TObjEneBm9Mericarol__sub_802D09B0(void *arg0);
+void set_state_a__19TObjEneBm9MericarolFPv(void *arg0);
 void TObjEneBm9Mericarol__sub_802D09F4(void *arg0);
 void TObjEneBm9Mericarol__sub_802D0A2C(void);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 s32 fn_800BB780(void);
 
 void TObjEneBm9Mericarol__sub_802D09AC(void) {  }
-void TObjEneBm9Mericarol__sub_802D09B0(void *arg0) {
+void set_state_a__19TObjEneBm9MericarolFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xA) {
         if (M2C_FIELD(arg0, s32 *, 0x438) & 0x20) {
             fn_800BB780();

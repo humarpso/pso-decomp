@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMovie__sub_80144484(void);
+void render_until_finished__6TMovieFv(void);
 
 s32 fn_800F8FB8();
 M2C_UNK render_tick__Fv();
 s32 fn_8037AAD4();
 
-void TMovie__sub_80144484(void) {
+void render_until_finished__6TMovieFv(void) {
 loop_1:
     if ((fn_8037AAD4() == 0) && (fn_800F8FB8() == 0)) {
         render_tick__Fv();

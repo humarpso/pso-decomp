@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrl__sub_8024C530(void);
+void shutdown__11TWindowCtrlFv(void);
 M2C_UNK fn_8024E3CC();
 M2C_UNK fn_8026AC50();
 void queue_destruction__7TObjectFv(void*);
 
 extern u32 lbl_805D63F8;
 
-void TWindowCtrl__sub_8024C530(void) {
+void shutdown__11TWindowCtrlFv(void) {
     if ((u32) lbl_805D63F8 != 0U) {
         queue_destruction__7TObjectFv((void*)lbl_805D63F8);
         lbl_805D63F8 = 0U;

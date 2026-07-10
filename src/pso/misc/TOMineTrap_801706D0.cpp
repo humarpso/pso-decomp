@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOMineTrap__sub_801706D0(s32 arg0);
+void detonate_if_triggered__10TOMineTrapFi(s32 arg0);
 M2C_UNK fn_800822D4(f32, f32);
 u32 fn_80087350(s32, M2C_UNK);
 
 extern f32 lbl_805DB864;
 
-void TOMineTrap__sub_801706D0(s32 arg0) {
+void detonate_if_triggered__10TOMineTrapFi(s32 arg0) {
     if (fn_80087350(arg0 + 0x2FC, 0x45) != 0U) {
         fn_800822D4(lbl_805DB864, lbl_805DB864);
     }

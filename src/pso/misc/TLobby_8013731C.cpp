@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8013731C(void);
+void send_position_update__6TLobbyFv(void);
 M2C_UNK fn_801DB684(s32, s32, s32);
 s32 fn_8020102C();
 s32 fn_80201058();
 
 extern s32 lbl_805D5580;
 
-void TLobby__sub_8013731C(void) {
+void send_position_update__6TLobbyFv(void) {
     s32 temp_r31;
     s32 temp_r4;
 

@@ -22,7 +22,7 @@ s32 TObjPlayer__sub_801D2DAC(void* p) { return *(s32*)((char*)p + 0x1c); }
 int TObjPlayer__sub_801D2DB4(void) { return 0; }
 int TObjPlayer__sub_801D2DDC(void) { return 0; }
 int TObjPlayer__sub_801D2E20(void) { return 0; }
-void TObjPlayer__sub_801D2E6C(void *arg0) {
+void advance_and_clamp_state__10TObjPlayerFPv(void *arg0) {
     if ((M2C_FIELD(arg0, s16 *, 0x10) = M2C_FIELD(arg0, s16 *, 0x10) + 1) > 2) {
         fn_801D3424(arg0, 2);
     }

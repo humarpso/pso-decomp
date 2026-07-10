@@ -109,7 +109,7 @@ void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800EF95C(void *, f32);
-s32 TObjEneRe4Sorcerer__sub_800EFAD4(f32, f32);
+s32 try_attack__18TObjEneRe4SorcererFiff(f32, f32);
 M2C_UNK fn_800B98C0(void *);
 
 extern const f32 lbl_805DA7C0;
@@ -126,7 +126,7 @@ void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
         fn_800B98C0(arg0);
         return;
     case 3:
-        if (TObjEneRe4Sorcerer__sub_800EFAD4(lbl_805DA7C0, lbl_805DA7C0) != 0) {
+        if (try_attack__18TObjEneRe4SorcererFiff(lbl_805DA7C0, lbl_805DA7C0) != 0) {
             if (M2C_FIELD(arg0, s32 *, 0x3EC) & 1) {
                 TObjEneRe4Sorcerer__sub_800EF95C(arg0, lbl_805DA7C4);
             } else {

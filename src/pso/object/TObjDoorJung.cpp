@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjDoorJung__sub_8018F610(void *arg0);
+void clamp_state__12TObjDoorJungFPv(void *arg0);
 
-void TObjDoorJung__sub_8018F610(void *arg0) {
+void clamp_state__12TObjDoorJungFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xD4) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) < 0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = 0;

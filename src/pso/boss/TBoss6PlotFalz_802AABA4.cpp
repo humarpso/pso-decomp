@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss6PlotFalz__sub_802AABA4(void);
+s32 is_phase_reached__14TBoss6PlotFalzFv(void);
 s32 fn_802ACCB8(void*);
 
 extern u32 lbl_805D66EC;
 
-s32 TBoss6PlotFalz__sub_802AABA4(void) {
+s32 is_phase_reached__14TBoss6PlotFalzFv(void) {
     u32 p = lbl_805D66EC;
     if (!p) {
         return 0;

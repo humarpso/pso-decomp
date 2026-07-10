@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowOptionCtrl__sub_8026B308(void *arg0, s16 arg1, s8 arg2);
 void apply_selection_change__17TWindowOptionCtrlFPv(void *arg0);
-void TWindowOptionCtrl__sub_8026B390(void *arg0);
+void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0);
 void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 void *fn_8001ED80();
@@ -44,7 +44,7 @@ void apply_selection_change__17TWindowOptionCtrlFPv(void *arg0) {
     }
 }
 
-void TWindowOptionCtrl__sub_8026B390(void *arg0) {
+void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0) {
     s16 temp_r3;
 
     temp_r3 = fn_80226328();

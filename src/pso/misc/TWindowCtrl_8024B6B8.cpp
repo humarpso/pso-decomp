@@ -3,8 +3,8 @@
 extern "C" {
 
 void init_all__11TWindowCtrlFPvPv(void* p, void* a1);
-int TWindowCtrl__sub_8024B650(void*, void*, void*);
+int set_window_flags__11TWindowCtrlFPvii(void*, void*, void*);
 
-void init_all__11TWindowCtrlFPvPv(void* p, void* a1) { { int i; for (i = 0; i < 12; i++) { TWindowCtrl__sub_8024B650((void*)i, p, a1); } } }
+void init_all__11TWindowCtrlFPvPv(void* p, void* a1) { { int i; for (i = 0; i < 12; i++) { set_window_flags__11TWindowCtrlFPvii((void*)i, p, a1); } } }
 
 }

@@ -20,7 +20,7 @@ int TObjEneMe1Gee__vt114(void);
 void TObjEneMe1Gee__sub_800CB4F0(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x8; }
 void TObjEneMe1Gee__sub_800CB500(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x4; }
 void TObjEneMe1Gee__sub_800CB510(void* p) { *(u32*)((char*)p + 0x3c8) |= 0x2; }
-void TObjEneMe1Gee__sub_800CB520(void *arg0, s32 arg1, s32 arg2) {
+void set_state_flag__13TObjEneMe1GeeFPvii(void *arg0, s32 arg1, s32 arg2) {
     fn_800B98D8();
     M2C_FIELD(arg0, s32 *, 0x404) = arg2;
     M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 1);

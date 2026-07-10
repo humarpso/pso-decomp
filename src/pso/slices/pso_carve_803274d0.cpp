@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TAdScrollWinGC__sub_80327504();
+M2C_UNK close_window__14TAdScrollWinGCFPv();
 
-void TAdScrollWinGC__sub_803274D0(void *arg0) {
-    TAdScrollWinGC__sub_80327504();
+void close__14TAdScrollWinGCFPv(void *arg0) {
+    close_window__14TAdScrollWinGCFPv();
     M2C_FIELD(arg0, s32 *, 0x4C) = 1;
 }
 

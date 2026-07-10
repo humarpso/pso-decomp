@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemTimer__sub_8011D564(void *arg0);
+void invoke_callback__10TItemTimerFPv(void *arg0);
 
-void TItemTimer__sub_8011D564(void *arg0) {
+void invoke_callback__10TItemTimerFPv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 4);

@@ -19,7 +19,7 @@ int TObjEneMe1Gee__vt107(void);
 int TObjEneMe1Gee__vt114(void);
 
 int TObjEneMe1Gee__sub_800CB628(void* p) { return (*(u32*)((char*)p + 0x3c8) >> 15) & 0x1; }
-void TObjEneMe1Gee__sub_800CB634(void *arg0) {
+void update_photon_target__13TObjEneMe1GeeFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 3) {
         M2C_FIELD(arg0, s32 *, 0x3C0) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x48C));
         TObjEneMe1Gee__sub_800CB560((void*)(M2C_FIELD(arg0, s32 *, 0x3C0)));

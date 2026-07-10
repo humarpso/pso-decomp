@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjCamera__sub_8017FC40(void);
+void release_static_resource__10TObjCameraFv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 lbl_805D5B18;
 
-void TObjCamera__sub_8017FC40(void) {
+void release_static_resource__10TObjCameraFv(void) {
     if ((u32) lbl_805D5B18 != 0U) {
         fn_8001FE7C((void*)lbl_805D5B18, 1);
         lbl_805D5B18 = 0U;

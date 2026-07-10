@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TPlyPhotonChair__sub_8035B580(void *arg0);
+void sync_field10_from_child__15TPlyPhotonChairFPv(void *arg0);
 
 extern const f64 lbl_80479800;
 
-void TPlyPhotonChair__sub_8035B580(void *arg0) {
+void sync_field10_from_child__15TPlyPhotonChairFPv(void *arg0) {
     void *temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, void **, 8);

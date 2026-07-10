@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TShopEquipmentSellWindow__sub_8021CC00(void *arg0);
+void close__24TShopEquipmentSellWindowFPv(void *arg0);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
 M2C_UNK fn_801F8FD4(void *);
 
-void TShopEquipmentSellWindow__sub_8021CC00(void *arg0) {
+void close__24TShopEquipmentSellWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38C) != 0U) {
         fn_801F8FD4(M2C_FIELD(arg0, void **, 0x38C));
     }

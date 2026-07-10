@@ -18,7 +18,7 @@ M2C_UNK init__13TQuestColCtrlFv();
 M2C_UNK fn_80198D98();
 M2C_UNK create__13TRaderMapCoreFv();
 s32 TOKeyMachine01__sub_802034A8();
-M2C_UNK TScene__sub_802065B4();
+M2C_UNK create__6TSceneFv();
 M2C_UNK create_instance__10TSceneSoraFv();
 s32 fn_80207DD4();
 M2C_UNK fn_80208BD8();
@@ -62,7 +62,7 @@ void fn_8007B858(void) {
         }
     }
     fn_80104C40();
-    TScene__sub_802065B4();
+    create__6TSceneFv();
     create_instance__10TSceneSoraFv();
     fn_8020D918();
     fn_80208BD8();

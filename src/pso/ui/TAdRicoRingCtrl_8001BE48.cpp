@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdRicoRingCtrl__sub_8001BE48(void);
+void release_global_805D4A00__15TAdRicoRingCtrlFv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 lbl_805D4A00;
 
-void TAdRicoRingCtrl__sub_8001BE48(void) {
+void release_global_805D4A00__15TAdRicoRingCtrlFv(void) {
     if ((u32) lbl_805D4A00 != 0U) {
         fn_8001FE7C((void*)lbl_805D4A00, 1);
         lbl_805D4A00 = 0U;

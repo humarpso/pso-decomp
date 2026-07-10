@@ -11,7 +11,7 @@ struct VObj_8001C8B8 : Base_8001C8B8 {
 extern "C" {
 
 void cleanup_scene__9TLoadCtrlFv(void);
-M2C_UNK TCameraCtrl__sub_800692D0();
+M2C_UNK create__11TCameraCtrlFv();
 M2C_UNK TCameraCtrl__sub_80069318();
 M2C_UNK TCameraCtrl__sub_800693F4();
 M2C_UNK reset__11TCameraCtrlFv();
@@ -59,7 +59,7 @@ void cleanup_scene__9TLoadCtrlFv(void) {
     }
     TCameraCtrl__sub_8006A35C();
     TCameraCtrl__sub_800693F4();
-    TCameraCtrl__sub_800692D0();
+    create__11TCameraCtrlFv();
 }
 
 }

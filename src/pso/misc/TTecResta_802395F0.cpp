@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecResta__sub_802395F0(void *arg0);
+void tick_lifetime__9TTecRestaFPv(void *arg0);
 void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK queue_destruction__7TObjectFv();
 
-void TTecResta__sub_802395F0(void *arg0) {
+void tick_lifetime__9TTecRestaFPv(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x2C);

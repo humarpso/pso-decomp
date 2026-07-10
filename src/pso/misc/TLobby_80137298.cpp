@@ -8,7 +8,7 @@ extern "C" {
 
 void handle_state__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__sub_801383E4(M2C_UNK);
-M2C_UNK TLobby__sub_80138410(M2C_UNK);
+M2C_UNK reset_state__6TLobbyFv(M2C_UNK);
 s32 fn_80146740();
 M2C_UNK fn_801DB474(s32);
 M2C_UNK fn_80200B28();
@@ -34,7 +34,7 @@ void handle_state__6TLobbyFi(s32 arg0) {
             return;
         }
     } else {
-        TLobby__sub_80138410(0x20);
+        reset_state__6TLobbyFv(0x20);
         fn_80200B28();
         fn_80200C00();
     }

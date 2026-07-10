@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOAirconCave01__sub_80156F64(void);
+void release_static_resource__14TOAirconCave01Fv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 lbl_805D5880;
 
-void TOAirconCave01__sub_80156F64(void) {
+void release_static_resource__14TOAirconCave01Fv(void) {
     if ((u32) lbl_805D5880 != 0U) {
         fn_8001FE7C((void*)lbl_805D5880, 1);
         lbl_805D5880 = 0U;

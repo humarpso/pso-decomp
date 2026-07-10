@@ -9,7 +9,7 @@ extern "C" {
 u32 fn_802445EC();
 extern void *lbl_805D63F8;
 
-void TWindowCtrl__sub_8024A430(void) {
+void ensure_initialized__11TWindowCtrlFv(void) {
     if (((void *) lbl_805D63F8 != NULL) && ((u32) M2C_FIELD(lbl_805D63F8, u32 *, 0x34) == 0U)) {
         M2C_FIELD(lbl_805D63F8, u32 *, 0x34) = fn_802445EC();
     }
@@ -18,7 +18,7 @@ void TWindowCtrl__sub_8024A430(void) {
 u32 create__12TWindowTimerFv();
 extern void *lbl_805D63F8;
 
-void TWindowCtrl__sub_8024A470(void) {
+void create_timer__11TWindowCtrlFv(void) {
     if (((void *) lbl_805D63F8 != NULL) && ((u32) M2C_FIELD(lbl_805D63F8, u32 *, 0x30) == 0U)) {
         M2C_FIELD(lbl_805D63F8, u32 *, 0x30) = create__12TWindowTimerFv();
     }

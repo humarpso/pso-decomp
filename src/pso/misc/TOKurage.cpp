@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOKurage__sub_8016D9F0(void *arg0);
+void update_state__8TOKurageFPv(void *arg0);
 
 s32 fn_80158360(f32);
 
-void TOKurage__sub_8016D9F0(void *arg0) {
+void update_state__8TOKurageFPv(void *arg0) {
     f32 temp_f0;
 
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);

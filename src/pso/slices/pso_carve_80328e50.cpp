@@ -11,7 +11,7 @@ M2C_UNK TAdDialingGC__ct(void *, s32);
 extern s32 tl_window;
 extern u32 lbl_805D6C78;
 
-void TAdDialingGC__sub_80328E50(void) {
+void create__12TAdDialingGCFv(void) {
     void *temp_r3;
 
     if ((u32) lbl_805D6C78 == 0U) {

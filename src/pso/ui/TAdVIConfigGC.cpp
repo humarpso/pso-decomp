@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdVIConfigGC__sub_80307F98(void *arg0);
-void TAdVIConfigGC__sub_80307FAC(void);
+void enable_progressive_mode__13TAdVIConfigGCFv(void);
 int fn_8037BC54(void);
 int fn_8037C11C(void*);
 int fn_8037C8B8(void);
@@ -22,6 +22,6 @@ void TAdVIConfigGC__sub_80307F98(void *arg0) {
     int OSSetProgressiveMode(void*);
     extern unsigned char lbl_804F4F98[];
     extern int lbl_805D7734;
-void TAdVIConfigGC__sub_80307FAC(void) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)lbl_804F4F98; fn_8037C11C(lbl_804F4F98); fn_8037C8B8(); fn_8037BC54(); fn_8037BC54(); }
+void enable_progressive_mode__13TAdVIConfigGCFv(void) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)lbl_804F4F98; fn_8037C11C(lbl_804F4F98); fn_8037C8B8(); fn_8037BC54(); fn_8037BC54(); }
 
 }

@@ -10,13 +10,13 @@ void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
 
 extern void *tl_00;
-extern M2C_UNK TPlayerBattleCtrl4P__sub_80311808[];
+extern M2C_UNK reset_random_enemies_mode__19TPlayerBattleCtrl4PFv[];
 
 void TPlayerBattleCtrl4P__vt27(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, TPlayerBattleCtrl4P__sub_80311808);
+        init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, reset_random_enemies_mode__19TPlayerBattleCtrl4PFv);
     }
     queue_destruction__7TObjectFv(arg0);
 }

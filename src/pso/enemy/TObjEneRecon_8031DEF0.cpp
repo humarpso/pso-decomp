@@ -12,7 +12,7 @@ void TObjEneRecon__vt60(void* p);
 void TObjEneRecon__vt59(void);
 void TObjEneRecon__vt26(void);
 
-void TObjEneRecon__sub_8031DEF0(void *arg0) {
+void advance_field398__12TObjEneReconFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x398) + M2C_FIELD(arg0, f32 *, 0x464));
 }

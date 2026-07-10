@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjEneRe7Berura__sub_80094EE0();
 
-void TObjEneRe7Berura__sub_80094EA8(void *arg0) {
+void init_fields4B8__16TObjEneRe7BeruraFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4B8) = TObjEneRe7Berura__sub_80094EE0();
     M2C_FIELD(arg0, s32 *, 0x4BC) = 0;
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TItemDrop__sub_8010619C(void *, void *);
+M2C_UNK set_drop_index__9TItemDropFPvPv(void *, void *);
 extern void *item_mgr;
 
 typedef struct Thing_ { u8 a; u8 b; } Thing;
@@ -15,7 +15,7 @@ void fn_8011C1E8(void *arg0) {
     Thing *p = (Thing *) arg0;
 
     if (p != 0 && item_mgr != 0 && p->a == 1 && p->b == 1) {
-        TItemDrop__sub_8010619C(item_mgr, p);
+        set_drop_index__9TItemDropFPvPv(item_mgr, p);
     }
 }
 

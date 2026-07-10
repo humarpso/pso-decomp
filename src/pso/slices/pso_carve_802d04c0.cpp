@@ -52,7 +52,7 @@ M2C_UNK fn_800B98C0(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK, s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK fn_80143504();
-s32 TObjEneBm9Mericarol__sub_802D0900();
+s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv();
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 extern const f32 lbl_805DE73C;
 
@@ -70,7 +70,7 @@ void fn_802D04C0(void *arg0, s32 arg1) {
         fn_800B98C0(arg0);
         return;
     case 3:
-        if ((TObjEneBm9Mericarol__sub_802D0900() == 0) && (TObjEneEpsilon__sub_800B96D4(arg0, lbl_805DE73C) != 0)) {
+        if ((try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv() == 0) && (TObjEneEpsilon__sub_800B96D4(arg0, lbl_805DE73C) != 0)) {
             TObjEneDD__sub_800BBA18(arg0, 3);
         }
     case 5:

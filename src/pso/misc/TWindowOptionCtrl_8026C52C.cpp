@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TWindowOptionCtrl__ct(void *arg0);
-void TWindowOptionCtrl__sub_8026B390(void *);
+void init_selection_indices__17TWindowOptionCtrlFPv(void *);
 void *__ct__15TAdPlayerLoadGCFv(void *, void *, int);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
@@ -32,7 +32,7 @@ void *TWindowOptionCtrl__ct(void *arg0) {
         o = __ct__15TAdPlayerLoadGCFv(o, arg0, 2);
     }
     M2C_FIELD(arg0, void **, 0x4C) = o;
-    TWindowOptionCtrl__sub_8026B390(arg0);
+    init_selection_indices__17TWindowOptionCtrlFPv(arg0);
     M2C_FIELD(arg0, u32 *, 0x24) = 4;
     M2C_FIELD(arg0, u8 *, 0x1D) = 0;
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;

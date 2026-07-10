@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801C0FC8(void* p);
 int TObjPlayer__sub_801C0F10(void* a0 = 0);
-void* TObjPlayer__sub_801C0EC4(void* p, void* a1);
+void* copy__10TObjPlayerFPvPv(void* p, void* a1);
 void* init_pkt_6x2B__10TObjPlayerFPv(void* p);
 s32 bswap_pkt_u16x2_u32__10TObjPlayerFPv();
 s32 TLobby__send_and_handle_60(s32);
@@ -22,7 +22,7 @@ void bswap_cmd_u32__10TObjPlayerFi(s32 arg0) {
     fn_8001960C();
     bswap_32__FPUl(arg0 + 4);
 }
-void *TObjPlayer__sub_801C0E04(void *arg0, void *arg1) {
+void *copy_field_4__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228();
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
     return arg0;

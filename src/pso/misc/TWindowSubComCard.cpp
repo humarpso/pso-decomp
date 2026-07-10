@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_802183BC(void *arg0);
+void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0);
 s32 fn_802183B4(void* p);
 void fn_802183F8(void* p, void* a1);
 void fn_80218430(void);
@@ -16,7 +16,7 @@ s32 fn_800FA8C4();
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 
 s32 fn_802183B4(void* p) { return *(s32*)((char*)p + 0x68); }
-void TWindowSubComCard__sub_802183BC(void *arg0) {
+void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0) {
     u32 temp;
     M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) & 0xFFFFFFFD);
     temp = (u32) M2C_FIELD(arg0, u32 *, 0x88);

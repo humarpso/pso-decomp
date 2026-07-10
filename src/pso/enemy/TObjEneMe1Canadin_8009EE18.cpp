@@ -13,7 +13,7 @@ void TObjEneMe1Canadin__sub_8009EE84(void);
 
 void TObjEneMe1Canadin__sub_8009EE18(void) {  }
 void TObjEneMe1Canadin__sub_8009EE1C(void* p) { if (*(short*)((char*)p + 0x326) != 12) { TObjEneDD__sub_800BBA18(p, (void*)12); } }
-void TObjEneMe1Canadin__sub_8009EE4C(void *arg0) {
+void set_mode0xD_unless_0xBor0xD__17TObjEneMe1CanadinFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

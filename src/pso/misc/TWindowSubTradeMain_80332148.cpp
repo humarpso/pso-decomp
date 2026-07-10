@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1);
-M2C_UNK TLobby__sub_802D2D20();
+M2C_UNK check_flags_and_proceed__6TLobbyFv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindowCtrl__sub_8024ADF0(s32);
 M2C_UNK TWindowSubComCard__sub_8024AB98(s32);
@@ -26,7 +26,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__19TWindowSubTradeMain;
         fn_802D29E8(arg0);
-        TLobby__sub_802D2D20();
+        check_flags_and_proceed__6TLobbyFv();
         if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x28)) != 0U) {
             fn_801BA458();
         }

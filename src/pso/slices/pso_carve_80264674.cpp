@@ -17,7 +17,7 @@ int TWindowMainMenu__sub_802646E4(void* a0 = 0, void* a1 = 0);
 void fn_802644D4(void* p);
 void fn_80264594(void* p, void* a1);
 void fn_802645E4(void* p, void* a1);
-void TWindowMainMenu__sub_80264634(void* p);
+void close__15TWindowMainMenuFPv(void* p);
 void fn_80264514(void* p);
 int TWindowSubTradeMain__sub_80244A4C(void*);
 

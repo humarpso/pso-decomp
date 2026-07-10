@@ -22,7 +22,7 @@ int obj_clearFlags30(void*, void*);
 int TObjPlayer__sub_801AF694(void* p);
 int fn_801C543C(void*);
 
-void TObjPlayer__sub_801AF5B0(void *arg0) {
+void play_voice_pair__10TObjPlayerFPv(void *arg0) {
     fn_800113E4(arg0, M2C_FIELD(arg0, s16 *, 0x2B8));
     fn_80102C78(arg0, M2C_FIELD(arg0, s16 *, 0x2BA));
 }

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjWarpLobby__sub_801A0B08(void);
+void release_static__13TObjWarpLobbyFv(void);
 M2C_UNK fn_8001FE7C(s32, M2C_UNK);
 
 extern s32 lbl_805D5CC8;
 
-void TObjWarpLobby__sub_801A0B08(void) {
+void release_static__13TObjWarpLobbyFv(void) {
     fn_8001FE7C(lbl_805D5CC8, 1);
     lbl_805D5CC8 = 0;
 }
