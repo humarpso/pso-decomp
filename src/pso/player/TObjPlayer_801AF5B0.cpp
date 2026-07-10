@@ -27,7 +27,7 @@ void TObjPlayer__sub_801AF5B0(void *arg0) {
     fn_80102C78(arg0, M2C_FIELD(arg0, s16 *, 0x2BA));
 }
 void TObjPlayer__vt62(void* p) { obj_clearFlags30(p, (void*)2048); fn_801B42AC(p); }
-u32 TObjPlayer__sub_801AF624(void *arg0, s32 arg1) {
+u32 get_or_create_lobby_font__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     u32 temp;
 
     if (TFontSmallLobby__sub_801AFEE0() == 0) {

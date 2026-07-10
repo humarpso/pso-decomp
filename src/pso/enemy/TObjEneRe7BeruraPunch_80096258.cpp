@@ -8,7 +8,7 @@ extern "C" {
 
 void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
-M2C_UNK TObjEneRe7BeruraPunch__sub_800963B0(void *);
+M2C_UNK reset__21TObjEneRe7BeruraPunchFPv(void *);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 f32 fn_803D64C0(s32);
@@ -33,7 +33,7 @@ void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805D9794;
     M2C_FIELD(arg0, f32 *, 0xC4) = fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805D97B4;
-    TObjEneRe7BeruraPunch__sub_800963B0(arg0);
+    reset__21TObjEneRe7BeruraPunchFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0xB4) = 1;
 }
 

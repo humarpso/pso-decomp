@@ -10,7 +10,7 @@ s32 fn_801103F4(s16);
 s32 TObjPlayer__sub_8001972C();
 void TItemEquipBase__sub_8010B620(void);
 
-void TItemEquipBase__sub_8010B530(void *arg0) {
+void release__14TItemEquipBaseFPv(void *arg0) {
     s16 temp = M2C_FIELD(arg0, s16 *, 0x172);
     if (temp != -1) {
         fn_801103F4(temp);

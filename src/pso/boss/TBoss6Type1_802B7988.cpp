@@ -8,7 +8,7 @@ extern "C" {
 
 void TBoss6Type1__sub_802B7988(void *arg0);
 
-M2C_UNK TBoss6Type1__sub_802B78BC(void *);
+M2C_UNK enable_parts__11TBoss6Type1FPv(void *);
 M2C_UNK TBoss6Type1__sub_802B7918(void *);
 M2C_UNK TBoss6Type1__sub_802B7944();
 
@@ -18,7 +18,7 @@ void TBoss6Type1__sub_802B7988(void *arg0) {
         TBoss6Type1__sub_802B7918(arg0);
     }
     if (M2C_FIELD(arg0, s32 *, 0x418) & 2) {
-        TBoss6Type1__sub_802B78BC(arg0);
+        enable_parts__11TBoss6Type1FPv(arg0);
     }
 }
 

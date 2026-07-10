@@ -11,7 +11,7 @@ s32 TWindowSubComCard__sub_8007341C(s32);
 s32 TWindowSubComCard__sub_80073DB8(s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowSubComCard__sub_80265BF8(s32);
-M2C_UNK TWindowOptionCtrl__sub_80266160(s32);
+M2C_UNK open__17TWindowOptionCtrlFPv(s32);
 M2C_UNK fn_802C561C(s32);
 M2C_UNK fn_802C5688(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
@@ -64,7 +64,7 @@ void fn_802DE50C(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 0xA;
             return;
         case 2:
-            TWindowOptionCtrl__sub_80266160(M2C_FIELD(arg0, s32 *, 0x7C));
+            open__17TWindowOptionCtrlFPv(M2C_FIELD(arg0, s32 *, 0x7C));
             M2C_FIELD(arg0, s32 *, 0x98) = fn_802DBCE8(arg0);
             M2C_FIELD(arg0, s32 *, 0x20) = 6;
             return;

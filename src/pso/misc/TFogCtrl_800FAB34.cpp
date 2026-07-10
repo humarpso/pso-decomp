@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TFogCtrl__sub_800FAB34(s32 arg0);
+s32 update_all__8TFogCtrlFi(s32 arg0);
 M2C_UNK TFogCtrl__sub_800FAF3C(M2C_UNK, s32);
 
 extern M2C_UNK lbl_80501188[];
 
-s32 TFogCtrl__sub_800FAB34(s32 arg0) {
+s32 update_all__8TFogCtrlFi(s32 arg0) {
     s32 var_r29;
     s32 var_r31;
     M2C_UNK temp_r3;

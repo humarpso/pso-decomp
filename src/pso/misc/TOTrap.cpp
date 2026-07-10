@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOTrap__sub_80178EF8(void *arg0, s16 *arg1, s32 arg2);
+void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2);
 M2C_UNK fn_8020C5E0(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -26,7 +26,7 @@ struct VObj_80178EF8 : Base_80178EF8 {
 #undef VM
 };
 
-void TOTrap__sub_80178EF8(void *arg0, s16 *arg1, s32 arg2) {
+void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 4) {
         if (arg2 == 1) {
             ((VObj_80178EF8 *)arg0)->m83();

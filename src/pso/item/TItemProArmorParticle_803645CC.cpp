@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TItemProArmorParticle__vt14(void *arg0);
-M2C_UNK TItemProArmorParticle__sub_80364570(s32, s32, s32, s32);
+M2C_UNK create__21TItemProArmorParticleFiiii(s32, s32, s32, s32);
 s32 TItemProArmor__sub_80102C3C(void *);
 s32 TOKeyMachine01__sub_802034A8();
 s32 fn_80099EF8(void *);
@@ -24,7 +24,7 @@ void TItemProArmorParticle__vt14(void *arg0) {
         if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x198)) {
             M2C_FIELD(arg0, s32 *, 0x198) = temp_r3;
             if (fn_802034B0() != 0) {
-                TItemProArmorParticle__sub_80364570(tl_05, fn_80099EF8(arg0), TItemProArmor__sub_80102C3C(arg0), M2C_FIELD(arg0, s32 *, 0x19C));
+                create__21TItemProArmorParticleFiiii(tl_05, fn_80099EF8(arg0), TItemProArmor__sub_80102C3C(arg0), M2C_FIELD(arg0, s32 *, 0x19C));
             }
         }
     }

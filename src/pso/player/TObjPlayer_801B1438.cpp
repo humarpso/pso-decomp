@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801B1438(void *arg0, f32 farg0);
+void draw__10TObjPlayerFPvf(void *arg0, f32 farg0);
 s32 fn_80055694(void *);
 M2C_UNK fn_80142D50(void *, s32, s32, f32);
 M2C_UNK fn_803D8C7C(M2C_UNK, s32);
@@ -14,7 +14,7 @@ M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
 
-void TObjPlayer__sub_801B1438(void *arg0, f32 farg0) {
+void draw__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     fn_803D9B2C();
     fn_803D8C7C(0, fn_80055694(arg0));
     fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

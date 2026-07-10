@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe7BeruraPunch__sub_800963B0(u8 *arg0);
+void reset__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 M2C_UNK fn_8002B094(s32);
 
 extern const f32 lbl_805D9794;
@@ -19,7 +19,7 @@ struct BeruraObj : BeruraBase {
     virtual void m2();
 };
 
-void TObjEneRe7BeruraPunch__sub_800963B0(u8 *arg0) {
+void reset__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
     fn_8002B094(M2C_FIELD(arg0, s32 *, 0xD8));
     M2C_FIELD(arg0, f32 *, 0xF4) = (f32) lbl_805D9798;
     ((BeruraObj*)(arg0 + 0xF8))->m2();

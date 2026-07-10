@@ -9,7 +9,7 @@ extern "C" {
 void open_city_warp_menu__6TLobbyFv(void);
 s32 TLobby__sub_8013A14C(M2C_UNK);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TWindowOptionCtrl__sub_80266160(s32);
+M2C_UNK open__17TWindowOptionCtrlFPv(s32);
 M2C_UNK fn_8013AD28(s32);
 M2C_UNK fn_80265C30(s32);
 M2C_UNK fn_80265F60(s32);
@@ -22,7 +22,7 @@ extern s32 lbl_805D55E4;
 
 void open_city_warp_menu__6TLobbyFv(void) {
     s32 temp_r3;
-    TWindowOptionCtrl__sub_80266160(lbl_805D55E0);
+    open__17TWindowOptionCtrlFPv(lbl_805D55E0);
     temp_r3 = fn_8026CBB8(0xB5);
     lbl_805D55E4 = fn_80266508(temp_r3, 5);
     TObjCityMainWarp__sub_80266354(lbl_805D55E4, TLobby__sub_8013A14C(0x4C), 6, 0);

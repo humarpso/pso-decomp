@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMag__sub_80110E20(u8 *arg0);
+void copy_owner_data__8TItemMagFPv(u8 *arg0);
 int TObjPlayer__sub_8001972C();
 M2C_UNK fn_80111140(void *, void *, void *);
 u8 *fn_8011CC58(u8);
 
-void TItemMag__sub_80110E20(u8 *arg0) {
+void copy_owner_data__8TItemMagFPv(u8 *arg0) {
     u8 *temp_r3;
 
     temp_r3 = fn_8011CC58(TObjPlayer__sub_8001972C());

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1);
-s32 TFogCtrl__sub_800FAA7C(s32 arg0, s32 arg1);
+s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1);
 M2C_UNK TFogCtrl__sub_800FAFE0(u32, s32, s32);
 M2C_UNK TFogCtrl__sub_800FB06C(u32, s32, s32);
 
@@ -30,7 +30,7 @@ s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
 
 extern M2C_UNK lbl_80501188[];
 
-s32 TFogCtrl__sub_800FAA7C(s32 arg0, s32 arg1) {
+s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
     M2C_UNK *var_r30 = lbl_80501188;
     s32 var_r31 = 0;

@@ -12,7 +12,7 @@ s32 fn_8022743C();
 s32 TOTrapAncient01__sub_80226578(s32, s32, s32, s32, s32);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
 s32 TBoss4DarkFalz__sub_8004B1BC(s32, s32);
-s32 TBoss4DarkFalz__sub_8004B354();
+s32 is_timer_expired__14TBoss4DarkFalzFPv();
 s32 TBoss4DarkFalz__sub_8004B3BC(s32);
 s32 TBoss4DarkFalz__sub_8004B77C(s32);
 s32 TBoss4DarkFalz__sub_8004BA18(s32);
@@ -29,7 +29,7 @@ void fn_8004CEE4(s32 arg0) {
     TOTrapAncient01__sub_80226578(0x4003A30A, arg0, 0, -0x18, 2);
 }
 void fn_8004CF1C(s32 arg0) {
-    if ((TBoss4DarkFalz__sub_8004B354() != 0) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
+    if ((is_timer_expired__14TBoss4DarkFalzFPv() != 0) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
         TBoss4DarkFalz__sub_8004B1BC(arg0, 5);
     }
 }

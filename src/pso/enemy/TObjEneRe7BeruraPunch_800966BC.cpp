@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
-M2C_UNK TObjEneRe7BeruraPunch__sub_800963B0(void *);
+M2C_UNK reset__21TObjEneRe7BeruraPunchFPv(void *);
 s32 fn_8007EB94(M2C_UNK);
 s32 fn_800BC5EC(s32, s32);
 
@@ -38,7 +38,7 @@ void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0xD8) = var_r0;
     ((EneBVObj*)(arg0 + 0xF8))->m1(0);
-    TObjEneRe7BeruraPunch__sub_800963B0(arg0);
+    reset__21TObjEneRe7BeruraPunchFPv(arg0);
 }
 
 }

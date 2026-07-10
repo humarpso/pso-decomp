@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowOptionCtrl__sub_80266160(void *arg0);
+void open__17TWindowOptionCtrlFPv(void *arg0);
 void *fn_8026572C(void *);
 
 extern const f32 lbl_805DD154;
 extern const f32 lbl_805DD158;
 
-void TWindowOptionCtrl__sub_80266160(void *arg0) {
+void open__17TWindowOptionCtrlFPv(void *arg0) {
     u16 temp_r4;
     void *temp_r3;
     f32 temp_f1;

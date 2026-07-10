@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowSubTradeMain__sub_80330F0C(void *arg0, s32 arg1);
-s32 TWindowSubTradeMain__sub_80330F4C(void *arg0);
+s32 create_help_item__19TWindowSubTradeMainFPv(void *arg0);
 s32 TWindowHelpItem__ct(s32, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
@@ -20,7 +20,7 @@ void TWindowSubTradeMain__sub_80330F0C(void *arg0, s32 arg1) {
     }
 }
 
-s32 TWindowSubTradeMain__sub_80330F4C(void *arg0) {
+s32 create_help_item__19TWindowSubTradeMainFPv(void *arg0) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0xBC);

@@ -12,7 +12,7 @@ M2C_UNK fn_8013AD28(s32);
 M2C_UNK fn_80265C10(s32, M2C_UNK);
 M2C_UNK fn_80265C30(s32);
 M2C_UNK fn_80265F60(s32);
-M2C_UNK TWindowOptionCtrl__sub_80266160(u32);
+M2C_UNK open__17TWindowOptionCtrlFPv(u32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 s32 fn_80266508(M2C_UNK, s32);
 M2C_UNK fn_8026CBB8(M2C_UNK);
@@ -23,7 +23,7 @@ extern s32 lbl_805D55E8;
 void open_menu_window__6TLobbyFv(void) {
     u32 tmp_e4 = lbl_805D55E4;
     if (tmp_e4 != 0U) {
-        TWindowOptionCtrl__sub_80266160(tmp_e4);
+        open__17TWindowOptionCtrlFPv(tmp_e4);
     }
     TLobby__sub_8013990C(0x11);
     lbl_805D55E8 = fn_80266508(fn_8026CBB8(0xB6), 2);

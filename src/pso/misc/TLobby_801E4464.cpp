@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801E4464(void *arg0);
+void dispatch_packet__6TLobbyFPv(void *arg0);
 M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
 M2C_UNK fn_801E3FA4(void *);
 
@@ -15,7 +15,7 @@ extern s32 lbl_805D53AC;
 extern u32 lbl_805D5580;
 extern s32 lbl_805D5E50;
 
-void TLobby__sub_801E4464(void *arg0) {
+void dispatch_packet__6TLobbyFPv(void *arg0) {
     s32 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, u8 *, 1) * 4;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8001E7AC(void);
+void close_result_windows__6TLobbyFv(void);
 f32 TLobby__sub_8001E804(void);
 M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
@@ -20,7 +20,7 @@ extern s32 lbl_805D55B0;
 extern M2C_UNK lbl_805D7ED8;
 extern M2C_UNK lbl_805D7EDC;
 
-void TLobby__sub_8001E7AC(void) {
+void close_result_windows__6TLobbyFv(void) {
     TWindowSubStatusDisp__sub_802290E0();
     fn_80229080(lbl_8050AAAC);
     fn_80229080(&lbl_805D7ED8);
@@ -38,7 +38,7 @@ f32 TLobby__sub_8001E804(void) {
 
     var_f31 = lbl_805D7EE0;
     if (get_main_phase() == 0xF) {
-        TLobby__sub_8001E7AC();
+        close_result_windows__6TLobbyFv();
         fn_8001DC24();
         var_f31 -= (f32) fn_800FC0D8();
     }

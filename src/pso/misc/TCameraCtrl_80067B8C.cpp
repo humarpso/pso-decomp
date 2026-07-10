@@ -10,7 +10,7 @@ void TCameraCtrl__sub_80067BC4(void *arg0);
 void *TCameraCtrl__sub_80067C30(void *arg0, s16 arg1);
 void *TCameraCtrl__vt12(void);
 M2C_UNK TCameraCtrl__sub_8006786C(void *);
-void *TCameraCtrl__sub_80067C88(void *);
+void *init__11TCameraCtrlFPv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK fn_8006E310(void *);
@@ -20,7 +20,7 @@ s32 fn_801A6E60(void *, M2C_UNK);
 void *TCameraCtrl__vt12(void) {
     void *o = __nw__7TObjectFUl(0x130);
     if (o != NULL) {
-        o = TCameraCtrl__sub_80067C88(o);
+        o = init__11TCameraCtrlFPv(o);
     }
     return o;
 }

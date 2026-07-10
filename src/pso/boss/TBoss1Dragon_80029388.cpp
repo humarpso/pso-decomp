@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss1Dragon__sub_80029388(u8 *arg0);
+void calc_target_vector__12TBoss1DragonFPv(u8 *arg0);
 void TBoss1Dragon__sub_800293E4(void);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(f32);
 f32 fn_8007E918(void *, f32, f32);
 
 extern const f32 lbl_805D7F28;
 
-void TBoss1Dragon__sub_80029388(u8 *arg0) {
+void calc_target_vector__12TBoss1DragonFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
 

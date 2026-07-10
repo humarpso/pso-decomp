@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMag__sub_80113CEC(void *arg0, s32 arg1, s32 arg2, void *arg3);
+void set_target__8TItemMagFPviiPv(void *arg0, s32 arg1, s32 arg2, void *arg3);
 
 extern M2C_UNK lbl_8043E560;
 extern const f32 lbl_805DABA4;
 extern const f32 lbl_805DABA8;
 
-void TItemMag__sub_80113CEC(void *arg0, s32 arg1, s32 arg2, void *arg3) {
+void set_target__8TItemMagFPviiPv(void *arg0, s32 arg1, s32 arg2, void *arg3) {
     M2C_FIELD(arg0, s32 *, 0x24) = arg1;
     M2C_FIELD(arg0, s32 *, 0x2C) = arg2;
     M2C_FIELD(arg0, void **, 0x28) = arg3;

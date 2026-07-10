@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TBoss4Type3__sub_80050D1C(void *arg0, void *arg1, void *arg2);
+void * create_horming__11TBoss4Type3FPvPvPv(void *arg0, void *arg1, void *arg2);
 void *TObjDFHorming__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * TBoss4Type3__sub_80050D1C(void *arg0, void *arg1, void *arg2) {
+void * create_horming__11TBoss4Type3FPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x380);
     if (o != NULL) {

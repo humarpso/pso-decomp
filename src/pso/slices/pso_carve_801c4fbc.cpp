@@ -5,7 +5,7 @@ extern "C" {
 int bswap_32__FPUl(void* a0 = 0);
 int fn_8001960C(void* a0 = 0);
 void fn_801C5010(void* p);
-int TLobby__sub_801E4464(void*);
+int dispatch_packet__6TLobbyFPv(void*);
 int TLobby__send_and_handle_60(void*);
 void fn_801C4FDC(void* p);
 void fn_801C5074(void* p);
@@ -22,6 +22,6 @@ void fn_801C4FD4(void* p, f32 v) { *(f32*)((char*)p + 0xc) = v; }
 void fn_801C4FDC(void* p) { fn_801C5010(p); TLobby__send_and_handle_60(p); }
 void fn_801C5010(void* p) { fn_8001960C(p); { int i; for (i = 0; i < 4; i++) { bswap_32__FPUl((char*)p + 0x8 + i * 4); } } }
 void build_6x7D_set_battle_mode_data(void* p) { *(u8*)((char*)p + 0x0) = 125; *(u8*)((char*)p + 0x1) = 6; }
-void fn_801C5074(void* p) { fn_801C5010(p); TLobby__sub_801E4464(p); }
+void fn_801C5074(void* p) { fn_801C5010(p); dispatch_packet__6TLobbyFPv(p); }
 
 }

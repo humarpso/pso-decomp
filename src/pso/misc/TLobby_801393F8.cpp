@@ -13,7 +13,7 @@ M2C_UNK TLobby__sub_80137FEC();
 M2C_UNK open_warp_menu__6TLobbyFv();
 M2C_UNK TLobby__sub_801381D0();
 M2C_UNK open_menu_window__6TLobbyFv();
-M2C_UNK TLobby__sub_801382F0();
+M2C_UNK request_game_list__6TLobbyFv();
 M2C_UNK create_warp_menu__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowSubComCard__sub_8007341C(void*);
@@ -30,7 +30,7 @@ void update_menu_window__6TLobbyFv(void) {
         if (TWindowSubComCard__sub_8007341C((void*)(lbl_805D55E4)) != 0) {
             switch (temp_r31) {
             case 0:
-                TLobby__sub_801382F0();
+                request_game_list__6TLobbyFv();
                 return;
             case 1:
                 open_menu_window__6TLobbyFv();

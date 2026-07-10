@@ -13,7 +13,7 @@ M2C_UNK TObjLobbyMain__sub_803525F0(void *);
 M2C_UNK TObjLobbyMain__sub_80352690(void *);
 s32 fn_80080750();
 M2C_UNK update_particles__13TObjLobbyMainFPv(void *);
-M2C_UNK TObjLobbyMain__sub_803524F8(void *);
+M2C_UNK update_computer_machines__13TObjLobbyMainFv(void *);
 M2C_UNK TObjLobbyMain__sub_80352624(void *);
 
 void run_task__13TObjLobbyMainFv(void *arg0) {
@@ -35,7 +35,7 @@ void run_task__13TObjLobbyMainFv(void *arg0) {
         TObjLobbyMain__sub_80352690(arg0);
         break;
     }
-    TObjLobbyMain__sub_803524F8(arg0);
+    update_computer_machines__13TObjLobbyMainFv(arg0);
     TObjLobbyMain__sub_8035255C(arg0);
     update_particles__13TObjLobbyMainFPv(arg0);
 }

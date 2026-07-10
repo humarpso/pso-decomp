@@ -14,7 +14,7 @@ extern s32 lbl_805D5594;
 extern void *lbl_805D55E0;
 extern void *lbl_805D55E4;
 
-void TLobby__sub_801382F0(void) {
+void request_game_list__6TLobbyFv(void) {
     TLobby__sub_8013990C(4);
     if ((void *) lbl_805D55E0 != 0) {
         TWindow__close(lbl_805D55E0);
