@@ -9,7 +9,7 @@ extern "C" {
 void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
-s32 TWindowSubTechnique__sub_80286E88(void *);
+s32 open_menu__19TWindowSubTechniqueFPv(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -39,7 +39,7 @@ void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AD0;
     M2C_FIELD(arg0, s32 *, 0x30) = arg1;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x34) = TWindowSubTechnique__sub_80286E88(arg0);
+    M2C_FIELD(arg0, s32 *, 0x34) = open_menu__19TWindowSubTechniqueFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x2C) = -1;

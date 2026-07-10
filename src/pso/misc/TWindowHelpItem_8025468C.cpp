@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowHelpItem__sub_8025468C(void *arg0);
+void update_stat_disp2__15TWindowHelpItemFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 TWindowHelpItem__sub_80104FCC(s32, s32, M2C_UNK *);
 M2C_UNK TWindowHelpItem__sub_8025A238(s32, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80223B88(void *, M2C_UNK);
 
-void TWindowHelpItem__sub_8025468C(void *arg0) {
+void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
     M2C_UNK sp8;
     s32 temp_r31;
     s32 temp_r30;

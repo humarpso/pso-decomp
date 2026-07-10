@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TCameraCtrl__sub_8006A088(s32 arg0);
+void set_shake_preset__11TCameraCtrlFi(s32 arg0);
 M2C_UNK fn_80242E74(M2C_UNK, M2C_UNK, void *);
 
 extern void *lbl_805D4DF0;
@@ -14,7 +14,7 @@ extern const f32 lbl_805D8FE8;
 extern const f32 lbl_805D8FEC;
 extern const f32 lbl_805D8FF0;
 
-void TCameraCtrl__sub_8006A088(s32 arg0) {
+void set_shake_preset__11TCameraCtrlFi(s32 arg0) {
     void *p;
 
     if ((void *) lbl_805D4DF0 != NULL) {

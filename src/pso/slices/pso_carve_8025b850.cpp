@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TWindowKeyBoardSoft__sub_8025D994();
 s32 TWindowKeyBoardSoft__sub_8025DA18();
-s32 TWindowKeyBoardSoft__sub_8025DA98();
+s32 convert_input_text__19TWindowKeyBoardSoftFPv();
 int fn_8025B850(void* p);
 s32 fn_8025B8C8(void* p);
 void TWindowKeyBoardSoft__sub_8025B928(void);

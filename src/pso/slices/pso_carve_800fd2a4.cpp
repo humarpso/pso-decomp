@@ -14,7 +14,7 @@ M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 s32 __nw__7TObjectFUl(M2C_UNK);
 extern M2C_UNK lbl_805DAA34;
 
-s32 fn_800FD2A4(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5) {
+s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5) {
     s32 var_r31;
 
     TWindowSubStatusDisp__sub_802290E0();

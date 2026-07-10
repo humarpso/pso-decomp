@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDelDepth__sub_803152D4(void *arg0, s32 arg1);
+void set_draw_mode__15TObjEneDelDepthFPvi(void *arg0, s32 arg1);
 
 extern s32 lbl_805DF2D4;
 
-void TObjEneDelDepth__sub_803152D4(void *arg0, s32 arg1) {
+void set_draw_mode__15TObjEneDelDepthFPvi(void *arg0, s32 arg1) {
     void *temp_r5;
     void *temp_r5_2;
     void *temp_r6;

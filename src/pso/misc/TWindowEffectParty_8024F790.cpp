@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowEffectParty__sub_8024F790(s32 arg0, s32 arg1, void *arg2);
+void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2);
 M2C_UNK TWindowSubSymbolChatPartsSet__sub_80052EA0(void *, s32);
 void *fn_8024FB80(s8);
 s32 fn_8026CBB8(M2C_UNK);
@@ -16,7 +16,7 @@ extern const f32 lbl_805DCCC8;
 extern const f32 lbl_805DCCCC;
 extern const f32 lbl_805DCCD0;
 
-void TWindowEffectParty__sub_8024F790(s32 arg0, s32 arg1, void *arg2) {
+void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2) {
     void *temp_r3;
     (void)arg0;
 

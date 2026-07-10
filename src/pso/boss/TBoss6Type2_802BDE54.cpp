@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BDE54(void *arg0, void *arg1);
+void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1);
 M2C_UNK TBoss6Type2__sub_802BD6D0(void *, s32, s32);
 M2C_UNK fn_8032E710(s32, u16);
 
-void TBoss6Type2__sub_802BDE54(void *arg0, void *arg1) {
+void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, u8 *, 0x478) = (u8) M2C_FIELD(arg1, u8 *, 8);
     M2C_FIELD(arg0, s32 *, 0x47C) = (s32) (s8) M2C_FIELD(arg1, u8 *, 9);
     TBoss6Type2__sub_802BD6D0(arg0, M2C_FIELD(arg1, s8 *, 0xA), M2C_FIELD(arg1, s8 *, 0xB));

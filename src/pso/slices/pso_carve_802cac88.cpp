@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 *fn_8007A448(s32, s32, M2C_UNK, s32);
+s32 *csnVectorUnder(s32, s32, M2C_UNK, s32);
 
 s32 fn_802CAC88(s32 arg0, s32 arg1) {
     s32 *temp_r3;
 
-    temp_r3 = fn_8007A448(arg1, arg0 + 0x120, 5, arg0);
+    temp_r3 = csnVectorUnder(arg1, arg0 + 0x120, 5, arg0);
     if (temp_r3 == NULL) {
         return 0;
     }

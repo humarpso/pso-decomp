@@ -15,7 +15,7 @@ s32 TBoss6Type2__sub_802BA6A0(void *);
 s32 TBoss6Type2__sub_802BAA74();
 s32 TBoss6Type2__sub_802BD014(void * a0 = 0, s32 a1 = 0);
 s32 TBoss6Type2__sub_802BC23C();
-s32 TBoss6Type2__sub_802BDB7C(void* a0 = 0);
+s32 update_attack_target__11TBoss6Type2FPv(void* a0 = 0);
 s32 TBoss6Type2__sub_802BDDF8(void * a0 = 0, s32 a1 = 0);
 void TBoss6Type2__vt42(void);
 void TBoss6Type2__vt43(void);
@@ -55,7 +55,7 @@ void fn_802BE648(void *arg0) {
             TBoss6Type2__sub_802BDDF8(arg0, TBoss6Type2__sub_802BC23C());
             return;
         }
-        TBoss6Type2__sub_802BDB7C();
+        update_attack_target__11TBoss6Type2FPv();
     }
 }
 int fn_802BE6A0(void) { return 0; }
@@ -98,7 +98,7 @@ block_7:
             TBoss6Type2__sub_802BDDF8((void *)(arg0), 0xE);
             return;
         }
-        TBoss6Type2__sub_802BDB7C((void*)(arg0));
+        update_attack_target__11TBoss6Type2FPv((void*)(arg0));
     }
 }
 

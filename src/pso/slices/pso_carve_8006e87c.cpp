@@ -13,9 +13,9 @@ s32 fn_802116EC();
 s32 TWindowCtrl__sub_8024AF74(u16);
 s32 TWindowCtrl__sub_8024B054(u16);
 int fn_8006E87C(void* p);
-int TObjPlayer__sub_800495E0(void*, int);
+int check_flag__10TObjPlayerFPvi(void*, int);
 
-int fn_8006E87C(void* p) { return TObjPlayer__sub_800495E0(p, 16384); }
+int fn_8006E87C(void* p) { return check_flag__10TObjPlayerFPvi(p, 16384); }
 s32 fn_8006E8A0(void) {
     if (TRaderMapCore__sub_8030A808() != 1) {
         return 1;

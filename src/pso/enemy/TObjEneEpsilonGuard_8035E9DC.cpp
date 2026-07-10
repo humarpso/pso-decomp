@@ -14,11 +14,11 @@ struct EG : EGPad {
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_8035E9DC(void *arg0, s32 arg1);
+void handle_event__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
-void TObjEneEpsilonGuard__sub_8035E9DC(void *arg0, s32 arg1) {
+void handle_event__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

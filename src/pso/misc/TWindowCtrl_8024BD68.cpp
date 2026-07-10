@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrl__sub_8024BD68(u8 *arg0);
+void update_window_visibility__11TWindowCtrlFPv(u8 *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowCtrl__sub_8024AF74(s32);
 s32 TWindowCtrl__sub_8024AFB8(void *, s32);
@@ -23,7 +23,7 @@ s32 fn_80247EA8(u32);
 
 extern s32 lbl_805D53A0;
 
-void TWindowCtrl__sub_8024BD68(u8 *arg0) {
+void update_window_visibility__11TWindowCtrlFPv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r31;
 

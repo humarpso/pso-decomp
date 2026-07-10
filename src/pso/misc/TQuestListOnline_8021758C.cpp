@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TQuestListOnline__sub_8021758C(void);
+u8 get_unlocked_tier__16TQuestListOnlineFv(void);
 s32 TODoorVoShip__sub_801F44BC(M2C_UNK);
 s32 fn_80070AB0();
 s32 fn_80071698(M2C_UNK);
 
 extern s32 lbl_805D61F8;
 
-u8 TQuestListOnline__sub_8021758C(void) {
+u8 get_unlocked_tier__16TQuestListOnlineFv(void) {
     if (fn_80070AB0() != 0) {
         switch ((s32) lbl_805D61F8) {
         case 0:

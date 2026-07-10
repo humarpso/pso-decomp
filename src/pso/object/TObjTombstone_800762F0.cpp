@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjTombstone__sub_800762F0(u8 *arg0, s32 arg1, s32 arg2);
+void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjTombstone__sub_80076390(void *, s32);
@@ -16,7 +16,7 @@ M2C_UNK fn_80074E04(s32, void *);
 extern s32 lbl_805D4E48;
 extern const f32 lbl_805D9174;
 
-void TObjTombstone__sub_800762F0(u8 *arg0, s32 arg1, s32 arg2) {
+void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D4E48, 0);
     M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(lbl_805D4E48, 0);
     M2C_FIELD(arg0, s32 *, 0xAC) = arg1;

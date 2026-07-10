@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TNpcPlayer__sub_801508DC(u8 *arg0);
+void update_condition_flags__10TNpcPlayerFPv(u8 *arg0);
 M2C_UNK TNpcPlayer__sub_8014E33C(void *, M2C_UNK);
 M2C_UNK TNpcPlayer__sub_8014FAB0(s32);
 s32 TNpcPlayer__sub_8014FD24(s32, f32);
@@ -19,7 +19,7 @@ s32 TNpcPlayer__sub_80152980(s32);
 
 extern const f32 lbl_805DB240;
 
-void TNpcPlayer__sub_801508DC(u8 *arg0) {
+void update_condition_flags__10TNpcPlayerFPv(u8 *arg0) {
     TNpcPlayer__sub_8014FEAC(M2C_FIELD(arg0, s32 *, 0x74));
     TNpcPlayer__sub_8014FAB0(M2C_FIELD(arg0, s32 *, 0x74));
     if (TNpcPlayer__sub_80152980(M2C_FIELD(arg0, s32 *, 0x74)) & 2) {

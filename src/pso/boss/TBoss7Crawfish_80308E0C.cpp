@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss7Crawfish__sub_80308E0C(void *arg0);
+void update_attack_state__14TBoss7CrawfishFPv(void *arg0);
 s32 TBoss7Crawfish__sub_80308AA8(void *);
 M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, M2C_UNK);
 s16 fn_801C0004(void *);
@@ -16,7 +16,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 lbl_805DF0F8;
 
-void TBoss7Crawfish__sub_80308E0C(void *arg0) {
+void update_attack_state__14TBoss7CrawfishFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     void *temp_r4;

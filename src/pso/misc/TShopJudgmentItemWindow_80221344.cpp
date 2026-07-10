@@ -16,7 +16,7 @@ struct VObj_80221344 : Base_80221344 {
 
 extern "C" {
 
-void TShopJudgmentItemWindow__sub_80221344(void *arg0);
+void handle_input__23TShopJudgmentItemWindowFPv(void *arg0);
 f32 TShopWindowBase__sub_8022393C(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -28,7 +28,7 @@ s32 fn_8026CBB8(M2C_UNK);
 
 u16 obj_getField1c(s32);
 
-void TShopJudgmentItemWindow__sub_80221344(void *arg0) {
+void handle_input__23TShopJudgmentItemWindowFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
 

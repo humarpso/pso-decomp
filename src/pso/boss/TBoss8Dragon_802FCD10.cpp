@@ -97,12 +97,12 @@ struct D_V : D_A {
 
 extern "C" {
 
-void TBoss8Dragon__sub_802FCD10(void *arg0);
+void check_death__12TBoss8DragonFPv(void *arg0);
 s32 fn_802FB98C(void *);
 M2C_UNK fn_802FBBFC(void *, M2C_UNK);
 s32 fn_802FC8AC();
 
-void TBoss8Dragon__sub_802FCD10(void *arg0) {
+void check_death__12TBoss8DragonFPv(void *arg0) {
     if (fn_802FC8AC() != 0) {
         if (fn_802FB98C(arg0) != 0) {
             return;

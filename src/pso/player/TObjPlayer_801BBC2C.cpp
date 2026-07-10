@@ -26,7 +26,7 @@ int fn_801B35AC(void*);
 void TObjPlayer__sub_801BBC2C(void* p) { *(s32*)((char*)p + 0x424) = 0; }
 void TObjPlayer__sub_801BBC38(void* p) { void* m = *(void**)((char*)p + 0x424); if (m) TLockOnCursor__sub_8013DAB0(m); }
 void TObjPlayer__sub_801BBC64(void) {  }
-void TObjPlayer__sub_801BBC68(void *arg0) {
+void create_lockon_cursor__10TObjPlayerFPv(void *arg0) {
     u32 var_r31;
     u32 var_r31_2;
 

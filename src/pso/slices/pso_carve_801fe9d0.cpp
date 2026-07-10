@@ -16,7 +16,7 @@ extern u32 lbl_805D5F6C;
 extern s32 lbl_805D5F78;
 extern s32 lbl_805D5F8C;
 
-s32 fn_801FE9D0(s32 arg0) {
+s32 load_system_file(s32 arg0) {
     s32 var_r31;
     s32 var_r3;
     s32 temp_r3;

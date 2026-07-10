@@ -14,7 +14,7 @@ int TObjPlayer__sub_801BE360(void* p);
 int fn_8001BED8(void*, int);
 
 int TObjPlayer__vt77(void) { return 0; }
-u8 TObjPlayer__sub_801BE294(void) {
+u8 check_camera_mode__10TObjPlayerFv(void) {
     return (u8) (TCameraCtrl__sub_8006B368() == 1);
 }
 void TObjPlayer__sub_801BE2C0(void* p, s32 v) { *(s32*)((char*)p + 0x370) = v; }

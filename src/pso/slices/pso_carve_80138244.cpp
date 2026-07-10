@@ -20,7 +20,7 @@ extern s32 lbl_805D5594;
 extern u32 lbl_805D55E4;
 extern s32 lbl_805D55E8;
 
-void TLobby__sub_80138244(void) {
+void open_menu_window__6TLobbyFv(void) {
     u32 tmp_e4 = lbl_805D55E4;
     if (tmp_e4 != 0U) {
         TWindowOptionCtrl__sub_80266160(tmp_e4);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjNpcEnemy__sub_802D7484(void *arg0, void *arg1);
+void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
 M2C_UNK fn_801433E8(void *, s32, s32, s16);
 
 extern const f32 lbl_805DE7D8;
 
-void TObjNpcEnemy__sub_802D7484(void *arg0, void *arg1) {
+void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1) {
     u16 temp_r0;
     void *temp_r3;
     void *temp_r5;

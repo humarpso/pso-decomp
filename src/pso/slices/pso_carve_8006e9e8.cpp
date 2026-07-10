@@ -13,7 +13,7 @@ s32 fn_802116EC();
 s32 TWindowCtrl__sub_8024AF74(u16);
 s32 TWindowCtrl__sub_8024B054(u16);
 int fn_8006E87C(void* p);
-int TObjPlayer__sub_800495E0(void*, int);
+int check_flag__10TObjPlayerFPvi(void*, int);
 
 int run_task__16TObjBagWarnWin4PFv(void) { return 0; }
 

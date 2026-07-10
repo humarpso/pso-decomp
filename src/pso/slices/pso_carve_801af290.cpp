@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BE294();
+s32 check_camera_mode__10TObjPlayerFv();
 s32 fn_8030A7B0();
 s32 get_main_phase();
 s32 TRaderMapCore__sub_8030A808();

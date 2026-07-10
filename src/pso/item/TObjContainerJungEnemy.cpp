@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjContainerJungEnemy__sub_8018CD48(void *arg0);
+void load_models__22TObjContainerJungEnemyFPv(void *arg0);
 void TObjContainerJungEnemy__vt78(void *arg0);
 
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
@@ -30,7 +30,7 @@ s32 TObjContainerJung__sub_8018D3C0(M2C_UNK);
 s32 TObjContainerJungEx__sub_8018D900(M2C_UNK);
 s32 TObjContainerJungEx__sub_8018D93C(M2C_UNK);
 
-void TObjContainerJungEnemy__sub_8018CD48(void *arg0) {
+void load_models__22TObjContainerJungEnemyFPv(void *arg0) {
     s32 var_r0;
     s32 temp_r3 = M2C_FIELD(arg0, s32 *, 0x88);
     if (temp_r3 < 0) {

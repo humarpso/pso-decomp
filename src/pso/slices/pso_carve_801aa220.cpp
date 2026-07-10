@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80019248(s32);
-M2C_UNK TCameraCtrl__sub_8006A088(M2C_UNK);
+M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 M2C_UNK fn_80087350(s32, M2C_UNK);
 void *fn_801AA3A0(s32);
 M2C_UNK TPhotonMagicSquare__sub_801AD330(void *, s32, s32, s32);
@@ -28,7 +28,7 @@ void fn_801AA220(s32 arg0, u16 arg1) {
             TObjPlayer__sub_801B5408(temp_r3, M2C_FIELD(temp_r31, s16 *, 0x20));
         }
         fn_80087350(temp_r3 + 0x38, 0x13D);
-        TCameraCtrl__sub_8006A088(0);
+        set_shake_preset__11TCameraCtrlFi(0);
         switch (arg0) {
         case 2:
             temp_nw = (void *) __nw__7TObjectFUl(0xD0);

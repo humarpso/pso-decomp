@@ -36,7 +36,7 @@ void TBoss1Dragon__sub_8002966C(void);
 void TBoss1Dragon__sub_80029670(void);
 void TBoss1Dragon__sub_80029674(void);
 void TBoss1Dragon__sub_80029678(void);
-void TBoss1Dragon__sub_8002967C(void *arg0);
+void check_death__12TBoss1DragonFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 fn_800281F0(void *);
 M2C_UNK fn_800284B4(void *, M2C_UNK);
@@ -51,7 +51,7 @@ void TBoss1Dragon__sub_80029670(void) {  }
 void TBoss1Dragon__sub_80029674(void) {  }
 void TBoss1Dragon__sub_80029678(void) {  }
 
-void TBoss1Dragon__sub_8002967C(void *arg0) {
+void check_death__12TBoss1DragonFPv(void *arg0) {
     if (fn_800291D4() != 0) {
         if (fn_800281F0(arg0) != 0) {
             return;

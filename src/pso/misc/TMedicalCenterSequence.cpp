@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMedicalCenterSequence__sub_802166B8(void *arg0);
+void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
 
 s32 TWindowSubComCard__sub_8007341C(u32);
 s32 TWindowSubComCard__sub_80073DB8(u32);
@@ -14,7 +14,7 @@ M2C_UNK fn_80073DC4(void *, M2C_UNK);
 M2C_UNK TWindow__close(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 
-void TMedicalCenterSequence__sub_802166B8(void *arg0) {
+void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0) {
     s32 temp_r3;
 
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (TWindowSubComCard__sub_8007341C((u32) M2C_FIELD(arg0, u32 *, 0x30)) != 0)) {

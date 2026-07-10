@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOAttackableCol__sub_80157314(void *arg0);
+void init_params__15TOAttackableColFPv(void *arg0);
 M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_80154788(void *, M2C_UNK, M2C_UNK);
 
 extern const f32 lbl_805DB2C8;
 
-void TOAttackableCol__sub_80157314(void *arg0) {
+void init_params__15TOAttackableColFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r0_3;

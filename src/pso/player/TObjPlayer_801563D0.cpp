@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801563D0(void *arg0);
+void update_enemy_collision_flags__10TObjPlayerFPv(void *arg0);
 s32 fn_80019584(s32);
 s32 fn_801557BC(void *, s32, void *);
 s32 fn_8015580C(s32, s32);
@@ -17,7 +17,7 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805DB298;
 
-void TObjPlayer__sub_801563D0(void *arg0) {
+void update_enemy_collision_flags__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     s32 var_r30;
     void *temp_r3_2;

@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BE294();
+s32 check_camera_mode__10TObjPlayerFv();
 s32 fn_8030A7B0();
 s32 get_main_phase();
 s32 TRaderMapCore__sub_8030A808();
@@ -43,7 +43,7 @@ u8 fn_801AEE3C(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((TObjPlayer__sub_801BE294() != 0) && (fn_8030A7B0() == 2)) {
+    if ((check_camera_mode__10TObjPlayerFv() != 0) && (fn_8030A7B0() == 2)) {
         var_r31 = 1;
     }
     return (u8)var_r31;
@@ -52,7 +52,7 @@ u8 fn_801AEE84(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((TObjPlayer__sub_801BE294() != 0) && (fn_8030A7B0() == 1)) {
+    if ((check_camera_mode__10TObjPlayerFv() != 0) && (fn_8030A7B0() == 1)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

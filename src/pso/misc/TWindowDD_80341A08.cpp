@@ -10,7 +10,7 @@ s32 TWindowDD__sub_80341AC0(void);
 void TWindowDD__sub_80341B10(void* p);
 void TWindowDD__sub_80341B1C(void* p);
 
-s32 TWindowDD__sub_80341A08(void *arg0, s32 arg1) {
+s32 can_scroll__9TWindowDDFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r4;

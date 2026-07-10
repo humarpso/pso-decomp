@@ -3571,6 +3571,9 @@ pso/slices/pso_carve_80095dd0.cpp:
 pso/enemy/TObjEneRe7BeruraPunch_80095E24.cpp:
 	.text       start:0x80095E24 end:0x80095EA0
 
+pso/enemy/TObjEneRe7BeruraPunch_80095EA0.cpp:
+	.text       start:0x80095EA0 end:0x80095FAC
+
 pso/enemy/TObjEneRe7BeruraPunch_80096258.cpp:
 	.text       start:0x80096258 end:0x800962F4
 
@@ -4437,7 +4440,7 @@ pso/object/TObjGrass.cpp:
 pso/object/TObjGrass_800BCFD4.cpp:
 	.text       start:0x800BCFD4 end:0x800BD00C
 
-pso/slices/pso_carve_800bd00c.cpp:
+pso/object/TObjGrass_800BD00C.cpp:
 	.text       start:0x800BD00C end:0x800BD0D8
 
 pso/object/TObjGrass_800BD0D8.cpp:
@@ -4517,6 +4520,9 @@ pso/slices/pso_carve_800c25a0.cpp:
 
 pso/slices/pso_carve_800c2614.cpp:
 	.text       start:0x800C2614 end:0x800C2628
+
+pso/slices/pso_carve_800c294c.cpp:
+	.text       start:0x800C294C end:0x800C2A88
 
 pso/slices/pso_carve_800c37d8.cpp:
 	.text       start:0x800C37D8 end:0x800C38D0
@@ -6070,7 +6076,7 @@ pso/slices/pso_carve_800fdf7c.cpp:
 pso/misc/TGStream_800FE154.cpp:
 	.text       start:0x800FE154 end:0x800FE1C4
 
-pso/slices/pso_carve_800fe1c4.cpp:
+pso/misc/TGStream_800FE1C4.cpp:
 	.text       start:0x800FE1C4 end:0x800FE2D8
 
 pso/slices/pso_carve_800fe2d8.cpp:
@@ -6654,6 +6660,9 @@ pso/item/TItemEffLavis_801096CC.cpp:
 
 pso/item/TItemShootModel_dtor.cpp:
 	.text       start:0x80109798 end:0x801097F0
+
+pso/item/TItemEffNeedle_80109AE4.cpp:
+	.text       start:0x80109AE4 end:0x80109B5C
 
 pso/slices/pso_carve_80109bf8.cpp:
 	.text       start:0x80109BF8 end:0x80109CBC
@@ -10604,6 +10613,9 @@ pso/slices/pso_carve_80168634.cpp:
 pso/slices/pso_carve_8016863c.cpp:
 	.text       start:0x8016863C end:0x80168644
 
+pso/slices/pso_carve_80168834.cpp:
+	.text       start:0x80168834 end:0x801688C0
+
 pso/slices/pso_carve_80168a38.cpp:
 	.text       start:0x80168A38 end:0x80168AA8
 
@@ -11943,6 +11955,9 @@ pso/item/TObjContainerJung_8018D7F4.cpp:
 
 pso/slices/pso_carve_8018d978.cpp:
 	.text       start:0x8018D978 end:0x8018D9B0
+
+pso/object/TObjDoaEx01_8018DE10.cpp:
+	.text       start:0x8018DE10 end:0x8018DEC8
 
 pso/object/TObjDoaEx01.cpp:
 	.text       start:0x8018DFC8 end:0x8018DFFC
@@ -22098,6 +22113,9 @@ pso/slices/pso_carve_802cece0.cpp:
 
 pso/slices/pso_carve_802ced3c.cpp:
 	.text       start:0x802CED3C end:0x802CED50
+
+pso/slices/pso_carve_802cf040.cpp:
+	.text       start:0x802CF040 end:0x802CF178
 
 pso/slices/pso_carve_802d04c0.cpp:
 	.text       start:0x802D04C0 end:0x802D05BC

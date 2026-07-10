@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TShopArmorListWindow__sub_8021AA08(void* p);
-void TShopArmorListWindow__sub_8021A92C(void *arg0);
+void open_menu_window__20TShopArmorListWindowFPv(void *arg0);
 s32 TObjCityMainWarp__sub_80266354(u32, s32, s32, s32);
 int fn_80073DC4(void*, int);
 s32 fn_8013AD28(u32);
@@ -21,7 +21,7 @@ s32 fn_8026CBB8(s32);
 
 s32 obj_getField1c(s32);
 
-void TShopArmorListWindow__sub_8021A92C(void *arg0) {
+void open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
 

@@ -95,7 +95,7 @@ struct VObj_80029724 : Base_80029724 {
 
 extern "C" {
 
-void TBoss1Dragon__sub_80029724(void *arg0);
+void choose_next_action__12TBoss1DragonFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 fn_80028194(void *);
 s32 fn_800281F0(void *);
@@ -105,7 +105,7 @@ s32 fn_800291D4();
 extern s32 enable_v2_features;
 extern s32 lbl_805D4B34;
 
-void TBoss1Dragon__sub_80029724(void *arg0) {
+void choose_next_action__12TBoss1DragonFPv(void *arg0) {
     if (fn_800291D4() != 0) {
         if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x400)) {
             if (fn_800281F0(arg0) == 0) {

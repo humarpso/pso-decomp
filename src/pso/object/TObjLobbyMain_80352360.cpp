@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLobbyMain__sub_80352360(void *arg0);
+void update_particles__13TObjLobbyMainFPv(void *arg0);
 M2C_UNK TParticleCtrl__sub_80088000(void *);
 M2C_UNK TParticleCtrl__sub_80088010(void *);
 
-void TObjLobbyMain__sub_80352360(void *arg0) {
+void update_particles__13TObjLobbyMainFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) == 2) {
         switch ((s16) M2C_FIELD(arg0, s16 *, 0xD0)) {
         case 3:

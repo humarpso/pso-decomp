@@ -15,7 +15,7 @@ s32 fn_802E1868(void *);
 s32 fn_802E1DF8(void *, s32);
 s32 TAdPlayerLoadGC__sub_80076BBC();
 s32 fn_801FE938();
-s32 fn_801FE9D0(s32);
+s32 load_system_file(s32);
 void fn_802E2D3C(void* p);
 int fn_802E2DA8(void* p);
 void fn_802E2F20(void);
@@ -87,7 +87,7 @@ void fn_802E2F88(void *arg0) {
 void fn_802E2FEC(void) {  }
 void fn_802E2FF0(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x44) & 2)) {
-        fn_801FE9D0(0);
+        load_system_file(0);
         fn_802E1DF8(arg0, 2);
     }
 }

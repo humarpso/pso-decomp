@@ -34,7 +34,7 @@ struct V_B : Base_B {
 
 extern "C" {
 
-s32 TObjPlayer__sub_801B90C0(void *arg0, u8 *arg1) {
+s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1) {
     s32 temp_r31;
     s32 temp_r31_2;
     void *temp_r3;

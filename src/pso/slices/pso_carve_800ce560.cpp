@@ -54,7 +54,7 @@ M2C_UNK TObjEneBm5GibonU__sub_800D17E8(s32);
 M2C_UNK fn_800F5EB4(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK fn_80143504(void *);
-M2C_UNK TObjPlayer__sub_801563D0(void *);
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 M2C_UNK fn_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DA178;
 
@@ -89,7 +89,7 @@ void fn_800CE560(u8 *arg0, s32 arg1) {
             fn_800D086C(arg0);
         }
         ((VObj_CE *)arg0)->m87();
-        TObjPlayer__sub_801563D0(arg0);
+        update_enemy_collision_flags__10TObjPlayerFPv(arg0);
         break;
     }
 }

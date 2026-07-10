@@ -11,7 +11,7 @@ int sprintf(s8 *, const char *, ...);
 extern const char lbl_80438AD8[];
 extern const f32 lbl_805D92AC;
 
-void fn_8007F014(void *arg0, f32 farg0, f32 farg1) {
+void draw_percent_text(void *arg0, f32 farg0, f32 farg1) {
     s8 sp8;
     s32 var_r5;
 

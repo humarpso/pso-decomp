@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TAdChrSelBSlotGC__ct(void *arg0);
-void TAdChrSelBSlotGC__sub_8030FD54(void *);
+void create_children__16TAdChrSelBSlotGCFPv(void *);
 void TAdChrSelBSlotGC__sub_8030FE04(void *);
 void __ct__7TObjectFP7TObject(void *);
 
@@ -17,7 +17,7 @@ void *TAdChrSelBSlotGC__ct(void *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TAdChrSelBSlotGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4108;
     TAdChrSelBSlotGC__sub_8030FE04(arg0);
-    TAdChrSelBSlotGC__sub_8030FD54(arg0);
+    create_children__16TAdChrSelBSlotGCFPv(arg0);
     return arg0;
 }
 

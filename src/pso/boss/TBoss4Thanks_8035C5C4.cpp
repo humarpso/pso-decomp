@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4Thanks__sub_8035C5C4(void *arg0);
+void update_fade_out__12TBoss4ThanksFPv(void *arg0);
 M2C_UNK TBoss4Thanks__sub_8035C35C(void *);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -16,7 +16,7 @@ extern const f32 lbl_805E0188;
 extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0190;
 
-void TBoss4Thanks__sub_8035C5C4(void *arg0) {
+void update_fade_out__12TBoss4ThanksFPv(void *arg0) {
     s32 temp_r3;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) != 1) {

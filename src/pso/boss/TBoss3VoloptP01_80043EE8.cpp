@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3VoloptP01__sub_80043EE8(void);
+void init_breakup_effect__15TBoss3VoloptP01Fv(void);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
 s32 fn_8001E1D8(M2C_UNK);
 s32 fn_8001E210(M2C_UNK);
@@ -25,7 +25,7 @@ extern s32 lbl_805D4CC4;
 extern void *lbl_805D4CC8;
 extern s32 lbl_805D4CCC;
 
-void TBoss3VoloptP01__sub_80043EE8(void) {
+void init_breakup_effect__15TBoss3VoloptP01Fv(void) {
     s32 temp_r3;
 
     lbl_805D4CC0 = lbl_805D4C10;

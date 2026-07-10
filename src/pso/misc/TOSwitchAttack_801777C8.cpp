@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOSwitchAttack__sub_801777C8(void *arg0);
+void init_params__14TOSwitchAttackFPv(void *arg0);
 
 extern const f64 lbl_80442C78;
 extern s32 lbl_805D5550;
 extern const f32 lbl_805DBA00;
 
-void TOSwitchAttack__sub_801777C8(void *arg0) {
+void init_params__14TOSwitchAttackFPv(void *arg0) {
     f32 temp_f0;
 
     M2C_FIELD(arg0, u8 *, 0xA7) = (u8) M2C_FIELD(arg0, s32 *, 0x5C);

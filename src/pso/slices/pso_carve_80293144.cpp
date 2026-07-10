@@ -17,7 +17,7 @@ extern u32 lbl_805D6580;
 extern s32 lbl_805D6584;
 extern s32 lbl_805D6588;
 
-void fn_80293144(void) {
+void setup_split_screen(void) {
     u32 var_r31;
     u32 temp_r30;
     u32 temp_r4;

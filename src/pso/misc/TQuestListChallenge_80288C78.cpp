@@ -22,7 +22,7 @@ struct Entry_80288C78 {
 
 extern "C" {
 
-void TQuestListChallenge__sub_80288C78(void *arg0);
+void handle_confirm_select__19TQuestListChallengeFPv(void *arg0);
 M2C_UNK TQuestListChallenge__sub_80288B5C(void *);
 s32 TWindowSubComCard__sub_8007341C(void *);
 s32 TWindowSubComCard__sub_80073DB8(void *);
@@ -31,7 +31,7 @@ M2C_UNK fn_80073DC4(void *, M2C_UNK);
 M2C_UNK fn_801F387C(s32, s32);
 s32 fn_80266E0C(s32);
 
-void TQuestListChallenge__sub_80288C78(void *arg0) {
+void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3_2;
     Entry_80288C78 *temp_r4;

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C16C0(void *arg0);
+void init_cmd_6x20__10TObjPlayerFPv(void *arg0);
 
 extern const f32 lbl_805DC278;
 
-void TObjPlayer__sub_801C16C0(void *arg0) {
+void init_cmd_6x20__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, f32 *, 0x10) = (f32) lbl_805DC278;
     M2C_FIELD(arg0, f32 *, 0xC) = (f32) lbl_805DC278;

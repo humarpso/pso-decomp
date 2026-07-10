@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TShopEquipmentSellWindow__sub_8021CAB8(void *arg0);
+void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0);
 M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, M2C_UNK);
 f32 TShopWindowBase__sub_8022393C(void *);
 M2C_UNK TWindow__close(u32);
@@ -24,7 +24,7 @@ M2C_UNK fn_8026CBB8(M2C_UNK);
 
 s32 obj_getField1c(s32);
 
-void TShopEquipmentSellWindow__sub_8021CAB8(void *arg0) {
+void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
 

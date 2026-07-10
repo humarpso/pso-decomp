@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjCMMainMenu__sub_802972C4(void);
-s32 TObjCMMainMenu__sub_802972C8(void);
-void TObjCMMainMenu__sub_8029737C(void *arg0);
+s32 try_pay_fee__14TObjCMMainMenuFv(void);
+void confirm_selection__14TObjCMMainMenuFPv(void *arg0);
 void TObjCMMainMenu__sub_8029742C(void *arg0);
 void TObjCMMainMenu__sub_8029747C(void *arg0);
 void TObjCMMainMenu__sub_802974CC(void *arg0);
@@ -29,7 +29,7 @@ M2C_UNK fn_80298D98(M2C_UNK);
 void fn_802972BC(void) {  }
 void fn_802972C0(void) {  }
 void TObjCMMainMenu__sub_802972C4(void) {  }
-s32 TObjCMMainMenu__sub_802972C8(void) {
+s32 try_pay_fee__14TObjCMMainMenuFv(void) {
     s32 temp_r4;
     void *temp_r3;
 
@@ -51,7 +51,7 @@ s32 TObjCMMainMenu__sub_802972C8(void) {
 
 extern s32 lbl_805D659C;
 
-void TObjCMMainMenu__sub_8029737C(void *arg0) {
+void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
     if (fn_8028DA7C(M2C_FIELD(arg0, void **, 0x1C)) == 0) {
         fn_8022675C((s32)(0x53F06), (s32)(0), (s32)(0), (s32)(0));
         return;
@@ -60,7 +60,7 @@ void TObjCMMainMenu__sub_8029737C(void *arg0) {
     if ((s8) M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), u8 *, 0x30) == -1) {
         M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), u8 *, 0x30) = TCharaMaking__sub_8028DC74();
     } else {
-        TObjCMMainMenu__sub_802972C8();
+        try_pay_fee__14TObjCMMainMenuFv();
     }
     fn_80298D98(1);
     fn_80290BE0();

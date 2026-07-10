@@ -16,8 +16,8 @@ int fn_8001BEF8(void*, int);
 s32 fn_8013DF4C(s32, u8);
 s32 fn_8013DF54(s32, u8);
 int TFontSmallLobby__sub_801C0228(void*);
-s32 TObjPlayer__sub_801C1544();
-s32 TObjPlayer__sub_801C1610();
+s32 bswap_pkt_u16x2_u32x2__10TObjPlayerFPv();
+s32 bswap_pkt_u32x5__10TObjPlayerFPv();
 s32 fn_801D76B0();
 
 int fn_801C16F0(void) { return 0; }

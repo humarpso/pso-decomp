@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubShortMail__sub_8027E884(void);
-s32 TWindowSubShortMail__sub_8027E928(void);
+s32 open_menu__19TWindowSubShortMailFv(void);
+s32 create_window__19TWindowSubShortMailFv(void);
 M2C_UNK TObjCityMainWarp__sub_80186AE4(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TQuestThread__sub_801F64BC(s32);
@@ -24,7 +24,7 @@ M2C_UNK fn_8026CBB8(M2C_UNK);
 
 extern const f32 lbl_805DD6C8;
 
-s32 TWindowSubShortMail__sub_8027E884(void) {
+s32 open_menu__19TWindowSubShortMailFv(void) {
     s32 temp_r3;
     s32 temp_r31;
 
@@ -43,7 +43,7 @@ s32 TWindowSubShortMail__sub_8027E884(void) {
 extern const f32 lbl_805DD6C8;
 extern const f32 lbl_805DD6CC;
 
-s32 TWindowSubShortMail__sub_8027E928(void) {
+s32 create_window__19TWindowSubShortMailFv(void) {
     s32 temp_r3;
     s32 temp_r31;
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubCustomEquip__sub_80276B78(void *arg0);
+void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0);
 void TWindowSubCustomEquip__sub_80276C64(void *arg0);
 void TWindowSubCustomEquip__sub_80276CBC(void *arg0);
 s32 TWindowSubCustomEquip__sub_80275D9C();
@@ -14,7 +14,7 @@ M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubCustomEquip__sub_80276A38(void *, s32, M2C_UNK);
 M2C_UNK fn_8028783C(s32, M2C_UNK);
 
-void TWindowSubCustomEquip__sub_80276B78(void *arg0) {
+void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0) {
     s32 temp_r3;
     s32 var_r4;
 

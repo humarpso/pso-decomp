@@ -14,7 +14,7 @@ s32 obj_isState3_324(void *);
 s32 fn_80102C78(void *, s16);
 s32 fn_801B0EE8();
 s32 TObjPlayer__sub_801B19EC(void *);
-s32 TObjPlayer__sub_801BE294();
+s32 check_camera_mode__10TObjPlayerFv();
 int fn_801B3FD8(void* p);
 int fn_801B3FFC(void* p);
 int fn_801B4020(void* p);
@@ -52,7 +52,7 @@ void fn_801B4264(s32 arg0) {
     }
 }
 void fn_801B42AC(void *arg0) {
-    if ((TObjPlayer__sub_801BE294() == 0) && (TObjPlayer__sub_801B19EC(arg0) != 0) && (fn_801B0EE8() == 0) && (obj_isState3_324(arg0) == 0)) {
+    if ((check_camera_mode__10TObjPlayerFv() == 0) && (TObjPlayer__sub_801B19EC(arg0) != 0) && (fn_801B0EE8() == 0) && (obj_isState3_324(arg0) == 0)) {
         fn_800113E4(arg0, (s16) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2));
         return;
     }

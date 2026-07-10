@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLanguage__sub_801A5694(void *arg0, void *arg1, s32 arg2, s32 arg3);
+void decode_font_data__9TLanguageFPvPvii(void *arg0, void *arg1, s32 arg2, s32 arg3);
 M2C_UNK TLanguage__sub_801A5730();
 M2C_UNK fn_8038A058();
 M2C_UNK fn_803DB05C(s32, u16, s16, u16 *);
 
 M2C_UNK DCStoreRange(u16 *, M2C_UNK);
 
-void TLanguage__sub_801A5694(void *arg0, void *arg1, s32 arg2, s32 arg3) {
+void decode_font_data__9TLanguageFPvPvii(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     s32 n;
     s32 i;
     u16 *p;

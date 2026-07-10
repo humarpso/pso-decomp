@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjCityMainWarp__sub_801867F4(void);
+void update_unlock_flags__16TObjCityMainWarpFv(void);
 s32 TODoorVoShip__sub_801F44BC(M2C_UNK);
 s32 fn_800B9CF4();
 
 s32 is_split_screen();
 extern s32 lbl_805D5B54;
 
-void TObjCityMainWarp__sub_801867F4(void) {
+void update_unlock_flags__16TObjCityMainWarpFv(void) {
     M2C_UNK var_r31;
     M2C_UNK var_r30;
     M2C_UNK var_r3;

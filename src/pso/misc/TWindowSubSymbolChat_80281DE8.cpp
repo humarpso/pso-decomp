@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubSymbolChat__sub_80281DE8(void *arg0);
+s32 create_confirm_window__20TWindowSubSymbolChatFPv(void *arg0);
 M2C_UNK TWindowShortListCtrl__sub_80221828(s32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 fn_80076FE0(s32);
@@ -18,7 +18,7 @@ s32 fn_8026CBB8(M2C_UNK);
 
 extern M2C_UNK lbl_804D2B48[];
 
-s32 TWindowSubSymbolChat__sub_80281DE8(void *arg0) {
+s32 create_confirm_window__20TWindowSubSymbolChatFPv(void *arg0) {
     s32 temp_r31;
 
     temp_r31 = fn_80248C48(fn_8026CBB8(0x79), lbl_804D2B48);

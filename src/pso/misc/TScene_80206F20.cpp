@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TScene__sub_80206F20(s32 arg0);
+void load_scene_data__6TSceneFi(s32 arg0);
 s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
 s32 TOKeyMachine01__sub_802034A8();
 u32 TObjMapCsn__sub_8007A728();
@@ -28,7 +28,7 @@ struct Sp8Buf20 {
     s32 f10; s32 f14; s32 f18; s32 f1c;
 };
 
-void TScene__sub_80206F20(s32 arg0) {
+void load_scene_data__6TSceneFi(s32 arg0) {
     struct Sp8Buf20 sp8;
     s32 temp_r31;
     u32 temp_r3;

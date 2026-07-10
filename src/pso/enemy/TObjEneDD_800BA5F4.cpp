@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDD__sub_800BA5F4(s32 arg0, s32 arg1, u8 *arg2, s32 arg3);
+void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3);
 M2C_UNK fn_800BC3C4(void *, s32);
 M2C_UNK fn_800BC3E8(void *, s32);
 
@@ -31,7 +31,7 @@ struct EneDDObj : EneDDBase {
     virtual void m13(void *, void *, void *);
 };
 
-void TObjEneDD__sub_800BA5F4(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
+void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     fn_800BC3E8(lbl_805D5138, arg0);
     fn_800BC3C4(lbl_805D5138, arg1);
     M2C_FIELD(M2C_FIELD(lbl_805D5138, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowLockOn__sub_802635D0(s32 arg0, s32 arg1);
+void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
 M2C_UNK TWindowLockOn__update_for_enemy(s32, s32);
 M2C_UNK TWindowLockOn__update_for_item(s32, s32);
 M2C_UNK TWindowLockOn__update_for_other_player(s32, s32);
@@ -14,7 +14,7 @@ M2C_UNK fn_80257CB8(s32);
 
 s32 obj_testFlags30(s32, M2C_UNK);
 
-void TWindowLockOn__sub_802635D0(s32 arg0, s32 arg1) {
+void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
     fn_80257CB8(arg0 + 0x24);
     if (obj_testFlags30(arg1, 0x10000000) != 0) {
         TWindowLockOn__update_for_other_player(arg0, arg1);

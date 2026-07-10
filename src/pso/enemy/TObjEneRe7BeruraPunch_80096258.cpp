@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe7BeruraPunch__sub_80096258(u8 *arg0, s32 arg1, s32 arg2);
+void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 M2C_UNK TObjEneRe7BeruraPunch__sub_800963B0(void *);
 u8 *TPhotonMylla__sub_80154CB4(u16);
@@ -17,7 +17,7 @@ f32 fn_803D64DC(s32);
 extern const f32 lbl_805D9794;
 extern const f32 lbl_805D97B4;
 
-void TObjEneRe7BeruraPunch__sub_80096258(u8 *arg0, s32 arg1, s32 arg2) {
+void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0xB8) = arg1;

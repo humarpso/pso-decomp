@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowOptionCtrl__sub_8026B9B8(void);
+s32 create_list_window__17TWindowOptionCtrlFv(void);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, s32);
 M2C_UNK TWindowOptionCtrl__sub_8026C600(s32);
 M2C_UNK TWindowOptionCtrl__sub_8026C610();
@@ -24,7 +24,7 @@ extern M2C_UNK lbl_8044F4AC[];
 extern const f32 lbl_805DD268;
 extern const f32 lbl_805DD26C;
 
-s32 TWindowOptionCtrl__sub_8026B9B8(void) {
+s32 create_list_window__17TWindowOptionCtrlFv(void) {
     s32 var_r31;
     s32 temp_r30;
 

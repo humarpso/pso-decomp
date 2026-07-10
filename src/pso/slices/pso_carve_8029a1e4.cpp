@@ -23,7 +23,7 @@ M2C_UNK fn_8029A110();
 extern M2C_UNK lbl_804651E8[];
 extern s32 evt2_random_enemies_mode;
 
-void fn_8029A1E4(void *arg0) {
+void giveup_window_handle_select(void *arg0) {
     s32 temp_r3;
 
     fn_8029A110();

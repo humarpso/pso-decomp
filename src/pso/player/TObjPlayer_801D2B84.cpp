@@ -40,6 +40,6 @@ int TAdRicoRing__sub_8001BEE8(void*, int);
 int fn_8001BEF8(void*, int);
 int fn_801D7BF4(void*);
 
-void TObjPlayer__sub_801D2B84(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); }
+void bswap_u16_pair__10TObjPlayerFPv(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); }
 
 }

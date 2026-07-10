@@ -15,7 +15,7 @@ u32 fn_80079C64(s32, u32 *, s32);
 extern M2C_UNK lbl_804389CC[];
 extern M2C_UNK lbl_80500140[];
 
-M2C_UNK *fn_8007A448(s32 arg0, u32 *arg1, s32 arg2) {
+M2C_UNK *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2) {
     M2C_UNK *var_r31;
 
     fn_80079108();

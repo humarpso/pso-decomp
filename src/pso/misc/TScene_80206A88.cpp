@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TScene__sub_80206A88(s32 arg0);
+void load_file_to_buffer__6TSceneFi(s32 arg0);
 s32 TOKeyMachine01__sub_802034A8();
 u32 fn_8007EBFC(s32);
 s32 fn_800F9D80(M2C_UNK *);
@@ -17,7 +17,7 @@ extern M2C_UNK lbl_8044A98C[];
 extern u32 lbl_805D6028;
 extern s32 lbl_805D602C;
 
-void TScene__sub_80206A88(s32 arg0) {
+void load_file_to_buffer__6TSceneFi(s32 arg0) {
     M2C_UNK sp8[8];
     s32 temp_r31;
     u32 temp_r3;

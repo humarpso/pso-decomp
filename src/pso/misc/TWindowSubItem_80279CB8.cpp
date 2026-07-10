@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowSubItem__sub_80279CB8(s32 arg1, s32 arg2, s32 arg3);
 void TWindowSubItem__sub_80279D50(s32 arg0, s32 arg1);
-s32 TWindowSubItem__sub_80279DC0(void *arg0, s32 arg1);
+s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, s32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
@@ -48,7 +48,7 @@ void TWindowSubItem__sub_80279D50(s32 arg0, s32 arg1) {
 
 extern const f32 lbl_805DD630;
 
-s32 TWindowSubItem__sub_80279DC0(void *arg0, s32 arg1) {
+s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x7C);

@@ -18,7 +18,7 @@ struct VObj_80216784 : Base_80216784 {
 
 extern "C" {
 
-void TMedicalCenterSequence__sub_80216784(void *arg0);
+void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
 s32 TObjPlayer__sub_801AF734(s32);
 s32 TObjPlayer__sub_801AF790(s32);
 u32 TObjPlayer__sub_801B4684(s32);
@@ -26,7 +26,7 @@ s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
 
-void TMedicalCenterSequence__sub_80216784(void *arg0) {
+void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0) {
     struct VObj_80216784 *o = (struct VObj_80216784 *)arg0;
     if ((o->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         if ((TObjPlayer__sub_801B4684(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) || ((TObjPlayer__sub_801AF790(M2C_FIELD(arg0, s32 *, 0x24)) != 0) && (TObjPlayer__sub_801AF734(M2C_FIELD(arg0, s32 *, 0x24)) == 0))) {

@@ -8,15 +8,15 @@ extern "C" {
 
 void run_task__10TObjPlayerFv(u8 *arg0);
 s32 TObjPlayer__sub_80019734(void *);
-s32 TObjPlayer__sub_800495E0(void *, M2C_UNK);
+s32 check_flag__10TObjPlayerFPvi(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
-M2C_UNK TObjPlayer__sub_801563D0(void *);
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801564A0(void *);
 M2C_UNK TObjPlayer__sub_801AF1B8(void *);
-M2C_UNK TObjPlayer__sub_801B4910(void *);
-M2C_UNK TObjPlayer__sub_801B4B70(void *);
+M2C_UNK update_subsystems__10TObjPlayerFi(void *);
+M2C_UNK update_facing_vector__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B6F8C(void *);
-M2C_UNK TObjPlayer__sub_801B7120(void *);
+M2C_UNK update_position_history__10TObjPlayerFPv(void *);
 M2C_UNK fn_80018E08(void *);
 M2C_UNK fn_80041B08(void *);
 M2C_UNK fn_80143504(void *);
@@ -32,8 +32,8 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
     s16 temp_r0_2;
 
     fn_801BA168();
-    TObjPlayer__sub_801B4910(arg0);
-    TObjPlayer__sub_801B7120(arg0);
+    update_subsystems__10TObjPlayerFi(arg0);
+    update_position_history__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_801B6F8C(arg0);
     fn_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 1);
     fn_80143504(arg0);
@@ -48,7 +48,7 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
         case 1:
             TObjPlayer__sub_80154E3C(arg0);
             TObjPlayer__sub_801564A0(arg0);
-            TObjPlayer__sub_801563D0(arg0);
+            update_enemy_collision_flags__10TObjPlayerFPv(arg0);
             break;
         case 6:
         case 2:
@@ -57,7 +57,7 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
         case 3:
             TObjPlayer__sub_80154E3C(arg0);
             TObjPlayer__sub_801564A0(arg0);
-            TObjPlayer__sub_801563D0(arg0);
+            update_enemy_collision_flags__10TObjPlayerFPv(arg0);
             break;
         }
     } else {
@@ -67,10 +67,10 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
         case 1:
             fn_8015659C(arg0);
             TObjPlayer__sub_801564A0(arg0);
-            TObjPlayer__sub_801563D0(arg0);
+            update_enemy_collision_flags__10TObjPlayerFPv(arg0);
             break;
         case 2:
-            if (TObjPlayer__sub_800495E0(arg0, 4) != 0) {
+            if (check_flag__10TObjPlayerFPvi(arg0, 4) != 0) {
                 TObjPlayer__sub_80154E3C(arg0);
             } else {
                 fn_8015659C(arg0);
@@ -82,7 +82,7 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
         }
     }
     TObjPlayer__sub_801AF1B8(arg0);
-    TObjPlayer__sub_801B4B70(arg0);
+    update_facing_vector__10TObjPlayerFPv(arg0);
 }
 
 }

@@ -8,7 +8,7 @@ struct GBig_80138D3C { char pad[0x1da8]; GLE_80138D3C arr[1]; };
 
 extern "C" {
 
-void TLobby__sub_80138D3C(void);
+void handle_comcard_window__6TLobbyFv(void);
 M2C_UNK TLobby__sub_8013872C();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK TOBoss4Rock__sub_80147A80(s32);
@@ -25,7 +25,7 @@ extern u32 lbl_805D55F4;
 extern s32 lbl_805D5600;
 extern M2C_UNK lbl_805DB0B0;
 
-void TLobby__sub_80138D3C(void) {
+void handle_comcard_window__6TLobbyFv(void) {
     s32 temp_r3;
 
     if ((u32) lbl_805D55F4 != 0U) {

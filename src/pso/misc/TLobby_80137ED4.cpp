@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80137ED4(void);
+void open_keyboard_window__6TLobbyFv(void);
 s32 TKeyBoardControl__ct(s32, s32, s32, s32, s32, s32);
 M2C_UNK *TLobby__sub_8013A14C(M2C_UNK);
 M2C_UNK TObjCityMainWarp__sub_80266354(u32, M2C_UNK *, M2C_UNK, M2C_UNK);
@@ -30,7 +30,7 @@ extern M2C_UNK *lbl_805D5614;
 extern u8 lbl_805D5618;
 extern M2C_UNK lbl_805DB0B4;
 
-void TLobby__sub_80137ED4(void) {
+void open_keyboard_window__6TLobbyFv(void) {
     s32 var_r0;
     s32 tmp_r3;
 

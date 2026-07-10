@@ -8,7 +8,7 @@ s32 fn_801AEE10();
 s32 fn_801BAA00(s32);
 s32 TObjPlayer__sub_801BE3B4(s32);
 int queue_destruction__7TObjectFv(void*);
-void TObjPlayer__sub_801BC8B0(void* p);
+void destroy_owned_object__10TObjPlayerFPv(void* p);
 int fn_801058F8(void*);
 int fn_801AFF50(void*);
 int fn_801AFF80(void*);
@@ -21,6 +21,6 @@ int TObjPlayer__sub_801BCC30(void* p);
 void TObjPlayer__sub_801BCC50(void);
 int fn_801AFDD8(void*);
 
-void TObjPlayer__sub_801BC8B0(void* p) { if (*(unsigned int*)((char*)p + 0x548) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x548)); *(int*)((char*)p + 0x548) = 0; } }
+void destroy_owned_object__10TObjPlayerFPv(void* p) { if (*(unsigned int*)((char*)p + 0x548) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x548)); *(int*)((char*)p + 0x548) = 0; } }
 
 }

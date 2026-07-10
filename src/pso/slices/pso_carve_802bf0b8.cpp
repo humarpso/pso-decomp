@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TCameraCtrl__sub_8006A088(M2C_UNK);
+M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
 M2C_UNK TBoss6Type2__sub_802B9C00(void *, M2C_UNK);
@@ -46,7 +46,7 @@ void fn_802BF0B8(u8 *arg0) {
         break;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0x36) {
-        TCameraCtrl__sub_8006A088(1);
+        set_shake_preset__11TCameraCtrlFi(1);
     }
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0_2;

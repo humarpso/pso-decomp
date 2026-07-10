@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestVmDownLoadServer__sub_801F6E88(void *arg0);
+void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 M2C_UNK TQuestVmDownLoadServer__sub_80080788(void *);
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
@@ -16,7 +16,7 @@ s32 fn_8006EF6C(M2C_UNK);
 extern s32 lbl_805D55C0;
 extern s32 lbl_805D5F18;
 
-void TQuestVmDownLoadServer__sub_801F6E88(void *arg0) {
+void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     s32 var_r30;

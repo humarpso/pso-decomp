@@ -21,7 +21,7 @@ struct V_B : Base_B {
 
 extern "C" {
 
-void TOTrapAncient02__sub_8017B3B4(void *arg0);
+void draw_model__15TOTrapAncient02FPv(void *arg0);
 void *TOTrapAncient02__sub_8017B468(void *arg0);
 void *TOTrapAncient02__ct(void *, void *, void *);
 M2C_UNK TOTrapAncient02__sub_8017B16C(void *);
@@ -36,7 +36,7 @@ M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 extern const f32 lbl_805DBA94;
 extern const f32 lbl_805DBAA4;
 
-void TOTrapAncient02__sub_8017B3B4(void *arg0) {
+void draw_model__15TOTrapAncient02FPv(void *arg0) {
     if (fn_8001A430() != 1) {
         M2C_FIELD(arg0, s32 *, 0x340) = ((V_B *) arg0)->m8(lbl_805DBAA4, lbl_805DBA94);
         if (((s32) M2C_FIELD(arg0, s32 *, 0x340) == 1) && (((s32) M2C_FIELD(arg0, s32 *, 0x358) == 0) || (is_split_screen() != 0) || (fn_8032BCBC(arg0) == 0))) {

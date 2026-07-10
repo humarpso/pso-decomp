@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BC420(u8 *arg0);
+void play_phase_sound__11TBoss6Type2FPv(u8 *arg0);
 s32 TBoss6Type2__sub_802BC364();
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
-void TBoss6Type2__sub_802BC420(u8 *arg0) {
+void play_phase_sound__11TBoss6Type2FPv(u8 *arg0) {
     M2C_UNK var_r3;
     s32 temp_r0;
 

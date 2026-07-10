@@ -9,7 +9,7 @@ extern "C" {
 void TBoss6Tube__sub_802B14B8(s32 arg0);
 void TBoss6Tube__sub_802B1500(void *arg0);
 M2C_UNK TBoss6Tube__sub_802B129C();
-M2C_UNK TCameraCtrl__sub_8006A088(M2C_UNK);
+M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
@@ -24,7 +24,7 @@ void TBoss6Tube__sub_802B1500(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         fn_8022675C(0x4003351F, 0, 0, 0);
-        TCameraCtrl__sub_8006A088(2);
+        set_shake_preset__11TCameraCtrlFi(2);
     }
 }
 

@@ -3961,6 +3961,11 @@ if args.target == "psov3":
                 NonMatching("pso/enemy/TObjEneEpsilonGuard_8035DEF8.cpp"),
                 NonMatching("pso/enemy/TObjEneRe7BeruraPunch_800966BC.cpp"),
                 NonMatching("pso/object/TObjFogCollision_80153EB4.cpp"),
+                NonMatching("pso/misc/TGStream_800FE1C4.cpp"),
+                NonMatching("pso/item/TItemEffNeedle_80109AE4.cpp"),
+                NonMatching("pso/object/TObjDoaEx01_8018DE10.cpp"),
+                NonMatching("pso/enemy/TObjEneRe7BeruraPunch_80095EA0.cpp"),
+                NonMatching("pso/object/TObjGrass_800BD00C.cpp"),
             ],
         },
         # ------------------------------------------------------------------

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80138F24(void);
+void handle_create_game_window__6TLobbyFv(void);
 M2C_UNK TLobby__sub_8013872C();
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowMakeTeam__sub_80264AE0(u32);
@@ -22,7 +22,7 @@ M2C_UNK send_create_game__9TProtocolFPcPcUcUcUcUc(s32, s32, s32, u8, u8, u8, s32
 extern s32 lbl_805D5580;
 extern u32 lbl_805D55EC;
 
-void TLobby__sub_80138F24(void) {
+void handle_create_game_window__6TLobbyFv(void) {
     s32 temp_r3;
     s32 temp_r30;
     u8 temp_r29;

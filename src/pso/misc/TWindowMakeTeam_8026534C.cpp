@@ -9,7 +9,7 @@ extern "C" {
 void *TWindowMakeTeam__ct(void *arg0, void *arg1, s32 arg2);
 s32 TWindowMakeTeam__sub_80264A90(u8);
 s32 TWindowMakeTeam__sub_80264AB8(u8);
-s32 TWindowMakeTeam__sub_80264DF4(struct TWMT *);
+s32 create_menu__15TWindowMakeTeamFv(struct TWMT *);
 M2C_UNK TWindowMakeTeam__sub_80268650(s32, s32, M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 
@@ -30,7 +30,7 @@ void *TWindowMakeTeam__ct(void *arg0, void *arg1, s32 arg2) {
     M2C_FIELD(self, s8 *, 0x1C) = 0;
     M2C_FIELD(self, s8 *, 0x1D) = 0;
     M2C_FIELD(self, s32 *, 0x20) = arg2;
-    M2C_FIELD(self, s32 *, 0x2C) = TWindowMakeTeam__sub_80264DF4(self);
+    M2C_FIELD(self, s32 *, 0x2C) = create_menu__15TWindowMakeTeamFv(self);
     M2C_FIELD(self, s32 *, 0x30) = 0;
     M2C_FIELD(self, s32 *, 0x34) = 0;
     M2C_FIELD(self, s32 *, 0x24) = 0;

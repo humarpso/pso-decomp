@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801AF8D8(void *arg0);
+void set_flags_a00__10TObjPlayerFPv(void *arg0);
 
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 
-void TObjPlayer__sub_801AF8D8(void *arg0) {
+void set_flags_a00__10TObjPlayerFPv(void *arg0) {
     if (arg0 != NULL) {
         obj_setFlags30(arg0, 0xA00);
     }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TOVS2Wall01__sub_8017BD48(u8 *arg0, u32 arg1);
+f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1);
 M2C_UNK TOVS2Wall01__sub_8017BAFC(void *, M2C_UNK);
 s32 fn_80019248(u32);
 M2C_UNK fn_80087350(void *, M2C_UNK);
@@ -14,7 +14,7 @@ M2C_UNK fn_80087350(void *, M2C_UNK);
 u16 obj_getField1c(u32);
 extern const f32 lbl_805DBAA8;
 
-f32 TOVS2Wall01__sub_8017BD48(u8 *arg0, u32 arg1) {
+f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1) {
     u32 var_r31;
 
     var_r31 = 0U;

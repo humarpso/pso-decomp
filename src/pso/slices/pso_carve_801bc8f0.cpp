@@ -8,7 +8,7 @@ s32 fn_801AEE10();
 s32 fn_801BAA00(s32);
 s32 TObjPlayer__sub_801BE3B4(s32);
 int queue_destruction__7TObjectFv(void*);
-void TObjPlayer__sub_801BC8B0(void* p);
+void destroy_owned_object__10TObjPlayerFPv(void* p);
 int fn_801058F8(void*);
 int fn_801AFF50(void*);
 int fn_801AFF80(void*);

@@ -10,7 +10,7 @@ struct VObj_8001C8B8 : Base_8001C8B8 {
 
 extern "C" {
 
-void TLoadCtrl__sub_8001C8B8(void);
+void cleanup_scene__9TLoadCtrlFv(void);
 M2C_UNK TCameraCtrl__sub_800692D0();
 M2C_UNK TCameraCtrl__sub_80069318();
 M2C_UNK TCameraCtrl__sub_800693F4();
@@ -26,7 +26,7 @@ extern u32 lbl_805D4A80;
 extern s32 lbl_805D4A84;
 extern void *lbl_805D4DF0;
 
-void TLoadCtrl__sub_8001C8B8(void) {
+void cleanup_scene__9TLoadCtrlFv(void) {
     u32 t;
 
     t = lbl_805D4A80;

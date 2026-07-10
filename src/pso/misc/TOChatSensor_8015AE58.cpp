@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOChatSensor__sub_8015AE58(void *arg0);
+void init_params__12TOChatSensorFPv(void *arg0);
 
 extern s32 *lbl_805D58D4;
 
-void TOChatSensor__sub_8015AE58(void *arg0) {
+void init_params__12TOChatSensorFPv(void *arg0) {
     f32 temp_f0;
     s32 temp_r5;
 

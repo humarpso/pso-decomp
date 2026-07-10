@@ -41,7 +41,7 @@ struct V_A : Base_A {
 
 extern "C" {
 
-void TWindowSubItem__sub_802798F4(void *arg0, s32 arg1, s32 arg2);
+void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_80099EF8();
 void *fn_80101AB0(s32);
@@ -50,7 +50,7 @@ M2C_UNK fn_801B9EDC(s32, s32);
 M2C_UNK fn_801BA0F0(s32, s32, M2C_UNK);
 u32 fn_801C675C(s32, s8);
 
-void TWindowSubItem__sub_802798F4(void *arg0, s32 arg1, s32 arg2) {
+void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     void *temp_r3_2;
     s32 t;

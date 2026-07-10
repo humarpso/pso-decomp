@@ -32,7 +32,7 @@ struct VObj_800F4868 : Base_800F4868 {
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_801563D0(void *);
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801564A0(void *);
 M2C_UNK fn_8015659C(void *);
 
@@ -41,7 +41,7 @@ void fn_800F4868(void *arg0) {
     o->m86();
     fn_8015659C(arg0);
     TObjPlayer__sub_801564A0(arg0);
-    TObjPlayer__sub_801563D0(arg0);
+    update_enemy_collision_flags__10TObjPlayerFPv(arg0);
 }
 
 }

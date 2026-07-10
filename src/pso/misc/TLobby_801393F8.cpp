@@ -12,7 +12,7 @@ M2C_UNK TLobby__sub_80137D7C();
 M2C_UNK TLobby__sub_80137FEC();
 M2C_UNK TLobby__sub_80138140();
 M2C_UNK TLobby__sub_801381D0();
-M2C_UNK TLobby__sub_80138244();
+M2C_UNK open_menu_window__6TLobbyFv();
 M2C_UNK TLobby__sub_801382F0();
 M2C_UNK TLobby__sub_80138354();
 M2C_UNK close_all_windows__6TLobbyFv();
@@ -33,7 +33,7 @@ void TLobby__sub_801393F8(void) {
                 TLobby__sub_801382F0();
                 return;
             case 1:
-                TLobby__sub_80138244();
+                open_menu_window__6TLobbyFv();
                 return;
             case 2:
                 TLobby__sub_801381D0();

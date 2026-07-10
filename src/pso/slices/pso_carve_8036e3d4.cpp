@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8036E624(void *arg0);
-int fn_801FE9D0(void* a0 = 0);
+int load_system_file(void* a0 = 0);
 void fn_8036E5F4(void* p);
 s32 fn_8036E858(void *, s32);
 void fn_8036E6EC(void);
@@ -23,7 +23,7 @@ int fn_8036E3D4(void) { return 0; }
 int fn_8036E49C(void) { return 0; }
 int fn_8036E51C(void) { return 0; }
 int fn_8036E5A8(void) { return 0; }
-void fn_8036E5F4(void* p) { if (fn_8036E624(p) == 0) { fn_801FE9D0((void*)0); } }
+void fn_8036E5F4(void* p) { if (fn_8036E624(p) == 0) { load_system_file((void*)0); } }
 s32 fn_8036E624(void *arg0) {
     s32 temp_r4;
 

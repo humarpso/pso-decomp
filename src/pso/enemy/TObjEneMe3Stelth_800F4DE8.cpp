@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe3Stelth__sub_800F4DE8(void *arg0);
+void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0);
 void TObjEneMe3Stelth__sub_800F4EA4(void *arg0);
 s32 fn_800F4814(void *);
 s32 fn_800F4850();
@@ -16,7 +16,7 @@ extern const f32 lbl_805DA87C;
 extern const f32 lbl_805DA8A8;
 extern const f32 lbl_805DA8AC;
 
-void TObjEneMe3Stelth__sub_800F4DE8(void *arg0) {
+void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0) {
     if (fn_800F4850() != 0) {
         M2C_FIELD(arg0, s32 *, 0x3C0) = 1;
     } else {

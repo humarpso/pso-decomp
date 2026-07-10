@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BC528(void *arg0);
+void update_countdown__11TBoss6Type2FPv(void *arg0);
 s32 TBoss6PlotFalz__sub_802AB0BC();
 M2C_UNK TBoss6Type2__sub_802BC3DC(void *);
-M2C_UNK TBoss6Type2__sub_802BC420(void *);
+M2C_UNK play_phase_sound__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BC5F8();
 M2C_UNK TBoss6Type2__sub_802BC65C(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
-void TBoss6Type2__sub_802BC528(void *arg0) {
+void update_countdown__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
     void *temp_r31;
 
@@ -36,7 +36,7 @@ void TBoss6Type2__sub_802BC528(void *arg0) {
         }
     } else {
         if (temp_r0 == 0) {
-            TBoss6Type2__sub_802BC420(arg0);
+            play_phase_sound__11TBoss6Type2FPv(arg0);
         }
         M2C_FIELD(arg0, s32 *, 0x518) = (s32) (M2C_FIELD(arg0, s32 *, 0x518) - 1);
     }

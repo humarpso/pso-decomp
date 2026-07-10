@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_800495E0(s32, s32);
+s32 check_flag__10TObjPlayerFPvi(s32, s32);
 s32 fn_80102DD4(void *, u16);
 int fn_80102BD0(void);
 int fn_80102BD8(void);
@@ -34,7 +34,7 @@ s16 fn_80102C88(void* p) { return *(s16*)((char*)p + 0x2bc); }
 int fn_80102C90(void* p) { return fn_801C675C((char*)p + 0xd04); }
 void fn_80102CB4(void) {
     s32 uninit;
-    TObjPlayer__sub_800495E0(uninit, 0x20000);
+    check_flag__10TObjPlayerFPvi(uninit, 0x20000);
 }
 f32 fn_80102CD8(void* p) { return *(f32*)((char*)p + 0x1c); }
 int fn_80102CE0(void) { return 0; }

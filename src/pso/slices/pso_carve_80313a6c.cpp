@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_800F6B14();
-M2C_UNK TObjEneDelDepth__sub_803152D4(void *, M2C_UNK);
+M2C_UNK set_draw_mode__15TObjEneDelDepthFPvi(void *, M2C_UNK);
 s32 fn_803162A0(s32);
 M2C_UNK fn_80316488(s32, M2C_UNK);
 extern const f32 lbl_805DF260;
@@ -25,7 +25,7 @@ void fn_80313A6C(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x384) = 0x20;
         fn_80316488(M2C_FIELD(arg0, s32 *, 0x37C), 9);
     }
-    TObjEneDelDepth__sub_803152D4(arg0, 0);
+    set_draw_mode__15TObjEneDelDepthFPvi(arg0, 0);
 }
 
 }

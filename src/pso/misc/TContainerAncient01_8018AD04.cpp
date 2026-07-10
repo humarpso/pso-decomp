@@ -12,7 +12,7 @@ struct VObj8018AD04 : VBase8018AD04 {
 
 extern "C" {
 
-void TContainerAncient01__sub_8018AD04(u8 *arg0);
+void draw__19TContainerAncient01FPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
@@ -26,7 +26,7 @@ M2C_UNK fn_803DC894(s32, s32, f32);
 extern const f32 lbl_805DBD3C;
 extern const f32 lbl_805DBD4C;
 
-void TContainerAncient01__sub_8018AD04(u8 *arg0) {
+void draw__19TContainerAncient01FPv(u8 *arg0) {
     if (((VObj8018AD04 *) arg0)->m8(lbl_805DBD3C, lbl_805DBD4C) != 0) {
         fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
         fn_803D9B2C();

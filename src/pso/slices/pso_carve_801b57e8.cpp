@@ -21,7 +21,7 @@ int TObjPlayer__sub_801B565C(void* p);
 int TObjPlayer__sub_801B5680(void* p);
 void TObjPlayer__sub_801B5790(void* p);
 void TObjPlayer__sub_801B57BC(void* p);
-int TObjPlayer__sub_800495E0(void*, int);
+int check_flag__10TObjPlayerFPvi(void*, int);
 int fn_801C0044(void*);
 int fn_801C1B38(void*);
 int fn_801C1B60(void*);

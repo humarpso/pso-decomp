@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_802731E8(void);
+s32 open_menu__17TWindowSubComCardFv(void);
 M2C_UNK TObjCityMainWarp__sub_80186AE4(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
@@ -19,7 +19,7 @@ M2C_UNK fn_8026CBB8(M2C_UNK);
 s32 get_main_phase();
 extern const f32 lbl_805DD510;
 
-s32 TWindowSubComCard__sub_802731E8(void) {
+s32 open_menu__17TWindowSubComCardFv(void) {
     s32 temp_r31;
 
     temp_r31 = fn_8026659C(fn_8026CBB8(0x87), 5, TWindowSubStatusDisp__sub_80077760(0x1D));

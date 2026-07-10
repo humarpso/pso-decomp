@@ -52,7 +52,7 @@ void TObjPlayer__sub_801BF6DC(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 int TObjPlayer__sub_801BF6E4(void* p) { return fn_8013DF3C((char*)p + 0x4); }
 int TObjPlayer__sub_801BF708(void* p) { return fn_8013DF44((char*)p + 0x4); }
 void* TObjPlayer__sub_801BF72C(void* p) { TWindowSubStatusDisp__sub_801059B4(p); *(short*)((char*)p + 0x18) = 0; *(short*)((char*)p + 0x16) = 0; return p; }
-s32 TObjPlayer__sub_801BF768(void *arg0) {
+s32 update_timer__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
 
     if (TObjPlayer__sub_801BF548() != 0) {
