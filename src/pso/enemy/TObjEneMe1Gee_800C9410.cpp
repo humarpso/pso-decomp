@@ -118,7 +118,7 @@ M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B9680(void *, void *);
 s32 TObjEneEpsilon__sub_800B96D4(void *, f32);
-M2C_UNK TObjEneMe1Gee__sub_800CBD28(void *);
+M2C_UNK update_angle__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
 M2C_UNK TObjEneMe1Gee__sub_800CBEC4(void *);
 M2C_UNK fn_800B99D8(void *);
@@ -161,7 +161,7 @@ void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1) {
         case 1:
             TObjEneEpsilon__sub_800B9680(arg0, (u8 *)arg0 + 0x50);
             fn_800B99D8(arg0);
-            TObjEneMe1Gee__sub_800CBD28(arg0);
+            update_angle__13TObjEneMe1GeeFPv(arg0);
             TObjEneMe1Gee__sub_800CBEC4(arg0);
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805DA0CC) {
                 TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805DA0D0);

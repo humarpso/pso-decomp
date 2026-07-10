@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowMakeTeam__sub_80264B4C(void *arg0, s32 arg1);
+void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1);
 void TWindowMakeTeam__sub_80264BC0(void *arg0);
 void TWindowMakeTeam__sub_80264C04(void *arg0);
 M2C_UNK fn_8026853C(s32, M2C_UNK);
 M2C_UNK fn_802685C4(s32, M2C_UNK);
 
-void TWindowMakeTeam__sub_80264B4C(void *arg0, s32 arg1) {
+void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 0:
         M2C_FIELD(arg0, s8 *, 0x1C) = 3;

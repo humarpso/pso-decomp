@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1GiGueMissile__sub_802CE220(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
+void create__22TObjEneMe1GiGueMissileFiiiff(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1);
 M2C_UNK TObjEneMe1GiGueMissile__ct(void *, s32, s32, s32, f32, f32);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
-void TObjEneMe1GiGueMissile__sub_802CE220(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void create__22TObjEneMe1GiGueMissileFiiiff(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     void *temp_r3;
     temp_r3 = (void *) __nw__7TObjectFUl(0xC4);
     if ((u32) temp_r3 != 0U) {

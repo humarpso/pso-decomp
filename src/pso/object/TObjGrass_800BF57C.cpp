@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjGrass__sub_800BF57C(void *arg0);
+void * create__9TObjGrassFPv(void *arg0);
 void *TObjControl__ct(void *, void *);
 void *TObjGrass__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
-void * TObjGrass__sub_800BF57C(void *arg0) {
+void * create__9TObjGrassFPv(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

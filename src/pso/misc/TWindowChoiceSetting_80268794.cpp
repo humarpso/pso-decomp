@@ -87,7 +87,7 @@ block_4:
         }
     }
 }
-void TWindowChoiceSetting__sub_80268984(void *arg0, s32 arg1) {
+void create_sub_window__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
     u32 var_r0;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x78) == 0U) {

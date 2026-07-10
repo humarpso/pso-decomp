@@ -14,7 +14,7 @@ extern M2C_UNK lbl_8043E038[];
 extern s32 lbl_805D5410;
 extern s32 lbl_805D5414;
 
-s32 fn_801035AC(s32 arg0) {
+s32 create_item_buff(s32 arg0) {
     s32 temp_r3;
 
     if (arg0 != 0) {

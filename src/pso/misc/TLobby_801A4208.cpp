@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801A4208(void);
+void free_objects__6TLobbyFv(void);
 M2C_UNK TObjCityMainWarp__sub_80186634();
 M2C_UNK TObjDoor__sub_801A3C0C();
 M2C_UNK TRaderMapCore__sub_801F9540();
@@ -24,7 +24,7 @@ M2C_UNK queue_destruction__7TObjectFv(u32);
 
 extern u32 lbl_805D5EE8;
 
-void TLobby__sub_801A4208(void) {
+void free_objects__6TLobbyFv(void) {
     TRaderMapCore__sub_801F9540();
     TSwitch__sub_8022942C();
     TTecLuker__sub_80233DA8();

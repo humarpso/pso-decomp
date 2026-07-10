@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneIllGill__sub_80366A74(void *arg0);
+void free_resources__14TObjEneIllGillFPv(void *arg0);
 int TObjEneIllGill__vt59(void* p);
 s32 TBoss4Type2__sub_80086C44(void *);
 
 int obj_clearFlags30(void*, int);
 
 int TObjEneIllGill__vt59(void* p) { return obj_clearFlags30(p, 256); }
-void TObjEneIllGill__sub_80366A74(void *arg0) {
+void free_resources__14TObjEneIllGillFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x414) != 0U) {
         TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x414));
         M2C_FIELD(arg0, u32 *, 0x414) = 0U;

@@ -11,7 +11,7 @@ void TPlayerBattleCtrl4P__vt13(void *arg0);
 void TPlayerBattleCtrl4P__vt14(void *arg0);
 void TPlayerBattleCtrl4P__vt15(void* p);
 M2C_UNK TDuelEffectCtrl__ct(void *, void *, M2C_UNK);
-s32 TPlayerBattleCtrl4P__sub_80310BA8(void *);
+s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void *);
 int TPlayerBattleCtrl4P__sub_803112A4(void*, void*);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
 M2C_UNK TWindow__close(void *);
@@ -41,7 +41,7 @@ void TPlayerBattleCtrl4P__vt13(void *arg0) {
 
 void TPlayerBattleCtrl4P__vt12(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24C) = (s32) (M2C_FIELD(arg0, s32 *, 0x24C) - 1);
-    if ((TPlayerBattleCtrl4P__sub_80310BA8(arg0) != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0x24C) >= 0)) {
+    if ((check_all_players_flag__19TPlayerBattleCtrl4PFv(arg0) != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0x24C) >= 0)) {
         if (M2C_FIELD(arg0, void **, 0x20) != (void *) 0) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x20));
         M2C_FIELD(arg0, u32 *, 0x20) = 0U;

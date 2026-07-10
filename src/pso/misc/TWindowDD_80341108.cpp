@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowDD__sub_80341108(s32 arg0);
+void draw_and_scroll_entry__9TWindowDDFi(s32 arg0);
 M2C_UNK draw_entry_if_visible__9TWindowDDFPvPv(s32, void *);
 M2C_UNK TWindowDD__sub_80348AFC(s32, void *);
 void *fn_80244CF4();
@@ -14,7 +14,7 @@ M2C_UNK fn_80257BC0(s32, s32, void *, f32);
 
 extern f32 lbl_805DFC90;
 
-void TWindowDD__sub_80341108(s32 arg0) {
+void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
     f32 temp_f1;
     void *temp_r3;
 

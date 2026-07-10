@@ -6,7 +6,7 @@ extern "C" {
 
 void *TAdChrSelASlotGC__ct(void *arg0, void *arg1, void *arg2);
 void TAdChrSelASlotGC__sub_8030DE58(void *, void *);
-void TAdChrSelASlotGC__sub_8030E09C(void *, void *);
+void init__16TAdChrSelASlotGCFPvi(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__16TAdChrSelASlotGC[];
@@ -16,7 +16,7 @@ void *TAdChrSelASlotGC__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TAdChrSelASlotGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4100;
-    TAdChrSelASlotGC__sub_8030E09C(arg0, arg2);
+    init__16TAdChrSelASlotGCFPvi(arg0, arg2);
     TAdChrSelASlotGC__sub_8030DE58(arg0, arg2);
     return arg0;
 }

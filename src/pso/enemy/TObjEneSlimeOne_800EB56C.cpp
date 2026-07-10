@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 create__15TObjEneSlimeOneFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 TObjEneSlimeOne__sub_800EB5E4(s32 arg0, s32 arg1);
+s32 create__15TObjEneSlimeOneFii(s32 arg0, s32 arg1);
 s32 TObjControl__ct(s32, s32);
 s32 TObjEneSlimeOne__ct(s32, s32, s32, s32, s32);
 s32 TObjEneSlimeOne__sub_800EB4A0(s32, s32, s32, s32);
@@ -32,7 +32,7 @@ s32 create__15TObjEneSlimeOneFiii(s32 arg0, s32 arg1, s32 arg2) {
 
 extern s32 tl_04;
 
-s32 TObjEneSlimeOne__sub_800EB5E4(s32 arg0, s32 arg1) {
+s32 create__15TObjEneSlimeOneFii(s32 arg0, s32 arg1) {
     s32 var_r31;
     s32 var_r4;
 

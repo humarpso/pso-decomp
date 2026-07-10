@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80138018(void);
+void close_menu_windows__6TLobbyFv(void);
 extern void TLobby__sub_8013703C(void);
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 M2C_UNK TWindow__close(s32);
@@ -17,7 +17,7 @@ extern s32 lbl_805D5594;
 extern s32 lbl_805D55E0;
 extern s32 lbl_805D55E4;
 
-void TLobby__sub_80138018(void) {
+void close_menu_windows__6TLobbyFv(void) {
     TLobby__sub_8013990C(6);
     TWindow__close(lbl_805D55E0);
     lbl_805D55E0 = 0;

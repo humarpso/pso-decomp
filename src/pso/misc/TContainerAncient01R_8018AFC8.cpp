@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TContainerAncient01R__sub_8018AFC8(void *arg0, s16 arg1);
+void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_80018FE0(void *, M2C_UNK);
 M2C_UNK fn_80154A00(M2C_UNK *);
@@ -14,7 +14,7 @@ M2C_UNK fn_80156720(void *);
 
 extern M2C_UNK lbl_804B6E1C[];
 
-void *TContainerAncient01R__sub_8018AFC8(void *arg0, s16 arg1) {
+void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B6E1C;
         fn_80154A00((M2C_UNK *)arg0);

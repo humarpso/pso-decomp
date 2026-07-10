@@ -12,7 +12,7 @@ void *fn_802664A8(s32, s32, s32);
 s32 TWindowOptionCtrl__sub_8026C610(void *);
 void render__20TWindowShortListCtrlFv(void);
 
-void *TWindowShortListCtrl__sub_8026EC50(void *arg0, s32 arg1, s32 arg2) {
+void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2) {
     void *temp_r31;
 
     temp_r31 = fn_802664A8(arg1, 0x13, M2C_FIELD(arg0, s32 *, 0x24));

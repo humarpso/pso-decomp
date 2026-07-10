@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjCity_Season_XmasTree__create(void *arg0);
-void *TObjCity_Season_XmasTree__sub_80184454(void *arg0, s16 arg1);
+void *dt__24TObjCity_Season_XmasTreeFPvs(void *arg0, s16 arg1);
 void *TObjCity_Season_XmasTree__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -24,7 +24,7 @@ void *TObjCity_Season_XmasTree__create(void *arg0) {
 
 extern M2C_UNK lbl_804B5DA0[];
 
-void *TObjCity_Season_XmasTree__sub_80184454(void *arg0, s16 arg1) {
+void *dt__24TObjCity_Season_XmasTreeFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5DA0;
         if (M2C_FIELD(arg0, void **, 0xB4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xB4)); M2C_FIELD(arg0, M2C_UNK *, 0xB4) = 0; }

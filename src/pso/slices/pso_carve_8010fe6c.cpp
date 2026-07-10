@@ -12,7 +12,7 @@ s32 fn_800F9C00(M2C_UNK *);
 M2C_UNK fn_800F9CA4(M2C_UNK *);
 s32 fn_800F9DF4(u32, s32);
 M2C_UNK TItemBuff__ct();
-s32 fn_801035AC(s32);
+s32 create_item_buff(s32);
 u32 TOBoss4Rock__sub_80147AA8(s32);
 
 struct Sp8Buf {
@@ -43,7 +43,7 @@ void *fn_8010FE6C(void *arg0, u32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
     if ((arg2 != 0) && (arg1 != 0U)) {
         M2C_FIELD(arg0, u32 *, 0) = TOBoss4Rock__sub_80147AA8(arg2);
-        temp_r3 = fn_801035AC(arg2);
+        temp_r3 = create_item_buff(arg2);
         if ((temp_r3 != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) && (fn_800F9DF4(arg1, temp_r3) > 0)) {
             temp_r31 = fn_800F7D30(temp_r3, M2C_FIELD(arg0, u32 *, 0), arg2);
             fn_800F9CA4((M2C_UNK *)&sp8);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80137D00(void);
+void update_com_card_window__6TLobbyFv(void);
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowSubComCard__sub_8007341C(u32);
 s32 TWindowSubComCard__sub_80073DB8(u32);
@@ -16,7 +16,7 @@ M2C_UNK fn_801DB0AC(s32, s32);
 extern s32 lbl_805D5580;
 extern u32 lbl_805D55E4;
 
-void TLobby__sub_80137D00(void) {
+void update_com_card_window__6TLobbyFv(void) {
     s32 temp_r31;
 
     if ((u32) lbl_805D55E4 != 0U) {

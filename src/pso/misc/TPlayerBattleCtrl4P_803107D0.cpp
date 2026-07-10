@@ -20,10 +20,10 @@ VV(61)
 
 extern "C" {
 
-void TPlayerBattleCtrl4P__sub_803107D0(void);
+void update_players__19TPlayerBattleCtrl4PFv(void);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
-void TPlayerBattleCtrl4P__sub_803107D0(void) {
+void update_players__19TPlayerBattleCtrl4PFv(void) {
     s32 var_r31;
     void *temp_r3;
 

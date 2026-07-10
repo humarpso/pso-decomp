@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItem__sub_801015EC(void *arg0, s8 arg1);
+void set_mode__5TItemFPvc(void *arg0, s8 arg1);
 
 M2C_UNK fn_80101514(void *);
 M2C_UNK fn_80101580(void *, M2C_UNK);
 
-void TItem__sub_801015EC(void *arg0, s8 arg1) {
+void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
     if (arg1 == 3) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 0;
     }

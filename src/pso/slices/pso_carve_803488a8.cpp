@@ -10,7 +10,7 @@ s32 TWindowDD__sub_803485F4(s32, s32 *);
 M2C_UNK strncpy(s32, s32, s32);
 s32 strlen();
 
-void TWindowDD__sub_803488A8(s32 arg0, s32 arg1, s32 *arg2) {
+void append_string__9TWindowDDFiiPv(s32 arg0, s32 arg1, s32 *arg2) {
     s32 temp_r31;
 
     if (arg0 != 0) {

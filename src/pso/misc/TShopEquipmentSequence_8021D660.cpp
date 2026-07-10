@@ -18,14 +18,14 @@ struct VObj_8021D660 : Base_8021D660 {
 
 extern "C" {
 
-void TShopEquipmentSequence__sub_8021D660(void *arg0);
+void close_if_done__22TShopEquipmentSequenceFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 M2C_UNK fn_80223724(void *);
 M2C_UNK fn_80223760(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TShopEquipmentSequence__sub_8021D660(void *arg0) {
+void close_if_done__22TShopEquipmentSequenceFPv(void *arg0) {
     if ((((VObj_8021D660 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         fn_80223724(arg0);
         fn_80223760(arg0);

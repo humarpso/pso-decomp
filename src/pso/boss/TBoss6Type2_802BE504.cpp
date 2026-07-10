@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss6Type2__sub_802BE504(s32 arg0);
+s32 create__11TBoss6Type2Fi(s32 arg0);
 s32 TBoss6Type2__ct(s32, s32, s32);
 s32 TObjControl__ct(s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 
 extern s32 tl_04;
 
-s32 TBoss6Type2__sub_802BE504(s32 arg0) {
+s32 create__11TBoss6Type2Fi(s32 arg0) {
     s32 var_r31;
     s32 var_r4;
 

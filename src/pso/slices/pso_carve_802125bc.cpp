@@ -19,7 +19,7 @@ int fn_80073DC4(void *, int);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
 
-void THunterGuildSeqOffline__sub_802125BC(void *arg0) {
+void handle_click__22THunterGuildSeqOfflineFPv(void *arg0) {
     VObj_802125BC *o = (VObj_802125BC *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m7(0x19, 1);

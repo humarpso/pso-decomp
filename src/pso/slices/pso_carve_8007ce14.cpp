@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8007CB50();
 s32 fn_8007CBC4();
-M2C_UNK fn_8007CC68();
+M2C_UNK save_screen_snapshot();
 M2C_UNK memcard_check_snapshot(M2C_UNK, s32 *);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 extern s32 lbl_805D4E94;
@@ -21,7 +21,7 @@ s32 fn_8007CE14(void) {
         if ((s32) lbl_805D4E94 != 0) {
             return -9;
         }
-        fn_8007CC68();
+        save_screen_snapshot();
 loop_4:
         if (TAdPlayerLoadGC__sub_801E1E38(1) == 0) {
             lbl_805D4E94 = 0;

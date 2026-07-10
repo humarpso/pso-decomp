@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TFogCtrl__sub_800FAD54(void);
+void update_all__8TFogCtrlFv(void);
 M2C_UNK TFogCtrl__sub_800FADB4(s32);
 
 s32 is_split_screen();
 extern M2C_UNK lbl_80501188[];
 
-void TFogCtrl__sub_800FAD54(void) {
+void update_all__8TFogCtrlFv(void) {
     s32 var_r29;
     s32 var_r31;
     s32 temp_r3;

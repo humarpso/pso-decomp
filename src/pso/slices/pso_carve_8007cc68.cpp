@@ -12,7 +12,7 @@ extern M2C_UNK lbl_80438A08[];
 extern s16 lbl_805D4E8A;
 extern s32 lbl_805D4E90;
 
-s32 fn_8007CC68(void) {
+s32 save_screen_snapshot(void) {
     if (memcard_check_snapshot(1, 0) == 0) {
         return 0;
     }

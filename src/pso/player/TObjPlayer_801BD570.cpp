@@ -51,7 +51,7 @@ void TObjPlayer__sub_801C1FF8(void *);
 void TObjPlayer__sub_801C20A4(void *);
 void TObjPlayer__sub_801C224C(void *);
 void TObjPlayer__sub_801C57A0(void *);
-void TObjPlayer__sub_801D6CBC(void *);
+void init_sub_objects__10TObjPlayerFPv(void *);
 void __ct__14TPlyDispConfigFv(void *);
 void fn_80019038(void *);
 void fn_80072218(void *);
@@ -92,7 +92,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BFB6C((void *)((char *)arg0 + 1708));
     TObjPlayer__sub_801BF660((void *)((char *)arg0 + 1840));
     TObjPlayer__sub_801BEC50((void *)((char *)arg0 + 1860));
-    TObjPlayer__sub_801D6CBC((void *)((char *)arg0 + 1876));
+    init_sub_objects__10TObjPlayerFPv((void *)((char *)arg0 + 1876));
     TObjPlayer__sub_801C57A0((void *)((char *)arg0 + 1988));
     TObjPlayer__sub_801BFB60((void *)((char *)arg0 + 1992));
     TObjPlayer__sub_801C1FF8((void *)((char *)arg0 + 1996));
@@ -143,7 +143,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BFB6C((void *)((char *)arg0 + 1708));
     TObjPlayer__sub_801BF660((void *)((char *)arg0 + 1840));
     TObjPlayer__sub_801BEC50((void *)((char *)arg0 + 1860));
-    TObjPlayer__sub_801D6CBC((void *)((char *)arg0 + 1876));
+    init_sub_objects__10TObjPlayerFPv((void *)((char *)arg0 + 1876));
     TObjPlayer__sub_801C57A0((void *)((char *)arg0 + 1988));
     TObjPlayer__sub_801BFB60((void *)((char *)arg0 + 1992));
     TObjPlayer__sub_801C1FF8((void *)((char *)arg0 + 1996));

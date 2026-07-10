@@ -17,7 +17,7 @@ M2C_UNK fn_802274B8(M2C_UNK *);
 M2C_UNK fn_80227FB4();
 extern M2C_UNK lbl_8043F188[];
 
-s32 fn_8013FFEC(void) {
+s32 ship_scene_update(void) {
     TOKeyMachine01__sub_802034A8();
     fn_80227FB4();
     if (fn_8007BB2C() != 0) {

@@ -12,7 +12,7 @@ M2C_UNK fn_803D9B78();
 M2C_UNK fn_803E4684(s32);
 extern s32 lbl_805D4F98;
 
-void TObjEneRe7Berura__sub_80094F64(void *arg0) {
+void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r4;
     void *var_r30;
@@ -29,7 +29,7 @@ void TObjEneRe7Berura__sub_80094F64(void *arg0) {
         }
         fn_803D9B78();
         if (!(temp_r31 & 0x10)) {
-            TObjEneRe7Berura__sub_80094F64(M2C_FIELD(var_r30, void **, 0x2C));
+            draw_node_tree__16TObjEneRe7BeruraFPv(M2C_FIELD(var_r30, void **, 0x2C));
         }
         var_r30 = M2C_FIELD(var_r30, void **, 0x30);
     } while (var_r30 != NULL);

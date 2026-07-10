@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK THunterGuildSeqOffline__sub_800F8878(u32, s32, M2C_UNK *);
+M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, M2C_UNK *);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 extern M2C_UNK fn_8019BB2C[];
@@ -16,7 +16,7 @@ void fn_8019BB9C(void) {
     fn_8022675C(0x40003205, 0, 0, 0);
     u32 obj = __nw__7TObjectFUl(0x28);
     if (obj != 0U) {
-        THunterGuildSeqOffline__sub_800F8878(obj, tl_00, fn_8019BB2C);
+        init__22THunterGuildSeqOfflineFPvPvPv(obj, tl_00, fn_8019BB2C);
     }
 }
 

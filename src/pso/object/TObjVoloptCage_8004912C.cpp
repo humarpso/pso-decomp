@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjVoloptCage__sub_8004912C(void);
+void init_break_model__14TObjVoloptCageFv(void);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
 s32 fn_8001E1D8(M2C_UNK);
 s32 fn_8001E280(M2C_UNK);
@@ -18,7 +18,7 @@ extern s32 lbl_805D4D1C;
 extern s32 lbl_805D4D20;
 extern s32 lbl_805D4D24;
 
-void TObjVoloptCage__sub_8004912C(void) {
+void init_break_model__14TObjVoloptCageFv(void) {
     s32 var_r0;
     void *temp_r4;
 

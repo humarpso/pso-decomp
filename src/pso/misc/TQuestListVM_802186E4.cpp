@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestListVM__sub_802186E4(void *arg0);
+void handle_click__12TQuestListVMFPv(void *arg0);
 void TQuestListVM__sub_8021874C(void *arg0);
 M2C_UNK fn_80073DC4(void *, s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -19,7 +19,7 @@ struct VObj_802186E4 : Base_802186E4 {
     virtual int m8();
 };
 
-void TQuestListVM__sub_802186E4(void *arg0) {
+void handle_click__12TQuestListVMFPv(void *arg0) {
     VObj_802186E4 *obj = (VObj_802186E4 *) arg0;
     if (obj->m8() != 0) {
         obj->m7(0x19, 1);

@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8009E6B0(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009E784(void *);
-M2C_UNK TObjEneMe1Canadin__sub_8009EA54(void *);
+M2C_UNK update_angle__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB6C(void *);
 M2C_UNK TObjEneEpsilon__sub_800B9680(void *, void *);
@@ -71,7 +71,7 @@ void fn_8009BFF8(u8 *arg0, s32 arg1) {
         case 1:
             TObjEneEpsilon__sub_800B9680(arg0, arg0 + 0x50);
             fn_800B99D8(arg0);
-            TObjEneMe1Canadin__sub_8009EA54(arg0);
+            update_angle__17TObjEneMe1CanadinFPv(arg0);
             TObjEneMe1Canadin__sub_8009EB6C(arg0);
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805D98B0) {
                 TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805D98B4);

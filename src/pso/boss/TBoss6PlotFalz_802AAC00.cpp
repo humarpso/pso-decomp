@@ -12,7 +12,7 @@ s32 TBoss6PlotFalz__sub_802AAC74(void);
 void TBoss6PlotFalz__sub_802AAC98(void* p);
 int TBoss6PlotFalz__sub_802AACEC(void);
 
-s32 TBoss6PlotFalz__sub_802AAC00(void *arg0, s16 *arg1, s16 *arg2) {
+s32 get_next_point__14TBoss6PlotFalzFPvPvPv(void *arg0, s16 *arg1, s16 *arg2) {
     if (TBoss6PlotFalz__sub_802AAC74() < 1) {
         return 0;
     }

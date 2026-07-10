@@ -13,7 +13,7 @@ s32 fn_802B1018();
 M2C_UNK TBoss6Tube__sub_802B1218(void *);
 M2C_UNK TBoss6Tube__sub_802B138C(void *);
 M2C_UNK TBoss6Tube__sub_802B14B8(void *);
-M2C_UNK TBoss6Tube__sub_802B1500(void *);
+M2C_UNK update_timer__10TBoss6TubeFPv(void *);
 
 void run_task__10TBoss6TubeFv(void *arg0) {
     s32 temp_r0;
@@ -22,7 +22,7 @@ void run_task__10TBoss6TubeFv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
         switch (temp_r0) {
         case 0:
-            TBoss6Tube__sub_802B1500(arg0);
+            update_timer__10TBoss6TubeFPv(arg0);
             return;
         case 1:
             TBoss6Tube__sub_802B14B8(arg0);

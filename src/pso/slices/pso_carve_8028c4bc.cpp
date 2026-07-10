@@ -5,13 +5,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *__nw__7TObjectFUl(int);
-void *TChCrLoadAfsTextureReq__sub_8028C3EC(void *, void *, void *);
+void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *, void *, void *);
 
 void * fn_8028C4BC(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x194);
     if (o != NULL) {
-        o = TChCrLoadAfsTextureReq__sub_8028C3EC(o, arg0, arg1);
+        o = init__22TChCrLoadAfsTextureReqFPvPvPv(o, arg0, arg1);
     }
     return o;
 }

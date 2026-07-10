@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_com_card__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80138018();
+M2C_UNK close_menu_windows__6TLobbyFv();
 M2C_UNK return_to_main_menu__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK TLobby__sub_80139860();
@@ -29,7 +29,7 @@ void handle_com_card__6TLobbyFv(void) {
                 return_to_main_menu__6TLobbyFv();
                 return;
             case 1:
-                TLobby__sub_80138018();
+                close_menu_windows__6TLobbyFv();
                 return;
             }
         } else if (TWindowSubComCard__sub_80073DB8(lbl_805D55E4) != 0) {

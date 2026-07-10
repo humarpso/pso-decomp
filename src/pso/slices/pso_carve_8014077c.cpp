@@ -17,7 +17,7 @@ M2C_UNK fn_802274B8(M2C_UNK *);
 M2C_UNK fn_80227FB4();
 extern M2C_UNK lbl_8043F208[];
 
-s32 fn_8014077C(void) {
+s32 init_stage_cave_b(void) {
     TOKeyMachine01__sub_802034A8();
     fn_80227FB4();
     if (fn_8007BB2C() != 0) {

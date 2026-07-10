@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TObjEneMe1Canadin__sub_8009EA54(void*);
+int update_angle__17TObjEneMe1CanadinFPv(void*);
 int fn_800B9194(void*);
 int TObjEneEpsilon__sub_800B96A4(void*);
 int fn_800B99D8(void*);

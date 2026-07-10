@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOSwitchAttack__sub_80177760(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
+void create_sub__14TOSwitchAttackFiiiif(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 
 M2C_UNK TOSwitchAttackSub__ct(void *, s32, s32, s32, s32, f32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
-void TOSwitchAttack__sub_80177760(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
+void create_sub__14TOSwitchAttackFiiiif(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     void *temp_r3;
     temp_r3 = (void *)__nw__7TObjectFUl(0x30);
     if (temp_r3 != (void *)0U) {

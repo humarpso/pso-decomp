@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjEneMe3Stelth__sub_800F4A1C(void *arg0);
+u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0);
 void TObjEneMe3Stelth__sub_800F4A8C(void);
 s32 TObjEneMe3Stelth__sub_800F4CC8(void *, s32, f32);
 
@@ -14,7 +14,7 @@ extern f32 lbl_805DA844;
 extern f32 lbl_805DA898;
 extern f32 lbl_805DA89C;
 
-u8 TObjEneMe3Stelth__sub_800F4A1C(void *arg0) {
+u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0) {
     f32 temp_f1;
     s32 var_r31;
 

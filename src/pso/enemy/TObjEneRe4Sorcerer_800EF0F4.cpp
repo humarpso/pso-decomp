@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe4Sorcerer__sub_800EF0F4(void *arg0, s32 arg1);
+void handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
-void TObjEneRe4Sorcerer__sub_800EF0F4(void *arg0, s32 arg1) {
+void handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s32 *, 0x4E4) = 0;

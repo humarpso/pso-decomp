@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjVoloptCage__sub_80049210(void *arg0);
+void update_state__14TObjVoloptCageFPv(void *arg0);
 M2C_UNK TObjVoloptCage__sub_80048CDC();
 M2C_UNK TObjVoloptCage__sub_80048E80();
 M2C_UNK update_capture__14TObjVoloptCageFPv();
 M2C_UNK TObjVoloptCage__sub_80049000();
 
-void TObjVoloptCage__sub_80049210(void *arg0) {
+void update_state__14TObjVoloptCageFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

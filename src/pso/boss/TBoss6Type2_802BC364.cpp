@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss6Type2__sub_802BC364(void *arg0);
+s32 is_target_valid__11TBoss6Type2FPv(void *arg0);
 s32 is_split_screen();
 
 extern s32 lbl_805D53A0;
 
-s32 TBoss6Type2__sub_802BC364(void *arg0) {
+s32 is_target_valid__11TBoss6Type2FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x418) == 0) {
         return 0;
     }

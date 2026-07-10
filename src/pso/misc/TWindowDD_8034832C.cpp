@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowDD__sub_8034832C(void);
+void dispatch_state__9TWindowDDFv(void);
 M2C_UNK fn_8034435C();
 M2C_UNK fn_80344568();
 M2C_UNK fn_80344774();
@@ -15,7 +15,7 @@ M2C_UNK fn_80346640();
 
 extern s32 lbl_805D6E08;
 
-void TWindowDD__sub_8034832C(void) {
+void dispatch_state__9TWindowDDFv(void) {
     switch ((s32) lbl_805D6E08) {
     case 0:
         fn_80346640();

@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss3VoloptMonitor__sub_800420D8(void);
-void TBoss3VoloptMonitor__sub_800420DC(void *arg0);
+void update_state__19TBoss3VoloptMonitorFPv(void *arg0);
 s32 fn_80041C78();
 s32 fn_80041D0C();
 s32 fn_80041D3C();
 s32 fn_80041E88();
 
 void TBoss3VoloptMonitor__sub_800420D8(void) {  }
-void TBoss3VoloptMonitor__sub_800420DC(void *arg0) {
+void update_state__19TBoss3VoloptMonitorFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

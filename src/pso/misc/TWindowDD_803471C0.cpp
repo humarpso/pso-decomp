@@ -8,12 +8,12 @@ extern "C" {
 
 void TWindowDD__sub_803471C0(s32 arg0, s32 arg1);
 M2C_UNK open__11TWindowCtrlFiii(s32, s32, M2C_UNK);
-M2C_UNK TWindowDD__sub_8034861C(s32, s32, s32);
+M2C_UNK update_state__9TWindowDDFv(s32, s32, s32);
 
 extern s32 lbl_805D6E10;
 
 void TWindowDD__sub_803471C0(s32 arg0, s32 arg1) {
-    TWindowDD__sub_8034861C(arg0, lbl_805D6E10, arg1);
+    update_state__9TWindowDDFv(arg0, lbl_805D6E10, arg1);
     open__11TWindowCtrlFiii(arg1, lbl_805D6E10, 0x4F);
 }
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801389A0(void);
+void update_scroll_close__6TLobbyFv(void);
 void handle_short_list_input__6TLobbyFv(void);
 void update_short_list__6TLobbyFv(void);
 M2C_UNK TAdScrollWinGC__sub_803274D0(u32);
@@ -23,7 +23,7 @@ extern s8 lbl_8050E208[];
 extern s32 lbl_805D5580;
 extern u32 lbl_805D55F8;
 
-void TLobby__sub_801389A0(void) {
+void update_scroll_close__6TLobbyFv(void) {
     if ((u32) lbl_805D55F8 != 0U) {
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 0xE) != 0) {
             TAdScrollWinGC__sub_803274D0(lbl_805D55F8);

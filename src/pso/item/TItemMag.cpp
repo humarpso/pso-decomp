@@ -16,7 +16,7 @@ int TItemMag__sub_80112E20(void*, void*);
 M2C_UNK TItemMag__sub_80112EE4(void *);
 M2C_UNK fn_80100564(void *, M2C_UNK);
 M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
-M2C_UNK TItemMag__sub_80112F44(void *);
+M2C_UNK apply_feed_delta__8TItemMagFPv(void *);
 M2C_UNK TItemMag__sub_80112FB4();
 
 void update_feed_timer__8TItemMagFPv(void *arg0) {
@@ -25,7 +25,7 @@ void update_feed_timer__8TItemMagFPv(void *arg0) {
     }
     TItemMag__sub_80112EE4(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1D0) <= (s32) M2C_FIELD(arg0, s32 *, 0x1CC)) {
-        TItemMag__sub_80112F44(arg0);
+        apply_feed_delta__8TItemMagFPv(arg0);
         TItemMag__sub_80112E20((void*)(arg0), (void*)(1));
     }
     if ((M2C_FIELD(arg0, s32 *, 0x1CC) % 60) == 0) {

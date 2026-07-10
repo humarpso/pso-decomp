@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubShortMail__sub_8027E6FC(void *arg0);
+void update_mail_count__19TWindowSubShortMailFPv(void *arg0);
 s32 TWindowSubShortMail__sub_8027FAF0();
 u32 fn_80225924(s32);
 s32 fn_80266E0C(s32);
 M2C_UNK fn_80269C6C(u32, s32, M2C_UNK);
 
-void TWindowSubShortMail__sub_8027E6FC(void *arg0) {
+void update_mail_count__19TWindowSubShortMailFPv(void *arg0) {
     s32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {

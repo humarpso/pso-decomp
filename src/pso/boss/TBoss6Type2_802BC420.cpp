@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void play_phase_sound__11TBoss6Type2FPv(u8 *arg0);
-s32 TBoss6Type2__sub_802BC364();
+s32 is_target_valid__11TBoss6Type2FPv();
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 void play_phase_sound__11TBoss6Type2FPv(u8 *arg0) {
     M2C_UNK var_r3;
     s32 temp_r0;
 
-    if (TBoss6Type2__sub_802BC364() == 0) {
+    if (is_target_valid__11TBoss6Type2FPv() == 0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x42C);
         switch (temp_r0) {
         case 1:

@@ -13,7 +13,7 @@ M2C_UNK fn_802AC6D0();
 M2C_UNK fn_8033DC60(void *);
 extern M2C_UNK lbl_80470990[];
 
-void fn_802B0518(void *arg0) {
+void stop_adx_audio(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3DC) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x3DC));
     }

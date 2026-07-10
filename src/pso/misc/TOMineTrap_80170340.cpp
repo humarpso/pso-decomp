@@ -29,7 +29,7 @@ s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     }
     return 0;
 }
-s32 TOMineTrap__sub_801703D4(void *arg0, u32 arg1) {
+s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     if (TOMineTrap__sub_801702C8() == 1) {
         return 0;
     }

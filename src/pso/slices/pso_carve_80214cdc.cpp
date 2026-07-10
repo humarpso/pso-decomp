@@ -7,13 +7,13 @@ extern "C" {
 extern void *tl_00;
 extern unsigned char fn_80213E0C[];
 void *__nw__7TObjectFUl(int);
-void *THunterGuildSeqOffline__sub_800F8878(void *, void *, void *);
+void *init__22THunterGuildSeqOfflineFPvPvPv(void *, void *, void *);
 
 void handle_6x73_exit_quest(void) {
     void *o;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        THunterGuildSeqOffline__sub_800F8878(o, tl_00, fn_80213E0C);
+        init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, fn_80213E0C);
     }
 }
 

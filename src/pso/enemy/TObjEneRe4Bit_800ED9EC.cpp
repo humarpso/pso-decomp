@@ -8,14 +8,14 @@ extern "C" {
 
 void TObjEneRe4Bit__sub_800ED9EC(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 void TObjEneRe4Bit__sub_800EDA18(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
-M2C_UNK TObjEneRe4Bit__sub_800EDA44(M2C_UNK, M2C_UNK, s32, s32, s32);
+M2C_UNK create__13TObjEneRe4BitFPvPvPvPvPv(M2C_UNK, M2C_UNK, s32, s32, s32);
 
 void TObjEneRe4Bit__sub_800ED9EC(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
-    TObjEneRe4Bit__sub_800EDA44(arg0, arg1, 1, arg2, arg3);
+    create__13TObjEneRe4BitFPvPvPvPvPv(arg0, arg1, 1, arg2, arg3);
 }
 
 void TObjEneRe4Bit__sub_800EDA18(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
-    TObjEneRe4Bit__sub_800EDA44(arg0, arg1, 0, arg2, arg3);
+    create__13TObjEneRe4BitFPvPvPvPvPv(arg0, arg1, 0, arg2, arg3);
 }
 
 }

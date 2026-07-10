@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneIllGill__vt60(void *arg0);
 
-M2C_UNK TObjEneIllGill__sub_80366A74(M2C_UNK);
+M2C_UNK free_resources__14TObjEneIllGillFPv(M2C_UNK);
 
 void TObjEneIllGill__vt60(void *arg0) {
     s16 temp_r0;
@@ -26,7 +26,7 @@ void TObjEneIllGill__vt60(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 7) {
         M2C_FIELD(arg0, s16 *, 0x326) = 7;
         M2C_FIELD(arg0, s16 *, 0xB8) = 5;
-        TObjEneIllGill__sub_80366A74((M2C_UNK) arg0);
+        free_resources__14TObjEneIllGillFPv((M2C_UNK) arg0);
     }
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);

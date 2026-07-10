@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TRaderMapCore__sub_801FB6A8(void);
+void create__13TRaderMapCoreFv(void);
 M2C_UNK TRaderMapCore__ct(void *, s32);
 s32 TRaderMapCore__sub_8030A808();
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -15,7 +15,7 @@ s32 fn_8030A730();
 extern s32 tl_radermap;
 extern s32 tl_clipout;
 
-void TRaderMapCore__sub_801FB6A8(void) {
+void create__13TRaderMapCoreFv(void) {
     void *obj;
     if ((TRaderMapCore__sub_8030A808() != 1) || (fn_8030A730() != 1)) {
         if (TRaderMapCore__sub_8030A808() == 1) {

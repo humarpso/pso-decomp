@@ -16,7 +16,7 @@ M2C_UNK TFogCtrl__sub_800FBB68();
 M2C_UNK fn_80104C40();
 M2C_UNK TQuestColCtrl__sub_80195EC8();
 M2C_UNK fn_80198D98();
-M2C_UNK TRaderMapCore__sub_801FB6A8();
+M2C_UNK create__13TRaderMapCoreFv();
 s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK TScene__sub_802065B4();
 M2C_UNK TSceneSora__sub_802073DC();
@@ -83,7 +83,7 @@ void fn_8007B858(void) {
     if (tmp != 0U) {
         TCineCtrl__ct(tmp, tl_00);
     }
-    TRaderMapCore__sub_801FB6A8();
+    create__13TRaderMapCoreFv();
     TTecLuker__sub_80233F8C();
     tmp = __nw__7TObjectFUl(0x20);
     if (tmp != 0U) {

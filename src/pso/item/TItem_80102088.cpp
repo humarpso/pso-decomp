@@ -9,7 +9,7 @@ extern "C" {
 void TItem__sub_80102088(void *arg0, s32 arg1, s32 arg2);
 void TItem__sub_801020E0(s32 arg0, s16 arg1, s32 arg2);
 void TItem__sub_8010213C(s32 arg0, s32 arg1, u32 arg2);
-M2C_UNK TItem__sub_801015EC(s32, M2C_UNK);
+M2C_UNK set_mode__5TItemFPvc(s32, M2C_UNK);
 M2C_UNK TItem__sub_80101FEC(void *, s32, s32);
 M2C_UNK TObjPlayer__sub_801B1CE8(s32, M2C_UNK);
 u32 TObjPlayer__sub_801B8E68(u32, s32);
@@ -37,7 +37,7 @@ void TItem__sub_801020E0(s32 arg0, s16 arg1, s32 arg2) {
 void TItem__sub_8010213C(s32 arg0, s32 arg1, u32 arg2) {
     fn_8011AA44(arg1, fn_80099EF8());
     if ((arg2 != 0U) && (TObjPlayer__sub_801B8E68(arg2, arg0) != 0U)) {
-        TItem__sub_801015EC(arg0, 1);
+        set_mode__5TItemFPvc(arg0, 1);
         fn_8020C5E0(arg0);
     }
 }

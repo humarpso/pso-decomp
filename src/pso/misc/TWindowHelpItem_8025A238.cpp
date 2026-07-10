@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowHelpItem__sub_8025A238(u16 *arg0, s32 arg1);
 void TWindowHelpItem__sub_8025A260(void *arg0, s32 arg1);
-void TWindowHelpItem__sub_8025A274(void *arg0, s32 arg1);
+void set_compare_color__15TWindowHelpItemFPvi(void *arg0, s32 arg1);
 M2C_UNK TWindowHelpItem__sub_8025A2D4(void *, s32);
 
 void TWindowHelpItem__sub_8025A238(u16 *arg0, s32 arg1) {
@@ -24,7 +24,7 @@ void TWindowHelpItem__sub_8025A260(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x20) = arg1;
 }
 
-void TWindowHelpItem__sub_8025A274(void *arg0, s32 arg1) {
+void set_compare_color__15TWindowHelpItemFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);

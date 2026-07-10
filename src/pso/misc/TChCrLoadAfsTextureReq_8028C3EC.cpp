@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TChCrLoadAfsTextureReq__sub_8028C3EC(void *arg0, void *arg1, void *arg2);
+void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TChCrLoadAfsTextureReq__sub_8028C310(void *);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 extern void *lbl_805D3B50;
 
-void *TChCrLoadAfsTextureReq__sub_8028C3EC(void *arg0, void *arg1, void *arg2) {
+void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TChCrLoadAfsTextureReq;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3B50;
