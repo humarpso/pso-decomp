@@ -19,14 +19,14 @@ M2C_UNK fn_801A3C18();
 M2C_UNK TRaderMapCore__sub_801F9540();
 M2C_UNK fn_80213430();
 M2C_UNK TSwitch__sub_8022942C();
-M2C_UNK TTecLuker__sub_80233DA8();
+M2C_UNK apply_all_players__9TTecLukerFv();
 void fn_8034E440();
 extern u32 lbl_805D5EE8;
 
 void fn_801A2F18(void) {
     TRaderMapCore__sub_801F9540();
     TSwitch__sub_8022942C();
-    TTecLuker__sub_80233DA8();
+    apply_all_players__9TTecLukerFv();
     fn_8011AFB8();
     fn_80103F68();
     fn_8034E440();

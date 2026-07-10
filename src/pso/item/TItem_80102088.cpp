@@ -11,7 +11,7 @@ void TItem__sub_801020E0(s32 arg0, s16 arg1, s32 arg2);
 void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 arg2);
 M2C_UNK set_mode__5TItemFPvc(s32, M2C_UNK);
 M2C_UNK TItem__sub_80101FEC(void *, s32, s32);
-M2C_UNK TObjPlayer__sub_801B1CE8(s32, M2C_UNK);
+M2C_UNK send_field_state_if_active__10TObjPlayerFii(s32, M2C_UNK);
 u32 TObjPlayer__sub_801B8E68(u32, s32);
 s32 fn_800196EC();
 M2C_UNK fn_80087350(s32, M2C_UNK);
@@ -30,7 +30,7 @@ void assign_id_and_init__5TItemFPvii(void *arg0, s32 arg1, s32 arg2) {
 void TItem__sub_801020E0(s32 arg0, s16 arg1, s32 arg2) {
     if (arg1 == fn_800196EC()) {
         fn_80087350(arg0 + 0x38, 0x9B);
-        TObjPlayer__sub_801B1CE8(arg2, 0x52802);
+        send_field_state_if_active__10TObjPlayerFii(arg2, 0x52802);
     }
 }
 

@@ -21,7 +21,7 @@ void fn_80242E74(s16 arg0, s16 arg1) {
 
 void *fn_80243010();
 
-void TBoss4Type3__sub_80242EBC(s16 arg0, s16 arg1, s16 arg2) {
+void spawn_effect__11TBoss4Type3Fsss(s16 arg0, s16 arg1, s16 arg2) {
     void *temp_r3;
 
     temp_r3 = fn_80243010();

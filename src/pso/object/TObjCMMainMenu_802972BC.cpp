@@ -16,10 +16,10 @@ void open_hair_menu__14TObjCMMainMenuFPv(void *arg0);
 void fn_802972BC(void);
 void fn_802972C0(void);
 u8 TCharaMaking__sub_8028DC74();
-M2C_UNK TObjCMAutoMkData__sub_80295900(s32);
+M2C_UNK create__16TObjCMAutoMkDataFPv(s32);
 M2C_UNK TObjCMHairMenu__sub_80296410(s32);
 M2C_UNK TObjCMName__sub_80294C58(s32);
-M2C_UNK TObjCMProportion__sub_802951A4(s32);
+M2C_UNK create__16TObjCMProportionFPv(s32);
 void *fn_802029E8(s32);
 s32 fn_8022675C(s32, s32, s32, s32);
 s32 fn_8028DA7C(void *);
@@ -81,7 +81,7 @@ extern s32 lbl_805D659C;
 void open_proportion_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     lbl_805D659C = 1;
-    TObjCMProportion__sub_802951A4(M2C_FIELD(arg0, s32 *, 0x50));
+    create__16TObjCMProportionFPv(M2C_FIELD(arg0, s32 *, 0x50));
 }
 
 extern s32 lbl_805D659C;
@@ -89,7 +89,7 @@ extern s32 lbl_805D659C;
 void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     lbl_805D659C = 1;
-    TObjCMAutoMkData__sub_80295900(M2C_FIELD(arg0, s32 *, 0x50));
+    create__16TObjCMAutoMkDataFPv(M2C_FIELD(arg0, s32 *, 0x50));
 }
 
 extern s32 lbl_805D659C;

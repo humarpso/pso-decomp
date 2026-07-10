@@ -10,11 +10,11 @@ struct VObj_800490E8 : Base_800490E8 {
 
 extern "C" {
 
-void TObjVoloptCage__sub_800490E8(void);
+void destroy__14TObjVoloptCageFv(void);
 
 extern struct VObj_800490E8 *lbl_805D4D20;
 
-void TObjVoloptCage__sub_800490E8(void) {
+void destroy__14TObjVoloptCageFv(void) {
     if (lbl_805D4D20 != NULL) {
         lbl_805D4D20->m0(1);
     }

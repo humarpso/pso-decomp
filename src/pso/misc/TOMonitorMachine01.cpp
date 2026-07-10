@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOMonitorMachine01__sub_801723C4(void *arg0);
+void *create__18TOMonitorMachine01FPv(void *arg0);
 void *TOMonitorMachine01__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TOMonitorMachine01__sub_801723C4(void *arg0) {
+void *create__18TOMonitorMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
         o = TOMonitorMachine01__ct(o, arg0);

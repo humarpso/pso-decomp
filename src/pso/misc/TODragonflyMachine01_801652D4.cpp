@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TODragonflyMachine01__sub_801653B4(void *arg0);
+void *create__20TODragonflyMachine01FPv(void *arg0);
 void run_task__20TODragonflyMachine01Fv(void *arg0);
 void *TODragonflyMachine01__ct(void *, void *);
 M2C_UNK TODragonflyMachine01__sub_80164F50(void *);
@@ -60,7 +60,7 @@ void run_task__20TODragonflyMachine01Fv(void *arg0) {
     }
 }
 
-void *TODragonflyMachine01__sub_801653B4(void *arg0) {
+void *create__20TODragonflyMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x108);
     if (o != NULL) {
         o = TODragonflyMachine01__ct(o, arg0);

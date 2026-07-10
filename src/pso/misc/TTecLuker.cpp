@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecLuker__sub_80233DA8(void);
+void apply_all_players__9TTecLukerFv(void);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TTecLuker__sub_802340A0(s32);
 
-void TTecLuker__sub_80233DA8(void) {
+void apply_all_players__9TTecLukerFv(void) {
     s32 var_r31;
     u32 temp_r3;
 

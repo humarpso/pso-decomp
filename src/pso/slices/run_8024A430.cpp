@@ -15,12 +15,12 @@ void TWindowCtrl__sub_8024A430(void) {
     }
 }
 
-u32 TWindowTimer__sub_80287E08();
+u32 create__12TWindowTimerFv();
 extern void *lbl_805D63F8;
 
 void TWindowCtrl__sub_8024A470(void) {
     if (((void *) lbl_805D63F8 != NULL) && ((u32) M2C_FIELD(lbl_805D63F8, u32 *, 0x30) == 0U)) {
-        M2C_FIELD(lbl_805D63F8, u32 *, 0x30) = TWindowTimer__sub_80287E08();
+        M2C_FIELD(lbl_805D63F8, u32 *, 0x30) = create__12TWindowTimerFv();
     }
 }
 

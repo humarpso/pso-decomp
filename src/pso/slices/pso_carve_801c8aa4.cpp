@@ -31,7 +31,7 @@ extern "C" {
 s32 fn_80019248(void *);
 M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801B0FF4(void *);
-M2C_UNK TObjPlayer__sub_801B1CE8(void *, M2C_UNK);
+M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
 s32 fn_801D0458(void *);
 M2C_UNK fn_801D04B4(void *);
@@ -47,7 +47,7 @@ void fn_801C8AA4(void *arg0) {
     TObjPlayer__sub_801B0FF4(arg0);
     ((V_A *) arg0)->m15();
     if (fn_80019248(arg0) != 0) {
-        TObjPlayer__sub_801B1CE8(arg0, 0x40003206);
+        send_field_state_if_active__10TObjPlayerFii(arg0, 0x40003206);
     }
     M2C_FIELD(arg0, s16 *, 0x328) = 1;
     fn_801BA650(arg0, 0x15, fn_801D0458(arg0));

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1);
-M2C_UNK TWindowOptionCtrl__sub_8026B348(void *);
+M2C_UNK apply_selection_change__17TWindowOptionCtrlFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -18,7 +18,7 @@ extern void* __vt__17TWindowOptionCtrl[];
 void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__17TWindowOptionCtrl;
-        TWindowOptionCtrl__sub_8026B348(arg0);
+        apply_selection_change__17TWindowOptionCtrlFPv(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x44));
             M2C_FIELD(arg0, u32 *, 0x44) = 0U;

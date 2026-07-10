@@ -8,7 +8,7 @@ extern "C" {
 
 u8 TItemDrop__sub_801060F4(void);
 u8 TItemDrop__sub_80106124(void);
-u8 TItemDrop__sub_80106154(void);
+u8 can_drop__9TItemDropFv(void);
 s32 fn_80104404();
 s32 fn_8030A7B0();
 
@@ -20,7 +20,7 @@ u8 TItemDrop__sub_80106124(void) {
     return (u8) (fn_8030A7B0() != 1);
 }
 
-u8 TItemDrop__sub_80106154(void) {
+u8 can_drop__9TItemDropFv(void) {
     int var_r31;
 
     var_r31 = 0;

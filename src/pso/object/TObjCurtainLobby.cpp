@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjCurtainLobby__sub_8035BA48(void *arg0);
+void *create__16TObjCurtainLobbyFPv(void *arg0);
 void *TObjCurtainLobby__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TObjCurtainLobby__sub_8035BA48(void *arg0) {
+void *create__16TObjCurtainLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
         o = TObjCurtainLobby__ct(o, tl_05, arg0);

@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOSparkMachine01__sub_801772B0(void *arg0);
+void *create__16TOSparkMachine01FPv(void *arg0);
 void *TOSparkMachine01__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TOSparkMachine01__sub_801772B0(void *arg0) {
+void *create__16TOSparkMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
         o = TOSparkMachine01__ct(o, arg0);

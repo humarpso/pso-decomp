@@ -10,11 +10,11 @@ struct VObj_80043EA4 : Base_80043EA4 {
 
 extern "C" {
 
-void TBoss3VoloptP01__sub_80043EA4(void);
+void destroy__15TBoss3VoloptP01Fv(void);
 
 extern struct VObj_80043EA4 *lbl_805D4CC4;
 
-void TBoss3VoloptP01__sub_80043EA4(void) {
+void destroy__15TBoss3VoloptP01Fv(void) {
     if (lbl_805D4CC4 != NULL) {
         lbl_805D4CC4->m0(1);
     }

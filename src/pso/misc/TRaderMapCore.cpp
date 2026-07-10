@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TRaderMapCore__sub_801F907C(void);
+s32 is_active__13TRaderMapCoreFv(void);
 s32 TRaderMapCore__sub_801F90C4(void);
 void TRaderMapCore__sub_801F9104(void* p);
 s32 TRaderMapCore__sub_801F9058();
@@ -16,7 +16,7 @@ s32 fn_8030A730();
 
 extern void *lbl_805D5F40;
 
-s32 TRaderMapCore__sub_801F907C(void) {
+s32 is_active__13TRaderMapCoreFv(void) {
     if ((void *) lbl_805D5F40 != NULL) {
         if (M2C_FIELD(lbl_805D5F40, u16 *, 4) & 0x10) {
             return 0;

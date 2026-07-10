@@ -4,10 +4,10 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TObjDoorJung__sub_8023DC68(void *arg0, void *arg1);
+void free_children__12TObjDoorJungFPvPv(void *arg0, void *arg1);
 void fn_8023DCB8(void *);
 
-void TObjDoorJung__sub_8023DC68(void *arg0, void *arg1) {
+void free_children__12TObjDoorJungFPvPv(void *arg0, void *arg1) {
     if (M2C_FIELD(arg0, void **, 0x8) != NULL) {
         fn_8023DCB8(M2C_FIELD(arg0, void **, 0x8));
     }

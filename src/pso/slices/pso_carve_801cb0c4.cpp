@@ -12,7 +12,7 @@ s32 obj_isState2_324(void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK fn_8002AEB8(void *, s32);
 s32 fn_801B0EE8();
-M2C_UNK TObjPlayer__sub_801B1CE8(void *, M2C_UNK);
+M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_801BE440(void *);
 M2C_UNK fn_801D0BC0(void *, s16, M2C_UNK);
@@ -42,7 +42,7 @@ void fn_801CB0C4(u8 *arg0) {
     } else {
         fn_8002AEB8(arg0 + 0x644, fn_801D8B8C(arg0));
     }
-    TObjPlayer__sub_801B1CE8(arg0, 0x4000AD12);
+    send_field_state_if_active__10TObjPlayerFii(arg0, 0x4000AD12);
     if (obj_isState2_324(arg0) != 0) {
         fn_80015CB8(arg0, ((VObj *)arg0)->m7());
     }

@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOCakeshopCave01__sub_8015A088(void *arg0);
+void *create__16TOCakeshopCave01FPv(void *arg0);
 void *TOCakeshopCave01__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TOCakeshopCave01__sub_8015A088(void *arg0) {
+void *create__16TOCakeshopCave01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF4);
     if (o != NULL) {
         o = TOCakeshopCave01__ct(o, arg0);

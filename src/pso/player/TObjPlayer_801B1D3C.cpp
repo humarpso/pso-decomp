@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjPlayer__sub_801B1D3C(void *arg0);
+u8 is_in_tl03_state__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_801BE690();
 
 extern u32 tl_03;
 
-u8 TObjPlayer__sub_801B1D3C(void *arg0) {
+u8 is_in_tl03_state__10TObjPlayerFPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;

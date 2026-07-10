@@ -11,7 +11,7 @@ M2C_UNK TObjCityMainWarp__sub_80186634();
 M2C_UNK TObjDoor__sub_801A3C0C();
 M2C_UNK TRaderMapCore__sub_801F9540();
 M2C_UNK TSwitch__sub_8022942C();
-M2C_UNK TTecLuker__sub_80233DA8();
+M2C_UNK apply_all_players__9TTecLukerFv();
 M2C_UNK fn_80103F68();
 M2C_UNK fn_801A3B84();
 M2C_UNK fn_801A3BA4();
@@ -27,7 +27,7 @@ extern u32 lbl_805D5EE8;
 void free_objects__6TLobbyFv(void) {
     TRaderMapCore__sub_801F9540();
     TSwitch__sub_8022942C();
-    TTecLuker__sub_80233DA8();
+    apply_all_players__9TTecLukerFv();
     fn_80103F68();
     fn_8034E440();
     if ((u32) lbl_805D5EE8 != 0U) {

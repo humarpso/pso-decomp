@@ -23,8 +23,8 @@ struct VObj_8022187C : Base_8022187C {
 
 extern "C" {
 
-void TShopKeepItemWindow__sub_802218B4(void *arg0);
-void TShopKeepItemWindow__sub_80221908(void *arg0);
+void close_with_cancel_callback__19TShopKeepItemWindowFPv(void *arg0);
+void close_with_ok_callback__19TShopKeepItemWindowFPv(void *arg0);
 void TShopKeepItemWindow__vt4(void *arg0);
 void TShopKeepItemWindow__vt5(void *arg0);
 M2C_UNK TShopWindowBase__sub_8022397C(void *);
@@ -47,7 +47,7 @@ void TShopKeepItemWindow__vt4(void *arg0) {
     }
 }
 
-void TShopKeepItemWindow__sub_802218B4(void *arg0) {
+void close_with_cancel_callback__19TShopKeepItemWindowFPv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x398);
@@ -59,7 +59,7 @@ void TShopKeepItemWindow__sub_802218B4(void *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void TShopKeepItemWindow__sub_80221908(void *arg0) {
+void close_with_ok_callback__19TShopKeepItemWindowFPv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x394);

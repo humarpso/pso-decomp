@@ -8,7 +8,7 @@ extern "C" {
 
 void update_particle__15TObjSuisouLobbyFPv(void *arg0);
 void TObjSuisouLobby__sub_80369D68(void);
-void *TObjSuisouLobby__sub_80369D6C(void *arg0);
+void *create__15TObjSuisouLobbyFPv(void *arg0);
 void *TObjSuisouLobby__ct(void *, void *, void *);
 s32 TParticleCtrl__sub_80088000(void *);
 s32 TParticleCtrl__sub_80088010(void *);
@@ -35,7 +35,7 @@ void TObjSuisouLobby__sub_80369D68(void) {  }
 
 extern void *tl_05;
 
-void *TObjSuisouLobby__sub_80369D6C(void *arg0) {
+void *create__15TObjSuisouLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
         o = TObjSuisouLobby__ct(o, tl_05, arg0);

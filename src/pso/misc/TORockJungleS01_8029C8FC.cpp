@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TORockJungleS01__sub_8029C8FC(void *arg0);
+void *create__15TORockJungleS01FPv(void *arg0);
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1);
 void *TORockJungleS01__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -14,7 +14,7 @@ void fn_80154A00(void *);
 void fn_80156720(void *);
 void queue_destruction__7TObjectFv(void *);
 
-void *TORockJungleS01__sub_8029C8FC(void *arg0) {
+void *create__15TORockJungleS01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
         o = TORockJungleS01__ct(o, arg0);

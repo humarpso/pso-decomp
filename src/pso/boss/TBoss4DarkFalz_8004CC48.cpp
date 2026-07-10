@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4DarkFalz__sub_8004CC48(s32 arg0);
+void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0);
 void request_action_7__14TBoss4DarkFalzFi(s32 arg0);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
 M2C_UNK TBoss4DarkFalz__sub_8004B1BC(s32, M2C_UNK);
@@ -14,7 +14,7 @@ s32 TBoss4DarkFalz__sub_8004C1E4(u32);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 fn_8004D990();
 
-void TBoss4DarkFalz__sub_8004CC48(s32 arg0) {
+void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0) {
     if (fn_8004D990() > 0) {
         TOTrapAncient01__sub_80226578(0x4003A30A, arg0, 0, -0x20, 2);
     }

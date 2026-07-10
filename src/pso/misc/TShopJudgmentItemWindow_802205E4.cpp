@@ -25,9 +25,9 @@ struct VObj_8022061C : Base_8022061C {
 
 extern "C" {
 
-void TShopJudgmentItemWindow__sub_80220654(void *arg0);
-void TShopJudgmentItemWindow__sub_8022069C(void *arg0);
-void TShopJudgmentItemWindow__sub_802206E4(void *arg0);
+void invoke_callback_174_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
+void invoke_callback_16C_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
+void invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
 void TShopJudgmentItemWindow__vt5(void *arg0);
 void TShopJudgmentItemWindow__vt6(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -50,7 +50,7 @@ void TShopJudgmentItemWindow__vt6(void *arg0) {
     }
 }
 
-void TShopJudgmentItemWindow__sub_80220654(void *arg0) {
+void invoke_callback_174_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x174);
@@ -60,7 +60,7 @@ void TShopJudgmentItemWindow__sub_80220654(void *arg0) {
     }
 }
 
-void TShopJudgmentItemWindow__sub_8022069C(void *arg0) {
+void invoke_callback_16C_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x16C);
@@ -70,7 +70,7 @@ void TShopJudgmentItemWindow__sub_8022069C(void *arg0) {
     }
 }
 
-void TShopJudgmentItemWindow__sub_802206E4(void *arg0) {
+void invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x170);

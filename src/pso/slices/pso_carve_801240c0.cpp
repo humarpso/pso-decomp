@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_80084E98(u32, M2C_UNK *);
-M2C_UNK TObjCamera__sub_80085168(u32);
+M2C_UNK queue_target_destruction__10TObjCameraFPv(u32);
 s32 fn_80101AB0(s32);
 u32 fn_80102AA8();
 s8 fn_80102C30();
@@ -30,7 +30,7 @@ void fn_801240C0(void *arg0) {
                 fn_80084E98(M2C_FIELD(arg0, u32 *, 0x24), &sp8);
                 return;
             }
-            TObjCamera__sub_80085168(M2C_FIELD(arg0, u32 *, 0x24));
+            queue_target_destruction__10TObjCameraFPv(M2C_FIELD(arg0, u32 *, 0x24));
             return;
         }
     }

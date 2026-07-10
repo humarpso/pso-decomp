@@ -8,7 +8,7 @@ extern "C" {
 
 void close_windows__19TQuestListChallengeFPv(void *arg0);
 void TQuestListChallenge__sub_80288BE4(void);
-void TQuestListChallenge__sub_80288BE8(void *arg0);
+void invoke_callback_and_destroy__19TQuestListChallengeFPv(void *arg0);
 void TQuestListChallenge__sub_80288C30(void *arg0);
 s32 TWindow__close(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -33,7 +33,7 @@ void close_windows__19TQuestListChallengeFPv(void *arg0) {
 }
 void TQuestListChallenge__sub_80288BE4(void) {  }
 
-void TQuestListChallenge__sub_80288BE8(void *arg0) {
+void invoke_callback_and_destroy__19TQuestListChallengeFPv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x2C);

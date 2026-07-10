@@ -10,11 +10,11 @@ struct VObj_8004172C : Base_8004172C {
 
 extern "C" {
 
-void TBoss3VoloptHiraisin__sub_8004172C(void);
+void destroy__20TBoss3VoloptHiraisinFv(void);
 
 extern void *lbl_805D4C88;
 
-void TBoss3VoloptHiraisin__sub_8004172C(void) {
+void destroy__20TBoss3VoloptHiraisinFv(void) {
     struct VObj_8004172C *o = (struct VObj_8004172C *)lbl_805D4C88;
     if (o != NULL) {
         o->m0(1);

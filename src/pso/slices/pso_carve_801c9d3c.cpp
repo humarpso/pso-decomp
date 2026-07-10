@@ -9,7 +9,7 @@ extern "C" {
 s32 obj_isState2_324(u32);
 s16 obj_getField1c(u32);
 s32 fn_8001BEF8(s32, M2C_UNK);
-s32 TObjPlayer__sub_801AF790(u32);
+s32 is_alive_and_ready__10TObjPlayerFi(u32);
 M2C_UNK TObjPlayer__sub_801AF7E0(u32);
 M2C_UNK fn_801B4430(u32);
 M2C_UNK TObjPlayer__sub_801B4630(u32);
@@ -27,7 +27,7 @@ void fn_801C9D3C(u32 arg0) {
 
     if (fn_8001BEF8(arg0 + 0x858, 4) != 0) {
         TObjPlayer__sub_801B4630(arg0);
-        if (TObjPlayer__sub_801AF790(arg0) != 0) {
+        if (is_alive_and_ready__10TObjPlayerFi(arg0) != 0) {
             TObjPlayer__sub_801AF7E0(arg0);
         }
     } else {

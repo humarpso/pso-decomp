@@ -8,14 +8,14 @@ struct VObj_80298AD0 : Base_80298AD0 { virtual void m0(int); };
 
 extern "C" {
 
-void *TObjCMMainMenu__sub_80298A88(void *arg0);
+void *create__14TObjCMMainMenuFPv(void *arg0);
 void *destroy__14TObjCMMainMenuFPvs(void *arg0, s16 arg1);
 void *TObjCMMainMenu__ct(void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 
-void *TObjCMMainMenu__sub_80298A88(void *arg0) {
+void *create__14TObjCMMainMenuFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x58);
     if (o != NULL) {
         o = TObjCMMainMenu__ct(o, arg0);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 classify_id__9TWindowDDFs(s16 arg0);
-s32 TWindowDD__sub_803472F8(u16 arg0);
+s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TWindowDD__sub_80347204(s16);
 s32 TWindowDD__sub_80347238();
@@ -37,7 +37,7 @@ s32 classify_id__9TWindowDDFs(s16 arg0) {
     return var_r3;
 }
 
-s32 TWindowDD__sub_803472F8(u16 arg0) {
+s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0) {
     s32 temp_r3_2;
     void *temp_r3;
 

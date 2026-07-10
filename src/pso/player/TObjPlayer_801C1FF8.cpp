@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjPlayer__sub_801C1FF8(void *arg0);
+void *init__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8001BF10(void *);
 void fn_8012AF00(void *);
 void fn_801D33B4(void *);
 
 extern const f32 lbl_805DC294;
 
-void *TObjPlayer__sub_801C1FF8(void *arg0) {
+void *init__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8001BF10((void *)((char *)arg0 + 12));
     fn_8012AF00((void *)((char *)arg0 + 48));
     M2C_FIELD(arg0, f32 *, 0x8) = lbl_805DC294;

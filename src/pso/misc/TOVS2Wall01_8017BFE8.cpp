@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOVS2Wall01__sub_8017BFE8(void *arg0);
+void *create__11TOVS2Wall01FPv(void *arg0);
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1);
 void *TOVS2Wall01__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -14,7 +14,7 @@ void fn_800D7C58(void *, int);
 void fn_80154A00(void *);
 void fn_80156720(void *);
 
-void *TOVS2Wall01__sub_8017BFE8(void *arg0) {
+void *create__11TOVS2Wall01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x360);
     if (o != NULL) {
         o = TOVS2Wall01__ct(o, arg0);

@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOComputerMachine01__sub_8015B49C(void *arg0);
+void *create__19TOComputerMachine01FPv(void *arg0);
 void *TOComputerMachine01__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TOComputerMachine01__sub_8015B49C(void *arg0) {
+void *create__19TOComputerMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
         o = TOComputerMachine01__ct(o, arg0);

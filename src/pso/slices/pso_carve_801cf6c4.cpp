@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8001BF40(void *);
 M2C_UNK fn_800A7798(void *, f32);
-s32 TObjPlayer__sub_801B60BC(void *, s16);
+s32 is_matching_id__10TObjPlayerFPvs(void *, s16);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s16);
 s32 TObjPlayer__sub_801BE614(void *);
 M2C_UNK fn_801C6780(void *, void *, f32);
@@ -27,7 +27,7 @@ void fn_801CF6C4(u8 *arg0) {
     fn_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     fn_8001BF40(arg0 + 0x5EC);
     temp_r3 = TObjPlayer__sub_801BE614(arg0);
-    if (TObjPlayer__sub_801B60BC(arg0, temp_r3) != 0) {
+    if (is_matching_id__10TObjPlayerFPvs(arg0, temp_r3) != 0) {
         fn_801D268C(arg0);
     }
     fn_801C6780(arg0 + 0x5E0, arg0, lbl_805DC3B0);

@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowCtrl__sub_8024B704(void *arg0);
-M2C_UNK TWindowCtrl__sub_8024B6B8(void *, M2C_UNK);
+M2C_UNK init_all__11TWindowCtrlFPvPv(void *, M2C_UNK);
 
 void TWindowCtrl__sub_8024B704(void *arg0) {
-    TWindowCtrl__sub_8024B6B8(arg0, 0);
+    init_all__11TWindowCtrlFPvPv(arg0, 0);
 }
 
 }

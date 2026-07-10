@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801A4C1C(void);
+void update_periodic_tick__6TLobbyFv(void);
 M2C_UNK fn_801D9E50(void*);
 
 extern s32 lbl_805D53A4;
 extern u32 lbl_805D5580;
 extern s32 lbl_805D5E24;
 
-void TLobby__sub_801A4C1C(void) {
+void update_periodic_tick__6TLobbyFv(void) {
     if ((lbl_805D5E24 & 1) && ((lbl_805D53A4 % 900) == 0) && ((u32) lbl_805D5580 != 0U)) {
         fn_801D9E50((void*)lbl_805D5580);
     }

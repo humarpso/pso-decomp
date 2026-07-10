@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
-M2C_UNK TBoss4Type3__sub_80242EBC(M2C_UNK, M2C_UNK, s16);
+M2C_UNK spawn_effect__11TBoss4Type3Fsss(M2C_UNK, M2C_UNK, s16);
 s32 is_split_screen();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
@@ -40,7 +40,7 @@ void update_target_effect_timer__11TBoss4Type3FPv(void *arg0) {
     }
     temp_r30 = M2C_FIELD(arg0, s32 *, 0x3D8) % 39;
     if (temp_r30 == 0) {
-        TBoss4Type3__sub_80242EBC(0x60, 0xF, (s16) M2C_FIELD(arg0, u16 *, 0x3BA));
+        spawn_effect__11TBoss4Type3Fsss(0x60, 0xF, (s16) M2C_FIELD(arg0, u16 *, 0x3BA));
     }
     if (temp_r30 == (s32) lbl_805D4D80) {
         fn_8022675C(0x4003C133, 0, 0, 0);

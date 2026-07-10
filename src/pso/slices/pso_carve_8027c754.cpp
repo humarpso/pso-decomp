@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TBoss4Type3__sub_80242EBC(M2C_UNK, M2C_UNK, s16);
+M2C_UNK spawn_effect__11TBoss4Type3Fsss(M2C_UNK, M2C_UNK, s16);
 s32 fn_80248940(s32);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 
@@ -19,7 +19,7 @@ void fn_8027C754(void *arg0) {
     if ((temp_r31 == 4) && ((s8) M2C_FIELD(arg0, u8 *, 0x1D) != temp_r3)) {
         M2C_FIELD(arg0, u8 *, 0x1D) = (u8) temp_r3;
         if ((s8) M2C_FIELD(arg0, u8 *, 0x1D) == 0) {
-            TBoss4Type3__sub_80242EBC(0xC0, 0xF, (s16) M2C_FIELD(arg0, s32 *, 0x20));
+            spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, (s16) M2C_FIELD(arg0, s32 *, 0x20));
         }
     }
 }

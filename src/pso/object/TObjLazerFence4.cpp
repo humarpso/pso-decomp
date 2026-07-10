@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__15TObjLazerFence4Fv(void *arg0);
-M2C_UNK TObjLazerFence4__sub_80193378();
+M2C_UNK reset_if_door_closed__15TObjLazerFence4FPv();
 M2C_UNK TObjLazerFence4__sub_801933C8();
 
 void run_task__15TObjLazerFence4Fv(void *arg0) {
@@ -19,7 +19,7 @@ void run_task__15TObjLazerFence4Fv(void *arg0) {
         TObjLazerFence4__sub_801933C8();
         return;
     case 1:
-        TObjLazerFence4__sub_80193378();
+        reset_if_door_closed__15TObjLazerFence4FPv();
         return;
     }
 }

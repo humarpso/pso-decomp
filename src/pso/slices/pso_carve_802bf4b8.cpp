@@ -9,7 +9,7 @@ extern "C" {
 s32 TBoss6Type2__sub_802B9C00(void *, s32);
 s32 TBoss6Type2__sub_802BB7C0(void *);
 u16 TBoss6Type2__sub_802BB694();
-s32 TBoss6Type2__sub_802BDD1C(void *);
+s32 update_action_state__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA6A0(void *);
 s32 TBoss6Type2__sub_802BAA74();
 s32 TBoss6Type2__sub_802BD014(void * a0 = 0, s32 a1 = 0);
@@ -91,7 +91,7 @@ void fn_802BF948(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0) {
         M2C_FIELD(arg0, u16 *, 0x466) = TBoss6Type2__sub_802BB694();
         if (M2C_FIELD(arg0, u16 *, 0x466) == 0xFFFF) {
-            TBoss6Type2__sub_802BDD1C(arg0);
+            update_action_state__11TBoss6Type2FPv(arg0);
             return;
         }
         TBoss6Type2__sub_802BDDF8((void*)(arg0), (void*)(3));

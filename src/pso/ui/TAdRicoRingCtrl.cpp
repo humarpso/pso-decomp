@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TAdRicoRingCtrl__sub_8001BE00(void *arg0);
+void *create__15TAdRicoRingCtrlFPv(void *arg0);
 void *__ct__11TAdRicoRingFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TAdRicoRingCtrl__sub_8001BE00(void *arg0) {
+void *create__15TAdRicoRingCtrlFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x70);
     if (o != NULL) {
         o = __ct__11TAdRicoRingFv(o, arg0);

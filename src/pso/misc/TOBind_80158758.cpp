@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOBind__sub_80158758(void *arg0);
+void *create__6TOBindFPv(void *arg0);
 void *TOBind__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TOBind__sub_80158758(void *arg0) {
+void *create__6TOBindFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
         o = TOBind__ct(o, arg0);

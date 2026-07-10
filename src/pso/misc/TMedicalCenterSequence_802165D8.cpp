@@ -12,7 +12,7 @@ struct VObj_802165D8 : Base_802165D8 {
 extern "C" {
 
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
-s32 TObjPlayer__sub_801AF790(s32);
+s32 is_alive_and_ready__10TObjPlayerFi(s32);
 M2C_UNK TObjPlayer__sub_801AF7E0(s32);
 M2C_UNK TObjPlayer__sub_801B1390(s32);
 M2C_UNK TObjPlayer__sub_801B4630(s32);
@@ -32,7 +32,7 @@ void exec_heal__22TMedicalCenterSequenceFPv(void *arg0) {
     fn_8022675C(0x42D08, 0, 0, 0);
     TObjPlayer__sub_801B4630(M2C_FIELD(arg0, s32 *, 0x24));
     fn_801B44EC(M2C_FIELD(arg0, s32 *, 0x24));
-    if (TObjPlayer__sub_801AF790(M2C_FIELD(arg0, s32 *, 0x24)) != 0) {
+    if (is_alive_and_ready__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24)) != 0) {
         TObjPlayer__sub_801AF7E0(M2C_FIELD(arg0, s32 *, 0x24));
     }
     TObjPlayer__sub_801B1390(M2C_FIELD(arg0, s32 *, 0x24));

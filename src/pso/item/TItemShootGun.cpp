@@ -2,7 +2,7 @@
 
 extern "C" {
 s32   fn_8011BADC(TItemShootGun*);
-void  TObjDoorJung__sub_8023DC68(s32, s32);
+void  free_children__12TObjDoorJungFPvPv(s32, s32);
 void  fn_8023E480(void*);
 void  fn_801E2EFC(void);
 void  fn_803D9B2C(void);
@@ -16,7 +16,7 @@ void  fn_801E2F20(void);
 void TItemShootGun::render() {
     if (fn_8011BADC(this)) {
         if (this->m_58 != NULL) {
-            TObjDoorJung__sub_8023DC68(*(s32*)((u8*)this->m_58 + 4), this->m_70 & 0xFFFF);
+            free_children__12TObjDoorJungFPvPv(*(s32*)((u8*)this->m_58 + 4), this->m_70 & 0xFFFF);
             fn_8023E480(this->m_5C);
             fn_801E2EFC();
             fn_803D9B2C();

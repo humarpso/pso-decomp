@@ -10,7 +10,7 @@ void TWindowCtrl__sub_8024B9C0(void *arg0);
 void update_trade_window__11TWindowCtrlFPv(void *arg0);
 void handle_controller__11TWindowCtrlFi(s32 arg0);
 s32 TOKeyMachine01__sub_802034A8();
-s32 TRaderMapCore__sub_801F907C();
+s32 is_active__13TRaderMapCoreFv();
 s32 TWindowCtrl__sub_8024AF74(s32);
 s32 TWindowCtrl__sub_8024B000(void *, s32);
 s32 TWindowCtrl__sub_8024B054(s32);
@@ -37,7 +37,7 @@ extern s32 lbl_805D53A0;
 
 void update_trade_window__11TWindowCtrlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-        if ((TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) != 0) || ((is_split_screen() != 0) && (TRaderMapCore__sub_801F907C() == 0))) {
+        if ((TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) != 0) || ((is_split_screen() != 0) && (is_active__13TRaderMapCoreFv() == 0))) {
             TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x34));
             return;
         }

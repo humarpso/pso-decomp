@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_parts__12TBoss3VoloptFv(void);
-M2C_UNK TBoss3VoloptHiraisin__sub_8004172C();
+M2C_UNK destroy__20TBoss3VoloptHiraisinFv();
 M2C_UNK TBoss3VoloptMonitor__sub_800423D4();
-M2C_UNK TBoss3VoloptP01__sub_80043EA4();
-M2C_UNK TObjVoloptCage__sub_800490E8();
+M2C_UNK destroy__15TBoss3VoloptP01Fv();
+M2C_UNK destroy__14TObjVoloptCageFv();
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_80040788();
 M2C_UNK fn_800479D0();
@@ -18,15 +18,15 @@ M2C_UNK fn_800479D0();
 extern u32 lbl_805D4C10;
 
 void free_parts__12TBoss3VoloptFv(void) {
-    TObjVoloptCage__sub_800490E8();
+    destroy__14TObjVoloptCageFv();
     if ((u32) lbl_805D4C10 != 0U) {
         fn_8001FE7C((void*)lbl_805D4C10, 1);
         lbl_805D4C10 = 0U;
     }
-    TBoss3VoloptP01__sub_80043EA4();
+    destroy__15TBoss3VoloptP01Fv();
     fn_80040788();
     fn_800479D0();
-    TBoss3VoloptHiraisin__sub_8004172C();
+    destroy__20TBoss3VoloptHiraisinFv();
     TBoss3VoloptMonitor__sub_800423D4();
 }
 
