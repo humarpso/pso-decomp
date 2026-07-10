@@ -23,7 +23,7 @@ VV(91)VV(92)VV(93)VV(94)VV(95)VV(96)VV(97)VV(98)VV(99)
 
 extern "C" {
 
-void TObjEneBm3Fly__sub_800B19E0(void *arg0);
+void update_state_flag__13TObjEneBm3FlyFPv(void *arg0);
 void TObjEneBm3Fly__sub_800B1A40(void *arg0);
 void TObjEneBm3Fly__sub_800B1A90(void *arg0);
 u32 TObjEneDD__sub_800BAC14();
@@ -31,7 +31,7 @@ u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 
 extern f32 *lbl_805D50EC;
 
-void TObjEneBm3Fly__sub_800B19E0(void *arg0) {
+void update_state_flag__13TObjEneBm3FlyFPv(void *arg0) {
     void *temp_r5;
 
     temp_r5 = M2C_FIELD(arg0, void **, 0x350);

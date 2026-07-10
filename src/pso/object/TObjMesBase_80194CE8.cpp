@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjMesBase__sub_80194CE8(void *arg0);
+void dispatch_state__11TObjMesBaseFPv(void *arg0);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void fn_80156990(void *, int);
@@ -29,7 +29,7 @@ struct VObj_80194CE8 : Base_80194CE8 {
     virtual void m13();
 };
 
-void TObjMesBase__sub_80194CE8(void *arg0) {
+void dispatch_state__11TObjMesBaseFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB0);

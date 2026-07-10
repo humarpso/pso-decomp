@@ -33,7 +33,7 @@ void update_state__17TObjEneBm3FlyNestFPv(void *arg0) {
         TObjEneDD__sub_800BBA18(arg0, 7);
     }
 }
-void TObjEneBm3FlyNest__sub_800B3C64(void *arg0) {
+void update_state_action__17TObjEneBm3FlyNestFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

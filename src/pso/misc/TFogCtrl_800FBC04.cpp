@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TFogCtrl__sub_800FBC04(void);
+void reset__8TFogCtrlFv(void);
 M2C_UNK TOBoss4Rock__sub_80147A80(void*);
 M2C_UNK TObjFogCollisionPoison__sub_801533BC();
 M2C_UNK fn_800FA9A8();
@@ -19,7 +19,7 @@ extern u32 lbl_805D5388;
 extern f32 lbl_805DA964;
 extern f32 lbl_805DA968;
 
-void TFogCtrl__sub_800FBC04(void) {
+void reset__8TFogCtrlFv(void) {
     TObjFogCollisionPoison__sub_801533BC();
     fn_800FA9A8();
     if ((u32) lbl_805D5388 != 0U) {

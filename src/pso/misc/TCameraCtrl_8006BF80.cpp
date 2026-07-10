@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TCameraCtrl__sub_8006BF80(s32 arg0, s32 arg1, s32 arg2);
+s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 fn_80141F84(s32, s32);
 s32 fn_801423A4(s32, s32, s32);
 
-s32 TCameraCtrl__sub_8006BF80(s32 arg0, s32 arg1, s32 arg2) {
+s32 clamp_distance__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (fn_80141F84(arg1, arg0) < (s32) (arg2 * 0x7F)) {
         return arg1;
     }

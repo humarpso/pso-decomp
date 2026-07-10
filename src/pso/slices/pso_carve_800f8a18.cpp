@@ -13,7 +13,7 @@ M2C_UNK fn_803DEE48(s32);
 extern M2C_UNK lbl_80501178[];
 extern M2C_UNK lbl_805DA914;
 
-void fn_800F8A18(s32 arg0) {
+void copy_name(s32 arg0) {
     strncpy(lbl_80501178, arg0, 0x10);
     if (fn_8039DABC(arg0, &lbl_805DA914, 0x10) == 0) {
         fn_800F8A78();

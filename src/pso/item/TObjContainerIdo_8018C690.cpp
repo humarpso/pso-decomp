@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjContainerIdo__sub_8018C690(void);
+void free_resources__16TObjContainerIdoFv(void);
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
@@ -14,7 +14,7 @@ M2C_UNK fn_803DA16C(void*);
 extern u32 lbl_805D5B98;
 extern u32 lbl_805D5B9C;
 
-void TObjContainerIdo__sub_8018C690(void) {
+void free_resources__16TObjContainerIdoFv(void) {
     if ((u32) lbl_805D5B9C != 0U) {
         fn_803DA16C((void*)lbl_805D5B9C);
         fn_8007EBB4(lbl_805D5B9C);

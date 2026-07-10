@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_all__8TFogCtrlFv(void);
-M2C_UNK TFogCtrl__sub_800FADB4(s32);
+M2C_UNK clear_active_flag__8TFogCtrlFPv(s32);
 
 s32 is_split_screen();
 extern M2C_UNK lbl_80501188[];
@@ -23,7 +23,7 @@ void update_all__8TFogCtrlFv(void) {
         do {
             temp_r3 = *(lbl_80501188 + var_r31);
             if ((u32)temp_r3 != 0U) {
-                TFogCtrl__sub_800FADB4(temp_r3);
+                clear_active_flag__8TFogCtrlFPv(temp_r3);
             }
             var_r29 += 1;
             var_r31 += 1;

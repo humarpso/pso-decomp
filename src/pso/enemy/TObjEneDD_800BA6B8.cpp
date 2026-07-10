@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjEneDD__sub_800BA6D0(void *arg0);
+u8 is_alive__9TObjEneDDFPv(void *arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 int TObjEneDD__sub_800BA754(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 void TObjEneDD__sub_800BA728(void* p, void* a1);
@@ -15,7 +15,7 @@ int TObjEneDD__sub_800BA6C4(void* p);
 
 int TObjEneDD__sub_800BA6B8(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }
 int TObjEneDD__sub_800BA6C4(void* p) { return (*(u32*)((char*)p + 0x890) >> 6) & 0x1; }
-u8 TObjEneDD__sub_800BA6D0(void *arg0) {
+u8 is_alive__9TObjEneDDFPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;

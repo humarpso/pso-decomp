@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_8027239C(u32 arg0, u32 arg1, s32 *arg2, s32 arg3);
+void update_selection__17TWindowSubComCardFUiUiPvi(u32 arg0, u32 arg1, s32 *arg2, s32 arg3);
 s32 TWindowSubComCard__sub_80265BF8();
 M2C_UNK fn_80249920(u32, s32, s32);
 
-void TWindowSubComCard__sub_8027239C(u32 arg0, u32 arg1, s32 *arg2, s32 arg3) {
+void update_selection__17TWindowSubComCardFUiUiPvi(u32 arg0, u32 arg1, s32 *arg2, s32 arg3) {
     s32 temp_r3;
 
     if ((arg0 != 0U) && (arg1 != 0U)) {

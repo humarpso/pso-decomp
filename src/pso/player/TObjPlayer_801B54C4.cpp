@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjPlayer__sub_801B54C4(void *arg0);
 void set_move_mode__10TObjPlayerFi(s32 arg0);
-void TObjPlayer__sub_801B5548(s32 arg0);
+void apply_input_mode__10TObjPlayerFi(s32 arg0);
 s32 fn_801AFDA8();
 M2C_UNK fn_801BE8E4(s32, M2C_UNK);
 M2C_UNK fn_801BE8EC(s32, M2C_UNK);
@@ -38,7 +38,7 @@ void set_move_mode__10TObjPlayerFi(s32 arg0) {
     fn_801BE8E4(arg0, 0);
 }
 
-void TObjPlayer__sub_801B5548(s32 arg0) {
+void apply_input_mode__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_801AFDA8();

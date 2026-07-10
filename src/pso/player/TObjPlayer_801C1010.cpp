@@ -18,7 +18,7 @@ s32 TFontSmallLobby__sub_801C0228();
 s32 bswap_16__FPUs(s32);
 s32 bswap__9TItemDataFv(s32);
 
-void TObjPlayer__sub_801C1010(s32 arg0) {
+void bswap_fields__10TObjPlayerFi(s32 arg0) {
     fn_8001960C();
     bswap_16__FPUs(arg0 + 6);
     bswap_16__FPUs(arg0 + 4);

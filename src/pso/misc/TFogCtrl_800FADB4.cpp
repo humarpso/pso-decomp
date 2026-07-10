@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TFogCtrl__sub_800FADB4(void *arg0);
+void clear_active_flag__8TFogCtrlFPv(void *arg0);
 M2C_UNK TFogCtrl__sub_800FAE1C(void *);
 s32 is_split_screen();
 
-void TFogCtrl__sub_800FADB4(void *arg0) {
+void clear_active_flag__8TFogCtrlFPv(void *arg0) {
     s32 temp_r3;
 
     if (is_split_screen() == 0) {
