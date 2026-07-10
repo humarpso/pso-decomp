@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestListChallenge__sub_80288B5C(void *arg0);
+void close_windows__19TQuestListChallengeFPv(void *arg0);
 void TQuestListChallenge__sub_80288BE4(void);
 void TQuestListChallenge__sub_80288BE8(void *arg0);
 void TQuestListChallenge__sub_80288C30(void *arg0);
 s32 TWindow__close(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TQuestListChallenge__sub_80288B5C(void *arg0) {
+void close_windows__19TQuestListChallengeFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x34));
         M2C_FIELD(arg0, u32 *, 0x34) = 0U;

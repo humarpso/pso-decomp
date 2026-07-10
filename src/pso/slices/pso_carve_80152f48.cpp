@@ -11,7 +11,7 @@ s32 TObjFogCollisionPoison__sub_8015346C(s32, u16);
 s32 TObjFogCollisionPoison__sub_801534E8(s32, u16);
 s32 TObjFogCollisionPoison__sub_80153520(s32);
 s32 TObjFogCollisionPoison__sub_801535D0(s32);
-s32 TObjFogCollision__sub_80153EB4(s32, u16);
+s32 check_collision__16TObjFogCollisionFPvUs(s32, u16);
 u16 fn_80152F48(void* p);
 
 u16 fn_80152F48(void* p) { return *(u16*)((char*)p + 0x678); }
@@ -21,7 +21,7 @@ void fn_80152F50(void *arg0) {
 
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x10);
     if (TObjFogCollisionPoison__sub_80153420(temp_r31) != 0) {
-        if (TObjFogCollision__sub_80153EB4(temp_r31, M2C_FIELD(arg0, u16 *, 0x28)) != 0) {
+        if (check_collision__16TObjFogCollisionFPvUs(temp_r31, M2C_FIELD(arg0, u16 *, 0x28)) != 0) {
             TObjFogCollisionPoison__sub_801534E8(temp_r31, M2C_FIELD(arg0, u16 *, 0x28));
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + 1);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x20) >= (s32) M2C_FIELD(arg0, s32 *, 0x1C)) {

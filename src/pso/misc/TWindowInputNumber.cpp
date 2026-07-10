@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowInputNumber__sub_80256038(void *arg0);
-void TWindowInputNumber__sub_802560B4(void *arg0);
+void move_cursor_next__18TWindowInputNumberFPv(void *arg0);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 void TWindowInputNumber__sub_80256038(void *arg0) {
@@ -22,7 +22,7 @@ void TWindowInputNumber__sub_80256038(void *arg0) {
     }
 }
 
-void TWindowInputNumber__sub_802560B4(void *arg0) {
+void move_cursor_next__18TWindowInputNumberFPv(void *arg0) {
     u8 temp_r4;
 
     fn_8022675C(0x54100, 0, 0, 0);

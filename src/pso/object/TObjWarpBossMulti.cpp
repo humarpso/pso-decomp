@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjWarpBossMulti__sub_8019DDF0(void *arg0);
+void update__17TObjWarpBossMultiFPv(void *arg0);
 s32 TOKeyMachine01__sub_802034A8();
 
-void TObjWarpBossMulti__sub_8019DDF0(void *arg0) {
+void update__17TObjWarpBossMultiFPv(void *arg0) {
     s32 temp_r0;
 
     if (TOKeyMachine01__sub_802034A8() == 0) {

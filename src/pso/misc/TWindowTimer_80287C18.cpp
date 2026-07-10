@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowTimer__sub_80287C18(u8 *arg0);
+void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 s32 TWindowSubShortMail__sub_80246CC4();
 M2C_UNK TWindowSubSymbolChatPartsSet__sub_80052EA0(void *, s32);
 s32 fn_80246CD0();
 s32 fn_80246CDC();
 s32 fn_8026CBB8(M2C_UNK);
 
-void TWindowTimer__sub_80287C18(u8 *arg0) {
+void update_chat_parts__12TWindowTimerFPv(u8 *arg0) {
     s32 var_r3;
 
     if (M2C_FIELD(arg0, s32 *, 0x60) & 1) {

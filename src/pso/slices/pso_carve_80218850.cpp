@@ -22,7 +22,7 @@ M2C_UNK fn_80073DC4(void *, M2C_UNK);
 s32 fn_8013AD38(void *);
 s32 fn_8013AD44(void *);
 M2C_UNK fn_801F8FD4(void *);
-M2C_UNK TQuestListVM__sub_802185F4(void *);
+M2C_UNK close_windows__12TQuestListVMFPv(void *);
 M2C_UNK fn_80219EC4(void *);
 M2C_UNK TWindow__close(void *);
 
@@ -40,7 +40,7 @@ void fn_80218850(void *arg0) {
             fn_80219EC4(M2C_FIELD(arg0, void **, 0x2374));
         }
         ((VObj18 *) arg0)->vf24(0x19, 1);
-        TQuestListVM__sub_802185F4(arg0);
+        close_windows__12TQuestListVMFPv(arg0);
         fn_80073DC4(arg0, 5);
         return;
     }

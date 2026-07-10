@@ -22,9 +22,9 @@ struct VObj_8006CE78 : Base_8006CE78 {
 
 extern "C" {
 
-void TCameraCtrl__sub_8006CE78(void *arg0, void *arg1, void *arg2, s32 arg3);
+void set_pos_target__11TCameraCtrlFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 
-void TCameraCtrl__sub_8006CE78(void *arg0, void *arg1, void *arg2, s32 arg3) {
+void set_pos_target__11TCameraCtrlFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) | 8);
     ((VObj_8006CE78*)arg0)->m12(arg3);
     M2C_FIELD(arg0, f32 *, 0xE8) = (f32) M2C_FIELD(arg1, f32 *, 0);

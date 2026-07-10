@@ -23,7 +23,7 @@ struct Entry_80288C78 {
 extern "C" {
 
 void handle_confirm_select__19TQuestListChallengeFPv(void *arg0);
-M2C_UNK TQuestListChallenge__sub_80288B5C(void *);
+M2C_UNK close_windows__19TQuestListChallengeFPv(void *);
 s32 TWindowSubComCard__sub_8007341C(void *);
 s32 TWindowSubComCard__sub_80073DB8(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
@@ -51,7 +51,7 @@ void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
                 return;
             }
             if (temp_r3_2 == 1) {
-                TQuestListChallenge__sub_80288B5C(arg0);
+                close_windows__19TQuestListChallengeFPv(arg0);
                 temp_r3_3 = M2C_FIELD(arg0, VObj_80288C78 **, 0x30);
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 0x80);
@@ -63,7 +63,7 @@ void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
         }
 block_9:
         if ((M2C_FIELD(arg0, void **, 0x34) != NULL) && (TWindowSubComCard__sub_80073DB8(M2C_FIELD(arg0, void **, 0x34)) == 1)) {
-            TQuestListChallenge__sub_80288B5C(arg0);
+            close_windows__19TQuestListChallengeFPv(arg0);
             temp_r3_4 = M2C_FIELD(arg0, VObj_80288C78 **, 0x30);
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 0x80);

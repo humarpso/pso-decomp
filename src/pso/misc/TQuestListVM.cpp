@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TQuestListVM__sub_80218570(void *arg0);
+s32 update_load_status__12TQuestListVMFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 
-s32 TQuestListVM__sub_80218570(void *arg0) {
+s32 update_load_status__12TQuestListVMFPv(void *arg0) {
     s32 temp_r3;
     s32 var_r30;
 

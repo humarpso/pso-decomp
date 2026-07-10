@@ -30,7 +30,7 @@ struct VObj_8021641C : Base_8021641C {
 
 extern "C" {
 
-void TMedicalCenterSequence__sub_8021641C(void *arg0);
+void handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
 void TMedicalCenterSequence__vt11(void *arg0);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
@@ -45,7 +45,7 @@ void TMedicalCenterSequence__vt11(void *arg0) {
     }
 }
 
-void TMedicalCenterSequence__sub_8021641C(void *arg0) {
+void handle_window_input__22TMedicalCenterSequenceFPv(void *arg0) {
     VObj_8021641C *o = (VObj_8021641C *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48((void *)(arg0)) != 0 || TShopWindowBase__sub_802239EC((void *)(arg0)) != 0)) {
         o->m4(0x22, 1);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneRe4Sorcerer__sub_800EF2D4(u8 *arg0);
+s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0);
 s32 TObjEneDD__sub_800BA6D0(s32);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK TTecResta__sub_8023980C(void *, void *, s32);
@@ -15,7 +15,7 @@ u8 *fn_800ED488();
 
 extern u8 *lbl_805D52DC;
 
-s32 TObjEneRe4Sorcerer__sub_800EF2D4(u8 *arg0) {
+s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0) {
     u8 *var_r31;
 
     if (TObjEneDD__sub_800BA6D0(M2C_FIELD(arg0, s32 *, 0x390)) != 0) {

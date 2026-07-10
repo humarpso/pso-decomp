@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestListOnline__sub_80217654(void *arg0);
+void close_windows__16TQuestListOnlineFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 
-void TQuestListOnline__sub_80217654(void *arg0) {
+void close_windows__16TQuestListOnlineFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x44));
         M2C_FIELD(arg0, u32 *, 0x44) = 0U;

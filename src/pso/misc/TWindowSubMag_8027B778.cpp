@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubMag__sub_8027B778(void *arg0);
-s32 TWindowSubMag__sub_8027B7FC(void *arg0);
+s32 create_list__13TWindowSubMagFPv(void *arg0);
+s32 setup_list__13TWindowSubMagFPv(void *arg0);
 M2C_UNK TWindowShortListCtrl__sub_80221828(s32);
 s32 TWindowShortListCtrl__sub_80278E48(s32, M2C_UNK *, s32);
 M2C_UNK TWindowSubMag__sub_80278760(s32, M2C_UNK);
@@ -20,7 +20,7 @@ M2C_UNK fn_802785FC(s32);
 
 extern M2C_UNK lbl_8044F9F8[];
 
-s32 TWindowSubMag__sub_8027B778(void *arg0) {
+s32 create_list__13TWindowSubMagFPv(void *arg0) {
     s32 temp_r31;
 
     s32 temp_r3 = fn_8026CBB8((M2C_UNK)(0xD));
@@ -35,7 +35,7 @@ s32 TWindowSubMag__sub_8027B778(void *arg0) {
 
 extern M2C_UNK lbl_8044F9F0[];
 
-s32 TWindowSubMag__sub_8027B7FC(void *arg0) {
+s32 setup_list__13TWindowSubMagFPv(void *arg0) {
     s32 temp_r31;
     M2C_UNK temp_r3;
 

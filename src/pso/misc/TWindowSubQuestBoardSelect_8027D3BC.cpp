@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubQuestBoardSelect__sub_8027D3BC(void *arg0);
+void select_next__26TWindowSubQuestBoardSelectFPv(void *arg0);
 M2C_UNK fn_8027D230(void *);
 s32 fn_8027D2A0(void *, u8);
 s32 fn_8027DB20();
 
-void TWindowSubQuestBoardSelect__sub_8027D3BC(void *arg0) {
+void select_next__26TWindowSubQuestBoardSelectFPv(void *arg0) {
     u8 temp_r3;
 
     if ((fn_8027DB20() == 0) && (fn_8027D2A0(arg0, M2C_FIELD(arg0, u8 *, 0x61)) == 0)) {

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemDrop__sub_80106354(void);
+void init_drop_table__9TItemDropFv(void);
 u8 fn_8011C914(s32);
 
 extern u8 *lbl_805D5468;
 
-void TItemDrop__sub_80106354(void) {
+void init_drop_table__9TItemDropFv(void) {
     s32 var_r31;
     s8 temp_r0;
     u8 *var_r30;

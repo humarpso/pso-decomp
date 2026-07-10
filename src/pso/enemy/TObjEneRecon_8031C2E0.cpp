@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRecon__sub_8031C2E0(void *arg0, s32 arg1);
+void handle_message__12TObjEneReconFPvi(void *arg0, s32 arg1);
 
 M2C_UNK queue_destruction__7TObjectFv();
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_8031EF14(u32, void *);
 
-void TObjEneRecon__sub_8031C2E0(void *arg0, s32 arg1) {
+void handle_message__12TObjEneReconFPvi(void *arg0, s32 arg1) {
     u32 temp;
     switch (arg1) {
     case 4:

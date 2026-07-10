@@ -39,14 +39,14 @@ struct VObj_8009E7C4 : Base_8009E7C4 {
 
 extern "C" {
 
-s32 TObjEneMe1Canadin__sub_8009E7C4(void *arg0);
+s32 check_target__17TObjEneMe1CanadinFPv(void *arg0);
 s32 TObjEneMe1Canadin__sub_8009E860(void *, f32 *, f32);
 void *TPhotonMylla__sub_80154CB4(u16);
 
 extern const f32 lbl_805D98E4;
 extern const f32 lbl_805D9920;
 
-s32 TObjEneMe1Canadin__sub_8009E7C4(void *arg0) {
+s32 check_target__17TObjEneMe1CanadinFPv(void *arg0) {
     f32 sp8;
     s32 var_r31;
     void *temp_r3;

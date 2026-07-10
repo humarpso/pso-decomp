@@ -21,7 +21,7 @@ M2C_UNK fn_802F10AC();
 extern M2C_UNK lbl_804651B0[];
 extern s32 tl_particlemodel;
 
-s32 fn_80299BC8(void) {
+s32 init_scene_delo2(void) {
     void *obj;
     TOKeyMachine01__sub_802034A8();
     fn_80227FB4();

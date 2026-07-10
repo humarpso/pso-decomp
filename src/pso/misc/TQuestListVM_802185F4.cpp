@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestListVM__sub_802185F4(void *arg0);
+void close_windows__12TQuestListVMFPv(void *arg0);
 void TQuestListVM__sub_8021867C(void);
 M2C_UNK TWindow__close(void *);
 int fn_8000F950(void);
 int fn_80073DAC(void);
 
-void TQuestListVM__sub_802185F4(void *arg0) {
+void close_windows__12TQuestListVMFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2378) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x2378));
         M2C_FIELD(arg0, u32 *, 0x2378) = 0U;

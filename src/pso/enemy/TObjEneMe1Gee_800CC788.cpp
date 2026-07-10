@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjEneMe1Gee__sub_800CC788(void *arg0, void *arg1, void *arg2, void *arg3);
+void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void TObjEneMe1Gee__sub_800CC0C4(void *);
 void TObjEneMe1Gee__sub_800CC430(void *);
 void fn_800B9A8C(void *);
@@ -14,7 +14,7 @@ void fn_800D764C(void *);
 extern M2C_UNK __vt__13TObjEneMe1Gee[];
 extern void *lbl_805D2A68;
 
-void *TObjEneMe1Gee__sub_800CC788(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     fn_800B9A8C(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjEneMe1Gee;
     fn_800D764C((void *)((char *)arg0 + 972));

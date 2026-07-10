@@ -12,7 +12,7 @@ M2C_UNK fn_80131794(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434C48[];
 extern s32 lbl_805D4ACC;
 
-void fn_8001F998(void *arg0) {
+void load_bin_motion_callback(void *arg0) {
     s32 spC;
     M2C_UNK sp8;
     s32 temp_r3;

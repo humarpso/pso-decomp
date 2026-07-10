@@ -13,7 +13,7 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 void render__12TObjGrassWebFv(void);
 
-void TObjGrassWeb__sub_800BC880(void *arg0) {
+void apply_to_player__12TObjGrassWebFPv(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x90) = 1;

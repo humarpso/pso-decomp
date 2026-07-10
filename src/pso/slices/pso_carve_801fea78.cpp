@@ -14,7 +14,7 @@ extern M2C_UNK lbl_804C8914[];
 extern u32 lbl_805D5F70;
 extern s32 lbl_805D5F78;
 
-s32 fn_801FEA78(void) {
+s32 load_pso_system(void) {
     s32 var_r31;
     s32 var_r3;
 

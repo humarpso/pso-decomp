@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMag__sub_80113088(void *arg0);
+void update_feed_timer__8TItemMagFPv(void *arg0);
 void TItemMag__sub_80113110(void* p);
 void TItemMag__sub_80113140(void* p);
 void TItemMag__sub_80113170(void *arg0);
@@ -19,7 +19,7 @@ M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
 M2C_UNK TItemMag__sub_80112F44(void *);
 M2C_UNK TItemMag__sub_80112FB4();
 
-void TItemMag__sub_80113088(void *arg0) {
+void update_feed_timer__8TItemMagFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1CC) == 0) {
         TItemMag__sub_80112FB4();
     }
