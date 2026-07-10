@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TBoss6Type2__sub_802B9930();
 u16 TBoss6Type2__sub_802BA394(void *);
-s32 TBoss6Type2__sub_802BA8CC(void *);
+s32 is_phase_complete__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
 s32 TBoss6Type2__sub_802BA6A0(void *);
@@ -75,7 +75,7 @@ void fn_802BE788(void *arg0) {
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0) {
         if (TBoss6Type2__sub_802B9930() == 0xD) {
-            if (TBoss6Type2__sub_802BA8CC(arg0) != 0) {
+            if (is_phase_complete__11TBoss6Type2FPv(arg0) != 0) {
                 TBoss6Type2__sub_802BDDF8((void *)(arg0), 0x1A);
                 return;
             }

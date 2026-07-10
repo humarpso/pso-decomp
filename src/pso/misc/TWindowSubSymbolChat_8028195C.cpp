@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubSymbolChat__sub_8028195C(void *arg0);
+s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 s32 fn_80265660(s32, s32);
 s32 fn_8026F664(s32);
 
-s32 TWindowSubSymbolChat__sub_8028195C(void *arg0) {
+s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0) {
     if (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x38)) != 0x20) {
         return 0;
     }

@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK *fn_80071820(s32);
-u32 TWindowSubComCard__sub_80202990(u16);
+u32 get_card_window__17TWindowSubComCardFUi(u16);
 extern M2C_UNK lbl_805D285C;
 
 M2C_UNK *fn_800717E4(int arg0) {
     u32 temp_r3;
 
-    temp_r3 = TWindowSubComCard__sub_80202990(arg0);
+    temp_r3 = get_card_window__17TWindowSubComCardFUi(arg0);
     if (temp_r3 == 0U) {
         return &lbl_805D285C;
     }

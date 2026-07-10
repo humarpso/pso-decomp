@@ -16,7 +16,7 @@ void move_next_choice__20TWindowChoiceSettingFPv(void *arg0);
 s32 fn_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0);
-void TWindowChoiceSetting__sub_80268794(void *arg0);
+void request_close__20TWindowChoiceSettingFPv(void *arg0);
 s32 TWindowSubComCard__sub_80249604();
 void TWindowSubComCard__sub_80268494(void *arg0);
 s32 TWindowSubStatusDisp__sub_80223B88(void * a0 = 0, s16 a1 = 0);

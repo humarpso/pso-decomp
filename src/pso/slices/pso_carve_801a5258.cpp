@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TWindowSubComCard__sub_80202990(s32);
+void *get_card_window__17TWindowSubComCardFUi(s32);
 extern s32 lbl_805D53A0;
 
 s32 fn_801A5258(s32 arg0) {
@@ -17,7 +17,7 @@ s32 fn_801A5258(s32 arg0) {
     if (var_r3 >= 4) {
         var_r3 = lbl_805D53A0;
     }
-    temp_r3 = TWindowSubComCard__sub_80202990(var_r3);
+    temp_r3 = get_card_window__17TWindowSubComCardFUi(var_r3);
     if (temp_r3 == NULL) {
         return 1;
     }

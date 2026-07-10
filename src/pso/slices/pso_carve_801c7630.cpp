@@ -77,7 +77,7 @@ struct VObj8 : VBase8 {
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_801AF3C4(void *);
+M2C_UNK update_facing_from_lock__10TObjPlayerFPv(void *);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
 M2C_UNK fn_801D0BC0(void *, s16, M2C_UNK);
 M2C_UNK fn_801D0D34(void *, s32);
@@ -100,7 +100,7 @@ void fn_801C7630(void *arg0) {
     }
     fn_801D0E34(arg0, var_r4);
     if (fn_801D0E28(arg0) != 0) {
-        TObjPlayer__sub_801AF3C4(arg0);
+        update_facing_from_lock__10TObjPlayerFPv(arg0);
     }
     fn_801D0E18(arg0);
     M2C_FIELD(arg0, s16 *, 0x328) = 0;

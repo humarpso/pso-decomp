@@ -6,7 +6,7 @@ void fn_80152DB0(void* p);
 int fn_8001960C(void*);
 int fn_80102CE0(void*);
 void fn_80152A98(void* p);
-int TLobby__sub_801E45D0(void*);
+int update_players__6TLobbyFi(void*);
 int fn_80152ACC(void*);
 void fn_80152B28(void* p);
 int fn_80152B5C(void*);

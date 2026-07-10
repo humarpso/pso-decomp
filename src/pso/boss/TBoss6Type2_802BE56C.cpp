@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TBoss6Type2__sub_802B9930();
 u16 TBoss6Type2__sub_802BA394(void *);
-s32 TBoss6Type2__sub_802BA8CC(void *);
+s32 is_phase_complete__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
 s32 TBoss6Type2__sub_802BA6A0(void *);

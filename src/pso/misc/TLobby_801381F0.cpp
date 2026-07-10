@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801381F0(s32 arg0);
+void open_make_team_window__6TLobbyFi(s32 arg0);
 s32 TWindowMakeTeam__ct(s32, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 
@@ -14,7 +14,7 @@ extern s32 lbl_805D5594;
 extern s32 lbl_805D55EC;
 extern s32 lbl_805D5604;
 
-void TLobby__sub_801381F0(s32 arg0) {
+void open_make_team_window__6TLobbyFi(s32 arg0) {
     s32 var_r4;
 
     var_r4 = __nw__7TObjectFUl(0x38);

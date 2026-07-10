@@ -8,7 +8,7 @@ extern "C" {
 
 s32 get_main_phase();
 s32 TCameraCtrl__sub_8006B368();
-u32 TWindowSubComCard__sub_80202990(M2C_UNK);
+u32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 M2C_UNK fn_802133C4();
 s32 TRaderMapCore__sub_8030A808();
 M2C_UNK memcpy(s32, M2C_UNK *, M2C_UNK);
@@ -21,7 +21,7 @@ void fn_801F43B4(void) {
         if (TCameraCtrl__sub_8006B368() != 0) {
             fn_802133C4();
         }
-        temp_r3 = TWindowSubComCard__sub_80202990(0);
+        temp_r3 = get_card_window__17TWindowSubComCardFUi(0);
         if (temp_r3 != 0U) {
             memcpy(temp_r3 + 0x44, lbl_805127F8, 0x200);
         }

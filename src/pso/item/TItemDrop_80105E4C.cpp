@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemDrop__sub_80105E4C(s32 arg0);
+s32 calc_drop_offset__9TItemDropFi(s32 arg0);
 s32 fn_8001E5C8();
 s32 fn_8030A7B0();
 
 extern s32 lbl_805D5550;
 
-s32 TItemDrop__sub_80105E4C(s32 arg0) {
+s32 calc_drop_offset__9TItemDropFi(s32 arg0) {
     s32 var_r31;
 
     var_r31 = arg0 + (lbl_805D5550 * 0xA);

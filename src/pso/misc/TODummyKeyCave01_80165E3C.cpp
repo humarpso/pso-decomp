@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TODummyKeyCave01__sub_80165E3C(void *arg0);
+void *create__16TODummyKeyCave01FPv(void *arg0);
 void *TODummyKeyCave01__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TODummyKeyCave01__sub_80165E3C(void *arg0) {
+void *create__16TODummyKeyCave01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
         o = TODummyKeyCave01__ct(o, tl_05, arg0);

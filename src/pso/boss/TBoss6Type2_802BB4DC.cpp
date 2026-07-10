@@ -11,7 +11,7 @@ int TBoss6Type2__sub_802BB4DC(void* p);
 int TBoss6Type2__sub_802B9F3C(void*, int);
 
 int TBoss6Type2__sub_802BB4DC(void* p) { return TBoss6Type2__sub_802B9F3C(p, 0); }
-void TBoss6Type2__sub_802BB500(void *arg0) {
+void update_target__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x466));

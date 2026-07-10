@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TQuestVmDownLoadServer__sub_800F9CE4(void);
+s32 is_ready__22TQuestVmDownLoadServerFv(void);
 M2C_UNK fn_800F8F58();
 
 extern s32 lbl_805D49B4;
 extern s32 lbl_805D5354;
 extern s32 lbl_805D5F18;
 
-s32 TQuestVmDownLoadServer__sub_800F9CE4(void) {
+s32 is_ready__22TQuestVmDownLoadServerFv(void) {
     fn_800F8F58();
     if ((s32) lbl_805D49B4 != 0) {
         return 0;

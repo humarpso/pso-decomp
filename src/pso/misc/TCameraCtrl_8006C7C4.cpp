@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update__11TCameraCtrlFPv(void *arg0);
-void *TCameraCtrl__sub_8006C88C(void *arg0, s16 arg1);
+void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void *TCameraCtrl__vt10(void);
 void *TCameraCtrl__sub_8006A03C(u32);
 void *TCameraCtrl__sub_8006C8E4(void *);
@@ -48,7 +48,7 @@ void update__11TCameraCtrlFPv(void *arg0) {
 
 extern M2C_UNK lbl_80488D70[];
 
-void *TCameraCtrl__sub_8006C88C(void *arg0, s16 arg1) {
+void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488D70;
         fn_800686BC(arg0, 0);

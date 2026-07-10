@@ -85,10 +85,10 @@ struct VObj_801AF3C4 : Base_801AF3C4 {
 
 extern "C" {
 
-void TObjPlayer__sub_801AF3C4(void *arg0);
+void update_facing_from_lock__10TObjPlayerFPv(void *arg0);
 M2C_UNK fn_8002AE7C(void *, s32);
 
-void TObjPlayer__sub_801AF3C4(void *arg0) {
+void update_facing_from_lock__10TObjPlayerFPv(void *arg0) {
     if (((VObj_801AF3C4 *)M2C_FIELD(arg0, void **, 0x380))->m8() != 0) {
         fn_8002AE7C(arg0, ((VObj_801AF3C4 *)M2C_FIELD(arg0, void **, 0x380))->m75(1));
         return;

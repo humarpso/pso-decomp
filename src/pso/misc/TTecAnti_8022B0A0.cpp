@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TTecAnti__sub_8022B0A0(void *arg0, void *arg1, void *arg2, void *arg3);
+void create__8TTecAntiFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void *TTecAnti__ct(void *, void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void TTecAnti__sub_8022B0A0(void *arg0, void *arg1, void *arg2, void *arg3) {
+void create__8TTecAntiFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {

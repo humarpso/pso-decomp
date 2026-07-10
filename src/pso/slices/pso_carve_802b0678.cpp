@@ -13,7 +13,7 @@ M2C_UNK TBoss6EmptyWarp__sub_802AC654();
 s32 fn_803403B0(void *);
 extern M2C_UNK lbl_804709A8[];
 
-void fn_802B0678(void *arg0) {
+void init_hall_boss_scene(void *arg0) {
     TBoss6EmptyWarp__sub_802AC654();
     TBoss6PlotFalz__sub_802ABB84(arg0);
     fn_802274B8(lbl_804709A8);

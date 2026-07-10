@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecDeband__sub_8022F50C(u8 *arg0);
+void update_effect_params__10TTecDebandFPv(u8 *arg0);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
 s32 fn_8022DBC4(M2C_UNK, s16, M2C_UNK);
 
 extern const f64 lbl_8044D0B0;
 
-void TTecDeband__sub_8022F50C(u8 *arg0) {
+void update_effect_params__10TTecDebandFPv(u8 *arg0) {
     s32 res;
     res = fn_8022DBC4(0xA, M2C_FIELD(arg0, s16 *, 0xA4), 0xFFFF);
     TTecAnti__sub_8022B35C(arg0 + 0x74, res);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80134CC8(void);
+s32 get_option_state__6TLobbyFv(void);
 s32 TWindowOptionCtrl__sub_8026B2E4();
 
 extern s32 lbl_805D5704;
 
-s32 TLobby__sub_80134CC8(void) {
+s32 get_option_state__6TLobbyFv(void) {
     s32 temp_r3;
 
     temp_r3 = TWindowOptionCtrl__sub_8026B2E4();

@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TTecResta__sub_802397B4(void *arg0, void *arg1, void *arg2, void *arg3);
-void TTecResta__sub_8023980C(void *arg0, void *arg1, void *arg2);
+void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2);
 void *TTecResta__ct(void *, void *, void *, void *, void *);
 void *TTecResta__sub_80239C48(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void TTecResta__sub_802397B4(void *arg0, void *arg1, void *arg2, void *arg3) {
+void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
@@ -18,7 +18,7 @@ void TTecResta__sub_802397B4(void *arg0, void *arg1, void *arg2, void *arg3) {
     }
 }
 
-void TTecResta__sub_8023980C(void *arg0, void *arg1, void *arg2) {
+void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {

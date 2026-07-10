@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDf2Bringer__sub_800990F0(void *arg0);
+void update_flag_0x3C0__17TObjEneDf2BringerFPv(void *arg0);
 s32 TObjEneEpsilon__sub_800B95E0();
 M2C_UNK TObjEneEpsilon__sub_800B96D4(f32);
 
 extern f32 lbl_805D9820;
 
-void TObjEneDf2Bringer__sub_800990F0(void *arg0) {
+void update_flag_0x3C0__17TObjEneDf2BringerFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 8)) {
         TObjEneEpsilon__sub_800B96D4(lbl_805D9820);
         return;

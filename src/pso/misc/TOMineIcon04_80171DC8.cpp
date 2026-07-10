@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TOMineIcon04__sub_80171DC8(void *arg0);
+void *create__12TOMineIcon04FPv(void *arg0);
 void *__dt__12TOMineIcon04Fv(void *arg0, s16 arg1);
 void *TOMineIcon04__ct(void *, void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -17,7 +17,7 @@ M2C_UNK fn_80156720(void *);
 
 extern void *tl_05;
 
-void *TOMineIcon04__sub_80171DC8(void *arg0) {
+void *create__12TOMineIcon04FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x37C);
     if (o != NULL) {
         o = TOMineIcon04__ct(o, tl_05, arg0);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubSymbolChatParts__sub_80284E34(void *arg0);
+void handle_cancel__25TWindowSubSymbolChatPartsFPv(void *arg0);
 void add_part__25TWindowSubSymbolChatPartsFPv(void *arg0);
 void handle_add__25TWindowSubSymbolChatPartsFPv(void *arg0);
 s32 TWindowSubSymbolChat__sub_80077310();
@@ -15,7 +15,7 @@ s32 TWindowSubSymbolChat__sub_80284D4C();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8028783C(s32, M2C_UNK);
 
-void TWindowSubSymbolChatParts__sub_80284E34(void *arg0) {
+void handle_cancel__25TWindowSubSymbolChatPartsFPv(void *arg0) {
     if (TWindowSubSymbolChat__sub_80283974() == 0) {
         fn_8022675C(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x70) = (u8) (M2C_FIELD(arg0, u8 *, 0x70) | 2);

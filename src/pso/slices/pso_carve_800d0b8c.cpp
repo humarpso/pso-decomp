@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjEneEpsilon__sub_800B97B4(f32);
+M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(f32);
 extern f32 lbl_805DA244;
 extern f32 lbl_805DA248;
 
 void fn_800D0B8C(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x464) != 0) {
-        TObjEneEpsilon__sub_800B97B4(lbl_805DA244);
+        select_and_apply_target__14TObjEneEpsilonFPvf(lbl_805DA244);
         return;
     }
-    TObjEneEpsilon__sub_800B97B4(lbl_805DA248);
+    select_and_apply_target__14TObjEneEpsilonFPvf(lbl_805DA248);
 }
 
 }

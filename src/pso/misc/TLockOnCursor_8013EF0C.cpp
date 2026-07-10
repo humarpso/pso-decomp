@@ -26,6 +26,6 @@ int fn_8002F588(void*);
 
 void* TLockOnCursor__sub_8013EF0C(void* p) { fn_8013E240(p); return p; }
 void* TLockOnCursor__sub_8013EF3C(void* p) { TLockOnCursor__sub_8013EC1C(p); return p; }
-void* TLockOnCursor__sub_8013EF6C(void* p) { fn_80072004((char*)p + 0x8); fn_8013E780((char*)p + 0xc); fn_8013E780((char*)p + 0x14); TLockOnCursor__sub_8013EC38(p); return p; }
+void* cleanup__13TLockOnCursorFPv(void* p) { fn_80072004((char*)p + 0x8); fn_8013E780((char*)p + 0xc); fn_8013E780((char*)p + 0x14); TLockOnCursor__sub_8013EC38(p); return p; }
 
 }

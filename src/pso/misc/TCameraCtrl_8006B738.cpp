@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TCameraCtrl__sub_8006B738(void *arg0, s16 arg1);
+void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void TCameraCtrl__sub_8006CCEC();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_80488AF0[];
 
-void *TCameraCtrl__sub_8006B738(void *arg0, s16 arg1) {
+void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488AF0;
         TCameraCtrl__sub_8006CCEC();

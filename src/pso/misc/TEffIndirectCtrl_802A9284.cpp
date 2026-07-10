@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_all__16TEffIndirectCtrlFv(void);
-M2C_UNK TEffIndirectCtrl__sub_802A942C();
+M2C_UNK free_buffers__16TEffIndirectCtrlFv();
 M2C_UNK fn_802A83F4();
 M2C_UNK xfree__FPv(s32);
 
@@ -20,7 +20,7 @@ void free_all__16TEffIndirectCtrlFv(void) {
     s32 temp_r3;
 
     fn_802A83F4();
-    TEffIndirectCtrl__sub_802A942C();
+    free_buffers__16TEffIndirectCtrlFv();
     var_r31 = 0;
     var_r30 = var_r31;
     var_r28 = 0;

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_801B150C(s32 arg0);
+s32 try_pickup_item__10TObjPlayerFi(s32 arg0);
 u32 TObjPlayer__sub_801B15A4(s32);
 M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, M2C_UNK);
 M2C_UNK fn_8001BED8(s32, M2C_UNK);
@@ -33,7 +33,7 @@ void draw__10TObjPlayerFPv(void *arg0) {
 
 s32 obj_isState2_324();
 
-s32 TObjPlayer__sub_801B150C(s32 arg0) {
+s32 try_pickup_item__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
     if (obj_isState2_324() != 0) {

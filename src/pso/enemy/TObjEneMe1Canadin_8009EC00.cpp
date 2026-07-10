@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009EC00(void *arg0);
+void update_dd_flag__17TObjEneMe1CanadinFPv(void *arg0);
 u32 TObjEneDD__vt98();
 
-void TObjEneMe1Canadin__sub_8009EC00(void *arg0) {
+void update_dd_flag__17TObjEneMe1CanadinFPv(void *arg0) {
     if (TObjEneDD__vt98() == 0U) {
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFEFFFFFF);
         return;

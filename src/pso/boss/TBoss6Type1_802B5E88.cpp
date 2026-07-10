@@ -10,7 +10,7 @@ s32 TBoss6PlotFalz__sub_802AAC74(s32);
 s32 TBoss6Type1__sub_802B7E6C();
 void TBoss6Type1__sub_802B5DFC(void* p);
 
-s32 TBoss6Type1__sub_802B5E88(void *arg0) {
+s32 is_ready__11TBoss6Type1FPv(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x414) == 0) && (TBoss6Type1__sub_802B7E6C() >= (s32) M2C_FIELD(arg0, s32 *, 0x48C))) {
         return 1;
     }

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BC704(void *arg0);
+void set_screen_pos__11TBoss6Type2FPv(void *arg0);
 
 extern M2C_UNK lbl_804DF9D4[];
 extern f32 lbl_805DE4B4;
 
-void TBoss6Type2__sub_802BC704(void *arg0) {
+void set_screen_pos__11TBoss6Type2FPv(void *arg0) {
     f32 var_f0;
     f32 var_f1;
 

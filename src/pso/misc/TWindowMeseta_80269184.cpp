@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__13TWindowMesetaFv(u8 *arg0);
-s32 TWindowMeseta__sub_802690B4();
+s32 get_meseta_value__13TWindowMesetaFPv();
 M2C_UNK TWindowSubStatusDisp__sub_80223B88(void *, M2C_UNK);
 M2C_UNK fn_8024664C(void *);
 M2C_UNK fn_80257C28(void *, void *);
@@ -18,7 +18,7 @@ extern const f32 lbl_805DD200;
 void run_task__13TWindowMesetaFv(u8 *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TWindowMeseta__sub_802690B4();
+    temp_r3 = get_meseta_value__13TWindowMesetaFPv();
     if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x68)) {
         M2C_FIELD(arg0, s32 *, 0x68) = temp_r3;
         fn_80259E00(TWindowSubStatusDisp__sub_80223B88(arg0, 1), M2C_FIELD(arg0, s32 *, 0x68), lbl_805DD200);

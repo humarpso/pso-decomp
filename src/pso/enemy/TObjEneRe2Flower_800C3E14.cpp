@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneRe2Flower__sub_800C3E14(void);
-void TObjEneRe2Flower__sub_800C3E18(void *arg0);
+void update_state__16TObjEneRe2FlowerFPv(void *arg0);
 void TObjEneRe2Flower__sub_800C3E6C(void *arg0);
 void TObjEneRe2Flower__sub_800C3EA4(void);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
@@ -15,7 +15,7 @@ s32 TObjEneRe2Flower__sub_800C3C58(void);
 s32 fn_800BB780(void * a0 = 0);
 
 void TObjEneRe2Flower__sub_800C3E14(void) {  }
-void TObjEneRe2Flower__sub_800C3E18(void *arg0) {
+void update_state__16TObjEneRe2FlowerFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

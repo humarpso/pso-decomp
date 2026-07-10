@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void close_result_windows__6TLobbyFv(void);
-f32 TLobby__sub_8001E804(void);
+f32 calc_result_offset__6TLobbyFv(void);
 M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK fn_8001DC24();
@@ -33,7 +33,7 @@ s32 get_main_phase();
 extern M2C_UNK lbl_80434A90;
 extern f32 lbl_805D7EE0;
 
-f32 TLobby__sub_8001E804(void) {
+f32 calc_result_offset__6TLobbyFv(void) {
     f32 var_f31;
 
     var_f31 = lbl_805D7EE0;

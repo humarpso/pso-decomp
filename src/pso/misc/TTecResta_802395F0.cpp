@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TTecResta__sub_802395F0(void *arg0);
-void *TTecResta__sub_80239624(void *arg0, s16 arg1);
+void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK queue_destruction__7TObjectFv();
@@ -24,7 +24,7 @@ void TTecResta__sub_802395F0(void *arg0) {
 
 extern M2C_UNK lbl_804CCBC0[];
 
-void *TTecResta__sub_80239624(void *arg0, s16 arg1) {
+void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CCBC0;
         __dt__7TObjectFv(arg0, 0);

@@ -13,7 +13,7 @@ int fn_8025B850(void* p);
 s32 fn_8025B8C8(void* p);
 void TWindowKeyBoardSoft__sub_8025B928(void);
 
-void TWindowKeyBoardSoft__sub_8025C3EC(void *arg0) {
+void update_input_state2__19TWindowKeyBoardSoftFPv(void *arg0) {
     u16 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, u16 *, 0x60);

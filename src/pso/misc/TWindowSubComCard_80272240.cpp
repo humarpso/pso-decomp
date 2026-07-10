@@ -21,7 +21,7 @@ void TWindowSubComCard__sub_80272180(void);
 s32 fn_8026CBB8(s32 a0 = 0);
 int fn_802754EC(void);
 
-void TWindowSubComCard__sub_80272240(void *arg0, s32 arg1) {
+void set_card_index__17TWindowSubComCardFPvi(void *arg0, s32 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;
         fn_80269C6C(M2C_FIELD(arg0, s32 *, 0x6C), fn_8007A860(arg1), 0x82);

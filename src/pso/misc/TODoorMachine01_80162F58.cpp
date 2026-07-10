@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TODoorMachine01__sub_80162F58(void *arg0);
+void *create__15TODoorMachine01FPv(void *arg0);
 void *TODoorMachine01__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TODoorMachine01__sub_80162F58(void *arg0) {
+void *create__15TODoorMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
         o = TODoorMachine01__ct(o, tl_05, arg0);

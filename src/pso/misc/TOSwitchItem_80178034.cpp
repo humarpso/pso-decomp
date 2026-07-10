@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOSwitchItem__sub_80178034(void *arg0);
+void *create__12TOSwitchItemFPv(void *arg0);
 void TOSwitchItem__sub_80178080(void);
 void TOSwitchItem__sub_80178084(void);
 void *__dt__12TOSwitchItemFv(void *arg0, s16 arg1);
@@ -15,7 +15,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TOSwitchItem__sub_80178034(void *arg0) {
+void *create__12TOSwitchItemFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
         o = TOSwitchItem__ct(o, tl_05, arg0);

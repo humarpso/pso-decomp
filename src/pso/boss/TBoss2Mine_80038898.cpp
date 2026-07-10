@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss2Mine__sub_80038898(void *arg0, s32 arg1);
+void set_state_by_distance__10TBoss2MineFPvi(void *arg0, s32 arg1);
 
 extern const f32 lbl_805D850C;
 
-void TBoss2Mine__sub_80038898(void *arg0, s32 arg1) {
+void set_state_by_distance__10TBoss2MineFPvi(void *arg0, s32 arg1) {
     if (arg1 < 0x5A) {
         f32 temp = lbl_805D850C;
         M2C_FIELD(arg0, s32 *, 0x3C0) = 3;

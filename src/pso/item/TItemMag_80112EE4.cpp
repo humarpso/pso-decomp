@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMag__sub_80112EE4(void *arg0);
+void transfer_energy__8TItemMagFPv(void *arg0);
 M2C_UNK fn_8002AEB8(s32, s32);
 s32 TItemMag__sub_80113F00(s32);
 
-void TItemMag__sub_80112EE4(void *arg0) {
+void transfer_energy__8TItemMagFPv(void *arg0) {
     u32 temp_r3;
     s32 temp_r4;
 

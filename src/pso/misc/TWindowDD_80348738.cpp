@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowDD__sub_80348738(s32 arg0, s32 arg1);
+void show_message_by_count__9TWindowDDFii(s32 arg0, s32 arg1);
 s32 TWindowDD__sub_803487DC();
 M2C_UNK TWindowDD__sub_80348818(M2C_UNK, s32, s32);
 
-void TWindowDD__sub_80348738(s32 arg0, s32 arg1) {
+void show_message_by_count__9TWindowDDFii(s32 arg0, s32 arg1) {
     if (TWindowDD__sub_803487DC() > 0xF) {
         TWindowDD__sub_80348818(0xA, arg0, arg1);
         return;

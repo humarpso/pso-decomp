@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubEquip__sub_80277C70(void *arg0);
+void update_displayed_item__15TWindowSubEquipFPv(void *arg0);
 void update__15TWindowSubEquipFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_80099EF8();
@@ -15,7 +15,7 @@ M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
 M2C_UNK fn_802558D0(s32, s32);
 s32 fn_80266E0C(s32);
 
-void TWindowSubEquip__sub_80277C70(void *arg0) {
+void update_displayed_item__15TWindowSubEquipFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_80266E0C(M2C_FIELD(arg0, s32 *, 0x38));

@@ -11,9 +11,9 @@ void TItemMag__sub_80113110(void* p);
 void TItemMag__sub_80113140(void* p);
 void TItemMag__sub_80113170(void *arg0);
 void TItemMag__sub_801131A4(void *arg0);
-void TItemMag__sub_801131E4(void *arg0);
+void check_level_evolve__8TItemMagFPv(void *arg0);
 int TItemMag__sub_80112E20(void*, void*);
-M2C_UNK TItemMag__sub_80112EE4(void *);
+M2C_UNK transfer_energy__8TItemMagFPv(void *);
 M2C_UNK fn_80100564(void *, M2C_UNK);
 M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
 M2C_UNK apply_feed_delta__8TItemMagFPv(void *);
@@ -23,7 +23,7 @@ void update_feed_timer__8TItemMagFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1CC) == 0) {
         TItemMag__sub_80112FB4();
     }
-    TItemMag__sub_80112EE4(arg0);
+    transfer_energy__8TItemMagFPv(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1D0) <= (s32) M2C_FIELD(arg0, s32 *, 0x1CC)) {
         apply_feed_delta__8TItemMagFPv(arg0);
         TItemMag__sub_80112E20((void*)(arg0), (void*)(1));
@@ -61,7 +61,7 @@ void TItemMag__sub_801131A4(void *arg0) {
 
 s16 obj_getS16_32C(s32);
 
-void TItemMag__sub_801131E4(void *arg0) {
+void check_level_evolve__8TItemMagFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);

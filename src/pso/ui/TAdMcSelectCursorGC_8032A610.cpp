@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TAdMcSelectCursorGC__sub_8032A610(s32 arg0);
+u32 get_instance__19TAdMcSelectCursorGCFi(s32 arg0);
 u32 TAdMcSelectCursorGC__ct(u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
 extern u32 lbl_805D6C94;
 
-u32 TAdMcSelectCursorGC__sub_8032A610(s32 arg0) {
+u32 get_instance__19TAdMcSelectCursorGCFi(s32 arg0) {
     u32 var_r0;
 
     if ((u32) lbl_805D6C94 == 0U) {

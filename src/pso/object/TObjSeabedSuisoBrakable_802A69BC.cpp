@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjSeabedSuisoBrakable__sub_802A69BC(void *arg0);
+void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK TOComputerMachine01__sub_8023DDC8(u32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
 s32 TObjSeabedSuisoBrakable__sub_802A71F8(M2C_UNK);
 void *fn_80131648(s32, M2C_UNK);
 M2C_UNK fn_803DC88C(M2C_UNK *);
 
-extern M2C_UNK TObjSeabedSuisoBrakable__sub_802A6768[];
+extern M2C_UNK notify_break__23TObjSeabedSuisoBrakableFUi[];
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D6678;
 
-void TObjSeabedSuisoBrakable__sub_802A69BC(void *arg0) {
+void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 temp_r3;
     void *temp_r31;
 
@@ -30,7 +30,7 @@ void TObjSeabedSuisoBrakable__sub_802A69BC(void *arg0) {
         }
         lbl_805D6678 = lbl_805D53A4;
     }
-    fn_803DC88C(TObjSeabedSuisoBrakable__sub_802A6768);
+    fn_803DC88C(notify_break__23TObjSeabedSuisoBrakableFUi);
 }
 
 }

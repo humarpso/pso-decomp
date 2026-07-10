@@ -9,8 +9,8 @@ extern "C" {
 s32 fn_8011E384();
 s32 fn_8011F5E0(void *);
 s32 fn_80121CA8(void *);
-s32 TTecDeband__sub_8022F690(s32, s32, s32);
-s32 TTecSifta__sub_8023AE3C(s32, s32, s32);
+s32 create__10TTecDebandFiii(s32, s32, s32);
+s32 create__9TTecSiftaFPvPvPv(s32, s32, s32);
 int fn_80121200(void*);
 int TObjContainerIdo__sub_803D96A8(void*, void*);
 void fn_8012EBB0(void* p);
@@ -26,10 +26,10 @@ void fn_8012EAA8(void *arg0) {
     if (fn_8011E384() != 0) {
         if (fn_80121CA8(arg0) == 0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0xF0);
-            TTecDeband__sub_8022F690(temp_r3, temp_r3 + 0x38, 2);
+            create__10TTecDebandFiii(temp_r3, temp_r3 + 0x38, 2);
         } else {
             temp_r3_2 = M2C_FIELD(arg0, s32 *, 0xF0);
-            TTecSifta__sub_8023AE3C(temp_r3_2, temp_r3_2 + 0x38, 2);
+            create__9TTecSiftaFPvPvPv(temp_r3_2, temp_r3_2 + 0x38, 2);
         }
         fn_8011E618(arg0);
         return;

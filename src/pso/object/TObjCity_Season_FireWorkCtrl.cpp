@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjCity_Season_FireWorkCtrl__create(void *arg0);
-void *TObjCity_Season_FireWorkCtrl__sub_80183814(void *arg0, s16 arg1);
+void *dt__28TObjCity_Season_FireWorkCtrlFPvs(void *arg0, s16 arg1);
 void *TObjCity_Season_FireWorkCtrl__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -23,7 +23,7 @@ void *TObjCity_Season_FireWorkCtrl__create(void *arg0) {
 
 extern M2C_UNK lbl_804B5C58[];
 
-void *TObjCity_Season_FireWorkCtrl__sub_80183814(void *arg0, s16 arg1) {
+void *dt__28TObjCity_Season_FireWorkCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5C58;
         fn_801A25B4(arg0, 0);

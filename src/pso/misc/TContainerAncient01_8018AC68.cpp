@@ -30,13 +30,13 @@ struct VObj_8018AC68 : Base_8018AC68 {
 
 extern "C" {
 
-f32 TContainerAncient01__sub_8018AC68(void *arg0, s32 arg1, s32 *arg2);
+f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2);
 int TContainerAncient01__sub_8018ACC0(void);
 
 extern f32 lbl_805DBD10;
 extern f32 lbl_805DBD14;
 
-f32 TContainerAncient01__sub_8018AC68(void *arg0, s32 arg1, s32 *arg2) {
+f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2) {
     s32 temp_r4;
     struct VObj_8018AC68 *o = (struct VObj_8018AC68 *)arg0;
 

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemMag__sub_80110DC4(void *arg0, s32 arg1);
+s32 check_feed_state__8TItemMagFPvi(void *arg0, s32 arg1);
 
 s16 obj_getS16_32C(s32);
 
-s32 TItemMag__sub_80110DC4(void *arg0, s32 arg1) {
+s32 check_feed_state__8TItemMagFPvi(void *arg0, s32 arg1) {
     s16 temp_r3;
 
     temp_r3 = obj_getS16_32C(M2C_FIELD(arg0, s32 *, 0xF0));

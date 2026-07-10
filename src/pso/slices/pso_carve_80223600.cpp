@@ -13,7 +13,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowCtrl__sub_8024AEF0(u16);
 s32 TRaderMapCore__sub_8030A808();
 s32 TObjPlayer__sub_801B130C();
-s32 TObjPlayer__sub_801B71DC(void *);
+s32 init_effect_5f0__10TObjPlayerFPv(void *);
 s32 TWindowCtrl__sub_8024AEAC(u16);
 s32 is_split_screen();
 s32 fn_801D5DAC();
@@ -58,7 +58,7 @@ void fn_802237D8(void *arg0) {
     s32 var_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        TObjPlayer__sub_801B71DC(M2C_FIELD(arg0, void **, 0x24));
+        init_effect_5f0__10TObjPlayerFPv(M2C_FIELD(arg0, void **, 0x24));
         if (TRaderMapCore__sub_8030A808() != 1) {
             var_r31 = 0;
             do {

@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjEneBm5Wolf__sub_800B8668(void *arg0);
+void *create__14TObjEneBm5WolfFPv(void *arg0);
 void *TObjEneBm5Wolf__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
-void *TObjEneBm5Wolf__sub_800B8668(void *arg0) {
+void *create__14TObjEneBm5WolfFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x46C);
     if (o != NULL) {
         o = TObjEneBm5Wolf__ct(o, tl_04, arg0);

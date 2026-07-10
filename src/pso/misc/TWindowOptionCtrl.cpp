@@ -9,7 +9,7 @@ extern "C" {
 void TWindowOptionCtrl__sub_8026B308(void *arg0, s16 arg1, s8 arg2);
 void TWindowOptionCtrl__sub_8026B348(void *arg0);
 void TWindowOptionCtrl__sub_8026B390(void *arg0);
-void TWindowOptionCtrl__sub_8026B3C4(void *arg0, s32 arg1);
+void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 void *fn_8001ED80();
 s32 fn_80132E58(s8);
@@ -52,7 +52,7 @@ void TWindowOptionCtrl__sub_8026B390(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x20) = temp_r3;
 }
 
-void TWindowOptionCtrl__sub_8026B3C4(void *arg0, s32 arg1) {
+void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
     fn_8022743C();
     fn_8022743C();
     fn_802260C4();

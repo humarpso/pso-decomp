@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjSeabedSuisoBrakable__sub_802A6F40(void);
+void free_static_resources__23TObjSeabedSuisoBrakableFv(void);
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
@@ -14,7 +14,7 @@ M2C_UNK fn_803DA16C(void*);
 extern u32 lbl_805D6670;
 extern u32 lbl_805D6674;
 
-void TObjSeabedSuisoBrakable__sub_802A6F40(void) {
+void free_static_resources__23TObjSeabedSuisoBrakableFv(void) {
     if ((u32) lbl_805D6674 != 0U) {
         fn_803DA16C((void*)lbl_805D6674);
         fn_8007EBB4(lbl_805D6674);

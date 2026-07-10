@@ -8,7 +8,7 @@ extern "C" {
 
 void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1);
 void TWindowMakeTeam__sub_80264BC0(void *arg0);
-void TWindowMakeTeam__sub_80264C04(void *arg0);
+void update_ok_button__15TWindowMakeTeamFPv(void *arg0);
 M2C_UNK fn_8026853C(s32, M2C_UNK);
 M2C_UNK fn_802685C4(s32, M2C_UNK);
 
@@ -41,7 +41,7 @@ void TWindowMakeTeam__sub_80264BC0(void *arg0) {
     fn_802685C4(M2C_FIELD(arg0, s32 *, 0x2C), 3);
 }
 
-void TWindowMakeTeam__sub_80264C04(void *arg0) {
+void update_ok_button__15TWindowMakeTeamFPv(void *arg0) {
     u8 *temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, u8 **, 0x24);

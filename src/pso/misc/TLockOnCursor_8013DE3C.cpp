@@ -9,7 +9,7 @@ void TLockOnCursor__sub_8013EEC0(void *, void *);
 void TLockOnCursor__sub_8013EEC8(void *);
 void TLockOnCursor__sub_8013EF0C(void *);
 void TLockOnCursor__sub_8013EF3C(void *);
-void TLockOnCursor__sub_8013EF6C(void *);
+void cleanup__13TLockOnCursorFPv(void *);
 void TLockOnCursor__sub_8013F08C(void *);
 void TObjPlayer__sub_8001BF10(void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -19,7 +19,7 @@ void fn_8013F1F0(void *);
 
 extern M2C_UNK __vt__13TLockOnCursor[];
 extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
-extern M2C_UNK TLockOnCursor__sub_8013ED0C[];
+extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
 void __construct_array(void *, void *, void *, int, int);
 extern void *lbl_805D2CB4;
 struct VOff_8013DE3C_arg0 { char pad_0[0x1C]; char f_1C[1]; };
@@ -32,8 +32,8 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     fn_8013F0A0((void *)((char *)arg0 + 36));
     TLockOnCursor__sub_8013F08C((void *)((char *)arg0 + 60));
     fn_8013F1F0((void *)((char *)arg0 + 72));
-    __construct_array((void *)((char *)arg0 + 92), TLockOnCursor__sub_8013EFB8, TLockOnCursor__sub_8013ED0C, 292, 4);
-    TLockOnCursor__sub_8013EF6C((void *)((char *)arg0 + 1260));
+    __construct_array((void *)((char *)arg0 + 92), TLockOnCursor__sub_8013EFB8, __dt_deleting__13TLockOnCursorFis, 292, 4);
+    cleanup__13TLockOnCursorFPv((void *)((char *)arg0 + 1260));
     TLockOnCursor__sub_8013EF3C((void *)((char *)arg0 + 1288));
     TLockOnCursor__sub_8013EF0C((void *)((char *)arg0 + 1296));
     TLockOnCursor__sub_8013EEC8((void *)((char *)arg0 + 1312));

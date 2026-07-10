@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80070A00(void);
+void init_on_main_phase__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80074C20();
 M2C_UNK fn_8006F848(M2C_UNK *);
 u32 fn_800709C4();
@@ -18,7 +18,7 @@ extern u32 lbl_805D4E28;
 extern s32 lbl_805D4E2C;
 extern s32 lbl_805D4E30;
 
-void TLobby__sub_80070A00(void) {
+void init_on_main_phase__6TLobbyFv(void) {
     lbl_805D4E2C = 0;
     if ((u32) lbl_805D4E28 == 0U) {
         if (get_main_phase() != 0xF) {

@@ -16,7 +16,7 @@ M2C_UNK fn_802FE964();
 M2C_UNK fn_802FEA0C();
 extern M2C_UNK lbl_804651A0[];
 
-s32 fn_80299B38(void) {
+s32 load_dragon2_scene(void) {
     TOKeyMachine01__sub_802034A8();
     fn_80227FB4();
     if (fn_8007BB2C() != 0) {

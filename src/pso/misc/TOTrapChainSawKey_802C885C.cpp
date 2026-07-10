@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOTrapChainSawKey__sub_802C885C(void *arg0);
+void *create__17TOTrapChainSawKeyFPv(void *arg0);
 void *__dt__17TOTrapChainSawKeyFv(void *arg0, s16 arg1);
 void *TOTrapChainSawKey__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -15,7 +15,7 @@ void fn_80156720(void *);
 
 extern void *tl_05;
 
-void *TOTrapChainSawKey__sub_802C885C(void *arg0) {
+void *create__17TOTrapChainSawKeyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
         o = TOTrapChainSawKey__ct(o, tl_05, arg0);

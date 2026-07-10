@@ -12,7 +12,7 @@ M2C_UNK fn_8011E2FC(void *, f32);
 s32 fn_8011E384(void *);
 M2C_UNK fn_8011F5E0(void *);
 s32 fn_801207E8(void *, M2C_UNK, M2C_UNK *);
-M2C_UNK TTecMegid__sub_80235638(void *, M2C_UNK *, s32, M2C_UNK);
+M2C_UNK create_ex__9TTecMegidFiiii(void *, M2C_UNK *, s32, M2C_UNK);
 extern s32 tl_05;
 extern f32 lbl_805DAF18;
 
@@ -25,7 +25,7 @@ void fn_8012D2B4(void *arg0) {
         if (fn_8011E384(arg0) != 0) {
             if (fn_801207E8(arg0, 2, &sp8) != 0) {
                 temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
-                TTecMegid__sub_80235638(temp_r3, &sp8, M2C_FIELD(temp_r3, s32 *, 0x60), 0);
+                create_ex__9TTecMegidFiiii(temp_r3, &sp8, M2C_FIELD(temp_r3, s32 *, 0x60), 0);
                 fn_8011E2FC(arg0, lbl_805DAF18);
             }
         } else {

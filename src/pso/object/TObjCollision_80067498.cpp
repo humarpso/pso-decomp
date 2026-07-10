@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjCollision__sub_80067498(void *arg0);
+void *create__13TObjCollisionFPv(void *arg0);
 void *__dt__13TObjCollisionFv(void *arg0, s16 arg1);
 void *TObjCollision__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -15,7 +15,7 @@ void fn_80156990(void *, int);
 
 extern void *tl_06;
 
-void *TObjCollision__sub_80067498(void *arg0) {
+void *create__13TObjCollisionFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
         o = TObjCollision__ct(o, tl_06, arg0);

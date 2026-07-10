@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TBoss6Type1__sub_802B7E6C();
 
-int TBoss6Type1__sub_802B5F60(void *arg0) {
+int is_time_up__11TBoss6Type1FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x414) == 0) {
         return 0;
     }

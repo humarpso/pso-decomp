@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjRoomId__sub_801A1DDC(void *arg0);
+u8 is_current_room__10TObjRoomIdFPv(void *arg0);
 s32 is_split_screen();
 
 extern s32 lbl_805D53A0;
 
-u8 TObjRoomId__sub_801A1DDC(void *arg0) {
+u8 is_current_room__10TObjRoomIdFPv(void *arg0) {
     if (is_split_screen() != 0) {
         return 1U;
     }

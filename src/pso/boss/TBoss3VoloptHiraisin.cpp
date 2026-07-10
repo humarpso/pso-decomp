@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TBoss3VoloptHiraisin__sub_8004181C(void *arg0);
+void *create__20TBoss3VoloptHiraisinFPv(void *arg0);
 void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1);
 void *TBoss3VoloptHiraisin__sub_80041AA0(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -14,7 +14,7 @@ void fn_80156720(void *);
 
 extern void *tl_04;
 
-void *TBoss3VoloptHiraisin__sub_8004181C(void *arg0) {
+void *create__20TBoss3VoloptHiraisinFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x390);
     if (o != NULL) {
         o = TBoss3VoloptHiraisin__sub_80041AA0(o, tl_04, arg0);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009ED04(void *arg0);
+void update_by_field_0x354__17TObjEneMe1CanadinFPv(void *arg0);
 void TObjEneMe1Canadin__vt104(void *arg0);
 f32 fn_8002ADE4(f32);
 M2C_UNK fn_8009E334(void *);
@@ -19,7 +19,7 @@ void TObjEneMe1Canadin__vt104(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4FD0, void **, 0x42C), s32 *, 0x1C);
 }
 
-void TObjEneMe1Canadin__sub_8009ED04(void *arg0) {
+void update_by_field_0x354__17TObjEneMe1CanadinFPv(void *arg0) {
     if ((s32) fn_8002ADE4(M2C_FIELD(arg0, f32 *, 0x354)) == 0) {
         fn_8009E350(arg0);
         return;

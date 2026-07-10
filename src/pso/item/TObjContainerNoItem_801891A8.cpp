@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjContainerNoItem__sub_801891A8(void *arg0);
+void *create__19TObjContainerNoItemFPv(void *arg0);
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1);
 void *TObjContainerNoItem__ct(void *, void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -17,7 +17,7 @@ M2C_UNK fn_8015C8D8(void *, M2C_UNK);
 
 extern void *tl_05;
 
-void *TObjContainerNoItem__sub_801891A8(void *arg0) {
+void *create__19TObjContainerNoItemFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
         o = TObjContainerNoItem__ct(o, tl_05, arg0);

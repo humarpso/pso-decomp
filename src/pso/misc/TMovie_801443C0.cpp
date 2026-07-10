@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__6TMovieFv(void *arg0, s16 arg1);
-M2C_UNK TMovie__sub_80143D9C(u32, M2C_UNK);
+M2C_UNK close__6TMovieFis(u32, M2C_UNK);
 M2C_UNK TMovie__sub_80144484(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -27,7 +27,7 @@ void *__dt__6TMovieFv(void *arg0, s16 arg1) {
         render_tick__Fv();
         t = M2C_FIELD(arg0, u32 *, 0x20);
         if (t != 0U) {
-            TMovie__sub_80143D9C(t, 1);
+            close__6TMovieFis(t, 1);
             M2C_FIELD(arg0, u32 *, 0x20) = 0U;
         }
         render_tick__Fv();

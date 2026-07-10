@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjLazerFence4__sub_80193524(void *arg0);
+void *create__15TObjLazerFence4FPv(void *arg0);
 void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1);
 void *TObjLazerFence4__ct(void *, void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -17,7 +17,7 @@ M2C_UNK fn_80156990(void *, M2C_UNK);
 
 extern void *tl_05;
 
-void *TObjLazerFence4__sub_80193524(void *arg0) {
+void *create__15TObjLazerFence4FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
         o = TObjLazerFence4__ct(o, tl_05, arg0);

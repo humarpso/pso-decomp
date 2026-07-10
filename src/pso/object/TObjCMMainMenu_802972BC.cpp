@@ -9,10 +9,10 @@ extern "C" {
 void TObjCMMainMenu__sub_802972C4(void);
 s32 try_pay_fee__14TObjCMMainMenuFv(void);
 void confirm_selection__14TObjCMMainMenuFPv(void *arg0);
-void TObjCMMainMenu__sub_8029742C(void *arg0);
-void TObjCMMainMenu__sub_8029747C(void *arg0);
-void TObjCMMainMenu__sub_802974CC(void *arg0);
-void TObjCMMainMenu__sub_8029751C(void *arg0);
+void open_name_menu__14TObjCMMainMenuFPv(void *arg0);
+void open_proportion_menu__14TObjCMMainMenuFPv(void *arg0);
+void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0);
+void open_hair_menu__14TObjCMMainMenuFPv(void *arg0);
 void fn_802972BC(void);
 void fn_802972C0(void);
 u8 TCharaMaking__sub_8028DC74();
@@ -70,7 +70,7 @@ void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
 
 extern s32 lbl_805D659C;
 
-void TObjCMMainMenu__sub_8029742C(void *arg0) {
+void open_name_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     lbl_805D659C = 1;
     TObjCMName__sub_80294C58(M2C_FIELD(arg0, s32 *, 0x50));
@@ -78,7 +78,7 @@ void TObjCMMainMenu__sub_8029742C(void *arg0) {
 
 extern s32 lbl_805D659C;
 
-void TObjCMMainMenu__sub_8029747C(void *arg0) {
+void open_proportion_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     lbl_805D659C = 1;
     TObjCMProportion__sub_802951A4(M2C_FIELD(arg0, s32 *, 0x50));
@@ -86,7 +86,7 @@ void TObjCMMainMenu__sub_8029747C(void *arg0) {
 
 extern s32 lbl_805D659C;
 
-void TObjCMMainMenu__sub_802974CC(void *arg0) {
+void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     lbl_805D659C = 1;
     TObjCMAutoMkData__sub_80295900(M2C_FIELD(arg0, s32 *, 0x50));
@@ -94,7 +94,7 @@ void TObjCMMainMenu__sub_802974CC(void *arg0) {
 
 extern s32 lbl_805D659C;
 
-void TObjCMMainMenu__sub_8029751C(void *arg0) {
+void open_hair_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     lbl_805D659C = 1;
     TObjCMHairMenu__sub_80296410(M2C_FIELD(arg0, s32 *, 0x50));

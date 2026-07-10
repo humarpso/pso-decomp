@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss6Type2__sub_802BA8CC(void *arg0);
+s32 is_phase_complete__11TBoss6Type2FPv(void *arg0);
 s32 TBoss6Type2__sub_802BC6E8();
 s32 fn_802AC18C();
 
-s32 TBoss6Type2__sub_802BA8CC(void *arg0) {
+s32 is_phase_complete__11TBoss6Type2FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x418) == 0) {
         return 0;
     }

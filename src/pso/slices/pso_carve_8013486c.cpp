@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TObjLight__sub_80133ED8(void *, int);
+void dt2__9TObjLightFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804A6F78[];
 
 void *fn_8013486C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A6F78;
-        TObjLight__sub_80133ED8(arg0, 0);
+        dt2__9TObjLightFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

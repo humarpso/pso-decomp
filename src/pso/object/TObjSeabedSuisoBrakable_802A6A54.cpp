@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjSeabedSuisoBrakable__sub_802A6A54(void *arg0);
+void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK update_switch_lock__23TObjSeabedSuisoBrakableFPv();
-M2C_UNK TObjSeabedSuisoBrakable__sub_802A69BC();
+M2C_UNK notify_break__23TObjSeabedSuisoBrakableFPv();
 
-void TObjSeabedSuisoBrakable__sub_802A6A54(void *arg0) {
+void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
     switch (temp_r0) {
     case 2:
-        TObjSeabedSuisoBrakable__sub_802A69BC();
+        notify_break__23TObjSeabedSuisoBrakableFPv();
         return;
     case 3:
         update_switch_lock__23TObjSeabedSuisoBrakableFPv();

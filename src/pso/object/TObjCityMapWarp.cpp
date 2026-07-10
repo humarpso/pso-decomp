@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjCityMapWarp__sub_801859C0(void *arg0);
+void *create__15TObjCityMapWarpFPv(void *arg0);
 void *__dt__15TObjCityMapWarpFv(void *arg0, s16 arg1);
 void *TObjCityMapWarp__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -13,7 +13,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TObjCityMapWarp__sub_801859C0(void *arg0) {
+void *create__15TObjCityMapWarpFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
         o = TObjCityMapWarp__ct(o, tl_05, arg0);

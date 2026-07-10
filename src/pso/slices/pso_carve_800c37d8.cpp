@@ -58,7 +58,7 @@ M2C_UNK fn_800B98C0(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneRe2Flower__sub_800C3C9C();
-M2C_UNK TObjEneRe2Flower__sub_800C3CD8(void *);
+M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_80143504();
 extern const f32 lbl_805D9FF0;
 
@@ -67,7 +67,7 @@ void fn_800C37D8(void *arg0, s32 arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
         ((V_A *) arg0)->m94();
-        TObjEneRe2Flower__sub_800C3CD8(arg0);
+        clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
         TObjEneDD__sub_800BBA04(arg0, 2);
         fn_800B98C0(arg0);

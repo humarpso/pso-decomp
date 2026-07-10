@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOSwitchAttack__sub_80177BD4(void *arg0);
+void *create__14TOSwitchAttackFPv(void *arg0);
 void TOSwitchAttack__sub_80177C20(void);
 void TOSwitchAttack__sub_80177C24(void);
 void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1);
@@ -15,7 +15,7 @@ void fn_801A25B4(void *, int);
 
 extern void *tl_05;
 
-void *TOSwitchAttack__sub_80177BD4(void *arg0) {
+void *create__14TOSwitchAttackFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
         o = TOSwitchAttack__ct(o, tl_05, arg0);

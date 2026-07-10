@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjEneSlimeWaterBomb__sub_800E8EA4(void *arg0, void *arg1);
+void * create__21TObjEneSlimeWaterBombFPvPv(void *arg0, void *arg1);
 void *TObjEneSlimeWaterBomb__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * TObjEneSlimeWaterBomb__sub_800E8EA4(void *arg0, void *arg1) {
+void * create__21TObjEneSlimeWaterBombFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x398);
     if (o != NULL) {

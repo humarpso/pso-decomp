@@ -9,7 +9,7 @@ extern "C" {
 void TKeyBoardControl__sub_8026130C(void *arg0);
 void TKeyBoardControl__sub_80261358(void *arg0);
 void TKeyBoardControl__sub_802613A4(void *arg0);
-void TKeyBoardControl__sub_802613F0(void *arg0);
+void release__16TKeyBoardControlFPv(void *arg0);
 M2C_UNK TKeyBoardControl__sub_8025CBC0(void *);
 M2C_UNK fn_8025CBCC(void *);
 M2C_UNK fn_8025CC04(void *);
@@ -22,7 +22,7 @@ void TKeyBoardControl__sub_8026130C(void *arg0) {
     temp_r3 = M2C_FIELD(arg0, void **, 0x6C);
     if (temp_r3 != NULL) {
         TKeyBoardControl__sub_8025CBC0(temp_r3);
-        TKeyBoardControl__sub_802613F0(arg0);
+        release__16TKeyBoardControlFPv(arg0);
     }
 }
 
@@ -32,7 +32,7 @@ void TKeyBoardControl__sub_80261358(void *arg0) {
     temp_r3 = M2C_FIELD(arg0, void **, 0x6C);
     if (temp_r3 != NULL) {
         fn_8025CBCC(temp_r3);
-        TKeyBoardControl__sub_802613F0(arg0);
+        release__16TKeyBoardControlFPv(arg0);
     }
 }
 
@@ -40,11 +40,11 @@ void TKeyBoardControl__sub_802613A4(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 0x20);
     if (M2C_FIELD(arg0, void **, 0x6C) != NULL) {
         fn_8025CC04(M2C_FIELD(arg0, void **, 0x6C));
-        TKeyBoardControl__sub_802613F0(arg0);
+        release__16TKeyBoardControlFPv(arg0);
     }
 }
 
-void TKeyBoardControl__sub_802613F0(void *arg0) {
+void release__16TKeyBoardControlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 1);
         fn_8025CC3C(M2C_FIELD(arg0, u32 *, 0x6C));

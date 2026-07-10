@@ -48,7 +48,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK fn_800C3A5C(void *, s32);
 M2C_UNK fn_800C3A60(void *, M2C_UNK);
-M2C_UNK TObjEneRe2Flower__sub_800C3CD8(void *);
+M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 s32 objInBand__FP7GameObjf(f32);
 M2C_UNK fn_80143504();
 M2C_UNK fn_8022602C(M2C_UNK);
@@ -62,7 +62,7 @@ void fn_800C294C(u8 *arg0, s32 arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 6;
         ((V_A *) arg0)->m94();
-        TObjEneRe2Flower__sub_800C3CD8(arg0);
+        clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
         TObjEneDD__sub_800BBA04(arg0, 3);
         M2C_FIELD(arg0, s32 *, 0x410) = 0;

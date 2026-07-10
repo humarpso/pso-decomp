@@ -11,9 +11,9 @@ s32 TOKeyMachine01__sub_802034A8();
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 void TObjEneMe1Gee__vt105(void);
 int TObjEneMe1Gee__vt102(void* p);
-int TObjEneEpsilon__sub_800B97B4(void*);
+int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 
-s32 TObjEneMe1Gee__sub_800CB9B0(s32 arg0, s32 arg1) {
+s32 handle_message__13TObjEneMe1GeeFii(s32 arg0, s32 arg1) {
     s32 var_r3;
 
     if (arg1 == 0x3A843) {

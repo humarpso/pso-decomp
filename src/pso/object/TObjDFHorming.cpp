@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjDFHorming__sub_8004AD4C(void);
+u8 is_boss_active__13TObjDFHormingFv(void);
 
 u32 fn_8004C1AC();
 s32 TBoss4DarkFalz__sub_8004C1D4();
 
-u8 TObjDFHorming__sub_8004AD4C(void) {
+u8 is_boss_active__13TObjDFHormingFv(void) {
     int var_r31;
 
     var_r31 = 0;

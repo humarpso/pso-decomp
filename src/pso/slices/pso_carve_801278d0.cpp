@@ -12,8 +12,8 @@ M2C_UNK fn_8011E618(void *);
 M2C_UNK fn_8011F5E0(void *);
 s32 fn_8011F63C();
 s32 fn_80121CA8(void *);
-M2C_UNK TTecJelin__sub_80233694(s32, s32, s32, M2C_UNK);
-M2C_UNK TTecZarua__sub_8023C15C(s32, s32, s32, M2C_UNK);
+M2C_UNK create__9TTecJelinFiiii(s32, s32, s32, M2C_UNK);
+M2C_UNK create_instance__9TTecZaruaFiiii(s32, s32, s32, M2C_UNK);
 extern s32 tl_05;
 
 void fn_801278D0(void *arg0) {
@@ -29,11 +29,11 @@ void fn_801278D0(void *arg0) {
         if (fn_80121CA8(arg0) == 0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0xF0);
             temp_r4 = temp_r3 + 0x38;
-            TTecJelin__sub_80233694(temp_r3, temp_r4, temp_r4, 4);
+            create__9TTecJelinFiiii(temp_r3, temp_r4, temp_r4, 4);
         } else {
             temp_r3_2 = M2C_FIELD(arg0, s32 *, 0xF0);
             temp_r4_2 = temp_r3_2 + 0x38;
-            TTecZarua__sub_8023C15C(temp_r3_2, temp_r4_2, temp_r4_2, 4);
+            create_instance__9TTecZaruaFiiii(temp_r3_2, temp_r4_2, temp_r4_2, 4);
         }
         fn_8011E618(arg0);
         return;

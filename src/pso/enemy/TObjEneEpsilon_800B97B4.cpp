@@ -13,12 +13,12 @@ struct VObj_800B97B4 : Base_800B97B4 {
 
 extern "C" {
 
-void TObjEneEpsilon__sub_800B97B4(void *arg0, f32 farg0);
+void select_and_apply_target__14TObjEneEpsilonFPvf(void *arg0, f32 farg0);
 M2C_UNK TObjEneEpsilon__sub_800B9848(void *, u16);
 u16 fn_800BB364(void *, f32);
 u16 fn_800BB664(void *, f32);
 
-void TObjEneEpsilon__sub_800B97B4(void *arg0, f32 farg0) {
+void select_and_apply_target__14TObjEneEpsilonFPvf(void *arg0, f32 farg0) {
     u16 temp_r3;
     u16 var_r4;
 

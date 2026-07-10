@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TCharaMaking__sub_8028DF40(u8 *arg0);
+void update_body_parts__12TCharaMakingFPv(u8 *arg0);
 f32 TCharaMaking__sub_8028DCCC(void *);
 M2C_UNK TCharaMaking__sub_8028DF98(void *);
 M2C_UNK TCharaMaking__sub_8028E2B8(void *, void *, void *, void *);
 M2C_UNK fn_8028D448(void *);
 
-void TCharaMaking__sub_8028DF40(u8 *arg0) {
+void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
     TCharaMaking__sub_8028DF98(arg0 + 0x85C);
     M2C_FIELD(arg0, f32 *, 0xD48) = TCharaMaking__sub_8028DCCC(arg0 + 0x85C);
     TCharaMaking__sub_8028E2B8(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjFogCollisionPoison__sub_80153420(s32);
+s32 check_switch__22TObjFogCollisionPoisonFPv(s32);
 s32 TObjFogCollisionPoison__sub_8015346C(s32, u16);
 s32 TObjFogCollisionPoison__sub_801534E8(s32, u16);
 s32 TObjFogCollisionPoison__sub_80153520(s32);
@@ -20,7 +20,7 @@ void fn_80152F50(void *arg0) {
     s32 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x10);
-    if (TObjFogCollisionPoison__sub_80153420(temp_r31) != 0) {
+    if (check_switch__22TObjFogCollisionPoisonFPv(temp_r31) != 0) {
         if (check_collision__16TObjFogCollisionFPvUs(temp_r31, M2C_FIELD(arg0, u16 *, 0x28)) != 0) {
             TObjFogCollisionPoison__sub_801534E8(temp_r31, M2C_FIELD(arg0, u16 *, 0x28));
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + 1);

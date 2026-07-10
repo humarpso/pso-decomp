@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMotorcycle__sub_80195060(void);
+void free_statics__11TMotorcycleFv(void);
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
@@ -14,7 +14,7 @@ M2C_UNK fn_803DA16C(void*);
 extern u32 lbl_805D5C40;
 extern u32 lbl_805D5C44;
 
-void TMotorcycle__sub_80195060(void) {
+void free_statics__11TMotorcycleFv(void) {
     if ((u32) lbl_805D5C44 != 0U) {
         fn_803DA16C((void*)lbl_805D5C44);
         fn_8007EBB4(lbl_805D5C44);

@@ -20,7 +20,7 @@ void fn_801D1440(void* p);
 void fn_801D1480(void* p);
 int TObjPlayer__sub_801BF4B8(void*);
 int TLobby__send_and_handle_60(void*);
-int TLobby__sub_801E45D0(void*);
+int update_players__6TLobbyFi(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int fn_8001960C(void*);
@@ -60,7 +60,7 @@ int fn_801D1360(void* p) { return *(u16*)((char*)p + 0x6) & 0x1; }
 void fn_801D136C(void* p) { fn_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 int fn_801D13A8(void) { return 0; }
 int fn_801D13EC(void) { return 0; }
-void fn_801D140C(void* p) { fn_801D136C(p); TLobby__sub_801E45D0(p); }
+void fn_801D140C(void* p) { fn_801D136C(p); update_players__6TLobbyFi(p); }
 void fn_801D1440(void* p) { *(u16*)((char*)p + 0x6) |= 0x1; }
 void* fn_801D1450(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 void fn_801D1480(void* p) { *(u8*)((char*)p + 0x0) = 87; *(u8*)((char*)p + 0x1) = 1; }

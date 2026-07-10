@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80087350(void *, M2C_UNK);
-M2C_UNK TObjEneSlimeWaterBomb__sub_800E8EA4(void *, void *);
+M2C_UNK create__21TObjEneSlimeWaterBombFPvPv(void *, void *);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
 s32 fn_800EC41C(void *);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -23,7 +23,7 @@ void fn_800E9ABC(u8 *arg0) {
     } else if (temp_r0 == 0) {
         fn_8022675C(0x4003A017, arg0 + 0x38, 0, 0);
         fn_80087350(arg0 + 0x2FC, 0xE2);
-        TObjEneSlimeWaterBomb__sub_800E8EA4(arg0, arg0);
+        create__21TObjEneSlimeWaterBombFPvPv(arg0, arg0);
     }
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x390) - 1;
     M2C_FIELD(arg0, s32 *, 0x390) = temp_r0_2;

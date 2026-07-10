@@ -13,7 +13,7 @@ struct LazerFence4VObj : LazerFence4Base {
 extern "C" {
 
 void render__15TObjLazerFence4Fv(void *arg0);
-M2C_UNK TObjLazerFence4__sub_80193290(void *);
+M2C_UNK draw__15TObjLazerFence4FPv(void *);
 M2C_UNK TObjLazerFence4__sub_801932E4(void *);
 
 extern const f32 lbl_805DBE70;
@@ -29,7 +29,7 @@ void render__15TObjLazerFence4Fv(void *arg0) {
             TObjLazerFence4__sub_801932E4(arg0);
             return;
         case 1:
-            TObjLazerFence4__sub_80193290(arg0);
+            draw__15TObjLazerFence4FPv(arg0);
             break;
         }
     }

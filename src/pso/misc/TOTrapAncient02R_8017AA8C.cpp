@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOTrapAncient02R__sub_8017AA8C(void *arg0);
+void *create__16TOTrapAncient02RFPv(void *arg0);
 void *__dt__16TOTrapAncient02RFv(void *arg0, s16 arg1);
 void *TOTrapAncient02R__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -13,7 +13,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TOTrapAncient02R__sub_8017AA8C(void *arg0) {
+void *create__16TOTrapAncient02RFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x36C);
     if (o != NULL) {
         o = TOTrapAncient02R__ct(o, tl_05, arg0);

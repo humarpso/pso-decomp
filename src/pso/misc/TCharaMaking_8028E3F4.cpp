@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TCharaMaking__sub_8028E3F4(void);
-s32 TCharaMaking__sub_8028E434(void *arg0);
+s32 get_display_index__12TCharaMakingFPv(void *arg0);
 s32 TCameraCtrl__sub_8006B368();
 s32 get_main_phase();
 
@@ -18,7 +18,7 @@ s32 TCharaMaking__sub_8028E3F4(void) {
     return 0;
 }
 
-s32 TCharaMaking__sub_8028E434(void *arg0) {
+s32 get_display_index__12TCharaMakingFPv(void *arg0) {
     s8 temp;
 
     if (!(M2C_FIELD(arg0, s8 *, 0x32) & 0xA)) {

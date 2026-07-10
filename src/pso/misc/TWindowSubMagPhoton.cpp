@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubMagPhoton__sub_8027C22C(void *arg0);
-void TWindowSubMagPhoton__sub_8027C284(void *arg0);
+void handle_cancel__19TWindowSubMagPhotonFPv(void *arg0);
+void play_open_sound__19TWindowSubMagPhotonFPv(void *arg0);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowSubMag__sub_8027C0DC();
 
-void TWindowSubMagPhoton__sub_8027C22C(void *arg0) {
+void handle_cancel__19TWindowSubMagPhotonFPv(void *arg0) {
     if (TWindowSubMag__sub_8027C0DC() == 0) {
         fn_8022675C(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
     }
 }
 
-void TWindowSubMagPhoton__sub_8027C284(void *arg0) {
+void play_open_sound__19TWindowSubMagPhotonFPv(void *arg0) {
     fn_8022675C(0x52D01, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 1);
 }

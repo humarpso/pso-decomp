@@ -12,7 +12,7 @@ M2C_UNK fn_8011E618(void *);
 M2C_UNK fn_8011F5E0(void *);
 s32 fn_801207E8(void *, M2C_UNK, M2C_UNK *);
 s32 fn_80121CA8(void *);
-M2C_UNK TTecGiBarta__sub_80230AF0(void *, M2C_UNK *, s32, s32);
+M2C_UNK create_ex__11TTecGiBartaFPvPvPvPv(void *, M2C_UNK *, s32, s32);
 int fn_80121200(void*);
 int TObjContainerIdo__sub_803D96A8(void*, void*);
 void fn_80122680(void* p);
@@ -26,7 +26,7 @@ void fn_80122600(void *arg0) {
     if (fn_8011E384() != 0) {
         if (fn_801207E8(arg0, 0, &sp8) != 0) {
             temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
-            TTecGiBarta__sub_80230AF0(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), fn_80121CA8(arg0));
+            create_ex__11TTecGiBartaFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), fn_80121CA8(arg0));
             fn_8011E618(arg0);
         }
     } else {

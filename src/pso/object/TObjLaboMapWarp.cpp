@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjLaboMapWarp__sub_80185564(void *arg0);
+void *create__15TObjLaboMapWarpFPv(void *arg0);
 void *__dt__15TObjLaboMapWarpFv(void *arg0, s16 arg1);
 void *TObjLaboMapWarp__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -13,7 +13,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TObjLaboMapWarp__sub_80185564(void *arg0) {
+void *create__15TObjLaboMapWarpFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
         o = TObjLaboMapWarp__ct(o, tl_05, arg0);

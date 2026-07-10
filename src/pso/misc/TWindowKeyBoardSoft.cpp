@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowKeyBoardSoft__sub_8025D5BC(void *arg0);
-void TWindowKeyBoardSoft__sub_8025D610(void *arg0);
+void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0);
+void set_kana_mode__19TWindowKeyBoardSoftFPv(void *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025D338(void *, void *);
 M2C_UNK fn_803E66D0(void *, M2C_UNK *);
 M2C_UNK fn_803E6704(void *, M2C_UNK *);
 
-void TWindowKeyBoardSoft__sub_8025D5BC(void *arg0) {
+void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0) {
     s8 sp8[0x200];
 
     if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {
@@ -22,7 +22,7 @@ void TWindowKeyBoardSoft__sub_8025D5BC(void *arg0) {
     }
 }
 
-void TWindowKeyBoardSoft__sub_8025D610(void *arg0) {
+void set_kana_mode__19TWindowKeyBoardSoftFPv(void *arg0) {
     s8 sp8[0x200];
 
     if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {

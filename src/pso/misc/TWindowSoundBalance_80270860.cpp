@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSoundBalance__sub_80270860(void *arg0, void *arg1);
+void apply_balance__19TWindowSoundBalanceFPvPv(void *arg0, void *arg1);
 s32 TWindowSubStatusDisp__sub_80223B88(void *, s32);
 M2C_UNK fn_8024503C(void *, s32, s32);
 s32 TWindowOptionCtrl__sub_8026C63C(void *);
 
-void TWindowSoundBalance__sub_80270860(void *arg0, void *arg1) {
+void apply_balance__19TWindowSoundBalanceFPvPv(void *arg0, void *arg1) {
     s32 temp;
 
     temp = TWindowSubStatusDisp__sub_80223B88(arg0, (s32) ((s8 *) arg0)[0x61]);

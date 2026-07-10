@@ -40,12 +40,12 @@ u16 TObjEneRecon__sub_8031D878(void *arg0);
 void TObjEneRecon__vt102(void *arg0, f32 farg0);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B9778(void *, f32);
-M2C_UNK TObjEneEpsilon__sub_800B97B4(void *, f32);
+M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
 M2C_UNK TObjEneRecobox__sub_8032013C(M2C_UNK);
 
 void TObjEneRecon__vt102(void *arg0, f32 farg0) {
     if (((VObj_8031D780 *)arg0)->m97() != 0) {
-        TObjEneEpsilon__sub_800B97B4(arg0, farg0);
+        select_and_apply_target__14TObjEneEpsilonFPvf(arg0, farg0);
         return;
     }
     TObjEneEpsilon__sub_800B9778(arg0, farg0);

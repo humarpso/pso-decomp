@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TTecReverser__sub_8034DED4(void *arg0);
+u8 is_active__12TTecReverserFPv(void *arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 
-u8 TTecReverser__sub_8034DED4(void *arg0) {
+u8 is_active__12TTecReverserFPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;

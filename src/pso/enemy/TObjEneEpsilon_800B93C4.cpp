@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneEpsilon__sub_800B93C4(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-void TObjEneEpsilon__sub_800B9434(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-void TObjEneEpsilon__sub_800B94A4(void *arg0, s32 arg1, s32 arg2, f32 farg0);
+void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
+void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
+void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 M2C_UNK TObjEneDD__sub_800BAF1C(void *, s32, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BB000(void *, s32, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BB158(void *, s32, f32, f32, f32);
@@ -16,7 +16,7 @@ M2C_UNK TObjEneEpsilon__sub_800B9514(void *, s32);
 f32 fn_803D64C0(s32);
 f32 fn_803D64DC(s32);
 
-void TObjEneEpsilon__sub_800B93C4(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f31;
     f32 temp_f30;
 
@@ -26,7 +26,7 @@ void TObjEneEpsilon__sub_800B93C4(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     TObjEneDD__sub_800BAF1C(arg0, arg1, fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
 }
 
-void TObjEneEpsilon__sub_800B9434(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f31;
     f32 temp_f30;
 
@@ -36,7 +36,7 @@ void TObjEneEpsilon__sub_800B9434(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     TObjEneDD__sub_800BB000(arg0, arg1, fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
 }
 
-void TObjEneEpsilon__sub_800B94A4(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     f32 temp_f31;
     f32 temp_f30;
 

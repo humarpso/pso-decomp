@@ -46,7 +46,7 @@ M2C_UNK fn_8009E4AC(void *, M2C_UNK);
 M2C_UNK fn_8009E6B0(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009E784();
 M2C_UNK TObjEneMe1Canadin__sub_8009E7A4(void *);
-M2C_UNK TObjEneMe1Canadin__sub_8009EA08(void *);
+M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
@@ -93,18 +93,18 @@ void fn_8009D800(void *arg0, s32 arg1) {
                     fn_8009E4AC(arg0, 3);
                 }
             }
-            TObjEneMe1Canadin__sub_8009EA08(arg0);
+            update_move__17TObjEneMe1CanadinFPv(arg0);
             TObjEneMe1Canadin__sub_8009EABC(arg0);
             break;
         case 1:
             if ((s32) M2C_FIELD(arg0, s32 *, 0x4B8) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x470) = 3;
             }
-            TObjEneMe1Canadin__sub_8009EA08(arg0);
+            update_move__17TObjEneMe1CanadinFPv(arg0);
             TObjEneMe1Canadin__sub_8009EABC(arg0);
             break;
         case 2:
-            TObjEneMe1Canadin__sub_8009EA08(arg0);
+            update_move__17TObjEneMe1CanadinFPv(arg0);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x4B8) != 0) {
                 TObjEneMe1Canadin__sub_8009EABC(arg0);
             } else {

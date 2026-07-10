@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOKurage__sub_8016E77C(void *arg0);
+void *create__8TOKurageFPv(void *arg0);
 void *TOKurage__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TOKurage__sub_8016E77C(void *arg0) {
+void *create__8TOKurageFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x114);
     if (o != NULL) {
         o = TOKurage__ct(o, tl_05, arg0);

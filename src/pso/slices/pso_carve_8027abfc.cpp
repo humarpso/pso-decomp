@@ -15,7 +15,7 @@ int fn_80266D78(void*);
 int fn_80266DB0(void*);
 int fn_80266EB8(void*);
 int fn_8027ABFC(void* a0 = 0);
-void TWindowSubItem__sub_8027ABA8(void* p);
+void refresh__14TWindowSubItemFPv(void* p);
 void TWindowSubItem__sub_8027A9E4(void* p);
 void TWindowSubItem__sub_8027AA3C(void* p);
 void TWindowSubItem__sub_8027AA48(void* p, s16 v);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjEneMe3SinowZoa__sub_8031A62C(void *arg0);
+u8 is_target_in_range__18TObjEneMe3SinowZoaFPv(void *arg0);
 void TObjEneMe3SinowZoa__sub_8031A69C(void);
 s32 TObjEneMe3SinowZoa__sub_8031A900(void *, s32, f32);
 
@@ -14,7 +14,7 @@ extern f32 lbl_805DF320;
 extern f32 lbl_805DF37C;
 extern f32 lbl_805DF380;
 
-u8 TObjEneMe3SinowZoa__sub_8031A62C(void *arg0) {
+u8 is_target_in_range__18TObjEneMe3SinowZoaFPv(void *arg0) {
     f32 temp_f1;
     s32 var_r31;
 

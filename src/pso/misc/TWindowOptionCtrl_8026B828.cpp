@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowOptionCtrl__sub_8026B828(void);
-s32 TWindowOptionCtrl__sub_8026B878(void);
+s32 create_snap_shot_window__17TWindowOptionCtrlFv(void);
+s32 create_sound_balance_window__17TWindowOptionCtrlFv(void);
 s32 TWindowSnapShot__ct(s32, s32);
 s32 TWindowSoundBalance__ct(s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8026CBA4(M2C_UNK);
 
-s32 TWindowOptionCtrl__sub_8026B828(void) {
+s32 create_snap_shot_window__17TWindowOptionCtrlFv(void) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x64);
@@ -23,7 +23,7 @@ s32 TWindowOptionCtrl__sub_8026B828(void) {
     return var_r31;
 }
 
-s32 TWindowOptionCtrl__sub_8026B878(void) {
+s32 create_sound_balance_window__17TWindowOptionCtrlFv(void) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x68);

@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TTecSifta__sub_8023ADE4(void *arg0, void *arg1, void *arg2, void *arg3);
-void TTecSifta__sub_8023AE3C(void *arg0, void *arg1, void *arg2);
+void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void create__9TTecSiftaFPvPvPv(void *arg0, void *arg1, void *arg2);
 void *TTecSifta__ct(void *, void *, void *, void *, void *);
 void *TTecSifta__sub_8023B17C(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void TTecSifta__sub_8023ADE4(void *arg0, void *arg1, void *arg2, void *arg3) {
+void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {
@@ -18,7 +18,7 @@ void TTecSifta__sub_8023ADE4(void *arg0, void *arg1, void *arg2, void *arg3) {
     }
 }
 
-void TTecSifta__sub_8023AE3C(void *arg0, void *arg1, void *arg2) {
+void create__9TTecSiftaFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
     if (o != NULL) {

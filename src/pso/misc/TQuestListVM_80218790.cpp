@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestListVM__sub_80218790(void *arg0);
+void close_and_destroy__12TQuestListVMFPv(void *arg0);
 void close__12TQuestListVMFPv(void *arg0);
 M2C_UNK fn_8001EE48(M2C_UNK *);
 s32 fn_8001EEF4();
@@ -15,7 +15,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_8044BF20[];
 
-void TQuestListVM__sub_80218790(void *arg0) {
+void close_and_destroy__12TQuestListVMFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x23BC);

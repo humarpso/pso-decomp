@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TNpcPlayer__sub_801509D0(void *arg0);
+void init_state__10TNpcPlayerFPv(void *arg0);
 
 M2C_UNK TNpcPlayer__sub_80150050(void *);
 M2C_UNK TNpcPlayer__sub_801529D0(s32);
 
-void TNpcPlayer__sub_801509D0(void *arg0) {
+void init_state__10TNpcPlayerFPv(void *arg0) {
     s32 temp_r0;
 
     TNpcPlayer__sub_801529D0(M2C_FIELD(arg0, s32 *, 0x74));

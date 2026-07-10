@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TContainerAncient01__sub_8018BAE0(void *arg0);
+void *create__19TContainerAncient01FPv(void *arg0);
 void *TContainerAncient01__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TContainerAncient01__sub_8018BAE0(void *arg0) {
+void *create__19TContainerAncient01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x370);
     if (o != NULL) {
         o = TContainerAncient01__ct(o, tl_05, arg0);

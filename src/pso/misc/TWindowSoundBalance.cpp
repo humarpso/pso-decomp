@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__19TWindowSoundBalanceFv(s32 arg0);
-M2C_UNK TWindowSoundBalance__sub_80270860(s32, void *, f32, f32);
+M2C_UNK apply_balance__19TWindowSoundBalanceFPvPv(s32, void *, f32, f32);
 void *fn_80244CF4();
 M2C_UNK fn_80245F98(s32, void *);
 M2C_UNK fn_80257BC0(s32, s32, void *);
@@ -27,7 +27,7 @@ void render__19TWindowSoundBalanceFv(s32 arg0) {
     M2C_FIELD(temp_r3, f32 *, 0x10) = (f32) (temp_f2 + lbl_805DD40C);
     temp_f1 = M2C_FIELD(temp_r3, f32 *, 0x18);
     M2C_FIELD(temp_r3, f32 *, 0x18) = (f32) (temp_f1 - lbl_805DD410);
-    TWindowSoundBalance__sub_80270860(arg0, temp_r3, temp_f1, temp_f2);
+    apply_balance__19TWindowSoundBalanceFPvPv(arg0, temp_r3, temp_f1, temp_f2);
 }
 
 }

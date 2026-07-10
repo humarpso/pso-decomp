@@ -8,8 +8,8 @@ extern "C" {
 
 void TObjEneRe2Flower__sub_800C3C58(void* p);
 s32 TObjEneRe2Flower__sub_800C3C9C(void *arg0);
-void TObjEneRe2Flower__sub_800C3CD8(void *arg0);
-void TObjEneRe2Flower__sub_800C3D30(void *arg0);
+void clear_child_flags__16TObjEneRe2FlowerFPv(void *arg0);
+void set_child_flags__16TObjEneRe2FlowerFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
 s32 TObjEneRe2Flower__sub_800C3B80();
 int fn_800BB7D4(void*, void*);
@@ -24,7 +24,7 @@ s32 TObjEneRe2Flower__sub_800C3C9C(void *arg0) {
     return 0;
 }
 
-void TObjEneRe2Flower__sub_800C3CD8(void *arg0) {
+void clear_child_flags__16TObjEneRe2FlowerFPv(void *arg0) {
     void *temp_r3;
     void *temp_r3_2;
 
@@ -37,7 +37,7 @@ void TObjEneRe2Flower__sub_800C3CD8(void *arg0) {
     M2C_FIELD(temp_r3_2, s32 *, 0x44) = (s32) (M2C_FIELD(temp_r3_2, s32 *, 0x44) & 0xFFFFFFFE);
 }
 
-void TObjEneRe2Flower__sub_800C3D30(void *arg0) {
+void set_child_flags__16TObjEneRe2FlowerFPv(void *arg0) {
     void *temp_r3;
     void *temp_r3_2;
 

@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TEF_LensFlare__sub_80081278(void *arg0, s16 arg1);
+void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void fn_801A25B4(void *, int);
 
 extern M2C_UNK lbl_8048E130[];
 
-void *TEF_LensFlare__sub_80081278(void *arg0, s16 arg1) {
+void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048E130;
         fn_801A25B4(arg0, 0);

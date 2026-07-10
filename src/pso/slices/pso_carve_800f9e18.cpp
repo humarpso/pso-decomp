@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_800F8AD0();
 M2C_UNK fn_800F8F34();
-s32 TQuestVmDownLoadServer__sub_800F9CE4();
+s32 is_ready__22TQuestVmDownLoadServerFv();
 u32 TLoadCtrl__sub_800F9F00();
 M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK fn_80141A30();
@@ -48,7 +48,7 @@ void fn_800F9E18(void) {
     }
     empty_func__7TObjectFv(tl_su);
     empty_func2__7TObjectFv(tl_su);
-    if (TQuestVmDownLoadServer__sub_800F9CE4() != 0) {
+    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
         fn_801E2C90();
         fn_801E2C50();
     }

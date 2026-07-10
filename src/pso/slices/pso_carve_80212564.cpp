@@ -21,7 +21,7 @@ struct VObj_80212564 : Base_80212564 {
 };
 extern struct VObj_80212564 *lbl_805D6188;
 
-void THunterGuildSeqOffline__sub_80212564(void) {
+void set_state_4__22THunterGuildSeqOfflineFv(void) {
     if (lbl_805D6188 != NULL) {
         lbl_805D6188->m7(6, 1);
         M2C_FIELD(lbl_805D6188, s32 *, 0x38) = 4;

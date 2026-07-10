@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOCtrlDubchik__sub_8015D290(void *arg0);
+void *create__13TOCtrlDubchikFPv(void *arg0);
 void *TOCtrlDubchik__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TOCtrlDubchik__sub_8015D290(void *arg0) {
+void *create__13TOCtrlDubchikFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);
     if (o != NULL) {
         o = TOCtrlDubchik__ct(o, tl_05, arg0);

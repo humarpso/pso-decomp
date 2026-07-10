@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_80087350(void *, M2C_UNK);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
 s32 fn_800EC41C(void *);
-s32 TObjEneSlimeOne__sub_800EC78C(s32);
+s32 is_reached_target_depth__15TObjEneSlimeOneFPv(s32);
 
 void fn_800EA284(u8 *arg0) {
     s32 temp_r0;
@@ -19,7 +19,7 @@ void fn_800EA284(u8 *arg0) {
     if (temp_r0 == 0) {
         fn_80087350(arg0 + 0x2FC, 0xCD);
     }
-    if (TObjEneSlimeOne__sub_800EC78C(M2C_FIELD(arg0, s32 *, 0x388)) == 1) {
+    if (is_reached_target_depth__15TObjEneSlimeOneFPv(M2C_FIELD(arg0, s32 *, 0x388)) == 1) {
         if (fn_800EC41C(arg0) != 0) {
             TObjEneSlimeOne__sub_800EAE78(arg0, 7);
             return;

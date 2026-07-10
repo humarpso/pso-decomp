@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_attack_target__11TBoss6Type2FPv(void *arg0);
-s32 TBoss6PlotFalz__sub_802AB0BC();
+s32 is_active__14TBoss6PlotFalzFPv();
 u16 TBoss6Type2__sub_802BB694(void *);
 M2C_UNK TBoss6Type2__sub_802BD938(void *, M2C_UNK *);
 M2C_UNK TBoss6Type2__sub_802BDD6C(void *, s32, M2C_UNK *);
@@ -41,7 +41,7 @@ void update_attack_target__11TBoss6Type2FPv(void *arg0) {
         var_r30 = temp_r3;
         if ((u16) temp_r3 == 0xFFFF) {
             TPlayerBattleCtrl4P__sub_801BA74C(temp_r31);
-            if (TBoss6PlotFalz__sub_802AB0BC() != 0) {
+            if (is_active__14TBoss6PlotFalzFPv() != 0) {
                 var_r30 = temp_r31;
             }
         }

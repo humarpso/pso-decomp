@@ -23,7 +23,7 @@ struct VObj_80337948 : Base_80337948 {
 
 extern "C" {
 
-void TShopDeleteItemWindow__sub_80337980(void *arg0);
+void destroy__21TShopDeleteItemWindowFPv(void *arg0);
 void TShopDeleteItemWindow__vt4(void *arg0);
 void TShopDeleteItemWindow__vt5(void *arg0);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
@@ -49,7 +49,7 @@ struct VObj_80337980 : Base_80337980 {
     virtual void m4(int a, int b);
 };
 
-void TShopDeleteItemWindow__sub_80337980(void *arg0) {
+void destroy__21TShopDeleteItemWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         fn_801F8FD4(M2C_FIELD(arg0, void **, 0x30));
     }

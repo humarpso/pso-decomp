@@ -10,7 +10,7 @@ s32 fn_8011E384();
 s32 fn_8011F5E0(void *);
 s32 fn_801207E8(void *, s32, s32 *);
 s32 fn_80121CA8(void *);
-s32 TTecFoie__sub_802300EC(void *, s32 *, s32, s32);
+s32 create__8TTecFoieFPvPvPvPv(void *, s32 *, s32, s32);
 int fn_8011E618(void*);
 int fn_8011E87C(void*, void*);
 int fn_80120BBC(void*, void*);
@@ -24,7 +24,7 @@ void fn_801251B4(void *arg0) {
     if (fn_8011E384() != 0) {
         if (fn_801207E8(arg0, 0, &sp8) != 0) {
             temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
-            TTecFoie__sub_802300EC(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), fn_80121CA8(arg0) + 2);
+            create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), fn_80121CA8(arg0) + 2);
             fn_8011E618(arg0);
         }
     } else {

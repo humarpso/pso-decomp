@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void TBoss4Bishi__sub_8005BED0(void* p);
-void *TBoss4Bishi__sub_8005BF10(void *arg0, s16 arg1);
+void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1);
 int TBoss4Bishi__sub_8005BE8C(void*);
 void __dt__10TBoss4ZakoFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -15,7 +15,7 @@ void TBoss4Bishi__sub_8005BED0(void* p) { if (*(int*)((char*)p + 0x374) != 3) { 
 
 extern M2C_UNK lbl_80487460[];
 
-void *TBoss4Bishi__sub_8005BF10(void *arg0, s16 arg1) {
+void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80487460;
         __dt__10TBoss4ZakoFPvs(arg0, 0);

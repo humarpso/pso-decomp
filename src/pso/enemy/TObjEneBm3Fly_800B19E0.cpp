@@ -24,8 +24,8 @@ VV(91)VV(92)VV(93)VV(94)VV(95)VV(96)VV(97)VV(98)VV(99)
 extern "C" {
 
 void update_state_flag__13TObjEneBm3FlyFPv(void *arg0);
-void TObjEneBm3Fly__sub_800B1A40(void *arg0);
-void TObjEneBm3Fly__sub_800B1A90(void *arg0);
+void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
+void update_collide_flag__13TObjEneBm3FlyFPv(void *arg0);
 u32 TObjEneDD__sub_800BAC14();
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 
@@ -42,7 +42,7 @@ void update_state_flag__13TObjEneBm3FlyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) & 0xFFFFFFFD);
 }
 
-void TObjEneBm3Fly__sub_800B1A40(void *arg0) {
+void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0) {
     if (TObjEneDD__sub_800BAC14() != 0U) {
         M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) | 2);
         return;
@@ -50,7 +50,7 @@ void TObjEneBm3Fly__sub_800B1A40(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) & 0xFFFFFFFD);
 }
 
-void TObjEneBm3Fly__sub_800B1A90(void *arg0) {
+void update_collide_flag__13TObjEneBm3FlyFPv(void *arg0) {
     if (((VObj_800B1A90 *)arg0)->v102() != 0U) {
         M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) | 2);
         return;

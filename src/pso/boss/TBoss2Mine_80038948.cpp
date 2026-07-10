@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss2Mine__sub_80038948(void *arg0);
+void update_move_flag__10TBoss2MineFPv(void *arg0);
 
 struct Base_80038948 {
     char pad[0x18];
@@ -116,7 +116,7 @@ struct VObj_80038948 : Base_80038948 {
     virtual u32 m102();
 };
 
-void TBoss2Mine__sub_80038948(void *arg0) {
+void update_move_flag__10TBoss2MineFPv(void *arg0) {
     struct VObj_80038948 *obj = (struct VObj_80038948 *) arg0;
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x2FC);
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(arg0, f32 *, 0x304);

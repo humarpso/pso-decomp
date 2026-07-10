@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjCityDoor_Guild__create(void *arg0);
-void *TObjCityDoor_Guild__sub_80182678(void *arg0, s16 arg1);
+void *dt__18TObjCityDoor_GuildFPvs(void *arg0, s16 arg1);
 void *TObjCityDoor_Guild__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -23,7 +23,7 @@ void *TObjCityDoor_Guild__create(void *arg0) {
 
 extern M2C_UNK lbl_804B5AF0[];
 
-void *TObjCityDoor_Guild__sub_80182678(void *arg0, s16 arg1) {
+void *dt__18TObjCityDoor_GuildFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5AF0;
         fn_80182D24(arg0, 0);

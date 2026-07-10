@@ -9,7 +9,7 @@ extern "C" {
 void run_task__18TWindowEffectPartyFv(void *arg0);
 M2C_UNK TNowLoading__sub_80087660(u32, M2C_UNK *);
 s32 TWindowEffectParty__sub_8024F690(void *, f32, f32);
-M2C_UNK TWindowEffectParty__sub_8024F744(void *, M2C_UNK *);
+M2C_UNK calc_effect_position__18TWindowEffectPartyFPvPv(void *, M2C_UNK *);
 s32 fn_80244994();
 u32 fn_8024FB80(s8);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -50,7 +50,7 @@ void run_task__18TWindowEffectPartyFv(void *arg0) {
         break;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        TWindowEffectParty__sub_8024F744(arg0, &sp8);
+        calc_effect_position__18TWindowEffectPartyFPvPv(arg0, &sp8);
         TNowLoading__sub_80087660(M2C_FIELD(arg0, u32 *, 0x30), &sp8);
     }
 }

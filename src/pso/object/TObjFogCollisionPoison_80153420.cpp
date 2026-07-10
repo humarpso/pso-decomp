@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjFogCollisionPoison__sub_80153420(void *arg0);
+u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
 s32 TObjFogCollisionSwitch__sub_80153A0C();
 
-u8 TObjFogCollisionPoison__sub_80153420(void *arg0) {
+u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0) {
     s32 temp_r31;
 
     temp_r31 = TObjFogCollisionSwitch__sub_80153A0C();

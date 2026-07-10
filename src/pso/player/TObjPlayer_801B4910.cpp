@@ -8,7 +8,7 @@ extern "C" {
 
 void update_subsystems__10TObjPlayerFi(s32 arg0);
 M2C_UNK TObjPlayer__sub_801B21AC(s32);
-M2C_UNK TObjPlayer__sub_801B4BD8(s32);
+M2C_UNK clear_action_flag__10TObjPlayerFPv(s32);
 s16 TObjPlayer__sub_801BF57C(s32);
 M2C_UNK update_target_lock__10TObjPlayerFii(s32, s32);
 s32 fn_80019248();
@@ -24,7 +24,7 @@ void update_subsystems__10TObjPlayerFi(s32 arg0) {
     if (fn_80019248() != 0) {
         TObjPlayer__sub_801B6DF0(arg0);
         TObjPlayer__sub_801B21AC(arg0);
-        TObjPlayer__sub_801B4BD8(arg0);
+        clear_action_flag__10TObjPlayerFPv(arg0);
         update_target__10TObjPlayerFi(arg0);
         if ((fn_800495BC(arg0) != 0) && (TObjPlayer__sub_801BF57C(arg0 + 0x730) >= 0) && (TObjPlayer__sub_801BF560(arg0 + 0x730) == 0)) {
             TObjPlayer__sub_801B5200(arg0);

@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_802D4E08(void *arg0);
+void reset__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
-void TAdSinglePlyChrSelectGC__sub_802D4E08(void *arg0) {
+void reset__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(arg0, s32 *, 0x20);
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

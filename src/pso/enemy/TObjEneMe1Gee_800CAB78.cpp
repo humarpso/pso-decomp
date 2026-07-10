@@ -116,7 +116,7 @@ extern "C" {
 void TObjEneMe1Gee__vt109(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
-M2C_UNK TObjEneMe1Gee__sub_800CBCDC(void *);
+M2C_UNK update__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE14(void *);
 M2C_UNK fn_80143504();
 
@@ -142,7 +142,7 @@ void TObjEneMe1Gee__vt109(void *arg0, s32 arg1) {
     case 0:
         fn_80143504();
         TObjEneEpsilon__sub_800B96D4(arg0, lbl_805DA0A8);
-        TObjEneMe1Gee__sub_800CBCDC(arg0);
+        update__13TObjEneMe1GeeFPv(arg0);
         TObjEneMe1Gee__sub_800CBE14(arg0);
         ((VObj18 *) arg0)->vf164();
         break;

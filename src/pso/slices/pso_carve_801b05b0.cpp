@@ -12,7 +12,7 @@ M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK TWindowCtrl__sub_8024B6B8(M2C_UNK, M2C_UNK);
 extern M2C_UNK lbl_805DC27C;
 
-void fn_801B05B0(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2) {
+void show_sub_status_window(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2) {
     TWindowSubStatusDisp__sub_802290E0();
     fn_80229080(arg1);
     fn_80229080(arg2);

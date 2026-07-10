@@ -23,15 +23,15 @@ VV(91)VV(92)VV(93)VV(94)VV(95)VV(96)VV(97)VV(98)VV(99)
 
 extern "C" {
 
-void TObjEneRecon__sub_8031DD7C(void *arg0);
-void TObjEneRecon__sub_8031DDDC(void *arg0);
-void TObjEneRecon__sub_8031DE2C(void *arg0);
+void update_collide_flag__12TObjEneReconFPv(void *arg0);
+void set_flag2__12TObjEneReconFPv(void *arg0);
+void update_flag_0x444__12TObjEneReconFPv(void *arg0);
 u32 TObjEneDD__sub_800BAC14();
 u32 TObjEneEpsilon__sub_800B92F8(void *, s32, void *, f32);
 
 extern f32 *lbl_805D6AFC;
 
-void TObjEneRecon__sub_8031DD7C(void *arg0) {
+void update_collide_flag__12TObjEneReconFPv(void *arg0) {
     void *temp_r5;
 
     temp_r5 = M2C_FIELD(arg0, void **, 0x350);
@@ -42,7 +42,7 @@ void TObjEneRecon__sub_8031DD7C(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) & 0xFFFFFFFD);
 }
 
-void TObjEneRecon__sub_8031DDDC(void *arg0) {
+void set_flag2__12TObjEneReconFPv(void *arg0) {
     if (TObjEneDD__sub_800BAC14() != 0U) {
         M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 2);
         return;
@@ -50,7 +50,7 @@ void TObjEneRecon__sub_8031DDDC(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) & 0xFFFFFFFD);
 }
 
-void TObjEneRecon__sub_8031DE2C(void *arg0) {
+void update_flag_0x444__12TObjEneReconFPv(void *arg0) {
     if (((VObj_8031DE2C *)arg0)->v102() != 0U) {
         M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 2);
         return;

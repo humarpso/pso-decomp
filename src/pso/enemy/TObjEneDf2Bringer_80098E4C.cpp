@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneDf2Bringer__vt102(void *arg0, f32 farg0);
 M2C_UNK TObjEneEpsilon__sub_800B9778(void *, f32);
-M2C_UNK TObjEneEpsilon__sub_800B97B4(void *, f32);
+M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
 
 struct Base_80098E4C { char pad[0x18]; };
 struct VObj_80098E4C : Base_80098E4C {
@@ -114,7 +114,7 @@ struct VObj_80098E4C : Base_80098E4C {
 
 void TObjEneDf2Bringer__vt102(void *arg0, f32 farg0) {
     if (((VObj_80098E4C *)arg0)->m97() != 0) {
-        TObjEneEpsilon__sub_800B97B4(arg0, farg0);
+        select_and_apply_target__14TObjEneEpsilonFPvf(arg0, farg0);
         return;
     }
     TObjEneEpsilon__sub_800B9778(arg0, farg0);

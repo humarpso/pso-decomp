@@ -9,7 +9,7 @@ extern "C" {
 void TLobby__sub_80137C90(void);
 void TLobby__sub_80137CC8(void);
 M2C_UNK clear_lobby_flag__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_801B71DC();
+M2C_UNK init_effect_5f0__10TObjPlayerFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
@@ -27,7 +27,7 @@ extern s32 lbl_805D53A0;
 
 void TLobby__sub_80137CC8(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
-        TObjPlayer__sub_801B71DC();
+        init_effect_5f0__10TObjPlayerFPv();
     }
     TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
 }

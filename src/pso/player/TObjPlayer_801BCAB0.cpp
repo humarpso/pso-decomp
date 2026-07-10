@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 obj_isState2_324();
-s32 TObjRoomId__sub_801A1DDC(s32);
+s32 is_current_room__10TObjRoomIdFPv(s32);
 s32 fn_801AEE10();
 s32 fn_801BAA00(s32);
 s32 TObjPlayer__sub_801BE3B4(s32);
@@ -29,7 +29,7 @@ void TObjPlayer__sub_801BCAB4(s32 arg0) {
         fn_801AFF80((void*)(arg0));
         fn_801AFF50((void*)(arg0));
     }
-    if ((fn_801AEE10() != 0) && (TObjRoomId__sub_801A1DDC(arg0) != 0)) {
+    if ((fn_801AEE10() != 0) && (is_current_room__10TObjRoomIdFPv(arg0) != 0)) {
         fn_801BAA00(arg0);
     }
 }

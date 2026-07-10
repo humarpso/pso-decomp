@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss4DarkFalz__sub_8004CC48(s32 arg0);
-void TBoss4DarkFalz__sub_8004CC98(s32 arg0);
+void request_action_7__14TBoss4DarkFalzFi(s32 arg0);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
 M2C_UNK TBoss4DarkFalz__sub_8004B1BC(s32, M2C_UNK);
 s32 TBoss4DarkFalz__sub_8004C1E4(u32);
@@ -22,7 +22,7 @@ void TBoss4DarkFalz__sub_8004CC48(s32 arg0) {
 
 extern u32 lbl_805D4D5C;
 
-void TBoss4DarkFalz__sub_8004CC98(s32 arg0) {
+void request_action_7__14TBoss4DarkFalzFi(s32 arg0) {
     if (((u32) lbl_805D4D5C == 0U) || (TBoss4DarkFalz__sub_8004C1E4(lbl_805D4D5C) == 3) || (TBoss4DarkFalz__sub_8004C1E4(lbl_805D4D5C) == 4) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
         TBoss4DarkFalz__sub_8004B1BC(arg0, 7);
     }

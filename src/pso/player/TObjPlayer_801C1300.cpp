@@ -18,7 +18,7 @@ void *TObjPlayer__sub_801C14A8(void *arg0, void *arg1);
 void TObjPlayer__sub_801C14EC(void *arg0);
 void TObjPlayer__sub_801C1510(void* p);
 void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p);
-void *TObjPlayer__sub_801C1590(void *arg0, void *arg1);
+void *copy_from__10TObjPlayerFPvPv(void *arg0, void *arg1);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
@@ -74,7 +74,7 @@ void TObjPlayer__sub_801C1510(void* p) { TObjPlayer__sub_801C146C(p); TLobby__se
 
 void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p) { fn_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
 
-void *TObjPlayer__sub_801C1590(void *arg0, void *arg1) {
+void *copy_from__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228();
     M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
     M2C_FIELD(arg0, u16 *, 6) = (u16) M2C_FIELD(arg1, u16 *, 6);

@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjSeabedSuisoBrakable__sub_802A67CC(void *arg0);
+void *create__23TObjSeabedSuisoBrakableFPv(void *arg0);
 void *TObjSeabedSuisoBrakable__sub_802A6DA8(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TObjSeabedSuisoBrakable__sub_802A67CC(void *arg0) {
+void *create__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
         o = TObjSeabedSuisoBrakable__sub_802A6DA8(o, tl_05, arg0);

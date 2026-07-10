@@ -3,9 +3,9 @@
 extern "C" {
 
 int fn_800F47F4(void* p);
-int TObjEneEpsilon__sub_800B97B4(void*);
+int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 
 int fn_800F47D4(void) { return 0; }
-int fn_800F47F4(void* p) { return TObjEneEpsilon__sub_800B97B4(p); }
+int fn_800F47F4(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
 
 }

@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjPlayerSet__sub_8019567C(void *arg0);
+void *create__13TObjPlayerSetFPv(void *arg0);
 void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1);
 void *TObjPlayerSet__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -13,7 +13,7 @@ void fn_801A25B4(void *, int);
 
 extern void *tl_06;
 
-void *TObjPlayerSet__sub_8019567C(void *arg0) {
+void *create__13TObjPlayerSetFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
         o = TObjPlayerSet__ct(o, tl_06, arg0);

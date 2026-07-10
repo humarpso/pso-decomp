@@ -14,7 +14,7 @@ int fn_802627F0(void* p);
 int fn_802627FC(void* p);
 int fn_80262808(void* p);
 
-void TWindowSubMag__sub_80262814(void *arg0, s32 arg1) {
+void set_mag_slot_state__13TWindowSubMagFPvi(void *arg0, s32 arg1) {
     u16 *temp_r3;
 
     temp_r3 = TWindowSubStatusDisp__sub_80223B88(arg0, 0);

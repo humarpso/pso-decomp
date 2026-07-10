@@ -27,7 +27,7 @@ struct VObj_8016AE84 : Base_8016AE84 {
 
 extern "C" {
 
-void *TOKeyAncient01__sub_8016AEB0(void *arg0);
+void *create__14TOKeyAncient01FPv(void *arg0);
 void TOKeyAncient01__vt14(void *arg0);
 void *TOKeyAncient01__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -39,7 +39,7 @@ void TOKeyAncient01__vt14(void *arg0) {
 
 extern void *tl_05;
 
-void *TOKeyAncient01__sub_8016AEB0(void *arg0) {
+void *create__14TOKeyAncient01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
         o = TOKeyAncient01__ct(o, tl_05, arg0);

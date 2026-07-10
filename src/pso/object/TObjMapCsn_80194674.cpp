@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjMapCsn__sub_80194674(void *arg0);
+void update_state__10TObjMapCsnFPv(void *arg0);
 
 extern M2C_UNK lbl_804B84C0[];
 
-void TObjMapCsn__sub_80194674(void *arg0) {
+void update_state__10TObjMapCsnFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);

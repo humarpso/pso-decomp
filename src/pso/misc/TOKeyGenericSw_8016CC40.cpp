@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOKeyGenericSw__sub_8016CC40(void *arg0);
+void *create__14TOKeyGenericSwFPv(void *arg0);
 void *TOKeyGenericSw__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TOKeyGenericSw__sub_8016CC40(void *arg0) {
+void *create__14TOKeyGenericSwFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
         o = TOKeyGenericSw__ct(o, tl_05, arg0);

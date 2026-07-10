@@ -15,7 +15,7 @@ M2C_UNK fn_80287580(s32, s32, M2C_UNK, f32);
 s32 fn_80269064(void* p);
 int fn_8026906C(void* p);
 
-s32 TWindowMeseta__sub_802690B4(void *arg0) {
+s32 get_meseta_value__13TWindowMesetaFPv(void *arg0) {
     void *temp_r3;
 
     if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x64)) == 0U) {
@@ -30,7 +30,7 @@ s32 TWindowMeseta__sub_802690B4(void *arg0) {
 void TWindowMeseta__sub_80269100(void *arg0, s32 arg1) {
     fn_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
 }
-void TWindowMeseta__sub_80269130(s32 arg0) {
+void update_display__13TWindowMesetaFi(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = fn_80244C0C(arg0, arg0 + 0x6C);

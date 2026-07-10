@@ -45,7 +45,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
 s32 TObjEneMe1Gee__sub_800CB5A0(void *, M2C_UNK);
 M2C_UNK TObjEneMe1Gee__sub_800CB764(void *, M2C_UNK);
-M2C_UNK TObjEneMe1Gee__sub_800CBCDC(void *);
+M2C_UNK update__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE14(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
 M2C_UNK fn_80143504();
@@ -90,18 +90,18 @@ void state_attack__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
                     TObjEneMe1Gee__sub_800CB764(arg0, 3);
                 }
             }
-            TObjEneMe1Gee__sub_800CBCDC(arg0);
+            update__13TObjEneMe1GeeFPv(arg0);
             TObjEneMe1Gee__sub_800CBE14(arg0);
             break;
         case 1:
             if ((s32) M2C_FIELD(arg0, s32 *, 0x47C) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x434) = 3;
             }
-            TObjEneMe1Gee__sub_800CBCDC(arg0);
+            update__13TObjEneMe1GeeFPv(arg0);
             TObjEneMe1Gee__sub_800CBE14(arg0);
             break;
         case 2:
-            TObjEneMe1Gee__sub_800CBCDC(arg0);
+            update__13TObjEneMe1GeeFPv(arg0);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x47C) != 0) {
                 TObjEneMe1Gee__sub_800CBE14(arg0);
             } else {

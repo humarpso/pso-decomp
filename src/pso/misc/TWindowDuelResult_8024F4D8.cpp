@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowDuelResult__sub_8024F4D8(u8 *arg0);
+void update__17TWindowDuelResultFPv(u8 *arg0);
 M2C_UNK TWindowDuelResult__sub_8024F330(void *);
 M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
 M2C_UNK fn_8024664C(void *);
 M2C_UNK fn_80257C28(void *, void *);
 s32 fn_8026C9DC(s32);
 
-void TWindowDuelResult__sub_8024F4D8(u8 *arg0) {
+void update__17TWindowDuelResultFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }

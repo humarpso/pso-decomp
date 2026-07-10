@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestColCtrl__sub_80195EC8(void);
+void init__13TQuestColCtrlFv(void);
 M2C_UNK TQuestColCtrl__ct(M2C_UNK, s32);
 u32 __ct__7TObjectFP7TObject(M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -14,7 +14,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 extern u32 lbl_805D5C50;
 extern s32 tl_05;
 
-void TQuestColCtrl__sub_80195EC8(void) {
+void init__13TQuestColCtrlFv(void) {
     u32 var_r3;
 
     var_r3 = __nw__7TObjectFUl(0x1C);

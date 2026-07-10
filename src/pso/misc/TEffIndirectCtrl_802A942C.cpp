@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TEffIndirectCtrl__sub_802A942C(void);
+void free_buffers__16TEffIndirectCtrlFv(void);
 void xfree__FPv(void*);
 
 extern u32 lbl_805D66A8;
 extern u32 lbl_805D66B0;
 
-void TEffIndirectCtrl__sub_802A942C(void) {
+void free_buffers__16TEffIndirectCtrlFv(void) {
     if ((u32) lbl_805D66A8 != 0U) {
         xfree__FPv((void*)lbl_805D66A8);
         lbl_805D66A8 = 0U;

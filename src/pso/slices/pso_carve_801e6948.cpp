@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_8039C8A0(M2C_UNK, M2C_UNK *, s32 *, ...);
 extern M2C_UNK lbl_805DC4A8;
 
-s32 fn_801E6948(s32 arg0) {
+s32 parse_r_index(s32 arg0) {
     s32 sp8;
 
     sp8 = -1;

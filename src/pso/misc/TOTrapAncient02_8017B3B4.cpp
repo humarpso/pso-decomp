@@ -22,7 +22,7 @@ struct V_B : Base_B {
 extern "C" {
 
 void draw_model__15TOTrapAncient02FPv(void *arg0);
-void *TOTrapAncient02__sub_8017B468(void *arg0);
+void *create__15TOTrapAncient02FPv(void *arg0);
 void *TOTrapAncient02__ct(void *, void *, void *);
 M2C_UNK TOTrapAncient02__sub_8017B16C(void *);
 M2C_UNK TOTrapAncient02__sub_8017B2C4(void *);
@@ -53,7 +53,7 @@ void draw_model__15TOTrapAncient02FPv(void *arg0) {
 
 extern void *tl_05;
 
-void *TOTrapAncient02__sub_8017B468(void *arg0) {
+void *create__15TOTrapAncient02FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x35C);
     if (o != NULL) {
         o = TOTrapAncient02__ct(o, tl_05, arg0);

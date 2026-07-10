@@ -42,7 +42,7 @@ u32 get_or_create_lobby_font__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     return M2C_FIELD(arg0, u32 *, 0x3B8);
 }
 int TObjPlayer__sub_801AF694(void* p) { return fn_801C543C((char*)p + 0x7c4); }
-s32 TObjPlayer__sub_801AF6B8(s32 arg0) {
+s32 is_action_available__10TObjPlayerFi(s32 arg0) {
     if ((fn_802034EC() == 0) || (fn_80203418() != 0)) {
         return 0;
     }

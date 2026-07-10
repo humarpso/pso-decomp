@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TMotorcycle__sub_80195014(void *arg0);
+void *create__11TMotorcycleFPv(void *arg0);
 void *TMotorcycle__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TMotorcycle__sub_80195014(void *arg0) {
+void *create__11TMotorcycleFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
         o = TMotorcycle__ct(o, tl_05, arg0);

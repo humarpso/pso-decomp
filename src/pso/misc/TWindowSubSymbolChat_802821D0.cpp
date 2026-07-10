@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 create_parts_set__20TWindowSubSymbolChatFPv(void *arg0);
-s32 TWindowSubSymbolChat__sub_80282230(void);
+s32 create_parts__20TWindowSubSymbolChatFv(void);
 s32 TWindowSubSymbolChatPartsSet__ct(s32, s32, s16, M2C_UNK *, M2C_UNK *);
 s32 TWindowSubSymbolChatParts__ct(s32, s32, M2C_UNK *, M2C_UNK *);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -29,7 +29,7 @@ s32 create_parts_set__20TWindowSubSymbolChatFPv(void *arg0) {
 extern M2C_UNK lbl_805D6498;
 extern M2C_UNK lbl_805D649C;
 
-s32 TWindowSubSymbolChat__sub_80282230(void) {
+s32 create_parts__20TWindowSubSymbolChatFv(void) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x90);

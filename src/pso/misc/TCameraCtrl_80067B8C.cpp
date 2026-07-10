@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TCameraCtrl__sub_80067BC4(void *arg0);
-void *TCameraCtrl__sub_80067C30(void *arg0, s16 arg1);
+void init_state__11TCameraCtrlFPv(void *arg0);
+void *__dt_deleting_2__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void *TCameraCtrl__vt12(void);
 M2C_UNK TCameraCtrl__sub_8006786C(void *);
 void *init__11TCameraCtrlFPv(void *);
@@ -27,7 +27,7 @@ void *TCameraCtrl__vt12(void) {
 
 extern u8 lbl_8050E208[];
 
-void TCameraCtrl__sub_80067BC4(void *arg0) {
+void init_state__11TCameraCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38) = 0x15;
     if (fn_801A6E60(lbl_8050E208 + 0x20, 0x10000) != 0) {
         fn_8006E310(arg0);
@@ -39,7 +39,7 @@ void TCameraCtrl__sub_80067BC4(void *arg0) {
 
 extern M2C_UNK lbl_804887F8[];
 
-void *TCameraCtrl__sub_80067C30(void *arg0, s16 arg1) {
+void *__dt_deleting_2__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804887F8;
         fn_8006E6B0(arg0, 0);

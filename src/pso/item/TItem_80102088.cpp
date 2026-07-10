@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItem__sub_80102088(void *arg0, s32 arg1, s32 arg2);
+void assign_id_and_init__5TItemFPvii(void *arg0, s32 arg1, s32 arg2);
 void TItem__sub_801020E0(s32 arg0, s16 arg1, s32 arg2);
 void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 arg2);
 M2C_UNK set_mode__5TItemFPvc(s32, M2C_UNK);
@@ -20,7 +20,7 @@ M2C_UNK fn_8011AA44(s32, s32);
 s32 fn_8011AF58(s32);
 M2C_UNK fn_8020C5E0(s32);
 
-void TItem__sub_80102088(void *arg0, s32 arg1, s32 arg2) {
+void assign_id_and_init__5TItemFPvii(void *arg0, s32 arg1, s32 arg2) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == -1) {
         M2C_FIELD(arg0, s32 *, 0xC) = fn_8011AF58(arg1);
     }

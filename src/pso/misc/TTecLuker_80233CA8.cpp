@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TTecLuker__sub_80233CA8(void *arg0, s16 arg1);
+void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_80154A00(void *);
 M2C_UNK fn_80156720(void *);
@@ -14,7 +14,7 @@ M2C_UNK fn_80156990(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804CC9D4[];
 
-void *TTecLuker__sub_80233CA8(void *arg0, s16 arg1) {
+void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CC9D4;
         fn_80154A00(arg0);
