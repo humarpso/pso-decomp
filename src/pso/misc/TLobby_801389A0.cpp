@@ -11,7 +11,7 @@ void TLobby__sub_80138A0C(void);
 void TLobby__sub_80138AC4(void);
 M2C_UNK TAdScrollWinGC__sub_803274D0(u32);
 M2C_UNK TLobby__sub_8013872C();
-M2C_UNK TLobby__close_all_windows();
+M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindow__close(u32);
 M2C_UNK fn_801A66B8();
@@ -33,7 +33,7 @@ void TLobby__sub_801389A0(void) {
             fn_801DA1DC(lbl_805D5580);
         }
     } else {
-        TLobby__close_all_windows();
+        close_all_windows__6TLobbyFv();
     }
 }
 
@@ -51,15 +51,15 @@ void TLobby__sub_80138A0C(void) {
             } else {
                 TWindow__close(lbl_805D55DC);
                 lbl_805D55DC = 0U;
-                TLobby__close_all_windows();
+                close_all_windows__6TLobbyFv();
             }
         } else if (TWindowShortListCtrl__check_controller_button(temp_r31, 2) != 0) {
             TWindow__close(lbl_805D55DC);
             lbl_805D55DC = 0U;
-            TLobby__close_all_windows();
+            close_all_windows__6TLobbyFv();
         }
     } else {
-        TLobby__close_all_windows();
+        close_all_windows__6TLobbyFv();
     }
     fn_801A66B8();
 }
@@ -78,15 +78,15 @@ void TLobby__sub_80138AC4(void) {
             } else {
                 TWindow__close(lbl_805D55CC);
                 lbl_805D55CC = 0U;
-                TLobby__close_all_windows();
+                close_all_windows__6TLobbyFv();
             }
         } else if (TWindowShortListCtrl__check_controller_button(temp_r31, 2) != 0) {
             TWindow__close(lbl_805D55CC);
             lbl_805D55CC = 0U;
-            TLobby__close_all_windows();
+            close_all_windows__6TLobbyFv();
         }
     } else {
-        TLobby__close_all_windows();
+        close_all_windows__6TLobbyFv();
     }
     fn_801A66B8();
 }

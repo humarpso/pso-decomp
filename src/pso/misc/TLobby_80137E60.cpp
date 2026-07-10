@@ -9,7 +9,7 @@ extern "C" {
 void TLobby__sub_80137E60(s32 arg0);
 void TLobby__sub_80137EA8(void);
 M2C_UNK TLobby__sub_80137CC8();
-M2C_UNK TLobby__close_all_windows();
+M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK send_room_change__9TProtocolFi(s32, s32);
 
 extern s32 lbl_805D5580;
@@ -26,7 +26,7 @@ void TLobby__sub_80137E60(s32 arg0) {
 extern s32 lbl_805D5594;
 
 void TLobby__sub_80137EA8(void) {
-    TLobby__close_all_windows();
+    close_all_windows__6TLobbyFv();
     TLobby__sub_80137CC8();
     lbl_805D5594 = 0x12;
 }

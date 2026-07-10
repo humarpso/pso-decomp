@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubSymbolChat__create_menu(void);
+s32 create_menu__20TWindowSubSymbolChatFv(void);
 s32 TWindowSubSymbolChat__sub_80282094(void *arg0);
 M2C_UNK TObjCityMainWarp__sub_80186AE4(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
@@ -22,7 +22,7 @@ M2C_UNK fn_8026CBB8(M2C_UNK);
 extern const f32 lbl_805DD73C;
 extern const f32 lbl_805DD740;
 
-s32 TWindowSubSymbolChat__create_menu(void) {
+s32 create_menu__20TWindowSubSymbolChatFv(void) {
     s32 temp_r31;
 
     temp_r31 = fn_8026659C(fn_8026CBB8(0x79), 9, TWindowSubStatusDisp__sub_80077760(0xAB));

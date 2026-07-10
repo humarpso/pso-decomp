@@ -15,7 +15,7 @@ M2C_UNK TLobby__sub_801381D0();
 M2C_UNK TLobby__sub_80138244();
 M2C_UNK TLobby__sub_801382F0();
 M2C_UNK TLobby__sub_80138354();
-M2C_UNK TLobby__close_all_windows();
+M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowSubComCard__sub_8007341C(void*);
 s32 TWindowSubComCard__sub_80073DB8(u32);
 s32 TWindowSubComCard__sub_80265BF8(void*);
@@ -40,10 +40,10 @@ void TLobby__sub_801393F8(void) {
                 return;
             }
         } else if (TWindowSubComCard__sub_80073DB8(lbl_805D55E4) != 0) {
-            TLobby__close_all_windows();
+            close_all_windows__6TLobbyFv();
         }
     } else {
-        TLobby__close_all_windows();
+        close_all_windows__6TLobbyFv();
     }
 }
 
@@ -70,10 +70,10 @@ void TLobby__sub_80139498(void) {
                 return;
             }
         } else if (TWindowSubComCard__sub_80073DB8(lbl_805D55E0) != 0) {
-            TLobby__close_all_windows();
+            close_all_windows__6TLobbyFv();
         }
     } else {
-        TLobby__close_all_windows();
+        close_all_windows__6TLobbyFv();
     }
 }
 

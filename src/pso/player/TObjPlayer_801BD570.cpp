@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2);
-void *TObjPlayer__ct2(void *arg0, void *arg1, void *arg2);
+void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TFontSmallLobby__sub_801C0164(void *);
 void TFontSmallLobby__sub_801D65B4(void *);
 void TObjPlayer__sub_8001BF10(void *);
@@ -115,7 +115,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
 extern M2C_UNK __vt__10TObjPlayer[];
 extern void *lbl_805D3530;
 
-void *TObjPlayer__ct2(void *arg0, void *arg1, void *arg2) {
+void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     fn_80019038(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
     TObjPlayer__sub_801BFF38((void *)((char *)arg0 + 832));

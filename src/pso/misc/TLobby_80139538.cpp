@@ -10,7 +10,7 @@ extern "C" {
 
 void TLobby__sub_80139538(void);
 M2C_UNK TLobby__sub_80137EA8();
-M2C_UNK TLobby__close_all_windows();
+M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK TWindow__close(u32);
 s32 fn_8013AD38(u32);
 s32 fn_8013AD44(u32);
@@ -36,7 +36,7 @@ void TLobby__sub_80139538(void) {
         if (fn_8013AD44(lbl_805D55D0) != 0) {
             TWindow__close(lbl_805D55D0);
             lbl_805D55D0 = 0U;
-            TLobby__close_all_windows();
+            close_all_windows__6TLobbyFv();
         }
     }
 }

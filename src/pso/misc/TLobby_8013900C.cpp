@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_8013900C(void);
-M2C_UNK TLobby__close_all_windows();
+M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindow__close(u32);
 M2C_UNK fn_801A66B8();
@@ -27,12 +27,12 @@ void TLobby__sub_8013900C(void) {
             } else {
                 TWindow__close(lbl_805D55DC);
                 lbl_805D55DC = 0U;
-                TLobby__close_all_windows();
+                close_all_windows__6TLobbyFv();
                 fn_801DB4E4(lbl_805D5580);
             }
         }
     } else {
-        TLobby__close_all_windows();
+        close_all_windows__6TLobbyFv();
     }
     fn_801A66B8();
 }
