@@ -21155,6 +21155,9 @@ pso/slices/pso_carve_802ad90c.cpp:
 pso/slices/run_802ADCD8.cpp:
 	.text       start:0x802ADCD8 end:0x802ADD38
 
+pso/slices/pso_carve_802addfc.cpp:
+	.text       start:0x802ADDFC end:0x802ADE78
+
 pso/slices/pso_carve_802ade78.cpp:
 	.text       start:0x802ADE78 end:0x802ADED4
 	.rodata     start:0x80470738 end:0x80470740

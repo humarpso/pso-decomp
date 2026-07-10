@@ -20,7 +20,7 @@ extern s32 lbl_805D53C0;
 extern s32 lbl_805D53C4;
 extern s32 lbl_805D53E0;
 
-void *fn_800FE1C4(void *arg0, void *arg1, s32 arg2) {
+void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
