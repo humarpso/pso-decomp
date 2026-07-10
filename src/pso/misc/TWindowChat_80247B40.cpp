@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__11TWindowChatFv(void *arg0, s16 arg1);
-M2C_UNK TObjPlayer__sub_801B56A4(s32);
+M2C_UNK init_parts__10TObjPlayerFPv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -28,7 +28,7 @@ void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
         if (temp_r3 != 0) {
             if (!(M2C_FIELD(arg0, u16 *, 0x1E) & 2)) {
                 if (fn_80247DF0(arg0) != 0) {
-                    TObjPlayer__sub_801B56A4(temp_r3);
+                    init_parts__10TObjPlayerFPv(temp_r3);
                     fn_8024AD30(lbl_805D53A0);
                 }
             }

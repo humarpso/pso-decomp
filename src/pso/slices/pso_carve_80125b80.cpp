@@ -16,7 +16,7 @@ s32 fn_80121CA8(void *);
 s16 fn_801251AC(s32);
 s32 create__10TTecGiFoieFPvPvPv(s32, s32 *, s32);
 s32 TItemProArmor__sub_80102C3C(void *);
-s32 TItemProArmor__sub_80117D9C(s32, u32, s32, s32);
+s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
 s32 TItemProArmor__sub_80364300(s32);
 void fn_80125C70(void* p);
 
@@ -46,7 +46,7 @@ void fn_80125C7C(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
         temp_r3 = TItemProArmor__sub_80364300(0x2C);
         if (temp_r3 != 0) {
-            TItemProArmor__sub_80117D9C(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
+            ct__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
         }
     }
     fn_8011E618(arg0);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TItemProArmor__sub_80102C3C(void *);
-M2C_UNK TItemProArmor__sub_80117D9C(s32, u32, s32, M2C_UNK);
+M2C_UNK ct__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
 M2C_UNK fn_80127F40(s32, u32, s32, M2C_UNK, f32);
 s32 TItemProArmor__sub_80364300(M2C_UNK);
 extern f32 lbl_805DADD8;
@@ -23,7 +23,7 @@ void fn_80127DC4(void *arg0) {
         }
         temp_r3_2 = TItemProArmor__sub_80364300(0x2C);
         if (temp_r3_2 != 0) {
-            TItemProArmor__sub_80117D9C(temp_r3_2, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
+            ct__13TItemProArmorFPv(temp_r3_2, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
         }
     }
 }

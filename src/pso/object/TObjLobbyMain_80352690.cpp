@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLobbyMain__sub_80352690(void *arg0);
+void reset_state__13TObjLobbyMainFPv(void *arg0);
 s32 fn_80352094();
 
 extern const f32 lbl_805DFEE0;
 
-void TObjLobbyMain__sub_80352690(void *arg0) {
+void reset_state__13TObjLobbyMainFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != fn_80352094()) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;
         M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DFEE0;

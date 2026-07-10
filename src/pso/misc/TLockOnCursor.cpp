@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TLockOnCursor__sub_8013EC94(s32 arg0, s16 arg1);
-s32 TLockOnCursor__sub_8013ECD0(s32 arg0, s16 arg1);
+s32 __dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
 
 M2C_UNK __dl__FPv();
 
@@ -20,7 +20,7 @@ s32 TLockOnCursor__sub_8013EC94(s32 arg0, s16 arg1) {
 
 M2C_UNK __dl__FPv();
 
-s32 TLockOnCursor__sub_8013ECD0(s32 arg0, s16 arg1) {
+s32 __dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

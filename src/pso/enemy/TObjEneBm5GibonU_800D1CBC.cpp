@@ -10,14 +10,14 @@ s32 TPhotonMylla__sub_80154CB4(u16);
 s16 obj_getField1c(s32);
 s32 TObjEneBm5GibonU__sub_800D1B7C(s32 arg0, s16 arg1);
 int __dl__FPv();
-s32 TObjEneBm5GibonU__sub_800D1CBC(s32 arg0, s16 arg1);
+s32 destroy__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 int TObjEneBm5GibonU__sub_800D1C40(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int TObjEneBm5GibonU__sub_800D1C78(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 void TObjEneBm5GibonU__sub_800D1B0C(void* p, void* a1);
 void TObjEneBm5GibonU__sub_800D1B3C(void* p, void* a1);
 void TObjEneBm5GibonU__sub_800D1B6C(void* p);
 
-s32 TObjEneBm5GibonU__sub_800D1CBC(s32 arg0, s16 arg1) {
+s32 destroy__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

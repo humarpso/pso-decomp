@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TTecSlicer__sub_8023BE60(s32 arg0, s16 arg1);
+s32 dt__10TTecSlicerFis(s32 arg0, s16 arg1);
 s32 TTecSlicer__sub_8023BE28(void* p);
 s16 TTecSlicer__sub_8023BE30(void* p);
 void TTecSlicer__sub_8023BE38(u32 arg0);
@@ -16,7 +16,7 @@ void TTecSlicer__sub_8023BE38(u32 arg0) {
         queue_destruction__7TObjectFv();
     }
 }
-s32 TTecSlicer__sub_8023BE60(s32 arg0, s16 arg1) {
+s32 dt__10TTecSlicerFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

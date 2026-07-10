@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1);
-M2C_UNK TObjPlayer__sub_801B56A4(s32);
+M2C_UNK init_parts__10TObjPlayerFPv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowCtrl__sub_8024AF74(s32);
 M2C_UNK TWindow__close(void *);
@@ -26,7 +26,7 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, void **, 0x18) = __vt__20TWindowShortListCtrl;
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24));
         if ((temp_r3 != 0) && (TWindowCtrl__sub_8024AF74(M2C_FIELD(arg0, s32 *, 0x24)) == 0) && (fn_8024A1A8() == 0)) {
-            TObjPlayer__sub_801B56A4(temp_r3);
+            init_parts__10TObjPlayerFPv(temp_r3);
         }
         fn_8024AD30(M2C_FIELD(arg0, s32 *, 0x24));
         fn_8026F6C0();

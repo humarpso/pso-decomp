@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_trade_state__19TWindowSubTradeMainFPv(void *arg0);
-void TWindowSubTradeMain__sub_80266CB0(void *arg0);
+void close__19TWindowSubTradeMainFPv(void *arg0);
 M2C_UNK TWindowSubTradeMain__sub_80268478(void *);
 s32 fn_8013AD38();
 M2C_UNK fn_80187D24(void *);
@@ -27,7 +27,7 @@ void update_trade_state__19TWindowSubTradeMainFPv(void *arg0) {
     fn_80268468(arg0);
 }
 
-void TWindowSubTradeMain__sub_80266CB0(void *arg0) {
+void close__19TWindowSubTradeMainFPv(void *arg0) {
     fn_80187D34();
     fn_80187D24(arg0);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {

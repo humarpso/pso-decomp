@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TLobby__sub_8001E870(void);
+f32 calc_phase_offset__6TLobbyFv(void);
 s32 get_main_phase();
 
 extern f32 lbl_805D7EE4;
 extern f32 lbl_805D7EE8;
 
-f32 TLobby__sub_8001E870(void) {
+f32 calc_phase_offset__6TLobbyFv(void) {
     f32 var_f31;
 
     var_f31 = lbl_805D7EE4;

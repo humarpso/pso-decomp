@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TORainbowCave01__sub_80158408(void *arg0);
+void update__15TORainbowCave01FPv(void *arg0);
 
 s32 fn_80080750();
 M2C_UNK fn_80158298(void *);
 M2C_UNK TORainbowCave01__sub_80158604(void *);
 
-void TORainbowCave01__sub_80158408(void *arg0) {
+void update__15TORainbowCave01FPv(void *arg0) {
     if (fn_80080750() == 1) {
         TORainbowCave01__sub_80158604(arg0);
         return;

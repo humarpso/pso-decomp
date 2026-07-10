@@ -9,7 +9,7 @@ extern "C" {
 s32 is_split_screen();
 extern void *lbl_805D63F8;
 
-s32 TWindowCtrl__sub_8024C680(void) {
+s32 get_display_flag__11TWindowCtrlFv(void) {
     if (is_split_screen() != 0) {
         return 0;
     }

@@ -9,12 +9,12 @@ extern "C" {
 void TPlayerBattleCtrl4P__vt18(void *arg0);
 void TPlayerBattleCtrl4P__vt19(void *arg0);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112A4(void *, M2C_UNK);
-M2C_UNK TPlayerBattleCtrl4P__sub_803112BC();
+M2C_UNK update_all_players__19TPlayerBattleCtrl4PFv();
 
 void TPlayerBattleCtrl4P__vt19(void *arg0) {
     s32 temp_r0;
 
-    TPlayerBattleCtrl4P__sub_803112BC();
+    update_all_players__19TPlayerBattleCtrl4PFv();
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x240) - 1;
     M2C_FIELD(arg0, s32 *, 0x240) = temp_r0;
     if (temp_r0 <= 0) {
@@ -26,7 +26,7 @@ void TPlayerBattleCtrl4P__vt19(void *arg0) {
 void TPlayerBattleCtrl4P__vt18(void *arg0) {
     s32 temp_r0;
 
-    TPlayerBattleCtrl4P__sub_803112BC();
+    update_all_players__19TPlayerBattleCtrl4PFv();
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x240) - 1;
     M2C_FIELD(arg0, s32 *, 0x240) = temp_r0;
     if (temp_r0 <= 0) {

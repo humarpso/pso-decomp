@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TKeyBoardControl__sub_8026130C(void *arg0);
-void TKeyBoardControl__sub_80261358(void *arg0);
+void close__16TKeyBoardControlFPv(void *arg0);
+void release_input__16TKeyBoardControlFPv(void *arg0);
 void TKeyBoardControl__sub_802613A4(void *arg0);
 void release__16TKeyBoardControlFPv(void *arg0);
 M2C_UNK TKeyBoardControl__sub_8025CBC0(void *);
@@ -16,7 +16,7 @@ M2C_UNK fn_8025CC04(void *);
 M2C_UNK fn_8025CC3C(u32);
 M2C_UNK fn_80261134(void *);
 
-void TKeyBoardControl__sub_8026130C(void *arg0) {
+void close__16TKeyBoardControlFPv(void *arg0) {
     void *temp_r3;
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 0x80);
     temp_r3 = M2C_FIELD(arg0, void **, 0x6C);
@@ -26,7 +26,7 @@ void TKeyBoardControl__sub_8026130C(void *arg0) {
     }
 }
 
-void TKeyBoardControl__sub_80261358(void *arg0) {
+void release_input__16TKeyBoardControlFPv(void *arg0) {
     void *temp_r3;
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 0x40);
     temp_r3 = M2C_FIELD(arg0, void **, 0x6C);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
-void TWindowSubItem__sub_80279D50(s32 arg0, s32 arg1);
+void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
 s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, s32);
@@ -38,7 +38,7 @@ void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
     TObjCityMainWarp__sub_80266354((s32)(arg2), (s32)(fn_80132F2C(0x10, 0xF)), (M2C_UNK)(0x26), (s32)(temp_r31));
 }
 
-void TWindowSubItem__sub_80279D50(s32 arg0, s32 arg1) {
+void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1) {
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         fn_802661D4((s32)(arg1), (s32)(TWindowSubStatusDisp__sub_80077760(0x5F)), (M2C_UNK)(6), (s32)(6));
         return;

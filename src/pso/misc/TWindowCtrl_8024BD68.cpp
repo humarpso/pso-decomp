@@ -11,7 +11,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowCtrl__sub_8024AF74(s32);
 s32 TWindowCtrl__sub_8024AFB8(void *, s32);
 s32 TWindowCtrl__sub_8024B054(s32);
-s32 TWindowCtrl__sub_8024C680();
+s32 get_display_flag__11TWindowCtrlFv();
 s32 fn_80076CD0(void *);
 s32 fn_801CBD00();
 M2C_UNK fn_802472A8(u32);
@@ -37,7 +37,7 @@ void update_window_visibility__11TWindowCtrlFPv(u8 *arg0) {
             return;
         }
         temp_r31 = fn_801CBD00();
-        if ((TWindowCtrl__sub_8024C680() != 0) || (TWindowCtrl__sub_8024AF74(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024AFB8(arg0, lbl_805D53A0) != 0) || (((u16)temp_r31 != 0xffffU) && ((s32)(u16)temp_r31 != (s32) lbl_805D53A0))) {
+        if ((get_display_flag__11TWindowCtrlFv() != 0) || (TWindowCtrl__sub_8024AF74(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024AFB8(arg0, lbl_805D53A0) != 0) || (((u16)temp_r31 != 0xffffU) && ((s32)(u16)temp_r31 != (s32) lbl_805D53A0))) {
             fn_802472A8(M2C_FIELD(arg0, u32 *, 0x38));
             return;
         }

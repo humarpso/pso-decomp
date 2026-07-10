@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOKeyJungleMain__sub_801F4738(s32 arg0, u16 arg1);
+void dispatch_by_phase__15TOKeyJungleMainFiUs(s32 arg0, u16 arg1);
 
 s32 get_main_phase();
 M2C_UNK fn_801F3778(int, M2C_UNK, s32);
 M2C_UNK fn_801F469C(s32, u16);
 
-void TOKeyJungleMain__sub_801F4738(s32 arg0, u16 arg1) {
+void dispatch_by_phase__15TOKeyJungleMainFiUs(s32 arg0, u16 arg1) {
     if (get_main_phase() == 0xF) {
         fn_801F3778(arg1, 0, arg0);
         return;

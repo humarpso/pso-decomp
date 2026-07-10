@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801379C0(void);
+void reset_state_flags__6TLobbyFv(void);
 M2C_UNK fn_801A5438();
 
 extern void *lbl_805D5580;
@@ -15,7 +15,7 @@ extern s32 lbl_805D5594;
 extern s32 lbl_805D55D8;
 extern s32 lbl_805D55FC;
 
-void TLobby__sub_801379C0(void) {
+void reset_state_flags__6TLobbyFv(void) {
     fn_801A5438();
     M2C_FIELD(lbl_805D5580, s32 *, 0x191C) = 1;
     lbl_805D55FC = 1;

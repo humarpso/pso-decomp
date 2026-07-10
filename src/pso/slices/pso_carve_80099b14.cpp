@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_8009A7A0();
-void TBoss4Type3__sub_800D9A68(void*, int);
+void __dt__11TBoss4Type3FPvs(void*, int);
 void fn_800F5C8C(void*, int);
 extern u32 lbl_805D4FB8;
 extern u32 lbl_805D4FC8;
@@ -20,7 +20,7 @@ void fn_80099B14(void) {
         lbl_805D4FCC = 0U;
     }
     if ((u32) lbl_805D4FC8 != 0U) {
-        TBoss4Type3__sub_800D9A68((void*)lbl_805D4FC8, 1);
+        __dt__11TBoss4Type3FPvs((void*)lbl_805D4FC8, 1);
         lbl_805D4FC8 = 0U;
     }
     if ((u32) lbl_805D4FB8 != 0U) {

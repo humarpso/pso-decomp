@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TODragonflyMachine01__sub_801651B0(void);
+void update_timer__20TODragonflyMachine01Fv(void);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 
 extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
 
-void TODragonflyMachine01__sub_801651B0(void) {
+void update_timer__20TODragonflyMachine01Fv(void) {
     if ((s32) lbl_805D599C == 6) {
         fn_803D9214(0, lbl_805D59A0);
     }

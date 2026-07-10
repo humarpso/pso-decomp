@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TItemProArmor__sub_80117D60(void *arg0);
-void *TItemProArmor__sub_80117D9C(void *arg0);
+void *init_vtable__13TItemProArmorFPv(void *arg0);
+void *ct__13TItemProArmorFPv(void *arg0);
 void TItemTimerEvent__ct(void *);
 
 extern M2C_UNK lbl_804A0668[];
 
-void *TItemProArmor__sub_80117D60(void *arg0) {
+void *init_vtable__13TItemProArmorFPv(void *arg0) {
     TItemTimerEvent__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A0668;
     return arg0;
@@ -18,7 +18,7 @@ void *TItemProArmor__sub_80117D60(void *arg0) {
 
 extern M2C_UNK lbl_804A0688[];
 
-void *TItemProArmor__sub_80117D9C(void *arg0) {
+void *ct__13TItemProArmorFPv(void *arg0) {
     TItemTimerEvent__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A0688;
     return arg0;

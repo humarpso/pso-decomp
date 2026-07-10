@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TItemEffPG__sub_8034FDAC(void *arg0);
-void *TItemEffPG__sub_8034FDD0(void *arg0, s16 arg1);
+void *destroy__10TItemEffPGFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__10TItemEffPGFv(void *, int);
 
@@ -24,7 +24,7 @@ s32 TItemEffPG__sub_8034FDAC(void *arg0) {
 
 extern M2C_UNK lbl_804F0C08[];
 
-void *TItemEffPG__sub_8034FDD0(void *arg0, s16 arg1) {
+void *destroy__10TItemEffPGFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0C08;
         __dt__10TItemEffPGFv(arg0, 0);

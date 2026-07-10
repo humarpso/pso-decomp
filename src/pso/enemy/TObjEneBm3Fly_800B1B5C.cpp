@@ -16,7 +16,7 @@ void TObjEneBm3Fly__sub_800B1B5C(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x450));
 }
-void TObjEneBm3Fly__sub_800B1B98(void *arg0) {
+void update__13TObjEneBm3FlyFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x44C));
 }

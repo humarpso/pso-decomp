@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowOptionCtrl__sub_8026B308(void *arg0, s16 arg1, s8 arg2);
+void set_params__17TWindowOptionCtrlFPvsc(void *arg0, s16 arg1, s8 arg2);
 void apply_selection_change__17TWindowOptionCtrlFPv(void *arg0);
 void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0);
 void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
@@ -26,7 +26,7 @@ u32 create_menu__17TWindowOptionCtrlFv(void *);
 M2C_UNK fn_8036A648(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TWindowOptionCtrl__sub_8026B308(void *arg0, s16 arg1, s8 arg2) {
+void set_params__17TWindowOptionCtrlFPvsc(void *arg0, s16 arg1, s8 arg2) {
     void *temp_r3;
 
     temp_r3 = fn_8001ED80();

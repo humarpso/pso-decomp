@@ -6,7 +6,7 @@ s32 TObjPlayer__sub_801B5790();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void TPlayerBattleCtrl4P__sub_803112A4(void* p, s32 v);
 
-void TPlayerBattleCtrl4P__sub_803112BC(void) {
+void update_all_players__19TPlayerBattleCtrl4PFv(void) {
     s32 var_r31;
 
     var_r31 = 0;

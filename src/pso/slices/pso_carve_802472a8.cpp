@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TKeyBoardControl__sub_80131F64(s32);
-M2C_UNK TObjPlayer__sub_801B56A4(s32);
+M2C_UNK init_parts__10TObjPlayerFPv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK fn_80247534(void *);
 s32 fn_80247DF0(void *);
@@ -29,7 +29,7 @@ void fn_802472A8(void *arg0) {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
         if ((temp_r3 != 0) && !(M2C_FIELD(arg0, u16 *, 0x1E) & 2) && (fn_80247DF0(arg0) != 0)) {
             if (TWindowCtrl__sub_8024AF74(lbl_805D53A0) == 0) {
-                TObjPlayer__sub_801B56A4(temp_r3);
+                init_parts__10TObjPlayerFPv(temp_r3);
             }
             fn_8024AD30(lbl_805D53A0);
         }

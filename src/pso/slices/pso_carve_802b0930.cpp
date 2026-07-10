@@ -12,7 +12,7 @@ M2C_UNK fn_802AC6D0();
 M2C_UNK fn_8033CC80(void *);
 extern M2C_UNK lbl_804709B4[];
 
-void fn_802B0930(void *arg0) {
+void init_proto1_adx(void *arg0) {
     fn_802274B8(lbl_804709B4);
     fn_802AC6D0();
     M2C_FIELD(arg0, s32 *, 0x3D0) = 0;

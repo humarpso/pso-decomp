@@ -22,7 +22,7 @@ void TObjPlayer__sub_801BCC50(void);
 int fn_801AFDD8(void*);
 
 void TObjPlayer__sub_801BCAB0(void) {  }
-void TObjPlayer__sub_801BCAB4(s32 arg0) {
+void update_state__10TObjPlayerFi(s32 arg0) {
     if (obj_isState2_324() != 0) {
         TObjPlayer__sub_801BE3B4(arg0);
     } else {

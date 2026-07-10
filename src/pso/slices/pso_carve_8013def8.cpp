@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TForceOperate__sub_8013DFDC(s32 arg0, s16 arg1);
+s32 destroy__13TForceOperateFis(s32 arg0, s16 arg1);
 int __dl__FPv();
 int fn_8013DF1C(void* p);
 u8 fn_8013DF3C(void* p);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_801B56A4(s32);
+M2C_UNK init_parts__10TObjPlayerFPv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_80247080(void *);
 s32 fn_80247128(void *);
@@ -35,7 +35,7 @@ void fn_802475C4(void *arg0) {
             case 0:
                 if ((fn_802471AC(arg0) != 0) && (fn_80247EC0(arg0) != 0)) {
                     if (fn_80247DF0(arg0) != 0) {
-                        TObjPlayer__sub_801B56A4(temp_r3);
+                        init_parts__10TObjPlayerFPv(temp_r3);
                         fn_8024AD30(lbl_805D53A0);
                     }
                     fn_80247534(arg0);
@@ -46,7 +46,7 @@ void fn_802475C4(void *arg0) {
             case 1:
                 if ((fn_80247128(arg0) != 0) && (fn_80247EC0(arg0) != 0)) {
                     if (fn_80247DF0(arg0) != 0) {
-                        TObjPlayer__sub_801B56A4(temp_r3);
+                        init_parts__10TObjPlayerFPv(temp_r3);
                         fn_8024AD30(lbl_805D53A0);
                     }
                     fn_80247534(arg0);
@@ -57,7 +57,7 @@ void fn_802475C4(void *arg0) {
             case 2:
                 if ((fn_80247080(arg0) != 0) && (fn_80247EC0(arg0) != 0)) {
                     if (fn_80247DF0(arg0) != 0) {
-                        TObjPlayer__sub_801B56A4(temp_r3);
+                        init_parts__10TObjPlayerFPv(temp_r3);
                         fn_8024AD30(lbl_805D53A0);
                     }
                     fn_80247534(arg0);

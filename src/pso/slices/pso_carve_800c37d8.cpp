@@ -57,7 +57,7 @@ s32 TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK fn_800B98C0(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TObjEneRe2Flower__sub_800C3C9C();
+s32 check_hit_flag__16TObjEneRe2FlowerFPv();
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_80143504();
 extern const f32 lbl_805D9FF0;
@@ -73,7 +73,7 @@ void fn_800C37D8(void *arg0, s32 arg1) {
         fn_800B98C0(arg0);
         return;
     case 3:
-        if ((TObjEneRe2Flower__sub_800C3C9C() == 0) && (TObjEneEpsilon__sub_800B96D4(arg0, lbl_805D9FF0) != 0)) {
+        if ((check_hit_flag__16TObjEneRe2FlowerFPv() == 0) && (TObjEneEpsilon__sub_800B96D4(arg0, lbl_805D9FF0) != 0)) {
             TObjEneDD__sub_800BBA18(arg0, 3);
         }
     case 5:

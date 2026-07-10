@@ -77,7 +77,7 @@ int fn_8013DF54(void*);
 int fn_8013DFC4(void*);
 int fn_8013E1C8(void*, void* a1 = 0);
 
-s32 TMainCursor__sub_8013E624(s32 arg0, s16 arg1) {
+s32 destroy__11TMainCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TPlyDispConfig__sub_80071F1C(arg0, -1);
         if (arg1 > 0) {

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void queue_destruction__7TObjectFv(void *);
-void TObjBoss2Tunnel__sub_8007E100(void *, int);
+void dt__15TObjBoss2TunnelFis(void *, int);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804E4B3C[];
@@ -14,7 +14,7 @@ void *fn_802F29B4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E4B3C;
         if (M2C_FIELD(arg0, void **, 0x88) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x88)); }
-        TObjBoss2Tunnel__sub_8007E100((s8 *)arg0 + 0x20, -1);
+        dt__15TObjBoss2TunnelFis((s8 *)arg0 + 0x20, -1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

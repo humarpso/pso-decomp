@@ -8,9 +8,9 @@ extern "C" {
 
 s32 TPhotonMylla__sub_80154CB4(u16);
 s16 obj_getField1c(s32);
-s32 TObjEneBm5Wolf__sub_800B88A8(s32 arg0, s16 arg1);
+s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 int __dl__FPv();
-s32 TObjEneBm5Wolf__sub_800B89E8(s32 arg0, s16 arg1);
+s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 int TObjEneBm5Wolf__sub_800B896C(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int TObjEneBm5Wolf__sub_800B89A4(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 void TObjEneBm5Wolf__sub_800B8838(void* p, void* a1);
@@ -20,7 +20,7 @@ void TObjEneBm5Wolf__sub_800B8898(void* p);
 void TObjEneBm5Wolf__sub_800B8838(void* p, void* a1) { TObjEneBm5Wolf__sub_800B89A4(a1, p, (char*)p + 0x4); }
 void TObjEneBm5Wolf__sub_800B8868(void* p, void* a1) { TObjEneBm5Wolf__sub_800B896C(a1, p, (char*)p + 0x4); }
 void TObjEneBm5Wolf__sub_800B8898(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
-s32 TObjEneBm5Wolf__sub_800B88A8(s32 arg0, s16 arg1) {
+s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

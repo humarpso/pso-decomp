@@ -73,12 +73,12 @@ struct VObj_801BE210 : Base_801BE210 {
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BE1C0(s32 arg0, s16 arg1);
+s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1);
 void TObjPlayer__vt66(void *arg0, s32 arg1);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK __dt__12TPlyCharDataFv(s32, M2C_UNK);
 
-s32 TObjPlayer__sub_801BE1C0(s32 arg0, s16 arg1) {
+s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__12TPlyCharDataFv(arg0 + 0xC, -1);
         if (arg1 > 0) {

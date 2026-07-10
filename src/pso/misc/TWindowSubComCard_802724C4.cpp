@@ -8,7 +8,7 @@ extern "C" {
 
 s32 create_keyboard__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 s32 create_keyboard__17TWindowSubComCardFi(s32 arg0);
-s32 TWindowSubComCard__sub_802725F4(void);
+s32 create__17TWindowSubComCardFv(void);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8007A860(s32);
@@ -59,7 +59,7 @@ s32 create_keyboard__17TWindowSubComCardFi(s32 arg0) {
 extern M2C_UNK lbl_8044F6CC[];
 extern f32 lbl_805DD4FC;
 
-s32 TWindowSubComCard__sub_802725F4(void) {
+s32 create__17TWindowSubComCardFv(void) {
     s32 temp_r31;
     M2C_UNK temp_r3;
 
