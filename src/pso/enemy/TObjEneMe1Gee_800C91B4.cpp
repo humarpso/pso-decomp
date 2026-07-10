@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800C91B4(void *arg0, s32 arg1);
+void state_orbit__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 M2C_UNK fn_80143504();
 f32 fn_803D64C0(s32, f32);
@@ -14,7 +14,7 @@ f32 fn_803D64DC(s32);
 
 extern const f32 lbl_805DA0C4;
 
-void TObjEneMe1Gee__sub_800C91B4(void *arg0, s32 arg1) {
+void state_orbit__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
     f32 temp_f1;
 
     switch (arg1) {

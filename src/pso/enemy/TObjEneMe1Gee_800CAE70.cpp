@@ -118,7 +118,7 @@ struct F_V : F_A {
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800CAE70(void *arg0, s32 arg1);
+void state_hover__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
@@ -130,7 +130,7 @@ M2C_UNK fn_80143504();
 extern const f32 lbl_805DA0A8;
 extern const f32 lbl_805DA0AC;
 
-void TObjEneMe1Gee__sub_800CAE70(void *arg0, s32 arg1) {
+void state_hover__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     switch (arg1) {

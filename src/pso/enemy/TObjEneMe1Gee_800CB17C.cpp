@@ -57,7 +57,7 @@ struct V_Sub : Base_Sub {
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800CB17C(u8 *arg0, s32 arg1);
+void state_move__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneMe1Gee__sub_800CBE40(void *);
@@ -68,7 +68,7 @@ M2C_UNK fn_80143504();
 
 extern const f32 lbl_805DA0AC;
 
-void TObjEneMe1Gee__sub_800CB17C(u8 *arg0, s32 arg1) {
+void state_move__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {

@@ -127,7 +127,7 @@ struct V_A : Base_A {
     virtual void m100(s32);
 };
 
-extern "C" void TObjEneRe7Berura__sub_8009358C(void *arg0, s32 arg1) {
+extern "C" void state_patrol__16TObjEneRe7BeruraFPvi(void *arg0, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {

@@ -9,7 +9,7 @@ extern "C" {
 void TObjVoloptCage__sub_80049210(void *arg0);
 M2C_UNK TObjVoloptCage__sub_80048CDC();
 M2C_UNK TObjVoloptCage__sub_80048E80();
-M2C_UNK TObjVoloptCage__sub_80048F40();
+M2C_UNK update_capture__14TObjVoloptCageFPv();
 M2C_UNK TObjVoloptCage__sub_80049000();
 
 void TObjVoloptCage__sub_80049210(void *arg0) {
@@ -21,7 +21,7 @@ void TObjVoloptCage__sub_80049210(void *arg0) {
         TObjVoloptCage__sub_80049000();
         return;
     case 1:
-        TObjVoloptCage__sub_80048F40();
+        update_capture__14TObjVoloptCageFPv();
         return;
     case 4:
         TObjVoloptCage__sub_80048E80();

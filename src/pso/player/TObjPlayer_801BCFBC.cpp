@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801BCFBC(u8 *arg0);
+void update_action_animation__10TObjPlayerFPv(u8 *arg0);
 s32 TFontSmallLobby__sub_801AFEE0();
 s16 TObjPlayer__sub_801BE40C(void *);
 M2C_UNK TObjPlayer__sub_801BF9E8(void *, f32);
@@ -23,7 +23,7 @@ s32 obj_isState2_324();
 s32 obj_testFlags30(void *, M2C_UNK);
 extern const f32 lbl_805DC294;
 
-void TObjPlayer__sub_801BCFBC(u8 *arg0) {
+void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
     if (obj_isState2_324() == 0) {
         fn_801D0888(arg0);
         return;

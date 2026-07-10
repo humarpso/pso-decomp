@@ -35,7 +35,7 @@ struct VObj18 : VBase18 {
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_8035E68C(void *arg0, s32 arg1);
+void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, void *, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -52,7 +52,7 @@ extern const f32 lbl_805E01E8;
 extern const f32 lbl_805E01EC;
 extern const f32 lbl_805E01F0;
 
-void TObjEneEpsilonGuard__sub_8035E68C(void *arg0, s32 arg1) {
+void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
     u32 temp_r3;
 

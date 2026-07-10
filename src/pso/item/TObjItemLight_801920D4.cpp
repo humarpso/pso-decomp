@@ -6,8 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+u8 *TObjItemLight__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 TObjParticle__sub_800870BC(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_801A2640();
+
 extern M2C_UNK __vt__13TObjItemLight[];
 extern s32 lbl_805D3390;
 extern const f32 lbl_805DBE40;

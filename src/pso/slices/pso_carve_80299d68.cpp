@@ -23,7 +23,7 @@ M2C_UNK fn_8029F4C4(s32, s32);
 extern M2C_UNK lbl_804651C8[];
 extern s32 tl_particlemodel;
 
-s32 fn_80299D68(void) {
+s32 initialize_boss_scene(void) {
     s32 temp_r3;
     u32 temp_new;
 

@@ -8,7 +8,7 @@ extern "C" {
 
 void render__11TObjDoaEx01Fv(void *arg0);
 
-M2C_UNK TObjDoaEx01__sub_8018DE10();
+M2C_UNK try_open__11TObjDoaEx01FPv();
 M2C_UNK TObjDoaEx01__sub_8018DEC8();
 
 void render__11TObjDoaEx01Fv(void *arg0) {
@@ -16,7 +16,7 @@ void render__11TObjDoaEx01Fv(void *arg0) {
         TObjDoaEx01__sub_8018DEC8();
         return;
     }
-    TObjDoaEx01__sub_8018DE10();
+    try_open__11TObjDoaEx01FPv();
 }
 
 }

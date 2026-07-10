@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801BCF04(void *arg0, u8 *arg1);
+void load_character_state__10TObjPlayerFPvPv(void *arg0, u8 *arg1);
 s32 TFontSmallLobby__sub_801AFEE0();
 s32 TObjPlayer__sub_801C2114();
 s32 TObjPlayer__sub_801C2214(u8 *);
@@ -20,7 +20,7 @@ u16 obj_getField1c(void *);
 extern s32 lbl_805D5D84;
 extern s32 lbl_805D5D88;
 
-void TObjPlayer__sub_801BCF04(void *arg0, u8 *arg1) {
+void load_character_state__10TObjPlayerFPvPv(void *arg0, u8 *arg1) {
     u8 temp_r31;
     s32 temp_r30;
 

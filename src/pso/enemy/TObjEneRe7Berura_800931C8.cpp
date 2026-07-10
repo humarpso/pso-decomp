@@ -17,7 +17,7 @@ struct BeruraV_800931C8 : BeruraBase_800931C8 {
 
 extern "C" {
 
-void TObjEneRe7Berura__sub_800931C8(void);
+void demo_frame_callback__16TObjEneRe7BeruraFv(void);
 M2C_UNK TObjEneDD__sub_800B9F04(s32, s32);
 
 extern s32 lbl_805D4F68;
@@ -28,7 +28,7 @@ extern s32 lbl_805D4F78;
 extern void *lbl_805D4F7C;
 extern s32 some_id_805c6f74;
 
-void TObjEneRe7Berura__sub_800931C8(void) {
+void demo_frame_callback__16TObjEneRe7BeruraFv(void) {
     switch ((s32) lbl_805D4F68) {
     case 0x2:
         lbl_805D4F6C = some_id_805c6f74;

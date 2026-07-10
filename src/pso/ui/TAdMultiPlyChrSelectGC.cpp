@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMultiPlyChrSelectGC__sub_802DFC0C(void *arg0, s32 arg1);
+void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
 
 s32 fn_801FE854();
 M2C_UNK fn_802C5BCC(void *, s32 *, s32 *);
@@ -16,7 +16,7 @@ void * TAdMultiPlyChrSelectGC__sub_802C6920();
 M2C_UNK fn_802E0024(s32, s32);
 M2C_UNK fn_802E0064(s32, s32);
 
-void TAdMultiPlyChrSelectGC__sub_802DFC0C(void *arg0, s32 arg1) {
+void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     void *temp_r3;
     s32 sp14;
     s32 sp10;

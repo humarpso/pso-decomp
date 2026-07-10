@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_80139274(void);
 M2C_UNK TLobby__sub_80138018();
-M2C_UNK TLobby__sub_80138080();
+M2C_UNK return_to_main_menu__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK TLobby__sub_80139860();
 s32 TWindowSubComCard__sub_8007341C(void*);
@@ -26,7 +26,7 @@ void TLobby__sub_80139274(void) {
             temp_r3 = TWindowSubComCard__sub_80265BF8(lbl_805D55E4);
             switch (temp_r3) {
             case 0:
-                TLobby__sub_80138080();
+                return_to_main_menu__6TLobbyFv();
                 return;
             case 1:
                 TLobby__sub_80138018();

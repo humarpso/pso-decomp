@@ -28,7 +28,7 @@ void fn_801AF03C(void* p);
 void fn_801AEB80(void);
 int TObjPlayer__sub_801AF288(void);
 
-void TObjPlayer__sub_801AF1B8(s32 arg0) {
+void update_movement_effects__10TObjPlayerFi(s32 arg0) {
     if ((fn_801B0EE8() != 0) && (TObjPlayer__sub_801AF868(arg0) == 0) && (TObjPlayer__sub_801AF834(arg0) != 0) && (fn_800822E8(arg0, 0x408000) == 0) && (TObjPlayer__sub_801B12A8((void*)(arg0)) == 0) && (TObjPlayer__sub_801B102C(arg0) == 0)) {
         TObjPlayer__sub_801BF1DC(arg0 + 0x384);
     }

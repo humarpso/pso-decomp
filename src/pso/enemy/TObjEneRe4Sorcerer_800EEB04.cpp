@@ -105,7 +105,7 @@ struct V_A : Base_A {
 
 extern "C" {
 
-void TObjEneRe4Sorcerer__sub_800EEB04(void *arg0, s32 arg1);
+void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800EF95C(void *, f32);
@@ -116,7 +116,7 @@ extern const f32 lbl_805DA7C0;
 extern const f32 lbl_805DA7C4;
 extern const f32 lbl_805DA7C8;
 
-void TObjEneRe4Sorcerer__sub_800EEB04(void *arg0, s32 arg1) {
+void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s32 *, 0x4E4) = 0;

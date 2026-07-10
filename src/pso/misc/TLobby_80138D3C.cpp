@@ -9,7 +9,7 @@ struct GBig_80138D3C { char pad[0x1da8]; GLE_80138D3C arr[1]; };
 extern "C" {
 
 void handle_comcard_window__6TLobbyFv(void);
-M2C_UNK TLobby__sub_8013872C();
+M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK TOBoss4Rock__sub_80147A80(s32);
 s32 TWindowSubComCard__sub_80131C10(u32);
@@ -43,7 +43,7 @@ void handle_comcard_window__6TLobbyFv(void) {
             lbl_805D55F4 = 0U;
             TWindow__close(lbl_805D55F0);
             lbl_805D55F0 = 0;
-            TLobby__sub_8013872C();
+            destroy_lobby_ui__6TLobbyFv();
         }
     }
 }

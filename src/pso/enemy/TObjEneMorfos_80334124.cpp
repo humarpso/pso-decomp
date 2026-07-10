@@ -112,7 +112,7 @@ struct F_V : F_A {
 
 extern "C" {
 
-void TObjEneMorfos__sub_80334124(void *arg0, s32 arg1);
+void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
@@ -126,7 +126,7 @@ extern const f32 lbl_805DF86C;
 extern const f32 lbl_805DF874;
 extern const f32 lbl_805DF894;
 
-void TObjEneMorfos__sub_80334124(void *arg0, s32 arg1) {
+void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
 
     switch (arg1) {

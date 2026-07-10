@@ -17,7 +17,7 @@ extern s32 lbl_805D60F4;
 extern M2C_UNK lbl_805DC620;
 extern M2C_UNK lbl_805DC624;
 
-void fn_8020B0C4(void) {
+void clear_map_set_data(void) {
     lbl_805D60E0 = 0;
     lbl_805D60E4 = 0;
     lbl_805D60E8 = 0;

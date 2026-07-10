@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TScene__sub_80206C38(s32 arg0);
+void load_map_texture_archive__6TSceneFi(s32 arg0);
 s32 TOKeyMachine01__sub_802034A8();
 s32 TRaderMapCore__sub_8030A808();
 u32 fn_8007EBFC(s32);
@@ -19,7 +19,7 @@ extern const char lbl_8044A9A4[];
 extern u32 lbl_805D6004;
 extern s32 lbl_805D6018;
 
-void TScene__sub_80206C38(s32 arg0) {
+void load_map_texture_archive__6TSceneFi(s32 arg0) {
     char sp8[0x20];
     s32 temp_r31;
     s32 var_r30;

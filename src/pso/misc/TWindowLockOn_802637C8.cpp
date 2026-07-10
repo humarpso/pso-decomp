@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void render__13TWindowLockOnFv(u8 *arg0);
 s32 fn_80244C0C(void *, void *);
 M2C_UNK fn_80245F98(void *, int);
 M2C_UNK fn_80257BC0(void *, void *, int);

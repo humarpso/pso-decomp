@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjGrass__sub_800BD00C(u8 *arg0);
+void update__9TObjGrassFPv(u8 *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_80011734(void *, M2C_UNK, f32);
 M2C_UNK fn_800F5EB4(void *, M2C_UNK);
@@ -18,7 +18,7 @@ M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D9EB8;
 
-void TObjGrass__sub_800BD00C(u8 *arg0) {
+void update__9TObjGrassFPv(u8 *arg0) {
     s16 temp_r4;
 
     obj_clearFlags30(arg0, 0x04040000);

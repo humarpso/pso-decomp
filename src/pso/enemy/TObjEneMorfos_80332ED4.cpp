@@ -122,7 +122,7 @@ struct V_A : Base_A {
     virtual void m100(s32);
 };
 
-extern "C" void TObjEneMorfos__sub_80332ED4(void *arg0, s32 arg1) {
+extern "C" void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {

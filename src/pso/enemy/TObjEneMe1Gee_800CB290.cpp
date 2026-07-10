@@ -117,11 +117,11 @@ struct Gee_V : Gee_A {
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800CB290(void *arg0, s32 arg1);
+void state_attack_loop__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
-void TObjEneMe1Gee__sub_800CB290(void *arg0, s32 arg1) {
+void state_attack_loop__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

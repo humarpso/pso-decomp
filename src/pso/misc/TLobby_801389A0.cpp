@@ -10,7 +10,7 @@ void TLobby__sub_801389A0(void);
 void TLobby__sub_80138A0C(void);
 void TLobby__sub_80138AC4(void);
 M2C_UNK TAdScrollWinGC__sub_803274D0(u32);
-M2C_UNK TLobby__sub_8013872C();
+M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindow__close(u32);
@@ -28,7 +28,7 @@ void TLobby__sub_801389A0(void) {
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 0xE) != 0) {
             TAdScrollWinGC__sub_803274D0(lbl_805D55F8);
             lbl_805D55F8 = 0U;
-            TLobby__sub_8013872C();
+            destroy_lobby_ui__6TLobbyFv();
             fn_801A66B8();
             fn_801DA1DC(lbl_805D5580);
         }

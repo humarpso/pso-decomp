@@ -12,7 +12,7 @@ s32 check_flag__10TObjPlayerFPvi(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801564A0(void *);
-M2C_UNK TObjPlayer__sub_801AF1B8(void *);
+M2C_UNK update_movement_effects__10TObjPlayerFi(void *);
 M2C_UNK update_subsystems__10TObjPlayerFi(void *);
 M2C_UNK update_facing_vector__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B6F8C(void *);
@@ -81,7 +81,7 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
             break;
         }
     }
-    TObjPlayer__sub_801AF1B8(arg0);
+    update_movement_effects__10TObjPlayerFi(arg0);
     update_facing_vector__10TObjPlayerFPv(arg0);
 }
 

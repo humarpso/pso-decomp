@@ -40,7 +40,7 @@ struct VObj18G : VBase18G {
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800CA970(void *arg0, s32 arg1);
+void state_attack__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
 s32 TObjEneMe1Gee__sub_800CB5A0(void *, M2C_UNK);
@@ -52,7 +52,7 @@ M2C_UNK fn_80143504();
 
 extern const f32 lbl_805DA0A8;
 
-void TObjEneMe1Gee__sub_800CA970(void *arg0, s32 arg1) {
+void state_attack__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r3;
 

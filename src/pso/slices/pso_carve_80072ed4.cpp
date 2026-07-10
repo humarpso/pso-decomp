@@ -19,7 +19,7 @@ M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8022727C(M2C_UNK *);
 extern M2C_UNK lbl_804385D4[];
 
-void fn_80072ED4(void *arg0) {
+void handle_loss_sequence(void *arg0) {
     s32 temp_r3;
 
     fn_80072E10();

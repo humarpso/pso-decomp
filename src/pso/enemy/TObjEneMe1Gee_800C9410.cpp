@@ -113,7 +113,7 @@ struct VObj : BaseVT {
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800C9410(VObj *arg0, s32 arg1);
+void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B9680(void *, void *);
@@ -128,7 +128,7 @@ extern const f32 lbl_805DA0A8;
 extern const f32 lbl_805DA0CC;
 extern const f32 lbl_805DA0D0;
 
-void TObjEneMe1Gee__sub_800C9410(VObj *arg0, s32 arg1) {
+void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1) {
     s32 temp_r0;
 
     switch (arg1) {

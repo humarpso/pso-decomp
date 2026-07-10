@@ -57,14 +57,14 @@ struct V_Sub : Base_Sub {
 
 extern "C" {
 
-void TObjEneRe7Berura__sub_80094994(u8 *arg0, s32 arg1);
+void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK, s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneRe7Berura__sub_80094EA8(void *);
 M2C_UNK fn_800A0554(void *);
 M2C_UNK fn_800D8C48(void *);
 
-void TObjEneRe7Berura__sub_80094994(u8 *arg0, s32 arg1) {
+void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r5;
 
     switch (arg1) {

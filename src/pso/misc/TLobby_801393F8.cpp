@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_801393F8(void);
 void TLobby__sub_80139498(void);
-M2C_UNK TLobby__sub_80137D7C();
+M2C_UNK open_city_warp_menu__6TLobbyFv();
 M2C_UNK TLobby__sub_80137FEC();
 M2C_UNK TLobby__sub_80138140();
 M2C_UNK TLobby__sub_801381D0();
@@ -66,7 +66,7 @@ void TLobby__sub_80139498(void) {
                 TLobby__sub_80137FEC();
                 return;
             case 3:
-                TLobby__sub_80137D7C();
+                open_city_warp_menu__6TLobbyFv();
                 return;
             }
         } else if (TWindowSubComCard__sub_80073DB8(lbl_805D55E0) != 0) {

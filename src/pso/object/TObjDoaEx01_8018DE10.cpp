@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjDoaEx01__sub_8018DE10(u8 *arg0);
+void try_open__11TObjDoaEx01FPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoaEx01__sub_8018DD0C(void *, s32);
 M2C_UNK TObjDoorJung__sub_8023DC68(s32, M2C_UNK);
@@ -35,7 +35,7 @@ extern u8 *lbl_805D5BB8;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
 
-void TObjDoaEx01__sub_8018DE10(u8 *arg0) {
+void try_open__11TObjDoaEx01FPv(u8 *arg0) {
     s32 temp_r31;
 
     temp_r31 = TObjFish__sub_8001EDC4(lbl_805D5BB0, 0);

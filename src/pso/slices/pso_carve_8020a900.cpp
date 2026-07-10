@@ -25,7 +25,7 @@ extern s32 lbl_805D614C;
 extern M2C_UNK lbl_805DC620;
 extern M2C_UNK lbl_805DC624;
 
-void fn_8020A900(s32 arg0, s32 arg1) {
+void load_map_set_data(s32 arg0, s32 arg1) {
     lbl_805D60D8 = 0;
     lbl_805D60DC = 0;
     lbl_805D60E0 = 0;

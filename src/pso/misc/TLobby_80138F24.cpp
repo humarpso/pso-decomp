@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_create_game_window__6TLobbyFv(void);
-M2C_UNK TLobby__sub_8013872C();
+M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowMakeTeam__sub_80264AE0(u32);
 s32 TWindowMakeTeam__sub_80264B24(u32);
@@ -40,7 +40,7 @@ void handle_create_game_window__6TLobbyFv(void) {
                 temp_r27 = fn_8013AD64(lbl_805D55EC) == 1;
                 temp_r0 = fn_8013AD5C(lbl_805D55EC);
                 send_create_game__9TProtocolFPcPcUcUcUcUc(lbl_805D5580, temp_r3, temp_r30, temp_r28, temp_r29, temp_r27, temp_r0);
-                TLobby__sub_8013872C();
+                destroy_lobby_ui__6TLobbyFv();
                 return;
             }
             close_all_windows__6TLobbyFv();

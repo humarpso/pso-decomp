@@ -6,8 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 M2C_UNK fn_801A2640();
+
 extern void *__vt__14TPhotonRainbow[];
 extern s32 lbl_805D3520;
 extern u8 *lbl_805D5D28;

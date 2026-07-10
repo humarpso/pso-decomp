@@ -6,10 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 s32 TBoss4Type2__sub_800874F4(void *, M2C_UNK);
 s32 TPhotonMylla__sub_80154CB4(s32, f32);
+u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK fn_801569F4(s32, s32);
+
 extern M2C_UNK __vt__18TPhotonConcentrate[];
 extern s32 lbl_805D34D0;
 

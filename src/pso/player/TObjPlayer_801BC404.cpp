@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BC404(void);
+s32 has_active_camera_event__10TObjPlayerFv(void);
 void TObjPlayer__sub_801BC504(void);
 void init_from_data__10TObjPlayerFPvPv(void* p, void* a1);
 int TObjPlayer__sub_801BC6C4(void*);
@@ -19,7 +19,7 @@ int fn_801BEB04(void*, void*);
 int fn_801BEB54(void*, void*);
 s32 fn_801F441C(s32, s32);
 
-s32 TObjPlayer__sub_801BC404(void) {
+s32 has_active_camera_event__10TObjPlayerFv(void) {
     if (fn_8001E5C8() == 0) {
         if ((check_camera_mode__10TObjPlayerFv() == 0) && (fn_801F441C(0, 0xB) == 0) && (fn_801F441C(1, 0xB) == 0) && (fn_801F441C(2, 0xB) == 0) && (fn_801F441C(3, 0xB) == 0)) {
             return 0;
