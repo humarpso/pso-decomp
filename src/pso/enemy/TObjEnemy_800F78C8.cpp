@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEnemy__sub_800F78C8(s16 arg0);
+s32 apply_by_index__9TObjEnemyFs(s16 arg0);
 M2C_UNK fn_8002B058(s32);
 
 extern s32 lbl_805D6144;
 
-s32 TObjEnemy__sub_800F78C8(s16 arg0) {
+s32 apply_by_index__9TObjEnemyFs(s16 arg0) {
     if (arg0 > 0xB4F) {
         return 0;
     }

@@ -11,7 +11,7 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1F40(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
-M2C_UNK TAdTrialAgreementGC__sub_803356F8(s32);
+M2C_UNK wait_for_load__19TAdTrialAgreementGCFv(s32);
 
 extern M2C_UNK lbl_804C8914[];
 
@@ -24,11 +24,11 @@ s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
     if (TAdPlayerLoadGC__sub_801E0D8C(0) == 0) {
         return 0;
     }
-    TAdTrialAgreementGC__sub_803356F8(arg0);
+    wait_for_load__19TAdTrialAgreementGCFv(arg0);
     if (TAdPlayerLoadGC__sub_801E1F40(0) != 0) {
         return 0;
     }
-    TAdTrialAgreementGC__sub_803356F8(arg0);
+    wait_for_load__19TAdTrialAgreementGCFv(arg0);
     temp_r3 = TAdPlayerLoadGC__sub_801E2048(0, lbl_804C8914);
     if ((temp_r3 == 0) || ((u32) (temp_r3 + 0x10000) == 0xFF41U)) {
         return 1;

@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMovie__sub_80143F6C(void *arg0);
+void release__6TMovieFPv(void *arg0);
 
-void TMovie__sub_80143F6C(void *arg0) {
+void release__6TMovieFPv(void *arg0) {
     void **temp_r3;
     void *temp_r4;
 

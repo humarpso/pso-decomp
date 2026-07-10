@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TCineCtrl__sub_80077F08(s32 arg0);
+void reset__9TCineCtrlFi(s32 arg0);
 
 extern void *lbl_805D4E60;
 extern const f32 lbl_805D91D0;
 
-void TCineCtrl__sub_80077F08(s32 arg0) {
+void reset__9TCineCtrlFi(s32 arg0) {
     if ((void *) lbl_805D4E60 != NULL) {
         M2C_FIELD(lbl_805D4E60, s32 *, 0x2C) = arg0;
         M2C_FIELD(lbl_805D4E60, f32 *, 0x1C) = (f32) lbl_805D91D0;

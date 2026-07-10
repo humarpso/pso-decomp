@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK add_stat_clamped__10TObjPlayerFiPvs(s32, s32, s16);
 s16 *fn_801D93C4();
 
-void TObjPlayer__sub_801B636C(void *arg0, s32 arg1) {
+void add_stat__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     add_stat_clamped__10TObjPlayerFiPvs(arg1, M2C_FIELD(arg0, s32 *, 0x2B0), *fn_801D93C4());
 }
 

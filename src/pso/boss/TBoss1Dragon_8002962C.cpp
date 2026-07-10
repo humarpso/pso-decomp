@@ -31,7 +31,7 @@ struct VObj_8002967C : Base_8002967C {
 
 extern "C" {
 
-void TBoss1Dragon__sub_8002962C(s32 arg0);
+void update_position_history__12TBoss1DragonFi(s32 arg0);
 void TBoss1Dragon__sub_8002966C(void);
 void TBoss1Dragon__sub_80029670(void);
 void TBoss1Dragon__sub_80029674(void);
@@ -42,7 +42,7 @@ s32 fn_800281F0(void *);
 M2C_UNK fn_800284B4(void *, M2C_UNK);
 s32 fn_800291D4();
 
-void TBoss1Dragon__sub_8002962C(s32 arg0) {
+void update_position_history__12TBoss1DragonFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x430);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }

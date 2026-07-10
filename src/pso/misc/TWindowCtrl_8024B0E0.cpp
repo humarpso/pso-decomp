@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_message_by_type__11TWindowCtrlFci(s8 arg0, s32 arg1);
-void TWindowCtrl__sub_8024B15C(s8 *arg0);
-s32 TWindowCtrl__sub_8024C5FC(s32);
+void release_slot__11TWindowCtrlFPv(s8 *arg0);
+s32 get_window__11TWindowCtrlFi(s32);
 s32 fn_8024D92C();
 s32 fn_8024D960(s32);
 s32 fn_8026CBB8(s32);
@@ -17,7 +17,7 @@ s32 get_message_by_type__11TWindowCtrlFci(s8 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r3;
 
-    temp_r3 = TWindowCtrl__sub_8024C5FC(arg1);
+    temp_r3 = get_window__11TWindowCtrlFi(arg1);
     if (temp_r3 == 0) {
         return 0;
     }
@@ -33,7 +33,7 @@ s32 get_message_by_type__11TWindowCtrlFci(s8 arg0, s32 arg1) {
 
 extern void *lbl_805D63F8;
 
-void TWindowCtrl__sub_8024B15C(s8 *arg0) {
+void release_slot__11TWindowCtrlFPv(s8 *arg0) {
     s8 temp_r4;
 
     if ((void *) lbl_805D63F8 != NULL) {

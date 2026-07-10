@@ -14,7 +14,7 @@ void cleanup_scene__9TLoadCtrlFv(void);
 M2C_UNK TCameraCtrl__sub_800692D0();
 M2C_UNK TCameraCtrl__sub_80069318();
 M2C_UNK TCameraCtrl__sub_800693F4();
-M2C_UNK TCameraCtrl__sub_8006A31C();
+M2C_UNK reset__11TCameraCtrlFv();
 M2C_UNK TCameraCtrl__sub_8006A35C();
 M2C_UNK fn_8001D4D0();
 M2C_UNK fn_80226D5C();
@@ -50,7 +50,7 @@ void cleanup_scene__9TLoadCtrlFv(void) {
         break;
     }
     TCameraCtrl__sub_80069318();
-    TCameraCtrl__sub_8006A31C();
+    reset__11TCameraCtrlFv();
     if (lbl_805D4DF0 != NULL) {
         if (lbl_805D4DF0 != NULL) {
             ((VObj_8001C8B8 *)lbl_805D4DF0)->m0(1);

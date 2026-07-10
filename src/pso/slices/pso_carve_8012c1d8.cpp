@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 TItemProShield__sub_8010B734();
-M2C_UNK TItemEffOrgaFlowShot__sub_80115B80(s32, f32, f32);
+M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(s32, f32, f32);
 extern f32 lbl_805DAEE4;
 extern f32 lbl_805DAEE8;
 
 void fn_8012C1D8(s32 arg0) {
     if (TItemProShield__sub_8010B734() == 5) {
-        TItemEffOrgaFlowShot__sub_80115B80(arg0 + 0x1F8, lbl_805DAEE4, lbl_805DAEE8);
+        approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x1F8, lbl_805DAEE4, lbl_805DAEE8);
     }
 }
 

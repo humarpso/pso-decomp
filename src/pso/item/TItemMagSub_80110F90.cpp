@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemMagSub__sub_80110F90(void *arg0);
+s32 is_mag_active__11TItemMagSubFPv(void *arg0);
 
 s32 TItemMag__sub_80113E8C(u32);
 
-s32 TItemMagSub__sub_80110F90(void *arg0) {
+s32 is_mag_active__11TItemMagSubFPv(void *arg0) {
     s32 var_r31;
 
     var_r31 = 0;

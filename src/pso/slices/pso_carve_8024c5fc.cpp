@@ -8,7 +8,7 @@ extern "C" {
 
 extern s8 *lbl_805D63F8;
 
-s32 TWindowCtrl__sub_8024C5FC(s32 arg0) {
+s32 get_window__11TWindowCtrlFi(s32 arg0) {
     if (lbl_805D63F8 == 0) {
         return 0;
     }

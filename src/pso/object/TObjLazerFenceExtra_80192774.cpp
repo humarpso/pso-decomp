@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLazerFenceExtra__sub_80192774(void *arg0);
+void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
-void TObjLazerFenceExtra__sub_80192774(void *arg0) {
+void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0) {
     if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
         set_indexed_flags(arg0, 0, 1);
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;

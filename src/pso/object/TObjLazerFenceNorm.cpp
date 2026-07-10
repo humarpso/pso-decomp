@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__18TObjLazerFenceNormFv(void *arg0);
 M2C_UNK TObjLazerFenceNorm__sub_80192CCC();
-M2C_UNK TObjLazerFenceNorm__sub_80192D70();
+M2C_UNK reset_by_door__18TObjLazerFenceNormFPv();
 
 void run_task__18TObjLazerFenceNormFv(void *arg0) {
     s32 temp_r0;
@@ -19,7 +19,7 @@ void run_task__18TObjLazerFenceNormFv(void *arg0) {
         TObjLazerFenceNorm__sub_80192CCC();
         return;
     case 1:
-        TObjLazerFenceNorm__sub_80192D70();
+        reset_by_door__18TObjLazerFenceNormFPv();
         return;
     }
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void create_result_window__16TObjOnlineEndingFPv(void *arg0);
-s32 TObjOnlineEnding__sub_8007172C();
+s32 get_card_window_value__16TObjOnlineEndingFv();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8006F00C();
@@ -30,7 +30,7 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
         if (t == temp_r30) {
             var_r29 = __nw__7TObjectFUl(0x68);
             if (var_r29 != 0) {
-                temp_r30_2 = TObjOnlineEnding__sub_8007172C();
+                temp_r30_2 = get_card_window_value__16TObjOnlineEndingFv();
                 temp_r31 = TWindowSubStatusDisp__sub_800718D0();
                 var_r29 = TWindowChallengeResult__ct(var_r29, fn_80070ACC(), temp_r31, temp_r30_2);
             }

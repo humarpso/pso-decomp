@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe7Berura__sub_80093180(void);
+void advance_state__16TObjEneRe7BeruraFv(void);
 
 extern s32 lbl_805D4F68;
 extern s32 lbl_805D4F6C;
 extern s32 some_id_805c6f74;
 
-void TObjEneRe7Berura__sub_80093180(void) {
+void advance_state__16TObjEneRe7BeruraFv(void) {
     switch ((s32) lbl_805D4F68) {
     case 25:
         lbl_805D4F6C = some_id_805c6f74;

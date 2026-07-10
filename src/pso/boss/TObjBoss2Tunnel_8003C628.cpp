@@ -10,7 +10,7 @@ void TObjBoss2Tunnel__sub_8003C628(void);
 void TObjBoss2Tunnel__sub_8003C638(void);
 void TObjBoss2Tunnel__sub_8003C648(void);
 void *TObjBoss2Tunnel__sub_8003C64C(void);
-void TObjBoss2Tunnel__sub_8003C688(void);
+void clear_target_flags__15TObjBoss2TunnelFv(void);
 void *TObjBoss2Tunnel__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -43,7 +43,7 @@ extern s32 lbl_805D4C00;
 extern s32 *lbl_805D4C04;
 extern s32 *lbl_805D4C08;
 
-void TObjBoss2Tunnel__sub_8003C688(void) {
+void clear_target_flags__15TObjBoss2TunnelFv(void) {
     s32 *temp_r3;
     s32 *temp_r3_2;
 

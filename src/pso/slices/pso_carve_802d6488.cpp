@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TItemEffOrgaFlowShot__sub_80115B80(s32, f32, f32);
+M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(s32, f32, f32);
 extern const f32 lbl_805DE7A8;
 extern const f32 lbl_805DE7B8;
 
 void fn_802D6488(s32 arg0) {
-    TItemEffOrgaFlowShot__sub_80115B80(arg0 + 0x1F8, lbl_805DE7B8, lbl_805DE7A8);
+    approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x1F8, lbl_805DE7B8, lbl_805DE7A8);
 }
 
 }

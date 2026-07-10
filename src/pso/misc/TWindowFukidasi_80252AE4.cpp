@@ -8,7 +8,7 @@ extern "C" {
 
 u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1);
 M2C_UNK TOBoss4Rock__sub_80147A80(void *);
-M2C_UNK TWindowCtrl__sub_8024B15C(void *);
+M2C_UNK release_slot__11TWindowCtrlFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_802443F0(void *, M2C_UNK);
 M2C_UNK fn_80252C48(void *);
@@ -21,7 +21,7 @@ u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CF0B8;
         if (fn_80252C78((M2C_UNK *)arg0) != 0) {
             fn_80252C48(arg0);
-            TWindowCtrl__sub_8024B15C(arg0 + 0x73);
+            release_slot__11TWindowCtrlFPv(arg0 + 0x73);
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {
             TOBoss4Rock__sub_80147A80(M2C_FIELD(arg0, void **, 0x78));

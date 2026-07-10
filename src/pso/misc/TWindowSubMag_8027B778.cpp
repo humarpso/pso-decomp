@@ -10,7 +10,7 @@ s32 create_list__13TWindowSubMagFPv(void *arg0);
 s32 setup_list__13TWindowSubMagFPv(void *arg0);
 M2C_UNK TWindowShortListCtrl__sub_80221828(s32);
 s32 TWindowShortListCtrl__sub_80278E48(s32, M2C_UNK *, s32);
-M2C_UNK TWindowSubMag__sub_80278760(s32, M2C_UNK);
+M2C_UNK init_and_setup__13TWindowSubMagFPvPv(s32, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 M2C_UNK fn_80244D2C(s32);
 M2C_UNK fn_80263AF8(s32, M2C_UNK);
@@ -45,7 +45,7 @@ s32 setup_list__13TWindowSubMagFPv(void *arg0) {
     fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 0);
     fn_80244D2C(temp_r31);
     TWindowShortListCtrl__sub_80221828(temp_r31);
-    TWindowSubMag__sub_80278760(temp_r31, 2);
+    init_and_setup__13TWindowSubMagFPvPv(temp_r31, 2);
     return temp_r31;
 }
 

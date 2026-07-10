@@ -12,7 +12,7 @@ int TAdPlyPltAnimCtrlGC__sub_80355168(void* a0 = 0);
 void fn_80354F8C(void* p);
 void fn_80355064(void* p);
 void* fn_803550D4(void* p);
-void TAdPlyPltAnimCtrlGC__sub_803551C0(void* p, void* a1);
+void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1);
 s32 fn_80354F7C(void* p);
 void fn_80354F84(void* p, s32 v);
 int fn_80354FB0(void* p);
@@ -24,6 +24,6 @@ int fn_8001BED8(void*, int);
 int TAdRicoRing__sub_8001BEE8(void*, int);
 int fn_8001BEF8(void*, int);
 
-void TAdPlyPltAnimCtrlGC__sub_803551C0(void* p, void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168(p); TWindowSubSymbolChatPartsSet__sub_80052EA0((char*)p + 0x24, a1); *(int*)((char*)p + 0x1c) = 1; }
+void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168(p); TWindowSubSymbolChatPartsSet__sub_80052EA0((char*)p + 0x24, a1); *(int*)((char*)p + 0x1c) = 1; }
 
 }
