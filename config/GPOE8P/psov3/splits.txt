@@ -14122,6 +14122,9 @@ pso/slices/pso_carve_801c5454.cpp:
 pso/slices/pso_carve_801c5558.cpp:
 	.text       start:0x801C5558 end:0x801C5728
 
+pso/slices/pso_carve_801c5758.cpp:
+	.text       start:0x801C5758 end:0x801C5780
+
 pso/player/TObjPlayer_801C57A0.cpp:
 	.text       start:0x801C57A0 end:0x801C57D0
 
