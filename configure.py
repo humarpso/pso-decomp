@@ -4037,6 +4037,9 @@ if args.target == "psov3":
                 NonMatching("pso/player/TObjPlayer_801BFE40.cpp"),
                 NonMatching("pso/ui/TAdScrollWinGC_803274D0.cpp"),
                 NonMatching("pso/ui/TAdScrollWinGC_80327504.cpp"),
+                NonMatching("pso/misc/TTecKafun_802A9688.cpp"),
+                NonMatching("pso/misc/TTecKafun_802A9710.cpp"),
+                NonMatching("pso/misc/TTecKafun_802A9790.cpp"),
             ],
         },
         # ------------------------------------------------------------------

@@ -6,8 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 __nw__7TObjectFUl(M2C_UNK);
+void create__9TTecKafunFiiiiiiff(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 M2C_UNK TTecKafun__ct(u32, f32, f32, s32, s32, s32, s32, s32, s32);
+u32 __nw__7TObjectFUl(M2C_UNK);
 
 void create__9TTecKafunFiiiiiiff(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1) {
     u32 temp_r3 = __nw__7TObjectFUl(0x100);

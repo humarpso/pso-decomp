@@ -21166,13 +21166,13 @@ pso/misc/TEffIndirectCtrl_802A942C.cpp:
 pso/misc/TEffIndirectCtrl.cpp:
 	.text       start:0x802A9548 end:0x802A9568
 
-pso/slices/pso_carve_802a9688.cpp:
+pso/misc/TTecKafun_802A9688.cpp:
 	.text       start:0x802A9688 end:0x802A9710
 
-pso/slices/pso_carve_802a9710.cpp:
+pso/misc/TTecKafun_802A9710.cpp:
 	.text       start:0x802A9710 end:0x802A9790
 
-pso/slices/pso_carve_802a9790.cpp:
+pso/misc/TTecKafun_802A9790.cpp:
 	.text       start:0x802A9790 end:0x802A97E8
 
 pso/misc/TTecKafun_802A97E8.cpp:
