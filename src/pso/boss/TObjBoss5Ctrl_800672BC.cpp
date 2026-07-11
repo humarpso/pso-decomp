@@ -1,5 +1,5 @@
-#pragma fp_contract on
 #include "types.h"
+#pragma fp_contract on
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -7,15 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 is_split_screen();
+void *TObjBoss5Ctrl__ct(void *arg0);
+s32 TOBoss4Rock__sub_8039C880();
+M2C_UNK __ct__7TObjectFP7TObject(void *);
 s32 fn_800196EC(f32, f32, f32);
 s32 fn_8020C1F0(M2C_UNK, s32);
-M2C_UNK __ct__7TObjectFP7TObject(void *);
 u32 fn_802898AC();
 u32 fn_8028AAFC();
 u32 fn_8028AC8C();
 u32 fn_8028B324(void *);
-s32 TOBoss4Rock__sub_8039C880();
+
+s32 is_split_screen();
 extern const f64 lbl_80438138;
 extern void *__vt__13TObjBoss5Ctrl[];
 extern s32 lbl_805D2828;

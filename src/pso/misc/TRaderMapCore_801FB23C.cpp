@@ -6,9 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int obj_getField1c(void*);
+void update_target__13TRaderMapCoreFPv(void *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_801FBA48(u16);
+
+int obj_getField1c(void*);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805DC56C;
 

@@ -4040,6 +4040,13 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TTecKafun_802A9688.cpp"),
                 NonMatching("pso/misc/TTecKafun_802A9710.cpp"),
                 NonMatching("pso/misc/TTecKafun_802A9790.cpp"),
+                NonMatching("pso/misc/TOTrapAncient02R_8017A210.cpp"),
+                NonMatching("pso/enemy/TObjEneDD_800B9F98.cpp"),
+                NonMatching("pso/enemy/TObjEneMe1Canadin_8009EC50.cpp"),
+                NonMatching("pso/enemy/TObjEneMe1Gee_800CC010.cpp"),
+                NonMatching("pso/misc/TRaderMapCore_801FB23C.cpp"),
+                NonMatching("pso/misc/TRaderMapCore_801FB2B8.cpp"),
+                NonMatching("pso/boss/TObjBoss5Ctrl_800672BC.cpp"),
             ],
         },
         # ------------------------------------------------------------------

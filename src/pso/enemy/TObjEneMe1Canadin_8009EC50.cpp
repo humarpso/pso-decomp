@@ -1,5 +1,5 @@
-#pragma fp_contract on
 #include "types.h"
+#pragma fp_contract on
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -7,11 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void calc_move_vector__17TObjEneMe1CanadinFiPv(s32 arg0, void *arg1);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
 f32 fn_80011014(s32);
-s32 get_random_scaled__9TObjEneDDFv();
 f32 fn_803D64C0(s32, f32);
 f32 fn_803D64DC(s32, f32);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
+s32 get_random_scaled__9TObjEneDDFv();
+
 extern const f32 lbl_805D9898;
 extern const f32 lbl_805D989C;
 extern const f32 lbl_805D98D0;

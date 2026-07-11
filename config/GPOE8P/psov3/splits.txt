@@ -2109,7 +2109,7 @@ pso/slices/pso_carve_80067124.cpp:
 pso/boss/TObjBoss5Ctrl.cpp:
 	.text       start:0x8006715C end:0x800672BC
 
-pso/slices/pso_carve_800672bc.cpp:
+pso/boss/TObjBoss5Ctrl_800672BC.cpp:
 	.text       start:0x800672BC end:0x800673D0
 	.rodata     start:0x80438138 end:0x80438140
 
@@ -3805,7 +3805,7 @@ pso/enemy/TObjEneMe1Canadin_8009EB6C.cpp:
 pso/enemy/TObjEneMe1Canadin_8009EC00.cpp:
 	.text       start:0x8009EC00 end:0x8009EC50
 
-pso/slices/pso_carve_8009ec50.cpp:
+pso/enemy/TObjEneMe1Canadin_8009EC50.cpp:
 	.text       start:0x8009EC50 end:0x8009ECE0
 
 pso/enemy/TObjEneMe1Canadin_8009ECE0.cpp:
@@ -4321,7 +4321,7 @@ pso/enemy/TObjEneDD_800B9ED0.cpp:
 pso/enemy/TObjEneDD_800B9F64.cpp:
 	.text       start:0x800B9F64 end:0x800B9F98
 
-pso/slices/pso_carve_800b9f98.cpp:
+pso/enemy/TObjEneDD_800B9F98.cpp:
 	.text       start:0x800B9F98 end:0x800B9FE8
 
 pso/enemy/TObjEneDD_800B9FE8.cpp:
@@ -4819,7 +4819,7 @@ pso/enemy/TObjEneMe1Gee_800CBEC4.cpp:
 pso/enemy/TObjEneMe1Gee_800CBFC0.cpp:
 	.text       start:0x800CBFC0 end:0x800CC010
 
-pso/slices/pso_carve_800cc010.cpp:
+pso/enemy/TObjEneMe1Gee_800CC010.cpp:
 	.text       start:0x800CC010 end:0x800CC0A0
 
 pso/enemy/TObjEneMe1Gee_800CC0A0.cpp:
@@ -11334,7 +11334,7 @@ pso/misc/TOTrapAncient02R_8017A1B8.cpp:
 pso/misc/TOTrapAncient02R.cpp:
 	.text       start:0x8017A20C end:0x8017A210
 
-pso/slices/pso_carve_8017a210.cpp:
+pso/misc/TOTrapAncient02R_8017A210.cpp:
 	.text       start:0x8017A210 end:0x8017A2AC
 	.rodata     start:0x80442F30 end:0x80442F38
 
@@ -15913,10 +15913,10 @@ pso/misc/TRaderMapCore_801F959C.cpp:
 pso/misc/TRaderMapCore_801FA678.cpp:
 	.text       start:0x801FA678 end:0x801FA6CC
 
-pso/slices/pso_carve_801fb23c.cpp:
+pso/misc/TRaderMapCore_801FB23C.cpp:
 	.text       start:0x801FB23C end:0x801FB2B8
 
-pso/slices/pso_carve_801fb2b8.cpp:
+pso/misc/TRaderMapCore_801FB2B8.cpp:
 	.text       start:0x801FB2B8 end:0x801FB30C
 
 pso/misc/TRaderMapCore_801FB6A8.cpp:
