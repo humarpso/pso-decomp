@@ -17899,6 +17899,10 @@ pso/misc/TWindowSubSymbolChat_80248534.cpp:
 pso/misc/TWindowSubSymbolChat_80248564.cpp:
 	.text       start:0x80248564 end:0x802485A4
 
+pso/slices/pso_carve_802485a4.cpp:
+	.text       start:0x802485A4 end:0x80248668
+	.rodata     start:0x8044EAB8 end:0x8044EAC0
+
 pso/misc/TWindowChatSymbol.cpp:
 	.text       start:0x80248668 end:0x802486A8
 
@@ -17997,6 +18001,10 @@ pso/slices/pso_carve_80249cb4.cpp:
 
 pso/slices/pso_carve_80249d34.cpp:
 	.text       start:0x80249D34 end:0x80249D7C
+
+pso/slices/pso_carve_80249d7c.cpp:
+	.text       start:0x80249D7C end:0x80249DE4
+	.rodata     start:0x8044EBC0 end:0x8044EBC8
 
 pso/slices/pso_carve_80249de4.cpp:
 	.text       start:0x80249DE4 end:0x80249E24
@@ -21072,6 +21080,10 @@ pso/misc/TBGLightning.cpp:
 
 pso/effect/TBGLightning.cpp:
 	.text       start:0x802AA1C4 end:0x802AA21C
+
+pso/slices/pso_carve_802aa21c.cpp:
+	.text       start:0x802AA21C end:0x802AA2D4
+	.rodata     start:0x8046FC98 end:0x8046FCA0
 
 pso/misc/TOBiwaMushi.cpp:
 	.text       start:0x802AA2D4 end:0x802AA31C
