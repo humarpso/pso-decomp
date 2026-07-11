@@ -10,7 +10,7 @@ u32 fn_8007C3E0();
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 
-f32 fn_800196A4(void) {
+f32 TObjPlayer__sub_800196A4(void) {
     return (f32) (fn_8007C3E0() >> 0x10U) / lbl_805D7D3C;
 }
 

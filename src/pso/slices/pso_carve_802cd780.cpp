@@ -11,7 +11,7 @@ void __dt__15TObjEnemyCustomFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804E135C[];
 
-void *fn_802CD780(void *arg0, s16 arg1) {
+void *TObjEneMe1GiGue__sub_802CD780(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E135C;
         fn_80156720(arg0);

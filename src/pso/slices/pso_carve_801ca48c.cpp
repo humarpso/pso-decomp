@@ -11,14 +11,14 @@ s32 fn_80143960(void *, M2C_UNK);
 u32 TObjPlayer__sub_801B5EA4(void *);
 M2C_UNK fn_801C5954(void *);
 M2C_UNK fn_801CA35C(void *);
-M2C_UNK fn_801D2834(void *, f32);
+M2C_UNK TObjPlayer__sub_801D2834(void *, f32);
 extern const f32 lbl_805DC37C;
 
 void fn_801CA48C(u8 *arg0) {
     if ((fn_80143960(arg0, 0x20) != 0) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == (s16) M2C_FIELD(arg0, s16 *, 0xBA))) {
         fn_801CA35C(arg0);
     }
-    fn_801D2834(arg0 + 0x5FC, lbl_805DC37C);
+    TObjPlayer__sub_801D2834(arg0 + 0x5FC, lbl_805DC37C);
     fn_801C5954(arg0 + 0x5FC);
     if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {
         fn_80010550(arg0);

@@ -96,13 +96,13 @@ struct VBase_8003508C {
 
 extern "C" {
 
-M2C_UNK fn_80034034(void *);
-s32 fn_800340A0();
+M2C_UNK TBoss2DeRolLe__sub_80034034(void *);
+s32 TBoss2DeRolLe__sub_800340A0();
 
-void fn_8003508C(void *arg0) {
+void TBoss2DeRolLe__sub_8003508C(void *arg0) {
     struct VBase_8003508C *o = (struct VBase_8003508C *)arg0;
-    if (fn_800340A0() != 0) {
-        fn_80034034(arg0);
+    if (TBoss2DeRolLe__sub_800340A0() != 0) {
+        TBoss2DeRolLe__sub_80034034(arg0);
         return;
     }
     o->m85(M2C_FIELD(arg0, s16 *, 0x326), 9);

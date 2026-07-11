@@ -13,7 +13,7 @@ M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 s32 fn_80266508(s32, M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
 
-s32 fn_802D3ADC(s32 arg0, s32 arg1) {
+s32 TAdSinglePlyChrSelectGC__sub_802D3ADC(s32 arg0, s32 arg1) {
     s32 var_r31 = arg1;
 
     if (TAdSinglePlyChrSelectGC__sub_802D4D9C() != 0) {

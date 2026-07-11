@@ -10,7 +10,7 @@ extern "C" {
 void *TObjBoss5Ctrl__ct(void *arg0);
 s32 TOBoss4Rock__sub_8039C880();
 M2C_UNK __ct__7TObjectFP7TObject(void *);
-s32 fn_800196EC(f32, f32, f32);
+s32 TObjPlayer__sub_800196EC(f32, f32, f32);
 s32 fn_8020C1F0(M2C_UNK, s32);
 u32 fn_802898AC();
 u32 fn_8028AAFC();
@@ -40,7 +40,7 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
     temp_f3 = (f32) TOBoss4Rock__sub_8039C880();
     temp_f2 = lbl_805D8F18 * temp_f3;
     M2C_FIELD(arg0, s16 *, 0x2C) = (s16) (lbl_805D8F14 * temp_f2 + lbl_805D8F10);
-    temp_r3 = fn_800196EC(lbl_805D8F14, temp_f2, temp_f3);
+    temp_r3 = TObjPlayer__sub_800196EC(lbl_805D8F14, temp_f2, temp_f3);
     if (fn_8020C1F0(temp_r3, 1) == 0) {
         if (is_split_screen() == 0) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {

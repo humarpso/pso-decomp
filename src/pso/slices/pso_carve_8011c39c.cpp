@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_801044B8(s32 *);
-M2C_UNK fn_8010663C(u32, s32, s32, s32);
+M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
 extern u32 item_mgr;
 
 void fn_8011C39C(s32 arg0, s32 arg1, s32 arg2) {
@@ -19,7 +19,7 @@ void fn_8011C39C(s32 arg0, s32 arg1, s32 arg2) {
         fn_801044B8(&sp8);
         temp_r5 = sp8 - 1;
         sp8 = temp_r5;
-        fn_8010663C(item_mgr, arg0, temp_r5, arg2);
+        TItemDrop__sub_8010663C(item_mgr, arg0, temp_r5, arg2);
     }
 }
 

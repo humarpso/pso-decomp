@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TBoss2LaserLight__sub_80037474(void *);
 
-void fn_800343B4(void *arg0) {
+void TBoss2DeRolLe__sub_800343B4(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6B8) != 0U) {
         TBoss2LaserLight__sub_80037474(M2C_FIELD(arg0, void **, 0x6B8));
     }

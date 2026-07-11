@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_800DED30(void *, M2C_UNK);
-s32 fn_800DFB44(s32);
+s32 TObjEnePanarms__sub_800DFB44(s32);
 M2C_UNK fn_800F5EB4(void *, M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 void fn_800DD080(u8 *arg0) {
     s32 temp_r0;
 
-    if ((fn_800DFB44(M2C_FIELD(arg0, s32 *, 0x3E4)) != 0) || (fn_800DFB44(M2C_FIELD(arg0, s32 *, 0x3E8)) != 0)) {
+    if ((TObjEnePanarms__sub_800DFB44(M2C_FIELD(arg0, s32 *, 0x3E4)) != 0) || (TObjEnePanarms__sub_800DFB44(M2C_FIELD(arg0, s32 *, 0x3E8)) != 0)) {
         fn_800DED30(arg0, 0xA);
         return;
     }

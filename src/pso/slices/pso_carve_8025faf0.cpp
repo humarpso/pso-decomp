@@ -8,29 +8,29 @@ extern "C" {
 
 M2C_UNK fn_8024FBA8(s32, s32);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C618(s32, u16);
-s32 fn_8025EDB4(void *, s32, u16 *);
-u32 fn_8025F27C(void *);
-u8 fn_8025F2F8(void *, u8);
-s32 fn_8025F3D4(void *, s32, u8);
-s32 fn_8025F4A0();
+s32 TKeyBoardControl__sub_8025EDB4(void *, s32, u16 *);
+u32 TKeyBoardControl__sub_8025F27C(void *);
+u8 TKeyBoardControl__sub_8025F2F8(void *, u8);
+s32 TKeyBoardControl__sub_8025F3D4(void *, s32, u8);
+s32 TKeyBoardControl__sub_8025F4A0();
 s32 TWindowKeyBoardHard__sub_80260438(void *);
 
-void fn_8025FAF0(void *arg0, s32 arg1) {
+void TKeyBoardControl__sub_8025FAF0(void *arg0, s32 arg1) {
     u16 sp8;
     s32 temp_r31;
 
-    if (fn_8025F4A0() != 0) {
+    if (TKeyBoardControl__sub_8025F4A0() != 0) {
         M2C_FIELD(arg0, s32 *, 0x6C) = 7;
         return;
     }
-    temp_r31 = fn_8025EDB4(arg0, arg1, &sp8);
+    temp_r31 = TKeyBoardControl__sub_8025EDB4(arg0, arg1, &sp8);
     if (sp8 == 0x1F) {
         M2C_FIELD(arg0, s32 *, 0x6C) = 7;
         return;
     }
-    if (fn_8025F27C(arg0) < 3U) {
-        if (fn_8025F3D4(arg0, arg1, (u8) sp8) == 0) {
-            sp8 = (u16) fn_8025F2F8(arg0, (u8) sp8);
+    if (TKeyBoardControl__sub_8025F27C(arg0) < 3U) {
+        if (TKeyBoardControl__sub_8025F3D4(arg0, arg1, (u8) sp8) == 0) {
+            sp8 = (u16) TKeyBoardControl__sub_8025F2F8(arg0, (u8) sp8);
             goto block_7;
         }
     } else {

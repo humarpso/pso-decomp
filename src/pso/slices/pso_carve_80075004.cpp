@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800196EC();
+s32 TObjPlayer__sub_800196EC();
 s32 fn_80070AB0();
 s32 fn_80293080();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -21,7 +21,7 @@ s32 fn_80075008(void *arg0) {
     } else {
         var_r3 = fn_80070AB0();
     }
-    if ((var_r3 == 0) || ((s8) M2C_FIELD(arg0, u8 *, 0xC2) != fn_800196EC())) {
+    if ((var_r3 == 0) || ((s8) M2C_FIELD(arg0, u8 *, 0xC2) != TObjPlayer__sub_800196EC())) {
         return 1;
     }
     return 0;

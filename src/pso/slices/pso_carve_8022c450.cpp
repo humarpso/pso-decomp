@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 fn_8022C5CC(s32, s32);
-M2C_UNK fn_8022DBC4();
+M2C_UNK TTecCtrl__sub_8022DBC4();
 extern f32 lbl_805DC7D0;
 extern f32 lbl_805DC7D4;
 
 s32 fn_8022C450(s32 arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
 
-    fn_8022DBC4();
+    TTecCtrl__sub_8022DBC4();
     if ((arg1 == 0) || (arg1 == 1)) {
         return 0;
     }

@@ -6,7 +6,7 @@ s32 fn_80087638(s32, s32);
 s32 fn_8022675C(s32, s32, s32, s32);
 s32 fn_80015CB8(s32, s32);
 s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
-s32 fn_80019248(s32);
+s32 TObjPlayer__sub_80019248(s32);
 u16 obj_getField1c(void* a0 = 0);
 int fn_8000FEAC(void* p);
 int fn_8000FED0(void* p);
@@ -25,7 +25,7 @@ void fn_8000FF4C(void* p, s16 v) { *(s16*)((char*)p + 0x2d4) = v; }
 u16 fn_8000FF54(void* p) { return *(u16*)((char*)p + 0x2d4); }
 s32 fn_8000FF5C(s32 arg0) {
     if (obj_getField1c() < 0x1000U) {
-        return fn_80019248(arg0);
+        return TObjPlayer__sub_80019248(arg0);
     }
     return 0;
 }

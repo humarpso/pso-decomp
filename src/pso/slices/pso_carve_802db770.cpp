@@ -10,7 +10,7 @@ void free__11TOBoss4RockFUi(void*);
 extern u32 lbl_805D68AC;
 extern u32 lbl_805D68B8;
 
-void fn_802DB770(void) {
+void TObjEneGibbles__sub_802DB770(void) {
     if ((u32) lbl_805D68AC != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D68AC);
         lbl_805D68AC = 0U;

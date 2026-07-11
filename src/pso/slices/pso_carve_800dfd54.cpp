@@ -11,7 +11,7 @@ s32 fn_80141F84(s32, s32, void *);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 extern const f32 lbl_805DA524;
 
-void fn_800DFD54(void *arg0) {
+void TObjEnePanarms__sub_800DFD54(void *arg0) {
     void *temp_r5;
 
     temp_r5 = M2C_FIELD(arg0, void **, 0x37C);

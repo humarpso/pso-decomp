@@ -87,19 +87,19 @@ extern "C" {
 
 M2C_UNK fn_8001053C();
 M2C_UNK fn_8002AE7C(void *, s32);
-M2C_UNK fn_801D0D58(void *);
-M2C_UNK fn_801D0D7C(void *);
-M2C_UNK fn_801D0D8C(void *);
-M2C_UNK fn_801D0D9C(void *);
+M2C_UNK TObjPlayer__sub_801D0D58(void *);
+M2C_UNK TObjPlayer__sub_801D0D7C(void *);
+M2C_UNK TObjPlayer__sub_801D0D8C(void *);
+M2C_UNK TObjPlayer__sub_801D0D9C(void *);
 
 void fn_801C7538(void *arg0) {
     void *temp_r3;
 
     fn_8001053C();
-    fn_801D0D9C(arg0);
-    fn_801D0D8C(arg0);
-    fn_801D0D7C(arg0);
-    fn_801D0D58(arg0);
+    TObjPlayer__sub_801D0D9C(arg0);
+    TObjPlayer__sub_801D0D8C(arg0);
+    TObjPlayer__sub_801D0D7C(arg0);
+    TObjPlayer__sub_801D0D58(arg0);
     temp_r3 = M2C_FIELD(arg0, void **, 0x380);
     fn_8002AE7C(arg0, ((VObj_801C7538 *)temp_r3)->m74());
 }

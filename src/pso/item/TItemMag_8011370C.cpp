@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TItemMag__vt16(s32 arg0, s32 arg1);
-M2C_UNK fn_8010D510(s32, s32, s32);
+M2C_UNK TItemData__sub_8010D510(s32, s32, s32);
 
 void TItemMag__vt16(s32 arg0, s32 arg1) {
-    fn_8010D510(arg1, arg0 + 0x198, arg0);
+    TItemData__sub_8010D510(arg1, arg0 + 0x198, arg0);
 }
 
 }

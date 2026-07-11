@@ -7,14 +7,14 @@ extern "C" {
 void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void fn_800687C8(void);
+void TCameraCtrl__sub_800687C8(void);
 
 extern M2C_UNK __vt__17TAdFloorLoadCamGC[];
 
 void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TAdFloorLoadCamGC;
-        fn_800687C8();
+        TCameraCtrl__sub_800687C8();
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

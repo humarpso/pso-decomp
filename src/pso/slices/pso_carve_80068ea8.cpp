@@ -11,7 +11,7 @@ s32 TCameraCtrl__sub_8006B338();
 extern f32 lbl_805D8FAC;
 extern f32 lbl_805D8FC8;
 
-f32 fn_80068EA8(void) {
+f32 TCameraCtrl__sub_80068EA8(void) {
     if (is_split_screen() != 0) {
         if (TCameraCtrl__sub_8006B338() == 2) {
             return lbl_805D8FAC;

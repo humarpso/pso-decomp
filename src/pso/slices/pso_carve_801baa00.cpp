@@ -8,7 +8,7 @@ extern "C" {
 
 s32 obj_isState2_324(u32);
 s16 obj_getField1c(u32);
-s32 fn_800196F4(u32);
+s32 TObjPlayer__sub_800196F4(u32);
 M2C_UNK fn_801BEA5C();
 M2C_UNK fn_801C17D0(M2C_UNK *);
 M2C_UNK fn_801C17EC(M2C_UNK *);
@@ -26,7 +26,7 @@ void fn_801BAA00(u32 arg0) {
     if ((arg0 == 0U) || (obj_isState2_324(arg0) == 0)) {
         fn_801C17D0((M2C_UNK *)&sp8);
         sp8.fA = obj_getField1c(arg0);
-        sp8.fC = fn_800196F4(arg0);
+        sp8.fC = TObjPlayer__sub_800196F4(arg0);
         fn_801C17EC((M2C_UNK *)&sp8);
     }
 }

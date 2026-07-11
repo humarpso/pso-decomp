@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s16 ret_801D26AC(void);
-s32 fn_801D2620(void * a0 = 0);
-s32 fn_801D2618(void * a0 = 0, f32 a1 = 0);
-s32 fn_801D0E94(void * a0 = 0);
-s32 fn_801D0E28(void * a0 = 0);
-s32 fn_801D0BC0(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
+s32 TObjPlayer__sub_801D2620(void * a0 = 0);
+s32 TObjPlayer__sub_801D2618(void * a0 = 0, f32 a1 = 0);
+s32 TObjPlayer__sub_801D0E94(void * a0 = 0);
+s32 TObjPlayer__sub_801D0E28(void * a0 = 0);
+s32 TObjPlayer__sub_801D0BC0(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
 s32 fn_801BA650(void * a0 = 0, s32 a1 = 0, s16 a2 = 0);
 s32 update_facing_from_lock__10TObjPlayerFPv(void * a0 = 0);
 s32 obj_isState2_324(void * a0 = 0);
@@ -20,17 +20,17 @@ void fn_801C8478(void);
 void fn_801C8478(void) {  }
 void fn_801C847C(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x17;
-    fn_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
-    if (fn_801D0E28(arg0) != 0) {
+    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    if (TObjPlayer__sub_801D0E28(arg0) != 0) {
         update_facing_from_lock__10TObjPlayerFPv(arg0);
     }
     if (obj_isState2_324(arg0) != 0) {
         M2C_FIELD(arg0, s16 *, 0xBA) = ret_801D26AC();
     }
     fn_801BA650(arg0, 0x17, M2C_FIELD(arg0, s16 *, 0x3C0));
-    if (fn_801D0E94(arg0) != 0) {
-        fn_801D2620(arg0);
-        fn_801D2618(arg0, M2C_FIELD(arg0, f32 *, 0x3C4));
+    if (TObjPlayer__sub_801D0E94(arg0) != 0) {
+        TObjPlayer__sub_801D2620(arg0);
+        TObjPlayer__sub_801D2618(arg0, M2C_FIELD(arg0, f32 *, 0x3C4));
     }
 }
 

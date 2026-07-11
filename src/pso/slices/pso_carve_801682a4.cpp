@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK memset(void *, int, int);
 
-void fn_801682A4(u8 *arg0) {
+void reset_state(u8 *arg0) {
     memset(arg0 + 0x33C, 0, 0x10);
     M2C_FIELD(arg0, s32 *, 0x34C) = 0;
 }

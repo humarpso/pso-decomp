@@ -14,7 +14,7 @@ s32 fn_802E00C4(s32);
 u32 fn_802E0100();
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 
-void fn_802DC440(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0) {
     if (fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) {
         if (fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x68)) < 0xE) {
             M2C_FIELD(arg0, s32 *, 0x58) = 0;

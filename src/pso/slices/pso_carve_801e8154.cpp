@@ -11,7 +11,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_80512220[];
 extern s32 lbl_805D53A0;
 
-void fn_801E8154(void) {
+void TLobby__sub_801E8154(void) {
     s32 temp_r31;
     u32 ret;
 

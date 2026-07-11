@@ -15,7 +15,7 @@ s32 fn_802D50A0(s32);
 s32 fn_802E00C4(s32);
 extern M2C_UNK lbl_8050E3B8[];
 
-void fn_802DC760(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DC760(void *arg0) {
     s32 temp_r3;
 
     if (TWindowShortListCtrl__check_controller_button((s8 *)lbl_8050E3B8 + 0x20, 2) != 0) {

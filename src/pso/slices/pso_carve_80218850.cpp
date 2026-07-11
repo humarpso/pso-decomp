@@ -26,7 +26,7 @@ M2C_UNK close_windows__12TQuestListVMFPv(void *);
 M2C_UNK fn_80219EC4(void *);
 M2C_UNK TWindow__close(void *);
 
-void fn_80218850(void *arg0) {
+void TQuestListVM__sub_80218850(void *arg0) {
     void *p;
 
     p = M2C_FIELD(arg0, void **, 0x2374);

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_802CD054(void);
+void TObjEneMe1GiGue__sub_802CD054(void);
 
-void fn_802CD054(void) {  }
+void TObjEneMe1GiGue__sub_802CD054(void) {  }
 
 }

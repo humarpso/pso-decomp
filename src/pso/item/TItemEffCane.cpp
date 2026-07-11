@@ -1,9 +1,9 @@
 #include "pso/TItemEffCane.h"
 
-extern "C" void TBoss4Type2__sub_80086C44(void*);
+extern "C" void request_destroy__11TBoss4Type2FUi(void*);
 
 void TItemEffCane::run_task() {}
 
 TItemEffCane::~TItemEffCane() {
-    TBoss4Type2__sub_80086C44(this->m_20);
+    request_destroy__11TBoss4Type2FUi(this->m_20);
 }

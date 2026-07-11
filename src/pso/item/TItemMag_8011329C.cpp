@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update__8TItemMagFPv(void *arg0);
-M2C_UNK fn_80111758(void *, M2C_UNK);
+M2C_UNK TItemMag__sub_80111758(void *, M2C_UNK);
 
 s32 obj_testFlags30(void *, M2C_UNK);
 extern const f32 lbl_805DABA4;
@@ -21,10 +21,10 @@ void update__8TItemMagFPv(void *arg0) {
         M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) (temp_f1 - lbl_805DABA8);
     }
     if (obj_testFlags30(arg0, 0x08000000) == 0) {
-        fn_80111758(arg0, 1);
+        TItemMag__sub_80111758(arg0, 1);
         return;
     }
-    fn_80111758(arg0, 0);
+    TItemMag__sub_80111758(arg0, 0);
 }
 
 }

@@ -28,7 +28,7 @@ int fn_801C675C(void*);
 
 u16 TItemProArmor__sub_80102C3C(void* p) { return *(u16*)((char*)p + 0xe4); }
 
-void fn_8001960C(void* p);
+void TObjPlayer__sub_8001960C(void* p);
 void bswap_32__FPUl(u32* p);
 
 }

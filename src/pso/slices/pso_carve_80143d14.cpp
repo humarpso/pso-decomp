@@ -12,7 +12,7 @@ s32 fn_8038BE90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern M2C_UNK (*lbl_805D6BB8)(s32, s32, s32);
 extern M2C_UNK (*lbl_805D6BC4)(s32, M2C_UNK, M2C_UNK);
 
-void fn_80143D14(s32 arg1, s32 arg2, s32 arg3) {
+void flush_framebuffer(s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
 
     lbl_805D6BC4(arg2, 0x280, 0x1E0);

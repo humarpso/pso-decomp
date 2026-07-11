@@ -8,7 +8,7 @@ extern "C" {
 
 extern f32 lbl_805D8FA8;
 
-f32 fn_80068A04(void) {
+f32 TCameraCtrl__sub_80068A04(void) {
     return lbl_805D8FA8;
 }
 

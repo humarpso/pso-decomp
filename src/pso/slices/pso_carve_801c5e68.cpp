@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s16 fn_800194E8(s32, s16);
-s32 fn_80019514(s32);
+s16 TObjPlayer__sub_800194E8(s32, s16);
+s32 TObjPlayer__sub_80019514(s32);
 extern M2C_UNK lbl_80447120;
 extern const f32 lbl_805DC330;
 
 void fn_801C5E68(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4) {
     s16 temp_r4;
 
-    M2C_FIELD(arg0, s16 *, 0) = (s16) (M2C_FIELD(arg2, s16 *, 0) + fn_80019514(arg3));
+    M2C_FIELD(arg0, s16 *, 0) = (s16) (M2C_FIELD(arg2, s16 *, 0) + TObjPlayer__sub_80019514(arg3));
     temp_r4 = M2C_FIELD(arg2, s16 *, 8);
     M2C_FIELD(arg0, s16 *, 2) = (s16) (temp_r4 + M2C_FIELD(arg4, s32 *, 0x1C));
     M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg2, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) (lbl_805DC330 * (f32) (M2C_FIELD(arg2, s16 *, 0xA) + fn_800194E8(arg3, temp_r4)));
+    M2C_FIELD(arg0, s16 *, 6) = (s16) (lbl_805DC330 * (f32) (M2C_FIELD(arg2, s16 *, 0xA) + TObjPlayer__sub_800194E8(arg3, temp_r4)));
     M2C_FIELD(arg0, s16 *, 8) = (s16) (M2C_FIELD(arg2, s16 *, 4) + M2C_FIELD(arg4, s16 *, 0));
     M2C_FIELD(arg0, s16 *, 0xA) = (s16) M2C_FIELD(arg2, s16 *, 0xC);
     M2C_FIELD(arg0, s16 *, 0xC) = (s16) M2C_FIELD(arg4, s16 *, 2);

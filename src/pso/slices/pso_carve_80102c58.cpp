@@ -39,10 +39,10 @@ void fn_80102CB4(void) {
 f32 fn_80102CD8(void* p) { return *(f32*)((char*)p + 0x1c); }
 int fn_80102CE0(void) { return 0; }
 int fn_80102D14(void) { return 0; }
-void fn_8001960C(void* p);
+void TObjPlayer__sub_8001960C(void* p);
 void bswap_32__FPUl(u32* p);
 void fn_80102D48(void* p) {
-    fn_8001960C(p);
+    TObjPlayer__sub_8001960C(p);
     bswap_32__FPUl((u32*)((char*)p + 4));
     bswap_32__FPUl((u32*)((char*)p + 8));
 }

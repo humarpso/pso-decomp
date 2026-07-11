@@ -11,7 +11,7 @@ M2C_UNK fn_8013DF4C(s32, u8);
 M2C_UNK fn_8013DF54(s32, M2C_UNK);
 M2C_UNK fn_8013DFC4(s32);
 
-void fn_801CCC40(void *arg0, s32 arg1) {
+void TObjPlayer__sub_801CCC40(void *arg0, s32 arg1) {
     u32 temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, u32 *, 0x424);

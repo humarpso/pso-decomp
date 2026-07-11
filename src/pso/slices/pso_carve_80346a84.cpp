@@ -11,7 +11,7 @@ extern s32 lbl_805D6E1C;
 extern s32 lbl_805D6E2C;
 extern s32 lbl_805D6E38;
 
-s32 fn_80346A84(s32 arg0) {
+s32 TWindowDD__sub_80346A84(s32 arg0) {
     if (arg0 == -1) {
         return 0;
     }

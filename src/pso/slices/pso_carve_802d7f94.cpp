@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802D80AC(void * a0 = 0);
-void fn_802D8034(void);
+s32 TObjEneGibbles__sub_802D80AC(void * a0 = 0);
+void TObjEneGibbles__sub_802D8034(void);
 
-int fn_802D7F94(void) { return 0; }
-void fn_802D8034(void) {  }
-void fn_802D8038(void *arg0) {
+int TObjEneGibbles__sub_802D7F94(void) { return 0; }
+void TObjEneGibbles__sub_802D8034(void) {  }
+void TObjEneGibbles__sub_802D8038(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
 
@@ -20,7 +20,7 @@ void fn_802D8038(void *arg0) {
     case 0x0:
         break;
     default:
-        fn_802D80AC(arg0);
+        TObjEneGibbles__sub_802D80AC(arg0);
     case 0x107:
     case 0x10E:
         if (M2C_FIELD(arg0, s32 *, 0x374) & 4) {

@@ -17,7 +17,7 @@ s32 TItemMag__sub_80102C4C();
 s32 get_main_phase();
 void fn_80101CFC(void *, void *);
 void fn_80104394(void *);
-void fn_8010C738(void *);
+void TItemData__sub_8010C738(void *);
 s32 fn_801A2FE0();
 
 u8 fn_80100CC8(void) {
@@ -40,7 +40,7 @@ void fn_80100D68(void *arg0) {
     M2C_UNK sp8[4];
 
     fn_80101CFC(arg0, &sp8);
-    fn_8010C738(&sp8);
+    TItemData__sub_8010C738(&sp8);
 }
 void TItemMag__sub_80100D94(void* p, u8 v) { *(u8*)((char*)p + 0xee) = v; }
 void fn_80100D9C(void* p, u8 v) { *(u8*)((char*)p + 0xed) = v; }

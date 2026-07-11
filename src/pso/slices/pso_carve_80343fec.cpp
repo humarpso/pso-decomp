@@ -20,7 +20,7 @@ extern u32 lbl_805D6E58;
 extern u32 lbl_805D6E5C;
 extern u32 lbl_805D6E60;
 
-void fn_80343FEC(void) {
+void TWindowDD__sub_80343FEC(void) {
     fn_8034AF18();
     if ((u32) lbl_805D6E1C != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D6E1C);

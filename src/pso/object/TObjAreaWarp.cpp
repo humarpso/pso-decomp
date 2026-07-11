@@ -8,7 +8,7 @@ extern "C" {
 
 void *TObjAreaWarp__ct(void *arg0);
 M2C_UNK TObjWarpBase__ct();
-s32 fn_800196EC();
+s32 TObjPlayer__sub_800196EC();
 
 extern M2C_UNK __vt__12TObjAreaWarp[];
 extern s32 lbl_805D3468;
@@ -20,7 +20,7 @@ void *TObjAreaWarp__ct(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3468;
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     if ((s32) lbl_805D5C80 != 0) {
-        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (fn_800196EC() + 1);
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (TObjPlayer__sub_800196EC() + 1);
     }
     M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     return arg0;

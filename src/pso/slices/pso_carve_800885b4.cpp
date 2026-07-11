@@ -13,7 +13,7 @@ extern s32 lbl_805D4EFC;
 extern u32 lbl_805D4F00;
 extern u32 lbl_805D4F04;
 
-void fn_800885B4(void) {
+void TParticleCtrl__sub_800885B4(void) {
     free__11TOBoss4RockFUi(lbl_805D4EFC);
     lbl_805D4EFC = 0;
     if ((u32) lbl_805D4F00 != 0U) {

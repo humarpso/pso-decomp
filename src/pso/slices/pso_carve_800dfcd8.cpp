@@ -11,7 +11,7 @@ M2C_UNK fn_800E1C98(void *, M2C_UNK);
 s32 fn_80141F84(s32, s32);
 s32 fn_801423A4(s32, s32, M2C_UNK);
 
-void fn_800DFCD8(void *arg0) {
+void TObjEnePanarms__sub_800DFCD8(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
 

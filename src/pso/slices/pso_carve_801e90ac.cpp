@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK clear_flag_3__7TObjectFv(void *);
 extern void *tl_04;
 
-void fn_801E90AC(void) {
+void TLobby__sub_801E90AC(void) {
     void *temp = tl_04;
     if (temp != 0) {
         clear_flag_3__7TObjectFv(temp);

@@ -14,7 +14,7 @@ struct VObj_801D4D48 : Base_801D4D48 {
 
 extern "C" {
 
-s32 fn_8010CD6C(s32);
+s32 TItemData__sub_8010CD6C(s32);
 u32 fn_801D4E10(void *, s32);
 M2C_UNK fn_801D551C(s32);
 void *fn_801D5764();
@@ -25,7 +25,7 @@ extern s32 lbl_805D5DFC;
 s32 fn_801D4D48(void *arg0, s32 arg1) {
     void *temp_r3;
 
-    if (fn_8010CD6C(arg1) != 0) {
+    if (TItemData__sub_8010CD6C(arg1) != 0) {
         if (fn_801D4E10(arg0, arg1) != 0U) {
             temp_r3 = fn_801D5764();
             if ((temp_r3 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {

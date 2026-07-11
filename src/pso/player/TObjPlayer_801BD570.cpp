@@ -53,7 +53,7 @@ void TObjPlayer__sub_801C224C(void *);
 void TObjPlayer__sub_801C57A0(void *);
 void init_sub_objects__10TObjPlayerFPv(void *);
 void __ct__14TPlyDispConfigFv(void *);
-void fn_80019038(void *);
+void TObjPlayer__sub_80019038(void *);
 void fn_80072218(void *);
 void fn_801BB900(void *, void *);
 void fn_801BBB70(void *, void *);
@@ -65,7 +65,7 @@ extern M2C_UNK __vt__10TObjPlayer[];
 extern void *lbl_805D3530;
 
 void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
-    fn_80019038(arg0);
+    TObjPlayer__sub_80019038(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
     init_subobject__10TObjPlayerFPv((void *)((char *)arg0 + 832));
     TObjPlayer__sub_801C224C((void *)((char *)arg0 + 844));
@@ -116,7 +116,7 @@ extern M2C_UNK __vt__10TObjPlayer[];
 extern void *lbl_805D3530;
 
 void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    fn_80019038(arg0);
+    TObjPlayer__sub_80019038(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
     init_subobject__10TObjPlayerFPv((void *)((char *)arg0 + 832));
     TObjPlayer__sub_801C224C((void *)((char *)arg0 + 844));

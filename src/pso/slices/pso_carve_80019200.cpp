@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32, s32);
 
-void fn_80019200(s32 arg0, s32 arg1) {
+void TObjPlayer__sub_80019200(s32 arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x2FC, arg0);
 }
 

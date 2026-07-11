@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80011734(void *, M2C_UNK, f32);
-M2C_UNK fn_80017E6C(void *);
+M2C_UNK TObjPlayer__sub_80017E6C(void *);
 M2C_UNK fn_800C20B0();
 M2C_UNK fn_80143504(void *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
@@ -23,7 +23,7 @@ void fn_800C0198(void *arg0) {
     }
     TObjPlayer__sub_80154E3C(arg0);
     if (M2C_FIELD(arg0, f32 *, 0xC0) < (lbl_805D9F24 * (lbl_805D9F2C * M2C_FIELD(arg0, f32 *, 0xC8)))) {
-        fn_80017E6C(arg0);
+        TObjPlayer__sub_80017E6C(arg0);
         M2C_FIELD(arg0, f32 *, 0x308) = (f32) (M2C_FIELD(arg0, f32 *, 0x308) * lbl_805D9F24);
         M2C_FIELD(arg0, f32 *, 0x310) = (f32) (M2C_FIELD(arg0, f32 *, 0x310) * lbl_805D9F24);
     }

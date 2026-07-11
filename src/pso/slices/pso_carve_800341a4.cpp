@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800340C8(void *);
+M2C_UNK TBoss2DeRolLe__sub_800340C8(void *);
 s32 fn_800B9B84();
 M2C_UNK TObjEneDD__vt90();
 
-void fn_800341A4(void *arg0) {
+void TBoss2DeRolLe__sub_800341A4(void *arg0) {
     TObjEneDD__vt90();
     if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 8) || (fn_800B9B84() != 0)) {
-        fn_800340C8(arg0);
+        TBoss2DeRolLe__sub_800340C8(arg0);
     }
 }
 

@@ -8,13 +8,13 @@ extern "C" {
 
 s32 fn_80105348(void *, M2C_UNK);
 M2C_UNK fn_80110B50(void *, M2C_UNK);
-s32 fn_80111828();
+s32 TItemMag__sub_80111828();
 s16 fn_80113DA0(void *);
 s16 fn_80113DC4(void *);
 s16 fn_80113DE8(void *, void *);
 s16 fn_80113E0C(void *);
 
-void fn_80111D38(void *arg0) {
+void TItemMag__sub_80111D38(void *arg0) {
     s16 temp_r26;
     s16 temp_r29;
     s16 temp_r30;
@@ -24,7 +24,7 @@ void fn_80111D38(void *arg0) {
     void *temp_r4;
 
     if ((void *) M2C_FIELD(arg0, void **, 0xF0) != NULL) {
-        temp_r25 = fn_80111828();
+        temp_r25 = TItemMag__sub_80111828();
         temp_r4 = M2C_FIELD(arg0, void **, 0xF0);
         temp_r28 = (s8) M2C_FIELD(temp_r4, u8 *, 0x88C);
         temp_r29 = fn_80113DE8(arg0, temp_r4);

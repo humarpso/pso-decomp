@@ -8,13 +8,13 @@ extern "C" {
 
 u8 TObjPlayer__sub_8001972C(s32);
 M2C_UNK fn_80110B50(s32, M2C_UNK);
-s32 fn_80111828();
+s32 TItemMag__sub_80111828();
 
-void fn_8011222C(s32 arg0) {
+void TItemMag__sub_8011222C(s32 arg0) {
     s32 temp_r31;
     u8 temp_r3;
 
-    temp_r31 = fn_80111828();
+    temp_r31 = TItemMag__sub_80111828();
     temp_r3 = TObjPlayer__sub_8001972C(arg0);
     switch ((s32) temp_r3) {
     case 1:

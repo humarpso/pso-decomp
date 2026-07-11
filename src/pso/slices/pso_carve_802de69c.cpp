@@ -20,7 +20,7 @@ s32 fn_802D50A0(s32);
 M2C_UNK fn_802E0008(s32);
 extern s32 lbl_805D68C8;
 
-void fn_802DE69C(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DE69C(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x68)) == 1) {

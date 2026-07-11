@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TItemDrop__sub_801060F4();
-s32 fn_8010DF68(void *);
+s32 TItemData__sub_8010DF68(void *);
 extern u8 lbl_805DAAE0;
 
-void fn_80106ED0(void *arg0, void *arg1) {
+void TItemDrop__sub_80106ED0(void *arg0, void *arg1) {
     u8 temp_r3;
 
     if ((TItemDrop__sub_801060F4() == 1) && ((u8) M2C_FIELD(arg1, u8 *, 0) == 0)) {
-        if (fn_8010DF68(arg1) != 0) {
+        if (TItemData__sub_8010DF68(arg1) != 0) {
             M2C_FIELD(arg1, u8 *, 4) = (u8) (M2C_FIELD(arg1, u8 *, 4) | lbl_805DAAE0);
             return;
         }

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 
-void fn_802CB620(void *arg0, u32 arg1) {
+void TObjEneMe1GiGue__sub_802CB620(void *arg0, u32 arg1) {
     if ((arg1 == TPlayerBattleCtrl4P__sub_801BA74C(0)) && ((s32) M2C_FIELD(arg0, s32 *, 0x3F4) <= 0)) {
         M2C_FIELD(arg0, s32 *, 0x3F4) = 0x1E;
         set_shake_preset__11TCameraCtrlFi(1);

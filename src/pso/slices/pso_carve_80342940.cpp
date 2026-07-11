@@ -6,26 +6,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803428C4(s32);
-M2C_UNK fn_8034330C(s32);
-M2C_UNK fn_803435A0(s32);
+M2C_UNK TWindowDD__sub_803428C4(s32);
+M2C_UNK TWindowDD__sub_8034330C(s32);
+M2C_UNK TWindowDD__sub_803435A0(s32);
 M2C_UNK TWindowDD__sub_80347C50();
 M2C_UNK TWindowDD__sub_80348248();
 M2C_UNK TWindowDD__sub_8034827C();
 s32 TWindowDD__sub_803482B0(s32);
 s32 TWindowDD__sub_80348304(s32);
 
-void fn_80342940(s32 arg0) {
+void TWindowDD__sub_80342940(s32 arg0) {
     TWindowDD__sub_80347C50();
     if (TWindowDD__sub_80348304(arg0) != 0) {
         TWindowDD__sub_8034827C();
-        fn_803428C4(arg0);
-        fn_803435A0(arg0);
+        TWindowDD__sub_803428C4(arg0);
+        TWindowDD__sub_803435A0(arg0);
         return;
     }
     if (TWindowDD__sub_803482B0(arg0) != 0) {
         TWindowDD__sub_80348248();
-        fn_8034330C(arg0);
+        TWindowDD__sub_8034330C(arg0);
     }
 }
 

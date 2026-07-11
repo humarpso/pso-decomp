@@ -11,7 +11,7 @@ M2C_UNK TObjEneDD__vt91(void *);
 M2C_UNK TObjEneDD__vt90(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int fn_8001960C(void*);
+int TObjPlayer__sub_8001960C(void*);
 int TLobby__send_and_handle_60(void*);
 void fn_802EE6E8(void);
 void fn_802EE6EC(void);
@@ -31,8 +31,8 @@ void fn_802EE6F4(void) {  }
 void fn_802EE6F8(void) {  }
 void fn_802EE6FC(void) {  }
 void fn_802EE700(void) {  }
-void fn_802EE704(void* p) { fn_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
-void fn_802EE748(void* p) { fn_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void fn_802EE704(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
+void fn_802EE748(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 void fn_802EE784(void* p) { fn_802EE748(p); TLobby__send_and_handle_60(p); }
 void fn_802EE7B8(void* p) { *(u8*)((char*)p + 0x0) = 169; *(u8*)((char*)p + 0x1) = 2; }
 void fn_802EE7CC(void* p) { fn_802EE704(p); TLobby__send_and_handle_60(p); }

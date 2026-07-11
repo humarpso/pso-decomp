@@ -11,7 +11,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 fn_802E00C4(s32);
 extern s8 lbl_8050E3B8[];
 
-void fn_802DC3D4(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DC3D4(void *arg0) {
     if ((fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) || (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0)) {
         fn_800F9EF8(1);
         M2C_FIELD(arg0, s32 *, 0x58) = 0;

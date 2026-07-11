@@ -12,7 +12,7 @@ M2C_UNK fn_8023ECA4();
 M2C_UNK fn_802C6A10();
 s32 fn_802E011C();
 
-void fn_802DCD14(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
     s32 temp_r0;
 
     fn_802C6A10();

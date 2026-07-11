@@ -33,7 +33,7 @@ struct VObj_801D0F0C : Base_801D0F0C {
 
 extern "C" {
 
-short fn_801D0F0C(void *arg0) {
+short TObjPlayer__sub_801D0F0C(void *arg0) {
     struct VObj_801D0F0C *o = (struct VObj_801D0F0C *)M2C_FIELD(arg0, void **, 0x380);
     return o->m23();
 }

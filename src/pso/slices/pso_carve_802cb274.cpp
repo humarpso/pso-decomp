@@ -12,7 +12,7 @@ M2C_UNK fn_800D8E80(void *, s32);
 M2C_UNK fn_80143504(void *);
 M2C_UNK fn_80156698(void *);
 M2C_UNK fn_8022675C(void *, void *, s32, s32);
-M2C_UNK fn_802CB5A0(void *, M2C_UNK);
+M2C_UNK TObjEneMe1GiGue__sub_802CB5A0(void *, M2C_UNK);
 
 }
 
@@ -24,7 +24,7 @@ struct VObj410 : Base410 {
 
 extern "C" {
 
-void fn_802CB274(u8 *arg0) {
+void TObjEneMe1GiGue__sub_802CB274(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;
@@ -43,7 +43,7 @@ void fn_802CB274(u8 *arg0) {
         fn_80143504(arg0);
         if (((VObj410 *)(arg0 + 0x3FC))->m5() == 1) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-            fn_8022675C((void *)fn_802CB5A0(arg0, 0x3A345), arg0 + 0x38, 0, 0);
+            fn_8022675C((void *)TObjEneMe1GiGue__sub_802CB5A0(arg0, 0x3A345), arg0 + 0x38, 0, 0);
         }
         fn_80156698(arg0);
         return;

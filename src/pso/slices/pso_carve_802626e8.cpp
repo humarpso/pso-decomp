@@ -8,7 +8,7 @@ void fn_80246674(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804D0004[];
 
-void *fn_802626E8(void *arg0, s16 arg1) {
+void *TWindowKeyBoardSoft__sub_802626E8(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D0004;
         fn_80246674(arg0, 0);

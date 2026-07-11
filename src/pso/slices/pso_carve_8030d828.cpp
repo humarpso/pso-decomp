@@ -17,7 +17,7 @@ extern M2C_UNK lbl_80475840[];
 extern M2C_UNK lbl_804758A0[];
 extern const f32 lbl_805DF218;
 
-void fn_8030D828(void *arg0) {
+void TAdChrSelASlotGC__sub_8030D828(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

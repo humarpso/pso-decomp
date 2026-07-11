@@ -2,13 +2,13 @@
 
 extern "C" {
 
-s32 fn_8001960C();
+s32 TObjPlayer__sub_8001960C();
 s32 bswap_32__FPUl(s32);
 void fn_8019A6F8(void* p);
 
 int fn_8019A678(void) { return 0; }
 void fn_8019A6AC(s32 arg0) {
-    fn_8001960C();
+    TObjPlayer__sub_8001960C();
     bswap_32__FPUl(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);
     bswap_32__FPUl(arg0 + 0xC);

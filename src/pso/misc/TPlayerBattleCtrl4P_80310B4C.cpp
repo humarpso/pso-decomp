@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TPlayerBattleCtrl4P__sub_80310B4C(void *arg0, s32 arg1, s32 arg2);
+void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi();
@@ -14,7 +14,7 @@ M2C_UNK fn_8024A054();
 M2C_UNK fn_8024AD30(u16);
 M2C_UNK TWindowCtrl__sub_8024AEF0(u16);
 
-void TPlayerBattleCtrl4P__sub_80310B4C(void *arg0, s32 arg1, s32 arg2) {
+void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s32 arg2) {
     u16 temp_r31;
     s32 temp_r30;
 

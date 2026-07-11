@@ -10,7 +10,7 @@ M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 extern s32 lbl_805D68BC;
 extern s32 lbl_805D68C0;
 
-void fn_802DB1C0(void) {
+void TObjEneGibbles__sub_802DB1C0(void) {
     if ((s32) lbl_805D68BC == 0x18) {
         TObjContainerIdo__sub_803D96A8(0, lbl_805D68C0);
     }

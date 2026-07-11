@@ -28,7 +28,7 @@ int fn_801C675C(void*);
 
 u8 TOSwitchItem__sub_80102C44(void* p) { return *(u8*)((char*)p + 0xec); }
 
-void fn_8001960C(void* p);
+void TObjPlayer__sub_8001960C(void* p);
 void bswap_32__FPUl(u32* p);
 
 }

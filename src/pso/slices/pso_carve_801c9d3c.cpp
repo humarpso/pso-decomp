@@ -13,8 +13,8 @@ s32 is_alive_and_ready__10TObjPlayerFi(u32);
 M2C_UNK TObjPlayer__sub_801AF7E0(u32);
 M2C_UNK fn_801B4430(u32);
 M2C_UNK send_code_49_1__10TObjPlayerFi(u32);
-M2C_UNK fn_801D17C0(M2C_UNK *);
-M2C_UNK fn_801D17D4(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_801D17C0(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_801D17D4(M2C_UNK *);
 M2C_UNK update_if_ready__15TFontSmallLobbyFPv(s32);
 
 struct Local801C9D3C {
@@ -35,9 +35,9 @@ void fn_801C9D3C(u32 arg0) {
     }
     update_if_ready__15TFontSmallLobbyFPv(arg0 + 0x4AC);
     if ((arg0 == 0U) || (obj_isState2_324(arg0) == 0)) {
-        fn_801D17C0((M2C_UNK *)&sp8);
+        TObjPlayer__sub_801D17C0((M2C_UNK *)&sp8);
         sp8.fieldA = obj_getField1c(arg0);
-        fn_801D17D4((M2C_UNK *)&sp8);
+        TObjPlayer__sub_801D17D4((M2C_UNK *)&sp8);
     }
 }
 

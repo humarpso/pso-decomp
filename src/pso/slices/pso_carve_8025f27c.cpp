@@ -9,7 +9,7 @@ extern "C" {
 u8 fn_80132404(M2C_UNK *);
 extern M2C_UNK lbl_80506270[];
 
-s32 fn_8025F27C(void *arg0) {
+s32 TKeyBoardControl__sub_8025F27C(void *arg0) {
     u8 temp_r3;
 
     if (M2C_FIELD(arg0, s32 *, 0x60) & 0x40) {

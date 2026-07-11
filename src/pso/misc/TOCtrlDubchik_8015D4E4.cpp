@@ -8,11 +8,11 @@ extern "C" {
 
 s32 TOCtrlDubchik__vt18(void *arg0);
 
-s32 fn_80016454();
+s32 TObjPlayer__sub_80016454();
 
 s32 TOCtrlDubchik__vt18(void *arg0) {
     if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
-        return fn_80016454();
+        return TObjPlayer__sub_80016454();
     }
     return 0;
 }

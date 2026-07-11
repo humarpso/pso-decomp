@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80068EF0();
-M2C_UNK fn_80069024();
+M2C_UNK TCameraCtrl__sub_80068EF0();
+M2C_UNK TCameraCtrl__sub_80069024();
 M2C_UNK fn_80084038(s32, M2C_UNK, f32);
 M2C_UNK fn_8008453C();
 M2C_UNK fn_80084764();
@@ -26,11 +26,11 @@ void fn_800833EC(void *arg0) {
     if (!(fn_800847CC() & 4)) {
         if (M2C_FIELD(arg0, s32 *, 0x1C) & 1) {
             if (fn_800847A8() == 1) {
-                fn_80069024();
+                TCameraCtrl__sub_80069024();
                 fn_801E2EFC();
                 fn_80084038(lbl_805D2910 << 0x18, 0, lbl_805D93D0);
                 fn_801E2F20();
-                fn_80068EF0();
+                TCameraCtrl__sub_80068EF0();
                 fn_80084790();
             }
         } else {

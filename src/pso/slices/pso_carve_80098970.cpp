@@ -131,7 +131,7 @@ struct SubObj : SubBase {
     virtual M2C_UNK v5();
 };
 
-void fn_80098970(u8 *arg0, s32 arg1) {
+void TObjEneDf2Bringer__sub_80098970(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
     switch (arg1) {

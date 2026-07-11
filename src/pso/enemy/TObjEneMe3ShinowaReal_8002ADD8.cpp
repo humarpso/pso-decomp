@@ -5,7 +5,7 @@ extern "C" {
 void fn_8002AEF4(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int fn_8001960C(void*);
+int TObjPlayer__sub_8001960C(void*);
 void fn_8002AF4C(void* p);
 void fn_8002AF90(void* p);
 void fn_8002AEC0(void* p);

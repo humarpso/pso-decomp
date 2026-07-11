@@ -8,11 +8,11 @@ extern "C" {
 
 s32 TWindowHelpItem__sub_80104FCC(s32, s32, s32 *);
 s32 fn_8010C52C(s32);
-s32 fn_8010C738(s32);
-s32 fn_8010CC68(s32);
-s32 fn_8010CEF4(s32);
-u32 fn_8010D028(s32, M2C_UNK, s32);
-s32 fn_8010DF68(s32);
+s32 TItemData__sub_8010C738(s32);
+s32 TItemData__sub_8010CC68(s32);
+s32 TItemData__sub_8010CEF4(s32);
+u32 TItemData__sub_8010D028(s32, M2C_UNK, s32);
+s32 TItemData__sub_8010DF68(s32);
 u8 fn_8010EB10(s32);
 s32 fn_8010EC88(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
@@ -32,7 +32,7 @@ void fn_80258518(void *arg0, s32 arg1) {
         temp_r29 = TWindowHelpItem__sub_80104FCC(temp_r3, arg1, &sp8);
         temp_r30 = fn_8010EC88(arg1);
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0x33) {
-            if ((temp_r30 == 0) && (fn_8010DF68(arg1) != 0)) {
+            if ((temp_r30 == 0) && (TItemData__sub_8010DF68(arg1) != 0)) {
                 M2C_FIELD(arg0, u8 *, 0x1C) = 0x19U;
             } else if (sp8 & 1) {
                 M2C_FIELD(arg0, u8 *, 0x1C) = 0x13U;
@@ -46,11 +46,11 @@ void fn_80258518(void *arg0, s32 arg1) {
         }
         if (temp_r29 != 0) {
             M2C_FIELD(arg0, s32 *, 0x2C) = -1;
-            if (fn_8010CC68(arg1) != 0) {
+            if (TItemData__sub_8010CC68(arg1) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFFFE3C28;
                 return;
             }
-            if (fn_8010C738(arg1) == 2) {
+            if (TItemData__sub_8010C738(arg1) == 2) {
                 M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x800);
                 return;
             }
@@ -58,11 +58,11 @@ void fn_80258518(void *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x30) = -0x1600;
                 return;
             }
-            if (fn_8010CEF4(arg1) != 0) {
+            if (TItemData__sub_8010CEF4(arg1) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFF61E853;
                 return;
             }
-            if (fn_8010D028(arg1, 0x10000, temp_r3) != 0U) {
+            if (TItemData__sub_8010D028(arg1, 0x10000, temp_r3) != 0U) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
                 return;
             }

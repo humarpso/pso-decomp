@@ -16,7 +16,7 @@ M2C_UNK TAdSubPlyItemGC__sub_802D6D88(s32);
 extern M2C_UNK lbl_80475910[];
 extern const f32 lbl_805DF220;
 
-void fn_8030F6B0(void *arg0) {
+void TAdChrSelBSlotGC__sub_8030F6B0(void *arg0) {
     fn_802C7438(M2C_FIELD(arg0, s32 *, 0x28));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x38));

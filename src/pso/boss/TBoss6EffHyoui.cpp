@@ -1,9 +1,9 @@
 #include "pso/TBoss6EffHyoui.h"
 
-extern "C" void TBoss4Type2__sub_80086C44(void*);
+extern "C" void request_destroy__11TBoss4Type2FUi(void*);
 
 void TBoss6EffHyoui::run_task() {}
 
 TBoss6EffHyoui::~TBoss6EffHyoui() {
-    if (m_1c != nullptr) TBoss4Type2__sub_80086C44(m_1c);
+    if (m_1c != nullptr) request_destroy__11TBoss4Type2FUi(m_1c);
 }

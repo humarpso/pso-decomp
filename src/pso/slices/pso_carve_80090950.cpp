@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8009082C();
+M2C_UNK TObjEneBalClawClaw__sub_8009082C();
 
-void fn_80090950(void *arg0) {
+void TObjEneBalClawClaw__sub_80090950(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xDFFFFFFF);
-    fn_8009082C();
+    TObjEneBalClawClaw__sub_8009082C();
 }
 
 }

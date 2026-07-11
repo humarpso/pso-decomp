@@ -10,7 +10,7 @@ s32 fn_80110FD8(void *, M2C_UNK);
 M2C_UNK TItemMag__sub_80112E20(void *, u8);
 M2C_UNK TOBoss4Rock__sub_8039C880();
 
-void fn_801125DC(void *arg0, s8 arg1) {
+void TItemMag__sub_801125DC(void *arg0, s8 arg1) {
     TOBoss4Rock__sub_8039C880();
     if (arg1 & 0x40) {
         if (fn_80110FD8(arg0, 0) != 0) {

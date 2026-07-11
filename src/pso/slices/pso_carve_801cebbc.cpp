@@ -8,9 +8,9 @@ extern "C" {
 
 u32 TObjPlayer__sub_80019704();
 s32 fn_8011E248();
-s32 fn_801CEC1C(s32);
+s32 TObjPlayer__sub_801CEC1C(s32);
 
-s32 fn_801CEBBC(s32 arg0, s32 arg1) {
+s32 TObjPlayer__sub_801CEBBC(s32 arg0, s32 arg1) {
     if (arg1 == 2) {
         if (TObjPlayer__sub_80019704() != 0U) {
             if (fn_8011E248() == 0) {
@@ -21,7 +21,7 @@ s32 fn_801CEBBC(s32 arg0, s32 arg1) {
         return 0;
     }
 block_5:
-    return fn_801CEC1C(arg0);
+    return TObjPlayer__sub_801CEC1C(arg0);
 }
 
 }

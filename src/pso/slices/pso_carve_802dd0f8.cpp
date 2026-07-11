@@ -14,9 +14,9 @@ M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TWindow__close(void *);
 M2C_UNK fn_802D50A8(u32, M2C_UNK);
 M2C_UNK fn_802D50B0(s32, M2C_UNK);
-u32 fn_802DBE4C(void *, M2C_UNK *);
-s32 fn_802DBEC4(void *, M2C_UNK *);
-s32 fn_802DC294(void *, s32);
+u32 TAdMultiPlyChrSelectGC__sub_802DBE4C(void *, M2C_UNK *);
+s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, M2C_UNK *);
+s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 fn_802DFFE0(s32);
 s32 fn_802E0014(s32);
 M2C_UNK fn_802E001C(s32, M2C_UNK);
@@ -30,7 +30,7 @@ extern M2C_UNK lbl_80472870[];
 extern M2C_UNK lbl_80472878[];
 extern s8 lbl_8050E3B8[];
 
-void fn_802DD0F8(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DD0F8(void *arg0) {
     s32 iter;
     u32 temp_u;
     s32 temp_r5;
@@ -65,11 +65,11 @@ loop_7:
         }
         fn_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), (u32)iter);
         fn_802E001C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
-        temp_r3 = fn_802DC294(arg0, fn_802E0014(M2C_FIELD(arg0, s32 *, 0x5C)));
+        temp_r3 = TAdMultiPlyChrSelectGC__sub_802DC294(arg0, fn_802E0014(M2C_FIELD(arg0, s32 *, 0x5C)));
         load_tables();
         fn_802E0C28(M2C_FIELD(arg0, s32 *, 0x60), temp_r3);
         fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 2);
-        M2C_FIELD(arg0, s32 *, 0x80) = fn_802DBEC4(arg0, lbl_80472870);
+        M2C_FIELD(arg0, s32 *, 0x80) = TAdMultiPlyChrSelectGC__sub_802DBEC4(arg0, lbl_80472870);
         fn_802D50A8(M2C_FIELD(arg0, u32 *, 0x68), 0x11);
         M2C_FIELD(arg0, s32 *, 0x20) = 0x16;
         return;
@@ -78,7 +78,7 @@ loop_7:
     if ((u32)iter >= 4U) {
         M2C_FIELD(arg0, s32 *, 0x54) = 0;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x84) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x84) = fn_802DBE4C(arg0, lbl_80472878);
+            M2C_FIELD(arg0, u32 *, 0x84) = TAdMultiPlyChrSelectGC__sub_802DBE4C(arg0, lbl_80472878);
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 0xE;
         return;

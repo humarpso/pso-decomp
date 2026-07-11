@@ -16,7 +16,7 @@ struct VObj_8016A004 : Base_8016A004 {
 
 extern "C" {
 
-s32 fn_800196EC();
+s32 TObjPlayer__sub_800196EC();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_802292E0(u16);
 M2C_UNK fn_802293A0(u16);
@@ -24,7 +24,7 @@ M2C_UNK fn_802293A0(u16);
 void fn_8016A004(void *arg0, void *arg1) {
     s32 temp_r0;
 
-    if ((M2C_FIELD(arg1, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg1, u8 *, 0xA) == fn_800196EC())) {
+    if ((M2C_FIELD(arg1, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg1, u8 *, 0xA) == TObjPlayer__sub_800196EC())) {
         fn_8022675C(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg1, u8 *, 0xB) & 1) {

@@ -13,12 +13,12 @@ s32 fn_802E00BC(s32, s32);
 s32 fn_802E00C4(s32);
 u32 fn_802E0100();
 s32 TAdChrMoveEffectGC__sub_803490AC();
-int fn_802DC2F0(void* p);
+int TAdMultiPlyChrSelectGC__sub_802DC2F0(void* p);
 int fn_8023EC14(void*);
 
-int fn_802DC294(void) { return 0; }
-int fn_802DC2F0(void* p) { return fn_8023EC14(p); }
-void fn_802DC310(void *arg0) {
+int TAdMultiPlyChrSelectGC__sub_802DC294(void) { return 0; }
+int TAdMultiPlyChrSelectGC__sub_802DC2F0(void* p) { return fn_8023EC14(p); }
+void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x88));
         M2C_FIELD(arg0, u32 *, 0x88) = 0U;

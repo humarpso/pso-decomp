@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_enemy_collision_flags__10TObjPlayerFPv(void *arg0);
-s32 fn_80019584(s32);
-s32 fn_801557BC(void *, s32, void *);
-s32 fn_8015580C(s32, s32);
-void *fn_80155FBC(void *, s32, f32);
+s32 TObjPlayer__sub_80019584(s32);
+s32 TObjPlayer__sub_801557BC(void *, s32, void *);
+s32 TObjPlayer__sub_8015580C(s32, s32);
+void *TObjPlayer__sub_80155FBC(void *, s32, f32);
 
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
@@ -28,10 +28,10 @@ void update_enemy_collision_flags__10TObjPlayerFPv(void *arg0) {
     if (temp_r5 != NULL) {
         M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFEDFFFFF);
         for (var_r30 = lbl_805D586C + lbl_805D5870; var_r30 < (s32) lbl_805D5868; var_r30++) {
-            temp_r3 = fn_80019584(var_r30);
+            temp_r3 = TObjPlayer__sub_80019584(var_r30);
             if (temp_r3 != 0) {
-                temp_r3_2 = fn_80155FBC(arg0, temp_r3, lbl_805DB298);
-                if ((temp_r3_2 != NULL) && (fn_8015580C(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (fn_801557BC(arg0, temp_r3, temp_r3_2) != 0)) {
+                temp_r3_2 = TObjPlayer__sub_80155FBC(arg0, temp_r3, lbl_805DB298);
+                if ((temp_r3_2 != NULL) && (TObjPlayer__sub_8015580C(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (TObjPlayer__sub_801557BC(arg0, temp_r3, temp_r3_2) != 0)) {
                     temp_r3_3 = M2C_FIELD(arg0, void **, 0xA4);
                     M2C_FIELD(temp_r3_3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_3, s32 *, 0x18) | 0x01200000);
                 }

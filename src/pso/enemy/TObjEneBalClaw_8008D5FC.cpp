@@ -9,22 +9,22 @@ extern "C" {
 s32 TObjEneBalClaw__vt34(s32 arg0);
 s32 TObjEneBalClaw__vt37(s32 arg0);
 
-s32 fn_80016D78();
+s32 TObjPlayer__sub_80016D78();
 M2C_UNK fn_8008D5C0(s32);
 
 s32 TObjEneBalClaw__vt37(s32 arg0) {
-    if (fn_80016D78() != 0) {
+    if (TObjPlayer__sub_80016D78() != 0) {
         fn_8008D5C0(arg0);
         return 1;
     }
     return 0;
 }
 
-s32 fn_80016FF8();
+s32 TObjPlayer__sub_80016FF8();
 M2C_UNK fn_8008D5C0(s32);
 
 s32 TObjEneBalClaw__vt34(s32 arg0) {
-    if (fn_80016FF8() != 0) {
+    if (TObjPlayer__sub_80016FF8() != 0) {
         fn_8008D5C0(arg0);
         return 1;
     }

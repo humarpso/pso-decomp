@@ -11,12 +11,12 @@ M2C_UNK TObjPlayer__sub_801BF7F4(void *, s32);
 M2C_UNK TObjPlayer__sub_801BF7FC(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801BF804(void *, s32);
 M2C_UNK TObjPlayer__sub_801BF80C(void *, M2C_UNK);
-s32 fn_801D0458(void *);
+s32 TObjPlayer__sub_801D0458(void *);
 
 void init_effect_5f0__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x10000);
     TObjPlayer__sub_801BF80C(arg0 + 0x5F0, 0x10);
-    TObjPlayer__sub_801BF804(arg0 + 0x5F0, fn_801D0458(arg0));
+    TObjPlayer__sub_801BF804(arg0 + 0x5F0, TObjPlayer__sub_801D0458(arg0));
     TObjPlayer__sub_801BF7FC(arg0 + 0x5F0, 0);
     TObjPlayer__sub_801BF7F4(arg0 + 0x5F0, M2C_FIELD(arg0, s32 *, 0x60));
 }

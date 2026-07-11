@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8010CC68();
+s32 TItemData__sub_8010CC68();
 
 s32 fn_8010C6A0(void *arg0) {
     u8 temp_r0;
 
-    if (fn_8010CC68() == 0) {
+    if (TItemData__sub_8010CC68() == 0) {
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);
         if ((temp_r0 != 2) && (temp_r0 != 4) && (M2C_FIELD(arg0, u8 *, 0xA) & 0x80)) {
             return 1;

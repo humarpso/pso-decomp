@@ -9,13 +9,13 @@ extern "C" {
 s32 TCameraCtrl__sub_8006B368();
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(void *, s32, M2C_UNK *);
 u32 __nw__7TObjectFUl(M2C_UNK);
-extern M2C_UNK fn_801E99DC[];
+extern M2C_UNK TLobby__sub_801E99DC[];
 extern s32 tl_00;
 
-void fn_801E9A08(void) {
+void TLobby__sub_801E9A08(void) {
     void *temp_r3;
     if ((TCameraCtrl__sub_8006B368() == 1) && ((temp_r3 = (void*)__nw__7TObjectFUl(0x28)) != 0U)) {
-        init__22THunterGuildSeqOfflineFPvPvPv(temp_r3, tl_00, fn_801E99DC);
+        init__22THunterGuildSeqOfflineFPvPvPv(temp_r3, tl_00, TLobby__sub_801E99DC);
     }
 }
 

@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void fn_800E092C(void);
+void TObjEnePanarms__sub_800E092C(void);
 
-int fn_800E08D8(void) { return 0; }
-void fn_800E092C(void) {  }
-int fn_800E0930(void) { return 0; }
+int TObjEnePanarms__sub_800E08D8(void) { return 0; }
+void TObjEnePanarms__sub_800E092C(void) {  }
+int TObjEnePanarms__sub_800E0930(void) { return 0; }
 
 }

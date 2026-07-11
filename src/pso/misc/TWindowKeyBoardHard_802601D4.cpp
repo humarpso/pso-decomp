@@ -15,9 +15,9 @@ M2C_UNK fn_80246258(void *);
 M2C_UNK fn_8024664C(void *);
 void fn_80246674(void *, int);
 M2C_UNK fn_8025CC48(void *);
-s32 fn_8025EC54(void *);
-M2C_UNK fn_8025FBE8(void *);
-M2C_UNK fn_8025FC60(void *);
+s32 TKeyBoardControl__sub_8025EC54(void *);
+M2C_UNK TKeyBoardControl__sub_8025FBE8(void *);
+M2C_UNK TKeyBoardControl__sub_8025FC60(void *);
 
 extern s32 lbl_805D5544;
 
@@ -27,7 +27,7 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0) {
 
     if ((void *) M2C_FIELD(arg0, void **, 0x70) != NULL) {
         if ((TWindowKeyBoardHard__sub_80260444() == 0) && (TKeyBoardControl__sub_80131FAC(M2C_FIELD(arg0, void **, 0x70)) == 0)) {
-            if (fn_8025EC54(arg0) != 0) {
+            if (TKeyBoardControl__sub_8025EC54(arg0) != 0) {
                 if ((s32) lbl_805D5544 == 0) {
                     M2C_FIELD(arg0, s32 *, 0x68) = 0x3C;
                 }
@@ -38,8 +38,8 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0) {
                     fn_8025CC48(M2C_FIELD(arg0, void **, 0x70));
                 }
             }
-            fn_8025FC60(arg0);
-            fn_8025FBE8(arg0);
+            TKeyBoardControl__sub_8025FC60(arg0);
+            TKeyBoardControl__sub_8025FBE8(arg0);
         }
         temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x68);
         if (temp_r3_2 > 0) {

@@ -14,16 +14,16 @@ M2C_UNK fn_8010C0A4(void *, s32, s32, s32, s32, s32);
 M2C_UNK fn_8010C1E0(void *, s32, s32, s32, s32, s32);
 M2C_UNK fn_8010C320(void *, s32, s32, s32, s32, s32);
 M2C_UNK fn_8010C5DC(void *, s32);
-M2C_UNK fn_8010DD6C(void *, s32);
+M2C_UNK TItemData__sub_8010DD6C(void *, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 
-void fn_8010DDDC(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+void TItemData__sub_8010DDDC(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     u8 temp_r0;
     u8 temp_r0_2;
 
     if ((arg1 != 0) || (arg1 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0), ((arg1 == 0) == 0))) {
-        fn_8010DD6C(arg0, arg1);
+        TItemData__sub_8010DD6C(arg0, arg1);
         fn_8010C5DC(arg0, arg1);
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);
         switch ((s32) temp_r0) {

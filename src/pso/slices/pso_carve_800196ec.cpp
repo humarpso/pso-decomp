@@ -8,7 +8,7 @@ extern "C" {
 
 extern s32 lbl_805D5FC0;
 
-s32 fn_800196EC(void) {
+s32 TObjPlayer__sub_800196EC(void) {
     return lbl_805D5FC0;
 }
 

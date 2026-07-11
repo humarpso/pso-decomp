@@ -15,7 +15,7 @@ M2C_UNK fn_802D5098(s32, M2C_UNK);
 s32 fn_802D50A0(s32);
 M2C_UNK fn_802D50A8(s32, M2C_UNK);
 
-void fn_802D4080(void *arg0) {
+void TAdSinglePlyChrSelectGC__sub_802D4080(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x28)) == 1) {

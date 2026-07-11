@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void fn_8001960C(void *);
+void TObjPlayer__sub_8001960C(void *);
 void bswap_32__FPUl(void *);
 
 void fn_800726F0(void *arg0) {
-    fn_8001960C(arg0);
+    TObjPlayer__sub_8001960C(arg0);
     bswap_32__FPUl((void *)((char *)arg0 + 4));
 }
 

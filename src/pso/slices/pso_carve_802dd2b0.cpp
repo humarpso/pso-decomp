@@ -11,7 +11,7 @@ M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK fn_802E0008(s32);
 s32 fn_802E00C4(s32);
 
-void fn_802DD2B0(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DD2B0(void *arg0) {
     void *temp_r3;
     temp_r3 = M2C_FIELD(arg0, void **, 0x8C);
     if ((u32) temp_r3 != 0U) {

@@ -34,7 +34,7 @@ struct Obj2A8 : ObjPad18 {
 
 extern "C" {
 
-M2C_UNK fn_80018660(void *, s32);
+M2C_UNK TObjPlayer__sub_80018660(void *, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK fn_80143504(void *);
 M2C_UNK fn_80156698(void *);
@@ -55,7 +55,7 @@ void fn_800C7AE4(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x200000);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        fn_80018660(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8));
+        TObjPlayer__sub_80018660(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8));
         fn_80143504(arg0);
         if (objInBand__FP7GameObjf(arg0, lbl_805DA068) != 0) {
             temp_r3 = M2C_FIELD(arg0, Obj2A8 **, 0x2A8);

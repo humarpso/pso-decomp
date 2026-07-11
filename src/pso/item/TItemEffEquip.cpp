@@ -1,7 +1,7 @@
 #include "pso/TItemEffEquip.h"
 
 extern "C" int  all_parents_unqueued_for_destruction__7TObjectFv(TObject*);
-extern "C" void TBoss4Type2__sub_80086C44(void*);
+extern "C" void request_destroy__11TBoss4Type2FUi(void*);
 extern "C" void queue_destruction__7TObjectFv(TObject*);
 
 void TItemEffEquip::run_task() {
@@ -12,5 +12,5 @@ void TItemEffEquip::run_task() {
 }
 
 TItemEffEquip::~TItemEffEquip() {
-    TBoss4Type2__sub_80086C44(this->m_20);
+    request_destroy__11TBoss4Type2FUi(this->m_20);
 }

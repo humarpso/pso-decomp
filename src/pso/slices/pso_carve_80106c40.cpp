@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK init__9TItemDataFv(void *);
 
-void fn_80106C40(void *arg0, void *arg1) {
+void TItemDrop__sub_80106C40(void *arg0, void *arg1) {
     if (((u8) M2C_FIELD(arg1, u8 *, 1) == 2) && (((u8) M2C_FIELD(arg1, u8 *, 4) >= 0x13U) || ((u8) M2C_FIELD(arg1, u8 *, 2) >= 0x1EU))) {
         init__9TItemDataFv(arg1);
     }

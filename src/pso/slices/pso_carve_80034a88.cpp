@@ -10,7 +10,7 @@ extern f32 lbl_805D827C;
 extern f32 lbl_805D8284;
 extern f32 lbl_805D8444;
 
-void fn_80034A88(void *arg0) {
+void TBoss2DeRolLe__sub_80034A88(void *arg0) {
     f32 temp_f2;
 
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x6A4);

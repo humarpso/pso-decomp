@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_802DFFE0(s32);
 
-s32 fn_802DC0B0(void *arg0) {
+s32 TAdMultiPlyChrSelectGC__sub_802DC0B0(void *arg0) {
     s32 temp_r0;
     s32 var_r4;
 

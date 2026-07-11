@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 fn_8022675C(s32, s32, s32, s32);
-s32 fn_8001960C();
+s32 TObjPlayer__sub_8001960C();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 void TObjNpcBase__vt86(void);
@@ -13,7 +13,7 @@ void TObjNpcBase__sub_80149368(void* p);
 
 int fn_80149374(void) { return 0; }
 void fn_801493A8(s32 arg0) {
-    fn_8001960C();
+    TObjPlayer__sub_8001960C();
     bswap_16__FPUs(arg0 + 4);
     bswap_16__FPUs(arg0 + 6);
     bswap_16__FPUs(arg0 + 8);

@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__vt71(s32 arg0);
 M2C_UNK fn_80010584(s32);
 M2C_UNK fn_800105B4(s32);
-M2C_UNK fn_80018990(s32, M2C_UNK, M2C_UNK, M2C_UNK, f32, f32);
+M2C_UNK TObjPlayer__sub_80018990(s32, M2C_UNK, M2C_UNK, M2C_UNK, f32, f32);
 f32 fn_801D93F8();
 f32 fn_801D9440(s32);
 
@@ -19,7 +19,7 @@ void TObjPlayer__vt71(s32 arg0) {
 
     temp_f31 = fn_801D93F8();
     temp_f1 = fn_801D9440(arg0);
-    fn_80018990(arg0, 0, 0, 0, temp_f1, temp_f31);
+    TObjPlayer__sub_80018990(arg0, 0, 0, 0, temp_f1, temp_f31);
     fn_800105B4(arg0);
     fn_80010584(arg0);
 }

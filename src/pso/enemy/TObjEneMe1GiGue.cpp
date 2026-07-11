@@ -8,12 +8,12 @@ extern "C" {
 
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0);
 
-s32 fn_80019478(s32);
-f32 fn_800194A4(s32);
+s32 TObjPlayer__sub_80019478(s32);
+f32 TObjPlayer__sub_800194A4(s32);
 
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x438) = fn_800194A4(M2C_FIELD(arg0, s32 *, 0x318));
-    M2C_FIELD(arg0, s32 *, 0x434) = fn_80019478(M2C_FIELD(arg0, s32 *, 0x318));
+    M2C_FIELD(arg0, f32 *, 0x438) = TObjPlayer__sub_800194A4(M2C_FIELD(arg0, s32 *, 0x318));
+    M2C_FIELD(arg0, s32 *, 0x434) = TObjPlayer__sub_80019478(M2C_FIELD(arg0, s32 *, 0x318));
 }
 
 }

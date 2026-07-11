@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019248();
+s32 TObjPlayer__sub_80019248();
 s32 obj_testFlags30(s32, s32);
 s32 play_effect__10TObjPlayerFiii(s32, s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);

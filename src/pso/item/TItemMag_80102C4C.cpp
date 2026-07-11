@@ -28,7 +28,7 @@ int fn_801C675C(void*);
 
 int TItemMag__sub_80102C4C(void* p) { return *(u32*)((char*)p + 0xdc) & 0x40; }
 
-void fn_8001960C(void* p);
+void TObjPlayer__sub_8001960C(void* p);
 void bswap_32__FPUl(u32* p);
 
 }

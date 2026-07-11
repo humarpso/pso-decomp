@@ -121,7 +121,7 @@ struct TObj : TBase {
     virtual M2C_UNK v100();
 };
 
-void fn_80097D54(u8 *arg0, s32 arg1) {
+void TObjEneDf2Bringer__sub_80097D54(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 8;

@@ -18,8 +18,8 @@ M2C_UNK fn_802C6A10();
 u32 __ct__9TAdFadeGCFv(u32, s32, M2C_UNK);
 s32 fn_802D50A0(u32);
 M2C_UNK fn_802D50B0(s32, M2C_UNK);
-s32 fn_802DBDE0(void *, s32);
-s32 fn_802DC294(void *, s32);
+s32 TAdMultiPlyChrSelectGC__sub_802DBDE0(void *, s32);
+s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 fn_802DFFE0(s32);
 s32 fn_802DFFE8(s32);
 M2C_UNK fn_802E0008(s32);
@@ -28,13 +28,13 @@ s32 fn_802E0054(s32);
 s32 fn_802E00C4(s32);
 u32 fn_802E012C(s32, M2C_UNK);
 M2C_UNK fn_802E0C28(s32, s32);
-u32 fn_8030C9E8(u32, M2C_UNK *, s32);
-s32 fn_8030E378(s32, s32);
+u32 TAdChrSelASlotGC__sub_8030C9E8(u32, M2C_UNK *, s32);
+s32 TAdChrSelBSlotGC__sub_8030E378(s32, s32);
 extern M2C_UNK lbl_80472860[];
 extern M2C_UNK lbl_8050E3B8[];
 extern s32 tl_fade;
 
-void fn_802DD8E0(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DD8E0(void *arg0) {
     s32 temp_r30;
     s32 temp_r5;
     u32 var_r0;
@@ -75,7 +75,7 @@ void fn_802DD8E0(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0xC;
         return;
     }
-    temp_r30 = fn_802DC294(arg0, fn_802E0014(M2C_FIELD(arg0, s32 *, 0x5C)));
+    temp_r30 = TAdMultiPlyChrSelectGC__sub_802DC294(arg0, fn_802E0014(M2C_FIELD(arg0, s32 *, 0x5C)));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x30) != fn_802DFFE8(M2C_FIELD(arg0, s32 *, 0x5C))) {
         fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 1);
         M2C_FIELD(arg0, s32 *, 0x40) = 0;
@@ -97,8 +97,8 @@ void fn_802DD8E0(void *arg0) {
     if (fn_802E0054(M2C_FIELD(arg0, s32 *, 0x5C)) != 0) {
         load_tables(temp_r30);
         if (fn_801FE800(temp_r30) != 0) {
-            if (fn_8030E378(M2C_FIELD(arg0, s32 *, 0x6C), temp_r30) == 0) {
-                M2C_FIELD(arg0, s32 *, 0x88) = fn_802DBDE0(arg0, fn_802DFFE0(M2C_FIELD(arg0, s32 *, 0x5C)));
+            if (TAdChrSelBSlotGC__sub_8030E378(M2C_FIELD(arg0, s32 *, 0x6C), temp_r30) == 0) {
+                M2C_FIELD(arg0, s32 *, 0x88) = TAdMultiPlyChrSelectGC__sub_802DBDE0(arg0, fn_802DFFE0(M2C_FIELD(arg0, s32 *, 0x5C)));
                 M2C_FIELD(arg0, s32 *, 0x20) = 0xF;
                 return;
             }
@@ -107,7 +107,7 @@ void fn_802DD8E0(void *arg0) {
                 var_r0 = __ct__9TAdFadeGCFv(var_r0, tl_fade, 0);
             }
             M2C_FIELD(arg0, u32 *, 0x74) = var_r0;
-            M2C_FIELD(arg0, u32 *, 0x8C) = fn_8030C9E8(M2C_FIELD(arg0, u32 *, 0x68), lbl_80472860, fn_802DFFE0(M2C_FIELD(arg0, s32 *, 0x5C)));
+            M2C_FIELD(arg0, u32 *, 0x8C) = TAdChrSelASlotGC__sub_8030C9E8(M2C_FIELD(arg0, u32 *, 0x68), lbl_80472860, fn_802DFFE0(M2C_FIELD(arg0, s32 *, 0x5C)));
             M2C_FIELD(arg0, s32 *, 0x20) = 0x10;
             return;
         }

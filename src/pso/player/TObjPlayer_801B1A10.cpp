@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void foreach_player__10TObjPlayerFv(M2C_UNK (*arg0)(u32));
-s32 fn_80019248(u32);
+s32 TObjPlayer__sub_80019248(u32);
 
 extern M2C_UNK lbl_8050EA10[];
 
@@ -24,7 +24,7 @@ void foreach_player__10TObjPlayerFv(M2C_UNK (*arg0)(u32)) {
     var_r31 = 0;
     do {
         temp_r28 = var_r30[var_r31];
-        if ((temp_r28 != 0U) && (fn_80019248(temp_r28) != 0)) {
+        if ((temp_r28 != 0U) && (TObjPlayer__sub_80019248(temp_r28) != 0)) {
             var_r27(temp_r28);
         }
         var_r29 += 1;

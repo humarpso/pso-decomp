@@ -1,9 +1,9 @@
 #include "pso/TObjDFRecover.h"
 
-extern "C" void TBoss4Type2__sub_80086C44(void*);
+extern "C" void request_destroy__11TBoss4Type2FUi(void*);
 
 void TObjDFRecover::run_task() {}
 
 TObjDFRecover::~TObjDFRecover() {
-    if (m_2c != nullptr) TBoss4Type2__sub_80086C44(m_2c);
+    if (m_2c != nullptr) request_destroy__11TBoss4Type2FUi(m_2c);
 }

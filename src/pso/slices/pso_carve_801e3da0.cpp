@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8000F79C();
 M2C_UNK fn_8000F7FC();
-M2C_UNK fn_80069024();
+M2C_UNK TCameraCtrl__sub_80069024();
 M2C_UNK fn_80141550();
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
@@ -27,7 +27,7 @@ void render_tick__Fv(void) {
     fn_8000F79C();
     fn_801E2EFC();
     GXSetZMode(1, 7, 0);
-    fn_80069024();
+    TCameraCtrl__sub_80069024();
     fn_80141550();
     fn_803D85D8(lbl_805D3584);
     GXSetZMode(1, 3, 1);

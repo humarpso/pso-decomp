@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneBm3Fly__vt103(void);
-void fn_800AFD68(void *arg0, s32 arg1);
+void TObjEneBm3Fly__sub_800AFD68(void *arg0, s32 arg1);
 s32 queue_destruction__7TObjectFv();
 
 void TObjEneBm3Fly__vt103(void) {  }
-void fn_800AFD68(void *arg0, s32 arg1) {
+void TObjEneBm3Fly__sub_800AFD68(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) | 1);

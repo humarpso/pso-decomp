@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s16 fn_8010CD98(void *);
+s16 TItemData__sub_8010CD98(void *);
 s32 fn_8010EBD8();
 s32 fn_8011C55C(u8);
 
@@ -29,7 +29,7 @@ int fn_8010EB10(void *arg0) {
         break;
     case 1:
         if ((u8) M2C_FIELD(arg0, u8 *, 1) == 3) {
-            temp_r3 = fn_8010CD98(arg0);
+            temp_r3 = TItemData__sub_8010CD98(arg0);
             if (temp_r3 < 0) {
                 var_r31 -= 1;
             } else if (temp_r3 > 0) {

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DE7E8;
 
-void fn_802D7E58(u8 *arg0) {
+void TObjEneGibbles__sub_802D7E58(u8 *arg0) {
     s16 temp_r0;
 
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);

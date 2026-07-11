@@ -7,30 +7,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_state__9TWindowDDFv(void);
-M2C_UNK fn_80344980();
-M2C_UNK fn_80344F54();
-M2C_UNK fn_80345608();
-M2C_UNK fn_80345C64();
-M2C_UNK fn_803461CC();
+M2C_UNK TWindowDD__sub_80344980();
+M2C_UNK TWindowDD__sub_80344F54();
+M2C_UNK TWindowDD__sub_80345608();
+M2C_UNK TWindowDD__sub_80345C64();
+M2C_UNK TWindowDD__sub_803461CC();
 
 extern s32 lbl_805D6E08;
 
 void update_state__9TWindowDDFv(void) {
     switch ((s32) lbl_805D6E08) {
     case 0:
-        fn_803461CC();
+        TWindowDD__sub_803461CC();
         return;
     default:
-        fn_80345C64();
+        TWindowDD__sub_80345C64();
         return;
     case 4:
-        fn_80345608();
+        TWindowDD__sub_80345608();
         return;
     case 2:
-        fn_80344F54();
+        TWindowDD__sub_80344F54();
         return;
     case 3:
-        fn_80344980();
+        TWindowDD__sub_80344980();
         return;
     }
 }

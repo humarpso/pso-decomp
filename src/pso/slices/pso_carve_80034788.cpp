@@ -16,7 +16,7 @@ extern const f32 lbl_805D8348;
 extern const f32 lbl_805D83AC;
 extern const f32 lbl_805D8434;
 
-void fn_80034788(u8 *arg0) {
+void TBoss2DeRolLe__sub_80034788(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x65C) = 0;
     fn_800361A4(arg0 + 0x664, lbl_805D82F0, TObjFish__sub_8001973C(-M2C_FIELD(arg0, f32 *, 0x38)), lbl_805D8330);
     fn_80036160(arg0 + 0x684, lbl_805D8348, TObjFish__sub_8001973C(lbl_805D8434 - M2C_FIELD(arg0, f32 *, 0x40)), lbl_805D8300, lbl_805D83AC);

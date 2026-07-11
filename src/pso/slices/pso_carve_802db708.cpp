@@ -9,7 +9,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneGibbles__ct(void *, void *, void *);
 
-void * fn_802DB708(void *arg0) {
+void * TObjEneGibbles__sub_802DB708(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

@@ -11,7 +11,7 @@ M2C_UNK TObjEneDD__vt91(void *);
 M2C_UNK TObjEneDD__vt90(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int fn_8001960C(void*);
+int TObjPlayer__sub_8001960C(void*);
 int TLobby__send_and_handle_60(void*);
 void fn_802EE6E8(void);
 void fn_802EE6EC(void);

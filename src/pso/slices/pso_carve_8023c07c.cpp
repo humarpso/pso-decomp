@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
-s32 fn_8022DBC4(M2C_UNK, s16, M2C_UNK);
+s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
 extern const f64 lbl_8044DC98;
 
 void fn_8023C07C(u8 *arg0) {
     s32 ret;
     struct { s32 v; } tmp;
 
-    ret = fn_8022DBC4(0xC, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
+    ret = TTecCtrl__sub_8022DBC4(0xC, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
     tmp.v = ret;
     TTecAnti__sub_8022B35C(arg0 + 0x88, tmp.v);
     M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, s16 *, 0xAC) * M2C_FIELD(arg0, s16 *, 0x78));

@@ -8,7 +8,7 @@ extern "C" {
 
 f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1);
 M2C_UNK TOVS2Wall01__sub_8017BAFC(void *, M2C_UNK);
-s32 fn_80019248(u32);
+s32 TObjPlayer__sub_80019248(u32);
 M2C_UNK fn_80087350(void *, M2C_UNK);
 
 u16 obj_getField1c(u32);
@@ -22,7 +22,7 @@ f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1) {
     if (obj_getField1c(arg1) < 4U) {
         var_r31 = arg1;
     }
-    if ((var_r31 != 0U) && (fn_80019248(var_r31) == 1)) {
+    if ((var_r31 != 0U) && (TObjPlayer__sub_80019248(var_r31) == 1)) {
         M2C_FIELD(arg0, s32 *, 0x33C) = (s32) (M2C_FIELD(arg0, s32 *, 0x33C) - 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x33C) <= 0) {
             M2C_FIELD(arg0, s32 *, 0x33C) = 0;

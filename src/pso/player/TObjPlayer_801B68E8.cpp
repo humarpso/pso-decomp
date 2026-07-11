@@ -8,7 +8,7 @@ extern "C" {
 
 void copy_stats__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void TObjPlayer__sub_801B6924(void* p);
-int fn_80019248(void*);
+int TObjPlayer__sub_80019248(void*);
 int fn_8022675C(void*, void*, void*, void*);
 
 void copy_stats__10TObjPlayerFPvPv(void *arg0, void *arg1) {
@@ -21,6 +21,6 @@ void copy_stats__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s16 *, 0xC) = (s16) M2C_FIELD(arg1, s16 *, 0xC);
 }
 
-void TObjPlayer__sub_801B6924(void* p) { if (fn_80019248(p) != 0) { fn_8022675C((void*)335646, (void*)0, (void*)0, (void*)0); } }
+void TObjPlayer__sub_801B6924(void* p) { if (TObjPlayer__sub_80019248(p) != 0) { fn_8022675C((void*)335646, (void*)0, (void*)0, (void*)0); } }
 
 }

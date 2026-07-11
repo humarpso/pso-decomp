@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_main_phase();
-f32 fn_800196A4(s32);
+f32 TObjPlayer__sub_800196A4(s32);
 s32 TOBoss4Rock__sub_8039C880();
 extern M2C_UNK lbl_80434080;
 extern f32 lbl_805D7D38;
@@ -16,7 +16,7 @@ f32 fn_80011014(s32 arg0) {
     if (get_main_phase() == 0xE) {
         return lbl_805D7D38 * (f32) TOBoss4Rock__sub_8039C880();
     }
-    return fn_800196A4(arg0 + 0x160);
+    return TObjPlayer__sub_800196A4(arg0 + 0x160);
 }
 
 }

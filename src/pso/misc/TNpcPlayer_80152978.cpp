@@ -3,7 +3,7 @@
 extern "C" {
 
 void fn_80152DB0(void* p);
-int fn_8001960C(void*);
+int TObjPlayer__sub_8001960C(void*);
 int fn_80102CE0(void*);
 void fn_80152A98(void* p);
 int update_players__6TLobbyFi(void*);

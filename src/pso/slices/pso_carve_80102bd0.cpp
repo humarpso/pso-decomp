@@ -34,7 +34,7 @@ void fn_80102BFC(void* p, u32 v) { *(u32*)((char*)p + 0xdc) |= v; }
 int fn_80102C0C(void* p) { return fn_80102BE0(p, 128); }
 int fn_80102C30(void) { return 0; }
 
-void fn_8001960C(void* p);
+void TObjPlayer__sub_8001960C(void* p);
 void bswap_32__FPUl(u32* p);
 
 }

@@ -9,16 +9,16 @@ extern "C" {
 s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1);
 s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0);
 s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 fn_8014F424(void *, s32, s32, s32);
-s32 fn_8014F57C(void *, s32);
+s32 TNpcPlayer__sub_8014F424(void *, s32, s32, s32);
+s32 TNpcPlayer__sub_8014F57C(void *, s32);
 s32 fn_801B7C78(s32, M2C_UNK, M2C_UNK);
-s32 fn_801CCFC0(s32, M2C_UNK);
+s32 TObjPlayer__sub_801CCFC0(s32, M2C_UNK);
 
 s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
     s32 temp_r6;
 
     temp_r6 = M2C_FIELD(arg0, s32 *, 0x94);
-    if (fn_8014F424(arg0, temp_r6 + 0x38, arg1, temp_r6) != 0) {
+    if (TNpcPlayer__sub_8014F424(arg0, temp_r6 + 0x38, arg1, temp_r6) != 0) {
         M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 2);
         return 1;
     }
@@ -26,7 +26,7 @@ s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
 }
 
 s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0) {
-    if (fn_8014F57C(arg0, M2C_FIELD(arg0, s32 *, 0x94) + 0x38) != 0) {
+    if (TNpcPlayer__sub_8014F57C(arg0, M2C_FIELD(arg0, s32 *, 0x94) + 0x38) != 0) {
         M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 2);
         return 1;
     }
@@ -40,7 +40,7 @@ s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
             M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 0x20);
             return 1;
         }
-        if (fn_801CCFC0(M2C_FIELD(arg0, s32 *, 0x94), 0xF) != 0) {
+        if (TObjPlayer__sub_801CCFC0(M2C_FIELD(arg0, s32 *, 0x94), 0xF) != 0) {
             return 1;
         }
         break;
@@ -51,7 +51,7 @@ s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         }
         break;
     case 2:
-        if (fn_801CCFC0(M2C_FIELD(arg0, s32 *, 0x94), 0x10) != 0) {
+        if (TObjPlayer__sub_801CCFC0(M2C_FIELD(arg0, s32 *, 0x94), 0x10) != 0) {
             return 1;
         }
         break;
@@ -60,7 +60,7 @@ s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
             M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 0x20);
             return 1;
         }
-        if (fn_801CCFC0(M2C_FIELD(arg0, s32 *, 0x94), 0x11) != 0) {
+        if (TObjPlayer__sub_801CCFC0(M2C_FIELD(arg0, s32 *, 0x94), 0x11) != 0) {
             return 1;
         }
         break;

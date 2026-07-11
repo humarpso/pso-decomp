@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK __dt__7TObjectFv(void *, int);
 M2C_UNK TCameraCtrl__sub_80069DA8();
-M2C_UNK TBoss4Type2__sub_80086C44(void *);
+M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
 M2C_UNK fn_800E3100(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_802AC25C(void *);
@@ -26,7 +26,7 @@ u8 *fn_8033CAB0(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x60) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
-            TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x64));
+            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x64));
             M2C_FIELD(arg0, u32 *, 0x64) = 0U;
         }
         __dt__7TObjectFv(arg0, 0);

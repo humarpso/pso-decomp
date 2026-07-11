@@ -8,22 +8,22 @@ extern "C" {
 
 void free_resources__14TObjEneIllGillFPv(void *arg0);
 int TObjEneIllGill__vt59(void* p);
-s32 TBoss4Type2__sub_80086C44(void *);
+s32 request_destroy__11TBoss4Type2FUi(void *);
 
 int obj_clearFlags30(void*, int);
 
 int TObjEneIllGill__vt59(void* p) { return obj_clearFlags30(p, 256); }
 void free_resources__14TObjEneIllGillFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x414) != 0U) {
-        TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x414));
+        request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x414));
         M2C_FIELD(arg0, u32 *, 0x414) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x418) != 0U) {
-        TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x418));
+        request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x418));
         M2C_FIELD(arg0, u32 *, 0x418) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x41C) != 0U) {
-        TBoss4Type2__sub_80086C44(M2C_FIELD(arg0, void **, 0x41C));
+        request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x41C));
         M2C_FIELD(arg0, u32 *, 0x41C) = 0U;
     }
 }

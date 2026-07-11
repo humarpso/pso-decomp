@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801D0888();
+s32 TObjPlayer__sub_801D0888();
 void fn_801CB7A4(void);
 void fn_801CB7D4(void);
 int fn_801CB7D8(void* p);
@@ -16,7 +16,7 @@ int fn_801CB748(void) { return 0; }
 void fn_801CB7A4(void) {  }
 void fn_801CB7A8(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
-        fn_801D0888();
+        TObjPlayer__sub_801D0888();
     }
 }
 void fn_801CB7D4(void) {  }

@@ -11,7 +11,7 @@ extern const f32 lbl_805D8280;
 extern const f32 lbl_805D82B4;
 extern const f32 lbl_805D8328;
 
-u8 fn_800346D8(u8 *arg0) {
+u8 TBoss2DeRolLe__sub_800346D8(u8 *arg0) {
     s32 temp_r0;
 
     fn_80035FCC(arg0 + 0x684);

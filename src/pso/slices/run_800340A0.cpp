@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 fn_800340A0(void *arg0) {
+u8 TBoss2DeRolLe__sub_800340A0(void *arg0) {
     int var_r4;
 
     var_r4 = 0;
@@ -16,7 +16,7 @@ u8 fn_800340A0(void *arg0) {
     return (u8)var_r4;
 }
 
-void fn_800340C8(void *arg0) {
+void TBoss2DeRolLe__sub_800340C8(void *arg0) {
     void *temp_r3;
     void *temp_r4;
 

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8010C8B4();
+s32 TItemData__sub_8010C8B4();
 
 s32 fn_80104394(u32 arg0) {
     if (arg0 != 0U) {
-        return fn_8010C8B4();
+        return TItemData__sub_8010C8B4();
     }
     return 0;
 }

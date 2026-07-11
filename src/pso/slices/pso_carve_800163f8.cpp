@@ -38,7 +38,7 @@ extern "C" {
 
 M2C_UNK TObjPlayer__sub_800162B0(void *, s32);
 
-s32 fn_800163F8(void *arg0, s32 arg1, s32 arg2) {
+s32 TObjPlayer__sub_800163F8(void *arg0, s32 arg1, s32 arg2) {
     if (((VObj_800163F8 *)arg0)->m25() != 0) {
         return 1;
     }

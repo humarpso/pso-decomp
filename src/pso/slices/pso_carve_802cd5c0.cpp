@@ -17,7 +17,7 @@ M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC0();
 extern u32 lbl_805D6838;
 extern void *lbl_805D683C;
 
-void fn_802CD5C0(void) {
+void TObjEneMe1GiGue__sub_802CD5C0(void) {
     TObjEneMe1GiGueBarrier__sub_80325CC0();
     fn_802CE4E8();
     if (lbl_805D683C != NULL) {

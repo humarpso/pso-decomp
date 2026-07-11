@@ -9,7 +9,7 @@ extern "C" {
 s32 classify_id__9TWindowDDFs();
 M2C_UNK TWindowDD__sub_80347EF4();
 
-s32 fn_803430BC(void *arg0) {
+s32 TWindowDD__sub_803430BC(void *arg0) {
     TWindowDD__sub_80347EF4();
     if (classify_id__9TWindowDDFs() != 7) {
         M2C_FIELD(arg0, s32 *, 0xB8) = 1;

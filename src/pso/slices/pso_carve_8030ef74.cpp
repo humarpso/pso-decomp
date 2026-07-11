@@ -8,11 +8,11 @@ extern "C" {
 
 M2C_UNK TWindow__close(void *);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
-u32 fn_8030C5C0(M2C_UNK, M2C_UNK);
+u32 TAdChrSelASlotGC__sub_8030C5C0(M2C_UNK, M2C_UNK);
 s32 fn_803100EC(void *);
 u32 fn_803100F4();
 
-void fn_8030EF74(void *arg0) {
+void TAdChrSelBSlotGC__sub_8030EF74(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
         TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x6C));
         M2C_FIELD(arg0, u32 *, 0x6C) = 0U;
@@ -30,7 +30,7 @@ void fn_8030EF74(void *arg0) {
         return;
     }
     if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x78) == 0U) && (fn_803100F4() != 0U)) {
-        M2C_FIELD(arg0, u32 *, 0x78) = fn_8030C5C0(fn_803100F4(), 1);
+        M2C_FIELD(arg0, u32 *, 0x78) = TAdChrSelASlotGC__sub_8030C5C0(fn_803100F4(), 1);
     }
 }
 

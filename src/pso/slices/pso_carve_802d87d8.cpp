@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_802D87D8(void *arg0) {
+void TObjEneGibbles__sub_802D87D8(void *arg0) {
     s16 temp_r0;
     void *temp_r5;
 

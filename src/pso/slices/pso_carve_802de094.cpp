@@ -14,7 +14,7 @@ s32 fn_8030E2E4(void *, M2C_UNK);
 s32 fn_803100A4(void *);
 extern M2C_UNK lbl_805DE898;
 
-void fn_802DE094(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DE094(void *arg0) {
     TAdGameStartGC__sub_802E6380(M2C_FIELD(arg0, s32 *, 0x78));
     fn_802E005C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
     fn_802E0C68(M2C_FIELD(arg0, s32 *, 0x60), 1);

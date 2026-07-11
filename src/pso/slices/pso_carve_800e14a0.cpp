@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_8002AE74(void *, M2C_UNK);
 M2C_UNK fn_800E2DE4(void *, M2C_UNK);
 
-void fn_800E14A0(void *arg0) {
+void TObjEnePanarms__sub_800E14A0(void *arg0) {
     s16 temp_r5;
     void *temp_r7;
 

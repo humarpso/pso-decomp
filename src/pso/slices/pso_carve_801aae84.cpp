@@ -9,14 +9,14 @@ extern "C" {
 u32 obj_getField1c();
 u32 fn_80040B28(s32);
 M2C_UNK fn_80154D7C();
-M2C_UNK fn_8015610C(void *);
+M2C_UNK TObjPlayer__sub_8015610C(void *);
 M2C_UNK fn_801A720C(u16, M2C_UNK, M2C_UNK, f32);
 
 void fn_801AAE84(void *arg0) {
     s32 var_r31;
 
     fn_80154D7C();
-    fn_8015610C(arg0);
+    TObjPlayer__sub_8015610C(arg0);
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x100000) {
         var_r31 = 0;
         do {

@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80105984(M2C_UNK *);
-M2C_UNK fn_8010D510(void *, M2C_UNK *);
+M2C_UNK TItemData__sub_8010D510(void *, M2C_UNK *);
 M2C_UNK init__9TItemDataFv();
 M2C_UNK fn_8010ED54(void *, M2C_UNK);
 
-void fn_8010C744(void *arg0, void *arg1) {
+void TItemData__sub_8010C744(void *arg0, void *arg1) {
     M2C_UNK sp8;
     u8 temp_r0;
     u8 temp_r0_2;
@@ -53,7 +53,7 @@ void fn_8010C744(void *arg0, void *arg1) {
             return;
         case 2:
             fn_80105984(&sp8);
-            fn_8010D510(arg0, &sp8);
+            TItemData__sub_8010D510(arg0, &sp8);
             break;
         }
     }

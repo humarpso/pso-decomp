@@ -3,26 +3,26 @@
 extern "C" {
 
 int TFontSmallLobby__sub_801C0228(void*);
-void* fn_801D28A0(void* p, void* a1);
+void* TObjPlayer__sub_801D28A0(void* p, void* a1);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-f32 fn_801D2858(void* p);
-s32 fn_801D2870(void* p);
-s32 fn_801D2878(void* p);
-int fn_801D2880(void* p);
-int fn_801D29A8(void* p);
-int fn_801D29D0(void* p);
-int fn_801D29F8(void* p);
-int fn_801D2A20(void* p);
-int fn_801D2A50(void* p);
-void fn_801D2A78(void* p, f32 v);
-s32 fn_801D2A80(void* p);
-f32 fn_801D2A98(void* p);
-void fn_801D2AA0(void* p, f32 v);
-void fn_801D2AA8(void* p, s32 v);
-void fn_801D2AC4(void* p, f32 v);
-int fn_801D2ACC(void* p);
-f32 fn_801D2AF4(void* p);
+f32 TObjPlayer__sub_801D2858(void* p);
+s32 TObjPlayer__sub_801D2870(void* p);
+s32 TObjPlayer__sub_801D2878(void* p);
+int TObjPlayer__sub_801D2880(void* p);
+int TObjPlayer__sub_801D29A8(void* p);
+int TObjPlayer__sub_801D29D0(void* p);
+int TObjPlayer__sub_801D29F8(void* p);
+int TObjPlayer__sub_801D2A20(void* p);
+int TObjPlayer__sub_801D2A50(void* p);
+void TObjPlayer__sub_801D2A78(void* p, f32 v);
+s32 TObjPlayer__sub_801D2A80(void* p);
+f32 TObjPlayer__sub_801D2A98(void* p);
+void TObjPlayer__sub_801D2AA0(void* p, f32 v);
+void TObjPlayer__sub_801D2AA8(void* p, s32 v);
+void TObjPlayer__sub_801D2AC4(void* p, f32 v);
+int TObjPlayer__sub_801D2ACC(void* p);
+f32 TObjPlayer__sub_801D2AF4(void* p);
 int TObjPlayer__sub_801D2B08(void* p);
 void TObjPlayer__sub_801D2C74(void* p, s32 v);
 void TObjPlayer__sub_801D2C7C(void* p, u8 v);
@@ -40,30 +40,30 @@ int TAdRicoRing__sub_8001BEE8(void*, int);
 int fn_8001BEF8(void*, int);
 int fn_801D7BF4(void*);
 
-f32 fn_801D2858(void* p) { return *(f32*)((char*)p + 0x8); }
-int fn_801D2860(void) { return 0; }
-s32 fn_801D2870(void* p) { return *(s32*)((char*)p + 0x4); }
-s32 fn_801D2878(void* p) { return *(s32*)((char*)p + 0xc); }
-int fn_801D2880(void* p) { return bswap_32__FPUl(p); }
-void* fn_801D28A0(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
-void fn_801D28DC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
-int fn_801D2910(void) { return 0; }
-int fn_801D2964(void) { return 0; }
-int fn_801D29A8(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 62); }
-int fn_801D29D0(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 4); }
-int fn_801D29F8(void* p) { return fn_8001BED8((char*)p + 0x40, 8); }
-int fn_801D2A20(void* p) { return (fn_8001BEF8((char*)p + 0x40, 1)) == 0; }
-int fn_801D2A50(void* p) { return fn_8001BEF8((char*)p + 0x40, 8); }
-void fn_801D2A78(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
-s32 fn_801D2A80(void* p) { return *(s32*)((char*)p + 0x8); }
-int fn_801D2A88(void) { return 0; }
-f32 fn_801D2A98(void* p) { return *(f32*)((char*)p + 0xc); }
-void fn_801D2AA0(void* p, f32 v) { *(f32*)((char*)p + 0xc) = v; }
-void fn_801D2AA8(void* p, s32 v) { *(s32*)((char*)p + 0x8) = v; }
-int fn_801D2AB0(void) { return 0; }
-void fn_801D2AC4(void* p, f32 v) { *(f32*)((char*)p + 0x3c) = v; }
-int fn_801D2ACC(void* p) { return fn_8001BED8((char*)p + 0x40, 4); }
-f32 fn_801D2AF4(void* p) { return *(f32*)((char*)p + 0x10); }
-void* fn_801D2AFC(void* a0, int a1) {  return (char*)a0 + a1 * 24; }
+f32 TObjPlayer__sub_801D2858(void* p) { return *(f32*)((char*)p + 0x8); }
+int TObjPlayer__sub_801D2860(void) { return 0; }
+s32 TObjPlayer__sub_801D2870(void* p) { return *(s32*)((char*)p + 0x4); }
+s32 TObjPlayer__sub_801D2878(void* p) { return *(s32*)((char*)p + 0xc); }
+int TObjPlayer__sub_801D2880(void* p) { return bswap_32__FPUl(p); }
+void* TObjPlayer__sub_801D28A0(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
+void TObjPlayer__sub_801D28DC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
+int TObjPlayer__sub_801D2910(void) { return 0; }
+int TObjPlayer__sub_801D2964(void) { return 0; }
+int TObjPlayer__sub_801D29A8(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 62); }
+int TObjPlayer__sub_801D29D0(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 4); }
+int TObjPlayer__sub_801D29F8(void* p) { return fn_8001BED8((char*)p + 0x40, 8); }
+int TObjPlayer__sub_801D2A20(void* p) { return (fn_8001BEF8((char*)p + 0x40, 1)) == 0; }
+int TObjPlayer__sub_801D2A50(void* p) { return fn_8001BEF8((char*)p + 0x40, 8); }
+void TObjPlayer__sub_801D2A78(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
+s32 TObjPlayer__sub_801D2A80(void* p) { return *(s32*)((char*)p + 0x8); }
+int TObjPlayer__sub_801D2A88(void) { return 0; }
+f32 TObjPlayer__sub_801D2A98(void* p) { return *(f32*)((char*)p + 0xc); }
+void TObjPlayer__sub_801D2AA0(void* p, f32 v) { *(f32*)((char*)p + 0xc) = v; }
+void TObjPlayer__sub_801D2AA8(void* p, s32 v) { *(s32*)((char*)p + 0x8) = v; }
+int TObjPlayer__sub_801D2AB0(void) { return 0; }
+void TObjPlayer__sub_801D2AC4(void* p, f32 v) { *(f32*)((char*)p + 0x3c) = v; }
+int TObjPlayer__sub_801D2ACC(void* p) { return fn_8001BED8((char*)p + 0x40, 4); }
+f32 TObjPlayer__sub_801D2AF4(void* p) { return *(f32*)((char*)p + 0x10); }
+void* TObjPlayer__sub_801D2AFC(void* a0, int a1) {  return (char*)a0 + a1 * 24; }
 
 }

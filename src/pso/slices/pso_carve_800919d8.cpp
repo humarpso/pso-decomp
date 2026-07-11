@@ -9,7 +9,7 @@ void __dt__14TObjEneBalClawFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_8048F148[];
 
-void *fn_800919D8(void *arg0, s16 arg1) {
+void *TObjEneBalClawClaw__sub_800919D8(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048F148;
         fn_80156720(arg0);

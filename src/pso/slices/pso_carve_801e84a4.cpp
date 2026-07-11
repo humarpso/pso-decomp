@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_801F34D0(void *);
 extern void *tl_03;
 
-void fn_801E84A4(void) {
+void TLobby__sub_801E84A4(void) {
     void *temp = tl_03;
     if (temp != 0) {
         fn_801F34D0(temp);

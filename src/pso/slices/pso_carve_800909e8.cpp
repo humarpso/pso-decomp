@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800909E8(void *arg0) {
+s32 TObjEneBalClawClaw__sub_800909E8(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x30) & 0xA00) {
         return 0;
     }

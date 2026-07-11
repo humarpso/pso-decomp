@@ -9,8 +9,8 @@ extern "C" {
 void fn_801C8878(s32 arg0);
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
-M2C_UNK fn_801D1480(M2C_UNK *);
-M2C_UNK fn_801D1494(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_801D1480(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_801D1494(M2C_UNK *);
 int fn_8011E204(void*, void*);
 int set_indexed_flags(void*, void*, void*);
 int TObjPlayer__sub_801B12CC(void*);
@@ -27,9 +27,9 @@ void fn_801C8878(s32 arg0) {
     s8 sp8[8];
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
-        fn_801D1480((M2C_UNK *)&sp8);
+        TObjPlayer__sub_801D1480((M2C_UNK *)&sp8);
         M2C_FIELD(&sp8, s16 *, 2) = obj_getField1c(arg0);
-        fn_801D1494((M2C_UNK *)&sp8);
+        TObjPlayer__sub_801D1494((M2C_UNK *)&sp8);
     }
 }
 

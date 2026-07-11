@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u16 obj_getField1c(s32);
-M2C_UNK fn_801D2630();
+M2C_UNK TObjPlayer__sub_801D2630();
 M2C_UNK fn_8024AC20(int);
 
 void fn_801C9B48(s32 arg0) {
-    fn_801D2630();
+    TObjPlayer__sub_801D2630();
     fn_8024AC20(obj_getField1c(arg0));
 }
 

@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_split_screen();
-s32 fn_800196EC();
-s32 fn_800196F4(s32);
+s32 TObjPlayer__sub_800196EC();
+s32 TObjPlayer__sub_800196F4(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 
@@ -21,8 +21,8 @@ s32 fn_80104860(void) {
     }
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
     if (temp_r3 != 0) {
-        temp_r31 = fn_800196EC();
-        return temp_r31 - fn_800196F4(temp_r3) ? 1 : 0;
+        temp_r31 = TObjPlayer__sub_800196EC();
+        return temp_r31 - TObjPlayer__sub_800196F4(temp_r3) ? 1 : 0;
     }
     return 0;
 }

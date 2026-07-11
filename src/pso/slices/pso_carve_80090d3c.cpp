@@ -10,7 +10,7 @@ M2C_UNK fn_80011734(void *, M2C_UNK, f32);
 M2C_UNK fn_80143504(void *);
 extern f32 lbl_805D968C;
 
-void fn_80090D3C(void *arg0) {
+void TObjEneBalClawClaw__sub_80090D3C(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);

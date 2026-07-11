@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void reset__11TCameraCtrlFv(void);
-M2C_UNK fn_80068354();
+M2C_UNK TCameraCtrl__sub_80068354();
 
 extern s8 lbl_804FF628[];
 extern s16 lbl_805D4E0A;
 
 void reset__11TCameraCtrlFv(void) {
     lbl_805D4E0A = 0;
-    fn_80068354();
+    TCameraCtrl__sub_80068354();
     M2C_FIELD(lbl_804FF628, s8 *, 0) = 0;
     M2C_FIELD(lbl_804FF628, s16 *, 2) = 0;
     M2C_FIELD(lbl_804FF628, s32 *, 4) = 0;

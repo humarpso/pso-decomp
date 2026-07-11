@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TOMineTrap__sub_801702C8(void);
-s32 fn_80019248(u32 a0 = 0);
+s32 TObjPlayer__sub_80019248(u32 a0 = 0);
 int TOMineTrap__sub_80170340(void);
 int TOMineTrap__sub_80170348(void);
 void TOMineTrap__sub_80170350(void);

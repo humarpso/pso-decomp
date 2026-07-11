@@ -15,7 +15,7 @@ s32 fn_801B0EE8();
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_801BE440(void *);
-M2C_UNK fn_801D0BC0(void *, s16, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 s32 fn_801D8B8C(void *);
 
 struct Base { char pad[0x18]; };
@@ -35,7 +35,7 @@ void fn_801CB0C4(u8 *arg0) {
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);
     M2C_FIELD(arg0, s32 *, 0x33C) = 0xD;
-    fn_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
+    TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     VecCopy__FP3VecPC3Vec(arg0 + 0x308, &sp8);
     if (fn_801B0EE8() != 0) {
         fn_8002AEB8(arg0 + 0x644, 0x1E);

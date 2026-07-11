@@ -37,7 +37,7 @@ struct VObj : Base {
     VIRT(100) VIRT(101) VIRT(102) VIRT(103)
 };
 
-void fn_8009BFF8(u8 *arg0, s32 arg1) {
+void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
     switch (arg1) {

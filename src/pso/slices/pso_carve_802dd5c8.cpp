@@ -22,7 +22,7 @@ M2C_UNK fn_802E004C();
 M2C_UNK fn_802E00BC(s32, M2C_UNK);
 s32 fn_802E00C4(s32);
 
-void fn_802DD5C8(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DD5C8(void *arg0) {
     s32 temp_r3;
 
     if (fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {

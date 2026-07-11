@@ -2,15 +2,15 @@
 
 extern "C" {
 
-void fn_801CDC68(void);
-void fn_801CDD00(void);
-int fn_801CDD04(void* p);
+void TObjPlayer__sub_801CDC68(void);
+void TObjPlayer__sub_801CDD00(void);
+int TObjPlayer__sub_801CDD04(void* p);
 int fn_801BA2F4(void*);
 
-int fn_801CDBA0(void) { return 0; }
-void fn_801CDC68(void) {  }
-int fn_801CDC6C(void) { return 0; }
-void fn_801CDD00(void) {  }
-int fn_801CDD04(void* p) { return fn_801BA2F4(p); }
+int TObjPlayer__sub_801CDBA0(void) { return 0; }
+void TObjPlayer__sub_801CDC68(void) {  }
+int TObjPlayer__sub_801CDC6C(void) { return 0; }
+void TObjPlayer__sub_801CDD00(void) {  }
+int TObjPlayer__sub_801CDD04(void* p) { return fn_801BA2F4(p); }
 
 }

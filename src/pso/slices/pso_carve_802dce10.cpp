@@ -13,7 +13,7 @@ M2C_UNK fn_802E0008(s32);
 s32 fn_802E0124(s32);
 M2C_UNK TAdGameStartGC__sub_802E644C(s32);
 
-void fn_802DCE10(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DCE10(void *arg0) {
     s32 temp_r31;
     s32 temp_r3;
 

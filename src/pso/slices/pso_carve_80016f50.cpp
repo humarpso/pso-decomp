@@ -7,16 +7,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_800101B0(void *, M2C_UNK);
-M2C_UNK fn_800192DC(void *);
-s32 fn_800194AC(void *, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_800192DC(void *);
+s32 TObjPlayer__sub_800194AC(void *, M2C_UNK, M2C_UNK);
 s32 obj_testFlags30(void *, M2C_UNK);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 
-s32 fn_80016F50(u8 *arg0) {
+s32 TObjPlayer__sub_80016F50(u8 *arg0) {
     s32 temp_ret;
 
     if ((obj_testFlags30(arg0, 8) != 0) && ((u16) M2C_FIELD(arg0, u16 *, 0x1C) < 0x1000U)) {
-        temp_ret = fn_800194AC(arg0, 1, -1);
+        temp_ret = TObjPlayer__sub_800194AC(arg0, 1, -1);
         if (temp_ret > 0) {
             if ((temp_ret % 45) == 0) {
                 fn_800101B0(arg0, 1);
@@ -25,7 +25,7 @@ s32 fn_80016F50(u8 *arg0) {
         }
         obj_clearFlags30(arg0, 0x3C);
         M2C_FIELD(arg0, s32 *, 0x330) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0x3F);
-        fn_800192DC(arg0 + 0x260);
+        TObjPlayer__sub_800192DC(arg0 + 0x260);
         goto block_7;
     }
 block_7:

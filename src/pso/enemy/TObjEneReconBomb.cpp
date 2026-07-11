@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void fn_80018FE0(void *, int);
+void TObjPlayer__sub_80018FE0(void *, int);
 
 extern M2C_UNK __vt__16TObjEneReconBomb[];
 
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjEneReconBomb;
-        fn_80018FE0(arg0, 0);
+        TObjPlayer__sub_80018FE0(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

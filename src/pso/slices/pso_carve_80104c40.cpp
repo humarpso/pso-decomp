@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_main_phase();
-s32 fn_800196EC();
+s32 TObjPlayer__sub_800196EC();
 M2C_UNK fn_8001BED8(M2C_UNK *, M2C_UNK);
 M2C_UNK TEnding__sub_8008C9F8();
 M2C_UNK fn_80103B70(s32);
@@ -36,7 +36,7 @@ void fn_80104C40(void) {
     fn_80363CA0(tl_item_equip);
     temp_r30 = get_main_phase();
     temp_r31 = TOKeyMachine01__sub_802034A8();
-    temp_r29 = fn_800196EC();
+    temp_r29 = TObjPlayer__sub_800196EC();
     lbl_805D543C = 0;
     fn_80103F5C();
     fn_80103B70(temp_r29);

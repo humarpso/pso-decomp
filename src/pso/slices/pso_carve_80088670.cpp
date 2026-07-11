@@ -9,7 +9,7 @@ extern "C" {
 extern s32 lbl_805D4EF8;
 extern s32 lbl_805D4EFC;
 
-s32 fn_80088670(s32 arg0) {
+s32 TParticleCtrl__sub_80088670(s32 arg0) {
     if (arg0 >= 0x200) {
         return lbl_805D4EFC + ((arg0 - 0x200) * 0x98);
     }

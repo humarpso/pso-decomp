@@ -8,12 +8,12 @@ extern "C" {
 
 M2C_UNK TWindow__close(void *);
 M2C_UNK fn_802D50B0(s32, M2C_UNK);
-M2C_UNK fn_802DE094(void *);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802DE094(void *);
 M2C_UNK fn_802E001C(s32, M2C_UNK);
 M2C_UNK fn_802E0064(s32, M2C_UNK);
 M2C_UNK fn_802E006C(s32, M2C_UNK, M2C_UNK);
 
-void fn_802DE120(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DE120(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x7C));
         M2C_FIELD(arg0, u32 *, 0x7C) = 0U;
@@ -24,7 +24,7 @@ void fn_802DE120(void *arg0) {
     fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 1);
     M2C_FIELD(arg0, s32 *, 0x50) = 1;
     M2C_FIELD(arg0, s32 *, 0x54) = 0;
-    fn_802DE094(arg0);
+    TAdMultiPlyChrSelectGC__sub_802DE094(arg0);
 }
 
 }

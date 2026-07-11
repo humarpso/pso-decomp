@@ -9,7 +9,7 @@ extern "C" {
 void update_capture__14TObjVoloptCageFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_801B5328(s32, void *, M2C_UNK, M2C_UNK, f32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
-s32 fn_80019248();
+s32 TObjPlayer__sub_80019248();
 M2C_UNK fn_80049568();
 M2C_UNK fn_80049574(s32);
 
@@ -93,7 +93,7 @@ void update_capture__14TObjVoloptCageFPv(u8 *arg0) {
     case 0:
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x338));
         if (temp_r3 != 0) {
-            if (fn_80019248() != 0) {
+            if (TObjPlayer__sub_80019248() != 0) {
                 TObjPlayer__sub_801B5328(temp_r3, arg0 + 0x38, -1, 0, lbl_805D8870);
                 fn_80049574(temp_r3);
             }

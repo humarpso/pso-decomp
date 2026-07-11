@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
     extern unsigned char lbl_804CC1CC[];
-void* fn_8022EF88(int a0) {  return (char*)lbl_804CC1CC + a0 * 44; }
+void* TTecCtrl__sub_8022EF88(int a0) {  return (char*)lbl_804CC1CC + a0 * 44; }
 
 M2C_UNK TTecLuker__sub_80234F28();
 extern s8 lbl_805D63A8;

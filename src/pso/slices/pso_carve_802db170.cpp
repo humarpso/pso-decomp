@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80142384(s32, s32);
 
-void fn_802DB170(void *arg0, s32 arg1) {
+void TObjEneGibbles__sub_802DB170(void *arg0, s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;

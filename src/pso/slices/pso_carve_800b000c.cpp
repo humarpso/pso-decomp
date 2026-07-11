@@ -117,7 +117,7 @@ extern M2C_UNK lbl_8043B0D0[];
 extern s32 lbl_805D50F4;
 extern const f32 lbl_805D9C88;
 
-void fn_800B000C(u8 *arg0, s32 arg1) {
+void TObjEneBm3Fly__sub_800B000C(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     u32 temp_ret;
 

@@ -8,7 +8,7 @@ void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_80488A28[];
 
-void *fn_800686BC(void *arg0, s16 arg1) {
+void *TCameraCtrl__sub_800686BC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488A28;
         __dt__7TObjectFv(arg0, 0);

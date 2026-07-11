@@ -12,7 +12,7 @@ s32 fn_802D50A0(s32);
 s32 fn_802E00C4(s32);
 extern s8 lbl_8050E3B8[];
 
-void fn_802DC51C(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DC51C(void *arg0) {
     void *temp_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {

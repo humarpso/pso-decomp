@@ -2,7 +2,7 @@
 
 extern "C" void fn_80087350(Vec*, int);
 extern "C" void fn_803D9370(Vec*, Vec*);
-extern "C" void TBoss4Type2__sub_80086C44(s32);
+extern "C" void request_destroy__11TBoss4Type2FUi(s32);
 
 void TItemEffBringer::hook() {
     Vec work = this->m_pos;
@@ -14,6 +14,6 @@ void TItemEffBringer::hook() {
 
 TItemEffBringer::~TItemEffBringer() {
     for (int i = 0; i != this->m_particle_count; i++) {
-        TBoss4Type2__sub_80086C44(this->m_particles[i]);
+        request_destroy__11TBoss4Type2FUi(this->m_particles[i]);
     }
 }

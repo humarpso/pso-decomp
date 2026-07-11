@@ -1,7 +1,7 @@
 extern "C" {
     int fn_8002AE74(void*, int);
     extern const float lbl_805DA524;
-void fn_800E0500(void* a0) {
+void TObjEnePanarms__sub_800E0500(void* a0) {
     int *r7 = *(int**)((char*)a0 + 0x37c);
     r7[6] = r7[6] | 0x1;
     *(int*)((char*)a0 + 0x384) = 1;

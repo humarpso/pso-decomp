@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void fn_80101CFC(void *, void *);
-void fn_8010CC68(void *);
+void TItemData__sub_8010CC68(void *);
 
 void fn_801013BC(void *arg0) {
     M2C_UNK sp8[4];
 
     fn_80101CFC(arg0, &sp8);
-    fn_8010CC68(&sp8);
+    TItemData__sub_8010CC68(&sp8);
 }
 
 }

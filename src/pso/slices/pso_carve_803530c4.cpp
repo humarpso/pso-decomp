@@ -22,11 +22,11 @@ struct VObj_803530C4 : Base_803530C4 {
 
 extern "C" {
 
-s32 fn_80019248(void *);
+s32 TObjPlayer__sub_80019248(void *);
 
 void fn_803530C4(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
-    if (fn_80019248(temp_r3) != 0) {
+    if (TObjPlayer__sub_80019248(temp_r3) != 0) {
         struct VObj_803530C4 *o = (struct VObj_803530C4 *)M2C_FIELD(arg0, void **, 0xF0);
         o->m47();
     }

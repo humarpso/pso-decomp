@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_801F1C38(M2C_UNK, M2C_UNK);
 
-void fn_801E7124(void) {
+void TLobby__sub_801E7124(void) {
     fn_801F1C38(1, 7);
 }
 

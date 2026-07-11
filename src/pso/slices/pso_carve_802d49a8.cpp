@@ -20,7 +20,7 @@ M2C_UNK fn_802D50B0(s32, M2C_UNK);
 extern char lbl_8050E208[];
 extern M2C_UNK lbl_805DE784;
 
-void fn_802D49A8(void *arg0) {
+void TAdSinglePlyChrSelectGC__sub_802D49A8(void *arg0) {
     TAdEnterSerialAccessGC__sub_802AEBA8(M2C_FIELD(arg0, s32 *, 0x2C));
     fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x30), 1);
     TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x34), 0, &lbl_805DE784);

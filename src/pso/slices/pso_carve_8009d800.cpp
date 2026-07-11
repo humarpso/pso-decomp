@@ -54,7 +54,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK fn_80143504();
 extern const f32 lbl_805D988C;
 
-void fn_8009D800(void *arg0, s32 arg1) {
+void TObjEneMe1Canadin__sub_8009D800(void *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r3;
 

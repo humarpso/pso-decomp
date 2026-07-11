@@ -9,7 +9,7 @@ extern "C" {
 extern M2C_UNK lbl_80472790;
 extern f32 lbl_805DE80C;
 
-void fn_802D80AC(void *arg0) {
+void TObjEneGibbles__sub_802D80AC(void *arg0) {
     s16 temp_r0;
     s16 temp_r6;
 

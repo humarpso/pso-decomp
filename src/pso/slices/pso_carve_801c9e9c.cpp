@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8002AEB8(void *, s32);
-M2C_UNK fn_800DFB00(void *, s32);
-s32 fn_801D0458();
-M2C_UNK fn_801D0888(void *);
-M2C_UNK fn_801D2620(void *);
-M2C_UNK fn_801D2630();
+M2C_UNK TObjEnePanarms__sub_800DFB00(void *, s32);
+s32 TObjPlayer__sub_801D0458();
+M2C_UNK TObjPlayer__sub_801D0888(void *);
+M2C_UNK TObjPlayer__sub_801D2620(void *);
+M2C_UNK TObjPlayer__sub_801D2630();
 s32 fn_801D8ADC(void *);
 extern const f32 lbl_805DC360;
 extern const f32 lbl_805DC36C;
@@ -29,8 +29,8 @@ void fn_801C9E9C(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1;
         if (temp_f1 < lbl_805DC36C) {
             M2C_FIELD(arg0, s16 *, 0x328) = 1;
-            fn_800DFB00(arg0, fn_801D0458());
-            fn_801D2620(arg0);
+            TObjEnePanarms__sub_800DFB00(arg0, TObjPlayer__sub_801D0458());
+            TObjPlayer__sub_801D2620(arg0);
             M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) lbl_805DC378;
         }
         break;
@@ -38,9 +38,9 @@ void fn_801C9E9C(u8 *arg0) {
         temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x2B4) - lbl_805DC360;
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1_2;
         if (temp_f1_2 < lbl_805DC36C) {
-            fn_801D2630();
+            TObjPlayer__sub_801D2630();
             fn_8002AEB8(arg0 + 0x644, fn_801D8ADC(arg0));
-            fn_801D0888(arg0);
+            TObjPlayer__sub_801D0888(arg0);
         }
         break;
     }

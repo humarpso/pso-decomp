@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8010DF68();
+s32 TItemData__sub_8010DF68();
 s32 fn_8010EC88(void *);
 s32 fn_8010EEC8(s32);
 extern s32 lbl_805D2B10;
@@ -16,7 +16,7 @@ s32 fn_8010E390(void *arg0) {
 
     if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
         temp_r0 = M2C_FIELD(arg0, u8 *, 4);
-        if ((temp_r0 != 0) && (temp_r0 < 0x29U) && (fn_8010DF68() == 0)) {
+        if ((temp_r0 != 0) && (temp_r0 < 0x29U) && (TItemData__sub_8010DF68() == 0)) {
             if (fn_8010EC88(arg0) == 1) {
                 return fn_8010EEC8(M2C_FIELD(arg0, u8 *, 4) + 0x1CB);
             }

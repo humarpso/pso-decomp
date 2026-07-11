@@ -15,7 +15,7 @@ extern struct Glob_80512220 lbl_80512220;
 extern s32 lbl_805D6CC0;
 extern s32 lbl_805D6CC8;
 
-void fn_801E7758(void) {
+void TLobby__sub_801E7758(void) {
     s32 temp_r31;
 
     temp_r31 = lbl_80512220.field0;

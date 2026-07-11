@@ -74,8 +74,8 @@ struct VObj_8010A26C : Base_8010A26C {
 
 extern "C" {
 
-s32 fn_800196EC();
-s32 fn_800196F4(void *);
+s32 TObjPlayer__sub_800196EC();
+s32 TObjPlayer__sub_800196F4(void *);
 u32 TObjPlayer__sub_80019704(void *);
 u8 TObjPlayer__sub_8001972C();
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -100,10 +100,10 @@ void fn_8010A26C(void *arg0) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x24));
     if (temp_r3 != NULL) {
         temp_r3->m63(0x24, sp8);
-        temp_r3_2 = fn_800196EC();
+        temp_r3_2 = TObjPlayer__sub_800196EC();
         if (temp_r3_2 != (s32) M2C_FIELD(arg0, s32 *, 0x20)) {
             M2C_FIELD(arg0, s32 *, 0x20) = temp_r3_2;
-            if ((fn_802034EC() != 0) && (temp_r3_2 == fn_800196F4(temp_r3))) {
+            if ((fn_802034EC() != 0) && (temp_r3_2 == TObjPlayer__sub_800196F4(temp_r3))) {
                 M2C_FIELD(arg0, u32 *, 0x1C) = TBoss4Type2__sub_800874F4(sp8, 0x101);
             } else {
                 M2C_FIELD(arg0, u32 *, 0x1C) = 0U;

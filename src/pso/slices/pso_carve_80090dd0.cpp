@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80011734(void *, M2C_UNK, f32);
-M2C_UNK fn_8009082C(void *, s32, s32);
+M2C_UNK TObjEneBalClawClaw__sub_8009082C(void *, s32, s32);
 M2C_UNK fn_800A0554(void *);
 M2C_UNK fn_800D8C48(void *, s32);
 M2C_UNK fn_80143504(void *);
@@ -22,7 +22,7 @@ struct En0VObj : En0Base {
     virtual void m4();
     virtual s32 m5();
 };
-void fn_80090DD0(u8 *arg0) {
+void TObjEneBalClawClaw__sub_80090DD0(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r4_2;
@@ -46,7 +46,7 @@ void fn_80090DD0(u8 *arg0) {
             temp_r4_2 = temp_r5 & ~5;
             M2C_FIELD(arg0, s32 *, 0x388) = temp_r4_2;
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-            fn_8009082C(arg0, temp_r4_2, temp_r5);
+            TObjEneBalClawClaw__sub_8009082C(arg0, temp_r4_2, temp_r5);
         }
         return;
     case -1:

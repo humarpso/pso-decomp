@@ -3,7 +3,7 @@
 extern "C" {
 
 void fn_80152DB0(void* p);
-int fn_8001960C(void*);
+int TObjPlayer__sub_8001960C(void*);
 int fn_80102CE0(void*);
 void fn_80152A98(void* p);
 int update_players__6TLobbyFi(void*);
@@ -42,6 +42,6 @@ int fn_80152CE8(void) { return 0; }
 int fn_80152D04(void) { return 0; }
 void fn_80152D64(void* p) { *(u8*)((char*)p + 0x3) = 0; *(u8*)((char*)p + 0x2) = 0; *(u8*)((char*)p + 0x1) = 0; *(u8*)((char*)p + 0x0) = 0; }
 void fn_80152D7C(void* p) { fn_80152DB0(p); update_players__6TLobbyFi(p); }
-void fn_80152DB0(void* p) { fn_8001960C(p); fn_80102CE0((char*)p + 0x4); }
+void fn_80152DB0(void* p) { TObjPlayer__sub_8001960C(p); fn_80102CE0((char*)p + 0x4); }
 
 }

@@ -10,7 +10,7 @@ s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1);
 void can_pickup_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 TItemObject__sub_80101A1C();
 M2C_UNK fn_80101CFC(s32, M2C_UNK *);
-s32 fn_8010CD6C(u8 *);
+s32 TItemData__sub_8010CD6C(u8 *);
 u32 fn_8010ED0C(u8 *);
 u32 fn_801D4E10(void *, u8 *);
 void *fn_801D5764();
@@ -43,7 +43,7 @@ s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1) {
     s32 temp_r31_2;
     void *temp_r3;
 
-    if (fn_8010CD6C(arg1) != 0) {
+    if (TItemData__sub_8010CD6C(arg1) != 0) {
         if ((u8) *arg1 == 4) {
             return obj_getPtr2B0_20(arg0) < 0xF423F;
         }

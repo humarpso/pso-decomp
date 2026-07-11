@@ -9,7 +9,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjControl__ct(void *, void *);
 void *fn_80091B98(void *, void *, void *, void *, void *, void *, void *, void *);
 
-void * fn_800918E0(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
+void * TObjEneBalClawClaw__sub_800918E0(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

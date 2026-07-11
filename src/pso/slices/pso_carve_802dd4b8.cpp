@@ -16,7 +16,7 @@ s32 fn_802E00C4(s32);
 u32 fn_802E0100();
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 
-void fn_802DD4B8(void *arg0) {
+void TAdMultiPlyChrSelectGC__sub_802DD4B8(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x88));
         M2C_FIELD(arg0, u32 *, 0x88) = 0U;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80019248(s32);
+s32 TObjPlayer__sub_80019248(s32);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 M2C_UNK fn_80087350(s32, M2C_UNK);
 void *fn_801AA3A0(s32);
@@ -24,7 +24,7 @@ void fn_801AA220(s32 arg0, u16 arg1) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
     if (temp_r3 != 0) {
         temp_r31 = fn_801AA3A0(arg0);
-        if (fn_80019248(temp_r3) != 0) {
+        if (TObjPlayer__sub_80019248(temp_r3) != 0) {
             play_effect_default__10TObjPlayerFii(temp_r3, M2C_FIELD(temp_r31, s16 *, 0x20));
         }
         fn_80087350(temp_r3 + 0x38, 0x13D);

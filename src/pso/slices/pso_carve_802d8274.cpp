@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_800F6B14(void *);
 M2C_UNK fn_8020C5A4(void *);
 
-void fn_802D8274(void *arg0) {
+void TObjEneGibbles__sub_802D8274(void *arg0) {
     void *temp_r4;
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9) {

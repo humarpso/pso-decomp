@@ -8,13 +8,13 @@ extern "C" {
 
 s32 TObjGrass__vt34(void *arg0);
 s32 TObjGrass__vt37(void *arg0);
-s32 fn_80016D78();
-s32 fn_80016FF8();
+s32 TObjPlayer__sub_80016D78();
+s32 TObjPlayer__sub_80016FF8();
 
 void obj_clearFlags30(void *, u32);
 
 s32 TObjGrass__vt37(void *arg0) {
-    if (fn_80016D78() != 0) {
+    if (TObjPlayer__sub_80016D78() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
             M2C_FIELD(arg0, s32 *, 0x3AC) = 0;
@@ -30,7 +30,7 @@ s32 TObjGrass__vt37(void *arg0) {
 void obj_clearFlags30(void *, u32);
 
 s32 TObjGrass__vt34(void *arg0) {
-    if (fn_80016FF8() != 0) {
+    if (TObjPlayer__sub_80016FF8() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
             M2C_FIELD(arg0, s32 *, 0x3AC) = 0;

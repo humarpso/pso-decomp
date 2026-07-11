@@ -13,7 +13,7 @@ M2C_UNK set_mode__5TItemFPvc(s32, M2C_UNK);
 M2C_UNK TItem__sub_80101FEC(void *, s32, s32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(s32, M2C_UNK);
 u32 TObjPlayer__sub_801B8E68(u32, s32);
-s32 fn_800196EC();
+s32 TObjPlayer__sub_800196EC();
 M2C_UNK fn_80087350(s32, M2C_UNK);
 s32 fn_80099EF8();
 M2C_UNK fn_8011AA44(s32, s32);
@@ -28,7 +28,7 @@ void assign_id_and_init__5TItemFPvii(void *arg0, s32 arg1, s32 arg2) {
 }
 
 void send_field_state__5TItemFisi(s32 arg0, s16 arg1, s32 arg2) {
-    if (arg1 == fn_800196EC()) {
+    if (arg1 == TObjPlayer__sub_800196EC()) {
         fn_80087350(arg0 + 0x38, 0x9B);
         send_field_state_if_active__10TObjPlayerFii(arg2, 0x52802);
     }

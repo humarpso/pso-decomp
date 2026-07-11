@@ -16,7 +16,7 @@ extern s32 lbl_805D53A0;
 extern s32 lbl_805D5EBC;
 extern s32 lbl_805D5EC0;
 
-void fn_801E76E4(void) {
+void TLobby__sub_801E76E4(void) {
     s32 var_r31;
 
     lbl_805D5EBC = TWindowShortListCtrl__sub_80278E48(fn_8026CBB8(3), lbl_80449B2C, lbl_805D53A0);

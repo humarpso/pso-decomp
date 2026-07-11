@@ -19,7 +19,7 @@ M2C_UNK TWindowKeyBoardSoft__sub_80260E30(void *, s32);
 M2C_UNK fn_80261204(void *, s32);
 extern const f32 lbl_805DD0D4;
 
-void fn_8026262C(void *arg0) {
+void TWindowKeyBoardSoft__sub_8026262C(void *arg0) {
     f32 temp_f0;
     s32 temp_r3;
 
