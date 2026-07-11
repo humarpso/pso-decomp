@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void destroy__17TOSensorAncient01Fv(void);
-M2C_UNK TOBoss4Rock__sub_80147A80(void*);
+M2C_UNK free__11TOBoss4RockFUi(void*);
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
@@ -20,7 +20,7 @@ void destroy__17TOSensorAncient01Fv(void) {
         fn_801E483C(M2C_FIELD(lbl_805D5A8C, s32 *, 0xC));
         fn_801E483C(M2C_FIELD(lbl_805D5A8C, s32 *, 8));
         if ((void *) lbl_805D5A8C != NULL) {
-            TOBoss4Rock__sub_80147A80((void*)lbl_805D5A8C);
+            free__11TOBoss4RockFUi((void*)lbl_805D5A8C);
             lbl_805D5A8C = NULL;
         }
     }

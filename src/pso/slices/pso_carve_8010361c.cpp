@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TItemBuff__ct();
-M2C_UNK TOBoss4Rock__sub_80147A80(s32);
+M2C_UNK free__11TOBoss4RockFUi(s32);
 extern M2C_UNK lbl_80506200[];
 
 void fn_8010361C(void) {
@@ -22,7 +22,7 @@ void fn_8010361C(void) {
     var_r28 = 0;
     var_r29 = lbl_80506200;
     do {
-        TOBoss4Rock__sub_80147A80(var_r29[var_r31]);
+        free__11TOBoss4RockFUi(var_r29[var_r31]);
         var_r28 += 1;
         var_r29[var_r31] = var_r30;
         var_r31 += 1;

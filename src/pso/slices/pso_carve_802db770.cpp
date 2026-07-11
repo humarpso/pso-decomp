@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void fn_8001FE7C(void*, int);
-void TOBoss4Rock__sub_80147A80(void*);
+void free__11TOBoss4RockFUi(void*);
 extern u32 lbl_805D68AC;
 extern u32 lbl_805D68B8;
 
 void fn_802DB770(void) {
     if ((u32) lbl_805D68AC != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D68AC);
+        free__11TOBoss4RockFUi((void*)lbl_805D68AC);
         lbl_805D68AC = 0U;
     }
     if ((u32) lbl_805D68B8 != 0U) {

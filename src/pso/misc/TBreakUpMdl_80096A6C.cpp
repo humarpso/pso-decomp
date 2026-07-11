@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
-void TOBoss4Rock__sub_80147A80(void *);
+void free__11TOBoss4RockFUi(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -14,7 +14,7 @@ extern M2C_UNK __vt__11TBreakUpMdl[];
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TBreakUpMdl;
-        TOBoss4Rock__sub_80147A80(M2C_FIELD(arg0, void **, 0x34));
+        free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x34));
         M2C_FIELD(arg0, M2C_UNK *, 0x34) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

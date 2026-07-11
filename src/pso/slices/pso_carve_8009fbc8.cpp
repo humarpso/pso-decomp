@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TOBoss4Rock__sub_80147A80(void *);
+void free__11TOBoss4RockFUi(void *);
 void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_80490410[];
@@ -12,9 +12,9 @@ extern M2C_UNK lbl_80490410[];
 void *fn_8009FBC8(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490410;
-        TOBoss4Rock__sub_80147A80(M2C_FIELD(arg0, void **, 0x2C));
+        free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x2C));
         M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0;
-        TOBoss4Rock__sub_80147A80(M2C_FIELD(arg0, void **, 0x28));
+        free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x28));
         M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

@@ -11,7 +11,7 @@ extern "C" {
 void handle_comcard_window__6TLobbyFv(void);
 M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
-M2C_UNK TOBoss4Rock__sub_80147A80(s32);
+M2C_UNK free__11TOBoss4RockFUi(s32);
 s32 TWindowSubComCard__sub_80131C10(u32);
 s32 TWindowSubComCard__sub_80131C34(u32);
 M2C_UNK TWindow__close(s32);
@@ -38,7 +38,7 @@ void handle_comcard_window__6TLobbyFv(void) {
         if (TWindowSubComCard__sub_80131C34(lbl_805D55F4) != 0) {
             temp_r3 = fn_80131BC4(lbl_805D55F4);
             send_action__9TProtocolFR13GameListEntryPcPc(lbl_805D5580, &lbl_805D5580->arr[lbl_805D5600], &lbl_805DB0B0, temp_r3, lbl_805D5580);
-            TOBoss4Rock__sub_80147A80(temp_r3);
+            free__11TOBoss4RockFUi(temp_r3);
             queue_destruction__7TObjectFv(lbl_805D55F4);
             lbl_805D55F4 = 0U;
             TWindow__close(lbl_805D55F0);

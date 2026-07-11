@@ -7,15 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK __dl__FPv(s32);
-M2C_UNK TOBoss4Rock__sub_80147A80(s32);
+M2C_UNK free__11TOBoss4RockFUi(s32);
 extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
 
 s32 fn_8011B010(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        TOBoss4Rock__sub_80147A80(lbl_805D54E8);
+        free__11TOBoss4RockFUi(lbl_805D54E8);
         lbl_805D54E8 = 0;
-        TOBoss4Rock__sub_80147A80(lbl_805D54EC);
+        free__11TOBoss4RockFUi(lbl_805D54EC);
         lbl_805D54EC = 0;
         if (arg1 > 0) {
             __dl__FPv(arg0);

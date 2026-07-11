@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80105874();
 void fn_8011B010(void*, int);
-void TOBoss4Rock__sub_80147A80(void*);
+void free__11TOBoss4RockFUi(void*);
 M2C_UNK fn_80363CE0();
 M2C_UNK fn_803641EC();
 extern s32 lbl_805D53F0;
@@ -24,7 +24,7 @@ void fn_80102AE0(void) {
         lbl_805D5400 = 0U;
     }
     if ((u32) lbl_805D53F4 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D53F4);
+        free__11TOBoss4RockFUi((void*)lbl_805D53F4);
         lbl_805D53F4 = 0U;
     }
     lbl_805D53F0 = 0;

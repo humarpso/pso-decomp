@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_press_b__17TWindowSubComCardFii(s32 arg0, s32 arg1);
-M2C_UNK fn_8007B27C();
+M2C_UNK clear();
 s32 fn_8007B370(s32, s32);
 s32 fn_8007BD94(s32);
 M2C_UNK fn_8007BF48(s32);
 
 void handle_press_b__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
-    fn_8007B27C();
+    clear();
     if ((fn_8007B370(arg0, arg1) != 0) && (fn_8007BD94(arg0) == 0)) {
         fn_8007BF48(arg0);
     }

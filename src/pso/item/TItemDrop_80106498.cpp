@@ -9,16 +9,16 @@ extern "C" {
 void __dt__9TItemDropFv(void);
 void run_task__9TItemDropFv(void);
 M2C_UNK TItemDrop__sub_801063D8();
-M2C_UNK TOBoss4Rock__sub_80147A80(s32);
+M2C_UNK free__11TOBoss4RockFUi(s32);
 s32 TOBoss4Rock__sub_80147AA8(M2C_UNK);
 
 extern s32 lbl_805D5468;
 extern s32 lbl_805D546C;
 
 void run_task__9TItemDropFv(void) {
-    TOBoss4Rock__sub_80147A80(lbl_805D546C);
+    free__11TOBoss4RockFUi(lbl_805D546C);
     lbl_805D546C = 0;
-    TOBoss4Rock__sub_80147A80(lbl_805D5468);
+    free__11TOBoss4RockFUi(lbl_805D5468);
     lbl_805D5468 = 0;
 }
 

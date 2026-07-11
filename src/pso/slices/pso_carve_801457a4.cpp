@@ -13,7 +13,7 @@ struct VObj_801457A4 : Base_801457A4 {
 extern "C" {
 
 M2C_UNK fn_8007EBB4(s32);
-M2C_UNK TOBoss4Rock__sub_80147A80(s32);
+M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK fn_803DA16C(M2C_UNK *);
 extern M2C_UNK lbl_804A74E8[];
 extern s32 lbl_805D56B0;
@@ -26,8 +26,8 @@ void fn_801457A4(void) {
         lbl_805D56C4->m0(1);
     }
     fn_803DA16C(lbl_804A74E8);
-    TOBoss4Rock__sub_80147A80(lbl_805D56BC);
-    TOBoss4Rock__sub_80147A80(lbl_805D56B4);
+    free__11TOBoss4RockFUi(lbl_805D56BC);
+    free__11TOBoss4RockFUi(lbl_805D56B4);
     fn_8007EBB4(lbl_805D56B0);
 }
 

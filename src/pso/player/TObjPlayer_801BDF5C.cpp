@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_shared_data__10TObjPlayerFv(void);
-void TOBoss4Rock__sub_80147A80(void*);
+void free__11TOBoss4RockFUi(void*);
 void fn_801C2308(void*, int);
 
 extern u32 lbl_805D5D68;
@@ -20,11 +20,11 @@ void free_shared_data__10TObjPlayerFv(void) {
         lbl_805D5D68 = 0U;
     }
     if ((u32) lbl_805D5D84 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D5D84);
+        free__11TOBoss4RockFUi((void*)lbl_805D5D84);
         lbl_805D5D84 = 0U;
     }
     if ((u32) lbl_805D5D80 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D5D80);
+        free__11TOBoss4RockFUi((void*)lbl_805D5D80);
         lbl_805D5D80 = 0U;
     }
 }

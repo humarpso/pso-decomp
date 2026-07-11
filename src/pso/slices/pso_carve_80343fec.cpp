@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void fn_800F957C(void*);
-void TOBoss4Rock__sub_80147A80(void*);
+void free__11TOBoss4RockFUi(void*);
 M2C_UNK fn_8034AF18();
 extern u32 lbl_805D6E0C;
 extern u32 lbl_805D6E10;
@@ -23,27 +23,27 @@ extern u32 lbl_805D6E60;
 void fn_80343FEC(void) {
     fn_8034AF18();
     if ((u32) lbl_805D6E1C != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D6E1C);
+        free__11TOBoss4RockFUi((void*)lbl_805D6E1C);
         lbl_805D6E1C = 0U;
     }
     if ((u32) lbl_805D6E20 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D6E20);
+        free__11TOBoss4RockFUi((void*)lbl_805D6E20);
         lbl_805D6E20 = 0U;
     }
     if ((u32) lbl_805D6E18 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D6E18);
+        free__11TOBoss4RockFUi((void*)lbl_805D6E18);
         lbl_805D6E18 = 0U;
     }
     if ((u32) lbl_805D6E14 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D6E14);
+        free__11TOBoss4RockFUi((void*)lbl_805D6E14);
         lbl_805D6E14 = 0U;
     }
     if ((u32) lbl_805D6E10 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D6E10);
+        free__11TOBoss4RockFUi((void*)lbl_805D6E10);
         lbl_805D6E10 = 0U;
     }
     if ((u32) lbl_805D6E0C != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D6E0C);
+        free__11TOBoss4RockFUi((void*)lbl_805D6E0C);
         lbl_805D6E0C = 0U;
     }
     if ((u32) lbl_805D6E60 != 0U) {

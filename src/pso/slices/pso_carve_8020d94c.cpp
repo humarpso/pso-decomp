@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TOBoss4Rock__sub_80147A80(void*);
+void free__11TOBoss4RockFUi(void*);
 extern u32 lbl_805D611C;
 extern s32 lbl_805D6120;
 extern u32 lbl_805D6124;
@@ -13,12 +13,12 @@ extern s32 lbl_805D6128;
 
 void fn_8020D94C(void) {
     if ((u32) lbl_805D611C != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D611C);
+        free__11TOBoss4RockFUi((void*)lbl_805D611C);
         lbl_805D611C = 0U;
         lbl_805D6120 = 0;
     }
     if ((u32) lbl_805D6124 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D6124);
+        free__11TOBoss4RockFUi((void*)lbl_805D6124);
         lbl_805D6124 = 0U;
         lbl_805D6128 = 0;
     }

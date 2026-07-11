@@ -1,8 +1,8 @@
 #include "pso/TEnemyTaskList.h"
 
-extern "C" void TOBoss4Rock__sub_80147A80(void*);
+extern "C" void free__11TOBoss4RockFUi(void*);
 
 TEnemyTaskList::~TEnemyTaskList() {
-    TOBoss4Rock__sub_80147A80(m_28);
-    TOBoss4Rock__sub_80147A80(m_24);
+    free__11TOBoss4RockFUi(m_28);
+    free__11TOBoss4RockFUi(m_24);
 }

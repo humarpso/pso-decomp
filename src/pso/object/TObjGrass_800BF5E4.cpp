@@ -8,7 +8,7 @@ extern "C" {
 
 void destroy_all__9TObjGrassFv(void);
 void __dt__11TBoss4Type3FPvs(void*, int);
-void TOBoss4Rock__sub_80147A80(void*);
+void free__11TOBoss4RockFUi(void*);
 void fn_8001FE7C(void*, int);
 
 extern u32 lbl_805D5144;
@@ -18,7 +18,7 @@ extern u32 lbl_805D515C;
 
 void destroy_all__9TObjGrassFv(void) {
     if ((u32) lbl_805D5144 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D5144);
+        free__11TOBoss4RockFUi((void*)lbl_805D5144);
         lbl_805D5144 = 0U;
     }
     if ((u32) lbl_805D515C != 0U) {

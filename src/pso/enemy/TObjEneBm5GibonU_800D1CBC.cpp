@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TPhotonMylla__sub_80154CB4(u16);
 s16 obj_getField1c(s32);
-s32 TObjEneBm5GibonU__sub_800D1B7C(s32 arg0, s16 arg1);
+s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 int __dl__FPv();
 s32 destroy__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 int TObjEneBm5GibonU__sub_800D1C40(void* a0 = 0, void* a1 = 0, void* a2 = 0);

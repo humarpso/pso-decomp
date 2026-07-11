@@ -10,7 +10,7 @@ s32 TObjPlayer__sub_801B51D0(s32 arg0);
 void send_code_45_1__10TObjPlayerFi(s32 arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 M2C_UNK set_code_45_1__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801C0AA4(void *);
+M2C_UNK send_lobby_update_font__10TObjPlayerFPv(void *);
 
 s32 TObjPlayer__sub_801B51D0(s32 arg0) {
     TFontSmallLobby__sub_801C0228();
@@ -27,7 +27,7 @@ void send_code_45_1__10TObjPlayerFi(s32 arg0) {
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
         set_code_45_1__10TObjPlayerFPv(&sp8);
         sp8.h = obj_getField1c(arg0);
-        TObjPlayer__sub_801C0AA4(&sp8);
+        send_lobby_update_font__10TObjPlayerFPv(&sp8);
     }
 }
 

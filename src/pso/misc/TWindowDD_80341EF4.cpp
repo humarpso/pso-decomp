@@ -5,12 +5,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void free_child__9TWindowDDFPv(void *arg0);
-void TOBoss4Rock__sub_80147A80(void *);
+void free__11TOBoss4RockFUi(void *);
 void fn_80257CB8(void *);
 
 void free_child__9TWindowDDFPv(void *arg0) {
     if (M2C_FIELD(arg0, void **, 0x80) != NULL) {
-        TOBoss4Rock__sub_80147A80(M2C_FIELD(arg0, void **, 0x80));
+        free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x80));
         M2C_FIELD(arg0, u32 *, 0x80) = 0;
     }
     fn_80257CB8((void *)((char *)arg0 + 36));

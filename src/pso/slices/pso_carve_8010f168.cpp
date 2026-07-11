@@ -8,12 +8,12 @@ extern "C" {
 
 M2C_UNK __dl__FPv(void *);
 M2C_UNK fn_8010F018();
-M2C_UNK TOBoss4Rock__sub_80147A80(s32);
+M2C_UNK free__11TOBoss4RockFUi(s32);
 
 void *fn_8010F168(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         fn_8010F018();
-        TOBoss4Rock__sub_80147A80(M2C_FIELD(arg0, s32 *, 8));
+        free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 8));
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

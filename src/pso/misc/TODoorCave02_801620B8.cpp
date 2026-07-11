@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_globals__12TODoorCave02Fv(void);
-M2C_UNK TOBoss4Rock__sub_80147A80(void*);
+M2C_UNK free__11TOBoss4RockFUi(void*);
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
@@ -18,7 +18,7 @@ void free_globals__12TODoorCave02Fv(void) {
     if ((s32 *) lbl_805D5964 != NULL) {
         fn_801E483C(*lbl_805D5964);
         if ((s32 *) lbl_805D5964 != NULL) {
-            TOBoss4Rock__sub_80147A80((void*)lbl_805D5964);
+            free__11TOBoss4RockFUi((void*)lbl_805D5964);
             lbl_805D5964 = NULL;
         }
     }

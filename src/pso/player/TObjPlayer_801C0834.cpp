@@ -18,7 +18,7 @@ void set_code_50_1__10TObjPlayerFPv(void* p);
 void set_code_49_1__10TObjPlayerFPv(void* p);
 void set_code_45_1__10TObjPlayerFPv(void* p);
 
-void TObjPlayer__sub_801C0834(void* p) { fn_801C0768(p); TLobby__send_and_handle_60(p); }
+void send_lobby_update__10TObjPlayerFPv(void* p) { fn_801C0768(p); TLobby__send_and_handle_60(p); }
 void TObjPlayer__sub_801C0868(void* p) { fn_8001960C(p); TObjPlayer__sub_801BEE34((char*)p + 0x4); }
 void set_code_13_3__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 13; *(u8*)((char*)p + 0x1) = 3; }
 void TObjPlayer__sub_801C08B0(void* p) { TObjPlayer__sub_801C0868(p); TLobby__send_and_handle_60(p); }

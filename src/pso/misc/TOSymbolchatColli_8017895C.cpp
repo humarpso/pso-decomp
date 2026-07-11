@@ -6,7 +6,7 @@ extern "C" {
 
 void *create__17TOSymbolchatColliFPv(void *arg0);
 void free_rock__17TOSymbolchatColliFv(void);
-int TOBoss4Rock__sub_80147A80(void*);
+int free__11TOBoss4RockFUi(void*);
 void *TOSymbolchatColli__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -21,6 +21,6 @@ void *create__17TOSymbolchatColliFPv(void *arg0) {
 }
 
     extern int lbl_805D5AC8;
-void free_rock__17TOSymbolchatColliFv(void) { TOBoss4Rock__sub_80147A80((void*)(lbl_805D5AC8)); lbl_805D5AC8 = 0; }
+void free_rock__17TOSymbolchatColliFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5AC8)); lbl_805D5AC8 = 0; }
 
 }

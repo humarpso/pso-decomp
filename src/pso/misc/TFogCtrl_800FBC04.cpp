@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void reset__8TFogCtrlFv(void);
-M2C_UNK TOBoss4Rock__sub_80147A80(void*);
+M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK TObjFogCollisionPoison__sub_801533BC();
 M2C_UNK fn_800FA9A8();
 M2C_UNK fn_801E2EFC();
@@ -23,7 +23,7 @@ void reset__8TFogCtrlFv(void) {
     TObjFogCollisionPoison__sub_801533BC();
     fn_800FA9A8();
     if ((u32) lbl_805D5388 != 0U) {
-        TOBoss4Rock__sub_80147A80((void*)lbl_805D5388);
+        free__11TOBoss4RockFUi((void*)lbl_805D5388);
     }
     lbl_805D5388 = 0U;
     fn_803E1FC8(-1);

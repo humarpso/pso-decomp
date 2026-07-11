@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_800F957C(u32);
-M2C_UNK TOBoss4Rock__sub_80147A80(u32);
+M2C_UNK free__11TOBoss4RockFUi(u32);
 extern u32 lbl_80513D78[];
 extern u32 lbl_805D6158;
 
@@ -19,7 +19,7 @@ void fn_8020EDBC(void) {
     do {
         u32 v = (u32)var_r29[var_r31];
         if (v != 0U) {
-            TOBoss4Rock__sub_80147A80(v);
+            free__11TOBoss4RockFUi(v);
             var_r29[var_r31] = (u32)var_r30;
         }
         var_r28 -= 1;

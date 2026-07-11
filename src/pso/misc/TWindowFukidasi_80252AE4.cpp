@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1);
-M2C_UNK TOBoss4Rock__sub_80147A80(void *);
+M2C_UNK free__11TOBoss4RockFUi(void *);
 M2C_UNK release_slot__11TWindowCtrlFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_802443F0(void *, M2C_UNK);
@@ -24,7 +24,7 @@ u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1) {
             release_slot__11TWindowCtrlFPv(arg0 + 0x73);
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {
-            TOBoss4Rock__sub_80147A80(M2C_FIELD(arg0, void **, 0x78));
+            free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x78));
             M2C_FIELD(arg0, u32 *, 0x78) = 0U;
         }
         fn_802443F0(arg0, 0);

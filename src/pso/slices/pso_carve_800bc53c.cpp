@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_8002B094(void *);
 s32 TOBoss4Rock__sub_80147AA8(s32);
 s32 __dl__FPv(u32 *);
-s32 TOBoss4Rock__sub_80147A80(u32);
+s32 free__11TOBoss4RockFUi(u32);
 int queue_destruction__12TObjGrassWebFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
@@ -31,7 +31,7 @@ void *fn_800BC620(void *arg0, s32 arg1, s32 arg2) {
 u32 *fn_800BC688(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *arg0 != 0U) {
-            TOBoss4Rock__sub_80147A80(*arg0);
+            free__11TOBoss4RockFUi(*arg0);
             *arg0 = 0U;
         }
         if (arg1 > 0) {
