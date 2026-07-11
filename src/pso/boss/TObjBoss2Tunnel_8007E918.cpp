@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjBoss2Tunnel__sub_8007E918(void *arg0);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *arg0);
 s32 TCameraCtrl__sub_8006B370(f32);
-f32 fn_8001978C(f32);
+f32 TObjPlayer__sub_8001978C(f32);
 
 extern const f32 TObjBoss2Tunnel__data_805D9234;
 extern const f32 lbl_805D923C;
 
-f32 TObjBoss2Tunnel__sub_8007E918(void *arg0) {
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *arg0) {
     f32 temp_f31;
     f32 temp_f30;
     f32 temp_f29;
@@ -24,7 +24,7 @@ f32 TObjBoss2Tunnel__sub_8007E918(void *arg0) {
     temp_f31 = M2C_FIELD(arg0, f32 *, 0);
     temp_f29 = (temp_f31 * temp_f31) + (temp_f30 * temp_f30);
     if (TObjBoss2Tunnel__data_805D9234 != temp_f29) {
-        temp_f28 = lbl_805D923C / fn_8001978C(temp_f29);
+        temp_f28 = lbl_805D923C / TObjPlayer__sub_8001978C(temp_f29);
         if (TCameraCtrl__sub_8006B370(temp_f28) != 0) {
             M2C_FIELD(arg0, f32 *, 0) = (f32) TObjBoss2Tunnel__data_805D9234;
             M2C_FIELD(arg0, f32 *, 8) = (f32) TObjBoss2Tunnel__data_805D9234;

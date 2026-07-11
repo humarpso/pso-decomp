@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMultiPlyChrSelectGC__sub_802DC760(void *arg0);
+void update_input_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 s32 TWindowSubComCard__sub_802A57FC(u32);
@@ -17,7 +17,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(u32);
 
 extern M2C_UNK lbl_8050E3B8[];
 
-void TAdMultiPlyChrSelectGC__sub_802DC760(void *arg0) {
+void update_input_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r3;
 
     if (TWindowShortListCtrl__check_controller_button((s8 *)lbl_8050E3B8 + 0x20, 2) != 0) {

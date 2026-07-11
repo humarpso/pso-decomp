@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800E13DC(void *arg0);
+void start_action__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800E145C(void *arg0);
-void TObjEnePanarms__sub_800E14A0(void *arg0);
+void init_split__14TObjEnePanarmsFPv(void *arg0);
 M2C_UNK TObjEnePanarms__sub_800E1B50();
 M2C_UNK fn_8002AE74(void *, M2C_UNK);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 M2C_UNK TObjEnePanarms__sub_800E2DE4(void *, M2C_UNK);
 M2C_UNK TObjEnePanarms__sub_800E2EF0(void *, M2C_UNK, M2C_UNK);
 
-void TObjEnePanarms__sub_800E13DC(void *arg0) {
+void start_action__14TObjEnePanarmsFPv(void *arg0) {
     void *temp_r4;
 
     TObjEnePanarms__sub_800E2EF0(arg0, 0xF, 0x3C);
@@ -37,7 +37,7 @@ void TObjEnePanarms__sub_800E145C(void *arg0) {
     }
 }
 
-void TObjEnePanarms__sub_800E14A0(void *arg0) {
+void init_split__14TObjEnePanarmsFPv(void *arg0) {
     s16 temp_r5;
     void *temp_r7;
 

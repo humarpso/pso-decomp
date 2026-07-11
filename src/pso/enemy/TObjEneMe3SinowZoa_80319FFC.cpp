@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe3SinowZoa__sub_80319FFC(u8 *arg0, s32 arg1);
+void action__18TObjEneMe3SinowZoaFPvi(u8 *arg0, s32 arg1);
 s32 TObjEneDD__sub_800B9B84(s32, s32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -46,7 +46,7 @@ struct VObj18F : Base18F {
 
 extern "C" {
 
-void TObjEneMe3SinowZoa__sub_80319FFC(u8 *arg0, s32 arg1) {
+void action__18TObjEneMe3SinowZoaFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     s32 temp_r4;
 

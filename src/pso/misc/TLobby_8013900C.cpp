@@ -10,7 +10,7 @@ void update__6TLobbyFv(void);
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindow__close(u32);
-M2C_UNK fn_801A66B8();
+M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK fn_801DB4E4(s32);
 s32 fn_802693B4(u32);
 M2C_UNK fn_80269454(u32);
@@ -34,7 +34,7 @@ void update__6TLobbyFv(void) {
     } else {
         close_all_windows__6TLobbyFv();
     }
-    fn_801A66B8();
+    TKeyBoardControl__sub_801A66B8();
 }
 
 }

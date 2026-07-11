@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdChrSelBSlotGC__sub_8030F45C(void *arg0);
-void TAdChrSelBSlotGC__sub_8030F6B0(void *arg0);
+void close_windows__16TAdChrSelBSlotGCFPv(void *arg0);
+void reset_windows__16TAdChrSelBSlotGCFPv(void *arg0);
 u32 TAdChrSelASlotGC__sub_8030CB08(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdChrSelMovePlateGC__sub_8032572C(s32);
 u32 TAdMcSelectGC__sub_80019DA8(void *, M2C_UNK, f32);
@@ -22,7 +22,7 @@ s32 fn_803100EC(void *);
 M2C_UNK fn_803100F4();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TAdChrSelBSlotGC__sub_8030F45C(void *arg0) {
+void close_windows__16TAdChrSelBSlotGCFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x44));
         M2C_FIELD(arg0, u32 *, 0x44) = 0U;
@@ -113,7 +113,7 @@ void TAdChrSelBSlotGC__sub_8030F45C(void *arg0) {
 extern M2C_UNK lbl_80475910[];
 extern const f32 lbl_805DF220;
 
-void TAdChrSelBSlotGC__sub_8030F6B0(void *arg0) {
+void reset_windows__16TAdChrSelBSlotGCFPv(void *arg0) {
     TAdChrSelSlotGC__sub_802C7438(M2C_FIELD(arg0, s32 *, 0x28));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x38));

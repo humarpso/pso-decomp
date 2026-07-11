@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3Volopt__sub_80047344(void *arg0);
+void update_state__12TBoss3VoloptFPv(void *arg0);
 M2C_UNK fn_80044498();
 f32 fn_803D64C0(s32);
 
 extern const f32 TBoss3Volopt__data_805D87E4;
 extern const f32 lbl_805D8818;
 
-void TBoss3Volopt__sub_80047344(void *arg0) {
+void update_state__12TBoss3VoloptFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r0_3;

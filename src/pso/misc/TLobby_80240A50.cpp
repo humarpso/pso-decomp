@@ -9,7 +9,7 @@ extern "C" {
 s32 TLobby__sub_8024219C(s32);
 void TLobby__sub_802409E4(void* p);
 
-void TLobby__sub_80240A50(void *arg0) {
+void update__6TLobbyFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r4;
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjEneRecon__sub_8031DB34(f32 farg0, f32 farg1);
+f32 approach_value__12TObjEneReconFff(f32 farg0, f32 farg1);
 f32 TObjFish__sub_8001973C(f32);
 
 extern const f32 lbl_805DF3B8;
@@ -14,7 +14,7 @@ extern const f32 TObjEneRecon__data_805DF3D0;
 extern const f32 lbl_805DF3E8;
 extern const f32 lbl_805DF424;
 
-f32 TObjEneRecon__sub_8031DB34(f32 farg0, f32 farg1) {
+f32 approach_value__12TObjEneReconFff(f32 farg0, f32 farg1) {
     f32 temp_f31;
     f32 var_f1;
 

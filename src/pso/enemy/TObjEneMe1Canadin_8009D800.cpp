@@ -40,7 +40,7 @@ struct VObj18D : VBase18D {
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009D800(void *arg0, s32 arg1);
+void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
@@ -55,7 +55,7 @@ M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 
-void TObjEneMe1Canadin__sub_8009D800(void *arg0, s32 arg1) {
+void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r3;
 

@@ -22,12 +22,12 @@ struct VObj_80301690 : Base_80301690 {
 
 extern "C" {
 
-void TObjEneDolmOlm__sub_80301690(void *arg0);
+void update_state__14TObjEneDolmOlmFPv(void *arg0);
 
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
-void TObjEneDolmOlm__sub_80301690(void *arg0) {
+void update_state__14TObjEneDolmOlmFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

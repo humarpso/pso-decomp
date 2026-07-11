@@ -11,7 +11,7 @@ M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, M2C_UNK *);
 s32 TWindowEffectParty__sub_8024F690(void *, f32, f32);
 M2C_UNK calc_effect_position__18TWindowEffectPartyFPvPv(void *, M2C_UNK *);
 s32 fn_80244994();
-u32 fn_8024FB80(s8);
+u32 TWindowCtrl__sub_8024FB80(s8);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern const f32 lbl_805DCCD4;
@@ -22,7 +22,7 @@ void run_task__18TWindowEffectPartyFv(void *arg0) {
     u8 temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, u8 *, 0x1E);
-    if (((s8) temp_r3 > 0) && ((fn_8024FB80((s8) (temp_r3 - 1)) == 0U) || (fn_80244994() == 0))) {
+    if (((s8) temp_r3 > 0) && ((TWindowCtrl__sub_8024FB80((s8) (temp_r3 - 1)) == 0U) || (fn_80244994() == 0))) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

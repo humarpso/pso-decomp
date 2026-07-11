@@ -11,7 +11,7 @@ M2C_UNK TObjPlayer__sub_80017E6C(void *);
 M2C_UNK fn_800A6B90(void *, M2C_UNK);
 M2C_UNK fn_80143504();
 M2C_UNK TObjPlayer__sub_801564A0(void *);
-M2C_UNK TObjPlayer__sub_8015659C(void *);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D9A10;
@@ -50,7 +50,7 @@ void fn_800A4774(u8 *arg0) {
         }
         break;
     }
-    TObjPlayer__sub_8015659C(arg0);
+    check_object_collisions__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_801564A0(arg0);
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     TObjPlayer__sub_801B4A18(arg0, -1);

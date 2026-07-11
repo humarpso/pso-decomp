@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm5Wolf__sub_800B52BC(u8 *arg0, s32 arg1);
+void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneBm5Wolf__sub_800B74B8(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B7530(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B7DDC(void *, s32);
@@ -40,7 +40,7 @@ struct VEne : VBase {
 #undef VPAD
 };
 
-void TObjEneBm5Wolf__sub_800B52BC(u8 *arg0, s32 arg1) {
+void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VEne *)arg0)->m94();

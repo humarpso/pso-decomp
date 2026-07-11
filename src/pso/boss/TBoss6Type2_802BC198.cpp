@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss6Type2__sub_802BC198(void *arg0);
+s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 f64 fn_80019760(f32, f32, f32);
 
 extern const f64 TBoss6Type2__data_804713C0;
 
-s32 TBoss6Type2__sub_802BC198(void *arg0) {
+s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0) {
     f32 temp_f3;
     f64 temp_f0;
     s32 var_r31;

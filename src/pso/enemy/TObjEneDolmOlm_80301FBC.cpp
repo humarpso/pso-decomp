@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneDolmOlm__sub_80301FBC(void *arg0);
-f32 fn_80011014();
+f32 TObjPlayer__sub_80011014();
 
 void TObjEneDolmOlm__sub_80301FBC(void *arg0) {
-    if (fn_80011014() < M2C_FIELD(arg0, f32 *, 0x3CC)) {
+    if (TObjPlayer__sub_80011014() < M2C_FIELD(arg0, f32 *, 0x3CC)) {
         M2C_FIELD(arg0, s16 *, 0x326) = 0xA;
         M2C_FIELD(arg0, s16 *, 0x328) = 0;
     }

@@ -98,13 +98,13 @@ struct D_V : D_A {
 extern "C" {
 
 void check_death__12TBoss8DragonFPv(void *arg0);
-s32 TBoss8Dragon__sub_802FB98C(void *);
+s32 check_damage_reaction__12TBoss8DragonFPv(void *);
 M2C_UNK TBoss8Dragon__sub_802FBBFC(void *, M2C_UNK);
 s32 TBoss8Dragon__sub_802FC8AC();
 
 void check_death__12TBoss8DragonFPv(void *arg0) {
     if (TBoss8Dragon__sub_802FC8AC() != 0) {
-        if (TBoss8Dragon__sub_802FB98C(arg0) != 0) {
+        if (check_damage_reaction__12TBoss8DragonFPv(arg0) != 0) {
             return;
         }
         goto block_8;

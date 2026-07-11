@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss2DeRolLe__sub_80034660(u8 *arg0);
-u8 TBoss2DeRolLe__sub_800346D8(u8 *arg0);
+u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0);
 void TBoss2DeRolLe__sub_80034788(u8 *arg0);
 f32 TObjFish__sub_8001973C(f32);
 s32 TBoss2DeRolLe__sub_80035FCC(void *);
@@ -30,7 +30,7 @@ extern const f32 TBoss2DeRolLe__data_805D8280;
 extern const f32 TBoss2DeRolLe__data_805D82B4;
 extern const f32 TBoss2DeRolLe__data_805D8328;
 
-u8 TBoss2DeRolLe__sub_800346D8(u8 *arg0) {
+u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r0;
 
     TBoss2DeRolLe__sub_80035FCC(arg0 + 0x684);

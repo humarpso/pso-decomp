@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjEneBm3Fly__sub_800B1820(f32 farg0, f32 farg1);
+f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1);
 f32 TObjFish__sub_8001973C(f32);
 
 extern const f32 TObjEneBm3Fly__data_805D9C78;
@@ -14,7 +14,7 @@ extern const f32 lbl_805D9CE0;
 extern const f32 lbl_805D9CE4;
 extern const f32 lbl_805D9CE8;
 
-f32 TObjEneBm3Fly__sub_800B1820(f32 farg0, f32 farg1) {
+f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1) {
     f32 temp_f31;
     f32 var_f1;
     f32 cap;

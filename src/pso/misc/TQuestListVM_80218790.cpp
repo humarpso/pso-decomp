@@ -10,7 +10,7 @@ void close_and_destroy__12TQuestListVMFPv(void *arg0);
 void close__12TQuestListVMFPv(void *arg0);
 M2C_UNK fn_8001EE48(M2C_UNK *);
 s32 fn_8001EEF4();
-M2C_UNK fn_8007EB08();
+M2C_UNK TQuestListVM__sub_8007EB08();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK TQuestListVM__data_8044BF20[];
@@ -40,7 +40,7 @@ void close__12TQuestListVMFPv(void *arg0) {
     if (fn_8001EEF4() == 0) {
         fn_8001EE48(TQuestListVM__data_8044BF20);
     }
-    fn_8007EB08();
+    TQuestListVM__sub_8007EB08();
     queue_destruction__7TObjectFv(arg0);
 }
 

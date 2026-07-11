@@ -8,8 +8,8 @@ extern "C" {
 
 s32 TLobby__sub_8001DC24();
 s32 TCameraCtrl__sub_8006B338();
-s32 fn_80104394(void *);
-M2C_UNK fn_801043C4(s32, void *);
+s32 TLobby__sub_80104394(void *);
+M2C_UNK TLobby__sub_801043C4(s32, void *);
 s32 fn_8010C52C(void *);
 M2C_UNK fn_80228F5C(s32);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
@@ -23,9 +23,9 @@ void fn_8025910C(void *arg0, void *arg1, s32 arg2) {
 
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF08;
     M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
-    temp_r31 = fn_80104394(arg1);
+    temp_r31 = TLobby__sub_80104394(arg1);
     fn_802586FC(arg0, temp_r31, M2C_FIELD(arg1, u8 *, 0), M2C_FIELD(arg1, u8 *, 1), fn_8010C52C(arg1));
-    fn_801043C4(TLobby__sub_8001DC24(), arg1);
+    TLobby__sub_801043C4(TLobby__sub_8001DC24(), arg1);
     M2C_FIELD(arg0, s32 *, 0x20) = fn_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
     if (TCameraCtrl__sub_8006B338() <= 2) {
         TWindowSubStatusDisp__sub_802290E0();

@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TBoss8Dragon__sub_802FB984(void);
-s32 TBoss8Dragon__sub_802FB98C(void *arg0);
+s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0);
 s32 TBoss8Dragon__sub_802FBBFC(void * a0 = 0, s32 a1 = 0);
 s32 TBoss8Dragon__sub_802FC8CC(void * a0 = 0, s32 a1 = 0);
 
 int TBoss8Dragon__sub_802FB984(void) { return 0; }
-s32 TBoss8Dragon__sub_802FB98C(void *arg0) {
+s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3C0) & 0x40) {
         return 0;
     }

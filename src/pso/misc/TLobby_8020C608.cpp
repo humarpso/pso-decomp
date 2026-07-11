@@ -29,16 +29,16 @@ struct VObj : VBase {
 
 extern "C" {
 
-s32 TLobby__sub_8020C608(s16 arg0, s16 arg1, s32 arg2);
+s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2);
 u8 *TLobby__sub_8020CCF4(void *);
 u8 *TLobby__sub_8020B334(s32);
 s32 TLobby__sub_8020B454(s32);
-M2C_UNK fn_8020E484(s32, void *);
+M2C_UNK TLobby__sub_8020E484(s32, void *);
 
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6144;
 
-s32 TLobby__sub_8020C608(s16 arg0, s16 arg1, s32 arg2) {
+s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2) {
     s16 temp_r0;
     s16 temp_r3;
     s32 temp_r31;
@@ -68,7 +68,7 @@ s32 TLobby__sub_8020C608(s16 arg0, s16 arg1, s32 arg2) {
                 if (temp_r0 != -1) {
                     ((VObj *)temp_r3_2)->m77(TLobby__data_805D6144 + (temp_r0 * 0xC));
                 }
-                fn_8020E484(arg2, temp_r3_2);
+                TLobby__sub_8020E484(arg2, temp_r3_2);
                 var_r30 += 1;
             } else {
                 M2C_FIELD(var_r29, void **, 0x44) = NULL;

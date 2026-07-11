@@ -39,14 +39,14 @@ struct VObj_80103748 : Base_80103748 {
 extern "C" {
 
 void *fn_80101AB0(s32);
-M2C_UNK fn_80103BFC(s32, s32);
-M2C_UNK fn_8010414C();
+M2C_UNK TLobby__sub_80103BFC(s32, s32);
+M2C_UNK TLobby__sub_8010414C();
 
 void handle_6x63_destroy_floor_item(void *arg0) {
     struct VObj_80103748 *o;
 
-    fn_8010414C();
-    fn_80103BFC(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
+    TLobby__sub_8010414C();
+    TLobby__sub_80103BFC(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
     o = (struct VObj_80103748 *)fn_80101AB0(M2C_FIELD(arg0, s32 *, 4));
     if (o != NULL) {
         o->m27();

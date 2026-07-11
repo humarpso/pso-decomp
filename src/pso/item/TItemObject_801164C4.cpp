@@ -8,11 +8,11 @@ extern "C" {
 
 s32 call_dispatch__11TItemObjectFi(s32 arg0);
 
-s32 (*fn_8010440C())(s32);
+s32 (*TLobby__sub_8010440C())(s32);
 
 s32 call_dispatch__11TItemObjectFi(s32 arg0) {
     if (arg0 != 0) {
-        s32 (*fp)(s32) = fn_8010440C();
+        s32 (*fp)(s32) = TLobby__sub_8010440C();
         return fp(arg0);
     }
     return 0;

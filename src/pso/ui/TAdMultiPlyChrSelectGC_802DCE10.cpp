@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdMultiPlyChrSelectGC__sub_802DCE10(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DCE90(void *arg0);
+void handle_cancel_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdGameStartGC__sub_802E644C(s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(M2C_UNK);
@@ -35,7 +35,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCE10(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x20) = 3;
 }
 
-void TAdMultiPlyChrSelectGC__sub_802DCE90(void *arg0) {
+void handle_cancel_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if (fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
         if (fn_802D50A0(M2C_FIELD(arg0, u32 *, 0x68)) == 1) {
             TAdMultiPlyChrSelectGC__sub_802C6A10();

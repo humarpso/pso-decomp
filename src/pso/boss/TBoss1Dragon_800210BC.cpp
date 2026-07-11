@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss1Dragon__sub_800210BC(u8 *arg0);
+void draw__12TBoss1DragonFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
@@ -23,7 +23,7 @@ extern s32 TBoss1Dragon__data_805D4B28;
 extern const f32 TBoss1Dragon__data_805D7F24;
 extern const f32 TBoss1Dragon__data_805D7F28;
 
-void TBoss1Dragon__sub_800210BC(u8 *arg0) {
+void draw__12TBoss1DragonFPv(u8 *arg0) {
     s32 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x34);

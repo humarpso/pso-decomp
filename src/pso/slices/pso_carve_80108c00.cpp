@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK obj_getField1c(void *);
 M2C_UNK fn_80103114(void *, M2C_UNK);
-M2C_UNK fn_80103B04();
+M2C_UNK TLobby__sub_80103B04();
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK fn_801566CC(void *);
 M2C_UNK fn_80156990(void *, M2C_UNK);
@@ -22,7 +22,7 @@ void *fn_80108C00(void *arg0, s16 arg1) {
             TObjPlayer__sub_80154A00(arg0);
             fn_801566CC(arg0);
             obj_getField1c(arg0);
-            fn_80103B04();
+            TLobby__sub_80103B04();
             fn_80103114(arg0, 0xFFFF);
         }
         fn_80156990(arg0, 0);

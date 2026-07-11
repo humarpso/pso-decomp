@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TChallenge4PResult__sub_8034BB90(void *arg0);
+void update_input__18TChallenge4PResultFPv(void *arg0);
 M2C_UNK TChallenge4PResult__sub_8034B720(void *, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
@@ -16,7 +16,7 @@ s32 fn_802693B4(u32);
 
 extern u8 lbl_8050E208[];
 
-void TChallenge4PResult__sub_8034BB90(void *arg0) {
+void update_input__18TChallenge4PResultFPv(void *arg0) {
     s32 temp_r3;
     s32 temp_r5;
     u32 p;

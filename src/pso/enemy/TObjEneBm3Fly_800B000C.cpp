@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm3Fly__sub_800B000C(u8 *arg0, s32 arg1);
+void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_800B2A5C(u32, void *);
@@ -119,7 +119,7 @@ extern M2C_UNK lbl_8043B0D0[];
 extern s32 TObjEneBm3Fly__data_805D50F4;
 extern const f32 TObjEneBm3Fly__data_805D9C88;
 
-void TObjEneBm3Fly__sub_800B000C(u8 *arg0, s32 arg1) {
+void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     u32 temp_ret;
 

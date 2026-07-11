@@ -23,7 +23,7 @@ extern "C" {
 
 void TObjPlayer__sub_801C841C(void *arg0);
 void TObjPlayer__sub_801C8478(void);
-void TObjPlayer__sub_801C847C(void *arg0);
+void do_action__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8001053C();
 s32 TObjPlayer__sub_801D0BC0(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
 M2C_UNK TObjPlayer__sub_801D0D8C(void *);
@@ -50,7 +50,7 @@ s16 ret_801D26AC(void);
 s32 obj_isState2_324(void * a0 = 0);
 
 void TObjPlayer__sub_801C8478(void) {  }
-void TObjPlayer__sub_801C847C(void *arg0) {
+void do_action__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x17;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     if (TObjPlayer__sub_801D0E28(arg0) != 0) {

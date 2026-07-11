@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowDD__sub_80343FEC(void);
+void free_buffers__9TWindowDDFv(void);
 void fn_800F957C(void*);
 M2C_UNK fn_8034AF18();
 void free__11TOBoss4RockFUi(void*);
@@ -23,7 +23,7 @@ extern u32 lbl_805D6E58;
 extern u32 lbl_805D6E5C;
 extern u32 lbl_805D6E60;
 
-void TWindowDD__sub_80343FEC(void) {
+void free_buffers__9TWindowDDFv(void) {
     fn_8034AF18();
     if ((u32) TWindowDD__data_805D6E1C != 0U) {
         free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E1C);

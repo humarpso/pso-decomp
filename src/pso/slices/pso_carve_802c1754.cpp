@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8001A430();
+s32 TMainTask__sub_8001A430();
 s32 fn_80080750();
 M2C_UNK fn_802C2FBC(void *, s32, s32, f32);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
@@ -20,7 +20,7 @@ extern s32 lbl_805D67B4;
 extern const f32 lbl_805DE4FC;
 
 void fn_802C1754(u8 *arg0) {
-    if ((fn_80080750() == 1) && (fn_8001A430() == 0)) {
+    if ((fn_80080750() == 1) && (TMainTask__sub_8001A430() == 0)) {
         fn_802C2FBC(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), lbl_805DE4FC);
     }
     fn_803DA798(lbl_805D67B4);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjBoss2Tunnel__sub_8007CE14(void);
+s32 save_snapshot__15TObjBoss2TunnelFv(void);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 s32 TObjBoss2Tunnel__sub_8007CB50();
 s32 TObjBoss2Tunnel__sub_8007CBC4();
@@ -15,7 +15,7 @@ M2C_UNK save_screen_snapshot();
 M2C_UNK memcard_check_snapshot(M2C_UNK, s32 *);
 extern s32 TObjBoss2Tunnel__data_805D4E94;
 
-s32 TObjBoss2Tunnel__sub_8007CE14(void) {
+s32 save_snapshot__15TObjBoss2TunnelFv(void) {
     s32 sp8;
 
     memcard_check_snapshot(1, &sp8);

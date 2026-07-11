@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80011080(void *, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_80011080(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -50,7 +50,7 @@ void fn_80148E54(u8 *arg0) {
         fn_803D9B78();
         some_id_805c6f74 &= 0xFFFFFFFE;
         TObjLight__sub_80134098();
-        fn_80011080(arg0, 0, 0);
+        TObjPlayer__sub_80011080(arg0, 0, 0);
     }
 }
 

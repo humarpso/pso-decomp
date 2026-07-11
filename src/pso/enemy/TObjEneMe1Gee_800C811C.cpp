@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800C811C(u8 *arg0, s32 arg1);
+void handle_message__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TLobby__sub_8020C5A4(void *);
 M2C_UNK fn_800D8ACC(s32, M2C_UNK, s32, void *, s32);
 M2C_UNK fn_800F6B14(void *);
@@ -126,7 +126,7 @@ struct VObj8036 : Base8036 {
     virtual s32 m107();
 };
 
-void TObjEneMe1Gee__sub_800C811C(u8 *arg0, s32 arg1) {
+void handle_message__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         fn_800D8ACC(TObjEneMe1Gee__data_805D51C0, 0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));

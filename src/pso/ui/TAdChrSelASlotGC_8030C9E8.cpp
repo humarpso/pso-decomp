@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdChrSelASlotGC__sub_8030C9E8(s32 arg0, s32 arg1, s32 arg2);
+s32 open_yes_no_window__16TAdChrSelASlotGCFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_802A5768(s32, M2C_UNK);
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
@@ -16,7 +16,7 @@ M2C_UNK fn_802A596C(s32, s32, s32, f32);
 
 extern f32 lbl_805DF210;
 
-s32 TAdChrSelASlotGC__sub_8030C9E8(s32 arg0, s32 arg1, s32 arg2) {
+s32 open_yes_no_window__16TAdChrSelASlotGCFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
 
     fn_8022675C(0x53F06, 0, 0, 0);

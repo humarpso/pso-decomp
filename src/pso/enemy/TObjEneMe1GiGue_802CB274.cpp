@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1GiGue__sub_802CB274(u8 *arg0);
+void init__15TObjEneMe1GiGueFPv(u8 *arg0);
 M2C_UNK TObjEneMe1GiGue__sub_802CB5A0(void *, M2C_UNK);
 M2C_UNK fn_80040B3C(void *, s32, s32);
 M2C_UNK fn_800D758C(void *);
@@ -25,7 +25,7 @@ struct VObj410 : Base410 {
 
 extern "C" {
 
-void TObjEneMe1GiGue__sub_802CB274(u8 *arg0) {
+void init__15TObjEneMe1GiGueFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;

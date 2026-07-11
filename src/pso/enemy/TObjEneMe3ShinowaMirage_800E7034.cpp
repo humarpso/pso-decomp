@@ -136,12 +136,12 @@ extern "C" {
 void TObjEneMe3ShinowaMirage__sub_800E7034(void *arg0);
 void TObjEneMe3ShinowaMirage__sub_800E707C(void *arg0);
 M2C_UNK TObjPlayer__sub_801564A0(void *);
-M2C_UNK TObjPlayer__sub_8015659C(void *);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 
 void TObjEneMe3ShinowaMirage__sub_800E7034(void *arg0) {
     struct VObj_800E7034 *o = (struct VObj_800E7034 *)arg0;
     o->m86();
-    TObjPlayer__sub_8015659C(arg0);
+    check_object_collisions__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_801564A0(arg0);
 }
 

@@ -25,20 +25,20 @@ void *__dt__16TAdPsoPassSaveGCFv(void *arg0, s16 arg1);
 void run_task__16TAdPsoPassSaveGCFv(void *arg0);
 void TAdYesNoBaseGC__vt0(void *, int);
 void __dl__7TObjectFPv(void *);
-M2C_UNK fn_8000F9CC(M2C_UNK);
+M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 
 extern s32 TAdPsoPassSaveGC__data_805D6E80;
 
 void TAdPsoPassSaveGC__vt5(void) {
     TAdPsoPassSaveGC__data_805D6E80 = 0;
-    fn_8000F9CC(0xF);
+    TKeyBoardControl__sub_8000F9CC(0xF);
 }
 
 extern s32 TAdPsoPassSaveGC__data_805D6E80;
 
 void TAdPsoPassSaveGC__vt4(void) {
     TAdPsoPassSaveGC__data_805D6E80 = 1;
-    fn_8000F9CC(0xF);
+    TKeyBoardControl__sub_8000F9CC(0xF);
 }
 
 void run_task__16TAdPsoPassSaveGCFv(void *arg0) {

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CEF38(u8 *arg0);
+void update_action_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_801CE218(void *);
 M2C_UNK TObjPlayer__sub_801CECE4(void *);
 M2C_UNK TObjPlayer__sub_801CED64(void *);
-M2C_UNK TObjPlayer__sub_801CEE40(void *);
+M2C_UNK update_anim_action__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D2620(void *);
 M2C_UNK TObjPlayer__sub_801D2630(void *);
 M2C_UNK TObjPlayer__sub_801D2DA4(void *, s32);
@@ -18,7 +18,7 @@ s32 TObjPlayer__sub_801D2DAC(void *);
 s32 fn_80142384(s32, s32);
 s32 fn_80142B08(void *);
 
-void TObjPlayer__sub_801CEF38(u8 *arg0) {
+void update_action_state__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r31;
 
@@ -43,7 +43,7 @@ void TObjPlayer__sub_801CEF38(u8 *arg0) {
         TObjPlayer__sub_801D2DA4(arg0 + 0x7CC, temp_r31);
         return;
     case 3:
-        TObjPlayer__sub_801CEE40(arg0);
+        update_anim_action__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_801CED64(arg0);
         TObjPlayer__sub_801CECE4(arg0);
         break;

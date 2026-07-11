@@ -8,12 +8,12 @@ extern "C" {
 
 void TObjEneBm5Wolf__sub_800B7AC0(s32 arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(s32, M2C_UNK);
-f32 fn_80011014();
+f32 TObjPlayer__sub_80011014();
 
 extern f32 TObjEneBm5Wolf__data_805D9DAC;
 
 void TObjEneBm5Wolf__sub_800B7AC0(s32 arg0) {
-    if (fn_80011014() < TObjEneBm5Wolf__data_805D9DAC) {
+    if (TObjPlayer__sub_80011014() < TObjEneBm5Wolf__data_805D9DAC) {
         TObjEneDD__sub_800BBA18(arg0, 8);
         return;
     }

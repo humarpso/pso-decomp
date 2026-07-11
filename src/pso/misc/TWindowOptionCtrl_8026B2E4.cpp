@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s16 TWindowOptionCtrl__sub_8026B2E4(void);
-void *fn_8001ED80();
+void *TAdSinglePlyChrSelectGC__sub_8001ED80();
 
 s16 TWindowOptionCtrl__sub_8026B2E4(void) {
-    return M2C_FIELD(fn_8001ED80(), s16 *, 0xC);
+    return M2C_FIELD(TAdSinglePlyChrSelectGC__sub_8001ED80(), s16 *, 0xC);
 }
 
 }

@@ -9,10 +9,10 @@ extern "C" {
 void run_task__20TAdGameStartShadowGCFv(void *arg0);
 void render__20TAdGameStartShadowGCFv(void* p);
 
-int fn_8001A430(void*);
+int TMainTask__sub_8001A430(void*);
 int fn_80320B38(void*);
 
-void render__20TAdGameStartShadowGCFv(void* p) { if (fn_8001A430(p) != 1) { fn_80320B38(p); } }
+void render__20TAdGameStartShadowGCFv(void* p) { if (TMainTask__sub_8001A430(p) != 1) { fn_80320B38(p); } }
 
 void run_task__20TAdGameStartShadowGCFv(void *arg0) {
     s32 temp_r0;

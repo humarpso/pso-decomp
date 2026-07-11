@@ -87,14 +87,14 @@ struct VObj : VBase {
 
 extern "C" {
 
-void TLobby__sub_8020CD44(s32 arg0);
+void create_objects__6TLobbyFi(s32 arg0);
 u8 *TLobby__sub_8020CCF4(void *);
 u8 *TLobby__sub_8020B334();
 s32 TLobby__sub_8020B454(s32);
 
 extern s32 TLobby__data_805D6144;
 
-void TLobby__sub_8020CD44(s32 arg0) {
+void create_objects__6TLobbyFi(s32 arg0) {
     s16 temp_r3;
     s16 temp_r0;
     s32 count;

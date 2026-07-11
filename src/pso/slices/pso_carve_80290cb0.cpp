@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8000F90C(M2C_UNK);
-M2C_UNK fn_8000F91C(M2C_UNK);
-M2C_UNK fn_8000F92C();
-M2C_UNK fn_801A66B8();
+M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
+M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
+M2C_UNK TKeyBoardControl__sub_8000F92C();
+M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK fn_801E2F44(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK render_tick__Fv();
 M2C_UNK fn_8028EA88();
@@ -18,12 +18,12 @@ extern u8 lbl_805D6560;
 
 void fn_80290CB0(void) {
     fn_801E2F44(0, 0, 0xFF);
-    fn_801A66B8();
-    fn_8000F90C(2);
-    fn_8000F91C(6);
+    TKeyBoardControl__sub_801A66B8();
+    TKeyBoardControl__sub_8000F90C(2);
+    TKeyBoardControl__sub_8000F91C(6);
     if ((u8) lbl_805D6560 != 0) {
         fn_80290D10();
-        fn_8000F92C();
+        TKeyBoardControl__sub_8000F92C();
         return;
     }
     fn_8028EA88();

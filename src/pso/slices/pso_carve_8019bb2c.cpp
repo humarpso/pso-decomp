@@ -6,30 +6,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8000F9CC(M2C_UNK);
-s32 fn_8019DC14();
+M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
+s32 TAdStorySelectGC__sub_8019DC14();
 M2C_UNK fn_801F4830(M2C_UNK);
-M2C_UNK fn_801FF464();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FF464();
 s32 fn_80219EE8();
 
 void fn_8019BB2C(void) {
     s32 temp_r3;
 
-    temp_r3 = fn_8019DC14();
+    temp_r3 = TAdStorySelectGC__sub_8019DC14();
     switch (temp_r3) {
     case 0:
         if (fn_80219EE8() != 0) {
             fn_801F4830(0x3FE);
-            fn_8000F9CC(0xC);
+            TKeyBoardControl__sub_8000F9CC(0xC);
         } else {
-            fn_8000F9CC(0x10);
+            TKeyBoardControl__sub_8000F9CC(0x10);
         }
         break;
     case 1:
-        fn_8000F9CC(8);
+        TKeyBoardControl__sub_8000F9CC(8);
         break;
     }
-    fn_801FF464();
+    TAdSinglePlyChrSelectGC__sub_801FF464();
 }
 
 }

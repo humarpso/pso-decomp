@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C5E68(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4);
+void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4);
 s16 TObjPlayer__sub_800194E8(s32, s16);
 s32 TObjPlayer__sub_80019514(s32);
 
 extern M2C_UNK lbl_80447120;
 extern const f32 lbl_805DC330;
 
-void TObjPlayer__sub_801C5E68(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4) {
+void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4) {
     s16 temp_r4;
 
     M2C_FIELD(arg0, s16 *, 0) = (s16) (M2C_FIELD(arg2, s16 *, 0) + TObjPlayer__sub_80019514(arg3));

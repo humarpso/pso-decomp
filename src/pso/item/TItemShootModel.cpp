@@ -3,7 +3,7 @@
 extern "C" {
 s32   fn_8011BADC(TItemShootModel*);
 void* fn_8010A050(void*);
-f32   fn_8001978C(f32);
+f32   TObjPlayer__sub_8001978C(f32);
 f64   fn_80019760(f32, f32);
 void  fn_8023E480(void*);
 void  fn_801E2EFC(void);
@@ -40,7 +40,7 @@ TItemShootModel::TItemShootModel(void* owner, const Vec* pos, const Vec* dir, f3
     this->m_58 = *(void**)((u8*)owner + 0x188);
     this->m_5C = fn_8010A050(owner);
     if (lbl_805DAC60 != this->m_dir.y) {
-        f32 horiz = fn_8001978C(this->m_dir.x * this->m_dir.x + this->m_dir.z * this->m_dir.z);
+        f32 horiz = TObjPlayer__sub_8001978C(this->m_dir.x * this->m_dir.x + this->m_dir.z * this->m_dir.z);
         this->m_28 = -(s32)(lbl_8043E7A0[0] * fn_80019760(this->m_dir.y, horiz));
         this->m_30 = 0;
     } else {

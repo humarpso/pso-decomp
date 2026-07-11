@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjPlayer__sub_801C9D0C(s32 arg0);
-void TObjPlayer__sub_801C9D3C(u32 arg0);
-void TObjPlayer__sub_801C9DE0(void *arg0);
-void TObjPlayer__sub_801C9E9C(u8 *arg0);
+void update_lobby_display__10TObjPlayerFUi(u32 arg0);
+void update_timer_state__10TObjPlayerFPv(void *arg0);
+void update_timer_action__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 M2C_UNK TObjEnePanarms__sub_800DFB00(void *, s32);
 M2C_UNK TObjPlayer__sub_801AF7E0(u32);
@@ -41,7 +41,7 @@ struct Local801C9D3C {
     s16 fieldA;
 };
 
-void TObjPlayer__sub_801C9D3C(u32 arg0) {
+void update_lobby_display__10TObjPlayerFUi(u32 arg0) {
     struct Local801C9D3C sp8;
 
     if (fn_8001BEF8(arg0 + 0x858, 4) != 0) {
@@ -64,7 +64,7 @@ extern const f32 TObjPlayer__data_805DC360;
 extern const f32 TObjPlayer__data_805DC36C;
 extern const f32 TObjPlayer__data_805DC378;
 
-void TObjPlayer__sub_801C9DE0(void *arg0) {
+void update_timer_state__10TObjPlayerFPv(void *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     s16 temp_r0;
@@ -96,7 +96,7 @@ extern const f32 TObjPlayer__data_805DC360;
 extern const f32 TObjPlayer__data_805DC36C;
 extern const f32 TObjPlayer__data_805DC378;
 
-void TObjPlayer__sub_801C9E9C(u8 *arg0) {
+void update_timer_action__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     s16 temp_r0;

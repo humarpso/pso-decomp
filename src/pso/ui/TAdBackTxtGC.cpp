@@ -9,7 +9,7 @@ extern "C" {
 void run_task__12TAdBackTxtGCFv(void *arg0);
 void render__12TAdBackTxtGCFv(void *arg0);
 
-s32 fn_8001A430();
+s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
 s32 fn_8022A564();
@@ -22,7 +22,7 @@ void render__12TAdBackTxtGCFv(void *arg0) {
             set_depth_buffer_settings_2__Fv();
             goto block_4;
         }
-    } else if (fn_8001A430() != 1) {
+    } else if (TMainTask__sub_8001A430() != 1) {
 block_4:
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 0xA);

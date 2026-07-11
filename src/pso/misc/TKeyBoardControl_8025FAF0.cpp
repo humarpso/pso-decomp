@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TKeyBoardControl__sub_8025FAF0(void *arg0, s32 arg1);
+void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1);
 s32 TKeyBoardControl__sub_8025EDB4(void *, s32, u16 *);
 u32 TKeyBoardControl__sub_8025F27C(void *);
 u8 TKeyBoardControl__sub_8025F2F8(void *, u8);
@@ -16,7 +16,7 @@ s32 TWindowKeyBoardHard__sub_80260438(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C618(s32, u16);
 M2C_UNK fn_8024FBA8(s32, s32);
 
-void TKeyBoardControl__sub_8025FAF0(void *arg0, s32 arg1) {
+void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1) {
     u16 sp8;
     s32 temp_r31;
 

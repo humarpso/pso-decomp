@@ -10,7 +10,7 @@ s32 TOSwitchAttack__sub_80087278(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_testFlags30(void * a0 = 0, s32 a1 = 0);
 void TObjPlayer__sub_80015DB0(void* p, void* q);
 
-void TObjPlayer__sub_80015CB8(void *arg0, s32 arg1) {
+void trigger_switch_attack__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
 
     if (obj_testFlags30(arg0, 0x02000000) == 0) {

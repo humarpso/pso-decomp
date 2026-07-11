@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80105874();
-void fn_8011B010(void*, int);
+void TLobby__sub_8011B010(void*, int);
 void free__11TOBoss4RockFUi(void*);
 M2C_UNK fn_80363CE0();
 M2C_UNK fn_803641EC();
@@ -20,7 +20,7 @@ void fn_80102AE0(void) {
     fn_80363CE0();
     fn_803641EC();
     if ((u32) lbl_805D5400 != 0U) {
-        fn_8011B010((void*)lbl_805D5400, 1);
+        TLobby__sub_8011B010((void*)lbl_805D5400, 1);
         lbl_805D5400 = 0U;
     }
     if ((u32) lbl_805D53F4 != 0U) {

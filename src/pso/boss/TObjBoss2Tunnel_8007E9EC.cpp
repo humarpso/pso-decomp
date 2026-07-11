@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjBoss2Tunnel__sub_8007E9EC(void *arg0);
+f32 update_scale__15TObjBoss2TunnelFPv(void *arg0);
 s32 TCameraCtrl__sub_8006B370();
 f32 fn_803D8D00();
 f32 fn_803D97B4(void *);
 
 extern f32 TObjBoss2Tunnel__data_805D9234;
 
-f32 TObjBoss2Tunnel__sub_8007E9EC(void *arg0) {
+f32 update_scale__15TObjBoss2TunnelFPv(void *arg0) {
     f32 var_f31;
     f32 temp_f0;
 

@@ -9,7 +9,7 @@ extern "C" {
 void update_enemy_collision_flags__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_80019584(s32);
 s32 TObjPlayer__sub_801557BC(void *, s32, void *);
-s32 TObjPlayer__sub_8015580C(s32, s32);
+s32 check_flag_pair__10TObjPlayerFii(s32, s32);
 void *TObjPlayer__sub_80155FBC(void *, s32, f32);
 
 extern s32 lbl_805D5868;
@@ -31,7 +31,7 @@ void update_enemy_collision_flags__10TObjPlayerFPv(void *arg0) {
             temp_r3 = TObjPlayer__sub_80019584(var_r30);
             if (temp_r3 != 0) {
                 temp_r3_2 = TObjPlayer__sub_80155FBC(arg0, temp_r3, TObjPlayer__data_805DB298);
-                if ((temp_r3_2 != NULL) && (TObjPlayer__sub_8015580C(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (TObjPlayer__sub_801557BC(arg0, temp_r3, temp_r3_2) != 0)) {
+                if ((temp_r3_2 != NULL) && (check_flag_pair__10TObjPlayerFii(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (TObjPlayer__sub_801557BC(arg0, temp_r3, temp_r3_2) != 0)) {
                     temp_r3_3 = M2C_FIELD(arg0, void **, 0xA4);
                     M2C_FIELD(temp_r3_3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_3, s32 *, 0x18) | 0x01200000);
                 }

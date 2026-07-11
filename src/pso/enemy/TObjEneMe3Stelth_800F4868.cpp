@@ -136,13 +136,13 @@ extern "C" {
 void TObjEneMe3Stelth__sub_800F4868(void *arg0);
 void TObjEneMe3Stelth__sub_800F48B8(void *arg0);
 M2C_UNK TObjPlayer__sub_801564A0(void *);
-M2C_UNK TObjPlayer__sub_8015659C(void *);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 
 void TObjEneMe3Stelth__sub_800F4868(void *arg0) {
     struct VObj_800F4868 *o = (struct VObj_800F4868 *)arg0;
     o->m86();
-    TObjPlayer__sub_8015659C(arg0);
+    check_object_collisions__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_801564A0(arg0);
     update_enemy_collision_flags__10TObjPlayerFPv(arg0);
 }

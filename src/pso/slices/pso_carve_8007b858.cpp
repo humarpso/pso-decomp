@@ -13,7 +13,7 @@ M2C_UNK fn_8008350C(u32, s32, M2C_UNK);
 M2C_UNK fn_800F8144(M2C_UNK);
 M2C_UNK fn_800F8208(u32, s32);
 M2C_UNK TFogCtrl__sub_800FBB68();
-M2C_UNK fn_80104C40();
+M2C_UNK TMainTask__sub_80104C40();
 M2C_UNK init__13TQuestColCtrlFv();
 M2C_UNK fn_80198D98();
 M2C_UNK create__13TRaderMapCoreFv();
@@ -21,7 +21,7 @@ s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK create__6TSceneFv();
 M2C_UNK create_instance__10TSceneSoraFv();
 s32 fn_80207DD4();
-M2C_UNK fn_80208BD8();
+M2C_UNK TLobby__sub_80208BD8();
 M2C_UNK fn_8020D918();
 M2C_UNK THunterGuildSeqOnlineTask__ct(u32, s32);
 M2C_UNK __ct__7TSwitchFv(u32, s32);
@@ -61,11 +61,11 @@ void fn_8007B858(void) {
             fn_8033ED24(tmp, tl_particlemodel);
         }
     }
-    fn_80104C40();
+    TMainTask__sub_80104C40();
     create__6TSceneFv();
     create_instance__10TSceneSoraFv();
     fn_8020D918();
-    fn_80208BD8();
+    TLobby__sub_80208BD8();
     tmp = __nw__7TObjectFUl(0x1C);
     if (tmp != 0U) {
         TWindowCtrlMain__ct();

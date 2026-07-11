@@ -4,7 +4,7 @@ extern "C" {
 
 s32 TAdMultiPlyChrSelectGC__sub_802C6488();
 int fn_80298F6C(void* p);
-int fn_80299454(void*);
+int TAdMultiPlyChrSelectGC__sub_80299454(void*);
 
 s32 fn_80298F38(void) {
     s32 var_r3;
@@ -15,6 +15,6 @@ s32 fn_80298F38(void) {
     }
     return var_r3;
 }
-int fn_80298F6C(void* p) { return fn_80299454(p); }
+int fn_80298F6C(void* p) { return TAdMultiPlyChrSelectGC__sub_80299454(p); }
 
 }

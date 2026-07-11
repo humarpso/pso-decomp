@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 fn_801FBA20();
+s32 TScene__sub_801FBA20();
 s32 TOKeyMachine01__sub_802034A8();
 int fn_80207E24(void* p);
 void fn_80207E44(void);
@@ -18,7 +18,7 @@ s32 fn_80207DD4(void) {
     if (TOKeyMachine01__sub_802034A8() != 0xF) {
         return 0;
     }
-    temp_r3 = fn_801FBA20();
+    temp_r3 = TScene__sub_801FBA20();
     if ((temp_r3 >= 0xD) && (temp_r3 < 0xF)) {
         return 1;
     }

@@ -8,7 +8,7 @@ extern "C" {
 
 extern void *lbl_805D5F64;
 
-s32 fn_8020102C(void) {
+s32 TAdSinglePlyChrSelectGC__sub_8020102C(void) {
     if ((void *) lbl_805D5F64 != NULL) {
         M2C_FIELD(lbl_805D5F64, s32 *, 0x14) = (s32) (M2C_FIELD(lbl_805D5F64, s32 *, 0x14) + 1);
         return M2C_FIELD(lbl_805D5F64, s32 *, 0x14);
@@ -18,7 +18,7 @@ s32 fn_8020102C(void) {
 
 extern void *lbl_805D5F64;
 
-s32 fn_80201058(void) {
+s32 TAdSinglePlyChrSelectGC__sub_80201058(void) {
     if ((void *) lbl_805D5F64 != NULL) {
         return M2C_FIELD(lbl_805D5F64, s32 *, 4);
     }

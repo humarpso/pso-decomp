@@ -16,7 +16,7 @@ void fn_80100DA4(void *arg0);
 s32 TItemMag__sub_80102C4C();
 s32 get_main_phase();
 void fn_80101CFC(void *, void *);
-void fn_80104394(void *);
+void TLobby__sub_80104394(void *);
 void TItemData__sub_8010C738(void *);
 s32 fn_801A2FE0();
 
@@ -48,7 +48,7 @@ void fn_80100DA4(void *arg0) {
     M2C_UNK sp8[4];
 
     fn_80101CFC(arg0, &sp8);
-    fn_80104394(&sp8);
+    TLobby__sub_80104394(&sp8);
 }
 
 }

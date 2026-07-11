@@ -11,8 +11,8 @@ M2C_UNK close_and_set_state_13__6TLobbyFv(M2C_UNK);
 M2C_UNK reset_state__6TLobbyFv(M2C_UNK);
 s32 fn_80146740();
 M2C_UNK fn_801DB474(s32);
-M2C_UNK fn_80200B28();
-M2C_UNK fn_80200C00();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200B28();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200C00();
 
 extern s32 TLobby__data_805D5580;
 
@@ -20,7 +20,7 @@ void handle_state__6TLobbyFi(s32 arg0) {
     s32 temp_r3;
 
     if (arg0 != 0) {
-        fn_80200C00();
+        TAdSinglePlyChrSelectGC__sub_80200C00();
         temp_r3 = fn_80146740();
         switch (temp_r3) {
         case 0:
@@ -35,8 +35,8 @@ void handle_state__6TLobbyFi(s32 arg0) {
         }
     } else {
         reset_state__6TLobbyFv(0x20);
-        fn_80200B28();
-        fn_80200C00();
+        TAdSinglePlyChrSelectGC__sub_80200B28();
+        TAdSinglePlyChrSelectGC__sub_80200C00();
     }
 }
 

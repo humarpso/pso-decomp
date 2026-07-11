@@ -14,13 +14,13 @@ void TBoss4Type2__vt31(void *arg0);
 M2C_UNK TBoss4Type2__sub_80056A54(void *);
 M2C_UNK TBoss4Type2__sub_80056F90(void *, M2C_UNK, s32);
 s32 TBoss4Type2__sub_80057224(void *);
-f32 fn_80011014();
+f32 TObjPlayer__sub_80011014();
 
 extern f32 lbl_805D8BB0;
 
 void TBoss4Type2__vt23(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
-        if (fn_80011014() < lbl_805D8BB0) {
+        if (TObjPlayer__sub_80011014() < lbl_805D8BB0) {
             TBoss4Type2__sub_80056A54(arg0);
             return;
         }

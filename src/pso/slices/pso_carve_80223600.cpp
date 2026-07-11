@@ -17,7 +17,7 @@ s32 init_effect_5f0__10TObjPlayerFPv(void *);
 s32 TWindowCtrl__sub_8024AEAC(u16);
 s32 is_split_screen();
 s32 fn_801D5DAC();
-s32 fn_801FF5E4(s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
 void fn_80223674(void* p);
 void fn_802236A0(void* p);
 void fn_802236CC(void* p);
@@ -34,7 +34,7 @@ void fn_802236CC(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_8022
 void fn_802236F8(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_8022297C(m); }
 void fn_80223724(void) {
     if ((fn_801D5DAC() != 0) && (is_split_screen() == 0)) {
-        fn_801FF5E4(0);
+        TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
     }
 }
 void fn_80223760(void *arg0) {

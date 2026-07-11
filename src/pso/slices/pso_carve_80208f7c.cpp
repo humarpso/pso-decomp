@@ -2,10 +2,9 @@
 
 extern "C" {
 
-int fn_80208FFC(void* p);
-int fn_80208E30(void*);
+int TLobby__sub_80208FFC(void* p);
+int TLobby__sub_80208E30(void*);
 
-int fn_80208F7C(void) { return 0; }
-int fn_80208FFC(void* p) { return fn_80208E30(p); }
+int TLobby__sub_80208F7C(void) { return 0; }
 
 }

@@ -2,10 +2,10 @@
 
 extern "C" {
 
-s32 fn_80351DFC();
+s32 TLobby__sub_80351DFC();
 
 u8 fn_80351E38(void) {
-    return (u8) (fn_80351DFC() != 0);
+    return (u8) (TLobby__sub_80351DFC() != 0);
 }
 
 }

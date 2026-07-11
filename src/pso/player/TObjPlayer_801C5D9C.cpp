@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C5D9C(void *arg0, void *arg1, void *arg2);
+void calc_pos_delta__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
 
-void TObjPlayer__sub_801C5D9C(void *arg0, void *arg1, void *arg2) {
+void calc_pos_delta__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg2, s16 *, 0) = (s16) (M2C_FIELD(arg1, s16 *, 0) - M2C_FIELD(arg0, s16 *, 0));
     M2C_FIELD(arg2, s16 *, 2) = (s16) (M2C_FIELD(arg1, s16 *, 2) - M2C_FIELD(arg0, s16 *, 2));
     M2C_FIELD(arg2, s16 *, 4) = (s16) (M2C_FIELD(arg1, s16 *, 4) - M2C_FIELD(arg0, s16 *, 4));

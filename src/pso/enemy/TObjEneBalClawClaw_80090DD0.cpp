@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBalClawClaw__sub_80090DD0(u8 *arg0);
+void action__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK TObjEneBalClawClaw__sub_8009082C(void *, s32, s32);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK fn_800A0554(void *);
@@ -24,7 +24,7 @@ struct En0VObj : En0Base {
     virtual void m4();
     virtual s32 m5();
 };
-void TObjEneBalClawClaw__sub_80090DD0(u8 *arg0) {
+void action__18TObjEneBalClawClawFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r4_2;

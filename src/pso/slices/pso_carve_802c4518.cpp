@@ -25,7 +25,7 @@ int fn_8011E238(void*, void*);
 int fn_801A2F7C(void*);
 s32 fn_801A2FAC();
 int fn_80203220(void*);
-s32 fn_802A1438();
+s32 TAdSelectGameModeGC__sub_802A1438();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 getDateStamp__FP9DateStamp(s32 *);
 

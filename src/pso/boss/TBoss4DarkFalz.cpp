@@ -8,10 +8,10 @@ extern "C" {
 
 void update_visible_flag__14TBoss4DarkFalzFPv(void *arg0);
 
-s32 fn_800C6C10();
+s32 TLobby__sub_800C6C10();
 
 void update_visible_flag__14TBoss4DarkFalzFPv(void *arg0) {
-    if (fn_800C6C10() != 0) {
+    if (TLobby__sub_800C6C10() != 0) {
         M2C_FIELD(arg0, s32 *, 0x378) = 0;
         return;
     }

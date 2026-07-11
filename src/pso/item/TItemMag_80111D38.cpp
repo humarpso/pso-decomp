@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMag__sub_80111D38(void *arg0);
-void TItemMag__sub_8011222C(s32 arg0);
-s32 TItemMag__sub_80111828();
+void update_feed_anim__8TItemMagFPv(void *arg0);
+void do_action_by_class__8TItemMagFi(s32 arg0);
+s32 get_max_stat_flags__8TItemMagFi();
 u8 TObjPlayer__sub_8001972C(s32);
 s32 fn_80105348(void *, M2C_UNK);
 M2C_UNK TItemMag__sub_80110B50(void *, M2C_UNK);
@@ -17,7 +17,7 @@ s16 fn_80113DC4(void *);
 s16 fn_80113DE8(void *, void *);
 s16 fn_80113E0C(void *);
 
-void TItemMag__sub_80111D38(void *arg0) {
+void update_feed_anim__8TItemMagFPv(void *arg0) {
     s16 temp_r26;
     s16 temp_r29;
     s16 temp_r30;
@@ -27,7 +27,7 @@ void TItemMag__sub_80111D38(void *arg0) {
     void *temp_r4;
 
     if ((void *) M2C_FIELD(arg0, void **, 0xF0) != NULL) {
-        temp_r25 = TItemMag__sub_80111828();
+        temp_r25 = get_max_stat_flags__8TItemMagFi();
         temp_r4 = M2C_FIELD(arg0, void **, 0xF0);
         temp_r28 = (s8) M2C_FIELD(temp_r4, u8 *, 0x88C);
         temp_r29 = fn_80113DE8(arg0, temp_r4);
@@ -194,11 +194,11 @@ void TItemMag__sub_80111D38(void *arg0) {
     }
 }
 
-void TItemMag__sub_8011222C(s32 arg0) {
+void do_action_by_class__8TItemMagFi(s32 arg0) {
     s32 temp_r31;
     u8 temp_r3;
 
-    temp_r31 = TItemMag__sub_80111828();
+    temp_r31 = get_max_stat_flags__8TItemMagFi();
     temp_r3 = TObjPlayer__sub_8001972C(arg0);
     switch ((s32) temp_r3) {
     case 1:

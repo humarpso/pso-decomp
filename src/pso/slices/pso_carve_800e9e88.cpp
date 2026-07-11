@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 fn_80011014(void *);
+f32 TObjPlayer__sub_80011014(void *);
 M2C_UNK set_display_mode__15TObjEneSlimeOneFPvi(void *, M2C_UNK);
 M2C_UNK set_random_timer__15TObjEneSlimeOneFPvii(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneSlimeOne__sub_800EC7F4(s32, M2C_UNK);
@@ -15,7 +15,7 @@ extern f32 lbl_805DA678;
 void fn_800E9E88(void *arg0) {
     set_random_timer__15TObjEneSlimeOneFPvii(arg0, 0x1E, 0x1E);
     M2C_FIELD(arg0, s32 *, 0x3C4) = 0x888;
-    if (fn_80011014(arg0) > lbl_805DA678) {
+    if (TObjPlayer__sub_80011014(arg0) > lbl_805DA678) {
         M2C_FIELD(arg0, s32 *, 0x3C4) = M2C_FIELD(arg0, s32 *, 0x3C4) * 0xFFFFFFFF;
     }
     TObjEneSlimeOne__sub_800EC7F4(M2C_FIELD(arg0, s32 *, 0x388), 1);

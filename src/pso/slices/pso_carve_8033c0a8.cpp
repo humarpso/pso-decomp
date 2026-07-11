@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8000F8EC();
+s32 TKeyBoardControl__sub_8000F8EC();
 s32 fn_8006EF6C(s32);
 s32 fn_8033BC88(void *, s32, s32, s32, s32);
 s32 fn_8033BB14();
@@ -39,7 +39,7 @@ void fn_8033C22C(void *arg0) {
     s32 var_r31;
     s32 var_r6;
 
-    if (fn_8000F8EC() == 0xF) {
+    if (TKeyBoardControl__sub_8000F8EC() == 0xF) {
         var_r31 = fn_8006EF6C(0xA);
         var_r6 = fn_8006EF6C(0xE);
         fn_8033BC88(arg0, var_r31, -2, var_r6, 0);

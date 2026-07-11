@@ -9,7 +9,7 @@ void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__nw__7TObjectFUl(int);
-void fn_801FE538(void);
+void TAdSinglePlyChrSelectGC__sub_801FE538(void);
 
 extern M2C_UNK __vt__14TAdMultiSaveGC[];
 extern void *lbl_805D4048;
@@ -34,7 +34,7 @@ void *TAdMultiSaveGC__ct(void *arg0) {
     if (o2 != NULL) {
         __ct__12TAdBackTxtGCFv(o2, arg0);
     }
-    fn_801FE538();
+    TAdSinglePlyChrSelectGC__sub_801FE538();
     return arg0;
 }
 

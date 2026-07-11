@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjBoss2Tunnel__sub_8007E418(u32 *arg0, s32 arg1);
-s32 TObjBoss2Tunnel__sub_8007E44C(s32 arg0, void *arg1, void *arg2);
-s32 TObjBoss2Tunnel__sub_8007E4E0(s32 arg0, void *arg1);
+s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2);
+s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1);
 void TObjBoss2Tunnel__sub_8007E560(void* p, void* a1);
 int TBoss4Zako__sub_803D8910(void*, void*);
 int TObjBoss2Tunnel__sub_8007E7D8(void*, void*);
@@ -29,7 +29,7 @@ s32 TObjBoss2Tunnel__sub_8007E418(u32 *arg0, s32 arg1) {
 
 extern f32 TObjBoss2Tunnel__data_805D9210;
 
-s32 TObjBoss2Tunnel__sub_8007E44C(s32 arg0, void *arg1, void *arg2) {
+s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2) {
     f32 temp_f1;
     void *temp_r3;
 
@@ -48,7 +48,7 @@ s32 TObjBoss2Tunnel__sub_8007E44C(s32 arg0, void *arg1, void *arg2) {
 
 extern f32 TObjBoss2Tunnel__data_805D9210;
 
-s32 TObjBoss2Tunnel__sub_8007E4E0(s32 arg0, void *arg1) {
+s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
     f32 temp_f1;
     void *temp_r3;
 

@@ -15,7 +15,7 @@ M2C_UNK fn_8013AD28(u32);
 s32 fn_802115F4(u32);
 s32 fn_80211600(u32);
 s32 fn_80211608(u32);
-s32 fn_80222CFC(M2C_UNK);
+s32 TLobby__sub_80222CFC(M2C_UNK);
 M2C_UNK fn_8024422C(u32, f32, f32);
 M2C_UNK fn_80265C30(u32);
 M2C_UNK fn_80265F60(u32);
@@ -32,8 +32,8 @@ void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
             temp_r31 = (u16) obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, u32 *, 0x390) = fn_802664A8(fn_8026CBB8(0x2B), 2, temp_r31);
-            TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x390), fn_80222CFC(6), 6, 0);
-            TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x390), fn_80222CFC(7), 6, 1);
+            TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x390), TLobby__sub_80222CFC(6), 6, 0);
+            TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x390), TLobby__sub_80222CFC(7), 6, 1);
             fn_80265F60(M2C_FIELD(arg0, u32 *, 0x390));
             fn_80265C30(M2C_FIELD(arg0, u32 *, 0x390));
             fn_8013AD28(M2C_FIELD(arg0, u32 *, 0x390));

@@ -23,7 +23,7 @@ void TWindowCtrl__sub_80271E18(void) {
 }
 
     extern int TRaderMapCore__data_805D5F3C;
-void fn_80271E34(void) { TRaderMapCore__data_805D5F3C = 0; }
+void TRaderMapCore__sub_80271E34(void) { TRaderMapCore__data_805D5F3C = 0; }
 
     extern int lbl_805D63E8;
 int fn_80271E40(void) {  return lbl_805D63E8; }

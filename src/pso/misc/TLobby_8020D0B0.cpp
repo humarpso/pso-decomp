@@ -14,14 +14,14 @@ struct VObj : VBase {
 
 extern "C" {
 
-void TLobby__sub_8020D0B0(s32 arg0);
+void attach_objects_by_id__6TLobbyFi(s32 arg0);
 u8 *TLobby__sub_8020D054(void *);
 u8 *TLobby__sub_8020B354();
 s32 TLobby__sub_8020B468(s32);
 
 extern s32 TLobby__data_805D6140;
 
-void TLobby__sub_8020D0B0(s32 arg0) {
+void attach_objects_by_id__6TLobbyFi(s32 arg0) {
     s16 temp_r3;
     s16 temp_r0;
     s32 count;

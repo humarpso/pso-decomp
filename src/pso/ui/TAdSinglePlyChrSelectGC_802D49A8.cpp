@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_802D49A8(void *arg0);
+void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdEnterSerialAccessGC__sub_802AEBA8(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802B1850(s32, M2C_UNK, M2C_UNK *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
@@ -22,7 +22,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern char lbl_8050E208[];
 extern M2C_UNK lbl_805DE784;
 
-void TAdSinglePlyChrSelectGC__sub_802D49A8(void *arg0) {
+void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     TAdEnterSerialAccessGC__sub_802AEBA8(M2C_FIELD(arg0, s32 *, 0x2C));
     fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x30), 1);
     TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x34), 0, &lbl_805DE784);

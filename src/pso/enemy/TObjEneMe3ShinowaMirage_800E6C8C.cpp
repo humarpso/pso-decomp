@@ -42,13 +42,13 @@ struct VObj_DD : Base_VT {
 
 extern "C" {
 
-void TObjEneMe3ShinowaMirage__sub_800E6C8C(u8 *arg0, s32 arg1);
+void action__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
 s32 TObjEneDD__sub_800B9B84();
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
-void TObjEneMe3ShinowaMirage__sub_800E6C8C(u8 *arg0, s32 arg1) {
+void action__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;

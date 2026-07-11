@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_8015580C(s32 arg0, s32 arg1) {
+s32 check_flag_pair__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (((arg0 & 0x2000) && (arg1 & 0x100)) || ((arg0 & 0x100) && (arg1 & 0x2000))) {
         return 1;
     }
@@ -25,7 +25,7 @@ s32 TObjPlayer__sub_8015580C(s32 arg0, s32 arg1) {
     return 0;
 }
 
-s32 TObjPlayer__sub_801558DC(s32 arg0, s32 arg1) {
+s32 check_flags__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 temp_r5;
 
     temp_r5 = arg0 & arg1;

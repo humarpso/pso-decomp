@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800C6C10();
+s32 TLobby__sub_800C6C10();
 s32 TBoss6Type2__sub_802BD3C4(u32);
 s32 fn_8032F034(void *);
 s32 fn_8032F174();
@@ -30,7 +30,7 @@ void fn_8032F1B0(void *arg0) {
             M2C_FIELD(arg0, f32 *, 0x3BC) = (f32) lbl_805DF7F4;
         }
         if (lbl_805DF7F4 == M2C_FIELD(arg0, f32 *, 0x3BC)) {
-            if (fn_800C6C10() != 0) {
+            if (TLobby__sub_800C6C10() != 0) {
                 u32 tmp378 = (u32) M2C_FIELD(arg0, u32 *, 0x378);
                 if (tmp378 != 0U) {
                     if (TBoss6Type2__sub_802BD3C4(tmp378) == 0) {

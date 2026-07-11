@@ -9,7 +9,7 @@ extern "C" {
 s32 TWindow__close(void *);
 int fn_802C3BB4(void*);
 int fn_8033A138(void);
-int fn_801FF5E4(void*);
+int TAdSinglePlyChrSelectGC__sub_801FF5E4(void*);
 
 void fn_8033A088(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
@@ -19,7 +19,7 @@ void fn_8033A088(void *arg0) {
     }
 }
 int fn_8033A0D0(void) { return 0; }
-int fn_8033A138(void) { return fn_801FF5E4((void*)(0)); }
-void fn_8033A15C(void* p) { fn_802C3BB4(p); fn_801FF5E4((void*)1); }
+int fn_8033A138(void) { return TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)(0)); }
+void fn_8033A15C(void* p) { fn_802C3BB4(p); TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)1); }
 
 }

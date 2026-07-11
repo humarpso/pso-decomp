@@ -42,7 +42,7 @@ struct VObj_CE : Base_VT {
 
 extern "C" {
 
-void TObjEneBm5GibonU__sub_800CE560(u8 *arg0, s32 arg1);
+void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneBm5GibonU__sub_800D086C(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D08E4(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D0FDC(void *, s32);
@@ -58,7 +58,7 @@ M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 
 extern const f32 TObjEneBm5GibonU__data_805DA178;
 
-void TObjEneBm5GibonU__sub_800CE560(u8 *arg0, s32 arg1) {
+void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
     switch (arg1) {

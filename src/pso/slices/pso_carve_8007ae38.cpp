@@ -9,14 +9,14 @@ extern "C" {
 s32 fn_8007A8F8(M2C_UNK);
 M2C_UNK fn_8007ADB4(s32, s32, M2C_UNK);
 s32 fn_8007B070();
-M2C_UNK fn_801FE8A8();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE8A8();
 
 void fn_8007AE38(s32 arg0) {
     u32 temp;
     if (fn_8007B070() == 0) {
         temp = (u32) fn_8007A8F8(0);
         fn_8007ADB4(arg0, (s32) temp, 0xD2);
-        fn_801FE8A8();
+        TAdSinglePlyChrSelectGC__sub_801FE8A8();
     }
 }
 

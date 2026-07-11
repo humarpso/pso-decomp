@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowFukidasi__sub_80250408(void* p);
-s32 TWindowFukidasi__sub_8025041C(void *arg0, f32 farg0);
+s32 approach__15TWindowFukidasiFPvf(void *arg0, f32 farg0);
 void TWindowFukidasi__sub_802504A8(void *arg0);
 f32 TObjFish__sub_8001973C(f32);
 
@@ -16,7 +16,7 @@ void TWindowFukidasi__sub_80250408(void* p) { *(f32*)((char*)p + 0x60) = *(f32*)
 extern f32 lbl_805DCD00;
 extern f32 lbl_805DCD04;
 
-s32 TWindowFukidasi__sub_8025041C(void *arg0, f32 farg0) {
+s32 approach__15TWindowFukidasiFPvf(void *arg0, f32 farg0) {
     f32 temp_f31;
 
     temp_f31 = lbl_805DCD00 * (farg0 - M2C_FIELD(arg0, f32 *, 0x80));

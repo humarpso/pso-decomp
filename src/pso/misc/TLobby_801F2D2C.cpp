@@ -8,7 +8,7 @@ extern "C" {
 
 unsigned char TLobby__sub_801F2D2C(void);
 s32 TLobby__sub_801F2D44(s32 arg0);
-void TLobby__sub_801F2D88(void);
+void close_windows__6TLobbyFv(void);
 M2C_UNK TLobby__sub_801F2EF4(s32);
 M2C_UNK TLobby__sub_801F301C();
 M2C_UNK TWindow__close(s32);
@@ -38,7 +38,7 @@ extern u32 TLobby__data_805D5EB8;
 extern u32 TLobby__data_805D5EBC;
 extern u32 TLobby__data_805D5EC0;
 
-void TLobby__sub_801F2D88(void) {
+void close_windows__6TLobbyFv(void) {
     if ((u32) TLobby__data_805D5E7C != 0U) {
         TWindow__close(TLobby__data_805D5E7C);
         TLobby__data_805D5E7C = 0U;

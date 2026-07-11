@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss1Dragon__sub_80021394(void *arg0, s32 arg1);
+void action__12TBoss1DragonFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 
 extern const f32 TBoss1Dragon__data_805D7F28;
 extern const f32 lbl_805D7F44;
 
-void TBoss1Dragon__sub_80021394(void *arg0, s32 arg1) {
+void action__12TBoss1DragonFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

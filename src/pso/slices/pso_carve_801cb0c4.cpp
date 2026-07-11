@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_80015CB8(void *, s32);
+M2C_UNK trigger_switch_attack__10TObjPlayerFPvi(void *, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState2_324(void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -44,7 +44,7 @@ void fn_801CB0C4(u8 *arg0) {
     }
     send_field_state_if_active__10TObjPlayerFii(arg0, 0x4000AD12);
     if (obj_isState2_324(arg0) != 0) {
-        TObjPlayer__sub_80015CB8(arg0, ((VObj *)arg0)->m7());
+        trigger_switch_attack__10TObjPlayerFPvi(arg0, ((VObj *)arg0)->m7());
     }
     obj_clearFlags30(arg0, 0x10000);
     fn_801BA650(arg0, 0xD, TObjPlayer__sub_801BE440(arg0));

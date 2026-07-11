@@ -10,13 +10,13 @@ void init_owner__5TItemFPvUs(void *arg0, u16 arg1);
 M2C_UNK TItem__sub_80101E7C(void *, u16);
 M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(int);
 s32 TObjPlayer__sub_80019248();
-s32 fn_8011AF58(u16);
+s32 TLobby__sub_8011AF58(u16);
 
 void init_owner__5TItemFPvUs(void *arg0, u16 arg1) {
     TPlayerBattleCtrl4P__sub_801BA74C(arg1);
     if (TObjPlayer__sub_80019248() != 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == -1) {
-            M2C_FIELD(arg0, s32 *, 0xC) = fn_8011AF58(arg1);
+            M2C_FIELD(arg0, s32 *, 0xC) = TLobby__sub_8011AF58(arg1);
         }
         TItem__sub_80101E7C(arg0, arg1);
     }

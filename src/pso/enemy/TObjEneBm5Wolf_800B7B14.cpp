@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm5Wolf__sub_800B7B14(void *arg0, s32 arg1, void *arg2, s32 *arg3);
+void calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3);
 f64 fn_80019760(f32, f32);
 f32 fn_803D64C0(s32);
 f32 fn_803D64DC(s32);
 
 extern const f64 TObjEneBm5Wolf__data_8043B5B0;
 
-void TObjEneBm5Wolf__sub_800B7B14(void *arg0, s32 arg1, void *arg2, s32 *arg3) {
+void calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(void *arg0, s32 arg1, void *arg2, s32 *arg3) {
     f32 temp_f1;
     f32 temp_f31;
 

@@ -6,21 +6,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_802D3E14(void *arg0);
-void TAdSinglePlyChrSelectGC__sub_802D3EE8(void *arg0);
-void TAdSinglePlyChrSelectGC__sub_802D3FBC(void *arg0);
-void TAdSinglePlyChrSelectGC__sub_802D4080(void *arg0);
+void handle_card_select__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+void handle_card_select2__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+void update_card_input__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+void update__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 TWindowSubComCard__sub_802A57C8(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 M2C_UNK fn_801334DC(s32);
-M2C_UNK fn_801FE2D0();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
 M2C_UNK fn_80266130(s32);
 M2C_UNK fn_802D5098(s32, M2C_UNK);
 s32 fn_802D50A0(s32);
 M2C_UNK fn_802D50A8(s32, M2C_UNK);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 
-void TAdSinglePlyChrSelectGC__sub_802D3E14(void *arg0) {
+void handle_card_select__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x28)) == 1) {
@@ -47,7 +47,7 @@ void TAdSinglePlyChrSelectGC__sub_802D3E14(void *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_802D3EE8(void *arg0) {
+void handle_card_select2__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x28)) == 1) {
@@ -74,7 +74,7 @@ void TAdSinglePlyChrSelectGC__sub_802D3EE8(void *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_802D3FBC(void *arg0) {
+void update_card_input__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x28)) == 1) {
@@ -99,7 +99,7 @@ void TAdSinglePlyChrSelectGC__sub_802D3FBC(void *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_802D4080(void *arg0) {
+void update__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x28)) == 1) {
@@ -111,7 +111,7 @@ void TAdSinglePlyChrSelectGC__sub_802D4080(void *arg0) {
         switch (temp_r3) {
         case 0:
             fn_801334DC(M2C_FIELD(arg0, s32 *, 0x2C));
-            fn_801FE2D0();
+            TAdSinglePlyChrSelectGC__sub_801FE2D0();
             fn_802D50A0(M2C_FIELD(arg0, s32 *, 0x28));
             fn_802D50A8(M2C_FIELD(arg0, s32 *, 0x28), 0xF);
             fn_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);

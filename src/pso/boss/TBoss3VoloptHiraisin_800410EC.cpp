@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3VoloptHiraisin__sub_800410EC(u8 *arg0);
+void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK fn_800C7860(void *, s32);
 M2C_UNK fn_800D8ACC(s32, M2C_UNK *, s32, void *, s32);
@@ -17,7 +17,7 @@ extern M2C_UNK lbl_80483BB8[];
 extern s32 TBoss3VoloptHiraisin__data_805D4C80;
 extern s32 lbl_805D4C88;
 
-void TBoss3VoloptHiraisin__sub_800410EC(u8 *arg0) {
+void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     s16 temp_r4;
     s32 temp_r4_2;
 

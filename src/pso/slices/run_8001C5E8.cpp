@@ -14,7 +14,7 @@ u8 fn_8001C5E8(void) {
 
 extern s32 lbl_805D5F88;
 
-s32 fn_8001C5F0(void) {
+s32 TAdSinglePlyChrSelectGC__sub_8001C5F0(void) {
     return lbl_805D5F88;
 }
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowFukidasi__sub_80251D28(void *arg0, s32 arg1);
+void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1);
 M2C_UNK fn_80244D2C(f32);
 s32 fn_80246948(void *);
 M2C_UNK fn_80252C58(void *);
@@ -15,7 +15,7 @@ M2C_UNK set_flag2c_bit200__15TWindowFukidasiFPv(void *);
 extern const f32 TWindowFukidasi__data_805DCD30;
 extern const f32 lbl_805DCD58;
 
-void TWindowFukidasi__sub_80251D28(void *arg0, s32 arg1) {
+void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x58) = (f32) TWindowFukidasi__data_805DCD30;
     fn_80244D2C(lbl_805DCD58);
     if (fn_80246948(arg0) != 0) {

@@ -27,7 +27,7 @@ struct V_A : public Base_A {
 
 extern "C" {
 
-void TObjPlayer__sub_801C8AA4(void *arg0);
+void start_action_21__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_80019248(void *);
 M2C_UNK TObjPlayer__sub_801B0FF4(void *);
 s32 TObjPlayer__sub_801D0458(void *);
@@ -39,7 +39,7 @@ M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 
 extern const f32 TObjPlayer__data_805DC36C;
 
-void TObjPlayer__sub_801C8AA4(void *arg0) {
+void start_action_21__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x15;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_801D04B4(arg0);

@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowFukidasi__sub_80251AC0(u8 *arg0, u32 *arg1, s32 arg2);
-M2C_UNK TWindowFukidasi__sub_80251D28(void *, s32);
+void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2);
+M2C_UNK init_flags__15TWindowFukidasiFPvi(void *, s32);
 M2C_UNK fn_800773BC(s32);
 f32 fn_801A5228(s16);
 M2C_UNK fn_80248404(void *, u32 *);
@@ -17,12 +17,12 @@ M2C_UNK fn_80257CB8(void *);
 
 extern const f32 TWindowFukidasi__data_805DCD30;
 
-void TWindowFukidasi__sub_80251AC0(u8 *arg0, u32 *arg1, s32 arg2) {
+void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
     s32 var_r31;
     u8 temp_r0;
 
     var_r31 = 0;
-    TWindowFukidasi__sub_80251D28(arg0, arg2);
+    init_flags__15TWindowFukidasiFPvi(arg0, arg2);
     if ((u8) M2C_FIELD(arg0, u8 *, 0x72) != 1) {
         M2C_FIELD(arg0, u8 *, 0x72) = 1U;
         fn_80257CB8(arg0 + 0x24);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_flag__10TObjPlayerFPvi(s32, s32);
-s32 fn_80102DD4(void *, u16);
+s32 TLobby__sub_80102DD4(void *, u16);
 int fn_80102BD0(void);
 int fn_80102BD8(void);
 int fn_80102BE0(void* p, u32 m);
@@ -48,7 +48,7 @@ void fn_80102D48(void* p) {
 }
 int fn_80102D84(void) { return 0; }
 u8 fn_80102DA8(void *arg0) {
-    return (u8) (fn_80102DD4(arg0, M2C_FIELD(arg0, u16 *, 2)) == 0);
+    return (u8) (TLobby__sub_80102DD4(arg0, M2C_FIELD(arg0, u16 *, 2)) == 0);
 }
 
 }

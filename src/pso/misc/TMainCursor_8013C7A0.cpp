@@ -9,7 +9,7 @@ extern "C" {
 void TMainCursor__sub_8013C7A0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TMainCursor__sub_8013C80C(s32 arg0);
 void TMainCursor__sub_8013C858(void* p);
-s32 TMainCursor__sub_8013C89C(s32 arg0, s16 arg1, s16 arg2);
+s32 find_by_pos__11TMainCursorFiss(s32 arg0, s16 arg1, s16 arg2);
 s32 TMainCursor__sub_8013C678();
 M2C_UNK TMainCursor__sub_8013E2C0(s32);
 M2C_UNK fn_80044330(s32);
@@ -44,7 +44,7 @@ void TMainCursor__sub_8013C80C(s32 arg0) {
 
 void TMainCursor__sub_8013C858(void* p) { { int i; for (i = 0; i < 4; i++) { fn_8013E870(p, (void*)i); } } }
 
-s32 TMainCursor__sub_8013C89C(s32 arg0, s16 arg1, s16 arg2) {
+s32 find_by_pos__11TMainCursorFiss(s32 arg0, s16 arg1, s16 arg2) {
     s32 i;
     s32 ptr;
 

@@ -4,7 +4,7 @@ extern "C" {
 
 s32 fn_80087638(s32, s32);
 s32 fn_8022675C(s32, s32, s32, s32);
-s32 TObjPlayer__sub_80015CB8(s32, s32);
+s32 trigger_switch_attack__10TObjPlayerFPvi(s32, s32);
 s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
 s32 TObjPlayer__sub_80019248(s32);
 u16 obj_getField1c(void* a0 = 0);
@@ -33,7 +33,7 @@ void fn_8000FFA4(s32 arg0, s32 arg1) {
     if (obj_testFlags30((void*)(arg0), 0x02000000) == 0) {
         TOSwitchAttack__sub_80087278(arg1, 0xB9, 0x40);
         TOSwitchAttack__sub_80087278(arg1, 0xBA, 0x40);
-        TObjPlayer__sub_80015CB8(arg0, arg1);
+        trigger_switch_attack__10TObjPlayerFPvi(arg0, arg1);
     }
 }
 int fn_8001000C(void) { return 0; }

@@ -16,7 +16,7 @@ M2C_UNK TWindowDD__sub_80348AD4(f32, f32);
 s32 TWindowDD__sub_80348AE8(s32);
 extern s32 lbl_805D63F0;
 
-void TWindowDD__sub_80348914(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     Buf sp8;
     s32 temp_r31;
 

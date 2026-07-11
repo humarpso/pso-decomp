@@ -14,7 +14,7 @@ M2C_UNK TSwitch__sub_8022945C();
 M2C_UNK fn_80070C50();
 M2C_UNK fn_801036CC();
 M2C_UNK fn_801F57B4(s32);
-M2C_UNK fn_802089B0();
+M2C_UNK TLobby__sub_802089B0();
 M2C_UNK TLobby__sub_8020A744();
 M2C_UNK fn_80291FC0();
 
@@ -30,7 +30,7 @@ void TLobby__sub_801EA8E8(void) {
     fn_801F57B4(tl_00);
     TLobby__sub_8020A744();
     TLobby__sub_8020DBCC();
-    fn_802089B0();
+    TLobby__sub_802089B0();
     TSwitch__sub_8022945C();
     TRaderMapCore__sub_801F9540();
     if (is_split_screen() == 1) {

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CEE40(u8 *arg0);
+void update_anim_action__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80019704();
 M2C_UNK TObjPlayer__sub_801CEA08(void *);
 M2C_UNK TObjPlayer__sub_801D2620(void *);
@@ -21,7 +21,7 @@ M2C_UNK fn_801D3150(void *, void *);
 M2C_UNK fn_801D9078(void *);
 s32 objInBand__FP7GameObjf(void *);
 
-void TObjPlayer__sub_801CEE40(u8 *arg0) {
+void update_anim_action__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_80019704();
     if (fn_801AFCCC(arg0) != 8) {
         fn_801D9078(arg0);

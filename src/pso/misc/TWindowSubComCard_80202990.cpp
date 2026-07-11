@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_card_window__17TWindowSubComCardFUi(u32 arg0);
-s32 fn_801FE7D4(u32);
+s32 TAdSinglePlyChrSelectGC__sub_801FE7D4(u32);
 
 s32 is_split_screen();
 extern s32 lbl_805D5F64;
@@ -15,9 +15,9 @@ extern s32 lbl_805D5F64;
 s32 get_card_window__17TWindowSubComCardFUi(u32 arg0) {
     if (is_split_screen() != 0) {
         if (arg0 == 0xFFFF) {
-            return fn_801FE7D4(0U);
+            return TAdSinglePlyChrSelectGC__sub_801FE7D4(0U);
         }
-        return fn_801FE7D4(arg0);
+        return TAdSinglePlyChrSelectGC__sub_801FE7D4(arg0);
     }
     return lbl_805D5F64;
 }

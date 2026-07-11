@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8020CB34(s16 arg0, s16 arg1);
+s32 spawn_objects_at_pos__6TLobbyFss(s16 arg0, s16 arg1);
 u8 *TLobby__sub_8020D054(void *);
 u8 *TLobby__sub_8020B354(s32);
 s32 TLobby__sub_8020B468(s32);
@@ -22,7 +22,7 @@ struct VObj8020 {
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6140;
 
-s32 TLobby__sub_8020CB34(s16 arg0, s16 arg1) {
+s32 spawn_objects_at_pos__6TLobbyFss(s16 arg0, s16 arg1) {
     s16 temp_r0;
     s16 temp_r3;
     s32 temp_r31;

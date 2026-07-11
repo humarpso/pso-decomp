@@ -8,7 +8,7 @@ extern "C" {
 
 void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
 
-s32 fn_801FE854();
+s32 TAdSinglePlyChrSelectGC__sub_801FE854();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5BCC(void *, s32 *, s32 *);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6418();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C658C();
@@ -35,7 +35,7 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     case 4:
         TAdMultiPlyChrSelectGC__sub_802C6920();
         TAdMultiPlyChrSelectGC__sub_802C658C();
-        if (fn_801FE854() == 0) {
+        if (TAdSinglePlyChrSelectGC__sub_801FE854() == 0) {
             temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
             TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &spC, &sp8);
             TAdMultiPlyChrSelectGC__sub_802C6418();

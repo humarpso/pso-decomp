@@ -8,14 +8,14 @@ extern "C" {
 
 void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
 M2C_UNK TBoss4Type3__sub_80059F04(s32, M2C_UNK, s32, s32);
-f32 fn_80011014();
+f32 TObjPlayer__sub_80011014();
 
 extern f32 lbl_805D8C8C;
 
 void spawn_random_effect__11TBoss4Type3Fi(s32 arg0) {
     s32 temp_r5;
 
-    temp_r5 = (s32) (lbl_805D8C8C * fn_80011014());
+    temp_r5 = (s32) (lbl_805D8C8C * TObjPlayer__sub_80011014());
     TBoss4Type3__sub_80059F04(arg0, 0xF, temp_r5, temp_r5);
 }
 

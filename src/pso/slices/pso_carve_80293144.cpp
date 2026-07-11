@@ -8,7 +8,7 @@ extern "C" {
 
 s32 is_split_screen();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
-u32 fn_802029E8(u32);
+u32 TAdSinglePlyChrSelectGC__sub_802029E8(u32);
 M2C_UNK fn_802925C4(void *);
 u32 fn_802930C8();
 M2C_UNK fn_802C3D38(u32, u32);
@@ -40,7 +40,7 @@ void setup_split_screen(void) {
         var_r31 = 0U;
         do {
             temp_r30 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
-            temp_r4 = fn_802029E8(var_r31);
+            temp_r4 = TAdSinglePlyChrSelectGC__sub_802029E8(var_r31);
             if ((temp_r30 != 0U) && (temp_r4 != 0U)) {
                 fn_802C3D38(temp_r30, temp_r4);
             }

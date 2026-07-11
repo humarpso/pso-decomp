@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemMag__sub_80110FD8(u8 *arg0, s32 arg1);
+s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1);
 s32 TOBoss4Rock__sub_8039C880();
 
 extern M2C_UNK TItemMag__data_8043E558;
 extern const f32 lbl_805DAB9C;
 extern const f32 lbl_805DABAC;
 
-s32 TItemMag__sub_80110FD8(u8 *arg0, s32 arg1) {
+s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1) {
     s16 temp_r0;
     u8 temp_r0_2;
     u8 temp_r3;

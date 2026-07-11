@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMultiPlyChrSelectGC__sub_802DEF54(void *arg0);
+void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 u32 TAdEnterSerialAccessGC__sub_80202984();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
@@ -24,7 +24,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern s8 lbl_8050E3B8[];
 extern u32 lbl_805D68CC;
 
-void TAdMultiPlyChrSelectGC__sub_802DEF54(void *arg0) {
+void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r5;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x90) != 0U) {

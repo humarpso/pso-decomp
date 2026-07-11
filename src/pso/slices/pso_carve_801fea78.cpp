@@ -9,7 +9,7 @@ extern "C" {
 s32 TAdPlayerLoadGC__sub_80076BBC();
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
-s32 fn_801FDBC4();
+s32 TAdSinglePlyChrSelectGC__sub_801FDBC4();
 extern M2C_UNK lbl_804C8914[];
 extern u32 lbl_805D5F70;
 extern s32 lbl_805D5F78;
@@ -24,7 +24,7 @@ s32 load_pso_system(void) {
         if (var_r31 == 0) {
             var_r31 = TAdPlayerLoadGC__sub_801E2048(1, lbl_804C8914);
             if (var_r31 == 0) {
-                var_r3 = fn_801FDBC4();
+                var_r3 = TAdSinglePlyChrSelectGC__sub_801FDBC4();
                 if (var_r3 == 0) {
                     lbl_805D5F78 = 0x16;
                 }

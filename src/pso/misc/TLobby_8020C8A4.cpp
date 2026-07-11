@@ -29,7 +29,7 @@ struct VObj : VBase {
 
 extern "C" {
 
-s32 TLobby__sub_8020C8A4(s16 arg0, s16 arg1);
+s32 link_matching_objects__6TLobbyFss(s16 arg0, s16 arg1);
 u8 *TLobby__sub_8020CCF4(void *);
 u8 *TLobby__sub_8020B334(s32);
 s32 TLobby__sub_8020B454(s32);
@@ -37,7 +37,7 @@ s32 TLobby__sub_8020B454(s32);
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6144;
 
-s32 TLobby__sub_8020C8A4(s16 arg0, s16 arg1) {
+s32 link_matching_objects__6TLobbyFss(s16 arg0, s16 arg1) {
     s16 temp_r0;
     s16 temp_r3;
     s32 temp_r31;

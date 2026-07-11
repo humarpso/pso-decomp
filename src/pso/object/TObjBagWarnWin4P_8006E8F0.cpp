@@ -7,7 +7,7 @@ s32 fn_8030A7B0();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 obj_getField1c();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 fn_801FC1A4();
+s32 TAdSinglePlyChrSelectGC__sub_801FC1A4();
 u32 get_card_window__17TWindowSubComCardFUi(s32);
 s32 THunterGuildWarning__sub_802116EC();
 s32 TWindowCtrl__sub_8024AF74(u16);
@@ -35,7 +35,7 @@ s32 TObjBagWarnWin4P__sub_8006E8F0(void) {
     var_r31 = 0;
     var_r30 = 0;
     do {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) && (get_card_window__17TWindowSubComCardFUi(var_r30) != 0U) && (fn_801FC1A4() != 0)) {
+        if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) && (get_card_window__17TWindowSubComCardFUi(var_r30) != 0U) && (TAdSinglePlyChrSelectGC__sub_801FC1A4() != 0)) {
             var_r31 = 1;
         }
         var_r30 += 1;

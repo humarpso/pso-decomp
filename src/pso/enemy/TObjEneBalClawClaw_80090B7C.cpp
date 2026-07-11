@@ -18,7 +18,7 @@ struct VB : VBaseB {
 
 extern "C" {
 
-void TObjEneBalClawClaw__sub_80090B7C(u8 *arg0);
+void render__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
@@ -43,7 +43,7 @@ extern const f32 lbl_805D9698;
 extern const f32 lbl_805D969C;
 extern const f32 lbl_805D96A0;
 
-void TObjEneBalClawClaw__sub_80090B7C(u8 *arg0) {
+void render__18TObjEneBalClawClawFPv(u8 *arg0) {
     M2C_UNK var_r30;
     s32 temp_r3;
     s32 var_r29;

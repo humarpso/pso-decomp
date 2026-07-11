@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_802D3ADC(s32 arg0, s32 arg1);
+s32 create_chr_warp__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
@@ -14,7 +14,7 @@ M2C_UNK fn_80265C30(s32);
 M2C_UNK fn_80265F60(s32);
 s32 fn_80266508(s32, M2C_UNK);
 
-s32 TAdSinglePlyChrSelectGC__sub_802D3ADC(s32 arg0, s32 arg1) {
+s32 create_chr_warp__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     s32 var_r31 = arg1;
 
     if (TAdSinglePlyChrSelectGC__sub_802D4D9C() != 0) {

@@ -9,7 +9,7 @@ extern "C" {
 void calc_target_vector__12TBoss1DragonFPv(u8 *arg0);
 void TBoss1Dragon__sub_800293E4(void);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(f32);
-f32 TObjBoss2Tunnel__sub_8007E918(void *, f32, f32);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, f32, f32);
 
 extern const f32 TBoss1Dragon__data_805D7F28;
 
@@ -22,7 +22,7 @@ void calc_target_vector__12TBoss1DragonFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x5CC) = (f32) TBoss1Dragon__data_805D7F28;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x39C);
     M2C_FIELD(arg0, f32 *, 0x5D0) = (f32) (temp_f1 - M2C_FIELD(arg0, f32 *, 0x414));
-    M2C_FIELD(arg0, f32 *, 0x5D4) = TObjBoss2Tunnel__sub_8007E918(arg0 + 0x5C8, temp_f1, temp_f2);
+    M2C_FIELD(arg0, f32 *, 0x5D4) = clamp_velocity__15TObjBoss2TunnelFPv(arg0 + 0x5C8, temp_f1, temp_f2);
 }
 
 extern const f32 lbl_805D7F30;

@@ -8,13 +8,13 @@ extern "C" {
 
 M2C_UNK __dl__FPv(u32 *);
 u32 *fn_8007EB94(M2C_UNK);
-M2C_UNK fn_801FFC74(u32 *, s32);
-u32 *fn_801FFD78();
-M2C_UNK fn_801FFF98(s32);
-u32 fn_80201204(u32 *, M2C_UNK);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFC74(u32 *, s32);
+u32 *TAdSinglePlyChrSelectGC__sub_801FFD78();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(s32);
+u32 TAdSinglePlyChrSelectGC__sub_80201204(u32 *, M2C_UNK);
 M2C_UNK init_timestamped_data();
 s32 fn_80202958();
-M2C_UNK fn_80202BB0(M2C_UNK);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BB0(M2C_UNK);
 M2C_UNK memcpy(s32, s32, u32);
 extern s32 lbl_80513910[];
 extern s32 lbl_805D5F68;
@@ -25,20 +25,20 @@ s32 load_and_verify_data(s32 arg0) {
     u32 *var_r31;
     u32 temp_r30;
 
-    fn_80202BB0(0);
+    TAdSinglePlyChrSelectGC__sub_80202BB0(0);
     temp_r3 = fn_80202958();
     lbl_80513910[1] = temp_r3;
     lbl_80513910[0] = temp_r3;
     memcpy(lbl_805D5F68, lbl_805D5F98 + 0x2048, 0xE28C);
-    fn_801FFF98(lbl_805D5F68);
+    TAdSinglePlyChrSelectGC__sub_801FFF98(lbl_805D5F68);
     var_r31 = fn_8007EB94(0xE28C);
     if (var_r31 != NULL) {
-        var_r31 = fn_801FFD78();
+        var_r31 = TAdSinglePlyChrSelectGC__sub_801FFD78();
     }
-    fn_801FFC74(var_r31, lbl_805D5F68);
+    TAdSinglePlyChrSelectGC__sub_801FFC74(var_r31, lbl_805D5F68);
     temp_r30 = *var_r31;
     *var_r31 = 0U;
-    if (temp_r30 != fn_80201204(var_r31, 0xE28C)) {
+    if (temp_r30 != TAdSinglePlyChrSelectGC__sub_80201204(var_r31, 0xE28C)) {
         if (arg0 != 0) {
             __dl__FPv(var_r31);
             return 0;
@@ -50,7 +50,7 @@ s32 load_and_verify_data(s32 arg0) {
         __dl__FPv(var_r31);
         return 1;
     }
-    fn_80202BB0(1);
+    TAdSinglePlyChrSelectGC__sub_80202BB0(1);
 block_9:
     __dl__FPv(var_r31);
     return 1;

@@ -8,12 +8,12 @@ extern "C" {
 
 void TAdMultiSelGameModeGC__sub_80300338(void);
 void TAdMultiSelGameModeGC__sub_80300360(void *arg0);
-int fn_8000F9CC(int);
+int TKeyBoardControl__sub_8000F9CC(int);
 s32 fn_8023EB84();
 s32 fn_8023EBB4();
 int fn_80300CE4(void);
 
-void TAdMultiSelGameModeGC__sub_80300338(void) { fn_80300CE4(); fn_8000F9CC(14); }
+void TAdMultiSelGameModeGC__sub_80300338(void) { fn_80300CE4(); TKeyBoardControl__sub_8000F9CC(14); }
 void TAdMultiSelGameModeGC__sub_80300360(void *arg0) {
     s32 temp_r0;
 

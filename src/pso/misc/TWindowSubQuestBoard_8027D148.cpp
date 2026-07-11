@@ -8,7 +8,7 @@ void *TWindowSubQuestBoard__ct(void *arg0, void *arg1, void *arg2);
 void *TWindowSubQuestBoardSelect__ct(void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void fn_8027D214(void);
+void TWindowCtrl__sub_8027D214(void);
 
 extern M2C_UNK __vt__20TWindowSubQuestBoard[];
 extern void *lbl_805D3A78;
@@ -27,7 +27,7 @@ void *TWindowSubQuestBoard__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x28) = o;
     M2C_FIELD(arg0, u32 *, 0x2C) = 0;
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;
-    fn_8027D214();
+    TWindowCtrl__sub_8027D214();
     return arg0;
 }
 

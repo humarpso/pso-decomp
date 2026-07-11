@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_state__19TObjStendGlassLobbyFPv(void *arg0);
-s32 fn_80351DFC();
+s32 TLobby__sub_80351DFC();
 
 void update_state__19TObjStendGlassLobbyFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 1) {
@@ -15,7 +15,7 @@ void update_state__19TObjStendGlassLobbyFPv(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xD0) = 1;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) == fn_80351DFC()) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) == TLobby__sub_80351DFC()) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
         return;
     }

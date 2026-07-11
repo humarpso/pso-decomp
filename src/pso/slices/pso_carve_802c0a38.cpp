@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80351DFC();
+s32 TLobby__sub_80351DFC();
 
 s32 fn_802C0A38(void) {
     s32 var_r3;
 
-    var_r3 = fn_80351DFC();
+    var_r3 = TLobby__sub_80351DFC();
     switch (var_r3) {
     case 3:
     case 9:

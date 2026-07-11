@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMainCursor__sub_8013B56C(u8 *arg0);
+void render__11TMainCursorFPv(u8 *arg0);
 M2C_UNK TMainCursor__sub_8013B4B8(void *);
 M2C_UNK TMainCursor__sub_8013B524(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, M2C_UNK);
@@ -22,7 +22,7 @@ M2C_UNK fn_803D9B78();
 extern u8 *lbl_805D4DF0;
 extern const f32 TMainCursor__data_805DB0C0;
 
-void TMainCursor__sub_8013B56C(u8 *arg0) {
+void render__11TMainCursorFPv(u8 *arg0) {
     M2C_UNK sp8;
     f32 temp_f31;
 

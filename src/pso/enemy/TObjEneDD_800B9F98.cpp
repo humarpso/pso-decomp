@@ -8,10 +8,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 rand_range__9TObjEneDDFff(f32 farg0, f32 farg1);
-f32 fn_80011014();
+f32 TObjPlayer__sub_80011014();
 
 f32 rand_range__9TObjEneDDFff(f32 farg0, f32 farg1) {
-    return ((farg1 - farg0) * fn_80011014()) + farg0;
+    return ((farg1 - farg0) * TObjPlayer__sub_80011014()) + farg0;
 }
 
 }

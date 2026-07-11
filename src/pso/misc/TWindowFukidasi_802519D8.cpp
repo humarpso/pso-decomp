@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowFukidasi__sub_802519D8(void *arg0, void *arg1, f32 farg0);
+s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0);
 f32 TWindowCtrlMain__sub_8024CB9C(s16);
 f32 TWindowCtrlMain__sub_8024CBC0(s16);
 f32 TWindowCtrlMain__sub_8024CBE4(s16);
@@ -16,7 +16,7 @@ f32 TWindowCtrlMain__sub_8024CC08(s16);
 extern const f32 TWindowFukidasi__data_805DCCFC;
 extern const f32 lbl_805DCD44;
 
-s32 TWindowFukidasi__sub_802519D8(void *arg0, void *arg1, f32 farg0) {
+s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f1_3;

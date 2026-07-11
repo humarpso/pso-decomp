@@ -8,9 +8,9 @@ extern "C" {
 
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_80203344(M2C_UNK);
-M2C_UNK fn_8020334C(M2C_UNK);
-M2C_UNK fn_80203354(M2C_UNK);
+M2C_UNK TScene__sub_80203344(M2C_UNK);
+M2C_UNK TScene__sub_8020334C(M2C_UNK);
+M2C_UNK TScene__sub_80203354(M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804DC7C4[];
 extern s32 lbl_805D65F0;
@@ -27,9 +27,9 @@ void *fn_8029F428(void *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x20));
             M2C_FIELD(arg0, u32 *, 0x20) = 0U;
         }
-        fn_80203354(0);
-        fn_8020334C(0);
-        fn_80203344(0);
+        TScene__sub_80203354(0);
+        TScene__sub_8020334C(0);
+        TScene__sub_80203344(0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

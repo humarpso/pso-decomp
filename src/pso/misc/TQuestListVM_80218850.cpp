@@ -17,7 +17,7 @@ struct VObj18 : VBase18 {
 
 extern "C" {
 
-void TQuestListVM__sub_80218850(void *arg0);
+void update_close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK close_windows__12TQuestListVMFPv(void *);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
@@ -26,7 +26,7 @@ s32 fn_8013AD44(void *);
 M2C_UNK fn_801F8FD4(void *);
 M2C_UNK fn_80219EC4(void *);
 
-void TQuestListVM__sub_80218850(void *arg0) {
+void update_close__12TQuestListVMFPv(void *arg0) {
     void *p;
 
     p = M2C_FIELD(arg0, void **, 0x2374);

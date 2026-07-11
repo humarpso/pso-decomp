@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801F41D4(void);
+void setup_quest_list__6TLobbyFv(void);
 M2C_UNK TLobby__sub_801F3C24();
 M2C_UNK TLobby__sub_801F429C();
 M2C_UNK TLobby__sub_801F42D4();
 M2C_UNK fn_801A2514(u16);
 M2C_UNK fn_801A2528(u16);
 M2C_UNK fn_801F3A24();
-M2C_UNK fn_801F4398();
-M2C_UNK fn_801F43A0();
+M2C_UNK TQuestListVM__sub_801F4398();
+M2C_UNK TQuestListOnline__sub_801F43A0();
 M2C_UNK fn_801F43A8();
 M2C_UNK TLobby__sub_8020B2DC();
 M2C_UNK TLobby__sub_8020B308(s32);
@@ -27,7 +27,7 @@ extern s32 TLobby__data_805D60EC;
 extern s32 TLobby__data_805D6148;
 extern s32 TLobby__data_805D614C;
 
-void TLobby__sub_801F41D4(void) {
+void setup_quest_list__6TLobbyFv(void) {
     TLobby__data_805D60E0 = 0;
     TLobby__data_805D60E4 = 0;
     TLobby__data_805D60E8 = 0;
@@ -38,15 +38,15 @@ void TLobby__sub_801F41D4(void) {
         TLobby__sub_801F42D4();
         break;
     case 2:
-        fn_801F43A0();
+        TQuestListOnline__sub_801F43A0();
         TLobby__sub_801F429C();
         break;
     case 3:
-        fn_801F4398();
+        TQuestListVM__sub_801F4398();
         TLobby__sub_801F429C();
         break;
     case 4:
-        fn_801F43A0();
+        TQuestListOnline__sub_801F43A0();
         TLobby__sub_801F3C24();
         break;
     case 5:

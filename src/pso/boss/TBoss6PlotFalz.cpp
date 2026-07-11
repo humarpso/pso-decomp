@@ -8,10 +8,10 @@ extern "C" {
 
 void set_visible_flag__14TBoss6PlotFalzFPv(void *arg0);
 
-s32 fn_800C6C10();
+s32 TLobby__sub_800C6C10();
 
 void set_visible_flag__14TBoss6PlotFalzFPv(void *arg0) {
-    if (fn_800C6C10() != 0) {
+    if (TLobby__sub_800C6C10() != 0) {
         M2C_FIELD(arg0, s32 *, 0x374) = 0;
         return;
     }

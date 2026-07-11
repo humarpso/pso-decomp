@@ -12,7 +12,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(Vec3 *, s32);
 M2C_UNK fn_8002AE74(void *, M2C_UNK);
 M2C_UNK fn_80143504(void *);
 s32 TPhotonMylla__sub_80154CB4(u16);
-M2C_UNK fn_801A7310(void *, M2C_UNK);
+M2C_UNK TCameraCtrl__sub_801A7310(void *, M2C_UNK);
 M2C_UNK fn_801A7680(void *);
 M2C_UNK fn_801A7748(void *, M2C_UNK);
 M2C_UNK fn_801A7A78(void *);
@@ -53,7 +53,7 @@ void fn_801ADEF4(void *arg0) {
         }
     }
     if ((lbl_805DC238 == (f32) M2C_FIELD(arg0, s32 *, 0x1A8)) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x1A4) == 1)) {
-        fn_801A7310(arg0, 4);
+        TCameraCtrl__sub_801A7310(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x1A8) = 0;
         fn_8002AE74(arg0, 0);
         fn_801A7748(arg0, 3);

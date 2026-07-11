@@ -11,7 +11,7 @@ void open_menu_window__20TShopArmorListWindowFPv(void *arg0);
 s32 TObjCityMainWarp__sub_80266354(u32, s32, s32, s32);
 int fn_80073DC4(void*, int);
 s32 fn_8013AD28(u32);
-s32 fn_80222CFC(s32);
+s32 TLobby__sub_80222CFC(s32);
 f32 TShopWindowBase__sub_8022393C(void *);
 s32 fn_8024422C(u32, f32, f32);
 s32 fn_80265C30(u32);
@@ -28,8 +28,8 @@ void open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U) {
         temp_r31 = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
         M2C_FIELD(arg0, u32 *, 0x30) = fn_802664A8(fn_8026CBB8(0x2B), 2, temp_r31);
-        TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x30), fn_80222CFC(4), 6, 0);
-        TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x30), fn_80222CFC(5), 6, 1);
+        TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x30), TLobby__sub_80222CFC(4), 6, 0);
+        TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x30), TLobby__sub_80222CFC(5), 6, 1);
         fn_80265F60(M2C_FIELD(arg0, u32 *, 0x30));
         fn_80265C30(M2C_FIELD(arg0, u32 *, 0x30));
         fn_8013AD28(M2C_FIELD(arg0, u32 *, 0x30));

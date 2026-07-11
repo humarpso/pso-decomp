@@ -10,8 +10,8 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1F40(M2C_UNK);
-s32 fn_8033BA0C(M2C_UNK);
-s32 fn_8033BA84(M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_8033BA0C(M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_8033BA84(M2C_UNK);
 s32 fn_8033BAB4(void *);
 
 s32 fn_8033BB14(void *arg0) {
@@ -41,10 +41,10 @@ s32 fn_8033BB14(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2C) = 1;
     var_r31 = fn_8033BAB4(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) {
-        if (fn_8033BA84(0) == 0) {
+        if (TAdSinglePlyChrSelectGC__sub_8033BA84(0) == 0) {
             var_r31 |= 0x10;
         }
-    } else if (fn_8033BA0C(0) == 0) {
+    } else if (TAdSinglePlyChrSelectGC__sub_8033BA0C(0) == 0) {
         var_r31 |= 0x10;
     }
     return var_r31;

@@ -8,7 +8,7 @@ extern "C" {
 
 void render__19TAdMcSelectCursorGCFv(void *arg0);
 
-s32 fn_8001A430();
+s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
 M2C_UNK fn_80141F1C();
@@ -18,7 +18,7 @@ M2C_UNK TAdMcSelectCursorGC__sub_8032A1D0(void *);
 
 void render__19TAdMcSelectCursorGCFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x13C) == 1) {
-        if (fn_8001A430() == 1) {
+        if (TMainTask__sub_8001A430() == 1) {
             return;
         }
         goto block_5;

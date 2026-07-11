@@ -16,13 +16,13 @@ struct V_Sub : Base_Sub {
 
 extern "C" {
 
-void TObjGyaranzoMissile__sub_800D1FE0(u8 *arg0);
+void update__19TObjGyaranzoMissileFPv(u8 *arg0);
 M2C_UNK fn_80040B3C(void *, M2C_UNK, s32);
 M2C_UNK fn_800D758C(void *);
 M2C_UNK fn_800D8D88(void *, s32);
 M2C_UNK fn_80143504(void *);
 
-void TObjGyaranzoMissile__sub_800D1FE0(u8 *arg0) {
+void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;

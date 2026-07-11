@@ -11,7 +11,7 @@ void *__nw__7TObjectFUl(int);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void *__ct__10TAdTitleGCFv(void *, void *, int);
-void fn_8000F90C(int);
+void TKeyBoardControl__sub_8000F90C(int);
 void *TWindowOptionCtrl__ct(void *, void *);
 
 void *fn_801A5068(void *arg0) {
@@ -33,7 +33,7 @@ void *fn_801A5068(void *arg0) {
     if (o3 != NULL) {
         __ct__10TAdTitleGCFv(o3, arg0, 3);
     }
-    fn_8000F90C(9);
+    TKeyBoardControl__sub_8000F90C(9);
     M2C_FIELD(arg0, u32 *, 0x20) = 4;
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;
     M2C_FIELD(arg0, u16 *, 0x1E) = 0;

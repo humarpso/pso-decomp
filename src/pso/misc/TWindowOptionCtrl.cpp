@@ -11,7 +11,7 @@ void apply_selection_change__17TWindowOptionCtrlFPv(void *arg0);
 void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0);
 void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
-void *fn_8001ED80();
+void *TAdSinglePlyChrSelectGC__sub_8001ED80();
 s32 fn_80132E58(s8);
 M2C_UNK fn_802260C4();
 M2C_UNK fn_802260F0();
@@ -29,7 +29,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void set_params__17TWindowOptionCtrlFPvsc(void *arg0, s16 arg1, s8 arg2) {
     void *temp_r3;
 
-    temp_r3 = fn_8001ED80();
+    temp_r3 = TAdSinglePlyChrSelectGC__sub_8001ED80();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s16 *, 4) = arg1;
         M2C_FIELD(temp_r3, s8 *, 6) = arg2;

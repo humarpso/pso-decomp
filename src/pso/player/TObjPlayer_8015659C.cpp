@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8015659C(void *arg0);
+void check_object_collisions__10TObjPlayerFPv(void *arg0);
 void *TObjPlayer__sub_80019584(s32);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 s32 TObjPlayer__sub_801557BC(void *, void *, void *);
-s32 TObjPlayer__sub_8015580C(s32, s32);
+s32 check_flag_pair__10TObjPlayerFii(s32, s32);
 void *TObjPlayer__sub_80155FBC(void *, void *, f32);
 
 extern s32 lbl_805D586C;
 extern const f32 TObjPlayer__data_805DB298;
 
-void TObjPlayer__sub_8015659C(void *arg0) {
+void check_object_collisions__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
     s32 var_r29;
     void *temp_r3_2;
@@ -34,7 +34,7 @@ void TObjPlayer__sub_8015659C(void *arg0) {
                 if (temp_r3_2 != NULL) {
                     temp_r3_3 = M2C_FIELD(arg0, void **, 0xA4);
                     M2C_FIELD(temp_r3_3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_3, s32 *, 0x18) | 0x80000);
-                    if ((TObjPlayer__sub_8015580C(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (TObjPlayer__sub_801557BC(arg0, temp_r3, temp_r3_2) != 0)) {
+                    if ((check_flag_pair__10TObjPlayerFii(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (TObjPlayer__sub_801557BC(arg0, temp_r3, temp_r3_2) != 0)) {
                         temp_r3_4 = M2C_FIELD(arg0, void **, 0xA4);
                         M2C_FIELD(temp_r3_4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_4, s32 *, 0x18) | 0x400000);
                     }

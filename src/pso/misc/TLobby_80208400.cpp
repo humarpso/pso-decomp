@@ -1,0 +1,45 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TLobby__sub_80208400(void);
+s32 *TItemDrop__sub_800F94BC(s32, u32);
+u32 fn_8007EBFC(M2C_UNK);
+s32 fn_800F9D80(s32);
+s32 fn_80208280();
+
+extern s32 lbl_804C9390[];
+extern s32 TLobby__data_805D6068;
+extern s32 lbl_805D606C;
+extern s32 *lbl_805D6070;
+extern u32 lbl_805D6074;
+
+void TLobby__sub_80208400(void) {
+    s32 *temp_r3_2;
+    s32 temp_r0;
+    s32 temp_r30;
+    u32 temp_r3;
+
+    lbl_805D606C = 0;
+    lbl_805D6070 = NULL;
+    temp_r3 = fn_8007EBFC(0x24B8);
+    lbl_805D6074 = temp_r3;
+    if (temp_r3 != 0U) {
+        temp_r30 = fn_80208280();
+        if (fn_800F9D80(lbl_804C9390[temp_r30]) <= 0x24B8) {
+            temp_r3_2 = TItemDrop__sub_800F94BC(lbl_804C9390[temp_r30], lbl_805D6074);
+            lbl_805D6070 = temp_r3_2;
+            if (temp_r3_2 != NULL) {
+                temp_r0 = *temp_r3_2;
+                lbl_805D606C = temp_r0;
+                TLobby__data_805D6068 = temp_r0;
+            }
+        }
+    }
+}
+
+}

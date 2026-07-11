@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdChrSelBSlotGC__sub_8030ED88(void *arg0);
-void TAdChrSelBSlotGC__sub_8030EE64(void *arg0);
+void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0);
+void update_card_select__16TAdChrSelBSlotGCFPv(void *arg0);
 void TAdChrSelBSlotGC__sub_8030EF74(void *arg0);
-void TAdChrSelBSlotGC__sub_8030F034(void *arg0);
+void update_card_confirm__16TAdChrSelBSlotGCFPv(void *arg0);
 s32 TAdChrSelASlotGC__sub_8030C4F8(M2C_UNK, M2C_UNK);
 u32 TAdChrSelASlotGC__sub_8030C5C0(M2C_UNK, M2C_UNK);
 s32 TAdChrSelASlotGC__sub_8030C688(M2C_UNK, M2C_UNK);
@@ -22,12 +22,12 @@ s32 TWindowSubComCard__sub_802A57FC(s32);
 M2C_UNK TWindow__close(void *);
 s32 TAdPlayerLoadGC__sub_801E0CE0(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E24F8(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-u32 fn_802C6F90();
+u32 TAdMultiPlyChrSelectGC__sub_802C6F90();
 s32 fn_803100EC(void *);
 u32 fn_803100F4();
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 
-void TAdChrSelBSlotGC__sub_8030ED88(void *arg0) {
+void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
         TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x70));
         M2C_FIELD(arg0, u32 *, 0x70) = 0U;
@@ -51,7 +51,7 @@ void TAdChrSelBSlotGC__sub_8030ED88(void *arg0) {
     }
 }
 
-void TAdChrSelBSlotGC__sub_8030EE64(void *arg0) {
+void update_card_select__16TAdChrSelBSlotGCFPv(void *arg0) {
     s32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
@@ -110,7 +110,7 @@ void TAdChrSelBSlotGC__sub_8030EF74(void *arg0) {
     }
 }
 
-void TAdChrSelBSlotGC__sub_8030F034(void *arg0) {
+void update_card_confirm__16TAdChrSelBSlotGCFPv(void *arg0) {
     s32 temp_r3;
     s32 var_r31;
 
@@ -122,8 +122,8 @@ void TAdChrSelBSlotGC__sub_8030F034(void *arg0) {
             return;
         case 0:
             if (((u32) M2C_FIELD(arg0, u32 *, 0x70) == 0U) && (fn_803100F4() != 0U)) {
-                if (fn_802C6F90() != 0U) {
-                    fn_802C6F90();
+                if (TAdMultiPlyChrSelectGC__sub_802C6F90() != 0U) {
+                    TAdMultiPlyChrSelectGC__sub_802C6F90();
                     var_r31 = TAdMultiPlyChrSelectGC__sub_802DC0B0();
                 } else {
                     var_r31 = 0;

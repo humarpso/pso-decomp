@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800E03DC(u8 *arg0);
+void update_attack__14TObjEnePanarmsFPv(u8 *arg0);
 void TObjEnePanarms__sub_800E0500(void* a0);
 M2C_UNK TObjEnePanarms__sub_800E1608(void *, s32);
 u8 *TPhotonMylla__sub_80154CB4(u16);
@@ -21,7 +21,7 @@ extern s32 lbl_8043CDA0[];
 extern const f64 TObjEnePanarms__data_8043CDD0;
 extern const f32 TObjEnePanarms__data_805DA544;
 
-void TObjEnePanarms__sub_800E03DC(u8 *arg0) {
+void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     f32 temp_f3;
     s32 temp_r0;
     u8 *temp_r3;

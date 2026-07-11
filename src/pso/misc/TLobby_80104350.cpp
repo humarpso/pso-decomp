@@ -1,0 +1,51 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TLobby__sub_80104350(void);
+void TLobby__sub_80104374(int a0, int a1);
+int TLobby__sub_80104384(int a0);
+s32 TLobby__sub_80104394(u32 arg0);
+void TLobby__sub_801043C4(s32 arg0, u32 arg1);
+void TLobby__sub_801043F8(void);
+int TLobby__sub_80104404(void);
+s32 TItemData__sub_8010C8B4();
+M2C_UNK TObjPlayer__sub_8001BF10(M2C_UNK *);
+M2C_UNK fn_8010E59C(u32, s32);
+
+extern M2C_UNK lbl_805D5430;
+
+void TLobby__sub_80104350(void) {
+    TObjPlayer__sub_8001BF10(&lbl_805D5430);
+}
+
+    extern int* lbl_805D54E8;
+void TLobby__sub_80104374(int a0, int a1) { lbl_805D54E8[(unsigned short)(a1)] = a0; }
+
+    extern int* lbl_805D54E8;
+int TLobby__sub_80104384(int a0) {  return lbl_805D54E8[(unsigned short)(a0)]; }
+
+s32 TLobby__sub_80104394(u32 arg0) {
+    if (arg0 != 0U) {
+        return TItemData__sub_8010C8B4();
+    }
+    return 0;
+}
+
+void TLobby__sub_801043C4(s32 arg0, u32 arg1) {
+    if (arg1 != 0U) {
+        fn_8010E59C(arg1, arg0);
+    }
+}
+
+    extern int lbl_805D5448;
+void TLobby__sub_801043F8(void) { lbl_805D5448 = 1; }
+
+    extern int lbl_805D5448;
+int TLobby__sub_80104404(void) {  return lbl_805D5448; }
+
+}

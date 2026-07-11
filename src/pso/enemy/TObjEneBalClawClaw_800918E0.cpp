@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjEneBalClawClaw__sub_800918E0(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
+void * create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 void * TObjEneBalClawClaw__sub_80091970(void *arg0);
 void *TObjEneBalClawClaw__sub_800919D8(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
@@ -17,7 +17,7 @@ void fn_80156720(void *);
 
 extern void *tl_04;
 
-void * TObjEneBalClawClaw__sub_800918E0(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
+void * create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

@@ -5,9 +5,9 @@ extern "C" {
 void render__18TAdChrMoveEffectGCFv(void* p);
 
 int abs__4cXyzCFv(void*, void*);
-int fn_8001A430(void*);
+int TMainTask__sub_8001A430(void*);
 int fn_80348E34(void*);
 
-void render__18TAdChrMoveEffectGCFv(void* p) { if (fn_8001A430(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); fn_80348E34(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
+void render__18TAdChrMoveEffectGCFv(void* p) { if (TMainTask__sub_8001A430(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); fn_80348E34(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
 
 }

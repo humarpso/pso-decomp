@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TMainCursor__sub_8013CC78(s32 arg0, s32 arg1, s32 arg2);
-void TMainCursor__sub_8013CCEC(s32 arg0, s32 arg1, s32 arg2);
+void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void TMainCursor__sub_8013CD88(s32 arg0, s32 arg1, s32 arg2);
 s32 TObjPlayer__sub_80019734(s32);
 M2C_UNK fn_8013E980(s32, M2C_UNK);
@@ -27,7 +27,7 @@ void TMainCursor__sub_8013CC78(s32 arg0, s32 arg1, s32 arg2) {
     fn_8013E980(arg2, 0x60000000);
 }
 
-void TMainCursor__sub_8013CCEC(s32 arg0, s32 arg1, s32 arg2) {
+void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     fn_8013E988(arg2, 0x2000);
     fn_8013E980(arg2, 0x10000000);
     fn_8013E998(arg2, 0xE0000800);

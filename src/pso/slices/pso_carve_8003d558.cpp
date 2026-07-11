@@ -12,7 +12,7 @@ M2C_UNK fn_8003CAD0();
 s32 fn_8003D1E8(void *);
 M2C_UNK fn_8003DD4C(void *);
 M2C_UNK fn_80040C34();
-s32 fn_800C6C10();
+s32 TLobby__sub_800C6C10();
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
@@ -62,7 +62,7 @@ void fn_8003D558(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         if (get_main_phase() == 0xF) {
-            if (fn_800C6C10() != 0) {
+            if (TLobby__sub_800C6C10() != 0) {
                 fn_8003DD4C(arg0);
             }
         } else {

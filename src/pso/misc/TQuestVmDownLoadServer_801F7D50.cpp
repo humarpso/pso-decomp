@@ -11,14 +11,14 @@ u32 create__13TAdMcSelectGCFPv(s32);
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
 M2C_UNK disallow_rendering__7TObjectFv(u32);
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
-M2C_UNK fn_801A7E4C();
+M2C_UNK TScene__sub_801A7E4C();
 
 extern u32 lbl_805D55D4;
 extern s32 tl_03;
 
 void open__22TQuestVmDownLoadServerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x29C) == 0U) {
-        fn_801A7E4C();
+        TScene__sub_801A7E4C();
         u32 temp_r3 = lbl_805D55D4;
         if (temp_r3 != 0U) {
             disallow_rendering__7TObjectFv(temp_r3);

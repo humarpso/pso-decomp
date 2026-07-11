@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DD0F8(void *arg0);
+void update_state_move__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DD2B0(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DD328(void *arg0);
+void handle_confirm_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 M2C_UNK TAdChrMoveEffectGC__sub_803490D8(u32, s32, u32);
 u32 TAdMultiPlyChrSelectGC__sub_802DBE4C(void *, M2C_UNK *);
@@ -18,7 +18,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK TWindow__close(void *);
-s32 fn_801FDC64(u32, s32);
+s32 swap_characters__23TAdSinglePlyChrSelectGCFii(u32, s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 fn_802D50A0(u32);
@@ -70,7 +70,7 @@ extern M2C_UNK lbl_80472870[];
 extern M2C_UNK lbl_80472878[];
 extern s8 lbl_8050E3B8[];
 
-void TAdMultiPlyChrSelectGC__sub_802DD0F8(void *arg0) {
+void update_state_move__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 iter;
     u32 temp_u;
     s32 temp_r5;
@@ -94,7 +94,7 @@ void TAdMultiPlyChrSelectGC__sub_802DD0F8(void *arg0) {
     iter = 0;
 loop_7:
     ret = TAdMultiPlyChrSelectGC__sub_802E0044(M2C_FIELD(arg0, s32 *, 0x5C), 1);
-    if (fn_801FDC64((u32)iter, ret + 4) == 1) {
+    if (swap_characters__23TAdSinglePlyChrSelectGCFii((u32)iter, ret + 4) == 1) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x84));
             M2C_FIELD(arg0, u32 *, 0x84) = 0U;
@@ -144,7 +144,7 @@ void TAdMultiPlyChrSelectGC__sub_802DD2B0(void *arg0) {
     }
 }
 
-void TAdMultiPlyChrSelectGC__sub_802DD328(void *arg0) {
+void handle_confirm_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if (fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
         if (fn_802D50A0(M2C_FIELD(arg0, u32 *, 0x68)) == 1) {
             TAdMultiPlyChrSelectGC__sub_802C6A10();

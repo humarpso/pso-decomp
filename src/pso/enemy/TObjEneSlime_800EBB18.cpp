@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__12TObjEneSlimeFv(void *arg0);
-M2C_UNK fn_8002AFD4(void *, s32 *, M2C_UNK);
+M2C_UNK TLobby__sub_8002AFD4(void *, s32 *, M2C_UNK);
 s32 fn_80080750();
 s32 fn_800EB8DC(void *);
 M2C_UNK fn_800F6510(void *, s32 *);
@@ -109,7 +109,7 @@ void run_task__12TObjEneSlimeFv(void *arg0) {
     if ((fn_80080750() == 0) && (fn_800EB8DC(arg0) != 0)) {
         sp8 = 0x800;
         fn_800F6510(arg0, &sp8);
-        fn_8002AFD4(arg0, &sp8, 0);
+        TLobby__sub_8002AFD4(arg0, &sp8, 0);
         ((VObj_800EBB18 *)arg0)->m77(&sp8);
         TLobby__sub_8020C5A4(arg0);
         queue_destruction__7TObjectFv(arg0);

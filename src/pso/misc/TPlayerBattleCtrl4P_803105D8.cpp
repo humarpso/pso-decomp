@@ -8,12 +8,12 @@ extern "C" {
 
 void init__19TPlayerBattleCtrl4PFv(void);
 M2C_UNK fn_80102AB0();
-M2C_UNK fn_801B09A4();
+M2C_UNK TLobby__sub_801B09A4();
 
 extern s32 lbl_805D6AAC;
 
 void init__19TPlayerBattleCtrl4PFv(void) {
-    fn_801B09A4();
+    TLobby__sub_801B09A4();
     fn_80102AB0();
     lbl_805D6AAC = 1;
 }

@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8000F79C();
-M2C_UNK fn_8000F7FC();
+M2C_UNK TKeyBoardControl__sub_8000F79C();
+M2C_UNK TKeyBoardControl__sub_8000F7FC();
 M2C_UNK TCameraCtrl__sub_80069024();
 M2C_UNK fn_80141550();
 M2C_UNK fn_801E2EFC();
@@ -24,7 +24,7 @@ extern f32 lbl_805DC430;
 extern f32 lbl_805DC43C;
 
 void render_tick__Fv(void) {
-    fn_8000F79C();
+    TKeyBoardControl__sub_8000F79C();
     fn_801E2EFC();
     GXSetZMode(1, 7, 0);
     TCameraCtrl__sub_80069024();
@@ -36,7 +36,7 @@ void render_tick__Fv(void) {
     fn_801E2F20();
     fn_803DCEC8();
     fn_803DCF0C();
-    fn_8000F7FC();
+    TKeyBoardControl__sub_8000F7FC();
 }
 
 }

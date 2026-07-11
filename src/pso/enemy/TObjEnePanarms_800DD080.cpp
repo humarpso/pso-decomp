@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800DD080(u8 *arg0);
+void update_timed_action__14TObjEnePanarmsFPv(u8 *arg0);
 M2C_UNK TObjEnePanarms__sub_800DED30(void *, M2C_UNK);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 M2C_UNK fn_800F5EB4(void *, M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
-void TObjEnePanarms__sub_800DD080(u8 *arg0) {
+void update_timed_action__14TObjEnePanarmsFPv(u8 *arg0) {
     s32 temp_r0;
 
     if ((TObjEnePanarms__sub_800DFB44(M2C_FIELD(arg0, s32 *, 0x3E4)) != 0) || (TObjEnePanarms__sub_800DFB44(M2C_FIELD(arg0, s32 *, 0x3E8)) != 0)) {

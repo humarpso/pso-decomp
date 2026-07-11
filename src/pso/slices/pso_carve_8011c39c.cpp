@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801044B8(s32 *);
+M2C_UNK TLobby__sub_801044B8(s32 *);
 M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
 extern u32 item_mgr;
 
@@ -16,7 +16,7 @@ void fn_8011C39C(s32 arg0, s32 arg1, s32 arg2) {
 
     sp8 = arg1;
     if ((u32) item_mgr != 0U) {
-        fn_801044B8(&sp8);
+        TLobby__sub_801044B8(&sp8);
         temp_r5 = sp8 - 1;
         sp8 = temp_r5;
         TItemDrop__sub_8010663C(item_mgr, arg0, temp_r5, arg2);

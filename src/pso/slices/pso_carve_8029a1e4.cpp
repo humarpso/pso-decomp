@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8000F950();
+M2C_UNK TKeyBoardControl__sub_8000F950();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006B368();
 M2C_UNK fn_801A3B84();
@@ -38,7 +38,7 @@ void giveup_window_handle_select(void *arg0) {
         if (TCameraCtrl__sub_8006B368() == 1) {
             fn_801A3B84();
             evt2_random_enemies_mode = 0;
-            fn_8000F950();
+            TKeyBoardControl__sub_8000F950();
         }
         return;
     case 1:

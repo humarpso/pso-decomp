@@ -13,6 +13,6 @@ u8 is_active__14TObjBgmColCtrlFv(void) {
 }
 
     extern int TQuestBgmCtrl__data_805D5E60;
-int fn_8017E8F8(void) {  return TQuestBgmCtrl__data_805D5E60; }
+int TQuestBgmCtrl__sub_8017E8F8(void) {  return TQuestBgmCtrl__data_805D5E60; }
 
 }

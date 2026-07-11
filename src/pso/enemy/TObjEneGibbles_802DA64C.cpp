@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TObjEneGibbles__sub_802DA64C(void *arg0)
+void update_state__14TObjEneGibblesFPv(void *arg0)
 {
   s16 temp_r0;
   s32 temp_r4;

@@ -17,7 +17,7 @@ M2C_UNK fn_801D76B0(M2C_UNK *);
 M2C_UNK TQuestBgmCtrl__ct(void *, s32);
 s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK fn_80207E44();
-M2C_UNK fn_8021EF84();
+M2C_UNK TLobby__sub_8021EF84();
 M2C_UNK fn_80227FB4();
 void *__nw__7TObjectFUl(M2C_UNK);
 extern M2C_UNK lbl_804A7370[];
@@ -35,7 +35,7 @@ s32 fn_80140830(void) {
         return 0;
     }
     TObjLight__sub_80133D78();
-    fn_8021EF84();
+    TLobby__sub_8021EF84();
     fn_800FD6F8(lbl_804A7370, 0x60);
     fn_801D76B0(lbl_8050EA40);
     fn_8007B858();

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDf2Bringer__sub_80097D54(u8 *arg0, s32 arg1);
+void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
 u32 TBoss4Type2__sub_800874F4(void *, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
@@ -122,7 +122,7 @@ struct TObj : TBase {
     virtual M2C_UNK v100();
 };
 
-void TObjEneDf2Bringer__sub_80097D54(u8 *arg0, s32 arg1) {
+void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 8;

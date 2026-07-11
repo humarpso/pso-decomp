@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMultiPlyChrSelectGC__sub_802DD5C8(void *arg0);
+void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
 s32 TWindowSubComCard__sub_802A57C8(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
-M2C_UNK fn_801FE304();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE304();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 fn_802D50A0(u32);
@@ -23,7 +23,7 @@ s32 fn_802E00C4(s32);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TAdMultiPlyChrSelectGC__sub_802DD5C8(void *arg0) {
+void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r3;
 
     if (fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
@@ -62,7 +62,7 @@ void TAdMultiPlyChrSelectGC__sub_802DD5C8(void *arg0) {
             return;
         case 0:
             TAdMultiPlyChrSelectGC__sub_802DFFE8(M2C_FIELD(arg0, s32 *, 0x5C));
-            fn_801FE304();
+            TAdSinglePlyChrSelectGC__sub_801FE304();
             fn_802E00BC(M2C_FIELD(arg0, s32 *, 0x6C), 0x16);
             M2C_FIELD(arg0, s32 *, 0x20) = 0x14;
             break;

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowDD__sub_80346A84(s32 arg0);
+s32 get_element_ptr__9TWindowDDFi(s32 arg0);
 
 extern s32 TWindowDD__data_805D6E08;
 extern s32 TWindowDD__data_805D6E1C;
 extern s32 TWindowDD__data_805D6E2C;
 extern s32 lbl_805D6E38;
 
-s32 TWindowDD__sub_80346A84(s32 arg0) {
+s32 get_element_ptr__9TWindowDDFi(s32 arg0) {
     if (arg0 == -1) {
         return 0;
     }

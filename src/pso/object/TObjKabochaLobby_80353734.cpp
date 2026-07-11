@@ -17,7 +17,7 @@ extern "C" {
 
 void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK fn_8015858C();
-s32 fn_80351DFC();
+s32 TLobby__sub_80351DFC();
 
 extern M2C_UNK __vt__16TObjKabochaLobby[];
 extern s32 lbl_805D4384;
@@ -30,7 +30,7 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjKabochaLobby;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4384;
     ((TObjKabochaLobby803537 *)arg0)->ct(arg2);
-    if (fn_80351DFC() == 5) {
+    if (TLobby__sub_80351DFC() == 5) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;

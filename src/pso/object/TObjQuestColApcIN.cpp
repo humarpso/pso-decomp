@@ -3,9 +3,9 @@
 extern "C" {
 
 void TObjQuestColApcIN__vt14(void* p);
-int fn_80197094(void*);
+int TQuestThreadBoard__sub_80197094(void*);
 int TQuestThread__sub_801F5BD4(void*);
 
-void TObjQuestColApcIN__vt14(void* p) { fn_80197094(p); TQuestThread__sub_801F5BD4(*(void**)((char*)p + 0xb0)); }
+void TObjQuestColApcIN__vt14(void* p) { TQuestThreadBoard__sub_80197094(p); TQuestThread__sub_801F5BD4(*(void**)((char*)p + 0xb0)); }
 
 }

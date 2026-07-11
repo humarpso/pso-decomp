@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemMag__sub_80111828(s32 arg0);
+s32 get_max_stat_flags__8TItemMagFi(s32 arg0);
 s16 fn_80113DA0(s32);
 s16 fn_80113DC4(s32);
 s16 fn_80113DE8();
 M2C_UNK fn_80113E0C(s32);
 
-s32 TItemMag__sub_80111828(s32 arg0) {
+s32 get_max_stat_flags__8TItemMagFi(s32 arg0) {
     s32 var_r31;
     s16 temp_r30;
     s16 temp_r29;

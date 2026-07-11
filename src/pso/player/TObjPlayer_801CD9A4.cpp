@@ -10,7 +10,7 @@ void TObjPlayer__sub_801CD9A4(void *arg0);
 M2C_UNK TObjPlayer__sub_8001053C();
 M2C_UNK TObjPlayer__sub_801D2630(void *);
 int TObjPlayer__sub_801CD9F0(void* p);
-int TObjPlayer__sub_801CEF38(void*);
+int update_action_state__10TObjPlayerFPv(void*);
 
 void TObjPlayer__sub_801CD9A4(void *arg0) {
     void *temp_r4;
@@ -22,6 +22,6 @@ void TObjPlayer__sub_801CD9A4(void *arg0) {
         M2C_FIELD(temp_r4, u16 *, 0x508) = 0xFFFF;
     }
 }
-int TObjPlayer__sub_801CD9F0(void* p) { return TObjPlayer__sub_801CEF38(p); }
+int TObjPlayer__sub_801CD9F0(void* p) { return update_action_state__10TObjPlayerFPv(p); }
 
 }

@@ -15,7 +15,7 @@ s32 TAdStorySelectGC__sub_80207D64(s32);
 int TLobby__sub_801EA5FC(void*);
 M2C_UNK fn_80070AFC();
 M2C_UNK fn_80070CDC();
-void *fn_8007B7E4();
+void *TAdSinglePlyChrSelectGC__sub_8007B7E4();
 M2C_UNK fn_80291D94();
 M2C_UNK fn_80291DC0();
 
@@ -40,7 +40,7 @@ void TLobby__sub_801E9CF0(void) {
     s32 var_r0;
     void *temp_r3;
 
-    temp_r3 = fn_8007B7E4();
+    temp_r3 = TAdSinglePlyChrSelectGC__sub_8007B7E4();
     if (temp_r3 != NULL) {
         var_r0 = M2C_FIELD(temp_r3, s32 *, 0xE284);
     } else {

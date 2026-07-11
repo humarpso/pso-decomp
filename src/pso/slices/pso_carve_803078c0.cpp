@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8000F91C(M2C_UNK);
-M2C_UNK fn_8000F9CC(M2C_UNK);
+M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
+M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv();
 extern s32 lbl_805D6A5C;
 
 void fn_803078C0(void) {
     queue_destruction__7TObjectFv();
     if ((s32) lbl_805D6A5C != 0) {
-        fn_8000F9CC(2);
+        TKeyBoardControl__sub_8000F9CC(2);
         return;
     }
-    fn_8000F91C(2);
-    fn_8000F9CC(0x12);
+    TKeyBoardControl__sub_8000F91C(2);
+    TKeyBoardControl__sub_8000F9CC(0x12);
 }
 
 }

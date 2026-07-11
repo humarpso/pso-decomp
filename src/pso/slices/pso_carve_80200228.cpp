@@ -8,10 +8,10 @@ extern "C" {
 
 s32 fn_801D5DAC();
 M2C_UNK fn_801F494C(M2C_UNK);
-s32 fn_801FCD04(s32);
-s32 fn_801FCD3C(s32);
-M2C_UNK fn_80200B28();
-u32 fn_80202BD4(M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FCD3C(s32);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200B28();
+u32 TAdSinglePlyChrSelectGC__sub_80202BD4(M2C_UNK);
 M2C_UNK fn_802C3AC0(void *);
 M2C_UNK memcpy(void *, s32, M2C_UNK);
 extern s32 lbl_805D5544;
@@ -20,12 +20,12 @@ extern void *lbl_805D5F60;
 extern void *const lbl_805D5F64;
 
 void game_state_load(void) {
-    memcpy(lbl_805D5F60, fn_801FCD04(lbl_805D5F58), 0x41C);
-    memcpy(lbl_805D5F64, fn_801FCD3C(lbl_805D5F58), 0x2370);
+    memcpy(lbl_805D5F60, TAdSinglePlyChrSelectGC__sub_801FCD04(lbl_805D5F58), 0x41C);
+    memcpy(lbl_805D5F64, TAdSinglePlyChrSelectGC__sub_801FCD3C(lbl_805D5F58), 0x2370);
     fn_801F494C(0);
     if (fn_801D5DAC() == 0) {
-        if (fn_80202BD4(1) != 0U) {
-            fn_80200B28();
+        if (TAdSinglePlyChrSelectGC__sub_80202BD4(1) != 0U) {
+            TAdSinglePlyChrSelectGC__sub_80200B28();
         } else {
             void *a = lbl_805D5F60;
             void *b;

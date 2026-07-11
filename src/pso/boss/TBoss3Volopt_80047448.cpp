@@ -47,11 +47,11 @@ struct VObjB : BaseB {
 
 extern "C" {
 
-void TBoss3Volopt__sub_80047448(void *arg0, u16 arg1);
+void set_action_wait__12TBoss3VoloptFPvUs(void *arg0, u16 arg1);
 void TBoss3Volopt__sub_800474CC(void *arg0, s16 arg1);
 void TBoss3Volopt__sub_8004753C(void *arg0);
-void TBoss3Volopt__sub_800475A0(void *arg0, s16 arg1);
-void TBoss3Volopt__sub_80047620(u8 *arg0);
+void set_action__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
+void render__12TBoss3VoloptFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_80046580(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjLight__sub_80134098();
@@ -70,7 +70,7 @@ M2C_UNK fn_803E46BC(s32);
 
 s32 obj_testFlags30(void *, M2C_UNK);
 
-void TBoss3Volopt__sub_80047448(void *arg0, u16 arg1) {
+void set_action_wait__12TBoss3VoloptFPvUs(void *arg0, u16 arg1) {
     if ((obj_testFlags30(arg0, 0x800) == 0) && !(M2C_FIELD(arg0, s32 *, 0x388) & 0x80000) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xA)) {
         TBoss3Volopt__sub_80046580(arg0);
         if ((u16) arg1 != 0xFFFF) {
@@ -103,7 +103,7 @@ void TBoss3Volopt__sub_8004753C(void *arg0) {
 
 s32 obj_testFlags30(void *, s32);
 
-void TBoss3Volopt__sub_800475A0(void *arg0, s16 arg1) {
+void set_action__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if ((obj_testFlags30(arg0, 0x800) == 0) && !(M2C_FIELD(arg0, s32 *, 0x388) & 0x20000) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 2)) {
         TBoss3Volopt__sub_80046580(arg0);
         M2C_FIELD(arg0, s16 *, 0x338) = arg1;
@@ -116,7 +116,7 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805D881C;
 extern const f32 lbl_805D8820;
 
-void TBoss3Volopt__sub_80047620(u8 *arg0) {
+void render__12TBoss3VoloptFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((VObjA *)arg0)->m8(lbl_805D881C, lbl_805D8820) != 0)) {
         if (fn_800D7B1C(arg0 + 0x490, arg0 + 0x2FC) != 0) {
             ((VObjB *)(arg0 + 0x490))->n6();

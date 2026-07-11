@@ -8,7 +8,7 @@ extern "C" {
 
 void init_data_table_ptr__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_801C2114();
-M2C_UNK fn_801AFCF4(void *, s16);
+M2C_UNK TKeyBoardControl__sub_801AFCF4(void *, s16);
 M2C_UNK fn_801B826C();
 
 u16 obj_getField1c(void *);
@@ -16,7 +16,7 @@ extern s32 lbl_805D5D84;
 
 void init_data_table_ptr__10TObjPlayerFPv(void *arg0) {
     fn_801B826C();
-    fn_801AFCF4(arg0, TObjPlayer__sub_801C2114());
+    TKeyBoardControl__sub_801AFCF4(arg0, TObjPlayer__sub_801C2114());
     M2C_FIELD(arg0, s32 *, 0xDB4) = (s32) (lbl_805D5D84 + (obj_getField1c(arg0) * 0x600));
 }
 

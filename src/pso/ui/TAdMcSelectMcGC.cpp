@@ -8,7 +8,7 @@ extern "C" {
 
 void render__15TAdMcSelectMcGCFv(void *arg0);
 
-s32 fn_8001A430();
+s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
 M2C_UNK fn_80141F1C();
@@ -18,7 +18,7 @@ M2C_UNK TAdMcSelectMcGC__sub_8032A6F4(void *);
 
 void render__15TAdMcSelectMcGCFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 1) {
-        if (fn_8001A430() == 1) {
+        if (TMainTask__sub_8001A430() == 1) {
             return;
         }
         goto block_5;

@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801D04B4(void* p);
 void TObjPlayer__sub_801D0514(void);
-void TObjPlayer__sub_801D0518(s32 arg0);
+void update_action__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801D05D8(void *arg0);
 s32 TFontSmallLobby__sub_801AFEE0();
 s32 TItemProShield__sub_8001140C(s32, s32);
@@ -32,7 +32,7 @@ int obj_clearFlags30(void*, void*);
 
 void TObjPlayer__sub_801D04B4(void* p) { obj_clearFlags30(p, (void*)3840); fn_8011E204(p, (void*)128); fn_801C6FD4((char*)p + 0x5e0, (void*)0); TObjPlayer__sub_801D2630(p); TObjPlayer__sub_8001053C(p); TObjPlayer__sub_801BF964((char*)p + 0x5fc); }
 void TObjPlayer__sub_801D0514(void) {  }
-void TObjPlayer__sub_801D0518(s32 arg0) {
+void update_action__10TObjPlayerFi(s32 arg0) {
     u32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_801B5EA4();

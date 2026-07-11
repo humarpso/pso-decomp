@@ -9,7 +9,7 @@ extern "C" {
 int TLobby__sub_8032C91C(void* p);
 u8 TLobby__sub_8032C93C(void);
 M2C_UNK TDLGraph__sub_8007F6F8(s32, M2C_UNK);
-s32 fn_801F34F8();
+s32 TLobby__sub_801F34F8();
 int fn_804326DC(void*);
 s32 fn_80432858(M2C_UNK, u8 *);
 
@@ -20,7 +20,7 @@ extern u32 TLobby__data_805D6CC4;
 u8 TLobby__sub_8032C93C(void) {
     u8 sp8;
 
-    if (fn_801F34F8() == 3) {
+    if (TLobby__sub_801F34F8() == 3) {
         if (fn_80432858(3, &sp8) == 0) {
             return 0U;
         }

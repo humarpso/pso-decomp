@@ -6,9 +6,9 @@ int TAdTrialModemChkGC__vt4(void);
 void TAdTrialModemChkGC__vt5(void);
 
 int fn_80132F2C(void*, void*);
-int fn_8000F9CC(void*);
+int TKeyBoardControl__sub_8000F9CC(void*);
 
 void TAdTrialModemChkGC__vt5(void) { fn_80132F2C((void*)35, (void*)0); }
-int TAdTrialModemChkGC__vt4(void) { return fn_8000F9CC((void*)(0)); }
+int TAdTrialModemChkGC__vt4(void) { return TKeyBoardControl__sub_8000F9CC((void*)(0)); }
 
 }

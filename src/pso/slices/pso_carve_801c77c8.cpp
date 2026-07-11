@@ -8,7 +8,7 @@ extern "C" {
 
 s32 obj_isState2_324();
 s16 obj_getField1c(void *);
-s32 fn_801A58D8();
+s32 TKeyBoardControl__sub_801A58D8();
 M2C_UNK TObjPlayer__sub_801D1284(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_801D12A4(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_801D12D8(M2C_UNK *);
@@ -30,7 +30,7 @@ void fn_801C77C8(void *arg0) {
         if ((s16) M2C_FIELD(arg0, s16 *, 0x3C0) == temp_r12) {
             TObjPlayer__sub_801D12E8(sp8);
         }
-        if (fn_801A58D8() != 0) {
+        if (TKeyBoardControl__sub_801A58D8() != 0) {
             TObjPlayer__sub_801D12D8(sp8);
         }
         TObjPlayer__sub_801D12A4(sp8);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0);
-f32 fn_8001978C();
+f32 TObjPlayer__sub_8001978C();
 f32 fn_803D8D00();
 
 extern f32 lbl_805DB068;
@@ -18,7 +18,7 @@ f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
     f32 temp_f2;
 
     if (fn_803D8D00() > lbl_805DB068) {
-        temp_f1 = fn_8001978C();
+        temp_f1 = TObjPlayer__sub_8001978C();
         temp_f2 = farg0 / temp_f1;
         M2C_FIELD(arg0, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) * temp_f2);
         M2C_FIELD(arg0, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 4) * temp_f2);

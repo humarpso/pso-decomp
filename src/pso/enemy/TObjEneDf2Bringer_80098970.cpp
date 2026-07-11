@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDf2Bringer__sub_80098970(u8 *arg0, s32 arg1);
+void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -133,7 +133,7 @@ struct SubObj : SubBase {
     virtual M2C_UNK v5();
 };
 
-void TObjEneDf2Bringer__sub_80098970(u8 *arg0, s32 arg1) {
+void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
     switch (arg1) {
