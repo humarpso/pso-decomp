@@ -36,7 +36,7 @@ M2C_UNK fn_80154954(void *, s16 *);
 s32 fn_80156A80(void *, s16 *, M2C_UNK);
 M2C_UNK fn_8018B268();
 
-extern f32 lbl_805DBD14;
+extern f32 TContainerAncient01__data_805DBD14;
 
 f32 TContainerAncient01__vt20(void *arg0) {
     s16 sp8;
@@ -49,11 +49,11 @@ f32 TContainerAncient01__vt20(void *arg0) {
             fn_80154954(arg0, &sp8);
         }
     }
-    return lbl_805DBD14;
+    return TContainerAncient01__data_805DBD14;
 }
 
-extern f32 lbl_805DBD10;
-extern f32 lbl_805DBD14;
+extern f32 TContainerAncient01__data_805DBD10;
+extern f32 TContainerAncient01__data_805DBD14;
 
 f32 TContainerAncient01__vt21(void *arg0, s32 arg1, s32 *arg2) {
     s32 temp_r4;
@@ -61,9 +61,9 @@ f32 TContainerAncient01__vt21(void *arg0, s32 arg1, s32 *arg2) {
 
     temp_r4 = *arg2;
     if ((temp_r4 == 0) || ((u32) (temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
-        o->m20(0, lbl_805DBD10);
+        o->m20(0, TContainerAncient01__data_805DBD10);
     }
-    return lbl_805DBD14;
+    return TContainerAncient01__data_805DBD14;
 }
 
 }

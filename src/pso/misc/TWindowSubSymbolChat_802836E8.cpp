@@ -14,9 +14,9 @@ extern M2C_UNK close_child__20TWindowSubSymbolChatFv[];
 extern M2C_UNK __vt__20TWindowSubSymbolChat[];
 extern s32 lbl_805D3AA8;
 extern void *lbl_805D6490;
-extern s8 lbl_805D6494;
-extern s32 lbl_805D6498;
-extern s32 lbl_805D649C;
+extern s8 TWindowSubSymbolChat__data_805D6494;
+extern s32 TWindowSubSymbolChat__data_805D6498;
+extern s32 TWindowSubSymbolChat__data_805D649C;
 
 void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
@@ -36,9 +36,9 @@ void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
     M2C_FIELD(arg0, s32 *, 0x58) = 0;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    lbl_805D6494 = 0;
-    lbl_805D6498 = 0;
-    lbl_805D649C = 0;
+    TWindowSubSymbolChat__data_805D6494 = 0;
+    TWindowSubSymbolChat__data_805D6498 = 0;
+    TWindowSubSymbolChat__data_805D649C = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     lbl_805D6490 = arg0;
     M2C_FIELD(arg0, s32 *, 0x5C) = update_display__20TWindowSubSymbolChatFi(close_child__20TWindowSubSymbolChatFv);

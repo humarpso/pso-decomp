@@ -27,17 +27,17 @@ void TAdYesNoBaseGC__vt0(void *, int);
 void __dl__7TObjectFPv(void *);
 M2C_UNK fn_8000F9CC(M2C_UNK);
 
-extern s32 lbl_805D6E80;
+extern s32 TAdPsoPassSaveGC__data_805D6E80;
 
 void TAdPsoPassSaveGC__vt5(void) {
-    lbl_805D6E80 = 0;
+    TAdPsoPassSaveGC__data_805D6E80 = 0;
     fn_8000F9CC(0xF);
 }
 
-extern s32 lbl_805D6E80;
+extern s32 TAdPsoPassSaveGC__data_805D6E80;
 
 void TAdPsoPassSaveGC__vt4(void) {
-    lbl_805D6E80 = 1;
+    TAdPsoPassSaveGC__data_805D6E80 = 1;
     fn_8000F9CC(0xF);
 }
 

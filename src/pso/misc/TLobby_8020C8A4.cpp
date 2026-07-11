@@ -34,8 +34,8 @@ u8 *TLobby__sub_8020CCF4(void *);
 u8 *fn_8020B334(s32);
 s32 fn_8020B454(s32);
 
-extern s32 lbl_805D60FC;
-extern s32 lbl_805D6144;
+extern s32 TLobby__data_805D60FC;
+extern s32 TLobby__data_805D6144;
 
 s32 TLobby__sub_8020C8A4(s16 arg0, s16 arg1) {
     s16 temp_r0;
@@ -47,11 +47,11 @@ s32 TLobby__sub_8020C8A4(s16 arg0, s16 arg1) {
     u8 *temp_r3_2;
 
     var_r30 = 0;
-    if ((s32) lbl_805D60FC < 0) {
+    if ((s32) TLobby__data_805D60FC < 0) {
         return 0;
     }
-    var_r29 = fn_8020B334(lbl_805D60FC);
-    temp_r31 = fn_8020B454(lbl_805D60FC);
+    var_r29 = fn_8020B334(TLobby__data_805D60FC);
+    temp_r31 = fn_8020B454(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
         temp_r3 = M2C_FIELD(var_r29, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) M2C_FIELD(var_r29, s16 *, 0xC) == arg0) && ((s16) M2C_FIELD(var_r29, s16 *, 0xE) == arg1)) {
@@ -65,7 +65,7 @@ s32 TLobby__sub_8020C8A4(s16 arg0, s16 arg1) {
                 M2C_FIELD(temp_r3_2, void **, 0x80) = var_r29;
                 temp_r0 = M2C_FIELD(temp_r3_2, s16 *, 0x2C);
                 if (temp_r0 != -1) {
-                    ((VObj *)temp_r3_2)->m77(lbl_805D6144 + (temp_r0 * 0xC));
+                    ((VObj *)temp_r3_2)->m77(TLobby__data_805D6144 + (temp_r0 * 0xC));
                 }
                 var_r30 += 1;
             } else {

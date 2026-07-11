@@ -9,10 +9,10 @@ extern "C" {
 void TBoss6Type1__sub_802B59A8(void);
 M2C_UNK TBoss6Type1__sub_802B5AD4(f32);
 
-extern const f32 lbl_805DE2D0;
+extern const f32 TBoss6Type1__data_805DE2D0;
 
 void TBoss6Type1__sub_802B59A8(void) {
-    TBoss6Type1__sub_802B5AD4(lbl_805DE2D0);
+    TBoss6Type1__sub_802B5AD4(TBoss6Type1__data_805DE2D0);
 }
 
 }

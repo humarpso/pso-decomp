@@ -18,8 +18,8 @@ M2C_UNK run_tasks__7TObjectFv(void *);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D55A0;
 extern s32 lbl_805D5B04;
-extern u32 lbl_805D5B08;
-extern s32 lbl_805D5B0C;
+extern u32 TObjBgmColCtrl__data_805D5B08;
+extern s32 TObjBgmColCtrl__data_805D5B0C;
 
 void run_task__14TObjBgmColCtrlFv(void *arg0) {
     s32 temp_r4;
@@ -33,7 +33,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
             }
         } else {
             lbl_805D5B04 = 0;
-            void *thisObj = (void *)(u32)lbl_805D5B08;
+            void *thisObj = (void *)(u32)TObjBgmColCtrl__data_805D5B08;
             if (thisObj != NULL) {
                 run_tasks__7TObjectFv(thisObj);
             }
@@ -41,7 +41,7 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
                 if (is_active__14TObjBgmColCtrlFv() == 0) {
                     TObjBgmColCtrl__sub_8017E1E4();
                 }
-                if ((TOKeyMachine01__sub_802034A8() == 0xF) && ((s32) lbl_805D55A0 != (s32) lbl_805D5B0C)) {
+                if ((TOKeyMachine01__sub_802034A8() == 0xF) && ((s32) lbl_805D55A0 != (s32) TObjBgmColCtrl__data_805D5B0C)) {
                     TObjBgmColCtrl__sub_8017E1E4();
                 }
             }

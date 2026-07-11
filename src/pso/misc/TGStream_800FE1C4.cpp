@@ -19,7 +19,7 @@ s32 fn_803CD3A8(void *, M2C_UNK);
 M2C_UNK strncpy(void *, void *, M2C_UNK);
 extern M2C_UNK lbl_8043DAF8[];
 extern s32 lbl_805D53C0;
-extern s32 lbl_805D53C4;
+extern s32 TItemDrop__data_805D53C4;
 extern s32 lbl_805D53E0;
 
 void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
@@ -30,7 +30,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
     fn_800FDD28();
     M2C_FIELD(arg0, void **, 0x28) = TItemDrop__sub_800FDD70(arg1, 1);
     if ((void *) M2C_FIELD(arg0, void **, 0x28) != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x20) = (s32) lbl_805D53C4;
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) TItemDrop__data_805D53C4;
         fn_803CC578(M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x20), 0);
         lbl_805D53E0 = M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x24);
         strncpy(arg0, M2C_FIELD(arg0, void **, 0x28), 0x20);

@@ -34,7 +34,7 @@ void TLobby__sub_801E9C7C(s32 arg0) {
 }
 int TLobby__sub_801E9CD0(void* p) { return TLobby__sub_801EA5FC(p); }
 
-extern s32 lbl_805D5EC4;
+extern s32 TLobby__data_805D5EC4;
 
 void TLobby__sub_801E9CF0(void) {
     s32 var_r0;
@@ -46,7 +46,7 @@ void TLobby__sub_801E9CF0(void) {
     } else {
         var_r0 = 0;
     }
-    lbl_805D5EC4 = var_r0;
+    TLobby__data_805D5EC4 = var_r0;
 }
 
 s32 is_split_screen();

@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TAdPlayerLoadGC__sub_801E1530(void);
 
-extern s32 lbl_805D5E40;
+extern s32 TAdPlayerLoadGC__data_805D5E40;
 
 s32 TAdPlayerLoadGC__sub_801E1530(void) {
-    return lbl_805D5E40;
+    return TAdPlayerLoadGC__data_805D5E40;
 }
 
 }

@@ -10,10 +10,10 @@ void handle_reset_choice__6TLobbyFi(s32 arg0);
 M2C_UNK reset__6TLobbyFi();
 M2C_UNK TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 
-extern u8 lbl_805D688B;
+extern u8 TLobby__data_805D688B;
 
 void handle_reset_choice__6TLobbyFi(s32 arg0) {
-    if ((s8) lbl_805D688B != 0) {
+    if ((s8) TLobby__data_805D688B != 0) {
         switch (arg0) {
         case 0:
             TWindowSubStatusDisp__sub_80077760(0xEC);

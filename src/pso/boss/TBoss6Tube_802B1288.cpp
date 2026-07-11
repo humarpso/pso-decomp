@@ -8,13 +8,13 @@ extern "C" {
 
 void TBoss6Tube__sub_802B1288(void);
 
-extern s32 lbl_805D6720;
-extern f32 lbl_805D6724;
-extern f32 lbl_805DE250;
+extern s32 TBoss6Tube__data_805D6720;
+extern f32 TBoss6Tube__data_805D6724;
+extern f32 TBoss6Tube__data_805DE250;
 
 void TBoss6Tube__sub_802B1288(void) {
-    lbl_805D6720 = 0;
-    lbl_805D6724 = lbl_805DE250;
+    TBoss6Tube__data_805D6720 = 0;
+    TBoss6Tube__data_805D6724 = TBoss6Tube__data_805DE250;
 }
 
 }

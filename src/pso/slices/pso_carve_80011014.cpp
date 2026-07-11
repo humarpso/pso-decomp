@@ -9,7 +9,7 @@ extern "C" {
 s32 get_main_phase();
 f32 TObjPlayer__sub_800196A4(s32);
 s32 TOBoss4Rock__sub_8039C880();
-extern M2C_UNK lbl_80434080;
+extern M2C_UNK TObjPlayer__data_80434080;
 extern f32 lbl_805D7D38;
 
 f32 fn_80011014(s32 arg0) {

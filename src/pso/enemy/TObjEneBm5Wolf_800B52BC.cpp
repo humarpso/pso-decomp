@@ -20,7 +20,7 @@ M2C_UNK fn_8022602C(M2C_UNK);
 M2C_UNK fn_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 
-extern const f32 lbl_805D9DB4;
+extern const f32 TObjEneBm5Wolf__data_805D9DB4;
 
 struct VBase { char pad[0x18]; };
 struct VEne : VBase {
@@ -58,7 +58,7 @@ void TObjEneBm5Wolf__sub_800B52BC(u8 *arg0, s32 arg1) {
     case 0:
         fn_80143504();
         TObjEneBm5Wolf__sub_800B7DDC(arg0, M2C_FIELD(arg0, s32 *, 0x60));
-        if (objInBand__FP7GameObjf(arg0, lbl_805D9DB4) != 0) {
+        if (objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DB4) != 0) {
             fn_8022675C(fn_800F5EB4(arg0, 0x3AA1A), arg0 + 0x38, 0, 0);
             fn_8022602C(-0x100);
         }

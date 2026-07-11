@@ -14,11 +14,11 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 fn_801B0EE8();
 s32 fn_8030A730();
 
-extern void *lbl_805D5F40;
+extern void *TRaderMapCore__data_805D5F40;
 
 s32 is_active__13TRaderMapCoreFv(void) {
-    if ((void *) lbl_805D5F40 != NULL) {
-        if (M2C_FIELD(lbl_805D5F40, u16 *, 4) & 0x10) {
+    if ((void *) TRaderMapCore__data_805D5F40 != NULL) {
+        if (M2C_FIELD(TRaderMapCore__data_805D5F40, u16 *, 4) & 0x10) {
             return 0;
         }
         return TRaderMapCore__sub_801F9058();

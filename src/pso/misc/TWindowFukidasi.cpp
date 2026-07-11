@@ -15,7 +15,7 @@ M2C_UNK fn_80252CA0(void *);
 
 M2C_UNK strncpy(s32, s32, s32);
 extern s32 lbl_805D3900;
-extern const f32 lbl_805DCD30;
+extern const f32 TWindowFukidasi__data_805DCD30;
 
 void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
     s32 temp_r3;
@@ -35,10 +35,10 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
         M2C_FIELD(arg0, s32 *, 0x78) = 0;
     }
     TWindowFukidasi__sub_80251964(arg0, arg1);
-    M2C_FIELD(arg0, f32 *, 0x80) = (f32) lbl_805DCD30;
+    M2C_FIELD(arg0, f32 *, 0x80) = (f32) TWindowFukidasi__data_805DCD30;
     M2C_FIELD(arg0, f32 *, 0x7C) = farg0;
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) lbl_805DCD30;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) lbl_805DCD30;
+    M2C_FIELD(arg0, f32 *, 0x48) = (f32) TWindowFukidasi__data_805DCD30;
+    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) TWindowFukidasi__data_805DCD30;
     fn_80252CA0(arg0);
     clear_flag2c_bit100__15TWindowFukidasiFPv(arg0);
 }

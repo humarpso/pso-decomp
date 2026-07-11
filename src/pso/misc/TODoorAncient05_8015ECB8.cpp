@@ -11,12 +11,12 @@ M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
 s32 fn_80158360(void *, f32);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
-extern u8 *lbl_805D591C;
+extern u8 *TODoorAncient05__data_805D591C;
 extern const f32 lbl_805DB420;
 
 void TODoorAncient05__vt15(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(lbl_805D591C, s32 *, 4);
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorAncient05__data_805D591C, s32 *, 4);
         if (fn_80158360(arg0, lbl_805DB420) != 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             fn_80154764(arg0, (M2C_UNK)0, (M2C_UNK)8);
@@ -24,7 +24,7 @@ void TODoorAncient05__vt15(u8 *arg0) {
         }
     } else {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(lbl_805D591C, s32 *, 0);
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorAncient05__data_805D591C, s32 *, 0);
         fn_80154764(arg0, (M2C_UNK)NULL, (M2C_UNK)8);
         fn_8022675C(0x4004B708, arg0 + 0x38, 0, 0);
     }

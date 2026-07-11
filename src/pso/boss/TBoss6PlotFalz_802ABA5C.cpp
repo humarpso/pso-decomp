@@ -9,14 +9,14 @@ extern "C" {
 f32 get_value__14TBoss6PlotFalzFv(void);
 s32 TBoss6PlotFalz__sub_802ABADC();
 
-extern void *lbl_805D66F0;
-extern f32 lbl_805DE098;
+extern void *TBoss6PlotFalz__data_805D66F0;
+extern f32 TBoss6PlotFalz__data_805DE098;
 
 f32 get_value__14TBoss6PlotFalzFv(void) {
-    if ((TBoss6PlotFalz__sub_802ABADC() == 0) || ((void *) lbl_805D66F0 == NULL)) {
-        return lbl_805DE098;
+    if ((TBoss6PlotFalz__sub_802ABADC() == 0) || ((void *) TBoss6PlotFalz__data_805D66F0 == NULL)) {
+        return TBoss6PlotFalz__data_805DE098;
     }
-    return M2C_FIELD(lbl_805D66F0, f32 *, 0x3C);
+    return M2C_FIELD(TBoss6PlotFalz__data_805D66F0, f32 *, 0x3C);
 }
 
 }

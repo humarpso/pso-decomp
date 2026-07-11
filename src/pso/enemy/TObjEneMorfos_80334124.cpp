@@ -122,8 +122,8 @@ f32 fn_8002ADE4(f32);
 M2C_UNK fn_800B99D8(void *);
 M2C_UNK fn_8022602C(M2C_UNK);
 
-extern const f32 lbl_805DF86C;
-extern const f32 lbl_805DF874;
+extern const f32 TObjEneMorfos__data_805DF86C;
+extern const f32 TObjEneMorfos__data_805DF874;
 extern const f32 lbl_805DF894;
 
 void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
@@ -137,7 +137,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
         TObjEneDD__sub_800BBA04(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x3D4) = 0;
         M2C_FIELD(arg0, s32 *, 0x4B0) = 0;
-        M2C_FIELD(arg0, f32 *, 0x4C4) = (f32) lbl_805DF874;
+        M2C_FIELD(arg0, f32 *, 0x4C4) = (f32) TObjEneMorfos__data_805DF874;
         return;
     case 3:
         if (((s32) M2C_FIELD(arg0, s32 *, 0x4B0) == 2) && (TObjEneMorfos__sub_803344F0() == 0)) {
@@ -148,7 +148,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4B0);
         switch (temp_r0) {
         case 0:
-            if (TObjEneEpsilon__sub_800B96D4(lbl_805DF86C) != 0) {
+            if (TObjEneEpsilon__sub_800B96D4(TObjEneMorfos__data_805DF86C) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 1;
                 TObjEneEpsilon__sub_800B96A4(arg0);
                 fn_800B99D8(arg0);

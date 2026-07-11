@@ -16,7 +16,7 @@ M2C_UNK fn_801317E4(char *, s32, const char *);
 
 extern const char lbl_8044A940[];
 extern const char lbl_8044A9A4[];
-extern u32 lbl_805D6004;
+extern u32 TScene__data_805D6004;
 extern s32 lbl_805D6018;
 
 void load_map_texture_archive__6TSceneFi(s32 arg0) {
@@ -27,7 +27,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
     u32 temp_r3_2;
 
     temp_r31 = TOKeyMachine01__sub_802034A8();
-    lbl_805D6004 = 0U;
+    TScene__data_805D6004 = 0U;
     var_r30 = 0;
     lbl_805D6018 = 0;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -41,7 +41,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
     if (temp_r31 == 0xF) {
         if ((var_r30 > 0) && ((u32) var_r30 <= 0x100U)) {
             temp_r3 = fn_8007EBFC(0x100);
-            lbl_805D6004 = temp_r3;
+            TScene__data_805D6004 = temp_r3;
             if (temp_r3 != 0U) {
                 fn_800F9DF4(sp8, temp_r3);
                 lbl_805D6018 = 0x100;
@@ -49,7 +49,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
         }
     } else if (var_r30 > 0) {
         temp_r3_2 = fn_8007EBFC(var_r30);
-        lbl_805D6004 = temp_r3_2;
+        TScene__data_805D6004 = temp_r3_2;
         if (temp_r3_2 != 0U) {
             fn_800F9DF4(sp8, temp_r3_2);
             lbl_805D6018 = var_r30;

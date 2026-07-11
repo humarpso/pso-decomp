@@ -10,12 +10,12 @@ void TAdDialingGC__sub_80328848(void);
 M2C_UNK fn_8013ADBC();
 M2C_UNK fn_80145778(f32, f32);
 
-extern const f32 lbl_805DF6EC;
+extern const f32 TAdDialingGC__data_805DF6EC;
 extern const f32 lbl_805DF6F0;
 
 void TAdDialingGC__sub_80328848(void) {
     fn_8013ADBC();
-    fn_80145778(lbl_805DF6EC, lbl_805DF6F0);
+    fn_80145778(TAdDialingGC__data_805DF6EC, lbl_805DF6F0);
 }
 
 }

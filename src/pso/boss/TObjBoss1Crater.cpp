@@ -8,10 +8,10 @@ extern "C" {
 
 s32 is_count_below_limit__15TObjBoss1CraterFv(void);
 
-extern s32 lbl_805D4B58;
+extern s32 TObjBoss1Crater__data_805D4B58;
 
 s32 is_count_below_limit__15TObjBoss1CraterFv(void) {
-    return lbl_805D4B58 < 0x14;
+    return TObjBoss1Crater__data_805D4B58 < 0x14;
 }
 
 }

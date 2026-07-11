@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TScene__sub_80081B24(void);
 
-extern s32 lbl_805D5FCC;
+extern s32 TScene__data_805D5FCC;
 
 s32 TScene__sub_80081B24(void) {
-    return lbl_805D5FCC;
+    return TScene__data_805D5FCC;
 }
 
 }

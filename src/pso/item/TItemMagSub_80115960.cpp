@@ -8,11 +8,11 @@ extern "C" {
 
 s32 TItemMagSub__sub_80115960(void *arg0);
 
-extern const f64 lbl_8043E5C8;
-extern const f32 lbl_805DABCC;
+extern const f64 TItemMagSub__data_8043E5C8;
+extern const f32 TItemMagSub__data_805DABCC;
 
 s32 TItemMagSub__sub_80115960(void *arg0) {
-    return (s32) (lbl_805DABCC * (f32) M2C_FIELD(arg0, s16 *, 2));
+    return (s32) (TItemMagSub__data_805DABCC * (f32) M2C_FIELD(arg0, s16 *, 2));
 }
 
 }

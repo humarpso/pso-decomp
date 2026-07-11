@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TAdDialingGC__sub_801A4C9C(void);
 
-extern s32 lbl_805D6C78;
+extern s32 TAdDialingGC__data_805D6C78;
 
 s32 TAdDialingGC__sub_801A4C9C(void) {
-    return lbl_805D6C78;
+    return TAdDialingGC__data_805D6C78;
 }
 
 }

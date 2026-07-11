@@ -116,8 +116,8 @@ struct VObjB0 : BaseB0 {
     virtual void m94();
 };
 extern M2C_UNK lbl_8043B0D0[];
-extern s32 lbl_805D50F4;
-extern const f32 lbl_805D9C88;
+extern s32 TObjEneBm3Fly__data_805D50F4;
+extern const f32 TObjEneBm3Fly__data_805D9C88;
 
 void TObjEneBm3Fly__sub_800B000C(u8 *arg0, s32 arg1) {
     s32 temp_r4;
@@ -136,9 +136,9 @@ void TObjEneBm3Fly__sub_800B000C(u8 *arg0, s32 arg1) {
             fn_800B2A5C(temp_ret, arg0);
         }
         fn_800BB7DC(arg0);
-        fn_800BB7D8(arg0, 0xF1, lbl_805D9C88);
+        fn_800BB7D8(arg0, 0xF1, TObjEneBm3Fly__data_805D9C88);
         fn_8022675C(fn_800F5EB4(arg0, 0x4003E425), arg0 + 0x38, 0, 0);
-        fn_800D8ACC(lbl_805D50F4, lbl_8043B0D0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+        fn_800D8ACC(TObjEneBm3Fly__data_805D50F4, lbl_8043B0D0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
         return;
     case 3:

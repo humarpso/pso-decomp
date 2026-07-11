@@ -10,10 +10,10 @@ void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 M2C_UNK TObjPlayer__sub_801B5328(s32, s32, s32, M2C_UNK, f32);
 s32 fn_80055694();
 
-extern f32 lbl_805DC278;
+extern f32 TObjPlayer__data_805DC278;
 
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_801B5328(arg0, fn_80055694(), arg1, 0, lbl_805DC278);
+    TObjPlayer__sub_801B5328(arg0, fn_80055694(), arg1, 0, TObjPlayer__data_805DC278);
 }
 
 }

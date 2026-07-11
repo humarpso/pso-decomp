@@ -9,12 +9,12 @@ extern "C" {
 void TObjBoss8DemoRoom__sub_8036B698(void);
 void fn_8001FE7C(void*, int);
 
-extern u32 lbl_805D7010;
+extern u32 TObjBoss8DemoRoom__data_805D7010;
 
 void TObjBoss8DemoRoom__sub_8036B698(void) {
-    if ((u32) lbl_805D7010 != 0U) {
-        fn_8001FE7C((void*)lbl_805D7010, 1);
-        lbl_805D7010 = 0U;
+    if ((u32) TObjBoss8DemoRoom__data_805D7010 != 0U) {
+        fn_8001FE7C((void*)TObjBoss8DemoRoom__data_805D7010, 1);
+        TObjBoss8DemoRoom__data_805D7010 = 0U;
     }
 }
 

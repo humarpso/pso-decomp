@@ -47,7 +47,7 @@ M2C_UNK fn_80143504();
 s32 fn_8035F95C(u32);
 s32 fn_8035F968();
 
-extern void *lbl_805D6F74;
+extern void *TObjEneEpsilonGuard__data_805D6F74;
 extern const f32 lbl_805E01E8;
 extern const f32 lbl_805E01EC;
 extern const f32 lbl_805E01F0;
@@ -79,9 +79,9 @@ void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         switch (temp_r0) {
         case 0:
             if (M2C_FIELD(arg0, s32 *, 0x46C) & 0x100) {
-                M2C_FIELD(arg0, s32 *, 0x43C) = (s32) ((lbl_805E01E8 * M2C_FIELD(lbl_805D6F74, f32 *, 8)) / (lbl_805E01EC * M2C_FIELD(lbl_805D6F74, f32 *, 0)));
+                M2C_FIELD(arg0, s32 *, 0x43C) = (s32) ((lbl_805E01E8 * M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8)) / (lbl_805E01EC * M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0)));
             } else {
-                M2C_FIELD(arg0, s32 *, 0x43C) = (s32) ((lbl_805E01F0 * M2C_FIELD(lbl_805D6F74, f32 *, 8)) / (lbl_805E01EC * M2C_FIELD(lbl_805D6F74, f32 *, 0)));
+                M2C_FIELD(arg0, s32 *, 0x43C) = (s32) ((lbl_805E01F0 * M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8)) / (lbl_805E01EC * M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0)));
             }
             M2C_FIELD(arg0, s32 *, 0x430) = 1;
             break;
@@ -99,7 +99,7 @@ block_23:
                 M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) + M2C_FIELD(arg0, s32 *, 0x43C));
                 TObjEneEpsilonGuard__sub_8035EFD8(arg0, M2C_FIELD(arg0, s32 *, 0x438));
                 fn_800B99D8(arg0);
-                TObjEneDD__sub_800BAC14(arg0, lbl_805D6F74, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), M2C_FIELD(lbl_805D6F74, f32 *, 8));
+                TObjEneDD__sub_800BAC14(arg0, TObjEneEpsilonGuard__data_805D6F74, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8));
             }
             break;
         case 2:

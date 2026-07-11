@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D53AC;
+extern s32 TLobby__data_805D53AC;
 
 u8 fn_80072E5C(void) {
-    return (u8) (lbl_805D53A0 == lbl_805D53AC);
+    return (u8) (lbl_805D53A0 == TLobby__data_805D53AC);
 }
 
 }

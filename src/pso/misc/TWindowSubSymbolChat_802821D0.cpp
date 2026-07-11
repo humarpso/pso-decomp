@@ -13,28 +13,28 @@ s32 TWindowSubSymbolChatParts__ct(s32, s32, M2C_UNK *, M2C_UNK *);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8026CBB8(M2C_UNK);
 
-extern M2C_UNK lbl_805D6498;
-extern M2C_UNK lbl_805D649C;
+extern M2C_UNK TWindowSubSymbolChat__data_805D6498;
+extern M2C_UNK TWindowSubSymbolChat__data_805D649C;
 
 s32 create_parts_set__20TWindowSubSymbolChatFPv(void *arg0) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x98);
     if (var_r31 != 0) {
-        var_r31 = TWindowSubSymbolChatPartsSet__ct(var_r31, fn_8026CBB8(0x7D), M2C_FIELD(arg0, s16 *, 0x1E), &lbl_805D6498, &lbl_805D649C);
+        var_r31 = TWindowSubSymbolChatPartsSet__ct(var_r31, fn_8026CBB8(0x7D), M2C_FIELD(arg0, s16 *, 0x1E), &TWindowSubSymbolChat__data_805D6498, &TWindowSubSymbolChat__data_805D649C);
     }
     return var_r31;
 }
 
-extern M2C_UNK lbl_805D6498;
-extern M2C_UNK lbl_805D649C;
+extern M2C_UNK TWindowSubSymbolChat__data_805D6498;
+extern M2C_UNK TWindowSubSymbolChat__data_805D649C;
 
 s32 create_parts__20TWindowSubSymbolChatFv(void) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x90);
     if (var_r31 != 0) {
-        var_r31 = TWindowSubSymbolChatParts__ct(var_r31, fn_8026CBB8(0x7D), &lbl_805D6498, &lbl_805D649C);
+        var_r31 = TWindowSubSymbolChatParts__ct(var_r31, fn_8026CBB8(0x7D), &TWindowSubSymbolChat__data_805D6498, &TWindowSubSymbolChat__data_805D649C);
     }
     return var_r31;
 }

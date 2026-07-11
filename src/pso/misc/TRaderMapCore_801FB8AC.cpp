@@ -12,13 +12,13 @@ M2C_UNK fn_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
 
 extern u32 lbl_805D5F48;
-extern u32 lbl_805D5F4C;
+extern u32 TRaderMapCore__data_805D5F4C;
 
 void free_statics__13TRaderMapCoreFv(void) {
-    if ((u32) lbl_805D5F4C != 0U) {
-        fn_803DA16C((void*)lbl_805D5F4C);
-        fn_8007EBB4(lbl_805D5F4C);
-        lbl_805D5F4C = 0U;
+    if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
+        fn_803DA16C((void*)TRaderMapCore__data_805D5F4C);
+        fn_8007EBB4(TRaderMapCore__data_805D5F4C);
+        TRaderMapCore__data_805D5F4C = 0U;
     }
     if ((u32) lbl_805D5F48 != 0U) {
         fn_8001FE7C((void*)lbl_805D5F48, 1);

@@ -12,10 +12,10 @@ s32 fn_8001A988(void) {
     return lbl_805D4F0C;
 }
 
-extern s32 lbl_805D49F0;
+extern s32 TAdEndText__data_805D49F0;
 
 s32 fn_8001A990(void) {
-    return lbl_805D49F0;
+    return TAdEndText__data_805D49F0;
 }
 
 }

@@ -21,7 +21,7 @@ M2C_UNK fn_80143504();
 M2C_UNK fn_8022602C(M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
-extern const f32 lbl_805D9820;
+extern const f32 TObjEneDf2Bringer__data_805D9820;
 extern const f32 lbl_805D9824;
 
 struct TBase { char pad[0x18]; };
@@ -160,7 +160,7 @@ void TObjEneDf2Bringer__sub_80098970(u8 *arg0, s32 arg1) {
         return;
     case 0:
         fn_80143504();
-        TObjEneEpsilon__sub_800B96D4(arg0, lbl_805D9820);
+        TObjEneEpsilon__sub_800B96D4(arg0, TObjEneDf2Bringer__data_805D9820);
         M2C_FIELD(arg0, s32 *, 0x4AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x4AC) + 1);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4B0);
         switch (temp_r0) {

@@ -8,19 +8,19 @@ extern "C" {
 
 s32 TBoss7Tentacle__sub_802EF8F4(void *arg0, f32 farg0);
 
-extern M2C_UNK lbl_804740C8;
-extern const f32 lbl_805DEC00;
-extern const f32 lbl_805DEC04;
+extern M2C_UNK TBoss7Tentacle__data_804740C8;
+extern const f32 TBoss7Tentacle__data_805DEC00;
+extern const f32 TBoss7Tentacle__data_805DEC04;
 
 s32 TBoss7Tentacle__sub_802EF8F4(void *arg0, f32 farg0) {
     f32 temp_f4;
 
     temp_f4 = M2C_FIELD(arg0, f32 *, 0x74);
-    if (temp_f4 < ((f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x78), u32 *, 4) - lbl_805DEC00)) {
+    if (temp_f4 < ((f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x78), u32 *, 4) - TBoss7Tentacle__data_805DEC00)) {
         M2C_FIELD(arg0, f32 *, 0x74) = (f32) (temp_f4 + farg0);
         return 0;
     }
-    M2C_FIELD(arg0, f32 *, 0x74) = (f32) lbl_805DEC04;
+    M2C_FIELD(arg0, f32 *, 0x74) = (f32) TBoss7Tentacle__data_805DEC04;
     return 1;
 }
 

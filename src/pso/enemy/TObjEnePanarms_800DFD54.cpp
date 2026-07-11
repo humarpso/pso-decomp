@@ -11,7 +11,7 @@ s32 TBoss4Type2__sub_80141FA8(s32, s32);
 M2C_UNK fn_8002AE74(void *, M2C_UNK);
 s32 fn_80141F84(s32, s32, void *);
 
-extern const f32 lbl_805DA524;
+extern const f32 TObjEnePanarms__data_805DA524;
 
 void TObjEnePanarms__sub_800DFD54(void *arg0) {
     void *temp_r5;
@@ -20,7 +20,7 @@ void TObjEnePanarms__sub_800DFD54(void *arg0) {
     M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
     M2C_FIELD(arg0, s32 *, 0x384) = 1;
     M2C_FIELD(arg0, s32 *, 0x388) = 1;
-    M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) lbl_805DA524;
+    M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) TObjEnePanarms__data_805DA524;
     M2C_FIELD(arg0, s32 *, 0x3B4) = 0x3C;
     M2C_FIELD(arg0, s32 *, 0x3C4) = 1;
     if (fn_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4), temp_r5) < 0x2000) {

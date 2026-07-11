@@ -20,7 +20,7 @@ s32 fn_802E00C4(s32);
 s32 fn_802E00CC(s32);
 
 extern char lbl_8050E3B8[];
-extern M2C_UNK lbl_805DE898;
+extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
 
 void TAdMultiPlyChrSelectGC__sub_802DCB80(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
@@ -36,8 +36,8 @@ void TAdMultiPlyChrSelectGC__sub_802DCB80(void *arg0) {
         disallow_rendering__7TObjectFv(M2C_FIELD(arg0, void **, 0x70));
     }
     fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 1);
-    TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 0, &lbl_805DE898);
-    TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 1, &lbl_805DE898);
+    TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 0, &TAdMultiPlyChrSelectGC__data_805DE898);
+    TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
     if ((fn_802E00CC(M2C_FIELD(arg0, s32 *, 0x6C)) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0)) {
         fn_8022675C(0x52F16, 0, 0, 0);

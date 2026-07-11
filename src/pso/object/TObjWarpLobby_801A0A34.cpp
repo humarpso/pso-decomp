@@ -11,7 +11,7 @@ M2C_UNK TObjAreaWarp__ct();
 
 extern M2C_UNK __vt__13TObjWarpLobby[];
 extern s32 lbl_805D34A0;
-extern void *lbl_805D5CC8;
+extern void *TObjWarpLobby__data_805D5CC8;
 extern const f32 lbl_805DC06C;
 
 void *TObjWarpLobby__ct(void *arg0) {
@@ -25,7 +25,7 @@ void *TObjWarpLobby__ct(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
     M2C_FIELD(arg0, s32 *, 0xD0) = 0;
     M2C_FIELD(arg0, s32 *, 0xD4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xD8) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5CC8, void **, 0x430), s32 *, 4);
+    M2C_FIELD(arg0, s32 *, 0xD8) = (s32) M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x430), s32 *, 4);
     M2C_FIELD(arg0, s32 *, 0xDC) = 0;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x88) < 0) {
         M2C_FIELD(arg0, s32 *, 0x88) = 0;

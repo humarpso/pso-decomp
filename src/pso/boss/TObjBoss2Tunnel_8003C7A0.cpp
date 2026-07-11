@@ -8,13 +8,13 @@ void *init__15TObjBoss2TunnelFPv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK lbl_804835D8[];
-extern const f32 lbl_805D85E0;
+extern const f32 TObjBoss2Tunnel__data_805D85E0;
 
 void *init__15TObjBoss2TunnelFPv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804835D8;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x20) = lbl_805D85E0;
+    M2C_FIELD(arg0, f32 *, 0x20) = TObjBoss2Tunnel__data_805D85E0;
     return arg0;
 }
 

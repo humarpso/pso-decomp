@@ -127,7 +127,7 @@ M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
 s32 fn_800B9194(void *);
 M2C_UNK fn_80143504();
 
-extern const f32 lbl_805DA0A8;
+extern const f32 TObjEneMe1Gee__data_805DA0A8;
 extern const f32 lbl_805DA0AC;
 
 void state_hover__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
@@ -156,7 +156,7 @@ void state_hover__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
     case 0:
         fn_80143504();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) != 1) {
-            TObjEneEpsilon__sub_800B96D4(arg0, lbl_805DA0A8);
+            TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Gee__data_805DA0A8);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 2) {
             TObjEneMe1Gee__sub_800CBE6C(arg0, lbl_805DA0AC + M2C_FIELD(arg0, f32 *, 0x3C));

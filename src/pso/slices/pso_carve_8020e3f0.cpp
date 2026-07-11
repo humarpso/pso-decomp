@@ -1,4 +1,4 @@
 extern "C" {
-    extern int lbl_805D6114;
-int fn_8020E3F0(void) {  return lbl_805D6114; }
+    extern int TLobby__data_805D6114;
+int fn_8020E3F0(void) {  return TLobby__data_805D6114; }
 }

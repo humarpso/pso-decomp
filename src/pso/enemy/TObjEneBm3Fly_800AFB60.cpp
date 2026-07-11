@@ -25,10 +25,10 @@ M2C_UNK fn_803DA798(s32);
 M2C_UNK fn_803E46BC(s32);
 
 extern const f32 lbl_805D9C68;
-extern const f32 lbl_805D9C6C;
+extern const f32 TObjEneBm3Fly__data_805D9C6C;
 
 void TObjEneBm3Fly__vt104(u8 *arg0) {
-    if (((VObj800AFB60 *) arg0)->m8(lbl_805D9C68, lbl_805D9C6C) != 0) {
+    if (((VObj800AFB60 *) arg0)->m8(lbl_805D9C68, TObjEneBm3Fly__data_805D9C6C) != 0) {
         TObjEneDD__sub_800B9D74(arg0, 0, 0);
         fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
         fn_803D9B2C();

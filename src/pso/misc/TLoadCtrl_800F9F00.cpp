@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TLoadCtrl__sub_800F9F00(void);
 
-extern s32 lbl_805D4A88;
+extern s32 TLoadCtrl__data_805D4A88;
 
 s32 TLoadCtrl__sub_800F9F00(void) {
-    return lbl_805D4A88;
+    return TLoadCtrl__data_805D4A88;
 }
 
 }

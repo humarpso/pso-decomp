@@ -16,17 +16,17 @@ s32 get_main_phase();
 extern M2C_UNK lbl_804385B0[];
 extern u32 lbl_805D4E28;
 extern s32 lbl_805D4E2C;
-extern s32 lbl_805D4E30;
+extern s32 TLobby__data_805D4E30;
 
 void init_on_main_phase__6TLobbyFv(void) {
     lbl_805D4E2C = 0;
     if ((u32) lbl_805D4E28 == 0U) {
         if (get_main_phase() != 0xF) {
-            lbl_805D4E30 = 0;
+            TLobby__data_805D4E30 = 0;
             return;
         }
         TLobby__sub_80074C20();
-        if ((s32) lbl_805D4E30 != 0) {
+        if ((s32) TLobby__data_805D4E30 != 0) {
             lbl_805D4E28 = fn_800709C4();
             lbl_805D4E2C = 1;
             fn_800765B4();

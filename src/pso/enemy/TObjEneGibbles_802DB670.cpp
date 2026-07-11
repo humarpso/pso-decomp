@@ -53,17 +53,17 @@ void * TObjEneGibbles__sub_802DB708(void *arg0) {
     return o2;
 }
 
-extern u32 lbl_805D68AC;
-extern u32 lbl_805D68B8;
+extern u32 TObjEneGibbles__data_805D68AC;
+extern u32 TObjEneGibbles__data_805D68B8;
 
 void TObjEneGibbles__sub_802DB770(void) {
-    if ((u32) lbl_805D68AC != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D68AC);
-        lbl_805D68AC = 0U;
+    if ((u32) TObjEneGibbles__data_805D68AC != 0U) {
+        free__11TOBoss4RockFUi((void*)TObjEneGibbles__data_805D68AC);
+        TObjEneGibbles__data_805D68AC = 0U;
     }
-    if ((u32) lbl_805D68B8 != 0U) {
-        fn_8001FE7C((void*)lbl_805D68B8, 1);
-        lbl_805D68B8 = 0U;
+    if ((u32) TObjEneGibbles__data_805D68B8 != 0U) {
+        fn_8001FE7C((void*)TObjEneGibbles__data_805D68B8, 1);
+        TObjEneGibbles__data_805D68B8 = 0U;
     }
 }
 

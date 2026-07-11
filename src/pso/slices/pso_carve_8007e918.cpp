@@ -10,7 +10,7 @@ extern "C" {
 
 f32 fn_8001978C(f32);
 s32 TCameraCtrl__sub_8006B370(f32);
-extern const f32 lbl_805D9234;
+extern const f32 TObjBoss2Tunnel__data_805D9234;
 extern const f32 lbl_805D923C;
 
 f32 fn_8007E918(void *arg0) {
@@ -22,20 +22,20 @@ f32 fn_8007E918(void *arg0) {
     temp_f30 = M2C_FIELD(arg0, f32 *, 8);
     temp_f31 = M2C_FIELD(arg0, f32 *, 0);
     temp_f29 = (temp_f31 * temp_f31) + (temp_f30 * temp_f30);
-    if (lbl_805D9234 != temp_f29) {
+    if (TObjBoss2Tunnel__data_805D9234 != temp_f29) {
         temp_f28 = lbl_805D923C / fn_8001978C(temp_f29);
         if (TCameraCtrl__sub_8006B370(temp_f28) != 0) {
-            M2C_FIELD(arg0, f32 *, 0) = (f32) lbl_805D9234;
-            M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805D9234;
-            return lbl_805D9234;
+            M2C_FIELD(arg0, f32 *, 0) = (f32) TObjBoss2Tunnel__data_805D9234;
+            M2C_FIELD(arg0, f32 *, 8) = (f32) TObjBoss2Tunnel__data_805D9234;
+            return TObjBoss2Tunnel__data_805D9234;
         }
         M2C_FIELD(arg0, f32 *, 0) = (f32) (temp_f31 * temp_f28);
         M2C_FIELD(arg0, f32 *, 8) = (f32) (temp_f30 * temp_f28);
         return temp_f29 * temp_f28;
     }
-    M2C_FIELD(arg0, f32 *, 0) = (f32) lbl_805D9234;
-    M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805D9234;
-    return lbl_805D9234;
+    M2C_FIELD(arg0, f32 *, 0) = (f32) TObjBoss2Tunnel__data_805D9234;
+    M2C_FIELD(arg0, f32 *, 8) = (f32) TObjBoss2Tunnel__data_805D9234;
+    return TObjBoss2Tunnel__data_805D9234;
 }
 
 }

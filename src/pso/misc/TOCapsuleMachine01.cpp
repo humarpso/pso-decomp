@@ -11,12 +11,12 @@ M2C_UNK TOComputerMachine01__sub_8023DDC8(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UN
 
 M2C_UNK PPCSync();
 extern s32 lbl_805D53A4;
-extern s32 lbl_805D58C8;
+extern s32 TOCapsuleMachine01__data_805D58C8;
 extern s32 lbl_805D58CC;
 
 void run_task__18TOCapsuleMachine01Fv(void) {
-    if ((s32) lbl_805D58C8 != (s32) lbl_805D53A4) {
-        lbl_805D58C8 = lbl_805D53A4;
+    if ((s32) TOCapsuleMachine01__data_805D58C8 != (s32) lbl_805D53A4) {
+        TOCapsuleMachine01__data_805D58C8 = lbl_805D53A4;
         TOComputerMachine01__sub_8023DDC8(lbl_805D58CC, 0, 5, 4, 1);
         PPCSync();
     }

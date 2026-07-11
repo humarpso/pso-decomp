@@ -50,7 +50,7 @@ M2C_UNK TObjEneMe1Gee__sub_800CBE14(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
 M2C_UNK fn_80143504();
 
-extern const f32 lbl_805DA0A8;
+extern const f32 TObjEneMe1Gee__data_805DA0A8;
 
 void state_attack__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
@@ -75,7 +75,7 @@ void state_attack__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
         return;
     case 0:
         fn_80143504();
-        TObjEneEpsilon__sub_800B96D4(arg0, lbl_805DA0A8);
+        TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Gee__data_805DA0A8);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x434);
         switch (temp_r0) {
         case 0:

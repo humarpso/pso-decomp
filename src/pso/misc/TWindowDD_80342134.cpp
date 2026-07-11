@@ -8,11 +8,11 @@ extern "C" {
 
 void TWindowDD__sub_80342134(u8 *arg0, f32 farg0);
 
-extern s32 lbl_805DFB50;
+extern s32 TWindowDD__data_805DFB50;
 
 void TWindowDD__sub_80342134(u8 *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x30) = farg0;
-    M2C_FIELD(arg0, s32 *, 0x50) = (s32) lbl_805DFB50;
+    M2C_FIELD(arg0, s32 *, 0x50) = (s32) TWindowDD__data_805DFB50;
 }
 
 }

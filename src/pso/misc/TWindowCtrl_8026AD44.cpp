@@ -8,13 +8,13 @@ extern "C" {
 
 s32 get_field44__11TWindowCtrlFv(void);
 
-extern void *lbl_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
 
 s32 get_field44__11TWindowCtrlFv(void) {
-    if ((void *) lbl_805D63F8 == NULL) {
+    if ((void *) TWindowCtrl__data_805D63F8 == NULL) {
         return 0;
     }
-    return M2C_FIELD(lbl_805D63F8, s32 *, 0x44);
+    return M2C_FIELD(TWindowCtrl__data_805D63F8, s32 *, 0x44);
 }
 
 }

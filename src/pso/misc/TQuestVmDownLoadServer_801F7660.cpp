@@ -14,7 +14,7 @@ s32 fn_80243218(s32, void *, s32, s32);
 M2C_UNK fn_8033A8FC(s32);
 
 extern s32 lbl_805D49B4;
-extern s32 lbl_805D5F18;
+extern s32 TQuestVmDownLoadServer__data_805D5F18;
 
 void load_quest_data__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     fn_8033A8FC(M2C_FIELD(arg0, s32 *, 0x25C));
@@ -22,7 +22,7 @@ void load_quest_data__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     if (fn_80243218(M2C_FIELD(arg0, s32 *, 0x25C), arg0 + 0x270, M2C_FIELD(arg0, s32 *, 0x260), M2C_FIELD(arg0, s32 *, 0x264)) == 0) {
         M2C_FIELD(arg0, s32 *, 0x2A0) = 0xA;
         TQuestVmDownLoadServer__sub_801F6E08(arg0, fn_8006EF6C(0xC), 1);
-        lbl_805D5F18 = 1;
+        TQuestVmDownLoadServer__data_805D5F18 = 1;
         return;
     }
     TQuestVmDownLoadServer__sub_801F6E08(arg0, fn_80132F2C(0x29, 2), 1);

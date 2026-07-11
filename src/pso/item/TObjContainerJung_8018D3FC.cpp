@@ -22,13 +22,13 @@ void *create__17TObjContainerJungFPv(void *arg0) {
     return o;
 }
 
-extern s32 lbl_805D5BA0;
-extern s32 lbl_805D5BA4;
+extern s32 TObjContainerJung__data_805D5BA0;
+extern s32 TObjContainerJung__data_805D5BA4;
 
 void release__17TObjContainerJungFv(void) {
-    fn_8001FE7C(lbl_805D5BA0, 1);
-    lbl_805D5BA0 = 0;
-    lbl_805D5BA4 = 0;
+    fn_8001FE7C(TObjContainerJung__data_805D5BA0, 1);
+    TObjContainerJung__data_805D5BA0 = 0;
+    TObjContainerJung__data_805D5BA4 = 0;
 }
 
 }

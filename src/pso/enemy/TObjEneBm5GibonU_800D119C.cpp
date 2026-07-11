@@ -8,10 +8,10 @@ extern "C" {
 
 void TObjEneBm5GibonU__sub_800D119C(u8 *arg0);
 
-extern const f32 lbl_805DA178;
+extern const f32 TObjEneBm5GibonU__data_805DA178;
 
 void TObjEneBm5GibonU__sub_800D119C(u8 *arg0) {
-    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) lbl_805DA178;
+    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) TObjEneBm5GibonU__data_805DA178;
 }
 
 }

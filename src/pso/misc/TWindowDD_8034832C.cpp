@@ -13,10 +13,10 @@ M2C_UNK TWindowDD__sub_80344774();
 M2C_UNK TWindowDD__sub_80346434();
 M2C_UNK TWindowDD__sub_80346640();
 
-extern s32 lbl_805D6E08;
+extern s32 TWindowDD__data_805D6E08;
 
 void dispatch_state__9TWindowDDFv(void) {
-    switch ((s32) lbl_805D6E08) {
+    switch ((s32) TWindowDD__data_805D6E08) {
     case 0:
         TWindowDD__sub_80346640();
         return;

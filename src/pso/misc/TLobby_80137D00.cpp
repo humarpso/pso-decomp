@@ -13,7 +13,7 @@ s32 TWindowSubComCard__sub_80073DB8(u32);
 s32 TWindowSubComCard__sub_80265BF8(void*);
 M2C_UNK fn_801DB0AC(s32, s32);
 
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 extern u32 lbl_805D55E4;
 
 void update_com_card_window__6TLobbyFv(void) {
@@ -22,7 +22,7 @@ void update_com_card_window__6TLobbyFv(void) {
     if ((u32) lbl_805D55E4 != 0U) {
         temp_r31 = TWindowSubComCard__sub_80265BF8((void*)lbl_805D55E4);
         if (TWindowSubComCard__sub_8007341C(lbl_805D55E4) != 0) {
-            fn_801DB0AC(lbl_805D5580, temp_r31);
+            fn_801DB0AC(TLobby__data_805D5580, temp_r31);
             close_all_windows__6TLobbyFv();
             return;
         }

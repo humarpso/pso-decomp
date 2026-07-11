@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TAdPsoPassSaveGC__sub_8032B584(void);
 
-extern s32 lbl_805D6E80;
+extern s32 TAdPsoPassSaveGC__data_805D6E80;
 
 s32 TAdPsoPassSaveGC__sub_8032B584(void) {
-    return lbl_805D6E80;
+    return TAdPsoPassSaveGC__data_805D6E80;
 }
 
 }

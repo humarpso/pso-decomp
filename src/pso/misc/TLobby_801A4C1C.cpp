@@ -10,12 +10,12 @@ void update_periodic_tick__6TLobbyFv(void);
 M2C_UNK fn_801D9E50(void*);
 
 extern s32 lbl_805D53A4;
-extern u32 lbl_805D5580;
-extern s32 lbl_805D5E24;
+extern u32 TLobby__data_805D5580;
+extern s32 TLobby__data_805D5E24;
 
 void update_periodic_tick__6TLobbyFv(void) {
-    if ((lbl_805D5E24 & 1) && ((lbl_805D53A4 % 900) == 0) && ((u32) lbl_805D5580 != 0U)) {
-        fn_801D9E50((void*)lbl_805D5580);
+    if ((TLobby__data_805D5E24 & 1) && ((lbl_805D53A4 % 900) == 0) && ((u32) TLobby__data_805D5580 != 0U)) {
+        fn_801D9E50((void*)TLobby__data_805D5580);
     }
 }
 

@@ -33,8 +33,8 @@ extern "C" {
 f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2);
 int TContainerAncient01__sub_8018ACC0(void);
 
-extern f32 lbl_805DBD10;
-extern f32 lbl_805DBD14;
+extern f32 TContainerAncient01__data_805DBD10;
+extern f32 TContainerAncient01__data_805DBD14;
 
 f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2) {
     s32 temp_r4;
@@ -42,9 +42,9 @@ f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32
 
     temp_r4 = *arg2;
     if ((temp_r4 == 0) || ((u32) (temp_r4 - 1) <= 3U) || (temp_r4 == 0x13)) {
-        o->m20(0, lbl_805DBD10);
+        o->m20(0, TContainerAncient01__data_805DBD10);
     }
-    return lbl_805DBD14;
+    return TContainerAncient01__data_805DBD14;
 }
 
 int TContainerAncient01__sub_8018ACC0(void) { return 1; }

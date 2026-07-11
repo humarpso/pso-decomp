@@ -9,10 +9,10 @@ extern "C" {
 void TLobby__sub_80137360(void);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
-extern s32 lbl_805D5604;
+extern s32 TLobby__data_805D5604;
 
 void TLobby__sub_80137360(void) {
-    queue_destruction__7TObjectFv(lbl_805D5604);
+    queue_destruction__7TObjectFv(TLobby__data_805D5604);
 }
 
 }

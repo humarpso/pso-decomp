@@ -17,25 +17,25 @@ M2C_UNK fn_8010F52C();
 M2C_UNK fn_8010FDC4();
 
 extern s32 lbl_805D5480;
-extern void *lbl_805D5484;
-extern void *lbl_805D5488;
-extern s32 lbl_805D548C;
+extern void *TItemLoad__data_805D5484;
+extern void *TItemLoad__data_805D5488;
+extern s32 TItemLoad__data_805D548C;
 extern s32 lbl_805D5490;
 
 void TItemLoad__sub_801105AC(void) {
-    free__11TOBoss4RockFUi(lbl_805D548C);
-    if ((void *) lbl_805D5484 != NULL) {
-        ((VObj_801105AC *)lbl_805D5484)->m0(1);
+    free__11TOBoss4RockFUi(TItemLoad__data_805D548C);
+    if ((void *) TItemLoad__data_805D5484 != NULL) {
+        ((VObj_801105AC *)TItemLoad__data_805D5484)->m0(1);
     }
-    if ((void *) lbl_805D5488 != NULL) {
-        ((VObj_801105AC *)lbl_805D5488)->m0(1);
+    if ((void *) TItemLoad__data_805D5488 != NULL) {
+        ((VObj_801105AC *)TItemLoad__data_805D5488)->m0(1);
     }
     fn_8001FE7C(lbl_805D5480, 1);
     lbl_805D5490 = 0;
     lbl_805D5480 = 0;
-    lbl_805D5484 = NULL;
-    lbl_805D5488 = NULL;
-    lbl_805D548C = 0;
+    TItemLoad__data_805D5484 = NULL;
+    TItemLoad__data_805D5488 = NULL;
+    TItemLoad__data_805D548C = 0;
     fn_8010F52C();
     fn_8010FDC4();
 }

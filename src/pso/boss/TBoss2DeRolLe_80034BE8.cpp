@@ -8,21 +8,21 @@ extern "C" {
 
 void TBoss2DeRolLe__sub_80034BE8(void *arg0);
 
-extern const f32 lbl_805D82B4;
+extern const f32 TBoss2DeRolLe__data_805D82B4;
 extern const f32 lbl_805D82C0;
-extern const f32 lbl_805D82E4;
-extern const f32 lbl_805D82FC;
+extern const f32 TBoss2DeRolLe__data_805D82E4;
+extern const f32 TBoss2DeRolLe__data_805D82FC;
 
 void TBoss2DeRolLe__sub_80034BE8(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x654) == 0) {
         M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805D82C0;
         M2C_FIELD(arg0, s32 *, 0x64) = 0x500;
     } else {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805D82B4;
+        M2C_FIELD(arg0, f32 *, 0x38) = (f32) TBoss2DeRolLe__data_805D82B4;
         M2C_FIELD(arg0, s32 *, 0x64) = -0x500;
     }
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D82E4;
-    M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) lbl_805D82FC;
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) TBoss2DeRolLe__data_805D82E4;
+    M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) TBoss2DeRolLe__data_805D82FC;
 }
 
 }

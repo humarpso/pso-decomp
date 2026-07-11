@@ -11,7 +11,7 @@ M2C_UNK fn_801DB684(s32, s32, s32);
 s32 fn_8020102C();
 s32 fn_80201058();
 
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 
 void send_position_update__6TLobbyFv(void) {
     s32 temp_r31;
@@ -19,7 +19,7 @@ void send_position_update__6TLobbyFv(void) {
 
     temp_r31 = fn_8020102C();
     temp_r4 = fn_80201058();
-    fn_801DB684(lbl_805D5580, temp_r4, temp_r31);
+    fn_801DB684(TLobby__data_805D5580, temp_r4, temp_r31);
 }
 
 }

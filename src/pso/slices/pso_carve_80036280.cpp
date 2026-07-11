@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-extern s32 lbl_805D4BC4;
+extern s32 TBoss2DeRolLe__data_805D4BC4;
 
 s32 fn_80036280(void) {
-    return lbl_805D4BC4;
+    return TBoss2DeRolLe__data_805D4BC4;
 }
 
 }

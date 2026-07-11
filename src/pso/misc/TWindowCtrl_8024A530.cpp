@@ -9,11 +9,11 @@ extern "C" {
 void create_alt_timer__11TWindowCtrlFv(void);
 u32 create_alt__12TWindowTimerFv();
 
-extern void *lbl_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
 
 void create_alt_timer__11TWindowCtrlFv(void) {
-    if (((void *) lbl_805D63F8 != NULL) && ((u32) M2C_FIELD(lbl_805D63F8, u32 *, 0x30) == 0U)) {
-        M2C_FIELD(lbl_805D63F8, u32 *, 0x30) = create_alt__12TWindowTimerFv();
+    if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) == 0U)) {
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) = create_alt__12TWindowTimerFv();
     }
 }
 

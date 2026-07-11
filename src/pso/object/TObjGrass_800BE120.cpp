@@ -9,7 +9,7 @@ extern "C" {
 void TObjGrass__vt58(void *arg0);
 M2C_UNK TObjGrass__sub_800BFB68();
 
-extern const f32 lbl_805D9EB8;
+extern const f32 TObjGrass__data_805D9EB8;
 
 void TObjGrass__vt58(void *arg0) {
     s16 temp_r0;
@@ -26,7 +26,7 @@ void TObjGrass__vt58(void *arg0) {
         break;
     case 2:
         M2C_FIELD(arg0, s16 *, 0x326) = 4;
-        M2C_FIELD(arg0, f32 *, 0x398) = (f32) lbl_805D9EB8;
+        M2C_FIELD(arg0, f32 *, 0x398) = (f32) TObjGrass__data_805D9EB8;
         TObjGrass__sub_800BFB68();
         break;
     }

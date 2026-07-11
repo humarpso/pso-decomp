@@ -19,9 +19,9 @@ M2C_UNK fn_800B99D8(void *);
 M2C_UNK fn_80143504();
 M2C_UNK update_angle__17TObjEneMe1CanadinFPv(void *);
 
-extern const f32 lbl_805D988C;
+extern const f32 TObjEneMe1Canadin__data_805D988C;
 extern const f32 lbl_805D98B0;
-extern const f32 lbl_805D98B4;
+extern const f32 TObjEneMe1Canadin__data_805D98B4;
 
 #define VIRT(n) virtual void m##n() = 0;
 struct Base { u8 pad[0x18]; };
@@ -57,7 +57,7 @@ void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
         return;
     case 0:
         fn_80143504();
-        if (TObjEneEpsilon__sub_800B96D4(arg0, lbl_805D988C) != 0) {
+        if (TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C) != 0) {
             M2C_FIELD(arg0, s32 *, 0x470) = 2;
         }
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x470);
@@ -76,7 +76,7 @@ void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
             update_angle__17TObjEneMe1CanadinFPv(arg0);
             TObjEneMe1Canadin__sub_8009EB6C(arg0);
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805D98B0) {
-                TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805D98B4);
+                TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), TObjEneMe1Canadin__data_805D98B4);
             }
             break;
         }

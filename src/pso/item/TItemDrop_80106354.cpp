@@ -9,7 +9,7 @@ extern "C" {
 void init_drop_table__9TItemDropFv(void);
 u8 fn_8011C914(s32);
 
-extern u8 *lbl_805D5468;
+extern u8 *TItemDrop__data_805D5468;
 
 void init_drop_table__9TItemDropFv(void) {
     s32 var_r31;
@@ -20,7 +20,7 @@ void init_drop_table__9TItemDropFv(void) {
     u8 temp_r5;
 
     var_r31 = 0;
-    var_r30 = lbl_805D5468;
+    var_r30 = TItemDrop__data_805D5468;
     do {
         temp_r3 = fn_8011C914(var_r31 + 0x2AF);
         temp_r5 = temp_r3;

@@ -9,13 +9,13 @@ extern "C" {
 s32 apply_by_index__9TObjEnemyFs(s16 arg0);
 M2C_UNK fn_8002B058(s32);
 
-extern s32 lbl_805D6144;
+extern s32 TLobby__data_805D6144;
 
 s32 apply_by_index__9TObjEnemyFs(s16 arg0) {
     if (arg0 > 0xB4F) {
         return 0;
     }
-    fn_8002B058(lbl_805D6144 + (arg0 * 0xC));
+    fn_8002B058(TLobby__data_805D6144 + (arg0 * 0xC));
     return 1;
 }
 

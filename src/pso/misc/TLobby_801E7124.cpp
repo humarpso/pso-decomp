@@ -15,7 +15,7 @@ void TLobby__sub_801E7124(void) {
     TLobby__sub_801F1C38(1, 7);
 }
 
-    extern int lbl_805D5EA4;
-void TLobby__sub_801E714C(void) { lbl_805D5EA4 = 0; TLobby__sub_801F1C8C((void*)1, (void*)7); }
+    extern int TLobby__data_805D5EA4;
+void TLobby__sub_801E714C(void) { TLobby__data_805D5EA4 = 0; TLobby__sub_801F1C8C((void*)1, (void*)7); }
 
 }

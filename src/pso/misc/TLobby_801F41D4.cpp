@@ -24,8 +24,8 @@ extern s32 lbl_805D60E0;
 extern s32 lbl_805D60E4;
 extern s32 lbl_805D60E8;
 extern s32 lbl_805D60EC;
-extern s32 lbl_805D6148;
-extern s32 lbl_805D614C;
+extern s32 TLobby__data_805D6148;
+extern s32 TLobby__data_805D614C;
 
 void TLobby__sub_801F41D4(void) {
     lbl_805D60E0 = 0;
@@ -56,8 +56,8 @@ void TLobby__sub_801F41D4(void) {
     }
     fn_801A2528((u16) lbl_805D60E8);
     fn_801A2514((u16) lbl_805D60EC);
-    lbl_805D6148 = lbl_805D60E0;
-    lbl_805D614C = lbl_805D60E4;
+    TLobby__data_805D6148 = lbl_805D60E0;
+    TLobby__data_805D614C = lbl_805D60E4;
     fn_8020B308(lbl_805D60E0);
     fn_8020B2DC();
 }

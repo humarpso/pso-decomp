@@ -14,7 +14,7 @@ M2C_UNK fn_80308910(s32);
 s32 objInBand__FP7GameObjf(s32, f32);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
-extern const f32 lbl_805DF0D8;
+extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0F0;
 
 void update__14TBoss7CrawfishFi(s32 arg0) {
@@ -23,7 +23,7 @@ void update__14TBoss7CrawfishFi(s32 arg0) {
         fn_8030880C(arg0, 0x39E0D);
     }
     fn_803086A8(arg0);
-    if (lbl_805DF0D8 == TBoss7Crawfish__sub_803094D8(arg0)) {
+    if (TBoss7Crawfish__data_805DF0D8 == TBoss7Crawfish__sub_803094D8(arg0)) {
         queue_destruction__7TObjectFv(arg0);
     }
 }

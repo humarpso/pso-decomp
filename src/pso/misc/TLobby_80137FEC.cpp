@@ -11,12 +11,12 @@ M2C_UNK init_player_window_effect__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK send_text_list__9TProtocolFv(s32);
 
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 
 void close_and_send_text_list__6TLobbyFv(void) {
     close_all_windows__6TLobbyFv();
     init_player_window_effect__6TLobbyFv();
-    send_text_list__9TProtocolFv(lbl_805D5580);
+    send_text_list__9TProtocolFv(TLobby__data_805D5580);
 }
 
 }

@@ -22,20 +22,20 @@ void TBoss8Dragon__sub_802FB440(s32 arg0) {
     TBoss8Dragon__sub_802FBF40(arg0);
 }
 
-extern const f32 lbl_805DEDAC;
-extern const f32 lbl_805DEEA4;
+extern const f32 TBoss8Dragon__data_805DEDAC;
+extern const f32 TBoss8Dragon__data_805DEEA4;
 extern const f32 lbl_805DEEBC;
 
 void TBoss8Dragon__sub_802FB484(void) {
-    TBoss8Dragon__sub_802FB4DC(lbl_805DEEA4, lbl_805DEEBC, lbl_805DEDAC);
+    TBoss8Dragon__sub_802FB4DC(TBoss8Dragon__data_805DEEA4, lbl_805DEEBC, TBoss8Dragon__data_805DEDAC);
 }
 
-extern const f32 lbl_805DEEA4;
+extern const f32 TBoss8Dragon__data_805DEEA4;
 extern const f32 lbl_805DEEC0;
 extern const f32 lbl_805DEEC4;
 
 void TBoss8Dragon__sub_802FB4B0(void) {
-    TBoss8Dragon__sub_802FB4DC(lbl_805DEEA4, lbl_805DEEC0, lbl_805DEEC4);
+    TBoss8Dragon__sub_802FB4DC(TBoss8Dragon__data_805DEEA4, lbl_805DEEC0, lbl_805DEEC4);
 }
 
 }

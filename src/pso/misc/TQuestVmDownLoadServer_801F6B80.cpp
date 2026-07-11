@@ -8,11 +8,11 @@ extern "C" {
 
 void clear_field2A0__22TQuestVmDownLoadServerFv(void);
 
-extern void *lbl_805D5F24;
+extern void *TQuestVmDownLoadServer__data_805D5F24;
 
 void clear_field2A0__22TQuestVmDownLoadServerFv(void) {
-    if ((void *) lbl_805D5F24 != NULL) {
-        M2C_FIELD(lbl_805D5F24, s32 *, 0x2A0) = 0;
+    if ((void *) TQuestVmDownLoadServer__data_805D5F24 != NULL) {
+        M2C_FIELD(TQuestVmDownLoadServer__data_805D5F24, s32 *, 0x2A0) = 0;
     }
 }
 

@@ -22,19 +22,19 @@ M2C_UNK fn_8030984C();
 M2C_UNK fn_8034AD28();
 M2C_UNK queue_destruction__7TObjectFv(u32);
 
-extern u32 lbl_805D4A80;
-extern s32 lbl_805D4A84;
+extern u32 TLoadCtrl__data_805D4A80;
+extern s32 TLoadCtrl__data_805D4A84;
 extern void *lbl_805D4DF0;
 
 void cleanup_scene__9TLoadCtrlFv(void) {
     u32 t;
 
-    t = lbl_805D4A80;
+    t = TLoadCtrl__data_805D4A80;
     if (t != 0U) {
         queue_destruction__7TObjectFv(t);
-        lbl_805D4A80 = 0U;
+        TLoadCtrl__data_805D4A80 = 0U;
     }
-    switch (lbl_805D4A84) {
+    switch (TLoadCtrl__data_805D4A84) {
     case 0:
         fn_80226D5C();
         fn_8001D4D0();

@@ -9,21 +9,21 @@ extern "C" {
 void TLobby__sub_8020D94C(void);
 void free__11TOBoss4RockFUi(void*);
 
-extern u32 lbl_805D611C;
-extern s32 lbl_805D6120;
-extern u32 lbl_805D6124;
-extern s32 lbl_805D6128;
+extern u32 TLobby__data_805D611C;
+extern s32 TLobby__data_805D6120;
+extern u32 TLobby__data_805D6124;
+extern s32 TLobby__data_805D6128;
 
 void TLobby__sub_8020D94C(void) {
-    if ((u32) lbl_805D611C != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D611C);
-        lbl_805D611C = 0U;
-        lbl_805D6120 = 0;
+    if ((u32) TLobby__data_805D611C != 0U) {
+        free__11TOBoss4RockFUi((void*)TLobby__data_805D611C);
+        TLobby__data_805D611C = 0U;
+        TLobby__data_805D6120 = 0;
     }
-    if ((u32) lbl_805D6124 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D6124);
-        lbl_805D6124 = 0U;
-        lbl_805D6128 = 0;
+    if ((u32) TLobby__data_805D6124 != 0U) {
+        free__11TOBoss4RockFUi((void*)TLobby__data_805D6124);
+        TLobby__data_805D6124 = 0U;
+        TLobby__data_805D6128 = 0;
     }
 }
 

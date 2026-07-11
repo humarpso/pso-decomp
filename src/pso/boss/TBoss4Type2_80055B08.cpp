@@ -28,31 +28,31 @@ void TBoss4Type2__vt23(void *arg0) {
     }
 }
 
-extern f32 lbl_805D8BAC;
+extern f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt31(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8BAC;
+    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x12C;
 }
 
-extern f32 lbl_805D8BAC;
+extern f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt28(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8BAC;
+    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
     M2C_FIELD(arg0, s32 *, 0x398) = 0xE1;
 }
 
-extern f32 lbl_805D8BAC;
+extern f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt25(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8BAC;
+    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x96;
 }
 
-extern f32 lbl_805D8BAC;
+extern f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt22(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8BAC;
+    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x4B;
 }
 

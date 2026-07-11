@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TObjContainerJung__sub_8018D3B8(void);
 
-extern s32 lbl_805D5BA4;
+extern s32 TObjContainerJung__data_805D5BA4;
 
 s32 TObjContainerJung__sub_8018D3B8(void) {
-    return lbl_805D5BA4;
+    return TObjContainerJung__data_805D5BA4;
 }
 
 }

@@ -9,12 +9,12 @@ extern "C" {
 void release_static_resource__10TObjCameraFv(void);
 void fn_8001FE7C(void*, int);
 
-extern u32 lbl_805D5B18;
+extern u32 TObjCamera__data_805D5B18;
 
 void release_static_resource__10TObjCameraFv(void) {
-    if ((u32) lbl_805D5B18 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5B18, 1);
-        lbl_805D5B18 = 0U;
+    if ((u32) TObjCamera__data_805D5B18 != 0U) {
+        fn_8001FE7C((void*)TObjCamera__data_805D5B18, 1);
+        TObjCamera__data_805D5B18 = 0U;
     }
 }
 

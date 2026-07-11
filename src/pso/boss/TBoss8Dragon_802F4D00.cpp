@@ -10,14 +10,14 @@ void TBoss8Dragon__sub_802F4D00(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 
-extern const f32 lbl_805DED50;
+extern const f32 TBoss8Dragon__data_805DED50;
 
 void TBoss8Dragon__sub_802F4D00(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         M2C_FIELD(arg0, s32 *, 0x84C) = 0;
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DED50;
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss8Dragon__data_805DED50;
         return;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x84C) > 0x96) {

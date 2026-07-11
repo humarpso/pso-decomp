@@ -51,10 +51,10 @@ void *TBoss6Rock__sub_803539C8(void) {
     return o;
 }
 
-    extern int lbl_805D6EF4;
-int TBoss6Rock__sub_80353A04(void) {  return lbl_805D6EF4; }
+    extern int TBoss6Rock__data_805D6EF4;
+int TBoss6Rock__sub_80353A04(void) {  return TBoss6Rock__data_805D6EF4; }
 
-    extern int lbl_805D6EF0;
-int TBoss6Rock__sub_80353A0C(void) {  return lbl_805D6EF0; }
+    extern int TBoss6Rock__data_805D6EF0;
+int TBoss6Rock__sub_80353A0C(void) {  return TBoss6Rock__data_805D6EF0; }
 
 }

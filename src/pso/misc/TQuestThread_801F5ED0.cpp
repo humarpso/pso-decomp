@@ -12,13 +12,13 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK fn_8007EBB4(s32);
 
-extern M2C_UNK lbl_804C8678[];
+extern M2C_UNK TQuestThread__data_804C8678[];
 extern s32 lbl_805D5EE8;
 extern s32 lbl_805D5EEC;
 
 void *TQuestThread__sub_801F5ED0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C8678;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = TQuestThread__data_804C8678;
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 0) {
             lbl_805D5EE8 = 0;
             TQuestThread__sub_801F5E7C();

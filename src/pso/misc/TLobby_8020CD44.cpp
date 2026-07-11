@@ -92,7 +92,7 @@ u8 *TLobby__sub_8020CCF4(void *);
 u8 *fn_8020B334();
 s32 fn_8020B454(s32);
 
-extern s32 lbl_805D6144;
+extern s32 TLobby__data_805D6144;
 
 void TLobby__sub_8020CD44(s32 arg0) {
     s16 temp_r3;
@@ -117,7 +117,7 @@ void TLobby__sub_8020CD44(s32 arg0) {
                 M2C_FIELD(temp_r3_2, void **, 0x80) = ptr;
                 temp_r0 = M2C_FIELD(temp_r3_2, s16 *, 0x2C);
                 if (temp_r0 != -1) {
-                    ((VObj *) temp_r3_2)->m77(lbl_805D6144 + (temp_r0 * 0xC));
+                    ((VObj *) temp_r3_2)->m77(TLobby__data_805D6144 + (temp_r0 * 0xC));
                 }
             } else {
                 M2C_FIELD(ptr, void **, 0x44) = NULL;

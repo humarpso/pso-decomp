@@ -12,14 +12,14 @@ void fn_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern u32 lbl_805D5A18;
-extern s32 *lbl_805D5A1C;
+extern s32 *TOKeyCave01__data_805D5A1C;
 
 void free_objects__11TOKeyCave01Fv(void) {
-    if ((s32 *) lbl_805D5A1C != NULL) {
-        fn_801E483C(*lbl_805D5A1C);
-        if ((s32 *) lbl_805D5A1C != NULL) {
-            free__11TOBoss4RockFUi((void*)lbl_805D5A1C);
-            lbl_805D5A1C = NULL;
+    if ((s32 *) TOKeyCave01__data_805D5A1C != NULL) {
+        fn_801E483C(*TOKeyCave01__data_805D5A1C);
+        if ((s32 *) TOKeyCave01__data_805D5A1C != NULL) {
+            free__11TOBoss4RockFUi((void*)TOKeyCave01__data_805D5A1C);
+            TOKeyCave01__data_805D5A1C = NULL;
         }
     }
     if ((u32) lbl_805D5A18 != 0U) {

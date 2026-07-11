@@ -14,51 +14,51 @@ M2C_UNK TLobby__sub_801397E8();
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 M2C_UNK fn_80244888(s32);
 
-extern s32 lbl_805D5594;
+extern s32 TLobby__data_805D5594;
 
 void close_and_set_state_13__6TLobbyFv(void) {
     TLobby__sub_801397E8();
     init_player_window_effect__6TLobbyFv();
-    lbl_805D5594 = 0xD;
+    TLobby__data_805D5594 = 0xD;
 }
 
-extern s32 lbl_805D5594;
-extern s32 lbl_805D55B4;
+extern s32 TLobby__data_805D5594;
+extern s32 TLobby__data_805D55B4;
 extern s32 lbl_805D55C0;
 
 void reset_state__6TLobbyFv(void) {
     TLobby__sub_801397E8();
     init_player_window_effect__6TLobbyFv();
-    lbl_805D55B4 = 0;
-    lbl_805D5594 = 0xC;
+    TLobby__data_805D55B4 = 0;
+    TLobby__data_805D5594 = 0xC;
     lbl_805D55C0 = 1;
 }
 
-extern void *lbl_805D5580;
-extern s32 lbl_805D5590;
-extern s32 lbl_805D5594;
-extern s32 lbl_805D55B4;
+extern void *TLobby__data_805D5580;
+extern s32 TLobby__data_805D5590;
+extern s32 TLobby__data_805D5594;
+extern s32 TLobby__data_805D55B4;
 extern s32 lbl_805D55C0;
-extern s32 lbl_805D55D8;
-extern s32 lbl_805D55FC;
-extern u32 lbl_805D5604;
+extern s32 TLobby__data_805D55D8;
+extern s32 TLobby__data_805D55FC;
+extern u32 TLobby__data_805D5604;
 
 void update_state__6TLobbyFv(void) {
-    if ((u32) lbl_805D5604 != 0U) {
-        if ((s32) lbl_805D55FC == 0) {
-            if ((s32) lbl_805D5594 != 0xC) {
+    if ((u32) TLobby__data_805D5604 != 0U) {
+        if ((s32) TLobby__data_805D55FC == 0) {
+            if ((s32) TLobby__data_805D5594 != 0xC) {
                 TLobby__sub_8013990C(0x21);
-                fn_80244888(lbl_805D55D8);
+                fn_80244888(TLobby__data_805D55D8);
                 init_player_window_effect__6TLobbyFv();
-                lbl_805D55B4 = 0;
-                lbl_805D5594 = 0xC;
-                if ((void *) lbl_805D5580 != NULL) {
-                    M2C_FIELD(lbl_805D5580, u8 *, 0x2A) = (u8) (M2C_FIELD(lbl_805D5580, u8 *, 0x2A) | 1);
+                TLobby__data_805D55B4 = 0;
+                TLobby__data_805D5594 = 0xC;
+                if ((void *) TLobby__data_805D5580 != NULL) {
+                    M2C_FIELD(TLobby__data_805D5580, u8 *, 0x2A) = (u8) (M2C_FIELD(TLobby__data_805D5580, u8 *, 0x2A) | 1);
                 }
             }
         } else {
-            lbl_805D5590 = 5;
-            lbl_805D5594 = 0x17;
+            TLobby__data_805D5590 = 5;
+            TLobby__data_805D5594 = 0x17;
         }
         lbl_805D55C0 = 1;
     }

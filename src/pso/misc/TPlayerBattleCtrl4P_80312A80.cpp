@@ -13,7 +13,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804E80A8[];
-extern s32 lbl_805D6AA8;
+extern s32 TPlayerBattleCtrl4P__data_805D6AA8;
 
 void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -27,7 +27,7 @@ void *__dt__19TPlayerBattleCtrl4PFPvs(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x24) = 0U;
         }
         TPlayerBattleCtrl4P__sub_803101D4(arg0);
-        lbl_805D6AA8 = 0;
+        TPlayerBattleCtrl4P__data_805D6AA8 = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

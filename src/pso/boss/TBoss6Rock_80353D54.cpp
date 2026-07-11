@@ -11,13 +11,13 @@ s32 TBoss6Rock__sub_80353E10();
 void *TBoss6Rock__sub_80354148(s32);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 
-extern u8 lbl_805437F8[];
+extern u8 TBoss6Rock__data_805437F8[];
 
 s32 TBoss6Rock__sub_80353D54(s32 arg0, void *arg1, f32 *arg2) {
     if (TBoss6Rock__sub_80353E10() == 0) {
         return 0;
     }
-    VecCopy__FP3VecPC3Vec(arg1, &lbl_805437F8[arg0 * 0xC]);
+    VecCopy__FP3VecPC3Vec(arg1, &TBoss6Rock__data_805437F8[arg0 * 0xC]);
     *arg2 = M2C_FIELD(TBoss6Rock__sub_80354148(arg0), f32 *, 4);
     return 1;
 }

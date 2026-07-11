@@ -8,7 +8,7 @@ extern "C" {
 
 void set_screen_pos__11TBoss6Type2FPv(void *arg0);
 
-extern M2C_UNK lbl_804DF9D4[];
+extern M2C_UNK TBoss6Type2__data_804DF9D4[];
 extern f32 lbl_805DE4B4;
 
 void set_screen_pos__11TBoss6Type2FPv(void *arg0) {
@@ -22,9 +22,9 @@ void set_screen_pos__11TBoss6Type2FPv(void *arg0) {
         var_f1 = lbl_805DE4B4 * M2C_FIELD(arg0, f32 *, 0x4D8);
         var_f0 = lbl_805DE4B4 * M2C_FIELD(arg0, f32 *, 0x4DC);
     }
-    M2C_FIELD(lbl_804DF9D4, f32 *, 0x2C) = var_f1;
-    M2C_FIELD(lbl_804DF9D4, f32 *, 0x3C) = var_f1;
-    M2C_FIELD(lbl_804DF9D4, f32 *, 0xEC) = var_f0;
+    M2C_FIELD(TBoss6Type2__data_804DF9D4, f32 *, 0x2C) = var_f1;
+    M2C_FIELD(TBoss6Type2__data_804DF9D4, f32 *, 0x3C) = var_f1;
+    M2C_FIELD(TBoss6Type2__data_804DF9D4, f32 *, 0xEC) = var_f0;
 }
 
 }

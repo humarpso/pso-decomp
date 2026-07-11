@@ -4451,6 +4451,10 @@ if args.target == "psov3":
                 NonMatching("pso/enemy/TObjEnePanarms_800E1E64.cpp"),
                 NonMatching("pso/player/TObjPlayer_801C999C.cpp"),
                 NonMatching("pso/boss/TBoss8Dragon_802FBBE8.cpp"),
+                NonMatching("pso/boss/TBoss6Type2_802BC198.cpp"),
+                NonMatching("pso/item/TItemEffNeedleBase_80109EB4.cpp"),
+                NonMatching("pso/enemy/TObjEneBm3Fly_800B1820.cpp"),
+                NonMatching("pso/enemy/TObjEneRecon_8031DB34.cpp"),
             ],
         },
         # ------------------------------------------------------------------

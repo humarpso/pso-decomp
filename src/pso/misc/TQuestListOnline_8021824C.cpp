@@ -12,7 +12,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
 
 extern M2C_UNK __vt__16TQuestListOnline[];
-extern s32 lbl_805D61E0;
+extern s32 TQuestListOnline__data_805D61E0;
 
 void *__dt__16TQuestListOnlineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -33,7 +33,7 @@ void *__dt__16TQuestListOnlineFv(void *arg0, s16 arg1) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x44));
             M2C_FIELD(arg0, u32 *, 0x44) = 0U;
         }
-        lbl_805D61E0 = 0;
+        TQuestListOnline__data_805D61E0 = 0;
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

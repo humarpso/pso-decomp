@@ -10,14 +10,14 @@ f32 TCameraCtrl__sub_80068A04(void);
 f32 TCameraCtrl__sub_80068A0C(s32 arg0);
 s32 TCameraCtrl__sub_8006B338();
 
-extern f32 lbl_805D8FA8;
+extern f32 TCameraCtrl__data_805D8FA8;
 
 f32 TCameraCtrl__sub_80068A04(void) {
-    return lbl_805D8FA8;
+    return TCameraCtrl__data_805D8FA8;
 }
 
 s32 is_split_screen();
-extern f32 lbl_805D8FA8;
+extern f32 TCameraCtrl__data_805D8FA8;
 extern f32 lbl_805D8FB0;
 extern f32 lbl_805D8FB4;
 
@@ -28,7 +28,7 @@ f32 TCameraCtrl__sub_80068A0C(s32 arg0) {
         }
         return lbl_805D8FB4;
     }
-    return lbl_805D8FA8;
+    return TCameraCtrl__data_805D8FA8;
 }
 
 }

@@ -8,13 +8,13 @@ extern "C" {
 
 M2C_UNK fn_800A7798(s32, f32);
 s32 is_flag30_8_set__10TObjPlayerFi();
-extern f32 lbl_805DC28C;
+extern f32 TObjPlayer__data_805DC28C;
 
 void fn_801B2F68(s32 arg0, f32 farg0) {
     f32 var_f1;
 
     if (is_flag30_8_set__10TObjPlayerFi() != 0) {
-        var_f1 = lbl_805DC28C * farg0;
+        var_f1 = TObjPlayer__data_805DC28C * farg0;
     } else {
         var_f1 = farg0;
     }

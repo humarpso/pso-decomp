@@ -8,13 +8,13 @@ extern "C" {
 
 M2C_UNK fn_801DA548(u32, s32);
 s32 fn_8034C2D8();
-extern u32 lbl_805D5580;
+extern u32 TLobby__data_805D5580;
 extern s32 lbl_805D6E98;
 
 void fn_8034C288(void) {
     if (lbl_805D6E98 & 1) {
-        if ((u32) lbl_805D5580 != 0U) {
-            fn_801DA548(lbl_805D5580, fn_8034C2D8());
+        if ((u32) TLobby__data_805D5580 != 0U) {
+            fn_801DA548(TLobby__data_805D5580, fn_8034C2D8());
         }
         lbl_805D6E98 &= 0xFFFFFFFE;
     }

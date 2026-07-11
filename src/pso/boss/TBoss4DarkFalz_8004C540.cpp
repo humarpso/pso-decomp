@@ -17,10 +17,10 @@ s32 TBoss4DarkFalz__sub_8004C1D4(u32);
 
 void TBoss4DarkFalz__sub_8004C540(void) {  }
 
-extern u32 lbl_805D4D64;
+extern u32 TBoss4DarkFalz__data_805D4D64;
 
 void request_action_e__14TBoss4DarkFalzFi(s32 arg0) {
-    if (((u32) lbl_805D4D64 == 0U) || (TBoss4DarkFalz__sub_8004C1D4(lbl_805D4D64) == 3) || (TBoss4DarkFalz__sub_8004C1D4(lbl_805D4D64) == 2) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
+    if (((u32) TBoss4DarkFalz__data_805D4D64 == 0U) || (TBoss4DarkFalz__sub_8004C1D4(TBoss4DarkFalz__data_805D4D64) == 3) || (TBoss4DarkFalz__sub_8004C1D4(TBoss4DarkFalz__data_805D4D64) == 2) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
         TBoss4DarkFalz__sub_8004B1BC(arg0, 0xE);
     }
 }

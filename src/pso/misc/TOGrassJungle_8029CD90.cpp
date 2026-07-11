@@ -15,8 +15,8 @@ M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
 M2C_UNK fn_803DA798(s32);
 
-extern s32 lbl_805D65D8;
-extern s32 lbl_805D65DC;
+extern s32 TOGrassJungle__data_805D65D8;
+extern s32 TOGrassJungle__data_805D65DC;
 extern const f32 lbl_805DDD30;
 extern const f32 lbl_805DDD34;
 
@@ -35,11 +35,11 @@ struct VObj : Base {
 
 void render__13TOGrassJungleFv(u8 *arg0) {
     if (((VObj *)arg0)->m8(lbl_805DDD30, lbl_805DDD34) == 1) {
-        fn_803DA798(lbl_805D65DC);
+        fn_803DA798(TOGrassJungle__data_805D65DC);
         fn_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjFish__sub_8001EDC4(lbl_805D65D8, M2C_FIELD(arg0, s32 *, 0x90));
+        TObjFish__sub_8001EDC4(TOGrassJungle__data_805D65D8, M2C_FIELD(arg0, s32 *, 0x90));
         TObjBoss2Tunnel__sub_803DB470();
         fn_803D9B78();
     }

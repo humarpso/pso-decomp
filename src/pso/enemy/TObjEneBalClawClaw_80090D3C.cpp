@@ -10,7 +10,7 @@ void TObjEneBalClawClaw__sub_80090D3C(void *arg0);
 M2C_UNK fn_80011734(void *, M2C_UNK, f32);
 M2C_UNK fn_80143504(void *);
 
-extern f32 lbl_805D968C;
+extern f32 TObjEneBalClawClaw__data_805D968C;
 
 void TObjEneBalClawClaw__sub_80090D3C(void *arg0) {
     s32 temp_r0;
@@ -23,7 +23,7 @@ void TObjEneBalClawClaw__sub_80090D3C(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         fn_80143504(arg0);
-        fn_80011734(arg0, 0, lbl_805D968C);
+        fn_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         return;
     case -1:
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);

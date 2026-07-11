@@ -10,7 +10,7 @@ s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 TOBoss4Rock__sub_8039C880();
 s32 is_flag30_10_set__10TObjPlayerFi();
 
-extern M2C_UNK lbl_80446F48;
+extern M2C_UNK TObjPlayer__data_80446F48;
 extern f32 lbl_805DC280;
 extern f32 lbl_805DC284;
 extern f32 lbl_805DC288;

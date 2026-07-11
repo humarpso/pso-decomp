@@ -21,9 +21,9 @@ s32 fn_80351E38();
 
 extern M2C_UNK __vt__13TObjTreeLobby[];
 extern s32 lbl_805D4484;
-extern void *lbl_805D6FC0;
+extern void *TObjTreeLobby__data_805D6FC0;
 extern s32 lbl_805D6FC4;
-extern const f32 lbl_805E0290;
+extern const f32 TObjTreeLobby__data_805E0290;
 
 void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     fn_8015858C();
@@ -35,8 +35,8 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
     }
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805E0290;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D6FC0, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TObjTreeLobby__data_805E0290;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjTreeLobby__data_805D6FC0, void **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6FC4;
     return arg0;
 }

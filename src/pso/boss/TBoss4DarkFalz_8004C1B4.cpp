@@ -9,16 +9,16 @@ extern "C" {
 s32 TBoss4DarkFalz__sub_8004C1B4(void);
 s32 TBoss4DarkFalz__sub_8004C1BC(void);
 
-extern s32 lbl_805D4D60;
+extern s32 TBoss4DarkFalz__data_805D4D60;
 
 s32 TBoss4DarkFalz__sub_8004C1B4(void) {
-    return lbl_805D4D60;
+    return TBoss4DarkFalz__data_805D4D60;
 }
 
-extern s32 lbl_805D4D5C;
+extern s32 TBoss4DarkFalz__data_805D4D5C;
 
 s32 TBoss4DarkFalz__sub_8004C1BC(void) {
-    return lbl_805D4D5C;
+    return TBoss4DarkFalz__data_805D4D5C;
 }
 
 }

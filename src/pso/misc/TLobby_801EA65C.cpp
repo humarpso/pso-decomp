@@ -10,15 +10,15 @@ void TLobby__sub_801EA65C(void);
 u32 fn_800FA8A4();
 u32 fn_800FA8C4();
 
-extern u32 lbl_805D5EC4;
+extern u32 TLobby__data_805D5EC4;
 
 void TLobby__sub_801EA65C(void) {
     u32 temp_r3;
 
     temp_r3 = fn_800FA8A4();
-    lbl_805D5EC4 = temp_r3;
+    TLobby__data_805D5EC4 = temp_r3;
     if (temp_r3 == 0U) {
-        lbl_805D5EC4 = fn_800FA8C4();
+        TLobby__data_805D5EC4 = fn_800FA8C4();
     }
 }
 

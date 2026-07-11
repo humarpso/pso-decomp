@@ -17,7 +17,7 @@ M2C_UNK fn_803E4AF4(s32, s32, f32);
 M2C_UNK fn_803E4BC4();
 M2C_UNK fn_803E4BD0();
 
-extern f32 lbl_805DF580;
+extern f32 TBoss6Mine__data_805DF580;
 
 void draw__10TBoss6MineFPv(void *arg0) {
     s32 temp_r31;
@@ -29,7 +29,7 @@ void draw__10TBoss6MineFPv(void *arg0) {
     temp_r30 = TObjFish__sub_8001EDC4(M2C_FIELD(arg0, s32 *, 0x374), 2);
     temp_r31_2 = fn_8001ED9C(M2C_FIELD(arg0, s32 *, 0x374), 0);
     fn_803DA798(temp_r31);
-    TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3C8), lbl_805DF580);
+    TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3C8), TBoss6Mine__data_805DF580);
     fn_803E4AF4(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x39C));
     TBoss6PlotFalz__sub_802ABFD4();
     fn_803E4BD0();

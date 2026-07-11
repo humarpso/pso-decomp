@@ -12,18 +12,18 @@ M2C_UNK TWindowFukidasi__sub_80251BA0(s32, s32, s32);
 M2C_UNK fn_8026A93C();
 
 extern s32 lbl_805D53A0;
-extern u32 lbl_805D63F8;
+extern u32 TWindowCtrl__data_805D63F8;
 
 s32 open__11TWindowCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
 
-    if ((u32) lbl_805D63F8 == 0U) {
+    if ((u32) TWindowCtrl__data_805D63F8 == 0U) {
         return 0;
     }
     if (arg2 & 0x40) {
         fn_8026A93C();
     }
-    temp_r3 = TWindowCtrl__sub_8024A928(lbl_805D63F8, arg0, arg2, arg1, lbl_805D53A0);
+    temp_r3 = TWindowCtrl__sub_8024A928(TWindowCtrl__data_805D63F8, arg0, arg2, arg1, lbl_805D53A0);
     if (temp_r3 == 0) {
         return 0;
     }

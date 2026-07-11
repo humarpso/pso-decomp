@@ -13,11 +13,11 @@ M2C_UNK fn_8013C80C(void *);
 f32 fn_803D64C0(s32);
 f32 fn_803D64DC(s32);
 
-extern const f32 lbl_805DC278;
+extern const f32 TObjPlayer__data_805DC278;
 
 void update_facing_vector__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x404) = fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
-    M2C_FIELD(arg0, f32 *, 0x408) = (f32) lbl_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x408) = (f32) TObjPlayer__data_805DC278;
     M2C_FIELD(arg0, f32 *, 0x40C) = fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
     update_ground_contact__10TObjPlayerFi(arg0);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) {

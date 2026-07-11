@@ -8,11 +8,11 @@ extern "C" {
 
 void set_field22__11TWindowCtrlFv(void);
 
-extern void *lbl_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
 
 void set_field22__11TWindowCtrlFv(void) {
-    if ((void *) lbl_805D63F8 != NULL) {
-        M2C_FIELD(lbl_805D63F8, s16 *, 0x22) = 0x2D;
+    if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
+        M2C_FIELD(TWindowCtrl__data_805D63F8, s16 *, 0x22) = 0x2D;
     }
 }
 

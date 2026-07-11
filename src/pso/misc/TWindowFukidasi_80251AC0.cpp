@@ -15,7 +15,7 @@ M2C_UNK fn_80248494(void *, s16);
 M2C_UNK fn_80252CA0(void *);
 M2C_UNK fn_80257CB8(void *);
 
-extern const f32 lbl_805DCD30;
+extern const f32 TWindowFukidasi__data_805DCD30;
 
 void TWindowFukidasi__sub_80251AC0(u8 *arg0, u32 *arg1, s32 arg2) {
     s32 var_r31;
@@ -39,7 +39,7 @@ void TWindowFukidasi__sub_80251AC0(u8 *arg0, u32 *arg1, s32 arg2) {
     if (var_r31 != 0) {
         M2C_FIELD(arg0, u8 *, 0x70) = 5U;
         fn_80252CA0(arg0);
-        if (fn_801A5228(M2C_FIELD(arg0, s16 *, 0x20)) > lbl_805DCD30) {
+        if (fn_801A5228(M2C_FIELD(arg0, s16 *, 0x20)) > TWindowFukidasi__data_805DCD30) {
             M2C_FIELD(arg0, s32 *, 0x5C) = 0;
         }
     }

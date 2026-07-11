@@ -11,12 +11,12 @@ s32 fn_8001EEF4();
 s32 fn_8001EEFC(M2C_UNK *);
 
 extern M2C_UNK lbl_8044BEB0[];
-extern s32 lbl_805D61E4;
+extern s32 TQuestListOnline__data_805D61E4;
 
 s32 init__16TQuestListOnlineFv(void) {
-    lbl_805D61E4 = 0;
+    TQuestListOnline__data_805D61E4 = 0;
     if (fn_8001EEF4() != 0) {
-        lbl_805D61E4 = fn_8001EEFC(lbl_8044BEB0);
+        TQuestListOnline__data_805D61E4 = fn_8001EEFC(lbl_8044BEB0);
         return 1;
     }
     return 0;

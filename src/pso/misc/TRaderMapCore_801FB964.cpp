@@ -10,9 +10,9 @@ void reset__13TRaderMapCoreFPv(void* a0);
 void TRaderMapCore__sub_801FB9A4(void);
 M2C_UNK TObjFish__sub_8001EDC4(s32);
 
-    extern const float lbl_805DC528;
-    extern const float lbl_805DC534;
-void reset__13TRaderMapCoreFPv(void* a0) { *(float*)((char*)a0 + 0x8) = lbl_805DC528; *(float*)((char*)a0 + 0x4) = lbl_805DC528; *(float*)((char*)a0 + 0x0) = lbl_805DC528; *(int*)((char*)a0 + 0xc) = 0; *(float*)((char*)a0 + 0x10) = lbl_805DC534; *(short*)((char*)a0 + 0x14) = 0; *(short*)((char*)a0 + 0x16) = -1; *(float*)((char*)a0 + 0x24) = lbl_805DC534; *(float*)((char*)a0 + 0x20) = lbl_805DC534; *(float*)((char*)a0 + 0x1c) = lbl_805DC534; *(float*)((char*)a0 + 0x18) = lbl_805DC534; }
+    extern const float TRaderMapCore__data_805DC528;
+    extern const float TRaderMapCore__data_805DC534;
+void reset__13TRaderMapCoreFPv(void* a0) { *(float*)((char*)a0 + 0x8) = TRaderMapCore__data_805DC528; *(float*)((char*)a0 + 0x4) = TRaderMapCore__data_805DC528; *(float*)((char*)a0 + 0x0) = TRaderMapCore__data_805DC528; *(int*)((char*)a0 + 0xc) = 0; *(float*)((char*)a0 + 0x10) = TRaderMapCore__data_805DC534; *(short*)((char*)a0 + 0x14) = 0; *(short*)((char*)a0 + 0x16) = -1; *(float*)((char*)a0 + 0x24) = TRaderMapCore__data_805DC534; *(float*)((char*)a0 + 0x20) = TRaderMapCore__data_805DC534; *(float*)((char*)a0 + 0x1c) = TRaderMapCore__data_805DC534; *(float*)((char*)a0 + 0x18) = TRaderMapCore__data_805DC534; }
 
 extern s32 lbl_805D5F48;
 

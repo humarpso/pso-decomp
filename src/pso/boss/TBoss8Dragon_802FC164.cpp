@@ -29,8 +29,8 @@ void TBoss8Dragon__sub_802FC1B4(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*
     extern const float lbl_805DEE70;
 void TBoss8Dragon__sub_802FC1CC(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) | 0x1); *(float*)((char*)a0 + 0x3c) = lbl_805DEE70; }
 
-    extern const float lbl_805DED50;
-void TBoss8Dragon__sub_802FC1E4(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) | 0x1); *(float*)((char*)a0 + 0x3c) = lbl_805DED50; }
+    extern const float TBoss8Dragon__data_805DED50;
+void TBoss8Dragon__sub_802FC1E4(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) | 0x1); *(float*)((char*)a0 + 0x3c) = TBoss8Dragon__data_805DED50; }
 
 void TBoss8Dragon__sub_802FC1FC(void* p) { *(s32*)((char*)p + 0x3e4) = 2; }
 void TBoss8Dragon__sub_802FC208(void* p) { *(s32*)((char*)p + 0x3e4) = 1; }

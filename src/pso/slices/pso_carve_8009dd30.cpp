@@ -126,7 +126,7 @@ M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK fn_80143504();
-extern const f32 lbl_805D988C;
+extern const f32 TObjEneMe1Canadin__data_805D988C;
 extern const f32 lbl_805D9890;
 
 void fn_8009DD30(void *arg0, s32 arg1) {
@@ -156,7 +156,7 @@ void fn_8009DD30(void *arg0, s32 arg1) {
     case 0:
         fn_80143504();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) != 1) {
-            TObjEneEpsilon__sub_800B96D4(arg0, lbl_805D988C);
+            TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 2) {
             TObjEneMe1Canadin__sub_8009EB14(arg0, lbl_805D9890 + M2C_FIELD(arg0, f32 *, 0x3C));

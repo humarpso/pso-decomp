@@ -11,8 +11,8 @@ M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 M2C_UNK TWindow__close(void*);
 M2C_UNK send_game_list__9TProtocolFv(s32);
 
-extern s32 lbl_805D5580;
-extern s32 lbl_805D5594;
+extern s32 TLobby__data_805D5580;
+extern s32 TLobby__data_805D5594;
 extern void *lbl_805D55E0;
 extern void *lbl_805D55E4;
 
@@ -26,8 +26,8 @@ void request_game_list__6TLobbyFv(void) {
         TWindow__close(lbl_805D55E4);
         lbl_805D55E4 = 0;
     }
-    send_game_list__9TProtocolFv(lbl_805D5580);
-    lbl_805D5594 = 6;
+    send_game_list__9TProtocolFv(TLobby__data_805D5580);
+    TLobby__data_805D5594 = 6;
 }
 
 }

@@ -8,16 +8,16 @@ extern "C" {
 
 M2C_UNK bswap_32__FPUl(s32 *, s32);
 M2C_UNK memcpy(s32 *, s32, M2C_UNK);
-extern s32 lbl_805D5E70;
-extern s32 lbl_805D5E90;
+extern s32 TLobby__data_805D5E70;
+extern s32 TLobby__data_805D5E90;
 
 s32 stream_read_be32(void) {
     s32 sp8;
     s32 temp_r4;
 
-    memcpy(&sp8, lbl_805D5E70 + lbl_805D5E90, 4);
-    temp_r4 = lbl_805D5E90;
-    lbl_805D5E90 = temp_r4 + 4;
+    memcpy(&sp8, TLobby__data_805D5E70 + TLobby__data_805D5E90, 4);
+    temp_r4 = TLobby__data_805D5E90;
+    TLobby__data_805D5E90 = temp_r4 + 4;
     bswap_32__FPUl(&sp8, temp_r4);
     return sp8;
 }

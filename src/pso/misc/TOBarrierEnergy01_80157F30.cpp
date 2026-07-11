@@ -17,7 +17,7 @@ M2C_UNK fn_803D9B78();
 M2C_UNK fn_803DA798(s32);
 M2C_UNK fn_803DC894(s32, s32, f32);
 
-extern u8 *lbl_805D5894;
+extern u8 *TOBarrierEnergy01__data_805D5894;
 extern s32 lbl_805D5898;
 
 struct BarrierBase { char pad[0x18]; };
@@ -42,7 +42,7 @@ void render__17TOBarrierEnergy01Fv(u8 *arg0) {
         fn_801E2EFC();
         fn_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
         fn_801E2F20();
-        fn_803DA798(M2C_FIELD(lbl_805D5894, s32 *, 8));
+        fn_803DA798(M2C_FIELD(TOBarrierEnergy01__data_805D5894, s32 *, 8));
         TObjBoss2Tunnel__sub_803DB470(lbl_805D5898);
         fn_803D9B78();
     }

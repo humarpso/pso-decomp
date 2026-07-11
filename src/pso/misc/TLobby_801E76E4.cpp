@@ -20,33 +20,33 @@ M2C_UNK fn_8032CD7C(s32, s32);
 
 extern M2C_UNK lbl_80449B2C[];
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5EBC;
-extern s32 lbl_805D5EC0;
+extern s32 TLobby__data_805D5EBC;
+extern s32 TLobby__data_805D5EC0;
 
 void TLobby__sub_801E76E4(void) {
     s32 var_r31;
 
-    lbl_805D5EBC = TWindowShortListCtrl__sub_80278E48(fn_8026CBB8(3), lbl_80449B2C, lbl_805D53A0);
+    TLobby__data_805D5EBC = TWindowShortListCtrl__sub_80278E48(fn_8026CBB8(3), lbl_80449B2C, lbl_805D53A0);
     fn_802787AC();
     var_r31 = __nw__7TObjectFUl(0xBC);
     if (var_r31 != 0) {
         var_r31 = TWindowHelpItem__ct(var_r31, fn_8026CBB8(2), lbl_805D53A0);
     }
-    lbl_805D5EC0 = var_r31;
+    TLobby__data_805D5EC0 = var_r31;
 }
 
 struct Glob_80512220 { s32 field0; char pad[0x100]; };
-extern struct Glob_80512220 lbl_80512220;
-extern s32 lbl_805D6CC0;
-extern s32 lbl_805D6CC8;
+extern struct Glob_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D6CC0;
+extern s32 TLobby__data_805D6CC8;
 
 void TLobby__sub_801E7758(void) {
     s32 temp_r31;
 
-    temp_r31 = lbl_80512220.field0;
+    temp_r31 = TLobby__data_80512220.field0;
     fn_801F32A0();
     TLobby__sub_8032C854(temp_r31);
-    fn_8032CD7C(lbl_805D6CC0, lbl_805D6CC8);
+    fn_8032CD7C(TLobby__data_805D6CC0, TLobby__data_805D6CC8);
     fn_801F3274();
 }
 

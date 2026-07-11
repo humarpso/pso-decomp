@@ -8,15 +8,15 @@ extern "C" {
 
 void init_6x2A__10TObjPlayerFPv(u8 *arg0);
 
-extern const f32 lbl_805DC278;
+extern const f32 TObjPlayer__data_805DC278;
 
 void init_6x2A__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0;
     M2C_FIELD(arg0, s16 *, 6) = 0;
     M2C_FIELD(arg0, s32 *, 8) = -1;
-    M2C_FIELD(arg0, f32 *, 0x14) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) lbl_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x14) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TObjPlayer__data_805DC278;
     M2C_FIELD(arg0, s8 *, 0) = 0x2A;
     M2C_FIELD(arg0, s8 *, 1) = 6;
 }

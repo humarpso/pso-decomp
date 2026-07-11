@@ -10,7 +10,7 @@ void init__8TOKurageFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 extern const f32 lbl_805DB7A8;
-extern const f32 lbl_805DB7AC;
+extern const f32 TOKurage__data_805DB7AC;
 
 void init__8TOKurageFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);
@@ -23,10 +23,10 @@ void init__8TOKurageFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0x101) = 0;
     M2C_FIELD(arg0, s16 *, 0xFC) = 0x1E;
     M2C_FIELD(arg0, s16 *, 0xFE) = 0;
-    M2C_FIELD(arg0, f32 *, 0x104) = (f32) lbl_805DB7AC;
-    M2C_FIELD(arg0, f32 *, 0x108) = (f32) lbl_805DB7AC;
-    M2C_FIELD(arg0, f32 *, 0x10C) = (f32) lbl_805DB7AC;
-    M2C_FIELD(arg0, f32 *, 0x110) = (f32) lbl_805DB7AC;
+    M2C_FIELD(arg0, f32 *, 0x104) = (f32) TOKurage__data_805DB7AC;
+    M2C_FIELD(arg0, f32 *, 0x108) = (f32) TOKurage__data_805DB7AC;
+    M2C_FIELD(arg0, f32 *, 0x10C) = (f32) TOKurage__data_805DB7AC;
+    M2C_FIELD(arg0, f32 *, 0x110) = (f32) TOKurage__data_805DB7AC;
 }
 
 }

@@ -8,10 +8,10 @@ extern "C" {
 
 void TObjDoor__sub_801F3754(void);
 
-extern s32 lbl_805D5BC8;
+extern s32 TObjDoor__data_805D5BC8;
 
 void TObjDoor__sub_801F3754(void) {
-    lbl_805D5BC8 = 1;
+    TObjDoor__data_805D5BC8 = 1;
 }
 
 }

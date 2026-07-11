@@ -9,14 +9,14 @@ extern "C" {
 void reset_stats__11TItemMagSubFPv(u8 *arg0);
 
 M2C_UNK memset(void *, int, int);
-extern const f32 lbl_805DABC8;
+extern const f32 TItemMagSub__data_805DABC8;
 
 void reset_stats__11TItemMagSubFPv(u8 *arg0) {
     memset(arg0 + 0x34, 0, 0xC);
     memset(arg0 + 0x58, 0, 0xC);
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DABC8;
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) lbl_805DABC8;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DABC8;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) TItemMagSub__data_805DABC8;
+    M2C_FIELD(arg0, f32 *, 0x98) = (f32) TItemMagSub__data_805DABC8;
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) TItemMagSub__data_805DABC8;
 }
 
 }

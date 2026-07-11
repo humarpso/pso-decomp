@@ -9,14 +9,14 @@ extern "C" {
 void TLobby__sub_8032C76C(void);
 s32 xmalloc__FUl(M2C_UNK);
 
-extern s32 lbl_805D6CC0;
-extern s32 lbl_805D6CC8;
+extern s32 TLobby__data_805D6CC0;
+extern s32 TLobby__data_805D6CC8;
 
 void TLobby__sub_8032C76C(void) {
-    lbl_805D6CC0 = 0;
-    lbl_805D6CC8 = 0;
-    lbl_805D6CC0 = xmalloc__FUl(0x40000);
-    lbl_805D6CC8 = 0;
+    TLobby__data_805D6CC0 = 0;
+    TLobby__data_805D6CC8 = 0;
+    TLobby__data_805D6CC0 = xmalloc__FUl(0x40000);
+    TLobby__data_805D6CC8 = 0;
 }
 
 }

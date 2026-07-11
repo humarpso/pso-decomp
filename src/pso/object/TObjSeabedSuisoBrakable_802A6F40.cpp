@@ -11,7 +11,7 @@ void fn_8001FE7C(void*, int);
 M2C_UNK fn_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
 
-extern u32 lbl_805D6670;
+extern u32 TObjSeabedSuisoBrakable__data_805D6670;
 extern u32 lbl_805D6674;
 
 void free_static_resources__23TObjSeabedSuisoBrakableFv(void) {
@@ -20,9 +20,9 @@ void free_static_resources__23TObjSeabedSuisoBrakableFv(void) {
         fn_8007EBB4(lbl_805D6674);
         lbl_805D6674 = 0U;
     }
-    if ((u32) lbl_805D6670 != 0U) {
-        fn_8001FE7C((void*)lbl_805D6670, 1);
-        lbl_805D6670 = 0U;
+    if ((u32) TObjSeabedSuisoBrakable__data_805D6670 != 0U) {
+        fn_8001FE7C((void*)TObjSeabedSuisoBrakable__data_805D6670, 1);
+        TObjSeabedSuisoBrakable__data_805D6670 = 0U;
     }
 }
 

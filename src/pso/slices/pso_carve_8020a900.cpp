@@ -19,9 +19,9 @@ extern s32 lbl_805D60E0;
 extern s32 lbl_805D60E4;
 extern s32 lbl_805D60E8;
 extern s32 lbl_805D60EC;
-extern s16 lbl_805D6134;
-extern s32 lbl_805D6148;
-extern s32 lbl_805D614C;
+extern s16 TLobby__data_805D6134;
+extern s32 TLobby__data_805D6148;
+extern s32 TLobby__data_805D614C;
 extern M2C_UNK lbl_805DC620;
 extern M2C_UNK lbl_805DC624;
 
@@ -33,16 +33,16 @@ void load_map_set_data(s32 arg0, s32 arg1) {
     lbl_805D60E8 = 0;
     lbl_805D60EC = 0;
     copy_name(&lbl_805DC620);
-    lbl_805D6134 = 0;
+    TLobby__data_805D6134 = 0;
     if (fn_8020B074(0x8000) != 0) {
         fn_8020A834(arg0, arg1);
         fn_8020A768(arg0, arg1);
         fn_801A2528((u16) lbl_805D60E8);
-        lbl_805D6148 = lbl_805D60E0;
+        TLobby__data_805D6148 = lbl_805D60E0;
         fn_801A2514((u16) lbl_805D60EC);
-        lbl_805D614C = lbl_805D60E4;
+        TLobby__data_805D614C = lbl_805D60E4;
         fn_8020B03C();
-        lbl_805D6134 |= 1;
+        TLobby__data_805D6134 |= 1;
     }
     copy_name(&lbl_805DC624);
 }

@@ -24,11 +24,11 @@ int TLobby__sub_80134DA8(void* p) { return fn_8034C18C(p); }
 int TLobby__sub_80134DC8(void* p) { return fn_800779A0(p); }
 int TLobby__sub_80134DE8(void* p) { return fn_80077AE8(p); }
 
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 
 void TLobby__sub_80134E08(void) {
     fn_8001E5D0();
-    fn_801DB4E4(lbl_805D5580);
+    fn_801DB4E4(TLobby__data_805D5580);
 }
 
 }

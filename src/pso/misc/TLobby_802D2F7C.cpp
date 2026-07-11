@@ -13,26 +13,26 @@ M2C_UNK fn_80330A40(s32);
 M2C_UNK fn_803398CC(s32);
 
 extern u16 lbl_805D6888;
-extern s8 lbl_805D688A;
-extern s8 lbl_805D688B;
-extern s32 lbl_805D688C;
+extern s8 TLobby__data_805D688A;
+extern s8 TLobby__data_805D688B;
+extern s32 TLobby__data_805D688C;
 extern s32 lbl_805D6890;
 extern const u32 lbl_805D6894;
-extern const u32 lbl_805D6898;
+extern const u32 TLobby__data_805D6898;
 extern const u32 lbl_805D689C;
 
 void reset__6TLobbyFv(void) {
     if (fn_80246CB8() == 0) {
-        lbl_805D688A = 4;
-        lbl_805D688B = 0;
-        lbl_805D688C = 0;
+        TLobby__data_805D688A = 4;
+        TLobby__data_805D688B = 0;
+        TLobby__data_805D688C = 0;
         lbl_805D6890 = 0;
         lbl_805D6888 &= 0xFFFFF80F;
         if ((u32) lbl_805D689C != 0U) {
             fn_803398CC(lbl_805D689C);
         }
-        if ((u32) lbl_805D6898 != 0U) {
-            fn_80330A40(lbl_805D6898);
+        if ((u32) TLobby__data_805D6898 != 0U) {
+            fn_80330A40(TLobby__data_805D6898);
         }
         if ((u32) lbl_805D6894 != 0U) {
             fn_802B1A70(lbl_805D6894);

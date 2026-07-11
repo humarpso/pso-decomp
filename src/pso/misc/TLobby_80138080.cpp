@@ -12,11 +12,11 @@ M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 M2C_UNK TWindow__close(u32);
 M2C_UNK fn_801DB7EC(void *);
 
-extern void *lbl_805D5580;
-extern s32 lbl_805D5594;
-extern u32 lbl_805D55C8;
-extern u32 lbl_805D55CC;
-extern u32 lbl_805D55D0;
+extern void *TLobby__data_805D5580;
+extern s32 TLobby__data_805D5594;
+extern u32 TLobby__data_805D55C8;
+extern u32 TLobby__data_805D55CC;
+extern u32 TLobby__data_805D55D0;
 extern u32 lbl_805D55E0;
 extern u32 lbl_805D55E4;
 
@@ -34,24 +34,24 @@ void return_to_main_menu__6TLobbyFv(void) {
         TWindow__close(t);
         lbl_805D55E4 = 0U;
     }
-    t = lbl_805D55CC;
+    t = TLobby__data_805D55CC;
     if (t != 0U) {
         TWindow__close(t);
-        lbl_805D55CC = 0U;
+        TLobby__data_805D55CC = 0U;
     }
-    t = lbl_805D55C8;
+    t = TLobby__data_805D55C8;
     if (t != 0U) {
         TWindow__close(t);
-        lbl_805D55C8 = 0U;
+        TLobby__data_805D55C8 = 0U;
     }
-    t = lbl_805D55D0;
+    t = TLobby__data_805D55D0;
     if (t != 0U) {
         TWindow__close(t);
-        lbl_805D55D0 = 0U;
+        TLobby__data_805D55D0 = 0U;
     }
-    M2C_FIELD(lbl_805D5580, void **, 0xBBE4) = (void *)&TLobby__sub_8013703C;
-    fn_801DB7EC(lbl_805D5580);
-    lbl_805D5594 = 7;
+    M2C_FIELD(TLobby__data_805D5580, void **, 0xBBE4) = (void *)&TLobby__sub_8013703C;
+    fn_801DB7EC(TLobby__data_805D5580);
+    TLobby__data_805D5594 = 7;
 }
 
 }

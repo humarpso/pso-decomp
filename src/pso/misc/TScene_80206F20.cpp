@@ -20,7 +20,7 @@ M2C_UNK fn_80140F18(u32, s32);
 extern M2C_UNK lbl_8044A950[];
 extern M2C_UNK lbl_8044A958[];
 extern s32 *lbl_805D4E68;
-extern u32 lbl_805D6000;
+extern u32 TScene__data_805D6000;
 extern s32 lbl_805D6014;
 
 struct Sp8Buf20 {
@@ -36,14 +36,14 @@ void load_scene_data__6TSceneFi(s32 arg0) {
 
     fn_8007A6A0();
     lbl_805D4E68 = NULL;
-    lbl_805D6000 = 0U;
+    TScene__data_805D6000 = 0U;
     lbl_805D6014 = 0;
     fn_801317E4((M2C_UNK *)&sp8, arg0, lbl_8044A950);
     temp_r31 = fn_800F9D80((M2C_UNK *)&sp8);
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x10000U)) {
             temp_r3 = fn_8007EBFC(0x10000);
-            lbl_805D6000 = temp_r3;
+            TScene__data_805D6000 = temp_r3;
             if (temp_r3 != 0U) {
                 lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, temp_r3);
                 lbl_805D6014 = 0x10000;
@@ -51,7 +51,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
         }
     } else if (temp_r31 > 0) {
         temp_r3_2 = fn_8007EBFC(temp_r31);
-        lbl_805D6000 = temp_r3_2;
+        TScene__data_805D6000 = temp_r3_2;
         if (temp_r3_2 != 0U) {
             lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, temp_r3_2);
             lbl_805D6014 = temp_r31;

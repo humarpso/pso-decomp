@@ -15,7 +15,7 @@ M2C_UNK fn_803DA798(s32);
 M2C_UNK fn_803E46BC(s32);
 
 extern s32 lbl_805D4D24;
-extern s32 lbl_805D4D28;
+extern s32 TObjVoloptCage__data_805D4D28;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D887C;
 extern const f32 lbl_805D8880;
@@ -35,7 +35,7 @@ struct TObjVoloptCageVObj : TObjVoloptCageBase {
 
 void render__14TObjVoloptCageFv(u8 *arg0) {
     if (((TObjVoloptCageVObj *)arg0)->m8(lbl_805D887C, lbl_805D8880) != 0) {
-        fn_803DA798(lbl_805D4D28);
+        fn_803DA798(TObjVoloptCage__data_805D4D28);
         fn_803D9B2C();
         some_id_805c6f74 &= 0xFFFFFBFF;
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

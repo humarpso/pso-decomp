@@ -8,11 +8,11 @@ extern "C" {
 
 M2C_UNK set_flag1e_bit8__11TWindowCtrlFPv(void*);
 struct Obj054 { char pad[0x38]; u32 field38; };
-extern struct Obj054 *lbl_805D63F8;
+extern struct Obj054 *TWindowCtrl__data_805D63F8;
 
 void request_active_window_close(void) {
-    if ((lbl_805D63F8 != NULL) && (lbl_805D63F8->field38 != 0U)) {
-        set_flag1e_bit8__11TWindowCtrlFPv((void*)lbl_805D63F8->field38);
+    if ((TWindowCtrl__data_805D63F8 != NULL) && (TWindowCtrl__data_805D63F8->field38 != 0U)) {
+        set_flag1e_bit8__11TWindowCtrlFPv((void*)TWindowCtrl__data_805D63F8->field38);
     }
 }
 

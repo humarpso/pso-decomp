@@ -16,13 +16,13 @@ int TCameraCtrl__sub_8006B330(void) {  return lbl_805D34B8; }
     extern int lbl_805D4E04;
 int TCameraCtrl__sub_8006B338(void) {  return lbl_805D4E04; }
 
-    extern short lbl_805D2838;
-    extern short lbl_805D283A;
-void TCameraCtrl__sub_8006B340(int a0, int a1) { lbl_805D2838 = a0; lbl_805D283A = a1; }
+    extern short TCameraCtrl__data_805D2838;
+    extern short TCameraCtrl__data_805D283A;
+void TCameraCtrl__sub_8006B340(int a0, int a1) { TCameraCtrl__data_805D2838 = a0; TCameraCtrl__data_805D283A = a1; }
 
-    extern short lbl_805D4DFA;
-    extern short lbl_805D4DFC;
-void TCameraCtrl__sub_8006B34C(int a0, int a1) { lbl_805D4DFA = a0; lbl_805D4DFC = a1; }
+    extern short TCameraCtrl__data_805D4DFA;
+    extern short TCameraCtrl__data_805D4DFC;
+void TCameraCtrl__sub_8006B34C(int a0, int a1) { TCameraCtrl__data_805D4DFA = a0; TCameraCtrl__data_805D4DFC = a1; }
 
 u16 TCameraCtrl__sub_8006B358(void* p) { return *(u16*)((char*)p + 0x20); }
 s32 TCameraCtrl__sub_8006B360(void* p) { return *(s32*)((char*)p + 0x1c); }

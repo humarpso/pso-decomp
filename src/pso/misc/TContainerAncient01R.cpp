@@ -19,7 +19,7 @@ void *TContainerAncient01R__create(void *arg0) {
     return o;
 }
 
-    extern int lbl_805D5B94;
-void TContainerAncient01R__sub_8018AF74(void) { lbl_805D5B94 = 0; }
+    extern int TContainerAncient01R__data_805D5B94;
+void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__data_805D5B94 = 0; }
 
 }

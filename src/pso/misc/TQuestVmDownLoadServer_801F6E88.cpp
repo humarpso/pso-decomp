@@ -14,7 +14,7 @@ M2C_UNK fn_8001A438(void *);
 s32 fn_8006EF6C(M2C_UNK);
 
 extern s32 lbl_805D55C0;
-extern s32 lbl_805D5F18;
+extern s32 TQuestVmDownLoadServer__data_805D5F18;
 
 void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
     s32 temp_r0;
@@ -45,8 +45,8 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0x234);
             if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x238)) {
                 M2C_FIELD(arg0, s32 *, 0x238) = temp_r3;
-                if ((s32) lbl_805D5F18 != 0) {
-                    lbl_805D5F18 = 0;
+                if ((s32) TQuestVmDownLoadServer__data_805D5F18 != 0) {
+                    TQuestVmDownLoadServer__data_805D5F18 = 0;
                     TQuestVmDownLoadServer__sub_801F6E08(arg0, fn_8006EF6C(0xB), 1);
                     M2C_FIELD(arg0, s32 *, 0x2A0) = 0x12;
                 } else {

@@ -18,23 +18,23 @@ s32 fn_802D29B8(u32 arg0) {
 
 int fn_802D29DC(int a0) { lbl_805D689C = a0; return 1; }
 
-extern u32 lbl_805D6898;
+extern u32 TLobby__data_805D6898;
 
 s32 fn_802D29E8(u32 arg0) {
-    if ((u32) lbl_805D6898 != arg0) {
+    if ((u32) TLobby__data_805D6898 != arg0) {
         return 0;
     }
-    lbl_805D6898 = 0U;
+    TLobby__data_805D6898 = 0U;
     return 1;
 }
 
-extern u32 lbl_805D6898;
+extern u32 TLobby__data_805D6898;
 
 s32 fn_802D2A0C(u32 arg0) {
-    if ((u32) lbl_805D6898 != 0U) {
+    if ((u32) TLobby__data_805D6898 != 0U) {
         return 0;
     }
-    lbl_805D6898 = arg0;
+    TLobby__data_805D6898 = arg0;
     return 1;
 }
 

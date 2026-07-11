@@ -9,14 +9,14 @@ extern "C" {
 void TObjEneBm5GibonU__sub_800CD570(void);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 
-extern s32 lbl_805D51D4;
-extern s32 lbl_805D51D8;
+extern s32 TObjEneBm5GibonU__data_805D51D4;
+extern s32 TObjEneBm5GibonU__data_805D51D8;
 
 void TObjEneBm5GibonU__sub_800CD570(void) {
-    if (((s32) lbl_805D51D4 >= 0x30) && ((s32) lbl_805D51D4 < 0x32)) {
-        fn_803D9214(0, lbl_805D51D8);
+    if (((s32) TObjEneBm5GibonU__data_805D51D4 >= 0x30) && ((s32) TObjEneBm5GibonU__data_805D51D4 < 0x32)) {
+        fn_803D9214(0, TObjEneBm5GibonU__data_805D51D8);
     }
-    lbl_805D51D4 += 1;
+    TObjEneBm5GibonU__data_805D51D4 += 1;
 }
 
 }

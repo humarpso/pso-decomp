@@ -9,10 +9,10 @@ extern "C" {
 void set_drop_index__9TItemDropFPvPv(void *arg0, void *arg1);
 s8 TItemDrop__sub_80107790(s32, s32, s32, s32, s32);
 
-extern void *lbl_805D5460;
+extern void *TItemDrop__data_805D5460;
 
 void set_drop_index__9TItemDropFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg1, s8 *, 5) = TItemDrop__sub_80107790((s32)arg0, M2C_FIELD(lbl_805D5460, s32 *, 0x14), 0, 5, 1);
+    M2C_FIELD(arg1, s8 *, 5) = TItemDrop__sub_80107790((s32)arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x14), 0, 5, 1);
 }
 
 }

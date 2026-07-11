@@ -13,7 +13,7 @@ s32 fn_80207718(s32);
 M2C_UNK fn_8020AA94(void *, u32, s32);
 M2C_UNK fn_8020B3E4(s32, void *, s32);
 
-extern u8 *lbl_805D5EE0;
+extern u8 *TLobby__data_805D5EE0;
 
 s32 TLobby__sub_801F40E8(s32 arg0) {
     s32 sp14;
@@ -23,7 +23,7 @@ s32 TLobby__sub_801F40E8(s32 arg0) {
     u8 *temp_r31;
     u8 *var_r31;
 
-    if ((var_r31 = lbl_805D5EE0) != NULL) {
+    if ((var_r31 = TLobby__data_805D5EE0) != NULL) {
 loop_1:
         sp14 = M2C_FIELD(var_r31, s32 *, 0);
         sp10 = M2C_FIELD(var_r31, s32 *, 4);

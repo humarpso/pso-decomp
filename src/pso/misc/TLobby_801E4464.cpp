@@ -11,8 +11,8 @@ M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
 M2C_UNK fn_801E3FA4(void *);
 
 s32 get_main_phase();
-extern s32 lbl_805D53AC;
-extern u32 lbl_805D5580;
+extern s32 TLobby__data_805D53AC;
+extern u32 TLobby__data_805D5580;
 extern s32 lbl_805D5E50;
 
 void dispatch_packet__6TLobbyFPv(void *arg0) {
@@ -25,8 +25,8 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
         lbl_805D5E50 = 0;
         return;
     }
-    if ((u32) lbl_805D5580 != 0U) {
-        TProtocol__sub_801DC084(lbl_805D5580, lbl_805D53AC, arg0, temp_r31);
+    if ((u32) TLobby__data_805D5580 != 0U) {
+        TProtocol__sub_801DC084(TLobby__data_805D5580, TLobby__data_805D53AC, arg0, temp_r31);
     }
 }
 

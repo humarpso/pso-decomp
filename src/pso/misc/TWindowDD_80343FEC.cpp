@@ -11,11 +11,11 @@ void fn_800F957C(void*);
 M2C_UNK fn_8034AF18();
 void free__11TOBoss4RockFUi(void*);
 
-extern u32 lbl_805D6E0C;
+extern u32 TWindowDD__data_805D6E0C;
 extern u32 lbl_805D6E10;
 extern u32 lbl_805D6E14;
-extern u32 lbl_805D6E18;
-extern u32 lbl_805D6E1C;
+extern u32 TWindowDD__data_805D6E18;
+extern u32 TWindowDD__data_805D6E1C;
 extern u32 lbl_805D6E20;
 extern u32 lbl_805D6E50;
 extern u32 lbl_805D6E54;
@@ -25,17 +25,17 @@ extern u32 lbl_805D6E60;
 
 void TWindowDD__sub_80343FEC(void) {
     fn_8034AF18();
-    if ((u32) lbl_805D6E1C != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D6E1C);
-        lbl_805D6E1C = 0U;
+    if ((u32) TWindowDD__data_805D6E1C != 0U) {
+        free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E1C);
+        TWindowDD__data_805D6E1C = 0U;
     }
     if ((u32) lbl_805D6E20 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D6E20);
         lbl_805D6E20 = 0U;
     }
-    if ((u32) lbl_805D6E18 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D6E18);
-        lbl_805D6E18 = 0U;
+    if ((u32) TWindowDD__data_805D6E18 != 0U) {
+        free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E18);
+        TWindowDD__data_805D6E18 = 0U;
     }
     if ((u32) lbl_805D6E14 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D6E14);
@@ -45,9 +45,9 @@ void TWindowDD__sub_80343FEC(void) {
         free__11TOBoss4RockFUi((void*)lbl_805D6E10);
         lbl_805D6E10 = 0U;
     }
-    if ((u32) lbl_805D6E0C != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D6E0C);
-        lbl_805D6E0C = 0U;
+    if ((u32) TWindowDD__data_805D6E0C != 0U) {
+        free__11TOBoss4RockFUi((void*)TWindowDD__data_805D6E0C);
+        TWindowDD__data_805D6E0C = 0U;
     }
     if ((u32) lbl_805D6E60 != 0U) {
         fn_800F957C((void*)lbl_805D6E60);

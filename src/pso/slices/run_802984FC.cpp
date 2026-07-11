@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-extern s32 lbl_805D659C;
+extern s32 TObjCMMainMenu__data_805D659C;
 
 void TObjCMMainMenu__vt6(void *arg0) {
     s32 temp_r0;
@@ -14,11 +14,11 @@ void TObjCMMainMenu__vt6(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x30) - 1;
     M2C_FIELD(arg0, s32 *, 0x30) = temp_r0;
     if (temp_r0 < 0) {
-        lbl_805D659C = 4;
+        TObjCMMainMenu__data_805D659C = 4;
     }
 }
 
-extern s32 lbl_805D659C;
+extern s32 TObjCMMainMenu__data_805D659C;
 
 void TObjCMMainMenu__vt5(void *arg0) {
     s32 temp_r0;
@@ -26,7 +26,7 @@ void TObjCMMainMenu__vt5(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x30) - 1;
     M2C_FIELD(arg0, s32 *, 0x30) = temp_r0;
     if (temp_r0 < 0) {
-        lbl_805D659C = 3;
+        TObjCMMainMenu__data_805D659C = 3;
     }
 }
 

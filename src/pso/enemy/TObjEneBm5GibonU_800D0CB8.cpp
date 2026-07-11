@@ -10,12 +10,12 @@ void TObjEneBm5GibonU__sub_800D0CB8(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 f32 fn_80011014();
 
-extern const f32 lbl_805DA158;
-extern const f32 lbl_805DA15C;
+extern const f32 TObjEneBm5GibonU__data_805DA158;
+extern const f32 TObjEneBm5GibonU__data_805DA15C;
 
 void TObjEneBm5GibonU__sub_800D0CB8(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x49C) = lbl_805DA15C;
-    if (fn_80011014() < lbl_805DA158) {
+    M2C_FIELD(arg0, f32 *, 0x49C) = TObjEneBm5GibonU__data_805DA15C;
+    if (fn_80011014() < TObjEneBm5GibonU__data_805DA158) {
         TObjEneDD__sub_800BBA18(arg0, 9);
         return;
     }

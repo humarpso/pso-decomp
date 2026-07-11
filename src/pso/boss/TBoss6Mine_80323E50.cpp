@@ -17,8 +17,8 @@ void set_state7__10TBoss6MineFPv(void *arg0) {
     }
 }
 
-    extern const float lbl_805DF584;
-void TBoss6Mine__sub_80323E68(void* a0) { *(int*)((char*)a0 + 0x30) = (*(int*)((char*)a0 + 0x30) & 0xfffffdff); *(float*)((char*)a0 + 0x3c8) = lbl_805DF584; }
+    extern const float TBoss6Mine__data_805DF584;
+void TBoss6Mine__sub_80323E68(void* a0) { *(int*)((char*)a0 + 0x30) = (*(int*)((char*)a0 + 0x30) & 0xfffffdff); *(float*)((char*)a0 + 0x3c8) = TBoss6Mine__data_805DF584; }
 
 void copy_pos__10TBoss6MineFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);

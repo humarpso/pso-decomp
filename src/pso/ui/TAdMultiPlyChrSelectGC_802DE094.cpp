@@ -52,7 +52,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 M2C_UNK open__17TWindowOptionCtrlFPv(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_805DE898;
+extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
 
 void TAdMultiPlyChrSelectGC__sub_802DE094(void *arg0) {
     TAdGameStartGC__sub_802E6380(M2C_FIELD(arg0, s32 *, 0x78));
@@ -60,8 +60,8 @@ void TAdMultiPlyChrSelectGC__sub_802DE094(void *arg0) {
     fn_802E0C68(M2C_FIELD(arg0, s32 *, 0x60), 1);
     M2C_FIELD(arg0, s32 *, 0x68) = fn_8030E2E4(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x6C) = fn_803100A4(arg0);
-    TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 0, &lbl_805DE898);
-    TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 1, &lbl_805DE898);
+    TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 0, &TAdMultiPlyChrSelectGC__data_805DE898);
+    TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
     M2C_FIELD(arg0, s32 *, 0x20) = 0xC;
 }
 

@@ -11,22 +11,22 @@ void reset_globals2__19TQuestListChallengeFv(void);
 
 extern s32 lbl_805D64A8;
 extern s32 lbl_805D64AC;
-extern s32 lbl_805D64B0;
+extern s32 TQuestListChallenge__data_805D64B0;
 
 void reset_globals__19TQuestListChallengeFv(void) {
     lbl_805D64A8 = 0;
     lbl_805D64AC = 0;
-    lbl_805D64B0 = 0;
+    TQuestListChallenge__data_805D64B0 = 0;
 }
 
 extern s32 lbl_805D64A8;
 extern s32 lbl_805D64AC;
-extern s32 lbl_805D64B0;
+extern s32 TQuestListChallenge__data_805D64B0;
 
 void reset_globals2__19TQuestListChallengeFv(void) {
     lbl_805D64A8 = 0;
     lbl_805D64AC = 0;
-    lbl_805D64B0 = 0;
+    TQuestListChallenge__data_805D64B0 = 0;
 }
 
 }

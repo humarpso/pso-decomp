@@ -12,14 +12,14 @@ void fn_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern u32 lbl_805D5890;
-extern s32 *lbl_805D5894;
+extern s32 *TOBarrierEnergy01__data_805D5894;
 
 void free_resources__17TOBarrierEnergy01Fv(void) {
-    if ((s32 *) lbl_805D5894 != NULL) {
-        fn_801E483C(*lbl_805D5894);
-        if ((s32 *) lbl_805D5894 != NULL) {
-            free__11TOBoss4RockFUi((void*)lbl_805D5894);
-            lbl_805D5894 = NULL;
+    if ((s32 *) TOBarrierEnergy01__data_805D5894 != NULL) {
+        fn_801E483C(*TOBarrierEnergy01__data_805D5894);
+        if ((s32 *) TOBarrierEnergy01__data_805D5894 != NULL) {
+            free__11TOBoss4RockFUi((void*)TOBarrierEnergy01__data_805D5894);
+            TOBarrierEnergy01__data_805D5894 = NULL;
         }
     }
     if ((u32) lbl_805D5890 != 0U) {

@@ -29,20 +29,20 @@ struct TObjDoaEx01_VObj : TObjDoaEx01_base {
     virtual void m7();
     virtual M2C_UNK m8(f32, f32);
 };
-extern s32 lbl_805D5BB0;
-extern u8 *lbl_805D5BB4;
-extern u8 *lbl_805D5BB8;
+extern s32 TObjDoaEx01__data_805D5BB0;
+extern u8 *TObjDoaEx01__data_805D5BB4;
+extern u8 *TObjDoaEx01__data_805D5BB8;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
 
 void try_open__11TObjDoaEx01FPv(u8 *arg0) {
     s32 temp_r31;
 
-    temp_r31 = TObjFish__sub_8001EDC4(lbl_805D5BB0, 0);
+    temp_r31 = TObjFish__sub_8001EDC4(TObjDoaEx01__data_805D5BB0, 0);
     if (((TObjDoaEx01_VObj*)arg0)->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPvPv(M2C_FIELD(lbl_805D5BB4, s32 *, 4), 1);
-        free_children__12TObjDoorJungFPvPv(M2C_FIELD(lbl_805D5BB8, s32 *, 4), 1);
-        TObjFish__sub_8001EDB0(lbl_805D5BB0, 0);
+        free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__data_805D5BB4, s32 *, 4), 1);
+        free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__data_805D5BB8, s32 *, 4), 1);
+        TObjFish__sub_8001EDB0(TObjDoaEx01__data_805D5BB0, 0);
         fn_803DA798();
         fn_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

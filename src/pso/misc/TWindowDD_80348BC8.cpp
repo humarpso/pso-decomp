@@ -8,14 +8,14 @@ extern "C" {
 
 s32 get_entry__9TWindowDDFi(s32 arg0);
 
-extern s32 lbl_805D6E30;
+extern s32 TWindowDD__data_805D6E30;
 extern s32 lbl_805D6E3C;
 
 s32 get_entry__9TWindowDDFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= (s32) lbl_805D6E3C)) {
         return 0;
     }
-    return lbl_805D6E30 + (arg0 * 8);
+    return TWindowDD__data_805D6E30 + (arg0 * 8);
 }
 
 }

@@ -9,10 +9,10 @@ extern "C" {
 void TCharaMaking__sub_8028DE50(M2C_UNK arg0, M2C_UNK arg1);
 M2C_UNK TCharaMaking__sub_8028DD18(M2C_UNK, M2C_UNK, f32, M2C_UNK);
 
-extern const f32 lbl_805DD92C;
+extern const f32 TCharaMaking__data_805DD92C;
 
 void TCharaMaking__sub_8028DE50(M2C_UNK arg0, M2C_UNK arg1) {
-    TCharaMaking__sub_8028DD18(arg0, arg1, lbl_805DD92C, 0);
+    TCharaMaking__sub_8028DD18(arg0, arg1, TCharaMaking__data_805DD92C, 0);
 }
 
 }

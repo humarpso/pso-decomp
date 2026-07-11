@@ -8,13 +8,13 @@ extern "C" {
 
 void init_params__10TBoss2MineFPvif(u8 *arg0, s32 arg1, f32 farg0);
 
-extern const f32 lbl_805D84D4;
+extern const f32 TBoss2Mine__data_805D84D4;
 
 void init_params__10TBoss2MineFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x3B8) = farg0;
     M2C_FIELD(arg0, s32 *, 0x3C0) = arg1;
     M2C_FIELD(arg0, s32 *, 0x3C4) = 0;
-    M2C_FIELD(arg0, f32 *, 0x3B4) = (f32) lbl_805D84D4;
+    M2C_FIELD(arg0, f32 *, 0x3B4) = (f32) TBoss2Mine__data_805D84D4;
     M2C_FIELD(arg0, s32 *, 0x3BC) = 0;
 }
 

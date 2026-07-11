@@ -10,7 +10,7 @@ s32 TAdPlayerLoadGC__sub_801E2404(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E1F40();
 
 s32 PADInit(s32, s32 *, M2C_UNK *);
-extern s32 lbl_805D5E40;
+extern s32 TAdPlayerLoadGC__data_805D5E40;
 
 s32 TAdPlayerLoadGC__sub_801E2404(s32 arg0) {
     s32 spC;
@@ -21,26 +21,26 @@ s32 TAdPlayerLoadGC__sub_801E2404(s32 arg0) {
         return -0xFF;
     }
     if (TAdPlayerLoadGC__sub_801E1F40() != 0) {
-        lbl_805D5E40 = -0xFD;
+        TAdPlayerLoadGC__data_805D5E40 = -0xFD;
         return -0xFD;
     }
     temp_r3 = PADInit(arg0, &spC, &sp8);
     switch (temp_r3) {
     case -3:
-        lbl_805D5E40 = -0xFF;
+        TAdPlayerLoadGC__data_805D5E40 = -0xFF;
         return -0xFF;
     case -1:
-        lbl_805D5E40 = -1;
+        TAdPlayerLoadGC__data_805D5E40 = -1;
         return -1;
     case 0:
-        lbl_805D5E40 = 0;
+        TAdPlayerLoadGC__data_805D5E40 = 0;
         return spC / 8192;
     case -6:
     case -128:
-        lbl_805D5E40 = -0xFD;
+        TAdPlayerLoadGC__data_805D5E40 = -0xFD;
         return -0xFD;
     default:
-        lbl_805D5E40 = -0xFD;
+        TAdPlayerLoadGC__data_805D5E40 = -0xFD;
         return -0xFD;
     }
 }

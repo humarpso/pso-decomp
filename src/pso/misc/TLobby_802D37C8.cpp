@@ -13,10 +13,10 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_802D3924(s32);
 
 extern s32 lbl_805D53A0;
-extern u8 lbl_805D688B;
+extern u8 TLobby__data_805D688B;
 
 void TLobby__sub_802D37C8(void) {
-    if ((s8) lbl_805D688B != 0) {
+    if ((s8) TLobby__data_805D688B != 0) {
         if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) == 0U) {
             TLobby__sub_802D2D64();
             return;

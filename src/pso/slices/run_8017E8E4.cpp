@@ -12,7 +12,7 @@ u8 is_active__14TObjBgmColCtrlFv(void) {
     return (u8) (lbl_805D62E4 != 0);
 }
 
-    extern int lbl_805D5E60;
-int fn_8017E8F8(void) {  return lbl_805D5E60; }
+    extern int TQuestBgmCtrl__data_805D5E60;
+int fn_8017E8F8(void) {  return TQuestBgmCtrl__data_805D5E60; }
 
 }

@@ -9,14 +9,14 @@ extern "C" {
 void set_active_bit__16TObjCityMainWarpFv(void);
 s32 TObjCityMainWarp__sub_80186A3C();
 
-extern s32 lbl_805D5B50;
+extern s32 TObjCityMainWarp__data_805D5B50;
 
 void set_active_bit__16TObjCityMainWarpFv(void) {
     s32 temp_r3;
 
     temp_r3 = TObjCityMainWarp__sub_80186A3C();
     if (temp_r3 >= 0) {
-        lbl_805D5B50 |= 1 << temp_r3;
+        TObjCityMainWarp__data_805D5B50 |= 1 << temp_r3;
     }
 }
 

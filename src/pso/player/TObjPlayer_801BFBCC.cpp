@@ -8,12 +8,12 @@ extern "C" {
 
 void reset_scale_vector__10TObjPlayerFPv(void *arg0);
 
-extern const f32 lbl_805DC278;
+extern const f32 TObjPlayer__data_805DC278;
 
 void reset_scale_vector__10TObjPlayerFPv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 8) = (f32) TObjPlayer__data_805DC278;
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, s32 *, 0) = 0;
 }

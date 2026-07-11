@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-extern s32 lbl_805D5594;
+extern s32 TLobby__data_805D5594;
 
 u8 fn_80191F80(void) {
-    return (u8) (lbl_805D5594 == 0);
+    return (u8) (TLobby__data_805D5594 == 0);
 }
 
 }

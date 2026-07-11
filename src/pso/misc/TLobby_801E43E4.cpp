@@ -12,7 +12,7 @@ M2C_UNK fn_801E3FA4(void *);
 M2C_UNK send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
 
 extern u32 lbl_805D53A0;
-extern u32 lbl_805D5580;
+extern u32 TLobby__data_805D5580;
 extern s32 lbl_805D5E50;
 
 void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
@@ -26,8 +26,8 @@ void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
         lbl_805D5E50 = 0;
         return;
     }
-    if ((u32) lbl_805D5580 != 0U) {
-        send_pso_data_long2__9TProtocolFcR17long_game_commandUl((void*)lbl_805D5580, arg1, arg0, sp8);
+    if ((u32) TLobby__data_805D5580 != 0U) {
+        send_pso_data_long2__9TProtocolFcR17long_game_commandUl((void*)TLobby__data_805D5580, arg1, arg0, sp8);
     }
 }
 

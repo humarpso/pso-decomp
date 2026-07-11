@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 fn_803D64C0(s32);
-extern f32 lbl_805D926C;
+extern f32 TObjBoss2Tunnel__data_805D926C;
 
 f32 fn_8007E71C(s32 arg0, f32 farg0) {
-    return (lbl_805D926C * farg0) / fn_803D64C0(arg0 / 2);
+    return (TObjBoss2Tunnel__data_805D926C * farg0) / fn_803D64C0(arg0 / 2);
 }
 
 }

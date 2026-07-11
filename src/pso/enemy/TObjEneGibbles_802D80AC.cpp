@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneGibbles__sub_802D80AC(void *arg0);
 
-extern M2C_UNK lbl_80472790;
+extern M2C_UNK TObjEneGibbles__data_80472790;
 extern f32 lbl_805DE80C;
 
 void TObjEneGibbles__sub_802D80AC(void *arg0) {

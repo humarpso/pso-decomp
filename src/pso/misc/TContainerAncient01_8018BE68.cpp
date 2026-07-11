@@ -19,10 +19,10 @@ int TContainerAncient01__sub_8018BE74(void) { return 1; }
     extern int lbl_8050DC68[];
 int get_table_entry__19TContainerAncient01Fi(int a0) {  return lbl_8050DC68[a0]; }
 
-extern s32 lbl_805D5B90;
+extern s32 TContainerAncient01__data_805D5B90;
 
 s32 TContainerAncient01__sub_8018BE90(void) {
-    return lbl_805D5B90;
+    return TContainerAncient01__data_805D5B90;
 }
 
 }

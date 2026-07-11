@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-extern u32 lbl_805D4C00;
+extern u32 TObjBoss2Tunnel__data_805D4C00;
 
 s32 TObjBoss2Tunnel__sub_8003C1C8(void) {
-    return ((u32) lbl_805D4C00 >> 0xDU) & 1;
+    return ((u32) TObjBoss2Tunnel__data_805D4C00 >> 0xDU) & 1;
 }
 
-extern u32 lbl_805D4C00;
+extern u32 TObjBoss2Tunnel__data_805D4C00;
 
 s32 TObjBoss2Tunnel__sub_8003C1D4(void) {
-    return ((u32) lbl_805D4C00 >> 0xCU) & 1;
+    return ((u32) TObjBoss2Tunnel__data_805D4C00 >> 0xCU) & 1;
 }
 
 }

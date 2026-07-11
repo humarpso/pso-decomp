@@ -16,8 +16,8 @@ M2C_UNK fn_80222B64(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_804C8714[];
-extern s32 lbl_805D5F18;
-extern s32 lbl_805D5F24;
+extern s32 TQuestVmDownLoadServer__data_805D5F18;
+extern s32 TQuestVmDownLoadServer__data_805D5F24;
 
 u8 *TQuestVmDownLoadServer__vt0(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -40,8 +40,8 @@ u8 *TQuestVmDownLoadServer__vt0(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x28C) = 0U;
         }
         close_message__22TQuestVmDownLoadServerFPv(arg0);
-        lbl_805D5F24 = 0;
-        lbl_805D5F18 = 0;
+        TQuestVmDownLoadServer__data_805D5F24 = 0;
+        TQuestVmDownLoadServer__data_805D5F18 = 0;
         fn_80222B64(arg0 + 0x1C, 0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

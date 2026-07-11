@@ -24,12 +24,12 @@ int TLobby__sub_801EC7A0(void) { return TOMineTrap__sub_80171370((void*)(0)); }
 int TLobby__sub_801EC7C4(void) { return TOMineTrap__sub_80171370((void*)(1)); }
 
 s32 is_split_screen(void);
-extern s32 lbl_80512220[];
+extern s32 TLobby__data_80512220[];
 
 void TLobby__sub_801EC7E8(void) {
     s32 temp_r31;
 
-    temp_r31 = lbl_80512220[0];
+    temp_r31 = TLobby__data_80512220[0];
     if (is_split_screen() == 1) {
         fn_8006F848(temp_r31);
         return;

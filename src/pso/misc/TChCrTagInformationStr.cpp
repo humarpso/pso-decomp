@@ -11,7 +11,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 
 extern M2C_UNK __vt__22TChCrTagInformationStr[];
 extern s32 lbl_805D40B8;
-extern const f32 lbl_805DF108;
+extern const f32 TChCrTagInformationStr__data_805DF108;
 
 void *__ct__22TChCrTagInformationStrFv(void *arg0, M2C_UNK arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
@@ -27,7 +27,7 @@ void *__ct__22TChCrTagInformationStrFv(void *arg0, M2C_UNK arg1, s32 arg2) {
     }
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x2C) = 5;
-    M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805DF108;
+    M2C_FIELD(arg0, f32 *, 0x30) = (f32) TChCrTagInformationStr__data_805DF108;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     return arg0;
 }

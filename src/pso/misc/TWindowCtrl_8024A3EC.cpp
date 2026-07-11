@@ -9,12 +9,12 @@ extern "C" {
 void close_active_window__11TWindowCtrlFv(void);
 M2C_UNK TWindow__close(void *);
 
-extern void *lbl_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
 
 void close_active_window__11TWindowCtrlFv(void) {
-    if (((void *) lbl_805D63F8 != NULL) && ((u32) M2C_FIELD(lbl_805D63F8, u32 *, 0x34) != 0U)) {
-        TWindow__close(M2C_FIELD(lbl_805D63F8, void **, 0x34));
-        M2C_FIELD(lbl_805D63F8, u32 *, 0x34) = 0U;
+    if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) != 0U)) {
+        TWindow__close(M2C_FIELD(TWindowCtrl__data_805D63F8, void **, 0x34));
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) = 0U;
     }
 }
 

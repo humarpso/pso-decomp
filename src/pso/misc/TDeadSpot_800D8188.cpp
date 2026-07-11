@@ -19,11 +19,11 @@ M2C_UNK fn_803E29B0(void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D4DF0;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-extern const f32 lbl_805DA38C;
+extern const f32 TDeadSpot__data_805DA38C;
 extern const f32 lbl_805DA39C;
 
 void render__9TDeadSpotFv(u8 *arg0) {
-    if ((fn_8001A430() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > lbl_805DA38C) && (fn_80141CF8(arg0 + 0x7C, lbl_805D4DF0 + 0x178) < lbl_805DA39C)) {
+    if ((fn_8001A430() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > TDeadSpot__data_805DA38C) && (fn_80141CF8(arg0 + 0x7C, lbl_805D4DF0 + 0x178) < lbl_805DA39C)) {
         lbl_805D5660 = some_id_805c6f74;
         fn_80141F1C();
         fn_801418C4(0x8F);

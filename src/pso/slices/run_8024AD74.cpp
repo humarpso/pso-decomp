@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-extern void *lbl_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
 
 void set_flag_bit2__11TWindowCtrlFv(void) {
-    if ((void *) lbl_805D63F8 != NULL) {
-        M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) | 4);
+    if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) | 4);
     }
 }
 
-extern void *lbl_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
 
 void clear_flag_bit2__11TWindowCtrlFv(void) {
-    if ((void *) lbl_805D63F8 != NULL) {
-        M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) & 0xFFFFFFFB);
+    if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) & 0xFFFFFFFB);
     }
 }
 

@@ -10,12 +10,12 @@ extern "C" {
 void TObjPlayer__sub_80018E08(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
-extern const f32 lbl_805D7D4C;
+extern const f32 TObjPlayer__data_805D7D4C;
 
 void TObjPlayer__sub_80018E08(u8 *arg0) {
     if ((void *) M2C_FIELD(arg0, void **, 0x2B0) != NULL) {
         M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
-        M2C_FIELD(arg0, f32 *, 0x300) = (f32) ((lbl_805D7D4C * M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), f32 *, 0x10)) + M2C_FIELD(arg0, f32 *, 0x3C));
+        M2C_FIELD(arg0, f32 *, 0x300) = (f32) ((TObjPlayer__data_805D7D4C * M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), f32 *, 0x10)) + M2C_FIELD(arg0, f32 *, 0x3C));
         M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
         return;
     }

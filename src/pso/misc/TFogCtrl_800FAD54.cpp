@@ -10,7 +10,7 @@ void update_all__8TFogCtrlFv(void);
 M2C_UNK clear_active_flag__8TFogCtrlFPv(s32);
 
 s32 is_split_screen();
-extern M2C_UNK lbl_80501188[];
+extern M2C_UNK TFogCtrl__data_80501188[];
 
 void update_all__8TFogCtrlFv(void) {
     s32 var_r29;
@@ -21,7 +21,7 @@ void update_all__8TFogCtrlFv(void) {
         var_r29 = 0;
         var_r31 = 0;
         do {
-            temp_r3 = *(lbl_80501188 + var_r31);
+            temp_r3 = *(TFogCtrl__data_80501188 + var_r31);
             if ((u32)temp_r3 != 0U) {
                 clear_active_flag__8TFogCtrlFPv(temp_r3);
             }

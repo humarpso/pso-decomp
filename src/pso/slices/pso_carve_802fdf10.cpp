@@ -10,13 +10,13 @@ extern f32 lbl_805D6980;
 extern f32 lbl_805D6984;
 extern f32 lbl_805D69C0;
 extern f32 lbl_805D9E80;
-extern f32 lbl_805DEDC8;
+extern f32 TBoss8Dragon__data_805DEDC8;
 extern f32 lbl_805DEE40;
 
 void fn_802FDF10(void) {
     f32 temp_f1;
 
-    temp_f1 = lbl_805DEDC8 * lbl_805D9E80;
+    temp_f1 = TBoss8Dragon__data_805DEDC8 * lbl_805D9E80;
     lbl_805D6980 = temp_f1;
     lbl_805D6984 = lbl_805DEE40 * lbl_805D9E80;
     lbl_805D69C0 = temp_f1;

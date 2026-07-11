@@ -10,11 +10,11 @@ f32 TObjPlayer__vt20(s32 arg0, s32 arg1, f32 farg0);
 f32 TObjPlayer__sub_80014108(s32, s32, f32);
 
 s32 obj_isState2_324();
-extern f32 lbl_805DC278;
+extern f32 TObjPlayer__data_805DC278;
 
 f32 TObjPlayer__vt20(s32 arg0, s32 arg1, f32 farg0) {
     if (obj_isState2_324() != 0) {
-        return lbl_805DC278;
+        return TObjPlayer__data_805DC278;
     }
     return TObjPlayer__sub_80014108(arg0, arg1, farg0);
 }

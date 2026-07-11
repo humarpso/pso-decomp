@@ -9,15 +9,15 @@ extern "C" {
 void TLobby__sub_8032C730(void);
 void xfree__FPv(void*);
 
-extern u32 lbl_805D6CC0;
-extern s32 lbl_805D6CC8;
+extern u32 TLobby__data_805D6CC0;
+extern s32 TLobby__data_805D6CC8;
 
 void TLobby__sub_8032C730(void) {
-    if ((u32) lbl_805D6CC0 != 0U) {
-        xfree__FPv((void*)lbl_805D6CC0);
-        lbl_805D6CC0 = 0U;
+    if ((u32) TLobby__data_805D6CC0 != 0U) {
+        xfree__FPv((void*)TLobby__data_805D6CC0);
+        TLobby__data_805D6CC0 = 0U;
     }
-    lbl_805D6CC8 = 0;
+    TLobby__data_805D6CC8 = 0;
 }
 
 }

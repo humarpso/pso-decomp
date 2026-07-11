@@ -10,7 +10,7 @@ void TBoss4Zako__vt0(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 extern const f32 lbl_805D8CC8;
-extern const f32 lbl_805D8D24;
+extern const f32 TBoss4Zako__data_805D8D24;
 
 void TBoss4Zako__vt0(u8 *arg0) {
     f32 temp_f0;
@@ -19,7 +19,7 @@ void TBoss4Zako__vt0(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x3C);
     if (temp_f2 < lbl_805D8CC8) {
-        temp_f0 = temp_f2 + lbl_805D8D24;
+        temp_f0 = temp_f2 + TBoss4Zako__data_805D8D24;
         M2C_FIELD(arg0, f32 *, 0x3C) = temp_f0;
         if (temp_f0 > lbl_805D8CC8) {
             M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D8CC8;

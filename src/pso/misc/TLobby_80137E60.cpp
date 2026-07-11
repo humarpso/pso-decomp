@@ -12,23 +12,23 @@ M2C_UNK init_player_window_effect__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK send_room_change__9TProtocolFi(s32, s32);
 
-extern s32 lbl_805D5580;
-extern s32 lbl_805D5588;
-extern s32 lbl_805D5594;
+extern s32 TLobby__data_805D5580;
+extern s32 TLobby__data_805D5588;
+extern s32 TLobby__data_805D5594;
 
 void send_room_change__6TLobbyFi(s32 arg0) {
-    lbl_805D5588 = 1;
+    TLobby__data_805D5588 = 1;
     init_player_window_effect__6TLobbyFv();
-    send_room_change__9TProtocolFi(lbl_805D5580, arg0);
-    lbl_805D5594 = 0x13;
+    send_room_change__9TProtocolFi(TLobby__data_805D5580, arg0);
+    TLobby__data_805D5594 = 0x13;
 }
 
-extern s32 lbl_805D5594;
+extern s32 TLobby__data_805D5594;
 
 void close_and_set_state_12__6TLobbyFv(void) {
     close_all_windows__6TLobbyFv();
     init_player_window_effect__6TLobbyFv();
-    lbl_805D5594 = 0x12;
+    TLobby__data_805D5594 = 0x12;
 }
 
 }

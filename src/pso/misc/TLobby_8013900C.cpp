@@ -16,19 +16,19 @@ s32 fn_802693B4(u32);
 M2C_UNK fn_80269454(u32);
 
 extern s8 lbl_8050E208[];
-extern s32 lbl_805D5580;
-extern u32 lbl_805D55DC;
+extern s32 TLobby__data_805D5580;
+extern u32 TLobby__data_805D55DC;
 
 void update__6TLobbyFv(void) {
-    if ((u32) lbl_805D55DC != 0U) {
+    if ((u32) TLobby__data_805D55DC != 0U) {
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 8) != 0) {
-            if (fn_802693B4(lbl_805D55DC) == 0) {
-                fn_80269454(lbl_805D55DC);
+            if (fn_802693B4(TLobby__data_805D55DC) == 0) {
+                fn_80269454(TLobby__data_805D55DC);
             } else {
-                TWindow__close(lbl_805D55DC);
-                lbl_805D55DC = 0U;
+                TWindow__close(TLobby__data_805D55DC);
+                TLobby__data_805D55DC = 0U;
                 close_all_windows__6TLobbyFv();
-                fn_801DB4E4(lbl_805D5580);
+                fn_801DB4E4(TLobby__data_805D5580);
             }
         }
     } else {

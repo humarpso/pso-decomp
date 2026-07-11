@@ -8,10 +8,10 @@ extern "C" {
 
 void TBoss4Type2__vt7(void *arg0);
 
-extern f32 lbl_805D8BAC;
+extern f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt7(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8BAC;
+    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
     M2C_FIELD(arg0, s32 *, 0x3E0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3E0) + 1);
     M2C_FIELD(arg0, s32 *, 0x398) = (s32) M2C_FIELD(arg0, s32 *, 0x41C);
 }

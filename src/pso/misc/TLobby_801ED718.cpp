@@ -12,12 +12,12 @@ M2C_UNK fn_80292730(s32);
 
 s32 is_split_screen(void);
 struct Glob_80512220 { s32 field0; char pad[0x100]; };
-extern struct Glob_80512220 lbl_80512220;
+extern struct Glob_80512220 TLobby__data_80512220;
 
 void TLobby__sub_801ED718(void) {
     s32 temp_r31;
 
-    temp_r31 = lbl_80512220.field0;
+    temp_r31 = TLobby__data_80512220.field0;
     if (is_split_screen() == 1) {
         fn_80292730(temp_r31);
         return;

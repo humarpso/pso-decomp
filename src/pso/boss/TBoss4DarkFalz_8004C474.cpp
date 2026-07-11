@@ -17,7 +17,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 M2C_UNK obj_setArrS16_FC(void *, s32, u16);
 extern M2C_UNK lbl_80485454[];
-extern u8 *lbl_805D4D64;
+extern u8 *TBoss4DarkFalz__data_805D4D64;
 
 void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0) {
     u16 sp8[4];
@@ -27,15 +27,15 @@ void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0) {
     fn_8022743C();
     fn_801F4830(0x37);
     fn_8035C98C();
-    if ((void *) lbl_805D4D64 != NULL) {
-        fn_8004FFF8(arg0, lbl_805D4D64 + 0x38, M2C_FIELD(lbl_805D4D64, s32 *, 0x60));
+    if ((void *) TBoss4DarkFalz__data_805D4D64 != NULL) {
+        fn_8004FFF8(arg0, TBoss4DarkFalz__data_805D4D64 + 0x38, M2C_FIELD(TBoss4DarkFalz__data_805D4D64, s32 *, 0x60));
     } else {
         fn_8004FFF8(arg0, lbl_80485454, 0);
     }
-    if ((void *) lbl_805D4D64 != NULL) {
-        fn_8004D8C8(lbl_805D4D64, arg0 + 0x2D6, arg0 + 0x2D4, sp8);
-        queue_destruction__7TObjectFv(lbl_805D4D64);
-        lbl_805D4D64 = NULL;
+    if ((void *) TBoss4DarkFalz__data_805D4D64 != NULL) {
+        fn_8004D8C8(TBoss4DarkFalz__data_805D4D64, arg0 + 0x2D6, arg0 + 0x2D4, sp8);
+        queue_destruction__7TObjectFv(TBoss4DarkFalz__data_805D4D64);
+        TBoss4DarkFalz__data_805D4D64 = NULL;
         var_r29 = 0;
         do {
             obj_setArrS16_FC(arg0, var_r29, sp8[var_r29]);

@@ -14,7 +14,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK fn_80074E04(s32, void *);
 
 extern s32 lbl_805D4E48;
-extern const f32 lbl_805D9174;
+extern const f32 TObjTombstone__data_805D9174;
 
 void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D4E48, 0);
@@ -23,10 +23,10 @@ void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     TObjTombstone__sub_80076390(arg0 + 0xC0, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xD0);
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0xAC) << 0xD);
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805D9174;
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805D9174;
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805D9174;
-    M2C_FIELD(arg0, f32 *, 0xBC) = (f32) lbl_805D9174;
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjTombstone__data_805D9174;
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9174;
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TObjTombstone__data_805D9174;
+    M2C_FIELD(arg0, f32 *, 0xBC) = (f32) TObjTombstone__data_805D9174;
     M2C_FIELD(arg0, s32 *, 0x230) = 0;
     fn_80074E04(M2C_FIELD(arg0, s32 *, 0xAC), arg0 + 0x38);
 }

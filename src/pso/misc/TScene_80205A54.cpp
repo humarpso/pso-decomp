@@ -8,11 +8,11 @@ extern "C" {
 
 void set_field4__6TSceneFv(void);
 
-extern void *lbl_805D5FCC;
+extern void *TScene__data_805D5FCC;
 
 void set_field4__6TSceneFv(void) {
-    if ((void *) lbl_805D5FCC != NULL) {
-        M2C_FIELD(lbl_805D5FCC, s32 *, 4) = 0x8F;
+    if ((void *) TScene__data_805D5FCC != NULL) {
+        M2C_FIELD(TScene__data_805D5FCC, s32 *, 4) = 0x8F;
     }
 }
 

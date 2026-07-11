@@ -10,13 +10,13 @@ void TLobby__sub_8007BCF4(void);
 M2C_UNK fn_8007BC5C(M2C_UNK *);
 M2C_UNK fn_801DA7DC(s32, M2C_UNK *);
 
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 
 void TLobby__sub_8007BCF4(void) {
     char sp8[0x84];
 
     fn_8007BC5C((M2C_UNK *) sp8);
-    fn_801DA7DC(lbl_805D5580, (M2C_UNK *) sp8);
+    fn_801DA7DC(TLobby__data_805D5580, (M2C_UNK *) sp8);
 }
 
 }

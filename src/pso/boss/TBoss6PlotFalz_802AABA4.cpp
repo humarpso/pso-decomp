@@ -9,14 +9,14 @@ extern "C" {
 s32 is_phase_reached__14TBoss6PlotFalzFv(void);
 s32 fn_802ACCB8(void*);
 
-extern u32 lbl_805D66EC;
+extern u32 TBoss6PlotFalz__data_805D66EC;
 
 s32 is_phase_reached__14TBoss6PlotFalzFv(void) {
-    u32 p = lbl_805D66EC;
+    u32 p = TBoss6PlotFalz__data_805D66EC;
     if (!p) {
         return 0;
     }
-    return fn_802ACCB8((void*)lbl_805D66EC) >= 7 ? 1 : 0;
+    return fn_802ACCB8((void*)TBoss6PlotFalz__data_805D66EC) >= 7 ? 1 : 0;
 }
 
 }

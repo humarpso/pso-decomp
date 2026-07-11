@@ -12,13 +12,13 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
 
 extern M2C_UNK __vt__19TQuestListChallenge[];
-extern s32 lbl_805D64B0;
+extern s32 TQuestListChallenge__data_805D64B0;
 
 void *__dt__19TQuestListChallengeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TQuestListChallenge;
         close_windows__19TQuestListChallengeFPv((M2C_UNK *)arg0);
-        lbl_805D64B0 = 0;
+        TQuestListChallenge__data_805D64B0 = 0;
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -13,12 +13,12 @@ M2C_UNK fn_803D9B78();
 M2C_UNK fn_803DA798(s32);
 M2C_UNK fn_803E46BC(s32);
 
-extern void *lbl_805D7010;
+extern void *TObjBoss8DemoRoom__data_805D7010;
 
 void render__17TObjBoss8DemoRoomFv(void) {
-    fn_803DA798(M2C_FIELD(M2C_FIELD(lbl_805D7010, void **, 0x42C), s32 *, 0xC));
+    fn_803DA798(M2C_FIELD(M2C_FIELD(TObjBoss8DemoRoom__data_805D7010, void **, 0x42C), s32 *, 0xC));
     fn_803D9B2C();
-    fn_803E46BC(M2C_FIELD(M2C_FIELD(lbl_805D7010, void **, 0x42C), s32 *, 8));
+    fn_803E46BC(M2C_FIELD(M2C_FIELD(TObjBoss8DemoRoom__data_805D7010, void **, 0x42C), s32 *, 8));
     fn_80141F1C();
     fn_803D9B78();
 }

@@ -11,17 +11,17 @@ void fn_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern u32 lbl_805D5BF8;
-extern s32 lbl_805D5BFC;
-extern s32 lbl_805D5C04;
+extern s32 TObjDoorKey__data_805D5BFC;
+extern s32 TObjDoorKey__data_805D5C04;
 
 void TObjDoorKey__sub_8019017C(void) {
     if ((u32) lbl_805D5BF8 != 0U) {
         fn_8001FE7C((void*)lbl_805D5BF8, 1);
         lbl_805D5BF8 = 0U;
     }
-    fn_801E483C(lbl_805D5BFC);
-    lbl_805D5BFC = 0;
-    lbl_805D5C04 = 0;
+    fn_801E483C(TObjDoorKey__data_805D5BFC);
+    TObjDoorKey__data_805D5BFC = 0;
+    TObjDoorKey__data_805D5C04 = 0;
 }
 
 }

@@ -9,12 +9,12 @@ extern "C" {
 void TObjDoaEx01__sub_8018E1A8(void);
 void fn_8001FE7C(void*, int);
 
-extern u32 lbl_805D5BB0;
+extern u32 TObjDoaEx01__data_805D5BB0;
 
 void TObjDoaEx01__sub_8018E1A8(void) {
-    if ((u32) lbl_805D5BB0 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5BB0, 1);
-        lbl_805D5BB0 = 0U;
+    if ((u32) TObjDoaEx01__data_805D5BB0 != 0U) {
+        fn_8001FE7C((void*)TObjDoaEx01__data_805D5BB0, 1);
+        TObjDoaEx01__data_805D5BB0 = 0U;
     }
 }
 

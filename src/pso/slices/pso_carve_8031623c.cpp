@@ -1,4 +1,4 @@
 extern "C" {
-    extern int lbl_805D6AC4;
-int fn_8031623C(void) {  return lbl_805D6AC4; }
+    extern int TObjEneDelDepth__data_805D6AC4;
+int fn_8031623C(void) {  return TObjEneDelDepth__data_805D6AC4; }
 }

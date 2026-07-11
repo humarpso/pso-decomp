@@ -11,7 +11,7 @@ M2C_UNK TOBarrierEnergy01__sub_80157D28(void *);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_80158298();
 
-extern void *lbl_805D5894;
+extern void *TOBarrierEnergy01__data_805D5894;
 
 void TOBarrierEnergy01__vt13(void *arg0) {
     fn_80158298();
@@ -19,7 +19,7 @@ void TOBarrierEnergy01__vt13(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(lbl_805D5894, s32 *, 4);
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TOBarrierEnergy01__data_805D5894, s32 *, 4);
     }
 }
 

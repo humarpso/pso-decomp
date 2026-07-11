@@ -8,10 +8,10 @@ extern "C" {
 
 u8 TBoss6Rock__sub_80354A30(void);
 
-extern s32 lbl_805D6EF8;
+extern s32 TBoss6Rock__data_805D6EF8;
 
 u8 TBoss6Rock__sub_80354A30(void) {
-    return (u8) (lbl_805D6EF8 != 0);
+    return (u8) (TBoss6Rock__data_805D6EF8 != 0);
 }
 
 }

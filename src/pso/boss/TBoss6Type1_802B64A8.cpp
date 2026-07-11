@@ -8,10 +8,10 @@ extern "C" {
 
 void TBoss6Type1__sub_802B64A8(void *arg0);
 
-extern f32 lbl_805DE2D0;
+extern f32 TBoss6Type1__data_805DE2D0;
 
 void TBoss6Type1__sub_802B64A8(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x4DC) = (f32) lbl_805DE2D0;
+    M2C_FIELD(arg0, f32 *, 0x4DC) = (f32) TBoss6Type1__data_805DE2D0;
 }
 
 }

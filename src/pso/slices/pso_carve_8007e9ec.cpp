@@ -9,22 +9,22 @@ extern "C" {
 s32 TCameraCtrl__sub_8006B370();
 f32 fn_803D8D00();
 f32 fn_803D97B4(void *);
-extern f32 lbl_805D9234;
+extern f32 TObjBoss2Tunnel__data_805D9234;
 
 f32 fn_8007E9EC(void *arg0) {
     f32 var_f31;
     f32 temp_f0;
 
-    var_f31 = lbl_805D9234;
-    if (lbl_805D9234 != fn_803D8D00()) {
+    var_f31 = TObjBoss2Tunnel__data_805D9234;
+    if (TObjBoss2Tunnel__data_805D9234 != fn_803D8D00()) {
         var_f31 = fn_803D97B4(arg0);
         if (TCameraCtrl__sub_8006B370() != 0) {
-            M2C_FIELD(arg0, f32 *, 0) = var_f31 = lbl_805D9234;
+            M2C_FIELD(arg0, f32 *, 0) = var_f31 = TObjBoss2Tunnel__data_805D9234;
             M2C_FIELD(arg0, f32 *, 4) = var_f31;
             M2C_FIELD(arg0, f32 *, 8) = var_f31;
         }
     } else {
-        temp_f0 = lbl_805D9234;
+        temp_f0 = TObjBoss2Tunnel__data_805D9234;
         M2C_FIELD(arg0, f32 *, 0) = temp_f0;
         M2C_FIELD(arg0, f32 *, 4) = temp_f0;
         M2C_FIELD(arg0, f32 *, 8) = temp_f0;

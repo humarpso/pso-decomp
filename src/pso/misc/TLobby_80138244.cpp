@@ -18,7 +18,7 @@ s32 fn_80266508(M2C_UNK, s32);
 M2C_UNK fn_8026CBB8(M2C_UNK);
 M2C_UNK open__17TWindowOptionCtrlFPv(u32);
 
-extern s32 lbl_805D5594;
+extern s32 TLobby__data_805D5594;
 extern u32 lbl_805D55E4;
 extern s32 lbl_805D55E8;
 
@@ -35,7 +35,7 @@ void open_menu_window__6TLobbyFv(void) {
     fn_80265C30(lbl_805D55E8);
     fn_8013AD28(lbl_805D55E8);
     fn_80265C10(lbl_805D55E8, 0);
-    lbl_805D5594 = 0x18;
+    TLobby__data_805D5594 = 0x18;
 }
 
 }

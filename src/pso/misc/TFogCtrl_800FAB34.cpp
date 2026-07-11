@@ -9,7 +9,7 @@ extern "C" {
 s32 update_all__8TFogCtrlFi(s32 arg0);
 M2C_UNK TFogCtrl__sub_800FAF3C(M2C_UNK, s32);
 
-extern M2C_UNK lbl_80501188[];
+extern M2C_UNK TFogCtrl__data_80501188[];
 
 s32 update_all__8TFogCtrlFi(s32 arg0) {
     s32 var_r29;
@@ -19,7 +19,7 @@ s32 update_all__8TFogCtrlFi(s32 arg0) {
     var_r29 = 0;
     var_r31 = 0;
     do {
-        temp_r3 = *(lbl_80501188 + var_r31);
+        temp_r3 = *(TFogCtrl__data_80501188 + var_r31);
         if ((u32) temp_r3 != 0U) {
             TFogCtrl__sub_800FAF3C(temp_r3, arg0);
         }

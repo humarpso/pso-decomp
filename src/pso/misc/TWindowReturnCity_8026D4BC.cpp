@@ -15,11 +15,11 @@ void TWindowReturnCity__sub_8026D4BC(void) {  }
     extern int lbl_805D6468;
 void TWindowReturnCity__sub_8026D4C0(void) { lbl_805D6468 = 4; }
 
-extern void *lbl_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
 
 void clear_flag_bit5__17TWindowReturnCityFv(void) {
-    if ((void *) lbl_805D63F8 != NULL) {
-        M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) & 0xFFFFFFDF);
+    if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) & 0xFFFFFFDF);
     }
 }
 

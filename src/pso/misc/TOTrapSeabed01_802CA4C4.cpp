@@ -21,14 +21,14 @@ M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_3__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 
-extern s32 lbl_805D6814;
+extern s32 TOTrapSeabed01__data_805D6814;
 
 void draw__14TOTrapSeabed01FPv(u8 *arg0) {
     if ((is_not_split_screen__13TRaderMapCoreFv() != 1) || ((s32) M2C_FIELD(arg0, s32 *, 0x34C) == 0)) {
         set_depth_buffer_settings_3__Fv();
         set_depth_buffer_settings_id__FUl(1);
         fn_801E2EFC();
-        fn_803DA798(lbl_805D6814);
+        fn_803DA798(TOTrapSeabed01__data_805D6814);
         fn_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

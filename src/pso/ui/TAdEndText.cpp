@@ -10,17 +10,17 @@ void TAdEndText__sub_8001B324(void);
 void fn_800F957C(void*);
 void fn_803DA16C(void*);
 
-extern u32 lbl_805D49F4;
-extern u32 lbl_805D49F8;
+extern u32 TAdEndText__data_805D49F4;
+extern u32 TAdEndText__data_805D49F8;
 
 void TAdEndText__sub_8001B324(void) {
-    if ((u32) lbl_805D49F4 != 0U) {
-        fn_803DA16C((void*)lbl_805D49F4);
-        lbl_805D49F4 = 0U;
+    if ((u32) TAdEndText__data_805D49F4 != 0U) {
+        fn_803DA16C((void*)TAdEndText__data_805D49F4);
+        TAdEndText__data_805D49F4 = 0U;
     }
-    if ((u32) lbl_805D49F8 != 0U) {
-        fn_800F957C((void*)lbl_805D49F8);
-        lbl_805D49F8 = 0U;
+    if ((u32) TAdEndText__data_805D49F8 != 0U) {
+        fn_800F957C((void*)TAdEndText__data_805D49F8);
+        TAdEndText__data_805D49F8 = 0U;
     }
 }
 

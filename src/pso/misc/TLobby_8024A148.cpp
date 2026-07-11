@@ -13,7 +13,7 @@ s32 fn_8013A324(s32);
 M2C_UNK fn_801DB244(s32, s32 *);
 
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 
 void send_card_window_state__6TLobbyFv(void) {
     s32 sp8[5];
@@ -22,7 +22,7 @@ void send_card_window_state__6TLobbyFv(void) {
     temp_r31 = get_card_window__17TWindowSubComCardFUi(0xFFFF);
     sp8[0] = fn_8013A324(lbl_805D53A0) ? 1 : 0;
     fn_80077798(temp_r31 + 0x22EC, sp8);
-    fn_801DB244(lbl_805D5580, sp8);
+    fn_801DB244(TLobby__data_805D5580, sp8);
 }
 
 }

@@ -14,7 +14,7 @@ M2C_UNK fn_801DB474(s32);
 M2C_UNK fn_80200B28();
 M2C_UNK fn_80200C00();
 
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 
 void handle_state__6TLobbyFi(s32 arg0) {
     s32 temp_r3;
@@ -24,7 +24,7 @@ void handle_state__6TLobbyFi(s32 arg0) {
         temp_r3 = fn_80146740();
         switch (temp_r3) {
         case 0:
-            fn_801DB474(lbl_805D5580);
+            fn_801DB474(TLobby__data_805D5580);
             return;
         case 1:
             close_and_set_state_13__6TLobbyFv(0x13);

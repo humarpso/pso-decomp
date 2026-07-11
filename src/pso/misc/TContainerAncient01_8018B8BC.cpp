@@ -23,11 +23,11 @@ M2C_UNK fn_803D9B78();
 M2C_UNK fn_803DA798(s32);
 M2C_UNK fn_803DC894(s32, s32, f32);
 
-extern const f32 lbl_805DBD3C;
+extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;
 
 void render__19TContainerAncient01Fv(u8 *arg0) {
-    if (((VObj8018B8BC *) arg0)->m8(lbl_805DBD3C, lbl_805DBD4C) != 0) {
+    if (((VObj8018B8BC *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
         fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
         fn_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

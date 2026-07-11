@@ -9,21 +9,21 @@ extern "C" {
 void reset_state_flags__6TLobbyFv(void);
 M2C_UNK buffer_reset();
 
-extern void *lbl_805D5580;
-extern s32 lbl_805D5590;
-extern s32 lbl_805D5594;
-extern s32 lbl_805D55D8;
-extern s32 lbl_805D55FC;
+extern void *TLobby__data_805D5580;
+extern s32 TLobby__data_805D5590;
+extern s32 TLobby__data_805D5594;
+extern s32 TLobby__data_805D55D8;
+extern s32 TLobby__data_805D55FC;
 
 void reset_state_flags__6TLobbyFv(void) {
     buffer_reset();
-    M2C_FIELD(lbl_805D5580, s32 *, 0x191C) = 1;
-    lbl_805D55FC = 1;
-    if ((s32) lbl_805D5594 == 0xC) {
-        lbl_805D5590 = 5;
-        lbl_805D5594 = 0x17;
+    M2C_FIELD(TLobby__data_805D5580, s32 *, 0x191C) = 1;
+    TLobby__data_805D55FC = 1;
+    if ((s32) TLobby__data_805D5594 == 0xC) {
+        TLobby__data_805D5590 = 5;
+        TLobby__data_805D5594 = 0x17;
     }
-    lbl_805D55D8 = 0;
+    TLobby__data_805D55D8 = 0;
 }
 
 }

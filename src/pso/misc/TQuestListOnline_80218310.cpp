@@ -12,7 +12,7 @@ void fn_80073DC4(void *, int);
 extern M2C_UNK __vt__16TQuestListOnline[];
 extern void *lbl_805D3688;
 void memset(void *, int, int);
-extern void * lbl_805D61E0;
+extern void * TQuestListOnline__data_805D61E0;
 struct VOff_80218310_arg0 { char pad_0[0x4C]; char f_4C[1]; };
 
 void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
@@ -34,7 +34,7 @@ void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     M2C_FIELD(arg0, void **, 0x24) = arg3;
     memset(self->f_4C, 0, 28);
     fn_80073DC4(arg0, 0);
-    lbl_805D61E0 = arg0;
+    TQuestListOnline__data_805D61E0 = arg0;
     return arg0;
 }
 

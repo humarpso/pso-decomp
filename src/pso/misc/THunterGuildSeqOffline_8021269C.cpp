@@ -9,10 +9,10 @@ extern "C" {
 void THunterGuildSeqOffline__sub_8021269C(void);
 M2C_UNK fn_80073DC4(s32, M2C_UNK);
 
-extern s32 lbl_805D6188;
+extern s32 THunterGuildSeqOffline__data_805D6188;
 
 void THunterGuildSeqOffline__sub_8021269C(void) {
-    fn_80073DC4(lbl_805D6188, 9);
+    fn_80073DC4(THunterGuildSeqOffline__data_805D6188, 9);
 }
 
 }

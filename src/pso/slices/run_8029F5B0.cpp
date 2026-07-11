@@ -12,7 +12,7 @@ void fn_8029F5B0(M2C_UNK a0, M2C_UNK a1, M2C_UNK a2, M2C_UNK a3) {
     GXSetTexCoordGen2(a0, a1, a2, a3, 0, 0x7D);
 }
 
-    extern int lbl_805D5FE0;
-void fn_8029F5D8(void) { lbl_805D5FE0 = 0; }
+    extern int TScene__data_805D5FE0;
+void fn_8029F5D8(void) { TScene__data_805D5FE0 = 0; }
 
 }

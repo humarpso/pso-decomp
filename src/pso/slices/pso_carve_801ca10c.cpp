@@ -15,7 +15,7 @@ M2C_UNK TObjPlayer__sub_801BF9E8(void *, f32);
 M2C_UNK fn_801C65A4(void *);
 M2C_UNK fn_801CA35C(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
-extern const f32 lbl_805DC360;
+extern const f32 TObjPlayer__data_805DC360;
 
 void fn_801CA10C(u8 *arg0) {
     if (fn_801AFF0C() != 0) {
@@ -30,7 +30,7 @@ void fn_801CA10C(u8 *arg0) {
         } else {
             fn_801CA35C(arg0);
         }
-        TObjPlayer__sub_801BF9E8(arg0 + 0x5FC, lbl_805DC360);
+        TObjPlayer__sub_801BF9E8(arg0 + 0x5FC, TObjPlayer__data_805DC360);
         fn_801C65A4(arg0);
     }
 }

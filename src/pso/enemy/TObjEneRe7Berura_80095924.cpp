@@ -12,7 +12,7 @@ void free__11TOBoss4RockFUi(void*);
 void fn_8001FE7C(void*, int);
 void fn_800F5C8C(void*, int);
 
-extern u32 lbl_805D4F64;
+extern u32 TObjEneRe7Berura__data_805D4F64;
 extern u32 lbl_805D4F80;
 extern u32 lbl_805D4F8C;
 extern u32 lbl_805D4FA0;
@@ -30,9 +30,9 @@ void destroy_children__16TObjEneRe7BeruraFv(void) {
         free__11TOBoss4RockFUi((void*)lbl_805D4F80);
         lbl_805D4F80 = 0U;
     }
-    if ((u32) lbl_805D4F64 != 0U) {
-        fn_8001FE7C((void*)lbl_805D4F64, 1);
-        lbl_805D4F64 = 0U;
+    if ((u32) TObjEneRe7Berura__data_805D4F64 != 0U) {
+        fn_8001FE7C((void*)TObjEneRe7Berura__data_805D4F64, 1);
+        TObjEneRe7Berura__data_805D4F64 = 0U;
     }
 }
 

@@ -8,10 +8,10 @@ extern "C" {
 
 void TObjEneBm5Wolf__sub_800B7F48(void *arg0);
 
-extern f32 lbl_805D9DB4;
+extern f32 TObjEneBm5Wolf__data_805D9DB4;
 
 void TObjEneBm5Wolf__sub_800B7F48(void *arg0) {
-    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (lbl_805D9DB4 + M2C_FIELD(arg0, f32 *, 0x40C));
+    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (TObjEneBm5Wolf__data_805D9DB4 + M2C_FIELD(arg0, f32 *, 0x40C));
 }
 
 }

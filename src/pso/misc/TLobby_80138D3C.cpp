@@ -19,11 +19,11 @@ s32 fn_80131BC4(u32);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK send_action__9TProtocolFR13GameListEntryPcPc(GBig_80138D3C *, GLE_80138D3C *, M2C_UNK *, s32, GBig_80138D3C *);
 
-extern GBig_80138D3C *lbl_805D5580;
+extern GBig_80138D3C *TLobby__data_805D5580;
 extern s32 lbl_805D55F0;
 extern u32 lbl_805D55F4;
 extern s32 lbl_805D5600;
-extern M2C_UNK lbl_805DB0B0;
+extern M2C_UNK TLobby__data_805DB0B0;
 
 void handle_comcard_window__6TLobbyFv(void) {
     s32 temp_r3;
@@ -37,7 +37,7 @@ void handle_comcard_window__6TLobbyFv(void) {
         }
         if (TWindowSubComCard__sub_80131C34(lbl_805D55F4) != 0) {
             temp_r3 = fn_80131BC4(lbl_805D55F4);
-            send_action__9TProtocolFR13GameListEntryPcPc(lbl_805D5580, &lbl_805D5580->arr[lbl_805D5600], &lbl_805DB0B0, temp_r3, lbl_805D5580);
+            send_action__9TProtocolFR13GameListEntryPcPc(TLobby__data_805D5580, &TLobby__data_805D5580->arr[lbl_805D5600], &TLobby__data_805DB0B0, temp_r3, TLobby__data_805D5580);
             free__11TOBoss4RockFUi(temp_r3);
             queue_destruction__7TObjectFv(lbl_805D55F4);
             lbl_805D55F4 = 0U;

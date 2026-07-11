@@ -9,16 +9,16 @@ extern "C" {
 void reset__11TCameraCtrlFv(void);
 M2C_UNK TCameraCtrl__sub_80068354();
 
-extern s8 lbl_804FF628[];
-extern s16 lbl_805D4E0A;
+extern s8 TCameraCtrl__data_804FF628[];
+extern s16 TCameraCtrl__data_805D4E0A;
 
 void reset__11TCameraCtrlFv(void) {
-    lbl_805D4E0A = 0;
+    TCameraCtrl__data_805D4E0A = 0;
     TCameraCtrl__sub_80068354();
-    M2C_FIELD(lbl_804FF628, s8 *, 0) = 0;
-    M2C_FIELD(lbl_804FF628, s16 *, 2) = 0;
-    M2C_FIELD(lbl_804FF628, s32 *, 4) = 0;
-    M2C_FIELD(lbl_804FF628, s32 *, 8) = 0;
+    M2C_FIELD(TCameraCtrl__data_804FF628, s8 *, 0) = 0;
+    M2C_FIELD(TCameraCtrl__data_804FF628, s16 *, 2) = 0;
+    M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 4) = 0;
+    M2C_FIELD(TCameraCtrl__data_804FF628, s32 *, 8) = 0;
 }
 
 }

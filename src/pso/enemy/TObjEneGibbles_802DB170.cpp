@@ -23,14 +23,14 @@ void TObjEneGibbles__sub_802DB170(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x3BC) = fn_80142384(M2C_FIELD(arg0, s32 *, 0x3BC), var_r4);
 }
 
-extern s32 lbl_805D68BC;
-extern s32 lbl_805D68C0;
+extern s32 TObjEneGibbles__data_805D68BC;
+extern s32 TObjEneGibbles__data_805D68C0;
 
 void TObjEneGibbles__sub_802DB1C0(void) {
-    if ((s32) lbl_805D68BC == 0x18) {
-        TObjContainerIdo__sub_803D96A8(0, lbl_805D68C0);
+    if ((s32) TObjEneGibbles__data_805D68BC == 0x18) {
+        TObjContainerIdo__sub_803D96A8(0, TObjEneGibbles__data_805D68C0);
     }
-    lbl_805D68BC += 1;
+    TObjEneGibbles__data_805D68BC += 1;
 }
 
 }

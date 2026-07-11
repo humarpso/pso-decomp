@@ -11,7 +11,7 @@ M2C_UNK free_buffers__16TEffIndirectCtrlFv();
 M2C_UNK fn_802A83F4();
 M2C_UNK xfree__FPv(s32);
 
-extern M2C_UNK lbl_80540AF0[];
+extern M2C_UNK TEffIndirectCtrl__data_80540AF0[];
 
 void free_all__16TEffIndirectCtrlFv(void) {
     s32 var_r28;
@@ -25,10 +25,10 @@ void free_all__16TEffIndirectCtrlFv(void) {
     var_r30 = var_r31;
     var_r28 = 0;
     do {
-        temp_r3 = *(lbl_80540AF0 + var_r31);
+        temp_r3 = *(TEffIndirectCtrl__data_80540AF0 + var_r31);
         if ((u32)temp_r3 != 0U) {
             xfree__FPv(temp_r3);
-            *(lbl_80540AF0 + var_r31) = var_r30;
+            *(TEffIndirectCtrl__data_80540AF0 + var_r31) = var_r30;
         }
         var_r28 += 1;
         var_r31 += 1;

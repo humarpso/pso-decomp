@@ -11,12 +11,12 @@ void TBoss8Dragon__sub_802FBB68(u8 *arg0, s32 arg1);
 
 void TBoss8Dragon__sub_802FBB54(void* p) { *(f32*)((char*)p + 0x688) = *(f32*)((char*)p + 0x38); *(f32*)((char*)p + 0x68c) = *(f32*)((char*)p + 0x40); }
 
-extern M2C_UNK lbl_80474B10;
-extern const f32 lbl_805DED50;
+extern M2C_UNK TBoss8Dragon__data_80474B10;
+extern const f32 TBoss8Dragon__data_805DED50;
 
 void TBoss8Dragon__sub_802FBB68(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x688) = (f32) arg1;
-    M2C_FIELD(arg0, f32 *, 0x68C) = (f32) lbl_805DED50;
+    M2C_FIELD(arg0, f32 *, 0x68C) = (f32) TBoss8Dragon__data_805DED50;
 }
 
 }

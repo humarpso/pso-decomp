@@ -12,14 +12,14 @@ void fn_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern u32 lbl_805D5988;
-extern s32 *lbl_805D598C;
+extern s32 *TODoorVS2Door01__data_805D598C;
 
 void free_resources__15TODoorVS2Door01Fv(void) {
-    if ((s32 *) lbl_805D598C != NULL) {
-        fn_801E483C(*lbl_805D598C);
-        if ((s32 *) lbl_805D598C != NULL) {
-            free__11TOBoss4RockFUi((void*)lbl_805D598C);
-            lbl_805D598C = NULL;
+    if ((s32 *) TODoorVS2Door01__data_805D598C != NULL) {
+        fn_801E483C(*TODoorVS2Door01__data_805D598C);
+        if ((s32 *) TODoorVS2Door01__data_805D598C != NULL) {
+            free__11TOBoss4RockFUi((void*)TODoorVS2Door01__data_805D598C);
+            TODoorVS2Door01__data_805D598C = NULL;
         }
     }
     if ((u32) lbl_805D5988 != 0U) {

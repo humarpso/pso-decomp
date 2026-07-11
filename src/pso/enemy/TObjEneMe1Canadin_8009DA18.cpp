@@ -123,7 +123,7 @@ M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
 M2C_UNK fn_8009E6B0(void *);
 M2C_UNK fn_80143504();
 
-extern const f32 lbl_805D988C;
+extern const f32 TObjEneMe1Canadin__data_805D988C;
 
 void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -144,7 +144,7 @@ void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1) {
         break;
     case 0:
         fn_80143504();
-        TObjEneEpsilon__sub_800B96D4(arg0, lbl_805D988C);
+        TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
         update_move__17TObjEneMe1CanadinFPv(arg0);
         TObjEneMe1Canadin__sub_8009EABC(arg0);
         ((V_A *) arg0)->m87();

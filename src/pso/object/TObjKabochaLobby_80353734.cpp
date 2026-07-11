@@ -21,9 +21,9 @@ s32 fn_80351DFC();
 
 extern M2C_UNK __vt__16TObjKabochaLobby[];
 extern s32 lbl_805D4384;
-extern void *lbl_805D6EE8;
-extern s32 lbl_805D6EEC;
-extern const f32 lbl_805DFF38;
+extern void *TObjKabochaLobby__data_805D6EE8;
+extern s32 TObjKabochaLobby__data_805D6EEC;
+extern const f32 TObjKabochaLobby__data_805DFF38;
 
 void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     fn_8015858C();
@@ -35,9 +35,9 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     }
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805DFF38;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D6EE8, void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6EEC;
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TObjKabochaLobby__data_805DFF38;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjKabochaLobby__data_805D6EE8, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjKabochaLobby__data_805D6EEC;
     return arg0;
 }
 

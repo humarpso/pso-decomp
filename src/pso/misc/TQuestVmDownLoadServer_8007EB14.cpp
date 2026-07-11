@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TQuestVmDownLoadServer__sub_8007EB14(void);
 
-extern s32 lbl_805D5F24;
+extern s32 TQuestVmDownLoadServer__data_805D5F24;
 
 s32 TQuestVmDownLoadServer__sub_8007EB14(void) {
-    return lbl_805D5F24;
+    return TQuestVmDownLoadServer__data_805D5F24;
 }
 
 }

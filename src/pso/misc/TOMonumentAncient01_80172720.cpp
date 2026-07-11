@@ -9,12 +9,12 @@ extern "C" {
 void release_static_resource__19TOMonumentAncient01Fv(void);
 void fn_8001FE7C(void*, int);
 
-extern u32 lbl_805D5A60;
+extern u32 TOMonumentAncient01__data_805D5A60;
 
 void release_static_resource__19TOMonumentAncient01Fv(void) {
-    if ((u32) lbl_805D5A60 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5A60, 1);
-        lbl_805D5A60 = 0U;
+    if ((u32) TOMonumentAncient01__data_805D5A60 != 0U) {
+        fn_8001FE7C((void*)TOMonumentAncient01__data_805D5A60, 1);
+        TOMonumentAncient01__data_805D5A60 = 0U;
     }
 }
 

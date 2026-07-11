@@ -8,10 +8,10 @@ extern "C" {
 
 s32 fn_80132150(M2C_UNK *);
 s32 fn_801A5A14(s32);
-extern M2C_UNK lbl_80506270[];
+extern M2C_UNK TKeyBoardControl__data_80506270[];
 
 s32 fn_801A594C(s32 arg0) {
-    if (fn_80132150(lbl_80506270) != 0) {
+    if (fn_80132150(TKeyBoardControl__data_80506270) != 0) {
         return fn_801A5A14(arg0);
     }
     return 0;

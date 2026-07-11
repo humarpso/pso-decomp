@@ -9,12 +9,12 @@ extern "C" {
 void release__16TObjWeddingLobbyFv(void);
 void fn_8001FE7C(void*, int);
 
-extern u32 lbl_805D6F60;
+extern u32 TObjWeddingLobby__data_805D6F60;
 
 void release__16TObjWeddingLobbyFv(void) {
-    if ((u32) lbl_805D6F60 != 0U) {
-        fn_8001FE7C((void*)lbl_805D6F60, 1);
-        lbl_805D6F60 = 0U;
+    if ((u32) TObjWeddingLobby__data_805D6F60 != 0U) {
+        fn_8001FE7C((void*)TObjWeddingLobby__data_805D6F60, 1);
+        TObjWeddingLobby__data_805D6F60 = 0U;
     }
 }
 

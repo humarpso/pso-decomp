@@ -53,7 +53,7 @@ M2C_UNK fn_8009E6B0(void *);
 M2C_UNK fn_80143504();
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 
-extern const f32 lbl_805D988C;
+extern const f32 TObjEneMe1Canadin__data_805D988C;
 
 void TObjEneMe1Canadin__sub_8009D800(void *arg0, s32 arg1) {
     s32 temp_r0;
@@ -78,7 +78,7 @@ void TObjEneMe1Canadin__sub_8009D800(void *arg0, s32 arg1) {
         return;
     case 0:
         fn_80143504();
-        TObjEneEpsilon__sub_800B96D4(arg0, lbl_805D988C);
+        TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x470);
         switch (temp_r0) {
         case 0:

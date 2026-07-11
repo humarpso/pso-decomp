@@ -11,22 +11,22 @@ void check_flags_and_proceed__6TLobbyFv(void);
 M2C_UNK TLobby__sub_802D2D64();
 M2C_UNK fn_801DA2A4(s32);
 
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 extern u16 lbl_805D6888;
 
 void clear_flag400__6TLobbyFv(void) {
     if (lbl_805D6888 & 0x400) {
-        fn_801DA2A4(lbl_805D5580);
+        fn_801DA2A4(TLobby__data_805D5580);
         lbl_805D6888 &= 0xFFFFFBFF;
     }
 }
 
 extern u32 lbl_805D6894;
-extern u32 lbl_805D6898;
+extern u32 TLobby__data_805D6898;
 extern u32 lbl_805D689C;
 
 void check_flags_and_proceed__6TLobbyFv(void) {
-    if (((u32) lbl_805D6894 == 0U) && ((u32) lbl_805D6898 == 0U) && ((u32) lbl_805D689C == 0U)) {
+    if (((u32) lbl_805D6894 == 0U) && ((u32) TLobby__data_805D6898 == 0U) && ((u32) lbl_805D689C == 0U)) {
         TLobby__sub_802D2D64();
     }
 }

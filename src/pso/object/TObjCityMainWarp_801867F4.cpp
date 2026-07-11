@@ -11,14 +11,14 @@ s32 TODoorVoShip__sub_801F44BC(M2C_UNK);
 s32 fn_800B9CF4();
 
 s32 is_split_screen();
-extern s32 lbl_805D5B54;
+extern s32 TObjCityMainWarp__data_805D5B54;
 
 void update_unlock_flags__16TObjCityMainWarpFv(void) {
     M2C_UNK var_r31;
     M2C_UNK var_r30;
     M2C_UNK var_r3;
 
-    lbl_805D5B54 |= 1;
+    TObjCityMainWarp__data_805D5B54 |= 1;
     if ((fn_800B9CF4() != 0) || (is_split_screen() != 0)) {
         var_r3 = 0x4C;
         var_r31 = 0x4F;
@@ -29,13 +29,13 @@ void update_unlock_flags__16TObjCityMainWarpFv(void) {
         var_r30 = 0x53;
     }
     if (TODoorVoShip__sub_801F44BC(var_r3) != 0) {
-        lbl_805D5B54 |= 4;
+        TObjCityMainWarp__data_805D5B54 |= 4;
     }
     if (TODoorVoShip__sub_801F44BC(var_r31) != 0) {
-        lbl_805D5B54 |= 0x10;
+        TObjCityMainWarp__data_805D5B54 |= 0x10;
     }
     if (TODoorVoShip__sub_801F44BC(var_r30) != 0) {
-        lbl_805D5B54 |= 0x200;
+        TObjCityMainWarp__data_805D5B54 |= 0x200;
     }
 }
 

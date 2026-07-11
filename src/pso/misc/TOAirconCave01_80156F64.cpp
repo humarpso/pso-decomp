@@ -9,12 +9,12 @@ extern "C" {
 void release_static_resource__14TOAirconCave01Fv(void);
 void fn_8001FE7C(void*, int);
 
-extern u32 lbl_805D5880;
+extern u32 TOAirconCave01__data_805D5880;
 
 void release_static_resource__14TOAirconCave01Fv(void) {
-    if ((u32) lbl_805D5880 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5880, 1);
-        lbl_805D5880 = 0U;
+    if ((u32) TOAirconCave01__data_805D5880 != 0U) {
+        fn_8001FE7C((void*)TOAirconCave01__data_805D5880, 1);
+        TOAirconCave01__data_805D5880 = 0U;
     }
 }
 

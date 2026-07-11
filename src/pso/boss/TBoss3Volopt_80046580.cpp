@@ -10,10 +10,10 @@ void TBoss3Volopt__sub_80046580(void);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
 
-extern u16 lbl_805D2710;
+extern u16 TBoss3Volopt__data_805D2710;
 
 void TBoss3Volopt__sub_80046580(void) {
-    if (TPhotonMylla__sub_80154CB4(lbl_805D2710) != 0U) {
+    if (TPhotonMylla__sub_80154CB4(TBoss3Volopt__data_805D2710) != 0U) {
         fn_80048C04();
     }
 }

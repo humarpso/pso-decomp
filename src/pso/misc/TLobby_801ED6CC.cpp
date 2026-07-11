@@ -11,12 +11,12 @@ M2C_UNK fn_800715FC(s32);
 M2C_UNK fn_802926EC(s32);
 
 s32 is_split_screen(void);
-extern s32 lbl_80512220[];
+extern s32 TLobby__data_80512220[];
 
 void TLobby__sub_801ED6CC(void) {
     s32 temp_r31;
 
-    temp_r31 = lbl_80512220[0];
+    temp_r31 = TLobby__data_80512220[0];
     if (is_split_screen() == 1) {
         fn_802926EC(temp_r31);
         return;

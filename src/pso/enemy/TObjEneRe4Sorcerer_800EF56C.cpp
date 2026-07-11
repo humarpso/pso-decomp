@@ -14,15 +14,15 @@ M2C_UNK fn_800ED428(u32, s32);
 f32 fn_803D64C0(s32);
 f32 fn_803D64DC(s32);
 
-extern const f32 lbl_805DA78C;
+extern const f32 TObjEneRe4Sorcerer__data_805DA78C;
 extern const f32 lbl_805DA7E0;
 
 void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0) {
     f32 temp_f2;
     f32 temp_f31;
 
-    temp_f31 = lbl_805DA78C * fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    temp_f2 = lbl_805DA78C * -fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+    temp_f31 = TObjEneRe4Sorcerer__data_805DA78C * fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+    temp_f2 = TObjEneRe4Sorcerer__data_805DA78C * -fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
     M2C_FIELD(arg0, f32 *, 0x3D8) = (f32) (M2C_FIELD(arg0, f32 *, 0x38) + temp_f31);
     M2C_FIELD(arg0, f32 *, 0x3DC) = (f32) (lbl_805DA7E0 + M2C_FIELD(arg0, f32 *, 0x3C));
     M2C_FIELD(arg0, f32 *, 0x3E0) = (f32) (M2C_FIELD(arg0, f32 *, 0x40) + temp_f2);

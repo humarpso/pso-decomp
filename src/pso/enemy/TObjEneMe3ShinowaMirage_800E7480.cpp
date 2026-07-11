@@ -11,12 +11,12 @@ s32 TObjEneMe3ShinowaMirage__sub_800E7480(void *arg0);
 f32 fn_803D64C0(s32);
 f32 fn_803D64DC(s32);
 
-extern const f32 lbl_805DA5E4;
+extern const f32 TObjEneMe3ShinowaMirage__data_805DA5E4;
 
 s32 TObjEneMe3ShinowaMirage__sub_800E7480(void *arg0) {
     f32 f31;
 
-    if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805DA5E4) {
+    if (M2C_FIELD(arg0, f32 *, 0x3AC) > TObjEneMe3ShinowaMirage__data_805DA5E4) {
         return 0;
     }
     f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));

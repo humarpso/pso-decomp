@@ -20,13 +20,13 @@ struct VObj_80212644 : Base_80212644 {
     virtual void m6();
     virtual void m7(int, int);
 };
-extern struct VObj_80212644 *lbl_805D6188;
+extern struct VObj_80212644 *THunterGuildSeqOffline__data_805D6188;
 
 void set_state_3__22THunterGuildSeqOfflineFv(void) {
-    if (lbl_805D6188 != NULL) {
-        lbl_805D6188->m7(6, 1);
-        M2C_FIELD(lbl_805D6188, s32 *, 0x38) = 3;
-        fn_80073DC4(lbl_805D6188, 5);
+    if (THunterGuildSeqOffline__data_805D6188 != NULL) {
+        THunterGuildSeqOffline__data_805D6188->m7(6, 1);
+        M2C_FIELD(THunterGuildSeqOffline__data_805D6188, s32 *, 0x38) = 3;
+        fn_80073DC4(THunterGuildSeqOffline__data_805D6188, 5);
     }
 }
 

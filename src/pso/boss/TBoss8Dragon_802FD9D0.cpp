@@ -14,20 +14,20 @@ void *__nw__7TObjectFUl(int);
 void fn_8001FE7C(void*, int);
 void fn_8007EBB4(void*);
 
-    extern int lbl_805D69B8;
-void TBoss8Dragon__sub_802FD9D0(void) { lbl_805D69B8 = 0; }
+    extern int TBoss8Dragon__data_805D69B8;
+void TBoss8Dragon__sub_802FD9D0(void) { TBoss8Dragon__data_805D69B8 = 0; }
 
-extern u32 lbl_805D6988;
-extern u32 lbl_805D69A8;
+extern u32 TBoss8Dragon__data_805D6988;
+extern u32 TBoss8Dragon__data_805D69A8;
 
 void TBoss8Dragon__sub_802FD9DC(void) {
-    if ((u32) lbl_805D69A8 != 0U) {
-        fn_8007EBB4((void*)lbl_805D69A8);
-        lbl_805D69A8 = 0U;
+    if ((u32) TBoss8Dragon__data_805D69A8 != 0U) {
+        fn_8007EBB4((void*)TBoss8Dragon__data_805D69A8);
+        TBoss8Dragon__data_805D69A8 = 0U;
     }
-    if ((u32) lbl_805D6988 != 0U) {
-        fn_8001FE7C((void*)lbl_805D6988, 1);
-        lbl_805D6988 = 0U;
+    if ((u32) TBoss8Dragon__data_805D6988 != 0U) {
+        fn_8001FE7C((void*)TBoss8Dragon__data_805D6988, 1);
+        TBoss8Dragon__data_805D6988 = 0U;
     }
 }
 

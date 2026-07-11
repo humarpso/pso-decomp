@@ -9,7 +9,7 @@ extern "C" {
 void TFogCtrl__sub_800FBA58(void);
 M2C_UNK TFogCtrl__sub_800FBA54(M2C_UNK);
 
-extern M2C_UNK lbl_80501188[];
+extern M2C_UNK TFogCtrl__data_80501188[];
 
 void TFogCtrl__sub_800FBA58(void) {
     s32 var_r29;
@@ -19,7 +19,7 @@ void TFogCtrl__sub_800FBA58(void) {
     var_r29 = 0;
     var_r31 = 0;
     do {
-        temp_r3 = *(lbl_80501188 + var_r31);
+        temp_r3 = *(TFogCtrl__data_80501188 + var_r31);
         if ((u32) temp_r3 != 0U) {
             TFogCtrl__sub_800FBA54(temp_r3);
         }

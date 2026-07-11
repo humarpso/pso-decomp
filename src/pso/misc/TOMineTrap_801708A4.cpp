@@ -32,14 +32,14 @@ s32 TObjPlayer__sub_80019248(s32);
 
 s16 obj_getS16_116(s32);
 extern f32 lbl_805DB85C;
-extern f32 lbl_805DB868;
+extern f32 TOMineTrap__data_805DB868;
 
 f32 TOMineTrap__sub_801708A4(void *arg0, s32 arg1) {
     if (TOMineTrap__sub_801702C8() == 1) {
         return lbl_805DB85C;
     }
     if ((TObjPlayer__sub_80019248(arg1) != 0) && (obj_getS16_116(arg1) != 0)) {
-        ((VObj_801708A4 *)arg0)->v20(0, lbl_805DB868);
+        ((VObj_801708A4 *)arg0)->v20(0, TOMineTrap__data_805DB868);
     }
     return lbl_805DB85C;
 }

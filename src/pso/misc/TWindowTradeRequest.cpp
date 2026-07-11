@@ -11,10 +11,10 @@ M2C_UNK reset__6TLobbyFv();
 M2C_UNK TLobby__sub_802D3284(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowTradeRequest__sub_80249FCC();
 
-extern u8 lbl_805D688B;
+extern u8 TLobby__data_805D688B;
 
 void reset_trade__19TWindowTradeRequestFv(void) {
-    if ((s32) lbl_805D688B == 2) {
+    if ((s32) TLobby__data_805D688B == 2) {
         TLobby__sub_802D3284(0, 3);
         TWindowTradeRequest__sub_80249FCC();
         reset__6TLobbyFv();

@@ -18,11 +18,11 @@ s32 fn_8001C5F0(void) {
     return lbl_805D5F88;
 }
 
-extern void *lbl_805D4A80;
+extern void *TLoadCtrl__data_805D4A80;
 
 void set_field1C__9TLoadCtrlFi(s32 arg0) {
-    if ((void *) lbl_805D4A80 != NULL) {
-        M2C_FIELD(lbl_805D4A80, s32 *, 0x1C) = arg0;
+    if ((void *) TLoadCtrl__data_805D4A80 != NULL) {
+        M2C_FIELD(TLoadCtrl__data_805D4A80, s32 *, 0x1C) = arg0;
     }
 }
 

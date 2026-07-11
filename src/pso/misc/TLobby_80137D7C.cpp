@@ -16,7 +16,7 @@ M2C_UNK fn_80265F60(s32);
 s32 fn_80266508(M2C_UNK, M2C_UNK);
 M2C_UNK fn_8026CBB8(M2C_UNK);
 
-extern s32 lbl_805D5594;
+extern s32 TLobby__data_805D5594;
 extern s32 lbl_805D55E0;
 extern s32 lbl_805D55E4;
 
@@ -33,7 +33,7 @@ void open_city_warp_menu__6TLobbyFv(void) {
     fn_80265F60(lbl_805D55E4);
     fn_80265C30(lbl_805D55E4);
     fn_8013AD28(lbl_805D55E4);
-    lbl_805D5594 = 0x19;
+    TLobby__data_805D5594 = 0x19;
 }
 
 }

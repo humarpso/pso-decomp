@@ -22,7 +22,7 @@ M2C_UNK fn_802661D4(s32, s32, M2C_UNK, M2C_UNK);
 s32 fn_80266508(M2C_UNK, M2C_UNK);
 M2C_UNK fn_8026CBB8(M2C_UNK);
 
-extern const f32 lbl_805DD6C8;
+extern const f32 TWindowSubShortMail__data_805DD6C8;
 
 s32 open_menu__19TWindowSubShortMailFv(void) {
     s32 temp_r3;
@@ -36,11 +36,11 @@ s32 open_menu__19TWindowSubShortMailFv(void) {
         fn_80265C10(temp_r31, 1);
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
-    fn_80265E60(temp_r31, lbl_805DD6C8);
+    fn_80265E60(temp_r31, TWindowSubShortMail__data_805DD6C8);
     return temp_r31;
 }
 
-extern const f32 lbl_805DD6C8;
+extern const f32 TWindowSubShortMail__data_805DD6C8;
 extern const f32 lbl_805DD6CC;
 
 s32 create_window__19TWindowSubShortMailFv(void) {
@@ -58,7 +58,7 @@ s32 create_window__19TWindowSubShortMailFv(void) {
     }
     fn_800740FC(temp_r31);
     TQuestThread__sub_801F64BC(temp_r31);
-    fn_80265DEC(temp_r31, lbl_805DD6C8, lbl_805DD6CC);
+    fn_80265DEC(temp_r31, TWindowSubShortMail__data_805DD6C8, lbl_805DD6CC);
     return temp_r31;
 }
 

@@ -16,7 +16,7 @@ M2C_UNK fn_803D9B78();
 M2C_UNK fn_803DA798(s32);
 M2C_UNK fn_803DC894(void *, s32, f32);
 
-extern u8 *lbl_805D5964;
+extern u8 *TODoorCave02__data_805D5964;
 extern const f32 lbl_805DB4C4;
 
 struct Base { char pad[0x18]; };
@@ -38,11 +38,11 @@ void render__12TODoorCave02Fv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
-            fn_803DA798(*(s32 *)(lbl_805D5964 + ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4)));
+            fn_803DA798(*(s32 *)(TODoorCave02__data_805D5964 + ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4)));
             TODoorCave02__sub_80161EE0(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C));
             TODoorCave02__sub_80161EE0(arg0, M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30));
         } else {
-            fn_803DA798(M2C_FIELD(lbl_805D5964, s32 *, 4));
+            fn_803DA798(M2C_FIELD(TODoorCave02__data_805D5964, s32 *, 4));
             fn_803DC894(M2C_FIELD(arg0, void **, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
         }
         fn_803D9B78();

@@ -13,7 +13,7 @@ M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
 M2C_UNK fn_8001EDF4(M2C_UNK *);
 M2C_UNK fn_8007EBB4(void *);
 
-extern M2C_UNK lbl_8044BF20[];
+extern M2C_UNK TQuestListVM__data_8044BF20[];
 extern M2C_UNK __vt__12TQuestListVM[];
 extern s32 lbl_805D6210;
 
@@ -41,7 +41,7 @@ void *__dt__12TQuestListVMFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x2388) = 0U;
         }
         lbl_805D6210 = 0;
-        fn_8001EDF4(lbl_8044BF20);
+        fn_8001EDF4(TQuestListVM__data_8044BF20);
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

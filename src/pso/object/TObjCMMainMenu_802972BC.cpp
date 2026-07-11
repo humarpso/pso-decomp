@@ -49,7 +49,7 @@ s32 try_pay_fee__14TObjCMMainMenuFv(void) {
     return 1;
 }
 
-extern s32 lbl_805D659C;
+extern s32 TObjCMMainMenu__data_805D659C;
 
 void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
     if (fn_8028DA7C(M2C_FIELD(arg0, void **, 0x1C)) == 0) {
@@ -65,38 +65,38 @@ void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
     fn_80298D98(1);
     fn_80290BE0();
     M2C_FIELD(arg0, s32 *, 0x30) = 0x3C;
-    lbl_805D659C = 2;
+    TObjCMMainMenu__data_805D659C = 2;
 }
 
-extern s32 lbl_805D659C;
+extern s32 TObjCMMainMenu__data_805D659C;
 
 void open_name_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
-    lbl_805D659C = 1;
+    TObjCMMainMenu__data_805D659C = 1;
     TObjCMName__sub_80294C58(M2C_FIELD(arg0, s32 *, 0x50));
 }
 
-extern s32 lbl_805D659C;
+extern s32 TObjCMMainMenu__data_805D659C;
 
 void open_proportion_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
-    lbl_805D659C = 1;
+    TObjCMMainMenu__data_805D659C = 1;
     create__16TObjCMProportionFPv(M2C_FIELD(arg0, s32 *, 0x50));
 }
 
-extern s32 lbl_805D659C;
+extern s32 TObjCMMainMenu__data_805D659C;
 
 void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
-    lbl_805D659C = 1;
+    TObjCMMainMenu__data_805D659C = 1;
     create__16TObjCMAutoMkDataFPv(M2C_FIELD(arg0, s32 *, 0x50));
 }
 
-extern s32 lbl_805D659C;
+extern s32 TObjCMMainMenu__data_805D659C;
 
 void open_hair_menu__14TObjCMMainMenuFPv(void *arg0) {
     fn_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
-    lbl_805D659C = 1;
+    TObjCMMainMenu__data_805D659C = 1;
     TObjCMHairMenu__sub_80296410(M2C_FIELD(arg0, s32 *, 0x50));
 }
 

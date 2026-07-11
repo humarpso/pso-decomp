@@ -17,7 +17,7 @@ M2C_UNK fn_8002AEAC(void *);
 M2C_UNK fn_8011E204(void *, int);
 M2C_UNK fn_801D33B4(void *);
 
-extern const f32 lbl_805DC278;
+extern const f32 TObjPlayer__data_805DC278;
 
 void reset_state__10TObjPlayerFPv(u8 *arg0) {
     TAdRicoRing__sub_8001BEE8(arg0 + 0x858, 2);
@@ -33,12 +33,12 @@ void reset_state__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3F4) = 0;
     M2C_FIELD(arg0, s32 *, 0x3F0) = 0;
     M2C_FIELD(arg0, s32 *, 0x3EC) = 0;
-    M2C_FIELD(arg0, f32 *, 0x400) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x3FC) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x310) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x30C) = (f32) lbl_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x308) = (f32) lbl_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x400) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x3FC) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x310) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x30C) = (f32) TObjPlayer__data_805DC278;
+    M2C_FIELD(arg0, f32 *, 0x308) = (f32) TObjPlayer__data_805DC278;
     TObjPlayer__sub_801BF964(arg0 + 0x5FC);
 }
 

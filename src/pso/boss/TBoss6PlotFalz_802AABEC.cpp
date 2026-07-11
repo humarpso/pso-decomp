@@ -8,10 +8,10 @@ extern "C" {
 
 u8 is_flag_set__14TBoss6PlotFalzFv(void);
 
-extern s32 lbl_805D66EC;
+extern s32 TBoss6PlotFalz__data_805D66EC;
 
 u8 is_flag_set__14TBoss6PlotFalzFv(void) {
-    return (u8) (lbl_805D66EC != 0);
+    return (u8) (TBoss6PlotFalz__data_805D66EC != 0);
 }
 
 }

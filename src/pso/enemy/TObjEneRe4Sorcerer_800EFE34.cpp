@@ -8,10 +8,10 @@ extern "C" {
 
 void TObjEneRe4Sorcerer__vt86(void *arg0);
 
-extern f32 lbl_805DA794;
+extern f32 TObjEneRe4Sorcerer__data_805DA794;
 
 void TObjEneRe4Sorcerer__vt86(void *arg0) {
-    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) lbl_805DA794;
+    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) TObjEneRe4Sorcerer__data_805DA794;
 }
 
 }

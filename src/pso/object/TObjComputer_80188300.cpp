@@ -11,7 +11,7 @@ void fn_8001FE7C(void*, int);
 M2C_UNK fn_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
 
-extern u32 lbl_805D5B68;
+extern u32 TObjComputer__data_805D5B68;
 extern u32 lbl_805D5B6C;
 
 void free_resources__12TObjComputerFv(void) {
@@ -20,9 +20,9 @@ void free_resources__12TObjComputerFv(void) {
         fn_8007EBB4(lbl_805D5B6C);
         lbl_805D5B6C = 0U;
     }
-    if ((u32) lbl_805D5B68 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5B68, 1);
-        lbl_805D5B68 = 0U;
+    if ((u32) TObjComputer__data_805D5B68 != 0U) {
+        fn_8001FE7C((void*)TObjComputer__data_805D5B68, 1);
+        TObjComputer__data_805D5B68 = 0U;
     }
 }
 

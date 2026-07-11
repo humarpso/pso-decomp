@@ -9,13 +9,13 @@ extern "C" {
 void TCheckRoomSequence__sub_8020F14C(u32 arg0);
 M2C_UNK fn_80073DC4(M2C_UNK, M2C_UNK);
 
-extern s32 lbl_805D6164;
-extern s32 lbl_805D6168;
+extern s32 TCheckRoomSequence__data_805D6164;
+extern s32 TCheckRoomSequence__data_805D6168;
 
 void TCheckRoomSequence__sub_8020F14C(u32 arg0) {
     if (arg0 != 0U) {
-        lbl_805D6164 = 0x46;
-        lbl_805D6168 = 2;
+        TCheckRoomSequence__data_805D6164 = 0x46;
+        TCheckRoomSequence__data_805D6168 = 2;
         fn_80073DC4(arg0, 0x10);
     }
 }

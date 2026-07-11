@@ -20,12 +20,12 @@ struct VObj_802126C4 : Base_802126C4 {
     virtual void m6();
     virtual void m7(int, int);
 };
-extern VObj_802126C4 *lbl_805D6188;
+extern VObj_802126C4 *THunterGuildSeqOffline__data_805D6188;
 
 void THunterGuildSeqOffline__sub_802126C4(void) {
-    if (lbl_805D6188 != NULL) {
-        lbl_805D6188->m7(0x19, 1);
-        fn_80073DC4(lbl_805D6188, 4);
+    if (THunterGuildSeqOffline__data_805D6188 != NULL) {
+        THunterGuildSeqOffline__data_805D6188->m7(0x19, 1);
+        fn_80073DC4(THunterGuildSeqOffline__data_805D6188, 4);
     }
 }
 

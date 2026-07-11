@@ -38,7 +38,7 @@ M2C_UNK fn_803DA798(s32);
 M2C_UNK fn_803E46BC(s32);
 
 extern s32 some_id_805c6f74;
-extern const f32 lbl_805D968C;
+extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D9698;
 extern const f32 lbl_805D969C;
 extern const f32 lbl_805D96A0;
@@ -63,7 +63,7 @@ void TObjEneBalClawClaw__sub_80090B7C(u8 *arg0) {
                 fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
                 fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
-                fn_803D9624(0, lbl_805D968C, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), lbl_805D968C);
+                fn_803D9624(0, TObjEneBalClawClaw__data_805D968C, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), TObjEneBalClawClaw__data_805D968C);
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
                 TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
                 fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

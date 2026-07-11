@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80044498();
 f32 fn_803D64C0(s32);
-extern const f32 lbl_805D87E4;
+extern const f32 TBoss3Volopt__data_805D87E4;
 extern const f32 lbl_805D8818;
 
 void fn_80047344(void *arg0) {
@@ -36,7 +36,7 @@ void fn_80047344(void *arg0) {
         }
         break;
     case -1:
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D87E4;
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss3Volopt__data_805D87E4;
         break;
     }
 }

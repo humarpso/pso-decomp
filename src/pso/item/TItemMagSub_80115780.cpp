@@ -9,7 +9,7 @@ extern "C" {
 void reset__11TItemMagSubFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 
-extern const f32 lbl_805DABC8;
+extern const f32 TItemMagSub__data_805DABC8;
 
 void reset__11TItemMagSubFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, M2C_FIELD(arg0, s32 *, 0x20) + 0x2FC);
@@ -22,9 +22,9 @@ void reset__11TItemMagSubFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x54) = 0;
     M2C_FIELD(arg0, s32 *, 0x50) = 0;
     M2C_FIELD(arg0, s32 *, 0x4C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DABC8;
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) lbl_805DABC8;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DABC8;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) TItemMagSub__data_805DABC8;
+    M2C_FIELD(arg0, f32 *, 0x98) = (f32) TItemMagSub__data_805DABC8;
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) TItemMagSub__data_805DABC8;
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     M2C_FIELD(arg0, s32 *, 0x34) = 0;

@@ -8,10 +8,10 @@ extern "C" {
 
 void TItemMag__sub_80113EF4(void *arg0);
 
-extern f32 lbl_805DABA4;
+extern f32 TItemMag__data_805DABA4;
 
 void TItemMag__sub_80113EF4(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DABA4;
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TItemMag__data_805DABA4;
 }
 
 }

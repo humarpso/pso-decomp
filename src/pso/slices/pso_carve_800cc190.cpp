@@ -4,7 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-extern const f32 lbl_805DA0E8;
+extern const f32 TObjEneMe1Gee__data_805DA0E8;
 
 struct VBase_800CC190 {
     char pad[0x18];
@@ -114,7 +114,7 @@ extern "C" {
 void TObjEneMe1Gee__vt86(void *arg0) {
     struct VBase_800CC190 *o = (struct VBase_800CC190 *)arg0;
     M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3F8) - M2C_FIELD(arg0, f32 *, 0x3C));
-    if (M2C_FIELD(arg0, f32 *, 0x3F4) < lbl_805DA0E8) {
+    if (M2C_FIELD(arg0, f32 *, 0x3F4) < TObjEneMe1Gee__data_805DA0E8) {
         o->m96();
     } else {
         o->m95();

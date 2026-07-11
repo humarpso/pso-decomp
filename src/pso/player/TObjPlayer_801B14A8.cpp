@@ -21,13 +21,13 @@ M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
 
-extern f32 lbl_805DC278;
+extern f32 TObjPlayer__data_805DC278;
 
 void draw__10TObjPlayerFPv(void *arg0) {
     fn_803D9B2C();
     fn_803D8C7C(0, fn_80055694(arg0));
     fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-    fn_80142D50(arg0, M2C_FIELD(arg0, s32 *, 0xF8), lbl_805DC278, M2C_FIELD(arg0, s32 *, 0xE0));
+    fn_80142D50(arg0, M2C_FIELD(arg0, s32 *, 0xF8), TObjPlayer__data_805DC278, M2C_FIELD(arg0, s32 *, 0xE0));
     fn_803D9B78();
 }
 

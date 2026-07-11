@@ -4090,6 +4090,9 @@ pso/enemy/TObjEneBm3Fly_800B150C.cpp:
 pso/enemy/TObjEneBm3Fly_800B1614.cpp:
 	.text       start:0x800B1614 end:0x800B1634
 
+pso/enemy/TObjEneBm3Fly_800B1820.cpp:
+	.text       start:0x800B1820 end:0x800B18C4
+
 pso/enemy/TObjEneBm3Fly.cpp:
 	.text       start:0x800B1944 end:0x800B1978
 
@@ -6709,6 +6712,9 @@ pso/item/TItemEffNeedle_80109AE4.cpp:
 
 pso/slices/pso_carve_80109bf8.cpp:
 	.text       start:0x80109BF8 end:0x80109CBC
+
+pso/item/TItemEffNeedleBase_80109EB4.cpp:
+	.text       start:0x80109EB4 end:0x80109F40
 
 pso/item/TItemEffNeedle.cpp:
 	.text       start:0x80109F40 end:0x80109F98
@@ -21918,6 +21924,9 @@ pso/boss/TBoss6Type2_802BBF10.cpp:
 pso/boss/TBoss6Type2_802BBFA4.cpp:
 	.text       start:0x802BBFA4 end:0x802BC050
 
+pso/boss/TBoss6Type2_802BC198.cpp:
+	.text       start:0x802BC198 end:0x802BC23C
+
 pso/boss/TBoss6Type2_802BC364.cpp:
 	.text       start:0x802BC364 end:0x802BC3DC
 
@@ -24287,6 +24296,9 @@ pso/enemy/TObjEneRecon_8031C2E0.cpp:
 
 pso/enemy/TObjEneRecon_8031D780.cpp:
 	.text       start:0x8031D780 end:0x8031D898
+
+pso/enemy/TObjEneRecon_8031DB34.cpp:
+	.text       start:0x8031DB34 end:0x8031DBD8
 
 pso/enemy/TObjEneRecon_8031DCCC.cpp:
 	.text       start:0x8031DCCC end:0x8031DD14

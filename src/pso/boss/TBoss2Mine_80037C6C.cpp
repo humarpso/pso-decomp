@@ -8,10 +8,10 @@ extern "C" {
 
 void TBoss2Mine__sub_80037C6C(void *arg0);
 
-extern f32 lbl_805D84EC;
+extern f32 TBoss2Mine__data_805D84EC;
 
 void TBoss2Mine__sub_80037C6C(void *arg0) {
-    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (lbl_805D84EC + (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C)));
+    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (TBoss2Mine__data_805D84EC + (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C)));
 }
 
 }

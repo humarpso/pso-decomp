@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TBoss6PlotFalz__sub_8035A620(void);
 
-extern s32 lbl_805D66EC;
+extern s32 TBoss6PlotFalz__data_805D66EC;
 
 s32 TBoss6PlotFalz__sub_8035A620(void) {
-    return lbl_805D66EC;
+    return TBoss6PlotFalz__data_805D66EC;
 }
 
 }

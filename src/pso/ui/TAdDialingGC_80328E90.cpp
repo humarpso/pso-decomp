@@ -10,12 +10,12 @@ void close__12TAdDialingGCFv(void);
 M2C_UNK fn_802A0F3C();
 M2C_UNK fn_802A5120();
 
-extern s32 lbl_805D6C78;
+extern s32 TAdDialingGC__data_805D6C78;
 
 void close__12TAdDialingGCFv(void) {
     fn_802A5120();
     fn_802A0F3C();
-    lbl_805D6C78 = 0;
+    TAdDialingGC__data_805D6C78 = 0;
 }
 
 }

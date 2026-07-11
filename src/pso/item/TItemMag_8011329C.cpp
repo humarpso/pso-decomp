@@ -10,15 +10,15 @@ void update__8TItemMagFPv(void *arg0);
 M2C_UNK TItemMag__sub_80111758(void *, M2C_UNK);
 
 s32 obj_testFlags30(void *, M2C_UNK);
-extern const f32 lbl_805DABA4;
-extern const f32 lbl_805DABA8;
+extern const f32 TItemMag__data_805DABA4;
+extern const f32 TItemMag__data_805DABA8;
 
 void update__8TItemMagFPv(void *arg0) {
     f32 temp_f1;
 
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x1C8);
-    if (lbl_805DABA4 < temp_f1) {
-        M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) (temp_f1 - lbl_805DABA8);
+    if (TItemMag__data_805DABA4 < temp_f1) {
+        M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) (temp_f1 - TItemMag__data_805DABA8);
     }
     if (obj_testFlags30(arg0, 0x08000000) == 0) {
         TItemMag__sub_80111758(arg0, 1);

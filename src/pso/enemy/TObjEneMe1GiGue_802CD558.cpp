@@ -35,21 +35,21 @@ void * TObjEneMe1GiGue__sub_802CD558(void *arg0) {
     return o2;
 }
 
-extern u32 lbl_805D6838;
-extern void *lbl_805D683C;
+extern u32 TObjEneMe1GiGue__data_805D6838;
+extern void *TObjEneMe1GiGue__data_805D683C;
 
 void TObjEneMe1GiGue__sub_802CD5C0(void) {
     TObjEneMe1GiGueBarrier__sub_80325CC0();
     fn_802CE4E8();
-    if (lbl_805D683C != NULL) {
-        if (lbl_805D683C != NULL) {
-            ((VObj_802CD5C0*)lbl_805D683C)->m0(1);
+    if (TObjEneMe1GiGue__data_805D683C != NULL) {
+        if (TObjEneMe1GiGue__data_805D683C != NULL) {
+            ((VObj_802CD5C0*)TObjEneMe1GiGue__data_805D683C)->m0(1);
         }
-        lbl_805D683C = NULL;
+        TObjEneMe1GiGue__data_805D683C = NULL;
     }
-    if (lbl_805D6838 != 0U) {
-        fn_8001FE7C(lbl_805D6838, 1);
-        lbl_805D6838 = 0U;
+    if (TObjEneMe1GiGue__data_805D6838 != 0U) {
+        fn_8001FE7C(TObjEneMe1GiGue__data_805D6838, 1);
+        TObjEneMe1GiGue__data_805D6838 = 0U;
     }
 }
 

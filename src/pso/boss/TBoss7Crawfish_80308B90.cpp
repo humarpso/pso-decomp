@@ -12,14 +12,14 @@ M2C_UNK fn_80308910(s32);
 s32 objInBand__FP7GameObjf(s32, f32);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
-extern const f32 lbl_805DF0D8;
+extern const f32 TBoss7Crawfish__data_805DF0D8;
 extern const f32 lbl_805DF0EC;
 
 void check_band_and_destroy__14TBoss7CrawfishFi(s32 arg0) {
     if (objInBand__FP7GameObjf(arg0, lbl_805DF0EC) != 0) {
         fn_80308910(arg0);
     }
-    if (lbl_805DF0D8 == TBoss7Crawfish__sub_803094D8(arg0)) {
+    if (TBoss7Crawfish__data_805DF0D8 == TBoss7Crawfish__sub_803094D8(arg0)) {
         queue_destruction__7TObjectFv(arg0);
     }
 }

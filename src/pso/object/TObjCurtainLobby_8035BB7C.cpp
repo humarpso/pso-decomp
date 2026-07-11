@@ -21,9 +21,9 @@ M2C_UNK fn_8015858C();
 
 extern M2C_UNK __vt__16TObjCurtainLobby[];
 extern s32 lbl_805D4424;
-extern void *lbl_805D6F58;
+extern void *TObjCurtainLobby__data_805D6F58;
 extern s32 lbl_805D6F5C;
-extern const f32 lbl_805E0148;
+extern const f32 TObjCurtainLobby__data_805E0148;
 
 void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     fn_8015858C();
@@ -35,8 +35,8 @@ void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     }
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805E0148;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D6F58, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TObjCurtainLobby__data_805E0148;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjCurtainLobby__data_805D6F58, void **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6F5C;
     return arg0;
 }

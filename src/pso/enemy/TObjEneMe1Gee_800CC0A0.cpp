@@ -8,11 +8,11 @@ extern "C" {
 
 void TObjEneMe1Gee__vt104(void *arg0);
 
-extern void *lbl_805D51B0;
+extern void *TObjEneMe1Gee__data_805D51B0;
 
 void TObjEneMe1Gee__vt104(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D51B0, void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D51B0, void **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjEneMe1Gee__data_805D51B0, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjEneMe1Gee__data_805D51B0, void **, 0x42C), s32 *, 0xC);
 }
 
 }

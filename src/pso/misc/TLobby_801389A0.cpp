@@ -20,7 +20,7 @@ s32 fn_802693B4(u32);
 M2C_UNK fn_80269454(u32);
 
 extern s8 lbl_8050E208[];
-extern s32 lbl_805D5580;
+extern s32 TLobby__data_805D5580;
 extern u32 lbl_805D55F8;
 
 void update_scroll_close__6TLobbyFv(void) {
@@ -30,7 +30,7 @@ void update_scroll_close__6TLobbyFv(void) {
             lbl_805D55F8 = 0U;
             destroy_lobby_ui__6TLobbyFv();
             fn_801A66B8();
-            fn_801DA1DC(lbl_805D5580);
+            fn_801DA1DC(TLobby__data_805D5580);
         }
     } else {
         close_all_windows__6TLobbyFv();
@@ -38,24 +38,24 @@ void update_scroll_close__6TLobbyFv(void) {
 }
 
 extern s8 lbl_8050E208[];
-extern u32 lbl_805D55DC;
+extern u32 TLobby__data_805D55DC;
 
 void handle_short_list_input__6TLobbyFv(void) {
     void *temp_r31;
 
-    if ((u32) lbl_805D55DC != 0U) {
+    if ((u32) TLobby__data_805D55DC != 0U) {
         temp_r31 = lbl_8050E208 + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) {
-            if (fn_802693B4(lbl_805D55DC) == 0) {
-                fn_80269454(lbl_805D55DC);
+            if (fn_802693B4(TLobby__data_805D55DC) == 0) {
+                fn_80269454(TLobby__data_805D55DC);
             } else {
-                TWindow__close(lbl_805D55DC);
-                lbl_805D55DC = 0U;
+                TWindow__close(TLobby__data_805D55DC);
+                TLobby__data_805D55DC = 0U;
                 close_all_windows__6TLobbyFv();
             }
         } else if (TWindowShortListCtrl__check_controller_button(temp_r31, 2) != 0) {
-            TWindow__close(lbl_805D55DC);
-            lbl_805D55DC = 0U;
+            TWindow__close(TLobby__data_805D55DC);
+            TLobby__data_805D55DC = 0U;
             close_all_windows__6TLobbyFv();
         }
     } else {
@@ -65,24 +65,24 @@ void handle_short_list_input__6TLobbyFv(void) {
 }
 
 extern s8 lbl_8050E208[];
-extern u32 lbl_805D55CC;
+extern u32 TLobby__data_805D55CC;
 
 void update_short_list__6TLobbyFv(void) {
     void *temp_r31;
 
-    if ((u32) lbl_805D55CC != 0U) {
+    if ((u32) TLobby__data_805D55CC != 0U) {
         temp_r31 = lbl_8050E208 + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) {
-            if (fn_802693B4(lbl_805D55CC) == 0) {
-                fn_80269454(lbl_805D55CC);
+            if (fn_802693B4(TLobby__data_805D55CC) == 0) {
+                fn_80269454(TLobby__data_805D55CC);
             } else {
-                TWindow__close(lbl_805D55CC);
-                lbl_805D55CC = 0U;
+                TWindow__close(TLobby__data_805D55CC);
+                TLobby__data_805D55CC = 0U;
                 close_all_windows__6TLobbyFv();
             }
         } else if (TWindowShortListCtrl__check_controller_button(temp_r31, 2) != 0) {
-            TWindow__close(lbl_805D55CC);
-            lbl_805D55CC = 0U;
+            TWindow__close(TLobby__data_805D55CC);
+            TLobby__data_805D55CC = 0U;
             close_all_windows__6TLobbyFv();
         }
     } else {

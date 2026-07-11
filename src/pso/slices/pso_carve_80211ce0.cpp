@@ -11,14 +11,14 @@ s32 fn_80211F54(s32);
 s32 fn_80211FA0(s32);
 s32 fn_80212014(s32);
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D53AC;
+extern s32 TLobby__data_805D53AC;
 
 s32 fn_80211CE0(s32 arg0) {
     if (get_main_phase() == 0xE) {
         return fn_80212014(arg0);
     }
     if (get_main_phase() == 0xF) {
-        if ((s32) lbl_805D53A0 == (s32) lbl_805D53AC) {
+        if ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC) {
             return fn_80211FA0(arg0);
         }
         return fn_80211F54(arg0);

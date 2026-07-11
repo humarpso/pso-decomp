@@ -12,7 +12,7 @@ M2C_UNK TBoss6Type2__sub_802BA078(void *);
 f32 TObjPlayer__sub_80014108(void *, u32, f32);
 u8 *TObjPlayer__sub_80015DC4(u32, s32);
 
-extern const f32 lbl_805DE410;
+extern const f32 TBoss6Type2__data_805DE410;
 
 f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
     s32 var_r31;
@@ -51,7 +51,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
     }
     TBoss6Type2__sub_802BA078(arg0);
     TBoss6Type2__sub_802B9B20(arg0);
-    return lbl_805DE410;
+    return TBoss6Type2__data_805DE410;
 }
 
 }

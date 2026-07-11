@@ -18,14 +18,14 @@ u32 fn_8010595C(s32);
 M2C_UNK fn_801B9EDC(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D53AC;
+extern s32 TLobby__data_805D53AC;
 
 void fn_801046A8(s32 arg0, s32 arg1) {
     s32 temp_r3;
     u32 var_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg0);
-    if ((temp_r3 != 0) && ((TObjPlayer__sub_80019248() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) lbl_805D53AC)) || ((fn_801058F8(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) lbl_805D53AC)))) {
+    if ((temp_r3 != 0) && ((TObjPlayer__sub_80019248() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)) || ((fn_801058F8(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)))) {
         var_r3 = 0U;
         switch (arg1) {
         case 0:

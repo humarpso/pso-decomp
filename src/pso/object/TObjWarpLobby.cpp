@@ -9,11 +9,11 @@ extern "C" {
 void release_static__13TObjWarpLobbyFv(void);
 M2C_UNK fn_8001FE7C(s32, M2C_UNK);
 
-extern s32 lbl_805D5CC8;
+extern s32 TObjWarpLobby__data_805D5CC8;
 
 void release_static__13TObjWarpLobbyFv(void) {
-    fn_8001FE7C(lbl_805D5CC8, 1);
-    lbl_805D5CC8 = 0;
+    fn_8001FE7C(TObjWarpLobby__data_805D5CC8, 1);
+    TObjWarpLobby__data_805D5CC8 = 0;
 }
 
 }

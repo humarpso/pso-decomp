@@ -21,8 +21,8 @@ s32 fn_80351E38();
 
 extern M2C_UNK __vt__16TObjRainbowLobby[];
 extern s32 lbl_805D435C;
-extern void *lbl_805D6EB0;
-extern const f32 lbl_805DFE30;
+extern void *TObjRainbowLobby__data_805D6EB0;
+extern const f32 TObjRainbowLobby__data_805DFE30;
 
 void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     fn_8015858C();
@@ -34,9 +34,9 @@ void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
     }
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805DFE30;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D6EB0, void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D6EB0, void **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TObjRainbowLobby__data_805DFE30;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjRainbowLobby__data_805D6EB0, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjRainbowLobby__data_805D6EB0, void **, 0x42C), s32 *, 0xC);
     return arg0;
 }
 

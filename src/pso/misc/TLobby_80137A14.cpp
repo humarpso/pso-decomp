@@ -9,12 +9,12 @@ extern "C" {
 void destroy_all_objects__6TLobbyFv(void);
 void queue_destruction__7TObjectFv(void*);
 
-extern u32 lbl_805D55C8;
-extern u32 lbl_805D55CC;
-extern u32 lbl_805D55D0;
+extern u32 TLobby__data_805D55C8;
+extern u32 TLobby__data_805D55CC;
+extern u32 TLobby__data_805D55D0;
 extern u32 lbl_805D55D4;
-extern u32 lbl_805D55D8;
-extern u32 lbl_805D55DC;
+extern u32 TLobby__data_805D55D8;
+extern u32 TLobby__data_805D55DC;
 extern u32 lbl_805D55E0;
 extern u32 lbl_805D55E4;
 extern u32 lbl_805D55EC;
@@ -23,29 +23,29 @@ extern u32 lbl_805D55F4;
 extern u32 lbl_805D55F8;
 
 void destroy_all_objects__6TLobbyFv(void) {
-    if ((u32) lbl_805D55C8 != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D55C8);
-        lbl_805D55C8 = 0U;
+    if ((u32) TLobby__data_805D55C8 != 0U) {
+        queue_destruction__7TObjectFv((void*)TLobby__data_805D55C8);
+        TLobby__data_805D55C8 = 0U;
     }
-    if ((u32) lbl_805D55CC != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D55CC);
-        lbl_805D55CC = 0U;
+    if ((u32) TLobby__data_805D55CC != 0U) {
+        queue_destruction__7TObjectFv((void*)TLobby__data_805D55CC);
+        TLobby__data_805D55CC = 0U;
     }
-    if ((u32) lbl_805D55D0 != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D55D0);
-        lbl_805D55D0 = 0U;
+    if ((u32) TLobby__data_805D55D0 != 0U) {
+        queue_destruction__7TObjectFv((void*)TLobby__data_805D55D0);
+        TLobby__data_805D55D0 = 0U;
     }
     if ((u32) lbl_805D55D4 != 0U) {
         queue_destruction__7TObjectFv((void*)lbl_805D55D4);
         lbl_805D55D4 = 0U;
     }
-    if ((u32) lbl_805D55D8 != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D55D8);
-        lbl_805D55D8 = 0U;
+    if ((u32) TLobby__data_805D55D8 != 0U) {
+        queue_destruction__7TObjectFv((void*)TLobby__data_805D55D8);
+        TLobby__data_805D55D8 = 0U;
     }
-    if ((u32) lbl_805D55DC != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D55DC);
-        lbl_805D55DC = 0U;
+    if ((u32) TLobby__data_805D55DC != 0U) {
+        queue_destruction__7TObjectFv((void*)TLobby__data_805D55DC);
+        TLobby__data_805D55DC = 0U;
     }
     if ((u32) lbl_805D55E0 != 0U) {
         queue_destruction__7TObjectFv((void*)lbl_805D55E0);

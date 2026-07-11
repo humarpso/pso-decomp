@@ -16,7 +16,7 @@ M2C_UNK fn_8022602C(M2C_UNK);
 
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
-extern const f32 lbl_805D9EB8;
+extern const f32 TObjGrass__data_805D9EB8;
 
 void update__9TObjGrassFPv(u8 *arg0) {
     s16 temp_r4;
@@ -24,7 +24,7 @@ void update__9TObjGrassFPv(u8 *arg0) {
     obj_clearFlags30(arg0, 0x04040000);
     fn_80143504(arg0);
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
-        fn_80011734(arg0, 0, lbl_805D9EB8);
+        fn_80011734(arg0, 0, TObjGrass__data_805D9EB8);
     }
     fn_80156698(arg0);
     TOTrapAncient01__sub_80226578(fn_800F5EB4(arg0, 0x4003A801), arg0, arg0 + 0x38, 0, 0);

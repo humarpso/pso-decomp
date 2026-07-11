@@ -8,10 +8,10 @@ extern "C" {
 
 void TTecZondeEff__sub_8023DBA8(void);
 
-extern s32 lbl_805D63B8;
+extern s32 TTecZondeEff__data_805D63B8;
 
 void TTecZondeEff__sub_8023DBA8(void) {
-    lbl_805D63B8 = 0;
+    TTecZondeEff__data_805D63B8 = 0;
 }
 
 }

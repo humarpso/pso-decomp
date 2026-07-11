@@ -9,11 +9,11 @@ extern "C" {
 void TObjCityAreaWarp__vt17(void);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
-extern s16 lbl_805D5CE8;
+extern s16 TLobby__data_805D5CE8;
 
 void TObjCityAreaWarp__vt17(void) {
     fn_8022675C(0x40003205, 0, 0, 0);
-    lbl_805D5CE8 = 1;
+    TLobby__data_805D5CE8 = 1;
 }
 
 }

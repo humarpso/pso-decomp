@@ -11,12 +11,12 @@ M2C_UNK fn_8024E3CC();
 M2C_UNK fn_8026AC50();
 void queue_destruction__7TObjectFv(void*);
 
-extern u32 lbl_805D63F8;
+extern u32 TWindowCtrl__data_805D63F8;
 
 void shutdown__11TWindowCtrlFv(void) {
-    if ((u32) lbl_805D63F8 != 0U) {
-        queue_destruction__7TObjectFv((void*)lbl_805D63F8);
-        lbl_805D63F8 = 0U;
+    if ((u32) TWindowCtrl__data_805D63F8 != 0U) {
+        queue_destruction__7TObjectFv((void*)TWindowCtrl__data_805D63F8);
+        TWindowCtrl__data_805D63F8 = 0U;
     }
     fn_8026AC50();
     fn_8024E3CC();

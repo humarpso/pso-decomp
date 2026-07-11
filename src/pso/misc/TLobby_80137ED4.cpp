@@ -21,11 +21,11 @@ u32 fn_80266508(s32, M2C_UNK);
 s32 fn_8026CBB8(M2C_UNK);
 
 extern s32 lbl_805D53A0;
-extern s32 lbl_805D5594;
-extern u32 lbl_805D55D8;
+extern s32 TLobby__data_805D5594;
+extern u32 TLobby__data_805D55D8;
 extern u32 lbl_805D55F0;
 extern s32 lbl_805D55F4;
-extern s32 lbl_805D5604;
+extern s32 TLobby__data_805D5604;
 extern M2C_UNK *lbl_805D5614;
 extern u8 lbl_805D5618;
 extern M2C_UNK lbl_805DB0B4;
@@ -34,9 +34,9 @@ void open_keyboard_window__6TLobbyFv(void) {
     s32 var_r0;
     s32 tmp_r3;
 
-    if ((u32) lbl_805D55D8 != 0U) {
-        TWindow__close(lbl_805D55D8);
-        lbl_805D55D8 = 0U;
+    if ((u32) TLobby__data_805D55D8 != 0U) {
+        TWindow__close(TLobby__data_805D55D8);
+        TLobby__data_805D55D8 = 0U;
     }
     if ((u32) lbl_805D55F0 == 0U) {
         if ((s8) lbl_805D5618 == 0) {
@@ -53,12 +53,12 @@ void open_keyboard_window__6TLobbyFv(void) {
     }
     var_r0 = __nw__7TObjectFUl(0x2C);
     if (var_r0 != 0) {
-        var_r0 = TKeyBoardControl__ct(var_r0, lbl_805D5604, 0x10, 0, 0, lbl_805D53A0);
+        var_r0 = TKeyBoardControl__ct(var_r0, TLobby__data_805D5604, 0x10, 0, 0, lbl_805D53A0);
     }
     lbl_805D55F4 = var_r0;
     fn_80131B54(lbl_805D55F4, fn_8026CBB8(0xC4));
     fn_80131B18(lbl_805D55F4, fn_8026CBB8(0xC5));
-    lbl_805D5594 = 9;
+    TLobby__data_805D5594 = 9;
 }
 
 }

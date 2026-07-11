@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-    extern int lbl_805D659C;
-void fn_80298D7C(void) { lbl_805D659C = 0; }
+    extern int TObjCMMainMenu__data_805D659C;
+void fn_80298D7C(void) { TObjCMMainMenu__data_805D659C = 0; }
 
 extern f32 lbl_805D3C98;
 

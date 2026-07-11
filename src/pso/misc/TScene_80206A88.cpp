@@ -14,7 +14,7 @@ M2C_UNK fn_800F9DF4(M2C_UNK *, u32);
 M2C_UNK fn_801317E4(M2C_UNK *, s32, M2C_UNK *);
 
 extern M2C_UNK lbl_8044A98C[];
-extern u32 lbl_805D6028;
+extern u32 TScene__data_805D6028;
 extern s32 lbl_805D602C;
 
 void load_file_to_buffer__6TSceneFi(s32 arg0) {
@@ -23,14 +23,14 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
 
-    lbl_805D6028 = 0U;
+    TScene__data_805D6028 = 0U;
     lbl_805D602C = 0;
     fn_801317E4(sp8, arg0, lbl_8044A98C);
     temp_r31 = fn_800F9D80(sp8);
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x100U)) {
             temp_r3 = fn_8007EBFC(0x100);
-            lbl_805D6028 = temp_r3;
+            TScene__data_805D6028 = temp_r3;
             if (temp_r3 != 0U) {
                 fn_800F9DF4(sp8, temp_r3);
                 lbl_805D602C = 0x100;
@@ -38,7 +38,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
         }
     } else if (temp_r31 > 0) {
         temp_r3_2 = fn_8007EBFC(temp_r31);
-        lbl_805D6028 = temp_r3_2;
+        TScene__data_805D6028 = temp_r3_2;
         if (temp_r3_2 != 0U) {
             fn_800F9DF4(sp8, temp_r3_2);
             lbl_805D602C = temp_r31;

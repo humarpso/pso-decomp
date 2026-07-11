@@ -14,7 +14,7 @@ s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8026CBB8(M2C_UNK);
 
-extern f32 lbl_805DF858;
+extern f32 TWindowSubTradeMain__data_805DF858;
 
 s32 create_input_number__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1) {
     s32 var_r31;
@@ -24,7 +24,7 @@ s32 create_input_number__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1) {
         var_r31 = TWindowInputNumber__ct(var_r31, fn_8026CBB8(0x5D), 1, arg1, 1, (s16) M2C_FIELD(arg0, s32 *, 0x28));
     }
     create__18TWindowInputNumberFPvi(var_r31, TWindowSubStatusDisp__sub_80077760(0x28));
-    set_value__18TWindowInputNumberFPvf(var_r31, lbl_805DF858);
+    set_value__18TWindowInputNumberFPvf(var_r31, TWindowSubTradeMain__data_805DF858);
     return var_r31;
 }
 

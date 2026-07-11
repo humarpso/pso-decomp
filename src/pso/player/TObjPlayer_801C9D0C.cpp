@@ -60,9 +60,9 @@ void TObjPlayer__sub_801C9D3C(u32 arg0) {
     }
 }
 
-extern const f32 lbl_805DC360;
-extern const f32 lbl_805DC36C;
-extern const f32 lbl_805DC378;
+extern const f32 TObjPlayer__data_805DC360;
+extern const f32 TObjPlayer__data_805DC36C;
+extern const f32 TObjPlayer__data_805DC378;
 
 void TObjPlayer__sub_801C9DE0(void *arg0) {
     f32 temp_f1;
@@ -72,19 +72,19 @@ void TObjPlayer__sub_801C9DE0(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {
     case 0:
-        temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4) - lbl_805DC360;
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4) - TObjPlayer__data_805DC360;
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1;
-        if (temp_f1 < lbl_805DC36C) {
+        if (temp_f1 < TObjPlayer__data_805DC36C) {
             M2C_FIELD(arg0, s16 *, 0x328) = 1;
             TObjEnePanarms__sub_800DFB00(arg0, TObjPlayer__sub_801D0458());
             TObjPlayer__sub_801D2620(arg0);
-            M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) lbl_805DC378;
+            M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TObjPlayer__data_805DC378;
         }
         break;
     case 1:
-        temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x2B4) - lbl_805DC360;
+        temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x2B4) - TObjPlayer__data_805DC360;
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1_2;
-        if (temp_f1_2 < lbl_805DC36C) {
+        if (temp_f1_2 < TObjPlayer__data_805DC36C) {
             TObjPlayer__sub_801D2630();
             TObjPlayer__sub_801D0BC0(arg0, 1, 0);
         }
@@ -92,9 +92,9 @@ void TObjPlayer__sub_801C9DE0(void *arg0) {
     }
 }
 
-extern const f32 lbl_805DC360;
-extern const f32 lbl_805DC36C;
-extern const f32 lbl_805DC378;
+extern const f32 TObjPlayer__data_805DC360;
+extern const f32 TObjPlayer__data_805DC36C;
+extern const f32 TObjPlayer__data_805DC378;
 
 void TObjPlayer__sub_801C9E9C(u8 *arg0) {
     f32 temp_f1;
@@ -104,19 +104,19 @@ void TObjPlayer__sub_801C9E9C(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {
     case 0:
-        temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4) - lbl_805DC360;
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4) - TObjPlayer__data_805DC360;
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1;
-        if (temp_f1 < lbl_805DC36C) {
+        if (temp_f1 < TObjPlayer__data_805DC36C) {
             M2C_FIELD(arg0, s16 *, 0x328) = 1;
             TObjEnePanarms__sub_800DFB00(arg0, TObjPlayer__sub_801D0458());
             TObjPlayer__sub_801D2620(arg0);
-            M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) lbl_805DC378;
+            M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TObjPlayer__data_805DC378;
         }
         break;
     case 1:
-        temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x2B4) - lbl_805DC360;
+        temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x2B4) - TObjPlayer__data_805DC360;
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1_2;
-        if (temp_f1_2 < lbl_805DC36C) {
+        if (temp_f1_2 < TObjPlayer__data_805DC36C) {
             TObjPlayer__sub_801D2630();
             fn_8002AEB8(arg0 + 0x644, fn_801D8ADC(arg0));
             TObjPlayer__sub_801D0888(arg0);
