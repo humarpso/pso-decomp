@@ -8,14 +8,14 @@ extern "C" {
 
 void TLobby__sub_801E7124(void);
 void TLobby__sub_801E714C(void);
-M2C_UNK fn_801F1C38(M2C_UNK, M2C_UNK);
-int fn_801F1C8C(void*, void*);
+M2C_UNK TLobby__sub_801F1C38(M2C_UNK, M2C_UNK);
+int TLobby__sub_801F1C8C(void*, void*);
 
 void TLobby__sub_801E7124(void) {
-    fn_801F1C38(1, 7);
+    TLobby__sub_801F1C38(1, 7);
 }
 
     extern int lbl_805D5EA4;
-void TLobby__sub_801E714C(void) { lbl_805D5EA4 = 0; fn_801F1C8C((void*)1, (void*)7); }
+void TLobby__sub_801E714C(void) { lbl_805D5EA4 = 0; TLobby__sub_801F1C8C((void*)1, (void*)7); }
 
 }

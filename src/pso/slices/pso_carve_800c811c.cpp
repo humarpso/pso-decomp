@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_800D8ACC(s32, M2C_UNK, s32, void *, s32);
 M2C_UNK fn_800F6B14(void *);
-M2C_UNK fn_8020C5A4(void *);
+M2C_UNK TLobby__sub_8020C5A4(void *);
 extern s32 lbl_805D51C0;
 
 struct Base8036 { char pad[0x18]; };
@@ -133,7 +133,7 @@ void fn_800C811C(u8 *arg0, s32 arg1) {
         return;
     case 0:
         if (((VObj8036*)arg0)->m107() != 0) {
-            fn_8020C5A4(arg0);
+            TLobby__sub_8020C5A4(arg0);
             queue_destruction__7TObjectFv(arg0);
         }
     case 3:

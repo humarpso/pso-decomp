@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800360A8();
+M2C_UNK TBoss2DeRolLe__sub_800360A8();
 extern const f32 lbl_805D827C;
 
 void fn_800361A4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
@@ -17,7 +17,7 @@ void fn_800361A4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_FIELD(arg0, f32 *, 0x10) = (f32) lbl_805D827C;
     M2C_FIELD(arg0, f32 *, 0x14) = farg1;
     M2C_FIELD(arg0, f32 *, 0x18) = (f32) lbl_805D827C;
-    fn_800360A8();
+    TBoss2DeRolLe__sub_800360A8();
 }
 
 }

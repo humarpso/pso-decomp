@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_message__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
-M2C_UNK fn_8020C5A4(void *);
+M2C_UNK TLobby__sub_8020C5A4(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 struct Base_8035E3B8 { char pad[0x18]; };
@@ -44,7 +44,7 @@ void handle_message__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     case 4:
         ((struct VObj_8035E3B8 *) arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) | 0x14);
-        fn_8020C5A4(arg0);
+        TLobby__sub_8020C5A4(arg0);
         return;
     case 3:
         queue_destruction__7TObjectFv(arg0);

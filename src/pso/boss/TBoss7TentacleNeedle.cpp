@@ -8,9 +8,9 @@ extern "C" {
 
 void run_task__20TBoss7TentacleNeedleFv(void *arg0);
 
-M2C_UNK fn_802EF954();
-M2C_UNK fn_802EF99C();
-M2C_UNK fn_802EFB1C();
+M2C_UNK TBoss7Tentacle__sub_802EF954();
+M2C_UNK TBoss7Tentacle__sub_802EF99C();
+M2C_UNK TBoss7Tentacle__sub_802EFB1C();
 M2C_UNK fn_802EFBA4();
 
 void run_task__20TBoss7TentacleNeedleFv(void *arg0) {
@@ -22,13 +22,13 @@ void run_task__20TBoss7TentacleNeedleFv(void *arg0) {
         fn_802EFBA4();
         return;
     case 1:
-        fn_802EFB1C();
+        TBoss7Tentacle__sub_802EFB1C();
         return;
     case 2:
-        fn_802EF99C();
+        TBoss7Tentacle__sub_802EF99C();
         return;
     case 3:
-        fn_802EF954();
+        TBoss7Tentacle__sub_802EF954();
         return;
     }
 }

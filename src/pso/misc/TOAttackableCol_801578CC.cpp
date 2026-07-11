@@ -9,11 +9,11 @@ extern "C" {
 s32 TOAttackableCol__sub_801575AC(void *, s32);
 s32 TObjPlayer__sub_801B4A18(void *, s32);
 u8 TODoorAncient08__sub_80229220(u16);
-int fn_8020C5E0(void*);
+int TLobby__sub_8020C5E0(void*);
 int queue_destruction__7TObjectFv(void*);
 void render__15TOAttackableColFv(void);
 
-void release__15TOAttackableColFPv(void* p) { fn_8020C5E0(p); queue_destruction__7TObjectFv(p); }
+void release__15TOAttackableColFPv(void* p) { TLobby__sub_8020C5E0(p); queue_destruction__7TObjectFv(p); }
 void TOAttackableCol__sub_80157900(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;

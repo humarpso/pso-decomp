@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8020C5A4();
+M2C_UNK TLobby__sub_8020C5A4();
 
 void fn_800BFCA0(void *arg0) {
     s16 temp_r4;
@@ -14,7 +14,7 @@ void fn_800BFCA0(void *arg0) {
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x374);
     if (!(temp_r4 & 0x80)) {
         M2C_FIELD(arg0, s16 *, 0x374) = (s16) (temp_r4 | 0x80);
-        fn_8020C5A4();
+        TLobby__sub_8020C5A4();
     }
 }
 

@@ -11,7 +11,7 @@ M2C_UNK fn_8002AFD4(void *, s32 *, M2C_UNK);
 s32 fn_80080750();
 s32 fn_800EB8DC(void *);
 M2C_UNK fn_800F6510(void *, s32 *);
-M2C_UNK fn_8020C5A4(void *);
+M2C_UNK TLobby__sub_8020C5A4(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 }
@@ -111,7 +111,7 @@ void run_task__12TObjEneSlimeFv(void *arg0) {
         fn_800F6510(arg0, &sp8);
         fn_8002AFD4(arg0, &sp8, 0);
         ((VObj_800EBB18 *)arg0)->m77(&sp8);
-        fn_8020C5A4(arg0);
+        TLobby__sub_8020C5A4(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

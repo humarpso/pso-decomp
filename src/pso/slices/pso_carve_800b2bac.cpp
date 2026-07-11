@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_8020C5A4();
+M2C_UNK TLobby__sub_8020C5A4();
 
 struct Base_800B2BAC { char pad[0x18]; };
 struct VObj_800B2BAC : Base_800B2BAC {
@@ -45,7 +45,7 @@ void fn_800B2BAC(void *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3B0) == 0) {
-            fn_8020C5A4();
+            TLobby__sub_8020C5A4();
             queue_destruction__7TObjectFv(arg0);
         }
     case 5:

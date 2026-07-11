@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__12TObjDoorJungFv(u8 *arg0);
 M2C_UNK fn_80154764(M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_801F9AC4(void *, M2C_UNK, u16, M2C_UNK, M2C_UNK);
+M2C_UNK TRaderMapCore__sub_801F9AC4(void *, M2C_UNK, u16, M2C_UNK, M2C_UNK);
 
 extern s32 lbl_805D58F8;
 
@@ -37,10 +37,10 @@ void run_task__12TObjDoorJungFv(u8 *arg0) {
         ((VObj *)arg0)->m12();
     }
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        fn_801F9AC4(arg0 + 0x38, 0xFF00FF00, (u16) M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
+        TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFF00FF00, (u16) M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
         return;
     }
-    fn_801F9AC4(arg0 + 0x38, 0xFFFF0000, (u16) M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
+    TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFFFF0000, (u16) M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
 }
 
 }

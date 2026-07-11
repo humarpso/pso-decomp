@@ -8,7 +8,7 @@ extern "C" {
 
 f32 fn_80011014(void *);
 M2C_UNK fn_800F6B14(void *, void *);
-M2C_UNK fn_8020C5A4(void *);
+M2C_UNK TLobby__sub_8020C5A4(void *);
 extern f32 lbl_805D9A10;
 
 void fn_800A45C4(void *arg0) {
@@ -27,7 +27,7 @@ void fn_800A45C4(void *arg0) {
         temp_r4 = M2C_FIELD(arg0, void **, 0xA4);
         M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
         fn_800F6B14(arg0, temp_r4);
-        fn_8020C5A4(arg0);
+        TLobby__sub_8020C5A4(arg0);
     }
 }
 

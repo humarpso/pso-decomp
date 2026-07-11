@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneGibbles__sub_802D8274(void *arg0);
 M2C_UNK fn_800F6B14(void *);
-M2C_UNK fn_8020C5A4(void *);
+M2C_UNK TLobby__sub_8020C5A4(void *);
 
 void TObjEneGibbles__sub_802D8274(void *arg0) {
     void *temp_r4;
@@ -20,7 +20,7 @@ void TObjEneGibbles__sub_802D8274(void *arg0) {
         temp_r4 = M2C_FIELD(arg0, void **, 0xA4);
         M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
         fn_800F6B14(arg0);
-        fn_8020C5A4(arg0);
+        TLobby__sub_8020C5A4(arg0);
     }
 }
 

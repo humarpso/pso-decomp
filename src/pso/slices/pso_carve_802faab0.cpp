@@ -10,7 +10,7 @@ s32 check_flag_100__10TObjPlayerFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 
-s32 fn_802FAAB0(s32 arg1, s32 arg2, s32 arg3) {
+s32 TBoss8Dragon__sub_802FAAB0(s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
     var_r31 = arg3;

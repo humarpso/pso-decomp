@@ -20,8 +20,8 @@ M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 s32 TWindowSubComCard__sub_802A57C8(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 M2C_UNK TWindow__close(void *);
-s32 fn_801E0CE0(M2C_UNK);
-s32 fn_801E24F8(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 TAdPlayerLoadGC__sub_801E0CE0(M2C_UNK);
+s32 TAdPlayerLoadGC__sub_801E24F8(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 fn_802C6F90();
 s32 fn_803100EC(void *);
 u32 fn_803100F4();
@@ -33,7 +33,7 @@ void TAdChrSelBSlotGC__sub_8030ED88(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x70) = 0U;
     }
     if ((u32) (TAdPlayerLoadGC__sub_801E1B50(1) + 0x10000) != 0xFFFFU) {
-        if ((fn_801E0CE0(1) != 0) && (TAdPlayerLoadGC__sub_801E1B50(1) == 0)) {
+        if ((TAdPlayerLoadGC__sub_801E0CE0(1) != 0) && (TAdPlayerLoadGC__sub_801E1B50(1) == 0)) {
             M2C_FIELD(arg0, s32 *, 0x74) = TAdChrSelASlotGC__sub_8030C688(fn_803100F4(), 1);
             M2C_FIELD(arg0, s32 *, 0x1C) = 0xA;
             return;
@@ -65,7 +65,7 @@ void TAdChrSelBSlotGC__sub_8030EE64(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 7;
             return;
         case 0:
-            if (fn_801E24F8(1, 0, 0, 0, 0) == 0) {
+            if (TAdPlayerLoadGC__sub_801E24F8(1, 0, 0, 0, 0) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 9;
                 return;
             }

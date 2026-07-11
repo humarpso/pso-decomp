@@ -1,0 +1,18 @@
+#include "types.h"
+
+extern "C" {
+
+int TLobby__sub_801EF560(void* p);
+void TLobby__sub_801EF580(void);
+void TLobby__sub_801EF5A8(void);
+int fn_80197E64(void);
+int fn_80197F74(void);
+int fn_801F3274(void);
+int fn_801F32A0(void);
+int fn_8034E02C(void*);
+
+int TLobby__sub_801EF560(void* p) { return fn_8034E02C(p); }
+void TLobby__sub_801EF580(void) { fn_801F32A0(); fn_80197F74(); fn_801F3274(); }
+void TLobby__sub_801EF5A8(void) { fn_801F32A0(); fn_80197E64(); fn_801F3274(); }
+
+}

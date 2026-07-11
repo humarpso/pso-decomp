@@ -12,7 +12,7 @@ M2C_UNK TObjEnePanarms__sub_800E1608(void *, s32);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 f64 fn_80019760(f32, f32, f32);
 int fn_8002AE74(void*, int);
-M2C_UNK fn_800E1C98(void *, M2C_UNK);
+M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 M2C_UNK fn_800F5EB4(void *, M2C_UNK);
 s32 fn_801423A4(s32, s32, M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -28,7 +28,7 @@ void TObjEnePanarms__sub_800E03DC(u8 *arg0) {
 
     temp_r3 = TPhotonMylla__sub_80154CB4((u16) M2C_FIELD(arg0, s32 *, 0x3B8));
     if ((temp_r3 == NULL) || (M2C_FIELD(temp_r3, s32 *, 0x30) & 0x02000800)) {
-        fn_800E1C98(arg0, 2);
+        TObjEnePanarms__sub_800E1C98(arg0, 2);
         return;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3B4) - 1;
@@ -42,7 +42,7 @@ void TObjEnePanarms__sub_800E03DC(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x60) = fn_801423A4(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (lbl_8043CDD0 * fn_80019760(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
     }
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
-        fn_800E1C98(arg0, 0xA);
+        TObjEnePanarms__sub_800E1C98(arg0, 0xA);
     }
 }
 

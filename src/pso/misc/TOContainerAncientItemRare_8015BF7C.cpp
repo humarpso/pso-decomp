@@ -20,18 +20,18 @@ struct VObj : Base {
 extern "C" {
 
 void TOContainerAncientItemRare__vt4(u8 *arg0, s16 *arg1, s32 arg2);
-M2C_UNK fn_8010567C(void *, void *, M2C_UNK);
-M2C_UNK fn_8020C5E0(void *);
+M2C_UNK TLobby__sub_8010567C(void *, void *, M2C_UNK);
+M2C_UNK TLobby__sub_8020C5E0(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void TOContainerAncientItemRare__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj*)arg0)->m77();
-            fn_8010567C(arg0, arg0 + 0x38, 1);
+            TLobby__sub_8010567C(arg0, arg0 + 0x38, 1);
         }
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
-        fn_8020C5E0(arg0);
+        TLobby__sub_8020C5E0(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

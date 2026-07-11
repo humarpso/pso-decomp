@@ -17,8 +17,8 @@ M2C_UNK fn_801C512C();
 M2C_UNK fn_801C5454(s32);
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK fn_8020910C(s32);
-M2C_UNK fn_8020BB18();
-M2C_UNK fn_8020BCE4();
+M2C_UNK TLobby__sub_8020BB18();
+M2C_UNK TLobby__sub_8020BCE4();
 extern s32 lbl_805D53A0;
 extern s32 tl_00;
 extern s32 tl_01;
@@ -38,9 +38,9 @@ void fn_801C2E98(void *arg0) {
     TOMineTrap__sub_8016FCC4();
     fn_8020910C(tl_01);
     fn_801F57B4(tl_00);
-    fn_8020BCE4();
+    TLobby__sub_8020BCE4();
     fn_801C512C();
-    fn_8020BB18();
+    TLobby__sub_8020BB18();
     var_r31 = 0;
     M2C_FIELD(arg0, s32 *, 0x64) = 0;
     do {

@@ -89,7 +89,7 @@ struct VObj_8015B8E8 : Base_8015B8E8 {
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_8020C5E0(void *);
+M2C_UNK TLobby__sub_8020C5E0(void *);
 
 void fn_8015B8E8(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
@@ -97,7 +97,7 @@ void fn_8015B8E8(void *arg0, s16 *arg1, s32 arg2) {
             ((VObj_8015B8E8 *)arg0)->m77();
         }
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
-        fn_8020C5E0(arg0);
+        TLobby__sub_8020C5E0(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

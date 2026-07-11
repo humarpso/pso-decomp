@@ -13,8 +13,8 @@ M2C_UNK fn_80049574();
 M2C_UNK fn_801C5454(s32);
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK fn_8020910C(s32);
-M2C_UNK fn_8020BB18();
-M2C_UNK fn_8020BCE4();
+M2C_UNK TLobby__sub_8020BB18();
+M2C_UNK TLobby__sub_8020BCE4();
 
 extern s32 tl_00;
 extern s32 tl_01;
@@ -34,8 +34,8 @@ void update__19TPlayerBattleCtrl4PFv(void) {
     } while (var_r31 < 4);
     fn_8020910C(tl_01);
     fn_801F57B4(tl_00);
-    fn_8020BCE4();
-    fn_8020BB18();
+    TLobby__sub_8020BCE4();
+    TLobby__sub_8020BB18();
     var_r31_2 = 0;
     do {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31_2);

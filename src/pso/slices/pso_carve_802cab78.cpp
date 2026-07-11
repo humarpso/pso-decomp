@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 fn_80014108();
+f32 TObjPlayer__sub_80014108();
 M2C_UNK fn_8001622C(void *, void *);
 M2C_UNK fn_80040B68(void *, M2C_UNK);
 extern const f32 lbl_805DE660;
@@ -19,7 +19,7 @@ f32 fn_802CAB78(u8 *arg0) {
         fn_8001622C(arg0, arg0 + 0x2FC);
         fn_80040B68(arg0, 0xA);
     } else {
-        var_f31 = fn_80014108();
+        var_f31 = TObjPlayer__sub_80014108();
     }
     return var_f31;
 }

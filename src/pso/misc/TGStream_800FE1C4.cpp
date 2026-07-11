@@ -12,7 +12,7 @@ s32 fn_8001EEFC(M2C_UNK *);
 s32 fn_800F9DA0(void *);
 M2C_UNK fn_800F9F9C();
 M2C_UNK fn_800FDD28();
-void *fn_800FDD70(void *, M2C_UNK);
+void *TItemDrop__sub_800FDD70(void *, M2C_UNK);
 M2C_UNK fn_803CC578(s32, s32, M2C_UNK);
 s32 fn_803CD3A8(void *, M2C_UNK);
 
@@ -28,7 +28,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, void **, 0x28) = NULL;
     fn_800FDD28();
-    M2C_FIELD(arg0, void **, 0x28) = fn_800FDD70(arg1, 1);
+    M2C_FIELD(arg0, void **, 0x28) = TItemDrop__sub_800FDD70(arg1, 1);
     if ((void *) M2C_FIELD(arg0, void **, 0x28) != NULL) {
         M2C_FIELD(arg0, s32 *, 0x20) = (s32) lbl_805D53C4;
         fn_803CC578(M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x20), 0);

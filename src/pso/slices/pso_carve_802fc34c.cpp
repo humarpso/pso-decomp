@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 
-void fn_802FC34C(s32 arg0, s32 arg1) {
+void TBoss8Dragon__sub_802FC34C(s32 arg0, s32 arg1) {
     fn_8022675C(arg1, arg0 + 0x634, 0, 0);
 }
 

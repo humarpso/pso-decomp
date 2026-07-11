@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801103F4(s16);
+s32 TItemLoad__sub_801103F4(s16);
 s32 TObjPlayer__sub_8001972C();
 void TItemEquipBase__sub_8010B620(void);
 

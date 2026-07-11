@@ -3,8 +3,8 @@
 extern "C" {
 
 int run_task__9TItemLoadFv(void* p);
-int fn_801104C4(void*);
+int TItemLoad__sub_801104C4(void*);
 
-int run_task__9TItemLoadFv(void* p) { return fn_801104C4(p); }
+int run_task__9TItemLoadFv(void* p) { return TItemLoad__sub_801104C4(p); }
 
 }

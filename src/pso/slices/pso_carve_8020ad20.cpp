@@ -3,8 +3,8 @@
 extern "C" {
 
 int fn_8020AD20(void* p);
-int fn_8020C500(void*);
+int TLobby__sub_8020C500(void*);
 
-int fn_8020AD20(void* p) { return fn_8020C500(p); }
+int fn_8020AD20(void* p) { return TLobby__sub_8020C500(p); }
 
 }

@@ -10,7 +10,7 @@ void TBoss2DeRolLe__sub_80034660(u8 *arg0);
 u8 TBoss2DeRolLe__sub_800346D8(u8 *arg0);
 void TBoss2DeRolLe__sub_80034788(u8 *arg0);
 f32 TObjFish__sub_8001973C(f32);
-s32 fn_80035FCC(void *);
+s32 TBoss2DeRolLe__sub_80035FCC(void *);
 M2C_UNK fn_80036160(void *, f32, f32, f32, f32);
 M2C_UNK fn_800361A4(void *, f32, f32, f32);
 
@@ -33,7 +33,7 @@ extern const f32 lbl_805D8328;
 u8 TBoss2DeRolLe__sub_800346D8(u8 *arg0) {
     s32 temp_r0;
 
-    fn_80035FCC(arg0 + 0x684);
+    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x684);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x65C);
     switch (temp_r0) {
     case 0:
@@ -43,7 +43,7 @@ u8 TBoss2DeRolLe__sub_800346D8(u8 *arg0) {
         }
         break;
     case 1:
-        if (fn_80035FCC(arg0 + 0x664) == 3) {
+        if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x664) == 3) {
             M2C_FIELD(arg0, s32 *, 0x65C) = 2;
         }
         break;

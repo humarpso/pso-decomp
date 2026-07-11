@@ -8,7 +8,7 @@ extern "C" {
 
 void TBoss2Joint__vt60(u8 *arg0);
 M2C_UNK TBoss2Joint__sub_80036A90(void *, s32);
-M2C_UNK fn_800339BC(void *, f32, f32);
+M2C_UNK TBoss2DeRolLe__sub_800339BC(void *, f32, f32);
 M2C_UNK TBoss2DeRolLe__sub_80034134(s32, s32, u16);
 M2C_UNK fn_800BB780(void *);
 
@@ -58,7 +58,7 @@ void TBoss2Joint__vt60(u8 *arg0) {
             ((VTbj *)self)->m102();
         }
     } else {
-        fn_800339BC(arg0 + 0x38, lbl_805D8484, lbl_805D8488);
+        TBoss2DeRolLe__sub_800339BC(arg0 + 0x38, lbl_805D8484, lbl_805D8488);
         TBoss2DeRolLe__sub_80034134(M2C_FIELD(self, s32 *, 0x10), temp_r31, M2C_FIELD(self, u16 *, 0x2D4));
     }
     M2C_FIELD(self, s16 *, 0x32C) = (s16) M2C_FIELD(self, s16 *, 0x2B8);

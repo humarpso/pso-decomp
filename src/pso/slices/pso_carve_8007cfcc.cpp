@@ -14,7 +14,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1F40(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
-s32 fn_801E2404(M2C_UNK, M2C_UNK);
+s32 TAdPlayerLoadGC__sub_801E2404(M2C_UNK, M2C_UNK);
 extern M2C_UNK lbl_80438A08[];
 
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
@@ -79,7 +79,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
         }
         return 0;
     }
-    if (fn_801E2404(1, 0) < 0xF) {
+    if (TAdPlayerLoadGC__sub_801E2404(1, 0) < 0xF) {
         if (arg1 != NULL) {
             *arg1 = -1;
         }

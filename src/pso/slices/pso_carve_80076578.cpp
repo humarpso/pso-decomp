@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void fn_8001FE7C(void*, int);
-M2C_UNK fn_80074FAC();
+M2C_UNK TObjTombstone__sub_80074FAC();
 extern u32 lbl_805D4E48;
 
 void fn_80076578(void) {
     if ((u32) lbl_805D4E48 != 0U) {
         fn_8001FE7C((void*)lbl_805D4E48, 1);
         lbl_805D4E48 = 0U;
-        fn_80074FAC();
+        TObjTombstone__sub_80074FAC();
     }
 }
 

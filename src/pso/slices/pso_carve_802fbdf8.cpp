@@ -6,14 +6,14 @@ extern "C" {
 
 void fn_802FDEB8(void *);
 void *get_enemy_entity(int);
-void fn_802FBD68(void *, void *);
+void TBoss8Dragon__sub_802FBD68(void *, void *);
 
 void handle_6xA8_gol_dragon_boss_actions(void *arg0) {
     void *x;
     fn_802FDEB8(arg0);
     x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
     if (x != NULL) {
-        fn_802FBD68(x, arg0);
+        TBoss8Dragon__sub_802FBD68(x, arg0);
     }
 }
 

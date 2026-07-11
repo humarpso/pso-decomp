@@ -8,7 +8,7 @@ extern "C" {
 
 void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2);
 M2C_UNK fn_80189C90(void *, void *);
-M2C_UNK fn_8020C5E0(void *);
+M2C_UNK TLobby__sub_8020C5E0(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 struct Base_8015C098 { char pad[0x18]; };
@@ -43,7 +43,7 @@ void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
             fn_80189C90(arg0, arg0);
         }
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
-        fn_8020C5E0(arg0);
+        TLobby__sub_8020C5E0(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

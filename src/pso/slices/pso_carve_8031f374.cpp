@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_800F6B14();
-M2C_UNK fn_8020C5A4();
+M2C_UNK TLobby__sub_8020C5A4();
 M2C_UNK fn_8031F1A8(void *);
 
 }
@@ -126,7 +126,7 @@ void fn_8031F374(void *arg0, s32 arg1) {
         return;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) {
-            fn_8020C5A4();
+            TLobby__sub_8020C5A4();
             queue_destruction__7TObjectFv(arg0);
         }
     case 5:

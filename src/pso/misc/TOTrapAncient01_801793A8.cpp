@@ -95,7 +95,7 @@ extern "C" {
 
 void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2);
 M2C_UNK TOTrapAncient01__sub_8017940C(void *);
-M2C_UNK fn_8020C5E0(void *);
+M2C_UNK TLobby__sub_8020C5E0(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
@@ -104,7 +104,7 @@ void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
             ((VObj_801793A8 *)arg0)->m83();
         }
         TOTrapAncient01__sub_8017940C(arg0);
-        fn_8020C5E0(arg0);
+        TLobby__sub_8020C5E0(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

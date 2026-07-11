@@ -1,0 +1,33 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TObjEneBm5GibonU__sub_800CD194(void *arg0);
+M2C_UNK TObjEneBm5GibonU__sub_800D10A0(void *);
+M2C_UNK TObjEneBm5GibonU__sub_800D11AC(void *);
+M2C_UNK TObjEneBm5GibonU__sub_800D184C(void *);
+M2C_UNK TObjEneBm5GibonU__sub_800D187C(void *);
+s32 fn_800BB858();
+
+void TObjEneBm5GibonU__sub_800CD194(void *arg0) {
+    s32 temp_r31;
+
+    if (fn_800BB858() != 0) {
+        temp_r31 = M2C_FIELD(arg0, s32 *, 0x464);
+        TObjEneBm5GibonU__sub_800D10A0(arg0);
+        if (temp_r31 != (s32) M2C_FIELD(arg0, s32 *, 0x464)) {
+            if (temp_r31 != 0) {
+                TObjEneBm5GibonU__sub_800D184C(arg0);
+            } else {
+                TObjEneBm5GibonU__sub_800D187C(arg0);
+            }
+        }
+        TObjEneBm5GibonU__sub_800D11AC(arg0);
+    }
+}
+
+}

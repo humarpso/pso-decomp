@@ -98,23 +98,23 @@ struct D_V : D_A {
 extern "C" {
 
 void check_death__12TBoss8DragonFPv(void *arg0);
-s32 fn_802FB98C(void *);
-M2C_UNK fn_802FBBFC(void *, M2C_UNK);
-s32 fn_802FC8AC();
+s32 TBoss8Dragon__sub_802FB98C(void *);
+M2C_UNK TBoss8Dragon__sub_802FBBFC(void *, M2C_UNK);
+s32 TBoss8Dragon__sub_802FC8AC();
 
 void check_death__12TBoss8DragonFPv(void *arg0) {
-    if (fn_802FC8AC() != 0) {
-        if (fn_802FB98C(arg0) != 0) {
+    if (TBoss8Dragon__sub_802FC8AC() != 0) {
+        if (TBoss8Dragon__sub_802FB98C(arg0) != 0) {
             return;
         }
         goto block_8;
     }
     if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x20) && (M2C_FIELD(arg0, s16 *, 0x32C) <= 0)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3E4) == 1) {
-            fn_802FBBFC(arg0, 0xC);
+            TBoss8Dragon__sub_802FBBFC(arg0, 0xC);
             return;
         }
-        fn_802FBBFC(arg0, 0x15);
+        TBoss8Dragon__sub_802FBBFC(arg0, 0x15);
         return;
     }
 block_8:

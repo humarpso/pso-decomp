@@ -1,0 +1,11 @@
+#include "types.h"
+
+extern "C" {
+
+void TLobby__sub_801EE63C(int a0);
+int fn_803DF1CC(void);
+
+    extern int* lbl_805D5E78;
+void TLobby__sub_801EE63C(int a0) { lbl_805D5E78[(unsigned char)(a0)] = fn_803DF1CC(); }
+
+}

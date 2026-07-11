@@ -18,7 +18,7 @@ M2C_UNK fn_80087350(s32, M2C_UNK);
 s32 fn_80099EF8();
 M2C_UNK fn_8011AA44(s32, s32);
 s32 fn_8011AF58(s32);
-M2C_UNK fn_8020C5E0(s32);
+M2C_UNK TLobby__sub_8020C5E0(s32);
 
 void assign_id_and_init__5TItemFPvii(void *arg0, s32 arg1, s32 arg2) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == -1) {
@@ -38,7 +38,7 @@ void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 arg2) {
     fn_8011AA44(arg1, fn_80099EF8());
     if ((arg2 != 0U) && (TObjPlayer__sub_801B8E68(arg2, arg0) != 0U)) {
         set_mode__5TItemFPvc(arg0, 1);
-        fn_8020C5E0(arg0);
+        TLobby__sub_8020C5E0(arg0);
     }
 }
 

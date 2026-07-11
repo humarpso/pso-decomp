@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK send_6x76_set_entity_set_flags(void *, M2C_UNK);
 
-s32 fn_8020C5A4(void *arg0) {
+s32 TLobby__sub_8020C5A4(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
         send_6x76_set_entity_set_flags(arg0, 8);
         return 1;
@@ -16,7 +16,7 @@ s32 fn_8020C5A4(void *arg0) {
     return 0;
 }
 
-s32 fn_8020C5E0(void *arg0) {
+s32 TLobby__sub_8020C5E0(void *arg0) {
     void *temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, void **, 0x80);

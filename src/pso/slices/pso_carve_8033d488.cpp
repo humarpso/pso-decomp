@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_800E2FD8(u32);
 M2C_UNK fn_800E3074(u32);
 M2C_UNK fn_802ABE20();
-M2C_UNK fn_802ABF44(f32);
+M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
 M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
@@ -38,7 +38,7 @@ void fn_8033D488(void *arg0) {
     }
     if ((lbl_805DFA70 != var_f31) && ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U)) {
         if (var_f31 < lbl_805DFA74) {
-            fn_802ABF44(var_f31);
+            TBoss6PlotFalz__sub_802ABF44(var_f31);
         }
         fn_803D9B2C();
         fn_803E4BC4();

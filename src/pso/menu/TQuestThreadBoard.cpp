@@ -1,7 +1,7 @@
 #include "pso/TQuestThreadBoard.h"
 
 extern "C" void TWindow__close(void*);
-extern "C" void fn_801F2D88(void);
+extern "C" void TLobby__sub_801F2D88(void);
 extern s32 lbl_805D5EF0;
 
 void TQuestThreadBoard::run_task() {}
@@ -15,6 +15,6 @@ TQuestThreadBoard::~TQuestThreadBoard() {
         TWindow__close(m_2c);
         m_2c = nullptr;
     }
-    fn_801F2D88();
+    TLobby__sub_801F2D88();
     lbl_805D5EF0 = 0;
 }

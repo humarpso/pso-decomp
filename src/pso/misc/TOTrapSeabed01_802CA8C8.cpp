@@ -22,7 +22,7 @@ struct VObj_802CA8C8 : Base_802CA8C8 {
 extern "C" {
 
 void TOTrapSeabed01__vt4(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK fn_8020C5E0(void *);
+M2C_UNK TLobby__sub_8020C5E0(void *);
 M2C_UNK fn_80226294(s32);
 M2C_UNK fn_802C9D38(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -39,7 +39,7 @@ void TOTrapSeabed01__vt4(void *arg0, s16 *arg1, s32 arg2) {
             M2C_FIELD(arg0, s32 *, 0x358) = tmp;
         }
         fn_802C9D38(arg0);
-        fn_8020C5E0(arg0);
+        TLobby__sub_8020C5E0(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

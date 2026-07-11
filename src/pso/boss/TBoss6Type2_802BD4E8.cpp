@@ -9,8 +9,8 @@ extern "C" {
 f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0);
 M2C_UNK TBoss6Type2__sub_802B9B20(void *);
 M2C_UNK TBoss6Type2__sub_802BA078(void *);
-f32 fn_80014108(void *, u32, f32);
-u8 *fn_80015DC4(u32, s32);
+f32 TObjPlayer__sub_80014108(void *, u32, f32);
+u8 *TObjPlayer__sub_80015DC4(u32, s32);
 
 extern const f32 lbl_805DE410;
 
@@ -25,7 +25,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
         var_r30 = 0;
         var_r29 = 0;
         do {
-            temp_r0 = *fn_80015DC4(arg1, var_r29);
+            temp_r0 = *TObjPlayer__sub_80015DC4(arg1, var_r29);
             switch ((s32) temp_r0) {
             case 1:
                 var_r30 |= 1;
@@ -47,7 +47,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
         }
     }
     if (var_r31 != 0) {
-        return fn_80014108(arg0, arg1, farg0);
+        return TObjPlayer__sub_80014108(arg0, arg1, farg0);
     }
     TBoss6Type2__sub_802BA078(arg0);
     TBoss6Type2__sub_802B9B20(arg0);

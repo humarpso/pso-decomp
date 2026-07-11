@@ -10,7 +10,7 @@ s32 fn_8039DCE0(s32, s32);
 s32 fn_80132F2C(s32, s32);
 s32 fn_802E19B0(s32, s32, s32, s32, s32);
 s32 fn_802E1C6C();
-s32 fn_801E0CE0(s32);
+s32 TAdPlayerLoadGC__sub_801E0CE0(s32);
 s32 fn_802E1868(void *);
 s32 fn_802E1DF8(void *, s32);
 s32 TAdPlayerLoadGC__sub_80076BBC();
@@ -30,7 +30,7 @@ void fn_802E2C20(s32 arg0) {
     fn_802E19B0(arg0, fn_80132F2C(0x1C, 9), -1, 0, 0);
 }
 void fn_802E2C70(void *arg0) {
-    if (fn_801E0CE0(0) == 0) {
+    if (TAdPlayerLoadGC__sub_801E0CE0(0) == 0) {
         fn_802E1DF8(arg0, 0x16);
         return;
     }

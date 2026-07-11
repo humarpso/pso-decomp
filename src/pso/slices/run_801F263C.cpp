@@ -12,7 +12,7 @@ void qst_op_sync(void) { lbl_805D5E98 = 1; }
 
 void qst_op_exit(void) { lbl_805D5E98 = 3; }
 
-s32 fn_801F2BCC();
+s32 TLobby__sub_801F2BCC();
 extern s32 lbl_805D5E8C;
 extern s32 lbl_805D5E90;
 
@@ -21,7 +21,7 @@ void qst_op_ret(void) {
 
     temp_r31 = (u32) (-lbl_805D5E8C & ~lbl_805D5E8C) >> 0x1FU;
     if (temp_r31 != 0) {
-        lbl_805D5E90 = fn_801F2BCC();
+        lbl_805D5E90 = TLobby__sub_801F2BCC();
     }
     if (temp_r31 == 0) {
         lbl_805D5E98 = 2;

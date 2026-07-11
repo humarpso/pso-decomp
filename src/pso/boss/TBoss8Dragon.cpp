@@ -8,10 +8,10 @@ extern "C" {
 
 void TBoss8Dragon__sub_802FC8EC(void *arg0);
 
-M2C_UNK fn_802FC8CC(void *, M2C_UNK);
+M2C_UNK TBoss8Dragon__sub_802FC8CC(void *, M2C_UNK);
 
 void TBoss8Dragon__sub_802FC8EC(void *arg0) {
-    fn_802FC8CC(arg0, 0);
+    TBoss8Dragon__sub_802FC8CC(arg0, 0);
 }
 
 }
