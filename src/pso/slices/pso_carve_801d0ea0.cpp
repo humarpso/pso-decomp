@@ -1,0 +1,32 @@
+#include "types.h"
+
+extern "C" {
+
+int TObjPlayer__sub_801D0D10(void* p);
+int TObjPlayer__sub_801D0D34(void* p);
+int TObjPlayer__sub_801D0D58(void* p);
+void TObjPlayer__sub_801D0D7C(void* p);
+void TObjPlayer__sub_801D0D8C(void* p);
+void TObjPlayer__sub_801D0D9C(void* p);
+int TObjPlayer__sub_801D0DAC(void* p);
+int TObjPlayer__sub_801D0DD0(void* p);
+int TObjPlayer__sub_801D0DF4(void* p);
+void TObjPlayer__sub_801D0E18(void* p);
+int TObjPlayer__sub_801D0E28(void* p);
+int TObjPlayer__sub_801D0E34(void* p);
+int TObjPlayer__sub_801D0E58(void* p);
+void TObjPlayer__sub_801D0E64(void* p);
+void TObjPlayer__sub_801D0E74(void* p);
+void TObjPlayer__sub_801D0E84(void* p);
+int TObjPlayer__sub_801D0E94(void* p);
+int TObjPlayer__sub_801D1024(void*);
+int TObjPlayer__sub_801D102C(void*);
+int TObjPlayer__sub_801D1034(void*);
+int TObjPlayer__sub_801D103C(void*);
+int TObjPlayer__sub_801D1044(void*);
+int fn_8035AF14(void*);
+int fn_8035AF18(void*);
+
+int TObjPlayer__sub_801D0EA0(void) { return 0; }
+
+}

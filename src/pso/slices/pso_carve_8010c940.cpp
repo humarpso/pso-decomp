@@ -22,56 +22,5 @@ int TItemData__sub_8010CACC(void) { return 0; }
 int TItemData__sub_8010CB10(void) { return 0; }
 int TItemData__sub_8010CBAC(void) { return 0; }
 int TItemData__sub_8010CC68(void) { return 0; }
-void TItemData__sub_8010CCB0(void) {  }
-void TItemData__sub_8010CCB4(void) {  }
-u8 TItemData__sub_8010CCB8(void) {
-    void *temp_r3;
-
-    temp_r3 = fn_8010EA38();
-    if (temp_r3 != NULL) {
-        return M2C_FIELD(temp_r3, u8 *, 0x16);
-    }
-    return 0U;
-}
-int TItemData__sub_8010CCEC(void* p) { return fn_8011C1E8(p); }
-int TItemData__sub_8010CD0C(void) { return 0; }
-void TItemData__sub_8010CD6C(void *arg0) {
-    fn_80101A48(M2C_FIELD(arg0, u8 *, 0), M2C_FIELD(arg0, u8 *, 1));
-}
-s16 TItemData__sub_8010CD98(void *arg0) {
-    s16 sp8;
-
-    sp8 = M2C_FIELD(arg0, s16 *, 6);
-    bswap_16__FPUs(&sp8);
-    return sp8;
-}
-int TItemData__sub_8010CDC8(void) { return 0; }
-s16 TItemData__sub_8010CDEC(void *arg0) {
-    s16 sp8;
-
-    sp8 = M2C_FIELD(arg0, s16 *, 8);
-    bswap_16__FPUs(&sp8);
-    return sp8;
-}
-int TItemData__sub_8010CE1C(void) { return 0; }
-s16 TItemData__sub_8010CE40(void *arg0) {
-    s16 sp8;
-
-    sp8 = M2C_FIELD(arg0, s16 *, 6);
-    bswap_16__FPUs(&sp8);
-    return sp8;
-}
-int TItemData__sub_8010CE70(void) { return 0; }
-s16 TItemData__sub_8010CE94(void *arg0) {
-    void *temp_r3;
-
-    if (((u8) M2C_FIELD(arg0, u8 *, 0) == 3) && ((u8) M2C_FIELD(arg0, u8 *, 1) == 2)) {
-        temp_r3 = TTecCtrl__sub_8022DBC4(M2C_FIELD(arg0, u8 *, 4), M2C_FIELD(arg0, u8 *, 2), 0xFFFF);
-        if (temp_r3 != NULL) {
-            return M2C_FIELD(temp_r3, s16 *, 0x14);
-        }
-    }
-    return 0;
-}
 
 }

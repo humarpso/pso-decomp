@@ -9,16 +9,5 @@ int TObjPlayer__sub_801CE17C(void* p);
 int fn_801BA2F4(void*);
 
 int TObjPlayer__sub_801CDF9C(void) { return 0; }
-void TObjPlayer__sub_801CE064(void) {  }
-int TObjPlayer__sub_801CE068(void) { return 0; }
-void TObjPlayer__sub_801CE134(s32 arg0) {
-    s32 temp_r3;
-
-    temp_r3 = TObjPlayer__sub_801CEAC8();
-    if (temp_r3 != -1) {
-        fn_801D2FB0(arg0 + 0x7CC, arg0, temp_r3, 2);
-    }
-}
-int TObjPlayer__sub_801CE17C(void* p) { return fn_801BA2F4(p); }
 
 }
