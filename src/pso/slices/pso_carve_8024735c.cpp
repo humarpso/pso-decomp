@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TKeyBoardControl__sub_80131F74(s32);
+M2C_UNK clear_flag60_bit200__16TKeyBoardControlFPv(s32);
 M2C_UNK fn_8024792C(void *);
 M2C_UNK fn_80247DFC(void *);
 M2C_UNK fn_80247E50(void *);
@@ -18,7 +18,7 @@ void fn_8024735C(void *arg0) {
         fn_80247DFC(arg0);
         M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFE);
         M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) | 2);
-        TKeyBoardControl__sub_80131F74(M2C_FIELD(arg0, s32 *, 0x28));
+        clear_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, s32 *, 0x28));
         fn_8024792C(arg0);
     }
 }

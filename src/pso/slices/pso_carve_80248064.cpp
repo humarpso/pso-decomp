@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TWindowSubStatusDisp__sub_80223B88(void *, s32);
+M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 
 void fn_80248064(void *arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_80223B88(arg0, arg1 + 0xD);
+    get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg1 + 0xD);
 }
 
 }

@@ -24,7 +24,7 @@ void fn_802A571C(void* p);
 int TWindowSubComCard__sub_802A5748(void* p);
 void TWindowSubComCard__sub_802A5768(void* p);
 int fn_800740FC(void*);
-int TObjCityMainWarp__sub_80186AE4(void*);
+int set_flag70_bit10__16TObjCityMainWarpFPv(void*);
 int fn_80265C10(void*);
 int fn_80287560(void*);
 int queue_destruction__7TObjectFv(void*);
@@ -40,6 +40,6 @@ void fn_802A55E0(void *arg0) {
 int fn_802A5628(void) { return 0; }
 void fn_802A56C4(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) fn_800740FC(m); }
 void fn_802A56F0(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) fn_80287560(m); }
-void fn_802A571C(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) TObjCityMainWarp__sub_80186AE4(m); }
+void fn_802A571C(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) set_flag70_bit10__16TObjCityMainWarpFPv(m); }
 
 }

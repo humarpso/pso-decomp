@@ -12,7 +12,7 @@ s32 fn_801C5404(s32);
 s8 fn_801C5758(s32, s32);
 s32 fn_80203418();
 s32 fn_802034EC();
-u16 *TWindowSubStatusDisp__sub_80223B88(void *, s16);
+u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 M2C_UNK fn_80258ABC(u16 *, s32, s32, s32);
 
 void fn_80267104(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -29,7 +29,7 @@ void fn_80267104(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
                 var_r31 = fn_801C5758(temp_r3 + 0x7C4, arg1);
             }
             if (var_r31 > 0) {
-                temp_r30 = TWindowSubStatusDisp__sub_80223B88(arg0, M2C_FIELD(arg0, s16 *, 0x72));
+                temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x72));
                 fn_80258ABC(temp_r30, fn_80132F2C(0x10, arg1 + 0x13), var_r31, arg2);
                 if ((arg3 != 0) && ((fn_802034EC() == 0) || (fn_80203418() != 0))) {
                     *temp_r30 |= 0x80;

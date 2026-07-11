@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 void TWindowSubItem__sub_8027AA50(void *arg0);
-M2C_UNK TWindowSubStatusDisp__sub_80223B88(void *, s16);
+M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 M2C_UNK fn_80249058();
 int fn_80266CF8(void*);
 int fn_80266D78(void*);
@@ -16,11 +16,11 @@ int fn_80266DB0(void*);
 int fn_80266EB8(void*);
 int fn_8027ABFC(void* a0 = 0);
 void refresh__14TWindowSubItemFPv(void* p);
-void TWindowSubItem__sub_8027A9E4(void* p);
+void set_flag60_bit10__14TWindowSubItemFPv(void* p);
 void TWindowSubItem__sub_8027AA3C(void* p);
 void TWindowSubItem__sub_8027AA48(void* p, s16 v);
 
-void TWindowSubItem__sub_8027A9E4(void* p) { *(u16*)((char*)p + 0x60) |= 0x10; }
+void set_flag60_bit10__14TWindowSubItemFPv(void* p) { *(u16*)((char*)p + 0x60) |= 0x10; }
 void clear_flag_and_release__14TWindowSubItemFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & 0xFFFFFFFD);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {

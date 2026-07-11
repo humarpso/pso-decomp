@@ -8,7 +8,7 @@ extern "C" {
 
 s32 open_menu__19TWindowSubShortMailFv(void);
 s32 create_window__19TWindowSubShortMailFv(void);
-M2C_UNK TObjCityMainWarp__sub_80186AE4(s32);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TQuestThread__sub_801F64BC(s32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
@@ -35,7 +35,7 @@ s32 open_menu__19TWindowSubShortMailFv(void) {
     if (fn_8001DB44() == 0) {
         fn_80265C10(temp_r31, 1);
     }
-    TObjCityMainWarp__sub_80186AE4(temp_r31);
+    set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     fn_80265E60(temp_r31, lbl_805DD6C8);
     return temp_r31;
 }

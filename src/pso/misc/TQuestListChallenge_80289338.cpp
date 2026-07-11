@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestListChallenge__sub_80289338(void);
-void TQuestListChallenge__sub_8028934C(void);
+void reset_globals__19TQuestListChallengeFv(void);
+void reset_globals2__19TQuestListChallengeFv(void);
 
 extern s32 lbl_805D64A8;
 extern s32 lbl_805D64AC;
 extern s32 lbl_805D64B0;
 
-void TQuestListChallenge__sub_80289338(void) {
+void reset_globals__19TQuestListChallengeFv(void) {
     lbl_805D64A8 = 0;
     lbl_805D64AC = 0;
     lbl_805D64B0 = 0;
@@ -23,7 +23,7 @@ extern s32 lbl_805D64A8;
 extern s32 lbl_805D64AC;
 extern s32 lbl_805D64B0;
 
-void TQuestListChallenge__sub_8028934C(void) {
+void reset_globals2__19TQuestListChallengeFv(void) {
     lbl_805D64A8 = 0;
     lbl_805D64AC = 0;
     lbl_805D64B0 = 0;

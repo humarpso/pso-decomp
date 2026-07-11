@@ -8,9 +8,9 @@ extern "C" {
 
 int TObjEneMe1Canadin__vt107(void);
 void fn_8009E378(void *arg0);
-void TObjEneMe1CanadinLeader__sub_8009E238(void* p);
-void TObjEneMe1CanadinLeader__sub_8009E248(void* p);
-void TObjEneMe1CanadinLeader__sub_8009E26C(void* p);
+void set_flag3c8_bit40__23TObjEneMe1CanadinLeaderFPv(void* p);
+void set_flag3c8_bit20__23TObjEneMe1CanadinLeaderFPv(void* p);
+void set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv(void* p);
 int TObjEneMe1CanadinLeader__sub_8009E36C(void* p);
 int TObjEneMe1Canadin__vt114(void);
 void TObjEneMe1Canadin__vt115(void);

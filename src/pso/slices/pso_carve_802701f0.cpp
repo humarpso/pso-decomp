@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TOKeyMachine01__sub_802034A8();
-s32 TWindowSubStatusDisp__sub_80223B88(s32, M2C_UNK);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(s32, M2C_UNK);
 s32 fn_8024C818();
 M2C_UNK fn_80270060(s32, s32);
 
@@ -18,7 +18,7 @@ void fn_802701F0(s32 arg0) {
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         var_r31 = 0;
     }
-    fn_80270060(TWindowSubStatusDisp__sub_80223B88(arg0, 0), var_r31);
+    fn_80270060(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), var_r31);
 }
 
 }

@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80244B64(void * a0 = 0);
-s32 TKeyBoardControl__sub_80131F74(void * a0 = 0);
-s32 TKeyBoardControl__sub_80131F64(void *);
+s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
+s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
 s32 TWindowSubTradeMain__sub_80244A4C(void *);
 int fn_80131A5C(void* p);
 int TWindowMakeTeam__sub_80131A80(void* p);
-int TKeyBoardControl__sub_80131F90(void*);
+int set_flag62_bit2__16TKeyBoardControlFPv(void*);
 int fn_80244D2C(void*);
 
 int TWindowMakeTeam__sub_80131A80(void* p) { return fn_80244D2C(*(void**)((char*)p + 0x20)); }

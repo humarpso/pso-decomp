@@ -8,7 +8,7 @@ extern "C" {
 
 s16 obj_getS16_2BA(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C();
-void *TWindowSubStatusDisp__sub_80223B88(s32, M2C_UNK);
+void *get_array_entry__20TWindowSubStatusDispFPvi(s32, M2C_UNK);
 M2C_UNK fn_8024C818();
 M2C_UNK fn_802575C0(void *, M2C_UNK, f32);
 M2C_UNK fn_8026F6DC(s32);
@@ -28,7 +28,7 @@ s32 fn_8026F7E0(s32 arg0) {
         fn_8026F6DC(arg0);
         return 0xFF008CFC;
     }
-    temp_r30 = TWindowSubStatusDisp__sub_80223B88(arg0, 4);
+    temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4);
     M2C_FIELD(temp_r30, f32 *, 0x20) = (f32) obj_getS16_2BA(temp_r3);
     M2C_FIELD(temp_r30, f32 *, 0x24) = (f32) M2C_FIELD(temp_r3, s16 *, 0x32E);
     if (M2C_FIELD(temp_r30, f32 *, 0x24) > (lbl_805DD390 * M2C_FIELD(temp_r30, f32 *, 0x20))) {

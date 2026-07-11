@@ -14,7 +14,7 @@ extern "C" {
 
 void TObjEneBm3Fly__vt104(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjEneDD__sub_800B9D64();
+M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK TObjEneDD__sub_800B9D74(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_800D8A2C();
 M2C_UNK fn_801E2F20();
@@ -34,7 +34,7 @@ void TObjEneBm3Fly__vt104(u8 *arg0) {
         fn_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjEneDD__sub_800B9D64();
+        clear_global_flag_400__9TObjEneDDFv();
         fn_800D8A2C();
         fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         fn_801E2F20();

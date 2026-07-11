@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdVIConfigGC__sub_80307F98(void *arg0);
+void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
 void enable_progressive_mode__13TAdVIConfigGCFv(void);
 int fn_8037BC54(void);
 int fn_8037C11C(void*);
@@ -14,7 +14,7 @@ int fn_8037C8B8(void);
 
 extern s32 lbl_805D4090;
 
-void TAdVIConfigGC__sub_80307F98(void *arg0) {
+void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x48) = 1;
     lbl_805D4090 = 0;
 }

@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowHelpItem__sub_8025A238(u16 *arg0, s32 arg1);
-void TWindowHelpItem__sub_8025A260(void *arg0, s32 arg1);
+void set_flag8_and_field20__15TWindowHelpItemFPvi(void *arg0, s32 arg1);
 void set_compare_color__15TWindowHelpItemFPvi(void *arg0, s32 arg1);
-M2C_UNK TWindowHelpItem__sub_8025A2D4(void *, s32);
+M2C_UNK set_flag4_and_field1c__15TWindowHelpItemFPvi(void *, s32);
 
 void TWindowHelpItem__sub_8025A238(u16 *arg0, s32 arg1) {
     if (arg1 != 0) {
@@ -19,7 +19,7 @@ void TWindowHelpItem__sub_8025A238(u16 *arg0, s32 arg1) {
     *arg0 &= 0xFFFFFFEF;
 }
 
-void TWindowHelpItem__sub_8025A260(void *arg0, s32 arg1) {
+void set_flag8_and_field20__15TWindowHelpItemFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 8);
     M2C_FIELD(arg0, s32 *, 0x20) = arg1;
 }
@@ -38,7 +38,7 @@ void set_compare_color__15TWindowHelpItemFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x10) = 0xFFDD8C41;
     }
     M2C_FIELD(arg0, s32 *, 0x14) = 0x1E;
-    TWindowHelpItem__sub_8025A2D4(arg0, arg1);
+    set_flag4_and_field1c__15TWindowHelpItemFPvi(arg0, arg1);
 }
 
 }

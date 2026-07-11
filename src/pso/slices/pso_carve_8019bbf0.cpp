@@ -9,7 +9,7 @@ extern "C" {
 s32 get_main_phase();
 M2C_UNK fn_800740FC(u32);
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
-M2C_UNK TObjCityMainWarp__sub_80186AE4(u32);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
 M2C_UNK fn_80265C30(u32);
 M2C_UNK fn_80265F60(u32);
 M2C_UNK fn_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -26,7 +26,7 @@ void fn_8019BBF0(void *arg0, s16 arg1) {
         }
         fn_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
         fn_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
-        TObjCityMainWarp__sub_80186AE4(M2C_FIELD(arg0, u32 *, 0xB0));
+        set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         fn_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, s16 *, 0xB8) = arg1;
     }

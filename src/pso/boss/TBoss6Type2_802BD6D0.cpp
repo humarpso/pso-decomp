@@ -9,7 +9,7 @@ extern "C" {
 void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK update_segments__11TBoss6Type2FPv(void *);
 M2C_UNK TBoss6Type2__sub_802BC62C(void *);
-u32 TBoss6Type2__sub_802BD8B0(s32);
+u32 get_table_entry__11TBoss6Type2Fi(s32);
 M2C_UNK fn_8032E718(void *, u32, s32);
 
 void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
@@ -18,7 +18,7 @@ void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
 
     temp_r31 = M2C_FIELD(arg0, u32 *, 0x2E4);
     temp_r30 = M2C_FIELD(arg0, s32 *, 0x42C);
-    M2C_FIELD(arg0, u32 *, 0x2E4) = TBoss6Type2__sub_802BD8B0(arg1);
+    M2C_FIELD(arg0, u32 *, 0x2E4) = get_table_entry__11TBoss6Type2Fi(arg1);
     M2C_FIELD(arg0, s32 *, 0x42C) = arg2;
     update_segments__11TBoss6Type2FPv(arg0);
     if ((temp_r31 != (u32) M2C_FIELD(arg0, u32 *, 0x2E4)) || (temp_r30 != (s32) M2C_FIELD(arg0, s32 *, 0x42C))) {

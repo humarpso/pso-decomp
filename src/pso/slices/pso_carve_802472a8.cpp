@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TKeyBoardControl__sub_80131F64(s32);
+M2C_UNK set_flag60_bit200__16TKeyBoardControlFPv(s32);
 M2C_UNK init_parts__10TObjPlayerFPv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK fn_80247534(void *);
@@ -35,7 +35,7 @@ void fn_802472A8(void *arg0) {
         }
         fn_8025CB70(M2C_FIELD(arg0, s32 *, 0x20));
         fn_80247534(arg0);
-        TKeyBoardControl__sub_80131F64(M2C_FIELD(arg0, s32 *, 0x28));
+        set_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, s32 *, 0x28));
     }
 }
 

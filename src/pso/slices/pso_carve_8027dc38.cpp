@@ -8,7 +8,7 @@ extern "C" {
 
 u32 *fn_80076E2C();
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
-M2C_UNK TObjCityMainWarp__sub_80186AE4(s32);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK fn_80265C30(s32);
 M2C_UNK fn_80265E60(s32, f32);
 M2C_UNK fn_802661D4(s32, s32, M2C_UNK, M2C_UNK);
@@ -31,7 +31,7 @@ s32 fn_8027DC38(void *arg0) {
     } else {
         fn_802661D4(temp_r31, TWindowSubStatusDisp__sub_80077760(0x5A), 6, 9);
     }
-    TObjCityMainWarp__sub_80186AE4(temp_r31);
+    set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     fn_80265E60(temp_r31, lbl_805DD6C0);
     fn_80265C30(temp_r31);
     return temp_r31;

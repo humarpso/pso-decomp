@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TItemTimer__sub_8011D5A4(void* p);
+void reset_fields__10TItemTimerFPv(void* p);
 
-void TItemTimer__sub_8011D5A4(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+void reset_fields__10TItemTimerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TPlayerBattleCtrl4P__sub_801BA74C();
-void *TWindowSubStatusDisp__sub_80223B88(s32, M2C_UNK);
+void *get_array_entry__20TWindowSubStatusDispFPvi(s32, M2C_UNK);
 M2C_UNK fn_8024C818();
 
 struct Base_8026F77C { char pad[0x18]; };
@@ -26,7 +26,7 @@ void fn_8026F77C(s32 arg0) {
     fn_8024C818();
     temp_r3 = (VObj_8026F77C *) TPlayerBattleCtrl4P__sub_801BA74C();
     if (temp_r3 != NULL) {
-        temp_r31 = TWindowSubStatusDisp__sub_80223B88(arg0, 2);
+        temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
         M2C_FIELD(temp_r31, s32 *, 0x20) = temp_r3->m14() + 1;
     }
 }

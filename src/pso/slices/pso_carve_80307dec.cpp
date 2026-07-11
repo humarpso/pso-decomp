@@ -8,7 +8,7 @@ extern "C" {
 
 s32 allow_rendering__7TObjectFv(u32);
 s32 __dl__FPv(void *);
-s32 TQuestVmDownLoadServer__sub_80080788(void *);
+s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 TWindow__close(u32);
 s32 fn_80307DEC(void* p);
 
@@ -17,7 +17,7 @@ int fn_80307DF4(void) { return 0; }
 void *fn_80307E74(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-            TQuestVmDownLoadServer__sub_80080788(M2C_FIELD(arg0, void **, 0x24));
+            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x24));
             allow_rendering__7TObjectFv(M2C_FIELD(arg0, u32 *, 0x24));
             TWindow__close(M2C_FIELD(arg0, u32 *, 0x24));
             M2C_FIELD(arg0, u32 *, 0x24) = 0U;

@@ -9,7 +9,7 @@ extern "C" {
 struct VtBase4 { void *vtable; };
 struct VObj3 : VtBase4 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
 
-void *TWindowSubStatusDisp__sub_80223B88(void *, M2C_UNK);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK fn_802575C0(void *, M2C_UNK, f32);
 extern f32 lbl_805DD388;
 extern f32 lbl_805DD38C;
@@ -18,7 +18,7 @@ void fn_8026F71C(void *arg0) {
     VObj3 *temp_r3;
     f32 temp_f0;
 
-    temp_r3 = (VObj3 *) TWindowSubStatusDisp__sub_80223B88(arg0, 3);
+    temp_r3 = (VObj3 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, 3);
     temp_f0 = lbl_805DD388;
     M2C_FIELD(temp_r3, f32 *, 0x20) = temp_f0;
     M2C_FIELD(temp_r3, f32 *, 0x24) = temp_f0;

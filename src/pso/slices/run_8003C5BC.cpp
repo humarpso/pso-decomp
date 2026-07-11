@@ -8,13 +8,13 @@ extern "C" {
 
 extern s32 lbl_805D4C00;
 
-void TObjBoss2Tunnel__sub_8003C5BC(void) {
+void set_global_flag_200__15TObjBoss2TunnelFv(void) {
     lbl_805D4C00 |= 0x200;
 }
 
 extern s32 lbl_805D4C00;
 
-void TObjBoss2Tunnel__sub_8003C5CC(void) {
+void set_global_flag_100__15TObjBoss2TunnelFv(void) {
     lbl_805D4C00 |= 0x100;
 }
 
@@ -26,7 +26,7 @@ s32 TObjBoss2Tunnel__sub_8003C5DC(void) {
 
 extern s32 lbl_805D4C00;
 
-void TObjBoss2Tunnel__sub_8003C5E8(void) {
+void clear_global_flag_3000__15TObjBoss2TunnelFv(void) {
     lbl_805D4C00 &= 0xFFFFCFFF;
 }
 

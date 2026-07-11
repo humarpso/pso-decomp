@@ -22,7 +22,7 @@ s32 TNpcPlayer__sub_80152978(void* p);
 s32 TNpcPlayer__sub_80152980(void* p);
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
 s32 TNpcPlayer__sub_801529C8(void* p);
-void TNpcPlayer__sub_801529D0(void* p);
+void reset_fields_8c__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A30(void);
 void fn_80152D64(void* p);
 

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowSubShortCut__sub_8027E268(void* p);
+void set_flag1e_bit80__18TWindowSubShortCutFPv(void* p);
 
-void TWindowSubShortCut__sub_8027E268(void* p) { *(u16*)((char*)p + 0x1e) |= 0x80; }
+void set_flag1e_bit80__18TWindowSubShortCutFPv(void* p) { *(u16*)((char*)p + 0x1e) |= 0x80; }
 
 }

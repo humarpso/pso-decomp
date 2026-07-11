@@ -47,7 +47,7 @@ extern "C" {
 M2C_UNK fn_8001A438(void *);
 M2C_UNK allow_rendering__7TObjectFv(u32);
 M2C_UNK disallow_rendering__7TObjectFv(u32);
-M2C_UNK TQuestVmDownLoadServer__sub_80080788(void *);
+M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
@@ -79,15 +79,15 @@ void fn_8019E308(void *arg0) {
         }
     } else {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x168) != 0U) {
-            TQuestVmDownLoadServer__sub_80080788(M2C_FIELD(arg0, void **, 0x168));
+            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x168));
             allow_rendering__7TObjectFv(M2C_FIELD(arg0, u32 *, 0x168));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
-            TQuestVmDownLoadServer__sub_80080788(M2C_FIELD(arg0, void **, 0xB0));
+            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0xB0));
             allow_rendering__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xB0));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x164) != 0U) {
-            TQuestVmDownLoadServer__sub_80080788(M2C_FIELD(arg0, void **, 0x164));
+            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x164));
             allow_rendering__7TObjectFv(M2C_FIELD(arg0, u32 *, 0x164));
         }
     }

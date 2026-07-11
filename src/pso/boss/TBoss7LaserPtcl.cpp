@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TBoss7LaserPtcl__sub_8035A9A4(void *arg0);
+u8 is_state_2__15TBoss7LaserPtclFPv(void *arg0);
 
-u8 TBoss7LaserPtcl__sub_8035A9A4(void *arg0) {
+u8 is_state_2__15TBoss7LaserPtclFPv(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x1C) == 2);
 }
 

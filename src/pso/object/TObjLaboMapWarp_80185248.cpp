@@ -11,7 +11,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
-s32 TObjLaboMapWarp__sub_801853F0(void *);
+s32 is_field88_zero__15TObjLaboMapWarpFPv(void *);
 s32 fn_8001ED9C(s32, M2C_UNK);
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
@@ -47,7 +47,7 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
         fn_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        if (TObjLaboMapWarp__sub_801853F0(arg0) != 0) {
+        if (is_field88_zero__15TObjLaboMapWarpFPv(arg0) != 0) {
             TObjFish__sub_8001EDC4(lbl_805D5B58, 1);
             TObjBoss2Tunnel__sub_803DB470();
             fn_801E2EFC();

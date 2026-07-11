@@ -366,13 +366,13 @@ struct VObj_8026CE78 : Base_8026CE78 {
 
 extern "C" {
 
-void *TWindowSubStatusDisp__sub_80223B88(M2C_UNK, M2C_UNK);
+void *get_array_entry__20TWindowSubStatusDispFPvi(M2C_UNK, M2C_UNK);
 
 void fn_8026CE78(void *arg1, void *arg2) {
     s32 temp_r3;
     void *temp_r31;
 
-    temp_r31 = TWindowSubStatusDisp__sub_80223B88((M2C_UNK)arg1, 1);
+    temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((M2C_UNK)arg1, 1);
     if (arg2 == NULL) {
         M2C_FIELD(temp_r31, s32 *, 0x20) = 0;
         return;

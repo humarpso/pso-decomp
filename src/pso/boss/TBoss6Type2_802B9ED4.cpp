@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss6Type2__sub_802B9ED4(void* p);
+void set_fields_554__11TBoss6Type2FPv(void* p);
 
-void TBoss6Type2__sub_802B9ED4(void* p) { *(s32*)((char*)p + 0x554) = 1; *(s32*)((char*)p + 0x558) = 1; }
+void set_fields_554__11TBoss6Type2FPv(void* p) { *(s32*)((char*)p + 0x554) = 1; *(s32*)((char*)p + 0x558) = 1; }
 
 }

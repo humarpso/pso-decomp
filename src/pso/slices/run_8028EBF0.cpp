@@ -8,13 +8,13 @@ extern "C" {
 
 extern s32 lbl_805D659C;
 
-u8 TObjCMMainMenu__sub_8028EBF0(void) {
+u8 is_state_4__14TObjCMMainMenuFv(void) {
     return (u8) (lbl_805D659C == 4);
 }
 
 extern s32 lbl_805D659C;
 
-u8 TObjCMMainMenu__sub_8028EC04(void) {
+u8 is_state_3__14TObjCMMainMenuFv(void) {
     return (u8) (lbl_805D659C == 3);
 }
 

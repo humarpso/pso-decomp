@@ -14,7 +14,7 @@ M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, s32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
 M2C_UNK set_value__18TWindowInputNumberFPvf(s32, f32);
 M2C_UNK create__18TWindowInputNumberFPvi(s32, s32);
-M2C_UNK TWindowSubItem__sub_8027A9E4(s32);
+M2C_UNK set_flag60_bit10__14TWindowSubItemFPv(s32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
@@ -59,7 +59,7 @@ s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
     fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 3);
     fn_80244D2C(var_r31);
     set_value__18TWindowInputNumberFPvf(var_r31, lbl_805DD630);
-    TWindowSubItem__sub_8027A9E4(var_r31);
+    set_flag60_bit10__14TWindowSubItemFPv(var_r31);
     return var_r31;
 }
 

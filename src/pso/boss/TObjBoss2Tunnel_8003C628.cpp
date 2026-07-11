@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjBoss2Tunnel__sub_8003C628(void);
-void TObjBoss2Tunnel__sub_8003C638(void);
+void set_global_flag_800__15TObjBoss2TunnelFv(void);
+void set_global_flag_400__15TObjBoss2TunnelFv(void);
 void TObjBoss2Tunnel__sub_8003C648(void);
 void *create__15TObjBoss2TunnelFv(void);
 void clear_target_flags__15TObjBoss2TunnelFv(void);
@@ -16,13 +16,13 @@ void *__nw__7TObjectFUl(int);
 
 extern s32 lbl_805D4C00;
 
-void TObjBoss2Tunnel__sub_8003C628(void) {
+void set_global_flag_800__15TObjBoss2TunnelFv(void) {
     lbl_805D4C00 |= 0x800;
 }
 
 extern s32 lbl_805D4C00;
 
-void TObjBoss2Tunnel__sub_8003C638(void) {
+void set_global_flag_400__15TObjBoss2TunnelFv(void) {
     lbl_805D4C00 |= 0x400;
 }
 

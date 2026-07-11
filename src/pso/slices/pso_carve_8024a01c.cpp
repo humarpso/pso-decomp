@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TWindowCtrl__sub_8024C5A4(void*);
+M2C_UNK set_flag1e_bit8__11TWindowCtrlFPv(void*);
 struct Obj054 { char pad[0x38]; u32 field38; };
 extern struct Obj054 *lbl_805D63F8;
 
 void request_active_window_close(void) {
     if ((lbl_805D63F8 != NULL) && (lbl_805D63F8->field38 != 0U)) {
-        TWindowCtrl__sub_8024C5A4((void*)lbl_805D63F8->field38);
+        set_flag1e_bit8__11TWindowCtrlFPv((void*)lbl_805D63F8->field38);
     }
 }
 

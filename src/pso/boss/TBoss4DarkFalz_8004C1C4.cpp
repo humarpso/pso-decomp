@@ -8,7 +8,7 @@ int bswap_32__FPUl(void*);
 int fn_8001960C(void*);
 void TBoss4DarkFalz__sub_8004C244(void* p);
 int TLobby__send_and_handle_60(void*);
-int TBoss4DarkFalz__sub_8004C1C4(void* p);
+int is_field378_zero__14TBoss4DarkFalzFPv(void* p);
 s32 TBoss4DarkFalz__sub_8004C1D4(void* p);
 s32 TBoss4DarkFalz__sub_8004C1DC(void* p);
 s32 TBoss4DarkFalz__sub_8004C1E4(void* p);
@@ -17,7 +17,7 @@ int TBoss4DarkFalz__sub_8004C220(void* p);
 void set_code_25_4__14TBoss4DarkFalzFPv(void* p);
 int VecCopy__FP3VecPC3Vec(void*, void* a1 = 0);
 
-int TBoss4DarkFalz__sub_8004C1C4(void* p) { return *(u32*)((char*)p + 0x378) == 0; }
+int is_field378_zero__14TBoss4DarkFalzFPv(void* p) { return *(u32*)((char*)p + 0x378) == 0; }
 s32 TBoss4DarkFalz__sub_8004C1D4(void* p) { return *(s32*)((char*)p + 0x374); }
 s32 TBoss4DarkFalz__sub_8004C1DC(void* p) { return *(s32*)((char*)p + 0x374); }
 s32 TBoss4DarkFalz__sub_8004C1E4(void* p) { return *(s32*)((char*)p + 0x374); }

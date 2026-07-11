@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TBoss3VoloptMonitor__sub_8004291C(void* p);
+void set_flags_30__19TBoss3VoloptMonitorFPv(void* p);
 
 int TBoss3VoloptMonitor__sub_8004292C(void) { return 0; }
 

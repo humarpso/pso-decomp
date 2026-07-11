@@ -8,7 +8,7 @@ int bswap_32__FPUl(void*);
 int fn_8001960C(void*);
 void TBoss4DarkFalz__sub_8004C244(void* p);
 int TLobby__send_and_handle_60(void*);
-int TBoss4DarkFalz__sub_8004C1C4(void* p);
+int is_field378_zero__14TBoss4DarkFalzFPv(void* p);
 s32 TBoss4DarkFalz__sub_8004C1D4(void* p);
 s32 TBoss4DarkFalz__sub_8004C1DC(void* p);
 s32 TBoss4DarkFalz__sub_8004C1E4(void* p);

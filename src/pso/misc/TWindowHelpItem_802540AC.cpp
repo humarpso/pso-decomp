@@ -10,7 +10,7 @@ void update_stat_disp__15TWindowHelpItemFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 TWindowHelpItem__sub_80104FCC(s32, M2C_UNK, M2C_UNK *);
 M2C_UNK TWindowHelpItem__sub_8025A238(s32, M2C_UNK);
-s32 TWindowSubStatusDisp__sub_80223B88(void *, M2C_UNK);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 
 void update_stat_disp__15TWindowHelpItemFPv(void *arg0) {
     M2C_UNK sp8;
@@ -23,11 +23,11 @@ void update_stat_disp__15TWindowHelpItemFPv(void *arg0) {
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
     if (temp_r3 != 0) {
-        a = TWindowSubStatusDisp__sub_80223B88(arg0, 0);
-        b = TWindowSubStatusDisp__sub_80223B88(arg0, 1);
-        c = TWindowSubStatusDisp__sub_80223B88(arg0, 2);
-        d = TWindowSubStatusDisp__sub_80223B88(arg0, 3);
-        e = TWindowSubStatusDisp__sub_80223B88(arg0, 4);
+        a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+        b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+        c = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
+        d = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 3);
+        e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4);
         if (M2C_FIELD(arg0, u32 *, 0x70) != 0) {
             if (TWindowHelpItem__sub_80104FCC(temp_r3, M2C_FIELD(arg0, u32 *, 0x70), &sp8) != 0) {
                 TWindowHelpItem__sub_8025A238(a, 1);

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0);
 s32 open_main_menu__20TWindowSubSymbolChatFv(void);
-M2C_UNK TObjCityMainWarp__sub_80186AE4(s32);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s8 TWindowSubSymbolChat__sub_80283808();
@@ -38,7 +38,7 @@ s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0) {
     } else {
         fn_802661D4(temp_r31, TWindowSubStatusDisp__sub_80077760(0xB5), 6, 0x20);
     }
-    TObjCityMainWarp__sub_80186AE4(temp_r31);
+    set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     fn_80265DEC(temp_r31, lbl_805DD73C, lbl_805DD740);
     fn_80265C30(temp_r31);
     return temp_r31;
@@ -56,7 +56,7 @@ s32 open_main_menu__20TWindowSubSymbolChatFv(void) {
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0xAB), 6, 0x22);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0xAC), 6, 0x26);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0xAD), 6, 0x28);
-    TObjCityMainWarp__sub_80186AE4(temp_r31);
+    set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     fn_80265E60(temp_r31, lbl_805DD73C);
     fn_80265C30(temp_r31);
     return temp_r31;

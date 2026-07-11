@@ -10,7 +10,7 @@ void TBoss6Type2__sub_802BC6DC(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4F4) = 0;
 }
 
-s32 TBoss6Type2__sub_802BC6E8(void *arg0) {
+s32 calc_field4f0_delta__11TBoss6Type2FPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x4F0) - M2C_FIELD(arg0, s16 *, 0x32C);
 }
 

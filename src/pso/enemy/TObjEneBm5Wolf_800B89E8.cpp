@@ -15,7 +15,7 @@ int TObjEneBm5Wolf__sub_800B896C(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int TObjEneBm5Wolf__sub_800B89A4(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 void TObjEneBm5Wolf__sub_800B8838(void* p, void* a1);
 void TObjEneBm5Wolf__sub_800B8868(void* p, void* a1);
-void TObjEneBm5Wolf__sub_800B8898(void* p);
+void reset_fields__14TObjEneBm5WolfFPv(void* p);
 
 s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

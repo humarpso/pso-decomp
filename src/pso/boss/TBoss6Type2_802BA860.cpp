@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_ready_to_attack__11TBoss6Type2FPv(void *arg0);
-s32 TBoss6Type2__sub_802BC6E8(void *);
+s32 calc_field4f0_delta__11TBoss6Type2FPv(void *);
 s32 fn_802AC17C();
 
 s32 is_ready_to_attack__11TBoss6Type2FPv(void *arg0) {
@@ -18,7 +18,7 @@ s32 is_ready_to_attack__11TBoss6Type2FPv(void *arg0) {
     if (fn_802AC17C() != 0) {
         return 0;
     }
-    temp = TBoss6Type2__sub_802BC6E8(arg0);
+    temp = calc_field4f0_delta__11TBoss6Type2FPv(arg0);
     return M2C_FIELD(arg0, s32 *, 0x4C0) <= temp ? 1 : 0;
 }
 

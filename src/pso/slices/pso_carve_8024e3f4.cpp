@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void * TWindowSubStatusDisp__sub_80223B88(s32 a0 = 0, s32 a1 = 0);
+void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
 void TWindowDeposit__sub_8024E434(void *arg0, s32 arg1);
 M2C_UNK fn_80287580(s32, s32, M2C_UNK, f32);
 int fn_8024664C(void*);
@@ -21,7 +21,7 @@ int fn_8024E3F4(void* p);
 
 int fn_8024E3F4(void* p) { return (*(u16*)((char*)p + 0x1c) >> 6) & 0x1; }
 void fn_8024E400(s32 arg0, s32 arg1) {
-    M2C_FIELD(TWindowSubStatusDisp__sub_80223B88(arg0, 1), s32 *, 0x20) = arg1;
+    M2C_FIELD(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), s32 *, 0x20) = arg1;
 }
 
 }

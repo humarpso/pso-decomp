@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0);
 s32 TOBoss4Rock__sub_80147AA8(s32);
-M2C_UNK TWindowFukidasi__sub_80252C28(void *);
+M2C_UNK clear_flag2c_bit100__15TWindowFukidasiFPv(void *);
 s32 fn_80228BEC(s32, M2C_UNK);
 M2C_UNK fn_80251964(void *, s16);
 M2C_UNK fn_80252CA0(void *);
@@ -40,7 +40,7 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x48) = (f32) lbl_805DCD30;
     M2C_FIELD(arg0, f32 *, 0x4C) = (f32) lbl_805DCD30;
     fn_80252CA0(arg0);
-    TWindowFukidasi__sub_80252C28(arg0);
+    clear_flag2c_bit100__15TWindowFukidasiFPv(arg0);
 }
 
 }

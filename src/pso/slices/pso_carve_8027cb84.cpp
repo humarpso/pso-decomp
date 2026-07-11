@@ -8,7 +8,7 @@ extern "C" {
 
 s32 is_split_screen();
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
-M2C_UNK TObjCityMainWarp__sub_80186AE4(s32);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK fn_80244D2C(s32);
 M2C_UNK fn_80263AF8(s32, M2C_UNK);
 M2C_UNK fn_80265C30(s32);
@@ -32,7 +32,7 @@ s32 fn_8027CB84(void *arg0) {
     if (is_split_screen() == 0) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x6E), 6, 5);
     }
-    TObjCityMainWarp__sub_80186AE4(temp_r31);
+    set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     fn_80265E60(temp_r31, lbl_805DD688);
     fn_80265C30(temp_r31);
     fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x24), 0);

@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TWindowShortListCtrl__sub_80221828(void* p);
+void set_flag70_bit10__20TWindowShortListCtrlFPv(void* p);
 
 int fn_80221838(void) { return 0; }
 

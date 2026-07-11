@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjEneRecon__sub_8031EF00(void *arg0);
+u8 is_anim_6__12TObjEneReconFPv(void *arg0);
 
-u8 TObjEneRecon__sub_8031EF00(void *arg0) {
+u8 is_anim_6__12TObjEneReconFPv(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s16 *, 0x326) == 6);
 }
 

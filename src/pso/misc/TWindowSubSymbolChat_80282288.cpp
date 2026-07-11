@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
-M2C_UNK TObjCityMainWarp__sub_80186AE4(s32);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 TWindowSubSymbolChat__sub_80077310();
@@ -29,7 +29,7 @@ void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
         fn_802661D4(arg1, TWindowSubStatusDisp__sub_80077760(0xAE), 6, 0xC);
     }
     TObjCityMainWarp__sub_80266354(arg1, TWindowSubStatusDisp__sub_80077760(0xAF), 6, 0x10);
-    TObjCityMainWarp__sub_80186AE4(arg1);
+    set_flag70_bit10__16TObjCityMainWarpFPv(arg1);
     fn_80265DEC(arg1, lbl_805DD73C, lbl_805DD744);
     fn_80265C30(arg1);
 }

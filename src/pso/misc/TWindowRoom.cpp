@@ -11,7 +11,7 @@ int fn_8026D504(void* p);
 void fn_8026D528(void *arg0, s32 arg1);
 void fn_8026D564(void *arg0, s32 arg1);
 void fn_8026D594(s32 arg0);
-int TWindowSubStatusDisp__sub_80223B88(void*, int);
+int get_array_entry__20TWindowSubStatusDispFPvi(void*, int);
 s32 TWindowSubStatusDisp__sub_8025AC50(s32, s32, s32);
 s32 fn_80244CF4();
 int fn_8024664C(void*);
@@ -19,9 +19,9 @@ s32 fn_80257BC0(s32, s32, s32);
 int fn_80257C28(void*, void*);
 M2C_UNK fn_80287580(s32, s32, M2C_UNK, f32);
 
-int fn_8026D504(void* p) { return TWindowSubStatusDisp__sub_80223B88(p, 0); }
+int fn_8026D504(void* p) { return get_array_entry__20TWindowSubStatusDispFPvi(p, 0); }
 void fn_8026D528(void *arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_8025AC50(TWindowSubStatusDisp__sub_80223B88((void*)(arg0), 0), arg1, 0x60);
+    TWindowSubStatusDisp__sub_8025AC50(get_array_entry__20TWindowSubStatusDispFPvi((void*)(arg0), 0), arg1, 0x60);
 }
 void fn_8026D564(void *arg0, s32 arg1) {
     fn_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-int TObjLaboMapWarp__sub_801853F0(void* p);
+int is_field88_zero__15TObjLaboMapWarpFPv(void* p);
 
-int TObjLaboMapWarp__sub_801853F0(void* p) { return *(u32*)((char*)p + 0x88) == 0; }
+int is_field88_zero__15TObjLaboMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }
 
 }

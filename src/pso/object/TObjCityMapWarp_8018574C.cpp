@@ -21,7 +21,7 @@ extern "C" {
 void render__15TObjCityMapWarpFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-s32 TObjCityMapWarp__sub_801858D4(void *);
+s32 is_field88_zero__15TObjCityMapWarpFPv(void *);
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
 M2C_UNK fn_803D9214(M2C_UNK, s32);
@@ -41,7 +41,7 @@ void render__15TObjCityMapWarpFv(u8 *arg0) {
         fn_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        if (TObjCityMapWarp__sub_801858D4(arg0) != 0) {
+        if (is_field88_zero__15TObjCityMapWarpFPv(arg0) != 0) {
             TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xD8));
             fn_801E2EFC();
             fn_803DC894(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0x38), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x3C), M2C_FIELD(arg0, f32 *, 0xFC));

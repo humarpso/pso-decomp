@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TTecSlicer__sub_8023B5C8(void* p);
+void reset_fields_1e__10TTecSlicerFPv(void* p);
 
 int fn_8023B590(void) { return 0; }
 

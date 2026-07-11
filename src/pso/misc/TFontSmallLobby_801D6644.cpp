@@ -3,7 +3,7 @@
 extern "C" {
 
 int TFontSmallLobby__sub_801C0228(void*);
-void TFontSmallLobby__sub_801D6644(void* p);
+void reset_fields__15TFontSmallLobbyFPv(void* p);
 int TFontSmallLobby__sub_801D6654(void* p);
 int TFontSmallLobby__sub_801D66AC(void* p);
 s32 fn_801D66D4(void* p);
@@ -18,7 +18,7 @@ u16 fn_801D67A4(void* p);
 int fn_8001BED8(void*, int);
 int TAdRicoRing__sub_8001BEE8(void*, int);
 
-void TFontSmallLobby__sub_801D6644(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+void reset_fields__15TFontSmallLobbyFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 int TFontSmallLobby__sub_801D6654(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 2); }
 void* TFontSmallLobby__sub_801D667C(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 int TFontSmallLobby__sub_801D66AC(void* p) { return fn_8001BED8((char*)p + 0x40, 2); }

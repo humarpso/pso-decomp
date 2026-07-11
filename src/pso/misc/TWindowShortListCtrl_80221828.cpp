@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TWindowShortListCtrl__sub_80221828(void* p);
+void set_flag70_bit10__20TWindowShortListCtrlFPv(void* p);
 
-void TWindowShortListCtrl__sub_80221828(void* p) { *(u16*)((char*)p + 0x70) |= 0x10; }
+void set_flag70_bit10__20TWindowShortListCtrlFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x10; }
 
 }

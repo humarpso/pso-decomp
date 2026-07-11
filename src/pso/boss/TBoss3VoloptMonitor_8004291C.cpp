@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss3VoloptMonitor__sub_8004291C(void* p);
+void set_flags_30__19TBoss3VoloptMonitorFPv(void* p);
 
-void TBoss3VoloptMonitor__sub_8004291C(void* p) { *(u32*)((char*)p + 0x30) |= 0x4040000; }
+void set_flags_30__19TBoss3VoloptMonitorFPv(void* p) { *(u32*)((char*)p + 0x30) |= 0x4040000; }
 
 }

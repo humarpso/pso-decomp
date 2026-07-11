@@ -19,10 +19,10 @@ void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0);
 void request_close__20TWindowChoiceSettingFPv(void *arg0);
 s32 TWindowSubComCard__sub_80249604();
 void TWindowSubComCard__sub_80268494(void *arg0);
-s32 TWindowSubStatusDisp__sub_80223B88(void * a0 = 0, s16 a1 = 0);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s16 a1 = 0);
 M2C_UNK fn_80269064();
 void fn_80268468(void* p);
-void TWindowSubTradeMain__sub_80268478(void* p);
+void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
 int fn_80268488(void* p);
 
 int fn_80268488(void* p) { return *(u16*)((char*)p + 0x0) & 0x80; }

@@ -8,7 +8,7 @@ extern "C" {
 
 void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
-M2C_UNK TQuestVmDownLoadServer__sub_80080788(void *);
+M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
 M2C_UNK fn_8001A438(void *);
 s32 fn_8006EF6C(M2C_UNK);
@@ -32,7 +32,7 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
             }
         } else {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x29C) != 0U) {
-                TQuestVmDownLoadServer__sub_80080788(M2C_FIELD(arg0, void **, 0x29C));
+                clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x29C));
             }
             var_r30 = 0;
             M2C_FIELD(arg0, s32 *, 0x234) = 0;

@@ -19,10 +19,10 @@ void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0);
 void request_close__20TWindowChoiceSettingFPv(void *arg0);
 s32 TWindowSubComCard__sub_80249604();
 void TWindowSubComCard__sub_80268494(void *arg0);
-s32 TWindowSubStatusDisp__sub_80223B88(void * a0 = 0, s16 a1 = 0);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s16 a1 = 0);
 M2C_UNK fn_80269064();
 void fn_80268468(void* p);
-void TWindowSubTradeMain__sub_80268478(void* p);
+void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
 int fn_80268488(void* p);
 
 int fn_802684BC(void) { return 0; }
@@ -34,7 +34,7 @@ void fn_802686D4(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x72);
     if (temp_r4 < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
-        fn_8025B514(TWindowSubStatusDisp__sub_80223B88(arg0, temp_r4), arg1, arg2, arg3);
+        fn_8025B514(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1, arg2, arg3);
         M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);
     }
 }
@@ -43,7 +43,7 @@ void fn_80268738(void *arg0, s32 arg1, s32 arg2) {
 
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x72);
     if (temp_r4 < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
-        fn_8025B5AC(TWindowSubStatusDisp__sub_80223B88(arg0, temp_r4), arg1, arg2);
+        fn_8025B5AC(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1, arg2);
         M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);
     }
 }

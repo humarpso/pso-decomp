@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TItemMag__sub_80113D48(void* p, f32 v);
+void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
 int is_feed_empty__8TItemMagFPv(void* p);
 int TItemMagSub__sub_80113D84(void* p, u32 m);
 s16 fn_80113D90(void* p);
@@ -23,7 +23,7 @@ int fn_8010EE54(void*);
 int fn_8010EE68(void*);
 int fn_8010EE7C(void*);
 
-void TItemMag__sub_80113D48(void* p, f32 v) { *(f32*)((char*)p + 0xc8) *= v; }
+void scale_field_c8__8TItemMagFPvf(void* p, f32 v) { *(f32*)((char*)p + 0xc8) *= v; }
 int is_feed_empty__8TItemMagFPv(void* p) { return (TItemMagSub__sub_80113D84(p, 64)) == 0; }
 
 }

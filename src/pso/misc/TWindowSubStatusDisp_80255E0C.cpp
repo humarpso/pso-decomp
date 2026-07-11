@@ -10,12 +10,12 @@ s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 fn_80211608();
 s32 TWindowHelpItem__sub_80255DDC(void* p);
-void TWindowHelpItem__sub_80255DE4(void* p);
+void set_flag0_bit20__15TWindowHelpItemFPv(void* p);
 s16 fn_80255DF4(void* p);
 s16 fn_80255DFC(void* p);
 s16 fn_80255E04(void* p);
 s16 TWindowSubStatusDisp__sub_80255E0C(void* p);
-void TWindowSubMag__sub_80255E14(void* p);
+void set_flag60_bit4__13TWindowSubMagFPv(void* p);
 
 s16 TWindowSubStatusDisp__sub_80255E0C(void* p) { return *(s16*)((char*)p + 0x2ce); }
 

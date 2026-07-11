@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801BFE40(void *arg0, f32 farg0) {
+void set_scale_xyz__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x14) = farg0;
     M2C_FIELD(arg0, f32 *, 0x10) = farg0;
     M2C_FIELD(arg0, f32 *, 0xC) = farg0;

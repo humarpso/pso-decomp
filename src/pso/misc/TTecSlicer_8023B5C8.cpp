@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TTecSlicer__sub_8023B5C8(void* p);
+void reset_fields_1e__10TTecSlicerFPv(void* p);
 
-void TTecSlicer__sub_8023B5C8(void* p) { *(u8*)((char*)p + 0x1e) = 0; *(u8*)((char*)p + 0x1f) = 0; }
+void reset_fields_1e__10TTecSlicerFPv(void* p) { *(u8*)((char*)p + 0x1e) = 0; *(u8*)((char*)p + 0x1f) = 0; }
 
 }

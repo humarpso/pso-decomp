@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TQuestVmDownLoadServer__sub_80080788(void* p);
+void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void* p);
 
 int fn_80080798(void) { return 0; }
 

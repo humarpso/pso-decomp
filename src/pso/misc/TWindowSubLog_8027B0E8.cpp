@@ -7,7 +7,7 @@ extern "C" {
 void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1);
 void TWindowCtrl__sub_8024ADF0(void *);
 void TWindow__close(void *);
-void TWindowSubLog__sub_8027B248(void *);
+void clear_flag4c_bit8__13TWindowSubLogFPv(void *);
 void TWindowSubLog__sub_8027B258(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -20,7 +20,7 @@ void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowSubLog;
         if (M2C_FIELD(arg0, void **, 0x28) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x28)); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }
         if (M2C_FIELD(arg0, void **, 0x24) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x24)); M2C_FIELD(arg0, M2C_UNK *, 0x24) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x20) != NULL) { TWindowSubLog__sub_8027B248(M2C_FIELD(arg0, void **, 0x20)); TWindowSubLog__sub_8027B258(M2C_FIELD(arg0, void **, 0x20)); }
+        if (M2C_FIELD(arg0, void **, 0x20) != NULL) { clear_flag4c_bit8__13TWindowSubLogFPv(M2C_FIELD(arg0, void **, 0x20)); TWindowSubLog__sub_8027B258(M2C_FIELD(arg0, void **, 0x20)); }
         TWindowCtrl__sub_8024ADF0(M2C_FIELD(arg0, void **, 0x1C));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

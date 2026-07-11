@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BC68C(void *arg0) {
+void reset_indices__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x518) = -1;
     M2C_FIELD(arg0, s32 *, 0x51C) = 0;
 }

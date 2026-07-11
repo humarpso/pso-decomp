@@ -15,18 +15,18 @@ int TObjEneBm5GibonU__sub_800D1C40(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int TObjEneBm5GibonU__sub_800D1C78(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 void TObjEneBm5GibonU__sub_800D1B0C(void* p, void* a1);
 void TObjEneBm5GibonU__sub_800D1B3C(void* p, void* a1);
-void TObjEneBm5GibonU__sub_800D1B6C(void* p);
+void reset_fields__16TObjEneBm5GibonUFPv(void* p);
 
 void TObjEneBm5GibonU__sub_800D1B0C(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C78(a1, p, (char*)p + 0x4); }
 void TObjEneBm5GibonU__sub_800D1B3C(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C40(a1, p, (char*)p + 0x4); }
-void TObjEneBm5GibonU__sub_800D1B6C(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+void reset_fields__16TObjEneBm5GibonUFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 TObjEneBm5GibonU__sub_800D1B7C(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }
     return arg0;
 }
-void* TObjEneBm5GibonU__sub_800D1BB8(void* p) { TObjEneBm5GibonU__sub_800D1B6C(p); return p; }
+void* TObjEneBm5GibonU__sub_800D1BB8(void* p) { reset_fields__16TObjEneBm5GibonUFPv(p); return p; }
 void TObjEneBm5GibonU__sub_800D1BE8(void *arg0) {
     TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 8));
 }
