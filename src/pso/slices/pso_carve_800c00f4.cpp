@@ -62,7 +62,7 @@ VA
 
 extern "C" {
 
-f32 TObjPlayer__sub_80011014(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
 extern const f32 lbl_805D9F44;
 extern const f32 lbl_805D9F48;
 
@@ -75,7 +75,7 @@ void fn_800C00F4(void *arg0) {
         temp_r4_2 = temp_r4 | 2;
         M2C_FIELD(arg0, s16 *, 0x374) = temp_r4_2;
         M2C_FIELD(arg0, s16 *, 0x394) = 0;
-        M2C_FIELD(arg0, s32 *, 0x390) = (s32) (lbl_805D9F44 * (lbl_805D9F48 * TObjPlayer__sub_80011014(arg0)));
+        M2C_FIELD(arg0, s32 *, 0x390) = (s32) (lbl_805D9F44 * (lbl_805D9F48 * calc_boss4_scale__10TObjPlayerFi(arg0)));
     }
     M2C_FIELD(arg0, s16 *, 0x326) = 1;
     M2C_FIELD(arg0, s16 *, 0x37A) = 3;

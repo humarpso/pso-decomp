@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void create_help_window__6TLobbyFv(void);
-void TLobby__sub_801E7758(void);
+void send_data__6TLobbyFv(void);
 s32 TWindowHelpItem__ct(s32, s32, s32);
 s32 TWindowShortListCtrl__sub_80278E48(s32, M2C_UNK *, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -40,7 +40,7 @@ extern struct Glob_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D6CC0;
 extern s32 TLobby__data_805D6CC8;
 
-void TLobby__sub_801E7758(void) {
+void send_data__6TLobbyFv(void) {
     s32 temp_r31;
 
     temp_r31 = TLobby__data_80512220.field0;

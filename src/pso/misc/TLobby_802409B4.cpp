@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_802409B4(void *arg0, f32 farg0);
+void clamp_field9c__6TLobbyFPvf(void *arg0, f32 farg0);
 
 extern f32 TLobby__data_805DC9E0;
 extern f32 lbl_805DC9E4;
 extern f32 lbl_805DC9E8;
 
-void TLobby__sub_802409B4(void *arg0, f32 farg0) {
+void clamp_field9c__6TLobbyFPvf(void *arg0, f32 farg0) {
     f32 var_f1;
 
     var_f1 = farg0;

@@ -16,7 +16,7 @@ void fn_801BBB70(void);
 int TObjPlayer__sub_801BBB74(void* p);
 void TObjPlayer__sub_801BBB94(void);
 void TObjPlayer__sub_801BBC2C(void* p);
-void TObjPlayer__sub_801BBC38(void* p);
+void update_lock_on_cursor__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BBC64(void);
 int TObjPlayer__sub_801BBD38(void* p);
 int TLockOnCursor__sub_8013DAB0(void*);
@@ -24,7 +24,7 @@ int fn_801566CC(void*);
 int fn_801B35AC(void*);
 
 void TObjPlayer__sub_801BBC2C(void* p) { *(s32*)((char*)p + 0x424) = 0; }
-void TObjPlayer__sub_801BBC38(void* p) { void* m = *(void**)((char*)p + 0x424); if (m) TLockOnCursor__sub_8013DAB0(m); }
+void update_lock_on_cursor__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x424); if (m) TLockOnCursor__sub_8013DAB0(m); }
 void TObjPlayer__sub_801BBC64(void) {  }
 void create_lockon_cursor__10TObjPlayerFPv(void *arg0) {
     u32 var_r31;

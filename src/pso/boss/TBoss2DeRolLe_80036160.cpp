@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss2DeRolLe__sub_80036160(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
-void TBoss2DeRolLe__sub_800361A4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void set_move_params__13TBoss2DeRolLeFPvffff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
+void init_params__13TBoss2DeRolLeFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 M2C_UNK TBoss2DeRolLe__sub_800360A8();
 
 extern const f32 TBoss2DeRolLe__data_805D827C;
 
-void TBoss2DeRolLe__sub_80036160(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+void set_move_params__13TBoss2DeRolLeFPvffff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     M2C_FIELD(arg0, s32 *, 0) = 0;
     M2C_FIELD(arg0, f32 *, 4) = farg2;
     M2C_FIELD(arg0, f32 *, 8) = farg3;
@@ -25,7 +25,7 @@ void TBoss2DeRolLe__sub_80036160(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 
 
 extern const f32 TBoss2DeRolLe__data_805D827C;
 
-void TBoss2DeRolLe__sub_800361A4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+void init_params__13TBoss2DeRolLeFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_FIELD(arg0, s32 *, 0) = 0;
     M2C_FIELD(arg0, f32 *, 4) = farg2;
     M2C_FIELD(arg0, f32 *, 8) = farg2;

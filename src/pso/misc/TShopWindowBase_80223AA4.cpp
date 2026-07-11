@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TShopWindowBase__sub_80223AA4(void *arg0);
+void draw_if_ready__15TShopWindowBaseFPv(void *arg0);
 
 extern s32 lbl_805D55C0;
 
@@ -24,7 +24,7 @@ struct VObj_80223AA4 : Base_80223AA4 {
     virtual void m9();
 };
 
-void TShopWindowBase__sub_80223AA4(void *arg0) {
+void draw_if_ready__15TShopWindowBaseFPv(void *arg0) {
     if ((s32) lbl_805D55C0 == 0) {
         ((VObj_80223AA4 *)arg0)->m9();
     }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_resources__17TObjEneDf2BringerFv(void);
-void *TObjEneDf2Bringer__sub_80099B88(void *arg0);
+void *create__17TObjEneDf2BringerFPv(void *arg0);
 void *TObjEneDf2Bringer__ct(void *, void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -37,7 +37,7 @@ void free_resources__17TObjEneDf2BringerFv(void) {
 
 extern void *tl_04;
 
-void *TObjEneDf2Bringer__sub_80099B88(void *arg0) {
+void *create__17TObjEneDf2BringerFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x4C8);
     if (o != NULL) {
         o = TObjEneDf2Bringer__ct(o, tl_04, arg0);

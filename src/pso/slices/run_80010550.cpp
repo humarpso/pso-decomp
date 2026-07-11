@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80010550(void *arg0) {
+void apply_velocity__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) (M2C_FIELD(arg0, f32 *, 0x38) + M2C_FIELD(arg0, f32 *, 0x308));
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x30C));
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x40) + M2C_FIELD(arg0, f32 *, 0x310));
 }
 
-s16 TObjPlayer__sub_80010584(void *arg0) {
+s16 clamp_field_32E__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     s16 temp_r4;
 
@@ -28,7 +28,7 @@ s16 TObjPlayer__sub_80010584(void *arg0) {
     return M2C_FIELD(arg0, s16 *, 0x32E);
 }
 
-s16 TObjPlayer__sub_800105B4(void *arg0) {
+s16 clamp_value__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     s16 temp_r4;
 

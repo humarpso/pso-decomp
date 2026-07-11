@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss2DeRolLe__sub_80033A58(s32 arg1, s32 arg2);
+void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
 M2C_UNK TObjBoss2CeilJunk__sub_8003B07C(s32, M2C_UNK);
 
-void TBoss2DeRolLe__sub_80033A58(s32 arg1, s32 arg2) {
+void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2) {
     TObjBoss2CeilJunk__sub_8003B07C(arg2, 0x121);
 }
 

@@ -8,7 +8,7 @@ extern "C" {
 
 void *TAdSinglePlyChrSelectGC__sub_8001ED80();
 M2C_UNK fn_80132A5C();
-M2C_UNK TWindowKeyBoardSoft__sub_80132AA8();
+M2C_UNK free_resources__19TWindowKeyBoardSoftFv();
 M2C_UNK TLanguage__ct(s32);
 M2C_UNK TWindowKeyBoardSoft__sub_80132DA0(s8);
 extern s32 lbl_805D5544;
@@ -20,7 +20,7 @@ s32 fn_80132E58(s8 arg0) {
         return 0;
     }
     fn_80132A5C();
-    TWindowKeyBoardSoft__sub_80132AA8();
+    free_resources__19TWindowKeyBoardSoftFv();
     temp_r3 = TAdSinglePlyChrSelectGC__sub_8001ED80();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s8 *, 7) = arg0;

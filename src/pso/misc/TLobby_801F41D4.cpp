@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void setup_quest_list__6TLobbyFv(void);
-M2C_UNK TLobby__sub_801F3C24();
-M2C_UNK TLobby__sub_801F429C();
-M2C_UNK TLobby__sub_801F42D4();
+M2C_UNK rebuild_all__6TLobbyFi();
+M2C_UNK update_and_reset__6TLobbyFi();
+M2C_UNK open_session__6TLobbyFi();
 M2C_UNK fn_801A2514(u16);
 M2C_UNK fn_801A2528(u16);
 M2C_UNK fn_801F3A24();
@@ -35,19 +35,19 @@ void setup_quest_list__6TLobbyFv(void) {
     switch ((s32) evt2_random_enemies_mode) {
     case 1:
         fn_801F43A8();
-        TLobby__sub_801F42D4();
+        open_session__6TLobbyFi();
         break;
     case 2:
         TQuestListOnline__sub_801F43A0();
-        TLobby__sub_801F429C();
+        update_and_reset__6TLobbyFi();
         break;
     case 3:
         TQuestListVM__sub_801F4398();
-        TLobby__sub_801F429C();
+        update_and_reset__6TLobbyFi();
         break;
     case 4:
         TQuestListOnline__sub_801F43A0();
-        TLobby__sub_801F3C24();
+        rebuild_all__6TLobbyFi();
         break;
     case 5:
         fn_801F43A8();

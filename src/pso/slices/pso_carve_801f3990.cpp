@@ -10,7 +10,7 @@ s32 fn_8007EBB4(s32);
 s32 fn_8007EBFC();
 s32 fn_800F9D80();
 s32 fn_800F9DF4(s32, s32);
-s32 TLobby__sub_801F3C24(s32);
+s32 rebuild_all__6TLobbyFi(s32);
 
 int fn_801F3990(void) { return 0; }
 int fn_801F39C4(void) { return 0; }
@@ -22,7 +22,7 @@ void fn_801F3A24(s32 arg0) {
         temp_r3 = fn_8007EBFC();
         if (temp_r3 != 0) {
             fn_800F9DF4(arg0, temp_r3);
-            TLobby__sub_801F3C24(temp_r3);
+            rebuild_all__6TLobbyFi(temp_r3);
             fn_8007EBB4(temp_r3);
         }
     }

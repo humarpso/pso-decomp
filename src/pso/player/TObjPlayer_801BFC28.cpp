@@ -3,7 +3,7 @@
 extern "C" {
 
 int TObjPlayer__sub_801BFC90(void* a0 = 0);
-void* TObjPlayer__sub_801BFC60(void* p);
+void* wrap_update__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_8001BF10(void*);
 int TObjPlayer__sub_801BF964(void*);
 int TObjPlayer__sub_801BF9A4(void*);
@@ -14,6 +14,6 @@ int fn_801C68B0(void*);
 void TObjPlayer__sub_801BFD3C(void* p);
 
 void* TObjPlayer__sub_801BFC28(void* p) { TObjPlayer__sub_8001BF10(p); TObjPlayer__sub_801BF9A4(p); return p; }
-void* TObjPlayer__sub_801BFC60(void* p) { TObjPlayer__sub_801BFC90(p); return p; }
+void* wrap_update__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BFC90(p); return p; }
 
 }

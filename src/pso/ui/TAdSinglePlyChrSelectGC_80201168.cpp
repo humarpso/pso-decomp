@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_80201168(s32 arg0);
+s32 init_and_register__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 M2C_UNK register_callback__23TAdSinglePlyChrSelectGCFis(s32, M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_801FC900();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCCCC(s32, M2C_UNK);
@@ -15,7 +15,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_80200690(s32, s32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(s32, M2C_UNK);
 s32 fn_8007EB94(M2C_UNK);
 
-s32 TAdSinglePlyChrSelectGC__sub_80201168(s32 arg0) {
+s32 init_and_register__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 var_r29;
     u32 temp_r30;
     u32 temp_r31;

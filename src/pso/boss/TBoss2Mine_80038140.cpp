@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss2Mine__sub_80038140(void *arg0);
-void *TBoss2Mine__sub_80038160(void *arg0, s16 arg1);
+void *deleting_dtor__10TBoss2MineFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__10TBoss2MineFv(void *, int);
 
@@ -19,7 +19,7 @@ void TBoss2Mine__sub_80038140(void *arg0) {
 
 extern M2C_UNK lbl_80482EC0[];
 
-void *TBoss2Mine__sub_80038160(void *arg0, s16 arg1) {
+void *deleting_dtor__10TBoss2MineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80482EC0;
         __dt__10TBoss2MineFv(arg0, 0);

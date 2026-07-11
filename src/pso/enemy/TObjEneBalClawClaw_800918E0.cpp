@@ -6,7 +6,7 @@ extern "C" {
 
 void * create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 void * create__18TObjEneBalClawClawFPv(void *arg0);
-void *TObjEneBalClawClaw__sub_800919D8(void *arg0, s16 arg1);
+void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__14TObjEneBalClawFv(void *, int);
@@ -49,7 +49,7 @@ void * create__18TObjEneBalClawClawFPv(void *arg0) {
 
 extern M2C_UNK lbl_8048F148[];
 
-void *TObjEneBalClawClaw__sub_800919D8(void *arg0, s16 arg1) {
+void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048F148;
         fn_80156720(arg0);

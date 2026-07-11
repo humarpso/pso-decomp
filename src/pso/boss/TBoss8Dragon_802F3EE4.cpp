@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_802F3EE4(s32 arg0);
+void render_nodes_flagged__12TBoss8DragonFi(s32 arg0);
 M2C_UNK render_nodes__7TObjectFv(s32, s32);
 
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 
-void TBoss8Dragon__sub_802F3EE4(s32 arg0) {
+void render_nodes_flagged__12TBoss8DragonFi(s32 arg0) {
     s32 temp_r4;
 
     temp_r4 = some_id_805c6f74;

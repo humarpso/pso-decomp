@@ -11,7 +11,7 @@ s32 obj_isState2_324(void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801B95C8(void *);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
-s32 TObjPlayer__sub_801BE4DC(void *);
+s32 query_child_state__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 s16 ret_801D26AC();
 
@@ -27,7 +27,7 @@ void fn_801CB948(u8 *arg0) {
     if (obj_isState2_324(arg0) != 0) {
         M2C_FIELD(arg0, s16 *, 0xBA) = ret_801D26AC();
     }
-    fn_801BA650(arg0, 0xA, TObjPlayer__sub_801BE4DC(arg0));
+    fn_801BA650(arg0, 0xA, query_child_state__10TObjPlayerFPv(arg0));
 }
 
 }

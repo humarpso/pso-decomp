@@ -20,7 +20,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 fn_80080750();
-M2C_UNK TLobby__sub_8020C5E0(void *);
+M2C_UNK set_flag8__6TLobbyFPv(void *);
 u8 TODoorAncient08__sub_80229220(u16);
 
 void fn_80174EA0(void *arg0) {
@@ -44,7 +44,7 @@ void fn_80174EA0(void *arg0) {
         }
         break;
     case 1:
-        TLobby__sub_8020C5E0(arg0);
+        set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
         break;
     }

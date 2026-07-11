@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjDoor__sub_8018F2C4(void);
+void free_resources__8TObjDoorFv(void);
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern s32 TObjDoor__data_805D5BC0;
 extern u32 lbl_805D5BC4;
 
-void TObjDoor__sub_8018F2C4(void) {
+void free_resources__8TObjDoorFv(void) {
     fn_801E483C(TObjDoor__data_805D5BC0);
     TObjDoor__data_805D5BC0 = 0;
     if ((u32) lbl_805D5BC4 != 0U) {

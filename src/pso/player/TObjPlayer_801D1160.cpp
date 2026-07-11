@@ -27,6 +27,6 @@ int TObjPlayer__sub_8001960C(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
 
-void TObjPlayer__sub_801D1160(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }
+void swap_endian32__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }
 
 }

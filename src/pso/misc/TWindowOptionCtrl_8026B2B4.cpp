@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowOptionCtrl__sub_8026B2B4(s32 arg0, s16 arg1);
+void set_field_value__17TWindowOptionCtrlFis(s32 arg0, s16 arg1);
 void *TAdSinglePlyChrSelectGC__sub_8001ED80();
 
-void TWindowOptionCtrl__sub_8026B2B4(s32 arg0, s16 arg1) {
+void set_field_value__17TWindowOptionCtrlFis(s32 arg0, s16 arg1) {
     M2C_FIELD(TAdSinglePlyChrSelectGC__sub_8001ED80(), s16 *, 0xC) = arg1;
 }
 

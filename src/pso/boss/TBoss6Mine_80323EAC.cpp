@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw__10TBoss6MineFPv(void *arg0);
-M2C_UNK TBoss6PlotFalz__sub_802ABFD4();
+M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
@@ -31,7 +31,7 @@ void draw__10TBoss6MineFPv(void *arg0) {
     fn_803DA798(temp_r31);
     TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3C8), TBoss6Mine__data_805DF580);
     fn_803E4AF4(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x39C));
-    TBoss6PlotFalz__sub_802ABFD4();
+    update_camera_target__14TBoss6PlotFalzFv();
     fn_803E4BD0();
 }
 

@@ -8,7 +8,7 @@ extern "C" {
 
 void init_params__14TObjEneGibblesFPv(void *arg0);
 void * create__14TObjEneGibblesFPv(void *arg0);
-void TObjEneGibbles__sub_802DB770(void);
+void free_static__14TObjEneGibblesFv(void);
 void *TObjControl__ct(void *, void *);
 void *TObjEneGibbles__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -56,7 +56,7 @@ void * create__14TObjEneGibblesFPv(void *arg0) {
 extern u32 TObjEneGibbles__data_805D68AC;
 extern u32 TObjEneGibbles__data_805D68B8;
 
-void TObjEneGibbles__sub_802DB770(void) {
+void free_static__14TObjEneGibblesFv(void) {
     if ((u32) TObjEneGibbles__data_805D68AC != 0U) {
         free__11TOBoss4RockFUi((void*)TObjEneGibbles__data_805D68AC);
         TObjEneGibbles__data_805D68AC = 0U;

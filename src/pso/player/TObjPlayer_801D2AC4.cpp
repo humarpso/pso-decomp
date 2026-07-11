@@ -13,7 +13,7 @@ int TObjPlayer__sub_801D2880(void* p);
 int TObjPlayer__sub_801D29A8(void* p);
 int TObjPlayer__sub_801D29D0(void* p);
 int TObjPlayer__sub_801D29F8(void* p);
-int TObjPlayer__sub_801D2A20(void* p);
+int check_flag_clear__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D2A50(void* p);
 void TObjPlayer__sub_801D2A78(void* p, f32 v);
 s32 TObjPlayer__sub_801D2A80(void* p);

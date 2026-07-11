@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80102DD4(void *, u16);
+s32 is_matching_id__6TLobbyFiUs(void *, u16);
 
 s32 fn_8036CB60(void *arg0) {
     s32 temp_r0;
 
-    if (TLobby__sub_80102DD4(arg0, M2C_FIELD(arg0, u16 *, 2)) != 0) {
+    if (is_matching_id__6TLobbyFiUs(arg0, M2C_FIELD(arg0, u16 *, 2)) != 0) {
         return 0;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 4);

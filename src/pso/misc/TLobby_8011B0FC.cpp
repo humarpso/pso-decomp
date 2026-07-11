@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TLobby__sub_8011B0FC(void* p);
-int TLobby__sub_80104200(void*);
+void bswap_item_packet__6TLobbyFPv(void* p);
+int bswap_item__6TLobbyFPv(void*);
 int TObjPlayer__sub_8001960C(void*);
 
-void TLobby__sub_8011B0FC(void* p) { TObjPlayer__sub_8001960C(p); TLobby__sub_80104200((char*)p + 0x4); }
+void bswap_item_packet__6TLobbyFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_item__6TLobbyFPv((char*)p + 0x4); }
 
 }

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801E90AC(void);
-void TLobby__sub_801E90D8(void);
+void clear_flag__6TLobbyFv(void);
+void free_child__6TLobbyFv(void);
 M2C_UNK clear_flag_3__7TObjectFv(void *);
 M2C_UNK fn_801F34D0(void *);
 
 extern void *tl_04;
 
-void TLobby__sub_801E90AC(void) {
+void clear_flag__6TLobbyFv(void) {
     void *temp = tl_04;
     if (temp != 0) {
         clear_flag_3__7TObjectFv(temp);
@@ -22,7 +22,7 @@ void TLobby__sub_801E90AC(void) {
 
 extern void *tl_04;
 
-void TLobby__sub_801E90D8(void) {
+void free_child__6TLobbyFv(void) {
     void *temp = tl_04;
     if (temp != 0) {
         fn_801F34D0(temp);

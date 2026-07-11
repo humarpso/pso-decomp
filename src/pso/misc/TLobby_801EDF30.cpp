@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801EDF30(void);
+void create_quest_bgm_ctrl__6TLobbyFv(void);
 void* TQuestBgmCtrl__ct(void*, s32);
 void* __nw__7TObjectFUl(u32);
 
 extern s32 tl_05;
 
-void TLobby__sub_801EDF30(void) {
+void create_quest_bgm_ctrl__6TLobbyFv(void) {
     void* obj = __nw__7TObjectFUl(0x1C);
     if (obj != 0) {
         TQuestBgmCtrl__ct(obj, tl_05);

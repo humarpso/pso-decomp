@@ -11,7 +11,7 @@ M2C_UNK fn_80052374();
 M2C_UNK fn_80052390(f32);
 M2C_UNK TCharaMaking__sub_8028DD18(u32, s32, M2C_UNK, f32);
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
-M2C_UNK TCharaMaking__sub_8028E288();
+M2C_UNK enable_making__12TCharaMakingFv();
 M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
@@ -38,7 +38,7 @@ void fn_80051D5C(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32
             fn_803D9B78();
         }
         if (arg4 != 0U) {
-            TCharaMaking__sub_8028E288();
+            enable_making__12TCharaMakingFv();
             fn_803D9B2C();
             TOHangerMachine01__sub_803D9C00(lbl_804FF228);
             fn_803DA798(arg1);
@@ -50,7 +50,7 @@ void fn_80051D5C(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32
             fn_80052374();
         }
         if (arg5 != 0U) {
-            TCharaMaking__sub_8028E288();
+            enable_making__12TCharaMakingFv();
             fn_803D9B2C();
             TOHangerMachine01__sub_803D9C00(lbl_804FF228);
             fn_803DA798(arg1);

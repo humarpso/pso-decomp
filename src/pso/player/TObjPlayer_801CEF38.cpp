@@ -8,7 +8,7 @@ extern "C" {
 
 void update_action_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_801CE218(void *);
-M2C_UNK TObjPlayer__sub_801CECE4(void *);
+M2C_UNK update_by_state__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801CED64(void *);
 M2C_UNK update_anim_action__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D2620(void *);
@@ -45,7 +45,7 @@ void update_action_state__10TObjPlayerFPv(u8 *arg0) {
     case 3:
         update_anim_action__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_801CED64(arg0);
-        TObjPlayer__sub_801CECE4(arg0);
+        update_by_state__10TObjPlayerFPv(arg0);
         break;
     }
 }

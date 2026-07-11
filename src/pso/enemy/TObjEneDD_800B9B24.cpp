@@ -4,7 +4,7 @@ extern "C" {
 
 void TObjEneDD__sub_800B9B24(void);
 s32 clamp_frame_index__9TObjEneDDFi(s32 arg0);
-s32 TObjEneDD__sub_800B9B84();
+s32 check_v2_mode__9TObjEneDDFv();
 
 void TObjEneDD__sub_800B9B24(void) {  }
 s32 clamp_frame_index__9TObjEneDDFi(s32 arg0) {
@@ -13,7 +13,7 @@ s32 clamp_frame_index__9TObjEneDDFi(s32 arg0) {
 
     idx = arg0;
     limit = 0xE;
-    if (TObjEneDD__sub_800B9B84() != 0) {
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
         limit = 0x1D;
     }
     if (idx < 0) {

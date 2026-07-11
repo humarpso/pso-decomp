@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TDLGraph__ct(void *arg0);
-void TDLGraph__sub_8007F644(void *);
+void reset__8TDLGraphFPv(void *);
 void __ct__7TObjectFP7TObject(void *);
 void fn_8007F574(void *);
 
@@ -23,7 +23,7 @@ void *TDLGraph__ct(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x28) = -1;
     M2C_FIELD(arg0, u32 *, 0x2C) = -1;
     M2C_FIELD(arg0, u32 *, 0x30) = -1;
-    TDLGraph__sub_8007F644(arg0);
+    reset__8TDLGraphFPv(arg0);
     fn_8007F574(arg0);
     M2C_FIELD(arg0, u32 *, 0x20) = 3;
     TDLGraph__data_805D4EB0 = arg0;

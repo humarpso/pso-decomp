@@ -8,7 +8,7 @@ void TObjPlayer__sub_801CF2AC(void);
 int TObjPlayer__sub_801CF3C0(void* p);
 int fn_801BA2F4(void*);
 
-void TObjPlayer__sub_801CF378(s32 arg0) {
+void update_active_item__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_801CEAC8();

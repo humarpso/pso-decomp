@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_level_tier__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_80224B04(s32 arg0);
+s32 level_to_reward__6TLobbyFi(s32 arg0);
 
 extern s32 lbl_805D6240;
 
@@ -57,7 +57,7 @@ s32 get_level_tier__6TLobbyFi(s32 arg0) {
     return -1;
 }
 
-s32 TLobby__sub_80224B04(s32 arg0) {
+s32 level_to_reward__6TLobbyFi(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
         return 0xA;
     }

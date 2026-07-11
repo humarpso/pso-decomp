@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2);
-void TItemDrop__sub_80106BB4(s32 arg0, s32 arg1, void *arg2);
+void calc_drop_rarity__9TItemDropFiiPv(s32 arg0, s32 arg1, void *arg2);
 void TItemDrop__sub_80106C40(void *arg0, void *arg1);
 void TItemDrop__sub_80106C88(void* p, void* a1);
-void TItemDrop__sub_80106CBC(void *arg0, void *arg1);
+void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
 M2C_UNK TItemData__sub_8010D510(void *, M2C_UNK *);
 M2C_UNK TItemDrop__sub_80106D0C(s32, void *);
 s32 TItemDrop__sub_80107460(s32, s32, s32);
@@ -31,7 +31,7 @@ s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2) {
 
 extern void *TItemDrop__data_805D5460;
 
-void TItemDrop__sub_80106BB4(s32 arg0, s32 arg1, void *arg2) {
+void calc_drop_rarity__9TItemDropFiiPv(s32 arg0, s32 arg1, void *arg2) {
     u8 temp_r3;
     u8 call_res;
 
@@ -54,7 +54,7 @@ void TItemDrop__sub_80106C40(void *arg0, void *arg1) {
 
 void TItemDrop__sub_80106C88(void* p, void* a1) { if (*(unsigned char*)(a1) == 3) { fn_8010ED54(a1, (void*)1); } }
 
-void TItemDrop__sub_80106CBC(void *arg0, void *arg1) {
+void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
     M2C_UNK sp8;
 
     if ((u8) M2C_FIELD(arg1, u8 *, 0) == 2) {

@@ -9,7 +9,7 @@ extern "C" {
 
 void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
-f32 TObjPlayer__sub_80011014(s32);
+f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f32 fn_803D64C0(s32, f32);
 f32 fn_803D64DC(s32, f32);
 s32 get_random_scaled__9TObjEneDDFv();
@@ -24,7 +24,7 @@ void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1) {
     s32 temp_r31;
 
     temp_r31 = get_random_scaled__9TObjEneDDFv();
-    f32 fv = TObjPlayer__sub_80011014(arg0);
+    f32 fv = calc_boss4_scale__10TObjPlayerFi(arg0);
     temp_f31 = (TObjEneMe1Gee__data_805DA0E8 * fv) + lbl_805DA0B8;
     temp_f1 = temp_f31 * fn_803D64C0(temp_r31, fv);
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;

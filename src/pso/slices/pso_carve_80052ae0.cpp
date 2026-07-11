@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjPlayer__sub_80011014();
+f32 calc_boss4_scale__10TObjPlayerFi();
 M2C_UNK fn_80053504(void *);
 M2C_UNK fn_80053914(void *, M2C_UNK *);
 M2C_UNK fn_80053A88(void *, M2C_UNK *);
@@ -18,7 +18,7 @@ void fn_80052AE0(void *arg0) {
     M2C_UNK var_r31;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
-        if (TObjPlayer__sub_80011014() < lbl_80437620[0]) {
+        if (calc_boss4_scale__10TObjPlayerFi() < lbl_80437620[0]) {
             fn_80053504(arg0);
             return;
         }

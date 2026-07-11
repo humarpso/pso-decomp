@@ -8,9 +8,9 @@ extern "C" {
 
 s32 fn_80247534();
 s32 fn_8024792C(void *);
-void TWindowSubShortCut__sub_80246FF0(void* p);
+void free_icon__18TWindowSubShortCutFPv(void* p);
 int fn_80247D2C(void*);
 
-void TWindowSubShortCut__sub_80246FF0(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) fn_80247D2C(m); }
+void free_icon__18TWindowSubShortCutFPv(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) fn_80247D2C(m); }
 
 }

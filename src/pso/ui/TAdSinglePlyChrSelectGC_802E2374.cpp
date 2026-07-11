@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_menu_window__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802E19B0(s32, s32, M2C_UNK, s32, M2C_UNK);
+M2C_UNK close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, M2C_UNK, s32, M2C_UNK);
 M2C_UNK create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
 s32 fn_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK fn_8039DC70(s32, M2C_UNK *);
@@ -19,7 +19,7 @@ void init_menu_window__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
     fn_8039DCE0(arg0 + 0x68, fn_80132F2C(0x1C, 1));
     fn_8039DC70(arg0 + 0x68, &lbl_805DE8F8);
-    TAdSinglePlyChrSelectGC__sub_802E19B0(arg0, arg0 + 0x68, -2, fn_80132F2C(0x1C, 0x16), 0);
+    close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, arg0 + 0x68, -2, fn_80132F2C(0x1C, 0x16), 0);
 }
 
 }

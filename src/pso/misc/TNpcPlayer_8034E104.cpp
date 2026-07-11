@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TNpcPlayer__sub_8034E104(int arg0);
-void TNpcPlayer__sub_8034E14C(int arg0);
+void send_code_45_to_player__10TNpcPlayerFi(int arg0);
+void play_effect__10TNpcPlayerFi(int arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 
 s32 obj_isState2_324();
 
-void TNpcPlayer__sub_8034E104(int arg0) {
+void send_code_45_to_player__10TNpcPlayerFi(int arg0) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg0);
@@ -25,7 +25,7 @@ void TNpcPlayer__sub_8034E104(int arg0) {
 
 s32 obj_isState2_324();
 
-void TNpcPlayer__sub_8034E14C(int arg0) {
+void play_effect__10TNpcPlayerFi(int arg0) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg0);

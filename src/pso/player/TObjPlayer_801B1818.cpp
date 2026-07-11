@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void* TObjPlayer__sub_801B1818(void* p);
+void* draw_font__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801B1848(s32 arg0);
 int TObjPlayer__sub_801B189C(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
@@ -17,7 +17,7 @@ M2C_UNK fn_801C05B4(M2C_UNK *);
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 
-void* TObjPlayer__sub_801B1818(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
+void* draw_font__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 void TObjPlayer__sub_801B1848(s32 arg0) {
     s8 sp8[8];
 

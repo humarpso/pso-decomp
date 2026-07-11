@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_message__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TLobby__sub_8020C5A4(void *);
+M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 M2C_UNK fn_800D8ACC(s32, M2C_UNK, s32, void *, s32);
 M2C_UNK fn_800F6B14(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -135,7 +135,7 @@ void handle_message__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
         return;
     case 0:
         if (((VObj8036*)arg0)->m107() != 0) {
-            TLobby__sub_8020C5A4(arg0);
+            send_entity_set_flags__6TLobbyFPv(arg0);
             queue_destruction__7TObjectFv(arg0);
         }
     case 3:

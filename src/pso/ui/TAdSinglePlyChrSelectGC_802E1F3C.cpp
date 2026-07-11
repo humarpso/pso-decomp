@@ -15,7 +15,7 @@ s32 fn_802E147C(void);
 int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
 int close_windows__23TAdSinglePlyChrSelectGCFPv(void*);
 
-void TAdSinglePlyChrSelectGC__sub_802E1F3C(void *arg0) {
+void update_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 temp_r0;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x60) <= 0) {

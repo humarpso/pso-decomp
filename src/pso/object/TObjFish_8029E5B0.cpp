@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjFish__sub_8029E5B0(void);
+void free_resource__8TObjFishFv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 TObjFish__data_805D65E8;
 
-void TObjFish__sub_8029E5B0(void) {
+void free_resource__8TObjFishFv(void) {
     if ((u32) TObjFish__data_805D65E8 != 0U) {
         fn_8001FE7C((void*)TObjFish__data_805D65E8, 1);
         TObjFish__data_805D65E8 = 0U;

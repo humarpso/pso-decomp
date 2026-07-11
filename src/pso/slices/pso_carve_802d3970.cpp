@@ -14,14 +14,14 @@ int fn_802D39FC(void* p);
 void build_6xA6_modify_trade_proposal(void* p);
 int TLobby__sub_802D245C(void);
 int TLobby__sub_802D2518(void);
-int TLobby__sub_802D37C8(void);
+int update_battle_mode__6TLobbyFv(void);
 int TLobby__sub_802D3820(void);
-int TLobby__sub_802D388C(void*);
+int close_trade_request__6TLobbyFv(void*);
 int TLobby__sub_802D38B4(void*);
 
-void fn_802D3970(void) { TLobby__sub_802D3820(); TLobby__sub_802D37C8(); TLobby__sub_802D2518(); TLobby__sub_802D245C(); }
-int fn_802D399C(void* p) { return TLobby__sub_802D388C(p); }
-int fn_802D39BC(void* p) { return TLobby__sub_802D388C(p); }
+void fn_802D3970(void) { TLobby__sub_802D3820(); update_battle_mode__6TLobbyFv(); TLobby__sub_802D2518(); TLobby__sub_802D245C(); }
+int fn_802D399C(void* p) { return close_trade_request__6TLobbyFv(p); }
+int fn_802D39BC(void* p) { return close_trade_request__6TLobbyFv(p); }
 int fn_802D39DC(void* p) { return TLobby__sub_802D38B4(p); }
 int fn_802D39FC(void* p) { return TLobby__sub_802D38B4(p); }
 void fn_802D3A1C(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }

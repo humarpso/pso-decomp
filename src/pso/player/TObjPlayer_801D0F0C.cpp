@@ -33,7 +33,7 @@ struct VObj_801D0F0C : Base_801D0F0C {
 
 extern "C" {
 
-short TObjPlayer__sub_801D0F0C(void *arg0);
+short query_child_state2__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801D0F40(void* p);
 void TObjPlayer__sub_801D0F60(void* p);
 void TObjPlayer__sub_801D0F70(void* p);
@@ -43,7 +43,7 @@ void TObjPlayer__sub_801D0FAC(s32 arg0, s16 arg1);
 M2C_UNK TObjPlayer__sub_801D2AC4(s32, f32);
 int VecCopy__FP3VecPC3Vec(void*);
 
-short TObjPlayer__sub_801D0F0C(void *arg0) {
+short query_child_state2__10TObjPlayerFPv(void *arg0) {
     struct VObj_801D0F0C *o = (struct VObj_801D0F0C *)M2C_FIELD(arg0, void **, 0x380);
     return o->m23();
 }

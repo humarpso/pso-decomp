@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C8F48(void *arg0);
+void set_dead_state__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_801D0458(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
@@ -14,7 +14,7 @@ M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 
-void TObjPlayer__sub_801C8F48(void *arg0) {
+void set_dead_state__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x14;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_8001053C(arg0);

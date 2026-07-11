@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TLobby__sub_8011B130(void *arg0);
-M2C_UNK TLobby__sub_8011B188();
+void *init_header_packet__6TLobbyFPv(void *arg0);
+M2C_UNK init_header__6TLobbyFPv();
 
-void *TLobby__sub_8011B130(void *arg0) {
-    TLobby__sub_8011B188();
+void *init_header_packet__6TLobbyFPv(void *arg0) {
+    init_header__6TLobbyFPv();
     M2C_FIELD(arg0, s8 *, 0) = 0x5F;
     M2C_FIELD(arg0, s8 *, 0x28) = 2;
     M2C_FIELD(arg0, s8 *, 0x29) = 0;

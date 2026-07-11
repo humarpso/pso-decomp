@@ -112,9 +112,9 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilonGuard__sub_8035FFA8(void *);
 M2C_UNK set_guard_state__19TObjEneEpsilonGuardFPv(void *, s32);
 M2C_UNK fn_80143504();
-M2C_UNK fn_8035FB44(void *);
-s32 fn_8035FCEC(void *);
-M2C_UNK fn_803600C0(void *);
+M2C_UNK TObjEneEpsilonGuard__sub_8035FB44(void *);
+s32 TObjEneEpsilonGuard__sub_8035FCEC(void *);
+M2C_UNK TObjEneEpsilonGuard__sub_803600C0(void *);
 
 extern void *lbl_805D6F8C;
 
@@ -142,16 +142,16 @@ void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         break;
     case 0:
         fn_80143504();
-        fn_803600C0(arg0);
+        TObjEneEpsilonGuard__sub_803600C0(arg0);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4E4);
         switch (temp_r0) {
         case 0:
             temp_r3 = M2C_FIELD(arg0, s32 *, 0x438);
-            if (((temp_r3 & 4) || (temp_r3 & 0x80)) && (fn_8035FCEC(arg0) != 0)) {
+            if (((temp_r3 & 4) || (temp_r3 & 0x80)) && (TObjEneEpsilonGuard__sub_8035FCEC(arg0) != 0)) {
                 M2C_FIELD(arg0, s32 *, 0x4E4) = 2;
                 M2C_FIELD(arg0, s32 *, 0x444) = (s32) M2C_FIELD(arg0, s32 *, 0x454);
             } else {
-                fn_8035FB44(arg0);
+                TObjEneEpsilonGuard__sub_8035FB44(arg0);
                 TObjEneEpsilonGuard__sub_8035FFA8(arg0);
                 if (M2C_FIELD(arg0, s32 *, 0x438) & 0x10) {
                     M2C_FIELD(arg0, s32 *, 0x4E4) = 1;

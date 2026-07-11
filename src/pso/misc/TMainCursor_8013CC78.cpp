@@ -8,7 +8,7 @@ extern "C" {
 
 void set_cursor_color__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
-void TMainCursor__sub_8013CD88(s32 arg0, s32 arg1, s32 arg2);
+void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TObjPlayer__sub_80019734(s32);
 M2C_UNK fn_8013E980(s32, M2C_UNK);
 M2C_UNK fn_8013E988(s32, M2C_UNK);
@@ -42,7 +42,7 @@ void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     fn_8013E990(arg2, 0x40030000);
 }
 
-void TMainCursor__sub_8013CD88(s32 arg0, s32 arg1, s32 arg2) {
+void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     fn_8013E988(arg2, 0x2000);
     fn_8013E990(arg2, 0x3C000);
     fn_8013E980(arg2, 0x800);

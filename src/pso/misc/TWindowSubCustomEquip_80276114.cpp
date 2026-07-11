@@ -11,7 +11,7 @@ s32 set_effect_enabled__10TObjPlayerFii(M2C_UNK, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s16 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
 s16 TWindowActionPalette__sub_801C1DE0(s32, s32, s32);
-s32 TWindowSubCustomEquip__sub_802760AC(void *, u8);
+s32 is_type_valid__21TWindowSubCustomEquipFPv(void *, u8);
 s32 TWindowSubCustomEquip__sub_802760DC(void *, u8);
 
 void get_cursor_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
@@ -25,7 +25,7 @@ void get_cursor_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
         M2C_FIELD(arg1, s16 *, 2) = 0;
         return;
     }
-    temp_r31 = TWindowSubCustomEquip__sub_802760AC(arg0, M2C_FIELD(arg0, u8 *, 0x62));
+    temp_r31 = is_type_valid__21TWindowSubCustomEquipFPv(arg0, M2C_FIELD(arg0, u8 *, 0x62));
     temp_r3_2 = TWindowSubCustomEquip__sub_802760DC(arg0, M2C_FIELD(arg0, u8 *, 0x61));
     M2C_FIELD(arg1, s16 *, 0) = TWindowActionPalette__sub_801C1DE0(temp_r29, temp_r31, temp_r3_2);
     M2C_FIELD(arg1, s16 *, 2) = TWindowActionPalette__sub_801C1D7C(temp_r29, temp_r31, temp_r3_2);

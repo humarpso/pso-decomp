@@ -14,7 +14,7 @@ M2C_UNK fn_801D671C(s32, M2C_UNK);
 M2C_UNK fn_801D672C();
 M2C_UNK fn_801D698C(M2C_UNK *);
 M2C_UNK fn_801D69B4(M2C_UNK *);
-M2C_UNK TWindowCtrl__sub_8024B760(s16, s16);
+M2C_UNK create_party_effect__11TWindowCtrlFPvPv(s16, s16);
 extern f32 lbl_805DC3D8;
 
 struct Sp801D6230 { s16 f0; s16 fA; s16 fC; };
@@ -26,7 +26,7 @@ void fn_801D6230(s32 arg0, u32 arg1, s16 arg2) {
     fn_801D62D0(arg0, lbl_805DC3D8);
     fn_801D6714(arg0 + 0x4C, 8);
     fn_801D671C(arg0 + 0x4C, 1);
-    TWindowCtrl__sub_8024B760(obj_getField1c(arg1), arg2);
+    create_party_effect__11TWindowCtrlFPvPv(obj_getField1c(arg1), arg2);
     if ((arg1 == 0U) || (obj_isState2_324(arg1) == 0)) {
         fn_801D698C((M2C_UNK *) &sp8);
         sp8.fA = obj_getField1c(arg1);

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800E0B6C(void *arg0);
+void apply_effect_if_flagged__14TObjEnePanarmsFPv(void *arg0);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, s32);
 
-void TObjEnePanarms__sub_800E0B6C(void *arg0) {
+void apply_effect_if_flagged__14TObjEnePanarmsFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1C98(arg0, M2C_FIELD(arg0, s32 *, 0x374));
     }

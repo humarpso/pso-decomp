@@ -8,9 +8,9 @@ extern "C" {
 
 void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
 
-s32 TAdSinglePlyChrSelectGC__sub_801FE854();
+s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5BCC(void *, s32 *, s32 *);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6418();
+M2C_UNK init__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C658C();
 void * TAdMultiPlyChrSelectGC__sub_802C6920();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0024(s32, s32);
@@ -27,7 +27,7 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     case 10:
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
         TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &sp14, &sp10);
-        TAdMultiPlyChrSelectGC__sub_802C6418();
+        init__22TAdMultiPlyChrSelectGCFv();
         TAdMultiPlyChrSelectGC__sub_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), sp14);
         TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp10);
         M2C_FIELD(arg0, s32 *, 0x9C) = 1;
@@ -35,10 +35,10 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     case 4:
         TAdMultiPlyChrSelectGC__sub_802C6920();
         TAdMultiPlyChrSelectGC__sub_802C658C();
-        if (TAdSinglePlyChrSelectGC__sub_801FE854() == 0) {
+        if (is_slot_active__23TAdSinglePlyChrSelectGCFUi() == 0) {
             temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
             TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &spC, &sp8);
-            TAdMultiPlyChrSelectGC__sub_802C6418();
+            init__22TAdMultiPlyChrSelectGCFv();
             TAdMultiPlyChrSelectGC__sub_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), spC);
             TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp8);
         }

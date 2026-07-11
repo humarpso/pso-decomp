@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_random_scaled__9TObjEneDDFv(void);
-f32 TObjPlayer__sub_80011014();
+f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern f32 lbl_805D9E94;
 
 s32 get_random_scaled__9TObjEneDDFv(void) {
-    return (s32) (lbl_805D9E94 * TObjPlayer__sub_80011014());
+    return (s32) (lbl_805D9E94 * calc_boss4_scale__10TObjPlayerFi());
 }
 
 }

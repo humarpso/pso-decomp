@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdMultiPlyChrSelectGC__sub_802C6444(void);
+s32 get_status__22TAdMultiPlyChrSelectGCFv(void);
 
 extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
 extern s32 TAdMultiPlyChrSelectGC__data_805D67E0;
 
-s32 TAdMultiPlyChrSelectGC__sub_802C6444(void) {
+s32 get_status__22TAdMultiPlyChrSelectGCFv(void) {
     s32 var_r3 = (s32) TAdMultiPlyChrSelectGC__data_805D67D8;
     if (var_r3 == 0) {
         return 0;

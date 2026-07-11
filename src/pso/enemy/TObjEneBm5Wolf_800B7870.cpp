@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneBm5Wolf__sub_800B7870(void *arg0);
-void TObjEneBm5Wolf__sub_800B78AC(void *arg0);
+void select_target__14TObjEneBm5WolfFPv(void *arg0);
 void TObjEneBm5Wolf__sub_800B78E8(void* p);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(f32);
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(f32);
@@ -26,7 +26,7 @@ void TObjEneBm5Wolf__sub_800B7870(void *arg0) {
 extern f32 lbl_805D9E4C;
 extern f32 lbl_805D9E50;
 
-void TObjEneBm5Wolf__sub_800B78AC(void *arg0) {
+void select_target__14TObjEneBm5WolfFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
         select_and_apply_target__14TObjEneEpsilonFPvf(lbl_805D9E4C);
         return;

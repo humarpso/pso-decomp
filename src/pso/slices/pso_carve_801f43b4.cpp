@@ -9,7 +9,7 @@ extern "C" {
 s32 get_main_phase();
 s32 TCameraCtrl__sub_8006B368();
 u32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
-M2C_UNK THunterGuildSeqOffline__sub_802133C4();
+M2C_UNK notify_quest_thread__22THunterGuildSeqOfflineFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK memcpy(s32, M2C_UNK *, M2C_UNK);
 extern M2C_UNK lbl_805127F8[];
@@ -19,7 +19,7 @@ void copy_card_window_data(void) {
 
     if ((get_main_phase() != 0xF) && (is_not_split_screen__13TRaderMapCoreFv() != 1)) {
         if (TCameraCtrl__sub_8006B368() != 0) {
-            THunterGuildSeqOffline__sub_802133C4();
+            notify_quest_thread__22THunterGuildSeqOfflineFv();
         }
         temp_r3 = get_card_window__17TWindowSubComCardFUi(0);
         if (temp_r3 != 0U) {

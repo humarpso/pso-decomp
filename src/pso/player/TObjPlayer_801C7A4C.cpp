@@ -3,8 +3,8 @@
 extern "C" {
 
 int TObjPlayer__sub_801C7A4C(void* p);
-int TObjPlayer__sub_801C96C4(void*);
+int try_change_action__10TObjPlayerFi(void*);
 
-int TObjPlayer__sub_801C7A4C(void* p) { return TObjPlayer__sub_801C96C4(p); }
+int TObjPlayer__sub_801C7A4C(void* p) { return try_change_action__10TObjPlayerFi(p); }
 
 }

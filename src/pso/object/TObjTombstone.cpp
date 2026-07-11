@@ -11,12 +11,12 @@ s32 fn_8006F190(M2C_UNK);
 M2C_UNK TObjTombstone__sub_80075340(s32);
 M2C_UNK TObjTombstone__sub_800753DC(s32);
 M2C_UNK TObjTombstone__sub_80075764(s32);
-s32 TObjTombstone__sub_800758C8();
+s32 check_height_ready__13TObjTombstoneFPv();
 
 void render__13TObjTombstoneFv(s32 arg0) {
     s32 temp_r3;
 
-    if (TObjTombstone__sub_800758C8() != 0) {
+    if (check_height_ready__13TObjTombstoneFPv() != 0) {
         TObjTombstone__sub_80075764(arg0);
         temp_r3 = fn_8006F190(-1);
         switch (temp_r3) {

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_attack__14TObjEnePanarmsFPv(u8 *arg0);
-void TObjEnePanarms__sub_800E0500(void* a0);
+void init_attack_state2__14TObjEnePanarmsFPv(void* a0);
 M2C_UNK TObjEnePanarms__sub_800E1608(void *, s32);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 f64 fn_80019760(f32, f32, f32);
@@ -47,7 +47,7 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
 }
 
     extern const float TObjEnePanarms__data_805DA524;
-void TObjEnePanarms__sub_800E0500(void* a0) {
+void init_attack_state2__14TObjEnePanarmsFPv(void* a0) {
     int *r7 = *(int**)((char*)a0 + 0x37c);
     r7[6] = r7[6] | 0x1;
     *(int*)((char*)a0 + 0x384) = 1;

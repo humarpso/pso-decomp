@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_801FDE94(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 check_page_cross__23TAdSinglePlyChrSelectGCFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 TAdSinglePlyChrSelectGC__sub_801FDDAC();
 s32 TAdSinglePlyChrSelectGC__sub_801FDE14();
 
-s32 TAdSinglePlyChrSelectGC__sub_801FDE94(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 check_page_cross__23TAdSinglePlyChrSelectGCFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     if ((arg2 >= 4) && (arg4 <= 3)) {
         return TAdSinglePlyChrSelectGC__sub_801FDDAC();
     }

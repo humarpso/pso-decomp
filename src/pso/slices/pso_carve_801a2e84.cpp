@@ -8,7 +8,7 @@ extern "C" {
 
 s32 is_split_screen();
 M2C_UNK TObjPlayer__sub_801BDEF8(s32, s32, u32);
-u32 TAdSinglePlyChrSelectGC__sub_802029E8(s32);
+u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D53A8;
@@ -22,7 +22,7 @@ void fn_801A2E84(void) {
         var_r31 = 0;
         do {
             if (TAdMultiPlyChrSelectGC__sub_802C64D0(var_r31) != 0) {
-                temp_r3 = TAdSinglePlyChrSelectGC__sub_802029E8(var_r31);
+                temp_r3 = get_char_index__23TAdSinglePlyChrSelectGCFUi(var_r31);
                 if (temp_r3 != 0U) {
                     TObjPlayer__sub_801BDEF8(var_r31, lbl_805D53A8 + var_r31, temp_r3);
                 }
@@ -31,7 +31,7 @@ void fn_801A2E84(void) {
         } while (var_r31 < 4);
         return;
     }
-    temp_r3_2 = TAdSinglePlyChrSelectGC__sub_802029E8(lbl_805D53A0);
+    temp_r3_2 = get_char_index__23TAdSinglePlyChrSelectGCFUi(lbl_805D53A0);
     if (temp_r3_2 != 0U) {
         TObjPlayer__sub_801BDEF8(0, lbl_805D53A8, temp_r3_2);
     }

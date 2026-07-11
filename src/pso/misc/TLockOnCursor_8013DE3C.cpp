@@ -7,7 +7,7 @@ extern "C" {
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2);
 void TLockOnCursor__sub_8013EEC0(void *, void *);
 void init_vtable__13TLockOnCursorFPv(void *);
-void TLockOnCursor__sub_8013EF0C(void *);
+void init_cursor__13TLockOnCursorFPv(void *);
 void TLockOnCursor__sub_8013EF3C(void *);
 void cleanup__13TLockOnCursorFPv(void *);
 void reset_fields__13TLockOnCursorFPv(void *);
@@ -35,7 +35,7 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     __construct_array((void *)((char *)arg0 + 92), TLockOnCursor__sub_8013EFB8, __dt_deleting__13TLockOnCursorFis, 292, 4);
     cleanup__13TLockOnCursorFPv((void *)((char *)arg0 + 1260));
     TLockOnCursor__sub_8013EF3C((void *)((char *)arg0 + 1288));
-    TLockOnCursor__sub_8013EF0C((void *)((char *)arg0 + 1296));
+    init_cursor__13TLockOnCursorFPv((void *)((char *)arg0 + 1296));
     init_vtable__13TLockOnCursorFPv((void *)((char *)arg0 + 1312));
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2CB4;
     TLockOnCursor__sub_8013EEC0(arg0, arg2);

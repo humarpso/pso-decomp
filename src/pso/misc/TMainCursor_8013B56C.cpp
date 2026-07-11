@@ -8,7 +8,7 @@ extern "C" {
 
 void render__11TMainCursorFPv(u8 *arg0);
 M2C_UNK update_photon_chair__11TMainCursorFi(void *);
-M2C_UNK TMainCursor__sub_8013B524(void *);
+M2C_UNK update_chair__11TMainCursorFPv(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, M2C_UNK);
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
@@ -36,19 +36,19 @@ void render__11TMainCursorFPv(u8 *arg0) {
     TObjBoss2Tunnel__sub_803D929C(0, 0x2AAA);
     fn_803D9624(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
     update_photon_chair__11TMainCursorFi(arg0);
-    TMainCursor__sub_8013B524(arg0);
+    update_chair__11TMainCursorFPv(arg0);
     fn_803D9B78();
     fn_803D9B2C();
     TObjBoss2Tunnel__sub_803D929C(0, 0x7FFF);
     fn_803D9624(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
     update_photon_chair__11TMainCursorFi(arg0);
-    TMainCursor__sub_8013B524(arg0);
+    update_chair__11TMainCursorFPv(arg0);
     fn_803D9B78();
     fn_803D9B2C();
     TObjBoss2Tunnel__sub_803D929C(0, 0xD554);
     fn_803D9624(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);
     update_photon_chair__11TMainCursorFi(arg0);
-    TMainCursor__sub_8013B524(arg0);
+    update_chair__11TMainCursorFPv(arg0);
     fn_803D9B78();
     fn_803D9B78();
     fn_801E2F20();

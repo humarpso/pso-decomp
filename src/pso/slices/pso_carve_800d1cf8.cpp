@@ -13,8 +13,8 @@ int __dl__FPv();
 s32 destroy__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 int TObjEneBm5GibonU__sub_800D1C40(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int TObjEneBm5GibonU__sub_800D1C78(void* a0 = 0, void* a1 = 0, void* a2 = 0);
-void TObjEneBm5GibonU__sub_800D1B0C(void* p, void* a1);
-void TObjEneBm5GibonU__sub_800D1B3C(void* p, void* a1);
+void forward_hit__16TObjEneBm5GibonUFPvPv(void* p, void* a1);
+void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1);
 void reset_fields__16TObjEneBm5GibonUFPv(void* p);
 
 int TObjEneBm5GibonU__sub_800D1CF8(void) { return 0; }

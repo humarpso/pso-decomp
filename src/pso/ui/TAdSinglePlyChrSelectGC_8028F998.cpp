@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_8028F998(s32 arg0);
+s32 map_button_code__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8028F998(s32 arg0) {
+s32 map_button_code__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     switch (arg0) {
     case 0x29:
         return 3;

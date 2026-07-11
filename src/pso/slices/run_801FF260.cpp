@@ -8,7 +8,7 @@ extern "C" {
 
 void *TAdSinglePlyChrSelectGC__sub_80202BA0();
 
-void TAdSinglePlyChrSelectGC__sub_801FF260(void) {
+void increment_counter__23TAdSinglePlyChrSelectGCFv(void) {
     void *temp_r3;
 
     temp_r3 = TAdSinglePlyChrSelectGC__sub_80202BA0();
@@ -20,7 +20,7 @@ void TAdSinglePlyChrSelectGC__sub_801FF260(void) {
 extern void *lbl_805D5F58;
 extern void *lbl_805D5F5C;
 
-void TAdSinglePlyChrSelectGC__sub_801FF298(void) {
+void increment_counters__23TAdSinglePlyChrSelectGCFv(void) {
     if ((void *) lbl_805D5F58 != NULL) {
         M2C_FIELD(lbl_805D5F58, s32 *, 0x11564) = (s32) (M2C_FIELD(lbl_805D5F58, s32 *, 0x11564) + 1);
     }

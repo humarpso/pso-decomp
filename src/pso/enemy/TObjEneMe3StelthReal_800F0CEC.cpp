@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneMe3StelthReal__vt105(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-f32 TObjPlayer__sub_80011014();
+f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern const f32 lbl_805DA81C;
 
@@ -17,7 +17,7 @@ typedef struct EneStelth EneStelth;
 void TObjEneMe3StelthReal__vt105(void *arg0) {
     EneStelth *self = (EneStelth *)arg0;
     M2C_FIELD(arg0, s32 *, 0x3EC) = M2C_FIELD(arg0, s32 *, 0x3EC) + 1;
-    if ((M2C_FIELD(arg0, s32 *, 0x3EC) >= 2) || (TObjPlayer__sub_80011014() < lbl_805DA81C)) {
+    if ((M2C_FIELD(arg0, s32 *, 0x3EC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DA81C)) {
         TObjEneDD__sub_800BBA18(self, 9);
         return;
     }

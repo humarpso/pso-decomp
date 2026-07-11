@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3Volopt__sub_80046580(void);
+void check_and_notify__12TBoss3VoloptFv(void);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
 
 extern u16 TBoss3Volopt__data_805D2710;
 
-void TBoss3Volopt__sub_80046580(void) {
+void check_and_notify__12TBoss3VoloptFv(void) {
     if (TPhotonMylla__sub_80154CB4(TBoss3Volopt__data_805D2710) != 0U) {
         fn_80048C04();
     }

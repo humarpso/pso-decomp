@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TChallenge4PResult__sub_8034B434(s32 arg0, s32 arg1);
+void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 M2C_UNK TChallenge4PResult__sub_8034B694(s32, s32, s32);
 
 extern M2C_UNK TChallenge4PResult__data_805436A8[];
 
-void TChallenge4PResult__sub_8034B434(s32 arg0, s32 arg1) {
+void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
     M2C_UNK *var_r30 = TChallenge4PResult__data_805436A8;
     s32 var_r31 = 0;

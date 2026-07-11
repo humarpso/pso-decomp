@@ -94,7 +94,7 @@ void *TOContainerAncientItemNone__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__26TOContainerAncientItemRareFv(void *, int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK TLobby__sub_8020C5E0(void *);
+M2C_UNK set_flag8__6TLobbyFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void TOContainerAncientItemNone__vt4(void *arg0, s16 *arg1, s32 arg2) {
@@ -103,7 +103,7 @@ void TOContainerAncientItemNone__vt4(void *arg0, s16 *arg1, s32 arg2) {
             ((VObj_8015BE34 *)arg0)->m77();
         }
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
-        TLobby__sub_8020C5E0(arg0);
+        set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

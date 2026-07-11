@@ -10,7 +10,7 @@ void handle_card_select__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void handle_card_select2__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void update_card_input__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void update__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-s32 TWindowSubComCard__sub_802A57C8(s32);
+s32 get_card_data__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 M2C_UNK fn_801334DC(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
@@ -40,7 +40,7 @@ void handle_card_select__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 5;
             return;
         }
-    } else if (TWindowSubComCard__sub_802A57C8(M2C_FIELD(arg0, s32 *, 0x50)) != 0) {
+    } else if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x50)) != 0) {
         fn_80266130(M2C_FIELD(arg0, s32 *, 0x38));
         fn_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);
         M2C_FIELD(arg0, s32 *, 0x20) = 5;
@@ -67,7 +67,7 @@ void handle_card_select2__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 5;
             return;
         }
-    } else if (TWindowSubComCard__sub_802A57C8(M2C_FIELD(arg0, s32 *, 0x4C)) != 0) {
+    } else if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x4C)) != 0) {
         fn_80266130(M2C_FIELD(arg0, s32 *, 0x38));
         fn_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);
         M2C_FIELD(arg0, s32 *, 0x20) = 5;
@@ -93,7 +93,7 @@ void update_card_input__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 5;
             return;
         }
-    } else if (TWindowSubComCard__sub_802A57C8(M2C_FIELD(arg0, s32 *, 0x44)) != 0) {
+    } else if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x44)) != 0) {
         fn_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);
         M2C_FIELD(arg0, s32 *, 0x20) = 5;
     }
@@ -122,7 +122,7 @@ void update__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 5;
             return;
         }
-    } else if (TWindowSubComCard__sub_802A57C8(M2C_FIELD(arg0, s32 *, 0x48)) != 0) {
+    } else if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x48)) != 0) {
         fn_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);
         M2C_FIELD(arg0, s32 *, 0x20) = 5;
     }

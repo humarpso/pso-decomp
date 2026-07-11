@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMultiPlyChrSelectGC__sub_802DCE10(void *arg0);
+void update_confirm_start__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void handle_cancel_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdGameStartGC__sub_802E644C(s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -20,7 +20,7 @@ s32 fn_802E00C4(s32);
 s32 fn_802E0124(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TAdMultiPlyChrSelectGC__sub_802DCE10(void *arg0) {
+void update_confirm_start__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r3;
 

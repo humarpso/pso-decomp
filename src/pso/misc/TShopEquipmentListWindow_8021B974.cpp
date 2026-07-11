@@ -23,7 +23,7 @@ struct VObj_8021B9AC : Base_8021B9AC {
 
 extern "C" {
 
-void TShopEquipmentListWindow__sub_8021B9E4(void *arg0, void *arg1);
+void update_list__24TShopEquipmentListWindowFPvPv(void *arg0, void *arg1);
 void TShopEquipmentListWindow__vt4(void *arg0);
 void TShopEquipmentListWindow__vt5(void *arg0);
 M2C_UNK fn_803094E8(void *a, s32 b);
@@ -42,7 +42,7 @@ void TShopEquipmentListWindow__vt4(void *arg0) {
     }
 }
 
-void TShopEquipmentListWindow__sub_8021B9E4(void *arg0, void *arg1) {
+void update_list__24TShopEquipmentListWindowFPvPv(void *arg0, void *arg1) {
     void *v = M2C_FIELD(arg0, void **, 0x3C);
     if (v != 0) {
         s32 n = M2C_FIELD(arg1, s32 *, 0x10);

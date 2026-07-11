@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8020B03C(void);
-s32 TLobby__sub_8020B074(s32 arg0);
+void free_data_60F0__6TLobbyFv(void);
+s32 init_handle__6TLobbyFi(s32 arg0);
 void fn_8007EBB4(void*);
 u32 fn_8007EBFC();
 
 extern u32 TLobby__data_805D60F0;
 extern s32 TLobby__data_805D60F4;
 
-void TLobby__sub_8020B03C(void) {
+void free_data_60F0__6TLobbyFv(void) {
     if ((u32) TLobby__data_805D60F0 != 0U) {
         fn_8007EBB4((void*)TLobby__data_805D60F0);
         TLobby__data_805D60F0 = 0U;
@@ -25,7 +25,7 @@ void TLobby__sub_8020B03C(void) {
 extern u32 TLobby__data_805D60F0;
 extern s32 TLobby__data_805D60F4;
 
-s32 TLobby__sub_8020B074(s32 arg0) {
+s32 init_handle__6TLobbyFi(s32 arg0) {
     u32 temp_r3;
 
     temp_r3 = fn_8007EBFC();

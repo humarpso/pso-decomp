@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TObjPlayer__sub_8001053C(s32);
-M2C_UNK TObjPlayer__sub_80010550(s32);
+M2C_UNK apply_velocity__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801B5DDC(s32);
 u32 TObjPlayer__sub_801B5EA4(s32);
 M2C_UNK TObjPlayer__sub_801B5FB0();
@@ -18,7 +18,7 @@ void fn_801CB068(s32 arg0) {
         TObjPlayer__sub_8001053C(arg0);
     }
     if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {
-        TObjPlayer__sub_80010550(arg0);
+        apply_velocity__10TObjPlayerFPv(arg0);
     }
 }
 

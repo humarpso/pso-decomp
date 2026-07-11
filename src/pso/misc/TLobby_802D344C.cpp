@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_802D344C(void *arg0);
-void TLobby__sub_802D34C8(void *arg0);
+void update_music_state__6TLobbyFPv(void *arg0);
+void update_flag_by_state__6TLobbyFPv(void *arg0);
 M2C_UNK fn_80330AC0(u32, s32);
 
 extern u16 lbl_805D6888;
 extern u32 TLobby__data_805D6898;
 
-void TLobby__sub_802D344C(void *arg0) {
+void update_music_state__6TLobbyFPv(void *arg0) {
     u8 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, u8 *, 5);
@@ -36,7 +36,7 @@ void TLobby__sub_802D344C(void *arg0) {
 extern u16 lbl_805D6888;
 extern u32 TLobby__data_805D6898;
 
-void TLobby__sub_802D34C8(void *arg0) {
+void update_flag_by_state__6TLobbyFPv(void *arg0) {
     u8 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, u8 *, 5);

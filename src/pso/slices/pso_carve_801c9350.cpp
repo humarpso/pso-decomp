@@ -17,7 +17,7 @@ int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801C959C(void);
 
 int handle_6x53(void) { return 0; }
-void* TObjPlayer__sub_801C93D0(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
+void* update_small_font2__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 int TObjPlayer__sub_801C9400(void) { return 0; }
 int TObjPlayer__sub_801C94B8(void) { return 0; }
 void TObjPlayer__sub_801C950C(void *arg0) {

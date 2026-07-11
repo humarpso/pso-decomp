@@ -8,7 +8,7 @@ extern "C" {
 
 void send_code_49_1__10TObjPlayerFi(s32 arg0);
 M2C_UNK set_code_49_1__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801C0A5C(void *);
+M2C_UNK bswap_font_lobby__10TObjPlayerFPv(void *);
 
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
@@ -20,7 +20,7 @@ void send_code_49_1__10TObjPlayerFi(s32 arg0) {
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
         set_code_49_1__10TObjPlayerFPv(&sp8);
         sp8.h = obj_getField1c(arg0);
-        TObjPlayer__sub_801C0A5C(&sp8);
+        bswap_font_lobby__10TObjPlayerFPv(&sp8);
     }
 }
 

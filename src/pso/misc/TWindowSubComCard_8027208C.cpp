@@ -38,6 +38,6 @@ void TWindowSubComCard__sub_80272134(void) {
     fn_80275484(fn_8026CBB8(0x91), temp_r31, 0x1C, 1);
 }
 void TWindowSubComCard__sub_80272180(void) { fn_8026CBB8(133); fn_802754EC(); }
-void TWindowSubComCard__sub_802721A8(void* p) { TWindowSubComCard__sub_80265BF8(*(void**)((char*)p + 0x84)); fn_8007A8F8(); fn_8007B6D8(); TLobby__sub_802421C4(); }
+void cleanup__17TWindowSubComCardFPv(void* p) { TWindowSubComCard__sub_80265BF8(*(void**)((char*)p + 0x84)); fn_8007A8F8(); fn_8007B6D8(); TLobby__sub_802421C4(); }
 
 }

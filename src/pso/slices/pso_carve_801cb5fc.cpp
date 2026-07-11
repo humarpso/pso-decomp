@@ -11,14 +11,14 @@ s32 TObjPlayer__sub_801D0BC0(void * a0 = 0, s16 a1 = 0, s32 a2 = 0);
 s32 TObjPlayer__sub_801BE474(void * a0 = 0);
 s32 fn_801BA650(void * a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_isState2_324(void * a0 = 0);
-s32 TObjPlayer__sub_80010550(s32);
+s32 apply_velocity__10TObjPlayerFPv(s32);
 u32 TObjPlayer__sub_801B5EA4();
 void fn_801CB5FC(void);
 
 void fn_801CB5FC(void) {  }
 void fn_801CB600(s32 arg0) {
     if (TObjPlayer__sub_801B5EA4() == 0U) {
-        TObjPlayer__sub_80010550(arg0);
+        apply_velocity__10TObjPlayerFPv(arg0);
     }
 }
 void fn_801CB63C(void *arg0) {

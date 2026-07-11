@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss2DeRolLe__sub_80035C8C(void);
-void *TBoss2DeRolLe__sub_80035CD8(void *arg0);
+void reset_parts__13TBoss2DeRolLeFv(void);
+void *create__13TBoss2DeRolLeFPv(void *arg0);
 void *TBoss2DeRolLe__ct(void *, void *, void *);
 M2C_UNK TBoss2Mine__sub_80038D84();
 void *__nw__7TObjectFUl(int);
@@ -19,7 +19,7 @@ M2C_UNK TBoss2Tentacle__sub_8003A0A8();
 
 extern u32 lbl_805D4BA4;
 
-void TBoss2DeRolLe__sub_80035C8C(void) {
+void reset_parts__13TBoss2DeRolLeFv(void) {
     fn_8002E784();
     fn_8002EB88();
     TBoss2Fin__sub_800367C0();
@@ -33,7 +33,7 @@ void TBoss2DeRolLe__sub_80035C8C(void) {
 
 extern void *tl_04;
 
-void *TBoss2DeRolLe__sub_80035CD8(void *arg0) {
+void *create__13TBoss2DeRolLeFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x75C);
     if (o != NULL) {
         o = TBoss2DeRolLe__ct(o, tl_04, arg0);

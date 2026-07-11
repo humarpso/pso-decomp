@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4Zako__sub_8005CAE0(void *arg0);
+void set_state3__10TBoss4ZakoFPv(void *arg0);
 M2C_UNK fn_8005D6D4(s32);
 
-void TBoss4Zako__sub_8005CAE0(void *arg0) {
+void set_state3__10TBoss4ZakoFPv(void *arg0) {
     fn_8005D6D4(M2C_FIELD(arg0, s32 *, 0x378));
     M2C_FIELD(arg0, s32 *, 0x3A8) = 0;
     M2C_FIELD(arg0, s32 *, 0x374) = 3;

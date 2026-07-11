@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801EE188(void);
+void handle_active_battle__6TLobbyFv(void);
 void TLobby__sub_801EE1B8(void);
-void TLobby__sub_801EE1E8(void);
+void reset_battle_camera__6TLobbyFv(void);
 M2C_UNK TCameraCtrl__sub_8006A410(M2C_UNK, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_8006B398();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -17,7 +17,7 @@ M2C_UNK fn_801B3468();
 
 extern s32 lbl_805D53A0;
 
-void TLobby__sub_801EE188(void) {
+void handle_active_battle__6TLobbyFv(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
         fn_801B3468();
     }
@@ -33,7 +33,7 @@ void TLobby__sub_801EE1B8(void) {
 
 extern s32 lbl_805D53A0;
 
-void TLobby__sub_801EE1E8(void) {
+void reset_battle_camera__6TLobbyFv(void) {
     u32 temp_r3;
     TCameraCtrl__sub_8006B398();
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

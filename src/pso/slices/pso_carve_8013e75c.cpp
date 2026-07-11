@@ -61,7 +61,7 @@ int TLockOnCursor__sub_8013EA08(void* p);
 int TLockOnCursor__sub_8013EA5C(void* p);
 int TLockOnCursor__sub_8013EA84(void* p);
 int TLockOnCursor__sub_8013EAAC(void* p);
-int TLockOnCursor__sub_8013EAD4(void* p);
+int is_inactive__13TLockOnCursorFPv(void* p);
 int TLockOnCursor__sub_8013EB04(void* p);
 s32 TLockOnCursor__sub_8013EB2C(void* p);
 int fn_8001BED8(void*, int);

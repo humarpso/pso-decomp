@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss1Dragon__sub_800286FC(void *arg0, void *arg1);
+void copy_params__12TBoss1DragonFPvPv(void *arg0, void *arg1);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s16);
 M2C_UNK fn_800B9958(void *, u16);
 
-void TBoss1Dragon__sub_800286FC(void *arg0, void *arg1) {
+void copy_params__12TBoss1DragonFPvPv(void *arg0, void *arg1) {
     fn_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
     M2C_FIELD(arg0, s32 *, 0x67C) = (s32) M2C_FIELD(arg1, s16 *, 6);
     TObjEneDD__sub_800BBA18(arg0, M2C_FIELD(arg1, s16 *, 4));

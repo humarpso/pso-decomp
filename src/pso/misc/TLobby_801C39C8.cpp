@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801C39C8(s32 arg0, s32 arg1);
+void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1);
 u32 TPlayerBattleCtrl__ct(u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
@@ -15,7 +15,7 @@ extern u32 TLobby__data_805D5D98;
 extern s32 TLobby__data_805D5DA0;
 extern s32 tl_00;
 
-void TLobby__sub_801C39C8(s32 arg0, s32 arg1) {
+void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1) {
     u32 var_r3;
 
     if ((u32) TLobby__data_805D5D98 == 0U) {

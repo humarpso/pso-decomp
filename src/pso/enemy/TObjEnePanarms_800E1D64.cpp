@@ -12,7 +12,7 @@ int TObjEnePanarms__sub_800E1DB8(void* p);
 void TObjEnePanarms__sub_800E1E64(void* p);
 int TObjEnePanarms__sub_800E1C98(void*, int);
 
-void TObjEnePanarms__sub_800E1D64(void *arg0) {
+void reset_split__14TObjEnePanarmsFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x378) != 0) {
         TObjEnePanarms__sub_800E1C98((void*)(arg0), 0);
     }

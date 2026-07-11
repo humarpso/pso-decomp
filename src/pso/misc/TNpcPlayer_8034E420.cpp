@@ -12,7 +12,7 @@ extern "C" {
 
 void TNpcPlayer__sub_8034E420(void);
 void TNpcPlayer__sub_8034E430(void);
-void TNpcPlayer__sub_8034E440(void);
+void enable_all_battle_ctrl__10TNpcPlayerFv(void);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
     extern int lbl_805D6EA0;
@@ -23,7 +23,7 @@ void TNpcPlayer__sub_8034E430(void) { lbl_805D6EA0 = (lbl_805D6EA0 | 0x2); }
 
 s32 obj_isState3_324();
 
-void TNpcPlayer__sub_8034E440(void) {
+void enable_all_battle_ctrl__10TNpcPlayerFv(void) {
     s32 var_r31;
     void *temp_r3;
 

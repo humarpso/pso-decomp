@@ -12,7 +12,7 @@ int TAdSinglePlyChrSelectGC__sub_80202BA0(void);
 void TAdSinglePlyChrSelectGC__sub_80202BA8(int a0);
 void TAdSinglePlyChrSelectGC__sub_80202BB0(int a0);
 void TAdSinglePlyChrSelectGC__sub_80202BB8(s32 arg0);
-u8 TAdSinglePlyChrSelectGC__sub_80202BD4(s32 arg0);
+u8 check_flag__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
     extern int lbl_805D5F74;
 int TAdSinglePlyChrSelectGC__sub_80202B7C(void) {  return lbl_805D5F74; }
@@ -44,7 +44,7 @@ void TAdSinglePlyChrSelectGC__sub_80202BB8(s32 arg0) {
 
 extern s32 *lbl_805D5F64;
 
-u8 TAdSinglePlyChrSelectGC__sub_80202BD4(s32 arg0) {
+u8 check_flag__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     if ((s32 *) lbl_805D5F64 != NULL) {
         return (u8) ((*lbl_805D5F64 & arg0) != 0);
     }

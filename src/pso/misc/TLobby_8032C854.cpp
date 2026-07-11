@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void send_data__6TLobbyFi(s32 arg0);
-void TLobby__sub_8032C8BC(void);
+void update_alloc_size__6TLobbyFv(void);
 u32 fn_800F9D80();
 M2C_UNK fn_800F9DF4(s32, u32);
 M2C_UNK fn_8032CF70(void*);
@@ -36,7 +36,7 @@ void send_data__6TLobbyFi(s32 arg0) {
 extern u32 TLobby__data_805D6CC0;
 extern u32 TLobby__data_805D6CC8;
 
-void TLobby__sub_8032C8BC(void) {
+void update_alloc_size__6TLobbyFv(void) {
     u32 temp_r3;
 
     temp_r3 = fn_8032D020();

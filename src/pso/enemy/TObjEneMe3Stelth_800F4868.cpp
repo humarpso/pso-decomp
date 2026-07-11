@@ -133,13 +133,13 @@ struct VObj_800F48B8 : Base_800F48B8 {
 
 extern "C" {
 
-void TObjEneMe3Stelth__sub_800F4868(void *arg0);
-void TObjEneMe3Stelth__sub_800F48B8(void *arg0);
+void update_collision__16TObjEneMe3StelthFPv(void *arg0);
+void update_distance_state__16TObjEneMe3StelthFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_801564A0(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 
-void TObjEneMe3Stelth__sub_800F4868(void *arg0) {
+void update_collision__16TObjEneMe3StelthFPv(void *arg0) {
     struct VObj_800F4868 *o = (struct VObj_800F4868 *)arg0;
     o->m86();
     check_object_collisions__10TObjPlayerFPv(arg0);
@@ -149,7 +149,7 @@ void TObjEneMe3Stelth__sub_800F4868(void *arg0) {
 
 extern const f32 lbl_805DA894;
 
-void TObjEneMe3Stelth__sub_800F48B8(void *arg0) {
+void update_distance_state__16TObjEneMe3StelthFPv(void *arg0) {
     VObj_800F48B8 *o = (VObj_800F48B8 *)arg0;
     if ((M2C_FIELD(arg0, f32 *, 0x3D0) - M2C_FIELD(arg0, f32 *, 0x3C)) > lbl_805DA894) {
         o->m95();

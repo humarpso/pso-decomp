@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800DF5FC(void);
+void free_data__14TObjEnePanarmsFv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 TObjEnePanarms__data_805D5278;
 
-void TObjEnePanarms__sub_800DF5FC(void) {
+void free_data__14TObjEnePanarmsFv(void) {
     if ((u32) TObjEnePanarms__data_805D5278 != 0U) {
         fn_8001FE7C((void*)TObjEnePanarms__data_805D5278, 1);
         TObjEnePanarms__data_805D5278 = 0U;

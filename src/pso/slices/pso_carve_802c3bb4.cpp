@@ -2,10 +2,10 @@
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_802029E8(void*);
+int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 int fn_802C3B14(void);
 void fn_802C3BB4(void);
 
-void fn_802C3BB4(void) { TAdSinglePlyChrSelectGC__sub_802029E8((void*)65535); fn_802C3B14(); }
+void fn_802C3BB4(void) { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); fn_802C3B14(); }
 
 }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801E9C7C(s32 arg0);
+void set_story_select__6TLobbyFi(s32 arg0);
 int TLobby__sub_801E9CD0(void* p);
-void TLobby__sub_801E9CF0(void);
-void TLobby__sub_801E9D2C(void);
-void TLobby__sub_801E9D60(void);
+void cache_player_field__6TLobbyFv(void);
+void update_by_screen_mode__6TLobbyFv(void);
+void update_split_screen__6TLobbyFv(void);
 s32 TAdStorySelectGC__sub_80207D64(s32);
 int TLobby__sub_801EA5FC(void*);
 M2C_UNK fn_80070AFC();
@@ -19,7 +19,7 @@ void *TAdSinglePlyChrSelectGC__sub_8007B7E4();
 M2C_UNK fn_80291D94();
 M2C_UNK fn_80291DC0();
 
-void TLobby__sub_801E9C7C(s32 arg0) {
+void set_story_select__6TLobbyFi(s32 arg0) {
     switch (arg0) {
     case 0:
         TAdStorySelectGC__sub_80207D64(0);
@@ -36,7 +36,7 @@ int TLobby__sub_801E9CD0(void* p) { return TLobby__sub_801EA5FC(p); }
 
 extern s32 TLobby__data_805D5EC4;
 
-void TLobby__sub_801E9CF0(void) {
+void cache_player_field__6TLobbyFv(void) {
     s32 var_r0;
     void *temp_r3;
 
@@ -51,7 +51,7 @@ void TLobby__sub_801E9CF0(void) {
 
 s32 is_split_screen();
 
-void TLobby__sub_801E9D2C(void) {
+void update_by_screen_mode__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
         fn_80291D94();
         return;
@@ -61,7 +61,7 @@ void TLobby__sub_801E9D2C(void) {
 
 s32 is_split_screen();
 
-void TLobby__sub_801E9D60(void) {
+void update_split_screen__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
         fn_80291DC0();
         return;

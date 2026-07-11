@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80208340(void);
+void update_drop_item__6TLobbyFv(void);
 s32 *TItemDrop__sub_800F94BC(s32, u32);
 s32 fn_800F9D80(s32);
 s32 fn_80208280();
@@ -17,7 +17,7 @@ extern s32 lbl_805D606C;
 extern s32 *lbl_805D6070;
 extern u32 lbl_805D6074;
 
-void TLobby__sub_80208340(void) {
+void update_drop_item__6TLobbyFv(void) {
     s32 *temp_r3;
     s32 temp_r0;
     s32 temp_r30;

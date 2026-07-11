@@ -8,14 +8,14 @@ extern "C" {
 
 void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
 s32 TItemData__sub_8010DF68(void *);
-s32 TItemDrop__sub_801060F4();
+s32 is_enabled__9TItemDropFv();
 
 extern u8 lbl_805DAAE0;
 
 void set_flag__9TItemDropFPvPv(void *arg0, void *arg1) {
     u8 temp_r3;
 
-    if ((TItemDrop__sub_801060F4() == 1) && ((u8) M2C_FIELD(arg1, u8 *, 0) == 0)) {
+    if ((is_enabled__9TItemDropFv() == 1) && ((u8) M2C_FIELD(arg1, u8 *, 0) == 0)) {
         if (TItemData__sub_8010DF68(arg1) != 0) {
             M2C_FIELD(arg1, u8 *, 4) = (u8) (M2C_FIELD(arg1, u8 *, 4) | lbl_805DAAE0);
             return;

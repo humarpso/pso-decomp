@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_802F376C();
-M2C_UNK TBoss8Dragon__sub_802FC314(void *, M2C_UNK);
+M2C_UNK spawn_trap__12TBoss8DragonFii(void *, M2C_UNK);
 
-void TBoss8Dragon__sub_802FC2C4(void *arg0) {
+void try_spawn_trap__12TBoss8DragonFPv(void *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 0x40) && (fn_802F376C() != 0)) {
-        TBoss8Dragon__sub_802FC314(arg0, 0x4003D013);
+        spawn_trap__12TBoss8DragonFii(arg0, 0x4003D013);
     }
 }
 

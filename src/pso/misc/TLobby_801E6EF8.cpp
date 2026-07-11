@@ -3,9 +3,9 @@
 extern "C" {
 
 void TLobby__sub_801E6EF8(void);
-int TOChatSensorCapture__sub_8015AB84(void*);
+int create_instance__19TOChatSensorCaptureFPv(void*);
 
     extern int tl_01;
-void TLobby__sub_801E6EF8(void) { TOChatSensorCapture__sub_8015AB84((void*)(tl_01)); }
+void TLobby__sub_801E6EF8(void) { create_instance__19TOChatSensorCaptureFPv((void*)(tl_01)); }
 
 }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TLobby__sub_80209524(void *arg0, s16 arg1);
+void *free_boss4rock__6TLobbyFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
-void *TLobby__sub_80209524(void *arg0, s16 arg1) {
+void *free_boss4rock__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 4));
         __dl__FPv(M2C_FIELD(arg0, void **, 0));

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8011B010(s32 arg0, s16 arg1);
+s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
 extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
 
-s32 TLobby__sub_8011B010(s32 arg0, s16 arg1) {
+s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         free__11TOBoss4RockFUi(lbl_805D54E8);
         lbl_805D54E8 = 0;

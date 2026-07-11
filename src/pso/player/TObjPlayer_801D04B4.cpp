@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_801D04B4(void* p);
 void TObjPlayer__sub_801D0514(void);
 void update_action__10TObjPlayerFi(s32 arg0);
-void TObjPlayer__sub_801D05D8(void *arg0);
+void start_animation__10TObjPlayerFPv(void *arg0);
 s32 TFontSmallLobby__sub_801AFEE0();
 s32 TItemProShield__sub_8001140C(s32, s32);
 s32 TObjPlayer__sub_801AF290(s32);
@@ -22,7 +22,7 @@ s32 TObjPlayer__sub_801D0BC0(void *, s16, s32);
 s32 TObjPlayer__sub_801D1018(s32);
 int TObjPlayer__sub_801D2630(void*);
 int TObjPlayer__sub_8001053C(void*);
-s32 TObjPlayer__sub_80010550(s32);
+s32 apply_velocity__10TObjPlayerFPv(s32);
 s32 fn_800112A4(s32, s32);
 int fn_8011E204(void*, void*);
 s32 fn_801BA650(void *, s32, s32);
@@ -37,7 +37,7 @@ void update_action__10TObjPlayerFi(s32 arg0) {
 
     temp_r3 = TObjPlayer__sub_801B5EA4();
     if (temp_r3 == 0U) {
-        TObjPlayer__sub_80010550(arg0);
+        apply_velocity__10TObjPlayerFPv(arg0);
     } else if (temp_r3 == 1U) {
         TObjPlayer__sub_801B6024(arg0);
     }
@@ -48,7 +48,7 @@ void update_action__10TObjPlayerFi(s32 arg0) {
         TItemProShield__sub_8001140C(arg0, 1);
     }
 }
-void TObjPlayer__sub_801D05D8(void *arg0) {
+void start_animation__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 1;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_801D04B4((void*)(arg0));

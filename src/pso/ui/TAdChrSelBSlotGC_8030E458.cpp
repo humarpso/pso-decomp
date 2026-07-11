@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdChrSelBSlotGC__sub_8030E458(void);
-void TAdChrSelBSlotGC__sub_8030E45C(void *arg0);
-void TAdChrSelBSlotGC__sub_8030E498(void *arg0);
+void set_load_state__16TAdChrSelBSlotGCFPv(void *arg0);
+void init__16TAdChrSelBSlotGCFPv(void *arg0);
 void TAdChrSelBSlotGC__sub_8030E4D0(void *arg0);
 void TAdChrSelBSlotGC__sub_8030E50C(void *arg0);
 void TAdChrSelBSlotGC__sub_8030E550(void);
 void update_load_state__16TAdChrSelBSlotGCFPv(void *arg0);
 void TAdChrSelBSlotGC__sub_8030E5B0(void *arg0);
-void TAdChrSelBSlotGC__sub_8030E5E8(void *arg0);
+void enter_state17__16TAdChrSelBSlotGCFPv(void *arg0);
 void TAdChrSelBSlotGC__sub_8030E620(void);
 s32 TAdPlayerLoadGC__sub_80076BBC();
 s32 TAdPlayerLoadGC__sub_801E1530(s32);
@@ -23,12 +23,12 @@ s32 TAdSinglePlyChrSelectGC__sub_802004D8();
 s32 fn_803100EC();
 
 void TAdChrSelBSlotGC__sub_8030E458(void) {  }
-void TAdChrSelBSlotGC__sub_8030E45C(void *arg0) {
+void set_load_state__16TAdChrSelBSlotGCFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_80076BBC() == 0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 0x1D;
     }
 }
-void TAdChrSelBSlotGC__sub_8030E498(void *arg0) {
+void init__16TAdChrSelBSlotGCFPv(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_802004D8();
     TAdSinglePlyChrSelectGC__sub_801FDB14();
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x1C;
@@ -59,7 +59,7 @@ void TAdChrSelBSlotGC__sub_8030E5B0(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_801FDB14();
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x1A;
 }
-void TAdChrSelBSlotGC__sub_8030E5E8(void *arg0) {
+void enter_state17__16TAdChrSelBSlotGCFPv(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_802004D8();
     TAdSinglePlyChrSelectGC__sub_801FDB14();
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x17;

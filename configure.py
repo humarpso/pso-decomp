@@ -4941,6 +4941,7 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TLobby_80208FFC.cpp"),
                 NonMatching("pso/ui/TAdSinglePlyChrSelectGC_80202B30.cpp"),
                 NonMatching("pso/ui/TAdSinglePlyChrSelectGC_802E1E7C.cpp"),
+                NonMatching("pso/enemy/TObjEneEpsilonGuard_8035F950.cpp"),
             ],
         },
         # ------------------------------------------------------------------

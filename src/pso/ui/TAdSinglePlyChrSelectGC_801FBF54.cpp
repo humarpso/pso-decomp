@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_801FBF54(s32 arg0);
+void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 u32 fn_80381ABC();
 
 M2C_UNK strncpy(M2C_UNK *, M2C_UNK *, M2C_UNK);
 extern M2C_UNK lbl_805D5FB0;
 
-void TAdSinglePlyChrSelectGC__sub_801FBF54(s32 arg0) {
+void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     u32 var_r3;
     if (arg0 >= 0) {
         var_r3 = fn_80381ABC();

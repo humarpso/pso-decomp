@@ -14,7 +14,7 @@ M2C_UNK fn_8002AEB8(void *, s32);
 s32 fn_801B0EE8();
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
-s32 TObjPlayer__sub_801BE440(void *);
+s32 call_model_m24__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 s32 fn_801D8B8C(void *);
 
@@ -47,7 +47,7 @@ void fn_801CB0C4(u8 *arg0) {
         trigger_switch_attack__10TObjPlayerFPvi(arg0, ((VObj *)arg0)->m7());
     }
     obj_clearFlags30(arg0, 0x10000);
-    fn_801BA650(arg0, 0xD, TObjPlayer__sub_801BE440(arg0));
+    fn_801BA650(arg0, 0xD, call_model_m24__10TObjPlayerFPv(arg0));
 }
 
 }

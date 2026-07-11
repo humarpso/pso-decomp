@@ -38,7 +38,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *arg0) {
     }
     return TWindowSubComCard__sub_80265BF8(v);
 }
-s32 TWindowSubComCard__sub_802A57C8(void *arg0) {
+s32 get_card_data__17TWindowSubComCardFPv(void *arg0) {
     s32 v = M2C_FIELD(arg0, u32 *, 0x2C);
     if ((u32) v == 0U) {
         return 0;

@@ -29,6 +29,6 @@ int TFontSmallLobby__sub_801C0228(void*);
 
 int TObjPlayer__sub_801D11EC(void* p) { return *(u16*)((char*)p + 0x6) & 0x1; }
 int TObjPlayer__sub_801D11F8(void* p) { return (*(u16*)((char*)p + 0x6) >> 1) & 0x1; }
-void TObjPlayer__sub_801D1204(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void swap_bytes__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
 }

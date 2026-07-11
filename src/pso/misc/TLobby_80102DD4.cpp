@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TLobby__sub_80102DD4(s32 arg0, u16 arg1);
+u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1);
 
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5E50;
 
-u8 TLobby__sub_80102DD4(s32 arg0, u16 arg1) {
+u8 is_matching_id__6TLobbyFiUs(s32 arg0, u16 arg1) {
     int var_r5;
 
     var_r5 = 0;

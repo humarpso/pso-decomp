@@ -9,11 +9,11 @@ extern "C" {
 void update_stop__6TMovieFPv(void *arg0);
 
 M2C_UNK stop_if_advanced__6TMovieFPv();
-M2C_UNK TMovie__sub_80143ECC();
+M2C_UNK check_finished__6TMovieFPv();
 
 void update_stop__6TMovieFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != 0) {
-        TMovie__sub_80143ECC();
+        check_finished__6TMovieFPv();
         return;
     }
     stop_if_advanced__6TMovieFPv();

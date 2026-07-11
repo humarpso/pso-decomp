@@ -11,7 +11,7 @@ s32 TObjPlayer__sub_801D0E94();
 void TObjPlayer__sub_801C862C(void);
 void TObjPlayer__sub_801C8678(void);
 int TObjPlayer__sub_801C867C(void* p);
-int TObjPlayer__sub_801C96C4(void*);
+int try_change_action__10TObjPlayerFi(void*);
 
 int TObjPlayer__sub_801C85BC(void) { return 0; }
 

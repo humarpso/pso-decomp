@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss1Dragon__sub_80028194(void *arg0);
-s32 TBoss1Dragon__sub_800281F0(void *arg0);
+s32 check_phase_advance__12TBoss1DragonFPv(void *arg0);
+s32 update_max_hp_phase__12TBoss1DragonFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_800291F4(void *, M2C_UNK);
 
-s32 TBoss1Dragon__sub_80028194(void *arg0) {
+s32 check_phase_advance__12TBoss1DragonFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s16) M2C_FIELD(arg0, s16 *, 0x680)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3E4) == 1) {
             TBoss1Dragon__sub_800284B4(arg0, 0xA);
@@ -23,7 +23,7 @@ s32 TBoss1Dragon__sub_80028194(void *arg0) {
     return 0;
 }
 
-s32 TBoss1Dragon__sub_800281F0(void *arg0) {
+s32 update_max_hp_phase__12TBoss1DragonFPv(void *arg0) {
     s16 temp_r4;
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (temp_r4 = M2C_FIELD(arg0, s16 *, 0x682))) {

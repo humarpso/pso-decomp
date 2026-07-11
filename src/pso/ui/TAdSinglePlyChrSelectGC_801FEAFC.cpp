@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_801FEAFC(void);
-s32 TAdSinglePlyChrSelectGC__sub_801FEB40(void);
+s32 check_ready__23TAdSinglePlyChrSelectGCFv(void);
+s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF14();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF58();
+M2C_UNK create_instance__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK fn_80242D2C();
 
 extern u32 lbl_805D5F68;
 extern u32 lbl_805D5F98;
 
-s32 TAdSinglePlyChrSelectGC__sub_801FEAFC(void) {
+s32 check_ready__23TAdSinglePlyChrSelectGCFv(void) {
     s32 var_r3;
 
     fn_80242D2C();
@@ -30,13 +30,13 @@ s32 TAdSinglePlyChrSelectGC__sub_801FEAFC(void) {
 extern u32 lbl_805D5F6C;
 extern u32 lbl_805D5F9C;
 
-s32 TAdSinglePlyChrSelectGC__sub_801FEB40(void) {
+s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv(void) {
     s32 var_r3;
 
     fn_80242D2C();
     var_r3 = 0;
     if (((u32) lbl_805D5F6C != 0U) && ((u32) lbl_805D5F9C != 0U)) {
-        TAdSinglePlyChrSelectGC__sub_801FFF58();
+        create_instance__23TAdSinglePlyChrSelectGCFv();
         var_r3 = 1;
     }
     return var_r3;

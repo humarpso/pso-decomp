@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void start_action__14TObjEnePanarmsFPv(void *arg0);
-void TObjEnePanarms__sub_800E145C(void *arg0);
+void handle_split_flag__14TObjEnePanarmsFPv(void *arg0);
 void init_split__14TObjEnePanarmsFPv(void *arg0);
 M2C_UNK TObjEnePanarms__sub_800E1B50();
 M2C_UNK fn_8002AE74(void *, M2C_UNK);
@@ -30,7 +30,7 @@ void start_action__14TObjEnePanarmsFPv(void *arg0) {
     fn_8002AE74(arg0, 0);
 }
 
-void TObjEnePanarms__sub_800E145C(void *arg0) {
+void handle_split_flag__14TObjEnePanarmsFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1B50();
         TObjEnePanarms__sub_800E1C98(arg0, 2);

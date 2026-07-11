@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80104604(int arg0, void *arg1);
+void forward_to_player__6TLobbyFiPv(int arg0, void *arg1);
 void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_80019248();
 u32 TObjPlayer__sub_80019704(s32);
@@ -25,7 +25,7 @@ s32 obj_isState3_324(s32);
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 
-void TLobby__sub_80104604(int arg0, void *arg1) {
+void forward_to_player__6TLobbyFiPv(int arg0, void *arg1) {
     s32 temp_r3;
 
     if (arg1 != NULL) {

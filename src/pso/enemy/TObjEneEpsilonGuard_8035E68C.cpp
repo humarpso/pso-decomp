@@ -44,8 +44,8 @@ M2C_UNK TObjEneEpsilonGuard__sub_8035EFD8(void *, s32);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK fn_80143504();
-s32 fn_8035F95C(u32);
-s32 fn_8035F968();
+s32 TObjEneEpsilonGuard__sub_8035F95C(u32);
+s32 TObjEneEpsilonGuard__sub_8035F968();
 
 extern void *TObjEneEpsilonGuard__data_805D6F74;
 extern const f32 lbl_805E01E8;
@@ -88,10 +88,10 @@ void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         case 1:
             temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x470));
             if (temp_r3 != 0U) {
-                if (fn_8035F968() == 1) {
+                if (TObjEneEpsilonGuard__sub_8035F968() == 1) {
                     M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) & 0xFFFFFFFB);
                     M2C_FIELD(arg0, s32 *, 0x430) = 2;
-                } else if (fn_8035F95C(temp_r3) != 1) {
+                } else if (TObjEneEpsilonGuard__sub_8035F95C(temp_r3) != 1) {
                     goto block_23;
                 }
             } else {
@@ -103,7 +103,7 @@ block_23:
             }
             break;
         case 2:
-            if ((TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x470)) != 0U) && (fn_8035F968() == 0)) {
+            if ((TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x470)) != 0U) && (TObjEneEpsilonGuard__sub_8035F968() == 0)) {
                 M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) | 4);
                 M2C_FIELD(arg0, s32 *, 0x430) = 1;
             }

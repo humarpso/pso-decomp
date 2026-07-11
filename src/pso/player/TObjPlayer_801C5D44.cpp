@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C5D44(void *arg0, void *arg1);
+void copy_offset_position__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void *fn_8007EAF8(void *);
 
 extern const f32 lbl_805DC334;
 
-void TObjPlayer__sub_801C5D44(void *arg0, void *arg1) {
+void copy_offset_position__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     f32 temp_f2;
 
     temp_f2 = M2C_FIELD(fn_8007EAF8(arg1), f32 *, 0x10);

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrl__sub_8024A054(void);
+void clear_flag__11TWindowCtrlFv(void);
 M2C_UNK clear_flag1e_bit8__11TWindowCtrlFPv(void*);
 
 struct Obj054 { char pad[0x38]; u32 field38; };
 extern struct Obj054 *TWindowCtrl__data_805D63F8;
 
-void TWindowCtrl__sub_8024A054(void) {
+void clear_flag__11TWindowCtrlFv(void) {
     if ((TWindowCtrl__data_805D63F8 != NULL) && (TWindowCtrl__data_805D63F8->field38 != 0U)) {
         clear_flag1e_bit8__11TWindowCtrlFPv((void*)TWindowCtrl__data_805D63F8->field38);
     }

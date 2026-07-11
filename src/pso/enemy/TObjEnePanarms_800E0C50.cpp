@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800E0C50(void *arg0);
+void update_hit_state__14TObjEnePanarmsFPv(void *arg0);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 
-void TObjEnePanarms__sub_800E0C50(void *arg0) {
+void update_hit_state__14TObjEnePanarmsFPv(void *arg0) {
     if (TObjEnePanarms__sub_800DFB44(M2C_FIELD(arg0, s32 *, 0x3A0)) != 0) {
         TObjEnePanarms__sub_800E1C98(arg0, 2);
         return;

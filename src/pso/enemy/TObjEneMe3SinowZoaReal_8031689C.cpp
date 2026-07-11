@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneMe3SinowZoaReal__vt105(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-f32 TObjPlayer__sub_80011014();
+f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern const f32 lbl_805DF304;
 
@@ -17,7 +17,7 @@ struct Ene;
 void TObjEneMe3SinowZoaReal__vt105(void *arg0) {
     struct Ene *self = (struct Ene *) arg0;
     M2C_FIELD(arg0, s32 *, 0x3FC) = M2C_FIELD(arg0, s32 *, 0x3FC) + 1;
-    if ((M2C_FIELD(arg0, s32 *, 0x3FC) >= 2) || (TObjPlayer__sub_80011014() < lbl_805DF304)) {
+    if ((M2C_FIELD(arg0, s32 *, 0x3FC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DF304)) {
         TObjEneDD__sub_800BBA18(self, 9);
         return;
     }

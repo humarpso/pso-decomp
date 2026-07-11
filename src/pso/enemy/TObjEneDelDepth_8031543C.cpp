@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_depth_offset__15TObjEneDelDepthFPvii(void *arg0, s32 arg1, s32 arg2);
-f32 TObjPlayer__sub_80011014();
+f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern M2C_UNK lbl_80475DD8;
 
 void set_depth_offset__15TObjEneDelDepthFPvii(void *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0x384) = (s32) (arg1 + (s32) ((f32) arg2 * TObjPlayer__sub_80011014()));
+    M2C_FIELD(arg0, s32 *, 0x384) = (s32) (arg1 + (s32) ((f32) arg2 * calc_boss4_scale__10TObjPlayerFi()));
 }
 
 }

@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_801D136C(void* p);
+void bswap_packet__10TObjPlayerFPv(void* p);
 
 int TObjPlayer__sub_801D0FF4(void* p);
 int TObjPlayer__sub_801D1018(void* p);

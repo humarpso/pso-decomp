@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TAdSinglePlyChrSelectGC__sub_8033B8A4(void *arg0, s16 arg1);
+void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void fn_8033A928(void *);
 
 extern M2C_UNK lbl_804EF8C0[];
 
-void *TAdSinglePlyChrSelectGC__sub_8033B8A4(void *arg0, s16 arg1) {
+void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EF8C0;
         fn_8033A928(arg0);

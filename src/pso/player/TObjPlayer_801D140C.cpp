@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_801D136C(void* p);
+void bswap_packet__10TObjPlayerFPv(void* p);
 
 int TObjPlayer__sub_801D0FF4(void* p);
 int TObjPlayer__sub_801D1018(void* p);
@@ -28,11 +28,11 @@ int TObjPlayer__sub_8001960C(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
 
-void TObjPlayer__sub_801D140C(void* p) { TObjPlayer__sub_801D136C(p); update_players__6TLobbyFi(p); }
+void TObjPlayer__sub_801D140C(void* p) { bswap_packet__10TObjPlayerFPv(p); update_players__6TLobbyFi(p); }
 void TObjPlayer__sub_801D1440(void* p) { *(u16*)((char*)p + 0x6) |= 0x1; }
 void* TObjPlayer__sub_801D1450(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 void TObjPlayer__sub_801D1480(void* p) { *(u8*)((char*)p + 0x0) = 87; *(u8*)((char*)p + 0x1) = 1; }
-void TObjPlayer__sub_801D1494(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
+void draw_and_send__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void TObjPlayer__sub_801D14C8(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); bswap_32__FPUl((char*)p + 0x10); }
 
 }

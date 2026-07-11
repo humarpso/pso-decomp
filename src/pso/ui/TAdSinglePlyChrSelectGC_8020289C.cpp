@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_8020289C(void);
+void free_callbacks__23TAdSinglePlyChrSelectGCFv(void);
 void register_callback__23TAdSinglePlyChrSelectGCFis(void*, int);
 void __dl__FPv(void*);
 
 extern u32 lbl_805D5F5C;
 extern u32 lbl_805D5F70;
 
-void TAdSinglePlyChrSelectGC__sub_8020289C(void) {
+void free_callbacks__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D5F5C != 0U) {
         register_callback__23TAdSinglePlyChrSelectGCFis((void*)lbl_805D5F5C, 1);
         lbl_805D5F5C = 0U;

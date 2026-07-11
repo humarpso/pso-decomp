@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK TLobby__sub_8020C5E0(void *);
+M2C_UNK set_flag8__6TLobbyFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 struct Base_80178EF8 { char pad[0x18]; };
@@ -31,7 +31,7 @@ void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             ((VObj_80178EF8 *)arg0)->m83();
         }
-        TLobby__sub_8020C5E0(arg0);
+        set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

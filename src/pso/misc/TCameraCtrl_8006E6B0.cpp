@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TCameraCtrl__sub_8006E6B0(void *arg0, s16 arg1);
+void *deleting_dtor__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void TCameraCtrl__sub_800686BC(void *, int);
 void __dl__7TObjectFPv(void *);
 
 extern M2C_UNK lbl_80488E00[];
 
-void *TCameraCtrl__sub_8006E6B0(void *arg0, s16 arg1) {
+void *deleting_dtor__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488E00;
         M2C_FIELD(arg0, M2C_UNK *, 0x1C) = 0;

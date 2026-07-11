@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801B2F68(s32 arg0, f32 farg0);
+void apply_speed_scale__10TObjPlayerFif(s32 arg0, f32 farg0);
 M2C_UNK fn_800A7798(s32, f32);
 s32 is_flag30_8_set__10TObjPlayerFi();
 
 extern f32 TObjPlayer__data_805DC28C;
 
-void TObjPlayer__sub_801B2F68(s32 arg0, f32 farg0) {
+void apply_speed_scale__10TObjPlayerFif(s32 arg0, f32 farg0) {
     f32 var_f1;
 
     if (is_flag30_8_set__10TObjPlayerFi() != 0) {

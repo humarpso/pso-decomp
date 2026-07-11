@@ -97,8 +97,8 @@ extern "C" {
 
 void choose_next_action__12TBoss1DragonFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TBoss1Dragon__sub_80028194(void *);
-s32 TBoss1Dragon__sub_800281F0(void *);
+s32 check_phase_advance__12TBoss1DragonFPv(void *);
+s32 update_max_hp_phase__12TBoss1DragonFPv(void *);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
 s32 TBoss1Dragon__sub_800291D4();
 
@@ -108,8 +108,8 @@ extern s32 lbl_805D4B34;
 void choose_next_action__12TBoss1DragonFPv(void *arg0) {
     if (TBoss1Dragon__sub_800291D4() != 0) {
         if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x400)) {
-            if (TBoss1Dragon__sub_800281F0(arg0) == 0) {
-                if (TBoss1Dragon__sub_80028194(arg0) != 0) {
+            if (update_max_hp_phase__12TBoss1DragonFPv(arg0) == 0) {
+                if (check_phase_advance__12TBoss1DragonFPv(arg0) != 0) {
                     return;
                 }
                 goto block_12;

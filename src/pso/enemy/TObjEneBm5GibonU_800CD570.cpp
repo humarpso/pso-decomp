@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm5GibonU__sub_800CD570(void);
+void advance_anim_frame__16TObjEneBm5GibonUFv(void);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 
 extern s32 TObjEneBm5GibonU__data_805D51D4;
 extern s32 TObjEneBm5GibonU__data_805D51D8;
 
-void TObjEneBm5GibonU__sub_800CD570(void) {
+void advance_anim_frame__16TObjEneBm5GibonUFv(void) {
     if (((s32) TObjEneBm5GibonU__data_805D51D4 >= 0x30) && ((s32) TObjEneBm5GibonU__data_805D51D4 < 0x32)) {
         fn_803D9214(0, TObjEneBm5GibonU__data_805D51D8);
     }

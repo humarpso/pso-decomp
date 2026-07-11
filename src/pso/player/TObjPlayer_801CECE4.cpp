@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CECE4(u8 *arg0);
+void update_by_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_801D2D6C(void *);
 s16 fn_801AFCCC();
 M2C_UNK fn_801D30C0(void *);
 M2C_UNK fn_801D310C(void *);
 
-void TObjPlayer__sub_801CECE4(u8 *arg0) {
+void update_by_state__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r3;
 
     temp_r3 = fn_801AFCCC();

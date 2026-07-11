@@ -10,7 +10,7 @@ s32 fn_80244C0C(s32, s32);
 s32 fn_80257BC0(s32, s32, s32);
 void *fn_8007EAF8();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-void TWindowMeseta__sub_80269100(void *arg0, s32 arg1);
+void draw_value__13TWindowMesetaFPvi(void *arg0, s32 arg1);
 M2C_UNK fn_80287580(s32, s32, M2C_UNK, f32);
 s32 fn_80269064(void* p);
 int fn_8026906C(void* p);

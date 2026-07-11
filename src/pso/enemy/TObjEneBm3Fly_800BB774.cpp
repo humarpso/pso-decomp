@@ -3,7 +3,7 @@
 extern "C" {
 
 int fn_800F6B14(void*);
-int TLobby__sub_8020C5A4(void*);
+int send_entity_set_flags__6TLobbyFPv(void*);
 void fn_800BB650(void* p, void* q);
 int TObjEneBm3Fly__sub_800BB774(void* p);
 void fn_800BB7D0(void);

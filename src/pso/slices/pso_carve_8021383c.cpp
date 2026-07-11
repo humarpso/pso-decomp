@@ -26,7 +26,7 @@ s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 
-void THunterGuildSeqOffline__sub_8021383C(void *arg0) {
+void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0x38);
     if (p != 0) {
         if (all_parents_unqueued_for_destruction__7TObjectFv(p) == 0) {

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8001E780(f32 farg0);
+s32 calc_alpha_shifted__6TLobbyFf(f32 farg0);
 
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805D7ED4;
 
-s32 TLobby__sub_8001E780(f32 farg0) {
+s32 calc_alpha_shifted__6TLobbyFf(f32 farg0) {
     return __cvt_fp2unsigned(lbl_805D7ED4 * farg0) << 0x18;
 }
 

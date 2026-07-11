@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TLobby__sub_8020BC08(void);
+void init_scene_objects__6TLobbyFv(void);
 int TObjPlayer__sub_800196EC(void);
 int TQuestThread__sub_801F5B5C(void);
 int TRaderMapCore__sub_801F9630(int);

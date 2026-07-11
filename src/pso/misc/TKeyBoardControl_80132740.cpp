@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TKeyBoardControl__sub_80132740(void *arg0);
+void reset_keys__16TKeyBoardControlFPv(void *arg0);
 
-void TKeyBoardControl__sub_80132740(void *arg0) {
+void reset_keys__16TKeyBoardControlFPv(void *arg0) {
     s32 i;
     ((u8 *)arg0)[4] = 0;
     ((u8 *)arg0)[3] = 0;

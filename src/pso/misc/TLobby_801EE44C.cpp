@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801EE44C(void);
+void attach_battle_ctrl__6TLobbyFv(void);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK fn_801B3FFC(s32);
 M2C_UNK fn_801B4044();
 
 extern s32 lbl_805D53A0;
 
-void TLobby__sub_801EE44C(void) {
+void attach_battle_ctrl__6TLobbyFv(void) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

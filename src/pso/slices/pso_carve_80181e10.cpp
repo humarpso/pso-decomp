@@ -3,8 +3,8 @@
 extern "C" {
 
 int fn_80181E10(void* p);
-int TObjEneDD__sub_800B9CC8(void*);
+int is_phase_e__9TObjEneDDFv(void*);
 
-int fn_80181E10(void* p) { return TObjEneDD__sub_800B9CC8(p); }
+int fn_80181E10(void* p) { return is_phase_e__9TObjEneDDFv(p); }
 
 }

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800DFD54(void *arg0);
+void init_attack_state__14TObjEnePanarmsFPv(void *arg0);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 M2C_UNK fn_8002AE74(void *, M2C_UNK);
 s32 fn_80141F84(s32, s32, void *);
 
 extern const f32 TObjEnePanarms__data_805DA524;
 
-void TObjEnePanarms__sub_800DFD54(void *arg0) {
+void init_attack_state__14TObjEnePanarmsFPv(void *arg0) {
     void *temp_r5;
 
     temp_r5 = M2C_FIELD(arg0, void **, 0x37C);

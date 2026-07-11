@@ -8,7 +8,7 @@ int fn_80102CE0(void*);
 void TNpcPlayer__sub_80152A98(void* p);
 int update_players__6TLobbyFi(void*);
 int TNpcPlayer__sub_80152ACC(void*);
-void TNpcPlayer__sub_80152B28(void* p);
+void update_players__10TNpcPlayerFPv(void* p);
 int TNpcPlayer__sub_80152B5C(void*);
 void TNpcPlayer__sub_80152BB8(void* p);
 int TNpcPlayer__sub_80152BEC(void*);
@@ -26,6 +26,6 @@ void reset_fields_8c__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A30(void);
 void TNpcPlayer__sub_80152D64(void* p);
 
-void TNpcPlayer__sub_80152B28(void* p) { TNpcPlayer__sub_80152B5C(p); update_players__6TLobbyFi(p); }
+void update_players__10TNpcPlayerFPv(void* p) { TNpcPlayer__sub_80152B5C(p); update_players__6TLobbyFi(p); }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 void TLobby__sub_8020A350(void* p);
 void TLobby__sub_8020A394(void* p);
 void TLobby__sub_8020A3D0(void *arg0, void *arg1);
-void TLobby__sub_8020A3EC(void* p);
+void bswap_vec3__6TLobbyFPv(void* p);
 void swap_header_endian__6TLobbyFPv(void* p);
 void TLobby__sub_8020A48C(void* p);
 int bswap_16__FPUs(void*);
@@ -25,7 +25,7 @@ void TLobby__sub_8020A3D0(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
 }
 
-void TLobby__sub_8020A3EC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
+void bswap_vec3__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
 
 void swap_header_endian__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); bswap_32__FPUl((char*)p + 0x10); bswap_32__FPUl((char*)p + 0x14); bswap_16__FPUs((char*)p + 0x18); bswap_16__FPUs((char*)p + 0x1a); }
 

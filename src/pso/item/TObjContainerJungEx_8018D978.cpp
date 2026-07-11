@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjContainerJungEx__sub_8018D978(void);
+void free_data__19TObjContainerJungExFv(void);
 void fn_8001FE7C(void*, int);
 
 extern u32 TObjContainerJungEx__data_805D5BA8;
 
-void TObjContainerJungEx__sub_8018D978(void) {
+void free_data__19TObjContainerJungExFv(void) {
     if ((u32) TObjContainerJungEx__data_805D5BA8 != 0U) {
         fn_8001FE7C((void*)TObjContainerJungEx__data_805D5BA8, 1);
         TObjContainerJungEx__data_805D5BA8 = 0U;

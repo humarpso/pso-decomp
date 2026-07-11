@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneBm5GibonU__sub_800D11F8(void);
-void TObjEneBm5GibonU__sub_800D11FC(void* p);
+void set_state__16TObjEneBm5GibonUFPv(void* p);
 void TObjEneBm5GibonU__sub_800D122C(void *arg0);
 void TObjEneBm5GibonU__sub_800D1264(void);
 int TObjEneDD__sub_800BBA18(void*, void*);
 
 void TObjEneBm5GibonU__sub_800D11F8(void) {  }
-void TObjEneBm5GibonU__sub_800D11FC(void* p) { if (*(short*)((char*)p + 0x326) != 16) { TObjEneDD__sub_800BBA18(p, (void*)16); } }
+void set_state__16TObjEneBm5GibonUFPv(void* p) { if (*(short*)((char*)p + 0x326) != 16) { TObjEneDD__sub_800BBA18(p, (void*)16); } }
 void TObjEneBm5GibonU__sub_800D122C(void *arg0) {
     s16 temp_r0;
 

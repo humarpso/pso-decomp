@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802ABFD4(void);
+void update_camera_target__14TBoss6PlotFalzFv(void);
 
 extern f32 TBoss6PlotFalz__data_805D3E54;
 extern s32 lbl_805D5660;
@@ -18,7 +18,7 @@ extern s32 some_id_805c6f74;
 extern f32 TBoss6PlotFalz__data_805DE098;
 extern f32 TBoss6PlotFalz__data_805DE0BC;
 
-void TBoss6PlotFalz__sub_802ABFD4(void) {
+void update_camera_target__14TBoss6PlotFalzFv(void) {
     if (TBoss6PlotFalz__data_805D3E54 > TBoss6PlotFalz__data_805DE098) {
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;

@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubCustomEquip__sub_802760AC(void *arg0);
+s32 is_type_valid__21TWindowSubCustomEquipFPv(void *arg0);
 
-s32 TWindowSubCustomEquip__sub_802760AC(void *arg0) {
+s32 is_type_valid__21TWindowSubCustomEquipFPv(void *arg0) {
     u8 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, u8 *, 0x62);

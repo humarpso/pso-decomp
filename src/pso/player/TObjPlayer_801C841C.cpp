@@ -21,7 +21,7 @@ VV(71)VV(72)VV(73)
 
 extern "C" {
 
-void TObjPlayer__sub_801C841C(void *arg0);
+void update_dispatch_v76__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801C8478(void);
 void do_action__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8001053C();
@@ -36,7 +36,7 @@ M2C_UNK fn_8002AE7C(void *, s32);
 s32 fn_801BA650(void * a0 = 0, s32 a1 = 0, s16 a2 = 0);
 s32 update_facing_from_lock__10TObjPlayerFPv(void * a0 = 0);
 
-void TObjPlayer__sub_801C841C(void *arg0) {
+void update_dispatch_v76__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
     TObjPlayer__sub_8001053C();

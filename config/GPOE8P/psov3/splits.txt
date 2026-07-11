@@ -26340,7 +26340,7 @@ pso/enemy/TObjEneEpsilonGuard_8035F1C8.cpp:
 pso/enemy/TObjEneEpsilon.cpp:
 	.text       start:0x8035F5B8 end:0x8035F5C8
 
-pso/slices/pso_carve_8035f950.cpp:
+pso/enemy/TObjEneEpsilonGuard_8035F950.cpp:
 	.text       start:0x8035F950 end:0x8035F970
 
 pso/slices/run_803600C0.cpp:

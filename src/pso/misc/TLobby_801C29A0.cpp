@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TLobby__sub_801C29A0(void *arg0);
+u8 check_timeout__6TLobbyFPv(void *arg0);
 s32 fn_8002ADC8();
 
 extern s32 lbl_805D5DB0;
 
-u8 TLobby__sub_801C29A0(void *arg0) {
+u8 check_timeout__6TLobbyFPv(void *arg0) {
     if ((s32) lbl_805D5DB0 >= fn_8002ADC8()) {
         M2C_FIELD(arg0, s32 *, 0x270) = 2;
     }

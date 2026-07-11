@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801B51D0(s32 arg0);
+s32 draw_small_font__10TObjPlayerFi(s32 arg0);
 void send_code_45_1__10TObjPlayerFi(s32 arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 M2C_UNK set_code_45_1__10TObjPlayerFPv(void *);
 M2C_UNK send_lobby_update_font__10TObjPlayerFPv(void *);
 
-s32 TObjPlayer__sub_801B51D0(s32 arg0) {
+s32 draw_small_font__10TObjPlayerFi(s32 arg0) {
     TFontSmallLobby__sub_801C0228();
     return arg0;
 }

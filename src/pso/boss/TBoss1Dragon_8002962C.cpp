@@ -38,7 +38,7 @@ void TBoss1Dragon__sub_80029674(void);
 void TBoss1Dragon__sub_80029678(void);
 void check_death__12TBoss1DragonFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-s32 TBoss1Dragon__sub_800281F0(void *);
+s32 update_max_hp_phase__12TBoss1DragonFPv(void *);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
 s32 TBoss1Dragon__sub_800291D4();
 
@@ -53,7 +53,7 @@ void TBoss1Dragon__sub_80029678(void) {  }
 
 void check_death__12TBoss1DragonFPv(void *arg0) {
     if (TBoss1Dragon__sub_800291D4() != 0) {
-        if (TBoss1Dragon__sub_800281F0(arg0) != 0) {
+        if (update_max_hp_phase__12TBoss1DragonFPv(arg0) != 0) {
             return;
         }
         goto block_8;

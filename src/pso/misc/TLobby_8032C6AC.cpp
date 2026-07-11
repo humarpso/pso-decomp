@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8032C6AC(void);
-void TLobby__sub_8032C6F0(void);
+void destroy_singleton__6TLobbyFv(void);
+void init_graph__6TLobbyFv(void);
 M2C_UNK TDLGraph__sub_8007F6F0(M2C_UNK, M2C_UNK);
 u32 fn_8007F85C();
 void queue_destruction__7TObjectFv(void*);
@@ -15,7 +15,7 @@ void queue_destruction__7TObjectFv(void*);
 extern M2C_UNK TLobby__data_805434A8[];
 extern u32 TLobby__data_805D6CC4;
 
-void TLobby__sub_8032C6AC(void) {
+void destroy_singleton__6TLobbyFv(void) {
     if ((u32) TLobby__data_805D6CC4 != 0U) {
         queue_destruction__7TObjectFv((void*)TLobby__data_805D6CC4);
         TLobby__data_805D6CC4 = 0U;
@@ -25,7 +25,7 @@ void TLobby__sub_8032C6AC(void) {
 
 extern u32 TLobby__data_805D6CC4;
 
-void TLobby__sub_8032C6F0(void) {
+void init_graph__6TLobbyFv(void) {
     u32 temp_r3;
 
     if ((u32) TLobby__data_805D6CC4 == 0U) {

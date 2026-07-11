@@ -27,7 +27,7 @@ u8 TItemMag__sub_80113E74(void* p) { return *(u8*)((char*)p + 0xe); }
 s16 TItemMag__sub_80113E7C(void* p) { return *(s16*)((char*)p + 0x0); }
 s16 TItemMag__sub_80113E84(void* p) { return *(s16*)((char*)p + 0x2); }
 int TItemMag__sub_80113E8C(void* p) { return (*(u32*)((char*)p + 0x334) >> 9) & 0x1; }
-s32 TItemMag__sub_80113E98(s32 arg0) {
+s32 get_sub_value__8TItemMagFi(s32 arg0) {
     return (s32) TItemMag__sub_80113EEC((void*)(arg0 + 0x4AC));
 }
 

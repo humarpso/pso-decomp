@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjDoor__sub_8018E940(void *arg0);
+void update_anim__8TObjDoorFPv(void *arg0);
 f32 fn_803D64C0(s32);
 
 extern f32 lbl_805DBDD0;
 extern f32 lbl_805DBDD4;
 
-void TObjDoor__sub_8018E940(void *arg0) {
+void update_anim__8TObjDoorFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xC8) = (s32) (M2C_FIELD(arg0, s32 *, 0xC8) + 0x300);
     M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DBDD4 * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0xC8)) + lbl_805DBDD0;
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80222D58(void);
+void create_named_lobby_object__6TLobbyFv(void);
 
 s32 create_named_object(s32);
 extern M2C_UNK lbl_804CA288[];
@@ -15,7 +15,7 @@ extern s32 lbl_805D5544;
 extern s32 lbl_805D6238;
 extern s32 lbl_805D6258;
 
-void TLobby__sub_80222D58(void) {
+void create_named_lobby_object__6TLobbyFv(void) {
     if (((s32) lbl_805D6238 < 0) || ((s32) lbl_805D6238 > 9)) {
         lbl_805D6238 = 0;
     }

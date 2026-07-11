@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TItemDrop__sub_801060F4(void);
-u8 TItemDrop__sub_80106124(void);
+u8 is_enabled__9TItemDropFv(void);
+u8 is_not_special__9TItemDropFv(void);
 u8 can_drop__9TItemDropFv(void);
 s32 TLobby__sub_80104404();
 s32 fn_8030A7B0();
 
-u8 TItemDrop__sub_801060F4(void) {
+u8 is_enabled__9TItemDropFv(void) {
     return (u8) (fn_8030A7B0() != 1);
 }
 
-u8 TItemDrop__sub_80106124(void) {
+u8 is_not_special__9TItemDropFv(void) {
     return (u8) (fn_8030A7B0() != 1);
 }
 

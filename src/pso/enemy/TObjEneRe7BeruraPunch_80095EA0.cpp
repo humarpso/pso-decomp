@@ -11,7 +11,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneRe7Berura__sub_80094EEC(s32);
+M2C_UNK init_part__16TObjEneRe7BeruraFi(s32);
 M2C_UNK fn_800D8A2C();
 M2C_UNK fn_801E2F20();
 s32 fn_8022A564(void *);
@@ -58,7 +58,7 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
         fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0xF4);
         TOMonitorMachine01__sub_803D8B5C(0, temp_f1, temp_f1, lbl_805D9798);
-        TObjEneRe7Berura__sub_80094EEC(M2C_FIELD(arg0, s32 *, 0xB8));
+        init_part__16TObjEneRe7BeruraFi(M2C_FIELD(arg0, s32 *, 0xB8));
         fn_803D9B78();
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) == 2) {
             ((VObjHang *)(arg0 + 0xF8))->m7();

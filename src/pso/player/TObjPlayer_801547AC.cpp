@@ -7,9 +7,9 @@ struct Elt { char pad[0x18]; s32 f18; char pad2[0x2C - 0x1C]; };
 
 extern "C" {
 
-u8 TObjPlayer__sub_801547AC(void *arg0, s32 arg1, s32 arg2);
+u8 test_elt_flag__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 
-u8 TObjPlayer__sub_801547AC(void *arg0, s32 arg1, s32 arg2) {
+u8 test_elt_flag__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     struct Elt *temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, struct Elt **, 0xA4);

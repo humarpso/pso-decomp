@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjLiveCameraCtrl__sub_8030C020(s32 arg0);
+s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0);
 
 extern M2C_UNK TObjLiveCameraCtrl__data_805D6A88;
 
-s32 TObjLiveCameraCtrl__sub_8030C020(s32 arg0) {
+s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0) {
     if (arg0 < 0) {
         return 0;
     }

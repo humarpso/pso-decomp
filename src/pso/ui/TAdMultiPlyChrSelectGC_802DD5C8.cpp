@@ -8,7 +8,7 @@ extern "C" {
 
 void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
-s32 TWindowSubComCard__sub_802A57C8(s32);
+s32 get_card_data__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE304();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -48,7 +48,7 @@ void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0xE;
         return;
     }
-    if (TWindowSubComCard__sub_802A57C8(M2C_FIELD(arg0, s32 *, 0x8C)) != 0) {
+    if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x8C)) != 0) {
         TAdMultiPlyChrSelectGC__sub_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
         M2C_FIELD(arg0, s32 *, 0x20) = 0xE;
         return;

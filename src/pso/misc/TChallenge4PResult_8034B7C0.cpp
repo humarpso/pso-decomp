@@ -12,17 +12,17 @@ void TChallenge4PResult__sub_8034B8B0(void* p);
 int TChallenge4PResult__sub_8034BA48(void* p);
 int queue_destruction__7TObjectFv(void*);
 
-void TChallenge4PResult__sub_8034B7C0(void *arg0) {
+void init_timer__18TChallenge4PResultFPv(void *arg0) {
     TChallenge4PResult__sub_8034B720(arg0, fn_80132F2C(0x2B, 5));
     M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
     M2C_FIELD(arg0, s32 *, 0x1C) = 5;
 }
-void TChallenge4PResult__sub_8034B810(void *arg0) {
+void init_result_state__18TChallenge4PResultFPv(void *arg0) {
     TChallenge4PResult__sub_8034B720(arg0, fn_80132F2C(0x2B, 4));
     M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
     M2C_FIELD(arg0, s32 *, 0x1C) = 5;
 }
-void TChallenge4PResult__sub_8034B860(void *arg0) {
+void init__18TChallenge4PResultFPv(void *arg0) {
     TChallenge4PResult__sub_8034B720(arg0, fn_80132F2C(0x2B, 3));
     M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
     M2C_FIELD(arg0, s32 *, 0x1C) = 5;

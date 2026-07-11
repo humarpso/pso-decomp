@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TContainerAncient01__sub_8018AACC(void *arg0, s16 *arg1, s32 arg2);
+void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2);
 M2C_UNK TContainerAncient01__sub_8018AB44(void *);
 M2C_UNK TContainerAncient01__sub_8018A66C(void *);
 
-void TContainerAncient01__sub_8018AACC(void *arg0, s16 *arg1, s32 arg2) {
+void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2) {
     s16 temp_r4;
     M2C_FIELD(arg0, s16 *, 0x338) = (s16) *arg1;
     if (arg2 != 0) {

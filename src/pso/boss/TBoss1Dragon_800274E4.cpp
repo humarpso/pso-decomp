@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss1Dragon__sub_800274E4(u8 *arg0);
+void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
 M2C_UNK TOSwitchAttack__sub_80087278(void *, s32, M2C_UNK);
 
-void TBoss1Dragon__sub_800274E4(u8 *arg0) {
+void update_switch_attack__12TBoss1DragonFPv(u8 *arg0) {
     TOSwitchAttack__sub_80087278(arg0 + 0x38, M2C_FIELD(M2C_FIELD(arg0, void **, 0x778), s32 *, 4), 0x40);
 }
 

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TAdSinglePlyChrSelectGC__sub_802029E8(M2C_UNK);
+u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
 
 s32 fn_8007154C(void) {
     s32 var_r3;
 
-    var_r3 = 0x1E - *TAdSinglePlyChrSelectGC__sub_802029E8(0xFFFF);
+    var_r3 = 0x1E - *get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF);
     if (var_r3 < 0) {
         var_r3 = 0;
     }

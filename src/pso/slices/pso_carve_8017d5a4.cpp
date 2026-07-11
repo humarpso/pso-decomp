@@ -11,7 +11,7 @@ s32 fn_80080750();
 M2C_UNK fn_80087350(void *, M2C_UNK);
 M2C_UNK fn_8017D444(void *);
 M2C_UNK fn_8017D448(void *);
-M2C_UNK TLobby__sub_8020C5E0(void *);
+M2C_UNK set_flag8__6TLobbyFPv(void *);
 M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 u8 TODoorAncient08__sub_80229220(u16);
 
@@ -38,7 +38,7 @@ void fn_8017D5A4(u8 *arg0) {
         }
         return;
     case 1:
-        TLobby__sub_8020C5E0(arg0);
+        set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
         break;
     }

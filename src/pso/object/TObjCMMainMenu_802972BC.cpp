@@ -20,7 +20,7 @@ M2C_UNK create__16TObjCMAutoMkDataFPv(s32);
 M2C_UNK TObjCMHairMenu__sub_80296410(s32);
 M2C_UNK TObjCMName__sub_80294C58(s32);
 M2C_UNK create__16TObjCMProportionFPv(s32);
-void *TAdSinglePlyChrSelectGC__sub_802029E8(s32);
+void *get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 fn_8022675C(s32, s32, s32, s32);
 s32 fn_8028DA7C(void *);
 M2C_UNK fn_80290BE0();
@@ -33,11 +33,11 @@ s32 try_pay_fee__14TObjCMMainMenuFv(void) {
     s32 temp_r4;
     void *temp_r3;
 
-    if (TAdSinglePlyChrSelectGC__sub_802029E8(0xFFFF) == NULL) {
+    if (get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) == NULL) {
         fn_8022675C((s32)(0x40018519), (s32)(0), (s32)(0), (s32)(0));
         return 0;
     }
-    temp_r3 = TAdSinglePlyChrSelectGC__sub_802029E8(0xFFFF);
+    temp_r3 = get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF);
     temp_r4 = M2C_FIELD(temp_r3, s32 *, 0x36C);
     if (temp_r4 < 0x2710) {
         M2C_FIELD(temp_r3, s32 *, 0x36C) = 0;

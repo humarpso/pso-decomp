@@ -10,7 +10,7 @@ void update_state_wait_card__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdChrMoveEffectGC__sub_803490D8(u32, s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, M2C_UNK *);
-s32 TWindowSubComCard__sub_802A57C8(s32);
+s32 get_card_data__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 s32 try_move_char__23TAdSinglePlyChrSelectGCFii(s32, s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -56,7 +56,7 @@ void update_state_wait_card__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0xC;
         return;
     }
-    if (TWindowSubComCard__sub_802A57C8(M2C_FIELD(arg0, s32 *, 0x88)) != 0) {
+    if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x88)) != 0) {
         fn_8022675C(0x52F16, 0, 0, 0);
         TAdMultiPlyChrSelectGC__sub_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
         M2C_FIELD(arg0, s32 *, 0x20) = 0xC;

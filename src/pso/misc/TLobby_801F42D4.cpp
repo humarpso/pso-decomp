@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801F42D4(s32 arg0);
+void open_session__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__sub_801F3E1C();
 M2C_UNK TLobby__sub_801F4340();
 M2C_UNK fn_8007EBB4(s32);
@@ -17,7 +17,7 @@ M2C_UNK fn_800F9DF4(s32, s32);
 extern s32 TLobby__data_805D5EE0;
 extern s16 TLobby__data_805D6134;
 
-void TLobby__sub_801F42D4(s32 arg0) {
+void open_session__6TLobbyFi(s32 arg0) {
     s32 t;
 
     if (fn_800F9D80() >= 0) {

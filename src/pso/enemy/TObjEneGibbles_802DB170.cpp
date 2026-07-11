@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneGibbles__sub_802DB170(void *arg0, s32 arg1);
-void TObjEneGibbles__sub_802DB1C0(void);
+void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1);
+void update_spawn_timer__14TObjEneGibblesFv(void);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 s32 fn_80142384(s32, s32);
 
-void TObjEneGibbles__sub_802DB170(void *arg0, s32 arg1) {
+void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;
@@ -26,7 +26,7 @@ void TObjEneGibbles__sub_802DB170(void *arg0, s32 arg1) {
 extern s32 TObjEneGibbles__data_805D68BC;
 extern s32 TObjEneGibbles__data_805D68C0;
 
-void TObjEneGibbles__sub_802DB1C0(void) {
+void update_spawn_timer__14TObjEneGibblesFv(void) {
     if ((s32) TObjEneGibbles__data_805D68BC == 0x18) {
         TObjContainerIdo__sub_803D96A8(0, TObjEneGibbles__data_805D68C0);
     }

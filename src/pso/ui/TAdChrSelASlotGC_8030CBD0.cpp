@@ -10,7 +10,7 @@ void TAdChrSelASlotGC__sub_8030CBD0(void);
 void TAdChrSelASlotGC__sub_8030CBD4(void);
 void update_load_state__16TAdChrSelASlotGCFPv(void *arg0);
 void TAdChrSelASlotGC__sub_8030CC34(void *arg0);
-void TAdChrSelASlotGC__sub_8030CC6C(void *arg0);
+void check_load_state__16TAdChrSelASlotGCFPv(void *arg0);
 void TAdChrSelASlotGC__sub_8030CCA8(void *arg0);
 void TAdChrSelASlotGC__sub_8030CCE0(void);
 s32 TAdPlayerLoadGC__sub_80076BBC();
@@ -34,7 +34,7 @@ void TAdChrSelASlotGC__sub_8030CC34(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_801FDAAC();
     M2C_FIELD(arg0, s32 *, 0x24) = 0x12;
 }
-void TAdChrSelASlotGC__sub_8030CC6C(void *arg0) {
+void check_load_state__16TAdChrSelASlotGCFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_80076BBC() == 0) {
         M2C_FIELD(arg0, s32 *, 0x24) = 1;
     }

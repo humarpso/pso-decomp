@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C5E20(void *arg0, s32 arg1);
+void init_shield_params__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s16 TItemProShield__sub_80076B5C(s32);
 M2C_UNK set_params__10TObjPlayerFPvPvPviPv();
 
 s16 obj_getS16_2BA(s32);
 
-void TObjPlayer__sub_801C5E20(void *arg0, s32 arg1) {
+void init_shield_params__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     set_params__10TObjPlayerFPvPvPviPv();
     M2C_FIELD(arg0, s16 *, 0x16) = TItemProShield__sub_80076B5C(arg1);
     M2C_FIELD(arg0, s16 *, 0x18) = obj_getS16_2BA(arg1);

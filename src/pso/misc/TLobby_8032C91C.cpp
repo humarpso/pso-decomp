@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TLobby__sub_8032C91C(void* p);
-u8 TLobby__sub_8032C93C(void);
+u8 get_selected_slot__6TLobbyFv(void);
 M2C_UNK TDLGraph__sub_8007F6F8(s32, M2C_UNK);
 s32 TLobby__sub_801F34F8();
 int fn_804326DC(void*);
@@ -17,7 +17,7 @@ int TLobby__sub_8032C91C(void* p) { return fn_804326DC(p); }
 
 extern u32 TLobby__data_805D6CC4;
 
-u8 TLobby__sub_8032C93C(void) {
+u8 get_selected_slot__6TLobbyFv(void) {
     u8 sp8;
 
     if (TLobby__sub_801F34F8() == 3) {

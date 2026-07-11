@@ -7,23 +7,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80132F2C(s32, s32);
-s32 TAdSinglePlyChrSelectGC__sub_802E19B0(s32, s32, s32, s32, s32);
+s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
 s32 fn_8039DCE0(s32, s32);
 s32 fn_802E11C8(void *);
-s32 TAdSinglePlyChrSelectGC__sub_801FEAFC();
+s32 check_ready__23TAdSinglePlyChrSelectGCFv();
 s32 init_timestamped_data();
 s8 fn_8001C5E8();
-s32 TAdSinglePlyChrSelectGC__sub_801FD94C(s32);
+s32 setup__23TAdSinglePlyChrSelectGCFi(s32);
 s32 TAdSinglePlyChrSelectGC__sub_80202BA8(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FEB40();
+s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv();
 s32 TAdSinglePlyChrSelectGC__sub_802012AC();
 s32 TAdPlayerLoadGC__sub_80076BBC();
 s32 close_windows__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void *);
 int start_load__23TAdSinglePlyChrSelectGCFv(void*);
-int TAdSinglePlyChrSelectGC__sub_802E195C(void*, void*, void*, void*, void*);
+int close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void*, void*, void*, void*, void*);
 int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
 void TAdSinglePlyChrSelectGC__sub_802E2848(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p);

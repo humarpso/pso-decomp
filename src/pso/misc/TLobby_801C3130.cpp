@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801C3130(u8 *arg0);
+void release_ref__6TLobbyFPv(u8 *arg0);
 void *TLobby__sub_801C3178(void *arg0, s16 arg1);
-void *TLobby__sub_801C31D0(void *arg0, void *arg1, void *arg2, void *arg3);
+void *init_with_name__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 s32 TLobby__sub_801C3228(void);
-void TLobby__sub_801C327C(void* p, void* a1);
+void send_neg50__6TLobbyFPvPv(void* p, void* a1);
 s32 TObjPlayer__sub_801AFFD0();
 s32 TObjPlayer__sub_801BE648();
 void __ct__7TObjectFP7TObject(void *);
@@ -22,7 +22,7 @@ int fn_8022727C(void*);
 M2C_UNK fn_802274B8(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TLobby__sub_801C3130(u8 *arg0) {
+void release_ref__6TLobbyFPv(u8 *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C) - 1;
@@ -49,7 +49,7 @@ void *TLobby__sub_801C3178(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804C3E88[];
 void strncpy(void *, void *, int);
 
-void *TLobby__sub_801C31D0(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *init_with_name__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3E88;
     M2C_FIELD(arg0, void **, 0x1C) = arg3;
@@ -70,6 +70,6 @@ s32 TLobby__sub_801C3228(void) {
     return temp_r3;
 }
 
-void TLobby__sub_801C327C(void* p, void* a1) { fn_8022727C(p); fn_801C23A8((void*)-50, a1); }
+void send_neg50__6TLobbyFPvPv(void* p, void* a1) { fn_8022727C(p); fn_801C23A8((void*)-50, a1); }
 
 }

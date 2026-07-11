@@ -14,7 +14,7 @@ void *init__11TCameraCtrlFPv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK TCameraCtrl__sub_8006E310(void *);
-void TCameraCtrl__sub_8006E6B0(void *, int);
+void deleting_dtor__11TCameraCtrlFPvs(void *, int);
 s32 fn_801A6E60(void *, M2C_UNK);
 
 void *TCameraCtrl__vt12(void) {
@@ -42,7 +42,7 @@ extern M2C_UNK lbl_804887F8[];
 void *__dt_deleting_2__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804887F8;
-        TCameraCtrl__sub_8006E6B0(arg0, 0);
+        deleting_dtor__11TCameraCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

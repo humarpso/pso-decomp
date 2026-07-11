@@ -43,7 +43,7 @@ struct VObj_DD : Base_VT {
 extern "C" {
 
 void action__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
-s32 TObjEneDD__sub_800B9B84();
+s32 check_v2_mode__9TObjEneDDFv();
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -56,7 +56,7 @@ void action__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
         ((VObj_DD *)arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 2);
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFFE);
-        if (TObjEneDD__sub_800B9B84() != 0) {
+        if (check_v2_mode__9TObjEneDDFv() != 0) {
             M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFCFFFF);
         }
         M2C_FIELD(arg0, s32 *, 0x404) = 0;

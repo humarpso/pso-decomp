@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_flag__10TObjPlayerFPvi(s32, s32);
-s32 TLobby__sub_80102DD4(void *, u16);
+s32 is_matching_id__6TLobbyFiUs(void *, u16);
 int fn_80102BD0(void);
 int fn_80102BD8(void);
 int fn_80102BE0(void* p, u32 m);

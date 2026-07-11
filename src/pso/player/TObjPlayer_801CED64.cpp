@@ -11,7 +11,7 @@ s32 TObjPlayer__sub_801B5DDC(void *);
 u32 TObjPlayer__sub_801B5EA4(void *);
 s32 TObjPlayer__sub_801D2680(void *);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
-M2C_UNK TObjPlayer__sub_80010550(void *);
+M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
 s32 fn_8012121C(void *);
 f32 fn_80142950(void *, void *, void *);
 s16 fn_801AFCCC();
@@ -30,7 +30,7 @@ void TObjPlayer__sub_801CED64(u8 *arg0) {
             TObjPlayer__sub_8001053C(arg0);
         }
         if (TObjPlayer__sub_801B5EA4(arg0) == 0U) {
-            TObjPlayer__sub_80010550(arg0);
+            apply_velocity__10TObjPlayerFPv(arg0);
         }
     }
 }

@@ -10,7 +10,7 @@ void * fn_802D2334(void);
 void fn_802D22F0(void* p, void* q);
 void* fn_802D2304(void* p);
 
-s32 TWindowSubTradeMain__sub_802D220C(void) {
+s32 get_state__19TWindowSubTradeMainFv(void) {
     void *temp_r3;
 
     temp_r3 = fn_802D2334();

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss2DeRolLe__sub_800340EC(u8 *arg0);
+void set_flags_play_sound__13TBoss2DeRolLeFPv(u8 *arg0);
 M2C_UNK TBoss2DeRolLe__sub_800340C8();
 
 M2C_UNK play_sound(M2C_UNK, void *);
 
-void TBoss2DeRolLe__sub_800340EC(u8 *arg0) {
+void set_flags_play_sound__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x88);
     TBoss2DeRolLe__sub_800340C8();
     play_sound(0x4003AA06, arg0 + 0x38);

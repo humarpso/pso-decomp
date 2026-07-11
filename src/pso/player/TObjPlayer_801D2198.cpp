@@ -1,8 +1,8 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_801D20F8(void* p);
-void TObjPlayer__sub_801D1D08(void* p);
+void swap_header__10TObjPlayerFPv(void* p);
+void swap_endian16__10TObjPlayerFPv(void* p);
 
 void TObjPlayer__sub_801D1CC0(void* p);
 void TObjPlayer__sub_801D1F44(void* p);
@@ -20,10 +20,10 @@ s32 fn_8012125C(s32);
 int fn_8012AF00(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
-int TObjPlayer__sub_801D1A84(void*);
+int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-void TObjPlayer__sub_801D2198(void* p) { TObjPlayer__sub_801D20F8(p); TLobby__send_and_handle_60(p); }
+void TObjPlayer__sub_801D2198(void* p) { swap_header__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 
 }

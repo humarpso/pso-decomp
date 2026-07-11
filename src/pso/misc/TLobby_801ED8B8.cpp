@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801ED8B8(void);
+void apply_player_count__6TLobbyFv(void);
 u32 fn_8006F094(M2C_UNK);
 M2C_UNK fn_80071500(u32);
 M2C_UNK fn_80292950(u32);
@@ -14,7 +14,7 @@ M2C_UNK fn_80292950(u32);
 s32 is_split_screen();
 extern u32 TLobby__data_80512220[];
 
-void TLobby__sub_801ED8B8(void) {
+void apply_player_count__6TLobbyFv(void) {
     u32 temp_r30;
     u32 temp_r31;
 

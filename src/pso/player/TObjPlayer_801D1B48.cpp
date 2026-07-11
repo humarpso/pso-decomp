@@ -18,11 +18,11 @@ s32 fn_8012125C(s32);
 int fn_8012AF00(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
-int TObjPlayer__sub_801D1A84(void*);
+int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-void TObjPlayer__sub_801D1B48(void* p) { TObjPlayer__sub_801D1A84(p); TLobby__send_and_handle_60(p); }
+void TObjPlayer__sub_801D1B48(void* p) { read_swapped_fields__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 void TObjPlayer__sub_801D1B7C(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }
 
 }

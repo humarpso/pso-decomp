@@ -9,8 +9,8 @@ extern "C" {
 s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E0FA4(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2404(M2C_UNK, M2C_UNK);
-s32 TAdSinglePlyChrSelectGC__sub_802E1D5C(s32);
-s32 TAdSinglePlyChrSelectGC__sub_802E1DC8();
+s32 count_selected_flags__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 count_flags__23TAdSinglePlyChrSelectGCFPv();
 
 s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 temp_r29;
@@ -18,8 +18,8 @@ s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 temp_r31;
     s32 temp_r3;
 
-    temp_r29 = TAdSinglePlyChrSelectGC__sub_802E1DC8();
-    temp_r30 = TAdSinglePlyChrSelectGC__sub_802E1D5C(arg0);
+    temp_r29 = count_flags__23TAdSinglePlyChrSelectGCFPv();
+    temp_r30 = count_selected_flags__23TAdSinglePlyChrSelectGCFPv(arg0);
     temp_r31 = TAdPlayerLoadGC__sub_801E0FA4(0);
     temp_r3 = TAdPlayerLoadGC__sub_801E2404(0, 0);
     if ((temp_r29 > temp_r31) || (temp_r30 > temp_r3)) {

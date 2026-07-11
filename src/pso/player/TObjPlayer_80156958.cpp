@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TObjPlayer__sub_80156958(void);
+void reset__10TObjPlayerFv(void);
 int TObjPlayer__sub_801549D0(void);
 int fn_80154D7C(void);
 
@@ -10,6 +10,6 @@ int fn_80154D7C(void);
     extern int lbl_805D586C;
     extern int lbl_805D5870;
     extern int TObjPlayer__data_805D5874;
-void TObjPlayer__sub_80156958(void) { lbl_805D5868 = 0; lbl_805D586C = 0; lbl_805D5870 = 0; TObjPlayer__data_805D5874 = 0; TObjPlayer__sub_801549D0(); fn_80154D7C(); }
+void reset__10TObjPlayerFv(void) { lbl_805D5868 = 0; lbl_805D586C = 0; lbl_805D5870 = 0; TObjPlayer__data_805D5874 = 0; TObjPlayer__sub_801549D0(); fn_80154D7C(); }
 
 }

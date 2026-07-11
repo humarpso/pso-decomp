@@ -10,7 +10,7 @@ void TBoss4Type3__vt41(void *arg0);
 s32 TBoss4Type3__sub_8005254C(u16);
 M2C_UNK spawn_random_effect__11TBoss4Type3Fi(void *);
 M2C_UNK TBoss4Type3__sub_80059F64(void *, M2C_UNK);
-f32 TObjPlayer__sub_80011014(void *);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
 
 extern const f32 lbl_805D8C3C;
 
@@ -25,7 +25,7 @@ void TBoss4Type3__vt41(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
         M2C_FIELD(arg0, s32 *, 0x3BC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3BC) + 1);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x3BC);
-        if ((temp_r0 >= 5) || ((temp_r0 >= 2) && (TObjPlayer__sub_80011014(arg0) < lbl_805D8C3C))) {
+        if ((temp_r0 >= 5) || ((temp_r0 >= 2) && (calc_boss4_scale__10TObjPlayerFi(arg0) < lbl_805D8C3C))) {
             TBoss4Type3__sub_80059F64(arg0, 9);
             return;
         }

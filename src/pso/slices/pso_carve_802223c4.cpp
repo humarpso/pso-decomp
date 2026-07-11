@@ -11,7 +11,7 @@ M2C_UNK fn_80222704(s32, M2C_UNK *);
 extern M2C_UNK lbl_8044C290[];
 extern s32 lbl_805D53A0;
 
-void fn_802223C4(s32 arg0) {
+void show_message_or_error(s32 arg0) {
     M2C_UNK *temp_r3;
 
     temp_r3 = fn_800717E4((u16) lbl_805D53A0);

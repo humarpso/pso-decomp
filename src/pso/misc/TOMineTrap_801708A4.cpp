@@ -26,7 +26,7 @@ struct VObj_801708A4 : Base_801708A4 {
 
 extern "C" {
 
-f32 TOMineTrap__sub_801708A4(void *arg0, s32 arg1);
+f32 calc_trigger_range__10TOMineTrapFPvi(void *arg0, s32 arg1);
 s32 TOMineTrap__sub_801702C8();
 s32 TObjPlayer__sub_80019248(s32);
 
@@ -34,7 +34,7 @@ s16 obj_getS16_116(s32);
 extern f32 lbl_805DB85C;
 extern f32 TOMineTrap__data_805DB868;
 
-f32 TOMineTrap__sub_801708A4(void *arg0, s32 arg1) {
+f32 calc_trigger_range__10TOMineTrapFPvi(void *arg0, s32 arg1) {
     if (TOMineTrap__sub_801702C8() == 1) {
         return lbl_805DB85C;
     }

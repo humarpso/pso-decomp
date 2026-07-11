@@ -19,7 +19,7 @@ M2C_UNK fn_801A3BF4();
 M2C_UNK fn_801A3C00();
 M2C_UNK fn_801A3C18();
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
-void TNpcPlayer__sub_8034E440();
+void enable_all_battle_ctrl__10TNpcPlayerFv();
 M2C_UNK queue_destruction__7TObjectFv(u32);
 
 extern u32 lbl_805D5EE8;
@@ -29,7 +29,7 @@ void free_objects__6TLobbyFv(void) {
     TSwitch__sub_8022942C();
     apply_all_players__9TTecLukerFv();
     TLobby__sub_80103F68();
-    TNpcPlayer__sub_8034E440();
+    enable_all_battle_ctrl__10TNpcPlayerFv();
     if ((u32) lbl_805D5EE8 != 0U) {
         queue_destruction__7TObjectFv(lbl_805D5EE8);
     }

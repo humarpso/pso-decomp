@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3Volopt__sub_80044C28(void *arg0, f32 farg0);
-M2C_UNK TBoss3Volopt__sub_80046580(void *);
+void apply_hit_reaction__12TBoss3VoloptFPvf(void *arg0, f32 farg0);
+M2C_UNK check_and_notify__12TBoss3VoloptFv(void *);
 M2C_UNK fn_80040B3C(void *, M2C_UNK);
 
 s32 obj_testFlags30(void*, M2C_UNK);
 extern f32 lbl_805D87B8;
 
-void TBoss3Volopt__sub_80044C28(void *arg0, f32 farg0) {
+void apply_hit_reaction__12TBoss3VoloptFPvf(void *arg0, f32 farg0) {
     if ((obj_testFlags30(arg0, 0x800) == 0) && !(M2C_FIELD(arg0, s32 *, 0x388) & 0x20000) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xC)) {
-        TBoss3Volopt__sub_80046580(arg0);
+        check_and_notify__12TBoss3VoloptFv(arg0);
         M2C_FIELD(arg0, f32 *, 0x508) = (f32) (lbl_805D87B8 + farg0);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
         fn_80040B3C(arg0, 0xC);

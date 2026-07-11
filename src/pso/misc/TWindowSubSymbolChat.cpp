@@ -11,7 +11,7 @@ s32 TWindowSubSymbolChat__sub_802837DC(void);
 void* TWindowSubSymbolChat__sub_80283800(void* p);
 unsigned char TWindowSubSymbolChat__sub_80283808(void);
 void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0);
-s32 TWindowSubSymbolChat__sub_80283820(s32 arg0);
+s32 commit__20TWindowSubSymbolChatFi(s32 arg0);
 s32 TWindowSubSymbolChat__sub_80077310();
 M2C_UNK TWindowSubSymbolChat__sub_80283850();
 s32 fn_80077334(void);
@@ -36,7 +36,7 @@ void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0) {
     *arg0 |= 1;
 }
 
-s32 TWindowSubSymbolChat__sub_80283820(s32 arg0) {
+s32 commit__20TWindowSubSymbolChatFi(s32 arg0) {
     TWindowSubSymbolChat__sub_80283850();
     return arg0;
 }

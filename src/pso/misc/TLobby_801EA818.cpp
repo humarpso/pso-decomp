@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801EA818(void);
+void draw_or_send__6TLobbyFv(void);
 M2C_UNK fn_80070D20();
 M2C_UNK fn_80291F14();
 
 s32 is_split_screen();
 
-void TLobby__sub_801EA818(void) {
+void draw_or_send__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
         fn_80291F14();
         return;

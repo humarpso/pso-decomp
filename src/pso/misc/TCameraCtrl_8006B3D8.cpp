@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TCameraCtrl__sub_8006B3D8(void);
-void TCameraCtrl__sub_8006B408(void);
+void update_active_player__11TCameraCtrlFv(void);
+void update_battle_camera__11TCameraCtrlFv(void);
 M2C_UNK TObjPlayer__sub_801B12CC();
 M2C_UNK TObjPlayer__sub_801B130C();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 extern s32 lbl_805D53A0;
 
-void TCameraCtrl__sub_8006B3D8(void) {
+void update_active_player__11TCameraCtrlFv(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
         TObjPlayer__sub_801B12CC();
     }
@@ -22,7 +22,7 @@ void TCameraCtrl__sub_8006B3D8(void) {
 
 extern s32 lbl_805D53A0;
 
-void TCameraCtrl__sub_8006B408(void) {
+void update_battle_camera__11TCameraCtrlFv(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
         TObjPlayer__sub_801B130C();
     }

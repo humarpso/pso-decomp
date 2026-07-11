@@ -20,7 +20,7 @@ M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
-M2C_UNK TObjPlayer__sub_80018E08();
+M2C_UNK calc_attach_pos__10TObjPlayerFPv();
 s32 TObjPlayer__sub_80019248();
 s32 fn_800495BC(s32);
 
@@ -30,7 +30,7 @@ extern const f32 TOTrap__data_805DBA38;
 void TOTrap__vt80(void *arg0) {
     s32 temp_r31;
 
-    TObjPlayer__sub_80018E08();
+    calc_attach_pos__10TObjPlayerFPv();
     TObjPlayer__sub_80154E3C(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 0) {
         u32 p;

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneMe3Stelth__sub_800F4424(u8 *arg0, s32 arg1);
-s32 TObjEneDD__sub_800B9B84(void);
+s32 check_v2_mode__9TObjEneDDFv(void);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -59,7 +59,7 @@ void TObjEneMe3Stelth__sub_800F4424(u8 *arg0, s32 arg1) {
         ((VObj18F *)arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 2);
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFFE);
-        if (TObjEneDD__sub_800B9B84() != 0) {
+        if (check_v2_mode__9TObjEneDDFv() != 0) {
             M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFEFFFF);
         }
         M2C_FIELD(arg0, s32 *, 0x424) = 0;

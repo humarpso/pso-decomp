@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneDD__sub_800B9B84(void);
+s32 check_v2_mode__9TObjEneDDFv(void);
 
 extern s32 enable_v2_features;
 extern s32 lbl_805D5550;
 
-s32 TObjEneDD__sub_800B9B84(void) {
+s32 check_v2_mode__9TObjEneDDFv(void) {
     if (((s32) enable_v2_features != 0) && ((s32) lbl_805D5550 == 3)) {
         return 1;
     }

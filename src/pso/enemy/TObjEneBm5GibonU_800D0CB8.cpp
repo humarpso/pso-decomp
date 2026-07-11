@@ -8,14 +8,14 @@ extern "C" {
 
 void select_attack_by_range__16TObjEneBm5GibonUFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-f32 TObjPlayer__sub_80011014();
+f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern const f32 TObjEneBm5GibonU__data_805DA158;
 extern const f32 TObjEneBm5GibonU__data_805DA15C;
 
 void select_attack_by_range__16TObjEneBm5GibonUFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x49C) = TObjEneBm5GibonU__data_805DA15C;
-    if (TObjPlayer__sub_80011014() < TObjEneBm5GibonU__data_805DA158) {
+    if (calc_boss4_scale__10TObjPlayerFi() < TObjEneBm5GibonU__data_805DA158) {
         TObjEneDD__sub_800BBA18(arg0, 9);
         return;
     }

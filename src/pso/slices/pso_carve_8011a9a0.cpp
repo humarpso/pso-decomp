@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TLobby__sub_80103BFC(s32, s32);
-M2C_UNK TLobby__sub_8011B1CC();
+M2C_UNK bswap_packet__6TLobbyFPv();
 
 void handle_6x5C_destroy_floor_item(void *arg0) {
-    TLobby__sub_8011B1CC();
+    bswap_packet__6TLobbyFPv();
     TLobby__sub_80103BFC(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
 }
 

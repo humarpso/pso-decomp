@@ -12,8 +12,8 @@ f32 TWindowCtrlMain__sub_8024CB9C(void);
 f32 TWindowCtrlMain__sub_8024CBC0(void);
 f32 TWindowCtrlMain__sub_8024CBE4(void);
 f32 TWindowCtrlMain__sub_8024CC08(void);
-void TWindowCtrlMain__sub_8024CC2C(f32 farg0);
-void TWindowCtrlMain__sub_8024CC5C(f32 farg0);
+void set_field18__15TWindowCtrlMainFf(f32 farg0);
+void set_depth__15TWindowCtrlMainFf(f32 farg0);
 void *TWindowCtrlMain__sub_8024CC8C();
 
     extern int TWindowCtrlMain__data_805D6400;
@@ -38,11 +38,11 @@ f32 TWindowCtrlMain__sub_8024CC08(void) {
     return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0xC);
 }
 
-void TWindowCtrlMain__sub_8024CC2C(f32 farg0) {
+void set_field18__15TWindowCtrlMainFf(f32 farg0) {
     M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x18) = farg0;
 }
 
-void TWindowCtrlMain__sub_8024CC5C(f32 farg0) {
+void set_depth__15TWindowCtrlMainFf(f32 farg0) {
     M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0xC) = farg0;
 }
 

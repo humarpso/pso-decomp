@@ -10,14 +10,14 @@ struct VObj_802133C4 : Base_802133C4 {
 
 extern "C" {
 
-void THunterGuildSeqOffline__sub_802133C4(void);
+void notify_quest_thread__22THunterGuildSeqOfflineFv(void);
 int THunterGuildSeqOffline__sub_80213410(void* p);
 int THunterGuildSeqOffline__sub_80213430(void*);
 void *TQuestThread__sub_801F5BD4(s32);
 
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 
-void THunterGuildSeqOffline__sub_802133C4(void) {
+void notify_quest_thread__22THunterGuildSeqOfflineFv(void) {
     s32 v = THunterGuildSeqOffline__data_80513DC8[3];
     if (v != -1) {
         void *obj = TQuestThread__sub_801F5BD4(v);

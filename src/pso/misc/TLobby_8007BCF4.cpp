@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8007BCF4(void);
+void send_status_packet__6TLobbyFv(void);
 M2C_UNK fn_8007BC5C(M2C_UNK *);
 M2C_UNK fn_801DA7DC(s32, M2C_UNK *);
 
 extern s32 TLobby__data_805D5580;
 
-void TLobby__sub_8007BCF4(void) {
+void send_status_packet__6TLobbyFv(void) {
     char sp8[0x84];
 
     fn_8007BC5C((M2C_UNK *) sp8);

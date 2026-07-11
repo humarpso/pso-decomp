@@ -99,14 +99,14 @@ void TBoss2DeRolLe__sub_80035084(void);
 void TBoss2DeRolLe__sub_80035088(void);
 void TBoss2DeRolLe__sub_8003508C(void *arg0);
 M2C_UNK TBoss2DeRolLe__sub_80034034(void *);
-s32 TBoss2DeRolLe__sub_800340A0();
+s32 is_ready__13TBoss2DeRolLeFPv();
 
 void TBoss2DeRolLe__sub_80035084(void) {  }
 void TBoss2DeRolLe__sub_80035088(void) {  }
 
 void TBoss2DeRolLe__sub_8003508C(void *arg0) {
     struct VBase_8003508C *o = (struct VBase_8003508C *)arg0;
-    if (TBoss2DeRolLe__sub_800340A0() != 0) {
+    if (is_ready__13TBoss2DeRolLeFPv() != 0) {
         TBoss2DeRolLe__sub_80034034(arg0);
         return;
     }

@@ -4,7 +4,7 @@ typedef s32 M2C_UNK;
 
 extern "C" {
 
-void TLobby__sub_802086EC(u8 arg0);
+void dispatch_stream_command__6TLobbyFUc(u8 arg0);
 
 M2C_UNK read_stream_u16(void *);
 typedef struct Ent_ {
@@ -12,7 +12,7 @@ typedef struct Ent_ {
     M2C_UNK (*fn)(M2C_UNK);
 } Ent;
 extern Ent lbl_804C93A8[];
-void TLobby__sub_802086EC(u8 arg0) {
+void dispatch_stream_command__6TLobbyFUc(u8 arg0) {
     M2C_UNK (*temp_r31)(M2C_UNK);
     Ent *temp_r3;
     temp_r3 = lbl_804C93A8;

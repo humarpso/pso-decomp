@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMenuCtrl__sub_80115A78(u32 arg0);
+void open_menu__13TItemMenuCtrlFUi(u32 arg0);
 M2C_UNK TItemMenuCtrl__ct(u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_80115AF0(u32, s32);
@@ -15,7 +15,7 @@ M2C_UNK queue_destruction__7TObjectFv(u32);
 extern u32 TItemMenuCtrl__data_805D54C0;
 extern s32 tl_05;
 
-void TItemMenuCtrl__sub_80115A78(u32 arg0) {
+void open_menu__13TItemMenuCtrlFUi(u32 arg0) {
     u32 obj;
     if (((u32) TItemMenuCtrl__data_805D54C0 == 0U) && ((obj = __nw__7TObjectFUl(0x20)) != 0U)) {
         TItemMenuCtrl__ct(obj, tl_05);

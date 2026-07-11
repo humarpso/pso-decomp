@@ -15,7 +15,7 @@ s32 fn_802261E0(s16 a0 = 0);
 s32 fn_8022614C(s32 a0 = 0);
 s32 fn_80132E58(u8 a0 = 0);
 void * TAdSinglePlyChrSelectGC__sub_8001ED80(void);
-void TAdSinglePlyChrSelectGC__sub_802E195C(void* p, void* a1, void* a2, void* a3, void* a4);
+void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
 int TAdSinglePlyChrSelectGC__sub_802E1A04(void*, void*, void*, void*, void*);
 int TAdSinglePlyChrSelectGC__sub_802E1A8C(void*, void*, void*, void*, void*);
 int close_windows__23TAdSinglePlyChrSelectGCFPv(void*);

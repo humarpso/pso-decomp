@@ -19,12 +19,12 @@ s32 fn_8012125C(s32);
 int fn_8012AF00(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
-int TObjPlayer__sub_801D1A84(void*);
+int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
 void TObjPlayer__sub_801D1BCC(void* p) { TObjPlayer__sub_801D1B7C(p); update_players__6TLobbyFi(p); }
-void TObjPlayer__sub_801D1C00(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }
+void bswap_field4__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }
 void* TObjPlayer__sub_801D1C34(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 
 }

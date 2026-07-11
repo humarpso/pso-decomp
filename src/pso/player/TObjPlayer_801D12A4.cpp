@@ -2,8 +2,8 @@
 
 extern "C" {
 void TObjPlayer__sub_801D10D4(void* p);
-void TObjPlayer__sub_801D1160(void* p);
-void TObjPlayer__sub_801D1204(void* p);
+void swap_endian32__10TObjPlayerFPv(void* p);
+void swap_bytes__10TObjPlayerFPv(void* p);
 
 int TObjPlayer__sub_801D0FF4(void* p);
 int TObjPlayer__sub_801D1018(void* p);
@@ -30,12 +30,12 @@ int TObjPlayer__sub_8001960C(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
 
-void TObjPlayer__sub_801D12A4(void* p) { TObjPlayer__sub_801D1204(p); TLobby__send_and_handle_60(p); }
+void TObjPlayer__sub_801D12A4(void* p) { swap_bytes__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 void TObjPlayer__sub_801D12D8(void* p) { *(u16*)((char*)p + 0x6) |= 0x1; }
 void TObjPlayer__sub_801D12E8(void* p) { *(u16*)((char*)p + 0x6) |= 0x2; }
-void TObjPlayer__sub_801D12F8(void* p) { TObjPlayer__sub_801D1160(p); TLobby__send_and_handle_60(p); }
-void TObjPlayer__sub_801D132C(void* p) { TObjPlayer__sub_801D10D4(p); TLobby__send_and_handle_60(p); }
+void TObjPlayer__sub_801D12F8(void* p) { swap_endian32__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
+void bswap_and_send__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801D10D4(p); TLobby__send_and_handle_60(p); }
 int TObjPlayer__sub_801D1360(void* p) { return *(u16*)((char*)p + 0x6) & 0x1; }
-void TObjPlayer__sub_801D136C(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void bswap_packet__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
 }

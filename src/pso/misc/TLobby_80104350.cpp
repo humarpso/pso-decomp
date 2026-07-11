@@ -9,8 +9,8 @@ extern "C" {
 void TLobby__sub_80104350(void);
 void TLobby__sub_80104374(int a0, int a1);
 int TLobby__sub_80104384(int a0);
-s32 TLobby__sub_80104394(u32 arg0);
-void TLobby__sub_801043C4(s32 arg0, u32 arg1);
+s32 get_item_data__6TLobbyFUi(u32 arg0);
+void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1);
 void TLobby__sub_801043F8(void);
 int TLobby__sub_80104404(void);
 s32 TItemData__sub_8010C8B4();
@@ -29,14 +29,14 @@ void TLobby__sub_80104374(int a0, int a1) { lbl_805D54E8[(unsigned short)(a1)] =
     extern int* lbl_805D54E8;
 int TLobby__sub_80104384(int a0) {  return lbl_805D54E8[(unsigned short)(a0)]; }
 
-s32 TLobby__sub_80104394(u32 arg0) {
+s32 get_item_data__6TLobbyFUi(u32 arg0) {
     if (arg0 != 0U) {
         return TItemData__sub_8010C8B4();
     }
     return 0;
 }
 
-void TLobby__sub_801043C4(s32 arg0, u32 arg1) {
+void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1) {
     if (arg1 != 0U) {
         fn_8010E59C(arg1, arg0);
     }
