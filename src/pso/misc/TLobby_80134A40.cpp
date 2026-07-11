@@ -8,7 +8,7 @@ extern "C" {
 
 void dispatch_by_index__6TLobbyFi(s32 arg0);
 M2C_UNK fn_8032B000();
-M2C_UNK fn_8032B03C();
+M2C_UNK clear_state();
 M2C_UNK fn_8032B0A8(s32, s32, s32);
 
 extern s32 lbl_805D5580;
@@ -22,7 +22,7 @@ void dispatch_by_index__6TLobbyFi(s32 arg0) {
     }
     switch (var_r3) {
     case 0:
-        fn_8032B03C();
+        clear_state();
         return;
     case 1:
         fn_8032B0A8(lbl_805D5580 + 0x3F8A, lbl_805D5580 + 0x3F9B, lbl_805D5580 + 0x3F3A);

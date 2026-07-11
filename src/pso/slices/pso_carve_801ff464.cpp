@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_801B0EE8();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK fn_801F43B4();
+M2C_UNK copy_card_window_data();
 M2C_UNK fn_80200470();
 M2C_UNK fn_802010E8();
 M2C_UNK fn_80202BB8(M2C_UNK);
@@ -30,7 +30,7 @@ s32 fn_801FF464(void) {
         }
         fn_80202BB8(3);
         fn_802010E8();
-        fn_801F43B4();
+        copy_card_window_data();
         fn_80200470();
     }
     return 0xFFFF0000;

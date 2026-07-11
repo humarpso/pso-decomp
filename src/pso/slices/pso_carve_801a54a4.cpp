@@ -13,7 +13,7 @@ extern s32 lbl_805D5CFC;
 extern s32 lbl_805D5D00;
 extern s32 lbl_805D5D04;
 
-void fn_801A54A4(void) {
+void alloc_work_buffer(void) {
     lbl_805D5CFC = 0;
     lbl_805D5D00 = 0;
     lbl_805D5D04 = 0;

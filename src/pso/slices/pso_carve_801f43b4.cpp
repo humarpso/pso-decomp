@@ -14,7 +14,7 @@ s32 TRaderMapCore__sub_8030A808();
 M2C_UNK memcpy(s32, M2C_UNK *, M2C_UNK);
 extern M2C_UNK lbl_805127F8[];
 
-void fn_801F43B4(void) {
+void copy_card_window_data(void) {
     u32 temp_r3;
 
     if ((get_main_phase() != 0xF) && (TRaderMapCore__sub_8030A808() != 1)) {

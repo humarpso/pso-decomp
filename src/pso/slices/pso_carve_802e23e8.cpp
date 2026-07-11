@@ -11,7 +11,7 @@ s32 fn_802E19B0(s32, s32, s32, s32, s32);
 s32 fn_8039DCE0(s32, s32);
 s32 fn_802E11C8(void *);
 s32 fn_801FEAFC();
-s32 fn_80201254();
+s32 init_timestamped_data();
 s8 fn_8001C5E8();
 s32 fn_801FD94C(s32);
 s32 fn_80202BA8(s32);
@@ -50,7 +50,7 @@ void fn_802E26D8(s32 arg0) {
     }
 }
 void fn_802E2728(s32 arg0) {
-    fn_80201254();
+    init_timestamped_data();
     if (fn_801FEAFC() == 0) {
         fn_802E1DF8((void *)(arg0), 0);
         return;

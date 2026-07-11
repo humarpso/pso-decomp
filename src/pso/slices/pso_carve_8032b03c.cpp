@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_80202BA0();
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 
-void fn_8032B03C(void) {
+void clear_state(void) {
     s32 temp_r3;
 
     temp_r3 = fn_80202BA0();

@@ -8,7 +8,7 @@ struct Ent_A { s32 a; M2C_UNK (*fn)(s32, s32); };
 
 extern "C" {
 
-s32 fn_801F2CE0();
+s32 read_be_u16();
 s32 fn_801F2D2C(struct Ent_A *);
 extern struct Ent_A lbl_804C69D8[];
 
@@ -21,7 +21,7 @@ void fn_801F2974(s32 arg0) {
     e = (struct Ent_A *) ((u8 *) e + (arg0 * 8));
     temp_r31 = e->fn;
     temp_r30 = fn_801F2D2C(e);
-    temp_r31(temp_r30, fn_801F2CE0());
+    temp_r31(temp_r30, read_be_u16());
 }
 
 }

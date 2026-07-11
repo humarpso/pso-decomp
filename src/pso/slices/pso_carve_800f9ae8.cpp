@@ -15,7 +15,7 @@ M2C_UNK strncpy(void *, s32, M2C_UNK);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern M2C_UNK lbl_8050113C[];
 
-s32 fn_800F9AE8(s32 arg0) {
+s32 create_named_object(s32 arg0) {
     s32 temp_r3;
     u8 *var_r30;
 

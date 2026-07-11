@@ -19,7 +19,7 @@ extern u32 lbl_805D4E8C;
 extern u32 lbl_805D4E90;
 extern s32 lbl_805D4E94;
 
-void fn_8007CF0C(void) {
+void load_data_buffers(void) {
     s32 temp_r31;
     s32 temp_r30;
     u32 temp_r3;

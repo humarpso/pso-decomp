@@ -20,7 +20,7 @@ M2C_UNK fn_803F6138(void *, M2C_UNK);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern u16 lbl_805D56CC;
 
-s32 fn_80146048(M2C_UNK arg0, u8 *arg1) {
+s32 init_work(M2C_UNK arg0, u8 *arg1) {
     u8 sp28[0x40];
     u8 sp8[0x20];
 

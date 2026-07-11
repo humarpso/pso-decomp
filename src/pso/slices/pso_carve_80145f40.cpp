@@ -24,7 +24,7 @@ M2C_UNK fn_803F6270(void *);
 M2C_UNK memset(int, int, int);
 extern u16 lbl_805D56CC;
 
-s32 fn_80145F40(u8 *arg0) {
+s32 init_struct(u8 *arg0) {
     u8 sp8;
 
     if (!(lbl_805D56CC & 1)) {

@@ -13,7 +13,7 @@ M2C_UNK fn_80242D2C();
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D5F68;
 
-void fn_80201254(void) {
+void init_timestamped_data(void) {
     char sp8[0x18];
 
     fn_80242D2C();

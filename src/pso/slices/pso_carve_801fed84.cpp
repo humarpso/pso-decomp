@@ -11,7 +11,7 @@ s32 TAdPlayerLoadGC__sub_80076BBC();
 M2C_UNK fn_801FDA4C();
 M2C_UNK fn_801FF58C();
 M2C_UNK fn_80200470();
-M2C_UNK fn_802015F4();
+M2C_UNK init_buffer();
 extern u32 lbl_805D5F58;
 extern u32 lbl_805D5F60;
 extern u32 lbl_805D5F64;
@@ -22,7 +22,7 @@ s32 fn_801FED84(void) {
     lbl_805D5F7C = (s32) fn_8001C5E8();
     if (((u32) lbl_805D5F60 != 0U) && ((u32) lbl_805D5F64 != 0U) && ((u32) lbl_805D5F58 != 0U) && (TAdPlayerLoadGC__sub_80076BBC() == 0) && ((s32) lbl_805D5F7C >= 0) && ((s32) lbl_805D5F7C <= 7)) {
         fn_801FF58C();
-        fn_802015F4();
+        init_buffer();
         fn_80200470();
         fn_801FDA4C();
         lbl_805D5F78 = 6;

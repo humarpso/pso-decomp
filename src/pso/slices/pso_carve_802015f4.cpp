@@ -11,7 +11,7 @@ M2C_UNK memset(M2C_UNK, s32, s32);
 extern s32 lbl_805D5F84;
 extern u32 lbl_805D5F94;
 
-s32 fn_802015F4(void) {
+s32 init_buffer(void) {
     s32 temp_r31;
 
     if ((u32) lbl_805D5F94 == 0U) {

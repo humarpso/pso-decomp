@@ -22,7 +22,7 @@ struct VObjDA : BaseDA {
     virtual M2C_UNK m6();
 };
 
-s32 fn_801DAEB0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
+s32 socket_set_server_info(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
     s32 temp_r31;
 
     temp_r31 = resolve_domain__7TSocketFPc(arg0, arg5);

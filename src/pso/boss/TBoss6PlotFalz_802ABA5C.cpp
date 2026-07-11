@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TBoss6PlotFalz__sub_802ABA5C(void);
+f32 get_value__14TBoss6PlotFalzFv(void);
 s32 TBoss6PlotFalz__sub_802ABADC();
 
 extern void *lbl_805D66F0;
 extern f32 lbl_805DE098;
 
-f32 TBoss6PlotFalz__sub_802ABA5C(void) {
+f32 get_value__14TBoss6PlotFalzFv(void) {
     if ((TBoss6PlotFalz__sub_802ABADC() == 0) || ((void *) lbl_805D66F0 == NULL)) {
         return lbl_805DE098;
     }

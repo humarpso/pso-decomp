@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
-M2C_UNK fn_801FCB4C();
+M2C_UNK load_tables();
 s32 fn_801FDC64(u32, s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TWindow__close(void *);
@@ -66,7 +66,7 @@ loop_7:
         fn_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), (u32)iter);
         fn_802E001C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
         temp_r3 = fn_802DC294(arg0, fn_802E0014(M2C_FIELD(arg0, s32 *, 0x5C)));
-        fn_801FCB4C();
+        load_tables();
         fn_802E0C28(M2C_FIELD(arg0, s32 *, 0x60), temp_r3);
         fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 2);
         M2C_FIELD(arg0, s32 *, 0x80) = fn_802DBEC4(arg0, lbl_80472870);

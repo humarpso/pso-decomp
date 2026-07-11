@@ -12,7 +12,7 @@ M2C_UNK fn_801FFC74(u32 *, s32);
 u32 *fn_801FFD78();
 M2C_UNK fn_801FFF98(s32);
 u32 fn_80201204(u32 *, M2C_UNK);
-M2C_UNK fn_80201254();
+M2C_UNK init_timestamped_data();
 s32 fn_80202958();
 M2C_UNK fn_80202BB0(M2C_UNK);
 M2C_UNK memcpy(s32, s32, u32);
@@ -20,7 +20,7 @@ extern s32 lbl_80513910[];
 extern s32 lbl_805D5F68;
 extern s32 lbl_805D5F98;
 
-s32 fn_801FFB78(s32 arg0) {
+s32 load_and_verify_data(s32 arg0) {
     s32 temp_r3;
     u32 *var_r31;
     u32 temp_r30;
@@ -43,7 +43,7 @@ s32 fn_801FFB78(s32 arg0) {
             __dl__FPv(var_r31);
             return 0;
         }
-        fn_80201254();
+        init_timestamped_data();
         goto block_9;
     }
     if (arg0 != 0) {

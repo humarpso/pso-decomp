@@ -11,7 +11,7 @@ M2C_UNK memset(M2C_UNK, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D63C0;
 extern s32 lbl_805D63C4;
 
-void fn_8023E768(void) {
+void init_buffers(void) {
     s32 p = xmalloc__FUl(0x1800);
     lbl_805D63C0 = p;
     memset(p, 0, 0x1800);

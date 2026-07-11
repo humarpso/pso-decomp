@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
-M2C_UNK fn_801FCB4C(s32);
+M2C_UNK load_tables(s32);
 u32 fn_801FE3E4(s32);
 s32 fn_801FE800(s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -80,7 +80,7 @@ void fn_802DD8E0(void *arg0) {
         fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 1);
         M2C_FIELD(arg0, s32 *, 0x40) = 0;
         if (fn_801FE3E4(temp_r30) != 0U) {
-            fn_801FCB4C(temp_r30);
+            load_tables(temp_r30);
             fn_802E0C28(M2C_FIELD(arg0, s32 *, 0x60), temp_r30);
             fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 2);
             if ((fn_802E012C(temp_r30, 1) != 0U) && ((s32) M2C_FIELD(arg0, s32 *, 0x3C) != 0)) {
@@ -95,7 +95,7 @@ void fn_802DD8E0(void *arg0) {
         return;
     }
     if (fn_802E0054(M2C_FIELD(arg0, s32 *, 0x5C)) != 0) {
-        fn_801FCB4C(temp_r30);
+        load_tables(temp_r30);
         if (fn_801FE800(temp_r30) != 0) {
             if (fn_8030E378(M2C_FIELD(arg0, s32 *, 0x6C), temp_r30) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x88) = fn_802DBDE0(arg0, fn_802DFFE0(M2C_FIELD(arg0, s32 *, 0x5C)));

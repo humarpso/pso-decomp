@@ -19,7 +19,7 @@ extern s32 lbl_805D5F58;
 extern void *lbl_805D5F60;
 extern void *const lbl_805D5F64;
 
-void fn_80200228(void) {
+void game_state_load(void) {
     memcpy(lbl_805D5F60, fn_801FCD04(lbl_805D5F58), 0x41C);
     memcpy(lbl_805D5F64, fn_801FCD3C(lbl_805D5F58), 0x2370);
     fn_801F494C(0);

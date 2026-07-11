@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800F9AE8(s32);
+s32 create_named_object(s32);
 extern M2C_UNK lbl_804CA288[];
 extern s32 lbl_805D5544;
 extern s32 lbl_805D6238;
@@ -17,7 +17,7 @@ void fn_80222D58(void) {
     if (((s32) lbl_805D6238 < 0) || ((s32) lbl_805D6238 > 9)) {
         lbl_805D6238 = 0;
     }
-    lbl_805D6258 = fn_800F9AE8(lbl_804CA288[lbl_805D5544]);
+    lbl_805D6258 = create_named_object(lbl_804CA288[lbl_805D5544]);
 }
 
 }

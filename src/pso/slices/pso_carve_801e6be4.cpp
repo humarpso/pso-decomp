@@ -10,7 +10,7 @@ M2C_UNK fn_8039DCE0(s32, s32);
 s32 strlen();
 extern s32 lbl_805D5ED4;
 
-void fn_801E6BE4(s32 arg0) {
+void append_string(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = strlen();

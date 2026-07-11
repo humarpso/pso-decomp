@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneMe3Stelth__sub_800F4988(u8 *arg0);
+s32 check_flag__16TObjEneMe3StelthFPv(u8 *arg0);
 s32 check_active_flag__16TObjEneMe3StelthFPv(u8 *arg0);
 
 struct E4988Base { char pad[0x14]; };
@@ -21,7 +21,7 @@ struct E4988Obj : E4988Base {
     virtual void m7();
 };
 
-s32 TObjEneMe3Stelth__sub_800F4988(u8 *arg0) {
+s32 check_flag__16TObjEneMe3StelthFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3CC) & 4) {
         ((E4988Obj*)(arg0 + 0x404))->m7();
         return 1;

@@ -11,7 +11,7 @@ M2C_UNK memcpy(s32 *, s32, M2C_UNK);
 extern s32 lbl_805D6078;
 extern s32 lbl_805D607C;
 
-s32 fn_8020876C(void) {
+s32 read_be_u32(void) {
     s32 sp8;
     s32 temp_r4;
 

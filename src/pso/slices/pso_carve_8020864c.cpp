@@ -11,7 +11,7 @@ typedef struct {
     M2C_UNK (*fn)(M2C_UNK);
 } Ent_8020864C;
 
-M2C_UNK fn_8020876C(void *);
+M2C_UNK read_be_u32(void *);
 extern Ent_8020864C lbl_804C93A8[];
 
 void fn_8020864C(s32 arg0) {
@@ -21,7 +21,7 @@ void fn_8020864C(s32 arg0) {
     temp_r3 = lbl_804C93A8;
     temp_r3 += (u8)arg0;
     temp_r31 = temp_r3->fn;
-    temp_r31(fn_8020876C(temp_r3));
+    temp_r31(read_be_u32(temp_r3));
 }
 
 }

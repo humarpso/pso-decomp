@@ -12,7 +12,7 @@ extern s32 lbl_805D5CFC;
 extern s32 lbl_805D5D00;
 extern s32 lbl_805D5D04;
 
-void fn_801A5438(void) {
+void buffer_reset(void) {
     lbl_805D5CFC = 0;
     lbl_805D5D00 = 0;
     memset(lbl_805D5CF8, 0, 0x10000);

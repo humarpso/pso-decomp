@@ -13,7 +13,7 @@ extern s32 lbl_805D6690;
 extern s32 lbl_805D6694;
 extern s32 lbl_805D6698;
 
-s32 fn_802A7C0C(void) {
+s32 copy_if_space(void) {
     if (fn_802A5C3C(lbl_805D6690) >= 0x258) {
         return 0;
     }
