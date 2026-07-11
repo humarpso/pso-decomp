@@ -2984,6 +2984,9 @@ pso/boss/TObjBoss2Tunnel_8007E0CC.cpp:
 pso/slices/run_8007E100.cpp:
 	.text       start:0x8007E100 end:0x8007E16C
 
+pso/slices/pso_carve_8007e1f8.cpp:
+	.text       start:0x8007E1F8 end:0x8007E210
+
 pso/slices/pso_carve_8007e380.cpp:
 	.text       start:0x8007E380 end:0x8007E3AC
 
@@ -22066,6 +22069,9 @@ pso/ui/TAdChrSelSlotGC.cpp:
 
 pso/slices/pso_carve_802c7438.cpp:
 	.text       start:0x802C7438 end:0x802C7498
+
+pso/slices/pso_carve_802c7498.cpp:
+	.text       start:0x802C7498 end:0x802C74AC
 
 pso/menu/TAdChrSelSlotGC.cpp:
 	.text       start:0x802C7700 end:0x802C7758
