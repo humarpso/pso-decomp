@@ -33,7 +33,7 @@ void set_effect_enabled__10TObjPlayerFii(s32 arg0, s32 arg1) {
     }
     fn_801C1E44(arg0 + 0x500);
 }
-void TObjPlayer__sub_801B5B64(s32 arg0) {
+void refresh_effect__10TObjPlayerFi(s32 arg0) {
     if (fn_801C1F50(arg0 + 0x4AC) != 0) {
         if (fn_801C1E50(arg0 + 0x500) != 0) {
             fn_801C1E44(arg0 + 0x500);

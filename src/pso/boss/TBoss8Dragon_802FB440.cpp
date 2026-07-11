@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_802FB440(s32 arg0);
+void init_state__12TBoss8DragonFi(s32 arg0);
 void TBoss8Dragon__sub_802FB484(void);
 void TBoss8Dragon__sub_802FB4B0(void);
 M2C_UNK TBoss8Dragon__sub_802FB170(s32, M2C_UNK *);
@@ -16,7 +16,7 @@ M2C_UNK TBoss8Dragon__sub_802FBF40(s32);
 
 extern M2C_UNK lbl_804744DC[];
 
-void TBoss8Dragon__sub_802FB440(s32 arg0) {
+void init_state__12TBoss8DragonFi(s32 arg0) {
     TBoss8Dragon__sub_802FBE3C();
     TBoss8Dragon__sub_802FB170(arg0, lbl_804744DC);
     TBoss8Dragon__sub_802FBF40(arg0);

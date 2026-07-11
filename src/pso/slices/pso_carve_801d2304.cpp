@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_801D222C(void* p);
+void swap_field6__10TObjPlayerFPv(void* p);
 void swap_header__10TObjPlayerFPv(void* p);
 void swap_endian16__10TObjPlayerFPv(void* p);
 

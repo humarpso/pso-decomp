@@ -3,8 +3,8 @@
 extern "C" {
 
 int TObjEneEpsilon__vt101(void* p);
-int TObjEneEpsilon__sub_800B9778(void*);
+int spawn_part__14TObjEneEpsilonFi(void*);
 
-int TObjEneEpsilon__vt101(void* p) { return TObjEneEpsilon__sub_800B9778(p); }
+int TObjEneEpsilon__vt101(void* p) { return spawn_part__14TObjEneEpsilonFi(p); }
 
 }

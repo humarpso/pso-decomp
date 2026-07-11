@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void decode_font_data__9TLanguageFPvPvii(void *arg0, void *arg1, s32 arg2, s32 arg3);
-M2C_UNK TLanguage__sub_801A5730();
+M2C_UNK draw_string__9TLanguageFPvPvi();
 M2C_UNK fn_8038A058();
 M2C_UNK fn_803DB05C(s32, u16, s16, u16 *);
 
@@ -19,7 +19,7 @@ void decode_font_data__9TLanguageFPvPvii(void *arg0, void *arg1, s32 arg2, s32 a
     u16 *p;
     u16 temp_r3;
 
-    TLanguage__sub_801A5730();
+    draw_string__9TLanguageFPvPvi();
     n = M2C_FIELD(arg1, s16 *, 0xA);
     p = M2C_FIELD(arg1, u16 **, 0);
     for (i = n; i > 0; i--) {

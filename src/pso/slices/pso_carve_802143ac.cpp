@@ -21,7 +21,7 @@ extern "C" {
 
 u16 obj_getField1c(s32);
 s32 fn_80073DC4(void *, s32);
-f32 TShopWindowBase__sub_8022393C(void *);
+f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 fn_8024422C(s32, f32, f32);
@@ -38,8 +38,8 @@ void fn_802143AC(void *arg0) {
         temp_r31 = (u16)obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
         M2C_FIELD(arg0, s32 *, 0x38) = fn_80266388(fn_8026CBB8(0x2B), temp_r31, 0, 0);
         fn_80265C10(M2C_FIELD(arg0, s32 *, 0x38), 1);
-        temp_f31 = TShopWindowBase__sub_8022393C(arg0);
-        fn_8024422C(M2C_FIELD(arg0, s32 *, 0x38), TShopWindowBase__sub_8022393C(arg0), temp_f31);
+        temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
+        fn_8024422C(M2C_FIELD(arg0, s32 *, 0x38), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
         vobj->m7(8, 1);
         fn_80073DC4(arg0, 7);
     }

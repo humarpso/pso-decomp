@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TShopWindowBase__sub_8022393C(void);
+f32 get_scale__15TShopWindowBaseFv(void);
 s32 TCameraCtrl__sub_8006B330();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern f32 lbl_805DC728;
 extern f32 lbl_805DC72C;
 
-f32 TShopWindowBase__sub_8022393C(void) {
+f32 get_scale__15TShopWindowBaseFv(void) {
     if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && (TCameraCtrl__sub_8006B330() > 2)) {
         return lbl_805DC728;
     }

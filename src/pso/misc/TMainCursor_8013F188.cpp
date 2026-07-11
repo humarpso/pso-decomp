@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TMainCursor__sub_8013F188(void* p);
-void *TMainCursor__sub_8013F1A8(void *arg0, s16 arg1);
+void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1);
 int TLockOnCursor__sub_8013EC1C(void*);
 int TLockOnCursor__sub_8013EC38(void*);
 int TMainCursor__sub_8013E240(void*);
@@ -34,7 +34,7 @@ int TMainCursor__sub_8013F188(void* p) { return fn_8002F588(p); }
 
 extern M2C_UNK lbl_804A7254[];
 
-void *TMainCursor__sub_8013F1A8(void *arg0, s16 arg1) {
+void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x10) = lbl_804A7254;
         if (arg1 > 0) {

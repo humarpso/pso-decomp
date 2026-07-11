@@ -12,7 +12,7 @@ s32 TObjPlayer__sub_801C6F6C(s32);
 s32 TObjPlayer__sub_801C6F90();
 s32 TObjPlayer__sub_800196EC();
 s32 fn_801A1EB0(s32);
-M2C_UNK TObjPlayer__sub_801C5BC8(s32);
+M2C_UNK reset_ring__10TObjPlayerFPv(s32);
 M2C_UNK TObjPlayer__sub_801C5C0C(s32);
 s32 TObjPlayer__sub_801C5C38(s32);
 M2C_UNK fn_801C6F40(s32, M2C_UNK);
@@ -30,7 +30,7 @@ void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1) {
                 return;
             }
             if (TObjPlayer__sub_801C5C38(arg0) == 0) {
-                TObjPlayer__sub_801C5BC8(arg0);
+                reset_ring__10TObjPlayerFPv(arg0);
             }
         } else if (TObjPlayer__sub_801C6F6C(arg0) == 0) {
             TObjPlayer__sub_801C5C0C(arg0);

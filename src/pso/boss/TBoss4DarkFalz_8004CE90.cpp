@@ -8,7 +8,7 @@ extern "C" {
 
 void TBoss4DarkFalz__sub_8004CE90(void);
 void start_effect__14TBoss4DarkFalzFPv(void *arg0);
-void TBoss4DarkFalz__sub_8004CEE4(s32 arg0);
+void spawn_trap__14TBoss4DarkFalzFi(s32 arg0);
 void check_timeout__14TBoss4DarkFalzFi(s32 arg0);
 void update_parts__14TBoss4DarkFalzFi(s32 arg0);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
@@ -29,7 +29,7 @@ void start_effect__14TBoss4DarkFalzFPv(void *arg0) {
     fn_8022675C(0x4003A80B, 0, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x380) = 0;
 }
-void TBoss4DarkFalz__sub_8004CEE4(s32 arg0) {
+void spawn_trap__14TBoss4DarkFalzFi(s32 arg0) {
     TOTrapAncient01__sub_80226578(0x4003A30A, arg0, 0, -0x18, 2);
 }
 void check_timeout__14TBoss4DarkFalzFi(s32 arg0) {

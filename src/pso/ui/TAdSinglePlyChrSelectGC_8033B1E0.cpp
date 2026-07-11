@@ -11,7 +11,7 @@ s32 fn_80269C6C(s32, s32, s32);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 int TKeyBoardControl__sub_8000F9B0(void*);
 
-void TAdSinglePlyChrSelectGC__sub_8033B1E0(void *arg0, s32 arg1, s32 arg2) {
+void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2) {
     fn_80269C6C(M2C_FIELD(arg0, s32 *, 0x38), fn_8006EF6C(arg1), 1);
     if (arg2 != -1) {
         fn_80269C6C(M2C_FIELD(arg0, s32 *, 0x38), fn_8006EF6C(arg2), 8);

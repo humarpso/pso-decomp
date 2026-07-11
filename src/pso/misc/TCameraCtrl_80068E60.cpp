@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 get_fov__11TCameraCtrlFv(void);
-f32 TCameraCtrl__sub_80068EA8(void);
+f32 get_view_scale__11TCameraCtrlFv(void);
 s32 TCameraCtrl__sub_8006B338();
 
 s32 is_split_screen();
@@ -28,7 +28,7 @@ s32 is_split_screen();
 extern f32 TCameraCtrl__data_805D8FAC;
 extern f32 lbl_805D8FC8;
 
-f32 TCameraCtrl__sub_80068EA8(void) {
+f32 get_view_scale__11TCameraCtrlFv(void) {
     if (is_split_screen() != 0) {
         if (TCameraCtrl__sub_8006B338() == 2) {
             return TCameraCtrl__data_805D8FAC;

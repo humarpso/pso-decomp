@@ -1,12 +1,12 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_801D18F8(void* p);
+void init_field_4__10TObjPlayerFPv(void* p);
 void bswap_fields__10TObjPlayerFPv(void* p);
 
 int TFontSmallLobby__sub_801C0228(void*);
 void* copy_font_state__10TObjPlayerFPvPv(void* p, void* a1);
-void* TObjPlayer__sub_801D1844(void* p, void* a1);
+void* copy_head_fields__10TObjPlayerFPvPv(void* p, void* a1);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int TObjPlayer__sub_8001960C(void*);

@@ -23,7 +23,7 @@ struct VObj_8021A3CC : Base_8021A3CC {
 
 extern "C" {
 
-void TShopArmorListWindow__sub_8021A404(void *arg0, void *arg1);
+void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
 void TShopArmorListWindow__vt4(void *arg0);
 void TShopArmorListWindow__vt5(void *arg0);
 M2C_UNK fn_803094E8(void *a, s32 b);
@@ -42,7 +42,7 @@ void TShopArmorListWindow__vt4(void *arg0) {
     }
 }
 
-void TShopArmorListWindow__sub_8021A404(void *arg0, void *arg1) {
+void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1) {
     void *r3 = M2C_FIELD(arg0, void **, 0x3C);
     if (r3 != 0) {
         s32 r4 = M2C_FIELD(arg1, s32 *, 0x10);

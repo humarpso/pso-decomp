@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMag__sub_80110B14(void *arg0, s32 arg1);
+void call_preserve_flag__8TItemMagFPvi(void *arg0, s32 arg1);
 void TItemMag__sub_80110B50(s32 arg0, s32 arg1);
 s32 TItemMag__sub_801117C0();
 int fn_80100D9C(s32, s32);
 M2C_UNK fn_80101CFC(s32, void *);
 
-void TItemMag__sub_80110B14(void *arg0, s32 arg1) {
+void call_preserve_flag__8TItemMagFPvi(void *arg0, s32 arg1) {
     u8 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, u8 *, 1);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemMagSub__sub_80115960(void *arg0);
+s32 calc_scaled_value__11TItemMagSubFPv(void *arg0);
 
 extern const f64 TItemMagSub__data_8043E5C8;
 extern const f32 TItemMagSub__data_805DABCC;
 
-s32 TItemMagSub__sub_80115960(void *arg0) {
+s32 calc_scaled_value__11TItemMagSubFPv(void *arg0) {
     return (s32) (TItemMagSub__data_805DABCC * (f32) M2C_FIELD(arg0, s16 *, 2));
 }
 

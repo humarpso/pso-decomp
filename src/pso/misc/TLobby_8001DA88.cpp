@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8001DA88(void);
+s32 get_card_window_area__6TLobbyFv(void);
 s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 
-s32 TLobby__sub_8001DA88(void) {
+s32 get_card_window_area__6TLobbyFv(void) {
     return get_card_window__17TWindowSubComCardFUi(0xFFFF) + 0x2050;
 }
 

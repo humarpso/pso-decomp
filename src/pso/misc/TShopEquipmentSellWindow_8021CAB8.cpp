@@ -8,7 +8,7 @@ extern "C" {
 
 void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0);
 M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, M2C_UNK);
-f32 TShopWindowBase__sub_8022393C(void *);
+f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK TWindow__close(u32);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
 M2C_UNK fn_8013AD28(u32);
@@ -37,8 +37,8 @@ void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0) {
             fn_80265F60(M2C_FIELD(arg0, u32 *, 0x390));
             fn_80265C30(M2C_FIELD(arg0, u32 *, 0x390));
             fn_8013AD28(M2C_FIELD(arg0, u32 *, 0x390));
-            temp_f31 = TShopWindowBase__sub_8022393C(arg0);
-            fn_8024422C(M2C_FIELD(arg0, u32 *, 0x390), TShopWindowBase__sub_8022393C(arg0), temp_f31);
+            temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
+            fn_8024422C(M2C_FIELD(arg0, u32 *, 0x390), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
         }
         M2C_FIELD(arg0, s32 *, 0x37C) = fn_80211600(M2C_FIELD(arg0, u32 *, 0x394));
         TWindow__close(M2C_FIELD(arg0, u32 *, 0x394));

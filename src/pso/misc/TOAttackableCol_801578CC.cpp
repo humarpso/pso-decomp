@@ -14,7 +14,7 @@ int queue_destruction__7TObjectFv(void*);
 void render__15TOAttackableColFv(void);
 
 void release__15TOAttackableColFPv(void* p) { set_flag8__6TLobbyFPv(p); queue_destruction__7TObjectFv(p); }
-void TOAttackableCol__sub_80157900(void *arg0) {
+void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

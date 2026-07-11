@@ -25,6 +25,6 @@ int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
 void bswap_field4_sub__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); TObjPlayer__sub_801D2B2C((char*)p + 0x4); }
-void* TObjPlayer__sub_801D23C0(void* p) { fn_8012AF00((char*)p + 0x4); *(unsigned char*)(p) = 70; *(unsigned char*)((char*)p + 0x1) = 12; return p; }
+void* build_packet_header__10TObjPlayerFPv(void* p) { fn_8012AF00((char*)p + 0x4); *(unsigned char*)(p) = 70; *(unsigned char*)((char*)p + 0x1) = 12; return p; }
 
 }

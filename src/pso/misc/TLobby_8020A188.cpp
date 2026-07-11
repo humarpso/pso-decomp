@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_buffers__6TLobbyFii(s32 arg0, s32 arg1);
-void TLobby__sub_8020A26C(void);
+void free_boss4rock__6TLobbyFv(void);
 int free_boss4rock__6TLobbyFPvs(void*, void*);
 u32 TLobby__sub_802095EC(s32, s32);
 u32 TLobby__sub_8020967C(s32, s32);
@@ -50,6 +50,6 @@ void init_buffers__6TLobbyFii(s32 arg0, s32 arg1) {
 
     extern int lbl_805D60A0;
     extern int lbl_805D60A4;
-void TLobby__sub_8020A26C(void) { free_boss4rock__6TLobbyFPvs((void*)(lbl_805D60A4), (void*)1); lbl_805D60A4 = 0; __dl__FPv((void*)(lbl_805D60A0)); lbl_805D60A0 = 0; }
+void free_boss4rock__6TLobbyFv(void) { free_boss4rock__6TLobbyFPvs((void*)(lbl_805D60A4), (void*)1); lbl_805D60A4 = 0; __dl__FPv((void*)(lbl_805D60A0)); lbl_805D60A0 = 0; }
 
 }

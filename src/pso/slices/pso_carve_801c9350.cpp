@@ -17,25 +17,5 @@ int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801C959C(void);
 
 int handle_6x53(void) { return 0; }
-void* update_small_font2__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
-int TObjPlayer__sub_801C9400(void) { return 0; }
-int TObjPlayer__sub_801C94B8(void) { return 0; }
-void TObjPlayer__sub_801C950C(void *arg0) {
-    s32 temp_r31;
-
-    if (M2C_FIELD(arg0, s16 *, 0x328) == 0) {
-        if (fn_801BEAB0() != 0) {
-            temp_r31 = obj_getField1c(arg0);
-            TObjPlayer__sub_801B1E54(temp_r31, temp_r31, obj_getS16_32C(arg0));
-            obj_clearFlags30(arg0, 0x200);
-            return;
-        }
-        if (fn_801CB874(arg0) != 0) {
-            TObjPlayer__sub_801B95C8(arg0);
-        }
-    }
-}
-void TObjPlayer__sub_801C959C(void) {  }
-int TObjPlayer__sub_801C95A0(void) { return 0; }
 
 }

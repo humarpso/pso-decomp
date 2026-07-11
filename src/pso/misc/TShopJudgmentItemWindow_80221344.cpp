@@ -17,7 +17,7 @@ struct VObj_80221344 : Base_80221344 {
 extern "C" {
 
 void handle_input__23TShopJudgmentItemWindowFPv(void *arg0);
-f32 TShopWindowBase__sub_8022393C(void *);
+f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
@@ -40,8 +40,8 @@ void handle_input__23TShopJudgmentItemWindowFPv(void *arg0) {
     if (TShopWindowBase__sub_80223A48(arg0) != 0) {
         temp_r31 = (u16)obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
         M2C_FIELD(arg0, s32 *, 0x158) = fn_80266388(fn_8026CBB8(0x2B), temp_r31, 0, 0);
-        temp_f31 = TShopWindowBase__sub_8022393C(arg0);
-        fn_8024422C(M2C_FIELD(arg0, s32 *, 0x158), TShopWindowBase__sub_8022393C(arg0), temp_f31);
+        temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
+        fn_8024422C(M2C_FIELD(arg0, s32 *, 0x158), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
         ((VObj_80221344 *)arg0)->m6(3, 1);
         fn_80073DC4(arg0, 2);
         fn_8022675C(0x52D01, 0, 0, 0);

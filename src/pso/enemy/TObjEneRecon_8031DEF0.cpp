@@ -16,7 +16,7 @@ void advance_field398__12TObjEneReconFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x398) + M2C_FIELD(arg0, f32 *, 0x464));
 }
-void TObjEneRecon__sub_8031DF2C(void *arg0) {
+void sync_height__12TObjEneReconFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) M2C_FIELD(arg0, f32 *, 0x460);
 }

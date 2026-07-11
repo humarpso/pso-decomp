@@ -28,10 +28,10 @@ void TWindowSubComCard__sub_802720B0(s32 arg0) {
     temp_r31 = fn_8007BC04(0);
     fn_80249980(fn_8026CBB8(0x92), arg0, temp_r31);
 }
-void TWindowSubComCard__sub_802720FC(s32 arg0) {
+void send_command__17TWindowSubComCardFi(s32 arg0) {
     fn_802499E4(fn_8026CBB8(0x86), arg0);
 }
-void TWindowSubComCard__sub_80272134(void) {
+void init_layout__17TWindowSubComCardFv(void) {
     s32 temp_r31;
 
     temp_r31 = fn_8007BC04(0);

@@ -24,6 +24,6 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-void TObjPlayer__sub_801D2198(void* p) { swap_header__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
+void send_swapped_header__10TObjPlayerFPv(void* p) { swap_header__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 
 }

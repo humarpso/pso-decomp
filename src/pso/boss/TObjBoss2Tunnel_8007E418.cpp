@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjBoss2Tunnel__sub_8007E418(u32 *arg0, s32 arg1);
+s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1);
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2);
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1);
-void TObjBoss2Tunnel__sub_8007E560(void* p, void* a1);
+void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1);
 int TBoss4Zako__sub_803D8910(void*, void*);
 int TObjBoss2Tunnel__sub_8007E7D8(void*, void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 void *fn_8007A544(void *, M2C_UNK, f32);
 
-s32 TObjBoss2Tunnel__sub_8007E418(u32 *arg0, s32 arg1) {
+s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1) {
     u32 temp_r5;
 
     temp_r5 = *arg0;
@@ -64,6 +64,6 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
     return 0;
 }
 
-void TObjBoss2Tunnel__sub_8007E560(void* p, void* a1) { TObjBoss2Tunnel__sub_8007E7D8(p, (char*)p + 0x8); TBoss4Zako__sub_803D8910(p, a1); }
+void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1) { TObjBoss2Tunnel__sub_8007E7D8(p, (char*)p + 0x8); TBoss4Zako__sub_803D8910(p, a1); }
 
 }

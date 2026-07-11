@@ -6,7 +6,7 @@ extern "C" {
 
 void check_and_destroy__10TBoss6RockFPv(void* p);
 void *destroy__10TBoss6RockFPvs(void *arg0, s16 arg1);
-void *TBoss6Rock__sub_80353984(void *arg0, void *);
+void *init_object__10TBoss6RockFPvPv(void *arg0, void *);
 void *TBoss6Rock__sub_803539C8(void);
 int TBoss6Rock__sub_80353A04(void);
 int TBoss6Rock__sub_80353A0C(void);
@@ -34,7 +34,7 @@ void *destroy__10TBoss6RockFPvs(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804F1280[];
 
-void *TBoss6Rock__sub_80353984(void *arg0, void *) {
+void *init_object__10TBoss6RockFPvPv(void *arg0, void *) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F1280;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
@@ -46,7 +46,7 @@ extern void *tl_06;
 void *TBoss6Rock__sub_803539C8(void) {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
-        o = TBoss6Rock__sub_80353984((void *)(o), (void *)(tl_06));
+        o = init_object__10TBoss6RockFPvPv((void *)(o), (void *)(tl_06));
     }
     return o;
 }

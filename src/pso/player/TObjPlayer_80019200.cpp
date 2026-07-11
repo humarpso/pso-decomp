@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80019200(s32 arg0, s32 arg1);
+void get_pos__10TObjPlayerFii(s32 arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32, s32);
 
-void TObjPlayer__sub_80019200(s32 arg0, s32 arg1) {
+void get_pos__10TObjPlayerFii(s32 arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x2FC, arg0);
 }
 

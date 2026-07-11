@@ -13,7 +13,7 @@ s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8026CBB8(M2C_UNK);
 M2C_UNK fn_80275254(s32);
-s32 TLobby__sub_8034C2D8();
+s32 get_card_window_field__6TLobbyFv();
 extern s32 lbl_805D53A0;
 
 s32 fn_8034CCC4(s32 arg0) {
@@ -23,7 +23,7 @@ s32 fn_8034CCC4(s32 arg0) {
     if (var_r31 != 0) {
         var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0xC6, 5, 4, lbl_805D53A0);
     }
-    fn_80131BA0(var_r31, TLobby__sub_8034C2D8());
+    fn_80131BA0(var_r31, get_card_window_field__6TLobbyFv());
     fn_80131B54(var_r31, fn_8026CBB8(0xBB));
     fn_80131A5C(var_r31);
     fn_80275254(var_r31);

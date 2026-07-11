@@ -22,7 +22,7 @@ void fn_802A56C4(void* p);
 void fn_802A56F0(void* p);
 void fn_802A571C(void* p);
 int TWindowSubComCard__sub_802A5748(void* p);
-void TWindowSubComCard__sub_802A5768(void* p);
+void free_member__17TWindowSubComCardFPv(void* p);
 int fn_800740FC(void*);
 int set_flag70_bit10__16TObjCityMainWarpFPv(void*);
 int fn_80265C10(void*);
@@ -30,7 +30,7 @@ int fn_80287560(void*);
 int queue_destruction__7TObjectFv(void*);
 
 int TWindowSubComCard__sub_802A5748(void* p) { return queue_destruction__7TObjectFv(p); }
-void TWindowSubComCard__sub_802A5768(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) fn_80265C10(m); }
+void free_member__17TWindowSubComCardFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) fn_80265C10(m); }
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *arg0) {
     s32 v = M2C_FIELD(arg0, u32 *, 0x2C);
     if ((u32) v == 0U) {

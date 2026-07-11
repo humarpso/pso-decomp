@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TWindowDD__sub_80348214(void);
+int spawn_window__9TWindowDDFv(void);
 s32 TWindowDD__sub_80342218(void* p);
 
 int TWindowDD__sub_80342254(void) { return 0; }

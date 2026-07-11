@@ -40,12 +40,12 @@ extern "C" {
 
 void *fn_80101AB0(s32);
 M2C_UNK TLobby__sub_80103BFC(s32, s32);
-M2C_UNK TLobby__sub_8010414C();
+M2C_UNK bswap_player_packet__6TLobbyFPv();
 
 void handle_6x63_destroy_floor_item(void *arg0) {
     struct VObj_80103748 *o;
 
-    TLobby__sub_8010414C();
+    bswap_player_packet__6TLobbyFPv();
     TLobby__sub_80103BFC(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
     o = (struct VObj_80103748 *)fn_80101AB0(M2C_FIELD(arg0, s32 *, 4));
     if (o != NULL) {

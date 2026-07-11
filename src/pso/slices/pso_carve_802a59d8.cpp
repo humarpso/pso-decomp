@@ -22,7 +22,7 @@ void fn_802A56C4(void* p);
 void fn_802A56F0(void* p);
 void fn_802A571C(void* p);
 int TWindowSubComCard__sub_802A5748(void* p);
-void TWindowSubComCard__sub_802A5768(void* p);
+void free_member__17TWindowSubComCardFPv(void* p);
 int fn_800740FC(void*);
 int set_flag70_bit10__16TObjCityMainWarpFPv(void*);
 int fn_80265C10(void*);

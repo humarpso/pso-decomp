@@ -8,8 +8,8 @@ extern "C" {
 
 s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2);
 void calc_drop_rarity__9TItemDropFiiPv(s32 arg0, s32 arg1, void *arg2);
-void TItemDrop__sub_80106C40(void *arg0, void *arg1);
-void TItemDrop__sub_80106C88(void* p, void* a1);
+void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
+void handle_type3__9TItemDropFPvPv(void* p, void* a1);
 void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
 M2C_UNK TItemData__sub_8010D510(void *, M2C_UNK *);
 M2C_UNK TItemDrop__sub_80106D0C(s32, void *);
@@ -46,13 +46,13 @@ void calc_drop_rarity__9TItemDropFiiPv(s32 arg0, s32 arg1, void *arg2) {
     }
 }
 
-void TItemDrop__sub_80106C40(void *arg0, void *arg1) {
+void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
     if (((u8) M2C_FIELD(arg1, u8 *, 1) == 2) && (((u8) M2C_FIELD(arg1, u8 *, 4) >= 0x13U) || ((u8) M2C_FIELD(arg1, u8 *, 2) >= 0x1EU))) {
         init__9TItemDataFv(arg1);
     }
 }
 
-void TItemDrop__sub_80106C88(void* p, void* a1) { if (*(unsigned char*)(a1) == 3) { fn_8010ED54(a1, (void*)1); } }
+void handle_type3__9TItemDropFPvPv(void* p, void* a1) { if (*(unsigned char*)(a1) == 3) { fn_8010ED54(a1, (void*)1); } }
 
 void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
     M2C_UNK sp8;

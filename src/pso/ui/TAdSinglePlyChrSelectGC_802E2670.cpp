@@ -43,7 +43,7 @@ void try_setup__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
         TAdSinglePlyChrSelectGC__sub_802E1DF8((void *)(arg0), 0xF);
     }
 }
-void TAdSinglePlyChrSelectGC__sub_802E2728(s32 arg0) {
+void update_state__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     init_timestamped_data();
     if (check_ready__23TAdSinglePlyChrSelectGCFv() == 0) {
         TAdSinglePlyChrSelectGC__sub_802E1DF8((void *)(arg0), 0);

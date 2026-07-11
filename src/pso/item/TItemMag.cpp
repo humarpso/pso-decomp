@@ -9,7 +9,7 @@ extern "C" {
 void update_feed_timer__8TItemMagFPv(void *arg0);
 void feed_if_over_90__8TItemMagFPv(void* p);
 void feed_if_over_45__8TItemMagFPv(void* p);
-void TItemMag__sub_80113170(void *arg0);
+void update_feed__8TItemMagFPv(void *arg0);
 void check_level_cap__8TItemMagFPv(void *arg0);
 void check_level_evolve__8TItemMagFPv(void *arg0);
 int TItemMag__sub_80112E20(void*, void*);
@@ -37,7 +37,7 @@ void feed_if_over_90__8TItemMagFPv(void* p) { if (*(int*)((char*)p + 0x1cc) > 90
 
 void feed_if_over_45__8TItemMagFPv(void* p) { if (*(int*)((char*)p + 0x1cc) > 45) { TItemMag__sub_80112E20((void*)(p), (void*)((void*)1)); } }
 
-void TItemMag__sub_80113170(void *arg0) {
+void update_feed__8TItemMagFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C9B48(s32 arg0);
+void notify_lobby__10TObjPlayerFi(s32 arg0);
 void ensure_default__10TObjPlayerFPv(void *arg0);
 void init_action__10TObjPlayerFPv(u8 *arg0);
 void *TObjPlayer__sub_801B5EA4(void *);
@@ -26,7 +26,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 u16 obj_getField1c(s32);
 
-void TObjPlayer__sub_801C9B48(s32 arg0) {
+void notify_lobby__10TObjPlayerFi(s32 arg0) {
     TObjPlayer__sub_801D2630();
     fn_8024AC20(obj_getField1c(arg0));
 }

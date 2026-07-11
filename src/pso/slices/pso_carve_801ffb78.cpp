@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK __dl__FPv(u32 *);
 u32 *fn_8007EB94(M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFC74(u32 *, s32);
-u32 *TAdSinglePlyChrSelectGC__sub_801FFD78();
+u32 *init_windows__23TAdSinglePlyChrSelectGCFi();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(s32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(u32 *, M2C_UNK);
 M2C_UNK init_timestamped_data();
@@ -33,7 +33,7 @@ s32 load_and_verify_data(s32 arg0) {
     TAdSinglePlyChrSelectGC__sub_801FFF98(lbl_805D5F68);
     var_r31 = fn_8007EB94(0xE28C);
     if (var_r31 != NULL) {
-        var_r31 = TAdSinglePlyChrSelectGC__sub_801FFD78();
+        var_r31 = init_windows__23TAdSinglePlyChrSelectGCFi();
     }
     TAdSinglePlyChrSelectGC__sub_801FFC74(var_r31, lbl_805D5F68);
     temp_r30 = *var_r31;

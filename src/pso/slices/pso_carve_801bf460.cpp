@@ -13,14 +13,5 @@ int fn_8013DF4C(void*);
 int fn_8013DF54(void*);
 
 int TObjPlayer__sub_801BF460(void) { return 0; }
-void TObjPlayer__sub_801BF47C(void* p) { *(s32*)((char*)p + 0x0) = 0; }
-int TObjPlayer__sub_801BF488(void) { return 0; }
-int TObjPlayer__sub_801BF4A0(void) { return 0; }
-int TObjPlayer__sub_801BF4B8(void* p) { return fn_8013DF4C((char*)p + 0x4); }
-int TObjPlayer__sub_801BF4DC(void* p) { return fn_8013DF54((char*)p + 0x4); }
-int TObjPlayer__sub_801BF500(void* p) { return TAdRicoRing__sub_8001BEE8(p, 2); }
-int TObjPlayer__sub_801BF524(void* p) { return fn_8001BED8(p, 2); }
-int TObjPlayer__sub_801BF548(void) { return 0; }
-int TObjPlayer__sub_801BF560(void) { return 0; }
 
 }

@@ -24,7 +24,7 @@ void TMainCursor__sub_8013F180(void* p, f32 v);
 int TMainCursor__sub_8013F188(void* p);
 int fn_8002F588(void*);
 
-void* TLockOnCursor__sub_8013F054(void* p) { fn_8004438C(p); TObjPlayer__sub_8001BF10((char*)p + 0x8); return p; }
+void* init_sub__13TLockOnCursorFPv(void* p) { fn_8004438C(p); TObjPlayer__sub_8001BF10((char*)p + 0x8); return p; }
 void reset_fields__13TLockOnCursorFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*)p + 0x8) = 0; }
 
 }

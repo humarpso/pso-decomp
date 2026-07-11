@@ -6,14 +6,14 @@ extern "C" {
 
 void fn_800362E8(void *);
 void *get_enemy_entity(int);
-void TBoss2DeRolLe__sub_80033F80(void *, void *);
+void init_from_param__13TBoss2DeRolLeFPvPv(void *, void *);
 
 void handle_6x13_de_rol_le_boss_actions(void *arg0) {
     void *x;
     fn_800362E8(arg0);
     x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
     if (x != NULL) {
-        TBoss2DeRolLe__sub_80033F80(x, arg0);
+        init_from_param__13TBoss2DeRolLeFPvPv(x, arg0);
     }
 }
 

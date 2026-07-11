@@ -3,7 +3,7 @@
 extern "C" {
 
 int obj_clearFlags30(void*, void*);
-void TObjPlayer__sub_80014844(void* p);
+void reset_pose__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_80014830(void);
 int TObjPlayer__sub_80014838(void);
 void TObjPlayer__sub_80014840(void);

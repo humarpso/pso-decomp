@@ -8,7 +8,7 @@ extern "C" {
 
 int TLobby__sub_801EC7A0(void);
 int TLobby__sub_801EC7C4(void);
-void TLobby__sub_801EC7E8(void);
+void dispatch_first_player__6TLobbyFv(void);
 int TLobby__sub_801EC834(void* p);
 int TLobby__sub_801EC854(void* p);
 int TLobby__sub_801EC874(void* p);
@@ -26,7 +26,7 @@ int TLobby__sub_801EC7C4(void) { return TOMineTrap__sub_80171370((void*)(1)); }
 s32 is_split_screen(void);
 extern s32 TLobby__data_80512220[];
 
-void TLobby__sub_801EC7E8(void) {
+void dispatch_first_player__6TLobbyFv(void) {
     s32 temp_r31;
 
     temp_r31 = TLobby__data_80512220[0];

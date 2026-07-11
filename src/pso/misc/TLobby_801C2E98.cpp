@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init__6TLobbyFPv(void *arg0);
-M2C_UNK TLobby__sub_801C2AD0();
-M2C_UNK TLobby__sub_801C4120(u16, M2C_UNK);
+M2C_UNK set_flag_270__6TLobbyFPv();
+M2C_UNK close_and_play_effect__6TLobbyFii(u16, M2C_UNK);
 M2C_UNK TLobby__sub_8020BB18();
 M2C_UNK TLobby__sub_8020BCE4();
 M2C_UNK TOMineTrap__sub_8016FCC4();
@@ -30,8 +30,8 @@ void init__6TLobbyFPv(void *arg0) {
     s32 var_r31;
     u32 temp_r3_2;
 
-    TLobby__sub_801C2AD0();
-    TLobby__sub_801C4120((u16) lbl_805D53A0, 1);
+    set_flag_270__6TLobbyFPv();
+    close_and_play_effect__6TLobbyFii((u16) lbl_805D53A0, 1);
     temp_r3 = TObjPlayer__sub_801BE648();
     if (temp_r3 != 0) {
         fn_80049574();

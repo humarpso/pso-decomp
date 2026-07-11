@@ -7,7 +7,7 @@ extern "C" {
 void *TObjPlayer__sub_801B5EA4(void *);
 void apply_velocity__10TObjPlayerFPv(void *);
 
-void TObjPlayer__sub_801C9794(void *arg0) {
+void apply_velocity_if_free__10TObjPlayerFPv(void *arg0) {
     void *x;
     x = TObjPlayer__sub_801B5EA4(arg0);
     if (x == NULL) {

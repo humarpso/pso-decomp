@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDolmOlm__sub_80301FBC(void *arg0);
+void check_scale_trigger__14TObjEneDolmOlmFPv(void *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
-void TObjEneDolmOlm__sub_80301FBC(void *arg0) {
+void check_scale_trigger__14TObjEneDolmOlmFPv(void *arg0) {
     if (calc_boss4_scale__10TObjPlayerFi() < M2C_FIELD(arg0, f32 *, 0x3CC)) {
         M2C_FIELD(arg0, s16 *, 0x326) = 0xA;
         M2C_FIELD(arg0, s16 *, 0x328) = 0;

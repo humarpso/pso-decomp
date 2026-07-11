@@ -19,7 +19,7 @@ void reset_split__14TObjEnePanarmsFPv(void *arg0) {
 }
 int TObjEnePanarms__sub_800E1D94(void* p) { return TObjEnePanarms__sub_800E1C98(p, 5); }
 int TObjEnePanarms__sub_800E1DB8(void* p) { return TObjEnePanarms__sub_800E1C98(p, 2); }
-void TObjEnePanarms__sub_800E1DDC(s32 arg0) {
+void init_state__14TObjEnePanarmsFi(s32 arg0) {
     TObjEnePanarms__sub_800E1A44();
     TObjEnePanarms__sub_800E1C98((void*)(arg0), 3);
 }

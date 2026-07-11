@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CED64(u8 *arg0);
+void apply_movement_if_ready__10TObjPlayerFPv(u8 *arg0);
 s32 TObjPlayer__sub_801B5DDC(void *);
 u32 TObjPlayer__sub_801B5EA4(void *);
 s32 TObjPlayer__sub_801D2680(void *);
@@ -18,7 +18,7 @@ s16 fn_801AFCCC();
 
 extern const f32 TObjPlayer__data_805DC36C;
 
-void TObjPlayer__sub_801CED64(u8 *arg0) {
+void apply_movement_if_ready__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r3;
 
     temp_r3 = fn_801AFCCC();

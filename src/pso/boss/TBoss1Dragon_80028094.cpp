@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss1Dragon__sub_80028094(s32 arg0);
+void clear_work__12TBoss1DragonFi(s32 arg0);
 M2C_UNK fn_80242DF8(s32, M2C_UNK, s32);
 
-void TBoss1Dragon__sub_80028094(s32 arg0) {
+void clear_work__12TBoss1DragonFi(s32 arg0) {
     fn_80242DF8(arg0 + 0x38, 0xE0, arg0);
 }
 

@@ -9,13 +9,13 @@ extern "C" {
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK fn_800D8A60();
 M2C_UNK fn_801A793C(s32);
-M2C_UNK TSceneSora__sub_801A7A44(s32);
+M2C_UNK reset_state__10TSceneSoraFv(s32);
 M2C_UNK fn_801A7B14();
 extern void *tl_05;
 
 void fn_801A79C0(s32 arg0) {
     fn_801A7B14();
-    TSceneSora__sub_801A7A44(arg0);
+    reset_state__10TSceneSoraFv(arg0);
     fn_801A793C(arg0);
     fn_800D8A60();
     if (tl_05 != NULL) {

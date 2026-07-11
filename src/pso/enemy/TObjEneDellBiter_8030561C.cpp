@@ -109,7 +109,7 @@ extern "C" {
 
 void TObjEneDellBiter__sub_80305684(void);
 void TObjEneDellBiter__vt102(void *arg0, f32 farg0);
-M2C_UNK TObjEneEpsilon__sub_800B9778(void *, f32);
+M2C_UNK spawn_part__14TObjEneEpsilonFi(void *, f32);
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
 
 void TObjEneDellBiter__vt102(void *arg0, f32 farg0) {
@@ -117,7 +117,7 @@ void TObjEneDellBiter__vt102(void *arg0, f32 farg0) {
         select_and_apply_target__14TObjEneEpsilonFPvf(arg0, farg0);
         return;
     }
-    TObjEneEpsilon__sub_800B9778(arg0, farg0);
+    spawn_part__14TObjEneEpsilonFi(arg0, farg0);
 }
 
 void TObjEneDellBiter__sub_80305684(void) {  }

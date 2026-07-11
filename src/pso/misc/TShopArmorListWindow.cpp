@@ -12,7 +12,7 @@ s32 TObjCityMainWarp__sub_80266354(u32, s32, s32, s32);
 int fn_80073DC4(void*, int);
 s32 fn_8013AD28(u32);
 s32 TLobby__sub_80222CFC(s32);
-f32 TShopWindowBase__sub_8022393C(void *);
+f32 get_scale__15TShopWindowBaseFv(void *);
 s32 fn_8024422C(u32, f32, f32);
 s32 fn_80265C30(u32);
 s32 fn_80265F60(u32);
@@ -33,8 +33,8 @@ void open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
         fn_80265F60(M2C_FIELD(arg0, u32 *, 0x30));
         fn_80265C30(M2C_FIELD(arg0, u32 *, 0x30));
         fn_8013AD28(M2C_FIELD(arg0, u32 *, 0x30));
-        temp_f31 = TShopWindowBase__sub_8022393C(arg0);
-        fn_8024422C(M2C_FIELD(arg0, u32 *, 0x30), TShopWindowBase__sub_8022393C(arg0), temp_f31);
+        temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
+        fn_8024422C(M2C_FIELD(arg0, u32 *, 0x30), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
     }
     fn_80073DC4((void*)(arg0), 2);
 }

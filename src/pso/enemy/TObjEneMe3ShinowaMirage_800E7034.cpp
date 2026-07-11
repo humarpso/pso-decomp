@@ -133,12 +133,12 @@ struct VObj_800E707C : Base_800E707C {
 
 extern "C" {
 
-void TObjEneMe3ShinowaMirage__sub_800E7034(void *arg0);
+void update_collision__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 void update_by_distance__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_801564A0(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 
-void TObjEneMe3ShinowaMirage__sub_800E7034(void *arg0) {
+void update_collision__23TObjEneMe3ShinowaMirageFPv(void *arg0) {
     struct VObj_800E7034 *o = (struct VObj_800E7034 *)arg0;
     o->m86();
     check_object_collisions__10TObjPlayerFPv(arg0);

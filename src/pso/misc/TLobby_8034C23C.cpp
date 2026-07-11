@@ -8,7 +8,7 @@ extern "C" {
 
 void init_once_data__6TLobbyFUi(u32 arg0);
 void flush_pending_send__6TLobbyFv(void);
-s32 TLobby__sub_8034C2D8(void);
+s32 get_card_window_field__6TLobbyFv(void);
 M2C_UNK fn_801DA548(u32, s32);
 M2C_UNK fn_801DA65C(u32);
 s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
@@ -33,13 +33,13 @@ extern s32 lbl_805D6E98;
 void flush_pending_send__6TLobbyFv(void) {
     if (lbl_805D6E98 & 1) {
         if ((u32) TLobby__data_805D5580 != 0U) {
-            fn_801DA548(TLobby__data_805D5580, TLobby__sub_8034C2D8());
+            fn_801DA548(TLobby__data_805D5580, get_card_window_field__6TLobbyFv());
         }
         lbl_805D6E98 &= 0xFFFFFFFE;
     }
 }
 
-s32 TLobby__sub_8034C2D8(void) {
+s32 get_card_window_field__6TLobbyFv(void) {
     return get_card_window__17TWindowSubComCardFUi(0xFFFF) + 0x20FC;
 }
 

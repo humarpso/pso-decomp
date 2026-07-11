@@ -40,7 +40,7 @@ void TObjContainerIdo__sub_8017E158(void *arg0) {
     o->m12();
 }
 
-void TObjContainerIdo__sub_8017E184(void *arg0) {
+void check_and_trigger__16TObjContainerIdoFPv(void *arg0) {
     struct VObj_8017E184 *o = (struct VObj_8017E184 *)arg0;
     if (o->m7(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
         o->m12();

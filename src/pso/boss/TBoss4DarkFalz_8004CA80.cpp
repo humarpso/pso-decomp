@@ -8,7 +8,7 @@ extern "C" {
 
 void TBoss4DarkFalz__sub_8004CA80(void);
 void request_action_9__14TBoss4DarkFalzFi(s32 arg0);
-void TBoss4DarkFalz__sub_8004CAF4(void* p);
+void update_parts__14TBoss4DarkFalzFPv(void* p);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
 M2C_UNK TBoss4DarkFalz__sub_8004B1BC(s32, M2C_UNK);
 int TBoss4DarkFalz__sub_8004B77C(void*);
@@ -25,6 +25,6 @@ void request_action_9__14TBoss4DarkFalzFi(s32 arg0) {
     }
 }
 
-void TBoss4DarkFalz__sub_8004CAF4(void* p) { TBoss4DarkFalz__sub_8004BA18(p); TBoss4DarkFalz__sub_8004B77C(p); }
+void update_parts__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004BA18(p); TBoss4DarkFalz__sub_8004B77C(p); }
 
 }

@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_801D201C(void* p);
+void bswap_coords__10TObjPlayerFPv(void* p);
 void swap_endian16__10TObjPlayerFPv(void* p);
 
 void TObjPlayer__sub_801D1CC0(void* p);
@@ -24,7 +24,7 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-void TObjPlayer__sub_801D20C4(void* p) { TObjPlayer__sub_801D201C(p); TLobby__send_and_handle_60(p); }
+void TObjPlayer__sub_801D20C4(void* p) { bswap_coords__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 void swap_header__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
 }

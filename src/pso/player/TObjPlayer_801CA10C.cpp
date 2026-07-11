@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CA10C(u8 *arg0);
+void update_active_state__10TObjPlayerFPv(u8 *arg0);
 s16 TObjPlayer__sub_801BE40C(void *);
 M2C_UNK TObjPlayer__sub_801BF9E8(void *, f32);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
@@ -19,7 +19,7 @@ M2C_UNK fn_801CA35C(void *);
 s32 obj_testFlags30(void *, M2C_UNK);
 extern const f32 TObjPlayer__data_805DC360;
 
-void TObjPlayer__sub_801CA10C(u8 *arg0) {
+void update_active_state__10TObjPlayerFPv(u8 *arg0) {
     if (fn_801AFF0C() != 0) {
         fn_8011E204(arg0, 4);
         if (obj_testFlags30(arg0, 0x800) == 0) {

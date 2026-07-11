@@ -8,13 +8,13 @@ extern "C" {
 
 void enter_state_19__9TWindowDDFPv(void *arg0);
 s32 TWindowDD__sub_80342F84();
-s32 TWindowDD__sub_803430BC(void *);
+s32 update_close_flag__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_8034330C(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347B70(void *);
 M2C_UNK TWindowDD__sub_80347C50();
 M2C_UNK TWindowDD__sub_80348248();
-M2C_UNK TWindowDD__sub_8034827C();
+M2C_UNK play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
 s32 TWindowDD__sub_80348304(void *);
 
@@ -29,8 +29,8 @@ void enter_state_19__9TWindowDDFPv(void *arg0) {
         TWindowDD__sub_80347C50();
         TWindowDD__sub_80347B70(arg0);
         if (TWindowDD__sub_80348304(arg0) != 0) {
-            TWindowDD__sub_8034827C();
-            var_r31 = TWindowDD__sub_803430BC(arg0) == 0;
+            play_sound__9TWindowDDFv();
+            var_r31 = update_close_flag__9TWindowDDFPv(arg0) == 0;
         } else if (TWindowDD__sub_803482B0(arg0) != 0) {
             TWindowDD__sub_80348248();
             TWindowDD__sub_8034330C(arg0);

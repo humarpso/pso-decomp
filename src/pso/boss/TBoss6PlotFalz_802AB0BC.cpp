@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 is_active__14TBoss6PlotFalzFPv(void *arg0);
 s32 is_state_1f__14TBoss6PlotFalzFUi();
 
 s32 is_active__14TBoss6PlotFalzFPv(void *arg0) {

@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-void TObjPlayer__sub_801D1B7C(void* p);
+void swap_endian_field__10TObjPlayerFPv(void* p);
 
 void TObjPlayer__sub_801D1CC0(void* p);
 void TObjPlayer__sub_801D1F44(void* p);
@@ -23,8 +23,8 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-void TObjPlayer__sub_801D1BCC(void* p) { TObjPlayer__sub_801D1B7C(p); update_players__6TLobbyFi(p); }
+void refresh_players__10TObjPlayerFPv(void* p) { swap_endian_field__10TObjPlayerFPv(p); update_players__6TLobbyFi(p); }
 void bswap_field4__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }
-void* TObjPlayer__sub_801D1C34(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
+void* copy_font__10TObjPlayerFPvPv(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 
 }

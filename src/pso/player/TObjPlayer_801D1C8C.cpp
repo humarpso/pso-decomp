@@ -23,7 +23,7 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-void TObjPlayer__sub_801D1C8C(void* p) { bswap_field4__10TObjPlayerFPv(p); update_players__6TLobbyFi(p); }
+void sync_players__10TObjPlayerFPv(void* p) { bswap_field4__10TObjPlayerFPv(p); update_players__6TLobbyFi(p); }
 void TObjPlayer__sub_801D1CC0(void* p) { *(u8*)((char*)p + 0x0) = 74; *(u8*)((char*)p + 0x1) = 1; }
 void TObjPlayer__sub_801D1CD4(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void swap_endian16__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }

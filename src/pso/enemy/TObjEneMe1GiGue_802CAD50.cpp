@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneMe1GiGue__sub_802CAD50(s32 arg0);
+s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
 M2C_UNK TObjEneMe1GiGue__sub_802CACD8(s32);
 s32 TObjPlayer__sub_80016FF8();
 
-s32 TObjEneMe1GiGue__sub_802CAD50(s32 arg0) {
+s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0) {
     if (TObjPlayer__sub_80016FF8() != 0) {
         TObjEneMe1GiGue__sub_802CACD8(arg0);
         return 1;

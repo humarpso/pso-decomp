@@ -8,7 +8,7 @@ extern "C" {
 
 s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_802A5768(s32, M2C_UNK);
+M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 fn_8026CBB8(M2C_UNK);
 M2C_UNK fn_802A571C(s32);
@@ -21,7 +21,7 @@ s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0) {
 
     temp_r29 = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
     fn_802A58AC(temp_r29, TWindowSubStatusDisp__sub_80077760(0x20), TWindowSubStatusDisp__sub_80077760(0x100), fn_8026CBB8(0x97), TWindowSubComCard__data_805DD520);
-    TWindowSubComCard__sub_802A5768(temp_r29, 1);
+    free_member__17TWindowSubComCardFPv(temp_r29, 1);
     fn_802A571C(temp_r29);
     return temp_r29;
 }

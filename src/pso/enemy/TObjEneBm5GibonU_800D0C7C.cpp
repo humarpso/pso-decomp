@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm5GibonU__sub_800D0C7C(void *arg0);
+void set_anim_by_state__16TObjEneBm5GibonUFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
-void TObjEneBm5GibonU__sub_800D0C7C(void *arg0) {
+void set_anim_by_state__16TObjEneBm5GibonUFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x464) != 0) {
         TObjEneDD__sub_800BBA18(arg0, 7);
         return;

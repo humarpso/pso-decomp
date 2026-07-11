@@ -9,7 +9,7 @@ extern "C" {
 void TLobby__sub_8020A568(void* p);
 void bswap__6TLobbyFPv(void* p);
 void TLobby__sub_8020A618(void *arg0, void *arg1);
-void TLobby__sub_8020A674(void* p);
+void swap_endian_header__6TLobbyFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 
@@ -31,6 +31,6 @@ void TLobby__sub_8020A618(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
 }
 
-void TLobby__sub_8020A674(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
+void swap_endian_header__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
 
 }

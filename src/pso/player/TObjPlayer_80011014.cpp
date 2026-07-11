@@ -8,7 +8,7 @@ extern "C" {
 
 f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 s32 TOBoss4Rock__sub_8039C880();
-f32 TObjPlayer__sub_800196A4(s32);
+f32 calc_random_ratio__10TObjPlayerFv(s32);
 
 s32 get_main_phase();
 extern M2C_UNK TObjPlayer__data_80434080;
@@ -18,7 +18,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0) {
     if (get_main_phase() == 0xE) {
         return lbl_805D7D38 * (f32) TOBoss4Rock__sub_8039C880();
     }
-    return TObjPlayer__sub_800196A4(arg0 + 0x160);
+    return calc_random_ratio__10TObjPlayerFv(arg0 + 0x160);
 }
 
 }

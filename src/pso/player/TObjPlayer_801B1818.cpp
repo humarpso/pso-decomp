@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void* draw_font__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801B1848(s32 arg0);
+void notify_field1c__10TObjPlayerFi(s32 arg0);
 int TObjPlayer__sub_801B189C(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
 int TObjPlayer__sub_80019734(void*);
@@ -18,7 +18,7 @@ s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 
 void* draw_font__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
-void TObjPlayer__sub_801B1848(s32 arg0) {
+void notify_field1c__10TObjPlayerFi(s32 arg0) {
     s8 sp8[8];
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {

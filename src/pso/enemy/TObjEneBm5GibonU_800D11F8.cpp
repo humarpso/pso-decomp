@@ -8,13 +8,13 @@ extern "C" {
 
 void TObjEneBm5GibonU__sub_800D11F8(void);
 void set_state__16TObjEneBm5GibonUFPv(void* p);
-void TObjEneBm5GibonU__sub_800D122C(void *arg0);
+void set_anim_hit__16TObjEneBm5GibonUFPv(void *arg0);
 void TObjEneBm5GibonU__sub_800D1264(void);
 int TObjEneDD__sub_800BBA18(void*, void*);
 
 void TObjEneBm5GibonU__sub_800D11F8(void) {  }
 void set_state__16TObjEneBm5GibonUFPv(void* p) { if (*(short*)((char*)p + 0x326) != 16) { TObjEneDD__sub_800BBA18(p, (void*)16); } }
-void TObjEneBm5GibonU__sub_800D122C(void *arg0) {
+void set_anim_hit__16TObjEneBm5GibonUFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

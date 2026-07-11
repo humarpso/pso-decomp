@@ -7,9 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void render__17TWindowChatSymbolFv(u8 *arg0);
 u8 *fn_80244CF4();
 M2C_UNK fn_80245808(void *, void *);
 M2C_UNK fn_80257BC0(void *, void *, void *, f32, f32, f32);
+
 extern M2C_UNK lbl_8044EAB8;
 extern const f32 lbl_805DCB7C;
 extern const f32 lbl_805DCB94;

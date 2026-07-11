@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_802E15FC(void);
+s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void);
 s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1530(M2C_UNK);
@@ -25,7 +25,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802E1594();
 s32 TAdSinglePlyChrSelectGC__sub_802E15C8();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802E1F14(void *);
 
-s32 TAdSinglePlyChrSelectGC__sub_802E15FC(void) {
+s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void) {
     return (u32) __cntlzw((u32) TAdPlayerLoadGC__sub_801E24F8(0, 0, 0, 0, 0)) >> 5;
 }
 

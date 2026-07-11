@@ -21,10 +21,10 @@ int fn_801B4020(void* p);
 int fn_801B4044(void* p);
 int TObjPlayer__sub_801BF500(void*);
 int TObjPlayer__sub_801BF524(void*);
-int TObjPlayer__sub_801C5BC8(void*);
+int reset_ring__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801C5C0C(void*);
 
-int fn_801B3FD8(void* p) { return TObjPlayer__sub_801C5BC8((char*)p + 0x63c); }
+int fn_801B3FD8(void* p) { return reset_ring__10TObjPlayerFPv((char*)p + 0x63c); }
 int fn_801B3FFC(void* p) { return TObjPlayer__sub_801C5C0C((char*)p + 0x63c); }
 int fn_801B4020(void* p) { return TObjPlayer__sub_801BF500((char*)p + 0x63c); }
 int fn_801B4044(void* p) { return TObjPlayer__sub_801BF524((char*)p + 0x63c); }

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss2DeRolLe__sub_800343B4(void *arg0);
+void free_laser__13TBoss2DeRolLeFPv(void *arg0);
 void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0);
 M2C_UNK TBoss2LaserLight__sub_80037474(void *);
 M2C_UNK TBoss2LaserLight__sub_80037480(void *);
 
-void TBoss2DeRolLe__sub_800343B4(void *arg0) {
+void free_laser__13TBoss2DeRolLeFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6B8) != 0U) {
         TBoss2LaserLight__sub_80037474(M2C_FIELD(arg0, void **, 0x6B8));
     }

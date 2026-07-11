@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0);
-M2C_UNK TAdMcSelectGC__sub_80329DA4();
+M2C_UNK update_state__13TAdMcSelectGCFv();
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
 s32 TWindowSubComCard__sub_8007341C(u32);
 s32 TWindowSubComCard__sub_80073DB8(u32);
@@ -38,7 +38,7 @@ void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0) {
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {
                     fn_801F8FD4(M2C_FIELD(arg0, void **, 0x28C));
                 }
-                TAdMcSelectGC__sub_80329DA4();
+                update_state__13TAdMcSelectGCFv();
                 TQuestVmDownLoadServer__sub_801F6E08(arg0, fn_80132F2C(0x29, 1), 1);
                 M2C_FIELD(arg0, s32 *, 0x2A0) = 4;
                 return;
@@ -54,7 +54,7 @@ block_12:
             if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {
                 fn_801F8FD4(M2C_FIELD(arg0, void **, 0x28C));
             }
-            TAdMcSelectGC__sub_80329DA4();
+            update_state__13TAdMcSelectGCFv();
             TQuestVmDownLoadServer__sub_801F6E08(arg0, fn_80132F2C(0x29, 1), 1);
             M2C_FIELD(arg0, s32 *, 0x2A0) = 4;
         }

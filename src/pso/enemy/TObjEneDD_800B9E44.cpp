@@ -3,7 +3,7 @@
 extern "C" {
 
 int fn_800F7478(void*);
-void TObjEneDD__sub_800B9ED0(void* p);
+void reset_hp__9TObjEneDDFPv(void* p);
 int TObjEneDD__sub_800B9E44(void* p);
 int TObjEneDD__sub_800B9E64(void* p);
 int TObjEneDD__sub_800B9F04(void* p);

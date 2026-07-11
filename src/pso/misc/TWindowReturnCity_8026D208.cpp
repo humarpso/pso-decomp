@@ -18,10 +18,10 @@ struct VObj_8026D208 : Base_8026D208 {
 
 extern "C" {
 
-s32 TWindowReturnCity__sub_8026D208(void *arg0);
+s32 query_battle_state__17TWindowReturnCityFPv(void *arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
-s32 TWindowReturnCity__sub_8026D208(void *arg0) {
+s32 query_battle_state__17TWindowReturnCityFPv(void *arg0) {
     struct VObj_8026D208 *o = (struct VObj_8026D208 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24));
     if (o == NULL) {
         return 0;
