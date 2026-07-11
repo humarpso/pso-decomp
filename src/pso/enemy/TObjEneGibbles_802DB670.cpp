@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_params__14TObjEneGibblesFPv(void *arg0);
-void * TObjEneGibbles__sub_802DB708(void *arg0);
+void * create__14TObjEneGibblesFPv(void *arg0);
 void TObjEneGibbles__sub_802DB770(void);
 void *TObjControl__ct(void *, void *);
 void *TObjEneGibbles__ct(void *, void *, void *);
@@ -39,7 +39,7 @@ void init_params__14TObjEneGibblesFPv(void *arg0) {
 
 extern void *tl_04;
 
-void * TObjEneGibbles__sub_802DB708(void *arg0) {
+void * create__14TObjEneGibblesFPv(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

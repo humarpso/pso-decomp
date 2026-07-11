@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm5Wolf__sub_800B7BBC(void *arg0, f32 farg0);
+void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0);
 
-void TObjEneBm5Wolf__sub_800B7BBC(void *arg0, f32 farg0) {
+void approach_target__14TObjEneBm5WolfFPvf(void *arg0, f32 farg0) {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f1_2;

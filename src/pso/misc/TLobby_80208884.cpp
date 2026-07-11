@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_80208884(void* a0);
 void TLobby__sub_80208898(int a0);
-void TLobby__sub_802088A0(void *arg0);
+void spawn_destroy_event__6TLobbyFPv(void *arg0);
 void TLobby__sub_80208900(void);
 s32 TLobby__sub_80209104();
 M2C_UNK TNpcPlayer__sub_8034E5A8(s16);
@@ -24,7 +24,7 @@ void TLobby__sub_80208898(int a0) { lbl_805D6090 = a0; }
 
 extern s32 tl_01;
 
-void TLobby__sub_802088A0(void *arg0) {
+void spawn_destroy_event__6TLobbyFPv(void *arg0) {
     void *obj;
 
     if (TLobby__sub_80209104() != -1) {

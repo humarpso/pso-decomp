@@ -121,7 +121,7 @@ s32 TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK update_angle__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
 M2C_UNK TObjEneMe1Gee__sub_800CBEC4(void *);
-M2C_UNK TObjEneDD__sub_800B99D8(void *);
+M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK fn_80143504();
 
 extern const f32 TObjEneMe1Gee__data_805DA0A8;
@@ -160,7 +160,7 @@ void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1) {
             break;
         case 1:
             TObjEneEpsilon__sub_800B9680(arg0, (u8 *)arg0 + 0x50);
-            TObjEneDD__sub_800B99D8(arg0);
+            update_velocity__9TObjEneDDFPv(arg0);
             update_angle__13TObjEneMe1GeeFPv(arg0);
             TObjEneMe1Gee__sub_800CBEC4(arg0);
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805DA0CC) {

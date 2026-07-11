@@ -2,11 +2,11 @@
 
 extern "C" {
 
-s32 TAdMultiPlyChrSelectGC__sub_802C6A68(void);
+s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32);
 
-s32 TAdMultiPlyChrSelectGC__sub_802C6A68(void) {
+s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void) {
     s32 var_r31;
 
     var_r31 = 0;

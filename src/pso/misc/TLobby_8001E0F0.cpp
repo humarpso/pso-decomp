@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_8001E0F0(s32 arg0, s32 arg1);
-M2C_UNK TLobby__sub_8001E14C(s32, s32);
+M2C_UNK copy_data__6TLobbyFPvPv(s32, s32);
 s32 TLobby__sub_8001E1B8();
 s32 TLobby__sub_8001E2A8(s32, s32);
 
@@ -17,7 +17,7 @@ void TLobby__sub_8001E0F0(s32 arg0, s32 arg1) {
     if (TLobby__sub_8001E1B8() != 0) {
         var_r31 = 0;
         do {
-            TLobby__sub_8001E14C(TLobby__sub_8001E2A8(var_r31, arg0), arg1);
+            copy_data__6TLobbyFPvPv(TLobby__sub_8001E2A8(var_r31, arg0), arg1);
             var_r31 += 1;
         } while (var_r31 < 4);
     }

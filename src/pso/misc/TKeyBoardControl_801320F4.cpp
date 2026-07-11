@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TKeyBoardControl__sub_801320F4(void);
+void disable_disconnected_ports__16TKeyBoardControlFv(void);
 s32 check_input_ready__16TKeyBoardControlFi(s32 arg0);
 s32 TKeyBoardControl__sub_801321B4(s32);
 s32 TKeyBoardControl__sub_801322E4(s32);
@@ -14,7 +14,7 @@ s32 TKeyBoardControl__sub_80132310(void);
 M2C_UNK fn_803F0E90(s32, M2C_UNK);
 s32 fn_803F1604(s32, M2C_UNK *);
 
-void TKeyBoardControl__sub_801320F4(void) {
+void disable_disconnected_ports__16TKeyBoardControlFv(void) {
     M2C_UNK sp8;
     s32 temp_r3;
     s32 var_r31;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjTombstone__sub_80075008(void *arg0);
+s32 check_owner__13TObjTombstoneFPv(void *arg0);
 s32 TObjPlayer__sub_800196EC();
 s32 fn_80070AB0();
 s32 fn_80293080();
@@ -15,7 +15,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 void handle_6x96(void);
 
 void handle_6x96(void) {  }
-s32 TObjTombstone__sub_80075008(void *arg0) {
+s32 check_owner__13TObjTombstoneFPv(void *arg0) {
     s32 var_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {

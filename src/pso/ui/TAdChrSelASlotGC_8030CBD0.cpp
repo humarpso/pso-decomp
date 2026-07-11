@@ -8,7 +8,7 @@ extern "C" {
 
 void TAdChrSelASlotGC__sub_8030CBD0(void);
 void TAdChrSelASlotGC__sub_8030CBD4(void);
-void TAdChrSelASlotGC__sub_8030CBD8(void *arg0);
+void update_load_state__16TAdChrSelASlotGCFPv(void *arg0);
 void TAdChrSelASlotGC__sub_8030CC34(void *arg0);
 void TAdChrSelASlotGC__sub_8030CC6C(void *arg0);
 void TAdChrSelASlotGC__sub_8030CCA8(void *arg0);
@@ -20,7 +20,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8020051C();
 
 void TAdChrSelASlotGC__sub_8030CBD0(void) {  }
 void TAdChrSelASlotGC__sub_8030CBD4(void) {  }
-void TAdChrSelASlotGC__sub_8030CBD8(void *arg0) {
+void update_load_state__16TAdChrSelASlotGCFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_80076BBC() == 0) {
         if ((u32) (TAdPlayerLoadGC__sub_801E1530(0) + 0x10000) == 0xFF81U) {
             M2C_FIELD(arg0, s32 *, 0x24) = 0x13;

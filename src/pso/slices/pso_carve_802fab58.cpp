@@ -9,7 +9,7 @@ extern "C" {
 s32 TBoss8Dragon__sub_802FAAB0(void *, s32, M2C_UNK);
 s32 TBoss8Dragon__sub_802FC88C(void *);
 
-u8 TBoss8Dragon__sub_802FAB58(void *arg0) {
+u8 check_attack_ready__12TBoss8DragonFPv(void *arg0) {
     u8 var_r31;
 
     var_r31 = 0;

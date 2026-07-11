@@ -10,7 +10,7 @@ struct VObj_802CD5C0 : Base_802CD5C0 {
 
 extern "C" {
 
-void * TObjEneMe1GiGue__sub_802CD558(void *arg0);
+void * create__15TObjEneMe1GiGueFPv(void *arg0);
 void delete_barrier__15TObjEneMe1GiGueFv(void);
 void *TObjControl__ct(void *, void *);
 M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC0();
@@ -21,7 +21,7 @@ M2C_UNK fn_802CE4E8();
 
 extern void *tl_04;
 
-void * TObjEneMe1GiGue__sub_802CD558(void *arg0) {
+void * create__15TObjEneMe1GiGueFPv(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjBoss2Tunnel__sub_8007E664(void *arg0);
+s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0);
 
-s32 TObjBoss2Tunnel__sub_8007E664(void *arg0) {
+s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0) {
     s32 temp_r3;
     s32 var_r31;
 
@@ -19,7 +19,7 @@ s32 TObjBoss2Tunnel__sub_8007E664(void *arg0) {
             var_r31 += 1;
         }
         if (!(temp_r3 & 0x10)) {
-            var_r31 += TObjBoss2Tunnel__sub_8007E664(M2C_FIELD(arg0, void **, 0x2C));
+            var_r31 += count_active_segments__15TObjBoss2TunnelFPv(M2C_FIELD(arg0, void **, 0x2C));
         }
         arg0 = M2C_FIELD(arg0, void **, 0x30);
     } while (arg0 != NULL);

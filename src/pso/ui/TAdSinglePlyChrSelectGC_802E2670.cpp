@@ -52,7 +52,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2728(s32 arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
     TAdSinglePlyChrSelectGC__sub_802E195C((void*)(arg0), (void*)(5), (void*)(-1), (void*)(-1), (void*)(-1));
 }
-void TAdSinglePlyChrSelectGC__sub_802E2790(void *arg0) {
+void update_close_timer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x64) = (s32) (M2C_FIELD(arg0, s32 *, 0x64) - 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x64) < 0) {
         M2C_FIELD(arg0, s32 *, 0x64) = 0;

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneDelDepth__sub_80313C64(void *arg0);
-void TObjEneDelDepth__sub_80313CC0(void *arg0);
+void init_state__15TObjEneDelDepthFPv(void *arg0);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, M2C_UNK);
 s32 fn_8031624C();
 M2C_UNK fn_80316488(s32, M2C_UNK);
@@ -25,7 +25,7 @@ void TObjEneDelDepth__sub_80313C64(void *arg0) {
 
 extern const f32 TObjEneDelDepth__data_805DF260;
 
-void TObjEneDelDepth__sub_80313CC0(void *arg0) {
+void init_state__15TObjEneDelDepthFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFBFFFF);
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) TObjEneDelDepth__data_805DF260;
     M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) TObjEneDelDepth__data_805DF260;

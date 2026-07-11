@@ -9,14 +9,14 @@ extern "C" {
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
 M2C_UNK TObjEneEpsilon__sub_800B96A4();
 f64 fn_80019760(f32, f32);
-M2C_UNK TObjEneDD__sub_800B99D8(void *);
+M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 s32 fn_801423A4(s32, s32, M2C_UNK);
 
 extern const f64 TObjEneRe4Sorcerer__data_8043D408;
 
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();
-    TObjEneDD__sub_800B99D8(arg0);
+    update_velocity__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x60) = fn_801423A4(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneRe4Sorcerer__data_8043D408 * fn_80019760(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0xA00);
 }
 

@@ -13,14 +13,14 @@ M2C_UNK TObjTombstone__sub_80075DFC(void *);
 s32 TObjTombstone__sub_80076098(void *);
 M2C_UNK TObjTombstone__sub_80076190(void *);
 void __dl__7TObjectFPv(void *);
-s32 TObjTombstone__sub_80075008();
+s32 check_owner__13TObjTombstoneFPv();
 void fn_80156990(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_805D4E4C;
 
 void run_task__13TObjTombstoneFv(void *arg0) {
-    if (TObjTombstone__sub_80075008() != 0) {
+    if (check_owner__13TObjTombstoneFPv() != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

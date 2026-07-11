@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TAdPlyStatusGC__sub_8033FD48(s32 arg0, s32 arg1);
+u32 get_instance__14TAdPlyStatusGCFii(s32 arg0, s32 arg1);
 u32 TAdPlyStatusGC__ct(u32, s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
 extern u32 lbl_805D6DA8;
 
-u32 TAdPlyStatusGC__sub_8033FD48(s32 arg0, s32 arg1) {
+u32 get_instance__14TAdPlyStatusGCFii(s32 arg0, s32 arg1) {
     u32 var_r0;
 
     if ((u32) lbl_805D6DA8 == 0U) {

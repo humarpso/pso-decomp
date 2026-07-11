@@ -9,7 +9,7 @@ extern "C" {
 void TAdChrSelPlayerGC__ct(void *arg0, s32 arg1);
 s32 TOBoss4Rock__sub_80147AA8(M2C_UNK);
 M2C_UNK fn_802E0CB0(void *, s32);
-M2C_UNK TAdPlyStatusGC__sub_8033FD48(void *, s32);
+M2C_UNK get_instance__14TAdPlyStatusGCFii(void *, s32);
 
 extern s32 lbl_805D3F78;
 
@@ -21,7 +21,7 @@ void TAdChrSelPlayerGC__ct(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x104) = arg1;
     M2C_FIELD(arg0, s32 *, 0x170) = 0;
     M2C_FIELD(arg0, s32 *, 0xE0) = TOBoss4Rock__sub_80147AA8(0xC00);
-    TAdPlyStatusGC__sub_8033FD48(arg0, arg1);
+    get_instance__14TAdPlyStatusGCFii(arg0, arg1);
     fn_802E0CB0(arg0, M2C_FIELD(arg0, s32 *, 0x104));
 }
 

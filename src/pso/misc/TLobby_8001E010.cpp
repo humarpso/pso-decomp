@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8001E010(s32 arg0, s32 arg1);
+void copy_all_entries__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK copy_from__6TLobbyFPvPv(s32, s32);
 s32 TLobby__sub_8001E1B8();
 s32 TLobby__sub_8001E270(s32, s32);
 
-void TLobby__sub_8001E010(s32 arg0, s32 arg1) {
+void copy_all_entries__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 var_r31;
 
     if (TLobby__sub_8001E1B8() != 0) {

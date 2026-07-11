@@ -122,7 +122,7 @@ struct V_A : Base_A {
     virtual void m100();
 };
 
-extern "C" void TObjEneMe3Stelth__sub_800F2B8C(void *arg0, s32 arg1) {
+extern "C" void handle_message__16TObjEneMe3StelthFPvi(void *arg0, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {
