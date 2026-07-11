@@ -2,9 +2,10 @@
 
 extern "C" {
 
-int bswap_16__FPUs(void*);
+int TObjPlayer__sub_8001960C(void* a0 = 0);
+int bswap_16__FPUs(void* a0 = 0);
+void fn_8003F110(void* p);
 int bswap_32__FPUl(void*);
-int TObjPlayer__sub_8001960C(void*);
 int TLobby__send_and_handle_60(void*);
 int fn_8003F0E8(void* p);
 s32 fn_8003F108(void* p);
@@ -16,7 +17,7 @@ int fn_80154B28(void*);
 
 int fn_8003F0E8(void* p) { return fn_80154B28(p); }
 s32 fn_8003F108(void* p) { return *(s32*)((char*)p + 0x3e0); }
-int fn_8003F110(void) { return 0; }
+void fn_8003F110(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); { int i; for (i = 0; i < 7; i++) { bswap_16__FPUs((char*)p + 0x6 + i * 2); } } }
 void fn_8003F168(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0xc); bswap_16__FPUs((char*)p + 0xa); bswap_16__FPUs((char*)p + 0xe); }
 void fn_8003F1AC(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x10); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
 void fn_8003F1F8(void* p) { fn_8003F1AC(p); TLobby__send_and_handle_60(p); }
