@@ -19,18 +19,18 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FEB40();
 s32 TAdSinglePlyChrSelectGC__sub_802012AC();
 s32 TAdPlayerLoadGC__sub_80076BBC();
-s32 TAdSinglePlyChrSelectGC__sub_802E1BF4(void *);
+s32 close_windows__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void *);
 int start_load__23TAdSinglePlyChrSelectGCFv(void*);
 int TAdSinglePlyChrSelectGC__sub_802E195C(void*, void*, void*, void*, void*);
-int TAdSinglePlyChrSelectGC__sub_802E1C6C(void*);
+int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
 void TAdSinglePlyChrSelectGC__sub_802E2848(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p);
 
 void TAdSinglePlyChrSelectGC__sub_802E2670(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x44) & 2) && (TAdPlayerLoadGC__sub_80076BBC() == 0)) {
-        TAdSinglePlyChrSelectGC__sub_802E1BF4(arg0);
+        close_windows__23TAdSinglePlyChrSelectGCFPv(arg0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 0) {
             M2C_FIELD(arg0, s32 *, 0x3C) = 1;
             TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0);
@@ -49,7 +49,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2728(s32 arg0) {
         TAdSinglePlyChrSelectGC__sub_802E1DF8((void *)(arg0), 0);
         return;
     }
-    TAdSinglePlyChrSelectGC__sub_802E1C6C((void*)(arg0));
+    create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
     TAdSinglePlyChrSelectGC__sub_802E195C((void*)(arg0), (void*)(5), (void*)(-1), (void*)(-1), (void*)(-1));
 }
 void TAdSinglePlyChrSelectGC__sub_802E2790(void *arg0) {
@@ -62,7 +62,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2790(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x64) = 0;
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x64) == 0) {
-            TAdSinglePlyChrSelectGC__sub_802E1BF4(arg0);
+            close_windows__23TAdSinglePlyChrSelectGCFPv(arg0);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x38) = 1;
                 TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0);
@@ -70,7 +70,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2790(void *arg0) {
         }
     }
 }
-void TAdSinglePlyChrSelectGC__sub_802E2848(void* p) { start_load__23TAdSinglePlyChrSelectGCFv(p); TAdSinglePlyChrSelectGC__sub_802E1C6C(p); TAdSinglePlyChrSelectGC__sub_802E195C(p, (void*)4, (void*)-1, (void*)-1, (void*)-1); *(int*)((char*)p + 0x64) = 30; }
+void TAdSinglePlyChrSelectGC__sub_802E2848(void* p) { start_load__23TAdSinglePlyChrSelectGCFv(p); create_backgrounds__23TAdSinglePlyChrSelectGCFPv(p); TAdSinglePlyChrSelectGC__sub_802E195C(p, (void*)4, (void*)-1, (void*)-1, (void*)-1); *(int*)((char*)p + 0x64) = 30; }
 void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x64) = (s32) (M2C_FIELD(arg0, s32 *, 0x64) - 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x64) < 0) {
@@ -81,7 +81,7 @@ void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x64) = 0;
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x64) == 0) {
-            TAdSinglePlyChrSelectGC__sub_802E1BF4(arg0);
+            close_windows__23TAdSinglePlyChrSelectGCFPv(arg0);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x34) = 1;
                 TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0);
@@ -97,7 +97,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2954(void *arg0) {
     }
     TAdSinglePlyChrSelectGC__sub_801FD990(fn_8001C5E8());
     TAdSinglePlyChrSelectGC__sub_80202BA8(0xF);
-    TAdSinglePlyChrSelectGC__sub_802E1C6C((void*)(arg0));
+    create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0));
     TAdSinglePlyChrSelectGC__sub_802E195C((void*)(arg0), (void*)(3), (void*)(-1), (void*)(-1), (void*)(-1));
     M2C_FIELD(arg0, s32 *, 0x64) = 0x1E;
 }
@@ -111,7 +111,7 @@ void update_char_timer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x64) = 0;
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x64) == 0) {
-            TAdSinglePlyChrSelectGC__sub_802E1BF4(arg0);
+            close_windows__23TAdSinglePlyChrSelectGCFPv(arg0);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 0) {
                 TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0);
             }

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemDrop__sub_80106ED0(void *arg0, void *arg1);
+void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
 s32 TItemData__sub_8010DF68(void *);
 s32 TItemDrop__sub_801060F4();
 
 extern u8 lbl_805DAAE0;
 
-void TItemDrop__sub_80106ED0(void *arg0, void *arg1) {
+void set_flag__9TItemDropFPvPv(void *arg0, void *arg1) {
     u8 temp_r3;
 
     if ((TItemDrop__sub_801060F4() == 1) && ((u8) M2C_FIELD(arg1, u8 *, 0) == 0)) {

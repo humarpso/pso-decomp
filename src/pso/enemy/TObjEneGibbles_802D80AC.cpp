@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneGibbles__sub_802D80AC(void *arg0);
+void update_move_state__14TObjEneGibblesFPv(void *arg0);
 
 extern M2C_UNK TObjEneGibbles__data_80472790;
 extern f32 lbl_805DE80C;
 
-void TObjEneGibbles__sub_802D80AC(void *arg0) {
+void update_move_state__14TObjEneGibblesFPv(void *arg0) {
     s16 temp_r0;
     s16 temp_r6;
 

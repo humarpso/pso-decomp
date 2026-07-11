@@ -10,7 +10,7 @@ s32 TCameraCtrl__sub_8006B368();
 s32 TLobby__sub_80070078(void *);
 s32 fn_800739BC(void *);
 s32 fn_80076B14(void *);
-s32 TAdSinglePlyChrSelectGC__sub_801FF464();
+s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 fn_8026A328();
 int fn_8006FF98(void*);
 int fn_80070170(void*);
@@ -26,7 +26,7 @@ void fn_80070598(void *arg0) {
     if (fn_800704CC() == 0) {
         TLobby__sub_80070078(arg0);
         if (TCameraCtrl__sub_8006B368() != 0) {
-            TAdSinglePlyChrSelectGC__sub_801FF464();
+            init__23TAdSinglePlyChrSelectGCFv();
             fn_800739BC(arg0);
             fn_8026A328();
             fn_80076B14(arg0);

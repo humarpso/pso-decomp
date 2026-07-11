@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801E76E4(void);
+void create_help_window__6TLobbyFv(void);
 void TLobby__sub_801E7758(void);
 s32 TWindowHelpItem__ct(s32, s32, s32);
 s32 TWindowShortListCtrl__sub_80278E48(s32, M2C_UNK *, s32);
@@ -23,7 +23,7 @@ extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D5EBC;
 extern s32 TLobby__data_805D5EC0;
 
-void TLobby__sub_801E76E4(void) {
+void create_help_window__6TLobbyFv(void) {
     s32 var_r31;
 
     TLobby__data_805D5EBC = TWindowShortListCtrl__sub_80278E48(fn_8026CBB8(3), lbl_80449B2C, lbl_805D53A0);

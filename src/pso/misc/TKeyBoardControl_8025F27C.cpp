@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TKeyBoardControl__sub_8025F27C(void *arg0);
+s32 poll_input__16TKeyBoardControlFPv(void *arg0);
 u8 TKeyBoardControl__sub_80132404(M2C_UNK *);
 
 extern M2C_UNK TKeyBoardControl__data_80506270[];
 
-s32 TKeyBoardControl__sub_8025F27C(void *arg0) {
+s32 poll_input__16TKeyBoardControlFPv(void *arg0) {
     u8 temp_r3;
 
     if (M2C_FIELD(arg0, s32 *, 0x60) & 0x40) {

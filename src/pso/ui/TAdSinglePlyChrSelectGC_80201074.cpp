@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_80201074(void *arg0);
+s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
 
 extern M2C_UNK lbl_80513904[];
 
-s32 TAdSinglePlyChrSelectGC__sub_80201074(void *arg0) {
+s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_UNK sp10[4];
     s32 spC;
     s32 sp8;

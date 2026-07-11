@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_802E1CEC(s32 arg0);
+s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E0FA4(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2404(M2C_UNK, M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_802E1D5C(s32);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DC8();
 
-s32 TAdSinglePlyChrSelectGC__sub_802E1CEC(s32 arg0) {
+s32 check_capacity__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 temp_r29;
     s32 temp_r30;
     s32 temp_r31;

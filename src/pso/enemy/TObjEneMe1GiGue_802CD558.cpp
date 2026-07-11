@@ -11,7 +11,7 @@ struct VObj_802CD5C0 : Base_802CD5C0 {
 extern "C" {
 
 void * TObjEneMe1GiGue__sub_802CD558(void *arg0);
-void TObjEneMe1GiGue__sub_802CD5C0(void);
+void delete_barrier__15TObjEneMe1GiGueFv(void);
 void *TObjControl__ct(void *, void *);
 M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC0();
 void *TObjEneMe1GiGue__ct(void *, void *, void *);
@@ -38,7 +38,7 @@ void * TObjEneMe1GiGue__sub_802CD558(void *arg0) {
 extern u32 TObjEneMe1GiGue__data_805D6838;
 extern void *TObjEneMe1GiGue__data_805D683C;
 
-void TObjEneMe1GiGue__sub_802CD5C0(void) {
+void delete_barrier__15TObjEneMe1GiGueFv(void) {
     TObjEneMe1GiGueBarrier__sub_80325CC0();
     fn_802CE4E8();
     if (TObjEneMe1GiGue__data_805D683C != NULL) {

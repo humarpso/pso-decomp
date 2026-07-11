@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneGibbles__sub_802D80AC(void * a0 = 0);
+s32 update_move_state__14TObjEneGibblesFPv(void * a0 = 0);
 void TObjEneGibbles__sub_802D8034(void);
 
 int TObjEneGibbles__sub_802D7F94(void) { return 0; }

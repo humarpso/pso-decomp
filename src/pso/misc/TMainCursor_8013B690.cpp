@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TMainCursor__sub_8013B690(s32 arg0);
+s32 check_can_pickup__11TMainCursorFi(s32 arg0);
 u32 TMainCursor__sub_8013E2E4(s32);
 M2C_UNK TMainCursor__sub_8013E308(s32);
 s32 TPhotonMylla__sub_80154CB4();
@@ -14,7 +14,7 @@ s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
 
 s32 obj_testFlags30(M2C_UNK, M2C_UNK);
 
-s32 TMainCursor__sub_8013B690(s32 arg0) {
+s32 check_can_pickup__11TMainCursorFi(s32 arg0) {
     s32 temp_r3;
     u32 temp_r3b;
 

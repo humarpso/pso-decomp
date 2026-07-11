@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneGibbles__sub_802D7E58(u8 *arg0);
+void update_position__14TObjEneGibblesFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 extern const f32 TObjEneGibbles__data_805DE7E8;
 
-void TObjEneGibbles__sub_802D7E58(u8 *arg0) {
+void update_position__14TObjEneGibblesFPv(u8 *arg0) {
     s16 temp_r0;
 
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);

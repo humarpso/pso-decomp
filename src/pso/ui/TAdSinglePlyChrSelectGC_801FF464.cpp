@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_801FF464(void);
+s32 init__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200470();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802010E8();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BB8(M2C_UNK);
@@ -23,7 +23,7 @@ extern u32 lbl_805D5F58;
 extern u32 lbl_805D5F60;
 extern u32 lbl_805D5F64;
 
-s32 TAdSinglePlyChrSelectGC__sub_801FF464(void) {
+s32 init__23TAdSinglePlyChrSelectGCFv(void) {
     fn_80242D2C();
     if (((u32) lbl_805D5F60 != 0U) && ((u32) lbl_805D5F64 != 0U) && ((u32) lbl_805D5F58 != 0U)) {
         if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) && (fn_801B0EE8() == 0) && (fn_80203284() != 1)) {

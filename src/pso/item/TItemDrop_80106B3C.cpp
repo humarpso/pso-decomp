@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemDrop__sub_80106B3C(s32 arg0, s32 arg1, s32 arg2);
+s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2);
 void TItemDrop__sub_80106BB4(s32 arg0, s32 arg1, void *arg2);
 void TItemDrop__sub_80106C40(void *arg0, void *arg1);
 void TItemDrop__sub_80106C88(void* p, void* a1);
@@ -22,7 +22,7 @@ M2C_UNK init__9TItemDataFv(void *);
 
 extern s32 *TItemDrop__data_805D5464;
 
-s32 TItemDrop__sub_80106B3C(s32 arg0, s32 arg1, s32 arg2) {
+s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2) {
     if ((can_drop__9TItemDropFv() == 1) && ((s32 *) TItemDrop__data_805D5464 != NULL) && (arg1 > 0) && (arg1 < 0x58)) {
         return TItemDrop__sub_80107460(arg0, *TItemDrop__data_805D5464 + (arg1 * 4), arg2);
     }

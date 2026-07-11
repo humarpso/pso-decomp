@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneGibbles__sub_802D8274(void *arg0);
+void set_motion__14TObjEneGibblesFPv(void *arg0);
 M2C_UNK fn_800F6B14(void *);
 M2C_UNK TLobby__sub_8020C5A4(void *);
 
-void TObjEneGibbles__sub_802D8274(void *arg0) {
+void set_motion__14TObjEneGibblesFPv(void *arg0) {
     void *temp_r4;
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9) {

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_802E1BF4(void *arg0);
+void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK fn_802E11BC(void *);
 
-void TAdSinglePlyChrSelectGC__sub_802E1BF4(void *arg0) {
+void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x50));
         M2C_FIELD(arg0, u32 *, 0x50) = 0U;

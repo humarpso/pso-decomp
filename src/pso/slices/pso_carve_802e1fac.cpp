@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_802E18EC(void);
+s32 apply_settings__23TAdSinglePlyChrSelectGCFi(void);
 s32 TAdSinglePlyChrSelectGC__sub_802E18C8(void);
 s32 TAdSinglePlyChrSelectGC__sub_802E1F14(void);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void * a0 = 0, s32 a1 = 0);
 s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv(void * a0 = 0);
 s32 fn_802E147C(void);
 int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
-int TAdSinglePlyChrSelectGC__sub_802E1BF4(void*);
+int close_windows__23TAdSinglePlyChrSelectGCFPv(void*);
 
 int TAdSinglePlyChrSelectGC__sub_802E1FAC(void) { return 0; }
 

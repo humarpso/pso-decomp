@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TKeyBoardControl__sub_801A584C(void);
+s32 check_reset_button__16TKeyBoardControlFv(void);
 
 s32 OSGetResetButtonState();
 extern u8 lbl_805D5D0A;
 
-s32 TKeyBoardControl__sub_801A584C(void) {
+s32 check_reset_button__16TKeyBoardControlFv(void) {
     if (OSGetResetButtonState() != 0) {
         lbl_805D5D0A = 1;
     }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneGibbles__sub_802D80AC(void * a0 = 0);
+s32 update_move_state__14TObjEneGibblesFPv(void * a0 = 0);
 void TObjEneGibbles__sub_802D8034(void);
 
 void TObjEneGibbles__sub_802D8034(void) {  }
-void TObjEneGibbles__sub_802D8038(void *arg0) {
+void sync_state__14TObjEneGibblesFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
 
@@ -19,7 +19,7 @@ void TObjEneGibbles__sub_802D8038(void *arg0) {
     case 0x0:
         break;
     default:
-        TObjEneGibbles__sub_802D80AC(arg0);
+        update_move_state__14TObjEneGibblesFPv(arg0);
     case 0x107:
     case 0x10E:
         if (M2C_FIELD(arg0, s32 *, 0x374) & 4) {

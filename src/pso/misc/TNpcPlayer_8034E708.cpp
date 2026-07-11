@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TNpcPlayer__sub_8034E708(s32 arg0, void *arg1, s32 arg2);
+void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2);
 M2C_UNK TObjPlayer__sub_801C5F54(s32, s32, f32, f32, f32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TTecLuker__sub_801BAB1C(s32, s32);
@@ -15,7 +15,7 @@ u16 fn_80152F48(s32);
 s32 obj_isState3_324();
 s32 obj_getField1c(s32);
 
-void TNpcPlayer__sub_8034E708(s32 arg0, void *arg1, s32 arg2) {
+void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2) {
     s32 var_r31;
     s32 temp_r3;
 

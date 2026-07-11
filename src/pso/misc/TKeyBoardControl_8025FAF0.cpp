@@ -8,7 +8,7 @@ extern "C" {
 
 void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1);
 s32 TKeyBoardControl__sub_8025EDB4(void *, s32, u16 *);
-u32 TKeyBoardControl__sub_8025F27C(void *);
+u32 poll_input__16TKeyBoardControlFPv(void *);
 u8 TKeyBoardControl__sub_8025F2F8(void *, u8);
 s32 TKeyBoardControl__sub_8025F3D4(void *, s32, u8);
 s32 TKeyBoardControl__sub_8025F4A0();
@@ -29,7 +29,7 @@ void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x6C) = 7;
         return;
     }
-    if (TKeyBoardControl__sub_8025F27C(arg0) < 3U) {
+    if (poll_input__16TKeyBoardControlFPv(arg0) < 3U) {
         if (TKeyBoardControl__sub_8025F3D4(arg0, arg1, (u8) sp8) == 0) {
             sp8 = (u16) TKeyBoardControl__sub_8025F2F8(arg0, (u8) sp8);
             goto block_7;

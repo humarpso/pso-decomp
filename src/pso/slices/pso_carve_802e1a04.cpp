@@ -18,7 +18,7 @@ void * TAdSinglePlyChrSelectGC__sub_8001ED80(void);
 void TAdSinglePlyChrSelectGC__sub_802E195C(void* p, void* a1, void* a2, void* a3, void* a4);
 int TAdSinglePlyChrSelectGC__sub_802E1A04(void*, void*, void*, void*, void*);
 int TAdSinglePlyChrSelectGC__sub_802E1A8C(void*, void*, void*, void*, void*);
-int TAdSinglePlyChrSelectGC__sub_802E1BF4(void*);
+int close_windows__23TAdSinglePlyChrSelectGCFPv(void*);
 int TAdSinglePlyChrSelectGC__sub_802E18C8(void);
 int TKeyBoardControl__sub_8000F9CC(void*);
 

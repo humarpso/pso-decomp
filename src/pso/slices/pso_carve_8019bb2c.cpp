@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 s32 TAdStorySelectGC__sub_8019DC14();
 M2C_UNK fn_801F4830(M2C_UNK);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FF464();
+M2C_UNK init__23TAdSinglePlyChrSelectGCFv();
 s32 fn_80219EE8();
 
 void fn_8019BB2C(void) {
@@ -29,7 +29,7 @@ void fn_8019BB2C(void) {
         TKeyBoardControl__sub_8000F9CC(8);
         break;
     }
-    TAdSinglePlyChrSelectGC__sub_801FF464();
+    init__23TAdSinglePlyChrSelectGCFv();
 }
 
 }

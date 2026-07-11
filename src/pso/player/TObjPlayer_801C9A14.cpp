@@ -11,7 +11,7 @@ void TObjPlayer__sub_801C999C(void);
 void TObjPlayer__sub_801C9A14(void);
 
 void TObjPlayer__sub_801C9A14(void) {  }
-void TObjPlayer__sub_801C9A18(s32 arg0) {
+void set_motion__10TObjPlayerFi(s32 arg0) {
     if (fn_801BEAB0() != 0) {
         if (obj_testFlags30(arg0, 0x400) != 0) {
             TObjPlayer__sub_801D0BC0(arg0, 0xE, 5);

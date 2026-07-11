@@ -8,13 +8,13 @@ extern "C" {
 
 void TLobby__sub_801EC6C0(void);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK TLobby__sub_80211CE0();
+M2C_UNK handle_main_phase__6TLobbyFi();
 
 extern s32 lbl_805D53A0;
 
 void TLobby__sub_801EC6C0(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
-        TLobby__sub_80211CE0();
+        handle_main_phase__6TLobbyFi();
     }
 }
 

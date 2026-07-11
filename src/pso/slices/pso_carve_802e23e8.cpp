@@ -19,12 +19,12 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FEB40();
 s32 TAdSinglePlyChrSelectGC__sub_802012AC();
 s32 TAdPlayerLoadGC__sub_80076BBC();
-s32 TAdSinglePlyChrSelectGC__sub_802E1BF4(void *);
+s32 close_windows__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void *);
 int start_load__23TAdSinglePlyChrSelectGCFv(void*);
 int TAdSinglePlyChrSelectGC__sub_802E195C(void*, void*, void*, void*, void*);
-int TAdSinglePlyChrSelectGC__sub_802E1C6C(void*);
+int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
 void TAdSinglePlyChrSelectGC__sub_802E2848(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p);
 

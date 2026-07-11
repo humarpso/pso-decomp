@@ -7,7 +7,7 @@ void fn_80279444(void);
 s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
 s32 is_split_screen();
-s32 TAdSinglePlyChrSelectGC__sub_801FF464();
+s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 TAdSinglePlyChrSelectGC__sub_801FF4F0();
 
 void fn_80279444(void) {
@@ -16,7 +16,7 @@ void fn_80279444(void) {
         TKeyBoardControl__sub_8000F9CC(7);
         return;
     }
-    TAdSinglePlyChrSelectGC__sub_801FF464();
+    init__23TAdSinglePlyChrSelectGCFv();
     TKeyBoardControl__sub_8000F91C(9);
     TKeyBoardControl__sub_8000F9CC(0x12);
 }

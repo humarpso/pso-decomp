@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TKeyBoardControl__sub_801320F4(void);
-s32 TKeyBoardControl__sub_80132150(s32 arg0);
+s32 check_input_ready__16TKeyBoardControlFi(s32 arg0);
 s32 TKeyBoardControl__sub_801321B4(s32);
 s32 TKeyBoardControl__sub_801322E4(s32);
 s32 TKeyBoardControl__sub_80132310(void);
@@ -29,7 +29,7 @@ void TKeyBoardControl__sub_801320F4(void) {
     } while (var_r31 < 4);
 }
 
-s32 TKeyBoardControl__sub_80132150(s32 arg0) {
+s32 check_input_ready__16TKeyBoardControlFi(s32 arg0) {
     if (TKeyBoardControl__sub_80132310() != 0) {
         return 0;
     }

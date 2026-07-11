@@ -14,7 +14,7 @@ s32 fn_8001B41C();
 s32 fn_800F8FB8();
 M2C_UNK fn_801449E4();
 M2C_UNK fn_801449F0();
-s32 TKeyBoardControl__sub_801A584C();
+s32 check_reset_button__16TKeyBoardControlFv();
 s32 fn_801A6D60(void *, M2C_UNK);
 s8 fn_802A1144();
 s8 func_801A5E54__Fv();
@@ -55,14 +55,14 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
         if (fn_801A6D60(var_r31, 4) != 0) goto block_fn_8000F91C;
         if (fn_801A6D60(var_r31, 2) != 0) goto block_fn_8000F91C;
         if (fn_800F8FB8() == 0) goto block_fn_8000F91C;
-        if (TKeyBoardControl__sub_801A584C() != 0) goto block_fn_8000F91C;
+        if (check_reset_button__16TKeyBoardControlFv() != 0) goto block_fn_8000F91C;
         if (TMovie__sub_80143EFC(M2C_FIELD(arg0, s32 *, 0x20)) == 0) goto block_return0;
 block_fn_8000F91C:
         TKeyBoardControl__sub_8000F91C(9);
         return 1;
     case 1:
         var_r30 = 0;
-        if (TKeyBoardControl__sub_801A584C() != 0) {
+        if (check_reset_button__16TKeyBoardControlFv() != 0) {
             var_r30 = 1;
         }
         var_r31 = lbl_8050E3B8 + 0x20;

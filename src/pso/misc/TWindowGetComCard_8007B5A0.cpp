@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowGetComCard__sub_8007B5A0(s32 arg0, s32 arg1, s32 arg2);
+void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK fn_8007B26C(s32);
 M2C_UNK fn_803DE7BC(s32, s32, u32);
 
-void TWindowGetComCard__sub_8007B5A0(s32 arg0, s32 arg1, s32 arg2) {
+void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
 
     if (arg0 < (s32) (arg2 - 1)) {

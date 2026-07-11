@@ -10,7 +10,7 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0);
 s32 TOBoss4Rock__sub_80147AA8(s32);
 M2C_UNK clear_flag2c_bit100__15TWindowFukidasiFPv(void *);
 s32 fn_80228BEC(s32, M2C_UNK);
-M2C_UNK TWindowFukidasi__sub_80251964(void *, s16);
+M2C_UNK set_color__15TWindowFukidasiFPvUs(void *, s16);
 M2C_UNK fn_80252CA0(void *);
 
 M2C_UNK strncpy(s32, s32, s32);
@@ -34,7 +34,7 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x78) = 0;
     }
-    TWindowFukidasi__sub_80251964(arg0, arg1);
+    set_color__15TWindowFukidasiFPvUs(arg0, arg1);
     M2C_FIELD(arg0, f32 *, 0x80) = (f32) TWindowFukidasi__data_805DCD30;
     M2C_FIELD(arg0, f32 *, 0x7C) = farg0;
     M2C_FIELD(arg0, f32 *, 0x48) = (f32) TWindowFukidasi__data_805DCD30;

@@ -8,7 +8,7 @@ extern "C" {
 
 void TAdMultiPlyChrSelectGC__sub_802DC3D4(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DC51C(void *arg0);
+void handle_input__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
@@ -61,7 +61,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0) {
 
 extern s8 lbl_8050E3B8[];
 
-void TAdMultiPlyChrSelectGC__sub_802DC51C(void *arg0) {
+void handle_input__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     void *temp_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {

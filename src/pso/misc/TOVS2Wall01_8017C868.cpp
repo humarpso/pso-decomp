@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOVS2Wall01__sub_8017C868(void *arg0, s16 arg1);
+void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1);
 void TObjPlayer__sub_80154A00(void *);
 void __dl__7TObjectFPv(void *);
 void fn_80156720(void *);
@@ -13,7 +13,7 @@ void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_804B528C[];
 
-void *TOVS2Wall01__sub_8017C868(void *arg0, s16 arg1) {
+void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B528C;
         if (M2C_FIELD(arg0, void **, 0xC8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xC8)); M2C_FIELD(arg0, M2C_UNK *, 0xC8) = 0; }

@@ -18,12 +18,12 @@ void * TAdSinglePlyChrSelectGC__sub_8001ED80(void);
 void TAdSinglePlyChrSelectGC__sub_802E195C(void* p, void* a1, void* a2, void* a3, void* a4);
 int TAdSinglePlyChrSelectGC__sub_802E1A04(void*, void*, void*, void*, void*);
 int TAdSinglePlyChrSelectGC__sub_802E1A8C(void*, void*, void*, void*, void*);
-int TAdSinglePlyChrSelectGC__sub_802E1BF4(void*);
+int close_windows__23TAdSinglePlyChrSelectGCFPv(void*);
 int TAdSinglePlyChrSelectGC__sub_802E18C8(void);
 int TKeyBoardControl__sub_8000F9CC(void*);
 
 int TAdSinglePlyChrSelectGC__sub_802E18C8(void) { return TKeyBoardControl__sub_8000F9CC((void*)(0)); }
-void TAdSinglePlyChrSelectGC__sub_802E18EC(s32 arg0) {
+void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     void *temp_r3;
 
     temp_r3 = TAdSinglePlyChrSelectGC__sub_8001ED80();
@@ -39,7 +39,7 @@ void TAdSinglePlyChrSelectGC__sub_802E18EC(s32 arg0) {
     fn_8023F18C();
     fn_8023ED04();
 }
-void TAdSinglePlyChrSelectGC__sub_802E195C(void* p, void* a1, void* a2, void* a3, void* a4) { TAdSinglePlyChrSelectGC__sub_802E1BF4(p); TAdSinglePlyChrSelectGC__sub_802E1A04(p, a1, a2, a3, a4); }
-void TAdSinglePlyChrSelectGC__sub_802E19B0(void* p, void* a1, void* a2, void* a3, void* a4) { TAdSinglePlyChrSelectGC__sub_802E1BF4(p); TAdSinglePlyChrSelectGC__sub_802E1A8C(p, a1, a2, a3, a4); }
+void TAdSinglePlyChrSelectGC__sub_802E195C(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv(p); TAdSinglePlyChrSelectGC__sub_802E1A04(p, a1, a2, a3, a4); }
+void TAdSinglePlyChrSelectGC__sub_802E19B0(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv(p); TAdSinglePlyChrSelectGC__sub_802E1A8C(p, a1, a2, a3, a4); }
 
 }

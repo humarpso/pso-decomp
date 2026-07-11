@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void open_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-void TAdMultiPlyChrSelectGC__sub_802DE120(void *arg0);
+void init_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DE1AC(void* p);
 void close_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update__22TAdMultiPlyChrSelectGCFPv(void *arg0);
@@ -65,7 +65,7 @@ void open_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x20) = 0xC;
 }
 
-void TAdMultiPlyChrSelectGC__sub_802DE120(void *arg0) {
+void init_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x7C));
         M2C_FIELD(arg0, u32 *, 0x7C) = 0U;

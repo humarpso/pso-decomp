@@ -2,12 +2,12 @@
 
 extern "C" {
 
-void TObjEnePanarms__sub_800E066C(void* a0);
+void init_action__14TObjEnePanarmsFPv(void* a0);
 void fn_8002AE74(void*, s32);
 void TObjEnePanarms__sub_800E2EF0(void*, s32, s32);
 
     extern const float TObjEnePanarms__data_805DA524;
-void TObjEnePanarms__sub_800E066C(void* a0) {
+void init_action__14TObjEnePanarmsFPv(void* a0) {
     void* t = *(void**)((char*)a0 + 0x37c);
     *(int*)((char*)t + 0x18) = (*(int*)((char*)t + 0x18) | 0x1);
     TObjEnePanarms__sub_800E2EF0(a0, 0xf, 0x1e);

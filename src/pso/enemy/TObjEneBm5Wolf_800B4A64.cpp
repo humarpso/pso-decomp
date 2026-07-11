@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm5Wolf__sub_800B4A64(void *arg0);
+void update_state__14TObjEneBm5WolfFPv(void *arg0);
 M2C_UNK TObjEneBm5Wolf__sub_800B7EA0(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B7F60(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B8570(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B85A0(void *);
 s32 fn_800BB858();
 
-void TObjEneBm5Wolf__sub_800B4A64(void *arg0) {
+void update_state__14TObjEneBm5WolfFPv(void *arg0) {
     s32 temp_r31;
 
     if (fn_800BB858() != 0) {

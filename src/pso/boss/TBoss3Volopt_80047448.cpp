@@ -48,7 +48,7 @@ struct VObjB : BaseB {
 extern "C" {
 
 void set_action_wait__12TBoss3VoloptFPvUs(void *arg0, u16 arg1);
-void TBoss3Volopt__sub_800474CC(void *arg0, s16 arg1);
+void set_motion__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 void TBoss3Volopt__sub_8004753C(void *arg0);
 void set_action__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 void render__12TBoss3VoloptFPv(u8 *arg0);
@@ -83,7 +83,7 @@ void set_action_wait__12TBoss3VoloptFPvUs(void *arg0, u16 arg1) {
 
 s32 obj_testFlags30(void *, M2C_UNK);
 
-void TBoss3Volopt__sub_800474CC(void *arg0, s16 arg1) {
+void set_motion__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if ((obj_testFlags30(arg0, 0x800) == 0) && !(M2C_FIELD(arg0, s32 *, 0x388) & 0x10000) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9)) {
         M2C_FIELD(arg0, s16 *, 0x338) = arg1;
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);

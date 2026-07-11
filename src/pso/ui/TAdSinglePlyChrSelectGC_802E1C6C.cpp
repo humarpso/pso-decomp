@@ -4,12 +4,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_802E1C6C(void *arg0);
+void create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void TAdSinglePlyChrSelectGC__sub_802E1C6C(void *arg0) {
+void create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     void *o;
     void *o2;
     if (M2C_FIELD(arg0, void **, 0x48) == NULL) {
