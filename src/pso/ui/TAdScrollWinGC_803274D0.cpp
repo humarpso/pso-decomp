@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void close__14TAdScrollWinGCFPv(void *arg0);
 M2C_UNK close_window__14TAdScrollWinGCFPv();
 
 void close__14TAdScrollWinGCFPv(void *arg0) {

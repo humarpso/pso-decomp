@@ -4031,6 +4031,12 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TWindowSubComCard_8027515C.cpp"),
                 NonMatching("pso/object/TObjCHTimeWin_80074C94.cpp"),
                 NonMatching("pso/object/TObjCHTimeWin_80074CF0.cpp"),
+                NonMatching("pso/player/TObjPlayer_801B6194.cpp"),
+                NonMatching("pso/player/TObjPlayer_801B90C0.cpp"),
+                NonMatching("pso/player/TObjPlayer_801BFE1C.cpp"),
+                NonMatching("pso/player/TObjPlayer_801BFE40.cpp"),
+                NonMatching("pso/ui/TAdScrollWinGC_803274D0.cpp"),
+                NonMatching("pso/ui/TAdScrollWinGC_80327504.cpp"),
             ],
         },
         # ------------------------------------------------------------------

@@ -13582,29 +13582,8 @@ pso/player/TObjPlayer_801B5D38.cpp:
 pso/player/TObjPlayer_801B60BC.cpp:
 	.text       start:0x801B60BC end:0x801B6110
 
-pso/slices/pso_carve_801b6194.cpp:
-	.text       start:0x801B6194 end:0x801B61D4
-
-pso/slices/pso_carve_801b61d4.cpp:
-	.text       start:0x801B61D4 end:0x801B6218
-
-pso/slices/pso_carve_801b6218.cpp:
-	.text       start:0x801B6218 end:0x801B625C
-
-pso/slices/pso_carve_801b625c.cpp:
-	.text       start:0x801B625C end:0x801B62A0
-
-pso/slices/pso_carve_801b62a0.cpp:
-	.text       start:0x801B62A0 end:0x801B62E4
-
-pso/slices/pso_carve_801b62e4.cpp:
-	.text       start:0x801B62E4 end:0x801B6328
-
-pso/slices/pso_carve_801b6328.cpp:
-	.text       start:0x801B6328 end:0x801B636C
-
-pso/slices/pso_carve_801b636c.cpp:
-	.text       start:0x801B636C end:0x801B63AC
+pso/player/TObjPlayer_801B6194.cpp:
+	.text       start:0x801B6194 end:0x801B63AC
 
 pso/player/TObjPlayer_801B63AC.cpp:
 	.text       start:0x801B63AC end:0x801B6414
@@ -13657,11 +13636,8 @@ pso/player/TObjPlayer_801B8C78.cpp:
 pso/player/TObjPlayer_801B8D30.cpp:
 	.text       start:0x801B8D30 end:0x801B8D68
 
-pso/slices/pso_carve_801b90c0.cpp:
-	.text       start:0x801B90C0 end:0x801B91B0
-
-pso/slices/pso_carve_801b91b0.cpp:
-	.text       start:0x801B91B0 end:0x801B91F0
+pso/player/TObjPlayer_801B90C0.cpp:
+	.text       start:0x801B90C0 end:0x801B91F0
 
 pso/player/TObjPlayer_801B93F0.cpp:
 	.text       start:0x801B93F0 end:0x801B9544
@@ -13885,10 +13861,10 @@ pso/slices/pso_carve_801bfc90.cpp:
 pso/player/TObjPlayer_801BFCAC.cpp:
 	.text       start:0x801BFCAC end:0x801BFDD4
 
-pso/slices/pso_carve_801bfe1c.cpp:
+pso/player/TObjPlayer_801BFE1C.cpp:
 	.text       start:0x801BFE1C end:0x801BFE40
 
-pso/slices/pso_carve_801bfe40.cpp:
+pso/player/TObjPlayer_801BFE40.cpp:
 	.text       start:0x801BFE40 end:0x801BFE50
 
 pso/player/TObjPlayer_801BFE50.cpp:
@@ -24597,10 +24573,10 @@ pso/slices/pso_carve_803272f0.cpp:
 pso/ui/TAdScrollWinGC.cpp:
 	.text       start:0x803273F0 end:0x8032745C
 
-pso/slices/pso_carve_803274d0.cpp:
+pso/ui/TAdScrollWinGC_803274D0.cpp:
 	.text       start:0x803274D0 end:0x80327504
 
-pso/slices/pso_carve_80327504.cpp:
+pso/ui/TAdScrollWinGC_80327504.cpp:
 	.text       start:0x80327504 end:0x80327544
 
 pso/slices/pso_carve_80327b00.cpp:

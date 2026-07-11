@@ -6,11 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK add_stat_clamped__10TObjPlayerFiPvs(s32, s32, s16);
-void *fn_801D93C4();
+void set_scale_xyz__10TObjPlayerFPvf(void *arg0, f32 farg0);
 
-void add_dfp__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    add_stat_clamped__10TObjPlayerFiPvs(arg1, M2C_FIELD(arg0, s32 *, 0x2B0) + 8, M2C_FIELD(fn_801D93C4(), s16 *, 8));
+void set_scale_xyz__10TObjPlayerFPvf(void *arg0, f32 farg0) {
+    M2C_FIELD(arg0, f32 *, 0x14) = farg0;
+    M2C_FIELD(arg0, f32 *, 0x10) = farg0;
+    M2C_FIELD(arg0, f32 *, 0xC) = farg0;
 }
 
 }

@@ -6,12 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 obj_getPtr2B0_20(void *);
+s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1);
+void can_pickup_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 TItemObject__sub_80101A1C();
+M2C_UNK fn_80101CFC(s32, M2C_UNK *);
 s32 fn_8010CD6C(u8 *);
 u32 fn_8010ED0C(u8 *);
 u32 fn_801D4E10(void *, u8 *);
 void *fn_801D5764();
+
+s32 obj_getPtr2B0_20(void *);
 
 }
 
@@ -59,6 +63,13 @@ block_7:
         return 0;
     }
     return 1;
+}
+
+void can_pickup_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1) {
+    M2C_UNK sp8[5];
+
+    fn_80101CFC(arg1, sp8);
+    can_pickup_item__10TObjPlayerFPvPv((void *)(arg0), (u8 *)(sp8));
 }
 
 }
