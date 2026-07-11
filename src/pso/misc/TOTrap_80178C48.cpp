@@ -18,7 +18,7 @@ extern "C" {
 void TOTrap__vt80(void *arg0);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801B5200(s32);
+M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 M2C_UNK fn_80018E08();
 s32 fn_80019248();
@@ -41,7 +41,7 @@ void TOTrap__vt80(void *arg0) {
             if (v < 0x1000U) {
                 temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C(v);
                 if ((fn_80019248() != 0) && (fn_800495BC(temp_r31) != 0)) {
-                    TObjPlayer__sub_801B5200(temp_r31);
+                    send_code_45_1__10TObjPlayerFi(temp_r31);
                 }
             }
         }

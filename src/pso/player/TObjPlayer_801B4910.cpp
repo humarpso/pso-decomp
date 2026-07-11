@@ -15,7 +15,7 @@ s32 fn_80019248();
 s32 fn_800495BC(s32);
 s32 fn_80113F10(s32);
 M2C_UNK update_target__10TObjPlayerFi(s32);
-M2C_UNK TObjPlayer__sub_801B5200(s32);
+M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 M2C_UNK TObjPlayer__sub_801B6DF0(s32);
 s32 TObjPlayer__sub_801BF560(s32);
 M2C_UNK fn_801C68EC(s32);
@@ -27,7 +27,7 @@ void update_subsystems__10TObjPlayerFi(s32 arg0) {
         clear_action_flag__10TObjPlayerFPv(arg0);
         update_target__10TObjPlayerFi(arg0);
         if ((fn_800495BC(arg0) != 0) && (TObjPlayer__sub_801BF57C(arg0 + 0x730) >= 0) && (TObjPlayer__sub_801BF560(arg0 + 0x730) == 0)) {
-            TObjPlayer__sub_801B5200(arg0);
+            send_code_45_1__10TObjPlayerFi(arg0);
         }
         update_target_lock__10TObjPlayerFii(arg0 + 0x63C, arg0);
         if (fn_80113F10(arg0 + 0x5B0) != 0) {

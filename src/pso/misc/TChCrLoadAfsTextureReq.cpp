@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TChCrLoadAfsTextureReq__sub_8028C168(void *arg0);
+void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0);
 
 extern s32 lbl_805D64E0;
 
-void TChCrLoadAfsTextureReq__sub_8028C168(void *arg0) {
+void finish_request__22TChCrLoadAfsTextureReqFPv(void *arg0) {
     s32 temp_r0;
 
     if (((s32) M2C_FIELD(arg0, s32 *, 0x68) != 0) && ((s32) lbl_805D64E0 <= 3)) {

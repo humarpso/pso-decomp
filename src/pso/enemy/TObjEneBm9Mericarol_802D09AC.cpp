@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneBm9Mericarol__sub_802D09AC(void);
 void set_state_a__19TObjEneBm9MericarolFPv(void *arg0);
-void TObjEneBm9Mericarol__sub_802D09F4(void *arg0);
+void change_state__19TObjEneBm9MericarolFPv(void *arg0);
 void TObjEneBm9Mericarol__sub_802D0A2C(void);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 s32 fn_800BB780(void);
@@ -23,7 +23,7 @@ void set_state_a__19TObjEneBm9MericarolFPv(void *arg0) {
         TObjEneDD__sub_800BBA18(arg0, 0xA);
     }
 }
-void TObjEneBm9Mericarol__sub_802D09F4(void *arg0) {
+void change_state__19TObjEneBm9MericarolFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

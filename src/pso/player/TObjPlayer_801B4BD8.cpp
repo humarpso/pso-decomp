@@ -8,14 +8,14 @@ extern "C" {
 
 void clear_action_flag__10TObjPlayerFPv(void *arg0);
 M2C_UNK clear_flag_0x2__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B5200(void *);
+M2C_UNK send_code_45_1__10TObjPlayerFi(void *);
 u32 fn_801BE778(void *);
 s32 TObjPlayer__sub_801C2044(s32);
 
 void clear_action_flag__10TObjPlayerFPv(void *arg0) {
     if ((TObjPlayer__sub_801C2044(M2C_FIELD(arg0, s32 *, 0xD00) + 0x20) == 0) && (fn_801BE778(arg0) != 0U)) {
         clear_flag_0x2__10TObjPlayerFPv(arg0);
-        TObjPlayer__sub_801B5200(arg0);
+        send_code_45_1__10TObjPlayerFi(arg0);
     }
 }
 

@@ -9,7 +9,7 @@ extern "C" {
     int memset(void*, void*, void*);
     extern unsigned char lbl_8050DAD0[];
     extern int lbl_805D5878;
-void fn_8015472C(void) { memset(lbl_8050DAD0, (void*)0, (void*)128); lbl_805D5878 = 0; }
+void reset_global_table(void) { memset(lbl_8050DAD0, (void*)0, (void*)128); lbl_805D5878 = 0; }
 
 void fn_80154764(void *arg0, s32 arg1, u32 arg2) {
     arg0 = M2C_FIELD(arg0, void **, 0xA4);

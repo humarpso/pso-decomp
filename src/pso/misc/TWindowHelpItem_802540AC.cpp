@@ -9,7 +9,7 @@ extern "C" {
 void update_stat_disp__15TWindowHelpItemFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 TWindowHelpItem__sub_80104FCC(s32, M2C_UNK, M2C_UNK *);
-M2C_UNK TWindowHelpItem__sub_8025A238(s32, M2C_UNK);
+M2C_UNK set_flag_0x10__15TWindowHelpItemFPvi(s32, M2C_UNK);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 
 void update_stat_disp__15TWindowHelpItemFPv(void *arg0) {
@@ -30,18 +30,18 @@ void update_stat_disp__15TWindowHelpItemFPv(void *arg0) {
         e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4);
         if (M2C_FIELD(arg0, u32 *, 0x70) != 0) {
             if (TWindowHelpItem__sub_80104FCC(temp_r3, M2C_FIELD(arg0, u32 *, 0x70), &sp8) != 0) {
-                TWindowHelpItem__sub_8025A238(a, 1);
-                TWindowHelpItem__sub_8025A238(b, 1);
-                TWindowHelpItem__sub_8025A238(c, 1);
-                TWindowHelpItem__sub_8025A238(d, 1);
-                TWindowHelpItem__sub_8025A238(e, 1);
+                set_flag_0x10__15TWindowHelpItemFPvi(a, 1);
+                set_flag_0x10__15TWindowHelpItemFPvi(b, 1);
+                set_flag_0x10__15TWindowHelpItemFPvi(c, 1);
+                set_flag_0x10__15TWindowHelpItemFPvi(d, 1);
+                set_flag_0x10__15TWindowHelpItemFPvi(e, 1);
                 return;
             }
-            TWindowHelpItem__sub_8025A238(a, 0);
-            TWindowHelpItem__sub_8025A238(b, 0);
-            TWindowHelpItem__sub_8025A238(c, 0);
-            TWindowHelpItem__sub_8025A238(d, 0);
-            TWindowHelpItem__sub_8025A238(e, 0);
+            set_flag_0x10__15TWindowHelpItemFPvi(a, 0);
+            set_flag_0x10__15TWindowHelpItemFPvi(b, 0);
+            set_flag_0x10__15TWindowHelpItemFPvi(c, 0);
+            set_flag_0x10__15TWindowHelpItemFPvi(d, 0);
+            set_flag_0x10__15TWindowHelpItemFPvi(e, 0);
         }
     }
 }

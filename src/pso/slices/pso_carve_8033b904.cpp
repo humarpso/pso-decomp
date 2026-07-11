@@ -13,7 +13,7 @@ M2C_UNK fn_80242D2C();
 M2C_UNK __ct__9TAdBackGCFv(void *, void *);
 M2C_UNK __ct__12TAdBackTxtGCFv(void *, void *);
 s32 fn_802E3AE4();
-M2C_UNK fn_8033A96C(void *);
+M2C_UNK clear_buffer(void *);
 M2C_UNK fn_8033A9A4(void *);
 extern void *lbl_804EF8C0[];
 extern s32 tl_01;
@@ -42,7 +42,7 @@ void *fn_8033B904(void *arg0) {
         __ct__12TAdBackTxtGCFv(p, arg0);
     }
     fn_8033A9A4(arg0);
-    fn_8033A96C(arg0);
+    clear_buffer(arg0);
     fn_80242D2C();
     return arg0;
 }

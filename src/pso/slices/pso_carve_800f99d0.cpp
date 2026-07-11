@@ -12,7 +12,7 @@ void strncpy(void *, void *, int);
 void fn_800F9BAC(void *, void *);
 struct VOff_800F99D0_o { char pad_0[0x28]; char f_28[1]; };
 
-void fn_800F99D0(void *arg0, void *arg1, void *arg2, void *arg3) {
+void alloc_named_object(void *arg0, void *arg1, void *arg2, void *arg3) {
     struct VOff_800F99D0_o *o;
     o = (struct VOff_800F99D0_o *)__nw__7TObjectFUl(0x3C);
     if (o != NULL) {

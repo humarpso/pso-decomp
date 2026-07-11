@@ -17,7 +17,7 @@ int is_time_up__11TBoss6Type1FPv(void *arg0) {
 
 extern f32 lbl_805DE350;
 
-void TBoss6Type1__sub_802B5FB4(void *arg0) {
+void set_flag_on_threshold__11TBoss6Type1FPv(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x4AC) == 0) && (M2C_FIELD(arg0, f32 *, 0x4D8) < lbl_805DE350)) {
         M2C_FIELD(arg0, s32 *, 0x4AC) = 1;
     }

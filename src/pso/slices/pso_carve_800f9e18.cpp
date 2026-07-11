@@ -14,7 +14,7 @@ M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK fn_80141A30();
 s8 func_801A5E54__Fv();
 M2C_UNK fn_801E2C50();
-M2C_UNK fn_801E2C90();
+M2C_UNK system_reset();
 M2C_UNK render_tick__Fv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK empty_func2__7TObjectFv(s32);
@@ -49,7 +49,7 @@ void fn_800F9E18(void) {
     empty_func__7TObjectFv(tl_su);
     empty_func2__7TObjectFv(tl_su);
     if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
-        fn_801E2C90();
+        system_reset();
         fn_801E2C50();
     }
     fn_80141A30();

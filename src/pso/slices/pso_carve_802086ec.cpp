@@ -2,7 +2,7 @@
 typedef s32 M2C_UNK;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 extern "C" {
-M2C_UNK fn_802087B8(void *);
+M2C_UNK read_stream_u16(void *);
 typedef struct Ent_ {
     s32 a;
     M2C_UNK (*fn)(M2C_UNK);
@@ -14,6 +14,6 @@ void fn_802086EC(u8 arg0) {
     temp_r3 = lbl_804C93A8;
     temp_r3 += arg0;
     temp_r31 = temp_r3->fn;
-    temp_r31(fn_802087B8(temp_r3));
+    temp_r31(read_stream_u16(temp_r3));
 }
 }

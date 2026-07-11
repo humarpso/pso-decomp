@@ -15,7 +15,7 @@ void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
 s32 is_alive_and_ready__10TObjPlayerFi(s32);
 M2C_UNK TObjPlayer__sub_801AF7E0(s32);
 M2C_UNK send_field_state__10TObjPlayerFi(s32);
-M2C_UNK TObjPlayer__sub_801B4630(s32);
+M2C_UNK send_code_49_1__10TObjPlayerFi(s32);
 M2C_UNK fn_80011138(s32, M2C_UNK);
 M2C_UNK fn_80073DC4(void *, M2C_UNK);
 M2C_UNK fn_801B44EC(s32);
@@ -30,7 +30,7 @@ void exec_heal__22TMedicalCenterSequenceFPv(void *arg0) {
         return;
     }
     fn_8022675C(0x42D08, 0, 0, 0);
-    TObjPlayer__sub_801B4630(M2C_FIELD(arg0, s32 *, 0x24));
+    send_code_49_1__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
     fn_801B44EC(M2C_FIELD(arg0, s32 *, 0x24));
     if (is_alive_and_ready__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24)) != 0) {
         TObjPlayer__sub_801AF7E0(M2C_FIELD(arg0, s32 *, 0x24));

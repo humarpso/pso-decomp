@@ -6,7 +6,7 @@ void swap_bytes__14TBoss4DarkFalzFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int fn_8001960C(void*);
-void TBoss4DarkFalz__sub_8004C244(void* p);
+void swap_and_send__14TBoss4DarkFalzFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int is_field378_zero__14TBoss4DarkFalzFPv(void* p);
 s32 TBoss4DarkFalz__sub_8004C1D4(void* p);

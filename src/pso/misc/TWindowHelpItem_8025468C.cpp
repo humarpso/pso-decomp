@@ -9,7 +9,7 @@ extern "C" {
 void update_stat_disp2__15TWindowHelpItemFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 TWindowHelpItem__sub_80104FCC(s32, s32, M2C_UNK *);
-M2C_UNK TWindowHelpItem__sub_8025A238(s32, M2C_UNK);
+M2C_UNK set_flag_0x10__15TWindowHelpItemFPvi(s32, M2C_UNK);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 
 void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
@@ -25,18 +25,18 @@ void update_stat_disp2__15TWindowHelpItemFPv(void *arg0) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
     if ((temp_r3 != 0) && (temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), temp_r29 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2), temp_r28 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 3), temp_r27 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4), (temp_r4 = M2C_FIELD(arg0, u32 *, 0x70), (temp_r4 == 0U) == 0))) {
         if (TWindowHelpItem__sub_80104FCC(temp_r3, temp_r4, &sp8) != 0) {
-            TWindowHelpItem__sub_8025A238(temp_r31, 1);
-            TWindowHelpItem__sub_8025A238(temp_r30, 1);
-            TWindowHelpItem__sub_8025A238(temp_r29, 1);
-            TWindowHelpItem__sub_8025A238(temp_r28, 1);
-            TWindowHelpItem__sub_8025A238(temp_r27, 1);
+            set_flag_0x10__15TWindowHelpItemFPvi(temp_r31, 1);
+            set_flag_0x10__15TWindowHelpItemFPvi(temp_r30, 1);
+            set_flag_0x10__15TWindowHelpItemFPvi(temp_r29, 1);
+            set_flag_0x10__15TWindowHelpItemFPvi(temp_r28, 1);
+            set_flag_0x10__15TWindowHelpItemFPvi(temp_r27, 1);
             return;
         }
-        TWindowHelpItem__sub_8025A238(temp_r31, 0);
-        TWindowHelpItem__sub_8025A238(temp_r30, 0);
-        TWindowHelpItem__sub_8025A238(temp_r29, 0);
-        TWindowHelpItem__sub_8025A238(temp_r28, 0);
-        TWindowHelpItem__sub_8025A238(temp_r27, 0);
+        set_flag_0x10__15TWindowHelpItemFPvi(temp_r31, 0);
+        set_flag_0x10__15TWindowHelpItemFPvi(temp_r30, 0);
+        set_flag_0x10__15TWindowHelpItemFPvi(temp_r29, 0);
+        set_flag_0x10__15TWindowHelpItemFPvi(temp_r28, 0);
+        set_flag_0x10__15TWindowHelpItemFPvi(temp_r27, 0);
     }
 }
 

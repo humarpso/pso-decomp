@@ -11,7 +11,7 @@ s32 strlen(s32, s32);
 extern s32 lbl_805D5E70;
 extern s32 lbl_805D5E90;
 
-void fn_801F2C34(s32 arg0) {
+void append_string_to_buffer(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = strlen(lbl_805D5E70 + lbl_805D5E90, lbl_805D5E70);

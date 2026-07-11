@@ -12,7 +12,7 @@ s32 fn_8001BEF8(s32, M2C_UNK);
 s32 is_alive_and_ready__10TObjPlayerFi(u32);
 M2C_UNK TObjPlayer__sub_801AF7E0(u32);
 M2C_UNK fn_801B4430(u32);
-M2C_UNK TObjPlayer__sub_801B4630(u32);
+M2C_UNK send_code_49_1__10TObjPlayerFi(u32);
 M2C_UNK fn_801D17C0(M2C_UNK *);
 M2C_UNK fn_801D17D4(M2C_UNK *);
 M2C_UNK update_if_ready__15TFontSmallLobbyFPv(s32);
@@ -26,7 +26,7 @@ void fn_801C9D3C(u32 arg0) {
     struct Local801C9D3C sp8;
 
     if (fn_8001BEF8(arg0 + 0x858, 4) != 0) {
-        TObjPlayer__sub_801B4630(arg0);
+        send_code_49_1__10TObjPlayerFi(arg0);
         if (is_alive_and_ready__10TObjPlayerFi(arg0) != 0) {
             TObjPlayer__sub_801AF7E0(arg0);
         }
