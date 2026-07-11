@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800B9B84();
+s32 TObjEneDD__sub_800B9B84();
 s32 fn_800BB780(void *);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 int VecCopy__FP3VecPC3Vec(void*, void*);
@@ -20,7 +20,7 @@ void TObjEneBm3FlyNest__sub_800B3BE8(void) {  }
 void update_state__17TObjEneBm3FlyNestFPv(void *arg0) {
     s16 temp_r0;
 
-    if (((s16) M2C_FIELD(arg0, s16 *, 0x326) == 3) && (fn_800B9B84() != 0)) {
+    if (((s16) M2C_FIELD(arg0, s16 *, 0x326) == 3) && (TObjEneDD__sub_800B9B84() != 0)) {
         fn_800BB780(arg0);
         return;
     }

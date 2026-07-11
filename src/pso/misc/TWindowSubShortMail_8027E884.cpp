@@ -12,8 +12,8 @@ M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TQuestThread__sub_801F64BC(s32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
-s32 fn_8001DA88();
-s32 fn_8001DB44();
+s32 TLobby__sub_8001DA88();
+s32 TLobby__sub_8001DB44();
 M2C_UNK fn_800740FC(s32);
 M2C_UNK fn_80265C10(s32, M2C_UNK);
 M2C_UNK fn_80265DEC(s32, f32, f32);
@@ -32,7 +32,7 @@ s32 open_menu__19TWindowSubShortMailFv(void) {
     temp_r31 = fn_80266508(temp_r3, 2);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x105), 6, 1);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x106), 6, 0);
-    if (fn_8001DB44() == 0) {
+    if (TLobby__sub_8001DB44() == 0) {
         fn_80265C10(temp_r31, 1);
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
@@ -49,12 +49,12 @@ s32 create_window__19TWindowSubShortMailFv(void) {
 
     temp_r3 = fn_8026CBB8(0xA1);
     temp_r31 = fn_80266508(temp_r3, 2);
-    if (fn_8001DB44() != 0) {
+    if (TLobby__sub_8001DB44() != 0) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x105), 0, 0);
-        TObjCityMainWarp__sub_80266354(temp_r31, fn_8001DA88(), 0, 0);
+        TObjCityMainWarp__sub_80266354(temp_r31, TLobby__sub_8001DA88(), 0, 0);
     } else {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x106), 0, 0);
-        fn_802661D4(temp_r31, fn_8001DA88(), 0, 0);
+        fn_802661D4(temp_r31, TLobby__sub_8001DA88(), 0, 0);
     }
     fn_800740FC(temp_r31);
     TQuestThread__sub_801F64BC(temp_r31);

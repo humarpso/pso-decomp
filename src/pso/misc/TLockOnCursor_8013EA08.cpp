@@ -5,17 +5,17 @@ extern "C" {
 s32 TPlyDispConfig__sub_80071F1C(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
-int fn_8013E378(void* a0 = 0, void* a1 = 0);
+int TMainCursor__sub_8013E378(void* a0 = 0, void* a1 = 0);
 int fn_8013E854(void* a0 = 0);
 void fn_8013E830(void* p, void* a1, void* a2);
 void TLockOnCursor__sub_8013EA30(void* p);
-int fn_8013E2E4(void* p);
-u16 fn_8013E308(void* p);
-int fn_8013E310(void* p);
-int fn_8013E338(void* p);
-int fn_8013E358(void* p);
-void* fn_8013E44C(void* p);
-int fn_8013E454(void* p);
+int TMainCursor__sub_8013E2E4(void* p);
+u16 TMainCursor__sub_8013E308(void* p);
+int TMainCursor__sub_8013E310(void* p);
+int TMainCursor__sub_8013E338(void* p);
+int TMainCursor__sub_8013E358(void* p);
+void* TMainCursor__sub_8013E44C(void* p);
+int TMainCursor__sub_8013E454(void* p);
 u16 TMainCursor__sub_8013E47C(void* p);
 u16 TMainCursor__sub_8013E4A0(void* p);
 int TMainCursor__sub_8013E4A8(void* p);
@@ -78,7 +78,7 @@ int fn_8013DFC4(void*);
 int fn_8013E1C8(void*, void* a1 = 0);
 
 int TLockOnCursor__sub_8013EA08(void* p) { return fn_8001BEF8((char*)p + 0x8, 2); }
-void TLockOnCursor__sub_8013EA30(void* p) { fn_8013E378((char*)p + 0xc, (char*)p + 0x14); }
+void TLockOnCursor__sub_8013EA30(void* p) { TMainCursor__sub_8013E378((char*)p + 0xc, (char*)p + 0x14); }
 int TLockOnCursor__sub_8013EA5C(void* p) { return fn_8001BED8((char*)p + 0x8, 1); }
 int TLockOnCursor__sub_8013EA84(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x8, 1); }
 int TLockOnCursor__sub_8013EAAC(void* p) { return fn_8001BED8((char*)p + 0x8, 2); }

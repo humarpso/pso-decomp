@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__10TBoss6TubeFv(void *arg0);
 
-s32 fn_800B9C88();
+s32 TObjEneDD__sub_800B9C88();
 s32 fn_802B1018();
 M2C_UNK TBoss6Tube__sub_802B1218(void *);
 M2C_UNK TBoss6Tube__sub_802B138C(void *);
@@ -18,7 +18,7 @@ M2C_UNK update_timer__10TBoss6TubeFPv(void *);
 void run_task__10TBoss6TubeFv(void *arg0) {
     s32 temp_r0;
 
-    if ((fn_802B1018() == 0) && (fn_800B9C88() == 0)) {
+    if ((fn_802B1018() == 0) && (TObjEneDD__sub_800B9C88() == 0)) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
         switch (temp_r0) {
         case 0:

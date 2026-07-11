@@ -9,24 +9,24 @@ extern "C" {
 void TItemMag__sub_801125DC(void *arg0, s8 arg1);
 M2C_UNK TItemMag__sub_80112E20(void *, u8);
 M2C_UNK TOBoss4Rock__sub_8039C880();
-s32 fn_80110FD8(void *, M2C_UNK);
+s32 TItemMag__sub_80110FD8(void *, M2C_UNK);
 
 void TItemMag__sub_801125DC(void *arg0, s8 arg1) {
     TOBoss4Rock__sub_8039C880();
     if (arg1 & 0x40) {
-        if (fn_80110FD8(arg0, 0) != 0) {
+        if (TItemMag__sub_80110FD8(arg0, 0) != 0) {
             TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1BD));
         }
     } else if (arg1 & 1) {
-        if (fn_80110FD8(arg0, 1) != 0) {
+        if (TItemMag__sub_80110FD8(arg0, 1) != 0) {
             TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1BE));
         }
     } else if (arg1 & 2) {
-        if (fn_80110FD8(arg0, 2) != 0) {
+        if (TItemMag__sub_80110FD8(arg0, 2) != 0) {
             TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1BF));
         }
     } else if (arg1 & 0x80) {
-        if (fn_80110FD8(arg0, 3) != 0) {
+        if (TItemMag__sub_80110FD8(arg0, 3) != 0) {
             TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1C0));
         }
     } else {

@@ -12,8 +12,8 @@ void clear_flag_bit5__17TWindowReturnCityFv(void);
 
 void TWindowReturnCity__sub_8026D4BC(void) {  }
 
-    extern int lbl_805D6468;
-void TWindowReturnCity__sub_8026D4C0(void) { lbl_805D6468 = 4; }
+    extern int TWindowReturnCity__data_805D6468;
+void TWindowReturnCity__sub_8026D4C0(void) { TWindowReturnCity__data_805D6468 = 4; }
 
 extern void *TWindowCtrl__data_805D63F8;
 

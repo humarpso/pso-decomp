@@ -10,13 +10,13 @@ void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0);
 M2C_UNK fn_8023EB84();
 M2C_UNK fn_8023EC14();
 M2C_UNK fn_8023ECA4();
-M2C_UNK fn_802C6A10();
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 fn_802E011C();
 
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
     s32 temp_r0;
 
-    fn_802C6A10();
+    TAdMultiPlyChrSelectGC__sub_802C6A10();
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x48);
     switch (temp_r0) {
     case 0:

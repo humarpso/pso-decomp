@@ -8,11 +8,11 @@ extern "C" {
 
 M2C_UNK memset(M2C_UNK *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D6A84;
-extern M2C_UNK lbl_805D6A88;
+extern M2C_UNK TObjLiveCameraCtrl__data_805D6A88;
 
 void reset_globals_805D6A84(void) {
     lbl_805D6A84 = 0;
-    memset(&lbl_805D6A88, 0, 4);
+    memset(&TObjLiveCameraCtrl__data_805D6A88, 0, 4);
 }
 
 }

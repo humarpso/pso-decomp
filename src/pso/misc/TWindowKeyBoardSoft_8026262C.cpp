@@ -17,7 +17,7 @@ M2C_UNK fn_8024664C(void *);
 s32 fn_8024A0DC(s16);
 M2C_UNK TWindowKeyBoardSoft__sub_80260808(void *, s32);
 M2C_UNK TWindowKeyBoardSoft__sub_8026088C(void *, s32);
-M2C_UNK fn_80261204(void *, s32);
+M2C_UNK TWindowKeyBoardSoft__sub_80261204(void *, s32);
 
 extern const f32 lbl_805DD0D4;
 
@@ -28,7 +28,7 @@ void TWindowKeyBoardSoft__sub_8026262C(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
         if ((fn_80244994() != 0) && (TKeyBoardControl__sub_80131FAC(M2C_FIELD(arg0, u32 *, 0x6C)) == 0)) {
             temp_r3 = fn_8024A0DC(M2C_FIELD(arg0, s16 *, 0x20));
-            fn_80261204(arg0, temp_r3);
+            TWindowKeyBoardSoft__sub_80261204(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_80260E30(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_80260904(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_8026088C(arg0, temp_r3);

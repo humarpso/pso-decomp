@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *fn_8020B334();
-s32 fn_8020B454(s32);
+u8 *TLobby__sub_8020B334();
+s32 TLobby__sub_8020B454(s32);
 
 s32 fn_8020C2DC(s32 arg0) {
     s16 temp_r3_2;
@@ -15,8 +15,8 @@ s32 fn_8020C2DC(s32 arg0) {
     s32 i;
     u8 *var_r31;
 
-    var_r31 = fn_8020B334();
-    temp_r3 = fn_8020B454(arg0);
+    var_r31 = TLobby__sub_8020B334();
+    temp_r3 = TLobby__sub_8020B454(arg0);
     if (var_r31 != NULL) {
         for (i = 0; i < temp_r3; i++) {
             temp_r3_2 = M2C_FIELD(var_r31, s16 *, 2);

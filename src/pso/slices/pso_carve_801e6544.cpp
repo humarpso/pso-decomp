@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8015A99C(u16, s32);
+M2C_UNK TOChatSensorCapture__sub_8015A99C(u16, s32);
 M2C_UNK TOChatSensor__sub_8015B108();
 extern s32 lbl_805D53A0;
 
 void fn_801E6544(s32 arg0) {
     TOChatSensor__sub_8015B108();
-    fn_8015A99C((u16) lbl_805D53A0, arg0);
+    TOChatSensorCapture__sub_8015A99C((u16) lbl_805D53A0, arg0);
 }
 
 }

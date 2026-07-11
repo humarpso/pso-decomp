@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneBalClawClaw__sub_80090DD0(u8 *arg0);
 M2C_UNK TObjEneBalClawClaw__sub_8009082C(void *, s32, s32);
-M2C_UNK fn_80011734(void *, M2C_UNK, f32);
+M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK fn_800A0554(void *);
 M2C_UNK fn_800D8C48(void *, s32);
 M2C_UNK fn_80143504(void *);
@@ -42,7 +42,7 @@ void TObjEneBalClawClaw__sub_80090DD0(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         fn_80143504(arg0);
-        fn_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
+        TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         if (((En0VObj*)(arg0 + 0x390))->m5() == 1) {
             temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);
             temp_r4_2 = temp_r5 & ~5;

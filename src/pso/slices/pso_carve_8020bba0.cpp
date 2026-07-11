@@ -7,7 +7,7 @@ int TObjPlayer__sub_800196EC(void);
 int TQuestThread__sub_801F5B5C(void);
 int TRaderMapCore__sub_801F9630(int);
 int fn_802089B0(void);
-int fn_8020A744(void);
+int TLobby__sub_8020A744(void);
 int TLobby__sub_8020CD44(void);
 int TLobby__sub_8020D0B0(void);
 int TLobby__sub_8020DBCC(void);

@@ -7,29 +7,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
     extern int TObjCMMainMenu__data_805D659C;
-void fn_80298D7C(void) { TObjCMMainMenu__data_805D659C = 0; }
+void TObjCMMainMenu__sub_80298D7C(void) { TObjCMMainMenu__data_805D659C = 0; }
 
 extern f32 lbl_805D3C98;
 
-f32 fn_80298D88(void) {
+f32 TObjCMMainMenu__sub_80298D88(void) {
     return lbl_805D3C98;
 }
 
 extern f32 lbl_805D3CA0;
 
-f32 fn_80298D90(void) {
+f32 TObjCMMainMenu__sub_80298D90(void) {
     return lbl_805D3CA0;
 }
 
     extern int lbl_805D6570;
-void fn_80298D98(int a0) { lbl_805D6570 = a0; }
+void TObjCMMainMenu__sub_80298D98(int a0) { lbl_805D6570 = a0; }
 
     extern int lbl_805D6538;
-void fn_80298DA0(int a0) { lbl_805D6538 = (lbl_805D6538 + a0); }
+void TObjCMMainMenu__sub_80298DA0(int a0) { lbl_805D6538 = (lbl_805D6538 + a0); }
 
 extern void *lbl_805D653C;
 
-void fn_80298DB0(f32 farg0) {
+void TObjCMMainMenu__sub_80298DB0(f32 farg0) {
     if ((void *) lbl_805D653C != NULL) {
         M2C_FIELD(lbl_805D653C, f32 *, 0x38) = farg0;
     }
@@ -37,7 +37,7 @@ void fn_80298DB0(f32 farg0) {
 
 extern s32 lbl_805D652C;
 
-u8 fn_80298DC4(void) {
+u8 TObjCMMainMenu__sub_80298DC4(void) {
     return (u8) (lbl_805D652C == 0);
 }
 

@@ -10,7 +10,7 @@ M2C_UNK TRaderMapCore__sub_801F9144();
 M2C_UNK TRaderMapCore__sub_801F9770();
 s32 fn_80246948();
 M2C_UNK set_flag_bit0__11TWindowCtrlFv();
-M2C_UNK fn_80271E18();
+M2C_UNK TWindowCtrl__sub_80271E18();
 M2C_UNK fn_80271E34();
 extern f32 lbl_805DD480;
 
@@ -18,7 +18,7 @@ void fn_802717B8(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
         if (fn_80246948() != 0) {
             M2C_FIELD(arg0, s32 *, 0x6C) = 0;
-            fn_80271E18();
+            TWindowCtrl__sub_80271E18();
             fn_80271E34();
         }
     } else if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2) && (fn_80246948() == 0)) {

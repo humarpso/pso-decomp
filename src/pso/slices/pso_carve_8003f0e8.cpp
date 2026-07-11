@@ -13,9 +13,9 @@ void fn_8003F22C(void* p);
 void fn_8003F2F4(void* p);
 void fn_8003F33C(void* p);
 void fn_8003F384(void* p);
-int fn_80154B28(void*);
+int TObjPlayer__sub_80154B28(void*);
 
-int fn_8003F0E8(void* p) { return fn_80154B28(p); }
+int fn_8003F0E8(void* p) { return TObjPlayer__sub_80154B28(p); }
 s32 fn_8003F108(void* p) { return *(s32*)((char*)p + 0x3e0); }
 void fn_8003F110(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); { int i; for (i = 0; i < 7; i++) { bswap_16__FPUs((char*)p + 0x6 + i * 2); } } }
 void fn_8003F168(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0xc); bswap_16__FPUs((char*)p + 0xa); bswap_16__FPUs((char*)p + 0xe); }

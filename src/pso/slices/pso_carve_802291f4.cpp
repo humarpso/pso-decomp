@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80229164();
+s32 TSwitch__sub_80229164();
 
 u8 fn_802291F4(void) {
-    return (u8) (fn_80229164() != 0);
+    return (u8) (TSwitch__sub_80229164() != 0);
 }
 
 }

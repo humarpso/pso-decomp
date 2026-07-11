@@ -15,7 +15,7 @@ M2C_UNK fn_80070C50();
 M2C_UNK fn_801036CC();
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK fn_802089B0();
-M2C_UNK fn_8020A744();
+M2C_UNK TLobby__sub_8020A744();
 M2C_UNK fn_80291FC0();
 
 s32 is_split_screen();
@@ -28,7 +28,7 @@ void TLobby__sub_801EA8E8(void) {
         TQuestThread__sub_801F5DD0(lbl_805D5EE8);
     }
     fn_801F57B4(tl_00);
-    fn_8020A744();
+    TLobby__sub_8020A744();
     TLobby__sub_8020DBCC();
     fn_802089B0();
     TSwitch__sub_8022945C();

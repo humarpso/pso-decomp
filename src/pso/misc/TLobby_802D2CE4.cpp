@@ -21,12 +21,12 @@ void clear_flag400__6TLobbyFv(void) {
     }
 }
 
-extern u32 lbl_805D6894;
+extern u32 TLobby__data_805D6894;
 extern u32 TLobby__data_805D6898;
-extern u32 lbl_805D689C;
+extern u32 TLobby__data_805D689C;
 
 void check_flags_and_proceed__6TLobbyFv(void) {
-    if (((u32) lbl_805D6894 == 0U) && ((u32) TLobby__data_805D6898 == 0U) && ((u32) lbl_805D689C == 0U)) {
+    if (((u32) TLobby__data_805D6894 == 0U) && ((u32) TLobby__data_805D6898 == 0U) && ((u32) TLobby__data_805D689C == 0U)) {
         TLobby__sub_802D2D64();
     }
 }

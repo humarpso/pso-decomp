@@ -24,8 +24,8 @@ void TObjPlayer__sub_801BF9A4(void *arg0) {
     fn_8001BF40();
 }
 
-    extern const float lbl_805DC294;
-void set_vec3_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x0) = lbl_805DC294; *(float*)((char*)a0 + 0x4) = lbl_805DC294; *(float*)((char*)a0 + 0x8) = lbl_805DC294; }
+    extern const float TObjPlayer__data_805DC294;
+void set_vec3_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x0) = TObjPlayer__data_805DC294; *(float*)((char*)a0 + 0x4) = TObjPlayer__data_805DC294; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC294; }
 
 void TObjPlayer__sub_801BF9E0(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 void TObjPlayer__sub_801BF9E8(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }

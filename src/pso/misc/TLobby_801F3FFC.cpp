@@ -10,8 +10,8 @@ s32 TLobby__sub_801F3FFC(s32 arg0);
 M2C_UNK bswap_32__FPUl(s32 *);
 M2C_UNK fn_801F3A80(void *, s32);
 s32 fn_80207718(s32);
-M2C_UNK fn_8020A9C4(void *, u32, s32);
-M2C_UNK fn_8020B374(s32, void *, s32);
+M2C_UNK TLobby__sub_8020A9C4(void *, u32, s32);
+M2C_UNK TLobby__sub_8020B374(s32, void *, s32);
 
 extern u8 *TLobby__data_805D5EE0;
 
@@ -36,8 +36,8 @@ loop_1:
         if ((sp14 == 2) && (spC == arg0)) {
             temp_r31 = var_r31 + 0x10;
             fn_801F3A80(temp_r31, sp8);
-            fn_8020A9C4(temp_r31, (u32) sp8 / 72U, fn_80207718(spC));
-            fn_8020B374(spC, temp_r31, sp8);
+            TLobby__sub_8020A9C4(temp_r31, (u32) sp8 / 72U, fn_80207718(spC));
+            TLobby__sub_8020B374(spC, temp_r31, sp8);
             return 1;
         }
         if (sp14 != 0) {

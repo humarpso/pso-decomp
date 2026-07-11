@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8001BEF8(s32, s32);
-extern u32 lbl_805D54C0;
+extern u32 TItemMenuCtrl__data_805D54C0;
 
 s32 fn_801059E8(s32 arg0) {
-    if ((u32) lbl_805D54C0 != 0U) {
-        return fn_8001BEF8(lbl_805D54C0 + 0x1C, 1 << arg0);
+    if ((u32) TItemMenuCtrl__data_805D54C0 != 0U) {
+        return fn_8001BEF8(TItemMenuCtrl__data_805D54C0 + 0x1C, 1 << arg0);
     }
     return 0;
 }

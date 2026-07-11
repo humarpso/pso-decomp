@@ -33,12 +33,12 @@ extern "C" {
 
 void TObjEneDD__vt86(void *arg0);
 M2C_UNK TObjPlayer__sub_801564A0(void *);
-M2C_UNK fn_8015659C(void *);
+M2C_UNK TObjPlayer__sub_8015659C(void *);
 
 void TObjEneDD__vt86(void *arg0) {
     struct VObj_800BA8E8 *o = (struct VObj_800BA8E8 *)arg0;
     o->m86();
-    fn_8015659C(arg0);
+    TObjPlayer__sub_8015659C(arg0);
     TObjPlayer__sub_801564A0(arg0);
 }
 

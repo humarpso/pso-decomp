@@ -15,8 +15,8 @@ M2C_UNK TObjPlayer__sub_801D2630();
 M2C_UNK TTecReverser__sub_80239E44(void *, void *, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_8000FF4C(void *, M2C_UNK);
-M2C_UNK fn_8001053C(void *);
-void fn_80010550(void *);
+M2C_UNK TObjPlayer__sub_8001053C(void *);
+void TObjPlayer__sub_80010550(void *);
 M2C_UNK fn_8002AEB8(void *, M2C_UNK);
 M2C_UNK fn_800660B8(void *);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s16);
@@ -35,7 +35,7 @@ void TObjPlayer__sub_801C9B84(void *arg0) {
     void *x;
     x = TObjPlayer__sub_801B5EA4(arg0);
     if (x == NULL) {
-        fn_80010550(arg0);
+        TObjPlayer__sub_80010550(arg0);
     }
 }
 
@@ -46,7 +46,7 @@ extern const f32 lbl_805DC374;
 void TObjPlayer__sub_801C9BC0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x12;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
-    fn_8001053C(arg0);
+    TObjPlayer__sub_8001053C(arg0);
     fn_8002AEB8(arg0 + 0x644, 0x12C);
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
     M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) lbl_805DC374;

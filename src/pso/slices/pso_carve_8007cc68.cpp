@@ -8,18 +8,18 @@ extern "C" {
 
 s32 memcard_check_snapshot(M2C_UNK, M2C_UNK);
 s32 fn_802432CC(M2C_UNK, M2C_UNK *, s32);
-extern M2C_UNK lbl_80438A08[];
-extern s16 lbl_805D4E8A;
-extern s32 lbl_805D4E90;
+extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
+extern s16 TObjBoss2Tunnel__data_805D4E8A;
+extern s32 TObjBoss2Tunnel__data_805D4E90;
 
 s32 save_screen_snapshot(void) {
     if (memcard_check_snapshot(1, 0) == 0) {
         return 0;
     }
-    if (fn_802432CC(1, lbl_80438A08, lbl_805D4E90) != 0) {
+    if (fn_802432CC(1, TObjBoss2Tunnel__data_80438A08, TObjBoss2Tunnel__data_805D4E90) != 0) {
         return 0;
     }
-    lbl_805D4E8A = 2;
+    TObjBoss2Tunnel__data_805D4E8A = 2;
     return 1;
 }
 

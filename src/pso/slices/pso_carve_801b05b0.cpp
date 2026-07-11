@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8001DC24();
+M2C_UNK TLobby__sub_8001DC24();
 M2C_UNK fn_80229080(M2C_UNK *);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK init_all__11TWindowCtrlFPvPv(M2C_UNK, M2C_UNK);
@@ -17,7 +17,7 @@ void show_sub_status_window(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2) {
     fn_80229080(arg1);
     fn_80229080(arg2);
     fn_80229080(&lbl_805DC27C);
-    init_all__11TWindowCtrlFPvPv(fn_8001DC24(), 0x200);
+    init_all__11TWindowCtrlFPvPv(TLobby__sub_8001DC24(), 0x200);
 }
 
 }

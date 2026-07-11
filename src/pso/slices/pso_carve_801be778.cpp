@@ -68,7 +68,7 @@ int TPlyPhotonChair__sub_801BEC44(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 int fn_8011E204(void*, int);
 int fn_8011E238(void*, int);
-int fn_80154A00(void*);
+int TObjPlayer__sub_80154A00(void*);
 int fn_801BA458(void*);
 int fn_801BA5CC(void*);
 int TObjPlayer__sub_801BED70(void*);
@@ -143,7 +143,7 @@ int fn_801BEADC(void* p) { return fn_801BA5CC(p); }
 void fn_801BEAFC(void* p, s32 v) { *(s32*)((char*)p + 0x3e4) = v; }
 void fn_801BEB04(void* p, s32 v) { *(s32*)((char*)p + 0x3e0) = v; }
 s32 fn_801BEB0C(void* p) { return *(s32*)((char*)p + 0x334); }
-int fn_801BEB14(void* p) { return fn_80154A00(p); }
+int fn_801BEB14(void* p) { return TObjPlayer__sub_80154A00(p); }
 void fn_801BEB34(void* p, s32 v) { *(s32*)((char*)p + 0x3e8) = v; }
 u8 fn_801BEB3C(void* p) { return *(u8*)((char*)p + 0x2e7); }
 u8 fn_801BEB44(void* p) { return *(u8*)((char*)p + 0x2cb); }

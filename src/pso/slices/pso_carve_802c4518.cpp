@@ -26,7 +26,7 @@ int fn_801A2F7C(void*);
 s32 fn_801A2FAC();
 int fn_80203220(void*);
 s32 fn_802A1438();
-s32 fn_802C6558();
+s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 getDateStamp__FP9DateStamp(s32 *);
 
 void fn_802C4518(void* p, u8 v) { *(u8*)((char*)p + 0x173) = v; }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80110240(u8, u32 *, s32 *);
+M2C_UNK TItemLoad__sub_80110240(u8, u32 *, s32 *);
 M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 M2C_UNK fn_80141F1C();
@@ -23,7 +23,7 @@ void fn_801001A8(u8 *arg0) {
     u32 spC;
     s32 sp8;
 
-    fn_80110240(M2C_FIELD(arg0, u8 *, 0xEF), &spC, &sp8);
+    TItemLoad__sub_80110240(M2C_FIELD(arg0, u8 *, 0xEF), &spC, &sp8);
     if (spC != 0U) {
         set_depth_buffer_settings_id__FUl(3);
         fn_801E2EFC();

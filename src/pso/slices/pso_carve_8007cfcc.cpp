@@ -15,7 +15,7 @@ s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1F40(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
 s32 TAdPlayerLoadGC__sub_801E2404(M2C_UNK, M2C_UNK);
-extern M2C_UNK lbl_80438A08[];
+extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
 
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     s32 temp_r3;
@@ -57,7 +57,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
         }
         return 0;
     }
-    temp_r3 = TAdPlayerLoadGC__sub_801E2048(1, lbl_80438A08);
+    temp_r3 = TAdPlayerLoadGC__sub_801E2048(1, TObjBoss2Tunnel__data_80438A08);
     if (temp_r3 == 0) {
         if (arg1 != NULL) {
             *arg1 = 1;

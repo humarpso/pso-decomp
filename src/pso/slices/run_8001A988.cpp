@@ -14,7 +14,7 @@ s32 fn_8001A988(void) {
 
 extern s32 TAdEndText__data_805D49F0;
 
-s32 fn_8001A990(void) {
+s32 TAdEndText__sub_8001A990(void) {
     return TAdEndText__data_805D49F0;
 }
 

@@ -2,18 +2,18 @@
 
 extern "C" {
 
-void fn_80152DB0(void* p);
+void TNpcPlayer__sub_80152DB0(void* p);
 int TObjPlayer__sub_8001960C(void*);
 int fn_80102CE0(void*);
-void fn_80152A98(void* p);
+void TNpcPlayer__sub_80152A98(void* p);
 int update_players__6TLobbyFi(void*);
-int fn_80152ACC(void*);
-void fn_80152B28(void* p);
-int fn_80152B5C(void*);
-void fn_80152BB8(void* p);
-int fn_80152BEC(void*);
-void fn_80152D7C(void* p);
-int fn_80152A78(void* a0 = 0);
+int TNpcPlayer__sub_80152ACC(void*);
+void TNpcPlayer__sub_80152B28(void* p);
+int TNpcPlayer__sub_80152B5C(void*);
+void TNpcPlayer__sub_80152BB8(void* p);
+int TNpcPlayer__sub_80152BEC(void*);
+void TNpcPlayer__sub_80152D7C(void* p);
+int TNpcPlayer__sub_80152A78(void* a0 = 0);
 void* TNpcPlayer__sub_80152A48(void* p);
 s32 TNpcPlayer__sub_801528DC(void* p);
 s32 TNpcPlayer__sub_801528E4(void* p);
@@ -24,7 +24,7 @@ void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
 s32 TNpcPlayer__sub_801529C8(void* p);
 void reset_fields_8c__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A30(void);
-void fn_80152D64(void* p);
+void TNpcPlayer__sub_80152D64(void* p);
 
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
 s32 TNpcPlayer__sub_801529C8(void* p) { return *(s32*)((char*)p + 0x8c); }

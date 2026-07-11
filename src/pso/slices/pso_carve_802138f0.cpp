@@ -27,7 +27,7 @@ struct VObj_802138F0 : Base_802138F0 {
 
 extern "C" {
 
-void fn_802138F0(void *arg0) {
+void THunterGuildSeqOffline__sub_802138F0(void *arg0) {
     if ((((VObj_802138F0 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_802138F0 *)arg0)->m7(0xC, 1);
         M2C_FIELD(arg0, s32 *, 0x34) = 0;

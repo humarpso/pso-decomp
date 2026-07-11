@@ -3,8 +3,8 @@
 extern "C" {
 
 int fn_801CAAD8(void* p);
-int fn_8001053C(void*);
+int TObjPlayer__sub_8001053C(void*);
 
-int fn_801CAAD8(void* p) { return fn_8001053C(p); }
+int fn_801CAAD8(void* p) { return TObjPlayer__sub_8001053C(p); }
 
 }

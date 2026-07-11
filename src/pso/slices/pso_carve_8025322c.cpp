@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8001DC24();
+s32 TLobby__sub_8001DC24();
 M2C_UNK fn_80253154();
 M2C_UNK fn_802531A4(s32, s32);
 
 void fn_8025322C(s32 arg0) {
     fn_80253154();
-    fn_802531A4(arg0, fn_8001DC24());
+    fn_802531A4(arg0, TLobby__sub_8001DC24());
 }
 
 }

@@ -15,7 +15,7 @@ void fn_801BA5CC(void *);
 void fn_8024AB54(void *);
 void fn_8027B288(void *);
 void fn_8027B2A8(void *);
-void fn_802D2A0C(void *);
+void TLobby__sub_802D2A0C(void *);
 
 extern M2C_UNK __vt__19TWindowSubTradeMain[];
 extern void *lbl_805D4228;
@@ -42,7 +42,7 @@ void *TWindowSubTradeMain__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x24) = -1;
     fn_8024AB54(M2C_FIELD(arg0, void **, 0x28));
     TWindowCtrl__sub_8024ADAC(M2C_FIELD(arg0, void **, 0x28));
-    fn_802D2A0C(arg0);
+    TLobby__sub_802D2A0C(arg0);
     TWindowSubTradeMain__sub_802D2870();
     fn_8027B288(M2C_FIELD(arg0, void **, 0x2C));
     o = __nw__7TObjectFUl(0x3C);

@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 fn_8007E918();
-M2C_UNK fn_8007E9EC(void *, f32);
+f32 TObjBoss2Tunnel__sub_8007E918();
+M2C_UNK TObjBoss2Tunnel__sub_8007E9EC(void *, f32);
 f32 fn_803D64C0(s32);
 f32 fn_803D64DC(s32, f32);
 extern const f32 lbl_805D8198;
@@ -21,7 +21,7 @@ f32 fn_8002DDDC(void *arg0, f32 farg0, f32 farg1) {
     f32 var_f31;
     s32 temp_r31;
 
-    temp_f1 = fn_8007E918();
+    temp_f1 = TObjBoss2Tunnel__sub_8007E918();
     if (temp_f1 > farg0) {
         var_f31 = lbl_805D8198;
         M2C_FIELD(arg0, f32 *, 0) = var_f31;
@@ -35,7 +35,7 @@ f32 fn_8002DDDC(void *arg0, f32 farg0, f32 farg1) {
         M2C_FIELD(arg0, f32 *, 0) = temp_f2;
         M2C_FIELD(arg0, f32 *, 4) = (f32) lbl_805D81F4;
         M2C_FIELD(arg0, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) * temp_f1_2);
-        fn_8007E9EC(arg0, temp_f1_2);
+        TObjBoss2Tunnel__sub_8007E9EC(arg0, temp_f1_2);
     }
     return var_f31;
 }

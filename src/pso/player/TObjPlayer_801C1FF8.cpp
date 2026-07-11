@@ -9,12 +9,12 @@ void TObjPlayer__sub_8001BF10(void *);
 void fn_8012AF00(void *);
 void fn_801D33B4(void *);
 
-extern const f32 lbl_805DC294;
+extern const f32 TObjPlayer__data_805DC294;
 
 void *init__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8001BF10((void *)((char *)arg0 + 12));
     fn_8012AF00((void *)((char *)arg0 + 48));
-    M2C_FIELD(arg0, f32 *, 0x8) = lbl_805DC294;
+    M2C_FIELD(arg0, f32 *, 0x8) = TObjPlayer__data_805DC294;
     fn_801D33B4(arg0);
     return arg0;
 }

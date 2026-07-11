@@ -11,7 +11,7 @@ s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 u32 fn_8019E570(f32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK request_active_window_close();
-M2C_UNK fn_8024A054();
+M2C_UNK TWindowCtrl__sub_8024A054();
 M2C_UNK fn_8024ACEC(s32);
 M2C_UNK fn_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
@@ -52,7 +52,7 @@ void fn_8019E81C(void *arg0) {
                 M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
             }
             fn_8024AD30(lbl_805D53A0);
-            fn_8024A054();
+            TWindowCtrl__sub_8024A054();
             TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x15C) == 0) {
@@ -65,7 +65,7 @@ void fn_8019E81C(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
         }
         fn_8024AD30(lbl_805D53A0);
-        fn_8024A054();
+        TWindowCtrl__sub_8024A054();
         TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
         break;
     }

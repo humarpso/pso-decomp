@@ -9,7 +9,7 @@ extern "C" {
 
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-f32 fn_8007E9EC(void *);
+f32 TObjBoss2Tunnel__sub_8007E9EC(void *);
 M2C_UNK fn_8009E1D4(s32, void *);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TTecZondeEff__sub_8023DADC(void *, s32, void *, void *, f32);
@@ -44,7 +44,7 @@ void fn_8009FD30(u8 *arg0) {
     }
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x50);
     fn_803D9370(&sp8, arg0 + 0x38);
-    temp_f31 = fn_8007E9EC(&sp8);
+    temp_f31 = TObjBoss2Tunnel__sub_8007E9EC(&sp8);
     M2C_UNK nw_ret = __nw__7TObjectFUl(0x260);
     if (nw_ret != 0U) {
         TTecZondeEff__sub_8023DADC((void *)nw_ret, tl_05, arg0 + 0x38, &sp8, temp_f31);

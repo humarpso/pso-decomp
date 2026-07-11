@@ -8,8 +8,8 @@ extern "C" {
 
 void TBoss2DeRolLe__sub_800348E4(u8 *arg0);
 f32 TObjFish__sub_8001973C(f32);
-M2C_UNK fn_80036160(void *, f32, f32, f32, f32);
-M2C_UNK fn_800361A4(void *, f32, f32, f32);
+M2C_UNK TBoss2DeRolLe__sub_80036160(void *, f32, f32, f32, f32);
+M2C_UNK TBoss2DeRolLe__sub_800361A4(void *, f32, f32, f32);
 
 extern const f32 TBoss2DeRolLe__data_805D82F0;
 extern const f32 TBoss2DeRolLe__data_805D8300;
@@ -21,8 +21,8 @@ extern const f32 TBoss2DeRolLe__data_805D83DC;
 
 void TBoss2DeRolLe__sub_800348E4(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x660) = 0;
-    fn_800361A4(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, TObjFish__sub_8001973C(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    fn_80036160(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, TObjFish__sub_8001973C(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+    TBoss2DeRolLe__sub_800361A4(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, TObjFish__sub_8001973C(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    TBoss2DeRolLe__sub_80036160(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, TObjFish__sub_8001973C(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
 }
 
 }

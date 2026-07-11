@@ -11,7 +11,7 @@ extern "C" void*    fn_8007EB94(int size);
 extern "C" void*    fn_8010FE6C(void* obj, const char* file, int flags);
 extern "C" void     fn_8010FE20(void* obj, int flag);
 extern "C" void*    TItemMag__sub_8001A468(void* pmt);
-extern "C" TObject* fn_80107A68(int arg);
+extern "C" TObject* TItemDrop__sub_80107A68(int arg);
 
 extern "C" {
 
@@ -40,7 +40,7 @@ void load_item_pmt() {
 
 void load_items() {
     load_item_pmt();
-    item_mgr = fn_80107A68(0);
+    item_mgr = TItemDrop__sub_80107A68(0);
 }
 
 }

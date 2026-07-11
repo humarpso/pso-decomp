@@ -20,7 +20,7 @@ extern s32 lbl_805D4D48;
 extern s32 lbl_805D4D4C;
 extern s32 lbl_805D4D50;
 extern s32 some_id_805c6f74;
-extern f32 lbl_805D88F4;
+extern f32 TObjVoloptShutter__data_805D88F4;
 
 void render__17TObjVoloptShutterFv(void *arg0) {
     fn_800D8A2C();
@@ -29,9 +29,9 @@ void render__17TObjVoloptShutterFv(void *arg0) {
     some_id_805c6f74 &= 0xFFFFFBFF;
     fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x30));
     fn_803D9B2C();
-    fn_803D9624(0, lbl_805D88F4, lbl_805D88F4, M2C_FIELD(arg0, f32 *, 0x2C));
+    fn_803D9624(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x2C));
     fn_803E4684(lbl_805D4D4C);
-    fn_803D9624(0, lbl_805D88F4, M2C_FIELD(arg0, f32 *, 0x28), lbl_805D88F4);
+    fn_803D9624(0, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x28), TObjVoloptShutter__data_805D88F4);
     fn_803E4684(lbl_805D4D48);
     fn_803D9B78();
     fn_803D9B78();

@@ -3,7 +3,7 @@
 extern "C" {
 
 int TOAttackableCol__sub_80157700(void* p);
-int fn_80154764(void*, int, int);
+int TObjPlayer__sub_80154764(void*, int, int);
 
 int TOAttackableCol__sub_801575AC(void) { return 0; }
 int TOAttackableCol__vt4(void) { return 0; }

@@ -10,7 +10,7 @@ void TObjEneMe1GiGue__sub_802CC350(void *arg0);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
 M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC4(void *, void *);
 M2C_UNK TObjPlayer__sub_80017BA8(void *, s32, f32, f32, f32);
-M2C_UNK fn_80011734(void *, M2C_UNK, f32);
+M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK fn_80040B3C(void *, M2C_UNK);
 M2C_UNK fn_80143504(void *);
 M2C_UNK fn_80156698(void *);
@@ -34,13 +34,13 @@ void TObjEneMe1GiGue__sub_802CC350(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         M2C_FIELD(arg0, s32 *, 0x384) = 0x2D;
         fn_80143504(arg0);
-        fn_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
+        TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         fn_80156698(arg0);
         return;
     case 2:
         TObjPlayer__sub_80017BA8(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x350), s32 *, 8), M2C_FIELD(arg0, f32 *, 0x3E4), TObjEneMe1GiGue__data_805DE694, TObjEneMe1GiGue__data_805DE694);
         fn_80143504(arg0);
-        fn_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
+        TObjPlayer__sub_80011734(arg0, 0, TObjEneMe1GiGue__data_805DE660);
         fn_80156698(arg0);
         M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) - 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x384) <= 0) {

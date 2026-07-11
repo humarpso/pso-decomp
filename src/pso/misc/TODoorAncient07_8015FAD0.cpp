@@ -8,7 +8,7 @@ extern "C" {
 
 void *__dt__15TODoorAncient07Fv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK fn_80154A00(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK fn_80156720(void *);
 M2C_UNK fn_8015DD2C(void *, M2C_UNK);
 
@@ -17,7 +17,7 @@ extern M2C_UNK __vt__15TODoorAncient07[];
 void *__dt__15TODoorAncient07Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TODoorAncient07;
-        fn_80154A00((M2C_UNK *)arg0);
+        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
         fn_80156720(arg0);
         fn_8015DD2C(arg0, 0);
         if (arg1 > 0) {

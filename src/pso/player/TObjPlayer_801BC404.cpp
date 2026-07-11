@@ -11,7 +11,7 @@ int TObjPlayer__sub_801BEEAC(void*, void*);
 int TObjPlayer__sub_801BEEE0(void*, void*);
 int TObjPlayer__sub_801BEEEC(void*, void*);
 int TObjPlayer__sub_801BEF30(void*, void*);
-s32 fn_8001E5C8();
+s32 TLobby__sub_8001E5C8();
 int fn_80020898(void*, void*);
 int fn_80072048(void*, void*);
 int fn_801BEAFC(void*, void*);
@@ -20,13 +20,13 @@ int fn_801BEB54(void*, void*);
 s32 fn_801F441C(s32, s32);
 
 s32 has_active_camera_event__10TObjPlayerFv(void) {
-    if (fn_8001E5C8() == 0) {
+    if (TLobby__sub_8001E5C8() == 0) {
         if ((check_camera_mode__10TObjPlayerFv() == 0) && (fn_801F441C(0, 0xB) == 0) && (fn_801F441C(1, 0xB) == 0) && (fn_801F441C(2, 0xB) == 0) && (fn_801F441C(3, 0xB) == 0)) {
             return 0;
         }
         goto block_14;
     }
-    if ((fn_8001E5C8() == 1) && (check_camera_mode__10TObjPlayerFv() == 0) && (fn_801F441C(0, 0x5B) == 0) && (fn_801F441C(1, 0x5B) == 0) && (fn_801F441C(2, 0x5B) == 0) && (fn_801F441C(3, 0x5B) == 0)) {
+    if ((TLobby__sub_8001E5C8() == 1) && (check_camera_mode__10TObjPlayerFv() == 0) && (fn_801F441C(0, 0x5B) == 0) && (fn_801F441C(1, 0x5B) == 0) && (fn_801F441C(2, 0x5B) == 0) && (fn_801F441C(3, 0x5B) == 0)) {
         return 0;
     }
 block_14:

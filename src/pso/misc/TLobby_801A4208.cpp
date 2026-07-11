@@ -18,7 +18,7 @@ M2C_UNK fn_801A3BA4();
 M2C_UNK fn_801A3BF4();
 M2C_UNK fn_801A3C00();
 M2C_UNK fn_801A3C18();
-M2C_UNK fn_80213430();
+M2C_UNK THunterGuildSeqOffline__sub_80213430();
 void fn_8034E440();
 M2C_UNK queue_destruction__7TObjectFv(u32);
 
@@ -34,7 +34,7 @@ void free_objects__6TLobbyFv(void) {
         queue_destruction__7TObjectFv(lbl_805D5EE8);
     }
     TObjCityMainWarp__sub_80186634();
-    fn_80213430();
+    THunterGuildSeqOffline__sub_80213430();
     fn_801A3B84();
     fn_801A3C18();
     TObjDoor__sub_801A3C0C();

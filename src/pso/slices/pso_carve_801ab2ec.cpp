@@ -24,7 +24,7 @@ struct VObj_801AB2EC : Base_801AB2EC {
 
 extern "C" {
 
-M2C_UNK fn_80154A00(void *);
+M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK fn_80156720(void *);
 M2C_UNK fn_801A771C(void *);
 M2C_UNK fn_801A7D38(void *, M2C_UNK);
@@ -36,7 +36,7 @@ void *fn_801AB2EC(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3564;
         ((VObj_801AB2EC *)arg0)->m13();
         fn_801A771C(arg0);
-        fn_80154A00(arg0);
+        TObjPlayer__sub_80154A00(arg0);
         fn_80156720(arg0);
         fn_801A7D38(arg0, 0);
         if (arg1 > 0) {

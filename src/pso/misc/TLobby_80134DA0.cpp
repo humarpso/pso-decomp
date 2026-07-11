@@ -11,7 +11,7 @@ int TLobby__sub_80134DA8(void* p);
 int TLobby__sub_80134DC8(void* p);
 int TLobby__sub_80134DE8(void* p);
 void TLobby__sub_80134E08(void);
-M2C_UNK fn_8001E5D0();
+M2C_UNK TLobby__sub_8001E5D0();
 int fn_800779A0(void*);
 int fn_80077AE8(void*);
 M2C_UNK fn_801DB4E4(s32);
@@ -27,7 +27,7 @@ int TLobby__sub_80134DE8(void* p) { return fn_80077AE8(p); }
 extern s32 TLobby__data_805D5580;
 
 void TLobby__sub_80134E08(void) {
-    fn_8001E5D0();
+    TLobby__sub_8001E5D0();
     fn_801DB4E4(TLobby__data_805D5580);
 }
 

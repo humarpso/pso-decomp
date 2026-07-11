@@ -7,16 +7,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__10TEndingPicFv(s32 arg0);
-M2C_UNK fn_80352D10(s32);
+M2C_UNK TEndingPic__sub_80352D10(s32);
 M2C_UNK fn_803DA798(s32);
 
-extern s32 lbl_805D6EE0;
+extern s32 TEndingPic__data_805D6EE0;
 extern s32 lbl_805D6EE4;
 
 void render__10TEndingPicFv(s32 arg0) {
-    if ((s32) lbl_805D6EE0 != 0) {
+    if ((s32) TEndingPic__data_805D6EE0 != 0) {
         fn_803DA798(lbl_805D6EE4);
-        fn_80352D10(arg0);
+        TEndingPic__sub_80352D10(arg0);
     }
 }
 

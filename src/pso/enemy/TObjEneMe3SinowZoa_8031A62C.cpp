@@ -10,7 +10,7 @@ u8 is_target_in_range__18TObjEneMe3SinowZoaFPv(void *arg0);
 void TObjEneMe3SinowZoa__sub_8031A69C(void);
 s32 TObjEneMe3SinowZoa__sub_8031A900(void *, s32, f32);
 
-extern f32 lbl_805DF320;
+extern f32 TObjEneMe3SinowZoa__data_805DF320;
 extern f32 lbl_805DF37C;
 extern f32 lbl_805DF380;
 
@@ -21,7 +21,7 @@ u8 is_target_in_range__18TObjEneMe3SinowZoaFPv(void *arg0) {
     var_r31 = 0;
     if (!(M2C_FIELD(arg0, s32 *, 0x3CC) & 0x10000)) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3AC);
-        if ((temp_f1 > lbl_805DF37C) && (temp_f1 < lbl_805DF380) && (TObjEneMe3SinowZoa__sub_8031A900(arg0, M2C_FIELD(arg0, s32 *, 0x60), temp_f1 - lbl_805DF320) == 0)) {
+        if ((temp_f1 > lbl_805DF37C) && (temp_f1 < lbl_805DF380) && (TObjEneMe3SinowZoa__sub_8031A900(arg0, M2C_FIELD(arg0, s32 *, 0x60), temp_f1 - TObjEneMe3SinowZoa__data_805DF320) == 0)) {
             var_r31 = 1;
         }
     }

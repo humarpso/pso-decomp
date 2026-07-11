@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80041B08(void *);
+M2C_UNK TBoss3VoloptHiraisin__sub_80041B08(void *);
 s32 fn_80080750();
 M2C_UNK fn_800D35D4(void *);
 M2C_UNK fn_800D37F4(void *);
@@ -37,7 +37,7 @@ void fn_800D3A68(u8 *arg0) {
     }
     fn_800D39EC(arg0);
     fn_800F6DD8(arg0);
-    fn_80041B08(arg0);
+    TBoss3VoloptHiraisin__sub_80041B08(arg0);
     TObjPlayer__sub_801B4A18(arg0, -1);
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *fn_8001E1D8(M2C_UNK);
+void *TLobby__sub_8001E1D8(M2C_UNK);
 
 s32 TBoss7Joint_get_shell_max_hp(void) {
-    return M2C_FIELD(fn_8001E1D8(0xF), s32 *, 0x1C);
+    return M2C_FIELD(TLobby__sub_8001E1D8(0xF), s32 *, 0x1C);
 }
 
 }

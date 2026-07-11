@@ -38,9 +38,9 @@ void TBoss1Dragon__sub_80029674(void);
 void TBoss1Dragon__sub_80029678(void);
 void check_death__12TBoss1DragonFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-s32 fn_800281F0(void *);
-M2C_UNK fn_800284B4(void *, M2C_UNK);
-s32 fn_800291D4();
+s32 TBoss1Dragon__sub_800281F0(void *);
+M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
+s32 TBoss1Dragon__sub_800291D4();
 
 void update_position_history__12TBoss1DragonFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x430);
@@ -52,18 +52,18 @@ void TBoss1Dragon__sub_80029674(void) {  }
 void TBoss1Dragon__sub_80029678(void) {  }
 
 void check_death__12TBoss1DragonFPv(void *arg0) {
-    if (fn_800291D4() != 0) {
-        if (fn_800281F0(arg0) != 0) {
+    if (TBoss1Dragon__sub_800291D4() != 0) {
+        if (TBoss1Dragon__sub_800281F0(arg0) != 0) {
             return;
         }
         goto block_8;
     }
     if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x800) && ((s32) M2C_FIELD(arg0, s16 *, 0x32C) <= 0)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3E4) == 1) {
-            fn_800284B4(arg0, 0xC);
+            TBoss1Dragon__sub_800284B4(arg0, 0xC);
             return;
         }
-        fn_800284B4(arg0, 0x15);
+        TBoss1Dragon__sub_800284B4(arg0, 0x15);
         return;
     }
 block_8:

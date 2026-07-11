@@ -30,19 +30,19 @@ M2C_UNK fn_801FE2D0();
 M2C_UNK fn_801FE338(s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_80266130(u32);
-M2C_UNK fn_802C561C(s32);
-M2C_UNK fn_802C5688(s32);
-M2C_UNK fn_802C6A10();
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C561C(s32);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5688(s32);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 fn_802D50A0(s32);
 M2C_UNK fn_802D50A8(s32, M2C_UNK);
 M2C_UNK fn_802D50B0(s32, M2C_UNK);
-s32 fn_802DFFE8(s32);
-int fn_802E0008(void*);
-M2C_UNK fn_802E001C(s32, M2C_UNK);
-M2C_UNK fn_802E005C(s32, M2C_UNK);
-int fn_802E0064(void*, void*);
-int fn_802E006C(void*, void*, void*);
-M2C_UNK fn_802E0078(s32);
+s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
+int TAdMultiPlyChrSelectGC__sub_802E0008(void*);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802E001C(s32, M2C_UNK);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802E005C(s32, M2C_UNK);
+int TAdMultiPlyChrSelectGC__sub_802E0064(void*, void*);
+int TAdMultiPlyChrSelectGC__sub_802E006C(void*, void*, void*);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0078(s32);
 M2C_UNK fn_802E0084(s32);
 M2C_UNK fn_802E0C68(s32, M2C_UNK);
 s32 fn_8030E2E4(void *, M2C_UNK);
@@ -56,7 +56,7 @@ extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
 
 void TAdMultiPlyChrSelectGC__sub_802DE094(void *arg0) {
     TAdGameStartGC__sub_802E6380(M2C_FIELD(arg0, s32 *, 0x78));
-    fn_802E005C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
+    TAdMultiPlyChrSelectGC__sub_802E005C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
     fn_802E0C68(M2C_FIELD(arg0, s32 *, 0x60), 1);
     M2C_FIELD(arg0, s32 *, 0x68) = fn_8030E2E4(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x6C) = fn_803100A4(arg0);
@@ -70,16 +70,16 @@ void TAdMultiPlyChrSelectGC__sub_802DE120(void *arg0) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x7C));
         M2C_FIELD(arg0, u32 *, 0x7C) = 0U;
     }
-    fn_802E006C((void*)(M2C_FIELD(arg0, s32 *, 0x5C)), (void*)(2), (void*)(2));
-    fn_802E0064((void*)(M2C_FIELD(arg0, s32 *, 0x5C)), (void*)(2));
-    fn_802E001C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
+    TAdMultiPlyChrSelectGC__sub_802E006C((void*)(M2C_FIELD(arg0, s32 *, 0x5C)), (void*)(2), (void*)(2));
+    TAdMultiPlyChrSelectGC__sub_802E0064((void*)(M2C_FIELD(arg0, s32 *, 0x5C)), (void*)(2));
+    TAdMultiPlyChrSelectGC__sub_802E001C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
     fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 1);
     M2C_FIELD(arg0, s32 *, 0x50) = 1;
     M2C_FIELD(arg0, s32 *, 0x54) = 0;
     TAdMultiPlyChrSelectGC__sub_802DE094((void *)(arg0));
 }
 
-void TAdMultiPlyChrSelectGC__sub_802DE1AC(void* p) { fn_802E0064((void*)(*(void**)((char*)p + 0x5c)), (void*)((void*)2)); fn_802E006C((void*)(*(void**)((char*)p + 0x5c)), (void*)((void*)2), (void*)((void*)2)); fn_802E0008((void*)(*(void**)((char*)p + 0x5c))); TAdMultiPlyChrSelectGC__sub_802DE094((void *)(p)); }
+void TAdMultiPlyChrSelectGC__sub_802DE1AC(void* p) { TAdMultiPlyChrSelectGC__sub_802E0064((void*)(*(void**)((char*)p + 0x5c)), (void*)((void*)2)); TAdMultiPlyChrSelectGC__sub_802E006C((void*)(*(void**)((char*)p + 0x5c)), (void*)((void*)2), (void*)((void*)2)); TAdMultiPlyChrSelectGC__sub_802E0008((void*)(*(void**)((char*)p + 0x5c))); TAdMultiPlyChrSelectGC__sub_802DE094((void *)(p)); }
 
 void TAdMultiPlyChrSelectGC__sub_802DE200(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
@@ -95,7 +95,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE200(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x74) = 0U;
     }
     if (fn_802D50A0((s32)(M2C_FIELD(arg0, s32 *, 0x68))) == 1) {
-        fn_802C6A10();
+        TAdMultiPlyChrSelectGC__sub_802C6A10();
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
@@ -108,18 +108,18 @@ void TAdMultiPlyChrSelectGC__sub_802DE2A8(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0((s32)(M2C_FIELD(arg0, s32 *, 0x68))) == 1) {
-        fn_802C6A10();
+        TAdMultiPlyChrSelectGC__sub_802C6A10();
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
     get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
     if (TAdMultiPlyChrSelectGC__sub_802C6848() == 0) {
-        fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+        TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
         M2C_FIELD(arg0, s32 *, 0x20) = 3;
         return;
     }
     if (TWindowSubComCard__sub_802A57C8((s32)(M2C_FIELD(arg0, s32 *, 0x8C))) != 0) {
-        fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+        TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
         M2C_FIELD(arg0, s32 *, 0x20) = 3;
         return;
     }
@@ -127,14 +127,14 @@ void TAdMultiPlyChrSelectGC__sub_802DE2A8(void *arg0) {
         temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv((s32)(M2C_FIELD(arg0, s32 *, 0x8C)));
         switch (temp_r3) {
         case 1:
-            fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+            TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
             M2C_FIELD(arg0, s32 *, 0x20) = 3;
             return;
         case 0:
-            fn_802DFFE8((s32)(M2C_FIELD(arg0, s32 *, 0x5C)));
+            TAdMultiPlyChrSelectGC__sub_802DFFE8((s32)(M2C_FIELD(arg0, s32 *, 0x5C)));
             fn_801FE2D0();
             fn_802D50A8(M2C_FIELD(arg0, s32 *, 0x68), 0xF);
-            fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+            TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
             M2C_FIELD(arg0, s32 *, 0x20) = 8;
             break;
         }
@@ -149,13 +149,13 @@ void TAdMultiPlyChrSelectGC__sub_802DE3A4(void *arg0) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x7C));
             M2C_FIELD(arg0, u32 *, 0x7C) = 0U;
         }
-        fn_802C6A10();
+        TAdMultiPlyChrSelectGC__sub_802C6A10();
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
     get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
     if (TAdMultiPlyChrSelectGC__sub_802C6848() == 0) {
-        fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+        TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
         M2C_FIELD(arg0, s32 *, 0x20) = 3;
         return;
     }
@@ -186,7 +186,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE3A4(void *arg0) {
                 TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x98));
                 M2C_FIELD(arg0, u32 *, 0x98) = 0U;
             }
-            fn_801FE338(fn_802DFFE8((s32)(M2C_FIELD(arg0, s32 *, 0x5C))) + 4);
+            fn_801FE338(TAdMultiPlyChrSelectGC__sub_802DFFE8((s32)(M2C_FIELD(arg0, s32 *, 0x5C))) + 4);
             fn_802D50A8(M2C_FIELD(arg0, s32 *, 0x68), 0xF);
             M2C_FIELD(arg0, s32 *, 0x20) = 8;
             break;
@@ -198,18 +198,18 @@ void TAdMultiPlyChrSelectGC__sub_802DE50C(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0((s32)(M2C_FIELD(arg0, u32 *, 0x68))) == 1) {
-        fn_802C6A10();
+        TAdMultiPlyChrSelectGC__sub_802C6A10();
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
     get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
     if (TAdMultiPlyChrSelectGC__sub_802C6848() == 0) {
-        fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+        TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
         M2C_FIELD(arg0, s32 *, 0x20) = 3;
         return;
     }
     if (TWindowSubComCard__sub_80073DB8(M2C_FIELD(arg0, s32 *, 0x7C)) != 0) {
-        fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+        TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
         M2C_FIELD(arg0, s32 *, 0x20) = 3;
         return;
     }
@@ -218,16 +218,16 @@ void TAdMultiPlyChrSelectGC__sub_802DE50C(void *arg0) {
         switch (temp_r3) {
         case 0:
             fn_8022675C(0x52D01, 0, 0, 0);
-            fn_802C561C(M2C_FIELD(arg0, s32 *, 0x5C));
-            fn_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C561C(M2C_FIELD(arg0, s32 *, 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
             M2C_FIELD(arg0, s32 *, 0x20) = 0x19;
             return;
         case 1:
             fn_8022675C(0x52D01, 0, 0, 0);
             fn_802E0084(M2C_FIELD(arg0, s32 *, 0x5C));
-            fn_802E0078(M2C_FIELD(arg0, s32 *, 0x5C));
-            fn_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
-            fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+            TAdMultiPlyChrSelectGC__sub_802E0078(M2C_FIELD(arg0, s32 *, 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
             if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
                 M2C_FIELD(arg0, u32 *, 0x68) = 0U;
@@ -240,7 +240,7 @@ void TAdMultiPlyChrSelectGC__sub_802DE50C(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 6;
             return;
         case 3:
-            fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+            TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
             M2C_FIELD(arg0, s32 *, 0x20) = 3;
             break;
         }
@@ -253,18 +253,18 @@ void TAdMultiPlyChrSelectGC__sub_802DE69C(void *arg0) {
     s32 temp_r3;
 
     if (fn_802D50A0((s32)(M2C_FIELD(arg0, s32 *, 0x68))) == 1) {
-        fn_802C6A10();
+        TAdMultiPlyChrSelectGC__sub_802C6A10();
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
     get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
     if (TAdMultiPlyChrSelectGC__sub_802C6848() == 0) {
-        fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+        TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
         M2C_FIELD(arg0, s32 *, 0x20) = 3;
         return;
     }
     if (TWindowSubComCard__sub_802A57C8((s32)(M2C_FIELD(arg0, u32 *, 0x90))) != 0) {
-        fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+        TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
         M2C_FIELD(arg0, s32 *, 0x20) = 3;
         return;
     }
@@ -272,13 +272,13 @@ void TAdMultiPlyChrSelectGC__sub_802DE69C(void *arg0) {
         temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv((s32)(M2C_FIELD(arg0, u32 *, 0x90)));
         switch (temp_r3) {
         case 1:
-            fn_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
+            TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));
             M2C_FIELD(arg0, s32 *, 0x20) = 3;
             return;
         case 0:
             fn_8022675C(0x52D01, 0, 0, 0);
-            fn_802C561C(M2C_FIELD(arg0, s32 *, 0x5C));
-            fn_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C561C(M2C_FIELD(arg0, s32 *, 0x5C));
+            TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
             lbl_805D68C8 = 1;
             if ((u32) M2C_FIELD(arg0, u32 *, 0x90) != 0U) {
                 TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x90));

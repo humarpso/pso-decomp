@@ -21,7 +21,7 @@ M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
 
 s32 obj_isState2_324();
 s32 obj_testFlags30(void *, M2C_UNK);
-extern const f32 lbl_805DC294;
+extern const f32 TObjPlayer__data_805DC294;
 
 void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
     if (obj_isState2_324() == 0) {
@@ -37,7 +37,7 @@ void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
             } else {
                 fn_801CA35C(arg0);
             }
-            TObjPlayer__sub_801BF9E8(arg0 + 0x5FC, lbl_805DC294);
+            TObjPlayer__sub_801BF9E8(arg0 + 0x5FC, TObjPlayer__data_805DC294);
             fn_801C65A4(arg0);
             return;
         }

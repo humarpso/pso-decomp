@@ -11,7 +11,7 @@ M2C_UNK TAdRicoRingCtrl__sub_8001B4A0(s32, f32);
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, M2C_UNK *);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_8001A8F0(u32, void *);
-s32 fn_8001A990();
+s32 TAdEndText__sub_8001A990();
 extern void fn_8008C4BC();
 M2C_UNK fn_8023E834();
 
@@ -53,7 +53,7 @@ void run_task__7TEndingFv(void *arg0) {
     case 2:
         break;
     case 1:
-        if (fn_8001A990() != 0) {
+        if (TAdEndText__sub_8001A990() != 0) {
             temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x28) + 1;
             M2C_FIELD(arg0, s32 *, 0x28) = temp_r3_2;
             if (temp_r3_2 > (s32) (M2C_FIELD(arg0, s32 *, 0x24) * 0xA)) {

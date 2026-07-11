@@ -32,9 +32,9 @@ extern "C" {
 
 f32 TContainerAncient01__vt20(void *arg0);
 f32 TContainerAncient01__vt21(void *arg0, s32 arg1, s32 *arg2);
-M2C_UNK fn_80154954(void *, s16 *);
+M2C_UNK TObjPlayer__sub_80154954(void *, s16 *);
 s32 fn_80156A80(void *, s16 *, M2C_UNK);
-M2C_UNK fn_8018B268();
+M2C_UNK TContainerAncient01__sub_8018B268();
 
 extern f32 TContainerAncient01__data_805DBD14;
 
@@ -42,11 +42,11 @@ f32 TContainerAncient01__vt20(void *arg0) {
     s16 sp8;
 
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) {
-        fn_8018B268();
+        TContainerAncient01__sub_8018B268();
         if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (fn_80156A80(arg0, &sp8, 1) != 0)) {
             sp8 = 1;
             fn_80156A80(arg0, &sp8, 0);
-            fn_80154954(arg0, &sp8);
+            TObjPlayer__sub_80154954(arg0, &sp8);
         }
     }
     return TContainerAncient01__data_805DBD14;

@@ -14,7 +14,7 @@ M2C_UNK TKeyBoardControl__sub_8025CBC0(void *);
 M2C_UNK fn_8025CBCC(void *);
 M2C_UNK fn_8025CC04(void *);
 M2C_UNK fn_8025CC3C(u32);
-M2C_UNK fn_80261134(void *);
+M2C_UNK TWindowKeyBoardSoft__sub_80261134(void *);
 
 void close__16TKeyBoardControlFPv(void *arg0) {
     void *temp_r3;
@@ -48,7 +48,7 @@ void release__16TKeyBoardControlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 1);
         fn_8025CC3C(M2C_FIELD(arg0, u32 *, 0x6C));
-        fn_80261134(arg0);
+        TWindowKeyBoardSoft__sub_80261134(arg0);
     }
 }
 

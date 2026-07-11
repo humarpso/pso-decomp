@@ -8,17 +8,17 @@ extern "C" {
 
 u8 is_boss_active__13TObjDFHormingFv(void);
 
-u32 fn_8004C1AC();
+u32 TBoss4DarkFalz__sub_8004C1AC();
 s32 TBoss4DarkFalz__sub_8004C1D4();
 
 u8 is_boss_active__13TObjDFHormingFv(void) {
     int var_r31;
 
     var_r31 = 0;
-    if (fn_8004C1AC() != 0U) {
-        fn_8004C1AC();
+    if (TBoss4DarkFalz__sub_8004C1AC() != 0U) {
+        TBoss4DarkFalz__sub_8004C1AC();
         if (TBoss4DarkFalz__sub_8004C1D4() != 3) {
-            fn_8004C1AC();
+            TBoss4DarkFalz__sub_8004C1AC();
             if (TBoss4DarkFalz__sub_8004C1D4() != 2) {
                 var_r31 = 1;
             }

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 get_main_phase();
 s32 is_split_screen();
-s32 fn_8001E5C8();
+s32 TLobby__sub_8001E5C8();
 extern s32 lbl_805D5550;
 
 s32 fn_80208280(void) {
@@ -17,18 +17,18 @@ s32 fn_80208280(void) {
     temp_r3 = get_main_phase();
     switch (temp_r3) {
     case 15:
-        if ((fn_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
+        if ((TLobby__sub_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
             return 3;
         }
         return 2;
     case 14:
         if (is_split_screen() == 1) {
-            if ((fn_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
+            if ((TLobby__sub_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
                 return 3;
             }
             return 2;
         }
-        if ((fn_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
+        if ((TLobby__sub_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
             return 1;
         }
         return 0;

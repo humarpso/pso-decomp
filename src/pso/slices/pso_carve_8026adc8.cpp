@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8001DC24();
+s32 TLobby__sub_8001DC24();
 u32 fn_80228F84(u32);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK fn_80269C6C(void *, s32, s32);
@@ -15,7 +15,7 @@ void fn_8026ADC8(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
         TWindowSubStatusDisp__sub_802290E0();
         M2C_FIELD(arg0, u32 *, 0x94) = fn_80228F84(M2C_FIELD(arg0, u32 *, 0x94));
-        fn_80269C6C(arg0, fn_8001DC24(), M2C_FIELD(arg0, s32 *, 0x90));
+        fn_80269C6C(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x90));
     }
 }
 

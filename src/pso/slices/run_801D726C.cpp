@@ -198,14 +198,14 @@ void fn_801D7630(void *arg0, u8 arg1) {
     M2C_FIELD(arg0, u8 *, 1) = var_r4;
 }
 
-u8 fn_80107B04();
+u8 TItemDrop__sub_80107B04();
 
 void fn_801D7670(u8 *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
     if (var_r4 >= 2U) {
-        var_r4 = fn_80107B04();
+        var_r4 = TItemDrop__sub_80107B04();
     }
     *arg0 = var_r4;
 }

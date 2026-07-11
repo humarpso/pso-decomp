@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800DED30(void *, s32);
+M2C_UNK TObjEnePanarms__sub_800DED30(void *, s32);
 
 void fn_800DCEB8(void *arg0) {
     s32 temp_r0;
@@ -19,7 +19,7 @@ void fn_800DCEB8(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x388) - 1;
     M2C_FIELD(arg0, s32 *, 0x388) = temp_r0;
     if (temp_r0 < 0) {
-        fn_800DED30(arg0, 7);
+        TObjEnePanarms__sub_800DED30(arg0, 7);
     }
 }
 

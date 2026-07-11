@@ -12,7 +12,7 @@ void free__11TOBoss4RockFUi(void*);
 void fn_8001FE7C(void*, int);
 
 extern u32 TObjGrass__data_805D5144;
-extern u32 lbl_805D5154;
+extern u32 TObjGrass__data_805D5154;
 extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
 
@@ -29,9 +29,9 @@ void destroy_all__9TObjGrassFv(void) {
         __dt__11TBoss4Type3FPvs((void*)lbl_805D5158, 1);
         lbl_805D5158 = 0U;
     }
-    if ((u32) lbl_805D5154 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5154, 1);
-        lbl_805D5154 = 0U;
+    if ((u32) TObjGrass__data_805D5154 != 0U) {
+        fn_8001FE7C((void*)TObjGrass__data_805D5154, 1);
+        TObjGrass__data_805D5154 = 0U;
     }
 }
 

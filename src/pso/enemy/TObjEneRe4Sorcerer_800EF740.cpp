@@ -8,10 +8,10 @@ extern "C" {
 
 s32 check_shield__18TObjEneRe4SorcererFiPv(s32 arg0, void *arg1);
 s16 TItemProShield__sub_80076B5C(void *);
-s32 fn_800B9B84();
+s32 TObjEneDD__sub_800B9B84();
 
 s32 check_shield__18TObjEneRe4SorcererFiPv(s32 arg0, void *arg1) {
-    if (fn_800B9B84() != 0) {
+    if (TObjEneDD__sub_800B9B84() != 0) {
         return M2C_FIELD(arg1, s16 *, 0x32C) < TItemProShield__sub_80076B5C(arg1);
     }
     return M2C_FIELD(arg1, s16 *, 0x32C) < (TItemProShield__sub_80076B5C(arg1) / 4);

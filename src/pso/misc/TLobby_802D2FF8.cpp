@@ -17,7 +17,7 @@ extern s8 TLobby__data_805D688A;
 extern s8 TLobby__data_805D688B;
 extern s32 TLobby__data_805D688C;
 extern s32 lbl_805D6890;
-extern u32 lbl_805D689C;
+extern u32 TLobby__data_805D689C;
 
 void reset__6TLobbyFi(s32 arg0) {
     if (fn_80246CB8() == 0) {
@@ -27,7 +27,7 @@ void reset__6TLobbyFi(s32 arg0) {
         lbl_805D6890 = 0;
         lbl_805D6888 &= 0xFFFFF80F;
         fn_8024AAA0(lbl_805D53A0, 0x1E);
-        u32 temp_r3 = lbl_805D689C;
+        u32 temp_r3 = TLobby__data_805D689C;
         if (temp_r3 != 0U) {
             fn_80339910(temp_r3, arg0);
         }

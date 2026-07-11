@@ -11,7 +11,7 @@ M2C_UNK TObjEneDD__sub_800BA438(s32, s32);
 s32 TObjEneDD__sub_800BA828();
 s32 TPhotonMylla__sub_80154CB4(u16);
 f32 fn_80011014();
-s32 fn_800B9B84();
+s32 TObjEneDD__sub_800B9B84();
 M2C_UNK fn_800BBE90();
 
 M2C_UNK obj_getField1c(s32);
@@ -21,7 +21,7 @@ void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     fn_800BBE90();
-    if (fn_800B9B84() != 0) {
+    if (TObjEneDD__sub_800B9B84() != 0) {
         obj_getField1c(arg1);
         if (TObjEneDD__sub_800BA828() != 0) {
             temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0));

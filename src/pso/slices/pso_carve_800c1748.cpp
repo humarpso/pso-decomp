@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8001E5C8();
+s32 TLobby__sub_8001E5C8();
 void fn_8001FE7C(void*, int);
 M2C_UNK fn_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
@@ -14,7 +14,7 @@ extern u32 lbl_805D5164;
 extern u32 lbl_805D516C;
 
 void fn_800C1748(void) {
-    if (fn_8001E5C8() == 0) {
+    if (TLobby__sub_8001E5C8() == 0) {
         if ((u32) lbl_805D516C != 0U) {
             fn_803DA16C((void*)lbl_805D516C);
             fn_8007EBB4(lbl_805D516C);

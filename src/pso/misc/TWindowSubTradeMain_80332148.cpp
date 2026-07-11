@@ -17,7 +17,7 @@ M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK fn_801BA458();
-M2C_UNK fn_802D29E8(void *);
+M2C_UNK TLobby__sub_802D29E8(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern void* __vt__19TWindowSubTradeMain[];
@@ -25,7 +25,7 @@ extern void* __vt__19TWindowSubTradeMain[];
 void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__19TWindowSubTradeMain;
-        fn_802D29E8(arg0);
+        TLobby__sub_802D29E8(arg0);
         check_flags_and_proceed__6TLobbyFv();
         if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x28)) != 0U) {
             fn_801BA458();

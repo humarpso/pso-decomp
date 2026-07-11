@@ -1,11 +1,11 @@
 #include "pso/THunterGuildWarning.h"
 
-extern "C" void fn_80211718(void*);
-extern s32 lbl_805D6178;
+extern "C" void THunterGuildWarning__sub_80211718(void*);
+extern s32 THunterGuildWarning__data_805D6178;
 
 void THunterGuildWarning::run_task() {}
 
 THunterGuildWarning::~THunterGuildWarning() {
-    fn_80211718(this);
-    lbl_805D6178 = 0;
+    THunterGuildWarning__sub_80211718(this);
+    THunterGuildWarning__data_805D6178 = 0;
 }

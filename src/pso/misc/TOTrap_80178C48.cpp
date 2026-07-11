@@ -25,7 +25,7 @@ s32 TObjPlayer__sub_80019248();
 s32 fn_800495BC(s32);
 
 s32 obj_getField1c(u32);
-extern const f32 lbl_805DBA38;
+extern const f32 TOTrap__data_805DBA38;
 
 void TOTrap__vt80(void *arg0) {
     s32 temp_r31;
@@ -34,7 +34,7 @@ void TOTrap__vt80(void *arg0) {
     TObjPlayer__sub_80154E3C(arg0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 0) {
         u32 p;
-        ((V_A *)arg0)->m20(M2C_FIELD(arg0, u32 *, 0x2A8), lbl_805DBA38);
+        ((V_A *)arg0)->m20(M2C_FIELD(arg0, u32 *, 0x2A8), TOTrap__data_805DBA38);
         p = M2C_FIELD(arg0, u32 *, 0x2A8);
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);

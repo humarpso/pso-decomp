@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK fn_800F6B14();
 M2C_UNK TLobby__sub_8020C5A4();
-M2C_UNK fn_8031F1A8(void *);
+M2C_UNK TObjEneRecobox__sub_8031F1A8(void *);
 
 }
 
@@ -121,7 +121,7 @@ void fn_8031F374(void *arg0, s32 arg1) {
     case 4:
         fn_800F6B14();
         M2C_FIELD(arg0, s32 *, 0x40C) = (s32) (M2C_FIELD(arg0, s32 *, 0x40C) | 1);
-        fn_8031F1A8(arg0);
+        TObjEneRecobox__sub_8031F1A8(arg0);
         ((VObj_8031F374 *)arg0)->m93();
         return;
     case 3:

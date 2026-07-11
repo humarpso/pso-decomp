@@ -14,8 +14,8 @@ M2C_UNK fn_80141F50();
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
 M2C_UNK fn_801E32E8(void *, s32, s32, M2C_UNK);
-M2C_UNK fn_8023CED4(void *, void *, void *, void *, void *);
-M2C_UNK fn_8023D128(void *, void *, void *, void *);
+M2C_UNK TTecZondeEff__sub_8023CED4(void *, void *, void *, void *, void *);
+M2C_UNK TTecZondeEff__sub_8023D128(void *, void *, void *, void *);
 M2C_UNK fn_803DED84(void *);
 M2C_UNK set_depth_buffer_settings_1__Fv();
 
@@ -36,11 +36,11 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     fn_801E2EFC();
     set_depth_buffer_settings_1__Fv();
     fn_80141F50();
-    fn_8023D128(arg0, sp70, sp3C, sp8);
-    fn_8023CED4(arg0, sp10C, sp70, sp3C, sp8);
+    TTecZondeEff__sub_8023D128(arg0, sp70, sp3C, sp8);
+    TTecZondeEff__sub_8023CED4(arg0, sp10C, sp70, sp3C, sp8);
     fn_801E32E8(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, TBoss5GryphonLightningEff__sub_80325070(arg0, sp10C), 1);
     if ((u8) M2C_FIELD(arg0, u8 *, 0x260) == 1) {
-        fn_8023CED4(arg0, sp10C, sp70, sp8, sp3C);
+        TTecZondeEff__sub_8023CED4(arg0, sp10C, sp70, sp8, sp3C);
         fn_801E32E8(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, TBoss5GryphonLightningEff__sub_80325070(arg0, sp10C), 1);
     }
     fn_80141F1C();

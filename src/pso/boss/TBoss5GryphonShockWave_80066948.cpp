@@ -10,7 +10,7 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
 M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-f32 fn_8007E9EC(void *);
+f32 TObjBoss2Tunnel__sub_8007E9EC(void *);
 M2C_UNK fn_803D9370(void *, void *);
 
 extern M2C_UNK __vt__22TBoss5GryphonShockWave[];
@@ -35,7 +35,7 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     VecCopy__FP3VecPC3Vec(sp8, arg0 + 0x2C);
     fn_803D9370(sp8, arg4);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (lbl_805D8EF0 * fn_8007E9EC(sp8));
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (lbl_805D8EF0 * TObjBoss2Tunnel__sub_8007E9EC(sp8));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x24) < 0x1E) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0x1E;
     }

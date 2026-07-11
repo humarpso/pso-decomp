@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8007E4E0(void *, M2C_UNK *);
+M2C_UNK TObjBoss2Tunnel__sub_8007E4E0(void *, M2C_UNK *);
 M2C_UNK fn_800869A4(M2C_UNK *, M2C_UNK, M2C_UNK, s32);
 
 void fn_800D91B0(void *arg0, s32 arg1) {
     M2C_UNK sp8;
 
-    fn_8007E4E0(arg0, &sp8);
+    TObjBoss2Tunnel__sub_8007E4E0(arg0, &sp8);
     fn_800869A4(&sp8, 0xE5, 0, arg1);
 }
 

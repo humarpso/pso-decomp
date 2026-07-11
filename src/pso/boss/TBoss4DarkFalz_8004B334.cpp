@@ -8,7 +8,7 @@ extern "C" {
 
 s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0);
 s32 is_timer_expired__14TBoss4DarkFalzFPv(void *arg0);
-void *fn_8001E1D8(M2C_UNK);
+void *TLobby__sub_8001E1D8(M2C_UNK);
 
 s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0) {
     s32 temp_r3;
@@ -23,7 +23,7 @@ s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0) {
 s32 is_timer_expired__14TBoss4DarkFalzFPv(void *arg0) {
     s32 var_r4;
 
-    var_r4 = M2C_FIELD(fn_8001E1D8(0x35), s32 *, 0x18);
+    var_r4 = M2C_FIELD(TLobby__sub_8001E1D8(0x35), s32 *, 0x18);
     if ((var_r4 < 1) || (var_r4 > 0x13)) {
         var_r4 = 2;
     }

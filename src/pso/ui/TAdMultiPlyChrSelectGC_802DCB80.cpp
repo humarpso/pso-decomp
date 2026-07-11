@@ -13,7 +13,7 @@ M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_802C5594(s32);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5594(s32);
 s32 fn_802D50A0(s32);
 M2C_UNK fn_802D50B0(s32, M2C_UNK);
 s32 fn_802E00C4(s32);
@@ -31,7 +31,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCB80(void *arg0) {
         TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x94));
         M2C_FIELD(arg0, u32 *, 0x94) = 0U;
     }
-    fn_802C5594(M2C_FIELD(arg0, s32 *, 0x5C));
+    TAdMultiPlyChrSelectGC__sub_802C5594(M2C_FIELD(arg0, s32 *, 0x5C));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
         disallow_rendering__7TObjectFv(M2C_FIELD(arg0, void **, 0x70));
     }

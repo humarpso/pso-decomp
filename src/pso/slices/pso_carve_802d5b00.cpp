@@ -9,8 +9,8 @@ extern "C" {
 M2C_UNK fn_800660D4(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK fn_800822D4(s32, f32, f32);
 s32 fn_80087350(M2C_UNK, s32);
-M2C_UNK fn_80110154(M2C_UNK, s32 *);
-M2C_UNK fn_80110190(M2C_UNK, s32 *);
+M2C_UNK TItemLoad__sub_80110154(M2C_UNK, s32 *);
+M2C_UNK TItemLoad__sub_80110190(M2C_UNK, s32 *);
 extern f32 lbl_805DE78C;
 extern f32 lbl_805DE79C;
 
@@ -21,8 +21,8 @@ void fn_802D5B00(s32 arg0) {
 
     temp_r3 = fn_80087350(arg0, 0x1BF);
     if (temp_r3 != 0) {
-        fn_80110190(0xD, &spC);
-        fn_80110154(0xD, &sp8);
+        TItemLoad__sub_80110190(0xD, &spC);
+        TItemLoad__sub_80110154(0xD, &sp8);
         fn_800660D4(temp_r3, spC, sp8, 0, 0, lbl_805DE78C);
         fn_800822D4(temp_r3, lbl_805DE79C, lbl_805DE79C);
     }

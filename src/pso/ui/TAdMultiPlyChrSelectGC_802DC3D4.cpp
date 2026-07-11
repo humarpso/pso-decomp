@@ -13,7 +13,7 @@ M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK fn_800F9EF8(M2C_UNK);
-M2C_UNK fn_802C5594(s32);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5594(s32);
 s32 fn_802D50A0(s32);
 M2C_UNK fn_802E00BC(s32, M2C_UNK);
 s32 fn_802E00C4(s32);
@@ -54,7 +54,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0) {
         if (fn_802E0100() != 0U) {
             TAdChrMoveEffectGC__sub_803490AC();
         }
-        fn_802C5594(M2C_FIELD(arg0, s32 *, 0x5C));
+        TAdMultiPlyChrSelectGC__sub_802C5594(M2C_FIELD(arg0, s32 *, 0x5C));
         M2C_FIELD(arg0, s32 *, 0x20) = 0x24;
     }
 }

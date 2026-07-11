@@ -6,7 +6,7 @@ extern "C" {
 
 void *TWindowSubTradeMessage__ct(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
-void fn_802D29DC(void *);
+void TLobby__sub_802D29DC(void *);
 
 extern M2C_UNK __vt__22TWindowSubTradeMessage[];
 extern void *lbl_805D4278;
@@ -18,7 +18,7 @@ void *TWindowSubTradeMessage__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x24) = arg1;
     M2C_FIELD(arg0, void **, 0x20) = arg2;
     M2C_FIELD(arg0, u32 *, 0x28) = 0;
-    fn_802D29DC(arg0);
+    TLobby__sub_802D29DC(arg0);
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;
     return arg0;
 }

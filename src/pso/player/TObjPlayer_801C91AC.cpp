@@ -12,7 +12,7 @@ s32 TItemMag__sub_80113E8C();
 s32 TObjPlayer__sub_80019248(void *);
 M2C_UNK TObjPlayer__sub_800194AC(void *, M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_801D2630();
-M2C_UNK fn_8001053C(void *);
+M2C_UNK TObjPlayer__sub_8001053C(void *);
 M2C_UNK fn_8002AE8C(void *);
 s32 fn_801A5A40(void *);
 
@@ -20,7 +20,7 @@ M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 
 void TObjPlayer__sub_801C91AC(u8 *arg0) {
     TObjPlayer__sub_801D2630();
-    fn_8001053C(arg0);
+    TObjPlayer__sub_8001053C(arg0);
     obj_clearFlags30(arg0, 0x20);
     if (((s16) M2C_FIELD(arg0, s16 *, 0x328) == 1) && (TObjPlayer__sub_80019248(arg0) != 0)) {
         fn_8002AE8C(arg0 + 0x644);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8001DC24();
+s32 TLobby__sub_8001DC24();
 s32 __ct__14TFontSmallTaskFv(s32, s32, s32, s32, s32, s32, s32);
 M2C_UNK fn_80228F5C(s32);
 M2C_UNK fn_80229080(M2C_UNK *);
@@ -25,7 +25,7 @@ s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4
     fn_80228F5C(arg5);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
-        var_r31 = __ct__14TFontSmallTaskFv(var_r31, arg0, arg1, arg2, arg3, fn_8001DC24(), arg6);
+        var_r31 = __ct__14TFontSmallTaskFv(var_r31, arg0, arg1, arg2, arg3, TLobby__sub_8001DC24(), arg6);
     }
     return var_r31;
 }

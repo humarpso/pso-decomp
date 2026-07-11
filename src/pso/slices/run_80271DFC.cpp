@@ -16,7 +16,7 @@ void set_flag_bit0__11TWindowCtrlFv(void) {
 
 extern void *TWindowCtrl__data_805D63F8;
 
-void fn_80271E18(void) {
+void TWindowCtrl__sub_80271E18(void) {
     if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
         M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) & 0xFFFE);
     }

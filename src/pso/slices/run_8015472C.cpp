@@ -11,7 +11,7 @@ extern "C" {
     extern int lbl_805D5878;
 void reset_global_table(void) { memset(lbl_8050DAD0, (void*)0, (void*)128); lbl_805D5878 = 0; }
 
-void fn_80154764(void *arg0, s32 arg1, u32 arg2) {
+void TObjPlayer__sub_80154764(void *arg0, s32 arg1, u32 arg2) {
     arg0 = M2C_FIELD(arg0, void **, 0xA4);
     if (arg0 != 0) {
         arg0 = (char*)arg0 + (arg1 * 0x2C);

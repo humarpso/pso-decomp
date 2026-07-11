@@ -11,7 +11,7 @@ M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK fn_8001DA00();
+M2C_UNK TLobby__sub_8001DA00();
 M2C_UNK fn_802258C8();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -61,7 +61,7 @@ void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x40) = 0U;
         }
         fn_802258C8();
-        fn_8001DA00();
+        TLobby__sub_8001DA00();
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

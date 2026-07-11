@@ -18,8 +18,8 @@ extern "C" {
 
 s32 TObjPlayer__sub_800196EC();
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_802292E0(u16);
-M2C_UNK fn_802293A0(u16);
+M2C_UNK TSwitch__sub_802292E0(u16);
+M2C_UNK TSwitch__sub_802293A0(u16);
 
 void fn_8016A004(void *arg0, void *arg1) {
     s32 temp_r0;
@@ -28,9 +28,9 @@ void fn_8016A004(void *arg0, void *arg1) {
         fn_8022675C(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg1, u8 *, 0xB) & 1) {
-        fn_802293A0(M2C_FIELD(arg1, u16 *, 8));
+        TSwitch__sub_802293A0(M2C_FIELD(arg1, u16 *, 8));
     } else {
-        fn_802292E0(M2C_FIELD(arg1, u16 *, 8));
+        TSwitch__sub_802292E0(M2C_FIELD(arg1, u16 *, 8));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
     switch (temp_r0) {

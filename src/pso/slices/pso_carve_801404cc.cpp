@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8007BA20();
-M2C_UNK fn_800867AC();
+M2C_UNK TParticleCtrl__sub_800867AC();
 M2C_UNK fn_800F7B84();
 M2C_UNK fn_800FD6A0(M2C_UNK *, M2C_UNK);
 M2C_UNK fn_80207FFC();
@@ -21,7 +21,7 @@ void fn_801404CC(void) {
     fn_8022743C();
     fn_80227248();
     fn_800FD6A0(lbl_804A7368, 8);
-    fn_800867AC();
+    TParticleCtrl__sub_800867AC();
     fn_80207FFC();
     fn_800F7B84();
     fn_8007BA20();

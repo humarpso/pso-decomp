@@ -13,7 +13,7 @@ void fn_802274B8(void *);
 
 extern M2C_UNK __vt__16TItemReverseTech[];
 extern void *lbl_805D2C48;
-extern void *lbl_805D54D0;
+extern void *TItemReverseTech__data_805D54D0;
 extern M2C_UNK lbl_8043E708[];
 
 void *TItemReverseTech__ct(void *arg0) {
@@ -24,7 +24,7 @@ void *TItemReverseTech__ct(void *arg0) {
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2C48;
     o = __nw__7TObjectFUl(0x34);
     if (o != NULL) {
-        o = TItemReverseTechPart1__ct(o, arg0, lbl_805D54D0);
+        o = TItemReverseTechPart1__ct(o, arg0, TItemReverseTech__data_805D54D0);
     }
     M2C_FIELD(arg0, void **, 0x20) = o;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;

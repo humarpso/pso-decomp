@@ -1,7 +1,7 @@
 #include "pso/TItemDropSub.h"
 
-extern s32 lbl_805D5478;
+extern s32 TItemDropSub__data_805D5478;
 
 TItemDropSub::~TItemDropSub() {
-    lbl_805D5478 = 0;
+    TItemDropSub__data_805D5478 = 0;
 }

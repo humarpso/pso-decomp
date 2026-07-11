@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80026EB8(void *, s32, M2C_UNK);
+s32 TBoss1Dragon__sub_80026EB8(void *, s32, M2C_UNK);
 
-u8 fn_80026FBC(void *arg0) {
+u8 TBoss1Dragon__sub_80026FBC(void *arg0) {
     u8 var_r31;
 
     var_r31 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x768) >= 0x96) && (fn_80026EB8(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x6E4), s32 *, 8), 0x400) != 0)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x768) >= 0x96) && (TBoss1Dragon__sub_80026EB8(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x6E4), s32 *, 8), 0x400) != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

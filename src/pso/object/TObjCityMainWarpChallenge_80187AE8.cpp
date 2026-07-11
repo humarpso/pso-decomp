@@ -9,7 +9,7 @@ extern "C" {
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__12TObjAreaWarpFv(void *, M2C_UNK);
-M2C_UNK fn_80154A00(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK fn_80186C44(void *);
 
 extern M2C_UNK __vt__25TObjCityMainWarpChallenge[];
@@ -17,7 +17,7 @@ extern M2C_UNK __vt__25TObjCityMainWarpChallenge[];
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TObjCityMainWarpChallenge;
-        fn_80154A00((M2C_UNK *)arg0);
+        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
         fn_80186C44(arg0);
         __dt__12TObjAreaWarpFv(arg0, 0);
         if (arg1 > 0) {

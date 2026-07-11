@@ -68,7 +68,7 @@ int TPlyPhotonChair__sub_801BEC44(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 int fn_8011E204(void*, int);
 int fn_8011E238(void*, int);
-int fn_80154A00(void*);
+int TObjPlayer__sub_80154A00(void*);
 int fn_801BA458(void*);
 int fn_801BA5CC(void*);
 int TObjPlayer__sub_801BED70(void*);

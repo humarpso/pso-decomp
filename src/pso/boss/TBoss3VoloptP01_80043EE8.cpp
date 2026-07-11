@@ -8,10 +8,10 @@ extern "C" {
 
 void init_breakup_effect__15TBoss3VoloptP01Fv(void);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
-s32 fn_8001E1D8(M2C_UNK);
-s32 fn_8001E210(M2C_UNK);
-s32 fn_8001E248(M2C_UNK);
-s32 fn_8001E280(M2C_UNK);
+s32 TLobby__sub_8001E1D8(M2C_UNK);
+s32 TLobby__sub_8001E210(M2C_UNK);
+s32 TLobby__sub_8001E248(M2C_UNK);
+s32 TLobby__sub_8001E280(M2C_UNK);
 s32 fn_8007EB94(M2C_UNK);
 void *fn_80131700(s32, M2C_UNK);
 
@@ -35,10 +35,10 @@ void init_breakup_effect__15TBoss3VoloptP01Fv(void) {
     }
     lbl_805D4CC4 = temp_r3;
     lbl_805D4CC8 = fn_80131700(M2C_FIELD(M2C_FIELD(lbl_805D4CC0, void **, 0x42C), s32 *, 0x118), 0xD);
-    lbl_805D4CB0 = fn_8001E280(0x22);
-    lbl_805D4CB4 = fn_8001E248(0x22);
-    lbl_805D4CB8 = fn_8001E210(0x22);
-    lbl_805D4CBC = fn_8001E1D8(0x22);
+    lbl_805D4CB0 = TLobby__sub_8001E280(0x22);
+    lbl_805D4CB4 = TLobby__sub_8001E248(0x22);
+    lbl_805D4CB8 = TLobby__sub_8001E210(0x22);
+    lbl_805D4CBC = TLobby__sub_8001E1D8(0x22);
     lbl_805D4CCC = M2C_FIELD(M2C_FIELD(lbl_805D4CC8, void **, 4), s32 *, 4);
 }
 

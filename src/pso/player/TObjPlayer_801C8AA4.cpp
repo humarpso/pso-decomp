@@ -33,7 +33,7 @@ M2C_UNK TObjPlayer__sub_801B0FF4(void *);
 s32 TObjPlayer__sub_801D0458(void *);
 M2C_UNK TObjPlayer__sub_801D04B4(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
-M2C_UNK fn_80154764(void *, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
 M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 
@@ -43,7 +43,7 @@ void TObjPlayer__sub_801C8AA4(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x15;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_801D04B4(arg0);
-    fn_80154764(arg0, 0, 1);
+    TObjPlayer__sub_80154764(arg0, 0, 1);
     M2C_FIELD(arg0, f32 *, 0x624) = (f32) TObjPlayer__data_805DC36C;
     TObjPlayer__sub_801B0FF4(arg0);
     ((V_A *) arg0)->m15();

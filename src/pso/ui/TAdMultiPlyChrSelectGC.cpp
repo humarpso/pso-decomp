@@ -9,12 +9,12 @@ extern "C" {
 void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
 
 s32 fn_801FE854();
-M2C_UNK fn_802C5BCC(void *, s32 *, s32 *);
-M2C_UNK fn_802C6418();
-M2C_UNK fn_802C658C();
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5BCC(void *, s32 *, s32 *);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6418();
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C658C();
 void * TAdMultiPlyChrSelectGC__sub_802C6920();
-M2C_UNK fn_802E0024(s32, s32);
-M2C_UNK fn_802E0064(s32, s32);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0024(s32, s32);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0064(s32, s32);
 
 void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     void *temp_r3;
@@ -26,21 +26,21 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 10:
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
-        fn_802C5BCC(temp_r3, &sp14, &sp10);
-        fn_802C6418();
-        fn_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), sp14);
-        fn_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp10);
+        TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &sp14, &sp10);
+        TAdMultiPlyChrSelectGC__sub_802C6418();
+        TAdMultiPlyChrSelectGC__sub_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), sp14);
+        TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp10);
         M2C_FIELD(arg0, s32 *, 0x9C) = 1;
         return;
     case 4:
         TAdMultiPlyChrSelectGC__sub_802C6920();
-        fn_802C658C();
+        TAdMultiPlyChrSelectGC__sub_802C658C();
         if (fn_801FE854() == 0) {
             temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
-            fn_802C5BCC(temp_r3, &spC, &sp8);
-            fn_802C6418();
-            fn_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), spC);
-            fn_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp8);
+            TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &spC, &sp8);
+            TAdMultiPlyChrSelectGC__sub_802C6418();
+            TAdMultiPlyChrSelectGC__sub_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), spC);
+            TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp8);
         }
         M2C_FIELD(arg0, s32 *, 0x9C) = 1;
         return;

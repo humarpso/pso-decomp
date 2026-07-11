@@ -31,8 +31,8 @@ extern "C" {
 
 s32 TLobby__sub_8020C608(s16 arg0, s16 arg1, s32 arg2);
 u8 *TLobby__sub_8020CCF4(void *);
-u8 *fn_8020B334(s32);
-s32 fn_8020B454(s32);
+u8 *TLobby__sub_8020B334(s32);
+s32 TLobby__sub_8020B454(s32);
 M2C_UNK fn_8020E484(s32, void *);
 
 extern s32 TLobby__data_805D60FC;
@@ -51,8 +51,8 @@ s32 TLobby__sub_8020C608(s16 arg0, s16 arg1, s32 arg2) {
     if ((s32) TLobby__data_805D60FC < 0) {
         return 0;
     }
-    var_r29 = fn_8020B334(TLobby__data_805D60FC);
-    temp_r31 = fn_8020B454(TLobby__data_805D60FC);
+    var_r29 = TLobby__sub_8020B334(TLobby__data_805D60FC);
+    temp_r31 = TLobby__sub_8020B454(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
         temp_r3 = M2C_FIELD(var_r29, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) M2C_FIELD(var_r29, s16 *, 0xC) == arg0) && ((s16) M2C_FIELD(var_r29, s16 *, 0xE) == arg1)) {

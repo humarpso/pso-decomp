@@ -8,8 +8,8 @@ void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2);
 void TObjEneMorfos__sub_8033471C(void *);
 void TObjEneMorfos__sub_80334D74(void *);
 void fn_800A0610(void *);
-void fn_800B9A8C(void *);
-void fn_800BB8E0(void *, void *);
+void TObjEneDD__sub_800B9A8C(void *);
+void TObjEneDD__sub_800BB8E0(void *, void *);
 void fn_800D764C(void *);
 
 extern M2C_UNK __vt__13TObjEneMorfos[];
@@ -19,13 +19,13 @@ void __construct_array(void *, void *, void *, int, int);
 extern void *lbl_805D4230;
 
 void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2) {
-    fn_800B9A8C(arg0);
+    TObjEneDD__sub_800B9A8C(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjEneMorfos;
     fn_800A0610((void *)((char *)arg0 + 1004));
     fn_800D764C((void *)((char *)arg0 + 1032));
     __construct_array((void *)((char *)arg0 + 1060), fn_800D7CB0, fn_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4230;
-    fn_800BB8E0(arg0, arg2);
+    TObjEneDD__sub_800BB8E0(arg0, arg2);
     TObjEneMorfos__sub_8033471C(arg0);
     TObjEneMorfos__sub_80334D74(arg0);
     M2C_FIELD(arg0, u32 *, 0x494) = 0;

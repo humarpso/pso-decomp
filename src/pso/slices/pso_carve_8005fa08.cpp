@@ -8,11 +8,11 @@ extern "C" {
 
 f64 fn_80019760(f32, f32);
 M2C_UNK fn_8005FA78(void *, s32, f32);
-M2C_UNK fn_800B99D8();
+M2C_UNK TObjEneDD__sub_800B99D8();
 extern const f64 lbl_80437EB0;
 
 void fn_8005FA08(void *arg0, f32 farg0) {
-    fn_800B99D8();
+    TObjEneDD__sub_800B99D8();
     fn_8005FA78(arg0, (s32) (lbl_80437EB0 * fn_80019760(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), farg0);
 }
 

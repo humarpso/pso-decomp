@@ -10,12 +10,12 @@ void update_position__11TMainCursorFi(s32 arg0);
 u8 TMainCursor__sub_8013E548(s32);
 void *TPhotonMylla__sub_80154CB4();
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
-M2C_UNK fn_8013E308(s32);
+M2C_UNK TMainCursor__sub_8013E308(s32);
 
 void update_position__11TMainCursorFi(s32 arg0) {
     void *temp_r3;
 
-    fn_8013E308(arg0 + 0x60);
+    TMainCursor__sub_8013E308(arg0 + 0x60);
     temp_r3 = TPhotonMylla__sub_80154CB4();
     if (temp_r3 != NULL) {
         s32 base = M2C_FIELD(temp_r3, s32 *, 0xA4) + TMainCursor__sub_8013E548(arg0) * 0x2C;

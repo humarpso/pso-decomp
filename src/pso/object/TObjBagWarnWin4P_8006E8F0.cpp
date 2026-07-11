@@ -9,7 +9,7 @@ s32 obj_getField1c();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 fn_801FC1A4();
 u32 get_card_window__17TWindowSubComCardFUi(s32);
-s32 fn_802116EC();
+s32 THunterGuildWarning__sub_802116EC();
 s32 TWindowCtrl__sub_8024AF74(u16);
 s32 TWindowCtrl__sub_8024B054(u16);
 int fn_8006E87C(void* p);
@@ -29,7 +29,7 @@ s32 TObjBagWarnWin4P__sub_8006E8F0(void) {
             return 0;
         }
     }
-    if (fn_802116EC() != 0) {
+    if (THunterGuildWarning__sub_802116EC() != 0) {
         return 0;
     }
     var_r31 = 0;

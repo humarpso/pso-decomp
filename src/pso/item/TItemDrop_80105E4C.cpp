@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 calc_drop_offset__9TItemDropFi(s32 arg0);
-s32 fn_8001E5C8();
+s32 TLobby__sub_8001E5C8();
 s32 fn_8030A7B0();
 
 extern s32 lbl_805D5550;
@@ -18,7 +18,7 @@ s32 calc_drop_offset__9TItemDropFi(s32 arg0) {
     var_r31 = arg0 + (lbl_805D5550 * 0xA);
     if (fn_8030A7B0() == 1) {
         var_r31 += 0x50;
-    } else if (fn_8001E5C8() == 1) {
+    } else if (TLobby__sub_8001E5C8() == 1) {
         var_r31 += 0x28;
     }
     return var_r31;

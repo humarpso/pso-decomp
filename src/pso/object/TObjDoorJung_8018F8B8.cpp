@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__12TObjDoorJungFv(u8 *arg0);
-M2C_UNK fn_80154764(M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_80154764(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TRaderMapCore__sub_801F9AC4(void *, M2C_UNK, u16, M2C_UNK, M2C_UNK);
 
 extern s32 lbl_805D58F8;
@@ -32,7 +32,7 @@ struct VObj : Base {
 void run_task__12TObjDoorJungFv(u8 *arg0) {
     if ((s32) lbl_805D58F8 != 0) {
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFFFFFE);
-        fn_80154764((M2C_UNK)arg0, 0, 8);
+        TObjPlayer__sub_80154764((M2C_UNK)arg0, 0, 8);
     } else {
         ((VObj *)arg0)->m12();
     }

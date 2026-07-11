@@ -8,7 +8,7 @@ extern "C" {
 
 void update_unlock_flags__16TObjCityMainWarpFv(void);
 s32 TODoorVoShip__sub_801F44BC(M2C_UNK);
-s32 fn_800B9CF4();
+s32 TObjEneDD__sub_800B9CF4();
 
 s32 is_split_screen();
 extern s32 TObjCityMainWarp__data_805D5B54;
@@ -19,7 +19,7 @@ void update_unlock_flags__16TObjCityMainWarpFv(void) {
     M2C_UNK var_r3;
 
     TObjCityMainWarp__data_805D5B54 |= 1;
-    if ((fn_800B9CF4() != 0) || (is_split_screen() != 0)) {
+    if ((TObjEneDD__sub_800B9CF4() != 0) || (is_split_screen() != 0)) {
         var_r3 = 0x4C;
         var_r31 = 0x4F;
         var_r30 = 0x52;

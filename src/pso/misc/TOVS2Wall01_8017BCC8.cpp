@@ -9,13 +9,13 @@ extern "C" {
 void init__11TOVS2Wall01Fi(s32 arg0);
 M2C_UNK TOVS2Wall01__sub_8017BC10(s32, s32);
 M2C_UNK fn_80087350(s32, M2C_UNK);
-M2C_UNK fn_80154764(s32, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_80154764(s32, M2C_UNK, M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
 void init__11TOVS2Wall01Fi(s32 arg0) {
     s32 var_r31;
 
-    fn_80154764(arg0, 0, 1);
+    TObjPlayer__sub_80154764(arg0, 0, 1);
     var_r31 = 7;
     do {
         TOVS2Wall01__sub_8017BC10(arg0, var_r31);

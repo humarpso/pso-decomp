@@ -6,7 +6,7 @@ extern "C" {
 
 void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void fn_800B9A34(void *, int);
+void TObjEneDD__sub_800B9A34(void *, int);
 void fn_800D75F4(void *, int);
 void fn_80156720(void *);
 void queue_destruction__7TObjectFv(void *);
@@ -19,7 +19,7 @@ void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, void **, 0x428) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x428)); M2C_FIELD(arg0, M2C_UNK *, 0x428) = 0; }
         fn_80156720(arg0);
         fn_800D75F4((s8 *)arg0 + 0x3F4, -1);
-        fn_800B9A34(arg0, 0);
+        TObjEneDD__sub_800B9A34(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -2,14 +2,14 @@
 
 extern "C" {
 
-s32 fn_802C6488();
+s32 TAdMultiPlyChrSelectGC__sub_802C6488();
 int fn_80298F6C(void* p);
 int fn_80299454(void*);
 
 s32 fn_80298F38(void) {
     s32 var_r3;
 
-    var_r3 = fn_802C6488();
+    var_r3 = TAdMultiPlyChrSelectGC__sub_802C6488();
     if ((var_r3 < 0) || (var_r3 > 3)) {
         var_r3 = 0;
     }

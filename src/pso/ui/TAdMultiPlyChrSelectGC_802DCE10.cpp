@@ -10,12 +10,12 @@ void TAdMultiPlyChrSelectGC__sub_802DCE10(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DCE90(void *arg0);
 M2C_UNK TAdGameStartGC__sub_802E644C(s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 fn_802C64D0(M2C_UNK);
-s32 fn_802C6508();
-s32 fn_802C6558();
-M2C_UNK fn_802C6A10();
+s32 TAdMultiPlyChrSelectGC__sub_802C64D0(M2C_UNK);
+s32 TAdMultiPlyChrSelectGC__sub_802C6508();
+s32 TAdMultiPlyChrSelectGC__sub_802C6558();
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 fn_802D50A0(u32);
-M2C_UNK fn_802E0008(s32);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0008(s32);
 s32 fn_802E00C4(s32);
 s32 fn_802E0124(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -24,23 +24,23 @@ void TAdMultiPlyChrSelectGC__sub_802DCE10(void *arg0) {
     s32 temp_r31;
     s32 temp_r3;
 
-    if ((fn_802E0124(M2C_FIELD(arg0, s32 *, 0x78)) == 0) && (fn_802C6558() > 1) && (fn_802C64D0(0) != 0)) {
-        temp_r31 = fn_802C6508();
-        temp_r3 = fn_802C6558();
+    if ((fn_802E0124(M2C_FIELD(arg0, s32 *, 0x78)) == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1) && (TAdMultiPlyChrSelectGC__sub_802C64D0(0) != 0)) {
+        temp_r31 = TAdMultiPlyChrSelectGC__sub_802C6508();
+        temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6558();
         if (temp_r3 != temp_r31) {
             TAdGameStartGC__sub_802E644C(M2C_FIELD(arg0, s32 *, 0x78));
         }
     }
-    fn_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
+    TAdMultiPlyChrSelectGC__sub_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
     M2C_FIELD(arg0, s32 *, 0x20) = 3;
 }
 
 void TAdMultiPlyChrSelectGC__sub_802DCE90(void *arg0) {
     if (fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) <= 1) {
         if (fn_802D50A0(M2C_FIELD(arg0, u32 *, 0x68)) == 1) {
-            fn_802C6A10();
+            TAdMultiPlyChrSelectGC__sub_802C6A10();
         }
-        fn_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
+        TAdMultiPlyChrSelectGC__sub_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
         fn_8022675C(0x52F16, 0, 0, 0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
@@ -52,7 +52,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCE90(void *arg0) {
     if (fn_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) == 0x1D) {
         M2C_FIELD(arg0, s32 *, 0x50) = 0;
         M2C_FIELD(arg0, s32 *, 0x54) = 1;
-        fn_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
+        TAdMultiPlyChrSelectGC__sub_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
             M2C_FIELD(arg0, u32 *, 0x68) = 0U;

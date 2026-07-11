@@ -10,7 +10,7 @@ u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0);
 void TObjEneMe3Stelth__sub_800F4A8C(void);
 s32 TObjEneMe3Stelth__sub_800F4CC8(void *, s32, f32);
 
-extern f32 lbl_805DA844;
+extern f32 TObjEneMe3Stelth__data_805DA844;
 extern f32 lbl_805DA898;
 extern f32 lbl_805DA89C;
 
@@ -21,7 +21,7 @@ u8 check_target_in_range__16TObjEneMe3StelthFPv(void *arg0) {
     var_r31 = 0;
     if (!(M2C_FIELD(arg0, s32 *, 0x3CC) & 0x10000)) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3AC);
-        if ((temp_f1 > lbl_805DA898) && (temp_f1 < lbl_805DA89C) && (TObjEneMe3Stelth__sub_800F4CC8(arg0, M2C_FIELD(arg0, s32 *, 0x60), temp_f1 - lbl_805DA844) == 0)) {
+        if ((temp_f1 > lbl_805DA898) && (temp_f1 < lbl_805DA89C) && (TObjEneMe3Stelth__sub_800F4CC8(arg0, M2C_FIELD(arg0, s32 *, 0x60), temp_f1 - TObjEneMe3Stelth__data_805DA844) == 0)) {
             var_r31 = 1;
         }
     }

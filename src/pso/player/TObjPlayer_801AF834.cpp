@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801AF834(void);
 s32 fn_801AEECC();
-M2C_UNK fn_801C2678();
+M2C_UNK TLobby__sub_801C2678();
 M2C_UNK fn_803100FC();
 
 void TObjPlayer__sub_801AF834(void) {
@@ -16,7 +16,7 @@ void TObjPlayer__sub_801AF834(void) {
         fn_803100FC();
         return;
     }
-    fn_801C2678();
+    TLobby__sub_801C2678();
 }
 
 }

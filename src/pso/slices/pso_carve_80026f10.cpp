@@ -10,7 +10,7 @@ f32 fn_803D64C0(s32);
 f32 fn_803D64DC(s32);
 extern f32 lbl_805D8088;
 
-void fn_80026F10(void *arg0) {
+void TBoss1Dragon__sub_80026F10(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805D8088 * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x76C)));
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) (lbl_805D8088 * fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x76C)));
 }

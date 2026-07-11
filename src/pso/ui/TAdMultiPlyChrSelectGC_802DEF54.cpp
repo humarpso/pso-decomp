@@ -12,12 +12,12 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_802C5594(s32);
-s32 fn_802C6558();
-M2C_UNK fn_802C6A10();
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5594(s32);
+s32 TAdMultiPlyChrSelectGC__sub_802C6558();
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 fn_802D50A0(s32);
 M2C_UNK fn_802D50B0(s32, M2C_UNK);
-M2C_UNK fn_802E0008(s32);
+M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0008(s32);
 s32 fn_802E011C();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -51,8 +51,8 @@ void TAdMultiPlyChrSelectGC__sub_802DEF54(void *arg0) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x74));
         M2C_FIELD(arg0, u32 *, 0x74) = 0U;
     }
-    fn_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
-    fn_802C5594(M2C_FIELD(arg0, s32 *, 0x5C));
+    TAdMultiPlyChrSelectGC__sub_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
+    TAdMultiPlyChrSelectGC__sub_802C5594(M2C_FIELD(arg0, s32 *, 0x5C));
     fn_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 1);
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
     temp_r5 = M2C_FIELD(arg0, s32 *, 0x1C);
@@ -63,7 +63,7 @@ void TAdMultiPlyChrSelectGC__sub_802DEF54(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;
             return;
         }
-        if (fn_802C6558() < 1) {
+        if (TAdMultiPlyChrSelectGC__sub_802C6558() < 1) {
             fn_8022675C(0x52F16, 0, 0, 0);
             M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;
             return;
@@ -76,7 +76,7 @@ block_19:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) != 0) {
             M2C_FIELD(arg0, s32 *, 0x9C) = 0;
             if ((u32) lbl_805D68CC != TAdEnterSerialAccessGC__sub_80202984()) {
-                fn_802C6A10();
+                TAdMultiPlyChrSelectGC__sub_802C6A10();
             }
         }
     }

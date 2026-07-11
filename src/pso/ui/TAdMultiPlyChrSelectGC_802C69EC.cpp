@@ -8,13 +8,13 @@ extern "C" {
 
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void);
 
-extern s32 lbl_805D67D8;
+extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void) {
-    if (((s32) lbl_805D67D8 < 0) || ((s32) lbl_805D67D8 > 3)) {
-        lbl_805D67D8 = 0;
+    if (((s32) TAdMultiPlyChrSelectGC__data_805D67D8 < 0) || ((s32) TAdMultiPlyChrSelectGC__data_805D67D8 > 3)) {
+        TAdMultiPlyChrSelectGC__data_805D67D8 = 0;
     }
-    return lbl_805D67D8;
+    return TAdMultiPlyChrSelectGC__data_805D67D8;
 }
 
 }

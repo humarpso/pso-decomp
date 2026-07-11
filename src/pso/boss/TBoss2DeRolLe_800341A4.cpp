@@ -9,11 +9,11 @@ extern "C" {
 void TBoss2DeRolLe__sub_800341A4(void *arg0);
 M2C_UNK TBoss2DeRolLe__sub_800340C8(void *);
 M2C_UNK TObjEneDD__vt90();
-s32 fn_800B9B84();
+s32 TObjEneDD__sub_800B9B84();
 
 void TBoss2DeRolLe__sub_800341A4(void *arg0) {
     TObjEneDD__vt90();
-    if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 8) || (fn_800B9B84() != 0)) {
+    if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 8) || (TObjEneDD__sub_800B9B84() != 0)) {
         TBoss2DeRolLe__sub_800340C8(arg0);
     }
 }

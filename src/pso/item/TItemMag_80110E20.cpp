@@ -8,7 +8,7 @@ extern "C" {
 
 void copy_owner_data__8TItemMagFPv(u8 *arg0);
 int TObjPlayer__sub_8001972C();
-M2C_UNK fn_80111140(void *, void *, void *);
+M2C_UNK TItemMag__sub_80111140(void *, void *, void *);
 u8 *fn_8011CC58(u8);
 
 void copy_owner_data__8TItemMagFPv(u8 *arg0) {
@@ -18,7 +18,7 @@ void copy_owner_data__8TItemMagFPv(u8 *arg0) {
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x1B8) = (s32) M2C_FIELD(temp_r3, s16 *, 8);
         M2C_FIELD(arg0, u8 *, 0x1BC) = (u8) M2C_FIELD(temp_r3, u8 *, 0xB);
-        fn_80111140(arg0, temp_r3 + 0xC, temp_r3 + 0x10);
+        TItemMag__sub_80111140(arg0, temp_r3 + 0xC, temp_r3 + 0x10);
     }
 }
 

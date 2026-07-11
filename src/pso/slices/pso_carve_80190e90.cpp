@@ -11,7 +11,7 @@ s32 TNpcPlayer__sub_80152674(s32);
 M2C_UNK fn_8019127C(void *);
 M2C_UNK TObjPlayer__sub_801B1FA4(u16, void *, s32);
 u8 *TObjPlayer__sub_801BDEF8(u16, M2C_UNK, s32);
-M2C_UNK fn_801CA0B4();
+M2C_UNK TObjPlayer__sub_801CA0B4();
 M2C_UNK __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804B7C04[];
 
@@ -24,7 +24,7 @@ u8 *fn_80190E90(u8 *arg0, s16 arg1) {
         if (temp_r3 != NULL) {
             M2C_FIELD(temp_r3, s16 *, 0x324) = 6;
             if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 1) {
-                fn_801CA0B4();
+                TObjPlayer__sub_801CA0B4();
                 fn_8019127C(temp_r3);
             }
             TObjPlayer__sub_801B1FA4(M2C_FIELD(arg0, u16 *, 0x30), arg0 + 0x1C, M2C_FIELD(arg0, s32 *, 0x28));

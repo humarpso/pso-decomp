@@ -13,12 +13,12 @@ M2C_UNK TObjTombstone__sub_80076390(void *, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK fn_80074E04(s32, void *);
 
-extern s32 lbl_805D4E48;
+extern s32 TObjTombstone__data_805D4E48;
 extern const f32 TObjTombstone__data_805D9174;
 
 void setup__13TObjTombstoneFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D4E48, 0);
-    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(lbl_805D4E48, 0);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TObjTombstone__data_805D4E48, 0);
+    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(TObjTombstone__data_805D4E48, 0);
     M2C_FIELD(arg0, s32 *, 0xAC) = arg1;
     TObjTombstone__sub_80076390(arg0 + 0xC0, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xD0);

@@ -17,7 +17,7 @@ M2C_UNK fn_801A3C00();
 M2C_UNK TObjDoor__sub_801A3C0C();
 M2C_UNK fn_801A3C18();
 M2C_UNK TRaderMapCore__sub_801F9540();
-M2C_UNK fn_80213430();
+M2C_UNK THunterGuildSeqOffline__sub_80213430();
 M2C_UNK TSwitch__sub_8022942C();
 M2C_UNK apply_all_players__9TTecLukerFv();
 void fn_8034E440();
@@ -34,7 +34,7 @@ void fn_801A2F18(void) {
         queue_destruction__7TObjectFv(lbl_805D5EE8);
     }
     TObjCityMainWarp__sub_80186634();
-    fn_80213430();
+    THunterGuildSeqOffline__sub_80213430();
     fn_801A3B84();
     fn_801A3C18();
     TObjDoor__sub_801A3C0C();

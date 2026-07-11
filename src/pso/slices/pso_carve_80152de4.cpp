@@ -1,4 +1,0 @@
-extern "C" {
-    extern const float TNpcPlayer__data_805DB1F0;
-void fn_80152DE4(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(unsigned char*)((char*)a0 + 0x0) = 66; *(unsigned char*)((char*)a0 + 0x1) = 3; }
-}

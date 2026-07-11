@@ -13,7 +13,7 @@ s32 TWindowCtrl__sub_8024AF74(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-s32 fn_8024A1A8();
+s32 TWindowCtrl__sub_8024A1A8();
 M2C_UNK fn_8024AD30(s32);
 M2C_UNK fn_8026F6C0();
 
@@ -25,7 +25,7 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = __vt__20TWindowShortListCtrl;
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24));
-        if ((temp_r3 != 0) && (TWindowCtrl__sub_8024AF74(M2C_FIELD(arg0, s32 *, 0x24)) == 0) && (fn_8024A1A8() == 0)) {
+        if ((temp_r3 != 0) && (TWindowCtrl__sub_8024AF74(M2C_FIELD(arg0, s32 *, 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
             init_parts__10TObjPlayerFPv(temp_r3);
         }
         fn_8024AD30(M2C_FIELD(arg0, s32 *, 0x24));

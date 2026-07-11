@@ -27,7 +27,7 @@ struct V_A : Base_A {
     virtual s32 m8();
 };
 
-extern "C" void fn_80213788(void *arg0) {
+extern "C" void THunterGuildSeqOffline__sub_80213788(void *arg0) {
     void *temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, void **, 0x38);

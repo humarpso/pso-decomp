@@ -12,7 +12,7 @@ void *TORockCaveS01__ct(void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__10TORockCaveFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
-M2C_UNK fn_80154A00(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK fn_80156720(void *);
 
 void *TORockCaveS01__create(void *arg0) {
@@ -28,7 +28,7 @@ extern M2C_UNK __vt__13TORockCaveS01[];
 void *__dt__13TORockCaveS01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TORockCaveS01;
-        fn_80154A00((M2C_UNK *)arg0);
+        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
         fn_80156720(arg0);
         __dt__10TORockCaveFv(arg0, 0);
         if (arg1 > 0) {

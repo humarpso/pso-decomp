@@ -14,7 +14,7 @@ M2C_UNK fn_80263AF8(s32, M2C_UNK);
 M2C_UNK fn_80267B90(s32, s32);
 M2C_UNK fn_8026CBB8(M2C_UNK);
 M2C_UNK fn_802785B0(s32, s32);
-s32 fn_802D298C();
+s32 TLobby__sub_802D298C();
 
 extern M2C_UNK lbl_80477494[];
 
@@ -23,7 +23,7 @@ s32 create_list__19TWindowSubTradeMainFPv(void *arg0) {
 
     temp_r31 = TWindowShortListCtrl__sub_80278E48(fn_8026CBB8(0x64), lbl_80477494, M2C_FIELD(arg0, s32 *, 0x28));
     fn_80267B90(temp_r31, TWindowSubStatusDisp__sub_80077760(0x24));
-    fn_802785B0(temp_r31, fn_802D298C());
+    fn_802785B0(temp_r31, TLobby__sub_802D298C());
     fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 2);
     fn_80244D2C(temp_r31);
     return temp_r31;

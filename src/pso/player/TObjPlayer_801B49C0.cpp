@@ -8,7 +8,7 @@ extern "C" {
 
 s32 get_battle_ctrl_id__10TObjPlayerFUs(u16 arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
-s32 fn_8013E308(s32);
+s32 TMainCursor__sub_8013E308(s32);
 
 s32 get_battle_ctrl_id__10TObjPlayerFUs(u16 arg0) {
     u32 temp_r3;
@@ -22,7 +22,7 @@ s32 get_battle_ctrl_id__10TObjPlayerFUs(u16 arg0) {
     if (temp_r3 == 0U) {
         return 0xFFFF;
     }
-    return fn_8013E308(temp_r3 + 0x4F8);
+    return TMainCursor__sub_8013E308(temp_r3 + 0x4F8);
 }
 
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 query_state__12TCharaMakingFv(void);
-s32 fn_8028EBCC(void*);
+s32 TObjCMMainMenu__sub_8028EBCC(void*);
 
 extern u32 lbl_805D6524;
 
@@ -15,7 +15,7 @@ s32 query_state__12TCharaMakingFv(void) {
     if ((u32) lbl_805D6524 == 0U) {
         return -1;
     }
-    return fn_8028EBCC((void*)lbl_805D6524);
+    return TObjCMMainMenu__sub_8028EBCC((void*)lbl_805D6524);
 }
 
 }

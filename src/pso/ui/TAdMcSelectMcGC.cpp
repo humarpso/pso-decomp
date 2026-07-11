@@ -14,7 +14,7 @@ M2C_UNK fn_80141A30();
 M2C_UNK fn_80141F1C();
 M2C_UNK fn_80141F50();
 s32 fn_8022A564();
-M2C_UNK fn_8032A6F4(void *);
+M2C_UNK TAdMcSelectMcGC__sub_8032A6F4(void *);
 
 void render__15TAdMcSelectMcGCFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 1) {
@@ -27,7 +27,7 @@ void render__15TAdMcSelectMcGCFv(void *arg0) {
         set_depth_buffer_settings_2__Fv();
 block_5:
         fn_80141F50();
-        fn_8032A6F4(arg0);
+        TAdMcSelectMcGC__sub_8032A6F4(arg0);
         fn_80141F1C();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
             fn_80141A30();

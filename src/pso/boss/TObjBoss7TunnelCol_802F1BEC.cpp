@@ -6,7 +6,7 @@ extern "C" {
 
 void *TObjBoss7TunnelCol__ct(void *arg0);
 void fn_8002B630(void *, void *);
-void fn_80154B28(void *);
+void TObjPlayer__sub_80154B28(void *);
 void fn_801566DC(void *, void *);
 void fn_801569F4(void *);
 
@@ -27,7 +27,7 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DEC9C;
     M2C_FIELD(arg0, f32 *, 0x40) = lbl_805DEC9C;
     fn_801566DC(arg0, self->f_AC);
-    fn_80154B28(arg0);
+    TObjPlayer__sub_80154B28(arg0);
     return arg0;
 }
 

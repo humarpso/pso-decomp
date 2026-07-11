@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80026EB8(void *, s32, M2C_UNK);
-s32 fn_800291B4(void *);
+s32 TBoss1Dragon__sub_80026EB8(void *, s32, M2C_UNK);
+s32 TBoss1Dragon__sub_800291B4(void *);
 
-s32 fn_80026F60(void *arg0) {
+s32 TBoss1Dragon__sub_80026F60(void *arg0) {
     u8 var_r31;
 
     var_r31 = 0;
-    if ((fn_80026EB8(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x6E4), s32 *, 8), 0x400) != 0) && (fn_800291B4(arg0) != 0)) {
+    if ((TBoss1Dragon__sub_80026EB8(arg0, M2C_FIELD(M2C_FIELD(arg0, void **, 0x6E4), s32 *, 8), 0x400) != 0) && (TBoss1Dragon__sub_800291B4(arg0) != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

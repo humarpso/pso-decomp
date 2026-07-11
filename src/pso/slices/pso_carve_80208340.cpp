@@ -10,7 +10,7 @@ s32 *TItemDrop__sub_800F94BC(s32, u32);
 s32 fn_800F9D80(s32);
 s32 fn_80208280();
 extern s32 lbl_804C9390[];
-extern s32 lbl_805D6068;
+extern s32 TLobby__data_805D6068;
 extern s32 lbl_805D606C;
 extern s32 *lbl_805D6070;
 extern u32 lbl_805D6074;
@@ -30,7 +30,7 @@ void fn_80208340(void) {
             if (temp_r3 != NULL) {
                 temp_r0 = *temp_r3;
                 lbl_805D606C = temp_r0;
-                lbl_805D6068 = temp_r0;
+                TLobby__data_805D6068 = temp_r0;
             }
         }
     }

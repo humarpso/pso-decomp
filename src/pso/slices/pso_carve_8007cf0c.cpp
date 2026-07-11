@@ -14,19 +14,19 @@ M2C_UNK memmove(void *, void *, s32);
 u32 xmalloc__FUl(M2C_UNK);
 M2C_UNK memset(void *, s32, s32);
 extern s32 lbl_805D28C0;
-extern s16 lbl_805D4E8A;
+extern s16 TObjBoss2Tunnel__data_805D4E8A;
 extern u32 lbl_805D4E8C;
-extern u32 lbl_805D4E90;
-extern s32 lbl_805D4E94;
+extern u32 TObjBoss2Tunnel__data_805D4E90;
+extern s32 TObjBoss2Tunnel__data_805D4E94;
 
 void load_data_buffers(void) {
     s32 temp_r31;
     s32 temp_r30;
     u32 temp_r3;
 
-    lbl_805D4E94 = 0;
-    lbl_805D4E90 = xmalloc__FUl(0x1E000);
-    lbl_805D4E8A = 0;
+    TObjBoss2Tunnel__data_805D4E94 = 0;
+    TObjBoss2Tunnel__data_805D4E90 = xmalloc__FUl(0x1E000);
+    TObjBoss2Tunnel__data_805D4E8A = 0;
     fn_800846C8(0);
     temp_r3 = xmalloc__FUl(0x1818C);
     lbl_805D4E8C = temp_r3;

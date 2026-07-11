@@ -42,7 +42,7 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneEpsilonGuard__sub_8035EF78(void *);
 M2C_UNK TObjEneEpsilonGuard__sub_8035EFD8(void *, s32);
 u32 TPhotonMylla__sub_80154CB4(u16);
-M2C_UNK fn_800B99D8(void *);
+M2C_UNK TObjEneDD__sub_800B99D8(void *);
 M2C_UNK fn_80143504();
 s32 fn_8035F95C(u32);
 s32 fn_8035F968();
@@ -98,7 +98,7 @@ void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
 block_23:
                 M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) + M2C_FIELD(arg0, s32 *, 0x43C));
                 TObjEneEpsilonGuard__sub_8035EFD8(arg0, M2C_FIELD(arg0, s32 *, 0x438));
-                fn_800B99D8(arg0);
+                TObjEneDD__sub_800B99D8(arg0);
                 TObjEneDD__sub_800BAC14(arg0, TObjEneEpsilonGuard__data_805D6F74, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8));
             }
             break;

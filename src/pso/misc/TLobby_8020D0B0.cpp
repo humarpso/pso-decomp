@@ -16,8 +16,8 @@ extern "C" {
 
 void TLobby__sub_8020D0B0(s32 arg0);
 u8 *TLobby__sub_8020D054(void *);
-u8 *fn_8020B354();
-s32 fn_8020B468(s32);
+u8 *TLobby__sub_8020B354();
+s32 TLobby__sub_8020B468(s32);
 
 extern s32 TLobby__data_805D6140;
 
@@ -29,8 +29,8 @@ void TLobby__sub_8020D0B0(s32 arg0) {
     s32 i;
     u8 *temp_r3_2;
 
-    ptr = fn_8020B354();
-    count = fn_8020B468(arg0);
+    ptr = TLobby__sub_8020B354();
+    count = TLobby__sub_8020B468(arg0);
     for (i = 0; i < count; i++, ptr += 0x44) {
         temp_r3 = M2C_FIELD(ptr, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (M2C_FIELD(ptr, s16 *, 0) != -1) && ((temp_r3 & 0x10) || (temp_r3 & 1) || (M2C_FIELD(ptr, s16 *, 0xA) == 0))) {

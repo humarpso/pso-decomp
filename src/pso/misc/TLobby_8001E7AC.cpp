@@ -10,7 +10,7 @@ void close_result_windows__6TLobbyFv(void);
 f32 calc_result_offset__6TLobbyFv(void);
 M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
-M2C_UNK fn_8001DC24();
+M2C_UNK TLobby__sub_8001DC24();
 u32 fn_800FC0D8();
 M2C_UNK fn_80229080(M2C_UNK *);
 
@@ -31,15 +31,15 @@ void close_result_windows__6TLobbyFv(void) {
 
 s32 get_main_phase();
 extern M2C_UNK lbl_80434A90;
-extern f32 lbl_805D7EE0;
+extern f32 TLobby__data_805D7EE0;
 
 f32 calc_result_offset__6TLobbyFv(void) {
     f32 var_f31;
 
-    var_f31 = lbl_805D7EE0;
+    var_f31 = TLobby__data_805D7EE0;
     if (get_main_phase() == 0xF) {
         close_result_windows__6TLobbyFv();
-        fn_8001DC24();
+        TLobby__sub_8001DC24();
         var_f31 -= (f32) fn_800FC0D8();
     }
     return var_f31;
