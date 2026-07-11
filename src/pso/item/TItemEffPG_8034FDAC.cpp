@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemEffPG__sub_8034FDAC(void *arg0);
+s32 countdown_timer__10TItemEffPGFPv(void *arg0);
 void *destroy__10TItemEffPGFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__10TItemEffPGFv(void *, int);
 
-s32 TItemEffPG__sub_8034FDAC(void *arg0) {
+s32 countdown_timer__10TItemEffPGFPv(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0xD4);

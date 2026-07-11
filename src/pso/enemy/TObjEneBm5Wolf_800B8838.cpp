@@ -30,7 +30,7 @@ void* TObjEneBm5Wolf__sub_800B88E4(void* p) { TObjEneBm5Wolf__sub_800B8898(p); r
 void TObjEneBm5Wolf__sub_800B8914(void *arg0) {
     TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 8));
 }
-void TObjEneBm5Wolf__sub_800B8938(void *arg0, s32 arg1) {
+void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 8) = obj_getField1c(arg1);
 }
 

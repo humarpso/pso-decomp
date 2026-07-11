@@ -8,7 +8,7 @@ extern "C" {
 
 extern void *lbl_805D63F8;
 
-void TWindowCtrl__sub_8024AD74(void) {
+void set_flag_bit2__11TWindowCtrlFv(void) {
     if ((void *) lbl_805D63F8 != NULL) {
         M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) | 4);
     }
@@ -16,7 +16,7 @@ void TWindowCtrl__sub_8024AD74(void) {
 
 extern void *lbl_805D63F8;
 
-void TWindowCtrl__sub_8024AD90(void) {
+void clear_flag_bit2__11TWindowCtrlFv(void) {
     if ((void *) lbl_805D63F8 != NULL) {
         M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) & 0xFFFFFFFB);
     }

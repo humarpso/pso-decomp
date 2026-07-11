@@ -10,9 +10,9 @@ s32 get_main_phase();
 s32 fn_800822E8(void *, M2C_UNK);
 M2C_UNK fn_8011E204(void *, M2C_UNK);
 s32 fn_801AFF0C(void *);
-s32 TObjPlayer__sub_801B12A8(void *);
+s32 test_flag_2000000__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B5BCC(void *);
-s32 TObjPlayer__sub_801BE690(void *);
+s32 check_flag_4__10TObjPlayerFPv(void *);
 M2C_UNK fn_801BEA5C(void *);
 s32 fn_801BEA80(void *);
 s32 TObjPlayer__sub_801BF918(void *);
@@ -43,11 +43,11 @@ call3:
         fn_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 3);
         break;
     case 2:
-        if ((fn_801AFF0C(arg0) == 0) && (TObjPlayer__sub_801BE690(arg0) == 0)) {
+        if ((fn_801AFF0C(arg0) == 0) && (check_flag_4__10TObjPlayerFPv(arg0) == 0)) {
             fn_801D0BC0(arg0, 0x16, 0);
             return;
         }
-        if ((TObjPlayer__sub_801BF918(arg0 + 0x634) != 0) && (TObjPlayer__sub_801B12A8(arg0) != 0) && (fn_800822E8(arg0, 4) != 0)) {
+        if ((TObjPlayer__sub_801BF918(arg0 + 0x634) != 0) && (test_flag_2000000__10TObjPlayerFPv(arg0) != 0) && (fn_800822E8(arg0, 4) != 0)) {
             fn_801BEA5C(arg0);
             fn_801C5AB8(arg0 + 0x634);
         }

@@ -14,7 +14,7 @@ s32 TBoss4DarkFalz__sub_8004C1DC(void* p);
 s32 TBoss4DarkFalz__sub_8004C1E4(void* p);
 void* TBoss4DarkFalz__sub_8004C1EC(void* p);
 int TBoss4DarkFalz__sub_8004C220(void* p);
-void TBoss4DarkFalz__sub_8004C2C4(void* p);
+void set_code_25_4__14TBoss4DarkFalzFPv(void* p);
 int VecCopy__FP3VecPC3Vec(void*, void* a1 = 0);
 
 int TBoss4DarkFalz__sub_8004C220(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x38); }

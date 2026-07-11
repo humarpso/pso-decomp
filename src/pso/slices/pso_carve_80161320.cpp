@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TODoorCave01__vt17(void *arg0);
 s32 get_main_phase();
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 void TODoorCave01__vt18(void);
 
 int TODoorCave01__sub_80161320(void) { return 0; }

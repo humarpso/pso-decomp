@@ -9,14 +9,14 @@ extern "C" {
 s32 fn_800196EC();
 s32 fn_80070AB0();
 s32 fn_80293080();
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 void handle_6x96(void);
 
 void handle_6x96(void) {  }
 s32 fn_80075008(void *arg0) {
     s32 var_r3;
 
-    if (TRaderMapCore__sub_8030A808() == 1) {
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         var_r3 = fn_80293080();
     } else {
         var_r3 = fn_80070AB0();

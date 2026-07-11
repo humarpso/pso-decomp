@@ -9,11 +9,11 @@ int TObjPlayer__sub_801BF964(void*);
 int TObjPlayer__sub_801BF9A4(void*);
 int TObjPlayer__sub_801BFDD4(void*);
 int TObjPlayer__sub_801BFE50(void*);
-int TObjPlayer__sub_801C5BB0(void*);
+int set_vec4_const__10TObjPlayerFPv(void*);
 int fn_801C68B0(void*);
 void TObjPlayer__sub_801BFD3C(void* p);
 
-void* TObjPlayer__sub_801BFCAC(void* p) { TObjPlayer__sub_801C5BB0(p); return p; }
+void* TObjPlayer__sub_801BFCAC(void* p) { set_vec4_const__10TObjPlayerFPv(p); return p; }
 void* TObjPlayer__sub_801BFCDC(void* p) { TObjPlayer__sub_801BF964(p); return p; }
 void* TObjPlayer__sub_801BFD0C(void* p) { TObjPlayer__sub_801BFD3C(p); return p; }
 void TObjPlayer__sub_801BFD3C(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; *(s16*)((char*)p + 0x8) = 0; }

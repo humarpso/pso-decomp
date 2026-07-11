@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80137FEC(void);
-M2C_UNK TLobby__sub_80137CC8();
+void close_and_send_text_list__6TLobbyFv(void);
+M2C_UNK init_player_window_effect__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK send_text_list__9TProtocolFv(s32);
 
 extern s32 lbl_805D5580;
 
-void TLobby__sub_80137FEC(void) {
+void close_and_send_text_list__6TLobbyFv(void) {
     close_all_windows__6TLobbyFv();
-    TLobby__sub_80137CC8();
+    init_player_window_effect__6TLobbyFv();
     send_text_list__9TProtocolFv(lbl_805D5580);
 }
 

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOTrapSeabed01__sub_802CA2BC(u32 arg0);
+void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0);
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
 
 extern u32 lbl_805D6818;
 
-void TOTrapSeabed01__sub_802CA2BC(u32 arg0) {
+void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0) {
     if (arg0 == (u32) lbl_805D6818) {
         fn_801E2EFC();
         return;

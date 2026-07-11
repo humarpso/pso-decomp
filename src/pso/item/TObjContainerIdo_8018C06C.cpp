@@ -11,7 +11,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 fn_800D7B1C(void *, void *);
 M2C_UNK fn_803D9214(M2C_UNK, s32);
 M2C_UNK fn_803D9B2C();
@@ -53,7 +53,7 @@ void render__16TObjContainerIdoFv(u8 *arg0) {
 
     if (((VOuter_8018C06C*)arg0)->m8(lbl_805DBD6C, lbl_805DBD70) != 0) {
         var_r31 = 0;
-        if (TRaderMapCore__sub_8030A808() == 0) {
+        if (is_not_split_screen__13TRaderMapCoreFv() == 0) {
             var_r31 = fn_800D7B1C(arg0 + 0xF0, arg0 + 0x38);
         }
         if (var_r31 != 0) {

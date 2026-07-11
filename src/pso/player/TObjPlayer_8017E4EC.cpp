@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_camera_mode__10TObjPlayerFi(s32 arg0);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 fn_8017E8F8();
 M2C_UNK fn_802274B8(s32);
 
@@ -15,7 +15,7 @@ extern M2C_UNK lbl_804B5780[];
 extern s32 lbl_805D5B00;
 
 void set_camera_mode__10TObjPlayerFi(s32 arg0) {
-    if ((fn_8017E8F8() == 0) && (TRaderMapCore__sub_8030A808() != 1) && (arg0 != (s32) lbl_805D5B00)) {
+    if ((fn_8017E8F8() == 0) && (is_not_split_screen__13TRaderMapCoreFv() != 1) && (arg0 != (s32) lbl_805D5B00)) {
         lbl_805D5B00 = arg0;
         fn_802274B8(lbl_804B5780[arg0]);
     }

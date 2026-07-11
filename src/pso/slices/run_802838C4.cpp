@@ -38,7 +38,7 @@ void TWindowSubSymbolChat__sub_8028391C(void *arg0) {
     M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) & 0xFFFFFFFB);
 }
 
-void TWindowSubSymbolChat__sub_8028392C(void *arg0, s32 arg1, s32 arg2) {
+void set_pos_and_flag__20TWindowSubSymbolChatFPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x6C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x70) = arg2;
     M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 4);

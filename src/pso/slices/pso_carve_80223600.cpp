@@ -11,7 +11,7 @@ s32 TObjPlayer__sub_801B12CC();
 s32 clear_lobby_flag__10TObjPlayerFPv(u32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowCtrl__sub_8024AEF0(u16);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 TObjPlayer__sub_801B130C();
 s32 init_effect_5f0__10TObjPlayerFPv(void *);
 s32 TWindowCtrl__sub_8024AEAC(u16);
@@ -42,7 +42,7 @@ void fn_80223760(void *arg0) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
         TWindowCtrl__sub_8024AEF0(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
-        if (TRaderMapCore__sub_8030A808() != 1) {
+        if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
             var_r31 = 0;
             do {
                 if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
@@ -59,7 +59,7 @@ void fn_802237D8(void *arg0) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
         init_effect_5f0__10TObjPlayerFPv(M2C_FIELD(arg0, void **, 0x24));
-        if (TRaderMapCore__sub_8030A808() != 1) {
+        if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
             var_r31 = 0;
             do {
                 if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {

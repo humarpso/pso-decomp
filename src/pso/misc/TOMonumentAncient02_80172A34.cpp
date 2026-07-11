@@ -10,7 +10,7 @@ void run_task__19TOMonumentAncient02Fv(u8 *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 M2C_UNK TParticleCtrl__sub_80088010(void *);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void run_task__19TOMonumentAncient02Fv(u8 *arg0) {
     s32 temp_r0;
@@ -24,7 +24,7 @@ void run_task__19TOMonumentAncient02Fv(u8 *arg0) {
         }
         return;
     case 1:
-        if ((TRaderMapCore__sub_8030A808() != 1) && ((s32) M2C_FIELD(arg0, s32 *, 0xEC) == 1)) {
+        if ((is_not_split_screen__13TRaderMapCoreFv() != 1) && ((s32) M2C_FIELD(arg0, s32 *, 0xEC) == 1)) {
             TObjPlayer__sub_801B4A18(arg0, -1);
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xE8) != 0U) {

@@ -11,7 +11,7 @@ u16 TBoss6Type2__sub_802BA394(void *);
 s32 is_phase_complete__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
-s32 TBoss6Type2__sub_802BA6A0(void *);
+s32 update_zako__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BAA74();
 s32 TBoss6Type2__sub_802BD014(void * a0 = 0, s32 a1 = 0);
 s32 TBoss6Type2__sub_802BC23C();

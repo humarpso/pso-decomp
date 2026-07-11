@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2);
-s32 TWindowSubSymbolChat__sub_802ACF5C(M2C_UNK *);
+s32 update_display__20TWindowSubSymbolChatFi(M2C_UNK *);
 M2C_UNK __ct__7TObjectFP7TObject();
 
-extern M2C_UNK TWindowSubSymbolChat__sub_80281814[];
+extern M2C_UNK close_child__20TWindowSubSymbolChatFv[];
 extern M2C_UNK __vt__20TWindowSubSymbolChat[];
 extern s32 lbl_805D3AA8;
 extern void *lbl_805D6490;
@@ -41,7 +41,7 @@ void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2) {
     lbl_805D649C = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     lbl_805D6490 = arg0;
-    M2C_FIELD(arg0, s32 *, 0x5C) = TWindowSubSymbolChat__sub_802ACF5C(TWindowSubSymbolChat__sub_80281814);
+    M2C_FIELD(arg0, s32 *, 0x5C) = update_display__20TWindowSubSymbolChatFi(close_child__20TWindowSubSymbolChatFv);
     M2C_FIELD(arg0, s8 *, 0x1C) = 0;
     return arg0;
 }

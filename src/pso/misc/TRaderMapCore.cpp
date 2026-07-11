@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_active__13TRaderMapCoreFv(void);
-s32 TRaderMapCore__sub_801F90C4(void);
+s32 should_show_map__13TRaderMapCoreFv(void);
 void TRaderMapCore__sub_801F9104(void* p);
 s32 TRaderMapCore__sub_801F9058();
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 fn_801B0EE8();
 s32 fn_8030A730();
 
@@ -26,8 +26,8 @@ s32 is_active__13TRaderMapCoreFv(void) {
     return 0;
 }
 
-s32 TRaderMapCore__sub_801F90C4(void) {
-    if ((TRaderMapCore__sub_8030A808() == 1) && (fn_8030A730() == 0)) {
+s32 should_show_map__13TRaderMapCoreFv(void) {
+    if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && (fn_8030A730() == 0)) {
         return 0;
     }
     return fn_801B0EE8();

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemProArmor__sub_80364300(s32 arg0);
+void alloc__13TItemProArmorFi(s32 arg0);
 M2C_UNK heap_alloc__5THeapFUl(s32, s32);
 
 extern s32 obj_heap;
 
-void TItemProArmor__sub_80364300(s32 arg0) {
+void alloc__13TItemProArmorFi(s32 arg0) {
     heap_alloc__5THeapFUl(obj_heap, arg0);
 }
 

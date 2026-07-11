@@ -7,7 +7,7 @@ extern "C" {
 void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1);
 void TWindow__close(void *);
 void TWindowSubComCard__sub_802A5748(void *);
-void TWindowSubInformationBoard__sub_8034C224(void *);
+void clear_if_current__26TWindowSubInformationBoardFUi(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -22,7 +22,7 @@ void *__dt__26TWindowSubInformationBoardFv(void *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, void **, 0x34) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x34)); M2C_FIELD(arg0, M2C_UNK *, 0x34) = 0; }
         if (M2C_FIELD(arg0, void **, 0x30) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x30)); M2C_FIELD(arg0, M2C_UNK *, 0x30) = 0; }
         if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x2C)); M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0; }
-        TWindowSubInformationBoard__sub_8034C224((s8 *)arg0 + 0x40);
+        clear_if_current__26TWindowSubInformationBoardFUi((s8 *)arg0 + 0x40);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

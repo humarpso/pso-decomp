@@ -8,7 +8,7 @@ extern "C" {
 
 void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0);
 void set_kana_mode__19TWindowKeyBoardSoftFPv(void *arg0);
-M2C_UNK TWindowKeyBoardSoft__sub_8025D338(void *, void *);
+M2C_UNK update_input__19TWindowKeyBoardSoftFPvPv(void *, void *);
 M2C_UNK fn_803E66D0(void *, M2C_UNK *);
 M2C_UNK fn_803E6704(void *, M2C_UNK *);
 
@@ -18,7 +18,7 @@ void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {
         fn_803E66D0(sp8, (M2C_UNK *)(sp8 + 0x100));
         M2C_FIELD(arg0, s32 *, 0xA8) = 0xF0;
-        TWindowKeyBoardSoft__sub_8025D338(arg0, sp8);
+        update_input__19TWindowKeyBoardSoftFPvPv(arg0, sp8);
     }
 }
 
@@ -28,7 +28,7 @@ void set_kana_mode__19TWindowKeyBoardSoftFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {
         fn_803E6704(sp8, (M2C_UNK *)(sp8 + 0x100));
         M2C_FIELD(arg0, s32 *, 0xA8) = 0xF1;
-        TWindowKeyBoardSoft__sub_8025D338(arg0, sp8);
+        update_input__19TWindowKeyBoardSoftFPvPv(arg0, sp8);
     }
 }
 

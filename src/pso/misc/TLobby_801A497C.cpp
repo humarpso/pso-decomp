@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801A497C(void);
+void update_camera_state__6TLobbyFv(void);
 s32 TCameraCtrl__sub_8006B368();
 M2C_UNK TLobby__sub_801A46D8();
 M2C_UNK TLobby__sub_801A4820();
 
-void TLobby__sub_801A497C(void) {
+void update_camera_state__6TLobbyFv(void) {
     if (TCameraCtrl__sub_8006B368() != 0) {
         TLobby__sub_801A46D8();
         return;

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0);
-void TObjEneMe3Stelth__sub_800F4EA4(void *arg0);
+void update_shadow_height__16TObjEneMe3StelthFPv(void *arg0);
 s32 fn_800F4814(void *);
 s32 fn_800F4850();
 
@@ -35,7 +35,7 @@ void setup_move_bounds__16TObjEneMe3StelthFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(arg0, s32 *, 0x368);
 }
 
-void TObjEneMe3Stelth__sub_800F4EA4(void *arg0) {
+void update_shadow_height__16TObjEneMe3StelthFPv(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));
 }
 

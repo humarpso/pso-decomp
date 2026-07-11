@@ -10,7 +10,7 @@ void update_countdown__11TBoss6Type2FPv(void *arg0);
 s32 is_active__14TBoss6PlotFalzFPv();
 M2C_UNK update_attack_switch__11TBoss6Type2FPv(void *);
 M2C_UNK play_phase_sound__11TBoss6Type2FPv(void *);
-s32 TBoss6Type2__sub_802BC5F8();
+s32 is_active__11TBoss6Type2FPv();
 M2C_UNK TBoss6Type2__sub_802BC65C(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
@@ -18,7 +18,7 @@ void update_countdown__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
     void *temp_r31;
 
-    if (TBoss6Type2__sub_802BC5F8() != 0) {
+    if (is_active__11TBoss6Type2FPv() != 0) {
         update_attack_switch__11TBoss6Type2FPv(arg0);
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x518);

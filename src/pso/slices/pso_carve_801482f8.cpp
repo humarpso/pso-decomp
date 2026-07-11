@@ -97,7 +97,7 @@ struct VObj18 : VBase18 {
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_801B5408(u32, s32);
+M2C_UNK play_effect_default__10TObjPlayerFii(u32, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C();
 extern s32 lbl_805D53A0;
 
@@ -114,7 +114,7 @@ void fn_801482F8(void *arg0, u16 arg1) {
                 M2C_FIELD(arg0, u16 *, 0x338) = arg1;
                 M2C_FIELD(arg0, u32 *, 0x2A8) = temp_r3;
                 if ((s32) M2C_FIELD(arg0, u16 *, 0x338) == (s32) lbl_805D53A0) {
-                    TObjPlayer__sub_801B5408(temp_r3, -1);
+                    play_effect_default__10TObjPlayerFii(temp_r3, -1);
                 }
                 ((VObj18 *) arg0)->vf160(1);
                 M2C_FIELD(arg0, s32 *, 0x2AC) = 0;

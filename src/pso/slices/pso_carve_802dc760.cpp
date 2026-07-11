@@ -9,7 +9,7 @@ extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
-s32 TWindowSubComCard__sub_802A5794(u32);
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(u32);
 s32 TWindowSubComCard__sub_802A57FC(u32);
 s32 fn_802D50A0(s32);
 s32 fn_802E00C4(s32);
@@ -40,7 +40,7 @@ void fn_802DC760(void *arg0) {
         return;
     }
     if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, u32 *, 0x94)) != 0) {
-        temp_r3 = TWindowSubComCard__sub_802A5794(M2C_FIELD(arg0, u32 *, 0x94));
+        temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x94));
         switch (temp_r3) {
         case 0:
             M2C_FIELD(arg0, s32 *, 0x20) = 0x21;

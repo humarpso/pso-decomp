@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TPlayerBattleCtrl4P__vt24(s32 arg0);
-s32 TObjPlayer__sub_801B5680();
+s32 check_flag_100__10TObjPlayerFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112A4(s32, M2C_UNK);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
@@ -16,7 +16,7 @@ extern s8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
 
 void TPlayerBattleCtrl4P__vt24(s32 arg0) {
-    if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) && (TObjPlayer__sub_801B5680() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 6) != 0)) {
+    if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 6) != 0)) {
         TPlayerBattleCtrl4P__sub_803112A4(arg0, 5);
     }
 }

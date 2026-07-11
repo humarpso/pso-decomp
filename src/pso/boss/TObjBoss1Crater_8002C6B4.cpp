@@ -6,14 +6,14 @@ extern "C" {
 
 void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1);
 void *TObjBoss1Crater__ct(void *, void *, void *, void *);
-int TObjBoss1Crater__sub_8002C694(void *, void *);
+int is_count_below_limit__15TObjBoss1CraterFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 void *fn_8002AA74(void);
 
 void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
     void *x1;
     void *o;
-    if (TObjBoss1Crater__sub_8002C694(arg0, arg1) == 0) {
+    if (is_count_below_limit__15TObjBoss1CraterFv(arg0, arg1) == 0) {
         return NULL;
     }
     x1 = fn_8002AA74();

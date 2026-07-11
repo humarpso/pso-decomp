@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
-M2C_UNK TWindowKeyBoardSoft__sub_8008100C(void *);
+M2C_UNK reset_state__19TWindowKeyBoardSoftFPv(void *);
 
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0) {
-    TWindowKeyBoardSoft__sub_8008100C(arg0 + 0x84);
+    reset_state__19TWindowKeyBoardSoftFPv(arg0 + 0x84);
     M2C_FIELD(arg0, s32 *, 0x68) = (s32) (arg0 + 0x6C);
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & ~0x86);
 }

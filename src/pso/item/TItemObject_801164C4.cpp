@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemObject__sub_801164C4(s32 arg0);
+s32 call_dispatch__11TItemObjectFi(s32 arg0);
 
 s32 (*fn_8010440C())(s32);
 
-s32 TItemObject__sub_801164C4(s32 arg0) {
+s32 call_dispatch__11TItemObjectFi(s32 arg0) {
     if (arg0 != 0) {
         s32 (*fp)(s32) = fn_8010440C();
         return fp(arg0);

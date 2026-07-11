@@ -8,7 +8,7 @@ extern "C" {
 
 void load_map_texture_archive__6TSceneFi(s32 arg0);
 s32 TOKeyMachine01__sub_802034A8();
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 u32 fn_8007EBFC(s32);
 s32 fn_800F9D80(char *);
 M2C_UNK fn_800F9DF4(char *, u32);
@@ -30,7 +30,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
     lbl_805D6004 = 0U;
     var_r30 = 0;
     lbl_805D6018 = 0;
-    if (TRaderMapCore__sub_8030A808() == 1) {
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         fn_801317E4(sp8, arg0, lbl_8044A9A4);
         var_r30 = fn_800F9D80(sp8);
     }

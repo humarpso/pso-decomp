@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 is_in_tl03_state__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_801BE690();
+s32 check_flag_4__10TObjPlayerFPv();
 
 extern u32 tl_03;
 
@@ -15,7 +15,7 @@ u8 is_in_tl03_state__10TObjPlayerFPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;
-    if ((TObjPlayer__sub_801BE690() == 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x10) == (u32) tl_03)) {
+    if ((check_flag_4__10TObjPlayerFPv() == 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x10) == (u32) tl_03)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

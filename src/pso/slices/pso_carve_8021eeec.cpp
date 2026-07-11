@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
 
 }
@@ -41,7 +41,7 @@ void fn_8021EEEC(void *arg0, s32 *arg1) {
     void *temp_r3;
 
     var_r31 = 1;
-    if (TRaderMapCore__sub_8030A808() == 1) {
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         var_r31 = ((VObj_8021EEEC *)arg0)->m14() + 1;
     } else {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

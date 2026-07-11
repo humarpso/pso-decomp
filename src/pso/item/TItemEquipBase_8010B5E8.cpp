@@ -11,7 +11,7 @@ s32 fn_801103F4(s16);
 s32 TObjPlayer__sub_8001972C();
 void TItemEquipBase__sub_8010B620(void);
 
-void TItemEquipBase__sub_8010B5E8(s32 arg0) {
+void update_with_player__14TItemEquipBaseFi(s32 arg0) {
     TItemEquipBase__sub_8010B58C((void*)(arg0), (void*)(TObjPlayer__sub_8001972C()));
 }
 void TItemEquipBase__sub_8010B620(void) {  }

@@ -19,8 +19,8 @@ struct VObj_8019D880 : Base_8019D880 {
 extern "C" {
 
 u8 TObjWarpBase__vt13(void *arg0);
-s32 TObjPlayer__sub_801B12A8(void *);
-s32 TObjPlayer__sub_801B5680();
+s32 test_flag_2000000__10TObjPlayerFPv(void *);
+s32 check_flag_100__10TObjPlayerFPv();
 void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 s32 fn_801B3588(void *);
 
@@ -32,7 +32,7 @@ u8 TObjWarpBase__vt13(void *arg0) {
     u32 id = M2C_FIELD(arg0, u16 *, 0xB8);
 
     var_r31 = NULL;
-    if ((id != 0xFFFF) && ((var_r31 = TPlayerBattleCtrl4P__sub_801BA74C(id), ((var_r31 == NULL) != 0)) || (TObjPlayer__sub_801B5680() != 0))) {
+    if ((id != 0xFFFF) && ((var_r31 = TPlayerBattleCtrl4P__sub_801BA74C(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
         return 0U;
     }
     if ((s32) lbl_805D3458 == 0) {
@@ -47,7 +47,7 @@ u8 TObjWarpBase__vt13(void *arg0) {
     if (var_r31 != NULL) {
         return (u8) (fn_801B3588(var_r31) == 0);
     }
-    if ((var_r31 != NULL) && (TObjPlayer__sub_801B12A8(var_r31) != 0)) {
+    if ((var_r31 != NULL) && (test_flag_2000000__10TObjPlayerFPv(var_r31) != 0)) {
         return 0U;
     }
     return 1U;

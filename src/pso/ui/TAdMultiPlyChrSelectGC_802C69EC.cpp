@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdMultiPlyChrSelectGC__sub_802C69EC(void);
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void);
 
 extern s32 lbl_805D67D8;
 
-s32 TAdMultiPlyChrSelectGC__sub_802C69EC(void) {
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void) {
     if (((s32) lbl_805D67D8 < 0) || ((s32) lbl_805D67D8 > 3)) {
         lbl_805D67D8 = 0;
     }

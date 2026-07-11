@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjEneDD__sub_800B9FE8(void);
+f32 calc_elapsed_scaled__9TObjEneDDFv(void);
 f32 fn_80011014();
 
 extern f32 lbl_805D9E98;
 extern f32 lbl_805D9E9C;
 
-f32 TObjEneDD__sub_800B9FE8(void) {
+f32 calc_elapsed_scaled__9TObjEneDDFv(void) {
     return lbl_805D9E98 * (fn_80011014() - lbl_805D9E9C);
 }
 

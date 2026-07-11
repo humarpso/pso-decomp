@@ -313,8 +313,8 @@ struct VObj_801BE614 : Base_801BE614 {
 
 extern "C" {
 
-void TObjPlayer__sub_801BE3B4(void *arg0);
-short TObjPlayer__sub_801BE3D8(void *arg0);
+void set_flag_400000__10TObjPlayerFPv(void *arg0);
+short get_model_field_m25__10TObjPlayerFPv(void *arg0);
 short TObjPlayer__sub_801BE40C(void *arg0);
 short TObjPlayer__sub_801BE440(void *arg0);
 short TObjPlayer__sub_801BE474(void *arg0);
@@ -330,11 +330,11 @@ void TObjPlayer__sub_801BE648(void);
 int TPlayerBattleCtrl4P__sub_801BA74C(void*);
 M2C_UNK fn_8011E204(void *, M2C_UNK);
 
-void TObjPlayer__sub_801BE3B4(void *arg0) {
+void set_flag_400000__10TObjPlayerFPv(void *arg0) {
     fn_8011E204(arg0, 0x400000);
 }
 
-short TObjPlayer__sub_801BE3D8(void *arg0) {
+short get_model_field_m25__10TObjPlayerFPv(void *arg0) {
     struct VObj_801BE3D8 *o = (struct VObj_801BE3D8 *)M2C_FIELD(arg0, void **, 0x380);
     return o->m25();
 }

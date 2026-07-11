@@ -48,7 +48,7 @@ M2C_UNK fn_8001A438(void *);
 M2C_UNK allow_rendering__7TObjectFv(u32);
 M2C_UNK disallow_rendering__7TObjectFv(u32);
 M2C_UNK TQuestVmDownLoadServer__sub_80080788(void *);
-s32 TObjPlayer__sub_801B5680(void *);
+s32 check_flag_100__10TObjPlayerFPv(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 
@@ -61,7 +61,7 @@ void fn_8019E308(void *arg0) {
     if ((temp_r3 != NULL) && (((P_V *) temp_r3)->m31() != 0)) {
         var_r30 = 0;
     }
-    if ((temp_r3 != NULL) && (TObjPlayer__sub_801B5680(temp_r3) != 0)) {
+    if ((temp_r3 != NULL) && (check_flag_100__10TObjPlayerFPv(temp_r3) != 0)) {
         var_r30 = 0;
     }
     if (var_r30 == 0) {

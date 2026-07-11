@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrl__sub_8024C56C(void);
+void close__11TWindowCtrlFv(void);
 M2C_UNK fn_8024E3D0();
 M2C_UNK fn_8026ACDC();
 
 extern s32 lbl_805D63F8;
 
-void TWindowCtrl__sub_8024C56C(void) {
+void close__11TWindowCtrlFv(void) {
     fn_8024E3D0();
     fn_8026ACDC();
     lbl_805D63F8 = 0;

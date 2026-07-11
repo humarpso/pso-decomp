@@ -8,7 +8,7 @@ extern "C" {
 
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
-M2C_UNK TObjPlayer__sub_801C09B8(void *);
+M2C_UNK set_code_161_1__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801C09CC(void *);
 
 struct S801B4430 { s8 b[2]; s16 h; };
@@ -16,7 +16,7 @@ void fn_801B4430(s32 arg0) {
     struct S801B4430 sp8;
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
-        TObjPlayer__sub_801C09B8(&sp8);
+        set_code_161_1__10TObjPlayerFPv(&sp8);
         sp8.h = obj_getField1c(arg0);
         TObjPlayer__sub_801C09CC(&sp8);
     }

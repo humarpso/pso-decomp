@@ -31,7 +31,7 @@ int queue_destruction__7TObjectFv(void*);
 
 int TWindowSubComCard__sub_802A5748(void* p) { return queue_destruction__7TObjectFv(p); }
 void TWindowSubComCard__sub_802A5768(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) fn_80265C10(m); }
-s32 TWindowSubComCard__sub_802A5794(void *arg0) {
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *arg0) {
     s32 v = M2C_FIELD(arg0, u32 *, 0x2C);
     if ((u32) v == 0U) {
         return -1;

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 fn_801FDCF8(s32, s32);
 M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TWindowSubComCard__sub_802A5794(s32);
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57C8(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
@@ -61,7 +61,7 @@ void fn_802DD714(void *arg0) {
         return;
     }
     if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, s32 *, 0x88)) != 0) {
-        temp_r3 = TWindowSubComCard__sub_802A5794(M2C_FIELD(arg0, s32 *, 0x88));
+        temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x88));
         switch (temp_r3) {
         case 1:
             fn_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));

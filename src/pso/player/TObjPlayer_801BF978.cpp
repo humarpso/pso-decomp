@@ -8,7 +8,7 @@ extern "C" {
 
 void init_tag__10TObjPlayerFPv(s32 *arg0);
 void TObjPlayer__sub_801BF9A4(void *arg0);
-void TObjPlayer__sub_801BF9CC(void* a0);
+void set_vec3_const__10TObjPlayerFPv(void* a0);
 void TObjPlayer__sub_801BF9E0(void* p, s16 v);
 void TObjPlayer__sub_801BF9E8(void* p, f32 v);
 M2C_UNK fn_8001BF40();
@@ -25,7 +25,7 @@ void TObjPlayer__sub_801BF9A4(void *arg0) {
 }
 
     extern const float lbl_805DC294;
-void TObjPlayer__sub_801BF9CC(void* a0) { *(float*)((char*)a0 + 0x0) = lbl_805DC294; *(float*)((char*)a0 + 0x4) = lbl_805DC294; *(float*)((char*)a0 + 0x8) = lbl_805DC294; }
+void set_vec3_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x0) = lbl_805DC294; *(float*)((char*)a0 + 0x4) = lbl_805DC294; *(float*)((char*)a0 + 0x8) = lbl_805DC294; }
 
 void TObjPlayer__sub_801BF9E0(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 void TObjPlayer__sub_801BF9E8(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }

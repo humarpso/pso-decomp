@@ -11,7 +11,7 @@ s32 VecCopy__FP3VecPC3Vec(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 void TBoss6Type2__sub_802BD340(void);
 s32 TBoss6Type2__sub_802BD3C4(void* p);
 
-void TBoss6Type2__sub_802BD2A4(s32 arg0, s32 arg1) {
+void copy_pos_620__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x620, arg0);
 }
 

@@ -44,8 +44,8 @@ extern "C" {
 s32 fn_8009E31C(void *, M2C_UNK);
 M2C_UNK fn_8009E4AC(void *, M2C_UNK);
 M2C_UNK fn_8009E6B0(void *);
-M2C_UNK TObjEneMe1Canadin__sub_8009E784();
-M2C_UNK TObjEneMe1Canadin__sub_8009E7A4(void *);
+M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
+M2C_UNK advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
@@ -60,7 +60,7 @@ void fn_8009D800(void *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        TObjEneMe1Canadin__sub_8009E784();
+        advance_state_5_to_4__17TObjEneMe1CanadinFPv();
         TObjEneDD__sub_800BBA04(arg0, 5);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         ((VObj18D *) arg0)->vf180();
@@ -89,7 +89,7 @@ void fn_8009D800(void *arg0, s32 arg1) {
                     fn_8009E4AC(arg0, 1);
                 } else {
                     M2C_FIELD(arg0, s32 *, 0x470) = 2;
-                    TObjEneMe1Canadin__sub_8009E7A4(arg0);
+                    advance_state_4_to_5__17TObjEneMe1CanadinFPv(arg0);
                     fn_8009E4AC(arg0, 3);
                 }
             }

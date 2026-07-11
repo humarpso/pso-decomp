@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowDD__sub_80348BC8(s32 arg0);
+s32 get_entry__9TWindowDDFi(s32 arg0);
 
 extern s32 lbl_805D6E30;
 extern s32 lbl_805D6E3C;
 
-s32 TWindowDD__sub_80348BC8(s32 arg0) {
+s32 get_entry__9TWindowDDFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= (s32) lbl_805D6E3C)) {
         return 0;
     }

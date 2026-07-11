@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TPlayerBattleCtrl4P__vt30(void *arg0);
-M2C_UNK TObjPlayer__sub_801B5408(u32, M2C_UNK);
+M2C_UNK play_effect_default__10TObjPlayerFii(u32, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112A4(void *, M2C_UNK);
 
@@ -19,7 +19,7 @@ void TPlayerBattleCtrl4P__vt30(void *arg0) {
     do {
         ret = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
         if (ret != 0U) {
-            TObjPlayer__sub_801B5408(ret, -1);
+            play_effect_default__10TObjPlayerFii(ret, -1);
         }
         var_r31 += 1;
     } while (var_r31 < 4);

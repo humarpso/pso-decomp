@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdEnterSerialAccessGC__sub_8023EA94(void);
+void init_state__22TAdEnterSerialAccessGCFv(void);
 M2C_UNK fn_8023F654();
 
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdEnterSerialAccessGC__sub_8023EA94(void) {
+void init_state__22TAdEnterSerialAccessGCFv(void) {
     fn_8023F654();
     lbl_805D3848 = 0x10;
     lbl_805D63C8 = 1;

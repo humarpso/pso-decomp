@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TObjEneDD__sub_800BBA18(void*, void*);
-void TObjEneMe1Canadin__sub_8009EE1C(void* p);
+void set_state_12__17TObjEneMe1CanadinFPv(void* p);
 void TObjEneMe1Canadin__sub_8009EE18(void);
 void TObjEneMe1Canadin__sub_8009EE84(void);
 

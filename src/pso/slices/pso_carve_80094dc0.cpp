@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjEneRe7Berura__sub_80094DC0(void *arg0) {
+u8 is_over_limit__16TObjEneRe7BeruraFPv(void *arg0) {
     int var_r4;
     s32 temp_r5;
     s32 temp_r0;

@@ -10,7 +10,7 @@ M2C_UNK fn_802A0F3C();
 M2C_UNK fn_802A5120();
 extern s32 lbl_805D6C78;
 
-void TAdDialingGC__sub_80328E90(void) {
+void close__12TAdDialingGCFv(void) {
     fn_802A5120();
     fn_802A0F3C();
     lbl_805D6C78 = 0;

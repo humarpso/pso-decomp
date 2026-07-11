@@ -8,7 +8,7 @@ extern "C" {
 
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
 M2C_UNK TObjEnemy__sub_800F790C(void *);
-M2C_UNK TObjEnemy__sub_8020C3E0(void *, M2C_UNK);
+M2C_UNK mask_sub_flags__9TObjEnemyFPvi(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_80018FE0(void *, M2C_UNK);
 
@@ -23,7 +23,7 @@ void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
             temp_r0 = M2C_FIELD(arg0, u16 *, 0x1C);
             if ((temp_r0 >= 0x1000U) && (temp_r0 < 0x4000U)) {
-                TObjEnemy__sub_8020C3E0(arg0, -3);
+                mask_sub_flags__9TObjEnemyFPvi(arg0, -3);
                 M2C_FIELD(arg0, u32 *, 0x80) = 0U;
             }
         }

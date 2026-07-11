@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TWindow__close(void *);
-s32 TWindowSubComCard__sub_802A5794(s32);
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57C8(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 u32 fn_802C6F90();
@@ -21,7 +21,7 @@ void fn_8030F034(void *arg0) {
     s32 var_r31;
 
     if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, s32 *, 0x6C)) != 0) {
-        temp_r3 = TWindowSubComCard__sub_802A5794(M2C_FIELD(arg0, s32 *, 0x6C));
+        temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x6C));
         switch (temp_r3) {
         case 1:
             M2C_FIELD(arg0, s32 *, 0x1C) = 7;

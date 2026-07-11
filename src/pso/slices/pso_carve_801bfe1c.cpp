@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TObjPlayer__sub_801BFE40();
 
-void TObjPlayer__sub_801BFE1C(void *arg0, f32 farg0) {
+void set_speed__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 8) = farg0;
     TObjPlayer__sub_801BFE40();
 }

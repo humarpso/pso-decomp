@@ -14,7 +14,7 @@ void TObjEneRe4Bit__vt26(void);
 void TObjEneRe4Bit__vt86(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));
 }
-void TObjEneRe4Bit__sub_800ED600(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
+void copy_pos__13TObjEneRe4BitFPv(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
 void TObjEneRe4Bit__vt59(void) {  }
 
 }

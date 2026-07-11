@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjQuestColA__vt13(void *arg0);
-s32 TObjPlayer__sub_801B5680();
+s32 check_flag_100__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801B5874(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
@@ -24,7 +24,7 @@ s32 TObjQuestColA__vt13(void *arg0) {
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
     if (temp_r3 != 0) {
-        if (TObjPlayer__sub_801B5680() != 0) {
+        if (check_flag_100__10TObjPlayerFPv() != 0) {
             fn_801B35AC(temp_r3);
             return 0;
         }

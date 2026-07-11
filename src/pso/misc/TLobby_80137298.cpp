@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_state__6TLobbyFi(s32 arg0);
-M2C_UNK TLobby__sub_801383E4(M2C_UNK);
+M2C_UNK close_and_set_state_13__6TLobbyFv(M2C_UNK);
 M2C_UNK reset_state__6TLobbyFv(M2C_UNK);
 s32 fn_80146740();
 M2C_UNK fn_801DB474(s32);
@@ -27,10 +27,10 @@ void handle_state__6TLobbyFi(s32 arg0) {
             fn_801DB474(lbl_805D5580);
             return;
         case 1:
-            TLobby__sub_801383E4(0x13);
+            close_and_set_state_13__6TLobbyFv(0x13);
             return;
         case 2:
-            TLobby__sub_801383E4(0x14);
+            close_and_set_state_13__6TLobbyFv(0x14);
             return;
         }
     } else {

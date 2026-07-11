@@ -117,7 +117,7 @@ extern "C" {
 void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
-M2C_UNK TObjEneMe1Canadin__sub_8009E784();
+M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
 M2C_UNK fn_8009E6B0(void *);
@@ -128,7 +128,7 @@ extern const f32 lbl_805D988C;
 void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        TObjEneMe1Canadin__sub_8009E784();
+        advance_state_5_to_4__17TObjEneMe1CanadinFPv();
         TObjEneDD__sub_800BBA04(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         ((V_A *) arg0)->m94();

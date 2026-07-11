@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2);
-M2C_UNK TWindowSubSymbolChatPartsSet__sub_80052EA0(void *, s32);
+M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 void *fn_8024FB80(s8);
 s32 fn_8026CBB8(M2C_UNK);
 
@@ -21,7 +21,7 @@ void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2
     (void)arg0;
 
     if (arg1 <= 0) {
-        TWindowSubSymbolChatPartsSet__sub_80052EA0(arg2, fn_8026CBB8(0x1C));
+        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg2, fn_8026CBB8(0x1C));
         M2C_FIELD(arg2, f32 *, 0) = (f32) (M2C_FIELD(arg2, f32 *, 0) + lbl_805DCCC4);
         M2C_FIELD(arg2, f32 *, 4) = (f32) (M2C_FIELD(arg2, f32 *, 4) + lbl_805DCCC8);
         return;

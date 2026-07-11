@@ -9,7 +9,7 @@ extern "C" {
 s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv(void *arg0);
 void TObjEneBm9Mericarol__sub_802D093C(void);
 void TObjEneBm9Mericarol__sub_802D0940(void);
-void TObjEneBm9Mericarol__sub_802D0944(void *arg0);
+void update_shadow_height__19TObjEneBm9MericarolFPv(void *arg0);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 
 s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv(void *arg0) {
@@ -21,7 +21,7 @@ s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv(void *arg0) {
 }
 void TObjEneBm9Mericarol__sub_802D093C(void) {  }
 void TObjEneBm9Mericarol__sub_802D0940(void) {  }
-void TObjEneBm9Mericarol__sub_802D0944(void *arg0) {
+void update_shadow_height__19TObjEneBm9MericarolFPv(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));
 }
 

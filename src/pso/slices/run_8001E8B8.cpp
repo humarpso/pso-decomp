@@ -8,7 +8,7 @@ s32 TLobby__sub_8001E8B8(void) {
 
 s32 TLobby__sub_8001E8FC();
 
-s32 TLobby__sub_8001E8C4(void) {
+s32 get_minutes__6TLobbyFv(void) {
     return (TLobby__sub_8001E8FC() / 2592) % 1000;
 }
 

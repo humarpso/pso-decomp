@@ -12,7 +12,7 @@ void TObjEneBm3Fly__vt60(void* p);
 void TObjEneBm3Fly__vt59(void);
 void TObjEneBm3Fly__vt26(void);
 
-void TObjEneBm3Fly__sub_800B1B5C(void *arg0) {
+void update_height_offset__13TObjEneBm3FlyFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x450));
 }

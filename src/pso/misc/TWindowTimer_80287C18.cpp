@@ -8,7 +8,7 @@ extern "C" {
 
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 s32 TWindowSubShortMail__sub_80246CC4();
-M2C_UNK TWindowSubSymbolChatPartsSet__sub_80052EA0(void *, s32);
+M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 s32 fn_80246CD0();
 s32 fn_80246CDC();
 s32 fn_8026CBB8(M2C_UNK);
@@ -23,7 +23,7 @@ void update_chat_parts__12TWindowTimerFPv(u8 *arg0) {
     } else {
         var_r3 = fn_8026CBB8(0x22);
     }
-    TWindowSubSymbolChatPartsSet__sub_80052EA0(arg0 + 0x30, var_r3);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x30, var_r3);
 }
 
 }

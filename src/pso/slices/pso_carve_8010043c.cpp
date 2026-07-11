@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TOComputerMachine01__sub_8023DDC8(s32, s32, s32, s32, s32);
 s32 PPCSync();
-s32 TObjPlayer__sub_801B12A8(u32);
+s32 test_flag_2000000__10TObjPlayerFPv(u32);
 s32 fn_8022675C(s32, s32, s32, s32);
 s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
 s32 fn_80087638(s32, s32);
@@ -39,14 +39,14 @@ void fn_801004DC(void *arg0) {
     PPCSync();
 }
 void fn_80100508(void *arg0, s32 arg1) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (TObjPlayer__sub_801B12A8(M2C_FIELD(arg0, u32 *, 0xF0)) == 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0xF0)) == 0)) {
         fn_8022675C(arg1, M2C_FIELD(arg0, u32 *, 0xF0) + 0x38, 0, 0);
     }
 }
 void fn_80100564(void *arg0, s32 arg1) {
     s32 temp_r3;
 
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (TObjPlayer__sub_801B12A8(M2C_FIELD(arg0, u32 *, 0xF0)) == 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0xF0)) == 0)) {
         temp_r3 = TOSwitchAttack__sub_80087278(M2C_FIELD(arg0, u32 *, 0xF0) + 0x2FC, arg1, 0x10);
         if (temp_r3 != 0) {
             fn_80087638(temp_r3, TItemProArmor__sub_80102C3C(arg0));

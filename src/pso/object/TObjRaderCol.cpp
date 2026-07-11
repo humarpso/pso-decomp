@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__12TObjRaderColFv(void *arg0);
 M2C_UNK TRaderMapCore__sub_801F9C54(s16);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK TObjRaderCol__sub_8019750C(void *);
 M2C_UNK TObjRaderCol__sub_801975DC(void *);
 
@@ -22,7 +22,7 @@ void run_task__12TObjRaderColFv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x98) = 1;
         return;
     case 1:
-        if (TRaderMapCore__sub_8030A808() == 1) {
+        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             TObjRaderCol__sub_8019750C(arg0);
             return;
         }

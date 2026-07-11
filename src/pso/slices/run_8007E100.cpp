@@ -17,7 +17,7 @@ s32 dt__15TObjBoss2TunnelFis(s32 arg0, s16 arg1) {
 
 M2C_UNK reset_floats__15TObjBoss2TunnelFPv();
 
-s32 TObjBoss2Tunnel__sub_8007E13C(s32 arg0) {
+s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0) {
     reset_floats__15TObjBoss2TunnelFPv();
     return arg0;
 }

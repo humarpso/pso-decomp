@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1GiGueBarrier__sub_80325D14(void);
+void init_global__22TObjEneMe1GiGueBarrierFv(void);
 s32 fn_802CAC80();
 
 extern s32 lbl_805D6C60;
 
-void TObjEneMe1GiGueBarrier__sub_80325D14(void) {
+void init_global__22TObjEneMe1GiGueBarrierFv(void) {
     lbl_805D6C60 = fn_802CAC80();
 }
 

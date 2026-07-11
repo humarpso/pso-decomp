@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneEpsilon__sub_800B9578(void *arg0);
+s32 update_death_check__14TObjEneEpsilonFPv(void *arg0);
 s32 TObjEneDD__sub_800BA828(u16);
 s32 TObjEneEpsilon__sub_800B95E0(void *);
 M2C_UNK fn_800B98C0(void *);
@@ -40,7 +40,7 @@ struct VObj_800B9578 : Base_800B9578 {
     virtual void m96(); virtual int m97();
 };
 
-s32 TObjEneEpsilon__sub_800B9578(void *arg0) {
+s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {
     if ((((VObj_800B9578 *)arg0)->m97() == 0) && (TObjEneDD__sub_800BA828(M2C_FIELD(arg0, u16 *, 0x38C)) == 0)) {
         fn_800B98C0(arg0);
         return 0;

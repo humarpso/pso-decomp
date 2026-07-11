@@ -10,9 +10,9 @@ s32 fn_8002B094(void *);
 s32 TOBoss4Rock__sub_80147AA8(s32);
 s32 __dl__FPv(u32 *);
 s32 TOBoss4Rock__sub_80147A80(u32);
-int TObjGrassWeb__sub_800BC778(void* p);
+int queue_destruction__12TObjGrassWebFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
-int TObjGrassWeb__sub_800BC778(void* p) { return queue_destruction__7TObjectFv(p); }
+int queue_destruction__12TObjGrassWebFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
 }

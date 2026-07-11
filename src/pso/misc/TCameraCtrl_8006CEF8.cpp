@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TCameraCtrl__sub_8006CEF8(void);
+s32 is_flag_set__11TCameraCtrlFv(void);
 s32 is_split_screen();
 void *fn_803DEB74(M2C_UNK);
 
-s32 TCameraCtrl__sub_8006CEF8(void) {
+s32 is_flag_set__11TCameraCtrlFv(void) {
     if (is_split_screen() != 0) {
         return 0;
     }

@@ -15,7 +15,7 @@ M2C_UNK open__17TWindowOptionCtrlFPv(s32);
 M2C_UNK fn_802C561C(s32);
 M2C_UNK fn_802C5688(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C69EC();
+M2C_UNK get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK fn_802C6A10();
 s32 fn_802D50A0(u32);
 s32 fn_802DBCE8(void *);
@@ -31,7 +31,7 @@ void fn_802DE50C(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
-    TAdMultiPlyChrSelectGC__sub_802C69EC();
+    get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
     if (TAdMultiPlyChrSelectGC__sub_802C6848() == 0) {
         fn_802E0008(M2C_FIELD(arg0, s32 *, 0x5C));
         M2C_FIELD(arg0, s32 *, 0x20) = 3;

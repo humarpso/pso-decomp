@@ -8,7 +8,7 @@ extern "C" {
 
 extern void *lbl_805D5F24;
 
-void TQuestVmDownLoadServer__sub_801F6B80(void) {
+void clear_field2A0__22TQuestVmDownLoadServerFv(void) {
     if ((void *) lbl_805D5F24 != NULL) {
         M2C_FIELD(lbl_805D5F24, s32 *, 0x2A0) = 0;
     }

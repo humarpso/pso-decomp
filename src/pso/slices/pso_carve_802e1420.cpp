@@ -8,14 +8,14 @@ void __ct__7TObjectFP7TObject(void *);
 extern M2C_UNK lbl_804E34FC[];
 extern M2C_UNK lbl_804E3050[];
 extern void *lbl_805D3F84;
-void TWindowSubSymbolChatPartsSet__sub_80052EA0(void *, void *);
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 
 void *fn_802E1420(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E34FC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3F84;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    TWindowSubSymbolChatPartsSet__sub_80052EA0((void *)((char *)arg0 + 32), lbl_804E3050);
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *)((char *)arg0 + 32), lbl_804E3050);
     return arg0;
 }
 

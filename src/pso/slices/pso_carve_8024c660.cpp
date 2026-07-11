@@ -8,7 +8,7 @@ extern "C" {
 
 extern void *lbl_805D63F8;
 
-s32 TWindowCtrl__sub_8024C660(void) {
+s32 get_flag_bit5__11TWindowCtrlFv(void) {
     if ((void *) lbl_805D63F8 == NULL) {
         return 0;
     }

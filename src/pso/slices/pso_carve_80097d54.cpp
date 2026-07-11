@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TBoss4Type2__sub_800874F4(void *, M2C_UNK);
-M2C_UNK TNowLoading__sub_80087660(void *, void *);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK TParticleCtrl__sub_80088010(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -142,9 +142,9 @@ void fn_80097D54(u8 *arg0, s32 arg1) {
                 TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0x4C4));
             }
         } else if (M2C_FIELD(arg0, s32 *, 0x484) & 1) {
-            TNowLoading__sub_80087660(M2C_FIELD(arg0, void **, 0x4C4), arg0 + 0x450);
+            copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x4C4), arg0 + 0x450);
         } else {
-            TNowLoading__sub_80087660(M2C_FIELD(arg0, void **, 0x4C4), arg0 + 0x45C);
+            copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x4C4), arg0 + 0x45C);
         }
         ((TObj *)arg0)->v100();
         ((TObj *)arg0)->v87();

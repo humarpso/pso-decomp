@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void open_lobby_warp_menu__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80137CC8();
+M2C_UNK init_player_window_effect__6TLobbyFv();
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 s32 TLobby__sub_8013A14C(M2C_UNK);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
@@ -38,7 +38,7 @@ void open_lobby_warp_menu__6TLobbyFv(void) {
     fn_80265F60(lbl_805D55E0);
     fn_80265C30(lbl_805D55E0);
     fn_8013AD28(lbl_805D55E0);
-    TLobby__sub_80137CC8();
+    init_player_window_effect__6TLobbyFv();
     lbl_805D5594 = 3;
 }
 

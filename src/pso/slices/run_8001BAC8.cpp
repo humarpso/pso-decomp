@@ -18,7 +18,7 @@ void render__11TAdRicoRingFv(void* p);
 
 void render__11TAdRicoRingFv(void* p) { fn_803D9B2C(p); fn_803DA798(*(void**)((char*)p + 0x50)); TOHangerMachine01__sub_803D9C00((char*)p + 0x58); TBoss7Tentacle__sub_803D8A6C((void*)0, *(void**)((char*)p + 0x64), *(void**)((char*)p + 0x68), *(void**)((char*)p + 0x6c)); func_803e11e8__FUl((void*)1); fn_803E46BC(*(void**)((char*)p + 0x4c)); func_803e11e8__FUl((void*)2); fn_803E46BC(*(void**)((char*)p + 0x4c)); func_803e11f0__Fv(); fn_803D9B78(); }
 
-void TAdRicoRingCtrl__sub_8001BB40(void *arg0, f32 farg0) {
+void set_scale4__15TAdRicoRingCtrlFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = farg0;
     M2C_FIELD(arg0, f32 *, 0x20) = farg0;
     M2C_FIELD(arg0, f32 *, 0x24) = farg0;

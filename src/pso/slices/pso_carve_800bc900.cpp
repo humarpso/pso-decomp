@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80019248();
 s32 obj_testFlags30(s32, s32);
-s32 TObjPlayer__sub_801B53BC(s32, s32, s32);
+s32 play_effect__10TObjPlayerFiii(s32, s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 void render__12TObjGrassWebFv(void);

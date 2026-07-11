@@ -10,7 +10,7 @@ s32 fn_8010CE70(s32 a0 = 0, u8 a1 = 0);
 s32 fn_8010CE1C(s32 a0 = 0, u8 a1 = 0);
 void TItemProShield__vt49(void);
 int TItemProShield__vt44(void* p);
-int TItemEquipBase__sub_8010B5E8(void*);
+int update_with_player__14TItemEquipBaseFi(void*);
 
 int TItemProShield__vt12(void) { return 0; }
 

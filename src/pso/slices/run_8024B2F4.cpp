@@ -8,7 +8,7 @@ extern "C" {
 
 extern void *lbl_805D63F8;
 
-void TWindowCtrl__sub_8024B2F4(s16 arg0) {
+void set_field28__11TWindowCtrlFs(s16 arg0) {
     if ((void *) lbl_805D63F8 != NULL) {
         M2C_FIELD(lbl_805D63F8, s16 *, 0x28) = arg0;
     }

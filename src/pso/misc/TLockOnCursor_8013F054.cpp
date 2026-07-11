@@ -9,7 +9,7 @@ int fn_8013E240(void*);
 int fn_8013E780(void*);
 int TLockOnCursor__sub_8013EC1C(void*);
 int TLockOnCursor__sub_8013EC38(void*);
-void TLockOnCursor__sub_8013F08C(void* p);
+void reset_fields__13TLockOnCursorFPv(void* p);
 void fn_8013F104(void* p, s32 v);
 void fn_8013F10C(void* p, s32 v);
 void fn_8013F114(void* p);
@@ -25,6 +25,6 @@ int fn_8013F188(void* p);
 int fn_8002F588(void*);
 
 void* TLockOnCursor__sub_8013F054(void* p) { fn_8004438C(p); TObjPlayer__sub_8001BF10((char*)p + 0x8); return p; }
-void TLockOnCursor__sub_8013F08C(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*)p + 0x8) = 0; }
+void reset_fields__13TLockOnCursorFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*)p + 0x8) = 0; }
 
 }

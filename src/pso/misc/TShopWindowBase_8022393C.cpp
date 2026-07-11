@@ -8,13 +8,13 @@ extern "C" {
 
 f32 TShopWindowBase__sub_8022393C(void);
 s32 TCameraCtrl__sub_8006B330();
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern f32 lbl_805DC728;
 extern f32 lbl_805DC72C;
 
 f32 TShopWindowBase__sub_8022393C(void) {
-    if ((TRaderMapCore__sub_8030A808() == 1) && (TCameraCtrl__sub_8006B330() > 2)) {
+    if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && (TCameraCtrl__sub_8006B330() > 2)) {
         return lbl_805DC728;
     }
     return lbl_805DC72C;

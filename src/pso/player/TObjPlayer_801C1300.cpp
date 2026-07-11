@@ -15,7 +15,7 @@ void bswap_body_dwords4__10TObjPlayerFPv(void* p);
 void init_cmd_6x26__10TObjPlayerFPv(void *arg0);
 void bswap_body_dwords5__10TObjPlayerFPv(void* p);
 void *copy_pair_fields4__10TObjPlayerFPvPv(void *arg0, void *arg1);
-void TObjPlayer__sub_801C14EC(void *arg0);
+void init_command__10TObjPlayerFPv(void *arg0);
 void bswap_body_dwords5_and_send__10TObjPlayerFPv(void* p);
 void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p);
 void *copy_from__10TObjPlayerFPvPv(void *arg0, void *arg1);
@@ -63,7 +63,7 @@ void *copy_pair_fields4__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     return arg0;
 }
 
-void TObjPlayer__sub_801C14EC(void *arg0) {
+void init_command__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = -1;
     M2C_FIELD(arg0, s32 *, 8) = 0;
     M2C_FIELD(arg0, s8 *, 0) = 0x25;

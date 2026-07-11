@@ -4,8 +4,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TBoss1DragonEffTail__sub_8002BF88(void* p);
-void TBoss1DragonEffTail__sub_8002BFB0(void* p);
+void enable__19TBoss1DragonEffTailFPv(void* p);
+void disable__19TBoss1DragonEffTailFPv(void* p);
 int TBoss1DragonEffTail__sub_8002BFD8(void* p);
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -13,8 +13,8 @@ int fn_8002B094(void*);
 void fn_800BC40C(void *, int);
 void fn_800BC5A0(void *, int);
 
-void TBoss1DragonEffTail__sub_8002BF88(void* p) { *(int*)((char*)p + 0xbc) = 1; TBoss1DragonEffTail__sub_8002BFD8(p); }
-void TBoss1DragonEffTail__sub_8002BFB0(void* p) { *(int*)((char*)p + 0xbc) = 0; TBoss1DragonEffTail__sub_8002BFD8(p); }
+void enable__19TBoss1DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 1; TBoss1DragonEffTail__sub_8002BFD8(p); }
+void disable__19TBoss1DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 0; TBoss1DragonEffTail__sub_8002BFD8(p); }
 int TBoss1DragonEffTail__sub_8002BFD8(void* p) { return fn_8002B094(*(void**)((char*)p + 0xb8)); }
 
 extern M2C_UNK __vt__19TBoss1DragonEffTail[];

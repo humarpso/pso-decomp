@@ -27,7 +27,7 @@ void enable_parts__11TBoss6Type1FPv(void *arg0) {
     }
 }
 
-void TBoss6Type1__sub_802B7918(void *arg0) {
+void set_child_flags__11TBoss6Type1FPv(void *arg0) {
     void *temp_r3;
     void *temp_r4;
 

@@ -11,7 +11,7 @@ M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 M2C_UNK fn_80087350(s32, M2C_UNK);
 void *fn_801AA3A0(s32);
 M2C_UNK TPhotonMagicSquare__sub_801AD330(void *, s32, s32, s32);
-M2C_UNK TObjPlayer__sub_801B5408(s32, s16);
+M2C_UNK play_effect_default__10TObjPlayerFii(s32, s16);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 u32 __nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_07;
@@ -25,7 +25,7 @@ void fn_801AA220(s32 arg0, u16 arg1) {
     if (temp_r3 != 0) {
         temp_r31 = fn_801AA3A0(arg0);
         if (fn_80019248(temp_r3) != 0) {
-            TObjPlayer__sub_801B5408(temp_r3, M2C_FIELD(temp_r31, s16 *, 0x20));
+            play_effect_default__10TObjPlayerFii(temp_r3, M2C_FIELD(temp_r31, s16 *, 0x20));
         }
         fn_80087350(temp_r3 + 0x38, 0x13D);
         set_shake_preset__11TCameraCtrlFi(0);

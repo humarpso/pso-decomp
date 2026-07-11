@@ -3,9 +3,9 @@
 extern "C" {
 
 int fn_8024ABDC(void*);
-int TWindowCtrl__sub_8024C640(void*);
+int get_flag_bit4__11TWindowCtrlFv(void*);
 void fn_8024AB18(void* p);
 
-void fn_8024AB18(void* p) { if (TWindowCtrl__sub_8024C640(p) == 0) { fn_8024ABDC(p); } }
+void fn_8024AB18(void* p) { if (get_flag_bit4__11TWindowCtrlFv(p) == 0) { fn_8024ABDC(p); } }
 
 }

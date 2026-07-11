@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801B6414(void *arg0, s32 arg1);
+void update_aim_angle__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 fn_801BE934(s32);
 s32 fn_801D921C(void *, s32);
 
@@ -23,7 +23,7 @@ struct VObj_801B6414 : Base_801B6414 {
     virtual s32 m14();
 };
 
-void TObjPlayer__sub_801B6414(void *arg0, s32 arg1) {
+void update_aim_angle__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     struct VObj_801B6414 *obj = (struct VObj_801B6414 *) arg0;
     s32 temp_r31;
 

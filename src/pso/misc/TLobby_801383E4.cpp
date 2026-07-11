@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801383E4(void);
+void close_and_set_state_13__6TLobbyFv(void);
 void reset_state__6TLobbyFv(void);
 void update_state__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80137CC8();
+M2C_UNK init_player_window_effect__6TLobbyFv();
 M2C_UNK TLobby__sub_801397E8();
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 M2C_UNK fn_80244888(s32);
 
 extern s32 lbl_805D5594;
 
-void TLobby__sub_801383E4(void) {
+void close_and_set_state_13__6TLobbyFv(void) {
     TLobby__sub_801397E8();
-    TLobby__sub_80137CC8();
+    init_player_window_effect__6TLobbyFv();
     lbl_805D5594 = 0xD;
 }
 
@@ -28,7 +28,7 @@ extern s32 lbl_805D55C0;
 
 void reset_state__6TLobbyFv(void) {
     TLobby__sub_801397E8();
-    TLobby__sub_80137CC8();
+    init_player_window_effect__6TLobbyFv();
     lbl_805D55B4 = 0;
     lbl_805D5594 = 0xC;
     lbl_805D55C0 = 1;
@@ -49,7 +49,7 @@ void update_state__6TLobbyFv(void) {
             if ((s32) lbl_805D5594 != 0xC) {
                 TLobby__sub_8013990C(0x21);
                 fn_80244888(lbl_805D55D8);
-                TLobby__sub_80137CC8();
+                init_player_window_effect__6TLobbyFv();
                 lbl_805D55B4 = 0;
                 lbl_805D5594 = 0xC;
                 if ((void *) lbl_805D5580 != NULL) {

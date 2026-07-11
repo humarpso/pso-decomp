@@ -10,7 +10,7 @@ M2C_UNK fn_80051B98(u32);
 M2C_UNK fn_80052374();
 M2C_UNK fn_80052390(f32);
 M2C_UNK TCharaMaking__sub_8028DD18(u32, s32, M2C_UNK, f32);
-M2C_UNK TCharaMaking__sub_8028E25C();
+M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 M2C_UNK TCharaMaking__sub_8028E288();
 M2C_UNK fn_803D9B2C();
 M2C_UNK fn_803D9B78();
@@ -44,7 +44,7 @@ void fn_80051D5C(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32
             fn_803DA798(arg1);
             fn_803E46BC(arg4);
             fn_803D9B78();
-            TCharaMaking__sub_8028E25C();
+            clear_flag_bit0__12TCharaMakingFv();
         }
         if (farg0 < lbl_805D8A34) {
             fn_80052374();
@@ -56,7 +56,7 @@ void fn_80051D5C(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32
             fn_803DA798(arg1);
             TCharaMaking__sub_8028DD18(arg5, arg7, 0, farg0);
             fn_803D9B78();
-            TCharaMaking__sub_8028E25C();
+            clear_flag_bit0__12TCharaMakingFv();
         }
     }
 }

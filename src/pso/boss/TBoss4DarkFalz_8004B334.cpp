@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss4DarkFalz__sub_8004B334(void *arg0);
+s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0);
 s32 is_timer_expired__14TBoss4DarkFalzFPv(void *arg0);
 void *fn_8001E1D8(M2C_UNK);
 
-s32 TBoss4DarkFalz__sub_8004B334(void *arg0) {
+s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x390);

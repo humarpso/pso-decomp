@@ -8,7 +8,7 @@ extern "C" {
 
 u32 get_enemy_entity();
 M2C_UNK fn_802F3C84(u32, s32);
-M2C_UNK TBoss8Dragon__sub_802FCCD0();
+M2C_UNK set_state_22__12TBoss8DragonFPv();
 extern u32 lbl_805D6978;
 
 void fn_802F35DC(void) {
@@ -19,7 +19,7 @@ void fn_802F35DC(void) {
         do {
             fn_802F3C84(lbl_805D6978, var_r31);
             if (get_enemy_entity() != 0U) {
-                TBoss8Dragon__sub_802FCCD0();
+                set_state_22__12TBoss8DragonFPv();
             }
             var_r31 += 1;
         } while (var_r31 < 6);

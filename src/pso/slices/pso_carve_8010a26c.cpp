@@ -80,7 +80,7 @@ u32 TObjPlayer__sub_80019704(void *);
 u8 TObjPlayer__sub_8001972C();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TBoss4Type2__sub_800874F4(M2C_UNK *, M2C_UNK);
-M2C_UNK TNowLoading__sub_80087660(u32, M2C_UNK *);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, M2C_UNK *);
 M2C_UNK TParticleCtrl__sub_80088000(u32);
 M2C_UNK TParticleCtrl__sub_80088010(u32);
 u32 fn_80102AA8();
@@ -120,7 +120,7 @@ void fn_8010A26C(void *arg0) {
             } else {
                 TParticleCtrl__sub_80088010(M2C_FIELD(arg0, u32 *, 0x1C));
             }
-            TNowLoading__sub_80087660(M2C_FIELD(arg0, u32 *, 0x1C), sp8);
+            copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, u32 *, 0x1C), sp8);
         }
     } else {
         queue_destruction__7TObjectFv(arg0);

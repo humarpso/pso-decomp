@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4Type3__sub_80059E58(s32 arg0);
+void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
 M2C_UNK TBoss4Type3__sub_80059F04(s32, M2C_UNK, s32, s32);
 f32 fn_80011014();
 
 extern f32 lbl_805D8C8C;
 
-void TBoss4Type3__sub_80059E58(s32 arg0) {
+void spawn_random_effect__11TBoss4Type3Fi(s32 arg0) {
     s32 temp_r5;
 
     temp_r5 = (s32) (lbl_805D8C8C * fn_80011014());

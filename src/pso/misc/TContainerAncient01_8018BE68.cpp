@@ -9,7 +9,7 @@ extern "C" {
 void TContainerAncient01__sub_8018BE68(void);
 int TContainerAncient01__sub_8018BE6C(void);
 int TContainerAncient01__sub_8018BE74(void);
-int TContainerAncient01__sub_8018BE7C(int a0);
+int get_table_entry__19TContainerAncient01Fi(int a0);
 s32 TContainerAncient01__sub_8018BE90(void);
 
 void TContainerAncient01__sub_8018BE68(void) {  }
@@ -17,7 +17,7 @@ int TContainerAncient01__sub_8018BE6C(void) { return 1; }
 int TContainerAncient01__sub_8018BE74(void) { return 1; }
 
     extern int lbl_8050DC68[];
-int TContainerAncient01__sub_8018BE7C(int a0) {  return lbl_8050DC68[a0]; }
+int get_table_entry__19TContainerAncient01Fi(int a0) {  return lbl_8050DC68[a0]; }
 
 extern s32 lbl_805D5B90;
 

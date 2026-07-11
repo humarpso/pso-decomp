@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubCustomEquip__sub_80276528(void *arg0, void *arg1);
+void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1);
 
 extern const f32 lbl_805DD568;
 extern const f32 lbl_805DD56C;
 
-void TWindowSubCustomEquip__sub_80276528(void *arg0, void *arg1) {
+void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) (M2C_FIELD(arg1, f32 *, 8) - lbl_805DD568);
     M2C_FIELD(arg0, f32 *, 4) = (f32) (M2C_FIELD(arg1, f32 *, 0xC) - lbl_805DD56C);
 }

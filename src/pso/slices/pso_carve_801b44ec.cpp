@@ -9,14 +9,14 @@ extern "C" {
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 M2C_UNK TObjPlayer__sub_801C0A00(void *);
-M2C_UNK TObjPlayer__sub_801C0A34(void *);
+M2C_UNK set_code_50_1__10TObjPlayerFPv(void *);
 
 struct S801B44EC { s8 b[2]; s16 h; };
 void fn_801B44EC(s32 arg0) {
     struct S801B44EC sp8;
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
-        TObjPlayer__sub_801C0A34(&sp8);
+        set_code_50_1__10TObjPlayerFPv(&sp8);
         sp8.h = obj_getField1c(arg0);
         TObjPlayer__sub_801C0A00(&sp8);
     }

@@ -4,7 +4,7 @@ extern "C" {
 
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void);
-int TTecAnti__sub_8022AD98(void* p);
+int queue_destruction__8TTecAntiFPv(void* p);
 int fn_80236EE8(void*);
 int queue_destruction__7TObjectFv(void*);
 

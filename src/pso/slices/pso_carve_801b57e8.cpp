@@ -18,7 +18,7 @@ int fn_8019DD24(void*, void*);
 int fn_801B3BB4(void*);
 int fn_801B3BFC(void*, void*);
 int TObjPlayer__sub_801B565C(void* p);
-int TObjPlayer__sub_801B5680(void* p);
+int check_flag_100__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801B5790(void* p);
 void TObjPlayer__sub_801B57BC(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);

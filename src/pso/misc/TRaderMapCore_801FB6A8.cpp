@@ -8,7 +8,7 @@ extern "C" {
 
 void create__13TRaderMapCoreFv(void);
 M2C_UNK TRaderMapCore__ct(void *, s32);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 fn_8030A730();
 
@@ -17,8 +17,8 @@ extern s32 tl_clipout;
 
 void create__13TRaderMapCoreFv(void) {
     void *obj;
-    if ((TRaderMapCore__sub_8030A808() != 1) || (fn_8030A730() != 1)) {
-        if (TRaderMapCore__sub_8030A808() == 1) {
+    if ((is_not_split_screen__13TRaderMapCoreFv() != 1) || (fn_8030A730() != 1)) {
+        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             if ((obj = (void *) __nw__7TObjectFUl(0x1A4)) != 0) {
                 TRaderMapCore__ct(obj, tl_clipout);
             }

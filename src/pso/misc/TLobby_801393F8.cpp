@@ -9,9 +9,9 @@ extern "C" {
 void update_menu_window__6TLobbyFv(void);
 void handle_warp_menu_input__6TLobbyFv(void);
 M2C_UNK open_city_warp_menu__6TLobbyFv();
-M2C_UNK TLobby__sub_80137FEC();
+M2C_UNK close_and_send_text_list__6TLobbyFv();
 M2C_UNK open_warp_menu__6TLobbyFv();
-M2C_UNK TLobby__sub_801381D0();
+M2C_UNK close_all_windows__6TLobbyFPv();
 M2C_UNK open_menu_window__6TLobbyFv();
 M2C_UNK request_game_list__6TLobbyFv();
 M2C_UNK create_warp_menu__6TLobbyFv();
@@ -36,7 +36,7 @@ void update_menu_window__6TLobbyFv(void) {
                 open_menu_window__6TLobbyFv();
                 return;
             case 2:
-                TLobby__sub_801381D0();
+                close_all_windows__6TLobbyFPv();
                 return;
             }
         } else if (TWindowSubComCard__sub_80073DB8(lbl_805D55E4) != 0) {
@@ -63,7 +63,7 @@ void handle_warp_menu_input__6TLobbyFv(void) {
                 open_warp_menu__6TLobbyFv();
                 return;
             case 2:
-                TLobby__sub_80137FEC();
+                close_and_send_text_list__6TLobbyFv();
                 return;
             case 3:
                 open_city_warp_menu__6TLobbyFv();

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowCtrl__sub_801FBA28(void);
+s32 get_flag_bit0__11TWindowCtrlFv(void);
 
 extern void *lbl_805D63F8;
 
-s32 TWindowCtrl__sub_801FBA28(void) {
+s32 get_flag_bit0__11TWindowCtrlFv(void) {
     if ((void *) lbl_805D63F8 == NULL) {
         return 0;
     }

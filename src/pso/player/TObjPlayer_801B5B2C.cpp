@@ -18,7 +18,7 @@ int fn_8019DD24(void*, void*);
 int fn_801B3BB4(void*);
 int fn_801B3BFC(void*, void*);
 int TObjPlayer__sub_801B565C(void* p);
-int TObjPlayer__sub_801B5680(void* p);
+int check_flag_100__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801B5790(void* p);
 void TObjPlayer__sub_801B57BC(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
@@ -26,7 +26,7 @@ int fn_801C0044(void*);
 int fn_801C1B38(void*);
 int fn_801C1B60(void*);
 
-void TObjPlayer__sub_801B5B2C(s32 arg0, s32 arg1) {
+void set_effect_enabled__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (arg1 == 1) {
         fn_801C1E48(arg0 + 0x500);
         return;

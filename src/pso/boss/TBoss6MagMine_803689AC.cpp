@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6MagMine__sub_803689AC(s32 arg0);
+void copy_pos__13TBoss6MagMineFi(s32 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 
-void TBoss6MagMine__sub_803689AC(s32 arg0) {
+void copy_pos__13TBoss6MagMineFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
 }
 

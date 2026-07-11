@@ -20,7 +20,7 @@ s32 TNpcPlayer__sub_801528E4(void* p);
 u16 TNpcPlayer__sub_801528EC(void* p);
 s32 TNpcPlayer__sub_80152978(void* p);
 s32 TNpcPlayer__sub_80152980(void* p);
-void TNpcPlayer__sub_801529AC(void* p, void* q);
+void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
 s32 TNpcPlayer__sub_801529C8(void* p);
 void TNpcPlayer__sub_801529D0(void* p);
 void TNpcPlayer__sub_80152A30(void);

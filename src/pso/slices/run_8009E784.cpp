@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009E784(void *arg0) {
+void advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3FC) == 5) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 3;
         M2C_FIELD(arg0, s32 *, 0x3FC) = 4;
     }
 }
 
-void TObjEneMe1Canadin__sub_8009E7A4(void *arg0) {
+void advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3FC) == 4) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 2;
         M2C_FIELD(arg0, s32 *, 0x3FC) = 5;

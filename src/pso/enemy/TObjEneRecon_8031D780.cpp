@@ -34,8 +34,8 @@ struct VObj_8031D780 : Base_8031D780 {
 
 extern "C" {
 
-void TObjEneRecon__sub_8031D7E8(s32 arg0);
-void TObjEneRecon__sub_8031D830(s32 arg0);
+void spawn_trap_a__12TObjEneReconFi(s32 arg0);
+void spawn_trap_b__12TObjEneReconFi(s32 arg0);
 u16 TObjEneRecon__sub_8031D878(void *arg0);
 void TObjEneRecon__vt102(void *arg0, f32 farg0);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
@@ -51,11 +51,11 @@ void TObjEneRecon__vt102(void *arg0, f32 farg0) {
     TObjEneEpsilon__sub_800B9778(arg0, farg0);
 }
 
-void TObjEneRecon__sub_8031D7E8(s32 arg0) {
+void spawn_trap_a__12TObjEneReconFi(s32 arg0) {
     TOTrapAncient01__sub_80226578((s32)(TObjEneRecobox__sub_8032013C(0x4003AD07)), (s32)(arg0), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
 }
 
-void TObjEneRecon__sub_8031D830(s32 arg0) {
+void spawn_trap_b__12TObjEneReconFi(s32 arg0) {
     TOTrapAncient01__sub_80226578((s32)(TObjEneRecobox__sub_8032013C(0x4003B206)), (s32)(arg0), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
 }
 

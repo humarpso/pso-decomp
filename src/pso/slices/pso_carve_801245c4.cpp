@@ -9,14 +9,14 @@ extern "C" {
 s32 TItemProArmor__sub_80102C3C(void *);
 M2C_UNK init_vtable__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
 M2C_UNK fn_8011E618(void *);
-s32 TItemProArmor__sub_80364300(M2C_UNK);
+s32 alloc__13TItemProArmorFi(M2C_UNK);
 
 void fn_801245C4(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x204) = -1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
-        temp_r3 = TItemProArmor__sub_80364300(0x2C);
+        temp_r3 = alloc__13TItemProArmorFi(0x2C);
         if (temp_r3 != 0) {
             init_vtable__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
         }

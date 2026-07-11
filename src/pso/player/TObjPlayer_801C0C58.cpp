@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C0FC8(void* p);
+void set_code_43_6__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C0F10(void* a0 = 0);
 void* copy__10TObjPlayerFPvPv(void* p, void* a1);
 void* init_pkt_6x2B__10TObjPlayerFPv(void* p);

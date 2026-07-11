@@ -107,10 +107,10 @@ struct VObj_80094BA4 : Base_80094BA4 {
 
 extern "C" {
 
-s32 TObjEneRe7Berura__sub_80094BA4(void *arg0);
+s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
-s32 TObjEneRe7Berura__sub_80094BA4(void *arg0) {
+s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0) {
     struct VObj_80094BA4 *o = (struct VObj_80094BA4 *)arg0;
     if (o->m97() != 0) {
         TObjEneDD__sub_800BBA18(arg0, 9);

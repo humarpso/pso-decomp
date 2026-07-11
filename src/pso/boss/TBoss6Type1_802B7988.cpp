@@ -9,13 +9,13 @@ extern "C" {
 void update_parts_flags__11TBoss6Type1FPv(void *arg0);
 
 M2C_UNK enable_parts__11TBoss6Type1FPv(void *);
-M2C_UNK TBoss6Type1__sub_802B7918(void *);
+M2C_UNK set_child_flags__11TBoss6Type1FPv(void *);
 M2C_UNK TBoss6Type1__sub_802B7944();
 
 void update_parts_flags__11TBoss6Type1FPv(void *arg0) {
     TBoss6Type1__sub_802B7944();
     if (M2C_FIELD(arg0, s32 *, 0x418) & 1) {
-        TBoss6Type1__sub_802B7918(arg0);
+        set_child_flags__11TBoss6Type1FPv(arg0);
     }
     if (M2C_FIELD(arg0, s32 *, 0x418) & 2) {
         enable_parts__11TBoss6Type1FPv(arg0);

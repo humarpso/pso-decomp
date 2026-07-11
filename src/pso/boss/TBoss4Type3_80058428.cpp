@@ -8,7 +8,7 @@ extern "C" {
 
 void TBoss4Type3__vt41(void *arg0);
 s32 TBoss4Type3__sub_8005254C(u16);
-M2C_UNK TBoss4Type3__sub_80059E58(void *);
+M2C_UNK spawn_random_effect__11TBoss4Type3Fi(void *);
 M2C_UNK TBoss4Type3__sub_80059F64(void *, M2C_UNK);
 f32 fn_80011014(void *);
 
@@ -29,7 +29,7 @@ void TBoss4Type3__vt41(void *arg0) {
             TBoss4Type3__sub_80059F64(arg0, 9);
             return;
         }
-        TBoss4Type3__sub_80059E58(arg0);
+        spawn_random_effect__11TBoss4Type3Fi(arg0);
     }
 }
 

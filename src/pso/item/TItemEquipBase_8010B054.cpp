@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemEquipBase__sub_8010B054(void *arg0);
+void update_equip__14TItemEquipBaseFPv(void *arg0);
 M2C_UNK fn_80101414(void *);
 s8 fn_80102C30();
 
@@ -22,7 +22,7 @@ struct VObj_8010B054 : Base_8010B054 {
     virtual void m19();
 };
 
-void TItemEquipBase__sub_8010B054(void *arg0) {
+void update_equip__14TItemEquipBaseFPv(void *arg0) {
     if (fn_80102C30() == 2) {
         ((VObj_8010B054 *)arg0)->m19();
     }

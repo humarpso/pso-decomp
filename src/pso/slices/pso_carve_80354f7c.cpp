@@ -6,7 +6,7 @@ s32 fn_80355098(s32 arg0, s16 arg1);
 int __dl__FPv();
 int TObjPlayer__sub_8001BF10(void*);
 int fn_8001BF40(void*);
-int TWindowSubSymbolChatPartsSet__sub_80052EA0(void*, void*);
+int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*, void*);
 int fn_8035510C(void* a0 = 0, void* a1 = 0);
 int TAdPlyPltAnimCtrlGC__sub_80355168(void* a0 = 0);
 void fn_80354F8C(void* p);

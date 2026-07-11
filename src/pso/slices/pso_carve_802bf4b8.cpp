@@ -10,7 +10,7 @@ s32 TBoss6Type2__sub_802B9C00(void *, s32);
 s32 TBoss6Type2__sub_802BB7C0(void *);
 u16 TBoss6Type2__sub_802BB694();
 s32 update_action_state__11TBoss6Type2FPv(void *);
-s32 TBoss6Type2__sub_802BA6A0(void *);
+s32 update_zako__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BAA74();
 s32 TBoss6Type2__sub_802BD014(void * a0 = 0, s32 a1 = 0);
 int TBoss6Type2__sub_802BDC5C(void*);
@@ -28,7 +28,7 @@ void fn_802BF5F0(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (TBoss6Type2__sub_802BAA74() == 0)) {
         M2C_FIELD(arg0, s32 *, 0x504) = 1;
     }
-    TBoss6Type2__sub_802BA6A0(arg0);
+    update_zako__11TBoss6Type2FPv(arg0);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
     if (temp_r0 < 0) {
@@ -43,7 +43,7 @@ void fn_802BF730(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (TBoss6Type2__sub_802BAA74() == 0)) {
         M2C_FIELD(arg0, s32 *, 0x504) = 1;
     }
-    TBoss6Type2__sub_802BA6A0(arg0);
+    update_zako__11TBoss6Type2FPv(arg0);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
     if (temp_r0 < 0) {

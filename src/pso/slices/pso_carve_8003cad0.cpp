@@ -6,7 +6,7 @@ s32 get_main_phase();
 s32 fn_80040C7C(s32);
 s32 TODoorVoShip__sub_801F44BC(s32);
 s32 fn_801F4830(s32);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 int fn_80242DA0(void*, void*);
 int fn_8003CB48(void);
 int fn_80242D74(void*);
@@ -17,7 +17,7 @@ void fn_8003CAD0(void) {
         fn_80040C7C(0);
         return;
     }
-    if (TRaderMapCore__sub_8030A808() == 1) {
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         fn_80040C7C(5);
         return;
     }

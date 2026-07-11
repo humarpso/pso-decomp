@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_feed_timer__8TItemMagFPv(void *arg0);
-void TItemMag__sub_80113110(void* p);
-void TItemMag__sub_80113140(void* p);
+void feed_if_over_90__8TItemMagFPv(void* p);
+void feed_if_over_45__8TItemMagFPv(void* p);
 void TItemMag__sub_80113170(void *arg0);
 void check_level_cap__8TItemMagFPv(void *arg0);
 void check_level_evolve__8TItemMagFPv(void *arg0);
@@ -33,9 +33,9 @@ void update_feed_timer__8TItemMagFPv(void *arg0) {
     }
 }
 
-void TItemMag__sub_80113110(void* p) { if (*(int*)((char*)p + 0x1cc) > 90) { TItemMag__sub_80112E20((void*)(p), (void*)((void*)1)); } }
+void feed_if_over_90__8TItemMagFPv(void* p) { if (*(int*)((char*)p + 0x1cc) > 90) { TItemMag__sub_80112E20((void*)(p), (void*)((void*)1)); } }
 
-void TItemMag__sub_80113140(void* p) { if (*(int*)((char*)p + 0x1cc) > 45) { TItemMag__sub_80112E20((void*)(p), (void*)((void*)1)); } }
+void feed_if_over_45__8TItemMagFPv(void* p) { if (*(int*)((char*)p + 0x1cc) > 45) { TItemMag__sub_80112E20((void*)(p), (void*)((void*)1)); } }
 
 void TItemMag__sub_80113170(void *arg0) {
     s32 temp_r0;

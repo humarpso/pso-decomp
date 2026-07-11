@@ -8,7 +8,7 @@ extern "C" {
 
 void update_displayed_item__13TWindowSubMagFPv(void *arg0);
 s32 count_slots__13TWindowSubMagFPv(void *arg0);
-void TWindowSubMag__sub_8027B3F4(void *arg0, s32 arg1);
+void set_mag_mode__13TWindowSubMagFPvi(void *arg0, s32 arg1);
 M2C_UNK fn_80105984(M2C_UNK *);
 M2C_UNK fn_8010D614(s32, M2C_UNK *);
 s32 fn_801143E8(M2C_UNK *, s32);
@@ -43,7 +43,7 @@ loop_1:
     goto loop_1;
 }
 
-void TWindowSubMag__sub_8027B3F4(void *arg0, s32 arg1) {
+void set_mag_mode__13TWindowSubMagFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 1:
         M2C_FIELD(arg0, s8 *, 0x1C) = 5;

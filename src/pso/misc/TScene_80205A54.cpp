@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TScene__sub_80205A54(void);
+void set_field4__6TSceneFv(void);
 
 extern void *lbl_805D5FCC;
 
-void TScene__sub_80205A54(void) {
+void set_field4__6TSceneFv(void) {
     if ((void *) lbl_805D5FCC != NULL) {
         M2C_FIELD(lbl_805D5FCC, s32 *, 4) = 0x8F;
     }

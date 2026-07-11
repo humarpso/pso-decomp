@@ -11,7 +11,7 @@ u16 TBoss6Type2__sub_802BA394(void *);
 s32 is_phase_complete__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
-s32 TBoss6Type2__sub_802BA6A0(void *);
+s32 update_zako__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BAA74();
 s32 TBoss6Type2__sub_802BD014(void * a0 = 0, s32 a1 = 0);
 s32 TBoss6Type2__sub_802BC23C();
@@ -42,7 +42,7 @@ void fn_802BE5DC(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (TBoss6Type2__sub_802BAA74() == 0)) {
         M2C_FIELD(arg0, s32 *, 0x504) = 1;
     }
-    TBoss6Type2__sub_802BA6A0(arg0);
+    update_zako__11TBoss6Type2FPv(arg0);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
     if (temp_r0 < 0) {

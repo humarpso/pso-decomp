@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80011138(s32, s32);
 s32 obj_getField1c(s32);
-s32 TItem__sub_80101ED4(void *, s32);
+s32 init_owner__5TItemFPvUs(void *, s32);
 s32 fn_8010ED0C(void *);
 s32 can_pickup_item__10TObjPlayerFPvPv();
 int fn_801B853C(void* p);
@@ -21,7 +21,7 @@ s32 fn_801B85CC(s32 arg0, void *arg1) {
         return 1;
     }
     if (fn_80011138(arg0, M2C_FIELD(arg1, s32 *, 0x10) * fn_8010ED0C(arg1)) != 0) {
-        TItem__sub_80101ED4(arg1, obj_getField1c(arg0));
+        init_owner__5TItemFPvUs(arg1, obj_getField1c(arg0));
         return 0;
     }
     return 2;

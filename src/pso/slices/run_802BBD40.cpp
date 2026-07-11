@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BBD40(void *arg0) {
+void set_owner_flag_bit0__11TBoss6Type2FPv(void *arg0) {
     void *temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
@@ -15,7 +15,7 @@ void TBoss6Type2__sub_802BBD40(void *arg0) {
     }
 }
 
-void TBoss6Type2__sub_802BBD5C(void *arg0) {
+void set_child_flags__11TBoss6Type2FPv(void *arg0) {
     void *temp_r3;
     void *temp_r4;
 

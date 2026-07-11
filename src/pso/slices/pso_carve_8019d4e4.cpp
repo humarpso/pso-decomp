@@ -20,7 +20,7 @@ struct VObj_8019D4E4 : Base_8019D4E4 {
 extern "C" {
 
 s32 fn_801B3588(void *);
-s32 TObjPlayer__sub_801B5680();
+s32 check_flag_100__10TObjPlayerFPv();
 void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 extern s32 lbl_805D3458;
 extern s32 lbl_805D55C0;
@@ -31,7 +31,7 @@ u8 fn_8019D4E4(s32 arg0, u16 arg1) {
 
     id = arg1;
     var_r31 = NULL;
-    if ((id != 0xFFFF) &&((var_r31 = TPlayerBattleCtrl4P__sub_801BA74C(id), ((var_r31 == NULL) != 0)) || (TObjPlayer__sub_801B5680() != 0))) {
+    if ((id != 0xFFFF) &&((var_r31 = TPlayerBattleCtrl4P__sub_801BA74C(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
         return 0U;
     }
     if ((s32) lbl_805D3458 == 0) {

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0);
-void TObjEneRe4Sorcerer__sub_800EF614(void *arg0);
+void apply_mylla_effect__18TObjEneRe4SorcererFPv(void *arg0);
 void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_800ED428(u32, s32);
@@ -31,7 +31,7 @@ void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3D4) = (f32) (M2C_FIELD(arg0, f32 *, 0x40) - temp_f2);
 }
 
-void TObjEneRe4Sorcerer__sub_800EF614(void *arg0) {
+void apply_mylla_effect__18TObjEneRe4SorcererFPv(void *arg0) {
     u32 temp_r3;
     temp_r3 = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x3E6));
     if (temp_r3 != 0U) {

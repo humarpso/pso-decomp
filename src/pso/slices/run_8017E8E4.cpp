@@ -8,7 +8,7 @@ extern "C" {
 
 extern s32 lbl_805D62E4;
 
-u8 TObjBgmColCtrl__sub_8017E8E4(void) {
+u8 is_active__14TObjBgmColCtrlFv(void) {
     return (u8) (lbl_805D62E4 != 0);
 }
 

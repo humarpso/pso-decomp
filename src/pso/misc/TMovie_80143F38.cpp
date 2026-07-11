@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMovie__sub_80143F38(void *arg0);
+void update_stop__6TMovieFPv(void *arg0);
 
 M2C_UNK stop_if_advanced__6TMovieFPv();
 M2C_UNK TMovie__sub_80143ECC();
 
-void TMovie__sub_80143F38(void *arg0) {
+void update_stop__6TMovieFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != 0) {
         TMovie__sub_80143ECC();
         return;

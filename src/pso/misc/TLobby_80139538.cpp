@@ -9,7 +9,7 @@ struct Root_80139538 { char pad[0x1DA8]; struct GameListEntry_80139538 entries[1
 extern "C" {
 
 void handle_game_list_select__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80137EA8();
+M2C_UNK close_and_set_state_12__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK TWindow__close(u32);
 s32 fn_8013AD38(u32);
@@ -30,7 +30,7 @@ void handle_game_list_select__6TLobbyFv(void) {
             TWindow__close(lbl_805D55D0);
             lbl_805D55D0 = 0U;
             send_action__9TProtocolFR13GameListEntryPcPc(lbl_805D5580, &lbl_805D5580->entries[temp_r31], &lbl_805DB0B0, &lbl_805DB0B0);
-            TLobby__sub_80137EA8();
+            close_and_set_state_12__6TLobbyFv();
             return;
         }
         if (fn_8013AD44(lbl_805D55D0) != 0) {

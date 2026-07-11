@@ -6,14 +6,14 @@ extern "C" {
 
 void * TObjEnvSound__create(void *arg0);
 void *TObjEnvSound__ct(void *, void *, void *);
-int TRaderMapCore__sub_8030A808(void *);
+int is_not_split_screen__13TRaderMapCoreFv(void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
 void * TObjEnvSound__create(void *arg0) {
     void *o;
-    if (TRaderMapCore__sub_8030A808(arg0) == 1) {
+    if (is_not_split_screen__13TRaderMapCoreFv(arg0) == 1) {
         return NULL;
     }
     o = __nw__7TObjectFUl(0xA0);

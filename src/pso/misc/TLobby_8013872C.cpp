@@ -8,7 +8,7 @@ extern "C" {
 
 void destroy_lobby_ui__6TLobbyFv(void);
 void close_all_windows__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80137C90();
+M2C_UNK update_player_window__6TLobbyFv();
 M2C_UNK TWindow__close(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -148,7 +148,7 @@ void close_all_windows__6TLobbyFv(void) {
         queue_destruction__7TObjectFv((void *)(lbl_805D55F8));
         lbl_805D55F8 = 0U;
     }
-    TLobby__sub_80137C90();
+    update_player_window__6TLobbyFv();
     lbl_805D5594 = 0;
 }
 

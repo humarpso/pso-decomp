@@ -9,7 +9,7 @@ extern "C" {
 void draw__14TOTrapSeabed01FPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOTrapSeabed01__sub_802CA3EC(void *, s32);
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK fn_80141A30();
 M2C_UNK fn_801E2EFC();
 M2C_UNK fn_801E2F20();
@@ -24,7 +24,7 @@ M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 extern s32 lbl_805D6814;
 
 void draw__14TOTrapSeabed01FPv(u8 *arg0) {
-    if ((TRaderMapCore__sub_8030A808() != 1) || ((s32) M2C_FIELD(arg0, s32 *, 0x34C) == 0)) {
+    if ((is_not_split_screen__13TRaderMapCoreFv() != 1) || ((s32) M2C_FIELD(arg0, s32 *, 0x34C) == 0)) {
         set_depth_buffer_settings_3__Fv();
         set_depth_buffer_settings_id__FUl(1);
         fn_801E2EFC();

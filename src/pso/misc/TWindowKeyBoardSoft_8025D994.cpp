@@ -8,7 +8,7 @@ extern "C" {
 
 void select_next__19TWindowKeyBoardSoftFPv(void *arg0);
 void update__19TWindowKeyBoardSoftFPv(void *arg0);
-M2C_UNK TWindowKeyBoardSoft__sub_8025D338(void *, void *);
+M2C_UNK update_input__19TWindowKeyBoardSoftFPvPv(void *, void *);
 s32 TWindowKeyBoardSoft__sub_8025D378(void *, void *);
 M2C_UNK fn_803E6868(void *, void *);
 M2C_UNK fn_803E689C(void *, void *);
@@ -25,7 +25,7 @@ void select_next__19TWindowKeyBoardSoftFPv(void *arg0) {
                 M2C_FIELD(arg0, s32 *, 0xA8) = 1;
             }
         } while (TWindowKeyBoardSoft__sub_8025D378(arg0, &sp8) == 0);
-        TWindowKeyBoardSoft__sub_8025D338(arg0, &sp8);
+        update_input__19TWindowKeyBoardSoftFPvPv(arg0, &sp8);
     }
 }
 
@@ -41,7 +41,7 @@ void update__19TWindowKeyBoardSoftFPv(void *arg0) {
                 M2C_FIELD(arg0, s32 *, 0xA8) = (s32) M2C_FIELD(arg0, s32 *, 0xAC);
             }
         } while (TWindowKeyBoardSoft__sub_8025D378(arg0, sp8) == 0);
-        TWindowKeyBoardSoft__sub_8025D338(arg0, sp8);
+        update_input__19TWindowKeyBoardSoftFPvPv(arg0, sp8);
     }
 }
 

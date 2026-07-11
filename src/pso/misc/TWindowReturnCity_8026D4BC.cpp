@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowReturnCity__sub_8026D4BC(void);
 void TWindowReturnCity__sub_8026D4C0(void);
-void TWindowReturnCity__sub_8026D4CC(void);
+void clear_flag_bit5__17TWindowReturnCityFv(void);
 
 void TWindowReturnCity__sub_8026D4BC(void) {  }
 
@@ -17,7 +17,7 @@ void TWindowReturnCity__sub_8026D4C0(void) { lbl_805D6468 = 4; }
 
 extern void *lbl_805D63F8;
 
-void TWindowReturnCity__sub_8026D4CC(void) {
+void clear_flag_bit5__17TWindowReturnCityFv(void) {
     if ((void *) lbl_805D63F8 != NULL) {
         M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(lbl_805D63F8, u16 *, 0x1C) & 0xFFFFFFDF);
     }

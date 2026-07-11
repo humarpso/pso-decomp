@@ -9,7 +9,7 @@ int fn_8013E240(void*);
 int fn_8013E780(void*);
 int TLockOnCursor__sub_8013EC1C(void*);
 int TLockOnCursor__sub_8013EC38(void*);
-void TLockOnCursor__sub_8013F08C(void* p);
+void reset_fields__13TLockOnCursorFPv(void* p);
 void fn_8013F104(void* p, s32 v);
 void fn_8013F10C(void* p, s32 v);
 void fn_8013F114(void* p);

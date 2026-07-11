@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80019248();
 s32 obj_testFlags30(s32, s32);
-s32 TObjPlayer__sub_801B53BC(s32, s32, s32);
+s32 play_effect__10TObjPlayerFiii(s32, s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 int TObjIllGillKage__sub_80365450(void* p);
@@ -21,7 +21,7 @@ void attack_target__15TObjIllGillKageFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x90) = 1;
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x98));
     if ((temp_r3 != 0) && (fn_80019248() != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 0) && (obj_testFlags30(temp_r3, 0x800) == 0)) {
-        TObjPlayer__sub_801B53BC(temp_r3, M2C_FIELD(arg0, s32 *, 0x94), 3);
+        play_effect__10TObjPlayerFiii(temp_r3, M2C_FIELD(arg0, s32 *, 0x94), 3);
     }
 }
 

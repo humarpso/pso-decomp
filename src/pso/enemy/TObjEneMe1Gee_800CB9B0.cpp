@@ -26,7 +26,7 @@ s32 handle_message__13TObjEneMe1GeeFii(s32 arg0, s32 arg1) {
     var_r3 = fn_800F5EB4();
     return var_r3;
 }
-s32 TObjEneMe1Gee__sub_800CB9FC(void *arg0) {
+s32 check_death_trigger__13TObjEneMe1GeeFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
         TObjEneDD__sub_800BBA18(arg0, 0xF);
         return 1;

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMorfosArm__sub_80335480(void);
+void init_global__16TObjEneMorfosArmFv(void);
 s32 fn_803326C4();
 
 extern s32 lbl_805D6D38;
 
-void TObjEneMorfosArm__sub_80335480(void) {
+void init_global__16TObjEneMorfosArmFv(void) {
     lbl_805D6D38 = fn_803326C4();
 }
 

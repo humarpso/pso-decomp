@@ -20,7 +20,7 @@ s32 fn_8001C5F0(void) {
 
 extern void *lbl_805D4A80;
 
-void TLoadCtrl__sub_8001C5F8(s32 arg0) {
+void set_field1C__9TLoadCtrlFi(s32 arg0) {
     if ((void *) lbl_805D4A80 != NULL) {
         M2C_FIELD(lbl_805D4A80, s32 *, 0x1C) = arg0;
     }

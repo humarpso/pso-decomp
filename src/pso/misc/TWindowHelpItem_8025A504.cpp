@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowHelpItem__sub_8025A504(void *arg0);
+void tick_display_timer__15TWindowHelpItemFPv(void *arg0);
 
-void TWindowHelpItem__sub_8025A504(void *arg0) {
+void tick_display_timer__15TWindowHelpItemFPv(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x14);

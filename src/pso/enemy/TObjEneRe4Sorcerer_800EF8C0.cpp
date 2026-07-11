@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe4Sorcerer__sub_800EF8C0(void *arg0);
-void TObjEneRe4Sorcerer__sub_800EF8E4(void *arg0);
+void advance_anim_frame__18TObjEneRe4SorcererFPv(void *arg0);
+void request_death_effect__18TObjEneRe4SorcererFPv(void *arg0);
 void set_motion_by_state__18TObjEneRe4SorcererFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
-void TObjEneRe4Sorcerer__sub_800EF8C0(void *arg0) {
+void advance_anim_frame__18TObjEneRe4SorcererFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3E8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3E8) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) >= 3) {
         M2C_FIELD(arg0, s32 *, 0x3E8) = 0;
     }
 }
 
-void TObjEneRe4Sorcerer__sub_800EF8E4(void *arg0) {
+void request_death_effect__18TObjEneRe4SorcererFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) != 2) {
         TObjEneDD__sub_800BBA18(arg0, 4);
         return;

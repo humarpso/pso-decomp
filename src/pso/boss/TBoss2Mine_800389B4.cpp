@@ -8,7 +8,7 @@ int VecCopy__FP3VecPC3Vec(void*, void*);
 void TBoss2Mine__vt59(void);
 void TBoss2Mine__vt26(void);
 
-void TBoss2Mine__sub_800389B4(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
+void save_position__10TBoss2MineFPv(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
 void TBoss2Mine__vt59(void) {  }
 
 }

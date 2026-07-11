@@ -8,13 +8,13 @@ extern "C" {
 
 s32 TItemProArmor__sub_80102C3C(void *);
 M2C_UNK fn_80117DD8(s32, u32, s32, M2C_UNK);
-s32 TItemProArmor__sub_80364300(M2C_UNK);
+s32 alloc__13TItemProArmorFi(M2C_UNK);
 
 void fn_8012FD8C(void *arg0) {
     s32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
-        temp_r3 = TItemProArmor__sub_80364300(0x2C);
+        temp_r3 = alloc__13TItemProArmorFi(0x2C);
         if (temp_r3 != 0) {
             fn_80117DD8(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
         }

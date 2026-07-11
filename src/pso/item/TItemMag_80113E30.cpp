@@ -3,7 +3,7 @@
 extern "C" {
 
 void TItemMag__sub_80113D48(void* p, f32 v);
-int TItemMag__sub_80113D58(void* p);
+int is_feed_empty__8TItemMagFPv(void* p);
 int TItemMagSub__sub_80113D84(void* p, u32 m);
 s16 fn_80113D90(void* p);
 s16 fn_80113D98(void* p);

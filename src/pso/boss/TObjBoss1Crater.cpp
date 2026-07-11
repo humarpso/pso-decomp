@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjBoss1Crater__sub_8002C694(void);
+s32 is_count_below_limit__15TObjBoss1CraterFv(void);
 
 extern s32 lbl_805D4B58;
 
-s32 TObjBoss1Crater__sub_8002C694(void) {
+s32 is_count_below_limit__15TObjBoss1CraterFv(void) {
     return lbl_805D4B58 < 0x14;
 }
 

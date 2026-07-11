@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TBoss6Type2__sub_802BC5F8(void *arg0);
+u8 is_active__11TBoss6Type2FPv(void *arg0);
 
-u8 TBoss6Type2__sub_802BC5F8(void *arg0) {
+u8 is_active__11TBoss6Type2FPv(void *arg0) {
     s32 var_r4;
 
     var_r4 = 0;

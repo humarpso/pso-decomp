@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TQuestListOnline__sub_80217560(void);
+int get_selected_quest_id__16TQuestListOnlineFv(void);
 
 extern void *lbl_805D6194;
 extern void *lbl_805D61E0;
 
-int TQuestListOnline__sub_80217560(void) {
+int get_selected_quest_id__16TQuestListOnlineFv(void) {
     if (((void *) lbl_805D61E0 != NULL) && ((u32) M2C_FIELD(lbl_805D61E0, u32 *, 0x40) != 0U)) {
         return M2C_FIELD(lbl_805D6194, u8 *, 1);
     }

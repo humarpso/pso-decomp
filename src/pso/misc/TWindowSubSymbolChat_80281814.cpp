@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubSymbolChat__sub_80281814(void);
+void close_child__20TWindowSubSymbolChatFv(void);
 M2C_UNK TWindowSubSymbolChat__sub_80281840(void *);
 
 extern void *lbl_805D6490;
 
-void TWindowSubSymbolChat__sub_80281814(void) {
+void close_child__20TWindowSubSymbolChatFv(void) {
     void *temp_r3;
     temp_r3 = lbl_805D6490;
     if (temp_r3 != NULL) {

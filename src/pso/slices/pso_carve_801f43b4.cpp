@@ -10,14 +10,14 @@ s32 get_main_phase();
 s32 TCameraCtrl__sub_8006B368();
 u32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 M2C_UNK fn_802133C4();
-s32 TRaderMapCore__sub_8030A808();
+s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK memcpy(s32, M2C_UNK *, M2C_UNK);
 extern M2C_UNK lbl_805127F8[];
 
 void copy_card_window_data(void) {
     u32 temp_r3;
 
-    if ((get_main_phase() != 0xF) && (TRaderMapCore__sub_8030A808() != 1)) {
+    if ((get_main_phase() != 0xF) && (is_not_split_screen__13TRaderMapCoreFv() != 1)) {
         if (TCameraCtrl__sub_8006B368() != 0) {
             fn_802133C4();
         }

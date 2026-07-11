@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TRaderMapCore__sub_801F9144();
 M2C_UNK TRaderMapCore__sub_801F9770();
 s32 fn_80246948();
-M2C_UNK TWindowCtrl__sub_80271DFC();
+M2C_UNK set_flag_bit0__11TWindowCtrlFv();
 M2C_UNK fn_80271E18();
 M2C_UNK fn_80271E34();
 extern f32 lbl_805DD480;
@@ -25,7 +25,7 @@ void fn_802717B8(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x6C) = 1;
         TRaderMapCore__sub_801F9770();
         TRaderMapCore__sub_801F9144();
-        TWindowCtrl__sub_80271DFC();
+        set_flag_bit0__11TWindowCtrlFv();
         {
             f32 c = lbl_805DD480;
             M2C_FIELD(arg0, f32 *, 0x60) = c;

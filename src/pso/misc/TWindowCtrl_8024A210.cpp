@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrl__sub_8024A210(void);
+void set_field22__11TWindowCtrlFv(void);
 
 extern void *lbl_805D63F8;
 
-void TWindowCtrl__sub_8024A210(void) {
+void set_field22__11TWindowCtrlFv(void) {
     if ((void *) lbl_805D63F8 != NULL) {
         M2C_FIELD(lbl_805D63F8, s16 *, 0x22) = 0x2D;
     }

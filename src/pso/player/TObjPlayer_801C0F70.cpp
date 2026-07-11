@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C0FC8(void* p);
+void set_code_43_6__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C0F10(void* a0 = 0);
 void* copy__10TObjPlayerFPvPv(void* p, void* a1);
 void* init_pkt_6x2B__10TObjPlayerFPv(void* p);
@@ -18,7 +18,7 @@ s32 TFontSmallLobby__sub_801C0228();
 s32 bswap_16__FPUs(s32);
 s32 bswap__9TItemDataFv(s32);
 
-void* init_pkt_6x2B__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801C0FC8(p); *(unsigned char*)(p) = 43; *(unsigned char*)((char*)p + 0x18) = 2; *(unsigned char*)((char*)p + 0x19) = 0; *(unsigned char*)((char*)p + 0x1a) = 0; *(unsigned char*)((char*)p + 0x1b) = 0; *(unsigned char*)((char*)p + 0x1) = 7; return p; }
-void TObjPlayer__sub_801C0FC8(void* p) { *(u8*)((char*)p + 0x0) = 43; *(u8*)((char*)p + 0x1) = 6; }
+void* init_pkt_6x2B__10TObjPlayerFPv(void* p) { set_code_43_6__10TObjPlayerFPv(p); *(unsigned char*)(p) = 43; *(unsigned char*)((char*)p + 0x18) = 2; *(unsigned char*)((char*)p + 0x19) = 0; *(unsigned char*)((char*)p + 0x1a) = 0; *(unsigned char*)((char*)p + 0x1b) = 0; *(unsigned char*)((char*)p + 0x1) = 7; return p; }
+void set_code_43_6__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 43; *(u8*)((char*)p + 0x1) = 6; }
 
 }
