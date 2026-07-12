@@ -22,7 +22,7 @@ void TObjPlayer__sub_8002AE8C(void* p);
 void TObjPlayer__sub_8002AEAC(void* p);
 void TObjPlayer__sub_8002AEB8(void* p, s32 v);
 void TObjPlayer__sub_8002AF38(void* p);
-int fn_801A529C(void*, int);
+int TWindowKeyBoardHard__sub_801A529C(void*, int);
 
 void TObjEnePanarms__sub_8002AE74(void* p, s16 v) { *(s16*)((char*)p + 0xb8) = v; }
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80076F48(s32, s32);
+M2C_UNK TLobby__sub_80076F48(s32, s32);
 M2C_UNK TLobby__sub_8036B1AC(s32);
 
 void TLobby__sub_8036B2A0(void *arg0, u16 arg1, s32 arg2) {
@@ -14,7 +14,7 @@ void TLobby__sub_8036B2A0(void *arg0, u16 arg1, s32 arg2) {
 
     temp_r6 = M2C_FIELD(arg0, u32 *, 0x1C);
     if (temp_r6 != 0U) {
-        fn_80076F48(arg2, temp_r6 + (arg1 * 0x3C));
+        TLobby__sub_80076F48(arg2, temp_r6 + (arg1 * 0x3C));
         return;
     }
     TLobby__sub_8036B1AC(arg2);

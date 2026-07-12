@@ -22,12 +22,12 @@ void TObjPlayer__sub_8002AE8C(void* p);
 void TObjPlayer__sub_8002AEAC(void* p);
 void TObjPlayer__sub_8002AEB8(void* p, s32 v);
 void TObjPlayer__sub_8002AF38(void* p);
-int fn_801A529C(void*, int);
+int TWindowKeyBoardHard__sub_801A529C(void*, int);
 
 f32 fn_8002ADE4(void) {
     return (f32) TWindowSubComCard__sub_803A24E4();
 }
 int fn_8002AE08(void) { return 0; }
-int fn_8002AE38(void* p) { return fn_801A529C(p, 2); }
+int fn_8002AE38(void* p) { return TWindowKeyBoardHard__sub_801A529C(p, 2); }
 
 }

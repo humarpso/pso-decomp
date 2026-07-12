@@ -8,12 +8,12 @@ extern "C" {
 
 void close__12TAdDialingGCFv(void);
 M2C_UNK TLobby__sub_802A0F3C();
-M2C_UNK fn_802A5120();
+M2C_UNK TLobby__sub_802A5120();
 
 extern s32 TAdDialingGC__data_805D6C78;
 
 void close__12TAdDialingGCFv(void) {
-    fn_802A5120();
+    TLobby__sub_802A5120();
     TLobby__sub_802A0F3C();
     TAdDialingGC__data_805D6C78 = 0;
 }

@@ -10,7 +10,7 @@ M2C_UNK fn_803F4D84(void *, int);
 M2C_UNK fn_803F4EBC(void *, int);
 M2C_UNK fn_803F4FF4(void *);
 M2C_UNK fn_803F50B8(void *);
-s32 fn_803F5678(void *);
+s32 TLobby__sub_803F5678(void *);
 M2C_UNK fn_803F5748(void *);
 M2C_UNK fn_803F5824(void *);
 M2C_UNK fn_803F5900(void *);
@@ -31,7 +31,7 @@ s32 init_struct(u8 *arg0) {
         return 0;
     }
     memset((int)arg0, 0, 0x26C);
-    if (fn_803F5678(&sp8) != 0) {
+    if (TLobby__sub_803F5678(&sp8) != 0) {
         return 0;
     }
     M2C_FIELD(arg0, s32 *, 4) = (s32) sp8;

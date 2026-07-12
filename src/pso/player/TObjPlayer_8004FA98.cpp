@@ -17,14 +17,14 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjPlayer__sub_803E4BC4();
 M2C_UNK TObjPlayer__sub_803E4BD0();
-M2C_UNK fn_80052374();
-M2C_UNK fn_80052390(f32);
+M2C_UNK TObjPlayer__sub_80052374();
+M2C_UNK TObjPlayer__sub_80052390(f32);
 
 extern const f32 lbl_805D8A08;
 
 void TObjPlayer__sub_8004FA98(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE4) >= 0xB4) {
-        fn_80052390(lbl_805D8A08);
+        TObjPlayer__sub_80052390(lbl_805D8A08);
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803E4BC4();
         TOHangerMachine01__sub_803D9C00(arg0 + 0xD4);
@@ -35,7 +35,7 @@ void TObjPlayer__sub_8004FA98(u8 *arg0) {
         clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x108));
         TObjPlayer__sub_803E4BD0();
         TObjPlayer__sub_803D9B78();
-        fn_80052374();
+        TObjPlayer__sub_80052374();
     }
 }
 

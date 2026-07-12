@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801A6D10();
+s32 TRaderMapCore__sub_801A6D10();
 
 u8 fn_801A6D20(void *arg0) {
-    return (u8) ((M2C_FIELD(arg0, s32 *, 4) & fn_801A6D10()) != 0);
+    return (u8) ((M2C_FIELD(arg0, s32 *, 4) & TRaderMapCore__sub_801A6D10()) != 0);
 }
 
 }

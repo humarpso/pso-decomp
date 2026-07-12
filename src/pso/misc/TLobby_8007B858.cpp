@@ -30,7 +30,7 @@ M2C_UNK fn_80198D98();
 M2C_UNK fn_8020D918();
 M2C_UNK fn_8032BDC4(u32, s32);
 M2C_UNK fn_8033ED24(u32, s32);
-M2C_UNK fn_8034DD14(u32, s32);
+M2C_UNK TNpcPlayer__sub_8034DD14(u32, s32);
 M2C_UNK fn_80351F3C();
 s32 get_main_phase();
 M2C_UNK init__13TQuestColCtrlFv();
@@ -89,7 +89,7 @@ void create_tasks__6TLobbyFv(void) {
     TTecLuker__sub_80233F8C();
     tmp = __nw__7TObjectFUl(0x20);
     if (tmp != 0U) {
-        fn_8034DD14(tmp, tl_06);
+        TNpcPlayer__sub_8034DD14(tmp, tl_06);
     }
     tmp = __nw__7TObjectFUl(0x28);
     if (tmp != 0U) {

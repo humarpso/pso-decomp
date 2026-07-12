@@ -13,7 +13,7 @@ void TObjPlayer__sub_802C45F0(void* p, u8 v);
 void TObjPlayer__sub_802C45F8(void* p, u8 v);
 void fn_802C46AC(void* p);
 int fn_802C46BC(void* p);
-int fn_802C46E0(void* p);
+int TObjPlayer__sub_802C46E0(void* p);
 int fn_802C4748(void* p);
 int TWindowActionPalette__sub_801C1CA8(void*);
 int TObjPlayer__sub_801D7D4C(void*);

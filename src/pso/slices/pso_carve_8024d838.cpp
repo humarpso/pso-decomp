@@ -34,12 +34,5 @@ s32 fn_8024D92C(void *arg0) {
     }
     return fn_8024E3D4(p);
 }
-s32 fn_8024D960(void *arg0) {
-    void *p = M2C_FIELD(arg0, void **, 0x28);
-    if (p == 0) {
-        return 0;
-    }
-    return fn_8024E3E0(p);
-}
 
 }

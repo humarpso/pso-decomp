@@ -34,7 +34,7 @@ struct VObj : Base {
     virtual void m20(s32, f32);
 };
 
-void fn_800BBE90(void *arg0, void *arg1, f32 *arg2) {
+void TObjPlayer__sub_800BBE90(void *arg0, void *arg1, f32 *arg2) {
     ((VObj*)arg1)->m20(M2C_FIELD(arg0, s32 *, 0xAC), lbl_805D9EB0);
     if (obj_isState2_324(arg1) == 0) {
         ((VObj*)arg0)->m18(arg1, *arg2);

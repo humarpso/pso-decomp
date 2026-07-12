@@ -10,7 +10,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowDD__sub_8024664C(void *);
 M2C_UNK fn_802AD7F0(void *);
-M2C_UNK fn_802AE380(void *);
+M2C_UNK TWindowMainMenu__sub_802AE380(void *);
 M2C_UNK fn_802AE59C(void *);
 
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
@@ -32,7 +32,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     } while (var_r31 < 8);
     fn_802AE59C(arg0);
     TWindowDD__sub_8024664C(arg0);
-    fn_802AE380(arg0);
+    TWindowMainMenu__sub_802AE380(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
     temp_r3_2 = M2C_FIELD(arg0, u8 *, 0x60);
     if (temp_r3_2 & 8) {

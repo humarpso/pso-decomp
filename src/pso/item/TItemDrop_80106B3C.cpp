@@ -16,7 +16,7 @@ M2C_UNK TItemDrop__sub_80106D0C(s32, void *);
 s32 TItemDrop__sub_80107460(s32, s32, s32);
 u8 TItemDrop__sub_80107790(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 can_drop__9TItemDropFv();
-M2C_UNK fn_80105984(M2C_UNK *);
+M2C_UNK TItemData__sub_80105984(M2C_UNK *);
 int set_stack_count__24TShopEquipmentListWindowFPvc(void*, void*);
 M2C_UNK init__9TItemDataFv(void *);
 
@@ -58,7 +58,7 @@ void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
     M2C_UNK sp8;
 
     if ((u8) M2C_FIELD(arg1, u8 *, 0) == 2) {
-        fn_80105984(&sp8);
+        TItemData__sub_80105984(&sp8);
         M2C_FIELD(arg1, s8 *, 1) = 0;
         TItemData__sub_8010D510(arg1, &sp8);
     }

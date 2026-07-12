@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_phase_reached__14TBoss6PlotFalzFv(void);
-s32 fn_802ACCB8(void*);
+s32 TObjFish__sub_802ACCB8(void*);
 
 extern u32 TBoss6PlotFalz__data_805D66EC;
 
@@ -16,7 +16,7 @@ s32 is_phase_reached__14TBoss6PlotFalzFv(void) {
     if (!p) {
         return 0;
     }
-    return fn_802ACCB8((void*)TBoss6PlotFalz__data_805D66EC) >= 7 ? 1 : 0;
+    return TObjFish__sub_802ACCB8((void*)TBoss6PlotFalz__data_805D66EC) >= 7 ? 1 : 0;
 }
 
 }

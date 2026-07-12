@@ -10,11 +10,11 @@ int TWindowCtrl__sub_8024DE60(void* a0 = 0);
 int fn_8024DF5C(void* a0 = 0);
 int fn_8024DFF4(void* a0 = 0);
 int fn_8024E0F0(void* a0 = 0);
-void fn_8024E094(void* p);
+void TWindowCtrl__sub_8024E094(void* p);
 void run_task__17TWindowCtrlPlayerFv(void* p);
 void render__17TWindowCtrlPlayerFv(void);
 
 void render__17TWindowCtrlPlayerFv(void) {  }
-void run_task__17TWindowCtrlPlayerFv(void* p) { fn_8024E0F0(p); fn_8024E094(p); }
+void run_task__17TWindowCtrlPlayerFv(void* p) { fn_8024E0F0(p); TWindowCtrl__sub_8024E094(p); }
 
 }

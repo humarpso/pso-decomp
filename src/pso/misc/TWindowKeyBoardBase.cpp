@@ -13,7 +13,7 @@ M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 int update_fade__17TWindowSubComCardFPv(void*);
 int TWindowDD__sub_8024664C(void*);
 s32 TWindowChat__sub_8025CB10(void *);
-M2C_UNK fn_8025E6DC(void *, s32);
+M2C_UNK TWindowSubStatusDisp__sub_8025E6DC(void *, s32);
 s32 fn_8025EB68();
 
 void render__19TWindowKeyBoardBaseFv(void *arg0) {
@@ -24,7 +24,7 @@ void render__19TWindowKeyBoardBaseFv(void *arg0) {
         if (M2C_FIELD(arg0, u16 *, 0x62) & 2) {
             TWindowSubComCard__sub_80245F98(arg0, temp_r31);
         }
-        fn_8025E6DC(arg0, temp_r31);
+        TWindowSubStatusDisp__sub_8025E6DC(arg0, temp_r31);
     }
 }
 

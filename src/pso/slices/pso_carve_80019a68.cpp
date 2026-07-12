@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8036B088();
+M2C_UNK TBoss8Dragon__sub_8036B088();
 M2C_UNK fn_8036B18C();
 
 void func_80019A68__Fv(void) {
     fn_8036B18C();
-    fn_8036B088();
+    TBoss8Dragon__sub_8036B088();
 }
 
 }

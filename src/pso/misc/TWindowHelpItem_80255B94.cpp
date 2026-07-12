@@ -15,7 +15,7 @@ void __dl__7TObjectFPv(void *);
 s32 fn_80244994(void *);
 M2C_UNK TWindowDD__sub_8024664C(void *);
 void TWindowDD__sub_80246674(void *, int);
-M2C_UNK fn_80257C28(void *, void *);
+M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
 M2C_UNK fn_80263A20(void *, s16);
 M2C_UNK fn_8026C9C8(s32);
 s32 TWindowShortListCtrl__sub_8026C9DC(s32);
@@ -37,7 +37,7 @@ void TWindowHelpItem__sub_80255B94(u8 *arg0) {
     }
     TWindowDD__sub_8024664C(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
-    fn_80257C28(arg0, arg0 + 0x24);
+    TWindowSubStatusDisp__sub_80257C28(arg0, arg0 + 0x24);
     if (!(M2C_FIELD(arg0, u8 *, 0x60) & 8)) {
         fn_80263A20(arg0, M2C_FIELD(arg0, s16 *, 0x20));
     }

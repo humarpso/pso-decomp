@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801E3CFC(s32, s32, f32);
+M2C_UNK TBoss8Dragon__sub_801E3CFC(s32, s32, f32);
 M2C_UNK TObjEneRe7Berura__sub_803E4CE0(M2C_UNK *);
 extern M2C_UNK TObjPlayer__sub_8035A630[];
 extern s32 lbl_805D6F30;
@@ -22,7 +22,7 @@ void fn_8035A778(void *arg0, s32 arg1, f32 farg0) {
     lbl_805D6F38 = M2C_FIELD(arg0, s32 *, 0x28);
     lbl_805D6F3C = M2C_FIELD(arg0, s32 *, 0x38);
     TObjEneRe7Berura__sub_803E4CE0(TObjPlayer__sub_8035A630);
-    fn_801E3CFC(M2C_FIELD(arg0, s32 *, 0x1C), arg1, farg0);
+    TBoss8Dragon__sub_801E3CFC(M2C_FIELD(arg0, s32 *, 0x1C), arg1, farg0);
     TObjEneRe7Berura__sub_803E4CE0(NULL);
 }
 

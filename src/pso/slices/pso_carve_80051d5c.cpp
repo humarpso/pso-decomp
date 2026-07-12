@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80051B98(u32);
-M2C_UNK fn_80052374();
-M2C_UNK fn_80052390(f32);
+M2C_UNK TObjPlayer__sub_80052374();
+M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK TCharaMaking__sub_8028DD18(u32, s32, M2C_UNK, f32);
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 M2C_UNK enable_making__12TCharaMakingFv();
@@ -26,7 +26,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
     if (lbl_805D8A30 != farg0) {
         fn_80051B98(arg3);
         if (farg0 < lbl_805D8A34) {
-            fn_80052390(farg0);
+            TObjPlayer__sub_80052390(farg0);
         }
         TObjFish__sub_803DA798(arg0);
         TObjFish__sub_803E46BC(arg3);
@@ -47,7 +47,7 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
             clear_flag_bit0__12TCharaMakingFv();
         }
         if (farg0 < lbl_805D8A34) {
-            fn_80052374();
+            TObjPlayer__sub_80052374();
         }
         if (arg5 != 0U) {
             enable_making__12TCharaMakingFv();

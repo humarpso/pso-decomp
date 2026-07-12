@@ -10,7 +10,7 @@ s32 TObjCityMainWarp__sub_80266354(s32, s32, s32, s16);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TObjPlayer__sub_801D8044(u32, s32, u8);
 int TWindowSubTechnique__sub_80286BD4(void* p);
-int fn_80286B0C(void*, void* a1 = 0);
+int TWindowSubTechnique__sub_80286B0C(void*, void* a1 = 0);
 
 s32 TWindowSubTechnique__sub_80286C78(s32 arg0, s32 arg1) {
     u32 temp = TPlayerBattleCtrl4P__sub_801BA74C(arg1);

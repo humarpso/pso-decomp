@@ -25,7 +25,7 @@ void run_task__13TForceOperateFv(s32 arg0);
 s32 is_target_valid__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801B58DC(void *);
 void *TPhotonMylla__sub_80154CB4();
-void *fn_8013DFD4(s32);
+void *TMainCursor__sub_8013DFD4(s32);
 M2C_UNK TMainCursor__sub_8013E308(s32);
 s32 TObjPlayer__sub_801C6DAC(s32);
 M2C_UNK queue_destruction__7TObjectFv(s32);
@@ -37,7 +37,7 @@ void run_task__13TForceOperateFv(s32 arg0) {
     void *temp_r3;
 
     if (TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) {
-        temp_r31 = fn_8013DFD4(arg0 + 0x1C);
+        temp_r31 = TMainCursor__sub_8013DFD4(arg0 + 0x1C);
         if ((is_target_valid__10TObjPlayerFPv() != 0) && (TObjPlayer__sub_801B58DC(temp_r31) != 0)) {
             TMainCursor__sub_8013E308(M2C_FIELD(temp_r31, s32 *, 0x424) + 0x4F8);
             temp_r3 = TPhotonMylla__sub_80154CB4();

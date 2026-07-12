@@ -7,14 +7,14 @@ extern "C" {
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void TWindowDD__sub_80246674(void *, int);
-void fn_80288070(void *, int);
+void TWindowSubStatusDisp__sub_80288070(void *, int);
 
 extern M2C_UNK __vt__21TWindowSubCustomEquip[];
 
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TWindowSubCustomEquip;
-        fn_80288070(M2C_FIELD(arg0, void **, 0x6C), 1);
+        TWindowSubStatusDisp__sub_80288070(M2C_FIELD(arg0, void **, 0x6C), 1);
         TWindowDD__sub_80246674(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -10,7 +10,7 @@ s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2,
 M2C_UNK TObjEneRe7Berura__sub_803E4CE0(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803E4BC4();
 M2C_UNK TObjPlayer__sub_803E4BD0();
-M2C_UNK fn_801E3CFC(u32, s32, f32);
+M2C_UNK TBoss8Dragon__sub_801E3CFC(u32, s32, f32);
 
 extern M2C_UNK TObjPlayer__sub_80142EEC[];
 extern s32 lbl_805D567C;
@@ -22,7 +22,7 @@ s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2,
     TObjPlayer__sub_803E4BC4();
     lbl_805D567C = arg2;
     TObjEneRe7Berura__sub_803E4CE0(TObjPlayer__sub_80142EEC);
-    fn_801E3CFC(M2C_FIELD(arg0, u32 *, 0x34), arg1, farg0);
+    TBoss8Dragon__sub_801E3CFC(M2C_FIELD(arg0, u32 *, 0x34), arg1, farg0);
     TObjEneRe7Berura__sub_803E4CE0(NULL);
     TObjPlayer__sub_803E4BD0();
     return 1;

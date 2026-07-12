@@ -21,11 +21,11 @@ s32 TObjLight__sub_80133D78();
 int TParticleCtrl__sub_800867AC(void);
 s32 TParticleCtrl__sub_800867E4(s32);
 u32 __nw__7TObjectFUl(s32);
-int fn_800F7B84(void);
+int TLobby__sub_800F7B84(void);
 s32 fn_8034A8FC();
 
 void TLobby__sub_801403B4(void) {  }
-void TLobby__sub_801403B8(void) { TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); fn_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+void TLobby__sub_801403B8(void) { TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); TLobby__sub_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
     TOKeyMachine01__sub_802034A8();
     TLobby__sub_80227FB4();
@@ -39,7 +39,7 @@ s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
     }
     return 1;
 }
-void reset_subsystems__6TLobbyFv(void) { TParticleCtrl__sub_800867AC(); TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); fn_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+void reset_subsystems__6TLobbyFv(void) { TParticleCtrl__sub_800867AC(); TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); TLobby__sub_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 s32 TLobby__sub_8014047C(void) {
     TOKeyMachine01__sub_802034A8();
     TLobby__sub_80227FB4();

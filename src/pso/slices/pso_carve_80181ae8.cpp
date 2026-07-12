@@ -13,7 +13,7 @@ struct VObj_80181AE8 : Base_80181AE8 {
 
 extern "C" {
 
-M2C_UNK fn_801819E4(M2C_UNK);
+M2C_UNK TLobby__sub_801819E4(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -30,7 +30,7 @@ void fn_80181AE8(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        fn_801819E4(0xE);
+        TLobby__sub_801819E4(0xE);
         TObjBoss2Tunnel__sub_803DB470();
         TObjPlayer__sub_803D9B78();
     }

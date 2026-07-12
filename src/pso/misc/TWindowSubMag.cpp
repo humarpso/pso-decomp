@@ -9,7 +9,7 @@ extern "C" {
 void update_displayed_item__13TWindowSubMagFPv(void *arg0);
 s32 count_slots__13TWindowSubMagFPv(void *arg0);
 void set_mag_mode__13TWindowSubMagFPvi(void *arg0, s32 arg1);
-M2C_UNK fn_80105984(M2C_UNK *);
+M2C_UNK TItemData__sub_80105984(M2C_UNK *);
 M2C_UNK TItemData__sub_8010D614(s32, M2C_UNK *);
 s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
@@ -29,7 +29,7 @@ s32 count_slots__13TWindowSubMagFPv(void *arg0) {
     M2C_UNK sp8;
     s32 var_r31;
 
-    fn_80105984(&sp8);
+    TItemData__sub_80105984(&sp8);
     TItemData__sub_8010D614(M2C_FIELD(arg0, s32 *, 0x2C), &sp8);
     var_r31 = 0;
 loop_1:

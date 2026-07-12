@@ -9,11 +9,11 @@ extern "C" {
 void* TMainCursor__sub_8013B260(void* a0);
 void TMainCursor__sub_8013B2A4(u16 *arg0);
 M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(u16);
-int fn_8013E0D8(void);
+int TLockOnCursor__sub_8013E0D8(void);
 
     extern unsigned char lbl_804A7290[];
     extern int lbl_805D2CBC;
-void* TMainCursor__sub_8013B260(void* a0) { fn_8013E0D8(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A7290; *(int*)((char*)a0 + 0x0) = lbl_805D2CBC; return a0; }
+void* TMainCursor__sub_8013B260(void* a0) { TLockOnCursor__sub_8013E0D8(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A7290; *(int*)((char*)a0 + 0x0) = lbl_805D2CBC; return a0; }
 
 void TMainCursor__sub_8013B2A4(u16 *arg0) {
     TPlayerBattleCtrl4P__sub_801BA74C(*arg0);

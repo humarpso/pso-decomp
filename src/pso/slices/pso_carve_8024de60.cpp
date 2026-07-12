@@ -10,14 +10,12 @@ int TWindowCtrl__sub_8024DE60(void* a0 = 0);
 int fn_8024DF5C(void* a0 = 0);
 int fn_8024DFF4(void* a0 = 0);
 int fn_8024E0F0(void* a0 = 0);
-void fn_8024E094(void* p);
+void TWindowCtrl__sub_8024E094(void* p);
 void run_task__17TWindowCtrlPlayerFv(void* p);
 void render__17TWindowCtrlPlayerFv(void);
 
 int TWindowCtrl__sub_8024DE60(void*) { return 0; }
 int fn_8024DF5C(void*) { return 0; }
 int fn_8024DFF4(void*) { return 0; }
-void fn_8024E094(void* p) { fn_8024DFF4(p); fn_8024DF5C(p); TWindowCtrl__sub_8024DE60(p); TWindowCtrl__sub_8024DCE8(p); TWindowCtrl__sub_8024DC58(p); TWindowCtrl__sub_8024DAC4(p); fn_8024DAAC(p); }
-int fn_8024E0F0(void*) { return 0; }
 
 }

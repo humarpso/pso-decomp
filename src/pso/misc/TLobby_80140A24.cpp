@@ -13,13 +13,13 @@ M2C_UNK update_current_floor__6TLobbyFv();
 M2C_UNK TLobby__sub_8022743C();
 M2C_UNK TLobby__sub_80227F7C();
 M2C_UNK TQuestVmDownLoadServer__sub_801F8E4C();
-M2C_UNK fn_800F7B84();
+M2C_UNK TLobby__sub_800F7B84();
 
 extern M2C_UNK lbl_804A73D0[];
 
 void TLobby__sub_80140A24(void) {
     TQuestVmDownLoadServer__sub_801F8E4C();
-    fn_800F7B84();
+    TLobby__sub_800F7B84();
     update_current_floor__6TLobbyFv();
     TLobby__sub_800FD6A0(lbl_804A73D0, 0x30);
     TLobby__sub_8022743C();

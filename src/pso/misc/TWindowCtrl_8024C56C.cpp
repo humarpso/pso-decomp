@@ -8,13 +8,13 @@ extern "C" {
 
 void close__11TWindowCtrlFv(void);
 M2C_UNK fn_8024E3D0();
-M2C_UNK fn_8026ACDC();
+M2C_UNK TLobby__sub_8026ACDC();
 
 extern s32 TWindowCtrl__data_805D63F8;
 
 void close__11TWindowCtrlFv(void) {
     fn_8024E3D0();
-    fn_8026ACDC();
+    TLobby__sub_8026ACDC();
     TWindowCtrl__data_805D63F8 = 0;
 }
 

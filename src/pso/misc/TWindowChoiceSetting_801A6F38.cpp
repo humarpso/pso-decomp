@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void apply_choice__20TWindowChoiceSettingFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 fn_801A6D10();
+s32 TRaderMapCore__sub_801A6D10();
 M2C_UNK fn_801A6FF8(s32, s32, s32, s32);
 
 void apply_choice__20TWindowChoiceSettingFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    u32 t = fn_801A6D10();
+    u32 t = TRaderMapCore__sub_801A6D10();
     fn_801A6FF8(arg0, t, arg2, arg3);
 }
 

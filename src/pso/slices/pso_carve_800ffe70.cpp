@@ -10,6 +10,6 @@ int fn_800FFE14(void);
 int TItemObject__sub_800FFE4C(void* p);
 int TObjPlayer__sub_80102BEC(void*, int);
 
-int fn_800FFE70(void) { return 0; }
+int TItem__sub_800FFE70(void) { return 0; }
 
 }

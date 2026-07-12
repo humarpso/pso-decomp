@@ -9,8 +9,8 @@ extern "C" {
 void render__14TObjDFUsoTowerFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK fn_80052374();
-M2C_UNK fn_80052390();
+M2C_UNK TObjPlayer__sub_80052374();
+M2C_UNK TObjPlayer__sub_80052390();
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjFish__sub_803DA798(s32);
@@ -25,7 +25,7 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x94);
     if (lbl_805D8A30 != temp_f1) {
         if (temp_f1 < lbl_805D8A34) {
-            fn_80052390();
+            TObjPlayer__sub_80052390();
             fn_803DC86C(1, 4, 5, 0);
         }
         TObjPlayer__sub_803D9B2C();
@@ -34,7 +34,7 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
         TObjPlayer__sub_803D9B78();
         if (M2C_FIELD(arg0, f32 *, 0x94) < lbl_805D8A34) {
-            fn_80052374();
+            TObjPlayer__sub_80052374();
         }
     }
 }

@@ -8,14 +8,14 @@ extern "C" {
 
 void TParticleCtrl__sub_80083550(void);
 M2C_UNK fn_803DC83C(M2C_UNK);
-M2C_UNK fn_803DC850(M2C_UNK);
+M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
 s32 is_split_screen();
 
 extern s32 some_id_805c6f74;
 
 void TParticleCtrl__sub_80083550(void) {
     if (is_split_screen() == 0) {
-        fn_803DC850(0);
+        TObjPlayer__sub_803DC850(0);
         fn_803DC83C(0);
         some_id_805c6f74 &= 0xFFF7FFFF;
     }

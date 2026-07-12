@@ -13,7 +13,7 @@ int fn_8000FED0(void* p);
 int fn_8000FEF4(void* p);
 int fn_8000FF18(void* p);
 void fn_8000FF4C(void* p, s16 v);
-u16 fn_8000FF54(void* p);
+u16 TObjPlayer__sub_8000FF54(void* p);
 int obj_testFlags30(void*, int);
 
 void activate_switch_attacks__10TObjPlayerFii(s32 arg0, s32 arg1) {

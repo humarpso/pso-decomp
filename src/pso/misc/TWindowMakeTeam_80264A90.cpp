@@ -11,7 +11,7 @@ s8 TLobby__sub_8013AD64();
 void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 int fn_80264A6C(void* p);
-int fn_801A529C(void*, int);
+int TWindowKeyBoardHard__sub_801A529C(void*, int);
 
 void TWindowMakeTeam__sub_80264A90(s8 arg0) {
     TWindowSubStatusDisp__sub_80077760(arg0 + 0x113);

@@ -13,7 +13,7 @@ s32 free__11TOBoss4RockFUi(u32);
 int queue_destruction__12TObjGrassWebFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
-int fn_800BC53C(void) { return 0; }
+int TObjPlayer__sub_800BC53C(void) { return 0; }
 int fn_800BC5A0(void) { return 0; }
 int fn_800BC5EC(void) { return 0; }
 void *fn_800BC620(void *arg0, s32 arg1, s32 arg2) {

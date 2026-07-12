@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowDD__sub_80246F8C(void);
-M2C_UNK fn_8025A9C0(f32);
+M2C_UNK TWindowSubStatusDisp__sub_8025A9C0(f32);
 
 extern const f32 lbl_805DCB70;
 
 void TWindowDD__sub_80246F8C(void) {
-    fn_8025A9C0(lbl_805DCB70);
+    TWindowSubStatusDisp__sub_8025A9C0(lbl_805DCB70);
 }
 
 }

@@ -4,7 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-extern "C" M2C_UNK fn_802ECAA4(void *);
+extern "C" M2C_UNK TObjPlayer__sub_802ECAA4(void *);
 extern "C" s32 fn_802ECB10();
 
 struct Base_802ED928 { char pad[0x18]; };
@@ -36,7 +36,7 @@ struct VObj_802ED928 : Base_802ED928 {
 
 extern "C" void fn_802ED928(void *arg0) {
     if (fn_802ECB10() != 0) {
-        fn_802ECAA4(arg0);
+        TObjPlayer__sub_802ECAA4(arg0);
         return;
     }
     ((VObj_802ED928*)arg0)->m85(M2C_FIELD(arg0, s16 *, 0x326), 9);

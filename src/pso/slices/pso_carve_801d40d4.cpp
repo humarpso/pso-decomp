@@ -20,6 +20,6 @@ s32 check_player_action_allowed(void) {
 int fn_801D41B4(void) { return 0; }
 int fn_801D4270(void) { return 0; }
 int reset(void* p) { return memset(p, 0, 28); }
-int fn_801D4308(void) { return 0; }
+int TObjPlayer__sub_801D4308(void) { return 0; }
 
 }

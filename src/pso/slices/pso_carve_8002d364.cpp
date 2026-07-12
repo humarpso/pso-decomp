@@ -6,7 +6,7 @@ extern "C" {
 
 extern const f32 lbl_805D81A0;
 void *__nw__7TObjectFUl(int);
-void *fn_8002CD8C(void *, void *, int);
+void *TBoss8Dragon__sub_8002CD8C(void *, void *, int);
 
 void fn_8002D364(void *arg0) {
     void *o;
@@ -15,7 +15,7 @@ void fn_8002D364(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x30) = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        fn_8002CD8C(o, M2C_FIELD(arg0, void **, 0x10), 30);
+        TBoss8Dragon__sub_8002CD8C(o, M2C_FIELD(arg0, void **, 0x10), 30);
     }
     M2C_FIELD(arg0, u32 *, 0x3C) = 0;
 }

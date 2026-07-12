@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800F9C00(void *);
+s32 TItemDrop__sub_800F9C00(void *);
 u8 *fn_800F9C68(u8 *, M2C_UNK *);
 s32 fn_800F9D38(s32);
 s32 TScene__sub_800F9D80();
@@ -30,7 +30,7 @@ s32 create_named_object(s32 arg0) {
         M2C_FIELD(var_r30, void **, 0) = (void *) (var_r30 + 0x28);
         M2C_FIELD(var_r30, s32 *, 0x1C) = fn_800F9D38(arg0);
         M2C_FIELD(var_r30, s32 *, 0x20) = temp_r3;
-        return fn_800F9C00(var_r30);
+        return TItemDrop__sub_800F9C00(var_r30);
     }
     return 0;
 }
