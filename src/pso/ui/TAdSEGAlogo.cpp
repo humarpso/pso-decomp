@@ -15,7 +15,7 @@ extern void *lbl_805D2620;
 extern u32 TAdSEGAlogo__data_805D4A3C;
 extern u32 lbl_805D4A40;
 extern void *tl_00;
-extern M2C_UNK TAdSEGAlogo__sub_8001BF74[];
+extern M2C_UNK request_destroy__11TAdSEGAlogoFv[];
 
 void *__ct__11TAdSEGAlogoFv(void *arg0) {
     void *o;
@@ -28,7 +28,7 @@ void *__ct__11TAdSEGAlogoFv(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_8033A904(0);
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init_fade__6TLobbyFPvPvPv(o, tl_00, TAdSEGAlogo__sub_8001BF74);
+        init_fade__6TLobbyFPvPvPv(o, tl_00, request_destroy__11TAdSEGAlogoFv);
     }
     return arg0;
 }

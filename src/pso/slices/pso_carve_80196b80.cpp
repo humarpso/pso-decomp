@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80196BFC(f32);
+s32 TObjQuestColBase__sub_80196BFC(f32);
 
 s32 fn_80196B80(void *arg0, f32 farg0) {
-    if (fn_80196BFC(farg0 * farg0) != 0) {
+    if (TObjQuestColBase__sub_80196BFC(farg0 * farg0) != 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) != 0) {
             M2C_FIELD(arg0, s32 *, 0xB4) = 0;
             return 1;

@@ -13,13 +13,13 @@ s32 TLobby__sub_80070AB0();
 s32 TLobby__sub_80070DA8();
 s32 TLobby__sub_80072B30();
 M2C_UNK fn_800733C4(void*);
-M2C_UNK fn_80073D64(void*);
+M2C_UNK TObjDeadListWin__sub_80073D64(void*);
 
 extern u32 lbl_805D4E28;
 
 void TLobby__sub_80070CDC(void) {
     if ((TLobby__sub_80070AB0() != 0) && (TLobby__sub_80072B30() != 0) && ((u32) lbl_805D4E28 != 0U)) {
-        fn_80073D64((void*)lbl_805D4E28);
+        TObjDeadListWin__sub_80073D64((void*)lbl_805D4E28);
     }
 }
 

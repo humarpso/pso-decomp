@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemReverseTechPart2__sub_80119D6C(void);
+void destroy_and_flag__21TItemReverseTechPart2Fv(void);
 M2C_UNK queue_destruction__7TObjectFv();
 
 extern void *lbl_805D54DC;
 
-void TItemReverseTechPart2__sub_80119D6C(void) {
+void destroy_and_flag__21TItemReverseTechPart2Fv(void) {
     queue_destruction__7TObjectFv();
     if ((void *) lbl_805D54DC != NULL) {
         M2C_FIELD(lbl_805D54DC, s32 *, 0x1C) = 1;

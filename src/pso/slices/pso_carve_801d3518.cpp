@@ -4,7 +4,7 @@ extern "C" {
 
 s32 TObjPlayer__sub_801C2060(s32, s32);
 s32 create_node__9TItemListFPvPvPvPv(s32, s32, s32, s32);
-s32 TItemList__sub_801D5814(s32, s32);
+s32 copy_item_data__9TItemListFPv(s32, s32);
 s32 TItemList__sub_801D5844(s32);
 s32 TItemList__sub_801D5854(s32, s32);
 s32 free_if_positive__6TLobbyFis(s32 arg0, s16 arg1);
@@ -30,7 +30,7 @@ void fn_801D3554(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     if (TItemList__sub_801D5844(temp_r31) != 0) {
         TItemList__sub_801D5838((void*)(temp_r31));
         TObjPlayer__sub_801C2060(temp_r30, arg4);
-        TItemList__sub_801D5814(temp_r30, arg3);
+        copy_item_data__9TItemListFPv(temp_r30, arg3);
         create_node__9TItemListFPvPvPvPv(arg0, arg2, arg1, 0);
         TItemList__sub_801D5804((void*)(arg0));
     }

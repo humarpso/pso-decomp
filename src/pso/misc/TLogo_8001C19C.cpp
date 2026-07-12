@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TLogo__sub_8001C19C(void);
+void request_exit__5TLogoFv(void);
 int queue_destruction__7TObjectFv(void);
 
     extern int lbl_805D4A50;
-void TLogo__sub_8001C19C(void) { queue_destruction__7TObjectFv(); lbl_805D4A50 = 1; }
+void request_exit__5TLogoFv(void) { queue_destruction__7TObjectFv(); lbl_805D4A50 = 1; }
 
 }

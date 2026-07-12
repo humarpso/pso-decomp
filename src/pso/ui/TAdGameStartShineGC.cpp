@@ -9,14 +9,14 @@ extern "C" {
 void render__19TAdGameStartShineGCFv(void *arg0);
 
 s32 TMainTask__sub_8001A430();
-M2C_UNK fn_8034A938(void *);
+M2C_UNK TWindowSubStatusDisp__sub_8034A938(void *);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 
 void render__19TAdGameStartShineGCFv(void *arg0) {
     if ((TMainTask__sub_8001A430() != 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x7C) != 0)) {
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 0xA);
-        fn_8034A938(arg0);
+        TWindowSubStatusDisp__sub_8034A938(arg0);
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
     }

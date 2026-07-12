@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TAdSoniclogo__sub_8001C1C4(void);
+void request_destroy__12TAdSoniclogoFv(void);
 int queue_destruction__7TObjectFv(void);
 
     extern int TAdSoniclogo__data_805D4A4C;
-void TAdSoniclogo__sub_8001C1C4(void) { queue_destruction__7TObjectFv(); TAdSoniclogo__data_805D4A4C = 1; }
+void request_destroy__12TAdSoniclogoFv(void) { queue_destruction__7TObjectFv(); TAdSoniclogo__data_805D4A4C = 1; }
 
 }

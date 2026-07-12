@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdPlayerLoadGC__sub_802D645C(s32 arg0);
+void approach_value__15TAdPlayerLoadGCFi(s32 arg0);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(s32, f32, f32);
 
 extern const f32 lbl_805DE7B0;
 extern const f32 lbl_805DE7B4;
 
-void TAdPlayerLoadGC__sub_802D645C(s32 arg0) {
+void approach_value__15TAdPlayerLoadGCFi(s32 arg0) {
     approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x1F8, lbl_805DE7B0, lbl_805DE7B4);
 }
 

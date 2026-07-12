@@ -15,7 +15,7 @@ s8 TObjPlayer__sub_80102C30();
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-M2C_UNK fn_80084E98(u32, M2C_UNK *);
+M2C_UNK TEffStarLight2D__sub_80084E98(u32, M2C_UNK *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK queue_target_destruction__10TObjCameraFPv(u32);
 
@@ -31,7 +31,7 @@ void update_item_camera_target__10TObjPlayerFPv(void *arg0) {
         temp_r3 = TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 0x1C));
         if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (draw_icon__10TObjPlayerFPvii(temp_r3, M2C_FIELD(arg0, s32 *, 0x20), &sp8) != 0)) {
             if (TItemMag__sub_80102C4C(temp_r3) == 0) {
-                fn_80084E98(M2C_FIELD(arg0, u32 *, 0x24), &sp8);
+                TEffStarLight2D__sub_80084E98(M2C_FIELD(arg0, u32 *, 0x24), &sp8);
                 return;
             }
             queue_target_destruction__10TObjCameraFPv(M2C_FIELD(arg0, u32 *, 0x24));

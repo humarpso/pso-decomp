@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void fn_80268310(void *, int);
+void TWindowSubStatusDisp__sub_80268310(void *, int);
 
 extern M2C_UNK __vt__19TWindowSubEquipList[];
 
 void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSubEquipList;
-        fn_80268310(arg0, 0);
+        TWindowSubStatusDisp__sub_80268310(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

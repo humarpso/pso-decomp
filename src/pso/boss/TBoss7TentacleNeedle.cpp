@@ -11,7 +11,7 @@ void run_task__20TBoss7TentacleNeedleFv(void *arg0);
 M2C_UNK TBoss7Tentacle__sub_802EF954();
 M2C_UNK TBoss7Tentacle__sub_802EF99C();
 M2C_UNK TBoss7Tentacle__sub_802EFB1C();
-M2C_UNK fn_802EFBA4();
+M2C_UNK TBoss7TentacleNeedle__sub_802EFBA4();
 
 void run_task__20TBoss7TentacleNeedleFv(void *arg0) {
     s32 temp_r0;
@@ -19,7 +19,7 @@ void run_task__20TBoss7TentacleNeedleFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x38);
     switch (temp_r0) {
     case 0:
-        fn_802EFBA4();
+        TBoss7TentacleNeedle__sub_802EFBA4();
         return;
     case 1:
         TBoss7Tentacle__sub_802EFB1C();

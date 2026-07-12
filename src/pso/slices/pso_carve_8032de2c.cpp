@@ -6,12 +6,12 @@ extern "C" {
 
 void fn_8032E34C(void *);
 extern M2C_UNK lbl_804EDD20[];
-void fn_8032DDF8(void *);
+void TObjPlayer__sub_8032DDF8(void *);
 
 void *fn_8032DE2C(void *arg0) {
     fn_8032E34C(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDD20;
-    fn_8032DDF8(arg0);
+    TObjPlayer__sub_8032DDF8(arg0);
     return arg0;
 }
 

@@ -15,7 +15,7 @@ extern void *lbl_805D2628;
 extern u32 TAdSoniclogo__data_805D4A4C;
 extern u32 lbl_805D4A50;
 extern void *tl_00;
-extern M2C_UNK TAdSoniclogo__sub_8001C1C4[];
+extern M2C_UNK request_destroy__12TAdSoniclogoFv[];
 
 void *__ct__12TAdSoniclogoFv(void *arg0) {
     void *o;
@@ -28,7 +28,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_8033A904(1);
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init_fade__6TLobbyFPvPvPv(o, tl_00, TAdSoniclogo__sub_8001C1C4);
+        init_fade__6TLobbyFPvPvPv(o, tl_00, request_destroy__12TAdSoniclogoFv);
     }
     return arg0;
 }

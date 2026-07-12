@@ -12,8 +12,8 @@ s32 TOBoss4Rock__sub_8039C880();
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 s32 TObjPlayer__sub_800196EC(f32, f32, f32);
 s32 TLobby__sub_8020C1F0(M2C_UNK, s32);
-u32 fn_802898AC();
-u32 fn_8028AAFC();
+u32 TObjBoss5FloorStone__sub_802898AC();
+u32 TObjBoss5FloorGrass__sub_8028AAFC();
 u32 TObjBoss5PillarDemo__sub_8028AC8C();
 u32 TObjBoss5PillarCtrl__sub_8028B324(void *);
 
@@ -44,10 +44,10 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
     if (TLobby__sub_8020C1F0(temp_r3, 1) == 0) {
         if (is_split_screen() == 0) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
-                M2C_FIELD(arg0, u32 *, 0x1C) = fn_8028AAFC();
+                M2C_FIELD(arg0, u32 *, 0x1C) = TObjBoss5FloorGrass__sub_8028AAFC();
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U) {
-                M2C_FIELD(arg0, u32 *, 0x20) = fn_802898AC();
+                M2C_FIELD(arg0, u32 *, 0x20) = TObjBoss5FloorStone__sub_802898AC();
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x24) == 0U) {
                 M2C_FIELD(arg0, u32 *, 0x24) = TObjBoss5PillarCtrl__sub_8028B324(arg0);

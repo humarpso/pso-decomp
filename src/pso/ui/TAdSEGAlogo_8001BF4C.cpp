@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TAdSEGAlogo__sub_8001BF4C(void);
+void destroy_and_mark_done__11TAdSEGAlogoFv(void);
 int queue_destruction__7TObjectFv(void);
 
     extern int lbl_805D4A40;
-void TAdSEGAlogo__sub_8001BF4C(void) { queue_destruction__7TObjectFv(); lbl_805D4A40 = 1; }
+void destroy_and_mark_done__11TAdSEGAlogoFv(void) { queue_destruction__7TObjectFv(); lbl_805D4A40 = 1; }
 
 }

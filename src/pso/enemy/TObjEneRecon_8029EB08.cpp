@@ -8,13 +8,13 @@ extern "C" {
 
 void TObjEneRecon__sub_8029EB08(void);
 u32 TSceneSora__sub_8029F574(void*);
-M2C_UNK fn_803280E8();
+M2C_UNK TParticleCtrl__sub_803280E8();
 
 extern u32 lbl_805D65F4;
 
 void TObjEneRecon__sub_8029EB08(void) {
     if (((u32) lbl_805D65F4 != 0U) && (TSceneSora__sub_8029F574((void*)lbl_805D65F4) != 0U)) {
-        fn_803280E8();
+        TParticleCtrl__sub_803280E8();
     }
 }
 

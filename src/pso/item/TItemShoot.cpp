@@ -5,7 +5,7 @@ extern "C" void  allow_rendering__7TObjectFv(TObject*);
 extern "C" void  queue_destruction__7TObjectFv(TObject*);
 extern "C" u32   TObjPlayer__sub_80100490(void*);
 extern "C" void  TBoss4Zako__sub_803D8910(Vec*, Vec*);
-extern "C" void  fn_80084E98(void*, Vec*);
+extern "C" void  TEffStarLight2D__sub_80084E98(void*, Vec*);
 
 extern "C" Vec*  VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 extern "C" void  TBoss6Type1__sub_803D9370(Vec*, const Vec*);
@@ -51,7 +51,7 @@ void TItemShoot::run_task() {
     allow_rendering__7TObjectFv(this);
     TBoss4Zako__sub_803D8910(&this->m_pos, &this->m_dir);
     if (this->m_50 != nullptr) {
-        fn_80084E98(this->m_50, &this->m_pos);
+        TEffStarLight2D__sub_80084E98(this->m_50, &this->m_pos);
     }
     this->hook();
     this->m_life -= kLifeDecay;

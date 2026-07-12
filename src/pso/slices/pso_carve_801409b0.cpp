@@ -11,7 +11,7 @@ M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK TObjLight__sub_80133D78();
 M2C_UNK TLobby__sub_801403B4(M2C_UNK);
-M2C_UNK fn_80197CE8();
+M2C_UNK TObjRainCtrl__sub_80197CE8();
 M2C_UNK TOKeyMachine01__sub_802034A8();
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
@@ -26,7 +26,7 @@ s32 init_forest_b(void) {
     }
     TObjLight__sub_80133D78();
     create_tasks__6TLobbyFv();
-    fn_80197CE8();
+    TObjRainCtrl__sub_80197CE8();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F228);

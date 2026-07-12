@@ -14,7 +14,7 @@ extern void *lbl_805D2600;
 extern u32 TAdADXlogo__data_805D49CC;
 extern u32 lbl_805D49D0;
 extern void *tl_00;
-extern M2C_UNK TAdADXlogo__sub_80019870[];
+extern M2C_UNK destroy__10TAdADXlogoFv[];
 
 void *__ct__10TAdADXlogoFv(void *arg0) {
     void *o;
@@ -26,7 +26,7 @@ void *__ct__10TAdADXlogoFv(void *arg0) {
     lbl_805D49D0 = 0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init_fade__6TLobbyFPvPvPv(o, tl_00, TAdADXlogo__sub_80019870);
+        init_fade__6TLobbyFPvPvPv(o, tl_00, destroy__10TAdADXlogoFv);
     }
     return arg0;
 }

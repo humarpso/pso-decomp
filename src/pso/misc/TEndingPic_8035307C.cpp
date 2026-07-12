@@ -21,9 +21,9 @@ struct VObj_803530C4 : Base_803530C4 {
 
 extern "C" {
 
-int TEndingPic__sub_8035307C(void* p);
+int set_phase_18__10TEndingPicFPv(void* p);
 int TEndingPic__sub_803530A0(void* p);
-void TEndingPic__sub_803530C4(void *arg0);
+void update_player_object__10TEndingPicFPv(void *arg0);
 int TEndingPic__sub_80353110(void* p);
 int TEndingPic__sub_80353134(void* p);
 void update_shield__10TEndingPicFPv(void *arg0);
@@ -35,10 +35,10 @@ s32 TObjPlayer__sub_800112A4(s32, s32);
 s32 TObjPlayer__sub_80019248(void *);
 s32 obj_getS16_2BA(s32);
 
-int TEndingPic__sub_8035307C(void* p) { return TEndingPic__sub_80353018(p, 18); }
+int set_phase_18__10TEndingPicFPv(void* p) { return TEndingPic__sub_80353018(p, 18); }
 int TEndingPic__sub_803530A0(void* p) { return TEndingPic__sub_80353018(p, 17); }
 
-void TEndingPic__sub_803530C4(void *arg0) {
+void update_player_object__10TEndingPicFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
     if (TObjPlayer__sub_80019248(temp_r3) != 0) {
         struct VObj_803530C4 *o = (struct VObj_803530C4 *)M2C_FIELD(arg0, void **, 0xF0);

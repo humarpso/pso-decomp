@@ -25,7 +25,7 @@ void set_scale4__15TAdRicoRingCtrlFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x28) = farg0;
 }
 
-void TAdRicoRing__sub_8001BB54(void *arg0) {
+void update_position__11TAdRicoRingFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + M2C_FIELD(arg0, f32 *, 0x38));
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + M2C_FIELD(arg0, f32 *, 0x3C));
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) M2C_FIELD(arg0, f32 *, 0x20);

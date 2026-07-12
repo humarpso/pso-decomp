@@ -20,13 +20,13 @@ void *init_items__9TItemListFPv(void *arg0) {
 }
 
 extern M2C_UNK lbl_804C4450[];
-extern M2C_UNK TItemList__sub_801D5CB8[];
+extern M2C_UNK reset_position__9TItemListFPv[];
 void __construct_array(void *, void *, int, int, int);
 
 void *init_array__9TItemListFPv(void *arg0) {
     TItemList__sub_801D5CF8(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x24) = lbl_804C4450;
-    __construct_array((void *)((char *)arg0 + 40), TItemList__sub_801D5CB8, 0, 16, 8);
+    __construct_array((void *)((char *)arg0 + 40), reset_position__9TItemListFPv, 0, 16, 8);
     return arg0;
 }
 

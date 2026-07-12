@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjBoss8Piller__sub_8030B010(void);
+void free_held_object__15TObjBoss8PillerFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjBoss8Piller__data_805D6A78;
 
-void TObjBoss8Piller__sub_8030B010(void) {
+void free_held_object__15TObjBoss8PillerFv(void) {
     if ((u32) TObjBoss8Piller__data_805D6A78 != 0U) {
         TLobby__sub_8001FE7C((void*)TObjBoss8Piller__data_805D6A78, 1);
         TObjBoss8Piller__data_805D6A78 = 0U;

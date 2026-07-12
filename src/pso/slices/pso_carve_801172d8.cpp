@@ -10,7 +10,7 @@ M2C_UNK TObjPlayer__sub_800112A4(s32, s32);
 u8 TItemProShield__sub_8010B734();
 s32 fn_8011724C(void *);
 s32 fn_80117270(void *);
-s32 fn_801172A4(void *);
+s32 TItemProArmor__sub_801172A4(void *);
 
 void fn_801172D8(void *arg0) {
     s32 var_r31;
@@ -20,7 +20,7 @@ void fn_801172D8(void *arg0) {
     temp_r3 = TItemProShield__sub_8010B734();
     switch ((s32) temp_r3) {
     case 0:
-        var_r31 = fn_801172A4(arg0);
+        var_r31 = TItemProArmor__sub_801172A4(arg0);
         break;
     case 1:
         var_r31 = fn_80117270(arg0);

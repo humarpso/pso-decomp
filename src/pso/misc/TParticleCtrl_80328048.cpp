@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_802A8368(u8, u8, s32, s32, s32, s32);
 int TParticleCtrl__sub_803280C8(void* p);
-void fn_803280E8(void);
+void TParticleCtrl__sub_803280E8(void);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int fn_802A8260(void*);

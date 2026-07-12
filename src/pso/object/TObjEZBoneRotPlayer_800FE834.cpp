@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__19TObjEZBoneRotPlayerFv(void *arg0);
-M2C_UNK TObjEZBoneRotPlayer__sub_800FE9E0(void *);
+M2C_UNK advance_bone_rotation__19TObjEZBoneRotPlayerFPv(void *);
 
 extern const f32 lbl_805DAA40;
 extern const f32 lbl_805DAA44;
@@ -37,7 +37,7 @@ void run_task__19TObjEZBoneRotPlayerFv(void *arg0) {
     } else if (temp_f1 > lbl_805DAA50) {
         M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DAA50;
     }
-    TObjEZBoneRotPlayer__sub_800FE9E0(arg0);
+    advance_bone_rotation__19TObjEZBoneRotPlayerFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x9C) = (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x98), s32 *, 0x60);
 }
 

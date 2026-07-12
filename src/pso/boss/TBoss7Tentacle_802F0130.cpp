@@ -11,7 +11,7 @@ M2C_UNK TBoss7Tentacle__sub_802F0918(void *);
 M2C_UNK TBoss7Tentacle__sub_802F09B4(void *);
 M2C_UNK TBoss7Tentacle__sub_802F09EC(void *);
 M2C_UNK reset_state__14TBoss7TentacleFPv(void *);
-M2C_UNK TBoss7Tentacle__sub_802F0988(void *);
+M2C_UNK setup_state__14TBoss7TentacleFPv(void *);
 M2C_UNK TBoss7Tentacle__sub_802F09C8(void *);
 
 void switch_state__14TBoss7TentacleFPv(void *arg0) {
@@ -28,7 +28,7 @@ void switch_state__14TBoss7TentacleFPv(void *arg0) {
             TBoss7Tentacle__sub_802F09B4(arg0);
             break;
         case 2:
-            TBoss7Tentacle__sub_802F0988(arg0);
+            setup_state__14TBoss7TentacleFPv(arg0);
             break;
         case 3:
             reset_state__14TBoss7TentacleFPv(arg0);

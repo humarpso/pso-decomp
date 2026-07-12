@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TParticleCtrl__sub_801D6B3C(void *arg0);
+u32 validate_ctrl__13TParticleCtrlFPv(void *arg0);
 s32 TQuestColCtrl__sub_8003F3C8(s32, s32);
 
 extern s32 TParticleCtrl__data_805D2938;
 
-u32 TParticleCtrl__sub_801D6B3C(void *arg0) {
+u32 validate_ctrl__13TParticleCtrlFPv(void *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 4) != 0U) && (TQuestColCtrl__sub_8003F3C8(M2C_FIELD(arg0, s32 *, 4), TParticleCtrl__data_805D2938) == 0)) {
         M2C_FIELD(arg0, u32 *, 4) = 0U;
     }
