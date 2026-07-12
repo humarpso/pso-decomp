@@ -8,7 +8,7 @@ extern "C" {
 
 void cleanup__15TODoorAncient07Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern void *lbl_805D5938;
@@ -29,7 +29,7 @@ void cleanup__15TODoorAncient07Fv(void) {
         }
     }
     if (lbl_805D5938 != NULL) {
-        fn_8001FE7C(lbl_805D5938, 1);
+        TLobby__sub_8001FE7C(lbl_805D5938, 1);
         lbl_805D5938 = NULL;
     }
 }

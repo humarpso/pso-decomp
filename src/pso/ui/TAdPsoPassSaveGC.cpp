@@ -8,10 +8,10 @@ extern "C" {
 
 void TAdPsoPassSaveGC__vt8(void);
 
-M2C_UNK fn_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 
 void TAdPsoPassSaveGC__vt8(void) {
-    fn_80132F2C(0x2A, 0);
+    TAdSinglePlyChrSelectGC__sub_80132F2C(0x2A, 0);
 }
 
 }

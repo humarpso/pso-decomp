@@ -10,7 +10,7 @@ void action__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 struct TBase { char pad[0x18]; };
 struct TObj : TBase {
@@ -145,7 +145,7 @@ void action__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         }
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x424);
         switch (temp_r0) {
         case 0:

@@ -9,7 +9,7 @@ extern "C" {
 s32 fn_800F9C00(void *);
 u8 *fn_800F9C68(u8 *, M2C_UNK *);
 s32 fn_800F9D38(s32);
-s32 fn_800F9D80();
+s32 TScene__sub_800F9D80();
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
@@ -19,7 +19,7 @@ s32 create_named_object(s32 arg0) {
     s32 temp_r3;
     u8 *var_r30;
 
-    temp_r3 = fn_800F9D80();
+    temp_r3 = TScene__sub_800F9D80();
     if (temp_r3 > 0) {
         var_r30 = __nw__7TObjectFUl(0x3C);
         if (var_r30 != NULL) {

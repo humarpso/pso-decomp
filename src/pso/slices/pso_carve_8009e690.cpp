@@ -8,19 +8,10 @@ extern "C" {
 
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 int fn_8009E690(void* p);
-void fn_8009E6B0(void);
+void TObjEneMe1Canadin__sub_8009E6B0(void);
 void TObjEneMe1Canadin__vt105(void);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 
 int fn_8009E690(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
-void fn_8009E6B0(void) {  }
-s32 fn_8009E6B4(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
-        TObjEneDD__sub_800BBA18(arg0, 0xE);
-        return 1;
-    }
-    return 0;
-}
-int TObjEneMe1Canadin__vt106(void) { return 0; }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 void TODoorCave02__vt15(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
 s32 fn_80158360(void *, f32);
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 extern u8 *TODoorCave02__data_805D5964;
 extern const f32 lbl_805DB4B0;
@@ -20,13 +20,13 @@ void TODoorCave02__vt15(u8 *arg0) {
         if (fn_80158360(arg0, lbl_805DB4B0) != 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             TObjPlayer__sub_80154764(arg0, (M2C_UNK)0, (M2C_UNK)8);
-            fn_8022675C(0x42807, arg0 + 0x38, 0, 0);
+            TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
         }
     } else {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorCave02__data_805D5964, s32 *, 0);
         TObjPlayer__sub_80154764(arg0, (M2C_UNK)NULL, (M2C_UNK)8);
-        fn_8022675C(0x42807, arg0 + 0x38, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x42807, arg0 + 0x38, 0, 0);
     }
 }
 

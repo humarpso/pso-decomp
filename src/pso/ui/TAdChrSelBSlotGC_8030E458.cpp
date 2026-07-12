@@ -20,7 +20,7 @@ s32 TAdPlayerLoadGC__sub_80076BBC();
 s32 TAdPlayerLoadGC__sub_801E1530(s32);
 s32 open_confirm_window__23TAdSinglePlyChrSelectGCFv();
 s32 TAdSinglePlyChrSelectGC__sub_802004D8();
-s32 fn_803100EC();
+s32 TAdChrSelBSlotGC__sub_803100EC();
 
 void TAdChrSelBSlotGC__sub_8030E458(void) {  }
 void set_load_state__16TAdChrSelBSlotGCFPv(void *arg0) {
@@ -39,7 +39,7 @@ void reset_load_state__16TAdChrSelBSlotGCFPv(void *arg0) {
     }
 }
 void reset_slot_state__16TAdChrSelBSlotGCFPv(void *arg0) {
-    if (fn_803100EC() <= 0xD) {
+    if (TAdChrSelBSlotGC__sub_803100EC() <= 0xD) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0;
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }

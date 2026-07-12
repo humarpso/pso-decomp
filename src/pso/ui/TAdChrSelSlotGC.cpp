@@ -11,7 +11,7 @@ void render__15TAdChrSelSlotGCFv(void *arg0);
 s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
-s32 fn_8022A564();
+s32 TObjPlayer__sub_8022A564();
 M2C_UNK fn_802C7314(void *);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 
@@ -22,7 +22,7 @@ void render__15TAdChrSelSlotGCFv(void *arg0) {
         }
         goto block_5;
     }
-    if (fn_8022A564() == 0) {
+    if (TObjPlayer__sub_8022A564() == 0) {
         set_depth_buffer_settings_2__Fv();
 block_5:
         abs__4cXyzCFv(0, 8);

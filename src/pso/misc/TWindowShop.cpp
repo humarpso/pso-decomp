@@ -9,9 +9,9 @@ extern "C" {
 void TWindowShop__ct(void *arg0);
 s32 TCameraCtrl__sub_8006B338();
 M2C_UNK fn_8024422C(void *, f32, f32);
-M2C_UNK fn_80244D2C(void *, f32);
-M2C_UNK fn_80267B18(void *);
-M2C_UNK fn_80267B90();
+M2C_UNK TLobby__sub_80244D2C(void *, f32);
+M2C_UNK TWindowSubStatusDisp__sub_80267B18(void *);
+M2C_UNK TWindowSubStatusDisp__sub_80267B90();
 
 extern s32 lbl_805D39D0;
 extern f32 lbl_805DD340;
@@ -19,9 +19,9 @@ extern f32 lbl_805DD344;
 
 void TWindowShop__ct(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D39D0;
-    fn_80267B90();
-    fn_80267B18(arg0);
-    fn_80244D2C(arg0, lbl_805DD340);
+    TWindowSubStatusDisp__sub_80267B90();
+    TWindowSubStatusDisp__sub_80267B18(arg0);
+    TLobby__sub_80244D2C(arg0, lbl_805DD340);
     if (TCameraCtrl__sub_8006B338() > 2) {
         fn_8024422C(arg0, lbl_805DD344, lbl_805DD344);
     }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8003F3A0(void *arg0, s32 arg1) {
+s32 TCameraCtrl__sub_8003F3A0(void *arg0, s32 arg1) {
     return M2C_FIELD(arg0, s16 *, 0x2C) + arg1;
 }
 
-u16 fn_8003F3AC(void *arg0, s32 arg1) {
+u16 TCameraCtrl__sub_8003F3AC(void *arg0, s32 arg1) {
     return (u16) (M2C_FIELD(arg0, u16 *, 0x1C) + arg1);
 }
 

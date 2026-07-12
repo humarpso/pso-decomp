@@ -9,14 +9,14 @@ extern "C" {
 void draw_setting__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1);
 s32 TWindowSubComCard__sub_80249604(void *);
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
-M2C_UNK fn_8024503C(s32, u16 *, s32);
+M2C_UNK TWindowSubComCard__sub_8024503C(s32, u16 *, s32);
 
 void draw_setting__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
     u16 *temp_r3;
 
     temp_r3 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x74));
     if (*temp_r3 & 1) {
-        fn_8024503C(arg1, temp_r3, TWindowSubComCard__sub_80249604(arg0));
+        TWindowSubComCard__sub_8024503C(arg1, temp_r3, TWindowSubComCard__sub_80249604(arg0));
     }
 }
 

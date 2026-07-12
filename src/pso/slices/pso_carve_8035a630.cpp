@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803D898C(s32);
+M2C_UNK TObjPlayer__sub_803D898C(s32);
 extern s32 lbl_805D6F30;
 extern s32 lbl_805D6F34;
 extern s32 lbl_805D6F38;
@@ -14,7 +14,7 @@ extern M2C_UNK (*lbl_805D6F3C)(s32);
 
 void fn_8035A630(s32 arg0) {
     if ((s32) lbl_805D6F30 < (s32) lbl_805D6F34) {
-        fn_803D898C(lbl_805D6F38 + (lbl_805D6F30 * 0x30));
+        TObjPlayer__sub_803D898C(lbl_805D6F38 + (lbl_805D6F30 * 0x30));
     }
     if (((M2C_UNK (*)(s32)) lbl_805D6F3C) != NULL) {
         lbl_805D6F3C(arg0);

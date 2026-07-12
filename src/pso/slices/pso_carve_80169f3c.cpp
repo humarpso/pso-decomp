@@ -6,7 +6,7 @@ extern "C" {
 
 void fn_8015858C(void *);
 extern M2C_UNK lbl_804B27D8[];
-void fn_80169FB0(void *);
+void TOKey__sub_80169FB0(void *);
 
 void *fn_80169F3C(void *arg0) {
     fn_8015858C(arg0);
@@ -17,7 +17,7 @@ void *fn_80169F3C(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0xCC) = 0;
     M2C_FIELD(arg0, u32 *, 0xD4) = 0;
     M2C_FIELD(arg0, u32 *, 0xD8) = 0;
-    fn_80169FB0((void *)((char *)arg0 + 152));
+    TOKey__sub_80169FB0((void *)((char *)arg0 + 152));
     M2C_FIELD(arg0, u32 *, 0xDC) = 0;
     M2C_FIELD(arg0, u32 *, 0xE0) = 1;
     return arg0;

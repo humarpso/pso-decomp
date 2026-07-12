@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__21TWindowSubAreaMapDispFv(void *arg0);
-s32 fn_80244CF4();
-M2C_UNK fn_80245F98(void *, s32);
+s32 TWindowDD__sub_80244CF4();
+M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 M2C_UNK fn_80271848(void *, s32);
 M2C_UNK fn_80271A6C(void *, s32);
 M2C_UNK fn_80288030(s32, s32);
@@ -16,8 +16,8 @@ M2C_UNK fn_80288030(s32, s32);
 void render__21TWindowSubAreaMapDispFv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = fn_80244CF4();
-    fn_80245F98(arg0, temp_r3);
+    temp_r3 = TWindowDD__sub_80244CF4();
+    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
     fn_80288030(M2C_FIELD(arg0, s32 *, 0x70), temp_r3);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
         fn_80271A6C(arg0, temp_r3);

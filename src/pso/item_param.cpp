@@ -9,7 +9,7 @@ struct PmtSub {
 
 extern "C" {
 
-void* fn_8011CC58(int i) {
+void* TObjPlayer__sub_8011CC58(int i) {
     PmtSub* c = *(PmtSub**)((char*)item_pmt_tbl + 0x10);
     if (i < c->count) {
         return &c->records[i * 24];
@@ -17,7 +17,7 @@ void* fn_8011CC58(int i) {
     return &c->records[c->count * 24];
 }
 
-void* fn_8011CC8C(int type, int id) {
+void* TObjPlayer__sub_8011CC8C(int type, int id) {
     if (type > 0) {
         char* cat = *(char**)((char*)item_pmt_tbl + 0x00);
         if (type < 170) {
@@ -31,7 +31,7 @@ void* fn_8011CC8C(int type, int id) {
     return NULL;
 }
 
-void* fn_8011CCD8(int type, int id) {
+void* TObjPlayer__sub_8011CCD8(int type, int id) {
     char* cat = *(char**)((char*)item_pmt_tbl + 0x0C);
     if (type < 24) {
         PmtSub* s = (PmtSub*)(cat + type * 8);
@@ -42,7 +42,7 @@ void* fn_8011CCD8(int type, int id) {
     return *(void**)(cat + 196);
 }
 
-void* fn_8011CD14(int i) {
+void* TObjPlayer__sub_8011CD14(int i) {
     PmtSub* c = *(PmtSub**)((char*)item_pmt_tbl + 0x08);
     if (i < c->count) {
         return &c->records[i * 0x10];
@@ -50,7 +50,7 @@ void* fn_8011CD14(int i) {
     return &c->records[c->count * 0x10];
 }
 
-void* fn_8011CD48(int type, int id) {
+void* TObjPlayer__sub_8011CD48(int type, int id) {
     if (type > 0 && type < 3) {
         PmtSub* s = (PmtSub*)(*(char**)((char*)item_pmt_tbl + 0x04) + (type - 1) * 8);
         if (id < s->count) {
@@ -61,7 +61,7 @@ void* fn_8011CD48(int type, int id) {
     return NULL;
 }
 
-void* fn_8011CDA0(int i) {
+void* TObjPlayer__sub_8011CDA0(int i) {
     if (i < 32) {
         return *(char**)((char*)item_pmt_tbl + 0x18) + i * 36;
     }

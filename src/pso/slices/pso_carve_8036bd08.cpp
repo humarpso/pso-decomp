@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801D9A04(s16);
+s32 TObjPlayer__sub_801D9A04(s16);
 s32 fn_8036CDA8();
 
 s32 fn_8036BD08(void *arg0) {
     if (fn_8036CDA8() == 0) {
         return 0;
     }
-    return fn_801D9A04(M2C_FIELD(arg0, s16 *, 4)) != 0 ? 1 : 0;
+    return TObjPlayer__sub_801D9A04(M2C_FIELD(arg0, s16 *, 4)) != 0 ? 1 : 0;
 }
 
 }

@@ -10,9 +10,9 @@ void TWindowMainMenu4P__vt6(void *arg0);
 void TWindowMainMenu4P__vt7(void* p);
 int fn_80263C24(void*);
 M2C_UNK fn_80263CAC();
-int fn_802644D4(void*);
+int TWindowMainMenu__sub_802644D4(void*);
 
-void TWindowMainMenu4P__vt7(void* p) { if (fn_80263C24(p) != 0) { fn_802644D4(p); } }
+void TWindowMainMenu4P__vt7(void* p) { if (fn_80263C24(p) != 0) { TWindowMainMenu__sub_802644D4(p); } }
 
 void TWindowMainMenu4P__vt6(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x4C) & 1) {

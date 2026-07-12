@@ -2,9 +2,8 @@
 
 extern "C" {
 
-void fn_80010E40(void);
+void TObjPlayer__sub_80010E40(void);
 
-int fn_80010DE8(void) { return 0; }
-void fn_80010E40(void) {  }
+int TObjPlayer__sub_80010DE8(void) { return 0; }
 
 }

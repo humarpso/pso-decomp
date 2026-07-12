@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TOHangceilingCave01Normal__vt77(void *arg0);
-void *fn_8001ED9C(s32, s32);
+void *TObjFish__sub_8001ED9C(s32, s32);
 M2C_UNK fn_801682E4(void *, M2C_UNK, s32 *, f32);
 
 extern const f64 lbl_80441850[];
@@ -24,7 +24,7 @@ void TOHangceilingCave01Normal__vt77(void *arg0) {
     union { f64 d; u32 i[2]; } cvt;
 
     s32 *p;
-    M2C_FIELD(arg0, void **, 0xF8) = fn_8001ED9C(lbl_805D59D0, lbl_805D59E4);
+    M2C_FIELD(arg0, void **, 0xF8) = TObjFish__sub_8001ED9C(lbl_805D59D0, lbl_805D59E4);
     p = lbl_805D59D4;
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) *p;
     M2C_FIELD(arg0, f32 *, 0x354) = (f32) (lbl_805DB65C * M2C_FIELD(arg0, f32 *, 0x350));

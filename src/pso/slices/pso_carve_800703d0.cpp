@@ -8,31 +8,17 @@ extern "C" {
 
 s32 TCameraCtrl__sub_8006B368();
 s32 TLobby__sub_80070078(void *);
-s32 fn_800739BC(void *);
+s32 TLobby__sub_800739BC(void *);
 s32 fn_80076B14(void *);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 fn_8026A328();
-int fn_8006FF98(void*);
-int fn_80070170(void*);
-int fn_800704CC(void* a0 = 0);
-void fn_80070554(void* p);
-void fn_80070550(void);
+int TLobby__sub_8006FF98(void*);
+int TLobby__sub_80070170(void*);
+int TLobby__sub_800704CC(void* a0 = 0);
+void TLobby__sub_80070554(void* p);
+void TLobby__sub_80070550(void);
 
-int fn_800703D0(void) { return 0; }
-int fn_800704CC(void*) { return 0; }
-void fn_80070550(void) {  }
-void fn_80070554(void* p) { if (fn_800704CC(p) == 0) { fn_80070170(p); fn_8006FF98(p); } }
-void fn_80070598(void *arg0) {
-    if (fn_800704CC() == 0) {
-        TLobby__sub_80070078(arg0);
-        if (TCameraCtrl__sub_8006B368() != 0) {
-            init__23TAdSinglePlyChrSelectGCFv();
-            fn_800739BC(arg0);
-            fn_8026A328();
-            fn_80076B14(arg0);
-            M2C_FIELD(arg0, s32 *, 0x1C) = 2;
-        }
-    }
-}
+int TLobby__sub_800703D0(void) { return 0; }
+int TLobby__sub_800704CC(void*) { return 0; }
 
 }

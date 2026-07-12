@@ -8,12 +8,12 @@ extern "C" {
 
 void play_effect__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjPlayer__sub_801B5328(s32, s32, s32, s32, f32);
-s32 fn_80055694();
+s32 TObjPlayer__sub_80055694();
 
 extern f32 TObjPlayer__data_805DC278;
 
 void play_effect__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
-    TObjPlayer__sub_801B5328(arg0, fn_80055694(), arg1, arg2, TObjPlayer__data_805DC278);
+    TObjPlayer__sub_801B5328(arg0, TObjPlayer__sub_80055694(), arg1, arg2, TObjPlayer__data_805DC278);
 }
 
 }

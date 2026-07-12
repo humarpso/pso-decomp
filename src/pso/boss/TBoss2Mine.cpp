@@ -14,10 +14,10 @@ void TBoss2Mine__vt50(void);
 void TBoss2Mine__sub_80038D84(void);
 int TBoss2Mine__sub_80038D88(void* p);
 
-int fn_800F0928(void*);
+int TObjPlayer__sub_800F0928(void*);
 
 void TBoss2Mine__sub_80038D84(void) {  }
-int TBoss2Mine__sub_80038D88(void* p) { return fn_800F0928(p); }
+int TBoss2Mine__sub_80038D88(void* p) { return TObjPlayer__sub_800F0928(p); }
 void TBoss2Mine__vt42(void) {  }
 void TBoss2Mine__vt43(void) {  }
 void TBoss2Mine__vt44(void) {  }

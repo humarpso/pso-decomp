@@ -13,7 +13,7 @@ struct ED384Obj : ED384Base {
     virtual void m2(void *);
 };
 
-void fn_800ED384(u8 *arg0) {
+void TObjEneRe4Sorcerer__sub_800ED384(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 0x204);
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFF7);
     ((ED384Obj*)(arg0 + 0x3DC))->m2(arg0);

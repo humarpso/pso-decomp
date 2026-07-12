@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 *fn_8007EB94(s32);
+s32 *TAdSinglePlyChrSelectGC__sub_8007EB94(s32);
 s32 *TBreakUpMdl__sub_8009705C(s32 *, s32);
 s32 TOBoss4Rock__sub_80147AA8(s32);
 s32 fn_802E75B8(void *, s32 *);
@@ -19,7 +19,7 @@ void fn_802E7474(void *arg0, s32 arg1) {
     s32 *temp_r4;
     s32 *var_r0;
 
-    var_r0 = fn_8007EB94(0x10);
+    var_r0 = TAdSinglePlyChrSelectGC__sub_8007EB94(0x10);
     if (var_r0 != NULL) {
         var_r0 = TBreakUpMdl__sub_8009705C(var_r0, arg1);
     }

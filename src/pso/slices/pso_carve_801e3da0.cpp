@@ -9,12 +9,12 @@ extern "C" {
 M2C_UNK run_tasks__16TKeyBoardControlFv();
 M2C_UNK TKeyBoardControl__sub_8000F7FC();
 M2C_UNK TCameraCtrl__sub_80069024();
-M2C_UNK fn_80141550();
-M2C_UNK fn_801E2EFC();
-M2C_UNK fn_801E2F20();
+M2C_UNK TObjFish__sub_80141550();
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK GXSetZMode(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
-M2C_UNK fn_803D85D8(s32);
+M2C_UNK TObjPlayer__sub_803D85D8(s32);
 M2C_UNK fn_803DCEC8();
 M2C_UNK fn_803DCF0C();
 extern s32 lbl_805D3584;
@@ -25,15 +25,15 @@ extern f32 lbl_805DC43C;
 
 void render_tick__Fv(void) {
     run_tasks__16TKeyBoardControlFv();
-    fn_801E2EFC();
+    TParticleCtrl__sub_801E2EFC();
     GXSetZMode(1, 7, 0);
     TCameraCtrl__sub_80069024();
-    fn_80141550();
-    fn_803D85D8(lbl_805D3584);
+    TObjFish__sub_80141550();
+    TObjPlayer__sub_803D85D8(lbl_805D3584);
     GXSetZMode(1, 3, 1);
     GXSetViewport(lbl_805DC43C, lbl_805DC43C, lbl_805DC430, lbl_805DC42C, lbl_805DC43C, lbl_805DC428);
-    fn_80141550();
-    fn_801E2F20();
+    TObjFish__sub_80141550();
+    TParticleCtrl__sub_801E2F20();
     fn_803DCEC8();
     fn_803DCF0C();
     TKeyBoardControl__sub_8000F7FC();

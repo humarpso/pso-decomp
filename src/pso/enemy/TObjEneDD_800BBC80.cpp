@@ -13,7 +13,7 @@ extern "C" {
 
 void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK fn_8003F0E8(void *);
+M2C_UNK TBoss3Volopt__sub_8003F0E8(void *);
 
 extern const f32 TObjEneDD__data_805D9E8C;
 
@@ -21,7 +21,7 @@ void init_position_vectors__9TObjEneDDFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
-    fn_8003F0E8(arg0);
+    TBoss3Volopt__sub_8003F0E8(arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x308) = (f32) TObjEneDD__data_805D9E8C;
     M2C_FIELD(arg0, f32 *, 0x30C) = (f32) TObjEneDD__data_805D9E8C;

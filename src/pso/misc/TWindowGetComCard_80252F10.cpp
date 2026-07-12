@@ -14,7 +14,7 @@ M2C_UNK TWindowReturnCity__sub_8024ACA8(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK fn_8024AC20(s32);
+M2C_UNK TLobby__sub_8024AC20(s32);
 
 extern void *__vt__17TWindowGetComCard[];
 extern s32 lbl_805D53A0;
@@ -31,7 +31,7 @@ void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
         }
         TWindowReturnCity__sub_8024ACA8(lbl_805D53A0);
-        fn_8024AC20(lbl_805D53A0);
+        TLobby__sub_8024AC20(lbl_805D53A0);
         if ((TWindowCtrl__sub_8024A314() == 0) && (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U)) {
             init_parts__10TObjPlayerFPv();
         }

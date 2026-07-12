@@ -11,7 +11,7 @@ M2C_UNK close_message__22TQuestVmDownLoadServerFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK fn_8007EBB4(void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(void *);
 M2C_UNK fn_80222B64(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -24,7 +24,7 @@ u8 *TQuestVmDownLoadServer__vt0(u8 *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_804C8714;
         M2C_FIELD(arg0, void **, 0x1C) = (void *) ((u8 *)lbl_804C8714 + 0x18);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x260) != 0U) {
-            fn_8007EBB4(M2C_FIELD(arg0, void **, 0x260));
+            TAdSinglePlyChrSelectGC__sub_8007EBB4(M2C_FIELD(arg0, void **, 0x260));
             M2C_FIELD(arg0, u32 *, 0x260) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x29C) != 0U) {

@@ -24,17 +24,17 @@ struct VObj_80118334 : Base_80118334 {
 extern "C" {
 
 void TItemProShield__vt14(void *arg0);
-M2C_UNK fn_8010069C(void *);
-M2C_UNK fn_8010A78C(void *);
-M2C_UNK fn_8010A89C(void *, s32);
+M2C_UNK TObjPlayer__sub_8010069C(void *);
+M2C_UNK TItemEquipBase__sub_8010A78C(void *);
+M2C_UNK TItemEquipBase__sub_8010A89C(void *, s32);
 
 void TItemProShield__vt14(void *arg0) {
     ((VObj_80118334 *)arg0)->m51();
-    fn_8010A89C(arg0, M2C_FIELD(arg0, s32 *, 0x194));
+    TItemEquipBase__sub_8010A89C(arg0, M2C_FIELD(arg0, s32 *, 0x194));
     if (M2C_FIELD(arg0, s32 *, 0x19C) & 4) {
-        fn_8010069C(arg0);
+        TObjPlayer__sub_8010069C(arg0);
     }
-    fn_8010A78C(arg0);
+    TItemEquipBase__sub_8010A78C(arg0);
 }
 
 }

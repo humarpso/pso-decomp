@@ -26,10 +26,10 @@ extern "C" {
 
 void TOKeyGenericSw__vt14(void *arg0);
 void TOKeyGenericSw__vt15(void *arg0);
-M2C_UNK fn_80158298();
+M2C_UNK TOBarrierEnergy01__sub_80158298();
 
 void TOKeyGenericSw__vt15(void *arg0) {
-    fn_80158298();
+    TOBarrierEnergy01__sub_80158298();
     ((VObj_8016CB88*)arg0)->m18();
     M2C_FIELD(arg0, s32 *, 0xF4) = 1;
     M2C_FIELD(arg0, s32 *, 0xEC) = 0;
@@ -38,7 +38,7 @@ void TOKeyGenericSw__vt15(void *arg0) {
 }
 
 void TOKeyGenericSw__vt14(void *arg0) {
-    fn_80158298();
+    TOBarrierEnergy01__sub_80158298();
     ((VObj_8016CBE4*)arg0)->m18();
     M2C_FIELD(arg0, s32 *, 0xEC) = 1;
     M2C_FIELD(arg0, s32 *, 0xF4) = 0;

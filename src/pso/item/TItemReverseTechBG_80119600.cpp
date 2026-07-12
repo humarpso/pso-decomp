@@ -5,16 +5,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void render__18TItemReverseTechBGFv(void *arg0);
-void fn_80141F1C(void *);
-void fn_8023E480(void *);
+void TObjPlayer__sub_80141F1C(void *);
+void TObjPlayer__sub_8023E480(void *);
 void fn_803DEE6C(int);
 void fn_803DEEAC(void);
 void fn_803DEECC(void *, f32);
 void fn_803DF160(void *, void *);
 
 void render__18TItemReverseTechBGFv(void *arg0) {
-    fn_80141F1C(arg0);
-    fn_8023E480(M2C_FIELD(arg0, void **, 0x2C));
+    TObjPlayer__sub_80141F1C(arg0);
+    TObjPlayer__sub_8023E480(M2C_FIELD(arg0, void **, 0x2C));
     fn_803DEE6C(1);
     fn_803DF160(M2C_FIELD(arg0, void **, 0x30), M2C_FIELD(arg0, void **, 0x34));
     fn_803DEECC((void *)((char *)arg0 + 56), M2C_FIELD(arg0, f32 *, 0x58));

@@ -13,11 +13,11 @@ void update_by_screen_mode__6TLobbyFv(void);
 void update_split_screen__6TLobbyFv(void);
 s32 TAdStorySelectGC__sub_80207D64(s32);
 int TLobby__sub_801EA5FC(void*);
-M2C_UNK fn_80070AFC();
-M2C_UNK fn_80070CDC();
+M2C_UNK TLobby__sub_80070AFC();
+M2C_UNK TLobby__sub_80070CDC();
 void *TAdSinglePlyChrSelectGC__sub_8007B7E4();
 M2C_UNK fn_80291D94();
-M2C_UNK fn_80291DC0();
+M2C_UNK TLobby__sub_80291DC0();
 
 void set_story_select__6TLobbyFi(s32 arg0) {
     switch (arg0) {
@@ -56,17 +56,17 @@ void update_by_screen_mode__6TLobbyFv(void) {
         fn_80291D94();
         return;
     }
-    fn_80070CDC();
+    TLobby__sub_80070CDC();
 }
 
 s32 is_split_screen();
 
 void update_split_screen__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
-        fn_80291DC0();
+        TLobby__sub_80291DC0();
         return;
     }
-    fn_80070AFC();
+    TLobby__sub_80070AFC();
 }
 
 }

@@ -8,11 +8,11 @@ extern "C" {
 
 void fn_8027DD18(void *arg0);
 void render__18TWindowSubShortCutFv(void);
-s32 fn_8026CBB8(s32 a0 = 0);
+s32 TWindowSubComCard__sub_8026CBB8(s32 a0 = 0);
 s32 fn_8027E3B4(s32 a0 = 0, s32 a1 = 0);
 
 void fn_8027DD18(void *arg0) {
-    s32 tmp = fn_8026CBB8(0x72);
+    s32 tmp = TWindowSubComCard__sub_8026CBB8(0x72);
     fn_8027E3B4(tmp, M2C_FIELD(arg0, s32 *, 0x24));
 }
 void render__18TWindowSubShortCutFv(void) {  }

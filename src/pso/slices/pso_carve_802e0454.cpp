@@ -7,7 +7,7 @@ int TAdMultiConfirmGC__sub_802E03DC(void* p);
 int TAdMultiConfirmGC__sub_802E0400(void* p);
 int TAdMultiConfirmGC__sub_802E0424(void* p);
 void TAdMultiConfirmGC__sub_802E0448(void* p);
-int fn_802E072C(void*, int);
+int TAdMultiConfirmGC__sub_802E072C(void*, int);
 
 int fn_802E0454(void) { return 0; }
 

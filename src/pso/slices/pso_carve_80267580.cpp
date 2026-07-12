@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
-M2C_UNK fn_80258F34(s32, s32, s32);
+M2C_UNK TWindowSubStatusDisp__sub_80258F34(s32, s32, s32);
 
 void fn_80267580(void *arg0, s32 arg1, s32 arg2) {
     s16 temp_r4;
     if (arg1 != 0) {
         temp_r4 = (s16) M2C_FIELD(arg0, s16 *, 0x72);
         if (temp_r4 < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
-            fn_80258F34(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1, arg2);
+            TWindowSubStatusDisp__sub_80258F34(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1, arg2);
             M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);
         }
     }

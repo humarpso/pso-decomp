@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80266E34(void *);
+M2C_UNK TLobby__sub_80266E34(void *);
 M2C_UNK fn_80266F78(void *, M2C_UNK);
 M2C_UNK fn_80267104(void *, u32, s32, M2C_UNK);
 M2C_UNK fn_80279044(void *);
@@ -24,7 +24,7 @@ void fn_80278964(void *arg0) {
         fn_80266F78(arg0, -1);
     }
     fn_80279044(arg0);
-    fn_80266E34(arg0);
+    TLobby__sub_80266E34(arg0);
 }
 
 }

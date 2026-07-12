@@ -8,11 +8,11 @@ extern "C" {
 
 void set_value__18TWindowInputNumberFPvf(void *arg0, f32 farg0);
 M2C_UNK TWindowInputNumber__sub_802561E8(void *);
-M2C_UNK fn_802448C0();
+M2C_UNK TWindowSubComCard__sub_802448C0();
 
 void set_value__18TWindowInputNumberFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x38) = farg0;
-    fn_802448C0();
+    TWindowSubComCard__sub_802448C0();
     TWindowInputNumber__sub_802561E8(arg0);
 }
 

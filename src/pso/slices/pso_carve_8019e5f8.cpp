@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
-M2C_UNK fn_8024AD30(s32);
+M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 extern s32 lbl_805D53A0;
@@ -26,7 +26,7 @@ void fn_8019E5F8(void *arg0) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x164));
         M2C_FIELD(arg0, u32 *, 0x164) = 0U;
     }
-    fn_8024AD30(lbl_805D53A0);
+    TWindowChat__sub_8024AD30(lbl_805D53A0);
     clear_flag__11TWindowCtrlFv();
     TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
 }

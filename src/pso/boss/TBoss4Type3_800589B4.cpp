@@ -13,13 +13,13 @@ int TBoss4Type3__sub_80059F64(void*, void*);
 
 void TBoss4Type3__vt35(void* p) { if (*(int*)((char*)p + 0x398) == 0) { TBoss4Type3__sub_80059F64(p, (void*)12); } }
 
-M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 void TBoss4Type3__vt34(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A0) = 0x11;
     M2C_FIELD(arg0, s32 *, 0x3A4) = 0x11;
     M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) M2C_FIELD(arg0, s32 *, 0x3A8);
-    fn_8022675C(0x4003B238, 0, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x4003B238, 0, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x52C) = 1;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x62;
 }

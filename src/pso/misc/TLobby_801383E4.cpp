@@ -12,7 +12,7 @@ void update_state__6TLobbyFv(void);
 M2C_UNK init_player_window_effect__6TLobbyFv();
 M2C_UNK TLobby__sub_801397E8();
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
-M2C_UNK fn_80244888(s32);
+M2C_UNK TWindowSubComCard__sub_80244888(s32);
 
 extern s32 TLobby__data_805D5594;
 
@@ -48,7 +48,7 @@ void update_state__6TLobbyFv(void) {
         if ((s32) TLobby__data_805D55FC == 0) {
             if ((s32) TLobby__data_805D5594 != 0xC) {
                 TLobby__sub_8013990C(0x21);
-                fn_80244888(TLobby__data_805D55D8);
+                TWindowSubComCard__sub_80244888(TLobby__data_805D55D8);
                 init_player_window_effect__6TLobbyFv();
                 TLobby__data_805D55B4 = 0;
                 TLobby__data_805D5594 = 0xC;

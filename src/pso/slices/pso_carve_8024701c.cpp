@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80247534();
-s32 fn_8024792C(void *);
+s32 TWindowChat__sub_80247534();
+s32 TWindowChat__sub_8024792C(void *);
 void free_icon__18TWindowSubShortCutFPv(void* p);
-int fn_80247D2C(void*);
+int TWindowChat__sub_80247D2C(void*);
 
 int fn_8024701C(void) { return 0; }
-int fn_80247080(void) { return 0; }
-int fn_80247128(void) { return 0; }
-int fn_802471AC(void) { return 0; }
+int TWindowChat__sub_80247080(void) { return 0; }
+int TWindowChat__sub_80247128(void) { return 0; }
+int TWindowChat__sub_802471AC(void) { return 0; }
 
 }

@@ -8,7 +8,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void *fn_800F8754(void *, void *, void *);
-void fn_8033A904(int);
+void TAdSinglePlyChrSelectGC__sub_8033A904(int);
 
 extern M2C_UNK __vt__12TAdSoniclogo[];
 extern void *lbl_805D2628;
@@ -25,7 +25,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     TAdSoniclogo__data_805D4A4C = 0;
     lbl_805D4A50 = 0;
-    fn_8033A904(1);
+    TAdSinglePlyChrSelectGC__sub_8033A904(1);
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
         fn_800F8754(o, tl_00, TAdSoniclogo__sub_8001C1C4);

@@ -9,9 +9,9 @@ extern "C" {
 s32 get_clamped_index__10TObjPlayerFPv(void *arg0);
 void set_move_mode__10TObjPlayerFi(s32 arg0);
 void apply_input_mode__10TObjPlayerFi(s32 arg0);
-s32 fn_801AFDA8();
-M2C_UNK fn_801BE8E4(s32, M2C_UNK);
-M2C_UNK fn_801BE8EC(s32, M2C_UNK);
+s32 TObjPlayer__sub_801AFDA8();
+M2C_UNK TObjPlayer__sub_801BE8E4(s32, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801BE8EC(s32, M2C_UNK);
 
 s32 get_clamped_index__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
@@ -26,31 +26,31 @@ s32 get_clamped_index__10TObjPlayerFPv(void *arg0) {
 void set_move_mode__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = fn_801AFDA8();
+    temp_r3 = TObjPlayer__sub_801AFDA8();
     if (temp_r3 & 0x10) {
-        fn_801BE8E4(arg0, 2);
+        TObjPlayer__sub_801BE8E4(arg0, 2);
         return;
     }
     if (temp_r3 & 8) {
-        fn_801BE8E4(arg0, 1);
+        TObjPlayer__sub_801BE8E4(arg0, 1);
         return;
     }
-    fn_801BE8E4(arg0, 0);
+    TObjPlayer__sub_801BE8E4(arg0, 0);
 }
 
 void apply_input_mode__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = fn_801AFDA8();
+    temp_r3 = TObjPlayer__sub_801AFDA8();
     if (temp_r3 & 0x20) {
-        fn_801BE8EC(arg0, 0);
+        TObjPlayer__sub_801BE8EC(arg0, 0);
         return;
     }
     if (temp_r3 & 0x40) {
-        fn_801BE8EC(arg0, 1);
+        TObjPlayer__sub_801BE8EC(arg0, 1);
         return;
     }
-    fn_801BE8EC(arg0, 2);
+    TObjPlayer__sub_801BE8EC(arg0, 2);
 }
 
 }

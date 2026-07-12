@@ -5,14 +5,14 @@ extern "C" {
 s32 get_main_phase();
 s32 fn_80040C7C(s32);
 s32 TODoorVoShip__sub_801F44BC(s32);
-s32 fn_801F4830(s32);
+s32 TBoss4DarkFalz__sub_801F4830(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 int fn_80242DA0(void*, void*);
 int fn_8003CB48(void);
 int fn_80242D74(void*);
 
 void fn_8003CAD0(void) {
-    fn_801F4830(0x2A);
+    TBoss4DarkFalz__sub_801F4830(0x2A);
     if (get_main_phase() == 0xF) {
         fn_80040C7C(0);
         return;

@@ -9,8 +9,8 @@ extern "C" {
 s32 select_next__19TWindowKeyBoardSoftFPv();
 s32 update__19TWindowKeyBoardSoftFPv();
 s32 convert_input_text__19TWindowKeyBoardSoftFPv();
-int fn_8025B850(void* p);
-s32 fn_8025B8C8(void* p);
+int TWindowSubComCard__sub_8025B850(void* p);
+s32 TWindowKeyBoardSoft__sub_8025B8C8(void* p);
 void TWindowKeyBoardSoft__sub_8025B928(void);
 
 void update_input_state__19TWindowKeyBoardSoftFPv(void *arg0) {

@@ -27,9 +27,9 @@ M2C_UNK close_windows__19TQuestListChallengeFPv(void *);
 s32 TWindowSubComCard__sub_8007341C(void *);
 s32 TWindowSubComCard__sub_80073DB8(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
-M2C_UNK fn_801F387C(s32, s32);
-s32 fn_80266E0C(s32);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
+M2C_UNK TLobby__sub_801F387C(s32, s32);
+s32 TLobby__sub_80266E0C(s32);
 
 void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
     s32 temp_r0;
@@ -44,10 +44,10 @@ void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
         if ((M2C_FIELD(arg0, void **, 0x34) != NULL) && (TWindowSubComCard__sub_8007341C(M2C_FIELD(arg0, void **, 0x34)) == 1)) {
             temp_r3_2 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x34));
             if (temp_r3_2 == 0) {
-                temp_r0 = fn_80266E0C(M2C_FIELD(arg0, s32 *, 0x38));
+                temp_r0 = TLobby__sub_80266E0C(M2C_FIELD(arg0, s32 *, 0x38));
                 temp_r4 = M2C_FIELD(arg0, Entry_80288C78 **, 0x58);
-                fn_801F387C(temp_r4[temp_r0].fieldC, (s32) temp_r4);
-                fn_80073DC4(arg0, 3);
+                TLobby__sub_801F387C(temp_r4[temp_r0].fieldC, (s32) temp_r4);
+                TQuestListVM__sub_80073DC4(arg0, 3);
                 return;
             }
             if (temp_r3_2 == 1) {
@@ -56,7 +56,7 @@ void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 0x80);
                 }
-                fn_80073DC4(arg0, 0);
+                TQuestListVM__sub_80073DC4(arg0, 0);
                 return;
             }
             goto block_9;
@@ -68,7 +68,7 @@ block_9:
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 0x80);
             }
-            fn_80073DC4(arg0, 0);
+            TQuestListVM__sub_80073DC4(arg0, 0);
         }
     }
 }

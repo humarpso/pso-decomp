@@ -8,10 +8,10 @@ extern "C" {
 
 void TItemObject__vt42(void *arg0);
 
-M2C_UNK fn_80100760();
+M2C_UNK TItem__sub_80100760();
 
 void TItemObject__vt42(void *arg0) {
-    fn_80100760();
+    TItem__sub_80100760();
     M2C_FIELD(arg0, s8 *, 0x101) = 1;
 }
 

@@ -24,9 +24,9 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 s32 TLobby__sub_8001DC24();
-void *fn_80101AB0(s32);
-M2C_UNK fn_80228C84(s32);
-M2C_UNK fn_80229080();
+void *TLobby__sub_80101AB0(s32);
+M2C_UNK TLobby__sub_80228C84(s32);
+M2C_UNK TWindowSubStatusDisp__sub_80229080();
 
 extern s32 lbl_805D53A0;
 
@@ -41,37 +41,37 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
             return TWindowSubStatusDisp__sub_80077760(0xF4);
         }
         TWindowSubStatusDisp__sub_802290E0();
-        fn_80228C84(arg0);
+        TLobby__sub_80228C84(arg0);
         TWindowSubStatusDisp__sub_80077760(0xEA);
-        fn_80229080();
+        TWindowSubStatusDisp__sub_80229080();
         return TLobby__sub_8001DC24();
     case 2:
-        temp_r3 = fn_80101AB0(arg2);
+        temp_r3 = TLobby__sub_80101AB0(arg2);
         if (temp_r3 == NULL) {
             return 0;
         }
         TWindowSubStatusDisp__sub_802290E0();
         if (arg0 == (s32) lbl_805D53A0) {
             TWindowSubStatusDisp__sub_80077760(0xF3);
-            fn_80229080();
+            TWindowSubStatusDisp__sub_80229080();
         } else {
-            fn_80228C84(arg0);
+            TLobby__sub_80228C84(arg0);
             TWindowSubStatusDisp__sub_80077760(0xE8);
-            fn_80229080();
+            TWindowSubStatusDisp__sub_80229080();
         }
         ((VObj_802D2E28_0x30 *)temp_r3)->vma();
-        fn_80229080();
+        TWindowSubStatusDisp__sub_80229080();
         TWindowSubStatusDisp__sub_80077760(0xE9);
-        fn_80229080();
+        TWindowSubStatusDisp__sub_80229080();
         return TLobby__sub_8001DC24();
     case 3:
         if (arg0 == (s32) lbl_805D53A0) {
             return TWindowSubStatusDisp__sub_80077760(0xF2);
         }
         TWindowSubStatusDisp__sub_802290E0();
-        fn_80228C84(arg0);
+        TLobby__sub_80228C84(arg0);
         TWindowSubStatusDisp__sub_80077760(0xE7);
-        fn_80229080();
+        TWindowSubStatusDisp__sub_80229080();
         return TLobby__sub_8001DC24();
     case 4:
         return TWindowSubStatusDisp__sub_80077760(0xEE);

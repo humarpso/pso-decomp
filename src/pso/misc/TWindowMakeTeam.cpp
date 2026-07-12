@@ -9,8 +9,8 @@ extern "C" {
 void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1);
 void send_state__15TWindowMakeTeamFPv(void *arg0);
 void update_ok_button__15TWindowMakeTeamFPv(void *arg0);
-M2C_UNK fn_8026853C(s32, M2C_UNK);
-M2C_UNK fn_802685C4(s32, M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_8026853C(s32, M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_802685C4(s32, M2C_UNK);
 
 void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -35,10 +35,10 @@ void set_state__15TWindowMakeTeamFPvi(void *arg0, s32 arg1) {
 
 void send_state__15TWindowMakeTeamFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, u8 *, 0x1E) != 1) {
-        fn_8026853C(M2C_FIELD(arg0, s32 *, 0x2C), 3);
+        TWindowSubComCard__sub_8026853C(M2C_FIELD(arg0, s32 *, 0x2C), 3);
         return;
     }
-    fn_802685C4(M2C_FIELD(arg0, s32 *, 0x2C), 3);
+    TWindowSubComCard__sub_802685C4(M2C_FIELD(arg0, s32 *, 0x2C), 3);
 }
 
 void update_ok_button__15TWindowMakeTeamFPv(void *arg0) {
@@ -46,10 +46,10 @@ void update_ok_button__15TWindowMakeTeamFPv(void *arg0) {
 
     temp_r4 = M2C_FIELD(arg0, u8 **, 0x24);
     if ((temp_r4 != NULL) && ((s8) *temp_r4 != 0)) {
-        fn_8026853C(M2C_FIELD(arg0, s32 *, 0x2C), 4);
+        TWindowSubComCard__sub_8026853C(M2C_FIELD(arg0, s32 *, 0x2C), 4);
         return;
     }
-    fn_802685C4(M2C_FIELD(arg0, s32 *, 0x2C), 4);
+    TWindowSubComCard__sub_802685C4(M2C_FIELD(arg0, s32 *, 0x2C), 4);
 }
 
 }

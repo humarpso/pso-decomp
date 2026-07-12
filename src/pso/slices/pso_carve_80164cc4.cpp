@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80080750();
-M2C_UNK fn_80158298(void *);
-M2C_UNK fn_8016492C(void *);
-M2C_UNK fn_80164990(void *);
-M2C_UNK fn_80164A90(void *);
-M2C_UNK fn_80164B34(void *);
-f32 fn_803D64C0(s32);
+s32 TObjPlayer__sub_80080750();
+M2C_UNK TOBarrierEnergy01__sub_80158298(void *);
+M2C_UNK TODragonfly__sub_8016492C(void *);
+M2C_UNK TODragonfly__sub_80164990(void *);
+M2C_UNK TODragonfly__sub_80164A90(void *);
+M2C_UNK TODragonfly__sub_80164B34(void *);
+f32 TBoss8Dragon__sub_803D64C0(s32);
 
 }
 
@@ -26,29 +26,29 @@ struct DfV : DfBase {
 
 extern "C" {
 
-void fn_80164CC4(void *arg0) {
+void TODragonfly__sub_80164CC4(void *arg0) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) + M2C_FIELD(arg0, s32 *, 0xF8));
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0xFC)));
-    if (fn_80080750() == 1) {
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xFC)));
+    if (TObjPlayer__sub_80080750() == 1) {
         ((DfV *)arg0)->vf12();
         return;
     }
-    fn_80158298(arg0);
+    TOBarrierEnergy01__sub_80158298(arg0);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
     switch (temp_r0) {
     case 0:
-        fn_80164B34(arg0);
+        TODragonfly__sub_80164B34(arg0);
         return;
     case 1:
-        fn_80164A90(arg0);
+        TODragonfly__sub_80164A90(arg0);
         return;
     case 2:
-        fn_80164990(arg0);
+        TODragonfly__sub_80164990(arg0);
         return;
     case 3:
-        fn_8016492C(arg0);
+        TODragonfly__sub_8016492C(arg0);
         return;
     }
 }

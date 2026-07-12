@@ -38,7 +38,7 @@ struct VObj_800B2BAC : Base_800B2BAC {
     virtual void m93();
 };
 
-void fn_800B2BAC(void *arg0, s32 arg1) {
+void TObjEneBm3FlyNest__sub_800B2BAC(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((struct VObj_800B2BAC *) arg0)->m93();

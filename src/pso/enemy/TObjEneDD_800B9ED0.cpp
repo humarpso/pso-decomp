@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int fn_800F7478(void*);
+int TObjPlayer__sub_800F7478(void*);
 void reset_hp__9TObjEneDDFPv(void* p);
 int TObjEneDD__sub_800B9E44(void* p);
 int TObjEneDD__sub_800B9E64(void* p);
@@ -15,7 +15,7 @@ int TObjEneLappy__sub_800F5DE0(void*);
 int TObjLight__sub_80134098(void*);
 int TObjLight__sub_80134194(void*);
 
-void reset_hp__9TObjEneDDFPv(void* p) { fn_800F7478(p); *(short*)((char*)p + 0x33e) = *(short*)((char*)p + 0x32c); }
+void reset_hp__9TObjEneDDFPv(void* p) { TObjPlayer__sub_800F7478(p); *(short*)((char*)p + 0x33e) = *(short*)((char*)p + 0x32c); }
 int TObjEneDD__sub_800B9F04(void* p) { return TCameraCtrl__sub_80069148(p); }
 int TObjEneDD__sub_800B9F24(void* p) { return TCameraCtrl__sub_800691C8(p); }
 int TObjEneDD__sub_800B9F44(void* p) { return TObjEneLappy__sub_800F5DE0(p); }

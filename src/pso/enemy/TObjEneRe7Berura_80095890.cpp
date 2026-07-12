@@ -7,7 +7,7 @@ extern "C" {
 void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2);
 void TObjEneRe7Berura__sub_80095328(void *);
 void TObjEneRe7Berura__sub_800955E0(void *);
-void fn_800A0610(void *);
+void TObjPlayer__sub_800A0610(void *);
 void init_object__9TObjEneDDFPv(void *);
 void TObjEneDD__sub_800BB8E0(void *, void *);
 
@@ -20,8 +20,8 @@ extern void *lbl_805D2988;
 void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
     init_object__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjEneRe7Berura;
-    fn_800A0610((void *)((char *)arg0 + 984));
-    fn_800A0610((void *)((char *)arg0 + 1020));
+    TObjPlayer__sub_800A0610((void *)((char *)arg0 + 984));
+    TObjPlayer__sub_800A0610((void *)((char *)arg0 + 1020));
     __construct_array((void *)((char *)arg0 + 1096), fn_800D7CB0, fn_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2988;
     TObjEneDD__sub_800BB8E0(arg0, arg2);

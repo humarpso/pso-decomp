@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_state_3__22THunterGuildSeqOfflineFv(void);
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 
 struct Base_80212644 { char pad[0x18]; };
 struct VObj_80212644 : Base_80212644 {
@@ -26,7 +26,7 @@ void set_state_3__22THunterGuildSeqOfflineFv(void) {
     if (THunterGuildSeqOffline__data_805D6188 != NULL) {
         THunterGuildSeqOffline__data_805D6188->m7(6, 1);
         M2C_FIELD(THunterGuildSeqOffline__data_805D6188, s32 *, 0x38) = 3;
-        fn_80073DC4(THunterGuildSeqOffline__data_805D6188, 5);
+        TQuestListVM__sub_80073DC4(THunterGuildSeqOffline__data_805D6188, 5);
     }
 }
 

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TWindowSubStatusDisp__sub_80077760(s32);
-s8 fn_8013AD64();
+s8 TLobby__sub_8013AD64();
 void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 int fn_80264A6C(void* p);
@@ -20,7 +20,7 @@ void TWindowMakeTeam__sub_80264AB8(s8 arg0) {
     TWindowSubStatusDisp__sub_80077760(arg0 + 0x110);
 }
 u8 is_enabled__15TWindowMakeTeamFPv(void *arg0) {
-    if (fn_8013AD64() == 1) {
+    if (TLobby__sub_8013AD64() == 1) {
         return 0U;
     }
     return M2C_FIELD(arg0, u8 *, 0x1F);

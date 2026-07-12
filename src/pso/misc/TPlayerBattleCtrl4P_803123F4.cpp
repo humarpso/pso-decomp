@@ -6,11 +6,11 @@ extern "C" {
 
 void TPlayerBattleCtrl4P__vt7(void *arg0);
 void TPlayerBattleCtrl4P__sub_803112A4(void *, int);
-void fn_80269C6C(void *, void *, int);
+void TLobby__sub_80269C6C(void *, void *, int);
 
 void TPlayerBattleCtrl4P__vt7(void *arg0) {
     if (M2C_FIELD(arg0, void **, 0x20) != NULL) {
-        fn_80269C6C(M2C_FIELD(arg0, void **, 0x20), (void *)((char *)arg0 + 56), 128);
+        TLobby__sub_80269C6C(M2C_FIELD(arg0, void **, 0x20), (void *)((char *)arg0 + 56), 128);
     }
     M2C_FIELD(arg0, u32 *, 0x240) = 240;
     TPlayerBattleCtrl4P__sub_803112A4(arg0, 2);

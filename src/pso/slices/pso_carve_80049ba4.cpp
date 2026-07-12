@@ -6,24 +6,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK fn_803DA798(s32);
-M2C_UNK fn_803E46BC(s32);
+M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK TObjFish__sub_803E46BC(s32);
 extern s32 some_id_805c6f74;
 
 void fn_80049BA4(u8 *arg0) {
-    fn_803DA798(M2C_FIELD(arg0, s32 *, 0xB0));
-    fn_803D9B2C();
+    TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xB0));
+    TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
     TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
-    fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
     some_id_805c6f74 &= 0xFFFFFBFF;
-    fn_803E46BC(M2C_FIELD(arg0, s32 *, 0xAC));
-    fn_803D9B78();
+    TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0xAC));
+    TObjPlayer__sub_803D9B78();
 }
 
 }

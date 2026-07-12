@@ -14,7 +14,7 @@ void add_lck__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void add_mst__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void add_stat__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s16 add_stat_clamped__10TObjPlayerFiPvs(s32 arg0, s16 *arg1, s16 arg2);
-s16 *fn_801D93C4();
+s16 *TObjPlayer__sub_801D93C4();
 
 s16 add_stat_clamped__10TObjPlayerFiPvs(s32 arg0, s16 *arg1, s16 arg2) {
     s16 temp_r3;
@@ -35,31 +35,31 @@ s16 add_stat_clamped__10TObjPlayerFiPvs(s32 arg0, s16 *arg1, s16 arg2) {
 }
 
 void add_lck__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 0xC), M2C_FIELD(fn_801D93C4(), s16 *, 0xC));
+    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 0xC), M2C_FIELD(TObjPlayer__sub_801D93C4(), s16 *, 0xC));
 }
 
 void add_evp__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 4), M2C_FIELD(fn_801D93C4(), s16 *, 4));
+    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 4), M2C_FIELD(TObjPlayer__sub_801D93C4(), s16 *, 4));
 }
 
 void add_ata__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 0xA), M2C_FIELD(fn_801D93C4(), s16 *, 0xA));
+    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 0xA), M2C_FIELD(TObjPlayer__sub_801D93C4(), s16 *, 0xA));
 }
 
 void add_mst__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 2), M2C_FIELD(fn_801D93C4(), s16 *, 2));
+    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 2), M2C_FIELD(TObjPlayer__sub_801D93C4(), s16 *, 2));
 }
 
 void add_hp__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 6), M2C_FIELD(fn_801D93C4(), s16 *, 6));
+    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 6), M2C_FIELD(TObjPlayer__sub_801D93C4(), s16 *, 6));
 }
 
 void add_dfp__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 8), M2C_FIELD(fn_801D93C4(), s16 *, 8));
+    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0) + 8), M2C_FIELD(TObjPlayer__sub_801D93C4(), s16 *, 8));
 }
 
 void add_stat__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0)), *fn_801D93C4());
+    add_stat_clamped__10TObjPlayerFiPvs(arg1, (s16 *)(M2C_FIELD(arg0, s32 *, 0x2B0)), *TObjPlayer__sub_801D93C4());
 }
 
 }

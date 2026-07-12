@@ -12,15 +12,15 @@ M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TQuestThread__sub_801F64BC(u32);
 M2C_UNK __ct__7TObjectFP7TObject();
 u32 __nw__7TObjectFUl(M2C_UNK);
-s32 fn_8006EF6C(M2C_UNK);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 M2C_UNK fn_80131ADC(u32, s32);
 M2C_UNK fn_80131B18(u32, s32);
 M2C_UNK fn_80131B54(u32, s32);
-M2C_UNK fn_80265C30(u32);
-M2C_UNK fn_80265DEC(u32, f32, f32);
-u32 fn_80266508(s32, s32);
+M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK TWindowSubComCard__sub_80265DEC(u32, f32, f32);
+u32 TAdChrSelASlotGC__sub_80266508(s32, s32);
 s32 fn_8026CB5C();
-s32 fn_8026CBB8(M2C_UNK);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 extern M2C_UNK __vt__17TObjItemNameEntry[];
 extern s32 lbl_805D35D8;
@@ -39,16 +39,16 @@ void *TObjItemNameEntry__ct(void *arg0) {
     }
     M2C_FIELD(arg0, u32 *, 0x1C) = var_r0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
-        fn_80131B54(M2C_FIELD(arg0, u32 *, 0x1C), fn_8026CBB8(0xBF));
-        fn_80131ADC(M2C_FIELD(arg0, u32 *, 0x1C), fn_8026CBB8(0xC0));
+        fn_80131B54(M2C_FIELD(arg0, u32 *, 0x1C), TWindowSubComCard__sub_8026CBB8(0xBF));
+        fn_80131ADC(M2C_FIELD(arg0, u32 *, 0x1C), TWindowSubComCard__sub_8026CBB8(0xC0));
         fn_80131B18(M2C_FIELD(arg0, u32 *, 0x1C), fn_8026CB5C());
     }
-    M2C_FIELD(arg0, u32 *, 0x20) = fn_80266508(fn_8026CBB8(0x56), 1);
+    M2C_FIELD(arg0, u32 *, 0x20) = TAdChrSelASlotGC__sub_80266508(TWindowSubComCard__sub_8026CBB8(0x56), 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
-        TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x20), fn_8006EF6C(0x47), 0x81, 0);
+        TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x20), TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
     }
-    fn_80265DEC(M2C_FIELD(arg0, u32 *, 0x20), lbl_805DC4EC, lbl_805DC4F0);
-    fn_80265C30(M2C_FIELD(arg0, u32 *, 0x20));
+    TWindowSubComCard__sub_80265DEC(M2C_FIELD(arg0, u32 *, 0x20), lbl_805DC4EC, lbl_805DC4F0);
+    TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0x20));
     TQuestThread__sub_801F64BC(M2C_FIELD(arg0, u32 *, 0x20));
     return arg0;
 }

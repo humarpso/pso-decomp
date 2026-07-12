@@ -9,8 +9,8 @@ extern "C" {
 void TAdSinglePlyChrSelectGC__sub_8028FF04(void);
 void TAdSinglePlyChrSelectGC__sub_8028FF30(void* p);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028FD90();
-int fn_80142F9C(void*);
-int fn_8014394C(void*);
+int TObjPlayer__sub_80142F9C(void*);
+int TObjPlayer__sub_8014394C(void*);
 
 extern s32 lbl_805D6530;
 
@@ -20,6 +20,6 @@ void TAdSinglePlyChrSelectGC__sub_8028FF04(void) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_8028FF30(void* p) { fn_8014394C(p); fn_80142F9C(p); }
+void TAdSinglePlyChrSelectGC__sub_8028FF30(void* p) { TObjPlayer__sub_8014394C(p); TObjPlayer__sub_80142F9C(p); }
 
 }

@@ -25,12 +25,12 @@ struct VObj : Base {
 
 extern "C" {
 
-M2C_UNK fn_8003FCD0(void *);
-s32 fn_8003FD90(void *);
-s32 fn_80040AE4(M2C_UNK);
-s32 fn_80141F84(s32, s32);
+M2C_UNK TObjPlayer__sub_8003FCD0(void *);
+s32 TObjPlayer__sub_8003FD90(void *);
+s32 TObjPlayer__sub_80040AE4(M2C_UNK);
+s32 TObjPlayer__sub_80141F84(s32, s32);
 s32 fn_801423A4(s32, s32, s32);
-M2C_UNK fn_80143504(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D4C14;
@@ -47,7 +47,7 @@ void fn_8003F510(u8 *arg0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x10000);
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        if (fn_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
+        if (TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         } else {
             M2C_FIELD(arg0, s32 *, 0x37C) = 1;
@@ -62,23 +62,23 @@ void fn_8003F510(u8 *arg0) {
         break;
     case 2:
         M2C_FIELD(arg0, s32 *, 0x60) = fn_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000, lbl_805D4C68);
-        if (fn_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
+        if (TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }
         break;
     case 3:
         TOTrapAncient01__sub_80226578(0x4003BC05, arg0, arg0 + 0x38, 0, 0);
-        fn_80143504(arg0);
-        M2C_FIELD(arg0, s32 *, 0x390) = (s32) (M2C_FIELD(arg0, s32 *, 0x390) - fn_80040AE4(0));
-        M2C_FIELD(arg0, s32 *, 0x394) = (s32) (M2C_FIELD(arg0, s32 *, 0x394) - fn_80040AE4(0));
-        fn_8003FCD0(arg0);
-        M2C_FIELD(arg0, s32 *, 0x398) = fn_8003FD90(arg0);
+        TBoss1Dragon__sub_80143504(arg0);
+        M2C_FIELD(arg0, s32 *, 0x390) = (s32) (M2C_FIELD(arg0, s32 *, 0x390) - TObjPlayer__sub_80040AE4(0));
+        M2C_FIELD(arg0, s32 *, 0x394) = (s32) (M2C_FIELD(arg0, s32 *, 0x394) - TObjPlayer__sub_80040AE4(0));
+        TObjPlayer__sub_8003FCD0(arg0);
+        M2C_FIELD(arg0, s32 *, 0x398) = TObjPlayer__sub_8003FD90(arg0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x394) <= -0x238E) {
             ((VObj*)arg0)->m56();
         }
         break;
     }
-    fn_80143504(arg0);
+    TBoss1Dragon__sub_80143504(arg0);
     if ((s32) lbl_805D4C14 >= 0) {
         minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     }

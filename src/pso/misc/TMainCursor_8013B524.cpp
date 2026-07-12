@@ -6,7 +6,7 @@ extern "C" {
 
 void update_chair__11TMainCursorFPv(void *arg0);
 void TMainCursor__sub_8013E2DC(void);
-void fn_803E46BC(void);
+void TObjFish__sub_803E46BC(void);
 void play_sound__15TPlyPhotonChairFPv(void *);
 void update_parts2__15TPlyPhotonChairFPv(void *);
 void update_parts__15TPlyPhotonChairFPv(void *);
@@ -18,7 +18,7 @@ void update_chair__11TMainCursorFPv(void *arg0) {
     update_parts2__15TPlyPhotonChairFPv(self->f_4C);
     play_sound__15TPlyPhotonChairFPv(self->f_4C);
     TMainCursor__sub_8013E2DC();
-    fn_803E46BC();
+    TObjFish__sub_803E46BC();
     update_parts__15TPlyPhotonChairFPv(self->f_4C);
 }
 

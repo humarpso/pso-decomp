@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_80123E2C(void *arg0) {
+void TObjPlayer__sub_80123E2C(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x1FE);
@@ -15,7 +15,7 @@ void fn_80123E2C(void *arg0) {
     }
 }
 
-void fn_80123E4C(void *arg0) {
+void TObjPlayer__sub_80123E4C(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x1FE);

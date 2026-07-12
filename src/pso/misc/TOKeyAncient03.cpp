@@ -9,16 +9,16 @@ extern "C" {
 void TOKeyAncient03__vt16(s32 arg0);
 void TOKeyAncient03__vt17(s32 arg0);
 
-M2C_UNK fn_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
 void TOKeyAncient03__vt17(s32 arg0) {
-    fn_8022675C(0x4004B20D, arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x4004B20D, arg0 + 0x38, 0, 0);
 }
 
-M2C_UNK fn_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
 void TOKeyAncient03__vt16(s32 arg0) {
-    fn_8022675C(0x4004B20D, arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x4004B20D, arg0 + 0x38, 0, 0);
 }
 
 }

@@ -8,14 +8,14 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 fn_8028C938();
-M2C_UNK fn_8028C9B0(void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8028C9B0(void *);
 M2C_UNK fn_8028CEEC(void *, s32 *);
 
 void fn_8028CFE8(void *arg0) {
     s32 *temp_r4;
 
     if (fn_8028C938() != 0) {
-        fn_8028C9B0(arg0);
+        TAdSinglePlyChrSelectGC__sub_8028C9B0(arg0);
         temp_r4 = M2C_FIELD(arg0, s32 **, 0x3C);
         *temp_r4 &= 0xFFFFFF7F;
         fn_8028CEEC(arg0, temp_r4);

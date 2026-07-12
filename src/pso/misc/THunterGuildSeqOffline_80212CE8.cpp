@@ -25,7 +25,7 @@ void handle_window_input__22THunterGuildSeqOfflineFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 
 void handle_window_input__22THunterGuildSeqOfflineFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x34);
@@ -40,7 +40,7 @@ block_3:
         if ((((V_A *) arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
             ((V_A *) arg0)->m7(0xC, 1);
             M2C_FIELD(arg0, s32 *, 0x38) = 1;
-            fn_80073DC4(arg0, 5);
+            TQuestListVM__sub_80073DC4(arg0, 5);
         }
     }
 }

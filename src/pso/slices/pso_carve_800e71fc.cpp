@@ -17,7 +17,7 @@ struct E71FCObj : E71FCBase {
     virtual void m6();
 };
 
-s32 fn_800E71FC(u8 *arg0) {
+s32 TObjEneMe3Shinowa__sub_800E71FC(u8 *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

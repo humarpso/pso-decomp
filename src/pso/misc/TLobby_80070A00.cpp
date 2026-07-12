@@ -8,7 +8,7 @@ extern "C" {
 
 void init_on_main_phase__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80074C20();
-M2C_UNK fn_8006F848(M2C_UNK *);
+M2C_UNK TLobby__sub_8006F848(M2C_UNK *);
 u32 fn_800709C4();
 M2C_UNK TObjTombstone__sub_800765B4();
 
@@ -30,7 +30,7 @@ void init_on_main_phase__6TLobbyFv(void) {
             lbl_805D4E28 = fn_800709C4();
             lbl_805D4E2C = 1;
             TObjTombstone__sub_800765B4();
-            fn_8006F848(lbl_804385B0);
+            TLobby__sub_8006F848(lbl_804385B0);
         }
     }
 }

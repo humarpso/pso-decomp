@@ -8,12 +8,12 @@ extern "C" {
 
 void update_photon_chair__10TObjPlayerFi(s32 arg0);
 M2C_UNK set_flag_400000__10TObjPlayerFPv(s32);
-M2C_UNK fn_801C5AB8(s32);
+M2C_UNK TObjPlayer__sub_801C5AB8(s32);
 
 s32 obj_isState2_324(s32);
 
 void update_photon_chair__10TObjPlayerFi(s32 arg0) {
-    fn_801C5AB8(arg0 + 0x634);
+    TObjPlayer__sub_801C5AB8(arg0 + 0x634);
     if (obj_isState2_324(arg0) != 0) {
         set_flag_400000__10TObjPlayerFPv(arg0);
     }

@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80099EF8();
-u32 fn_8010147C(s32, M2C_UNK, M2C_UNK);
-s32 fn_801019B8(s32, void *, M2C_UNK *);
-s32 fn_80101AB0(s32);
-u32 fn_80102BE0(s32, M2C_UNK);
+s32 TObjPlayer__sub_80099EF8();
+u32 TItem__sub_8010147C(s32, M2C_UNK, M2C_UNK);
+s32 TObjPlayer__sub_801019B8(s32, void *, M2C_UNK *);
+s32 TLobby__sub_80101AB0(s32);
+u32 TObjPlayer__sub_80102BE0(s32, M2C_UNK);
 u8 TOSwitchItem__sub_80102C44();
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(s16);
-s32 fn_801C675C(void *, M2C_UNK);
+s32 TObjPlayer__sub_801C675C(void *, M2C_UNK);
 u32 fn_801D4890(s32, M2C_UNK *);
-M2C_UNK fn_80266E34(void *);
+M2C_UNK TLobby__sub_80266E34(void *);
 M2C_UNK fn_80266FCC(void *, M2C_UNK);
 M2C_UNK fn_80267580(void *, s32, s32);
 
@@ -33,20 +33,20 @@ void fn_80278AB4(u8 *arg0) {
     if (temp_r3 != NULL) {
         temp_r30 = fn_801D4890(M2C_FIELD(temp_r3, s32 *, 0xD00), spC);
         for (i = 0; i < temp_r30; i++) {
-            temp_r3_2 = fn_80101AB0(spC[i]);
-            if ((temp_r3_2 != 0) && (TOSwitchItem__sub_80102C44() == 0) && (fn_801019B8(temp_r3_2, temp_r3, &sp8) != 0) && (fn_80102BE0(temp_r3_2, 8) == 0U) && (fn_8010147C(temp_r3_2, 8, 0) != 0U)) {
+            temp_r3_2 = TLobby__sub_80101AB0(spC[i]);
+            if ((temp_r3_2 != 0) && (TOSwitchItem__sub_80102C44() == 0) && (TObjPlayer__sub_801019B8(temp_r3_2, temp_r3, &sp8) != 0) && (TObjPlayer__sub_80102BE0(temp_r3_2, 8) == 0U) && (TItem__sub_8010147C(temp_r3_2, 8, 0) != 0U)) {
                 fn_80267580(arg0, temp_r3_2, spC[i]);
             }
         }
-        temp_r3_3 = fn_801C675C(temp_r3 + 0xD04, 6);
+        temp_r3_3 = TObjPlayer__sub_801C675C(temp_r3 + 0xD04, 6);
         if (temp_r3_3 != 0) {
-            temp_r5 = fn_80099EF8();
+            temp_r5 = TObjPlayer__sub_80099EF8();
             fn_80267580(arg0, temp_r3_3, temp_r5);
         }
         if (M2C_FIELD(arg0, s16 *, 0x72) <= 0) {
             fn_80266FCC(arg0, -1);
         }
-        fn_80266E34(arg0);
+        TLobby__sub_80266E34(arg0);
     }
 }
 

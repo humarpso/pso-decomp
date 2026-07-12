@@ -8,7 +8,7 @@ extern "C" {
 
 void init_depth__15TObjEneDelDepthFPv(void *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK fn_80316488(s32, M2C_UNK);
+M2C_UNK TObjEneDelDepth__sub_80316488(s32, M2C_UNK);
 M2C_UNK set_depth_offset__15TObjEneDelDepthFPvii(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_draw_mode__15TObjEneDelDepthFPvi(void *, M2C_UNK);
 
@@ -20,7 +20,7 @@ void init_depth__15TObjEneDelDepthFPv(void *arg0) {
     if (calc_boss4_scale__10TObjPlayerFi(arg0) > TObjEneDelDepth__data_805DF298) {
         M2C_FIELD(arg0, s32 *, 0x3BC) = M2C_FIELD(arg0, s32 *, 0x3BC) * 0xFFFFFFFF;
     }
-    fn_80316488(M2C_FIELD(arg0, s32 *, 0x37C), 0);
+    TObjEneDelDepth__sub_80316488(M2C_FIELD(arg0, s32 *, 0x37C), 0);
     set_draw_mode__15TObjEneDelDepthFPvi(arg0, 2);
 }
 

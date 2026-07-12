@@ -10,9 +10,9 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
-s32 fn_800D7310(void *, f32);
-M2C_UNK fn_80143504();
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK, s32);
+s32 TObjEneMe3SinowZoa__sub_800D7310(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
 
 s32 is_split_screen();
@@ -64,7 +64,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         temp_r7 = M2C_FIELD(arg0, s32 *, 0x3CC) | 1;
         M2C_FIELD(arg0, s32 *, 0x3CC) = temp_r7;
         M2C_FIELD(arg0, s32 *, 0x424) = 0;
-        fn_8022675C(0x3B23B, arg0 + 0x38, 0, 0, temp_r7);
+        TBoss3Volopt__sub_8022675C(0x3B23B, arg0 + 0x38, 0, 0, temp_r7);
         return;
     case 3:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x424) == 3) {
@@ -75,7 +75,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         }
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         if (TObjEneMe3ShinowaReal__sub_8002ADD8(arg0) != 0) {
             M2C_FIELD(arg0, s32 *, 0x424) = 3;
         } else if (is_split_screen() != 0) {
@@ -89,7 +89,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 }
                 break;
             case 1:
-                if (fn_800D7310(arg0 + 0x404, lbl_805DA830) != 0) {
+                if (TObjEneMe3SinowZoa__sub_800D7310(arg0 + 0x404, lbl_805DA830) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFF7);
                     M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
                     M2C_FIELD(arg0, s32 *, 0x424) = 2;

@@ -8,21 +8,21 @@ extern "C" {
 
 s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1);
 u8 TOSwitchItem__sub_80102C44();
-s32 fn_801B0EE8();
-u32 fn_801D4F14(s32, s32);
-u32 fn_801D5764();
+s32 TTecCtrl__sub_801B0EE8();
+u32 TObjPlayer__sub_801D4F14(s32, s32);
+u32 TObjPlayer__sub_801D5764();
 u8 fn_801D719C(M2C_UNK *);
 u8 fn_801D71D0(M2C_UNK *);
 
 extern M2C_UNK lbl_8050EA40[];
 
 s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1) {
-    if (fn_801B0EE8() != 0) {
+    if (TTecCtrl__sub_801B0EE8() != 0) {
         if (fn_801D71D0(lbl_8050EA40) == 2) {
-            if (fn_801D4F14(M2C_FIELD(arg0, s32 *, 0xD00), arg1) == 0U) {
+            if (TObjPlayer__sub_801D4F14(M2C_FIELD(arg0, s32 *, 0xD00), arg1) == 0U) {
                 return 0;
             }
-            if (fn_801D5764() == 0U) {
+            if (TObjPlayer__sub_801D5764() == 0U) {
                 return 0;
             }
             if (TOSwitchItem__sub_80102C44() == 0) {
@@ -32,10 +32,10 @@ s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1) {
         }
 block_8:
         if (fn_801D719C(lbl_8050EA40) == 1) {
-            if (fn_801D4F14(M2C_FIELD(arg0, s32 *, 0xD00), arg1) == 0U) {
+            if (TObjPlayer__sub_801D4F14(M2C_FIELD(arg0, s32 *, 0xD00), arg1) == 0U) {
                 return 0;
             }
-            if (fn_801D5764() == 0U) {
+            if (TObjPlayer__sub_801D5764() == 0U) {
                 return 0;
             }
             if (TOSwitchItem__sub_80102C44() == 2) {

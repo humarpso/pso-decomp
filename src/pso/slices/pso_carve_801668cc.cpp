@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80080750();
+s32 TObjPlayer__sub_80080750();
 M2C_UNK fn_80166778(void *);
 M2C_UNK fn_80166814(void *);
 extern const f32 lbl_805DB608;
@@ -31,7 +31,7 @@ void fn_801668CC(void *arg0) {
     f32 temp_f1;
     s32 temp_r0;
 
-    if (fn_80080750() == 1) {
+    if (TObjPlayer__sub_80080750() == 1) {
         ((V_A *)arg0)->m14();
         return;
     }

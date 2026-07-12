@@ -120,8 +120,8 @@ M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
-M2C_UNK fn_8009E6B0(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 
@@ -143,12 +143,12 @@ void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1) {
     case 5:
         break;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
         update_move__17TObjEneMe1CanadinFPv(arg0);
         TObjEneMe1Canadin__sub_8009EABC(arg0);
         ((V_A *) arg0)->m87();
-        fn_8009E6B0(arg0);
+        TObjEneMe1Canadin__sub_8009E6B0(arg0);
         break;
     }
 }

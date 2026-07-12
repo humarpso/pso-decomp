@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_80226098();
 M2C_UNK fn_802260C4();
-s32 fn_80226328(void);
+s32 TLobby__sub_80226328(void);
 extern s32 lbl_805D627C;
 extern s32 lbl_805D6290;
 extern s32 lbl_805D62A4;
@@ -16,7 +16,7 @@ extern s32 lbl_805D62A4;
 void fn_802260F0(void) {
     lbl_805D627C = -0x50;
     lbl_805D62A4 = -0x5A;
-    if (fn_80226328() == 1) {
+    if (TLobby__sub_80226328() == 1) {
         lbl_805D627C -= 0x32;
     }
     lbl_805D6290 = -0xA;

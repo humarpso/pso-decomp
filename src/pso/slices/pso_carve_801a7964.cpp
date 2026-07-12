@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK allow_rendering__7TObjectFv(void *);
-M2C_UNK fn_800D8A6C();
+M2C_UNK TObjPlayer__sub_800D8A6C();
 M2C_UNK fn_801A7918(void *);
 M2C_UNK update__10TSceneSoraFv(void *);
 M2C_UNK fn_801A7AF0();
@@ -18,7 +18,7 @@ void fn_801A7964(void *arg0) {
         fn_801A7AF0();
         update__10TSceneSoraFv(arg0);
         fn_801A7918(arg0);
-        fn_800D8A6C();
+        TObjPlayer__sub_800D8A6C();
     }
     if (tl_05 != 0) {
         allow_rendering__7TObjectFv(tl_05);

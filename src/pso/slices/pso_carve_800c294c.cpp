@@ -50,9 +50,9 @@ M2C_UNK fn_800C3A5C(void *, s32);
 M2C_UNK fn_800C3A60(void *, M2C_UNK);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 s32 objInBand__FP7GameObjf(f32);
-M2C_UNK fn_80143504();
-M2C_UNK fn_8022602C(M2C_UNK);
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK TObjPlayer__sub_8022602C(M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D9FC0;
 
 void fn_800C294C(u8 *arg0, s32 arg1) {
@@ -66,8 +66,8 @@ void fn_800C294C(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
         TObjEneDD__sub_800BBA04(arg0, 3);
         M2C_FIELD(arg0, s32 *, 0x410) = 0;
-        fn_8022675C(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
-        fn_8022602C(-0x200);
+        TBoss3Volopt__sub_8022675C(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
+        TObjPlayer__sub_8022602C(-0x200);
         return;
     case 3:
         if (objInBand__FP7GameObjf(M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805D9FC0) != 0) {
@@ -77,7 +77,7 @@ void fn_800C294C(u8 *arg0, s32 arg1) {
         ((V_A *) arg0)->m86();
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x410);
         M2C_FIELD(arg0, s32 *, 0x410) = (s32) (temp_r4 + 1);
         fn_800C3A5C(arg0, temp_r4);

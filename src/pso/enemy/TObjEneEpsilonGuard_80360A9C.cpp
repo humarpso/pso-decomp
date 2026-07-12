@@ -110,8 +110,8 @@ void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK set_guard_state__19TObjEneEpsilonGuardFPv(void *, s32);
-M2C_UNK fn_800BB780();
-M2C_UNK fn_80143504();
+M2C_UNK TBoss8Dragon__sub_800BB780();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
@@ -134,7 +134,7 @@ void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         }
         break;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4E4);
         switch (temp_r0) {
         case 0:
@@ -159,7 +159,7 @@ void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         ((F_V *) arg0)->m87();
         return;
     case 5:
-        fn_800BB780();
+        TBoss8Dragon__sub_800BB780();
         break;
     }
 }

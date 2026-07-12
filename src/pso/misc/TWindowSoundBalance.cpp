@@ -8,8 +8,8 @@ extern "C" {
 
 void render__19TWindowSoundBalanceFv(s32 arg0);
 M2C_UNK apply_balance__19TWindowSoundBalanceFPvPv(s32, void *, f32, f32);
-void *fn_80244CF4();
-M2C_UNK fn_80245F98(s32, void *);
+void *TWindowDD__sub_80244CF4();
+M2C_UNK TWindowSubComCard__sub_80245F98(s32, void *);
 M2C_UNK fn_80257BC0(s32, s32, void *);
 
 extern const f32 lbl_805DD40C;
@@ -20,8 +20,8 @@ void render__19TWindowSoundBalanceFv(s32 arg0) {
     f32 temp_f2;
     void *temp_r3;
 
-    temp_r3 = fn_80244CF4();
-    fn_80245F98(arg0, temp_r3);
+    temp_r3 = TWindowDD__sub_80244CF4();
+    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
     fn_80257BC0(arg0, arg0 + 0x24, temp_r3);
     temp_f2 = M2C_FIELD(temp_r3, f32 *, 0x10);
     M2C_FIELD(temp_r3, f32 *, 0x10) = (f32) (temp_f2 + lbl_805DD40C);

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void fn_800E71A8(void);
+void TObjEneMe3Shinowa__sub_800E71A8(void);
 
-void fn_800E71A8(void) {  }
+void TObjEneMe3Shinowa__sub_800E71A8(void) {  }
 
 }

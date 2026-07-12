@@ -8,12 +8,12 @@ extern "C" {
 
 void init_and_press_b__17TWindowSubComCardFi(s32 arg0);
 M2C_UNK handle_press_b__17TWindowSubComCardFii(M2C_UNK *, s32);
-M2C_UNK fn_8007AB54(M2C_UNK *);
+M2C_UNK TWindowSubComCard__sub_8007AB54(M2C_UNK *);
 
 void init_and_press_b__17TWindowSubComCardFi(s32 arg0) {
     u8 sp8[0x84];
 
-    fn_8007AB54((M2C_UNK *) sp8);
+    TWindowSubComCard__sub_8007AB54((M2C_UNK *) sp8);
     handle_press_b__17TWindowSubComCardFii((M2C_UNK *) sp8, arg0);
 }
 

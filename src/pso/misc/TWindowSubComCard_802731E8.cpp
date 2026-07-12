@@ -10,11 +10,11 @@ s32 open_menu__17TWindowSubComCardFv(void);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
-M2C_UNK fn_80265C30(s32);
-M2C_UNK fn_80265E60(s32, f32);
-M2C_UNK fn_802661D4(s32, s32, M2C_UNK, M2C_UNK);
-s32 fn_8026659C(s32, M2C_UNK, s32);
-M2C_UNK fn_8026CBB8(M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK TWindowSubComCard__sub_802661D4(s32, s32, M2C_UNK, M2C_UNK);
+s32 TWindowSubComCard__sub_8026659C(s32, M2C_UNK, s32);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 s32 get_main_phase();
 extern const f32 lbl_805DD510;
@@ -22,19 +22,19 @@ extern const f32 lbl_805DD510;
 s32 open_menu__17TWindowSubComCardFv(void) {
     s32 temp_r31;
 
-    temp_r31 = fn_8026659C(fn_8026CBB8(0x87), 5, TWindowSubStatusDisp__sub_80077760(0x1D));
+    temp_r31 = TWindowSubComCard__sub_8026659C(TWindowSubComCard__sub_8026CBB8(0x87), 5, TWindowSubStatusDisp__sub_80077760(0x1D));
     if (get_main_phase() == 0xF) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x59), 6, 0xF);
     } else {
-        fn_802661D4(temp_r31, TWindowSubStatusDisp__sub_80077760(0x59), 6, 0xF);
+        TWindowSubComCard__sub_802661D4(temp_r31, TWindowSubStatusDisp__sub_80077760(0x59), 6, 0xF);
     }
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x101), 6, 0x11);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x102), 6, 0x13);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x63), 6, 0x1B);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x5A), 6, 0x15);
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
-    fn_80265E60(temp_r31, lbl_805DD510);
-    fn_80265C30(temp_r31);
+    TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD510);
+    TWindowSubComCard__sub_80265C30(temp_r31);
     return temp_r31;
 }
 

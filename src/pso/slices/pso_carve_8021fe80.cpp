@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
 
@@ -19,10 +19,10 @@ struct VObj_8021FE80 : Base_8021FE80 {
     virtual void m4(int, int);
 };
 
-void fn_8021FE80(void *arg0) {
+void TShopItemTecSequence__sub_8021FE80(void *arg0) {
     if (arg0 != NULL) {
         ((VObj_8021FE80 *)arg0)->m4(0x1B, 1);
-        fn_80073DC4(arg0, 6);
+        TQuestListVM__sub_80073DC4(arg0, 6);
         lbl_805D6248 = 0x1A;
         lbl_805D624C = 2;
     }

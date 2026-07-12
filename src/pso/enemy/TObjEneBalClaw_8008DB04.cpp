@@ -7,14 +7,14 @@ extern "C" {
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
-void fn_800A05B8(void *, int);
+void TObjPlayer__sub_800A05B8(void *, int);
 
 extern M2C_UNK __vt__14TObjEneBalClaw[];
 
 void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjEneBalClaw;
-        fn_800A05B8((s8 *)arg0 + 0x390, -1);
+        TObjPlayer__sub_800A05B8((s8 *)arg0 + 0x390, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

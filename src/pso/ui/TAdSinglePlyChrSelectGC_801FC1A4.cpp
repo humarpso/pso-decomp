@@ -9,7 +9,7 @@ extern "C" {
 u8 TAdSinglePlyChrSelectGC__sub_801FC1A4(void *arg0);
 s32 find_entry__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 fn_801049C8(s32, s32);
-s32 fn_80211574(s32);
+s32 TCheckRoomSequence__sub_80211574(s32);
 
 u8 TAdSinglePlyChrSelectGC__sub_801FC1A4(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x248) >= 0xC8);
@@ -22,7 +22,7 @@ s32 find_entry__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     var_r31 = arg0 + 0x250;
     var_r30 = 0;
 loop_1:
-    if ((fn_80211574(var_r31) == 0) && (fn_801049C8(arg1, var_r31) != 0)) {
+    if ((TCheckRoomSequence__sub_80211574(var_r31) == 0) && (fn_801049C8(arg1, var_r31) != 0)) {
         return 1;
     }
     var_r30 += 1;

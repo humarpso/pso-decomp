@@ -13,12 +13,12 @@ M2C_UNK fn_80105984(M2C_UNK *);
 M2C_UNK TItemData__sub_8010D614(s32, M2C_UNK *);
 s32 fn_801143E8(M2C_UNK *, s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
-s32 fn_80266E0C(s32);
+s32 TLobby__sub_80266E0C(s32);
 
 void update_displayed_item__13TWindowSubMagFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = fn_80266E0C(M2C_FIELD(arg0, s32 *, 0x34));
+    temp_r3 = TLobby__sub_80266E0C(M2C_FIELD(arg0, s32 *, 0x34));
     if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x24)) {
         M2C_FIELD(arg0, s32 *, 0x24) = temp_r3;
         TWindowHelpItem__set_displayed_item_by_id(M2C_FIELD(arg0, s32 *, 0x40), temp_r3);

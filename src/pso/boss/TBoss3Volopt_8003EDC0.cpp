@@ -11,7 +11,7 @@ M2C_UNK destroy__20TBoss3VoloptHiraisinFv();
 M2C_UNK release__19TBoss3VoloptMonitorFv();
 M2C_UNK destroy__15TBoss3VoloptP01Fv();
 M2C_UNK destroy__14TObjVoloptCageFv();
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK fn_80040788();
 M2C_UNK TBoss3Volopt__sub_800479D0();
 
@@ -20,7 +20,7 @@ extern u32 lbl_805D4C10;
 void free_parts__12TBoss3VoloptFv(void) {
     destroy__14TObjVoloptCageFv();
     if ((u32) lbl_805D4C10 != 0U) {
-        fn_8001FE7C((void*)lbl_805D4C10, 1);
+        TLobby__sub_8001FE7C((void*)lbl_805D4C10, 1);
         lbl_805D4C10 = 0U;
     }
     destroy__15TBoss3VoloptP01Fv();

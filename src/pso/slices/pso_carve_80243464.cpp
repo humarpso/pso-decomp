@@ -19,7 +19,7 @@ struct VObj_80243464 : Base_80243464 {
 
 extern "C" {
 
-void *fn_80101AB0();
+void *TLobby__sub_80101AB0();
 s32 fn_802434B8();
 
 s32 fn_80243464(void) {
@@ -28,7 +28,7 @@ s32 fn_80243464(void) {
     if (fn_802434B8() == -1) {
         return 0;
     }
-    o = (struct VObj_80243464 *)fn_80101AB0();
+    o = (struct VObj_80243464 *)TLobby__sub_80101AB0();
     if (o == NULL) {
         return 0;
     }

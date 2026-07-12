@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
-s32 fn_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 fn_80211608();
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 void set_flag0_bit20__15TWindowHelpItemFPv(void* p);

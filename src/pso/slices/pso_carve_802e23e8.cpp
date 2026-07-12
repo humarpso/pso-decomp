@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80132F2C(s32, s32);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
-s32 fn_8039DCE0(s32, s32);
+s32 TAdSinglePlyChrSelectGC__sub_8039DCE0(s32, s32);
 s32 fn_802E11C8(void *);
 s32 check_ready__23TAdSinglePlyChrSelectGCFv();
 s32 init_timestamped_data();
-s8 fn_8001C5E8();
+s8 TAdSinglePlyChrSelectGC__sub_8001C5E8();
 s32 setup__23TAdSinglePlyChrSelectGCFi(s32);
 s32 TAdSinglePlyChrSelectGC__sub_80202BA8(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);

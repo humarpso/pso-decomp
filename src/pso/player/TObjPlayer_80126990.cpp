@@ -1,0 +1,37 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TObjPlayer__sub_80126990(s32 arg0);
+void *TObjPlayer__sub_801269EC(void *arg0);
+u8 TItemProShield__sub_8010B734();
+M2C_UNK TObjPlayer__sub_80120908(s32);
+M2C_UNK TObjPlayer__sub_80120BBC(s32, M2C_UNK);
+void TObjPlayer__sub_80120D50(void *);
+void TObjPlayer__sub_8012106C(void *, int);
+
+extern s32 lbl_805D5518;
+
+void TObjPlayer__sub_80126990(s32 arg0) {
+    if (TItemProShield__sub_8010B734() == 3) {
+        lbl_805D5518 = 0;
+        TObjPlayer__sub_80120908(arg0);
+        lbl_805D5518 = 1;
+        TObjPlayer__sub_80120BBC(arg0, 0x23);
+    }
+}
+
+extern M2C_UNK lbl_804A2B98[];
+
+void *TObjPlayer__sub_801269EC(void *arg0) {
+    TObjPlayer__sub_80120D50(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2B98;
+    TObjPlayer__sub_8012106C(arg0, 577);
+    return arg0;
+}
+
+}

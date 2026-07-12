@@ -7,24 +7,24 @@ extern "C" {
 void render__20TBoss7TentacleNeedleFv(void *arg0);
 void TOHangerMachine01__sub_803D9C00(void *);
 void fn_802E80C8(void *);
-void fn_803D99F8(void *, int);
-void fn_803D9B2C(void);
-void fn_803D9B78(void);
-void fn_803E4AF4(void *, void *, f32);
-void fn_803E4BC4(void);
-void fn_803E4BD0(void);
+void TObjPlayer__sub_803D99F8(void *, int);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
+void TObjPlayer__sub_803E4BC4(void);
+void TObjPlayer__sub_803E4BD0(void);
 
 extern void *lbl_805D6948;
 
 void render__20TBoss7TentacleNeedleFv(void *arg0) {
     fn_802E80C8(arg0);
-    fn_803E4BC4();
-    fn_803D9B2C();
+    TObjPlayer__sub_803E4BC4();
+    TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 28));
-    fn_803D99F8((void *)((char *)arg0 + 40), 1);
-    fn_803E4AF4(lbl_805D6948, M2C_FIELD(arg0, void **, 0x78), M2C_FIELD(arg0, f32 *, 0x74));
-    fn_803D9B78();
-    fn_803E4BD0();
+    TObjPlayer__sub_803D99F8((void *)((char *)arg0 + 40), 1);
+    TObjEneSlimeOne__sub_803E4AF4(lbl_805D6948, M2C_FIELD(arg0, void **, 0x78), M2C_FIELD(arg0, f32 *, 0x74));
+    TObjPlayer__sub_803D9B78();
+    TObjPlayer__sub_803E4BD0();
 }
 
 }

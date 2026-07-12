@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjMesBase__vt12(void);
-void fn_80194C98(void *arg0);
+void TObjMesBase__sub_80194C98(void *arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *obj);
 
-void fn_80194C98(void *arg0) {
+void TObjMesBase__sub_80194C98(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0xAC);
     if ((p != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(p) == 0)) {
         M2C_FIELD(arg0, u32 *, 0xAC) = 0U;

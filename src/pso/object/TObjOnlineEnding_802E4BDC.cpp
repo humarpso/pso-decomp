@@ -10,10 +10,10 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0);
 s32 get_card_window_value__16TObjOnlineEndingFv();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-s32 fn_8006F00C();
-s32 fn_8006F094(M2C_UNK);
-s32 fn_80070AB0();
-s32 fn_80070ACC();
+s32 TLobby__sub_8006F00C();
+s32 TWindowSubStatusDisp__sub_8006F094(M2C_UNK);
+s32 TLobby__sub_80070AB0();
+s32 TLobby__sub_80070ACC();
 s32 TWindowSubStatusDisp__sub_800718D0();
 
 void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
@@ -23,16 +23,16 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
     s32 var_r29;
 
     M2C_FIELD(arg0, s32 *, 0x154) = 0;
-    if (fn_80070AB0() != 0) {
-        temp_r30 = fn_8006F094(-1) - 1;
+    if (TLobby__sub_80070AB0() != 0) {
+        temp_r30 = TWindowSubStatusDisp__sub_8006F094(-1) - 1;
         {
-        s32 t = fn_8006F00C();
+        s32 t = TLobby__sub_8006F00C();
         if (t == temp_r30) {
             var_r29 = __nw__7TObjectFUl(0x68);
             if (var_r29 != 0) {
                 temp_r30_2 = get_card_window_value__16TObjOnlineEndingFv();
                 temp_r31 = TWindowSubStatusDisp__sub_800718D0();
-                var_r29 = TWindowChallengeResult__ct(var_r29, fn_80070ACC(), temp_r31, temp_r30_2);
+                var_r29 = TWindowChallengeResult__ct(var_r29, TLobby__sub_80070ACC(), temp_r31, temp_r30_2);
             }
             M2C_FIELD(arg0, s32 *, 0x154) = var_r29;
         }

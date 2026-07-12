@@ -6,27 +6,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8007B858();
-s32 fn_8007BB2C();
+M2C_UNK TLobby__sub_8007B858();
+s32 TLobby__sub_8007BB2C();
 M2C_UNK TObjLight__sub_80133D78();
 M2C_UNK TOKeyMachine01__sub_802034A8();
-M2C_UNK fn_802274B8(M2C_UNK *);
-M2C_UNK fn_80227FB4();
+M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK TLobby__sub_80227FB4();
 M2C_UNK fn_802FE964();
 M2C_UNK fn_802FEA0C();
 extern M2C_UNK lbl_804651A0[];
 
 s32 load_dragon2_scene(void) {
     TOKeyMachine01__sub_802034A8();
-    fn_80227FB4();
-    if (fn_8007BB2C() != 0) {
+    TLobby__sub_80227FB4();
+    if (TLobby__sub_8007BB2C() != 0) {
         return 0;
     }
     fn_802FEA0C();
     TObjLight__sub_80133D78();
-    fn_8007B858();
+    TLobby__sub_8007B858();
     fn_802FE964();
-    fn_802274B8(lbl_804651A0);
+    TObjBgmColCtrl__sub_802274B8(lbl_804651A0);
     return 1;
 }
 

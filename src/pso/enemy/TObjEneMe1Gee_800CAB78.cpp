@@ -118,7 +118,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK update__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE14(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 extern const f32 TObjEneMe1Gee__data_805DA0A8;
 
@@ -140,7 +140,7 @@ void TObjEneMe1Gee__vt109(void *arg0, s32 arg1) {
     case 5:
         break;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Gee__data_805DA0A8);
         update__13TObjEneMe1GeeFPv(arg0);
         TObjEneMe1Gee__sub_800CBE14(arg0);

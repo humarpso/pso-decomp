@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_position__11TCameraCtrlFPv(u8 *arg0);
-s32 fn_801A2FE0();
+s32 TCameraCtrl__sub_801A2FE0();
 
 s32 is_split_screen();
 
@@ -24,7 +24,7 @@ void update_position__11TCameraCtrlFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x1CC) = (f32) M2C_FIELD(arg0, f32 *, 0x17C);
     M2C_FIELD(arg0, f32 *, 0x1D0) = (f32) M2C_FIELD(arg0, f32 *, 0x180);
     if (is_split_screen() != 0) {
-        temp_r3 = arg0 + (fn_801A2FE0() * 0xC);
+        temp_r3 = arg0 + (TCameraCtrl__sub_801A2FE0() * 0xC);
         M2C_FIELD(temp_r3, f32 *, 0x134) = (f32) M2C_FIELD(arg0, f32 *, 0x178);
         M2C_FIELD(temp_r3, f32 *, 0x138) = (f32) M2C_FIELD(arg0, f32 *, 0x17C);
         M2C_FIELD(temp_r3, f32 *, 0x13C) = (f32) M2C_FIELD(arg0, f32 *, 0x180);

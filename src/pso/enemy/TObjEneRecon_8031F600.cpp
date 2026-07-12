@@ -39,7 +39,7 @@ extern "C" {
 void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 s32 fn_8031FACC(void *);
 
 extern const f32 TObjEneRecon__data_805DF438;
@@ -63,7 +63,7 @@ void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1) {
     case 5:
         break;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         break;
     }
 }

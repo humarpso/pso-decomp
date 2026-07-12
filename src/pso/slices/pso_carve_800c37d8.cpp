@@ -59,7 +59,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 check_hit_flag__16TObjEneRe2FlowerFPv();
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 extern const f32 lbl_805D9FF0;
 
 void fn_800C37D8(void *arg0, s32 arg1) {
@@ -80,7 +80,7 @@ void fn_800C37D8(void *arg0, s32 arg1) {
     case 1:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         ((V_A *) arg0)->m100();
         ((V_A *) arg0)->m86();
         break;

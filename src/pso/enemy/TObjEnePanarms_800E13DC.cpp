@@ -10,7 +10,7 @@ void start_action__14TObjEnePanarmsFPv(void *arg0);
 void handle_split_flag__14TObjEnePanarmsFPv(void *arg0);
 void init_split__14TObjEnePanarmsFPv(void *arg0);
 M2C_UNK TObjEnePanarms__sub_800E1B50();
-M2C_UNK fn_8002AE74(void *, M2C_UNK);
+M2C_UNK TObjEnePanarms__sub_8002AE74(void *, M2C_UNK);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 M2C_UNK TObjEnePanarms__sub_800E2DE4(void *, M2C_UNK);
 M2C_UNK TObjEnePanarms__sub_800E2EF0(void *, M2C_UNK, M2C_UNK);
@@ -27,7 +27,7 @@ void start_action__14TObjEnePanarmsFPv(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
     }
-    fn_8002AE74(arg0, 0);
+    TObjEnePanarms__sub_8002AE74(arg0, 0);
 }
 
 void handle_split_flag__14TObjEnePanarmsFPv(void *arg0) {
@@ -51,7 +51,7 @@ void init_split__14TObjEnePanarmsFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
     TObjEnePanarms__sub_800E2DE4(arg0, 0x10);
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) | 1);
-    fn_8002AE74(arg0, 9);
+    TObjEnePanarms__sub_8002AE74(arg0, 9);
 }
 
 }

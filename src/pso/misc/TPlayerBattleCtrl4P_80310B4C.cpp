@@ -11,7 +11,7 @@ s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 M2C_UNK clear_flag__11TWindowCtrlFv();
-M2C_UNK fn_8024AD30(u16);
+M2C_UNK TWindowChat__sub_8024AD30(u16);
 M2C_UNK TWindowCtrl__sub_8024AEF0(u16);
 
 void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s32 arg2) {
@@ -24,7 +24,7 @@ void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s3
         send_code_45_1__10TObjPlayerFi();
     }
     if (temp_r30 != 0) {
-        fn_8024AD30(temp_r31);
+        TWindowChat__sub_8024AD30(temp_r31);
         clear_flag__11TWindowCtrlFv();
         TWindowCtrl__sub_8024AEF0(temp_r31);
     }

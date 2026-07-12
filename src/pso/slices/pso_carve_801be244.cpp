@@ -11,7 +11,7 @@ int TObjPlayer__sub_801BE2E8(void* p);
 int TObjPlayer__sub_801BE310(void* p);
 int TObjPlayer__sub_801BE338(void* p);
 int TObjPlayer__sub_801BE360(void* p);
-int fn_8001BED8(void*, int);
+int TObjPlayer__sub_8001BED8(void*, int);
 
 int TObjPlayer__vt74(void) { return 0; }
 int TObjPlayer__vt75(void) { return 0; }

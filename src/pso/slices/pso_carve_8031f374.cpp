@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_800F6B14();
+M2C_UNK TObjPlayer__sub_800F6B14();
 M2C_UNK send_entity_set_flags__6TLobbyFPv();
 M2C_UNK TObjEneRecobox__sub_8031F1A8(void *);
 
@@ -119,7 +119,7 @@ extern "C" {
 void fn_8031F374(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        fn_800F6B14();
+        TObjPlayer__sub_800F6B14();
         M2C_FIELD(arg0, s32 *, 0x40C) = (s32) (M2C_FIELD(arg0, s32 *, 0x40C) | 1);
         TObjEneRecobox__sub_8031F1A8(arg0);
         ((VObj_8031F374 *)arg0)->m93();

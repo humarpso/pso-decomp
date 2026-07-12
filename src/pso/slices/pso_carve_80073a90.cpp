@@ -8,7 +8,7 @@ extern "C" {
 
 s32 obj_testFlags30(M2C_UNK, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 fn_800495BC(s32);
+s32 TLobby__sub_800495BC(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindow__close(void *);
 extern s32 lbl_805D53A0;
@@ -22,7 +22,7 @@ void fn_80073A90(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if ((fn_800495BC(temp_r3) == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0x5A)) {
+    if ((TLobby__sub_800495BC(temp_r3) == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0x5A)) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0x5A;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24) - 1;

@@ -9,7 +9,7 @@ extern "C" {
 void append_swapped_u32__6TLobbyFPv(s32 *arg0);
 void append_entity_entry__6TLobbyFi(s32 arg0);
 M2C_UNK bswap_32__FPUl(s32 *);
-M2C_UNK fn_803DE778(s32, s32 *, M2C_UNK);
+M2C_UNK TLobby__sub_803DE778(s32, s32 *, M2C_UNK);
 
 extern u32 lbl_805D60C4;
 extern s32 lbl_805D60C8;
@@ -20,7 +20,7 @@ void append_swapped_u32__6TLobbyFPv(s32 *arg0) {
     if ((u32) lbl_805D60C4 != 0U) {
         sp8 = *arg0;
         bswap_32__FPUl(&sp8);
-        fn_803DE778((s32)(lbl_805D60C4 + lbl_805D60C8), (s32 *)(&sp8), (M2C_UNK)(4));
+        TLobby__sub_803DE778((s32)(lbl_805D60C4 + lbl_805D60C8), (s32 *)(&sp8), (M2C_UNK)(4));
         lbl_805D60C8 += 4;
     }
 }
@@ -30,7 +30,7 @@ extern s32 lbl_805D60C8;
 
 void append_entity_entry__6TLobbyFi(s32 arg0) {
     if ((u32) lbl_805D60C4 != 0U) {
-        fn_803DE778((s32)(lbl_805D60C4 + lbl_805D60C8), (s32 *)(arg0), (M2C_UNK)(1));
+        TLobby__sub_803DE778((s32)(lbl_805D60C4 + lbl_805D60C8), (s32 *)(arg0), (M2C_UNK)(1));
         lbl_805D60C8 += 1;
     }
 }

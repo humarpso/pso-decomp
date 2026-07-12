@@ -37,7 +37,7 @@ extern "C" {
 s32 TObjEneMe3ShinowaReal__sub_8002ADD8();
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 void fn_8031F550(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -56,7 +56,7 @@ void fn_8031F550(void *arg0, s32 arg1) {
     case 5:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         break;
     }
 }

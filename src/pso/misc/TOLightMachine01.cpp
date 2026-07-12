@@ -8,11 +8,11 @@ extern "C" {
 
 void run_task__16TOLightMachine01Fv(void *arg0);
 
-f32 fn_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
 
 void run_task__16TOLightMachine01Fv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xA8) = (s32) (M2C_FIELD(arg0, s32 *, 0xA8) + M2C_FIELD(arg0, s32 *, 0xA4));
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x98) * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0xA8)));
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x98) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xA8)));
     M2C_FIELD(arg0, s32 *, 0xAC) = (s32) (M2C_FIELD(arg0, s32 *, 0xAC) + M2C_FIELD(arg0, s32 *, 0x8C));
 }
 

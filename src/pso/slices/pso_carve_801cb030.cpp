@@ -4,8 +4,8 @@ extern "C" {
 
 int TObjPlayer__sub_8001053C(void*);
 int obj_setFlags30(void*, void*);
-void fn_801CB030(void* p);
+void TObjPlayer__sub_801CB030(void* p);
 
-void fn_801CB030(void* p) { TObjPlayer__sub_8001053C(p); obj_setFlags30(p, (void*)1048576); }
+void TObjPlayer__sub_801CB030(void* p) { TObjPlayer__sub_8001053C(p); obj_setFlags30(p, (void*)1048576); }
 
 }

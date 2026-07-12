@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TItemProShield__sub_8001140C(s32, s32);
 s32 TItemProShield__sub_80076B5C(s32);
-s32 fn_800112A4(s32, s32);
+s32 TObjPlayer__sub_800112A4(s32, s32);
 s32 obj_getS16_2BA(s32);
 int fn_80353110(void* p);
 int fn_80353134(void* p);
@@ -20,7 +20,7 @@ void fn_80353158(void *arg0) {
     TItemProShield__sub_8001140C(M2C_FIELD(arg0, s32 *, 0xF0), TItemProShield__sub_80076B5C(M2C_FIELD(arg0, s32 *, 0xF0)));
 }
 void fn_80353194(void *arg0) {
-    fn_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), obj_getS16_2BA(M2C_FIELD(arg0, s32 *, 0xF0)));
+    TObjPlayer__sub_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), obj_getS16_2BA(M2C_FIELD(arg0, s32 *, 0xF0)));
 }
 
 }

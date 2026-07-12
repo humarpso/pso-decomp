@@ -12,7 +12,7 @@ void reset_battle_camera__6TLobbyFv(void);
 M2C_UNK TCameraCtrl__sub_8006A410(M2C_UNK, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_8006B398();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK fn_801B3188();
+M2C_UNK TLobby__sub_801B3188();
 M2C_UNK fn_801B3468();
 
 extern s32 lbl_805D53A0;
@@ -27,7 +27,7 @@ extern s32 lbl_805D53A0;
 
 void TLobby__sub_801EE1B8(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
-        fn_801B3188();
+        TLobby__sub_801B3188();
     }
 }
 

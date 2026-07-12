@@ -6,20 +6,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801E2EFC();
-M2C_UNK fn_801E2F20();
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TParticleCtrl__sub_801E2F20();
 extern s32 lbl_805D522C;
 
-void fn_800D8A2C(void) {
+void TObjPlayer__sub_800D8A2C(void) {
     if ((s32) lbl_805D522C != 0) {
-        fn_801E2F20();
+        TParticleCtrl__sub_801E2F20();
         return;
     }
-    fn_801E2EFC();
+    TParticleCtrl__sub_801E2EFC();
 }
 
-void fn_800D8A60(void) { lbl_805D522C = 0; }
+void TObjPlayer__sub_800D8A60(void) { lbl_805D522C = 0; }
 
-void fn_800D8A6C(void) { lbl_805D522C = 1; }
+void TObjPlayer__sub_800D8A6C(void) { lbl_805D522C = 1; }
 
 }

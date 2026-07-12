@@ -11,7 +11,7 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0);
 s32 TKeyBoardControl__sub_80131FAC(void *);
 s32 TWindowKeyBoardHard__sub_80260444();
 void __dl__7TObjectFPv(void *);
-M2C_UNK fn_80246258(void *);
+M2C_UNK TWindowSubComCard__sub_80246258(void *);
 M2C_UNK fn_8024664C(void *);
 void fn_80246674(void *, int);
 M2C_UNK fn_8025CC48(void *);
@@ -46,7 +46,7 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x68) = (s32) (temp_r3_2 - 1);
         }
         fn_8024664C(arg0);
-        fn_80246258(arg0);
+        TWindowSubComCard__sub_80246258(arg0);
     }
 }
 

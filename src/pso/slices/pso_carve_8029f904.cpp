@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_8001FE7C(void*, int);
-M2C_UNK fn_8007EBB4(u32);
+void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
 extern u32 lbl_805D6624;
 extern u32 lbl_805D6628;
@@ -16,16 +16,16 @@ extern u32 lbl_805D662C;
 void fn_8029F904(void) {
     if ((u32) lbl_805D662C != 0U) {
         fn_803DA16C((void*)lbl_805D662C);
-        fn_8007EBB4(lbl_805D662C);
+        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D662C);
         lbl_805D662C = 0U;
     }
     if ((u32) lbl_805D6628 != 0U) {
         fn_803DA16C((void*)lbl_805D6628);
-        fn_8007EBB4(lbl_805D6628);
+        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D6628);
         lbl_805D6628 = 0U;
     }
     if ((u32) lbl_805D6624 != 0U) {
-        fn_8001FE7C((void*)lbl_805D6624, 1);
+        TLobby__sub_8001FE7C((void*)lbl_805D6624, 1);
         lbl_805D6624 = 0U;
     }
 }

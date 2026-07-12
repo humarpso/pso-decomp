@@ -12,20 +12,20 @@ void TObjPlayer__sub_801B19EC(void);
 s32 TFontSmallLobby__sub_801AFEE0();
 s32 TObjPlayer__sub_801B18C0(void * a0 = 0, s16 a1 = 0);
 s32 get_main_phase();
-int fn_8003F108(void);
-int fn_802034B0(void);
-s32 fn_803E46BC(s32);
+int TBoss3Volopt__sub_8003F108(void);
+int TObjPlayer__sub_802034B0(void);
+s32 TObjFish__sub_803E46BC(s32);
 
 void TObjPlayer__sub_801B1968(void *arg0) {
     TObjPlayer__sub_801B18C0(arg0, M2C_FIELD(arg0, s16 *, 0x326));
 }
 void TObjPlayer__sub_801B198C(s32 arg0) {
     if (((get_main_phase() == 0xE) || (get_main_phase() == 0xF)) && (TFontSmallLobby__sub_801AFEE0() != 0)) {
-        fn_803E46BC(arg0);
+        TObjFish__sub_803E46BC(arg0);
         return;
     }
-    fn_803E46BC(arg0);
+    TObjFish__sub_803E46BC(arg0);
 }
-void TObjPlayer__sub_801B19EC(void) { fn_8003F108(); fn_802034B0(); }
+void TObjPlayer__sub_801B19EC(void) { TBoss3Volopt__sub_8003F108(); TObjPlayer__sub_802034B0(); }
 
 }

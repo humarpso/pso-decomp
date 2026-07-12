@@ -10,7 +10,7 @@ void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0);
 void TObjEneEpsilonGuard__sub_803601D0(void);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_80143504(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
 
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D6FA0;
@@ -29,7 +29,7 @@ void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0) {
         set_indexed_flags(arg0, 0, 1);
         TObjPlayer__sub_80154764(arg0, 1, 1);
     }
-    fn_80143504(arg0);
+    TBoss1Dragon__sub_80143504(arg0);
 }
 
 void TObjEneEpsilonGuard__sub_803601D0(void) {  }

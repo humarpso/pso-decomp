@@ -10,8 +10,8 @@ M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK TLobby__sub_80103F68();
 M2C_UNK TLobby__sub_8011AFB8();
 M2C_UNK TObjCityMainWarp__sub_80186634();
-M2C_UNK fn_801A3B84();
-M2C_UNK fn_801A3BA4();
+M2C_UNK TLobby__sub_801A3B84();
+M2C_UNK TLobby__sub_801A3BA4();
 M2C_UNK fn_801A3BF4();
 M2C_UNK fn_801A3C00();
 M2C_UNK TObjDoor__sub_801A3C0C();
@@ -35,12 +35,12 @@ void fn_801A2F18(void) {
     }
     TObjCityMainWarp__sub_80186634();
     THunterGuildSeqOffline__sub_80213430();
-    fn_801A3B84();
+    TLobby__sub_801A3B84();
     fn_801A3C18();
     TObjDoor__sub_801A3C0C();
     fn_801A3C00();
     fn_801A3BF4();
-    fn_801A3BA4();
+    TLobby__sub_801A3BA4();
 }
 
 }

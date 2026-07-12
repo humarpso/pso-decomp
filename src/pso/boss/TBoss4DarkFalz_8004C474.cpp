@@ -10,8 +10,8 @@ void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0);
 M2C_UNK TBoss4DarkFalz__sub_8004BA70();
 M2C_UNK fn_8004D8C8(void *, void *, void *, void *);
 M2C_UNK fn_8004FFF8(void *, void *, s32);
-M2C_UNK fn_801F4830(M2C_UNK);
-M2C_UNK fn_8022743C();
+M2C_UNK TBoss4DarkFalz__sub_801F4830(M2C_UNK);
+M2C_UNK TLobby__sub_8022743C();
 M2C_UNK fn_8035C98C();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -24,8 +24,8 @@ void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0) {
     s32 var_r29;
 
     TBoss4DarkFalz__sub_8004BA70();
-    fn_8022743C();
-    fn_801F4830(0x37);
+    TLobby__sub_8022743C();
+    TBoss4DarkFalz__sub_801F4830(0x37);
     fn_8035C98C();
     if ((void *) TBoss4DarkFalz__data_805D4D64 != NULL) {
         fn_8004FFF8(arg0, TBoss4DarkFalz__data_805D4D64 + 0x38, M2C_FIELD(TBoss4DarkFalz__data_805D4D64, s32 *, 0x60));

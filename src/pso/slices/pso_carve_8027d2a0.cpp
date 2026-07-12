@@ -9,7 +9,7 @@ extern "C" {
 s32 TQuestThread__sub_801F5EAC(s32, s32);
 extern s32 lbl_805D5EE8;
 
-s32 fn_8027D2A0(s32 arg0, s8 arg1) {
+s32 TWindowSubQuestBoardSelect__sub_8027D2A0(s32 arg0, s8 arg1) {
     if (arg1 < 0) {
         return 0;
     }

@@ -13,7 +13,7 @@ M2C_UNK fn_8019E5F8();
 M2C_UNK fn_8019E6C0(void *, M2C_UNK);
 M2C_UNK fn_8019E748(void *, s32);
 M2C_UNK fn_8019EFF0(void *);
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5C94;
 extern s32 lbl_805D5C9C;
@@ -28,7 +28,7 @@ void fn_8019EA7C(u8 *arg0) {
         break;
     case 0:
         M2C_FIELD(arg0, s32 *, 0x160) = 0x12C;
-        fn_8022675C(0x40003205, arg0 + 0x38, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x40003205, arg0 + 0x38, 0, 0);
         M2C_FIELD(arg0, s16 *, 0xE0) = 1;
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) lbl_805D5C94;
         M2C_FIELD(arg0, s32 *, 0xD4) = (s32) lbl_805D5C9C;

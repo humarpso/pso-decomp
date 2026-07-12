@@ -8,7 +8,7 @@ extern "C" {
 
 extern u8 lbl_805D4A78;
 
-u8 fn_8001C5E8(void) {
+u8 TAdSinglePlyChrSelectGC__sub_8001C5E8(void) {
     return lbl_805D4A78;
 }
 

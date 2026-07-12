@@ -15,7 +15,7 @@ void TLobby__sub_801043F8(void);
 int TLobby__sub_80104404(void);
 s32 TItemData__sub_8010C8B4();
 M2C_UNK TObjPlayer__sub_8001BF10(M2C_UNK *);
-M2C_UNK fn_8010E59C(u32, s32);
+M2C_UNK TItemData__sub_8010E59C(u32, s32);
 
 extern M2C_UNK lbl_805D5430;
 
@@ -38,7 +38,7 @@ s32 get_item_data__6TLobbyFUi(u32 arg0) {
 
 void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1) {
     if (arg1 != 0U) {
-        fn_8010E59C(arg1, arg0);
+        TItemData__sub_8010E59C(arg1, arg0);
     }
 }
 

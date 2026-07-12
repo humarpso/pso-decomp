@@ -11,7 +11,7 @@ s32 fn_8029E764();
 s32 fn_8029E7BC(s32, M2C_UNK *);
 s32 fn_8029EA4C(M2C_UNK *, M2C_UNK);
 M2C_UNK fn_803D8F74(M2C_UNK, M2C_UNK *);
-M2C_UNK fn_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B2C();
 extern u16 lbl_805D65F8;
 
 s32 fn_8029E89C(u16 arg0, s32 arg1) {
@@ -38,7 +38,7 @@ s32 fn_8029E89C(u16 arg0, s32 arg1) {
         var_r3 = 1;
     }
     if (var_r3 != 0) {
-        fn_803D9B2C();
+        TObjPlayer__sub_803D9B2C();
         fn_803D8F74(0, sp8);
     }
     return var_r3;

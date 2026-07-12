@@ -10,7 +10,7 @@ void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 int fn_80264A6C(void* p);
 s32 TWindowSubStatusDisp__sub_80077760(s32);
-s8 fn_8013AD64();
+s8 TLobby__sub_8013AD64();
 int fn_801A529C(void*, int);
 
 void TWindowMainMenu__sub_80264A64(void) {  }

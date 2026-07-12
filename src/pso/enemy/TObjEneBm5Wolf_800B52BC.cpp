@@ -14,10 +14,10 @@ M2C_UNK TObjEneBm5Wolf__sub_800B850C(s32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneMe3ShinowaReal__sub_8002ADD8();
-void *fn_800F5EB4(void *, M2C_UNK);
-M2C_UNK fn_80143504();
-M2C_UNK fn_8022602C(M2C_UNK);
-M2C_UNK fn_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+void *TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK TObjPlayer__sub_8022602C(M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 TObjEneBm5Wolf__data_805D9DB4;
@@ -56,11 +56,11 @@ void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     case 5:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         TObjEneBm5Wolf__sub_800B7DDC(arg0, M2C_FIELD(arg0, s32 *, 0x60));
         if (objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DB4) != 0) {
-            fn_8022675C(fn_800F5EB4(arg0, 0x3AA1A), arg0 + 0x38, 0, 0);
-            fn_8022602C(-0x100);
+            TBoss3Volopt__sub_8022675C(TObjEnePanarms__sub_800F5EB4(arg0, 0x3AA1A), arg0 + 0x38, 0, 0);
+            TObjPlayer__sub_8022602C(-0x100);
         }
         M2C_FIELD(arg0, s32 *, 0x41C) = (s32) (M2C_FIELD(arg0, s32 *, 0x41C) + 1);
         if (M2C_FIELD(arg0, s32 *, 0x41C) == 0x1E) {

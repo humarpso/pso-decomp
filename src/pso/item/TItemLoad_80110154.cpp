@@ -12,7 +12,7 @@ void TItemLoad__sub_801101CC(s32 *arg0, s32 *arg1, s32 *arg2);
 void TItemLoad__sub_80110240(u8 arg0, s32 *arg1, s32 *arg2);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, s32);
-s32 fn_8001ED9C(s32, M2C_UNK);
+s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 
 extern s32 TItemLoad__data_805D5480;
 
@@ -36,7 +36,7 @@ void TItemLoad__sub_801101CC(s32 *arg0, s32 *arg1, s32 *arg2) {
     if ((arg0 != NULL) && (arg1 != NULL) && (arg2 != NULL)) {
         *arg0 = TObjFish__sub_8001EDC4((s32)(TItemLoad__data_805D5480), (s32)(1));
         *arg1 = TObjFish__sub_8001EDB0(TItemLoad__data_805D5480, 0);
-        *arg2 = fn_8001ED9C(TItemLoad__data_805D5480, 0);
+        *arg2 = TObjFish__sub_8001ED9C(TItemLoad__data_805D5480, 0);
     }
 }
 

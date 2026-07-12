@@ -19,6 +19,6 @@ u8 is_state_3__14TObjCMMainMenuFv(void) {
 }
 
     extern int lbl_805D652C;
-void fn_8028EC18(void) { lbl_805D652C = 1; }
+void TObjCMMainMenu__sub_8028EC18(void) { lbl_805D652C = 1; }
 
 }

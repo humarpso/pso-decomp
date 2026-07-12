@@ -12,7 +12,7 @@ void free_static__14TObjEneGibblesFv(void);
 void *TObjControl__ct(void *, void *);
 void *TObjEneGibbles__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 void free__11TOBoss4RockFUi(void*);
 
 extern f32 lbl_805DE878;
@@ -62,7 +62,7 @@ void free_static__14TObjEneGibblesFv(void) {
         TObjEneGibbles__data_805D68AC = 0U;
     }
     if ((u32) TObjEneGibbles__data_805D68B8 != 0U) {
-        fn_8001FE7C((void*)TObjEneGibbles__data_805D68B8, 1);
+        TLobby__sub_8001FE7C((void*)TObjEneGibbles__data_805D68B8, 1);
         TObjEneGibbles__data_805D68B8 = 0U;
     }
 }

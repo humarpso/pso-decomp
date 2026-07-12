@@ -120,7 +120,7 @@ s32 TObjEneEpsilon__sub_800B96D4(f32);
 s32 TObjEneMorfos__sub_803344F0();
 f32 fn_8002ADE4(f32);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
-M2C_UNK fn_8022602C(M2C_UNK);
+M2C_UNK TObjPlayer__sub_8022602C(M2C_UNK);
 
 extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF874;
@@ -161,7 +161,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x3D4) = 0xC;
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 2;
             }
-            fn_8022602C(-0x100);
+            TObjPlayer__sub_8022602C(-0x100);
             break;
         }
         ((F_V *) arg0)->m100();

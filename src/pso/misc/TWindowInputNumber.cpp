@@ -8,10 +8,10 @@ extern "C" {
 
 void handle_decrement__18TWindowInputNumberFPv(void *arg0);
 void move_cursor_next__18TWindowInputNumberFPv(void *arg0);
-M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 void handle_decrement__18TWindowInputNumberFPv(void *arg0) {
-    fn_8022675C(0x54100, 0, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x63) = (u8) (M2C_FIELD(arg0, u8 *, 0x63) - 1);
     if ((s8) M2C_FIELD(arg0, u8 *, 0x63) < 0) {
         if (M2C_FIELD(arg0, u16 *, 0x60) & 1) {
@@ -25,7 +25,7 @@ void handle_decrement__18TWindowInputNumberFPv(void *arg0) {
 void move_cursor_next__18TWindowInputNumberFPv(void *arg0) {
     u8 temp_r4;
 
-    fn_8022675C(0x54100, 0, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x63) = (u8) (M2C_FIELD(arg0, u8 *, 0x63) + 1);
     if ((s8) M2C_FIELD(arg0, u8 *, 0x63) >= (s8) (temp_r4 = M2C_FIELD(arg0, u8 *, 0x62))) {
         if (M2C_FIELD(arg0, u16 *, 0x60) & 1) {

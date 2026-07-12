@@ -9,7 +9,7 @@ extern "C" {
 void destroy_all__9TObjGrassFv(void);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void free__11TOBoss4RockFUi(void*);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjGrass__data_805D5144;
 extern u32 TObjGrass__data_805D5154;
@@ -30,7 +30,7 @@ void destroy_all__9TObjGrassFv(void) {
         lbl_805D5158 = 0U;
     }
     if ((u32) TObjGrass__data_805D5154 != 0U) {
-        fn_8001FE7C((void*)TObjGrass__data_805D5154, 1);
+        TLobby__sub_8001FE7C((void*)TObjGrass__data_805D5154, 1);
         TObjGrass__data_805D5154 = 0U;
     }
 }

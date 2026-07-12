@@ -6,22 +6,22 @@ extern "C" {
 
 void TOTrapChainSawEdge__vt23(void *arg0);
 void TOHangerMachine01__sub_803D9C00(void *);
-void fn_803D9214(int, void *);
-void fn_803D9B2C(void);
-void fn_803D9B78(void);
-void fn_803DA798(void *);
+void TObjPlayer__sub_803D9214(int, void *);
+void TObjPlayer__sub_803D9B2C(void);
+void TObjPlayer__sub_803D9B78(void);
+void TObjFish__sub_803DA798(void *);
 void fn_803DC894(void *, void *, f32);
 
 void TOTrapChainSawEdge__vt23(void *arg0) {
-    fn_803DA798(M2C_FIELD(arg0, void **, 0x24));
-    fn_803D9B2C();
+    TObjFish__sub_803DA798(M2C_FIELD(arg0, void **, 0x24));
+    TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
-    fn_803D9B2C();
-    fn_803D9214(0, M2C_FIELD(arg0, void **, 0x60));
-    fn_803D9214(0, M2C_FIELD(arg0, void **, 0xD4));
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0x60));
+    TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0xD4));
     fn_803DC894(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
-    fn_803D9B78();
-    fn_803D9B78();
+    TObjPlayer__sub_803D9B78();
+    TObjPlayer__sub_803D9B78();
 }
 
 }

@@ -9,16 +9,16 @@ typedef struct { f32 x; f32 y; f32 z; } Vec3;
 extern "C" {
 
 M2C_UNK VecCopy__FP3VecPC3Vec(Vec3 *, s32);
-M2C_UNK fn_8002AE74(void *, M2C_UNK);
-M2C_UNK fn_80143504(void *);
+M2C_UNK TObjEnePanarms__sub_8002AE74(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
 s32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, M2C_UNK);
 M2C_UNK fn_801A7680(void *);
 M2C_UNK fn_801A7748(void *, M2C_UNK);
 M2C_UNK fn_801A7A78(void *);
 M2C_UNK TPhotonMagicSquare__ct(s32, void *, M2C_UNK, Vec3 *, M2C_UNK, f32);
-M2C_UNK fn_801ADC94(void *);
-M2C_UNK fn_801ADD10(void *);
+M2C_UNK TObjPlayer__sub_801ADC94(void *);
+M2C_UNK TObjPlayer__sub_801ADD10(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
 extern const f64 lbl_80446ED8;
@@ -55,21 +55,21 @@ void fn_801ADEF4(void *arg0) {
     if ((lbl_805DC238 == (f32) M2C_FIELD(arg0, s32 *, 0x1A8)) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x1A4) == 1)) {
         TCameraCtrl__sub_801A7310(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x1A8) = 0;
-        fn_8002AE74(arg0, 0);
+        TObjEnePanarms__sub_8002AE74(arg0, 0);
         fn_801A7748(arg0, 3);
     }
     M2C_FIELD(arg0, s16 *, 0x198) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     fn_801A7A78(arg0);
-    fn_80143504(arg0);
+    TBoss1Dragon__sub_80143504(arg0);
     fn_801A7680(arg0);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x1A8);
     if ((lbl_805DC23C == (f32) temp_r3_2) || (lbl_805DC240 == (f32) temp_r3_2) || (lbl_805DC244 == (f32) temp_r3_2) || (lbl_805DC248 == (f32) temp_r3_2) || (lbl_805DC24C == (f32) temp_r3_2) || (lbl_805DC250 == (f32) temp_r3_2)) {
-        fn_801ADD10(arg0);
+        TObjPlayer__sub_801ADD10(arg0);
     }
     if (lbl_805DC254 == (f32) M2C_FIELD(arg0, s32 *, 0x1A8)) {
-        fn_801ADC94(arg0);
+        TObjPlayer__sub_801ADC94(arg0);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1A4) != 0) {
         TOTrapAncient01__sub_80226578(0x4002462F, arg0, 0, 0, 0);

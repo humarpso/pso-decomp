@@ -8,7 +8,7 @@ extern "C" {
 
 void update_split_screen_camera__6TLobbyFv(void);
 M2C_UNK fn_80071BC0(s32);
-M2C_UNK fn_80292730(s32);
+M2C_UNK TLobby__sub_80292730(s32);
 
 s32 is_split_screen(void);
 struct Glob_80512220 { s32 field0; char pad[0x100]; };
@@ -19,7 +19,7 @@ void update_split_screen_camera__6TLobbyFv(void) {
 
     temp_r31 = TLobby__data_80512220.field0;
     if (is_split_screen() == 1) {
-        fn_80292730(temp_r31);
+        TLobby__sub_80292730(temp_r31);
         return;
     }
     fn_80071BC0(temp_r31);

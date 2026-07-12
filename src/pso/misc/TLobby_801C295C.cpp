@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void send_battle_mode_data__6TLobbyFv(void);
-M2C_UNK fn_801C4FDC(void *);
+M2C_UNK TLobby__sub_801C4FDC(void *);
 
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
 
@@ -18,7 +18,7 @@ void send_battle_mode_data__6TLobbyFv(void) {
 
     build_6x7D_set_battle_mode_data(&sp8);
     sp8.f4 = 5;
-    fn_801C4FDC(&sp8);
+    TLobby__sub_801C4FDC(&sp8);
 }
 
 }

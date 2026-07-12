@@ -14,7 +14,7 @@ struct ED300Obj : ED300Base {
     virtual void m3(void *);
 };
 
-void fn_800ED300(u8 *arg0) {
+void TObjEneRe4Sorcerer__sub_800ED300(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFFB);
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 0x308);
     ((ED300Obj*)(arg0 + 0x3DC))->m3(arg0);

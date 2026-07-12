@@ -14,10 +14,10 @@ int fn_8003F3EC(void* p) { return (*(u32*)((char*)p + 0x388) >> 18) & 0x1; }
 u8 fn_8003F3F8(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s16 *, 0x326) == 0);
 }
-int fn_8003F408(void) { return 0; }
-int fn_8003F41C(void) { return 0; }
-int fn_8003F430(void) { return 0; }
-int fn_8003F444(void) { return 0; }
+int TBoss3Volopt__sub_8003F408(void) { return 0; }
+int TBoss3Volopt__sub_8003F41C(void) { return 0; }
+int TBoss3Volopt__sub_8003F430(void) { return 0; }
+int TBoss3Volopt__sub_8003F444(void) { return 0; }
 u8 fn_8003F458(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s16 *, 0x326) == 0);
 }

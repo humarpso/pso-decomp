@@ -6,7 +6,7 @@ extern "C" {
 
 void *TAdTimeSetGC__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void fn_8022743C(void);
+void TLobby__sub_8022743C(void);
 void init__23TAdSinglePlyChrSelectGCFPv(void *);
 
 extern M2C_UNK __vt__12TAdTimeSetGC[];
@@ -17,7 +17,7 @@ void *TAdTimeSetGC__ct(void *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TAdTimeSetGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3F80;
     init__23TAdSinglePlyChrSelectGCFPv(arg0);
-    fn_8022743C();
+    TLobby__sub_8022743C();
     return arg0;
 }
 

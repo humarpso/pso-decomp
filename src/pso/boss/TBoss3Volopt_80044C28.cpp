@@ -8,7 +8,7 @@ extern "C" {
 
 void apply_hit_reaction__12TBoss3VoloptFPvf(void *arg0, f32 farg0);
 M2C_UNK check_and_notify__12TBoss3VoloptFv(void *);
-M2C_UNK fn_80040B3C(void *, M2C_UNK);
+M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK);
 
 s32 obj_testFlags30(void*, M2C_UNK);
 extern f32 lbl_805D87B8;
@@ -18,7 +18,7 @@ void apply_hit_reaction__12TBoss3VoloptFPvf(void *arg0, f32 farg0) {
         check_and_notify__12TBoss3VoloptFv(arg0);
         M2C_FIELD(arg0, f32 *, 0x508) = (f32) (lbl_805D87B8 + farg0);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
-        fn_80040B3C(arg0, 0xC);
+        TObjEneMe1GiGue__sub_80040B3C(arg0, 0xC);
     }
 }
 

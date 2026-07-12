@@ -9,13 +9,13 @@ extern "C" {
 void TItemProArmorParticle__vt42(void *arg0);
 void TItemProArmorParticle__vt43(void *arg0);
 
-M2C_UNK fn_8010A940();
+M2C_UNK TItemEquipBase__sub_8010A940();
 
 void TItemProArmorParticle__vt43(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 2) {
         M2C_FIELD(arg0, s32 *, 0x198) = -1;
     }
-    fn_8010A940();
+    TItemEquipBase__sub_8010A940();
 }
 
 s32 TItemProArmor__sub_80102C3C(void *);

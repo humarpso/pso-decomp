@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_equip__14TItemEquipBaseFPv(void *arg0);
-M2C_UNK fn_80101414(void *);
-s8 fn_80102C30();
+M2C_UNK TItem__sub_80101414(void *);
+s8 TObjPlayer__sub_80102C30();
 
 struct Base_8010B054 { char pad[0x18]; };
 struct VObj_8010B054 : Base_8010B054 {
@@ -23,10 +23,10 @@ struct VObj_8010B054 : Base_8010B054 {
 };
 
 void update_equip__14TItemEquipBaseFPv(void *arg0) {
-    if (fn_80102C30() == 2) {
+    if (TObjPlayer__sub_80102C30() == 2) {
         ((VObj_8010B054 *)arg0)->m19();
     }
-    fn_80101414(arg0);
+    TItem__sub_80101414(arg0);
 }
 
 }

@@ -5,13 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void fn_8010FE20(void*, int);
+void TItemLoad__sub_8010FE20(void*, int);
 extern s32 lbl_805D49D8;
 extern u32 lbl_805D49DC;
 
 void fn_80019E24(void) {
     if ((u32) lbl_805D49DC != 0U) {
-        fn_8010FE20((void*)lbl_805D49DC, 1);
+        TItemLoad__sub_8010FE20((void*)lbl_805D49DC, 1);
         lbl_805D49DC = 0U;
         lbl_805D49D8 = 0;
     }

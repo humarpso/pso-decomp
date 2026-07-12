@@ -18,15 +18,15 @@ s32 TBoss4DarkFalz__sub_8004B77C(s32);
 s32 TBoss4DarkFalz__sub_8004BA18(s32);
 s32 TBoss4DarkFalz__sub_8004BA70();
 s32 TOTrapAncient01__sub_80226578(s32, s32, s32, s32, s32);
-s32 fn_8022675C(s32, s32, s32, s32);
-s32 fn_8022743C();
+s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+s32 TLobby__sub_8022743C();
 s32 is_timer_expired__14TBoss4DarkFalzFPv();
 
 void TBoss4DarkFalz__sub_8004CE90(void) {  }
 void start_effect__14TBoss4DarkFalzFPv(void *arg0) {
     TBoss4DarkFalz__sub_8004BA70();
-    fn_8022743C();
-    fn_8022675C(0x4003A80B, 0, 0, 0);
+    TLobby__sub_8022743C();
+    TBoss3Volopt__sub_8022675C(0x4003A80B, 0, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x380) = 0;
 }
 void spawn_trap__14TBoss4DarkFalzFi(s32 arg0) {
@@ -38,7 +38,7 @@ void check_timeout__14TBoss4DarkFalzFi(s32 arg0) {
     }
 }
 void update_parts__14TBoss4DarkFalzFi(s32 arg0) {
-    fn_8022675C(0x4003AD0C, 0, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x4003AD0C, 0, 0, 0);
     TBoss4DarkFalz__sub_8004BA18(arg0);
     TBoss4DarkFalz__sub_8004B77C(arg0);
     TBoss4DarkFalz__sub_8004B3BC(arg0);

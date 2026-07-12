@@ -10,11 +10,11 @@ void spawn_effect__12TBoss8DragonFii(s32 arg0, s32 arg1);
 void spawn_trap__12TBoss8DragonFii(s32 arg0, s32 arg1);
 void try_spawn_trap__12TBoss8DragonFPv(void *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
-M2C_UNK fn_8022675C(s32, s32, M2C_UNK, M2C_UNK);
-s32 fn_802F376C();
+M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
+s32 TBoss8Dragon__sub_802F376C();
 
 void try_spawn_trap__12TBoss8DragonFPv(void *arg0) {
-    if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 0x40) && (fn_802F376C() != 0)) {
+    if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 0x40) && (TBoss8Dragon__sub_802F376C() != 0)) {
         spawn_trap__12TBoss8DragonFii((s32)(arg0), (s32)(0x4003D013));
     }
 }
@@ -24,7 +24,7 @@ void spawn_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
 }
 
 void spawn_effect__12TBoss8DragonFii(s32 arg0, s32 arg1) {
-    fn_8022675C(arg1, arg0 + 0x634, 0, 0);
+    TBoss3Volopt__sub_8022675C(arg1, arg0 + 0x634, 0, 0);
 }
 
 }

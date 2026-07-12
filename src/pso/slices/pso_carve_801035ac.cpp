@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8001EEF4();
-s32 fn_8001EEFC(M2C_UNK *);
+s32 TLobby__sub_8001EEF4();
+s32 TLobby__sub_8001EEFC(M2C_UNK *);
 M2C_UNK TItemBuff__ct();
 s32 TOBoss4Rock__sub_80147AA8(s32);
 extern M2C_UNK lbl_8043E038[];
@@ -19,10 +19,10 @@ s32 create_item_buff(s32 arg0) {
 
     if (arg0 != 0) {
         TItemBuff__ct();
-        temp_r3 = fn_8001EEF4();
+        temp_r3 = TLobby__sub_8001EEF4();
         lbl_805D5410 = temp_r3;
         if ((temp_r3 != 0) && (arg0 < 0x40000)) {
-            lbl_805D5414 = fn_8001EEFC(lbl_8043E038);
+            lbl_805D5414 = TLobby__sub_8001EEFC(lbl_8043E038);
         } else {
             lbl_805D5414 = TOBoss4Rock__sub_80147AA8(arg0);
         }

@@ -13,7 +13,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_8001A8F0(u32, void *);
 s32 TAdEndText__sub_8001A990();
 extern void fn_8008C4BC();
-M2C_UNK fn_8023E834();
+M2C_UNK TAdMultiChgGameModeGC__sub_8023E834();
 
 u32 __cvt_fp2unsigned(f32);
 extern const f64 lbl_80439598;
@@ -31,7 +31,7 @@ void run_task__7TEndingFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 0:
-        fn_8023E834();
+        TAdMultiChgGameModeGC__sub_8023E834();
         temp_r3 = lbl_805D4F08 + 1;
         lbl_805D4F08 = temp_r3;
         temp_r30 = M2C_FIELD(arg0, s32 *, 0x24);

@@ -15,12 +15,12 @@ int fn_801D672C(void* p);
 int fn_801D6754(void* p);
 int fn_801D677C(void* p);
 u16 fn_801D67A4(void* p);
-int fn_8001BED8(void*, int);
+int TObjPlayer__sub_8001BED8(void*, int);
 int TAdRicoRing__sub_8001BEE8(void*, int);
 
 void reset_fields__15TFontSmallLobbyFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 int TFontSmallLobby__sub_801D6654(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 2); }
 void* TFontSmallLobby__sub_801D667C(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
-int TFontSmallLobby__sub_801D66AC(void* p) { return fn_8001BED8((char*)p + 0x40, 2); }
+int TFontSmallLobby__sub_801D66AC(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x40, 2); }
 
 }

@@ -8,23 +8,23 @@ extern "C" {
 
 s32 check_flag__10TObjPlayerFPvi(s32, s32);
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
-int fn_80102BD0(void);
-int fn_80102BD8(void);
-int fn_80102BE0(void* p, u32 m);
-void fn_80102BEC(void* p, u32 v);
-void fn_80102BFC(void* p, u32 v);
-int fn_80102C0C(void* p);
+int TObjPlayer__sub_80102BD0(void);
+int TObjPlayer__sub_80102BD8(void);
+int TObjPlayer__sub_80102BE0(void* p, u32 m);
+void TObjPlayer__sub_80102BEC(void* p, u32 v);
+void TObjPlayer__sub_80102BFC(void* p, u32 v);
+int TObjPlayer__sub_80102C0C(void* p);
 u16 TItemProArmor__sub_80102C3C(void* p);
 u8 TOSwitchItem__sub_80102C44(void* p);
 int TItemMag__sub_80102C4C(void* p);
 void fn_80102C58(void* p);
 void fn_80102C68(void* p);
-void fn_80102C78(void* p, s16 v);
-s16 fn_80102C80(void* p);
-s16 fn_80102C88(void* p);
-int fn_80102C90(void* p);
-f32 fn_80102CD8(void* p);
-int fn_801C675C(void*);
+void TObjPlayer__sub_80102C78(void* p, s16 v);
+s16 TObjPlayer__sub_80102C80(void* p);
+s16 TObjPlayer__sub_80102C88(void* p);
+int TObjPlayer__sub_80102C90(void* p);
+f32 TObjPlayer__sub_80102CD8(void* p);
+int TObjPlayer__sub_801C675C(void*);
 
 u16 TItemProArmor__sub_80102C3C(void* p) { return *(u16*)((char*)p + 0xe4); }
 

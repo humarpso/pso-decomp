@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8007B0D0(s32, s32, M2C_UNK);
-s32 fn_8007BC04(M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_8007B0D0(s32, s32, M2C_UNK);
+s32 TWindowSubComCard__sub_8007BC04(M2C_UNK);
 
 void fn_8007BD94(s32 arg0) {
-    s32 tmp = fn_8007BC04(0);
-    fn_8007B0D0(arg0, tmp, 0x1C);
+    s32 tmp = TWindowSubComCard__sub_8007BC04(0);
+    TWindowSubComCard__sub_8007B0D0(arg0, tmp, 0x1C);
 }
 
 }

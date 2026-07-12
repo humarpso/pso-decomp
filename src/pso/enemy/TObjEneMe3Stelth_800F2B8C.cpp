@@ -12,7 +12,7 @@ extern "C" {
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneEpsilon__sub_800B96D4(f32);
-M2C_UNK fn_80143504(void *, s32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *, s32);
 
 extern const f32 TObjEneMe3Stelth__data_805DA848;
 }
@@ -146,7 +146,7 @@ extern "C" void handle_message__16TObjEneMe3StelthFPvi(void *arg0, s32 arg1) {
     case 0:
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x424);
         M2C_FIELD(arg0, s32 *, 0x424) = (s32) (temp_r4 + 1);
-        fn_80143504(arg0, temp_r4);
+        TBoss1Dragon__sub_80143504(arg0, temp_r4);
         ((V_A *) arg0)->m100();
         ((V_A *) arg0)->m87();
         break;

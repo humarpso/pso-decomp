@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_803D9B78();
+M2C_UNK TObjPlayer__sub_803D9B78();
 extern u16 lbl_805D65F8;
 
 void fn_8029E9F8(s32 arg0) {
     if ((u16) lbl_805D65F8 != 0) {
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
         if (arg0 != 0) {
             GXSetScissor(0, 0, 0x280, 0x1E0);
         }

@@ -8,7 +8,7 @@ extern "C" {
 
 extern M2C_UNK (*lbl_805D5350)();
 
-void fn_800F8BFC(void) {
+void TLobby__sub_800F8BFC(void) {
     if (((M2C_UNK (*)()) lbl_805D5350) != NULL) {
         lbl_805D5350();
     }

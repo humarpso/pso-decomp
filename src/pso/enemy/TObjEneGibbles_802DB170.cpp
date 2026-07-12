@@ -9,7 +9,7 @@ extern "C" {
 void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1);
 void update_spawn_timer__14TObjEneGibblesFv(void);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
-s32 fn_80142384(s32, s32);
+s32 TObjPlayer__sub_80142384(s32, s32);
 
 void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1) {
     s32 var_r4;
@@ -20,7 +20,7 @@ void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1) {
     } else if (var_r4 > 0x238E) {
         var_r4 = 0x238E;
     }
-    M2C_FIELD(arg0, s32 *, 0x3BC) = fn_80142384(M2C_FIELD(arg0, s32 *, 0x3BC), var_r4);
+    M2C_FIELD(arg0, s32 *, 0x3BC) = TObjPlayer__sub_80142384(M2C_FIELD(arg0, s32 *, 0x3BC), var_r4);
 }
 
 extern s32 TObjEneGibbles__data_805D68BC;

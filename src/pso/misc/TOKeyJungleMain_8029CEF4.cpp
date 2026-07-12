@@ -9,7 +9,7 @@ extern "C" {
 void TOKeyJungleMain__vt20(s32 arg0);
 
 s32 TOKeyMachine01__sub_802034A8(void);
-M2C_UNK fn_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
 void TOKeyJungleMain__vt20(s32 arg0) {
     M2C_UNK var_r31;
@@ -25,7 +25,7 @@ void TOKeyJungleMain__vt20(s32 arg0) {
         var_r31 = 0x4004AD12;
         break;
     }
-    fn_8022675C(var_r31, arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C(var_r31, arg0 + 0x38, 0, 0);
 }
 
 }

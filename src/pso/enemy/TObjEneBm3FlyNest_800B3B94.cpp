@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_v2_mode__9TObjEneDDFv();
-s32 fn_800BB780(void *);
+s32 TBoss8Dragon__sub_800BB780(void *);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 int TObjEneDD__sub_800BAAE4(void*, void*, void*);
@@ -21,12 +21,12 @@ void update_state__17TObjEneBm3FlyNestFPv(void *arg0) {
     s16 temp_r0;
 
     if (((s16) M2C_FIELD(arg0, s16 *, 0x326) == 3) && (check_v2_mode__9TObjEneDDFv() != 0)) {
-        fn_800BB780(arg0);
+        TBoss8Dragon__sub_800BB780(arg0);
         return;
     }
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if (temp_r0 == 4) {
-        fn_800BB780(arg0);
+        TBoss8Dragon__sub_800BB780(arg0);
         return;
     }
     if (temp_r0 != 7) {

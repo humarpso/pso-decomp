@@ -49,10 +49,10 @@ struct VObj_80306994 : Base_80306994 {
 
 extern "C" {
 
-void *fn_8010595C(s32);
+void *TItemData__sub_8010595C(s32);
 
 void fn_80306994(void *arg0) {
-    struct VObj_80306994 *o = (struct VObj_80306994 *)fn_8010595C(M2C_FIELD(arg0, s32 *, 0xF0));
+    struct VObj_80306994 *o = (struct VObj_80306994 *)TItemData__sub_8010595C(M2C_FIELD(arg0, s32 *, 0xF0));
     if (o != NULL) {
         o->m38();
     }

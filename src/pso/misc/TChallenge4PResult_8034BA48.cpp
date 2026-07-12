@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80132F2C(s32, s32);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 s32 TChallenge4PResult__sub_8034B720(void *, s32);
 void TChallenge4PResult__sub_8034B8B0(void* p);
 int TChallenge4PResult__sub_8034BA48(void* p);

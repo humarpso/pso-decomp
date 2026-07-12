@@ -9,7 +9,7 @@ extern "C" {
 void free_shared_resources__14TObjEneDolmOlmFv(void);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void free__11TOBoss4RockFUi(void*);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 lbl_805D6A00;
 extern u32 lbl_805D6A04;
@@ -45,7 +45,7 @@ void free_shared_resources__14TObjEneDolmOlmFv(void) {
         TObjEneDolmOlm__data_805D6A14 = 0U;
     }
     if ((u32) TObjEneDolmOlm__data_805D6A10 != 0U) {
-        fn_8001FE7C((void*)TObjEneDolmOlm__data_805D6A10, 1);
+        TLobby__sub_8001FE7C((void*)TObjEneDolmOlm__data_805D6A10, 1);
         TObjEneDolmOlm__data_805D6A10 = 0U;
     }
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8026A434(f32);
+M2C_UNK TWindowMessageLog__sub_8026A434(f32);
 extern const f32 lbl_805DD240;
 
 void fn_8026A5A0(void *arg0) {
@@ -19,7 +19,7 @@ void fn_8026A5A0(void *arg0) {
         temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x6C);
         M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (temp_f1_2 + M2C_FIELD(arg0, f32 *, 0x94));
         M2C_FIELD(arg0, f32 *, 0x94) = (f32) (M2C_FIELD(arg0, f32 *, 0x94) * lbl_805DD240);
-        fn_8026A434(temp_f1_2);
+        TWindowMessageLog__sub_8026A434(temp_f1_2);
     }
 }
 

@@ -19,13 +19,13 @@ struct VObj_80215D34 : Base_80215D34 {
 
 extern "C" {
 
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 
 void fn_80215D34(void *arg0) {
     if ((((VObj_80215D34 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
-        fn_80073DC4(arg0, 3);
+        TQuestListVM__sub_80073DC4(arg0, 3);
     }
 }
 

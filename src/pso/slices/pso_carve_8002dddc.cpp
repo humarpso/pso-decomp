@@ -8,8 +8,8 @@ extern "C" {
 
 f32 clamp_velocity__15TObjBoss2TunnelFPv();
 M2C_UNK update_scale__15TObjBoss2TunnelFPv(void *, f32);
-f32 fn_803D64C0(s32);
-f32 fn_803D64DC(s32, f32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32, f32);
 extern const f32 lbl_805D8198;
 extern const f32 lbl_805D81F4;
 extern const f32 lbl_805D81F8;
@@ -29,8 +29,8 @@ f32 fn_8002DDDC(void *arg0, f32 farg0, f32 farg1) {
         M2C_FIELD(arg0, f32 *, 8) = var_f31;
     } else {
         temp_r31 = (s32) (lbl_805D81F8 * (temp_f1 / farg0));
-        var_f31 = farg1 * (lbl_805D81F4 + fn_803D64DC(temp_r31, lbl_805D81F8));
-        temp_f1_2 = fn_803D64C0(temp_r31);
+        var_f31 = farg1 * (lbl_805D81F4 + TBoss8Dragon__sub_803D64DC(temp_r31, lbl_805D81F8));
+        temp_f1_2 = TBoss8Dragon__sub_803D64C0(temp_r31);
         temp_f2 = M2C_FIELD(arg0, f32 *, 0) * temp_f1_2;
         M2C_FIELD(arg0, f32 *, 0) = temp_f2;
         M2C_FIELD(arg0, f32 *, 4) = (f32) lbl_805D81F4;

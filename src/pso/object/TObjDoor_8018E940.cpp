@@ -8,14 +8,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_anim__8TObjDoorFPv(void *arg0);
-f32 fn_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
 
 extern f32 lbl_805DBDD0;
 extern f32 lbl_805DBDD4;
 
 void update_anim__8TObjDoorFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xC8) = (s32) (M2C_FIELD(arg0, s32 *, 0xC8) + 0x300);
-    M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DBDD4 * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0xC8)) + lbl_805DBDD0;
+    M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DBDD4 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xC8)) + lbl_805DBDD0;
 }
 
 }

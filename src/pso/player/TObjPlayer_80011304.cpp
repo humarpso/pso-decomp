@@ -1,0 +1,16 @@
+#include "types.h"
+
+extern "C" {
+int TObjPlayer__sub_800112D4(void* a0 = 0, void* a1 = 0);
+
+s32 obj_isState2_324();
+s32 TObjPlayer__sub_8001119C(void* p);
+
+s32 TObjPlayer__sub_80011304(s32 arg0, s32 arg1) {
+    if (obj_isState2_324() != 0) {
+        return 0;
+    }
+    return TObjPlayer__sub_800112D4((void*)(arg0), (void*)(arg1));
+}
+
+}

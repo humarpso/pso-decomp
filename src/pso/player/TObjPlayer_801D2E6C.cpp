@@ -10,13 +10,13 @@ int TObjPlayer__sub_801D2D48(void* p);
 int TObjPlayer__sub_801D2D6C(void* p);
 void TObjPlayer__sub_801D2DA4(void* p, s32 v);
 s32 TObjPlayer__sub_801D2DAC(void* p);
-int fn_8001BED8(void*, int);
-int fn_8012ADD4(void*);
-s32 fn_801D3424(void *, s32);
+int TObjPlayer__sub_8001BED8(void*, int);
+int TObjPlayer__sub_8012ADD4(void*);
+s32 TObjPlayer__sub_801D3424(void *, s32);
 
 void advance_and_clamp_state__10TObjPlayerFPv(void *arg0) {
     if ((M2C_FIELD(arg0, s16 *, 0x10) = M2C_FIELD(arg0, s16 *, 0x10) + 1) > 2) {
-        fn_801D3424(arg0, 2);
+        TObjPlayer__sub_801D3424(arg0, 2);
     }
 }
 

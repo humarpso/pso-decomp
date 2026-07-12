@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 void fn_8009BE64(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -15,7 +15,7 @@ void fn_8009BE64(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x470) = 0;
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         M2C_FIELD(arg0, s32 *, 0x470) = (s32) (M2C_FIELD(arg0, s32 *, 0x470) + 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x470) > 0x5A) {
             M2C_FIELD(arg0, s32 *, 0x470) = 0;

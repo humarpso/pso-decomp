@@ -28,7 +28,7 @@ void close_with_ok_callback__19TShopKeepItemWindowFPv(void *arg0);
 void TShopKeepItemWindow__vt4(void *arg0);
 void TShopKeepItemWindow__vt5(void *arg0);
 M2C_UNK TShopWindowBase__sub_8022397C(void *);
-M2C_UNK fn_802109A4();
+M2C_UNK TCheckRoomSequence__sub_802109A4();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void TShopKeepItemWindow__vt5(void *arg0) {
@@ -55,7 +55,7 @@ void close_with_cancel_callback__19TShopKeepItemWindowFPv(void *arg0) {
         temp_r12(M2C_FIELD(arg0, s32 *, 0x380));
     }
     TShopWindowBase__sub_8022397C(arg0);
-    fn_802109A4();
+    TCheckRoomSequence__sub_802109A4();
     queue_destruction__7TObjectFv(arg0);
 }
 
@@ -67,7 +67,7 @@ void close_with_ok_callback__19TShopKeepItemWindowFPv(void *arg0) {
         temp_r12(M2C_FIELD(arg0, s32 *, 0x380));
     }
     TShopWindowBase__sub_8022397C(arg0);
-    fn_802109A4();
+    TCheckRoomSequence__sub_802109A4();
     queue_destruction__7TObjectFv(arg0);
 }
 

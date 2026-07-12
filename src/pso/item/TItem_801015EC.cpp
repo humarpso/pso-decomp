@@ -8,8 +8,8 @@ extern "C" {
 
 void set_mode__5TItemFPvc(void *arg0, s8 arg1);
 
-M2C_UNK fn_80101514(void *);
-M2C_UNK fn_80101580(void *, M2C_UNK);
+M2C_UNK TItem__sub_80101514(void *);
+M2C_UNK TItem__sub_80101580(void *, M2C_UNK);
 
 void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
     if (arg1 == 3) {
@@ -17,9 +17,9 @@ void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
     }
     if (arg1 == 0) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 0;
-        fn_80101580(arg0, 0);
+        TItem__sub_80101580(arg0, 0);
     } else {
-        fn_80101514(arg0);
+        TItem__sub_80101514(arg0);
     }
     M2C_FIELD(arg0, s8 *, 0xEB) = arg1;
 }

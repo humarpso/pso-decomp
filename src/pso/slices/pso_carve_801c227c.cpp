@@ -4,7 +4,7 @@ extern "C" {
 
 int __ct__12TPlyCharDataFv(void*);
 int TObjPlayer__sub_8001BF10(void*);
-int fn_80072218(void*);
+int TObjPlayer__sub_80072218(void*);
 void* fn_801C22BC(void* p);
 int fn_8035B00C(void*);
 void TObjPlayer__sub_801C210C(void* p, s32 v);
@@ -30,13 +30,13 @@ int fn_801C227C(void* p);
 void* fn_801C22A4(void* p);
 void* fn_801C22AC(void* p);
 s32 fn_801C22B4(void* p);
-int fn_8001BEF8(void*, int);
+int TObjPlayer__sub_8001BEF8(void*, int);
 
-int fn_801C227C(void* p) { return fn_8001BEF8((char*)p + 0x428, 1); }
+int fn_801C227C(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x428, 1); }
 void* fn_801C22A4(void* p) { return (char*)p + 0x4; }
 void* fn_801C22AC(void* p) { return (char*)p + 0xc; }
 s32 fn_801C22B4(void* p) { return *(s32*)((char*)p + 0x0); }
-void* fn_801C22BC(void* p) { fn_80072218((char*)p + 0x4); __ct__12TPlyCharDataFv((char*)p + 0xc); TObjPlayer__sub_8001BF10((char*)p + 0x428); *(int*)(p) = 0; return p; }
+void* fn_801C22BC(void* p) { TObjPlayer__sub_80072218((char*)p + 0x4); __ct__12TPlyCharDataFv((char*)p + 0xc); TObjPlayer__sub_8001BF10((char*)p + 0x428); *(int*)(p) = 0; return p; }
 int fn_801C2308(void) { return 0; }
 int fn_801C2360(void) { return 0; }
 

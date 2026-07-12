@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801E2EFC();
-M2C_UNK fn_801E2F20();
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TParticleCtrl__sub_801E2F20();
 extern s32 lbl_805D686C;
 
 void fn_802CECE0(void) {
@@ -15,10 +15,10 @@ void fn_802CECE0(void) {
     case 0x21:
     case 0x2B:
     case 0x64:
-        fn_801E2EFC();
+        TParticleCtrl__sub_801E2EFC();
         break;
     default:
-        fn_801E2F20();
+        TParticleCtrl__sub_801E2F20();
         break;
     }
     lbl_805D686C += 1;

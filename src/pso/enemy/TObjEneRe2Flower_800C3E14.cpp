@@ -12,7 +12,7 @@ void set_mode0xA_unless_0xAor0xB__16TObjEneRe2FlowerFPv(void *arg0);
 void TObjEneRe2Flower__sub_800C3EA4(void);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 s32 begin_state_242__16TObjEneRe2FlowerFPv(void);
-s32 fn_800BB780(void * a0 = 0);
+s32 TBoss8Dragon__sub_800BB780(void * a0 = 0);
 
 void TObjEneRe2Flower__sub_800C3E14(void) {  }
 void update_state__16TObjEneRe2FlowerFPv(void *arg0) {
@@ -22,7 +22,7 @@ void update_state__16TObjEneRe2FlowerFPv(void *arg0) {
     if (temp_r0 != 9) {
         if (temp_r0 == 8) {
             begin_state_242__16TObjEneRe2FlowerFPv();
-            fn_800BB780(arg0);
+            TBoss8Dragon__sub_800BB780(arg0);
             return;
         }
         TObjEneDD__sub_800BBA18(arg0, 9);

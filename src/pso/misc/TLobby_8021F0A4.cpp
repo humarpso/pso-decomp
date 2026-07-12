@@ -10,7 +10,7 @@ void TLobby__sub_8021F0A4(void);
 M2C_UNK TLobby__sub_8020ECA8();
 M2C_UNK TLobby__sub_8022559C();
 s32 fn_800FD5FC(M2C_UNK *);
-M2C_UNK fn_802243D4();
+M2C_UNK TLobby__sub_802243D4();
 
 extern M2C_UNK TLobby__data_805011D8[];
 extern s32 lbl_805D5550;
@@ -23,7 +23,7 @@ void TLobby__sub_8021F0A4(void) {
 
     TLobby__sub_8022559C();
     TLobby__sub_8020ECA8();
-    fn_802243D4();
+    TLobby__sub_802243D4();
     lbl_805D6244 = 0;
     temp_r3 = fn_800FD5FC(TLobby__data_805011D8);
     lbl_805D6238 = temp_r3;

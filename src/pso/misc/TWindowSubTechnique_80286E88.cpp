@@ -11,21 +11,21 @@ M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(s32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
-M2C_UNK fn_80244D2C(s32);
+M2C_UNK TLobby__sub_80244D2C(s32);
 M2C_UNK fn_80263AF8(s32, M2C_UNK);
-M2C_UNK fn_80265C30(s32);
-M2C_UNK fn_80265E60(s32, f32);
+M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 s32 fn_8026652C(s32, M2C_UNK, s32, s32);
-M2C_UNK fn_8026CBB8(M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 extern const f32 lbl_805DD838;
 
 s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = fn_8026652C(fn_8026CBB8(0x12), 5, TWindowSubStatusDisp__sub_80077760(0x2F), M2C_FIELD(arg0, s32 *, 0x28));
+    temp_r31 = fn_8026652C(TWindowSubComCard__sub_8026CBB8(0x12), 5, TWindowSubStatusDisp__sub_80077760(0x2F), M2C_FIELD(arg0, s32 *, 0x28));
     fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 0);
-    fn_80244D2C(temp_r31);
+    TLobby__sub_80244D2C(temp_r31);
     set_flag70_bit100__17TWindowOptionCtrlFPv(temp_r31);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x9C), 6, 0);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x9D), 6, 1);
@@ -33,8 +33,8 @@ s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x9F), 6, 3);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0xA0), 6, 4);
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
-    fn_80265E60(temp_r31, lbl_805DD838);
-    fn_80265C30(temp_r31);
+    TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD838);
+    TWindowSubComCard__sub_80265C30(temp_r31);
     return temp_r31;
 }
 

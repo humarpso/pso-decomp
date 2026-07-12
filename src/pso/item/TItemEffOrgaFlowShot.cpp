@@ -8,11 +8,11 @@ extern "C" {
 
 int TItemEffOrgaFlowShot__vt4(void* p);
 u8 fn_802E4748(void *arg0);
-s32 fn_80100490(s32);
+s32 TObjPlayer__sub_80100490(s32);
 int fn_802E456C(void*);
 
 u8 fn_802E4748(void *arg0) {
-    return (u8) (fn_80100490(M2C_FIELD(arg0, s32 *, 0xAC)) != 0);
+    return (u8) (TObjPlayer__sub_80100490(M2C_FIELD(arg0, s32 *, 0xAC)) != 0);
 }
 int TItemEffOrgaFlowShot__vt4(void* p) { return fn_802E456C(p); }
 

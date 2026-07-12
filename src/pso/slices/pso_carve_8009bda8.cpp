@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
-M2C_UNK fn_80143504();
-f32 fn_803D64C0(s32, f32);
-f32 fn_803D64DC(s32);
+M2C_UNK TBoss1Dragon__sub_80143504();
+f32 TBoss8Dragon__sub_803D64C0(s32, f32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 lbl_805D98A8;
 
 void fn_8009BDA8(void *arg0, s32 arg1) {
@@ -20,11 +20,11 @@ void fn_8009BDA8(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x3EC));
-        M2C_FIELD(arg0, f32 *, 0x484) = fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60), temp_f1);
-        M2C_FIELD(arg0, f32 *, 0x488) = fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        M2C_FIELD(arg0, f32 *, 0x484) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60), temp_f1);
+        M2C_FIELD(arg0, f32 *, 0x488) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3EC));
         M2C_FIELD(arg0, f32 *, 0x300) = (f32) M2C_FIELD(arg0, f32 *, 0x3F8);
         TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x484), M2C_FIELD(arg0, f32 *, 0x488), lbl_805D98A8);

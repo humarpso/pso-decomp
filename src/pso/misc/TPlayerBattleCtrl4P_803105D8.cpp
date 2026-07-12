@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init__19TPlayerBattleCtrl4PFv(void);
-M2C_UNK fn_80102AB0();
+M2C_UNK TObjPlayer__sub_80102AB0();
 M2C_UNK TLobby__sub_801B09A4();
 
 extern s32 lbl_805D6AAC;
 
 void init__19TPlayerBattleCtrl4PFv(void) {
     TLobby__sub_801B09A4();
-    fn_80102AB0();
+    TObjPlayer__sub_80102AB0();
     lbl_805D6AAC = 1;
 }
 

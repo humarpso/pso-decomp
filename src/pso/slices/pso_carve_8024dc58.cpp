@@ -8,23 +8,23 @@ extern "C" {
 
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 M2C_UNK fn_80244B64(u32);
-s32 fn_8024C804();
+s32 TWindowCtrl__sub_8024C804();
 s32 fn_8024D960(void *);
 M2C_UNK fn_80269FB0(u32, s32);
-s32 fn_8026CBB8(M2C_UNK);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 void fn_8024DC58(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-        if (fn_8024C804() != 0) {
+        if (TWindowCtrl__sub_8024C804() != 0) {
             TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x2C));
             return;
         }
         fn_80244B64(M2C_FIELD(arg0, u32 *, 0x2C));
         if (fn_8024D960(arg0) != 0) {
-            fn_80269FB0(M2C_FIELD(arg0, u32 *, 0x2C), fn_8026CBB8(0x21));
+            fn_80269FB0(M2C_FIELD(arg0, u32 *, 0x2C), TWindowSubComCard__sub_8026CBB8(0x21));
             return;
         }
-        fn_80269FB0(M2C_FIELD(arg0, u32 *, 0x2C), fn_8026CBB8(0x20));
+        fn_80269FB0(M2C_FIELD(arg0, u32 *, 0x2C), TWindowSubComCard__sub_8026CBB8(0x20));
     }
 }
 

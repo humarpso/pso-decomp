@@ -9,7 +9,7 @@ extern "C" {
 void destroy_children__16TObjEneRe7BeruraFv(void);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void free__11TOBoss4RockFUi(void*);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 void fn_800F5C8C(void*, int);
 
 extern u32 TObjEneRe7Berura__data_805D4F64;
@@ -31,7 +31,7 @@ void destroy_children__16TObjEneRe7BeruraFv(void) {
         lbl_805D4F80 = 0U;
     }
     if ((u32) TObjEneRe7Berura__data_805D4F64 != 0U) {
-        fn_8001FE7C((void*)TObjEneRe7Berura__data_805D4F64, 1);
+        TLobby__sub_8001FE7C((void*)TObjEneRe7Berura__data_805D4F64, 1);
         TObjEneRe7Berura__data_805D4F64 = 0U;
     }
 }

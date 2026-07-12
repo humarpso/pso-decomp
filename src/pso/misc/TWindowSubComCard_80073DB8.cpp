@@ -3,7 +3,7 @@
 extern "C" {
 
 int TWindowSubComCard__sub_80073DB8(void* p);
-void fn_80073DC4(void* p, s32 v);
+void TQuestListVM__sub_80073DC4(void* p, s32 v);
 
 int TWindowSubComCard__sub_80073DB8(void* p) { return (*(u16*)((char*)p + 0x70) >> 2) & 0x1; }
 

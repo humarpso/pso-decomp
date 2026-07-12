@@ -4,6 +4,6 @@ extern "C" {
 
 s32 TObjEneBm9Mericarol__sub_802D0784(void* p);
 
-int fn_802D073C(void) { return 0; }
+int TObjEneBm9Mericarol__sub_802D073C(void) { return 0; }
 
 }

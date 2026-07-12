@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_803519CC();
+s32 TObjPlayer__sub_803519CC();
 extern f32 lbl_805DFEC8;
 
 f32 fn_803517A0(void *arg0) {
     if ((void *) M2C_FIELD(arg0, void **, 0xC) == NULL) {
         return lbl_805DFEC8;
     }
-    if (fn_803519CC() != 0) {
+    if (TObjPlayer__sub_803519CC() != 0) {
         return M2C_FIELD(M2C_FIELD(arg0, void **, 0xC), f32 *, 0x24);
     }
     return lbl_805DFEC8;

@@ -17,7 +17,7 @@ struct A7B00Obj : A7B00Base {
     virtual s32 m4();
 };
 
-void fn_800A7B00(u8 *arg0) {
+void TObjPlayer__sub_800A7B00(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x390) = 1;
     if (((A7B00Obj*)(arg0 + 0x3A8))->m4() == 1) {
         queue_destruction__7TObjectFv(arg0);

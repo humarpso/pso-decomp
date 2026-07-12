@@ -6,13 +6,13 @@ extern "C" {
 
 void TLazerFenceSw__vt16(void *arg0);
 void TLazerFenceSw__vt17(void *arg0);
-void fn_8016A604(void *);
-void fn_8016A8D0(void *);
+void TBoss3Volopt__sub_8016A604(void *);
+void TOKey__sub_8016A8D0(void *);
 
 extern const f32 TLazerFenceSw__data_805DBE84;
 
 void TLazerFenceSw__vt16(void *arg0) {
-    fn_8016A8D0(arg0);
+    TOKey__sub_8016A8D0(arg0);
     M2C_FIELD(arg0, f32 *, 0xB0) = TLazerFenceSw__data_805DBE84;
     M2C_FIELD(arg0, f32 *, 0xEC) = TLazerFenceSw__data_805DBE84;
 }
@@ -20,7 +20,7 @@ void TLazerFenceSw__vt16(void *arg0) {
 extern const f32 TLazerFenceSw__data_805DBE84;
 
 void TLazerFenceSw__vt17(void *arg0) {
-    fn_8016A604(arg0);
+    TBoss3Volopt__sub_8016A604(arg0);
     M2C_FIELD(arg0, f32 *, 0xB0) = TLazerFenceSw__data_805DBE84;
     M2C_FIELD(arg0, f32 *, 0xEC) = TLazerFenceSw__data_805DBE84;
 }

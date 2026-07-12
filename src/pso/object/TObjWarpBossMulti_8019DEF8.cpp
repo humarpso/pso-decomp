@@ -16,12 +16,12 @@ void render__17TObjWarpBossMultiFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 f32 fn_8013157C(s32, void *);
-M2C_UNK fn_801E2EFC();
-M2C_UNK fn_801E2F20();
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK fn_803DC894(s32, s32, f32);
 
 extern s32 lbl_805D4DF0;
@@ -40,13 +40,13 @@ void render__17TObjWarpBossMultiFv(u8 *arg0) {
     }
     if (((TObjWarpBossMulti*)arg0)->m8(lbl_805DC00C, lbl_805DC010) != 0) {
 block_4:
-        fn_803D9B2C();
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        fn_803DA798(M2C_FIELD(arg0, s32 *, 0xE8));
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xE8));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0xD4));
-        fn_801E2EFC();
-        fn_803DA798(M2C_FIELD(arg0, s32 *, 0xEC));
+        TParticleCtrl__sub_801E2EFC();
+        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xEC));
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xF0);
         switch (temp_r0) {
         case 0:
@@ -56,8 +56,8 @@ block_4:
             fn_803DC894(M2C_FIELD(arg0, s32 *, 0xDC), M2C_FIELD(arg0, s32 *, 0xE4), M2C_FIELD(arg0, f32 *, 0xF8));
             break;
         }
-        fn_801E2F20();
-        fn_803D9B78();
+        TParticleCtrl__sub_801E2F20();
+        TObjPlayer__sub_803D9B78();
     }
 }
 

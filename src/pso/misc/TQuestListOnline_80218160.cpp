@@ -3,7 +3,7 @@
 extern "C" {
 
 void reset_state__16TQuestListOnlineFPv(void* a0);
-int fn_80073DC4(void*, void*);
+int TQuestListVM__sub_80073DC4(void*, void*);
 int fn_801DB6F0(void*);
 
     extern int TLobby__data_805D5580;
@@ -11,6 +11,6 @@ int fn_801DB6F0(void*);
     extern int lbl_805D61EC;
     extern int lbl_805D61F0;
     extern int lbl_805D61F4;
-void reset_state__16TQuestListOnlineFPv(void* a0) { fn_801DB6F0((void*)(TLobby__data_805D5580)); lbl_805D61E8 = 0; lbl_805D61F0 = 0; lbl_805D61EC = 0; lbl_805D61F4 = 0; fn_80073DC4(a0, (void*)12); }
+void reset_state__16TQuestListOnlineFPv(void* a0) { fn_801DB6F0((void*)(TLobby__data_805D5580)); lbl_805D61E8 = 0; lbl_805D61F0 = 0; lbl_805D61EC = 0; lbl_805D61F4 = 0; TQuestListVM__sub_80073DC4(a0, (void*)12); }
 
 }

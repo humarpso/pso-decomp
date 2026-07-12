@@ -8,14 +8,14 @@ extern "C" {
 
 void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK fn_8007B26C(s32);
-M2C_UNK fn_803DE7BC(s32, s32, u32);
+M2C_UNK TLobby__sub_803DE7BC(s32, s32, u32);
 
 void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
 
     if (arg0 < (s32) (arg2 - 1)) {
         temp_r3 = arg1 + (arg0 * 0x90);
-        fn_803DE7BC(temp_r3, temp_r3 + 0x90, (u32) (((arg2 - arg0) - 1) * 0x90) >> 2U);
+        TLobby__sub_803DE7BC(temp_r3, temp_r3 + 0x90, (u32) (((arg2 - arg0) - 1) * 0x90) >> 2U);
     }
     arg1 += (arg2 - 1) * 0x90;
     fn_8007B26C(arg1);

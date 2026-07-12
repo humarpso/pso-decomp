@@ -8,7 +8,7 @@ extern "C" {
 
 void *fn_80243010();
 
-void fn_80242E74(s16 arg0, s16 arg1) {
+void TBoss3Volopt__sub_80242E74(s16 arg0, s16 arg1) {
     void *temp_r3;
 
     temp_r3 = fn_80243010();

@@ -8,7 +8,7 @@ extern "C" {
 
 void play_phase_sound__11TBoss6Type2FPv(u8 *arg0);
 s32 is_target_valid__11TBoss6Type2FPv();
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 void play_phase_sound__11TBoss6Type2FPv(u8 *arg0) {
     M2C_UNK var_r3;
@@ -34,7 +34,7 @@ void play_phase_sound__11TBoss6Type2FPv(u8 *arg0) {
             var_r3 = 0x6852B;
             break;
         }
-        fn_8022675C(var_r3, arg0 + 0x38, 0, 1);
+        TBoss3Volopt__sub_8022675C(var_r3, arg0 + 0x38, 0, 1);
     }
 }
 

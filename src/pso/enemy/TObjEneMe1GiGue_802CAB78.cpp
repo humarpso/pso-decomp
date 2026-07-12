@@ -8,8 +8,8 @@ extern "C" {
 
 f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0);
 f32 TObjPlayer__sub_80014108();
-M2C_UNK fn_8001622C(void *, void *);
-M2C_UNK fn_80040B68(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_8001622C(void *, void *);
+M2C_UNK TObjEneMe1GiGue__sub_80040B68(void *, M2C_UNK);
 
 extern const f32 TObjEneMe1GiGue__data_805DE660;
 
@@ -18,8 +18,8 @@ f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0) {
 
     var_f31 = TObjEneMe1GiGue__data_805DE660;
     if (M2C_FIELD(arg0, s32 *, 0x388) & 0x80000) {
-        fn_8001622C(arg0, arg0 + 0x2FC);
-        fn_80040B68(arg0, 0xA);
+        TObjPlayer__sub_8001622C(arg0, arg0 + 0x2FC);
+        TObjEneMe1GiGue__sub_80040B68(arg0, 0xA);
     } else {
         var_f31 = TObjPlayer__sub_80014108();
     }

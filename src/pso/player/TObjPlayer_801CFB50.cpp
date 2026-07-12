@@ -7,12 +7,12 @@ void TObjPlayer__sub_801CFB54(void);
 void TObjPlayer__sub_801CFB58(void);
 void TObjPlayer__sub_801CFB5C(void);
 int TObjPlayer__sub_801CFB60(void* p);
-int fn_801BA2F4(void*);
+int TObjPlayer__sub_801BA2F4(void*);
 
 void TObjPlayer__sub_801CFB50(void) {  }
 void TObjPlayer__sub_801CFB54(void) {  }
 void TObjPlayer__sub_801CFB58(void) {  }
 void TObjPlayer__sub_801CFB5C(void) {  }
-int TObjPlayer__sub_801CFB60(void* p) { return fn_801BA2F4(p); }
+int TObjPlayer__sub_801CFB60(void* p) { return TObjPlayer__sub_801BA2F4(p); }
 
 }

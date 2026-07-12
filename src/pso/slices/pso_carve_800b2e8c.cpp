@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjEneMe3ShinowaReal__sub_8002ADD8();
-M2C_UNK fn_800BB780();
+M2C_UNK TBoss8Dragon__sub_800BB780();
 M2C_UNK fn_800BB7D0(void *);
 M2C_UNK fn_800BB7D4(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
-M2C_UNK fn_800F5EB4(void *, M2C_UNK);
-M2C_UNK fn_80143504();
-M2C_UNK fn_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D9CF8;
 extern const f32 lbl_805D9D04;
 
@@ -48,13 +48,13 @@ struct VObj : Base {
     virtual void m198();
 };
 
-void fn_800B2E8C(u8 *arg0, s32 arg1) {
+void TObjEneBm3FlyNest__sub_800B2E8C(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VObj*)arg0)->m180();
         fn_800BB7D0(arg0);
         fn_800BB7D4(arg0, 0xF1);
-        fn_8022675C((void *)(s32)fn_800F5EB4(arg0, 0x4003A829), arg0 + 0x38, 0, 0);
+        TBoss3Volopt__sub_8022675C((void *)(s32)TObjEnePanarms__sub_800F5EB4(arg0, 0x4003A829), arg0 + 0x38, 0, 0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) != 0) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 6;
             M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9CF8;
@@ -78,11 +78,11 @@ void fn_800B2E8C(u8 *arg0, s32 arg1) {
         }
         break;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         ((VObj*)arg0)->m198();
         return;
     case 5:
-        fn_800BB780();
+        TBoss8Dragon__sub_800BB780();
         break;
     }
 }

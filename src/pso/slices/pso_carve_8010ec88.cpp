@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8010C52C();
+s32 TItemData__sub_8010C52C();
 
 s32 fn_8010EC88(void *arg0) {
     if (((u8) M2C_FIELD(arg0, u8 *, 0) == 0) && (M2C_FIELD(arg0, u8 *, 4) & 0x80)) {
-        return fn_8010C52C() != 0 ? 1 : 0;
+        return TItemData__sub_8010C52C() != 0 ? 1 : 0;
     }
     return 1;
 }

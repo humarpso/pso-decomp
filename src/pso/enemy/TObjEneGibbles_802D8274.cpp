@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_motion__14TObjEneGibblesFPv(void *arg0);
-M2C_UNK fn_800F6B14(void *);
+M2C_UNK TObjPlayer__sub_800F6B14(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 
 void set_motion__14TObjEneGibblesFPv(void *arg0) {
@@ -19,7 +19,7 @@ void set_motion__14TObjEneGibblesFPv(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 9;
         temp_r4 = M2C_FIELD(arg0, void **, 0xA4);
         M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
-        fn_800F6B14(arg0);
+        TObjPlayer__sub_800F6B14(arg0);
         send_entity_set_flags__6TLobbyFPv(arg0);
     }
 }

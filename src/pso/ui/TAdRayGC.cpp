@@ -10,7 +10,7 @@ void run_task__8TAdRayGCFv(void *arg0);
 void render__8TAdRayGCFv(void *arg0);
 
 s32 TMainTask__sub_8001A430();
-M2C_UNK fn_8029BCB4(void *, s32, M2C_UNK, M2C_UNK);
+M2C_UNK TAdRayGC__sub_8029BCB4(void *, s32, M2C_UNK, M2C_UNK);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 
 void render__8TAdRayGCFv(void *arg0) {
@@ -22,14 +22,14 @@ void render__8TAdRayGCFv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
         switch (temp_r0) {
         case 0:
-            fn_8029BCB4(arg0, M2C_FIELD(arg0, s32 *, 0x20), -1, 0);
+            TAdRayGC__sub_8029BCB4(arg0, M2C_FIELD(arg0, s32 *, 0x20), -1, 0);
             break;
         case 1:
-            fn_8029BCB4(arg0, M2C_FIELD(arg0, s32 *, 0x20), -1, 0);
-            fn_8029BCB4(arg0, M2C_FIELD(arg0, s32 *, 0x20) - 0xD, -1, 1);
+            TAdRayGC__sub_8029BCB4(arg0, M2C_FIELD(arg0, s32 *, 0x20), -1, 0);
+            TAdRayGC__sub_8029BCB4(arg0, M2C_FIELD(arg0, s32 *, 0x20) - 0xD, -1, 1);
             break;
         case 2:
-            fn_8029BCB4(arg0, M2C_FIELD(arg0, s32 *, 0x20) - 0xD, -1, 1);
+            TAdRayGC__sub_8029BCB4(arg0, M2C_FIELD(arg0, s32 *, 0x20) - 0xD, -1, 1);
             break;
         }
         abs__4cXyzCFv(0, 8);

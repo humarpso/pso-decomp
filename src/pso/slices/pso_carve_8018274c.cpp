@@ -16,23 +16,23 @@ struct VObj_8018274C : Base_8018274C {
 
 extern "C" {
 
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK fn_803DA798(s32);
+M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK fn_803DC894(s32, s32, f32);
 extern u8 *lbl_805D5B28;
 extern s32 lbl_805D5B2C;
 
 void fn_8018274C(u8 *arg0) {
     if (((VObj_8018274C *)arg0)->m20() != 0) {
-        fn_803DA798(lbl_805D5B2C);
-        fn_803D9B2C();
+        TObjFish__sub_803DA798(lbl_805D5B2C);
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         fn_803DC894(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xB8), M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x54), M2C_FIELD(arg0, f32 *, 0xB4));
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
     }
 }
 

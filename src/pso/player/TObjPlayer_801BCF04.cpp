@@ -12,8 +12,8 @@ s32 TObjPlayer__sub_801C2114();
 s32 TObjPlayer__sub_801C2214(u8 *);
 M2C_UNK TKeyBoardControl__sub_801AFCF4(void *, s16);
 M2C_UNK fn_801B80C0(void *, s32, u8);
-M2C_UNK fn_801B81E8(void *, s32, u8);
-M2C_UNK fn_801B826C(void *);
+M2C_UNK TObjPlayer__sub_801B81E8(void *, s32, u8);
+M2C_UNK TObjPlayer__sub_801B826C(void *);
 
 s32 obj_isState2_324(void *);
 u16 obj_getField1c(void *);
@@ -26,13 +26,13 @@ void load_character_state__10TObjPlayerFPvPv(void *arg0, u8 *arg1) {
 
     temp_r31 = *arg1;
     temp_r30 = TObjPlayer__sub_801C2214(arg1);
-    fn_801B826C(arg0);
+    TObjPlayer__sub_801B826C(arg0);
     TKeyBoardControl__sub_801AFCF4(arg0, (s16) TObjPlayer__sub_801C2114());
     if ((obj_isState2_324(arg0) == 0) || (TFontSmallLobby__sub_801AFEE0() == 0)) {
         if (!(lbl_805D5D88 & 1)) {
             fn_801B80C0(arg0, temp_r30, temp_r31);
         }
-        fn_801B81E8(arg0, temp_r30, temp_r31);
+        TObjPlayer__sub_801B81E8(arg0, temp_r30, temp_r31);
     }
     M2C_FIELD(arg0, s32 *, 0xDB4) = (s32) (lbl_805D5D84 + (obj_getField1c(arg0) * 0x600));
 }

@@ -11,13 +11,13 @@ s32 close__6TMovieFis(s32 arg0, s16 arg1);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK release__6TMovieFPv();
 M2C_UNK free_buffer__6TMovieFPv(s32);
-M2C_UNK fn_8022743C();
+M2C_UNK TLobby__sub_8022743C();
 
 s32 close__6TMovieFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         release__6TMovieFPv();
         free_buffer__6TMovieFPv(arg0);
-        fn_8022743C();
+        TLobby__sub_8022743C();
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

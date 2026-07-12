@@ -84,8 +84,8 @@ struct VObj18 : VBase18 {
 extern "C" {
 
 s32 obj_isState2_324(void *);
-M2C_UNK fn_8003F108(void *);
-s32 fn_802034B0();
+M2C_UNK TBoss3Volopt__sub_8003F108(void *);
+s32 TObjPlayer__sub_802034B0();
 s32 TOBoss4Rock__sub_8039C880();
 extern const f64 lbl_8043E820;
 extern const f32 lbl_805DAC78;
@@ -94,8 +94,8 @@ void fn_8011D87C(void *arg0) {
 
     if (obj_isState2_324(M2C_FIELD(arg0, void **, 0x28)) == 0) {
         if (((VObj18 *) M2C_FIELD(arg0, void **, 0x28))->vf84() == 0) {
-            fn_8003F108(M2C_FIELD(arg0, void **, 0x28));
-            if ((fn_802034B0() == 1) && ((lbl_805DAC78 * (f32) TOBoss4Rock__sub_8039C880()) < M2C_FIELD(arg0, f32 *, 0x2C))) {
+            TBoss3Volopt__sub_8003F108(M2C_FIELD(arg0, void **, 0x28));
+            if ((TObjPlayer__sub_802034B0() == 1) && ((lbl_805DAC78 * (f32) TOBoss4Rock__sub_8039C880()) < M2C_FIELD(arg0, f32 *, 0x2C))) {
                 ((VObj18 *) M2C_FIELD(arg0, void **, 0x28))->vfC0(0);
                 ((VObj18 *) M2C_FIELD(arg0, void **, 0x28))->vf128(0);
             }

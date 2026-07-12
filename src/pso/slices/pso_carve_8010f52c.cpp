@@ -16,7 +16,7 @@ struct VObj_8010F52C : Base_8010F52C {
     virtual void m0(int);
 };
 
-void fn_8010F52C(void) {
+void TItemLoad__sub_8010F52C(void) {
     free__11TOBoss4RockFUi(lbl_805D54A4);
     if (lbl_805D54A0 != NULL) {
         ((struct VObj_8010F52C *)lbl_805D54A0)->m0(1);

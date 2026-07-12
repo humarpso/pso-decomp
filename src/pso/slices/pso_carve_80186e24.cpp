@@ -13,14 +13,14 @@ M2C_UNK TWindow__close(void *);
 M2C_UNK request_active_window_close();
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK fn_8024ACEC(s32);
-M2C_UNK fn_8024AD30(s32);
+M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
-M2C_UNK fn_80265C30(u32);
-M2C_UNK fn_80265F60(u32);
-M2C_UNK fn_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
-u32 fn_80266508(M2C_UNK, M2C_UNK);
-M2C_UNK fn_8026CBB8(M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+u32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 extern s32 lbl_805D53A0;
 
 void fn_80186E24(void *arg0) {
@@ -35,12 +35,12 @@ void fn_80186E24(void *arg0) {
     case 1:
         if (fn_80186BBC(M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
-                M2C_FIELD(arg0, u32 *, 0xB0) = fn_80266508(fn_8026CBB8(0x35), 7);
+                M2C_FIELD(arg0, u32 *, 0xB0) = TAdChrSelASlotGC__sub_80266508(TWindowSubComCard__sub_8026CBB8(0x35), 7);
                 if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
-                    fn_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TWindowSubStatusDisp__sub_80077760(0x40), 0, 0, -1);
+                    TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TWindowSubStatusDisp__sub_80077760(0x40), 0, 0, -1);
                     fn_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
-                    fn_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
-                    fn_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
+                    TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
+                    TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
                 }
                 fn_8024ACEC(lbl_805D53A0);
                 request_active_window_close();
@@ -51,7 +51,7 @@ void fn_80186E24(void *arg0) {
                 TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
                 M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
             }
-            fn_8024AD30(lbl_805D53A0);
+            TWindowChat__sub_8024AD30(lbl_805D53A0);
             clear_flag__11TWindowCtrlFv();
             TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
         }
@@ -64,7 +64,7 @@ void fn_80186E24(void *arg0) {
             TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
             M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
         }
-        fn_8024AD30(lbl_805D53A0);
+        TWindowChat__sub_8024AD30(lbl_805D53A0);
         clear_flag__11TWindowCtrlFv();
         TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
         break;

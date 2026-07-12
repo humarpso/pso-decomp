@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void release_static_resource__15TOKeyJungleMainFv(void);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOKeyJungleMain__data_805D65E0;
 
 void release_static_resource__15TOKeyJungleMainFv(void) {
     if ((u32) TOKeyJungleMain__data_805D65E0 != 0U) {
-        fn_8001FE7C((void*)TOKeyJungleMain__data_805D65E0, 1);
+        TLobby__sub_8001FE7C((void*)TOKeyJungleMain__data_805D65E0, 1);
         TOKeyJungleMain__data_805D65E0 = 0U;
     }
 }

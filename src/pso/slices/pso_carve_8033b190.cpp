@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8006EF6C(s32);
-s32 fn_80269C6C(s32, s32, s32);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 TLobby__sub_80269C6C(s32, s32, s32);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 int TKeyBoardControl__sub_8000F9B0(void*);
 

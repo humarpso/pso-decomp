@@ -9,7 +9,7 @@ extern "C" {
 void render__13TAdTitleTexGCFv(void *arg0);
 
 s32 TMainTask__sub_8001A430();
-s32 fn_80132F2C(M2C_UNK, M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK fn_802A4D74(void *, s32, s32, s32);
 M2C_UNK fn_802A4DE8(void *, s32);
 
@@ -18,7 +18,7 @@ void render__13TAdTitleTexGCFv(void *arg0) {
 
     if (TMainTask__sub_8001A430() != 1) {
         fn_802A4DE8(arg0, (M2C_FIELD(arg0, s32 *, 0x7C) << 0x18) | 0xFF0000 | 0xFFFF);
-        fn_802A4D74(arg0, (M2C_FIELD(arg0, s32 *, 0x7C) << 0x18) | 0xFF0000 | 0xFFFF, fn_80132F2C(0x28, 0), fn_80132F2C(0x28, 1));
+        fn_802A4D74(arg0, (M2C_FIELD(arg0, s32 *, 0x7C) << 0x18) | 0xFF0000 | 0xFFFF, TAdSinglePlyChrSelectGC__sub_80132F2C(0x28, 0), TAdSinglePlyChrSelectGC__sub_80132F2C(0x28, 1));
     }
 }
 

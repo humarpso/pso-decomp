@@ -10,15 +10,15 @@ void update_facing_vector__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK update_ground_contact__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801BF584(void *);
 M2C_UNK reset_slots__11TMainCursorFi(void *);
-f32 fn_803D64C0(s32);
-f32 fn_803D64DC(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
 
 extern const f32 TObjPlayer__data_805DC278;
 
 void update_facing_vector__10TObjPlayerFPv(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x404) = fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+    M2C_FIELD(arg0, f32 *, 0x404) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
     M2C_FIELD(arg0, f32 *, 0x408) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x40C) = fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+    M2C_FIELD(arg0, f32 *, 0x40C) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
     update_ground_contact__10TObjPlayerFi(arg0);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) {
         reset_slots__11TMainCursorFi(M2C_FIELD(arg0, void **, 0x424));

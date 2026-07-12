@@ -8,11 +8,11 @@ extern "C" {
 
 void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2);
 M2C_UNK init_flags__15TWindowFukidasiFPvi(void *, s32);
-M2C_UNK fn_800773BC(s32);
+M2C_UNK TWindowSubSymbolChat__sub_800773BC(s32);
 f32 fn_801A5228(s16);
 M2C_UNK fn_80248404(void *, u32 *);
 M2C_UNK fn_80248494(void *, s16);
-M2C_UNK fn_80252CA0(void *);
+M2C_UNK TWindowFukidasi__sub_80252CA0(void *);
 M2C_UNK fn_80257CB8(void *);
 
 extern const f32 TWindowFukidasi__data_805DCD30;
@@ -38,13 +38,13 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
     }
     if (var_r31 != 0) {
         M2C_FIELD(arg0, u8 *, 0x70) = 5U;
-        fn_80252CA0(arg0);
+        TWindowFukidasi__sub_80252CA0(arg0);
         if (fn_801A5228(M2C_FIELD(arg0, s16 *, 0x20)) > TWindowFukidasi__data_805DCD30) {
             M2C_FIELD(arg0, s32 *, 0x5C) = 0;
         }
     }
     fn_80248404(arg0 + 0x24, arg1);
-    fn_800773BC(((u32) *arg1 >> 5U) & 0xF);
+    TWindowSubSymbolChat__sub_800773BC(((u32) *arg1 >> 5U) & 0xF);
     M2C_FIELD(arg0, s16 *, 0x74) = 0x5A;
 }
 

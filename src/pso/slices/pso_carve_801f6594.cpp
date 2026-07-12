@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80269C6C(s32, s32, s32);
+M2C_UNK TLobby__sub_80269C6C(s32, s32, s32);
 
 void fn_801F6594(void *arg0, s32 arg1, s32 arg2) {
     u32 v = M2C_FIELD(arg0, u32 *, 0x34);
     if (v != 0U) {
-        fn_80269C6C(v, arg1, arg2 | 0x81);
+        TLobby__sub_80269C6C(v, arg1, arg2 | 0x81);
     }
 }
 

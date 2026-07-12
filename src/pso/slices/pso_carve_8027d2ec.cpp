@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-s32 fn_8027D2A0(void *, s8);
+s32 TWindowSubQuestBoardSelect__sub_8027D2A0(void *, s8);
 
-void fn_8027D2EC(void *arg0) {
+void TWindowSubQuestBoardSelect__sub_8027D2EC(void *arg0) {
     s32 var_r30;
     s32 var_r29;
     u16 *temp_r31;
@@ -19,7 +19,7 @@ void fn_8027D2EC(void *arg0) {
     var_r30 = 0;
     do {
         temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, var_r30 + 2);
-        if (fn_8027D2A0(arg0, (s8) var_r30) == 0) {
+        if (TWindowSubQuestBoardSelect__sub_8027D2A0(arg0, (s8) var_r30) == 0) {
             *temp_r31 |= 2;
         } else {
             var_r29 = 0;

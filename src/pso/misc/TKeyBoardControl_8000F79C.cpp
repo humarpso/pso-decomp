@@ -9,19 +9,19 @@ extern "C" {
 void run_tasks__16TKeyBoardControlFv(void);
 int TKeyBoardControl__sub_8000F7DC(void* p);
 int TFogCtrl__sub_800FAD08(void*);
-M2C_UNK fn_80083FB0();
-M2C_UNK fn_80226FA0();
-M2C_UNK fn_80228074();
+M2C_UNK TObjPlayer__sub_80083FB0();
+M2C_UNK TLobby__sub_80226FA0();
+M2C_UNK TLobby__sub_80228074();
 M2C_UNK run_tasks__7TObjectFv(M2C_UNK *);
 
 extern M2C_UNK lbl_80515F70[];
 extern s32 lbl_805D62B0;
 
 void run_tasks__16TKeyBoardControlFv(void) {
-    fn_80083FB0();
-    fn_80228074();
+    TObjPlayer__sub_80083FB0();
+    TLobby__sub_80228074();
     if ((s32) lbl_805D62B0 != 0) {
-        fn_80226FA0();
+        TLobby__sub_80226FA0();
     }
     run_tasks__7TObjectFv(lbl_80515F70);
 }

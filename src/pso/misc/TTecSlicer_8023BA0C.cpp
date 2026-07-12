@@ -14,9 +14,9 @@ M2C_UNK update__10TTecSlicerFi(void *);
 M2C_UNK __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK allow_rendering__7TObjectFv(void *);
-s32 fn_8001BEF8(void *, M2C_UNK);
+s32 TObjPlayer__sub_8001BEF8(void *, M2C_UNK);
 M2C_UNK fn_80084E98(void *, void *);
-u32 fn_80100490(s32);
+u32 TObjPlayer__sub_80100490(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void run_task__10TTecSlicerFv(u8 *arg0) {
@@ -25,7 +25,7 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     void *new_obj;
 
     M2C_FIELD(arg0, u32 *, 0x10C) = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x114));
-    M2C_FIELD(arg0, u32 *, 0x108) = fn_80100490(M2C_FIELD(arg0, s32 *, 0x118));
+    M2C_FIELD(arg0, u32 *, 0x108) = TObjPlayer__sub_80100490(M2C_FIELD(arg0, s32 *, 0x118));
     if (((u32) M2C_FIELD(arg0, u32 *, 0x108) == 0U) || ((u32) M2C_FIELD(arg0, u32 *, 0x10C) == 0U)) {
         queue_destruction__7TObjectFv(arg0);
         return;
@@ -40,14 +40,14 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     if (new_obj != 0U) {
         __ct__14TSlicerHistoryFv(new_obj, arg0, M2C_FIELD(arg0, s32 *, 0x24), var_r31, M2C_FIELD(arg0, s32 *, 0x118));
     }
-    if (fn_8001BEF8(arg0 + 0xC0, 1) == 0) {
+    if (TObjPlayer__sub_8001BEF8(arg0 + 0xC0, 1) == 0) {
         update__10TTecSlicerFi(arg0);
     }
     TTecSlicer__sub_8023B6BC(arg0);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x124) != 0U) {
         fn_80084E98(M2C_FIELD(arg0, void **, 0x124), arg0 + 0x38);
     }
-    if (fn_8001BEF8(arg0 + 0xC0, 2) != 0) {
+    if (TObjPlayer__sub_8001BEF8(arg0 + 0xC0, 2) != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

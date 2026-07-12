@@ -10,10 +10,10 @@ void render__15TODoorAncient09Fv(u8 *arg0);
 M2C_UNK TODoorAncient09__sub_80160BA8(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 fn_801582C4(void *, f32);
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK fn_803DC894(s32, s32, f32);
 
 extern const f32 lbl_805DB480;
@@ -35,20 +35,20 @@ void render__15TODoorAncient09Fv(u8 *arg0) {
         switch (temp_r0) {
         case 1:
         case 3:
-            fn_803D9B2C();
+            TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-            fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
             fn_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
-            fn_803D9B78();
+            TObjPlayer__sub_803D9B78();
             return;
         case 2:
-            fn_803D9B2C();
+            TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-            fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
             fn_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4) - lbl_805DB484);
-            fn_803D9B78();
+            TObjPlayer__sub_803D9B78();
             return;
         case 0:
             TODoorAncient09__sub_80160BA8(arg0);

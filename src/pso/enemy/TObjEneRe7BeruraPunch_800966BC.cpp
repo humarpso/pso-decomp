@@ -8,7 +8,7 @@ extern "C" {
 
 void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 M2C_UNK reset__21TObjEneRe7BeruraPunchFPv(void *);
-s32 fn_8007EB94(M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_8007EB94(M2C_UNK);
 s32 fn_800BC5EC(s32, s32);
 
 extern const f32 lbl_805D9794;
@@ -31,7 +31,7 @@ void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805D9794;
     M2C_FIELD(arg0, s32 *, 0xD0) = 0;
     M2C_FIELD(arg0, s32 *, 0xD4) = 0;
-    var_a = fn_8007EB94(0x10);
+    var_a = TAdSinglePlyChrSelectGC__sub_8007EB94(0x10);
     var_r0 = var_a;
     if (var_r0 != 0) {
         var_r0 = fn_800BC5EC(var_a, 9);

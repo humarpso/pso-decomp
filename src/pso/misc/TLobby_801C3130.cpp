@@ -18,8 +18,8 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_801C23A8(void*, void*);
 M2C_UNK fn_801C4F78(s32, s32);
-int fn_8022727C(void*);
-M2C_UNK fn_802274B8(void *);
+int TLobby__sub_8022727C(void*);
+M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void release_ref__6TLobbyFPv(u8 *arg0) {
@@ -28,7 +28,7 @@ void release_ref__6TLobbyFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C) - 1;
     M2C_FIELD(arg0, s32 *, 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
-        fn_802274B8(arg0 + 0x20);
+        TObjBgmColCtrl__sub_802274B8(arg0 + 0x20);
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -70,6 +70,6 @@ s32 assign_player_id__6TLobbyFv(void) {
     return temp_r3;
 }
 
-void send_neg50__6TLobbyFPvPv(void* p, void* a1) { fn_8022727C(p); fn_801C23A8((void*)-50, a1); }
+void send_neg50__6TLobbyFPvPv(void* p, void* a1) { TLobby__sub_8022727C(p); fn_801C23A8((void*)-50, a1); }
 
 }

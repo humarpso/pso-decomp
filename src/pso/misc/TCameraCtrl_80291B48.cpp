@@ -6,12 +6,12 @@ extern "C" {
 
 void *TCameraCtrl__vt8(void);
 void *__nw__7TObjectFUl(int);
-void *fn_80291CBC(void *);
+void *TCameraCtrl__sub_80291CBC(void *);
 
 void *TCameraCtrl__vt8(void) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = fn_80291CBC(o);
+        o = TCameraCtrl__sub_80291CBC(o);
     }
     return o;
 }

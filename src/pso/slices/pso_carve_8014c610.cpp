@@ -8,11 +8,11 @@ extern "C" {
 
 M2C_UNK TObjPlayer__sub_80011080(void *, M2C_UNK, M2C_UNK);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-M2C_UNK fn_803D8C7C(M2C_UNK, void *);
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D97F0(M2C_UNK);
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
+M2C_UNK TObjPlayer__sub_803D8C7C(M2C_UNK, void *);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D97F0(M2C_UNK);
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
 extern s32 some_id_805c6f74;
 
 struct Base_8014C610 { char pad[0x18]; };
@@ -31,12 +31,12 @@ struct VObj_8014C610 : Base_8014C610 {
 void fn_8014C610(u8 *arg0) {
     if ((((VObj_8014C610 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
         some_id_805c6f74 |= 1;
-        fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
-        fn_803D97F0(0);
-        fn_803D8C7C(0, arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        TObjPlayer__sub_803D97F0(0);
+        TObjPlayer__sub_803D8C7C(0, arg0 + 0x38);
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         draw__16TObjEneRe7BeruraFPv(arg0);
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
         some_id_805c6f74 &= 0xFFFFFFFE;
         TObjPlayer__sub_80011080(arg0, 0, 0);
     }

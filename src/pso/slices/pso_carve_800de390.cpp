@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int fn_80080750(void*);
+int TObjPlayer__sub_80080750(void*);
 int TObjEnePanarms__sub_800DED30(void*, void*);
 void try_activate__14TObjEnePanarmsFPv(void* p);
 void set_state__14TObjEnePanarmsFPv(void* p);

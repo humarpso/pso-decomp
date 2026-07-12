@@ -12,7 +12,7 @@ s32 TLockOnCursor__sub_8013EBC4(void* p);
 s32 TLockOnCursor__sub_8013EBE8(void* p);
 s32 TLockOnCursor__sub_8013EBF0(void* p);
 s32 TLockOnCursor__sub_8013EC14(void* p);
-int fn_8001BEF8(void*, int);
+int TObjPlayer__sub_8001BEF8(void*, int);
 
 void TLockOnCursor__sub_8013EB80(void* p) { *(s32*)((char*)p + 0x4) = 0; }
 void TLockOnCursor__sub_8013EB8C(void* p) { *(s32*)((char*)p + 0x4) = 1; }

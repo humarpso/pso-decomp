@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80101CFC(u32, M2C_UNK *);
+M2C_UNK TItem__sub_80101CFC(u32, M2C_UNK *);
 s32 TItemData__sub_8010DF9C(M2C_UNK *);
 
 s32 fn_801047B4(u32 arg0) {
     M2C_UNK sp8[4];
 
     if (arg0 != 0U) {
-        fn_80101CFC(arg0, sp8);
+        TItem__sub_80101CFC(arg0, sp8);
         return TItemData__sub_8010DF9C(sp8);
     }
     return 0;

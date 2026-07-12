@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int fn_8039C8A0(M2C_UNK, M2C_UNK *, ...);
+int TAdEnterSerialAccessGC__sub_8039C8A0(M2C_UNK, M2C_UNK *, ...);
 extern M2C_UNK lbl_805DC4A4;
 
 s32 parse_f_index(s32 a0) {
     s32 sp8;
 
     sp8 = -1;
-    fn_8039C8A0(a0, &lbl_805DC4A4, &sp8);
+    TAdEnterSerialAccessGC__sub_8039C8A0(a0, &lbl_805DC4A4, &sp8);
     if ((sp8 < 0x100) && (sp8 >= 0)) {
         return sp8;
     }

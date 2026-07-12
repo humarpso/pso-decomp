@@ -10,13 +10,13 @@ f32 calc_random_ratio__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_800196EC(void);
 s32 TObjPlayer__sub_800196F4(void* p);
 s32 TObjPlayer__sub_800196FC(void);
-u32 fn_8007C3E0();
+u32 TAdSinglePlyChrSelectGC__sub_8007C3E0();
 
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 
 f32 calc_random_ratio__10TObjPlayerFv(void) {
-    return (f32) (fn_8007C3E0() >> 0x10U) / lbl_805D7D3C;
+    return (f32) (TAdSinglePlyChrSelectGC__sub_8007C3E0() >> 0x10U) / lbl_805D7D3C;
 }
 
 extern s32 lbl_805D5FC0;

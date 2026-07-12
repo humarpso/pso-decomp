@@ -7,7 +7,7 @@ extern "C" {
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 extern M2C_UNK lbl_804A2148[];
 
-void *fn_80124810(void *arg0) {
+void *TObjPlayer__sub_80124810(void *arg0) {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2148;
     return arg0;

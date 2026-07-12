@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 TItemProShield__sub_8010B734();
-M2C_UNK fn_8012106C(void *, M2C_UNK);
-f32 fn_803D64C0(s32);
+M2C_UNK TObjPlayer__sub_8012106C(void *, M2C_UNK);
+f32 TBoss8Dragon__sub_803D64C0(s32);
 extern f32 lbl_805DF0A8;
 
 void fn_80307660(void *arg0) {
@@ -16,12 +16,12 @@ void fn_80307660(void *arg0) {
         if (TItemProShield__sub_8010B734() == 1) {
             M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) - 1);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) == 0) {
-                fn_8012106C(arg0, 0x800);
+                TObjPlayer__sub_8012106C(arg0, 0x800);
             }
         }
     } else {
         M2C_FIELD(arg0, s32 *, 0x200) = (s32) (M2C_FIELD(arg0, s32 *, 0x200) + 0xB6);
-        M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (lbl_805DF0A8 * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x200)));
+        M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (lbl_805DF0A8 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x200)));
     }
 }
 

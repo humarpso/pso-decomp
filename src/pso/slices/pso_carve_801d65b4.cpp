@@ -15,7 +15,7 @@ int fn_801D672C(void* p);
 int fn_801D6754(void* p);
 int fn_801D677C(void* p);
 u16 fn_801D67A4(void* p);
-int fn_8001BED8(void*, int);
+int TObjPlayer__sub_8001BED8(void*, int);
 int TAdRicoRing__sub_8001BEE8(void*, int);
 
 int TFontSmallLobby__sub_801D65B4(void) { return 0; }

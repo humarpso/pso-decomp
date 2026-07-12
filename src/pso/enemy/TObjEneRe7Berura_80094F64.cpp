@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0);
-M2C_UNK fn_803D9730(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803E4684(s32);
+M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjPlayer__sub_803E4684(s32);
 
 extern s32 TObjEneRe7Berura__data_805D4F98;
 
@@ -21,15 +21,15 @@ void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
 
     var_r30 = arg0;
     do {
-        fn_803D9B2C();
+        TObjPlayer__sub_803D9B2C();
         temp_r4 = TObjEneRe7Berura__data_805D4F98;
         TObjEneRe7Berura__data_805D4F98 = temp_r4 + 0x30;
-        fn_803D9730(0, temp_r4);
+        TObjPlayer__sub_803D9730(0, temp_r4);
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
         if (!(temp_r31 & 8)) {
-            fn_803E4684(M2C_FIELD(var_r30, s32 *, 4));
+            TObjPlayer__sub_803E4684(M2C_FIELD(var_r30, s32 *, 4));
         }
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
         if (!(temp_r31 & 0x10)) {
             draw_node_tree__16TObjEneRe7BeruraFPv(M2C_FIELD(var_r30, void **, 0x2C));
         }

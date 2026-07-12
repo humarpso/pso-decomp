@@ -12,7 +12,7 @@ s32 TKeyBoardControl__sub_80131FAC(u32);
 M2C_UNK TWindowKeyBoardSoft__sub_80260904(void *, s32);
 M2C_UNK TWindowKeyBoardSoft__sub_80260E30(void *, s32);
 s32 fn_80244994();
-M2C_UNK fn_80246258(void *);
+M2C_UNK TWindowSubComCard__sub_80246258(void *);
 M2C_UNK fn_8024664C(void *);
 s32 fn_8024A0DC(s16);
 M2C_UNK TWindowKeyBoardSoft__sub_80260808(void *, s32);
@@ -35,7 +35,7 @@ void TWindowKeyBoardSoft__sub_8026262C(void *arg0) {
             TWindowKeyBoardSoft__sub_80260808(arg0, temp_r3);
         }
         fn_8024664C(arg0);
-        fn_80246258(arg0);
+        TWindowSubComCard__sub_80246258(arg0);
         M2C_FIELD(arg0, f32 *, 0x68) -= lbl_805DD0D4 * M2C_FIELD(arg0, f32 *, 0x68);
     }
 }

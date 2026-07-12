@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800868C4(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_80087350(M2C_UNK *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_800868C4(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
 
 struct Base_80358984 { char pad[0x18]; };
 struct VObj_80358984 : Base_80358984 {
@@ -30,15 +30,15 @@ struct VObj_80358984 : Base_80358984 {
     virtual void m63(s32, void *);
 };
 
-void fn_80358984(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TObjPlayer__sub_80358984(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_UNK sp8;
 
     if (arg3 == 0) {
         ((VObj_80358984 *)arg0)->m63(0x30, &sp8);
-        fn_80087350(&sp8, 0x68);
+        TObjEneDellBiter__sub_80087350(&sp8, 0x68);
     }
     if (arg3 == 1) {
-        fn_800868C4(arg2, 0x18, 0, 5, 0x40);
+        TObjPlayer__sub_800868C4(arg2, 0x18, 0, 5, 0x40);
     }
 }
 

@@ -8,14 +8,14 @@ extern "C" {
 
 void render__6TOTrapFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-s32 fn_80080750();
-s32 fn_801A85A0();
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
-M2C_UNK fn_803E46BC(s32);
-M2C_UNK fn_803E4AF4(s32, s32, f32);
+s32 TObjPlayer__sub_80080750();
+s32 TObjPlayer__sub_801A85A0();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 
 extern const f32 lbl_805DBA40;
 extern const f32 lbl_805DBA44;
@@ -34,19 +34,19 @@ struct TOTrapVObj : TOTrapBase {
 };
 #pragma explicit_unused_unused_members on
 void render__6TOTrapFv(u8 *arg0) {
-    if (fn_801A85A0() == 0) {
+    if (TObjPlayer__sub_801A85A0() == 0) {
         M2C_FIELD(arg0, s32 *, 0x340) = ((TOTrapVObj*)arg0)->m8(lbl_805DBA40, lbl_805DBA44);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x340) == 1) {
-            fn_803D9B2C();
+            TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-            fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
-            if (fn_80080750() == 1) {
-                fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+            if (TObjPlayer__sub_80080750() == 1) {
+                TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
-                fn_803E4AF4(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+                TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
             }
-            fn_803D9B78();
+            TObjPlayer__sub_803D9B78();
         }
     }
 }

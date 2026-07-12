@@ -8,7 +8,7 @@ extern "C" {
 
 void TAdPlayerLoadGC__sub_801E0C5C(s32 arg0);
 M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
-s32 fn_80384B30(s32, M2C_UNK *, s32 *);
+s32 TAdPlayerLoadGC__sub_80384B30(s32, M2C_UNK *, s32 *);
 
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 extern s32 TAdPlayerLoadGC__data_805D5E40;
@@ -20,7 +20,7 @@ void TAdPlayerLoadGC__sub_801E0C5C(s32 arg0) {
 
     TAdPlayerLoadGC__data_805D5E30 &= ~(0x400 << arg0);
     do {
-        temp_r3 = fn_80384B30(arg0, &spC, &sp8);
+        temp_r3 = TAdPlayerLoadGC__sub_80384B30(arg0, &spC, &sp8);
     } while (temp_r3 == -1);
     if (sp8 == 0x2000) {
         if ((temp_r3 == -3) || (temp_r3 == -2)) {

@@ -74,13 +74,13 @@ struct VObj_8034EFDC : Base_8034EFDC {
 
 extern "C" {
 
-M2C_UNK fn_80087350(void *, M2C_UNK);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
 
 void fn_8034EFDC(void *arg0) {
     u8 sp8[0x18];
     struct VObj_8034EFDC *o = (struct VObj_8034EFDC *)M2C_FIELD(arg0, void **, 0xF0);
     o->m63(0x30, sp8);
-    fn_80087350(sp8, 0x1D0);
+    TObjEneDellBiter__sub_80087350(sp8, 0x1D0);
 }
 
 }

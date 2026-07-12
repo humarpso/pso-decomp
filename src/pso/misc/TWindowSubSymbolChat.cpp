@@ -14,14 +14,14 @@ void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0);
 s32 commit__20TWindowSubSymbolChatFi(s32 arg0);
 s32 TWindowSubSymbolChat__sub_80077310();
 M2C_UNK TWindowSubSymbolChat__sub_80283850();
-s32 fn_80077334(void);
+s32 TWindowSubSymbolChat__sub_80077334(void);
 
 s32 compute_total_height__20TWindowSubSymbolChatFv(void) {
     s32 temp_r31;
 
     s32 temp_r3;
     temp_r31 = TWindowSubSymbolChat__sub_802837DC();
-    temp_r3 = fn_80077334();
+    temp_r3 = TWindowSubSymbolChat__sub_80077334();
     return temp_r3 + temp_r31;
 }
 s32 TWindowSubSymbolChat__sub_802837DC(void) {

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8022675C(s32, s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 int fn_8028B36C(void* p);
 int fn_8028B38C(void* p);
 int fn_8028B70C(void*);
@@ -17,7 +17,7 @@ int fn_8028B36C(void* p) { return fn_8028B70C(p); }
 int fn_8028B38C(void* p) { return fn_8028B710(p); }
 void fn_8028B3AC(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
-        fn_8022675C(0x4003A819, 0, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x4003A819, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }
 }

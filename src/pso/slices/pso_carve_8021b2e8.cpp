@@ -15,13 +15,13 @@ struct VObj_8021B2E8 : Base_8021B2E8 {
 
 extern "C" {
 
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 
-void fn_8021B2E8(void *arg0) {
+void TShopEquipmentGearSequence__sub_8021B2E8(void *arg0) {
     struct VObj_8021B2E8 *o = (struct VObj_8021B2E8 *)arg0;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        fn_80073DC4(arg0, 2);
+        TQuestListVM__sub_80073DC4(arg0, 2);
     }
 }
 

@@ -328,10 +328,10 @@ short TObjPlayer__sub_801BE5E0(void *arg0);
 short TObjPlayer__sub_801BE614(void *arg0);
 void TObjPlayer__sub_801BE648(void);
 int TPlayerBattleCtrl4P__sub_801BA74C(void*);
-M2C_UNK fn_8011E204(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 
 void set_flag_400000__10TObjPlayerFPv(void *arg0) {
-    fn_8011E204(arg0, 0x400000);
+    TObjPlayer__sub_8011E204(arg0, 0x400000);
 }
 
 short get_model_field_m25__10TObjPlayerFPv(void *arg0) {

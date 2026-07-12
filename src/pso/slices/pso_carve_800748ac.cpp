@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_8006FBAC();
+M2C_UNK TLobby__sub_8006FBAC();
 M2C_UNK TWindow__close(u32);
 
 void fn_800748AC(void *arg0) {
@@ -20,7 +20,7 @@ void fn_800748AC(void *arg0) {
             TWindow__close(M2C_FIELD(arg0, u32 *, 0x20));
             M2C_FIELD(arg0, u32 *, 0x20) = 0U;
         }
-        fn_8006FBAC();
+        TLobby__sub_8006FBAC();
         queue_destruction__7TObjectFv(arg0);
     }
 }

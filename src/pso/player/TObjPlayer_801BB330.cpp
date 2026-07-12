@@ -19,9 +19,9 @@ M2C_UNK TObjPlayer__sub_801B6F8C(void *);
 M2C_UNK update_position_history__10TObjPlayerFPv(void *);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv(void *);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
-M2C_UNK fn_80143504(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
-M2C_UNK fn_801BA168();
+M2C_UNK TObjPlayer__sub_801BA168();
 M2C_UNK copy_offset_position__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 
@@ -31,12 +31,12 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
     s16 temp_r0;
     s16 temp_r0_2;
 
-    fn_801BA168();
+    TObjPlayer__sub_801BA168();
     update_subsystems__10TObjPlayerFi(arg0);
     update_position_history__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_801B6F8C(arg0);
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 1);
-    fn_80143504(arg0);
+    TBoss1Dragon__sub_80143504(arg0);
     calc_attach_pos__10TObjPlayerFPv(arg0);
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
     copy_offset_position__10TObjPlayerFPvPv(arg0 + 0x84C, arg0);

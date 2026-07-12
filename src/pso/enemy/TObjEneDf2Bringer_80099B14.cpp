@@ -11,7 +11,7 @@ void *create__17TObjEneDf2BringerFPv(void *arg0);
 void *TObjEneDf2Bringer__ct(void *, void *, void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK fn_8009A7A0();
 void fn_800F5C8C(void*, int);
 
@@ -30,7 +30,7 @@ void free_resources__17TObjEneDf2BringerFv(void) {
         TObjEneDf2Bringer__data_805D4FC8 = 0U;
     }
     if ((u32) TObjEneDf2Bringer__data_805D4FB8 != 0U) {
-        fn_8001FE7C((void*)TObjEneDf2Bringer__data_805D4FB8, 1);
+        TLobby__sub_8001FE7C((void*)TObjEneDf2Bringer__data_805D4FB8, 1);
         TObjEneDf2Bringer__data_805D4FB8 = 0U;
     }
 }

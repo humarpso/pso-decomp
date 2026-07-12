@@ -8,7 +8,7 @@ extern "C" {
 
 s32 check_collision__16TObjFogCollisionFPvUs(u8 *arg0, u16 arg1);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
-f32 fn_80141CF8(void *, s32);
+f32 TObjPlayer__sub_80141CF8(void *, s32);
 
 extern const f32 lbl_805DB26C;
 
@@ -22,7 +22,7 @@ s32 check_collision__16TObjFogCollisionFPvUs(u8 *arg0, u16 arg1) {
     if (temp_r3 != 0) {
         temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
         temp_f31 = temp_f0 * temp_f0;
-        temp_f1 = fn_80141CF8(arg0 + 0x38, temp_r3 + 0x38);
+        temp_f1 = TObjPlayer__sub_80141CF8(arg0 + 0x38, temp_r3 + 0x38);
         if (temp_f31 > temp_f1) {
             return 1;
         }

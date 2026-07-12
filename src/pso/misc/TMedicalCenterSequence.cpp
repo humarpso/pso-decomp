@@ -10,7 +10,7 @@ void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
 
 s32 TWindowSubComCard__sub_8007341C(u32);
 s32 TWindowSubComCard__sub_80073DB8(u32);
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 M2C_UNK TWindow__close(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 
@@ -22,13 +22,13 @@ void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0) {
         if (temp_r3 == 0) {
             TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
-            fn_80073DC4(arg0, 4);
+            TQuestListVM__sub_80073DC4(arg0, 4);
             return;
         }
         if (temp_r3 == 1) {
             TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
-            fn_80073DC4(arg0, 5);
+            TQuestListVM__sub_80073DC4(arg0, 5);
             return;
         }
         goto block_6;
@@ -37,7 +37,7 @@ block_6:
     if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (TWindowSubComCard__sub_80073DB8((u32) M2C_FIELD(arg0, u32 *, 0x30)) != 0)) {
         TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
-        fn_80073DC4(arg0, 5);
+        TQuestListVM__sub_80073DC4(arg0, 5);
     }
 }
 

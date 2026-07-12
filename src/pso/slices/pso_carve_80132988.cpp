@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80132F2C(M2C_UNK, s32);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
 
 void fn_80132988(s32 arg0) {
-    fn_80132F2C(0xA, arg0);
+    TAdSinglePlyChrSelectGC__sub_80132F2C(0xA, arg0);
 }
 
 }

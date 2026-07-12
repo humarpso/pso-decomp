@@ -9,9 +9,9 @@ extern "C" {
 void action__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK TObjEneBalClawClaw__sub_8009082C(void *, s32, s32);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK fn_800A0554(void *);
+M2C_UNK TObjPlayer__sub_800A0554(void *);
 M2C_UNK fn_800D8C48(void *, s32);
-M2C_UNK fn_80143504(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
 
 extern const f32 TObjEneBalClawClaw__data_805D968C;
 
@@ -38,10 +38,10 @@ void action__18TObjEneBalClawClawFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         fn_800D8C48(arg0 + 0x38, temp_r4);
-        fn_800A0554(arg0 + 0x390);
+        TObjPlayer__sub_800A0554(arg0 + 0x390);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        fn_80143504(arg0);
+        TBoss1Dragon__sub_80143504(arg0);
         TObjPlayer__sub_80011734(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         if (((En0VObj*)(arg0 + 0x390))->m5() == 1) {
             temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);

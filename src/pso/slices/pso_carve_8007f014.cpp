@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8007EE8C(void *, s32, s32, s8 *);
+M2C_UNK TObjWarpString__sub_8007EE8C(void *, s32, s32, s8 *);
 int sprintf(s8 *, const char *, ...);
 extern const char lbl_80438AD8[];
 extern const f32 lbl_805D92AC;
@@ -24,7 +24,7 @@ void draw_percent_text(void *arg0, f32 farg0, f32 farg1) {
             var_r5 = 0x64;
         }
         sprintf(&sp8, lbl_80438AD8, var_r5);
-        fn_8007EE8C(arg0, (s32) farg0, (s32) farg1, &sp8);
+        TObjWarpString__sub_8007EE8C(arg0, (s32) farg0, (s32) farg1, &sp8);
     }
 }
 

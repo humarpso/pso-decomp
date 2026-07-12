@@ -11,13 +11,13 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
-s32 fn_8001ED9C(s32, M2C_UNK);
-M2C_UNK fn_801E2EFC();
-M2C_UNK fn_801E2F20();
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798();
+s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798();
 M2C_UNK fn_803DC894(s32, s32, f32);
 
 extern s32 TOKeyJungleMain__data_805D65E0;
@@ -40,25 +40,25 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
         switch (M2C_FIELD(arg0, s32 *, 0xD4)) {
         case 0:
             TObjFish__sub_8001EDB0(TOKeyJungleMain__data_805D65E0, 1);
-            fn_803DA798();
-            fn_803D9B2C();
+            TObjFish__sub_803DA798();
+            TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
             TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 1);
             TObjBoss2Tunnel__sub_803DB470();
-            fn_803D9B78();
+            TObjPlayer__sub_803D9B78();
             return;
         case 1:
             TObjFish__sub_8001EDB0(TOKeyJungleMain__data_805D65E0, 1);
-            fn_803DA798();
-            fn_803D9B2C();
+            TObjFish__sub_803DA798();
+            TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-            fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-            fn_803DC894(TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 1), fn_8001ED9C(TOKeyJungleMain__data_805D65E0, 1), M2C_FIELD(arg0, f32 *, 0xE8));
-            fn_801E2EFC();
-            fn_803DC894(TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 0), fn_8001ED9C(TOKeyJungleMain__data_805D65E0, 0), M2C_FIELD(arg0, f32 *, 0xEC));
-            fn_801E2F20();
-            fn_803D9B78();
+            TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+            fn_803DC894(TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 1), TObjFish__sub_8001ED9C(TOKeyJungleMain__data_805D65E0, 1), M2C_FIELD(arg0, f32 *, 0xE8));
+            TParticleCtrl__sub_801E2EFC();
+            fn_803DC894(TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 0), TObjFish__sub_8001ED9C(TOKeyJungleMain__data_805D65E0, 0), M2C_FIELD(arg0, f32 *, 0xEC));
+            TParticleCtrl__sub_801E2F20();
+            TObjPlayer__sub_803D9B78();
             break;
         }
     }

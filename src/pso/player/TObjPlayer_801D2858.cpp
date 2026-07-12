@@ -35,9 +35,9 @@ f32 TObjPlayer__sub_801D2CDC(void* p);
 void TObjPlayer__sub_801D2CE4(void* p, s16 v);
 void* TObjPlayer__sub_801D2CEC(void* p);
 int bswap_32__FPUl(void*);
-int fn_8001BED8(void*, int);
+int TObjPlayer__sub_8001BED8(void*, int);
 int TAdRicoRing__sub_8001BEE8(void*, int);
-int fn_8001BEF8(void*, int);
+int TObjPlayer__sub_8001BEF8(void*, int);
 int fn_801D7BF4(void*);
 
 f32 TObjPlayer__sub_801D2858(void* p) { return *(f32*)((char*)p + 0x8); }

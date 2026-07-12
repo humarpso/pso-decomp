@@ -9,15 +9,15 @@ extern "C" {
 s32 get_main_phase();
 s32 is_split_screen();
 s32 TCameraCtrl__sub_8006B368();
-M2C_UNK fn_8007B858();
-s32 fn_8007BB2C();
+M2C_UNK TLobby__sub_8007B858();
+s32 TLobby__sub_8007BB2C();
 M2C_UNK TObjLight__sub_80133D78();
-M2C_UNK fn_801403B4(M2C_UNK);
-M2C_UNK fn_801F4830(M2C_UNK);
+M2C_UNK TLobby__sub_801403B4(M2C_UNK);
+M2C_UNK TBoss4DarkFalz__sub_801F4830(M2C_UNK);
 s32 TOKeyMachine01__sub_802034A8();
-M2C_UNK fn_80226E44(M2C_UNK);
-M2C_UNK fn_802274B8(M2C_UNK *);
-M2C_UNK fn_80227FB4();
+M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK TLobby__sub_80227FB4();
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_8029F4C4(s32, s32);
 extern M2C_UNK lbl_804651C8[];
@@ -28,8 +28,8 @@ s32 initialize_boss_scene(void) {
     u32 temp_new;
 
     TOKeyMachine01__sub_802034A8();
-    fn_80227FB4();
-    if (fn_8007BB2C() != 0) {
+    TLobby__sub_80227FB4();
+    if (TLobby__sub_8007BB2C() != 0) {
         return 0;
     }
     TObjLight__sub_80133D78();
@@ -39,21 +39,21 @@ s32 initialize_boss_scene(void) {
             fn_8029F4C4(temp_new, tl_particlemodel);
         }
     }
-    fn_8007B858();
-    fn_801403B4(0);
+    TLobby__sub_8007B858();
+    TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
-        fn_802274B8(lbl_804651C8);
+        TObjBgmColCtrl__sub_802274B8(lbl_804651C8);
     } else {
-        fn_80226E44(6);
+        TLobby__sub_80226E44(6);
     }
     if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
         temp_r3 = TOKeyMachine01__sub_802034A8();
         switch (temp_r3) {
         case 28:
-            fn_801F4830(0x54);
+            TBoss4DarkFalz__sub_801F4830(0x54);
             break;
         case 29:
-            fn_801F4830(0x55);
+            TBoss4DarkFalz__sub_801F4830(0x55);
             break;
         }
     }

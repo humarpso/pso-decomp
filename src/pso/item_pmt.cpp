@@ -7,16 +7,16 @@ extern "C" TObject* item_mgr;
 
 extern "C" char* const lbl_805D2C78;
 
-extern "C" void*    fn_8007EB94(int size);
-extern "C" void*    fn_8010FE6C(void* obj, const char* file, int flags);
-extern "C" void     fn_8010FE20(void* obj, int flag);
+extern "C" void*    TAdSinglePlyChrSelectGC__sub_8007EB94(int size);
+extern "C" void*    TItemLoad__sub_8010FE6C(void* obj, const char* file, int flags);
+extern "C" void     TItemLoad__sub_8010FE20(void* obj, int flag);
 extern "C" void*    TItemMag__sub_8001A468(void* pmt);
 extern "C" TObject* TItemDrop__sub_80107A68(int arg);
 
 extern "C" {
 
 void free_item_pmt() {
-    fn_8010FE20(item_pmt, 1);
+    TItemLoad__sub_8010FE20(item_pmt, 1);
     item_pmt = NULL;
     item_pmt_tbl = NULL;
 }
@@ -28,9 +28,9 @@ void unload_items() {
 }
 
 void load_item_pmt() {
-    void* p = fn_8007EB94(8);
+    void* p = TAdSinglePlyChrSelectGC__sub_8007EB94(8);
     if (p != NULL) {
-        p = fn_8010FE6C(p, lbl_805D2C78, 0x10000);
+        p = TItemLoad__sub_8010FE6C(p, lbl_805D2C78, 0x10000);
     }
     item_pmt = p;
     if (p != NULL) {

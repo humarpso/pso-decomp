@@ -9,12 +9,12 @@ extern "C" {
 M2C_UNK TObjectV8047c128_subtract_hp(s32, M2C_UNK);
 s32 obj_isState3_324(s32);
 s32 obj_testFlags30(s32, M2C_UNK);
-M2C_UNK fn_8003F108(s32);
-s32 fn_802034B0();
+M2C_UNK TBoss3Volopt__sub_8003F108(s32);
+s32 TObjPlayer__sub_802034B0();
 
 void fn_8011DAE4(void *arg0) {
-    fn_8003F108(M2C_FIELD(arg0, s32 *, 0x28));
-    if ((fn_802034B0() == 1) && (obj_isState3_324(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (obj_testFlags30(M2C_FIELD(arg0, s32 *, 0x28), 0x800) == 0)) {
+    TBoss3Volopt__sub_8003F108(M2C_FIELD(arg0, s32 *, 0x28));
+    if ((TObjPlayer__sub_802034B0() == 1) && (obj_isState3_324(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (obj_testFlags30(M2C_FIELD(arg0, s32 *, 0x28), 0x800) == 0)) {
         TObjectV8047c128_subtract_hp(M2C_FIELD(arg0, s32 *, 0x28), 1);
     }
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
-s32 fn_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 fn_80211608();
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 void set_flag0_bit20__15TWindowHelpItemFPv(void* p);
@@ -29,10 +29,10 @@ void fn_80255E88(void *arg0) {
 
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x6C);
     if ((temp_r3 < (s32) M2C_FIELD(arg0, s32 *, 0x64)) || (temp_r3 > (s32) M2C_FIELD(arg0, s32 *, 0x68))) {
-        fn_8022675C(0x53F06, 0, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
         return;
     }
-    fn_8022675C(0x52D01, 0, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 2);
     temp = (u32) M2C_FIELD(arg0, u32 *, 0x70);
     if (temp != 0U) {

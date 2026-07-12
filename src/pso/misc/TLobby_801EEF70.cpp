@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_801EEF70(void);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK fn_80011160(s32, s32);
+M2C_UNK TObjPlayer__sub_80011160(s32, s32);
 
 extern s32 TLobby__data_80512220[];
 extern s32 lbl_805D53A0;
@@ -20,7 +20,7 @@ void TLobby__sub_801EEF70(void) {
     temp_r31 = TLobby__data_80512220[0];
     ret = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
     if (ret != 0U) {
-        fn_80011160(ret, temp_r31);
+        TObjPlayer__sub_80011160(ret, temp_r31);
     }
 }
 

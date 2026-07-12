@@ -1,0 +1,36 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TBoss6PlotFalz__sub_802B02B0(void *arg0);
+s32 TBoss6PlotFalz__sub_802AACEC(void *);
+M2C_UNK TBoss6PlotFalz__sub_802AB2B8(void *, M2C_UNK);
+M2C_UNK TBoss6PlotFalz__sub_802AB490(void *);
+M2C_UNK TBoss6PlotFalz__sub_802AC4D8();
+M2C_UNK TBoss6PlotFalz__sub_802AC678();
+s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
+
+void TBoss6PlotFalz__sub_802B02B0(void *arg0) {
+    s32 temp_r0;
+
+    TBoss6PlotFalz__sub_802AC4D8();
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x3CC) > 1) && (TBoss6PlotFalz__sub_802AACEC(arg0) != 0)) {
+        M2C_FIELD(arg0, s32 *, 0x3CC) = 0x2CA;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x3CC) + 1;
+    M2C_FIELD(arg0, s32 *, 0x3CC) = temp_r0;
+    if (temp_r0 > 0x2CA) {
+        if (is_ending_or_split_screen__14TBoss6PlotFalzFv(arg0) != 0) {
+            TBoss6PlotFalz__sub_802AB2B8(arg0, 8);
+            return;
+        }
+        TBoss6PlotFalz__sub_802AC678();
+        TBoss6PlotFalz__sub_802AB490(arg0);
+    }
+}
+
+}

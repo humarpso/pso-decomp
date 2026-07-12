@@ -11,15 +11,15 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjEneDD__sub_800B9D74(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 M2C_UNK fn_800BB858();
-M2C_UNK fn_800D8A2C();
+M2C_UNK TObjPlayer__sub_800D8A2C();
 M2C_UNK fn_800F5BC0(s32, s16, M2C_UNK);
-M2C_UNK fn_801E2F20();
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9624(M2C_UNK, f32, f32, f32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
-M2C_UNK fn_803E46BC(s32);
+M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK TObjFish__sub_803E46BC(s32);
 
 extern s32 TObjEneRe4Sorcerer__data_805D52F4;
 extern s32 some_id_805c6f74;
@@ -46,21 +46,21 @@ void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
     fn_800BB858();
     if (((VObj *)arg0)->m8(lbl_805DA788, TObjEneRe4Sorcerer__data_805DA78C) != 0) {
         TObjEneDD__sub_800B9D74(arg0, 0, 0);
-        fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
-        fn_803D9B2C();
+        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9624(0, TObjEneRe4Sorcerer__data_805DA790, TObjEneRe4Sorcerer__data_805DA794, TObjEneRe4Sorcerer__data_805DA790);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjPlayer__sub_803D9624(0, TObjEneRe4Sorcerer__data_805DA790, TObjEneRe4Sorcerer__data_805DA794, TObjEneRe4Sorcerer__data_805DA790);
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, s16 *, 0x3C0) = (s16) (M2C_FIELD(arg0, s16 *, 0x3C0) + 5);
         fn_800F5BC0(TObjEneRe4Sorcerer__data_805D52F4, M2C_FIELD(arg0, s16 *, 0x3C0), 0);
         M2C_FIELD(arg0, f32 *, 0x3C4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C4) + lbl_805DA798);
         some_id_805c6f74 |= 0x20000;
         TObjEneRe4Sorcerer__sub_801E3F1C(TObjEneRe4Sorcerer__data_805DA790, M2C_FIELD(arg0, f32 *, 0x3C4));
-        fn_800D8A2C();
-        fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
-        fn_801E2F20();
+        TObjPlayer__sub_800D8A2C();
+        TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+        TParticleCtrl__sub_801E2F20();
         some_id_805c6f74 &= 0xFFFDFFFF;
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
     }
 }
 

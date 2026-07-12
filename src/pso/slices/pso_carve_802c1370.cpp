@@ -5,8 +5,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void fn_8001FE7C(void*, int);
-M2C_UNK fn_8007EBB4(u32);
+void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
 extern u32 lbl_805D67B0;
 extern u32 lbl_805D67B4;
@@ -14,11 +14,11 @@ extern u32 lbl_805D67B4;
 void fn_802C1370(void) {
     if ((u32) lbl_805D67B4 != 0U) {
         fn_803DA16C((void*)lbl_805D67B4);
-        fn_8007EBB4(lbl_805D67B4);
+        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D67B4);
         lbl_805D67B4 = 0U;
     }
     if ((u32) lbl_805D67B0 != 0U) {
-        fn_8001FE7C((void*)lbl_805D67B0, 1);
+        TLobby__sub_8001FE7C((void*)lbl_805D67B0, 1);
         lbl_805D67B0 = 0U;
     }
 }

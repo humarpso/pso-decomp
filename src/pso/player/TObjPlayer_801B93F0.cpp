@@ -9,7 +9,7 @@ extern "C" {
 s32 update_target_lock__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_801B92EC(void *, s32);
 u32 TPhotonMylla__sub_80154CB4(u16);
-s32 fn_80055694();
+s32 TObjPlayer__sub_80055694();
 M2C_UNK fn_801C1B88(s32);
 f32 fn_801C1B90(s32, u32);
 u16 fn_801C1B98(s32);
@@ -39,7 +39,7 @@ s32 update_target_lock__10TObjPlayerFPv(void *arg0) {
         if (!(temp_f31 < lbl_805DC2C0)) {
             goto block_17;
         }
-        if (TObjPlayer__sub_801B92EC(arg0, fn_80055694()) == 0) {
+        if (TObjPlayer__sub_801B92EC(arg0, TObjPlayer__sub_80055694()) == 0) {
             goto block_17;
         }
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x100000);
@@ -55,7 +55,7 @@ s32 update_target_lock__10TObjPlayerFPv(void *arg0) {
     if (temp_f31 > lbl_805DC2C4) {
         goto clear_and_return;
     }
-    if (TObjPlayer__sub_801B92EC(arg0, fn_80055694()) != 0) {
+    if (TObjPlayer__sub_801B92EC(arg0, TObjPlayer__sub_80055694()) != 0) {
         goto block_17;
     }
 clear_and_return:

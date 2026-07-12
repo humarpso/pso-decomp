@@ -20,7 +20,7 @@ s32 fn_801A529C(s32 arg1, s32 arg2) {
 
 void *get_card_window__17TWindowSubComCardFUi();
 
-void fn_801A52E8(void *arg0, s32 arg1, s32 arg2) {
+void TWindowKeyBoardHard__sub_801A52E8(void *arg0, s32 arg1, s32 arg2) {
     void *temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi();

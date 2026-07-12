@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_drop_table__9TItemDropFv(void);
-u8 fn_8011C914(s32);
+u8 TObjPlayer__sub_8011C914(s32);
 
 extern u8 *TItemDrop__data_805D5468;
 
@@ -22,7 +22,7 @@ void init_drop_table__9TItemDropFv(void) {
     var_r31 = 0;
     var_r30 = TItemDrop__data_805D5468;
     do {
-        temp_r3 = fn_8011C914(var_r31 + 0x2AF);
+        temp_r3 = TObjPlayer__sub_8011C914(var_r31 + 0x2AF);
         temp_r5 = temp_r3;
         var_r31 += 1;
         temp_r4 = temp_r5 - 1;
@@ -35,7 +35,7 @@ void init_drop_table__9TItemDropFv(void) {
         var_r30 += 5;
     } while (var_r31 != 0x10);
     while (var_r31 != 0x48) {
-        *var_r30 = fn_8011C914(var_r31 + 0x2AF);
+        *var_r30 = TObjPlayer__sub_8011C914(var_r31 + 0x2AF);
         var_r30 += 1;
         var_r31 += 1;
     }

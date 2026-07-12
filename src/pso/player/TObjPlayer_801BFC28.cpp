@@ -10,7 +10,7 @@ int TObjPlayer__sub_801BF9A4(void*);
 int TObjPlayer__sub_801BFDD4(void*);
 int init_pair__10TObjPlayerFPv(void*);
 int set_vec4_const__10TObjPlayerFPv(void*);
-int fn_801C68B0(void*);
+int TObjPlayer__sub_801C68B0(void*);
 void TObjPlayer__sub_801BFD3C(void* p);
 
 void* TObjPlayer__sub_801BFC28(void* p) { TObjPlayer__sub_8001BF10(p); TObjPlayer__sub_801BF9A4(p); return p; }

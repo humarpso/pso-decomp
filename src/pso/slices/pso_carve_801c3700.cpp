@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800C80FC();
+M2C_UNK TLobby__sub_800C80FC();
 M2C_UNK memcpy(M2C_UNK *, s32, M2C_UNK);
 extern M2C_UNK TLobby__data_80511C80[];
 extern s32 lbl_805D5DAC;
 
 void handle_6x7F_battle_scores(s32 arg0) {
-    fn_800C80FC();
+    TLobby__sub_800C80FC();
     memcpy(TLobby__data_80511C80, arg0 + 4, 0x20);
     lbl_805D5DAC = 1;
 }

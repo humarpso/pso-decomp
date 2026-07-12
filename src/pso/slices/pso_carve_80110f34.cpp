@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800822E8(s32, M2C_UNK);
+s32 TLobby__sub_800822E8(s32, M2C_UNK);
 
 u8 fn_80110F34(void *arg0) {
     int var_r31;
 
     var_r31 = 0;
-    if ((fn_800822E8(M2C_FIELD(arg0, s32 *, 0xF0), 4) != 0) || (fn_800822E8(M2C_FIELD(arg0, s32 *, 0xF0), 0x10) != 0)) {
+    if ((TLobby__sub_800822E8(M2C_FIELD(arg0, s32 *, 0xF0), 4) != 0) || (TLobby__sub_800822E8(M2C_FIELD(arg0, s32 *, 0xF0), 0x10) != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

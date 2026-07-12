@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80182E60();
-s32 fn_8030A7B0();
+s32 TLobby__sub_8030A7B0();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 s32 fn_801821D8(void) {
     s32 temp_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        if (fn_8030A7B0() == 1) {
+        if (TLobby__sub_8030A7B0() == 1) {
             return 0;
         }
         goto block_6;

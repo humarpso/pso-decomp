@@ -10,7 +10,7 @@ void run_task__13TOSwitchTimerFv(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK fn_801781D8(void *);
-M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 void run_task__13TOSwitchTimerFv(void *arg0) {
     s32 temp_r0;
@@ -36,7 +36,7 @@ void run_task__13TOSwitchTimerFv(void *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) == 1) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x94) < (s32) M2C_FIELD(arg0, s32 *, 0xA4)) {
                 if ((M2C_FIELD(arg0, s32 *, 0x94) % 30) == 0) {
-                    fn_8022675C(0x53218, 0, 0, 0);
+                    TBoss3Volopt__sub_8022675C(0x53218, 0, 0, 0);
                 }
             } else {
                 TOTrapAncient01__sub_80226578(0x53218, arg0, 0, 0, 0);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803DA798(u32);
+M2C_UNK TObjFish__sub_803DA798(u32);
 M2C_UNK fn_803DEE6C(M2C_UNK);
 M2C_UNK fn_803DEEAC();
 M2C_UNK fn_803DEECC(s32, f32);
@@ -16,7 +16,7 @@ extern f32 lbl_805DF7C0;
 
 void fn_8032D550(s32 arg0) {
     if ((u32) lbl_805D6D00 != 0U) {
-        fn_803DA798(lbl_805D6D00);
+        TObjFish__sub_803DA798(lbl_805D6D00);
         fn_803DEE6C(1);
         fn_803DF160(0, -1);
         fn_803DEECC(arg0 + 0x1C, lbl_805DF7C0);

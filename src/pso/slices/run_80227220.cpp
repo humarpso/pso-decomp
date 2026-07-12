@@ -9,7 +9,7 @@ extern "C" {
 extern s32 lbl_805D6300;
 extern s32 lbl_805D631C;
 
-void fn_80227220(s32 arg0) {
+void TLobby__sub_80227220(s32 arg0) {
     if ((s32) lbl_805D6300 == 4) {
         lbl_805D631C = arg0;
     }
@@ -18,7 +18,7 @@ void fn_80227220(s32 arg0) {
 extern s32 lbl_805D6300;
 extern s32 lbl_805D631C;
 
-void fn_80227234(s32 arg0) {
+void TLobby__sub_80227234(s32 arg0) {
     if ((s32) lbl_805D6300 != 4) {
         lbl_805D631C = arg0;
     }

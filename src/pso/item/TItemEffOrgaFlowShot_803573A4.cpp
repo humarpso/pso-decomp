@@ -8,10 +8,10 @@ extern "C" {
 
 void render__20TItemEffOrgaFlowShotFv(s32 arg0);
 M2C_UNK fn_80141A30();
-M2C_UNK fn_80141F1C();
-M2C_UNK fn_80141F50();
-M2C_UNK fn_801E2EFC();
-M2C_UNK fn_801E2F20();
+M2C_UNK TObjPlayer__sub_80141F1C();
+M2C_UNK TObjPlayer__sub_80141F50();
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK fn_803DF5C4();
 M2C_UNK fn_803DF5E4(s32, M2C_UNK);
 M2C_UNK fn_803DF768(M2C_UNK);
@@ -21,17 +21,17 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 
 void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
-    fn_801E2EFC();
+    TParticleCtrl__sub_801E2EFC();
     lbl_805D5660 = some_id_805c6f74;
     set_depth_buffer_settings_1__Fv();
-    fn_80141F50();
+    TObjPlayer__sub_80141F50();
     fn_803DF768(1);
     fn_803DF5E4(arg0 + 0xC4, 0xA);
     fn_803DF5C4();
-    fn_80141F1C();
+    TObjPlayer__sub_80141F1C();
     fn_80141A30();
     some_id_805c6f74 = lbl_805D5660;
-    fn_801E2F20();
+    TParticleCtrl__sub_801E2F20();
 }
 
 }

@@ -1,0 +1,17 @@
+#include "types.h"
+
+extern "C" {
+
+s32 TObjPlayer__sub_801BFFA0(void* p);
+s16 TObjPlayer__sub_801C0004(void* p);
+int TObjPlayer__sub_801C000C(void);
+int TObjPlayer__sub_801C0014(void);
+int TObjPlayer__sub_801C001C(void);
+int TObjPlayer__sub_801C0024(void* p);
+int TObjPlayer__sub_801C0044(void* p);
+int fn_802A7290(void*);
+int fn_802A72D4(void*);
+
+s32 TObjPlayer__sub_801BFFA0(void* p) { return *(s32*)((char*)p + 0x0); }
+
+}

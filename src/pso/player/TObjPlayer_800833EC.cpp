@@ -1,0 +1,49 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TObjPlayer__sub_800833EC(void *arg0);
+M2C_UNK TCameraCtrl__sub_80068EF0();
+M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK TObjPlayer__sub_80084038(s32, M2C_UNK, f32);
+M2C_UNK TObjPlayer__sub_8008453C();
+M2C_UNK TObjPlayer__sub_80084764();
+s32 TObjPlayer__sub_80084774();
+M2C_UNK TObjPlayer__sub_80084780();
+M2C_UNK TObjPlayer__sub_80084790();
+s32 TObjPlayer__sub_800847A8();
+s32 TObjPlayer__sub_800847CC();
+M2C_UNK TObjPlayer__sub_80141404();
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TParticleCtrl__sub_801E2F20();
+
+extern u8 lbl_805D2910;
+extern f32 lbl_805D93D0;
+
+void TObjPlayer__sub_800833EC(void *arg0) {
+    if (!(TObjPlayer__sub_800847CC() & 4)) {
+        if (M2C_FIELD(arg0, s32 *, 0x1C) & 1) {
+            if (TObjPlayer__sub_800847A8() == 1) {
+                TCameraCtrl__sub_80069024();
+                TParticleCtrl__sub_801E2EFC();
+                TObjPlayer__sub_80084038(lbl_805D2910 << 0x18, 0, lbl_805D93D0);
+                TParticleCtrl__sub_801E2F20();
+                TCameraCtrl__sub_80068EF0();
+                TObjPlayer__sub_80084790();
+            }
+        } else {
+            TObjPlayer__sub_80084780();
+            TObjPlayer__sub_8008453C();
+        }
+        if (TObjPlayer__sub_80084774() != 0) {
+            TObjPlayer__sub_80084764();
+            TObjPlayer__sub_80141404();
+        }
+    }
+}
+
+}

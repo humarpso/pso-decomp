@@ -19,7 +19,7 @@ s32 setup__23TAdSinglePlyChrSelectGCFi(s32);
 s32 check_ready__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BA8(M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BB0(M2C_UNK);
-s8 fn_8001C5E8();
+s8 TAdSinglePlyChrSelectGC__sub_8001C5E8();
 
 extern u32 lbl_805D5F58;
 
@@ -69,7 +69,7 @@ s32 load_player__23TAdSinglePlyChrSelectGCFv(void) {
     TAdSinglePlyChrSelectGC__sub_80202BB0(0);
     var_r31 = 0xFFFF0000;
     if (((u32) lbl_805D5F68 != 0U) && (TAdPlayerLoadGC__sub_80076BBC() == 0)) {
-        temp_r3 = fn_8001C5E8();
+        temp_r3 = TAdSinglePlyChrSelectGC__sub_8001C5E8();
         lbl_805D5F80 = temp_r3;
         var_r31 = TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F80);
         if (var_r31 == 0) {

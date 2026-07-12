@@ -51,12 +51,12 @@ s32 TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK fn_800B98C0(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK, s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv();
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 extern const f32 lbl_805DE73C;
 
-void fn_802D04C0(void *arg0, s32 arg1) {
+void TObjEneBm9Mericarol__sub_802D04C0(void *arg0, s32 arg1) {
     s32 temp_r5;
 
     switch (arg1) {
@@ -77,7 +77,7 @@ void fn_802D04C0(void *arg0, s32 arg1) {
     case 1:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         ((V_A *) arg0)->m100();
         ((V_A *) arg0)->m86();
         break;

@@ -8,17 +8,17 @@ extern "C" {
 
 void update__15TORainbowCave01FPv(void *arg0);
 
-s32 fn_80080750();
-M2C_UNK fn_80158298(void *);
+s32 TObjPlayer__sub_80080750();
+M2C_UNK TOBarrierEnergy01__sub_80158298(void *);
 M2C_UNK TORainbowCave01__sub_80158604(void *);
 
 void update__15TORainbowCave01FPv(void *arg0) {
-    if (fn_80080750() == 1) {
+    if (TObjPlayer__sub_80080750() == 1) {
         TORainbowCave01__sub_80158604(arg0);
         return;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) {
-        fn_80158298(arg0);
+        TOBarrierEnergy01__sub_80158298(arg0);
     }
 }
 

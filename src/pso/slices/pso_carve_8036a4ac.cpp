@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK fn_8036A514(s32);
 s32 fn_8036A5B4(s32);
 s32 fn_8036A648(s32);
-s32 fn_8039DAFC(s32, s32);
+s32 TLobby__sub_8039DAFC(s32, s32);
 
 void fn_8036A4AC(s32 arg0) {
     s32 var_r31;
@@ -17,7 +17,7 @@ void fn_8036A4AC(s32 arg0) {
     var_r31 = 0;
     do {
         if (fn_8036A5B4(var_r31) != 1) {
-            if (fn_8039DAFC(fn_8036A648(var_r31), arg0) == 0) {
+            if (TLobby__sub_8039DAFC(fn_8036A648(var_r31), arg0) == 0) {
                 fn_8036A514(var_r31);
             }
         }

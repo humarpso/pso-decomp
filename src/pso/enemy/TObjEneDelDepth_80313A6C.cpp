@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_move__15TObjEneDelDepthFPv(void *arg0);
-M2C_UNK fn_800F6B14();
-s32 fn_803162A0(s32);
-M2C_UNK fn_80316488(s32, M2C_UNK);
+M2C_UNK TObjPlayer__sub_800F6B14();
+s32 TObjEneDelDepth__sub_803162A0(s32);
+M2C_UNK TObjEneDelDepth__sub_80316488(s32, M2C_UNK);
 M2C_UNK set_draw_mode__15TObjEneDelDepthFPvi(void *, M2C_UNK);
 
 extern const f32 TObjEneDelDepth__data_805DF260;
@@ -18,14 +18,14 @@ void init_move__15TObjEneDelDepthFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) TObjEneDelDepth__data_805DF260;
     M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) TObjEneDelDepth__data_805DF260;
     M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) TObjEneDelDepth__data_805DF260;
-    fn_800F6B14();
+    TObjPlayer__sub_800F6B14();
     M2C_FIELD(arg0, s32 *, 0x378) = 0;
-    if (fn_803162A0(M2C_FIELD(arg0, s32 *, 0x37C)) < 6) {
+    if (TObjEneDelDepth__sub_803162A0(M2C_FIELD(arg0, s32 *, 0x37C)) < 6) {
         M2C_FIELD(arg0, s32 *, 0x384) = 0x22;
-        fn_80316488(M2C_FIELD(arg0, s32 *, 0x37C), 5);
+        TObjEneDelDepth__sub_80316488(M2C_FIELD(arg0, s32 *, 0x37C), 5);
     } else {
         M2C_FIELD(arg0, s32 *, 0x384) = 0x20;
-        fn_80316488(M2C_FIELD(arg0, s32 *, 0x37C), 9);
+        TObjEneDelDepth__sub_80316488(M2C_FIELD(arg0, s32 *, 0x37C), 9);
     }
     set_draw_mode__15TObjEneDelDepthFPvi(arg0, 0);
 }

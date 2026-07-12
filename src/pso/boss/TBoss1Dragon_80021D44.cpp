@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_wander_state__12TBoss1DragonFPvi(void *arg0, s32 arg1);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 void update_wander_state__12TBoss1DragonFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -24,7 +24,7 @@ void update_wander_state__12TBoss1DragonFPvi(void *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = 0;
             }
         }
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
     case 3:
     case 5:
     case 1:

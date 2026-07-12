@@ -65,10 +65,10 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneRe2Flower__sub_800C3B80(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK fn_800D758C(void *);
+M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK fn_800D8C48(void *);
 M2C_UNK fn_800D8E80(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 void fn_800C38D0(u8 *arg0, s32 arg1) {
     switch (arg1) {
@@ -79,7 +79,7 @@ void fn_800C38D0(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 8);
         TObjEneDD__sub_800BBA04(arg0, 2);
         fn_800B98C0(arg0);
-        fn_800D758C(arg0 + 0x3F4);
+        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
         if (TObjEneRe2Flower__sub_800C3B80(arg0) != 0) {
             fn_800D8C48(arg0 + 0x38);
             return;
@@ -93,7 +93,7 @@ void fn_800C38D0(u8 *arg0, s32 arg1) {
     case 1:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         ((V_En *) arg0)->m100();
         ((V_En *) arg0)->m86();
         return;

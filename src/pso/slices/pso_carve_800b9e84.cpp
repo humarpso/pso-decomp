@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int fn_800F7478(void*);
+int TObjPlayer__sub_800F7478(void*);
 void reset_hp__9TObjEneDDFPv(void* p);
 int TObjEneDD__sub_800B9E44(void* p);
 int TObjEneDD__sub_800B9E64(void* p);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 fn_80141CF8(s32, s32);
+f32 TObjPlayer__sub_80141CF8(s32, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 
@@ -17,7 +17,7 @@ int fn_800811AC(s32 arg0, f32 farg0) {
     if (temp_r3 == 0U) {
         return 0;
     }
-    return (u32) __cntlzw(fn_80141CF8(temp_r3 + 0x38, arg0 + 0x38) < farg0) >> 5;
+    return (u32) __cntlzw(TObjPlayer__sub_80141CF8(temp_r3 + 0x38, arg0 + 0x38) < farg0) >> 5;
 }
 
 }

@@ -15,11 +15,11 @@ M2C_UNK TObjPlayer__sub_801BF80C(s32, M2C_UNK);
 s16 TObjPlayer__sub_801BF92C(s32);
 M2C_UNK TObjPlayer__sub_801D0BC0(s32, s16, M2C_UNK);
 void apply_velocity__10TObjPlayerFPv(void *);
-s32 fn_801BEAA4();
+s32 TObjPlayer__sub_801BEAA4();
 int obj_clearFlags30(void*, void*);
 
 s32 try_change_action__10TObjPlayerFi(s32 arg0) {
-    if (fn_801BEAA4() != 0) {
+    if (TObjPlayer__sub_801BEAA4() != 0) {
         if (TObjPlayer__sub_801BF92C(arg0 + 0x5F0) == 0x10) {
             TObjPlayer__sub_801D0BC0(arg0, 0x10, 5);
         } else {

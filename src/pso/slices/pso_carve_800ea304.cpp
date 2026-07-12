@@ -8,12 +8,12 @@ extern "C" {
 
 M2C_UNK set_display_mode__15TObjEneSlimeOneFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneSlimeOne__sub_800EC7F4(s32, M2C_UNK);
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 void fn_800EA304(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x394) = 8;
     TObjEneSlimeOne__sub_800EC7F4(M2C_FIELD(arg0, s32 *, 0x388), 9);
-    fn_8022675C(0x4003AD1D, arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x4003AD1D, arg0 + 0x38, 0, 0);
     set_display_mode__15TObjEneSlimeOneFPvi(arg0, 1);
 }
 

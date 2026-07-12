@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void dispatch_by_index__6TLobbyFi(s32 arg0);
-M2C_UNK fn_8032B000();
+M2C_UNK TAdEnterSerialAccessGC__sub_8032B000();
 M2C_UNK clear_state();
-M2C_UNK fn_8032B0A8(s32, s32, s32);
+M2C_UNK TAdEnterSerialAccessGC__sub_8032B0A8(s32, s32, s32);
 
 extern s32 TLobby__data_805D5580;
 
@@ -25,10 +25,10 @@ void dispatch_by_index__6TLobbyFi(s32 arg0) {
         clear_state();
         return;
     case 1:
-        fn_8032B0A8(TLobby__data_805D5580 + 0x3F8A, TLobby__data_805D5580 + 0x3F9B, TLobby__data_805D5580 + 0x3F3A);
+        TAdEnterSerialAccessGC__sub_8032B0A8(TLobby__data_805D5580 + 0x3F8A, TLobby__data_805D5580 + 0x3F9B, TLobby__data_805D5580 + 0x3F3A);
         return;
     case 2:
-        fn_8032B000();
+        TAdEnterSerialAccessGC__sub_8032B000();
         return;
     }
 }

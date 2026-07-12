@@ -10,7 +10,7 @@ void *create__17TObjContainerJungFPv(void *arg0);
 void release__17TObjContainerJungFv(void);
 void *TObjContainerJung__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK fn_8001FE7C(s32, M2C_UNK);
+M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 
 extern void *tl_05;
 
@@ -26,7 +26,7 @@ extern s32 TObjContainerJung__data_805D5BA0;
 extern s32 TObjContainerJung__data_805D5BA4;
 
 void release__17TObjContainerJungFv(void) {
-    fn_8001FE7C(TObjContainerJung__data_805D5BA0, 1);
+    TLobby__sub_8001FE7C(TObjContainerJung__data_805D5BA0, 1);
     TObjContainerJung__data_805D5BA0 = 0;
     TObjContainerJung__data_805D5BA4 = 0;
 }

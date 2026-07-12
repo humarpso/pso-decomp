@@ -11,15 +11,15 @@ s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 M2C_UNK TObjPlayer__sub_801D1480(M2C_UNK *);
 M2C_UNK draw_and_send__10TObjPlayerFPv(M2C_UNK *);
-int fn_8011E204(void*, void*);
+int TObjPlayer__sub_8011E204(void*, void*);
 int set_indexed_flags(void*, void*, void*);
 int TObjPlayer__sub_801B12CC(void*);
-int fn_801BE9A8(void*);
-int fn_801C5B18(void*);
+int TObjPlayer__sub_801BE9A8(void*);
+int TObjPlayer__sub_801C5B18(void*);
 int TObjPlayer__sub_801C8770(void* p);
 int TObjPlayer__sub_801B130C(void*);
 
-void init_effects__10TObjPlayerFPv(void* p) { fn_801BE9A8(p); fn_8011E204(p, (void*)5); TObjPlayer__sub_801B12CC(p); set_indexed_flags(p, (void*)0, (void*)1); fn_801C5B18((char*)p + 0x608); }
+void init_effects__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BE9A8(p); TObjPlayer__sub_8011E204(p, (void*)5); TObjPlayer__sub_801B12CC(p); set_indexed_flags(p, (void*)0, (void*)1); TObjPlayer__sub_801C5B18((char*)p + 0x608); }
 int TObjPlayer__sub_801C8770(void* p) { return TObjPlayer__sub_801B130C(p); }
 
 int handle_6x57(void) { return 0; }

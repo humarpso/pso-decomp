@@ -8,7 +8,7 @@ extern "C" {
 
 void *TPlayerBattleCtrl4P__sub_801BA74C();
 void *get_array_entry__20TWindowSubStatusDispFPvi(s32, M2C_UNK);
-M2C_UNK fn_8024C818();
+M2C_UNK TWindowCtrl__sub_8024C818();
 
 struct Base_8026F77C { char pad[0x18]; };
 struct VObj_8026F77C : Base_8026F77C {
@@ -23,7 +23,7 @@ void fn_8026F77C(s32 arg0) {
     void *temp_r31;
     VObj_8026F77C *temp_r3;
 
-    fn_8024C818();
+    TWindowCtrl__sub_8024C818();
     temp_r3 = (VObj_8026F77C *) TPlayerBattleCtrl4P__sub_801BA74C();
     if (temp_r3 != NULL) {
         temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);

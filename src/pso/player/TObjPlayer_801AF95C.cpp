@@ -13,9 +13,9 @@ M2C_UNK TObjPlayer__sub_801BE310(s32);
 M2C_UNK TObjPlayer__sub_801BE338(s32);
 M2C_UNK TObjPlayer__sub_801BE360(s32);
 void *fn_8007EAF8();
-M2C_UNK fn_801AFDB0(s32);
-s32 fn_801D91F8(s32, s32);
-void *fn_801D9390();
+M2C_UNK TObjPlayer__sub_801AFDB0(s32);
+s32 TObjPlayer__sub_801D91F8(s32, s32);
+void *TObjPlayer__sub_801D9390();
 
 void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     s16 temp_r0;
@@ -42,8 +42,8 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     void *temp_r31;
 
     temp_r31 = fn_8007EAF8();
-    fn_801AFDB0(arg0);
-    temp_r28 = fn_801D9390();
+    TObjPlayer__sub_801AFDB0(arg0);
+    temp_r28 = TObjPlayer__sub_801D9390();
     temp_r4 = M2C_FIELD(temp_r31, s16 *, 0);
     if (temp_r4 < 0) {
         M2C_FIELD(arg1, s16 *, 0) = 1;
@@ -155,7 +155,7 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
         M2C_FIELD(arg1, s32 *, 0x18) = temp_r28_2;
     }
     temp_r28_2 = M2C_FIELD(temp_r31, s32 *, 0x1C);
-    temp_r3_8 = fn_801D91F8(fn_801AFDB0(arg0), temp_r27);
+    temp_r3_8 = TObjPlayer__sub_801D91F8(TObjPlayer__sub_801AFDB0(arg0), temp_r27);
     if (temp_r28_2 < 0) {
         M2C_FIELD(arg1, s32 *, 0x1C) = 0;
         TObjPlayer__sub_801BE310(arg0);

@@ -12,6 +12,6 @@ void TOTrapAncient02R__sub_80141CF0(void);
 void fn_80141CF4(void);
 
 void fn_80141CF4(void) {  }
-int fn_80141CF8(void) { return 0; }
+int TObjPlayer__sub_80141CF8(void) { return 0; }
 
 }

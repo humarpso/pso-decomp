@@ -107,7 +107,7 @@ extern "C" {
 
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK fn_8031F8C4(void *);
 s32 fn_8031FA64();
 
@@ -129,7 +129,7 @@ void fn_8031F4A8(void *arg0, s32 arg1) {
     case 5:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         fn_8031F8C4(arg0);
         break;
     }

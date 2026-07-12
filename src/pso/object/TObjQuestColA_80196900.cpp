@@ -12,8 +12,8 @@ s32 TObjPlayer__sub_801B5874(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 fn_80196B80(void *, f32);
-M2C_UNK fn_801B35AC(s32);
-M2C_UNK fn_801B35E4(s32);
+M2C_UNK TObjPlayer__sub_801B35AC(s32);
+M2C_UNK TObjPlayer__sub_801B35E4(s32);
 
 extern s8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
@@ -25,22 +25,22 @@ s32 TObjQuestColA__vt13(void *arg0) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
-            fn_801B35AC(temp_r3);
+            TObjPlayer__sub_801B35AC(temp_r3);
             return 0;
         }
         if (TObjPlayer__sub_801B5874(temp_r3) != 0) {
-            fn_801B35AC(temp_r3);
+            TObjPlayer__sub_801B35AC(temp_r3);
             return 0;
         }
         temp_r3_2 = fn_80196B80(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
         if (temp_r3_2 == 1) {
-            fn_801B35E4(temp_r3);
+            TObjPlayer__sub_801B35E4(temp_r3);
         }
         if (temp_r3_2 == 3) {
-            fn_801B35AC(temp_r3);
+            TObjPlayer__sub_801B35AC(temp_r3);
         }
         if (temp_r3_2 == 0) {
-            fn_801B35E4(temp_r3);
+            TObjPlayer__sub_801B35E4(temp_r3);
             if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0) {
                 return 1;
             }

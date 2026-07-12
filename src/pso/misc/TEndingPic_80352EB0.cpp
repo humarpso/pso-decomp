@@ -8,14 +8,14 @@ extern "C" {
 
 void render__10TEndingPicFv(s32 arg0);
 M2C_UNK TEndingPic__sub_80352D10(s32);
-M2C_UNK fn_803DA798(s32);
+M2C_UNK TObjFish__sub_803DA798(s32);
 
 extern s32 TEndingPic__data_805D6EE0;
 extern s32 lbl_805D6EE4;
 
 void render__10TEndingPicFv(s32 arg0) {
     if ((s32) TEndingPic__data_805D6EE0 != 0) {
-        fn_803DA798(lbl_805D6EE4);
+        TObjFish__sub_803DA798(lbl_805D6EE4);
         TEndingPic__sub_80352D10(arg0);
     }
 }

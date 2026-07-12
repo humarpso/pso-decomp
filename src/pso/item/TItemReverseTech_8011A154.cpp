@@ -9,7 +9,7 @@ void *TItemReverseTechPart1__ct(void *, void *, void *);
 void *__ct__10TAdEndTextFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void fn_802274B8(void *);
+void TObjBgmColCtrl__sub_802274B8(void *);
 
 extern M2C_UNK __vt__16TItemReverseTech[];
 extern void *lbl_805D2C48;
@@ -32,7 +32,7 @@ void *TItemReverseTech__ct(void *arg0) {
     if (o2 != NULL) {
         __ct__10TAdEndTextFv(o2, arg0);
     }
-    fn_802274B8(lbl_8043E708);
+    TObjBgmColCtrl__sub_802274B8(lbl_8043E708);
     return arg0;
 }
 

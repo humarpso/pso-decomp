@@ -11,7 +11,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802E18C8(void);
 s32 TAdSinglePlyChrSelectGC__sub_802E1F14(void);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void * a0 = 0, s32 a1 = 0);
 s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv(void * a0 = 0);
-s32 fn_802E147C(void);
+s32 TAdSinglePlyChrSelectGC__sub_802E147C(void);
 int TAdSinglePlyChrSelectGC__sub_802E1F8C(void* p);
 int close_windows__23TAdSinglePlyChrSelectGCFPv(void*);
 
@@ -21,7 +21,7 @@ void init__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4C) = 0;
     M2C_FIELD(arg0, s32 *, 0x50) = 0;
     M2C_FIELD(arg0, s32 *, 0x54) = 0;
-    M2C_FIELD(arg0, s32 *, 0x58) = fn_802E147C();
+    M2C_FIELD(arg0, s32 *, 0x58) = TAdSinglePlyChrSelectGC__sub_802E147C();
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x5C) = 0;
     M2C_FIELD(arg0, s32 *, 0x60) = 0;

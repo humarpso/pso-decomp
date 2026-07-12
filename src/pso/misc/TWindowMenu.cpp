@@ -8,13 +8,13 @@ extern "C" {
 
 void select_next_item__11TWindowMenuFPv(void *arg0);
 void move_cursor_prev__11TWindowMenuFPv(void *arg0);
-M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 
 void select_next_item__11TWindowMenuFPv(void *arg0) {
     s16 var_r31;
 
-    fn_8022675C(0x54100, 0, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
     var_r31 = M2C_FIELD(arg0, s16 *, 0x78);
 loop_1:
     var_r31 += 1;
@@ -38,7 +38,7 @@ block_4:
 void move_cursor_prev__11TWindowMenuFPv(void *arg0) {
     s16 var_r31;
 
-    fn_8022675C(0x54100, 0, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
     var_r31 = M2C_FIELD(arg0, s16 *, 0x78);
 loop_1:
     var_r31 -= 1;

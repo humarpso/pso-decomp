@@ -11,7 +11,7 @@ void TObjPlayer__sub_801BF9A4(void *arg0);
 void set_vec3_const__10TObjPlayerFPv(void* a0);
 void TObjPlayer__sub_801BF9E0(void* p, s16 v);
 void TObjPlayer__sub_801BF9E8(void* p, f32 v);
-M2C_UNK fn_8001BF40();
+M2C_UNK TObjPlayer__sub_8001BF40();
 void init__6gc_tagFv(void *);
 
 void init_tag__10TObjPlayerFPv(s32 *arg0) {
@@ -21,7 +21,7 @@ void init_tag__10TObjPlayerFPv(s32 *arg0) {
 
 void TObjPlayer__sub_801BF9A4(void *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
-    fn_8001BF40();
+    TObjPlayer__sub_8001BF40();
 }
 
     extern const float TObjPlayer__data_805DC294;

@@ -6,7 +6,7 @@ extern "C" {
 
 void *TWindowSubComCard__ct(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *);
-void fn_80077980(void *);
+void TWindowSubComCard__sub_80077980(void *);
 
 extern M2C_UNK __vt__17TWindowSubComCard[];
 extern void *lbl_805D3A10;
@@ -30,7 +30,7 @@ void *TWindowSubComCard__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x58) = 0;
     M2C_FIELD(arg0, u8 *, 0x1D) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = -1;
-    fn_80077980((void *)((char *)arg0 + 48));
+    TWindowSubComCard__sub_80077980((void *)((char *)arg0 + 48));
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;
     return arg0;
 }

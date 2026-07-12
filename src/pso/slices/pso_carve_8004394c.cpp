@@ -73,15 +73,15 @@ struct VObj : VObjBase {
 
 extern "C" {
 
-s32 fn_8003F398();
+s32 TBoss3Volopt__sub_8003F398();
 M2C_UNK fn_8003F4C0(M2C_UNK);
 M2C_UNK fn_8003F6B4(u16, M2C_UNK);
 M2C_UNK fn_80042F84(void *);
 s32 fn_80042FCC();
-M2C_UNK fn_80143504(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D4C28;
 
 void fn_8004394C(u8 *arg0) {
@@ -99,7 +99,7 @@ void fn_8004394C(u8 *arg0) {
             fn_8003F6B4(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
             fn_8003F4C0(0x12C);
         }
-        if (fn_8003F398() != 0) {
+        if (TBoss3Volopt__sub_8003F398() != 0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0x388);
             if (temp_r3 & 0x10000) {
                 M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r3 & 0xFFFFFFFE);
@@ -110,14 +110,14 @@ void fn_8004394C(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r3 & 0xFFFFFFFE);
                 fn_80042F84(arg0);
             } else {
-                fn_8022675C(0x4003A810, arg0 + 0x38, 0xA, 0);
+                TBoss3Volopt__sub_8022675C(0x4003A810, arg0 + 0x38, 0xA, 0);
                 M2C_FIELD(arg0, s32 *, 0x37C) = 2;
             }
         } else {
             M2C_FIELD(arg0, s16 *, 0xB8) = 3;
             M2C_FIELD(arg0, s32 *, 0x37C) = 1;
         case 1:
-            fn_80143504(arg0);
+            TBoss1Dragon__sub_80143504(arg0);
             if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
                 temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x388);
                 if (temp_r3_2 & 0x10000) {
@@ -127,7 +127,7 @@ void fn_8004394C(u8 *arg0) {
                     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r3_2 & 0xFFFFFFFE);
                     fn_80042F84(arg0);
                 } else {
-                    fn_8022675C(0x4003A810, arg0 + 0x38, 0xA, 0);
+                    TBoss3Volopt__sub_8022675C(0x4003A810, arg0 + 0x38, 0xA, 0);
                     M2C_FIELD(arg0, s32 *, 0x37C) = 2;
                 }
             }

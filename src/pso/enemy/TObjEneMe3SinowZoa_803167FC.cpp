@@ -6,7 +6,7 @@ extern "C" {
 
 void check_and_notify__18TObjEneMe3SinowZoaFPv(void *arg0);
 s32 TObjEneMe3SinowZoa__sub_80316690(void *, void *);
-void fn_80087350(void *, int);
+void TObjEneDellBiter__sub_80087350(void *, int);
 
 struct VOff_803167FC_arg0 { char pad_0[0x38]; char f_38[1]; };
 
@@ -15,7 +15,7 @@ void check_and_notify__18TObjEneMe3SinowZoaFPv(void *arg0) {
     struct VOff_803167FC_arg0 *self = (struct VOff_803167FC_arg0 *)arg0;
     x = TObjEneMe3SinowZoa__sub_80316690(arg0, self->f_38);
     if (x == 0) {
-        fn_80087350(self->f_38, 243);
+        TObjEneDellBiter__sub_80087350(self->f_38, 243);
     }
 }
 

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803D99F8(void *, int);
+M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 extern s32 lbl_805D68EC;
 
 void fn_802E3BA8(u8 *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0xE4) & 8) && ((s32) lbl_805D68EC == 1)) {
-        fn_803D99F8(arg0 + 0x114, 1);
+        TObjPlayer__sub_803D99F8(arg0 + 0x114, 1);
         TBoss7Tentacle__sub_803D9BA0(arg0 + 0x120);
     }
 }

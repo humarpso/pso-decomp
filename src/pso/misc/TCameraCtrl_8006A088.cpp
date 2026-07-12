@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_shake_preset__11TCameraCtrlFi(s32 arg0);
-M2C_UNK fn_80242E74(M2C_UNK, M2C_UNK, void *);
+M2C_UNK TBoss3Volopt__sub_80242E74(M2C_UNK, M2C_UNK, void *);
 
 extern void *lbl_805D4DF0;
 extern const f32 lbl_805D8FE8;
@@ -23,19 +23,19 @@ void set_shake_preset__11TCameraCtrlFi(s32 arg0) {
             M2C_FIELD(lbl_805D4DF0, s32 *, 0x1C0) = 0x14;
             p = lbl_805D4DF0;
             M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FE8;
-            fn_80242E74(0x60, 0x14, p);
+            TBoss3Volopt__sub_80242E74(0x60, 0x14, p);
             return;
         case 1:
             M2C_FIELD(lbl_805D4DF0, s32 *, 0x1C0) = 0x1E;
             p = lbl_805D4DF0;
             M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FEC;
-            fn_80242E74(0xA0, 0x1E, p);
+            TBoss3Volopt__sub_80242E74(0xA0, 0x1E, p);
             return;
         case 2:
             M2C_FIELD(lbl_805D4DF0, s32 *, 0x1C0) = 0x1E;
             p = lbl_805D4DF0;
             M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FF0;
-            fn_80242E74(0xE0, 0x1E, p);
+            TBoss3Volopt__sub_80242E74(0xE0, 0x1E, p);
             break;
         }
     }

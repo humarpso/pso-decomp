@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss6Mine__vt4(u8 *arg0);
-M2C_UNK fn_8022675C(int, void *, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 
 void TBoss6Mine__vt4(u8 *arg0) {
     s32 temp_r3;
@@ -17,7 +17,7 @@ void TBoss6Mine__vt4(u8 *arg0) {
     if (temp_r3 > (s32) M2C_FIELD(arg0, s32 *, 0x3A8)) {
         M2C_FIELD(arg0, s32 *, 0x38C) = 0;
         M2C_FIELD(arg0, s32 *, 0x380) = 5;
-        fn_8022675C(0x4003B51D, arg0 + 0x38, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x4003B51D, arg0 + 0x38, 0, 0);
     }
 }
 

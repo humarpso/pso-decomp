@@ -16,9 +16,9 @@ int TItemList__sub_801D5968(void* p);
 void TItemList__sub_801D59DC(void* p);
 void TItemList__sub_801D5A64(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
-int fn_80102E68(void*);
+int TLobby__sub_80102E68(void*);
 
-int TItemList__sub_801D5814(void* p) { return fn_80102E68((char*)p + 0x8); }
+int TItemList__sub_801D5814(void* p) { return TLobby__sub_80102E68((char*)p + 0x8); }
 void TItemList__sub_801D5838(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 int TItemList__sub_801D5844(void* p) { return *(u32*)((char*)p + 0x0) == 0; }
 

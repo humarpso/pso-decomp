@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8023F654();
+M2C_UNK TAdMultiChgGameModeGC__sub_8023F654();
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
 void fn_8023EB54(void) {
-    fn_8023F654();
+    TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 0xC;
     lbl_805D63C8 = 1;
 }

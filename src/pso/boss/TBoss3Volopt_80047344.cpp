@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_state__12TBoss3VoloptFPv(void *arg0);
-M2C_UNK fn_80044498();
-f32 fn_803D64C0(s32);
+M2C_UNK TBoss3Volopt__sub_80044498();
+f32 TBoss8Dragon__sub_803D64C0(s32);
 
 extern const f32 TBoss3Volopt__data_805D87E4;
 extern const f32 lbl_805D8818;
@@ -22,10 +22,10 @@ void update_state__12TBoss3VoloptFPv(void *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x46C) = 6;
-        fn_80044498();
+        TBoss3Volopt__sub_80044498();
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805D8818 * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x46C) * 0x3000));
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805D8818 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x46C) * 0x3000));
         temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x46C) - 1;
         M2C_FIELD(arg0, s32 *, 0x46C) = temp_r0_2;
         if (temp_r0_2 <= 0) {

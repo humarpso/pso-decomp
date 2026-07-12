@@ -32,8 +32,8 @@ M2C_UNK TObjPlayer__sub_801D0E84(void *);
 s32 TObjPlayer__sub_801D0E94(void * a0 = 0);
 s32 TObjPlayer__sub_801D2618(void * a0 = 0, f32 a1 = 0);
 s32 TObjPlayer__sub_801D2620(void * a0 = 0);
-M2C_UNK fn_8002AE7C(void *, s32);
-s32 fn_801BA650(void * a0 = 0, s32 a1 = 0, s16 a2 = 0);
+M2C_UNK TObjPlayer__sub_8002AE7C(void *, s32);
+s32 TObjPlayer__sub_801BA650(void * a0 = 0, s32 a1 = 0, s16 a2 = 0);
 s32 update_facing_from_lock__10TObjPlayerFPv(void * a0 = 0);
 
 void update_dispatch_v76__10TObjPlayerFPv(void *arg0) {
@@ -43,7 +43,7 @@ void update_dispatch_v76__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_801D0D8C(arg0);
     TObjPlayer__sub_801D0E84(arg0);
     temp_r3 = M2C_FIELD(arg0, void **, 0x380);
-    fn_8002AE7C(arg0, ((VObj_801C841C *)temp_r3)->v76());
+    TObjPlayer__sub_8002AE7C(arg0, ((VObj_801C841C *)temp_r3)->v76());
 }
 
 s16 ret_801D26AC(void);
@@ -59,7 +59,7 @@ void do_action__10TObjPlayerFPv(void *arg0) {
     if (obj_isState2_324(arg0) != 0) {
         M2C_FIELD(arg0, s16 *, 0xBA) = ret_801D26AC();
     }
-    fn_801BA650(arg0, 0x17, M2C_FIELD(arg0, s16 *, 0x3C0));
+    TObjPlayer__sub_801BA650(arg0, 0x17, M2C_FIELD(arg0, s16 *, 0x3C0));
     if (TObjPlayer__sub_801D0E94(arg0) != 0) {
         TObjPlayer__sub_801D2620(arg0);
         TObjPlayer__sub_801D2618(arg0, M2C_FIELD(arg0, f32 *, 0x3C4));

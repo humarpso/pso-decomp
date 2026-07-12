@@ -8,8 +8,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0);
-f32 fn_803D64C0(s32);
-f32 fn_803D64DC(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
 
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5E4;
 
@@ -19,9 +19,9 @@ s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x3AC) > TObjEneMe3ShinowaMirage__data_805DA5E4) {
         return 0;
     }
-    f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    f31 += M2C_FIELD(arg0, f32 *, 0x3A0) * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
-    return (s32)((u32)__cntlzw(f31 < fn_803D64DC(0x1E00)) >> 5);
+    f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+    f31 += M2C_FIELD(arg0, f32 *, 0x3A0) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+    return (s32)((u32)__cntlzw(f31 < TBoss8Dragon__sub_803D64DC(0x1E00)) >> 5);
 }
 
 }

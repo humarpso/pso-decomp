@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void release_global_805D5120__14TObjEneBm5WolfFv(void);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjEneBm5Wolf__data_805D5120;
 
 void release_global_805D5120__14TObjEneBm5WolfFv(void) {
     if ((u32) TObjEneBm5Wolf__data_805D5120 != 0U) {
-        fn_8001FE7C((void*)TObjEneBm5Wolf__data_805D5120, 1);
+        TLobby__sub_8001FE7C((void*)TObjEneBm5Wolf__data_805D5120, 1);
         TObjEneBm5Wolf__data_805D5120 = 0U;
     }
 }

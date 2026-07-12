@@ -17,7 +17,7 @@ void some_empty_func__9TMainTaskFv(void);
 int clear_flag_3__7TObjectFv(void*);
 int delete_children__7TObjectFv(void*);
 M2C_UNK empty_func__7TObjectFv(void *);
-int fn_801F34D0(void*);
+int TMainTask__sub_801F34D0(void*);
 M2C_UNK fn_803384D4();
 M2C_UNK render_clipout_and_fade__9TMainTaskFv();
 
@@ -53,7 +53,7 @@ void some_empty_func__9TMainTaskFv(void) {
     extern int tl_clipout;
     extern int tl_fade;
     extern int tl_fadeafter;
-void TMainTask__sub_80229540(void) { fn_801F34D0((void*)(tl_00)); fn_801F34D0((void*)(tl_camera)); fn_801F34D0((void*)(tl_01)); fn_801F34D0((void*)(tl_02)); fn_801F34D0((void*)(tl_03)); fn_801F34D0((void*)(tl_item_equip)); fn_801F34D0((void*)(tl_loc_start)); fn_801F34D0((void*)(tl_04)); fn_801F34D0((void*)(tl_05)); fn_801F34D0((void*)(tl_06)); fn_801F34D0((void*)(tl_07)); fn_801F34D0((void*)(tl_loc_end)); fn_801F34D0((void*)(tl_window)); fn_801F34D0((void*)(tl_particlemodel)); fn_801F34D0((void*)(tl_radermap)); fn_801F34D0((void*)(tl_clipout)); fn_801F34D0((void*)(tl_fade)); fn_801F34D0((void*)(tl_fadeafter)); }
+void TMainTask__sub_80229540(void) { TMainTask__sub_801F34D0((void*)(tl_00)); TMainTask__sub_801F34D0((void*)(tl_camera)); TMainTask__sub_801F34D0((void*)(tl_01)); TMainTask__sub_801F34D0((void*)(tl_02)); TMainTask__sub_801F34D0((void*)(tl_03)); TMainTask__sub_801F34D0((void*)(tl_item_equip)); TMainTask__sub_801F34D0((void*)(tl_loc_start)); TMainTask__sub_801F34D0((void*)(tl_04)); TMainTask__sub_801F34D0((void*)(tl_05)); TMainTask__sub_801F34D0((void*)(tl_06)); TMainTask__sub_801F34D0((void*)(tl_07)); TMainTask__sub_801F34D0((void*)(tl_loc_end)); TMainTask__sub_801F34D0((void*)(tl_window)); TMainTask__sub_801F34D0((void*)(tl_particlemodel)); TMainTask__sub_801F34D0((void*)(tl_radermap)); TMainTask__sub_801F34D0((void*)(tl_clipout)); TMainTask__sub_801F34D0((void*)(tl_fade)); TMainTask__sub_801F34D0((void*)(tl_fadeafter)); }
 
     extern int tl_00;
     extern int tl_camera;
@@ -113,7 +113,7 @@ void TMainTask__sub_802296A0(void) { delete_children__7TObjectFv((void*)(tl_00))
     extern int tl_clipout;
     extern int tl_fade;
     extern int tl_fadeafter;
-void TMainTask__sub_80229754(void) { fn_801F34D0((void*)(tl_02)); fn_801F34D0((void*)(tl_03)); fn_801F34D0((void*)(tl_item_equip)); fn_801F34D0((void*)(tl_loc_start)); fn_801F34D0((void*)(tl_04)); fn_801F34D0((void*)(tl_05)); fn_801F34D0((void*)(tl_06)); fn_801F34D0((void*)(tl_07)); fn_801F34D0((void*)(tl_loc_end)); fn_801F34D0((void*)(tl_window)); fn_801F34D0((void*)(tl_particle)); fn_801F34D0((void*)(tl_particlemodel)); fn_801F34D0((void*)(tl_radermap)); fn_801F34D0((void*)(tl_clipout)); fn_801F34D0((void*)(tl_fade)); fn_801F34D0((void*)(tl_fadeafter)); }
+void TMainTask__sub_80229754(void) { TMainTask__sub_801F34D0((void*)(tl_02)); TMainTask__sub_801F34D0((void*)(tl_03)); TMainTask__sub_801F34D0((void*)(tl_item_equip)); TMainTask__sub_801F34D0((void*)(tl_loc_start)); TMainTask__sub_801F34D0((void*)(tl_04)); TMainTask__sub_801F34D0((void*)(tl_05)); TMainTask__sub_801F34D0((void*)(tl_06)); TMainTask__sub_801F34D0((void*)(tl_07)); TMainTask__sub_801F34D0((void*)(tl_loc_end)); TMainTask__sub_801F34D0((void*)(tl_window)); TMainTask__sub_801F34D0((void*)(tl_particle)); TMainTask__sub_801F34D0((void*)(tl_particlemodel)); TMainTask__sub_801F34D0((void*)(tl_radermap)); TMainTask__sub_801F34D0((void*)(tl_clipout)); TMainTask__sub_801F34D0((void*)(tl_fade)); TMainTask__sub_801F34D0((void*)(tl_fadeafter)); }
 
     extern int tl_02;
     extern int tl_03;

@@ -5,10 +5,10 @@ extern "C" {
 void TObjBoss5FloorStone__sub_80066FEC(void* p, void* a1);
 int fn_80066F5C(void*);
 int fn_80083B38(void*);
-int fn_803D9B2C(void);
-int fn_803D9B78(void);
-int fn_803DA798(void*);
+int TObjPlayer__sub_803D9B2C(void);
+int TObjPlayer__sub_803D9B78(void);
+int TObjFish__sub_803DA798(void*);
 
-void TObjBoss5FloorStone__sub_80066FEC(void* p, void* a1) { fn_80083B38(p); fn_803DA798(p); fn_803D9B2C(); fn_80066F5C(a1); fn_803D9B78(); }
+void TObjBoss5FloorStone__sub_80066FEC(void* p, void* a1) { fn_80083B38(p); TObjFish__sub_803DA798(p); TObjPlayer__sub_803D9B2C(); fn_80066F5C(a1); TObjPlayer__sub_803D9B78(); }
 
 }

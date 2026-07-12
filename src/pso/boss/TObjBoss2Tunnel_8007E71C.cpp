@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0);
-f32 fn_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
 
 extern f32 TObjBoss2Tunnel__data_805D926C;
 
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0) {
-    return (TObjBoss2Tunnel__data_805D926C * farg0) / fn_803D64C0(arg0 / 2);
+    return (TObjBoss2Tunnel__data_805D926C * farg0) / TBoss8Dragon__sub_803D64C0(arg0 / 2);
 }
 
 }

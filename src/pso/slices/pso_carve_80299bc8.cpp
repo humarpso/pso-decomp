@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_split_screen();
-M2C_UNK fn_8007B858();
-s32 fn_8007BB2C();
+M2C_UNK TLobby__sub_8007B858();
+s32 TLobby__sub_8007BB2C();
 M2C_UNK TObjLight__sub_80133D78();
-M2C_UNK fn_801403B4(M2C_UNK);
+M2C_UNK TLobby__sub_801403B4(M2C_UNK);
 M2C_UNK TOKeyMachine01__sub_802034A8();
-M2C_UNK fn_802274B8(M2C_UNK *);
-M2C_UNK fn_80227FB4();
+M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK TLobby__sub_80227FB4();
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_8029F4C4(void *, s32);
 M2C_UNK fn_802F1084();
@@ -24,16 +24,16 @@ extern s32 tl_particlemodel;
 s32 init_scene_delo2(void) {
     void *obj;
     TOKeyMachine01__sub_802034A8();
-    fn_80227FB4();
-    if (fn_8007BB2C() != 0) {
+    TLobby__sub_80227FB4();
+    if (TLobby__sub_8007BB2C() != 0) {
         return 0;
     }
     fn_802F10AC();
     TObjLight__sub_80133D78();
-    fn_8007B858();
+    TLobby__sub_8007B858();
     fn_802F1084();
-    fn_801403B4(0);
-    fn_802274B8(lbl_804651B0);
+    TLobby__sub_801403B4(0);
+    TObjBgmColCtrl__sub_802274B8(lbl_804651B0);
     if ((is_split_screen() == 0) && ((obj = (void *)__nw__7TObjectFUl(0x3C)) != 0)) {
         fn_8029F4C4(obj, tl_particlemodel);
     }

@@ -8,11 +8,11 @@ extern "C" {
 
 extern s32 lbl_805D4E28;
 
-u8 fn_80070AB0(void) {
+u8 TLobby__sub_80070AB0(void) {
     return (u8) (lbl_805D4E28 != 0);
 }
 
     extern int lbl_805D6464;
-int fn_80070AC4(void) {  return lbl_805D6464; }
+int TLobby__sub_80070AC4(void) {  return lbl_805D6464; }
 
 }

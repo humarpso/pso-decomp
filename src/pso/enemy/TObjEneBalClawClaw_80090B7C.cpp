@@ -25,17 +25,17 @@ M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-s32 fn_80080750();
-M2C_UNK fn_800D8A2C();
-M2C_UNK fn_80143024(void *);
-M2C_UNK fn_801E2F20();
-s32 fn_8022A564(void *);
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9624(M2C_UNK, f32, f32, f32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
-M2C_UNK fn_803E46BC(s32);
+s32 TObjPlayer__sub_80080750();
+M2C_UNK TObjPlayer__sub_800D8A2C();
+M2C_UNK TObjPlayer__sub_80143024(void *);
+M2C_UNK TParticleCtrl__sub_801E2F20();
+s32 TObjPlayer__sub_8022A564(void *);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK TObjFish__sub_803E46BC(s32);
 
 extern s32 some_id_805c6f74;
 extern const f32 TObjEneBalClawClaw__data_805D968C;
@@ -52,33 +52,33 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
         temp_r3 = ((VA *)arg0)->m9(lbl_805D9698, lbl_805D969C, lbl_805D96A0);
         if (temp_r3 != 0) {
             var_r30 = 1;
-            fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+            TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
             TObjLight__sub_80134194(arg0);
-            fn_800D8A2C();
-            fn_803D9B2C();
+            TObjPlayer__sub_800D8A2C();
+            TObjPlayer__sub_803D9B2C();
             some_id_805c6f74 &= 0xFFFFFBFF;
-            if (fn_80080750() == 1) {
+            if (TObjPlayer__sub_80080750() == 1) {
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
                 TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
-                fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-                fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+                TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+                TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
             } else {
-                fn_803D9624(0, TObjEneBalClawClaw__data_805D968C, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), TObjEneBalClawClaw__data_805D968C);
+                TObjPlayer__sub_803D9624(0, TObjEneBalClawClaw__data_805D968C, M2C_FIELD(arg0, f32 *, 0x3B4) + M2C_FIELD(arg0, f32 *, 0x3BC), TObjEneBalClawClaw__data_805D968C);
                 TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
                 TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
-                fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+                TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
                 if (M2C_FIELD(arg0, s32 *, 0x388) & 4) {
                     if (((VB *)(arg0 + 0x390))->m8() != 0) {
                         ((VB *)(arg0 + 0x390))->m6();
                         var_r29 = 1;
-                        if (fn_8022A564(arg0) != 0) {
+                        if (TObjPlayer__sub_8022A564(arg0) != 0) {
                             var_r29 = 0;
                         }
                         if (var_r29 != 0) {
                             if (temp_r3 == 1) {
                                 draw__16TObjEneRe7BeruraFPv(arg0);
                             } else {
-                                fn_80143024(arg0);
+                                TObjPlayer__sub_80143024(arg0);
                             }
                         }
                         ((VB *)(arg0 + 0x390))->m7();
@@ -88,12 +88,12 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                 } else if (temp_r3 == 1) {
                     draw__16TObjEneRe7BeruraFPv(arg0);
                 } else {
-                    fn_80143024(arg0);
+                    TObjPlayer__sub_80143024(arg0);
                 }
             }
-            fn_803D9B78();
+            TObjPlayer__sub_803D9B78();
             TObjLight__sub_80134098();
-            fn_801E2F20();
+            TParticleCtrl__sub_801E2F20();
             TObjEneBalClaw__sub_8008D700(arg0, var_r30);
         }
     }

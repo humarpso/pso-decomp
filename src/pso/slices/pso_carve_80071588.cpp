@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80070AB0();
+s32 TLobby__sub_80070AB0();
 extern M2C_UNK lbl_8048C9D8[];
 extern f32 lbl_805D9108;
 extern f32 lbl_805D910C;
 
 s32 fn_80071588(f32 farg0) {
-    if (fn_80070AB0() == 0) {
+    if (TLobby__sub_80070AB0() == 0) {
         return 0;
     }
     if ((farg0 < lbl_805D9108) || (farg0 > lbl_805D910C)) {

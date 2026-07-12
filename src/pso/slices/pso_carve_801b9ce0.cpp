@@ -31,15 +31,15 @@ struct VObj_801B9CE0 : Base_801B9CE0 {
 extern "C" {
 
 M2C_UNK TObjPlayer__sub_801BF8EC(s32, s32, M2C_UNK);
-void *fn_801C675C(s32, s32);
+void *TObjPlayer__sub_801C675C(s32, s32);
 
-void fn_801B9CE0(s32 arg0) {
+void TObjPlayer__sub_801B9CE0(s32 arg0) {
     s32 var_r31;
     void *temp_r3;
 
     var_r31 = 9;
     do {
-        temp_r3 = fn_801C675C(arg0 + 0xD04, var_r31);
+        temp_r3 = TObjPlayer__sub_801C675C(arg0 + 0xD04, var_r31);
         if (temp_r3 != NULL) {
             TObjPlayer__sub_801BF8EC(arg0 + 0xD04, var_r31, 0);
             ((VObj_801B9CE0*)temp_r3)->m19();

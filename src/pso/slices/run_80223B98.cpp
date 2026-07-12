@@ -72,7 +72,7 @@ s32 fn_80223CB8(s32 arg0) {
     return -1;
 }
 
-s32 fn_80223D48(s32 arg0) {
+s32 TLobby__sub_80223D48(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
         return 0;
     }

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 int fn_8009E690(void* p);
-void fn_8009E6B0(void);
+void TObjEneMe1Canadin__sub_8009E6B0(void);
 void TObjEneMe1Canadin__vt105(void);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 

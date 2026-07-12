@@ -12,9 +12,9 @@ M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 f32 TObjPlayer__sub_801D2640(void *);
 M2C_UNK TObjPlayer__sub_801D268C(void *);
 f32 TObjPlayer__sub_801D2858(void *);
-M2C_UNK fn_800A7798(void *, f32);
-M2C_UNK fn_801BA650(void *, M2C_UNK, s16);
-M2C_UNK fn_801C67B4(void *, void *);
+M2C_UNK TObjPlayer__sub_800A7798(void *, f32);
+M2C_UNK TObjPlayer__sub_801BA650(void *, M2C_UNK, s16);
+M2C_UNK TObjPlayer__sub_801C67B4(void *, void *);
 s32 is_matching_id__10TObjPlayerFPvs(void *, s16);
 
 void set_attack_state__10TObjPlayerFPv(u8 *arg0) {
@@ -28,11 +28,11 @@ void set_attack_state__10TObjPlayerFPv(u8 *arg0) {
     if (is_matching_id__10TObjPlayerFPvs(arg0, temp_r3) != 0) {
         TObjPlayer__sub_801D268C(arg0);
     }
-    fn_801C67B4(arg0 + 0x5E0, arg0);
-    fn_801BA650(arg0, 2, temp_r3);
+    TObjPlayer__sub_801C67B4(arg0 + 0x5E0, arg0);
+    TObjPlayer__sub_801BA650(arg0, 2, temp_r3);
     temp_f31 = TObjPlayer__sub_801D2858(arg0 + 0x5E0);
     temp_f1 = TObjPlayer__sub_801D2640(arg0);
-    fn_800A7798(arg0, temp_f1 * temp_f31);
+    TObjPlayer__sub_800A7798(arg0, temp_f1 * temp_f31);
 }
 
 }

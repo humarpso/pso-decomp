@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8022675C(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 
 void fn_8030880C(s32 arg0, s32 arg1) {
-    fn_8022675C(arg1, arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C(arg1, arg0 + 0x38, 0, 0);
 }
 
 }

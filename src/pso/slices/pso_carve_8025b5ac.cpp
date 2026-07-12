@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 fn_80144D68(u32);
+u32 TWindowSubStatusDisp__sub_80144D68(u32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 s32 TOBoss4Rock__sub_80147AA8(s32);
 s32 fn_80228C30(u32);
@@ -29,7 +29,7 @@ void fn_8025B5AC(void *arg0, u32 arg1, s32 arg2) {
     }
     M2C_FIELD(arg0, s32 *, 0x18) = arg2;
     M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x15);
-    M2C_FIELD(arg0, f32 *, 8) = lbl_805DD00C - (lbl_805DD010 * (f32) fn_80144D68(arg1));
+    M2C_FIELD(arg0, f32 *, 8) = lbl_805DD00C - (lbl_805DD010 * (f32) TWindowSubStatusDisp__sub_80144D68(arg1));
 }
 
 }

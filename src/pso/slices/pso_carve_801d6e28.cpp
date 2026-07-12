@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801D9988(u8);
+s32 TObjPlayer__sub_801D9988(u8);
 
 void fn_801D6E28(void *arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;
-    if ((fn_801D9988(var_r31) == 0) && (var_r31 > 0x1DU)) {
+    if ((TObjPlayer__sub_801D9988(var_r31) == 0) && (var_r31 > 0x1DU)) {
         var_r31 = 0;
     }
     M2C_FIELD(arg0, u8 *, 0x11) = var_r31;

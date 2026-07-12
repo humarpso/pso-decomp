@@ -9,10 +9,10 @@ extern "C" {
 void render__12TOBoss4TowerFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
 
 struct Base { char pad[0x18]; };
 struct VObj : Base {
@@ -29,12 +29,12 @@ struct VObj : Base {
 
 void render__12TOBoss4TowerFv(u8 *arg0) {
     if (((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x90), M2C_FIELD(arg0, f32 *, 0x94)) != 0) {
-        fn_803D9B2C();
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
     }
 }
 

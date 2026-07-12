@@ -10,7 +10,7 @@ void update_photon_chair__11TMainCursorFi(s32 arg0);
 M2C_UNK TMainCursor__sub_8013E2D4();
 f32 TMainCursor__sub_8013F178(s32);
 M2C_UNK fn_801424DC(s32, f32, f32, f32, f32);
-M2C_UNK fn_803E46BC();
+M2C_UNK TObjFish__sub_803E46BC();
 M2C_UNK update_parts2__15TPlyPhotonChairFPv(s32);
 M2C_UNK update_parts__15TPlyPhotonChairFPv(s32);
 
@@ -23,7 +23,7 @@ void update_photon_chair__11TMainCursorFi(s32 arg0) {
         update_parts2__15TPlyPhotonChairFPv(arg0 + 0x4C);
         fn_801424DC(arg0 + 0x4C, TMainCursor__data_805DB0CC, TMainCursor__data_805DB0C0, TMainCursor__data_805DB0C0, TMainCursor__data_805DB0C0);
         TMainCursor__sub_8013E2D4();
-        fn_803E46BC();
+        TObjFish__sub_803E46BC();
         update_parts__15TPlyPhotonChairFPv(arg0 + 0x4C);
     }
 }

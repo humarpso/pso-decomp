@@ -17,7 +17,7 @@ s32 TItemDrop__sub_80107460(s32, s32, s32);
 u8 TItemDrop__sub_80107790(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 can_drop__9TItemDropFv();
 M2C_UNK fn_80105984(M2C_UNK *);
-int fn_8010ED54(void*, void*);
+int TShopEquipmentListWindow__sub_8010ED54(void*, void*);
 M2C_UNK init__9TItemDataFv(void *);
 
 extern s32 *TItemDrop__data_805D5464;
@@ -52,7 +52,7 @@ void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
     }
 }
 
-void handle_type3__9TItemDropFPvPv(void* p, void* a1) { if (*(unsigned char*)(a1) == 3) { fn_8010ED54(a1, (void*)1); } }
+void handle_type3__9TItemDropFPvPv(void* p, void* a1) { if (*(unsigned char*)(a1) == 3) { TShopEquipmentListWindow__sub_8010ED54(a1, (void*)1); } }
 
 void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1) {
     M2C_UNK sp8;

@@ -9,7 +9,7 @@ extern "C" {
 void send_card_window_state__6TLobbyFv(void);
 s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 M2C_UNK fn_80077798(s32, s32 *);
-s32 fn_8013A324(s32);
+s32 TLobby__sub_8013A324(s32);
 M2C_UNK fn_801DB244(s32, s32 *);
 
 extern s32 lbl_805D53A0;
@@ -20,7 +20,7 @@ void send_card_window_state__6TLobbyFv(void) {
     s32 temp_r31;
 
     temp_r31 = get_card_window__17TWindowSubComCardFUi(0xFFFF);
-    sp8[0] = fn_8013A324(lbl_805D53A0) ? 1 : 0;
+    sp8[0] = TLobby__sub_8013A324(lbl_805D53A0) ? 1 : 0;
     fn_80077798(temp_r31 + 0x22EC, sp8);
     fn_801DB244(TLobby__data_805D5580, sp8);
 }

@@ -29,7 +29,7 @@ extern "C" {
 s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 u16 TPlyFollowParticleCtrl__sub_8030A698();
-s32 fn_80055694(s32);
+s32 TObjPlayer__sub_80055694(s32);
 
 s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0) {
     void *temp_r3;
@@ -38,8 +38,8 @@ s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0) {
     if (temp_r3 == NULL) {
         return 0;
     }
-    ((VObj_PTR18 *) temp_r3)->m63(0x23, fn_80055694(arg0));
-    return fn_80055694(arg0);
+    ((VObj_PTR18 *) temp_r3)->m63(0x23, TObjPlayer__sub_80055694(arg0));
+    return TObjPlayer__sub_80055694(arg0);
 }
 
 }

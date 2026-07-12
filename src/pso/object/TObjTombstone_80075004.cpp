@@ -8,8 +8,8 @@ extern "C" {
 
 s32 check_owner__13TObjTombstoneFPv(void *arg0);
 s32 TObjPlayer__sub_800196EC();
-s32 fn_80070AB0();
-s32 fn_80293080();
+s32 TLobby__sub_80070AB0();
+s32 TLobby__sub_80293080();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void handle_6x96(void);
@@ -19,9 +19,9 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0) {
     s32 var_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        var_r3 = fn_80293080();
+        var_r3 = TLobby__sub_80293080();
     } else {
-        var_r3 = fn_80070AB0();
+        var_r3 = TLobby__sub_80070AB0();
     }
     if ((var_r3 == 0) || ((s8) M2C_FIELD(arg0, u8 *, 0xC2) != TObjPlayer__sub_800196EC())) {
         return 1;

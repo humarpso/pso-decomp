@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801CB874(void * a0 = 0);
-s32 fn_801BEAB0(void);
+s32 TObjPlayer__sub_801CB874(void * a0 = 0);
+s32 TObjPlayer__sub_801BEAB0(void);
 s32 TObjPlayer__sub_801B95C8(void * a0 = 0);
 s32 TObjPlayer__sub_801B1E54(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);

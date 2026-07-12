@@ -9,15 +9,15 @@ extern "C" {
 void run_task__15TORockJungleM01Fv(void* p);
 void TORockJungleM01__vt16(s32 arg0);
 
-int fn_800D7BB0(void*);
-int fn_80174EA0(void*);
+int TObjPlayer__sub_800D7BB0(void*);
+int TORockCaveBrakable__sub_80174EA0(void*);
 
-void run_task__15TORockJungleM01Fv(void* p) { fn_800D7BB0((char*)p + 0xbc); fn_80174EA0(p); }
+void run_task__15TORockJungleM01Fv(void* p) { TObjPlayer__sub_800D7BB0((char*)p + 0xbc); TORockCaveBrakable__sub_80174EA0(p); }
 
-M2C_UNK fn_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
 void TORockJungleM01__vt16(s32 arg0) {
-    fn_8022675C(0x4BC19, arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x4BC19, arg0 + 0x38, 0, 0);
 }
 
 }

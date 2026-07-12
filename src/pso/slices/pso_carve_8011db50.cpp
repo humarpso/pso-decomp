@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_800822E8(s32, M2C_UNK);
+s32 TLobby__sub_800822E8(s32, M2C_UNK);
 
 void fn_8011DB50(void *arg0) {
-    if (fn_800822E8(M2C_FIELD(arg0, s32 *, 0x28), 0x1C) != 0) {
+    if (TLobby__sub_800822E8(M2C_FIELD(arg0, s32 *, 0x28), 0x1C) != 0) {
         M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
     }
 }

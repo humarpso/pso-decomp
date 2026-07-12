@@ -8,11 +8,11 @@ extern "C" {
 
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
-M2C_UNK fn_80228154(s32, s32, s32, f32);
+M2C_UNK TLobby__sub_80228154(s32, s32, s32, f32);
 
 void fn_801E2F94(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     TCameraCtrl__sub_80069024();
-    fn_80228154(arg0, arg1, arg2, farg0);
+    TLobby__sub_80228154(arg0, arg1, arg2, farg0);
     TCameraCtrl__sub_80068EF0();
 }
 

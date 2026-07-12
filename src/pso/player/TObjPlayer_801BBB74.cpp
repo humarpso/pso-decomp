@@ -10,9 +10,9 @@ s32 TObjPlayer__sub_80019248(void *);
 s32 obj_isState3_324(void *);
 s32 obj_getField1c(void *);
 u32 TLockOnCursor__ct(u32, void *, s32);
-s32 fn_801AEECC();
+s32 TObjPlayer__sub_801AEECC();
 u32 __nw__7TObjectFUl(s32);
-void fn_801BBB70(void);
+void TObjPlayer__sub_801BBB70(void);
 int TObjPlayer__sub_801BBB74(void* p);
 void TObjPlayer__sub_801BBB94(void);
 void TObjPlayer__sub_801BBC2C(void* p);
@@ -21,9 +21,9 @@ void TObjPlayer__sub_801BBC64(void);
 int TObjPlayer__sub_801BBD38(void* p);
 int TLockOnCursor__sub_8013DAB0(void*);
 int fn_801566CC(void*);
-int fn_801B35AC(void*);
+int TObjPlayer__sub_801B35AC(void*);
 
-int TObjPlayer__sub_801BBB74(void* p) { return fn_801B35AC(p); }
+int TObjPlayer__sub_801BBB74(void* p) { return TObjPlayer__sub_801B35AC(p); }
 void TObjPlayer__sub_801BBB94(void) {  }
 
 }

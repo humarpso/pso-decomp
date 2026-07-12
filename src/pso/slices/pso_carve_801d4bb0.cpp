@@ -6,22 +6,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80011138(s32, s32);
-M2C_UNK fn_801D4AEC(s32, s32, s32, s32);
-s32 fn_801D4F14(s32, s32);
+M2C_UNK TObjPlayer__sub_80011138(s32, s32);
+M2C_UNK TLobby__sub_801D4AEC(s32, s32, s32, s32);
+s32 TObjPlayer__sub_801D4F14(s32, s32);
 
 s32 fn_801D4BB0(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
 
     if (arg2 == -1) {
-        fn_80011138(arg1, arg3);
+        TObjPlayer__sub_80011138(arg1, arg3);
         return 1;
     }
-    temp_r3 = fn_801D4F14(arg0, arg2);
+    temp_r3 = TObjPlayer__sub_801D4F14(arg0, arg2);
     if (temp_r3 == 0) {
         return 0;
     }
-    fn_801D4AEC(arg0, arg1, temp_r3, arg3);
+    TLobby__sub_801D4AEC(arg0, arg1, temp_r3, arg3);
     return 1;
 }
 

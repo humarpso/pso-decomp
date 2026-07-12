@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 TLobby__sub_80076BC8(void *);
-s32 fn_80076F88(void *);
+s32 TWindowSubSymbolChat__sub_80076F88(void *);
 s32 TWindowDD__sub_80348C78(void *);
 void fn_80076D1C(void);
 int fn_80076E2C(void);
@@ -22,7 +22,7 @@ void fn_80076C68(s32 *arg0) {
         TWindowDD__sub_80348C78((s8 *)arg0 + 4);
         return;
     case 3:
-        fn_80076F88((s8 *)arg0 + 4);
+        TWindowSubSymbolChat__sub_80076F88((s8 *)arg0 + 4);
     case 0:
         return;
     }

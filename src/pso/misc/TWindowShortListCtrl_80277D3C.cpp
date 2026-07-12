@@ -8,12 +8,12 @@ extern "C" {
 
 void assign_shortcut__20TWindowShortListCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 fn_80099EF8(u32);
-u32 fn_80101AB0(s32);
-u32 fn_80102BE0(s32, s32);
-M2C_UNK fn_801B9EDC(s32, s32);
-M2C_UNK fn_801BA0F0(s32, s32, s32);
-u32 fn_801C675C(s32, s32);
+s32 TObjPlayer__sub_80099EF8(u32);
+u32 TLobby__sub_80101AB0(s32);
+u32 TObjPlayer__sub_80102BE0(s32, s32);
+M2C_UNK TObjPlayer__sub_801B9EDC(s32, s32);
+M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, s32);
+u32 TObjPlayer__sub_801C675C(s32, s32);
 
 void assign_shortcut__20TWindowShortListCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     u32 temp_r31;
@@ -23,20 +23,20 @@ void assign_shortcut__20TWindowShortListCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg2);
     if (temp_r3 != 0) {
-        temp_r31 = fn_801C675C(temp_r3 + 0xD04, arg0);
-        temp_r3b = fn_80101AB0(arg1);
+        temp_r31 = TObjPlayer__sub_801C675C(temp_r3 + 0xD04, arg0);
+        temp_r3b = TLobby__sub_80101AB0(arg1);
         if (temp_r31 == temp_r3b) {
-            fn_801B9EDC(temp_r3, arg1);
+            TObjPlayer__sub_801B9EDC(temp_r3, arg1);
             return;
         }
-        if (fn_80102BE0(temp_r3b, 8) != 0U) {
-            fn_801B9EDC(temp_r3, arg1);
+        if (TObjPlayer__sub_80102BE0(temp_r3b, 8) != 0U) {
+            TObjPlayer__sub_801B9EDC(temp_r3, arg1);
         }
         if (temp_r31 != 0U) {
-            temp_r0 = fn_80099EF8(temp_r31);
-            fn_801B9EDC(temp_r3, temp_r0);
+            temp_r0 = TObjPlayer__sub_80099EF8(temp_r31);
+            TObjPlayer__sub_801B9EDC(temp_r3, temp_r0);
         }
-        fn_801BA0F0(temp_r3, arg1, arg0);
+        TObjPlayer__sub_801BA0F0(temp_r3, arg1, arg0);
     }
 }
 

@@ -43,7 +43,7 @@ s32 TObjEneEpsilonGuard__sub_8035EF78(void *);
 M2C_UNK TObjEneEpsilonGuard__sub_8035EFD8(void *, s32);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 s32 TObjEneEpsilonGuard__sub_8035F95C(u32);
 s32 TObjEneEpsilonGuard__sub_8035F968();
 
@@ -74,7 +74,7 @@ void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     case 5:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x430);
         switch (temp_r0) {
         case 0:

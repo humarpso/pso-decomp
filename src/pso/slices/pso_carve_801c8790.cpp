@@ -11,11 +11,11 @@ s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 M2C_UNK TObjPlayer__sub_801D1480(M2C_UNK *);
 M2C_UNK draw_and_send__10TObjPlayerFPv(M2C_UNK *);
-int fn_8011E204(void*, void*);
+int TObjPlayer__sub_8011E204(void*, void*);
 int set_indexed_flags(void*, void*, void*);
 int TObjPlayer__sub_801B12CC(void*);
-int fn_801BE9A8(void*);
-int fn_801C5B18(void*);
+int TObjPlayer__sub_801BE9A8(void*);
+int TObjPlayer__sub_801C5B18(void*);
 int TObjPlayer__sub_801C8770(void* p);
 int TObjPlayer__sub_801B130C(void*);
 

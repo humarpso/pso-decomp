@@ -8,11 +8,11 @@ extern "C" {
 
 s32 create_option_menu__17TWindowOptionCtrlFv(void);
 s32 TWindowOptionCtrl__sub_8026B2E4();
-s32 fn_80132F2C(M2C_UNK, M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK fn_80248968(s32, s32);
-M2C_UNK fn_80248AA8(s32, s32, M2C_UNK);
+M2C_UNK TWindowOptionCtrl__sub_80248AA8(s32, s32, M2C_UNK);
 s32 fn_80248C48(M2C_UNK, M2C_UNK *);
-s32 fn_8026CBA4(M2C_UNK);
+s32 TWindowOptionCtrl__sub_8026CBA4(M2C_UNK);
 
 extern M2C_UNK lbl_8044F49C[];
 
@@ -20,11 +20,11 @@ s32 create_option_menu__17TWindowOptionCtrlFv(void) {
     s32 temp_r31;
     s32 temp_r3;
 
-    temp_r3 = fn_8026CBA4(0xD0);
+    temp_r3 = TWindowOptionCtrl__sub_8026CBA4(0xD0);
     temp_r31 = fn_80248C48(temp_r3, lbl_8044F49C);
-    fn_80248AA8(temp_r31, fn_80132F2C(0xF, 0x10), 0);
-    fn_80248AA8(temp_r31, fn_80132F2C(0xF, 0x11), 1);
-    fn_80248AA8(temp_r31, fn_80132F2C(0xF, 0x12), 2);
+    TWindowOptionCtrl__sub_80248AA8(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x10), 0);
+    TWindowOptionCtrl__sub_80248AA8(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x11), 1);
+    TWindowOptionCtrl__sub_80248AA8(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x12), 2);
     fn_80248968(temp_r31, (s16) TWindowOptionCtrl__sub_8026B2E4());
     return temp_r31;
 }

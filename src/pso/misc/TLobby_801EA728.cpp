@@ -8,27 +8,27 @@ extern "C" {
 
 void handle_split_screen__6TLobbyFv(void);
 void apply_split_screen__6TLobbyFv(void);
-M2C_UNK fn_80070BE8(M2C_UNK);
-M2C_UNK fn_80291EAC(M2C_UNK);
+M2C_UNK TLobby__sub_80070BE8(M2C_UNK);
+M2C_UNK TLobby__sub_80291EAC(M2C_UNK);
 
 s32 is_split_screen();
 
 void handle_split_screen__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
-        fn_80291EAC(0);
+        TLobby__sub_80291EAC(0);
         return;
     }
-    fn_80070BE8(0);
+    TLobby__sub_80070BE8(0);
 }
 
 s32 is_split_screen();
 
 void apply_split_screen__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
-        fn_80291EAC(1);
+        TLobby__sub_80291EAC(1);
         return;
     }
-    fn_80070BE8(1);
+    TLobby__sub_80070BE8(1);
 }
 
 }

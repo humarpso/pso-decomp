@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 
 struct Base_80213E64 { char pad[0x18]; };
 struct VObj_80213E64 : Base_80213E64 {
@@ -24,7 +24,7 @@ extern struct VObj_80213E64 *lbl_805D61B8;
 void fn_80213E64(void) {
     if (lbl_805D61B8 != NULL) {
         lbl_805D61B8->m7(6, 1);
-        fn_80073DC4(lbl_805D61B8, 0xC);
+        TQuestListVM__sub_80073DC4(lbl_805D61B8, 0xC);
         M2C_FIELD(lbl_805D61B8, s32 *, 0x34) = 2;
     }
 }

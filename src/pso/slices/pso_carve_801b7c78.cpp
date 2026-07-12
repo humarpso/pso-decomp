@@ -10,9 +10,9 @@ s32 fn_801D4368(void * a0 = 0);
 s32 TObjPlayer__sub_80019248(void * a0 = 0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 obj_testFlags30(s32, s32);
-s32 fn_800495BC(s32);
-s32 fn_800822E8(s32, s32);
-u32 fn_801BE778();
+s32 TLobby__sub_800495BC(s32);
+s32 TLobby__sub_800822E8(s32, s32);
+u32 TObjPlayer__sub_801BE778();
 void handle_6x99(void);
 void handle_6x98(void);
 

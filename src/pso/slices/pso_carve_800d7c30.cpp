@@ -3,9 +3,9 @@
 extern "C" {
 
 void fn_800D7C30(void);
-int fn_800D95C0(void);
-int fn_803E38FC(int);
+int TObjPlayer__sub_800D95C0(void);
+int TObjPlayer__sub_803E38FC(int);
 
-void fn_800D7C30(void) { fn_800D95C0(); fn_803E38FC(9472); }
+void fn_800D7C30(void) { TObjPlayer__sub_800D95C0(); TObjPlayer__sub_803E38FC(9472); }
 
 }

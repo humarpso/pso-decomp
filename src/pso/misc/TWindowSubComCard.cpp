@@ -8,9 +8,9 @@ extern "C" {
 
 void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0);
 s32 fn_802183B4(void* p);
-void fn_802183F8(void* p, void* a1);
-void fn_80218430(void);
-int fn_80073DC4(void*, void*);
+void TQuestListVM__sub_802183F8(void* p, void* a1);
+void TQuestListVM__sub_80218430(void);
+int TQuestListVM__sub_80073DC4(void*, void*);
 u32 fn_800FA8A4();
 s32 fn_800FA8C4();
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
@@ -24,8 +24,8 @@ void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0) {
         fn_8028783C(temp, 1);
     }
 }
-void fn_802183F8(void* p, void* a1) { fn_80073DC4(p, (void*)20); *(void**)((char*)p + 0x23b4) = a1; }
-void fn_80218430(void) {
+void TQuestListVM__sub_802183F8(void* p, void* a1) { TQuestListVM__sub_80073DC4(p, (void*)20); *(void**)((char*)p + 0x23b4) = a1; }
+void TQuestListVM__sub_80218430(void) {
     if (fn_800FA8A4() == 0U) {
         fn_800FA8C4();
     }

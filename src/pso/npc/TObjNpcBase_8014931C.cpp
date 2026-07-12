@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 fn_8022675C(s32, s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 TObjPlayer__sub_8001960C();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
@@ -13,7 +13,7 @@ void TObjNpcBase__sub_80149368(void* p);
 
 void TObjNpcBase__vt86(void) {  }
 void play_voice__11TObjNpcBaseFi(s32 arg0) {
-    fn_8022675C(0x40003804, arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C(0x40003804, arg0 + 0x38, 0, 0);
 }
 void TObjNpcBase__sub_80149358(void* p, s32 v) { *(s32*)((char*)p + 0x3ac) = v; }
 void TObjNpcBase__sub_80149360(void* p, s32 v) { *(s32*)((char*)p + 0x3a8) = v; }

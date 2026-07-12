@@ -10,10 +10,10 @@ void TOMineTrap__sub_80170570(void);
 void TOMineTrap__sub_80170574(void);
 void update_state__10TOMineTrapFPv(void *arg0);
 s32 get_main_phase();
-int fn_80132F2C(void*, void*);
+int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
 
 void TOMineTrap__sub_80170570(void) {  }
-void TOMineTrap__sub_80170574(void) { fn_80132F2C((void*)16, (void*)16); }
+void TOMineTrap__sub_80170574(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)16, (void*)16); }
 void update_state__10TOMineTrapFPv(void *arg0) {
     s32 temp_r0;
 

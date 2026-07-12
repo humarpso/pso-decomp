@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 TObjPlayer__sub_801C2060(s32, s32);
-s32 fn_801D38F4(s32, s32, s32, s32);
+s32 TItemList__sub_801D38F4(s32, s32, s32, s32);
 s32 TItemList__sub_801D5814(s32, s32);
 s32 TItemList__sub_801D5844(s32);
 s32 TItemList__sub_801D5854(s32, s32);
@@ -31,11 +31,11 @@ void fn_801D3554(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         TItemList__sub_801D5838((void*)(temp_r31));
         TObjPlayer__sub_801C2060(temp_r30, arg4);
         TItemList__sub_801D5814(temp_r30, arg3);
-        fn_801D38F4(arg0, arg2, arg1, 0);
+        TItemList__sub_801D38F4(arg0, arg2, arg1, 0);
         TItemList__sub_801D5804((void*)(arg0));
     }
 }
-int fn_801D35FC(void) { return 0; }
+int TItemList__sub_801D35FC(void) { return 0; }
 int fn_801D36B4(void) { return 0; }
 void fn_801D371C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 void TTecLuker__sub_801D3728(void* p, void* a1, void* a2) { TItemList__sub_801D5868(p, (void*)0); TItemList__sub_801D5838(); fn_801D3B00(p, a2, a1, (void*)0); TItemList__sub_801D5804(p); }

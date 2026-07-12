@@ -9,7 +9,7 @@ extern "C" {
 void run_task__10TAdTitleGCFv(u8 *arg0);
 M2C_UNK TAdTitleGC__sub_802A0C24(void *, void *, s32);
 M2C_UNK TAdTitleGC__sub_802A0C84(void *);
-s32 fn_80132F2C(M2C_UNK, s32);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
 
 void run_task__10TAdTitleGCFv(u8 *arg0) {
     s32 temp_r3;
@@ -23,7 +23,7 @@ void run_task__10TAdTitleGCFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x12C) = 0xFF;
     }
     TAdTitleGC__sub_802A0C84(arg0);
-    TAdTitleGC__sub_802A0C24(arg0, arg0 + 0x120, fn_80132F2C(0x13, M2C_FIELD(arg0, s32 *, 0x1C)));
+    TAdTitleGC__sub_802A0C24(arg0, arg0 + 0x120, TAdSinglePlyChrSelectGC__sub_80132F2C(0x13, M2C_FIELD(arg0, s32 *, 0x1C)));
 }
 
 }

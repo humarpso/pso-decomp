@@ -8,13 +8,13 @@ extern "C" {
 
 s32 is_flag_set__11TCameraCtrlFv(void);
 s32 is_split_screen();
-void *fn_803DEB74(M2C_UNK);
+void *TKeyBoardControl__sub_803DEB74(M2C_UNK);
 
 s32 is_flag_set__11TCameraCtrlFv(void) {
     if (is_split_screen() != 0) {
         return 0;
     }
-    return ((u32) M2C_FIELD(fn_803DEB74(0x12), u32 *, 8) >> 0x11U) & 1;
+    return ((u32) M2C_FIELD(TKeyBoardControl__sub_803DEB74(0x12), u32 *, 8) >> 0x11U) & 1;
 }
 
 }

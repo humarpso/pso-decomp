@@ -4,7 +4,7 @@ extern "C" {
 
 int __ct__12TPlyCharDataFv(void*);
 int TObjPlayer__sub_8001BF10(void*);
-int fn_80072218(void*);
+int TObjPlayer__sub_80072218(void*);
 void* fn_801C22BC(void* p);
 int fn_8035B00C(void*);
 void TObjPlayer__sub_801C210C(void* p, s32 v);
@@ -30,7 +30,7 @@ int fn_801C227C(void* p);
 void* fn_801C22A4(void* p);
 void* fn_801C22AC(void* p);
 s32 fn_801C22B4(void* p);
-int fn_8001BEF8(void*, int);
+int TObjPlayer__sub_8001BEF8(void*, int);
 
 int TObjPlayer__sub_801C2154(void) { return 0; }
 int TObjPlayer__sub_801C2180(void) { return 0; }

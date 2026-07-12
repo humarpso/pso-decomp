@@ -10,9 +10,9 @@ void render__9TDeadSpotFv(u8 *arg0);
 s32 TMainTask__sub_8001A430();
 M2C_UNK fn_801418C4(M2C_UNK);
 M2C_UNK fn_80141A30();
-f32 fn_80141CF8(void *, s32);
-M2C_UNK fn_80141F1C();
-M2C_UNK fn_803DA798(s32);
+f32 TObjPlayer__sub_80141CF8(void *, s32);
+M2C_UNK TObjPlayer__sub_80141F1C();
+M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK fn_803DA7A8(s32);
 M2C_UNK fn_803E29B0(void *, M2C_UNK, M2C_UNK);
 
@@ -23,11 +23,11 @@ extern const f32 TDeadSpot__data_805DA38C;
 extern const f32 lbl_805DA39C;
 
 void render__9TDeadSpotFv(u8 *arg0) {
-    if ((TMainTask__sub_8001A430() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > TDeadSpot__data_805DA38C) && (fn_80141CF8(arg0 + 0x7C, lbl_805D4DF0 + 0x178) < lbl_805DA39C)) {
+    if ((TMainTask__sub_8001A430() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > TDeadSpot__data_805DA38C) && (TObjPlayer__sub_80141CF8(arg0 + 0x7C, lbl_805D4DF0 + 0x178) < lbl_805DA39C)) {
         lbl_805D5660 = some_id_805c6f74;
-        fn_80141F1C();
+        TObjPlayer__sub_80141F1C();
         fn_801418C4(0x8F);
-        fn_803DA798(M2C_FIELD(arg0, s32 *, 0xB8));
+        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xB8));
         fn_803DA7A8(M2C_FIELD(arg0, s32 *, 0xBC));
         fn_803E29B0(arg0 + 0x1C, 4, 1);
         fn_80141A30();

@@ -125,7 +125,7 @@ M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK TObjEneMe1Canadin__sub_8009EAE8(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 s32 fn_800B9194(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 extern const f32 TObjEneMe1Canadin__data_805D988C;
 extern const f32 lbl_805D9890;
@@ -155,7 +155,7 @@ void action__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
         }
         break;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) != 1) {
             TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
         }

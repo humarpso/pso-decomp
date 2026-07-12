@@ -55,8 +55,8 @@ extern "C" {
 
 M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
-M2C_UNK fn_800D758C(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 void fn_8031F748(u8 *arg0, s32 arg1) {
     s32 temp_r4;
@@ -68,7 +68,7 @@ void fn_8031F748(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         ((V_En *) arg0)->m93();
         TObjEneDD__sub_800BBA04(arg0, 0);
-        fn_800D758C(arg0 + 0x3C0);
+        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3C0);
         return;
     case 3:
         if (((V_Sub *) (arg0 + 0x3C0))->m5() != 0) {
@@ -77,7 +77,7 @@ void fn_8031F748(u8 *arg0, s32 arg1) {
     case 5:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         break;
     }
 }

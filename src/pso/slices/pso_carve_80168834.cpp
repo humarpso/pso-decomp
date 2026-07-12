@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80080750();
-M2C_UNK fn_80087350(void *, M2C_UNK);
+s32 TObjPlayer__sub_80080750();
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK fn_80168398(void *);
 s32 fn_801688C0(void *);
@@ -97,11 +97,11 @@ struct VObj_80168834 {
 };
 
 void fn_80168834(u8 *arg0) {
-    if (fn_80080750() == 0) {
+    if (TObjPlayer__sub_80080750() == 0) {
         ((VObj_80168834*)arg0)->m78();
         fn_80168398(arg0);
         if ((fn_801688C0(arg0) != 0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
-            fn_80087350(arg0 + 0x38, 0x64);
+            TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x64);
         }
     }
 }

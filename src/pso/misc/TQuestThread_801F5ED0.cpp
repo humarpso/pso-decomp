@@ -10,7 +10,7 @@ void *TQuestThread__sub_801F5ED0(void *arg0, s16 arg1);
 M2C_UNK TQuestThread__sub_801F5E7C();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK fn_8007EBB4(s32);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(s32);
 
 extern M2C_UNK TQuestThread__data_804C8678[];
 extern s32 lbl_805D5EE8;
@@ -25,7 +25,7 @@ void *TQuestThread__sub_801F5ED0(void *arg0, s16 arg1) {
         } else {
             lbl_805D5EEC = 0;
         }
-        fn_8007EBB4(M2C_FIELD(arg0, s32 *, 0x198));
+        TAdSinglePlyChrSelectGC__sub_8007EBB4(M2C_FIELD(arg0, s32 *, 0x198));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

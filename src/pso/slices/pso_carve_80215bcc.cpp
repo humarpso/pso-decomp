@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 
 void fn_80215BCC(void *arg0) {
     if (arg0 != NULL) {
-        fn_80073DC4(arg0, 4);
+        TQuestListVM__sub_80073DC4(arg0, 4);
     }
 }
 

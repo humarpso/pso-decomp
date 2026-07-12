@@ -8,7 +8,7 @@ extern "C" {
 
 s16 TItemData__sub_8010CD98(void *);
 s32 fn_8010EBD8();
-s32 fn_8011C55C(u8);
+s32 TObjPlayer__sub_8011C55C(u8);
 
 int fn_8010EB10(void *arg0) {
     s16 temp_r3;
@@ -21,7 +21,7 @@ int fn_8010EB10(void *arg0) {
         if ((u8) var_r31 < 9U) {
             temp_b = M2C_FIELD(arg0, u8 *, 4);
             if (!(temp_b & 0x80)) {
-                var_r31 += fn_8011C55C(temp_b);
+                var_r31 += TObjPlayer__sub_8011C55C(temp_b);
             }
         } else if (M2C_FIELD(arg0, u8 *, 4) & 0x80) {
             var_r31 = 0;

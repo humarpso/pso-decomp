@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_8018FAEC(u16, u16);
-M2C_UNK fn_801E4650();
+M2C_UNK TLobby__sub_801E4650();
 
 void handle_6x04_legacy_activate_switch_by_token(void *arg0) {
-    fn_801E4650();
+    TLobby__sub_801E4650();
     fn_8018FAEC(M2C_FIELD(arg0, u16 *, 2), M2C_FIELD(arg0, u16 *, 4));
 }
 

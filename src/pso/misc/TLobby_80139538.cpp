@@ -12,9 +12,9 @@ void handle_game_list_select__6TLobbyFv(void);
 M2C_UNK close_and_set_state_12__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK TWindow__close(u32);
-s32 fn_8013AD38(u32);
-s32 fn_8013AD44(u32);
-s32 fn_80266E0C(u32);
+s32 TLobby__sub_8013AD38(u32);
+s32 TLobby__sub_8013AD44(u32);
+s32 TLobby__sub_80266E0C(u32);
 M2C_UNK send_action__9TProtocolFR13GameListEntryPcPc(void *, void *, M2C_UNK *, M2C_UNK *);
 
 extern struct Root_80139538 *TLobby__data_805D5580;
@@ -25,15 +25,15 @@ void handle_game_list_select__6TLobbyFv(void) {
     s32 temp_r31;
 
     if (TLobby__data_805D55D0 != 0U) {
-        if (fn_8013AD38(TLobby__data_805D55D0) != 0) {
-            temp_r31 = fn_80266E0C(TLobby__data_805D55D0);
+        if (TLobby__sub_8013AD38(TLobby__data_805D55D0) != 0) {
+            temp_r31 = TLobby__sub_80266E0C(TLobby__data_805D55D0);
             TWindow__close(TLobby__data_805D55D0);
             TLobby__data_805D55D0 = 0U;
             send_action__9TProtocolFR13GameListEntryPcPc(TLobby__data_805D5580, &TLobby__data_805D5580->entries[temp_r31], &TLobby__data_805DB0B0, &TLobby__data_805DB0B0);
             close_and_set_state_12__6TLobbyFv();
             return;
         }
-        if (fn_8013AD44(TLobby__data_805D55D0) != 0) {
+        if (TLobby__sub_8013AD44(TLobby__data_805D55D0) != 0) {
             TWindow__close(TLobby__data_805D55D0);
             TLobby__data_805D55D0 = 0U;
             close_all_windows__6TLobbyFv();

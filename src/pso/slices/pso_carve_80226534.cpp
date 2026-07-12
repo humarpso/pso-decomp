@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80226918();
+s32 TLobby__sub_80226918();
 
 s32 fn_80226534(s32 arg0, s32 arg1) {
     s32 var_r3;
@@ -14,7 +14,7 @@ s32 fn_80226534(s32 arg0, s32 arg1) {
     if (arg1 & 0x2000) {
         var_r3 = 0;
     } else {
-        var_r3 = fn_80226918();
+        var_r3 = TLobby__sub_80226918();
     }
     if (var_r3 == -0x100) {
         return 0;

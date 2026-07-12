@@ -9,7 +9,7 @@ extern "C" {
 s16 obj_getS16_2BA(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C();
 void *get_array_entry__20TWindowSubStatusDispFPvi(s32, M2C_UNK);
-M2C_UNK fn_8024C818();
+M2C_UNK TWindowCtrl__sub_8024C818();
 M2C_UNK fn_802575C0(void *, M2C_UNK, f32);
 M2C_UNK fn_8026F6DC(s32);
 extern M2C_UNK lbl_8044F608;
@@ -22,7 +22,7 @@ s32 fn_8026F7E0(s32 arg0) {
     void *temp_r30;
     void *temp_r3;
 
-    fn_8024C818();
+    TWindowCtrl__sub_8024C818();
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C();
     if (temp_r3 == NULL) {
         fn_8026F6DC(arg0);

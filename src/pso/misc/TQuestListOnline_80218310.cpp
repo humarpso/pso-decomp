@@ -7,7 +7,7 @@ extern "C" {
 void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__13GameListEntryFv(void *);
 void __ct__15TShopWindowBaseFv(void *);
-void fn_80073DC4(void *, int);
+void TQuestListVM__sub_80073DC4(void *, int);
 
 extern M2C_UNK __vt__16TQuestListOnline[];
 extern void *lbl_805D3688;
@@ -33,7 +33,7 @@ void *TQuestListOnline__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     M2C_FIELD(arg0, u32 *, 0x68) = 0;
     M2C_FIELD(arg0, void **, 0x24) = arg3;
     memset(self->f_4C, 0, 28);
-    fn_80073DC4(arg0, 0);
+    TQuestListVM__sub_80073DC4(arg0, 0);
     TQuestListOnline__data_805D61E0 = arg0;
     return arg0;
 }

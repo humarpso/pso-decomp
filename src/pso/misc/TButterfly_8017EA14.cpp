@@ -11,7 +11,7 @@ extern "C" {
 void render__10TButterflyFv(void *arg0);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK fn_8017E900(void *);
-M2C_UNK fn_803DA798();
+M2C_UNK TObjFish__sub_803DA798();
 
 extern s32 lbl_805D5B10;
 extern const f32 lbl_805DBAE4;
@@ -20,7 +20,7 @@ extern const f32 lbl_805DBAE8;
 void render__10TButterflyFv(void *arg0) {
     if (((VObj*)arg0)->m8(lbl_805DBAE4, lbl_805DBAE8) != 0) {
         TObjFish__sub_8001EDB0(lbl_805D5B10, 0);
-        fn_803DA798();
+        TObjFish__sub_803DA798();
         fn_8017E900(arg0);
     }
 }

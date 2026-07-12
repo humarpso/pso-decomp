@@ -8,7 +8,7 @@ extern "C" {
 
 void init_part__16TObjEneRe7BeruraFi(s32 arg0);
 M2C_UNK TObjEneRe7Berura__sub_80094F40(void *, s32);
-M2C_UNK fn_803DA798(s32, void *);
+M2C_UNK TObjFish__sub_803DA798(s32, void *);
 
 extern M2C_UNK TObjEneRe7Berura__data_805007DC[];
 extern void *TObjEneRe7Berura__data_805D4F64;
@@ -16,7 +16,7 @@ extern void *TObjEneRe7Berura__data_805D4F64;
 void init_part__16TObjEneRe7BeruraFi(s32 arg0) {
     s32 *temp_r3;
 
-    fn_803DA798(M2C_FIELD(M2C_FIELD(TObjEneRe7Berura__data_805D4F64, void **, 0x42C), s32 *, 0xC), TObjEneRe7Berura__data_805D4F64);
+    TObjFish__sub_803DA798(M2C_FIELD(M2C_FIELD(TObjEneRe7Berura__data_805D4F64, void **, 0x42C), s32 *, 0xC), TObjEneRe7Berura__data_805D4F64);
     temp_r3 = (s32 *)((s8 *)TObjEneRe7Berura__data_805007DC + (arg0 * 0x64));
     TObjEneRe7Berura__sub_80094F40((s32 *)((s8 *)temp_r3 + 0x20), *temp_r3);
 }

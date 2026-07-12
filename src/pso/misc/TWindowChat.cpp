@@ -9,7 +9,7 @@ void *TWindowKeyBoardBase__ct(void *);
 void *TWindowKeyBoardHard__ct(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void fn_8024792C(void *);
+void TWindowChat__sub_8024792C(void *);
 void fn_8025CD44(void *, int, int);
 
 extern M2C_UNK __vt__11TWindowChat[];
@@ -39,7 +39,7 @@ void *TWindowChat__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x34) = 0;
     M2C_FIELD(arg0, u32 *, 0x30) = 0;
     M2C_FIELD(arg0, void **, 0x38) = arg2;
-    fn_8024792C(arg0);
+    TWindowChat__sub_8024792C(arg0);
     return arg0;
 }
 

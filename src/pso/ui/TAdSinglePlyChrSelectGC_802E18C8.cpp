@@ -9,8 +9,8 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8023F18C(void);
 s32 fn_8023F160(void);
-s32 fn_8023ED04(void);
-s32 fn_80226328(void);
+s32 TAdMultiChgGameModeGC__sub_8023ED04(void);
+s32 TLobby__sub_80226328(void);
 s32 fn_802261E0(s16 a0 = 0);
 s32 fn_8022614C(s32 a0 = 0);
 s32 fn_80132E58(u8 a0 = 0);
@@ -34,10 +34,10 @@ void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     fn_80132E58(M2C_FIELD(temp_r3, u8 *, 7));
     fn_802261E0(M2C_FIELD(temp_r3, s16 *, 4));
     fn_8022614C(M2C_FIELD(temp_r3, s8 *, 6));
-    fn_80226328();
+    TLobby__sub_80226328();
     fn_8023F160();
     fn_8023F18C();
-    fn_8023ED04();
+    TAdMultiChgGameModeGC__sub_8023ED04();
 }
 void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv(p); TAdSinglePlyChrSelectGC__sub_802E1A04(p, a1, a2, a3, a4); }
 void close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv(p); TAdSinglePlyChrSelectGC__sub_802E1A8C(p, a1, a2, a3, a4); }

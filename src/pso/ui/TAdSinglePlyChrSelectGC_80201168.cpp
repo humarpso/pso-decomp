@@ -13,14 +13,14 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCCCC(s32, M2C_UNK);
 u32 TAdSinglePlyChrSelectGC__sub_801FCCD4(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200690(s32, s32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(s32, M2C_UNK);
-s32 fn_8007EB94(M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_8007EB94(M2C_UNK);
 
 s32 init_and_register__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 var_r29;
     u32 temp_r30;
     u32 temp_r31;
 
-    var_r29 = fn_8007EB94(0x1156C);
+    var_r29 = TAdSinglePlyChrSelectGC__sub_8007EB94(0x1156C);
     if (var_r29 != 0) {
         var_r29 = TAdSinglePlyChrSelectGC__sub_801FC900();
     }

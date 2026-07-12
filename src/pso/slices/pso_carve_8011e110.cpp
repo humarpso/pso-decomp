@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8011E214();
+M2C_UNK TObjPlayer__sub_8011E214();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
 void fn_8011E110(int arg0) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(arg0) != 0U) {
-        fn_8011E214();
+        TObjPlayer__sub_8011E214();
     }
 }
 

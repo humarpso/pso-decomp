@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK __dl__FPv(u32 *);
-u32 *fn_8007EB94(M2C_UNK);
+u32 *TAdSinglePlyChrSelectGC__sub_8007EB94(M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFC74(u32 *, s32);
 u32 *init_windows__23TAdSinglePlyChrSelectGCFi();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(s32);
@@ -31,7 +31,7 @@ s32 load_and_verify_data(s32 arg0) {
     lbl_80513910[0] = temp_r3;
     memcpy(lbl_805D5F68, lbl_805D5F98 + 0x2048, 0xE28C);
     TAdSinglePlyChrSelectGC__sub_801FFF98(lbl_805D5F68);
-    var_r31 = fn_8007EB94(0xE28C);
+    var_r31 = TAdSinglePlyChrSelectGC__sub_8007EB94(0xE28C);
     if (var_r31 != NULL) {
         var_r31 = init_windows__23TAdSinglePlyChrSelectGCFi();
     }

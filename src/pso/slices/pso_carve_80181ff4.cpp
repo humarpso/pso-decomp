@@ -8,12 +8,12 @@ extern "C" {
 
 s32 fn_801819CC(M2C_UNK);
 M2C_UNK fn_801819E4(M2C_UNK);
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9624(M2C_UNK, f32, f32, f32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK fn_803DA798(s32);
+M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK fn_803DC894(M2C_UNK, s32, f32);
 extern s32 lbl_805D5B2C;
 extern const f32 lbl_805DBBE8;
@@ -46,13 +46,13 @@ struct VObj : Base {
 
 void fn_80181FF4(u8 *arg0) {
     if (((VObj *)arg0)->m20() != 0) {
-        fn_803DA798(lbl_805D5B2C);
-        fn_803D9B2C();
+        TObjFish__sub_803DA798(lbl_805D5B2C);
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        fn_803D9624(0, lbl_805DBBE8, lbl_805DBBE8, lbl_805DBBF4);
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjPlayer__sub_803D9624(0, lbl_805DBBE8, lbl_805DBBE8, lbl_805DBBF4);
         fn_803DC894(fn_801819E4(0x14), fn_801819CC(0xB), M2C_FIELD(arg0, f32 *, 0xB4));
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
     }
 }
 

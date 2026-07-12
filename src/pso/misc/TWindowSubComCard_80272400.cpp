@@ -8,10 +8,10 @@ extern "C" {
 
 void update_selection__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK update_selection__17TWindowSubComCardFUiUiPvi(s32, s32, s32, s32);
-s32 fn_8007BC04(M2C_UNK);
+s32 TWindowSubComCard__sub_8007BC04(M2C_UNK);
 
 void update_selection__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
-    s32 tmp = fn_8007BC04(0);
+    s32 tmp = TWindowSubComCard__sub_8007BC04(0);
     update_selection__17TWindowSubComCardFUiUiPvi(arg0, arg1, arg2, tmp);
 }
 

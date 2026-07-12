@@ -10,8 +10,8 @@ void update_sub_status_disp__6TLobbyFi(s32 arg0);
 M2C_UNK TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK TLobby__sub_8001DC24();
-M2C_UNK fn_80228C84(s32);
-M2C_UNK fn_80229080();
+M2C_UNK TLobby__sub_80228C84(s32);
+M2C_UNK TWindowSubStatusDisp__sub_80229080();
 
 extern s32 lbl_805D53A0;
 
@@ -21,9 +21,9 @@ void update_sub_status_disp__6TLobbyFi(s32 arg0) {
         return;
     }
     TWindowSubStatusDisp__sub_802290E0();
-    fn_80228C84(arg0);
+    TLobby__sub_80228C84(arg0);
     TWindowSubStatusDisp__sub_80077760(0xEF);
-    fn_80229080();
+    TWindowSubStatusDisp__sub_80229080();
     TLobby__sub_8001DC24();
 }
 

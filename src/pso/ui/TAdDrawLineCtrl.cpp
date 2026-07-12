@@ -12,19 +12,19 @@ s32 get_main_phase();
 s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
-M2C_UNK fn_80141F1C();
-s32 fn_8022A564();
+M2C_UNK TObjPlayer__sub_80141F1C();
+s32 TObjPlayer__sub_8022A564();
 M2C_UNK render_nodes__7TObjectFv(void *);
 
 void render__15TAdDrawLineCtrlFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
-        if (fn_8022A564() == 0) {
+        if (TObjPlayer__sub_8022A564() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
         }
     } else if ((get_main_phase() != 2) || (TMainTask__sub_8001A430() != 1)) {
 block_5:
-        fn_80141F1C();
+        TObjPlayer__sub_80141F1C();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
             render_nodes__7TObjectFv(M2C_FIELD(arg0, void **, 0x20));
         }

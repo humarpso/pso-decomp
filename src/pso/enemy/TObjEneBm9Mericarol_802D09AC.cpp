@@ -11,13 +11,13 @@ void set_state_a__19TObjEneBm9MericarolFPv(void *arg0);
 void change_state__19TObjEneBm9MericarolFPv(void *arg0);
 void TObjEneBm9Mericarol__sub_802D0A2C(void);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
-s32 fn_800BB780(void);
+s32 TBoss8Dragon__sub_800BB780(void);
 
 void TObjEneBm9Mericarol__sub_802D09AC(void) {  }
 void set_state_a__19TObjEneBm9MericarolFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xA) {
         if (M2C_FIELD(arg0, s32 *, 0x438) & 0x20) {
-            fn_800BB780();
+            TBoss8Dragon__sub_800BB780();
             return;
         }
         TObjEneDD__sub_800BBA18(arg0, 0xA);

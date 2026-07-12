@@ -20,14 +20,14 @@ struct VObj_802143AC : Base_802143AC {
 extern "C" {
 
 u16 obj_getField1c(s32);
-s32 fn_80073DC4(void *, s32);
+s32 TQuestListVM__sub_80073DC4(void *, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 fn_8024422C(s32, f32, f32);
-s32 fn_80265C10(s32, s32);
+s32 TWindowSubComCard__sub_80265C10(s32, s32);
 s32 fn_80266388(s32, u16, s32, s32);
-s32 fn_8026CBB8(s32);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
 
 void fn_802143AC(void *arg0) {
     f32 temp_f31;
@@ -36,12 +36,12 @@ void fn_802143AC(void *arg0) {
 
     if ((vobj->m8r() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         temp_r31 = (u16)obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, s32 *, 0x38) = fn_80266388(fn_8026CBB8(0x2B), temp_r31, 0, 0);
-        fn_80265C10(M2C_FIELD(arg0, s32 *, 0x38), 1);
+        M2C_FIELD(arg0, s32 *, 0x38) = fn_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), temp_r31, 0, 0);
+        TWindowSubComCard__sub_80265C10(M2C_FIELD(arg0, s32 *, 0x38), 1);
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
         fn_8024422C(M2C_FIELD(arg0, s32 *, 0x38), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
         vobj->m7(8, 1);
-        fn_80073DC4(arg0, 7);
+        TQuestListVM__sub_80073DC4(arg0, 7);
     }
 }
 

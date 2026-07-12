@@ -10,12 +10,12 @@ void TObjComputer__vt12(void *arg0);
 void TObjComputer__vt13(void *arg0);
 M2C_UNK TObjMesBase__vt12();
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
-M2C_UNK fn_80194C98();
+M2C_UNK TObjMesBase__sub_80194C98();
 
 extern f32 lbl_805DBCE8;
 
 void TObjComputer__vt13(void *arg0) {
-    fn_80194C98();
+    TObjMesBase__sub_80194C98();
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC0) + lbl_805DBCE8);
 }
 

@@ -12,7 +12,7 @@ extern "C" {
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 fn_80095E18(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 extern const f32 lbl_805D973C;
 }
@@ -146,7 +146,7 @@ extern "C" void state_patrol__16TObjEneRe7BeruraFPvi(void *arg0, s32 arg1) {
         }
         break;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         if (fn_80095E18(arg0) == 0) {
             M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805D973C;
         }

@@ -10,8 +10,8 @@ s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0);
 s32 update_action_timer__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
 s32 TObjPlayer__sub_800194AC(void *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_80010128(void *, M2C_UNK);
-M2C_UNK fn_800101B0(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_80010128(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_800101B0(void *, M2C_UNK);
 
 s32 obj_testFlags30(void *, M2C_UNK);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -26,7 +26,7 @@ s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0) {
             obj_clearFlags30(arg0, 0x3C);
             obj_setFlags30(arg0, 0x10);
             if ((temp_ret % 45) == 0) {
-                fn_80010128(arg0, 1);
+                TObjPlayer__sub_80010128(arg0, 1);
             }
             return 1;
         }
@@ -49,7 +49,7 @@ s32 update_action_timer__10TObjPlayerFPv(u8 *arg0) {
         temp_ret = TObjPlayer__sub_800194AC(arg0, 1, -1);
         if (temp_ret > 0) {
             if ((temp_ret % 45) == 0) {
-                fn_800101B0(arg0, 1);
+                TObjPlayer__sub_800101B0(arg0, 1);
             }
             return 1;
         }

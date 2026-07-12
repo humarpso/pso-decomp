@@ -8,14 +8,14 @@ extern "C" {
 
 s32 TObjPlayer__sub_80019704(s32);
 s32 TItemObject__sub_80115D84(void *);
-M2C_UNK fn_8011F710(s32, s32);
+M2C_UNK TObjPlayer__sub_8011F710(s32, s32);
 
 void fn_801176E4(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_80019704(M2C_FIELD(arg0, s32 *, 0xF0));
     if (temp_r3 != 0) {
-        fn_8011F710(temp_r3, TItemObject__sub_80115D84(arg0));
+        TObjPlayer__sub_8011F710(temp_r3, TItemObject__sub_80115D84(arg0));
     }
 }
 

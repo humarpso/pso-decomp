@@ -8,9 +8,9 @@ extern "C" {
 
 void run_task__19TWindowKeyBoardBaseFv(void* p);
 void render__19TWindowKeyBoardBaseFv(void *arg0);
-s32 fn_80244CF4(void *);
-M2C_UNK fn_80245F98(void *, s32);
-int fn_80246258(void*);
+s32 TWindowDD__sub_80244CF4(void *);
+M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
+int TWindowSubComCard__sub_80246258(void*);
 int fn_8024664C(void*);
 s32 fn_8025CB10(void *);
 M2C_UNK fn_8025E6DC(void *, s32);
@@ -20,14 +20,14 @@ void render__19TWindowKeyBoardBaseFv(void *arg0) {
     s32 temp_r31;
 
     if ((fn_8025EB68() == 0) && ((fn_8025CB10(arg0) != 0) || (M2C_FIELD(arg0, u16 *, 0x62) & 2))) {
-        temp_r31 = fn_80244CF4(arg0);
+        temp_r31 = TWindowDD__sub_80244CF4(arg0);
         if (M2C_FIELD(arg0, u16 *, 0x62) & 2) {
-            fn_80245F98(arg0, temp_r31);
+            TWindowSubComCard__sub_80245F98(arg0, temp_r31);
         }
         fn_8025E6DC(arg0, temp_r31);
     }
 }
 
-void run_task__19TWindowKeyBoardBaseFv(void* p) { fn_8024664C(p); fn_80246258(p); }
+void run_task__19TWindowKeyBoardBaseFv(void* p) { fn_8024664C(p); TWindowSubComCard__sub_80246258(p); }
 
 }

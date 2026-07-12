@@ -8,13 +8,13 @@ extern "C" {
 
 void advance_line__19TWindowSubShortMailFPvi(void *arg0, s32 arg1);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
-M2C_UNK fn_8025882C(s32, s32);
+M2C_UNK TWindowSubStatusDisp__sub_8025882C(s32, s32);
 
 void advance_line__19TWindowSubShortMailFPvi(void *arg0, s32 arg1) {
     s16 temp_r4;
     temp_r4 = (s16) M2C_FIELD(arg0, s16 *, 0x72);
     if (temp_r4 < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
-        fn_8025882C(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1);
+        TWindowSubStatusDisp__sub_8025882C(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1);
         M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);
     }
 }

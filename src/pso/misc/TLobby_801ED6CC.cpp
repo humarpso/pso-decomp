@@ -8,7 +8,7 @@ extern "C" {
 
 void dispatch_split_screen__6TLobbyFv(void);
 M2C_UNK fn_800715FC(s32);
-M2C_UNK fn_802926EC(s32);
+M2C_UNK TLobby__sub_802926EC(s32);
 
 s32 is_split_screen(void);
 extern s32 TLobby__data_80512220[];
@@ -18,7 +18,7 @@ void dispatch_split_screen__6TLobbyFv(void) {
 
     temp_r31 = TLobby__data_80512220[0];
     if (is_split_screen() == 1) {
-        fn_802926EC(temp_r31);
+        TLobby__sub_802926EC(temp_r31);
         return;
     }
     fn_800715FC(temp_r31);

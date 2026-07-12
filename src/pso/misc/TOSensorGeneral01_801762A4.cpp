@@ -8,7 +8,7 @@ extern "C" {
 
 void free_rocks__17TOSensorGeneral01Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern u32 lbl_805D5AA0;
@@ -23,7 +23,7 @@ void free_rocks__17TOSensorGeneral01Fv(void) {
         }
     }
     if ((u32) lbl_805D5AA0 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5AA0, 1);
+        TLobby__sub_8001FE7C((void*)lbl_805D5AA0, 1);
         lbl_805D5AA0 = 0U;
     }
 }

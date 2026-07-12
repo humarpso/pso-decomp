@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void release_static__13TObjWarpLobbyFv(void);
-M2C_UNK fn_8001FE7C(s32, M2C_UNK);
+M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 
 extern s32 TObjWarpLobby__data_805D5CC8;
 
 void release_static__13TObjWarpLobbyFv(void) {
-    fn_8001FE7C(TObjWarpLobby__data_805D5CC8, 1);
+    TLobby__sub_8001FE7C(TObjWarpLobby__data_805D5CC8, 1);
     TObjWarpLobby__data_805D5CC8 = 0;
 }
 

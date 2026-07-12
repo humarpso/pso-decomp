@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801B95C8(void *arg0);
 M2C_UNK fn_800849A0(M2C_UNK *);
-void *fn_80105934();
+void *TItemData__sub_80105934();
 
 }
 
@@ -64,7 +64,7 @@ void TObjPlayer__sub_801B95C8(void *arg0) {
     M2C_UNK sp8;
     void *temp_r3;
 
-    temp_r3 = fn_80105934();
+    temp_r3 = TItemData__sub_80105934();
     if (temp_r3 != NULL) {
         ((VObj_801B95C8*)temp_r3)->m28();
         return;

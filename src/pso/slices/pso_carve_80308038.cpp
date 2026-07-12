@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int fn_80132F2C(void*, void*);
+int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
 int TAdVIConfigGC__sub_80307FEC(void);
 int OSSetProgressiveMode(void*);
 

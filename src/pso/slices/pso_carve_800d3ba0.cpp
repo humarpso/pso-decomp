@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8001FE7C(u32, s32);
+M2C_UNK TLobby__sub_8001FE7C(u32, s32);
 extern u32 lbl_805D51FC;
 
 struct Base_800D3BA0 { char pad[0xC]; };
@@ -17,7 +17,7 @@ extern struct VObj_800D3BA0 *lbl_805D5208;
 
 void fn_800D3BA0(void) {
     if (lbl_805D51FC != 0U) {
-        fn_8001FE7C(lbl_805D51FC, 1);
+        TLobby__sub_8001FE7C(lbl_805D51FC, 1);
         lbl_805D51FC = 0U;
     }
     if (lbl_805D5208 != 0) {

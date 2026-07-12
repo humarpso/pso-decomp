@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8006EF6C(M2C_UNK);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 
 s32 fn_8013292C(s32 arg0) {
     if (arg0 & 0x20) {
-        return fn_8006EF6C(3);
+        return TQuestVmDownLoadServer__sub_8006EF6C(3);
     }
     if (arg0 & 0x40) {
-        return fn_8006EF6C(4);
+        return TQuestVmDownLoadServer__sub_8006EF6C(4);
     }
     if (arg0 & 0x80) {
-        return fn_8006EF6C(5);
+        return TQuestVmDownLoadServer__sub_8006EF6C(5);
     }
     return 0;
 }

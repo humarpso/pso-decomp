@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void * fn_802D2334(void);
-void fn_802D22F0(void* p, void* q);
-void* fn_802D2304(void* p);
+void * TLobby__sub_802D2334(void);
+void TLobby__sub_802D22F0(void* p, void* q);
+void* TLobby__sub_802D2304(void* p);
 
 s32 get_state__19TWindowSubTradeMainFv(void) {
     void *temp_r3;
 
-    temp_r3 = fn_802D2334();
+    temp_r3 = TLobby__sub_802D2334();
     if (temp_r3 != NULL) {
         return M2C_FIELD(temp_r3, s32 *, 4);
     }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803D9730(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803E4684(s32);
+M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjPlayer__sub_803E4684(s32);
 extern s32 lbl_805D6F38;
 
 void fn_8035A69C(void *arg0, void *arg1) {
@@ -20,17 +20,17 @@ void fn_8035A69C(void *arg0, void *arg1) {
     var_r30 = arg1;
     do {
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
-        fn_803D9B2C();
-        fn_803D9730(0, lbl_805D6F38 + (M2C_FIELD(arg0, s32 *, 0x30) * 0x30));
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D9730(0, lbl_805D6F38 + (M2C_FIELD(arg0, s32 *, 0x30) * 0x30));
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) + 1);
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(void *), 0x34);
         if (temp_r12 != NULL) {
             temp_r12(var_r30);
         }
         if (!(temp_r31 & 8)) {
-            fn_803E4684(M2C_FIELD(var_r30, s32 *, 4));
+            TObjPlayer__sub_803E4684(M2C_FIELD(var_r30, s32 *, 4));
         }
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
         if (!(temp_r31 & 0x10)) {
             fn_8035A69C(arg0, M2C_FIELD(var_r30, void **, 0x2C));
         }

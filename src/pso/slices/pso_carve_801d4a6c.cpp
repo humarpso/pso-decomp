@@ -39,18 +39,18 @@ struct VObj_801D4A6C : Base_801D4A6C {
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(s32);
-M2C_UNK fn_801B9D50(s32, void *);
-s32 fn_801C1A70();
-void *fn_801D5764(s32);
+M2C_UNK TObjPlayer__sub_801B9D50(s32, void *);
+s32 TObjPlayer__sub_801C1A70();
+void *TObjPlayer__sub_801D5764(s32);
 
 void fn_801D4A6C(void *arg0, s32 arg1, s32 arg2) {
     s16 temp_r4;
     void *temp_r3;
 
-    temp_r3 = fn_801D5764(arg2);
+    temp_r3 = TObjPlayer__sub_801D5764(arg2);
     if (temp_r3 != NULL) {
-        if (fn_801C1A70() != 0) {
-            fn_801B9D50(arg1, temp_r3);
+        if (TObjPlayer__sub_801C1A70() != 0) {
+            TObjPlayer__sub_801B9D50(arg1, temp_r3);
         }
         temp_r4 = M2C_FIELD(arg0, s16 *, 0x1C);
         M2C_FIELD(arg0, s16 *, 0x1C) = (s16) (temp_r4 - 1);

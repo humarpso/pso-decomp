@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TTecFoie__vt4(s32 arg0);
-M2C_UNK fn_80087350(s32, M2C_UNK);
+M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
 
 void TTecFoie__vt4(s32 arg0) {
-    fn_80087350(arg0 + 0x20, 0x1DC);
-    fn_80087350(arg0 + 0x20, 0x1DD);
+    TObjEneDellBiter__sub_80087350(arg0 + 0x20, 0x1DC);
+    TObjEneDellBiter__sub_80087350(arg0 + 0x20, 0x1DD);
 }
 
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1);
-u32 fn_8007EB94(M2C_UNK);
+u32 TAdSinglePlyChrSelectGC__sub_8007EB94(M2C_UNK);
 u32 fn_802880BC(u32, s32, s16);
 
 extern const f32 lbl_805DCE18;
@@ -17,7 +17,7 @@ void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1) {
     u32 var_r0;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) == 0U) {
-        var_r0 = fn_8007EB94(0x24);
+        var_r0 = TAdSinglePlyChrSelectGC__sub_8007EB94(0x24);
         if (var_r0 != 0U) {
             u32 saved = var_r0;
             var_r0 = fn_802880BC(saved, arg1, M2C_FIELD(arg0, s16 *, 0x20));

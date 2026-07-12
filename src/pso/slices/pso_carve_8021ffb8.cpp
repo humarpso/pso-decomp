@@ -20,15 +20,15 @@ struct VObj_8021FFB8 : Base_8021FFB8 {
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK fn_80223724(void *);
-M2C_UNK fn_80223760(void *);
+M2C_UNK TShopSequence__sub_80223724(void *);
+M2C_UNK TShopSequence__sub_80223760(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 
-void fn_8021FFB8(void *arg0) {
+void TShopItemTecSequence__sub_8021FFB8(void *arg0) {
     if ((((VObj_8021FFB8 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
-        fn_80223724(arg0);
-        fn_80223760(arg0);
+        TShopSequence__sub_80223724(arg0);
+        TShopSequence__sub_80223760(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

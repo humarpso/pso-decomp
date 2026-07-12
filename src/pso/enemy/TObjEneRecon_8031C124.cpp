@@ -8,10 +8,10 @@ extern "C" {
 
 void advance_intro_stage__12TObjEneReconFv(void);
 M2C_UNK TObjEneDD__sub_800B9F24();
-M2C_UNK fn_801E2EFC();
-M2C_UNK fn_803D8934(M2C_UNK, s32, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TCameraCtrl__sub_803D8934(M2C_UNK, s32, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
 
 extern s32 lbl_805D6B08;
 extern s32 lbl_805D6B0C;
@@ -19,13 +19,13 @@ extern s32 lbl_805D6B0C;
 void advance_intro_stage__12TObjEneReconFv(void) {
     switch ((s32) lbl_805D6B08) {
     case 0:
-        fn_803D9B2C();
+        TObjPlayer__sub_803D9B2C();
         TObjEneDD__sub_800B9F24();
-        fn_803D8934(0, lbl_805D6B0C, lbl_805D6B0C);
-        fn_803D9B78();
+        TCameraCtrl__sub_803D8934(0, lbl_805D6B0C, lbl_805D6B0C);
+        TObjPlayer__sub_803D9B78();
         break;
     case 10:
-        fn_801E2EFC();
+        TParticleCtrl__sub_801E2EFC();
         break;
     }
     lbl_805D6B08 += 1;

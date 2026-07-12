@@ -13,8 +13,8 @@ M2C_UNK TRaderMapCore__sub_801F9540();
 M2C_UNK TSwitch__sub_8022942C();
 M2C_UNK apply_all_players__9TTecLukerFv();
 M2C_UNK TLobby__sub_80103F68();
-M2C_UNK fn_801A3B84();
-M2C_UNK fn_801A3BA4();
+M2C_UNK TLobby__sub_801A3B84();
+M2C_UNK TLobby__sub_801A3BA4();
 M2C_UNK fn_801A3BF4();
 M2C_UNK fn_801A3C00();
 M2C_UNK fn_801A3C18();
@@ -35,12 +35,12 @@ void free_objects__6TLobbyFv(void) {
     }
     TObjCityMainWarp__sub_80186634();
     THunterGuildSeqOffline__sub_80213430();
-    fn_801A3B84();
+    TLobby__sub_801A3B84();
     fn_801A3C18();
     TObjDoor__sub_801A3C0C();
     fn_801A3C00();
     fn_801A3BF4();
-    fn_801A3BA4();
+    TLobby__sub_801A3BA4();
 }
 
 }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_802B014C(s32, M2C_UNK);
+M2C_UNK TPlayerFootStamp__sub_802B014C(s32, M2C_UNK);
 
 void fn_80309DA8(s32 arg0, s32 arg1) {
-    fn_802B014C(arg1, 0);
+    TPlayerFootStamp__sub_802B014C(arg1, 0);
 }
 
 }

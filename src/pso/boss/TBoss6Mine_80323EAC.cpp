@@ -11,11 +11,11 @@ M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
-s32 fn_8001ED9C(s32, M2C_UNK);
-M2C_UNK fn_803DA798(s32);
-M2C_UNK fn_803E4AF4(s32, s32, f32);
-M2C_UNK fn_803E4BC4();
-M2C_UNK fn_803E4BD0();
+s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK TObjPlayer__sub_803E4BC4();
+M2C_UNK TObjPlayer__sub_803E4BD0();
 
 extern f32 TBoss6Mine__data_805DF580;
 
@@ -24,15 +24,15 @@ void draw__10TBoss6MineFPv(void *arg0) {
     s32 temp_r31_2;
     s32 temp_r30;
 
-    fn_803E4BC4();
+    TObjPlayer__sub_803E4BC4();
     temp_r31 = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x374), 2);
     temp_r30 = TObjFish__sub_8001EDC4(M2C_FIELD(arg0, s32 *, 0x374), 2);
-    temp_r31_2 = fn_8001ED9C(M2C_FIELD(arg0, s32 *, 0x374), 0);
-    fn_803DA798(temp_r31);
+    temp_r31_2 = TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x374), 0);
+    TObjFish__sub_803DA798(temp_r31);
     TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3C8), TBoss6Mine__data_805DF580);
-    fn_803E4AF4(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x39C));
+    TObjEneSlimeOne__sub_803E4AF4(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x39C));
     update_camera_target__14TBoss6PlotFalzFv();
-    fn_803E4BD0();
+    TObjPlayer__sub_803E4BD0();
 }
 
 }

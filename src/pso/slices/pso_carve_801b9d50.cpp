@@ -46,23 +46,23 @@ VA
 extern "C" {
 
 u8 TObjPlayer__sub_8001972C(void *);
-s32 fn_800822E8(s32, M2C_UNK);
+s32 TLobby__sub_800822E8(s32, M2C_UNK);
 u8 TOSwitchItem__sub_80102C44(void *);
-M2C_UNK fn_80143434(s32, s32);
+M2C_UNK TObjPlayer__sub_80143434(s32, s32);
 s32 TObjPlayer__sub_801B1968(s32);
-M2C_UNK fn_801B9CE0(s32);
+M2C_UNK TObjPlayer__sub_801B9CE0(s32);
 M2C_UNK TObjPlayer__sub_801BF8EC(s32, s8, M2C_UNK);
 
-void fn_801B9D50(s32 arg0, void *arg1) {
+void TObjPlayer__sub_801B9D50(s32 arg0, void *arg1) {
     VObj_801B9D50 *self = (VObj_801B9D50 *)arg1;
 
     TObjPlayer__sub_801BF8EC(arg0 + 0xD04, self->m31(), 0);
     self->m19();
     if ((TOSwitchItem__sub_80102C44(arg1) == 1) && (TObjPlayer__sub_8001972C(arg1) == 1)) {
-        fn_801B9CE0(arg0);
+        TObjPlayer__sub_801B9CE0(arg0);
     }
-    if (fn_800822E8(arg0, 2) != 0) {
-        fn_80143434(arg0, TObjPlayer__sub_801B1968(arg0));
+    if (TLobby__sub_800822E8(arg0, 2) != 0) {
+        TObjPlayer__sub_80143434(arg0, TObjPlayer__sub_801B1968(arg0));
     }
 }
 

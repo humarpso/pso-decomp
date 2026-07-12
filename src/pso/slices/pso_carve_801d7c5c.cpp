@@ -8,9 +8,9 @@ extern "C" {
 
 M2C_UNK fn_8013DEF8(s32);
 M2C_UNK fn_8013DFC4(s32);
-s32 fn_801B3B90(s32, s32);
-s32 fn_801D8474(s32, s32);
-s32 fn_801D84B0(s32);
+s32 TChallenge4PResult__sub_801B3B90(s32, s32);
+s32 TObjPlayer__sub_801D8474(s32, s32);
+s32 TObjPlayer__sub_801D84B0(s32);
 
 void fn_801D7C5C(s32 arg0, s32 arg1) {
     s32 var_r31;
@@ -20,11 +20,11 @@ void fn_801D7C5C(s32 arg0, s32 arg1) {
     var_r30 = 0;
     var_r31 = 0;
     do {
-        s32 call_r3 = fn_801D84B0(arg0);
+        s32 call_r3 = TObjPlayer__sub_801D84B0(arg0);
         temp_r29 = call_r3 + var_r31;
-        if (fn_801B3B90(arg1, var_r30) == 0) {
+        if (TChallenge4PResult__sub_801B3B90(arg1, var_r30) == 0) {
             fn_8013DEF8(temp_r29);
-        } else if (fn_801D8474(temp_r29, arg1) != 0) {
+        } else if (TObjPlayer__sub_801D8474(temp_r29, arg1) != 0) {
             fn_8013DFC4(temp_r29);
         } else {
             fn_8013DEF8(temp_r29);

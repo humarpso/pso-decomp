@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8022675C(s32, s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
 int TBoss6PlotFalz__sub_802AACEC(void*);
 int TBoss6PlotFalz__sub_802AC86C(void*, void*);
@@ -15,7 +15,7 @@ void fn_802B0A34(void* p);
 
 void fn_802B0984(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) == 0x69) {
-        fn_8022675C(0x40030F00, 0, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x40030F00, 0, 0, 0);
     }
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) > 0x12C) {

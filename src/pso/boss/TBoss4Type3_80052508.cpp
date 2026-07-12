@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 compute_wave_offset__11TBoss4Type3Ff(f32 farg0);
-f32 fn_803D64DC(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
 
 extern const f32 lbl_805D8AE0;
 extern const f32 lbl_805D8AE4;
 extern const f32 lbl_805D8AF0;
 
 f32 compute_wave_offset__11TBoss4Type3Ff(f32 farg0) {
-    return lbl_805D8AE4 * (lbl_805D8AE0 - fn_803D64DC((s32) (lbl_805D8AF0 * farg0)));
+    return lbl_805D8AE4 * (lbl_805D8AE0 - TBoss8Dragon__sub_803D64DC((s32) (lbl_805D8AF0 * farg0)));
 }
 
 }

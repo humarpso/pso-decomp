@@ -39,7 +39,7 @@ void TShopEquipmentSellWindow__vt4(void *arg0);
 void TShopEquipmentSellWindow__vt5(void *arg0);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
-int fn_80073DC4(void *, int);
+int TQuestListVM__sub_80073DC4(void *, int);
 
 void TShopEquipmentSellWindow__vt5(void *arg0) {
     struct VObj_8021C870 *o = (struct VObj_8021C870 *)M2C_FIELD(arg0, void **, 0x388);
@@ -59,7 +59,7 @@ void update__24TShopEquipmentSellWindowFPv(void *arg0) {
     VObj_8021C8E0 *o = (VObj_8021C8E0 *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m4(0xc, 1);
-        fn_80073DC4(arg0, 5);
+        TQuestListVM__sub_80073DC4(arg0, 5);
     }
 }
 

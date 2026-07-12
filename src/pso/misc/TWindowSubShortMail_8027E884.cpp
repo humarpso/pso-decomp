@@ -15,12 +15,12 @@ s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 get_card_window_area__6TLobbyFv();
 s32 TLobby__sub_8001DB44();
 M2C_UNK fn_800740FC(s32);
-M2C_UNK fn_80265C10(s32, M2C_UNK);
-M2C_UNK fn_80265DEC(s32, f32, f32);
-M2C_UNK fn_80265E60(s32, f32);
-M2C_UNK fn_802661D4(s32, s32, M2C_UNK, M2C_UNK);
-s32 fn_80266508(M2C_UNK, M2C_UNK);
-M2C_UNK fn_8026CBB8(M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_80265C10(s32, M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_80265DEC(s32, f32, f32);
+M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK TWindowSubComCard__sub_802661D4(s32, s32, M2C_UNK, M2C_UNK);
+s32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 extern const f32 TWindowSubShortMail__data_805DD6C8;
 
@@ -28,15 +28,15 @@ s32 open_menu__19TWindowSubShortMailFv(void) {
     s32 temp_r3;
     s32 temp_r31;
 
-    temp_r3 = fn_8026CBB8(0xA2);
-    temp_r31 = fn_80266508(temp_r3, 2);
+    temp_r3 = TWindowSubComCard__sub_8026CBB8(0xA2);
+    temp_r31 = TAdChrSelASlotGC__sub_80266508(temp_r3, 2);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x105), 6, 1);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x106), 6, 0);
     if (TLobby__sub_8001DB44() == 0) {
-        fn_80265C10(temp_r31, 1);
+        TWindowSubComCard__sub_80265C10(temp_r31, 1);
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
-    fn_80265E60(temp_r31, TWindowSubShortMail__data_805DD6C8);
+    TWindowSubComCard__sub_80265E60(temp_r31, TWindowSubShortMail__data_805DD6C8);
     return temp_r31;
 }
 
@@ -47,18 +47,18 @@ s32 create_window__19TWindowSubShortMailFv(void) {
     s32 temp_r3;
     s32 temp_r31;
 
-    temp_r3 = fn_8026CBB8(0xA1);
-    temp_r31 = fn_80266508(temp_r3, 2);
+    temp_r3 = TWindowSubComCard__sub_8026CBB8(0xA1);
+    temp_r31 = TAdChrSelASlotGC__sub_80266508(temp_r3, 2);
     if (TLobby__sub_8001DB44() != 0) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x105), 0, 0);
         TObjCityMainWarp__sub_80266354(temp_r31, get_card_window_area__6TLobbyFv(), 0, 0);
     } else {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x106), 0, 0);
-        fn_802661D4(temp_r31, get_card_window_area__6TLobbyFv(), 0, 0);
+        TWindowSubComCard__sub_802661D4(temp_r31, get_card_window_area__6TLobbyFv(), 0, 0);
     }
     fn_800740FC(temp_r31);
     TQuestThread__sub_801F64BC(temp_r31);
-    fn_80265DEC(temp_r31, TWindowSubShortMail__data_805DD6C8, lbl_805DD6CC);
+    TWindowSubComCard__sub_80265DEC(temp_r31, TWindowSubShortMail__data_805DD6C8, lbl_805DD6CC);
     return temp_r31;
 }
 

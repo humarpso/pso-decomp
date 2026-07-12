@@ -11,17 +11,17 @@ s32 TWindowSubShortMail__sub_80246CC4();
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 s32 fn_80246CD0();
 s32 fn_80246CDC();
-s32 fn_8026CBB8(M2C_UNK);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0) {
     s32 var_r3;
 
     if (M2C_FIELD(arg0, s32 *, 0x60) & 1) {
-        var_r3 = fn_8026CBB8(0xA9);
+        var_r3 = TWindowSubComCard__sub_8026CBB8(0xA9);
     } else if ((TWindowSubShortMail__sub_80246CC4() != 0) || (fn_80246CD0() != 0) || (fn_80246CDC() != 0)) {
-        var_r3 = fn_8026CBB8(0xA8);
+        var_r3 = TWindowSubComCard__sub_8026CBB8(0xA8);
     } else {
-        var_r3 = fn_8026CBB8(0x22);
+        var_r3 = TWindowSubComCard__sub_8026CBB8(0x22);
     }
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x30, var_r3);
 }

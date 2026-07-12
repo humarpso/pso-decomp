@@ -8,7 +8,7 @@ extern "C" {
 
 void handle_click__12TQuestListVMFPv(void *arg0);
 void invoke_callback_and_queue_destruction__12TQuestListVMFPv(void *arg0);
-M2C_UNK fn_80073DC4(void *, s32);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 struct Base_802186E4 { char pad[0x18]; };
@@ -23,7 +23,7 @@ void handle_click__12TQuestListVMFPv(void *arg0) {
     VObj_802186E4 *obj = (VObj_802186E4 *) arg0;
     if (obj->m8() != 0) {
         obj->m7(0x19, 1);
-        fn_80073DC4(arg0, M2C_FIELD(arg0, s32 *, 0x23B4));
+        TQuestListVM__sub_80073DC4(arg0, M2C_FIELD(arg0, s32 *, 0x23B4));
     }
 }
 

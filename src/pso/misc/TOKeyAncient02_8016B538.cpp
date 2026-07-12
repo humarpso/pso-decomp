@@ -8,7 +8,7 @@ extern "C" {
 
 void free_static__14TOKeyAncient02Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern u32 lbl_805D5A00;
@@ -24,7 +24,7 @@ void free_static__14TOKeyAncient02Fv(void) {
         }
     }
     if ((u32) lbl_805D5A00 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5A00, 1);
+        TLobby__sub_8001FE7C((void*)lbl_805D5A00, 1);
         lbl_805D5A00 = 0U;
     }
     lbl_805D5A04 = 0;

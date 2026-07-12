@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void release__16TObjWeddingLobbyFv(void);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjWeddingLobby__data_805D6F60;
 
 void release__16TObjWeddingLobbyFv(void) {
     if ((u32) TObjWeddingLobby__data_805D6F60 != 0U) {
-        fn_8001FE7C((void*)TObjWeddingLobby__data_805D6F60, 1);
+        TLobby__sub_8001FE7C((void*)TObjWeddingLobby__data_805D6F60, 1);
         TObjWeddingLobby__data_805D6F60 = 0U;
     }
 }

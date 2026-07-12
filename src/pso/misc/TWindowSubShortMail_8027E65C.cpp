@@ -12,9 +12,9 @@ M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK TWindowSubShortMail__sub_8027FAD0(s32);
 s32 TLobby__sub_8001DC24();
 s32 fn_80131BC4(s32);
-s32 fn_8022598C(s32);
-u32 fn_80225CA8();
-s32 fn_80225CB0();
+s32 TLobby__sub_8022598C(s32);
+u32 TLobby__sub_80225CA8();
+s32 TLobby__sub_80225CB0();
 M2C_UNK fn_80225E80(s32, s32);
 
 void close__19TWindowSubShortMailFPv(void *arg0) {
@@ -27,10 +27,10 @@ void close__19TWindowSubShortMailFPv(void *arg0) {
     fn_80225E80(temp_r31, TLobby__sub_8001DC24());
     TLobby__sub_80225828(M2C_FIELD(arg0, s32 *, 0x2C), TLobby__sub_8001DC24());
     free__11TOBoss4RockFUi(temp_r31);
-    temp_r31_2 = fn_80225CB0();
+    temp_r31_2 = TLobby__sub_80225CB0();
     for (var_r29 = 0; var_r29 < temp_r31_2; var_r29 += 1) {
-        temp_r30 = fn_8022598C(var_r29);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == fn_80225CA8()) {
+        temp_r30 = TLobby__sub_8022598C(var_r29);
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == TLobby__sub_80225CA8()) {
             TWindowSubShortMail__sub_8027FAD0(temp_r30);
             return;
         }

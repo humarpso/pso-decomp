@@ -8,8 +8,8 @@ extern "C" {
 
 s32 load_file__8TGStreamFi(s32 arg0);
 
-s32 fn_8007EBFC(s32);
-M2C_UNK fn_800FDCB4(M2C_UNK *, s32, s32);
+s32 TQuestVmDownLoadServer__sub_8007EBFC(s32);
+M2C_UNK TGStream__sub_800FDCB4(M2C_UNK *, s32, s32);
 s32 fn_800FDD68(M2C_UNK *);
 M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
 M2C_UNK open__8TGStreamFPvPvi(M2C_UNK *, s32, M2C_UNK);
@@ -27,12 +27,12 @@ s32 load_file__8TGStreamFi(s32 arg0) {
         return 0;
     }
     temp_r31 = (s32) (temp_r3_2 + 0x7FF) / 2048;
-    temp_r3 = fn_8007EBFC(temp_r31 << 0xB);
+    temp_r3 = TQuestVmDownLoadServer__sub_8007EBFC(temp_r31 << 0xB);
     if (temp_r3 == 0) {
         TGStream__ct(sp8, -1);
         return 0;
     }
-    fn_800FDCB4(sp8, temp_r31, temp_r3);
+    TGStream__sub_800FDCB4(sp8, temp_r31, temp_r3);
     TGStream__ct(sp8, -1);
     return temp_r3;
 }

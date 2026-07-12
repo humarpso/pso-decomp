@@ -9,7 +9,7 @@ extern "C" {
 void clear_flag__6TLobbyFv(void);
 void free_child__6TLobbyFv(void);
 M2C_UNK clear_flag_3__7TObjectFv(void *);
-M2C_UNK fn_801F34D0(void *);
+M2C_UNK TMainTask__sub_801F34D0(void *);
 
 extern void *tl_04;
 
@@ -25,7 +25,7 @@ extern void *tl_04;
 void free_child__6TLobbyFv(void) {
     void *temp = tl_04;
     if (temp != 0) {
-        fn_801F34D0(temp);
+        TMainTask__sub_801F34D0(temp);
     }
 }
 

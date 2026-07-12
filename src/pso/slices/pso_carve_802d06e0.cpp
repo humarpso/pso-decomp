@@ -25,7 +25,7 @@ struct VObj_802D06E0 : Base_802D06E0 {
 #undef VM
 };
 
-void fn_802D06E0(void *arg0, s32 arg1) {
+void TObjEneBm9Mericarol__sub_802D06E0(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VObj_802D06E0 *)arg0)->m93();

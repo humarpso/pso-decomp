@@ -16,60 +16,17 @@ s32 TObjPlayer__sub_801B130C();
 s32 init_effect_5f0__10TObjPlayerFPv(void *);
 s32 TWindowCtrl__sub_8024AEAC(u16);
 s32 is_split_screen();
-s32 fn_801D5DAC();
+s32 TAdSinglePlyChrSelectGC__sub_801D5DAC();
 s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
-void fn_80223674(void* p);
-void fn_802236A0(void* p);
-void fn_802236CC(void* p);
-void fn_802236F8(void* p);
+void TShopSequence__sub_80223674(void* p);
+void TShopSequence__sub_802236A0(void* p);
+void TShopSequence__sub_802236CC(void* p);
+void TShopSequence__sub_802236F8(void* p);
 int fn_80222848(void*);
 int fn_80222898(void*);
 int fn_80222910(void*);
 int fn_8022297C(void*);
 
-int fn_80223600(void) { return 0; }
-void fn_80223674(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80222898(m); }
-void fn_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80222848(m); }
-void fn_802236CC(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80222910(m); }
-void fn_802236F8(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_8022297C(m); }
-void fn_80223724(void) {
-    if ((fn_801D5DAC() != 0) && (is_split_screen() == 0)) {
-        TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
-    }
-}
-void fn_80223760(void *arg0) {
-    s32 var_r31;
-
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        TWindowCtrl__sub_8024AEF0(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
-        if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
-            var_r31 = 0;
-            do {
-                if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
-                    TObjPlayer__sub_801B12CC();
-                }
-                var_r31 += 1;
-            } while (var_r31 < 4);
-        }
-        clear_lobby_flag__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0x24));
-    }
-}
-void fn_802237D8(void *arg0) {
-    s32 var_r31;
-
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        init_effect_5f0__10TObjPlayerFPv(M2C_FIELD(arg0, void **, 0x24));
-        if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
-            var_r31 = 0;
-            do {
-                if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
-                    TObjPlayer__sub_801B130C();
-                }
-                var_r31 += 1;
-            } while (var_r31 < 4);
-        }
-        TWindowCtrl__sub_8024AEAC(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
-    }
-}
+int TShopSequence__sub_80223600(void) { return 0; }
 
 }

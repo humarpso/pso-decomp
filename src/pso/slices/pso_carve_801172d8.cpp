@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800112A4(s32, s32);
+M2C_UNK TObjPlayer__sub_800112A4(s32, s32);
 u8 TItemProShield__sub_8010B734();
 s32 fn_8011724C(void *);
 s32 fn_80117270(void *);
@@ -29,7 +29,7 @@ void fn_801172D8(void *arg0) {
         var_r31 = fn_8011724C(arg0);
         break;
     }
-    fn_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), var_r31);
+    TObjPlayer__sub_800112A4(M2C_FIELD(arg0, s32 *, 0xF0), var_r31);
 }
 
 }

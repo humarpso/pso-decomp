@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 set_flag70_bit10__16TObjCityMainWarpFPv();
-void *fn_802664A8(s32, s32, s32);
+void *TCheckRoomSequence__sub_802664A8(s32, s32, s32);
 s32 set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
 void render__20TWindowShortListCtrlFv(void);
 

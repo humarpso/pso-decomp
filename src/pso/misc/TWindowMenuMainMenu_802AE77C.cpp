@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
-M2C_UNK fn_80246258(void *);
+M2C_UNK TWindowSubComCard__sub_80246258(void *);
 M2C_UNK fn_8024664C(void *);
 M2C_UNK fn_802AD7F0(void *);
 M2C_UNK fn_802AE380(void *);
@@ -33,7 +33,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     fn_802AE59C(arg0);
     fn_8024664C(arg0);
     fn_802AE380(arg0);
-    fn_80246258(arg0);
+    TWindowSubComCard__sub_80246258(arg0);
     temp_r3_2 = M2C_FIELD(arg0, u8 *, 0x60);
     if (temp_r3_2 & 8) {
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (temp_r3_2 & 0xFFFFFFF3);

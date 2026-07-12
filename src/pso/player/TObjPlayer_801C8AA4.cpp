@@ -34,7 +34,7 @@ s32 TObjPlayer__sub_801D0458(void *);
 M2C_UNK TObjPlayer__sub_801D04B4(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_801BA650(void *, M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_801BA650(void *, M2C_UNK, s32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 
 extern const f32 TObjPlayer__data_805DC36C;
@@ -51,7 +51,7 @@ void start_action_21__10TObjPlayerFPv(void *arg0) {
         send_field_state_if_active__10TObjPlayerFii(arg0, 0x40003206);
     }
     M2C_FIELD(arg0, s16 *, 0x328) = 1;
-    fn_801BA650(arg0, 0x15, TObjPlayer__sub_801D0458(arg0));
+    TObjPlayer__sub_801BA650(arg0, 0x15, TObjPlayer__sub_801D0458(arg0));
 }
 
 }

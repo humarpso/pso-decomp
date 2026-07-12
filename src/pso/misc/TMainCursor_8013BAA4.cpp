@@ -13,7 +13,7 @@ s32 TMainCursor__sub_8013E520(void *);
 f32 TMainCursor__sub_8013F178(void *);
 M2C_UNK TMainCursor__sub_8013F180(void *);
 M2C_UNK TMainCursor__sub_8013B70C();
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern const f32 TMainCursor__data_805DB0C0;
@@ -38,10 +38,10 @@ void run_task__11TMainCursorFv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 1;
             if (TMainCursor__sub_8013E4D0(arg0) == 0) {
                 if (TMainCursor__sub_8013E4F8(arg0) != 0) {
-                    fn_8022675C(0x3816, arg0 + 0x40, 0, 1);
+                    TBoss3Volopt__sub_8022675C(0x3816, arg0 + 0x40, 0, 1);
                     return;
                 }
-                fn_8022675C(0x3111, arg0 + 0x40, 0, 1);
+                TBoss3Volopt__sub_8022675C(0x3111, arg0 + 0x40, 0, 1);
             }
         }
     case 1:

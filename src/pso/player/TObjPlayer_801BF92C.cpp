@@ -38,10 +38,10 @@ void* TObjPlayer__sub_801BF944(void* p);
 s32 TObjPlayer__sub_801BF94C(void* p);
 void TObjPlayer__sub_801BF954(void* p, s32 v);
 s32 TObjPlayer__sub_801BF95C(void* p);
-int fn_8001BED8(void*, int);
-int fn_8001BF40(void*);
-int fn_8013DF3C(void*);
-int fn_8013DF44(void*);
+int TObjPlayer__sub_8001BED8(void*, int);
+int TObjPlayer__sub_8001BF40(void*);
+int TMainCursor__sub_8013DF3C(void*);
+int TMainCursor__sub_8013DF44(void*);
 
 s16 TObjPlayer__sub_801BF92C(void* p) { return *(s16*)((char*)p + 0x2); }
 void* TObjPlayer__sub_801BF934(void* p) { return (char*)p + 0xc; }

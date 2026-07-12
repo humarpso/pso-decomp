@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_key__11TObjDoorKeyFv(void);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK fn_801E483C(s32);
 
 extern u32 lbl_805D5BF8;
@@ -16,7 +16,7 @@ extern s32 TObjDoorKey__data_805D5C04;
 
 void free_key__11TObjDoorKeyFv(void) {
     if ((u32) lbl_805D5BF8 != 0U) {
-        fn_8001FE7C((void*)lbl_805D5BF8, 1);
+        TLobby__sub_8001FE7C((void*)lbl_805D5BF8, 1);
         lbl_805D5BF8 = 0U;
     }
     fn_801E483C(TObjDoorKey__data_805D5BFC);

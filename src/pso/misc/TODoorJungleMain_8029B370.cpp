@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_static_resources__16TODoorJungleMainFv(void);
-void fn_8001FE7C(void*, int);
-M2C_UNK fn_8007EBB4(u32);
+void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
 M2C_UNK fn_803DA16C(void*);
 
 extern u32 TODoorJungleMain__data_805D65B8;
@@ -17,11 +17,11 @@ extern u32 lbl_805D65BC;
 void free_static_resources__16TODoorJungleMainFv(void) {
     if ((u32) lbl_805D65BC != 0U) {
         fn_803DA16C((void*)lbl_805D65BC);
-        fn_8007EBB4(lbl_805D65BC);
+        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D65BC);
         lbl_805D65BC = 0U;
     }
     if ((u32) TODoorJungleMain__data_805D65B8 != 0U) {
-        fn_8001FE7C((void*)TODoorJungleMain__data_805D65B8, 1);
+        TLobby__sub_8001FE7C((void*)TODoorJungleMain__data_805D65B8, 1);
         TODoorJungleMain__data_805D65B8 = 0U;
     }
 }

@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *fn_8007A8F8(void *);
+void *TWindowSubComCard__sub_8007A8F8(void *);
 void *__nw__7TObjectFUl(int);
 void *TWindowComCard__ct(void *, void *, void *);
 
 void * fn_802499E4(void *arg0, void *arg1) {
     void *x0;
     void *o;
-    x0 = fn_8007A8F8(arg1);
+    x0 = TWindowSubComCard__sub_8007A8F8(arg1);
     if (x0 == NULL) {
         return NULL;
     }

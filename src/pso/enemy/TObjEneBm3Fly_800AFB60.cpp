@@ -16,13 +16,13 @@ void TObjEneBm3Fly__vt104(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK TObjEneDD__sub_800B9D74(void *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_800D8A2C();
-M2C_UNK fn_801E2F20();
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
-M2C_UNK fn_803E46BC(s32);
+M2C_UNK TObjPlayer__sub_800D8A2C();
+M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK TObjFish__sub_803E46BC(s32);
 
 extern const f32 lbl_805D9C68;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
@@ -30,15 +30,15 @@ extern const f32 TObjEneBm3Fly__data_805D9C6C;
 void TObjEneBm3Fly__vt104(u8 *arg0) {
     if (((VObj800AFB60 *) arg0)->m8(lbl_805D9C68, TObjEneBm3Fly__data_805D9C6C) != 0) {
         TObjEneDD__sub_800B9D74(arg0, 0, 0);
-        fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
-        fn_803D9B2C();
+        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
-        fn_800D8A2C();
-        fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
-        fn_801E2F20();
-        fn_803D9B78();
+        TObjPlayer__sub_800D8A2C();
+        TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+        TParticleCtrl__sub_801E2F20();
+        TObjPlayer__sub_803D9B78();
     }
 }
 

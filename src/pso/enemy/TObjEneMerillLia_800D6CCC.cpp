@@ -8,7 +8,7 @@ extern "C" {
 
 void destroy_rocks__16TObjEneMerillLiaFv(void);
 void free__11TOBoss4RockFUi(void*);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 lbl_805D5210;
 extern u32 lbl_805D5214;
@@ -34,7 +34,7 @@ void destroy_rocks__16TObjEneMerillLiaFv(void) {
         TObjEneMerillLia__data_805D521C = 0U;
     }
     if ((u32) TObjEneMerillLia__data_805D5220 != 0U) {
-        fn_8001FE7C((void*)TObjEneMerillLia__data_805D5220, 1);
+        TLobby__sub_8001FE7C((void*)TObjEneMerillLia__data_805D5220, 1);
         TObjEneMerillLia__data_805D5220 = 0U;
     }
 }

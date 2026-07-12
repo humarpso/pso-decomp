@@ -34,6 +34,6 @@ void fn_80066060(s32 arg0) {
 }
 void fn_800660A4(void* p) { *(u8*)((char*)p + 0x0) = 159; *(u8*)((char*)p + 0x1) = 4; }
 int fn_800660B8(void) { return 0; }
-int fn_800660D4(void) { return 0; }
+int TObjFish__sub_800660D4(void) { return 0; }
 
 }

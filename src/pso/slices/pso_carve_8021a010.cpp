@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801F45FC(s32);
+M2C_UNK TLobby__sub_801F45FC(s32);
 extern M2C_UNK lbl_8044BF58[];
 
 void fn_8021A010(void) {
@@ -18,7 +18,7 @@ void fn_8021A010(void) {
     var_r30 = lbl_8044BF58;
     var_r31 = 0;
     do {
-        fn_801F45FC(var_r30[var_r31]);
+        TLobby__sub_801F45FC(var_r30[var_r31]);
         var_r29 += 1;
         var_r31 += 2;
     } while (var_r29 < 0x1A);

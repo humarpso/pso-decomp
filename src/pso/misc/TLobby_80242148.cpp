@@ -11,7 +11,7 @@ void TLobby__sub_8024218C(void* p);
 s32 TLobby__sub_8024219C(void* p);
 int TLobby__sub_802421A4(void* p);
 s32 __dl__FPv(void *);
-int fn_8024273C(void*);
+int TLobby__sub_8024273C(void*);
 
 void *TLobby__sub_80242148(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -24,6 +24,6 @@ void *TLobby__sub_80242148(void *arg0, s16 arg1) {
 }
 void TLobby__sub_8024218C(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 TLobby__sub_8024219C(void* p) { return *(s32*)((char*)p + 0x308); }
-int TLobby__sub_802421A4(void* p) { return fn_8024273C(p); }
+int TLobby__sub_802421A4(void* p) { return TLobby__sub_8024273C(p); }
 
 }

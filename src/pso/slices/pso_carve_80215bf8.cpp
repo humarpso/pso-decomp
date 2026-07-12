@@ -17,13 +17,13 @@ struct VObj_80215BF8 : Base_80215BF8 {
 
 extern "C" {
 
-M2C_UNK fn_80073DC4(void *, M2C_UNK);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 
 void fn_80215BF8(void *arg0) {
     struct VObj_80215BF8 *o = (struct VObj_80215BF8 *)arg0;
     if (o != NULL) {
         o->m6(0xD, 1);
-        fn_80073DC4(arg0, 4);
+        TQuestListVM__sub_80073DC4(arg0, 4);
     }
 }
 

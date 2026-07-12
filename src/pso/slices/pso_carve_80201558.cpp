@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 fn_8007EBFC(s32);
+u32 TQuestVmDownLoadServer__sub_8007EBFC(s32);
 M2C_UNK memset(M2C_UNK, s32, s32);
 extern s32 lbl_805D5F90;
 extern u32 lbl_805D5F9C;
@@ -16,7 +16,7 @@ s32 alloc_global_buffer(void) {
 
     if ((u32) lbl_805D5F9C == 0U) {
         temp_r31 = lbl_805D5F90 << 0xD;
-        lbl_805D5F9C = fn_8007EBFC(temp_r31);
+        lbl_805D5F9C = TQuestVmDownLoadServer__sub_8007EBFC(temp_r31);
         memset(lbl_805D5F9C, 0, temp_r31);
         return 1;
     }

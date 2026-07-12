@@ -6,18 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80087350(M2C_UNK *, M2C_UNK);
-M2C_UNK fn_8011E3E8(s32);
-M2C_UNK fn_8011EB84(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_801208E0(s32, M2C_UNK *);
+M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_8011E3E8(s32);
+M2C_UNK TObjPlayer__sub_8011EB84(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801208E0(s32, M2C_UNK *);
 
 void fn_8036325C(s32 arg0) {
     M2C_UNK sp8;
 
-    fn_801208E0(arg0, &sp8);
-    fn_80087350(&sp8, 9);
-    fn_8011E3E8(arg0);
-    fn_8011EB84(arg0, &sp8, 0, 0);
+    TObjPlayer__sub_801208E0(arg0, &sp8);
+    TObjEneDellBiter__sub_80087350(&sp8, 9);
+    TObjPlayer__sub_8011E3E8(arg0);
+    TObjPlayer__sub_8011EB84(arg0, &sp8, 0, 0);
 }
 
 }

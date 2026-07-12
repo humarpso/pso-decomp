@@ -12,9 +12,9 @@ extern "C" {
 
 void TItemLoad__sub_801105AC(void);
 M2C_UNK free__11TOBoss4RockFUi(s32);
-M2C_UNK fn_8001FE7C(s32, M2C_UNK);
-M2C_UNK fn_8010F52C();
-M2C_UNK fn_8010FDC4();
+M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
+M2C_UNK TItemLoad__sub_8010F52C();
+M2C_UNK TItemLoad__sub_8010FDC4();
 
 extern s32 TItemLoad__data_805D5480;
 extern void *TItemLoad__data_805D5484;
@@ -30,14 +30,14 @@ void TItemLoad__sub_801105AC(void) {
     if ((void *) TItemLoad__data_805D5488 != NULL) {
         ((VObj_801105AC *)TItemLoad__data_805D5488)->m0(1);
     }
-    fn_8001FE7C(TItemLoad__data_805D5480, 1);
+    TLobby__sub_8001FE7C(TItemLoad__data_805D5480, 1);
     lbl_805D5490 = 0;
     TItemLoad__data_805D5480 = 0;
     TItemLoad__data_805D5484 = NULL;
     TItemLoad__data_805D5488 = NULL;
     TItemLoad__data_805D548C = 0;
-    fn_8010F52C();
-    fn_8010FDC4();
+    TItemLoad__sub_8010F52C();
+    TItemLoad__sub_8010FDC4();
 }
 
 }

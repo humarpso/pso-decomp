@@ -20,7 +20,7 @@ extern "C" {
 s32 TObjPlayer__sub_800196EC();
 void *TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_8016AC94();
-M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TSwitch__sub_80229258(u16, s32);
 M2C_UNK TSwitch__sub_80229318(u16, s32);
 
@@ -34,7 +34,7 @@ void handle_6x05_write_switch_flag(void *arg0) {
         return;
     }
     if ((M2C_FIELD(arg0, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg0, u8 *, 0xA) == TObjPlayer__sub_800196EC())) {
-        fn_8022675C(0x4005281F, 0, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg0, u8 *, 0xB) & 1) {
         TSwitch__sub_80229318(M2C_FIELD(arg0, u16 *, 8), M2C_FIELD(arg0, s8 *, 0xA));

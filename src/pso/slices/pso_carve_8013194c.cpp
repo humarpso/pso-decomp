@@ -13,9 +13,9 @@ s32 TWindowSubTradeMain__sub_80244A4C(void *);
 int fn_80131A5C(void* p);
 int TWindowMakeTeam__sub_80131A80(void* p);
 int set_flag62_bit2__16TKeyBoardControlFPv(void*);
-int fn_80244D2C(void*);
+int TLobby__sub_80244D2C(void*);
 
-int fn_8013194C(void) { return 0; }
+int TLobby__sub_8013194C(void) { return 0; }
 void fn_80131998(void *arg0) {
     u16 temp_r3;
 

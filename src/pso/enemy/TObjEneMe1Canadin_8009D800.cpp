@@ -47,10 +47,10 @@ M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 M2C_UNK advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
-s32 fn_8009E31C(void *, M2C_UNK);
-M2C_UNK fn_8009E4AC(void *, M2C_UNK);
-M2C_UNK fn_8009E6B0(void *);
-M2C_UNK fn_80143504();
+s32 TObjEneMe1CanadinLeader__sub_8009E31C(void *, M2C_UNK);
+M2C_UNK TObjEneMe1CanadinLeader__sub_8009E4AC(void *, M2C_UNK);
+M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
+M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 
 extern const f32 TObjEneMe1Canadin__data_805D988C;
@@ -77,7 +77,7 @@ void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     case 1:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x470);
         switch (temp_r0) {
@@ -85,13 +85,13 @@ void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0x3C8);
             if (temp_r3 & 4) {
                 M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r3 & 0xFFFFFFFB);
-                if (fn_8009E31C(arg0, 0x200) != 0) {
+                if (TObjEneMe1CanadinLeader__sub_8009E31C(arg0, 0x200) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x470) = 1;
-                    fn_8009E4AC(arg0, 1);
+                    TObjEneMe1CanadinLeader__sub_8009E4AC(arg0, 1);
                 } else {
                     M2C_FIELD(arg0, s32 *, 0x470) = 2;
                     advance_state_4_to_5__17TObjEneMe1CanadinFPv(arg0);
-                    fn_8009E4AC(arg0, 3);
+                    TObjEneMe1CanadinLeader__sub_8009E4AC(arg0, 3);
                 }
             }
             update_move__17TObjEneMe1CanadinFPv(arg0);
@@ -117,7 +117,7 @@ void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
             break;
         }
         ((VObj18D *) arg0)->vf164();
-        fn_8009E6B0(arg0);
+        TObjEneMe1Canadin__sub_8009E6B0(arg0);
         break;
     }
 }

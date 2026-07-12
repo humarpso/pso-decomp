@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TKeyBoardControl__sub_8000F8EC();
-s32 fn_8006EF6C(s32);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 fn_8033BC88(void *, s32, s32, s32, s32);
 s32 fn_8033BB14();
 s32 fn_8033C024(void *, s32);

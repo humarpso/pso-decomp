@@ -8,12 +8,12 @@ extern "C" {
 
 void init__15TObjEneMe1GiGueFPv(u8 *arg0);
 M2C_UNK TObjEneMe1GiGue__sub_802CB5A0(void *, M2C_UNK);
-M2C_UNK fn_80040B3C(void *, s32, s32);
-M2C_UNK fn_800D758C(void *);
+M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, s32, s32);
+M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK fn_800D8E80(void *, s32);
-M2C_UNK fn_80143504(void *);
-M2C_UNK fn_80156698(void *);
-M2C_UNK fn_8022675C(void *, void *, s32, s32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK TObjPlayer__sub_80156698(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, s32, s32);
 
 }
 
@@ -38,21 +38,21 @@ void init__15TObjEneMe1GiGueFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         fn_800D8E80(arg0 + 0x2FC, temp_r4);
-        fn_800D758C(arg0 + 0x3FC);
+        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3FC);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
-        fn_80143504(arg0);
+        TBoss1Dragon__sub_80143504(arg0);
         if (((VObj410 *)(arg0 + 0x3FC))->m5() == 1) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-            fn_8022675C((void *)TObjEneMe1GiGue__sub_802CB5A0(arg0, 0x3A345), arg0 + 0x38, 0, 0);
+            TBoss3Volopt__sub_8022675C((void *)TObjEneMe1GiGue__sub_802CB5A0(arg0, 0x3A345), arg0 + 0x38, 0, 0);
         }
-        fn_80156698(arg0);
+        TObjPlayer__sub_80156698(arg0);
         return;
     case -1:
         temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r5 & ~5);
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFFFFFF);
-        fn_80040B3C(arg0, 0, temp_r5);
+        TObjEneMe1GiGue__sub_80040B3C(arg0, 0, temp_r5);
         return;
     }
 }

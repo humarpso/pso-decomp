@@ -8,7 +8,7 @@ extern "C" {
 
 void free_bits__18TObjEneRe4SorcererFv(void);
 M2C_UNK TObjEneRe4Bit__sub_800EDAB0();
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 void fn_800F5C8C(void*, int);
 
 extern u32 lbl_805D52E0;
@@ -21,7 +21,7 @@ void free_bits__18TObjEneRe4SorcererFv(void) {
     }
     TObjEneRe4Bit__sub_800EDAB0();
     if ((u32) lbl_805D52E0 != 0U) {
-        fn_8001FE7C((void*)lbl_805D52E0, 1);
+        TLobby__sub_8001FE7C((void*)lbl_805D52E0, 1);
         lbl_805D52E0 = 0U;
     }
 }

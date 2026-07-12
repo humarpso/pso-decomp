@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_cancel__19TWindowSoundBalanceFPv(void *arg0);
-M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowOptionCtrl__sub_8026C63C();
 
 void handle_cancel__19TWindowSoundBalanceFPv(void *arg0) {
     if (TWindowOptionCtrl__sub_8026C63C() == 0) {
-        fn_8022675C(0x52F16, 0, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
     }
 }

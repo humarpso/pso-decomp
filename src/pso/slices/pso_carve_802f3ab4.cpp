@@ -2,11 +2,9 @@
 
 extern "C" {
 
-void fn_802F3B50(void);
-void fn_802F3B54(void);
+void TBoss8Dragon__sub_802F3B50(void);
+void TBoss8Dragon__sub_802F3B54(void);
 
-int fn_802F3AB4(void) { return 0; }
-void fn_802F3B50(void) {  }
-void fn_802F3B54(void) {  }
+int TBoss8Dragon__sub_802F3AB4(void) { return 0; }
 
 }

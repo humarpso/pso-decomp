@@ -8,8 +8,8 @@ extern "C" {
 
 void close_and_destroy__12TQuestListVMFPv(void *arg0);
 void close__12TQuestListVMFPv(void *arg0);
-M2C_UNK fn_8001EE48(M2C_UNK *);
-s32 fn_8001EEF4();
+M2C_UNK TLobby__sub_8001EE48(M2C_UNK *);
+s32 TLobby__sub_8001EEF4();
 M2C_UNK TQuestListVM__sub_8007EB08();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -22,8 +22,8 @@ void close_and_destroy__12TQuestListVMFPv(void *arg0) {
     if (temp_r12 != NULL) {
         temp_r12();
     }
-    if (fn_8001EEF4() == 0) {
-        fn_8001EE48(TQuestListVM__data_8044BF20);
+    if (TLobby__sub_8001EEF4() == 0) {
+        TLobby__sub_8001EE48(TQuestListVM__data_8044BF20);
     }
     queue_destruction__7TObjectFv(arg0);
 }
@@ -37,8 +37,8 @@ void close__12TQuestListVMFPv(void *arg0) {
     if (temp_r12 != NULL) {
         temp_r12();
     }
-    if (fn_8001EEF4() == 0) {
-        fn_8001EE48(TQuestListVM__data_8044BF20);
+    if (TLobby__sub_8001EEF4() == 0) {
+        TLobby__sub_8001EE48(TQuestListVM__data_8044BF20);
     }
     TQuestListVM__sub_8007EB08();
     queue_destruction__7TObjectFv(arg0);

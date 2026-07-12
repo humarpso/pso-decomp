@@ -10,12 +10,12 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0);
 void init_attack_state2__14TObjEnePanarmsFPv(void* a0);
 M2C_UNK TObjEnePanarms__sub_800E1608(void *, s32);
 u8 *TPhotonMylla__sub_80154CB4(u16);
-f64 fn_80019760(f32, f32, f32);
-int fn_8002AE74(void*, int);
+f64 TObjPlayer__sub_80019760(f32, f32, f32);
+int TObjEnePanarms__sub_8002AE74(void*, int);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
-M2C_UNK fn_800F5EB4(void *, M2C_UNK);
+M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
 s32 fn_801423A4(s32, s32, M2C_UNK);
-M2C_UNK fn_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 extern s32 lbl_8043CDA0[];
 extern const f64 TObjEnePanarms__data_8043CDD0;
@@ -35,11 +35,11 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3B4) = temp_r0;
     if (temp_r0 == 0) {
         TObjEnePanarms__sub_800E1608(arg0, M2C_FIELD(arg0, s32 *, 0x3B8));
-        fn_8022675C(fn_800F5EB4(arg0, 0x4003B72F), arg0 + 0x38, 0, 0);
+        TBoss3Volopt__sub_8022675C(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003B72F), arg0 + 0x38, 0, 0);
     }
     if (M2C_FIELD(arg0, f32 *, 0xC0) < TObjEnePanarms__data_805DA544) {
         temp_f3 = M2C_FIELD(temp_r3, f32 *, 0x38);
-        M2C_FIELD(arg0, s32 *, 0x60) = fn_801423A4(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (TObjEnePanarms__data_8043CDD0 * fn_80019760(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
+        M2C_FIELD(arg0, s32 *, 0x60) = fn_801423A4(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (TObjEnePanarms__data_8043CDD0 * TObjPlayer__sub_80019760(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
     }
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xA);
@@ -55,7 +55,7 @@ void init_attack_state2__14TObjEnePanarmsFPv(void* a0) {
     *(float*)((char*)a0 + 0x3b0) = TObjEnePanarms__data_805DA524;
     *(int*)((char*)a0 + 0x3b4) = 12;
     *(int*)((char*)a0 + 0xb0) = (*(int*)((char*)a0 + 0xb0) & 0xfffffffe);
-    fn_8002AE74(a0, 3);
+    TObjEnePanarms__sub_8002AE74(a0, 3);
 }
 
 }

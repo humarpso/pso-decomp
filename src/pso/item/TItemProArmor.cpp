@@ -8,11 +8,11 @@ extern "C" {
 
 void TItemProArmor__vt14(void *arg0);
 
-M2C_UNK fn_8010069C();
+M2C_UNK TObjPlayer__sub_8010069C();
 
 void TItemProArmor__vt14(void *arg0) {
     if (M2C_FIELD(arg0, u16 *, 0x190) & 1) {
-        fn_8010069C();
+        TObjPlayer__sub_8010069C();
     }
 }
 

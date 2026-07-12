@@ -16,10 +16,10 @@ M2C_UNK TLobby__sub_80103F5C();
 s32 TOKeyMachine01__sub_802034A8();
 s32 TObjPlayer__sub_800196EC();
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_8001BED8(M2C_UNK *, M2C_UNK);
-s32 fn_8030A7B0();
+M2C_UNK TObjPlayer__sub_8001BED8(M2C_UNK *, M2C_UNK);
+s32 TLobby__sub_8030A7B0();
 M2C_UNK fn_80363CA0(s32);
-M2C_UNK fn_80363FAC(s32);
+M2C_UNK TObjPlayer__sub_80363FAC(s32);
 
 s32 get_main_phase();
 extern s32 lbl_805D543C;
@@ -34,7 +34,7 @@ void TMainTask__sub_80104C40(void) {
 
     TEnding__sub_8008C9F8();
     TItemLoad__sub_8011070C();
-    fn_80363FAC(tl_particlemodel);
+    TObjPlayer__sub_80363FAC(tl_particlemodel);
     fn_80363CA0(tl_item_equip);
     temp_r30 = get_main_phase();
     temp_r31 = TOKeyMachine01__sub_802034A8();
@@ -43,12 +43,12 @@ void TMainTask__sub_80104C40(void) {
     TLobby__sub_80103F5C();
     TLobby__sub_80103B70(temp_r29);
     if ((temp_r31 == 0) || (temp_r31 == 0x12)) {
-        fn_8001BED8(&lbl_805D5440, 1);
+        TObjPlayer__sub_8001BED8(&lbl_805D5440, 1);
         if ((temp_r30 != 0xE) && (temp_r30 == 0xF)) {
             TItemDrop__sub_8010643C();
         }
     }
-    if (fn_8030A7B0() == 1) {
+    if (TLobby__sub_8030A7B0() == 1) {
         TItemDrop__sub_8010643C();
     }
     if ((temp_r30 == 0xF) && (__nw__7TObjectFUl(0x1C) != 0U)) {

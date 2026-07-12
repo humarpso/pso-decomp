@@ -7,7 +7,7 @@ extern "C" {
 void fn_80156720(void *);
 void queue_destruction__7TObjectFv(void *);
 void TBoss3Volopt__sub_800450D0(void *);
-void fn_800445A4(void *);
+void TBoss3Volopt__sub_800445A4(void *);
 void fn_800D7C58(void *, int);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -20,7 +20,7 @@ void *fn_80047E20(void *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, void **, 0x474) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x474)); }
         if (M2C_FIELD(arg0, void **, 0x478) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x478)); }
         TBoss3Volopt__sub_800450D0(arg0);
-        fn_800445A4(arg0);
+        TBoss3Volopt__sub_800445A4(arg0);
         fn_800D7C58((s8 *)arg0 + 0x490, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {

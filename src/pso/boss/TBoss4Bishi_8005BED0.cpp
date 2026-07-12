@@ -9,9 +9,9 @@ void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1);
 int enter_state_3__11TBoss4BishiFPv(void*);
 void __dt__10TBoss4ZakoFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
-int fn_800F6B68(void*);
+int TObjPlayer__sub_800F6B68(void*);
 
-void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { fn_800F6B68(p); enter_state_3__11TBoss4BishiFPv(p); } }
+void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TObjPlayer__sub_800F6B68(p); enter_state_3__11TBoss4BishiFPv(p); } }
 
 extern M2C_UNK lbl_80487460[];
 

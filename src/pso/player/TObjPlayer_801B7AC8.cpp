@@ -27,11 +27,11 @@ struct VObj_801B7AC8 : Base_801B7AC8 {
 extern "C" {
 
 void TObjPlayer__vt15(void *arg0);
-s32 fn_80055694();
+s32 TObjPlayer__sub_80055694();
 
 void TObjPlayer__vt15(void *arg0) {
     struct VObj_801B7AC8 *o = (struct VObj_801B7AC8 *)arg0;
-    o->m16(fn_80055694());
+    o->m16(TObjPlayer__sub_80055694());
 }
 
 }

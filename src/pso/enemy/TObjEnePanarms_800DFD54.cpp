@@ -8,8 +8,8 @@ extern "C" {
 
 void init_attack_state__14TObjEnePanarmsFPv(void *arg0);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
-M2C_UNK fn_8002AE74(void *, M2C_UNK);
-s32 fn_80141F84(s32, s32, void *);
+M2C_UNK TObjEnePanarms__sub_8002AE74(void *, M2C_UNK);
+s32 TObjPlayer__sub_80141F84(s32, s32, void *);
 
 extern const f32 TObjEnePanarms__data_805DA524;
 
@@ -23,7 +23,7 @@ void init_attack_state__14TObjEnePanarmsFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) TObjEnePanarms__data_805DA524;
     M2C_FIELD(arg0, s32 *, 0x3B4) = 0x3C;
     M2C_FIELD(arg0, s32 *, 0x3C4) = 1;
-    if (fn_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4), temp_r5) < 0x2000) {
+    if (TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4), temp_r5) < 0x2000) {
         if (TBoss4Type2__sub_80141FA8(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4)) >= 0) {
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x3D4) - 0x2000);
         } else {
@@ -31,7 +31,7 @@ void init_attack_state__14TObjEnePanarmsFPv(void *arg0) {
         }
     }
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
-    fn_8002AE74(arg0, 2);
+    TObjEnePanarms__sub_8002AE74(arg0, 2);
 }
 
 }

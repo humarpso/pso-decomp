@@ -9,9 +9,9 @@ extern "C" {
 s32 is_split_screen();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
-M2C_UNK fn_802925C4(void *);
-u32 fn_802930C8();
-M2C_UNK fn_802C3D38(u32, u32);
+M2C_UNK TLobby__sub_802925C4(void *);
+u32 TLobby__sub_802930C8();
+M2C_UNK TObjPlayer__sub_802C3D38(u32, u32);
 extern s32 lbl_80464E58[];
 extern u32 lbl_805D6580;
 extern s32 lbl_805D6584;
@@ -33,16 +33,16 @@ void setup_split_screen(void) {
         return;
     }
     if ((s32) lbl_805D6588 != 0) {
-        lbl_805D6580 = fn_802930C8();
+        lbl_805D6580 = TLobby__sub_802930C8();
         lbl_805D6584 = 1;
         lbl_805D6588 = 0;
-        fn_802925C4(lbl_80464E58);
+        TLobby__sub_802925C4(lbl_80464E58);
         var_r31 = 0U;
         do {
             temp_r30 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
             temp_r4 = get_char_index__23TAdSinglePlyChrSelectGCFUi(var_r31);
             if ((temp_r30 != 0U) && (temp_r4 != 0U)) {
-                fn_802C3D38(temp_r30, temp_r4);
+                TObjPlayer__sub_802C3D38(temp_r30, temp_r4);
             }
             var_r31 += 1;
         } while (var_r31 != 4U);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8031F070();
+s32 TObjEneRecon__sub_8031F070();
 
 u8 fn_8031FA64(void *arg0) {
     int var_r4;
 
-    if (fn_8031F070() == 1) {
+    if (TObjEneRecon__sub_8031F070() == 1) {
         return 1;
     }
     var_r4 = 0;

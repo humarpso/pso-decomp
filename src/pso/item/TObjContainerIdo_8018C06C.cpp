@@ -12,11 +12,11 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-s32 fn_800D7B1C(void *, void *);
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(u32);
+s32 TObjEneEpsilonGuard__sub_800D7B1C(void *, void *);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(u32);
 
 extern s32 lbl_805D5B98;
 extern const u32 lbl_805D5B9C;
@@ -54,7 +54,7 @@ void render__16TObjContainerIdoFv(u8 *arg0) {
     if (((VOuter_8018C06C*)arg0)->m8(lbl_805DBD6C, lbl_805DBD70) != 0) {
         var_r31 = 0;
         if (is_not_split_screen__13TRaderMapCoreFv() == 0) {
-            var_r31 = fn_800D7B1C(arg0 + 0xF0, arg0 + 0x38);
+            var_r31 = TObjEneEpsilonGuard__sub_800D7B1C(arg0 + 0xF0, arg0 + 0x38);
         }
         if (var_r31 != 0) {
             ((VMem_8018C06C*)(arg0 + 0xF0))->m6();
@@ -62,23 +62,23 @@ void render__16TObjContainerIdoFv(u8 *arg0) {
         {
             u32 temp = (u32) lbl_805D5B9C;
             if (temp != 0U) {
-                fn_803DA798(temp);
+                TObjFish__sub_803DA798(temp);
             }
         }
-        fn_803D9B2C();
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0xC0);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
         TObjFish__sub_8001EDC4(lbl_805D5B98, 0);
         TObjBoss2Tunnel__sub_803DB470();
-        fn_803D9B78();
-        fn_803D9B2C();
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x5C));
         TObjFish__sub_8001EDC4(lbl_805D5B98, 1);
         TObjBoss2Tunnel__sub_803DB470();
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
         if (var_r31 != 0) {
             ((VMem_8018C06C*)(arg0 + 0xF0))->m7();
         }

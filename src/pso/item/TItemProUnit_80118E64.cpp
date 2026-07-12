@@ -10,7 +10,7 @@ u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 M2C_UNK TItemEquipBase__ct();
 M2C_UNK TItemProUnit__sub_80118D58(void *);
 s16 TItemData__sub_8010CD98(void *);
-u8 *fn_8010EA38(void *);
+u8 *TItemData__sub_8010EA38(void *);
 
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern M2C_UNK __vt__12TItemProUnit[];
@@ -49,7 +49,7 @@ u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     ((VItemProUnit *)arg0)->m17((s8) (M2C_FIELD(arg2, u8 *, 4) + 9));
     M2C_FIELD(arg0, s16 *, 0x190) = 0;
     M2C_FIELD(arg0, f32 *, 0x1B8) = (f32) TItemProUnit__data_805DABF8;
-    temp_r3 = fn_8010EA38(arg2);
+    temp_r3 = TItemData__sub_8010EA38(arg2);
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, s16 *, 0x18C) = (s16) M2C_FIELD(temp_r3, s16 *, 8);
         M2C_FIELD(arg0, s16 *, 0x18E) = (s16) M2C_FIELD(temp_r3, s16 *, 0xA);

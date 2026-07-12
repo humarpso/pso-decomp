@@ -9,9 +9,9 @@ extern "C" {
 M2C_UNK fn_800B98C0(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK fn_800D758C(void *);
+M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK fn_800D8E80(void *);
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 
 struct TBase { char pad[0x18]; };
@@ -130,7 +130,7 @@ struct SubObj : SubBase {
     virtual void v6();
 };
 
-void fn_802D05BC(u8 *arg0, s32 arg1) {
+void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 2;
@@ -140,7 +140,7 @@ void fn_802D05BC(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) & 0xFFFFFFEF);
         TObjEneDD__sub_800BBA04(arg0, 2);
         fn_800B98C0(arg0);
-        fn_800D758C(arg0 + 0x46C);
+        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x46C);
         fn_800D8E80(arg0 + 0x38);
         return;
     case 3:
@@ -150,7 +150,7 @@ void fn_802D05BC(u8 *arg0, s32 arg1) {
     case 1:
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         ((TObj *)arg0)->v100();
         ((TObj *)arg0)->v86();
         return;

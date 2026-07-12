@@ -86,11 +86,11 @@ struct VObj_80329044 : Base_80329044 {
 
 extern "C" {
 
-s32 fn_801C0044();
+s32 TObjPlayer__sub_801C0044();
 
 void fn_80329044(void *arg0) {
     struct VObj_80329044 *o = (struct VObj_80329044 *)arg0;
-    o->m75(fn_801C0044());
+    o->m75(TObjPlayer__sub_801C0044());
 }
 
 }

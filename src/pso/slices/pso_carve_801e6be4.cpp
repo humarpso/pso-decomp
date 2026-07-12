@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8039DCE0(s32, s32);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DCE0(s32, s32);
 s32 strlen();
 extern s32 lbl_805D5ED4;
 
@@ -14,7 +14,7 @@ void append_string(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = strlen();
-    fn_8039DCE0(lbl_805D5ED4, arg0);
+    TAdSinglePlyChrSelectGC__sub_8039DCE0(lbl_805D5ED4, arg0);
     lbl_805D5ED4 += temp_r31;
 }
 

@@ -10,12 +10,12 @@ void TObjContainerJungEnemy__vt79(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK fn_801E2EFC();
-M2C_UNK fn_801E2F20();
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
-M2C_UNK fn_803DA798(s32);
+M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjFish__sub_803DA798(s32);
 
 extern const f32 lbl_805DBD9C;
 
@@ -25,16 +25,16 @@ void TObjContainerJungEnemy__vt79(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     switch (temp_r0) {
     case 0:
-        fn_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
-        fn_803D9B2C();
+        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         TOMonitorMachine01__sub_803D8B5C(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x368));
-        fn_801E2EFC();
+        TParticleCtrl__sub_801E2EFC();
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x374));
-        fn_801E2F20();
-        fn_803D9B78();
+        TParticleCtrl__sub_801E2F20();
+        TObjPlayer__sub_803D9B78();
     case 1:
         return;
     }

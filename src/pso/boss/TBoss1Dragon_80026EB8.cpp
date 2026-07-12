@@ -13,8 +13,8 @@ s32 filter_input_flags__12TBoss1DragonFiii(s32 arg1, s32 arg2, s32 arg3);
 s32 TBoss1Dragon__sub_800291B4(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 check_flag_100__10TObjPlayerFPv();
-f32 fn_803D64C0(s32);
-f32 fn_803D64DC(s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
 
 extern s32 lbl_805D53A0;
 
@@ -31,8 +31,8 @@ s32 filter_input_flags__12TBoss1DragonFiii(s32 arg1, s32 arg2, s32 arg3) {
 extern f32 lbl_805D8088;
 
 void calc_facing_vector__12TBoss1DragonFPv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805D8088 * fn_803D64C0(M2C_FIELD(arg0, s32 *, 0x76C)));
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) (lbl_805D8088 * fn_803D64DC(M2C_FIELD(arg0, s32 *, 0x76C)));
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805D8088 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x76C)));
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) (lbl_805D8088 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x76C)));
 }
 
 s32 check_can_attack__12TBoss1DragonFPv(void *arg0) {

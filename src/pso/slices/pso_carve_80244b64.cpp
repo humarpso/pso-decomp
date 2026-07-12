@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK allow_rendering__7TObjectFv(void *);
 f32 fn_801A5228(s16);
-M2C_UNK fn_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DCAD4;
 
 void fn_80244B64(void *arg0) {
@@ -28,7 +28,7 @@ void fn_80244B64(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 3);
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 0x20)) {
-        fn_8022675C(0x53703, 0, 0, 0);
+        TBoss3Volopt__sub_8022675C(0x53703, 0, 0, 0);
     }
     allow_rendering__7TObjectFv(arg0);
 }

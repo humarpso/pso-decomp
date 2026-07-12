@@ -8,9 +8,9 @@ extern "C" {
 
 M2C_UNK fn_80141CB0(M2C_UNK *, M2C_UNK *, M2C_UNK, M2C_UNK);
 s32 fn_802C3088(void *, s32, s32, M2C_UNK *, f32);
-M2C_UNK fn_803D9214(M2C_UNK, s32);
-M2C_UNK fn_803D9B2C();
-M2C_UNK fn_803D9B78();
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern const f32 lbl_805DE4F8;
 
@@ -25,11 +25,11 @@ void fn_802C2FBC(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
         fn_802C3088(arg0, arg1, arg2, sp14, var_f31);
         var_f31 += farg0;
         temp_r30 = fn_802C3088(arg0, arg1, arg2, sp8, var_f31);
-        fn_803D9B2C();
+        TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        fn_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         fn_80141CB0(sp14, sp8, 0xF0F0F0FF, 0xF0F0F0FF);
-        fn_803D9B78();
+        TObjPlayer__sub_803D9B78();
     } while (temp_r30 != 0);
 }
 

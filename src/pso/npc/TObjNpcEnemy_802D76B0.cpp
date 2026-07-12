@@ -9,11 +9,11 @@ extern "C" {
 void update_state__12TObjNpcEnemyFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK draw__16TObjEneRe7BeruraFPv();
-M2C_UNK fn_80141F1C();
+M2C_UNK TObjPlayer__sub_80141F1C();
 M2C_UNK fn_80143118();
-M2C_UNK fn_803E46BC(s32);
-M2C_UNK fn_803E4BC4(void *);
-M2C_UNK fn_803E4BD0();
+M2C_UNK TObjFish__sub_803E46BC(s32);
+M2C_UNK TObjPlayer__sub_803E4BC4(void *);
+M2C_UNK TObjPlayer__sub_803E4BD0();
 
 void update_state__12TObjNpcEnemyFPv(void *arg0) {
     void *sp4;
@@ -23,19 +23,19 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
     temp_r0 = M2C_FIELD(sp4, u16 *, 2);
     switch ((s32) temp_r0) {
     case 0:
-        fn_803E4BC4(arg0);
-        fn_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
-        fn_80141F1C();
-        fn_803E4BD0();
+        TObjPlayer__sub_803E4BC4(arg0);
+        TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
+        TObjPlayer__sub_80141F1C();
+        TObjPlayer__sub_803E4BD0();
         return;
     case 1:
         draw__16TObjEneRe7BeruraFPv();
         return;
     case 2:
-        fn_803E4BC4(arg0);
+        TObjPlayer__sub_803E4BC4(arg0);
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
-        fn_80141F1C();
-        fn_803E4BD0();
+        TObjPlayer__sub_80141F1C();
+        TObjPlayer__sub_803E4BD0();
         return;
     case 3:
         fn_80143118();

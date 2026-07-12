@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void release_static_resource__15TObjLaboMapWarpFv(void);
-void fn_8001FE7C(void*, int);
+void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjLaboMapWarp__data_805D5B58;
 
 void release_static_resource__15TObjLaboMapWarpFv(void) {
     if ((u32) TObjLaboMapWarp__data_805D5B58 != 0U) {
-        fn_8001FE7C((void*)TObjLaboMapWarp__data_805D5B58, 1);
+        TLobby__sub_8001FE7C((void*)TObjLaboMapWarp__data_805D5B58, 1);
         TObjLaboMapWarp__data_805D5B58 = 0U;
     }
 }

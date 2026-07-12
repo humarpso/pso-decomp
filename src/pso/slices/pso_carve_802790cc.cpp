@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
-M2C_UNK fn_80258CB8(void *, u8, M2C_UNK, s32);
-M2C_UNK fn_80258F34(void *, u32, s32);
+M2C_UNK TWindowSubStatusDisp__sub_80258CB8(void *, u8, M2C_UNK, s32);
+M2C_UNK TWindowSubStatusDisp__sub_80258F34(void *, u32, s32);
 extern const f32 lbl_805DD620;
 
 void fn_802790CC(void *arg0, u8 arg1, u32 arg2, s32 arg3) {
@@ -16,11 +16,11 @@ void fn_802790CC(void *arg0, u8 arg1, u32 arg2, s32 arg3) {
 
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x72));
     if (arg2 == 0U) {
-        fn_80258CB8(temp_r31, arg1, 0, arg3);
+        TWindowSubStatusDisp__sub_80258CB8(temp_r31, arg1, 0, arg3);
         M2C_FIELD(temp_r31, f32 *, 8) = (f32) (M2C_FIELD(temp_r31, f32 *, 8) + lbl_805DD620);
         M2C_FIELD(temp_r31, s32 *, 0x2C) = 0xFFAAAAAA;
     } else {
-        fn_80258F34(temp_r31, arg2, arg3);
+        TWindowSubStatusDisp__sub_80258F34(temp_r31, arg2, arg3);
     }
     if (arg1 == 4) {
         M2C_FIELD(temp_r31, f32 *, 8) = (f32) (M2C_FIELD(temp_r31, f32 *, 8) + lbl_805DD620);

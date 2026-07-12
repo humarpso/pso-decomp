@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void play_sounds__6TOTrapFi(s32 arg0);
-M2C_UNK fn_80087350(s32, M2C_UNK);
+M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
 
 void play_sounds__6TOTrapFi(s32 arg0) {
-    fn_80087350(arg0 + 0x2FC, 0x45);
-    fn_80087350(arg0 + 0x2FC, 0x46);
+    TObjEneDellBiter__sub_80087350(arg0 + 0x2FC, 0x45);
+    TObjEneDellBiter__sub_80087350(arg0 + 0x2FC, 0x46);
 }
 
 }

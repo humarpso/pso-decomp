@@ -11,9 +11,9 @@ void send_data__6TLobbyFv(void);
 s32 TWindowHelpItem__ct(s32, s32, s32);
 s32 TWindowShortListCtrl__sub_80278E48(s32, M2C_UNK *, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_801F3274();
-M2C_UNK fn_801F32A0(void);
-s32 fn_8026CBB8(M2C_UNK);
+M2C_UNK TLobby__sub_801F3274();
+M2C_UNK TLobby__sub_801F32A0(void);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK fn_802787AC();
 M2C_UNK send_data__6TLobbyFi(s32);
 M2C_UNK TLobby__sub_8032CD7C(s32, s32);
@@ -26,11 +26,11 @@ extern s32 TLobby__data_805D5EC0;
 void create_help_window__6TLobbyFv(void) {
     s32 var_r31;
 
-    TLobby__data_805D5EBC = TWindowShortListCtrl__sub_80278E48(fn_8026CBB8(3), lbl_80449B2C, lbl_805D53A0);
+    TLobby__data_805D5EBC = TWindowShortListCtrl__sub_80278E48(TWindowSubComCard__sub_8026CBB8(3), lbl_80449B2C, lbl_805D53A0);
     fn_802787AC();
     var_r31 = __nw__7TObjectFUl(0xBC);
     if (var_r31 != 0) {
-        var_r31 = TWindowHelpItem__ct(var_r31, fn_8026CBB8(2), lbl_805D53A0);
+        var_r31 = TWindowHelpItem__ct(var_r31, TWindowSubComCard__sub_8026CBB8(2), lbl_805D53A0);
     }
     TLobby__data_805D5EC0 = var_r31;
 }
@@ -44,10 +44,10 @@ void send_data__6TLobbyFv(void) {
     s32 temp_r31;
 
     temp_r31 = TLobby__data_80512220.field0;
-    fn_801F32A0();
+    TLobby__sub_801F32A0();
     send_data__6TLobbyFi(temp_r31);
     TLobby__sub_8032CD7C(TLobby__data_805D6CC0, TLobby__data_805D6CC8);
-    fn_801F3274();
+    TLobby__sub_801F3274();
 }
 
 }

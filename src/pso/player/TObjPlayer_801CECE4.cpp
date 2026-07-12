@@ -8,14 +8,14 @@ extern "C" {
 
 void update_by_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_801D2D6C(void *);
-s16 fn_801AFCCC();
-M2C_UNK fn_801D30C0(void *);
-M2C_UNK fn_801D310C(void *);
+s16 TObjPlayer__sub_801AFCCC();
+M2C_UNK TObjPlayer__sub_801D30C0(void *);
+M2C_UNK TObjPlayer__sub_801D310C(void *);
 
 void update_by_state__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r3;
 
-    temp_r3 = fn_801AFCCC();
+    temp_r3 = TObjPlayer__sub_801AFCCC();
     switch (temp_r3) {
     case 0:
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
@@ -23,11 +23,11 @@ void update_by_state__10TObjPlayerFPv(u8 *arg0) {
         }
         return;
     case 8:
-        fn_801D30C0(arg0 + 0x7CC);
+        TObjPlayer__sub_801D30C0(arg0 + 0x7CC);
         return;
     default:
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
-            fn_801D310C(arg0 + 0x7CC);
+            TObjPlayer__sub_801D310C(arg0 + 0x7CC);
         }
         break;
     }

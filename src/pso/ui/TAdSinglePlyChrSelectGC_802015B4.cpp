@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 free__23TAdSinglePlyChrSelectGCFv(void);
-void fn_8007EBB4(void*);
+void TAdSinglePlyChrSelectGC__sub_8007EBB4(void*);
 
 extern u32 lbl_805D5F94;
 
 s32 free__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D5F94 != 0U) {
-        fn_8007EBB4((void*)lbl_805D5F94);
+        TAdSinglePlyChrSelectGC__sub_8007EBB4((void*)lbl_805D5F94);
         lbl_805D5F94 = 0U;
         return 1;
     }

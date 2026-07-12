@@ -8,7 +8,7 @@ extern "C" {
 
 void handle_event__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 
-M2C_UNK fn_80143504();
+M2C_UNK TBoss1Dragon__sub_80143504();
 
 void handle_event__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
@@ -17,7 +17,7 @@ void handle_event__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x434) = 0;
         return;
     case 0:
-        fn_80143504();
+        TBoss1Dragon__sub_80143504();
         M2C_FIELD(arg0, s32 *, 0x434) = (s32) (M2C_FIELD(arg0, s32 *, 0x434) + 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x434) > 0x5A) {
             M2C_FIELD(arg0, s32 *, 0x434) = 0;

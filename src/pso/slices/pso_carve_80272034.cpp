@@ -9,16 +9,16 @@ extern "C" {
 s32 fn_80275484(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 fn_802499E4(s32 a0 = 0, s32 a1 = 0);
 s32 fn_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-s32 fn_8007BC04(s32 a0 = 0);
-s32 fn_8007A860(s32);
-s32 fn_80269C6C(s32, s32, s32);
+s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
+s32 TWindowSubComCard__sub_8007A860(s32);
+s32 TLobby__sub_80269C6C(s32, s32, s32);
 int TWindowSubStatusDisp__sub_80077760(void*);
-int fn_8007A8F8(void);
-int fn_8007B6D8(void);
+int TWindowSubComCard__sub_8007A8F8(void);
+int TWindowSubComCard__sub_8007B6D8(void);
 int TLobby__sub_802421C4(void);
 int TWindowSubComCard__sub_80265BF8(void*);
 void TWindowSubComCard__sub_80272180(void);
-s32 fn_8026CBB8(s32 a0 = 0);
+s32 TWindowSubComCard__sub_8026CBB8(s32 a0 = 0);
 int fn_802754EC(void);
 
 int TWindowSubComCard__sub_80272034(void) { return 0; }

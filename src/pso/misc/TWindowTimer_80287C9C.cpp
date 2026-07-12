@@ -13,7 +13,7 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
 s32 TLobby__sub_8001DC24();
-M2C_UNK fn_80229080(M2C_UNK *);
+M2C_UNK TWindowSubStatusDisp__sub_80229080(M2C_UNK *);
 
 extern M2C_UNK lbl_8044FCE0[];
 extern M2C_UNK lbl_805DD884;
@@ -23,9 +23,9 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2) {
 
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     TWindowSubStatusDisp__sub_802290E0();
-    fn_80229080(&lbl_805DD884);
+    TWindowSubStatusDisp__sub_80229080(&lbl_805DD884);
     TWindowChallengeResult__sub_80228DB4(arg1, 3);
-    fn_80229080(lbl_8044FCE0);
+    TWindowSubStatusDisp__sub_80229080(lbl_8044FCE0);
     TWindowChallengeResult__sub_80228DB4(arg2, 3);
     TWindowSubStatusDisp__sub_8025AC50(temp_r31, TLobby__sub_8001DC24(), 0x20);
     TWindowHelpItem__sub_8025A9B4(temp_r31);

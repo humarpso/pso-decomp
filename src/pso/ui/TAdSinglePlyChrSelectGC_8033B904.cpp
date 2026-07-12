@@ -12,9 +12,9 @@ M2C_UNK __ct__12TAdBackTxtGCFv(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject(void *, s32);
 M2C_UNK __ct__9TAdBackGCFv(void *, void *);
 void *__nw__7TObjectFUl(M2C_UNK);
-s8 fn_8001C5E8(void *);
-M2C_UNK fn_80242D2C();
-M2C_UNK fn_8033A9A4(void *);
+s8 TAdSinglePlyChrSelectGC__sub_8001C5E8(void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80242D2C();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8033A9A4(void *);
 
 M2C_UNK clear_buffer(void *);
 extern void *lbl_804EF8C0[];
@@ -30,7 +30,7 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) fn_8001C5E8(lbl_804EF8C0);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TAdSinglePlyChrSelectGC__sub_8001C5E8(lbl_804EF8C0);
     M2C_FIELD(arg0, s32 *, 0x28) = TAdSinglePlyChrSelectGC__sub_802E3AE4();
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
@@ -43,9 +43,9 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (p != NULL) {
         __ct__12TAdBackTxtGCFv(p, arg0);
     }
-    fn_8033A9A4(arg0);
+    TAdSinglePlyChrSelectGC__sub_8033A9A4(arg0);
     clear_buffer(arg0);
-    fn_80242D2C();
+    TAdSinglePlyChrSelectGC__sub_80242D2C();
     return arg0;
 }
 
