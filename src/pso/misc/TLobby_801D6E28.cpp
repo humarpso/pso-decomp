@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_801D6E28(void *arg0, u8 arg1);
-s16 TLobby__sub_801D6E78(void *arg0);
-void TLobby__sub_801D6EBC(void *arg0, s16 arg1);
+s16 clamp_player_index__6TLobbyFPv(void *arg0);
+void set_clamped_index__6TLobbyFPvs(void *arg0, s16 arg1);
 void TLobby__sub_801D6F08(void *arg0, s32 arg1);
-u8 TLobby__sub_801D6F2C(void *arg0);
+u8 get_clamped_level__6TLobbyFPv(void *arg0);
 s32 TObjPlayer__sub_801AF288();
 s32 TObjPlayer__sub_801D9988(u8);
 u8 ret_801D78E4();
@@ -25,7 +25,7 @@ void TLobby__sub_801D6E28(void *arg0, u8 arg1) {
     M2C_FIELD(arg0, u8 *, 0x11) = var_r31;
 }
 
-s16 TLobby__sub_801D6E78(void *arg0) {
+s16 clamp_player_index__6TLobbyFPv(void *arg0) {
     s16 var_r31;
 
     var_r31 = M2C_FIELD(arg0, s16 *, 0x14);
@@ -35,7 +35,7 @@ s16 TLobby__sub_801D6E78(void *arg0) {
     return var_r31;
 }
 
-void TLobby__sub_801D6EBC(void *arg0, s16 arg1) {
+void set_clamped_index__6TLobbyFPvs(void *arg0, s16 arg1) {
     s16 var_r31;
 
     var_r31 = arg1;
@@ -55,7 +55,7 @@ void TLobby__sub_801D6F08(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x1C) = var_r4;
 }
 
-u8 TLobby__sub_801D6F2C(void *arg0) {
+u8 get_clamped_level__6TLobbyFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x18);

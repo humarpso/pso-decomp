@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TLobby__sub_80329368(void *arg0);
+void *init_vtable8__6TLobbyFPv(void *arg0);
 void TLobby__sub_803293A4(void);
 void TLobby__sub_802A7B50(void *);
 M2C_UNK TObjPlayer__sub_8001BF10(M2C_UNK *);
 
 extern M2C_UNK lbl_804ED7D0[];
 
-void *TLobby__sub_80329368(void *arg0) {
+void *init_vtable8__6TLobbyFPv(void *arg0) {
     TLobby__sub_802A7B50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x8) = lbl_804ED7D0;
     return arg0;

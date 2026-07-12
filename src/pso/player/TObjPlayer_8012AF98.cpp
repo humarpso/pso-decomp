@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_8012AF98(void);
+s32 is_rand_below_threshold__10TObjPlayerFv(void);
 s32 TOBoss4Rock__sub_8039C880();
 
 extern M2C_UNK lbl_8043E980;
 extern f32 lbl_805DAE78;
 extern f32 lbl_805DAE7C;
 
-s32 TObjPlayer__sub_8012AF98(void) {
+s32 is_rand_below_threshold__10TObjPlayerFv(void) {
     return (u32)__cntlzw(((lbl_805DAE78 * (f32) TOBoss4Rock__sub_8039C880()) < lbl_805DAE7C)) >> 5;
 }
 

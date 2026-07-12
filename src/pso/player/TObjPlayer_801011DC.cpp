@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s16 TObjPlayer__sub_801011DC(u16 arg0);
+s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0);
 s32 TObjPlayer__sub_80102C80(s32);
 u32 TObjPlayer__sub_80102C90(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void *fn_8010A768();
 
-s16 TObjPlayer__sub_801011DC(u16 arg0) {
+s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0) {
     s32 temp_r3;
     s32 var_acc;
     s32 var_cnt;

@@ -12,7 +12,7 @@ void TObjPlayer__sub_80120D50(void *);
 void TObjPlayer__sub_8012106C(void *, int);
 
 extern M2C_UNK lbl_804A535C[];
-extern M2C_UNK TObjPlayer__sub_8012C3F4[];
+extern M2C_UNK send_trade_action__10TObjPlayerFUiUiUiUi[];
 extern M2C_UNK TObjPlayer__sub_8012C384[];
 extern M2C_UNK create_shot_effect__10TObjPlayerFiiif[];
 extern const f32 lbl_805DAEF0;
@@ -25,7 +25,7 @@ void *TObjPlayer__sub_8012C868(void *arg0) {
     TObjPlayer__sub_8001BF10(self->f_1F8);
     TObjPlayer__sub_8001BED8((void *)((char *)arg0 + 376), 32);
     TObjPlayer__sub_8012106C(arg0, 515);
-    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = TObjPlayer__sub_8012C3F4;
+    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = send_trade_action__10TObjPlayerFUiUiUiUi;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = TObjPlayer__sub_8012C384;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = create_shot_effect__10TObjPlayerFiiif;
     M2C_FIELD(arg0, f32 *, 0x1E4) = lbl_805DAEF0;

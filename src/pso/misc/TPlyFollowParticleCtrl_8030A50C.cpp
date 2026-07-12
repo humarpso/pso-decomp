@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TPlyFollowParticleCtrl__sub_8030A50C(s32 arg0);
+void destroy_if_inactive__22TPlyFollowParticleCtrlFi(s32 arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TPlyFollowParticleCtrl__sub_8030A698();
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
-void TPlyFollowParticleCtrl__sub_8030A50C(s32 arg0) {
+void destroy_if_inactive__22TPlyFollowParticleCtrlFi(s32 arg0) {
     if (TPlayerBattleCtrl4P__sub_801BA74C((u16) TPlyFollowParticleCtrl__sub_8030A698()) == 0U) {
         queue_destruction__7TObjectFv(arg0);
     }

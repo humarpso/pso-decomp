@@ -8,7 +8,7 @@ extern "C" {
 
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 TOKeyMachine01__sub_802034A8();
-M2C_UNK TObjPlayer__sub_8029F6C0();
+M2C_UNK init_render_target__10TObjPlayerFPv();
 extern u32 lbl_805D4EE8;
 
 void fn_800833A4(void) {
@@ -19,7 +19,7 @@ void fn_800833A4(void) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
         lbl_805D4EE8 = temp_r3;
         if (temp_r3 != 0U) {
-            TObjPlayer__sub_8029F6C0();
+            init_render_target__10TObjPlayerFPv();
         }
     }
 }

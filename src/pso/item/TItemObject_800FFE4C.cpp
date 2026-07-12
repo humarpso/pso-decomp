@@ -7,9 +7,9 @@ int TObjTailsTailsMove__sub_800FFE04(void);
 void TObjTailsTailsMove__sub_800FFE0C(void);
 void TObjTailsTailsMove__sub_800FFE10(void);
 int TObjTailsTailsMove__sub_800FFE14(void);
-int TItemObject__sub_800FFE4C(void* p);
+int set_flag_1024__11TItemObjectFPv(void* p);
 int TObjPlayer__sub_80102BEC(void*, int);
 
-int TItemObject__sub_800FFE4C(void* p) { return TObjPlayer__sub_80102BEC(p, 1024); }
+int set_flag_1024__11TItemObjectFPv(void* p) { return TObjPlayer__sub_80102BEC(p, 1024); }
 
 }

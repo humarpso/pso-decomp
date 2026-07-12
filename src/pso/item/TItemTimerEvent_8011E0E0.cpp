@@ -11,9 +11,9 @@ struct VObj_8011E140 : Base_8011E140 {
 extern "C" {
 
 void TItemTimerEvent__sub_8011E0E0(int arg0);
-void TItemTimerEvent__sub_8011E110(int arg0);
+void notify_if_active__15TItemTimerEventFi(int arg0);
 void TItemTimerEvent__sub_8011E140(void);
-M2C_UNK TObjPlayer__sub_8011E214();
+M2C_UNK set_flag_10000__10TObjPlayerFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK fn_8011E1D4();
 
@@ -23,9 +23,9 @@ void TItemTimerEvent__sub_8011E0E0(int arg0) {
     }
 }
 
-void TItemTimerEvent__sub_8011E110(int arg0) {
+void notify_if_active__15TItemTimerEventFi(int arg0) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(arg0) != 0U) {
-        TObjPlayer__sub_8011E214();
+        set_flag_10000__10TObjPlayerFPv();
     }
 }
 

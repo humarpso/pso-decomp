@@ -11,7 +11,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802E00B4(void* p);
 void TAdMultiPlyChrSelectGC__sub_802E00BC(void* p, s32 v);
 s32 TAdMultiPlyChrSelectGC__sub_802E00C4(void* p);
 
-void TAdMultiPlyChrSelectGC__sub_802E0084(void *arg0) {
+void update_field_4E8__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4E8) = TAdMultiPlyChrSelectGC__sub_802DFFE8();
 }
 s32 TAdMultiPlyChrSelectGC__sub_802E00B4(void* p) { return *(s32*)((char*)p + 0x530); }

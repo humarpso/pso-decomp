@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012A224(void* p);
-void TObjPlayer__sub_8012A264(void *arg0);
+void drop_item_if_state3__10TObjPlayerFPv(void* p);
+void update_guarded_by_flag__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8012A2EC(void *arg0);
 void TObjPlayer__sub_8012A304(void *arg0);
 void TObjPlayer__sub_8012A334(u8 *arg0);
@@ -17,9 +17,9 @@ M2C_UNK TObjPlayer__sub_8011E87C(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80120908(void *);
 int TObjPlayer__sub_80121200(void*);
 
-void TObjPlayer__sub_8012A224(void* p) { if (TObjPlayer__sub_80121200(p) == 3) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1fc)); } }
+void drop_item_if_state3__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80121200(p) == 3) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1fc)); } }
 
-void TObjPlayer__sub_8012A264(void *arg0) {
+void update_guarded_by_flag__10TObjPlayerFPv(void *arg0) {
     s32 *temp_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {

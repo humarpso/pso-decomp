@@ -2,9 +2,9 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_8022C6C4(s32 arg0);
+s32 get_level_tier__10TObjPlayerFi(s32 arg0);
 
-s32 TObjPlayer__sub_8022C6C4(s32 arg0) {
+s32 get_level_tier__10TObjPlayerFi(s32 arg0) {
     s32 temp_r0;
 
     temp_r0 = arg0 / 5;

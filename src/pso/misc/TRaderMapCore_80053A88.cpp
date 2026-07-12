@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TRaderMapCore__sub_80053A88(void *arg0, void *arg1);
+void set_map_position__13TRaderMapCoreFPvPv(void *arg0, void *arg1);
 
 extern const f32 lbl_805D8B58;
 extern const f32 lbl_805D8B5C;
 
-void TRaderMapCore__sub_80053A88(void *arg0, void *arg1) {
+void set_map_position__13TRaderMapCoreFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 0x3B0) = (s32) ((lbl_805D8B58 + M2C_FIELD(arg1, f32 *, 0)) / lbl_805D8B5C);
     M2C_FIELD(arg0, s32 *, 0x3B4) = (s32) ((lbl_805D8B58 + M2C_FIELD(arg1, f32 *, 8)) / lbl_805D8B5C);
 }

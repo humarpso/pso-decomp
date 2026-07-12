@@ -25,7 +25,7 @@ int fn_801540D8(void*, void*) { return 0; }
 int fn_801540FC(void*, void*) { return 0; }
 void fn_80154120(void* p) { fn_801540D8(*(void**)((char*)p + 0xa4), *(void**)((char*)p + 0xa8)); }
 void fn_8015414C(void* p) { fn_801540FC(*(void**)((char*)p + 0xa4), *(void**)((char*)p + 0xa8)); }
-s32 fn_80154178(void *arg0, s32 arg1, u16 arg2) {
+s32 test_button__11TMainCursorFPviUs(void *arg0, s32 arg1, u16 arg2) {
     s32 temp_r5;
 
     if (TMainCursor__sub_80154288() != 0) {
@@ -34,7 +34,7 @@ s32 fn_80154178(void *arg0, s32 arg1, u16 arg2) {
     }
     return 0;
 }
-void fn_801541D8(void *arg0, s32 arg1, u16 arg2) {
+void set_flag_bit__11TMainCursorFPviUs(void *arg0, s32 arg1, u16 arg2) {
     s32 temp_r5;
 
     if (TMainCursor__sub_80154288() != 0) {
@@ -42,7 +42,7 @@ void fn_801541D8(void *arg0, s32 arg1, u16 arg2) {
         TAdRicoRing__sub_8001BEE8(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
 }
-void fn_80154230(void *arg0, s32 arg1, u16 arg2) {
+void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2) {
     s32 temp_r5;
 
     if (TMainCursor__sub_80154288() != 0) {

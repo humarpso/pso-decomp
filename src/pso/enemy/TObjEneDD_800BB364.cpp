@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDD__sub_800BB364(f32 farg0);
+void set_squared_value__9TObjEneDDFf(f32 farg0);
 M2C_UNK TObjEneDD__sub_800BB388(f32);
 
-void TObjEneDD__sub_800BB364(f32 farg0) {
+void set_squared_value__9TObjEneDDFf(f32 farg0) {
     TObjEneDD__sub_800BB388(farg0 * farg0);
 }
 

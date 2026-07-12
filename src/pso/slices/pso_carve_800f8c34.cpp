@@ -13,7 +13,7 @@ extern s32 lbl_805D5344;
 extern u32 lbl_805D5348;
 extern s32 lbl_805D534C;
 
-void TLobby__sub_800F8C34(void) {
+void flush_pending__6TLobbyFv(void) {
     u32 temp_r5;
     s32 temp_r4;
     if ((s32) lbl_805D534C != 0) {

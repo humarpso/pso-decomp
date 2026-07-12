@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjEneSlimeTailAttack__sub_800E88EC(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void *create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *TObjEneSlimeTailAttack__sub_800E8964(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, s32);
 void *TObjEneSlimeTailAttack__ct(void *, void *, s32, s32, s32);
@@ -16,7 +16,7 @@ void *__nw__7TObjectFUl(M2C_UNK);
 
 extern s32 tl_04;
 
-void *TObjEneSlimeTailAttack__sub_800E88EC(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void *create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     void *obj;
     void *ctrl;
 

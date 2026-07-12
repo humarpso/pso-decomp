@@ -7,19 +7,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 TChCrLoadAfs__sub_8028B8FC();
+s32 try_begin_load__12TChCrLoadAfsFPv();
 s32 TLobby__sub_803CC53C(u32);
 s32 TLobby__sub_803CCB5C(u32, s32, u32);
 u32 TLobby__sub_803CD16C(s32, s32);
 void TChCrLoadAfs__sub_8028B940(void);
 void TChCrLoadAfs__sub_8028B944(void);
 
-void TChCrLoadAfs__sub_8028B9C8(void *arg0) {
+void start_download__12TChCrLoadAfsFPv(void *arg0) {
     s32 temp_r3_2;
     u32 temp_r3;
     u32 temp_r3_3;
 
-    if (TChCrLoadAfs__sub_8028B8FC() != 0) {
+    if (try_begin_load__12TChCrLoadAfsFPv() != 0) {
         temp_r3 = TLobby__sub_803CD16C(M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, s32 *, 0x24));
         M2C_FIELD(arg0, u32 *, 0x1C) = temp_r3;
         if (temp_r3 == 0U) {

@@ -9,10 +9,10 @@ extern "C" {
 void TAdMultiChgGameModeGC__sub_8023EBB4(void);
 void TAdMultiChgGameModeGC__sub_8023EBE4(void);
 void request_scene_change__21TAdMultiChgGameModeGCFv(void);
-void TAdMultiChgGameModeGC__sub_8023EC44(void);
-void TAdMultiChgGameModeGC__sub_8023EC74(void);
-void TAdMultiChgGameModeGC__sub_8023ECA4(void);
-void TAdMultiChgGameModeGC__sub_8023ECD4(void);
+void set_change_game_mode__21TAdMultiChgGameModeGCFv(void);
+void set_game_mode__21TAdMultiChgGameModeGCFv(void);
+void set_game_mode_state__21TAdMultiChgGameModeGCFv(void);
+void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void);
 void TAdMultiChgGameModeGC__sub_8023ED04(void);
 M2C_UNK TAdMultiChgGameModeGC__sub_8023F654();
 
@@ -46,7 +46,7 @@ void request_scene_change__21TAdMultiChgGameModeGCFv(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023EC44(void) {
+void set_change_game_mode__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 7;
     lbl_805D63C8 = 1;
@@ -55,7 +55,7 @@ void TAdMultiChgGameModeGC__sub_8023EC44(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023EC74(void) {
+void set_game_mode__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 6;
     lbl_805D63C8 = 1;
@@ -64,7 +64,7 @@ void TAdMultiChgGameModeGC__sub_8023EC74(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023ECA4(void) {
+void set_game_mode_state__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 5;
     lbl_805D63C8 = 1;
@@ -73,7 +73,7 @@ void TAdMultiChgGameModeGC__sub_8023ECA4(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023ECD4(void) {
+void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 4;
     lbl_805D63C8 = 1;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801267C4(void *arg0);
+void apply_shield_scale_to_unit__10TObjPlayerFPv(void *arg0);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TItemProUnit__sub_80119014(s32, f32);
 
@@ -16,7 +16,7 @@ extern f32 lbl_805DAD88;
 extern f32 lbl_805DAD8C;
 extern f32 lbl_805DAD90;
 
-void TObjPlayer__sub_801267C4(void *arg0) {
+void apply_shield_scale_to_unit__10TObjPlayerFPv(void *arg0) {
     f32 var_f31;
     u8 temp_r3;
 

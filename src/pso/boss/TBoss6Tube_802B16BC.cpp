@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TBoss6Tube__sub_802B16BC(void *arg0);
+void *create__10TBoss6TubeFPv(void *arg0);
 void TBoss6Tube__sub_802B1704(void);
 void *TBoss6Tube__ct(void *, void *);
 M2C_UNK TBoss6Tube__sub_802B1288();
@@ -15,7 +15,7 @@ M2C_UNK TLobby__sub_803DA16C(void*);
 void *__nw__7TObjectFUl(int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-void *TBoss6Tube__sub_802B16BC(void *arg0) {
+void *create__10TBoss6TubeFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
         o = TBoss6Tube__ct(o, arg0);

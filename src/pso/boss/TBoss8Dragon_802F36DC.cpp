@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-bool TBoss8Dragon__sub_802F36DC(void);
+bool has_enough_enemies__12TBoss8DragonFv(void);
 M2C_UNK TBoss8Dragon__sub_802F3C84(u32, s32);
 u32 get_enemy_entity();
 s32 is_split_screen();
 
 extern u32 lbl_805D6978;
 
-bool TBoss8Dragon__sub_802F36DC(void) {
+bool has_enough_enemies__12TBoss8DragonFv(void) {
     s32 i;
     s32 count;
 

@@ -17,8 +17,8 @@ void fn_802972BC(void);
 void fn_802972C0(void);
 u8 TCharaMaking__sub_8028DC74();
 M2C_UNK create__16TObjCMAutoMkDataFPv(s32);
-M2C_UNK TObjCMHairMenu__sub_80296410(s32);
-M2C_UNK TObjCMName__sub_80294C58(s32);
+M2C_UNK create__14TObjCMHairMenuFPv(s32);
+M2C_UNK create__10TObjCMNameFPv(s32);
 M2C_UNK create__16TObjCMProportionFPv(s32);
 void *get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
@@ -73,7 +73,7 @@ extern s32 TObjCMMainMenu__data_805D659C;
 void open_name_menu__14TObjCMMainMenuFPv(void *arg0) {
     TBoss3Volopt__sub_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     TObjCMMainMenu__data_805D659C = 1;
-    TObjCMName__sub_80294C58(M2C_FIELD(arg0, s32 *, 0x50));
+    create__10TObjCMNameFPv(M2C_FIELD(arg0, s32 *, 0x50));
 }
 
 extern s32 TObjCMMainMenu__data_805D659C;
@@ -97,7 +97,7 @@ extern s32 TObjCMMainMenu__data_805D659C;
 void open_hair_menu__14TObjCMMainMenuFPv(void *arg0) {
     TBoss3Volopt__sub_8022675C((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     TObjCMMainMenu__data_805D659C = 1;
-    TObjCMHairMenu__sub_80296410(M2C_FIELD(arg0, s32 *, 0x50));
+    create__14TObjCMHairMenuFPv(M2C_FIELD(arg0, s32 *, 0x50));
 }
 
 }

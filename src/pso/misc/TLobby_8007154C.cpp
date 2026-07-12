@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8007154C(void);
+s32 calc_remaining_char_slots__6TLobbyFv(void);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
 
-s32 TLobby__sub_8007154C(void) {
+s32 calc_remaining_char_slots__6TLobbyFv(void) {
     s32 var_r3;
 
     var_r3 = 0x1E - *get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF);

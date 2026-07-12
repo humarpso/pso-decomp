@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjEnePanarms__sub_800E1A44();
 int TObjEnePanarms__sub_800E1D94(void* p);
-int TObjEnePanarms__sub_800E1DB8(void* p);
+int do_action_2__14TObjEnePanarmsFPv(void* p);
 void TObjEnePanarms__sub_800E1E64(void* p);
 int TObjEnePanarms__sub_800E1C98(void*, int);
 

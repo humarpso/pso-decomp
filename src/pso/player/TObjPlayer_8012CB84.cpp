@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012CB84(s32 arg0);
+void apply_if_shield_type5__10TObjPlayerFi(s32 arg0);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TObjPlayer__sub_8010069C(s32);
 
-void TObjPlayer__sub_8012CB84(s32 arg0) {
+void apply_if_shield_type5__10TObjPlayerFi(s32 arg0) {
     if (TItemProShield__sub_8010B734() == 5) {
         TObjPlayer__sub_8010069C(arg0);
     }

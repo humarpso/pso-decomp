@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneHoldEffect__sub_8036C268(void *arg0);
-s32 TObjEneHoldEffect__sub_8036C2CC(void *arg0);
-s32 TObjEneHoldEffect__sub_8036CDA8();
+s32 can_shrink_player__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_valid_index__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_target_valid__17TObjEneHoldEffectFPv();
 
 extern f32 lbl_805E03A8;
 extern f32 lbl_805E03AC;
 
-s32 TObjEneHoldEffect__sub_8036C268(void *arg0) {
+s32 can_shrink_player__17TObjEneHoldEffectFPv(void *arg0) {
     f32 temp_f1;
 
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     temp_f1 = M2C_FIELD(arg0, f32 *, 4);
@@ -26,10 +26,10 @@ s32 TObjEneHoldEffect__sub_8036C268(void *arg0) {
     return 1;
 }
 
-s32 TObjEneHoldEffect__sub_8036C2CC(void *arg0) {
+s32 is_valid_index__17TObjEneHoldEffectFPv(void *arg0) {
     s16 temp_r3;
 
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     temp_r3 = M2C_FIELD(arg0, s16 *, 4);

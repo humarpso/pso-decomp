@@ -6,10 +6,10 @@ extern "C" {
 
 void TLobby__sub_800728C8(void *arg0);
 void TLobby__send_and_handle_60(void *);
-void TLobby__sub_80072894(void *);
+void byteswap_challenge_packet__6TLobbyFPv(void *);
 
 void TLobby__sub_800728C8(void *arg0) {
-    TLobby__sub_80072894(arg0);
+    byteswap_challenge_packet__6TLobbyFPv(arg0);
     TLobby__send_and_handle_60(arg0);
 }
 

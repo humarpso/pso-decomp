@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void reset__13TRaderMapCoreFPv(void* a0);
-void TRaderMapCore__sub_801FB9A4(void);
+void init_map_ptr__13TRaderMapCoreFv(void);
 M2C_UNK TObjFish__sub_8001EDC4(s32);
 
     extern const float TRaderMapCore__data_805DC528;
@@ -16,7 +16,7 @@ void reset__13TRaderMapCoreFPv(void* a0) { *(float*)((char*)a0 + 0x8) = TRaderMa
 
 extern s32 lbl_805D5F48;
 
-void TRaderMapCore__sub_801FB9A4(void) {
+void init_map_ptr__13TRaderMapCoreFv(void) {
     TObjFish__sub_8001EDC4(lbl_805D5F48);
 }
 

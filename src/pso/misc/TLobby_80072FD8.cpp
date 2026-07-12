@@ -12,7 +12,7 @@ M2C_UNK close_window_2c__6TLobbyFPv(void *);
 M2C_UNK open_loss_menu__6TLobbyFPv(void *);
 M2C_UNK send_45_and_close_windows__6TLobbyFv(void *);
 M2C_UNK TLobby__sub_80072DA0();
-M2C_UNK TLobby__sub_80072DD8(void *);
+M2C_UNK play_default_effect__6TLobbyFPv(void *);
 M2C_UNK play_player_default_effect__6TLobbyFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 TWindowSubComCard__sub_8007341C(u32);
@@ -47,7 +47,7 @@ block_6:
     if ((var_r31 != 0) || (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 2) != 0)) {
         close_window_2c__6TLobbyFPv(arg0);
         send_45_and_close_windows__6TLobbyFv(arg0);
-        TLobby__sub_80072DD8(arg0);
+        play_default_effect__6TLobbyFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }
 }

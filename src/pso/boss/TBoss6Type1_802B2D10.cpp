@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type1__sub_802B2D10(void *arg0);
+void tick_flee_countdown__11TBoss6Type1FPv(void *arg0);
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B865C(void *, s32);
 
-void TBoss6Type1__sub_802B2D10(void *arg0) {
+void tick_flee_countdown__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;
 
     TBoss6Type1__sub_802B4EAC(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));

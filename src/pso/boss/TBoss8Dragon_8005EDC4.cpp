@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_8005EDC4(void *arg0, void *dst, void *src);
+void copy_angle_state__12TBoss8DragonFPvPvPv(void *arg0, void *dst, void *src);
 s16 TBoss8Dragon__sub_8005E944(void *, s16, s16);
 
-void TBoss8Dragon__sub_8005EDC4(void *arg0, void *dst, void *src) {
+void copy_angle_state__12TBoss8DragonFPvPvPv(void *arg0, void *dst, void *src) {
     M2C_FIELD(dst, s16 *, 0) = (s16) M2C_FIELD(src, s32 *, 0);
     M2C_FIELD(dst, s16 *, 2) = TBoss8Dragon__sub_8005E944(arg0, M2C_FIELD(src, s16 *, 4), M2C_FIELD(src, s16 *, 6));
 }

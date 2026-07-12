@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneHoldEffect__sub_8036CD58(void *arg0);
-s32 TObjEneHoldEffect__sub_8036CDA8();
+s32 is_index_below_1d__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_target_valid__17TObjEneHoldEffectFPv();
 
-s32 TObjEneHoldEffect__sub_8036CD58(void *arg0) {
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+s32 is_index_below_1d__17TObjEneHoldEffectFPv(void *arg0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     return (u8) M2C_FIELD(arg0, u8 *, 4) <= 0x1DU ? 1 : 0;

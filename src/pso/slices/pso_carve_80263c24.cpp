@@ -20,7 +20,7 @@ extern "C" {
 M2C_UNK fn_80263D7C(void *);
 M2C_UNK fn_80263DBC(void *);
 M2C_UNK fn_802640E4();
-M2C_UNK TWindowMainMenu__sub_80264594(void *, u32);
+M2C_UNK close_submenu__15TWindowMainMenuFPvPv(void *, u32);
 
 s32 fn_80263C24(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C) & 0xFFFFFFFB);
@@ -32,7 +32,7 @@ s32 fn_80263C24(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x48) = 0x1F;
     fn_80263D7C(arg0);
     fn_80263DBC(arg0);
-    TWindowMainMenu__sub_80264594(arg0, M2C_FIELD(arg0, u32 *, 0x5C));
+    close_submenu__15TWindowMainMenuFPvPv(arg0, M2C_FIELD(arg0, u32 *, 0x5C));
     return 1;
 }
 

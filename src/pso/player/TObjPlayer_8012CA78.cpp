@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjPlayer__sub_8012CA78(void *arg0, M2C_UNK arg1, void *arg2);
+void *construct_weapon_variant__10TObjPlayerFPviPv(void *arg0, M2C_UNK arg1, void *arg2);
 M2C_UNK TObjPlayer__sub_80120D50();
 M2C_UNK TObjPlayer__sub_801210B0(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801225F8(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804A5458[];
 
-void *TObjPlayer__sub_8012CA78(void *arg0, M2C_UNK arg1, void *arg2) {
+void *construct_weapon_variant__10TObjPlayerFPviPv(void *arg0, M2C_UNK arg1, void *arg2) {
     u8 temp_r0;
 
     TObjPlayer__sub_80120D50();

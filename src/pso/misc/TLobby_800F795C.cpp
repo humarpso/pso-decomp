@@ -9,7 +9,7 @@ int TLobby__send_and_handle_60(void*);
 void TLobby__sub_800F7A50(void* p);
 int TLobby__sub_800F7A64(void);
 
-void TLobby__sub_800F795C(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }
-void TLobby__sub_800F7990(void* p) { TLobby__sub_800F795C(p); TLobby__send_and_handle_60(p); }
+void bswap_field__6TLobbyFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_32__FPUl((char*)p + 0x4); }
+void broadcast_state__6TLobbyFPv(void* p) { bswap_field__6TLobbyFPv(p); TLobby__send_and_handle_60(p); }
 
 }

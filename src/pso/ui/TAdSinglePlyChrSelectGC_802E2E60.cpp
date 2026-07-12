@@ -25,26 +25,26 @@ int TAdSinglePlyChrSelectGC__sub_802E3038(void* p);
 int close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void*, int, int, int, int);
 int close_windows__23TAdSinglePlyChrSelectGCFPv(void*);
 
-void TAdSinglePlyChrSelectGC__sub_802E2E60(s32 arg0) {
+void open_char_select__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
     TAdSinglePlyChrSelectGC__sub_8039DCE0(arg0 + 0x68, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 8));
     close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, arg0 + 0x68, 1, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x29), TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x16));
 }
-void TAdSinglePlyChrSelectGC__sub_802E2ED8(void *arg0) {
+void reset_on_load_complete__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_80076BBC() == 0) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0;
         TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0x18);
     }
 }
 void TAdSinglePlyChrSelectGC__sub_802E2F20(void) {  }
-void TAdSinglePlyChrSelectGC__sub_802E2F24(void *arg0) {
+void ensure_player_loaded__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x44) & 2)) {
         load_player__23TAdSinglePlyChrSelectGCFv();
         TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 4);
     }
 }
 int TAdSinglePlyChrSelectGC__sub_802E2F68(void* p) { return close_windows__23TAdSinglePlyChrSelectGCFPv(p); }
-void TAdSinglePlyChrSelectGC__sub_802E2F88(void *arg0) {
+void update_load_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_80076BBC() == 0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 1;
         if ((s32) M2C_FIELD(arg0, s32 *, 0x44) == 0) {
@@ -55,7 +55,7 @@ void TAdSinglePlyChrSelectGC__sub_802E2F88(void *arg0) {
     }
 }
 void TAdSinglePlyChrSelectGC__sub_802E2FEC(void) {  }
-void TAdSinglePlyChrSelectGC__sub_802E2FF0(void *arg0) {
+void ensure_system_file_loaded__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x44) & 2)) {
         load_system_file(0);
         TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 2);

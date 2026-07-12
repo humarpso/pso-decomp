@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TPlayerBattleCtrl4P__sub_80062718(void *arg0, s32 arg1);
+void update_active_player_count__19TPlayerBattleCtrl4PFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 
-void TPlayerBattleCtrl4P__sub_80062718(void *arg0, s32 arg1) {
+void update_active_player_count__19TPlayerBattleCtrl4PFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

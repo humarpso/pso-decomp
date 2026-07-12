@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80128E80(u8 *arg0);
+void draw_status_icons__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TAdRicoRing__sub_8001BEE8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001BED8(void *, M2C_UNK);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK);
 
-void TObjPlayer__sub_80128E80(u8 *arg0) {
+void draw_status_icons__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, s32 *, 0xF4);

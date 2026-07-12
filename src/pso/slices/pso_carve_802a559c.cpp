@@ -9,7 +9,7 @@ extern "C" {
 extern const f32 lbl_805DDFF0;
 extern const f32 lbl_805DDFF4;
 
-void TChCrTagPlBack__sub_802A559C(void *arg0, void *arg1) {
+void get_position_offset__14TChCrTagPlBackFPvPv(void *arg0, void *arg1) {
     void *temp_r3;
     void *temp_r5;
 

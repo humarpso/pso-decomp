@@ -13,7 +13,7 @@ int TObjPlayer__sub_80102BD8(void);
 int TObjPlayer__sub_80102BE0(void* p, u32 m);
 void TObjPlayer__sub_80102BEC(void* p, u32 v);
 void TObjPlayer__sub_80102BFC(void* p, u32 v);
-int TObjPlayer__sub_80102C0C(void* p);
+int has_flag_128__10TObjPlayerFPv(void* p);
 u16 TItemProArmor__sub_80102C3C(void* p);
 u8 TOSwitchItem__sub_80102C44(void* p);
 int TItemMag__sub_80102C4C(void* p);
@@ -29,7 +29,7 @@ int TObjPlayer__sub_801C675C(void*);
 void TObjPlayer__sub_8001960C(void* p);
 void bswap_32__FPUl(u32* p);
 
-u8 TObjPlayer__sub_80102DA8(void *arg0) {
+u8 is_not_matching_lobby_id__10TObjPlayerFPv(void *arg0) {
     return (u8) (is_matching_id__6TLobbyFiUs(arg0, M2C_FIELD(arg0, u16 *, 2)) == 0);
 }
 

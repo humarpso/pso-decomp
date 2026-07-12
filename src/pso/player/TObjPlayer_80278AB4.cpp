@@ -15,9 +15,9 @@ s32 TObjPlayer__sub_80099EF8();
 s32 get_item_info__10TObjPlayerFiiPv(s32, void *, M2C_UNK *);
 u32 TObjPlayer__sub_80102BE0(s32, M2C_UNK);
 s32 TObjPlayer__sub_801C675C(void *, M2C_UNK);
-u32 TObjPlayer__sub_801D4890(s32, M2C_UNK *);
+u32 run_and_get_result__10TObjPlayerFPvi(s32, M2C_UNK *);
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(s16);
-M2C_UNK TShopJudgmentItemWindow__sub_80267580(void *, s32, s32);
+M2C_UNK add_list_entry__23TShopJudgmentItemWindowFPvii(void *, s32, s32);
 M2C_UNK fn_80266FCC(void *, M2C_UNK);
 
 void TObjPlayer__sub_80278AB4(u8 *arg0) {
@@ -32,17 +32,17 @@ void TObjPlayer__sub_80278AB4(u8 *arg0) {
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
     if (temp_r3 != NULL) {
-        temp_r30 = TObjPlayer__sub_801D4890(M2C_FIELD(temp_r3, s32 *, 0xD00), spC);
+        temp_r30 = run_and_get_result__10TObjPlayerFPvi(M2C_FIELD(temp_r3, s32 *, 0xD00), spC);
         for (i = 0; i < temp_r30; i++) {
             temp_r3_2 = TLobby__sub_80101AB0(spC[i]);
             if ((temp_r3_2 != 0) && (TOSwitchItem__sub_80102C44() == 0) && (get_item_info__10TObjPlayerFiiPv(temp_r3_2, temp_r3, &sp8) != 0) && (TObjPlayer__sub_80102BE0(temp_r3_2, 8) == 0U) && (TItem__sub_8010147C(temp_r3_2, 8, 0) != 0U)) {
-                TShopJudgmentItemWindow__sub_80267580(arg0, temp_r3_2, spC[i]);
+                add_list_entry__23TShopJudgmentItemWindowFPvii(arg0, temp_r3_2, spC[i]);
             }
         }
         temp_r3_3 = TObjPlayer__sub_801C675C(temp_r3 + 0xD04, 6);
         if (temp_r3_3 != 0) {
             temp_r5 = TObjPlayer__sub_80099EF8();
-            TShopJudgmentItemWindow__sub_80267580(arg0, temp_r3_3, temp_r5);
+            add_list_entry__23TShopJudgmentItemWindowFPvii(arg0, temp_r3_3, temp_r5);
         }
         if (M2C_FIELD(arg0, s16 *, 0x72) <= 0) {
             fn_80266FCC(arg0, -1);

@@ -8,13 +8,13 @@ extern "C" {
 
 void TObjPlayer__sub_80123F70(void* p);
 void TObjPlayer__sub_80123F7C(void* p);
-void TObjPlayer__sub_80123F88(void *arg0);
+void refresh_inventory_slot__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_801004DC(s32, s32, s32, s32);
 s32 TObjPlayer__sub_8010069C();
 
 void TObjPlayer__sub_80123F70(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
 void TObjPlayer__sub_80123F7C(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
-void TObjPlayer__sub_80123F88(void *arg0) {
+void refresh_inventory_slot__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
     TObjPlayer__sub_8010069C();

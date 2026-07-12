@@ -73,10 +73,10 @@ struct VObj_8034EFDC : Base_8034EFDC {
 
 extern "C" {
 
-void TObjPlayer__sub_8034EFDC(void *arg0);
+void spawn_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
 
-void TObjPlayer__sub_8034EFDC(void *arg0) {
+void spawn_effect__10TObjPlayerFPv(void *arg0) {
     u8 sp8[0x18];
     struct VObj_8034EFDC *o = (struct VObj_8034EFDC *)M2C_FIELD(arg0, void **, 0xF0);
     o->m63(0x30, sp8);

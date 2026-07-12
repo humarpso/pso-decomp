@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80292E90(void);
+s32 get_clamped_time_limit__6TLobbyFv(void);
 s32 TLobby__sub_8006F994(s32);
 s32 TLobby__sub_80293080();
 
 extern M2C_UNK lbl_804DB1F0[];
 
-s32 TLobby__sub_80292E90(void) {
+s32 get_clamped_time_limit__6TLobbyFv(void) {
     s32 var_r3;
 
     if (TLobby__sub_80293080() == 0) {

@@ -7,7 +7,7 @@ void TWindowMainMenu__sub_802ADB0C(void* p);
 int TWindowMainMenu__sub_802ADB1C(void* p);
 int TWindowMainMenu__sub_802ADB28(void* p);
 
-s32 TWindowMainMenu__sub_802ADC40(s32 arg0) {
+s32 count_active_items__15TWindowMainMenuFi(s32 arg0) {
     s32 counter;
     s32 ptr;
 

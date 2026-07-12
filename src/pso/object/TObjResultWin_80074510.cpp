@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjResultWin__sub_80074510(u8 *arg0);
+void create_window__13TObjResultWinFPv(u8 *arg0);
 s32 TCameraCtrl__sub_8006B338();
 M2C_UNK fn_8024422C(u32, f32, f32);
 M2C_UNK TLobby__sub_80244D2C(u32, f32);
@@ -18,7 +18,7 @@ extern M2C_UNK lbl_8048D1A0[];
 extern const f32 lbl_805D915C;
 extern const f32 lbl_805D9160;
 
-void TObjResultWin__sub_80074510(u8 *arg0) {
+void create_window__13TObjResultWinFPv(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = TLobby__sub_80269D24(TWindowSubComCard__sub_8026CBB8(0x41), lbl_8048D1A0, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         if (TCameraCtrl__sub_8006B338() == 4) {

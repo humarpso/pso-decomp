@@ -37,13 +37,13 @@ struct VObj_801D4A6C : Base_801D4A6C {
 
 extern "C" {
 
-void TObjPlayer__sub_801D4A6C(void *arg0, s32 arg1, s32 arg2);
+void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
 s32 TObjPlayer__sub_801C1A70();
 void *get_owner_if_alive__10TObjPlayerFPv(s32);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
-void TObjPlayer__sub_801D4A6C(void *arg0, s32 arg1, s32 arg2) {
+void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     s16 temp_r4;
     void *temp_r3;
 

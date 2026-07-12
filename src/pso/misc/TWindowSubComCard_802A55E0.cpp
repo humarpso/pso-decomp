@@ -18,8 +18,8 @@ int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
 void run_task__19TWindowMessageYesNoFv(void* p);
 int TWindowSubShortMail__sub_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void TAdChrSelASlotGC__sub_802A596C(void* p, void* a1, void* a2);
-void TWindowSubComCard__sub_802A56C4(void* p);
-void TWindowSubComCard__sub_802A56F0(void* p);
+void update_card_slot__17TWindowSubComCardFPv(void* p);
+void notify_trade_main__17TWindowSubComCardFPv(void* p);
 void TWindowSubShortMail__sub_802A571C(void* p);
 int close__17TWindowSubComCardFPv(void* p);
 void free_member__17TWindowSubComCardFPv(void* p);
@@ -29,7 +29,7 @@ int TWindowSubComCard__sub_80265C10(void*);
 int TWindowSubTradeMain__sub_80287560(void*);
 int queue_destruction__7TObjectFv(void*);
 
-void TWindowSubComCard__sub_802A55E0(void *arg0) {
+void free_windows__17TWindowSubComCardFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
         TWindowSubComCard__sub_80244888(M2C_FIELD(arg0, void **, 0x28));
     }

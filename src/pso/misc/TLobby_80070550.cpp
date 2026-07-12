@@ -15,10 +15,10 @@ s32 fn_8026A328();
 int TLobby__sub_8006FF98(void*);
 int TLobby__sub_80070170(void*);
 int TLobby__sub_800704CC(void* a0 = 0);
-void TLobby__sub_80070554(void* p);
+void cleanup_if_inactive__6TLobbyFPv(void* p);
 void TLobby__sub_80070550(void);
 
 void TLobby__sub_80070550(void) {  }
-void TLobby__sub_80070554(void* p) { if (TLobby__sub_800704CC(p) == 0) { TLobby__sub_80070170(p); TLobby__sub_8006FF98(p); } }
+void cleanup_if_inactive__6TLobbyFPv(void* p) { if (TLobby__sub_800704CC(p) == 0) { TLobby__sub_80070170(p); TLobby__sub_8006FF98(p); } }
 
 }

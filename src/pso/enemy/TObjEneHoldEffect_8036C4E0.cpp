@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneHoldEffect__sub_8036C4E0(void *arg0);
+s32 is_valid_hold_params__17TObjEneHoldEffectFPv(void *arg0);
 s32 TObjEneHoldEffect__sub_8036C5C8(void *arg0);
-s32 TObjEneHoldEffect__sub_8036CDA8();
+s32 is_target_valid__17TObjEneHoldEffectFPv();
 u16 TObjRoomId__sub_801A1DB8(u16);
 u32 TPhotonMylla__sub_80154CB4(u16);
 
-s32 TObjEneHoldEffect__sub_8036C4E0(void *arg0) {
+s32 is_valid_hold_params__17TObjEneHoldEffectFPv(void *arg0) {
     s16 temp_r3;
 
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     if (M2C_FIELD(arg0, s16 *, 4) < 0) {

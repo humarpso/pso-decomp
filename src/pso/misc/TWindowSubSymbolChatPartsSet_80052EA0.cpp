@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void* p, void* q);
-void fn_80052EB4(void *arg0);
-void fn_80052EE8(void);
-void fn_80052EEC(void* p);
+void TBoss4Type2__sub_80052EB4(void *arg0);
+void TBoss4Type2__sub_80052EE8(void);
+void TBoss4Type2__sub_80052EEC(void* p);
 s32 TBoss4Type2__sub_800542B0(void * a0 = 0, s32 a1 = 0);
 
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
-void fn_80052EB4(void *arg0) {
+void TBoss4Type2__sub_80052EB4(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;
@@ -22,7 +22,7 @@ void fn_80052EB4(void *arg0) {
         TBoss4Type2__sub_800542B0(arg0, 4);
     }
 }
-void fn_80052EE8(void) {  }
-void fn_80052EEC(void* p) { *(s32*)((char*)p + 0x398) = 75; }
+void TBoss4Type2__sub_80052EE8(void) {  }
+void TBoss4Type2__sub_80052EEC(void* p) { *(s32*)((char*)p + 0x398) = 75; }
 
 }

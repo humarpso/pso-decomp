@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRecon__sub_8029EB90(void);
+void destroy_instance__12TObjEneReconFv(void);
 M2C_UNK TObjPlayer__sub_8029F694(void*);
 void __dl__FPv(void*);
 s32 fn_8029E764();
@@ -14,7 +14,7 @@ s32 fn_8029E764();
 extern s32 lbl_805D65F4;
 extern u32 lbl_805D65FC;
 
-void TObjEneRecon__sub_8029EB90(void) {
+void destroy_instance__12TObjEneReconFv(void) {
     lbl_805D65F4 = 0;
     if (fn_8029E764() != 0) {
         if ((u32) lbl_805D65FC != 0U) {

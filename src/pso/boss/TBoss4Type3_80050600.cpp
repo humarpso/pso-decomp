@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4Type3__sub_80050600(void *arg0);
+void check_attack_trigger__11TBoss4Type3FPv(void *arg0);
 
 extern s32 lbl_805D5550;
 extern f32 lbl_805D8A44;
 
-void TBoss4Type3__sub_80050600(void *arg0) {
+void check_attack_trigger__11TBoss4Type3FPv(void *arg0) {
     if (((s32) lbl_805D5550 == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x338) >= 0x78) && (M2C_FIELD(arg0, f32 *, 0x37C) > (lbl_805D8A44 * M2C_FIELD(arg0, f32 *, 0x378)))) {
         M2C_FIELD(arg0, s32 *, 0x368) = 1;
     }

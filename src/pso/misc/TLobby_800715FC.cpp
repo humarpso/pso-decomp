@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_800715FC(s32 arg0);
+s32 set_split_screen_flag__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_80070AB0();
 
 extern s32 lbl_805D5550;
 
-s32 TLobby__sub_800715FC(s32 arg0) {
+s32 set_split_screen_flag__6TLobbyFi(s32 arg0) {
     if (TLobby__sub_80070AB0() == 0) {
         return 0;
     }

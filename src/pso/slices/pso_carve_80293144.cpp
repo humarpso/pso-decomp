@@ -10,7 +10,7 @@ s32 is_split_screen();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK TLobby__sub_802925C4(void *);
-u32 TLobby__sub_802930C8();
+u32 create_challenge4p__6TLobbyFv();
 M2C_UNK TObjPlayer__sub_802C3D38(u32, u32);
 extern s32 lbl_80464E58[];
 extern u32 lbl_805D6580;
@@ -33,7 +33,7 @@ void setup_split_screen(void) {
         return;
     }
     if ((s32) lbl_805D6588 != 0) {
-        lbl_805D6580 = TLobby__sub_802930C8();
+        lbl_805D6580 = create_challenge4p__6TLobbyFv();
         lbl_805D6584 = 1;
         lbl_805D6588 = 0;
         TLobby__sub_802925C4(lbl_80464E58);

@@ -9,7 +9,7 @@ extern "C" {
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(void *, s8);
 
-void TWindowSubQuestBoardSelect__sub_8027D2EC(void *arg0) {
+void update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *arg0) {
     s32 var_r30;
     s32 var_r29;
     u16 *temp_r31;

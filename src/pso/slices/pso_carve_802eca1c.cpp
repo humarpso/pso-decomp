@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TBoss7Joint__sub_802EE704(void *);
+void read_state__11TBoss7JointFPv(void *);
 void *get_enemy_entity(int);
 void fn_802EC9A4(void *, void *);
 
 void handle_6xAA_barba_ray_boss_actions(void *arg0) {
     void *x;
-    TBoss7Joint__sub_802EE704(arg0);
+    read_state__11TBoss7JointFPv(arg0);
     x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
     if (x != NULL) {
         fn_802EC9A4(x, arg0);

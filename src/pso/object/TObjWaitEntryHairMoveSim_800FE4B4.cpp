@@ -4,19 +4,19 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjWaitEntryHairMoveSim__sub_800FE4B4(void *arg0);
-void *TObjWaitEntryHairMoveSim__sub_800FE45C(void *, void *);
+void * create__24TObjWaitEntryHairMoveSimFPv(void *arg0);
+void *construct__24TObjWaitEntryHairMoveSimFPvi(void *, void *);
 void *__nw__7TObjectFUl(int);
 int TObjWaitEntryHairMoveSim__sub_800FE300(void *);
 
-void * TObjWaitEntryHairMoveSim__sub_800FE4B4(void *arg0) {
+void * create__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
     void *o;
     if (TObjWaitEntryHairMoveSim__sub_800FE300(arg0) == 0) {
         return NULL;
     }
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = TObjWaitEntryHairMoveSim__sub_800FE45C(o, arg0);
+        o = construct__24TObjWaitEntryHairMoveSimFPvi(o, arg0);
     }
     return o;
 }

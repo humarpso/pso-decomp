@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
-void TObjPlayer__sub_802D5C80(void *arg0);
-void TObjPlayer__sub_802D5CD0(void *arg0);
+void update_swim_flag__10TObjPlayerFPv(void *arg0);
+void create_cane_effect_from_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_8011F63C();
 M2C_UNK TObjPlayer__sub_80120304(M2C_UNK *, void *);
@@ -26,7 +26,7 @@ void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg1, s32 *, 0x70) = (s32) M2C_FIELD(arg0, s32 *, 0x204);
 }
 
-void TObjPlayer__sub_802D5C80(void *arg0) {
+void update_swim_flag__10TObjPlayerFPv(void *arg0) {
     if (TObjPlayer__sub_8011F63C() == 2) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) | 1);
         return;
@@ -36,7 +36,7 @@ void TObjPlayer__sub_802D5C80(void *arg0) {
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_802D5CD0(void *arg0) {
+void create_cane_effect_from_state__10TObjPlayerFPv(void *arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
         create_item_eff_cane__10TObjPlayerFiUiii(tl_05, arg0, -1, M2C_FIELD(arg0, s32 *, 0x1FC));
     }

@@ -13,7 +13,7 @@ s32 TLobby__sub_803CC53C(s32);
 M2C_UNK TLobby__sub_803CCE9C(s32);
 s32 TLobby__sub_803CD3A8(s32, M2C_UNK);
 M2C_UNK TLobby__sub_803DE7BC(void *, s32, M2C_UNK);
-u8 *TLobby__sub_800FA848();
+u8 *link_into_list__6TLobbyFPv();
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 
 struct Ent_800fa164;
@@ -35,7 +35,7 @@ s32 create_file_load_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 ar
     }
     var_r31 = (struct Ent_800fa164 *)alloc_from_heap__6TLobbyFPv(0x68);
     if (var_r31 != NULL) {
-        var_r31 = (struct Ent_800fa164 *)TLobby__sub_800FA848();
+        var_r31 = (struct Ent_800fa164 *)link_into_list__6TLobbyFPv();
     }
     strncpy((u8 *)var_r31 + 8, arg0, 0x20);
     M2C_FIELD(var_r31, s32 *, 0) = 2;

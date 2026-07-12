@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemLoad__sub_8010F9EC(u8 *arg0);
+void reset_ring_state__9TItemLoadFPv(u8 *arg0);
 M2C_UNK TAdRicoRing__sub_8001BEE8(void *, int);
 s32 TObjPlayer__sub_8001BEF8(void *, int);
 M2C_UNK TObjPlayer__sub_8001BF40(void *);
 
 extern s32 lbl_805D5498;
 
-void TItemLoad__sub_8010F9EC(u8 *arg0) {
+void reset_ring_state__9TItemLoadFPv(u8 *arg0) {
     if (TObjPlayer__sub_8001BEF8(arg0 + 0x1C, 4) != 0) {
         lbl_805D5498 = 0;
         TAdRicoRing__sub_8001BEE8(arg0 + 0x1C, 4);

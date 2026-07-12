@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800ABD7C(void);
+void update_particle_by_phase__10TObjPlayerFv(void);
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 
 extern s32 lbl_805D50C4;
 
-void TObjPlayer__sub_800ABD7C(void) {
+void update_particle_by_phase__10TObjPlayerFv(void) {
     switch (lbl_805D50C4) {
     case 0x10:
     case 0x1A:

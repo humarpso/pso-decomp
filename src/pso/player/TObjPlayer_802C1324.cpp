@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjPlayer__sub_802C1324(void *arg0);
-void TObjPlayer__sub_802C1370(void);
+void *create_child_object__10TObjPlayerFPv(void *arg0);
+void destroy_instance__10TObjPlayerFv(void);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
@@ -16,7 +16,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TObjPlayer__sub_802C1324(void *arg0) {
+void *create_child_object__10TObjPlayerFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD0);
     if (o != NULL) {
         o = TObjPlayer__sub_802C19E8(o, tl_05, arg0);
@@ -27,7 +27,7 @@ void *TObjPlayer__sub_802C1324(void *arg0) {
 extern u32 lbl_805D67B0;
 extern u32 lbl_805D67B4;
 
-void TObjPlayer__sub_802C1370(void) {
+void destroy_instance__10TObjPlayerFv(void) {
     if ((u32) lbl_805D67B4 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D67B4);
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D67B4);

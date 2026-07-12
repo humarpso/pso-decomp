@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800C07FC(void *arg0);
+void enter_down_state__10TObjPlayerFPv(void *arg0);
 s32 obj_testFlags30(void *, M2C_UNK);
 
-void TObjPlayer__sub_800C07FC(void *arg0) {
+void enter_down_state__10TObjPlayerFPv(void *arg0) {
     u16 temp_r4;
 
     if (!(M2C_FIELD(arg0, s16 *, 0x374) & 0x42) && (obj_testFlags30(arg0, 0xA02) == 0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 2)) {

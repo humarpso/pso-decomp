@@ -10,7 +10,7 @@ void run_task__11TWindowRoomFv(void* p);
 int fn_8026D504(void* p);
 void fn_8026D528(void *arg0, s32 arg1);
 void fn_8026D564(void *arg0, s32 arg1);
-void TWindowRoom__sub_8026D594(s32 arg0);
+void draw_status__11TWindowRoomFi(s32 arg0);
 int get_array_entry__20TWindowSubStatusDispFPvi(void*, int);
 s32 TWindowSubStatusDisp__sub_8025AC50(s32, s32, s32);
 s32 TWindowDD__sub_80244CF4();
@@ -26,7 +26,7 @@ void fn_8026D528(void *arg0, s32 arg1) {
 void fn_8026D564(void *arg0, s32 arg1) {
     TWindowSubStatusDisp__sub_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
 }
-void TWindowRoom__sub_8026D594(s32 arg0) {
+void draw_status__11TWindowRoomFi(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = TWindowDD__sub_80244CF4();

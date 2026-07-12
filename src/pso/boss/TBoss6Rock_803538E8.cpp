@@ -7,7 +7,7 @@ extern "C" {
 void check_and_destroy__10TBoss6RockFPv(void* p);
 void *destroy__10TBoss6RockFPvs(void *arg0, s16 arg1);
 void *init_object__10TBoss6RockFPvPv(void *arg0, void *);
-void *TBoss6Rock__sub_803539C8(void);
+void *create__10TBoss6RockFv(void);
 int TBoss6Rock__sub_80353A04(void);
 int TBoss6Rock__sub_80353A0C(void);
 int TBoss6Rock__sub_80354A30(void*);
@@ -43,7 +43,7 @@ void *init_object__10TBoss6RockFPvPv(void *arg0, void *) {
 
 extern void *tl_06;
 
-void *TBoss6Rock__sub_803539C8(void) {
+void *create__10TBoss6RockFv(void) {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
         o = init_object__10TBoss6RockFPvPv((void *)(o), (void *)(tl_06));

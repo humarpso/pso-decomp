@@ -83,7 +83,7 @@ struct VObj18_8011d87c : VBase18_8011d87c {
 extern "C" {
 
 void TItemTimer__sub_8011D7DC(void *arg0);
-void TItemTimer__sub_8011D87C(void *arg0);
+void update__10TItemTimerFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8003F108(void *);
 s32 TOBoss4Rock__sub_8039C880();
 s32 TOSwitchAttack__sub_80087278(s32, s32, M2C_UNK);
@@ -112,7 +112,7 @@ void TItemTimer__sub_8011D7DC(void *arg0) {
 extern const f64 lbl_8043E820;
 extern const f32 lbl_805DAC78;
 
-void TItemTimer__sub_8011D87C(void *arg0) {
+void update__10TItemTimerFPv(void *arg0) {
 
     if (obj_isState2_324(M2C_FIELD(arg0, void **, 0x28)) == 0) {
         if (((VObj18_8011d87c *) M2C_FIELD(arg0, void **, 0x28))->vf84() == 0) {

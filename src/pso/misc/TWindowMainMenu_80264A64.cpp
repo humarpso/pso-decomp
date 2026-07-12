@@ -11,10 +11,10 @@ void TWindowMainMenu__vt7(void);
 int fn_80264A6C(void* p);
 s32 TWindowSubStatusDisp__sub_80077760(s32);
 s8 TLobby__sub_8013AD64();
-int TWindowKeyBoardHard__sub_801A529C(void*, int);
+int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
 void TWindowMainMenu__sub_80264A64(void) {  }
 void TWindowMainMenu__vt7(void) {  }
-int fn_80264A6C(void* p) { return TWindowKeyBoardHard__sub_801A529C(p, 4); }
+int fn_80264A6C(void* p) { return test_card_flag__19TWindowKeyBoardHardFii(p, 4); }
 
 }

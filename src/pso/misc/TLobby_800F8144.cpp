@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_800F8144(s32 arg0);
+void set_fade_params__6TLobbyFi(s32 arg0);
 
 extern void *lbl_805D5330;
 extern const f32 lbl_805DA904;
 
-void TLobby__sub_800F8144(s32 arg0) {
+void set_fade_params__6TLobbyFi(s32 arg0) {
     if ((void *) lbl_805D5330 != NULL) {
         M2C_FIELD(lbl_805D5330, s32 *, 0x28) = arg0;
         M2C_FIELD(lbl_805D5330, f32 *, 0x1C) = (f32) lbl_805DA904;

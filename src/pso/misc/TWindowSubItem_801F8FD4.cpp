@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowSubItem__sub_801F8FD4(void *arg0);
-M2C_UNK fn_8028783C(M2C_UNK, M2C_UNK);
+M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(M2C_UNK, M2C_UNK);
 
 void TWindowSubItem__sub_801F8FD4(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) & 0xFFFFFFFD);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
-        fn_8028783C(M2C_FIELD(arg0, M2C_UNK *, 0x80), 1);
+        set_entry_state__20TWindowSubStatusDispFPvc(M2C_FIELD(arg0, M2C_UNK *, 0x80), 1);
     }
 }
 

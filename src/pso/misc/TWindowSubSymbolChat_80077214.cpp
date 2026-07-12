@@ -6,7 +6,7 @@ int TWindowSubSymbolChat__sub_800771E4(void* a0 = 0, void* a1 = 0, void* a2 = 0,
 
 int TWindowSubSymbolChat__sub_80077718(void*);
 void TWindowSubSymbolChat__sub_80077310(void* p);
-void TWindowSubSymbolChat__sub_80077334(void* p);
+void update_layout__20TWindowSubSymbolChatFPv(void* p);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 
 void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {

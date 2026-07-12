@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_8007A894(u32 arg0);
+s32 find_card_by_id__17TWindowSubComCardFUi(u32 arg0);
 s32 TWindowSubComCard__sub_8007A8F8(M2C_UNK);
 u32 TWindowSubComCard__sub_8007B6D8(s32);
 
-s32 TWindowSubComCard__sub_8007A894(u32 arg0) {
+s32 find_card_by_id__17TWindowSubComCardFUi(u32 arg0) {
     s32 i;
     s32 acc;
 

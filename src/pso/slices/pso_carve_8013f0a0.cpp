@@ -21,7 +21,7 @@ s32 TMainCursor__sub_8013F168(void* p);
 void TMainCursor__sub_8013F170(void* p, s32 v);
 f32 TMainCursor__sub_8013F178(void* p);
 void TMainCursor__sub_8013F180(void* p, f32 v);
-int TMainCursor__sub_8013F188(void* p);
+int get_rader_map__11TMainCursorFPv(void* p);
 int TRaderMapCore__sub_8002F588(void*);
 
 int fn_8013F0A0(void) { return 0; }

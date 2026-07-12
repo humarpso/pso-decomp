@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_802F1848(f32);
+M2C_UNK spawn_particle__8TObjFishFiif(f32);
 extern const f32 lbl_805DEC90;
 
 void fn_802F178C(void) {
-    fn_802F1848(lbl_805DEC90);
+    spawn_particle__8TObjFishFiif(lbl_805DEC90);
 }
 
 }

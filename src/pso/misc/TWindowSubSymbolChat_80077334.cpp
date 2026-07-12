@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubSymbolChat__sub_80077334(void* p);
-void TWindowSubSymbolChat__sub_80077358(void);
+void update_layout__20TWindowSubSymbolChatFPv(void* p);
+void update_symbol_chat_result__20TWindowSubSymbolChatFv(void);
 void TWindowSubSymbolChat__sub_8007737C(void *arg0);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 int TWindowSubSymbolChat__sub_80077098(void);
@@ -18,10 +18,10 @@ int TWindowSubSymbolChat__sub_80077480(void);
 int TWindowSubSymbolChat__sub_80077718(void*);
 s32 TWindowSubSymbolChat__sub_80077720();
 
-void TWindowSubSymbolChat__sub_80077334(void* p) { TWindowSubSymbolChat__sub_80077718(p); TWindowSubSymbolChat__sub_800770D0(); }
+void update_layout__20TWindowSubSymbolChatFPv(void* p) { TWindowSubSymbolChat__sub_80077718(p); TWindowSubSymbolChat__sub_800770D0(); }
 
     extern int lbl_805D4E50;
-void TWindowSubSymbolChat__sub_80077358(void) { lbl_805D4E50 = TWindowSubSymbolChat__sub_80077480(); }
+void update_symbol_chat_result__20TWindowSubSymbolChatFv(void) { lbl_805D4E50 = TWindowSubSymbolChat__sub_80077480(); }
 
 void TWindowSubSymbolChat__sub_8007737C(void *arg0) {
     if (TWindowSubSymbolChat__sub_80077720() != 0) {

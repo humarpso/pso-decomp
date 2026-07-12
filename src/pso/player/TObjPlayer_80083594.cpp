@@ -10,7 +10,7 @@ void TObjPlayer__sub_80083594(void);
 M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjFish__sub_803DA798(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_800847D4(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
@@ -23,7 +23,7 @@ void TObjPlayer__sub_80083594(void) {
     if (is_split_screen() == 0) {
         GXSetTevOrder(1, 1, 1, 4);
         GXSetTevOp(1, 2);
-        TObjPlayer__sub_800847D4(1, 0, 0, 0x1E);
+        set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
         TObjFish__sub_803DA798(lbl_8048E5B4);
         TObjPlayer__sub_803E1D90(0, 0, 0, 1);
         some_id_805c6f74 |= 0x80000;

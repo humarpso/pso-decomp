@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80224660(s32 arg0) {
+s32 classify_level_bracket_wide__6TLobbyFi(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 5)) {
         return 0;
     }
@@ -40,7 +40,7 @@ s32 TLobby__sub_80224660(s32 arg0) {
     return -1;
 }
 
-s32 TLobby__sub_80224750(s32 arg0) {
+s32 get_level_bracket__6TLobbyFi(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 3)) {
         return 0;
     }
@@ -105,7 +105,7 @@ s32 TLobby__sub_80224840(s32 arg0) {
     return -1;
 }
 
-s32 TLobby__sub_80224918(s32 arg0) {
+s32 classify_level_bracket_narrow__6TLobbyFi(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 3)) {
         return 0;
     }

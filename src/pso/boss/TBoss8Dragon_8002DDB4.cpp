@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss8Dragon__sub_8002DDB4(void);
-M2C_UNK TBoss8Dragon__sub_8002DDDC(f32, f32);
+M2C_UNK apply_velocity_scale__12TBoss8DragonFPvff(f32, f32);
 
 extern const f32 lbl_805D81D4;
 extern const f32 lbl_805D81E4;
 
 void TBoss8Dragon__sub_8002DDB4(void) {
-    TBoss8Dragon__sub_8002DDDC(lbl_805D81E4, lbl_805D81D4);
+    apply_velocity_scale__12TBoss8DragonFPvff(lbl_805D81E4, lbl_805D81D4);
 }
 
 }

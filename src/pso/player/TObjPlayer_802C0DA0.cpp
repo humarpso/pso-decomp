@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_802C0DA0(void *arg0);
-s32 TObjPlayer__sub_802C0A38(void *);
+void calc_level_display_state__10TObjPlayerFPv(void *arg0);
+s32 remap_episode__10TObjPlayerFv(void *);
 
-void TObjPlayer__sub_802C0DA0(void *arg0) {
+void calc_level_display_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x8C) < 1) {
@@ -29,7 +29,7 @@ void TObjPlayer__sub_802C0DA0(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xA4) = 5;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xA4) == TObjPlayer__sub_802C0A38(arg0)) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xA4) == remap_episode__10TObjPlayerFv(arg0)) {
         M2C_FIELD(arg0, s32 *, 0x98) = 3;
         return;
     }

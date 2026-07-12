@@ -15,7 +15,7 @@ f32 TObjPlayer__sub_801D2858(void *);
 M2C_UNK TObjPlayer__sub_8001BF40(void *);
 M2C_UNK TObjPlayer__sub_800A7798(void *, f32);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s16);
-M2C_UNK TObjPlayer__sub_801C6780(void *, void *, f32);
+M2C_UNK apply_stat_multipliers_and_reset__10TObjPlayerFPv(void *, void *, f32);
 s32 is_matching_id__10TObjPlayerFPvs(void *, s16);
 
 extern const f32 lbl_805DC3B0;
@@ -32,7 +32,7 @@ void start_action__10TObjPlayerFPv(u8 *arg0) {
     if (is_matching_id__10TObjPlayerFPvs(arg0, temp_r3) != 0) {
         TObjPlayer__sub_801D268C(arg0);
     }
-    TObjPlayer__sub_801C6780(arg0 + 0x5E0, arg0, lbl_805DC3B0);
+    apply_stat_multipliers_and_reset__10TObjPlayerFPv(arg0 + 0x5E0, arg0, lbl_805DC3B0);
     set_action_state__10TObjPlayerFPvss(arg0, 4, temp_r3);
     temp_f31 = TObjPlayer__sub_801D2858(arg0 + 0x5E0);
     temp_f1 = TObjPlayer__sub_801D2640(arg0);

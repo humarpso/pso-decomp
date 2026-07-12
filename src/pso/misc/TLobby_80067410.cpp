@@ -11,7 +11,7 @@ M2C_UNK TLobby__sub_80066EC0();
 M2C_UNK fn_802898E8();
 M2C_UNK fn_8028AB38();
 M2C_UNK TObjBoss5PillarDemo__sub_8028ACE0();
-M2C_UNK TObjBoss5PillarCtrl__sub_8028B36C();
+M2C_UNK update_pillar__19TObjBoss5PillarCtrlFPv();
 void queue_destruction__7TObjectFv(void*);
 
 extern u32 lbl_805D4DE0;
@@ -22,7 +22,7 @@ void TLobby__sub_80067410(void) {
         lbl_805D4DE0 = 0U;
     }
     TObjBoss5PillarDemo__sub_8028ACE0();
-    TObjBoss5PillarCtrl__sub_8028B36C();
+    update_pillar__19TObjBoss5PillarCtrlFPv();
     fn_802898E8();
     fn_8028AB38();
     TLobby__sub_80066EC0();

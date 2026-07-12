@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80132ED0(void);
+void update_menu_cursor__6TLobbyFv(void);
 void *TAdSinglePlyChrSelectGC__sub_8001ED80();
 s8 fn_80132EC8();
 
 extern s32 lbl_805D5544;
 
-void TLobby__sub_80132ED0(void) {
+void update_menu_cursor__6TLobbyFv(void) {
     void *temp_r3;
 
     temp_r3 = TAdSinglePlyChrSelectGC__sub_8001ED80();

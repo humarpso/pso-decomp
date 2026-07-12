@@ -2,18 +2,18 @@
 
 extern "C" {
 
-int TObjPlayer__sub_801D0D10(void* p);
+int update_lobby_chair__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D0D34(void* p);
 int TObjPlayer__sub_801D0D58(void* p);
 void TObjPlayer__sub_801D0D7C(void* p);
 void TObjPlayer__sub_801D0D8C(void* p);
 void TObjPlayer__sub_801D0D9C(void* p);
 int TObjPlayer__sub_801D0DAC(void* p);
-int TObjPlayer__sub_801D0DD0(void* p);
+int start_action18_sub__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D0DF4(void* p);
 void TObjPlayer__sub_801D0E18(void* p);
 int TObjPlayer__sub_801D0E28(void* p);
-int TObjPlayer__sub_801D0E34(void* p);
+int forward_1D1044_at_34c__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D0E58(void* p);
 void TObjPlayer__sub_801D0E64(void* p);
 void TObjPlayer__sub_801D0E74(void* p);

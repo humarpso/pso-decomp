@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDolmOlm__sub_80300E8C(void *arg0);
+void init_body_sub__14TObjEneDolmOlmFPv(void *arg0);
 M2C_UNK TObjEneDolmOlm__sub_80300D00(void *, void *);
 
-void TObjEneDolmOlm__sub_80300E8C(void *arg0) {
+void init_body_sub__14TObjEneDolmOlmFPv(void *arg0) {
     TObjEneDolmOlm__sub_80300D00(arg0, (s8 *)arg0 + 0x38);
 }
 

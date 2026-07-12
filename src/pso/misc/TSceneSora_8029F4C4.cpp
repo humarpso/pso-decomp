@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TSceneSora__sub_8029F4C4(void *arg0);
+void *create_instance__10TSceneSoraFPv(void *arg0);
 M2C_UNK __ct__7TObjectFP7TObject();
 void *__nw__7TObjectFUl(M2C_UNK);
 void *fn_803281B8(void *, M2C_UNK, M2C_UNK, s32);
@@ -20,7 +20,7 @@ extern s32 lbl_805D65FC;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
 
-void *TSceneSora__sub_8029F4C4(void *arg0) {
+void *create_instance__10TSceneSoraFPv(void *arg0) {
     void *obj;
 
     __ct__7TObjectFP7TObject();

@@ -15,7 +15,7 @@ u32 TItemData__sub_8010D028(s32, M2C_UNK, s32);
 s32 TItemData__sub_8010DF68(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 TWindowHelpItem__sub_80104FCC(s32, s32, s32 *);
-u8 TItemData__sub_8010EB10(s32);
+u8 calc_display_grade__9TItemDataFPv(s32);
 s32 TItemData__sub_8010EC88(s32);
 
 void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
@@ -55,7 +55,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
                 M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x800);
                 return;
             }
-            if (TItemData__sub_8010EB10(arg1) >= 9U) {
+            if (calc_display_grade__9TItemDataFPv(arg1) >= 9U) {
                 M2C_FIELD(arg0, s32 *, 0x30) = -0x1600;
                 return;
             }

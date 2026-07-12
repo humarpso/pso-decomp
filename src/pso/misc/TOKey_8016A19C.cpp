@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOKey__sub_8016A19C(u8 *arg0, s32 arg1);
+void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1);
 s32 calc_angle_to__10TObjPlayerFPvPv(s32, void *);
 M2C_UNK start_camera_pan__10TObjPlayerFPvs(s32, M2C_UNK, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
-void TOKey__sub_8016A19C(u8 *arg0, s32 arg1) {
+void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r3;
 

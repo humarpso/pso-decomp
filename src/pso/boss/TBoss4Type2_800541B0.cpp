@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4Type2__sub_800541B0(void *arg0, s32 arg1, s32 arg2);
+void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 
 extern M2C_UNK lbl_80437628;
 
-void TBoss4Type2__sub_800541B0(void *arg0, s32 arg1, s32 arg2) {
+void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (arg1 + (s32) (M2C_FIELD(arg0, f32 *, 0x39C) * (f32) TBoss4Type2__sub_80141FA8(arg1, arg2)));
 }
 

@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowComCard__sub_80249D34(void *arg0, s32 arg1);
-M2C_UNK TWindowComCard__sub_80249C3C(M2C_UNK, s32);
+void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1);
+M2C_UNK set_help_mode__14TWindowComCardFPvi(M2C_UNK, s32);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 
-void TWindowComCard__sub_80249D34(void *arg0, s32 arg1) {
+void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1) {
     M2C_UNK temp;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x70) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x70) = arg1;
         temp = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-        TWindowComCard__sub_80249C3C(temp, M2C_FIELD(arg0, s32 *, 0x70));
+        set_help_mode__14TWindowComCardFPvi(temp, M2C_FIELD(arg0, s32 *, 0x70));
     }
 }
 

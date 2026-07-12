@@ -8,7 +8,7 @@ extern "C" {
 
 void *TItemMagGrowEff__ct(void *arg0, void *arg1, u32 arg2);
 s32 TBoss4Type2__sub_800874F4(s32, M2C_UNK);
-M2C_UNK TItemMagGrowEff__sub_80115924(u32);
+M2C_UNK set_grow_flag__15TItemMagGrowEffFPv(u32);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -23,7 +23,7 @@ void *TItemMagGrowEff__ct(void *arg0, void *arg1, u32 arg2) {
         M2C_FIELD(arg0, u32 *, 0x24) = arg2;
         M2C_FIELD(arg0, s32 *, 0x1C) = 0;
         M2C_FIELD(arg0, s32 *, 0x20) = TBoss4Type2__sub_800874F4(M2C_FIELD(arg0, u32 *, 0x24) + 0xDC, 0x9D);
-        TItemMagGrowEff__sub_80115924(M2C_FIELD(arg0, u32 *, 0x24));
+        set_grow_flag__15TItemMagGrowEffFPv(M2C_FIELD(arg0, u32 *, 0x24));
     } else {
         M2C_FIELD(arg0, u32 *, 0x24) = 0U;
         M2C_FIELD(arg0, s32 *, 0x20) = 0;

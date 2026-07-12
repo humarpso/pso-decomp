@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800F0840(void);
+void clear_alt_model_flag__10TObjPlayerFv(void);
 M2C_UNK TObjPlayer__sub_803DED78(M2C_UNK, M2C_UNK);
 
 extern s32 some_id_805c6f74;
 
-void TObjPlayer__sub_800F0840(void) {
+void clear_alt_model_flag__10TObjPlayerFv(void) {
     some_id_805c6f74 &= 0xFFFFF7FF;
     TObjPlayer__sub_803DED78(0xFF00, 0);
 }

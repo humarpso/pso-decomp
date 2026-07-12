@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800D9050(s32 arg1, s32 arg2);
+void spawn_effect_f8__10TObjPlayerFii(s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_800869A4(M2C_UNK, M2C_UNK, M2C_UNK, s32);
 
-void TObjPlayer__sub_800D9050(s32 arg1, s32 arg2) {
+void spawn_effect_f8__10TObjPlayerFii(s32 arg1, s32 arg2) {
     TLobby__sub_800869A4(arg1, 0xF8, 0, arg2);
 }
 

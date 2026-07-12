@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TObjEneMe3ShinowaMirage__sub_800E3B6C(void);
+int init_mirage__23TObjEneMe3ShinowaMirageFPv(void);
 int TObjEneMe3ShinowaReal__sub_800E4554(void* a0 = 0, void* a1 = 0);
 void spawn_mirages__21TObjEneMe3ShinowaRealFPv(void* p);
 int TObjEneMe3Shinowa__vt60(void*);

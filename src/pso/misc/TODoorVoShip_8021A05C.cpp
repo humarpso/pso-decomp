@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TODoorVoShip__sub_8021A05C(void);
+void update_event_unlocks__12TODoorVoShipFv(void);
 M2C_UNK TBoss4DarkFalz__sub_801F4830(M2C_UNK);
 s32 TODoorVoShip__sub_801F44BC(M2C_UNK);
 
-void TODoorVoShip__sub_8021A05C(void) {
+void update_event_unlocks__12TODoorVoShipFv(void) {
     TBoss4DarkFalz__sub_801F4830(0x64);
     TBoss4DarkFalz__sub_801F4830(0x66);
     TBoss4DarkFalz__sub_801F4830(0x6A);

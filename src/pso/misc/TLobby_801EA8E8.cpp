@@ -8,14 +8,14 @@ extern "C" {
 
 void TLobby__sub_801EA8E8(void);
 M2C_UNK TLobby__sub_8020DBCC();
-M2C_UNK TQuestThread__sub_801F5DD0(u32);
+M2C_UNK clear_buffer__12TQuestThreadFPv(u32);
 M2C_UNK TRaderMapCore__sub_801F9540();
 M2C_UNK TSwitch__sub_8022945C();
 M2C_UNK TLobby__sub_80070C50();
 M2C_UNK TLobby__sub_801036CC();
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK TLobby__sub_802089B0();
-M2C_UNK TLobby__sub_8020A744();
+M2C_UNK init_sub_objects__6TLobbyFv();
 M2C_UNK TLobby__sub_80291FC0();
 
 s32 is_split_screen();
@@ -25,10 +25,10 @@ extern s32 tl_00;
 void TLobby__sub_801EA8E8(void) {
     TLobby__sub_801036CC();
     if ((u32) lbl_805D5EE8 != 0U) {
-        TQuestThread__sub_801F5DD0(lbl_805D5EE8);
+        clear_buffer__12TQuestThreadFPv(lbl_805D5EE8);
     }
     fn_801F57B4(tl_00);
-    TLobby__sub_8020A744();
+    init_sub_objects__6TLobbyFv();
     TLobby__sub_8020DBCC();
     TLobby__sub_802089B0();
     TSwitch__sub_8022945C();

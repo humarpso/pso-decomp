@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjBoss2DustCtrl__sub_8003AD1C(void);
+void create__17TObjBoss2DustCtrlFv(void);
 M2C_UNK TObjBoss2DustCtrl__ct(void*, s32);
 void* __nw__7TObjectFUl(M2C_UNK);
 
 extern s32 tl_05;
 
-void TObjBoss2DustCtrl__sub_8003AD1C(void) {
+void create__17TObjBoss2DustCtrlFv(void) {
     void* obj = __nw__7TObjectFUl(0x1C);
     if (obj != 0) {
         TObjBoss2DustCtrl__ct(obj, tl_05);

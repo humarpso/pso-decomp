@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TCameraCtrl__sub_800766D4();
+s32 should_update__11TCameraCtrlFv();
 
 void fn_800769B4(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x20) = -1;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    if (TCameraCtrl__sub_800766D4() != 0) {
+    if (should_update__11TCameraCtrlFv() != 0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }
 }

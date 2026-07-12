@@ -33,7 +33,7 @@ struct VObj1_80148e54 : Base1_80148e54 {
 
 extern "C" {
 
-void TObjPlayer__sub_80148DCC(void *arg0);
+void update_battle_target__10TObjPlayerFPv(void *arg0);
 void draw_model__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
@@ -50,7 +50,7 @@ M2C_UNK TObjPlayer__sub_803E4BD0();
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 
-void TObjPlayer__sub_80148DCC(void *arg0) {
+void update_battle_target__10TObjPlayerFPv(void *arg0) {
     f32 *temp_r5;
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) {

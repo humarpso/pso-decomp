@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TQuestListOnline__sub_80217BF8(void* p);
+int run_task__16TQuestListOnlineFPv(void* p);
 int TQuestListVM__sub_80073DC4(void*, int);
 
-int TQuestListOnline__sub_80217BF8(void* p) { return TQuestListVM__sub_80073DC4(p, 5); }
+int run_task__16TQuestListOnlineFPv(void* p) { return TQuestListVM__sub_80073DC4(p, 5); }
 
 }

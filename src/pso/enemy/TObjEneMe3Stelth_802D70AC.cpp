@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe3Stelth__sub_802D70AC(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1);
+void spawn_attack__16TObjEneMe3StelthFsiiiff(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1);
 u8 *TObjNpcEnemy__sub_802D732C();
 M2C_UNK fn_802D712C(void *, s32);
 
-void TObjEneMe3Stelth__sub_802D70AC(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1) {
+void spawn_attack__16TObjEneMe3StelthFsiiiff(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1) {
     u8 *temp_r3;
 
     temp_r3 = TObjNpcEnemy__sub_802D732C();

@@ -24,13 +24,13 @@ struct VObj_8003FB3C : Base_8003FB3C {
 
 extern "C" {
 
-void TObjPlayer__sub_8003FB3C(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK TObjPlayer__sub_8003F730(void *, s32);
 s32 obj_testFlags30(void *, s32);
 
 extern s32 lbl_805D4C64;
 
-void TObjPlayer__sub_8003FB3C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r4;
 
     if (obj_testFlags30(arg0, 0x800) == 0) {

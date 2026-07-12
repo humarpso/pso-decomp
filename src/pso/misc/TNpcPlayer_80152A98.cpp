@@ -5,7 +5,7 @@ extern "C" {
 void init_model__10TNpcPlayerFPv(void* p);
 int TObjPlayer__sub_8001960C(void*);
 int TObjPlayer__sub_80102CE0(void*);
-void TNpcPlayer__sub_80152A98(void* p);
+void update__10TNpcPlayerFPv(void* p);
 int update_players__6TLobbyFi(void*);
 int TNpcPlayer__sub_80152ACC(void*);
 void update_players__10TNpcPlayerFPv(void* p);
@@ -26,6 +26,6 @@ void reset_fields_8c__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A30(void);
 void TNpcPlayer__sub_80152D64(void* p);
 
-void TNpcPlayer__sub_80152A98(void* p) { TNpcPlayer__sub_80152ACC(p); update_players__6TLobbyFi(p); }
+void update__10TNpcPlayerFPv(void* p) { TNpcPlayer__sub_80152ACC(p); update_players__6TLobbyFi(p); }
 
 }

@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_801A7680(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
 M2C_UNK fn_801A7A78(void *);
 M2C_UNK TPhotonMagicSquare__ct(s32, void *, M2C_UNK, Vec3 *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_801ADC94(void *);
+M2C_UNK apply_photon_blast_effects__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801ADD10(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -69,7 +69,7 @@ void update_photon_blast(void *arg0) {
         TObjPlayer__sub_801ADD10(arg0);
     }
     if (lbl_805DC254 == (f32) M2C_FIELD(arg0, s32 *, 0x1A8)) {
-        TObjPlayer__sub_801ADC94(arg0);
+        apply_photon_blast_effects__10TObjPlayerFPv(arg0);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1A4) != 0) {
         TOTrapAncient01__sub_80226578(0x4002462F, arg0, 0, 0, 0);

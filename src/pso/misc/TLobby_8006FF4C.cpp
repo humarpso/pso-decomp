@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8006FF4C(void);
+void create_time_window__6TLobbyFv(void);
 void TLobby__sub_8006FF98(void *arg0);
 M2C_UNK TLobby__sub_8006FC7C(void *);
 M2C_UNK TLobby__sub_8006FE7C();
@@ -15,18 +15,18 @@ M2C_UNK TLobby__sub_80072618();
 s32 TLobby__sub_801B31AC();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TLobby__sub_80074034(s32);
-M2C_UNK fn_80074A5C(s32);
+M2C_UNK create_solo_play_win__6TLobbyFPv(s32);
 M2C_UNK create_ch_time_win(s32);
 
 extern M2C_UNK lbl_8048C9D8[];
 extern s32 tl_07;
 
-void TLobby__sub_8006FF4C(void) {
+void create_time_window__6TLobbyFv(void) {
     TLobby__sub_8006FE7C();
     create_ch_time_win(tl_07);
     TLobby__sub_80074034(tl_07);
     if ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x30) == 0) {
-        fn_80074A5C(tl_07);
+        create_solo_play_win__6TLobbyFPv(tl_07);
     }
 }
 

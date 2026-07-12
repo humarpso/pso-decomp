@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_801C38A4(void);
-void TLobby__sub_801C38BC(void);
+void init_and_set_flag__6TLobbyFv(void);
 int TObjPlayer__sub_80102AB0(void);
 int TLobby__sub_801B09A4(void);
 
@@ -20,6 +20,6 @@ void TLobby__sub_801C38A4(void) {
 }
 
     extern int lbl_805D5DB4;
-void TLobby__sub_801C38BC(void) { TLobby__sub_801B09A4(); TObjPlayer__sub_80102AB0(); lbl_805D5DB4 = 1; }
+void init_and_set_flag__6TLobbyFv(void) { TLobby__sub_801B09A4(); TObjPlayer__sub_80102AB0(); lbl_805D5DB4 = 1; }
 
 }

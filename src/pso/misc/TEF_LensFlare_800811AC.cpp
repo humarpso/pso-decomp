@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TEF_LensFlare__sub_800811AC(s32 arg0, f32 farg0);
+int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0);
 f32 TObjPlayer__sub_80141CF8(s32, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 extern s32 lbl_805D53A0;
 
-int TEF_LensFlare__sub_800811AC(s32 arg0, f32 farg0) {
+int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0) {
     u32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

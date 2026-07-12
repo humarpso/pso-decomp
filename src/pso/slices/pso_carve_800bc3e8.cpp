@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TBoss1Dragon__sub_800BC3C4(void* p);
+int get_position__12TBoss1DragonFPv(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 
 int fn_800BC3E8(void) { return 0; }

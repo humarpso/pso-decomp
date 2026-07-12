@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TObjEnemyCustom__sub_800C7D18(void* p);
-void TObjEnemyCustom__sub_800C7D3C(void *arg0);
+void update_state__15TObjEnemyCustomFPv(void *arg0);
 int TObjEnemyCustom__sub_800C7DD0(void* p);
 void TObjEnemyCustom__sub_800C7DF4(void);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
@@ -18,7 +18,7 @@ int TObjEnemyCustom__sub_800C7D18(void* p) { return TObjEneMe1GiGue__sub_80040B3
 
 extern f32 lbl_805DA070;
 
-void TObjEnemyCustom__sub_800C7D3C(void *arg0) {
+void update_state__15TObjEnemyCustomFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);

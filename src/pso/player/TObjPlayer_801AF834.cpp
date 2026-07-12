@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801AF834(void);
+void update_movement_by_screen__10TObjPlayerFv(void);
 s32 is_single_screen__10TObjPlayerFv();
 M2C_UNK TLobby__sub_801C2678();
 M2C_UNK TLobby__sub_803100FC();
 
-void TObjPlayer__sub_801AF834(void) {
+void update_movement_by_screen__10TObjPlayerFv(void) {
     if (is_single_screen__10TObjPlayerFv() != 0) {
         TLobby__sub_803100FC();
         return;

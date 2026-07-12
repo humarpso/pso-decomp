@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemProArmor__sub_80117454(void *arg0);
+void tick_lifetime__13TItemProArmorFPv(void *arg0);
 void *TItemProArmor__sub_801174B8(void *arg0, s16 arg1);
 M2C_UNK TItemTimerEvent__sub_8011E068(u16);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
@@ -14,7 +14,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TItemProArmor__sub_80117454(void *arg0) {
+void tick_lifetime__13TItemProArmorFPv(void *arg0) {
     s32 temp_r3;
 
     if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C)) == 0U) {

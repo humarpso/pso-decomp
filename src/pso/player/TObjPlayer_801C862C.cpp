@@ -10,7 +10,7 @@ s32 TObjPlayer__sub_801D0888(void *);
 s32 TObjPlayer__sub_801D0E94();
 void TObjPlayer__sub_801C862C(void);
 void TObjPlayer__sub_801C8678(void);
-int TObjPlayer__sub_801C867C(void* p);
+int try_change_action_wrapper__10TObjPlayerFPv(void* p);
 int try_change_action__10TObjPlayerFi(void*);
 
 void TObjPlayer__sub_801C862C(void) {  }
@@ -20,6 +20,6 @@ void update_if_flagged__10TObjPlayerFPv(void *arg0) {
     }
 }
 void TObjPlayer__sub_801C8678(void) {  }
-int TObjPlayer__sub_801C867C(void* p) { return try_change_action__10TObjPlayerFi(p); }
+int try_change_action_wrapper__10TObjPlayerFPv(void* p) { return try_change_action__10TObjPlayerFi(p); }
 
 }

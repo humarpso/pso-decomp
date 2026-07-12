@@ -3,8 +3,8 @@
 extern "C" {
 
 int TObjEneMe3SinowZoaReal__create(void* p);
-int TObjEneMe3SinowZoaReal__sub_80316A28(void*);
+int create_instance__22TObjEneMe3SinowZoaRealFPv(void*);
 
-int TObjEneMe3SinowZoaReal__create(void* p) { return TObjEneMe3SinowZoaReal__sub_80316A28(p); }
+int TObjEneMe3SinowZoaReal__create(void* p) { return create_instance__22TObjEneMe3SinowZoaRealFPv(p); }
 
 }

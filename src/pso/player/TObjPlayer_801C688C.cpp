@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C688C(void);
+void apply_stat_multipliers_default__10TObjPlayerFv(void);
 M2C_UNK apply_stat_multipliers__10TObjPlayerFiif(f32);
 
 extern const f32 lbl_805DC320;
 
-void TObjPlayer__sub_801C688C(void) {
+void apply_stat_multipliers_default__10TObjPlayerFv(void) {
     apply_stat_multipliers__10TObjPlayerFiif(lbl_805DC320);
 }
 

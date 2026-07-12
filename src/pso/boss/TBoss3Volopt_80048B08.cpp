@@ -5,8 +5,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1);
-void *TBoss3Volopt__sub_80048B60(void *arg0, void *arg1, void *arg2);
-void *TBoss3Volopt__sub_80048BC8(void *arg0, void *);
+void *init_fade__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
+void *init_object__12TBoss3VoloptFPvPv(void *arg0, void *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void TBoss3Volopt__sub_800489E0(void *, int);
@@ -29,8 +29,8 @@ extern const f32 lbl_805D8854;
 extern M2C_UNK lbl_804848B8[];
 extern u32 lbl_805D4D10;
 
-void *TBoss3Volopt__sub_80048B60(void *arg0, void *arg1, void *arg2) {
-    TBoss3Volopt__sub_80048BC8((void *)(arg0), (void *)(tl_fade));
+void *init_fade__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
+    init_object__12TBoss3VoloptFPvPv((void *)(arg0), (void *)(tl_fade));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804848B8;
     M2C_FIELD(arg0, void **, 0x24) = arg2;
     M2C_FIELD(arg0, f32 *, 0x1C) = lbl_805D8854;
@@ -43,7 +43,7 @@ void *TBoss3Volopt__sub_80048B60(void *arg0, void *arg1, void *arg2) {
 
 extern M2C_UNK lbl_804999E8[];
 
-void *TBoss3Volopt__sub_80048BC8(void *arg0, void *) {
+void *init_object__12TBoss3VoloptFPvPv(void *arg0, void *) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999E8;
     return arg0;

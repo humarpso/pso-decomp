@@ -8,7 +8,7 @@ extern "C" {
 
 void bswap__18TPlyDispConfigSmthFv(s32 arg0);
 M2C_UNK bswap_32__FPUl();
-M2C_UNK TObjPlayer__sub_801D84CC(s32);
+M2C_UNK bswap_disp_config_field__10TObjPlayerFPv(s32);
 
 void bswap__18TPlyDispConfigSmthFv(s32 arg0) {
     s32 var_r31;
@@ -20,8 +20,8 @@ void bswap__18TPlyDispConfigSmthFv(s32 arg0) {
     var_r31 = 0;
     do {
         temp_r30 = arg0 + var_r31;
-        TObjPlayer__sub_801D84CC(temp_r30 + 4);
-        TObjPlayer__sub_801D84CC(temp_r30 + 0x14);
+        bswap_disp_config_field__10TObjPlayerFPv(temp_r30 + 4);
+        bswap_disp_config_field__10TObjPlayerFPv(temp_r30 + 0x14);
         var_r29 += 1;
         var_r31 += 4;
     } while (var_r29 < 4);

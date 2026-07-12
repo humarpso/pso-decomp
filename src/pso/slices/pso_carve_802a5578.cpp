@@ -3,8 +3,8 @@
 extern "C" {
 
 int TChCrTagPlBack__sub_802A5578(void);
-int TChCrTagPlBack__sub_802A552C(void*);
+int create__14TChCrTagPlBackFPv(void*);
 
-int TChCrTagPlBack__sub_802A5578(void) { return TChCrTagPlBack__sub_802A552C((void*)(0)); }
+int TChCrTagPlBack__sub_802A5578(void) { return create__14TChCrTagPlBackFPv((void*)(0)); }
 
 }

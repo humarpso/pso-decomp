@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80019E24(void);
-void TItemLoad__sub_8010FE20(void*, int);
+void free_item_loader__6TLobbyFv(void);
+void __dt__9TItemLoadFPvs(void*, int);
 
 extern s32 lbl_805D49D8;
 extern u32 lbl_805D49DC;
 
-void TLobby__sub_80019E24(void) {
+void free_item_loader__6TLobbyFv(void) {
     if ((u32) lbl_805D49DC != 0U) {
-        TItemLoad__sub_8010FE20((void*)lbl_805D49DC, 1);
+        __dt__9TItemLoadFPvs((void*)lbl_805D49DC, 1);
         lbl_805D49DC = 0U;
         lbl_805D49D8 = 0;
     }

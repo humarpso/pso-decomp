@@ -14,19 +14,19 @@ void send_object_id_packet__10TObjPlayerFi(s32 arg0);
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 M2C_UNK TObjPlayer__sub_801D1CC0(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801D1CD4(M2C_UNK *);
+M2C_UNK draw_font_and_send__10TObjPlayerFPv(M2C_UNK *);
 int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801CBB10(void);
 void TObjPlayer__sub_801CBB80(void);
 
-void* TObjPlayer__sub_801CBA8C(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
+void* shield_attack__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 void send_object_id_packet__10TObjPlayerFi(s32 arg0) {
     s8 sp8[8];
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
         TObjPlayer__sub_801D1CC0((M2C_UNK *)&sp8);
         M2C_FIELD(&sp8, s16 *, 2) = obj_getField1c(arg0);
-        TObjPlayer__sub_801D1CD4((M2C_UNK *)&sp8);
+        draw_font_and_send__10TObjPlayerFPv((M2C_UNK *)&sp8);
     }
 }
 void TObjPlayer__sub_801CBB10(void) {  }

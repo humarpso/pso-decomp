@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_8005F50C(void *arg0);
+void update_target_from_state__12TBoss8DragonFPv(void *arg0);
 
-void TBoss8Dragon__sub_8005F50C(void *arg0) {
+void update_target_from_state__12TBoss8DragonFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x4E4);

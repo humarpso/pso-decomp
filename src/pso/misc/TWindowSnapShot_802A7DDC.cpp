@@ -10,14 +10,14 @@ struct VObj_802A7DDC : Base_802A7DDC {
 
 extern "C" {
 
-void TWindowSnapShot__sub_802A7DDC(void);
-M2C_UNK TWindowSnapShot__sub_802A5F60(void *);
+void free_shared_instance__15TWindowSnapShotFv(void);
+M2C_UNK update_both__15TWindowSnapShotFPv(void *);
 
 extern void *lbl_805D6690;
 
-void TWindowSnapShot__sub_802A7DDC(void) {
+void free_shared_instance__15TWindowSnapShotFv(void) {
     struct VObj_802A7DDC *o;
-    TWindowSnapShot__sub_802A5F60(lbl_805D6690);
+    update_both__15TWindowSnapShotFPv(lbl_805D6690);
     o = (struct VObj_802A7DDC *)lbl_805D6690;
     if (o != NULL) {
         o->m0(1);

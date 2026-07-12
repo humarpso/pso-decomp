@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80126990(s32 arg0);
+void update_shield_ready__10TObjPlayerFi(s32 arg0);
 void *TObjPlayer__sub_801269EC(void *arg0);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TObjPlayer__sub_80120908(s32);
@@ -16,7 +16,7 @@ void TObjPlayer__sub_8012106C(void *, int);
 
 extern s32 lbl_805D5518;
 
-void TObjPlayer__sub_80126990(s32 arg0) {
+void update_shield_ready__10TObjPlayerFi(s32 arg0) {
     if (TItemProShield__sub_8010B734() == 3) {
         lbl_805D5518 = 0;
         TObjPlayer__sub_80120908(arg0);

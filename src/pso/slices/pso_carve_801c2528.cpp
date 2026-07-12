@@ -6,14 +6,14 @@ extern "C" {
 
 void __ct__7TObjectFP7TObject(void *);
 extern M2C_UNK lbl_804C3E60[];
-void TLobby__sub_80226070(void *);
+void set_and_notify__6TLobbyFi(void *);
 
 void *fn_801C2528(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3E60;
     M2C_FIELD(arg0, void **, 0x1C) = arg3;
     M2C_FIELD(arg0, void **, 0x20) = arg2;
-    TLobby__sub_80226070(arg2);
+    set_and_notify__6TLobbyFi(arg2);
     return arg0;
 }
 

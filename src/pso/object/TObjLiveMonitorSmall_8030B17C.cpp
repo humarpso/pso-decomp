@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjLiveMonitorSmall__sub_8030B17C(s32 arg0);
+s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0);
 void *TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK __ct__20TObjLiveMonitorSmallFv(void *, s32, void *);
 void *__nw__7TObjectFUl(M2C_UNK);
@@ -15,7 +15,7 @@ extern s32 lbl_805D6A80;
 extern s32 lbl_805D6A8C;
 extern u8 lbl_805D6A90;
 
-s32 TObjLiveMonitorSmall__sub_8030B17C(s32 arg0) {
+s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0) {
     void *var_r31;
     void *obj;
 

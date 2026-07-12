@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdPlayerLoadGC__sub_801E2404(s32 arg0);
+s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0);
 s32 check_memcard_status__15TAdPlayerLoadGCFi();
 
 s32 PADInit(s32, s32 *, M2C_UNK *);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 
-s32 TAdPlayerLoadGC__sub_801E2404(s32 arg0) {
+s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0) {
     s32 spC;
     M2C_UNK sp8;
     s32 temp_r3;

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_8005F5E0(void *arg0);
-void TBoss8Dragon__sub_8005F660(void *arg0);
+void set_animation_by_state__12TBoss8DragonFPv(void *arg0);
+void init_state_zero__12TBoss8DragonFPv(void *arg0);
 M2C_UNK TBoss8Dragon__sub_8005F578(void *, M2C_UNK);
 
-void TBoss8Dragon__sub_8005F5E0(void *arg0) {
+void set_animation_by_state__12TBoss8DragonFPv(void *arg0) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0x4C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C0) | 8);
@@ -32,7 +32,7 @@ void TBoss8Dragon__sub_8005F5E0(void *arg0) {
     }
 }
 
-void TBoss8Dragon__sub_8005F660(void *arg0) {
+void init_state_zero__12TBoss8DragonFPv(void *arg0) {
     TBoss8Dragon__sub_8005F578(arg0, 0);
 }
 

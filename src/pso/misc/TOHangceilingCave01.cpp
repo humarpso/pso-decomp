@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOHangceilingCave01__sub_80168588(void *arg0);
+void init_geometry__19TOHangceilingCave01FPv(void *arg0);
 int TOHangceilingCave01__sub_80168624(void);
 f32 TOHangceilingCave01__sub_8016862C(void);
 f32 TOHangceilingCave01__sub_80168634(void);
@@ -42,7 +42,7 @@ struct VObj_80168588 : VBase_80168588 {
     virtual void v76(); virtual void v77();
 };
 
-void TOHangceilingCave01__sub_80168588(void *arg0) {
+void init_geometry__19TOHangceilingCave01FPv(void *arg0) {
     f32 temp_f2;
     VObj_80168588 *self = (VObj_80168588 *)arg0;
 

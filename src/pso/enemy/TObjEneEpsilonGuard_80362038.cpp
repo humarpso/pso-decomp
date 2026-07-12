@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneEpsilonGuard__sub_80362038(void);
-void TObjEneEpsilonGuard__sub_8036203C(void *arg0);
+void request_state8__19TObjEneEpsilonGuardFPv(void *arg0);
 void TObjEneEpsilonGuard__sub_80362080(void* p);
 void TObjEneEpsilonGuard__sub_803620B0(void);
 int TObjEneDD__sub_800BBA18(void*, void*);
 
 void TObjEneEpsilonGuard__sub_80362038(void) {  }
-void TObjEneEpsilonGuard__sub_8036203C(void *arg0) {
+void request_state8__19TObjEneEpsilonGuardFPv(void *arg0) {
     s32 temp_r4;
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 8) {

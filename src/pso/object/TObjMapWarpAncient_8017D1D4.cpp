@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjMapWarpAncient__sub_8017D1D4(void);
+void free_globals__18TObjMapWarpAncientFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TObjPlayer__sub_801E483C(s32);
 
 extern u32 lbl_805D5AF0;
 extern s32 lbl_805D5AF4;
 
-void TObjMapWarpAncient__sub_8017D1D4(void) {
+void free_globals__18TObjMapWarpAncientFv(void) {
     TObjPlayer__sub_801E483C(lbl_805D5AF4);
     lbl_805D5AF4 = 0;
     if ((u32) lbl_805D5AF0 != 0U) {

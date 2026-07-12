@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjEnePanarms__sub_800E1A44();
 int TObjEnePanarms__sub_800E1D94(void* p);
-int TObjEnePanarms__sub_800E1DB8(void* p);
+int do_action_2__14TObjEnePanarmsFPv(void* p);
 void TObjEnePanarms__sub_800E1E64(void* p);
 int TObjEnePanarms__sub_800E1C98(void*, int);
 
@@ -18,7 +18,7 @@ void reset_split__14TObjEnePanarmsFPv(void *arg0) {
     }
 }
 int TObjEnePanarms__sub_800E1D94(void* p) { return TObjEnePanarms__sub_800E1C98(p, 5); }
-int TObjEnePanarms__sub_800E1DB8(void* p) { return TObjEnePanarms__sub_800E1C98(p, 2); }
+int do_action_2__14TObjEnePanarmsFPv(void* p) { return TObjEnePanarms__sub_800E1C98(p, 2); }
 void init_state__14TObjEnePanarmsFi(s32 arg0) {
     TObjEnePanarms__sub_800E1A44();
     TObjEnePanarms__sub_800E1C98((void*)(arg0), 3);

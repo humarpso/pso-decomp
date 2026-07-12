@@ -6,28 +6,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneHoldEffect__sub_8036C3A8(void *arg0);
-s32 TObjEneHoldEffect__sub_8036C3F8(void *arg0);
-s32 TObjEneHoldEffect__sub_8036C440(void *arg0);
-s32 TObjEneHoldEffect__sub_8036CDA8();
+s32 is_in_room__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_ready__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_revive_valid__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_target_valid__17TObjEneHoldEffectFPv();
 u16 TObjRoomId__sub_801A1DB8(u16);
 
-s32 TObjEneHoldEffect__sub_8036C3A8(void *arg0) {
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+s32 is_in_room__17TObjEneHoldEffectFPv(void *arg0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     return (u32) __cntlzw(TObjRoomId__sub_801A1DB8(M2C_FIELD(arg0, u16 *, 4))) >> 5;
 }
 
-s32 TObjEneHoldEffect__sub_8036C3F8(void *arg0) {
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+s32 is_ready__17TObjEneHoldEffectFPv(void *arg0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     return ((u32) M2C_FIELD(arg0, s16 *, 4) >> 0x1FU) ^ 1;
 }
 
-s32 TObjEneHoldEffect__sub_8036C440(void *arg0) {
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+s32 is_revive_valid__17TObjEneHoldEffectFPv(void *arg0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     return (u32) __cntlzw(TObjRoomId__sub_801A1DB8(M2C_FIELD(arg0, u16 *, 4))) >> 5;

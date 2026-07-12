@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubStatusDisp__sub_8014500C(u16 arg0);
+s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0);
 
-s32 TWindowSubStatusDisp__sub_8014500C(u16 arg0) {
+s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0) {
     if (arg0 < 0x41U) {
         return 0;
     }

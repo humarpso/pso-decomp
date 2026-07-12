@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss5Gryphon__sub_80065BC0(void);
-void *TBoss5Gryphon__sub_80065C44(void *arg0);
+void cleanup__13TBoss5GryphonFv(void);
+void *create__13TBoss5GryphonFPv(void *arg0);
 M2C_UNK TBoss5GryphonSnarl__sub_80066E84();
 void *TBoss5Gryphon__ct(void *, void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
@@ -22,7 +22,7 @@ extern u32 lbl_805D4DA0;
 extern u32 lbl_805D4DA4;
 extern u32 lbl_805D4DA8;
 
-void TBoss5Gryphon__sub_80065BC0(void) {
+void cleanup__13TBoss5GryphonFv(void) {
     fn_803255F8();
     TBoss5GryphonSnarl__sub_80066E84();
     fn_80355A1C();
@@ -44,7 +44,7 @@ void TBoss5Gryphon__sub_80065BC0(void) {
 
 extern void *tl_04;
 
-void *TBoss5Gryphon__sub_80065C44(void *arg0) {
+void *create__13TBoss5GryphonFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x77C);
     if (o != NULL) {
         o = TBoss5Gryphon__ct(o, tl_04, arg0);

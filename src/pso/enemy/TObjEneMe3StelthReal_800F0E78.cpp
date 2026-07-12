@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjEneMe3StelthReal__sub_800F0E78(void *arg0);
+void *create__20TObjEneMe3StelthRealFPv(void *arg0);
 void *TObjEneMe3StelthReal__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
-void *TObjEneMe3StelthReal__sub_800F0E78(void *arg0) {
+void *create__20TObjEneMe3StelthRealFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44C);
     if (o != NULL) {
         o = TObjEneMe3StelthReal__ct(o, tl_04, arg0);

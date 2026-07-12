@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type1__sub_802B2FC8(void* p);
-void TBoss6Type1__sub_802B3010(u8 *arg0);
+void init_hp_and_state__11TBoss6Type1FPv(void* p);
+void update_charge__11TBoss6Type1FPv(u8 *arg0);
 void TBoss6Type1__sub_802B307C(void* p);
-void TBoss6Type1__sub_802B30AC(void* p);
-void TBoss6Type1__sub_802B30FC(void *arg0);
+void set_phase_90__11TBoss6Type1FPv(void* p);
+void update_timer__11TBoss6Type1FPv(void *arg0);
 void TBoss6Type1__sub_802B3178(void* p);
 int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
 int TBoss6Type1__sub_802B4B64(void*, void*);
@@ -23,9 +23,9 @@ int TBoss6Type1__sub_802B9204(void*, void*);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_flag_on_threshold__11TBoss6Type1FPv(void *);
 
-void TBoss6Type1__sub_802B2FC8(void* p) { *(int*)((char*)p + 0x40c) = 300; *(int*)((char*)p + 0x410) = 300; TBoss6Type1__sub_802B4BA8(p, (void*)0); TBoss6Type1__sub_802B4B64(p, (void*)1); }
+void init_hp_and_state__11TBoss6Type1FPv(void* p) { *(int*)((char*)p + 0x40c) = 300; *(int*)((char*)p + 0x410) = 300; TBoss6Type1__sub_802B4BA8(p, (void*)0); TBoss6Type1__sub_802B4B64(p, (void*)1); }
 
-void TBoss6Type1__sub_802B3010(u8 *arg0) {
+void update_charge__11TBoss6Type1FPv(u8 *arg0) {
     s32 temp_r0;
 
     TBoss6Type1__sub_802B4EAC((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x410)), (s32)(M2C_FIELD(arg0, s32 *, 0x40C)));
@@ -39,9 +39,9 @@ void TBoss6Type1__sub_802B3010(u8 *arg0) {
 
 void TBoss6Type1__sub_802B307C(void* p) { if (*(int*)((char*)p + 0x410) == 0) { TBoss6Type1__sub_802B9204(p, (void*)25); } }
 
-void TBoss6Type1__sub_802B30AC(void* p) { *(int*)((char*)p + 0x40c) = 90; *(int*)((char*)p + 0x410) = 90; TBoss6Type1__sub_802B7E7C((void*)(p)); TBoss6Type1__sub_802B4BA8(p, (void*)0); TBoss6Type1__sub_802B4B64(p, (void*)1); }
+void set_phase_90__11TBoss6Type1FPv(void* p) { *(int*)((char*)p + 0x40c) = 90; *(int*)((char*)p + 0x410) = 90; TBoss6Type1__sub_802B7E7C((void*)(p)); TBoss6Type1__sub_802B4BA8(p, (void*)0); TBoss6Type1__sub_802B4B64(p, (void*)1); }
 
-void TBoss6Type1__sub_802B30FC(void *arg0) {
+void update_timer__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r4;

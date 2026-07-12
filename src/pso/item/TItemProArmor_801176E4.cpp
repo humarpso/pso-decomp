@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemProArmor__sub_801176E4(void *arg0);
+void apply_to_player__13TItemProArmorFPv(void *arg0);
 s32 TItemObject__sub_80115D84(void *);
 s32 TObjPlayer__sub_80019704(s32);
 M2C_UNK TObjPlayer__sub_8011F710(s32, s32);
 
-void TItemProArmor__sub_801176E4(void *arg0) {
+void apply_to_player__13TItemProArmorFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_80019704(M2C_FIELD(arg0, s32 *, 0xF0));

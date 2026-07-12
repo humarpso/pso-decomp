@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjCMHairMenu__sub_80296410(void *arg0);
+void *create__14TObjCMHairMenuFPv(void *arg0);
 void *__ct__14TObjCMHairMenuFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjCMHairMenu__sub_80296410(void *arg0) {
+void *create__14TObjCMHairMenuFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
         o = __ct__14TObjCMHairMenuFv(o, arg0);

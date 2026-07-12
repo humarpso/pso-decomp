@@ -6,18 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneHoldEffect__sub_8036C69C(u8 *arg0);
-s32 TObjEneHoldEffect__sub_8036CDA8();
-s32 fn_800FD814(void *);
+s32 can_impose_hold__17TObjEneHoldEffectFPv(u8 *arg0);
+s32 is_target_valid__17TObjEneHoldEffectFPv();
+s32 is_camera_visible__17TObjEneHoldEffectFPv(void *);
 
 extern const f32 lbl_805E03A8;
 
-s32 TObjEneHoldEffect__sub_8036C69C(u8 *arg0) {
+s32 can_impose_hold__17TObjEneHoldEffectFPv(u8 *arg0) {
     u32 cond;
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
-    if (fn_800FD814(arg0 + 8) != 0) {
+    if (is_camera_visible__17TObjEneHoldEffectFPv(arg0 + 8) != 0) {
         return 0;
     }
     cond = (M2C_FIELD(arg0, f32 *, 0x10) < lbl_805E03A8);

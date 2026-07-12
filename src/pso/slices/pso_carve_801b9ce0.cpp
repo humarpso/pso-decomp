@@ -33,7 +33,7 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_801BF8EC(s32, s32, M2C_UNK);
 void *TObjPlayer__sub_801C675C(s32, s32);
 
-void TObjPlayer__sub_801B9CE0(s32 arg0) {
+void unequip_all_units__10TObjPlayerFi(s32 arg0) {
     s32 var_r31;
     void *temp_r3;
 

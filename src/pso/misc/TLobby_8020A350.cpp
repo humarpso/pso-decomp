@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8020A350(void* p);
+void bswap_quad_word__6TLobbyFPv(void* p);
 void TLobby__sub_8020A394(void* p);
 void TLobby__sub_8020A3D0(void *arg0, void *arg1);
 void bswap_vec3__6TLobbyFPv(void* p);
@@ -15,7 +15,7 @@ void TLobby__sub_8020A48C(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 
-void TLobby__sub_8020A350(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
+void bswap_quad_word__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
 
 void TLobby__sub_8020A394(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); bswap_32__FPUl((char*)p + 0x4); }
 

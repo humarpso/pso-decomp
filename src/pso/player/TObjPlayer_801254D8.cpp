@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801254D8(void *arg0);
+void update_fade_timer__10TObjPlayerFPv(void *arg0);
 s32 fn_802E4748();
 M2C_UNK fn_802E4918(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern f32 lbl_805DAD50;
 
-void TObjPlayer__sub_801254D8(void *arg0) {
+void update_fade_timer__10TObjPlayerFPv(void *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
 

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1);
-void TWindowSubSymbolChatHelp__sub_80284978(void *arg0);
+void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0);
 M2C_UNK TObjFish__sub_803DA798(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindowSubSymbolChatHelp__sub_8028429C(void *, void *);
@@ -74,7 +74,7 @@ void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1) 
 
 extern s8 lbl_8050E208[];
 
-void TWindowSubSymbolChatHelp__sub_80284978(void *arg0) {
+void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0) {
     s32 *temp_r3;
     s32 *temp_r3_2;
     void *temp_r31;

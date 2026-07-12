@@ -12,7 +12,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindowCtrl__sub_8024ADF0(s32);
 M2C_UNK TWindowSubComCard__sub_8024AB98(s32);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
-M2C_UNK TWindowSubLog__sub_8027B258(void *);
+M2C_UNK cleanup__13TWindowSubLogFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -67,7 +67,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x30) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-            TWindowSubLog__sub_8027B258(M2C_FIELD(arg0, void **, 0x2C));
+            cleanup__13TWindowSubLogFPv(M2C_FIELD(arg0, void **, 0x2C));
         }
         TWindowCtrl__sub_8024ADF0(M2C_FIELD(arg0, s32 *, 0x28));
         TWindowSubComCard__sub_8024AB98(M2C_FIELD(arg0, s32 *, 0x28));

@@ -8,7 +8,7 @@ f64 fn_803A20A4();
 void TObjPlayer__sub_800847FC(void);
 int TObjPlayer__sub_80084854(void* p);
 
-void TObjPlayer__sub_800847D4(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void set_tex_coord_gen__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     GXSetTexCoordGen2(arg0, arg1, arg2, arg3, 0, 0x7D);
 }
 void TObjPlayer__sub_800847FC(void) {  }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8001F948(void *arg0);
+void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
 M2C_UNK TLobby__sub_8001F8D8(void *, void *);
 
-void TLobby__sub_8001F948(void *arg0) {
+void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
     s32 *temp_r3;
     void *temp_r4;
 

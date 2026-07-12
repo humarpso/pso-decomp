@@ -10,7 +10,7 @@ s32 TObjCityMainWarp__sub_80266354(s32, s32, s32, s16);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TObjPlayer__sub_801D8044(u32, s32, u8);
 int TWindowSubTechnique__sub_80286BD4(void* p);
-int TWindowSubTechnique__sub_80286B0C(void*, void* a1 = 0);
+int get_selection__19TWindowSubTechniqueFPvPvi(void*, void* a1 = 0);
 
 s32 TWindowSubTechnique__sub_80286C78(s32 arg0, s32 arg1) {
     u32 temp = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
@@ -19,7 +19,7 @@ s32 TWindowSubTechnique__sub_80286C78(s32 arg0, s32 arg1) {
     }
     return TObjPlayer__sub_801D8044(temp, 3, (u8) arg0);
 }
-void TWindowSubTechnique__sub_80286CC4(s32 arg0, s32 arg1, s32 arg2) {
+void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
 
     temp_r31 = TItemData__sub_80076E84(arg0);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjButterflyLobby__sub_8007A66C(void);
+void free_singleton_805D4E6C__18TObjButterflyLobbyFv(void);
 void free__11TOBoss4RockFUi(void*);
 
 extern u32 lbl_805D4E6C;
 
-void TObjButterflyLobby__sub_8007A66C(void) {
+void free_singleton_805D4E6C__18TObjButterflyLobbyFv(void) {
     if ((u32) lbl_805D4E6C != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D4E6C);
         lbl_805D4E6C = 0U;

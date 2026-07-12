@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
-int TObjBoss5PillarCtrl__sub_8028B36C(void* p);
-int TObjBoss5PillarCtrl__sub_8028B38C(void* p);
+int update_pillar__19TObjBoss5PillarCtrlFPv(void* p);
+int forward_pillar_2B710__19TObjBoss5PillarCtrlFPv(void* p);
 int TObjBoss5Pillar__sub_8028B70C(void*);
 int TObjBoss5Pillar__sub_8028B710(void*);
 
-int TObjBoss5PillarCtrl__sub_8028B36C(void* p) { return TObjBoss5Pillar__sub_8028B70C(p); }
-int TObjBoss5PillarCtrl__sub_8028B38C(void* p) { return TObjBoss5Pillar__sub_8028B710(p); }
-void TObjBoss5PillarCtrl__sub_8028B3AC(void *arg0) {
+int update_pillar__19TObjBoss5PillarCtrlFPv(void* p) { return TObjBoss5Pillar__sub_8028B70C(p); }
+int forward_pillar_2B710__19TObjBoss5PillarCtrlFPv(void* p) { return TObjBoss5Pillar__sub_8028B710(p); }
+void play_sound_once__19TObjBoss5PillarCtrlFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
         TBoss3Volopt__sub_8022675C(0x4003A819, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;

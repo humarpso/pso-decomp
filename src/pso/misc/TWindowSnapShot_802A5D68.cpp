@@ -15,7 +15,7 @@ s32 TWindowSnapShot__sub_802A605C(void *);
 s32 TLobby__sub_800FD944(s32);
 void fn_802A5CB8(void* p);
 
-s32 TWindowSnapShot__sub_802A5D68(void *arg0) {
+s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0) {
     TWindowSnapShot__sub_802A6054();
     M2C_FIELD(arg0, u32 *, 8) = alloc_buffer__11TOBoss4RockFPv();
     if ((u32) M2C_FIELD(arg0, u32 *, 8) == 0U) {
@@ -24,7 +24,7 @@ s32 TWindowSnapShot__sub_802A5D68(void *arg0) {
     }
     return 1;
 }
-s32 TWindowSnapShot__sub_802A5DC0(void *arg0, s32 arg1) {
+s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xC) = TGStream__sub_800FDADC(arg1, M2C_FIELD(arg0, s32 *, 8));
     if (TWindowSnapShot__sub_802A605C(arg0) == 0) {
         TWindowSnapShot__sub_802A604C(arg0, 2);
@@ -33,7 +33,7 @@ s32 TWindowSnapShot__sub_802A5DC0(void *arg0, s32 arg1) {
     }
     return 1;
 }
-s32 TWindowSnapShot__sub_802A5E28(void *arg0, s32 arg1) {
+s32 init__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xC) = TLobby__sub_800FD944(arg1);
     if (TWindowSnapShot__sub_802A605C(arg0) == 0) {
         TWindowSnapShot__sub_802A604C(arg0, 1);

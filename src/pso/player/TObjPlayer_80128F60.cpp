@@ -12,7 +12,7 @@ void TObjPlayer__sub_8012106C(void *, int);
 void TObjPlayer__sub_8012A884(void *);
 
 extern M2C_UNK lbl_804A403C[];
-extern M2C_UNK TObjPlayer__sub_80128AE4[];
+extern M2C_UNK notify_hit_target__10TObjPlayerFUiUiUiUi[];
 extern M2C_UNK TObjPlayer__sub_80128A74[];
 extern M2C_UNK spawn_shot_effect__10TObjPlayerFiiif[];
 extern const f32 lbl_805DADF8;
@@ -25,7 +25,7 @@ void *init_event_callbacks__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8001BF10(self->f_1FC);
     TObjPlayer__sub_8001BED8((void *)((char *)arg0 + 376), 32);
     TObjPlayer__sub_8012106C(arg0, 515);
-    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = TObjPlayer__sub_80128AE4;
+    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = notify_hit_target__10TObjPlayerFUiUiUiUi;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = TObjPlayer__sub_80128A74;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = spawn_shot_effect__10TObjPlayerFiiif;
     M2C_FIELD(arg0, f32 *, 0x1E4) = lbl_805DADF8;

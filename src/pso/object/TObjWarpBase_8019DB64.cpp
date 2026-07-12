@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjWarpBase__sub_8019DB64(void);
+void free_globals__12TObjWarpBaseFv(void);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -14,7 +14,7 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 extern s32 lbl_805D5C78;
 extern u32 lbl_805D5C7C;
 
-void TObjWarpBase__sub_8019DB64(void) {
+void free_globals__12TObjWarpBaseFv(void) {
     if ((u32) lbl_805D5C7C != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D5C7C);
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5C7C);

@@ -11,7 +11,7 @@ s32 obj_testFlags30(s32, s32);
 s32 play_effect__10TObjPlayerFiii(s32, s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
-int TObjIllGillKage__sub_80365450(void* p);
+int queue_destruction__15TObjIllGillKageFPv(void* p);
 void render__15TObjIllGillKageFv(void);
 int queue_destruction__7TObjectFv(void*);
 

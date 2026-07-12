@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TParticleCtrl__sub_800867AC(void);
+void free_heap__13TParticleCtrlFv(void);
 void __dt__5THeapFv(void*, int);
 
 extern u32 TParticleCtrl__data_805D4EF0;
 
-void TParticleCtrl__sub_800867AC(void) {
+void free_heap__13TParticleCtrlFv(void) {
     if ((u32) TParticleCtrl__data_805D4EF0 != 0U) {
         __dt__5THeapFv((void*)TParticleCtrl__data_805D4EF0, 1);
         TParticleCtrl__data_805D4EF0 = 0U;

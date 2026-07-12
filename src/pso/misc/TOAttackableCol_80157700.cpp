@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TOAttackableCol__sub_80157700(void* p);
+int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 int TObjPlayer__sub_80154764(void*, int, int);
 
-int TOAttackableCol__sub_80157700(void* p) { return TObjPlayer__sub_80154764(p, 0, 1); }
+int handle_6x91_update_state__15TOAttackableColFPv(void* p) { return TObjPlayer__sub_80154764(p, 0, 1); }
 
 }

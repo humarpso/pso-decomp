@@ -18,7 +18,7 @@ int TObjEneMe1CanadinLeader__sub_8009E36C(void* p);
 int TObjEneMe1Canadin__vt107(void);
 int TObjEneMe1Canadin__vt114(void);
 
-void fn_8009E29C(void *arg0, s32 arg1, s32 arg2) {
+void set_leader_index__23TObjEneMe1CanadinLeaderFPvii(void *arg0, s32 arg1, s32 arg2) {
     TBoss2DeRolLe__sub_800B98D8(arg0);
     M2C_FIELD(arg0, s32 *, 0x400) = arg2;
     M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 1);

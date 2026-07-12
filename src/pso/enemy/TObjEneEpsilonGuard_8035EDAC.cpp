@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_8035EDAC(u8 *arg0);
+void update_guard_state__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 M2C_UNK TObjEneEpsilonGuard__sub_8035EA90(void *);
@@ -15,7 +15,7 @@ M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 s32 TPhotonMylla__sub_80154CB4(int);
 s16 obj_getField1c(int);
 
-void TObjEneEpsilonGuard__sub_8035EDAC(u8 *arg0) {
+void update_guard_state__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r3;
 

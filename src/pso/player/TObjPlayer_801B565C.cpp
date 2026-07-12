@@ -20,7 +20,7 @@ int TChallenge4PResult__sub_801B3BFC(void*, void*);
 int TObjPlayer__sub_801B565C(void* p);
 int check_flag_100__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801B5790(void* p);
-void TObjPlayer__sub_801B57BC(void* p);
+void action_enable_if_present__10TObjPlayerFPv(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 int TObjPlayer__sub_801C0044(void*);
 int TObjPlayer__sub_801C1B38(void*);
@@ -38,6 +38,6 @@ s32 get_camera_field__10TObjPlayerFPv(void *arg0) {
     return 0;
 }
 void TObjPlayer__sub_801B5790(void* p) { void* m = *(void**)((char*)p + 0x424); if (m) TObjPlayer__sub_801C1B38(m); }
-void TObjPlayer__sub_801B57BC(void* p) { void* m = *(void**)((char*)p + 0x424); if (m) TObjPlayer__sub_801C1B60(m); }
+void action_enable_if_present__10TObjPlayerFPv(void* p) { void* m = *(void**)((char*)p + 0x424); if (m) TObjPlayer__sub_801C1B60(m); }
 
 }

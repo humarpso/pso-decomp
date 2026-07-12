@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjWarpBossMulti__sub_8019E5F8(void *arg0);
+void close_windows__17TObjWarpBossMultiFPv(void *arg0);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
 M2C_UNK TWindow__close(void *);
@@ -15,7 +15,7 @@ M2C_UNK close__17TWindowSubComCardFPv(void *);
 
 extern s32 lbl_805D53A0;
 
-void TObjWarpBossMulti__sub_8019E5F8(void *arg0) {
+void close_windows__17TObjWarpBossMultiFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x168) != 0U) {
         close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168));
         M2C_FIELD(arg0, u32 *, 0x168) = 0U;

@@ -11,7 +11,7 @@ s32 is_state_4__14TObjCMMainMenuFv(s32);
 s32 is_state_3__14TObjCMMainMenuFv(s32);
 M2C_UNK fn_8028D8F4();
 M2C_UNK fn_80291268();
-M2C_UNK TChCrCharSelect__sub_80293D10(s32);
+M2C_UNK create__15TChCrCharSelectFPv(s32);
 M2C_UNK fn_8033A3D0(M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
@@ -35,7 +35,7 @@ s32 update_main_menu__12TCharaMakingFi(s32 arg0) {
     }
     if (is_state_4__14TObjCMMainMenuFv(lbl_805D6524) != 0) {
         queue_destruction__7TObjectFv(arg0);
-        TChCrCharSelect__sub_80293D10(tl_03);
+        create__15TChCrCharSelectFPv(tl_03);
         return 1;
     }
     return 0;

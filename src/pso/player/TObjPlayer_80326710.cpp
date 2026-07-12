@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80326710(void *arg0);
+void sync_hp_from_target__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80326794(void* p);
 void spawn_armor_effects__10TObjPlayerFPv(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
@@ -19,7 +19,7 @@ s32 TObjectV8047c128_subtract_hp(s32, s16);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
 s16 obj_getS16_32E(s32);
 
-void TObjPlayer__sub_80326710(void *arg0) {
+void sync_hp_from_target__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     s16 temp_r3;
     s32 temp_r31;

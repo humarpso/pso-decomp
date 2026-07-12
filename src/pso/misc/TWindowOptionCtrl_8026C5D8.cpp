@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TWindowOptionCtrl__sub_8026C5D8(void);
+s32 get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv(void);
 void set_flag70_bit400__17TWindowOptionCtrlFPv(void* p);
 void set_flag70_bit100__17TWindowOptionCtrlFPv(void* p);
 void clear_flag70_bit4__17TWindowOptionCtrlFPv(void* p);
@@ -13,7 +13,7 @@ s16 TWindowOptionCtrl__sub_8026C650(void* p);
 int TWindowOptionCtrl__sub_8026C658(void* p);
 s32 TAdSinglePlyChrSelectGC__sub_80202BA0();
 
-s32 TWindowOptionCtrl__sub_8026C5D8(void) {
+s32 get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv(void) {
     return TAdSinglePlyChrSelectGC__sub_80202BA0() + 0x1154C;
 }
 void set_flag70_bit400__17TWindowOptionCtrlFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x400; }

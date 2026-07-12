@@ -8,14 +8,14 @@ extern "C" {
 
 s32 is_split_screen();
 
-s32 TWindowMainMenu__sub_802ADCD8(void) {
+s32 is_not_split_screen__15TWindowMainMenuFv(void) {
     return (u32)__cntlzw(is_split_screen()) >> 5;
 }
 
 M2C_UNK TWindowMainMenu__sub_802AD74C();
 s32 TWindowMainMenu__sub_802ADD38();
 
-s32 TWindowMainMenu__sub_802ADD00(void) {
+s32 update_if_active__15TWindowMainMenuFv(void) {
     s32 temp_r3;
 
     temp_r3 = TWindowMainMenu__sub_802ADD38();

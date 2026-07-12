@@ -8,7 +8,7 @@ extern "C" {
 
 void init_state__12TBoss8DragonFi(s32 arg0);
 void TBoss8Dragon__sub_802FB484(void);
-void TBoss8Dragon__sub_802FB4B0(void);
+void update_pos_from_data__12TBoss8DragonFv(void);
 M2C_UNK TBoss8Dragon__sub_802FB170(s32, M2C_UNK *);
 M2C_UNK TBoss8Dragon__sub_802FB4DC(f32, f32, f32);
 M2C_UNK TBoss8Dragon__sub_802FBE3C();
@@ -34,7 +34,7 @@ extern const f32 TBoss8Dragon__data_805DEEA4;
 extern const f32 lbl_805DEEC0;
 extern const f32 lbl_805DEEC4;
 
-void TBoss8Dragon__sub_802FB4B0(void) {
+void update_pos_from_data__12TBoss8DragonFv(void) {
     TBoss8Dragon__sub_802FB4DC(TBoss8Dragon__data_805DEEA4, lbl_805DEEC0, lbl_805DEEC4);
 }
 

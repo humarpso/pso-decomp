@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_80361E24(u8 *arg0);
+void update_guard_flag__19TObjEneEpsilonGuardFPv(u8 *arg0);
 s32 TObjEneEpsilon__sub_800B96D4(f32);
 
 extern const f32 lbl_805E0238;
 
-void TObjEneEpsilonGuard__sub_80361E24(u8 *arg0) {
+void update_guard_flag__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     if (TObjEneEpsilon__sub_800B96D4((f32) (lbl_805E0238)) == 1) {
         M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) & 0xFFFFFF7F);
         return;

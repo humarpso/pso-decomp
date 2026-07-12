@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 TChCrLoadAfs__sub_8028B8FC();
+s32 try_begin_load__12TChCrLoadAfsFPv();
 s32 TLobby__sub_803CC53C(u32);
 s32 TLobby__sub_803CCB5C(u32, s32, u32);
 u32 TLobby__sub_803CD16C(s32, s32);

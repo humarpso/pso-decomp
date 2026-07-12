@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneMe1Canadin__sub_8009BDA8(void *arg0, s32 arg1);
-void TObjEneMe1Canadin__sub_8009BE64(void *arg0, s32 arg1);
+void update_walk_animation__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 f32 TBoss8Dragon__sub_803D64C0(s32, f32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -38,7 +38,7 @@ void TObjEneMe1Canadin__sub_8009BDA8(void *arg0, s32 arg1) {
     }
 }
 
-void TObjEneMe1Canadin__sub_8009BE64(void *arg0, s32 arg1) {
+void update_walk_animation__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

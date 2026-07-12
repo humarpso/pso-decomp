@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TMainCursor__sub_8013F188(void* p);
+int get_rader_map__11TMainCursorFPv(void* p);
 void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1);
 int TLockOnCursor__sub_8013EC1C(void*);
 int TLockOnCursor__sub_8013EC38(void*);
@@ -30,7 +30,7 @@ s32 TMainCursor__sub_8013F168(void* p);
 void TMainCursor__sub_8013F170(void* p, s32 v);
 void reset_fields__13TLockOnCursorFPv(void* p);
 
-int TMainCursor__sub_8013F188(void* p) { return TRaderMapCore__sub_8002F588(p); }
+int get_rader_map__11TMainCursorFPv(void* p) { return TRaderMapCore__sub_8002F588(p); }
 
 extern M2C_UNK lbl_804A7254[];
 

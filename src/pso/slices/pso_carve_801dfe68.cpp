@@ -4,8 +4,8 @@ extern "C" {
 
 int bswap__13packet_headerFv(void*);
 int bswap__16TPlyGuildCardTagFv(void*);
-void fn_801DFE68(void* p);
+void bswap_action_packet(void* p);
 
-void fn_801DFE68(void* p) { bswap__13packet_headerFv(p); bswap__16TPlyGuildCardTagFv((char*)p + 0x4); }
+void bswap_action_packet(void* p) { bswap__13packet_headerFv(p); bswap__16TPlyGuildCardTagFv((char*)p + 0x4); }
 
 }

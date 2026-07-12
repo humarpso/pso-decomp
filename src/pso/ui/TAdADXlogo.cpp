@@ -7,7 +7,7 @@ extern "C" {
 void *__ct__10TAdADXlogoFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *TLobby__sub_800F8754(void *, void *, void *);
+void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
 
 extern M2C_UNK __vt__10TAdADXlogo[];
 extern void *lbl_805D2600;
@@ -26,7 +26,7 @@ void *__ct__10TAdADXlogoFv(void *arg0) {
     lbl_805D49D0 = 0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        TLobby__sub_800F8754(o, tl_00, TAdADXlogo__sub_80019870);
+        init_fade__6TLobbyFPvPvPv(o, tl_00, TAdADXlogo__sub_80019870);
     }
     return arg0;
 }

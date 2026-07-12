@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowComCard__sub_80249C3C(void *arg0, s32 arg1);
+void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1);
 void* TWindowComCard__sub_80249CB4(void* p);
 M2C_UNK TWindowHelpItem__sub_8025B08C(void *, f32, f32);
 
 extern u8 lbl_8044EB50[];
 
-void TWindowComCard__sub_80249C3C(void *arg0, s32 arg1) {
+void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1) {
     void *temp_r4;
 
     if (arg1 == 0xE) {

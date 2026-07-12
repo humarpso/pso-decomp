@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 obj_testFlags30(s32, s32);
-s32 TObjPlayer__sub_801AEE3C();
+s32 is_camera_ready__10TObjPlayerFv();
 s32 TObjPlayer__sub_801BE2DC(s32);
 s32 TObjPlayer__sub_80203418();
 s32 TObjPlayer__sub_802034EC();
@@ -46,7 +46,7 @@ s32 is_action_available__10TObjPlayerFi(s32 arg0) {
     if ((TObjPlayer__sub_802034EC() == 0) || (TObjPlayer__sub_80203418() != 0)) {
         return 0;
     }
-    if (TObjPlayer__sub_801AEE3C() != 0) {
+    if (is_camera_ready__10TObjPlayerFv() != 0) {
         return (u32)__cntlzw(obj_testFlags30(arg0, 0x20000)) >> 5;
     }
     return TObjPlayer__sub_801BE2DC(arg0) != 0 ? 1 : 0;

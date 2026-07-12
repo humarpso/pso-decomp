@@ -31,7 +31,7 @@ struct VObj_8016A8D0 : Base_8016A8D0 {
 extern "C" {
 
 void TOKey__sub_8016A8D0(void *arg0);
-void TOKey__sub_8016A8FC(void *arg0);
+void update_lock_state__5TOKeyFPv(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
 
 void TOKey__sub_8016A8D0(void *arg0) {
@@ -39,7 +39,7 @@ void TOKey__sub_8016A8D0(void *arg0) {
     o->m20();
 }
 
-void TOKey__sub_8016A8FC(void *arg0) {
+void update_lock_state__5TOKeyFPv(void *arg0) {
     u8 temp_r3;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {

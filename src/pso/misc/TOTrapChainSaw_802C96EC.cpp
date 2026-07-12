@@ -18,11 +18,11 @@ struct VObj_802C96EC : Base_802C96EC {
 
 extern "C" {
 
-void TOTrapChainSaw__sub_802C96EC(void *arg0);
-void TOTrapChainSaw__sub_802C9764(void *arg0);
+void update_active_flag__14TOTrapChainSawFPv(void *arg0);
+void decode_params__14TOTrapChainSawFPv(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
 
-void TOTrapChainSaw__sub_802C96EC(void *arg0) {
+void update_active_flag__14TOTrapChainSawFPv(void *arg0) {
     ((VObj_802C96EC *) arg0)->m22();
     ((VObj_802C96EC *) arg0)->m15();
     if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xE8)) == 1) {
@@ -32,7 +32,7 @@ void TOTrapChainSaw__sub_802C96EC(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xF0) = 0;
 }
 
-void TOTrapChainSaw__sub_802C9764(void *arg0) {
+void decode_params__14TOTrapChainSawFPv(void *arg0) {
     s32 var_r0;
     s32 temp_r3;
     u32 var_r0_2;

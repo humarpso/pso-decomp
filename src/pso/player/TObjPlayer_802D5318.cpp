@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_802D5318(void *arg0, void *arg1);
+void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1);
 M2C_UNK TObjPlayer__sub_8011E2FC(void *, f32);
 s32 TObjPlayer__sub_8011E384(void *);
 M2C_UNK set_radar_marker_params__10TObjPlayerFPvPv();
@@ -14,7 +14,7 @@ M2C_UNK set_radar_marker_params__10TObjPlayerFPvPv();
 extern const f32 lbl_805DE788;
 extern const f32 lbl_805DE78C;
 
-void TObjPlayer__sub_802D5318(void *arg0, void *arg1) {
+void setup_radar_marker__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     set_radar_marker_params__10TObjPlayerFPvPv();
     if (TObjPlayer__sub_8011E384(arg0) != 0) {
         TObjPlayer__sub_8011E2FC(arg0, lbl_805DE788);

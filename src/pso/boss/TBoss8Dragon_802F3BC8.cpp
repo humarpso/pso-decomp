@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TBoss8Dragon__sub_802F3BC8(void *arg0, void *arg1, void *arg2);
+void *ct__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK lbl_804E4BF0[];
 extern void *lbl_805D6978;
 
-void *TBoss8Dragon__sub_802F3BC8(void *arg0, void *arg1, void *arg2) {
+void *ct__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E4BF0;
     if (lbl_805D6978 == NULL) {

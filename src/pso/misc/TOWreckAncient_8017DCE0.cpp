@@ -13,7 +13,7 @@ struct VObj1_8017dce0 : Base1_8017dce0 {
 extern "C" {
 
 void draw_model__14TOWreckAncientFPv(u8 *arg0);
-void TOWreckAncient__sub_8017DD54(void);
+void free_statics__14TOWreckAncientFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
@@ -37,7 +37,7 @@ void draw_model__14TOWreckAncientFPv(u8 *arg0) {
 extern u32 lbl_805D5AF8;
 extern u32 lbl_805D5AFC;
 
-void TOWreckAncient__sub_8017DD54(void) {
+void free_statics__14TOWreckAncientFv(void) {
     if ((u32) lbl_805D5AF8 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D5AF8, 1);
         lbl_805D5AF8 = 0U;

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_8011CABC(u8 arg0);
+s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0);
 s32 TItemData__sub_8010EEDC(s32);
 
 extern s32 lbl_805D2B10;
 
-s32 TObjPlayer__sub_8011CABC(u8 arg0) {
+s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0) {
     if (arg0 & 0x3F) {
         if (arg0 & 0x80) {
             return TItemData__sub_8010EEDC(0x1F4);

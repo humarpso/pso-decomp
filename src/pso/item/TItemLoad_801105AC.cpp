@@ -10,7 +10,7 @@ struct VObj_801105AC : Base_801105AC {
 
 extern "C" {
 
-void TItemLoad__sub_801105AC(void);
+void free_all__9TItemLoadFv(void);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 M2C_UNK TItemLoad__sub_8010F52C();
@@ -22,7 +22,7 @@ extern void *TItemLoad__data_805D5488;
 extern s32 TItemLoad__data_805D548C;
 extern s32 lbl_805D5490;
 
-void TItemLoad__sub_801105AC(void) {
+void free_all__9TItemLoadFv(void) {
     free__11TOBoss4RockFUi(TItemLoad__data_805D548C);
     if ((void *) TItemLoad__data_805D5484 != NULL) {
         ((VObj_801105AC *)TItemLoad__data_805D5484)->m0(1);

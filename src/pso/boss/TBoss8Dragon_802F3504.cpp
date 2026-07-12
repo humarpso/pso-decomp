@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss8Dragon__sub_802F3504(void);
-s32 TBoss8Dragon__sub_802F3570(void);
-void TBoss8Dragon__sub_802F35DC(void);
+s32 find_target_enemy__12TBoss8DragonFv(void);
+s32 is_any_part_alive__12TBoss8DragonFv(void);
+void update_all_parts__12TBoss8DragonFv(void);
 M2C_UNK TBoss8Dragon__sub_802F3C84(u32, s32);
 u32 get_enemy_entity();
 M2C_UNK set_state_22__12TBoss8DragonFPv();
 
 extern u32 lbl_805D6978;
 
-s32 TBoss8Dragon__sub_802F3504(void) {
+s32 find_target_enemy__12TBoss8DragonFv(void) {
     s32 var_r31;
 
     if ((u32) lbl_805D6978 == 0U) {
@@ -36,7 +36,7 @@ loop_3:
 
 extern u32 lbl_805D6978;
 
-s32 TBoss8Dragon__sub_802F3570(void) {
+s32 is_any_part_alive__12TBoss8DragonFv(void) {
     s32 var_r31;
 
     if ((u32) lbl_805D6978 == 0U) {
@@ -57,7 +57,7 @@ loop_3:
 
 extern u32 lbl_805D6978;
 
-void TBoss8Dragon__sub_802F35DC(void) {
+void update_all_parts__12TBoss8DragonFv(void) {
     s32 var_r31;
 
     if ((u32) lbl_805D6978 != 0U) {

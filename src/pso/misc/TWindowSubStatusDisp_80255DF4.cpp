@@ -13,7 +13,7 @@ s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 s32 TWindowInputNumber__sub_80211608();
 s16 TWindowSubStatusDisp__sub_80255E0C(void* p);
-s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
+s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 void set_flag0_bit20__15TWindowHelpItemFPv(void* p);
 void set_flag60_bit4__13TWindowSubMagFPv(void* p);
 

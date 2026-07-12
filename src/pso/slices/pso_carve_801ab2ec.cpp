@@ -26,7 +26,7 @@ extern "C" {
 
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_801A771C(void *);
+M2C_UNK free_photon__10TObjPlayerFPv(void *);
 M2C_UNK fn_801A7D38(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804C3564[];
@@ -35,7 +35,7 @@ void *fn_801AB2EC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3564;
         ((VObj_801AB2EC *)arg0)->m13();
-        TObjPlayer__sub_801A771C(arg0);
+        free_photon__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_80154A00(arg0);
         TObjEneGibbles__sub_80156720(arg0);
         fn_801A7D38(arg0, 0);

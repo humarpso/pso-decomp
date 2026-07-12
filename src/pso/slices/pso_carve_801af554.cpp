@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 obj_testFlags30(s32, s32);
-s32 TObjPlayer__sub_801AEE3C();
+s32 is_camera_ready__10TObjPlayerFv();
 s32 TObjPlayer__sub_801BE2DC(s32);
 s32 TObjPlayer__sub_80203418();
 s32 TObjPlayer__sub_802034EC();

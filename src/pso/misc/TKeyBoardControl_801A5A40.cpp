@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TKeyBoardControl__sub_801A5A40(void *arg0);
+s32 check_input_angle__16TKeyBoardControlFPv(void *arg0);
 
 extern s32 lbl_805D53A4;
 extern const f32 lbl_805DC0B0;
 
-s32 TKeyBoardControl__sub_801A5A40(void *arg0) {
+s32 check_input_angle__16TKeyBoardControlFPv(void *arg0) {
     s32 temp_r4_2;
     void *temp_r4;
     s32 temp_r5;

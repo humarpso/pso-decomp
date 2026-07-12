@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_option_state__6TLobbyFv(void);
-s32 TWindowOptionCtrl__sub_8026B2E4();
+s32 get_option_field_C__17TWindowOptionCtrlFv();
 
 extern s32 lbl_805D5704;
 
 s32 get_option_state__6TLobbyFv(void) {
     s32 temp_r3;
 
-    temp_r3 = TWindowOptionCtrl__sub_8026B2E4();
+    temp_r3 = get_option_field_C__17TWindowOptionCtrlFv();
     switch (temp_r3) {
     case 0:
         return lbl_805D5704;

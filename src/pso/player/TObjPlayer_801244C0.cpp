@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_held_item__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_801245C4(void *arg0);
+void init_armor__10TObjPlayerFPv(void *arg0);
 s32 TItemMag__sub_80102C4C();
 s32 TItemProArmor__sub_80102C3C(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
@@ -63,7 +63,7 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801245C4(void *arg0) {
+void init_armor__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x204) = -1;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TParticleCtrl__sub_8008861C(void);
+void init_particle_buffer__13TParticleCtrlFv(void);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 s32 TLobby__sub_800F9DF4(s32, s32);
 
@@ -14,7 +14,7 @@ extern s32 lbl_805D2944;
 extern u32 lbl_805D2948;
 extern s32 lbl_805D4EF8;
 
-void TParticleCtrl__sub_8008861C(void) {
+void init_particle_buffer__13TParticleCtrlFv(void) {
     s32 temp_r3;
 
     temp_r3 = TLobby__sub_800F9DF4(lbl_805D2944, (lbl_805D4EF8 = alloc_buffer__11TOBoss4RockFPv(0x13000)));

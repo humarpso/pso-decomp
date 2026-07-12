@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TChCrCharSelect__sub_802938E4(void *arg0);
-void TChCrCharSelect__sub_802939FC(s32 arg0);
+void handle_menu_input__15TChCrCharSelectFPv(void *arg0);
+void handle_cursor_input__15TChCrCharSelectFi(s32 arg0);
 M2C_UNK TChCrCharSelect__sub_802937E8(void *);
 M2C_UNK TChCrCharSelect__sub_80293828(s32);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -17,7 +17,7 @@ s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 extern s32 TChCrCharSelect__data_805D3CB8;
 extern s32 TChCrCharSelect__data_805D6590;
 
-void TChCrCharSelect__sub_802938E4(void *arg0) {
+void handle_menu_input__15TChCrCharSelectFPv(void *arg0) {
     if (TChCrCharSelect__sub_80298F8C(0x20) != 0) {
         TChCrCharSelect__data_805D3CB8 += 1;
         TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
@@ -41,7 +41,7 @@ void TChCrCharSelect__sub_802938E4(void *arg0) {
 extern s32 TChCrCharSelect__data_805D3CB4;
 extern s32 TChCrCharSelect__data_805D6590;
 
-void TChCrCharSelect__sub_802939FC(s32 arg0) {
+void handle_cursor_input__15TChCrCharSelectFi(s32 arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

@@ -8,7 +8,7 @@ extern "C" {
 
 void apply_player_count__6TLobbyFv(void);
 u32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
-M2C_UNK TLobby__sub_80071500(u32);
+M2C_UNK set_selected_layout__6TLobbyFi(u32);
 M2C_UNK TLobby__sub_80292950(u32);
 
 s32 is_split_screen();
@@ -29,10 +29,10 @@ void apply_player_count__6TLobbyFv(void) {
         return;
     }
     if (temp_r30 < temp_r31) {
-        TLobby__sub_80071500(temp_r30);
+        set_selected_layout__6TLobbyFi(temp_r30);
         return;
     }
-    TLobby__sub_80071500(0U);
+    set_selected_layout__6TLobbyFi(0U);
 }
 
 }

@@ -68,7 +68,7 @@ struct E_V_8003fde8 : E_A_8003fde8 {
 
 extern "C" {
 
-s32 TObjPlayer__sub_8003FD90(void *arg0);
+s32 calc_spin_value__10TObjPlayerFPv(void *arg0);
 void update_state_spin__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjPlayer__sub_8003FCD0(void *);
@@ -76,7 +76,7 @@ M2C_UNK TObjPlayer__sub_8003FCD0(void *);
 extern const f64 lbl_80436350;
 extern const f32 lbl_805D86B4;
 
-s32 TObjPlayer__sub_8003FD90(void *arg0) {
+s32 calc_spin_value__10TObjPlayerFPv(void *arg0) {
     return (s32) (lbl_805D86B4 * (f32) ((((s32) (u16) M2C_FIELD(arg0, s32 *, 0x390) / 10922) * 0x3C) + 0x78));
 }
 
@@ -96,7 +96,7 @@ void update_state_spin__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         M2C_FIELD(arg0, s32 *, 0x5C) = 0;
         TObjPlayer__sub_8003FCD0(arg0);
-        M2C_FIELD(arg0, s32 *, 0x398) = TObjPlayer__sub_8003FD90((void *)(arg0));
+        M2C_FIELD(arg0, s32 *, 0x398) = calc_spin_value__10TObjPlayerFPv((void *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(arg0, s32 *, 0x398);
         M2C_FIELD(arg0, s16 *, 0x33C) = 0x5A;
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;

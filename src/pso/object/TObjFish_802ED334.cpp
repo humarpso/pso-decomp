@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjFish__sub_802ED334(u8 *arg0);
-void TObjFish__sub_802ED3A4(void *arg0);
+s32 is_all_parts_done__8TObjFishFPv(u8 *arg0);
+void update_wobble_angle__8TObjFishFPv(void *arg0);
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
 
-s32 TObjFish__sub_802ED334(u8 *arg0) {
+s32 is_all_parts_done__8TObjFishFPv(u8 *arg0) {
     TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670);
     TBoss2DeRolLe__sub_80035FCC(arg0 + 0x630);
     TBoss2DeRolLe__sub_80035FCC(arg0 + 0x650);
@@ -24,7 +24,7 @@ extern f32 lbl_805DEA10;
 extern f32 lbl_805DEB60;
 extern f32 lbl_805DEB98;
 
-void TObjFish__sub_802ED3A4(void *arg0) {
+void update_wobble_angle__8TObjFishFPv(void *arg0) {
     f32 temp_f2;
 
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x6F0);

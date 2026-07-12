@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TCameraCtrl__sub_8003D1F0(void);
+s32 is_photon_blast_active__11TCameraCtrlFv(void);
 void *TPhotonMylla__sub_80154CB4(u16);
 s32 TCameraCtrl__sub_8003F3EC();
 
 extern u16 lbl_80483770[];
 extern u16 lbl_805D271C;
 
-s32 TCameraCtrl__sub_8003D1F0(void) {
+s32 is_photon_blast_active__11TCameraCtrlFv(void) {
     s32 var_r29;
     s32 var_r31;
     void *temp_r3;

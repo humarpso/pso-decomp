@@ -9,10 +9,10 @@ int bswap_32__FPUl(void*);
 f32 TObjPlayer__sub_801D2858(void* p);
 s32 TObjPlayer__sub_801D2870(void* p);
 s32 TObjPlayer__sub_801D2878(void* p);
-int TObjPlayer__sub_801D2880(void* p);
-int TObjPlayer__sub_801D29A8(void* p);
-int TObjPlayer__sub_801D29D0(void* p);
-int TObjPlayer__sub_801D29F8(void* p);
+int bswap_field_u32__10TObjPlayerFPv(void* p);
+int clear_photon_blast_state__10TObjPlayerFPv(void* p);
+int trigger_photon_blast__10TObjPlayerFPv(void* p);
+int check_photon_blast_flag__10TObjPlayerFPv(void* p);
 int check_flag_clear__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D2A50(void* p);
 void TObjPlayer__sub_801D2A78(void* p, f32 v);
@@ -21,7 +21,7 @@ f32 TObjPlayer__sub_801D2A98(void* p);
 void TObjPlayer__sub_801D2AA0(void* p, f32 v);
 void TObjPlayer__sub_801D2AA8(void* p, s32 v);
 void TObjPlayer__sub_801D2AC4(void* p, f32 v);
-int TObjPlayer__sub_801D2ACC(void* p);
+int start_photon_blast_action__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_801D2AF4(void* p);
 int TObjPlayer__sub_801D2B08(void* p);
 void TObjPlayer__sub_801D2C74(void* p, s32 v);
@@ -40,9 +40,9 @@ int TAdRicoRing__sub_8001BEE8(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 int fn_801D7BF4(void*);
 
-int TObjPlayer__sub_801D29A8(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 62); }
-int TObjPlayer__sub_801D29D0(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 4); }
-int TObjPlayer__sub_801D29F8(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x40, 8); }
+int clear_photon_blast_state__10TObjPlayerFPv(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 62); }
+int trigger_photon_blast__10TObjPlayerFPv(void* p) { return TAdRicoRing__sub_8001BEE8((char*)p + 0x40, 4); }
+int check_photon_blast_flag__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x40, 8); }
 int check_flag_clear__10TObjPlayerFPv(void* p) { return (TObjPlayer__sub_8001BEF8((char*)p + 0x40, 1)) == 0; }
 int TObjPlayer__sub_801D2A50(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x40, 8); }
 void TObjPlayer__sub_801D2A78(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }

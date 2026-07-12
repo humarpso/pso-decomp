@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800A45C4(void *arg0);
+void start_boss4_pose__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_800F6B14(void *, void *);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 
 extern f32 lbl_805D9A10;
 
-void TObjPlayer__sub_800A45C4(void *arg0) {
+void start_boss4_pose__10TObjPlayerFPv(void *arg0) {
     void *temp_r4;
     s16 temp_s16;
 

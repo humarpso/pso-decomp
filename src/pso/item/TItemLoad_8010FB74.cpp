@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemLoad__sub_8010FB74(s32 arg0);
+void update_ring__9TItemLoadFi(s32 arg0);
 M2C_UNK TAdRicoRing__sub_8001BEE8(s32, M2C_UNK);
-M2C_UNK TItemLoad__sub_8010FBD4(s32);
+M2C_UNK update_load_state__9TItemLoadFPv(s32);
 s32 TItemLoad__sub_801107B8();
 M2C_UNK TObjPlayer__sub_8001BED8(s32, M2C_UNK);
 
-void TItemLoad__sub_8010FB74(s32 arg0) {
+void update_ring__9TItemLoadFi(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = TItemLoad__sub_801107B8();
@@ -22,7 +22,7 @@ void TItemLoad__sub_8010FB74(s32 arg0) {
         } else {
             TObjPlayer__sub_8001BED8(arg0 + 0x1C, 1);
         }
-        TItemLoad__sub_8010FBD4(arg0);
+        update_load_state__9TItemLoadFPv(arg0);
     }
 }
 

@@ -11,11 +11,11 @@ struct CV_800c63cc : CBase_800c63cc {
 
 extern "C" {
 
-void TObjPlayer__sub_800C63CC(void *arg0);
+void tick_freeze_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
-void TObjPlayer__sub_800C63CC(void *arg0) {
+void tick_freeze_state__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

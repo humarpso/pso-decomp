@@ -4,10 +4,10 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TLobby__sub_80072A78(void *arg0);
+void bswap_fields_4_8_12__6TLobbyFPv(void *arg0);
 void bswap_32__FPUl(void *);
 
-void TLobby__sub_80072A78(void *arg0) {
+void bswap_fields_4_8_12__6TLobbyFPv(void *arg0) {
     bswap_32__FPUl((void *)((char *)arg0 + 4));
     bswap_32__FPUl((void *)((char *)arg0 + 8));
     bswap_32__FPUl((void *)((char *)arg0 + 12));

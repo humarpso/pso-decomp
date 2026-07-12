@@ -9,7 +9,7 @@ extern "C" {
 void destroy_singleton__6TLobbyFv(void);
 void init_graph__6TLobbyFv(void);
 M2C_UNK TDLGraph__sub_8007F6F0(M2C_UNK, M2C_UNK);
-u32 TDLGraph__sub_8007F85C();
+u32 create__8TDLGraphFv();
 void queue_destruction__7TObjectFv(void*);
 
 extern M2C_UNK TLobby__data_805434A8[];
@@ -29,7 +29,7 @@ void init_graph__6TLobbyFv(void) {
     u32 temp_r3;
 
     if ((u32) TLobby__data_805D6CC4 == 0U) {
-        temp_r3 = TDLGraph__sub_8007F85C();
+        temp_r3 = create__8TDLGraphFv();
         TLobby__data_805D6CC4 = temp_r3;
         if (temp_r3 != 0U) {
             TDLGraph__sub_8007F6F0(temp_r3, 2);

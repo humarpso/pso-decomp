@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801461EC(void);
-s32 TLobby__sub_8014622C(void);
-void TLobby__sub_80146294(void);
-void TLobby__sub_801462D8(s32 arg0);
+void init_keyboard_buffer__6TLobbyFv(void);
+s32 poll_connect__6TLobbyFv(void);
+void flush_pending_flag2__6TLobbyFv(void);
+void set_battle_flag__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__sub_801A3FEC();
 int TLobby__sub_80145A94(void);
 int TLobby__sub_803F4B68(void*);
@@ -22,9 +22,9 @@ int xmalloc__FUl(void);
     extern int lbl_805D56C8;
     extern short lbl_805D56CE;
     extern int lbl_805D56D0;
-void TLobby__sub_801461EC(void) { lbl_805D56D0 = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; TLobby__sub_803F4B68((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
+void init_keyboard_buffer__6TLobbyFv(void) { lbl_805D56D0 = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; TLobby__sub_803F4B68((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
 
-s32 TLobby__sub_8014622C(void) {
+s32 poll_connect__6TLobbyFv(void) {
     s32 var_r31;
 
     var_r31 = 0;
@@ -46,7 +46,7 @@ loop_1:
 extern s32 lbl_805D56F8;
 extern s32 lbl_805D56FC;
 
-void TLobby__sub_80146294(void) {
+void flush_pending_flag2__6TLobbyFv(void) {
     if (lbl_805D56F8 & 2) {
         TLobby__sub_804219D0(0, 0, lbl_805D56FC);
         lbl_805D56F8 &= 0xFFFFFFFD;
@@ -56,7 +56,7 @@ void TLobby__sub_80146294(void) {
 extern s32 lbl_805D56F8;
 extern s32 lbl_805D56FC;
 
-void TLobby__sub_801462D8(s32 arg0) {
+void set_battle_flag__6TLobbyFi(s32 arg0) {
     lbl_805D56FC = arg0;
     lbl_805D56F8 |= 2;
     TLobby__sub_80421A50(0, 0, arg0);

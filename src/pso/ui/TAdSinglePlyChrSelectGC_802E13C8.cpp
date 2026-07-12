@@ -5,8 +5,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TAdSinglePlyChrSelectGC__sub_802E13C8(void *arg0, s16 arg1);
-void *TAdSinglePlyChrSelectGC__sub_802E1420(void *arg0, void *);
-void *TAdSinglePlyChrSelectGC__sub_802E147C(void);
+void *init_object__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *);
+void *create__23TAdSinglePlyChrSelectGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -30,7 +30,7 @@ extern M2C_UNK lbl_804E34FC[];
 extern M2C_UNK lbl_804E3050[];
 extern void *lbl_805D3F84;
 
-void *TAdSinglePlyChrSelectGC__sub_802E1420(void *arg0, void *) {
+void *init_object__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E34FC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3F84;
@@ -41,10 +41,10 @@ void *TAdSinglePlyChrSelectGC__sub_802E1420(void *arg0, void *) {
 
 extern void *tl_clipout;
 
-void *TAdSinglePlyChrSelectGC__sub_802E147C(void) {
+void *create__23TAdSinglePlyChrSelectGCFv(void) {
     void *o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        o = TAdSinglePlyChrSelectGC__sub_802E1420((void *)(o), (void *)(tl_clipout));
+        o = init_object__23TAdSinglePlyChrSelectGCFPvPv((void *)(o), (void *)(tl_clipout));
     }
     return o;
 }

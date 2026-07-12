@@ -4,8 +4,8 @@ extern "C" {
 
 void TWindowMainMenu1P__vt7(void* p);
 int fn_80263C24(void*);
-int TWindowMainMenu1P__sub_80264124(void*);
+int create_char_select_slot__17TWindowMainMenu1PFPv(void*);
 
-void TWindowMainMenu1P__vt7(void* p) { if (fn_80263C24(p) != 0) { TWindowMainMenu1P__sub_80264124(p); } }
+void TWindowMainMenu1P__vt7(void* p) { if (fn_80263C24(p) != 0) { create_char_select_slot__17TWindowMainMenu1PFPv(p); } }
 
 }

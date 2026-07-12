@@ -11,13 +11,13 @@ int TLobby__sub_802A7278(void* a0 = 0);
 void TLobby__sub_802A7318(void* p);
 void TObjSeabedSuisoBrakable__vt17(void);
 
-s32 TLobby__sub_802A7290(void *arg0) {
+s32 get_valid_child__6TLobbyFPv(void *arg0) {
     if (TLobby__sub_802A7260((void*)(M2C_FIELD(arg0, s32 *, 4))) != 0) {
         return M2C_FIELD(arg0, s32 *, 4);
     }
     return 0;
 }
-s32 TLobby__sub_802A72D4(s32 *arg0) {
+s32 validate_handle__6TLobbyFPv(s32 *arg0) {
     if (TLobby__sub_802A7278((void*)(*arg0)) != 0) {
         return *arg0;
     }

@@ -2,11 +2,11 @@
 
 extern "C" {
 
-int TBoss1Dragon__sub_80027F0C(void* p);
-int TBoss1Dragon__sub_80027F30(void* p);
+int set_state_1__12TBoss1DragonFPv(void* p);
+int init_default__12TBoss1DragonFPv(void* p);
 int TBoss1Dragon__sub_80027F54(void*, int);
 
-int TBoss1Dragon__sub_80027F0C(void* p) { return TBoss1Dragon__sub_80027F54(p, 1); }
-int TBoss1Dragon__sub_80027F30(void* p) { return TBoss1Dragon__sub_80027F54(p, 0); }
+int set_state_1__12TBoss1DragonFPv(void* p) { return TBoss1Dragon__sub_80027F54(p, 1); }
+int init_default__12TBoss1DragonFPv(void* p) { return TBoss1Dragon__sub_80027F54(p, 0); }
 
 }

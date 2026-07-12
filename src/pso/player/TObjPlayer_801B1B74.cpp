@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801B1B74(s32 arg0);
+s32 handle_set_visible__10TObjPlayerFi(s32 arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 
-s32 TObjPlayer__sub_801B1B74(s32 arg0) {
+s32 handle_set_visible__10TObjPlayerFi(s32 arg0) {
     TFontSmallLobby__sub_801C0228();
     return arg0;
 }

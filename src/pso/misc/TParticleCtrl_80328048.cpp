@@ -14,7 +14,7 @@ int GXSetTevDirect(int);
 int fn_802A8260(void*);
 int TObjPlayer__sub_803DC83C(int);
 
-void TParticleCtrl__sub_80328048(s32 arg0) {
+void set_tev_direct__13TParticleCtrlFi(s32 arg0) {
     if (arg0 != 0) {
         GXSetTevDirect(1);
     } else {

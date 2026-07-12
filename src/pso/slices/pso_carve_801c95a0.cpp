@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjPlayer__sub_801CB874(void * a0 = 0);
 s32 TObjPlayer__sub_801BEAB0(void);
-s32 TObjPlayer__sub_801B95C8(void * a0 = 0);
+s32 use_current_item__10TObjPlayerFPv(void * a0 = 0);
 s32 TObjPlayer__sub_801B1E54(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
 s32 obj_getField1c(void * a0 = 0);

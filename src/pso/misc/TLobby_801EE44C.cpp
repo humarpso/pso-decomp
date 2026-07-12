@@ -8,7 +8,7 @@ extern "C" {
 
 void attach_battle_ctrl__6TLobbyFv(void);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK TObjPlayer__sub_801B3FFC(s32);
+M2C_UNK attach_battle_ctrl_sub__10TObjPlayerFPv(s32);
 M2C_UNK TObjPlayer__sub_801B4044();
 
 extern s32 lbl_805D53A0;
@@ -19,7 +19,7 @@ void attach_battle_ctrl__6TLobbyFv(void) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
     if (temp_r3 != 0) {
         TObjPlayer__sub_801B4044();
-        TObjPlayer__sub_801B3FFC(temp_r3);
+        attach_battle_ctrl_sub__10TObjPlayerFPv(temp_r3);
     }
 }
 

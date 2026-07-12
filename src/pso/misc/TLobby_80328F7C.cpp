@@ -108,7 +108,7 @@ struct VObj_80329044 : Base_80329044 {
 extern "C" {
 
 s32 TLobby__sub_80328F7C(void *arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_80328FCC(void *unused, s32 arg1);
+s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
 void TLobby__sub_8032900C(s32 arg0);
 void TLobby__sub_80329044(void *arg0);
 s32 TObjPlayer__sub_801C0044();
@@ -120,7 +120,7 @@ s32 TLobby__sub_80328F7C(void *arg0, s32 arg1, s32 arg2) {
     return lbl_805D6C80 + ((arg2 + (arg1 * o->m73())) << 0xE);
 }
 
-s32 TLobby__sub_80328FCC(void *unused, s32 arg1) {
+s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1) {
     switch (arg1) {
     case 0:
     case 3:
@@ -136,7 +136,7 @@ s32 TLobby__sub_80328FCC(void *unused, s32 arg1) {
 }
 
 void TLobby__sub_8032900C(s32 arg0) {
-    TLobby__sub_80328FCC((void *)(arg0), (s32)(TObjPlayer__sub_801C0044()));
+    is_valid_state__6TLobbyFPvi((void *)(arg0), (s32)(TObjPlayer__sub_801C0044()));
 }
 
 void TLobby__sub_80329044(void *arg0) {

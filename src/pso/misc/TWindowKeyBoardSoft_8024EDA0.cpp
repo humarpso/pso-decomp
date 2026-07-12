@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TWindowKeyBoardSoft__sub_8024EDA0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK TWindowKeyBoardSoft__sub_8024EA50(u32, s32, s32, s32, s32);
 
 extern u32 lbl_805D6420;
 
-u32 TWindowKeyBoardSoft__sub_8024EDA0(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if ((u32) lbl_805D6420 == 0U) {
         return 0U;
     }

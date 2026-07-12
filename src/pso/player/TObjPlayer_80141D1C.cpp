@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80141D1C(s32 arg0);
-void TObjPlayer__sub_80141D68(s32 arg0, void *arg1, f32 farg0);
+s32 check_camera_distance__10TObjPlayerFi(s32 arg0);
+void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0);
 f32 TBoss8Dragon__sub_803D64C0();
 f32 TBoss8Dragon__sub_803D64DC(s32, f32);
 f32 TCameraCtrl__sub_803D8D00();
@@ -15,7 +15,7 @@ M2C_UNK TNpcPlayer__sub_803D97B4(s32);
 
 extern f32 lbl_805DB158;
 
-s32 TObjPlayer__sub_80141D1C(s32 arg0) {
+s32 check_camera_distance__10TObjPlayerFi(s32 arg0) {
     if (TCameraCtrl__sub_803D8D00() < lbl_805DB158) {
         return 0;
     }
@@ -25,7 +25,7 @@ s32 TObjPlayer__sub_80141D1C(s32 arg0) {
 
 extern const f32 lbl_805DB150;
 
-void TObjPlayer__sub_80141D68(s32 arg0, void *arg1, f32 farg0) {
+void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0) {
     f32 temp_f1;
 
     temp_f1 = farg0 * TBoss8Dragon__sub_803D64C0();

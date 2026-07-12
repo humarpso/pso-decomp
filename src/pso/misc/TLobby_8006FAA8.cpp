@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8006FAA8(u16 arg0);
+s32 mix_seed__6TLobbyFUs(u16 arg0);
 s32 TLobby__sub_8006FAE4();
 
-s32 TLobby__sub_8006FAA8(u16 arg0) {
+s32 mix_seed__6TLobbyFUs(u16 arg0) {
     s32 temp_r3;
 
     temp_r3 = TLobby__sub_8006FAE4();

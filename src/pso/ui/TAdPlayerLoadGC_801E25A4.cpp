@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdPlayerLoadGC__sub_801E25A4(s32 arg0);
+s32 poll_load_status__15TAdPlayerLoadGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_80386DC4();
 
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 
-s32 TAdPlayerLoadGC__sub_801E25A4(s32 arg0) {
+s32 poll_load_status__15TAdPlayerLoadGCFi(s32 arg0) {
     s32 temp_r3;
 
     if (arg0 >= 2) {

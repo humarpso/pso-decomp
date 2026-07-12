@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjDeadListWin__sub_80073A90(void *arg0);
+void update_countdown__15TObjDeadListWinFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindow__close(void *);
 s32 check_player_flag1__6TLobbyFPv(s32);
@@ -15,7 +15,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_805D53A0;
 
-void TObjDeadListWin__sub_80073A90(void *arg0) {
+void update_countdown__15TObjDeadListWinFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
 

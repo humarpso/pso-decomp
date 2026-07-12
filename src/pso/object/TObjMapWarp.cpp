@@ -18,7 +18,7 @@ struct VObj_8019D4E4 : Base_8019D4E4 {
 
 extern "C" {
 
-u8 TObjMapWarp__sub_8019D4E4(s32 arg0, u16 arg1);
+u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
 s32 check_flag_100__10TObjPlayerFPv();
 s32 is_flag_400_set__10TObjPlayerFPv(void *);
@@ -26,7 +26,7 @@ s32 is_flag_400_set__10TObjPlayerFPv(void *);
 extern s32 lbl_805D3458;
 extern s32 lbl_805D55C0;
 
-u8 TObjMapWarp__sub_8019D4E4(s32 arg0, u16 arg1) {
+u8 can_warp__11TObjMapWarpFiUs(s32 arg0, u16 arg1) {
     void *var_r31;
     u32 id;
 

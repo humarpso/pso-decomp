@@ -10,7 +10,7 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
 
 M2C_UNK TObjCityMainWarp__sub_80186DA0();
 M2C_UNK update_challenge_warp_window();
-M2C_UNK TObjCityMainWarp__sub_80186F84();
+M2C_UNK update_state__16TObjCityMainWarpFPv();
 M2C_UNK TObjCityMainWarp__sub_8018709C();
 M2C_UNK TObjCityMainWarp__sub_801871D0();
 
@@ -26,7 +26,7 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
         TObjCityMainWarp__sub_8018709C();
         return;
     case 2:
-        TObjCityMainWarp__sub_80186F84();
+        update_state__16TObjCityMainWarpFPv();
         return;
     case 3:
         update_challenge_warp_window();

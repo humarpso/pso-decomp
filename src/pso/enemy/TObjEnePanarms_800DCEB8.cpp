@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800DCEB8(void *arg0);
+void update_spin__14TObjEnePanarmsFPv(void *arg0);
 M2C_UNK TObjEnePanarms__sub_800DED30(void *, s32);
 
-void TObjEnePanarms__sub_800DCEB8(void *arg0) {
+void update_spin__14TObjEnePanarmsFPv(void *arg0) {
     s32 temp_r0;
 
     if (M2C_FIELD(arg0, s32 *, 0x3EC) & 2) {

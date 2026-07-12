@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80258194(void *arg0);
+void reset__20TWindowSubStatusDispFPv(void *arg0);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
-void TWindowSubStatusDisp__sub_80258194(void *arg0) {
+void reset__20TWindowSubStatusDispFPv(void *arg0) {
     M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
     M2C_FIELD(arg0, s8 *, 0x1D) = 0x33;
     M2C_FIELD(arg0, s32 *, 0x28) = -1;

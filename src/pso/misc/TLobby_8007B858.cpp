@@ -10,7 +10,7 @@ void create_tasks__6TLobbyFv(void);
 M2C_UNK TCineCtrl__ct(u32, s32);
 M2C_UNK TFogCtrl__sub_800FBB68();
 M2C_UNK THunterGuildSeqOnlineTask__ct(u32, s32);
-s32 TLobby__sub_80207DD4();
+s32 is_scene_ready__6TLobbyFv();
 M2C_UNK TLobby__sub_80208BD8();
 M2C_UNK cleanup_game_objects__9TMainTaskFv();
 s32 TOKeyMachine01__sub_802034A8();
@@ -23,9 +23,9 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create__13TRaderMapCoreFv();
 M2C_UNK create__6TSceneFv();
 M2C_UNK create_instance__10TSceneSoraFv();
-M2C_UNK TLobby__sub_8008350C(u32, s32, M2C_UNK);
-M2C_UNK TLobby__sub_800F8144(M2C_UNK);
-M2C_UNK TLobby__sub_800F8208(u32, s32);
+M2C_UNK init_subobject__6TLobbyFPvPvPv(u32, s32, M2C_UNK);
+M2C_UNK set_fade_params__6TLobbyFi(M2C_UNK);
+M2C_UNK ct_register__6TLobbyFPv(u32, s32);
 M2C_UNK fn_80198D98();
 M2C_UNK fn_8020D918();
 M2C_UNK fn_8032BDC4(u32, s32);
@@ -48,11 +48,11 @@ void create_tasks__6TLobbyFv(void) {
     if (is_split_screen() == 0) {
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            TLobby__sub_8008350C(tmp, tl_particlemodel, 1);
+            init_subobject__6TLobbyFPvPvPv(tmp, tl_particlemodel, 1);
         }
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            TLobby__sub_8008350C(tmp, tl_particlemodel, 0);
+            init_subobject__6TLobbyFPvPvPv(tmp, tl_particlemodel, 0);
         }
         tmp = __nw__7TObjectFUl(0x84);
         if (tmp != 0U) {
@@ -78,9 +78,9 @@ void create_tasks__6TLobbyFv(void) {
     }
     tmp = __nw__7TObjectFUl(0x2C);
     if (tmp != 0U) {
-        TLobby__sub_800F8208(tmp, tl_fade);
+        ct_register__6TLobbyFPv(tmp, tl_fade);
     }
-    TLobby__sub_800F8144(0);
+    set_fade_params__6TLobbyFi(0);
     tmp = __nw__7TObjectFUl(0x30);
     if (tmp != 0U) {
         TCineCtrl__ct(tmp, tl_00);
@@ -99,7 +99,7 @@ void create_tasks__6TLobbyFv(void) {
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         fn_80351F3C();
     }
-    if ((TOKeyMachine01__sub_802034A8() == 0xF) && (TLobby__sub_80207DD4() != 0)) {
+    if ((TOKeyMachine01__sub_802034A8() == 0xF) && (is_scene_ready__6TLobbyFv() != 0)) {
         fn_80198D98();
     }
     if ((get_main_phase() == 0xF) && ((TOKeyMachine01__sub_802034A8() == 0) || (TOKeyMachine01__sub_802034A8() == 0x12))) {

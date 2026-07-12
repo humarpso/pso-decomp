@@ -11,9 +11,9 @@ s8 TLobby__sub_8013AD64();
 void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 int fn_80264A6C(void* p);
-int TWindowKeyBoardHard__sub_801A529C(void*, int);
+int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
-void TWindowMakeTeam__sub_80264A90(s8 arg0) {
+void init_status_disp__15TWindowMakeTeamFc(s8 arg0) {
     TWindowSubStatusDisp__sub_80077760(arg0 + 0x113);
 }
 void TWindowMakeTeam__sub_80264AB8(s8 arg0) {

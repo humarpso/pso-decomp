@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TLobby__sub_8030A6A8(void);
 s32 TLobby__sub_8030A6FC(void);
-s32 TLobby__sub_8030A730(void);
+s32 is_ready__6TLobbyFv(void);
 s32 TLobby__sub_8030A770(void);
 s32 TCameraCtrl__sub_8006B330();
 s32 TCameraCtrl__sub_8006B368();
@@ -36,7 +36,7 @@ s32 TLobby__sub_8030A6FC(void) {
     return 1;
 }
 
-s32 TLobby__sub_8030A730(void) {
+s32 is_ready__6TLobbyFv(void) {
     if ((TLobby__sub_8030A7B0() == 2) && (TCameraCtrl__sub_8006B368() == 1)) {
         return 1;
     }

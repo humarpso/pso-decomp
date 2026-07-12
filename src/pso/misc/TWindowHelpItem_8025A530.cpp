@@ -9,7 +9,7 @@ extern "C" {
 void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK __dl__FPv(void *);
-M2C_UNK TWindowSubStatusDisp__sub_80256B94(void *, M2C_UNK);
+M2C_UNK destroy__20TWindowSubStatusDispFPvs(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804CF9F8[];
 
@@ -17,7 +17,7 @@ void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 4) = lbl_804CF9F8;
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x18));
-        TWindowSubStatusDisp__sub_80256B94(arg0, 0);
+        destroy__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

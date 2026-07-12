@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TWindowSubStatusDisp__sub_8014544C(void *arg0, void *arg1, s32 arg2);
+u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
 void *TWindowSubStatusDisp__sub_801452DC();
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(u8, s32);
 
@@ -14,7 +14,7 @@ extern M2C_UNK lbl_8043F3D0;
 extern u8 lbl_805D56C0;
 extern const f32 lbl_805DB194;
 
-u8 TWindowSubStatusDisp__sub_8014544C(void *arg0, void *arg1, s32 arg2) {
+u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2) {
     void *temp_r3;
 
     temp_r3 = TWindowSubStatusDisp__sub_801452DC();

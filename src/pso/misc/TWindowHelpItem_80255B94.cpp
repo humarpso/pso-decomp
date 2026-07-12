@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowHelpItem__sub_80255B94(u8 *arg0);
+void update_display__15TWindowHelpItemFPv(u8 *arg0);
 void *TWindowHelpItem__sub_80255C64(void *arg0, s16 arg1);
 M2C_UNK TWindowHelpItem__sub_802553F8(void *);
 M2C_UNK TWindowHelpItem__sub_80255440(void *);
@@ -21,7 +21,7 @@ M2C_UNK fn_8026C9C8(s32);
 s32 TWindowShortListCtrl__sub_8026C9DC(s32);
 void fn_8026CB08(void *, int);
 
-void TWindowHelpItem__sub_80255B94(u8 *arg0) {
+void update_display__15TWindowHelpItemFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }

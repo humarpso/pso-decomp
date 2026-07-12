@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80071500(s32 arg0);
+void set_selected_layout__6TLobbyFi(s32 arg0);
 s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 
 extern s32 lbl_8048C9D8[];
 
-void TLobby__sub_80071500(s32 arg0) {
+void set_selected_layout__6TLobbyFi(s32 arg0) {
     s32 temp_r3;
     s32 var_r31;
 

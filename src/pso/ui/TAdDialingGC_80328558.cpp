@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdDialingGC__sub_80328558(u8 *arg0);
+void update_selection__12TAdDialingGCFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803FB184(void *);
 
 extern s32 lbl_805D5704;
 
-void TAdDialingGC__sub_80328558(u8 *arg0) {
+void update_selection__12TAdDialingGCFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x68) = (s16) M2C_FIELD(arg0, s16 *, 0x30);
     if ((s32) lbl_805D5704 != 0) {
         M2C_FIELD(arg0, s16 *, 0x30) = 0;

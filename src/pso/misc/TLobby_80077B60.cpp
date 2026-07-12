@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80077B60(void);
+void free_static_windows__6TLobbyFv(void);
 void __dl__FPv(void*);
 
 extern u32 lbl_805D4E58;
 extern u32 lbl_805D4E5C;
 
-void TLobby__sub_80077B60(void) {
+void free_static_windows__6TLobbyFv(void) {
     if ((u32) lbl_805D4E5C != 0U) {
         __dl__FPv((void*)lbl_805D4E5C);
         lbl_805D4E5C = 0U;

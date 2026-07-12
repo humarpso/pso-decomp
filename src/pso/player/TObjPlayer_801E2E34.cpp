@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801E2E34(void *arg0);
+void render_matrix_chain__10TObjPlayerFPv(void *arg0);
 M2C_UNK GXLoadNrmMtxImm(M2C_UNK *, M2C_UNK);
 M2C_UNK GXLoadPosMtxImm(s32, M2C_UNK);
 extern M2C_UNK (*lbl_805D7710)(void *);
@@ -19,7 +19,7 @@ M2C_UNK TObjPlayer__sub_803D7CA4(void *);
 extern void *lbl_805D4698;
 extern s32 lbl_805D7774;
 
-void TObjPlayer__sub_801E2E34(void *arg0) {
+void render_matrix_chain__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp38[12];
     M2C_UNK sp8[12];
     void *var_r31;
@@ -39,7 +39,7 @@ void TObjPlayer__sub_801E2E34(void *arg0) {
             M2C_FIELD(lbl_805D4698, M2C_UNK (**)(u32, void *), 0xC)(M2C_FIELD(var_r31, u32 *, 4), lbl_805D4698);
         }
         if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
-            TObjPlayer__sub_801E2E34(M2C_FIELD(var_r31, void **, 0x2C));
+            render_matrix_chain__10TObjPlayerFPv(M2C_FIELD(var_r31, void **, 0x2C));
         }
         TObjPlayer__sub_803D9B78();
         var_r31 = M2C_FIELD(var_r31, void **, 0x30);

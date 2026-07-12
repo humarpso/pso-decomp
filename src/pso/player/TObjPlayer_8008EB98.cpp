@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8008EB98(void *arg0);
+void update_dragon_boss_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 
 extern const f32 lbl_805D9620;
 
-void TObjPlayer__sub_8008EB98(void *arg0) {
+void update_dragon_boss_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);

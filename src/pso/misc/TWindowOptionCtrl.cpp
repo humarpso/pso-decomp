@@ -12,9 +12,9 @@ void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0);
 void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 void *TAdSinglePlyChrSelectGC__sub_8001ED80();
-s32 TWindowKeyBoardSoft__sub_80132E58(s8);
-M2C_UNK TLobby__sub_802260C4();
-M2C_UNK TLobby__sub_802260F0();
+s32 set_language__19TWindowKeyBoardSoftFc(s8);
+M2C_UNK close_option_window__6TLobbyFv();
+M2C_UNK init_layout_positions__6TLobbyFv();
 s16 TLobby__sub_80226328();
 M2C_UNK TLobby__sub_802263A8(s16);
 M2C_UNK TLobby__sub_8022743C();
@@ -40,7 +40,7 @@ void apply_selection_change__17TWindowOptionCtrlFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x1E) != (s16) M2C_FIELD(arg0, s16 *, 0x20)) {
         TLobby__sub_8022743C();
         TLobby__sub_802263A8(M2C_FIELD(arg0, s16 *, 0x20));
-        TLobby__sub_802260F0();
+        init_layout_positions__6TLobbyFv();
     }
 }
 
@@ -55,14 +55,14 @@ void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0) {
 void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
     TLobby__sub_8022743C();
     TLobby__sub_8022743C();
-    TLobby__sub_802260C4();
+    close_option_window__6TLobbyFv();
     fn_8036A648(arg1);
     TObjBgmColCtrl__sub_802274B8();
     M2C_FIELD(arg0, u8 *, 0x1D) = (u8) (M2C_FIELD(arg0, u8 *, 0x1D) | 2);
 }
 
 s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
-    if (TWindowKeyBoardSoft__sub_80132E58((s8) arg1) != 0) {
+    if (set_language__19TWindowKeyBoardSoftFc((s8) arg1) != 0) {
         fn_8023F160();
         fn_8023F18C();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {

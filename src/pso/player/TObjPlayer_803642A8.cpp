@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_803642A8(s32 arg0);
-M2C_UNK TObjPlayer__sub_80364280();
+s32 run_and_return_arg__10TObjPlayerFi(s32 arg0);
+M2C_UNK reset_id_array__10TObjPlayerFPv();
 
-s32 TObjPlayer__sub_803642A8(s32 arg0) {
-    TObjPlayer__sub_80364280();
+s32 run_and_return_arg__10TObjPlayerFi(s32 arg0) {
+    reset_id_array__10TObjPlayerFPv();
     return arg0;
 }
 

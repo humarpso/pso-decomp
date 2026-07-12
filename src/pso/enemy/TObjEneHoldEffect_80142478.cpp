@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjEneHoldEffect__sub_80142478(void *arg0);
+u8 is_in_view__17TObjEneHoldEffectFPv(void *arg0);
 s32 TCameraCtrl__sub_8006B370(f32);
 
-u8 TObjEneHoldEffect__sub_80142478(void *arg0) {
+u8 is_in_view__17TObjEneHoldEffectFPv(void *arg0) {
     s32 var_r31;
 
     var_r31 = 0;

@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_80070CDC(void);
-void TLobby__sub_80070D20(void);
-s32 TLobby__sub_80070D64(void);
+void draw_if_ready__6TLobbyFv(void);
+s32 check_ready_state__6TLobbyFv(void);
 s32 TLobby__sub_80070AB0();
 s32 TLobby__sub_80070DA8();
 s32 TLobby__sub_80072B30();
@@ -25,7 +25,7 @@ void TLobby__sub_80070CDC(void) {
 
 extern u32 lbl_805D4E28;
 
-void TLobby__sub_80070D20(void) {
+void draw_if_ready__6TLobbyFv(void) {
     if ((TLobby__sub_80070AB0() != 0) && (TLobby__sub_80072B30() != 0) && ((u32) lbl_805D4E28 != 0U)) {
         fn_800733C4((void*)lbl_805D4E28);
     }
@@ -33,7 +33,7 @@ void TLobby__sub_80070D20(void) {
 
 extern M2C_UNK lbl_8048C9D8[];
 
-s32 TLobby__sub_80070D64(void) {
+s32 check_ready_state__6TLobbyFv(void) {
     s32 var_r3;
 
     var_r3 = TLobby__sub_80070DA8();

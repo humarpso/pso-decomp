@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int xfree__FPv(void*);
-void TLobby__sub_8001EF5C(void* p, void* a1);
+void free_if_not_owner__6TLobbyFPvPv(void* p, void* a1);
 
-void TLobby__sub_8001EF5C(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0x424) == 0) { xfree__FPv(a1); } }
+void free_if_not_owner__6TLobbyFPvPv(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0x424) == 0) { xfree__FPv(a1); } }
 
 M2C_UNK TLobby__sub_801E38A0(s32, s32, s32, s32, u32 *);
 s32 TLobby__sub_803DE328(s32, s32, s32);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_80123B18(void *arg0);
-void TObjPlayer__sub_80123B48(void* p);
+void update_1f8_if_ready__10TObjPlayerFPv(void* p);
 int TBoss7Tentacle__sub_803D9BA0(void*);
 int TObjPlayer__sub_80121200(void*);
 
@@ -26,6 +26,6 @@ void TObjPlayer__sub_80123B18(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80123B48(void* p) { if (TObjPlayer__sub_80121200(p) == 0) { TBoss7Tentacle__sub_803D9BA0((char*)p + 0x1f8); } }
+void update_1f8_if_ready__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80121200(p) == 0) { TBoss7Tentacle__sub_803D9BA0((char*)p + 0x1f8); } }
 
 }

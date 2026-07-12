@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TFontSmallLobby__sub_801D6428(void);
+void send_photon_blast_ready__15TFontSmallLobbyFv(void);
 u16 TFontSmallLobby__sub_801D67A4();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 M2C_UNK send_field_state__10TObjPlayerFPv();
 
-void TFontSmallLobby__sub_801D6428(void) {
+void send_photon_blast_ready__15TFontSmallLobbyFv(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(TFontSmallLobby__sub_801D67A4()) != 0U) {
         send_field_state__10TObjPlayerFPv();
     }

@@ -4,6 +4,6 @@ extern "C" {
 
 s32 TObjEneSlimeOne__sub_800EC394(void* p);
 
-int fn_800EC348(void) { return 0; }
+int TObjPlayer__sub_800EC348(void) { return 0; }
 
 }

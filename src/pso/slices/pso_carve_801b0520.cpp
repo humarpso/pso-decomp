@@ -27,7 +27,7 @@ M2C_UNK show_sub_status_window(s32, s32, s32);
 M2C_UNK draw_status_line(s32, s32, s32, s32);
 extern s32 lbl_805D3530;
 
-void fn_801B0520(s32 arg0, void *arg1, s32 arg2) {
+void draw_player_status(s32 arg0, void *arg1, s32 arg2) {
     s32 temp_r3;
 
     temp_r3 = ((VObj_801B0520 *)arg1)->m10();

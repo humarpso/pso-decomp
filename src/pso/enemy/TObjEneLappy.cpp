@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TObjEneLappy__sub_800C2014(void);
-void TObjEneLappy__sub_800C201C(void *arg0, s32 arg1);
+void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1);
 s32 TLobby__sub_8001E5C8();
 
 int TObjEneLappy__sub_800C2014(void) { return 0; }
@@ -15,7 +15,7 @@ int TObjEneLappy__sub_800C2014(void) { return 0; }
 extern void *lbl_805D5164;
 extern s32 lbl_805D516C;
 
-void TObjEneLappy__sub_800C201C(void *arg0, s32 arg1) {
+void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1) {
     s32 var_r0;
     s32 var_r0_2;
 

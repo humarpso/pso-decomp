@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_download_state__6TLobbyFv(void);
-M2C_UNK TLobby__sub_8001F88C();
+M2C_UNK init_download_buffers__6TLobbyFv();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 s32 __ct__5THeapFUli(M2C_UNK, M2C_UNK, M2C_UNK);
 s32 __nw__5THeapFUl(M2C_UNK);
@@ -24,7 +24,7 @@ extern s32 lbl_805D537C;
 void init_download_state__6TLobbyFv(void) {
     s32 var_r0;
 
-    TLobby__sub_8001F88C();
+    init_download_buffers__6TLobbyFv();
     lbl_805D5370 = alloc__22TQuestVmDownLoadServerFPv(0x800);
     lbl_805D5364 = 0;
     lbl_805D5360 = 0;

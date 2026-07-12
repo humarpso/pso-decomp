@@ -12,6 +12,6 @@ int TSaveChCr__sub_8033A138(void);
 int TAdSinglePlyChrSelectGC__sub_801FF5E4(void*);
 
 int TSaveChCr__sub_8033A138(void) { return TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)(0)); }
-void TSaveChCr__sub_8033A15C(void* p) { TObjPlayer__sub_802C3BB4(p); TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)1); }
+void save_character__9TSaveChCrFPv(void* p) { TObjPlayer__sub_802C3BB4(p); TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)1); }
 
 }

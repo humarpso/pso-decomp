@@ -15,7 +15,7 @@ M2C_UNK TObjPlayer__sub_801BF9A4(void *);
 M2C_UNK set_vec4_const__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8002AEAC(void *);
 M2C_UNK TObjPlayer__sub_8011E204(void *, int);
-M2C_UNK TObjPlayer__sub_801D33B4(void *);
+M2C_UNK reset_movement_state__10TObjPlayerFPv(void *);
 
 extern const f32 TObjPlayer__data_805DC278;
 
@@ -23,7 +23,7 @@ void reset_state__10TObjPlayerFPv(u8 *arg0) {
     TAdRicoRing__sub_8001BEE8(arg0 + 0x858, 2);
     TObjPlayer__sub_801BF9A4(arg0 + 0x63C);
     TObjPlayer__sub_8002AEAC(arg0 + 0x644);
-    TObjPlayer__sub_801D33B4(arg0 + 0x7CC);
+    reset_movement_state__10TObjPlayerFPv(arg0 + 0x7CC);
     TObjPlayer__sub_801BF690(arg0 + 0x730);
     set_vec4_const__10TObjPlayerFPv(arg0 + 0x608);
     M2C_FIELD(arg0, s32 *, 0x548) = 0;

@@ -8,8 +8,8 @@ extern "C" {
 
 void *TObjPlayer__sub_8012192C(void *arg0, s16 arg1);
 void TObjPlayer__sub_80121984(void *arg0);
-void TObjPlayer__sub_80121A04(void* p);
-void TObjPlayer__sub_80121A44(void *arg0);
+void release_container_if_active__10TObjPlayerFPv(void* p);
+void update_freeze_state__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80121ACC(void *arg0);
 s32 TOBoss4Rock__sub_8039C880();
 int TObjContainerIdo__sub_803D96A8(void*, void*);
@@ -51,13 +51,13 @@ void TObjPlayer__sub_80121984(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80121A04(void* p) { if (TObjPlayer__sub_80121200(p) == 1) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }
+void release_container_if_active__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80121200(p) == 1) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 extern M2C_UNK lbl_8043E868;
 extern f32 lbl_805DACC8;
 extern f32 lbl_805DACCC;
 
-void TObjPlayer__sub_80121A44(void *arg0) {
+void update_freeze_state__10TObjPlayerFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 3) {
         M2C_FIELD(arg0, s32 *, 0x1FC) = 1;
     }

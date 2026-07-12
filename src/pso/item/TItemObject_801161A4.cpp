@@ -37,13 +37,13 @@ extern "C" {
 void TItemObject__vt29(void *arg0);
 s32 TItemObject__vt35(void *arg0, s32 arg1);
 s32 TItemObject__vt36(void *arg0, s32 arg1);
-M2C_UNK TItemObject__sub_800FFE4C(void *);
+M2C_UNK set_flag_1024__11TItemObjectFPv(void *);
 s32 TItemObject__sub_80101A1C(void *);
 M2C_UNK TItemObject__sub_80115D6C(void *, s32);
 M2C_UNK TObjPlayer__sub_80099EF8(void *);
 s32 check_flag_400__20TWindowSubStatusDispFv();
-M2C_UNK TItem__sub_80100508(void *, M2C_UNK);
-M2C_UNK TItem__sub_80100564(void *, M2C_UNK);
+M2C_UNK notify_owner__5TItemFPvi(void *, M2C_UNK);
+M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
 M2C_UNK TItem__sub_80100824();
 s32 TObjPlayer__sub_80116578(void *);
 
@@ -85,15 +85,15 @@ s32 TItemObject__vt35(void *arg0, s32 arg1) {
 void TItemObject__vt29(void *arg0) {
     struct VObj_8011626C *o = (struct VObj_8011626C *)arg0;
     if (check_flag_400__20TWindowSubStatusDispFv() != 0) {
-        TItemObject__sub_800FFE4C(arg0);
+        set_flag_1024__11TItemObjectFPv(arg0);
         return;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
         M2C_FIELD(arg0, u8 *, 0x101) = 0U;
         o->m42();
         if ((u8) M2C_FIELD(arg0, u8 *, 0x101) == 0) {
-            TItem__sub_80100564(arg0, 0x1AF);
-            TItem__sub_80100508(arg0, 0x5B211);
+            apply_switch_attack__5TItemFPvi(arg0, 0x1AF);
+            notify_owner__5TItemFPvi(arg0, 0x5B211);
         }
         if (TObjPlayer__sub_80116578(arg0) & 0x10) {
             TObjPlayer__sub_80099EF8(arg0);

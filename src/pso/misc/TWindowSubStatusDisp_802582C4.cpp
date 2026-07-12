@@ -21,7 +21,7 @@ extern "C" {
 
 void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1);
 s32 TItem__sub_8010147C(void *, M2C_UNK, s32);
-s32 TObjPlayer__sub_801011B0(void *);
+s32 copy_item_data_to_icon__10TObjPlayerFPv(void *);
 s32 get_item_info__10TObjPlayerFiiPv(void *, s32, s16 *);
 s32 TObjPlayer__sub_80102BE0(void *, M2C_UNK);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
@@ -86,7 +86,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
                 M2C_FIELD(arg0, s32 *, 0x30) = -0x1600;
                 return;
             }
-            if (TObjPlayer__sub_801011B0(arg1) != 0) {
+            if (copy_item_data_to_icon__10TObjPlayerFPv(arg1) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFF61E853;
                 return;
             }

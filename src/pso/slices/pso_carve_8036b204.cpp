@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TLobby__sub_8036B1AC(s32);
-M2C_UNK TLobby__sub_8036B2A0(u32, u16, s32);
+M2C_UNK send_slot_entity__6TLobbyFPvUsi(u32, u16, s32);
 extern u32 lbl_805D7008;
 
 void TLobby__sub_8036B204(u16 arg0, s32 arg1) {
     if (((u32) lbl_805D7008 != 0U) && (arg0 < 4U)) {
-        TLobby__sub_8036B2A0(lbl_805D7008, arg0, arg1);
+        send_slot_entity__6TLobbyFPvUsi(lbl_805D7008, arg0, arg1);
         return;
     }
     TLobby__sub_8036B1AC(arg1);

@@ -31,7 +31,7 @@ s32 TObjPlayer__sub_801AFDD8(s32 arg0) {
         return 1;
     }
 }
-u8 TObjPlayer__sub_801AFE78(void) {
+u8 is_key_machine_ready__10TObjPlayerFv(void) {
     s32 temp_r3;
     s32 var_r0;
 

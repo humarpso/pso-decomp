@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestVmDownLoadServer__sub_800FA9A8(void);
+void destroy_instance__22TQuestVmDownLoadServerFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 
 extern u32 lbl_805D5390;
 
-void TQuestVmDownLoadServer__sub_800FA9A8(void) {
+void destroy_instance__22TQuestVmDownLoadServerFv(void) {
     if ((u32) lbl_805D5390 != 0U) {
         queue_destruction__7TObjectFv((void*)lbl_805D5390);
     }

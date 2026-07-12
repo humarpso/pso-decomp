@@ -6,20 +6,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801EE40C(void);
+void update_local_player__6TLobbyFv(void);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TObjPlayer__sub_801B3FD8();
-M2C_UNK TObjPlayer__sub_801B4020(s32);
+M2C_UNK forward_1BF500_at_63c__10TObjPlayerFPv(s32);
 
 extern s32 lbl_805D53A0;
 
-void TLobby__sub_801EE40C(void) {
+void update_local_player__6TLobbyFv(void) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
     if (temp_r3 != 0) {
         TObjPlayer__sub_801B3FD8();
-        TObjPlayer__sub_801B4020(temp_r3);
+        forward_1BF500_at_63c__10TObjPlayerFPv(temp_r3);
     }
 }
 

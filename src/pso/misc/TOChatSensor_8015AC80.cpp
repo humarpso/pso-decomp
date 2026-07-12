@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOChatSensor__sub_8015AC80(u8 *arg0);
+void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
 
 extern s32 lbl_805D53A0;
 
-void TOChatSensor__sub_8015AC80(u8 *arg0) {
+void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
     u32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (lbl_805D53A0));

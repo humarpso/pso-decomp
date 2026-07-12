@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMainTask__sub_80229540(void);
+void run_all_lists__9TMainTaskFv(void);
 void clear_flag3_all_tasks__9TMainTaskFv(void);
 void delete_all_task_children__9TMainTaskFv(void);
 void TMainTask__sub_80229754(void);
@@ -53,7 +53,7 @@ void some_empty_func__9TMainTaskFv(void) {
     extern int tl_clipout;
     extern int tl_fade;
     extern int tl_fadeafter;
-void TMainTask__sub_80229540(void) { TMainTask__sub_801F34D0((void*)(tl_00)); TMainTask__sub_801F34D0((void*)(tl_camera)); TMainTask__sub_801F34D0((void*)(tl_01)); TMainTask__sub_801F34D0((void*)(tl_02)); TMainTask__sub_801F34D0((void*)(tl_03)); TMainTask__sub_801F34D0((void*)(tl_item_equip)); TMainTask__sub_801F34D0((void*)(tl_loc_start)); TMainTask__sub_801F34D0((void*)(tl_04)); TMainTask__sub_801F34D0((void*)(tl_05)); TMainTask__sub_801F34D0((void*)(tl_06)); TMainTask__sub_801F34D0((void*)(tl_07)); TMainTask__sub_801F34D0((void*)(tl_loc_end)); TMainTask__sub_801F34D0((void*)(tl_window)); TMainTask__sub_801F34D0((void*)(tl_particlemodel)); TMainTask__sub_801F34D0((void*)(tl_radermap)); TMainTask__sub_801F34D0((void*)(tl_clipout)); TMainTask__sub_801F34D0((void*)(tl_fade)); TMainTask__sub_801F34D0((void*)(tl_fadeafter)); }
+void run_all_lists__9TMainTaskFv(void) { TMainTask__sub_801F34D0((void*)(tl_00)); TMainTask__sub_801F34D0((void*)(tl_camera)); TMainTask__sub_801F34D0((void*)(tl_01)); TMainTask__sub_801F34D0((void*)(tl_02)); TMainTask__sub_801F34D0((void*)(tl_03)); TMainTask__sub_801F34D0((void*)(tl_item_equip)); TMainTask__sub_801F34D0((void*)(tl_loc_start)); TMainTask__sub_801F34D0((void*)(tl_04)); TMainTask__sub_801F34D0((void*)(tl_05)); TMainTask__sub_801F34D0((void*)(tl_06)); TMainTask__sub_801F34D0((void*)(tl_07)); TMainTask__sub_801F34D0((void*)(tl_loc_end)); TMainTask__sub_801F34D0((void*)(tl_window)); TMainTask__sub_801F34D0((void*)(tl_particlemodel)); TMainTask__sub_801F34D0((void*)(tl_radermap)); TMainTask__sub_801F34D0((void*)(tl_clipout)); TMainTask__sub_801F34D0((void*)(tl_fade)); TMainTask__sub_801F34D0((void*)(tl_fadeafter)); }
 
     extern int tl_00;
     extern int tl_camera;

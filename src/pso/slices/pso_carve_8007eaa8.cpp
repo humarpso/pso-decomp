@@ -8,7 +8,7 @@ void TObjPlayer__sub_8001960C(void *);
 void bswap_16__FPUs(void *);
 void bswap_32__FPUl(void *);
 
-void fn_8007EAA8(void *arg0) {
+void bswap_6xB2_play_sound(void *arg0) {
     TObjPlayer__sub_8001960C(arg0);
     bswap_16__FPUs((void *)((char *)arg0 + 6));
     bswap_32__FPUl((void *)((char *)arg0 + 8));

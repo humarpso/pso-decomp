@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void copy4__18TAdChrMoveEffectGCFPvPv(void* p, void* q);
-void TWindowSubStatusDisp__sub_80257744(void *arg0);
+void update_disp_value__20TWindowSubStatusDispFPv(void *arg0);
 s32 TWindowSubStatusDisp__sub_80256C00();
 
 void copy4__18TAdChrMoveEffectGCFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u8*)((char*)p + 0x2) = *(u8*)((char*)q + 0x2); *(u8*)((char*)p + 0x3) = *(u8*)((char*)q + 0x3); }
-void TWindowSubStatusDisp__sub_80257744(void *arg0) {
+void update_disp_value__20TWindowSubStatusDispFPv(void *arg0) {
     TWindowSubStatusDisp__sub_80256C00();
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg0, f32 *, 0x24);
 }

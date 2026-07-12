@@ -12,7 +12,7 @@ void handle_decide__21TWindowSubCustomEquipFPv(void *arg0);
 s32 TWindowSubCustomEquip__sub_80275D9C();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubCustomEquip__sub_80276A38(void *, s32, M2C_UNK);
-M2C_UNK fn_8028783C(s32, M2C_UNK);
+M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(s32, M2C_UNK);
 
 void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0) {
     s32 temp_r3;
@@ -53,7 +53,7 @@ void handle_cancel__21TWindowSubCustomEquipFPv(void *arg0) {
 void handle_decide__21TWindowSubCustomEquipFPv(void *arg0) {
     TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 1);
-    fn_8028783C(M2C_FIELD(arg0, s32 *, 0x6C), 2);
+    set_entry_state__20TWindowSubStatusDispFPvc(M2C_FIELD(arg0, s32 *, 0x6C), 2);
 }
 
 }

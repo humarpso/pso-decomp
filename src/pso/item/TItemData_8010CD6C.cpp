@@ -13,12 +13,12 @@ void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
 int TItemData__sub_8010CCEC(void* p);
-int TObjPlayer__sub_8011C1E8(void*);
+int register_item_drop__10TObjPlayerFPv(void*);
 
 void lookup_item_def__9TItemDataFPv(void *arg0) {
     fn_80101A48(M2C_FIELD(arg0, u8 *, 0), M2C_FIELD(arg0, u8 *, 1));
 }
-s16 TItemData__sub_8010CD98(void *arg0) {
+s16 get_field6_bswap__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = M2C_FIELD(arg0, s16 *, 6);

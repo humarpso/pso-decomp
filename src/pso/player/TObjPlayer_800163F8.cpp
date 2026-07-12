@@ -35,10 +35,10 @@ struct VObj_800163F8 : Base_800163F8 {
 
 extern "C" {
 
-s32 TObjPlayer__sub_800163F8(void *arg0, s32 arg1, s32 arg2);
+s32 try_start_action__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjPlayer__sub_800162B0(void *, s32);
 
-s32 TObjPlayer__sub_800163F8(void *arg0, s32 arg1, s32 arg2) {
+s32 try_start_action__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (((VObj_800163F8 *)arg0)->m25() != 0) {
         return 1;
     }

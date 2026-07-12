@@ -43,10 +43,10 @@ M2C_UNK TAdMultiPlyChrSelectGC__sub_802E005C(s32, M2C_UNK);
 int TAdMultiPlyChrSelectGC__sub_802E0064(void*, void*);
 int TAdMultiPlyChrSelectGC__sub_802E006C(void*, void*, void*);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0078(s32);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0084(s32);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0C68(s32, M2C_UNK);
+M2C_UNK update_field_4E8__22TAdMultiPlyChrSelectGCFPv(s32);
+M2C_UNK set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_8030E2E4(void *, M2C_UNK);
-s32 TAdChrSelBSlotGC__sub_803100A4(void *);
+s32 create__16TAdChrSelBSlotGCFPv(void *);
 M2C_UNK get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(s32);
 M2C_UNK open__17TWindowOptionCtrlFPv(s32);
@@ -57,9 +57,9 @@ extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
 void open_windows__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     TAdGameStartGC__sub_802E6380(M2C_FIELD(arg0, s32 *, 0x78));
     TAdMultiPlyChrSelectGC__sub_802E005C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
-    TAdMultiPlyChrSelectGC__sub_802E0C68(M2C_FIELD(arg0, s32 *, 0x60), 1);
+    set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x60), 1);
     M2C_FIELD(arg0, s32 *, 0x68) = TAdMultiPlyChrSelectGC__sub_8030E2E4(arg0, 2);
-    M2C_FIELD(arg0, s32 *, 0x6C) = TAdChrSelBSlotGC__sub_803100A4(arg0);
+    M2C_FIELD(arg0, s32 *, 0x6C) = create__16TAdChrSelBSlotGCFPv(arg0);
     TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 0, &TAdMultiPlyChrSelectGC__data_805DE898);
     TAdMultiPlyChrSelectGC__sub_802B1850(M2C_FIELD(arg0, s32 *, 0x64), 1, &TAdMultiPlyChrSelectGC__data_805DE898);
     M2C_FIELD(arg0, s32 *, 0x20) = 0xC;
@@ -224,7 +224,7 @@ void update_state_option__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
             return;
         case 1:
             TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
-            TAdMultiPlyChrSelectGC__sub_802E0084(M2C_FIELD(arg0, s32 *, 0x5C));
+            update_field_4E8__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
             TAdMultiPlyChrSelectGC__sub_802E0078(M2C_FIELD(arg0, s32 *, 0x5C));
             TAdMultiPlyChrSelectGC__sub_802C5688(M2C_FIELD(arg0, s32 *, 0x5C));
             TAdMultiPlyChrSelectGC__sub_802E0008((void*)(M2C_FIELD(arg0, s32 *, 0x5C)));

@@ -10,7 +10,7 @@ void handle_cancel__22TWindowSubCustomSelectFPv(void *arg0);
 void handle_decide__22TWindowSubCustomSelectFPv(void *arg0);
 s32 TWindowSubCustomSelect__sub_80275D84();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_8028783C(s32, M2C_UNK);
+M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(s32, M2C_UNK);
 
 void handle_cancel__22TWindowSubCustomSelectFPv(void *arg0) {
     if (TWindowSubCustomSelect__sub_80275D84() == 0) {
@@ -22,7 +22,7 @@ void handle_cancel__22TWindowSubCustomSelectFPv(void *arg0) {
 void handle_decide__22TWindowSubCustomSelectFPv(void *arg0) {
     TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x73) = (u8) (M2C_FIELD(arg0, u8 *, 0x73) | 1);
-    fn_8028783C(M2C_FIELD(arg0, s32 *, 0x7C), 2);
+    set_entry_state__20TWindowSubStatusDispFPvc(M2C_FIELD(arg0, s32 *, 0x7C), 2);
 }
 
 }

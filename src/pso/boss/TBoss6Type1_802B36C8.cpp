@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type1__sub_802B36C8(u8 *arg0);
+void set_phase_timer_3E__11TBoss6Type1FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B4B64(void *, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B4BA8(void *, M2C_UNK);
 
-void TBoss6Type1__sub_802B36C8(u8 *arg0) {
+void set_phase_timer_3E__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x40C) = 0x3E;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 5) {
         M2C_FIELD(arg0, s32 *, 0x40C) = (s32) (M2C_FIELD(arg0, s32 *, 0x40C) + 0x1E);

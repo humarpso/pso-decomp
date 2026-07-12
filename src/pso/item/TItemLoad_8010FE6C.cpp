@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TItemLoad__sub_8010FE6C(void *arg0, u32 arg1, s32 arg2);
+void *load_buffer__9TItemLoadFPvUii(void *arg0, u32 arg1, s32 arg2);
 M2C_UNK TItemBuff__ct();
 s32 TLobby__sub_800F9DF4(u32, s32);
 u32 alloc_buffer__11TOBoss4RockFPv(s32);
@@ -35,7 +35,7 @@ struct Sp8Buf_8010fe6c {
     s32 field3c;
 };
 
-void *TItemLoad__sub_8010FE6C(void *arg0, u32 arg1, s32 arg2) {
+void *load_buffer__9TItemLoadFPvUii(void *arg0, u32 arg1, s32 arg2) {
     struct Sp8Buf_8010fe6c sp8;
     s32 temp_r31;
     s32 temp_r3;

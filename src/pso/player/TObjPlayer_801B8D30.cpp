@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void dispatch_action__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK TLobby__sub_801D4BB0(s32, void *, s32, s32, void *);
+M2C_UNK use_item__6TLobbyFiiii(s32, void *, s32, s32, void *);
 
 void dispatch_action__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
-    TLobby__sub_801D4BB0(M2C_FIELD(arg0, s32 *, 0xD00), arg0, arg1, arg2, arg0);
+    use_item__6TLobbyFiiii(M2C_FIELD(arg0, s32 *, 0xD00), arg0, arg1, arg2, arg0);
 }
 
 }

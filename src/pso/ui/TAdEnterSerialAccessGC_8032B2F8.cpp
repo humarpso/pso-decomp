@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TAdEnterSerialAccessGC__sub_8032B2F8(void* p);
+int forward_input__22TAdEnterSerialAccessGCFPv(void* p);
 int TAdEnterSerialAccessGC__sub_8032B1A4(void*);
 
-int TAdEnterSerialAccessGC__sub_8032B2F8(void* p) { return TAdEnterSerialAccessGC__sub_8032B1A4(p); }
+int forward_input__22TAdEnterSerialAccessGCFPv(void* p) { return TAdEnterSerialAccessGC__sub_8032B1A4(p); }
 
 }

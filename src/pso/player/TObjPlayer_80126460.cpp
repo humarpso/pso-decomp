@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TObjPlayer__sub_80126460(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-void TObjPlayer__sub_8012650C(void* p);
+u32 spawn_shoot_effect__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
+void release_item_if_ready__10TObjPlayerFPv(void* p);
 M2C_UNK TItemShootParticle__sub_8011B704(u32, M2C_UNK, M2C_UNK);
 u32 spawn_shoot_particle__10TObjPlayerFUiiif(void *, s32, s32, f32);
 u32 TObjPlayer__sub_8011BA54();
@@ -15,7 +15,7 @@ int TObjPlayer__sub_80121200(void*);
 int TObjPlayer__sub_803D9214(void*, void*);
 M2C_UNK set_parent__7TObjectFP7TObject(u32, u32);
 
-u32 TObjPlayer__sub_80126460(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+u32 spawn_shoot_effect__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     u32 temp_r31;
     u32 temp_r30;
     void *temp_r4;
@@ -34,6 +34,6 @@ u32 TObjPlayer__sub_80126460(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     return temp_r31;
 }
 
-void TObjPlayer__sub_8012650C(void* p) { if (TObjPlayer__sub_80121200(p) == 1) { TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x1f8)); } }
+void release_item_if_ready__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80121200(p) == 1) { TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLaboDesignBase__sub_80364FD0(u8 *arg0);
+void render__18TObjLaboDesignBaseFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_8001EDB0(int, int);
 s32 TObjFish__sub_8001EDC4(int, int);
@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 
-void TObjLaboDesignBase__sub_80364FD0(u8 *arg0) {
+void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     TObjFish__sub_8001EDB0((int) (M2C_FIELD(arg0, s32 *, 0xAC)), (int) (0));
     TObjFish__sub_803DA798();
     TObjPlayer__sub_803D9B2C();

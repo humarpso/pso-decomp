@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TAdChrSelSlotGC__sub_802C71BC(void *arg0, s16 arg1);
+void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -14,7 +14,7 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 extern M2C_UNK lbl_804E0B28[];
 extern s32 lbl_805D67E8;
 
-void *TAdChrSelSlotGC__sub_802C71BC(void *arg0, s16 arg1) {
+void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0B28;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) {

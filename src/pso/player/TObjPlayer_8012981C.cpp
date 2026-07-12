@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012981C(void *arg0);
+void apply_directional_input__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 s32 TObjPlayer__sub_80121200();
 
-void TObjPlayer__sub_8012981C(void *arg0) {
+void apply_directional_input__10TObjPlayerFPv(void *arg0) {
     if (TObjPlayer__sub_80121200() == 1) {
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x200));
     }

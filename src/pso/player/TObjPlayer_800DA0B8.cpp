@@ -17,7 +17,7 @@ struct V_Sub_800da0b8 : Base_Sub_800da0b8 {
 extern "C" {
 
 void TObjPlayer__sub_800DA0B8(u8 *arg0);
-void TObjPlayer__sub_800DA19C(void *arg0, u32 arg1);
+void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *arg0, u32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -57,7 +57,7 @@ void TObjPlayer__sub_800DA0B8(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_800DA19C(void *arg0, u32 arg1) {
+void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *arg0, u32 arg1) {
     if ((arg1 == TPlayerBattleCtrl4P__sub_801BA74C(0)) && ((s32) M2C_FIELD(arg0, s32 *, 0x3DC) <= 0)) {
         M2C_FIELD(arg0, s32 *, 0x3DC) = 0x1E;
         set_shake_preset__11TCameraCtrlFi(1);

@@ -318,13 +318,13 @@ short get_model_field_m25__10TObjPlayerFPv(void *arg0);
 short TObjPlayer__sub_801BE40C(void *arg0);
 short call_model_m24__10TObjPlayerFPv(void *arg0);
 short TObjPlayer__sub_801BE474(void *arg0);
-short TObjPlayer__sub_801BE4A8(void *arg0);
+short call_obj_vt26__10TObjPlayerFPv(void *arg0);
 short query_child_state__10TObjPlayerFPv(void *arg0);
 short query_equip__10TObjPlayerFPv(void *arg0);
 short get_status__10TObjPlayerFPv(void *arg0);
 short get_model_state__10TObjPlayerFPv(void *arg0);
 short get_state__10TObjPlayerFPv(void *arg0);
-short TObjPlayer__sub_801BE5E0(void *arg0);
+short call_subobject_m15__10TObjPlayerFPv(void *arg0);
 short TObjPlayer__sub_801BE614(void *arg0);
 void TObjPlayer__sub_801BE648(void);
 int TPlayerBattleCtrl4P__sub_801BA74C(void*);
@@ -354,7 +354,7 @@ short TObjPlayer__sub_801BE474(void *arg0) {
     return o->m26();
 }
 
-short TObjPlayer__sub_801BE4A8(void *arg0) {
+short call_obj_vt26__10TObjPlayerFPv(void *arg0) {
     struct VObj_801BE4A8 *o = (struct VObj_801BE4A8 *)M2C_FIELD(arg0, void **, 0x380);
     return o->m26();
 }
@@ -384,7 +384,7 @@ short get_state__10TObjPlayerFPv(void *arg0) {
     return o->m16();
 }
 
-short TObjPlayer__sub_801BE5E0(void *arg0) {
+short call_subobject_m15__10TObjPlayerFPv(void *arg0) {
     struct VObj_801BE5E0 *o = (struct VObj_801BE5E0 *)M2C_FIELD(arg0, void **, 0x380);
     return o->m15();
 }

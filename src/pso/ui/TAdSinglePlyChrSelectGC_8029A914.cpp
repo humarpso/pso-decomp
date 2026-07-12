@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_8029A914(void);
+void free_global__23TAdSinglePlyChrSelectGCFv(void);
 void TLobby__sub_803DA16C(void*);
 
 extern u32 lbl_805D65B0;
 
-void TAdSinglePlyChrSelectGC__sub_8029A914(void) {
+void free_global__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D65B0 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D65B0);
         lbl_805D65B0 = 0U;

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 TQuestVmDownLoadServer__sub_8033BC88(void *, s32, s32, s32, s32);
+s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
 s32 TAdPlayerLoadGC__sub_8033BB14();
 s32 TWindowSubComCard__sub_8033C024(void *, s32);
 int TWindowSubComCard__sub_8033C178(void* p);
@@ -25,7 +25,7 @@ void TQuestVmDownLoadServer__sub_8033C22C(void *arg0) {
     if (TKeyBoardControl__sub_8000F8EC() == 0xF) {
         var_r31 = TQuestVmDownLoadServer__sub_8006EF6C(0xA);
         var_r6 = TQuestVmDownLoadServer__sub_8006EF6C(0xE);
-        TQuestVmDownLoadServer__sub_8033BC88(arg0, var_r31, -2, var_r6, 0);
+        init__22TQuestVmDownLoadServerFPvPvPvPvPv(arg0, var_r31, -2, var_r6, 0);
         return;
     }
     var_r31 = TQuestVmDownLoadServer__sub_8006EF6C(0x62);
@@ -34,7 +34,7 @@ void TQuestVmDownLoadServer__sub_8033C22C(void *arg0) {
         var_r31 = TQuestVmDownLoadServer__sub_8006EF6C(0x6D);
         var_r6 = TQuestVmDownLoadServer__sub_8006EF6C(0xE);
     }
-    TQuestVmDownLoadServer__sub_8033BC88(arg0, var_r31, -2, var_r6, 0);
+    init__22TQuestVmDownLoadServerFPvPvPvPvPv(arg0, var_r31, -2, var_r6, 0);
 }
 
 }

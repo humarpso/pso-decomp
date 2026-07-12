@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneHoldEffect__sub_8036CA9C(void *arg0);
-s32 TObjEneHoldEffect__sub_8036CAF8(u8 *arg0);
+s32 is_index_in_range__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_position_visible__17TObjEneHoldEffectFPv(u8 *arg0);
 s32 TObjEneHoldEffect__sub_8036CB60(void *arg0);
-s32 TObjEneHoldEffect__sub_80142478(void *);
-s32 TObjEneHoldEffect__sub_8036CDA8();
+s32 is_in_view__17TObjEneHoldEffectFPv(void *);
+s32 is_target_valid__17TObjEneHoldEffectFPv();
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
 
-s32 TObjEneHoldEffect__sub_8036CA9C(void *arg0) {
+s32 is_index_in_range__17TObjEneHoldEffectFPv(void *arg0) {
     s32 temp_r0;
 
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 4);
@@ -26,17 +26,17 @@ s32 TObjEneHoldEffect__sub_8036CA9C(void *arg0) {
     return 1;
 }
 
-s32 TObjEneHoldEffect__sub_8036CAF8(u8 *arg0) {
+s32 is_position_visible__17TObjEneHoldEffectFPv(u8 *arg0) {
     s32 temp_r0;
 
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 4);
     if ((temp_r0 < 0) || (temp_r0 > 0x12)) {
         return 0;
     }
-    return ((u32)__cntlzw(TObjEneHoldEffect__sub_80142478(arg0 + 8))) >> 5;
+    return ((u32)__cntlzw(is_in_view__17TObjEneHoldEffectFPv(arg0 + 8))) >> 5;
 }
 
 s32 TObjEneHoldEffect__sub_8036CB60(void *arg0) {

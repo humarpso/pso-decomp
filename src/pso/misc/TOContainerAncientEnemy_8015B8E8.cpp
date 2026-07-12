@@ -87,11 +87,11 @@ struct VObj_8015B8E8 : Base_8015B8E8 {
 
 extern "C" {
 
-void TOContainerAncientEnemy__sub_8015B8E8(void *arg0, s16 *arg1, s32 arg2);
+void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 
-void TOContainerAncientEnemy__sub_8015B8E8(void *arg0, s16 *arg1, s32 arg2) {
+void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj_8015B8E8 *)arg0)->m77();

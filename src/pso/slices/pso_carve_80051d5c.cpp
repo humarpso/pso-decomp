@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjDFTenchuFuru__sub_80051B98(u32);
+M2C_UNK render__16TObjDFTenchuFuruFPv(u32);
 M2C_UNK TObjPlayer__sub_80052374();
 M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK TCharaMaking__sub_8028DD18(u32, s32, M2C_UNK, f32);
@@ -24,7 +24,7 @@ extern const f32 lbl_805D8A34;
 
 void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32 arg6, s32 arg7, f32 farg0) {
     if (lbl_805D8A30 != farg0) {
-        TObjDFTenchuFuru__sub_80051B98(arg3);
+        render__16TObjDFTenchuFuruFPv(arg3);
         if (farg0 < lbl_805D8A34) {
             TObjPlayer__sub_80052390(farg0);
         }

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80182C78(s32 arg0, s32 arg1, f32 farg0);
+s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 s32 TBoss3Volopt__sub_8003F108();
 f32 TObjPlayer__sub_80141CF8(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
-s32 TObjPlayer__sub_80182C78(s32 arg0, s32 arg1, f32 farg0) {
+s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r30;

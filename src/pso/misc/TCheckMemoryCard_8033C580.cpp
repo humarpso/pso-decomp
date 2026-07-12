@@ -6,7 +6,7 @@ extern "C" {
 
 void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void __ct__7TObjectFP7TObject(void *);
-void TWindowSubComCard__sub_8033C0A8(void *);
+void reset__17TWindowSubComCardFPv(void *);
 
 extern M2C_UNK __vt__16TCheckMemoryCard[];
 extern void *lbl_805D4290;
@@ -18,7 +18,7 @@ void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void 
     M2C_FIELD(arg0, void **, 0x48) = arg2;
     M2C_FIELD(arg0, void **, 0x1C) = arg4;
     M2C_FIELD(arg0, void **, 0x4C) = arg3;
-    TWindowSubComCard__sub_8033C0A8(arg0);
+    reset__17TWindowSubComCardFPv(arg0);
     return arg0;
 }
 

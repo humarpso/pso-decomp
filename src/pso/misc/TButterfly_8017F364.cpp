@@ -7,7 +7,7 @@ extern "C" {
 void *TButterfly__ct(void *arg0, void *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjPlayer__sub_80020898(void *, void *);
-void TButterfly__sub_8017E978(void *);
+void init_motion__10TButterflyFPv(void *);
 void TPhotonMagicSquare__sub_801A2640(void *);
 
 extern M2C_UNK __vt__10TButterfly[];
@@ -20,7 +20,7 @@ void *TButterfly__ct(void *arg0, void *arg1, void *arg2) {
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 56), (void *)((char *)arg2 + 12));
     TObjPlayer__sub_80020898((void *)((char *)arg0 + 92), (void *)((char *)arg2 + 24));
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 104), (void *)((char *)arg2 + 36));
-    TButterfly__sub_8017E978(arg0);
+    init_motion__10TButterflyFPv(arg0);
     return arg0;
 }
 

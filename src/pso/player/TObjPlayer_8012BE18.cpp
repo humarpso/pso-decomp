@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012BE18(void *arg0);
+void apply_conveyor_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_80101048();
 s32 TObjPlayer__sub_80121200();
 M2C_UNK TObjPlayer__sub_803D898C(s32);
 
-void TObjPlayer__sub_8012BE18(void *arg0) {
+void apply_conveyor_effect__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_80121200();

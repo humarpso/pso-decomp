@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80104860(void);
-u8 TObjPlayer__sub_801048CC(u8 arg0);
+s32 is_active_battle_player__10TObjPlayerFv(void);
+u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0);
 s32 TObjPlayer__sub_800196EC();
 s32 TObjPlayer__sub_800196F4(s32);
 M2C_UNK TObjPlayer__sub_8011C8BC(u8, s16 *, s16 *);
@@ -16,7 +16,7 @@ s32 is_split_screen();
 
 extern s32 lbl_805D53A0;
 
-s32 TObjPlayer__sub_80104860(void) {
+s32 is_active_battle_player__10TObjPlayerFv(void) {
     s32 temp_r31;
     s32 temp_r3;
 
@@ -31,7 +31,7 @@ s32 TObjPlayer__sub_80104860(void) {
     return 0;
 }
 
-u8 TObjPlayer__sub_801048CC(u8 arg0) {
+u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0) {
     s16 spC;
     s16 spA;
     s16 sp8;

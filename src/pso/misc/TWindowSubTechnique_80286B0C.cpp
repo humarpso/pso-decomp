@@ -17,10 +17,10 @@ VV(31)VV(32)VV(33)
 
 extern "C" {
 
-void TWindowSubTechnique__sub_80286B0C(s16 *arg0, s32 *arg1, s32 arg2);
+void get_selection__19TWindowSubTechniqueFPvPvi(s16 *arg0, s32 *arg1, s32 arg2);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
-void TWindowSubTechnique__sub_80286B0C(s16 *arg0, s32 *arg1, s32 arg2) {
+void get_selection__19TWindowSubTechniqueFPvPvi(s16 *arg0, s32 *arg1, s32 arg2) {
     void *temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg2);

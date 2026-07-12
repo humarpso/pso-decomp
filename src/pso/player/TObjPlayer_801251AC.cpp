@@ -8,7 +8,7 @@ extern "C" {
 
 s16 TObjPlayer__sub_801251AC(void* p);
 void TObjPlayer__sub_801251B4(void *arg0);
-void TObjPlayer__sub_80125238(void* p);
+void reset_effect_slots__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_8012528C(void* p);
 s32 TObjPlayer__sub_8011E384();
 int TObjPlayer__sub_8011E618(void*);
@@ -34,7 +34,7 @@ void TObjPlayer__sub_801251B4(void *arg0) {
         TObjPlayer__sub_8011F5E0(arg0);
     }
 }
-void TObjPlayer__sub_80125238(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); TObjPlayer__sub_8011E87C(p, (void*)0); TObjPlayer__sub_8011E87C(p, (void*)1); TObjPlayer__sub_8011E87C(p, (void*)2); }
+void reset_effect_slots__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); TObjPlayer__sub_8011E87C(p, (void*)0); TObjPlayer__sub_8011E87C(p, (void*)1); TObjPlayer__sub_8011E87C(p, (void*)2); }
 void TObjPlayer__sub_8012528C(void* p) { TObjPlayer__sub_8011E618(p); TObjPlayer__sub_8011E618(p); }
 
 }

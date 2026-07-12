@@ -12,7 +12,7 @@ s32 TObjEneDD__sub_800BA828();
 s32 TPhotonMylla__sub_80154CB4(u16);
 f32 calc_boss4_scale__10TObjPlayerFi();
 s32 check_v2_mode__9TObjEneDDFv();
-M2C_UNK TObjPlayer__sub_800BBE90();
+M2C_UNK apply_hit_if_active__10TObjPlayerFPvPvPv();
 
 M2C_UNK obj_getField1c(s32);
 extern f32 lbl_805D9790;
@@ -20,7 +20,7 @@ extern f32 lbl_805D9790;
 void TObjEneRe7BeruraPunch__vt20(void *arg0, s32 arg1) {
     s32 temp_r3;
 
-    TObjPlayer__sub_800BBE90();
+    apply_hit_if_active__10TObjPlayerFPvPvPv();
     if (check_v2_mode__9TObjEneDDFv() != 0) {
         obj_getField1c(arg1);
         if (TObjEneDD__sub_800BA828() != 0) {

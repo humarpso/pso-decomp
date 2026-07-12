@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItem__sub_80101414(void* p);
-void TItem__sub_80101450(void *arg0);
+void destroy__5TItemFPv(void* p);
+void copy_item_data_and_process__5TItemFPv(void *arg0);
 int TItem__sub_80101B20(void*);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 int disallow_rendering__7TObjectFv(void*);
 void fn_801047F0(void *);
 int queue_destruction__7TObjectFv(void*);
 
-void TItem__sub_80101414(void* p) { TItem__sub_80101B20(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }
+void destroy__5TItemFPv(void* p) { TItem__sub_80101B20(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }
 
-void TItem__sub_80101450(void *arg0) {
+void copy_item_data_and_process__5TItemFPv(void *arg0) {
     M2C_UNK sp8[4];
 
     copy_to_item_data__5TItemFPvPv(arg0, &sp8);

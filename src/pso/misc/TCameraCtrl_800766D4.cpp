@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TCameraCtrl__sub_800766D4(void);
+s32 should_update__11TCameraCtrlFv(void);
 s32 TCameraCtrl__sub_8006B368();
 s32 TLobby__sub_801B31AC();
 s32 TOKeyMachine01__sub_802034A8();
@@ -15,7 +15,7 @@ s32 is_split_screen();
 
 extern s32 lbl_805D53A0;
 
-s32 TCameraCtrl__sub_800766D4(void) {
+s32 should_update__11TCameraCtrlFv(void) {
     s32 temp_r3;
 
     if (is_split_screen() == 0) {

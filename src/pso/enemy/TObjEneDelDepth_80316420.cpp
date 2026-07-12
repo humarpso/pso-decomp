@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneDelDepth__sub_80316420(void *arg0);
+s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0);
 
 extern f32 lbl_805D6AC8;
 extern u8 lbl_805D6ACC;
 extern f32 lbl_805DF2E8;
 
-s32 TObjEneDelDepth__sub_80316420(void *arg0) {
+s32 is_state_complete__15TObjEneDelDepthFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 4);

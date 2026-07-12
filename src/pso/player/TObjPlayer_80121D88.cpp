@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_80121D88(void *arg0);
-u32 TObjPlayer__sub_80121DD0(void *arg0, s32 arg1, s32 arg2, f32 farg0);
+u32 fire_shoot_particle__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 M2C_UNK TItemShootParticle__sub_8011B704(u32, M2C_UNK, M2C_UNK);
 u32 spawn_shoot_particle__10TObjPlayerFUiiif(void *, s32, s32, f32);
 u32 TObjPlayer__sub_8011BA54();
@@ -32,7 +32,7 @@ void TObjPlayer__sub_80121D88(void *arg0) {
     }
 }
 
-u32 TObjPlayer__sub_80121DD0(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+u32 fire_shoot_particle__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     s32 temp_r3;
     u32 temp_r31;
     u32 temp_r30;

@@ -18,8 +18,8 @@ struct VObj_80243464 : Base_80243464 {
 
 extern "C" {
 
-void TWindowHelpItem__sub_80243408(s32 arg0, s32 arg1);
-s32 TWindowHelpItem__sub_80243464(void);
+void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1);
+s32 get_help_value__15TWindowHelpItemFv(void);
 void *TLobby__sub_80101AB0();
 s32 TWindowHelpItem__sub_802434B8();
 M2C_UNK TWindowHelpItem__sub_8025B08C(s32, f32, f32);
@@ -29,7 +29,7 @@ extern f32 lbl_805DCA1C;
 extern f32 lbl_805DCA20;
 extern f32 lbl_805DCA24;
 
-void TWindowHelpItem__sub_80243408(s32 arg0, s32 arg1) {
+void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1) {
     if (fn_8002AE38(arg1) != 0) {
         TWindowHelpItem__sub_8025B08C(arg0, lbl_805DCA1C, lbl_805DCA20);
         return;
@@ -37,7 +37,7 @@ void TWindowHelpItem__sub_80243408(s32 arg0, s32 arg1) {
     TWindowHelpItem__sub_8025B08C(arg0, lbl_805DCA1C, lbl_805DCA24);
 }
 
-s32 TWindowHelpItem__sub_80243464(void) {
+s32 get_help_value__15TWindowHelpItemFv(void) {
     struct VObj_80243464 *o;
 
     if (TWindowHelpItem__sub_802434B8() == -1) {

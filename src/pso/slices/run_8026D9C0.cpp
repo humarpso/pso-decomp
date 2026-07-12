@@ -21,7 +21,7 @@ s32 TWindowSubStatusDisp__sub_8026D9D0(s32 arg0, s16 arg1) {
 
 M2C_UNK TWindowMenu__sub_80266B04();
 
-void *TWindowSubStatusDisp__sub_8026DA0C(void *arg0) {
+void *reset_selection__20TWindowSubStatusDispFPv(void *arg0) {
     TWindowMenu__sub_80266B04();
     M2C_FIELD(arg0, s32 *, 8) = 0;
     return arg0;

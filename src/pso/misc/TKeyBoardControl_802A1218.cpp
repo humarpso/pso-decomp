@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TKeyBoardControl__sub_802A1218(void);
+void update_menu_scene__16TKeyBoardControlFv(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80201354();
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK TLobby__sub_801E2F44(M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TLobby__sub_80132F44();
+M2C_UNK free_keyboard_soft_resources__6TLobbyFv();
 M2C_UNK fn_80132F68();
 M2C_UNK fn_802A1324();
 M2C_UNK render_tick__Fv();
@@ -21,7 +21,7 @@ M2C_UNK render_tick__Fv();
 extern s8 lbl_805D6638;
 extern u8 lbl_805D6639;
 
-void TKeyBoardControl__sub_802A1218(void) {
+void update_menu_scene__16TKeyBoardControlFv(void) {
     TLobby__sub_801E2F44(0, 0, 0);
     TKeyBoardControl__sub_801A66B8();
     TKeyBoardControl__sub_8000F90C(2);
@@ -33,7 +33,7 @@ void TKeyBoardControl__sub_802A1218(void) {
     case 1:
         fn_80132F68();
         TAdSinglePlyChrSelectGC__sub_80201354();
-        TLobby__sub_80132F44();
+        free_keyboard_soft_resources__6TLobbyFv();
         TKeyBoardControl__sub_8000F91C(5);
         break;
     }

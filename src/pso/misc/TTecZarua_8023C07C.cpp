@@ -1,0 +1,25 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void calc_range__9TTecZaruaFPv(u8 *arg0);
+M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
+s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
+
+extern const f64 lbl_8044DC98;
+
+void calc_range__9TTecZaruaFPv(u8 *arg0) {
+    s32 ret;
+    struct { s32 v; } tmp;
+
+    ret = TTecCtrl__sub_8022DBC4(0xC, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
+    tmp.v = ret;
+    TTecAnti__sub_8022B35C(arg0 + 0x88, tmp.v);
+    M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, s16 *, 0xAC) * M2C_FIELD(arg0, s16 *, 0x78));
+}
+
+}

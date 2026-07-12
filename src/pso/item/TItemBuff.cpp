@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemBuff__sub_8010361C(void);
+void free_all_and_init__9TItemBuffFv(void);
 M2C_UNK TItemBuff__ct();
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
 extern M2C_UNK lbl_80506200[];
 
-void TItemBuff__sub_8010361C(void) {
+void free_all_and_init__9TItemBuffFv(void) {
     s32 var_r28;
     M2C_UNK *var_r29;
     M2C_UNK var_r30;

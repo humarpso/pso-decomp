@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOTrapChainSaw__sub_802C9040(void *arg0);
+void update_demo__14TOTrapChainSawFPv(void *arg0);
 void TOTrapChainSaw__sub_802C9090(void);
 s32 TOTrapAncient02R__sub_80154D78(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 
-void TOTrapChainSaw__sub_802C9040(void *arg0) {
+void update_demo__14TOTrapChainSawFPv(void *arg0) {
     s32 temp_r31;
 
     if (check_demo_mode__10TObjPlayerFv() == 1) {

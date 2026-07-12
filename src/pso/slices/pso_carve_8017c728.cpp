@@ -26,7 +26,7 @@ struct VObj : Base {
     virtual s32 m8(f32, f32);
 };
 
-void fn_8017C728(u8 *arg0) {
+void check_collision_effect(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xCC) = ((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
         TObjPlayer__sub_803D9B2C();

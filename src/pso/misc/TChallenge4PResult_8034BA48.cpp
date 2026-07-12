@@ -9,9 +9,9 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 s32 TChallenge4PResult__sub_8034B720(void *, s32);
 void TChallenge4PResult__sub_8034B8B0(void* p);
-int TChallenge4PResult__sub_8034BA48(void* p);
+int queue_destruction__18TChallenge4PResultFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
-int TChallenge4PResult__sub_8034BA48(void* p) { return queue_destruction__7TObjectFv(p); }
+int queue_destruction__18TChallenge4PResultFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
 }

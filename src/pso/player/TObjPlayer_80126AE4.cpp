@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80126AE4(s32 arg0);
-void *TObjPlayer__sub_80126B24(void *arg0);
+void apply_on_shield_state6__10TObjPlayerFi(s32 arg0);
+void *init_with_update_handler__10TObjPlayerFPv(void *arg0);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TObjPlayer__sub_8010069C(s32);
 void TObjPlayer__sub_80120D50(void *);
 
-void TObjPlayer__sub_80126AE4(s32 arg0) {
+void apply_on_shield_state6__10TObjPlayerFi(s32 arg0) {
     if (TItemProShield__sub_8010B734() == 6) {
         TObjPlayer__sub_8010069C(arg0);
     }
@@ -21,7 +21,7 @@ void TObjPlayer__sub_80126AE4(s32 arg0) {
 extern M2C_UNK lbl_804A2D88[];
 extern M2C_UNK fn_80109440[];
 
-void *TObjPlayer__sub_80126B24(void *arg0) {
+void *init_with_update_handler__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2D88;
     M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = fn_80109440;

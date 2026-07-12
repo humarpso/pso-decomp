@@ -13,7 +13,7 @@ int TObjPlayer__sub_80102BD8(void);
 int TObjPlayer__sub_80102BE0(void* p, u32 m);
 void TObjPlayer__sub_80102BEC(void* p, u32 v);
 void TObjPlayer__sub_80102BFC(void* p, u32 v);
-int TObjPlayer__sub_80102C0C(void* p);
+int has_flag_128__10TObjPlayerFPv(void* p);
 u16 TItemProArmor__sub_80102C3C(void* p);
 u8 TOSwitchItem__sub_80102C44(void* p);
 int TItemMag__sub_80102C4C(void* p);
@@ -28,7 +28,7 @@ int TObjPlayer__sub_801C675C(void*);
 
 void TObjPlayer__sub_8001960C(void* p);
 void bswap_32__FPUl(u32* p);
-void TObjPlayer__sub_80102D48(void* p) {
+void swap_6x61_fields__10TObjPlayerFPv(void* p) {
     TObjPlayer__sub_8001960C(p);
     bswap_32__FPUl((u32*)((char*)p + 4));
     bswap_32__FPUl((u32*)((char*)p + 8));

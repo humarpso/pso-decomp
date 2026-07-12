@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
+s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 void get_selected_entry__14TWindowSubItemFPv(void *arg0);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 M2C_UNK TWindowSubItem__sub_80249058();

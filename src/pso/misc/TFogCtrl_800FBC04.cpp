@@ -9,7 +9,7 @@ extern "C" {
 void reset__8TFogCtrlFv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK TObjFogCollisionPoison__sub_801533BC();
-M2C_UNK TQuestVmDownLoadServer__sub_800FA9A8();
+M2C_UNK destroy_instance__22TQuestVmDownLoadServerFv();
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK fn_803E1FC8(M2C_UNK);
 M2C_UNK fn_803E1FFC(f32, f32);
@@ -21,7 +21,7 @@ extern f32 lbl_805DA968;
 
 void reset__8TFogCtrlFv(void) {
     TObjFogCollisionPoison__sub_801533BC();
-    TQuestVmDownLoadServer__sub_800FA9A8();
+    destroy_instance__22TQuestVmDownLoadServerFv();
     if ((u32) lbl_805D5388 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D5388);
     }

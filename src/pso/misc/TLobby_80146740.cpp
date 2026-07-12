@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TLobby__sub_80146740(void);
-s32 TLobby__sub_80146748(void);
+s32 query_task_active__6TLobbyFv(void);
 int TLobby__sub_8014677C(void);
-int TLobby__sub_801467A0(void);
+int get_link_status_value__6TLobbyFv(void);
 int TLobby__sub_80145DB4(void*);
 s32 TLobby__sub_804245DC();
 
@@ -17,7 +17,7 @@ int TLobby__sub_80146740(void) { return 0; }
 
 extern s32 lbl_805D5710;
 
-s32 TLobby__sub_80146748(void) {
+s32 query_task_active__6TLobbyFv(void) {
     if ((s32) lbl_805D5710 != 0) {
         return TLobby__sub_804245DC();
     }
@@ -25,6 +25,6 @@ s32 TLobby__sub_80146748(void) {
 }
 
 int TLobby__sub_8014677C(void) { return TLobby__sub_80145DB4((void*)(1)); }
-int TLobby__sub_801467A0(void) { return TLobby__sub_80145DB4((void*)(4)); }
+int get_link_status_value__6TLobbyFv(void) { return TLobby__sub_80145DB4((void*)(4)); }
 
 }

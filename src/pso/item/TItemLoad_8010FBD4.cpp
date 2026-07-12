@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemLoad__sub_8010FBD4(u8 *arg0);
-M2C_UNK TItemLoad__sub_8010FF68();
+void update_load_state__9TItemLoadFPv(u8 *arg0);
+M2C_UNK free_texture__9TItemLoadFPv();
 s32 TObjPlayer__sub_8001BEF8(void *, int);
 
-void TItemLoad__sub_8010FBD4(u8 *arg0) {
-    TItemLoad__sub_8010FF68();
+void update_load_state__9TItemLoadFPv(u8 *arg0) {
+    free_texture__9TItemLoadFPv();
     if (TObjPlayer__sub_8001BEF8(arg0 + 0x1C, 1) != 0) {
         M2C_FIELD(arg0, s32 *, 0x18) = 1;
         return;

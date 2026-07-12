@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRecon__sub_8029EB40(s32 arg0);
+void notify_scene__12TObjEneReconFi(s32 arg0);
 u32 TSceneSora__sub_8029F574(u32);
 M2C_UNK fn_8032811C(u32, M2C_UNK, s32);
 
 extern u32 lbl_805D65F4;
 
-void TObjEneRecon__sub_8029EB40(s32 arg0) {
+void notify_scene__12TObjEneReconFi(s32 arg0) {
     u32 temp_r31;
     if ((u32) lbl_805D65F4 != 0U) {
         temp_r31 = TSceneSora__sub_8029F574(lbl_805D65F4);

@@ -68,19 +68,19 @@ extern "C" {
 
 void TObjPlayer__sub_80358124(void *arg0, void *arg1, void *arg2, s32 arg3);
 void TObjPlayer__sub_8035814C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_80358194(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_803581F0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void handle_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void dispatch_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TObjPlayer__sub_80358238(void *arg0, void *arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_80358280(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_803582DC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_80358324(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_8035836C(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void handle_symbol_chat_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void handle_action_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void handle_stage_event__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void trigger_biter_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TObjPlayer__sub_803583B4(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_803583FC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_80358490(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_803584FC(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_8035858C(s32 arg0, void *arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_803585DC(s32 arg0, void *arg1, s32 arg2, s32 arg3);
+void play_action_sound__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void play_action_sounds__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void handle_action_event__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void dispatch_attack_event__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3);
+void dispatch_by_type__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 M2C_UNK TOSwitchAttack__sub_80087278(s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800822D4(f32, f32);
@@ -106,7 +106,7 @@ void TObjPlayer__sub_8035814C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 extern f32 lbl_805E0074;
 extern f32 lbl_805E0078;
 
-void TObjPlayer__sub_80358194(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void handle_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjPlayer__sub_801AF03C();
     }
@@ -115,7 +115,7 @@ void TObjPlayer__sub_80358194(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_803581F0(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void dispatch_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjPlayer__sub_801AF03C();
     }
@@ -136,7 +136,7 @@ void TObjPlayer__sub_80358238(void *arg0, void *arg1, s32 arg2, s32 arg3) {
 extern f32 lbl_805E0074;
 extern f32 lbl_805E0078;
 
-void TObjPlayer__sub_80358280(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void handle_symbol_chat_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjPlayer__sub_801AF03C();
     }
@@ -145,7 +145,7 @@ void TObjPlayer__sub_80358280(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_803582DC(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void handle_action_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjPlayer__sub_801AF03C();
     }
@@ -154,7 +154,7 @@ void TObjPlayer__sub_803582DC(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_80358324(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void handle_stage_event__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjPlayer__sub_801AF03C();
     }
@@ -163,7 +163,7 @@ void TObjPlayer__sub_80358324(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_8035836C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void trigger_biter_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x18];
 
     if (arg3 == 0) {
@@ -185,7 +185,7 @@ void TObjPlayer__sub_803583B4(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 extern f32 lbl_805E007C;
 
-void TObjPlayer__sub_803583FC(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void play_action_sound__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC6));
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC9));
@@ -200,7 +200,7 @@ void TObjPlayer__sub_803583FC(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_80358490(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void play_action_sounds__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC6));
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xC9));
@@ -211,7 +211,7 @@ void TObjPlayer__sub_80358490(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_803584FC(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void handle_action_event__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_UNK sp8;
 
     if (arg3 == 0) {
@@ -225,7 +225,7 @@ void TObjPlayer__sub_803584FC(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_8035858C(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
+void dispatch_attack_event__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
     }
@@ -234,7 +234,7 @@ void TObjPlayer__sub_8035858C(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TObjPlayer__sub_803585DC(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
+void dispatch_by_type__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
     }

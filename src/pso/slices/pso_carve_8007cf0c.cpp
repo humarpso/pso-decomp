@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 M2C_UNK TObjPlayer__sub_800846C8(M2C_UNK);
-s32 TLobby__sub_800F9D38(s32);
+s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 TScene__sub_800F9D80(s32);
 M2C_UNK memmove(void *, void *, s32);
 u32 xmalloc__FUl(M2C_UNK);
@@ -35,7 +35,7 @@ void load_data_buffers(void) {
     }
     temp_r31 = TScene__sub_800F9D80(lbl_805D28C0);
     if (temp_r31 <= 0x1818C) {
-        temp_r30 = TLobby__sub_800F9D38(lbl_805D28C0);
+        temp_r30 = set_stream_and_load_file__6TLobbyFi(lbl_805D28C0);
         if (temp_r30 != 0) {
             if ((u32) lbl_805D4E8C != 0U) {
                 memmove((void *)lbl_805D4E8C, (void *)temp_r30, temp_r31);

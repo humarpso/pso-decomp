@@ -18,10 +18,10 @@ struct VObj_801DA7DC : Base_801DA7DC {
 
 extern "C" {
 
-void TLobby__sub_801DA7DC(void *arg0, void *arg1);
+void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1);
 M2C_UNK fn_801DF084(void *);
 
-void TLobby__sub_801DA7DC(void *arg0, void *arg1) {
+void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1910) != 0) {
         M2C_FIELD(arg1, u8 *, 0) = 0xC6;
         M2C_FIELD(arg1, s16 *, 2) = 0x7C;

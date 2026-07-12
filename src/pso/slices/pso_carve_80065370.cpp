@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TBoss8Dragon__sub_8005F5E0();
+M2C_UNK set_animation_by_state__12TBoss8DragonFPv();
 
 }
 
@@ -104,7 +104,7 @@ extern "C" {
 
 void fn_80065370(struct VObj_80065370 *obj) {
     if (!(M2C_FIELD(obj, s32 *, 0x4C0) & 0xC) && (M2C_FIELD(obj, s16 *, 0x32C) <= 0)) {
-        TBoss8Dragon__sub_8005F5E0();
+        set_animation_by_state__12TBoss8DragonFPv();
     } else {
         obj->vcall(M2C_FIELD(obj, s16 *, 0x326), 9);
     }

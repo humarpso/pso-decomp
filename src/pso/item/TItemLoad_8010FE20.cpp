@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 *TItemLoad__sub_8010FE20(s32 *arg0, s16 arg1);
+s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1);
 M2C_UNK __dl__FPv(s32 *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
-s32 *TItemLoad__sub_8010FE20(s32 *arg0, s16 arg1) {
+s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         free__11TOBoss4RockFUi(*arg0);
         if (arg1 > 0) {

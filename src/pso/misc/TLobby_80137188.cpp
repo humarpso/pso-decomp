@@ -3,9 +3,9 @@
 extern "C" {
 
 void TLobby__sub_80137188(void* a0);
-int TWindowCtrl__sub_8024B694(void*, void*);
+int set_window_flags_off__11TWindowCtrlFPvi(void*, void*);
 
     extern int lbl_805D53A0;
-void TLobby__sub_80137188(void* a0) { TWindowCtrl__sub_8024B694((void*)(lbl_805D53A0), a0); }
+void TLobby__sub_80137188(void* a0) { set_window_flags_off__11TWindowCtrlFPvi((void*)(lbl_805D53A0), a0); }
 
 }

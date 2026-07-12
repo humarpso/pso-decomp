@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type1__sub_802B339C(void *arg0);
+void update_attack_timer2__11TBoss6Type1FPv(void *arg0);
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B715C();
 M2C_UNK TBoss6Type1__sub_802B865C(void *, M2C_UNK);
 
-void TBoss6Type1__sub_802B339C(void *arg0) {
+void update_attack_timer2__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;
 
     TBoss6Type1__sub_802B715C();

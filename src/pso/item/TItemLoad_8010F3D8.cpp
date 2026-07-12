@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1);
-M2C_UNK TItemLoad__sub_8010F9EC(s32);
+M2C_UNK reset_ring_state__9TItemLoadFPv(s32);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK fn_8023E700(void *, void *);
@@ -25,10 +25,10 @@ void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
         switch (temp_r0) {
         case 2:
-            TItemLoad__sub_8010F9EC(lbl_805D54A0);
+            reset_ring_state__9TItemLoadFPv(lbl_805D54A0);
             break;
         case 3:
-            TItemLoad__sub_8010F9EC(lbl_805D549C);
+            reset_ring_state__9TItemLoadFPv(lbl_805D549C);
             break;
         }
         temp_r3 = M2C_FIELD(arg0, void ***, 0x3C);

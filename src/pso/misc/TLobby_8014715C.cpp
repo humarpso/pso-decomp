@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_8014715C(void* p, void* q);
-void TLobby__sub_80147168(void);
+void teardown_boss2__6TLobbyFv(void);
 M2C_UNK TLobby__sub_8040A3C0();
 M2C_UNK TLobby__sub_8040AD64();
 
@@ -15,7 +15,7 @@ void TLobby__sub_8014715C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)(
 
 extern s32 lbl_805D570C;
 
-void TLobby__sub_80147168(void) {
+void teardown_boss2__6TLobbyFv(void) {
     if ((s32) lbl_805D570C != 0) {
         TLobby__sub_8040AD64();
         TLobby__sub_8040A3C0();

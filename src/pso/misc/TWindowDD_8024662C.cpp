@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-int TWindowDD__sub_8024662C(void* p);
+int update_com_card__9TWindowDDFPv(void* p);
 int TWindowDD__sub_8024664C(void* p);
 void TWindowDD__sub_8024666C(void);
 void TWindowDD__sub_80246670(void);
@@ -16,7 +16,7 @@ int fn_80246464(void*);
 void TWindowSubStatusDisp__sub_80257CB8(void *);
 void fn_8026CC28(void *);
 
-int TWindowDD__sub_8024662C(void* p) { return TWindowSubComCard__sub_8024634C(p); }
+int update_com_card__9TWindowDDFPv(void* p) { return TWindowSubComCard__sub_8024634C(p); }
 int TWindowDD__sub_8024664C(void* p) { return fn_80246464(p); }
 void TWindowDD__sub_8024666C(void) {  }
 void TWindowDD__sub_80246670(void) {  }

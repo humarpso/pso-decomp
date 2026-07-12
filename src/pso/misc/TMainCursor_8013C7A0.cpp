@@ -15,7 +15,7 @@ M2C_UNK TMainCursor__sub_8013E2C0(s32);
 M2C_UNK fn_80044330(s32);
 int TMainCursor__sub_8013E870(void*, void*);
 s32 TMainCursor__sub_8013E8C0(s32);
-u8 TMainCursor__sub_8013E8E0(s32);
+u8 get_active__11TMainCursorFPv(s32);
 u8 TMainCursor__sub_8013E900(s32);
 
 void quick_sort__11TMainCursorFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -51,7 +51,7 @@ s32 find_by_pos__11TMainCursorFiss(s32 arg0, s16 arg1, s16 arg2) {
     i = 0;
     ptr = arg0 + 0x5C;
 loop_1:
-    if ((arg1 == (s32) TMainCursor__sub_8013E900(ptr)) && (arg2 == (s32) TMainCursor__sub_8013E8E0(ptr)) && (TMainCursor__sub_8013E8C0(ptr) != 0)) {
+    if ((arg1 == (s32) TMainCursor__sub_8013E900(ptr)) && (arg2 == (s32) get_active__11TMainCursorFPv(ptr)) && (TMainCursor__sub_8013E8C0(ptr) != 0)) {
         return ptr;
     }
     i += 1;

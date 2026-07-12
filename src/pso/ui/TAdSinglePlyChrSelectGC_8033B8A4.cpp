@@ -7,14 +7,14 @@ extern "C" {
 void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void TAdSinglePlyChrSelectGC__sub_8033A928(void *);
+void free_buffer__23TAdSinglePlyChrSelectGCFPv(void *);
 
 extern M2C_UNK lbl_804EF8C0[];
 
 void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EF8C0;
-        TAdSinglePlyChrSelectGC__sub_8033A928(arg0);
+        free_buffer__23TAdSinglePlyChrSelectGCFPv(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -14,8 +14,8 @@ int is_keyboard_active__17TWindowSubComCardFPv(void* p);
 int update_keyboard__17TWindowSubComCardFPv(void* p);
 int TKeyBoardControl__sub_80131FA0(void*);
 int TKeyBoardControl__sub_80131FAC(void*);
-int TWindowKeyBoardSoft__sub_8025C5F4(void*);
+int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
 
-int TWindowMakeTeam__sub_80131BA0(void* p) { return TWindowKeyBoardSoft__sub_8025C5F4(*(void**)((char*)p + 0x20)); }
+int TWindowMakeTeam__sub_80131BA0(void* p) { return get_field_6c__19TWindowKeyBoardSoftFPv(*(void**)((char*)p + 0x20)); }
 
 }

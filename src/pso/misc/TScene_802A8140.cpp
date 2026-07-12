@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TScene__sub_802A8140(M2C_UNK ignored, s32 arg1);
-void TScene__sub_802A8188(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void set_indirect_tev__6TSceneFii(M2C_UNK ignored, s32 arg1);
+void draw_field_1c__6TSceneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK GXSetNumIndStages(M2C_UNK);
 M2C_UNK GXSetTevDirect(M2C_UNK);
 M2C_UNK fn_802A8368(u8, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 
-void TScene__sub_802A8140(M2C_UNK ignored, s32 arg1) {
+void set_indirect_tev__6TSceneFii(M2C_UNK ignored, s32 arg1) {
     if (arg1 != 0) {
         GXSetTevDirect(1);
     } else {
@@ -23,7 +23,7 @@ void TScene__sub_802A8140(M2C_UNK ignored, s32 arg1) {
     TObjPlayer__sub_803DC83C(0);
 }
 
-void TScene__sub_802A8188(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void draw_field_1c__6TSceneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     fn_802A8368(M2C_FIELD(arg0, u8 *, 0x1C), arg1, arg2, 0, arg3, 0);
 }
 

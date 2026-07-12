@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-void TFontSmallLobby__sub_801D690C(void* p);
+void bswap_fields__15TFontSmallLobbyFPv(void* p);
 
 void TFontSmallLobby__sub_801D67C8(void* p);
 void TFontSmallLobby__sub_801D6834(void* p);

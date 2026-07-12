@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOHangceilingCave01__sub_80168A38(void);
+void destroy_instance__19TOHangceilingCave01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TObjPlayer__sub_801E483C(s32);
 M2C_UNK free__11TOBoss4RockFUi(void*);
@@ -14,7 +14,7 @@ M2C_UNK free__11TOBoss4RockFUi(void*);
 extern u32 lbl_805D59D0;
 extern void *lbl_805D59D4;
 
-void TOHangceilingCave01__sub_80168A38(void) {
+void destroy_instance__19TOHangceilingCave01Fv(void) {
     if ((void *) lbl_805D59D4 != NULL) {
         TObjPlayer__sub_801E483C(M2C_FIELD(lbl_805D59D4, s32 *, 4));
         TObjPlayer__sub_801E483C(M2C_FIELD(lbl_805D59D4, s32 *, 0));

@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012BAA4(void *arg0);
+void sync_hp_damage__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8012BB1C(s32 arg0);
-void TObjPlayer__sub_8012BB84(void *arg0);
+void play_action_sound__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_800112A4(s32, s16);
 M2C_UNK TObjPlayer__sub_80101048();
@@ -23,7 +23,7 @@ M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
 s16 obj_getS16_32E(s32);
 
-void TObjPlayer__sub_8012BAA4(void *arg0) {
+void sync_hp_damage__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     s16 temp_r3;
 
@@ -56,7 +56,7 @@ void TObjPlayer__sub_8012BB1C(s32 arg0) {
 extern const f32 lbl_805DAEC8;
 extern const f32 lbl_805DAECC;
 
-void TObjPlayer__sub_8012BB84(void *arg0) {
+void play_action_sound__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_80121200();

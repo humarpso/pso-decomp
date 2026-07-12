@@ -8,11 +8,11 @@ extern "C" {
 
 void TLobby__sub_802A7890(void* p, s32 v);
 s32 TLobby__sub_802A7898(void);
-s32 TLobby__sub_802A78E4(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 s32 TObjPlayer__sub_801C00F4(void);
-s32 TLobby__sub_800F9690(s32, s32, s32, M2C_UNK);
-M2C_UNK fn_802A7D30(s32, s32, s32);
+s32 write_packet_header__6TLobbyFPviiUi(s32, s32, s32, M2C_UNK);
+M2C_UNK send_type2_event__6TLobbyFiii(s32, s32, s32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
 void TLobby__sub_802A7890(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
@@ -33,7 +33,7 @@ s32 TLobby__sub_802A7898(void) {
 struct _VBase802A78E4_802a78e4 { char pad[8]; };
 struct _VObj802A78E4_802a78e4 : _VBase802A78E4_802a78e4 { virtual s32 m0(s32, s32); };
 
-s32 TLobby__sub_802A78E4(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 temp_r31;
     s32 temp_r31_2;
     s32 temp_r3;
@@ -44,9 +44,9 @@ s32 TLobby__sub_802A78E4(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     if (temp_r3 == 0) {
         return 0;
     }
-    fn_802A7D30(arg4, temp_r3, temp_r31_2);
+    send_type2_event__6TLobbyFiii(arg4, temp_r3, temp_r31_2);
     temp_r0 = ((_VObj802A78E4_802a78e4*)arg0)->m0(arg1, arg2);
-    temp_r31 = TLobby__sub_800F9690(temp_r3, arg3, temp_r0, 0x4000);
+    temp_r31 = write_packet_header__6TLobbyFPviiUi(temp_r3, arg3, temp_r0, 0x4000);
     free__11TOBoss4RockFUi(temp_r3);
     return temp_r31;
 }

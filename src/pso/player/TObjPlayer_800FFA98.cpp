@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_800FFA98(void *arg0, void *arg1);
+s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1);
 f32 TBoss8Dragon__sub_803D64C0(s32, f32, f32);
 
 extern const f32 lbl_805DAA68;
@@ -16,7 +16,7 @@ extern const f32 lbl_805DAA70;
 extern const f32 lbl_805DAA74;
 extern const f32 lbl_805DAA78;
 
-s32 TObjPlayer__sub_800FFA98(void *arg0, void *arg1) {
+s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     f32 temp_f1;
     f32 temp_f2;
     f32 temp_f31;

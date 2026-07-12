@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void dispatch_split_screen__6TLobbyFv(void);
-M2C_UNK TLobby__sub_800715FC(s32);
-M2C_UNK TLobby__sub_802926EC(s32);
+M2C_UNK set_split_screen_flag__6TLobbyFi(s32);
+M2C_UNK try_set_split_screen__6TLobbyFi(s32);
 
 s32 is_split_screen(void);
 extern s32 TLobby__data_80512220[];
@@ -18,10 +18,10 @@ void dispatch_split_screen__6TLobbyFv(void) {
 
     temp_r31 = TLobby__data_80512220[0];
     if (is_split_screen() == 1) {
-        TLobby__sub_802926EC(temp_r31);
+        try_set_split_screen__6TLobbyFi(temp_r31);
         return;
     }
-    TLobby__sub_800715FC(temp_r31);
+    set_split_screen_flag__6TLobbyFi(temp_r31);
 }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TLobby__sub_8036B2E8(u32, u16, s32);
 extern u32 lbl_805D7008;
 
-void TLobby__sub_8036B258(u16 arg0, s32 arg1) {
+void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1) {
     if (((u32) lbl_805D7008 != 0U) && (arg0 < 4U)) {
         TLobby__sub_8036B2E8(lbl_805D7008, arg0, arg1);
     }

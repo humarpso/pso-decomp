@@ -10,7 +10,7 @@ void TBoss6Type2__sub_802BF034(void* p);
 void TBoss6Type2__sub_802BF064(void *arg0);
 void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0);
 void TBoss6Type2__sub_802BF234(void* p);
-void TBoss6Type2__sub_802BF264(u8 *arg0);
+void init_attack_timers__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
 M2C_UNK TBoss6Type2__sub_802B9C00(void *, M2C_UNK);
@@ -89,7 +89,7 @@ void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0) {
 
 void TBoss6Type2__sub_802BF234(void* p) { if (*(int*)((char*)p + 0x460) == 34) { TBoss6Type2__sub_802BAFEC(p, (void*)0); } }
 
-void TBoss6Type2__sub_802BF264(u8 *arg0) {
+void init_attack_timers__11TBoss6Type2FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x45C) = 0xB4;
     M2C_FIELD(arg0, s32 *, 0x460) = 0xB4;
     TBoss3Volopt__sub_8022675C((int)(0x4006970E), (void *)(arg0 + 0x38), (int)(0), (int)(1));

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_802D5900(void *arg0);
+void reset_animation_state__10TObjPlayerFPv(void *arg0);
 f32 TObjPlayer__sub_8017A1A4(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_802D577C(void *);
 
 extern f32 lbl_805DE790;
 
-void TObjPlayer__sub_802D5900(void *arg0) {
+void reset_animation_state__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x248) = 0;
     M2C_FIELD(arg0, s16 *, 0x24A) = 0;
     M2C_FIELD(arg0, f32 *, 0x24C) = (f32) (lbl_805DE790 + TObjPlayer__sub_8017A1A4(M2C_FIELD(arg0, s32 *, 0xF0), 0));

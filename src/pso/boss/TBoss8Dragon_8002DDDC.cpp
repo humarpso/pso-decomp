@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TBoss8Dragon__sub_8002DDDC(void *arg0, f32 farg0, f32 farg1);
+f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32, f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv();
@@ -16,7 +16,7 @@ extern const f32 lbl_805D8198;
 extern const f32 lbl_805D81F4;
 extern const f32 lbl_805D81F8;
 
-f32 TBoss8Dragon__sub_8002DDDC(void *arg0, f32 farg0, f32 farg1) {
+f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f2;

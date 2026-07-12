@@ -3,9 +3,9 @@
 extern "C" {
 
 int fn_80157CF4(void*);
-void* TOVS2Wall01__sub_8017CAC8(void* p);
+void* init__11TOVS2Wall01FPv(void* p);
 int bswap_16__FPUs(void*);
-int TLobby__sub_80156B38(void*);
+int bswap_header__6TLobbyFi(void*);
 int TLobby__send_and_handle_60(void*);
 void TOVS2Wall01__vt23(void);
 void TOVS2Wall01__sub_8017CA48(void* p, s32 v);

@@ -8,7 +8,7 @@ extern "C" {
 
 void *get_card_window__17TWindowSubComCardFUi();
 
-s32 TWindowKeyBoardHard__sub_801A529C(s32 arg1, s32 arg2) {
+s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2) {
     void *temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi();

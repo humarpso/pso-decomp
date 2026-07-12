@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_tasks__16TKeyBoardControlFv(void);
-int TKeyBoardControl__sub_8000F7DC(void* p);
+int get_fog_ctrl__16TKeyBoardControlFPv(void* p);
 int TFogCtrl__sub_800FAD08(void*);
 M2C_UNK TObjPlayer__sub_80083FB0();
 M2C_UNK TLobby__sub_80226FA0();
@@ -26,6 +26,6 @@ void run_tasks__16TKeyBoardControlFv(void) {
     run_tasks__7TObjectFv(lbl_80515F70);
 }
 
-int TKeyBoardControl__sub_8000F7DC(void* p) { return TFogCtrl__sub_800FAD08(p); }
+int get_fog_ctrl__16TKeyBoardControlFPv(void* p) { return TFogCtrl__sub_800FAD08(p); }
 
 }

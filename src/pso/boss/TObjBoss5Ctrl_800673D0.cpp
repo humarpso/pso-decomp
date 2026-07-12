@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjBoss5Ctrl__sub_800673D0(void);
+void * create__13TObjBoss5CtrlFv(void);
 void *TObjBoss5Ctrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_01;
 extern void *lbl_805D4DE0;
 
-void * TObjBoss5Ctrl__sub_800673D0(void) {
+void * create__13TObjBoss5CtrlFv(void) {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {

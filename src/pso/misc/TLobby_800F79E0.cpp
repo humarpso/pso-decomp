@@ -9,8 +9,8 @@ int TLobby__send_and_handle_60(void*);
 void TLobby__sub_800F7A50(void* p);
 int TLobby__sub_800F7A64(void);
 
-void TLobby__sub_800F79E0(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
-void TLobby__sub_800F7A1C(void* p) { TLobby__sub_800F79E0(p); TLobby__send_and_handle_60(p); }
+void bswap_enemy_state__6TLobbyFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void TLobby__sub_800F7A1C(void* p) { bswap_enemy_state__6TLobbyFPv(p); TLobby__send_and_handle_60(p); }
 void TLobby__sub_800F7A50(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
 int TLobby__sub_800F7A64(void) { return 4; }
 

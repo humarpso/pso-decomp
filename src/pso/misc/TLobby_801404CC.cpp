@@ -13,7 +13,7 @@ M2C_UNK update_current_floor__6TLobbyFv();
 M2C_UNK TLobby__sub_80227248();
 M2C_UNK TLobby__sub_8022743C();
 M2C_UNK TLobby__sub_80227F7C();
-M2C_UNK TParticleCtrl__sub_800867AC();
+M2C_UNK free_heap__13TParticleCtrlFv();
 M2C_UNK TLobby__sub_800F7B84();
 
 extern M2C_UNK lbl_804A7368[];
@@ -23,7 +23,7 @@ void TLobby__sub_801404CC(void) {
     TLobby__sub_8022743C();
     TLobby__sub_80227248();
     TLobby__sub_800FD6A0(lbl_804A7368, 8);
-    TParticleCtrl__sub_800867AC();
+    free_heap__13TParticleCtrlFv();
     update_current_floor__6TLobbyFv();
     TLobby__sub_800F7B84();
     TLobby__sub_8007BA20();

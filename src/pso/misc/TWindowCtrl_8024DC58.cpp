@@ -6,22 +6,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrl__sub_8024DC58(void *arg0);
+void show_active_window__11TWindowCtrlFPv(void *arg0);
 s32 TWindowCtrl__sub_8024C804();
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 M2C_UNK window_request_show(u32);
-s32 TWindowCtrl__sub_8024D960(void *);
+s32 get_active_menu__11TWindowCtrlFPv(void *);
 M2C_UNK TWindowCtrl__sub_80269FB0(u32, s32);
 
-void TWindowCtrl__sub_8024DC58(void *arg0) {
+void show_active_window__11TWindowCtrlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         if (TWindowCtrl__sub_8024C804() != 0) {
             TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x2C));
             return;
         }
         window_request_show(M2C_FIELD(arg0, u32 *, 0x2C));
-        if (TWindowCtrl__sub_8024D960(arg0) != 0) {
+        if (get_active_menu__11TWindowCtrlFPv(arg0) != 0) {
             TWindowCtrl__sub_80269FB0(M2C_FIELD(arg0, u32 *, 0x2C), TWindowSubComCard__sub_8026CBB8(0x21));
             return;
         }

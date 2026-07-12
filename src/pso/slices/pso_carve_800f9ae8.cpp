@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TItemDrop__sub_800F9C00(void *);
 u8 *TItemDrop__sub_800F9C68(u8 *, M2C_UNK *);
-s32 TLobby__sub_800F9D38(s32);
+s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 TScene__sub_800F9D80();
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK strncpy(void *, s32, M2C_UNK);
@@ -28,7 +28,7 @@ s32 create_named_object(s32 arg0) {
         memset(var_r30 + 0x28, 0, 0x11);
         strncpy(var_r30 + 0x28, arg0, 0x10);
         M2C_FIELD(var_r30, void **, 0) = (void *) (var_r30 + 0x28);
-        M2C_FIELD(var_r30, s32 *, 0x1C) = TLobby__sub_800F9D38(arg0);
+        M2C_FIELD(var_r30, s32 *, 0x1C) = set_stream_and_load_file__6TLobbyFi(arg0);
         M2C_FIELD(var_r30, s32 *, 0x20) = temp_r3;
         return TItemDrop__sub_800F9C00(var_r30);
     }

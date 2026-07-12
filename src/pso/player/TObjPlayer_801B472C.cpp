@@ -9,7 +9,7 @@ extern "C" {
 s32 can_use_action__10TObjPlayerFi(s32 arg0);
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 TLobby__sub_800822E8(s32, M2C_UNK);
-s32 TFontSmallLobby__sub_801D60F4(s32);
+s32 is_ready__15TFontSmallLobbyFPv(s32);
 s32 check_action_usable__10TObjPlayerFPvi(s32, M2C_UNK);
 
 s32 can_use_action__10TObjPlayerFi(s32 arg0) {
@@ -22,7 +22,7 @@ s32 can_use_action__10TObjPlayerFi(s32 arg0) {
     if (TLobby__sub_800822E8(arg0, 0x200) != 0) {
         return 0;
     }
-    return TFontSmallLobby__sub_801D60F4(arg0 + 0x4AC) != 0 ? 1 : 0;
+    return is_ready__15TFontSmallLobbyFPv(arg0 + 0x4AC) != 0 ? 1 : 0;
 }
 
 }

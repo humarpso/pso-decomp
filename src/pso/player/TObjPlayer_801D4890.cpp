@@ -47,8 +47,8 @@ struct V_A_801d48f8 : Base_A_801d48f8 {
 
 extern "C" {
 
-int TObjPlayer__sub_801D4890(void* a0, int a1);
-int TObjPlayer__sub_801D48C4(void* a0, int a1);
+int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1);
+int run_state_query__10TObjPlayerFPvi(void* a0, int a1);
 s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 M2C_UNK TItem__sub_80102424(void *, s16, s32, M2C_UNK);
 s16 TObjPlayer__sub_801A1EB0(s32);
@@ -56,17 +56,17 @@ M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
 s32 TObjPlayer__sub_801C1A70(void *);
 s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
 int TObjPlayer__sub_801D51A0(void*);
-int TObjPlayer__sub_801D5220(void*);
+int count_owned_items__10TObjPlayerFPv(void*);
 void *get_owner_if_alive__10TObjPlayerFPv();
 M2C_UNK queue_destruction__7TObjectFv(s32, s16);
 
     extern int lbl_805D5DEC;
     extern int lbl_805D5DF4;
-int TObjPlayer__sub_801D4890(void* a0, int a1) { lbl_805D5DEC = a1; lbl_805D5DF4 = 0; TObjPlayer__sub_801D51A0((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
+int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DEC = a1; lbl_805D5DF4 = 0; TObjPlayer__sub_801D51A0((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
 
     extern int lbl_805D5DF4;
     extern int lbl_805D5E00;
-int TObjPlayer__sub_801D48C4(void* a0, int a1) { lbl_805D5E00 = a1; lbl_805D5DF4 = 0; TObjPlayer__sub_801D5220((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
+int run_state_query__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5E00 = a1; lbl_805D5DF4 = 0; count_owned_items__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
 
 s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s16 temp_r4;

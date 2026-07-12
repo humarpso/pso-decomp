@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjEneBalClawBody__sub_80090110(void *arg0);
+void * create__18TObjEneBalClawBodyFPv(void *arg0);
 void *TObjControl__ct(void *, void *);
 void *TObjEneBalClawBody__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
-void * TObjEneBalClawBody__sub_80090110(void *arg0) {
+void * create__18TObjEneBalClawBodyFPv(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

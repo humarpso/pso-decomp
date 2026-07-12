@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3Volopt__sub_800C7544(void *arg0);
+void collect_active_nodes__12TBoss3VoloptFPv(void *arg0);
 
 extern void **lbl_805D5190;
 extern s32 lbl_805D5194;
 
-void TBoss3Volopt__sub_800C7544(void *arg0) {
+void collect_active_nodes__12TBoss3VoloptFPv(void *arg0) {
     void **temp_r3;
     void *var_r31;
 
@@ -24,7 +24,7 @@ void TBoss3Volopt__sub_800C7544(void *arg0) {
             lbl_805D5194 += 1;
         }
         if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
-            TBoss3Volopt__sub_800C7544(M2C_FIELD(var_r31, void **, 0x2C));
+            collect_active_nodes__12TBoss3VoloptFPv(M2C_FIELD(var_r31, void **, 0x2C));
         }
         var_r31 = M2C_FIELD(var_r31, void **, 0x30);
     } while (var_r31 != NULL);

@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void * TObjEneMoja__sub_800AF450(void *arg0);
-void TObjEneMoja__sub_800AF4B8(void);
+void * create__11TObjEneMojaFPv(void *arg0);
+void free_resources__11TObjEneMojaFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneMoja__ct(void *, void *, void *);
@@ -17,7 +17,7 @@ void free__11TOBoss4RockFUi(void*);
 
 extern void *tl_04;
 
-void * TObjEneMoja__sub_800AF450(void *arg0) {
+void * create__11TObjEneMojaFPv(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);
@@ -38,7 +38,7 @@ extern u32 lbl_805D50D4;
 extern u32 lbl_805D50D8;
 extern u32 lbl_805D50DC;
 
-void TObjEneMoja__sub_800AF4B8(void) {
+void free_resources__11TObjEneMojaFv(void) {
     if ((u32) lbl_805D50C8 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D50C8);
         lbl_805D50C8 = 0U;

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjEneRecon__sub_8031FA64(void *arg0);
+u8 is_out_of_range__12TObjEneReconFPv(void *arg0);
 s32 TObjEneRecon__sub_8031F070();
 
-u8 TObjEneRecon__sub_8031FA64(void *arg0) {
+u8 is_out_of_range__12TObjEneReconFPv(void *arg0) {
     int var_r4;
 
     if (TObjEneRecon__sub_8031F070() == 1) {

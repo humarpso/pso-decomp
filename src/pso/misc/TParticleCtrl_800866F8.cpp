@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TParticleCtrl__sub_800866F8(u8 *arg0);
+void free_from_heap__13TParticleCtrlFPv(u8 *arg0);
 int heap_free__5THeapFPv(void *, void *);
 
 extern s32 TParticleCtrl__data_805D4EF0;
 extern s32 alt_heap;
 
-void TParticleCtrl__sub_800866F8(u8 *arg0) {
+void free_from_heap__13TParticleCtrlFPv(u8 *arg0) {
     if (arg0) {
         if (arg0[0xAC] != 0) {
             heap_free__5THeapFPv((void *)TParticleCtrl__data_805D4EF0, arg0);

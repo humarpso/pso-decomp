@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800A4424(void *arg0);
+void calc_move_state__10TObjPlayerFPv(void *arg0);
 
 extern M2C_UNK lbl_8043A8C8;
 extern f32 lbl_805D9A10;
 
-void TObjPlayer__sub_800A4424(void *arg0) {
+void calc_move_state__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     s16 temp_r6;
 

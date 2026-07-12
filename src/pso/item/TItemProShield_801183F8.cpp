@@ -13,7 +13,7 @@ s32 TItemMag__sub_80102C4C();
 s32 TItemProArmor__sub_80102C3C(void *);
 u8 TItemProShield__sub_8010B734(void *);
 M2C_UNK TObjPlayer__sub_8010A1D0(int, int, void *, int);
-M2C_UNK TObjPlayer__sub_80117DD8(int, int, void *, int);
+M2C_UNK construct_timer_event__10TObjPlayerFPv(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 alloc__13TItemProArmorFi(int);
 M2C_UNK init_item_timer_event__10TObjPlayerFPv(int, int, void *, int);
@@ -39,7 +39,7 @@ void TItemProShield__vt42(u8 *arg0) {
                 }
                 temp_r3_3 = alloc__13TItemProArmorFi((int) (0x2C));
                 if (temp_r3_3 != 0) {
-                    TObjPlayer__sub_80117DD8((int) (temp_r3_3), (int) (M2C_FIELD(arg0, u32 *, 0x174)), (void *) (TItemProArmor__sub_80102C3C((void *) (arg0))), (int) (0x1C2));
+                    construct_timer_event__10TObjPlayerFPv((int) (temp_r3_3), (int) (M2C_FIELD(arg0, u32 *, 0x174)), (void *) (TItemProArmor__sub_80102C3C((void *) (arg0))), (int) (0x1C2));
                 }
             }
             break;

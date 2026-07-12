@@ -29,16 +29,16 @@ struct F_V_80186f84 : F_A_80186f84 {
 
 extern "C" {
 
-void TObjCityMainWarp__sub_80186F84(void *arg0);
+void update_state__16TObjCityMainWarpFPv(void *arg0);
 s32 TObjCityMainWarp__sub_80186B00();
 s32 TObjCityMainWarp__sub_80186BBC(void *, f32);
-M2C_UNK TObjCityMainWarp__sub_80186D10(void *, s32);
+M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
 
 extern s32 lbl_805D53A0;
 extern void *lbl_805D5B28;
 extern s32 lbl_805D5B60;
 
-void TObjCityMainWarp__sub_80186F84(void *arg0) {
+void update_state__16TObjCityMainWarpFPv(void *arg0) {
     s16 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;
@@ -56,7 +56,7 @@ void TObjCityMainWarp__sub_80186F84(void *arg0) {
         if (TObjCityMainWarp__sub_80186B00() == 0) {
             temp_r3 = TObjCityMainWarp__sub_80186BBC(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
             if (temp_r3 != 0) {
-                TObjCityMainWarp__sub_80186D10(arg0, lbl_805D53A0);
+                notify_player_warp__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
                 M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5B60;
                 ((F_V_80186f84 *) arg0)->m17(temp_r3);
                 M2C_FIELD(arg0, s16 *, 0xE0) = 2;

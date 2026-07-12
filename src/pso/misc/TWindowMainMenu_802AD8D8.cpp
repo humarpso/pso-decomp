@@ -3,7 +3,7 @@
 extern "C" {
 
 extern const float lbl_805DE158;
-void TWindowMainMenu__sub_802AD8D8(void *a0)
+void init_color__15TWindowMainMenuFPv(void *a0)
 {
   int new_var;
   char *new_var2;

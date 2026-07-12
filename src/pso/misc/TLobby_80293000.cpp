@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80293000(s32 arg0);
+void set_retry_selection__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_80293080();
 
 extern M2C_UNK lbl_804DB1F0[];
 
-void TLobby__sub_80293000(s32 arg0) {
+void set_retry_selection__6TLobbyFi(s32 arg0) {
     s32 var_r31;
 
     var_r31 = arg0;

@@ -78,8 +78,8 @@ s32 TBoss3VoloptP01__sub_80042FCC();
 s32 TBoss3Volopt__sub_8003F398();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_8003F4C0(M2C_UNK);
-M2C_UNK TObjPlayer__sub_8003F6B4(u16, M2C_UNK);
+M2C_UNK set_grabbed_state__10TObjPlayerFi(M2C_UNK);
+M2C_UNK link_photon__10TObjPlayerFUs(u16, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern s32 lbl_805D4C28;
@@ -96,8 +96,8 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
         M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) != 0) {
             lbl_805D4C28 = 1;
-            TObjPlayer__sub_8003F6B4(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
-            TObjPlayer__sub_8003F4C0(0x12C);
+            link_photon__10TObjPlayerFUs(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
+            set_grabbed_state__10TObjPlayerFi(0x12C);
         }
         if (TBoss3Volopt__sub_8003F398() != 0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0x388);

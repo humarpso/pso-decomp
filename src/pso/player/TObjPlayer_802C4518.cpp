@@ -30,6 +30,6 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 getDateStamp__FP9DateStamp(s32 *);
 
 void TObjPlayer__sub_802C4518(void* p, u8 v) { *(u8*)((char*)p + 0x173) = v; }
-void TObjPlayer__sub_802C4520(void* p) { { int i; for (i = 0; i < 30; i++) { TAdSinglePlyChrSelectGC__sub_80203220((char*)p + 0x4 + i * 28); } } }
+void clear_item_slots__10TObjPlayerFPv(void* p) { { int i; for (i = 0; i < 30; i++) { TAdSinglePlyChrSelectGC__sub_80203220((char*)p + 0x4 + i * 28); } } }
 
 }

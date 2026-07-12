@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_800FA0A4(void);
+void notify_and_close__6TLobbyFv(void);
 M2C_UNK TLobby__sub_800FA12C();
 
 extern u8 *lbl_805D5360;
 extern s32 lbl_805D536C;
 
-void TLobby__sub_800FA0A4(void) {
+void notify_and_close__6TLobbyFv(void) {
     M2C_UNK (*temp_r12)(void *);
     s32 *temp_r3;
 

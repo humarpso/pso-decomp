@@ -9,7 +9,7 @@ extern "C" {
 u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 M2C_UNK TItemEquipBase__ct();
 M2C_UNK TItemProUnit__sub_80118D58(void *);
-s16 TItemData__sub_8010CD98(void *);
+s16 get_field6_bswap__9TItemDataFPv(void *);
 u8 *TItemData__sub_8010EA38(void *);
 
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
@@ -59,7 +59,7 @@ u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
         M2C_FIELD(arg0, s16 *, 0x18E) = 0;
         M2C_FIELD(arg0, s16 *, 0x1BE) = 0;
     }
-    M2C_FIELD(arg0, s16 *, 0x1BC) = TItemData__sub_8010CD98(arg2);
+    M2C_FIELD(arg0, s16 *, 0x1BC) = get_field6_bswap__9TItemDataFPv(arg2);
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x1BC);
     if ((temp_r0 <= -0xA) || (temp_r0 >= 0xA)) {
         M2C_FIELD(arg0, s16 *, 0x1BC) = 0;

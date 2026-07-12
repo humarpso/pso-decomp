@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8011C39C(s32 arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_8011C3FC(s32 arg0, s32 arg1);
-void TObjPlayer__sub_8011C454(s32 arg0, s32 arg1);
+void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
+void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
+void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1);
 M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
 M2C_UNK TItemDrop__sub_80106818(u32, s32, s32);
 M2C_UNK TItemDrop__sub_80106930(u32, s32, s32);
@@ -16,7 +16,7 @@ M2C_UNK TLobby__sub_801044B8(s32 *);
 
 extern u32 item_mgr;
 
-void TObjPlayer__sub_8011C39C(s32 arg0, s32 arg1, s32 arg2) {
+void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 sp8;
     s32 temp_r5;
 
@@ -31,7 +31,7 @@ void TObjPlayer__sub_8011C39C(s32 arg0, s32 arg1, s32 arg2) {
 
 extern u32 item_mgr;
 
-void TObjPlayer__sub_8011C3FC(s32 arg0, s32 arg1) {
+void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 sp8;
     s32 temp_r4;
 
@@ -46,7 +46,7 @@ void TObjPlayer__sub_8011C3FC(s32 arg0, s32 arg1) {
 
 extern u32 item_mgr;
 
-void TObjPlayer__sub_8011C454(s32 arg0, s32 arg1) {
+void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 sp8;
     s32 temp_r4;
 

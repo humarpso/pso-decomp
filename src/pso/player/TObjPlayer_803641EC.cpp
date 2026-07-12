@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_803641EC(void);
+void free_global_805D6FB8__10TObjPlayerFv(void);
 void __dl__FPv(void*);
 
 extern u32 lbl_805D6FB8;
 
-void TObjPlayer__sub_803641EC(void) {
+void free_global_805D6FB8__10TObjPlayerFv(void) {
     if ((u32) lbl_805D6FB8 != 0U) {
         __dl__FPv((void*)lbl_805D6FB8);
         lbl_805D6FB8 = 0U;

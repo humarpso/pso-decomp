@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjCityMainWarp__sub_80186D10(void *arg0, s32 arg1);
-void TObjCityMainWarp__sub_80186D50(void *arg0, s32 arg1);
+void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
+void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK obj_clear_flag30_20000(s32);
 M2C_UNK obj_set_flag_20000(s32);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 
-void TObjCityMainWarp__sub_80186D10(void *arg0, s32 arg1) {
+void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
@@ -24,7 +24,7 @@ void TObjCityMainWarp__sub_80186D10(void *arg0, s32 arg1) {
     }
 }
 
-void TObjCityMainWarp__sub_80186D50(void *arg0, s32 arg1) {
+void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);

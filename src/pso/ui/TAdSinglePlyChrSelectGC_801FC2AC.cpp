@@ -10,13 +10,13 @@ s32 is_ready__23TAdSinglePlyChrSelectGCFv(void);
 u16 TAdSinglePlyChrSelectGC__sub_801FC2FC(int arg0);
 u16 get_card_window_status__23TAdSinglePlyChrSelectGCFi(int arg0);
 u16 TAdSinglePlyChrSelectGC__sub_801FC36C(int arg0);
-u16 TAdSinglePlyChrSelectGC__sub_801FC3A4(int arg0);
+u16 get_card_state__23TAdSinglePlyChrSelectGCFi(int arg0);
 u16 get_card_flag__23TAdSinglePlyChrSelectGCFi(int arg0);
 u16 get_card_field__23TAdSinglePlyChrSelectGCFi(int arg0);
 u16 get_card_status__23TAdSinglePlyChrSelectGCFi(int arg0);
-u16 TAdSinglePlyChrSelectGC__sub_801FC484(int arg0);
-u16 TAdSinglePlyChrSelectGC__sub_801FC4BC(int arg0);
-s32 TLobby__sub_8030A730();
+u16 get_card_value__23TAdSinglePlyChrSelectGCFi(int arg0);
+u16 get_card_field_21a8__23TAdSinglePlyChrSelectGCFi(int arg0);
+s32 is_ready__6TLobbyFv();
 s32 TLobby__sub_8030A770();
 s32 TLobby__sub_8030A7B0();
 void *get_card_window__17TWindowSubComCardFUi(u16);
@@ -28,7 +28,7 @@ s32 is_ready__23TAdSinglePlyChrSelectGCFv(void) {
     if (TLobby__sub_8030A770() != 0) {
         return 0;
     }
-    return (u32) __cntlzw(TLobby__sub_8030A730()) >> 5;
+    return (u32) __cntlzw(is_ready__6TLobbyFv()) >> 5;
 }
 
 u16 TAdSinglePlyChrSelectGC__sub_801FC2FC(int arg0) {
@@ -61,7 +61,7 @@ u16 TAdSinglePlyChrSelectGC__sub_801FC36C(int arg0) {
     return 0U;
 }
 
-u16 TAdSinglePlyChrSelectGC__sub_801FC3A4(int arg0) {
+u16 get_card_state__23TAdSinglePlyChrSelectGCFi(int arg0) {
     void *temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi(arg0);
@@ -101,7 +101,7 @@ u16 get_card_status__23TAdSinglePlyChrSelectGCFi(int arg0) {
     return 0U;
 }
 
-u16 TAdSinglePlyChrSelectGC__sub_801FC484(int arg0) {
+u16 get_card_value__23TAdSinglePlyChrSelectGCFi(int arg0) {
     void *temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi(arg0);
@@ -111,7 +111,7 @@ u16 TAdSinglePlyChrSelectGC__sub_801FC484(int arg0) {
     return 0U;
 }
 
-u16 TAdSinglePlyChrSelectGC__sub_801FC4BC(int arg0) {
+u16 get_card_field_21a8__23TAdSinglePlyChrSelectGCFi(int arg0) {
     void *temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi(arg0);

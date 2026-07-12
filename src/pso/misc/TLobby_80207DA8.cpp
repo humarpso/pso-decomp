@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TLobby__sub_80207DA8(void);
-s32 TLobby__sub_80207DD4(void);
+void reset_story_select__6TLobbyFv(void);
+s32 is_scene_ready__6TLobbyFv(void);
 int TLobby__sub_80207E24(void* p);
 void TLobby__sub_80207E44(void);
 int TLobby__sub_80207E48(void* p);
@@ -16,9 +16,9 @@ s32 TOKeyMachine01__sub_802034A8();
 s32 TScene__sub_801FBA20();
 
     extern int lbl_805D3628;
-void TLobby__sub_80207DA8(void) { set_state__16TAdStorySelectGCFi((void*)0); lbl_805D3628 = -1; }
+void reset_story_select__6TLobbyFv(void) { set_state__16TAdStorySelectGCFi((void*)0); lbl_805D3628 = -1; }
 
-s32 TLobby__sub_80207DD4(void) {
+s32 is_scene_ready__6TLobbyFv(void) {
     s32 temp_r3;
 
     if (TOKeyMachine01__sub_802034A8() != 0xF) {

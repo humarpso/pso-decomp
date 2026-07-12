@@ -8,14 +8,14 @@ extern "C" {
 
 void TBoss4Type2__sub_80053050(void* p);
 void TBoss4Type2__sub_8005307C(void* p);
-void TBoss4Type2__sub_80053088(void *arg0);
+void update_flag800_state__11TBoss4Type2FPv(void *arg0);
 s32 TBoss4Type2__sub_80053504(void);
-int TBoss4Type2__sub_8005354C(void*);
+int check_state_transition__11TBoss4Type2FPv(void*);
 s32 TBoss4Type2__sub_80053CEC(void * a0 = 0, s32 a1 = 0);
 
-void TBoss4Type2__sub_80053050(void* p) { if (*(int*)((char*)p + 0x398) == 0) { TBoss4Type2__sub_8005354C(p); } }
+void TBoss4Type2__sub_80053050(void* p) { if (*(int*)((char*)p + 0x398) == 0) { check_state_transition__11TBoss4Type2FPv(p); } }
 void TBoss4Type2__sub_8005307C(void* p) { *(u32*)((char*)p + 0x398) = *(u32*)((char*)p + 0x3cc); }
-void TBoss4Type2__sub_80053088(void *arg0) {
+void update_flag800_state__11TBoss4Type2FPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x30) & 0x800) {
         TBoss4Type2__sub_80053CEC(arg0, 4);
         return;

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TWindowMakeTeam__ct(void *arg0, void *arg1, s32 arg2);
-s32 TWindowMakeTeam__sub_80264A90(u8);
+s32 init_status_disp__15TWindowMakeTeamFc(u8);
 s32 TWindowMakeTeam__sub_80264AB8(u8);
 s32 create_menu__15TWindowMakeTeamFv(struct TWMT *);
 M2C_UNK TWindowMakeTeam__sub_80268650(s32, s32, M2C_UNK);
@@ -41,7 +41,7 @@ void *TWindowMakeTeam__ct(void *arg0, void *arg1, s32 arg2) {
     if ((temp_r0 == 1) || (temp_r0 == 2)) {
         TWindowMakeTeam__sub_80268650(M2C_FIELD(self, s32 *, 0x2C), TWindowMakeTeam__sub_80264AB8(M2C_FIELD(self, u8 *, 0x1E)), 2);
     }
-    TWindowMakeTeam__sub_80268650(M2C_FIELD(self, s32 *, 0x2C), TWindowMakeTeam__sub_80264A90(M2C_FIELD(self, u8 *, 0x1F)), 3);
+    TWindowMakeTeam__sub_80268650(M2C_FIELD(self, s32 *, 0x2C), init_status_disp__15TWindowMakeTeamFc(M2C_FIELD(self, u8 *, 0x1F)), 3);
     return arg0;
 }
 

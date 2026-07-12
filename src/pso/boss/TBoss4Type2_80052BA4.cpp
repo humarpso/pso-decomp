@@ -8,11 +8,11 @@ extern "C" {
 
 typedef struct { char pad[0x444]; struct { char b[0x18]; } arr[1]; } Foo;
 
-void TBoss4Type2__sub_80052BA4(u8 *arg0);
+void update_attack_countdown__11TBoss4Type2FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss4Type2__sub_800542B0(void *, M2C_UNK);
 
-void TBoss4Type2__sub_80052BA4(u8 *arg0) {
+void update_attack_countdown__11TBoss4Type2FPv(u8 *arg0) {
     s32 temp_r0;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0x2D) {

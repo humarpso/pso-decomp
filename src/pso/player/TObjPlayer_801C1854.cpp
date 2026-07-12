@@ -20,6 +20,6 @@ s32 bswap_pkt_u16x2_u32x2__10TObjPlayerFPv();
 s32 bswap_pkt_u32x5__10TObjPlayerFPv();
 s32 reset_settings_to_default__6TLobbyFPv();
 
-void* TObjPlayer__sub_801C1854(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
+void* copy_warp_target__10TObjPlayerFPvPv(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 
 }

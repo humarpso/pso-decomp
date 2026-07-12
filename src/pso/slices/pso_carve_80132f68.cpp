@@ -1,7 +1,7 @@
 extern "C" {
     int TLanguage__ct(void*);
     int TWindowKeyBoardSoft__sub_80132DA0(void*);
-    int TLobby__sub_80132ED0(void);
+    int update_menu_cursor__6TLobbyFv(void);
     extern int lbl_805D5544;
-void fn_80132F68(void) { TLobby__sub_80132ED0(); TWindowKeyBoardSoft__sub_80132DA0((void*)(lbl_805D5544)); TLanguage__ct((void*)(lbl_805D5544)); }
+void fn_80132F68(void) { update_menu_cursor__6TLobbyFv(); TWindowKeyBoardSoft__sub_80132DA0((void*)(lbl_805D5544)); TLanguage__ct((void*)(lbl_805D5544)); }
 }

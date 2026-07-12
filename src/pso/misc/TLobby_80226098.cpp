@@ -2,11 +2,11 @@
 
 extern "C" {
 
-void TLobby__sub_80226098(void);
+void reset_global__6TLobbyFv(void);
 int TLobby__sub_8022614C(void*);
 
     extern int lbl_805D6294;
     extern int lbl_805D6298;
-void TLobby__sub_80226098(void) { lbl_805D6298 = 0; TLobby__sub_8022614C((void*)(lbl_805D6294)); }
+void reset_global__6TLobbyFv(void) { lbl_805D6298 = 0; TLobby__sub_8022614C((void*)(lbl_805D6294)); }
 
 }

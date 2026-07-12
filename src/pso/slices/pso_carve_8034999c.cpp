@@ -11,7 +11,7 @@ s32 fn_80349728();
 s32 fn_80349844();
 void run_task__18TAdLoadQuestCellGCFv(void);
 
-void fn_8034999C(void *arg0) {
+void render_state__18TAdLoadQuestCellGCFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);

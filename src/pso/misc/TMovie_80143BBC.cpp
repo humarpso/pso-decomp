@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMovie__sub_80143BBC(void);
+void flush_cache__6TMovieFv(void);
 M2C_UNK DCStoreRangeNoSync(s32, s32);
 M2C_UNK fn_8037C8B8();
 u32 fn_8037CB2C();
@@ -15,7 +15,7 @@ extern s32 lbl_805D5688;
 extern s32 lbl_805D5694;
 extern s32 lbl_805D569C;
 
-void TMovie__sub_80143BBC(void) {
+void flush_cache__6TMovieFv(void) {
     if (fn_8037CB2C() == 0U) {
         DCStoreRangeNoSync(lbl_805D5688, lbl_805D5694);
         fn_8037C8B8();

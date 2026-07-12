@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8035A630(s32 arg0);
-void TObjPlayer__sub_8035A69C(void *arg0, void *arg1);
+void process_callback_list__10TObjPlayerFi(s32 arg0);
+void draw_node_tree__10TObjPlayerFPvPv(void *arg0, void *arg1);
 extern M2C_UNK (*lbl_805D6F3C)(s32);
 M2C_UNK TObjPlayer__sub_803D898C(s32);
 M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
@@ -19,7 +19,7 @@ extern s32 lbl_805D6F30;
 extern s32 lbl_805D6F34;
 extern s32 lbl_805D6F38;
 
-void TObjPlayer__sub_8035A630(s32 arg0) {
+void process_callback_list__10TObjPlayerFi(s32 arg0) {
     if ((s32) lbl_805D6F30 < (s32) lbl_805D6F34) {
         TObjPlayer__sub_803D898C(lbl_805D6F38 + (lbl_805D6F30 * 0x30));
     }
@@ -31,7 +31,7 @@ void TObjPlayer__sub_8035A630(s32 arg0) {
 
 extern s32 lbl_805D6F38;
 
-void TObjPlayer__sub_8035A69C(void *arg0, void *arg1) {
+void draw_node_tree__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     M2C_UNK (*temp_r12)(void *);
     s32 temp_r31;
     void *var_r30;
@@ -51,7 +51,7 @@ void TObjPlayer__sub_8035A69C(void *arg0, void *arg1) {
         }
         TObjPlayer__sub_803D9B78();
         if (!(temp_r31 & 0x10)) {
-            TObjPlayer__sub_8035A69C(arg0, M2C_FIELD(var_r30, void **, 0x2C));
+            draw_node_tree__10TObjPlayerFPvPv(arg0, M2C_FIELD(var_r30, void **, 0x2C));
         }
         var_r30 = M2C_FIELD(var_r30, void **, 0x30);
     } while (var_r30 != NULL);

@@ -18,8 +18,8 @@ int TLobby__sub_80227F7C(void);
 s32 TLobby__sub_80227FB4();
 s32 TOKeyMachine01__sub_802034A8();
 s32 TObjLight__sub_80133D78();
-int TParticleCtrl__sub_800867AC(void);
-s32 TParticleCtrl__sub_800867E4(s32);
+int free_heap__13TParticleCtrlFv(void);
+s32 init_heap__13TParticleCtrlFPv(s32);
 u32 __nw__7TObjectFUl(s32);
 int TLobby__sub_800F7B84(void);
 s32 fn_8034A8FC();
@@ -39,7 +39,7 @@ s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
     }
     return 1;
 }
-void reset_subsystems__6TLobbyFv(void) { TParticleCtrl__sub_800867AC(); TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); TLobby__sub_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+void reset_subsystems__6TLobbyFv(void) { free_heap__13TParticleCtrlFv(); TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); TLobby__sub_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 s32 TLobby__sub_8014047C(void) {
     TOKeyMachine01__sub_802034A8();
     TLobby__sub_80227FB4();
@@ -48,7 +48,7 @@ s32 TLobby__sub_8014047C(void) {
     }
     TObjLight__sub_80133D78();
     create_tasks__6TLobbyFv();
-    TParticleCtrl__sub_800867E4(0x10000);
+    init_heap__13TParticleCtrlFPv(0x10000);
     fn_8034A8FC();
     return 1;
 }

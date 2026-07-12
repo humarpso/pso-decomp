@@ -9,8 +9,8 @@ extern "C" {
 s32 get_message_by_type__11TWindowCtrlFci(s8 arg0, s32 arg1);
 void release_slot__11TWindowCtrlFPv(s8 *arg0);
 s32 get_window__11TWindowCtrlFi(s32);
-s32 TWindowCtrlMain__sub_8024D92C();
-s32 TWindowCtrl__sub_8024D960(s32);
+s32 get_main_menu_message__15TWindowCtrlMainFPv();
+s32 get_active_menu__11TWindowCtrlFPv(s32);
 s32 TWindowSubComCard__sub_8026CBB8(s32);
 
 s32 get_message_by_type__11TWindowCtrlFci(s8 arg0, s32 arg1) {
@@ -21,9 +21,9 @@ s32 get_message_by_type__11TWindowCtrlFci(s8 arg0, s32 arg1) {
     if (temp_r3 == 0) {
         return 0;
     }
-    if (TWindowCtrlMain__sub_8024D92C() != 0) {
+    if (get_main_menu_message__15TWindowCtrlMainFPv() != 0) {
         var_r3 = 0x4D;
-    } else if (TWindowCtrl__sub_8024D960(temp_r3) != 0) {
+    } else if (get_active_menu__11TWindowCtrlFPv(temp_r3) != 0) {
         var_r3 = 0x48;
     } else {
         var_r3 = 0x43;

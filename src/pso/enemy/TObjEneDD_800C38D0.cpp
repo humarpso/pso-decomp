@@ -155,7 +155,7 @@ struct VObj_800C3A00 : Base_800C3A00 {
 extern "C" {
 
 void TObjEneDD__sub_800C38D0(u8 *arg0, s32 arg1);
-void TObjEneDD__sub_800C3A00(void *arg0, s32 arg1);
+void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
@@ -199,7 +199,7 @@ void TObjEneDD__sub_800C38D0(u8 *arg0, s32 arg1) {
     }
 }
 
-void TObjEneDD__sub_800C3A00(void *arg0, s32 arg1) {
+void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VObj_800C3A00 *)arg0)->m93();

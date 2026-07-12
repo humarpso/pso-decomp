@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdDialingGC__sub_80328210(void *arg0);
-void TAdDialingGC__sub_803282B8(void *arg0);
+void update_dial_state__12TAdDialingGCFPv(void *arg0);
+void update_state__12TAdDialingGCFPv(void *arg0);
 void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1);
 void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32);
 s32 TAdDialingGC__sub_803284F8(void *);
@@ -18,7 +18,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 s8 func_801A5E54__Fv();
 M2C_UNK queue_destruction__7TObjectFv();
 
-void TAdDialingGC__sub_80328210(void *arg0) {
+void update_dial_state__12TAdDialingGCFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 
@@ -51,7 +51,7 @@ block_12:
     }
 }
 
-void TAdDialingGC__sub_803282B8(void *arg0) {
+void update_state__12TAdDialingGCFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

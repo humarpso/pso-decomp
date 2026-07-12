@@ -78,7 +78,7 @@ struct V_Sub_8031f748 : Base_Sub_8031f748 {
 extern "C" {
 
 void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1);
-void TObjEneRecon__sub_8031F748(u8 *arg0, s32 arg1);
+void handle_state__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
@@ -103,7 +103,7 @@ void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1) {
     }
 }
 
-void TObjEneRecon__sub_8031F748(u8 *arg0, s32 arg1) {
+void handle_state__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {

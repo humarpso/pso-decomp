@@ -10,16 +10,16 @@ int TObjPlayer__sub_80313138(void* a0 = 0);
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
 int TObjPlayer__sub_80313260(void* a0 = 0);
-void TObjPlayer__sub_803130BC(void* p);
-int TObjPlayer__sub_80313184(void* p);
+void update_children__10TObjPlayerFPv(void* p);
+int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void);
-int TObjPlayer__sub_803131F0(void* p);
+int check_flag_at_4__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_80313218(void* p);
 void TObjPlayer__sub_80313248(void* p, s16 v);
 int TObjPlayer__sub_8001BED8(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 
-void TObjPlayer__sub_803131C8(s32 arg0, s32 arg1) {
+void process_indexed_element__10TObjPlayerFii(s32 arg0, s32 arg1) {
     TObjPlayer__sub_80313138((void*)(arg0 + (arg1 * 0x18)));
 }
 

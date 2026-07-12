@@ -8,10 +8,10 @@ extern "C" {
 
 void TWindowCtrlMain__sub_8024CB7C(void);
 void TWindowCtrlMain__sub_8024CB8C(void);
-f32 TWindowCtrlMain__sub_8024CB9C(void);
-f32 TWindowCtrlMain__sub_8024CBC0(void);
-f32 TWindowCtrlMain__sub_8024CBE4(void);
-f32 TWindowCtrlMain__sub_8024CC08(void);
+f32 get_field_18__15TWindowCtrlMainFv(void);
+f32 get_ctrl_field14__15TWindowCtrlMainFv(void);
+f32 get_field10__15TWindowCtrlMainFv(void);
+f32 get_position_z__15TWindowCtrlMainFv(void);
 void set_field18__15TWindowCtrlMainFf(f32 farg0);
 void set_depth__15TWindowCtrlMainFf(f32 farg0);
 void *TWindowCtrlMain__sub_8024CC8C();
@@ -22,19 +22,19 @@ void TWindowCtrlMain__sub_8024CB7C(void) { TWindowCtrlMain__data_805D6400 = (TWi
     extern int TWindowCtrlMain__data_805D6400;
 void TWindowCtrlMain__sub_8024CB8C(void) { TWindowCtrlMain__data_805D6400 = (TWindowCtrlMain__data_805D6400 & 0xfffffffe); }
 
-f32 TWindowCtrlMain__sub_8024CB9C(void) {
+f32 get_field_18__15TWindowCtrlMainFv(void) {
     return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x18);
 }
 
-f32 TWindowCtrlMain__sub_8024CBC0(void) {
+f32 get_ctrl_field14__15TWindowCtrlMainFv(void) {
     return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x14);
 }
 
-f32 TWindowCtrlMain__sub_8024CBE4(void) {
+f32 get_field10__15TWindowCtrlMainFv(void) {
     return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x10);
 }
 
-f32 TWindowCtrlMain__sub_8024CC08(void) {
+f32 get_position_z__15TWindowCtrlMainFv(void) {
     return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0xC);
 }
 

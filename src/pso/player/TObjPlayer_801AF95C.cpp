@@ -8,9 +8,9 @@ extern "C" {
 
 void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1);
 s32 TObjPlayer__sub_801AF288();
-M2C_UNK TObjPlayer__sub_801BE2E8(s32);
-M2C_UNK TObjPlayer__sub_801BE310(s32);
-M2C_UNK TObjPlayer__sub_801BE338(s32);
+M2C_UNK check_stat_flag_41c__10TObjPlayerFPv(s32);
+M2C_UNK check_flag_at_41c__10TObjPlayerFPv(s32);
+M2C_UNK set_flag_41c_bit1__10TObjPlayerFPv(s32);
 M2C_UNK TObjPlayer__sub_801BE360(s32);
 void *fn_8007EAF8();
 M2C_UNK TObjPlayer__sub_801AFDB0(s32);
@@ -147,10 +147,10 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     temp_r27 = TObjPlayer__sub_801AF288();
     if (temp_r28_2 < 0) {
         M2C_FIELD(arg1, s32 *, 0x18) = 0;
-        TObjPlayer__sub_801BE338(arg0);
+        set_flag_41c_bit1__10TObjPlayerFPv(arg0);
     } else if (temp_r28_2 > temp_r27) {
         M2C_FIELD(arg1, s32 *, 0x18) = temp_r27;
-        TObjPlayer__sub_801BE338(arg0);
+        set_flag_41c_bit1__10TObjPlayerFPv(arg0);
     } else {
         M2C_FIELD(arg1, s32 *, 0x18) = temp_r28_2;
     }
@@ -158,22 +158,22 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     temp_r3_8 = TObjPlayer__sub_801D91F8(TObjPlayer__sub_801AFDB0(arg0), temp_r27);
     if (temp_r28_2 < 0) {
         M2C_FIELD(arg1, s32 *, 0x1C) = 0;
-        TObjPlayer__sub_801BE310(arg0);
+        check_flag_at_41c__10TObjPlayerFPv(arg0);
     } else if (temp_r28_2 > temp_r3_8) {
         M2C_FIELD(arg1, s32 *, 0x1C) = temp_r3_8;
-        TObjPlayer__sub_801BE310(arg0);
+        check_flag_at_41c__10TObjPlayerFPv(arg0);
     } else {
         M2C_FIELD(arg1, s32 *, 0x1C) = temp_r28_2;
     }
     temp_r4_2 = M2C_FIELD(temp_r31, s32 *, 0x20);
     if (temp_r4_2 < 0) {
         M2C_FIELD(arg1, s32 *, 0x20) = 0;
-        TObjPlayer__sub_801BE2E8(arg0);
+        check_stat_flag_41c__10TObjPlayerFPv(arg0);
         return;
     }
     if (temp_r4_2 > 0xF423F) {
         M2C_FIELD(arg1, s32 *, 0x20) = 0xF423F;
-        TObjPlayer__sub_801BE2E8(arg0);
+        check_stat_flag_41c__10TObjPlayerFPv(arg0);
         return;
     }
     M2C_FIELD(arg1, s32 *, 0x20) = temp_r4_2;

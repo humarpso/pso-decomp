@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneRe4Sorcerer__sub_800ED384();
+s32 set_hold_flags__18TObjEneRe4SorcererFPv();
 void TObjEneRe4Sorcerer__sub_800ED408(void* p);
 void TObjEneRe4Sorcerer__sub_800ED418(void* p);
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p);

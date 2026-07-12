@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjCMMainMenu__sub_8028DA4C(void);
+void select_char_menu__14TObjCMMainMenuFv(void);
 M2C_UNK TObjCMMainMenu__sub_8028DA0C(s32);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
 
-void TObjCMMainMenu__sub_8028DA4C(void) {
+void select_char_menu__14TObjCMMainMenuFv(void) {
     TObjCMMainMenu__sub_8028DA0C(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370);
 }
 

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindow__sub_80216B44(void *arg0);
+void close_sub_windows__7TWindowFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 
-void TWindow__sub_80216B44(void *arg0) {
+void close_sub_windows__7TWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x38));
         M2C_FIELD(arg0, u32 *, 0x38) = 0U;

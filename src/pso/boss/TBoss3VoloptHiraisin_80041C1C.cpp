@@ -24,19 +24,19 @@ struct VObj_80041C78 : Base_80041C78 {
 
 extern "C" {
 
-void TBoss3VoloptHiraisin__sub_80041C1C(void *arg0);
-void TBoss3VoloptHiraisin__sub_80041C78(void *arg0);
-M2C_UNK TObjPlayer__sub_8003F6B4(u16, M2C_UNK);
+void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
+void update_state__20TBoss3VoloptHiraisinFPv(void *arg0);
+M2C_UNK link_photon__10TObjPlayerFUs(u16, M2C_UNK);
 
 extern s32 lbl_805D4C14;
 
-void TBoss3VoloptHiraisin__sub_80041C1C(void *arg0) {
+void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x388) & 0x40000) && ((s32) lbl_805D4C14 >= 0) && ((s32) ((s32) lbl_805D4C14 / 4) == (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x38C) / 4))) {
-        TObjPlayer__sub_8003F6B4(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
+        link_photon__10TObjPlayerFUs(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
     }
 }
 
-void TBoss3VoloptHiraisin__sub_80041C78(void *arg0) {
+void update_state__20TBoss3VoloptHiraisinFPv(void *arg0) {
     s16 temp_r4;
     s32 temp_r0;
 

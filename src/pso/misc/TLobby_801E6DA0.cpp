@@ -3,9 +3,9 @@
 extern "C" {
 
 void TLobby__sub_801E6DA0(void);
-int TLobby__sub_8036B4C0(void*);
+int create_singleton__6TLobbyFPv(void*);
 
     extern int tl_01;
-void TLobby__sub_801E6DA0(void) { TLobby__sub_8036B4C0((void*)(tl_01)); }
+void TLobby__sub_801E6DA0(void) { create_singleton__6TLobbyFPv((void*)(tl_01)); }
 
 }

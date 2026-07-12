@@ -25,7 +25,7 @@ void TBoss6Type2__vt46(void);
 void TBoss6Type2__vt47(void);
 void TBoss6Type2__vt48(void);
 
-void TBoss6Type2__sub_802BE588(void *arg0) {
+void select_action__11TBoss6Type2FPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x30) & 0x800) {
         TBoss6Type2__sub_802BDDF8(arg0, 0x23);
         return;
@@ -36,7 +36,7 @@ void TBoss6Type2__sub_802BE588(void *arg0) {
     }
     TBoss6Type2__sub_802BDDF8(arg0, 0);
 }
-void TBoss6Type2__sub_802BE5DC(void *arg0) {
+void update_zako_timer__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
 
     if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (TBoss6Type2__sub_802BAA74() == 0)) {

@@ -28,7 +28,7 @@ s32 TWindowSubComCard__sub_8007341C(void *);
 s32 TWindowSubComCard__sub_80073DB8(void *);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 M2C_UNK TLobby__sub_801F387C(s32);
-M2C_UNK TWindow__sub_80216B44(void *);
+M2C_UNK close_sub_windows__7TWindowFPv(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 
@@ -50,7 +50,7 @@ void handle_confirm_dialog(void *arg0) {
                 return;
             }
             if (temp_r3_2 == 1) {
-                TWindow__sub_80216B44(arg0);
+                close_sub_windows__7TWindowFPv(arg0);
                 temp_r3_3 = M2C_FIELD(arg0, VObj_80216BCC **, 0x34);
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 1);
@@ -62,7 +62,7 @@ void handle_confirm_dialog(void *arg0) {
         }
 block_9:
         if ((M2C_FIELD(arg0, void **, 0x38) != NULL) && (TWindowSubComCard__sub_80073DB8(M2C_FIELD(arg0, void **, 0x38)) != 0)) {
-            TWindow__sub_80216B44(arg0);
+            close_sub_windows__7TWindowFPv(arg0);
             temp_r3_4 = M2C_FIELD(arg0, VObj_80216BCC **, 0x34);
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 1);

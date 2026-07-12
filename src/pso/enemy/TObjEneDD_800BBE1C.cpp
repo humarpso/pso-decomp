@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TObjEneDD__sub_800BBE1C(void);
+void create_instance__9TObjEneDDFv(void);
 int TObjEneDD__sub_800BBE5C(void);
 void *__nw__7TObjectFUl(int);
 void *fn_800BC4C8(void *, int, int);
 
 extern void *lbl_805D5138;
 
-void TObjEneDD__sub_800BBE1C(void) {
+void create_instance__9TObjEneDDFv(void) {
     void *o;
     o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {

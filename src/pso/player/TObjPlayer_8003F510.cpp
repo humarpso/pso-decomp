@@ -33,12 +33,12 @@ struct VObj_8003F6B4 : Base_8003F6B4 {
 
 extern "C" {
 
-void TObjPlayer__sub_8003F6B4(u16 arg0);
+void link_photon__10TObjPlayerFUs(u16 arg0);
 void update_topple_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8003FCD0(void *);
-s32 TObjPlayer__sub_8003FD90(void *);
+s32 calc_spin_value__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80040AE4(M2C_UNK);
 s32 TObjPlayer__sub_80141F84(s32, s32);
 void *TPhotonMylla__sub_80154CB4(u16);
@@ -84,7 +84,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x390) = (s32) (M2C_FIELD(arg0, s32 *, 0x390) - TObjPlayer__sub_80040AE4(0));
         M2C_FIELD(arg0, s32 *, 0x394) = (s32) (M2C_FIELD(arg0, s32 *, 0x394) - TObjPlayer__sub_80040AE4(0));
         TObjPlayer__sub_8003FCD0(arg0);
-        M2C_FIELD(arg0, s32 *, 0x398) = TObjPlayer__sub_8003FD90(arg0);
+        M2C_FIELD(arg0, s32 *, 0x398) = calc_spin_value__10TObjPlayerFPv(arg0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x394) <= -0x238E) {
             ((VObj_8003f510*)arg0)->m56();
         }
@@ -98,7 +98,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
 
 extern u16 lbl_805D271C;
 extern f32 lbl_805D86B0;
-void TObjPlayer__sub_8003F6B4(u16 arg0) {
+void link_photon__10TObjPlayerFUs(u16 arg0) {
     void *temp_r3;
     void *temp_r4;
     void *temp_r5;

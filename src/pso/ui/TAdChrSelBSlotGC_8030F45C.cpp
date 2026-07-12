@@ -16,7 +16,7 @@ M2C_UNK TAdPlyChrSelPlateGC__sub_802C4D88(s32);
 M2C_UNK TAdSubPlyItemGC__sub_802D6D88(s32);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindow__close(void *);
-M2C_UNK TAdChrSelSlotGC__sub_802C7438(s32);
+M2C_UNK reset_all_slots__15TAdChrSelSlotGCFPv(s32);
 M2C_UNK TAdChrSelSlotGC__sub_802C7498(s32, M2C_UNK);
 s32 TAdChrSelBSlotGC__sub_803100EC(void *);
 M2C_UNK TAdChrSelBSlotGC__sub_803100F4();
@@ -114,7 +114,7 @@ extern M2C_UNK lbl_80475910[];
 extern const f32 lbl_805DF220;
 
 void reset_windows__16TAdChrSelBSlotGCFPv(void *arg0) {
-    TAdChrSelSlotGC__sub_802C7438(M2C_FIELD(arg0, s32 *, 0x28));
+    reset_all_slots__15TAdChrSelSlotGCFPv(M2C_FIELD(arg0, s32 *, 0x28));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x38));
         M2C_FIELD(arg0, u32 *, 0x38) = 0U;

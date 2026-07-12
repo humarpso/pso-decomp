@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801B1968(void *arg0);
+void unequip_by_field326__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801B198C(s32 arg0);
 void TObjPlayer__sub_801B19EC(void);
 s32 TFontSmallLobby__sub_801AFEE0();
@@ -16,7 +16,7 @@ int TBoss3Volopt__sub_8003F108(void);
 int TObjPlayer__sub_802034B0(void);
 s32 TObjFish__sub_803E46BC(s32);
 
-void TObjPlayer__sub_801B1968(void *arg0) {
+void unequip_by_field326__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_801B18C0(arg0, M2C_FIELD(arg0, s16 *, 0x326));
 }
 void TObjPlayer__sub_801B198C(s32 arg0) {

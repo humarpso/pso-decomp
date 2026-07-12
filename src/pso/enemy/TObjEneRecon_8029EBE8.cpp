@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRecon__sub_8029EBE8(void);
-M2C_UNK TObjPlayer__sub_8029F6C0();
+void alloc_if_valid_state__12TObjEneReconFv(void);
+M2C_UNK init_render_target__10TObjPlayerFPv();
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 fn_8029E764();
 
@@ -15,7 +15,7 @@ extern s32 lbl_805D65F0;
 extern s32 lbl_805D65F4;
 extern u32 lbl_805D65FC;
 
-void TObjEneRecon__sub_8029EBE8(void) {
+void alloc_if_valid_state__12TObjEneReconFv(void) {
     u32 temp_r3;
 
     if (fn_8029E764() != 0) {
@@ -23,7 +23,7 @@ void TObjEneRecon__sub_8029EBE8(void) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
         lbl_805D65FC = temp_r3;
         if (temp_r3 != 0U) {
-            TObjPlayer__sub_8029F6C0();
+            init_render_target__10TObjPlayerFPv();
             lbl_805D65F0 = lbl_805D65FC + 0x1C;
         }
     }

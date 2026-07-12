@@ -96,13 +96,13 @@ struct VObj18_801482f8 : VBase18_801482f8 {
 
 extern "C" {
 
-void TObjNpcFemaleBase__sub_801482F8(void *arg0, u16 arg1);
+void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1);
 u32 TPlayerBattleCtrl4P__sub_801BA74C();
 M2C_UNK play_effect_default__10TObjPlayerFii(u32, s32);
 
 extern s32 lbl_805D53A0;
 
-void TObjNpcFemaleBase__sub_801482F8(void *arg0, u16 arg1) {
+void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
     u32 temp_r3;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) > 0) {

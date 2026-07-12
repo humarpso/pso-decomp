@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TParticleCtrl__sub_800885B4(void);
+void free_all__13TParticleCtrlFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK TLobby__sub_803DA16C(void*);
@@ -16,7 +16,7 @@ extern s32 lbl_805D4EFC;
 extern u32 TParticleCtrl__data_805D4F00;
 extern u32 TParticleCtrl__data_805D4F04;
 
-void TParticleCtrl__sub_800885B4(void) {
+void free_all__13TParticleCtrlFv(void) {
     free__11TOBoss4RockFUi(lbl_805D4EFC);
     lbl_805D4EFC = 0;
     if ((u32) TParticleCtrl__data_805D4F00 != 0U) {

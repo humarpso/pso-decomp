@@ -8,10 +8,10 @@ extern "C" {
 
 s32 TObjPlayer__sub_801C00E4(s16);
 s32 TLobby__sub_802A7898();
-s32 TObjEneHoldEffect__sub_8036CDA8();
+s32 is_target_valid__17TObjEneHoldEffectFPv();
 
 s32 fn_8036B85C(void *arg0) {
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     if (((TObjPlayer__sub_801C00E4(M2C_FIELD(arg0, s16 *, 4)) == 0) && (M2C_FIELD(arg0, s16 *, 4) < 0)) || (M2C_FIELD(arg0, s16 *, 4) >= TLobby__sub_802A7898())) {

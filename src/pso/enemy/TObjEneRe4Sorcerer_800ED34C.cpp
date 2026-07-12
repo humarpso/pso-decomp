@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe4Sorcerer__sub_800ED34C(void *arg0);
-M2C_UNK TObjEneRe4Sorcerer__sub_800ED300();
+void clear_state_flag_0x10__18TObjEneRe4SorcererFPv(void *arg0);
+M2C_UNK set_state_flags__18TObjEneRe4SorcererFPv();
 
-void TObjEneRe4Sorcerer__sub_800ED34C(void *arg0) {
+void clear_state_flag_0x10__18TObjEneRe4SorcererFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFEF);
     if (!(M2C_FIELD(arg0, s32 *, 0x3CC) & 0x408)) {
-        TObjEneRe4Sorcerer__sub_800ED300();
+        set_state_flags__18TObjEneRe4SorcererFPv();
     }
 }
 

@@ -7,17 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_or_send__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80070D20();
-M2C_UNK TLobby__sub_80291F14();
+M2C_UNK draw_if_ready__6TLobbyFv();
+M2C_UNK draw_if_ready2__6TLobbyFv();
 
 s32 is_split_screen();
 
 void draw_or_send__6TLobbyFv(void) {
     if (is_split_screen() == 1) {
-        TLobby__sub_80291F14();
+        draw_if_ready2__6TLobbyFv();
         return;
     }
-    TLobby__sub_80070D20();
+    draw_if_ready__6TLobbyFv();
 }
 
 }

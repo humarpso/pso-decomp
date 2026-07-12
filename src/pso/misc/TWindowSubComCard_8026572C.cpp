@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_8026572C(void *arg0);
+s32 get_selected_entry__17TWindowSubComCardFPv(void *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi();
 
-s32 TWindowSubComCard__sub_8026572C(void *arg0) {
+s32 get_selected_entry__17TWindowSubComCardFPv(void *arg0) {
     s16 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x78);

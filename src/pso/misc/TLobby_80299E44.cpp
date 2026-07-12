@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80299E44(void);
-void TLobby__sub_80299E84(void* p);
+s32 is_multi_ready__6TLobbyFv(void);
+void close_window_field30__6TLobbyFPv(void* p);
 void open_message_window__6TLobbyFPv(void *arg0);
-void TLobby__sub_80299F44(void* p);
+void close_window__6TLobbyFPv(void* p);
 void open_giveup_window__6TLobbyFPv(void *arg0);
 void send_giveup_to_all_players__6TLobbyFv(void);
 void close_giveup_window__6TLobbyFPv(void* a0);
-void TLobby__sub_8029A0D8(void* a0);
+void play_all_players_effect__6TLobbyFPv(void* a0);
 void play_effect_all_players__6TLobbyFPv(void*);
 u32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
 s32 check_player_flag1__6TLobbyFPv();
@@ -36,14 +36,14 @@ int fn_8024ABDC(void*);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
 M2C_UNK send_code_45_1__10TObjPlayerFi(int);
 
-s32 TLobby__sub_80299E44(void) {
+s32 is_multi_ready__6TLobbyFv(void) {
     if ((TLobby__sub_80292F7C() != 0) || (TLobby__sub_80292F5C() <= 1)) {
         return 0;
     }
     return 1;
 }
 
-void TLobby__sub_80299E84(void* p) { if (*(unsigned int*)((char*)p + 0x30) != 0) { TWindow__close((void*)(*(void**)((char*)p + 0x30))); *(int*)((char*)p + 0x30) = 0; } }
+void close_window_field30__6TLobbyFPv(void* p) { if (*(unsigned int*)((char*)p + 0x30) != 0) { TWindow__close((void*)(*(void**)((char*)p + 0x30))); *(int*)((char*)p + 0x30) = 0; } }
 
 extern M2C_UNK lbl_804DBE9C[];
 
@@ -58,7 +58,7 @@ void open_message_window__6TLobbyFPv(void *arg0) {
     }
 }
 
-void TLobby__sub_80299F44(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { TWindow__close((void*)(*(void**)((char*)p + 0x2c))); *(int*)((char*)p + 0x2c) = 0; } }
+void close_window__6TLobbyFPv(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { TWindow__close((void*)(*(void**)((char*)p + 0x2c))); *(int*)((char*)p + 0x2c) = 0; } }
 
 void open_giveup_window__6TLobbyFPv(void *arg0) {
     u32 temp;
@@ -98,7 +98,7 @@ void send_giveup_to_all_players__6TLobbyFv(void) {
 void close_giveup_window__6TLobbyFPv(void* a0) { TWindowCtrl__sub_8024AEAC((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
 
     extern int lbl_805D53A0;
-void TLobby__sub_8029A0D8(void* a0) { fn_8024ABDC((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
+void play_all_players_effect__6TLobbyFPv(void* a0) { fn_8024ABDC((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
 
 void play_effect_all_players__6TLobbyFPv(void*) {
     s32 var_r31;

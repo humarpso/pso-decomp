@@ -8,10 +8,10 @@ extern "C" {
 
 void TOTrapChainSawDamage__vt13(void *arg0);
 
-M2C_UNK TOTrapChainSaw__sub_802C9764();
+M2C_UNK decode_params__14TOTrapChainSawFPv();
 
 void TOTrapChainSawDamage__vt13(void *arg0) {
-    TOTrapChainSaw__sub_802C9764();
+    decode_params__14TOTrapChainSawFPv();
     M2C_FIELD(arg0, f32 *, 0xFC) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
 }
 

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TMainCursor__sub_801D7AC8(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4);
+s32 find_action_slot__11TMainCursorFiPvsii(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4);
 u8 TMainCursor__sub_8013DF44(s32);
 s32 TMainCursor__sub_8013DF5C(s32, u8, u8);
 s32 TObjPlayer__sub_801D84F0(s32);
 s32 TWindowActionPalette__sub_801C1C68(s32, s32);
 
-s32 TMainCursor__sub_801D7AC8(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4) {
+s32 find_action_slot__11TMainCursorFiPvsii(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4) {
     s32 temp_r31;
     s32 var_r30;
     s32 var_r29;

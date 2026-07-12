@@ -14,7 +14,7 @@ void check_level_cap__8TItemMagFPv(void *arg0);
 void check_level_evolve__8TItemMagFPv(void *arg0);
 int TItemMag__sub_80112E20(void*, void*);
 M2C_UNK transfer_energy__8TItemMagFPv(void *);
-M2C_UNK TItem__sub_80100564(void *, M2C_UNK);
+M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
 M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
 M2C_UNK apply_feed_delta__8TItemMagFPv(void *);
 M2C_UNK TItemMag__sub_80112FB4();
@@ -29,7 +29,7 @@ void update_feed_timer__8TItemMagFPv(void *arg0) {
         TItemMag__sub_80112E20((void*)(arg0), (void*)(1));
     }
     if ((M2C_FIELD(arg0, s32 *, 0x1CC) % 60) == 0) {
-        TItem__sub_80100564(arg0, 0x6C);
+        apply_switch_attack__5TItemFPvi(arg0, 0x6C);
     }
 }
 

@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjOnlineEndingHexLine__sub_802E58E0(void *arg0, void *arg1);
+void * create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1);
 void *__ct__23TObjOnlineEndingHexLineFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * TObjOnlineEndingHexLine__sub_802E58E0(void *arg0, void *arg1) {
+void * create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {

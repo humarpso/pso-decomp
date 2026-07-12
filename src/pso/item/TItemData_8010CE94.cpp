@@ -13,7 +13,7 @@ void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
 int TItemData__sub_8010CCEC(void* p);
-int TObjPlayer__sub_8011C1E8(void*);
+int register_item_drop__10TObjPlayerFPv(void*);
 
 s16 TItemData__sub_8010CE94(void *arg0) {
     void *temp_r3;

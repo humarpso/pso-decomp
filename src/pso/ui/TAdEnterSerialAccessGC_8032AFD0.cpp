@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdEnterSerialAccessGC__sub_8032AFD0(void);
-void TAdEnterSerialAccessGC__sub_8032B000(void);
+s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
+void clear_serial_buffer__22TAdEnterSerialAccessGCFv(void);
 u8 *TAdEnterSerialAccessGC__sub_8032AEB4();
 u32 TAdSinglePlyChrSelectGC__sub_80202BA0();
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 
-s32 TAdEnterSerialAccessGC__sub_8032AFD0(void) {
+s32 has_serial_input__22TAdEnterSerialAccessGCFv(void) {
     return (s8) *TAdEnterSerialAccessGC__sub_8032AEB4() ? 1 : 0;
 }
 
-void TAdEnterSerialAccessGC__sub_8032B000(void) {
+void clear_serial_buffer__22TAdEnterSerialAccessGCFv(void) {
     u32 temp_r3;
 
     temp_r3 = TAdSinglePlyChrSelectGC__sub_80202BA0();

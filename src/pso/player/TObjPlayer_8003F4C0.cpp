@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8003F4C0(s32 arg0);
+void set_grabbed_state__10TObjPlayerFi(s32 arg0);
 void TObjEneMe1GiGue__sub_80040B3C(void*, M2C_UNK);
 void *TPhotonMylla__sub_80154CB4(u16);
 
 extern u16 lbl_805D271C;
 
-void TObjPlayer__sub_8003F4C0(s32 arg0) {
+void set_grabbed_state__10TObjPlayerFi(s32 arg0) {
     void *temp_r3;
 
     temp_r3 = TPhotonMylla__sub_80154CB4(lbl_805D271C);

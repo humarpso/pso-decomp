@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_801EB228(s32 arg0);
+s32 init_guild_card_tag__6TLobbyFi(s32 arg0);
 M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
 
-s32 TLobby__sub_801EB228(s32 arg0) {
+s32 init_guild_card_tag__6TLobbyFi(s32 arg0) {
     __ct__16TPlyGuildCardTagFv(arg0 + 4);
     return arg0;
 }

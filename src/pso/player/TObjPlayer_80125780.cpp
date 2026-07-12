@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80125780(void *arg0);
+void reset_child_transform__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
 s32 TObjPlayer__sub_80121200();
 
 extern const f32 lbl_805DAD58;
 extern const f32 lbl_805DAD5C;
 
-void TObjPlayer__sub_80125780(void *arg0) {
+void reset_child_transform__10TObjPlayerFPv(void *arg0) {
     void *temp_r31;
     void *temp_r3;
 

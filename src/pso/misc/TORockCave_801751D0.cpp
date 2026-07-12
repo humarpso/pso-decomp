@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TORockCave__sub_801751D0(void);
+void free_instances__10TORockCaveFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 lbl_805D5A80;
 extern u32 lbl_805D5A84;
 
-void TORockCave__sub_801751D0(void) {
+void free_instances__10TORockCaveFv(void) {
     if ((u32) lbl_805D5A84 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D5A84, 1);
         lbl_805D5A84 = 0U;

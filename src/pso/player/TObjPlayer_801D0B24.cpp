@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TObjPlayer__sub_801D0B24(void* p);
+int try_apply_status_action_2__10TObjPlayerFPv(void* p);
 int try_apply_status_action__10TObjPlayerFi(void*);
 
-int TObjPlayer__sub_801D0B24(void* p) { return try_apply_status_action__10TObjPlayerFi(p); }
+int try_apply_status_action_2__10TObjPlayerFPv(void* p) { return try_apply_status_action__10TObjPlayerFi(p); }
 
 }

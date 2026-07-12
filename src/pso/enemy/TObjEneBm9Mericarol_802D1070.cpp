@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm9Mericarol__sub_802D1070(void);
+void free_shared_instances__19TObjEneBm9MericarolFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dt__11TBoss4Type3FPvs(void*, int);
 M2C_UNK fn_802D1C84();
@@ -15,7 +15,7 @@ extern u32 lbl_805D6860;
 extern u32 lbl_805D6864;
 extern u32 lbl_805D6868;
 
-void TObjEneBm9Mericarol__sub_802D1070(void) {
+void free_shared_instances__19TObjEneBm9MericarolFv(void) {
     if ((u32) lbl_805D6864 != 0U) {
         __dt__11TBoss4Type3FPvs((void*)lbl_805D6864, 1);
         lbl_805D6864 = 0U;

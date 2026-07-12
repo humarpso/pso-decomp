@@ -8,7 +8,7 @@ extern "C" {
 
 void update_cursor__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 try_equip_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-s32 TObjPlayer__sub_801CD02C(s32, s16);
+s32 can_equip_item__10TObjPlayerFii(s32, s16);
 M2C_UNK TObjPlayer__sub_801CD72C(s32);
 s32 TLobby__sub_800822E8(s32, M2C_UNK);
 s32 TMainCursor__sub_8013B41C(s32, void *, M2C_UNK, u8);
@@ -30,7 +30,7 @@ void update_cursor__10TObjPlayerFPvi(void *arg0, s32 arg1) {
 
 s32 try_equip_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (TLobby__sub_800822E8(arg0, 0x100) == 0) {
-        if (TObjPlayer__sub_801CD02C(arg0, arg1) == 0) {
+        if (can_equip_item__10TObjPlayerFii(arg0, arg1) == 0) {
             return 0;
         }
         TObjPlayer__sub_801C011C(arg0 + 0x428, arg1);

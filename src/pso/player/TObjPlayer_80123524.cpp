@@ -8,7 +8,7 @@ struct Sp8Type_80123524 { s32 a; s32 b; s32 c; s32 d; };
 extern "C" {
 
 void draw_mag__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_801236B4(s32 arg0);
+void try_spawn_cane_effect__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801236F8(void *arg0);
 s32 TItemMag__sub_80102C4C();
 M2C_UNK TOHangerMachine01__sub_803D9C00(Sp8Type_80123524 *);
@@ -79,7 +79,7 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_801236B4(s32 arg0) {
+void try_spawn_cane_effect__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }

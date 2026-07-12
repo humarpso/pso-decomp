@@ -8,12 +8,12 @@ extern "C" {
 
 typedef struct Thing__8011c1e8 { u8 a; u8 b; } Thing;
 
-void TObjPlayer__sub_8011C1E8(void *arg0);
+void register_item_drop__10TObjPlayerFPv(void *arg0);
 M2C_UNK set_drop_index__9TItemDropFPvPv(void *, void *);
 
 extern void *item_mgr;
 
-void TObjPlayer__sub_8011C1E8(void *arg0) {
+void register_item_drop__10TObjPlayerFPv(void *arg0) {
     Thing *p = (Thing *) arg0;
 
     if (p != 0 && item_mgr != 0 && p->a == 1 && p->b == 1) {

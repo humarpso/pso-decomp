@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void copy_to_item_data__5TItemFPvPv(void *, void *);
-void TItemData__sub_8010EB10(void *);
+void calc_display_grade__9TItemDataFPv(void *);
 
 void fn_801016A4(void *arg0) {
     M2C_UNK sp8[4];
 
     copy_to_item_data__5TItemFPvPv(arg0, &sp8);
-    TItemData__sub_8010EB10(&sp8);
+    calc_display_grade__9TItemDataFPv(&sp8);
 }
 
 }

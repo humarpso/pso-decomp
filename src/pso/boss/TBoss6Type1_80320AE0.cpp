@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TBoss6Type1__sub_80320AE0(void *arg0, void *arg1, void *arg2);
+void * create_zanzo__11TBoss6Type1FPvPvPv(void *arg0, void *arg1, void *arg2);
 void *TBoss6Zanzo__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * TBoss6Type1__sub_80320AE0(void *arg0, void *arg1, void *arg2) {
+void * create_zanzo__11TBoss6Type1FPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {

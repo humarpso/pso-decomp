@@ -10,9 +10,9 @@ void TObjWarpBossMulti__sub_8019EA7C(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 TObjWarpBossMulti__sub_8019E4E8(void *);
 u32 TObjWarpBossMulti__sub_8019E570(f32);
-M2C_UNK TObjWarpBossMulti__sub_8019E5F8();
+M2C_UNK close_windows__17TObjWarpBossMultiFPv();
 M2C_UNK TObjWarpBossMulti__sub_8019E6C0(void *, M2C_UNK);
-M2C_UNK TObjWarpBossMulti__sub_8019E748(void *, s32);
+M2C_UNK warp_player__17TObjWarpBossMultiFPvi(void *, s32);
 M2C_UNK TObjWarpBossMulti__sub_8019EFF0(void *);
 s32 TWindowSubTradeMain__sub_80187D1C();
 
@@ -39,7 +39,7 @@ void TObjWarpBossMulti__sub_8019EA7C(u8 *arg0) {
         if (TObjWarpBossMulti__sub_8019E570(M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) {
             TObjWarpBossMulti__sub_8019EFF0(arg0);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x170) == 0) {
-                TObjWarpBossMulti__sub_8019E748(arg0, lbl_805D53A0);
+                warp_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
                 M2C_FIELD(arg0, s32 *, 0x170) = 1;
             }
         }
@@ -57,7 +57,7 @@ void TObjWarpBossMulti__sub_8019EA7C(u8 *arg0) {
         }
         break;
     case -1:
-        TObjWarpBossMulti__sub_8019E5F8();
+        close_windows__17TObjWarpBossMultiFPv();
         break;
     }
 }

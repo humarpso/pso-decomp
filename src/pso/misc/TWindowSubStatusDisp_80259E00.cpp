@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80259E00(void *arg0, s32 arg1, f32 farg0);
+void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 farg0);
 f32 TObjFish__sub_8001973C(f32, f32);
 
 extern M2C_UNK lbl_8044F010;
@@ -14,7 +14,7 @@ extern const f32 lbl_805DCF58;
 extern const f32 lbl_805DCF5C;
 extern const f32 lbl_805DCF60;
 
-void TWindowSubStatusDisp__sub_80259E00(void *arg0, s32 arg1, f32 farg0) {
+void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 farg0) {
     f32 temp_f2;
     f32 var_f31;
 

@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TObjEneMe3SinowZoa__sub_800D72E8(void);
+void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void);
 int TObjPlayer__sub_800D95C0(void);
 int TObjPlayer__sub_803E38FC(int);
 

@@ -10,7 +10,7 @@ s32 fn_80349DC8();
 s32 fn_80349E5C();
 void run_task__18TAdLoadQuestLineGCFv(void);
 
-void fn_80349EB0(void *arg0) {
+void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);

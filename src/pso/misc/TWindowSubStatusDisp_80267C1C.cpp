@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80267C1C(void *arg0);
+void init_scroll_pos__20TWindowSubStatusDispFPv(void *arg0);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void*, s16);
 
 extern f32 lbl_805DD18C;
 extern f32 lbl_805DD190;
 
-void TWindowSubStatusDisp__sub_80267C1C(void *arg0) {
+void init_scroll_pos__20TWindowSubStatusDispFPv(void *arg0) {
     u16 temp_r4;
     void *temp;
 

@@ -8,7 +8,7 @@ extern "C" {
 
 int TItemData__sub_8010C738(void);
 void TItemData__sub_8010C740(void);
-void TItemData__sub_8010C744(void *arg0, void *arg1);
+void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1);
 M2C_UNK TItemData__sub_8010D510(void *, M2C_UNK *);
 M2C_UNK TItemData__sub_80105984(M2C_UNK *);
 M2C_UNK set_stack_count__24TShopEquipmentListWindowFPvc(void *, M2C_UNK);
@@ -17,7 +17,7 @@ M2C_UNK init__9TItemDataFv();
 int TItemData__sub_8010C738(void) { return 0; }
 void TItemData__sub_8010C740(void) {  }
 
-void TItemData__sub_8010C744(void *arg0, void *arg1) {
+void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
     M2C_UNK sp8;
     u8 temp_r0;
     u8 temp_r0_2;

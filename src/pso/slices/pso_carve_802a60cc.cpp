@@ -9,9 +9,9 @@ extern "C" {
 s32 fn_802A5C7C(void *);
 s32 fn_802A5CB8(void *);
 s32 fn_802A5CC4(void *, s32);
-s32 TWindowSnapShot__sub_802A5D68(void *);
-s32 TWindowSnapShot__sub_802A5DC0(void *, s32);
-s32 TWindowSnapShot__sub_802A5E28();
+s32 alloc_buffer__15TWindowSnapShotFPv(void *);
+s32 open_stream__15TWindowSnapShotFPvi(void *, s32);
+s32 init__15TWindowSnapShotFPvi();
 int TObjChip__vt8(void*, void*);
 int TWindowSnapShot__sub_802A5D28(void*);
 int TWindowSnapShot__sub_802A5E84(void*);

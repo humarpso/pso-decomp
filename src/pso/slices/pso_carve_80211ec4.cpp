@@ -13,7 +13,7 @@ M2C_UNK fn_80213C7C();
 M2C_UNK fn_80214A34();
 M2C_UNK TQuestListOnline__sub_80215498();
 
-void fn_80211EC4(void) {
+void update_hunter_guild_phase(void) {
     if (get_main_phase() == 0xE) {
         THunterGuildWarning__sub_80211700();
         THunterGuildSeqOffline__sub_80213374();

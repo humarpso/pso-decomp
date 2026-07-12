@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemTexLoad__sub_8011CF6C(u8 *arg0);
+void unload_texture__12TItemTexLoadFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803CCE9C(s32);
 M2C_UNK fn_8023E700(void *);
 
-void TItemTexLoad__sub_8011CF6C(u8 *arg0) {
+void unload_texture__12TItemTexLoadFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 2) {
         fn_8023E700(arg0 + 0x2C);
     }

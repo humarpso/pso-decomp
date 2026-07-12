@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TObjPlayer__sub_80364280(void *arg0);
+void reset_id_array__10TObjPlayerFPv(void *arg0);
 
-void TObjPlayer__sub_80364280(void *arg0) {
+void reset_id_array__10TObjPlayerFPv(void *arg0) {
     s32 *p = (s32 *)((u8 *)arg0 + 0x30);
     int i;
     for (i = 0; i < 32; i++) {

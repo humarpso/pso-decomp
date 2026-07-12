@@ -20,8 +20,8 @@ extern "C" {
 
 void TObjPlayer__sub_8011E738(void *arg0, s32 arg1, s32 arg2);
 void apply_model_params__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_8011E7E4(s32 arg0);
-void TObjPlayer__sub_8011E828(struct VObj_8011E828 *o);
+void copy_item_to_data__10TObjPlayerFi(s32 arg0);
+void update_model_flags__10TObjPlayerFPv(struct VObj_8011E828 *o);
 M2C_UNK copy_to_item_data__5TItemFPvPv(s32, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_8011C8BC(s32, s16 *, s16 *);
 M2C_UNK TObjPlayer__sub_801210C0(void *, s16);
@@ -74,7 +74,7 @@ void apply_model_params__10TObjPlayerFPv(void *arg0) {
     ((VObj_8011E77C *)temp_r3)->m71();
 }
 
-void TObjPlayer__sub_8011E7E4(s32 arg0) {
+void copy_item_to_data__10TObjPlayerFi(s32 arg0) {
     M2C_UNK sp8[5];
 
     init__9TItemDataFv(sp8);
@@ -82,7 +82,7 @@ void TObjPlayer__sub_8011E7E4(s32 arg0) {
     TItemData__sub_8010EC88(sp8);
 }
 
-void TObjPlayer__sub_8011E828(struct VObj_8011E828 *o) {
+void update_model_flags__10TObjPlayerFPv(struct VObj_8011E828 *o) {
     if (o->m33() == 0) {
         M2C_FIELD(o, u8 *, 0x1D2) = M2C_FIELD(o, u8 *, 0x1D2) & 0x7F;
     }

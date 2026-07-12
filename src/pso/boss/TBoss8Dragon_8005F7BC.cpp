@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss8Dragon__sub_8005F7BC(void *arg0);
-void TBoss8Dragon__sub_8005F834(void *arg0, f32 farg0, f32 farg1, f32 farg2);
-void TBoss8Dragon__sub_8005F89C(void *arg0, s32 arg1);
+void scale_size__12TBoss8DragonFPvfff(void *arg0, f32 farg0, f32 farg1, f32 farg2);
+void fire_at_angle__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void update_heading__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss8Dragon__sub_8005F968(void *, s32, s32);
 M2C_UNK TBoss8Dragon__sub_80064AB0(void *);
@@ -36,7 +36,7 @@ void TBoss8Dragon__sub_8005F7BC(void *arg0) {
 
 extern M2C_UNK lbl_80437EB8;
 
-void TBoss8Dragon__sub_8005F834(void *arg0, f32 farg0, f32 farg1, f32 farg2) {
+void scale_size__12TBoss8DragonFPvfff(void *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_FIELD(arg0, f32 *, 0x474) = (f32) (M2C_FIELD(arg0, f32 *, 0x474) * farg0);
     M2C_FIELD(arg0, f32 *, 0x478) = (f32) (M2C_FIELD(arg0, f32 *, 0x478) * farg1);
     M2C_FIELD(arg0, f32 *, 0x47C) = (f32) (M2C_FIELD(arg0, f32 *, 0x47C) * farg0);
@@ -45,7 +45,7 @@ void TBoss8Dragon__sub_8005F834(void *arg0, f32 farg0, f32 farg1, f32 farg2) {
 
 extern const f64 lbl_80437EB0;
 
-void TBoss8Dragon__sub_8005F89C(void *arg0, s32 arg1) {
+void fire_at_angle__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
     TBoss8Dragon__sub_8005F968(arg0, arg1, (s32) (lbl_80437EB0 * TObjPlayer__sub_80019760(-M2C_FIELD(arg0, f32 *, 0x38), -M2C_FIELD(arg0, f32 *, 0x40))));
 }
 

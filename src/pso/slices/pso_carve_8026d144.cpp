@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TWindowQuantity__ct(void *, void *);
 
-void *fn_8026D144(void *arg0) {
+void *create_window_quantity(void *arg0) {
     void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
         o = TWindowQuantity__ct(o, arg0);

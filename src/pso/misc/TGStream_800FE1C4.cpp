@@ -11,7 +11,7 @@ s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
 s32 get_file_size__6TLobbyFv(void *);
 M2C_UNK pump_frames__6TLobbyFv();
-M2C_UNK TGStream__sub_800FDD28();
+M2C_UNK reset__8TGStreamFv();
 void *TItemDrop__sub_800FDD70(void *, M2C_UNK);
 M2C_UNK TLobby__sub_803CC578(s32, s32, M2C_UNK);
 s32 TLobby__sub_803CD3A8(void *, M2C_UNK);
@@ -27,7 +27,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
 
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, void **, 0x28) = NULL;
-    TGStream__sub_800FDD28();
+    reset__8TGStreamFv();
     M2C_FIELD(arg0, void **, 0x28) = TItemDrop__sub_800FDD70(arg1, 1);
     if ((void *) M2C_FIELD(arg0, void **, 0x28) != NULL) {
         M2C_FIELD(arg0, s32 *, 0x20) = (s32) TItemDrop__data_805D53C4;

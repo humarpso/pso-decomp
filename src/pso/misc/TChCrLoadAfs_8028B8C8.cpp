@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TChCrLoadAfs__sub_8028B8C8(void *arg0);
-s32 TChCrLoadAfs__sub_8028B8FC(void *arg0);
+void release_load_slot__12TChCrLoadAfsFPv(void *arg0);
+s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0);
 
 extern s32 lbl_805D64D8;
 
-void TChCrLoadAfs__sub_8028B8C8(void *arg0) {
+void release_load_slot__12TChCrLoadAfsFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x30) != 0) {
         if ((s32) lbl_805D64D8 == 0) {
             M2C_FIELD(arg0, s32 *, 0x2C) = 3;
@@ -24,7 +24,7 @@ void TChCrLoadAfs__sub_8028B8C8(void *arg0) {
 
 extern s32 lbl_805D64D8;
 
-s32 TChCrLoadAfs__sub_8028B8FC(void *arg0) {
+s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x30) != 0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 3;
         return 0;

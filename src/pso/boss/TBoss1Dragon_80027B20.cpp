@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss1Dragon__sub_80027B20(void);
-void TBoss1Dragon__sub_80027B4C(void);
+void update_from_data__12TBoss1DragonFv(void);
 M2C_UNK TBoss1Dragon__sub_80027B78(f32, f32, f32);
 
 extern const f32 TBoss1Dragon__data_805D7F84;
@@ -22,7 +22,7 @@ extern const f32 TBoss1Dragon__data_805D8010;
 extern const f32 lbl_805D809C;
 extern const f32 lbl_805D80A0;
 
-void TBoss1Dragon__sub_80027B4C(void) {
+void update_from_data__12TBoss1DragonFv(void) {
     TBoss1Dragon__sub_80027B78(TBoss1Dragon__data_805D8010, lbl_805D809C, lbl_805D80A0);
 }
 

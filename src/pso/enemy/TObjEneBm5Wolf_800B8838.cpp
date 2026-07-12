@@ -13,12 +13,12 @@ int __dl__FPv();
 s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 int TObjEneBm5Wolf__sub_800B896C(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int TObjEneBm5Wolf__sub_800B89A4(void* a0 = 0, void* a1 = 0, void* a2 = 0);
-void TObjEneBm5Wolf__sub_800B8838(void* p, void* a1);
-void TObjEneBm5Wolf__sub_800B8868(void* p, void* a1);
+void update__14TObjEneBm5WolfFPvPv(void* p, void* a1);
+void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1);
 void reset_fields__14TObjEneBm5WolfFPv(void* p);
 
-void TObjEneBm5Wolf__sub_800B8838(void* p, void* a1) { TObjEneBm5Wolf__sub_800B89A4(a1, p, (char*)p + 0x4); }
-void TObjEneBm5Wolf__sub_800B8868(void* p, void* a1) { TObjEneBm5Wolf__sub_800B896C(a1, p, (char*)p + 0x4); }
+void update__14TObjEneBm5WolfFPvPv(void* p, void* a1) { TObjEneBm5Wolf__sub_800B89A4(a1, p, (char*)p + 0x4); }
+void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1) { TObjEneBm5Wolf__sub_800B896C(a1, p, (char*)p + 0x4); }
 void reset_fields__14TObjEneBm5WolfFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
@@ -27,7 +27,7 @@ s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 void* TObjEneBm5Wolf__sub_800B88E4(void* p) { reset_fields__14TObjEneBm5WolfFPv(p); return p; }
-void TObjEneBm5Wolf__sub_800B8914(void *arg0) {
+void play_sound__14TObjEneBm5WolfFPv(void *arg0) {
     TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 8));
 }
 void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1) {

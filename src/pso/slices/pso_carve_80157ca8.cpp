@@ -3,7 +3,7 @@
 extern "C" {
 
 int bswap_16__FPUs(void*);
-int TLobby__sub_80156B38(void*);
+int bswap_header__6TLobbyFi(void*);
 int TLobby__sub_80156BA8(void*);
 int TLobby__send_and_handle_60(void*);
 void TOAttackableCol__vt23(void);

@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjWarpBossMulti__sub_8019E708(void *arg0, s32 arg1);
-void TObjWarpBossMulti__sub_8019E748(void *arg0, s32 arg1);
+void notify_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
+void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK obj_clear_flag30_20000(s32);
 M2C_UNK obj_set_flag_20000(s32);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 
-void TObjWarpBossMulti__sub_8019E708(void *arg0, s32 arg1) {
+void notify_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
@@ -24,7 +24,7 @@ void TObjWarpBossMulti__sub_8019E708(void *arg0, s32 arg1) {
     }
 }
 
-void TObjWarpBossMulti__sub_8019E748(void *arg0, s32 arg1) {
+void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);

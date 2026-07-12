@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 TQuestVmDownLoadServer__sub_8033BC88(void *, s32, s32, s32, s32);
+s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
 s32 TAdPlayerLoadGC__sub_8033BB14();
 s32 TWindowSubComCard__sub_8033C024(void *, s32);
 int TWindowSubComCard__sub_8033C178(void* p);
@@ -18,7 +18,7 @@ void render__16TCheckMemoryCardFv(void);
 int TWindowSubComCard__sub_8033BC34(void*, int, int, int, int);
 int TWindowSubComCard__sub_8033BF90(void*);
 
-void TWindowSubComCard__sub_8033C2E8(void *arg0) {
+void update_display_state__17TWindowSubComCardFPv(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x28);

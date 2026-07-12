@@ -11,11 +11,11 @@ void alloc_from_obj_heap__10TObjPlayerFPv(void* a0);
 int TObjPlayer__sub_80102AA8(void);
 void TObjPlayer__sub_80102AB0(void);
 int TObjPlayer__sub_80102AC0(void* p);
-void TObjPlayer__sub_80102AE0(void);
+void free_globals__10TObjPlayerFv(void);
 int fn_8010542C(void*);
 M2C_UNK fn_80105874();
 M2C_UNK fn_80363CE0();
-M2C_UNK TObjPlayer__sub_803641EC();
+M2C_UNK free_global_805D6FB8__10TObjPlayerFv();
 void free__11TOBoss4RockFUi(void*);
 void free_rock_objects__6TLobbyFis(void*, int);
 int heap_alloc__5THeapFUl(void*, void*);
@@ -42,10 +42,10 @@ extern s32 lbl_805D53F0;
 extern u32 lbl_805D53F4;
 extern u32 lbl_805D5400;
 
-void TObjPlayer__sub_80102AE0(void) {
+void free_globals__10TObjPlayerFv(void) {
     fn_80105874();
     fn_80363CE0();
-    TObjPlayer__sub_803641EC();
+    free_global_805D6FB8__10TObjPlayerFv();
     if ((u32) lbl_805D5400 != 0U) {
         free_rock_objects__6TLobbyFis((void*)lbl_805D5400, 1);
         lbl_805D5400 = 0U;

@@ -13,7 +13,7 @@ M2C_UNK TFontSmallHelp__sub_800FC430(void *, u32);
 M2C_UNK run_task__14TFontSmallHelpFv(void *);
 u32 TWindowSubStatusDisp__sub_800FC968(s32);
 s32 fn_800FCCF4(s32);
-s32 fn_801A5188(s32);
+s32 TWindowShortListCtrl__sub_801A5188(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s8 lbl_80509D5C[];
 
@@ -28,7 +28,7 @@ void fn_800FCB4C(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r3_2 = fn_801A5188(M2C_FIELD(arg0, s32 *, 0x5C));
+    temp_r3_2 = TWindowShortListCtrl__sub_801A5188(M2C_FIELD(arg0, s32 *, 0x5C));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x60) != temp_r3_2) {
         M2C_FIELD(arg0, s32 *, 0x60) = temp_r3_2;
         temp_r3_3 = TWindowSubStatusDisp__sub_800FC968(M2C_FIELD(arg0, s32 *, 0x5C));

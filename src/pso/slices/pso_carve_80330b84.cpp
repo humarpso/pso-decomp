@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TWindowSubTradeMain__sub_802785B0(u32, s32);
 s32 TLobby__sub_802D29AC();
-s32 fn_80278300(u32, s32);
+s32 TWindowSubTradeMain__sub_80278300(u32, s32);
 s32 TLobby__sub_802D299C();
 void TWindowSubTradeMain__sub_80330A84(void* p);
 

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_equip__14TItemEquipBaseFPv(void *arg0);
-M2C_UNK TItem__sub_80101414(void *);
+M2C_UNK destroy__5TItemFPv(void *);
 s8 TObjPlayer__sub_80102C30();
 
 struct Base_8010B054 { char pad[0x18]; };
@@ -26,7 +26,7 @@ void update_equip__14TItemEquipBaseFPv(void *arg0) {
     if (TObjPlayer__sub_80102C30() == 2) {
         ((VObj_8010B054 *)arg0)->m19();
     }
-    TItem__sub_80101414(arg0);
+    destroy__5TItemFPv(arg0);
 }
 
 }

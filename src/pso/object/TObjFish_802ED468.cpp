@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjFish__sub_802ED468(void *arg0);
+void set_swim_direction__8TObjFishFPv(void *arg0);
 
 extern const f32 lbl_805DEA50;
 extern const f32 lbl_805DEA6C;
 extern const f32 lbl_805DEA94;
 extern const f32 lbl_805DEB9C;
 
-void TObjFish__sub_802ED468(void *arg0) {
+void set_swim_direction__8TObjFishFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C0) == 0) {
         M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DEB9C;
         M2C_FIELD(arg0, s32 *, 0x64) = 0x500;

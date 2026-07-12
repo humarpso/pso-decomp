@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TKomorebi__sub_8019239C(void);
+void free_static__9TKomorebiFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 lbl_805D5C20;
 extern s32 lbl_805D5C24;
 
-void TKomorebi__sub_8019239C(void) {
+void free_static__9TKomorebiFv(void) {
     if ((u32) lbl_805D5C20 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D5C20, 1);
         lbl_805D5C20 = 0U;

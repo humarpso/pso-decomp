@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TItemTexLoad__sub_8011D334(void *arg0);
+void *create__12TItemTexLoadFPv(void *arg0);
 void TItemTexLoad__sub_8011D37C(void);
 void *TItemTexLoad__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 int free__11TOBoss4RockFUi(void*);
 
-void *TItemTexLoad__sub_8011D334(void *arg0) {
+void *create__12TItemTexLoadFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x40);
     if (o != NULL) {
         o = TItemTexLoad__ct(o, arg0);

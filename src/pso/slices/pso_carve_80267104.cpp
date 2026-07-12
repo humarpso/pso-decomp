@@ -9,7 +9,7 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 fn_801C5404(s32);
-s8 TObjPlayer__sub_801C5758(s32, s32);
+s8 clamp_char_at__10TObjPlayerFPvi(s32, s32);
 s32 TObjPlayer__sub_80203418();
 s32 TObjPlayer__sub_802034EC();
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
@@ -26,7 +26,7 @@ void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
             if (arg1 == 4) {
                 var_r31 = fn_801C5404(temp_r3 + 0x7C8);
             } else {
-                var_r31 = TObjPlayer__sub_801C5758(temp_r3 + 0x7C4, arg1);
+                var_r31 = clamp_char_at__10TObjPlayerFPvi(temp_r3 + 0x7C4, arg1);
             }
             if (var_r31 > 0) {
                 temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x72));

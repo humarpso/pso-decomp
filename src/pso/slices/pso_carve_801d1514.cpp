@@ -3,7 +3,7 @@
 extern "C" {
 void bswap_packet__10TObjPlayerFPv(void* p);
 
-int TObjPlayer__sub_801D0FF4(void* p);
+int query_field_340__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D1018(void* p);
 void TObjPlayer__sub_801D1024(void* p, s32 v);
 void TObjPlayer__sub_801D102C(void* p, s32 v);
@@ -19,7 +19,7 @@ void TObjPlayer__sub_801D12E8(void* p);
 int TObjPlayer__sub_801D1360(void* p);
 void TObjPlayer__sub_801D1440(void* p);
 void TObjPlayer__sub_801D1480(void* p);
-int TObjPlayer__sub_801BF4B8(void*);
+int update_action_palette__10TObjPlayerFPv(void*);
 int TLobby__send_and_handle_60(void*);
 int update_players__6TLobbyFi(void*);
 int bswap_16__FPUs(void*);

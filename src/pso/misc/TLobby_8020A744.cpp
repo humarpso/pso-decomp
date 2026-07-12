@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TLobby__sub_8020A744(void);
-int TLobby__sub_8020AB30(void);
+void init_sub_objects__6TLobbyFv(void);
+int rebuild_entry__6TLobbyFPv(void);
 int TLobby__sub_8020AD20(void);
 
-void TLobby__sub_8020A744(void) { TLobby__sub_8020AD20(); TLobby__sub_8020AB30(); }
+void init_sub_objects__6TLobbyFv(void) { TLobby__sub_8020AD20(); rebuild_entry__6TLobbyFPv(); }
 
 }

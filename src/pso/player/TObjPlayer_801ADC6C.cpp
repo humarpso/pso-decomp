@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_801ADC6C(void);
 void TObjPlayer__sub_801ADC78(void);
 void TObjPlayer__sub_801ADC7C(void* a0);
-void TObjPlayer__sub_801ADC94(void *arg0);
+void apply_photon_blast_effects__10TObjPlayerFPv(void *arg0);
 u32 TObjPlayer__sub_80040B28(s32);
 M2C_UNK TObjPlayer__sub_8015610C(void *);
 M2C_UNK TObjPlayer__sub_80154D7C();
@@ -24,7 +24,7 @@ void TObjPlayer__sub_801ADC78(void) {  }
     extern const float lbl_805DC228;
 void TObjPlayer__sub_801ADC7C(void* a0) { *(float*)((char*)a0 + 0x180) = lbl_805DC228; *(float*)((char*)a0 + 0x184) = lbl_805DC228; *(float*)((char*)a0 + 0x188) = lbl_805DC228; *(float*)((char*)a0 + 0x18c) = lbl_805DC228; }
 
-void TObjPlayer__sub_801ADC94(void *arg0) {
+void apply_photon_blast_effects__10TObjPlayerFPv(void *arg0) {
     s32 var_r31;
 
     TObjPlayer__sub_80154D7C();

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TBoss7PhotonBullet__sub_802ED524(void);
+f32 get_target_pos_y__18TBoss7PhotonBulletFv(void);
 
 void *TLobby__sub_8001E1D8(M2C_UNK);
 
-f32 TBoss7PhotonBullet__sub_802ED524(void) {
+f32 get_target_pos_y__18TBoss7PhotonBulletFv(void) {
     return M2C_FIELD(TLobby__sub_8001E1D8(0xF), f32 *, 4);
 }
 

@@ -3,12 +3,12 @@
 extern "C" {
 
 void TLobby__sub_802A769C(void);
-void TLobby__sub_802A76C4(void);
+void enable_and_refresh__6TLobbyFv(void);
 int TLobby__sub_802A7640(void);
-int TLobby__sub_802A7674(void);
+int alloc_boss4rock_buffer__6TLobbyFv(void);
 int TLobby__sub_802A7888(int);
 
 void TLobby__sub_802A769C(void) { TLobby__sub_802A7640(); TLobby__sub_802A7888(0); }
-void TLobby__sub_802A76C4(void) { TLobby__sub_802A7888(1); TLobby__sub_802A7674(); }
+void enable_and_refresh__6TLobbyFv(void) { TLobby__sub_802A7888(1); alloc_boss4rock_buffer__6TLobbyFv(); }
 
 }

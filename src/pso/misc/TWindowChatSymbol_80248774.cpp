@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowChatSymbol__sub_80248774(void);
-void TWindowChatSymbol__sub_80248778(void *arg0);
+void apply_symbol_from_card__17TWindowChatSymbolFPv(void *arg0);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 s32 set_from_key__20TWindowSubSymbolChatFii(s32, s32);
 
 void TWindowChatSymbol__sub_80248774(void) {  }
-void TWindowChatSymbol__sub_80248778(void *arg0) {
+void apply_symbol_from_card__17TWindowChatSymbolFPv(void *arg0) {
     set_from_key__20TWindowSubSymbolChatFii(M2C_FIELD(arg0, s32 *, 0x20), TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x1C)));
 }
 

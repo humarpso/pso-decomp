@@ -21,8 +21,8 @@ M2C_UNK TOKeyMachine01__sub_802034A8();
 M2C_UNK TObjLight__sub_80133D78();
 u32 __nw__7TObjectFUl(M2C_UNK);
 int TLobby__sub_800F7B84(void);
-M2C_UNK TSceneSora__sub_8029F4C4(void*, s32);
-M2C_UNK TBoss6EmptyWarp__sub_802B0F8C();
+M2C_UNK create_instance__10TSceneSoraFPv(void*, s32);
+M2C_UNK create__15TBoss6EmptyWarpFv();
 int fn_802FE9E0(void);
 s32 is_split_screen();
 
@@ -40,9 +40,9 @@ s32 init_particle_model__6TLobbyFv(void) {
     TObjLight__sub_80133D78();
     create_tasks__6TLobbyFv();
     if ((is_split_screen() == 0) && ((obj = (void*)__nw__7TObjectFUl(0x3C)) != 0)) {
-        TSceneSora__sub_8029F4C4(obj, tl_particlemodel);
+        create_instance__10TSceneSoraFPv(obj, tl_particlemodel);
     }
-    TBoss6EmptyWarp__sub_802B0F8C();
+    create__15TBoss6EmptyWarpFv();
     return 1;
 }
 

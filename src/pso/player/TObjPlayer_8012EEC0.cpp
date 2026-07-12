@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012EEC0(void *arg0);
+void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0);
 int TObjPlayer__sub_8012EF40(void* p);
-void *TObjPlayer__sub_8012EF68(void *arg0);
+void *init_effect_state__10TObjPlayerFPv(void *arg0);
 s32 TObjBoss2Tunnel__sub_803D929C(s32, s32);
 s32 TObjPlayer__sub_80101048();
 int TObjPlayer__sub_80115BFC(void*, int);
 void TObjPlayer__sub_80120D50(void *);
 s32 TObjPlayer__sub_80121200();
 
-void TObjPlayer__sub_8012EEC0(void *arg0) {
+void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_80121200();
@@ -37,7 +37,7 @@ int TObjPlayer__sub_8012EF40(void* p) { return TObjPlayer__sub_80115BFC((char*)p
 
 extern M2C_UNK lbl_804A6108[];
 
-void *TObjPlayer__sub_8012EF68(void *arg0) {
+void *init_effect_state__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A6108;
     M2C_FIELD(arg0, u32 *, 0x1F8) = 0;

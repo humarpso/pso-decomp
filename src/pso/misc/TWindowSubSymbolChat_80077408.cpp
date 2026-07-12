@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TWindowSubSymbolChat__sub_80077408(u8 *arg0);
+u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
 u8 *TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 TWindowSubSymbolChat__sub_80077464();
 
-u8 *TWindowSubSymbolChat__sub_80077408(u8 *arg0) {
+u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0) {
     if (TWindowSubSymbolChat__sub_80077464() == 0) {
         return TWindowSubStatusDisp__sub_80077760(0xCC);
     }

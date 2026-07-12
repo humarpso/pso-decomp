@@ -20,7 +20,7 @@ int fn_80263B34(void*);
 int fn_80263B70(void*);
 int TLobby__sub_80269C6C(void*);
 
-s32 TWindowCtrl__sub_8024D960(void *arg0) {
+s32 get_active_menu__11TWindowCtrlFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0x28);
     if (p == 0) {
         return 0;

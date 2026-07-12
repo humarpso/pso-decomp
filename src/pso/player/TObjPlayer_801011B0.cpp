@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801011B0(void *arg0);
+void copy_item_data_to_icon__10TObjPlayerFPv(void *arg0);
 void TItemData__sub_8010CEF4(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 
-void TObjPlayer__sub_801011B0(void *arg0) {
+void copy_item_data_to_icon__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8[4];
 
     copy_to_item_data__5TItemFPvPv(arg0, &sp8);

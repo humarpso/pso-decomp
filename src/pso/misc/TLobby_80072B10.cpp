@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80072B10(void);
+void bswap_packet_field__6TLobbyFv(void);
 M2C_UNK bswap_32__FPUl();
 
-void TLobby__sub_80072B10(void) {
+void bswap_packet_field__6TLobbyFv(void) {
     bswap_32__FPUl();
 }
 

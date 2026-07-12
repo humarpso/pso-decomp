@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012AA0C(s32 arg0);
-void TObjPlayer__sub_8012AA6C(u8 *arg0);
+void update_motion_state__10TObjPlayerFi(s32 arg0);
+void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0);
 void* TObjPlayer__sub_8012AAB8(void* a0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, M2C_UNK);
@@ -22,7 +22,7 @@ s32 TObjPlayer__sub_80121200();
 extern f32 lbl_805DAE68;
 extern f32 lbl_805DAE6C;
 
-void TObjPlayer__sub_8012AA0C(s32 arg0) {
+void update_motion_state__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_8011E384() != 0) {
         TObjPlayer__sub_8011E2FC(arg0, lbl_805DAE68);
         TObjPlayer__sub_8011EDFC(arg0, 0, 1, lbl_805DAE6C);
@@ -31,7 +31,7 @@ void TObjPlayer__sub_8012AA0C(s32 arg0) {
     TObjPlayer__sub_8011F5E0(arg0);
 }
 
-void TObjPlayer__sub_8012AA6C(u8 *arg0) {
+void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0) {
     if (TObjPlayer__sub_80121200() == 2) {
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         TObjPlayer__sub_80115BFC(arg0 + 0x1F8, 0x1999);

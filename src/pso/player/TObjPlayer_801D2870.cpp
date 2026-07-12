@@ -9,10 +9,10 @@ int bswap_32__FPUl(void*);
 f32 TObjPlayer__sub_801D2858(void* p);
 s32 TObjPlayer__sub_801D2870(void* p);
 s32 TObjPlayer__sub_801D2878(void* p);
-int TObjPlayer__sub_801D2880(void* p);
-int TObjPlayer__sub_801D29A8(void* p);
-int TObjPlayer__sub_801D29D0(void* p);
-int TObjPlayer__sub_801D29F8(void* p);
+int bswap_field_u32__10TObjPlayerFPv(void* p);
+int clear_photon_blast_state__10TObjPlayerFPv(void* p);
+int trigger_photon_blast__10TObjPlayerFPv(void* p);
+int check_photon_blast_flag__10TObjPlayerFPv(void* p);
 int check_flag_clear__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D2A50(void* p);
 void TObjPlayer__sub_801D2A78(void* p, f32 v);
@@ -21,7 +21,7 @@ f32 TObjPlayer__sub_801D2A98(void* p);
 void TObjPlayer__sub_801D2AA0(void* p, f32 v);
 void TObjPlayer__sub_801D2AA8(void* p, s32 v);
 void TObjPlayer__sub_801D2AC4(void* p, f32 v);
-int TObjPlayer__sub_801D2ACC(void* p);
+int start_photon_blast_action__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_801D2AF4(void* p);
 int TObjPlayer__sub_801D2B08(void* p);
 void TObjPlayer__sub_801D2C74(void* p, s32 v);
@@ -42,7 +42,7 @@ int fn_801D7BF4(void*);
 
 s32 TObjPlayer__sub_801D2870(void* p) { return *(s32*)((char*)p + 0x4); }
 s32 TObjPlayer__sub_801D2878(void* p) { return *(s32*)((char*)p + 0xc); }
-int TObjPlayer__sub_801D2880(void* p) { return bswap_32__FPUl(p); }
+int bswap_field_u32__10TObjPlayerFPv(void* p) { return bswap_32__FPUl(p); }
 void* TObjPlayer__sub_801D28A0(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 void TObjPlayer__sub_801D28DC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
 

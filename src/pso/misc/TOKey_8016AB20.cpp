@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_switch_id__5TOKeyFPv(void *arg0);
-void TOKey__sub_8016AB58(u8 *arg0);
+void init_key__5TOKeyFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 void init_switch_id__5TOKeyFPv(void *arg0) {
@@ -26,7 +26,7 @@ void init_switch_id__5TOKeyFPv(void *arg0) {
 struct Base0_8016ab58 { char pad[0x18]; };
 struct VObj0_8016ab58 : Base0_8016ab58 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); };
 
-void TOKey__sub_8016AB58(u8 *arg0) {
+void init_key__5TOKeyFPv(u8 *arg0) {
     ((VObj0_8016ab58*)arg0)->m5();
     init_switch_id__5TOKeyFPv((void *)(arg0));
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);

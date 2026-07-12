@@ -7,14 +7,14 @@ struct SRock_80224544;
 
 extern "C" {
 
-void TLobby__sub_80224544(void);
+void free_all_rocks__6TLobbyFv(void);
 M2C_UNK TLobby__sub_800F957C(u32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
 extern M2C_UNK lbl_80513F20[];
 extern u32 lbl_805D6260;
 
-void TLobby__sub_80224544(void) {
+void free_all_rocks__6TLobbyFv(void) {
     s32 var_r28 = 3;
     M2C_UNK *var_r29 = lbl_80513F20;
     s32 var_r30 = 0;

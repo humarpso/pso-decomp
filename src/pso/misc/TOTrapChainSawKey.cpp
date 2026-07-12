@@ -4,8 +4,8 @@ extern "C" {
 
 int TOTrapChainSawKey__vt13(void* p);
 
-int TOTrapChainSaw__sub_802C9764(void*);
+int decode_params__14TOTrapChainSawFPv(void*);
 
-int TOTrapChainSawKey__vt13(void* p) { return TOTrapChainSaw__sub_802C9764(p); }
+int TOTrapChainSawKey__vt13(void* p) { return decode_params__14TOTrapChainSawFPv(p); }
 
 }

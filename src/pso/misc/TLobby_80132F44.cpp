@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TLobby__sub_80132F44(void);
-int TWindowKeyBoardSoft__sub_80132A5C(void);
+void free_keyboard_soft_resources__6TLobbyFv(void);
+int free_instance__19TWindowKeyBoardSoftFv(void);
 int free_resources__19TWindowKeyBoardSoftFv(void);
 
-void TLobby__sub_80132F44(void) { TWindowKeyBoardSoft__sub_80132A5C(); free_resources__19TWindowKeyBoardSoftFv(); }
+void free_keyboard_soft_resources__6TLobbyFv(void) { free_instance__19TWindowKeyBoardSoftFv(); free_resources__19TWindowKeyBoardSoftFv(); }
 
 }

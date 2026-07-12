@@ -25,11 +25,11 @@ int TAdSinglePlyChrSelectGC__sub_802E3038(void* p);
 int close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void*, int, int, int, int);
 int close_windows__23TAdSinglePlyChrSelectGCFPv(void*);
 
-void TAdSinglePlyChrSelectGC__sub_802E2C20(s32 arg0) {
+void close_scene__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
     close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 9), -1, 0, 0);
 }
-void TAdSinglePlyChrSelectGC__sub_802E2C70(void *arg0) {
+void update_load_countdown__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_801E0CE0(0) == 0) {
         TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0x16);
         return;

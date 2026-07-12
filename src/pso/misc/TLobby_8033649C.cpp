@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TLobby__sub_8033649C(void *arg0, s16 arg1);
+void *destroy__6TLobbyFPvs(void *arg0, s16 arg1);
 M2C_UNK TCameraCtrl__sub_800694A8();
 M2C_UNK TLobby__sub_8022743C();
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -17,7 +17,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern M2C_UNK lbl_804EEF64[];
 extern s32 lbl_805D6D40;
 
-void *TLobby__sub_8033649C(void *arg0, s16 arg1) {
+void *destroy__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EEF64;
         lbl_805D6D40 = 0;

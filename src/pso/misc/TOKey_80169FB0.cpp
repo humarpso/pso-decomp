@@ -17,7 +17,7 @@ extern "C" {
 
 void TOKey__sub_80169FB0(void* p);
 s32 TOKey__sub_80169FBC(void *arg0);
-void TOKey__sub_8016A004(void *arg0, void *arg1);
+void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_800196EC();
 M2C_UNK TSwitch__sub_802292E0(u16);
@@ -33,7 +33,7 @@ s32 TOKey__sub_80169FBC(void *arg0) {
     return 0;
 }
 
-void TOKey__sub_8016A004(void *arg0, void *arg1) {
+void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1) {
     s32 temp_r0;
 
     if ((M2C_FIELD(arg1, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg1, u8 *, 0xA) == TObjPlayer__sub_800196EC())) {

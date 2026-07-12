@@ -7,17 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_801C739C(void* a0);
-void TObjPlayer__sub_801C73B8(void* p);
-u16 TObjPlayer__sub_801C73EC(void *arg0, u16 arg1, u16 arg2, s32 *arg3);
+void update_and_send_60__10TObjPlayerFPv(void* p);
+u16 interpolate_angle__10TObjPlayerFPvUsUsPv(void *arg0, u16 arg1, u16 arg2, s32 *arg3);
 int TLobby__send_and_handle_60(void*);
-int TObjPlayer__sub_801C732C(void*);
+int bswap_shrink__10TObjPlayerFPv(void*);
 
     extern const float lbl_805DC320;
 void TObjPlayer__sub_801C739C(void* a0) { *(float*)((char*)a0 + 0x4) = lbl_805DC320; *(unsigned char*)((char*)a0 + 0x0) = 135; *(unsigned char*)((char*)a0 + 0x1) = 2; }
 
-void TObjPlayer__sub_801C73B8(void* p) { TObjPlayer__sub_801C732C(p); TLobby__send_and_handle_60(p); }
+void update_and_send_60__10TObjPlayerFPv(void* p) { bswap_shrink__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 
-u16 TObjPlayer__sub_801C73EC(void *arg0, u16 arg1, u16 arg2, s32 *arg3) {
+u16 interpolate_angle__10TObjPlayerFPvUsUsPv(void *arg0, u16 arg1, u16 arg2, s32 *arg3) {
     s16 temp_r0;
     s32 var_r3;
 

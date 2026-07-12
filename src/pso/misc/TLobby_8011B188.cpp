@@ -5,10 +5,10 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *init_header__6TLobbyFPv(void *arg0);
-void TLobby__sub_8010311C(void *);
+void drop_stacked_item_passthrough__6TLobbyFi(void *);
 
 void *init_header__6TLobbyFPv(void *arg0) {
-    TLobby__sub_8010311C((void *)((char *)arg0 + 4));
+    drop_stacked_item_passthrough__6TLobbyFi((void *)((char *)arg0 + 4));
     M2C_FIELD(arg0, u8 *, 0x0) = 95;
     M2C_FIELD(arg0, u8 *, 0x1) = 10;
     return arg0;

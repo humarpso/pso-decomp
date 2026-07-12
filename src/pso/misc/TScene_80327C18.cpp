@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TScene__sub_80327C18(void *arg0, s16 arg1);
-void *TScene__sub_80327C8C(void *arg0, s32 arg1, s32 arg2);
+void *destroy_buffers__6TSceneFPvs(void *arg0, s16 arg1);
+void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK fn_80327844(void *, s32, s32);
 M2C_UNK fn_803279CC();
 M2C_UNK free__11TOBoss4RockFUi(void *);
 
-void *TScene__sub_80327C18(void *arg0, s16 arg1) {
+void *destroy_buffers__6TSceneFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xC) != 0U) {
             free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xC));
@@ -34,7 +34,7 @@ void *TScene__sub_80327C18(void *arg0, s16 arg1) {
 extern s32 lbl_805D6C70;
 extern s32 lbl_805D6C74;
 
-void *TScene__sub_80327C8C(void *arg0, s32 arg1, s32 arg2) {
+void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 4) = 0;

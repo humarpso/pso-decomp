@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
-void TLanguage__sub_801E4AB0(s32 arg0, s32 arg1);
+void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
 s32 TLanguage__sub_801E4AF0();
 u16 TLanguage__sub_801E4B40();
 M2C_UNK TLobby__sub_803DE778(s32, s32, s32);
@@ -18,7 +18,7 @@ extern s32 lbl_805D5E58;
 
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
     lbl_805D5E58 = arg0;
-    TLanguage__sub_801E4AB0((s32)(arg1), (s32)(4));
+    read_into_buffer__9TLanguageFii((s32)(arg1), (s32)(4));
     M2C_FIELD(arg1, s32 *, 4) = TLanguage__sub_801E4AF0();
     M2C_FIELD(arg1, u16 *, 8) = TLanguage__sub_801E4B40();
     M2C_FIELD(arg1, u16 *, 0xA) = TLanguage__sub_801E4B40();
@@ -30,7 +30,7 @@ u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
 
 extern s32 lbl_805D5E58;
 
-void TLanguage__sub_801E4AB0(s32 arg0, s32 arg1) {
+void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1) {
     TLobby__sub_803DE778(arg0, lbl_805D5E58, arg1);
     lbl_805D5E58 += arg1;
 }

@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80292678(f32 farg0);
-s32 TLobby__sub_802926EC(s32 arg0);
+s32 set_camera_height_if_valid__6TLobbyFf(f32 farg0);
+s32 try_set_split_screen__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_80293080();
 
 extern M2C_UNK lbl_804DB1F0[];
 extern f32 lbl_805DD9D0;
 extern f32 lbl_805DD9D4;
 
-s32 TLobby__sub_80292678(f32 farg0) {
+s32 set_camera_height_if_valid__6TLobbyFf(f32 farg0) {
     if (TLobby__sub_80293080() == 0) {
         return 0;
     }
@@ -27,7 +27,7 @@ s32 TLobby__sub_80292678(f32 farg0) {
 
 extern s32 lbl_805D5550;
 
-s32 TLobby__sub_802926EC(s32 arg0) {
+s32 try_set_split_screen__6TLobbyFi(s32 arg0) {
     if (TLobby__sub_80293080() == 0) {
         return 0;
     }

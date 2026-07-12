@@ -87,9 +87,9 @@ struct VObj_800F6960 : Base_800F6960 {
 
 extern "C" {
 
-void TObjPlayer__sub_800F6960(void *arg0);
+void call_vt78__10TObjPlayerFPv(void *arg0);
 
-void TObjPlayer__sub_800F6960(void *arg0) {
+void call_vt78__10TObjPlayerFPv(void *arg0) {
     struct VObj_800F6960 *o = (struct VObj_800F6960 *)arg0;
     o->m78();
 }

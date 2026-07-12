@@ -6,7 +6,7 @@ extern "C" {
 
 void TLobby__sub_80335F40(void);
 void *TLobby__sub_80335F44(void *arg0, s16 arg1);
-void *TLobby__sub_80335F9C(void *arg0, void *arg1);
+void *ct_with_parent__6TLobbyFPvPv(void *arg0, void *arg1);
 void TLobby__sub_80335FE0(void);
 void TLobby__sub_80335FE4(void);
 void __ct__7TObjectFP7TObject(void *);
@@ -30,7 +30,7 @@ void *TLobby__sub_80335F44(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804EE470[];
 
-void *TLobby__sub_80335F9C(void *arg0, void *arg1) {
+void *ct_with_parent__6TLobbyFPvPv(void *arg0, void *arg1) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EE470;
     M2C_FIELD(arg0, void **, 0x1C) = arg1;

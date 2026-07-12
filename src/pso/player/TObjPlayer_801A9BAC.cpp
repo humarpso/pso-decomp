@@ -15,15 +15,15 @@ typedef struct SA9_801a9bac {
     s32 arr60[4];
 } SA9_801a9bac;
 
-void TObjPlayer__sub_801A9BAC(u8 *arg0);
-void TObjPlayer__sub_801A9C64(void *arg0);
+void update_and_destroy__10TObjPlayerFPv(u8 *arg0);
+void update_target__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_801A92B0(void *);
 M2C_UNK TObjPlayer__sub_801A9870(void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
-M2C_UNK fn_801A72C8(s32, s32, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801A72C8(s32, s32, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TObjPlayer__sub_801A9BAC(u8 *arg0) {
+void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
     SA9_801a9bac *self = (SA9_801a9bac *)arg0;
     s32 temp_r0;
     s32 var_r31;
@@ -40,7 +40,7 @@ void TObjPlayer__sub_801A9BAC(u8 *arg0) {
                 for (var_r27 = 0; var_r27 < 4; var_r27++) {
                     inner = self->arr60[var_r27];
                     if ((u32) inner < 4U) {
-                        fn_801A72C8(inner, self->arr50[var_r28], 1);
+                        TObjPlayer__sub_801A72C8(inner, self->arr50[var_r28], 1);
                     }
                 }
             }
@@ -50,13 +50,13 @@ void TObjPlayer__sub_801A9BAC(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_801A9C64(void *arg0) {
+void update_target__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38) = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x3C));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x4C) != 0) {
         TObjPlayer__sub_801A9870(arg0);
         return;
     }
-    TObjPlayer__sub_801A9BAC((u8 *)(arg0));
+    update_and_destroy__10TObjPlayerFPv((u8 *)(arg0));
 }
 
 }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemMag__sub_80114384(s32 arg0, u8 arg1);
+s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
 s32 TItemMag__sub_801143E8(s32, s32);
 
-s32 TItemMag__sub_80114384(s32 arg0, u8 arg1) {
+s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1) {
     s32 var_r30;
 
     if (arg1 < 6U) {

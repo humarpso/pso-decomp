@@ -8,13 +8,13 @@ struct Outer_80132A5C { struct Inner_80132A5C *f0; };
 
 extern "C" {
 
-void TWindowKeyBoardSoft__sub_80132A5C(void);
+void free_instance__19TWindowKeyBoardSoftFv(void);
 M2C_UNK TLobby__sub_803DA16C(void *);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 
 extern struct Outer_80132A5C *lbl_805D5540;
 
-void TWindowKeyBoardSoft__sub_80132A5C(void) {
+void free_instance__19TWindowKeyBoardSoftFv(void) {
     if (lbl_805D5540 != NULL) {
         struct Inner_80132A5C *inner = lbl_805D5540->f0;
         if (inner->f8 != 0U) {

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjBoss5Ctrl__sub_80067124(void);
-M2C_UNK TObjBoss5PillarCtrl__sub_8028B3AC(void*);
+M2C_UNK play_sound_once__19TObjBoss5PillarCtrlFPv(void*);
 
 extern void *lbl_805D4DE0;
 
@@ -15,7 +15,7 @@ void TObjBoss5Ctrl__sub_80067124(void) {
     void *sp4;
     sp4 = lbl_805D4DE0;
     if (sp4 != NULL && (u32) M2C_FIELD(sp4, u32 *, 0x28) != 0U) {
-        TObjBoss5PillarCtrl__sub_8028B3AC(M2C_FIELD(sp4, void **, 0x28));
+        play_sound_once__19TObjBoss5PillarCtrlFPv(M2C_FIELD(sp4, void **, 0x28));
     }
 }
 

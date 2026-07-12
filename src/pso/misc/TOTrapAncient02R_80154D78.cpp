@@ -4,13 +4,13 @@ extern "C" {
 
 void TOTrapAncient02R__sub_80154D78(void);
 void TObjPlayer__sub_80154D7C(void);
-s32 TObjPlayer__sub_80154DBC(u32 arg0);
+s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0);
 u32 TObjPlayer__sub_80040B28(s32);
 int TObjPlayer__sub_80154E28(void*, void*);
 
 void TOTrapAncient02R__sub_80154D78(void) {  }
 void TObjPlayer__sub_80154D7C(void) { { int i; for (i = 0; i < 16; i++) { TObjPlayer__sub_80154E28((void*)i, (void*)0); } } }
-s32 TObjPlayer__sub_80154DBC(u32 arg0) {
+s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0) {
     s32 var_r31;
     u32 temp_r3;
 

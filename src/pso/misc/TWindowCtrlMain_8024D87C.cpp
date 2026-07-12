@@ -24,7 +24,7 @@ void TWindowCtrlMain__sub_8024D87C(void* p) { void* m = *(void**)((char*)p + 0x2
 void TWindowCtrlMain__sub_8024D8A8(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) fn_802437C4(m); }
 void TWindowCtrlMain__sub_8024D8D4(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80263B34(m); }
 void TWindowCtrlMain__sub_8024D900(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80263B70(m); }
-s32 TWindowCtrlMain__sub_8024D92C(void *arg0) {
+s32 get_main_menu_message__15TWindowCtrlMainFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0x28);
     if (p == 0) {
         return 0;

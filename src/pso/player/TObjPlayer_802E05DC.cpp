@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_802E05DC(u8 *arg0);
+void update_chara_making__10TObjPlayerFPv(u8 *arg0);
 u32 TAdPlyStatusGC__sub_802E1128(int);
 M2C_UNK TAdPlyStatusGC__sub_802E1130(int);
 u32 TAdPlyStatusGC__sub_802E1138(int);
@@ -19,7 +19,7 @@ M2C_UNK TObjFish__sub_803DA798();
 M2C_UNK TObjPlayer__sub_800FFA88(void *, int);
 M2C_UNK TObjPlayer__sub_801B198C();
 M2C_UNK TObjPlayer__sub_802E0580(void *, int, void *);
-M2C_UNK TObjPlayer__sub_802E05A4(void *, int);
+M2C_UNK draw_model_with_arg__10TObjPlayerFPvPv(void *, int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D97F0();
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -27,13 +27,13 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 M2C_UNK enable_making__12TCharaMakingFv();
 
-void TObjPlayer__sub_802E05DC(u8 *arg0) {
+void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TAdPlyStatusGC__sub_802E1158((int) (M2C_FIELD(arg0, s32 *, 0x170)));
     TObjFish__sub_803DA798();
-    TObjPlayer__sub_802E05A4((void *) (arg0), (int) (TAdPlyStatusGC__sub_802E1150((int) (M2C_FIELD(arg0, s32 *, 0x170)))));
+    draw_model_with_arg__10TObjPlayerFPvPv((void *) (arg0), (int) (TAdPlyStatusGC__sub_802E1150((int) (M2C_FIELD(arg0, s32 *, 0x170)))));
     TObjPlayer__sub_800FFA88((void *) (arg0), (int) (0x3A));
     TObjPlayer__sub_803D97F0();
     TAdPlyStatusGC__sub_802E1148((int) (M2C_FIELD(arg0, s32 *, 0x170)));

@@ -9,7 +9,7 @@ struct PmtSub {
 
 extern "C" {
 
-void* TObjPlayer__sub_8011CC58(int i) {
+void* get_pmt_record__10TObjPlayerFi(int i) {
     PmtSub* c = *(PmtSub**)((char*)item_pmt_tbl + 0x10);
     if (i < c->count) {
         return &c->records[i * 24];
@@ -17,7 +17,7 @@ void* TObjPlayer__sub_8011CC58(int i) {
     return &c->records[c->count * 24];
 }
 
-void* TObjPlayer__sub_8011CC8C(int type, int id) {
+void* get_item_pmt_record__10TObjPlayerFii(int type, int id) {
     if (type > 0) {
         char* cat = *(char**)((char*)item_pmt_tbl + 0x00);
         if (type < 170) {

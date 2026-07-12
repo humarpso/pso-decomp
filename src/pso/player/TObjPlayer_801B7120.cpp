@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_position_history__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjPlayer__sub_801BF7C4(void *);
+M2C_UNK update_field8__10TObjPlayerFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjPlayer__sub_801BEA38(void *, s32, f32, f32);
 
@@ -23,7 +23,7 @@ void update_position_history__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_801BEA38(arg0, M2C_FIELD(arg0, s32 *, 0x6AC), M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(arg0, f32 *, 0x40));
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-    TObjPlayer__sub_801BF7C4(arg0 + 0x360);
+    update_field8__10TObjPlayerFPv(arg0 + 0x360);
 }
 
 }

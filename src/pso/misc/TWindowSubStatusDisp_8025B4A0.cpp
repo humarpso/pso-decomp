@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_8025B4A0(void *arg0, u32 arg1);
+void set_string__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
 s32 TWindowSubStatusDisp__sub_80228C30(u32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
@@ -14,7 +14,7 @@ M2C_UNK strncpy(s32, u32, s32);
 
 extern f32 lbl_805DD008;
 
-void TWindowSubStatusDisp__sub_8025B4A0(void *arg0, u32 arg1) {
+void set_string__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1) {
     s32 temp_r3;
 
     free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x20));

@@ -12,7 +12,7 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TObjPlayer__sub_80354C7C(s32);
 s32 TObjPlayer__sub_80354E3C();
 s32 TLobby__sub_800822E8(s32, s32);
-s32 TObjPlayer__sub_801AF834(s32);
+s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);
 s32 TTecCtrl__sub_801B0EE8();
 s32 check_flag_800000__10TObjPlayerFPv(s32);

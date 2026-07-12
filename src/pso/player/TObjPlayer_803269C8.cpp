@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_803269C8(void *arg0);
-void TObjPlayer__sub_80326A28(u8 *arg0);
-void TObjPlayer__sub_80326A7C(u8 *arg0);
+void apply_container_item__10TObjPlayerFPv(void *arg0);
+void approach_target_angle__10TObjPlayerFPv(u8 *arg0);
+void step_angles__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_80115BC0(void *, int, int);
 s32 TObjPlayer__sub_80121200();
 
-void TObjPlayer__sub_803269C8(void *arg0) {
+void apply_container_item__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_80121200();
@@ -27,14 +27,14 @@ void TObjPlayer__sub_803269C8(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80326A28(u8 *arg0) {
+void approach_target_angle__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_80115BC0(arg0 + 0x1F8, 0x71C, 0x4000);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) == 0x4000) {
         TObjPlayer__sub_80115BC0(arg0 + 0x1FC, 0x71C, 0x4000);
     }
 }
 
-void TObjPlayer__sub_80326A7C(u8 *arg0) {
+void step_angles__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_80115BC0(arg0 + 0x1FC, -0xAAA, 0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 0) {
         TObjPlayer__sub_80115BC0(arg0 + 0x1F8, -0xAAA, 0);

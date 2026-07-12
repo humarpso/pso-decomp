@@ -8,7 +8,7 @@ void fn_8015C940(void);
 void TLobby__sub_8015C9BC(void* p);
 void TOCtrlDubchik__sub_8015C9D0(void);
 
-void TLobby__sub_8015C978(s32 arg0) {
+void byteswap_event_packet__6TLobbyFi(s32 arg0) {
     TObjPlayer__sub_8001960C();
     bswap_32__FPUl(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);

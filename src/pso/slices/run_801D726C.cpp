@@ -32,7 +32,7 @@ void fn_801D72B0(void *arg0, s16 arg1) {
 
 u8 ret_801D78F4();
 
-void TLobby__sub_801D72F0(void *arg0, u8 arg1) {
+void set_field_0xE__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -44,7 +44,7 @@ void TLobby__sub_801D72F0(void *arg0, u8 arg1) {
 
 u8 ret_801D78FC();
 
-void TLobby__sub_801D7330(void *arg0, u8 arg1) {
+void set_field_d__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -56,7 +56,7 @@ void TLobby__sub_801D7330(void *arg0, u8 arg1) {
 
 u8 ret_801D7904();
 
-void TLobby__sub_801D7370(void *arg0, u8 arg1) {
+void set_clamped_field_c__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -68,7 +68,7 @@ void TLobby__sub_801D7370(void *arg0, u8 arg1) {
 
 u8 ret_801D790C();
 
-void TLobby__sub_801D73B0(void *arg0, u8 arg1) {
+void set_field_b__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -80,7 +80,7 @@ void TLobby__sub_801D73B0(void *arg0, u8 arg1) {
 
 u8 ret_801D7914();
 
-void TLobby__sub_801D73F0(void *arg0, u8 arg1) {
+void set_field_a__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -104,7 +104,7 @@ void TLobby__sub_801D7430(void *arg0, u8 arg1) {
 
 u8 ret_801D7924();
 
-void TLobby__sub_801D7470(void *arg0, u8 arg1) {
+void set_difficulty__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -128,7 +128,7 @@ void TLobby__sub_801D74B0(void *arg0, u8 arg1) {
 
 u8 ret_801D7934();
 
-void TLobby__sub_801D74F0(void *arg0, u8 arg1) {
+void set_field_0x6__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -140,7 +140,7 @@ void TLobby__sub_801D74F0(void *arg0, u8 arg1) {
 
 u8 ret_801D793C();
 
-void TLobby__sub_801D7530(void *arg0, u8 arg1) {
+void set_field_5__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -152,7 +152,7 @@ void TLobby__sub_801D7530(void *arg0, u8 arg1) {
 
 u8 ret_801D7944();
 
-void TLobby__sub_801D7570(void *arg0, u8 arg1) {
+void set_clamped_field_4__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -164,7 +164,7 @@ void TLobby__sub_801D7570(void *arg0, u8 arg1) {
 
 u8 ret_801D794C();
 
-void TLobby__sub_801D75B0(void *arg0, u8 arg1) {
+void set_field_3__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -176,7 +176,7 @@ void TLobby__sub_801D75B0(void *arg0, u8 arg1) {
 
 u8 ret_801D7954();
 
-void TLobby__sub_801D75F0(void *arg0, u8 arg1) {
+void set_field_2__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -200,7 +200,7 @@ void TLobby__sub_801D7630(void *arg0, u8 arg1) {
 
 u8 TItemDrop__sub_80107B04();
 
-void TLobby__sub_801D7670(u8 *arg0, u8 arg1) {
+void set_section_id__6TLobbyFPvUc(u8 *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;

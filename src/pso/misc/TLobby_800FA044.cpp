@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_800FA044(s32 arg0, s32 arg1);
 u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
-u8 *TLobby__sub_800FA848();
+u8 *link_into_list__6TLobbyFPv();
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 
 void TLobby__sub_800FA044(s32 arg0, s32 arg1) {
@@ -16,7 +16,7 @@ void TLobby__sub_800FA044(s32 arg0, s32 arg1) {
 
     var_r31 = alloc_from_heap__6TLobbyFPv(0x68);
     if (var_r31 != NULL) {
-        var_r31 = TLobby__sub_800FA848();
+        var_r31 = link_into_list__6TLobbyFPv();
     }
     strncpy(var_r31 + 8, arg1, 0x20);
     M2C_FIELD(var_r31, s32 *, 0) = 4;

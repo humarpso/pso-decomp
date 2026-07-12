@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubStatusDisp__sub_8025B514(s32, s32, s32, s32);
-s32 TWindowSubStatusDisp__sub_8025B5AC(s32, s32, s32);
+s32 set_text__20TWindowSubStatusDispFPvUiii(s32, s32, s32, s32);
+s32 set_text__20TWindowSubStatusDispFPvUii(s32, s32, s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
-s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
+s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8026906C(void);
 void move_next_choice__20TWindowChoiceSettingFPv(void *arg0);
 s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
@@ -37,7 +37,7 @@ void draw__20TWindowChoiceSettingFPv(void *arg0) {
         TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
         M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) | 2);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {
-            fn_8028783C(M2C_FIELD(arg0, s32 *, 0x78), 2);
+            set_entry_state__20TWindowSubStatusDispFPvc(M2C_FIELD(arg0, s32 *, 0x78), 2);
         }
     }
 }

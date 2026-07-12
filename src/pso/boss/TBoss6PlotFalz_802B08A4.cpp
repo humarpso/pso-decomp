@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802B08A4(void *arg0);
+void tick_timeout__14TBoss6PlotFalzFPv(void *arg0);
 void TBoss6PlotFalz__sub_802B08F0(void* p);
 int TBoss6PlotFalz__sub_802AACEC(void*);
 s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
@@ -15,11 +15,11 @@ int TBoss6PlotFalz__sub_802ABCDC(void*);
 int TBoss6PlotFalz__sub_802AC4D8(void);
 int TBoss6PlotFalz__sub_802AC678(void*);
 int TBoss6PlotFalz__sub_802AC86C(void*, void*);
-void TBoss6PlotFalz__sub_802B0770(void* p);
+void set_state4_if_ready__14TBoss6PlotFalzFPv(void* p);
 void TBoss6PlotFalz__sub_802B0808(void);
-void TBoss6PlotFalz__sub_802B085C(void* p);
+void enter_active_state__14TBoss6PlotFalzFPv(void* p);
 
-void TBoss6PlotFalz__sub_802B08A4(void *arg0) {
+void tick_timeout__14TBoss6PlotFalzFPv(void *arg0) {
     s32 temp_r0;
 
     TBoss6PlotFalz__sub_802AC4D8();

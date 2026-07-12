@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80125B80(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
+void spawn_effect__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 void cast_gifoie__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80125C70(void* p);
-void TObjPlayer__sub_80125C7C(void *arg0);
-void TObjPlayer__sub_80125CF4(void *arg0);
+void create_pro_armor__10TObjPlayerFPv(void *arg0);
+void update_terminal_state__10TObjPlayerFPv(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
 s32 TOKeyMachine01__sub_802034A8();
 s32 TObjPlayer__sub_80100D1C(void *);
@@ -27,7 +27,7 @@ s32 alloc__13TItemProArmorFi(s32);
 s32 create__10TTecGiFoieFPvPvPv(s32, s32 *, s32);
 s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
 
-void TObjPlayer__sub_80125B80(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+void spawn_effect__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     if ((arg0 != 0) && (arg1 != 0U) && ((obj = __nw__7TObjectFUl(0x2C)) != 0U)) {
         TObjPlayer__sub_80125AF8(obj, arg0, arg1, arg2, arg3);
@@ -46,7 +46,7 @@ void cast_gifoie__10TObjPlayerFPv(void *arg0) {
     }
 }
 void TObjPlayer__sub_80125C70(void* p) { *(s32*)((char*)p + 0x1f8) = -1; }
-void TObjPlayer__sub_80125C7C(void *arg0) {
+void create_pro_armor__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     M2C_FIELD(arg0, s32 *, 0x1F8) = -1;
@@ -62,15 +62,15 @@ void TObjPlayer__sub_80125C7C(void *arg0) {
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_80125CF4(void *arg0) {
+void update_terminal_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TOKeyMachine01__sub_802034A8();
     if ((temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x1F8)) && (TObjPlayer__sub_80100D1C(arg0) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = temp_r3;
         if (TObjPlayer__sub_802034B0(temp_r3) != 0) {
-            TObjPlayer__sub_80125B80((s32)(tl_05), (u32)(arg0), (s32)(1), (s32)(0x1AE));
-            TObjPlayer__sub_80125B80((s32)(tl_05), (u32)(arg0), (s32)(2), (s32)(0x1AE));
+            spawn_effect__10TObjPlayerFiUiii((s32)(tl_05), (u32)(arg0), (s32)(1), (s32)(0x1AE));
+            spawn_effect__10TObjPlayerFiUiii((s32)(tl_05), (u32)(arg0), (s32)(2), (s32)(0x1AE));
         }
     }
 }

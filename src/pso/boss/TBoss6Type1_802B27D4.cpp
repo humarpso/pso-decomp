@@ -9,9 +9,9 @@ extern "C" {
 void TBoss6Type1__sub_802B27D4(void* p);
 void enter_release_state__11TBoss6Type1FPv(u8 *arg0);
 void TBoss6Type1__sub_802B28A8(void *arg0);
-void TBoss6Type1__sub_802B28DC(u8 *arg0);
-void TBoss6Type1__sub_802B292C(u8 *arg0);
-void TBoss6Type1__sub_802B29B4(void *arg0);
+void init_move_attack__11TBoss6Type1FPv(u8 *arg0);
+void update_hit_timer__11TBoss6Type1FPv(u8 *arg0);
+void update_attack_state__11TBoss6Type1FPv(void *arg0);
 void advance_plot_to_state2__11TBoss6Type1FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss6PlotFalz__sub_802AB260(s32);
@@ -57,14 +57,14 @@ void TBoss6Type1__sub_802B28A8(void *arg0) {
     }
 }
 
-void TBoss6Type1__sub_802B28DC(u8 *arg0) {
+void init_move_attack__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x40C) = 0x1E;
     M2C_FIELD(arg0, s32 *, 0x410) = 0x1E;
     TBoss6Type1__sub_802B6B34();
     TBoss3Volopt__sub_8022675C(0x40039C19, arg0 + 0x38, 0, 0);
 }
 
-void TBoss6Type1__sub_802B292C(u8 *arg0) {
+void update_hit_timer__11TBoss6Type1FPv(u8 *arg0) {
     s32 temp_r3;
 
     TOTrapAncient01__sub_80226578(0x40032614, arg0, 0, 0, 0);
@@ -79,7 +79,7 @@ void TBoss6Type1__sub_802B292C(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x410) = 0;
 }
 
-void TBoss6Type1__sub_802B29B4(void *arg0) {
+void update_attack_state__11TBoss6Type1FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) {
         if (TBoss6Type1__sub_802B5E48() != 0) {
             TBoss6Type1__sub_802B9204(arg0, 0x20);

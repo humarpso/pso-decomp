@@ -9,7 +9,7 @@ s32 TLobby__sub_8010314C();
 void TLobby__sub_80103114(void* p, s16 v);
 
 void TLobby__sub_80103114(void* p, s16 v) { *(s16*)((char*)p + 0x1c) = v; }
-s32 TLobby__sub_8010311C(s32 arg0) {
+s32 drop_stacked_item_passthrough__6TLobbyFi(s32 arg0) {
     TLobby__sub_8010314C();
     return arg0;
 }

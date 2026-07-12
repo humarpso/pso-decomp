@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjNpcMoja__sub_8014C6C0(void *arg0);
+void * create__11TObjNpcMojaFPv(void *arg0);
 void *TObjNpcMoja__sub_8014C728(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMoja__ct(void *, void *, void *);
@@ -14,7 +14,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
-void * TObjNpcMoja__sub_8014C6C0(void *arg0) {
+void * create__11TObjNpcMojaFPv(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

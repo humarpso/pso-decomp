@@ -13,7 +13,7 @@ M2C_UNK close_window_2c__6TLobbyFPv(void *);
 M2C_UNK open_loss_menu__6TLobbyFPv(void *);
 M2C_UNK send_45_and_close_windows__6TLobbyFv(void *);
 M2C_UNK TLobby__sub_80072DA0(void *);
-M2C_UNK TLobby__sub_80072DD8(void *);
+M2C_UNK play_default_effect__6TLobbyFPv(void *);
 M2C_UNK play_player_default_effect__6TLobbyFv();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TLobby__sub_8022727C(M2C_UNK *);
@@ -35,7 +35,7 @@ void handle_loss_sequence(void *arg0) {
     case 1:
         TBoss3Volopt__sub_8022675C(0x52812, 0, 0, 0);
         send_45_and_close_windows__6TLobbyFv(arg0);
-        TLobby__sub_80072DD8(arg0);
+        play_default_effect__6TLobbyFPv(arg0);
         TLobby__sub_80072B70(arg0);
         close_window_2c__6TLobbyFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x28) = 0x1E;

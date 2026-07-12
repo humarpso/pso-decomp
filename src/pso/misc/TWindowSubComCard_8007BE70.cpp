@@ -9,12 +9,12 @@ extern "C" {
 void handle_press_b__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 M2C_UNK clear();
 s32 fn_8007B370(s32, s32);
-s32 fn_8007BD94(s32);
+s32 TWindowSubComCard__sub_8007BD94(s32);
 M2C_UNK fn_8007BF48(s32);
 
 void handle_press_b__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     clear();
-    if ((fn_8007B370(arg0, arg1) != 0) && (fn_8007BD94(arg0) == 0)) {
+    if ((fn_8007B370(arg0, arg1) != 0) && (TWindowSubComCard__sub_8007BD94(arg0) == 0)) {
         fn_8007BF48(arg0);
     }
 }

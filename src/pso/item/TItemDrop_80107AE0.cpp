@@ -2,11 +2,11 @@
 
 extern "C" {
 
-s8 TItemDrop__sub_80107AE0(void* p);
+s8 get_bool_from_1d6ddc__9TItemDropFPv(void* p);
 int TItemDrop__sub_80107B04(void);
 int TLobby__sub_801D6DDC(void*);
 
-s8 TItemDrop__sub_80107AE0(void* p) { return (s8)(TLobby__sub_801D6DDC(p)); }
+s8 get_bool_from_1d6ddc__9TItemDropFPv(void* p) { return (s8)(TLobby__sub_801D6DDC(p)); }
 int TItemDrop__sub_80107B04(void) { return 0; }
 
 }

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void * TObjEZBoneRotPlayer__sub_800FE988(void *arg0, void *arg1, void *arg2);
+void * create__19TObjEZBoneRotPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TObjEZBoneRotPlayer__sub_800FE9E0(void *arg0);
 void *__ct__19TObjEZBoneRotPlayerFv(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK fn_800FEBBC(void*, s32);
 
-void * TObjEZBoneRotPlayer__sub_800FE988(void *arg0, void *arg1, void *arg2) {
+void * create__19TObjEZBoneRotPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0xA0);
     if (o != NULL) {

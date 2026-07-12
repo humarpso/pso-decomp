@@ -13,7 +13,7 @@ void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
 int TItemData__sub_8010CCEC(void* p);
-int TObjPlayer__sub_8011C1E8(void*);
+int register_item_drop__10TObjPlayerFPv(void*);
 
 void TItemData__sub_8010CCB0(void) {  }
 void TItemData__sub_8010CCB4(void) {  }
@@ -26,6 +26,6 @@ u8 TItemData__sub_8010CCB8(void) {
     }
     return 0U;
 }
-int TItemData__sub_8010CCEC(void* p) { return TObjPlayer__sub_8011C1E8(p); }
+int TItemData__sub_8010CCEC(void* p) { return register_item_drop__10TObjPlayerFPv(p); }
 
 }

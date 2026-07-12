@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemData__sub_8010C6A0(void *arg0);
+s32 is_usable__9TItemDataFPv(void *arg0);
 s32 TItemData__sub_8010CC68();
 
-s32 TItemData__sub_8010C6A0(void *arg0) {
+s32 is_usable__9TItemDataFPv(void *arg0) {
     u8 temp_r0;
 
     if (TItemData__sub_8010CC68() == 0) {

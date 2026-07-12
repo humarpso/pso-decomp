@@ -19,7 +19,7 @@ void TBoss6Type2__sub_802BF528(void* p);
 void TBoss6Type2__sub_802BF8D8(void* p);
 void TBoss6Type2__sub_802BF904(void* p);
 
-void TBoss6Type2__sub_802BF5F0(void *arg0) {
+void update_zako_spawn_timer__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
 
     if (((s32) M2C_FIELD(arg0, s32 *, 0x504) == 0) && (TBoss6Type2__sub_802BAA74() == 0)) {

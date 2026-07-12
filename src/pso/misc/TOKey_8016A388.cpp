@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOKey__sub_8016A388(void *arg0);
+s32 is_confirm_pressed__5TOKeyFPv(void *arg0);
 s32 TOKey__sub_8016A310();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 
 extern s8 lbl_8050E208[];
 
-s32 TOKey__sub_8016A388(void *arg0) {
+s32 is_confirm_pressed__5TOKeyFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);

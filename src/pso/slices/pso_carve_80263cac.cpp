@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK init_parts__10TObjPlayerFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK TWindowMainMenu__sub_8026400C(void *, s32);
+M2C_UNK close_child_window__15TWindowMainMenuFPv(void *, s32);
 M2C_UNK fn_802640E4(void *);
 M2C_UNK close__15TWindowMainMenuFPv(void *);
 
@@ -17,7 +17,7 @@ void fn_80263CAC(void *arg0) {
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x4C);
     M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (temp_r4 & ~5);
-    TWindowMainMenu__sub_8026400C(arg0, temp_r4);
+    close_child_window__15TWindowMainMenuFPv(arg0, temp_r4);
     fn_802640E4(arg0);
     close__15TWindowMainMenuFPv(arg0);
     if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x54)) != 0U) {

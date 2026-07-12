@@ -14,16 +14,16 @@ struct V_A_8019e97c : Base_A_8019e97c {
 
 extern "C" {
 
-void TObjWarpBossMulti__sub_8019E97C(void *arg0);
+void update_state__17TObjWarpBossMultiFPv(void *arg0);
 s32 TObjWarpBossMulti__sub_8019E4B4();
 s32 TObjWarpBossMulti__sub_8019E570(void *, f32);
-M2C_UNK TObjWarpBossMulti__sub_8019E708(void *, s32);
+M2C_UNK notify_player__17TObjWarpBossMultiFPvi(void *, s32);
 
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5C94;
 extern s32 lbl_805D5C9C;
 
-void TObjWarpBossMulti__sub_8019E97C(void *arg0) {
+void update_state__17TObjWarpBossMultiFPv(void *arg0) {
     s16 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;
@@ -41,7 +41,7 @@ void TObjWarpBossMulti__sub_8019E97C(void *arg0) {
         if (TObjWarpBossMulti__sub_8019E4B4() == 0) {
             temp_r3 = TObjWarpBossMulti__sub_8019E570(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
             if (temp_r3 != 0) {
-                TObjWarpBossMulti__sub_8019E708(arg0, lbl_805D53A0);
+                notify_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
                 ((V_A_8019e97c *)arg0)->m17(temp_r3);
                 M2C_FIELD(arg0, s16 *, 0xE0) = 2;
             }

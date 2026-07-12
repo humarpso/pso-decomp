@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMultiConfirmGC__sub_802E072C(void *arg0, s32 arg1);
+void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1);
 
-void TAdMultiConfirmGC__sub_802E072C(void *arg0, s32 arg1) {
+void set_cursor_index__17TAdMultiConfirmGCFPvi(void *arg0, s32 arg1) {
     s16 temp_r4;
 
     M2C_FIELD(arg0, s16 *, 0xB8) = (s16) (arg1 * 3);

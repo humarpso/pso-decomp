@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__11TMainCursorFv(u8 *arg0);
-s32 TMainCursor__sub_8013E4D0(void *);
-s32 TMainCursor__sub_8013E4F8(void *);
+s32 init_render_flags__11TMainCursorFPv(void *);
+s32 update__11TMainCursorFPv(void *);
 s32 TMainCursor__sub_8013E520(void *);
 f32 TMainCursor__sub_8013F178(void *);
 M2C_UNK TMainCursor__sub_8013F180(void *);
@@ -36,8 +36,8 @@ void run_task__11TMainCursorFv(u8 *arg0) {
         if (!(M2C_FIELD(arg0, f32 *, 0x30) > M2C_FIELD(arg0, f32 *, 0x34))) {
             M2C_FIELD(arg0, f32 *, 0x30) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
             M2C_FIELD(arg0, s32 *, 0x1C) = 1;
-            if (TMainCursor__sub_8013E4D0(arg0) == 0) {
-                if (TMainCursor__sub_8013E4F8(arg0) != 0) {
+            if (init_render_flags__11TMainCursorFPv(arg0) == 0) {
+                if (update__11TMainCursorFPv(arg0) != 0) {
                     TBoss3Volopt__sub_8022675C(0x3816, arg0 + 0x40, 0, 1);
                     return;
                 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TShopEquipmentListWindow__sub_8021C01C(void* p);
+int get_list_item8__24TShopEquipmentListWindowFPv(void* p);
 void open_menu_window__24TShopEquipmentListWindowFPv(void *arg0);
 s32 TObjCityMainWarp__sub_80266354(u32, s32, s32, s32);
 int TQuestListVM__sub_80073DC4(void*, int);
@@ -38,6 +38,6 @@ void open_menu_window__24TShopEquipmentListWindowFPv(void *arg0) {
     }
     TQuestListVM__sub_80073DC4((void*)(arg0), 2);
 }
-int TShopEquipmentListWindow__sub_8021C01C(void* p) { return TQuestListVM__sub_80073DC4(p, 8); }
+int get_list_item8__24TShopEquipmentListWindowFPv(void* p) { return TQuestListVM__sub_80073DC4(p, 8); }
 
 }

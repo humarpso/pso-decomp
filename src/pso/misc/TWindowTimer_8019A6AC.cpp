@@ -6,7 +6,7 @@ s32 TObjPlayer__sub_8001960C();
 s32 bswap_32__FPUl(s32);
 void TWindowTimer__sub_8019A6F8(void* p);
 
-void TWindowTimer__sub_8019A6AC(s32 arg0) {
+void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0) {
     TObjPlayer__sub_8001960C();
     bswap_32__FPUl(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);

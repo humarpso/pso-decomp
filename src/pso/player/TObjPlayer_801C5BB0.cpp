@@ -4,7 +4,7 @@ extern "C" {
 
 void set_vec4_const__10TObjPlayerFPv(void* a0);
 void reset_ring__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801C5C0C(void* p);
+void clear_target_lock__10TObjPlayerFPv(void* p);
 int TAdRicoRing__sub_8001BEE8(void*, void*);
 int TObjPlayer__sub_8001BED8(void*, void*);
 int fn_801C6F40(void*, void*);
@@ -15,6 +15,6 @@ void set_vec4_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x1c) = l
 
 void reset_ring__10TObjPlayerFPv(void* p) { TAdRicoRing__sub_8001BEE8(p, (void*)1); fn_801C6F40(p, (void*)-1); TLobby__sub_80227234((void*)0); }
 
-void TObjPlayer__sub_801C5C0C(void* p) { TObjPlayer__sub_8001BED8(p, (void*)1); TLobby__sub_80227234((void*)1); }
+void clear_target_lock__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001BED8(p, (void*)1); TLobby__sub_80227234((void*)1); }
 
 }

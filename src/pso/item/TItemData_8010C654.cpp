@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u16 TItemData__sub_8010C654(void *arg0);
-s32 TItemData__sub_8010C6A0();
+u16 get_packed_value__9TItemDataFPv(void *arg0);
+s32 is_usable__9TItemDataFPv();
 
-u16 TItemData__sub_8010C654(void *arg0) {
-    if (TItemData__sub_8010C6A0() != 0) {
+u16 get_packed_value__9TItemDataFPv(void *arg0) {
+    if (is_usable__9TItemDataFPv() != 0) {
         return (u16) (((M2C_FIELD(arg0, u8 *, 0xA) << 8) & 0x7F00) | M2C_FIELD(arg0, u8 *, 0xB));
     }
     return 0U;

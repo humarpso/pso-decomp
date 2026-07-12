@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800A2850(s32 arg0);
+void apply_fall_damage_flag__10TObjPlayerFi(s32 arg0);
 M2C_UNK TObjEneMe1GiGue__sub_80040B3C(s32, M2C_UNK);
 f32 fn_8013157C(s32, s32);
 
 extern f32 lbl_805D9988;
 
-void TObjPlayer__sub_800A2850(s32 arg0) {
+void apply_fall_damage_flag__10TObjPlayerFi(s32 arg0) {
     M2C_UNK var_r4;
 
     if (fn_8013157C(arg0 + 0x38, arg0 + 0x50) > lbl_805D9988) {

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_split_screen();
-M2C_UNK TObjPlayer__sub_800847D4(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjFish__sub_803DA798(M2C_UNK *);
@@ -25,7 +25,7 @@ void setup_particle_tev(s32 arg0) {
         } else {
             GXSetTevOp(1, 1);
         }
-        TObjPlayer__sub_800847D4(1, 0, 0, 0x1E);
+        set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
         TObjFish__sub_803DA798(lbl_8048E5B4);
         TObjPlayer__sub_803E1D90(0, 0, 0, 1);
         some_id_805c6f74 |= 0x80000;

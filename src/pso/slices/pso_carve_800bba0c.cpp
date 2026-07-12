@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneDD__vt77(void *arg0);
-M2C_UNK TObjPlayer__sub_800F6960();
+M2C_UNK call_vt78__10TObjPlayerFPv();
 void TObjEneDD__sub_800BBA04(void* p, s32 v);
 
 int TObjEneDD__sub_800BBA0C(void) { return 0; }

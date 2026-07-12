@@ -9,7 +9,7 @@ extern "C" {
 s32 TWindowSubComCard__sub_80131BC4(void *arg0);
 int TKeyBoardControl__sub_80131FA0(void*);
 int TKeyBoardControl__sub_80131FAC(void*);
-int TWindowKeyBoardSoft__sub_8025C5F4(void*);
+int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
 int TWindowMakeTeam__sub_80131BA0(void* p);
 s32 alloc_buffer__11TOBoss4RockFPv();
 s32 fn_8025C974(s32, s32);

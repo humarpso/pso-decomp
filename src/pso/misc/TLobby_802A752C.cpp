@@ -22,13 +22,13 @@ struct VObj_802A752C : Base_802A752C {
 
 extern "C" {
 
-s32 TLobby__sub_802A752C(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK TLobby__sub_802A7848(void *, s32);
 s32 TLobby__sub_802A7868(void *, s32, s32);
 s32 TLobby__sub_802A7994(void *, s32, s32, s32);
 M2C_UNK TObjPlayer__sub_801C00C4(void *, s32);
 
-s32 TLobby__sub_802A752C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
 
     if (TLobby__sub_802A7868(arg0, arg2, arg3) != 0) {

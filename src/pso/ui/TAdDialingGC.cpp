@@ -16,10 +16,10 @@ int TAdDialingGC__sub_80328C4C(void*);
 
 void render__12TAdDialingGCFv(void* p) { TAdDialingGC__sub_80328B20(p); TAdDialingGC__sub_80328C4C(p); TAdDialingGC__sub_80328C10(p); update__12TAdDialingGCFPv(p); }
 
-M2C_UNK TAdDialingGC__sub_80328210();
-M2C_UNK TAdDialingGC__sub_803282B8();
+M2C_UNK update_dial_state__12TAdDialingGCFPv();
+M2C_UNK update_state__12TAdDialingGCFPv();
 M2C_UNK update_dial_state__12TAdDialingGCFPvi();
-M2C_UNK TAdDialingGC__sub_80328558(void *);
+M2C_UNK update_selection__12TAdDialingGCFPv(void *);
 
 void run_task__12TAdDialingGCFv(void *arg0) {
     s32 temp_r0;
@@ -30,13 +30,13 @@ void run_task__12TAdDialingGCFv(void *arg0) {
         update_dial_state__12TAdDialingGCFPvi();
         break;
     case 1:
-        TAdDialingGC__sub_803282B8();
+        update_state__12TAdDialingGCFPv();
         break;
     case 2:
-        TAdDialingGC__sub_80328210();
+        update_dial_state__12TAdDialingGCFPv();
         break;
     }
-    TAdDialingGC__sub_80328558(arg0);
+    update_selection__12TAdDialingGCFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
 }
 

@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TItemData__sub_8010D5CC(void* p);
+void bswap_fields__9TItemDataFPv(void* p);
 int bswap_16__FPUs(void*);
 
-void TItemData__sub_8010D5CC(void* p) { bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_16__FPUs((char*)p + 0x8); bswap_16__FPUs((char*)p + 0xa); }
+void bswap_fields__9TItemDataFPv(void* p) { bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_16__FPUs((char*)p + 0x8); bswap_16__FPUs((char*)p + 0xa); }
 
 }

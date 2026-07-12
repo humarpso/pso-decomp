@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneDD__vt77(void *arg0);
-M2C_UNK TObjPlayer__sub_800F6960();
+M2C_UNK call_vt78__10TObjPlayerFPv();
 void TObjEneDD__sub_800BBA04(void* p, s32 v);
 
 void TObjEneDD__vt77(void *arg0) {
     s16 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, s16 *, 0x326);
-    TObjPlayer__sub_800F6960();
+    call_vt78__10TObjPlayerFPv();
     M2C_FIELD(arg0, s16 *, 0x326) = temp_r31;
 }
 

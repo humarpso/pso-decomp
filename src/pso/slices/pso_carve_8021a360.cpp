@@ -2,10 +2,10 @@
 
 extern "C" {
 
-int fn_8021A010(void*);
-int TODoorVoShip__sub_8021A05C(void*);
+int update_all_lobbies__6TLobbyFv(void*);
+int update_event_unlocks__12TODoorVoShipFv(void*);
 void fn_8021A360(void* p);
 
-void fn_8021A360(void* p) { fn_8021A010(p); TODoorVoShip__sub_8021A05C(p); }
+void fn_8021A360(void* p) { update_all_lobbies__6TLobbyFv(p); update_event_unlocks__12TODoorVoShipFv(p); }
 
 }

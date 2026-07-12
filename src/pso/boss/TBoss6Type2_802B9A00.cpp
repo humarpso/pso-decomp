@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802B9A00(s32 arg0);
+void call_9A24_plus_1__11TBoss6Type2Fi(s32 arg0);
 M2C_UNK TBoss6Type2__sub_802B9A24(s32);
 
-void TBoss6Type2__sub_802B9A00(s32 arg0) {
+void call_9A24_plus_1__11TBoss6Type2Fi(s32 arg0) {
     TBoss6Type2__sub_802B9A24(arg0 + 1);
 }
 

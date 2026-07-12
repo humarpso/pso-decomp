@@ -9,7 +9,7 @@ extern "C" {
 void TWindowKeyBoardSoft__sub_8024E838(void* p, f32 a, f32 b, f32 c, f32 d);
 void TWindowKeyBoardSoft__sub_8024E84C(void *arg0);
 void TWindowKeyBoardSoft__sub_8024E86C(void *arg0);
-s32 TWindowKeyBoardSoft__sub_8024E898(void *arg0, void *arg1);
+s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1);
 
 void TWindowKeyBoardSoft__sub_8024E838(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x3c) = a; *(f32*)((char*)p + 0x40) = b; *(f32*)((char*)p + 0x44) = c; *(f32*)((char*)p + 0x48) = d; }
 
@@ -28,7 +28,7 @@ void TWindowKeyBoardSoft__sub_8024E86C(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x40) + lbl_805DCC90);
 }
 
-s32 TWindowKeyBoardSoft__sub_8024E898(void *arg0, void *arg1) {
+s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1) {
     if ((M2C_FIELD(arg1, f32 *, 8) < M2C_FIELD(arg0, f32 *, 0x3C)) || (M2C_FIELD(arg1, f32 *, 0xC) < M2C_FIELD(arg0, f32 *, 0x40)) || (M2C_FIELD(arg1, f32 *, 0) > M2C_FIELD(arg0, f32 *, 0x44)) || (M2C_FIELD(arg1, f32 *, 4) > M2C_FIELD(arg0, f32 *, 0x48))) {
         return 0;
     }

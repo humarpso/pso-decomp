@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneHoldEffect__sub_8036CC60(void *arg0);
-s32 TObjEneHoldEffect__sub_8036CCBC(void *arg0);
-s32 TObjEneHoldEffect__sub_8036CDA8();
+s32 is_valid_team_id__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_valid_score_index__17TObjEneHoldEffectFPv(void *arg0);
+s32 is_target_valid__17TObjEneHoldEffectFPv();
 u32 TPhotonMylla__sub_80154CB4(u16);
 
-s32 TObjEneHoldEffect__sub_8036CC60(void *arg0) {
+s32 is_valid_team_id__17TObjEneHoldEffectFPv(void *arg0) {
     s32 temp_r0;
 
-    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
+    if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 4);
@@ -24,7 +24,7 @@ s32 TObjEneHoldEffect__sub_8036CC60(void *arg0) {
     return 1;
 }
 
-s32 TObjEneHoldEffect__sub_8036CCBC(void *arg0) {
+s32 is_valid_score_index__17TObjEneHoldEffectFPv(void *arg0) {
     if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 4)) == 0U) {
         return 0;
     }

@@ -9,7 +9,7 @@ extern "C" {
 void update_challenge_4p_retry__6TLobbyFPv(void *arg0);
 M2C_UNK send_giveup_to_all_players__6TLobbyFv(void *);
 M2C_UNK close_giveup_window__6TLobbyFPv(void *);
-M2C_UNK TLobby__sub_8029A0D8();
+M2C_UNK play_all_players_effect__6TLobbyFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -18,7 +18,7 @@ extern s8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
 
 void update_challenge_4p_retry__6TLobbyFPv(void *arg0) {
-    TLobby__sub_8029A0D8();
+    play_all_players_effect__6TLobbyFPv();
     if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
         send_giveup_to_all_players__6TLobbyFv(arg0);
         close_giveup_window__6TLobbyFPv(arg0);

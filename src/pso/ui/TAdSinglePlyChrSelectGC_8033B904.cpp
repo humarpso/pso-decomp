@@ -14,7 +14,7 @@ M2C_UNK __ct__9TAdBackGCFv(void *, void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 s8 TAdSinglePlyChrSelectGC__sub_8001C5E8(void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80242D2C();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8033A9A4(void *);
+M2C_UNK alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *);
 
 M2C_UNK clear_buffer(void *);
 extern void *lbl_804EF8C0[];
@@ -43,7 +43,7 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (p != NULL) {
         __ct__12TAdBackTxtGCFv(p, arg0);
     }
-    TAdSinglePlyChrSelectGC__sub_8033A9A4(arg0);
+    alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(arg0);
     clear_buffer(arg0);
     TAdSinglePlyChrSelectGC__sub_80242D2C();
     return arg0;

@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4Type2__sub_80052AE0(void *arg0);
+void update_scale_state__11TBoss4Type2FPv(void *arg0);
 M2C_UNK TBoss4Type2__sub_80053504(void *);
 M2C_UNK TBoss4Type2__sub_80053CEC(void *, M2C_UNK);
 M2C_UNK TRaderMapCore__sub_80053914(void *, M2C_UNK *);
-M2C_UNK TRaderMapCore__sub_80053A88(void *, M2C_UNK *);
+M2C_UNK set_map_position__13TRaderMapCoreFPvPv(void *, M2C_UNK *);
 f32 calc_boss4_scale__10TObjPlayerFi();
 
 extern const f64 lbl_80437620[];
 
-void TBoss4Type2__sub_80052AE0(void *arg0) {
+void update_scale_state__11TBoss4Type2FPv(void *arg0) {
     M2C_UNK sp8;
     M2C_UNK var_r31;
 
@@ -29,7 +29,7 @@ void TBoss4Type2__sub_80052AE0(void *arg0) {
             var_r31 = 9;
         }
         TRaderMapCore__sub_80053914(arg0, &sp8);
-        TRaderMapCore__sub_80053A88(arg0, &sp8);
+        set_map_position__13TRaderMapCoreFPvPv(arg0, &sp8);
         TBoss4Type2__sub_80053CEC(arg0, var_r31);
     }
 }

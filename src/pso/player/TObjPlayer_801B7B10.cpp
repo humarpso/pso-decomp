@@ -16,7 +16,7 @@ u32 TObjPlayer__sub_801BE778();
 void handle_6x99(void);
 void handle_6x98(void);
 
-void TObjPlayer__sub_801B7B10(void *arg0) {
+void close_sub_window__10TObjPlayerFPv(void *arg0) {
     void *p;
     if (TObjPlayer__sub_80019248(arg0) != 0) {
         p = M2C_FIELD(arg0, void **, 0xD00);

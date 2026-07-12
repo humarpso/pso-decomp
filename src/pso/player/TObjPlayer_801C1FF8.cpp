@@ -7,7 +7,7 @@ extern "C" {
 void *init__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8001BF10(void *);
 void TObjPlayer__sub_8012AF00(void *);
-void TObjPlayer__sub_801D33B4(void *);
+void reset_movement_state__10TObjPlayerFPv(void *);
 
 extern const f32 TObjPlayer__data_805DC294;
 
@@ -15,7 +15,7 @@ void *init__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8001BF10((void *)((char *)arg0 + 12));
     TObjPlayer__sub_8012AF00((void *)((char *)arg0 + 48));
     M2C_FIELD(arg0, f32 *, 0x8) = TObjPlayer__data_805DC294;
-    TObjPlayer__sub_801D33B4(arg0);
+    reset_movement_state__10TObjPlayerFPv(arg0);
     return arg0;
 }
 

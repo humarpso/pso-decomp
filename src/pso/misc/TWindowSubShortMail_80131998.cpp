@@ -11,7 +11,7 @@ s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
 s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
 s32 TWindowSubTradeMain__sub_80244A4C(void *);
 int fn_80131A5C(void* p);
-int TWindowMakeTeam__sub_80131A80(void* p);
+int get_lobby_field_20__15TWindowMakeTeamFPv(void* p);
 int set_flag62_bit2__16TKeyBoardControlFPv(void*);
 int TLobby__sub_80244D2C(void*);
 
@@ -29,7 +29,7 @@ void TWindowSubShortMail__sub_80131998(void *arg0) {
         }
     }
 }
-void TWindowSubShortMail__sub_801319F4(void *arg0) {
+void hide_window__19TWindowSubShortMailFPv(void *arg0) {
     u16 temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, u16 *, 0x1C);

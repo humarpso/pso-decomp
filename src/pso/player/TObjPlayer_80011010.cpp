@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_800109B0(void *, s32);
+s32 add_id_to_slots__10TObjPlayerFiUs(void *, s32);
 s32 obj_getArrU16_FC(s32, s32);
 s32 is_split_screen();
 s32 obj_getField1c(u32);

@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjPlayer__sub_800A2D28(void *arg0);
-void TObjPlayer__sub_800A2D74(void);
+void *create_instance__10TObjPlayerFPv(void *arg0);
+void cleanup_effects__10TObjPlayerFv(void);
 M2C_UNK TEneEffHamon__sub_800A380C();
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjPlayer__sub_800A2F94(void *, void *, void *);
@@ -17,7 +17,7 @@ void TObjPlayer__sub_801E483C(void*);
 
 extern void *tl_04;
 
-void *TObjPlayer__sub_800A2D28(void *arg0) {
+void *create_instance__10TObjPlayerFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x42C);
     if (o != NULL) {
         o = TObjPlayer__sub_800A2F94(o, tl_04, arg0);
@@ -28,7 +28,7 @@ void *TObjPlayer__sub_800A2D28(void *arg0) {
 extern u32 lbl_805D500C;
 extern u32 lbl_805D5010;
 
-void TObjPlayer__sub_800A2D74(void) {
+void cleanup_effects__10TObjPlayerFv(void) {
     if ((u32) lbl_805D500C != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D500C, 1);
         lbl_805D500C = 0U;

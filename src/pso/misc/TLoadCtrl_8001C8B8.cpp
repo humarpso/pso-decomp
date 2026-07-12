@@ -17,7 +17,7 @@ M2C_UNK TCameraCtrl__sub_800693F4();
 M2C_UNK reset__11TCameraCtrlFv();
 M2C_UNK TCameraCtrl__sub_8006A35C();
 M2C_UNK TNowLoading__sub_8001D4D0();
-M2C_UNK TLobby__sub_80226D5C();
+M2C_UNK release_bgm_resource__6TLobbyFv();
 M2C_UNK TAdLoadQuestGC__sub_8030984C();
 M2C_UNK fn_8034AD28();
 M2C_UNK queue_destruction__7TObjectFv(u32);
@@ -36,16 +36,16 @@ void cleanup_scene__9TLoadCtrlFv(void) {
     }
     switch (TLoadCtrl__data_805D4A84) {
     case 0:
-        TLobby__sub_80226D5C();
+        release_bgm_resource__6TLobbyFv();
         TNowLoading__sub_8001D4D0();
         break;
     case 1:
-        TLobby__sub_80226D5C();
+        release_bgm_resource__6TLobbyFv();
         TAdLoadQuestGC__sub_8030984C();
         break;
     case 3:
     case 4:
-        TLobby__sub_80226D5C();
+        release_bgm_resource__6TLobbyFv();
         fn_8034AD28();
         break;
     }

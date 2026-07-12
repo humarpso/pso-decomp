@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8007294C(s32 arg0);
+void send_6x7C_packet__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__send_and_handle_60(s32);
 M2C_UNK bswap_6x7C_packet__6TLobbyFi();
 
-void TLobby__sub_8007294C(s32 arg0) {
+void send_6x7C_packet__6TLobbyFi(s32 arg0) {
     bswap_6x7C_packet__6TLobbyFi();
     TLobby__send_and_handle_60(arg0);
 }

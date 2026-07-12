@@ -8,7 +8,7 @@ void *__dt__17TItemEffectWeaponFv(void *self, s32 flag);
 void *TItemMagSub__sub_80115728(void *, s32);
 void  TItemEffectWeapon__sub_803639F0(s32);
 s32   TItemEffectWeapon__sub_80363A1C(void);
-void  TItemMagSub__sub_803642D8(void *);
+void  free_to_heap__11TItemMagSubFPv(void *);
 void  fn_80364328(void *);
 
 extern void *__vt__17TItemEffectWeapon[];
@@ -19,7 +19,7 @@ void *__dt__17TItemEffectWeaponFv(void *self, s32 flag) {
         TItemEffectWeapon__sub_803639F0(M2C_FIELD(self, s32 *, 0x1C));
         TItemMagSub__sub_80115728(self, 0);
         if ((s16)flag > 0) {
-            TItemMagSub__sub_803642D8(self);
+            free_to_heap__11TItemMagSubFPv(self);
         }
     }
     return self;

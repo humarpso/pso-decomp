@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemProArmor__sub_80117578(s32 arg0, u32 arg1);
+void create__13TItemProArmorFiUi(s32 arg0, u32 arg1);
 void TItemProArmor__sub_801175CC(void* a0);
 M2C_UNK TItemProArmor__sub_8011751C(void *, s32, u32);
 void *__nw__7TObjectFUl(M2C_UNK);
 
-void TItemProArmor__sub_80117578(s32 arg0, u32 arg1) {
+void create__13TItemProArmorFiUi(s32 arg0, u32 arg1) {
     void *temp_r3;
     if ((arg0 != 0) && (arg1 != 0U)) {
         temp_r3 = __nw__7TObjectFUl(0x20);
@@ -22,6 +22,6 @@ void TItemProArmor__sub_80117578(s32 arg0, u32 arg1) {
 }
 
     extern int tl_05;
-void TItemProArmor__sub_801175CC(void* a0) { TItemProArmor__sub_80117578((s32)((void*)(tl_05)), (u32)((void*)(*(int*)((char*)a0 + 0xf0)))); }
+void TItemProArmor__sub_801175CC(void* a0) { create__13TItemProArmorFiUi((s32)((void*)(tl_05)), (u32)((void*)(*(int*)((char*)a0 + 0xf0)))); }
 
 }

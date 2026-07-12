@@ -11,7 +11,7 @@ void TWindowMainMenu__sub_8024E3D0(void);
 int TWindowMainMenu__sub_8024E3D4(void* p);
 int TWindowMainMenu__sub_8024E3E0(void* p);
 int TWindowDD__sub_8024664C(void*);
-void TWindowDeposit__sub_8024E434(void *arg0, s32 arg1);
+void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
 int TWindowMainMenu__sub_8024E3F4(void* p);
 void TWindowMainMenu__vt4(void);
 void TWindowMainMenu__vt6(void);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801A2E84(void);
+void apply_char_to_players__6TLobbyFv(void);
 void reset_quest_state__6TLobbyFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
@@ -31,7 +31,7 @@ M2C_UNK queue_destruction__7TObjectFv(u32);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D53A8;
 
-void TLobby__sub_801A2E84(void) {
+void apply_char_to_players__6TLobbyFv(void) {
     s32 var_r31;
     u32 temp_r3;
     u32 temp_r3_2;

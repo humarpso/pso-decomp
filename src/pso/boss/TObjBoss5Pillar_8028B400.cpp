@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjBoss5Pillar__sub_8028B400(u8 *arg0);
+void render__15TObjBoss5PillarFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(int, int, f32);
 M2C_UNK TObjFish__sub_803DA798(void *);
@@ -18,7 +18,7 @@ M2C_UNK fn_8028ADDC(int);
 
 extern s32 lbl_805D4DDC;
 
-void TObjBoss5Pillar__sub_8028B400(u8 *arg0) {
+void render__15TObjBoss5PillarFPv(u8 *arg0) {
     if (TObjPlayer__sub_801A85A0() == 0) {
         TObjPlayer__sub_803D9B2C();
         TObjFish__sub_803DA798((void *) (lbl_805D4DDC));

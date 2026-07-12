@@ -25,9 +25,9 @@ M2C_UNK TObjAreaWarp__sub_8019CAB0(void *);
 f32 TObjWarpJung__sub_801A0324(f32);
 M2C_UNK TObjWarpJung__sub_801A0354();
 M2C_UNK TObjWarpJung__sub_801A0378(M2C_UNK, s32);
-M2C_UNK TObjWarpJung__sub_801A03D8(M2C_UNK);
+M2C_UNK render_warp__12TObjWarpJungFPv(M2C_UNK);
 M2C_UNK TObjWarpJung__sub_801A0404(M2C_UNK);
-s32 TObjWarpJung__sub_801A04C0();
+s32 update_warp_display__12TObjWarpJungFv();
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -42,7 +42,7 @@ void render__22TObjAreaWarpEndingJungFv(u8 *arg0) {
     s32 temp_r0;
 
     if (((VObj*)arg0)->m8(lbl_805DBFD4, lbl_805DBFD8) != 0) {
-        if (TObjWarpJung__sub_801A04C0() != 0) {
+        if (update_warp_display__12TObjWarpJungFv() != 0) {
             PPCSync();
         }
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x8C);
@@ -58,7 +58,7 @@ void render__22TObjAreaWarpEndingJungFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjWarpJung__sub_801A03D8(0);
+        render_warp__12TObjWarpJungFPv(0);
         TParticleCtrl__sub_801E2EFC();
         TObjWarpJung__sub_801A0378(1, (s32) M2C_FIELD(arg0, f32 *, 0xC4));
         TParticleCtrl__sub_801E2F20();

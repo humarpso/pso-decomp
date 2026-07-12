@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BEAC4(u8 *arg0);
+void update_attack_timer__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TBoss6Type2__sub_802BD014(void *, int);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
@@ -15,7 +15,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 s32 check_target__11TBoss6Type2FPv(void *);
 s32 is_target_valid__11TBoss6Type2FPv(void *);
 
-void TBoss6Type2__sub_802BEAC4(u8 *arg0) {
+void update_attack_timer__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
     u32 temp_r3;
 
