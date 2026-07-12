@@ -21,7 +21,7 @@ VV(61)VV(62)VV(63)VV(64)
 extern "C" {
 
 void TObjPlayer__sub_8011F578(void *arg0, f32 farg0);
-void TObjPlayer__sub_8011F5E0(void *arg0);
+void update_active_game_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8011E484(void *);
 M2C_UNK TObjPlayer__sub_8011E4D8(void *);
 s32 is_active_in_game__10TObjPlayerFPv();
@@ -60,7 +60,7 @@ void TObjPlayer__sub_8011F578(void *arg0, f32 farg0) {
 
 extern f32 lbl_805DAC9C;
 
-void TObjPlayer__sub_8011F5E0(void *arg0) {
+void update_active_game_effect__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
     if (is_active_in_game__10TObjPlayerFPv() != 0) {

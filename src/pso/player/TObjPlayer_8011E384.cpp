@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_8011E384(void *arg0);
+s32 is_mode_two_and_ready__10TObjPlayerFPv(void *arg0);
 s16 TObjPlayer__sub_801210D0(s32);
 
 struct Base_8011E384 { char pad[0x18]; };
@@ -23,7 +23,7 @@ struct VObj_8011E384 : Base_8011E384 {
     virtual int m35();
 };
 
-s32 TObjPlayer__sub_8011E384(void *arg0) {
+s32 is_mode_two_and_ready__10TObjPlayerFPv(void *arg0) {
     if ((TObjPlayer__sub_801210D0(M2C_FIELD(arg0, s32 *, 0xF0)) == 2) &&
         (((VObj_8011E384 *)arg0)->m35() == 1)) {
         return 1;

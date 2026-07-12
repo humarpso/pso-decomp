@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 can_use_camera_field__10TObjPlayerFi(s32 arg0);
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 s32 check_flag_100__10TObjPlayerFPv();
 s32 get_camera_field__10TObjPlayerFPv(s32);
 
 s32 can_use_camera_field__10TObjPlayerFi(s32 arg0) {
-    if ((check_flag_100__10TObjPlayerFPv() != 0) || (get_camera_field__10TObjPlayerFPv(arg0) == 0) || (TObjPlayer__sub_802034EC() == 0)) {
+    if ((check_flag_100__10TObjPlayerFPv() != 0) || (get_camera_field__10TObjPlayerFPv(arg0) == 0) || (reset_key_machine_state__10TObjPlayerFv() == 0)) {
         return 0;
     }
     return 1;

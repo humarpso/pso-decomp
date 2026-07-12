@@ -13,7 +13,7 @@ s32 set_action_state__10TObjPlayerFPvss(void * a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_isState2_324(void * a0 = 0);
 s32 apply_velocity__10TObjPlayerFPv(s32);
 u32 TObjPlayer__sub_801B5EA4();
-s32 TObjPlayer__sub_801D0888();
+s32 update_position_from_target__10TObjPlayerFPv();
 void TObjPlayer__sub_801CB424(void);
 void TObjPlayer__sub_801CB52C(void);
 void TObjPlayer__sub_801CB55C(void);

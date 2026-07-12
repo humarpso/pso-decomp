@@ -3,7 +3,7 @@
 extern "C" {
 
 int TObjPlayer__sub_800F6B68(void* a0 = 0);
-void TObjPlayer__sub_800F6B14(void* p);
+void refresh_lobby_state__10TObjPlayerFPv(void* p);
 int query_lobby_state__10TObjPlayerFPv(void* p);
 int TLobby__sub_80105538(void*);
 

@@ -10,13 +10,13 @@ void claim_ownership__5TItemFii(s32 arg0, s32 arg1);
 M2C_UNK TLobby__sub_80103114(s32, s32);
 s32 TLobby__sub_80103AD4();
 M2C_UNK TObjPlayer__sub_80154764(s32, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80154B28(s32);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(s32);
 u16 obj_getField1c();
 
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
     if ((u16) obj_getField1c() == 0xFFFF) {
         TLobby__sub_80103114(arg0, TLobby__sub_80103AD4());
-        TObjPlayer__sub_80154B28(arg0);
+        reset_photon_effect__10TObjPlayerFPv(arg0);
         if (arg1 != 0) {
             TObjPlayer__sub_80154764(arg0, 0, 1);
         }

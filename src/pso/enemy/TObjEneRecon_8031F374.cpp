@@ -108,14 +108,14 @@ extern "C" {
 
 void handle_death_state__12TObjEneReconFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneRecobox__sub_8031F1A8(void *);
-M2C_UNK TObjPlayer__sub_800F6B14();
+M2C_UNK refresh_lobby_state__10TObjPlayerFPv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv();
 
 void handle_death_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        TObjPlayer__sub_800F6B14();
+        refresh_lobby_state__10TObjPlayerFPv();
         M2C_FIELD(arg0, s32 *, 0x40C) = (s32) (M2C_FIELD(arg0, s32 *, 0x40C) | 1);
         TObjEneRecobox__sub_8031F1A8(arg0);
         ((VObj_8031F374 *)arg0)->m93();

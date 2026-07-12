@@ -12,9 +12,9 @@ struct VObj_800D7BFC : Base_800D7BFC {
 
 extern "C" {
 
-void TObjPlayer__sub_800D7BFC(void *arg0);
+void activate_and_dispatch__10TObjPlayerFPv(void *arg0);
 
-void TObjPlayer__sub_800D7BFC(void *arg0) {
+void activate_and_dispatch__10TObjPlayerFPv(void *arg0) {
     struct VObj_800D7BFC *o = (struct VObj_800D7BFC *)arg0;
     M2C_FIELD(arg0, s32 *, 0x18) = 1;
     o->m2();

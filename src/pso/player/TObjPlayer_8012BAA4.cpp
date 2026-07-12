@@ -13,12 +13,12 @@ M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_800112A4(s32, s16);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
-s32 TObjPlayer__sub_8011E384(s32);
-M2C_UNK TObjPlayer__sub_8011F5E0(s32);
+s32 is_mode_two_and_ready__10TObjPlayerFPv(s32);
+M2C_UNK update_active_game_effect__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_8011F63C();
 s32 TObjPlayer__sub_80121200();
 M2C_UNK TObjPlayer__sub_8012B9B4(s32);
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
 s16 obj_getS16_32E(s32);
@@ -27,7 +27,7 @@ void sync_hp_damage__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     s16 temp_r3;
 
-    if (TObjPlayer__sub_802034EC() != 0) {
+    if (reset_key_machine_state__10TObjPlayerFv() != 0) {
         temp_r3 = obj_getS16_32E(M2C_FIELD(arg0, s32 *, 0xF0));
         temp_r0 = M2C_FIELD(arg0, s16 *, 0x1F8) - temp_r3;
         if (temp_r0 != 0) {
@@ -46,11 +46,11 @@ void update_cane_cast__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
-    if (TObjPlayer__sub_8011E384(arg0) != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
         TObjPlayer__sub_8012B9B4(arg0);
         return;
     }
-    TObjPlayer__sub_8011F5E0(arg0);
+    update_active_game_effect__10TObjPlayerFPv(arg0);
 }
 
 extern const f32 lbl_805DAEC8;

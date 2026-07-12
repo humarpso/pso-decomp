@@ -49,7 +49,7 @@ extern "C" {
 
 int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1);
 int run_state_query__10TObjPlayerFPvi(void* a0, int a1);
-s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 M2C_UNK TItem__sub_80102424(void *, s16, s32, M2C_UNK);
 s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
 M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
@@ -68,7 +68,7 @@ int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DEC = a1; 
     extern int lbl_805D5E00;
 int run_state_query__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5E00 = a1; lbl_805D5DF4 = 0; count_owned_items__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); return lbl_805D5DF4; }
 
-s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s16 temp_r4;
     void *temp_r3_2;
     s32 temp_r3;

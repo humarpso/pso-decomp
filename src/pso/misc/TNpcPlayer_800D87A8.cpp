@@ -8,13 +8,13 @@ extern "C" {
 
 void *TNpcPlayer__sub_800D87A8(void);
 void *TObjPlayer__sub_80040B28();
-s32 TObjPlayer__sub_8023611C();
+s32 is_valid_and_active__10TObjPlayerFUi();
 
 void *TNpcPlayer__sub_800D87A8(void) {
     void *temp_r31;
 
     temp_r31 = TObjPlayer__sub_80040B28();
-    if (TObjPlayer__sub_8023611C() != 0) {
+    if (is_valid_and_active__10TObjPlayerFUi() != 0) {
         return temp_r31;
     }
     return 0;

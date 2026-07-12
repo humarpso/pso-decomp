@@ -12,8 +12,8 @@ s32 TItemProArmor__sub_80102C3C(void *);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E2FC(void *, f32);
-s32 TObjPlayer__sub_8011E384(void *);
-M2C_UNK TObjPlayer__sub_8011F5E0(void *);
+s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
+M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
 M2C_UNK create_ex__9TTecMegidFiiii(void *, M2C_UNK *, s32, M2C_UNK);
@@ -47,14 +47,14 @@ void trigger_megid_special__10TObjPlayerFPv(void *arg0) {
 
     if (TItemProShield__sub_8010B734() == 1) {
         create_item_eff_cane__10TObjPlayerFiUiii(tl_05, arg0, 2, 0x101);
-        if (TObjPlayer__sub_8011E384(arg0) != 0) {
+        if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
             if (draw_icon__10TObjPlayerFPvii(arg0, 2, &sp8) != 0) {
                 temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
                 create_ex__9TTecMegidFiiii(temp_r3, &sp8, M2C_FIELD(temp_r3, s32 *, 0x60), 0);
                 TObjPlayer__sub_8011E2FC(arg0, lbl_805DAF18);
             }
         } else {
-            TObjPlayer__sub_8011F5E0(arg0);
+            update_active_game_effect__10TObjPlayerFPv(arg0);
         }
     }
 }

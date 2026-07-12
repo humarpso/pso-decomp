@@ -3,7 +3,7 @@
 extern "C" {
 s32   is_owner_alive__10TObjPlayerFPv(TItemShootGun*);
 void  free_children__12TObjDoorJungFPvPv(s32, s32);
-void  TObjPlayer__sub_8023E480(void*);
+void  notify_fish_if_valid__10TObjPlayerFUi(void*);
 void  TParticleCtrl__sub_801E2EFC(void);
 void  TObjPlayer__sub_803D9B2C(void);
 void  TOHangerMachine01__sub_803D9C00(Vec*);
@@ -17,7 +17,7 @@ void TItemShootGun::render() {
     if (is_owner_alive__10TObjPlayerFPv(this)) {
         if (this->m_58 != NULL) {
             free_children__12TObjDoorJungFPvPv(*(s32*)((u8*)this->m_58 + 4), this->m_70 & 0xFFFF);
-            TObjPlayer__sub_8023E480(this->m_5C);
+            notify_fish_if_valid__10TObjPlayerFUi(this->m_5C);
             TParticleCtrl__sub_801E2EFC();
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(&this->m_pos);

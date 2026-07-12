@@ -8,14 +8,14 @@ extern "C" {
 
 s32 TObjPlayer__vt12(void *arg0, s32 arg1);
 s32 TObjPlayer__sub_801D91B8(void *, void *);
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 
 s32 TObjPlayer__vt12(void *arg0, s32 arg1) {
     s32 temp_r31;
     s32 temp_r3;
     void *temp_r4;
 
-    if (TObjPlayer__sub_802034EC() == 0) {
+    if (reset_key_machine_state__10TObjPlayerFv() == 0) {
         return 0;
     }
     temp_r4 = M2C_FIELD(arg0, void **, 0x2B0);

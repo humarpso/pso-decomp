@@ -8,14 +8,14 @@ extern "C" {
 
 void update_by_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK set_flag_1_at_c__10TObjPlayerFPv(void *);
-s16 TObjPlayer__sub_801AFCCC();
+s16 get_handle_value__10TObjPlayerFPv();
 M2C_UNK update_if_flag8_set__10TObjPlayerFi(void *);
 M2C_UNK tick_countdown_timer__10TObjPlayerFPv(void *);
 
 void update_by_state__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_801AFCCC();
+    temp_r3 = get_handle_value__10TObjPlayerFPv();
     switch (temp_r3) {
     case 0:
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {

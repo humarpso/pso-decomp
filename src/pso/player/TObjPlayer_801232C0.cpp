@@ -8,7 +8,7 @@ extern "C" {
 
 void update_linked_object__10TObjPlayerFPv(void *arg0);
 void *set_state_35__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_801004DC(s32, s16, M2C_UNK, M2C_UNK);
+M2C_UNK submit_computer_command__10TObjPlayerFPv(s32, s16, M2C_UNK, M2C_UNK);
 void TObjPlayer__sub_80120D50(void *);
 
 void update_linked_object__10TObjPlayerFPv(void *arg0) {
@@ -16,7 +16,7 @@ void update_linked_object__10TObjPlayerFPv(void *arg0) {
 
     temp_r3 = M2C_FIELD(arg0, void **, 0xF4);
     if (temp_r3 != NULL) {
-        TObjPlayer__sub_801004DC(M2C_FIELD(temp_r3, s32 *, 0x2C), M2C_FIELD(arg0, s16 *, 0x1F8), 0, 0);
+        submit_computer_command__10TObjPlayerFPv(M2C_FIELD(temp_r3, s32 *, 0x2C), M2C_FIELD(arg0, s16 *, 0x1F8), 0, 0);
     }
 }
 

@@ -3430,6 +3430,7 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TPlyPhotonChair_8035B5CC.cpp"),
                 NonMatching("pso/misc/TPlyPtclObjectLeftHand_8030A4C8.cpp"),
                 NonMatching("pso/misc/TPlyPtclObjectRightHand_8030A3BC.cpp"),
+                NonMatching("pso/misc/TParticleCtrl_801E539C.cpp"),
                 NonMatching("pso/misc/TQuadSpriteCol_801E52EC.cpp"),
                 NonMatching("pso/misc/TQuadSpriteNormal_801E5894.cpp"),
                 NonMatching("pso/misc/TQuadSpriteScl_801E5BE0.cpp"),

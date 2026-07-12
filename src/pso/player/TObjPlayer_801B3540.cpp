@@ -12,7 +12,7 @@ s32 TObjPlayer__sub_80099EF8();
 int TObjPlayer__sub_8011E204(void*, int);
 int TObjPlayer__sub_8011E238(void*, int);
 int is_flag_400_set__10TObjPlayerFPv(void* p);
-u32 TObjPlayer__sub_801D4E10(s32, s8 *);
+u32 set_mode_and_refresh_object__10TObjPlayerFPvi(s32, s8 *);
 u32 get_owner_if_alive__10TObjPlayerFPv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 int check_flag__10TObjPlayerFPvi(void*, int);

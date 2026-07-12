@@ -16,7 +16,7 @@ M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 s32 TObjPlayer__sub_801AFF0C(void *);
 M2C_UNK revive_or_spawn_marker__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801CA35C(void *);
-M2C_UNK TObjPlayer__sub_801D0888(void *);
+M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
 
 s32 obj_isState2_324();
@@ -25,7 +25,7 @@ extern const f32 TObjPlayer__data_805DC294;
 
 void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
     if (obj_isState2_324() == 0) {
-        TObjPlayer__sub_801D0888(arg0);
+        update_position_from_target__10TObjPlayerFPv(arg0);
         return;
     }
     if (TObjPlayer__sub_801AFF0C(arg0) != 0) {

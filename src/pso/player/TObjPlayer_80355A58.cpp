@@ -11,12 +11,12 @@ s32 TObjPlayer__sub_800196EC();
 s32 TObjPlayer__sub_800196F4(u32);
 s8 TObjPlayer__sub_80102C30(void *);
 M2C_UNK TObjPlayer__sub_8011EAB8(void *, s32, s32, f32);
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 
 void apply_mag_effect_if_active__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     s32 temp_r31;
 
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (TObjPlayer__sub_802034EC() != 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {
         temp_r31 = TObjPlayer__sub_800196F4(M2C_FIELD(arg0, u32 *, 0xF0));
         {
         s32 t = TObjPlayer__sub_800196EC();

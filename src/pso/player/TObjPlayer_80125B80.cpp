@@ -14,9 +14,9 @@ void update_terminal_state__10TObjPlayerFPv(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
 s32 TOKeyMachine01__sub_802034A8();
 s32 is_mag_active__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_8011E384();
+s32 is_mode_two_and_ready__10TObjPlayerFPv();
 s32 TObjPlayer__sub_8011E618(void *);
-s32 TObjPlayer__sub_8011F5E0(void *);
+s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
 s32 TObjPlayer__sub_80121CA8(void *);
 s16 TObjPlayer__sub_801251AC(s32);
@@ -36,13 +36,13 @@ void spawn_effect__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
 void cast_gifoie__10TObjPlayerFPv(void *arg0) {
     s32 sp8;
 
-    if (TObjPlayer__sub_8011E384() != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         if ((TObjPlayer__sub_801251AC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0)) {
             create__10TTecGiFoieFPvPvPv(M2C_FIELD(arg0, s32 *, 0xF0), &sp8, TObjPlayer__sub_80121CA8(arg0));
             TObjPlayer__sub_8011E618(arg0);
         }
     } else {
-        TObjPlayer__sub_8011F5E0(arg0);
+        update_active_game_effect__10TObjPlayerFPv(arg0);
     }
 }
 void TObjPlayer__sub_80125C70(void* p) { *(s32*)((char*)p + 0x1f8) = -1; }

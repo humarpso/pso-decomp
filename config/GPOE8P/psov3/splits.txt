@@ -3292,7 +3292,7 @@ pso/misc/TParticleCtrl_80088000.cpp:
 	.text       start:0x80088000 end:0x80088020
 
 pso/effect/TParticleCtrl.cpp:
-	.text       start:0x80088020 end:0x80088078
+	.text       start:0x80088020 end:0x800884F0
 
 pso/misc/TParticleCtrl_800884F0.cpp:
 	.text       start:0x800884F0 end:0x80088514
@@ -15300,6 +15300,9 @@ pso/misc/TQuadSpriteCol.cpp:
 
 pso/misc/TQuadSpriteCol_801E52EC.cpp:
 	.text       start:0x801E52EC end:0x801E5330
+
+pso/misc/TParticleCtrl_801E539C.cpp:
+	.text       start:0x801E539C end:0x801E54F0
 
 pso/misc/TQuadSpriteNormal.cpp:
 	.text       start:0x801E583C end:0x801E5894

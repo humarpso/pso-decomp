@@ -5,7 +5,7 @@ s32   is_owner_alive__10TObjPlayerFPv(TItemShootModel*);
 void* TObjPlayer__sub_8010A050(void*);
 f32   TObjPlayer__sub_8001978C(f32);
 f64   TObjPlayer__sub_80019760(f32, f32);
-void  TObjPlayer__sub_8023E480(void*);
+void  notify_fish_if_valid__10TObjPlayerFUi(void*);
 void  TParticleCtrl__sub_801E2EFC(void);
 void  TObjPlayer__sub_803D9B2C(void);
 void  TOHangerMachine01__sub_803D9C00(Vec*);
@@ -21,7 +21,7 @@ extern const f64   lbl_8043E7A0[];
 void TItemShootModel::render() {
     if (is_owner_alive__10TObjPlayerFPv(this)) {
         if (this->m_58 != NULL) {
-            TObjPlayer__sub_8023E480(this->m_5C);
+            notify_fish_if_valid__10TObjPlayerFUi(this->m_5C);
             TParticleCtrl__sub_801E2EFC();
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(&this->m_pos);

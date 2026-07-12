@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_80123F70(void* p);
 void TObjPlayer__sub_80123F7C(void* p);
 void refresh_inventory_slot__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_801004DC(s32, s32, s32, s32);
+s32 submit_computer_command__10TObjPlayerFPv(s32, s32, s32, s32);
 s32 TObjPlayer__sub_8010069C();
 
 void TObjPlayer__sub_80123F70(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
@@ -20,7 +20,7 @@ void refresh_inventory_slot__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8010069C();
     temp_r3 = M2C_FIELD(arg0, void **, 0xF4);
     if (temp_r3 != NULL) {
-        TObjPlayer__sub_801004DC(M2C_FIELD(temp_r3, s32 *, 0x2C), 2, 0, 1);
+        submit_computer_command__10TObjPlayerFPv(M2C_FIELD(temp_r3, s32 *, 0x2C), 2, 0, 1);
     }
 }
 

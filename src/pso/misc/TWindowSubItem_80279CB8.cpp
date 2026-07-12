@@ -19,7 +19,7 @@ s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_80203418();
-s32 TObjPlayer__sub_802034EC(s32);
+s32 reset_key_machine_state__10TObjPlayerFv(s32);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, s32);
@@ -31,7 +31,7 @@ void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
 
     temp_r3 = (u32)__cntlzw(4 - (arg3 & 0xF)) >> 5;
     temp_r31 = temp_r3 + 4;
-    if ((TObjPlayer__sub_802034EC(temp_r3) == 0) || (TObjPlayer__sub_80203418() != 0)) {
+    if ((reset_key_machine_state__10TObjPlayerFv(temp_r3) == 0) || (TObjPlayer__sub_80203418() != 0)) {
         draw_text_gray__17TWindowSubComCardFiiii((s32)(arg2), (s32)(TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xF)), (M2C_UNK)(6), (s32)(temp_r31));
         return;
     }

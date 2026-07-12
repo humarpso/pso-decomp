@@ -80,7 +80,7 @@ s32 TObjPlayer__sub_800196F4(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 TObjPlayer__sub_8001972C();
 u32 TObjPlayer__sub_80102AA8();
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK TParticleCtrl__sub_80088000(u32);
 M2C_UNK TParticleCtrl__sub_80088010(u32);
 VObj_8010A26C *TPlayerBattleCtrl4P__sub_801BA74C(u16);
@@ -103,7 +103,7 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
         temp_r3_2 = TObjPlayer__sub_800196EC();
         if (temp_r3_2 != (s32) M2C_FIELD(arg0, s32 *, 0x20)) {
             M2C_FIELD(arg0, s32 *, 0x20) = temp_r3_2;
-            if ((TObjPlayer__sub_802034EC() != 0) && (temp_r3_2 == TObjPlayer__sub_800196F4(temp_r3))) {
+            if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == TObjPlayer__sub_800196F4(temp_r3))) {
                 M2C_FIELD(arg0, u32 *, 0x1C) = TBoss4Type2__sub_800874F4(sp8, 0x101);
             } else {
                 M2C_FIELD(arg0, u32 *, 0x1C) = 0U;

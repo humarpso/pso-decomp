@@ -9,9 +9,9 @@ extern "C" {
 void TObjPlayer__sub_8012789C(void* p);
 void cast_jellen_zalure__10TObjPlayerFPv(void *arg0);
 M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, M2C_UNK, M2C_UNK);
-s32 TObjPlayer__sub_8011E384(void *);
+s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 int TObjPlayer__sub_8011E618(void*);
-M2C_UNK TObjPlayer__sub_8011F5E0(void *);
+M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_8011F63C();
 s32 TObjPlayer__sub_80121CA8(void *);
 M2C_UNK create__9TTecJelinFiiii(s32, s32, s32, M2C_UNK);
@@ -30,7 +30,7 @@ void cast_jellen_zalure__10TObjPlayerFPv(void *arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
         spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 2, 1);
     }
-    if (TObjPlayer__sub_8011E384(arg0) != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
         if (TObjPlayer__sub_80121CA8(arg0) == 0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0xF0);
             temp_r4 = temp_r3 + 0x38;
@@ -43,7 +43,7 @@ void cast_jellen_zalure__10TObjPlayerFPv(void *arg0) {
         TObjPlayer__sub_8011E618((void*)(arg0));
         return;
     }
-    TObjPlayer__sub_8011F5E0(arg0);
+    update_active_game_effect__10TObjPlayerFPv(arg0);
 }
 
 }

@@ -20,7 +20,7 @@ void apply_velocity__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8002AEB8(void *, M2C_UNK);
 M2C_UNK fn_800660B8(void *);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s16);
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK TLobby__sub_8024AC20(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -53,7 +53,7 @@ void init_action__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_8000FF4C(arg0, 0xFFFF);
     set_action_state__10TObjPlayerFPvss(arg0, 0x12, (s16) ret_801D26AC());
     fn_800660B8(arg0);
-    if (TObjPlayer__sub_802034EC() != 0) {
+    if (reset_key_machine_state__10TObjPlayerFv() != 0) {
         void *new_obj = (void *)(size_t)__nw__7TObjectFUl(0x38);
         if (new_obj != 0U) {
             TTecReverser__sub_80239E44(new_obj, arg0, tl_07);

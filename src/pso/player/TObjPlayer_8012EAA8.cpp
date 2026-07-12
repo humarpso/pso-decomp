@@ -14,9 +14,9 @@ void release_container_if_ready__10TObjPlayerFPv(void* p);
 void *init_variant_a__10TObjPlayerFPv(void *arg0);
 int TObjContainerIdo__sub_803D96A8(void*, void*);
 int TObjPlayer__sub_80115BC0(void*, int, int);
-s32 TObjPlayer__sub_8011E384();
+s32 is_mode_two_and_ready__10TObjPlayerFPv();
 int TObjPlayer__sub_8011E618(void*);
-s32 TObjPlayer__sub_8011F5E0(void *);
+s32 update_active_game_effect__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80120D50(void *);
 void TObjPlayer__sub_8012106C(void *, int);
 int TObjPlayer__sub_80121200(void*);
@@ -29,7 +29,7 @@ void cast_shifta_deband__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
 
-    if (TObjPlayer__sub_8011E384() != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         if (TObjPlayer__sub_80121CA8(arg0) == 0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0xF0);
             create__10TTecDebandFiii(temp_r3, temp_r3 + 0x38, 2);
@@ -40,7 +40,7 @@ void cast_shifta_deband__10TObjPlayerFPv(void *arg0) {
         TObjPlayer__sub_8011E618(arg0);
         return;
     }
-    TObjPlayer__sub_8011F5E0(arg0);
+    update_active_game_effect__10TObjPlayerFPv(arg0);
 }
 int grow_field1f8__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((char*)p + 0x1f8, 1820, 10922); }
 int apply_recoil_backward__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((char*)p + 0x1f8, -1820, 0); }

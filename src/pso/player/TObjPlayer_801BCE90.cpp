@@ -6,11 +6,11 @@ void update_recobox__10TObjPlayerFi(s32 arg0);
 void destroy_child__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801BE9A8(s32);
 s32 set_flag_20000__10TObjPlayerFi(s32);
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 int queue_destruction__7TObjectFv(void*);
 
 void update_recobox__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_802034EC() != 0) {
+    if (reset_key_machine_state__10TObjPlayerFv() != 0) {
         TObjPlayer__sub_801BE9A8(arg0);
         return;
     }

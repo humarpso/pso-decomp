@@ -13,7 +13,7 @@ s32 TObjPlayer__sub_800113E4(void *, s16);
 s32 obj_isState3_324(void *);
 s32 TObjPlayer__sub_80102C78(void *, s16);
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TObjPlayer__sub_801B19EC(void *);
+s32 reset_volopt_state__10TObjPlayerFv(void *);
 s32 check_camera_mode__10TObjPlayerFv();
 int TObjPlayer__sub_801B3FD8(void* p);
 int attach_battle_ctrl_sub__10TObjPlayerFPv(void* p);

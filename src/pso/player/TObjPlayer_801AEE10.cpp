@@ -6,7 +6,7 @@ s32 check_camera_mode__10TObjPlayerFv();
 s32 TLobby__sub_8030A7B0();
 s32 get_main_phase();
 s32 is_not_split_screen__13TRaderMapCoreFv();
-s32 TObjPlayer__sub_801B19EC(s32);
+s32 reset_volopt_state__10TObjPlayerFv(s32);
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TObjPlayer__sub_80354C7C(s32);
@@ -59,7 +59,7 @@ s32 is_player_valid_target__10TObjPlayerFi(s32 arg0) {
         return 0;
     }
     temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg0);
-    if ((TObjPlayer__sub_80354C7C(arg0) == 0) || (check_flag_100__10TObjPlayerFPv(temp_r31) != 0) || (TObjPlayer__sub_801B19EC(temp_r31) == 0)) {
+    if ((TObjPlayer__sub_80354C7C(arg0) == 0) || (check_flag_100__10TObjPlayerFPv(temp_r31) != 0) || (reset_volopt_state__10TObjPlayerFv(temp_r31) == 0)) {
         return 0;
     }
     return 1;

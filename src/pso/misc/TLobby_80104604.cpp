@@ -14,7 +14,7 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TObjPlayer__sub_80099EF8();
 u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 TWindowSubComCard__sub_801058F8(s32);
-u32 TObjPlayer__sub_8010590C(s32);
+u32 activate_d04_slot__10TObjPlayerFPv(s32);
 u32 test_flag3__9TItemDataFPv(s32);
 u32 get_item_field_2__9TItemDataFPv(s32);
 M2C_UNK fn_801B849C(s32, void *);
@@ -59,7 +59,7 @@ void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1) {
             var_r3 = test_flag3__9TItemDataFPv(temp_r3);
             break;
         case 3:
-            var_r3 = TObjPlayer__sub_8010590C(temp_r3);
+            var_r3 = activate_d04_slot__10TObjPlayerFPv(temp_r3);
             break;
         case 4:
         case 5:

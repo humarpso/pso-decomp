@@ -9,8 +9,8 @@ extern "C" {
 void cast_foie__10TObjPlayerFPv(void *arg0);
 void *TObjPlayer__sub_80122BE4(void *arg0);
 M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
-s32 TObjPlayer__sub_8011E384(void *);
-M2C_UNK TObjPlayer__sub_8011F5E0(void *);
+s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
+M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 void TObjPlayer__sub_80120D50(void *);
 void TObjPlayer__sub_8012106C(void *, int);
@@ -22,12 +22,12 @@ void cast_foie__10TObjPlayerFPv(void *arg0) {
 
     draw_icon__10TObjPlayerFPvii(arg0, 2, &sp8);
     TObjEneDellBiter__sub_80087350(&sp8, 0x1BF);
-    if (TObjPlayer__sub_8011E384(arg0) != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
         temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
         create__8TTecFoieFPvPvPvPv(temp_r3, &sp8, M2C_FIELD(temp_r3, s32 *, 0x60), 3);
         return;
     }
-    TObjPlayer__sub_8011F5E0(arg0);
+    update_active_game_effect__10TObjPlayerFPv(arg0);
 }
 
 extern M2C_UNK lbl_804A1380[];

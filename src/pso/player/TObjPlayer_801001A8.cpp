@@ -11,7 +11,7 @@ M2C_UNK get_model_ids__9TItemLoadFUcPvPv(u8, u32 *, s32 *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
 M2C_UNK TObjPlayer__sub_80141F1C();
-M2C_UNK TObjPlayer__sub_8023E480(s32);
+M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -28,7 +28,7 @@ void draw_item_model__10TObjPlayerFPv(u8 *arg0) {
     if (spC != 0U) {
         set_depth_buffer_settings_id__FUl(3);
         TParticleCtrl__sub_801E2EFC();
-        TObjPlayer__sub_8023E480(sp8);
+        notify_fish_if_valid__10TObjPlayerFUi(sp8);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

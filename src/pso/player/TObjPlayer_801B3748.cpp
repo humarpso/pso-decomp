@@ -9,7 +9,7 @@ extern "C" {
 s32 TObjPlayer__sub_80099EF8();
 s32 init__9TItemDataFv(s8 *);
 s32 fn_801B7F4C(void *, s32);
-u32 TObjPlayer__sub_801D4E10(s32, s8 *);
+u32 set_mode_and_refresh_object__10TObjPlayerFPvi(s32, s8 *);
 u32 get_owner_if_alive__10TObjPlayerFPv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 int is_flag_clear__17TObjWarpBossMultiFPv(void* p);
@@ -26,7 +26,7 @@ s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2) {
     init__9TItemDataFv(sp8);
     sp8[0] = arg1;
     sp8[1] = arg2;
-    if (TObjPlayer__sub_801D4E10(M2C_FIELD(arg0, s32 *, 0xD00), sp8) == 0U) {
+    if (set_mode_and_refresh_object__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0xD00), sp8) == 0U) {
         return 0;
     }
     if (get_owner_if_alive__10TObjPlayerFPv() == 0U) {
@@ -35,7 +35,7 @@ s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2) {
     if (fn_801B7F4C(arg0, TObjPlayer__sub_80099EF8()) == 0) {
         return 0;
     }
-    if (TObjPlayer__sub_801D4E10(M2C_FIELD(arg0, s32 *, 0xD00), sp8) == 0U) {
+    if (set_mode_and_refresh_object__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0xD00), sp8) == 0U) {
         return 0;
     }
     if (get_owner_if_alive__10TObjPlayerFPv() == 0U) {

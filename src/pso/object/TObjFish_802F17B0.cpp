@@ -12,7 +12,7 @@ struct VObj_802F17B0 : Base_802F17B0 {
 extern "C" {
 
 void TObjFish__sub_802F17B0(s32 arg0, s32 arg1, s32 arg2);
-void *TParticleCtrl__sub_800882C4(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_802F190C(void *, s32);
 s32 get_particle_by_index__13TParticleCtrlFi(s32);
@@ -22,7 +22,7 @@ void TObjFish__sub_802F17B0(s32 arg0, s32 arg1, s32 arg2) {
 
     var_r31 = __nw__7TObjectFUl(0x78);
     if (var_r31 != NULL) {
-        var_r31 = TParticleCtrl__sub_800882C4(var_r31, arg0, get_particle_by_index__13TParticleCtrlFi(arg1), 1, 0, 0, 1, 0x40);
+        var_r31 = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(var_r31, arg0, get_particle_by_index__13TParticleCtrlFi(arg1), 1, 0, 0, 1, 0x40);
     }
     if (var_r31 != NULL) {
         ((VObj_802F17B0 *)var_r31)->m1();

@@ -8,7 +8,7 @@ extern "C" {
 
 void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TObjPlayer__sub_80203418();
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK update_stat_line__20TWindowSubStatusDispFPvi(void *, s32);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 
@@ -25,7 +25,7 @@ void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg
         M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
         M2C_FIELD(arg0, s32 *, 0x2C) = 0xFFAAAAAA;
         M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0xC5);
-    } else if ((TObjPlayer__sub_802034EC() == 0) || (TObjPlayer__sub_80203418() != 0)) {
+    } else if ((reset_key_machine_state__10TObjPlayerFv() == 0) || (TObjPlayer__sub_80203418() != 0)) {
         M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
         M2C_FIELD(arg0, s32 *, 0x2C) = 0xFFAAAAAA;
         M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x45);

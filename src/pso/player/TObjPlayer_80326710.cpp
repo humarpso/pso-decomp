@@ -13,7 +13,7 @@ s32 TItemProArmor__sub_80102C3C(void *);
 s32 TObjPlayer__sub_800112A4(s32, s16);
 M2C_UNK TObjPlayer__sub_80126414(s32, u32, s32, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80127F40(s32, u32, s32, M2C_UNK, f32);
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_8032697C(s32, u32, s32, M2C_UNK, f32);
 s32 TObjectV8047c128_subtract_hp(s32, s16);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
@@ -24,7 +24,7 @@ void sync_hp_from_target__10TObjPlayerFPv(void *arg0) {
     s16 temp_r3;
     s32 temp_r31;
 
-    if (TObjPlayer__sub_802034EC() != 0) {
+    if (reset_key_machine_state__10TObjPlayerFv() != 0) {
         temp_r3 = obj_getS16_32E(M2C_FIELD(arg0, s32 *, 0xF0));
         temp_r0 = M2C_FIELD(arg0, s16 *, 0x1FC) - temp_r3;
         if (temp_r0 != 0) {

@@ -10,7 +10,7 @@ s32 obj_testFlags30(s32, s32);
 s32 is_camera_ready__10TObjPlayerFv();
 s32 TObjPlayer__sub_801BE2DC(s32);
 s32 TObjPlayer__sub_80203418();
-s32 TObjPlayer__sub_802034EC();
+s32 reset_key_machine_state__10TObjPlayerFv();
 u32 TObjPlayer__sub_801C6D40(s32 a0 = 0, s32 a1 = 0);
 s32 TObjPlayer__sub_801BF40C(u32 a0 = 0, s32 a1 = 0);
 s32 TFontSmallLobby__sub_801AFEE0(void);

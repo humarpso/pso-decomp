@@ -10,7 +10,7 @@ void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjEnemyCustom__sub_800C7860(void *, s32);
 M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(s32, M2C_UNK *, s32, void *, s32);
-M2C_UNK TObjPlayer__sub_800D9168(void *);
+M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 extern M2C_UNK lbl_80483BB8[];
@@ -22,7 +22,7 @@ void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     s32 temp_r4_2;
 
     create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D4C88, lbl_80483BB8, TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__data_805D4C80, 0x10), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
-    TObjPlayer__sub_800D9168(arg0 + 0x2FC);
+    trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
     TBoss3Volopt__sub_8022675C(0x4001C112, arg0 + 0x38, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x2B8);

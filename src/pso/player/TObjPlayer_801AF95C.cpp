@@ -14,7 +14,7 @@ M2C_UNK set_flag_41c_bit1__10TObjPlayerFPv(s32);
 M2C_UNK clamp_stat_41c__10TObjPlayerFPv(s32);
 void *TQuestListVM__sub_8007EAF8();
 M2C_UNK TObjPlayer__sub_801AFDB0(s32);
-s32 TObjPlayer__sub_801D91F8(s32, s32);
+s32 get_current_state_field__10TObjPlayerFv(s32, s32);
 void *TObjPlayer__sub_801D9390();
 
 void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
@@ -155,7 +155,7 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
         M2C_FIELD(arg1, s32 *, 0x18) = temp_r28_2;
     }
     temp_r28_2 = M2C_FIELD(temp_r31, s32 *, 0x1C);
-    temp_r3_8 = TObjPlayer__sub_801D91F8(TObjPlayer__sub_801AFDB0(arg0), temp_r27);
+    temp_r3_8 = get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), temp_r27);
     if (temp_r28_2 < 0) {
         M2C_FIELD(arg1, s32 *, 0x1C) = 0;
         check_flag_at_41c__10TObjPlayerFPv(arg0);

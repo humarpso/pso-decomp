@@ -8,7 +8,7 @@ extern "C" {
 
 void unequip_by_field326__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801B198C(s32 arg0);
-void TObjPlayer__sub_801B19EC(void);
+void reset_volopt_state__10TObjPlayerFv(void);
 s32 TFontSmallLobby__sub_801AFEE0();
 s32 TObjPlayer__sub_801B18C0(void * a0 = 0, s16 a1 = 0);
 s32 get_main_phase();
@@ -26,6 +26,6 @@ void TObjPlayer__sub_801B198C(s32 arg0) {
     }
     TObjFish__sub_803E46BC(arg0);
 }
-void TObjPlayer__sub_801B19EC(void) { TBoss3Volopt__sub_8003F108(); TObjPlayer__sub_802034B0(); }
+void reset_volopt_state__10TObjPlayerFv(void) { TBoss3Volopt__sub_8003F108(); TObjPlayer__sub_802034B0(); }
 
 }

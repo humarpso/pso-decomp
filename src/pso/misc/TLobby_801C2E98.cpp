@@ -12,7 +12,7 @@ M2C_UNK close_and_play_effect__6TLobbyFii(u16, M2C_UNK);
 M2C_UNK TLobby__sub_8020BB18();
 M2C_UNK TLobby__sub_8020BCE4();
 M2C_UNK TOMineTrap__sub_8016FCC4();
-s32 TObjPlayer__sub_801BE648();
+s32 update_battle_controller__10TObjPlayerFv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TObjPlayer__sub_8002AEB8(s32, M2C_UNK);
 M2C_UNK obj_set_flag_20000();
@@ -32,7 +32,7 @@ void init__6TLobbyFPv(void *arg0) {
 
     set_flag_270__6TLobbyFPv();
     close_and_play_effect__6TLobbyFii((u16) lbl_805D53A0, 1);
-    temp_r3 = TObjPlayer__sub_801BE648();
+    temp_r3 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3 != 0) {
         obj_set_flag_20000();
         TObjPlayer__sub_8002AEB8(temp_r3 + 0x644, 0xE10);

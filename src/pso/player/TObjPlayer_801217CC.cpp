@@ -7,18 +7,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_801217CC(s32 arg0);
-s32 TObjPlayer__sub_8011E384();
+s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8011EDFC(s32, M2C_UNK, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_8011F5E0(s32);
+M2C_UNK update_active_game_effect__10TObjPlayerFPv(s32);
 
 extern f32 lbl_805DACC0;
 
 void TObjPlayer__sub_801217CC(s32 arg0) {
-    if (TObjPlayer__sub_8011E384() != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         TObjPlayer__sub_8011EDFC(arg0, 0, 1, lbl_805DACC0);
         return;
     }
-    TObjPlayer__sub_8011F5E0(arg0);
+    update_active_game_effect__10TObjPlayerFPv(arg0);
 }
 
 }

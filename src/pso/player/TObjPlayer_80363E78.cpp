@@ -8,7 +8,7 @@ extern "C" {
 
 void apply_loaded_item__10TObjPlayerFv(void);
 M2C_UNK get_model_ids__9TItemLoadFUcPvPv(M2C_UNK, void **, M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801004DC(s32, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK submit_computer_command__10TObjPlayerFPv(s32, M2C_UNK, M2C_UNK, M2C_UNK);
 
 void apply_loaded_item__10TObjPlayerFv(void) {
     void *spC;
@@ -16,7 +16,7 @@ void apply_loaded_item__10TObjPlayerFv(void) {
 
     get_model_ids__9TItemLoadFUcPvPv(5, &spC, &sp8);
     if (spC != NULL) {
-        TObjPlayer__sub_801004DC(M2C_FIELD(spC, s32 *, 0x2C), 2, 2, 0xB);
+        submit_computer_command__10TObjPlayerFPv(M2C_FIELD(spC, s32 *, 0x2C), 2, 2, 0xB);
     }
 }
 

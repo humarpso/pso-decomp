@@ -14,7 +14,7 @@ M2C_UNK TFontSmallLobby__sub_801C0228();
 M2C_UNK init__14TObjEnePanarmsFPvPv(void *, s32);
 M2C_UNK TObjPlayer__sub_801AF7E0(u32);
 s32 TObjPlayer__sub_801D0458();
-M2C_UNK TObjPlayer__sub_801D0888(void *);
+M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801D17C0(M2C_UNK *);
 M2C_UNK broadcast_lobby_display__10TObjPlayerFPv(M2C_UNK *);
@@ -119,7 +119,7 @@ void update_timer_action__10TObjPlayerFPv(u8 *arg0) {
         if (temp_f1_2 < TObjPlayer__data_805DC36C) {
             TObjPlayer__sub_801D2630();
             TObjPlayer__sub_8002AEB8(arg0 + 0x644, TObjPlayer__sub_801D8ADC(arg0));
-            TObjPlayer__sub_801D0888(arg0);
+            update_position_from_target__10TObjPlayerFPv(arg0);
         }
         break;
     }

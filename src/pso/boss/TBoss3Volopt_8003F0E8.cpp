@@ -20,11 +20,11 @@ void TBoss3Volopt__sub_8003F384(void* p);
 int TBoss3Volopt__sub_8003F398(void);
 int TLobby__send_and_handle_60(void*);
 int read_be16_field2__10TObjPlayerFPv(void* a0 = 0);
-int TObjPlayer__sub_80154B28(void*);
+int reset_photon_effect__10TObjPlayerFPv(void*);
 int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void*);
 
-int TBoss3Volopt__sub_8003F0E8(void* p) { return TObjPlayer__sub_80154B28(p); }
+int TBoss3Volopt__sub_8003F0E8(void* p) { return reset_photon_effect__10TObjPlayerFPv(p); }
 s32 TBoss3Volopt__sub_8003F108(void* p) { return *(s32*)((char*)p + 0x3e0); }
 void swap_6x85_fields__12TBoss3VoloptFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); { int i; for (i = 0; i < 7; i++) { bswap_16__FPUs((char*)p + 0x6 + i * 2); } } }
 void bswap_actions__12TBoss3VoloptFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0xc); bswap_16__FPUs((char*)p + 0xa); bswap_16__FPUs((char*)p + 0xe); }

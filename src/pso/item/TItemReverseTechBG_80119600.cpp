@@ -6,7 +6,7 @@ extern "C" {
 
 void render__18TItemReverseTechBGFv(void *arg0);
 void TObjPlayer__sub_80141F1C(void *);
-void TObjPlayer__sub_8023E480(void *);
+void notify_fish_if_valid__10TObjPlayerFUi(void *);
 void TWindowSubStatusDisp__sub_803DEE6C(int);
 void TWindowSubStatusDisp__sub_803DEEAC(void);
 void TWindowSubComCard__sub_803DEECC(void *, f32);
@@ -14,7 +14,7 @@ void TWindowSubStatusDisp__sub_803DF160(void *, void *);
 
 void render__18TItemReverseTechBGFv(void *arg0) {
     TObjPlayer__sub_80141F1C(arg0);
-    TObjPlayer__sub_8023E480(M2C_FIELD(arg0, void **, 0x2C));
+    notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, void **, 0x2C));
     TWindowSubStatusDisp__sub_803DEE6C(1);
     TWindowSubStatusDisp__sub_803DF160(M2C_FIELD(arg0, void **, 0x30), M2C_FIELD(arg0, void **, 0x34));
     TWindowSubComCard__sub_803DEECC((void *)((char *)arg0 + 56), M2C_FIELD(arg0, f32 *, 0x58));

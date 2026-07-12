@@ -8,7 +8,7 @@ extern "C" {
 
 s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1);
 u8 TItemProShield__sub_8010B734();
-s32 TObjPlayer__sub_8010590C();
+s32 activate_d04_slot__10TObjPlayerFPv();
 s16 TObjPlayer__sub_80113D90(s32);
 s16 TObjPlayer__sub_80113D98(s32);
 s16 fn_80113DA0(s32);
@@ -20,7 +20,7 @@ s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r30;
 
-    if ((arg0 != 0U) && (temp_r3 = TObjPlayer__sub_8010590C(), ((temp_r3 == 0) == 0))) {
+    if ((arg0 != 0U) && (temp_r3 = activate_d04_slot__10TObjPlayerFPv(), ((temp_r3 == 0) == 0))) {
         switch (arg1) {
         case 0:
             if (TItemProShield__sub_8010B734() >= 0x64U) {

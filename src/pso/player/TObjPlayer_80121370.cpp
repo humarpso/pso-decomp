@@ -11,14 +11,14 @@ void init_pro_armor__10TObjPlayerFPv(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
 M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
 M2C_UNK init_item_timer_event__10TObjPlayerFPv(s32, u32, s32, M2C_UNK);
-s32 TObjPlayer__sub_8011E384();
+s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK draw_icon__10TObjPlayerFPvii(s32, M2C_UNK, M2C_UNK *);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
 
 void draw_effect_icon__10TObjPlayerFi(s32 arg0) {
     M2C_UNK sp8;
 
-    if (TObjPlayer__sub_8011E384() != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         draw_icon__10TObjPlayerFPvii(arg0, 2, &sp8);
         TObjEneDellBiter__sub_80087350(&sp8, 0x1BE);
     }

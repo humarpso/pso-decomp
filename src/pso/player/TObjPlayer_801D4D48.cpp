@@ -15,7 +15,7 @@ extern "C" {
 
 s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 lookup_item_def__9TItemDataFPv(s32);
-u32 TObjPlayer__sub_801D4E10(void *, s32);
+u32 set_mode_and_refresh_object__10TObjPlayerFPvi(void *, s32);
 M2C_UNK count_items_recursive__10TObjPlayerFPv(s32);
 void *get_owner_if_alive__10TObjPlayerFPv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -27,7 +27,7 @@ s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     void *temp_r3;
 
     if (lookup_item_def__9TItemDataFPv(arg1) != 0) {
-        if (TObjPlayer__sub_801D4E10(arg0, arg1) != 0U) {
+        if (set_mode_and_refresh_object__10TObjPlayerFPvi(arg0, arg1) != 0U) {
             temp_r3 = get_owner_if_alive__10TObjPlayerFPv();
             if ((temp_r3 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {
                 return ((VObj_801D4D48 *)temp_r3)->m34();

@@ -16,14 +16,14 @@ M2C_UNK TObjPlayer__sub_8001BED8(s32, s32);
 s32 TObjPlayer__sub_8001BEF8(s32, s32);
 M2C_UNK TObjPlayer__sub_80124C78(void *);
 s32 TObjPlayer__sub_80124C88(void *);
-s16 TObjPlayer__sub_801AFCCC(void *);
+s16 get_handle_value__10TObjPlayerFPv(void *);
 M2C_UNK apply_anim_action__10TObjPlayerFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_801D9078(void *);
 s32 objInBand__FP7GameObjf(void *);
 
 void update_anim_action__10TObjPlayerFPv(u8 *arg0) {
     get_item_field_6__10TObjPlayerFPv();
-    if (TObjPlayer__sub_801AFCCC(arg0) != 8) {
+    if (get_handle_value__10TObjPlayerFPv(arg0) != 8) {
         TObjPlayer__sub_801D9078(arg0);
         if (objInBand__FP7GameObjf(arg0) != 0) {
             TObjPlayer__sub_801CEA08(arg0);

@@ -12,7 +12,7 @@ void *init_with_name__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void 
 s32 assign_player_id__6TLobbyFv(void);
 void send_neg50__6TLobbyFPvPv(void* p, void* a1);
 s32 TObjPlayer__sub_801AFFD0();
-s32 TObjPlayer__sub_801BE648();
+s32 update_battle_controller__10TObjPlayerFv();
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -61,7 +61,7 @@ s32 assign_player_id__6TLobbyFv(void) {
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r3_2 = TObjPlayer__sub_801BE648();
+    temp_r3_2 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3_2 == 0) {
         return 0;
     }

@@ -13,9 +13,9 @@ void update_state_1fc__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80122748(void *arg0);
 s32 TOBoss4Rock__sub_8039C880();
 int TObjContainerIdo__sub_803D96A8(void*, void*);
-s32 TObjPlayer__sub_8011E384();
+s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8011E618(void *);
-M2C_UNK TObjPlayer__sub_8011F5E0(void *);
+M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 int TObjPlayer__sub_80121200(void*);
 s32 TObjPlayer__sub_80121CA8(void *);
@@ -26,14 +26,14 @@ void cast_tech_gibarta__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8;
     void *temp_r31;
 
-    if (TObjPlayer__sub_8011E384() != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         if (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0) {
             temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
             create_ex__11TTecGiBartaFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), TObjPlayer__sub_80121CA8(arg0));
             TObjPlayer__sub_8011E618(arg0);
         }
     } else {
-        TObjPlayer__sub_8011F5E0(arg0);
+        update_active_game_effect__10TObjPlayerFPv(arg0);
     }
 }
 void notify_container_if_mode1__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80121200(p) == 1) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }

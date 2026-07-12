@@ -10,10 +10,10 @@ s16 TObjPlayer__sub_801251AC(void* p);
 void TObjPlayer__sub_801251B4(void *arg0);
 void reset_effect_slots__10TObjPlayerFPv(void* p);
 void apply_11e618_twice__10TObjPlayerFPv(void* p);
-s32 TObjPlayer__sub_8011E384();
+s32 is_mode_two_and_ready__10TObjPlayerFPv();
 int TObjPlayer__sub_8011E618(void*);
 int TObjPlayer__sub_8011E87C(void*, void*);
-s32 TObjPlayer__sub_8011F5E0(void *);
+s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
 int TObjPlayer__sub_80120BBC(void*, void*);
 s32 TObjPlayer__sub_80121CA8(void *);
@@ -24,14 +24,14 @@ void TObjPlayer__sub_801251B4(void *arg0) {
     s32 sp8;
     void *temp_r31;
 
-    if (TObjPlayer__sub_8011E384() != 0) {
+    if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         if (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0) {
             temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
             create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), TObjPlayer__sub_80121CA8(arg0) + 2);
             TObjPlayer__sub_8011E618(arg0);
         }
     } else {
-        TObjPlayer__sub_8011F5E0(arg0);
+        update_active_game_effect__10TObjPlayerFPv(arg0);
     }
 }
 void reset_effect_slots__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); TObjPlayer__sub_8011E87C(p, (void*)0); TObjPlayer__sub_8011E87C(p, (void*)1); TObjPlayer__sub_8011E87C(p, (void*)2); }

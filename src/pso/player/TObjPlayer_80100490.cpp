@@ -30,7 +30,7 @@ s32 query_game_join_id__10TObjPlayerFv(void) {
     }
     return 0;
 }
-void TObjPlayer__sub_801004DC(void *arg0) {
+void submit_computer_command__10TObjPlayerFPv(void *arg0) {
     s32 a, b, c;
     TOComputerMachine01__sub_8023DDC8(M2C_FIELD(arg0, s32 *, 4), a, b, c, 1);
     PPCSync();

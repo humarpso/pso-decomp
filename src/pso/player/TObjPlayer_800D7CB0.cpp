@@ -6,14 +6,14 @@ extern "C" {
 
 void *TObjPlayer__sub_800D7CB0(void *arg0);
 void TObjPlayer__sub_800D9718(void *);
-void TObjPlayer__sub_800D7BFC(void *);
+void activate_and_dispatch__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804949A8[];
 
 void *TObjPlayer__sub_800D7CB0(void *arg0) {
     TObjPlayer__sub_800D9718(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x14) = lbl_804949A8;
-    TObjPlayer__sub_800D7BFC(arg0);
+    activate_and_dispatch__10TObjPlayerFPv(arg0);
     return arg0;
 }
 
