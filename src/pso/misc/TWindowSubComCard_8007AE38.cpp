@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_8007AE38(s32 arg0);
+void start_player_data_load__17TWindowSubComCardFi(s32 arg0);
 s32 TWindowSubComCard__sub_8007A8F8(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8007ADB4(s32, s32, M2C_UNK);
 s32 TWindowSubComCard__sub_8007B070();
 M2C_UNK load_player_data__23TAdSinglePlyChrSelectGCFv();
 
-void TWindowSubComCard__sub_8007AE38(s32 arg0) {
+void start_player_data_load__17TWindowSubComCardFi(s32 arg0) {
     u32 temp;
     if (TWindowSubComCard__sub_8007B070() == 0) {
         temp = (u32) TWindowSubComCard__sub_8007A8F8(0);

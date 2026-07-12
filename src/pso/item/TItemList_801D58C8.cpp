@@ -16,7 +16,7 @@ int TItemList__sub_801D5968(void* p);
 void TItemList__sub_801D59DC(void* p);
 void TItemList__sub_801D5A64(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
-int TLobby__sub_80102E68(void*);
+int copy_item_data__6TLobbyFPvPv(void*);
 
 void TItemList__sub_801D58C8(void* p) { *(s32*)((char*)p + 0x0) = 3; }
 u8 TItemList__sub_801D58D4(void* p) { return *(u8*)((char*)p + 0x1c); }

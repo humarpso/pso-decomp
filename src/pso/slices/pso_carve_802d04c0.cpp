@@ -56,7 +56,7 @@ s32 try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv();
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
 extern const f32 lbl_805DE73C;
 
-void TObjEneBm9Mericarol__sub_802D04C0(void *arg0, s32 arg1) {
+void handle_event__19TObjEneBm9MericarolFPvi(void *arg0, s32 arg1) {
     s32 temp_r5;
 
     switch (arg1) {

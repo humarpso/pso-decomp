@@ -9,7 +9,7 @@ extern "C" {
 void *__dt__5TItemFv(void *arg0, s16 arg1);
 M2C_UNK set_mode__5TItemFPvc(void *, M2C_UNK);
 M2C_UNK TItem__sub_80101B20(void *);
-M2C_UNK TObjPlayer__sub_80102A58(void *);
+M2C_UNK free_obj_heap__10TObjPlayerFPv(void *);
 M2C_UNK fn_801566CC(void *);
 M2C_UNK TObjPlayer__sub_80156990(void *, M2C_UNK);
 
@@ -23,7 +23,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
         TItem__sub_80101B20(arg0);
         TObjPlayer__sub_80156990(arg0, 0);
         if (arg1 > 0) {
-            TObjPlayer__sub_80102A58(arg0);
+            free_obj_heap__10TObjPlayerFPv(arg0);
         }
     }
     return arg0;

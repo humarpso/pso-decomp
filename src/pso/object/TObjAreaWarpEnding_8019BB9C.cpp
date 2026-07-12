@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjAreaWarpEnding__sub_8019BB9C(void);
-void TObjAreaWarpEnding__sub_8019BBF0(void *arg0, s16 arg1);
+void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, s16);
@@ -32,7 +32,7 @@ void TObjAreaWarpEnding__sub_8019BB9C(void) {
     }
 }
 
-void TObjAreaWarpEnding__sub_8019BBF0(void *arg0, s16 arg1) {
+void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
         M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, arg1);
         if (get_main_phase() == 0xE) {

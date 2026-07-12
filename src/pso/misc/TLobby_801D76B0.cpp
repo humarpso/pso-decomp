@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801D76B0(u8 *arg0);
+void reset_settings_to_default__6TLobbyFPv(u8 *arg0);
 s32 TItemDrop__sub_80107B04();
 M2C_UNK TLobby__sub_801D6DC4(void *, M2C_UNK);
 M2C_UNK TLobby__sub_801D6E28(void *, M2C_UNK);
@@ -42,7 +42,7 @@ s32 ret_801D794C(void *);
 s32 ret_801D7954(void *);
 s32 ret_801D795C(void *);
 
-void TLobby__sub_801D76B0(u8 *arg0) {
+void reset_settings_to_default__6TLobbyFPv(u8 *arg0) {
     s32 temp_r0;
     s32 var_ctr;
     s32 var_r4;

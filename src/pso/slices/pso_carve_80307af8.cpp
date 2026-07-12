@@ -21,7 +21,7 @@ extern s32 lbl_805D6A58;
 extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
 
-void fn_80307AF8(void) {
+void start_ending_sequence(void) {
     lbl_805D6A58 = 1;
     fn_803D6688(lbl_805DF0B0, lbl_805DF0B4);
     TLobby__sub_801E2F44(0, 0, 0);

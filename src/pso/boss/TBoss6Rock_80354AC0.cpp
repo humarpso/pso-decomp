@@ -8,7 +8,7 @@ extern "C" {
 
 void free_data__10TBoss6RockFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK TLobby__sub_803DA16C(void*);
 
 extern u32 TBoss6Rock__data_805D6EF0;
@@ -21,7 +21,7 @@ void free_data__10TBoss6RockFv(void) {
     }
     if ((u32) TBoss6Rock__data_805D6EF4 != 0U) {
         TLobby__sub_803DA16C((void*)TBoss6Rock__data_805D6EF4);
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(TBoss6Rock__data_805D6EF4);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TBoss6Rock__data_805D6EF4);
         TBoss6Rock__data_805D6EF4 = 0U;
     }
 }

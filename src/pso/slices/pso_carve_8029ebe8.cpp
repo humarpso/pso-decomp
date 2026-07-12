@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TAdSinglePlyChrSelectGC__sub_8007EB94(M2C_UNK);
+u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 fn_8029E764();
 M2C_UNK TObjPlayer__sub_8029F6C0();
 extern s32 lbl_805D65F0;
@@ -18,7 +18,7 @@ void fn_8029EBE8(void) {
 
     if (fn_8029E764() != 0) {
         lbl_805D65F4 = 0;
-        temp_r3 = TAdSinglePlyChrSelectGC__sub_8007EB94(0x28);
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
         lbl_805D65FC = temp_r3;
         if (temp_r3 != 0U) {
             TObjPlayer__sub_8029F6C0();

@@ -15,7 +15,7 @@ void TItemData__sub_8010CCB4(void);
 int TItemData__sub_8010CCEC(void* p);
 int TObjPlayer__sub_8011C1E8(void*);
 
-void TItemData__sub_8010CD6C(void *arg0) {
+void lookup_item_def__9TItemDataFPv(void *arg0) {
     fn_80101A48(M2C_FIELD(arg0, u8 *, 0), M2C_FIELD(arg0, u8 *, 1));
 }
 s16 TItemData__sub_8010CD98(void *arg0) {

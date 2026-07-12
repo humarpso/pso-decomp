@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801AA220(s32 arg0, u16 arg1);
+void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1);
 void* TObjPlayer__sub_801AA3A0(int a0);
 M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
 s32 TObjPlayer__sub_80019248(s32);
@@ -18,7 +18,7 @@ M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 
 extern s32 tl_07;
 
-void TObjPlayer__sub_801AA220(s32 arg0, u16 arg1) {
+void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
     s32 temp_r3;
     void *temp_r31;
     void *temp_nw;

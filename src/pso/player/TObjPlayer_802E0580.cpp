@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_802E0580(void);
 void TObjPlayer__sub_802E05A4(void* p, void* a1);
-int TObjPlayer__sub_80142F9C(void*);
+int draw_model_with_callback__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_8014394C(void*);
 M2C_UNK TObjPlayer__sub_802E0468(f32);
 
@@ -18,6 +18,6 @@ void TObjPlayer__sub_802E0580(void) {
     TObjPlayer__sub_802E0468(lbl_805DE8A8);
 }
 
-void TObjPlayer__sub_802E05A4(void* p, void* a1) { *(void**)((char*)p + 0x34) = a1; TObjPlayer__sub_8014394C(p); TObjPlayer__sub_80142F9C(p); }
+void TObjPlayer__sub_802E05A4(void* p, void* a1) { *(void**)((char*)p + 0x34) = a1; TObjPlayer__sub_8014394C(p); draw_model_with_callback__10TObjPlayerFPv(p); }
 
 }

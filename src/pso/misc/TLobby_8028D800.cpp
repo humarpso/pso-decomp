@@ -9,15 +9,15 @@ extern "C" {
 void TLobby__sub_8028D800(void);
 void TLobby__sub_8028D840(void);
 void TLobby__sub_8028D884(void);
-void TAdSinglePlyChrSelectGC__sub_8007EBB4(void*);
-u32 TQuestVmDownLoadServer__sub_8007EBFC(M2C_UNK);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
+u32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 
 extern u32 lbl_805D6518;
 extern u32 lbl_805D651C;
 
 void TLobby__sub_8028D800(void) {
     if (((u32) lbl_805D6518 != 0U) && ((u32) lbl_805D651C != 0U)) {
-        TAdSinglePlyChrSelectGC__sub_8007EBB4((void*)((void*)lbl_805D651C));
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)((void*)lbl_805D651C));
         lbl_805D651C = 0U;
     }
 }
@@ -27,7 +27,7 @@ extern u32 lbl_805D651C;
 
 void TLobby__sub_8028D840(void) {
     if (((u32) lbl_805D6518 != 0U) && ((u32) lbl_805D651C == 0U)) {
-        lbl_805D651C = TQuestVmDownLoadServer__sub_8007EBFC(0x50000);
+        lbl_805D651C = alloc__22TQuestVmDownLoadServerFPv(0x50000);
         if ((u32) lbl_805D651C == 0U) {
             return;
         }
@@ -38,7 +38,7 @@ extern u32 lbl_805D6518;
 
 void TLobby__sub_8028D884(void) {
     if ((u32) lbl_805D6518 != 0U) {
-        TAdSinglePlyChrSelectGC__sub_8007EBB4((void*)((void*)lbl_805D6518));
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)((void*)lbl_805D6518));
         lbl_805D6518 = 0U;
     }
 }

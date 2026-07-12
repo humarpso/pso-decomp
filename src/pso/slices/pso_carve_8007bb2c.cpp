@@ -10,11 +10,11 @@ s32 TItemDrop__sub_800FD98C();
 s32 TItemDrop__sub_800FDDF4();
 s32 TLobby__sub_8020809C();
 void TLobby__sub_8007BBC4(void);
-int TLobby__sub_800F8AA8(void);
+int reset_keyboard_state__6TLobbyFv(void);
 int TLobby__sub_800F8AF8(void);
-int TLobby__sub_800F8BFC(void);
+int invoke_callback__6TLobbyFv(void);
 
-s32 TLobby__sub_8007BB2C(void) {
+s32 check_disconnect_conditions__6TLobbyFv(void) {
     TLobby__sub_800F8B20();
     if (TLobby__sub_8007BA98() == 0) {
         TLobby__sub_8007BBC4();
@@ -39,6 +39,6 @@ s32 TLobby__sub_8007BB2C(void) {
     TLobby__sub_800F8AF8();
     return 0;
 }
-void TLobby__sub_8007BBC4(void) { TLobby__sub_800F8AA8(); TLobby__sub_800F8BFC(); TLobby__sub_800F8AF8(); }
+void TLobby__sub_8007BBC4(void) { reset_keyboard_state__6TLobbyFv(); invoke_callback__6TLobbyFv(); TLobby__sub_800F8AF8(); }
 
 }

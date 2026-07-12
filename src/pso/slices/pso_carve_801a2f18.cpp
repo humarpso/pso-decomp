@@ -23,7 +23,7 @@ M2C_UNK apply_all_players__9TTecLukerFv();
 void enable_all_battle_ctrl__10TNpcPlayerFv();
 extern u32 lbl_805D5EE8;
 
-void fn_801A2F18(void) {
+void reset_quest_state__6TLobbyFv(void) {
     TRaderMapCore__sub_801F9540();
     TSwitch__sub_8022942C();
     apply_all_players__9TTecLukerFv();

@@ -8,7 +8,7 @@ extern "C" {
 
 void *TODummyKeyCave01Sound__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK __ct__7TObjectFP7TObject();
-M2C_UNK fn_8016570C(void *);
+M2C_UNK play_cave01_key_sound(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK __vt__21TODummyKeyCave01Sound[];
@@ -21,7 +21,7 @@ void *TODummyKeyCave01Sound__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0x20) = arg3;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) <= 0) {
-        fn_8016570C(arg0);
+        play_cave01_key_sound(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
     return arg0;

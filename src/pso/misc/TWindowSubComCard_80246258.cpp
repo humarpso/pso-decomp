@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_80246258(void *arg0);
+void update_fade__17TWindowSubComCardFPv(void *arg0);
 M2C_UNK TWindowSubComCard__sub_802448C0();
 
 extern M2C_UNK lbl_8044E680;
 
-void TWindowSubComCard__sub_80246258(void *arg0) {
+void update_fade__17TWindowSubComCardFPv(void *arg0) {
     u32 temp_r5;
 
     temp_r5 = M2C_FIELD(arg0, u32 *, 0x50);

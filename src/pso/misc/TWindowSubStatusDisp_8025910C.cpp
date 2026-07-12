@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_8025910C(void *arg0, void *arg1, s32 arg2);
+void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
 s32 TCameraCtrl__sub_8006B338();
 s32 TItemData__sub_8010C52C(void *);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
-M2C_UNK TWindowSubStatusDisp__sub_80258518(void *, void *);
+M2C_UNK update_item_colors__20TWindowSubStatusDispFPvi(void *, void *);
 M2C_UNK TWindowSubStatusDisp__sub_802586FC(void *, s32, u8, u8, s32);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK forward_message__6TLobbyFiUi(s32, void *);
@@ -20,7 +20,7 @@ s32 get_item_data__6TLobbyFUi(void *);
 
 extern const f32 lbl_805DCF08;
 
-void TWindowSubStatusDisp__sub_8025910C(void *arg0, void *arg1, s32 arg2) {
+void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2) {
     s32 temp_r31;
 
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF08;
@@ -34,7 +34,7 @@ void TWindowSubStatusDisp__sub_8025910C(void *arg0, void *arg1, s32 arg2) {
         TWindowSubStatusDisp__sub_80228F5C(M2C_FIELD(arg1, s32 *, 0x10));
         M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);
     }
-    TWindowSubStatusDisp__sub_80258518(arg0, arg1);
+    update_item_colors__20TWindowSubStatusDispFPvi(arg0, arg1);
     M2C_FIELD(arg0, s32 *, 0x18) = arg2;
     M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x45);
 }

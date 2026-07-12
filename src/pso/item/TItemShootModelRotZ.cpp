@@ -1,7 +1,7 @@
 #include "pso/TItemShootModelRotZ.h"
 
 extern "C" {
-s32   TObjPlayer__sub_8011BADC(TItemShootModelRotZ*);
+s32   is_owner_alive__10TObjPlayerFPv(TItemShootModelRotZ*);
 void  TObjPlayer__sub_8023E480(void*);
 void  TParticleCtrl__sub_801E2EFC(void);
 void  TObjPlayer__sub_803D9B2C(void);
@@ -14,7 +14,7 @@ extern const char* lbl_805D2C70;
 }
 
 void TItemShootModelRotZ::render() {
-    if (TObjPlayer__sub_8011BADC(this)) {
+    if (is_owner_alive__10TObjPlayerFPv(this)) {
         if (this->m_58 != NULL) {
             TObjPlayer__sub_8023E480(this->m_5C);
             TParticleCtrl__sub_801E2EFC();

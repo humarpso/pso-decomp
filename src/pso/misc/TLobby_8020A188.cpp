@@ -14,8 +14,8 @@ u32 TLobby__sub_8020967C(s32, s32);
 u32 TLobby__sub_80209C58(s32, s32);
 M2C_UNK TLobby__sub_80209D34(s32);
 int __dl__FPv(void*);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(s32);
-s32 TQuestVmDownLoadServer__sub_8007EBFC(M2C_UNK);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 
 extern u32 lbl_805D60A8;
 extern u32 lbl_805D60AC;
@@ -34,16 +34,16 @@ void init_buffers__6TLobbyFii(s32 arg0, s32 arg1) {
     temp_r3 = TLobby__sub_802095EC(arg1, arg0);
     lbl_805D60B0 = temp_r3;
     if (((u32) lbl_805D60A8 != 0U) && ((u32) lbl_805D60AC != 0U) && (temp_r3 != 0U)) {
-        lbl_805D60B4 = TQuestVmDownLoadServer__sub_8007EBFC(0x9000);
-        lbl_805D60BC = TQuestVmDownLoadServer__sub_8007EBFC(0x1400);
+        lbl_805D60B4 = alloc__22TQuestVmDownLoadServerFPv(0x9000);
+        lbl_805D60BC = alloc__22TQuestVmDownLoadServerFPv(0x1400);
         lbl_805D60C0 = 0;
-        lbl_805D60C4 = TQuestVmDownLoadServer__sub_8007EBFC(0x1000);
+        lbl_805D60C4 = alloc__22TQuestVmDownLoadServerFPv(0x1000);
         lbl_805D60C8 = 0;
         TLobby__sub_80209D34(arg0);
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D60C4);
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D60BC);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D60C4);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D60BC);
         lbl_805D60BC = 0;
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D60B4);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D60B4);
         lbl_805D60B4 = 0;
     }
 }

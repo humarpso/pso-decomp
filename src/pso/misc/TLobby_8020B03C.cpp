@@ -8,15 +8,15 @@ extern "C" {
 
 void free_data_60F0__6TLobbyFv(void);
 s32 init_handle__6TLobbyFi(s32 arg0);
-void TAdSinglePlyChrSelectGC__sub_8007EBB4(void*);
-u32 TQuestVmDownLoadServer__sub_8007EBFC();
+void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
+u32 alloc__22TQuestVmDownLoadServerFPv();
 
 extern u32 TLobby__data_805D60F0;
 extern s32 TLobby__data_805D60F4;
 
 void free_data_60F0__6TLobbyFv(void) {
     if ((u32) TLobby__data_805D60F0 != 0U) {
-        TAdSinglePlyChrSelectGC__sub_8007EBB4((void*)TLobby__data_805D60F0);
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)TLobby__data_805D60F0);
         TLobby__data_805D60F0 = 0U;
         TLobby__data_805D60F4 = 0;
     }
@@ -28,7 +28,7 @@ extern s32 TLobby__data_805D60F4;
 s32 init_handle__6TLobbyFi(s32 arg0) {
     u32 temp_r3;
 
-    temp_r3 = TQuestVmDownLoadServer__sub_8007EBFC();
+    temp_r3 = alloc__22TQuestVmDownLoadServerFPv();
     TLobby__data_805D60F0 = temp_r3;
     if (temp_r3 != 0U) {
         TLobby__data_805D60F4 = arg0;

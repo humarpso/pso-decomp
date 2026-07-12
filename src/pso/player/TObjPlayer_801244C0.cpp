@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801244C0(void *arg0);
+void draw_held_item__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801245C4(void *arg0);
 s32 TItemMag__sub_80102C4C();
 s32 TItemProArmor__sub_80102C3C(void *);
@@ -14,9 +14,9 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
 M2C_UNK TObjPlayer__sub_80100E00(void *);
 M2C_UNK TObjPlayer__sub_8011E618(void *);
-s32 TObjPlayer__sub_801207E8(void *, M2C_UNK, M2C_UNK *);
+s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK, void *);
-M2C_UNK TObjPlayer__sub_80363FEC(s32);
+M2C_UNK warn_if_gauge_low__10TObjPlayerFv(s32);
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -29,7 +29,7 @@ M2C_UNK init_vtable__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
 
 extern s32 some_id_805c6f74;
 
-void TObjPlayer__sub_801244C0(void *arg0) {
+void draw_held_item__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8;
     s32 temp_r3;
     void *temp_r31;
@@ -41,7 +41,7 @@ void TObjPlayer__sub_801244C0(void *arg0) {
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 0x18);
         TObjPlayer__sub_80120BBC(arg0, 0x30, temp_r5);
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) & 0xFFFFFFE7);
-        if (TObjPlayer__sub_801207E8(arg0, 5, &sp8) != 0) {
+        if (draw_icon__10TObjPlayerFPvii(arg0, 5, &sp8) != 0) {
             TObjPlayer__sub_803D9B2C();
             TObjPlayer__sub_80364198();
             some_id_805c6f74 &= 0xFFFFFFEF;
@@ -56,7 +56,7 @@ void TObjPlayer__sub_801244C0(void *arg0) {
             TParticleCtrl__sub_801E2F20();
             temp_r3 = M2C_FIELD(temp_r31, s32 *, 0);
             M2C_FIELD(temp_r31, s32 *, 0) = (s32) (temp_r3 & ~0x11);
-            TObjPlayer__sub_80363FEC(temp_r3);
+            warn_if_gauge_low__10TObjPlayerFv(temp_r3);
             TObjPlayer__sub_803D9B78();
             TObjPlayer__sub_803D9B78();
         }

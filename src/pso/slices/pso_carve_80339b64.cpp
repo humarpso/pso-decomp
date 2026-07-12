@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TKeyBoardControl__sub_8000F9CC(s32);
-s32 fn_80339E2C();
+s32 poll_memcard_status();
 s32 fn_8033A138(void *);
 s32 fn_8033A15C(void *);
 int TKeyBoardControl__sub_8000F9B0(void);
@@ -33,7 +33,7 @@ void fn_80339C18(void *arg0) {
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x38) <= 0) {
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
-        M2C_FIELD(arg0, s32 *, 0x2C) = fn_80339E2C();
+        M2C_FIELD(arg0, s32 *, 0x2C) = poll_memcard_status();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x2C) != 0) {
             TSaveChCr__sub_8033A184((void*)(arg0), (void*)(1));
             return;

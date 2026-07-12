@@ -16,7 +16,7 @@ int TObjContainerIdo__sub_803D96A8(void*, void*);
 s32 TObjPlayer__sub_8011E384();
 M2C_UNK TObjPlayer__sub_8011E618(void *);
 M2C_UNK TObjPlayer__sub_8011F5E0(void *);
-s32 TObjPlayer__sub_801207E8(void *, M2C_UNK, M2C_UNK *);
+s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 int TObjPlayer__sub_80121200(void*);
 s32 TObjPlayer__sub_80121CA8(void *);
 void __dl__7TObjectFPv(void *);
@@ -41,7 +41,7 @@ void TObjPlayer__sub_80121984(void *arg0) {
     void *temp_r31;
 
     if (TObjPlayer__sub_8011E384() != 0) {
-        if (TObjPlayer__sub_801207E8(arg0, 0, &sp8) != 0) {
+        if (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0) {
             temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
             create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), TObjPlayer__sub_80121CA8(arg0));
             TObjPlayer__sub_8011E618(arg0);

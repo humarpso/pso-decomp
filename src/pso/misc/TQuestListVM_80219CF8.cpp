@@ -11,7 +11,7 @@ M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
 M2C_UNK TLobby__sub_8001EDF4(M2C_UNK *);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(void *);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 extern M2C_UNK __vt__12TQuestListVM[];
@@ -37,7 +37,7 @@ void *__dt__12TQuestListVMFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x2374) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2388) != 0U) {
-            TAdSinglePlyChrSelectGC__sub_8007EBB4(M2C_FIELD(arg0, void **, 0x2388));
+            safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0x2388));
             M2C_FIELD(arg0, u32 *, 0x2388) = 0U;
         }
         lbl_805D6210 = 0;

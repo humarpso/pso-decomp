@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_80071500(s32 arg0);
-s32 TWindowSubStatusDisp__sub_8006F094(M2C_UNK);
+s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 
 extern s32 lbl_8048C9D8[];
 
@@ -16,7 +16,7 @@ void TLobby__sub_80071500(s32 arg0) {
     s32 var_r31;
 
     var_r31 = arg0;
-    temp_r3 = TWindowSubStatusDisp__sub_8006F094(-1);
+    temp_r3 = get_layout_id__20TWindowSubStatusDispFv(-1);
     if ((var_r31 < 0) || (var_r31 >= temp_r3)) {
         var_r31 = 0;
     }

@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_802D53E4(void *arg0, void *arg1);
-M2C_UNK TObjPlayer__sub_802D5C0C();
+M2C_UNK set_radar_marker_params__10TObjPlayerFPvPv();
 
 void TObjPlayer__sub_802D53E4(void *arg0, void *arg1) {
-    TObjPlayer__sub_802D5C0C();
+    set_radar_marker_params__10TObjPlayerFPvPv();
     M2C_FIELD(arg1, s32 *, 0x50) = 0x8000;
 }
 

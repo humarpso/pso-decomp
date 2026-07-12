@@ -24,7 +24,7 @@ void TObjPlayer__sub_8011F578(void *arg0, f32 farg0);
 void TObjPlayer__sub_8011F5E0(void *arg0);
 M2C_UNK TObjPlayer__sub_8011E484(void *);
 M2C_UNK TObjPlayer__sub_8011E4D8(void *);
-s32 TObjPlayer__sub_8011F6C4();
+s32 is_active_in_game__10TObjPlayerFPv();
 
 struct Base_8011F578 { char pad[0x18]; };
 struct VObj_8011F578 : Base_8011F578 {
@@ -50,7 +50,7 @@ struct VObj_8011F578 : Base_8011F578 {
 void TObjPlayer__sub_8011F578(void *arg0, f32 farg0) {
     void *temp_r3;
 
-    if (TObjPlayer__sub_8011F6C4() != 0) {
+    if (is_active_in_game__10TObjPlayerFPv() != 0) {
         TObjPlayer__sub_8011E4D8(arg0);
         temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
         ((VObj_8011F578 *)temp_r3)->m65(farg0);
@@ -63,7 +63,7 @@ extern f32 lbl_805DAC9C;
 void TObjPlayer__sub_8011F5E0(void *arg0) {
     void *temp_r3;
 
-    if (TObjPlayer__sub_8011F6C4() != 0) {
+    if (is_active_in_game__10TObjPlayerFPv() != 0) {
         TObjPlayer__sub_8011E4D8(arg0);
         temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
         ((VObj_8011F5E0 *)temp_r3)->v67(lbl_805DAC9C);

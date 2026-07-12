@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update__12TObjWarpBossFPv(void *arg0);
-M2C_UNK fn_8019E308();
+M2C_UNK update_warp_boss_visibility();
 M2C_UNK fn_8019E798(void *);
-M2C_UNK fn_8019E81C(void *);
+M2C_UNK warp_boss_handle_window(void *);
 M2C_UNK fn_8019E97C(void *);
 M2C_UNK fn_8019EA7C(void *);
 M2C_UNK fn_8019EB94(void *);
@@ -17,7 +17,7 @@ M2C_UNK fn_8019EB94(void *);
 void update__12TObjWarpBossFPv(void *arg0) {
     s16 temp_r0;
 
-    fn_8019E308();
+    update_warp_boss_visibility();
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xDE);
     switch (temp_r0) {
     case 0:
@@ -30,7 +30,7 @@ void update__12TObjWarpBossFPv(void *arg0) {
         fn_8019E97C(arg0);
         return;
     case 3:
-        fn_8019E81C(arg0);
+        warp_boss_handle_window(arg0);
         return;
     case 4:
         fn_8019E798(arg0);

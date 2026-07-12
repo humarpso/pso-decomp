@@ -10,7 +10,7 @@ void TObjPlayer__sub_8033D488(void *arg0);
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
-M2C_UNK TObjFish__sub_800E2FD8(u32);
+M2C_UNK clear_render_callback__8TObjFishFv(u32);
 M2C_UNK TObjFish__sub_800E3074(u32);
 M2C_UNK TObjFish__sub_802ABE20();
 M2C_UNK TObjFish__sub_803DA798(s32);
@@ -48,7 +48,7 @@ void TObjPlayer__sub_8033D488(void *arg0) {
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xC0));
         TObjFish__sub_800E3074(M2C_FIELD(arg0, u32 *, 0x7C));
         TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, s32 *, 0xC4), M2C_FIELD(arg0, f32 *, 0xE0));
-        TObjFish__sub_800E2FD8(M2C_FIELD(arg0, u32 *, 0x7C));
+        clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, u32 *, 0x7C));
         TObjPlayer__sub_803E4BD0();
         TObjPlayer__sub_803D9B78();
         if (var_f31 < lbl_805DFA74) {

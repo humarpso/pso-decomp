@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TNpcPlayer__sub_801528A8(s32, M2C_UNK, u8);
 M2C_UNK TObjPlayer__sub_801CCBB8(s32, u8, M2C_UNK);
 
-void fn_8014DADC(void *arg0) {
+void init_equipment__10TNpcPlayerFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r4;
 

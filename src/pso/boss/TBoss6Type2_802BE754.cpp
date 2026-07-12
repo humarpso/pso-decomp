@@ -34,7 +34,7 @@ void TBoss6Type2__sub_802BE754(void *arg0) {
         TBoss6Type2__sub_802BD014(arg0, 0x22);
     }
 }
-void TBoss6Type2__sub_802BE788(void *arg0) {
+void select_next_state__11TBoss6Type2FPv(void *arg0) {
     u16 temp_r3;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0) {

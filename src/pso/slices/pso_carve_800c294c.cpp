@@ -55,7 +55,7 @@ M2C_UNK TObjPlayer__sub_8022602C(M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D9FC0;
 
-void fn_800C294C(u8 *arg0, s32 arg1) {
+void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {

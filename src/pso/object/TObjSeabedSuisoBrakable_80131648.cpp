@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjSeabedSuisoBrakable__sub_80131648(u32 arg0, s32 arg1);
+s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32 arg0, s32 arg1);
 M2C_UNK fn_801315D4();
 
 extern s32 lbl_805D552C;
 extern s32 lbl_805D5530;
 extern s32 lbl_805D5534;
 
-s32 TObjSeabedSuisoBrakable__sub_80131648(u32 arg0, s32 arg1) {
+s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32 arg0, s32 arg1) {
     if (arg0 == 0U) {
         return 0;
     }

@@ -9,7 +9,7 @@ extern "C" {
 void TBoss8Dragon__sub_8005F7BC(void *arg0);
 void TBoss8Dragon__sub_8005F834(void *arg0, f32 farg0, f32 farg1, f32 farg2);
 void TBoss8Dragon__sub_8005F89C(void *arg0, s32 arg1);
-void TBoss8Dragon__sub_8005F904(void *arg0, s32 arg1);
+void update_heading__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss8Dragon__sub_8005F968(void *, s32, s32);
 M2C_UNK TBoss8Dragon__sub_80064AB0(void *);
 s32 TObjEneEpsilon__sub_800B95E0(void *);
@@ -51,7 +51,7 @@ void TBoss8Dragon__sub_8005F89C(void *arg0, s32 arg1) {
 
 extern const f64 lbl_80437EB0;
 
-void TBoss8Dragon__sub_8005F904(void *arg0, s32 arg1) {
+void update_heading__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
     update_velocity__9TObjEneDDFPv();
     TBoss8Dragon__sub_8005F968(arg0, arg1, (s32) (lbl_80437EB0 * TObjPlayer__sub_80019760(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))));
 }

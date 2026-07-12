@@ -14,7 +14,7 @@ M2C_UNK TWindowCtrl__sub_80271E18();
 M2C_UNK TRaderMapCore__sub_80271E34();
 extern f32 lbl_805DD480;
 
-void fn_802717B8(void *arg0) {
+void update_visibility__21TWindowSubAreaMapDispFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
         if (TWindowSubAreaMapDisp__sub_80246948() != 0) {
             M2C_FIELD(arg0, s32 *, 0x6C) = 0;

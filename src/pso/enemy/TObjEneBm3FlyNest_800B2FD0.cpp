@@ -110,7 +110,7 @@ struct VObj18_800b2fd0 : VBase18_800b2fd0 {
 
 extern "C" {
 
-void TObjEneBm3FlyNest__sub_800B2FD0(void *arg0, s32 arg1);
+void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
@@ -120,7 +120,7 @@ s32 objInBand__FP7GameObjf(f32);
 extern const f32 lbl_805D9CF8;
 extern const f32 lbl_805D9D30;
 
-void TObjEneBm3FlyNest__sub_800B2FD0(void *arg0, s32 arg1) {
+void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 5;

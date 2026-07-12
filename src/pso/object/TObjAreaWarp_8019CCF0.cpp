@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjAreaWarp__sub_8019CCF0(s32 arg0);
-void TObjAreaWarp__sub_8019CD60(void *arg0, u16 arg1);
+s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0);
+void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, u16);
-M2C_UNK TLobby__sub_80207718(s32);
+M2C_UNK get_player_floor__6TLobbyFi(s32);
 s32 TLobby__sub_8030A7B0();
 s32 TObjCityMainWarp__sub_80186AF4();
 s32 TObjWarpBase__vt13(s32);
@@ -25,7 +25,7 @@ M2C_UNK fn_8019DD14(s32, M2C_UNK);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
 
-s32 TObjAreaWarp__sub_8019CCF0(s32 arg0) {
+s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0) {
     s32 var_r31;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -44,7 +44,7 @@ block_6:
     return TObjWarpBase__vt13(arg0);
 }
 
-void TObjAreaWarp__sub_8019CD60(void *arg0, u16 arg1) {
+void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
     u32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
@@ -52,7 +52,7 @@ void TObjAreaWarp__sub_8019CD60(void *arg0, u16 arg1) {
         if (TLobby__sub_8030A7B0() == 1) {
             TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjCityMainWarp__sub_80186AF4(), 2, 0, -1);
         } else {
-            TLobby__sub_80207718(M2C_FIELD(arg0, s32 *, 0xBC));
+            get_player_floor__6TLobbyFi(M2C_FIELD(arg0, s32 *, 0xBC));
             TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjLuker__sub_801329B0(), 2, 0, -1);
         }
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));

@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TEffHit__ct(void *, void *);
 
-void fn_80084B84(void *arg0) {
+void create_hit_effect__10TObjPlayerFPv(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x74);
     if (o != NULL) {

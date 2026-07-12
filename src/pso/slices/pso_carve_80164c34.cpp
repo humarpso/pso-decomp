@@ -28,7 +28,7 @@ struct VObj : Base {
     virtual s32 m8(f32, f32);
 };
 
-void TODragonfly__sub_80164C34(u8 *arg0) {
+void draw_model__11TODragonflyFPv(u8 *arg0) {
     if (((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D9624(0, lbl_805DB580, M2C_FIELD(arg0, f32 *, 0xF0), lbl_805DB580);

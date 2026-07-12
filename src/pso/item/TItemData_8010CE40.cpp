@@ -15,7 +15,7 @@ void TItemData__sub_8010CCB4(void);
 int TItemData__sub_8010CCEC(void* p);
 int TObjPlayer__sub_8011C1E8(void*);
 
-s16 TItemData__sub_8010CE40(void *arg0) {
+s16 getS16_06__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = M2C_FIELD(arg0, s16 *, 6);

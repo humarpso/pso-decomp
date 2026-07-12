@@ -8,12 +8,12 @@ extern "C" {
 
 void TObjPlayer__sub_801011B0(void *arg0);
 void TItemData__sub_8010CEF4(void *);
-void TItem__sub_80101CFC(void *, void *);
+void copy_to_item_data__5TItemFPvPv(void *, void *);
 
 void TObjPlayer__sub_801011B0(void *arg0) {
     M2C_UNK sp8[4];
 
-    TItem__sub_80101CFC(arg0, &sp8);
+    copy_to_item_data__5TItemFPvPv(arg0, &sp8);
     TItemData__sub_8010CEF4(&sp8);
 }
 

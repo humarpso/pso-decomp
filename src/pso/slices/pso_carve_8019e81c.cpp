@@ -23,7 +23,7 @@ u32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 extern s32 lbl_805D53A0;
 
-void fn_8019E81C(void *arg0) {
+void warp_boss_handle_window(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xE0);

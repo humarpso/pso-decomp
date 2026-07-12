@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_800F8F58(void);
+void wait_ready_loop__6TLobbyFv(void);
 s32 TLobby__sub_800F8FB8();
 M2C_UNK TLobby__sub_801384E4();
 M2C_UNK TAdPlayerLoadGC__sub_800F9EF8(M2C_UNK);
@@ -15,7 +15,7 @@ M2C_UNK render_tick__Fv();
 
 extern s8 lbl_805D5359;
 
-void TLobby__sub_800F8F58(void) {
+void wait_ready_loop__6TLobbyFv(void) {
     lbl_805D5359 = 0;
 loop_1:
     if (TLobby__sub_800F8FB8() != 1) {

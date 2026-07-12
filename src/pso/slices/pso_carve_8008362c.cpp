@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern M2C_UNK lbl_8048E5B4[];
 extern s32 some_id_805c6f74;
 
-void fn_8008362C(s32 arg0) {
+void setup_particle_tev(s32 arg0) {
     if (is_split_screen() == 0) {
         GXSetTevOrder(1, 1, 1, 4);
         if (arg0 != 0) {

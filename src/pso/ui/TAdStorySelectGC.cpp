@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdStorySelectGC__sub_80207D64(s32 arg0);
+void set_state__16TAdStorySelectGCFi(s32 arg0);
 M2C_UNK fn_80207BB0();
 M2C_UNK fn_80207C60();
 
 extern s32 lbl_805D6060;
 
-void TAdStorySelectGC__sub_80207D64(s32 arg0) {
+void set_state__16TAdStorySelectGCFi(s32 arg0) {
     lbl_805D6060 = arg0;
     switch (arg0) {
     case 0:

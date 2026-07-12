@@ -14,7 +14,7 @@ void TLobby__sub_8001EF5C(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0
 M2C_UNK TLobby__sub_801E38A0(s32, s32, s32, s32, u32 *);
 s32 TLobby__sub_803DE328(s32, s32, s32);
 
-s32 TLobby__sub_8001EF8C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 sp8;
     s32 temp_r31;
     u32 temp_r4;

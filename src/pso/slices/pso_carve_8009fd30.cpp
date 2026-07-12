@@ -17,7 +17,7 @@ M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 extern s32 tl_05;
 extern const f32 lbl_805D9948;
 
-void fn_8009FD30(u8 *arg0) {
+void update_zonde_projectile(u8 *arg0) {
     M2C_UNK sp8;
     f32 temp_f0;
     f32 temp_f1;

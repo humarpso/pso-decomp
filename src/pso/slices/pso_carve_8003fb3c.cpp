@@ -26,10 +26,10 @@ struct VObj_8003FB3C : Base_8003FB3C {
 extern "C" {
 
 s32 obj_testFlags30(void *, s32);
-M2C_UNK fn_8003F730(void *, s32);
+M2C_UNK TObjPlayer__sub_8003F730(void *, s32);
 extern s32 lbl_805D4C64;
 
-void fn_8003FB3C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void TObjPlayer__sub_8003FB3C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r4;
 
     if (obj_testFlags30(arg0, 0x800) == 0) {
@@ -39,7 +39,7 @@ void fn_8003FB3C(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         M2C_FIELD(arg0, s32 *, 0x3C0) = arg2;
         M2C_FIELD(arg0, s32 *, 0x3C4) = arg3;
         lbl_805D4C64 = 0;
-        fn_8003F730(arg0, temp_r4);
+        TObjPlayer__sub_8003F730(arg0, temp_r4);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
         ((VObj_8003FB3C *)arg0)->m57();
     }

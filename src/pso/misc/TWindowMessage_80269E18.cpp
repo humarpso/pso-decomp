@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw__14TWindowMessageFPv(u8 *arg0);
-M2C_UNK TWindowSubComCard__sub_80246258(void *);
+M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowDD__sub_8024664C(void *);
 M2C_UNK fn_80257C28(void *, void *);
 M2C_UNK fn_802695A8(void *);
@@ -24,7 +24,7 @@ void draw__14TWindowMessageFPv(u8 *arg0) {
     fn_80269664(arg0);
     fn_802695A8(arg0);
     TWindowDD__sub_8024664C(arg0);
-    TWindowSubComCard__sub_80246258(arg0);
+    update_fade__17TWindowSubComCardFPv(arg0);
     fn_80257C28(arg0, arg0 + 0x24);
 }
 

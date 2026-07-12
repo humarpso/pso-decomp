@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMainTask__sub_80104C40(void);
+void cleanup_game_objects__9TMainTaskFv(void);
 M2C_UNK TEnding__sub_8008C9F8();
 M2C_UNK TItemDisconnectCtrl__ct();
 M2C_UNK TItemDrop__sub_8010643C();
@@ -27,7 +27,7 @@ extern M2C_UNK lbl_805D5440;
 extern s32 tl_item_equip;
 extern s32 tl_particlemodel;
 
-void TMainTask__sub_80104C40(void) {
+void cleanup_game_objects__9TMainTaskFv(void) {
     s32 temp_r29;
     s32 temp_r30;
     s32 temp_r31;

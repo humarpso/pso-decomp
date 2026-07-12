@@ -9,7 +9,7 @@ extern "C" {
 void close_and_reset__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802B1850(s32, M2C_UNK, M2C_UNK *);
 s32 TWindowShortListCtrl__check_controller_button(char *, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_802A5748(void *);
+M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -28,7 +28,7 @@ void close_and_reset__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x80) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
-        TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x94));
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x94));
         M2C_FIELD(arg0, u32 *, 0x94) = 0U;
     }
     TAdMultiPlyChrSelectGC__sub_802C5594(M2C_FIELD(arg0, s32 *, 0x5C));

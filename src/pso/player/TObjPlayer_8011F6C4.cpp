@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjPlayer__sub_8011F6C4(void *arg0);
+u8 is_active_in_game__10TObjPlayerFPv(void *arg0);
 s8 TObjPlayer__sub_80102C30();
 
-u8 TObjPlayer__sub_8011F6C4(void *arg0) {
+u8 is_active_in_game__10TObjPlayerFPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;

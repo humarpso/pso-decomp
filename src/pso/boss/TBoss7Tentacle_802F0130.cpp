@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss7Tentacle__sub_802F0130(void *arg0);
+void switch_state__14TBoss7TentacleFPv(void *arg0);
 M2C_UNK TBoss7Tentacle__sub_802F0918(void *);
 M2C_UNK TBoss7Tentacle__sub_802F09B4(void *);
 M2C_UNK TBoss7Tentacle__sub_802F09EC(void *);
@@ -14,7 +14,7 @@ M2C_UNK TBoss7Tentacle__sub_802F092C(void *);
 M2C_UNK TBoss7Tentacle__sub_802F0988(void *);
 M2C_UNK TBoss7Tentacle__sub_802F09C8(void *);
 
-void TBoss7Tentacle__sub_802F0130(void *arg0) {
+void switch_state__14TBoss7TentacleFPv(void *arg0) {
     s32 state = M2C_FIELD(arg0, s32 *, 0x34);
     if (state != (s32) M2C_FIELD(arg0, s32 *, 0x30)) {
         switch (state) {

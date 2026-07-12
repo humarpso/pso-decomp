@@ -13,7 +13,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D53A8;
 
-void fn_801A2E84(void) {
+void TLobby__sub_801A2E84(void) {
     s32 var_r31;
     u32 temp_r3;
     u32 temp_r3_2;

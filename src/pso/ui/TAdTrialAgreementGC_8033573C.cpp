@@ -9,7 +9,7 @@ extern "C" {
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E1F40(M2C_UNK);
+s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
 M2C_UNK wait_for_load__19TAdTrialAgreementGCFv(s32);
 
@@ -25,7 +25,7 @@ s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
         return 0;
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);
-    if (TAdPlayerLoadGC__sub_801E1F40(0) != 0) {
+    if (check_memcard_status__15TAdPlayerLoadGCFi(0) != 0) {
         return 0;
     }
     wait_for_load__19TAdTrialAgreementGCFv(arg0);

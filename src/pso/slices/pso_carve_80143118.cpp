@@ -16,7 +16,7 @@ M2C_UNK TObjPlayer__sub_803E4BC4();
 M2C_UNK TObjPlayer__sub_803E4BD0();
 extern s32 lbl_805D7710;
 
-void fn_80143118(u8 *arg0) {
+void draw_model__12TObjNpcEnemyFPv(u8 *arg0) {
     TObjPlayer__sub_803E4BC4();
     TPlyPhotonChair__sub_80142774();
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {

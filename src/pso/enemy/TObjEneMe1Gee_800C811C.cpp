@@ -8,7 +8,7 @@ extern "C" {
 
 void handle_message__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
-M2C_UNK TBoss3Volopt__sub_800D8ACC(s32, M2C_UNK, s32, void *, s32);
+M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(s32, M2C_UNK, s32, void *, s32);
 M2C_UNK TObjPlayer__sub_800F6B14(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -129,7 +129,7 @@ struct VObj8036 : Base8036 {
 void handle_message__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        TBoss3Volopt__sub_800D8ACC(TObjEneMe1Gee__data_805D51C0, 0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+        create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneMe1Gee__data_805D51C0, 0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 0x400000);
         TObjPlayer__sub_800F6B14(arg0);
         return;

@@ -12,7 +12,7 @@ s32 TAdChrSelBSlotGC__sub_8030E378(s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DBDE0(void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
-M2C_UNK TWindowSubComCard__sub_802A5748(void *);
+M2C_UNK close__17TWindowSubComCardFPv(void *);
 u32 __ct__9TAdFadeGCFv(u32, s32, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 u32 TAdSinglePlyChrSelectGC__sub_801FE3E4(s32);
@@ -42,11 +42,11 @@ void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     u32 var_r0;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x90) != 0U) {
-        TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x90));
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x90));
         M2C_FIELD(arg0, u32 *, 0x90) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x8C) != 0U) {
-        TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x8C));
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x8C));
         M2C_FIELD(arg0, u32 *, 0x8C) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x74) != 0U) {

@@ -12,7 +12,7 @@ M2C_UNK fn_8007C550(M2C_UNK *);
 M2C_UNK TLobby__sub_800F7DAC(void *, s32);
 M2C_UNK bswap_32__FPUl(u32 *);
 
-u32 fn_800F95F4(u8 *arg0, s32 arg1, s32 arg2, u32 arg3) {
+u32 decrypt_quest_data__12TQuestListVMFPviiUi(u8 *arg0, s32 arg1, s32 arg2, u32 arg3) {
     M2C_UNK sp10[60];
     u32 spC;
     u32 sp8;

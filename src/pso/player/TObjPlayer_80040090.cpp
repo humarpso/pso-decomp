@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80040090(void *arg0);
+void update_grabbed_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_8006A044(M2C_UNK, f32);
@@ -18,7 +18,7 @@ s32 obj_testFlags30(void *, M2C_UNK);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805D86D8;
 
-void TObjPlayer__sub_80040090(void *arg0) {
+void update_grabbed_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);

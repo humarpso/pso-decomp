@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TLobby__sub_80020004(void *, s32, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
-void *TAdSinglePlyChrSelectGC__sub_8007EB94(M2C_UNK);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK fn_802D7260(M2C_UNK, s32, s32, f32, f32);
 extern M2C_UNK lbl_80496350[];
 extern void *lbl_805D52B0;
@@ -19,7 +19,7 @@ void fn_800EBD38(void) {
     void *temp_r5;
     void *temp_r5_2;
 
-    temp_r4 = TAdSinglePlyChrSelectGC__sub_8007EB94(0x440);
+    temp_r4 = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (temp_r4 != NULL) {
         temp_r4 = TLobby__sub_80020004(temp_r4, 1, lbl_80496350, 0, 0, 0);
     }

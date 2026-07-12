@@ -11,7 +11,7 @@ f32 fn_801A5228(s16);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DCAD4;
 
-void fn_80244B64(void *arg0) {
+void window_request_show(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x2C);

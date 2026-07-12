@@ -11,7 +11,7 @@ M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 s32 TMainTask__sub_8001A430();
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
 M2C_UNK fn_80141A30();
-s32 TObjPlayer__sub_8022A564();
+s32 toggle_flag_9__10TObjPlayerFPv();
 M2C_UNK fn_802A0A30(void *, void *, s32, s32, s32);
 M2C_UNK TAdTitleGC__sub_802A0A60(void *, s32, M2C_UNK);
 M2C_UNK set_depth_buffer_settings_2__Fv();
@@ -23,7 +23,7 @@ void render__10TAdTitleGCFv(u8 *arg0) {
         }
         goto block_5;
     }
-    if (TObjPlayer__sub_8022A564() == 0) {
+    if (toggle_flag_9__10TObjPlayerFPv() == 0) {
         set_depth_buffer_settings_2__Fv();
 block_5:
         abs__4cXyzCFv(0, 8);

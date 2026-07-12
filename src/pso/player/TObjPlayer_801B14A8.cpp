@@ -13,9 +13,9 @@ M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001BED8(s32, M2C_UNK);
 s32 TObjPlayer__sub_80055694(void *);
 s32 TObjPlayer__sub_80099EF8(s32);
-M2C_UNK TObjPlayer__sub_80142D50(void *, s32, f32, s32);
-M2C_UNK TObjPlayer__sub_801B4540(s32);
-s32 TObjPlayer__sub_801D5764();
+M2C_UNK draw_model_with_callback__10TObjPlayerFPviif(void *, s32, f32, s32);
+M2C_UNK recover_full__10TObjPlayerFPv(s32);
+s32 get_owner_if_alive__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_803D8C7C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -27,7 +27,7 @@ void draw__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D8C7C(0, TObjPlayer__sub_80055694(arg0));
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-    TObjPlayer__sub_80142D50(arg0, M2C_FIELD(arg0, s32 *, 0xF8), TObjPlayer__data_805DC278, M2C_FIELD(arg0, s32 *, 0xE0));
+    draw_model_with_callback__10TObjPlayerFPviif(arg0, M2C_FIELD(arg0, s32 *, 0xF8), TObjPlayer__data_805DC278, M2C_FIELD(arg0, s32 *, 0xE0));
     TObjPlayer__sub_803D9B78();
 }
 
@@ -40,11 +40,11 @@ s32 try_pickup_item__10TObjPlayerFi(s32 arg0) {
         return 0;
     }
     if (TObjPlayer__sub_801B15A4(arg0) != 0U) {
-        temp_r3 = TObjPlayer__sub_801D5764();
+        temp_r3 = get_owner_if_alive__10TObjPlayerFPv();
         if (temp_r3 == 0) {
             return 0;
         }
-        TObjPlayer__sub_801B4540(arg0);
+        recover_full__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_8001BED8(arg0 + 0x858, 4);
         TObjPlayer__sub_801B8DE8(arg0, TObjPlayer__sub_80099EF8(temp_r3), 1);
         return 1;

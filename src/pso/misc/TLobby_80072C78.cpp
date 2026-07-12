@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80072C78(void *arg0);
+void open_loss_menu__6TLobbyFPv(void *arg0);
 u32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
 M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, M2C_UNK);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
@@ -16,7 +16,7 @@ M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindow__close(u32);
 M2C_UNK TLobby__sub_8007340C(u32);
 
-void TLobby__sub_80072C78(void *arg0) {
+void open_loss_menu__6TLobbyFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         TWindow__close(M2C_FIELD(arg0, u32 *, 0x2C));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;

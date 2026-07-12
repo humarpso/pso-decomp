@@ -10,7 +10,7 @@ void close_download__22TQuestVmDownLoadServerFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(void *);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 M2C_UNK TWindowSubItem__sub_801F8FD4(void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8033A8EC();
 
@@ -20,7 +20,7 @@ void close_download__22TQuestVmDownLoadServerFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_801E1B50(M2C_FIELD(arg0, s32 *, 0x25C)) == 0) {
         TAdSinglePlyChrSelectGC__sub_8033A8EC();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x260) != 0U) {
-            TAdSinglePlyChrSelectGC__sub_8007EBB4(M2C_FIELD(arg0, void **, 0x260));
+            safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0x260));
             M2C_FIELD(arg0, u32 *, 0x260) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {

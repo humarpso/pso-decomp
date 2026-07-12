@@ -6,21 +6,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOWreckAncientBrakable__sub_8017D5A4(u8 *arg0);
+void update_break_state__22TOWreckAncientBrakableFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 u8 TODoorAncient08__sub_80229220(u16);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK fn_8017D444(void *);
 M2C_UNK fn_8017D448(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 
-void TOWreckAncientBrakable__sub_8017D5A4(u8 *arg0) {
+void update_break_state__22TOWreckAncientBrakableFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if (TObjPlayer__sub_80080750() == 1) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
         fn_8017D444(arg0);
         return;
     }

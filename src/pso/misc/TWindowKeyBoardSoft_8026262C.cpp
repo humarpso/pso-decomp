@@ -12,9 +12,9 @@ s32 TKeyBoardControl__sub_80131FAC(u32);
 M2C_UNK TWindowKeyBoardSoft__sub_80260904(void *, s32);
 M2C_UNK TWindowKeyBoardSoft__sub_80260E30(void *, s32);
 s32 fn_80244994();
-M2C_UNK TWindowSubComCard__sub_80246258(void *);
+M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowDD__sub_8024664C(void *);
-s32 fn_8024A0DC(s16);
+s32 is_player_input_active(s16);
 M2C_UNK TWindowKeyBoardSoft__sub_80260808(void *, s32);
 M2C_UNK TWindowKeyBoardSoft__sub_8026088C(void *, s32);
 M2C_UNK TWindowKeyBoardSoft__sub_80261204(void *, s32);
@@ -27,7 +27,7 @@ void TWindowKeyBoardSoft__sub_8026262C(void *arg0) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
         if ((fn_80244994() != 0) && (TKeyBoardControl__sub_80131FAC(M2C_FIELD(arg0, u32 *, 0x6C)) == 0)) {
-            temp_r3 = fn_8024A0DC(M2C_FIELD(arg0, s16 *, 0x20));
+            temp_r3 = is_player_input_active(M2C_FIELD(arg0, s16 *, 0x20));
             TWindowKeyBoardSoft__sub_80261204(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_80260E30(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_80260904(arg0, temp_r3);
@@ -35,7 +35,7 @@ void TWindowKeyBoardSoft__sub_8026262C(void *arg0) {
             TWindowKeyBoardSoft__sub_80260808(arg0, temp_r3);
         }
         TWindowDD__sub_8024664C(arg0);
-        TWindowSubComCard__sub_80246258(arg0);
+        update_fade__17TWindowSubComCardFPv(arg0);
         M2C_FIELD(arg0, f32 *, 0x68) -= lbl_805DD0D4 * M2C_FIELD(arg0, f32 *, 0x68);
     }
 }

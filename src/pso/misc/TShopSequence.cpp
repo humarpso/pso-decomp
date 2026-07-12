@@ -10,7 +10,7 @@ struct VObj_802235A0 {
 extern "C" {
 
 s32 TShopSequence__sub_8022356C(void *arg0);
-void TShopSequence__sub_802235A0(void *arg0);
+void close_message_window__13TShopSequenceFPv(void *arg0);
 M2C_UNK close__17TMedicalCenterMesFPv(void *);
 s32 TQuestVmDownLoadServer__sub_80222814(void *);
 
@@ -22,7 +22,7 @@ s32 TShopSequence__sub_8022356C(void *arg0) {
     return 1;
 }
 
-void TShopSequence__sub_802235A0(void *arg0) {
+void close_message_window__13TShopSequenceFPv(void *arg0) {
     VObj_802235A0 *temp_r3;
 
     if (M2C_FIELD(arg0, VObj_802235A0 **, 0x28) != NULL) {

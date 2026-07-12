@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TOBoss4Rock__sub_80147AA8();
+u32 alloc_buffer__11TOBoss4RockFPv();
 s32 fn_802A604C(void *, s32);
 s32 fn_802A6054();
 s32 TGStream__sub_800FDADC(s32, s32);
@@ -29,7 +29,7 @@ int fn_802A5CC4(void) { return 0; }
 int fn_802A5D28(void* a0 = 0) { return 0; }
 s32 fn_802A5D68(void *arg0) {
     fn_802A6054();
-    M2C_FIELD(arg0, u32 *, 8) = TOBoss4Rock__sub_80147AA8();
+    M2C_FIELD(arg0, u32 *, 8) = alloc_buffer__11TOBoss4RockFPv();
     if ((u32) M2C_FIELD(arg0, u32 *, 8) == 0U) {
         fn_802A604C(arg0, 4);
         return 0;

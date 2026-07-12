@@ -8,7 +8,7 @@ extern "C" {
 
 void TAdMultiChgGameModeGC__sub_8023EBB4(void);
 void TAdMultiChgGameModeGC__sub_8023EBE4(void);
-void TAdMultiChgGameModeGC__sub_8023EC14(void);
+void request_scene_change__21TAdMultiChgGameModeGCFv(void);
 void TAdMultiChgGameModeGC__sub_8023EC44(void);
 void TAdMultiChgGameModeGC__sub_8023EC74(void);
 void TAdMultiChgGameModeGC__sub_8023ECA4(void);
@@ -37,7 +37,7 @@ void TAdMultiChgGameModeGC__sub_8023EBE4(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023EC14(void) {
+void request_scene_change__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 8;
     lbl_805D63C8 = 1;

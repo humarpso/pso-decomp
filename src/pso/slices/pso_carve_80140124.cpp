@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_split_screen();
-M2C_UNK TLobby__sub_8007B858();
-s32 TLobby__sub_8007BB2C();
+M2C_UNK create_tasks__6TLobbyFv();
+s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK TObjLight__sub_80133D78();
 M2C_UNK TOKeyMachine01__sub_802034A8();
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
@@ -19,11 +19,11 @@ extern M2C_UNK lbl_8043F1A8[];
 s32 load_scene_ship_b(void) {
     TOKeyMachine01__sub_802034A8();
     TLobby__sub_80227FB4();
-    if (TLobby__sub_8007BB2C() != 0) {
+    if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
     TObjLight__sub_80133D78();
-    TLobby__sub_8007B858();
+    create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F1A8);
     } else {

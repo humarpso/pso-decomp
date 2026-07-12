@@ -19,7 +19,7 @@ M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
 M2C_UNK fn_800FC924(s32);
-M2C_UNK fn_80244B64(u32);
+M2C_UNK window_request_show(u32);
 
 extern s32 lbl_805D53A0;
 
@@ -29,7 +29,7 @@ void TWindowCtrl__sub_8024B9C0(void *arg0) {
             TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x30));
             return;
         }
-        fn_80244B64(M2C_FIELD(arg0, u32 *, 0x30));
+        window_request_show(M2C_FIELD(arg0, u32 *, 0x30));
     }
 }
 
@@ -41,7 +41,7 @@ void update_trade_window__11TWindowCtrlFPv(void *arg0) {
             TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x34));
             return;
         }
-        fn_80244B64(M2C_FIELD(arg0, u32 *, 0x34));
+        window_request_show(M2C_FIELD(arg0, u32 *, 0x34));
     }
 }
 

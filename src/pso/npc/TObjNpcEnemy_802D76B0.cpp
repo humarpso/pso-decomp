@@ -10,7 +10,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK draw__16TObjEneRe7BeruraFPv();
 M2C_UNK TObjPlayer__sub_80141F1C();
-M2C_UNK fn_80143118();
+M2C_UNK draw_model__12TObjNpcEnemyFPv();
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjPlayer__sub_803E4BC4(void *);
 M2C_UNK TObjPlayer__sub_803E4BD0();
@@ -38,7 +38,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
         TObjPlayer__sub_803E4BD0();
         return;
     case 3:
-        fn_80143118();
+        draw_model__12TObjNpcEnemyFPv();
     case 4:
         return;
     }

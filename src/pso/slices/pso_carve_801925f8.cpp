@@ -12,7 +12,7 @@ void TObjPlayer__sub_803D9214(int, void *);
 void TObjBoss2Tunnel__sub_803DB470(void *);
 void TObjPlayer__sub_803D9B78(void);
 
-void fn_801925F8(void *arg0) {
+void render_lazer_fence_model(void *arg0) {
     TObjFish__sub_803DA798(lbl_805D5C28);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));

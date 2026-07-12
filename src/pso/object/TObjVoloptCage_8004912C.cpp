@@ -9,8 +9,8 @@ extern "C" {
 void init_break_model__14TObjVoloptCageFv(void);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
 s32 TLobby__sub_8001E1D8(M2C_UNK);
-s32 TLobby__sub_8001E280(M2C_UNK);
-s32 TAdSinglePlyChrSelectGC__sub_8007EB94(M2C_UNK, void *);
+s32 register_boss__6TLobbyFPv(M2C_UNK);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK, void *);
 
 extern void *lbl_805D4C10;
 extern s32 lbl_805D4D18;
@@ -24,12 +24,12 @@ void init_break_model__14TObjVoloptCageFv(void) {
 
     temp_r4 = M2C_FIELD(lbl_805D4C10, void **, 0x42C);
     lbl_805D4D24 = M2C_FIELD(temp_r4, s32 *, 0x128);
-    var_r0 = TAdSinglePlyChrSelectGC__sub_8007EB94(0x10, temp_r4);
+    var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10, temp_r4);
     if (var_r0 != 0) {
         var_r0 = TBreakUpMdl__sub_8009705C(var_r0, lbl_805D4D24);
     }
     lbl_805D4D20 = var_r0;
-    lbl_805D4D18 = TLobby__sub_8001E280(0x26);
+    lbl_805D4D18 = register_boss__6TLobbyFPv(0x26);
     lbl_805D4D1C = TLobby__sub_8001E1D8(0x26);
 }
 

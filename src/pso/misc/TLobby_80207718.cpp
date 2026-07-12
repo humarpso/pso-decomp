@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80207718(s32 idx);
+s32 get_player_floor__6TLobbyFi(s32 idx);
 s32 TLobby__sub_802077CC(s32, struct Buf12_80207718 *);
 
 struct Buf12_80207718 { s32 a, b, c; };
 
-s32 TLobby__sub_80207718(s32 idx) {
+s32 get_player_floor__6TLobbyFi(s32 idx) {
     struct Buf12_80207718 buf;
 
     if (TLobby__sub_802077CC(idx, &buf) == 1) {

@@ -34,7 +34,7 @@ struct VObj1_80148e54 : Base1_80148e54 {
 extern "C" {
 
 void TObjPlayer__sub_80148DCC(void *arg0);
-void TObjPlayer__sub_80148E54(u8 *arg0);
+void draw_model__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjLight__sub_80134098();
@@ -71,7 +71,7 @@ void TObjPlayer__sub_80148DCC(void *arg0) {
 
 extern s32 some_id_805c6f74;
 
-void TObjPlayer__sub_80148E54(u8 *arg0) {
+void draw_model__10TObjPlayerFPv(u8 *arg0) {
     VObj1_80148e54 *self = (VObj1_80148e54 *)arg0;
     if ((self->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
         TObjLight__sub_80134194(arg0);

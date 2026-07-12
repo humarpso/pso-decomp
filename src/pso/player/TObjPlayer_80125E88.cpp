@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_80125E88(s32 arg0);
-M2C_UNK TObjPlayer__sub_801085B0(s32, s32, M2C_UNK);
+M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C();
 
 extern s32 tl_05;
 
 void TObjPlayer__sub_80125E88(s32 arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
-        TObjPlayer__sub_801085B0(tl_05, arg0, 1);
+        spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 1);
     }
 }
 

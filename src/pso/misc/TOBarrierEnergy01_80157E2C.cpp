@@ -9,12 +9,12 @@ extern "C" {
 void TOBarrierEnergy01__vt15(void *arg0);
 M2C_UNK TOBarrierEnergy01__sub_80157D28(void *);
 M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
-M2C_UNK TOBarrierEnergy01__sub_80158298();
+M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
 
 extern s32 *TOBarrierEnergy01__data_805D5894;
 
 void TOBarrierEnergy01__vt15(void *arg0) {
-    TOBarrierEnergy01__sub_80158298();
+    update_anim_phase__17TOBarrierEnergy01FPv();
     TOBarrierEnergy01__sub_80157D28(arg0);
     if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;

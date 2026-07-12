@@ -15,7 +15,7 @@ u32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 extern M2C_UNK lbl_8044F2E0[];
 extern const f32 lbl_805DD13C;
 
-void fn_8026404C(void *arg0, s32 arg1) {
+void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x48) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x48) = arg1;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x24) == 0U) {

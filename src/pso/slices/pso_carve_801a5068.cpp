@@ -14,7 +14,7 @@ void *__ct__10TAdTitleGCFv(void *, void *, int);
 void TKeyBoardControl__sub_8000F90C(int);
 void *TWindowOptionCtrl__ct(void *, void *);
 
-void *fn_801A5068(void *arg0) {
+void *construct_option_scene(void *arg0) {
     void *o;
     void *o2;
     void *o3;

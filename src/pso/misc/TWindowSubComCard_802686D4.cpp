@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8025B514(s32, s32, s32, s32);
 s32 fn_8025B5AC(s32, s32, s32);
-u32 TAdSinglePlyChrSelectGC__sub_8007EB94(s32);
+u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u32 fn_802880BC(u32, s32, s16);
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8026906C(void);

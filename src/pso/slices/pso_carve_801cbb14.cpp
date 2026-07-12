@@ -10,7 +10,7 @@ s32 obj_testFlags30(s32, s32);
 s32 check_flag30_bit20__10TObjPlayerFi();
 s32 TObjPlayer__sub_801BEAB0(s32);
 s32 TObjPlayer__sub_801D0BC0(s32, s32, s32);
-void TObjPlayer__sub_801CBABC(s32 arg0);
+void send_object_id_packet__10TObjPlayerFi(s32 arg0);
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 M2C_UNK TObjPlayer__sub_801D1CC0(M2C_UNK *);

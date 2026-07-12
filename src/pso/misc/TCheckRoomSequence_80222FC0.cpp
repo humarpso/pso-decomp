@@ -2,12 +2,12 @@
 
 extern "C" {
 
-s32 TCheckRoomSequence__sub_80222FC0(u32 arg0);
-s32 TItemData__sub_8010CD6C();
+s32 get_item_def__18TCheckRoomSequenceFUi(u32 arg0);
+s32 lookup_item_def__9TItemDataFPv();
 
-s32 TCheckRoomSequence__sub_80222FC0(u32 arg0) {
+s32 get_item_def__18TCheckRoomSequenceFUi(u32 arg0) {
     if (arg0 != 0U) {
-        return TItemData__sub_8010CD6C();
+        return lookup_item_def__9TItemDataFPv();
     }
     return 0;
 }

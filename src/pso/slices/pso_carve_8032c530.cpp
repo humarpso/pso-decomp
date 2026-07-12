@@ -3,7 +3,7 @@
 extern "C" {
 
 int TAdExNetConfirmGC__vt4(void* p);
-int TAdMultiChgGameModeGC__sub_8023EC14(void*);
+int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
 int TAdExNetConfirmGC__vt5(void) { return 0; }
 

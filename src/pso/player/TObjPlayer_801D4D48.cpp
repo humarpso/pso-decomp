@@ -13,22 +13,22 @@ struct VObj_801D4D48 : Base_801D4D48 {
 
 extern "C" {
 
-s32 TObjPlayer__sub_801D4D48(void *arg0, s32 arg1);
-s32 TItemData__sub_8010CD6C(s32);
+s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1);
+s32 lookup_item_def__9TItemDataFPv(s32);
 u32 TObjPlayer__sub_801D4E10(void *, s32);
-M2C_UNK TObjPlayer__sub_801D551C(s32);
-void *TObjPlayer__sub_801D5764();
+M2C_UNK count_items_recursive__10TObjPlayerFPv(s32);
+void *get_owner_if_alive__10TObjPlayerFPv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 
 extern s32 lbl_805D5DF4;
 extern s32 lbl_805D5DFC;
 
-s32 TObjPlayer__sub_801D4D48(void *arg0, s32 arg1) {
+s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     void *temp_r3;
 
-    if (TItemData__sub_8010CD6C(arg1) != 0) {
+    if (lookup_item_def__9TItemDataFPv(arg1) != 0) {
         if (TObjPlayer__sub_801D4E10(arg0, arg1) != 0U) {
-            temp_r3 = TObjPlayer__sub_801D5764();
+            temp_r3 = get_owner_if_alive__10TObjPlayerFPv();
             if ((temp_r3 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {
                 return ((VObj_801D4D48 *)temp_r3)->m34();
             }
@@ -37,7 +37,7 @@ s32 TObjPlayer__sub_801D4D48(void *arg0, s32 arg1) {
     }
     lbl_805D5DFC = arg1;
     lbl_805D5DF4 = 0;
-    TObjPlayer__sub_801D551C(M2C_FIELD(arg0, s32 *, 0x1C4));
+    count_items_recursive__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x1C4));
     return lbl_805D5DF4;
 }
 

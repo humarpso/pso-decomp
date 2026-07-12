@@ -13,7 +13,7 @@ void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK fn_8009A7A0();
-void fn_800F5C8C(void*, int);
+void destroy_buffer_pair(void*, int);
 
 extern u32 TObjEneDf2Bringer__data_805D4FB8;
 extern u32 TObjEneDf2Bringer__data_805D4FC8;
@@ -22,7 +22,7 @@ extern u32 TObjEneDf2Bringer__data_805D4FCC;
 void free_resources__17TObjEneDf2BringerFv(void) {
     fn_8009A7A0();
     if ((u32) TObjEneDf2Bringer__data_805D4FCC != 0U) {
-        fn_800F5C8C((void*)TObjEneDf2Bringer__data_805D4FCC, 1);
+        destroy_buffer_pair((void*)TObjEneDf2Bringer__data_805D4FCC, 1);
         TObjEneDf2Bringer__data_805D4FCC = 0U;
     }
     if ((u32) TObjEneDf2Bringer__data_805D4FC8 != 0U) {

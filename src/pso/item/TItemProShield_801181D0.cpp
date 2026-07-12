@@ -14,7 +14,7 @@ M2C_UNK TObjPlayer__sub_80100E00(void *);
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK TObjPlayer__sub_8023E480(s32);
-M2C_UNK TObjPlayer__sub_80363FEC();
+M2C_UNK warn_if_gauge_low__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
@@ -40,7 +40,7 @@ void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
         if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {
             TParticleCtrl__sub_801E2F20();
         }
-        TObjPlayer__sub_80363FEC();
+        warn_if_gauge_low__10TObjPlayerFv();
         TObjPlayer__sub_8036414C();
         TObjPlayer__sub_803D9B78();
     }

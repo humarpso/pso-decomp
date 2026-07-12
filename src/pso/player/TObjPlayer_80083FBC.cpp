@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80083FBC(void);
+s32 check_all_players_ready__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_80083F9C();
 s32 TObjPlayer__sub_80084854();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 get_main_phase();
 
-s32 TObjPlayer__sub_80083FBC(void) {
+s32 check_all_players_ready__10TObjPlayerFv(void) {
     s32 flag;
     s32 counter;
 

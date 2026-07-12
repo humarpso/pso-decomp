@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss6Type1__sub_802B20C0(void *arg0);
-void TBoss6Type1__sub_802B20FC(void *arg0);
+void update_attack_countdown__11TBoss6Type1FPv(void *arg0);
 void TBoss6Type1__sub_802B21A4(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TBoss6Type1__sub_802B4B64(void *, int);
@@ -26,7 +26,7 @@ void TBoss6Type1__sub_802B20C0(void *arg0) {
     TBoss6Type1__sub_802B9204(arg0, 1);
 }
 
-void TBoss6Type1__sub_802B20FC(void *arg0) {
+void update_attack_countdown__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;

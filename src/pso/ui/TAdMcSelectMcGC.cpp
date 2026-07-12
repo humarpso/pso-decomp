@@ -13,7 +13,7 @@ M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
 M2C_UNK TObjPlayer__sub_80141F1C();
 M2C_UNK TObjPlayer__sub_80141F50();
-s32 TObjPlayer__sub_8022A564();
+s32 toggle_flag_9__10TObjPlayerFPv();
 M2C_UNK TAdMcSelectMcGC__sub_8032A6F4(void *);
 
 void render__15TAdMcSelectMcGCFv(void *arg0) {
@@ -23,7 +23,7 @@ void render__15TAdMcSelectMcGCFv(void *arg0) {
         }
         goto block_5;
     }
-    if (TObjPlayer__sub_8022A564() == 0) {
+    if (toggle_flag_9__10TObjPlayerFPv() == 0) {
         set_depth_buffer_settings_2__Fv();
 block_5:
         TObjPlayer__sub_80141F50();

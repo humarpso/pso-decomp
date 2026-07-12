@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_8012789C(void* p);
-void TObjPlayer__sub_801278D0(void *arg0);
-M2C_UNK TObjPlayer__sub_80108620(s32, void *, M2C_UNK, M2C_UNK);
+void cast_jellen_zalure__10TObjPlayerFPv(void *arg0);
+M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_8011E384(void *);
 int TObjPlayer__sub_8011E618(void*);
 M2C_UNK TObjPlayer__sub_8011F5E0(void *);
@@ -21,14 +21,14 @@ void TObjPlayer__sub_8012789C(void* p) { TObjPlayer__sub_8011E618((void*)(p)); T
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_801278D0(void *arg0) {
+void cast_jellen_zalure__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r4;
     s32 temp_r4_2;
 
     if (TObjPlayer__sub_8011F63C() == 0) {
-        TObjPlayer__sub_80108620(tl_05, arg0, 2, 1);
+        spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 2, 1);
     }
     if (TObjPlayer__sub_8011E384(arg0) != 0) {
         if (TObjPlayer__sub_80121CA8(arg0) == 0) {

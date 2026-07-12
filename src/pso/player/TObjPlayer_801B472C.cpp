@@ -10,10 +10,10 @@ s32 can_use_action__10TObjPlayerFi(s32 arg0);
 s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 TLobby__sub_800822E8(s32, M2C_UNK);
 s32 fn_801D60F4(s32);
-s32 TObjPlayer__sub_8035186C(s32, M2C_UNK);
+s32 check_action_usable__10TObjPlayerFPvi(s32, M2C_UNK);
 
 s32 can_use_action__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_8035186C(arg0 + 0x550, 0x200) == 0) {
+    if (check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 0x200) == 0) {
         return 0;
     }
     if (check_flag_100__10TObjPlayerFPv(arg0) != 0) {

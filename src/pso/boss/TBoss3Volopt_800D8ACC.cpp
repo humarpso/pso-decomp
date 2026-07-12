@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3Volopt__sub_800D8ACC(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void create_breakup_mdl__12TBoss3VoloptFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK TBreakUpMdl__ct(void*, s32, s32, s32, s32, s32, s32);
 void* __nw__7TObjectFUl(M2C_UNK);
 
 extern s32 tl_05;
 
-void TBoss3Volopt__sub_800D8ACC(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void create_breakup_mdl__12TBoss3VoloptFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     void* obj = __nw__7TObjectFUl(0x54);
     if (obj != 0) {
         TBreakUpMdl__ct(obj, tl_05, arg0, arg1, arg2, arg3, arg4);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80143434(void *arg0, s16 arg1);
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 M2C_UNK TObjPlayer__sub_80142B8C(void *, s16);
 M2C_UNK TObjPlayer__sub_8014394C(void *, f64);
 void *TObjPlayer__sub_80143978(void *, s16);
@@ -14,7 +14,7 @@ void *TObjPlayer__sub_80143978(void *, s16);
 extern const f64 lbl_8043F2D8[];
 extern const f32 lbl_805DB168;
 
-void TObjPlayer__sub_80143434(void *arg0, s16 arg1) {
+void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     void *temp_r3;
     f32 conv;
 

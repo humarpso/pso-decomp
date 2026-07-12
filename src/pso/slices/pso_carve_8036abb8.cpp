@@ -8,7 +8,7 @@ extern void *tl_02;
 void *__nw__7TObjectFUl(int);
 void *TBoss6EffHyoui__ct(void *, void *, void *, void *, void *);
 
-void * fn_8036ABB8(void *arg0, void *arg1, void *arg2) {
+void * create__14TBoss6EffHyouiFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {

@@ -33,7 +33,7 @@ extern const f32 lbl_805DC24C;
 extern const f32 lbl_805DC250;
 extern const f32 lbl_805DC254;
 
-void fn_801ADEF4(void *arg0) {
+void update_photon_blast(void *arg0) {
     Vec3 sp8;
     s32 temp_r3;
     s32 temp_r3_2;

@@ -11,9 +11,9 @@ s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
 s32 TOKeyMachine01__sub_802034A8();
 u32 TObjMapCsn__sub_8007A728();
 M2C_UNK fn_8007A6A0();
-u32 TQuestVmDownLoadServer__sub_8007EBFC(s32);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TScene__sub_800F9D80(M2C_UNK *);
-M2C_UNK TLobby__sub_80131794(M2C_UNK *, ...);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
 M2C_UNK fn_80140F18(u32, s32);
 
@@ -42,7 +42,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
     temp_r31 = TScene__sub_800F9D80((M2C_UNK *)&sp8);
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x10000U)) {
-            temp_r3 = TQuestVmDownLoadServer__sub_8007EBFC(0x10000);
+            temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x10000);
             TScene__data_805D6000 = temp_r3;
             if (temp_r3 != 0U) {
                 lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, temp_r3);
@@ -50,7 +50,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
             }
         }
     } else if (temp_r31 > 0) {
-        temp_r3_2 = TQuestVmDownLoadServer__sub_8007EBFC(temp_r31);
+        temp_r3_2 = alloc__22TQuestVmDownLoadServerFPv(temp_r31);
         TScene__data_805D6000 = temp_r3_2;
         if (temp_r3_2 != 0U) {
             lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, temp_r3_2);
@@ -62,7 +62,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
         fn_80140F18(temp_csn, *lbl_805D4E68);
         return;
     }
-    TLobby__sub_80131794(lbl_8044A958);
+    debug_print__6TLobbyFii(lbl_8044A958);
 }
 
 }

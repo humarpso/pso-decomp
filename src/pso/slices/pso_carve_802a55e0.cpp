@@ -21,7 +21,7 @@ void TAdChrSelASlotGC__sub_802A596C(void* p, void* a1, void* a2);
 void fn_802A56C4(void* p);
 void fn_802A56F0(void* p);
 void TWindowSubShortMail__sub_802A571C(void* p);
-int TWindowSubComCard__sub_802A5748(void* p);
+int close__17TWindowSubComCardFPv(void* p);
 void free_member__17TWindowSubComCardFPv(void* p);
 int TAdChrSelASlotGC__sub_800740FC(void*);
 int set_flag70_bit10__16TObjCityMainWarpFPv(void*);

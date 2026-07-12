@@ -9,7 +9,7 @@ extern "C" {
 void *__dt__17TWindowSubComCardFv(void *arg0, s16 arg1);
 M2C_UNK TWindowSubComCard__sub_8024AB98(s32);
 M2C_UNK TWindowSubComCard__sub_80271EC0(void *);
-M2C_UNK TWindowSubComCard__sub_802A5748(void *);
+M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -31,7 +31,7 @@ void *__dt__17TWindowSubComCardFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x7C) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
-            TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x70));
+            close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x70));
             M2C_FIELD(arg0, u32 *, 0x70) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {

@@ -3,9 +3,9 @@
 extern "C" {
 
 void run_task__15TWindowCallBackFv(void* p);
-int TWindowSubComCard__sub_80246258(void*);
+int update_fade__17TWindowSubComCardFPv(void*);
 int TWindowDD__sub_8024664C(void*);
 
-void run_task__15TWindowCallBackFv(void* p) { TWindowDD__sub_8024664C(p); TWindowSubComCard__sub_80246258(p); }
+void run_task__15TWindowCallBackFv(void* p) { TWindowDD__sub_8024664C(p); update_fade__17TWindowSubComCardFPv(p); }
 
 }

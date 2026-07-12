@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_800FDF7C(s32 arg0, s32 arg1, s32 arg2);
+void read_data_sync__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_800F8D08();
 M2C_UNK TLobby__sub_800F8DC8(s32 *, s32, s32);
-M2C_UNK TLobby__sub_800F9E18();
+M2C_UNK run_frame__6TLobbyFv();
 s32 TLobby__sub_803CC4C0(s32);
 M2C_UNK TLobby__sub_803CCB5C();
 
 extern s32 lbl_805D53D4;
 
-void TLobby__sub_800FDF7C(s32 arg0, s32 arg1, s32 arg2) {
+void read_data_sync__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 sp8;
 
     sp8 = arg0;
@@ -23,7 +23,7 @@ void TLobby__sub_800FDF7C(s32 arg0, s32 arg1, s32 arg2) {
     TLobby__sub_800F8DC8(&sp8, arg1, arg2);
 loop_1:
     if (TLobby__sub_803CC4C0(sp8) != 3) {
-        TLobby__sub_800F9E18();
+        run_frame__6TLobbyFv();
         goto loop_1;
     }
     TLobby__sub_800F8D08();

@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8001EF8C(void *, s32, s32 *, M2C_UNK *);
+s32 alloc_load_data__6TLobbyFPviii(void *, s32, s32 *, M2C_UNK *);
 M2C_UNK TLobby__sub_8001F8D8(void *, void *);
-M2C_UNK TLobby__sub_80131794(M2C_UNK *, ...);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434C48[];
 extern s32 lbl_805D4ACC;
 
@@ -20,9 +20,9 @@ void load_bin_motion_callback(void *arg0) {
 
     *M2C_FIELD(arg0, s32 **, 0) = 0;
     spC = 0;
-    temp_r3 = TLobby__sub_8001EF8C(M2C_FIELD(arg0, void **, 4), lbl_805D4ACC, &spC, &sp8);
+    temp_r3 = alloc_load_data__6TLobbyFPviii(M2C_FIELD(arg0, void **, 4), lbl_805D4ACC, &spC, &sp8);
     if (temp_r3 == 0) {
-        TLobby__sub_80131794(lbl_80434C48);
+        debug_print__6TLobbyFii(lbl_80434C48);
     }
     *M2C_FIELD(arg0, s32 **, 0) = temp_r3;
     temp_r4 = M2C_FIELD(arg0, void **, 4);

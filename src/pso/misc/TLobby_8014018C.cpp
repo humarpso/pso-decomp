@@ -9,7 +9,7 @@ extern "C" {
 void TLobby__sub_8014018C(void);
 M2C_UNK TLobby__sub_8007BA20();
 M2C_UNK TLobby__sub_800FD6A0(M2C_UNK *, M2C_UNK);
-M2C_UNK TLobby__sub_80207FFC();
+M2C_UNK update_current_floor__6TLobbyFv();
 M2C_UNK TLobby__sub_80227248();
 M2C_UNK TLobby__sub_8022743C();
 M2C_UNK TLobby__sub_80227F7C();
@@ -22,7 +22,7 @@ void TLobby__sub_8014018C(void) {
     TLobby__sub_8022743C();
     TLobby__sub_80227248();
     TLobby__sub_800FD6A0(lbl_804A7358, 8);
-    TLobby__sub_80207FFC();
+    update_current_floor__6TLobbyFv();
     fn_800F7B84();
     TLobby__sub_8007BA20();
 }

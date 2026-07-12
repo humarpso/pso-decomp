@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80102A58(void* a0);
-void TObjPlayer__sub_80102A80(void* a0);
+void free_obj_heap__10TObjPlayerFPv(void* a0);
+void alloc_from_obj_heap__10TObjPlayerFPv(void* a0);
 int TObjPlayer__sub_80102AA8(void);
 void TObjPlayer__sub_80102AB0(void);
 int TObjPlayer__sub_80102AC0(void* p);
@@ -22,10 +22,10 @@ int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
 
     extern int obj_heap;
-void TObjPlayer__sub_80102A58(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }
+void free_obj_heap__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a0); }
 
     extern int obj_heap;
-void TObjPlayer__sub_80102A80(void* a0) { heap_alloc__5THeapFUl((void*)(obj_heap), a0); }
+void alloc_from_obj_heap__10TObjPlayerFPv(void* a0) { heap_alloc__5THeapFUl((void*)(obj_heap), a0); }
 
     extern int lbl_805D5408;
 int TObjPlayer__sub_80102AA8(void) {  return lbl_805D5408; }

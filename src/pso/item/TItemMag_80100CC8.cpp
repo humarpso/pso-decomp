@@ -12,19 +12,19 @@ int TObjPlayer__sub_80100D10(void* p);
 s32 TObjPlayer__sub_80100D1C(void *arg0);
 void fn_80100D68(void *arg0);
 void fn_80100D9C(void* p, u8 v);
-void TWindowSubStatusDisp__sub_80100DA4(void *arg0);
+void lookup_item_data__20TWindowSubStatusDispFPv(void *arg0);
 s32 TItemMag__sub_80102C4C();
 s32 get_main_phase();
-void TItem__sub_80101CFC(void *, void *);
+void copy_to_item_data__5TItemFPvPv(void *, void *);
 void get_item_data__6TLobbyFUi(void *);
 void TItemData__sub_8010C738(void *);
-s32 TCameraCtrl__sub_801A2FE0();
+s32 get_camera_no__11TCameraCtrlFv();
 
 u8 fn_80100CC8(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_801A2FE0() == 0)) {
+    if ((get_main_phase() != 0xE) || (get_camera_no__11TCameraCtrlFv() == 0)) {
         var_r31 = 1;
     }
     return (u8)var_r31;
@@ -39,15 +39,15 @@ s32 TObjPlayer__sub_80100D1C(void *arg0) {
 void fn_80100D68(void *arg0) {
     M2C_UNK sp8[4];
 
-    TItem__sub_80101CFC(arg0, &sp8);
+    copy_to_item_data__5TItemFPvPv(arg0, &sp8);
     TItemData__sub_8010C738(&sp8);
 }
 void TItemMag__sub_80100D94(void* p, u8 v) { *(u8*)((char*)p + 0xee) = v; }
 void fn_80100D9C(void* p, u8 v) { *(u8*)((char*)p + 0xed) = v; }
-void TWindowSubStatusDisp__sub_80100DA4(void *arg0) {
+void lookup_item_data__20TWindowSubStatusDispFPv(void *arg0) {
     M2C_UNK sp8[4];
 
-    TItem__sub_80101CFC(arg0, &sp8);
+    copy_to_item_data__5TItemFPvPv(arg0, &sp8);
     get_item_data__6TLobbyFUi(&sp8);
 }
 

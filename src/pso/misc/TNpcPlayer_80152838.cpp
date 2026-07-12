@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void ensure_rock_singleton__10TNpcPlayerFv(void);
-u32 TOBoss4Rock__sub_80147AA8(M2C_UNK);
+u32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 
 extern u32 lbl_805D5860;
 
 void ensure_rock_singleton__10TNpcPlayerFv(void) {
     if ((u32) lbl_805D5860 == 0U) {
-        lbl_805D5860 = TOBoss4Rock__sub_80147AA8(0x1400);
+        lbl_805D5860 = alloc_buffer__11TOBoss4RockFPv(0x1400);
     }
 }
 

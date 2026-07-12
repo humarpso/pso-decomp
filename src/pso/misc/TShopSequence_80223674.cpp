@@ -36,7 +36,7 @@ void TShopSequence__sub_80223724(void) {
         TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
     }
 }
-void TShopSequence__sub_80223760(void *arg0) {
+void close_window__13TShopSequenceFPv(void *arg0) {
     s32 var_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
@@ -53,7 +53,7 @@ void TShopSequence__sub_80223760(void *arg0) {
         clear_lobby_flag__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0x24));
     }
 }
-void TShopSequence__sub_802237D8(void *arg0) {
+void restore_player_state__13TShopSequenceFPv(void *arg0) {
     s32 var_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {

@@ -62,7 +62,7 @@ M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
 extern const f32 lbl_805D9FF0;
 
-void fn_800C37D8(void *arg0, s32 arg1) {
+void handle_flower_state_change(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;

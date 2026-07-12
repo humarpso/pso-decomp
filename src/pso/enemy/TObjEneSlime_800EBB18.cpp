@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__12TObjEneSlimeFv(void *arg0);
 M2C_UNK TLobby__sub_8002AFD4(void *, s32 *, M2C_UNK);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 s32 fn_800EB8DC(void *);
 M2C_UNK fn_800F6510(void *, s32 *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
@@ -106,7 +106,7 @@ extern "C" {
 void run_task__12TObjEneSlimeFv(void *arg0) {
     s32 sp8;
 
-    if ((TObjPlayer__sub_80080750() == 0) && (fn_800EB8DC(arg0) != 0)) {
+    if ((check_demo_mode__10TObjPlayerFv() == 0) && (fn_800EB8DC(arg0) != 0)) {
         sp8 = 0x800;
         fn_800F6510(arg0, &sp8);
         TLobby__sub_8002AFD4(arg0, &sp8, 0);

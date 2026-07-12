@@ -110,7 +110,7 @@ struct VObj18_800b30b0 : VBase18_800b30b0 {
 
 extern "C" {
 
-void TObjEneBm3FlyNest__sub_800B30B0(void *arg0, s32 arg1);
+void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 s32 TObjEneBm3FlyNest__sub_800B3AC8();
 M2C_UNK TObjEneBm3FlyNest__sub_800B3ADC(void *);
@@ -119,7 +119,7 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
 extern const f32 lbl_805D9CF8;
 
-void TObjEneBm3FlyNest__sub_800B30B0(void *arg0, s32 arg1) {
+void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 4;

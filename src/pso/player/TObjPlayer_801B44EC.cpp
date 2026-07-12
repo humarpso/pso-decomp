@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801B44EC(s32 arg0);
-void TObjPlayer__sub_801B4540(void *arg0);
+void send_code50_packet__10TObjPlayerFi(s32 arg0);
+void recover_full__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 s16 obj_getField1c(s32);
@@ -17,7 +17,7 @@ M2C_UNK send_font_state__10TObjPlayerFPv(void *);
 M2C_UNK set_code_50_1__10TObjPlayerFPv(void *);
 
 struct S801B44EC_801b44ec { s8 b[2]; s16 h; };
-void TObjPlayer__sub_801B44EC(s32 arg0) {
+void send_code50_packet__10TObjPlayerFi(s32 arg0) {
     struct S801B44EC_801b44ec sp8;
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
@@ -45,7 +45,7 @@ struct VObj_801B4540 : Base_801B4540 {
     virtual void m52(); virtual void m53();
 };
 
-void TObjPlayer__sub_801B4540(void *arg0) {
+void recover_full__10TObjPlayerFPv(void *arg0) {
     struct VObj_801B4540 *o = (struct VObj_801B4540 *)arg0;
     play_voice_pair__10TObjPlayerFPv();
     o->m53();

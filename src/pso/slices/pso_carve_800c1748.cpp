@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TLobby__sub_8001E5C8();
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK TLobby__sub_803DA16C(void*);
 extern u32 lbl_805D5164;
 extern u32 lbl_805D516C;
@@ -17,7 +17,7 @@ void fn_800C1748(void) {
     if (TLobby__sub_8001E5C8() == 0) {
         if ((u32) lbl_805D516C != 0U) {
             TLobby__sub_803DA16C((void*)lbl_805D516C);
-            TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D516C);
+            safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D516C);
             lbl_805D516C = 0U;
         }
     } else {

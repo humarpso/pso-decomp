@@ -12,7 +12,7 @@ struct VObj1_80175024 : Base1_80175024 {
 
 extern "C" {
 
-void TORockCaveSimple__sub_80175024(u8 *arg0);
+void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjFish__sub_803DA798(s32);
@@ -20,7 +20,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 
-void TORockCaveSimple__sub_80175024(u8 *arg0) {
+void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0) {
     VObj1_80175024 *self = (VObj1_80175024 *)arg0;
     if (self->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
         TObjPlayer__sub_803D9B2C();

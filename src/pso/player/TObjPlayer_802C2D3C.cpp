@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_802C2D3C(u8 *arg0);
+void draw_model_parts__10TObjPlayerFPv(u8 *arg0);
 s32 TMainTask__sub_8001A430();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 M2C_UNK TObjFish__sub_803DA798(s32);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -23,8 +23,8 @@ M2C_UNK TObjPlayer__sub_802C2FBC(void *, s32, s32, f32);
 extern s32 lbl_805D679C;
 extern const f32 lbl_805DE4FC;
 
-void TObjPlayer__sub_802C2D3C(u8 *arg0) {
-    if ((TObjPlayer__sub_80080750() == 1) && (TMainTask__sub_8001A430() == 0)) {
+void draw_model_parts__10TObjPlayerFPv(u8 *arg0) {
+    if ((check_demo_mode__10TObjPlayerFv() == 1) && (TMainTask__sub_8001A430() == 0)) {
         TObjPlayer__sub_802C2FBC(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), lbl_805DE4FC);
     }
     TObjFish__sub_803DA798(lbl_805D679C);

@@ -9,7 +9,7 @@ extern "C" {
 void *TItemLoad__sub_8010FE6C(void *arg0, u32 arg1, s32 arg2);
 M2C_UNK TItemBuff__ct();
 s32 TLobby__sub_800F9DF4(u32, s32);
-u32 TOBoss4Rock__sub_80147AA8(s32);
+u32 alloc_buffer__11TOBoss4RockFPv(s32);
 s32 create_item_buff(s32);
 s32 fn_800F7D30(s32, u32, s32);
 M2C_UNK TItemDrop__sub_800F93F0(M2C_UNK *, M2C_UNK);
@@ -43,7 +43,7 @@ void *TItemLoad__sub_8010FE6C(void *arg0, u32 arg1, s32 arg2) {
     M2C_FIELD(arg0, u32 *, 0) = 0U;
     M2C_FIELD(arg0, s32 *, 4) = 0;
     if ((arg2 != 0) && (arg1 != 0U)) {
-        M2C_FIELD(arg0, u32 *, 0) = TOBoss4Rock__sub_80147AA8(arg2);
+        M2C_FIELD(arg0, u32 *, 0) = alloc_buffer__11TOBoss4RockFPv(arg2);
         temp_r3 = create_item_buff(arg2);
         if ((temp_r3 != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) && (TLobby__sub_800F9DF4(arg1, temp_r3) > 0)) {
             temp_r31 = fn_800F7D30(temp_r3, M2C_FIELD(arg0, u32 *, 0), arg2);

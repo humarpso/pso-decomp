@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8025B514(s32, s32, s32, s32);
 s32 fn_8025B5AC(s32, s32, s32);
-u32 TAdSinglePlyChrSelectGC__sub_8007EB94(s32);
+u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u32 fn_802880BC(u32, s32, s16);
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8026906C(void);
@@ -91,7 +91,7 @@ void create_sub_window__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
     u32 var_r0;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x78) == 0U) {
-        var_r0 = TAdSinglePlyChrSelectGC__sub_8007EB94(0x24);
+        var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
         if (var_r0 != 0U) {
             var_r0 = fn_802880BC(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
         }

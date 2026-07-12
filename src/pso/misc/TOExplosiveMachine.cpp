@@ -12,7 +12,7 @@ struct VObj1_80166568 : Base1_80166568 {
 
 extern "C" {
 
-void TOExplosiveMachine__sub_80166568(u8 *arg0);
+void explode__18TOExplosiveMachineFPv(u8 *arg0);
 void TOExplosiveMachine__sub_801665DC(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -22,7 +22,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 
-void TOExplosiveMachine__sub_80166568(u8 *arg0) {
+void explode__18TOExplosiveMachineFPv(u8 *arg0) {
     VObj1_80166568 *self = (VObj1_80166568 *)arg0;
     if (self->m8(M2C_FIELD(arg0, f32 *, 0x90), M2C_FIELD(arg0, f32 *, 0x94)) != 0) {
         TObjPlayer__sub_803D9B2C();

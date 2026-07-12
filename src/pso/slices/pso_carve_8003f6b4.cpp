@@ -18,7 +18,7 @@ struct VObj_8003F6B4 : Base_8003F6B4 {
     virtual void m20(void *second, f32 c);
 };
 
-extern "C" void fn_8003F6B4(u16 arg0) {
+extern "C" void TObjPlayer__sub_8003F6B4(u16 arg0) {
     void *temp_r3;
     void *temp_r4;
     void *temp_r5;

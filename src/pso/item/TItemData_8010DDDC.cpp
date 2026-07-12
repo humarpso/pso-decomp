@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemData__sub_8010DDDC(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 M2C_UNK TItemData__sub_8010DD6C(void *, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TItemData__sub_8010B908(void *, s32, s32, s32, s32, s32);
@@ -20,7 +20,7 @@ M2C_UNK TItemData__sub_8010C5DC(void *, s32);
 M2C_UNK apply_bonuses(void *, s32, s32, s32, s32, s32);
 extern s32 lbl_805D53A0;
 
-void TItemData__sub_8010DDDC(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     u8 temp_r0;
     u8 temp_r0_2;
 

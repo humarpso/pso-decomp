@@ -22,7 +22,7 @@ extern M2C_UNK lbl_804FF234[];
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 
-void fn_80051D5C(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32 arg6, s32 arg7, f32 farg0) {
+void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u32 arg5, u32 arg6, s32 arg7, f32 farg0) {
     if (lbl_805D8A30 != farg0) {
         fn_80051B98(arg3);
         if (farg0 < lbl_805D8A34) {

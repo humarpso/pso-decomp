@@ -12,8 +12,8 @@ void handle_comcard_window__6TLobbyFv(void);
 M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK free__11TOBoss4RockFUi(s32);
-s32 TWindowSubComCard__sub_80131C10(u32);
-s32 TWindowSubComCard__sub_80131C34(u32);
+s32 is_keyboard_active__17TWindowSubComCardFPv(u32);
+s32 update_keyboard__17TWindowSubComCardFPv(u32);
 M2C_UNK TWindow__close(s32);
 s32 TWindowSubComCard__sub_80131BC4(u32);
 M2C_UNK queue_destruction__7TObjectFv(u32);
@@ -29,13 +29,13 @@ void handle_comcard_window__6TLobbyFv(void) {
     s32 temp_r3;
 
     if ((u32) lbl_805D55F4 != 0U) {
-        if (TWindowSubComCard__sub_80131C10(lbl_805D55F4) != 0) {
+        if (is_keyboard_active__17TWindowSubComCardFPv(lbl_805D55F4) != 0) {
             queue_destruction__7TObjectFv(lbl_805D55F4);
             lbl_805D55F4 = 0U;
             close_all_windows__6TLobbyFv();
             return;
         }
-        if (TWindowSubComCard__sub_80131C34(lbl_805D55F4) != 0) {
+        if (update_keyboard__17TWindowSubComCardFPv(lbl_805D55F4) != 0) {
             temp_r3 = TWindowSubComCard__sub_80131BC4(lbl_805D55F4);
             send_action__9TProtocolFR13GameListEntryPcPc(TLobby__data_805D5580, &TLobby__data_805D5580->arr[lbl_805D5600], &TLobby__data_805DB0B0, temp_r3, TLobby__data_805D5580);
             free__11TOBoss4RockFUi(temp_r3);

@@ -2,14 +2,14 @@
 
 extern "C" {
 
-s32 TLobby__sub_800F9DA0(void);
+s32 get_file_size__6TLobbyFv(void);
 int TLobby__sub_800FD944(void*);
 s32 TLobby__sub_803CC500();
 s32 TLobby__sub_803CCE9C(s32);
 s32 TLobby__sub_803CD3A8(s32, s32);
 int TScene__sub_800F9D80(void* p);
 
-s32 TLobby__sub_800F9DA0(void) {
+s32 get_file_size__6TLobbyFv(void) {
     s32 temp_r31;
     s32 temp_r3;
     s32 uninit;

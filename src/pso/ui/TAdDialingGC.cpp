@@ -18,7 +18,7 @@ void render__12TAdDialingGCFv(void* p) { TAdDialingGC__sub_80328B20(p); TAdDiali
 
 M2C_UNK TAdDialingGC__sub_80328210();
 M2C_UNK TAdDialingGC__sub_803282B8();
-M2C_UNK TAdDialingGC__sub_80328360();
+M2C_UNK update_dial_state__12TAdDialingGCFPvi();
 M2C_UNK TAdDialingGC__sub_80328558(void *);
 
 void run_task__12TAdDialingGCFv(void *arg0) {
@@ -27,7 +27,7 @@ void run_task__12TAdDialingGCFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 0:
-        TAdDialingGC__sub_80328360();
+        update_dial_state__12TAdDialingGCFPvi();
         break;
     case 1:
         TAdDialingGC__sub_803282B8();

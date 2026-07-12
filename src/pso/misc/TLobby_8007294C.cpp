@@ -8,10 +8,10 @@ extern "C" {
 
 void TLobby__sub_8007294C(s32 arg0);
 M2C_UNK TLobby__send_and_handle_60(s32);
-M2C_UNK TLobby__sub_80072910();
+M2C_UNK bswap_6x7C_packet__6TLobbyFi();
 
 void TLobby__sub_8007294C(s32 arg0) {
-    TLobby__sub_80072910();
+    bswap_6x7C_packet__6TLobbyFi();
     TLobby__send_and_handle_60(arg0);
 }
 

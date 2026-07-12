@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubStatusDisp__sub_8006F094(void);
+s32 get_layout_id__20TWindowSubStatusDispFv(void);
 s32 TWindowSubStatusDisp__sub_8006F190();
 
 extern M2C_UNK lbl_8043859C[];
 
-s32 TWindowSubStatusDisp__sub_8006F094(void) {
+s32 get_layout_id__20TWindowSubStatusDispFv(void) {
     if (TWindowSubStatusDisp__sub_8006F190() < 3) {
         return lbl_8043859C[TWindowSubStatusDisp__sub_8006F190()];
     }

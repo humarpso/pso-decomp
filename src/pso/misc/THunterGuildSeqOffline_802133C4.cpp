@@ -13,14 +13,14 @@ extern "C" {
 void notify_quest_thread__22THunterGuildSeqOfflineFv(void);
 int THunterGuildSeqOffline__sub_80213410(void* p);
 int THunterGuildSeqOffline__sub_80213430(void*);
-void *TQuestThread__sub_801F5BD4(s32);
+void *create__12TQuestThreadFi(s32);
 
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 
 void notify_quest_thread__22THunterGuildSeqOfflineFv(void) {
     s32 v = THunterGuildSeqOffline__data_80513DC8[3];
     if (v != -1) {
-        void *obj = TQuestThread__sub_801F5BD4(v);
+        void *obj = create__12TQuestThreadFi(v);
         if (obj != NULL) {
             ((VObj_802133C4 *)obj)->m1();
         }

@@ -4,14 +4,14 @@ extern "C" {
 
 void run_task__14TAdLoadQuestGCFv(void);
 void render__14TAdLoadQuestGCFv(void);
-s32 fn_803095E8(s32 arg0);
+s32 create_cost_window(s32 arg0);
 s32 TWindowCost__ct(s32, s32, s32, s32);
 s32 TWindowSubStatusDisp__sub_80077760(s32);
 s32 __nw__7TObjectFUl(s32);
 s32 TCameraCtrl__sub_8006B338();
 s32 TWindowSubComCard__sub_8026CBB8(s32);
 
-s32 fn_803095E8(s32 arg0) {
+s32 create_cost_window(s32 arg0) {
     s32 var_r30;
 
     if (TCameraCtrl__sub_8006B338() <= 2) {

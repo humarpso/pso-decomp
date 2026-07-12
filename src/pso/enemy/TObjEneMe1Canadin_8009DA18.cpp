@@ -119,7 +119,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
-M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
+M2C_UNK update_hover_height__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
 
@@ -146,7 +146,7 @@ void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1) {
         TBoss1Dragon__sub_80143504();
         TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
         update_move__17TObjEneMe1CanadinFPv(arg0);
-        TObjEneMe1Canadin__sub_8009EABC(arg0);
+        update_hover_height__17TObjEneMe1CanadinFPv(arg0);
         ((V_A *) arg0)->m87();
         TObjEneMe1Canadin__sub_8009E6B0(arg0);
         break;

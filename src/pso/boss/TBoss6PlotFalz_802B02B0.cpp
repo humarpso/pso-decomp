@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802B02B0(void *arg0);
+void update_plot_timer__14TBoss6PlotFalzFPv(void *arg0);
 s32 TBoss6PlotFalz__sub_802AACEC(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AB2B8(void *, M2C_UNK);
 M2C_UNK TBoss6PlotFalz__sub_802AB490(void *);
@@ -14,7 +14,7 @@ M2C_UNK TBoss6PlotFalz__sub_802AC4D8();
 M2C_UNK TBoss6PlotFalz__sub_802AC678();
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
 
-void TBoss6PlotFalz__sub_802B02B0(void *arg0) {
+void update_plot_timer__14TBoss6PlotFalzFPv(void *arg0) {
     s32 temp_r0;
 
     TBoss6PlotFalz__sub_802AC4D8();

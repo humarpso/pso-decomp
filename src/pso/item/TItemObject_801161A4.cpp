@@ -41,7 +41,7 @@ M2C_UNK TItemObject__sub_800FFE4C(void *);
 s32 TItemObject__sub_80101A1C(void *);
 M2C_UNK TItemObject__sub_80115D6C(void *, s32);
 M2C_UNK TObjPlayer__sub_80099EF8(void *);
-s32 TWindowSubStatusDisp__sub_800FFE1C();
+s32 check_flag_400__20TWindowSubStatusDispFv();
 M2C_UNK TItem__sub_80100508(void *, M2C_UNK);
 M2C_UNK TItem__sub_80100564(void *, M2C_UNK);
 M2C_UNK TItem__sub_80100824();
@@ -84,7 +84,7 @@ s32 TItemObject__vt35(void *arg0, s32 arg1) {
 
 void TItemObject__vt29(void *arg0) {
     struct VObj_8011626C *o = (struct VObj_8011626C *)arg0;
-    if (TWindowSubStatusDisp__sub_800FFE1C() != 0) {
+    if (check_flag_400__20TWindowSubStatusDispFv() != 0) {
         TItemObject__sub_800FFE4C(arg0);
         return;
     }

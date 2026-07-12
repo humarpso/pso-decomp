@@ -15,7 +15,7 @@ M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 extern s32 some_id_805c6f74;
 
-void fn_80049BA4(u8 *arg0) {
+void draw_obj_model(u8 *arg0) {
     TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xB0));
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

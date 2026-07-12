@@ -8,14 +8,14 @@ extern "C" {
 
 void free_resources__12TBoss1DragonFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void TAdSinglePlyChrSelectGC__sub_8007EBB4(void*);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 
 extern u32 TBoss1Dragon__data_805D4B08;
 extern u32 TBoss1Dragon__data_805D4B28;
 
 void free_resources__12TBoss1DragonFv(void) {
     if ((u32) TBoss1Dragon__data_805D4B28 != 0U) {
-        TAdSinglePlyChrSelectGC__sub_8007EBB4((void*)TBoss1Dragon__data_805D4B28);
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)TBoss1Dragon__data_805D4B28);
         TBoss1Dragon__data_805D4B28 = 0U;
     }
     if ((u32) TBoss1Dragon__data_805D4B08 != 0U) {

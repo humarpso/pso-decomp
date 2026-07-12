@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80140830(void);
-M2C_UNK TLobby__sub_8007B858();
-s32 TLobby__sub_8007BB2C();
+s32 setup_scene__6TLobbyFv(void);
+M2C_UNK create_tasks__6TLobbyFv();
+s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
-M2C_UNK TLobby__sub_801D76B0(M2C_UNK *);
+M2C_UNK reset_settings_to_default__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TLobby__sub_80207E44();
 M2C_UNK TLobby__sub_8021EF84();
 M2C_UNK TLobby__sub_80227FB4();
@@ -27,20 +27,20 @@ extern M2C_UNK lbl_8050EA40[];
 extern s32 tl_05;
 extern s32 tl_07;
 
-s32 TLobby__sub_80140830(void) {
+s32 setup_scene__6TLobbyFv(void) {
     void *obj;
 
     TOKeyMachine01__sub_802034A8();
     TLobby__sub_80227FB4();
     TLobby__sub_80207E44();
-    if (TLobby__sub_8007BB2C() != 0) {
+    if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
     TObjLight__sub_80133D78();
     TLobby__sub_8021EF84();
     TLobby__sub_800FD6F8(lbl_804A7370, 0x60);
-    TLobby__sub_801D76B0(lbl_8050EA40);
-    TLobby__sub_8007B858();
+    reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
+    create_tasks__6TLobbyFv();
     TObjBgmColCtrl__sub_8017E3B8();
     if (TOKeyMachine01__sub_802034A8() == 0) {
         obj = __nw__7TObjectFUl(0x78);

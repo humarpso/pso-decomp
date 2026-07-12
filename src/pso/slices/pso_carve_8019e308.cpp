@@ -52,7 +52,7 @@ s32 check_flag_100__10TObjPlayerFPv(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 
-void fn_8019E308(void *arg0) {
+void update_warp_boss_visibility(void *arg0) {
     void *temp_r3;
     s32 var_r30;
 

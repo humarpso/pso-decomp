@@ -29,7 +29,7 @@ s32 TWindowSubComCard__sub_80073DB8(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 M2C_UNK TLobby__sub_801F387C(s32, s32);
-s32 TLobby__sub_80266E0C(s32);
+s32 select_cursor_entry__6TLobbyFPv(s32);
 
 void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
     s32 temp_r0;
@@ -44,7 +44,7 @@ void handle_confirm_select__19TQuestListChallengeFPv(void *arg0) {
         if ((M2C_FIELD(arg0, void **, 0x34) != NULL) && (TWindowSubComCard__sub_8007341C(M2C_FIELD(arg0, void **, 0x34)) == 1)) {
             temp_r3_2 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x34));
             if (temp_r3_2 == 0) {
-                temp_r0 = TLobby__sub_80266E0C(M2C_FIELD(arg0, s32 *, 0x38));
+                temp_r0 = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x38));
                 temp_r4 = M2C_FIELD(arg0, Entry_80288C78 **, 0x58);
                 TLobby__sub_801F387C(temp_r4[temp_r0].fieldC, (s32) temp_r4);
                 TQuestListVM__sub_80073DC4(arg0, 3);

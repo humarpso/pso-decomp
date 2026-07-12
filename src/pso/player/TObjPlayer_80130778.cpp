@@ -9,7 +9,7 @@ extern "C" {
 void *TObjPlayer__sub_80130778(void *arg0, s16 arg1);
 void TObjPlayer__sub_801307D0(void *arg0);
 void TObjPlayer__sub_801307E4(void* p);
-int TObjPlayer__sub_801207E8(void*, void*, void*);
+int draw_icon__10TObjPlayerFPvii(void*, void*, void*);
 int TObjPlayer__sub_80120908(void*);
 int TObjPlayer__sub_80120BBC(void*, void*);
 void __dl__7TObjectFPv(void *);
@@ -34,6 +34,6 @@ void TObjPlayer__sub_801307D0(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801307E4(void* p) { TObjPlayer__sub_80120908(p); TObjPlayer__sub_801207E8(p, (void*)3, (char*)p + 0x208); TObjPlayer__sub_801207E8(p, (void*)1, (char*)p + 0x220); TObjPlayer__sub_80120BBC(p, (void*)35); TObjPlayer__sub_801207E8(p, (void*)3, (char*)p + 0x214); TObjPlayer__sub_801207E8(p, (void*)1, (char*)p + 0x22c); }
+void TObjPlayer__sub_801307E4(void* p) { TObjPlayer__sub_80120908(p); draw_icon__10TObjPlayerFPvii(p, (void*)3, (char*)p + 0x208); draw_icon__10TObjPlayerFPvii(p, (void*)1, (char*)p + 0x220); TObjPlayer__sub_80120BBC(p, (void*)35); draw_icon__10TObjPlayerFPvii(p, (void*)3, (char*)p + 0x214); draw_icon__10TObjPlayerFPvii(p, (void*)1, (char*)p + 0x22c); }
 
 }

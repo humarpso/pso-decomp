@@ -9,11 +9,11 @@ extern "C" {
 s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1);
 void can_pickup_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 TItemObject__sub_80101A1C();
-M2C_UNK TItem__sub_80101CFC(s32, M2C_UNK *);
-s32 TItemData__sub_8010CD6C(u8 *);
+M2C_UNK copy_to_item_data__5TItemFPvPv(s32, M2C_UNK *);
+s32 lookup_item_def__9TItemDataFPv(u8 *);
 u32 TItemList__sub_8010ED0C(u8 *);
 u32 TObjPlayer__sub_801D4E10(void *, u8 *);
-void *TObjPlayer__sub_801D5764();
+void *get_owner_if_alive__10TObjPlayerFPv();
 
 s32 obj_getPtr2B0_20(void *);
 
@@ -43,12 +43,12 @@ s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1) {
     s32 temp_r31_2;
     void *temp_r3;
 
-    if (TItemData__sub_8010CD6C(arg1) != 0) {
+    if (lookup_item_def__9TItemDataFPv(arg1) != 0) {
         if ((u8) *arg1 == 4) {
             return obj_getPtr2B0_20(arg0) < 0xF423F;
         }
         if (TObjPlayer__sub_801D4E10(M2C_FIELD(arg0, void **, 0xD00), arg1) != 0U) {
-            temp_r3 = TObjPlayer__sub_801D5764();
+            temp_r3 = get_owner_if_alive__10TObjPlayerFPv();
             if (temp_r3 == NULL) {
                 return 0;
             }
@@ -68,7 +68,7 @@ block_7:
 void can_pickup_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1) {
     M2C_UNK sp8[5];
 
-    TItem__sub_80101CFC(arg1, sp8);
+    copy_to_item_data__5TItemFPvPv(arg1, sp8);
     can_pickup_item__10TObjPlayerFPvPv((void *)(arg0), (u8 *)(sp8));
 }
 

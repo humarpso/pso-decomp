@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0);
-s32 TOBoss4Rock__sub_80147AA8(s32);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK clear_flag2c_bit100__15TWindowFukidasiFPv(void *);
-s32 TWindowKeyBoardSoft__sub_80228BEC(s32, M2C_UNK);
+s32 strnlen__19TWindowKeyBoardSoftFPvUi(s32, M2C_UNK);
 M2C_UNK set_color__15TWindowFukidasiFPvUs(void *, s16);
 M2C_UNK TWindowFukidasi__sub_80252CA0(void *);
 
@@ -28,8 +28,8 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
     M2C_FIELD(arg0, s16 *, 0x76) = arg1;
     M2C_FIELD(arg0, s16 *, 0x20) = arg3;
     if (arg2 != 0) {
-        temp_r3 = TWindowKeyBoardSoft__sub_80228BEC(arg2, 0x18);
-        M2C_FIELD(arg0, s32 *, 0x78) = TOBoss4Rock__sub_80147AA8(temp_r3 + 1);
+        temp_r3 = strnlen__19TWindowKeyBoardSoftFPvUi(arg2, 0x18);
+        M2C_FIELD(arg0, s32 *, 0x78) = alloc_buffer__11TOBoss4RockFPv(temp_r3 + 1);
         strncpy(M2C_FIELD(arg0, s32 *, 0x78), arg2, temp_r3 + 1);
     } else {
         M2C_FIELD(arg0, s32 *, 0x78) = 0;

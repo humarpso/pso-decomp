@@ -58,7 +58,7 @@ M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjEneEpsilonGuard__sub_800D7B1C(void *, void *);
 M2C_UNK TObjPlayer__sub_800D8A2C();
 M2C_UNK TParticleCtrl__sub_801E2F20();
@@ -128,7 +128,7 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
         some_id_805c6f74 &= 0xFFFFFBFF;
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        if (TObjPlayer__sub_80080750() == 1) {
+        if (check_demo_mode__10TObjPlayerFv() == 1) {
             TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);

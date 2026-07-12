@@ -10,7 +10,7 @@ s32 TAdPlayerLoadGC__sub_8033BB14(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E1F40(M2C_UNK);
+s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_8033BA0C(M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_8033BA84(M2C_UNK);
 s32 fn_8033BAB4(void *);
@@ -32,7 +32,7 @@ s32 TAdPlayerLoadGC__sub_8033BB14(void *arg0) {
         return 2;
     }
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    if (TAdPlayerLoadGC__sub_801E1F40(0) != 0) {
+    if (check_memcard_status__15TAdPlayerLoadGCFi(0) != 0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 0;
         return 8;
     }

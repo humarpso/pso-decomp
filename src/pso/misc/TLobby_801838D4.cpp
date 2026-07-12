@@ -12,7 +12,7 @@ struct Fn801838D4VObj_801838d4 : Fn801838D4Base_801838d4 {
 
 extern "C" {
 
-void TLobby__sub_801838D4(u8 *arg0);
+void draw_model__6TLobbyFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
@@ -29,7 +29,7 @@ extern s32 lbl_805D5B48;
 extern const f32 lbl_805DBC44;
 extern const f32 lbl_805DBC48;
 
-void TLobby__sub_801838D4(u8 *arg0) {
+void draw_model__6TLobbyFPv(u8 *arg0) {
     if (((u32) lbl_805D5B38 != 0U) && (((Fn801838D4VObj_801838d4*)arg0)->m8(lbl_805DBC44, lbl_805DBC48) != 0)) {
         TObjFish__sub_803DA798(lbl_805D5B44);
         TObjPlayer__sub_800F5BC0(lbl_805D5B48, (s16) M2C_FIELD(arg0, s32 *, 0x90), 0);

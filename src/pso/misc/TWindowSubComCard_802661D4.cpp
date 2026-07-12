@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_802661D4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void draw_text_gray__17TWindowSubComCardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK TWindowSubTradeMain__sub_80266200(s32, s32, s32, s32, s32);
 
-void TWindowSubComCard__sub_802661D4(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void draw_text_gray__17TWindowSubComCardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     TWindowSubTradeMain__sub_80266200(arg0, arg1, arg2 | 0x10, arg3, 0xFF909090);
 }
 

@@ -9,7 +9,7 @@ extern "C" {
 void TItem__sub_80101414(void* p);
 void TItem__sub_80101450(void *arg0);
 int TItem__sub_80101B20(void*);
-void TItem__sub_80101CFC(void *, void *);
+void copy_to_item_data__5TItemFPvPv(void *, void *);
 int disallow_rendering__7TObjectFv(void*);
 void fn_801047F0(void *);
 int queue_destruction__7TObjectFv(void*);
@@ -19,7 +19,7 @@ void TItem__sub_80101414(void* p) { TItem__sub_80101B20(p); disallow_rendering__
 void TItem__sub_80101450(void *arg0) {
     M2C_UNK sp8[4];
 
-    TItem__sub_80101CFC(arg0, &sp8);
+    copy_to_item_data__5TItemFPvPv(arg0, &sp8);
     fn_801047F0(&sp8);
 }
 

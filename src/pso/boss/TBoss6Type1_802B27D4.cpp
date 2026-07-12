@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss6Type1__sub_802B27D4(void* p);
-void TBoss6Type1__sub_802B2800(u8 *arg0);
+void enter_release_state__11TBoss6Type1FPv(u8 *arg0);
 void TBoss6Type1__sub_802B28A8(void *arg0);
 void TBoss6Type1__sub_802B28DC(u8 *arg0);
 void TBoss6Type1__sub_802B292C(u8 *arg0);
 void TBoss6Type1__sub_802B29B4(void *arg0);
-void TBoss6Type1__sub_802B2A10(u8 *arg0);
+void advance_plot_to_state2__11TBoss6Type1FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss6PlotFalz__sub_802AB260(s32);
 M2C_UNK TBoss6Type1__sub_802B49A4(void *);
@@ -33,7 +33,7 @@ M2C_UNK set_state_2__14TBoss6PlotFalzFPv(s32);
 
 void TBoss6Type1__sub_802B27D4(void* p) { if (*(int*)((char*)p + 0x410) == 0) { TBoss6Type1__sub_802B8E1C(p); } }
 
-void TBoss6Type1__sub_802B2800(u8 *arg0) {
+void enter_release_state__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x40C) = 0x5A;
     M2C_FIELD(arg0, s32 *, 0x410) = 0x5A;
     release_object__11TBoss6Type1FPv();
@@ -89,7 +89,7 @@ void TBoss6Type1__sub_802B29B4(void *arg0) {
     }
 }
 
-void TBoss6Type1__sub_802B2A10(u8 *arg0) {
+void advance_plot_to_state2__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x40C) = 0x12C;
     M2C_FIELD(arg0, s32 *, 0x410) = 0x12C;
     free_child__14TBoss6PlotFalzFPv(M2C_FIELD(arg0, s32 *, 0x3F8));

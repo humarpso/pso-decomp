@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800D91B0(void *arg0, s32 arg1);
+void spawn_ground_effect__10TObjPlayerFPvi(void *arg0, s32 arg1);
 M2C_UNK TLobby__sub_800869A4(M2C_UNK *, M2C_UNK, M2C_UNK, s32);
 M2C_UNK adjust_to_ground__15TObjBoss2TunnelFiPv(void *, M2C_UNK *);
 
-void TObjPlayer__sub_800D91B0(void *arg0, s32 arg1) {
+void spawn_ground_effect__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     M2C_UNK sp8;
 
     adjust_to_ground__15TObjBoss2TunnelFiPv(arg0, &sp8);

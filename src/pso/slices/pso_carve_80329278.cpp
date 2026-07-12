@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOBoss4Rock__sub_80147AA8(M2C_UNK);
+s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 extern s32 lbl_805D6C80;
 
 void fn_80329278(void) {
-    lbl_805D6C80 = TOBoss4Rock__sub_80147AA8(0x1C0000);
+    lbl_805D6C80 = alloc_buffer__11TOBoss4RockFPv(0x1C0000);
 }
 
 }

@@ -15,7 +15,7 @@ int TShopJudgmentItemWindow__sub_801B853C(void* p);
 int TObjPlayer__sub_801B8DE8(void*);
 
 int fn_801B855C(void) { return 0; }
-s32 fn_801B85CC(s32 arg0, void *arg1) {
+s32 try_buy_item(s32 arg0, void *arg1) {
     if (can_pickup_item__10TObjPlayerFPvPv() == 0) {
         return 1;
     }

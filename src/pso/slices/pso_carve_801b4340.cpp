@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801B42AC();
+M2C_UNK update_rotation__10TObjPlayerFPv();
 
 struct Base_801B4340 { char pad[0x18]; };
 struct VObj_801B4340 : Base_801B4340 {
@@ -70,7 +70,7 @@ struct VObj_801B4340 : Base_801B4340 {
 
 void TObjPlayer__sub_801B4340(void *arg0) {
     struct VObj_801B4340 *o = (struct VObj_801B4340 *)arg0;
-    TObjPlayer__sub_801B42AC();
+    update_rotation__10TObjPlayerFPv();
     o->m53();
     obj_clearFlags30(arg0, 0xE00);
     TObjPlayer__sub_8011E204(arg0, 1);

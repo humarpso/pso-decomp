@@ -20,13 +20,13 @@ struct VObj_80215C48 : Base_80215C48 {
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TShopSequence__sub_80223760(void *);
+M2C_UNK close_window__13TShopSequenceFPv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 
-void fn_80215C48(void *arg0) {
+void handle_close_input__17TJudgmentSequenceFPv(void *arg0) {
     if ((((VObj_80215C48 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
-        TShopSequence__sub_80223760(arg0);
+        close_window__13TShopSequenceFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }

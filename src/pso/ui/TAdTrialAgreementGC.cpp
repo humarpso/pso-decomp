@@ -9,12 +9,12 @@ void wait_for_load__19TAdTrialAgreementGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-int TAdMultiChgGameModeGC__sub_8023EC14(void*);
+int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int close_window__14TAdScrollWinGCFPv(void*);
 s32 render_tick__Fv();
 
 void TAdTrialAgreementGC__vt6(void) { TKeyBoardControl__sub_8000F9CC((void*)0); }
-int TAdTrialAgreementGC__vt5(void* p) { return TAdMultiChgGameModeGC__sub_8023EC14(p); }
+int TAdTrialAgreementGC__vt5(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 void TAdTrialAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { close_window__14TAdScrollWinGCFPv(*(void**)((char*)p + 0x38)); *(int*)((char*)p + 0x38) = 0; } }
 void wait_for_load__19TAdTrialAgreementGCFv(void) {
 loop_1:

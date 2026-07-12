@@ -18,7 +18,7 @@ void TItem__sub_80101CEC(void);
 void TItem__sub_80101CF0(void);
 void TItem__sub_80101CF4(void);
 void TItem__sub_80101CF8(void);
-s32 TItem__sub_80101CFC(void *arg0, void *arg1);
+s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1);
 M2C_UNK TItemData__sub_8010B848(void *, s8);
 M2C_UNK TItemData__sub_8010C498(void *);
 M2C_UNK TItemData__sub_8010C638(void *, u16);
@@ -31,7 +31,7 @@ void TItem__sub_80101CF8(void) {  }
 
 struct TItemDataX_80101cfc;
 
-s32 TItem__sub_80101CFC(void *arg0, void *arg1) {
+s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1) {
     struct TItemDataX_80101cfc *item = (struct TItemDataX_80101cfc *)arg1;
     struct VObj_80101CFC *o = (struct VObj_80101CFC *)arg0;
     if (item != NULL) {

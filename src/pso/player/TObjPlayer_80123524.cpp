@@ -7,18 +7,18 @@ struct Sp8Type_80123524 { s32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
 
-void TObjPlayer__sub_80123524(void *arg0);
+void draw_mag__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801236B4(s32 arg0);
 void TObjPlayer__sub_801236F8(void *arg0);
 s32 TItemMag__sub_80102C4C();
 M2C_UNK TOHangerMachine01__sub_803D9C00(Sp8Type_80123524 *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
 M2C_UNK TObjPlayer__sub_80100E00(void *);
-M2C_UNK TObjPlayer__sub_801085B0(s32, s32, M2C_UNK);
+M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C();
-s32 TObjPlayer__sub_801207E8(void *, M2C_UNK, Sp8Type_80123524 *, s32);
+s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, Sp8Type_80123524 *, s32);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK, void *);
-M2C_UNK TObjPlayer__sub_80363FEC(s32);
+M2C_UNK warn_if_gauge_low__10TObjPlayerFv(s32);
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
@@ -28,7 +28,7 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 
 extern s32 some_id_805c6f74;
 
-void TObjPlayer__sub_80123524(void *arg0) {
+void draw_mag__10TObjPlayerFPv(void *arg0) {
     Sp8Type_80123524 sp8;
     s32 temp_r3;
     s32 temp_r6;
@@ -59,7 +59,7 @@ void TObjPlayer__sub_80123524(void *arg0) {
         M2C_FIELD(temp_r29, s32 *, 0) = (s32) (M2C_FIELD(temp_r29, s32 *, 0) & 0xFFFFFFFD);
         temp_r6 = M2C_FIELD(arg0, s32 *, 0x1F8);
         M2C_FIELD(temp_r29, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r29, s32 *, 0x18) - temp_r6);
-        if (TObjPlayer__sub_801207E8(arg0, 1, &sp8, temp_r6) != 0) {
+        if (draw_icon__10TObjPlayerFPvii(arg0, 1, &sp8, temp_r6) != 0) {
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(&sp8);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60));
@@ -72,7 +72,7 @@ void TObjPlayer__sub_80123524(void *arg0) {
         M2C_FIELD(temp_r29, s32 *, 0) = (s32) (M2C_FIELD(temp_r29, s32 *, 0) | 2);
         temp_r3 = M2C_FIELD(temp_r29, s32 *, 0x18);
         M2C_FIELD(temp_r29, s32 *, 0x18) = (s32) (temp_r3 + M2C_FIELD(arg0, s32 *, 0x1F8));
-        TObjPlayer__sub_80363FEC(temp_r3);
+        warn_if_gauge_low__10TObjPlayerFv(temp_r3);
         TObjPlayer__sub_8036414C();
     }
 }
@@ -81,7 +81,7 @@ extern s32 tl_05;
 
 void TObjPlayer__sub_801236B4(s32 arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
-        TObjPlayer__sub_801085B0(tl_05, arg0, 4);
+        spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
 }
 

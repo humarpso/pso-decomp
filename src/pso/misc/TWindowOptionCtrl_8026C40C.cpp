@@ -9,7 +9,7 @@ extern "C" {
 void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1);
 M2C_UNK apply_selection_change__17TWindowOptionCtrlFPv(void *);
 M2C_UNK TWindow__close(void *);
-M2C_UNK TWindowSubComCard__sub_802A5748(void *);
+M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 
@@ -24,7 +24,7 @@ void *__dt__17TWindowOptionCtrlFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x44) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
-            TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x40));
+            close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x40));
             M2C_FIELD(arg0, u32 *, 0x40) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {

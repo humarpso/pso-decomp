@@ -8,7 +8,7 @@ extern "C" {
 
 void *TScene__sub_80327C18(void *arg0, s16 arg1);
 void *TScene__sub_80327C8C(void *arg0, s32 arg1, s32 arg2);
-s32 TOBoss4Rock__sub_80147AA8(s32);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK fn_80327844(void *, s32, s32);
 M2C_UNK fn_803279CC();
@@ -44,8 +44,8 @@ void *TScene__sub_80327C8C(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xC) = 0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 4);
     if (temp_r0 > 0) {
-        M2C_FIELD(arg0, s32 *, 8) = TOBoss4Rock__sub_80147AA8(temp_r0 * 8);
-        M2C_FIELD(arg0, s32 *, 0xC) = TOBoss4Rock__sub_80147AA8(M2C_FIELD(arg0, s32 *, 0) * 4);
+        M2C_FIELD(arg0, s32 *, 8) = alloc_buffer__11TOBoss4RockFPv(temp_r0 * 8);
+        M2C_FIELD(arg0, s32 *, 0xC) = alloc_buffer__11TOBoss4RockFPv(M2C_FIELD(arg0, s32 *, 0) * 4);
         lbl_805D6C70 = M2C_FIELD(arg0, s32 *, 8);
         lbl_805D6C74 = M2C_FIELD(arg0, s32 *, 0xC);
         fn_80327844(arg0, arg1, arg2);

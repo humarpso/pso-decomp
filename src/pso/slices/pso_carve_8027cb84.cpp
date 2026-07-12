@@ -18,7 +18,7 @@ s32 fn_8026652C(s32, M2C_UNK, s32, s32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 extern const f32 lbl_805DD688;
 
-s32 fn_8027CB84(void *arg0) {
+s32 create_option_menu_window(void *arg0) {
     s32 temp_r31;
 
     temp_r31 = fn_8026652C(TWindowSubComCard__sub_8026CBB8(0x15), 6, TWindowSubStatusDisp__sub_80077760(0x2A), M2C_FIELD(arg0, s32 *, 0x20));

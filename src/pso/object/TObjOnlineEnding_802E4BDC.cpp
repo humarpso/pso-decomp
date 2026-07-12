@@ -11,7 +11,7 @@ s32 get_card_window_value__16TObjOnlineEndingFv();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 TLobby__sub_8006F00C();
-s32 TWindowSubStatusDisp__sub_8006F094(M2C_UNK);
+s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 s32 TLobby__sub_80070AB0();
 s32 TLobby__sub_80070ACC();
 s32 TWindowSubStatusDisp__sub_800718D0();
@@ -24,7 +24,7 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0x154) = 0;
     if (TLobby__sub_80070AB0() != 0) {
-        temp_r30 = TWindowSubStatusDisp__sub_8006F094(-1) - 1;
+        temp_r30 = get_layout_id__20TWindowSubStatusDispFv(-1) - 1;
         {
         s32 t = TLobby__sub_8006F00C();
         if (t == temp_r30) {

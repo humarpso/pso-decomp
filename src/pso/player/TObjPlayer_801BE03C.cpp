@@ -11,7 +11,7 @@ int TObjPlayer__sub_801BDFC4(void);
 int TObjPlayer__sub_801BEC98(void*);
 int TObjPlayer__sub_801BECA0(void*);
 int TLobby__sub_8013A4A0(void*);
-int TLobby__sub_801D76B0(void*);
+int reset_settings_to_default__6TLobbyFPv(void*);
 int fn_802A7BD8(void);
 int copy_if_space(void);
 int fn_802A7C5C(void);
@@ -25,7 +25,7 @@ int TObjPlayer__sub_80354E7C(void);
     extern unsigned char lbl_8050EA40[];
     extern int lbl_805D5D7C;
     extern int lbl_805D5D88;
-void finalize_shared__10TObjPlayerFv(void) { TLobby__sub_8013A4A0((void*)0); TObjPlayer__sub_801BECA0((void*)0); TObjPlayer__sub_801BEC98((void*)0); lbl_805D5D7C = 0; TLobby__sub_801D76B0(lbl_8050EA40); lbl_805D5D88 = 0; TLockOnCursor__sub_8013DBF4(); fn_802A7BD8(); TPlayerFootStamp__sub_802B019C(); free_shared_data__10TObjPlayerFv(); }
+void finalize_shared__10TObjPlayerFv(void) { TLobby__sub_8013A4A0((void*)0); TObjPlayer__sub_801BECA0((void*)0); TObjPlayer__sub_801BEC98((void*)0); lbl_805D5D7C = 0; reset_settings_to_default__6TLobbyFPv(lbl_8050EA40); lbl_805D5D88 = 0; TLockOnCursor__sub_8013DBF4(); fn_802A7BD8(); TPlayerFootStamp__sub_802B019C(); free_shared_data__10TObjPlayerFv(); }
 
     extern int lbl_805D5D7C;
     extern int lbl_805D5D88;

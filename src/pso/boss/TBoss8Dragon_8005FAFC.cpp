@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_8005FAFC(void *arg0);
+void advance_motion_entry__12TBoss8DragonFPv(void *arg0);
 void TBoss8Dragon__sub_8005FB3C(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s16);
 
-void TBoss8Dragon__sub_8005FAFC(void *arg0) {
+void advance_motion_entry__12TBoss8DragonFPv(void *arg0) {
     s16 *ptr;
     ptr = (s16 *) (M2C_FIELD(arg0, s32 *, 0x4BC) + 0x14);
     M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) ptr;
@@ -32,7 +32,7 @@ void TBoss8Dragon__sub_8005FB3C(void *arg0) {
             M2C_FIELD(temp_r5, s16 *, 2) = (s16) (temp_r4 - 1);
             temp_r4b = M2C_FIELD(arg0, void **, 0x4BC);
             if (M2C_FIELD(temp_r4b, s16 *, 2) == 0) {
-                TBoss8Dragon__sub_8005FAFC((void *)(arg0));
+                advance_motion_entry__12TBoss8DragonFPv((void *)(arg0));
             }
         }
     }

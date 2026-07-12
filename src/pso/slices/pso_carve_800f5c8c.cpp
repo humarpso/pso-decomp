@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK __dl__FPv(void *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
-void *fn_800F5C8C(void *arg0, s16 arg1) {
+void *destroy_buffer_pair(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0xC));
         M2C_FIELD(arg0, s32 *, 0xC) = 0;

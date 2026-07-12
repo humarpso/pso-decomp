@@ -10,17 +10,17 @@ void TAdSinglePlyChrSelectGC__sub_8033A924(void);
 void TAdSinglePlyChrSelectGC__sub_8033A928(void* p);
 void TAdSinglePlyChrSelectGC__sub_8033A9A4(void *arg0);
 void clear_buffer(void* p);
-int TAdSinglePlyChrSelectGC__sub_8007EBB4(void*);
-u32 TQuestVmDownLoadServer__sub_8007EBFC(s32);
+int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 int memset(void*, void*, void*);
 
 void TAdSinglePlyChrSelectGC__sub_8033A924(void) {  }
-void TAdSinglePlyChrSelectGC__sub_8033A928(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { TAdSinglePlyChrSelectGC__sub_8007EBB4(*(void**)((char*)p + 0x20)); *(int*)((char*)p + 0x20) = 0; *(int*)((char*)p + 0x1c) = 0; } }
+void TAdSinglePlyChrSelectGC__sub_8033A928(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { safe_free__23TAdSinglePlyChrSelectGCFUi(*(void**)((char*)p + 0x20)); *(int*)((char*)p + 0x20) = 0; *(int*)((char*)p + 0x1c) = 0; } }
 void clear_buffer(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { memset(*(void**)((char*)p + 0x20), (void*)0, *(void**)((char*)p + 0x1c)); } }
 void TAdSinglePlyChrSelectGC__sub_8033A9A4(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 0x16000;
-        M2C_FIELD(arg0, u32 *, 0x20) = TQuestVmDownLoadServer__sub_8007EBFC(M2C_FIELD(arg0, s32 *, 0x1C));
+        M2C_FIELD(arg0, u32 *, 0x20) = alloc__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, s32 *, 0x1C));
     }
 }
 

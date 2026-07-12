@@ -11,7 +11,7 @@ void send_data__6TLobbyFv(void);
 s32 TWindowHelpItem__ct(s32, s32, s32);
 s32 TWindowShortListCtrl__sub_80278E48(s32, M2C_UNK *, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TLobby__sub_801F3274();
+M2C_UNK clear_quest_vm_flag__6TLobbyFv();
 M2C_UNK TLobby__sub_801F32A0(void);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK fn_802787AC();
@@ -47,7 +47,7 @@ void send_data__6TLobbyFv(void) {
     TLobby__sub_801F32A0();
     send_data__6TLobbyFi(temp_r31);
     TLobby__sub_8032CD7C(TLobby__data_805D6CC0, TLobby__data_805D6CC8);
-    TLobby__sub_801F3274();
+    clear_quest_vm_flag__6TLobbyFv();
 }
 
 }

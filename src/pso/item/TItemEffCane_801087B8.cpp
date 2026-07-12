@@ -11,7 +11,7 @@ s32 TBoss4Type2__sub_800874F4(M2C_UNK *, s32);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 s32 TObjPlayer__sub_80099EF8(s32);
-M2C_UNK TObjPlayer__sub_801207E8(s32, s32, M2C_UNK *);
+M2C_UNK draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
 
 extern M2C_UNK __vt__12TItemEffCane[];
 extern s32 lbl_805D2B98;
@@ -24,7 +24,7 @@ void *TItemEffCane__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2B98;
     M2C_FIELD(arg0, s32 *, 0x24) = TObjPlayer__sub_80099EF8(arg2);
     M2C_FIELD(arg0, s32 *, 0x1C) = arg3;
-    TObjPlayer__sub_801207E8(arg2, M2C_FIELD(arg0, s32 *, 0x1C), sp8);
+    draw_icon__10TObjPlayerFPvii(arg2, M2C_FIELD(arg0, s32 *, 0x1C), sp8);
     if (arg4 != -1) {
         M2C_FIELD(arg0, s32 *, 0x20) = TBoss4Type2__sub_800874F4(sp8, arg4);
     } else {

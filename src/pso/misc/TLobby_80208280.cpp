@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80208280(void);
+s32 get_drop_item_mode__6TLobbyFv(void);
 s32 TLobby__sub_8001E5C8();
 s32 get_main_phase();
 s32 is_split_screen();
 
 extern s32 lbl_805D5550;
 
-s32 TLobby__sub_80208280(void) {
+s32 get_drop_item_mode__6TLobbyFv(void) {
     s32 temp_r3;
 
     temp_r3 = get_main_phase();

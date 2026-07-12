@@ -10,7 +10,7 @@ M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9B78();
 extern u16 lbl_805D65F8;
 
-void fn_8029E9F8(s32 arg0) {
+void restore_render_scissor(s32 arg0) {
     if ((u16) lbl_805D65F8 != 0) {
         TObjPlayer__sub_803D9B78();
         if (arg0 != 0) {

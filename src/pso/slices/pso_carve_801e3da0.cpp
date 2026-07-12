@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK run_tasks__16TKeyBoardControlFv();
 M2C_UNK TKeyBoardControl__sub_8000F7FC();
 M2C_UNK TCameraCtrl__sub_80069024();
-M2C_UNK TObjFish__sub_80141550();
+M2C_UNK set_cull_none__8TObjFishFv();
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK GXSetZMode(M2C_UNK, M2C_UNK, M2C_UNK);
@@ -28,11 +28,11 @@ void render_tick__Fv(void) {
     TParticleCtrl__sub_801E2EFC();
     GXSetZMode(1, 7, 0);
     TCameraCtrl__sub_80069024();
-    TObjFish__sub_80141550();
+    set_cull_none__8TObjFishFv();
     TObjPlayer__sub_803D85D8(lbl_805D3584);
     GXSetZMode(1, 3, 1);
     GXSetViewport(lbl_805DC43C, lbl_805DC43C, lbl_805DC430, lbl_805DC42C, lbl_805DC43C, lbl_805DC428);
-    TObjFish__sub_80141550();
+    set_cull_none__8TObjFishFv();
     TParticleCtrl__sub_801E2F20();
     fn_803DCEC8();
     fn_803DCF0C();

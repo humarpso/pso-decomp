@@ -109,10 +109,10 @@ struct VObjV_800ed578 : BaseV_800ed578 {
 
 extern "C" {
 
-void TObjEneRe4Bit__sub_800ED578(u8 *arg0);
+void update_position_flag__13TObjEneRe4BitFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
-void TObjEneRe4Bit__sub_800ED578(u8 *arg0) {
+void update_position_flag__13TObjEneRe4BitFPv(u8 *arg0) {
     M2C_UNK sp8;
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x2FC);

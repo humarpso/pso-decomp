@@ -16,7 +16,7 @@ int fn_8036E810(void* p);
 void fn_8036E830(void);
 int fn_8036E834(void* p);
 void fn_8036E854(void);
-int TAdMultiChgGameModeGC__sub_8023EC14(void*);
+int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int TAdMultiChgGameModeGC__sub_8023ED04(void*);
 
 int fn_8036E3D4(void) { return 0; }
@@ -51,7 +51,7 @@ int fn_8036E6F0(void) { return 0; }
 void fn_8036E750(void) {  }
 int fn_8036E754(void) { return 0; }
 int fn_8036E7DC(void) { return 0; }
-int fn_8036E810(void* p) { return TAdMultiChgGameModeGC__sub_8023EC14(p); }
+int fn_8036E810(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 void fn_8036E830(void) {  }
 int fn_8036E834(void* p) { return TAdMultiChgGameModeGC__sub_8023ED04(p); }
 void fn_8036E854(void) {  }

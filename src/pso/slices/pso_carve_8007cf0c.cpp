@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(s32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 M2C_UNK TObjPlayer__sub_800846C8(M2C_UNK);
 s32 fn_800F9D38(s32);
 s32 TScene__sub_800F9D80(s32);
@@ -40,7 +40,7 @@ void load_data_buffers(void) {
             if ((u32) lbl_805D4E8C != 0U) {
                 memmove((void *)lbl_805D4E8C, (void *)temp_r30, temp_r31);
             }
-            TAdSinglePlyChrSelectGC__sub_8007EBB4(temp_r30);
+            safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r30);
         }
     }
 }

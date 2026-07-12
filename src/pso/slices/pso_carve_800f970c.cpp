@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C378(M2C_UNK *, void *, s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C48C(M2C_UNK *, s32);
 M2C_UNK fn_8007C550(M2C_UNK *);
-s32 TQuestVmDownLoadServer__sub_8007EBFC(s32);
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 M2C_UNK TLobby__sub_800F7DAC(void *, s32);
 
 struct Sp8 { M2C_UNK8 data[240]; };
@@ -19,7 +19,7 @@ s32 fn_800F970C(u8 *arg0, s32 arg1, s32 *arg2) {
     s32 v4 = M2C_FIELD(arg0, s32 *, 4);
     s32 ret;
 
-    ret = TQuestVmDownLoadServer__sub_8007EBFC(v0);
+    ret = alloc__22TQuestVmDownLoadServerFPv(v0);
     if (ret == 0) {
         return 0;
     }

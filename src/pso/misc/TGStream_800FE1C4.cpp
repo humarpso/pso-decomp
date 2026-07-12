@@ -9,8 +9,8 @@ extern "C" {
 void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2);
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
-s32 TLobby__sub_800F9DA0(void *);
-M2C_UNK TLobby__sub_800F9F9C();
+s32 get_file_size__6TLobbyFv(void *);
+M2C_UNK pump_frames__6TLobbyFv();
 M2C_UNK TGStream__sub_800FDD28();
 void *TItemDrop__sub_800FDD70(void *, M2C_UNK);
 M2C_UNK TLobby__sub_803CC578(s32, s32, M2C_UNK);
@@ -35,7 +35,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
         lbl_805D53E0 = M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x24);
         strncpy(arg0, M2C_FIELD(arg0, void **, 0x28), 0x20);
     } else {
-        temp_r3 = TLobby__sub_800F9DA0(arg1);
+        temp_r3 = get_file_size__6TLobbyFv(arg1);
         lbl_805D53E0 = temp_r3;
         if (temp_r3 > 0) {
             M2C_FIELD(arg0, s32 *, 0x20) = TLobby__sub_803CD3A8(arg1, 0);
@@ -48,7 +48,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
         while (TLobby__sub_8001EEF4() == 0) {
-            TLobby__sub_800F9F9C();
+            pump_frames__6TLobbyFv();
         }
         lbl_805D53C0 = TLobby__sub_8001EEFC(lbl_8043DAF8);
     }

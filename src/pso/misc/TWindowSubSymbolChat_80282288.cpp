@@ -14,7 +14,7 @@ s32 TWindowSubSymbolChat__sub_80077310();
 M2C_UNK TWindowSubComCard__sub_802655E4(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265DEC(s32, f32, f32);
-M2C_UNK TWindowSubComCard__sub_802661D4(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
 
 extern const f32 lbl_805DD73C;
 extern const f32 lbl_805DD744;
@@ -26,7 +26,7 @@ void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
     if (temp_r3 > 0) {
         TObjCityMainWarp__sub_80266354(arg1, TWindowSubStatusDisp__sub_80077760(0xAE), 6, 0xC);
     } else {
-        TWindowSubComCard__sub_802661D4(arg1, TWindowSubStatusDisp__sub_80077760(0xAE), 6, 0xC);
+        draw_text_gray__17TWindowSubComCardFiiii(arg1, TWindowSubStatusDisp__sub_80077760(0xAE), 6, 0xC);
     }
     TObjCityMainWarp__sub_80266354(arg1, TWindowSubStatusDisp__sub_80077760(0xAF), 6, 0x10);
     set_flag70_bit10__16TObjCityMainWarpFPv(arg1);

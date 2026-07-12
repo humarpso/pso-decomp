@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_800F9DF4(int a0);
-void TLobby__sub_800F9E18(void);
+void run_frame__6TLobbyFv(void);
 int TGStream__sub_800FDADC(void);
 u32 TLoadCtrl__sub_800F9F00();
 M2C_UNK TLobby__sub_800F8AD0();
@@ -36,7 +36,7 @@ extern s32 tl_07;
 extern s32 tl_particle;
 extern s32 tl_fade;
 
-void TLobby__sub_800F9E18(void) {
+void run_frame__6TLobbyFv(void) {
     func_803DCDFC__Fv();
     TLobby__sub_800F8F34();
     run_tasks__7TObjectFv(tl_su);

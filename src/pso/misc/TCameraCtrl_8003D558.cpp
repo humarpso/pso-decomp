@@ -38,7 +38,7 @@ struct V_A_8003d558 : Base_A_8003d558 {
 
 extern "C" {
 
-void TCameraCtrl__sub_8003D558(void *arg0);
+void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8003DD4C(void *);
 s32 TCameraCtrl__sub_8003D1E8(void *);
 s32 TLobby__sub_800C6C10();
@@ -49,7 +49,7 @@ M2C_UNK fn_80040C34();
 s32 get_main_phase();
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 
-void TCameraCtrl__sub_8003D558(void *arg0) {
+void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);

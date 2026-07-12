@@ -12,7 +12,7 @@ M2C_UNK set_flag70_bit400__17TWindowOptionCtrlFPv(s32);
 M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv();
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265DEC(s32, f32, f32);
-M2C_UNK TWindowSubComCard__sub_802661D4(s32, M2C_UNK *, M2C_UNK, s32);
+M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, M2C_UNK *, M2C_UNK, s32);
 s32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowOptionCtrl__sub_8026CBA4(M2C_UNK);
 M2C_UNK fn_8036A514(M2C_UNK);
@@ -35,7 +35,7 @@ s32 create_list_window__17TWindowOptionCtrlFv(void) {
     do {
         if (fn_8036A620(var_r31) != 0) {
             if (fn_8036A5B4(var_r31) == 0) {
-                TWindowSubComCard__sub_802661D4(temp_r30, lbl_8044F4AC, 0x26, var_r31);
+                draw_text_gray__17TWindowSubComCardFiiii(temp_r30, lbl_8044F4AC, 0x26, var_r31);
             } else {
                 TObjCityMainWarp__sub_80266354(temp_r30, fn_8036A67C(var_r31), 0x26, var_r31);
             }

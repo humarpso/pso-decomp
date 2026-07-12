@@ -12,7 +12,7 @@ void TObjPlayer__sub_8012BB84(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_800112A4(s32, s16);
 M2C_UNK TObjPlayer__sub_80101048();
-M2C_UNK TObjPlayer__sub_801085B0(s32, s32, M2C_UNK);
+M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 TObjPlayer__sub_8011E384(s32);
 M2C_UNK TObjPlayer__sub_8011F5E0(s32);
 s32 TObjPlayer__sub_8011F63C();
@@ -44,7 +44,7 @@ extern s32 tl_05;
 
 void TObjPlayer__sub_8012BB1C(s32 arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
-        TObjPlayer__sub_801085B0(tl_05, arg0, 4);
+        spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
     if (TObjPlayer__sub_8011E384(arg0) != 0) {
         TObjPlayer__sub_8012B9B4(arg0);

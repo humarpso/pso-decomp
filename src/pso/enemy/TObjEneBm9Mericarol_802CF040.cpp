@@ -38,7 +38,7 @@ struct V_A_802cf040 : Base_A_802cf040 {
 
 extern "C" {
 
-void TObjEneBm9Mericarol__sub_802CF040(u8 *arg0, s32 arg1);
+void handle_motion_event__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm9Mericarol__sub_802D073C(void *, s32);
@@ -50,7 +50,7 @@ s32 objInBand__FP7GameObjf(f32);
 
 extern const f32 lbl_805DE6F4;
 
-void TObjEneBm9Mericarol__sub_802CF040(u8 *arg0, s32 arg1) {
+void handle_motion_event__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     s32 temp_r5;
 

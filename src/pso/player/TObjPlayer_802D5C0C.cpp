@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_802D5C0C(u8 *arg0, u8 *arg1);
+void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_802D5C80(void *arg0);
 void TObjPlayer__sub_802D5CD0(void *arg0);
-M2C_UNK TObjPlayer__sub_8010853C(s32, void *, M2C_UNK, s32);
+M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_8011F63C();
 M2C_UNK TObjPlayer__sub_80120304(M2C_UNK *, void *);
 M2C_UNK TRaderMapCore__sub_8002F588(void *, M2C_UNK *);
 
-void TObjPlayer__sub_802D5C0C(u8 *arg0, u8 *arg1) {
+void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_UNK sp8;
 
     M2C_FIELD(arg1, f32 *, 0x4C) = (f32) M2C_FIELD(arg0, f32 *, 0x200);
@@ -38,7 +38,7 @@ extern s32 tl_05;
 
 void TObjPlayer__sub_802D5CD0(void *arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
-        TObjPlayer__sub_8010853C(tl_05, arg0, -1, M2C_FIELD(arg0, s32 *, 0x1FC));
+        create_item_eff_cane__10TObjPlayerFiUiii(tl_05, arg0, -1, M2C_FIELD(arg0, s32 *, 0x1FC));
     }
 }
 

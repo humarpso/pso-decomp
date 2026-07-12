@@ -10,7 +10,7 @@ s32 TLobby__sub_8013AD38(void *);
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 M2C_UNK TWindowSubComCard__sub_8024503C(s32, u16 *, s32);
 
-void fn_80267E20(void *arg0, s32 arg1) {
+void draw_selected_list_entry(void *arg0, s32 arg1) {
     u16 *temp_r3;
 
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x80)) {

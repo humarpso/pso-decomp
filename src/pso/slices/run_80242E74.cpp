@@ -8,7 +8,7 @@ extern "C" {
 
 void *TBoss3Volopt__sub_80243010();
 
-void TBoss3Volopt__sub_80242E74(s16 arg0, s16 arg1) {
+void queue_event_1D__12TBoss3VoloptFss(s16 arg0, s16 arg1) {
     void *temp_r3;
 
     temp_r3 = TBoss3Volopt__sub_80243010();

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80141E3C(void *arg0, void *arg1);
+s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1);
 f64 TObjPlayer__sub_80019760(f32, f32, f32);
 
 extern const f64 lbl_8043F2C0;
 
-s32 TObjPlayer__sub_80141E3C(void *arg0, void *arg1) {
+s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     f32 temp_f3;
 
     temp_f3 = M2C_FIELD(arg1, f32 *, 0);

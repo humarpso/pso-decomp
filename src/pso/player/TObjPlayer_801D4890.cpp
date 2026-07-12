@@ -52,12 +52,12 @@ int TObjPlayer__sub_801D48C4(void* a0, int a1);
 s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 M2C_UNK TItem__sub_80102424(void *, s16, s32, M2C_UNK);
 s16 TObjPlayer__sub_801A1EB0(s32);
-M2C_UNK TObjPlayer__sub_801B9D50(s32, void *);
+M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
 s32 TObjPlayer__sub_801C1A70(void *);
-s32 TObjPlayer__sub_801D4F14(void *, s32);
+s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
 int TObjPlayer__sub_801D51A0(void*);
 int TObjPlayer__sub_801D5220(void*);
-void *TObjPlayer__sub_801D5764();
+void *get_owner_if_alive__10TObjPlayerFPv();
 M2C_UNK queue_destruction__7TObjectFv(s32, s16);
 
     extern int lbl_805D5DEC;
@@ -76,11 +76,11 @@ s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4,
     if (arg4 < 0) {
         return 0;
     }
-    temp_r3 = TObjPlayer__sub_801D4F14(arg0, arg2);
+    temp_r3 = start_inventory_update__10TObjPlayerFPvi(arg0, arg2);
     if (temp_r3 == 0) {
         return 0;
     }
-    temp_r3_2 = TObjPlayer__sub_801D5764();
+    temp_r3_2 = get_owner_if_alive__10TObjPlayerFPv();
     if (temp_r3_2 == NULL) {
         return 0;
     }
@@ -89,7 +89,7 @@ s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4,
         return 1;
     }
     if (TObjPlayer__sub_801C1A70(temp_r3_2) != 0) {
-        TObjPlayer__sub_801B9D50(arg1, temp_r3_2);
+        unequip_item__10TObjPlayerFiPv(arg1, temp_r3_2);
     }
     M2C_FIELD(temp_r3_2, s16 *, 0x28) = TObjPlayer__sub_801A1EB0(arg1);
     TItem__sub_80102424(temp_r3_2, arg5, arg3, 0);

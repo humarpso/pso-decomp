@@ -10,14 +10,14 @@ void TLobby__sub_802933B0(void);
 M2C_UNK TLobby__sub_802932EC();
 M2C_UNK TLobby__sub_80074034(s32);
 M2C_UNK fn_80074A5C(s32);
-M2C_UNK fn_80074DBC(s32);
+M2C_UNK create_ch_time_win(s32);
 
 extern M2C_UNK lbl_804DB1F0[];
 extern s32 tl_07;
 
 void TLobby__sub_802933B0(void) {
     TLobby__sub_802932EC();
-    fn_80074DBC(tl_07);
+    create_ch_time_win(tl_07);
     TLobby__sub_80074034(tl_07);
     if ((s32) M2C_FIELD(lbl_804DB1F0, s32 *, 0x30) == 0) {
         fn_80074A5C(tl_07);

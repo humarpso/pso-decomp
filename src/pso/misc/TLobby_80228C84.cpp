@@ -20,11 +20,11 @@ struct VObj_80228C84 : Base_80228C84 {
 
 extern "C" {
 
-void TLobby__sub_80228C84(void);
+void refresh_player_status__6TLobbyFv(void);
 void *TPlayerBattleCtrl4P__sub_801BA74C();
 M2C_UNK TWindowSubStatusDisp__sub_80229080();
 
-void TLobby__sub_80228C84(void) {
+void refresh_player_status__6TLobbyFv(void) {
     struct VObj_80228C84 *o = (struct VObj_80228C84 *)TPlayerBattleCtrl4P__sub_801BA74C();
     if (o != NULL) {
         o->m10();

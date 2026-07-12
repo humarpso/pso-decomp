@@ -10,7 +10,7 @@ void TWindowHelpItem__sub_80255B94(u8 *arg0);
 void *TWindowHelpItem__sub_80255C64(void *arg0, s16 arg1);
 M2C_UNK TWindowHelpItem__sub_802553F8(void *);
 M2C_UNK TWindowHelpItem__sub_80255440(void *);
-M2C_UNK TWindowSubComCard__sub_80246258(void *);
+M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 void __dl__7TObjectFPv(void *);
 s32 fn_80244994(void *);
 M2C_UNK TWindowDD__sub_8024664C(void *);
@@ -36,7 +36,7 @@ void TWindowHelpItem__sub_80255B94(u8 *arg0) {
         TWindowHelpItem__sub_802553F8(arg0);
     }
     TWindowDD__sub_8024664C(arg0);
-    TWindowSubComCard__sub_80246258(arg0);
+    update_fade__17TWindowSubComCardFPv(arg0);
     fn_80257C28(arg0, arg0 + 0x24);
     if (!(M2C_FIELD(arg0, u8 *, 0x60) & 8)) {
         fn_80263A20(arg0, M2C_FIELD(arg0, s16 *, 0x20));

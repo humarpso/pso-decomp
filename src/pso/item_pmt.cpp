@@ -7,7 +7,7 @@ extern "C" TObject* item_mgr;
 
 extern "C" char* const lbl_805D2C78;
 
-extern "C" void*    TAdSinglePlyChrSelectGC__sub_8007EB94(int size);
+extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFPv(int size);
 extern "C" void*    TItemLoad__sub_8010FE6C(void* obj, const char* file, int flags);
 extern "C" void     TItemLoad__sub_8010FE20(void* obj, int flag);
 extern "C" void*    TItemMag__sub_8001A468(void* pmt);
@@ -28,7 +28,7 @@ void unload_items() {
 }
 
 void load_item_pmt() {
-    void* p = TAdSinglePlyChrSelectGC__sub_8007EB94(8);
+    void* p = alloc__23TAdSinglePlyChrSelectGCFPv(8);
     if (p != NULL) {
         p = TItemLoad__sub_8010FE6C(p, lbl_805D2C78, 0x10000);
     }

@@ -16,7 +16,7 @@ M2C_UNK TWindowSubComCard__sub_80275254(s32);
 s32 get_card_window_field__6TLobbyFv();
 extern s32 lbl_805D53A0;
 
-s32 fn_8034CCC4(s32 arg0) {
+s32 open_keyboard__26TWindowSubInformationBoardFi(s32 arg0) {
     s32 var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x2C);

@@ -62,7 +62,7 @@ VA
 extern "C" {
 
 void TObjPlayer__sub_800C00F4(void *arg0);
-void TObjPlayer__sub_800C0198(void *arg0);
+void apply_move_friction__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_800C0234(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -101,7 +101,7 @@ extern const f32 lbl_805D9F24;
 extern const f32 lbl_805D9F2C;
 extern const f32 lbl_805D9F4C;
 
-void TObjPlayer__sub_800C0198(void *arg0) {
+void apply_move_friction__10TObjPlayerFPv(void *arg0) {
     fn_800C20B0();
     TBoss1Dragon__sub_80143504(arg0);
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {

@@ -8,7 +8,7 @@ extern "C" {
 
 s16 TObjPlayer__sub_801D95B8(void *arg0);
 s16 TObjPlayer__sub_801D95DC(void *arg0);
-void TObjPlayer__sub_801D9624(u8 arg0, u8 *arg1, s8 *arg2);
+void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2);
 u8 TObjPlayer__sub_801D968C(void *arg0);
 M2C_UNK TObjPlayer__sub_801C011C(void *, M2C_UNK);
 s32 TObjPlayer__sub_801D9988();
@@ -32,7 +32,7 @@ s16 TObjPlayer__sub_801D95DC(void *arg0) {
     return M2C_FIELD(arg0, s16 *, 4);
 }
 
-void TObjPlayer__sub_801D9624(u8 arg0, u8 *arg1, s8 *arg2) {
+void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2) {
     if ((TObjPlayer__sub_801D9988() != 0) || (arg0 <= 0xEU)) {
         *arg1 = arg0;
         *arg2 = 0;

@@ -4,7 +4,7 @@ extern "C" {
 int TWindowSubTechnique__sub_80286BF4(void* a0 = 0, void* a1 = 0);
 
 s32 TItemData__sub_80076E84(s16);
-s32 TWindowSubComCard__sub_802661D4(s32, s32, s32, s16);
+s32 draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s16);
 s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s16, s32);
 s32 TObjCityMainWarp__sub_80266354(s32, s32, s32, s16);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -24,7 +24,7 @@ void TWindowSubTechnique__sub_80286CC4(s32 arg0, s32 arg1, s32 arg2) {
 
     temp_r31 = TItemData__sub_80076E84(arg0);
     if (TWindowSubTechnique__sub_80286C78(arg0, arg1) == 0) {
-        TWindowSubComCard__sub_802661D4(arg2, temp_r31, 6, arg0);
+        draw_text_gray__17TWindowSubComCardFiiii(arg2, temp_r31, 6, arg0);
         return;
     }
     if (TWindowSubTechnique__sub_80286BF4((void*)(arg0), (void*)(arg1)) == 0) {

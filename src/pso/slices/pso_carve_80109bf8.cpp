@@ -17,7 +17,7 @@ extern s32 tl_05;
 
 typedef struct { u8 pad[0x1C]; u8 f[0x10]; } E80109;
 
-void fn_80109BF8(s32 arg0, void *arg1) {
+void create_needle_effect(s32 arg0, void *arg1) {
     void *var_r31;
     void *temp_r30;
     s32 temp_r29;

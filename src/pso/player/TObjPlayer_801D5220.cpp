@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_801D5220(void *arg0);
-s32 TItemList__sub_801D5ABC(void *);
-u32 TObjPlayer__sub_801D5764(void *);
+s32 is_item_valid__9TItemListFi(void *);
+u32 get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 fn_801D4308(u32, s32);
 
 extern s32 lbl_805D5DF4;
@@ -20,7 +20,7 @@ void TObjPlayer__sub_801D5220(void *arg0) {
 
     var_r31 = M2C_FIELD(arg0, void **, 0x14);
     while (var_r31 != NULL) {
-        if ((TItemList__sub_801D5ABC(var_r31) != 0) && ((temp = TObjPlayer__sub_801D5764(var_r31)) != 0U) && (fn_801D4308(temp, lbl_805D5E00) != 0)) {
+        if ((is_item_valid__9TItemListFi(var_r31) != 0) && ((temp = get_owner_if_alive__10TObjPlayerFPv(var_r31)) != 0U) && (fn_801D4308(temp, lbl_805D5E00) != 0)) {
             lbl_805D5E00 += 0x1C;
             lbl_805D5DF4 += 1;
         }

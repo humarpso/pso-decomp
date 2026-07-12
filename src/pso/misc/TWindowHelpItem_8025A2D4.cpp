@@ -9,7 +9,7 @@ extern "C" {
 void set_flag4_and_field1c__15TWindowHelpItemFPvi(void *arg0, s32 arg1);
 void set_help_text__15TWindowHelpItemFPvUi(void *arg0, u32 arg1);
 M2C_UNK free__11TOBoss4RockFUi(s32);
-s32 TOBoss4Rock__sub_80147AA8(s32);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
 s32 fn_80228C30(u32);
 
 void set_flag4_and_field1c__15TWindowHelpItemFPvi(void *arg0, s32 arg1) {
@@ -26,7 +26,7 @@ void set_help_text__15TWindowHelpItemFPvUi(void *arg0, u32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x18) = 0;
     if (arg1 != 0U) {
         temp_r3 = fn_80228C30(arg1);
-        M2C_FIELD(arg0, s32 *, 0x18) = TOBoss4Rock__sub_80147AA8(temp_r3 + 1);
+        M2C_FIELD(arg0, s32 *, 0x18) = alloc_buffer__11TOBoss4RockFPv(temp_r3 + 1);
         strncpy(M2C_FIELD(arg0, s32 *, 0x18), arg1, temp_r3 + 1);
     }
 }

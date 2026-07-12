@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjPlayer__sub_801C67E8(s32 arg0, s32 arg1, f32 farg0);
+f32 apply_stat_multipliers__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 f32 TItemMag__sub_80113F08(s32);
 s32 TItemMag__sub_80113F10(s32);
 s32 TObjPlayer__sub_8001BEF8(s32, M2C_UNK);
@@ -16,7 +16,7 @@ s32 is_flag30_8_set__10TObjPlayerFi(s32);
 extern const f32 lbl_805DC33C;
 extern const f32 lbl_805DC340;
 
-f32 TObjPlayer__sub_801C67E8(s32 arg0, s32 arg1, f32 farg0) {
+f32 apply_stat_multipliers__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
     f32 var_f31;
 
     var_f31 = farg0;

@@ -9,7 +9,7 @@ extern "C" {
 s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
-void fn_8016570C(void *arg0) {
+void play_cave01_key_sound(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;

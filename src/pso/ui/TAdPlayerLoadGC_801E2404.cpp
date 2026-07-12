@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TAdPlayerLoadGC__sub_801E2404(s32 arg0);
-s32 TAdPlayerLoadGC__sub_801E1F40();
+s32 check_memcard_status__15TAdPlayerLoadGCFi();
 
 s32 PADInit(s32, s32 *, M2C_UNK *);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
@@ -20,7 +20,7 @@ s32 TAdPlayerLoadGC__sub_801E2404(s32 arg0) {
     if (arg0 >= 2) {
         return -0xFF;
     }
-    if (TAdPlayerLoadGC__sub_801E1F40() != 0) {
+    if (check_memcard_status__15TAdPlayerLoadGCFi() != 0) {
         TAdPlayerLoadGC__data_805D5E40 = -0xFD;
         return -0xFD;
     }

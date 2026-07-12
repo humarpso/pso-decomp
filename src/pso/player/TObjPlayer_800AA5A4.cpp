@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800AA5A4(u8 *arg0);
+void update_synced_state__10TObjPlayerFPv(u8 *arg0);
 void * TObjPlayer__sub_800AA69C(void *arg0);
 s32 TNpcPlayer__sub_800D87EC(u16);
 void *TObjControl__ct(void *, void *);
 void *TObjEneDubchik__ct(void *, void *, void *);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_800AA10C(void *);
 M2C_UNK TObjPlayer__sub_800AA330(void *);
 M2C_UNK TObjPlayer__sub_800AA528(void *);
@@ -25,8 +25,8 @@ M2C_UNK TObjPlayer__sub_800A8B8C(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 obj_testFlags30(void *, M2C_UNK);
 
-void TObjPlayer__sub_800AA5A4(u8 *arg0) {
-    if (TObjPlayer__sub_80080750() == 1) {
+void update_synced_state__10TObjPlayerFPv(u8 *arg0) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
         TObjPlayer__sub_800AA330(arg0);
         return;
     }

@@ -7,8 +7,8 @@ s32 __dl__FPv(s32 a0 = 0);
 int TPlyFollowParticleCtrl__sub_8030A694(void*);
 void* TObjPlayer__sub_8030A114(void* p);
 int TObjPlayer__sub_80309F0C(void* p, int a1);
-int TObjPlayer__sub_8030A264(void*, int, int);
+int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 
-int TObjPlayer__sub_80309F0C(void* p, int a1) { return TObjPlayer__sub_8030A264(p, a1, 431); }
+int TObjPlayer__sub_80309F0C(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii(p, a1, 431); }
 
 }

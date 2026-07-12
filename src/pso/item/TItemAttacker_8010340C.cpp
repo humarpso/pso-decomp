@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TItemAttacker__sub_8010340C(void *arg0, void *arg1);
-void TItemAttacker__sub_80103448(s32 arg0, s32 arg1, s32 arg2);
+void spawn_item_timer__13TItemAttackerFiii(s32 arg0, s32 arg1, s32 arg2);
 void TItemAttacker__sub_8010349C(u32 arg0);
 M2C_UNK TItemTimer__ct(void *, s32, s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -23,7 +23,7 @@ void TItemAttacker__sub_8010340C(void *arg0, void *arg1) {
     M2C_FIELD(arg0, f32 *, 0x14) = (f32) M2C_FIELD(arg1, f32 *, 0x14);
 }
 
-void TItemAttacker__sub_80103448(s32 arg0, s32 arg1, s32 arg2) {
+void spawn_item_timer__13TItemAttackerFiii(s32 arg0, s32 arg1, s32 arg2) {
     void *temp_r3;
     if (arg0 != 0) {
         temp_r3 = (void *)__nw__7TObjectFUl(0x28);

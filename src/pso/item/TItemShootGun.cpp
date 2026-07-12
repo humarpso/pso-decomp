@@ -1,7 +1,7 @@
 #include "pso/TItemShootGun.h"
 
 extern "C" {
-s32   TObjPlayer__sub_8011BADC(TItemShootGun*);
+s32   is_owner_alive__10TObjPlayerFPv(TItemShootGun*);
 void  free_children__12TObjDoorJungFPvPv(s32, s32);
 void  TObjPlayer__sub_8023E480(void*);
 void  TParticleCtrl__sub_801E2EFC(void);
@@ -14,7 +14,7 @@ void  TParticleCtrl__sub_801E2F20(void);
 }
 
 void TItemShootGun::render() {
-    if (TObjPlayer__sub_8011BADC(this)) {
+    if (is_owner_alive__10TObjPlayerFPv(this)) {
         if (this->m_58 != NULL) {
             free_children__12TObjDoorJungFPvPv(*(s32*)((u8*)this->m_58 + 4), this->m_70 & 0xFFFF);
             TObjPlayer__sub_8023E480(this->m_5C);

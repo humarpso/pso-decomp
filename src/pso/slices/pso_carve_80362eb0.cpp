@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_8010853C(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C();
 extern s32 tl_05;
 
 void fn_80362EB0(s32 arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
-        TObjPlayer__sub_8010853C(tl_05, arg0, -1, 0x1BD);
+        create_item_eff_cane__10TObjPlayerFiUiii(tl_05, arg0, -1, 0x1BD);
     }
 }
 

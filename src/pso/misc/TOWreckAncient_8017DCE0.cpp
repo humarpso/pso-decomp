@@ -12,7 +12,7 @@ struct VObj1_8017dce0 : Base1_8017dce0 {
 
 extern "C" {
 
-void TOWreckAncient__sub_8017DCE0(u8 *arg0);
+void draw_model__14TOWreckAncientFPv(u8 *arg0);
 void TOWreckAncient__sub_8017DD54(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -22,7 +22,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 
-void TOWreckAncient__sub_8017DCE0(u8 *arg0) {
+void draw_model__14TOWreckAncientFPv(u8 *arg0) {
     VObj1_8017dce0 *self = (VObj1_8017dce0 *)arg0;
     if (self->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
         TObjPlayer__sub_803D9B2C();

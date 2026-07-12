@@ -6,7 +6,7 @@ extern "C" {
 
 void *TObjPlayer__sub_802D5598(void *arg0);
 void TObjPlayer__sub_802D55F4(int a0, void* a1);
-int TObjPlayer__sub_802D5C0C(void);
+int set_radar_marker_params__10TObjPlayerFPvPv(void);
 void TObjPlayer__sub_802D5ECC(void *);
 
 extern M2C_UNK lbl_804E2000[];
@@ -23,6 +23,6 @@ void *TObjPlayer__sub_802D5598(void *arg0) {
 }
 
     extern const float lbl_805DE790;
-void TObjPlayer__sub_802D55F4(int a0, void* a1) { TObjPlayer__sub_802D5C0C(); *(float*)((char*)a1 + 0x38) = lbl_805DE790; }
+void TObjPlayer__sub_802D55F4(int a0, void* a1) { set_radar_marker_params__10TObjPlayerFPvPv(); *(float*)((char*)a1 + 0x38) = lbl_805DE790; }
 
 }

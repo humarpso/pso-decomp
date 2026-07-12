@@ -11,7 +11,7 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(s32, M2C_UNK);
 s32 TWindowCtrl__sub_8024C818();
 M2C_UNK TWindowHelpItem__sub_80270060(s32, s32);
 
-void fn_802701F0(s32 arg0) {
+void update_status_help_item(s32 arg0) {
     s32 var_r31;
 
     var_r31 = TWindowCtrl__sub_8024C818();

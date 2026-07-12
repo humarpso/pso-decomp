@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_8001F88C(void);
 M2C_UNK TItemDrop__sub_800FE2DC();
-s32 TQuestVmDownLoadServer__sub_8007EBFC(M2C_UNK);
+s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 s32 xmalloc__FUl(M2C_UNK);
 
 extern s8 lbl_804FE148[];
@@ -18,7 +18,7 @@ extern s32 lbl_805D4AD8;
 
 void TLobby__sub_8001F88C(void) {
     lbl_805D4AD8 = xmalloc__FUl(0x4000);
-    lbl_805D4ACC = TQuestVmDownLoadServer__sub_8007EBFC(0x40000);
+    lbl_805D4ACC = alloc__22TQuestVmDownLoadServerFPv(0x40000);
     TItemDrop__sub_800FE2DC();
     lbl_805D4AD4 = 1;
     lbl_804FE148[0] = 0;

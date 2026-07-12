@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80244B64(void * a0 = 0);
+s32 window_request_show(void * a0 = 0);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
 s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
 s32 TWindowSubTradeMain__sub_80244A4C(void *);
@@ -39,7 +39,7 @@ void TWindowSubShortMail__sub_801319F4(void *arg0) {
             clear_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, void **, 0x24));
         }
         if (!(M2C_FIELD(arg0, u16 *, 0x1C) & 1) && ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U)) {
-            fn_80244B64(M2C_FIELD(arg0, void **, 0x28));
+            window_request_show(M2C_FIELD(arg0, void **, 0x28));
         }
     }
 }

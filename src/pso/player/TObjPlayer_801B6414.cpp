@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_aim_angle__10TObjPlayerFPvi(void *arg0, s32 arg1);
-s32 TObjPlayer__sub_801BE934(s32);
+s32 clamp_index_to_max__10TObjPlayerFi(s32);
 s32 TObjPlayer__sub_801D921C(void *, s32);
 
 s32 obj_getPtr2B0_1C(void *);
@@ -27,7 +27,7 @@ void update_aim_angle__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     struct VObj_801B6414 *obj = (struct VObj_801B6414 *) arg0;
     s32 temp_r31;
 
-    temp_r31 = TObjPlayer__sub_801D921C(arg0, TObjPlayer__sub_801BE934(arg1 + obj->m14()));
+    temp_r31 = TObjPlayer__sub_801D921C(arg0, clamp_index_to_max__10TObjPlayerFi(arg1 + obj->m14()));
     obj->m12(temp_r31 - obj_getPtr2B0_1C(arg0));
 }
 

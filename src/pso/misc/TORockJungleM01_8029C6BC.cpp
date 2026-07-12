@@ -18,13 +18,13 @@ struct VObj : Base {
 extern "C" {
 
 void TORockJungleM01__vt13(u8 *arg0);
-M2C_UNK TObjFish__sub_80141550();
+M2C_UNK set_cull_none__8TObjFishFv();
 
 void TORockJungleM01__vt13(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD8) != 0) {
         ((VObj*)(arg0 + 0xBC))->m7();
     }
-    TObjFish__sub_80141550();
+    set_cull_none__8TObjFishFv();
 }
 
 }

@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80072D48(void);
-s32 TLobby__sub_800495BC();
+void send_45_and_close_windows__6TLobbyFv(void);
+s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK TLobby__sub_8024AC20(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
@@ -15,11 +15,11 @@ M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 
 extern s32 lbl_805D53A0;
 
-void TLobby__sub_80072D48(void) {
+void send_45_and_close_windows__6TLobbyFv(void) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
-    if ((temp_r3 != 0) && (TLobby__sub_800495BC() != 0)) {
+    if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
         send_code_45_1__10TObjPlayerFi(temp_r3);
     }
     TWindowCtrl__sub_8024AEF0(lbl_805D53A0);

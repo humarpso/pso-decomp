@@ -6,21 +6,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8010853C(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_801085B0(s32 arg0, u32 arg1, s32 arg2);
-void TObjPlayer__sub_80108620(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
+void create_item_eff_cane__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
+void spawn_cane_effect__10TObjPlayerFiUii(s32 arg0, u32 arg1, s32 arg2);
+void spawn_cane_effects__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 M2C_UNK TItemEffCane__ct(void *, s32, u32, s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 
-void TObjPlayer__sub_8010853C(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+void create_item_eff_cane__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     void *temp_nw;
     if ((arg0 != 0) && (arg1 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(arg1) != 0) && ((temp_nw = (void *)__nw__7TObjectFUl(0x28)) != 0)) {
         TItemEffCane__ct((void *)(temp_nw), (s32)(arg0), (u32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 
-void TObjPlayer__sub_801085B0(s32 arg0, u32 arg1, s32 arg2) {
+void spawn_cane_effect__10TObjPlayerFiUii(s32 arg0, u32 arg1, s32 arg2) {
     void *temp_r3;
     if ((arg0 != 0) && (arg1 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(arg1) != 0)) {
         temp_r3 = (void *)__nw__7TObjectFUl(0x28);
@@ -30,7 +30,7 @@ void TObjPlayer__sub_801085B0(s32 arg0, u32 arg1, s32 arg2) {
     }
 }
 
-void TObjPlayer__sub_80108620(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+void spawn_cane_effects__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     u32 obj;
     if ((arg0 != 0) && (arg1 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(arg1) != 0)) {
         obj = __nw__7TObjectFUl(0x28);

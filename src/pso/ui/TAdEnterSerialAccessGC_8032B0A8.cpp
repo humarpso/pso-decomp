@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdEnterSerialAccessGC__sub_8032B0A8(s32 arg0, s32 arg1, s32 arg2);
+void store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TAdPsoPassSaveGC__sub_8032B584();
 s32 TAdSinglePlyChrSelectGC__sub_80202BA0();
 M2C_UNK strncpy(s32, s32, M2C_UNK);
 
-void TAdEnterSerialAccessGC__sub_8032B0A8(s32 arg0, s32 arg1, s32 arg2) {
+void store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
 
     temp_r3 = TAdSinglePlyChrSelectGC__sub_80202BA0();

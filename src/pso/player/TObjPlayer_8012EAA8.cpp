@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012EAA8(void *arg0);
+void cast_shifta_deband__10TObjPlayerFPv(void *arg0);
 int TObjPlayer__sub_8012EB24(void* p);
 int TObjPlayer__sub_8012EB50(void* p);
 void TObjPlayer__sub_8012EB7C(void* p);
@@ -25,7 +25,7 @@ void TObjPlayer__sub_80121CB0(void *, int);
 s32 create__10TTecDebandFiii(s32, s32, s32);
 s32 create__9TTecSiftaFPvPvPv(s32, s32, s32);
 
-void TObjPlayer__sub_8012EAA8(void *arg0) {
+void cast_shifta_deband__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
 

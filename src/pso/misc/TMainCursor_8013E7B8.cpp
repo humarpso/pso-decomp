@@ -77,7 +77,7 @@ int TWindowActionPalette__sub_8013DF54(void*);
 int fn_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
 
-void TMainCursor__sub_8013E7B8(s32 arg0) {
+void reset_target__11TMainCursorFi(s32 arg0) {
     init__6gc_tagFv();
     TMainCursor__sub_8013E1C8((void*)(arg0), (void*)(0xFFFF));
     TMainCursor__sub_8013E754((void*)(arg0), 0);

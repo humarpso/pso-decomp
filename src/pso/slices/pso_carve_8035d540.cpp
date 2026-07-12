@@ -10,7 +10,7 @@ s32 __nw__7TObjectFUl(s32 a0 = 0);
 void fn_8035D540(void* p, f32 v);
 
 void fn_8035D540(void* p, f32 v) { *(f32*)((char*)p + 0x94) = v; }
-s32 fn_8035D548(s32 arg0, s32 arg1, s32 arg2) {
+s32 open_message_scroll_window__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_r31;
 
     TLobby__sub_80269CA4(0x23);

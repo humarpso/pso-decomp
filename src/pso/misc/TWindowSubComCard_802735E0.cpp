@@ -13,7 +13,7 @@ s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
-M2C_UNK TWindowSubComCard__sub_802661D4(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 TWindowSubComCard__sub_8026659C(s32, M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
@@ -32,9 +32,9 @@ s32 create_menu__17TWindowSubComCardFv(void) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x6D), 6, 0x33);
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0xF8), 6, 0x39);
     } else {
-        TWindowSubComCard__sub_802661D4(temp_r31, TQuestVmDownLoadServer__sub_8006EF6C(0x49), 6, 0x27);
-        TWindowSubComCard__sub_802661D4(temp_r31, TWindowSubStatusDisp__sub_80077760(0x6D), 6, 0x33);
-        TWindowSubComCard__sub_802661D4(temp_r31, TWindowSubStatusDisp__sub_80077760(0xF8), 6, 0x39);
+        draw_text_gray__17TWindowSubComCardFiiii(temp_r31, TQuestVmDownLoadServer__sub_8006EF6C(0x49), 6, 0x27);
+        draw_text_gray__17TWindowSubComCardFiiii(temp_r31, TWindowSubStatusDisp__sub_80077760(0x6D), 6, 0x33);
+        draw_text_gray__17TWindowSubComCardFiiii(temp_r31, TWindowSubStatusDisp__sub_80077760(0xF8), 6, 0x39);
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD530);

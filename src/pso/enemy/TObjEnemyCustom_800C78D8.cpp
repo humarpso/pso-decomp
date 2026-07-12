@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnemyCustom__sub_800C78D8(void *arg0);
+void update_knockback_state__15TObjEnemyCustomFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32, f32);
 M2C_UNK TObjPlayer__sub_80017E6C(void *);
-M2C_UNK TObjPlayer__sub_80156698(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 
 extern const f32 lbl_805DA070;
 extern volatile f32 lbl_805DA07C;
 
-void TObjEnemyCustom__sub_800C78D8(void *arg0) {
+void update_knockback_state__15TObjEnemyCustomFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
@@ -34,7 +34,7 @@ void TObjEnemyCustom__sub_800C78D8(void *arg0) {
             M2C_FIELD(arg0, f32 *, 0x310) *= k;
             TObjPlayer__sub_80011734(arg0, 0, lbl_805DA070, k);
         }
-        TObjPlayer__sub_80156698(arg0);
+        update_collisions__10TObjPlayerFPv(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
         }

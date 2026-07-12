@@ -16,7 +16,7 @@ M2C_UNK TObjLiveCameraCtrl__ct(void *, s32);
 M2C_UNK __ct__17TObjBoss8DemoRoomFv(void *, s32);
 extern s32 tl_05;
 
-void fn_802FE964(void) {
+void create_boss8_demo_objects(void) {
     void *obj;
     if ((is_split_screen() == 0) && ((obj = __nw__7TObjectFUl(0x13C)) != 0)) {
         TObjLiveCameraCtrl__ct(obj, tl_05);

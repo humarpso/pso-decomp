@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800A1900(s32 arg0);
+void render_shadow__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_800A1974(void);
 M2C_UNK TOHangerMachine01__sub_803D9C00(s32);
 M2C_UNK TObjFish__sub_803DA798(s32);
@@ -20,7 +20,7 @@ extern s32 lbl_805D5014;
 extern s32 lbl_805D5018;
 extern s32 lbl_805D501C;
 
-void TObjPlayer__sub_800A1900(s32 arg0) {
+void render_shadow__10TObjPlayerFi(s32 arg0) {
     if (obj_testFlags30(arg0, 0x800) == 0) {
         if (TObjPlayer__sub_800A3224(arg0) == 0) {
             TObjFish__sub_803DA798(lbl_805D5014);

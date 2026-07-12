@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TCameraCtrl__sub_801A6E60(void *, M2C_UNK);
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, M2C_UNK);
 M2C_UNK TAdVIConfigGC__sub_80307FEC();
 u32 OSGetProgressiveMode();
 u32 fn_8037CCE8();
@@ -17,7 +17,7 @@ s32 fn_8030818C(void) {
         TAdVIConfigGC__sub_80307FEC();
         return 0;
     }
-    if ((OSGetProgressiveMode() != 1U) && (TCameraCtrl__sub_801A6E60(lbl_8050E3B8 + 0x20, 2) == 0)) {
+    if ((OSGetProgressiveMode() != 1U) && (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E3B8 + 0x20, 2) == 0)) {
         TAdVIConfigGC__sub_80307FEC();
         return 0;
     }

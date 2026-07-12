@@ -15,7 +15,7 @@ s32 TWindowCtrl__sub_8024B054(u16);
 int fn_8006E87C(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 
-s32 TObjBagWarnWin4P__sub_8006E8F0(void) {
+s32 check_can_open__16TObjBagWarnWin4PFv(void) {
     s32 var_r31;
     s32 var_r30;
 

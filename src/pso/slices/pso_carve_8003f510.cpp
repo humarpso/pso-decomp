@@ -36,7 +36,7 @@ M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK)
 extern s32 lbl_805D4C14;
 extern s32 lbl_805D4C68;
 
-void fn_8003F510(u8 *arg0) {
+void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

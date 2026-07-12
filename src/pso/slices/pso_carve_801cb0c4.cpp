@@ -13,7 +13,7 @@ M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8002AEB8(void *, s32);
 s32 TTecCtrl__sub_801B0EE8();
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801BA650(void *, M2C_UNK, s32);
+M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s32);
 s32 call_model_m24__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 s32 TObjPlayer__sub_801D8B8C(void *);
@@ -30,7 +30,7 @@ struct VObj : Base {
     virtual s32 m7();
 };
 
-void TObjPlayer__sub_801CB0C4(u8 *arg0) {
+void end_freeze_action__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);
@@ -47,7 +47,7 @@ void TObjPlayer__sub_801CB0C4(u8 *arg0) {
         trigger_switch_attack__10TObjPlayerFPvi(arg0, ((VObj *)arg0)->m7());
     }
     obj_clearFlags30(arg0, 0x10000);
-    TObjPlayer__sub_801BA650(arg0, 0xD, call_model_m24__10TObjPlayerFPv(arg0));
+    set_action_state__10TObjPlayerFPvss(arg0, 0xD, call_model_m24__10TObjPlayerFPv(arg0));
 }
 
 }

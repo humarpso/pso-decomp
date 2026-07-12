@@ -6,19 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80292D34(void);
+s32 calc_min_challenge_progress__6TLobbyFv(void);
 s32 TLobby__sub_80292CA4(s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 TWindowSubStatusDisp__sub_8006F094();
+s32 get_layout_id__20TWindowSubStatusDispFv();
 M2C_UNK TWindowSubStatusDisp__sub_8006F190(M2C_UNK);
 
-s32 TLobby__sub_80292D34(void) {
+s32 calc_min_challenge_progress__6TLobbyFv(void) {
     s32 temp_r3;
     s32 var_r31;
     s32 var_r30;
 
     TWindowSubStatusDisp__sub_8006F190(-1);
-    var_r31 = TWindowSubStatusDisp__sub_8006F094();
+    var_r31 = get_layout_id__20TWindowSubStatusDispFv();
     var_r30 = 0;
     do {
         if (TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) {

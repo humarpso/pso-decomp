@@ -30,7 +30,7 @@ void TObjPlayer__sub_801B4264(s32 arg0) {
         send_field_state_if_active__10TObjPlayerFii(arg0, TObjPlayer__sub_801D8E90(arg0));
     }
 }
-void TObjPlayer__sub_801B42AC(void *arg0) {
+void update_rotation__10TObjPlayerFPv(void *arg0) {
     if ((check_camera_mode__10TObjPlayerFv() == 0) && (TObjPlayer__sub_801B19EC(arg0) != 0) && (TTecCtrl__sub_801B0EE8() == 0) && (obj_isState3_324(arg0) == 0)) {
         TObjPlayer__sub_800113E4(arg0, (s16) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2));
         return;

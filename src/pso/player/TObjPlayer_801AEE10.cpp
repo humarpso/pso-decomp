@@ -49,10 +49,10 @@ u8 TObjPlayer__sub_801AEE84(void) {
     }
     return (u8)var_r31;
 }
-u8 TObjPlayer__sub_801AEECC(void) {
+u8 is_single_screen__10TObjPlayerFv(void) {
     return (u8) (is_not_split_screen__13TRaderMapCoreFv() == 1);
 }
-s32 TObjPlayer__sub_801AEEF8(s32 arg0) {
+s32 is_player_valid_target__10TObjPlayerFi(s32 arg0) {
     s32 temp_r31;
 
     if (TObjPlayer__sub_80354E3C() == 0) {

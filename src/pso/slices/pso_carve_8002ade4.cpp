@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TObjPlayer__sub_8002AEF4(void* p);
+void bswap_6x12_packet__10TObjPlayerFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int TObjPlayer__sub_8001960C(void*);

@@ -16,7 +16,7 @@ void render__19TContainerAncient01Fv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -35,7 +35,7 @@ void render__19TContainerAncient01Fv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x35C) != 0) {
             TBoss7Tentacle__sub_803D9BA0(arg0 + 0x360);
         }
-        if (TObjPlayer__sub_80080750() == 1) {
+        if (check_demo_mode__10TObjPlayerFv() == 1) {
             TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));

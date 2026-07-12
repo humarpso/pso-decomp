@@ -8,7 +8,7 @@ extern "C" {
 
 void free_resources__12TObjComputerFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK TLobby__sub_803DA16C(void*);
 
 extern u32 TObjComputer__data_805D5B68;
@@ -17,7 +17,7 @@ extern u32 lbl_805D5B6C;
 void free_resources__12TObjComputerFv(void) {
     if ((u32) lbl_805D5B6C != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D5B6C);
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D5B6C);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5B6C);
         lbl_805D5B6C = 0U;
     }
     if ((u32) TObjComputer__data_805D5B68 != 0U) {

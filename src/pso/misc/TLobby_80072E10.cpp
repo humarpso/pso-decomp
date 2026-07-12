@@ -6,18 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80072E10(void);
-s32 TLobby__sub_800495BC();
+void play_player_default_effect__6TLobbyFv(void);
+s32 check_player_flag1__6TLobbyFPv();
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
 
 extern s32 lbl_805D53A0;
 
-void TLobby__sub_80072E10(void) {
+void play_player_default_effect__6TLobbyFv(void) {
     s32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
-    if ((temp_r3 != 0) && (TLobby__sub_800495BC() == 0)) {
+    if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFPv() == 0)) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
     }
 }

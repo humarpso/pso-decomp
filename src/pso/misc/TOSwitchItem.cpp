@@ -8,12 +8,12 @@ extern "C" {
 
 void update_anim__12TOSwitchItemFPv(void *arg0);
 
-M2C_UNK TOKey__sub_8016AB20();
+M2C_UNK init_switch_id__5TOKeyFPv();
 
 void update_anim__12TOSwitchItemFPv(void *arg0) {
     f32 temp_f0;
 
-    TOKey__sub_8016AB20();
+    init_switch_id__5TOKeyFPv();
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
     M2C_FIELD(arg0, f32 *, 0xE8) = (f32) (temp_f0 * temp_f0);
     M2C_FIELD(arg0, s32 *, 0xF0) = (s32) M2C_FIELD(arg0, s32 *, 0x88);

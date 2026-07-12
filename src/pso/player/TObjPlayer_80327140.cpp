@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_80327140(int a0, void* a1);
-void TObjPlayer__sub_80327154(void *arg0);
+void fire_spread_attack__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 s16 TItemProShield__sub_80076B5C(s32);
 s32 TObjPlayer__sub_8011E384();
@@ -18,7 +18,7 @@ s16 obj_getS16_32C(s32);
     extern const float lbl_805DF690;
 void TObjPlayer__sub_80327140(int a0, void* a1) { *(float*)((char*)a1 + 0x3c) = lbl_805DF690; *(int*)((char*)a1 + 0x78) = 474; }
 
-void TObjPlayer__sub_80327154(void *arg0) {
+void fire_spread_attack__10TObjPlayerFPv(void *arg0) {
     s32 temp_r31;
 
     if (TObjPlayer__sub_8011E384() != 0) {

@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_80326710(void *arg0);
 void TObjPlayer__sub_80326794(void* p);
-void TObjPlayer__sub_803267A8(void *arg0);
+void spawn_armor_effects__10TObjPlayerFPv(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
 s32 TObjPlayer__sub_800112A4(s32, s16);
 M2C_UNK TObjPlayer__sub_80126414(s32, u32, s32, M2C_UNK, f32);
@@ -42,7 +42,7 @@ void TObjPlayer__sub_80326794(void* p) { *(s16*)((char*)p + 0x1fc) = -1; *(s32*)
 
 extern const f32 lbl_805DF658;
 
-void TObjPlayer__sub_803267A8(void *arg0) {
+void spawn_armor_effects__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;

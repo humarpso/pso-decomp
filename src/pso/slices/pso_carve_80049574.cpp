@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 
-void fn_80049574(void *arg0) {
+void obj_set_flag_20000(void *arg0) {
     obj_setFlags30(arg0, 0x20000);
 }
 

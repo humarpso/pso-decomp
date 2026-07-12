@@ -8,7 +8,7 @@ extern "C" {
 
 void load_file_to_buffer__6TSceneFi(s32 arg0);
 s32 TOKeyMachine01__sub_802034A8();
-u32 TQuestVmDownLoadServer__sub_8007EBFC(s32);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TScene__sub_800F9D80(M2C_UNK *);
 M2C_UNK TLobby__sub_800F9DF4(M2C_UNK *, u32);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
@@ -29,7 +29,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
     temp_r31 = TScene__sub_800F9D80(sp8);
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x100U)) {
-            temp_r3 = TQuestVmDownLoadServer__sub_8007EBFC(0x100);
+            temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x100);
             TScene__data_805D6028 = temp_r3;
             if (temp_r3 != 0U) {
                 TLobby__sub_800F9DF4(sp8, temp_r3);
@@ -37,7 +37,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
             }
         }
     } else if (temp_r31 > 0) {
-        temp_r3_2 = TQuestVmDownLoadServer__sub_8007EBFC(temp_r31);
+        temp_r3_2 = alloc__22TQuestVmDownLoadServerFPv(temp_r31);
         TScene__data_805D6028 = temp_r3_2;
         if (temp_r3_2 != 0U) {
             TLobby__sub_800F9DF4(sp8, temp_r3_2);

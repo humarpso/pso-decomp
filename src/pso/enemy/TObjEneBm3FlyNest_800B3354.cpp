@@ -144,8 +144,8 @@ VA
 
 extern "C" {
 
-void TObjEneBm3FlyNest__sub_800B3354(void *arg0, s32 arg1);
-void TObjEneBm3FlyNest__sub_800B3428(void *arg0, s32 arg1);
+void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
+void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
 s32 TObjEneBm3FlyNest__sub_800B3AC8();
@@ -157,7 +157,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 lbl_805D9D04;
 extern const f32 lbl_805D9D30;
 
-void TObjEneBm3FlyNest__sub_800B3354(void *arg0, s32 arg1) {
+void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
@@ -185,7 +185,7 @@ void TObjEneBm3FlyNest__sub_800B3354(void *arg0, s32 arg1) {
 
 extern const f32 lbl_805D9D04;
 
-void TObjEneBm3FlyNest__sub_800B3428(void *arg0, s32 arg1) {
+void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

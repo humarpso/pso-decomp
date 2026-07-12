@@ -18,7 +18,7 @@ s32 TWindowActionPalette__sub_8013DF54(s32, u8);
 int TFontSmallLobby__sub_801C0228(void*);
 s32 bswap_pkt_u16x2_u32x2__10TObjPlayerFPv();
 s32 bswap_pkt_u32x5__10TObjPlayerFPv();
-s32 TLobby__sub_801D76B0();
+s32 reset_settings_to_default__6TLobbyFPv();
 
 int TObjPlayer__sub_801C1890(void) { return 0; }
 int TObjPlayer__sub_801C18AC(void) { return 0; }

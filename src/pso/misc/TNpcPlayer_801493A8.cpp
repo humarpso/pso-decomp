@@ -11,7 +11,7 @@ void TObjNpcBase__sub_80149358(void* p, s32 v);
 void TObjNpcBase__sub_80149360(void* p, s32 v);
 void TObjNpcBase__sub_80149368(void* p);
 
-void TNpcPlayer__sub_801493A8(s32 arg0) {
+void bswap_6x3E__10TNpcPlayerFi(s32 arg0) {
     TObjPlayer__sub_8001960C();
     bswap_16__FPUs(arg0 + 4);
     bswap_16__FPUs(arg0 + 6);

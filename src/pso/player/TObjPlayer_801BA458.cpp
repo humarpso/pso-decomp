@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BA458(void *arg0);
+s32 end_camera_pan__10TObjPlayerFPv(void *arg0);
 
 extern s32 lbl_805D55C0;
 
-s32 TObjPlayer__sub_801BA458(void *arg0) {
+s32 end_camera_pan__10TObjPlayerFPv(void *arg0) {
     if ((s32) lbl_805D55C0 != 0) {
         return 0;
     }

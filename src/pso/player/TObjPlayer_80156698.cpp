@@ -8,6 +8,6 @@ int TObjPlayer__sub_801564A0(void*);
 int check_object_collisions__10TObjPlayerFPv(void*);
 void fn_801566CC(void* p);
 
-void TObjPlayer__sub_80156698(void* p) { check_object_collisions__10TObjPlayerFPv(p); TObjPlayer__sub_801564A0(p); }
+void update_collisions__10TObjPlayerFPv(void* p) { check_object_collisions__10TObjPlayerFPv(p); TObjPlayer__sub_801564A0(p); }
 
 }

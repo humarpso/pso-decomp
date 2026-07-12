@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_8012D218(void *arg0);
-void TObjPlayer__sub_8012D2B4(void *arg0);
+void trigger_megid_special__10TObjPlayerFPv(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
 u8 TItemProShield__sub_8010B734();
-M2C_UNK TObjPlayer__sub_8010853C(s32, void *, M2C_UNK, M2C_UNK);
+M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E2FC(void *, f32);
 s32 TObjPlayer__sub_8011E384(void *);
 M2C_UNK TObjPlayer__sub_8011F5E0(void *);
-s32 TObjPlayer__sub_801207E8(void *, M2C_UNK, M2C_UNK *);
+s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
 M2C_UNK create_ex__9TTecMegidFiiii(void *, M2C_UNK *, s32, M2C_UNK);
 M2C_UNK ct__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
@@ -41,14 +41,14 @@ void TObjPlayer__sub_8012D218(void *arg0) {
 extern s32 tl_05;
 extern f32 lbl_805DAF18;
 
-void TObjPlayer__sub_8012D2B4(void *arg0) {
+void trigger_megid_special__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8;
     void *temp_r3;
 
     if (TItemProShield__sub_8010B734() == 1) {
-        TObjPlayer__sub_8010853C(tl_05, arg0, 2, 0x101);
+        create_item_eff_cane__10TObjPlayerFiUiii(tl_05, arg0, 2, 0x101);
         if (TObjPlayer__sub_8011E384(arg0) != 0) {
-            if (TObjPlayer__sub_801207E8(arg0, 2, &sp8) != 0) {
+            if (draw_icon__10TObjPlayerFPvii(arg0, 2, &sp8) != 0) {
                 temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
                 create_ex__9TTecMegidFiiii(temp_r3, &sp8, M2C_FIELD(temp_r3, s32 *, 0x60), 0);
                 TObjPlayer__sub_8011E2FC(arg0, lbl_805DAF18);

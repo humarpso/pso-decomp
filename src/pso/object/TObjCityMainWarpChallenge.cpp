@@ -9,7 +9,7 @@ extern "C" {
 void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
 
 M2C_UNK fn_80186DA0();
-M2C_UNK fn_80186E24();
+M2C_UNK update_challenge_warp_window();
 M2C_UNK fn_80186F84();
 M2C_UNK fn_8018709C();
 M2C_UNK fn_801871D0();
@@ -29,7 +29,7 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
         fn_80186F84();
         return;
     case 3:
-        fn_80186E24();
+        update_challenge_warp_window();
         return;
     case 4:
         fn_80186DA0();

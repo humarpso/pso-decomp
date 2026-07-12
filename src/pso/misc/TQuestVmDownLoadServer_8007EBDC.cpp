@@ -8,13 +8,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TQuestVmDownLoadServer__sub_8007EBDC(void* p);
-int TQuestVmDownLoadServer__sub_8007EBFC(void* p);
-int TAdSinglePlyChrSelectGC__sub_8007EB94(void* p);
+int alloc__22TQuestVmDownLoadServerFPv(void* p);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void* p);
 int fn_803DE864(void*);
 M2C_UNK xfree__FPv();
 int xmalloc__FUl(void*);
 
 int TQuestVmDownLoadServer__sub_8007EBDC(void* p) { return fn_803DE864(p); }
-int TQuestVmDownLoadServer__sub_8007EBFC(void* p) { return xmalloc__FUl(p); }
+int alloc__22TQuestVmDownLoadServerFPv(void* p) { return xmalloc__FUl(p); }
 
 }

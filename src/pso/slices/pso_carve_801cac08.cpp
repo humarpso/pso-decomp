@@ -12,7 +12,7 @@ s32 obj_isState2_324(void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8002AEB8(void *, M2C_UNK);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801BA650(void *, M2C_UNK, s32);
+M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_801BE40C(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 
@@ -52,7 +52,7 @@ void TObjPlayer__sub_801CAC08(u8 *arg0) {
         trigger_switch_attack__10TObjPlayerFPvi(arg0, ((VObj *)arg0)->m7());
     }
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
-    TObjPlayer__sub_801BA650(arg0, 0xE, TObjPlayer__sub_801BE40C(arg0));
+    set_action_state__10TObjPlayerFPvss(arg0, 0xE, TObjPlayer__sub_801BE40C(arg0));
 }
 
 }

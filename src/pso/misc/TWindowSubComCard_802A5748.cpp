@@ -21,7 +21,7 @@ void TAdChrSelASlotGC__sub_802A596C(void* p, void* a1, void* a2);
 void fn_802A56C4(void* p);
 void fn_802A56F0(void* p);
 void TWindowSubShortMail__sub_802A571C(void* p);
-int TWindowSubComCard__sub_802A5748(void* p);
+int close__17TWindowSubComCardFPv(void* p);
 void free_member__17TWindowSubComCardFPv(void* p);
 int TAdChrSelASlotGC__sub_800740FC(void*);
 int set_flag70_bit10__16TObjCityMainWarpFPv(void*);
@@ -29,7 +29,7 @@ int TWindowSubComCard__sub_80265C10(void*);
 int TWindowSubTradeMain__sub_80287560(void*);
 int queue_destruction__7TObjectFv(void*);
 
-int TWindowSubComCard__sub_802A5748(void* p) { return queue_destruction__7TObjectFv(p); }
+int close__17TWindowSubComCardFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 void free_member__17TWindowSubComCardFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) TWindowSubComCard__sub_80265C10(m); }
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *arg0) {
     s32 v = M2C_FIELD(arg0, u32 *, 0x2C);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK __dl__FPv(void *);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(s32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 M2C_UNK TLobby__sub_803DA16C(s32);
 extern M2C_UNK lbl_804C57E0[];
 
@@ -15,7 +15,7 @@ void *fn_801E4D18(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x50) = lbl_804C57E0;
         TLobby__sub_803DA16C(M2C_FIELD(arg0, s32 *, 0x3C));
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(M2C_FIELD(arg0, s32 *, 0x44));
+        safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, s32 *, 0x44));
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

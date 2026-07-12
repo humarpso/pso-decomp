@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801BAA00(u32 arg0);
 s32 TObjPlayer__sub_800196F4(u32);
-M2C_UNK TObjPlayer__sub_801BEA5C();
+M2C_UNK set_flag_400000__10TObjPlayerFi();
 M2C_UNK TObjPlayer__sub_801C17D0(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_801C17EC(M2C_UNK *);
 s16 obj_getField1c(u32);
@@ -23,7 +23,7 @@ struct Sp8Struct_801baa00 {
 void TObjPlayer__sub_801BAA00(u32 arg0) {
     struct Sp8Struct_801baa00 sp8;
 
-    TObjPlayer__sub_801BEA5C();
+    set_flag_400000__10TObjPlayerFi();
     if ((arg0 == 0U) || (obj_isState2_324(arg0) == 0)) {
         TObjPlayer__sub_801C17D0((M2C_UNK *)&sp8);
         sp8.fA = obj_getField1c(arg0);

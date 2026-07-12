@@ -10,9 +10,9 @@ void run_task__15TORockJungleM01Fv(void* p);
 void TORockJungleM01__vt16(s32 arg0);
 
 int TObjPlayer__sub_800D7BB0(void*);
-int TORockCaveBrakable__sub_80174EA0(void*);
+int update_break_state__18TORockCaveBrakableFPv(void*);
 
-void run_task__15TORockJungleM01Fv(void* p) { TObjPlayer__sub_800D7BB0((char*)p + 0xbc); TORockCaveBrakable__sub_80174EA0(p); }
+void run_task__15TORockJungleM01Fv(void* p) { TObjPlayer__sub_800D7BB0((char*)p + 0xbc); update_break_state__18TORockCaveBrakableFPv(p); }
 
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 

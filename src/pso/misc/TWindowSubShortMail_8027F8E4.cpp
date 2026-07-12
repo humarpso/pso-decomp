@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1);
-M2C_UNK TWindowSubComCard__sub_802A5748(void *);
+M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -21,7 +21,7 @@ void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSubShortMail;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {
-            TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x50));
+            close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x50));
             M2C_FIELD(arg0, u32 *, 0x50) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x5C) != 0U) {

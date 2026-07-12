@@ -19,10 +19,10 @@ struct VObj_8011E828 : Base_8011E828 {
 extern "C" {
 
 void TObjPlayer__sub_8011E738(void *arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_8011E77C(void *arg0);
+void apply_model_params__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8011E7E4(s32 arg0);
 void TObjPlayer__sub_8011E828(struct VObj_8011E828 *o);
-M2C_UNK TItem__sub_80101CFC(s32, M2C_UNK *);
+M2C_UNK copy_to_item_data__5TItemFPvPv(s32, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_8011C8BC(s32, s16 *, s16 *);
 M2C_UNK TObjPlayer__sub_801210C0(void *, s16);
 M2C_UNK TObjPlayer__sub_801210C8(void *, s16);
@@ -62,7 +62,7 @@ struct VObj_8011E77C : Base_8011E77C {
     virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
 };
 
-void TObjPlayer__sub_8011E77C(void *arg0) {
+void apply_model_params__10TObjPlayerFPv(void *arg0) {
     s16 spA;
     s16 sp8;
     void *temp_r3;
@@ -78,7 +78,7 @@ void TObjPlayer__sub_8011E7E4(s32 arg0) {
     M2C_UNK sp8[5];
 
     init__9TItemDataFv(sp8);
-    TItem__sub_80101CFC(arg0, sp8);
+    copy_to_item_data__5TItemFPvPv(arg0, sp8);
     TItemData__sub_8010EC88(sp8);
 }
 
@@ -86,7 +86,7 @@ void TObjPlayer__sub_8011E828(struct VObj_8011E828 *o) {
     if (o->m33() == 0) {
         M2C_FIELD(o, u8 *, 0x1D2) = M2C_FIELD(o, u8 *, 0x1D2) & 0x7F;
     }
-    TObjPlayer__sub_8011E77C((void *)(o));
+    apply_model_params__10TObjPlayerFPv((void *)(o));
 }
 
 }

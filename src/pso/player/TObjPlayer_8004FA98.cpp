@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_8004FA98(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
-M2C_UNK TObjFish__sub_800E2FD8(s32);
+M2C_UNK clear_render_callback__8TObjFishFv(s32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -32,7 +32,7 @@ void TObjPlayer__sub_8004FA98(u8 *arg0) {
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xCC));
         TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0x108));
         TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0xC8), M2C_FIELD(arg0, s32 *, 0xD0), M2C_FIELD(arg0, f32 *, 0xE8));
-        TObjFish__sub_800E2FD8(M2C_FIELD(arg0, s32 *, 0x108));
+        clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x108));
         TObjPlayer__sub_803E4BD0();
         TObjPlayer__sub_803D9B78();
         fn_80052374();

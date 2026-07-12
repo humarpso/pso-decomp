@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_80125B80(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_80125BE4(void *arg0);
+void cast_gifoie__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80125C70(void* p);
 void TObjPlayer__sub_80125C7C(void *arg0);
 void TObjPlayer__sub_80125CF4(void *arg0);
@@ -17,7 +17,7 @@ s32 TObjPlayer__sub_80100D1C(void *);
 s32 TObjPlayer__sub_8011E384();
 s32 TObjPlayer__sub_8011E618(void *);
 s32 TObjPlayer__sub_8011F5E0(void *);
-s32 TObjPlayer__sub_801207E8(void *, s32, s32 *);
+s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
 s32 TObjPlayer__sub_80121CA8(void *);
 s16 TObjPlayer__sub_801251AC(s32);
 s32 TObjPlayer__sub_80125AF8(u32 a0 = 0, s32 a1 = 0, u32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
@@ -33,11 +33,11 @@ void TObjPlayer__sub_80125B80(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
         TObjPlayer__sub_80125AF8(obj, arg0, arg1, arg2, arg3);
     }
 }
-void TObjPlayer__sub_80125BE4(void *arg0) {
+void cast_gifoie__10TObjPlayerFPv(void *arg0) {
     s32 sp8;
 
     if (TObjPlayer__sub_8011E384() != 0) {
-        if ((TObjPlayer__sub_801251AC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (TObjPlayer__sub_801207E8(arg0, 0, &sp8) != 0)) {
+        if ((TObjPlayer__sub_801251AC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0)) {
             create__10TTecGiFoieFPvPvPv(M2C_FIELD(arg0, s32 *, 0xF0), &sp8, TObjPlayer__sub_80121CA8(arg0));
             TObjPlayer__sub_8011E618(arg0);
         }

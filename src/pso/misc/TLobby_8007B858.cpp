@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8007B858(void);
+void create_tasks__6TLobbyFv(void);
 M2C_UNK TCineCtrl__ct(u32, s32);
 M2C_UNK TFogCtrl__sub_800FBB68();
 M2C_UNK THunterGuildSeqOnlineTask__ct(u32, s32);
 s32 TLobby__sub_80207DD4();
 M2C_UNK TLobby__sub_80208BD8();
-M2C_UNK TMainTask__sub_80104C40();
+M2C_UNK cleanup_game_objects__9TMainTaskFv();
 s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK TTecLuker__sub_80233F8C();
 M2C_UNK TWindowCtrlMain__ct();
@@ -42,7 +42,7 @@ extern s32 tl_06;
 extern s32 tl_particlemodel;
 extern s32 tl_fade;
 
-void TLobby__sub_8007B858(void) {
+void create_tasks__6TLobbyFv(void) {
     u32 tmp;
     TFogCtrl__sub_800FBB68();
     if (is_split_screen() == 0) {
@@ -63,7 +63,7 @@ void TLobby__sub_8007B858(void) {
             fn_8033ED24(tmp, tl_particlemodel);
         }
     }
-    TMainTask__sub_80104C40();
+    cleanup_game_objects__9TMainTaskFv();
     create__6TSceneFv();
     create_instance__10TSceneSoraFv();
     fn_8020D918();

@@ -8,7 +8,7 @@ extern "C" {
 
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0);
 M2C_UNK TAdMultiChgGameModeGC__sub_8023EB84();
-M2C_UNK TAdMultiChgGameModeGC__sub_8023EC14();
+M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
 M2C_UNK TAdMultiChgGameModeGC__sub_8023ECA4();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 TAdMultiPlyChrSelectGC__sub_802E011C();
@@ -27,7 +27,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
         TAdMultiChgGameModeGC__sub_8023ECA4();
         return;
     case 1:
-        TAdMultiChgGameModeGC__sub_8023EC14();
+        request_scene_change__21TAdMultiChgGameModeGCFv();
         return;
     case 2:
         TAdMultiChgGameModeGC__sub_8023EB84();

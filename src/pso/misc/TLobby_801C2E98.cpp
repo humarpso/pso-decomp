@@ -15,7 +15,7 @@ M2C_UNK TOMineTrap__sub_8016FCC4();
 s32 TObjPlayer__sub_801BE648();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TObjPlayer__sub_8002AEB8(s32, M2C_UNK);
-M2C_UNK fn_80049574();
+M2C_UNK obj_set_flag_20000();
 M2C_UNK fn_801C512C();
 M2C_UNK fn_801C5454(s32);
 M2C_UNK fn_801F57B4(s32);
@@ -34,7 +34,7 @@ void init__6TLobbyFPv(void *arg0) {
     close_and_play_effect__6TLobbyFii((u16) lbl_805D53A0, 1);
     temp_r3 = TObjPlayer__sub_801BE648();
     if (temp_r3 != 0) {
-        fn_80049574();
+        obj_set_flag_20000();
         TObjPlayer__sub_8002AEB8(temp_r3 + 0x644, 0xE10);
     }
     TOMineTrap__sub_8016FCC4();

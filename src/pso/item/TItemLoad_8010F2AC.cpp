@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemLoad__sub_8010F2AC(u8 *arg0);
+void update_load__9TItemLoadFPv(u8 *arg0);
 M2C_UNK TItemLoad__sub_8010F61C(u32, s32, s32);
 M2C_UNK TItemLoad__sub_8010F8A4(u32, u32, s32);
 s32 TItemLoad__sub_80110740(u32);
@@ -18,7 +18,7 @@ extern u32 lbl_805D549C;
 extern u32 lbl_805D54A0;
 extern s32 lbl_805D54A4;
 
-void TItemLoad__sub_8010F2AC(u8 *arg0) {
+void update_load__9TItemLoadFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     s32 var_r31;

@@ -1,7 +1,7 @@
 #include "pso/TItemShootModel.h"
 
 extern "C" {
-s32   TObjPlayer__sub_8011BADC(TItemShootModel*);
+s32   is_owner_alive__10TObjPlayerFPv(TItemShootModel*);
 void* TObjPlayer__sub_8010A050(void*);
 f32   TObjPlayer__sub_8001978C(f32);
 f64   TObjPlayer__sub_80019760(f32, f32);
@@ -19,7 +19,7 @@ extern const f64   lbl_8043E7A0[];
 }
 
 void TItemShootModel::render() {
-    if (TObjPlayer__sub_8011BADC(this)) {
+    if (is_owner_alive__10TObjPlayerFPv(this)) {
         if (this->m_58 != NULL) {
             TObjPlayer__sub_8023E480(this->m_5C);
             TParticleCtrl__sub_801E2EFC();

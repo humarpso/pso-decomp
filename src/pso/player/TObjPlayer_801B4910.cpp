@@ -12,7 +12,7 @@ M2C_UNK clear_action_flag__10TObjPlayerFPv(s32);
 s16 TObjPlayer__sub_801BF57C(s32);
 M2C_UNK update_target_lock__10TObjPlayerFii(s32, s32);
 s32 TObjPlayer__sub_80019248();
-s32 TLobby__sub_800495BC(s32);
+s32 check_player_flag1__6TLobbyFPv(s32);
 s32 TItemMag__sub_80113F10(s32);
 M2C_UNK update_target__10TObjPlayerFi(s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
@@ -26,7 +26,7 @@ void update_subsystems__10TObjPlayerFi(s32 arg0) {
         TObjPlayer__sub_801B21AC(arg0);
         clear_action_flag__10TObjPlayerFPv(arg0);
         update_target__10TObjPlayerFi(arg0);
-        if ((TLobby__sub_800495BC(arg0) != 0) && (TObjPlayer__sub_801BF57C(arg0 + 0x730) >= 0) && (TObjPlayer__sub_801BF560(arg0 + 0x730) == 0)) {
+        if ((check_player_flag1__6TLobbyFPv(arg0) != 0) && (TObjPlayer__sub_801BF57C(arg0 + 0x730) >= 0) && (TObjPlayer__sub_801BF560(arg0 + 0x730) == 0)) {
             send_code_45_1__10TObjPlayerFi(arg0);
         }
         update_target_lock__10TObjPlayerFii(arg0 + 0x63C, arg0);

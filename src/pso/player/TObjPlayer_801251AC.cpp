@@ -14,7 +14,7 @@ s32 TObjPlayer__sub_8011E384();
 int TObjPlayer__sub_8011E618(void*);
 int TObjPlayer__sub_8011E87C(void*, void*);
 s32 TObjPlayer__sub_8011F5E0(void *);
-s32 TObjPlayer__sub_801207E8(void *, s32, s32 *);
+s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
 int TObjPlayer__sub_80120BBC(void*, void*);
 s32 TObjPlayer__sub_80121CA8(void *);
 s32 create__8TTecFoieFPvPvPvPv(void *, s32 *, s32, s32);
@@ -25,7 +25,7 @@ void TObjPlayer__sub_801251B4(void *arg0) {
     void *temp_r31;
 
     if (TObjPlayer__sub_8011E384() != 0) {
-        if (TObjPlayer__sub_801207E8(arg0, 0, &sp8) != 0) {
+        if (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0) {
             temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
             create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), TObjPlayer__sub_80121CA8(arg0) + 2);
             TObjPlayer__sub_8011E618(arg0);

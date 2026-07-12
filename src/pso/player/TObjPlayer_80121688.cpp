@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80121688(u8 *arg0);
+void draw_effect_model__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80121708(void *arg0);
 void *TObjPlayer__sub_80121718(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
-s32 TObjPlayer__sub_8011BADC();
+s32 is_owner_alive__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8023E480(u32);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -20,8 +20,8 @@ M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
-void TObjPlayer__sub_80121688(u8 *arg0) {
-    if ((TObjPlayer__sub_8011BADC() != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x58) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0x5C) != 0U)) {
+void draw_effect_model__10TObjPlayerFPv(u8 *arg0) {
+    if ((is_owner_alive__10TObjPlayerFPv() != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x58) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0x5C) != 0U)) {
         TObjPlayer__sub_803D9B2C();
         TParticleCtrl__sub_801E2EFC();
         TObjPlayer__sub_8023E480(M2C_FIELD(arg0, u32 *, 0x5C));

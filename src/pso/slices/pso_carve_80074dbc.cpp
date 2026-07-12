@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *__ct__13TObjCHTimeWinFv(void *, void *);
 
-void *fn_80074DBC(void *arg0) {
+void *create_ch_time_win(void *arg0) {
     void *o = __nw__7TObjectFUl(0x20);
     if (o != NULL) {
         o = __ct__13TObjCHTimeWinFv(o, arg0);

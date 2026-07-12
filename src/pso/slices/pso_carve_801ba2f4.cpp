@@ -16,7 +16,7 @@ s16 TObjPlayer__sub_801BF92C(s32);
 s32 TObjPlayer__sub_801CB874(s32);
 M2C_UNK TObjPlayer__sub_801D0BC0(s32, s16, M2C_UNK);
 
-s32 TObjPlayer__sub_801BA2F4(s32 arg0) {
+s32 try_apply_status_action__10TObjPlayerFi(s32 arg0) {
     if (check_flag30_bit20__10TObjPlayerFi() != 0) {
         TObjPlayer__sub_801D0BC0(arg0, 0x13, 5);
         return 1;

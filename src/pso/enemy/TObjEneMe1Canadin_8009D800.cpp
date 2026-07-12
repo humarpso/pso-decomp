@@ -43,7 +43,7 @@ extern "C" {
 void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
-M2C_UNK TObjEneMe1Canadin__sub_8009EABC(void *);
+M2C_UNK update_hover_height__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 M2C_UNK advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
@@ -95,19 +95,19 @@ void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
                 }
             }
             update_move__17TObjEneMe1CanadinFPv(arg0);
-            TObjEneMe1Canadin__sub_8009EABC(arg0);
+            update_hover_height__17TObjEneMe1CanadinFPv(arg0);
             break;
         case 1:
             if ((s32) M2C_FIELD(arg0, s32 *, 0x4B8) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x470) = 3;
             }
             update_move__17TObjEneMe1CanadinFPv(arg0);
-            TObjEneMe1Canadin__sub_8009EABC(arg0);
+            update_hover_height__17TObjEneMe1CanadinFPv(arg0);
             break;
         case 2:
             update_move__17TObjEneMe1CanadinFPv(arg0);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x4B8) != 0) {
-                TObjEneMe1Canadin__sub_8009EABC(arg0);
+                update_hover_height__17TObjEneMe1CanadinFPv(arg0);
             } else {
                 TObjEneMe1Canadin__sub_8009EB14(arg0, M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3F0));
                 if (M2C_FIELD(arg0, s32 *, 0x3C8) & 0x80000) {

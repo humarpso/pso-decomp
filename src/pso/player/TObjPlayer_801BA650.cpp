@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801BA650(void *arg0, s16 arg1, s16 arg2);
+void set_action_state__10TObjPlayerFPvss(void *arg0, s16 arg1, s16 arg2);
 M2C_UNK TObjPlayer__sub_8011E238(void *, M2C_UNK);
 s32 TObjPlayer__sub_801C00E4(s32);
 
-void TObjPlayer__sub_801BA650(void *arg0, s16 arg1, s16 arg2) {
+void set_action_state__10TObjPlayerFPvss(void *arg0, s16 arg1, s16 arg2) {
     M2C_FIELD(arg0, s16 *, 0x32A) = (s16) M2C_FIELD(arg0, s16 *, 0x326);
     M2C_FIELD(arg0, s16 *, 0x326) = arg1;
     if (TObjPlayer__sub_801C00E4(arg2) == 0) {

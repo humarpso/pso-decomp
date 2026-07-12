@@ -17,7 +17,7 @@ s32 TFontSmallLobby__sub_801AFEE0(void);
 s32 obj_getField1c(void * a0 = 0);
 s32 TObjPlayer__sub_80102C78(void * a0 = 0, s16 a1 = 0);
 s32 TObjPlayer__sub_800113E4(void * a0 = 0, s16 a1 = 0);
-int TObjPlayer__sub_801B42AC(void*);
+int update_rotation__10TObjPlayerFPv(void*);
 int obj_clearFlags30(void*, void*);
 int TObjPlayer__sub_801AF694(void* p);
 int fn_801C543C(void*);

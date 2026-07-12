@@ -9,14 +9,14 @@ extern "C" {
 s32 TObjCityMainWarp__vt14(s32 arg0);
 
 s32 TCameraCtrl__sub_8006B368();
-s32 TObjAreaWarp__sub_8019CCF0(s32);
+s32 is_warp_enabled__12TObjAreaWarpFi(s32);
 s32 TLobby__sub_8030A7B0();
 
 s32 TObjCityMainWarp__vt14(s32 arg0) {
     if ((TLobby__sub_8030A7B0() == 1) && (TCameraCtrl__sub_8006B368() == 0)) {
         return 0;
     }
-    return TObjAreaWarp__sub_8019CCF0(arg0);
+    return is_warp_enabled__12TObjAreaWarpFi(arg0);
 }
 
 }

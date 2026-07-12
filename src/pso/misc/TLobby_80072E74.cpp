@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80072E74(void *arg0);
+void update_destroy_countdown__6TLobbyFPv(void *arg0);
 M2C_UNK TLobby__sub_8006F2CC();
 M2C_UNK TLobby__sub_80072B70(void *);
-M2C_UNK TLobby__sub_80072C38(void *);
-M2C_UNK TLobby__sub_80072D48(void *);
+M2C_UNK close_window_2c__6TLobbyFPv(void *);
+M2C_UNK send_45_and_close_windows__6TLobbyFv(void *);
 M2C_UNK TLobby__sub_80072DD8();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TLobby__sub_80072E74(void *arg0) {
+void update_destroy_countdown__6TLobbyFPv(void *arg0) {
     s32 temp_r0;
 
     TLobby__sub_80072DD8();
@@ -22,8 +22,8 @@ void TLobby__sub_80072E74(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x28) = temp_r0;
     if (temp_r0 <= 0) {
         TLobby__sub_8006F2CC();
-        TLobby__sub_80072D48(arg0);
-        TLobby__sub_80072C38(arg0);
+        send_45_and_close_windows__6TLobbyFv(arg0);
+        close_window_2c__6TLobbyFPv(arg0);
         TLobby__sub_80072B70(arg0);
         queue_destruction__7TObjectFv(arg0);
     }

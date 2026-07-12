@@ -27,7 +27,7 @@ struct VObj_80358824 : Base_80358824 {
 extern "C" {
 
 void TObjPlayer__sub_803586F4(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_8035878C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TObjPlayer__sub_80358824(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TLobby__sub_800869A4(s32, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
@@ -57,7 +57,7 @@ extern s32 lbl_805D63AC;
 extern s32 lbl_805D63B0;
 extern f32 lbl_805E0084;
 
-void TObjPlayer__sub_8035878C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r30;
 
     if (arg3 == 0) {

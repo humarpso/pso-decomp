@@ -16,7 +16,7 @@ void fn_8000FF4C(void* p, s16 v);
 u16 fn_8000FF54(void* p);
 int obj_testFlags30(void*, int);
 
-void TObjPlayer__sub_8000FFA4(s32 arg0, s32 arg1) {
+void activate_switch_attacks__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (obj_testFlags30((void*)(arg0), 0x02000000) == 0) {
         TOSwitchAttack__sub_80087278(arg1, 0xB9, 0x40);
         TOSwitchAttack__sub_80087278(arg1, 0xBA, 0x40);

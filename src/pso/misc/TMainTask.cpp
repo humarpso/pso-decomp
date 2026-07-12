@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TMainTask__sub_80229540(void);
-void TMainTask__sub_802295EC(void);
-void TMainTask__sub_802296A0(void);
+void clear_flag3_all_tasks__9TMainTaskFv(void);
+void delete_all_task_children__9TMainTaskFv(void);
 void TMainTask__sub_80229754(void);
 void TMainTask__sub_802297F0(void);
 void TMainTask__sub_8022988C(void *);
@@ -74,7 +74,7 @@ void TMainTask__sub_80229540(void) { TMainTask__sub_801F34D0((void*)(tl_00)); TM
     extern int tl_clipout;
     extern int tl_fade;
     extern int tl_fadeafter;
-void TMainTask__sub_802295EC(void) { clear_flag_3__7TObjectFv((void*)(tl_00)); clear_flag_3__7TObjectFv((void*)(tl_camera)); clear_flag_3__7TObjectFv((void*)(tl_01)); clear_flag_3__7TObjectFv((void*)(tl_02)); clear_flag_3__7TObjectFv((void*)(tl_03)); clear_flag_3__7TObjectFv((void*)(tl_item_equip)); clear_flag_3__7TObjectFv((void*)(tl_loc_start)); clear_flag_3__7TObjectFv((void*)(tl_04)); clear_flag_3__7TObjectFv((void*)(tl_05)); clear_flag_3__7TObjectFv((void*)(tl_06)); clear_flag_3__7TObjectFv((void*)(tl_07)); clear_flag_3__7TObjectFv((void*)(tl_loc_end)); clear_flag_3__7TObjectFv((void*)(tl_window)); clear_flag_3__7TObjectFv((void*)(tl_particle)); clear_flag_3__7TObjectFv((void*)(tl_particlemodel)); clear_flag_3__7TObjectFv((void*)(tl_radermap)); clear_flag_3__7TObjectFv((void*)(tl_clipout)); clear_flag_3__7TObjectFv((void*)(tl_fade)); clear_flag_3__7TObjectFv((void*)(tl_fadeafter)); }
+void clear_flag3_all_tasks__9TMainTaskFv(void) { clear_flag_3__7TObjectFv((void*)(tl_00)); clear_flag_3__7TObjectFv((void*)(tl_camera)); clear_flag_3__7TObjectFv((void*)(tl_01)); clear_flag_3__7TObjectFv((void*)(tl_02)); clear_flag_3__7TObjectFv((void*)(tl_03)); clear_flag_3__7TObjectFv((void*)(tl_item_equip)); clear_flag_3__7TObjectFv((void*)(tl_loc_start)); clear_flag_3__7TObjectFv((void*)(tl_04)); clear_flag_3__7TObjectFv((void*)(tl_05)); clear_flag_3__7TObjectFv((void*)(tl_06)); clear_flag_3__7TObjectFv((void*)(tl_07)); clear_flag_3__7TObjectFv((void*)(tl_loc_end)); clear_flag_3__7TObjectFv((void*)(tl_window)); clear_flag_3__7TObjectFv((void*)(tl_particle)); clear_flag_3__7TObjectFv((void*)(tl_particlemodel)); clear_flag_3__7TObjectFv((void*)(tl_radermap)); clear_flag_3__7TObjectFv((void*)(tl_clipout)); clear_flag_3__7TObjectFv((void*)(tl_fade)); clear_flag_3__7TObjectFv((void*)(tl_fadeafter)); }
 
     extern int tl_00;
     extern int tl_camera;
@@ -95,7 +95,7 @@ void TMainTask__sub_802295EC(void) { clear_flag_3__7TObjectFv((void*)(tl_00)); c
     extern int tl_clipout;
     extern int tl_fade;
     extern int tl_fadeafter;
-void TMainTask__sub_802296A0(void) { delete_children__7TObjectFv((void*)(tl_00)); delete_children__7TObjectFv((void*)(tl_camera)); delete_children__7TObjectFv((void*)(tl_01)); delete_children__7TObjectFv((void*)(tl_02)); delete_children__7TObjectFv((void*)(tl_03)); delete_children__7TObjectFv((void*)(tl_item_equip)); delete_children__7TObjectFv((void*)(tl_loc_start)); delete_children__7TObjectFv((void*)(tl_04)); delete_children__7TObjectFv((void*)(tl_05)); delete_children__7TObjectFv((void*)(tl_06)); delete_children__7TObjectFv((void*)(tl_07)); delete_children__7TObjectFv((void*)(tl_loc_end)); delete_children__7TObjectFv((void*)(tl_window)); delete_children__7TObjectFv((void*)(tl_particle)); delete_children__7TObjectFv((void*)(tl_particlemodel)); delete_children__7TObjectFv((void*)(tl_radermap)); delete_children__7TObjectFv((void*)(tl_clipout)); delete_children__7TObjectFv((void*)(tl_fade)); delete_children__7TObjectFv((void*)(tl_fadeafter)); }
+void delete_all_task_children__9TMainTaskFv(void) { delete_children__7TObjectFv((void*)(tl_00)); delete_children__7TObjectFv((void*)(tl_camera)); delete_children__7TObjectFv((void*)(tl_01)); delete_children__7TObjectFv((void*)(tl_02)); delete_children__7TObjectFv((void*)(tl_03)); delete_children__7TObjectFv((void*)(tl_item_equip)); delete_children__7TObjectFv((void*)(tl_loc_start)); delete_children__7TObjectFv((void*)(tl_04)); delete_children__7TObjectFv((void*)(tl_05)); delete_children__7TObjectFv((void*)(tl_06)); delete_children__7TObjectFv((void*)(tl_07)); delete_children__7TObjectFv((void*)(tl_loc_end)); delete_children__7TObjectFv((void*)(tl_window)); delete_children__7TObjectFv((void*)(tl_particle)); delete_children__7TObjectFv((void*)(tl_particlemodel)); delete_children__7TObjectFv((void*)(tl_radermap)); delete_children__7TObjectFv((void*)(tl_clipout)); delete_children__7TObjectFv((void*)(tl_fade)); delete_children__7TObjectFv((void*)(tl_fadeafter)); }
 
     extern int tl_02;
     extern int tl_03;

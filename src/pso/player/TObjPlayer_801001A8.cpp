@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801001A8(u8 *arg0);
+void draw_item_model__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TItemLoad__sub_80110240(u8, u32 *, s32 *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
@@ -20,7 +20,7 @@ M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 
-void TObjPlayer__sub_801001A8(u8 *arg0) {
+void draw_item_model__10TObjPlayerFPv(u8 *arg0) {
     u32 spC;
     s32 sp8;
 

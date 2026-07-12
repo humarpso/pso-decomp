@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowHelpItem__sub_80255950(void *arg0, u32 arg1);
+void set_displayed_item_colored__15TWindowHelpItemFPvUi(void *arg0, u32 arg1);
 void TWindowHelpItem__sub_80255980(void* p, void* a1, void* a2);
 int TWindowHelpItem__sub_80255440(void*);
 int TWindowHelpItem__sub_80255AB4(void*);
 
-void TWindowHelpItem__sub_80255950(void *arg0, u32 arg1) {
+void set_displayed_item_colored__15TWindowHelpItemFPvUi(void *arg0, u32 arg1) {
     M2C_UNK var_r5;
 
     var_r5 = -0x100;

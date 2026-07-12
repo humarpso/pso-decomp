@@ -8,13 +8,13 @@ extern "C" {
 
 s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void);
 s32 free_data__23TAdSinglePlyChrSelectGCFv(void);
-void TAdSinglePlyChrSelectGC__sub_8007EBB4(void*);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 
 extern u32 lbl_805D5F98;
 
 s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D5F98 != 0U) {
-        TAdSinglePlyChrSelectGC__sub_8007EBB4((void*)lbl_805D5F98);
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)lbl_805D5F98);
         lbl_805D5F98 = 0U;
         return 1;
     }
@@ -25,7 +25,7 @@ extern u32 lbl_805D5F9C;
 
 s32 free_data__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D5F9C != 0U) {
-        TAdSinglePlyChrSelectGC__sub_8007EBB4((void*)lbl_805D5F9C);
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)lbl_805D5F9C);
         lbl_805D5F9C = 0U;
         return 1;
     }

@@ -9,12 +9,12 @@ extern "C" {
 void TOTrapChainSaw__sub_802C9040(void *arg0);
 void TOTrapChainSaw__sub_802C9090(void);
 s32 TOTrapAncient02R__sub_80154D78(void *);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 
 void TOTrapChainSaw__sub_802C9040(void *arg0) {
     s32 temp_r31;
 
-    if (TObjPlayer__sub_80080750() == 1) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
         temp_r31 = M2C_FIELD(arg0, s32 *, 0x60);
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (temp_r31 + M2C_FIELD(arg0, s32 *, 0xD4));
         TOTrapAncient02R__sub_80154D78(arg0);

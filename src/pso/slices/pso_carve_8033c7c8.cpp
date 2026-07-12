@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjFish__sub_800E2FD8(s32);
+M2C_UNK clear_render_callback__8TObjFishFv(s32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -26,7 +26,7 @@ void fn_8033C7C8(void *arg0) {
     TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x2C));
     TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0x60));
     TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s32 *, 0x30), M2C_FIELD(arg0, f32 *, 0x34));
-    TObjFish__sub_800E2FD8(M2C_FIELD(arg0, s32 *, 0x60));
+    clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x60));
     TObjPlayer__sub_803E4BD0();
     TObjPlayer__sub_803D9B78();
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u16 TLanguage__sub_801E4A44(s32 arg0, u8 *arg1);
+u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void TLanguage__sub_801E4AB0(s32 arg0, s32 arg1);
 s32 TLanguage__sub_801E4AF0();
 u16 TLanguage__sub_801E4B40();
@@ -16,7 +16,7 @@ M2C_UNK bswap_32__FPUl(void *);
 
 extern s32 lbl_805D5E58;
 
-u16 TLanguage__sub_801E4A44(s32 arg0, u8 *arg1) {
+u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
     lbl_805D5E58 = arg0;
     TLanguage__sub_801E4AB0((s32)(arg1), (s32)(4));
     M2C_FIELD(arg1, s32 *, 4) = TLanguage__sub_801E4AF0();

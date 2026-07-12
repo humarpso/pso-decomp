@@ -19,19 +19,19 @@ struct VObj18B_802582c4 : VBase18B_802582c4 {
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_802582C4(void *arg0, void *arg1);
+void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1);
 s32 TItem__sub_8010147C(void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_801011B0(void *);
-s32 TObjPlayer__sub_801019B8(void *, s32, s16 *);
+s32 get_item_info__10TObjPlayerFiiPv(void *, s32, s16 *);
 s32 TObjPlayer__sub_80102BE0(void *, M2C_UNK);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
-s32 TWindowSubStatusDisp__sub_800FFE1C(void *);
+s32 check_flag_400__20TWindowSubStatusDispFv(void *);
 s32 fn_80100D68(void *);
 s32 fn_801013BC(void *);
 s32 fn_801013E8(void *);
 u8 fn_801016A4(void *);
 
-void TWindowSubStatusDisp__sub_802582C4(void *arg0, void *arg1) {
+void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1) {
     s16 sp8;
     s32 temp_r26;
     s32 temp_r27;
@@ -39,7 +39,7 @@ void TWindowSubStatusDisp__sub_802582C4(void *arg0, void *arg1) {
     s32 temp_r28_2;
     s32 temp_r3;
 
-    if (TWindowSubStatusDisp__sub_800FFE1C(arg1) != 0) {
+    if (check_flag_400__20TWindowSubStatusDispFv(arg1) != 0) {
         M2C_FIELD(arg0, s32 *, 0x30) = -1;
         return;
     }
@@ -47,7 +47,7 @@ void TWindowSubStatusDisp__sub_802582C4(void *arg0, void *arg1) {
     if (temp_r3 != 0) {
         temp_r26 = TObjPlayer__sub_80102BE0(arg1, 8);
         temp_r28 = TItem__sub_8010147C(arg1, 0x10, temp_r3);
-        temp_r27 = TObjPlayer__sub_801019B8(arg1, temp_r3, &sp8);
+        temp_r27 = get_item_info__10TObjPlayerFiiPv(arg1, temp_r3, &sp8);
         temp_r28_2 = ((VObj18B_802582c4 *) arg1)->vm8C();
         if (temp_r28 != 0) {
             if (temp_r26 != 0) {

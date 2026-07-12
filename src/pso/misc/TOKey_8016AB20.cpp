@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOKey__sub_8016AB20(void *arg0);
+void init_switch_id__5TOKeyFPv(void *arg0);
 void TOKey__sub_8016AB58(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
-void TOKey__sub_8016AB20(void *arg0) {
+void init_switch_id__5TOKeyFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);
@@ -28,7 +28,7 @@ struct VObj0_8016ab58 : Base0_8016ab58 { virtual void m0(); virtual void m1(); v
 
 void TOKey__sub_8016AB58(u8 *arg0) {
     ((VObj0_8016ab58*)arg0)->m5();
-    TOKey__sub_8016AB20((void *)(arg0));
+    init_switch_id__5TOKeyFPv((void *)(arg0));
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     M2C_FIELD(arg0, s32 *, 0x20) = 2;
 }

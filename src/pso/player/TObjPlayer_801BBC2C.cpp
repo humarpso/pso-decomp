@@ -10,7 +10,7 @@ s32 TObjPlayer__sub_80019248(void *);
 s32 obj_isState3_324(void *);
 s32 obj_getField1c(void *);
 u32 TLockOnCursor__ct(u32, void *, s32);
-s32 TObjPlayer__sub_801AEECC();
+s32 is_single_screen__10TObjPlayerFv();
 u32 __nw__7TObjectFUl(s32);
 void TObjPlayer__sub_801BBB70(void);
 int TObjPlayer__sub_801BBB74(void* p);
@@ -30,7 +30,7 @@ void create_lockon_cursor__10TObjPlayerFPv(void *arg0) {
     u32 var_r31;
     u32 var_r31_2;
 
-    if (TObjPlayer__sub_801AEECC() != 0) {
+    if (is_single_screen__10TObjPlayerFv() != 0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x424) == 0U) {
             var_r31 = __nw__7TObjectFUl(0x52C);
             if (var_r31 != 0U) {

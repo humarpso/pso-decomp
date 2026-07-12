@@ -18,7 +18,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 f32 TObjFish__sub_8001973C();
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_800D8A2C();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK TBoss8Dragon__sub_803D64C0(s32);
@@ -43,7 +43,7 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
         TObjLight__sub_80134194(arg0);
         TObjPlayer__sub_800D8A2C();
         TObjPlayer__sub_803D9B2C();
-        if (TObjPlayer__sub_80080750() == 1) {
+        if (check_demo_mode__10TObjPlayerFv() == 1) {
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
             TObjFish__sub_803E46BC(M2C_FIELD(arg0, void **, 0x34));

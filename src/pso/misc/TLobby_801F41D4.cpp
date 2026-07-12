@@ -12,7 +12,7 @@ M2C_UNK update_and_reset__6TLobbyFi();
 M2C_UNK open_session__6TLobbyFi();
 M2C_UNK TLobby__sub_801A2514(u16);
 M2C_UNK TLobby__sub_801A2528(u16);
-M2C_UNK TLobby__sub_801F3A24();
+M2C_UNK refresh_quest_list__6TLobbyFi();
 M2C_UNK TQuestListVM__sub_801F4398();
 M2C_UNK TQuestListOnline__sub_801F43A0();
 M2C_UNK fn_801F43A8();
@@ -51,7 +51,7 @@ void setup_quest_list__6TLobbyFv(void) {
         break;
     case 5:
         fn_801F43A8();
-        TLobby__sub_801F3A24();
+        refresh_quest_list__6TLobbyFi();
         break;
     }
     TLobby__sub_801A2528((u16) TLobby__data_805D60E8);

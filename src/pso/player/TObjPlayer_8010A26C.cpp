@@ -73,7 +73,7 @@ struct VObj_8010A26C : Base_8010A26C {
 
 extern "C" {
 
-void TObjPlayer__sub_8010A26C(void *arg0);
+void update_indicator_particle__10TObjPlayerFPv(void *arg0);
 u32 TBoss4Type2__sub_800874F4(M2C_UNK *, M2C_UNK);
 s32 TObjPlayer__sub_800196EC();
 s32 TObjPlayer__sub_800196F4(void *);
@@ -87,7 +87,7 @@ VObj_8010A26C *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, M2C_UNK *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TObjPlayer__sub_8010A26C(void *arg0) {
+void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8[6];
     s32 temp_r3_2;
     u32 temp_r3_3;

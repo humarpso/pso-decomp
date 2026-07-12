@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800A6B90(void *arg0, s32 arg1);
+void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 TObjPlayer__sub_80142384(s32, s32);
 
-void TObjPlayer__sub_800A6B90(void *arg0, s32 arg1) {
+void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;

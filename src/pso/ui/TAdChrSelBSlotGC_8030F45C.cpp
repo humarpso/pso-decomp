@@ -14,7 +14,7 @@ u32 TAdMcSelectGC__sub_80019DA8(void *, M2C_UNK, f32);
 M2C_UNK TAdMcSelectGC__sub_802C7560(s32, M2C_UNK, M2C_UNK *);
 M2C_UNK TAdPlyChrSelPlateGC__sub_802C4D88(s32);
 M2C_UNK TAdSubPlyItemGC__sub_802D6D88(s32);
-M2C_UNK TWindowSubComCard__sub_802A5748(void *);
+M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK TAdChrSelSlotGC__sub_802C7438(s32);
 M2C_UNK TAdChrSelSlotGC__sub_802C7498(s32, M2C_UNK);
@@ -36,11 +36,11 @@ void close_windows__16TAdChrSelBSlotGCFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x4C) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
-        TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x6C));
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x6C));
         M2C_FIELD(arg0, u32 *, 0x6C) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
-        TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x70));
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x70));
         M2C_FIELD(arg0, u32 *, 0x70) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x74) != 0U) {

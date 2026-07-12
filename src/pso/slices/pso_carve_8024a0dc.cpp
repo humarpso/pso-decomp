@@ -7,7 +7,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TAdMultiChgGameModeGC__sub_8023E7A8();
 s32 TAdMultiPlyChrSelectGC__sub_802C5530(s32);
 
-s32 fn_8024A0DC(s32 arg0) {
+s32 is_player_input_active(s32 arg0) {
     if (arg0 >= 4) {
         return 0;
     }

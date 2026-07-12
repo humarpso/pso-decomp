@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80049574(s32);
+M2C_UNK obj_set_flag_20000(s32);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
@@ -16,7 +16,7 @@ void fn_80186D50(void *arg0, s32 arg1) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
     if (temp_r3 != 0) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
-        fn_80049574(temp_r3);
+        obj_set_flag_20000(temp_r3);
         M2C_FIELD(arg0, s32 *, 0x174) = 0x12C;
     }
 }

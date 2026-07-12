@@ -17,7 +17,7 @@ s32 TFontSmallLobby__sub_801AFEE0(void);
 s32 obj_getField1c(void * a0 = 0);
 s32 TObjPlayer__sub_80102C78(void * a0 = 0, s16 a1 = 0);
 s32 TObjPlayer__sub_800113E4(void * a0 = 0, s16 a1 = 0);
-int TObjPlayer__sub_801B42AC(void*);
+int update_rotation__10TObjPlayerFPv(void*);
 int obj_clearFlags30(void*, void*);
 int TObjPlayer__sub_801AF694(void* p);
 int fn_801C543C(void*);
@@ -26,7 +26,7 @@ void play_voice_pair__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_800113E4(arg0, M2C_FIELD(arg0, s16 *, 0x2B8));
     TObjPlayer__sub_80102C78(arg0, M2C_FIELD(arg0, s16 *, 0x2BA));
 }
-void TObjPlayer__vt62(void* p) { obj_clearFlags30(p, (void*)2048); TObjPlayer__sub_801B42AC(p); }
+void TObjPlayer__vt62(void* p) { obj_clearFlags30(p, (void*)2048); update_rotation__10TObjPlayerFPv(p); }
 u32 get_or_create_lobby_font__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     u32 temp;
 

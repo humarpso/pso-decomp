@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800AB478(u8 *arg0);
+void draw_model_no_fog__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjFish__sub_803DA798(s32);
@@ -19,7 +19,7 @@ extern s32 lbl_805D5094;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D9B68;
 
-void TObjPlayer__sub_800AB478(u8 *arg0) {
+void draw_model_no_fog__10TObjPlayerFPv(u8 *arg0) {
     TObjFish__sub_803DA798(lbl_805D5094);
     TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xD8));
     TObjPlayer__sub_803D9B2C();

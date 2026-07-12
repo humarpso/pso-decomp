@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjPlayer__sub_801AF288();
-s32 TObjPlayer__sub_801BE934(s32);
+s32 clamp_index_to_max__10TObjPlayerFi(s32);
 void TObjPlayer__sub_801BE9F0(void *arg0);
 void TObjPlayer__sub_801BEA14(void *arg0);
 int TFontSmallLobby__sub_801C0228(void*);
@@ -69,8 +69,8 @@ int check_flag__10TObjPlayerFPvi(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
 int TObjPlayer__sub_8011E238(void*, int);
 int TObjPlayer__sub_80154A00(void*);
-int TObjPlayer__sub_801BA458(void*);
-int TObjPlayer__sub_801BA5CC(void*);
+int end_camera_pan__10TObjPlayerFPv(void*);
+int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);
 int TObjPlayer__sub_801BED78(void*);
 int TObjPlayer__sub_801BED80(void*);

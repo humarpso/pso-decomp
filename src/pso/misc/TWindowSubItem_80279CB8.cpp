@@ -22,7 +22,7 @@ s32 TObjPlayer__sub_80203418();
 s32 TObjPlayer__sub_802034EC(s32);
 M2C_UNK TLobby__sub_80244D2C(s32);
 M2C_UNK fn_80263AF8(s32, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_802661D4(s32, s32, M2C_UNK, s32);
+M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, s32);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
@@ -32,7 +32,7 @@ void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
     temp_r3 = (u32)__cntlzw(4 - (arg3 & 0xF)) >> 5;
     temp_r31 = temp_r3 + 4;
     if ((TObjPlayer__sub_802034EC(temp_r3) == 0) || (TObjPlayer__sub_80203418() != 0)) {
-        TWindowSubComCard__sub_802661D4((s32)(arg2), (s32)(TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xF)), (M2C_UNK)(6), (s32)(temp_r31));
+        draw_text_gray__17TWindowSubComCardFiiii((s32)(arg2), (s32)(TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xF)), (M2C_UNK)(6), (s32)(temp_r31));
         return;
     }
     TObjCityMainWarp__sub_80266354((s32)(arg2), (s32)(TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, 0xF)), (M2C_UNK)(0x26), (s32)(temp_r31));
@@ -40,7 +40,7 @@ void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
 
 void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1) {
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
-        TWindowSubComCard__sub_802661D4((s32)(arg1), (s32)(TWindowSubStatusDisp__sub_80077760(0x5F)), (M2C_UNK)(6), (s32)(6));
+        draw_text_gray__17TWindowSubComCardFiiii((s32)(arg1), (s32)(TWindowSubStatusDisp__sub_80077760(0x5F)), (M2C_UNK)(6), (s32)(6));
         return;
     }
     TObjCityMainWarp__sub_80266354((s32)(arg1), (s32)(TWindowSubStatusDisp__sub_80077760(0x5F)), (M2C_UNK)(6), (s32)(6));

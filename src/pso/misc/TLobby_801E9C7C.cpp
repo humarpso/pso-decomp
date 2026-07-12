@@ -11,7 +11,7 @@ int TLobby__sub_801E9CD0(void* p);
 void cache_player_field__6TLobbyFv(void);
 void update_by_screen_mode__6TLobbyFv(void);
 void update_split_screen__6TLobbyFv(void);
-s32 TAdStorySelectGC__sub_80207D64(s32);
+s32 set_state__16TAdStorySelectGCFi(s32);
 int TLobby__sub_801EA5FC(void*);
 M2C_UNK TLobby__sub_80070AFC();
 M2C_UNK TLobby__sub_80070CDC();
@@ -22,13 +22,13 @@ M2C_UNK TLobby__sub_80291DC0();
 void set_story_select__6TLobbyFi(s32 arg0) {
     switch (arg0) {
     case 0:
-        TAdStorySelectGC__sub_80207D64(0);
+        set_state__16TAdStorySelectGCFi(0);
         return;
     case 1:
-        TAdStorySelectGC__sub_80207D64(1);
+        set_state__16TAdStorySelectGCFi(1);
         return;
     default:
-        TAdStorySelectGC__sub_80207D64(0);
+        set_state__16TAdStorySelectGCFi(0);
         return;
     }
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 void *TObjPlayer__sub_802C1AF8(void *arg0);
 void TObjPlayer__sub_802C1B44(void);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 void *TObjPlayer__sub_802C20E8(void *, void *, void *);
@@ -30,7 +30,7 @@ extern u32 lbl_805D67AC;
 void TObjPlayer__sub_802C1B44(void) {
     if ((u32) lbl_805D67AC != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D67AC);
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D67AC);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D67AC);
         lbl_805D67AC = 0U;
     }
     if ((u32) lbl_805D67A8 != 0U) {

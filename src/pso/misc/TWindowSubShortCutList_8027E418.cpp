@@ -10,7 +10,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0);
 s32 fn_80244364();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 M2C_UNK fn_80257BC0(void *, void *, s32);
-M2C_UNK fn_80267E20(void *, s32);
+M2C_UNK draw_selected_list_entry(void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_8026C800(s32, s32);
 M2C_UNK fn_80288030(s32, s32);
 
@@ -20,7 +20,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
     temp_r3 = fn_80244364();
     TWindowSubComCard__sub_80245F98(arg0, temp_r3);
     fn_80257BC0(arg0, arg0 + 0x24, temp_r3);
-    fn_80267E20(arg0, temp_r3);
+    draw_selected_list_entry(arg0, temp_r3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
         fn_80288030(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);
     }

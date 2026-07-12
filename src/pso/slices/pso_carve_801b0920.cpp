@@ -11,7 +11,7 @@ s16 obj_getField1c(s32);
 M2C_UNK TFontSmallLobby__sub_801C0480(M2C_UNK *);
 M2C_UNK TFontSmallLobby__sub_801C0494(M2C_UNK *);
 
-void fn_801B0920(s32 arg0) {
+void send_font_state__6TLobbyFi(s32 arg0) {
     s8 sp8[8];
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {

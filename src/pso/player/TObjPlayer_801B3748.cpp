@@ -10,17 +10,17 @@ s32 TObjPlayer__sub_80099EF8();
 s32 init__9TItemDataFv(s8 *);
 s32 fn_801B7F4C(void *, s32);
 u32 TObjPlayer__sub_801D4E10(s32, s8 *);
-u32 TObjPlayer__sub_801D5764();
+u32 get_owner_if_alive__10TObjPlayerFPv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 int is_flag_clear__17TObjWarpBossMultiFPv(void* p);
 int TObjPlayer__sub_801B3540(void* p);
 int TObjPlayer__sub_801B3564(void* p);
-int TObjPlayer__sub_801B3588(void* p);
+int is_flag_400_set__10TObjPlayerFPv(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
 int TObjPlayer__sub_8011E238(void*, int);
 
-s32 TObjPlayer__sub_801B3748(void *arg0, s8 arg1, s8 arg2) {
+s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2) {
     s8 sp8[24];
 
     init__9TItemDataFv(sp8);
@@ -29,7 +29,7 @@ s32 TObjPlayer__sub_801B3748(void *arg0, s8 arg1, s8 arg2) {
     if (TObjPlayer__sub_801D4E10(M2C_FIELD(arg0, s32 *, 0xD00), sp8) == 0U) {
         return 0;
     }
-    if (TObjPlayer__sub_801D5764() == 0U) {
+    if (get_owner_if_alive__10TObjPlayerFPv() == 0U) {
         return 0;
     }
     if (fn_801B7F4C(arg0, TObjPlayer__sub_80099EF8()) == 0) {
@@ -38,7 +38,7 @@ s32 TObjPlayer__sub_801B3748(void *arg0, s8 arg1, s8 arg2) {
     if (TObjPlayer__sub_801D4E10(M2C_FIELD(arg0, s32 *, 0xD00), sp8) == 0U) {
         return 0;
     }
-    if (TObjPlayer__sub_801D5764() == 0U) {
+    if (get_owner_if_alive__10TObjPlayerFPv() == 0U) {
         return 0;
     }
     return all_parents_unqueued_for_destruction__7TObjectFv() != 0 ? 1 : 0;

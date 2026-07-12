@@ -14,7 +14,7 @@ extern "C" {
 
 void render__18TObjLazerFenceNormFv(void *arg0);
 M2C_UNK fn_80192B5C(void *);
-M2C_UNK fn_80192C00(void *);
+M2C_UNK draw_model__18TObjLazerFenceNormFPv(void *);
 
 extern const f32 lbl_805DBE5C;
 extern const f32 lbl_805DBE60;
@@ -29,7 +29,7 @@ void render__18TObjLazerFenceNormFv(void *arg0) {
             fn_80192B5C(arg0);
             return;
         case 1:
-            fn_80192C00(arg0);
+            draw_model__18TObjLazerFenceNormFPv(arg0);
             break;
         }
     }

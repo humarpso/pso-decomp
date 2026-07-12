@@ -12,7 +12,7 @@ void update_players__10TNpcPlayerFPv(void* p);
 int TNpcPlayer__sub_80152B5C(void*);
 void update_lobby__10TNpcPlayerFPv(void* p);
 int TNpcPlayer__sub_80152BEC(void*);
-void TNpcPlayer__sub_80152D7C(void* p);
+void reset_model__10TNpcPlayerFPv(void* p);
 int TNpcPlayer__sub_80152A78(void* a0 = 0);
 void* init__10TNpcPlayerFPv(void* p);
 s32 TNpcPlayer__sub_801528DC(void* p);

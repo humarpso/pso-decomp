@@ -122,7 +122,7 @@ void state_hover__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
-M2C_UNK TObjEneMe1Gee__sub_800CBE40(void *);
+M2C_UNK update_hover_height__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
 s32 fn_800B9194(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
@@ -161,7 +161,7 @@ void state_hover__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 2) {
             TObjEneMe1Gee__sub_800CBE6C(arg0, lbl_805DA0AC + M2C_FIELD(arg0, f32 *, 0x3C));
         } else {
-            TObjEneMe1Gee__sub_800CBE40(arg0);
+            update_hover_height__13TObjEneMe1GeeFPv(arg0);
         }
         ((F_V *) arg0)->m87();
         break;

@@ -25,7 +25,7 @@ int TObjPlayer__sub_8001053C(void*);
 s32 apply_velocity__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_800112A4(s32, s32);
 int TObjPlayer__sub_8011E204(void*, void*);
-s32 TObjPlayer__sub_801BA650(void *, s32, s32);
+s32 set_action_state__10TObjPlayerFPvss(void *, s32, s32);
 int TObjPlayer__sub_801C6FD4(void*, void*);
 
 int obj_clearFlags30(void*, void*);
@@ -52,7 +52,7 @@ void start_animation__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 1;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_801D04B4((void*)(arg0));
-    TObjPlayer__sub_801BA650(arg0, 1, TObjPlayer__sub_801D0458(arg0));
+    set_action_state__10TObjPlayerFPvss(arg0, 1, TObjPlayer__sub_801D0458(arg0));
 }
 
 }

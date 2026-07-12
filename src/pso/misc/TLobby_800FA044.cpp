@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_800FA044(s32 arg0, s32 arg1);
-u8 *TLobby__sub_800F9F74(M2C_UNK);
+u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
 u8 *fn_800FA848();
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 
 void TLobby__sub_800FA044(s32 arg0, s32 arg1) {
     u8 *var_r31;
 
-    var_r31 = TLobby__sub_800F9F74(0x68);
+    var_r31 = alloc_from_heap__6TLobbyFPv(0x68);
     if (var_r31 != NULL) {
         var_r31 = fn_800FA848();
     }

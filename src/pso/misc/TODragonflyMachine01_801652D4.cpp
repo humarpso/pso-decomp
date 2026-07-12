@@ -11,8 +11,8 @@ void run_task__20TODragonflyMachine01Fv(void *arg0);
 void *TODragonflyMachine01__ct(void *, void *);
 M2C_UNK TODragonflyMachine01__sub_80164F50(void *);
 void *__nw__7TObjectFUl(int);
-s32 TObjPlayer__sub_80080750();
-M2C_UNK TOBarrierEnergy01__sub_80158298(void *);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
 M2C_UNK TODragonfly__sub_8016492C(void *);
 M2C_UNK TODragonfly__sub_80164990(void *);
 M2C_UNK TODragonfly__sub_80164A90(void *);
@@ -36,11 +36,11 @@ void run_task__20TODragonflyMachine01Fv(void *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) + M2C_FIELD(arg0, s32 *, 0xF8));
     M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xFC)));
-    if (TObjPlayer__sub_80080750() == 1) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((DfV *)arg0)->vf12();
         return;
     }
-    TOBarrierEnergy01__sub_80158298(arg0);
+    update_anim_phase__17TOBarrierEnergy01FPv(arg0);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
     switch (temp_r0) {
     case 0:

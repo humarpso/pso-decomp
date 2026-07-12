@@ -60,7 +60,7 @@ extern "C" {
 void state_move__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TObjEneMe1Gee__sub_800CBE40(void *);
+M2C_UNK update_hover_height__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *, s32);
 M2C_UNK fn_800D8E80(void *);
@@ -94,7 +94,7 @@ void state_move__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 2) {
             TObjEneMe1Gee__sub_800CBE6C(arg0, lbl_805DA0AC + M2C_FIELD(arg0, f32 *, 0x3C));
         } else {
-            TObjEneMe1Gee__sub_800CBE40(arg0);
+            update_hover_height__13TObjEneMe1GeeFPv(arg0);
         }
         ((V_En *) arg0)->m86();
         break;

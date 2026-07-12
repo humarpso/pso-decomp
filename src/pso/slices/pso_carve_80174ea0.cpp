@@ -19,15 +19,15 @@ struct VObj_80174EA0 : Base_80174EA0 {
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 u8 TODoorAncient08__sub_80229220(u16);
 
-void TORockCaveBrakable__sub_80174EA0(void *arg0) {
+void update_break_state__18TORockCaveBrakableFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    if (TObjPlayer__sub_80080750() == 1) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((VObj_80174EA0 *)arg0)->m17();
         return;
     }

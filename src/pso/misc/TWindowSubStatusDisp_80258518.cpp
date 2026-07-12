@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80258518(void *arg0, s32 arg1);
+void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 s32 TItemData__sub_8010C52C(s32);
 s32 TItemData__sub_8010C738(s32);
 s32 TItemData__sub_8010CC68(s32);
@@ -18,7 +18,7 @@ s32 TWindowHelpItem__sub_80104FCC(s32, s32, s32 *);
 u8 TItemData__sub_8010EB10(s32);
 s32 TItemData__sub_8010EC88(s32);
 
-void TWindowSubStatusDisp__sub_80258518(void *arg0, s32 arg1) {
+void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     s32 sp8;
     s32 temp_r29;
     s32 temp_r30;

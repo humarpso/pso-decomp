@@ -9,7 +9,7 @@ extern "C" {
 void update__19TPlayerBattleCtrl4PFv(void);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_8031058C();
-M2C_UNK fn_80049574();
+M2C_UNK obj_set_flag_20000();
 M2C_UNK fn_801C5454(s32);
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK fn_8020910C(s32);
@@ -28,7 +28,7 @@ void update__19TPlayerBattleCtrl4PFv(void) {
     var_r31 = 0;
     do {
         if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
-            fn_80049574();
+            obj_set_flag_20000();
         }
         var_r31 += 1;
     } while (var_r31 < 4);

@@ -13,12 +13,12 @@ s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
 M2C_UNK TObjPlayer__sub_80141F1C();
-s32 TObjPlayer__sub_8022A564();
+s32 toggle_flag_9__10TObjPlayerFPv();
 M2C_UNK render_nodes__7TObjectFv(void *);
 
 void render__15TAdDrawLineCtrlFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
-        if (TObjPlayer__sub_8022A564() == 0) {
+        if (toggle_flag_9__10TObjPlayerFPv() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
         }

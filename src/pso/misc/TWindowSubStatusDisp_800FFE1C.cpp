@@ -10,7 +10,7 @@ int fn_800FFE14(void);
 int TItemObject__sub_800FFE4C(void* p);
 int TObjPlayer__sub_80102BEC(void*, int);
 
-u8 TWindowSubStatusDisp__sub_800FFE1C(void) {
+u8 check_flag_400__20TWindowSubStatusDispFv(void) {
     s32 uninit;
     return (u8) (TObjPlayer__sub_80102BE0(uninit, 0x400) == 0x400);
 }

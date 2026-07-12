@@ -16,7 +16,7 @@ M2C_UNK TObjPlayer__sub_801D2630(void *);
 M2C_UNK TObjPlayer__sub_801D2DA4(void *, s32);
 s32 TObjPlayer__sub_801D2DAC(void *);
 s32 TObjPlayer__sub_80142384(s32, s32);
-s32 TObjPlayer__sub_80142B08(void *);
+s32 is_anim_finished__10TObjPlayerFPv(void *);
 
 void update_action_state__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r0;
@@ -28,7 +28,7 @@ void update_action_state__10TObjPlayerFPv(u8 *arg0) {
     case 0:
         TObjPlayer__sub_801CE218(arg0);
     case 1:
-        if (TObjPlayer__sub_80142B08(arg0) != 0) {
+        if (is_anim_finished__10TObjPlayerFPv(arg0) != 0) {
             M2C_FIELD(arg0, s16 *, 0x328) = 2;
             TObjPlayer__sub_801D2620(arg0);
         }

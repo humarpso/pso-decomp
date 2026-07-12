@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_80084780();
 M2C_UNK TObjPlayer__sub_80084790();
 s32 TObjPlayer__sub_800847A8();
 s32 TObjPlayer__sub_800847CC();
-M2C_UNK TObjPlayer__sub_80141404();
+M2C_UNK setup_tev_swap__10TObjPlayerFv();
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 
@@ -41,7 +41,7 @@ void TObjPlayer__sub_800833EC(void *arg0) {
         }
         if (TObjPlayer__sub_80084774() != 0) {
             TObjPlayer__sub_80084764();
-            TObjPlayer__sub_80141404();
+            setup_tev_swap__10TObjPlayerFv();
         }
     }
 }

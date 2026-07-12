@@ -8,17 +8,17 @@ extern "C" {
 
 void update__15TORainbowCave01FPv(void *arg0);
 
-s32 TObjPlayer__sub_80080750();
-M2C_UNK TOBarrierEnergy01__sub_80158298(void *);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
 M2C_UNK TORainbowCave01__sub_80158604(void *);
 
 void update__15TORainbowCave01FPv(void *arg0) {
-    if (TObjPlayer__sub_80080750() == 1) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
         TORainbowCave01__sub_80158604(arg0);
         return;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) {
-        TOBarrierEnergy01__sub_80158298(arg0);
+        update_anim_phase__17TOBarrierEnergy01FPv(arg0);
     }
 }
 

@@ -33,7 +33,7 @@ struct Obj2A8_800c7ae4 : ObjPad18_800c7ae4 {
 
 extern "C" {
 
-void TObjEnemyCustom__sub_800C7A04(void *arg0);
+void update_state_machine__15TObjEnemyCustomFPv(void *arg0);
 void TObjEnemyCustom__sub_800C7AE0(void);
 void TObjEnemyCustom__sub_800C7AE4(void *arg0);
 int TObjEnemyCustom__sub_800C7C0C(void* p);
@@ -41,12 +41,12 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 int TObjEneMe1GiGue__sub_80040B3C(void*, int);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80018660(void *, s32);
-M2C_UNK TObjPlayer__sub_80156698(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 lbl_805DA070;
 
-void TObjEnemyCustom__sub_800C7A04(void *arg0) {
+void update_state_machine__15TObjEnemyCustomFPv(void *arg0) {
     s16 temp_r4;
     s32 temp_r0;
 
@@ -61,7 +61,7 @@ void TObjEnemyCustom__sub_800C7A04(void *arg0) {
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
             TObjPlayer__sub_80011734(arg0, 0, lbl_805DA070);
         }
-        TObjPlayer__sub_80156698(arg0);
+        update_collisions__10TObjPlayerFPv(arg0);
         temp_r4 = M2C_FIELD(arg0, s16 *, 0x33C);
         M2C_FIELD(arg0, s16 *, 0x33C) = (s16) (temp_r4 - 1);
         if (temp_r4 < 0) {
@@ -107,7 +107,7 @@ void TObjEnemyCustom__sub_800C7AE4(void *arg0) {
                 temp_r3_3->v23(arg0, lbl_805DA090);
             }
         }
-        TObjPlayer__sub_80156698(arg0);
+        update_collisions__10TObjPlayerFPv(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 4U) {
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
         }

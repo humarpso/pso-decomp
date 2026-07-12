@@ -9,7 +9,7 @@ extern "C" {
 void close__22TQuestVmDownLoadServerFPv(void *arg0);
 M2C_UNK update_state__13TAdMcSelectGCFv();
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(void *);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubItem__sub_801F8FD4(void *);
 
@@ -17,7 +17,7 @@ extern s32 TQuestVmDownLoadServer__data_805D5F18;
 
 void close__22TQuestVmDownLoadServerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x260) != 0U) {
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(M2C_FIELD(arg0, void **, 0x260));
+        safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0x260));
         M2C_FIELD(arg0, u32 *, 0x260) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {

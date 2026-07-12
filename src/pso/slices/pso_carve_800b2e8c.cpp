@@ -48,7 +48,7 @@ struct VObj : Base {
     virtual void m198();
 };
 
-void TObjEneBm3FlyNest__sub_800B2E8C(u8 *arg0, s32 arg1) {
+void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VObj*)arg0)->m180();

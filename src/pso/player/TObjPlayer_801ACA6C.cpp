@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_801ACA6C(void);
-M2C_UNK fn_800F5C8C(void*, M2C_UNK);
+M2C_UNK destroy_buffer_pair(void*, M2C_UNK);
 
 extern u32 lbl_805D5D48;
 
 void TObjPlayer__sub_801ACA6C(void) {
     if ((u32) lbl_805D5D48 != 0U) {
-        fn_800F5C8C((void*)lbl_805D5D48, 1);
+        destroy_buffer_pair((void*)lbl_805D5D48, 1);
     }
     lbl_805D5D48 = 0U;
 }

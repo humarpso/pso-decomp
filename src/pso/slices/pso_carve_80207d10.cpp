@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TAdStorySelectGC__sub_80207D64(void*);
+M2C_UNK set_state__16TAdStorySelectGCFi(void*);
 extern s32 lbl_805D3628;
 
 void fn_80207D10(void) {
     if ((s32) lbl_805D3628 != -1) {
-        TAdStorySelectGC__sub_80207D64((void*)lbl_805D3628);
+        set_state__16TAdStorySelectGCFi((void*)lbl_805D3628);
         lbl_805D3628 = -1;
     }
 }

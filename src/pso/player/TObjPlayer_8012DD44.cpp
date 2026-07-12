@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012DD44(void *arg0);
+void apply_frame_camera_shake__10TObjPlayerFPv(void *arg0);
 u8 TItemProShield__sub_8010B734(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
@@ -15,7 +15,7 @@ M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 
 extern const f32 lbl_805DAF58;
 
-void TObjPlayer__sub_8012DD44(void *arg0) {
+void apply_frame_camera_shake__10TObjPlayerFPv(void *arg0) {
     s32 temp_r31;
     s32 var_r30;
 

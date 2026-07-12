@@ -10,12 +10,12 @@ M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
-M2C_UNK TWindowSubComCard__sub_802A5748(void *);
+M2C_UNK close__17TWindowSubComCardFPv(void *);
 extern s32 lbl_805D53A0;
 
 void fn_8019E5F8(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x168) != 0U) {
-        TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x168));
+        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168));
         M2C_FIELD(arg0, u32 *, 0x168) = 0U;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {

@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_800FA388(s32 arg0, s32 arg1, s32 *arg2, void **arg3);
-u8 *TLobby__sub_800F9F74(M2C_UNK);
+s32 request_file_read__6TLobbyFiiPvPv(s32 arg0, s32 arg1, s32 *arg2, void **arg3);
+u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
 s32 TLobby__sub_803CC500(s32);
 s32 TLobby__sub_803CC53C(s32);
 M2C_UNK TLobby__sub_803CCE9C(s32);
@@ -17,7 +17,7 @@ M2C_UNK strncpy(void *, s32, M2C_UNK);
 
 struct Ent_800fa388;
 
-s32 TLobby__sub_800FA388(s32 arg0, s32 arg1, s32 *arg2, void **arg3) {
+s32 request_file_read__6TLobbyFiiPvPv(s32 arg0, s32 arg1, s32 *arg2, void **arg3) {
     struct Ent_800fa388 *var_r31;
     s32 temp_r3;
 
@@ -28,7 +28,7 @@ s32 TLobby__sub_800FA388(s32 arg0, s32 arg1, s32 *arg2, void **arg3) {
     if (temp_r3 == 0) {
         return -2;
     }
-    var_r31 = (struct Ent_800fa388 *)TLobby__sub_800F9F74(0x68);
+    var_r31 = (struct Ent_800fa388 *)alloc_from_heap__6TLobbyFPv(0x68);
     if (var_r31 != NULL) {
         var_r31 = (struct Ent_800fa388 *)fn_800FA848();
     }

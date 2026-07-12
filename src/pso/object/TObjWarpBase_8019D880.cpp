@@ -22,7 +22,7 @@ u8 TObjWarpBase__vt13(void *arg0);
 s32 test_flag_2000000__10TObjPlayerFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv();
 void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
-s32 TObjPlayer__sub_801B3588(void *);
+s32 is_flag_400_set__10TObjPlayerFPv(void *);
 
 extern s32 lbl_805D3458;
 extern s32 lbl_805D55C0;
@@ -45,7 +45,7 @@ u8 TObjWarpBase__vt13(void *arg0) {
         return 0U;
     }
     if (var_r31 != NULL) {
-        return (u8) (TObjPlayer__sub_801B3588(var_r31) == 0);
+        return (u8) (is_flag_400_set__10TObjPlayerFPv(var_r31) == 0);
     }
     if ((var_r31 != NULL) && (test_flag_2000000__10TObjPlayerFPv(var_r31) != 0)) {
         return 0U;

@@ -69,7 +69,7 @@ struct E_V_8003fde8 : E_A_8003fde8 {
 extern "C" {
 
 s32 TObjPlayer__sub_8003FD90(void *arg0);
-void TObjPlayer__sub_8003FDE8(void *arg0);
+void update_state_spin__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjPlayer__sub_8003FCD0(void *);
 
@@ -80,7 +80,7 @@ s32 TObjPlayer__sub_8003FD90(void *arg0) {
     return (s32) (lbl_805D86B4 * (f32) ((((s32) (u16) M2C_FIELD(arg0, s32 *, 0x390) / 10922) * 0x3C) + 0x78));
 }
 
-void TObjPlayer__sub_8003FDE8(void *arg0) {
+void update_state_spin__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     s32 temp_r0;
 

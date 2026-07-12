@@ -13,7 +13,7 @@ int TObjPlayer__sub_8001053C(void*);
 u32 TObjPlayer__sub_801B5EA4(s32);
 M2C_UNK TObjPlayer__sub_801B5FB0();
 M2C_UNK TObjPlayer__sub_801B95C8(void *);
-M2C_UNK TObjPlayer__sub_801BA650(void *, M2C_UNK, s32);
+M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK apply_velocity__10TObjPlayerFPv(s32);
@@ -44,7 +44,7 @@ void TObjPlayer__sub_801CB948(u8 *arg0) {
     if (obj_isState2_324(arg0) != 0) {
         M2C_FIELD(arg0, s16 *, 0xBA) = ret_801D26AC();
     }
-    TObjPlayer__sub_801BA650(arg0, 0xA, query_child_state__10TObjPlayerFPv(arg0));
+    set_action_state__10TObjPlayerFPvss(arg0, 0xA, query_child_state__10TObjPlayerFPv(arg0));
 }
 
 }

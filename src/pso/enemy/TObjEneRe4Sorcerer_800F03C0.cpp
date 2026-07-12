@@ -9,14 +9,14 @@ extern "C" {
 void free_bits__18TObjEneRe4SorcererFv(void);
 M2C_UNK TObjEneRe4Bit__sub_800EDAB0();
 void TLobby__sub_8001FE7C(void*, int);
-void fn_800F5C8C(void*, int);
+void destroy_buffer_pair(void*, int);
 
 extern u32 lbl_805D52E0;
 extern u32 TObjEneRe4Sorcerer__data_805D52F4;
 
 void free_bits__18TObjEneRe4SorcererFv(void) {
     if ((u32) TObjEneRe4Sorcerer__data_805D52F4 != 0U) {
-        fn_800F5C8C((void*)TObjEneRe4Sorcerer__data_805D52F4, 1);
+        destroy_buffer_pair((void*)TObjEneRe4Sorcerer__data_805D52F4, 1);
         TObjEneRe4Sorcerer__data_805D52F4 = 0U;
     }
     TObjEneRe4Bit__sub_800EDAB0();

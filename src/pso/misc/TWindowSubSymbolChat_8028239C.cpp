@@ -16,7 +16,7 @@ s32 fn_80077720(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265DEC(s32, f32, f32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
-M2C_UNK TWindowSubComCard__sub_802661D4(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 TWindowSubComCard__sub_8026659C(s32, M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
@@ -31,12 +31,12 @@ s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0) {
     if (fn_80077720(M2C_FIELD(arg0, s32 *, 0x28)) != 0) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0xB4), 6, 0x1E);
     } else {
-        TWindowSubComCard__sub_802661D4(temp_r31, TWindowSubStatusDisp__sub_80077760(0xB4), 6, 0x1E);
+        draw_text_gray__17TWindowSubComCardFiiii(temp_r31, TWindowSubStatusDisp__sub_80077760(0xB4), 6, 0x1E);
     }
     if (TWindowSubSymbolChat__sub_80283808() > 0) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0xB5), 6, 0x20);
     } else {
-        TWindowSubComCard__sub_802661D4(temp_r31, TWindowSubStatusDisp__sub_80077760(0xB5), 6, 0x20);
+        draw_text_gray__17TWindowSubComCardFiiii(temp_r31, TWindowSubStatusDisp__sub_80077760(0xB5), 6, 0x20);
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     TWindowSubComCard__sub_80265DEC(temp_r31, lbl_805DD73C, lbl_805DD740);

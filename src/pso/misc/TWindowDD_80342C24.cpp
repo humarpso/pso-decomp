@@ -10,7 +10,7 @@ void update_layout__9TWindowDDFPv(void *arg0);
 M2C_UNK TWindowDD__sub_8034330C(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347B70();
-M2C_UNK TWindowDD__sub_80348248();
+M2C_UNK play_se__9TWindowDDFv();
 M2C_UNK play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
 s32 TWindowDD__sub_80348304(void *);
@@ -25,7 +25,7 @@ void update_layout__9TWindowDDFPv(void *arg0) {
         return;
     }
     if (TWindowDD__sub_803482B0(arg0) != 0) {
-        TWindowDD__sub_80348248();
+        play_se__9TWindowDDFv();
         TWindowDD__sub_8034330C(arg0);
     }
 }

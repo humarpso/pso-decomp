@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TLobby__sub_802D3970(void);
+void update_game_modes__6TLobbyFv(void);
 int TLobby__sub_802D399C(void* p);
 int TLobby__sub_802D39BC(void* p);
 int TLobby__sub_802D39DC(void* p);
@@ -21,7 +21,7 @@ int close_trade_request__6TLobbyFv(void*);
 int TLobby__sub_802D237C(void*);
 int update_battle_mode__6TLobbyFv(void);
 
-void TLobby__sub_802D3970(void) { TLobby__sub_802D3820(); update_battle_mode__6TLobbyFv(); TLobby__sub_802D2518(); TLobby__sub_802D245C(); }
+void update_game_modes__6TLobbyFv(void) { TLobby__sub_802D3820(); update_battle_mode__6TLobbyFv(); TLobby__sub_802D2518(); TLobby__sub_802D245C(); }
 int TLobby__sub_802D399C(void* p) { return close_trade_request__6TLobbyFv(p); }
 int TLobby__sub_802D39BC(void* p) { return close_trade_request__6TLobbyFv(p); }
 int TLobby__sub_802D39DC(void* p) { return TLobby__sub_802D38B4(p); }

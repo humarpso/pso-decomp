@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowChat__sub_802472A8(void *arg0);
+void update__11TWindowChatFPv(void *arg0);
 void TWindowChat__sub_8024735C(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK TWindowChat__sub_80247534(void *);
+M2C_UNK close_all_children__11TWindowChatFPv(void *);
 M2C_UNK TWindowChat__sub_8024792C(void *);
 s32 TWindowChat__sub_80247DF0(void *);
 M2C_UNK TWindowChat__sub_80247DFC(void *);
@@ -24,7 +24,7 @@ M2C_UNK set_flag60_bit200__16TKeyBoardControlFPv(s32);
 
 extern s32 lbl_805D53A0;
 
-void TWindowChat__sub_802472A8(void *arg0) {
+void update__11TWindowChatFPv(void *arg0) {
     s32 temp_r3;
 
     if (TWindowChat__sub_80247EB4() == 0) {
@@ -39,7 +39,7 @@ void TWindowChat__sub_802472A8(void *arg0) {
             TWindowChat__sub_8024AD30(lbl_805D53A0);
         }
         TWindowChat__sub_8025CB70(M2C_FIELD(arg0, s32 *, 0x20));
-        TWindowChat__sub_80247534(arg0);
+        close_all_children__11TWindowChatFPv(arg0);
         set_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, s32 *, 0x28));
     }
 }

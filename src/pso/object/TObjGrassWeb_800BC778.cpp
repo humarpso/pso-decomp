@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_8002B094(void *);
-s32 TOBoss4Rock__sub_80147AA8(s32);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
 s32 __dl__FPv(u32 *);
 s32 free__11TOBoss4RockFUi(u32);
 int queue_destruction__12TObjGrassWebFPv(void* p);

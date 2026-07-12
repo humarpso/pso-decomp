@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012D4C0(void *arg0);
+void update_weapon_kill_count__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8012D558(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
 u16 TObjPlayer__sub_80100474(void *);
@@ -17,7 +17,7 @@ s16 TObjPlayer__sub_8012D6B4(s32);
 M2C_UNK TObjPlayer__sub_8012D6BC(s32, u32, s32, M2C_UNK, f32);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
 
-void TObjPlayer__sub_8012D4C0(void *arg0) {
+void update_weapon_kill_count__10TObjPlayerFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x1F8) < TObjPlayer__sub_8012D6B4(M2C_FIELD(arg0, s32 *, 0xF0))) {
         TObjPlayer__sub_8010047C(arg0, (u16) (TObjPlayer__sub_80100474(arg0) + 1));
         M2C_FIELD(arg0, s16 *, 0x1F8) = TObjPlayer__sub_8012D6B4(M2C_FIELD(arg0, s32 *, 0xF0));

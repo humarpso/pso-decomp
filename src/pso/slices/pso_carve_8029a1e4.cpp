@@ -15,23 +15,23 @@ M2C_UNK TLobby__sub_8022727C(M2C_UNK *);
 s32 TLobby__sub_80291F9C();
 M2C_UNK TLobby__sub_80299E84(void *);
 M2C_UNK TLobby__sub_80299F44(void *);
-M2C_UNK TLobby__sub_80299F84(void *);
-M2C_UNK TLobby__sub_8029A038(void *);
-M2C_UNK TLobby__sub_8029A0A0(void *);
+M2C_UNK open_giveup_window__6TLobbyFPv(void *);
+M2C_UNK send_giveup_to_all_players__6TLobbyFv(void *);
+M2C_UNK close_giveup_window__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_8029A0D8(void *);
-M2C_UNK TLobby__sub_8029A110();
+M2C_UNK play_effect_all_players__6TLobbyFPv();
 extern M2C_UNK lbl_804651E8[];
 extern s32 evt2_random_enemies_mode;
 
 void giveup_window_handle_select(void *arg0) {
     s32 temp_r3;
 
-    TLobby__sub_8029A110();
+    play_effect_all_players__6TLobbyFPv();
     temp_r3 = TLobby__sub_80291F9C();
     switch (temp_r3) {
     case 0:
         TLobby__sub_8022727C(lbl_804651E8);
-        TLobby__sub_8029A038(arg0);
+        send_giveup_to_all_players__6TLobbyFv(arg0);
         TLobby__sub_80299F44(arg0);
         TLobby__sub_80299E84(arg0);
         queue_destruction__7TObjectFv(arg0);
@@ -43,7 +43,7 @@ void giveup_window_handle_select(void *arg0) {
         return;
     case 1:
         TBoss3Volopt__sub_8022675C(0x52812, 0, 0, 0);
-        TLobby__sub_8029A038(arg0);
+        send_giveup_to_all_players__6TLobbyFv(arg0);
         TLobby__sub_8029A0D8(arg0);
         TLobby__sub_80299E84(arg0);
         TLobby__sub_80299F44(arg0);
@@ -52,10 +52,10 @@ void giveup_window_handle_select(void *arg0) {
         return;
     default:
         if (((s32) M2C_FIELD(arg0, s32 *, 0x20) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0)) {
-            TLobby__sub_8029A038(arg0);
-            TLobby__sub_8029A0A0(arg0);
+            send_giveup_to_all_players__6TLobbyFv(arg0);
+            close_giveup_window__6TLobbyFPv(arg0);
             TLobby__sub_80299E84(arg0);
-            TLobby__sub_80299F84(arg0);
+            open_giveup_window__6TLobbyFPv(arg0);
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
         }
         break;

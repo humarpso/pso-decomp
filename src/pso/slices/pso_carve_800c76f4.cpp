@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80080750();
+s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -31,14 +31,14 @@ struct VObj : Base {
     virtual s32 m8(f32, f32);
 };
 
-void TObjEnemyCustom__sub_800C76F4(u8 *arg0) {
+void draw__15TObjEnemyCustomFPv(u8 *arg0) {
     if (((VObj *)arg0)->m8(lbl_805DA084, lbl_805DA088) != 0) {
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         some_id_805c6f74 &= 0xFFFFFBFF;
-        if (TObjPlayer__sub_80080750() == 1) {
+        if (check_demo_mode__10TObjPlayerFv() == 1) {
             TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);

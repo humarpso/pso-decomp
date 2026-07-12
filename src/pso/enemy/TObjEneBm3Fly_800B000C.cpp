@@ -13,7 +13,7 @@ M2C_UNK TObjEneBm3FlyNest__sub_800B2A5C(u32, void *);
 M2C_UNK TBoss8Dragon__sub_800BB740(void *, s32);
 M2C_UNK TBoss8Dragon__sub_800BB7D8(void *, M2C_UNK, f32);
 M2C_UNK TBoss8Dragon__sub_800BB7DC(void *);
-M2C_UNK TBoss3Volopt__sub_800D8ACC(s32, M2C_UNK *, s32, void *, s32);
+M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(s32, M2C_UNK *, s32, void *, s32);
 M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
@@ -138,7 +138,7 @@ void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
         TBoss8Dragon__sub_800BB7DC(arg0);
         TBoss8Dragon__sub_800BB7D8(arg0, 0xF1, TObjEneBm3Fly__data_805D9C88);
         TBoss3Volopt__sub_8022675C(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003E425), arg0 + 0x38, 0, 0);
-        TBoss3Volopt__sub_800D8ACC(TObjEneBm3Fly__data_805D50F4, lbl_8043B0D0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+        create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneBm3Fly__data_805D50F4, lbl_8043B0D0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
         M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
         return;
     case 3:

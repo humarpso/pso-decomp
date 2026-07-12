@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801D551C(void *arg0);
-s32 TItemList__sub_801D5ABC(void *);
-M2C_UNK TItem__sub_80101CFC(M2C_UNK, M2C_UNK *);
-u32 TObjPlayer__sub_801D5764(void *);
+void count_items_recursive__10TObjPlayerFPv(void *arg0);
+s32 is_item_valid__9TItemListFi(void *);
+M2C_UNK copy_to_item_data__5TItemFPvPv(M2C_UNK, M2C_UNK *);
+u32 get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801049C8(M2C_UNK *, s32);
 
 extern s32 lbl_805D5DF4;
 extern s32 lbl_805D5DFC;
 
-void TObjPlayer__sub_801D551C(void *arg0) {
+void count_items_recursive__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8[7];
     void *var_r31;
 
@@ -23,13 +23,13 @@ void TObjPlayer__sub_801D551C(void *arg0) {
 
     var_r31 = M2C_FIELD(arg0, void **, 0x14);
     while (var_r31 != NULL) {
-        if ((TItemList__sub_801D5ABC(var_r31) != 0) && ((temp = TObjPlayer__sub_801D5764(var_r31)) != 0U)) {
-            TItem__sub_80101CFC(temp, &sp8[0]);
+        if ((is_item_valid__9TItemListFi(var_r31) != 0) && ((temp = get_owner_if_alive__10TObjPlayerFPv(var_r31)) != 0U)) {
+            copy_to_item_data__5TItemFPvPv(temp, &sp8[0]);
             if (TObjPlayer__sub_801049C8(&sp8[0], lbl_805D5DFC) != 0) {
                 lbl_805D5DF4 += 1;
             }
         }
-        TObjPlayer__sub_801D551C(var_r31);
+        count_items_recursive__10TObjPlayerFPv(var_r31);
         var_r31 = M2C_FIELD(var_r31, void **, 0xC);
     }
 }

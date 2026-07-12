@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_8012A78C(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
-M2C_UNK TObjPlayer__sub_80117E14(s32, s32, s32, M2C_UNK);
+M2C_UNK init_item_timer_event__10TObjPlayerFPv(s32, s32, s32, M2C_UNK);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
 M2C_UNK TObjPlayer__sub_80117DD8(s32, s32, s32, M2C_UNK);
 
@@ -22,7 +22,7 @@ void TObjPlayer__sub_8012A78C(void *arg0) {
     case 3:
         temp_r3 = alloc__13TItemProArmorFi(0x2C);
         if (temp_r3 != 0) {
-            TObjPlayer__sub_80117E14(temp_r3, M2C_FIELD(arg0, s32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
+            init_item_timer_event__10TObjPlayerFPv(temp_r3, M2C_FIELD(arg0, s32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
         }
         return;
     case 4:

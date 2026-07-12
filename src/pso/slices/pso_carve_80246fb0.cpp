@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowChat__sub_80247534();
+s32 close_all_children__11TWindowChatFPv();
 s32 TWindowChat__sub_8024792C(void *);
 void free_icon__18TWindowSubShortCutFPv(void* p);
 int TWindowChat__sub_80247D2C(void*);
 
 void fn_80246FB0(void *arg0) {
-    TWindowChat__sub_80247534();
+    close_all_children__11TWindowChatFPv();
     M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFFFFFD);
     TWindowChat__sub_8024792C(arg0);
 }

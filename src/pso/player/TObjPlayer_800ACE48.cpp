@@ -11,7 +11,7 @@ void TObjPlayer__sub_800ACECC(void *arg0);
 void TObjPlayer__sub_800ACF60(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80156698(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 
 void TObjPlayer__sub_800ACE48(void *arg0) {
     s16 temp_r0;
@@ -47,7 +47,7 @@ void TObjPlayer__sub_800ACECC(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
         TObjPlayer__sub_80011734(arg0, 0, lbl_805D9BD8);
     }
-    TObjPlayer__sub_80156698(arg0);
+    update_collisions__10TObjPlayerFPv(arg0);
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x33C);
     M2C_FIELD(arg0, s16 *, 0x33C) = (s16) (temp_r4 - 1);
     if (temp_r4 < 0) {

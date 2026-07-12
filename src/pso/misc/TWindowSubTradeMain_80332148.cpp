@@ -11,12 +11,12 @@ M2C_UNK check_flags_and_proceed__6TLobbyFv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindowCtrl__sub_8024ADF0(s32);
 M2C_UNK TWindowSubComCard__sub_8024AB98(s32);
-M2C_UNK TWindowSubComCard__sub_802A5748(void *);
+M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowSubLog__sub_8027B258(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801BA458();
+M2C_UNK end_camera_pan__10TObjPlayerFPv();
 M2C_UNK TLobby__sub_802D29E8(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -28,7 +28,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
         TLobby__sub_802D29E8(arg0);
         check_flags_and_proceed__6TLobbyFv();
         if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x28)) != 0U) {
-            TObjPlayer__sub_801BA458();
+            end_camera_pan__10TObjPlayerFPv();
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x50));
@@ -55,7 +55,7 @@ void *__dt__19TWindowSubTradeMainFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
-            TWindowSubComCard__sub_802A5748(M2C_FIELD(arg0, void **, 0x38));
+            close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x38));
             M2C_FIELD(arg0, u32 *, 0x38) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {

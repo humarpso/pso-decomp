@@ -8,8 +8,8 @@ extern "C" {
 
 void TAdDialingGC__sub_80328210(void *arg0);
 void TAdDialingGC__sub_803282B8(void *arg0);
-void TAdDialingGC__sub_80328360(void *arg0, s32 arg1);
-void TAdDialingGC__sub_80328480(void *arg0, s32);
+void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1);
+void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32);
 s32 TAdDialingGC__sub_803284F8(void *);
 M2C_UNK TAdDialingGC__sub_803286AC(void *);
 M2C_UNK TAdMcSelectGC__sub_80019DA8(void *, M2C_UNK, f32);
@@ -84,7 +84,7 @@ block_12:
     }
 }
 
-void TAdDialingGC__sub_80328360(void *arg0, s32 arg1) {
+void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1) {
     s32 temp_r4;
     s32 temp_r0;
     s32 temp_r0_2;
@@ -95,7 +95,7 @@ void TAdDialingGC__sub_80328360(void *arg0, s32 arg1) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0xA0);
         M2C_FIELD(arg0, s32 *, 0xA0) = temp_r4 + 1;
         if ((s32) M2C_FIELD(arg0, s32 *, 0xA0) > 0x5A) {
-            TAdDialingGC__sub_80328480((void *)(arg0), (s32)(temp_r4));
+            spawn_title_screen__12TAdDialingGCFPvi((void *)(arg0), (s32)(temp_r4));
             TAdDialingGC__sub_803286AC(arg0);
             M2C_FIELD(arg0, s32 *, 0xA0) = 0;
             M2C_FIELD(arg0, s32 *, 0x20) = 1;
@@ -136,7 +136,7 @@ void TAdDialingGC__sub_80328360(void *arg0, s32 arg1) {
 
 extern f32 lbl_805DF6E0;
 
-void TAdDialingGC__sub_80328480(void *arg0, s32) {
+void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32) {
     if (!(M2C_FIELD(arg0, s32 *, 0xA4) & 1)) {
         u32 temp_nw;
         if (((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) && ((temp_nw = __nw__7TObjectFUl(0x138)) != 0U)) {

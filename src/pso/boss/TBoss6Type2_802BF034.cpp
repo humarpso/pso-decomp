@@ -8,7 +8,7 @@ extern "C" {
 
 void TBoss6Type2__sub_802BF034(void* p);
 void TBoss6Type2__sub_802BF064(void *arg0);
-void TBoss6Type2__sub_802BF0B8(u8 *arg0);
+void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0);
 void TBoss6Type2__sub_802BF234(void* p);
 void TBoss6Type2__sub_802BF264(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
@@ -41,7 +41,7 @@ void TBoss6Type2__sub_802BF064(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x470) = (s32) (M2C_FIELD(arg0, s32 *, 0x470) + 1);
 }
 
-void TBoss6Type2__sub_802BF0B8(u8 *arg0) {
+void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

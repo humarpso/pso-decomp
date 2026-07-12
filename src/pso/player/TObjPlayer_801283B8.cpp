@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_801283B8(void);
 void TObjPlayer__sub_801283BC(s32 arg0);
 void *TObjPlayer__sub_80128404(void *arg0);
-M2C_UNK TObjPlayer__sub_80108620(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C();
 void TObjPlayer__sub_8012A884(void *);
 
@@ -19,7 +19,7 @@ extern s32 tl_05;
 
 void TObjPlayer__sub_801283BC(s32 arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
-        TObjPlayer__sub_80108620(tl_05, arg0, 1, 2);
+        spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 1, 2);
     }
 }
 

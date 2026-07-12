@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TLobby__sub_80140FF4(void);
+void create_map_csn_ctrl__6TLobbyFv(void);
 void *TMapCsnCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 extern void *lbl_805D5650;
 
-void TLobby__sub_80140FF4(void) {
+void create_map_csn_ctrl__6TLobbyFv(void) {
     void *o;
     o = __nw__7TObjectFUl(0x81C);
     if (o != NULL) {

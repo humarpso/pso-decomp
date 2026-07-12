@@ -13,9 +13,9 @@ s8 TObjPlayer__sub_801C5758(s32, s32);
 s32 TObjPlayer__sub_80203418();
 s32 TObjPlayer__sub_802034EC();
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
-M2C_UNK TWindowSubStatusDisp__sub_80258ABC(u16 *, s32, s32, s32);
+M2C_UNK setup_stat_line__20TWindowSubStatusDispFPviii(u16 *, s32, s32, s32);
 
-void fn_80267104(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
     u16 *temp_r30;
     u32 temp_r3;
@@ -30,7 +30,7 @@ void fn_80267104(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
             }
             if (var_r31 > 0) {
                 temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x72));
-                TWindowSubStatusDisp__sub_80258ABC(temp_r30, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, arg1 + 0x13), var_r31, arg2);
+                setup_stat_line__20TWindowSubStatusDispFPviii(temp_r30, TAdSinglePlyChrSelectGC__sub_80132F2C(0x10, arg1 + 0x13), var_r31, arg2);
                 if ((arg3 != 0) && ((TObjPlayer__sub_802034EC() == 0) || (TObjPlayer__sub_80203418() != 0))) {
                     *temp_r30 |= 0x80;
                 }

@@ -22,7 +22,7 @@ extern const f32 lbl_805DFD9C;
 extern const f32 lbl_805DFDA0;
 extern const f32 lbl_805DFDA4;
 
-void fn_8034B1F0(void *arg0) {
+void challenge4p_item_select_open_menu(void *arg0) {
     s32 temp_r0;
     u16 temp_r30;
     s32 var_r29;

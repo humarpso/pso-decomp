@@ -8,7 +8,7 @@ extern "C" {
 
 void TParticleCtrl__sub_800885B4(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
@@ -25,7 +25,7 @@ void TParticleCtrl__sub_800885B4(void) {
     }
     if ((u32) TParticleCtrl__data_805D4F04 != 0U) {
         TLobby__sub_803DA16C((void*)TParticleCtrl__data_805D4F04);
-        TAdSinglePlyChrSelectGC__sub_8007EBB4(TParticleCtrl__data_805D4F04);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TParticleCtrl__data_805D4F04);
         TParticleCtrl__data_805D4F04 = 0U;
     }
 }

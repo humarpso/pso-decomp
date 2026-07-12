@@ -12,7 +12,7 @@ s32 TLobby__sub_80101AB0(s32);
 M2C_UNK TLobby__sub_80266E34(void *);
 u8 TOSwitchItem__sub_80102C44();
 s32 TObjPlayer__sub_80099EF8();
-s32 TObjPlayer__sub_801019B8(s32, void *, M2C_UNK *);
+s32 get_item_info__10TObjPlayerFiiPv(s32, void *, M2C_UNK *);
 u32 TObjPlayer__sub_80102BE0(s32, M2C_UNK);
 s32 TObjPlayer__sub_801C675C(void *, M2C_UNK);
 u32 TObjPlayer__sub_801D4890(s32, M2C_UNK *);
@@ -35,7 +35,7 @@ void TObjPlayer__sub_80278AB4(u8 *arg0) {
         temp_r30 = TObjPlayer__sub_801D4890(M2C_FIELD(temp_r3, s32 *, 0xD00), spC);
         for (i = 0; i < temp_r30; i++) {
             temp_r3_2 = TLobby__sub_80101AB0(spC[i]);
-            if ((temp_r3_2 != 0) && (TOSwitchItem__sub_80102C44() == 0) && (TObjPlayer__sub_801019B8(temp_r3_2, temp_r3, &sp8) != 0) && (TObjPlayer__sub_80102BE0(temp_r3_2, 8) == 0U) && (TItem__sub_8010147C(temp_r3_2, 8, 0) != 0U)) {
+            if ((temp_r3_2 != 0) && (TOSwitchItem__sub_80102C44() == 0) && (get_item_info__10TObjPlayerFiiPv(temp_r3_2, temp_r3, &sp8) != 0) && (TObjPlayer__sub_80102BE0(temp_r3_2, 8) == 0U) && (TItem__sub_8010147C(temp_r3_2, 8, 0) != 0U)) {
                 TShopJudgmentItemWindow__sub_80267580(arg0, temp_r3_2, spC[i]);
             }
         }

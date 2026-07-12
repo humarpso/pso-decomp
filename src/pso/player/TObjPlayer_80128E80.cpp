@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_80128E80(u8 *arg0);
 M2C_UNK TAdRicoRing__sub_8001BEE8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001BED8(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801207E8(void *, M2C_UNK, void *);
+M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, void *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK);
 
 void TObjPlayer__sub_80128E80(u8 *arg0) {
@@ -18,11 +18,11 @@ void TObjPlayer__sub_80128E80(u8 *arg0) {
     temp_r31 = M2C_FIELD(arg0, s32 *, 0xF4);
     TObjPlayer__sub_8001BED8(arg0 + 0x1FC, 1);
     TObjPlayer__sub_80120BBC(arg0, 0x30);
-    TObjPlayer__sub_801207E8(arg0, 1, arg0 + 0x200);
+    draw_icon__10TObjPlayerFPvii(arg0, 1, arg0 + 0x200);
     M2C_FIELD(arg0, s32 *, 0xF4) = (s32) M2C_FIELD(arg0, s32 *, 0x180);
     TAdRicoRing__sub_8001BEE8(arg0 + 0x1FC, 1);
     TObjPlayer__sub_80120BBC(arg0, 0x23);
-    TObjPlayer__sub_801207E8(arg0, 1, arg0 + 0x20C);
+    draw_icon__10TObjPlayerFPvii(arg0, 1, arg0 + 0x20C);
     M2C_FIELD(arg0, s32 *, 0xF4) = temp_r31;
 }
 

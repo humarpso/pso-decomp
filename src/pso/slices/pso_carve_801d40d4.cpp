@@ -11,7 +11,7 @@ int reset(void* p);
 int memset(void*, int, int);
 
 int fn_801D40D4(void) { return 0; }
-s32 fn_801D415C(void) {
+s32 check_player_action_allowed(void) {
     if ((get_main_phase() == 0xE) || (TTecCtrl__sub_801B0EE8() != 0) || ((TCameraCtrl__sub_8006B368() == 1) && (TLobby__sub_8030A7B0() == 1))) {
         return 0;
     }

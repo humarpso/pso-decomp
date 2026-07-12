@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801D5764(void *arg0);
+s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801D57A8(void* p, s32 v);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 
-s32 TObjPlayer__sub_801D5764(void *arg0) {
+s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0) {
     if (all_parents_unqueued_for_destruction__7TObjectFv(M2C_FIELD(arg0, s32 *, 0x1C)) != 0) {
         return M2C_FIELD(arg0, s32 *, 0x1C);
     }

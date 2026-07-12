@@ -4,10 +4,10 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TWindowSubComCard__sub_8007AB54(void *);
+void init_guild_card_tag__17TWindowSubComCardFi(void *);
 
 void *fn_8007B7A0(void *arg0) {
-    TWindowSubComCard__sub_8007AB54((void *)((char *)arg0 + 4));
+    init_guild_card_tag__17TWindowSubComCardFi((void *)((char *)arg0 + 4));
     M2C_FIELD(arg0, u8 *, 0x0) = 6;
     M2C_FIELD(arg0, u8 *, 0x1) = 37;
     return arg0;

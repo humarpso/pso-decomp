@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 TItemData__sub_80076E84(s16);
-s32 TWindowSubComCard__sub_802661D4(s32, s32, s32, s16);
+s32 draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s16);
 s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s16, s32);
 s32 TObjCityMainWarp__sub_80266354(s32, s32, s32, s16);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);

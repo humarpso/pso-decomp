@@ -13,12 +13,12 @@ s32 TObjPlayer__sub_80099EF8();
 u32 TObjPlayer__sub_801C675C(s32, s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
 M2C_UNK TWindowHelpItem__sub_802558D0(s32, s32);
-s32 TLobby__sub_80266E0C(s32);
+s32 select_cursor_entry__6TLobbyFPv(s32);
 
 void update_displayed_item__15TWindowSubEquipFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TLobby__sub_80266E0C(M2C_FIELD(arg0, s32 *, 0x38));
+    temp_r3 = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x38));
     if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x24)) {
         M2C_FIELD(arg0, s32 *, 0x24) = temp_r3;
         TWindowHelpItem__set_displayed_item_by_id(M2C_FIELD(arg0, s32 *, 0x30), temp_r3);
@@ -32,7 +32,7 @@ void update__15TWindowSubEquipFPv(void *arg0) {
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x28));
     if (temp_r3 != 0) {
-        temp_r0 = TLobby__sub_80266E0C(M2C_FIELD(arg0, s32 *, 0x34));
+        temp_r0 = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x34));
         if (TObjPlayer__sub_801C675C(temp_r3 + 0xD04, temp_r0) == 0U) {
             var_r3 = -1;
         } else {

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_8030A264(s32 arg0, s32 arg1, s32 arg2);
+s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TOSwitchAttack__sub_80087278(s32, s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80087638(s32, s32);
 u32 TPhotonMylla__sub_80154CB4(s32);
 
-s32 TObjPlayer__sub_8030A264(s32 arg0, s32 arg1, s32 arg2) {
+s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     u32 temp_r3_2;
 
