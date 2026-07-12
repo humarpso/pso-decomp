@@ -4,14 +4,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
+void *create_tl05_object__6TLobbyFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
-void *__ct__14TChCrEffTagStrFv(void *, void *, void *, void *);
+void *fn_80214B3C(void *, void *, void *);
 
-void * fn_8029B098(void *arg0, void *arg1, void *arg2) {
-    void *o;
-    o = __nw__7TObjectFUl(0x30);
+extern void *tl_05;
+
+void *create_tl05_object__6TLobbyFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
-        o = __ct__14TChCrEffTagStrFv(o, arg0, arg1, arg2);
+        o = fn_80214B3C(o, tl_05, arg0);
     }
     return o;
 }

@@ -22,7 +22,7 @@ int free_heap__13TParticleCtrlFv(void);
 s32 init_heap__13TParticleCtrlFPv(s32);
 u32 __nw__7TObjectFUl(s32);
 int TLobby__sub_800F7B84(void);
-s32 TBoss4CheckEmpty__sub_8034A8FC();
+s32 create__16TBoss4CheckEmptyFv();
 
 void TLobby__sub_801403B4(void) {  }
 void TLobby__sub_801403B8(void) { TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); TLobby__sub_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
@@ -49,7 +49,7 @@ s32 init_lobby_scene__6TLobbyFv(void) {
     TObjLight__sub_80133D78();
     create_tasks__6TLobbyFv();
     init_heap__13TParticleCtrlFPv(0x10000);
-    TBoss4CheckEmpty__sub_8034A8FC();
+    create__16TBoss4CheckEmptyFv();
     return 1;
 }
 

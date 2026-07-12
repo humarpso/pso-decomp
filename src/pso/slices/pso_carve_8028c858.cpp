@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TChCrLoadGmNjReq__ct(void *, void *, void *);
 
-void * fn_8028C858(void *arg0, void *arg1) {
+void * create_ch_cr_load_gm_nj_req(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {

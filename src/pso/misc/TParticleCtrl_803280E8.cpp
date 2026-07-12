@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void reset_ind_tev_stages__13TParticleCtrlFv(void);
-void TParticleCtrl__sub_8032811C(void *arg0, s32 arg1, s16 arg2);
+void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2);
 void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
@@ -19,7 +19,7 @@ int fn_802A8260(void*);
 s32 fn_802A8368(u8, u8, s32, s32, s32, s32);
 
 void reset_ind_tev_stages__13TParticleCtrlFv(void) { GXSetTevDirect(1); GXSetNumIndStages(0); TObjPlayer__sub_803DC83C(0); }
-void TParticleCtrl__sub_8032811C(void *arg0, s32 arg1, s16 arg2) {
+void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2) {
     if (arg2 < 0) {
         arg2 = (s16) M2C_FIELD(arg0, u8 *, 0x1C);
     }

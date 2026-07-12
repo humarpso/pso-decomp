@@ -8,7 +8,7 @@ extern "C" {
 
 s32 *fn_8036A3CC(s32, s32 *);
 
-u8 fn_8036A5B4(s32 arg0) {
+u8 check_flag_index_set(s32 arg0) {
     s32 sp8;
     s32 *temp_r3;
 

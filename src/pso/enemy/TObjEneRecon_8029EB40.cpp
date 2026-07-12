@@ -8,7 +8,7 @@ extern "C" {
 
 void notify_scene__12TObjEneReconFi(s32 arg0);
 u32 TSceneSora__sub_8029F574(u32);
-M2C_UNK TParticleCtrl__sub_8032811C(u32, M2C_UNK, s32);
+M2C_UNK play_particle__13TParticleCtrlFPvis(u32, M2C_UNK, s32);
 
 extern u32 lbl_805D65F4;
 
@@ -17,7 +17,7 @@ void notify_scene__12TObjEneReconFi(s32 arg0) {
     if ((u32) lbl_805D65F4 != 0U) {
         temp_r31 = TSceneSora__sub_8029F574(lbl_805D65F4);
         if (temp_r31 != 0U) {
-            TParticleCtrl__sub_8032811C(temp_r31, 0, arg0);
+            play_particle__13TParticleCtrlFPvis(temp_r31, 0, arg0);
         }
     }
 }

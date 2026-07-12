@@ -10,7 +10,7 @@ s32 TObjPlayer__sub_80121200();
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(s32);
 
-void fn_80130EA0(s32 arg0) {
+void dispatch_player_action_by_type(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = TObjPlayer__sub_80121200();

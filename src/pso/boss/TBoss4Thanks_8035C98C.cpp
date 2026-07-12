@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_ready__12TBoss4ThanksFv(void);
-M2C_UNK TBoss4Thanks__sub_8035C338();
+M2C_UNK dispatch_main_phase__12TBoss4ThanksFv();
 s32 fn_8035C9E8();
 s32 get_main_phase();
 s32 is_split_screen();
@@ -18,7 +18,7 @@ s32 check_ready__12TBoss4ThanksFv(void) {
     if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (fn_8035C9E8() == 0)) {
         return 0;
     }
-    TBoss4Thanks__sub_8035C338();
+    dispatch_main_phase__12TBoss4ThanksFv();
     return 1;
 }
 

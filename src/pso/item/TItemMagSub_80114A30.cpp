@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemMagSub__sub_80114A30(void *arg0);
+void clear_flag2__11TItemMagSubFPv(void *arg0);
 M2C_UNK clear_flags64__11TItemMagSubFPvUi(void *, M2C_UNK);
 
-void TItemMagSub__sub_80114A30(void *arg0) {
+void clear_flag2__11TItemMagSubFPv(void *arg0) {
     if ((u32) arg0 != 0U) {
         clear_flags64__11TItemMagSubFPvUi(arg0, 2);
     }

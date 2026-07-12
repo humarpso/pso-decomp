@@ -10,7 +10,7 @@ M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 s32 THunterGuildSeqOffline__sub_8022350C(void *, M2C_UNK);
 M2C_UNK restore_player_state__13TShopSequenceFPv();
 
-void fn_80214930(void *arg0) {
+void restore_shop_and_init_quest_state(void *arg0) {
     restore_player_state__13TShopSequenceFPv();
     M2C_FIELD(arg0, s32 *, 0x2C) = THunterGuildSeqOffline__sub_8022350C(arg0, 1);
     TQuestListVM__sub_80073DC4(arg0, 1);

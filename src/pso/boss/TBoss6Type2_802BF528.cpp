@@ -15,10 +15,10 @@ s32 TBoss6Type2__sub_802BAA74();
 s32 TBoss6Type2__sub_802BD014(void * a0 = 0, s32 a1 = 0);
 int TBoss6Type2__sub_802BDC5C(void*);
 int TBoss6Type2__sub_802BDDF8(void*, void*);
-void TBoss6Type2__sub_802BF528(void* p);
+void update_when_timer_zero__11TBoss6Type2FPv(void* p);
 void check_state_0x460_eq0__11TBoss6Type2FPv(void* p);
 void TBoss6Type2__sub_802BF904(void* p);
 
-void TBoss6Type2__sub_802BF528(void* p) { if (*(int*)((char*)p + 0x460) == 0) { TBoss6Type2__sub_802BDDF8(p, *(void**)((char*)p + 0x47c)); } }
+void update_when_timer_zero__11TBoss6Type2FPv(void* p) { if (*(int*)((char*)p + 0x460) == 0) { TBoss6Type2__sub_802BDDF8(p, *(void**)((char*)p + 0x47c)); } }
 
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1);
-M2C_UNK TObjEnemy__sub_800F790C(void *);
+M2C_UNK apply_player_54a00__9TObjEnemyFPv(void *);
 M2C_UNK mask_sub_flags__9TObjEnemyFPvi(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TObjPlayer__sub_80018FE0(void *, M2C_UNK);
@@ -19,7 +19,7 @@ void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
 
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TObjEnemy;
-        TObjEnemy__sub_800F790C(arg0);
+        apply_player_54a00__9TObjEnemyFPv(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
             temp_r0 = M2C_FIELD(arg0, u16 *, 0x1C);
             if ((temp_r0 >= 0x1000U) && (temp_r0 < 0x4000U)) {

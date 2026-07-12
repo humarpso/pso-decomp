@@ -9,13 +9,13 @@ void *init_array__9TItemListFPv(void *arg0);
 void TItemList__sub_801D5CF8(void *);
 
 extern M2C_UNK lbl_804C445C[];
-extern M2C_UNK TObjPlayer__sub_801C2068[];
+extern M2C_UNK init_c2098_return_self__10TObjPlayerFPv[];
 void __construct_array(void *, void *, int, int, int);
 
 void *init_items__9TItemListFPv(void *arg0) {
     init_array__9TItemListFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x24) = lbl_804C445C;
-    __construct_array((void *)((char *)arg0 + 168), TObjPlayer__sub_801C2068, 0, 28, 9);
+    __construct_array((void *)((char *)arg0 + 168), init_c2098_return_self__10TObjPlayerFPv, 0, 28, 9);
     return arg0;
 }
 

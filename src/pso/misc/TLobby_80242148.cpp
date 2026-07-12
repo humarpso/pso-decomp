@@ -9,7 +9,7 @@ extern "C" {
 void *TLobby__sub_80242148(void *arg0, s16 arg1);
 void TLobby__sub_8024218C(void* p);
 s32 TLobby__sub_8024219C(void* p);
-int TLobby__sub_802421A4(void* p);
+int forward_8024273C__6TLobbyFPv(void* p);
 s32 __dl__FPv(void *);
 int TLobby__sub_8024273C(void*);
 
@@ -24,6 +24,6 @@ void *TLobby__sub_80242148(void *arg0, s16 arg1) {
 }
 void TLobby__sub_8024218C(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 TLobby__sub_8024219C(void* p) { return *(s32*)((char*)p + 0x308); }
-int TLobby__sub_802421A4(void* p) { return TLobby__sub_8024273C(p); }
+int forward_8024273C__6TLobbyFPv(void* p) { return TLobby__sub_8024273C(p); }
 
 }

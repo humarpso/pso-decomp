@@ -2,12 +2,12 @@
 
 extern "C" {
 
-int TAdEnterPPPPassGC__sub_80339070(void* p);
+int forward_chg_game_mode__17TAdEnterPPPPassGCFPv(void* p);
 int request_transition__17TAdEnterPPPPassGCFPv(void* p);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
-int TAdMultiChgGameModeGC__sub_8023EAC4(void*);
+int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
 
-int TAdEnterPPPPassGC__sub_80339070(void* p) { return TAdMultiChgGameModeGC__sub_8023EAC4(p); }
+int forward_chg_game_mode__17TAdEnterPPPPassGCFPv(void* p) { return reset_mode_state__21TAdMultiChgGameModeGCFv(p); }
 int request_transition__17TAdEnterPPPPassGCFPv(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
 
 }

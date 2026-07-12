@@ -6,9 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void queue_destruction_with_callback__22TChallenge4PItemSelectFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void fn_8034B110(void *arg0) {
+void queue_destruction_with_callback__22TChallenge4PItemSelectFPv(void *arg0) {
     M2C_UNK (*temp_r12)(s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x1C);

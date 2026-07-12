@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 TItemProShield__sub_8010B734();
-M2C_UNK fn_803504A8(s32, int);
+M2C_UNK create_quest_bgm_object(s32, int);
 extern s32 tl_05;
 
 void fn_80350504(void) {
-    fn_803504A8(tl_05, (u8)TItemProShield__sub_8010B734());
+    create_quest_bgm_object(tl_05, (u8)TItemProShield__sub_8010B734());
 }
 
 }

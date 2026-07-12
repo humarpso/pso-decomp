@@ -3,7 +3,7 @@
 extern "C" {
 
 void TEneEffHamon__sub_800A380C(void);
-void TEneEffHamon__sub_800A3810(void);
+void init_fish_effects__12TEneEffHamonFv(void);
 int TObjFish__sub_8001EDB0(void*, void*);
 int TObjFish__sub_8001EDC4(void*, void*);
 
@@ -12,6 +12,6 @@ void TEneEffHamon__sub_800A380C(void) {  }
     extern int lbl_805D500C;
     extern int lbl_805D5030;
     extern int lbl_805D5034;
-void TEneEffHamon__sub_800A3810(void) { lbl_805D5030 = TObjFish__sub_8001EDC4((void*)(lbl_805D500C), (void*)3); lbl_805D5034 = TObjFish__sub_8001EDB0((void*)(lbl_805D500C), (void*)3); }
+void init_fish_effects__12TEneEffHamonFv(void) { lbl_805D5030 = TObjFish__sub_8001EDC4((void*)(lbl_805D500C), (void*)3); lbl_805D5034 = TObjFish__sub_8001EDB0((void*)(lbl_805D500C), (void*)3); }
 
 }

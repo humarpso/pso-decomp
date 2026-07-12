@@ -9,7 +9,7 @@ extern "C" {
 int TAdMultiPlyChrSelectGC__sub_802C6F98(void);
 int TAdMultiPlyChrSelectGC__sub_802C6FA0(void);
 int TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
-void TAdMultiPlyChrSelectGC__sub_802C6FB0(void);
+void update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv(void);
 void update_transition_anim__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK TLobby__sub_8001E998(f32, f32, f32, f32);
 M2C_UNK TLobby__sub_8001EA5C(s32, f32, f32, f32, f32);
@@ -25,7 +25,7 @@ int TAdMultiPlyChrSelectGC__sub_802C6FA8(void) {  return lbl_805D6668; }
 
 extern u32 lbl_805D67E8;
 
-void TAdMultiPlyChrSelectGC__sub_802C6FB0(void) {
+void update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv(void) {
     if ((u32) lbl_805D67E8 != 0U) {
         update_transition_anim__22TAdMultiPlyChrSelectGCFPv((void *)((void*)lbl_805D67E8));
     }

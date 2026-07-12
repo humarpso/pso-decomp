@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TLobby__sub_80266E34(void *);
-M2C_UNK fn_80266F78(void *, M2C_UNK);
+M2C_UNK advance_status_disp_entry(void *, M2C_UNK);
 M2C_UNK add_battle_stat_entry(void *, u32, s32, M2C_UNK);
 M2C_UNK fn_80279044(void *);
 s32 TWindowSubItem__sub_8027AA78(u32);
@@ -21,7 +21,7 @@ void fn_80278964(void *arg0) {
         var_r31 += 1;
     } while (var_r31 < 5U);
     if (M2C_FIELD(arg0, s16 *, 0x72) <= 0) {
-        fn_80266F78(arg0, -1);
+        advance_status_disp_entry(arg0, -1);
     }
     fn_80279044(arg0);
     TLobby__sub_80266E34(arg0);

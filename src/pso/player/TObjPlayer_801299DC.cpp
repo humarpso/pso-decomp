@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801299DC(u8 *arg0);
+void grow_field200_if_small__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80129A14(u8 *arg0);
 void* TObjPlayer__sub_80129A4C(void* a0);
 M2C_UNK TObjPlayer__sub_80115BC0(void *, M2C_UNK, M2C_UNK);
 int TObjPlayer__sub_8012106C(void*, void*);
 int TObjPlayer__sub_8012A884(void);
 
-void TObjPlayer__sub_801299DC(u8 *arg0) {
+void grow_field200_if_small__10TObjPlayerFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x200) < 0x2000) {
         TObjPlayer__sub_80115BC0(arg0 + 0x200, 0x2D8, 0x2000);
     }

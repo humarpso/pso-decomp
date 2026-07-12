@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemProShield__sub_80116A5C(void *arg0);
+void dispatch_state_action__14TItemProShieldFPv(void *arg0);
 u8 TItemProShield__sub_8010B734();
 
 struct Base_80116A5C { char pad[0x18]; };
@@ -27,7 +27,7 @@ struct VObj_80116A5C : Base_80116A5C {
     virtual void m49(); virtual void m50(); virtual void m51(); virtual void m52();
 };
 
-void TItemProShield__sub_80116A5C(void *arg0) {
+void dispatch_state_action__14TItemProShieldFPv(void *arg0) {
     u8 temp_r3;
     struct VObj_80116A5C *obj;
 

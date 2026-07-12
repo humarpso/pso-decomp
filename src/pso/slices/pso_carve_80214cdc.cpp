@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 extern void *tl_00;
-extern unsigned char fn_80213E0C[];
+extern unsigned char reset_random_enemies_mode[];
 void *__nw__7TObjectFUl(int);
 void *init__22THunterGuildSeqOfflineFPvPvPv(void *, void *, void *);
 
@@ -13,7 +13,7 @@ void handle_6x73_exit_quest(void) {
     void *o;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, fn_80213E0C);
+        init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, reset_random_enemies_mode);
     }
 }
 

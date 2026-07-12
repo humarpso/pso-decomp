@@ -6,7 +6,7 @@ void TWindowChat__sub_80247D2C(void* p);
 u8 TWindowChat__sub_80247D3C(void* p);
 int TWindowChat__sub_80247D44(void* p);
 int forward_card_at_1c__11TWindowChatFPv(void* p);
-int TWindowChat__sub_80247D88(void* p);
+int get_subcard_field1c__11TWindowChatFPv(void* p);
 int TWindowChat__sub_80247DAC(void* p);
 void TWindowChat__sub_80247DD0(void* p);
 void TWindowChat__sub_80247DE0(void* p);

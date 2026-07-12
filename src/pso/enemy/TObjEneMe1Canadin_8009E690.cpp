@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TObjEneMe1Canadin__sub_8009E690(void* p);
+int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p);
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 void TObjEneMe1Canadin__sub_8009E6B0(void);
 void TObjEneMe1Canadin__vt105(void);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 
-int TObjEneMe1Canadin__sub_8009E690(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
+int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
 
 }

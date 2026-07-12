@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80048360(void *arg0);
+void tick_countdown_destroy__10TObjPlayerFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv();
 
-void TObjPlayer__sub_80048360(void *arg0) {
+void tick_countdown_destroy__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) + M2C_FIELD(arg0, s32 *, 0x38));

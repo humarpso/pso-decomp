@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
 
-s32 fn_801E0990(s32 arg0) {
+s32 init_ply_guild_card_tag(s32 arg0) {
     __ct__16TPlyGuildCardTagFv(arg0 + 4);
     return arg0;
 }

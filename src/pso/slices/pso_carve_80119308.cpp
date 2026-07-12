@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TObjEneMe3Stelth__sub_800F5874(u32, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
-void fn_80119308(int arg0) {
+void apply_battle_ctrl_effect(int arg0) {
     u32 temp = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
     if (temp != 0U) {
         TObjEneMe3Stelth__sub_800F5874(temp, 4);

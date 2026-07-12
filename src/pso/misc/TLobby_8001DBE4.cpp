@@ -2,11 +2,11 @@
 
 extern "C" {
 
-int TLobby__sub_8001DBE4(void* p);
+int forward_8001DBD8__6TLobbyFPv(void* p);
 int TLobby__sub_8001DC04(void* p);
 int TLobby__sub_8001DBD8(void*);
 
-int TLobby__sub_8001DBE4(void* p) { return TLobby__sub_8001DBD8(p); }
+int forward_8001DBD8__6TLobbyFPv(void* p) { return TLobby__sub_8001DBD8(p); }
 int TLobby__sub_8001DC04(void* p) { return TLobby__sub_8001DBD8(p); }
 
 }

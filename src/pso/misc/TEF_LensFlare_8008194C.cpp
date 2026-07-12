@@ -10,9 +10,9 @@ struct VObj_8008194C : Base_8008194C {
 
 extern "C" {
 
-void TEF_LensFlare__sub_8008194C(void *arg0);
+void dispatch_vt1__13TEF_LensFlareFPv(void *arg0);
 
-void TEF_LensFlare__sub_8008194C(void *arg0) {
+void dispatch_vt1__13TEF_LensFlareFPv(void *arg0) {
     struct VObj_8008194C *o = (struct VObj_8008194C *)M2C_FIELD(arg0, void **, 0x1C);
     o->m1();
 }

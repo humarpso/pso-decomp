@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void * TPlyOnCreated__sub_801C61D0(void *arg0, void *arg1);
-void TPlyOnCreated__sub_801C6220(void *arg0);
+void * create__13TPlyOnCreatedFPvPv(void *arg0, void *arg1);
+void invoke_callback_and_destroy__13TPlyOnCreatedFPv(void *arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void *__ct__13TPlyOnCreatedFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void * TPlyOnCreated__sub_801C61D0(void *arg0, void *arg1) {
+void * create__13TPlyOnCreatedFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
@@ -22,7 +22,7 @@ void * TPlyOnCreated__sub_801C61D0(void *arg0, void *arg1) {
     return o;
 }
 
-void TPlyOnCreated__sub_801C6220(void *arg0) {
+void invoke_callback_and_destroy__13TPlyOnCreatedFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
     void *temp_r3;
 

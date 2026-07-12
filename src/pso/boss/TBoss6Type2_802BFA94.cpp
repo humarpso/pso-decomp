@@ -26,7 +26,7 @@ void reset_state_timers__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
     TBoss6Type2__sub_802BB768();
 }
-void TBoss6Type2__sub_802BFAC0(void *arg0) {
+void tick_timer_460__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss7TentacleNeedle__sub_802EFBA4(void *arg0);
+void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0);
 
 extern const f32 lbl_805DEC1C;
 
-void TBoss7TentacleNeedle__sub_802EFBA4(void *arg0) {
+void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x3C);

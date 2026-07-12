@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecLuker__sub_8022BF28(void *arg0);
+void tick_lifetime__9TTecLukerFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern const f64 lbl_8044CDF0;
 
-void TTecLuker__sub_8022BF28(void *arg0) {
+void tick_lifetime__9TTecLukerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x6C) = 1;
     M2C_FIELD(arg0, s32 *, 0x68) = (s32) (M2C_FIELD(arg0, s32 *, 0x68) + 1);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x68) > M2C_FIELD(arg0, f32 *, 0x70)) {

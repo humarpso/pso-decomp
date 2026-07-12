@@ -36,7 +36,7 @@ extern "C" {
 void update_state_machine__15TObjEnemyCustomFPv(void *arg0);
 void TObjEnemyCustom__sub_800C7AE0(void);
 void update__15TObjEnemyCustomFPv(void *arg0);
-int TObjEnemyCustom__sub_800C7C0C(void* p);
+int update_gigue__15TObjEnemyCustomFPv(void* p);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 int TObjEneMe1GiGue__sub_80040B3C(void*, int);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
@@ -119,6 +119,6 @@ void update__15TObjEnemyCustomFPv(void *arg0) {
     }
 }
 
-int TObjEnemyCustom__sub_800C7C0C(void* p) { return TObjEneMe1GiGue__sub_80040B3C(p, 2); }
+int update_gigue__15TObjEnemyCustomFPv(void* p) { return TObjEneMe1GiGue__sub_80040B3C(p, 2); }
 
 }

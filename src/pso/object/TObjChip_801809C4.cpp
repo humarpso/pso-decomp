@@ -19,11 +19,11 @@ struct VObj_801809C4 : Base_801809C4 {
 
 extern "C" {
 
-void TObjChip__sub_801809C4(void *arg0);
+void dispatch_vt9__8TObjChipFPv(void *arg0);
 void update__8TObjChipFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TObjChip__sub_801809C4(void *arg0) {
+void dispatch_vt9__8TObjChipFPv(void *arg0) {
     struct VObj_801809C4 *o = (struct VObj_801809C4 *)arg0;
     o->m9();
 }

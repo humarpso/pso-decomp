@@ -26,7 +26,7 @@ u8 is_position_moved__11TMainCursorFPv(void* p);
 s16 TMainCursor__sub_8013E570(void* p);
 int check_flag_4__11TMainCursorFPv(void* p);
 int forward_13E338_at_60__11TMainCursorFPv(void* p);
-int TMainCursor__sub_8013E5C4(void* p);
+int update_sub_60__11TMainCursorFPv(void* p);
 void set_offset_y__11TMainCursorFPvs(void* p, s16 a1);
 void TMainCursor__sub_8013E694(void* p, s16 v);
 int init_field_60__11TMainCursorFPv(void* p);
@@ -87,6 +87,6 @@ u8 is_position_moved__11TMainCursorFPv(void* p) { return (u8)(TMainCursor__sub_8
 s16 TMainCursor__sub_8013E570(void* p) { return *(s16*)((char*)p + 0x6); }
 int check_flag_4__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x20, 4); }
 int forward_13E338_at_60__11TMainCursorFPv(void* p) { return TMainCursor__sub_8013E338((char*)p + 0x60); }
-int TMainCursor__sub_8013E5C4(void* p) { return TMainCursor__sub_8013E358((char*)p + 0x60); }
+int update_sub_60__11TMainCursorFPv(void* p) { return TMainCursor__sub_8013E358((char*)p + 0x60); }
 
 }

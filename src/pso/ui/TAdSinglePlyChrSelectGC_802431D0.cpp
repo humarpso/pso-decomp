@@ -3,7 +3,7 @@
 extern "C" {
 
 int TAdSinglePlyChrSelectGC__sub_802431D0(void);
-int TAdSinglePlyChrSelectGC__sub_802431F4(void* p);
+int test_card_flag8__23TAdSinglePlyChrSelectGCFPv(void* p);
 void draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void load_player__23TAdSinglePlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 int TAdSinglePlyChrSelectGC__sub_802432CC(void* p, int a1, int a2);
@@ -14,7 +14,7 @@ int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 int TAdSinglePlyChrSelectGC__sub_80243070(void*);
 
 int TAdSinglePlyChrSelectGC__sub_802431D0(void) { return TAdSinglePlyChrSelectGC__sub_80243070((void*)(0)); }
-int TAdSinglePlyChrSelectGC__sub_802431F4(void* p) { return test_card_flag__19TWindowKeyBoardHardFii(p, 8); }
+int test_card_flag8__23TAdSinglePlyChrSelectGCFPv(void* p) { return test_card_flag__19TWindowKeyBoardHardFii(p, 8); }
 void draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 sp8;
 

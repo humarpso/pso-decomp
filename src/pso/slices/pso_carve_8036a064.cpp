@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TAdDialingMessageWindow__sub_8036A174(void *);
+M2C_UNK set_flag_and_notify__23TAdDialingMessageWindowFPv(void *);
 M2C_UNK fn_8036A1AC(u32);
 
 void fn_8036A064(void *arg0) {
@@ -20,7 +20,7 @@ void fn_8036A064(void *arg0) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
                 temp2_r3 = M2C_FIELD(arg0, void **, 0x20);
                 if ((u32) temp2_r3 != 0U) {
-                    TAdDialingMessageWindow__sub_8036A174(temp2_r3);
+                    set_flag_and_notify__23TAdDialingMessageWindowFPv(temp2_r3);
                 }
             }
         }

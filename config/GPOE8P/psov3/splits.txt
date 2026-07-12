@@ -15226,7 +15226,7 @@ pso/slices/pso_carve_801e4b68.cpp:
 pso/slices/pso_carve_801e4cf0.cpp:
 	.text       start:0x801E4CF0 end:0x801E4D18
 
-pso/slices/pso_carve_801e4d18.cpp:
+pso/ui/TAdSinglePlyChrSelectGC_801E4D18.cpp:
 	.text       start:0x801E4D18 end:0x801E4D78
 
 pso/slices/pso_carve_801e4f04.cpp:
@@ -16345,7 +16345,7 @@ pso/slices/pso_carve_80211f0c.cpp:
 pso/slices/pso_carve_80211f54.cpp:
 	.text       start:0x80211F54 end:0x80211FA0
 
-pso/slices/pso_carve_80211fa0.cpp:
+pso/misc/TLobby_80211FA0.cpp:
 	.text       start:0x80211FA0 end:0x80211FEC
 
 pso/misc/THunterGuildSeqOffline_80211FEC.cpp:
@@ -18935,7 +18935,7 @@ pso/misc/TShopJudgmentItemWindow_8026DFC0.cpp:
 pso/slices/pso_carve_8026dfe8.cpp:
 	.text       start:0x8026DFE8 end:0x8026E0B8
 
-pso/slices/pso_carve_8026e0b8.cpp:
+pso/misc/TWindowSubStatusDisp_8026E0B8.cpp:
 	.text       start:0x8026E0B8 end:0x8026E110
 
 pso/misc/TWindowShortCut.cpp:
@@ -20216,7 +20216,7 @@ pso/menu/TChCrEffTagStr.cpp:
 pso/misc/TChCrEffTagStr.cpp:
 	.text       start:0x8029B02C end:0x8029B098
 
-pso/slices/pso_carve_8029b098.cpp:
+pso/misc/TChCrEffTag_8029B098.cpp:
 	.text       start:0x8029B098 end:0x8029B0F0
 
 pso/misc/TODoorJungleMain.cpp:
@@ -22465,7 +22465,7 @@ pso/slices/pso_carve_802e2dd8.cpp:
 pso/ui/TAdSinglePlyChrSelectGC_802E2E60.cpp:
 	.text       start:0x802E2E60 end:0x802E3058
 
-pso/slices/pso_carve_802e3290.cpp:
+pso/ui/TAdSinglePlyChrSelectGC_802E3290.cpp:
 	.text       start:0x802E3290 end:0x802E32E8
 
 pso/menu/TAdTimeSetGC.cpp:
@@ -22685,7 +22685,7 @@ pso/slices/pso_carve_802eecf0.cpp:
 pso/boss/TBoss7Joint_802EED00.cpp:
 	.text       start:0x802EED00 end:0x802EED20
 
-pso/slices/pso_carve_802eee9c.cpp:
+pso/object/TObject_802EEE9C.cpp:
 	.text       start:0x802EEE9C end:0x802EEF10
 
 pso/boss/TBoss7LaserLight.cpp:
@@ -25385,7 +25385,7 @@ pso/ui/TAdFloorLoadGC_8034ACAC.cpp:
 pso/ui/TAdFloorLoadPrtGC.cpp:
 	.text       start:0x8034AD28 end:0x8034AD38
 
-pso/slices/pso_carve_8034b110.cpp:
+pso/misc/TChallenge4PItemSelect_8034B110.cpp:
 	.text       start:0x8034B110 end:0x8034B158
 
 pso/slices/pso_carve_8034b1f0.cpp:
@@ -26184,7 +26184,7 @@ pso/item/TItemEffectWeapon.cpp:
 pso/item/TItemEffectWeapon_80363A68.cpp:
 	.text       start:0x80363A68 end:0x80363AA0
 
-pso/slices/pso_carve_80363af4.cpp:
+pso/item/TItem_80363AF4.cpp:
 	.text       start:0x80363AF4 end:0x80363B1C
 
 pso/player/TObjPlayer_80363BE0.cpp:

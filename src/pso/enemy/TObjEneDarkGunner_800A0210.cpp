@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDarkGunner__sub_800A0210(void *arg0);
+void decay_timer_and_destroy__17TObjEneDarkGunnerFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TObjEneDarkGunner__sub_800A0210(void *arg0) {
+void decay_timer_and_destroy__17TObjEneDarkGunnerFPv(void *arg0) {
     s32 var_r31;
 
     var_r31 = M2C_FIELD(arg0, u8 *, 0x37);

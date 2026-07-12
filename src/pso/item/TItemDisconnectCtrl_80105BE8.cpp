@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TItemDisconnectCtrl__sub_80105BE8(void);
-void TItemDisconnectCtrl__sub_80105BF4(void);
+void init_forward__19TItemDisconnectCtrlFv(void);
 M2C_UNK init_forward__10TObjPlayerFPv(M2C_UNK *);
 
     extern int lbl_805D54E0;
@@ -15,7 +15,7 @@ void TItemDisconnectCtrl__sub_80105BE8(void) { lbl_805D54E0 = 0; }
 
 extern M2C_UNK lbl_805D5440;
 
-void TItemDisconnectCtrl__sub_80105BF4(void) {
+void init_forward__19TItemDisconnectCtrlFv(void) {
     init_forward__10TObjPlayerFPv(&lbl_805D5440);
 }
 

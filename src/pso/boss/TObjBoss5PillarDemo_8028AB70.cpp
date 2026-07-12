@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjBoss5PillarDemo__sub_8028AB70(void);
+void update_active_pillar__19TObjBoss5PillarDemoFv(void);
 M2C_UNK fn_8028A9CC(s32, s32);
 
 extern void *lbl_805D4DD8;
 
-void TObjBoss5PillarDemo__sub_8028AB70(void) {
+void update_active_pillar__19TObjBoss5PillarDemoFv(void) {
     void *temp_r4;
 
     if ((void *) lbl_805D4DD8 != NULL) {

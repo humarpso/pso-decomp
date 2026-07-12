@@ -12,7 +12,7 @@ s32 fn_8036DE10(void *, M2C_UNK, s32);
 M2C_UNK fn_8036E19C(void *, M2C_UNK);
 M2C_UNK fn_8036E2AC(void *, M2C_UNK);
 
-void fn_8036DFB4(void *arg0) {
+void close_windows_and_cleanup(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x34));
         M2C_FIELD(arg0, u32 *, 0x34) = 0U;

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4Type2__sub_800548AC(void *arg0);
+void request_state_3__11TBoss4Type2FPv(void *arg0);
 M2C_UNK TBoss4Type2__sub_800542B0(void *, M2C_UNK);
 
-void TBoss4Type2__sub_800548AC(void *arg0) {
+void request_state_3__11TBoss4Type2FPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x374);

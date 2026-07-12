@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801C53D4(s32 *arg0, s32 arg1) {
+s32 decrement_clamped(s32 *arg0, s32 arg1) {
     *arg0 -= arg1;
     if ((s32) *arg0 < 0) {
         *arg0 = 0;

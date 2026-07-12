@@ -8,7 +8,7 @@ extern "C" {
 
 s32 handle_main_phase__6TLobbyFi(s32 arg0);
 s32 create_lobby_object_05(s32);
-s32 fn_80211FA0(s32);
+s32 create_tl05_object__6TLobbyFPv(s32);
 s32 create__22THunterGuildSeqOfflineFPv(s32);
 
 s32 get_main_phase();
@@ -21,7 +21,7 @@ s32 handle_main_phase__6TLobbyFi(s32 arg0) {
     }
     if (get_main_phase() == 0xF) {
         if ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC) {
-            return fn_80211FA0(arg0);
+            return create_tl05_object__6TLobbyFPv(arg0);
         }
         return create_lobby_object_05(arg0);
     }

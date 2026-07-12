@@ -18,7 +18,7 @@ void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p);
 void save_if_dirty__9TSaveChCrFPv(void* p);
 int TSaveChCr__sub_80339B94(void* p);
 int TSaveChCr__sub_80339BF4(void* p);
-int TSaveChCr__sub_80339CC0(void* p);
+int close_and_advance_step2__9TSaveChCrFPv(void* p);
 void TSaveChCr__sub_80339CE4(void);
 int save_1__9TSaveChCrFPv(void* p);
 int close_and_advance__9TSaveChCrFPvPv(void*, int);

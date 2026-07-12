@@ -110,7 +110,7 @@ extern "C" {
 s32 get_cell_address__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
 void check_valid_state__6TLobbyFi(s32 arg0);
-void TLobby__sub_80329044(void *arg0);
+void set_player_handle_valid__6TLobbyFPv(void *arg0);
 s32 is_handle_valid__10TObjPlayerFPv();
 
 extern s32 lbl_805D6C80;
@@ -139,7 +139,7 @@ void check_valid_state__6TLobbyFi(s32 arg0) {
     is_valid_state__6TLobbyFPvi((void *)(arg0), (s32)(is_handle_valid__10TObjPlayerFPv()));
 }
 
-void TLobby__sub_80329044(void *arg0) {
+void set_player_handle_valid__6TLobbyFPv(void *arg0) {
     struct VObj_80329044 *o = (struct VObj_80329044 *)arg0;
     o->m75(is_handle_valid__10TObjPlayerFPv());
 }

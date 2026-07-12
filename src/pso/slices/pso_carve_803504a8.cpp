@@ -11,7 +11,7 @@ void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_80350440(void *, void *, u32);
 extern void *tl_05;
 
-void fn_803504A8(s32 arg0, u32 arg1) {
+void create_quest_bgm_object(s32 arg0, u32 arg1) {
     u32 var_r31;
 
     var_r31 = arg1;

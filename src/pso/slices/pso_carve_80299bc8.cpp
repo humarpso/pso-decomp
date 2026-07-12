@@ -17,7 +17,7 @@ M2C_UNK TLobby__sub_80227FB4();
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create_instance__10TSceneSoraFPv(void *, s32);
 M2C_UNK fn_802F1084();
-M2C_UNK fn_802F10AC();
+M2C_UNK init_scene_boss2_tunnel();
 extern M2C_UNK lbl_804651B0[];
 extern s32 tl_particlemodel;
 
@@ -28,7 +28,7 @@ s32 init_scene_delo2(void) {
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
     }
-    fn_802F10AC();
+    init_scene_boss2_tunnel();
     TObjLight__sub_80133D78();
     create_tasks__6TLobbyFv();
     fn_802F1084();

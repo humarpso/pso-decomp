@@ -13,14 +13,14 @@ int fn_801DF360(void* a0 = 0);
 int fn_801DF47C(void* a0 = 0);
 int fn_801DF740(void* a0 = 0);
 int fn_801DF7F8(void* a0 = 0);
-void fn_801DF310(void* p);
+void bswap_cmd_88_body(void* p);
 void fn_801DF42C(void* p);
 void fn_801DF6F0(void* p);
 void bswap_c0_lobby_entries(void* p);
 int __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void*);
 void* fn_801DF3F0(void* p, void* a1);
 void fn_801DF6BC(void* p);
-int fn_801DF2F0(void* p);
+int bswap_cmd_8a_header(void* p);
 int bswap_packet_header_cmd_b1(void* p);
 
 void fn_801DF280(s32 arg0) {
@@ -32,8 +32,8 @@ s32 fn_801DF2BC(s32 arg0) {
     __ct__8TPlySmthFv(arg0 + 0x44);
     return arg0;
 }
-int fn_801DF2F0(void* p) { return bswap__13packet_headerFv(p); }
-void fn_801DF310(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 16; i++) { fn_801DF360((char*)p + 0x4 + i * 12); } } }
+int bswap_cmd_8a_header(void* p) { return bswap__13packet_headerFv(p); }
+void bswap_cmd_88_body(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 16; i++) { fn_801DF360((char*)p + 0x4 + i * 12); } } }
 int fn_801DF360(void*) { return 0; }
 int fn_801DF394(void) { return 0; }
 void* fn_801DF3F0(void* p, void* a1) { __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(p); *(void**)((char*)p + 0x8) = *(void**)((char*)a1 + 0x8); return p; }

@@ -10,7 +10,7 @@ s32 fn_80182E60();
 s32 TLobby__sub_8030A7B0();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
-s32 fn_801821D8(void) {
+s32 is_rader_map_active(void) {
     s32 temp_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {

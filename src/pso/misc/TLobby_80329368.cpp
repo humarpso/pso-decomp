@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *init_vtable8__6TLobbyFPv(void *arg0);
-void TLobby__sub_803293A4(void);
+void init_player_forward__6TLobbyFv(void);
 void TLobby__sub_802A7B50(void *);
 M2C_UNK init_forward__10TObjPlayerFPv(M2C_UNK *);
 
@@ -21,7 +21,7 @@ void *init_vtable8__6TLobbyFPv(void *arg0) {
 
 extern M2C_UNK lbl_805D6C84;
 
-void TLobby__sub_803293A4(void) {
+void init_player_forward__6TLobbyFv(void) {
     init_forward__10TObjPlayerFPv(&lbl_805D6C84);
 }
 

@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjBagWarnWin__sub_8006EF24(void *arg0);
+void *create__14TObjBagWarnWinFPv(void *arg0);
 void *__ct__14TObjBagWarnWinFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjBagWarnWin__sub_8006EF24(void *arg0) {
+void *create__14TObjBagWarnWinFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xA4);
     if (o != NULL) {
         o = __ct__14TObjBagWarnWinFv(o, arg0);

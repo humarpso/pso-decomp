@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnemyCustom__sub_800C7FEC(void);
+void update_camera_if_active__15TObjEnemyCustomFv(void);
 M2C_UNK TCameraCtrl__sub_80069DA8();
 
 extern s32 lbl_805D5198;
 
-void TObjEnemyCustom__sub_800C7FEC(void) {
+void update_camera_if_active__15TObjEnemyCustomFv(void) {
     if ((s32) lbl_805D5198 != 0) {
         TCameraCtrl__sub_80069DA8();
     }

@@ -6,7 +6,7 @@ void TWindowChat__sub_80247D2C(void* p);
 u8 TWindowChat__sub_80247D3C(void* p);
 int TWindowChat__sub_80247D44(void* p);
 int forward_card_at_1c__11TWindowChatFPv(void* p);
-int TWindowChat__sub_80247D88(void* p);
+int get_subcard_field1c__11TWindowChatFPv(void* p);
 int TWindowChat__sub_80247DAC(void* p);
 void TWindowChat__sub_80247DD0(void* p);
 void TWindowChat__sub_80247DE0(void* p);
@@ -20,7 +20,7 @@ int TWindowSubComCard__sub_80073DB8(void*);
 int TWindowSubComCard__sub_80265BF8(void*);
 
 int forward_card_at_1c__11TWindowChatFPv(void* p) { return TWindowSubComCard__sub_80265BF8(*(void**)((char*)p + 0x1c)); }
-int TWindowChat__sub_80247D88(void* p) { return TWindowSubComCard__sub_8007341C(*(void**)((char*)p + 0x1c)); }
+int get_subcard_field1c__11TWindowChatFPv(void* p) { return TWindowSubComCard__sub_8007341C(*(void**)((char*)p + 0x1c)); }
 int TWindowChat__sub_80247DAC(void* p) { return TWindowSubComCard__sub_80073DB8(*(void**)((char*)p + 0x1c)); }
 void TWindowChat__sub_80247DD0(void* p) { *(u16*)((char*)p + 0x1e) |= 0x10; }
 void TWindowChat__sub_80247DE0(void* p) { *(u16*)((char*)p + 0x1e) |= 0x20; }

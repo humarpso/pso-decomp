@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneGyaranzo__sub_800D3BA0(void);
+void free_static_instances__15TObjEneGyaranzoFv(void);
 M2C_UNK TLobby__sub_8001FE7C(u32, s32);
 
 extern u32 lbl_805D51FC;
@@ -17,7 +17,7 @@ struct VObj_800D3BA0 : Base_800D3BA0 {
 };
 extern struct VObj_800D3BA0 *lbl_805D5208;
 
-void TObjEneGyaranzo__sub_800D3BA0(void) {
+void free_static_instances__15TObjEneGyaranzoFv(void) {
     if (lbl_805D51FC != 0U) {
         TLobby__sub_8001FE7C(lbl_805D51FC, 1);
         lbl_805D51FC = 0U;

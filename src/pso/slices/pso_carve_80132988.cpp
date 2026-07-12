@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
 
-void fn_80132988(s32 arg0) {
+void select_main_menu_item_10(s32 arg0) {
     TAdSinglePlyChrSelectGC__sub_80132F2C(0xA, arg0);
 }
 

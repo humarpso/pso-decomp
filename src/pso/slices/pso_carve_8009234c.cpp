@@ -16,7 +16,7 @@ extern u32 lbl_805D4F48;
 extern u32 lbl_805D4F4C;
 extern u32 lbl_805D4F50;
 
-void fn_8009234C(void) {
+void free_boss4_rock_pool(void) {
     if ((u32) lbl_805D4F38 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D4F38);
         lbl_805D4F38 = 0U;
