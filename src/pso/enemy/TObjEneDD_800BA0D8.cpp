@@ -3,7 +3,6 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Base_800BA0D8 { char pad[0x18]; };
 struct VObj_800BA0D8 : Base_800BA0D8 {
     virtual void m0();    virtual void m1();    virtual void m2();    virtual void m3();
@@ -33,8 +32,14 @@ struct VObj_800BA0D8 : Base_800BA0D8 {
     virtual void m91();
 };
 
-extern "C" void TObjEneDD__vt93(void *arg0) {
+extern "C" {
+
+void TObjEneDD__vt93(void *arg0);
+
+void TObjEneDD__vt93(void *arg0) {
     ((VObj_800BA0D8*)arg0)->m90();
     ((VObj_800BA0D8*)arg0)->m91();
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFBFFFF);
+}
+
 }

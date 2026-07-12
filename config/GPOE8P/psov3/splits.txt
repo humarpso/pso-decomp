@@ -4282,7 +4282,7 @@ pso/enemy/TObjEneDD_800B9FE8.cpp:
 pso/enemy/TObjEneDD.cpp:
 	.text       start:0x800BA018 end:0x800BA030
 
-pso/slices/pso_carve_800ba0d8.cpp:
+pso/enemy/TObjEneDD_800BA0D8.cpp:
 	.text       start:0x800BA0D8 end:0x800BA138
 
 pso/enemy/TObjEneDD_800BA138.cpp:
@@ -10797,11 +10797,8 @@ pso/misc/TOKeyCol_8016C9AC.cpp:
 pso/misc/TOKeyGenericSw.cpp:
 	.text       start:0x8016CA60 end:0x8016CA64
 
-pso/slices/pso_carve_8016cb88.cpp:
-	.text       start:0x8016CB88 end:0x8016CBE4
-
-pso/slices/pso_carve_8016cbe4.cpp:
-	.text       start:0x8016CBE4 end:0x8016CC40
+pso/misc/TOKeyGenericSw_8016CB88.cpp:
+	.text       start:0x8016CB88 end:0x8016CC40
 
 pso/misc/TOKeyGenericSw_8016CC40.cpp:
 	.text       start:0x8016CC40 end:0x8016CC8C
@@ -16561,14 +16558,8 @@ pso/misc/THunterGuildSeqOffline_802133C4.cpp:
 pso/misc/THunterGuildSeqOffline_80213458.cpp:
 	.text       start:0x80213458 end:0x80213474
 
-pso/slices/pso_carve_80213788.cpp:
-	.text       start:0x80213788 end:0x8021383C
-
-pso/slices/pso_carve_8021383c.cpp:
-	.text       start:0x8021383C end:0x802138F0
-
-pso/slices/pso_carve_802138f0.cpp:
-	.text       start:0x802138F0 end:0x80213980
+pso/misc/THunterGuildSeqOffline_80213788.cpp:
+	.text       start:0x80213788 end:0x80213980
 
 pso/slices/pso_carve_80213b98.cpp:
 	.text       start:0x80213B98 end:0x80213BE0
