@@ -4972,6 +4972,9 @@ if args.target == "psov3":
                 NonMatching("pso/boss/TBoss8Dragon_802FC2C4.cpp"),
                 NonMatching("pso/boss/TBoss1Dragon_80026EB8.cpp"),
                 NonMatching("pso/ui/TAdChrSelSlotGC_802C7438.cpp"),
+                NonMatching("pso/player/TObjPlayer_801C96C4.cpp"),
+                NonMatching("pso/misc/TLobby_801E99DC.cpp"),
+                NonMatching("pso/ui/TAdSinglePlyChrSelectGC_801FC858.cpp"),
             ],
         },
         # ------------------------------------------------------------------

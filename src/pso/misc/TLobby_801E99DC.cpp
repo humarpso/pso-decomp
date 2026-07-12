@@ -6,16 +6,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void create_hunter_guild_seq__6TLobbyFv(void);
+void reset_random_enemies_mode__6TLobbyFv(void);
 s32 TCameraCtrl__sub_8006B368();
-M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(void *, s32, M2C_UNK *);
+int TKeyBoardControl__sub_8000F950(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
-extern M2C_UNK reset_random_enemies_mode__6TLobbyFv[];
+int fn_801A3B84(void);
+M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(void *, s32, M2C_UNK *);
+
+    extern int evt2_random_enemies_mode;
+void reset_random_enemies_mode__6TLobbyFv(void) { fn_801A3B84(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
+
 extern s32 tl_00;
 
 void create_hunter_guild_seq__6TLobbyFv(void) {
     void *temp_r3;
     if ((TCameraCtrl__sub_8006B368() == 1) && ((temp_r3 = (void*)__nw__7TObjectFUl(0x28)) != 0U)) {
-        init__22THunterGuildSeqOfflineFPvPvPv(temp_r3, tl_00, reset_random_enemies_mode__6TLobbyFv);
+        init__22THunterGuildSeqOfflineFPvPvPv(temp_r3, tl_00, (M2C_UNK *)reset_random_enemies_mode__6TLobbyFv);
     }
 }
 
