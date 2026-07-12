@@ -10,8 +10,8 @@ void update_attack_state__14TBoss7CrawfishFPv(void *arg0);
 s32 TBoss7Crawfish__sub_80308AA8(void *);
 M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, M2C_UNK);
 s16 TObjPlayer__sub_801C0004(void *);
-M2C_UNK fn_803086A8(void *);
-M2C_UNK fn_8030880C(void *, M2C_UNK);
+M2C_UNK TBoss7Crawfish__sub_803086A8(void *);
+M2C_UNK TBoss7Crawfish__sub_8030880C(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 
 extern const f32 lbl_805DF0F8;
@@ -32,13 +32,13 @@ void update_attack_state__14TBoss7CrawfishFPv(void *arg0) {
             M2C_FIELD(temp_r4, s32 *, 0x18) &= ~0x02000000;
         }
         if (TBoss7Crawfish__sub_80308AA8(arg0) != 0) {
-            fn_8030880C(arg0, 0x3A80A);
+            TBoss7Crawfish__sub_8030880C(arg0, 0x3A80A);
         } else {
-            fn_8030880C(arg0, 0x3A80B);
+            TBoss7Crawfish__sub_8030880C(arg0, 0x3A80B);
         }
     }
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x02000000) {
-        fn_803086A8(arg0);
+        TBoss7Crawfish__sub_803086A8(arg0);
     }
 }
 

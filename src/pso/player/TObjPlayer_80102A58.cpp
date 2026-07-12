@@ -12,7 +12,7 @@ int TObjPlayer__sub_80102AA8(void);
 void TObjPlayer__sub_80102AB0(void);
 int TObjPlayer__sub_80102AC0(void* p);
 void free_globals__10TObjPlayerFv(void);
-int fn_8010542C(void*);
+int TLobby__sub_8010542C(void*);
 M2C_UNK fn_80105874();
 M2C_UNK free_static_buffer__10TObjPlayerFv();
 M2C_UNK free_global_805D6FB8__10TObjPlayerFv();
@@ -36,7 +36,7 @@ void TObjPlayer__sub_80102AB0(void) {
     lbl_805D5408 = temp_r3 + 1;
 }
 
-int TObjPlayer__sub_80102AC0(void* p) { return fn_8010542C(p); }
+int TObjPlayer__sub_80102AC0(void* p) { return TLobby__sub_8010542C(p); }
 
 extern s32 lbl_805D53F0;
 extern u32 lbl_805D53F4;

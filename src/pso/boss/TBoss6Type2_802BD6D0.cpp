@@ -10,7 +10,7 @@ void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK update_segments__11TBoss6Type2FPv(void *);
 M2C_UNK TBoss6Type2__sub_802BC62C(void *);
 u32 get_table_entry__11TBoss6Type2Fi(s32);
-M2C_UNK fn_8032E718(void *, u32, s32);
+M2C_UNK TBoss6Type2__sub_8032E718(void *, u32, s32);
 
 void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     u32 temp_r31;
@@ -25,10 +25,10 @@ void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
         TBoss6Type2__sub_802BC62C(arg0);
     }
     if (M2C_FIELD(arg0, void **, 0x410) != 0) {
-        fn_8032E718(M2C_FIELD(arg0, void **, 0x410), M2C_FIELD(arg0, u32 *, 0x2E4), M2C_FIELD(arg0, s32 *, 0x42C));
+        TBoss6Type2__sub_8032E718(M2C_FIELD(arg0, void **, 0x410), M2C_FIELD(arg0, u32 *, 0x2E4), M2C_FIELD(arg0, s32 *, 0x42C));
     }
     if (M2C_FIELD(arg0, void **, 0x414) != 0) {
-        fn_8032E718(M2C_FIELD(arg0, void **, 0x414), M2C_FIELD(arg0, u32 *, 0x2E4), M2C_FIELD(arg0, s32 *, 0x42C));
+        TBoss6Type2__sub_8032E718(M2C_FIELD(arg0, void **, 0x414), M2C_FIELD(arg0, u32 *, 0x2E4), M2C_FIELD(arg0, s32 *, 0x42C));
     }
 }
 

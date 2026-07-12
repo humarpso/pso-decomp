@@ -8,6 +8,5 @@ f32 TObjPlayer__sub_800822E0(void* p);
 s32 TObjPlayer__sub_80082300(void* p);
 
 int TLobby__sub_800822E8(void) { return 0; }
-s32 TObjPlayer__sub_80082300(void* p) { return *(s32*)((char*)p + 0xc); }
 
 }

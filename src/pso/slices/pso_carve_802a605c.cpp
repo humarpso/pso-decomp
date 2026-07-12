@@ -25,7 +25,5 @@ int TLobby__sub_802A6080(void);
 int TWindowSnapShot__sub_802A605C(void) { return 0; }
 void fn_802A6070(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void fn_802A6078(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
-int TLobby__sub_802A6080(void) { return 8; }
-int TObjSuisoChip__vt6(void) { return 0; }
 
 }

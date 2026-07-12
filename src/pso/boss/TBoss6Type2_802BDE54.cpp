@@ -8,7 +8,7 @@ extern "C" {
 
 void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1);
 M2C_UNK set_target_state__11TBoss6Type2FPvii(void *, s32, s32);
-M2C_UNK fn_8032E710(s32, u16);
+M2C_UNK TBoss6Type2__sub_8032E710(s32, u16);
 
 void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, u8 *, 0x478) = (u8) M2C_FIELD(arg1, u8 *, 8);
@@ -30,8 +30,8 @@ void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1) {
     if ((u16) M2C_FIELD(arg0, u16 *, 0x46A) >= 4U) {
         M2C_FIELD(arg0, u16 *, 0x46A) = 0xFFFFU;
     }
-    fn_8032E710(M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, u16 *, 0x468));
-    fn_8032E710(M2C_FIELD(arg0, s32 *, 0x414), M2C_FIELD(arg0, u16 *, 0x46A));
+    TBoss6Type2__sub_8032E710(M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, u16 *, 0x468));
+    TBoss6Type2__sub_8032E710(M2C_FIELD(arg0, s32 *, 0x414), M2C_FIELD(arg0, u16 *, 0x46A));
 }
 
 }

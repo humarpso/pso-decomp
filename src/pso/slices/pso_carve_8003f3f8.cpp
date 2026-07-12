@@ -17,9 +17,5 @@ int TBoss3Volopt__sub_8003F408(void) { return 0; }
 int TBoss3Volopt__sub_8003F41C(void) { return 0; }
 int TBoss3Volopt__sub_8003F430(void) { return 0; }
 int TBoss3Volopt__sub_8003F444(void) { return 0; }
-u8 TBoss3Volopt__sub_8003F458(void *arg0) {
-    return (u8) (M2C_FIELD(arg0, s16 *, 0x326) == 0);
-}
-int fn_8003F468(void) { return 0; }
 
 }

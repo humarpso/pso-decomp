@@ -8,10 +8,10 @@ extern "C" {
 
 void check_state_transition__11TBoss4Type2FPv(void *arg0);
 M2C_UNK TBoss4Type2__sub_80053CEC(void *, M2C_UNK);
-s32 fn_8004D990(s32);
+s32 TBoss4DarkFalz__sub_8004D990(s32);
 
 void check_state_transition__11TBoss4Type2FPv(void *arg0) {
-    if (fn_8004D990(M2C_FIELD(arg0, s32 *, 0x38C)) <= (s32) (0xC - M2C_FIELD(arg0, s32 *, 0x3C4))) {
+    if (TBoss4DarkFalz__sub_8004D990(M2C_FIELD(arg0, s32 *, 0x38C)) <= (s32) (0xC - M2C_FIELD(arg0, s32 *, 0x3C4))) {
         TBoss4Type2__sub_80053CEC(arg0, 5);
         return;
     }

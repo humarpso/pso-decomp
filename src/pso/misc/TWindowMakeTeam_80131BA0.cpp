@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 alloc_buffer__11TOBoss4RockFPv();
-s32 fn_8025C974(s32, s32);
-s32 fn_8025CA70(s32);
+s32 TWindowKeyBoardSoft__sub_8025C974(s32, s32);
+s32 TWindowKeyBoardSoft__sub_8025CA70(s32);
 int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
 int is_keyboard_active__17TWindowSubComCardFPv(void* p);
 int update_keyboard__17TWindowSubComCardFPv(void* p);

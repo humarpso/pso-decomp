@@ -40,10 +40,5 @@ void fn_80010ECC(void *arg0, s32 arg1) {
 }
 u16 fn_80010F4C(void* p) { return *(u16*)((char*)p + 0x2d6); }
 int TOMineTrap__sub_80010F54(void* a0 = 0, void* a1 = 0) { return 0; }
-void TObjPlayer__sub_80010FCC(s32 arg0, u32 arg1) {
-    if (arg1 != 0U) {
-        TOMineTrap__sub_80010F54((void*)(arg0), (void*)(obj_getField1c(arg1)));
-    }
-}
 
 }

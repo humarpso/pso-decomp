@@ -8,7 +8,7 @@ extern "C" {
 
 void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0);
 M2C_UNK TBoss4DarkFalz__sub_8004BA70();
-M2C_UNK fn_8004D8C8(void *, void *, void *, void *);
+M2C_UNK TBoss4DarkFalz__sub_8004D8C8(void *, void *, void *, void *);
 M2C_UNK create__11TObjDFDemo5FPvPvPv(void *, void *, s32);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 M2C_UNK TLobby__sub_8022743C();
@@ -33,7 +33,7 @@ void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0) {
         create__11TObjDFDemo5FPvPvPv(arg0, lbl_80485454, 0);
     }
     if ((void *) TBoss4DarkFalz__data_805D4D64 != NULL) {
-        fn_8004D8C8(TBoss4DarkFalz__data_805D4D64, arg0 + 0x2D6, arg0 + 0x2D4, sp8);
+        TBoss4DarkFalz__sub_8004D8C8(TBoss4DarkFalz__data_805D4D64, arg0 + 0x2D6, arg0 + 0x2D4, sp8);
         queue_destruction__7TObjectFv(TBoss4DarkFalz__data_805D4D64);
         TBoss4DarkFalz__data_805D4D64 = NULL;
         var_r29 = 0;
