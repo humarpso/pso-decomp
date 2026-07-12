@@ -8,7 +8,7 @@ extern "C" {
 
 s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1);
 void* init_sub_objects__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801D7860(void*);
+int init_sub_object__10TObjPlayerFi(void*);
 M2C_UNK __dl__FPv(s32);
 int fn_801D6A18(void*);
 M2C_UNK fn_801D6B8C();
@@ -24,6 +24,6 @@ s32 destroy__10TObjPlayerFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-void* init_sub_objects__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801D7860((char*)p + 0x8); TObjPlayer__sub_801D7860((char*)p + 0x18); TObjPlayer__sub_801D7860((char*)p + 0x28); TObjPlayer__sub_801D7860((char*)p + 0x38); TObjPlayer__sub_801D7860((char*)p + 0x48); fn_801D6A18((char*)p + 0x58); *(int*)((char*)p + 0x4) = 0; fn_801D6C4C(p); return p; }
+void* init_sub_objects__10TObjPlayerFPv(void* p) { init_sub_object__10TObjPlayerFi((char*)p + 0x8); init_sub_object__10TObjPlayerFi((char*)p + 0x18); init_sub_object__10TObjPlayerFi((char*)p + 0x28); init_sub_object__10TObjPlayerFi((char*)p + 0x38); init_sub_object__10TObjPlayerFi((char*)p + 0x48); fn_801D6A18((char*)p + 0x58); *(int*)((char*)p + 0x4) = 0; fn_801D6C4C(p); return p; }
 
 }

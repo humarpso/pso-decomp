@@ -9,7 +9,7 @@ extern "C" {
 void render__6TOTrapFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 TObjPlayer__sub_801A85A0();
+s32 is_any_teammate_in_state__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -34,7 +34,7 @@ struct TOTrapVObj : TOTrapBase {
 };
 #pragma explicit_unused_unused_members on
 void render__6TOTrapFv(u8 *arg0) {
-    if (TObjPlayer__sub_801A85A0() == 0) {
+    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
         M2C_FIELD(arg0, s32 *, 0x340) = ((TOTrapVObj*)arg0)->m8(lbl_805DBA40, lbl_805DBA44);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x340) == 1) {
             TObjPlayer__sub_803D9B2C();

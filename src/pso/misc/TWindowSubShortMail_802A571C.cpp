@@ -20,7 +20,7 @@ int TWindowSubShortMail__sub_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, 
 void TAdChrSelASlotGC__sub_802A596C(void* p, void* a1, void* a2);
 void update_card_slot__17TWindowSubComCardFPv(void* p);
 void notify_trade_main__17TWindowSubComCardFPv(void* p);
-void TWindowSubShortMail__sub_802A571C(void* p);
+void notify_warp_flag70__19TWindowSubShortMailFPv(void* p);
 int close__17TWindowSubComCardFPv(void* p);
 void free_member__17TWindowSubComCardFPv(void* p);
 int TAdChrSelASlotGC__sub_800740FC(void*);
@@ -29,6 +29,6 @@ int TWindowSubComCard__sub_80265C10(void*);
 int TWindowSubTradeMain__sub_80287560(void*);
 int queue_destruction__7TObjectFv(void*);
 
-void TWindowSubShortMail__sub_802A571C(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) set_flag70_bit10__16TObjCityMainWarpFPv(m); }
+void notify_warp_flag70__19TWindowSubShortMailFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) set_flag70_bit10__16TObjCityMainWarpFPv(m); }
 
 }

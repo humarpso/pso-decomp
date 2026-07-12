@@ -27,7 +27,7 @@ void destroy__21TShopDeleteItemWindowFPv(void *arg0);
 void TShopDeleteItemWindow__vt4(void *arg0);
 void TShopDeleteItemWindow__vt5(void *arg0);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
-M2C_UNK TWindowSubItem__sub_801F8FD4(void *);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 
 void TShopDeleteItemWindow__vt5(void *arg0) {
     struct VObj_80337910 *o = (struct VObj_80337910 *)M2C_FIELD(arg0, void **, 0x64);
@@ -51,7 +51,7 @@ struct VObj_80337980 : Base_80337980 {
 
 void destroy__21TShopDeleteItemWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        TWindowSubItem__sub_801F8FD4(M2C_FIELD(arg0, void **, 0x30));
+        clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x30));
     }
     TQuestListVM__sub_80073DC4(arg0, 1);
     ((VObj_80337980 *)arg0)->m4(0x4C, 1);

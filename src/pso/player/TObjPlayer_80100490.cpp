@@ -21,7 +21,7 @@ void TItem__sub_801005DC(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
 
-s32 TObjPlayer__sub_80100490(void) {
+s32 query_game_join_id__10TObjPlayerFv(void) {
     s32 temp_r3;
 
     temp_r3 = TLobby__sub_80101AB0();

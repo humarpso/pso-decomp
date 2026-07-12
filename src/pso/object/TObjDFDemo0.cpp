@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjDFDemo0__sub_8004E020(void *arg0);
+void *create__11TObjDFDemo0FPv(void *arg0);
 void *TObjDFDemo0__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjDFDemo0__sub_8004E020(void *arg0) {
+void *create__11TObjDFDemo0FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x110);
     if (o != NULL) {
         o = TObjDFDemo0__ct(o, arg0);

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_80109464();
+M2C_UNK invoke_menu_callback__10TObjPlayerFPv();
 
 void fn_801094B0(u32 arg0) {
     if (arg0 != 0U) {
-        TObjPlayer__sub_80109464();
+        invoke_menu_callback__10TObjPlayerFPv();
     }
 }
 

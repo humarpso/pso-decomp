@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOHangerMachine01__sub_80169118(int arg0, u16 arg1);
+s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern s32 lbl_805D53A0;
 
-s32 TOHangerMachine01__sub_80169118(int arg0, u16 arg1) {
+s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         return 1;
     }

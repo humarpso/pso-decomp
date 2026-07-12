@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm9Mericarol__sub_802CECE0(void);
+void update_particle_effect__19TObjEneBm9MericarolFv(void);
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 
 extern s32 lbl_805D686C;
 
-void TObjEneBm9Mericarol__sub_802CECE0(void) {
+void update_particle_effect__19TObjEneBm9MericarolFv(void) {
     switch (lbl_805D686C) {
     case 0x21:
     case 0x2B:

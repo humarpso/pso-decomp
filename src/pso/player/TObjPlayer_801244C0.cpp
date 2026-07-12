@@ -12,7 +12,7 @@ s32 TItemMag__sub_80102C4C();
 s32 TItemProArmor__sub_80102C3C(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
-M2C_UNK TObjPlayer__sub_80100E00(void *);
+M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8011E618(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK, void *);
@@ -45,7 +45,7 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
             TObjPlayer__sub_803D9B2C();
             TObjPlayer__sub_80364198();
             some_id_805c6f74 &= 0xFFFFFFEF;
-            TObjPlayer__sub_80100E00(arg0);
+            get_mag_scale__10TObjPlayerFPv(arg0);
             TObjPlayer__sub_80364028();
             TOHangerMachine01__sub_803D9C00(&sp8);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60));

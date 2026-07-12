@@ -21,7 +21,7 @@ s32 free_if_positive__6TLobbyFis(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-void fn_801D3554(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 temp_r31;
     s32 temp_r30;
 

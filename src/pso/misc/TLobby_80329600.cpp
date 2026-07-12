@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void apply_state_6c84__6TLobbyFv(void);
-void TLobby__sub_80329628(void);
+void apply_player_flag_2__6TLobbyFv(void);
 void init_object_flag__6TLobbyFv(void);
 void set_flag_1_at_6c84__6TLobbyFv(void);
 void clear_flag_at_6c84__6TLobbyFv(void);
@@ -23,7 +23,7 @@ void apply_state_6c84__6TLobbyFv(void) {
 
 extern M2C_UNK lbl_805D6C84;
 
-void TLobby__sub_80329628(void) {
+void apply_player_flag_2__6TLobbyFv(void) {
     TObjPlayer__sub_8001BEF8(&lbl_805D6C84, 2);
 }
 

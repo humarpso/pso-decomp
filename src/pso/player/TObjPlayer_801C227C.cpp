@@ -3,7 +3,7 @@
 extern "C" {
 
 int __ct__12TPlyCharDataFv(void*);
-int TObjPlayer__sub_8001BF10(void*);
+int init_forward__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_80072218(void*);
 void* init_char_data__10TObjPlayerFPv(void* p);
 int fn_8035B00C(void*);
@@ -36,6 +36,6 @@ int check_flag_at_428__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BEF
 void* TObjPlayer__sub_801C22A4(void* p) { return (char*)p + 0x4; }
 void* TObjPlayer__sub_801C22AC(void* p) { return (char*)p + 0xc; }
 s32 TObjPlayer__sub_801C22B4(void* p) { return *(s32*)((char*)p + 0x0); }
-void* init_char_data__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80072218((char*)p + 0x4); __ct__12TPlyCharDataFv((char*)p + 0xc); TObjPlayer__sub_8001BF10((char*)p + 0x428); *(int*)(p) = 0; return p; }
+void* init_char_data__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80072218((char*)p + 0x4); __ct__12TPlyCharDataFv((char*)p + 0xc); init_forward__10TObjPlayerFPv((char*)p + 0x428); *(int*)(p) = 0; return p; }
 
 }

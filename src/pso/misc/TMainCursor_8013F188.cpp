@@ -13,7 +13,7 @@ int TLockOnCursor__sub_8013EC38(void*);
 int TMainCursor__sub_8013E240(void*);
 f32 TMainCursor__sub_8013F178(void* p);
 void TMainCursor__sub_8013F180(void* p, f32 v);
-int TObjPlayer__sub_8001BF10(void*);
+int init_forward__10TObjPlayerFPv(void*);
 M2C_UNK __dl__FPv(void *);
 int TRaderMapCore__sub_8002F588(void*);
 int fn_8004438C(void*);

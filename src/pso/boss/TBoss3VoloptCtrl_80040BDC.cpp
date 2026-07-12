@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TBoss3VoloptCtrl__sub_80040BDC(void *arg0, s16 arg1);
+void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1);
 void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
 void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0);
 M2C_UNK TLobby__sub_8020C07C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -19,7 +19,7 @@ void disallow_rendering__7TObjectFv(void *);
 
 extern M2C_UNK lbl_80483B88[];
 
-void *TBoss3VoloptCtrl__sub_80040BDC(void *arg0, s16 arg1) {
+void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80483B88;
         __dt__7TObjectFv(arg0, 0);

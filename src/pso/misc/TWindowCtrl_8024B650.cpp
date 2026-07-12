@@ -8,14 +8,14 @@ extern "C" {
 
 void set_window_flags__11TWindowCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 u32 get_window__11TWindowCtrlFi();
-M2C_UNK TWindowCtrlMain__sub_8024D87C(u32, s32, s32);
+M2C_UNK update_child_2c__15TWindowCtrlMainFPv(u32, s32, s32);
 
 void set_window_flags__11TWindowCtrlFPvii(void *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
 
     temp_r3 = get_window__11TWindowCtrlFi();
     if (temp_r3 != 0U) {
-        TWindowCtrlMain__sub_8024D87C(temp_r3, arg1, arg2 | 0xE);
+        update_child_2c__15TWindowCtrlMainFPv(temp_r3, arg1, arg2 | 0xE);
     }
 }
 

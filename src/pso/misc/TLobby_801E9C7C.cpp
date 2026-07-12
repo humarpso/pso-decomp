@@ -14,7 +14,7 @@ void update_split_screen__6TLobbyFv(void);
 s32 set_state__16TAdStorySelectGCFi(s32);
 int TLobby__sub_801EA5FC(void*);
 M2C_UNK TLobby__sub_80070AFC();
-M2C_UNK TLobby__sub_80070CDC();
+M2C_UNK update_dead_list_win__6TLobbyFv();
 void *TAdSinglePlyChrSelectGC__sub_8007B7E4();
 M2C_UNK update_screen__6TLobbyFPv();
 M2C_UNK TLobby__sub_80291DC0();
@@ -56,7 +56,7 @@ void update_by_screen_mode__6TLobbyFv(void) {
         update_screen__6TLobbyFPv();
         return;
     }
-    TLobby__sub_80070CDC();
+    update_dead_list_win__6TLobbyFv();
 }
 
 s32 is_split_screen();

@@ -18,7 +18,7 @@ s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
-M2C_UNK TObjPlayer__sub_8022602C(M2C_UNK);
+M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 extern const f32 TObjEneDf2Bringer__data_805D9820;
@@ -169,7 +169,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 1;
                 M2C_FIELD(arg0, s16 *, 0xB8) = 3;
                 TBoss3Volopt__sub_8022675C(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003B40E), arg0 + 0x38, 0, 0);
-                TObjPlayer__sub_8022602C(-0x200);
+                play_effect_if_v2__10TObjPlayerFi(-0x200);
             }
             TObjEneDf2Bringer__sub_80099188(arg0);
             TObjEneDD__sub_800BACE0(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805D9824);

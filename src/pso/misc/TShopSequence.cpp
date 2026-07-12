@@ -12,12 +12,12 @@ extern "C" {
 s32 update_download_server__13TShopSequenceFPv(void *arg0);
 void close_message_window__13TShopSequenceFPv(void *arg0);
 M2C_UNK close__17TMedicalCenterMesFPv(void *);
-s32 TQuestVmDownLoadServer__sub_80222814(void *);
+s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
 
 s32 update_download_server__13TShopSequenceFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x28);
     if (temp_r3 != NULL) {
-        return TQuestVmDownLoadServer__sub_80222814(temp_r3);
+        return poll_field_20c__22TQuestVmDownLoadServerFPv(temp_r3);
     }
     return 1;
 }

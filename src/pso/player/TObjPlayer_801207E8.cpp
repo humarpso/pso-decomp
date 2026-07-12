@@ -9,7 +9,7 @@ extern "C" {
 typedef struct { f32 sp8; f32 spC; f32 sp10; } FloatTriplet;
 
 s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_801208E0(void *arg0, s32 arg1);
+void draw_status_icon__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 TCameraCtrl__sub_80069258();
 M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
 s32 TObjPlayer__sub_80121160(void *, s32);
@@ -49,7 +49,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     return 1;
 }
 
-void TObjPlayer__sub_801208E0(void *arg0, s32 arg1) {
+void draw_status_icon__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     draw_icon__10TObjPlayerFPvii((void *)(arg0), (s32)(M2C_FIELD(arg0, s16 *, 0x1CE)), (s32)(arg1));
 }
 

@@ -14,7 +14,7 @@ s32 TPlyPhotonChair__sub_801BEC44(void *);
 s32 TObjPlayer__sub_8001BEF8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 s32 TObjPlayer__sub_801AFF0C(void *);
-M2C_UNK TObjPlayer__sub_801C65A4(void *);
+M2C_UNK revive_or_spawn_marker__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801CA35C(void *);
 M2C_UNK TObjPlayer__sub_801D0888(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
@@ -38,7 +38,7 @@ void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
                 TObjPlayer__sub_801CA35C(arg0);
             }
             TObjPlayer__sub_801BF9E8(arg0 + 0x5FC, TObjPlayer__data_805DC294);
-            TObjPlayer__sub_801C65A4(arg0);
+            revive_or_spawn_marker__10TObjPlayerFi(arg0);
             return;
         }
         if ((TFontSmallLobby__sub_801AFEE0() != 0) && (TPlyPhotonChair__sub_801BEC44(arg0) != 0)) {

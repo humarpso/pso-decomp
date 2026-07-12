@@ -92,7 +92,7 @@ void set_field_a__6TLobbyFPvUc(void *arg0, u8 arg1) {
 
 u8 ret_801D791C();
 
-void TLobby__sub_801D7430(void *arg0, u8 arg1) {
+void set_byte9_clamped__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;
@@ -188,7 +188,7 @@ void set_field_2__6TLobbyFPvUc(void *arg0, u8 arg1) {
 
 u8 ret_801D795C();
 
-void TLobby__sub_801D7630(void *arg0, u8 arg1) {
+void set_validated_field_0x1__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;

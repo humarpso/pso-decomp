@@ -8,10 +8,10 @@ extern "C" {
 
 u32 create_message_window__17TMedicalCenterMesFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 u32 create_window__17TMedicalCenterMesFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_8030A6FC();
+s32 is_camera_ctrl_active__6TLobbyFv();
 M2C_UNK fn_8024422C(u32, f32, f32);
 u32 TWindowMessagePage__sub_8026AE7C(s32, s32, M2C_UNK, s32);
-u32 TWindowMessagePage__sub_8026AEE0(s32, s32, M2C_UNK);
+u32 set_text__18TWindowMessagePageFiii(s32, s32, M2C_UNK);
 
 extern f32 lbl_805DC71C;
 extern f32 lbl_805DC720;
@@ -19,7 +19,7 @@ extern f32 lbl_805DC720;
 u32 create_message_window__17TMedicalCenterMesFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     f32 var_f31;
 
-    if (TLobby__sub_8030A6FC() > 2) {
+    if (is_camera_ctrl_active__6TLobbyFv() > 2) {
         var_f31 = lbl_805DC71C;
     } else {
         var_f31 = lbl_805DC720;
@@ -38,13 +38,13 @@ extern f32 lbl_805DC720;
 u32 create_window__17TMedicalCenterMesFPvii(void *arg0, s32 arg1, s32 arg2) {
     f32 var_f31;
 
-    if (TLobby__sub_8030A6FC() > 2) {
+    if (is_camera_ctrl_active__6TLobbyFv() > 2) {
         var_f31 = lbl_805DC71C;
     } else {
         var_f31 = lbl_805DC720;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0x20C) = TWindowMessagePage__sub_8026AEE0(arg1, arg2, 1);
+        M2C_FIELD(arg0, u32 *, 0x20C) = set_text__18TWindowMessagePageFiii(arg1, arg2, 1);
         fn_8024422C(M2C_FIELD(arg0, u32 *, 0x20C), var_f31, var_f31);
         return M2C_FIELD(arg0, u32 *, 0x20C);
     }

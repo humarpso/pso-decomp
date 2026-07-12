@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneSlimeOne__sub_800E969C(void *arg0);
-void TObjEneSlimeOne__sub_800E96CC(u8 *arg0);
-void TObjEneSlimeOne__sub_800E9740(u8 *arg0);
+void init_split_effect__15TObjEneSlimeOneFPv(u8 *arg0);
+void update_tick__15TObjEneSlimeOneFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, s32);
@@ -24,7 +24,7 @@ void TObjEneSlimeOne__sub_800E969C(void *arg0) {
 
 extern const f32 lbl_805DA67C;
 
-void TObjEneSlimeOne__sub_800E96CC(u8 *arg0) {
+void init_split_effect__15TObjEneSlimeOneFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) lbl_805DA67C;
     M2C_FIELD(arg0, f32 *, 0x3AC) = (f32) lbl_805DA67C;
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) lbl_805DA67C;
@@ -34,7 +34,7 @@ void TObjEneSlimeOne__sub_800E96CC(u8 *arg0) {
     set_display_mode__15TObjEneSlimeOneFPvi((void *) (arg0), (int) (0));
 }
 
-void TObjEneSlimeOne__sub_800E9740(u8 *arg0) {
+void update_tick__15TObjEneSlimeOneFPv(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x394) + 1;

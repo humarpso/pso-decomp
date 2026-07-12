@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update__11TWindowChatFPv(void *arg0);
-void TWindowChat__sub_8024735C(void *arg0);
+void open_input__11TWindowChatFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK close_all_children__11TWindowChatFPv(void *);
 M2C_UNK TWindowChat__sub_8024792C(void *);
@@ -44,7 +44,7 @@ void update__11TWindowChatFPv(void *arg0) {
     }
 }
 
-void TWindowChat__sub_8024735C(void *arg0) {
+void open_input__11TWindowChatFPv(void *arg0) {
     if (TWindowChat__sub_80247EB4() != 0) {
         TWindowChat__sub_80247E50(arg0);
         TWindowChat__sub_80247DFC(arg0);

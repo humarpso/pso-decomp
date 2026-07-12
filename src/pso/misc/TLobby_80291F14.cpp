@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_if_ready2__6TLobbyFv(void);
-s32 TLobby__sub_80291F58(void);
+s32 check_ready_status__6TLobbyFv(void);
 s32 TLobby__sub_80291F9C();
 s32 TLobby__sub_80293080();
 s32 is_multi_ready__6TLobbyFv();
@@ -23,7 +23,7 @@ void draw_if_ready2__6TLobbyFv(void) {
 
 extern M2C_UNK lbl_804DB1F0[];
 
-s32 TLobby__sub_80291F58(void) {
+s32 check_ready_status__6TLobbyFv(void) {
     s32 var_r3;
 
     var_r3 = TLobby__sub_80291F9C();

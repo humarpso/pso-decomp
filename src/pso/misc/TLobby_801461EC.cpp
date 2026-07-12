@@ -10,7 +10,7 @@ void init_keyboard_buffer__6TLobbyFv(void);
 s32 poll_connect__6TLobbyFv(void);
 void flush_pending_flag2__6TLobbyFv(void);
 void set_battle_flag__6TLobbyFi(s32 arg0);
-M2C_UNK TLobby__sub_801A3FEC();
+M2C_UNK send_and_handle__6TLobbyFPv();
 int TLobby__sub_80145A94(void);
 int TLobby__sub_803F4B68(void*);
 M2C_UNK TLobby__sub_804219D0(M2C_UNK, M2C_UNK, s32);
@@ -33,7 +33,7 @@ loop_1:
         return 0;
     }
     var_r31 += 1;
-    TLobby__sub_801A3FEC();
+    send_and_handle__6TLobbyFPv();
     if (func_801A5E54__Fv() != 0) {
         return 1;
     }

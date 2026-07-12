@@ -15,7 +15,7 @@ void TItemData__sub_8010CCB4(void);
 int register_drop__9TItemDataFPv(void* p);
 int register_item_drop__10TObjPlayerFPv(void*);
 
-s16 TItemData__sub_8010CDEC(void *arg0) {
+s16 get_bswap16_field8__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
     sp8 = M2C_FIELD(arg0, s16 *, 8);

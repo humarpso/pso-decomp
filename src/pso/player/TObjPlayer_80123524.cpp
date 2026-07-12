@@ -13,7 +13,7 @@ void update_pulse__10TObjPlayerFPv(void *arg0);
 s32 TItemMag__sub_80102C4C();
 M2C_UNK TOHangerMachine01__sub_803D9C00(Sp8Type_80123524 *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
-M2C_UNK TObjPlayer__sub_80100E00(void *);
+M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C();
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, Sp8Type_80123524 *, s32);
@@ -51,7 +51,7 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(temp_r29, s32 *, 0) = (s32) (M2C_FIELD(temp_r29, s32 *, 0) & 0xFFFFFFF7);
         TObjPlayer__sub_80364198();
         some_id_805c6f74 &= 0xFFFFFFEF;
-        TObjPlayer__sub_80100E00(arg0);
+        get_mag_scale__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_80364028();
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 1);
         M2C_FIELD(temp_r30, s32 *, 0) = (s32) (M2C_FIELD(temp_r30, s32 *, 0) & 0xFFFFFFFD);

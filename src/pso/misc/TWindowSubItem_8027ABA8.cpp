@@ -11,7 +11,7 @@ void get_selected_entry__14TWindowSubItemFPv(void *arg0);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 M2C_UNK TWindowSubItem__sub_80249058();
 int fn_80266CF8(void*);
-int TShopArmorListWindow__sub_80266D78(void*);
+int save_cursor_selection__20TShopArmorListWindowFPv(void*);
 int fn_80266DB0(void*);
 int TWindowSubStatusDisp__sub_80266EB8(void*);
 int fn_8027ABFC(void* a0 = 0);
@@ -20,6 +20,6 @@ void set_flag60_bit10__14TWindowSubItemFPv(void* p);
 void TWindowSubItem__sub_8027AA3C(void* p);
 void TWindowSubItem__sub_8027AA48(void* p, s16 v);
 
-void refresh__14TWindowSubItemFPv(void* p) { TShopArmorListWindow__sub_80266D78(p); fn_80266DB0(p); fn_8027ABFC(p); fn_80266CF8(p); TWindowSubStatusDisp__sub_80266EB8(p); TWindowSubItem__sub_8027AA3C(p); }
+void refresh__14TWindowSubItemFPv(void* p) { save_cursor_selection__20TShopArmorListWindowFPv(p); fn_80266DB0(p); fn_8027ABFC(p); fn_80266CF8(p); TWindowSubStatusDisp__sub_80266EB8(p); TWindowSubItem__sub_8027AA3C(p); }
 
 }

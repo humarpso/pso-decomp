@@ -38,7 +38,7 @@ void TItemObject__vt29(void *arg0);
 s32 TItemObject__vt35(void *arg0, s32 arg1);
 s32 TItemObject__vt36(void *arg0, s32 arg1);
 M2C_UNK set_flag_1024__11TItemObjectFPv(void *);
-s32 TItemObject__sub_80101A1C(void *);
+s32 copy_and_register_item_data__11TItemObjectFPv(void *);
 M2C_UNK TItemObject__sub_80115D6C(void *, s32);
 M2C_UNK TObjPlayer__sub_80099EF8(void *);
 s32 check_flag_400__20TWindowSubStatusDispFv();
@@ -64,7 +64,7 @@ s32 TItemObject__vt36(void *arg0, s32 arg1) {
     s32 temp_r31;
 
     temp_r31 = arg1 + ((VObj_801161A4 *)arg0)->m34();
-    if (temp_r31 <= TItemObject__sub_80101A1C(arg0)) {
+    if (temp_r31 <= copy_and_register_item_data__11TItemObjectFPv(arg0)) {
         TItemObject__sub_80115D6C(arg0, temp_r31);
         return 1;
     }

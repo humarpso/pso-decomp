@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TShopEquipmentGearSequence__sub_8021E3A4(void *arg0);
+void *create_instance__26TShopEquipmentGearSequenceFPv(void *arg0);
 void *TShopEquipmentGearSequence__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *TShopEquipmentGearSequence__sub_8021E3A4(void *arg0) {
+void *create_instance__26TShopEquipmentGearSequenceFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
         o = TShopEquipmentGearSequence__ct(o, tl_05, arg0);

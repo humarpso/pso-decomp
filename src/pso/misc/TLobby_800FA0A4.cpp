@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void notify_and_close__6TLobbyFv(void);
-M2C_UNK TLobby__sub_800FA12C();
+M2C_UNK pop_and_close__6TLobbyFv();
 
 extern u8 *lbl_805D5360;
 extern s32 lbl_805D536C;
@@ -24,7 +24,7 @@ void notify_and_close__6TLobbyFv(void) {
     if (temp_r12 != NULL) {
         temp_r12(lbl_805D5360 + 0x44);
     }
-    TLobby__sub_800FA12C();
+    pop_and_close__6TLobbyFv();
     lbl_805D536C = 0;
 }
 

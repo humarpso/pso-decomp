@@ -10,7 +10,7 @@ int TObjPlayer__sub_801BE2DC(void* p);
 int check_stat_flag_41c__10TObjPlayerFPv(void* p);
 int check_flag_at_41c__10TObjPlayerFPv(void* p);
 int set_flag_41c_bit1__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801BE360(void* p);
+int clamp_stat_41c__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_8001BED8(void*, int);
 
 int TObjPlayer__vt74(void) { return 0; }

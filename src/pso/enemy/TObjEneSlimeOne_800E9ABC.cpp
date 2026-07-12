@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneSlimeOne__sub_800E9ABC(u8 *arg0);
-void TObjEneSlimeOne__sub_800E9B7C(void* p);
+void update_water_bomb_timer__15TObjEneSlimeOneFPv(u8 *arg0);
+void begin_appear__15TObjEneSlimeOneFPv(void* p);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
 M2C_UNK TObjEneSlimeOne__sub_800EAE78(void *, M2C_UNK);
@@ -16,7 +16,7 @@ int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
 M2C_UNK create__21TObjEneSlimeWaterBombFPvPv(void *, void *);
 int set_display_mode__15TObjEneSlimeOneFPvi(void*, void*);
 
-void TObjEneSlimeOne__sub_800E9ABC(u8 *arg0) {
+void update_water_bomb_timer__15TObjEneSlimeOneFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 
@@ -40,6 +40,6 @@ void TObjEneSlimeOne__sub_800E9ABC(u8 *arg0) {
     }
 }
 
-void TObjEneSlimeOne__sub_800E9B7C(void* p) { *(int*)((char*)p + 0x390) = 90; *(int*)((char*)p + 0x394) = 19; TObjEneSlimeOne__sub_800EC7F4(*(void**)((char*)p + 0x388), (void*)3); set_display_mode__15TObjEneSlimeOneFPvi(p, (void*)2); }
+void begin_appear__15TObjEneSlimeOneFPv(void* p) { *(int*)((char*)p + 0x390) = 90; *(int*)((char*)p + 0x394) = 19; TObjEneSlimeOne__sub_800EC7F4(*(void**)((char*)p + 0x388), (void*)3); set_display_mode__15TObjEneSlimeOneFPvi(p, (void*)2); }
 
 }

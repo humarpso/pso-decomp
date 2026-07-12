@@ -3,9 +3,9 @@
 extern "C" void  disallow_rendering__7TObjectFv(TObject*);
 extern "C" void  allow_rendering__7TObjectFv(TObject*);
 extern "C" void  queue_destruction__7TObjectFv(TObject*);
-extern "C" u32   TObjPlayer__sub_80100490(void*);
+extern "C" u32   query_game_join_id__10TObjPlayerFv(void*);
 extern "C" void  TBoss4Zako__sub_803D8910(Vec*, Vec*);
-extern "C" void  TEffStarLight2D__sub_80084E98(void*, Vec*);
+extern "C" void  copy_position__15TEffStarLight2DFPv(void*, Vec*);
 
 extern "C" Vec*  VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 extern "C" void  TBoss6Type1__sub_803D9370(Vec*, const Vec*);
@@ -44,14 +44,14 @@ extern "C" const f32 lbl_805DAC60;
 #define kLifeFloor lbl_805DAC60
 
 void TItemShoot::run_task() {
-    if (TObjPlayer__sub_80100490(this->m_54) == 0) {
+    if (query_game_join_id__10TObjPlayerFv(this->m_54) == 0) {
         disallow_rendering__7TObjectFv(this);
         queue_destruction__7TObjectFv(this);
     }
     allow_rendering__7TObjectFv(this);
     TBoss4Zako__sub_803D8910(&this->m_pos, &this->m_dir);
     if (this->m_50 != nullptr) {
-        TEffStarLight2D__sub_80084E98(this->m_50, &this->m_pos);
+        copy_position__15TEffStarLight2DFPv(this->m_50, &this->m_pos);
     }
     this->hook();
     this->m_life -= kLifeDecay;

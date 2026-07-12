@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s16 TObjPlayer__sub_801D95B8(void *arg0);
-s16 TObjPlayer__sub_801D95DC(void *arg0);
+s16 get_or_init_field_4__10TObjPlayerFPv(void *arg0);
 void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2);
 u8 get_valid_technique__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_801C011C(void *, M2C_UNK);
@@ -25,7 +25,7 @@ s16 TObjPlayer__sub_801D95B8(void *arg0) {
     return M2C_FIELD(arg0, s16 *, 6);
 }
 
-s16 TObjPlayer__sub_801D95DC(void *arg0) {
+s16 get_or_init_field_4__10TObjPlayerFPv(void *arg0) {
     if (TObjPlayer__sub_801D9A04(M2C_FIELD(arg0, s16 *, 4)) == 0) {
         TObjPlayer__sub_801C011C(arg0, 0);
     }

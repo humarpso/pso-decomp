@@ -5,7 +5,7 @@ extern "C" {
 void swap_bytes__14TBoss4DarkFalzFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int TObjPlayer__sub_8001960C(void*);
+int read_be16_field2__10TObjPlayerFPv(void*);
 void swap_and_send__14TBoss4DarkFalzFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int is_field378_zero__14TBoss4DarkFalzFPv(void* p);

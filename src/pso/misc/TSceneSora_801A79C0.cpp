@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TSceneSora__sub_801A79C0(s32 arg0);
+void enter_scene__10TSceneSoraFi(s32 arg0);
 M2C_UNK TCameraCtrl__sub_801A7B14();
 M2C_UNK TObjPlayer__sub_800D8A60();
 M2C_UNK apply_all_default__8TFogCtrlFv(s32);
@@ -15,7 +15,7 @@ M2C_UNK reset_state__10TSceneSoraFv(s32);
 
 extern void *tl_05;
 
-void TSceneSora__sub_801A79C0(s32 arg0) {
+void enter_scene__10TSceneSoraFi(s32 arg0) {
     TCameraCtrl__sub_801A7B14();
     reset_state__10TSceneSoraFv(arg0);
     apply_all_default__8TFogCtrlFv(arg0);

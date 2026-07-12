@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801BAA00(u32 arg0);
+void apply_state_transform__10TObjPlayerFUi(u32 arg0);
 s32 TObjPlayer__sub_800196F4(u32);
 M2C_UNK set_flag_400000__10TObjPlayerFi();
 M2C_UNK TObjPlayer__sub_801C17D0(M2C_UNK *);
@@ -20,7 +20,7 @@ struct Sp8Struct_801baa00 {
     s32 fC;
 };
 
-void TObjPlayer__sub_801BAA00(u32 arg0) {
+void apply_state_transform__10TObjPlayerFUi(u32 arg0) {
     struct Sp8Struct_801baa00 sp8;
 
     set_flag_400000__10TObjPlayerFi();

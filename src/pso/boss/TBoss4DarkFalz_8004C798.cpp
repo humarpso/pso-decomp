@@ -6,14 +6,14 @@ extern "C" {
 
 void init_state__14TBoss4DarkFalzFPv(void *arg0);
 void TBoss4DarkFalz__sub_8004BA70(void *);
-void TObjDFDemo4__sub_8004F8AC(void *, void *, void *);
+void create__11TObjDFDemo4FPvPvPv(void *, void *, void *);
 void TObjBgmColCtrl__sub_802274B8(void *);
 
 extern M2C_UNK lbl_80437298[];
 
 void init_state__14TBoss4DarkFalzFPv(void *arg0) {
     TBoss4DarkFalz__sub_8004BA70(arg0);
-    TObjDFDemo4__sub_8004F8AC(arg0, (void *)((char *)arg0 + 924), M2C_FIELD(arg0, void **, 0x3A8));
+    create__11TObjDFDemo4FPvPvPv(arg0, (void *)((char *)arg0 + 924), M2C_FIELD(arg0, void **, 0x3A8));
     TObjBgmColCtrl__sub_802274B8(lbl_80437298);
     M2C_FIELD(arg0, u32 *, 0x380) = 114;
 }

@@ -12,7 +12,7 @@ s32 is_state_3__14TObjCMMainMenuFv(s32);
 M2C_UNK fn_8028D8F4();
 M2C_UNK fn_80291268();
 M2C_UNK create__15TChCrCharSelectFPv(s32);
-M2C_UNK TSaveChCr__sub_8033A3D0(M2C_UNK);
+M2C_UNK create__9TSaveChCrFPv(M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
 extern s32 tl_03;
@@ -28,7 +28,7 @@ s32 update_main_menu__12TCharaMakingFi(s32 arg0) {
         if ((s32) lbl_805D652C == 1) {
             var_r3 = 1;
         }
-        TSaveChCr__sub_8033A3D0(var_r3);
+        create__9TSaveChCrFPv(var_r3);
         fn_80291268();
         queue_destruction__7TObjectFv(arg0);
         return 1;

@@ -3,8 +3,8 @@
 extern "C" {
 
 int fn_802A2058(void);
-int TChCrTagInformation__sub_802A200C(void*);
+int create__19TChCrTagInformationFPv(void*);
 
-int fn_802A2058(void) { return TChCrTagInformation__sub_802A200C((void*)(0)); }
+int fn_802A2058(void) { return create__19TChCrTagInformationFPv((void*)(0)); }
 
 }

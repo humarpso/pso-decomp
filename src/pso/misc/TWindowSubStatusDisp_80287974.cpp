@@ -8,7 +8,7 @@ extern "C" {
 
 void update__20TWindowSubStatusDispFPvPv(void* p, void* a1);
 void TWindowSubStatusDisp__sub_802879B0(void *arg0);
-s32 TWindowSubStatusDisp__sub_802879C4(s32 arg0, s16 arg1);
+s32 deleting_destructor__20TWindowSubStatusDispFis(s32 arg0, s16 arg1);
 int TWindowSubStatusDisp__sub_80287860(void*);
 int TWindowSubStatusDisp__sub_802878B8(void*, void*);
 M2C_UNK __dl__FPv();
@@ -19,7 +19,7 @@ void TWindowSubStatusDisp__sub_802879B0(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + M2C_FIELD(arg0, f32 *, 0x20));
 }
 
-s32 TWindowSubStatusDisp__sub_802879C4(s32 arg0, s16 arg1) {
+s32 deleting_destructor__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

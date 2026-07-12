@@ -22,13 +22,13 @@ void TObjPlayer__sub_80102C68(void* p);
 void TObjPlayer__sub_80102C78(void* p, s16 v);
 s16 TObjPlayer__sub_80102C80(void* p);
 s16 TObjPlayer__sub_80102C88(void* p);
-int TObjPlayer__sub_80102C90(void* p);
+int get_equip_field_d04__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_80102CD8(void* p);
 int TObjPlayer__sub_801C675C(void*);
 
 int TObjPlayer__sub_80102CE0(void) { return 0; }
 int TObjPlayer__sub_80102D14(void) { return 0; }
-void TObjPlayer__sub_8001960C(void* p);
+void read_be16_field2__10TObjPlayerFPv(void* p);
 void bswap_32__FPUl(u32* p);
 
 }

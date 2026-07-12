@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void apply_conveyor_effect__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_80101048();
+M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 s32 TObjPlayer__sub_80121200();
 M2C_UNK TObjPlayer__sub_803D898C(s32);
 
@@ -17,7 +17,7 @@ void apply_conveyor_effect__10TObjPlayerFPv(void *arg0) {
     temp_r3 = TObjPlayer__sub_80121200();
     TObjPlayer__sub_803D898C(M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0xDB4) + (temp_r3 * 0x30));
     if (temp_r3 == 9) {
-        TObjPlayer__sub_80101048();
+        play_particle_effect_once__10TObjPlayerFv();
     }
 }
 

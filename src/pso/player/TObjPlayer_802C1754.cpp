@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_802C1754(u8 *arg0);
+void draw_debug_lines__10TObjPlayerFPv(u8 *arg0);
 s32 TMainTask__sub_8001A430();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
@@ -21,7 +21,7 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 extern s32 lbl_805D67B4;
 extern const f32 lbl_805DE4FC;
 
-void TObjPlayer__sub_802C1754(u8 *arg0) {
+void draw_debug_lines__10TObjPlayerFPv(u8 *arg0) {
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (TMainTask__sub_8001A430() == 0)) {
         draw_line_strip__10TObjPlayerFPviif(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), lbl_805DE4FC);
     }

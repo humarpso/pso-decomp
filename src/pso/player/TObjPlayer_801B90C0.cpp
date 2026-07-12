@@ -8,10 +8,10 @@ extern "C" {
 
 s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1);
 void can_pickup_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
-s32 TItemObject__sub_80101A1C();
+s32 copy_and_register_item_data__11TItemObjectFPv();
 M2C_UNK copy_to_item_data__5TItemFPvPv(s32, M2C_UNK *);
 s32 lookup_item_def__9TItemDataFPv(u8 *);
-u32 TItemList__sub_8010ED0C(u8 *);
+u32 get_item_type_or_default__9TItemListFPv(u8 *);
 u32 TObjPlayer__sub_801D4E10(void *, u8 *);
 void *get_owner_if_alive__10TObjPlayerFPv();
 
@@ -52,9 +52,9 @@ s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1) {
             if (temp_r3 == NULL) {
                 return 0;
             }
-            temp_r31_2 = TItemObject__sub_80101A1C();
+            temp_r31_2 = copy_and_register_item_data__11TItemObjectFPv();
             temp_r31 = temp_r31_2 - ((V_B *)temp_r3)->m34();
-            return ((s32) TItemList__sub_8010ED0C(arg1) <= temp_r31) ? 1 : 0;
+            return ((s32) get_item_type_or_default__9TItemListFPv(arg1) <= temp_r31) ? 1 : 0;
         }
         goto block_7;
     }

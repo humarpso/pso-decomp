@@ -11,7 +11,7 @@ void init_cursor__13TLockOnCursorFPv(void *);
 void init_forward__13TLockOnCursorFPv(void *);
 void cleanup__13TLockOnCursorFPv(void *);
 void reset_fields__13TLockOnCursorFPv(void *);
-void TObjPlayer__sub_8001BF10(void *);
+void init_forward__10TObjPlayerFPv(void *);
 void __ct__7TObjectFP7TObject(void *);
 void TObjPlayer__sub_8001BF40(void *);
 void fn_8013F0A0(void *);
@@ -28,7 +28,7 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     struct VOff_8013DE3C_arg0 *self = (struct VOff_8013DE3C_arg0 *)arg0;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TLockOnCursor;
-    TObjPlayer__sub_8001BF10(self->f_1C);
+    init_forward__10TObjPlayerFPv(self->f_1C);
     fn_8013F0A0((void *)((char *)arg0 + 36));
     reset_fields__13TLockOnCursorFPv((void *)((char *)arg0 + 60));
     TMainCursor__sub_8013F1F0((void *)((char *)arg0 + 72));

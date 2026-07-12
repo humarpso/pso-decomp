@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800A1F80(void *arg0);
+void handle_status_326__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjEneMe1GiGue__sub_80040B68(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800A0728();
 s32 TObjPlayer__sub_800A3224();
 u32 get_enemy_entity(u16);
 
-void TObjPlayer__sub_800A1F80(void *arg0) {
+void handle_status_326__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

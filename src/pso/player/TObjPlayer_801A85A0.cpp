@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801A85A0(void);
+s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_800196EC();
 s32 TObjPlayer__sub_800196F4();
 s32 TObjPlayer__sub_801AA17C(void *, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
-s32 TObjPlayer__sub_801A85A0(void) {
+s32 is_any_teammate_in_state__10TObjPlayerFv(void) {
     struct { u8 _pad[0x20]; } sp8;
     s32 temp_r31;
     s32 var_r30;

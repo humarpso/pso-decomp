@@ -12,7 +12,7 @@ M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK init_part__16TObjEneRe7BeruraFi(s32);
-M2C_UNK TObjPlayer__sub_800D8A2C();
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -51,7 +51,7 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
             }
         }
         TObjEneDD__sub_800B9D94(arg0 + 0x38, arg0 + 0xE8, 0, 0);
-        TObjPlayer__sub_800D8A2C();
+        toggle_particle_effect__10TObjPlayerFv();
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9624(0, lbl_805D9794, M2C_FIELD(arg0, f32 *, 0xCC), lbl_805D9794);

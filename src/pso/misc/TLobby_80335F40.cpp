@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void TLobby__sub_80335F40(void);
-void *TLobby__sub_80335F44(void *arg0, s16 arg1);
+void *dt__6TLobbyFPvs(void *arg0, s16 arg1);
 void *ct_with_parent__6TLobbyFPvPv(void *arg0, void *arg1);
 void TLobby__sub_80335FE0(void);
 void TLobby__sub_80335FE4(void);
@@ -17,7 +17,7 @@ void TLobby__sub_80335F40(void) {  }
 
 extern M2C_UNK lbl_804EE470[];
 
-void *TLobby__sub_80335F44(void *arg0, s16 arg1) {
+void *dt__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EE470;
         __dt__7TObjectFv(arg0, 0);

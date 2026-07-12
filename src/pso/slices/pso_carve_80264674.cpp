@@ -18,7 +18,7 @@ void show_child_window__15TWindowMainMenuFPv(void* p);
 void close_submenu__15TWindowMainMenuFPvPv(void* p, void* a1);
 void TWindowMainMenu__sub_802645E4(void* p, void* a1);
 void close__15TWindowMainMenuFPv(void* p);
-void TWindowMainMenu__sub_80264514(void* p);
+void update_trade_submenu__15TWindowMainMenuFPv(void* p);
 int TWindowSubTradeMain__sub_80244A4C(void*);
 
 int TWindowMainMenu__sub_80264674(void) { return 0; }

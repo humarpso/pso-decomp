@@ -6,7 +6,7 @@ void update_phase__12TBoss3VoloptFv(void);
 int TBoss3Volopt__sub_8003CB48(void);
 void TBoss3Volopt__sub_8003CB6C(void);
 s32 dispatch_state__16TBoss3VoloptCtrlFi(s32);
-s32 TBoss4DarkFalz__sub_801F4830(s32);
+s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 s32 TODoorVoShip__sub_801F44BC(s32);
 int update_if_active__12TBoss3VoloptFv(void*);
 int alloc_event__12TBoss3VoloptFsi(void*, void*);
@@ -14,7 +14,7 @@ s32 get_main_phase();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void update_phase__12TBoss3VoloptFv(void) {
-    TBoss4DarkFalz__sub_801F4830(0x2A);
+    dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x2A);
     if (get_main_phase() == 0xF) {
         dispatch_state__16TBoss3VoloptCtrlFi(0);
         return;

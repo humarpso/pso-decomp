@@ -19,7 +19,7 @@ M2C_UNK TWindowSubComCard__sub_80265C10(s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265DEC(s32, f32, f32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
-s32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
+s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 extern const f32 TWindowSubShortMail__data_805DD6C8;
@@ -29,7 +29,7 @@ s32 open_menu__19TWindowSubShortMailFv(void) {
     s32 temp_r31;
 
     temp_r3 = TWindowSubComCard__sub_8026CBB8(0xA2);
-    temp_r31 = TAdChrSelASlotGC__sub_80266508(temp_r3, 2);
+    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 2);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x105), 6, 1);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x106), 6, 0);
     if (TLobby__sub_8001DB44() == 0) {
@@ -48,7 +48,7 @@ s32 create_window__19TWindowSubShortMailFv(void) {
     s32 temp_r31;
 
     temp_r3 = TWindowSubComCard__sub_8026CBB8(0xA1);
-    temp_r31 = TAdChrSelASlotGC__sub_80266508(temp_r3, 2);
+    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 2);
     if (TLobby__sub_8001DB44() != 0) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x105), 0, 0);
         TObjCityMainWarp__sub_80266354(temp_r31, get_card_window_area__6TLobbyFv(), 0, 0);

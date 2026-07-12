@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TWindow__close(void *);
-int TObjPlayer__sub_802C3BB4(void*);
+int begin_action_from_char_select__10TObjPlayerFv(void*);
 int TSaveChCr__sub_8033A138(void);
 int TAdSinglePlyChrSelectGC__sub_801FF5E4(void*);
 
 int TSaveChCr__sub_8033A138(void) { return TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)(0)); }
-void save_character__9TSaveChCrFPv(void* p) { TObjPlayer__sub_802C3BB4(p); TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)1); }
+void save_character__9TSaveChCrFPv(void* p) { begin_action_from_char_select__10TObjPlayerFv(p); TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)1); }
 
 }

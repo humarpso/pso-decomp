@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80267B90(void *arg0, s32 arg1);
+void ensure_status_display__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 
-void TWindowSubStatusDisp__sub_80267B90(void *arg0, s32 arg1) {
+void ensure_status_display__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     u32 var_r0;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) == 0U) {

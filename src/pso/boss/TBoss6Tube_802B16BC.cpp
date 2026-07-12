@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *create__10TBoss6TubeFPv(void *arg0);
-void TBoss6Tube__sub_802B1704(void);
+void free_resources__10TBoss6TubeFv(void);
 void *TBoss6Tube__ct(void *, void *);
 M2C_UNK TBoss6Tube__sub_802B1288();
 void TLobby__sub_8001FE7C(void*, int);
@@ -26,7 +26,7 @@ void *create__10TBoss6TubeFPv(void *arg0) {
 extern u32 lbl_805D6718;
 extern u32 lbl_805D671C;
 
-void TBoss6Tube__sub_802B1704(void) {
+void free_resources__10TBoss6TubeFv(void) {
     if ((u32) lbl_805D6718 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D6718, 1);
         lbl_805D6718 = 0U;

@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
-s32 TObjPlayer__sub_8001960C();
+s32 read_be16_field2__10TObjPlayerFPv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 void TObjNpcBase__vt86(void);
@@ -12,7 +12,7 @@ void TObjNpcBase__sub_80149360(void* p, s32 v);
 void TObjNpcBase__sub_80149368(void* p);
 
 void bswap_6x3E__10TNpcPlayerFi(s32 arg0) {
-    TObjPlayer__sub_8001960C();
+    read_be16_field2__10TObjPlayerFPv();
     bswap_16__FPUs(arg0 + 4);
     bswap_16__FPUs(arg0 + 6);
     bswap_16__FPUs(arg0 + 8);

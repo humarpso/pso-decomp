@@ -5,7 +5,7 @@ extern "C" {
 void TLobby__sub_8013A95C(void* p);
 void TLobby__sub_8013A9C0(void* p);
 void TLobby__sub_8013A9F4(void* p);
-void TLobby__sub_8013AA28(void* p);
+void bswap_6x6B__6TLobbyFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 
@@ -15,6 +15,6 @@ void TLobby__sub_8013A9C0(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p 
 
 void TLobby__sub_8013A9F4(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); }
 
-void TLobby__sub_8013AA28(void* p) { bswap_32__FPUl(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void bswap_6x6B__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
 }

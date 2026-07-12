@@ -12,14 +12,14 @@ void* copy__10TObjPlayerFPvPv(void* p, void* a1);
 void* init_pkt_6x2B__10TObjPlayerFPv(void* p);
 s32 bswap_pkt_u16x2_u32__10TObjPlayerFPv();
 s32 TLobby__send_and_handle_60(s32);
-s32 TObjPlayer__sub_8001960C();
+s32 read_be16_field2__10TObjPlayerFPv();
 s32 bswap_32__FPUl(s32);
 s32 TFontSmallLobby__sub_801C0228();
 s32 bswap_16__FPUs(s32);
 s32 bswap__9TItemDataFv(s32);
 
 void bswap_fields__10TObjPlayerFi(s32 arg0) {
-    TObjPlayer__sub_8001960C();
+    read_be16_field2__10TObjPlayerFPv();
     bswap_16__FPUs(arg0 + 6);
     bswap_16__FPUs(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);

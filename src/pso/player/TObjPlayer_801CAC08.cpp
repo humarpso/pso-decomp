@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CAC08(u8 *arg0);
+void start_action_0e__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_8002AEB8(void *, M2C_UNK);
 s32 TObjPlayer__sub_801BE40C(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
@@ -39,7 +39,7 @@ M2C_UNK VObj_801cac08::m5() { return 0; }
 M2C_UNK VObj_801cac08::m6() { return 0; }
 M2C_UNK VObj_801cac08::m7() { return 0; }
 
-void TObjPlayer__sub_801CAC08(u8 *arg0) {
+void start_action_0e__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);

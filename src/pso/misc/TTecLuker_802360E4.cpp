@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TTecLuker__sub_802360E4(u32 arg0);
+s32 is_parents_unqueued__9TTecLukerFUi(u32 arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 
-s32 TTecLuker__sub_802360E4(u32 arg0) {
+s32 is_parents_unqueued__9TTecLukerFUi(u32 arg0) {
     if (arg0 == 0U) {
         return 0;
     }

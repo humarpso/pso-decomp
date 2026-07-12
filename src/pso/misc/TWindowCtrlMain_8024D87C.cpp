@@ -10,7 +10,7 @@ s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 int TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
-void TWindowCtrlMain__sub_8024D87C(void* p);
+void update_child_2c__15TWindowCtrlMainFPv(void* p);
 void TWindowCtrlMain__sub_8024D8A8(void* p);
 void update_field28__15TWindowCtrlMainFPv(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);
@@ -20,7 +20,7 @@ int fn_80263B34(void*);
 int fn_80263B70(void*);
 int TLobby__sub_80269C6C(void*);
 
-void TWindowCtrlMain__sub_8024D87C(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) TLobby__sub_80269C6C(m); }
+void update_child_2c__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) TLobby__sub_80269C6C(m); }
 void TWindowCtrlMain__sub_8024D8A8(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) fn_802437C4(m); }
 void update_field28__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80263B34(m); }
 void free_member__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80263B70(m); }

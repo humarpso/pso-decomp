@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *THunterGuildSeqOffline__sub_80212014(void *arg0);
+void *create__22THunterGuildSeqOfflineFPv(void *arg0);
 void *THunterGuildSeqOffline__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-void *THunterGuildSeqOffline__sub_80212014(void *arg0) {
+void *create__22THunterGuildSeqOfflineFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3C);
     if (o != NULL) {
         o = THunterGuildSeqOffline__ct(o, tl_05, arg0);

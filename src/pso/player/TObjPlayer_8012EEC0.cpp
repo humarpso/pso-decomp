@@ -10,7 +10,7 @@ void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0);
 int TObjPlayer__sub_8012EF40(void* p);
 void *init_effect_state__10TObjPlayerFPv(void *arg0);
 s32 TObjBoss2Tunnel__sub_803D929C(s32, s32);
-s32 TObjPlayer__sub_80101048();
+s32 play_particle_effect_once__10TObjPlayerFv();
 int TObjPlayer__sub_80115BFC(void*, int);
 void TObjPlayer__sub_80120D50(void *);
 s32 TObjPlayer__sub_80121200();
@@ -21,15 +21,15 @@ void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0) {
     temp_r3 = TObjPlayer__sub_80121200();
     switch (temp_r3) {
     case 1:
-        TObjPlayer__sub_80101048();
+        play_particle_effect_once__10TObjPlayerFv();
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     case 2:
-        TObjPlayer__sub_80101048();
+        play_particle_effect_once__10TObjPlayerFv();
         TObjBoss2Tunnel__sub_803D929C(0, -M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     case 3:
-        TObjPlayer__sub_80101048();
+        play_particle_effect_once__10TObjPlayerFv();
         return;
     }
 }

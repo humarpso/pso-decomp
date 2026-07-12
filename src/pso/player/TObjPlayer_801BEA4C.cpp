@@ -35,11 +35,11 @@ int TObjPlayer__sub_801BE814(void* p);
 void TObjPlayer__sub_801BE838(void* p, u8 v);
 int TObjPlayer__sub_801BE840(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BE86C(void* p);
+int get_field_374__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE8E4(void* p, s32 v);
 void TObjPlayer__sub_801BE8EC(void* p, s32 v);
 void TObjPlayer__sub_801BEA4C(void* p);
-int TObjPlayer__sub_801BEA80(void* p);
+int check_flag_48__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEAA4(void* p);
 int TObjPlayer__sub_801BEAB0(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
@@ -86,7 +86,7 @@ void TObjPlayer__sub_801BEA4C(void* p) { *(u32*)((char*)p + 0x334) |= 0x2; }
 void set_flag_400000__10TObjPlayerFi(s32 arg0) {
     TObjPlayer__sub_8011E238((void*)(arg0), 0x400000);
 }
-int TObjPlayer__sub_801BEA80(void* p) { return check_flag__10TObjPlayerFPvi(p, 48); }
+int check_flag_48__10TObjPlayerFPv(void* p) { return check_flag__10TObjPlayerFPvi(p, 48); }
 int TObjPlayer__sub_801BEAA4(void* p) { return *(u32*)((char*)p + 0x30) & 0x10000; }
 int TObjPlayer__sub_801BEAB0(void* p) { return *(u32*)((char*)p + 0x30) & 0x200; }
 int TObjPlayer__sub_801BEABC(void* p) { return end_camera_pan__10TObjPlayerFPv(p); }

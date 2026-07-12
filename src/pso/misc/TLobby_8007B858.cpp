@@ -27,7 +27,7 @@ M2C_UNK init_subobject__6TLobbyFPvPvPv(u32, s32, M2C_UNK);
 M2C_UNK set_fade_params__6TLobbyFi(M2C_UNK);
 M2C_UNK ct_register__6TLobbyFPv(u32, s32);
 M2C_UNK fn_80198D98();
-M2C_UNK TSetManager__sub_8020D918();
+M2C_UNK create__11TSetManagerFv();
 M2C_UNK fn_8032BDC4(u32, s32);
 M2C_UNK fn_8033ED24(u32, s32);
 M2C_UNK TNpcPlayer__sub_8034DD14(u32, s32);
@@ -66,7 +66,7 @@ void create_tasks__6TLobbyFv(void) {
     cleanup_game_objects__9TMainTaskFv();
     create__6TSceneFv();
     create_instance__10TSceneSoraFv();
-    TSetManager__sub_8020D918();
+    create__11TSetManagerFv();
     TLobby__sub_80208BD8();
     tmp = __nw__7TObjectFUl(0x1C);
     if (tmp != 0U) {

@@ -35,7 +35,7 @@ extern "C" {
 
 void update_state_machine__15TObjEnemyCustomFPv(void *arg0);
 void TObjEnemyCustom__sub_800C7AE0(void);
-void TObjEnemyCustom__sub_800C7AE4(void *arg0);
+void update__15TObjEnemyCustomFPv(void *arg0);
 int TObjEnemyCustom__sub_800C7C0C(void* p);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 int TObjEneMe1GiGue__sub_80040B3C(void*, int);
@@ -83,7 +83,7 @@ extern const f32 lbl_805DA068;
 extern const f32 lbl_805DA074;
 extern const f32 lbl_805DA090;
 
-void TObjEnemyCustom__sub_800C7AE4(void *arg0) {
+void update__15TObjEnemyCustomFPv(void *arg0) {
     s32 temp_r0;
     Obj2A8_800c7ae4 *temp_r3;
     Obj2A8_800c7ae4 *temp_r3_2;

@@ -26,7 +26,7 @@ M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_800D8A2C();
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80143024(void *);
 M2C_UNK TParticleCtrl__sub_801E2F20();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
@@ -54,7 +54,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
             var_r30 = 1;
             TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
             TObjLight__sub_80134194(arg0);
-            TObjPlayer__sub_800D8A2C();
+            toggle_particle_effect__10TObjPlayerFv();
             TObjPlayer__sub_803D9B2C();
             some_id_805c6f74 &= 0xFFFFFBFF;
             if (check_demo_mode__10TObjPlayerFv() == 1) {

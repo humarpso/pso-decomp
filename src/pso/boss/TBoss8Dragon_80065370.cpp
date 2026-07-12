@@ -95,10 +95,10 @@ struct VObj_80065370 : Base_80065370 {
 
 extern "C" {
 
-void TBoss8Dragon__sub_80065370(struct VObj_80065370 *obj);
+void update_animation_by_state__12TBoss8DragonFPv(struct VObj_80065370 *obj);
 M2C_UNK set_animation_by_state__12TBoss8DragonFPv();
 
-void TBoss8Dragon__sub_80065370(struct VObj_80065370 *obj) {
+void update_animation_by_state__12TBoss8DragonFPv(struct VObj_80065370 *obj) {
     if (!(M2C_FIELD(obj, s32 *, 0x4C0) & 0xC) && (M2C_FIELD(obj, s16 *, 0x32C) <= 0)) {
         set_animation_by_state__12TBoss8DragonFPv();
     } else {

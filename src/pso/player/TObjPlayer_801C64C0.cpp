@@ -6,14 +6,14 @@ extern "C" {
 
 void *TObjPlayer__sub_801C64C0(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void TParticleCtrl__sub_801C66A0(void *, int);
+void dt__13TParticleCtrlFPvs(void *, int);
 
 extern M2C_UNK lbl_804C3FD8[];
 
 void *TObjPlayer__sub_801C64C0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3FD8;
-        TParticleCtrl__sub_801C66A0(arg0, 0);
+        dt__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

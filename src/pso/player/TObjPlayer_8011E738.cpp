@@ -26,7 +26,7 @@ M2C_UNK copy_to_item_data__5TItemFPvPv(s32, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_8011C8BC(s32, s16 *, s16 *);
 M2C_UNK TObjPlayer__sub_801210C0(void *, s16);
 M2C_UNK TObjPlayer__sub_801210C8(void *, s16);
-M2C_UNK TItemData__sub_8010EC88(M2C_UNK *);
+M2C_UNK check_item_flags__9TItemDataFPv(M2C_UNK *);
 M2C_UNK init__9TItemDataFv(M2C_UNK *);
 
 extern s32 tl_05;
@@ -79,7 +79,7 @@ void copy_item_to_data__10TObjPlayerFi(s32 arg0) {
 
     init__9TItemDataFv(sp8);
     copy_to_item_data__5TItemFPvPv(arg0, sp8);
-    TItemData__sub_8010EC88(sp8);
+    check_item_flags__9TItemDataFPv(sp8);
 }
 
 void update_model_flags__10TObjPlayerFPv(struct VObj_8011E828 *o) {

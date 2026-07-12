@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRecon__sub_8029EB08(void);
+void update_particle_if_active__12TObjEneReconFv(void);
 u32 TSceneSora__sub_8029F574(void*);
-M2C_UNK TParticleCtrl__sub_803280E8();
+M2C_UNK reset_ind_tev_stages__13TParticleCtrlFv();
 
 extern u32 lbl_805D65F4;
 
-void TObjEneRecon__sub_8029EB08(void) {
+void update_particle_if_active__12TObjEneReconFv(void) {
     if (((u32) lbl_805D65F4 != 0U) && (TSceneSora__sub_8029F574((void*)lbl_805D65F4) != 0U)) {
-        TParticleCtrl__sub_803280E8();
+        reset_ind_tev_stages__13TParticleCtrlFv();
     }
 }
 

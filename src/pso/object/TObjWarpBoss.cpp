@@ -11,7 +11,7 @@ M2C_UNK update_warp_boss_visibility();
 M2C_UNK TObjWarpBossMulti__sub_8019E798(void *);
 M2C_UNK warp_boss_handle_window(void *);
 M2C_UNK update_state__17TObjWarpBossMultiFPv(void *);
-M2C_UNK TObjWarpBossMulti__sub_8019EA7C(void *);
+M2C_UNK update_warp_state__17TObjWarpBossMultiFPv(void *);
 M2C_UNK TObjWarpBossMulti__sub_8019EB94(void *);
 
 void update__12TObjWarpBossFPv(void *arg0) {
@@ -24,7 +24,7 @@ void update__12TObjWarpBossFPv(void *arg0) {
         TObjWarpBossMulti__sub_8019EB94(arg0);
         return;
     case 1:
-        TObjWarpBossMulti__sub_8019EA7C(arg0);
+        update_warp_state__17TObjWarpBossMultiFPv(arg0);
         return;
     case 2:
         update_state__17TObjWarpBossMultiFPv(arg0);

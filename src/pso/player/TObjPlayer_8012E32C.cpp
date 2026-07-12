@@ -11,7 +11,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
-u8 *TObjPlayer__sub_80100490(s32);
+u8 *query_game_join_id__10TObjPlayerFv(s32);
 M2C_UNK TObjPlayer__sub_8010A050();
 M2C_UNK TObjPlayer__sub_8023E480();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -22,7 +22,7 @@ void TObjPlayer__sub_8012E32C(u8 *arg0) {
     u32 temp_r31;
     u8 *temp_r3;
 
-    temp_r3 = TObjPlayer__sub_80100490(M2C_FIELD(arg0, s32 *, 0x1C));
+    temp_r3 = query_game_join_id__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0x1C));
     if (temp_r3 != NULL) {
         temp_r31 = M2C_FIELD(temp_r3, u32 *, 0x188);
         if (temp_r31 != 0U) {

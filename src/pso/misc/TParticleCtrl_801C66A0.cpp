@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TParticleCtrl__sub_801C66A0(void *arg0, s16 arg1);
+void *dt__13TParticleCtrlFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 u32 free_handle__13TParticleCtrlFPv(void *);
@@ -14,7 +14,7 @@ M2C_UNK queue_destruction__7TObjectFv();
 
 extern M2C_UNK lbl_804C3FF0[];
 
-void *TParticleCtrl__sub_801C66A0(void *arg0, s16 arg1) {
+void *dt__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3FF0;
         if (free_handle__13TParticleCtrlFPv(arg0) != 0U) {

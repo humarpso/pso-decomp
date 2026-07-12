@@ -9,7 +9,7 @@ extern "C" {
 void render__16TObjEneMorfosArmFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_803DA798(int);
-M2C_UNK TObjPlayer__sub_800D8A2C();
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -28,7 +28,7 @@ void render__16TObjEneMorfosArmFv(u8 *arg0) {
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-    TObjPlayer__sub_800D8A2C();
+    toggle_particle_effect__10TObjPlayerFv();
     draw__16TObjEneRe7BeruraFPv((void *) (arg0));
     TParticleCtrl__sub_801E2F20();
     TObjPlayer__sub_803D9B78();

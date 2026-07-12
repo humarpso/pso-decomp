@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TLobby__sub_800728C8(void *arg0);
+void send_challenge_packet__6TLobbyFPv(void *arg0);
 void TLobby__send_and_handle_60(void *);
 void byteswap_challenge_packet__6TLobbyFPv(void *);
 
-void TLobby__sub_800728C8(void *arg0) {
+void send_challenge_packet__6TLobbyFPv(void *arg0) {
     byteswap_challenge_packet__6TLobbyFPv(arg0);
     TLobby__send_and_handle_60(arg0);
 }

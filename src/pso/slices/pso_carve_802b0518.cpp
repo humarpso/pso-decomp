@@ -10,7 +10,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_8022743C();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK TBoss6PlotFalz__sub_802AC6D0();
-M2C_UNK TObjFish__sub_8033DC60(void *);
+M2C_UNK create_variant__8TObjFishFPv(void *);
 extern M2C_UNK lbl_80470990[];
 
 void stop_adx_audio(void *arg0) {
@@ -22,7 +22,7 @@ void stop_adx_audio(void *arg0) {
     TLobby__sub_8022743C();
     TObjBgmColCtrl__sub_802274B8(lbl_80470990);
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
-    TObjFish__sub_8033DC60(arg0);
+    create_variant__8TObjFishFPv(arg0);
 }
 
 }

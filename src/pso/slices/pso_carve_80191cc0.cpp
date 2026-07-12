@@ -9,10 +9,10 @@ extern "C" {
 M2C_UNK fn_80191D14(u16, M2C_UNK);
 s32 fn_80191D34(u16);
 M2C_UNK fn_80191D5C(u16);
-M2C_UNK TObjInfoCol__sub_80191D80();
+M2C_UNK bswap_6x78__11TObjInfoColFPv();
 
 void handle_6x78(void *arg0) {
-    TObjInfoCol__sub_80191D80();
+    bswap_6x78__11TObjInfoColFPv();
     if (fn_80191D34(M2C_FIELD(arg0, u16 *, 4)) != 0) {
         fn_80191D14(M2C_FIELD(arg0, u16 *, 4), 0);
         return;

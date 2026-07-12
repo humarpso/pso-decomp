@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubTradeMain__sub_802785B0(u32, s32);
+s32 refresh_item_list__19TWindowSubTradeMainFPvPv(u32, s32);
 s32 TLobby__sub_802D29AC();
 s32 TWindowSubTradeMain__sub_80278300(u32, s32);
 s32 TLobby__sub_802D299C();
@@ -25,14 +25,14 @@ void notify_child_if_present__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1) {
         TWindowSubTradeMain__sub_80278300(temp, (s16) arg1);
     }
 }
-void TWindowSubTradeMain__sub_80330AF0(void *arg0) {
+void draw_item_slot__19TWindowSubTradeMainFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
-        TWindowSubTradeMain__sub_802785B0(M2C_FIELD(arg0, u32 *, 0x40), TLobby__sub_802D29AC());
+        refresh_item_list__19TWindowSubTradeMainFPvPv(M2C_FIELD(arg0, u32 *, 0x40), TLobby__sub_802D29AC());
     }
 }
 void update_trade_window__19TWindowSubTradeMainFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
-        TWindowSubTradeMain__sub_802785B0(M2C_FIELD(arg0, u32 *, 0x3C), TLobby__sub_802D299C());
+        refresh_item_list__19TWindowSubTradeMainFPvPv(M2C_FIELD(arg0, u32 *, 0x3C), TLobby__sub_802D299C());
         TWindowSubTradeMain__sub_80278300(M2C_FIELD(arg0, u32 *, 0x3C), 3);
     }
 }

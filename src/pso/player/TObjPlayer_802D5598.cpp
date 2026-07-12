@@ -7,14 +7,14 @@ extern "C" {
 void *enter_state_341__10TObjPlayerFPv(void *arg0);
 void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1);
 int set_radar_marker_params__10TObjPlayerFPvPv(void);
-void TObjPlayer__sub_802D5ECC(void *);
+void init_state_445__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804E2000[];
 extern M2C_UNK TObjPlayer__sub_802D5558[];
 extern M2C_UNK TObjPlayer__sub_802D551C[];
 
 void *enter_state_341__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_802D5ECC(arg0);
+    init_state_445__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E2000;
     M2C_FIELD(arg0, u32 *, 0x1FC) = 341;
     M2C_FIELD(arg0, M2C_UNK **, 0x208) = TObjPlayer__sub_802D5558;

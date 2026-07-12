@@ -11,7 +11,7 @@ M2C_UNK clear_target_lock_flag__10TObjPlayerFPv(s32);
 s32 set_lock_flag__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801C6F90();
 s32 TObjPlayer__sub_800196EC();
-s32 TObjPlayer__sub_801A1EB0(s32);
+s32 get_stat_by_key_state__10TObjPlayerFPv(s32);
 M2C_UNK reset_ring__10TObjPlayerFPv(s32);
 M2C_UNK clear_target_lock__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801C5C38(s32);
@@ -22,7 +22,7 @@ void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 temp_r31;
 
     if (TObjPlayer__sub_801C6F90() == 0) {
-        temp_r31 = TObjPlayer__sub_801A1EB0(arg1);
+        temp_r31 = get_stat_by_key_state__10TObjPlayerFPv(arg1);
         if (fn_8020C354(TObjPlayer__sub_800196EC(), temp_r31) != 0) {
             if (set_lock_flag__10TObjPlayerFPv(arg0) != 0) {
                 clear_target_lock_flag__10TObjPlayerFPv(arg0);

@@ -4,7 +4,7 @@ extern "C" {
 
 s32 get_layout_id__20TWindowSubStatusDispFv();
 
-s32 TWindowSubStatusDisp__sub_8006F044(void) {
+s32 calc_layout_hash__20TWindowSubStatusDispFv(void) {
     return get_layout_id__20TWindowSubStatusDispFv() * 0x8C9F;
 }
 

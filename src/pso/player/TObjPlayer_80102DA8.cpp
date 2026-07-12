@@ -22,11 +22,11 @@ void TObjPlayer__sub_80102C68(void* p);
 void TObjPlayer__sub_80102C78(void* p, s16 v);
 s16 TObjPlayer__sub_80102C80(void* p);
 s16 TObjPlayer__sub_80102C88(void* p);
-int TObjPlayer__sub_80102C90(void* p);
+int get_equip_field_d04__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_80102CD8(void* p);
 int TObjPlayer__sub_801C675C(void*);
 
-void TObjPlayer__sub_8001960C(void* p);
+void read_be16_field2__10TObjPlayerFPv(void* p);
 void bswap_32__FPUl(u32* p);
 
 u8 is_not_matching_lobby_id__10TObjPlayerFPv(void *arg0) {

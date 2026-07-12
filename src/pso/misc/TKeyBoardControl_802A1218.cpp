@@ -14,7 +14,7 @@ M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK TLobby__sub_801E2F44(M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK free_keyboard_soft_resources__6TLobbyFv();
-M2C_UNK TLobby__sub_80132F68();
+M2C_UNK update_keyboard_menu__6TLobbyFv();
 M2C_UNK fn_802A1324();
 M2C_UNK render_tick__Fv();
 
@@ -31,7 +31,7 @@ void update_menu_scene__16TKeyBoardControlFv(void) {
         TKeyBoardControl__sub_8000F90C(9);
         break;
     case 1:
-        TLobby__sub_80132F68();
+        update_keyboard_menu__6TLobbyFv();
         TAdSinglePlyChrSelectGC__sub_80201354();
         free_keyboard_soft_resources__6TLobbyFv();
         TKeyBoardControl__sub_8000F91C(5);

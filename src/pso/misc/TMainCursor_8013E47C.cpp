@@ -9,7 +9,7 @@ int TMainCursor__sub_8013E378(void* a0 = 0, void* a1 = 0);
 int TMainCursor__sub_8013E854(void* a0 = 0);
 void TMainCursor__sub_8013E830(void* p, void* a1, void* a2);
 void update_cursor_pos__13TLockOnCursorFPv(void* p);
-int TMainCursor__sub_8013E2E4(void* p);
+int check_field_24__11TMainCursorFPv(void* p);
 u16 TMainCursor__sub_8013E308(void* p);
 int TMainCursor__sub_8013E310(void* p);
 int TMainCursor__sub_8013E338(void* p);

@@ -15,7 +15,7 @@ M2C_UNK TMainCursor__sub_8013E988(s32, M2C_UNK);
 M2C_UNK TMainCursor__sub_8013E990(s32, M2C_UNK);
 M2C_UNK TMainCursor__sub_8013E998(s32, M2C_UNK);
 s32 fn_801B066C(s32);
-s32 TTecCtrl__sub_801B0EE8();
+s32 is_technique_ready__8TTecCtrlFv();
 
 void set_cursor_color__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (TObjPlayer__sub_80019734(arg1 + 0x828) != 0) {
@@ -31,7 +31,7 @@ void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     TMainCursor__sub_8013E988(arg2, 0x2000);
     TMainCursor__sub_8013E980(arg2, 0x10000000);
     TMainCursor__sub_8013E998(arg2, 0xE0000800);
-    if (TTecCtrl__sub_801B0EE8() == 0) {
+    if (is_technique_ready__8TTecCtrlFv() == 0) {
         TMainCursor__sub_8013E990(arg2, 0x30000);
         return;
     }

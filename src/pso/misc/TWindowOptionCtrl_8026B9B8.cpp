@@ -13,7 +13,7 @@ M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv();
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265DEC(s32, f32, f32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, M2C_UNK *, M2C_UNK, s32);
-s32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
+s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowOptionCtrl__sub_8026CBA4(M2C_UNK);
 M2C_UNK fn_8036A514(M2C_UNK);
 s32 fn_8036A5B4(s32);
@@ -29,7 +29,7 @@ s32 create_list_window__17TWindowOptionCtrlFv(void) {
     s32 temp_r30;
 
     fn_8036A514(2);
-    temp_r30 = TAdChrSelASlotGC__sub_80266508(TWindowOptionCtrl__sub_8026CBA4(0xCF), 0x31);
+    temp_r30 = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowOptionCtrl__sub_8026CBA4(0xCF), 0x31);
     set_flag70_bit100__17TWindowOptionCtrlFPv();
     var_r31 = 0;
     do {

@@ -3,7 +3,7 @@
 extern "C" {
 
 int __ct__12TPlyCharDataFv(void*);
-int TObjPlayer__sub_8001BF10(void*);
+int init_forward__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_80072218(void*);
 void* init_char_data__10TObjPlayerFPv(void* p);
 int fn_8035B00C(void*);

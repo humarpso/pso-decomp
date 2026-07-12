@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void TBoss3Volopt__sub_800485C8(void);
-void *TBoss3Volopt__sub_800485CC(void *arg0, s16 arg1);
+void *dt__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -13,7 +13,7 @@ void TBoss3Volopt__sub_800485C8(void) {  }
 
 extern M2C_UNK lbl_80484870[];
 
-void *TBoss3Volopt__sub_800485CC(void *arg0, s16 arg1) {
+void *dt__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484870;
         __dt__7TObjectFv(arg0, 0);

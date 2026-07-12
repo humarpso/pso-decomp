@@ -21,7 +21,7 @@ int TSaveChCr__sub_80339BF4(void* p);
 int TSaveChCr__sub_80339CC0(void* p);
 void TSaveChCr__sub_80339CE4(void);
 int save_1__9TSaveChCrFPv(void* p);
-int TSaveChCr__sub_80339F5C(void*, int);
+int close_and_advance__9TSaveChCrFPvPv(void*, int);
 int close_window__9TSaveChCrFPv(void*);
 
 int fn_80339D78(void) { return 0; }

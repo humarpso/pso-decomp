@@ -6,7 +6,7 @@ void TLobby__sub_801403B4(void);
 void TLobby__sub_801403B8(void);
 s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void);
 void reset_subsystems__6TLobbyFv(void);
-s32 TLobby__sub_8014047C(void);
+s32 init_lobby_scene__6TLobbyFv(void);
 s32 TBoss3VoloptCtrl__ct();
 s32 create_tasks__6TLobbyFv();
 int TLobby__sub_8007BA20(void);
@@ -40,7 +40,7 @@ s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
     return 1;
 }
 void reset_subsystems__6TLobbyFv(void) { free_heap__13TParticleCtrlFv(); TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); TLobby__sub_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
-s32 TLobby__sub_8014047C(void) {
+s32 init_lobby_scene__6TLobbyFv(void) {
     TOKeyMachine01__sub_802034A8();
     TLobby__sub_80227FB4();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {

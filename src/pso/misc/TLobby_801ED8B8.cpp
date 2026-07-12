@@ -9,7 +9,7 @@ extern "C" {
 void apply_player_count__6TLobbyFv(void);
 u32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 M2C_UNK set_selected_layout__6TLobbyFi(u32);
-M2C_UNK TLobby__sub_80292950(u32);
+M2C_UNK clamp_and_store_layout_index__6TLobbyFi(u32);
 
 s32 is_split_screen();
 extern u32 TLobby__data_80512220[];
@@ -22,10 +22,10 @@ void apply_player_count__6TLobbyFv(void) {
     temp_r31 = get_layout_id__20TWindowSubStatusDispFv(-1);
     if (is_split_screen() == 1) {
         if (temp_r30 < temp_r31) {
-            TLobby__sub_80292950(temp_r30);
+            clamp_and_store_layout_index__6TLobbyFi(temp_r30);
             return;
         }
-        TLobby__sub_80292950(0U);
+        clamp_and_store_layout_index__6TLobbyFi(0U);
         return;
     }
     if (temp_r30 < temp_r31) {

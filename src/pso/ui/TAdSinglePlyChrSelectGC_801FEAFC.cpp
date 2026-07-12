@@ -10,7 +10,7 @@ s32 check_ready__23TAdSinglePlyChrSelectGCFv(void);
 s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF14();
 M2C_UNK create_instance__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80242D2C();
+M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
 
 extern u32 lbl_805D5F68;
 extern u32 lbl_805D5F98;
@@ -18,7 +18,7 @@ extern u32 lbl_805D5F98;
 s32 check_ready__23TAdSinglePlyChrSelectGCFv(void) {
     s32 var_r3;
 
-    TAdSinglePlyChrSelectGC__sub_80242D2C();
+    init_slots__23TAdSinglePlyChrSelectGCFv();
     var_r3 = 0;
     if (((u32) lbl_805D5F68 != 0U) && ((u32) lbl_805D5F98 != 0U)) {
         TAdSinglePlyChrSelectGC__sub_801FFF14();
@@ -33,7 +33,7 @@ extern u32 lbl_805D5F9C;
 s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv(void) {
     s32 var_r3;
 
-    TAdSinglePlyChrSelectGC__sub_80242D2C();
+    init_slots__23TAdSinglePlyChrSelectGCFv();
     var_r3 = 0;
     if (((u32) lbl_805D5F6C != 0U) && ((u32) lbl_805D5F9C != 0U)) {
         create_instance__23TAdSinglePlyChrSelectGCFv();

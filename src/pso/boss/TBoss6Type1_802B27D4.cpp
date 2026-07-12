@@ -14,7 +14,7 @@ void update_hit_timer__11TBoss6Type1FPv(u8 *arg0);
 void update_attack_state__11TBoss6Type1FPv(void *arg0);
 void advance_plot_to_state2__11TBoss6Type1FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TBoss6PlotFalz__sub_802AB260(s32);
+M2C_UNK activate_warp__14TBoss6PlotFalzFPv(s32);
 M2C_UNK TBoss6Type1__sub_802B49A4(void *);
 M2C_UNK TBoss6Type1__sub_802B4B64(void *, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B4BA8(void *, M2C_UNK);
@@ -40,7 +40,7 @@ void enter_release_state__11TBoss6Type1FPv(u8 *arg0) {
     TBoss3Volopt__sub_8022675C(0x4003B515, arg0 + 0x38, 0, 0);
     TBoss6Type1__sub_802B4BA8(arg0, 0);
     TBoss6Type1__sub_802B4B64(arg0, 1);
-    TBoss6PlotFalz__sub_802AB260(M2C_FIELD(arg0, s32 *, 0x3F8));
+    activate_warp__14TBoss6PlotFalzFPv(M2C_FIELD(arg0, s32 *, 0x3F8));
     reset_state__14TBoss6PlotFalzFPv(M2C_FIELD(arg0, s32 *, 0x3F8));
     if (TBoss6Type1__sub_802B529C(arg0, 0x1F, 4) == 0) {
         TBoss3Volopt__sub_8022675C(0x68A24, arg0 + 0x38, 0, 1);

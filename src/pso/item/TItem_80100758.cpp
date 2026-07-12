@@ -4,7 +4,7 @@ extern "C" {
 
 void TItem__sub_80100758(void);
 void TItem__sub_8010075C(void);
-void TItem__sub_80100760(s32 arg0);
+void update_pickup_flag__5TItemFi(s32 arg0);
 void TItem__sub_801007A8(void);
 void TItem__sub_801007AC(void);
 void TItem__sub_801007B0(void);
@@ -14,7 +14,7 @@ s32 TItem__sub_800FFE70(s32);
 
 void TItem__sub_80100758(void) {  }
 void TItem__sub_8010075C(void) {  }
-void TItem__sub_80100760(s32 arg0) {
+void update_pickup_flag__5TItemFi(s32 arg0) {
     if (check_flag_400__20TWindowSubStatusDispFv() != 0) {
         set_flag_1024__11TItemObjectFPv(arg0);
         return;

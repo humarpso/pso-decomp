@@ -10,7 +10,7 @@ void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1);
 s32 TItemMag__sub_80102C4C(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
 M2C_UNK TObjPlayer__sub_800FFA88(u32, s32);
-M2C_UNK TObjPlayer__sub_80100E00(void *);
+M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK TObjPlayer__sub_8023E480(s32);
@@ -30,7 +30,7 @@ void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
         TObjPlayer__sub_803D97F0();
         TObjPlayer__sub_80364198();
         some_id_805c6f74 &= 0xFFFFFFEF;
-        TObjPlayer__sub_80100E00(arg0);
+        get_mag_scale__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_80364028();
         if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {
             TParticleCtrl__sub_801E2EFC();

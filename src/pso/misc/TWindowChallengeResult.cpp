@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TWindowChallengeResult__sub_80246D74(void *arg0, s16 arg1);
+void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1);
 void TWindowDD__sub_80246674(void *, int);
 void __dl__7TObjectFPv(void *);
 
 extern M2C_UNK lbl_804CE2B8[];
 
-void *TWindowChallengeResult__sub_80246D74(void *arg0, s16 arg1) {
+void *dt__22TWindowChallengeResultFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CE2B8;
         TWindowDD__sub_80246674(arg0, 0);

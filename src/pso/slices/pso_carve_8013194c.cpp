@@ -13,7 +13,7 @@ s32 TWindowSubTradeMain__sub_80244A4C(void *);
 int TWindowMakeTeam__sub_80131A5C(void* p);
 int get_lobby_field_20__15TWindowMakeTeamFPv(void* p);
 int set_flag62_bit2__16TKeyBoardControlFPv(void*);
-int TLobby__sub_80244D2C(void*);
+int set_field_1c__6TLobbyFPvf(void*);
 
 int TLobby__sub_8013194C(void) { return 0; }
 

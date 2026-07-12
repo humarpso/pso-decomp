@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TODoorVoShip__sub_801F44BC(s32);
 M2C_UNK TLobby__sub_801F45FC(s32);
-M2C_UNK TBoss4DarkFalz__sub_801F4830(s32);
+M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 
 void qst_op_grev(s32 arg0) {
     u16 v = arg0;
@@ -16,7 +16,7 @@ void qst_op_grev(s32 arg0) {
         TLobby__sub_801F45FC(v);
         return;
     }
-    TBoss4DarkFalz__sub_801F4830(v);
+    dispatch_by_main_phase__14TBoss4DarkFalzFUs(v);
 }
 
 }

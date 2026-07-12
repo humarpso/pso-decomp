@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss4DarkFalz__sub_801F4830(u16 arg0);
+void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16 arg0);
 M2C_UNK fn_801F37CC(int, M2C_UNK);
 M2C_UNK fn_801F4790(u16);
 s32 get_main_phase();
 
-void TBoss4DarkFalz__sub_801F4830(u16 arg0) {
+void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16 arg0) {
     if (get_main_phase() == 0xF) {
         fn_801F37CC(arg0, 0);
         return;

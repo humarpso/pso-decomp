@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjCityDoor_Warp__sub_8018257C(u8 *arg0);
+void teardown_door__17TObjCityDoor_WarpFPv(u8 *arg0);
 s32 TLobby__sub_801819CC(M2C_UNK);
 M2C_UNK TLobby__sub_801819E4(M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -43,7 +43,7 @@ struct VObj_8018257c : Base_8018257c {
     virtual s32 m20() = 0;
 };
 
-void TObjCityDoor_Warp__sub_8018257C(u8 *arg0) {
+void teardown_door__17TObjCityDoor_WarpFPv(u8 *arg0) {
 
     if (((VObj_8018257c *)arg0)->m20() != 0) {
         TObjFish__sub_803DA798(lbl_805D5B2C);

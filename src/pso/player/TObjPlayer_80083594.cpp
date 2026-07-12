@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80083594(void);
+void setup_tev_stage__10TObjPlayerFv(void);
 M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjFish__sub_803DA798(M2C_UNK *);
@@ -19,7 +19,7 @@ s32 is_split_screen();
 extern M2C_UNK lbl_8048E5B4[];
 extern s32 some_id_805c6f74;
 
-void TObjPlayer__sub_80083594(void) {
+void setup_tev_stage__10TObjPlayerFv(void) {
     if (is_split_screen() == 0) {
         GXSetTevOrder(1, 1, 1, 4);
         GXSetTevOp(1, 2);

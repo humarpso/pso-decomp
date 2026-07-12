@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TItemObject__vt12(void *arg0);
-s32 TItemObject__sub_80101A1C();
+s32 copy_and_register_item_data__11TItemObjectFPv();
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 
 struct Base_80115D94 { char pad[0x18]; };
@@ -30,7 +30,7 @@ struct VObj_80115D94 : Base_80115D94 {
 void TItemObject__vt12(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = TItemObject__sub_80101A1C();
+    temp_r31 = copy_and_register_item_data__11TItemObjectFPv();
     if (((VObj_80115D94 *)arg0)->m34() > temp_r31) {
         refresh_if_current_player__20TWindowSubStatusDispFPv(arg0);
     }

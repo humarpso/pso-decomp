@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjSoloPlayWin__sub_800748AC(void *arg0);
+void update_close_timer__15TObjSoloPlayWinFPv(void *arg0);
 M2C_UNK TLobby__sub_8006FBAC();
 M2C_UNK TWindow__close(u32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TObjSoloPlayWin__sub_800748AC(void *arg0) {
+void update_close_timer__15TObjSoloPlayWinFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24) - 1;

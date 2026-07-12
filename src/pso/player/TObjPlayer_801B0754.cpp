@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801B0754(void *arg0);
+void set_flag_drop_weapon_on_death__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 
-void TObjPlayer__sub_801B0754(void *arg0) {
+void set_flag_drop_weapon_on_death__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8011E204(arg0, 0x01000000);
 }
 

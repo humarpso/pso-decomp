@@ -9,7 +9,7 @@ void draw_request__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1);
 void TLobby__sub_802D3228(int, void *, void *);
 void TLobby__sub_802D1DE4(void *, void *, void *);
 void TLobby__sub_802D1E64(void *, void *, void *);
-void TWindowSubTradeMain__sub_80330AF0(void *);
+void draw_item_slot__19TWindowSubTradeMainFPv(void *);
 
 extern M2C_UNK TLobby__data_80540BD0[];
 extern void *TLobby__data_805D6898;
@@ -18,7 +18,7 @@ void draw_offer__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1) {
     TLobby__sub_802D3228(2, arg0, arg1);
     TLobby__sub_802D1DE4(TLobby__data_80540BD0, arg0, arg1);
     if (TLobby__data_805D6898 != NULL) {
-        TWindowSubTradeMain__sub_80330AF0(TLobby__data_805D6898);
+        draw_item_slot__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
     }
 }
 
@@ -29,7 +29,7 @@ void draw_request__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1) {
     TLobby__sub_802D3228(1, arg0, arg1);
     TLobby__sub_802D1E64(TLobby__data_80540BD0, arg0, arg1);
     if (TLobby__data_805D6898 != NULL) {
-        TWindowSubTradeMain__sub_80330AF0(TLobby__data_805D6898);
+        draw_item_slot__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
     }
 }
 

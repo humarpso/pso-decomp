@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TObjPlayer__sub_8012192C(void *arg0, s16 arg1);
-void TObjPlayer__sub_80121984(void *arg0);
+void cast_foie_effect__10TObjPlayerFPv(void *arg0);
 void release_container_if_active__10TObjPlayerFPv(void* p);
 void update_freeze_state__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80121ACC(void *arg0);
@@ -36,7 +36,7 @@ void *TObjPlayer__sub_8012192C(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjPlayer__sub_80121984(void *arg0) {
+void cast_foie_effect__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8;
     void *temp_r31;
 

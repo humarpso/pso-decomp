@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_ready__23TAdSinglePlyChrSelectGCFv(void);
-u16 TAdSinglePlyChrSelectGC__sub_801FC2FC(int arg0);
+u16 get_card_window_field__23TAdSinglePlyChrSelectGCFi(int arg0);
 u16 get_card_window_status__23TAdSinglePlyChrSelectGCFi(int arg0);
 u16 TAdSinglePlyChrSelectGC__sub_801FC36C(int arg0);
 u16 get_card_state__23TAdSinglePlyChrSelectGCFi(int arg0);
@@ -31,7 +31,7 @@ s32 is_ready__23TAdSinglePlyChrSelectGCFv(void) {
     return (u32) __cntlzw(is_ready__6TLobbyFv()) >> 5;
 }
 
-u16 TAdSinglePlyChrSelectGC__sub_801FC2FC(int arg0) {
+u16 get_card_window_field__23TAdSinglePlyChrSelectGCFi(int arg0) {
     void *temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi(arg0);

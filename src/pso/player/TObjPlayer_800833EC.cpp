@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800833EC(void *arg0);
+void update_camera_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
 M2C_UNK TObjPlayer__sub_80084038(s32, M2C_UNK, f32);
@@ -24,7 +24,7 @@ M2C_UNK TParticleCtrl__sub_801E2F20();
 extern u8 lbl_805D2910;
 extern f32 lbl_805D93D0;
 
-void TObjPlayer__sub_800833EC(void *arg0) {
+void update_camera_effect__10TObjPlayerFPv(void *arg0) {
     if (!(TObjPlayer__sub_800847CC() & 4)) {
         if (M2C_FIELD(arg0, s32 *, 0x1C) & 1) {
             if (TObjPlayer__sub_800847A8() == 1) {

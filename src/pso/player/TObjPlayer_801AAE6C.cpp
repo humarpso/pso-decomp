@@ -7,20 +7,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_801AAE6C(void* a0);
-void TObjPlayer__sub_801AAE84(void *arg0);
+void update_all_slots__10TObjPlayerFPv(void *arg0);
 u32 TObjPlayer__sub_80040B28(s32);
 M2C_UNK TObjPlayer__sub_8015610C(void *);
-M2C_UNK TObjPlayer__sub_80154D7C();
+M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_801A720C(u16, M2C_UNK, M2C_UNK, f32);
 u32 obj_getField1c();
 
     extern const float lbl_805DC158;
 void TObjPlayer__sub_801AAE6C(void* a0) { *(float*)((char*)a0 + 0x184) = lbl_805DC158; *(float*)((char*)a0 + 0x188) = lbl_805DC158; *(float*)((char*)a0 + 0x18c) = lbl_805DC158; *(float*)((char*)a0 + 0x190) = lbl_805DC158; }
 
-void TObjPlayer__sub_801AAE84(void *arg0) {
+void update_all_slots__10TObjPlayerFPv(void *arg0) {
     s32 var_r31;
 
-    TObjPlayer__sub_80154D7C();
+    init_all_slots__10TObjPlayerFv();
     TObjPlayer__sub_8015610C(arg0);
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x100000) {
         var_r31 = 0;

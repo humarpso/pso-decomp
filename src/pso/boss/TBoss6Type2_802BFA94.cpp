@@ -35,7 +35,7 @@ void TBoss6Type2__sub_802BFAC0(void *arg0) {
         TBoss6Type2__sub_802BD014(arg0, 0x22);
     }
 }
-void TBoss6Type2__sub_802BFAF4(void *arg0) {
+void select_attack_state__11TBoss6Type2FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0) {
         if (TBoss6Type2__sub_802BA9E4() != 0) {
             TBoss6Type2__sub_802BDDF8(arg0, 0xD);

@@ -26,7 +26,7 @@ s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK TLobby__sub_802A7848(void *, s32);
 s32 TLobby__sub_802A7868(void *, s32, s32);
 s32 TLobby__sub_802A7994(void *, s32, s32, s32);
-M2C_UNK TObjPlayer__sub_801C00C4(void *, s32);
+M2C_UNK forward_801C210C__10TObjPlayerFPv(void *, s32);
 
 s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
@@ -34,7 +34,7 @@ s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (TLobby__sub_802A7868(arg0, arg2, arg3) != 0) {
         return 1;
     }
-    TObjPlayer__sub_801C00C4(arg0, arg2);
+    forward_801C210C__10TObjPlayerFPv(arg0, arg2);
     TLobby__sub_802A7848(arg0, arg3);
     temp_r3 = TLobby__sub_802A7994(arg0, arg1, arg2, arg3);
     if (temp_r3 != 0) {

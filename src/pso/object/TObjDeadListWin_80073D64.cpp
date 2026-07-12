@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjDeadListWin__sub_80073D64(void *arg0);
+void *create__15TObjDeadListWinFPv(void *arg0);
 void *TObjDeadListWin__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjDeadListWin__sub_80073D64(void *arg0) {
+void *create__15TObjDeadListWinFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
         o = TObjDeadListWin__ct(o, arg0);

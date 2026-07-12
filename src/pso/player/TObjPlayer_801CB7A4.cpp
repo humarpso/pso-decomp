@@ -13,7 +13,7 @@ int TObjPlayer__sub_801CB7D8(void* p);
 int try_apply_status_action__10TObjPlayerFi(void*);
 
 void TObjPlayer__sub_801CB7A4(void) {  }
-void TObjPlayer__sub_801CB7A8(void *arg0) {
+void update_if_flag_set__10TObjPlayerFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjPlayer__sub_801D0888();
     }

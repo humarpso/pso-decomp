@@ -5,11 +5,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void bswap_challenge_dead_flag__6TLobbyFPv(void *arg0);
-void TObjPlayer__sub_8001960C(void *);
+void read_be16_field2__10TObjPlayerFPv(void *);
 void bswap_32__FPUl(void *);
 
 void bswap_challenge_dead_flag__6TLobbyFPv(void *arg0) {
-    TObjPlayer__sub_8001960C(arg0);
+    read_be16_field2__10TObjPlayerFPv(arg0);
     bswap_32__FPUl((void *)((char *)arg0 + 4));
 }
 

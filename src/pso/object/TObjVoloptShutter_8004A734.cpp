@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__17TObjVoloptShutterFv(void *arg0);
-M2C_UNK TObjPlayer__sub_800D8A2C();
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
@@ -23,7 +23,7 @@ extern s32 some_id_805c6f74;
 extern f32 TObjVoloptShutter__data_805D88F4;
 
 void render__17TObjVoloptShutterFv(void *arg0) {
-    TObjPlayer__sub_800D8A2C();
+    toggle_particle_effect__10TObjPlayerFv();
     TObjFish__sub_803DA798(lbl_805D4D50);
     TObjPlayer__sub_803D9B2C();
     some_id_805c6f74 &= 0xFFFFFBFF;

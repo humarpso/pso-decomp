@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_801AEE84();
-s32 TTecCtrl__sub_801B0EE8();
+s32 is_camera_mode_active__10TObjPlayerFv();
+s32 is_technique_ready__8TTecCtrlFv();
 s32 TObjPlayer__sub_801B3540(s32);
 s32 TObjPlayer__sub_801B3564(s32);
 s32 TObjPlayer__sub_80203418();

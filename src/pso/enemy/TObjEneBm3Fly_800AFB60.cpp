@@ -16,7 +16,7 @@ void TObjEneBm3Fly__vt104(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK TObjEneDD__sub_800B9D74(void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_800D8A2C();
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -35,7 +35,7 @@ void TObjEneBm3Fly__vt104(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
-        TObjPlayer__sub_800D8A2C();
+        toggle_particle_effect__10TObjPlayerFv();
         TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         TParticleCtrl__sub_801E2F20();
         TObjPlayer__sub_803D9B78();

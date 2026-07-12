@@ -9,7 +9,7 @@ int TMainCursor__sub_8013E378(void* a0 = 0, void* a1 = 0);
 int TMainCursor__sub_8013E854(void* a0 = 0);
 void TMainCursor__sub_8013E830(void* p, void* a1, void* a2);
 void update_cursor_pos__13TLockOnCursorFPv(void* p);
-int TMainCursor__sub_8013E2E4(void* p);
+int check_field_24__11TMainCursorFPv(void* p);
 u16 TMainCursor__sub_8013E308(void* p);
 int TMainCursor__sub_8013E310(void* p);
 int TMainCursor__sub_8013E338(void* p);
@@ -77,7 +77,7 @@ int TWindowActionPalette__sub_8013DF54(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
 
-int TMainCursor__sub_8013E2E4(void* p) { return TMainCursor__sub_8013B2A4((char*)p + 0x24); }
+int check_field_24__11TMainCursorFPv(void* p) { return TMainCursor__sub_8013B2A4((char*)p + 0x24); }
 u16 TMainCursor__sub_8013E308(void* p) { return *(u16*)((char*)p + 0x4); }
 int TMainCursor__sub_8013E310(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x20, 2); }
 int TMainCursor__sub_8013E338(void* p) { return TMainCursor__sub_8013DF3C(p); }

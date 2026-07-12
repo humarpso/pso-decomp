@@ -11,7 +11,7 @@ s32 TObjPlayer__sub_801AF288();
 M2C_UNK check_stat_flag_41c__10TObjPlayerFPv(s32);
 M2C_UNK check_flag_at_41c__10TObjPlayerFPv(s32);
 M2C_UNK set_flag_41c_bit1__10TObjPlayerFPv(s32);
-M2C_UNK TObjPlayer__sub_801BE360(s32);
+M2C_UNK clamp_stat_41c__10TObjPlayerFPv(s32);
 void *TQuestListVM__sub_8007EAF8();
 M2C_UNK TObjPlayer__sub_801AFDB0(s32);
 s32 TObjPlayer__sub_801D91F8(s32, s32);
@@ -47,12 +47,12 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     temp_r4 = M2C_FIELD(temp_r31, s16 *, 0);
     if (temp_r4 < 0) {
         M2C_FIELD(arg1, s16 *, 0) = 1;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     } else {
         temp_r0 = M2C_FIELD(temp_r28, s16 *, 0);
         if (temp_r4 > temp_r0) {
             M2C_FIELD(arg1, s16 *, 0) = temp_r0;
-            TObjPlayer__sub_801BE360(arg0);
+            clamp_stat_41c__10TObjPlayerFPv(arg0);
         } else {
             M2C_FIELD(arg1, s16 *, 0) = temp_r4;
         }
@@ -60,12 +60,12 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     temp_r3 = M2C_FIELD(temp_r31, s16 *, 2);
     if (temp_r3 < 0) {
         M2C_FIELD(arg1, s16 *, 2) = 1;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     } else {
         temp_r0_2 = M2C_FIELD(temp_r28, s16 *, 2);
         if (temp_r3 > temp_r0_2) {
             M2C_FIELD(arg1, s16 *, 2) = temp_r0_2;
-            TObjPlayer__sub_801BE360(arg0);
+            clamp_stat_41c__10TObjPlayerFPv(arg0);
         } else {
             M2C_FIELD(arg1, s16 *, 2) = temp_r3;
         }
@@ -73,37 +73,37 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     temp_r3_2 = M2C_FIELD(temp_r31, s16 *, 4);
     if (temp_r3_2 < 0) {
         M2C_FIELD(arg1, s16 *, 4) = 1;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     } else {
         temp_r0_3 = M2C_FIELD(temp_r28, s16 *, 4);
         if (temp_r3_2 > temp_r0_3) {
             M2C_FIELD(arg1, s16 *, 4) = temp_r0_3;
-            TObjPlayer__sub_801BE360(arg0);
+            clamp_stat_41c__10TObjPlayerFPv(arg0);
         } else {
             M2C_FIELD(arg1, s16 *, 4) = temp_r3_2;
         }
     }
     if (M2C_FIELD(temp_r31, s16 *, 6) < 0) {
         M2C_FIELD(arg1, s16 *, 6) = 1;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     }
     temp_r3_3 = M2C_FIELD(temp_r31, s16 *, 6);
     temp_r0_4 = M2C_FIELD(temp_r28, s16 *, 6);
     if (temp_r3_3 > temp_r0_4) {
         M2C_FIELD(arg1, s16 *, 6) = temp_r0_4;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     } else {
         M2C_FIELD(arg1, s16 *, 6) = temp_r3_3;
     }
     temp_r3_4 = M2C_FIELD(temp_r31, s16 *, 8);
     if (temp_r3_4 < 0) {
         M2C_FIELD(arg1, s16 *, 8) = 1;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     } else {
         temp_r0_5 = M2C_FIELD(temp_r28, s16 *, 8);
         if (temp_r3_4 > temp_r0_5) {
             M2C_FIELD(arg1, s16 *, 8) = temp_r0_5;
-            TObjPlayer__sub_801BE360(arg0);
+            clamp_stat_41c__10TObjPlayerFPv(arg0);
         } else {
             M2C_FIELD(arg1, s16 *, 8) = temp_r3_4;
         }
@@ -111,12 +111,12 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     temp_r3_5 = M2C_FIELD(temp_r31, s16 *, 0xA);
     if (temp_r3_5 < 0) {
         M2C_FIELD(arg1, s16 *, 0xA) = 1;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     } else {
         temp_r0_6 = M2C_FIELD(temp_r28, s16 *, 0xA);
         if (temp_r3_5 > temp_r0_6) {
             M2C_FIELD(arg1, s16 *, 0xA) = temp_r0_6;
-            TObjPlayer__sub_801BE360(arg0);
+            clamp_stat_41c__10TObjPlayerFPv(arg0);
         } else {
             M2C_FIELD(arg1, s16 *, 0xA) = temp_r3_5;
         }
@@ -124,12 +124,12 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     temp_r3_6 = M2C_FIELD(temp_r31, s16 *, 0xC);
     if (temp_r3_6 < 0) {
         M2C_FIELD(arg1, s16 *, 0xC) = 1;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     } else {
         temp_r0_7 = M2C_FIELD(temp_r28, s16 *, 0xC);
         if (temp_r3_6 > temp_r0_7) {
             M2C_FIELD(arg1, s16 *, 0xC) = temp_r0_7;
-            TObjPlayer__sub_801BE360(arg0);
+            clamp_stat_41c__10TObjPlayerFPv(arg0);
         } else {
             M2C_FIELD(arg1, s16 *, 0xC) = temp_r3_6;
         }
@@ -137,7 +137,7 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     temp_r3_7 = M2C_FIELD(temp_r31, s16 *, 0xE);
     if (temp_r3_7 < 0) {
         M2C_FIELD(arg1, s16 *, 0xE) = 1;
-        TObjPlayer__sub_801BE360(arg0);
+        clamp_stat_41c__10TObjPlayerFPv(arg0);
     } else {
         M2C_FIELD(arg1, s16 *, 0xE) = temp_r3_7;
     }

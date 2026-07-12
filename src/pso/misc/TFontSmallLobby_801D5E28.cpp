@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s16 TFontSmallLobby__sub_801D5E28(void *arg0);
+s16 get_valid_index__15TFontSmallLobbyFPv(void *arg0);
 s32 TFontSmallLobby__sub_801D6614(s16);
 
-s16 TFontSmallLobby__sub_801D5E28(void *arg0) {
+s16 get_valid_index__15TFontSmallLobbyFPv(void *arg0) {
     s16 var_r31;
 
     var_r31 = M2C_FIELD(arg0, s16 *, 2);

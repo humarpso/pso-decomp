@@ -19,7 +19,7 @@ M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
-u32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
+u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 extern s32 lbl_805D53A0;
 
@@ -35,7 +35,7 @@ void update_challenge_warp_window(void *arg0) {
     case 1:
         if (TObjCityMainWarp__sub_80186BBC(M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
-                M2C_FIELD(arg0, u32 *, 0xB0) = TAdChrSelASlotGC__sub_80266508(TWindowSubComCard__sub_8026CBB8(0x35), 7);
+                M2C_FIELD(arg0, u32 *, 0xB0) = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x35), 7);
                 if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
                     TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TWindowSubStatusDisp__sub_80077760(0x40), 0, 0, -1);
                     TAdChrSelASlotGC__sub_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TEffGuard__sub_800849A0(s32 arg0);
+void create__9TEffGuardFi(s32 arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TEffGuard__ct(u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
-void TEffGuard__sub_800849A0(s32 arg0) {
+void create__9TEffGuardFi(s32 arg0) {
     u32 tmp;
 
     tmp = __nw__7TObjectFUl(0x74);

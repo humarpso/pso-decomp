@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneEpsilonGuard__sub_8035EF78(u8 *arg0);
+s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK TObjEneEpsilon__sub_800B96A4();
 f64 TObjPlayer__sub_80019760(f32, f32, f32);
 
 extern const f64 lbl_80479C88;
 
-s32 TObjEneEpsilonGuard__sub_8035EF78(u8 *arg0) {
+s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     f32 temp_f3;
 
     TObjEneEpsilon__sub_800B96A4();

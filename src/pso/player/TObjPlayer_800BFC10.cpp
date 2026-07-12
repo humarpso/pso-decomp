@@ -10,11 +10,11 @@ s32 TObjPlayer__sub_800BFC10(s32 arg0);
 s32 TObjPlayer__sub_800BFC58(s32 arg0);
 s32 TObjPlayer__sub_80016D78();
 s32 TObjPlayer__sub_80016FF8();
-M2C_UNK TObjPlayer__sub_800BFBBC(s32);
+M2C_UNK clear_flags_60__10TObjPlayerFPv(s32);
 
 s32 TObjPlayer__sub_800BFC10(s32 arg0) {
     if (TObjPlayer__sub_80016D78() != 0) {
-        TObjPlayer__sub_800BFBBC(arg0);
+        clear_flags_60__10TObjPlayerFPv(arg0);
         return 1;
     }
     return 0;
@@ -22,7 +22,7 @@ s32 TObjPlayer__sub_800BFC10(s32 arg0) {
 
 s32 TObjPlayer__sub_800BFC58(s32 arg0) {
     if (TObjPlayer__sub_80016FF8() != 0) {
-        TObjPlayer__sub_800BFBBC(arg0);
+        clear_flags_60__10TObjPlayerFPv(arg0);
         return 1;
     }
     return 0;

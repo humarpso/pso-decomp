@@ -14,7 +14,7 @@ s32 TOKeyMachine01__sub_802034A8(void);
 int TObjRoomId__sub_801A1E2C(void);
 void fn_801A1FD8(void);
 
-s16 TObjPlayer__sub_801A1EB0(void *arg0) {
+s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     if ((TOKeyMachine01__sub_802034A8() == 0) || (TOKeyMachine01__sub_802034A8() == 0x12)) {

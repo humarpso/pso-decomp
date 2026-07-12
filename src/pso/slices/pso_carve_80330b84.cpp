@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubTradeMain__sub_802785B0(u32, s32);
+s32 refresh_item_list__19TWindowSubTradeMainFPvPv(u32, s32);
 s32 TLobby__sub_802D29AC();
 s32 TWindowSubTradeMain__sub_80278300(u32, s32);
 s32 TLobby__sub_802D299C();

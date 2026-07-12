@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8030A6A8(void);
-s32 TLobby__sub_8030A6FC(void);
+s32 is_online_ready__6TLobbyFv(void);
+s32 is_camera_ctrl_active__6TLobbyFv(void);
 s32 is_ready__6TLobbyFv(void);
 s32 TLobby__sub_8030A770(void);
 s32 TCameraCtrl__sub_8006B330();
@@ -19,7 +19,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern s32 lbl_805D5550;
 
-s32 TLobby__sub_8030A6A8(void) {
+s32 is_online_ready__6TLobbyFv(void) {
     if (((s32) lbl_805D5550 == 3) && (TLobby__sub_8001E5C8() == 0)) {
         return 1;
     }
@@ -29,7 +29,7 @@ s32 TLobby__sub_8030A6A8(void) {
     return 0;
 }
 
-s32 TLobby__sub_8030A6FC(void) {
+s32 is_camera_ctrl_active__6TLobbyFv(void) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         return TCameraCtrl__sub_8006B330();
     }

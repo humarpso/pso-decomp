@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjPlayer__sub_8010A050(void* p);
 s32 TObjPlayer__sub_8010A058(void* p);
-void TObjPlayer__sub_8010A060(void *arg0);
+void update_dropped_item__10TObjPlayerFPv(void *arg0);
 void *TObjPlayer__sub_8010A178(void *arg0, s16 arg1);
 M2C_UNK TBoss3Volopt__sub_8003F108();
 M2C_UNK TLobby__sub_800869A4(s32, s32, M2C_UNK, M2C_UNK);
@@ -30,7 +30,7 @@ extern const f32 lbl_805DAB58;
 
 struct TItemData8_8010a060 { s8 a; s8 b; u8 c; s8 pad[21]; };
 
-void TObjPlayer__sub_8010A060(void *arg0) {
+void update_dropped_item__10TObjPlayerFPv(void *arg0) {
     struct TItemData8_8010a060 sp8;
     s32 temp_r3;
 

@@ -15,7 +15,7 @@ s32 get_display_flag__11TWindowCtrlFv();
 s32 fn_80076CD0(void *);
 s32 get_current_target_id__10TObjPlayerFv();
 M2C_UNK update__11TWindowChatFPv(u32);
-M2C_UNK TWindowChat__sub_8024735C(u32);
+M2C_UNK open_input__11TWindowChatFPv(u32);
 M2C_UNK TWindowChat__sub_80247DFC(u32);
 s32 TWindowChat__sub_80247E44(u32);
 M2C_UNK TWindowChat__sub_80247E50(u32);
@@ -41,7 +41,7 @@ void update_window_visibility__11TWindowCtrlFPv(u8 *arg0) {
             update__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38));
             return;
         }
-        TWindowChat__sub_8024735C(M2C_FIELD(arg0, u32 *, 0x38));
+        open_input__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38));
         if ((TWindowChat__sub_80247EA8(M2C_FIELD(arg0, u32 *, 0x38)) != 0) && (fn_80076CD0(arg0 + 0x94) != 0)) {
             TWindowChat__sub_80247E50(M2C_FIELD(arg0, u32 *, 0x38));
         }

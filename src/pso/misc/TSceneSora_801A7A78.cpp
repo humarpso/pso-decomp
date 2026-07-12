@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TSceneSora__sub_801A7A78(void *arg0);
+void update_state__10TSceneSoraFPv(void *arg0);
 u16 TCameraCtrl__sub_8006A5DC();
 void *TCameraCtrl__sub_8006C1F0();
 M2C_UNK fn_801A73B0(f32);
@@ -14,7 +14,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern f32 lbl_805DC0D4;
 
-void TSceneSora__sub_801A7A78(void *arg0) {
+void update_state__10TSceneSoraFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xFC);

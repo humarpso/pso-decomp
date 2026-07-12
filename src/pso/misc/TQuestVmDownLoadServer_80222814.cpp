@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TQuestVmDownLoadServer__sub_80222814(void *arg0);
+s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *arg0);
 s32 fn_8026AD8C(void *);
 
-s32 TQuestVmDownLoadServer__sub_80222814(void *arg0) {
+s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x20C);
     if (temp_r3 != NULL) {
         return fn_8026AD8C(temp_r3);

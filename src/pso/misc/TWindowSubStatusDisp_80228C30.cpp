@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80228C30(void *arg0);
+void measure_string_len__20TWindowSubStatusDispFPv(void *arg0);
 M2C_UNK strnlen__19TWindowKeyBoardSoftFPvUi(void *, M2C_UNK);
 
-void TWindowSubStatusDisp__sub_80228C30(void *arg0) {
+void measure_string_len__20TWindowSubStatusDispFPv(void *arg0) {
     strnlen__19TWindowKeyBoardSoftFPvUi(arg0, 0x100);
 }
 

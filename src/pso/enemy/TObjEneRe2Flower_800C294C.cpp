@@ -48,7 +48,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800C3A5C(void *, s32);
-M2C_UNK TObjPlayer__sub_8022602C(M2C_UNK);
+M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_800C3A60(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(f32);
@@ -67,7 +67,7 @@ void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1) {
         TObjEneDD__sub_800BBA04(arg0, 3);
         M2C_FIELD(arg0, s32 *, 0x410) = 0;
         TBoss3Volopt__sub_8022675C(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
-        TObjPlayer__sub_8022602C(-0x200);
+        play_effect_if_v2__10TObjPlayerFi(-0x200);
         return;
     case 3:
         if (objInBand__FP7GameObjf(M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805D9FC0) != 0) {

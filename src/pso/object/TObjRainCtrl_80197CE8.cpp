@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjRainCtrl__sub_80197CE8(void);
+void create__12TObjRainCtrlFv(void);
 M2C_UNK TObjRainCtrl__ct(void *, s32);
 void *__nw__7TObjectFUl(M2C_UNK);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern s32 tl_particle;
 
-void TObjRainCtrl__sub_80197CE8(void) {
+void create__12TObjRainCtrlFv(void) {
     void *temp_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 0) {

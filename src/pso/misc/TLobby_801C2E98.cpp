@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_801BE648();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TObjPlayer__sub_8002AEB8(s32, M2C_UNK);
 M2C_UNK obj_set_flag_20000();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801C512C();
+M2C_UNK destroy__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK fn_801C5454(s32);
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK fn_8020910C(s32);
@@ -41,7 +41,7 @@ void init__6TLobbyFPv(void *arg0) {
     fn_8020910C(tl_01);
     fn_801F57B4(tl_00);
     TLobby__sub_8020BCE4();
-    TAdSinglePlyChrSelectGC__sub_801C512C();
+    destroy__23TAdSinglePlyChrSelectGCFv();
     TLobby__sub_8020BB18();
     var_r31 = 0;
     M2C_FIELD(arg0, s32 *, 0x64) = 0;

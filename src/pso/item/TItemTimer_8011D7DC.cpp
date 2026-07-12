@@ -88,7 +88,7 @@ M2C_UNK TBoss3Volopt__sub_8003F108(void *);
 s32 TOBoss4Rock__sub_8039C880();
 s32 TOSwitchAttack__sub_80087278(s32, s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80087638(s32, s32);
-s32 TObjPlayer__sub_80102CB4(s32);
+s32 is_flag_20000_set__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_802034B0();
 s32 obj_getField1c(s32);
 s32 obj_isState2_324(void *);
@@ -98,7 +98,7 @@ s32 test_flag_2000000__10TObjPlayerFPv(s32);
 void TItemTimer__sub_8011D7DC(void *arg0) {
     s32 temp_r3;
 
-    if ((test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (TObjPlayer__sub_80102CB4(M2C_FIELD(arg0, s32 *, 0x28)) == 0)) {
+    if ((test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (is_flag_20000_set__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0x28)) == 0)) {
         TBoss3Volopt__sub_8003F108((void *)(M2C_FIELD(arg0, s32 *, 0x28)));
         if ((TObjPlayer__sub_802034B0() == 1) && (obj_testFlags30(M2C_FIELD(arg0, s32 *, 0x28), 0x800) == 0)) {
             temp_r3 = TOSwitchAttack__sub_80087278(M2C_FIELD(arg0, s32 *, 0x28) + 0x2FC, M2C_FIELD(arg0, s32 *, 0x2C), 0x10);

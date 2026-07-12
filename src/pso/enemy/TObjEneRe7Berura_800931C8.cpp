@@ -18,7 +18,7 @@ struct BeruraV_800931C8 : BeruraBase_800931C8 {
 extern "C" {
 
 void demo_frame_callback__16TObjEneRe7BeruraFv(void);
-M2C_UNK TObjEneDD__sub_800B9F04(s32, s32);
+M2C_UNK get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 
 extern s32 lbl_805D4F68;
 extern s32 lbl_805D4F6C;
@@ -39,7 +39,7 @@ void demo_frame_callback__16TObjEneRe7BeruraFv(void) {
         break;
     case 0x4C:
     case 0x50:
-        TObjEneDD__sub_800B9F04(lbl_805D4F70, lbl_805D4F70);
+        get_camera_ctrl__9TObjEneDDFPv(lbl_805D4F70, lbl_805D4F70);
         lbl_805D4F70 += 0xC;
         break;
     case 0x21:

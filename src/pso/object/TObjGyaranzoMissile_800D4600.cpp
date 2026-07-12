@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjGyaranzoMissile__sub_800D4600(void *arg0, s16 arg1);
+void *destroy__19TObjGyaranzoMissileFPvs(void *arg0, s16 arg1);
 void TObjPlayer__sub_80154A00(void *);
 void __dl__7TObjectFPv(void *);
 void TObjEneGibbles__sub_80156720(void *);
@@ -12,7 +12,7 @@ void TObjPlayer__sub_80156990(void *, int);
 
 extern M2C_UNK lbl_8049442C[];
 
-void *TObjGyaranzoMissile__sub_800D4600(void *arg0, s16 arg1) {
+void *destroy__19TObjGyaranzoMissileFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049442C;
         TObjPlayer__sub_80154A00(arg0);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_index_valid__17TObjEneHoldEffectFPv(void *arg0);
-s32 TObjEneHoldEffect__sub_8036C8E0(void *arg0);
+s32 is_valid_equip_slot__17TObjEneHoldEffectFPv(void *arg0);
 s32 check_teleport_ready__17TObjEneHoldEffectFi(s32 arg0);
 s32 is_in_view__17TObjEneHoldEffectFPv(s32);
 s32 is_target_valid__17TObjEneHoldEffectFPv();
@@ -25,7 +25,7 @@ s32 is_index_valid__17TObjEneHoldEffectFPv(void *arg0) {
     return 1;
 }
 
-s32 TObjEneHoldEffect__sub_8036C8E0(void *arg0) {
+s32 is_valid_equip_slot__17TObjEneHoldEffectFPv(void *arg0) {
     s32 temp_r0;
 
     if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {

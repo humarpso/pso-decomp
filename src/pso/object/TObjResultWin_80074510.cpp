@@ -9,7 +9,7 @@ extern "C" {
 void create_window__13TObjResultWinFPv(u8 *arg0);
 s32 TCameraCtrl__sub_8006B338();
 M2C_UNK fn_8024422C(u32, f32, f32);
-M2C_UNK TLobby__sub_80244D2C(u32, f32);
+M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
 M2C_UNK TLobby__sub_80269C6C(u32, void *, M2C_UNK);
 u32 TLobby__sub_80269D24(M2C_UNK, void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
@@ -25,7 +25,7 @@ void create_window__13TObjResultWinFPv(u8 *arg0) {
             fn_8024422C(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D915C, lbl_805D915C);
         }
         TLobby__sub_80269C6C(M2C_FIELD(arg0, u32 *, 0x1C), arg0 + 0x28, 0);
-        TLobby__sub_80244D2C(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D9160);
+        set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D9160);
     }
 }
 

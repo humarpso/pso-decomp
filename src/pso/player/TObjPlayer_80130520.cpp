@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_container_state_3__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_80130560(void *arg0);
+void set_temp_flag10_and_update__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801305E8(void *arg0);
 void tick_meseta_counter__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80130630(u8 *arg0);
@@ -19,7 +19,7 @@ int TObjPlayer__sub_80121200(void*);
 
 void handle_container_state_3__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80121200(p) == 3) { TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
-void TObjPlayer__sub_80130560(void *arg0) {
+void set_temp_flag10_and_update__10TObjPlayerFPv(void *arg0) {
     s32 *temp_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CB030(void* p);
+void set_flag_100000__10TObjPlayerFPv(void* p);
 void end_freeze_action__10TObjPlayerFPv(u8 *arg0);
 void update_move_state__10TObjPlayerFi(s32 arg0);
 int TObjPlayer__sub_8001053C(void*);
@@ -16,7 +16,7 @@ u32 TObjPlayer__sub_801B5EA4(s32);
 M2C_UNK TObjPlayer__sub_801B5FB0();
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 s32 TObjPlayer__sub_801D8B8C(void *);
-s32 TTecCtrl__sub_801B0EE8();
+s32 is_technique_ready__8TTecCtrlFv();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK apply_velocity__10TObjPlayerFPv(s32);
 s32 call_model_m24__10TObjPlayerFPv(void *);
@@ -27,7 +27,7 @@ M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s32);
 M2C_UNK trigger_switch_attack__10TObjPlayerFPvi(void *, s32);
 
-void TObjPlayer__sub_801CB030(void* p) { TObjPlayer__sub_8001053C((void*)(p)); obj_setFlags30(p, (void*)1048576); }
+void set_flag_100000__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001053C((void*)(p)); obj_setFlags30(p, (void*)1048576); }
 
 void update_move_state__10TObjPlayerFi(s32 arg0) {
     TObjPlayer__sub_801B5FB0();
@@ -58,7 +58,7 @@ void end_freeze_action__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0xD;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     VecCopy__FP3VecPC3Vec(arg0 + 0x308, &sp8);
-    if (TTecCtrl__sub_801B0EE8() != 0) {
+    if (is_technique_ready__8TTecCtrlFv() != 0) {
         TObjPlayer__sub_8002AEB8(arg0 + 0x644, 0x1E);
     } else {
         TObjPlayer__sub_8002AEB8(arg0 + 0x644, TObjPlayer__sub_801D8B8C(arg0));

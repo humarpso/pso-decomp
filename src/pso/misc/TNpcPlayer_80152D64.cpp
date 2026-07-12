@@ -3,7 +3,7 @@
 extern "C" {
 
 void init_model__10TNpcPlayerFPv(void* p);
-int TObjPlayer__sub_8001960C(void*);
+int read_be16_field2__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_80102CE0(void*);
 void update__10TNpcPlayerFPv(void* p);
 int update_players__6TLobbyFi(void*);
@@ -28,6 +28,6 @@ void TNpcPlayer__sub_80152D64(void* p);
 
 void TNpcPlayer__sub_80152D64(void* p) { *(u8*)((char*)p + 0x3) = 0; *(u8*)((char*)p + 0x2) = 0; *(u8*)((char*)p + 0x1) = 0; *(u8*)((char*)p + 0x0) = 0; }
 void reset_model__10TNpcPlayerFPv(void* p) { init_model__10TNpcPlayerFPv(p); update_players__6TLobbyFi(p); }
-void init_model__10TNpcPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); TObjPlayer__sub_80102CE0((char*)p + 0x4); }
+void init_model__10TNpcPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); TObjPlayer__sub_80102CE0((char*)p + 0x4); }
 
 }

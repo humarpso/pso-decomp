@@ -20,7 +20,7 @@ int TMainCursor__sub_8013DF3C(void*);
 int TMainCursor__sub_8013DF44(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
-int TMainCursor__sub_8013E2E4(void* p);
+int check_field_24__11TMainCursorFPv(void* p);
 u16 TMainCursor__sub_8013E308(void* p);
 int TMainCursor__sub_8013E310(void* p);
 int TMainCursor__sub_8013E338(void* p);

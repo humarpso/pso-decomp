@@ -15,7 +15,7 @@ void send_giveup_to_all_players__6TLobbyFv(void);
 void close_giveup_window__6TLobbyFPv(void* a0);
 void play_all_players_effect__6TLobbyFPv(void* a0);
 void play_effect_all_players__6TLobbyFPv(void*);
-u32 TAdChrSelASlotGC__sub_80266508(M2C_UNK, M2C_UNK);
+u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK TLobby__sub_8024AC20(int);
 M2C_UNK TLobby__sub_80269C6C(u32, s32, M2C_UNK);
@@ -68,7 +68,7 @@ void open_giveup_window__6TLobbyFPv(void *arg0) {
         TWindow__close((void*)(temp));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x2C) = TAdChrSelASlotGC__sub_80266508(TWindowSubComCard__sub_8026CBB8(0x3A), 3);
+    M2C_FIELD(arg0, u32 *, 0x2C) = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x3A), 3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5B), 5, 0);
         TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);

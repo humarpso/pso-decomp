@@ -12,7 +12,7 @@ struct Fn80040464VObj_80040464 : Fn80040464Base_80040464 {
 
 extern "C" {
 
-void TObjPlayer__sub_80040464(u8 *arg0);
+void teardown_render_state__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80040558(void);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
@@ -31,7 +31,7 @@ extern const f32 lbl_805D86E8;
 extern const f32 lbl_805D86EC;
 extern const f32 lbl_805D86F0;
 
-void TObjPlayer__sub_80040464(u8 *arg0) {
+void teardown_render_state__10TObjPlayerFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((Fn80040464VObj_80040464*)arg0)->m8(lbl_805D86E8, lbl_805D86EC) != 0)) {
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();

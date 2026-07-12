@@ -6,7 +6,7 @@ int TObjPlayer__sub_800F7478(void*);
 void reset_hp__9TObjEneDDFPv(void* p);
 int TObjEneDD__sub_800B9E44(void* p);
 int TObjEneDD__sub_800B9E64(void* p);
-int TObjEneDD__sub_800B9F04(void* p);
+int get_camera_ctrl__9TObjEneDDFPv(void* p);
 int TObjEneDD__sub_800B9F24(void* p);
 int TObjEneDD__sub_800B9F44(void* p);
 int TCameraCtrl__sub_80069148(void*);

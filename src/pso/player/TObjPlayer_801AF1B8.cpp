@@ -14,7 +14,7 @@ s32 TObjPlayer__sub_80354E3C();
 s32 TLobby__sub_800822E8(s32, s32);
 s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);
-s32 TTecCtrl__sub_801B0EE8();
+s32 is_technique_ready__8TTecCtrlFv();
 s32 check_flag_800000__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BF19C(s32);
 s32 TObjPlayer__sub_801BF1DC(s32);
@@ -29,7 +29,7 @@ void TObjPlayer__sub_801AEB80(void);
 int TObjPlayer__sub_801AF288(void);
 
 void update_movement_effects__10TObjPlayerFi(s32 arg0) {
-    if ((TTecCtrl__sub_801B0EE8() != 0) && (TObjPlayer__sub_801AF868(arg0) == 0) && (update_movement_by_screen__10TObjPlayerFv(arg0) != 0) && (TLobby__sub_800822E8(arg0, 0x408000) == 0) && (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (check_flag_800000__10TObjPlayerFPv(arg0) == 0)) {
+    if ((is_technique_ready__8TTecCtrlFv() != 0) && (TObjPlayer__sub_801AF868(arg0) == 0) && (update_movement_by_screen__10TObjPlayerFv(arg0) != 0) && (TLobby__sub_800822E8(arg0, 0x408000) == 0) && (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (check_flag_800000__10TObjPlayerFPv(arg0) == 0)) {
         TObjPlayer__sub_801BF1DC(arg0 + 0x384);
     }
     if ((test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (TLobby__sub_800822E8(arg0, 2) != 0) && (TObjPlayer__sub_801BF3E8(arg0 + 0x360) != 0)) {

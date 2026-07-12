@@ -8,7 +8,7 @@ struct VObj_80184314 : Base_80184314 { virtual void m0(); virtual void m1(); vir
 
 extern "C" {
 
-void TObjCity_Season_XmasWreath__sub_80184314(u8 *arg0);
+void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 M2C_UNK TObjFish__sub_803DA798(s32);
@@ -22,7 +22,7 @@ extern M2C_UNK lbl_8050DC50[];
 extern const f32 lbl_805DBC40;
 extern const f32 lbl_805DBC44;
 
-void TObjCity_Season_XmasWreath__sub_80184314(u8 *arg0) {
+void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0) {
     u8 *temp_r3;
 
     temp_r3 = fn_80184AB8();

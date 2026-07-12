@@ -7,7 +7,7 @@ int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void* a0 = 0);
 int bswap__13packet_headerFv(void* a0 = 0);
 int bswap__9TItemDataFv(void* a0 = 0);
-void fn_801DEFC4(void* p);
+void bswap_cmd_D3_item_bank(void* p);
 void fn_801DF084(void* p);
 void bswap_cmd_c5(void* p);
 int bswap__16TPlyGuildCardTagFv(void*);
@@ -18,7 +18,7 @@ int fn_801DF024(void* p);
 int fn_801DF044(void* p);
 int fn_801DF064(void* p);
 
-void fn_801DEFC4(void* p) { bswap__13packet_headerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); { int i; for (i = 0; i < 32; i++) { bswap__9TItemDataFv((char*)p + 0x8 + i * 20); } } }
+void bswap_cmd_D3_item_bank(void* p) { bswap__13packet_headerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); { int i; for (i = 0; i < 32; i++) { bswap__9TItemDataFv((char*)p + 0x8 + i * 20); } } }
 int fn_801DF024(void* p) { return bswap__13packet_headerFv(p); }
 int fn_801DF044(void* p) { return bswap__13packet_headerFv(p); }
 int fn_801DF064(void* p) { return bswap__13packet_headerFv(p); }

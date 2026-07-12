@@ -6,16 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_803519CC();
+void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
+M2C_UNK spawn_default_particle__8TObjFishFv(s32, M2C_UNK);
 
-s32 fn_80351748(void *arg0) {
-    if ((void *) M2C_FIELD(arg0, void **, 0xC) == NULL) {
-        return 0;
-    }
-    if (TObjPlayer__sub_803519CC() != 0) {
-        return M2C_FIELD(M2C_FIELD(arg0, void **, 0xC), s32 *, 0x1C);
-    }
-    return 0;
+void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2) {
+    spawn_default_particle__8TObjFishFv(arg2, 0x201);
 }
 
 }

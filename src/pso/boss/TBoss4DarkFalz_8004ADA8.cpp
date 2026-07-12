@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TBoss4DarkFalz__sub_8004ADA8(void);
+u8 is_state_ready__14TBoss4DarkFalzFv(void);
 u8 is_active__14TBoss4DarkFalzFv(void);
 u32 TBoss4DarkFalz__sub_8004C1B4();
 u32 TBoss4DarkFalz__sub_8004C1BC();
 s32 TBoss4DarkFalz__sub_8004C1DC();
 s32 TBoss4DarkFalz__sub_8004C1E4();
 
-u8 TBoss4DarkFalz__sub_8004ADA8(void) {
+u8 is_state_ready__14TBoss4DarkFalzFv(void) {
     int var_r31;
 
     var_r31 = 0;

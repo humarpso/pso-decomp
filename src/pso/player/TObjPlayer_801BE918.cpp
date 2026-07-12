@@ -35,11 +35,11 @@ int TObjPlayer__sub_801BE814(void* p);
 void TObjPlayer__sub_801BE838(void* p, u8 v);
 int TObjPlayer__sub_801BE840(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
-int TObjPlayer__sub_801BE86C(void* p);
+int get_field_374__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE8E4(void* p, s32 v);
 void TObjPlayer__sub_801BE8EC(void* p, s32 v);
 void TObjPlayer__sub_801BEA4C(void* p);
-int TObjPlayer__sub_801BEA80(void* p);
+int check_flag_48__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEAA4(void* p);
 int TObjPlayer__sub_801BEAB0(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
@@ -94,13 +94,13 @@ s32 clamp_index_to_max__10TObjPlayerFi(s32 arg0) {
     }
     return var_r31;
 }
-void TObjPlayer__sub_801BE980(void *arg0) {
+void clamp_nested_index__10TObjPlayerFPv(void *arg0) {
     clamp_index_to_max__10TObjPlayerFi(M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x18));
 }
 void TObjPlayer__sub_801BE9A8(s32 arg0) {
     TObjPlayer__sub_8011E204((void*)(arg0), 0x20000);
 }
-void TObjPlayer__sub_801BE9CC(s32 arg0) {
+void set_flag_20000__10TObjPlayerFi(s32 arg0) {
     TObjPlayer__sub_8011E238((void*)(arg0), 0x20000);
 }
 void set_flag_2000000__10TObjPlayerFPv(void *arg0) {

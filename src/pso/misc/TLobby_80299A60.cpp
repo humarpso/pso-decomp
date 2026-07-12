@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_80299A60(void);
 s32 init_particle_model__6TLobbyFv(void);
-void TLobby__sub_80299B00(void);
+void update_field_state__6TLobbyFv(void);
 M2C_UNK create_tasks__6TLobbyFv();
 int TLobby__sub_8007BA20(void);
 s32 check_disconnect_conditions__6TLobbyFv();
@@ -46,6 +46,6 @@ s32 init_particle_model__6TLobbyFv(void) {
     return 1;
 }
 
-void TLobby__sub_80299B00(void) { TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); fn_802FE9E0(); TLobby__sub_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+void update_field_state__6TLobbyFv(void) { TLobby__sub_80227F7C(); TLobby__sub_8022743C(); TLobby__sub_80227248(); fn_802FE9E0(); TLobby__sub_800F7B84(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 
 }

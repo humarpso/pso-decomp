@@ -10,7 +10,7 @@ M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 extern s32 lbl_805D522C;
 
-void TObjPlayer__sub_800D8A2C(void) {
+void toggle_particle_effect__10TObjPlayerFv(void) {
     if ((s32) lbl_805D522C != 0) {
         TParticleCtrl__sub_801E2F20();
         return;

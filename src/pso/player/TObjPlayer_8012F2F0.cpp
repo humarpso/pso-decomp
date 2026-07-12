@@ -11,12 +11,12 @@ void apply_on_shield_state5__10TObjPlayerFi(s32 arg0);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TObjPlayer__sub_8010069C(s32);
 M2C_UNK TObjPlayer__sub_80100EB4(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80100FAC(void *);
+M2C_UNK setup_particle_once__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80121200();
 
 void update_boss2tunnel__10TObjPlayerFPv(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1F8) != 0) && (TObjPlayer__sub_80121200() == 1)) {
-        TObjPlayer__sub_80100FAC(arg0);
+        setup_particle_once__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_80100EB4(arg0, 0);
     }
 }

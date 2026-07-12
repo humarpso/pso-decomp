@@ -9,10 +9,10 @@ extern "C" {
 void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0);
 M2C_UNK TBoss4DarkFalz__sub_8004BA70();
 M2C_UNK fn_8004D8C8(void *, void *, void *, void *);
-M2C_UNK TObjDFDemo5__sub_8004FFF8(void *, void *, s32);
-M2C_UNK TBoss4DarkFalz__sub_801F4830(M2C_UNK);
+M2C_UNK create__11TObjDFDemo5FPvPvPv(void *, void *, s32);
+M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 M2C_UNK TLobby__sub_8022743C();
-M2C_UNK TBoss4Thanks__sub_8035C98C();
+M2C_UNK check_ready__12TBoss4ThanksFv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 M2C_UNK obj_setArrS16_FC(void *, s32, u16);
@@ -25,12 +25,12 @@ void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0) {
 
     TBoss4DarkFalz__sub_8004BA70();
     TLobby__sub_8022743C();
-    TBoss4DarkFalz__sub_801F4830(0x37);
-    TBoss4Thanks__sub_8035C98C();
+    dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x37);
+    check_ready__12TBoss4ThanksFv();
     if ((void *) TBoss4DarkFalz__data_805D4D64 != NULL) {
-        TObjDFDemo5__sub_8004FFF8(arg0, TBoss4DarkFalz__data_805D4D64 + 0x38, M2C_FIELD(TBoss4DarkFalz__data_805D4D64, s32 *, 0x60));
+        create__11TObjDFDemo5FPvPvPv(arg0, TBoss4DarkFalz__data_805D4D64 + 0x38, M2C_FIELD(TBoss4DarkFalz__data_805D4D64, s32 *, 0x60));
     } else {
-        TObjDFDemo5__sub_8004FFF8(arg0, lbl_80485454, 0);
+        create__11TObjDFDemo5FPvPvPv(arg0, lbl_80485454, 0);
     }
     if ((void *) TBoss4DarkFalz__data_805D4D64 != NULL) {
         fn_8004D8C8(TBoss4DarkFalz__data_805D4D64, arg0 + 0x2D6, arg0 + 0x2D4, sp8);

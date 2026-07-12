@@ -22,21 +22,21 @@ void TObjPlayer__sub_80102C68(void* p);
 void TObjPlayer__sub_80102C78(void* p, s16 v);
 s16 TObjPlayer__sub_80102C80(void* p);
 s16 TObjPlayer__sub_80102C88(void* p);
-int TObjPlayer__sub_80102C90(void* p);
+int get_equip_field_d04__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_80102CD8(void* p);
 int TObjPlayer__sub_801C675C(void*);
 
 void TObjPlayer__sub_80102C78(void* p, s16 v) { *(s16*)((char*)p + 0x32e) = v; }
 s16 TObjPlayer__sub_80102C80(void* p) { return *(s16*)((char*)p + 0x2be); }
 s16 TObjPlayer__sub_80102C88(void* p) { return *(s16*)((char*)p + 0x2bc); }
-int TObjPlayer__sub_80102C90(void* p) { return TObjPlayer__sub_801C675C((char*)p + 0xd04); }
-void TObjPlayer__sub_80102CB4(void) {
+int get_equip_field_d04__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801C675C((char*)p + 0xd04); }
+void is_flag_20000_set__10TObjPlayerFv(void) {
     s32 uninit;
     check_flag__10TObjPlayerFPvi(uninit, 0x20000);
 }
 f32 TObjPlayer__sub_80102CD8(void* p) { return *(f32*)((char*)p + 0x1c); }
 
-void TObjPlayer__sub_8001960C(void* p);
+void read_be16_field2__10TObjPlayerFPv(void* p);
 void bswap_32__FPUl(u32* p);
 
 }

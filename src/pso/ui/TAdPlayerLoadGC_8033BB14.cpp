@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdPlayerLoadGC__sub_8033BB14(void *arg0);
+s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
@@ -15,7 +15,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8033BA0C(M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_8033BA84(M2C_UNK);
 s32 fn_8033BAB4(void *);
 
-s32 TAdPlayerLoadGC__sub_8033BB14(void *arg0) {
+s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *arg0) {
     s32 var_r31;
 
     if (TAdPlayerLoadGC__sub_801E1E38(0) == 0) {

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void * create__11TObjNpcMojaFPv(void *arg0);
-void *TObjNpcMoja__sub_8014C728(void *arg0, s16 arg1);
+void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcMoja__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -30,7 +30,7 @@ void * create__11TObjNpcMojaFPv(void *arg0) {
 
 extern M2C_UNK lbl_804AAC04[];
 
-void *TObjNpcMoja__sub_8014C728(void *arg0, s16 arg1) {
+void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804AAC04;
         __dt__11TObjNpcBaseFv(arg0, 0);

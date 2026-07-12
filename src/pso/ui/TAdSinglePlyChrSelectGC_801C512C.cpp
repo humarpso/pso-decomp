@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_801C512C(void);
+void destroy__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 
 extern u32 lbl_805D5DD0;
 
-void TAdSinglePlyChrSelectGC__sub_801C512C(void) {
+void destroy__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D5DD0 != 0U) {
         queue_destruction__7TObjectFv((void*)lbl_805D5DD0);
     }

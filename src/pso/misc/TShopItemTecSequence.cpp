@@ -43,7 +43,7 @@ void close_if_done__20TShopItemTecSequenceFPv(void *arg0);
 void handle_select__20TShopItemTecSequenceFPv(void *arg0);
 void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, s32);
-M2C_UNK TShopSequence__sub_80223724(void *);
+M2C_UNK close_if_single_screen__13TShopSequenceFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 M2C_UNK close_window__13TShopSequenceFPv(void *);
@@ -90,7 +90,7 @@ void handle_select__20TShopItemTecSequenceFPv(void *arg0) {
 
 void close_if_done__20TShopItemTecSequenceFPv(void *arg0) {
     if ((((VObj_8021FFB8 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
-        TShopSequence__sub_80223724(arg0);
+        close_if_single_screen__13TShopSequenceFv(arg0);
         close_window__13TShopSequenceFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }

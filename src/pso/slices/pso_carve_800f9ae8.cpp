@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TItemDrop__sub_800F9C00(void *);
-u8 *TItemDrop__sub_800F9C68(u8 *, M2C_UNK *);
+u8 *ct_object__9TItemDropFPv(u8 *, M2C_UNK *);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 TScene__sub_800F9D80();
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -23,7 +23,7 @@ s32 create_named_object(s32 arg0) {
     if (temp_r3 > 0) {
         var_r30 = __nw__7TObjectFUl(0x3C);
         if (var_r30 != NULL) {
-            var_r30 = TItemDrop__sub_800F9C68(var_r30, lbl_8050113C);
+            var_r30 = ct_object__9TItemDropFPv(var_r30, lbl_8050113C);
         }
         memset(var_r30 + 0x28, 0, 0x11);
         strncpy(var_r30 + 0x28, arg0, 0x10);

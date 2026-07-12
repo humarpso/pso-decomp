@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemProArmor__sub_801172D8(void *arg0);
+void apply_armor_stat__13TItemProArmorFPv(void *arg0);
 s32 TItemProArmor__sub_8011724C(void *);
-s32 TItemProArmor__sub_80117270(void *);
-s32 TItemProArmor__sub_801172A4(void *);
+s32 calc_scaled_offset__13TItemProArmorFv(void *);
+s32 calc_armor_value__13TItemProArmorFv(void *);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TObjPlayer__sub_800112A4(s32, s32);
 
-void TItemProArmor__sub_801172D8(void *arg0) {
+void apply_armor_stat__13TItemProArmorFPv(void *arg0) {
     s32 var_r31;
     u8 temp_r3;
 
@@ -21,10 +21,10 @@ void TItemProArmor__sub_801172D8(void *arg0) {
     temp_r3 = TItemProShield__sub_8010B734();
     switch ((s32) temp_r3) {
     case 0:
-        var_r31 = TItemProArmor__sub_801172A4(arg0);
+        var_r31 = calc_armor_value__13TItemProArmorFv(arg0);
         break;
     case 1:
-        var_r31 = TItemProArmor__sub_80117270(arg0);
+        var_r31 = calc_scaled_offset__13TItemProArmorFv(arg0);
         break;
     case 2:
         var_r31 = TItemProArmor__sub_8011724C(arg0);

@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void sync_hp_damage__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_8012BB1C(s32 arg0);
+void update_cane_cast__10TObjPlayerFi(s32 arg0);
 void play_action_sound__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_800112A4(s32, s16);
-M2C_UNK TObjPlayer__sub_80101048();
+M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 TObjPlayer__sub_8011E384(s32);
 M2C_UNK TObjPlayer__sub_8011F5E0(s32);
@@ -42,7 +42,7 @@ void sync_hp_damage__10TObjPlayerFPv(void *arg0) {
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_8012BB1C(s32 arg0) {
+void update_cane_cast__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_8011F63C() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
@@ -73,7 +73,7 @@ void play_action_sound__10TObjPlayerFPv(void *arg0) {
     case 3:
     case 4:
     case 6:
-        TObjPlayer__sub_80101048();
+        play_particle_effect_once__10TObjPlayerFv();
         return;
     }
 }

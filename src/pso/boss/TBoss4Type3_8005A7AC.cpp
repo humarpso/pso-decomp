@@ -8,14 +8,14 @@ void draw__11TBoss4Type3FPv(void *arg0);
 void TBoss4Type3__sub_8005A438(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
 void fn_80051E9C(int, f32);
-void TObjPlayer__sub_800D8A2C(void *);
+void toggle_particle_effect__10TObjPlayerFv(void *);
 void TParticleCtrl__sub_801E2F20(void);
 void TObjPlayer__sub_803D9214(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
 
 void draw__11TBoss4Type3FPv(void *arg0) {
-    TObjPlayer__sub_800D8A2C(arg0);
+    toggle_particle_effect__10TObjPlayerFv(arg0);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0x60));

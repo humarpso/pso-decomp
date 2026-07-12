@@ -9,7 +9,7 @@ extern "C" {
 void apply_turn__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8012ED74(void *arg0);
 void try_spawn_cane_effects__10TObjPlayerFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_80101048();
+M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C();
 s32 TObjPlayer__sub_80121200();
@@ -21,11 +21,11 @@ void apply_turn__10TObjPlayerFPv(void *arg0) {
     temp_r3 = TObjPlayer__sub_80121200();
     switch (temp_r3) {
     case 1:
-        TObjPlayer__sub_80101048();
+        play_particle_effect_once__10TObjPlayerFv();
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         return;
     case 3:
-        TObjPlayer__sub_80101048();
+        play_particle_effect_once__10TObjPlayerFv();
         TObjPlayer__sub_803D9214(0, -M2C_FIELD(arg0, s32 *, 0x1F8));
     case 2:
         return;

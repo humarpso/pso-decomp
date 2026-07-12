@@ -16,14 +16,14 @@ struct V_A_801668cc : Base_A_801668cc {
 
 extern "C" {
 
-void TOExplosiveMachine__sub_801668CC(void *arg0);
+void update__18TOExplosiveMachineFPv(void *arg0);
 M2C_UNK TOExplosiveMachine__sub_80166778(void *);
 M2C_UNK TOExplosiveMachine__sub_80166814(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 
 extern const f32 lbl_805DB608;
 
-void TOExplosiveMachine__sub_801668CC(void *arg0) {
+void update__18TOExplosiveMachineFPv(void *arg0) {
     f32 temp_f0;
     f32 temp_f1;
     s32 temp_r0;

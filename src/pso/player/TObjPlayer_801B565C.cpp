@@ -22,11 +22,11 @@ int check_flag_100__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801B5790(void* p);
 void action_enable_if_present__10TObjPlayerFPv(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
-int TObjPlayer__sub_801C0044(void*);
+int is_handle_valid__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801C1B38(void*);
 int TObjPlayer__sub_801C1B60(void*);
 
-int TObjPlayer__sub_801B565C(void* p) { return TObjPlayer__sub_801C0044(*(void**)((char*)p + 0x380)); }
+int TObjPlayer__sub_801B565C(void* p) { return is_handle_valid__10TObjPlayerFPv(*(void**)((char*)p + 0x380)); }
 int check_flag_100__10TObjPlayerFPv(void* p) { return check_flag__10TObjPlayerFPvi(p, 256); }
 void init_parts__10TObjPlayerFPv(void* p) { fn_8019DD24((char*)p + 0x550, (void*)1030); TChallenge4PResult__sub_801B3BB4(p); TObjPlayer__sub_8011E204(p, (void*)256); }
 void reset_equip_slots__10TObjPlayerFPv(void* p) { fn_8019DD14((char*)p + 0x550, (void*)1030); TChallenge4PResult__sub_801B3BFC(p, (void*)0); TChallenge4PResult__sub_801B3BFC(p, (void*)1); TChallenge4PResult__sub_801B3BFC(p, (void*)2); TChallenge4PResult__sub_801B3BFC(p, (void*)3); TObjPlayer__sub_8011E238(p, (void*)256); }

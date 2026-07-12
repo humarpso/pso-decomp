@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TFontSmallHelp__sub_800FCB4C(void *arg0);
+void update_help_text__14TFontSmallHelpFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 u32 TWindowSubStatusDisp__sub_800FC968(s32);
 M2C_UNK fn_800FC424(void *, s32);
@@ -19,7 +19,7 @@ M2C_UNK set_help_text__14TFontSmallHelpFPvUi(void *, u32);
 
 extern s8 lbl_80509D5C[];
 
-void TFontSmallHelp__sub_800FCB4C(void *arg0) {
+void update_help_text__14TFontSmallHelpFPv(void *arg0) {
     s32 temp_r3_2;
     s32 temp_r4;
     u32 temp_r3_3;

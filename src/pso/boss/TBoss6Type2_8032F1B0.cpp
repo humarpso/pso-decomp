@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_8032F1B0(void *arg0);
+void update_rotation_ramp__11TBoss6Type2FPv(void *arg0);
 s32 TBoss6Type2__sub_802BD3C4(u32);
 s32 TLobby__sub_800C6C10();
 s32 fn_8032F034(void *);
@@ -19,7 +19,7 @@ extern const f32 lbl_805DF81C;
 extern const f32 lbl_805DF820;
 extern const f32 lbl_805DF824;
 
-void TBoss6Type2__sub_8032F1B0(void *arg0) {
+void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
     if ((fn_8032F174() == 0) || (fn_8032F034(arg0) == 0)) {
         M2C_FIELD(arg0, f32 *, 0x3BC) = (f32) lbl_805DF7FC;
         M2C_FIELD(arg0, f32 *, 0x3B8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3B8) + lbl_805DF81C);

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBGLightningCtrl__sub_802A9CD8(void);
+void destroy_instance__16TBGLightningCtrlFv(void);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 lbl_805D66D0;
 
-void TBGLightningCtrl__sub_802A9CD8(void) {
+void destroy_instance__16TBGLightningCtrlFv(void) {
     if ((u32) lbl_805D66D0 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D66D0);
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D66D0);

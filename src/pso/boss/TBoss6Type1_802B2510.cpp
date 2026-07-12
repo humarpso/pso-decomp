@@ -8,7 +8,7 @@ extern "C" {
 
 void update_attack_timer__11TBoss6Type1FPv(void *arg0);
 void init_work__11TBoss6Type1FPv(u8 *arg0);
-void TBoss6Type1__sub_802B2634(void *arg0);
+void tick_attack_sequence__11TBoss6Type1FPv(void *arg0);
 void init_charge__11TBoss6Type1FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TBoss6Type1__sub_802B4B64(void *, int);
@@ -55,7 +55,7 @@ void init_work__11TBoss6Type1FPv(u8 *arg0) {
     TBoss6Type1__sub_802B4BA8((void *)(arg0), (int)(1));
 }
 
-void TBoss6Type1__sub_802B2634(void *arg0) {
+void tick_attack_sequence__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

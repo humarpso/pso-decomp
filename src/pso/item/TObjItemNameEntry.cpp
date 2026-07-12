@@ -18,7 +18,7 @@ M2C_UNK fn_80131B18(u32, s32);
 M2C_UNK TWindowMakeTeam__sub_80131B54(u32, s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265DEC(u32, f32, f32);
-u32 TAdChrSelASlotGC__sub_80266508(s32, s32);
+u32 check_room_seq_4__16TAdChrSelASlotGCFii(s32, s32);
 s32 fn_8026CB5C();
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
@@ -43,7 +43,7 @@ void *TObjItemNameEntry__ct(void *arg0) {
         fn_80131ADC(M2C_FIELD(arg0, u32 *, 0x1C), TWindowSubComCard__sub_8026CBB8(0xC0));
         fn_80131B18(M2C_FIELD(arg0, u32 *, 0x1C), fn_8026CB5C());
     }
-    M2C_FIELD(arg0, u32 *, 0x20) = TAdChrSelASlotGC__sub_80266508(TWindowSubComCard__sub_8026CBB8(0x56), 1);
+    M2C_FIELD(arg0, u32 *, 0x20) = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x56), 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
         TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x20), TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
     }

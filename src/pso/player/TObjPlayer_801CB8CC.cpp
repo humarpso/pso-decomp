@@ -8,7 +8,7 @@ extern "C" {
 
 void set_flag_0x100000__10TObjPlayerFPv(void* p);
 void apply_velocity_if_free__10TObjPlayerFi(s32 arg0);
-void TObjPlayer__sub_801CB948(u8 *arg0);
+void start_use_item_action__10TObjPlayerFPv(u8 *arg0);
 int TObjPlayer__sub_8001053C(void*);
 u32 TObjPlayer__sub_801B5EA4(s32);
 M2C_UNK TObjPlayer__sub_801B5FB0();
@@ -32,7 +32,7 @@ void apply_velocity_if_free__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801CB948(u8 *arg0) {
+void start_use_item_action__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);

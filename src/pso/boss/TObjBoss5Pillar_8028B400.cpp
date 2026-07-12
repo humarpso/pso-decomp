@@ -10,7 +10,7 @@ void render__15TObjBoss5PillarFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(int, int, f32);
 M2C_UNK TObjFish__sub_803DA798(void *);
-s32 TObjPlayer__sub_801A85A0();
+s32 is_any_teammate_in_state__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK fn_8028ADB0(int);
@@ -19,7 +19,7 @@ M2C_UNK fn_8028ADDC(int);
 extern s32 lbl_805D4DDC;
 
 void render__15TObjBoss5PillarFPv(u8 *arg0) {
-    if (TObjPlayer__sub_801A85A0() == 0) {
+    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
         TObjPlayer__sub_803D9B2C();
         TObjFish__sub_803DA798((void *) (lbl_805D4DDC));
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x2C));

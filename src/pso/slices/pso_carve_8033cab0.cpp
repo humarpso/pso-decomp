@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK __dt__7TObjectFv(void *, int);
 M2C_UNK TCameraCtrl__sub_80069DA8();
 M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
-M2C_UNK TObjFish__sub_800E3100(void *);
+M2C_UNK init_state_1__8TObjFishFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AC25C(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AC4D8();
@@ -22,7 +22,7 @@ u8 *fn_8033CAB0(u8 *arg0, s16 arg1) {
         TBoss6PlotFalz__sub_802AC4D8();
         TBoss6PlotFalz__sub_802AC25C(arg0 + 0x40);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x60) != 0U) {
-            TObjFish__sub_800E3100(M2C_FIELD(arg0, void **, 0x60));
+            init_state_1__8TObjFishFPv(M2C_FIELD(arg0, void **, 0x60));
             M2C_FIELD(arg0, u32 *, 0x60) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {

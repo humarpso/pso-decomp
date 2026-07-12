@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TWindowSimpleStatus__sub_802706F0(void *arg0, void *arg1);
+void * create__19TWindowSimpleStatusFPvPv(void *arg0, void *arg1);
 void *TWindowSimpleStatus__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern unsigned char lbl_804D0CB0[];
 
-void * TWindowSimpleStatus__sub_802706F0(void *arg0, void *arg1) {
+void * create__19TWindowSimpleStatusFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x78);
     if (o != NULL) {

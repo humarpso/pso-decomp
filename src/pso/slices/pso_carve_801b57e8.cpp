@@ -22,7 +22,7 @@ int check_flag_100__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801B5790(void* p);
 void action_enable_if_present__10TObjPlayerFPv(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
-int TObjPlayer__sub_801C0044(void*);
+int is_handle_valid__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801C1B38(void*);
 int TObjPlayer__sub_801C1B60(void*);
 

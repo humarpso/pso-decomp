@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801D6E28(void *arg0, u8 arg1);
+void set_validated_field_0x11__6TLobbyFPvUc(void *arg0, u8 arg1);
 s16 clamp_player_index__6TLobbyFPv(void *arg0);
 void set_clamped_index__6TLobbyFPvs(void *arg0, s16 arg1);
 void TLobby__sub_801D6F08(void *arg0, s32 arg1);
@@ -15,7 +15,7 @@ s32 TObjPlayer__sub_801AF288();
 s32 TObjPlayer__sub_801D9988(u8);
 u8 ret_801D78E4();
 
-void TLobby__sub_801D6E28(void *arg0, u8 arg1) {
+void set_validated_field_0x11__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;

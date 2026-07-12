@@ -10,7 +10,7 @@ M2C_UNK TLobby__sub_8036B1AC(s32);
 M2C_UNK send_slot_entity__6TLobbyFPvUsi(u32, u16, s32);
 extern u32 lbl_805D7008;
 
-void TLobby__sub_8036B204(u16 arg0, s32 arg1) {
+void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1) {
     if (((u32) lbl_805D7008 != 0U) && (arg0 < 4U)) {
         send_slot_entity__6TLobbyFPvUsi(lbl_805D7008, arg0, arg1);
         return;

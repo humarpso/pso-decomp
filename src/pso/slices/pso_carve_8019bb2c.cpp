@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 s32 TAdStorySelectGC__sub_8019DC14();
-M2C_UNK TBoss4DarkFalz__sub_801F4830(M2C_UNK);
+M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 M2C_UNK init__23TAdSinglePlyChrSelectGCFv();
 s32 fn_80219EE8();
 
@@ -19,7 +19,7 @@ void fn_8019BB2C(void) {
     switch (temp_r3) {
     case 0:
         if (fn_80219EE8() != 0) {
-            TBoss4DarkFalz__sub_801F4830(0x3FE);
+            dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x3FE);
             TKeyBoardControl__sub_8000F9CC(0xC);
         } else {
             TKeyBoardControl__sub_8000F9CC(0x10);

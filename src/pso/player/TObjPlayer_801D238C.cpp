@@ -15,7 +15,7 @@ int TLobby__send_and_handle_60(void*);
 int update_players__6TLobbyFi(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int TObjPlayer__sub_8001960C(void*);
+int read_be16_field2__10TObjPlayerFPv(void*);
 s32 TObjPlayer__sub_8012125C(s32);
 int TObjPlayer__sub_8012AF00(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
@@ -24,7 +24,7 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-void bswap_field4_sub__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); TObjPlayer__sub_801D2B2C((char*)p + 0x4); }
+void bswap_field4_sub__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); TObjPlayer__sub_801D2B2C((char*)p + 0x4); }
 void* build_packet_header__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8012AF00((char*)p + 0x4); *(unsigned char*)(p) = 70; *(unsigned char*)((char*)p + 0x1) = 12; return p; }
 
 }

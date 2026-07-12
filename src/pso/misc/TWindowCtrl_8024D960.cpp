@@ -10,7 +10,7 @@ s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 int TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
-void TWindowCtrlMain__sub_8024D87C(void* p);
+void update_child_2c__15TWindowCtrlMainFPv(void* p);
 void TWindowCtrlMain__sub_8024D8A8(void* p);
 void update_field28__15TWindowCtrlMainFPv(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);

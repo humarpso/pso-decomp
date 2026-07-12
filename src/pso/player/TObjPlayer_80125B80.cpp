@@ -13,7 +13,7 @@ void create_pro_armor__10TObjPlayerFPv(void *arg0);
 void update_terminal_state__10TObjPlayerFPv(void *arg0);
 s32 TItemProArmor__sub_80102C3C(void *);
 s32 TOKeyMachine01__sub_802034A8();
-s32 TObjPlayer__sub_80100D1C(void *);
+s32 is_mag_active__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_8011E384();
 s32 TObjPlayer__sub_8011E618(void *);
 s32 TObjPlayer__sub_8011F5E0(void *);
@@ -66,7 +66,7 @@ void update_terminal_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TOKeyMachine01__sub_802034A8();
-    if ((temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x1F8)) && (TObjPlayer__sub_80100D1C(arg0) != 0)) {
+    if ((temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x1F8)) && (is_mag_active__10TObjPlayerFPv(arg0) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = temp_r3;
         if (TObjPlayer__sub_802034B0(temp_r3) != 0) {
             spawn_effect__10TObjPlayerFiUiii((s32)(tl_05), (u32)(arg0), (s32)(1), (s32)(0x1AE));

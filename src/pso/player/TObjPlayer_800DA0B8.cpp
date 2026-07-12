@@ -16,7 +16,7 @@ struct V_Sub_800da0b8 : Base_Sub_800da0b8 {
 
 extern "C" {
 
-void TObjPlayer__sub_800DA0B8(u8 *arg0);
+void update_death_state__10TObjPlayerFPv(u8 *arg0);
 void trigger_hit_camera_shake__10TObjPlayerFPvUi(void *arg0, u32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK, s32);
@@ -26,7 +26,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 M2C_UNK fn_800D8E80(void *, s32);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 
-void TObjPlayer__sub_800DA0B8(u8 *arg0) {
+void update_death_state__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r4;
     s32 temp_r5;

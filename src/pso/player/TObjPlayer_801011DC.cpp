@@ -8,7 +8,7 @@ extern "C" {
 
 s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0);
 s32 TObjPlayer__sub_80102C80(s32);
-u32 TObjPlayer__sub_80102C90(s32, s32);
+u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void *fn_8010A768();
 
@@ -22,7 +22,7 @@ s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0) {
     if (temp_r3 != 0) {
         var_cnt = 9;
         do {
-            if (TObjPlayer__sub_80102C90(temp_r3, var_cnt) != 0U) {
+            if (get_equip_field_d04__10TObjPlayerFPv(temp_r3, var_cnt) != 0U) {
                 var_acc += M2C_FIELD(fn_8010A768(), s16 *, 2);
             }
             var_cnt += 1;

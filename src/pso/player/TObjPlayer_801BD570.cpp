@@ -8,7 +8,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2);
 void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
 void TFontSmallLobby__sub_801C0164(void *);
 void TFontSmallLobby__sub_801D65B4(void *);
-void TObjPlayer__sub_8001BF10(void *);
+void init_forward__10TObjPlayerFPv(void *);
 void reset_fields__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BB524(void *, int);
 void TObjPlayer__sub_801BB85C(void *, void *);
@@ -72,7 +72,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BFE9C((void *)((char *)arg0 + 864));
     TObjPlayer__sub_803374C4((void *)((char *)arg0 + 884));
     TObjPlayer__sub_80309E9C((void *)((char *)arg0 + 900));
-    TObjPlayer__sub_8001BF10((void *)((char *)arg0 + 1052));
+    init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 1052));
     TFontSmallLobby__sub_801C0164((void *)((char *)arg0 + 1064));
     TFontSmallLobby__sub_801D65B4((void *)((char *)arg0 + 1196));
     __ct__14TPlyDispConfigFv((void *)((char *)arg0 + 1280));
@@ -99,7 +99,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801C1A00((void *)((char *)arg0 + 2088));
     TObjPlayer__sub_801C20A4((void *)((char *)arg0 + 2096));
     TObjPlayer__sub_801BFB4C((void *)((char *)arg0 + 2124));
-    TObjPlayer__sub_8001BF10((void *)((char *)arg0 + 2136));
+    init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 2136));
     reset_and_return__10TObjPlayerFi((void *)((char *)arg0 + 3332));
     TObjPlayer__sub_80072218((void *)((char *)arg0 + 3500));
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3530;
@@ -123,7 +123,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BFE9C((void *)((char *)arg0 + 864));
     TObjPlayer__sub_803374C4((void *)((char *)arg0 + 884));
     TObjPlayer__sub_80309E9C((void *)((char *)arg0 + 900));
-    TObjPlayer__sub_8001BF10((void *)((char *)arg0 + 1052));
+    init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 1052));
     TFontSmallLobby__sub_801C0164((void *)((char *)arg0 + 1064));
     TFontSmallLobby__sub_801D65B4((void *)((char *)arg0 + 1196));
     __ct__14TPlyDispConfigFv((void *)((char *)arg0 + 1280));
@@ -150,7 +150,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801C1A00((void *)((char *)arg0 + 2088));
     TObjPlayer__sub_801C20A4((void *)((char *)arg0 + 2096));
     TObjPlayer__sub_801BFB4C((void *)((char *)arg0 + 2124));
-    TObjPlayer__sub_8001BF10((void *)((char *)arg0 + 2136));
+    init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 2136));
     reset_and_return__10TObjPlayerFi((void *)((char *)arg0 + 3332));
     TObjPlayer__sub_80072218((void *)((char *)arg0 + 3500));
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3530;

@@ -8,11 +8,11 @@ extern "C" {
 
 void bswap_6x7C_packet__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__sub_80072994(s32);
-M2C_UNK TObjPlayer__sub_8001960C();
+M2C_UNK read_be16_field2__10TObjPlayerFPv();
 M2C_UNK bswap_16__FPUs(s32);
 
 void bswap_6x7C_packet__6TLobbyFi(s32 arg0) {
-    TObjPlayer__sub_8001960C();
+    read_be16_field2__10TObjPlayerFPv();
     bswap_16__FPUs(arg0 + 4);
     TLobby__sub_80072994(arg0 + 8);
 }

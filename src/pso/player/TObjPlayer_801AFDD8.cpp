@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_801AEE84();
-s32 TTecCtrl__sub_801B0EE8();
+s32 is_camera_mode_active__10TObjPlayerFv();
+s32 is_technique_ready__8TTecCtrlFv();
 s32 TObjPlayer__sub_801B3540(s32);
 s32 TObjPlayer__sub_801B3564(s32);
 s32 TObjPlayer__sub_80203418();
@@ -12,10 +12,10 @@ s32 TBoss3Volopt__sub_8003F108();
 s32 TRaderMapCore__sub_801AFD84(void* p);
 s32 TObjPlayer__sub_801AFDA8(void* p);
 
-s32 TObjPlayer__sub_801AFDD8(s32 arg0) {
+s32 check_technique_castable__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    if ((TTecCtrl__sub_801B0EE8() != 0) || (TObjPlayer__sub_801AEE84() != 0) || (TObjPlayer__sub_80203418() != 0)) {
+    if ((is_technique_ready__8TTecCtrlFv() != 0) || (is_camera_mode_active__10TObjPlayerFv() != 0) || (TObjPlayer__sub_80203418() != 0)) {
         TObjPlayer__sub_801B3564(arg0);
         return 0;
     }
@@ -42,7 +42,7 @@ u8 is_key_machine_ready__10TObjPlayerFv(void) {
     }
     return (u8) var_r0;
 }
-u8 TObjPlayer__sub_801AFEB4(void) {
+u8 is_volopt_phase_final__10TObjPlayerFv(void) {
     return (u8) (TBoss3Volopt__sub_8003F108() == 0xF);
 }
 

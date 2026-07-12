@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_801C5164(void);
+s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void);
 s32 TOKeyMachine01__sub_802034A8();
 u32 __nw__7TObjectFUl(M2C_UNK);
 u32 fn_801C5380(void *, s32);
@@ -14,7 +14,7 @@ u32 fn_801C5380(void *, s32);
 extern u32 lbl_805D5DD0;
 extern s32 tl_00;
 
-s32 TAdSinglePlyChrSelectGC__sub_801C5164(void) {
+s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     u32 var_r0;
 

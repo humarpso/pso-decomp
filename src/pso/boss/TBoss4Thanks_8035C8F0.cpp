@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TBoss4Thanks__sub_8035C8F0(void);
+void *create__12TBoss4ThanksFv(void);
 void *TBoss4Thanks__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_02;
 
-void *TBoss4Thanks__sub_8035C8F0(void) {
+void *create__12TBoss4ThanksFv(void) {
     void *o = __nw__7TObjectFUl(0x54);
     if (o != NULL) {
         o = TBoss4Thanks__ct(o, tl_02);

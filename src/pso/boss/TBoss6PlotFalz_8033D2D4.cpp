@@ -4,10 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *__nw__7TObjectFUl(int);
+void * create__14TBoss6PlotFalzFPvPv(void *arg0, void *arg1);
 void *TObjFish__sub_8033D1AC(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
 
-void * fn_8033D2D4(void *arg0, void *arg1) {
+void * create__14TBoss6PlotFalzFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {

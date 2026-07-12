@@ -51,7 +51,7 @@ int run_and_get_result__10TObjPlayerFPvi(void* a0, int a1);
 int run_state_query__10TObjPlayerFPvi(void* a0, int a1);
 s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 M2C_UNK TItem__sub_80102424(void *, s16, s32, M2C_UNK);
-s16 TObjPlayer__sub_801A1EB0(s32);
+s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
 M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
 s32 TObjPlayer__sub_801C1A70(void *);
 s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
@@ -91,7 +91,7 @@ s32 TObjPlayer__sub_801D48F8(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4,
     if (TObjPlayer__sub_801C1A70(temp_r3_2) != 0) {
         unequip_item__10TObjPlayerFiPv(arg1, temp_r3_2);
     }
-    M2C_FIELD(temp_r3_2, s16 *, 0x28) = TObjPlayer__sub_801A1EB0(arg1);
+    M2C_FIELD(temp_r3_2, s16 *, 0x28) = get_stat_by_key_state__10TObjPlayerFPv(arg1);
     TItem__sub_80102424(temp_r3_2, arg5, arg3, 0);
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x1C);
     M2C_FIELD(arg0, s16 *, 0x1C) = (s16) (temp_r4 - 1);

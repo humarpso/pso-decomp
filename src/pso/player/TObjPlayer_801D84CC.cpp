@@ -16,7 +16,7 @@ int bswap_16__FPUs(void*);
 
 int bswap_disp_config_field__10TObjPlayerFPv(void* p) { return bswap_16__FPUs((char*)p + 0x2); }
 s32 TObjPlayer__sub_801D84F0(void* p) { return *(s32*)((char*)p + 0x4); }
-void TObjPlayer__sub_801D84F8(s32 arg0, s32 arg1) {
+void set_animation_from_data__10TObjPlayerFii(s32 arg0, s32 arg1) {
     void *temp_r3;
 
     temp_r3 = TObjPlayer__sub_801D8E1C();

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void show_child_window__15TWindowMainMenuFPv(void* p);
-void TWindowMainMenu__sub_80264514(void* p);
+void update_trade_submenu__15TWindowMainMenuFPv(void* p);
 void update_submenu__15TWindowMainMenuFPv(void *arg0);
 void close_submenu__15TWindowMainMenuFPvPv(void* p, void* a1);
 void TWindowMainMenu__sub_802645E4(void* p, void* a1);
@@ -23,14 +23,14 @@ int update_scaled_position__15TWindowMainMenuFi(void*);
 s32 is_split_screen();
 
 void show_child_window__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { window_request_show(*(void**)((char*)p + 0x1c)); update_scaled_position__15TWindowMainMenuFi(*(void**)((char*)p + 0x1c)); } }
-void TWindowMainMenu__sub_80264514(void* p) { void* m = *(void**)((char*)p + 0x1c); if (m) TWindowSubTradeMain__sub_80244A4C(m); }
+void update_trade_submenu__15TWindowMainMenuFPv(void* p) { void* m = *(void**)((char*)p + 0x1c); if (m) TWindowSubTradeMain__sub_80244A4C(m); }
 void update_submenu__15TWindowMainMenuFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         TWindowMainMenu__sub_802AD980((void*)(M2C_FIELD(arg0, void **, 0x1C)));
         update_scaled_position__15TWindowMainMenuFi((void*)(M2C_FIELD(arg0, u32 *, 0x1C)));
     }
     if (is_split_screen() != 0) {
-        TWindowMainMenu__sub_80264514((void*)((void*)(arg0)));
+        update_trade_submenu__15TWindowMainMenuFPv((void*)((void*)(arg0)));
     }
 }
 void close_submenu__15TWindowMainMenuFPvPv(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { TWindowMainMenu__sub_802AD90C(*(void**)((char*)p + 0x1c)); TWindowMainMenu__sub_802ADB0C(*(void**)((char*)p + 0x1c)); TWindowMainMenu__sub_802646E4(p, a1); } }

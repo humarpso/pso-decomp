@@ -6,7 +6,7 @@ void TObjPlayer__sub_801C72E4(void* p);
 int TLobby__send_and_handle_60(void*);
 int check_flag__10TObjPlayerFPvi(void*, void*);
 int bswap_32__FPUl(void*);
-int TObjPlayer__sub_8001960C(void*);
+int read_be16_field2__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_8011E204(void*, void*);
 int TObjPlayer__sub_8011E238(void*, void*);
 int TFontSmallLobby__sub_801C01BC(void*);

@@ -6,12 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 is_split_screen();
-f32 fn_801315A0(s32, s32);
+s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 fn_801315A0(s32, s32);
+s32 is_split_screen();
+
 extern s32 lbl_805D53A0;
 
-s32 fn_80190BFC(s32 arg0, f32 farg0) {
+s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0) {
     s32 var_r31;
     u32 temp_r3;
     u32 temp_r3_2;

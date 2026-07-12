@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TItemData__sub_8010EC6C(void *arg0);
-s32 TItemData__sub_8010EC88(void *arg0);
+s32 check_item_flags__9TItemDataFPv(void *arg0);
 s32 TItemData__sub_8010C52C();
 
 void TItemData__sub_8010EC6C(void *arg0) {
@@ -16,7 +16,7 @@ void TItemData__sub_8010EC6C(void *arg0) {
     }
 }
 
-s32 TItemData__sub_8010EC88(void *arg0) {
+s32 check_item_flags__9TItemDataFPv(void *arg0) {
     if (((u8) M2C_FIELD(arg0, u8 *, 0) == 0) && (M2C_FIELD(arg0, u8 *, 4) & 0x80)) {
         return TItemData__sub_8010C52C() != 0 ? 1 : 0;
     }

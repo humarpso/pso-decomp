@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void dispatch_by_state__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_8034F870(void* p);
+void reset_animation_flags__10TObjPlayerFPv(void* p);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 int TObjPlayer__sub_8011E87C(void*, void*);
 int TObjPlayer__sub_80120BBC(void*, void*);
@@ -27,6 +27,6 @@ void dispatch_by_state__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_8034F870(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); TObjPlayer__sub_8011E87C(p, (void*)0); TObjPlayer__sub_8011E87C(p, (void*)1); }
+void reset_animation_flags__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); TObjPlayer__sub_8011E87C(p, (void*)0); TObjPlayer__sub_8011E87C(p, (void*)1); }
 
 }

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOHealGeneral__sub_80169A8C(void *arg0);
+s32 update_active_state__13TOHealGeneralFPv(void *arg0);
 void TOHealGeneral__sub_80169B28(void *arg0, s32 arg1);
 u8 TODoorAncient08__sub_80229220(u16);
 s32 TODragonfly__sub_80158360(f32);
 
 extern f32 lbl_805DB6D8;
 
-s32 TOHealGeneral__sub_80169A8C(void *arg0) {
+s32 update_active_state__13TOHealGeneralFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);

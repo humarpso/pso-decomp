@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TObjPlayer__sub_8001960C(void*);
+int read_be16_field2__10TObjPlayerFPv(void*);
 int TLobby__sub_801E44D8(void*, void*);
 s32 TWindowSubComCard__sub_8007B6D8(void* p);
 int TWindowSubComCard__sub_8007B6E0(void* p);

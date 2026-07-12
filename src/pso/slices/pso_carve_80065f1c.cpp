@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_8001960C();
+s32 read_be16_field2__10TObjPlayerFPv();
 s32 bswap_32__FPUl(s32);
 void fn_80065F1C(void);
 void fn_80065F20(void);
@@ -27,7 +27,7 @@ int fn_80065F80(void) { return 0; }
 int fn_80065FD4(void) { return 0; }
 int fn_8006602C(void) { return 0; }
 void fn_80066060(s32 arg0) {
-    TObjPlayer__sub_8001960C();
+    read_be16_field2__10TObjPlayerFPv();
     bswap_32__FPUl(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);
     bswap_32__FPUl(arg0 + 0xC);

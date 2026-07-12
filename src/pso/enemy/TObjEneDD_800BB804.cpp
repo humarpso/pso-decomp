@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDD__sub_800BB804(u8 *arg0, u8 *arg1);
+void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C48C(void *, int);
 M2C_UNK TObjEneDD__sub_800BB88C();
 
 extern s32 lbl_805D5328;
 
-void TObjEneDD__sub_800BB804(u8 *arg0, u8 *arg1) {
+void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
     TObjEneDD__sub_800BB88C();
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
     M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);

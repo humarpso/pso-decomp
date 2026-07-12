@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowMessagePage__sub_8026AEE0(s32 a, s32 b, s32 c);
+void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c);
 M2C_UNK TWindowMessagePage__sub_8026AE7C(s32, s32, s32, s32);
 
 extern s32 lbl_805D53A0;
 
-void TWindowMessagePage__sub_8026AEE0(s32 a, s32 b, s32 c) {
+void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c) {
     TWindowMessagePage__sub_8026AE7C(a, b, c, lbl_805D53A0);
 }
 

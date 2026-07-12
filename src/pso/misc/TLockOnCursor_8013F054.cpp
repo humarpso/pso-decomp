@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TObjPlayer__sub_8001BF10(void*);
+int init_forward__10TObjPlayerFPv(void*);
 int fn_8004438C(void*);
 int fn_80072004(void*);
 int TMainCursor__sub_8013E240(void*);
@@ -24,7 +24,7 @@ void TMainCursor__sub_8013F180(void* p, f32 v);
 int get_rader_map__11TMainCursorFPv(void* p);
 int TRaderMapCore__sub_8002F588(void*);
 
-void* init_sub__13TLockOnCursorFPv(void* p) { fn_8004438C(p); TObjPlayer__sub_8001BF10((char*)p + 0x8); return p; }
+void* init_sub__13TLockOnCursorFPv(void* p) { fn_8004438C(p); init_forward__10TObjPlayerFPv((char*)p + 0x8); return p; }
 void reset_fields__13TLockOnCursorFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*)p + 0x8) = 0; }
 
 }

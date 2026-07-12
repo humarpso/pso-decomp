@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_802D5B00(s32 arg0);
+void spawn_item__10TObjPlayerFi(s32 arg0);
 M2C_UNK get_data_entry__9TItemLoadFiPv(M2C_UNK, s32 *);
 M2C_UNK lookup_item_data__9TItemLoadFiPv(M2C_UNK, s32 *);
 s32 TObjEneDellBiter__sub_80087350(M2C_UNK, s32);
@@ -16,7 +16,7 @@ M2C_UNK TObjPlayer__sub_800822D4(s32, f32, f32);
 extern f32 lbl_805DE78C;
 extern f32 lbl_805DE79C;
 
-void TObjPlayer__sub_802D5B00(s32 arg0) {
+void spawn_item__10TObjPlayerFi(s32 arg0) {
     s32 spC;
     s32 sp8;
     s32 temp_r3;

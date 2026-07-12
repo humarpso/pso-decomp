@@ -9,7 +9,7 @@ void update_by_field_0x354__17TObjEneMe1CanadinFPv(void *);
 void TObjEneMe1Canadin__sub_8009F004(void *);
 void init_object__9TObjEneDDFPv(void *);
 void TObjEneDD__sub_800BB8E0(void *, void *);
-void TObjEneMe3SinowZoa__sub_800D764C(void *);
+void init_common__18TObjEneMe3SinowZoaFPv(void *);
 
 extern M2C_UNK __vt__17TObjEneMe1Canadin[];
 extern void *lbl_805D29B0;
@@ -17,7 +17,7 @@ extern void *lbl_805D29B0;
 void *init__17TObjEneMe1CanadinFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     init_object__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjEneMe1Canadin;
-    TObjEneMe3SinowZoa__sub_800D764C((void *)((char *)arg0 + 972));
+    init_common__18TObjEneMe3SinowZoaFPv((void *)((char *)arg0 + 972));
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D29B0;
     TObjEneDD__sub_800BB8E0(arg0, arg2);
     M2C_FIELD(arg0, u32 *, 0x3C8) = 0;

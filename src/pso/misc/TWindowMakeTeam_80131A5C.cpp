@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TWindowMakeTeam__sub_80131A5C(void* p);
-int TLobby__sub_80244D2C(void*);
+int set_field_1c__6TLobbyFPvf(void*);
 s32 TWindowSubTradeMain__sub_80244A4C(void *);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
 int get_lobby_field_20__15TWindowMakeTeamFPv(void* p);

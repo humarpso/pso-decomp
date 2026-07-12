@@ -17,7 +17,7 @@ M2C_UNK fn_80131B18(s32, s32);
 M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
-u32 TAdChrSelASlotGC__sub_80266508(s32, M2C_UNK);
+u32 check_room_seq_4__16TAdChrSelASlotGCFii(s32, M2C_UNK);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
 extern s32 lbl_805D53A0;
@@ -44,7 +44,7 @@ void open_keyboard_window__6TLobbyFv(void) {
             lbl_805D5618 = 1;
         }
         tmp_r3 = TWindowSubComCard__sub_8026CBB8(0xC3);
-        lbl_805D55F0 = TAdChrSelASlotGC__sub_80266508(tmp_r3, 2);
+        lbl_805D55F0 = check_room_seq_4__16TAdChrSelASlotGCFii(tmp_r3, 2);
         TObjCityMainWarp__sub_80266354(lbl_805D55F0, TLobby__sub_8013A14C(0x44), 2, 0);
         TObjCityMainWarp__sub_80266354(lbl_805D55F0, lbl_805D5614, 2, 1);
         TWindowSubComCard__sub_80265F60(lbl_805D55F0);

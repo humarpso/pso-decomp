@@ -13,7 +13,7 @@ M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK TObjLight__sub_80133D78();
 M2C_UNK TLobby__sub_801403B4(M2C_UNK);
-M2C_UNK TBoss4DarkFalz__sub_801F4830(M2C_UNK);
+M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 s32 TOKeyMachine01__sub_802034A8();
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
@@ -50,10 +50,10 @@ s32 initialize_boss_scene(void) {
         temp_r3 = TOKeyMachine01__sub_802034A8();
         switch (temp_r3) {
         case 28:
-            TBoss4DarkFalz__sub_801F4830(0x54);
+            dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x54);
             break;
         case 29:
-            TBoss4DarkFalz__sub_801F4830(0x55);
+            dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x55);
             break;
         }
     }

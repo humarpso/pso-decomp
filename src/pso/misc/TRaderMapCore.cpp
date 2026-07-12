@@ -11,7 +11,7 @@ s32 should_show_map__13TRaderMapCoreFv(void);
 void TRaderMapCore__sub_801F9104(void* p);
 s32 TRaderMapCore__sub_801F9058();
 s32 is_not_split_screen__13TRaderMapCoreFv();
-s32 TTecCtrl__sub_801B0EE8();
+s32 is_technique_ready__8TTecCtrlFv();
 s32 is_ready__6TLobbyFv();
 
 extern void *TRaderMapCore__data_805D5F40;
@@ -30,7 +30,7 @@ s32 should_show_map__13TRaderMapCoreFv(void) {
     if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && (is_ready__6TLobbyFv() == 0)) {
         return 0;
     }
-    return TTecCtrl__sub_801B0EE8();
+    return is_technique_ready__8TTecCtrlFv();
 }
 void TRaderMapCore__sub_801F9104(void* p) { *(s32*)((char*)p + 0x184) = 0; }
 

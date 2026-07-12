@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjWarpBossMulti__sub_8019EA7C(u8 *arg0);
+void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 TObjWarpBossMulti__sub_8019E4E8(void *);
 u32 TObjWarpBossMulti__sub_8019E570(f32);
@@ -20,7 +20,7 @@ extern s32 lbl_805D53A0;
 extern s32 lbl_805D5C94;
 extern s32 lbl_805D5C9C;
 
-void TObjWarpBossMulti__sub_8019EA7C(u8 *arg0) {
+void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
     s16 temp_r0;
     s32 var_r3;
 

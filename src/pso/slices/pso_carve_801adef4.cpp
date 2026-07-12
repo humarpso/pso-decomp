@@ -15,7 +15,7 @@ s32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801A7680(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
-M2C_UNK TSceneSora__sub_801A7A78(void *);
+M2C_UNK update_state__10TSceneSoraFPv(void *);
 M2C_UNK TPhotonMagicSquare__ct(s32, void *, M2C_UNK, Vec3 *, M2C_UNK, f32);
 M2C_UNK apply_photon_blast_effects__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801ADD10(void *);
@@ -59,7 +59,7 @@ void update_photon_blast(void *arg0) {
         TObjPlayer__sub_801A7748(arg0, 3);
     }
     M2C_FIELD(arg0, s16 *, 0x198) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
-    TSceneSora__sub_801A7A78(arg0);
+    update_state__10TSceneSoraFPv(arg0);
     TBoss1Dragon__sub_80143504(arg0);
     TObjPlayer__sub_801A7680(arg0);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);

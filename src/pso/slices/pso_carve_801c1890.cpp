@@ -10,7 +10,7 @@ s32 TLobby__send_and_handle_60(s32);
 int __dl__FPv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-s32 TObjPlayer__sub_8001960C();
+s32 read_be16_field2__10TObjPlayerFPv();
 int TObjPlayer__sub_8001BED8(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 s32 TWindowActionPalette__sub_8013DF4C(s32, u8);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_8001BF10(void *);
+M2C_UNK init_forward__10TObjPlayerFPv(void *);
 M2C_UNK fn_8010F0C0(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(void *);
 
 u8 *fn_8010F1B8(u8 *arg0, s32 arg1, s32 arg2) {
-    TObjPlayer__sub_8001BF10((void *) (arg0 + 0xC));
+    init_forward__10TObjPlayerFPv((void *) (arg0 + 0xC));
     M2C_FIELD(arg0, s32 *, 4) = arg1;
     M2C_FIELD(arg0, s32 *, 0) = arg2;
     M2C_FIELD(arg0, s32 *, 8) = alloc_buffer__11TOBoss4RockFPv((void *) (arg2));

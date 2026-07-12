@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009BDA8(void *arg0, s32 arg1);
+void update_by_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 void update_walk_animation__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 f32 TBoss8Dragon__sub_803D64C0(s32, f32);
@@ -15,7 +15,7 @@ M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 
 extern const f32 lbl_805D98A8;
 
-void TObjEneMe1Canadin__sub_8009BDA8(void *arg0, s32 arg1) {
+void update_by_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     f32 temp_f1;
 
     switch (arg1) {

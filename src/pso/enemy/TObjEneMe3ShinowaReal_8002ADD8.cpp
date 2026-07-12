@@ -5,7 +5,7 @@ extern "C" {
 void bswap_6x12_packet__10TObjPlayerFPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-int TObjPlayer__sub_8001960C(void*);
+int read_be16_field2__10TObjPlayerFPv(void*);
 void bswap_dragon_boss_fields__10TObjPlayerFPv(void* p);
 void bswap_stats__10TObjPlayerFPv(void* p);
 void send_6x12_packet__10TObjPlayerFPv(void* p);

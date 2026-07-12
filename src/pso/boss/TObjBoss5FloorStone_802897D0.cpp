@@ -7,15 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__19TObjBoss5FloorStoneFv(void);
-M2C_UNK TObjBoss5FloorStone__sub_80066FEC(s32, s32);
-s32 TObjPlayer__sub_801A85A0();
+M2C_UNK render_impl__19TObjBoss5FloorStoneFPvPv(s32, s32);
+s32 is_any_teammate_in_state__10TObjPlayerFv();
 
 extern void *lbl_805D4DD8;
 extern s32 lbl_805D4DDC;
 
 void render__19TObjBoss5FloorStoneFv(void) {
-    if (TObjPlayer__sub_801A85A0() == 0) {
-        TObjBoss5FloorStone__sub_80066FEC(lbl_805D4DDC, M2C_FIELD(M2C_FIELD(lbl_805D4DD8, void **, 0x42C), s32 *, 0x58));
+    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
+        render_impl__19TObjBoss5FloorStoneFPvPv(lbl_805D4DDC, M2C_FIELD(M2C_FIELD(lbl_805D4DD8, void **, 0x42C), s32 *, 0x58));
     }
 }
 

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_80293610(void* p);
-void TLobby__sub_8029364C(void *arg0);
+void update_destruction_countdown__6TLobbyFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1510();
 int TLobby__sub_802933FC(void*);
 int TLobby__sub_8029359C(void*);
@@ -15,7 +15,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void TLobby__sub_80293610(void* p) { if (TLobby__sub_8029359C((void*)(p)) == 0) { TLobby__sub_802933FC(p); } }
 
-void TLobby__sub_8029364C(void *arg0) {
+void update_destruction_countdown__6TLobbyFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_801E1510() != 1) {
         if (TLobby__sub_8029359C((void*)(arg0)) == 1) {
             queue_destruction__7TObjectFv(arg0);

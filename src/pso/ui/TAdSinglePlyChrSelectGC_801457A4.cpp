@@ -11,7 +11,7 @@ struct VObj_801457A4 : Base_801457A4 {
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_801457A4(void);
+void free_resources__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TLobby__sub_803DA16C(M2C_UNK *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
@@ -22,7 +22,7 @@ extern s32 lbl_805D56B4;
 extern s32 lbl_805D56BC;
 extern struct VObj_801457A4 *lbl_805D56C4;
 
-void TAdSinglePlyChrSelectGC__sub_801457A4(void) {
+void free_resources__23TAdSinglePlyChrSelectGCFv(void) {
     if (lbl_805D56C4 != NULL) {
         lbl_805D56C4->m0(1);
     }

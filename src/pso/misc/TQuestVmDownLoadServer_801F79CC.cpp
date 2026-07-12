@@ -14,7 +14,7 @@ s32 TWindowSubComCard__sub_80073DB8(u32);
 M2C_UNK TWindow__close(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
-M2C_UNK TWindowSubItem__sub_801F8FD4(void *);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 
 void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0) {
     s32 temp_r3;
@@ -36,7 +36,7 @@ void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0) {
                     M2C_FIELD(arg0, u32 *, 0x290) = 0U;
                 }
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {
-                    TWindowSubItem__sub_801F8FD4(M2C_FIELD(arg0, void **, 0x28C));
+                    clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x28C));
                 }
                 update_state__13TAdMcSelectGCFv();
                 TQuestVmDownLoadServer__sub_801F6E08(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x29, 1), 1);
@@ -52,7 +52,7 @@ block_12:
                 M2C_FIELD(arg0, u32 *, 0x290) = 0U;
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {
-                TWindowSubItem__sub_801F8FD4(M2C_FIELD(arg0, void **, 0x28C));
+                clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x28C));
             }
             update_state__13TAdMcSelectGCFv();
             TQuestVmDownLoadServer__sub_801F6E08(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x29, 1), 1);

@@ -11,7 +11,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
-M2C_UNK TWindowSubItem__sub_801F8FD4(void *);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8033A8EC();
 
 extern s32 lbl_805D49B4;
@@ -24,7 +24,7 @@ void close_download__22TQuestVmDownLoadServerFPv(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x260) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {
-            TWindowSubItem__sub_801F8FD4(M2C_FIELD(arg0, void **, 0x28C));
+            clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x28C));
         }
         TQuestVmDownLoadServer__sub_801F6E08(arg0, TQuestVmDownLoadServer__sub_8006EF6C(0x41), 1);
         M2C_FIELD(arg0, s32 *, 0x2A0) = 0x13;

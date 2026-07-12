@@ -10,7 +10,7 @@ void TAdMultiChgGameModeGC__sub_8023EAC4(void);
 void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void);
 void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void);
 void set_state_0xc__21TAdMultiChgGameModeGCFv(void);
-void TAdMultiChgGameModeGC__sub_8023EB84(void);
+void begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK TAdMultiChgGameModeGC__sub_8023F654();
 
 extern s32 lbl_805D3848;
@@ -52,7 +52,7 @@ void set_state_0xc__21TAdMultiChgGameModeGCFv(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023EB84(void) {
+void begin_change_game_mode__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 0xB;
     lbl_805D63C8 = 1;

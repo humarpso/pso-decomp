@@ -4,7 +4,7 @@ extern "C" {
 
 s32 fn_80355098(s32 arg0, s16 arg1);
 int __dl__FPv();
-int TObjPlayer__sub_8001BF10(void*);
+int init_forward__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_8001BF40(void*);
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*, void*);
 int fn_8035510C(void* a0 = 0, void* a1 = 0);
@@ -39,7 +39,7 @@ s32 fn_80355098(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-void* fn_803550D4(void* p) { TObjPlayer__sub_8001BF10(p); reset_field4__10TObjPlayerFPv(p); return p; }
+void* fn_803550D4(void* p) { init_forward__10TObjPlayerFPv(p); reset_field4__10TObjPlayerFPv(p); return p; }
 int fn_8035510C(void*, void*) { return 0; }
 int render__19TAdPlyPltAnimCtrlGCFv(void) { return 0; }
 int TAdPlyPltAnimCtrlGC__sub_80355148(void) { return 0; }

@@ -9,14 +9,14 @@ extern "C" {
 void forward_to_player__6TLobbyFiPv(int arg0, void *arg1);
 void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_80019248();
-u32 TObjPlayer__sub_80019704(s32);
+u32 get_item_field_6__10TObjPlayerFPv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TObjPlayer__sub_80099EF8();
-u32 TObjPlayer__sub_80102C90(s32, s32);
+u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 TWindowSubComCard__sub_801058F8(s32);
 u32 TObjPlayer__sub_8010590C(s32);
 u32 test_flag3__9TItemDataFPv(s32);
-u32 TItemData__sub_8010595C(s32);
+u32 get_item_field_2__9TItemDataFPv(s32);
 M2C_UNK fn_801B849C(s32, void *);
 M2C_UNK TObjPlayer__sub_801B9EDC(s32, s32);
 M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, M2C_UNK);
@@ -50,10 +50,10 @@ void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1) {
         var_r3 = 0U;
         switch (arg1) {
         case 0:
-            var_r3 = TObjPlayer__sub_80019704(temp_r3);
+            var_r3 = get_item_field_6__10TObjPlayerFPv(temp_r3);
             break;
         case 1:
-            var_r3 = TItemData__sub_8010595C(temp_r3);
+            var_r3 = get_item_field_2__9TItemDataFPv(temp_r3);
             break;
         case 2:
             var_r3 = test_flag3__9TItemDataFPv(temp_r3);
@@ -65,7 +65,7 @@ void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1) {
         case 5:
         case 6:
         case 7:
-            var_r3 = TObjPlayer__sub_80102C90(temp_r3, arg1 + 5);
+            var_r3 = get_equip_field_d04__10TObjPlayerFPv(temp_r3, arg1 + 5);
             break;
         default:
             break;

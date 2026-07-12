@@ -9,7 +9,7 @@ extern "C" {
 void TItemMag__sub_80100D94(void* p, u8 v);
 u8 fn_80100CC8(void);
 int TObjPlayer__sub_80100D10(void* p);
-s32 TObjPlayer__sub_80100D1C(void *arg0);
+s32 is_mag_active__10TObjPlayerFPv(void *arg0);
 void fn_80100D68(void *arg0);
 void fn_80100D9C(void* p, u8 v);
 void lookup_item_data__20TWindowSubStatusDispFPv(void *arg0);
@@ -30,7 +30,7 @@ u8 fn_80100CC8(void) {
     return (u8)var_r31;
 }
 int TObjPlayer__sub_80100D10(void* p) { return *(u16*)((char*)p + 0x4) & 0x400; }
-s32 TObjPlayer__sub_80100D1C(void *arg0) {
+s32 is_mag_active__10TObjPlayerFPv(void *arg0) {
     if ((TItemMag__sub_80102C4C() == 0) && ((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U)) {
         return 1;
     }

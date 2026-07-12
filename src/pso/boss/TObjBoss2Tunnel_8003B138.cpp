@@ -11,13 +11,13 @@ struct VObj_8003B138 : Base_8003B138 {
 
 extern "C" {
 
-void TObjBoss2Tunnel__sub_8003B138(s32 arg0, s32 arg1, f32 farg0);
+void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0);
 M2C_UNK TObjBoss2Tunnel__sub_8003B250(void *, f32);
 void *TParticleCtrl__sub_800882C4(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 s32 get_particle_by_index__13TParticleCtrlFi(s32);
 
-void TObjBoss2Tunnel__sub_8003B138(s32 arg0, s32 arg1, f32 farg0) {
+void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0) {
     void *var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x78);

@@ -9,7 +9,7 @@ extern "C" {
 s32 handle_main_phase__6TLobbyFi(s32 arg0);
 s32 create_lobby_object_05(s32);
 s32 fn_80211FA0(s32);
-s32 THunterGuildSeqOffline__sub_80212014(s32);
+s32 create__22THunterGuildSeqOfflineFPv(s32);
 
 s32 get_main_phase();
 extern s32 lbl_805D53A0;
@@ -17,7 +17,7 @@ extern s32 TLobby__data_805D53AC;
 
 s32 handle_main_phase__6TLobbyFi(s32 arg0) {
     if (get_main_phase() == 0xE) {
-        return THunterGuildSeqOffline__sub_80212014(arg0);
+        return create__22THunterGuildSeqOfflineFPv(arg0);
     }
     if (get_main_phase() == 0xF) {
         if ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC) {

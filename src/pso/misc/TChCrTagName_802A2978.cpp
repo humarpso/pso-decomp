@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TChCrTagName__sub_802A2978(void *arg0);
+void *create__12TChCrTagNameFPv(void *arg0);
 void *__ct__12TChCrTagNameFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_03;
 
-void *TChCrTagName__sub_802A2978(void *arg0) {
+void *create__12TChCrTagNameFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
         o = __ct__12TChCrTagNameFv(o, tl_03, arg0);

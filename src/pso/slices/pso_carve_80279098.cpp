@@ -3,7 +3,7 @@
 extern "C" {
 
 int fn_80266CF8(void*);
-int TShopArmorListWindow__sub_80266D78(void*);
+int save_cursor_selection__20TShopArmorListWindowFPv(void*);
 int fn_80266DB0(void*);
 int TObjPlayer__sub_80279178(void*);
 void fn_80279044(void* p);

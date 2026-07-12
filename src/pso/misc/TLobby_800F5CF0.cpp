@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TLobby__sub_800F5CF0(void *arg0, s32 arg1, s32 arg2);
+void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK fn_800F58A4(void *, s32, s32, s32);
 M2C_UNK fn_800F5A50();
@@ -15,7 +15,7 @@ extern s32 lbl_805D5318;
 extern s32 lbl_805D531C;
 extern s32 lbl_805D5320;
 
-void *TLobby__sub_800F5CF0(void *arg0, s32 arg1, s32 arg2) {
+void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r6;
 
     M2C_FIELD(arg0, s32 *, 4) = 0;

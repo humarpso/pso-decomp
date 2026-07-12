@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_80064EC0(s32 arg0, s32 arg1);
+void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1);
 void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1);
 M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, s32, s32, M2C_UNK, M2C_UNK);
 
-void TBoss8Dragon__sub_80064EC0(s32 arg0, s32 arg1) {
+void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
     TOTrapAncient01__sub_80226578(arg1, arg0, arg0 + 0x560, 0, 0);
 }
 

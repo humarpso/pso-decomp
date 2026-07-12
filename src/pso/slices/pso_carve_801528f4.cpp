@@ -3,7 +3,7 @@
 extern "C" {
 
 void init_model__10TNpcPlayerFPv(void* p);
-int TObjPlayer__sub_8001960C(void*);
+int read_be16_field2__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_80102CE0(void*);
 void update__10TNpcPlayerFPv(void* p);
 int update_players__6TLobbyFi(void*);

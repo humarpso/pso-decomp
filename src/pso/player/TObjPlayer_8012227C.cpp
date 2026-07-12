@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_dual_slots__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjPlayer__sub_801208E0(void *, void *);
+M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_80120908();
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 
@@ -16,10 +16,10 @@ void update_dual_slots__10TObjPlayerFPv(u8 *arg0) {
 
     temp_r31 = M2C_FIELD(arg0, s32 *, 0xF4);
     TObjPlayer__sub_80120908();
-    TObjPlayer__sub_801208E0(arg0, arg0 + 0x1F8);
+    draw_status_icon__10TObjPlayerFPvi(arg0, arg0 + 0x1F8);
     M2C_FIELD(arg0, s32 *, 0xF4) = (s32) M2C_FIELD(arg0, s32 *, 0x180);
     TObjPlayer__sub_80120BBC(arg0, 0x23);
-    TObjPlayer__sub_801208E0(arg0, arg0 + 0x204);
+    draw_status_icon__10TObjPlayerFPvi(arg0, arg0 + 0x204);
     M2C_FIELD(arg0, s32 *, 0xF4) = temp_r31;
 }
 

@@ -6,11 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 fn_801315A0(s32, s32);
+s32 is_target_in_range__11TObjInfoColFif(s32 arg0, f32 farg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 fn_801315A0(s32, s32);
+
 extern s32 lbl_805D53A0;
 
-s32 fn_80191DC4(s32 arg0, f32 farg0) {
+s32 is_target_in_range__11TObjInfoColFif(s32 arg0, f32 farg0) {
     u32 temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

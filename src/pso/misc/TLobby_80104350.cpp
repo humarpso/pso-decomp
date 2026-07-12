@@ -14,13 +14,13 @@ void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1);
 void TLobby__sub_801043F8(void);
 int TLobby__sub_80104404(void);
 s32 TItemData__sub_8010C8B4();
-M2C_UNK TObjPlayer__sub_8001BF10(M2C_UNK *);
+M2C_UNK init_forward__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK TItemData__sub_8010E59C(u32, s32);
 
 extern M2C_UNK lbl_805D5430;
 
 void TLobby__sub_80104350(void) {
-    TObjPlayer__sub_8001BF10(&lbl_805D5430);
+    init_forward__10TObjPlayerFPv(&lbl_805D5430);
 }
 
     extern int* lbl_805D54E8;

@@ -10,7 +10,7 @@ void set_flag4_and_field1c__15TWindowHelpItemFPvi(void *arg0, s32 arg1);
 void set_help_text__15TWindowHelpItemFPvUi(void *arg0, u32 arg1);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TWindowSubStatusDisp__sub_80228C30(u32);
+s32 measure_string_len__20TWindowSubStatusDispFPv(u32);
 
 void set_flag4_and_field1c__15TWindowHelpItemFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 4);
@@ -25,7 +25,7 @@ void set_help_text__15TWindowHelpItemFPvUi(void *arg0, u32 arg1) {
     free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x18));
     M2C_FIELD(arg0, s32 *, 0x18) = 0;
     if (arg1 != 0U) {
-        temp_r3 = TWindowSubStatusDisp__sub_80228C30(arg1);
+        temp_r3 = measure_string_len__20TWindowSubStatusDispFPv(arg1);
         M2C_FIELD(arg0, s32 *, 0x18) = alloc_buffer__11TOBoss4RockFPv(temp_r3 + 1);
         strncpy(M2C_FIELD(arg0, s32 *, 0x18), arg1, temp_r3 + 1);
     }

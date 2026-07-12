@@ -77,7 +77,7 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0);
 u32 TBoss4Type2__sub_800874F4(M2C_UNK *, M2C_UNK);
 s32 TObjPlayer__sub_800196EC();
 s32 TObjPlayer__sub_800196F4(void *);
-u32 TObjPlayer__sub_80019704(void *);
+u32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 TObjPlayer__sub_8001972C();
 u32 TObjPlayer__sub_80102AA8();
 s32 TObjPlayer__sub_802034EC();
@@ -109,7 +109,7 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
                 M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
             }
         }
-        temp_r3_3 = TObjPlayer__sub_80019704(temp_r3);
+        temp_r3_3 = get_item_field_6__10TObjPlayerFPv(temp_r3);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
             s32 var_r30 = 0;
             if ((temp_r3_3 != 0U) && (TObjPlayer__sub_8001972C() == 0x1A)) {

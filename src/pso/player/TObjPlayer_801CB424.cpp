@@ -26,7 +26,7 @@ void TObjPlayer__sub_801CB428(s32 arg0) {
         apply_velocity__10TObjPlayerFPv(arg0);
     }
 }
-void TObjPlayer__sub_801CB464(void *arg0) {
+void begin_action_0xB__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0xB;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     if (obj_isState2_324(arg0) != 0) {

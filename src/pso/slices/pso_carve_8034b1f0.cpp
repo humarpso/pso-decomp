@@ -9,7 +9,7 @@ extern "C" {
 s32 TCameraCtrl__sub_8006B330();
 s32 TItemData__sub_8010EEDC(s32);
 M2C_UNK fn_8024422C(u32, f32, f32);
-M2C_UNK TLobby__sub_80244D2C(u32, f32);
+M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
 M2C_UNK TWindowSubComCard__sub_80265500(u32);
 M2C_UNK TWindowSubComCard__sub_80265DEC(u32, f32, f32);
 M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, s32);
@@ -40,7 +40,7 @@ void challenge4p_item_select_open_menu(void *arg0) {
             } while (var_r29 < 8);
             TWindowSubComCard__sub_80265DEC(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFD98, lbl_805DFD9C);
             TWindowSubComCard__sub_80265500(M2C_FIELD(arg0, u32 *, 0x2C));
-            TLobby__sub_80244D2C(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFDA0);
+            set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFDA0);
             if (TCameraCtrl__sub_8006B330() > 2) {
                 fn_8024422C(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFDA4, lbl_805DFDA4);
             }

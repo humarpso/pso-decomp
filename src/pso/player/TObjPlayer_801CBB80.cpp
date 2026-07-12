@@ -20,7 +20,7 @@ void TObjPlayer__sub_801CBB10(void);
 void TObjPlayer__sub_801CBB80(void);
 
 void TObjPlayer__sub_801CBB80(void) {  }
-void TObjPlayer__sub_801CBB84(s32 arg0) {
+void select_hit_action__10TObjPlayerFi(s32 arg0) {
     if (check_flag30_bit20__10TObjPlayerFi() != 0) {
         TObjPlayer__sub_801D0BC0(arg0, 0x13, 5);
         return;

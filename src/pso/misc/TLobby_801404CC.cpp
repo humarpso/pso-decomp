@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801404CC(void);
+void cleanup_floor_state__6TLobbyFv(void);
 M2C_UNK TLobby__sub_8007BA20();
 M2C_UNK TLobby__sub_800FD6A0(M2C_UNK *, M2C_UNK);
 M2C_UNK update_current_floor__6TLobbyFv();
@@ -18,7 +18,7 @@ M2C_UNK TLobby__sub_800F7B84();
 
 extern M2C_UNK lbl_804A7368[];
 
-void TLobby__sub_801404CC(void) {
+void cleanup_floor_state__6TLobbyFv(void) {
     TLobby__sub_80227F7C();
     TLobby__sub_8022743C();
     TLobby__sub_80227248();

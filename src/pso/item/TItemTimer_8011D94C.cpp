@@ -29,8 +29,8 @@ struct VObj_8011D94C : Base_8011D94C {
 extern "C" {
 
 void TItemTimer__sub_8011D94C(void *arg0);
-void TItemTimer__sub_8011D9A0(void *arg0);
-void TItemTimer__sub_8011D9E8(void *arg0);
+void apply_to_player__10TItemTimerFPv(void *arg0);
+void set_owner_flag_800__10TItemTimerFPv(void *arg0);
 M2C_UNK TItemProShield__sub_8001140C(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800112A4(s32, M2C_UNK);
 s32 obj_testFlags30(void *, M2C_UNK);
@@ -46,13 +46,13 @@ void TItemTimer__sub_8011D94C(void *arg0) {
     }
 }
 
-void TItemTimer__sub_8011D9A0(void *arg0) {
+void apply_to_player__10TItemTimerFPv(void *arg0) {
     if (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0) {
         TObjPlayer__sub_800112A4(M2C_FIELD(arg0, s32 *, 0x28), 1);
     }
 }
 
-void TItemTimer__sub_8011D9E8(void *arg0) {
+void set_owner_flag_800__10TItemTimerFPv(void *arg0) {
     if (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0) {
         TItemProShield__sub_8001140C(M2C_FIELD(arg0, s32 *, 0x28), 1);
     }

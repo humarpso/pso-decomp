@@ -6,7 +6,7 @@ extern "C" {
 
 extern M2C_UNK lbl_8050113C[];
 void *__nw__7TObjectFUl(int);
-void *TItemDrop__sub_800F9C68(void *, void *);
+void *ct_object__9TItemDropFPv(void *, void *);
 void memset(void *, int, int);
 void strncpy(void *, void *, int);
 void fn_800F9BAC(void *, void *);
@@ -16,7 +16,7 @@ void alloc_named_object(void *arg0, void *arg1, void *arg2, void *arg3) {
     struct VOff_800F99D0_o *o;
     o = (struct VOff_800F99D0_o *)__nw__7TObjectFUl(0x3C);
     if (o != NULL) {
-        o = (struct VOff_800F99D0_o *)TItemDrop__sub_800F9C68(o, lbl_8050113C);
+        o = (struct VOff_800F99D0_o *)ct_object__9TItemDropFPv(o, lbl_8050113C);
     }
     memset(o->f_28, 0, 17);
     strncpy(o->f_28, arg0, 16);

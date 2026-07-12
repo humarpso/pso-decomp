@@ -9,7 +9,7 @@ extern "C" {
 s32 is_split_screen();
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
-M2C_UNK TLobby__sub_80244D2C(s32);
+M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK fn_80263AF8(s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
@@ -36,7 +36,7 @@ s32 create_option_menu_window(void *arg0) {
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD688);
     TWindowSubComCard__sub_80265C30(temp_r31);
     fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x24), 0);
-    TLobby__sub_80244D2C(temp_r31);
+    set_field_1c__6TLobbyFPvf(temp_r31);
     return temp_r31;
 }
 

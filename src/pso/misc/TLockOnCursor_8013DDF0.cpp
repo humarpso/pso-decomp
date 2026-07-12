@@ -9,11 +9,11 @@ extern "C" {
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
 
 M2C_UNK __dl__FPv(s32);
-M2C_UNK TLockOnCursor__sub_8013EC94(s32, s32);
+M2C_UNK free_if_owned__13TLockOnCursorFis(s32, s32);
 
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        TLockOnCursor__sub_8013EC94(arg0, 0);
+        free_if_owned__13TLockOnCursorFis(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

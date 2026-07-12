@@ -8,13 +8,13 @@ extern "C" {
 
 void update_or_destroy__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-u32 TObjPlayer__sub_80100490(s32);
+u32 query_game_join_id__10TObjPlayerFv(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern const f32 lbl_805DAF70;
 
 void update_or_destroy__10TObjPlayerFPv(u8 *arg0) {
-    if (TObjPlayer__sub_80100490(M2C_FIELD(arg0, s32 *, 0x1C)) == 0U) {
+    if (query_game_join_id__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0x1C)) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

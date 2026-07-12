@@ -13,7 +13,7 @@ s32 TWindowSubTradeMain__sub_80244A4C(void *);
 int TWindowMakeTeam__sub_80131A5C(void* p);
 int get_lobby_field_20__15TWindowMakeTeamFPv(void* p);
 int set_flag62_bit2__16TKeyBoardControlFPv(void*);
-int TLobby__sub_80244D2C(void*);
+int set_field_1c__6TLobbyFPvf(void*);
 
 void TWindowSubShortMail__sub_80131998(void *arg0) {
     u16 temp_r3;

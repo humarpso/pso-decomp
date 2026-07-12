@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TItemProArmor__sub_8011724C(void* p);
-s16 TItemProArmor__sub_80117270(void);
+s16 calc_scaled_offset__13TItemProArmorFv(void);
 u8 TItemObject__sub_80115D84();
 int obj_getS16_2BA(void*);
 
@@ -15,7 +15,7 @@ int TItemProArmor__sub_8011724C(void* p) { return obj_getS16_2BA(*(void**)((char
 
 extern s32 lbl_805D5550;
 
-s16 TItemProArmor__sub_80117270(void) {
+s16 calc_scaled_offset__13TItemProArmorFv(void) {
     return (s16) ((lbl_805D5550 * 0x32) + TItemObject__sub_80115D84());
 }
 

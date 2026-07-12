@@ -9,7 +9,7 @@ extern "C" {
 void exit_keyboard_mode__21TAdMultiSelGameModeGCFv(void);
 void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0);
 int TKeyBoardControl__sub_8000F9CC(int);
-s32 TAdMultiChgGameModeGC__sub_8023EB84();
+s32 begin_change_game_mode__21TAdMultiChgGameModeGCFv();
 s32 begin_transition__21TAdMultiChgGameModeGCFv();
 int TObjEneDolmOlm__sub_80300CE4(void);
 
@@ -23,7 +23,7 @@ void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0) {
         begin_transition__21TAdMultiChgGameModeGCFv();
         return;
     case 1:
-        TAdMultiChgGameModeGC__sub_8023EB84();
+        begin_change_game_mode__21TAdMultiChgGameModeGCFv();
         return;
     }
 }

@@ -8,10 +8,10 @@ extern "C" {
 
 void TItemObject__vt42(void *arg0);
 
-M2C_UNK TItem__sub_80100760();
+M2C_UNK update_pickup_flag__5TItemFi();
 
 void TItemObject__vt42(void *arg0) {
-    TItem__sub_80100760();
+    update_pickup_flag__5TItemFi();
     M2C_FIELD(arg0, s8 *, 0x101) = 1;
 }
 

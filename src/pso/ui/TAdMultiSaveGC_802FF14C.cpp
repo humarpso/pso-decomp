@@ -3,9 +3,9 @@
 extern "C" {
 
 void queue_destruction__14TAdMultiSaveGCFv(void);
-int TAdMultiChgGameModeGC__sub_8023EB84(void);
+int begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
 int queue_destruction__7TObjectFv(void);
 
-void queue_destruction__14TAdMultiSaveGCFv(void) { queue_destruction__7TObjectFv(); TAdMultiChgGameModeGC__sub_8023EB84(); }
+void queue_destruction__14TAdMultiSaveGCFv(void) { queue_destruction__7TObjectFv(); begin_change_game_mode__21TAdMultiChgGameModeGCFv(); }
 
 }

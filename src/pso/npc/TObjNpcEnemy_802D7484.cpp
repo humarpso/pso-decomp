@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
-M2C_UNK TObjPlayer__sub_801433E8(void *, s32, s32, s16);
+M2C_UNK init_npc_animation__10TObjPlayerFPvPvPvPv(void *, s32, s32, s16);
 
 extern const f32 lbl_805DE7D8;
 
@@ -37,7 +37,7 @@ void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1) {
         break;
     case 1:
     case 3:
-        TObjPlayer__sub_801433E8(arg0, M2C_FIELD(temp_r5, s32 *, 0x18), M2C_FIELD(temp_r5, s32 *, 0x14), M2C_FIELD(arg0, s16 *, 0xB8));
+        init_npc_animation__10TObjPlayerFPvPvPvPv(arg0, M2C_FIELD(temp_r5, s32 *, 0x18), M2C_FIELD(temp_r5, s32 *, 0x14), M2C_FIELD(arg0, s16 *, 0xB8));
         break;
     }
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x3B8), f32 *, 0x10);

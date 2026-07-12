@@ -21,13 +21,13 @@ int TSaveChCr__sub_80339BF4(void* p);
 int TSaveChCr__sub_80339CC0(void* p);
 void TSaveChCr__sub_80339CE4(void);
 int save_1__9TSaveChCrFPv(void* p);
-int TSaveChCr__sub_80339F5C(void*, int);
+int close_and_advance__9TSaveChCrFPvPv(void*, int);
 int close_window__9TSaveChCrFPv(void*);
 
 void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p) { if (*(int*)((char*)p + 0x38) == 0) { queue_destruction__7TObjectFv(p); TKeyBoardControl__sub_8000F9B0(); } }
 int TSaveChCr__sub_80339B94(void* p) { return close_window__9TSaveChCrFPv(p); }
 void save_if_dirty__9TSaveChCrFPv(void* p) { if (fn_80339F30(p) != 0) { TSaveChCr__sub_8033A184(p, (void*)4); } }
-int TSaveChCr__sub_80339BF4(void* p) { return TSaveChCr__sub_80339F5C(p, 3); }
+int TSaveChCr__sub_80339BF4(void* p) { return close_and_advance__9TSaveChCrFPvPv(p, 3); }
 void update_save_status__9TSaveChCrFPv(void *arg0) {
     s32 var_r3;
 
@@ -51,9 +51,9 @@ void update_save_status__9TSaveChCrFPv(void *arg0) {
         TKeyBoardControl__sub_8000F9CC(9);
     }
 }
-int TSaveChCr__sub_80339CC0(void* p) { return TSaveChCr__sub_80339F5C(p, 2); }
+int TSaveChCr__sub_80339CC0(void* p) { return close_and_advance__9TSaveChCrFPvPv(p, 2); }
 void TSaveChCr__sub_80339CE4(void) {  }
-int save_1__9TSaveChCrFPv(void* p) { return TSaveChCr__sub_80339F5C(p, 1); }
+int save_1__9TSaveChCrFPv(void* p) { return close_and_advance__9TSaveChCrFPvPv(p, 1); }
 void update_save_state__9TSaveChCrFPv(void *arg0) {
     s32 temp_r4;
 
@@ -61,7 +61,7 @@ void update_save_state__9TSaveChCrFPv(void *arg0) {
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
-                TSaveChCr__sub_80339F5C((void*)(arg0), 0);
+                close_and_advance__9TSaveChCrFPvPv((void*)(arg0), 0);
             }
         } else {
             if (temp_r4 & 4) {

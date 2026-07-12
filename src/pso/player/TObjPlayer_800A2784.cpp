@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800A2784(void *arg0);
+void set_hidden_flag__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK);
 
-void TObjPlayer__sub_800A2784(void *arg0) {
+void set_hidden_flag__10TObjPlayerFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800)) {
         TObjEneMe1GiGue__sub_80040B3C(arg0, 1);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x20000);

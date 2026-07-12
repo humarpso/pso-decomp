@@ -6,20 +6,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80070CDC(void);
+void update_dead_list_win__6TLobbyFv(void);
 void draw_if_ready__6TLobbyFv(void);
 s32 check_ready_state__6TLobbyFv(void);
 s32 TLobby__sub_80070AB0();
 s32 TLobby__sub_80070DA8();
 s32 TLobby__sub_80072B30();
 M2C_UNK fn_800733C4(void*);
-M2C_UNK TObjDeadListWin__sub_80073D64(void*);
+M2C_UNK create__15TObjDeadListWinFPv(void*);
 
 extern u32 lbl_805D4E28;
 
-void TLobby__sub_80070CDC(void) {
+void update_dead_list_win__6TLobbyFv(void) {
     if ((TLobby__sub_80070AB0() != 0) && (TLobby__sub_80072B30() != 0) && ((u32) lbl_805D4E28 != 0U)) {
-        TObjDeadListWin__sub_80073D64((void*)lbl_805D4E28);
+        create__15TObjDeadListWinFPv((void*)lbl_805D4E28);
     }
 }
 

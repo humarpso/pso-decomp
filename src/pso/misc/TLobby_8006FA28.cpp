@@ -2,10 +2,10 @@
 
 extern "C" {
 
-s32 TLobby__sub_8006FA28(void);
+s32 get_slot_clamped__6TLobbyFv(void);
 s32 decode_slot__6TLobbyFUi();
 
-s32 TLobby__sub_8006FA28(void) {
+s32 get_slot_clamped__6TLobbyFv(void) {
     s32 var_r3;
 
     var_r3 = decode_slot__6TLobbyFUi();

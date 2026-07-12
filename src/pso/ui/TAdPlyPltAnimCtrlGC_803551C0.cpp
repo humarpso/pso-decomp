@@ -4,7 +4,7 @@ extern "C" {
 
 s32 fn_80355098(s32 arg0, s16 arg1);
 int __dl__FPv();
-int TObjPlayer__sub_8001BF10(void*);
+int init_forward__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_8001BF40(void*);
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*, void*);
 int fn_8035510C(void* a0 = 0, void* a1 = 0);

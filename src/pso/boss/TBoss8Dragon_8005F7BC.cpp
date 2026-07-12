@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_8005F7BC(void *arg0);
+void update_periodic_effect__12TBoss8DragonFPv(void *arg0);
 void scale_size__12TBoss8DragonFPvfff(void *arg0, f32 farg0, f32 farg1, f32 farg2);
 void fire_at_angle__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void update_heading__12TBoss8DragonFPvi(void *arg0, s32 arg1);
@@ -21,7 +21,7 @@ M2C_UNK update_velocity__9TObjEneDDFPv();
 
 extern M2C_UNK lbl_80437938[];
 
-void TBoss8Dragon__sub_8005F7BC(void *arg0) {
+void update_periodic_effect__12TBoss8DragonFPv(void *arg0) {
     TBoss8Dragon__sub_80064F2C();
     if (!(M2C_FIELD(arg0, s32 *, 0x490) & 0x1F)) {
         if (TObjEneEpsilon__sub_800B95E0(arg0) != 0) {

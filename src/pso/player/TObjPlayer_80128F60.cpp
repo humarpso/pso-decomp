@@ -6,7 +6,7 @@ extern "C" {
 
 void *init_event_callbacks__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8001BED8(void *, int);
-void TObjPlayer__sub_8001BF10(void *);
+void init_forward__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_8001BF40(void *);
 void TObjPlayer__sub_8012106C(void *, int);
 void TObjPlayer__sub_8012A884(void *);
@@ -22,7 +22,7 @@ void *init_event_callbacks__10TObjPlayerFPv(void *arg0) {
     struct VOff_80128F60_arg0_80128f60 *self = (struct VOff_80128F60_arg0_80128f60 *)arg0;
     TObjPlayer__sub_8012A884(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A403C;
-    TObjPlayer__sub_8001BF10(self->f_1FC);
+    init_forward__10TObjPlayerFPv(self->f_1FC);
     TObjPlayer__sub_8001BED8((void *)((char *)arg0 + 376), 32);
     TObjPlayer__sub_8012106C(arg0, 515);
     M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = notify_hit_target__10TObjPlayerFUiUiUiUi;
