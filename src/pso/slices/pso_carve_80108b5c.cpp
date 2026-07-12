@@ -76,7 +76,7 @@ struct VObj80108B5C : VBase0x18 {
     virtual void m63(s32, void *);
 };
 
-u8 *fn_80108B5C(u8 *arg0) {
+u8 *TItemEffFlame__sub_80108B5C(u8 *arg0) {
     u8 *temp_r3;
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0xAC));

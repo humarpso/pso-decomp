@@ -8,11 +8,11 @@ extern "C" {
 
 void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
 
-M2C_UNK fn_80186DA0();
+M2C_UNK TObjCityMainWarp__sub_80186DA0();
 M2C_UNK update_challenge_warp_window();
-M2C_UNK fn_80186F84();
-M2C_UNK fn_8018709C();
-M2C_UNK fn_801871D0();
+M2C_UNK TObjCityMainWarp__sub_80186F84();
+M2C_UNK TObjCityMainWarp__sub_8018709C();
+M2C_UNK TObjCityMainWarp__sub_801871D0();
 
 void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
     s16 temp_r0;
@@ -20,19 +20,19 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xDE);
     switch (temp_r0) {
     case 0:
-        fn_801871D0();
+        TObjCityMainWarp__sub_801871D0();
         return;
     case 1:
-        fn_8018709C();
+        TObjCityMainWarp__sub_8018709C();
         return;
     case 2:
-        fn_80186F84();
+        TObjCityMainWarp__sub_80186F84();
         return;
     case 3:
         update_challenge_warp_window();
         return;
     case 4:
-        fn_80186DA0();
+        TObjCityMainWarp__sub_80186DA0();
         return;
     }
 }

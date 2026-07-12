@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8003B1FC(void *, s32);
+M2C_UNK TObjBoss2Tunnel__sub_8003B1FC(void *, s32);
 void *TParticleCtrl__sub_800882C4(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TParticleCtrl__sub_80088670(s32);
 void *__nw__7TObjectFUl(M2C_UNK);
@@ -30,7 +30,7 @@ void fn_8003B0A0(s32 arg0, s32 arg1, s32 arg2) {
     }
     if (var_r31 != NULL) {
         ((VObj_8003B0A0 *)var_r31)->m1();
-        fn_8003B1FC(var_r31, arg2);
+        TObjBoss2Tunnel__sub_8003B1FC(var_r31, arg2);
     }
 }
 

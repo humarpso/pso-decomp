@@ -6,7 +6,7 @@ void TObjPlayer__sub_801C08F8(void* p);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int TObjPlayer__sub_8001960C(void*);
-int fn_80102CE0(void*);
+int TObjPlayer__sub_80102CE0(void*);
 int TObjPlayer__sub_801BEE34(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TObjPlayer__sub_801C0768(void*);
@@ -29,6 +29,6 @@ void set_code_49_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 49; *(u8
 void bswap_font_lobby__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void set_code_45_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 45; *(u8*)((char*)p + 0x1) = 1; }
 void send_lobby_update_font__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
-void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x10); fn_80102CE0((char*)p + 0x8); }
+void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x10); TObjPlayer__sub_80102CE0((char*)p + 0x8); }
 
 }

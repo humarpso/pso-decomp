@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80244C0C(s32, s32);
-s32 fn_80257BC0(s32, s32, s32);
+s32 TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
 void *fn_8007EAF8();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void draw_value__13TWindowMesetaFPvi(void *arg0, s32 arg1);
@@ -35,7 +35,7 @@ void update_display__13TWindowMesetaFi(s32 arg0) {
 
     temp_r3 = fn_80244C0C(arg0, arg0 + 0x6C);
     draw_value__13TWindowMesetaFPvi((void *)(arg0), temp_r3);
-    fn_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
 }
 
 }

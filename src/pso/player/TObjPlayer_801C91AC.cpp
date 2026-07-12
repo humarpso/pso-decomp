@@ -14,7 +14,7 @@ M2C_UNK TObjPlayer__sub_800194AC(void *, M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_801D2630();
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 M2C_UNK TObjPlayer__sub_8002AE8C(void *);
-s32 fn_801A5A40(void *);
+s32 TKeyBoardControl__sub_801A5A40(void *);
 
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 
@@ -28,7 +28,7 @@ void reset_lobby_state__10TObjPlayerFPv(u8 *arg0) {
 }
 
 void try_use_mag__10TObjPlayerFPv(u8 *arg0) {
-    if ((TItemMag__sub_80113E8C() == 0) && (TObjPlayer__sub_80019248(arg0) != 0) && (fn_801A5A40(arg0 + 0x64C) != 0)) {
+    if ((TItemMag__sub_80113E8C() == 0) && (TObjPlayer__sub_80019248(arg0) != 0) && (TKeyBoardControl__sub_801A5A40(arg0 + 0x64C) != 0)) {
         TObjPlayer__sub_800194AC(arg0, 1, M2C_FIELD(arg0, s32 *, 0x3D4));
     }
 }

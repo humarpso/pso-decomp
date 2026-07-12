@@ -1,0 +1,38 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TObjCityMainWarp__sub_80186D10(void *arg0, s32 arg1);
+void TObjCityMainWarp__sub_80186D50(void *arg0, s32 arg1);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK obj_clear_flag30_20000(s32);
+M2C_UNK obj_set_flag_20000(s32);
+M2C_UNK play_effect_default__10TObjPlayerFii(s32, s32);
+M2C_UNK send_code_45_1__10TObjPlayerFi();
+
+void TObjCityMainWarp__sub_80186D10(void *arg0, s32 arg1) {
+    s32 temp_r3;
+
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    if (temp_r3 != 0) {
+        send_code_45_1__10TObjPlayerFi();
+        obj_clear_flag30_20000(temp_r3);
+    }
+}
+
+void TObjCityMainWarp__sub_80186D50(void *arg0, s32 arg1) {
+    s32 temp_r3;
+
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    if (temp_r3 != 0) {
+        play_effect_default__10TObjPlayerFii(temp_r3, -1);
+        obj_set_flag_20000(temp_r3);
+        M2C_FIELD(arg0, s32 *, 0x174) = 0x12C;
+    }
+}
+
+}

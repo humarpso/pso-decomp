@@ -10,9 +10,9 @@ void send_data__6TLobbyFi(s32 arg0);
 void update_alloc_size__6TLobbyFv(void);
 u32 TScene__sub_800F9D80();
 M2C_UNK TLobby__sub_800F9DF4(s32, u32);
-M2C_UNK fn_8032CF70(void*);
-u32 fn_8032D018();
-u32 fn_8032D020();
+M2C_UNK TAdWarningBaseGC__sub_8032CF70(void*);
+u32 TAdWarningBaseGC__sub_8032D018();
+u32 TAdWarningBaseGC__sub_8032D020();
 
 extern u32 TLobby__data_805D6CC0;
 extern u32 TLobby__data_805D6CC8;
@@ -39,15 +39,15 @@ extern u32 TLobby__data_805D6CC8;
 void update_alloc_size__6TLobbyFv(void) {
     u32 temp_r3;
 
-    temp_r3 = fn_8032D020();
+    temp_r3 = TAdWarningBaseGC__sub_8032D020();
     TLobby__data_805D6CC8 = temp_r3;
     if (temp_r3 > 0x40000U) {
         TLobby__data_805D6CC8 = 0U;
         return;
     }
     if ((u32) TLobby__data_805D6CC0 != 0U) {
-        fn_8032CF70((void*)TLobby__data_805D6CC0);
-        TLobby__data_805D6CC8 = fn_8032D018();
+        TAdWarningBaseGC__sub_8032CF70((void*)TLobby__data_805D6CC0);
+        TLobby__data_805D6CC8 = TAdWarningBaseGC__sub_8032D018();
         return;
     }
     TLobby__data_805D6CC8 = 0U;

@@ -8,11 +8,11 @@ extern "C" {
 
 void ensure_field384__14TBoss6PlotFalzFPv(void *arg0);
 
-u32 fn_802B16BC();
+u32 TBoss6Tube__sub_802B16BC();
 
 void ensure_field384__14TBoss6PlotFalzFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x384) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0x384) = fn_802B16BC();
+        M2C_FIELD(arg0, u32 *, 0x384) = TBoss6Tube__sub_802B16BC();
     }
 }
 

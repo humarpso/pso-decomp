@@ -16,7 +16,7 @@ void TWindowSubSymbolChat__sub_80077310(void* p);
 M2C_UNK TWindowSubSymbolChat__sub_800773BC(s32);
 int TWindowSubSymbolChat__sub_80077480(void);
 int TWindowSubSymbolChat__sub_80077718(void*);
-s32 fn_80077720();
+s32 TWindowSubSymbolChat__sub_80077720();
 
 void TWindowSubSymbolChat__sub_80077334(void* p) { TWindowSubSymbolChat__sub_80077718(p); TWindowSubSymbolChat__sub_800770D0(); }
 
@@ -24,7 +24,7 @@ void TWindowSubSymbolChat__sub_80077334(void* p) { TWindowSubSymbolChat__sub_800
 void TWindowSubSymbolChat__sub_80077358(void) { lbl_805D4E50 = TWindowSubSymbolChat__sub_80077480(); }
 
 void TWindowSubSymbolChat__sub_8007737C(void *arg0) {
-    if (fn_80077720() != 0) {
+    if (TWindowSubSymbolChat__sub_80077720() != 0) {
         TWindowSubSymbolChat__sub_800773BC(((u32) M2C_FIELD(arg0, u32 *, 0x1C) >> 5U) & 0xF);
     }
 }

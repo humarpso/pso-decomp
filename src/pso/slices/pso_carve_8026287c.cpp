@@ -8,11 +8,11 @@ extern "C" {
 
 u16 * get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s32 a1 = 0);
 s32 TItemTexLoad__sub_8011D098(s32 a0 = 0, s32 a1 = 0);
-int fn_802627D8(void* p);
-int fn_802627E4(void* p);
-int fn_802627F0(void* p);
-int fn_802627FC(void* p);
-int fn_80262808(void* p);
+int TWindowSubMag__sub_802627D8(void* p);
+int TWindowSubMag__sub_802627E4(void* p);
+int TWindowSubMag__sub_802627F0(void* p);
+int TWindowSubMag__sub_802627FC(void* p);
+int TWindowSubMag__sub_80262808(void* p);
 
 int fn_8026287C(void) { return 0; }
 

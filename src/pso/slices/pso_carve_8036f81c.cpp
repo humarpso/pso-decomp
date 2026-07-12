@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK __dl__FPv(s32);
-M2C_UNK fn_8036F538(s32, s32);
+M2C_UNK TAdEp3Exist__sub_8036F538(s32, s32);
 
 s32 fn_8036F81C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        fn_8036F538(arg0, 0);
+        TAdEp3Exist__sub_8036F538(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

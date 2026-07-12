@@ -8,11 +8,11 @@ extern "C" {
 
 void update__12TObjWarpBossFPv(void *arg0);
 M2C_UNK update_warp_boss_visibility();
-M2C_UNK fn_8019E798(void *);
+M2C_UNK TObjWarpBossMulti__sub_8019E798(void *);
 M2C_UNK warp_boss_handle_window(void *);
-M2C_UNK fn_8019E97C(void *);
-M2C_UNK fn_8019EA7C(void *);
-M2C_UNK fn_8019EB94(void *);
+M2C_UNK TObjWarpBossMulti__sub_8019E97C(void *);
+M2C_UNK TObjWarpBossMulti__sub_8019EA7C(void *);
+M2C_UNK TObjWarpBossMulti__sub_8019EB94(void *);
 
 void update__12TObjWarpBossFPv(void *arg0) {
     s16 temp_r0;
@@ -21,19 +21,19 @@ void update__12TObjWarpBossFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xDE);
     switch (temp_r0) {
     case 0:
-        fn_8019EB94(arg0);
+        TObjWarpBossMulti__sub_8019EB94(arg0);
         return;
     case 1:
-        fn_8019EA7C(arg0);
+        TObjWarpBossMulti__sub_8019EA7C(arg0);
         return;
     case 2:
-        fn_8019E97C(arg0);
+        TObjWarpBossMulti__sub_8019E97C(arg0);
         return;
     case 3:
         warp_boss_handle_window(arg0);
         return;
     case 4:
-        fn_8019E798(arg0);
+        TObjWarpBossMulti__sub_8019E798(arg0);
         return;
     }
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
-M2C_UNK fn_802E11BC(void *);
+M2C_UNK TAdPlyStatusGC__sub_802E11BC(void *);
 
 void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {
@@ -22,7 +22,7 @@ void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x60) = 7;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x58) != 0U) {
-        fn_802E11BC(M2C_FIELD(arg0, void **, 0x58));
+        TAdPlyStatusGC__sub_802E11BC(M2C_FIELD(arg0, void **, 0x58));
     }
 }
 

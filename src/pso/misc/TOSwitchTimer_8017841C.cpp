@@ -9,7 +9,7 @@ extern "C" {
 void run_task__13TOSwitchTimerFv(void *arg0);
 u8 TODoorAncient08__sub_80229220(u16);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_801781D8(void *);
+M2C_UNK TOChatSensor__sub_801781D8(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 void run_task__13TOSwitchTimerFv(void *arg0) {
@@ -45,7 +45,7 @@ void run_task__13TOSwitchTimerFv(void *arg0) {
         temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x94);
         M2C_FIELD(arg0, s32 *, 0x94) = (s32) (temp_r3_2 + 1);
         if (temp_r3_2 == (s32) M2C_FIELD(arg0, s32 *, 0xA0)) {
-            fn_801781D8(arg0);
+            TOChatSensor__sub_801781D8(arg0);
             M2C_FIELD(arg0, s32 *, 0x90) = 0;
         }
         break;

@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u32 alloc_buffer__11TOBoss4RockFPv();
-s32 fn_802A604C(void *, s32);
-s32 fn_802A6054();
+s32 TWindowSnapShot__sub_802A604C(void *, s32);
+s32 TWindowSnapShot__sub_802A6054();
 s32 TGStream__sub_800FDADC(s32, s32);
-s32 fn_802A605C(void *);
+s32 TWindowSnapShot__sub_802A605C(void *);
 s32 TLobby__sub_800FD944(s32);
 void fn_802A5CB8(void* p);
 
@@ -26,33 +26,6 @@ void fn_802A5C7C(void *arg0) {
 }
 void fn_802A5CB8(void* p) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)p + 0x8); }
 int fn_802A5CC4(void) { return 0; }
-int fn_802A5D28(void* a0 = 0) { return 0; }
-s32 fn_802A5D68(void *arg0) {
-    fn_802A6054();
-    M2C_FIELD(arg0, u32 *, 8) = alloc_buffer__11TOBoss4RockFPv();
-    if ((u32) M2C_FIELD(arg0, u32 *, 8) == 0U) {
-        fn_802A604C(arg0, 4);
-        return 0;
-    }
-    return 1;
-}
-s32 fn_802A5DC0(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0xC) = TGStream__sub_800FDADC(arg1, M2C_FIELD(arg0, s32 *, 8));
-    if (fn_802A605C(arg0) == 0) {
-        fn_802A604C(arg0, 2);
-        fn_802A5D28((void*)(arg0));
-        return 0;
-    }
-    return 1;
-}
-s32 fn_802A5E28(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0xC) = TLobby__sub_800FD944(arg1);
-    if (fn_802A605C(arg0) == 0) {
-        fn_802A604C(arg0, 1);
-        return 0;
-    }
-    return 1;
-}
-int fn_802A5E84(void) { return 0; }
+int TWindowSnapShot__sub_802A5D28(void* a0 = 0) { return 0; }
 
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjFogCollisionPoison__vt11(void *arg0);
-f32 fn_8002ADE4(f32);
+f32 TObjEneMe3ShinowaReal__sub_8002ADE4(f32);
 
 extern const f64 lbl_80440088;
 extern s32 lbl_805D5550;
@@ -19,7 +19,7 @@ extern const f32 lbl_805DB25C;
 void TObjFogCollisionPoison__vt11(void *arg0) {
     f32 var_f2;
 
-    M2C_FIELD(arg0, s32 *, 0x98) = (s32) fn_8002ADE4(M2C_FIELD(arg0, f32 *, 0x6C));
+    M2C_FIELD(arg0, s32 *, 0x98) = (s32) TObjEneMe3ShinowaReal__sub_8002ADE4(M2C_FIELD(arg0, f32 *, 0x6C));
     switch ((s32) lbl_805D5550) {
     default:
     case 0:

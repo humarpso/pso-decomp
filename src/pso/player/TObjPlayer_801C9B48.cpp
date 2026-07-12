@@ -14,7 +14,7 @@ M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801D2630();
 M2C_UNK TTecReverser__sub_80239E44(void *, void *, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_8000FF4C(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_8000FF4C(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 void apply_velocity__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8002AEB8(void *, M2C_UNK);
@@ -50,7 +50,7 @@ void init_action__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_8002AEB8(arg0 + 0x644, 0x12C);
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
     M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) lbl_805DC374;
-    fn_8000FF4C(arg0, 0xFFFF);
+    TObjPlayer__sub_8000FF4C(arg0, 0xFFFF);
     set_action_state__10TObjPlayerFPvss(arg0, 0x12, (s16) ret_801D26AC());
     fn_800660B8(arg0);
     if (TObjPlayer__sub_802034EC() != 0) {

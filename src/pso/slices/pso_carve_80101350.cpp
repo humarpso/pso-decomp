@@ -27,14 +27,14 @@ struct VObj_80101350 : Base_80101350 {
 extern "C" {
 
 struct VObj_80101350 *TLobby__sub_80101AB0(s32);
-M2C_UNK fn_80102D48(void *);
+M2C_UNK TObjPlayer__sub_80102D48(void *);
 s32 TOKeyMachine01__sub_802034A8();
 
 void handle_6x61_activate_mag_effect(void *arg0) {
     struct VObj_80101350 *obj;
 
     if (TOKeyMachine01__sub_802034A8() != 0xF) {
-        fn_80102D48(arg0);
+        TObjPlayer__sub_80102D48(arg0);
         obj = TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 4));
         if ((obj != NULL) && ((u32) M2C_FIELD(obj, u32 *, 0xF0) != 0U)) {
             obj->m17(M2C_FIELD(arg0, s32 *, 8));

@@ -19,7 +19,7 @@ void TObjEnePanarms__sub_8002AE74(void* p, s16 v);
 int TObjPlayer__sub_8001960C(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-f32 fn_8002ADE4(void);
+f32 TObjEneMe3ShinowaReal__sub_8002ADE4(void);
 int fn_8002AE38(void* p);
 int TWindowKeyBoardHard__sub_801A529C(void*, int);
 f64 TWindowSubComCard__sub_803A24E4();

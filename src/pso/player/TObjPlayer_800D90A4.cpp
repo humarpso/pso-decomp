@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_800D90A4(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 TLobby__sub_800869A4(s32, s32, M2C_UNK, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_800D7DCC(s32, s32, s32, s32, f32);
+M2C_UNK TDeadSpot__sub_800D7DCC(s32, s32, s32, s32, f32);
 
 extern s32 tl_05;
 
@@ -18,7 +18,7 @@ void TObjPlayer__sub_800D90A4(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 
     temp_r3 = __nw__7TObjectFUl(0x38);
     if (temp_r3 != 0) {
-        fn_800D7DCC(temp_r3, tl_05, arg0, TLobby__sub_800869A4(arg0, arg1, 0, arg2), farg0);
+        TDeadSpot__sub_800D7DCC(temp_r3, tl_05, arg0, TLobby__sub_800869A4(arg0, arg1, 0, arg2), farg0);
     }
 }
 

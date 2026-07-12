@@ -13,7 +13,7 @@ M2C_UNK TWindowSubItem__sub_80249058();
 int fn_80266CF8(void*);
 int TShopArmorListWindow__sub_80266D78(void*);
 int fn_80266DB0(void*);
-int fn_80266EB8(void*);
+int TWindowSubStatusDisp__sub_80266EB8(void*);
 int fn_8027ABFC(void* a0 = 0);
 void refresh__14TWindowSubItemFPv(void* p);
 void set_flag60_bit10__14TWindowSubItemFPv(void* p);

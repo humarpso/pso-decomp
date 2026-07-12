@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
-u32 fn_8019E570(f32);
+u32 TObjWarpBossMulti__sub_8019E570(f32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK request_active_window_close();
 M2C_UNK clear_flag__11TWindowCtrlFv();
@@ -33,7 +33,7 @@ void warp_boss_handle_window(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD0) = 0;
         return;
     case 1:
-        if (fn_8019E570(M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) {
+        if (TObjWarpBossMulti__sub_8019E570(M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
                 M2C_FIELD(arg0, u32 *, 0xB0) = TAdChrSelASlotGC__sub_80266508(TWindowSubComCard__sub_8026CBB8(0x35), 7);
                 if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {

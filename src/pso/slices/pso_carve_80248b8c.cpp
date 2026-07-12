@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80248BE8(s32, s32, s32);
-M2C_UNK fn_80267704(M2C_UNK);
+M2C_UNK TAdVIConfigGC__sub_80267704(M2C_UNK);
 
 s32 fn_80248B8C(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
 
-    fn_80267704(0x23);
+    TAdVIConfigGC__sub_80267704(0x23);
     temp_r31 = fn_80248BE8(arg0, arg1, arg2);
-    fn_80267704(3);
+    TAdVIConfigGC__sub_80267704(3);
     return temp_r31;
 }
 

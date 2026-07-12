@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK);
-M2C_UNK fn_8034C3CC(void *, s32, s32);
+M2C_UNK TWindowOptionCtrl__sub_8034C3CC(void *, s32, s32);
 
 void fn_8034C470(void *arg0, s32 arg1, s32 arg2) {
     if (arg1 != (s32) M2C_FIELD(arg0, s32 *, 0x28)) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;
-        fn_8034C3CC(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24), arg2);
+        TWindowOptionCtrl__sub_8034C3CC(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x24), arg2);
     }
 }
 

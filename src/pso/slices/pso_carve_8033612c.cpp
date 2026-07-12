@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
-void fn_803361FC(void);
+void TLobby__sub_803361FC(void);
 
 int fn_8033612C(void) { return 0; }
 void fn_803361C4(void *arg0) {
@@ -16,6 +16,5 @@ void fn_803361C4(void *arg0) {
         clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x24));
     }
 }
-void fn_803361FC(void) {  }
 
 }

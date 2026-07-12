@@ -10,7 +10,7 @@ void TLobby__sub_8020E3BC(void);
 void TLobby__sub_8020E3C0(void);
 int TLobby__sub_8020E3F0(void);
 int TLobby__sub_8020E3F8(void);
-s32 fn_8037F1C8(M2C_UNK);
+s32 TLobby__sub_8037F1C8(M2C_UNK);
 
 void TLobby__sub_8020E3BC(void) {  }
 
@@ -19,7 +19,7 @@ extern s32 lbl_805D6130;
 
 void TLobby__sub_8020E3C0(void) {
     lbl_805D6130 = 0x100000;
-    lbl_805D612C = fn_8037F1C8(0x100000);
+    lbl_805D612C = TLobby__sub_8037F1C8(0x100000);
 }
 
     extern int TLobby__data_805D6114;

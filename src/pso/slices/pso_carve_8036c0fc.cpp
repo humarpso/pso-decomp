@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_800FD814(s32);
-s32 fn_8036CDA8();
+s32 TObjEneHoldEffect__sub_8036CDA8();
 
 s32 fn_8036C0FC(s32 arg0) {
-    if (fn_8036CDA8() == 0) {
+    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
         return 0;
     }
     return (u32)__cntlzw(fn_800FD814(arg0 + 4)) >> 5;

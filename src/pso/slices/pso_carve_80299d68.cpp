@@ -19,7 +19,7 @@ M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK TLobby__sub_80227FB4();
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_8029F4C4(s32, s32);
+M2C_UNK TSceneSora__sub_8029F4C4(s32, s32);
 extern M2C_UNK lbl_804651C8[];
 extern s32 tl_particlemodel;
 
@@ -36,7 +36,7 @@ s32 initialize_boss_scene(void) {
     if (is_split_screen() == 0) {
         temp_new = __nw__7TObjectFUl(0x3C);
         if (temp_new != 0U) {
-            fn_8029F4C4(temp_new, tl_particlemodel);
+            TSceneSora__sub_8029F4C4(temp_new, tl_particlemodel);
         }
     }
     create_tasks__6TLobbyFv();

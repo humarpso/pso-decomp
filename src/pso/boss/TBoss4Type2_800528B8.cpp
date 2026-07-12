@@ -9,7 +9,7 @@ extern "C" {
 void TBoss4Type2__sub_800528B8(void *arg0);
 M2C_UNK TBoss4Type2__sub_800535A8(void *);
 f32 calc_boss4_scale__10TObjPlayerFi();
-M2C_UNK fn_80053504(void *);
+M2C_UNK TBoss4Type2__sub_80053504(void *);
 
 extern f32 lbl_805D8B08;
 
@@ -19,7 +19,7 @@ void TBoss4Type2__sub_800528B8(void *arg0) {
             TBoss4Type2__sub_800535A8(arg0);
             return;
         }
-        fn_80053504(arg0);
+        TBoss4Type2__sub_80053504(arg0);
     }
 }
 

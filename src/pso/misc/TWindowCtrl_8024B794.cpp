@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void dispatch_to_child__11TWindowCtrlFiPv(s32 arg0, void *arg1);
-M2C_UNK fn_8024D8A8(u32, void*);
+M2C_UNK TWindowCtrlMain__sub_8024D8A8(u32, void*);
 
 extern u32* TWindowCtrl__data_805D63F8;
 
 void dispatch_to_child__11TWindowCtrlFiPv(s32 arg0, void *arg1) {
     u32* p = TWindowCtrl__data_805D63F8;
     if (p != 0 && p[arg0 + 18] != 0U) {
-        fn_8024D8A8(p[arg0 + 18], arg1);
+        TWindowCtrlMain__sub_8024D8A8(p[arg0 + 18], arg1);
     }
 }
 

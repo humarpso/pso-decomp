@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void fn_8015DD2C(void *, int);
+void TODoorAncient01__sub_8015DD2C(void *, int);
 
 extern M2C_UNK __vt__19TODoorFourLightBase[];
 
 void *__dt__19TODoorFourLightBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TODoorFourLightBase;
-        fn_8015DD2C(arg0, 0);
+        TODoorAncient01__sub_8015DD2C(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

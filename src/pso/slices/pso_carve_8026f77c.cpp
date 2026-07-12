@@ -19,7 +19,7 @@ struct VObj_8026F77C : Base_8026F77C {
     virtual int m14();
 };
 
-void fn_8026F77C(s32 arg0) {
+void TWindowSubStatusDisp__sub_8026F77C(s32 arg0) {
     void *temp_r31;
     VObj_8026F77C *temp_r3;
 

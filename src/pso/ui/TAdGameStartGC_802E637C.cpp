@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void fn_802E6368(void* p);
+void TAdGameStartGC__sub_802E6368(void* p);
 void render__14TAdGameStartGCFv(void);
 int bswap_32__FPUl(void*);
 int TObjPlayer__sub_8001960C(void*);

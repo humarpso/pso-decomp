@@ -24,7 +24,7 @@ struct VObj : VBase {
     virtual s32 m8(f32, f32);
 };
 
-void fn_8018455C(u8 *arg0) {
+void TObjCity_Season_XmasTree__sub_8018455C(u8 *arg0) {
     u8 *temp_r3;
 
     temp_r3 = fn_80184AB8();

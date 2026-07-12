@@ -10,13 +10,13 @@ s16 obj_getS16_2BA(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C();
 void *get_array_entry__20TWindowSubStatusDispFPvi(s32, M2C_UNK);
 M2C_UNK TWindowCtrl__sub_8024C818();
-M2C_UNK fn_802575C0(void *, M2C_UNK, f32);
+M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
 M2C_UNK fn_8026F6DC(s32);
 extern M2C_UNK lbl_8044F608;
 extern const f32 lbl_805DD390;
 extern const f32 lbl_805DD394;
 
-s32 fn_8026F7E0(s32 arg0) {
+s32 TWindowSubStatusDisp__sub_8026F7E0(s32 arg0) {
     M2C_UNK var_r4;
     s32 var_r31;
     void *temp_r30;
@@ -38,7 +38,7 @@ s32 fn_8026F7E0(s32 arg0) {
         var_r4 = -0x3EEC;
         var_r31 = -0x3EEC;
     }
-    fn_802575C0(temp_r30, var_r4, lbl_805DD394);
+    TWindowSubStatusDisp__sub_802575C0(temp_r30, var_r4, lbl_805DD394);
     return var_r31;
 }
 

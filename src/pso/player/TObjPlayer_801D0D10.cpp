@@ -24,12 +24,12 @@ int TObjPlayer__sub_801D102C(void*);
 int TObjPlayer__sub_801D1034(void*);
 int TObjPlayer__sub_801D103C(void*);
 int TObjPlayer__sub_801D1044(void*);
-int fn_8035AF14(void*);
+int TBoss7LaserPtcl__sub_8035AF14(void*);
 int fn_8035AF18(void*);
 
 int TObjPlayer__sub_801D0D10(void* p) { return TObjPlayer__sub_801D1024((char*)p + 0x34c); }
 int TObjPlayer__sub_801D0D34(void* p) { return TObjPlayer__sub_801D102C((char*)p + 0x34c); }
-int TObjPlayer__sub_801D0D58(void* p) { return fn_8035AF14((char*)p + 0x34c); }
+int TObjPlayer__sub_801D0D58(void* p) { return TBoss7LaserPtcl__sub_8035AF14((char*)p + 0x34c); }
 void TObjPlayer__sub_801D0D7C(void* p) { *(u32*)((char*)p + 0x334) &= 0xfbffffff; }
 void TObjPlayer__sub_801D0D8C(void* p) { *(u32*)((char*)p + 0x334) &= 0xf7ffffff; }
 void TObjPlayer__sub_801D0D9C(void* p) { *(u32*)((char*)p + 0x334) &= 0xefffffff; }

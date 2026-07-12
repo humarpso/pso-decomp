@@ -8,7 +8,7 @@ extern "C" {
 
 void update_music_state__6TLobbyFPv(void *arg0);
 void update_flag_by_state__6TLobbyFPv(void *arg0);
-M2C_UNK fn_80330AC0(u32, s32);
+M2C_UNK TWindowSubTradeMain__sub_80330AC0(u32, s32);
 
 extern u16 lbl_805D6888;
 extern u32 TLobby__data_805D6898;
@@ -21,13 +21,13 @@ void update_music_state__6TLobbyFPv(void *arg0) {
     case 0:
         lbl_805D6888 |= 0x200;
         if (TLobby__data_805D6898 != 0U) {
-            fn_80330AC0(TLobby__data_805D6898, 2);
+            TWindowSubTradeMain__sub_80330AC0(TLobby__data_805D6898, 2);
         }
         break;
     case 4:
         lbl_805D6888 &= 0xFFFFFDFF;
         if (TLobby__data_805D6898 != 0U) {
-            fn_80330AC0(TLobby__data_805D6898, 1);
+            TWindowSubTradeMain__sub_80330AC0(TLobby__data_805D6898, 1);
         }
         break;
     }
@@ -44,13 +44,13 @@ void update_flag_by_state__6TLobbyFPv(void *arg0) {
     case 0:
         lbl_805D6888 |= 0x40;
         if (TLobby__data_805D6898 != 0U) {
-            fn_80330AC0(TLobby__data_805D6898, 1);
+            TWindowSubTradeMain__sub_80330AC0(TLobby__data_805D6898, 1);
         }
         break;
     case 4:
         lbl_805D6888 &= 0xFFFFFFBF;
         if (TLobby__data_805D6898 != 0U) {
-            fn_80330AC0(TLobby__data_805D6898, 0);
+            TWindowSubTradeMain__sub_80330AC0(TLobby__data_805D6898, 0);
         }
         break;
     }

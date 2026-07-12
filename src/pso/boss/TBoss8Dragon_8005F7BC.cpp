@@ -16,13 +16,13 @@ s32 TObjEneEpsilon__sub_800B95E0(void *);
 M2C_UNK TObjEneEpsilon__sub_800B9680(void *, M2C_UNK *);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 f64 TObjPlayer__sub_80019760(f32, f32);
-M2C_UNK fn_80064F2C();
+M2C_UNK TBoss8Dragon__sub_80064F2C();
 M2C_UNK update_velocity__9TObjEneDDFPv();
 
 extern M2C_UNK lbl_80437938[];
 
 void TBoss8Dragon__sub_8005F7BC(void *arg0) {
-    fn_80064F2C();
+    TBoss8Dragon__sub_80064F2C();
     if (!(M2C_FIELD(arg0, s32 *, 0x490) & 0x1F)) {
         if (TObjEneEpsilon__sub_800B95E0(arg0) != 0) {
             TObjEneEpsilon__sub_800B96A4(arg0);

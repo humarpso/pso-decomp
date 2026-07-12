@@ -118,7 +118,7 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 s32 TObjEneEpsilon__sub_800B96D4(f32);
 s32 TObjEneMorfos__sub_803344F0();
-f32 fn_8002ADE4(f32);
+f32 TObjEneMe3ShinowaReal__sub_8002ADE4(f32);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK TObjPlayer__sub_8022602C(M2C_UNK);
 
@@ -156,7 +156,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
             break;
         case 1:
             M2C_FIELD(arg0, f32 *, 0x4C4) = (f32) (M2C_FIELD(arg0, f32 *, 0x4C4) + lbl_805DF894);
-            M2C_FIELD(arg0, s32 *, 0x3D4) = (s32) fn_8002ADE4(M2C_FIELD(arg0, f32 *, 0x4C4));
+            M2C_FIELD(arg0, s32 *, 0x3D4) = (s32) TObjEneMe3ShinowaReal__sub_8002ADE4(M2C_FIELD(arg0, f32 *, 0x4C4));
             if ((s32) M2C_FIELD(arg0, s32 *, 0x3D4) >= 0xC) {
                 M2C_FIELD(arg0, s32 *, 0x3D4) = 0xC;
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 2;

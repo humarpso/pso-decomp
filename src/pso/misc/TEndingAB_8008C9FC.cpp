@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TEndingAB__sub_8008C9FC(void *arg0);
-M2C_UNK fn_8001A808(s32);
+M2C_UNK TObjPlayer__sub_8001A808(s32);
 
 extern s32 TEndingAB__data_805D4F10;
 
@@ -27,7 +27,7 @@ void TEndingAB__sub_8008C9FC(void *arg0) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
             TEndingAB__data_805D4F10 = 2;
-            fn_8001A808(M2C_FIELD(arg0, s32 *, 0x24));
+            TObjPlayer__sub_8001A808(M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
             return;
         }
@@ -46,7 +46,7 @@ void TEndingAB__sub_8008C9FC(void *arg0) {
         temp_r4_2 = M2C_FIELD(arg0, s32 *, 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
             TEndingAB__data_805D4F10 = 4;
-            fn_8001A808(M2C_FIELD(arg0, s32 *, 0x24));
+            TObjPlayer__sub_8001A808(M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
             return;
         }

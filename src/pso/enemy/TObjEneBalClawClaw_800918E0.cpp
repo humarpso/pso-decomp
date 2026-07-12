@@ -11,8 +11,8 @@ void *TObjControl__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__14TObjEneBalClawFv(void *, int);
 void *__nw__7TObjectFUl(int);
-void *fn_80091B98(void *, void *, void *, void *, void *, void *, void *, void *);
-void *fn_80091C58(void *, void *, void *);
+void *TObjEneBalClawClaw__sub_80091B98(void *, void *, void *, void *, void *, void *, void *, void *);
+void *TObjEneBalClawClaw__sub_80091C58(void *, void *, void *);
 void TObjEneGibbles__sub_80156720(void *);
 
 extern void *tl_04;
@@ -26,7 +26,7 @@ void * create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *a
     }
     o2 = __nw__7TObjectFUl(0x428);
     if (o2 != NULL) {
-        o2 = fn_80091B98(o2, o, arg0, arg1, arg2, arg3, arg4, arg5);
+        o2 = TObjEneBalClawClaw__sub_80091B98(o2, o, arg0, arg1, arg2, arg3, arg4, arg5);
     }
     return o2;
 }
@@ -42,7 +42,7 @@ void * create__18TObjEneBalClawClawFPv(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x428);
     if (o2 != NULL) {
-        o2 = fn_80091C58(o2, o, arg0);
+        o2 = TObjEneBalClawClaw__sub_80091C58(o2, o, arg0);
     }
     return o2;
 }

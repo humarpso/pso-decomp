@@ -9,7 +9,7 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
 s32 TAdSinglePlyChrSelectGC__sub_8039DCE0(s32, s32);
-s32 fn_802E11C8(void *);
+s32 TAdPlyStatusGC__sub_802E11C8(void *);
 s32 check_ready__23TAdSinglePlyChrSelectGCFv();
 s32 init_timestamped_data();
 s8 TAdSinglePlyChrSelectGC__sub_8001C5E8();

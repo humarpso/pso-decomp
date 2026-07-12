@@ -9,13 +9,13 @@ extern "C" {
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindow__close(void *);
-M2C_UNK fn_801B7B10();
+M2C_UNK TObjPlayer__sub_801B7B10();
 
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) {
         switch (arg1) {
         case 0:
-            fn_801B7B10();
+            TObjPlayer__sub_801B7B10();
             M2C_FIELD(arg0, s8 *, 0x1C) = 0x16;
             return;
         case 1:

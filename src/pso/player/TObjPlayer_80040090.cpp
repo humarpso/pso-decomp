@@ -11,7 +11,7 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_8006A044(M2C_UNK, f32);
 M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, s32);
-M2C_UNK fn_8003F4C0(M2C_UNK);
+M2C_UNK TObjPlayer__sub_8003F4C0(M2C_UNK);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 s32 obj_testFlags30(void *, M2C_UNK);
 
@@ -42,7 +42,7 @@ void update_grabbed_state__10TObjPlayerFPv(void *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
             M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
             if (M2C_FIELD(arg0, s32 *, 0x388) & 0x40000) {
-                fn_8003F4C0(0xF);
+                TObjPlayer__sub_8003F4C0(0xF);
             } else {
                 TObjEneMe1GiGue__sub_80040B3C(arg0, M2C_FIELD(arg0, s32 *, 0x380));
             }

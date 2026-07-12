@@ -19,12 +19,12 @@ int TLobby__send_and_handle_60(void*);
 int TObjPlayer__sub_8001960C(void* a0 = 0);
 int bswap_32__FPUl(void* a0 = 0);
 int dispatch_packet__6TLobbyFPv(void*);
-M2C_UNK fn_801C19C8(f32);
+M2C_UNK TObjPlayer__sub_801C19C8(f32);
 
 extern const f32 lbl_805DC300;
 
 void TLobby__sub_801C4F80(s32 arg0) {
-    fn_801C19C8(lbl_805DC300);
+    TObjPlayer__sub_801C19C8(lbl_805DC300);
     TLobby__sub_801C4FBC((void*)(arg0), lbl_805DC300);
 }
 

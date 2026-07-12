@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_800FD7C0(void *);
-s32 fn_8036CDA8();
+s32 TObjEneHoldEffect__sub_8036CDA8();
 
 s32 fn_8036BB0C(u8 *arg0) {
     s16 v;
-    if (fn_8036CDA8() == 0) {
+    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
         return 0;
     }
     v = M2C_FIELD(arg0, s16 *, 6);

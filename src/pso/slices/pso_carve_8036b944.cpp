@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80142478(s32);
-s32 fn_8036CDA8();
+s32 TObjEneHoldEffect__sub_80142478(s32);
+s32 TObjEneHoldEffect__sub_8036CDA8();
 
 s32 fn_8036B944(s32 arg0) {
-    if (fn_8036CDA8() == 0) {
+    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
         return 0;
     }
-    if (fn_80142478(arg0 + 8) != 0) {
+    if (TObjEneHoldEffect__sub_80142478(arg0 + 8) != 0) {
         return 0;
     }
-    return (u32) __cntlzw(fn_80142478(arg0 + 0x14)) >> 5;
+    return (u32) __cntlzw(TObjEneHoldEffect__sub_80142478(arg0 + 0x14)) >> 5;
 }
 
 }

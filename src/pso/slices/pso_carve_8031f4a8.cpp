@@ -108,8 +108,8 @@ extern "C" {
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
-M2C_UNK fn_8031F8C4(void *);
-s32 fn_8031FA64();
+M2C_UNK TObjEneRecon__sub_8031F8C4(void *);
+s32 TObjEneRecon__sub_8031FA64();
 
 void fn_8031F4A8(void *arg0, s32 arg1) {
     s32 temp_r4;
@@ -123,14 +123,14 @@ void fn_8031F4A8(void *arg0, s32 arg1) {
         TObjEneDD__sub_800BBA04(arg0, 2);
         return;
     case 3:
-        if (fn_8031FA64() != 0) {
+        if (TObjEneRecon__sub_8031FA64() != 0) {
             TObjEneDD__sub_800BBA18(arg0, 5);
         }
     case 5:
         return;
     case 0:
         TBoss1Dragon__sub_80143504();
-        fn_8031F8C4(arg0);
+        TObjEneRecon__sub_8031F8C4(arg0);
         break;
     }
 }

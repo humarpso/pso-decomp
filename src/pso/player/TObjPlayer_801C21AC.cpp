@@ -5,7 +5,7 @@ extern "C" {
 int __ct__12TPlyCharDataFv(void*);
 int TObjPlayer__sub_8001BF10(void*);
 int TObjPlayer__sub_80072218(void*);
-void* fn_801C22BC(void* p);
+void* TObjPlayer__sub_801C22BC(void* p);
 int fn_8035B00C(void*);
 void TObjPlayer__sub_801C210C(void* p, s32 v);
 int TObjPlayer__sub_801C2114(void);
@@ -26,10 +26,10 @@ u8 TObjPlayer__sub_801C222C(void* p);
 u8 TObjPlayer__sub_801C2234(void* p);
 u8 TObjPlayer__sub_801C223C(void* p);
 void TObjPlayer__sub_801C2244(void* p, s16 v);
-int fn_801C227C(void* p);
-void* fn_801C22A4(void* p);
-void* fn_801C22AC(void* p);
-s32 fn_801C22B4(void* p);
+int TObjPlayer__sub_801C227C(void* p);
+void* TObjPlayer__sub_801C22A4(void* p);
+void* TObjPlayer__sub_801C22AC(void* p);
+s32 TObjPlayer__sub_801C22B4(void* p);
 int TObjPlayer__sub_8001BEF8(void*, int);
 
 u8 TObjPlayer__sub_801C21AC(void* p) { return *(u8*)((char*)p + 0x1ab); }

@@ -8,7 +8,7 @@ extern "C" {
 
 void TItemObject__vt12(void *arg0);
 s32 TItemObject__sub_80101A1C();
-M2C_UNK fn_80100DD0(void *);
+M2C_UNK TWindowSubStatusDisp__sub_80100DD0(void *);
 
 struct Base_80115D94 { char pad[0x18]; };
 struct VObj_80115D94 : Base_80115D94 {
@@ -32,7 +32,7 @@ void TItemObject__vt12(void *arg0) {
 
     temp_r31 = TItemObject__sub_80101A1C();
     if (((VObj_80115D94 *)arg0)->m34() > temp_r31) {
-        fn_80100DD0(arg0);
+        TWindowSubStatusDisp__sub_80100DD0(arg0);
     }
 }
 

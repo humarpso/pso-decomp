@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8036CDA8();
+s32 TObjEneHoldEffect__sub_8036CDA8();
 
 s32 fn_8036BFF8(void *arg0) {
     s16 temp_r3;
 
-    if (fn_8036CDA8() == 0) {
+    if (TObjEneHoldEffect__sub_8036CDA8() == 0) {
         return 0;
     }
     temp_r3 = M2C_FIELD(arg0, s16 *, 6);

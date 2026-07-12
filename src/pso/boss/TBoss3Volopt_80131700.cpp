@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TBoss3Volopt__sub_80131700(u32 arg0, s32 arg1);
-M2C_UNK fn_8013168C();
+M2C_UNK TObjSeabedSuisoBrakable__sub_8013168C();
 
 extern s32 lbl_805D5520;
 extern s32 lbl_805D5524;
@@ -20,7 +20,7 @@ s32 TBoss3Volopt__sub_80131700(u32 arg0, s32 arg1) {
     lbl_805D5524 = arg1;
     lbl_805D5520 = 0;
     lbl_805D5528 = 0;
-    fn_8013168C();
+    TObjSeabedSuisoBrakable__sub_8013168C();
     return lbl_805D5528;
 }
 

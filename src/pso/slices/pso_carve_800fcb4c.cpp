@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 fn_800717B0(void *, s32);
 M2C_UNK fn_800FC424(void *, s32);
-M2C_UNK fn_800FC430(void *, u32);
+M2C_UNK TFontSmallHelp__sub_800FC430(void *, u32);
 M2C_UNK run_task__14TFontSmallHelpFv(void *);
 u32 TWindowSubStatusDisp__sub_800FC968(s32);
 s32 fn_800FCCF4(s32);
@@ -32,7 +32,7 @@ void fn_800FCB4C(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x60) != temp_r3_2) {
         M2C_FIELD(arg0, s32 *, 0x60) = temp_r3_2;
         temp_r3_3 = TWindowSubStatusDisp__sub_800FC968(M2C_FIELD(arg0, s32 *, 0x5C));
-        fn_800FC430(arg0, temp_r3_3);
+        TFontSmallHelp__sub_800FC430(arg0, temp_r3_3);
         if (temp_r3_3 != 0U) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 3) {
                 temp_r4 = M2C_FIELD(arg0, s32 *, 0x5C);

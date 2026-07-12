@@ -8,14 +8,14 @@ extern "C" {
 
 void unregister__10TObjPlayerFi(s32 arg0);
 M2C_UNK TObjPlayer__sub_801BBD38();
-M2C_UNK fn_801BEB14(s32);
+M2C_UNK TObjPlayer__sub_801BEB14(s32);
 
 s32 obj_getField1c(s32);
 extern M2C_UNK lbl_8050EA10[];
 
 void unregister__10TObjPlayerFi(s32 arg0) {
     TObjPlayer__sub_801BBD38();
-    fn_801BEB14(arg0);
+    TObjPlayer__sub_801BEB14(arg0);
     lbl_8050EA10[(u16)obj_getField1c(arg0)] = 0;
 }
 

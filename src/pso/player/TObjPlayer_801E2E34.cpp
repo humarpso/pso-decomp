@@ -14,7 +14,7 @@ M2C_UNK PSMTXInverse(s32, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803764EC(M2C_UNK *, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK fn_803D7CA4(void *);
+M2C_UNK TObjPlayer__sub_803D7CA4(void *);
 
 extern void *lbl_805D4698;
 extern s32 lbl_805D7774;
@@ -27,7 +27,7 @@ void TObjPlayer__sub_801E2E34(void *arg0) {
     var_r31 = arg0;
     do {
         TObjPlayer__sub_803D9B2C();
-        fn_803D7CA4(var_r31);
+        TObjPlayer__sub_803D7CA4(var_r31);
         if (((M2C_UNK (*)(void *)) lbl_805D7710) != NULL) {
             lbl_805D7710(var_r31);
         }

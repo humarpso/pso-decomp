@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__12TObjNpcHFW00Fv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void fn_8014AA6C(void *, int);
+void TObjNpcFemaleTall__sub_8014AA6C(void *, int);
 
 extern M2C_UNK __vt__12TObjNpcHFW00[];
 
 void *__dt__12TObjNpcHFW00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjNpcHFW00;
-        fn_8014AA6C(arg0, 0);
+        TObjNpcFemaleTall__sub_8014AA6C(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

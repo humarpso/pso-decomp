@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TItemData__sub_8010CE1C(void *, u8);
 s32 TItemData__sub_8010CE70(void *, u8);
-void fn_801178A8(void* p, void* q);
+void TItemProArmor__sub_801178A8(void* p, void* q);
 u8 TItemProArmor__sub_801178CC(void* p);
 
 u8 TItemProArmor__sub_801178CC(void* p) { return *(u8*)((char*)p + 0x192); }

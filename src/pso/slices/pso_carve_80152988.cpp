@@ -4,7 +4,7 @@ extern "C" {
 
 void init_model__10TNpcPlayerFPv(void* p);
 int TObjPlayer__sub_8001960C(void*);
-int fn_80102CE0(void*);
+int TObjPlayer__sub_80102CE0(void*);
 void TNpcPlayer__sub_80152A98(void* p);
 int update_players__6TLobbyFi(void*);
 int TNpcPlayer__sub_80152ACC(void*);

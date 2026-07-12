@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80244DFC(s32, s32, s32, s32);
+s32 TWindowFukidasi__sub_80244DFC(s32, s32, s32, s32);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 s16 fn_802495FC(void* p);
 int TWindowSubComCard__sub_80249604(void* p);

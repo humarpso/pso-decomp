@@ -26,18 +26,9 @@ int TObjPlayer__sub_80102C90(void* p);
 f32 TObjPlayer__sub_80102CD8(void* p);
 int TObjPlayer__sub_801C675C(void*);
 
-int fn_80102CE0(void) { return 0; }
-int fn_80102D14(void) { return 0; }
+int TObjPlayer__sub_80102CE0(void) { return 0; }
+int TObjPlayer__sub_80102D14(void) { return 0; }
 void TObjPlayer__sub_8001960C(void* p);
 void bswap_32__FPUl(u32* p);
-void fn_80102D48(void* p) {
-    TObjPlayer__sub_8001960C(p);
-    bswap_32__FPUl((u32*)((char*)p + 4));
-    bswap_32__FPUl((u32*)((char*)p + 8));
-}
-int fn_80102D84(void) { return 0; }
-u8 fn_80102DA8(void *arg0) {
-    return (u8) (is_matching_id__6TLobbyFiUs(arg0, M2C_FIELD(arg0, u16 *, 2)) == 0);
-}
 
 }

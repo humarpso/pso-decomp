@@ -24,7 +24,7 @@ int TObjPlayer__sub_801D102C(void*);
 int TObjPlayer__sub_801D1034(void*);
 int TObjPlayer__sub_801D103C(void*);
 int TObjPlayer__sub_801D1044(void*);
-int fn_8035AF14(void*);
+int TBoss7LaserPtcl__sub_8035AF14(void*);
 int fn_8035AF18(void*);
 
 int TObjPlayer__sub_801D0EA0(void) { return 0; }

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8024E3D4(void *);
-s32 fn_8024E3E0(void *);
-int fn_8024D838(void);
-void fn_8024D85C(void* p);
-void fn_8024D87C(void* p);
-void fn_8024D8A8(void* p);
-void fn_8024D8D4(void* p);
-void fn_8024D900(void* p);
+s32 TWindowMainMenu__sub_8024E3D4(void *);
+s32 TWindowMainMenu__sub_8024E3E0(void *);
+int TWindowCtrlMain__sub_8024D838(void);
+void TWindowCtrlMain__sub_8024D85C(void* p);
+void TWindowCtrlMain__sub_8024D87C(void* p);
+void TWindowCtrlMain__sub_8024D8A8(void* p);
+void TWindowCtrlMain__sub_8024D8D4(void* p);
+void TWindowCtrlMain__sub_8024D900(void* p);
 int fn_802437C4(void*);
 int TWindowCtrlMain__sub_8024D7C0(void*);
 int fn_80263B34(void*);
@@ -25,7 +25,7 @@ s32 TWindowCtrl__sub_8024D960(void *arg0) {
     if (p == 0) {
         return 0;
     }
-    return fn_8024E3E0(p);
+    return TWindowMainMenu__sub_8024E3E0(p);
 }
 
 }

@@ -9,14 +9,14 @@ extern "C" {
 s32 TItem__sub_80101658(void *arg0);
 M2C_UNK TItemData__sub_8010E59C(M2C_UNK *, s32);
 M2C_UNK copy_to_item_data__5TItemFPvPv(void *, M2C_UNK *);
-s32 fn_80103548(M2C_UNK);
+s32 TItemAttacker__sub_80103548(M2C_UNK);
 
 s32 TItem__sub_80101658(void *arg0) {
     M2C_UNK sp8[8];
     s32 temp_r3;
 
     copy_to_item_data__5TItemFPvPv(arg0, sp8);
-    temp_r3 = fn_80103548(0);
+    temp_r3 = TItemAttacker__sub_80103548(0);
     TItemData__sub_8010E59C(sp8, temp_r3);
     return temp_r3;
 }

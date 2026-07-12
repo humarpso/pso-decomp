@@ -12,7 +12,7 @@ u32 get_card_window__17TWindowSubComCardFUi(s32);
 s32 THunterGuildWarning__sub_802116EC();
 s32 TWindowCtrl__sub_8024AF74(u16);
 s32 TWindowCtrl__sub_8024B054(u16);
-int fn_8006E87C(void* p);
+int TWindowCtrl__sub_8006E87C(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 
 s32 check_can_open__16TObjBagWarnWin4PFv(void) {

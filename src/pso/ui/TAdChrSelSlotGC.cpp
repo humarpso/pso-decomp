@@ -12,7 +12,7 @@ s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
 s32 toggle_flag_9__10TObjPlayerFPv();
-M2C_UNK fn_802C7314(void *);
+M2C_UNK TAdChrSelSlotGC__sub_802C7314(void *);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 
 void render__15TAdChrSelSlotGCFv(void *arg0) {
@@ -27,7 +27,7 @@ void render__15TAdChrSelSlotGCFv(void *arg0) {
 block_5:
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 0xA);
-        fn_802C7314(arg0);
+        TAdChrSelSlotGC__sub_802C7314(arg0);
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x124) == 0) {

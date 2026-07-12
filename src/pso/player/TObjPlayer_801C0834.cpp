@@ -5,7 +5,7 @@ extern "C" {
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int TObjPlayer__sub_8001960C(void*);
-int fn_80102CE0(void*);
+int TObjPlayer__sub_80102CE0(void*);
 int TObjPlayer__sub_801BEE34(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TObjPlayer__sub_801C0768(void*);

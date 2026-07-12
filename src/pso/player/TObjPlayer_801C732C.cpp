@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void fn_801C72E4(void* p);
+void TObjPlayer__sub_801C72E4(void* p);
 int TLobby__send_and_handle_60(void*);
 int check_flag__10TObjPlayerFPvi(void*, void*);
 int bswap_32__FPUl(void*);

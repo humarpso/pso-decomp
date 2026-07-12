@@ -8,41 +8,41 @@ extern "C" {
 
 void set_labels__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1);
 s32 TWindowSubComCard__sub_8026CBB8(s32);
-M2C_UNK fn_802A5628(u32, s32);
-M2C_UNK fn_80330B84(void *, u32, s32);
+M2C_UNK TWindowSubComCard__sub_802A5628(u32, s32);
+M2C_UNK TWindowSubTradeMain__sub_80330B84(void *, u32, s32);
 
 void set_labels__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x30), TWindowSubComCard__sub_8026CBB8(arg1 + 0x5C));
+        TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x30), TWindowSubComCard__sub_8026CBB8(arg1 + 0x5C));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-        fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x34), TWindowSubComCard__sub_8026CBB8(arg1 + 0x5E));
+        TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x34), TWindowSubComCard__sub_8026CBB8(arg1 + 0x5E));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
-        fn_802A5628(M2C_FIELD(arg0, u32 *, 0x38), TWindowSubComCard__sub_8026CBB8(arg1 + 0x5F));
+        TWindowSubComCard__sub_802A5628(M2C_FIELD(arg0, u32 *, 0x38), TWindowSubComCard__sub_8026CBB8(arg1 + 0x5F));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-            fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x3C), TWindowSubComCard__sub_8026CBB8(arg1 + 0x62));
+            TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x3C), TWindowSubComCard__sub_8026CBB8(arg1 + 0x62));
         } else {
-            fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x3C), TWindowSubComCard__sub_8026CBB8(arg1 + 0x60));
+            TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x3C), TWindowSubComCard__sub_8026CBB8(arg1 + 0x60));
         }
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-            fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x40), TWindowSubComCard__sub_8026CBB8(arg1 + 0x63));
+            TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x40), TWindowSubComCard__sub_8026CBB8(arg1 + 0x63));
         } else {
-            fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x40), TWindowSubComCard__sub_8026CBB8(arg1 + 0x61));
+            TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x40), TWindowSubComCard__sub_8026CBB8(arg1 + 0x61));
         }
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-        fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x44), TWindowSubComCard__sub_8026CBB8(arg1 + 0x64));
+        TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x44), TWindowSubComCard__sub_8026CBB8(arg1 + 0x64));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x48) != 0U) {
-        fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x48), TWindowSubComCard__sub_8026CBB8(arg1 + 0x5D));
+        TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x48), TWindowSubComCard__sub_8026CBB8(arg1 + 0x5D));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) {
-        fn_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x4C), TWindowSubComCard__sub_8026CBB8(arg1 + 0x65));
+        TWindowSubTradeMain__sub_80330B84(arg0, M2C_FIELD(arg0, u32 *, 0x4C), TWindowSubComCard__sub_8026CBB8(arg1 + 0x65));
     }
 }
 

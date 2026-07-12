@@ -9,7 +9,7 @@ extern "C" {
 void render__11TWindowMenuFv(u8 *arg0);
 s32 fn_80244364();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
-M2C_UNK fn_80257BC0(void *, void *, s32);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
 M2C_UNK fn_802665C0(void *, s32);
 M2C_UNK fn_80266620(void *, s32);
 M2C_UNK fn_8026D790(s32, s32, void *);
@@ -20,7 +20,7 @@ void render__11TWindowMenuFv(u8 *arg0) {
 
     temp_r3 = fn_80244364();
     TWindowSubComCard__sub_80245F98(arg0, temp_r3);
-    fn_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x80)) {
         fn_80266620(arg0, temp_r3);
         fn_802665C0(arg0, temp_r3);

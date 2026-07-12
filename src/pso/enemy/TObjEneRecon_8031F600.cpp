@@ -40,7 +40,7 @@ void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
-s32 fn_8031FACC(void *);
+s32 TObjEneRecon__sub_8031FACC(void *);
 
 extern const f32 TObjEneRecon__data_805DF438;
 
@@ -56,7 +56,7 @@ void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1) {
         TObjEneDD__sub_800BBA04(arg0, 2);
         return;
     case 3:
-        if ((((VObj_8031F600 *)arg0)->m102(TObjEneRecon__data_805DF438) != 0) && (fn_8031FACC(arg0) != 0)) {
+        if ((((VObj_8031F600 *)arg0)->m102(TObjEneRecon__data_805DF438) != 0) && (TObjEneRecon__sub_8031FACC(arg0) != 0)) {
             TObjEneDD__sub_800BBA18(arg0, 3);
         }
         break;

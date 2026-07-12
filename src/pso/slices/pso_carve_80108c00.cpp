@@ -15,7 +15,7 @@ M2C_UNK TObjPlayer__sub_80156990(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_8049F038[];
 
-void *fn_80108C00(void *arg0, s16 arg1) {
+void *TItemEffFlame__sub_80108C00(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F038;
         if ((u32) M2C_FIELD(arg0, u32 *, 0xA4) != 0U) {

@@ -13,15 +13,15 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int TObjPlayer__sub_8001960C(void*);
 int TLobby__send_and_handle_60(void*);
-void fn_802EE6E8(void);
-void fn_802EE6EC(void);
-void fn_802EE6F0(void);
-void fn_802EE6F4(void);
-void fn_802EE6F8(void);
-void fn_802EE6FC(void);
-void fn_802EE700(void);
-void fn_802EE7B8(void* p);
-void fn_802EE800(void* p);
+void TBoss7Joint__sub_802EE6E8(void);
+void TBoss7Joint__sub_802EE6EC(void);
+void TBoss7Joint__sub_802EE6F0(void);
+void TBoss7Joint__sub_802EE6F4(void);
+void TBoss7Joint__sub_802EE6F8(void);
+void TBoss7Joint__sub_802EE6FC(void);
+void TBoss7Joint__sub_802EE700(void);
+void TBoss7Joint__sub_802EE7B8(void* p);
+void TBoss7Joint__sub_802EE800(void* p);
 int TBoss7Joint__sub_802EE814(void* p);
 
 int TBoss7Joint__sub_802EE820(void) { return 0; }

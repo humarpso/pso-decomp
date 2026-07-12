@@ -14,8 +14,8 @@ s32 TObjPlayer__sub_800196EC(f32, f32, f32);
 s32 TLobby__sub_8020C1F0(M2C_UNK, s32);
 u32 fn_802898AC();
 u32 fn_8028AAFC();
-u32 fn_8028AC8C();
-u32 fn_8028B324(void *);
+u32 TObjBoss5PillarDemo__sub_8028AC8C();
+u32 TObjBoss5PillarCtrl__sub_8028B324(void *);
 
 s32 is_split_screen();
 extern const f64 lbl_80438138;
@@ -50,11 +50,11 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
                 M2C_FIELD(arg0, u32 *, 0x20) = fn_802898AC();
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0x24) == 0U) {
-                M2C_FIELD(arg0, u32 *, 0x24) = fn_8028B324(arg0);
+                M2C_FIELD(arg0, u32 *, 0x24) = TObjBoss5PillarCtrl__sub_8028B324(arg0);
             }
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x28) = fn_8028AC8C();
+            M2C_FIELD(arg0, u32 *, 0x28) = TObjBoss5PillarDemo__sub_8028AC8C();
         }
     }
     return arg0;

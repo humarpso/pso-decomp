@@ -17,7 +17,7 @@ M2C_UNK fn_80131A5C(s32);
 M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
 M2C_UNK TWindowMakeTeam__sub_80131BA0(s32, s32);
 M2C_UNK TLobby__sub_80244D2C(f32);
-s32 fn_80249C10(s32);
+s32 TWindowComCard__sub_80249C10(s32);
 s32 TLobby__sub_80269D24(M2C_UNK, M2C_UNK *, M2C_UNK);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80275254(s32);
@@ -49,7 +49,7 @@ s32 create_keyboard__17TWindowSubComCardFi(s32 arg0) {
     if (temp_r31 != 0) {
         temp_r31 = TKeyBoardControl__ct(temp_r31, arg0, 0xC6, 3, 4, lbl_805D53A0);
     }
-    TWindowMakeTeam__sub_80131BA0(temp_r31, fn_80249C10(var_r30));
+    TWindowMakeTeam__sub_80131BA0(temp_r31, TWindowComCard__sub_80249C10(var_r30));
     TWindowMakeTeam__sub_80131B54(temp_r31, TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0xBB)));
     fn_80131A5C(temp_r31);
     TWindowSubComCard__sub_80275254(temp_r31);

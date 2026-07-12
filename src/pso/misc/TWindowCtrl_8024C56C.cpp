@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void close__11TWindowCtrlFv(void);
-M2C_UNK fn_8024E3D0();
+M2C_UNK TWindowMainMenu__sub_8024E3D0();
 M2C_UNK TLobby__sub_8026ACDC();
 
 extern s32 TWindowCtrl__data_805D63F8;
 
 void close__11TWindowCtrlFv(void) {
-    fn_8024E3D0();
+    TWindowMainMenu__sub_8024E3D0();
     TLobby__sub_8026ACDC();
     TWindowCtrl__data_805D63F8 = 0;
 }

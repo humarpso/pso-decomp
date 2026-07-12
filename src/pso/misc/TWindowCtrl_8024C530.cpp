@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void shutdown__11TWindowCtrlFv(void);
-M2C_UNK fn_8024E3CC();
+M2C_UNK TWindowMainMenu__sub_8024E3CC();
 M2C_UNK fn_8026AC50();
 void queue_destruction__7TObjectFv(void*);
 
@@ -19,7 +19,7 @@ void shutdown__11TWindowCtrlFv(void) {
         TWindowCtrl__data_805D63F8 = 0U;
     }
     fn_8026AC50();
-    fn_8024E3CC();
+    TWindowMainMenu__sub_8024E3CC();
 }
 
 }

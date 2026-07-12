@@ -11,7 +11,7 @@ s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
 int TBoss6PlotFalz__sub_802AACEC(void*);
 int TBoss6PlotFalz__sub_802AC86C(void*, void*);
 void TBoss6PlotFalz__sub_802B0770(void* p);
-void fn_802B08F0(void* p);
+void TBoss6PlotFalz__sub_802B08F0(void* p);
 int TBoss6PlotFalz__sub_802ABCDC(void*);
 int TBoss6PlotFalz__sub_802AC4D8(void);
 int TBoss6PlotFalz__sub_802AC678(void*);

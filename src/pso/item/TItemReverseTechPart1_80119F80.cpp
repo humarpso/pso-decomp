@@ -13,7 +13,7 @@ extern M2C_UNK __vt__21TItemReverseTechPart1[];
 extern void *lbl_805D2C4C;
 extern void * lbl_805D54DC;
 extern void *tl_00;
-extern M2C_UNK fn_80119D6C[];
+extern M2C_UNK TItemReverseTechPart2__sub_80119D6C[];
 
 void *TItemReverseTechPart1__ct(void *arg0) {
     void *o;
@@ -29,7 +29,7 @@ void *TItemReverseTechPart1__ct(void *arg0) {
     lbl_805D54DC = arg0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        TLobby__sub_800F8754(o, tl_00, fn_80119D6C);
+        TLobby__sub_800F8754(o, tl_00, TItemReverseTechPart2__sub_80119D6C);
     }
     return arg0;
 }
