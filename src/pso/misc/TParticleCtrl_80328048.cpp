@@ -12,7 +12,7 @@ void fn_803280E8(void);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int fn_802A8260(void*);
-int fn_803DC83C(int);
+int TObjPlayer__sub_803DC83C(int);
 
 void TParticleCtrl__sub_80328048(s32 arg0) {
     if (arg0 != 0) {
@@ -21,7 +21,7 @@ void TParticleCtrl__sub_80328048(s32 arg0) {
         GXSetTevDirect(0);
     }
     GXSetNumIndStages(0);
-    fn_803DC83C(0);
+    TObjPlayer__sub_803DC83C(0);
 }
 
 }

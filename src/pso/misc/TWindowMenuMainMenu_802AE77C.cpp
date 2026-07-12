@@ -9,7 +9,7 @@ extern "C" {
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowDD__sub_8024664C(void *);
-M2C_UNK fn_802AD7F0(void *);
+M2C_UNK TWindowMainMenu__sub_802AD7F0(void *);
 M2C_UNK TWindowMainMenu__sub_802AE380(void *);
 M2C_UNK fn_802AE59C(void *);
 
@@ -26,7 +26,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     var_r30 = arg0 + 0x64;
     var_r31 = 0;
     do {
-        fn_802AD7F0(var_r30);
+        TWindowMainMenu__sub_802AD7F0(var_r30);
         var_r31 += 1;
         var_r30 += 0x18;
     } while (var_r31 < 8);

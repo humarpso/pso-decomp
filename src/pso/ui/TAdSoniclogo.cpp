@@ -7,7 +7,7 @@ extern "C" {
 void *__ct__12TAdSoniclogoFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *fn_800F8754(void *, void *, void *);
+void *TLobby__sub_800F8754(void *, void *, void *);
 void TAdSinglePlyChrSelectGC__sub_8033A904(int);
 
 extern M2C_UNK __vt__12TAdSoniclogo[];
@@ -28,7 +28,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
     TAdSinglePlyChrSelectGC__sub_8033A904(1);
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        fn_800F8754(o, tl_00, TAdSoniclogo__sub_8001C1C4);
+        TLobby__sub_800F8754(o, tl_00, TAdSoniclogo__sub_8001C1C4);
     }
     return arg0;
 }

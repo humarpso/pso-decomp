@@ -8,7 +8,7 @@ extern "C" {
 
 void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK fn_801A771C(void *);
+M2C_UNK TObjPlayer__sub_801A771C(void *);
 M2C_UNK fn_801A7D38(void *, M2C_UNK);
 
 extern M2C_UNK __vt__12TPhotonMylla[];
@@ -26,7 +26,7 @@ void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1) {
         struct VObj_801AD8FC *o = (struct VObj_801AD8FC *)arg0;
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TPhotonMylla;
         o->m13();
-        fn_801A771C(arg0);
+        TObjPlayer__sub_801A771C(arg0);
         fn_801A7D38(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

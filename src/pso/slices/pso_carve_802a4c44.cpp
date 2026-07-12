@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(u16);
-M2C_UNK fn_802A445C(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_802A445C(void *, M2C_UNK);
 M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
 M2C_UNK fn_802A4668(void *);
 M2C_UNK fn_802A4694(void *);
@@ -22,7 +22,7 @@ void fn_802A4C44(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB8) == 1) {
         fn_802A4694(arg0);
         update_lifetime__22TObjEneMe1GiGueMissileFPv(arg0);
-        fn_802A445C(arg0, 1);
+        TObjPlayer__sub_802A445C(arg0, 1);
         return;
     }
     fn_802A4668(arg0);

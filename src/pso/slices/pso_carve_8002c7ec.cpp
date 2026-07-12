@@ -13,8 +13,8 @@ int TObjBoss1Crater__sub_8002C7B8(void);
 int fn_8002CB40(void);
 int fn_8002CB44(void*);
 int fn_8002CB78(void);
-int fn_8002D580(void);
-int fn_8002D5F8(void);
+int TBoss8Dragon__sub_8002D580(void);
+int TBoss8Dragon__sub_8002D5F8(void);
 int fn_8002E3CC(void);
 int fn_8002E3D0(void);
 

@@ -7,7 +7,7 @@ extern "C" {
 void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(int);
 void TItemDrop__sub_800F9C00(void *);
-void *fn_800F9C68(void *, void *);
+void *TItemDrop__sub_800F9C68(void *, void *);
 void memset(void *, int, int);
 void strncpy(void *, void *, int);
 
@@ -18,7 +18,7 @@ void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2) {
     struct VOff_800F9A60_o_800f9a60 *o;
     o = (struct VOff_800F9A60_o_800f9a60 *)__nw__7TObjectFUl(0x3C);
     if (o != NULL) {
-        o = (struct VOff_800F9A60_o_800f9a60 *)fn_800F9C68(o, lbl_8050113C);
+        o = (struct VOff_800F9A60_o_800f9a60 *)TItemDrop__sub_800F9C68(o, lbl_8050113C);
     }
     memset(o->f_28, 0, 17);
     strncpy(o->f_28, arg0, 16);

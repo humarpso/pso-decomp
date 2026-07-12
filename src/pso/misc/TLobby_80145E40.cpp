@@ -8,7 +8,7 @@ extern "C" {
 
 int TLobby__sub_80145E40(void);
 s32 TLobby__sub_80145E4C(void);
-s32 fn_803F517C(u8 *);
+s32 TLobby__sub_803F517C(u8 *);
 
     extern unsigned short lbl_805D56CC;
 int TLobby__sub_80145E40(void) {  return (lbl_805D56CC & 0x1); }
@@ -16,7 +16,7 @@ int TLobby__sub_80145E40(void) {  return (lbl_805D56CC & 0x1); }
 s32 TLobby__sub_80145E4C(void) {
     u8 sp8;
 
-    if ((fn_803F517C(&sp8) == 0) && (sp8 == 0)) {
+    if ((TLobby__sub_803F517C(&sp8) == 0) && (sp8 == 0)) {
         return 1;
     }
     return 0;

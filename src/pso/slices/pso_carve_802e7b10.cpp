@@ -14,7 +14,7 @@ void fn_802E7B10(void *arg0) {
         TObjPlayer__sub_800F5E08(arg0);
     }
 }
-int fn_802E7B40(void) { return 0; }
-int fn_802E7B94(void) { return 0; }
+int TObjFish__sub_802E7B40(void) { return 0; }
+int TObjFish__sub_802E7B94(void) { return 0; }
 
 }

@@ -12,9 +12,9 @@ void fn_803280E8(void);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int fn_802A8260(void*);
-int fn_803DC83C(int);
+int TObjPlayer__sub_803DC83C(int);
 
-void fn_803280E8(void) { GXSetTevDirect(1); GXSetNumIndStages(0); fn_803DC83C(0); }
+void fn_803280E8(void) { GXSetTevDirect(1); GXSetNumIndStages(0); TObjPlayer__sub_803DC83C(0); }
 void fn_8032811C(void *arg0, s32 arg1, s16 arg2) {
     if (arg2 < 0) {
         arg2 = (s16) M2C_FIELD(arg0, u8 *, 0x1C);

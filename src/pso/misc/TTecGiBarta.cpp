@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__11TTecGiBartaFv(void *arg0);
 u32 TPhotonMylla__sub_80154CB4(u16);
-M2C_UNK fn_8023A244(void *);
+M2C_UNK TObjPlayer__sub_8023A244(void *);
 M2C_UNK fn_8023A4D0(void *);
 M2C_UNK fn_8023A694(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -21,7 +21,7 @@ void run_task__11TTecGiBartaFv(void *arg0) {
     }
     fn_8023A694(arg0);
     fn_8023A4D0(arg0);
-    fn_8023A244(arg0);
+    TObjPlayer__sub_8023A244(arg0);
 }
 
 }

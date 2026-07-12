@@ -74,10 +74,10 @@ int TMainCursor__sub_8013DF3C(void*);
 int TMainCursor__sub_8013DF44(void*);
 int TWindowActionPalette__sub_8013DF4C(void*);
 int TWindowActionPalette__sub_8013DF54(void*);
-int fn_8013DFC4(void*);
+int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
 
-int fn_8013E9A0(void* p) { return fn_8013DFC4(p); }
+int fn_8013E9A0(void* p) { return TMainCursor__sub_8013DFC4(p); }
 int fn_8013E9C0(void* p) { return TWindowActionPalette__sub_8013DF4C(p); }
 int fn_8013E9E0(void* p) { return TWindowActionPalette__sub_8013DF54(p); }
 void fn_8013EA00(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }

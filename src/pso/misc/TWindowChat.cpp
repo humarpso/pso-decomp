@@ -10,7 +10,7 @@ void *TWindowKeyBoardHard__ct(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void TWindowChat__sub_8024792C(void *);
-void fn_8025CD44(void *, int, int);
+void TWindowSubStatusDisp__sub_8025CD44(void *, int, int);
 
 extern M2C_UNK __vt__11TWindowChat[];
 extern void *lbl_805D38A0;
@@ -28,7 +28,7 @@ void *TWindowChat__ct(void *arg0, void *arg1, void *arg2) {
         o = TWindowKeyBoardBase__ct(o);
     }
     M2C_FIELD(arg0, void **, 0x20) = o;
-    fn_8025CD44(M2C_FIELD(arg0, void **, 0x20), 200, 2);
+    TWindowSubStatusDisp__sub_8025CD44(M2C_FIELD(arg0, void **, 0x20), 200, 2);
     o2 = __nw__7TObjectFUl(0x74);
     if (o2 != NULL) {
         o2 = TWindowKeyBoardHard__ct(o2, M2C_FIELD(arg0, void **, 0x20));

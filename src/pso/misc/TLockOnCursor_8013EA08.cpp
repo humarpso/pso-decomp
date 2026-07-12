@@ -74,7 +74,7 @@ int TMainCursor__sub_8013DF3C(void*);
 int TMainCursor__sub_8013DF44(void*);
 int TWindowActionPalette__sub_8013DF4C(void*);
 int TWindowActionPalette__sub_8013DF54(void*);
-int fn_8013DFC4(void*);
+int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
 
 int TLockOnCursor__sub_8013EA08(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x8, 2); }

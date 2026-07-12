@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TObjPlayer__sub_80040B28();
-s32 fn_8023611C();
+s32 TObjPlayer__sub_8023611C();
 
 void *fn_800D87A8(void) {
     void *temp_r31;
 
     temp_r31 = TObjPlayer__sub_80040B28();
-    if (fn_8023611C() != 0) {
+    if (TObjPlayer__sub_8023611C() != 0) {
         return temp_r31;
     }
     return 0;

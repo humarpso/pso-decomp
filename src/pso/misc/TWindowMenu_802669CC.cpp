@@ -8,7 +8,7 @@ void *__dt__11TWindowMenuFv(void *arg0, s16 arg1);
 void free__11TOBoss4RockFUi(void *);
 void __dl__7TObjectFPv(void *);
 void fn_802443F0(void *, int);
-void fn_8026D9D0(void *, int);
+void TWindowSubStatusDisp__sub_8026D9D0(void *, int);
 void TWindowSubStatusDisp__sub_80288070(void *, int);
 
 extern M2C_UNK __vt__11TWindowMenu[];
@@ -16,7 +16,7 @@ extern M2C_UNK __vt__11TWindowMenu[];
 void *__dt__11TWindowMenuFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TWindowMenu;
-        fn_8026D9D0(M2C_FIELD(arg0, void **, 0x84), 1);
+        TWindowSubStatusDisp__sub_8026D9D0(M2C_FIELD(arg0, void **, 0x84), 1);
         TWindowSubStatusDisp__sub_80288070(M2C_FIELD(arg0, void **, 0x88), 1);
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x80));
         fn_802443F0(arg0, 0);

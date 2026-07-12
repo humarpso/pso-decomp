@@ -4,17 +4,13 @@ extern "C" {
 
 int bswap_16__FPUs(void* a0 = 0);
 int TObjPlayer__sub_8001960C(void* a0 = 0);
-void fn_80116580(void* p);
+void TObjPlayer__sub_80116580(void* p);
 int TLobby__send_and_handle_60(void*);
-void fn_801165D0(void* p);
-s32 fn_80116578(void* p);
-void fn_80116604(void* p);
+void TObjPlayer__sub_801165D0(void* p);
+s32 TObjPlayer__sub_80116578(void* p);
+void TObjPlayer__sub_80116604(void* p);
 u16 TObjPlayer__sub_80116618(void* p);
 
 int TItemObject__vt34(void) { return 0; }
-s32 fn_80116578(void* p) { return *(s32*)((char*)p + 0xdc); }
-void fn_80116580(void* p) { TObjPlayer__sub_8001960C(p); { int i; for (i = 0; i < 4; i++) { bswap_16__FPUs((char*)p + 0x4 + i * 2); } } }
-void fn_801165D0(void* p) { fn_80116580(p); TLobby__send_and_handle_60(p); }
-void fn_80116604(void* p) { *(u8*)((char*)p + 0x0) = 102; *(u8*)((char*)p + 0x1) = 3; }
 
 }

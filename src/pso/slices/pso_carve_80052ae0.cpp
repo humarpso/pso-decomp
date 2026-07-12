@@ -10,7 +10,7 @@ f32 calc_boss4_scale__10TObjPlayerFi();
 M2C_UNK fn_80053504(void *);
 M2C_UNK fn_80053914(void *, M2C_UNK *);
 M2C_UNK fn_80053A88(void *, M2C_UNK *);
-M2C_UNK fn_80053CEC(void *, M2C_UNK);
+M2C_UNK TBoss4Type2__sub_80053CEC(void *, M2C_UNK);
 extern const f64 lbl_80437620[];
 
 void fn_80052AE0(void *arg0) {
@@ -28,7 +28,7 @@ void fn_80052AE0(void *arg0) {
         }
         fn_80053914(arg0, &sp8);
         fn_80053A88(arg0, &sp8);
-        fn_80053CEC(arg0, var_r31);
+        TBoss4Type2__sub_80053CEC(arg0, var_r31);
     }
 }
 

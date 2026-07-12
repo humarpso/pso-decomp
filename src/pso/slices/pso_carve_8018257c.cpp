@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801819CC(M2C_UNK);
+s32 TLobby__sub_801819CC(M2C_UNK);
 M2C_UNK TLobby__sub_801819E4(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -48,7 +48,7 @@ void fn_8018257C(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjDoor__sub_803DC894(TLobby__sub_801819E4(0x15), fn_801819CC(0xC), M2C_FIELD(arg0, f32 *, 0xB4));
+        TObjDoor__sub_803DC894(TLobby__sub_801819E4(0x15), TLobby__sub_801819CC(0xC), M2C_FIELD(arg0, f32 *, 0xB4));
         TObjPlayer__sub_803D9B78();
     }
 }

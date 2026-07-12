@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8025B514(s32, s32, s32, s32);
-s32 fn_8025B5AC(s32, s32, s32);
+s32 TWindowSubStatusDisp__sub_8025B514(s32, s32, s32, s32);
+s32 TWindowSubStatusDisp__sub_8025B5AC(s32, s32, s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-u32 fn_802880BC(u32, s32, s16);
+u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8026906C(void);
 void move_next_choice__20TWindowChoiceSettingFPv(void *arg0);
@@ -23,7 +23,7 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s16 a1 = 0);
 M2C_UNK TWindowSubComCard__sub_80269064();
 void TWindowSubTradeMain__sub_80268468(void* p);
 void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
-int fn_80268488(void* p);
+int TWindowSubStatusDisp__sub_80268488(void* p);
 
 void request_close__20TWindowChoiceSettingFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 8) && (TWindowSubComCard__sub_80249604() == 0)) {
@@ -93,7 +93,7 @@ void create_sub_window__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x78) == 0U) {
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
         if (var_r0 != 0U) {
-            var_r0 = fn_802880BC(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
+            var_r0 = TWindowSubStatusDisp__sub_802880BC(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
         }
         M2C_FIELD(arg0, u32 *, 0x78) = var_r0;
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x40);

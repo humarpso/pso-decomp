@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
-void fn_80182A20(s32 arg0) {
+void TObjPlayer__sub_80182A20(s32 arg0) {
     TBoss3Volopt__sub_8022675C(0x42A05, arg0 + 0x38, 0, 0);
 }
 

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TAdPlayerLoadGC__sub_801E25A4(s32 arg0);
-s32 fn_80386DC4();
+s32 TAdPlayerLoadGC__sub_80386DC4();
 
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 
@@ -18,7 +18,7 @@ s32 TAdPlayerLoadGC__sub_801E25A4(s32 arg0) {
         TAdPlayerLoadGC__data_805D5E40 = -1;
         return -1;
     }
-    temp_r3 = fn_80386DC4();
+    temp_r3 = TAdPlayerLoadGC__sub_80386DC4();
     switch (temp_r3) {
     case -1:
         TAdPlayerLoadGC__data_805D5E40 = -1;

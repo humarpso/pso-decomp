@@ -9,7 +9,7 @@ extern "C" {
 void TLobby__sub_801468A0(void);
 M2C_UNK TLobby__sub_801469B8();
 M2C_UNK TLobby__sub_80147284();
-M2C_UNK fn_80421620();
+M2C_UNK TLobby__sub_80421620();
 void xfree__FPv(void*);
 
 extern s32 lbl_805D56F8;
@@ -23,7 +23,7 @@ void TLobby__sub_801468A0(void) {
         TLobby__sub_80147284();
     }
     if (lbl_805D56F8 & 8) {
-        fn_80421620();
+        TLobby__sub_80421620();
         lbl_805D56F8 &= 0xFFFFFFF7;
     }
     if ((u32) lbl_805D5700 != 0U) {

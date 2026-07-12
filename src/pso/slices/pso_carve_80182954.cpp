@@ -18,7 +18,7 @@ struct VObj_80182954 : Base_80182954 {
 
 extern "C" {
 
-void fn_80182954(void *arg0) {
+void TObjPlayer__sub_80182954(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);

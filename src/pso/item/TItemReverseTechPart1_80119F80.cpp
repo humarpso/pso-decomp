@@ -7,7 +7,7 @@ extern "C" {
 void *TItemReverseTechPart1__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-void *fn_800F8754(void *, void *, void *);
+void *TLobby__sub_800F8754(void *, void *, void *);
 
 extern M2C_UNK __vt__21TItemReverseTechPart1[];
 extern void *lbl_805D2C4C;
@@ -29,7 +29,7 @@ void *TItemReverseTechPart1__ct(void *arg0) {
     lbl_805D54DC = arg0;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        fn_800F8754(o, tl_00, fn_80119D6C);
+        TLobby__sub_800F8754(o, tl_00, fn_80119D6C);
     }
     return arg0;
 }

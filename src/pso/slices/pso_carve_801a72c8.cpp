@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_801A7150(f32);
+M2C_UNK TObjPlayer__sub_801A7150(f32);
 extern const f32 lbl_805DC0D4;
 
 void fn_801A72C8(void) {
-    fn_801A7150(lbl_805DC0D4);
+    TObjPlayer__sub_801A7150(lbl_805DC0D4);
 }
 
 }

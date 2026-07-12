@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TObjPlayer__sub_8013DEF8(s32);
-M2C_UNK fn_8013DFC4(s32);
+M2C_UNK TMainCursor__sub_8013DFC4(s32);
 s32 TChallenge4PResult__sub_801B3B90(s32, s32);
 s32 TObjPlayer__sub_801D8474(s32, s32);
 s32 TObjPlayer__sub_801D84B0(s32);
@@ -25,7 +25,7 @@ void fn_801D7C5C(s32 arg0, s32 arg1) {
         if (TChallenge4PResult__sub_801B3B90(arg1, var_r30) == 0) {
             TObjPlayer__sub_8013DEF8(temp_r29);
         } else if (TObjPlayer__sub_801D8474(temp_r29, arg1) != 0) {
-            fn_8013DFC4(temp_r29);
+            TMainCursor__sub_8013DFC4(temp_r29);
         } else {
             TObjPlayer__sub_8013DEF8(temp_r29);
         }

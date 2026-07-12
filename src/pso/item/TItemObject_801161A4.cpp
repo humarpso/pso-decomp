@@ -45,7 +45,7 @@ s32 check_flag_400__20TWindowSubStatusDispFv();
 M2C_UNK TItem__sub_80100508(void *, M2C_UNK);
 M2C_UNK TItem__sub_80100564(void *, M2C_UNK);
 M2C_UNK TItem__sub_80100824();
-s32 fn_80116578(void *);
+s32 TObjPlayer__sub_80116578(void *);
 
 struct Base_801161A4 { char pad[0x18]; };
 struct VObj_801161A4 : Base_801161A4 {
@@ -95,7 +95,7 @@ void TItemObject__vt29(void *arg0) {
             TItem__sub_80100564(arg0, 0x1AF);
             TItem__sub_80100508(arg0, 0x5B211);
         }
-        if (fn_80116578(arg0) & 0x10) {
+        if (TObjPlayer__sub_80116578(arg0) & 0x10) {
             TObjPlayer__sub_80099EF8(arg0);
             TItem__sub_80100824();
         }

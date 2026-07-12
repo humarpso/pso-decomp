@@ -12,7 +12,7 @@ M2C_UNK TChCrCharSelect__sub_802937E8(void *);
 M2C_UNK TChCrCharSelect__sub_80293828(s32);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TChCrCharSelect__sub_80298F8C(M2C_UNK);
-s32 fn_8029916C(M2C_UNK);
+s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 
 extern s32 TChCrCharSelect__data_805D3CB8;
 extern s32 TChCrCharSelect__data_805D6590;
@@ -26,12 +26,12 @@ void TChCrCharSelect__sub_802938E4(void *arg0) {
         TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
     }
     TChCrCharSelect__sub_802937E8(arg0);
-    if ((fn_8029916C(2) != 0) || (TChCrCharSelect__sub_80298F8C(0x40) != 0)) {
+    if ((TObjCMProportion__sub_8029916C(2) != 0) || (TChCrCharSelect__sub_80298F8C(0x40) != 0)) {
         TBoss3Volopt__sub_8022675C(0x53704, 0, 0, 0);
         TChCrCharSelect__data_805D6590 = 0;
         return;
     }
-    if (fn_8029916C(4) != 0) {
+    if (TObjCMProportion__sub_8029916C(4) != 0) {
         TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 0xA;
         TChCrCharSelect__data_805D6590 = 2;
@@ -60,7 +60,7 @@ void TChCrCharSelect__sub_802939FC(s32 arg0) {
         }
         TBoss3Volopt__sub_8022675C(0x54100, 0, 0, 0);
     }
-    if ((fn_8029916C(4) != 0) || (TChCrCharSelect__sub_80298F8C(0x80) != 0)) {
+    if ((TObjCMProportion__sub_8029916C(4) != 0) || (TChCrCharSelect__sub_80298F8C(0x80) != 0)) {
         TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
         TChCrCharSelect__sub_80293828(arg0);
         TChCrCharSelect__data_805D6590 = 1;

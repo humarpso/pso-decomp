@@ -12,8 +12,8 @@ M2C_UNK TObjPlayer__sub_803E4BC4();
 M2C_UNK TObjPlayer__sub_803E4BD0();
 M2C_UNK TPlyPhotonChair__sub_80142770(s32);
 M2C_UNK TPlyPhotonChair__sub_80142774();
-M2C_UNK fn_801E2CCC(s32, void *, f32);
-M2C_UNK fn_801E2DE4(s32, s32, f32);
+M2C_UNK TObjPlayer__sub_801E2CCC(s32, void *, f32);
+M2C_UNK TObjPlayer__sub_801E2DE4(s32, s32, f32);
 M2C_UNK fn_803DC88C(s32);
 
 extern s32 lbl_805D7710;
@@ -22,10 +22,10 @@ void draw_model__12TObjNpcEnemyFPv(u8 *arg0) {
     TObjPlayer__sub_803E4BC4();
     TPlyPhotonChair__sub_80142774();
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
-        fn_801E2CCC(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+        TObjPlayer__sub_801E2CCC(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
     } else {
         fn_803DC88C(lbl_805D7710);
-        fn_801E2DE4(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+        TObjPlayer__sub_801E2DE4(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
         fn_803DC88C(0);
     }
     TObjPlayer__sub_80141F1C();

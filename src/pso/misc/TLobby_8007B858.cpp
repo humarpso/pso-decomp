@@ -25,7 +25,7 @@ M2C_UNK create__6TSceneFv();
 M2C_UNK create_instance__10TSceneSoraFv();
 M2C_UNK TLobby__sub_8008350C(u32, s32, M2C_UNK);
 M2C_UNK TLobby__sub_800F8144(M2C_UNK);
-M2C_UNK fn_800F8208(u32, s32);
+M2C_UNK TLobby__sub_800F8208(u32, s32);
 M2C_UNK fn_80198D98();
 M2C_UNK fn_8020D918();
 M2C_UNK fn_8032BDC4(u32, s32);
@@ -78,7 +78,7 @@ void create_tasks__6TLobbyFv(void) {
     }
     tmp = __nw__7TObjectFUl(0x2C);
     if (tmp != 0U) {
-        fn_800F8208(tmp, tl_fade);
+        TLobby__sub_800F8208(tmp, tl_fade);
     }
     TLobby__sub_800F8144(0);
     tmp = __nw__7TObjectFUl(0x30);

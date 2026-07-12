@@ -1,0 +1,43 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void TLobby__sub_80335F40(void);
+void *TLobby__sub_80335F44(void *arg0, s16 arg1);
+void *TLobby__sub_80335F9C(void *arg0, void *arg1);
+void TLobby__sub_80335FE0(void);
+void TLobby__sub_80335FE4(void);
+void __ct__7TObjectFP7TObject(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+
+void TLobby__sub_80335F40(void) {  }
+
+extern M2C_UNK lbl_804EE470[];
+
+void *TLobby__sub_80335F44(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EE470;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+extern M2C_UNK lbl_804EE470[];
+
+void *TLobby__sub_80335F9C(void *arg0, void *arg1) {
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EE470;
+    M2C_FIELD(arg0, void **, 0x1C) = arg1;
+    return arg0;
+}
+
+void TLobby__sub_80335FE0(void) {  }
+void TLobby__sub_80335FE4(void) {  }
+
+}

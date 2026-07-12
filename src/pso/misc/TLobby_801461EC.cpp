@@ -11,10 +11,10 @@ s32 TLobby__sub_8014622C(void);
 void TLobby__sub_80146294(void);
 void TLobby__sub_801462D8(s32 arg0);
 M2C_UNK TLobby__sub_801A3FEC();
-int fn_80145A94(void);
-int fn_803F4B68(void*);
-M2C_UNK fn_804219D0(M2C_UNK, M2C_UNK, s32);
-M2C_UNK fn_80421A50(M2C_UNK, M2C_UNK, s32);
+int TLobby__sub_80145A94(void);
+int TLobby__sub_803F4B68(void*);
+M2C_UNK TLobby__sub_804219D0(M2C_UNK, M2C_UNK, s32);
+M2C_UNK TLobby__sub_80421A50(M2C_UNK, M2C_UNK, s32);
 s16 fn_80426BD8();
 s8 func_801A5E54__Fv();
 int xmalloc__FUl(void);
@@ -22,7 +22,7 @@ int xmalloc__FUl(void);
     extern int lbl_805D56C8;
     extern short lbl_805D56CE;
     extern int lbl_805D56D0;
-void TLobby__sub_801461EC(void) { lbl_805D56D0 = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; fn_803F4B68((void*)0); lbl_805D56C8 = xmalloc__FUl(); fn_80145A94(); }
+void TLobby__sub_801461EC(void) { lbl_805D56D0 = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; TLobby__sub_803F4B68((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
 
 s32 TLobby__sub_8014622C(void) {
     s32 var_r31;
@@ -48,7 +48,7 @@ extern s32 lbl_805D56FC;
 
 void TLobby__sub_80146294(void) {
     if (lbl_805D56F8 & 2) {
-        fn_804219D0(0, 0, lbl_805D56FC);
+        TLobby__sub_804219D0(0, 0, lbl_805D56FC);
         lbl_805D56F8 &= 0xFFFFFFFD;
     }
 }
@@ -59,7 +59,7 @@ extern s32 lbl_805D56FC;
 void TLobby__sub_801462D8(s32 arg0) {
     lbl_805D56FC = arg0;
     lbl_805D56F8 |= 2;
-    fn_80421A50(0, 0, arg0);
+    TLobby__sub_80421A50(0, 0, arg0);
 }
 
 }

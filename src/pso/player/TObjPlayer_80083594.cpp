@@ -12,7 +12,7 @@ M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjFish__sub_803DA798(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_800847D4(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_803DC83C(M2C_UNK);
+M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
 s32 is_split_screen();
 
@@ -28,7 +28,7 @@ void TObjPlayer__sub_80083594(void) {
         TObjPlayer__sub_803E1D90(0, 0, 0, 1);
         some_id_805c6f74 |= 0x80000;
         TObjPlayer__sub_803DC850(1);
-        fn_803DC83C(1);
+        TObjPlayer__sub_803DC83C(1);
     }
 }
 

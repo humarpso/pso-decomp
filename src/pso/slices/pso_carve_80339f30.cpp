@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8029916C(M2C_UNK);
+s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 
 s32 fn_80339F30(void) {
-    return fn_8029916C(4) ? 1 : 0;
+    return TObjCMProportion__sub_8029916C(4) ? 1 : 0;
 }
 
 }

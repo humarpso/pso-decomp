@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowSubStatusDisp__sub_80267B90(void *arg0, s32 arg1);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-u32 fn_802880BC(u32, s32, s16);
+u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 
 void TWindowSubStatusDisp__sub_80267B90(void *arg0, s32 arg1) {
     u32 var_r0;
@@ -16,7 +16,7 @@ void TWindowSubStatusDisp__sub_80267B90(void *arg0, s32 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) == 0U) {
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
         if (var_r0 != 0U) {
-            var_r0 = fn_802880BC(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
+            var_r0 = TWindowSubStatusDisp__sub_802880BC(var_r0, arg1, M2C_FIELD(arg0, s16 *, 0x20));
         }
         M2C_FIELD(arg0, u32 *, 0x80) = var_r0;
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x40);

@@ -9,7 +9,7 @@ extern "C" {
 s32 is_split_screen();
 int TWindow__close(void*);
 int window_request_show(void*);
-int fn_802AD90C(void*);
+int TWindowMainMenu__sub_802AD90C(void*);
 int TWindowMainMenu__sub_802AD980(void*);
 int TWindowMainMenu__sub_802ADB0C(void*);
 int TWindowMainMenu__sub_802ADE78(void*);

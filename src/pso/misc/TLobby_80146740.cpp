@@ -11,7 +11,7 @@ s32 TLobby__sub_80146748(void);
 int TLobby__sub_8014677C(void);
 int TLobby__sub_801467A0(void);
 int TLobby__sub_80145DB4(void*);
-s32 fn_804245DC();
+s32 TLobby__sub_804245DC();
 
 int TLobby__sub_80146740(void) { return 0; }
 
@@ -19,7 +19,7 @@ extern s32 lbl_805D5710;
 
 s32 TLobby__sub_80146748(void) {
     if ((s32) lbl_805D5710 != 0) {
-        return fn_804245DC();
+        return TLobby__sub_804245DC();
     }
     return 0;
 }

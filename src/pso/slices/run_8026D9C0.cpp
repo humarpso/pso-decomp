@@ -12,7 +12,7 @@ void TWindowSubStatusDisp__sub_8026D9C0(void *arg0) {
 
 int __dl__FPv();
 
-s32 fn_8026D9D0(s32 arg0, s16 arg1) {
+s32 TWindowSubStatusDisp__sub_8026D9D0(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }
@@ -21,7 +21,7 @@ s32 fn_8026D9D0(s32 arg0, s16 arg1) {
 
 M2C_UNK TWindowMenu__sub_80266B04();
 
-void *fn_8026DA0C(void *arg0) {
+void *TWindowSubStatusDisp__sub_8026DA0C(void *arg0) {
     TWindowMenu__sub_80266B04();
     M2C_FIELD(arg0, s32 *, 8) = 0;
     return arg0;

@@ -13,7 +13,7 @@ f32 fn_801A5228(s16);
 M2C_UNK fn_80248404(void *, u32 *);
 M2C_UNK fn_80248494(void *, s16);
 M2C_UNK TWindowFukidasi__sub_80252CA0(void *);
-M2C_UNK fn_80257CB8(void *);
+M2C_UNK TWindowSubStatusDisp__sub_80257CB8(void *);
 
 extern const f32 TWindowFukidasi__data_805DCD30;
 
@@ -25,7 +25,7 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
     init_flags__15TWindowFukidasiFPvi(arg0, arg2);
     if ((u8) M2C_FIELD(arg0, u8 *, 0x72) != 1) {
         M2C_FIELD(arg0, u8 *, 0x72) = 1U;
-        fn_80257CB8(arg0 + 0x24);
+        TWindowSubStatusDisp__sub_80257CB8(arg0 + 0x24);
         fn_80248494(arg0 + 0x24, M2C_FIELD(arg0, s16 *, 0x20));
         if ((u8) M2C_FIELD(arg0, u8 *, 0x70) != 0) {
             var_r31 = 1;

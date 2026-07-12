@@ -17,7 +17,7 @@ struct VObj_80182C04 : Base_80182C04 {
     virtual void m18();
 };
 
-void fn_80182C04(void *arg0) {
+void TObjPlayer__sub_80182C04(void *arg0) {
     void *temp_r3;
     void *temp_r4;
     VObj_80182C04 *obj = (VObj_80182C04 *)arg0;

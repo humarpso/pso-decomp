@@ -11,7 +11,7 @@ void TScene__sub_802A8188(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK GXSetNumIndStages(M2C_UNK);
 M2C_UNK GXSetTevDirect(M2C_UNK);
 M2C_UNK fn_802A8368(u8, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_803DC83C(M2C_UNK);
+M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 
 void TScene__sub_802A8140(M2C_UNK ignored, s32 arg1) {
     if (arg1 != 0) {
@@ -20,7 +20,7 @@ void TScene__sub_802A8140(M2C_UNK ignored, s32 arg1) {
         GXSetTevDirect(0);
     }
     GXSetNumIndStages(0);
-    fn_803DC83C(0);
+    TObjPlayer__sub_803DC83C(0);
 }
 
 void TScene__sub_802A8188(void *arg0, s32 arg1, s32 arg2, s32 arg3) {

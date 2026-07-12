@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80053504();
-M2C_UNK fn_800535A8();
+M2C_UNK TBoss4Type2__sub_800535A8();
 
 void fn_80052C18(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) == 1) {
-            fn_800535A8();
+            TBoss4Type2__sub_800535A8();
             return;
         }
         fn_80053504();

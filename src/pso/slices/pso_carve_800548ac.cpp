@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800542B0(void *, M2C_UNK);
+M2C_UNK TBoss4Type2__sub_800542B0(void *, M2C_UNK);
 
 void fn_800548AC(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x374);
     if ((temp_r0 != 3) && (temp_r0 != 4)) {
-        fn_800542B0(arg0, 3);
+        TBoss4Type2__sub_800542B0(arg0, 3);
     }
 }
 

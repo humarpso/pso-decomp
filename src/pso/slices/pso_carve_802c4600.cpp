@@ -11,8 +11,8 @@ void TObjPlayer__sub_802C45E0(void* p, u8 v);
 void TObjPlayer__sub_802C45E8(void* p, u8 v);
 void TObjPlayer__sub_802C45F0(void* p, u8 v);
 void TObjPlayer__sub_802C45F8(void* p, u8 v);
-void fn_802C46AC(void* p);
-int fn_802C46BC(void* p);
+void TObjPlayer__sub_802C46AC(void* p);
+int TObjPlayer__sub_802C46BC(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
 int fn_802C4748(void* p);
 int TWindowActionPalette__sub_801C1CA8(void*);
@@ -34,7 +34,5 @@ int TObjPlayer__sub_802C4648(void* a0 = 0, void* a1 = 0) { return 0; }
 int TObjPlayer__sub_802C4668(void) { return 0; }
 int TObjPlayer__sub_802C4688(void) { return 0; }
 int TObjPlayer__sub_802C4698(void) { return 0; }
-void fn_802C46AC(void* p) { *(u8*)((char*)p + 0x7) |= 0x40; }
-int fn_802C46BC(void* p) { return TObjPlayer__sub_801D7D4C((char*)p + 0x24); }
 
 }

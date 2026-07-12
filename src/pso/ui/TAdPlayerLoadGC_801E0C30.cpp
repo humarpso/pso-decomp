@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdPlayerLoadGC__sub_801E0C30(void *arg0, void *arg1);
-M2C_UNK fn_803877F8();
+M2C_UNK TAdPlayerLoadGC__sub_803877F8();
 
 void TAdPlayerLoadGC__sub_801E0C30(void *arg0, void *arg1) {
     M2C_FIELD(arg1, s32 *, 4) = 0;
     M2C_FIELD(arg1, s32 *, 0) = 0;
-    fn_803877F8();
+    TAdPlayerLoadGC__sub_803877F8();
 }
 
 }

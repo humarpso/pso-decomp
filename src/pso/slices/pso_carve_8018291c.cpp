@@ -22,7 +22,7 @@ struct VObj_8018291C : Base_8018291C {
     Vec_8018291C *m;
 };
 
-void fn_8018291C(VObj_8018291C *arg0) {
+void TObjPlayer__sub_8018291C(VObj_8018291C *arg0) {
     arg0->m10(arg0->m->x, arg0->m->y);
 }
 

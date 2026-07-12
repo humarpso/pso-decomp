@@ -12,7 +12,7 @@ s32 TWindowMainMenu__sub_802ADCD8(void) {
     return (u32)__cntlzw(is_split_screen()) >> 5;
 }
 
-M2C_UNK fn_802AD74C();
+M2C_UNK TWindowMainMenu__sub_802AD74C();
 s32 TWindowMainMenu__sub_802ADD38();
 
 s32 TWindowMainMenu__sub_802ADD00(void) {
@@ -20,7 +20,7 @@ s32 TWindowMainMenu__sub_802ADD00(void) {
 
     temp_r3 = TWindowMainMenu__sub_802ADD38();
     if (temp_r3 != 0) {
-        fn_802AD74C();
+        TWindowMainMenu__sub_802AD74C();
     }
     return temp_r3;
 }

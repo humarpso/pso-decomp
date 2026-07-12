@@ -15,9 +15,9 @@ int TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
 void render__16TCheckMemoryCardFv(void);
-int fn_8033BC34(void*, int, int, int, int);
+int TWindowSubComCard__sub_8033BC34(void*, int, int, int, int);
 int TWindowSubComCard__sub_8033BF90(void*);
 
-int fn_8033C3D0(void) { return 0; }
+int TWindowSubComCard__sub_8033C3D0(void) { return 0; }
 
 }

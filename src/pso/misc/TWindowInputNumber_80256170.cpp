@@ -8,7 +8,7 @@ extern "C" {
 
 void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-u32 fn_802880BC(u32, s32, s16);
+u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 
 extern const f32 lbl_805DCE18;
 
@@ -20,7 +20,7 @@ void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1) {
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
         if (var_r0 != 0U) {
             u32 saved = var_r0;
-            var_r0 = fn_802880BC(saved, arg1, M2C_FIELD(arg0, s16 *, 0x20));
+            var_r0 = TWindowSubStatusDisp__sub_802880BC(saved, arg1, M2C_FIELD(arg0, s16 *, 0x20));
         }
         M2C_FIELD(arg0, u32 *, 0x70) = var_r0;
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x40);

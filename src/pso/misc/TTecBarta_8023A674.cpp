@@ -4,10 +4,10 @@ extern "C" {
 
 int fn_8023A4D0(void*);
 int fn_8023A694(void* a0 = 0);
-void fn_8023A70C(void* p);
+void TObjPlayer__sub_8023A70C(void* p);
 int TTecBarta__sub_8023A674(void* p);
-int fn_8023A510(void*);
+int TObjPlayer__sub_8023A510(void*);
 
-int TTecBarta__sub_8023A674(void* p) { return fn_8023A510(p); }
+int TTecBarta__sub_8023A674(void* p) { return TObjPlayer__sub_8023A510(p); }
 
 }
