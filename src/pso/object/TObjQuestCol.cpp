@@ -8,14 +8,14 @@ extern "C" {
 
 s32 TObjQuestCol__vt13(void *arg0);
 void TObjQuestCol__vt14(void* p);
-s32 fn_80196B80(f32);
+s32 TObjQuestCol__sub_80196B80(f32);
 int destroy_board__17TQuestThreadBoardFv(void*);
 int create__12TQuestThreadFi(void*);
 
 void TObjQuestCol__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
 s32 TObjQuestCol__vt13(void *arg0) {
-    return (u32)__cntlzw(1 - fn_80196B80(M2C_FIELD(arg0, f32 *, 0xAC))) >> 5;
+    return (u32)__cntlzw(1 - TObjQuestCol__sub_80196B80(M2C_FIELD(arg0, f32 *, 0xAC))) >> 5;
 }
 
 }

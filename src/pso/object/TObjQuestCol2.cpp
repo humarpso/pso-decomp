@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjQuestCol2__vt13(void *arg0);
-s32 fn_80196B80(f32);
+s32 TObjQuestCol__sub_80196B80(f32);
 
 s32 TObjQuestCol2__vt13(void *arg0) {
-    return (u32)__cntlzw(1 - fn_80196B80(M2C_FIELD(arg0, f32 *, 0xAC))) >> 5;
+    return (u32)__cntlzw(1 - TObjQuestCol__sub_80196B80(M2C_FIELD(arg0, f32 *, 0xAC))) >> 5;
 }
 
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 void update_menu_cursor__6TLobbyFv(void);
 void *TAdSinglePlyChrSelectGC__sub_8001ED80();
-s8 fn_80132EC8();
+s8 TLobby__sub_80132EC8();
 
 extern s32 lbl_805D5544;
 
@@ -17,7 +17,7 @@ void update_menu_cursor__6TLobbyFv(void) {
 
     temp_r3 = TAdSinglePlyChrSelectGC__sub_8001ED80();
     if (temp_r3 == NULL) {
-        lbl_805D5544 = (s32) fn_80132EC8();
+        lbl_805D5544 = (s32) TLobby__sub_80132EC8();
         return;
     }
     if ((s8) M2C_FIELD(temp_r3, u8 *, 7) >= 5) {

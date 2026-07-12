@@ -8,7 +8,7 @@ extern "C" {
 
 void free_chr_select_data__6TLobbyFv(void);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
-M2C_UNK fn_800FE2D8();
+M2C_UNK TItemDrop__sub_800FE2D8();
 void xfree__FPv(void*);
 
 extern s32 lbl_805D4ACC;
@@ -19,7 +19,7 @@ void free_chr_select_data__6TLobbyFv(void) {
         xfree__FPv((void*)lbl_805D4AD8);
         lbl_805D4AD8 = 0U;
     }
-    fn_800FE2D8();
+    TItemDrop__sub_800FE2D8();
     safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D4ACC);
     lbl_805D4ACC = 0;
 }

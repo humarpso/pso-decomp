@@ -13,7 +13,7 @@ void __dl__7TObjectFPv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 s32 fn_802E4748();
 M2C_UNK TItemAttackCol__sub_802E4918(void *);
-void fn_802E49F4(void *, int);
+void TItemAttackCol__sub_802E49F4(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 }
@@ -66,7 +66,7 @@ extern M2C_UNK __vt__10TItemEffPG[];
 void *__dt__10TItemEffPGFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TItemEffPG;
-        fn_802E49F4(arg0, 0);
+        TItemAttackCol__sub_802E49F4(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

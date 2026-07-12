@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80169B28(void *, s32);
+M2C_UNK TOHealGeneral__sub_80169B28(void *, s32);
 M2C_UNK fn_80169B3C(void *, s32);
 
 s32 fn_80169B50(void *arg0) {
@@ -22,7 +22,7 @@ s32 fn_80169B50(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 2;
     }
     fn_80169B3C(arg0, M2C_FIELD(arg0, s32 *, 0x88));
-    fn_80169B28(arg0, M2C_FIELD(arg0, s32 *, 0x8C));
+    TOHealGeneral__sub_80169B28(arg0, M2C_FIELD(arg0, s32 *, 0x8C));
     return M2C_FIELD(arg0, s32 *, 0xD0);
 }
 

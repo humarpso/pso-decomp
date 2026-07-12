@@ -27,9 +27,9 @@ s32 TObjPlayer__sub_80102BE0(void *, M2C_UNK);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 check_flag_400__20TWindowSubStatusDispFv(void *);
 s32 fn_80100D68(void *);
-s32 fn_801013BC(void *);
-s32 fn_801013E8(void *);
-u8 fn_801016A4(void *);
+s32 TItem__sub_801013BC(void *);
+s32 TItem__sub_801013E8(void *);
+u8 TItem__sub_801016A4(void *);
 
 void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1) {
     s16 sp8;
@@ -58,7 +58,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
         } else if (temp_r26 != 0) {
             M2C_FIELD(arg0, s8 *, 0x1C) = 0xC;
         } else {
-            if ((temp_r28_2 == 0) && (fn_801013E8(arg1) != 0)) {
+            if ((temp_r28_2 == 0) && (TItem__sub_801013E8(arg1) != 0)) {
                 M2C_FIELD(arg0, s8 *, 0x1C) = 0x19;
             } else if (sp8 & 1) {
                 M2C_FIELD(arg0, s8 *, 0x1C) = 0x13;
@@ -74,7 +74,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
         }
         if (temp_r27 != 0) {
             M2C_FIELD(arg0, s32 *, 0x2C) = -1;
-            if (fn_801013BC(arg1) != 0) {
+            if (TItem__sub_801013BC(arg1) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFFFE3C28;
                 return;
             }
@@ -82,7 +82,7 @@ void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1
                 M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x800);
                 return;
             }
-            if (fn_801016A4(arg1) >= 9U) {
+            if (TItem__sub_801016A4(arg1) >= 9U) {
                 M2C_FIELD(arg0, s32 *, 0x30) = -0x1600;
                 return;
             }

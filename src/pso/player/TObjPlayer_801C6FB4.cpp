@@ -15,7 +15,7 @@ int TObjPlayer__sub_8001BEF8(void*, int);
 int clear_target_lock_flag__10TObjPlayerFPv(void* p);
 int set_lock_flag__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C6F90(void* p);
-void fn_801C6F40(void* p, s32 v);
+void TObjPlayer__sub_801C6F40(void* p, s32 v);
 
 void TObjPlayer__sub_801C6FB4(void* p, s32 v) { *(s32*)((char*)p + 0x20) = v; }
 void TObjPlayer__sub_801C6FBC(void* p, s16 v) { *(s16*)((char*)p + 0x1c) = v; }

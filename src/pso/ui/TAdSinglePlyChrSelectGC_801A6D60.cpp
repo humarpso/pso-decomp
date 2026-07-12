@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 TAdSinglePlyChrSelectGC__sub_801A6D60(void *arg0);
-s32 fn_801A6CEC();
+s32 TRaderMapCore__sub_801A6CEC();
 
 u8 TAdSinglePlyChrSelectGC__sub_801A6D60(void *arg0) {
-    return (u8) ((M2C_FIELD(arg0, s32 *, 0x4C) & fn_801A6CEC()) != 0);
+    return (u8) ((M2C_FIELD(arg0, s32 *, 0x4C) & TRaderMapCore__sub_801A6CEC()) != 0);
 }
 
 }

@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void fn_801C6F40(void* p, s32 v);
+void TObjPlayer__sub_801C6F40(void* p, s32 v);
 int clear_target_lock_flag__10TObjPlayerFPv(void* p);
 int set_lock_flag__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C6F90(void* p);

@@ -10,14 +10,14 @@ void init_object__9TObjEneDDFPv(void *);
 
 extern M2C_UNK lbl_804F253C[];
 extern M2C_UNK fn_800D7C58[];
-extern M2C_UNK fn_800D7CB0[];
+extern M2C_UNK TObjPlayer__sub_800D7CB0[];
 void __construct_array(void *, void *, void *, int, int);
 extern void *lbl_805D4468;
 
 void *TObjEneEpsilon__ct(void *arg0) {
     init_object__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F253C;
-    __construct_array((void *)((char *)arg0 + 960), fn_800D7CB0, fn_800D7C58, 28, 4);
+    __construct_array((void *)((char *)arg0 + 960), TObjPlayer__sub_800D7CB0, fn_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4468;
     TObjEneDD__sub_800BA2AC(arg0);
     return arg0;

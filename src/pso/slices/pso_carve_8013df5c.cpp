@@ -12,7 +12,7 @@ void TWindowActionPalette__sub_8013DF54(void* p, u8 v);
 s32 TMainCursor__sub_8013DFD4(void* p);
 void TForceOperate__sub_8013E018(void* p, s16 v);
 u16 fn_8013E03C(void* p);
-int fn_801D7A78(void*);
+int TMainCursor__sub_801D7A78(void*);
 
 int TMainCursor__sub_8013DF5C(void) { return 0; }
 int TMainCursor__sub_8013DFC4(void) { return 0; }

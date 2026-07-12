@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_80108920();
+M2C_UNK TItemEffEquip__sub_80108920();
 
 void fn_801088F8(u32 arg0) {
     if (arg0 != 0U) {
-        fn_80108920();
+        TItemEffEquip__sub_80108920();
     }
 }
 

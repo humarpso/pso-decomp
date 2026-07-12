@@ -11,12 +11,12 @@ M2C_UNK TObjEneBm5GibonU__sub_800D10A0(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D11AC(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D184C(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D187C(void *);
-s32 fn_800BB858();
+s32 TObjEneDD__sub_800BB858();
 
 void update_state__16TObjEneBm5GibonUFPv(void *arg0) {
     s32 temp_r31;
 
-    if (fn_800BB858() != 0) {
+    if (TObjEneDD__sub_800BB858() != 0) {
         temp_r31 = M2C_FIELD(arg0, s32 *, 0x464);
         TObjEneBm5GibonU__sub_800D10A0(arg0);
         if (temp_r31 != (s32) M2C_FIELD(arg0, s32 *, 0x464)) {

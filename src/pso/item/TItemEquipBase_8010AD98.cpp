@@ -12,11 +12,11 @@ s32 TObjPlayer__sub_800194E8(void *);
 s32 TObjPlayer__sub_80019514(void *);
 M2C_UNK fn_8010B7D8(void *, void *);
 M2C_UNK fn_8010B7E8(void *, void *);
-M2C_UNK fn_8010B7F8(void *, void *);
+M2C_UNK TItemData__sub_8010B7F8(void *, void *);
 
 void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     if (arg1 != 0) {
-        fn_8010B7F8((void *) (arg1), (void *) (TObjPlayer__sub_800193F4((void *) (arg0 + 0x11C))));
+        TItemData__sub_8010B7F8((void *) (arg1), (void *) (TObjPlayer__sub_800193F4((void *) (arg0 + 0x11C))));
         fn_8010B7E8((void *) (arg1), (void *) (TObjPlayer__sub_80019514((void *) (arg0 + 0x11C))));
         fn_8010B7D8((void *) (arg1), (void *) (TObjPlayer__sub_800194E8((void *) (arg0 + 0x11C))));
     }

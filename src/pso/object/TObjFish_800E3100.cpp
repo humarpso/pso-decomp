@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjFish__sub_800E3100(void *arg0);
-M2C_UNK fn_800E3188(void *, M2C_UNK);
+M2C_UNK TObjFish__sub_800E3188(void *, M2C_UNK);
 
 void TObjFish__sub_800E3100(void *arg0) {
-    fn_800E3188(arg0, 1);
+    TObjFish__sub_800E3188(arg0, 1);
 }
 
 }

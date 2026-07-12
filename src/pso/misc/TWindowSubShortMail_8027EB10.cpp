@@ -9,7 +9,7 @@ extern "C" {
 s32 create_keyboard__19TWindowSubShortMailFv(void);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_80131A5C(s32);
+M2C_UNK TWindowMakeTeam__sub_80131A5C(s32);
 M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
 M2C_UNK fn_80265410(s32);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
@@ -27,7 +27,7 @@ s32 create_keyboard__19TWindowSubShortMailFv(void) {
     }
     fn_80265410(var_r31);
     TWindowMakeTeam__sub_80131B54(var_r31, TWindowSubComCard__sub_8026CBB8(0xBB));
-    fn_80131A5C(var_r31);
+    TWindowMakeTeam__sub_80131A5C(var_r31);
     destroy_keyboard__17TWindowSubComCardFPv(var_r31);
     return var_r31;
 }

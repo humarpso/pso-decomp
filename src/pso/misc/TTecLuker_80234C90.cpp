@@ -10,7 +10,7 @@ extern "C" {
 
 void *__dt__9TTecLukerFv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK fn_8022C0A0(void *, M2C_UNK);
+M2C_UNK TTecLuker__sub_8022C0A0(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern void* __vt__9TTecLuker[];
@@ -37,7 +37,7 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0xF0) = 0U;
         }
         M2C_FIELD(arg0, u32 *, 0xF0) = 0U;
-        fn_8022C0A0(arg0, 0);
+        TTecLuker__sub_8022C0A0(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

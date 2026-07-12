@@ -10,7 +10,7 @@ void load_scene_data__6TSceneFi(s32 arg0);
 s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
 s32 TOKeyMachine01__sub_802034A8();
 u32 TObjMapCsn__sub_8007A728();
-M2C_UNK fn_8007A6A0();
+M2C_UNK TObjButterflyLobby__sub_8007A6A0();
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 TScene__sub_800F9D80(M2C_UNK *);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
@@ -34,7 +34,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
 
-    fn_8007A6A0();
+    TObjButterflyLobby__sub_8007A6A0();
     lbl_805D4E68 = NULL;
     TScene__data_805D6000 = 0U;
     lbl_805D6014 = 0;
