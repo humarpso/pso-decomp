@@ -14,12 +14,12 @@ int update_fade__17TWindowSubComCardFPv(void*);
 int TWindowDD__sub_8024664C(void*);
 s32 TWindowChat__sub_8025CB10(void *);
 M2C_UNK TWindowSubStatusDisp__sub_8025E6DC(void *, s32);
-s32 fn_8025EB68();
+s32 TWindowKeyBoardHard__sub_8025EB68();
 
 void render__19TWindowKeyBoardBaseFv(void *arg0) {
     s32 temp_r31;
 
-    if ((fn_8025EB68() == 0) && ((TWindowChat__sub_8025CB10(arg0) != 0) || (M2C_FIELD(arg0, u16 *, 0x62) & 2))) {
+    if ((TWindowKeyBoardHard__sub_8025EB68() == 0) && ((TWindowChat__sub_8025CB10(arg0) != 0) || (M2C_FIELD(arg0, u16 *, 0x62) & 2))) {
         temp_r31 = TWindowDD__sub_80244CF4(arg0);
         if (M2C_FIELD(arg0, u16 *, 0x62) & 2) {
             TWindowSubComCard__sub_80245F98(arg0, temp_r31);

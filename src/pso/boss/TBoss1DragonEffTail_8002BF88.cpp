@@ -10,7 +10,7 @@ int TBoss1DragonEffTail__sub_8002BFD8(void* p);
 void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 int fn_8002B094(void*);
-void fn_800BC40C(void *, int);
+void TObjPlayer__sub_800BC40C(void *, int);
 void fn_800BC5A0(void *, int);
 
 void enable__19TBoss1DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 1; TBoss1DragonEffTail__sub_8002BFD8(p); }
@@ -24,7 +24,7 @@ void *__dt__19TBoss1DragonEffTailFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss1DragonEffTail;
         fn_800BC5A0(M2C_FIELD(arg0, void **, 0xB8), 1);
         M2C_FIELD(arg0, M2C_UNK *, 0xB8) = 0;
-        fn_800BC40C(arg0, 0);
+        TObjPlayer__sub_800BC40C(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

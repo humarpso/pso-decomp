@@ -19,10 +19,5 @@ int TAdRicoRing__sub_8001BEE8(void*, int);
 
 int fn_8010B7D8(void) { return 0; }
 int fn_8010B7E8(void) { return 0; }
-void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1) {
-    *arg0 -= arg1;
-}
-s32 TItemData__sub_8010B808(void* p) { return *(s32*)((char*)p + 0x31c); }
-s32 TItemData__sub_8010B810(void* p) { return *(s32*)((char*)p + 0x318); }
 
 }

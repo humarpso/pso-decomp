@@ -8,7 +8,7 @@ extern "C" {
 
 void update_status__20TWindowSubStatusDispFPv(u8 *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
-s32 fn_80244C0C(void *, void *);
+s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_8026C800(s32, s32);
@@ -17,7 +17,7 @@ void update_status__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 temp_r3;
 
     if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20)) != 0U) {
-        temp_r3 = fn_80244C0C(arg0, arg0 + 0x6C);
+        temp_r3 = TWindowSubComCard__sub_80244C0C(arg0, arg0 + 0x6C);
         TWindowSubComCard__sub_80245F98(arg0, temp_r3);
         TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
         TWindowSubStatusDisp__sub_8026C800(M2C_FIELD(arg0, s32 *, 0x68), temp_r3);

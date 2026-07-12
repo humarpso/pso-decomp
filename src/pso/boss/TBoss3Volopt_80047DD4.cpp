@@ -13,7 +13,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void *fn_800480B0(void *, void *, void *);
-void fn_800D7C58(void *, int);
+void TObjPlayer__sub_800D7C58(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern void *tl_04;
@@ -36,7 +36,7 @@ void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, void **, 0x478) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x478)); }
         TBoss3Volopt__sub_800450D0(arg0);
         TBoss3Volopt__sub_800445A4(arg0);
-        fn_800D7C58((s8 *)arg0 + 0x490, -1);
+        TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x490, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

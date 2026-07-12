@@ -16,8 +16,8 @@ void update_field28__15TWindowCtrlMainFPv(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);
 int fn_802437C4(void*);
 int TWindowCtrlMain__sub_8024D7C0(void*);
-int fn_80263B34(void*);
-int fn_80263B70(void*);
+int TWindowSubEquip__sub_80263B34(void*);
+int TWindowMainMenu__sub_80263B70(void*);
 int TLobby__sub_80269C6C(void*);
 
 int TWindowCtrlMain__sub_8024D868(void) { return 0; }

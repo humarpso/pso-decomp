@@ -42,7 +42,7 @@ s32 calc_spin_value__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80040AE4(M2C_UNK);
 s32 TObjPlayer__sub_80141F84(s32, s32);
 void *TPhotonMylla__sub_80154CB4(u16);
-s32 fn_801423A4(s32, s32, s32);
+s32 TObjPlayer__sub_801423A4(s32, s32, s32);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern s32 lbl_805D4C14;
@@ -73,7 +73,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
         }
         break;
     case 2:
-        M2C_FIELD(arg0, s32 *, 0x60) = fn_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000, lbl_805D4C68);
+        M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000, lbl_805D4C68);
         if (TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x398) - 0x4000) <= (s32) lbl_805D4C68) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 3;
         }

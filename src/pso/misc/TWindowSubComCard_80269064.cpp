@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80244C0C(s32, s32);
+s32 TWindowSubComCard__sub_80244C0C(s32, s32);
 s32 TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
 void *TQuestListVM__sub_8007EAF8();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void draw_value__13TWindowMesetaFPvi(void *arg0, s32 arg1);
 M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
 s32 TWindowSubComCard__sub_80269064(void* p);
-int fn_8026906C(void* p);
+int TWindowSubComCard__sub_8026906C(void* p);
 
 s32 TWindowSubComCard__sub_80269064(void* p) { return *(s32*)((char*)p + 0x18); }
 

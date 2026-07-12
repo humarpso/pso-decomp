@@ -9,7 +9,7 @@ extern "C" {
 void *create__13TWindowSubMagFPv(void *arg0);
 M2C_UNK set_field_1c__6TLobbyFPvf(void *);
 M2C_UNK fn_80263AB0(void *, s32);
-M2C_UNK fn_80263AF8(s32, M2C_UNK);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 void *TLobby__sub_80269CC0(M2C_UNK, M2C_UNK *, s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
@@ -21,7 +21,7 @@ void *create__13TWindowSubMagFPv(void *arg0) {
 
     temp_r3 = TWindowSubComCard__sub_8026CBB8(0xB);
     temp_r31 = TLobby__sub_80269CC0(temp_r3, lbl_8044FA00, 1, M2C_FIELD(arg0, s32 *, 0x28));
-    fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 4);
+    TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 4);
     set_field_1c__6TLobbyFPvf(temp_r31);
     M2C_FIELD(temp_r31, s32 *, 0x5C) = 0x186A0;
     fn_80263AB0(temp_r31, M2C_FIELD(arg0, s32 *, 0x28));

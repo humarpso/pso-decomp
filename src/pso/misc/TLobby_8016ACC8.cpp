@@ -11,7 +11,7 @@ int TLobby__send_and_handle_60(void*);
 void TOKey__sub_8016AC88(void);
 void TOKey__sub_8016AC8C(void);
 void TOKey__sub_8016AC90(void);
-void fn_8016AD58(void* p);
+void TOKeyAncient01__sub_8016AD58(void* p);
 void TOKeyAncient01__vt23(void);
 
 void finalize_and_send_60__6TLobbyFPv(void* p) { bswap_6x05_switch_flag__5TOKeyFPv(p); TLobby__send_and_handle_60(p); }

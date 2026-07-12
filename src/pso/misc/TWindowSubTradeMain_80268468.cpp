@@ -16,7 +16,7 @@ void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
 s32 set_text__20TWindowSubStatusDispFPvUiii(s32, s32, s32, s32);
 s32 set_text__20TWindowSubStatusDispFPvUii(s32, s32, s32);
 int TWindowSubStatusDisp__sub_80268488(void* p);
-s32 fn_8026906C(void);
+s32 TWindowSubComCard__sub_8026906C(void);
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s16 a1 = 0);

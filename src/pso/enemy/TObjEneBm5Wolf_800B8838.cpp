@@ -26,7 +26,7 @@ s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     }
     return arg0;
 }
-void* TObjEneBm5Wolf__sub_800B88E4(void* p) { reset_fields__14TObjEneBm5WolfFPv(p); return p; }
+void* reset__14TObjEneBm5WolfFPv(void* p) { reset_fields__14TObjEneBm5WolfFPv(p); return p; }
 void play_sound__14TObjEneBm5WolfFPv(void *arg0) {
     TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 8));
 }

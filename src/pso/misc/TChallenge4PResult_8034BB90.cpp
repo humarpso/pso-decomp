@@ -12,7 +12,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 s32 TRaderMapCore__sub_801AFD84();
-s32 fn_802693B4(u32);
+s32 TMCFormatSequence__sub_802693B4(u32);
 
 extern u8 lbl_8050E208[];
 
@@ -25,7 +25,7 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
         TChallenge4PResult__sub_8034B720(arg0, TAdSinglePlyChrSelectGC__sub_80132F2C(0x2B, 6));
     }
     p = M2C_FIELD(arg0, u32 *, 0x2C);
-    if ((p != 0U) && (fn_802693B4(p) != 0)) {
+    if ((p != 0U) && (TMCFormatSequence__sub_802693B4(p) != 0)) {
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x20);
         if (temp_r3 > 0) {
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (temp_r3 - 1);

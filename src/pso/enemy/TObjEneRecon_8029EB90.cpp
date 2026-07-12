@@ -9,14 +9,14 @@ extern "C" {
 void destroy_instance__12TObjEneReconFv(void);
 M2C_UNK reset_lobby_subobject__10TObjPlayerFPv(void*);
 void __dl__FPv(void*);
-s32 fn_8029E764();
+s32 TOKeyMachine01__sub_8029E764();
 
 extern s32 lbl_805D65F4;
 extern u32 lbl_805D65FC;
 
 void destroy_instance__12TObjEneReconFv(void) {
     lbl_805D65F4 = 0;
-    if (fn_8029E764() != 0) {
+    if (TOKeyMachine01__sub_8029E764() != 0) {
         if ((u32) lbl_805D65FC != 0U) {
             reset_lobby_subobject__10TObjPlayerFPv((void*)lbl_805D65FC);
         }

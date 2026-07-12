@@ -9,13 +9,13 @@ void TObjPlayer__sub_8012106C(void *, int);
 void TObjPlayer__sub_8012A884(void *);
 
 extern M2C_UNK lbl_804A3F20[];
-extern M2C_UNK fn_80109440[];
+extern M2C_UNK TObjPlayer__sub_80109440[];
 
 void *init_variant__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8012A884(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A3F20;
     TObjPlayer__sub_8012106C(arg0, 515);
-    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = fn_80109440;
+    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = TObjPlayer__sub_80109440;
     return arg0;
 }
 

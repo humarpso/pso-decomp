@@ -12,7 +12,7 @@ M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(s32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
-M2C_UNK fn_80263AF8(s32, M2C_UNK);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 s32 fn_8026652C(s32, M2C_UNK, s32, s32);
@@ -24,7 +24,7 @@ s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     s32 temp_r31;
 
     temp_r31 = fn_8026652C(TWindowSubComCard__sub_8026CBB8(0x12), 5, TWindowSubStatusDisp__sub_80077760(0x2F), M2C_FIELD(arg0, s32 *, 0x28));
-    fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 0);
+    TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 0);
     set_field_1c__6TLobbyFPvf(temp_r31);
     set_flag70_bit100__17TWindowOptionCtrlFPv(temp_r31);
     TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x9C), 6, 0);

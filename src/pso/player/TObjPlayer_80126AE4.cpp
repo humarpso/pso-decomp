@@ -19,12 +19,12 @@ void apply_on_shield_state6__10TObjPlayerFi(s32 arg0) {
 }
 
 extern M2C_UNK lbl_804A2D88[];
-extern M2C_UNK fn_80109440[];
+extern M2C_UNK TObjPlayer__sub_80109440[];
 
 void *init_with_update_handler__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2D88;
-    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = fn_80109440;
+    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = TObjPlayer__sub_80109440;
     return arg0;
 }
 

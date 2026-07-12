@@ -8,7 +8,7 @@ extern "C" {
 
 void TAdDialingGC__sub_801A4CA4(void *arg0);
 void TAdDialingGC__sub_801A4D2C(void);
-s32 fn_8007F898(s32, s32);
+s32 TAdDialingGC__sub_8007F898(s32, s32);
 
 void TAdDialingGC__sub_801A4CA4(void *arg0) {
     s32 temp_r0;
@@ -16,16 +16,16 @@ void TAdDialingGC__sub_801A4CA4(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        fn_8007F898(1, 0);
+        TAdDialingGC__sub_8007F898(1, 0);
         return;
     case 1:
-        fn_8007F898(0, 0);
+        TAdDialingGC__sub_8007F898(0, 0);
         return;
     case 2:
-        fn_8007F898(1, 1);
+        TAdDialingGC__sub_8007F898(1, 1);
         return;
     case 3:
-        fn_8007F898(0, 1);
+        TAdDialingGC__sub_8007F898(0, 1);
     case 4:
         return;
     }

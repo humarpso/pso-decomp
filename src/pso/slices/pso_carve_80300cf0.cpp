@@ -2,9 +2,8 @@
 
 extern "C" {
 
-void fn_80300CFC(void);
+void TObjEneDolmOlm__sub_80300CFC(void);
 
-int fn_80300CF0(void) { return 0; }
-void fn_80300CFC(void) {  }
+int TObjEneDolmOlm__sub_80300CF0(void) { return 0; }
 
 }

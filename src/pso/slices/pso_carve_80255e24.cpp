@@ -18,26 +18,5 @@ s16 TWindowSubStatusDisp__sub_80255E0C(void* p);
 void set_flag60_bit4__13TWindowSubMagFPv(void* p);
 
 int TWindowSubMag__sub_80255E24(void) { return 0; }
-void mark_confirmed__18TWindowInputNumberFPv(void *arg0) {
-    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 8) && (TWindowInputNumber__sub_80211608() == 0)) {
-        M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 4);
-    }
-}
-void confirm_input__18TWindowInputNumberFPv(void *arg0) {
-    s32 temp_r3;
-    u32 temp;
-
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0x6C);
-    if ((temp_r3 < (s32) M2C_FIELD(arg0, s32 *, 0x64)) || (temp_r3 > (s32) M2C_FIELD(arg0, s32 *, 0x68))) {
-        TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
-        return;
-    }
-    TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
-    M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 2);
-    temp = (u32) M2C_FIELD(arg0, u32 *, 0x70);
-    if (temp != 0U) {
-        set_entry_state__20TWindowSubStatusDispFPvc(temp, 2);
-    }
-}
 
 }

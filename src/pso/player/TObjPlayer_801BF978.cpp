@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_tag__10TObjPlayerFPv(s32 *arg0);
-void TObjPlayer__sub_801BF9A4(void *arg0);
+void reset_counter_field4__10TObjPlayerFPv(void *arg0);
 void set_vec3_const__10TObjPlayerFPv(void* a0);
 void TObjPlayer__sub_801BF9E0(void* p, s16 v);
 void TObjPlayer__sub_801BF9E8(void* p, f32 v);
@@ -19,7 +19,7 @@ void init_tag__10TObjPlayerFPv(s32 *arg0) {
     init__6gc_tagFv((char *)arg0 + 4);
 }
 
-void TObjPlayer__sub_801BF9A4(void *arg0) {
+void reset_counter_field4__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
     TObjPlayer__sub_8001BF40();
 }

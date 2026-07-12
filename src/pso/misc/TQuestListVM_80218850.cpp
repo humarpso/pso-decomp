@@ -24,7 +24,7 @@ M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 s32 TLobby__sub_8013AD38(void *);
 s32 TLobby__sub_8013AD44(void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
-M2C_UNK fn_80219EC4(void *);
+M2C_UNK TQuestVmDownLoadServer__sub_80219EC4(void *);
 
 void update_close__12TQuestListVMFPv(void *arg0) {
     void *p;
@@ -37,7 +37,7 @@ void update_close__12TQuestListVMFPv(void *arg0) {
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2374) != 0U) {
             clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x2374));
-            fn_80219EC4(M2C_FIELD(arg0, void **, 0x2374));
+            TQuestVmDownLoadServer__sub_80219EC4(M2C_FIELD(arg0, void **, 0x2374));
         }
         ((VObj18 *) arg0)->vf24(0x19, 1);
         close_windows__12TQuestListVMFPv(arg0);

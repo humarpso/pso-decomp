@@ -11,7 +11,7 @@ s32 set_text__20TWindowSubStatusDispFPvUii(s32, s32, s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
-s32 fn_8026906C(void);
+s32 TWindowSubComCard__sub_8026906C(void);
 void move_next_choice__20TWindowChoiceSettingFPv(void *arg0);
 s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
@@ -33,7 +33,7 @@ void request_close__20TWindowChoiceSettingFPv(void *arg0) {
 }
 void draw__20TWindowChoiceSettingFPv(void *arg0) {
     get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x74));
-    if (fn_8026906C() == 0) {
+    if (TWindowSubComCard__sub_8026906C() == 0) {
         TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
         M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) | 2);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {

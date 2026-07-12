@@ -16,7 +16,7 @@ s32 TBoss6Type2__sub_802BA9E4();
 s32 TBoss6Type2__sub_802BD76C(void *);
 s32 TBoss6Type2__sub_802BD7EC(void *);
 s32 TBoss6Type2__sub_802BDDF8(void *, s32);
-void fn_802BFBE4(void* p);
+void TBoss6Type2__sub_802BFBE4(void* p);
 
 int TBoss6Type2__sub_802BFA1C(void) { return 0; }
 

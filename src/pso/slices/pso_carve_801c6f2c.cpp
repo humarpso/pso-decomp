@@ -18,6 +18,5 @@ int TAdRicoRing__sub_8001BEE8(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 
 int fn_801C6F2C(void) { return 0; }
-void TObjPlayer__sub_801C6F40(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 
 }

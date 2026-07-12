@@ -13,7 +13,7 @@ M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-u8 *fn_80184AB8();
+u8 *TObjCity_Season_EasterEgg__sub_80184AB8();
 
 extern M2C_UNK lbl_8050DC50[];
 extern const f32 lbl_805DBC40;
@@ -29,7 +29,7 @@ struct VObj_8018455c : VBase_8018455c {
 void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0) {
     u8 *temp_r3;
 
-    temp_r3 = fn_80184AB8();
+    temp_r3 = TObjCity_Season_EasterEgg__sub_80184AB8();
     if ((temp_r3 != NULL) && (((VObj_8018455c*)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
         TObjFish__sub_803DA798(M2C_FIELD(lbl_8050DC50, s32 *, 4));
         TObjPlayer__sub_803D9B2C();

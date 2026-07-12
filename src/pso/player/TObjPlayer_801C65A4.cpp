@@ -11,7 +11,7 @@ M2C_UNK set_flag_0x8000__10TObjPlayerFPv(s32);
 s32 TWindowSubComCard__sub_801058F8(s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 check_flag_0x8000__10TObjPlayerFPv();
-M2C_UNK fn_801C6518(s32, s32, s32);
+M2C_UNK TObjPlayer__sub_801C6518(s32, s32, s32);
 s32 obj_getField1c(s32);
 s32 obj_isState3_324(s32);
 
@@ -26,7 +26,7 @@ void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0) {
     }
     temp_r3 = __nw__7TObjectFUl(0x24);
     if (temp_r3 != 0) {
-        fn_801C6518(temp_r3, tl_06, obj_getField1c(arg0));
+        TObjPlayer__sub_801C6518(temp_r3, tl_06, obj_getField1c(arg0));
     }
 }
 

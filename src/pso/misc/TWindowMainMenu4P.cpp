@@ -8,15 +8,15 @@ extern "C" {
 
 void TWindowMainMenu4P__vt6(void *arg0);
 void TWindowMainMenu4P__vt7(void* p);
-int fn_80263C24(void*);
-M2C_UNK fn_80263CAC();
+int TWindowMainMenu__sub_80263C24(void*);
+M2C_UNK TWindowMainMenu__sub_80263CAC();
 int show_child_window__15TWindowMainMenuFPv(void*);
 
-void TWindowMainMenu4P__vt7(void* p) { if (fn_80263C24(p) != 0) { show_child_window__15TWindowMainMenuFPv(p); } }
+void TWindowMainMenu4P__vt7(void* p) { if (TWindowMainMenu__sub_80263C24(p) != 0) { show_child_window__15TWindowMainMenuFPv(p); } }
 
 void TWindowMainMenu4P__vt6(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x4C) & 1) {
-        fn_80263CAC();
+        TWindowMainMenu__sub_80263CAC();
     }
 }
 

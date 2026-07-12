@@ -13,10 +13,5 @@ void TObjPlayer__sub_801BB8A8(void);
 void TObjPlayer__sub_801BB8AC(void);
 
 int TObjPlayer__sub_801BB8B0(void) { return 0; }
-void init_class_flags__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s8 *, 0x338) = TObjPlayer__sub_801BEB4C(arg1);
-    M2C_FIELD(arg0, s8 *, 0x339) = TObjPlayer__sub_801BEB44(arg1);
-    M2C_FIELD(arg0, s8 *, 0x33A) = TObjPlayer__sub_801BEB3C(arg1);
-}
 
 }

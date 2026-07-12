@@ -8,7 +8,7 @@ extern "C" {
 
 void render__22TWindowLoadItemTextureFv(u8 *arg0);
 u32 TItemTexLoad__sub_8011D164(s32);
-s32 fn_80244C0C(void *, void *);
+s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
 M2C_UNK fn_8026287C(void *);
@@ -23,7 +23,7 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
             M2C_FIELD(arg0, u8 *, 0x60) = 1U;
         }
     }
-    temp_r31 = fn_80244C0C(arg0, arg0 + 0x64);
+    temp_r31 = TWindowSubComCard__sub_80244C0C(arg0, arg0 + 0x64);
     if (M2C_FIELD(arg0, u8 *, 0x61) & 1) {
         TWindowSubComCard__sub_80245F98(arg0, temp_r31);
     }

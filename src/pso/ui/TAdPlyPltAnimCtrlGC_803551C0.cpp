@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 fn_80355098(s32 arg0, s16 arg1);
+s32 TObjPlayer__sub_80355098(s32 arg0, s16 arg1);
 int __dl__FPv();
 int init_forward__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_8001BF40(void*);

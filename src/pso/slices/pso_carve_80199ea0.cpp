@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8019A44C(void *, s32);
+M2C_UNK TWindowTimer__sub_8019A44C(void *, s32);
 extern M2C_UNK lbl_8050DDAC[];
 
 void fn_80199EA0(void *arg0) {
@@ -15,7 +15,7 @@ void fn_80199EA0(void *arg0) {
         M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 0);
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 4);
         M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 8);
-        fn_8019A44C(arg0, M2C_FIELD(lbl_8050DDAC, s32 *, 0xC));
+        TWindowTimer__sub_8019A44C(arg0, M2C_FIELD(lbl_8050DDAC, s32 *, 0xC));
     }
     M2C_FIELD(lbl_8050DDAC, s16 *, 0x12) = 1;
 }

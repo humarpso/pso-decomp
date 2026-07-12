@@ -16,7 +16,7 @@ M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-u8 *fn_80184AB8();
+u8 *TObjCity_Season_EasterEgg__sub_80184AB8();
 
 extern M2C_UNK lbl_8050DC50[];
 extern const f32 lbl_805DBC40;
@@ -25,7 +25,7 @@ extern const f32 lbl_805DBC44;
 void render_debug__26TObjCity_Season_XmasWreathFPv(u8 *arg0) {
     u8 *temp_r3;
 
-    temp_r3 = fn_80184AB8();
+    temp_r3 = TObjCity_Season_EasterEgg__sub_80184AB8();
     if ((temp_r3 != NULL) && (((VObj_80184314 *)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
         TObjFish__sub_803DA798(M2C_FIELD(lbl_8050DC50, s32 *, 8));
         TObjPlayer__sub_803D9B2C();

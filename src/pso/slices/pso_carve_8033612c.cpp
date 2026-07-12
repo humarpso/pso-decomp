@@ -10,11 +10,5 @@ s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 void TLobby__sub_803361FC(void);
 
 int TLobby__sub_8033612C(void) { return 0; }
-void set_flag_and_clear_download__6TLobbyFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) | 1);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x24));
-    }
-}
 
 }

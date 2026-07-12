@@ -10,7 +10,7 @@ void *TItemList__sub_801D3B64(void *arg0, s16 arg1);
 M2C_UNK TItemList__sub_801D59E8(void *, s32);
 M2C_UNK TItemList__sub_801D5A28(void *, s32);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK fn_801D3FC4(void *, M2C_UNK);
+M2C_UNK TItemList__sub_801D3FC4(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804C4480[];
 
@@ -19,7 +19,7 @@ void *TItemList__sub_801D3B64(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C4480;
         TItemList__sub_801D5A28(arg0, M2C_FIELD(arg0, s32 *, 0x54));
         TItemList__sub_801D59E8(arg0, M2C_FIELD(arg0, s32 *, 0x54));
-        fn_801D3FC4(arg0, 0);
+        TItemList__sub_801D3FC4(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -19,7 +19,7 @@ extern "C" {
 void update__19TObjGyaranzoMissileFPv(u8 *arg0);
 M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
-M2C_UNK fn_800D8D88(void *, s32);
+M2C_UNK TBoss3Volopt__sub_800D8D88(void *, s32);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 
 void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
@@ -34,7 +34,7 @@ void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000;
         M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        fn_800D8D88(arg0 + 0x2FC, temp_r4);
+        TBoss3Volopt__sub_800D8D88(arg0 + 0x2FC, temp_r4);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3D0);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:

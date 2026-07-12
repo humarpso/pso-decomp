@@ -16,7 +16,7 @@ s32 TBoss6Type2__sub_802BA9E4();
 s32 TBoss6Type2__sub_802BD76C(void *);
 s32 TBoss6Type2__sub_802BD7EC(void *);
 s32 TBoss6Type2__sub_802BDDF8(void *, s32);
-void fn_802BFBE4(void* p);
+void TBoss6Type2__sub_802BFBE4(void* p);
 
 void reset_state_timers__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;

@@ -14,7 +14,7 @@ f64 TObjPlayer__sub_80019760(f32, f32, f32);
 int TObjEnePanarms__sub_8002AE74(void*, int);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
-s32 fn_801423A4(s32, s32, M2C_UNK);
+s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 extern s32 lbl_8043CDA0[];
@@ -39,7 +39,7 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     }
     if (M2C_FIELD(arg0, f32 *, 0xC0) < TObjEnePanarms__data_805DA544) {
         temp_f3 = M2C_FIELD(temp_r3, f32 *, 0x38);
-        M2C_FIELD(arg0, s32 *, 0x60) = fn_801423A4(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (TObjEnePanarms__data_8043CDD0 * TObjPlayer__sub_80019760(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
+        M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (TObjEnePanarms__data_8043CDD0 * TObjPlayer__sub_80019760(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
     }
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xA);

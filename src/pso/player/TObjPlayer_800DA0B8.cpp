@@ -23,7 +23,7 @@ M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
-M2C_UNK fn_800D8E80(void *, s32);
+M2C_UNK TBoss3Volopt__sub_800D8E80(void *, s32);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 
 void update_death_state__10TObjPlayerFPv(u8 *arg0) {
@@ -38,7 +38,7 @@ void update_death_state__10TObjPlayerFPv(u8 *arg0) {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000;
         M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        fn_800D8E80(arg0 + 0x2FC, temp_r4);
+        TBoss3Volopt__sub_800D8E80(arg0 + 0x2FC, temp_r4);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3E8);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:

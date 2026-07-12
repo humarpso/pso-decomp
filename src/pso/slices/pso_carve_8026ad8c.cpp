@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802693B4();
+s32 TMCFormatSequence__sub_802693B4();
 
 s32 fn_8026AD8C(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
         return 0;
     }
-    return fn_802693B4() != 0 ? 1 : 0;
+    return TMCFormatSequence__sub_802693B4() != 0 ? 1 : 0;
 }
 
 }

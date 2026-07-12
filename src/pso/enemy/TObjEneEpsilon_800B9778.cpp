@@ -8,10 +8,10 @@ extern "C" {
 
 void spawn_part__14TObjEneEpsilonFi(s32 arg0);
 M2C_UNK TObjEneEpsilon__sub_800B9848(s32, s32);
-s32 fn_800BB664();
+s32 TBoss8Dragon__sub_800BB664();
 
 void spawn_part__14TObjEneEpsilonFi(s32 arg0) {
-    M2C_UNK8 *tmp = (M2C_UNK8 *)fn_800BB664();
+    M2C_UNK8 *tmp = (M2C_UNK8 *)TBoss8Dragon__sub_800BB664();
     TObjEneEpsilon__sub_800B9848(arg0, (s32)tmp);
 }
 

@@ -9,7 +9,7 @@ extern "C" {
 void alloc_if_valid_state__12TObjEneReconFv(void);
 M2C_UNK init_render_target__10TObjPlayerFPv();
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-s32 fn_8029E764();
+s32 TOKeyMachine01__sub_8029E764();
 
 extern s32 lbl_805D65F0;
 extern s32 lbl_805D65F4;
@@ -18,7 +18,7 @@ extern u32 lbl_805D65FC;
 void alloc_if_valid_state__12TObjEneReconFv(void) {
     u32 temp_r3;
 
-    if (fn_8029E764() != 0) {
+    if (TOKeyMachine01__sub_8029E764() != 0) {
         lbl_805D65F4 = 0;
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
         lbl_805D65FC = temp_r3;

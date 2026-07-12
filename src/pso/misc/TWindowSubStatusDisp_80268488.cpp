@@ -17,7 +17,7 @@ u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 void TWindowSubTradeMain__sub_80268468(void* p);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
-s32 fn_8026906C(void);
+s32 TWindowSubComCard__sub_8026906C(void);
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s16 a1 = 0);
 void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0);

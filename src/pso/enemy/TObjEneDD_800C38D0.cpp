@@ -163,8 +163,8 @@ M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 TObjEneRe2Flower__sub_800C3B80(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_800B98C0(void *);
-M2C_UNK fn_800D8C48(void *);
-M2C_UNK fn_800D8E80(void *);
+M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
+M2C_UNK TBoss3Volopt__sub_800D8E80(void *);
 
 void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
@@ -177,10 +177,10 @@ void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
         fn_800B98C0(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
         if (TObjEneRe2Flower__sub_800C3B80(arg0) != 0) {
-            fn_800D8C48(arg0 + 0x38);
+            TBoss3Volopt__sub_800D8C48(arg0 + 0x38);
             return;
         }
-        fn_800D8E80(arg0 + 0x38);
+        TBoss3Volopt__sub_800D8E80(arg0 + 0x38);
         return;
     case 3:
         if (((V_Sub_800c38d0 *) (arg0 + 0x3F4))->m5() != 0) {

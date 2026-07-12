@@ -10,7 +10,7 @@ void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(s32);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
-M2C_UNK fn_80263AF8(s32, M2C_UNK);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 s32 fn_8027AD5C(s32, M2C_UNK *, s32);
 
@@ -25,7 +25,7 @@ void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x2C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;
     M2C_FIELD(arg0, s32 *, 0x30) = fn_8027AD5C(TWindowSubComCard__sub_8026CBB8(3), lbl_8044F998, M2C_FIELD(arg0, s32 *, 0x24));
-    fn_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 0);
+    TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 0);
     set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, s32 *, 0x30));
     set_flag70_bit10__20TWindowShortListCtrlFPv(M2C_FIELD(arg0, s32 *, 0x30));
     M2C_FIELD(arg0, s32 *, 0x40) = 0;

@@ -8,7 +8,7 @@ extern "C" {
 
 void *get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 int fn_8028DBC4(void* a0 = 0);
-int fn_8028DC1C(void* p);
+int TAdSinglePlyChrSelectGC__sub_8028DC1C(void* p);
 int TAdSinglePlyChrSelectGC__sub_8028DC14(void);
 
 int TAdSinglePlyChrSelectGC__sub_8028DC14(void) { return 1; }

@@ -18,11 +18,5 @@ void handle_6x98(void);
 
 void handle_6x98(void) {  }
 int TObjPlayer__sub_801B7B58(void) { return 0; }
-s32 can_destroy_with_parents__10TObjPlayerFUi(u32 arg0) {
-    if ((arg0 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0)) {
-        return 1;
-    }
-    return 0;
-}
 
 }

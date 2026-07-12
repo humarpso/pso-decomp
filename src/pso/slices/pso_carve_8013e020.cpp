@@ -11,10 +11,9 @@ void TWindowActionPalette__sub_8013DF4C(void* p, u8 v);
 void TWindowActionPalette__sub_8013DF54(void* p, u8 v);
 s32 TMainCursor__sub_8013DFD4(void* p);
 void TForceOperate__sub_8013E018(void* p, s16 v);
-u16 fn_8013E03C(void* p);
+u16 TMainCursor__sub_8013E03C(void* p);
 int find_action_slot_for_target__11TMainCursorFiiii(void*);
 
 int fn_8013E020(void) { return 0; }
-u16 fn_8013E03C(void* p) { return *(u16*)((char*)p + 0x0); }
 
 }

@@ -16,7 +16,7 @@ int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0) {
     TWindowSubStatusDisp__sub_80077760(arg0 + 0x113);
 }
-void TWindowMakeTeam__sub_80264AB8(s8 arg0) {
+void draw_entry_0x110__15TWindowMakeTeamFc(s8 arg0) {
     TWindowSubStatusDisp__sub_80077760(arg0 + 0x110);
 }
 u8 is_enabled__15TWindowMakeTeamFPv(void *arg0) {

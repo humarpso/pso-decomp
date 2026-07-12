@@ -12,7 +12,7 @@ u8 TODoorAncient08__sub_80229220(u16);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TOWreckAncientBrakable__sub_8017D444(void *);
-M2C_UNK fn_8017D448(void *);
+M2C_UNK TOWreckAncientBrakable__sub_8017D448(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 
@@ -35,7 +35,7 @@ void update_break_state__22TOWreckAncientBrakableFPv(u8 *arg0) {
             TBoss3Volopt__sub_8022675C(0x43C11, arg0 + 0x38, 0, 0);
             TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x45);
             TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x46);
-            fn_8017D448(arg0);
+            TOWreckAncientBrakable__sub_8017D448(arg0);
         }
         return;
     case 1:

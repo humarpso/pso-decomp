@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_803E4BC4();
 M2C_UNK TObjPlayer__sub_803E4BD0();
 extern M2C_UNK lbl_80477DEC[];
 
-void fn_8033C7C8(void *arg0) {
+void TObjPlayer__sub_8033C7C8(void *arg0) {
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803E4BC4();
     TOHangerMachine01__sub_803D9C00(lbl_80477DEC);

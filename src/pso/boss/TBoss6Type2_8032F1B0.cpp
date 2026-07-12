@@ -9,9 +9,9 @@ extern "C" {
 void update_rotation_ramp__11TBoss6Type2FPv(void *arg0);
 s32 TBoss6Type2__sub_802BD3C4(u32);
 s32 TLobby__sub_800C6C10();
-s32 fn_8032F034(void *);
-s32 fn_8032F174();
-M2C_UNK fn_8032F418(void *);
+s32 TBoss6Type2__sub_8032F034(void *);
+s32 TBoss6Type2__sub_8032F174();
+M2C_UNK TBoss6Type2__sub_8032F418(void *);
 
 extern const f32 lbl_805DF7F4;
 extern const f32 lbl_805DF7FC;
@@ -20,7 +20,7 @@ extern const f32 lbl_805DF820;
 extern const f32 lbl_805DF824;
 
 void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
-    if ((fn_8032F174() == 0) || (fn_8032F034(arg0) == 0)) {
+    if ((TBoss6Type2__sub_8032F174() == 0) || (TBoss6Type2__sub_8032F034(arg0) == 0)) {
         M2C_FIELD(arg0, f32 *, 0x3BC) = (f32) lbl_805DF7FC;
         M2C_FIELD(arg0, f32 *, 0x3B8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3B8) + lbl_805DF81C);
         if (M2C_FIELD(arg0, f32 *, 0x3B8) < lbl_805DF7FC) {
@@ -36,7 +36,7 @@ void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
                 u32 tmp378 = (u32) M2C_FIELD(arg0, u32 *, 0x378);
                 if (tmp378 != 0U) {
                     if (TBoss6Type2__sub_802BD3C4(tmp378) == 0) {
-                        fn_8032F418(arg0);
+                        TBoss6Type2__sub_8032F418(arg0);
                     }
                 }
             }

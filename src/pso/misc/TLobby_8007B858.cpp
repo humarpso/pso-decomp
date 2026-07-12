@@ -31,7 +31,7 @@ M2C_UNK create__11TSetManagerFv();
 M2C_UNK fn_8032BDC4(u32, s32);
 M2C_UNK fn_8033ED24(u32, s32);
 M2C_UNK TNpcPlayer__sub_8034DD14(u32, s32);
-M2C_UNK fn_80351F3C();
+M2C_UNK TLobby__sub_80351F3C();
 s32 get_main_phase();
 M2C_UNK init__13TQuestColCtrlFv();
 s32 is_split_screen();
@@ -97,7 +97,7 @@ void create_tasks__6TLobbyFv(void) {
     }
     init__13TQuestColCtrlFv();
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
-        fn_80351F3C();
+        TLobby__sub_80351F3C();
     }
     if ((TOKeyMachine01__sub_802034A8() == 0xF) && (is_scene_ready__6TLobbyFv() != 0)) {
         fn_80198D98();

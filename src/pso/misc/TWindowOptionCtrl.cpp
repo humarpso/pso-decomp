@@ -21,7 +21,7 @@ M2C_UNK TLobby__sub_8022743C();
 M2C_UNK TObjBgmColCtrl__sub_802274B8();
 M2C_UNK fn_8023F160();
 M2C_UNK fn_8023F18C();
-M2C_UNK fn_80244B1C(u32);
+M2C_UNK TWindowSubComCard__sub_80244B1C(u32);
 u32 create_menu__17TWindowOptionCtrlFv(void *);
 M2C_UNK fn_8036A648(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -74,7 +74,7 @@ s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
             M2C_FIELD(arg0, u32 *, 0x28) = 0U;
         }
         M2C_FIELD(arg0, u32 *, 0x28) = create_menu__17TWindowOptionCtrlFv(arg0);
-        fn_80244B1C(M2C_FIELD(arg0, u32 *, 0x28));
+        TWindowSubComCard__sub_80244B1C(M2C_FIELD(arg0, u32 *, 0x28));
         return 1;
     }
     return 0;

@@ -22,13 +22,13 @@ void free_member_0x28__13TShopSequenceFPv(void* p);
 void TShopSequence__sub_802236A0(void* p);
 void free_member_0x28_variant__13TShopSequenceFPv(void* p);
 void free_member__13TShopSequenceFPv(void* p);
-int fn_80222848(void*);
-int fn_80222898(void*);
+int TQuestVmDownLoadServer__sub_80222848(void*);
+int TQuestVmDownLoadServer__sub_80222898(void*);
 int fn_80222910(void*);
 int fn_8022297C(void*);
 
-void free_member_0x28__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80222898(m); }
-void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80222848(m); }
+void free_member_0x28__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) TQuestVmDownLoadServer__sub_80222898(m); }
+void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) TQuestVmDownLoadServer__sub_80222848(m); }
 void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80222910(m); }
 void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_8022297C(m); }
 void close_if_single_screen__13TShopSequenceFv(void) {

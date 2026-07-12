@@ -14,7 +14,7 @@ s32 TKeyBoardControl__sub_8025F3D4(void *, s32, u8);
 s32 TKeyBoardControl__sub_8025F4A0();
 s32 TWindowKeyBoardHard__sub_80260438(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C618(s32, u16);
-M2C_UNK fn_8024FBA8(s32, s32);
+M2C_UNK TWindowSubStatusDisp__sub_8024FBA8(s32, s32);
 
 void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1) {
     u16 sp8;
@@ -39,7 +39,7 @@ block_7:
         if ((TWindowKeyBoardHard__sub_80260438(arg0) != 0) && ((s32) sp8 >= 0x61) && ((s32) sp8 <= 0x7A)) {
             sp8 -= 0x20;
         }
-        fn_8024FBA8(M2C_FIELD(arg0, s32 *, 0x70), temp_r31);
+        TWindowSubStatusDisp__sub_8024FBA8(M2C_FIELD(arg0, s32 *, 0x70), temp_r31);
         TWindowKeyBoardSoft__sub_8025C618(M2C_FIELD(arg0, s32 *, 0x70), sp8);
     }
 }

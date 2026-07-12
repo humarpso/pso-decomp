@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_result__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-s32 fn_8028D5D4();
+s32 TAdSinglePlyChrSelectGC__sub_8028D5D4();
 
 s32 get_result__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (fn_8028D5D4() != 0) {
+    if (TAdSinglePlyChrSelectGC__sub_8028D5D4() != 0) {
         return M2C_FIELD(arg0, s32 *, 0x28);
     }
     return 0;

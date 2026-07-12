@@ -13,7 +13,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK fn_800B98C0(void *);
-M2C_UNK fn_800D8E80(void *);
+M2C_UNK TBoss3Volopt__sub_800D8E80(void *);
 
 struct TBase_802d05bc { char pad[0x18]; };
 struct TObj_802d05bc : TBase_802d05bc {
@@ -142,7 +142,7 @@ void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
         TObjEneDD__sub_800BBA04(arg0, 2);
         fn_800B98C0(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x46C);
-        fn_800D8E80(arg0 + 0x38);
+        TBoss3Volopt__sub_800D8E80(arg0 + 0x38);
         return;
     case 3:
         if (((SubObj_802d05bc *)(arg0 + 0x46C))->v5() != 0) {
