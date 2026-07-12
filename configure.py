@@ -4966,6 +4966,12 @@ if args.target == "psov3":
                 NonMatching("pso/boss/TBoss6PlotFalz_802AB110.cpp"),
                 NonMatching("pso/misc/TWindowSubComCard_8007AAF4.cpp"),
                 NonMatching("pso/misc/TWindowSubComCard_8007AB24.cpp"),
+                NonMatching("pso/enemy/TObjEneMe1Canadin_8009ED5C.cpp"),
+                NonMatching("pso/enemy/TObjEneMe1Gee_800CC190.cpp"),
+                NonMatching("pso/boss/TBoss8Dragon_802FAAB0.cpp"),
+                NonMatching("pso/boss/TBoss8Dragon_802FC2C4.cpp"),
+                NonMatching("pso/boss/TBoss1Dragon_80026EB8.cpp"),
+                NonMatching("pso/ui/TAdChrSelSlotGC_802C7438.cpp"),
             ],
         },
         # ------------------------------------------------------------------
