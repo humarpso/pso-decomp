@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneRe4Sorcerer__vt104(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjEneDD__sub_800B9D74(void *, M2C_UNK, M2C_UNK);
+M2C_UNK update_player_state__9TObjEneDDFPv(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 M2C_UNK TObjEneDD__sub_800BB858();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
@@ -45,7 +45,7 @@ struct VObj : Base {
 void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
     TObjEneDD__sub_800BB858();
     if (((VObj *)arg0)->m8(lbl_805DA788, TObjEneRe4Sorcerer__data_805DA78C) != 0) {
-        TObjEneDD__sub_800B9D74(arg0, 0, 0);
+        update_player_state__9TObjEneDDFPv(arg0, 0, 0);
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

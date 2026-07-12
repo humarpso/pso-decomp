@@ -8,8 +8,8 @@ extern "C" {
 
 void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
-M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
-s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 TWindowSubSymbolChat__sub_80077310();
 M2C_UNK TWindowSubComCard__sub_802655E4(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
@@ -24,11 +24,11 @@ void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
     TWindowSubComCard__sub_802655E4(arg1);
     temp_r3 = TWindowSubSymbolChat__sub_80077310();
     if (temp_r3 > 0) {
-        TObjCityMainWarp__sub_80266354(arg1, TWindowSubStatusDisp__sub_80077760(0xAE), 6, 0xC);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(arg1, get_message_10__20TWindowSubStatusDispFPv(0xAE), 6, 0xC);
     } else {
-        draw_text_gray__17TWindowSubComCardFiiii(arg1, TWindowSubStatusDisp__sub_80077760(0xAE), 6, 0xC);
+        draw_text_gray__17TWindowSubComCardFiiii(arg1, get_message_10__20TWindowSubStatusDispFPv(0xAE), 6, 0xC);
     }
-    TObjCityMainWarp__sub_80266354(arg1, TWindowSubStatusDisp__sub_80077760(0xAF), 6, 0x10);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(arg1, get_message_10__20TWindowSubStatusDispFPv(0xAF), 6, 0x10);
     set_flag70_bit10__16TObjCityMainWarpFPv(arg1);
     TWindowSubComCard__sub_80265DEC(arg1, lbl_805DD73C, lbl_805DD744);
     TWindowSubComCard__sub_80265C30(arg1);

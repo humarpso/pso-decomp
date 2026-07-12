@@ -7,7 +7,7 @@ extern "C" {
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
 void dt__10TTecSlicerFis(void *, int);
 void __dl__7TObjectFPv(void *);
-void TParticleCtrl__sub_801A25B4(void *, int);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK __vt__10TTecSlicer[];
@@ -18,7 +18,7 @@ void *__dt__10TTecSlicerFv(void *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, void **, 0x124) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x124)); }
         dt__10TTecSlicerFis((s8 *)arg0 + 0xE8, -1);
         dt__10TTecSlicerFis((s8 *)arg0 + 0xC8, -1);
-        TParticleCtrl__sub_801A25B4(arg0, 0);
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -42,7 +42,7 @@ extern "C" {
 
 void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
-M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
+M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update_hover_height__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 M2C_UNK advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *);
@@ -78,7 +78,7 @@ void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
         return;
     case 0:
         TBoss1Dragon__sub_80143504();
-        TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
+        update_linked_position__14TObjEneEpsilonFPv(arg0, TObjEneMe1Canadin__data_805D988C);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x470);
         switch (temp_r0) {
         case 0:

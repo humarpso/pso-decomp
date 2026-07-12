@@ -10,7 +10,7 @@ void update_grabbed_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_8006A044(M2C_UNK, f32);
-M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, s32);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
 M2C_UNK set_grabbed_state__10TObjPlayerFi(M2C_UNK);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 s32 obj_testFlags30(void *, M2C_UNK);
@@ -44,7 +44,7 @@ void update_grabbed_state__10TObjPlayerFPv(void *arg0) {
             if (M2C_FIELD(arg0, s32 *, 0x388) & 0x40000) {
                 set_grabbed_state__10TObjPlayerFi(0xF);
             } else {
-                TObjEneMe1GiGue__sub_80040B3C(arg0, M2C_FIELD(arg0, s32 *, 0x380));
+                update_if_active__15TObjEneMe1GiGueFPv(arg0, M2C_FIELD(arg0, s32 *, 0x380));
             }
         }
         return;

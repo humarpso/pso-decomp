@@ -9,7 +9,7 @@ extern "C" {
 s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
 M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
-s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
 M2C_UNK TWindowSubShortMail__sub_802A58AC(s32, s32, s32, s32, f32);
@@ -20,7 +20,7 @@ s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0) {
     s32 temp_r29;
 
     temp_r29 = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
-    TWindowSubShortMail__sub_802A58AC(temp_r29, TWindowSubStatusDisp__sub_80077760(0x20), TWindowSubStatusDisp__sub_80077760(0x100), TWindowSubComCard__sub_8026CBB8(0x97), TWindowSubComCard__data_805DD520);
+    TWindowSubShortMail__sub_802A58AC(temp_r29, get_message_10__20TWindowSubStatusDispFPv(0x20), get_message_10__20TWindowSubStatusDispFPv(0x100), TWindowSubComCard__sub_8026CBB8(0x97), TWindowSubComCard__data_805DD520);
     free_member__17TWindowSubComCardFPv(temp_r29, 1);
     notify_warp_flag70__19TWindowSubShortMailFPv(temp_r29);
     return temp_r29;

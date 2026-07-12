@@ -8,7 +8,7 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1);
 void free__11TOBoss4RockFUi(void *);
 void destroy__19TWindowKeyBoardBaseFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
-void TWindowDD__sub_80246674(void *, int);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
 
 extern M2C_UNK __vt__19TWindowKeyBoardBase[];
 
@@ -18,7 +18,7 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x9C));
         destroy__19TWindowKeyBoardBaseFPvs((s8 *)arg0 + 0x84, -1);
         destroy__19TWindowKeyBoardBaseFPvs((s8 *)arg0 + 0x6C, -1);
-        TWindowDD__sub_80246674(arg0, 0);
+        destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

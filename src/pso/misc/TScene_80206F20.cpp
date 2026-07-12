@@ -12,7 +12,7 @@ s32 TOKeyMachine01__sub_802034A8();
 u32 TObjMapCsn__sub_8007A728();
 M2C_UNK alloc_scene_buffer__18TObjButterflyLobbyFv();
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 TScene__sub_800F9D80(M2C_UNK *);
+s32 update_lobby_scene__6TSceneFPv(M2C_UNK *);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
 M2C_UNK fn_80140F18(u32, s32);
@@ -39,7 +39,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
     TScene__data_805D6000 = 0U;
     lbl_805D6014 = 0;
     TLobby__sub_801317E4((M2C_UNK *)&sp8, arg0, lbl_8044A950);
-    temp_r31 = TScene__sub_800F9D80((M2C_UNK *)&sp8);
+    temp_r31 = update_lobby_scene__6TSceneFPv((M2C_UNK *)&sp8);
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x10000U)) {
             temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x10000);

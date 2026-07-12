@@ -9,9 +9,9 @@ extern "C" {
 s32 open_menu__19TWindowSubShortMailFv(void);
 s32 create_window__19TWindowSubShortMailFv(void);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
-M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TQuestThread__sub_801F64BC(s32);
-s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 get_card_window_area__6TLobbyFv();
 s32 TLobby__sub_8001DB44();
 M2C_UNK TAdChrSelASlotGC__sub_800740FC(s32);
@@ -30,8 +30,8 @@ s32 open_menu__19TWindowSubShortMailFv(void) {
 
     temp_r3 = TWindowSubComCard__sub_8026CBB8(0xA2);
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 2);
-    TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x105), 6, 1);
-    TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x106), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x105), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x106), 6, 0);
     if (TLobby__sub_8001DB44() == 0) {
         TWindowSubComCard__sub_80265C10(temp_r31, 1);
     }
@@ -50,10 +50,10 @@ s32 create_window__19TWindowSubShortMailFv(void) {
     temp_r3 = TWindowSubComCard__sub_8026CBB8(0xA1);
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 2);
     if (TLobby__sub_8001DB44() != 0) {
-        TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x105), 0, 0);
-        TObjCityMainWarp__sub_80266354(temp_r31, get_card_window_area__6TLobbyFv(), 0, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x105), 0, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_card_window_area__6TLobbyFv(), 0, 0);
     } else {
-        TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x106), 0, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x106), 0, 0);
         draw_text_gray__17TWindowSubComCardFiiii(temp_r31, get_card_window_area__6TLobbyFv(), 0, 0);
     }
     TAdChrSelASlotGC__sub_800740FC(temp_r31);

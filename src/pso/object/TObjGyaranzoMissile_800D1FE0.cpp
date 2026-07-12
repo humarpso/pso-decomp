@@ -17,7 +17,7 @@ struct V_Sub : Base_Sub {
 extern "C" {
 
 void update__19TObjGyaranzoMissileFPv(u8 *arg0);
-M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK, s32);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TBoss3Volopt__sub_800D8D88(void *, s32);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
@@ -47,7 +47,7 @@ void update__19TObjGyaranzoMissileFPv(u8 *arg0) {
         temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r5 & ~5);
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFFFFFF);
-        TObjEneMe1GiGue__sub_80040B3C(arg0, 0, temp_r5);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0, temp_r5);
         break;
     }
 }

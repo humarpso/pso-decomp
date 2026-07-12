@@ -10,9 +10,9 @@ void TBoss8Dragon__sub_800BB7D0(void);
 void TBoss8Dragon__sub_800BB7D4(void);
 void TBoss8Dragon__sub_800BB7D8(void);
 void TBoss8Dragon__sub_800BB7DC(void);
-int TBoss8Dragon__sub_800BB7E0(void* p);
+int set_player_state_default__12TBoss8DragonFPv(void* p);
 int TObjPlayer__sub_801B4A18(void*, int);
 
-void TBoss8Dragon__sub_800BB740(void* p) { refresh_lobby_state__10TObjPlayerFPv(p); send_entity_set_flags__6TLobbyFPv(p); }
+void refresh_and_send_entity_flags__12TBoss8DragonFPv(void* p) { refresh_lobby_state__10TObjPlayerFPv(p); send_entity_set_flags__6TLobbyFPv(p); }
 
 }

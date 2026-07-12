@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjPlayer__sub_80156990(void *arg0, s16 arg1);
-void TParticleCtrl__sub_801A25B4(void *, int);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 
 extern M2C_UNK lbl_804AF8A0[];
@@ -15,7 +15,7 @@ void *TObjPlayer__sub_80156990(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804AF8A0;
         M2C_FIELD(arg0, M2C_UNK *, 0xA8) = 0;
         M2C_FIELD(arg0, M2C_UNK *, 0xA4) = 0;
-        TParticleCtrl__sub_801A25B4(arg0, 0);
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

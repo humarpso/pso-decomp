@@ -116,7 +116,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
-s32 TObjEneEpsilon__sub_800B96D4(f32);
+s32 update_linked_position__14TObjEneEpsilonFPv(f32);
 s32 TObjEneMorfos__sub_803344F0();
 f32 TObjEneMe3ShinowaReal__sub_8002ADE4(f32);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
@@ -148,7 +148,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4B0);
         switch (temp_r0) {
         case 0:
-            if (TObjEneEpsilon__sub_800B96D4(TObjEneMorfos__data_805DF86C) != 0) {
+            if (update_linked_position__14TObjEneEpsilonFPv(TObjEneMorfos__data_805DF86C) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 1;
                 TObjEneEpsilon__sub_800B96A4(arg0);
                 update_velocity__9TObjEneDDFPv(arg0);

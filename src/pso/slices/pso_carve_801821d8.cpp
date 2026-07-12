@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80182E60();
+s32 TLobby__sub_80182E60();
 s32 TLobby__sub_8030A7B0();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
@@ -19,7 +19,7 @@ s32 is_rader_map_active(void) {
         }
         goto block_6;
     }
-    temp_r3 = fn_80182E60();
+    temp_r3 = TLobby__sub_80182E60();
     if ((temp_r3 != -1) && (temp_r3 == 1)) {
         return 0;
     }

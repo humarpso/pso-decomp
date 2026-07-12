@@ -9,7 +9,7 @@ extern "C" {
 void open_keyboard_window__6TLobbyFv(void);
 s32 TKeyBoardControl__ct(s32, s32, s32, s32, s32, s32);
 M2C_UNK *TLobby__sub_8013A14C(M2C_UNK);
-M2C_UNK TObjCityMainWarp__sub_80266354(u32, M2C_UNK *, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, M2C_UNK *, M2C_UNK, M2C_UNK);
 M2C_UNK TWindow__close(u32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
@@ -45,8 +45,8 @@ void open_keyboard_window__6TLobbyFv(void) {
         }
         tmp_r3 = TWindowSubComCard__sub_8026CBB8(0xC3);
         lbl_805D55F0 = check_room_seq_4__16TAdChrSelASlotGCFii(tmp_r3, 2);
-        TObjCityMainWarp__sub_80266354(lbl_805D55F0, TLobby__sub_8013A14C(0x44), 2, 0);
-        TObjCityMainWarp__sub_80266354(lbl_805D55F0, lbl_805D5614, 2, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55F0, TLobby__sub_8013A14C(0x44), 2, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55F0, lbl_805D5614, 2, 1);
         TWindowSubComCard__sub_80265F60(lbl_805D55F0);
         TWindowSubComCard__sub_80265C30(lbl_805D55F0);
         TAdChrSelASlotGC__sub_800740FC(lbl_805D55F0);

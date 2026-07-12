@@ -5,8 +5,8 @@ extern "C" {
 s32 TWindowLockOn__sub_800F5DD8(void* p);
 void TObjEneLappy__sub_800F5DE0(void* p, s32 v);
 int fn_800F5DE8(void* p);
-int TBoss3Volopt__sub_8003F0E8(void*);
+int reset_photon_effect__12TBoss3VoloptFPv(void*);
 
-int fn_800F5DE8(void* p) { return TBoss3Volopt__sub_8003F0E8(p); }
+int fn_800F5DE8(void* p) { return reset_photon_effect__12TBoss3VoloptFPv(p); }
 
 }

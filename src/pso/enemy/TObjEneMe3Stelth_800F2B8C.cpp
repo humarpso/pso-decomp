@@ -11,7 +11,7 @@ extern "C" {
 
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TObjEneEpsilon__sub_800B96D4(f32);
+s32 update_linked_position__14TObjEneEpsilonFPv(f32);
 M2C_UNK TBoss1Dragon__sub_80143504(void *, s32);
 
 extern const f32 TObjEneMe3Stelth__data_805DA848;
@@ -135,7 +135,7 @@ extern "C" void handle_message__16TObjEneMe3StelthFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x424) = 0;
         break;
     case 3:
-        if (TObjEneEpsilon__sub_800B96D4(TObjEneMe3Stelth__data_805DA848) != 0) {
+        if (update_linked_position__14TObjEneEpsilonFPv(TObjEneMe3Stelth__data_805DA848) != 0) {
             TObjEneDD__sub_800BBA18(arg0, 6);
         } else if ((s32) M2C_FIELD(arg0, s32 *, 0x424) >= 0x5A) {
             TObjEneDD__sub_800BBA18(arg0, 0xA);

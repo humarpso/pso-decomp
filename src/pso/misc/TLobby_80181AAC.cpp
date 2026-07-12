@@ -13,7 +13,7 @@ struct VObj_80181AE8 : Base_80181AE8 {
 extern "C" {
 
 void TLobby__sub_80181AAC(void* p);
-void TLobby__sub_80181AE8(u8 *arg0);
+void process_lobby_action_14__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_801819E4(M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
@@ -23,13 +23,13 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 int fn_80181E10(void*);
 
-void TLobby__sub_80181AAC(void* p) { if (fn_80181E10(p) != 0) { TLobby__sub_80181AE8((u8 *)(p)); } }
+void TLobby__sub_80181AAC(void* p) { if (fn_80181E10(p) != 0) { process_lobby_action_14__6TLobbyFPv((u8 *)(p)); } }
 
 extern s32 lbl_805D5B2C;
 extern const f32 lbl_805DBBE0;
 extern const f32 lbl_805DBBE4;
 
-void TLobby__sub_80181AE8(u8 *arg0) {
+void process_lobby_action_14__6TLobbyFPv(u8 *arg0) {
     if (((VObj_80181AE8 *)arg0)->m8(lbl_805DBBE0, lbl_805DBBE4) != 0) {
         TObjFish__sub_803DA798(lbl_805D5B2C);
         TObjPlayer__sub_803D9B2C();

@@ -10,7 +10,7 @@ void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TODoorAncient01__sub_8015DD2C(void *, M2C_UNK);
+M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
 
 extern M2C_UNK __vt__17TOBarrierEnergy01[];
 
@@ -19,7 +19,7 @@ void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOBarrierEnergy01;
         TObjPlayer__sub_80154A00(arg0);
         TObjEneGibbles__sub_80156720(arg0);
-        TODoorAncient01__sub_8015DD2C(arg0, 0);
+        destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

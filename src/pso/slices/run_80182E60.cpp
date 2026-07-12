@@ -8,7 +8,7 @@ extern "C" {
 
 extern void *lbl_805D4E28;
 
-s32 fn_80182E60(void) {
+s32 TLobby__sub_80182E60(void) {
     if ((void *) lbl_805D4E28 == NULL) {
         return -1;
     }

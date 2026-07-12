@@ -12,7 +12,7 @@ M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK free_windows__17TWindowSubComCardFPv(s32);
-M2C_UNK TAdChrSelASlotGC__sub_802A596C(s32, s32, s32, f32);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(s32, s32, s32, f32);
 
 extern f32 lbl_805DF210;
 
@@ -21,7 +21,7 @@ s32 open_yes_no_window__16TAdChrSelASlotGCFiii(s32 arg0, s32 arg1, s32 arg2) {
 
     TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
     temp_r31 = TWindowMessageYesNo__sub_802A59D8(arg0, arg2, 0, 0);
-    TAdChrSelASlotGC__sub_802A596C(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0x16, 0x1B), arg1, lbl_805DF210);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0x16, 0x1B), arg1, lbl_805DF210);
     free_member__17TWindowSubComCardFPv(temp_r31, 1);
     free_windows__17TWindowSubComCardFPv(temp_r31);
     return temp_r31;

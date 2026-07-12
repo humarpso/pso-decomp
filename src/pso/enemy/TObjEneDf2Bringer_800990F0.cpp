@@ -8,13 +8,13 @@ extern "C" {
 
 void update_flag_0x3C0__17TObjEneDf2BringerFPv(void *arg0);
 s32 TObjEneEpsilon__sub_800B95E0();
-M2C_UNK TObjEneEpsilon__sub_800B96D4(f32);
+M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
 
 extern f32 TObjEneDf2Bringer__data_805D9820;
 
 void update_flag_0x3C0__17TObjEneDf2BringerFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 8)) {
-        TObjEneEpsilon__sub_800B96D4(TObjEneDf2Bringer__data_805D9820);
+        update_linked_position__14TObjEneEpsilonFPv(TObjEneDf2Bringer__data_805D9820);
         return;
     }
     if (TObjEneEpsilon__sub_800B95E0() == 0) {

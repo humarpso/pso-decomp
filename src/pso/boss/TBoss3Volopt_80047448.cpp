@@ -57,7 +57,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 TObjEneEpsilonGuard__sub_800D7B1C(void *, void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
@@ -76,7 +76,7 @@ void set_action_wait__12TBoss3VoloptFPvUs(void *arg0, u16 arg1) {
         if ((u16) arg1 != 0xFFFF) {
             M2C_FIELD(arg0, u16 *, 0x338) = arg1;
             M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
-            TObjEneMe1GiGue__sub_80040B3C(arg0, 0xA);
+            update_if_active__15TObjEneMe1GiGueFPv(arg0, 0xA);
         }
     }
 }
@@ -87,7 +87,7 @@ void set_motion__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if ((obj_testFlags30(arg0, 0x800) == 0) && !(M2C_FIELD(arg0, s32 *, 0x388) & 0x10000) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9)) {
         M2C_FIELD(arg0, s16 *, 0x338) = arg1;
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
-        TObjEneMe1GiGue__sub_80040B3C(arg0, 9);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 9);
     }
 }
 
@@ -97,7 +97,7 @@ void check_and_trigger__12TBoss3VoloptFPv(void *arg0) {
     if ((obj_testFlags30(arg0, 0x800) == 0) && !(M2C_FIELD(arg0, s32 *, 0x388) & 0x40000)) {
         check_and_notify__12TBoss3VoloptFv(arg0);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
-        TObjEneMe1GiGue__sub_80040B3C(arg0, 0xB);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0xB);
     }
 }
 

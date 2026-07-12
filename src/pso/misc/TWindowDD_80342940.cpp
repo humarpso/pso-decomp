@@ -14,11 +14,11 @@ M2C_UNK TWindowDD__sub_80347C50();
 M2C_UNK play_se__9TWindowDDFv();
 M2C_UNK play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(s32);
-s32 TWindowDD__sub_80348304(s32);
+s32 test_input_flag_4__9TWindowDDFPv(s32);
 
 void update__9TWindowDDFi(s32 arg0) {
     TWindowDD__sub_80347C50();
-    if (TWindowDD__sub_80348304(arg0) != 0) {
+    if (test_input_flag_4__9TWindowDDFPv(arg0) != 0) {
         play_sound__9TWindowDDFv();
         TWindowDD__sub_803428C4(arg0);
         TWindowDD__sub_803435A0(arg0);

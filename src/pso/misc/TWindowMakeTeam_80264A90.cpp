@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubStatusDisp__sub_80077760(s32);
+s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 s8 TLobby__sub_8013AD64();
 void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
@@ -14,10 +14,10 @@ int test_keyboard_card_flag4(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
 void init_status_disp__15TWindowMakeTeamFc(s8 arg0) {
-    TWindowSubStatusDisp__sub_80077760(arg0 + 0x113);
+    get_message_10__20TWindowSubStatusDispFPv(arg0 + 0x113);
 }
 void draw_entry_0x110__15TWindowMakeTeamFc(s8 arg0) {
-    TWindowSubStatusDisp__sub_80077760(arg0 + 0x110);
+    get_message_10__20TWindowSubStatusDispFPv(arg0 + 0x110);
 }
 u8 is_enabled__15TWindowMakeTeamFPv(void *arg0) {
     if (TLobby__sub_8013AD64() == 1) {

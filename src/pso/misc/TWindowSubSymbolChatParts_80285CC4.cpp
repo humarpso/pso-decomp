@@ -8,7 +8,7 @@ void *__dt__25TWindowSubSymbolChatPartsFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void TWindowAddition__sub_802443F0(void *, int);
 void TWindowSubStatusDisp__sub_8026D9D0(void *, int);
-void TWindowSubStatusDisp__sub_80288070(void *, int);
+void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 
 extern M2C_UNK __vt__25TWindowSubSymbolChatParts[];
 
@@ -16,7 +16,7 @@ void *__dt__25TWindowSubSymbolChatPartsFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TWindowSubSymbolChatParts;
         TWindowSubStatusDisp__sub_8026D9D0(M2C_FIELD(arg0, void **, 0x8C), 1);
-        TWindowSubStatusDisp__sub_80288070(M2C_FIELD(arg0, void **, 0x88), 1);
+        destroy_status_display__20TWindowSubStatusDispFis(M2C_FIELD(arg0, void **, 0x88), 1);
         TWindowAddition__sub_802443F0(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

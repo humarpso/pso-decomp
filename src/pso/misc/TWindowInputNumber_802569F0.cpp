@@ -6,16 +6,16 @@ extern "C" {
 
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void TWindowDD__sub_80246674(void *, int);
-void TWindowSubStatusDisp__sub_80288070(void *, int);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
+void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 
 extern M2C_UNK __vt__18TWindowInputNumber[];
 
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TWindowInputNumber;
-        if (M2C_FIELD(arg0, void **, 0x70) != NULL) { TWindowSubStatusDisp__sub_80288070(M2C_FIELD(arg0, void **, 0x70), 1); }
-        TWindowDD__sub_80246674(arg0, 0);
+        if (M2C_FIELD(arg0, void **, 0x70) != NULL) { destroy_status_display__20TWindowSubStatusDispFis(M2C_FIELD(arg0, void **, 0x70), 1); }
+        destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

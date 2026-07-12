@@ -53,7 +53,7 @@ struct V_A : Base_A {
 
 extern "C" {
 
-s32 TObjEneEpsilon__sub_800B96D4(void *, f32);
+s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK fn_800B98C0(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -73,7 +73,7 @@ void handle_flower_state_change(void *arg0, s32 arg1) {
         fn_800B98C0(arg0);
         return;
     case 3:
-        if ((check_hit_flag__16TObjEneRe2FlowerFPv() == 0) && (TObjEneEpsilon__sub_800B96D4(arg0, lbl_805D9FF0) != 0)) {
+        if ((check_hit_flag__16TObjEneRe2FlowerFPv() == 0) && (update_linked_position__14TObjEneEpsilonFPv(arg0, lbl_805D9FF0) != 0)) {
             TObjEneDD__sub_800BBA18(arg0, 3);
         }
     case 5:

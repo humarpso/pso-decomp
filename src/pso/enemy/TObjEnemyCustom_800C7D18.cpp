@@ -11,10 +11,10 @@ void update_state__15TObjEnemyCustomFPv(void *arg0);
 int TObjEnemyCustom__sub_800C7DD0(void* p);
 void TObjEnemyCustom__sub_800C7DF4(void);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
-int TObjEneMe1GiGue__sub_80040B3C(void*, int);
+int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 
-int TObjEnemyCustom__sub_800C7D18(void* p) { return TObjEneMe1GiGue__sub_80040B3C(p, 1); }
+int TObjEnemyCustom__sub_800C7D18(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 1); }
 
 extern f32 lbl_805DA070;
 
@@ -38,7 +38,7 @@ void update_state__15TObjEnemyCustomFPv(void *arg0) {
     }
 }
 
-int TObjEnemyCustom__sub_800C7DD0(void* p) { return TObjEneMe1GiGue__sub_80040B3C(p, 0); }
+int TObjEnemyCustom__sub_800C7DD0(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 0); }
 void TObjEnemyCustom__sub_800C7DF4(void) {  }
 
 }

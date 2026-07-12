@@ -13,10 +13,10 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneDf2Bringer__sub_80098EB4(void *);
 M2C_UNK TObjEneDf2Bringer__sub_80099148(void *);
 M2C_UNK TObjEneDf2Bringer__sub_80099188(void *);
-M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
+M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -146,7 +146,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         ((SubObj *)(arg0 + 0x3C4))->v3();
         M2C_FIELD(arg0, s32 *, 0x4AC) = 0;
         M2C_FIELD(arg0, s32 *, 0x4B0) = 0;
-        TBoss3Volopt__sub_8022675C(TObjEnePanarms__sub_800F5EB4(arg0, 0x3640D), arg0 + 0x38, 0, 0);
+        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3640D), arg0 + 0x38, 0, 0);
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
         VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
         VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
@@ -160,7 +160,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         return;
     case 0:
         TBoss1Dragon__sub_80143504();
-        TObjEneEpsilon__sub_800B96D4(arg0, TObjEneDf2Bringer__data_805D9820);
+        update_linked_position__14TObjEneEpsilonFPv(arg0, TObjEneDf2Bringer__data_805D9820);
         M2C_FIELD(arg0, s32 *, 0x4AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x4AC) + 1);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4B0);
         switch (temp_r0) {
@@ -168,7 +168,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x4AC) > 0x14) {
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 1;
                 M2C_FIELD(arg0, s16 *, 0xB8) = 3;
-                TBoss3Volopt__sub_8022675C(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003B40E), arg0 + 0x38, 0, 0);
+                TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B40E), arg0 + 0x38, 0, 0);
                 play_effect_if_v2__10TObjPlayerFi(-0x200);
             }
             TObjEneDf2Bringer__sub_80099188(arg0);

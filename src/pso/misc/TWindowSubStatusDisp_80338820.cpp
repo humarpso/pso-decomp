@@ -8,20 +8,20 @@ extern "C" {
 
 s32 get_flag_or_zero__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
 s32 query_status_field__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
-s32 TWindowSubStatusDisp__sub_80077760(s32);
+s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 
 s32 query_status_field__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
     if (arg1 == 0) {
         return 0;
     }
-    return TWindowSubStatusDisp__sub_80077760(arg1 + 0x110);
+    return get_message_10__20TWindowSubStatusDispFPv(arg1 + 0x110);
 }
 
 s32 get_flag_or_zero__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
     if (arg1 == 0) {
         return 0;
     }
-    return TWindowSubStatusDisp__sub_80077760(arg1 + 0x10D);
+    return get_message_10__20TWindowSubStatusDispFPv(arg1 + 0x10D);
 }
 
 }

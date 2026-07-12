@@ -9,7 +9,7 @@ extern "C" {
 void update_attack_effect__16TObjEneDellBiterFi(s32 arg0);
 s32 TObjEneDellBiter__sub_803059BC(s32, s32);
 M2C_UNK TObjEneGibbles__sub_800D8988(s32);
-s32 TObjEnePanarms__sub_800F5EB4(s32, M2C_UNK);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(s32, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 
 void update_attack_effect__16TObjEneDellBiterFi(s32 arg0) {
@@ -17,7 +17,7 @@ void update_attack_effect__16TObjEneDellBiterFi(s32 arg0) {
         TObjEneGibbles__sub_800D8988(arg0 + 0x38);
         return;
     }
-    TBoss3Volopt__sub_8022675C((s32)TObjEnePanarms__sub_800F5EB4(arg0, 0x40039E11), arg0 + 0x38, 0, 0);
+    TBoss3Volopt__sub_8022675C((s32)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x40039E11), arg0 + 0x38, 0, 0);
 }
 
 }

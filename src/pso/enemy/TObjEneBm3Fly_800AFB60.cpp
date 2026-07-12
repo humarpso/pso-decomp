@@ -15,7 +15,7 @@ extern "C" {
 void TObjEneBm3Fly__vt104(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
-M2C_UNK TObjEneDD__sub_800B9D74(void *, M2C_UNK, M2C_UNK);
+M2C_UNK update_player_state__9TObjEneDDFPv(void *, M2C_UNK, M2C_UNK);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -29,7 +29,7 @@ extern const f32 TObjEneBm3Fly__data_805D9C6C;
 
 void TObjEneBm3Fly__vt104(u8 *arg0) {
     if (((VObj800AFB60 *) arg0)->m8(lbl_805D9C68, TObjEneBm3Fly__data_805D9C6C) != 0) {
-        TObjEneDD__sub_800B9D74(arg0, 0, 0);
+        update_player_state__9TObjEneDDFPv(arg0, 0, 0);
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

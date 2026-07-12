@@ -8,7 +8,7 @@ extern "C" {
 
 void open_city_warp_menu__6TLobbyFv(void);
 s32 TLobby__sub_8013A14C(M2C_UNK);
-M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK open__17TWindowOptionCtrlFPv(s32);
 M2C_UNK TCheckRoomSequence__sub_8013AD28(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
@@ -25,11 +25,11 @@ void open_city_warp_menu__6TLobbyFv(void) {
     open__17TWindowOptionCtrlFPv(lbl_805D55E0);
     temp_r3 = TWindowSubComCard__sub_8026CBB8(0xB5);
     lbl_805D55E4 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 5);
-    TObjCityMainWarp__sub_80266354(lbl_805D55E4, TLobby__sub_8013A14C(0x4C), 6, 0);
-    TObjCityMainWarp__sub_80266354(lbl_805D55E4, TLobby__sub_8013A14C(0x48), 6, 1);
-    TObjCityMainWarp__sub_80266354(lbl_805D55E4, TLobby__sub_8013A14C(0x49), 6, 2);
-    TObjCityMainWarp__sub_80266354(lbl_805D55E4, TLobby__sub_8013A14C(0x4A), 6, 3);
-    TObjCityMainWarp__sub_80266354(lbl_805D55E4, TLobby__sub_8013A14C(0x4B), 6, 4);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, TLobby__sub_8013A14C(0x4C), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, TLobby__sub_8013A14C(0x48), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, TLobby__sub_8013A14C(0x49), 6, 2);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, TLobby__sub_8013A14C(0x4A), 6, 3);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, TLobby__sub_8013A14C(0x4B), 6, 4);
     TWindowSubComCard__sub_80265F60(lbl_805D55E4);
     TWindowSubComCard__sub_80265C30(lbl_805D55E4);
     TCheckRoomSequence__sub_8013AD28(lbl_805D55E4);

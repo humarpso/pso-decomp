@@ -9,7 +9,7 @@ extern "C" {
 void update__9TObjGrassFPv(u8 *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
@@ -27,7 +27,7 @@ void update__9TObjGrassFPv(u8 *arg0) {
         TObjPlayer__sub_80011734(arg0, 0, TObjGrass__data_805D9EB8);
     }
     update_collisions__10TObjPlayerFPv(arg0);
-    TOTrapAncient01__sub_80226578(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003A801), arg0, arg0 + 0x38, 0, 0);
+    TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003A801), arg0, arg0 + 0x38, 0, 0);
     play_effect_if_v2__10TObjPlayerFi(-0x200);
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x33C);
     M2C_FIELD(arg0, s16 *, 0x33C) = (s16) (temp_r4 - 1);

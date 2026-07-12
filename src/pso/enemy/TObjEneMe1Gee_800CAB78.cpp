@@ -115,7 +115,7 @@ extern "C" {
 
 void TObjEneMe1Gee__vt109(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
-M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
+M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE14(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
@@ -141,7 +141,7 @@ void TObjEneMe1Gee__vt109(void *arg0, s32 arg1) {
         break;
     case 0:
         TBoss1Dragon__sub_80143504();
-        TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Gee__data_805DA0A8);
+        update_linked_position__14TObjEneEpsilonFPv(arg0, TObjEneMe1Gee__data_805DA0A8);
         update__13TObjEneMe1GeeFPv(arg0);
         TObjEneMe1Gee__sub_800CBE14(arg0);
         ((VObj18 *) arg0)->vf164();

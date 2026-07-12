@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1);
-M2C_UNK TWindowSubStatusDisp__sub_80077760(s32);
+M2C_UNK get_message_10__20TWindowSubStatusDispFPv(s32);
 
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1) {
-    TWindowSubStatusDisp__sub_80077760(arg1 + 0x113);
+    get_message_10__20TWindowSubStatusDispFPv(arg1 + 0x113);
 }
 
 }

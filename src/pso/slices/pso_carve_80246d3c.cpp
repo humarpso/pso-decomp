@@ -2,10 +2,10 @@
 
 extern "C" {
 
-int TWindowDD__sub_8024664C(void*);
+int initialize_subwindow__9TWindowDDFPv(void*);
 int TWindowSubStatusDisp__sub_80257C28(void*, void*);
 void fn_80246D3C(void* p);
 
-void fn_80246D3C(void* p) { TWindowDD__sub_8024664C(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void fn_80246D3C(void* p) { initialize_subwindow__9TWindowDDFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
 
 }

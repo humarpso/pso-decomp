@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__16TObjNpcMaleMachoFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void TObjNpcLappy__sub_8014B84C(void *, int);
+void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 
 extern M2C_UNK __vt__16TObjNpcMaleMacho[];
 
 void *__dt__16TObjNpcMaleMachoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjNpcMaleMacho;
-        TObjNpcLappy__sub_8014B84C(arg0, 0);
+        destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

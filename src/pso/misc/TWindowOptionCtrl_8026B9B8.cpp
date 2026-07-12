@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 create_list_window__17TWindowOptionCtrlFv(void);
-M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, s32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 M2C_UNK set_flag70_bit400__17TWindowOptionCtrlFPv(s32);
 M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv();
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
@@ -37,7 +37,7 @@ s32 create_list_window__17TWindowOptionCtrlFv(void) {
             if (check_flag_index_set(var_r31) == 0) {
                 draw_text_gray__17TWindowSubComCardFiiii(temp_r30, lbl_8044F4AC, 0x26, var_r31);
             } else {
-                TObjCityMainWarp__sub_80266354(temp_r30, fn_8036A67C(var_r31), 0x26, var_r31);
+                forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r30, fn_8036A67C(var_r31), 0x26, var_r31);
             }
         }
         var_r31 += 1;

@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TWindowDD__sub_8024664C(void*);
+int initialize_subwindow__9TWindowDDFPv(void*);
 int TWindowSubStatusDisp__sub_80257C28(void*, void*);
 void TBoss7Crawfish__vt42(void);
 void TBoss7Crawfish__vt43(void);

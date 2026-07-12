@@ -13,7 +13,7 @@ void update_heading__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss8Dragon__sub_8005F968(void *, s32, s32);
 M2C_UNK TBoss8Dragon__sub_80064AB0(void *);
 s32 TObjEneEpsilon__sub_800B95E0(void *);
-M2C_UNK TObjEneEpsilon__sub_800B9680(void *, M2C_UNK *);
+M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, M2C_UNK *);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 f64 TObjPlayer__sub_80019760(f32, f32);
 M2C_UNK TBoss8Dragon__sub_80064F2C();
@@ -27,7 +27,7 @@ void update_periodic_effect__12TBoss8DragonFPv(void *arg0) {
         if (TObjEneEpsilon__sub_800B95E0(arg0) != 0) {
             TObjEneEpsilon__sub_800B96A4(arg0);
         } else {
-            TObjEneEpsilon__sub_800B9680(arg0, lbl_80437938);
+            copy_position__14TObjEneEpsilonFPv(arg0, lbl_80437938);
         }
         TBoss8Dragon__sub_80064AB0(arg0);
     }

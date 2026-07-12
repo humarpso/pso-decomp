@@ -121,7 +121,7 @@ extern "C" {
 void action__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TObjEneEpsilon__sub_800B96D4(void *, f32);
+M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK TObjEneMe1Canadin__sub_8009EAE8(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 s32 fn_800B9194(void *);
@@ -157,7 +157,7 @@ void action__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     case 0:
         TBoss1Dragon__sub_80143504();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) != 1) {
-            TObjEneEpsilon__sub_800B96D4(arg0, TObjEneMe1Canadin__data_805D988C);
+            update_linked_position__14TObjEneEpsilonFPv(arg0, TObjEneMe1Canadin__data_805D988C);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 2) {
             TObjEneMe1Canadin__sub_8009EB14(arg0, lbl_805D9890 + M2C_FIELD(arg0, f32 *, 0x3C));

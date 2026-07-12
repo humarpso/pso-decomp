@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void TObjPlayer__sub_8023A740(void *, int);
+void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, int);
 
 extern M2C_UNK __vt__11TTecGiZonde[];
 
 void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TTecGiZonde;
-        TObjPlayer__sub_8023A740(arg0, 0);
+        destroy_technique_effect_resources__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

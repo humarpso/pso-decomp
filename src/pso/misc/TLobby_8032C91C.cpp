@@ -10,10 +10,10 @@ int TLobby__sub_8032C91C(void* p);
 u8 get_selected_slot__6TLobbyFv(void);
 M2C_UNK TDLGraph__sub_8007F6F8(s32, M2C_UNK);
 s32 TLobby__sub_801F34F8();
-int fn_804326DC(void*);
+int TLobby__sub_804326DC(void*);
 s32 fn_80432858(M2C_UNK, u8 *);
 
-int TLobby__sub_8032C91C(void* p) { return fn_804326DC(p); }
+int TLobby__sub_8032C91C(void* p) { return TLobby__sub_804326DC(p); }
 
 extern u32 TLobby__data_805D6CC4;
 

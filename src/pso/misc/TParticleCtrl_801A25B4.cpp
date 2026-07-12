@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TParticleCtrl__sub_801A25B4(void *arg0, s16 arg1);
+void *destroy_particle__13TParticleCtrlFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK fn_8020C430(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804B9870[];
 
-void *TParticleCtrl__sub_801A25B4(void *arg0, s16 arg1) {
+void *destroy_particle__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
     void *obj = arg0;
     u16 temp_r0;
 

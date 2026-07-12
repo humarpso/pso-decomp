@@ -9,7 +9,7 @@ void request_destroy__11TBoss4Type2FUi(void *);
 void __dl__7TObjectFPv(void *);
 void TObjPlayer__sub_80154A00(void *);
 void TObjEneGibbles__sub_80156720(void *);
-void TOKey__sub_80158534(void *, int);
+void destroy_key_base__5TOKeyFPvs(void *, int);
 
 extern M2C_UNK __vt__19TOMonumentAncient02[];
 
@@ -19,7 +19,7 @@ void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1) {
         request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0xE8));
         TObjPlayer__sub_80154A00(arg0);
         TObjEneGibbles__sub_80156720(arg0);
-        TOKey__sub_80158534(arg0, 0);
+        destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

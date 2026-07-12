@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEnePanarms__sub_800F5EB4();
+s32 copy_target_state__14TObjEnePanarmsFPvPv();
 s32 TOKeyMachine01__sub_802034A8();
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 void TObjEneMe1Gee__vt105(void);
@@ -23,7 +23,7 @@ s32 handle_message__13TObjEneMe1GeeFii(s32 arg0, s32 arg1) {
         }
         return var_r3;
     }
-    var_r3 = TObjEnePanarms__sub_800F5EB4();
+    var_r3 = copy_target_state__14TObjEnePanarmsFPvPv();
     return var_r3;
 }
 s32 check_death_trigger__13TObjEneMe1GeeFPv(void *arg0) {

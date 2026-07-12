@@ -10,7 +10,7 @@ void TWindowMainMenu__sub_8024E3CC(void);
 void TWindowMainMenu__sub_8024E3D0(void);
 int TWindowMainMenu__sub_8024E3D4(void* p);
 int TWindowMainMenu__sub_8024E3E0(void* p);
-int TWindowDD__sub_8024664C(void*);
+int initialize_subwindow__9TWindowDDFPv(void*);
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
 int TWindowMainMenu__sub_8024E3F4(void* p);
 void TWindowMainMenu__vt4(void);

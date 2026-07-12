@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjEneMe1GiGue__sub_80040B3C(void *, M2C_UNK);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 
 void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800) && !(M2C_FIELD(arg0, s32 *, 0x388) & 0x800000)) {
-        TObjEneMe1GiGue__sub_80040B3C(arg0, 6);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 6);
     }
 }
 

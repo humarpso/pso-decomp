@@ -12,7 +12,7 @@ s32 fn_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
 s32 TLobby__sub_80269C6C(s32, s32, s32);
-int TWindowSubStatusDisp__sub_80077760(void*);
+int get_message_10__20TWindowSubStatusDispFPv(void*);
 int TWindowSubComCard__sub_8007A8F8(void);
 int TWindowSubComCard__sub_8007B6D8(void);
 int TLobby__sub_802421C4(void);

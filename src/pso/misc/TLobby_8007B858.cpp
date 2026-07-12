@@ -28,8 +28,8 @@ M2C_UNK set_fade_params__6TLobbyFi(M2C_UNK);
 M2C_UNK ct_register__6TLobbyFPv(u32, s32);
 M2C_UNK fn_80198D98();
 M2C_UNK create__11TSetManagerFv();
-M2C_UNK fn_8032BDC4(u32, s32);
-M2C_UNK fn_8033ED24(u32, s32);
+M2C_UNK TLobby__sub_8032BDC4(u32, s32);
+M2C_UNK TLobby__sub_8033ED24(u32, s32);
 M2C_UNK TNpcPlayer__sub_8034DD14(u32, s32);
 M2C_UNK TLobby__sub_80351F3C();
 s32 get_main_phase();
@@ -56,11 +56,11 @@ void create_tasks__6TLobbyFv(void) {
         }
         tmp = __nw__7TObjectFUl(0x84);
         if (tmp != 0U) {
-            fn_8032BDC4(tmp, tl_particlemodel);
+            TLobby__sub_8032BDC4(tmp, tl_particlemodel);
         }
         tmp = __nw__7TObjectFUl(0x24);
         if (tmp != 0U) {
-            fn_8033ED24(tmp, tl_particlemodel);
+            TLobby__sub_8033ED24(tmp, tl_particlemodel);
         }
     }
     cleanup_game_objects__9TMainTaskFv();

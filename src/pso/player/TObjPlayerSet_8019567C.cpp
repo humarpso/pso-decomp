@@ -9,7 +9,7 @@ void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1);
 void *TObjPlayerSet__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void TParticleCtrl__sub_801A25B4(void *, int);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern void *tl_06;
 
@@ -26,7 +26,7 @@ extern M2C_UNK __vt__13TObjPlayerSet[];
 void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjPlayerSet;
-        TParticleCtrl__sub_801A25B4(arg0, 0);
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

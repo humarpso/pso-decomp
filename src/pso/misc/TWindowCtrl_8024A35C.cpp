@@ -8,14 +8,14 @@ extern "C" {
 
 void open_status_111__11TWindowCtrlFv(void);
 void open_status_112__11TWindowCtrlFv(void);
-M2C_UNK TWindowSubStatusDisp__sub_80077760(M2C_UNK);
+M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 u32 fn_80244554();
 
 extern void *TWindowCtrl__data_805D63F8;
 
 void open_status_111__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) == 0U)) {
-        TWindowSubStatusDisp__sub_80077760(0x111);
+        get_message_10__20TWindowSubStatusDispFPv(0x111);
         M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) = fn_80244554();
     }
 }
@@ -24,7 +24,7 @@ extern void *TWindowCtrl__data_805D63F8;
 
 void open_status_112__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) == 0U)) {
-        TWindowSubStatusDisp__sub_80077760(0x112);
+        get_message_10__20TWindowSubStatusDispFPv(0x112);
         M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) = fn_80244554();
     }
 }

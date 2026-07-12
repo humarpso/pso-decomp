@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TBoss3Volopt__sub_8003F0E8(void* p);
+int reset_photon_effect__12TBoss3VoloptFPv(void* p);
 s32 TBoss3Volopt__sub_8003F108(void* p);
 void swap_6x85_fields__12TBoss3VoloptFPv(void* p);
 void bswap_actions__12TBoss3VoloptFPv(void* p);
@@ -24,7 +24,7 @@ int reset_photon_effect__10TObjPlayerFPv(void*);
 int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void*);
 
-int TBoss3Volopt__sub_8003F0E8(void* p) { return reset_photon_effect__10TObjPlayerFPv(p); }
+int reset_photon_effect__12TBoss3VoloptFPv(void* p) { return reset_photon_effect__10TObjPlayerFPv(p); }
 s32 TBoss3Volopt__sub_8003F108(void* p) { return *(s32*)((char*)p + 0x3e0); }
 void swap_6x85_fields__12TBoss3VoloptFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); { int i; for (i = 0; i < 7; i++) { bswap_16__FPUs((char*)p + 0x6 + i * 2); } } }
 void bswap_actions__12TBoss3VoloptFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0xc); bswap_16__FPUs((char*)p + 0xa); bswap_16__FPUs((char*)p + 0xe); }

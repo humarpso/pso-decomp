@@ -9,7 +9,7 @@ extern "C" {
 void update__17TWindowDuelResultFPv(u8 *arg0);
 M2C_UNK TWindowDuelResult__sub_8024F330(void *);
 M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
-M2C_UNK TWindowDD__sub_8024664C(void *);
+M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
 s32 TWindowShortListCtrl__sub_8026C9DC(s32);
 
@@ -21,7 +21,7 @@ void update__17TWindowDuelResultFPv(u8 *arg0) {
         TWindowDuelResult__sub_8024F3CC(arg0);
     }
     TWindowDuelResult__sub_8024F330(arg0);
-    TWindowDD__sub_8024664C(arg0);
+    initialize_subwindow__9TWindowDDFPv(arg0);
     TWindowSubStatusDisp__sub_80257C28(arg0, arg0 + 0x24);
 }
 

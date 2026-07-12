@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0);
-M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
 f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK TWindow__close(u32);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
@@ -32,8 +32,8 @@ void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
             temp_r31 = (u16) obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, u32 *, 0x390) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x2B), 2, temp_r31);
-            TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x390), TLobby__sub_80222CFC(6), 6, 0);
-            TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x390), TLobby__sub_80222CFC(7), 6, 1);
+            forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x390), TLobby__sub_80222CFC(6), 6, 0);
+            forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x390), TLobby__sub_80222CFC(7), 6, 1);
             TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x390));
             TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0x390));
             TCheckRoomSequence__sub_8013AD28(M2C_FIELD(arg0, u32 *, 0x390));

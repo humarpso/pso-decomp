@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjPlayer__sub_8023A740(void *arg0, s16 arg1);
+void *destroy_technique_effect_resources__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
 
 extern M2C_UNK lbl_804CCC68[];
 
-void *TObjPlayer__sub_8023A740(void *arg0, s16 arg1) {
+void *destroy_technique_effect_resources__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CCC68;
         if (M2C_FIELD(arg0, void **, 0x128) != NULL) { TObjEneGibbles__sub_80156720(M2C_FIELD(arg0, void **, 0x128)); M2C_FIELD(arg0, M2C_UNK *, 0x128) = 0; }

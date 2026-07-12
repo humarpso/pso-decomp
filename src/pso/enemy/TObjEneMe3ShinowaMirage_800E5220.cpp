@@ -116,7 +116,7 @@ extern "C" {
 void TObjEneMe3ShinowaMirage__sub_800E5220(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TObjEneEpsilon__sub_800B96D4(f32);
+s32 update_linked_position__14TObjEneEpsilonFPv(f32);
 M2C_UNK TBoss1Dragon__sub_80143504(void *, s32);
 
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5F4;
@@ -134,7 +134,7 @@ void TObjEneMe3ShinowaMirage__sub_800E5220(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x404) = 0;
         return;
     case 3:
-        if (TObjEneEpsilon__sub_800B96D4(TObjEneMe3ShinowaMirage__data_805DA5F4) != 0) {
+        if (update_linked_position__14TObjEneEpsilonFPv(TObjEneMe3ShinowaMirage__data_805DA5F4) != 0) {
             TObjEneDD__sub_800BBA18(arg0, 4);
         } else if ((s32) M2C_FIELD(arg0, s32 *, 0x404) >= 0x5A) {
             TObjEneDD__sub_800BBA18(arg0, 9);

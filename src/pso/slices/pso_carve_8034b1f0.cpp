@@ -12,7 +12,7 @@ M2C_UNK fn_8024422C(u32, f32, f32);
 M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
 M2C_UNK TWindowSubComCard__sub_80265500(u32);
 M2C_UNK TWindowSubComCard__sub_80265DEC(u32, f32, f32);
-M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, s32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, s32);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, s32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 s32 fn_8034BE30(s32);
@@ -35,7 +35,7 @@ void challenge4p_item_select_open_menu(void *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
             var_r29 = 0;
             do {
-                TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x2C), TItemData__sub_8010EEDC(lbl_804F00A8[var_r29]), 6, var_r29);
+                forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TItemData__sub_8010EEDC(lbl_804F00A8[var_r29]), 6, var_r29);
                 var_r29 += 1;
             } while (var_r29 < 8);
             TWindowSubComCard__sub_80265DEC(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFD98, lbl_805DFD9C);

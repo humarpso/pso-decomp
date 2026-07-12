@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012E32C(u8 *arg0);
+void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
@@ -18,7 +18,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 
-void TObjPlayer__sub_8012E32C(u8 *arg0) {
+void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0) {
     u32 temp_r31;
     u8 *temp_r3;
 

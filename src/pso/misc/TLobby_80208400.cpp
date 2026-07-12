@@ -9,7 +9,7 @@ extern "C" {
 void load_item_data__6TLobbyFv(void);
 s32 *TItemDrop__sub_800F94BC(s32, u32);
 u32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
-s32 TScene__sub_800F9D80(s32);
+s32 update_lobby_scene__6TSceneFPv(s32);
 s32 get_drop_item_mode__6TLobbyFv();
 
 extern s32 lbl_804C9390[];
@@ -30,7 +30,7 @@ void load_item_data__6TLobbyFv(void) {
     lbl_805D6074 = temp_r3;
     if (temp_r3 != 0U) {
         temp_r30 = get_drop_item_mode__6TLobbyFv();
-        if (TScene__sub_800F9D80(lbl_804C9390[temp_r30]) <= 0x24B8) {
+        if (update_lobby_scene__6TSceneFPv(lbl_804C9390[temp_r30]) <= 0x24B8) {
             temp_r3_2 = TItemDrop__sub_800F94BC(lbl_804C9390[temp_r30], lbl_805D6074);
             lbl_805D6070 = temp_r3_2;
             if (temp_r3_2 != NULL) {

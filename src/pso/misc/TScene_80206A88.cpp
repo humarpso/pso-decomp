@@ -9,7 +9,7 @@ extern "C" {
 void load_file_to_buffer__6TSceneFi(s32 arg0);
 s32 TOKeyMachine01__sub_802034A8();
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 TScene__sub_800F9D80(M2C_UNK *);
+s32 update_lobby_scene__6TSceneFPv(M2C_UNK *);
 M2C_UNK TLobby__sub_800F9DF4(M2C_UNK *, u32);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
 
@@ -26,7 +26,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
     TScene__data_805D6028 = 0U;
     lbl_805D602C = 0;
     TLobby__sub_801317E4(sp8, arg0, lbl_8044A98C);
-    temp_r31 = TScene__sub_800F9D80(sp8);
+    temp_r31 = update_lobby_scene__6TSceneFPv(sp8);
     if (TOKeyMachine01__sub_802034A8() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x100U)) {
             temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x100);

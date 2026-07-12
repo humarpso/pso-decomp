@@ -9,6 +9,6 @@ int TWindowSubSymbolChat__sub_80077720(void* p);
 int fn_80077788(void);
 int fn_80077790(void);
 
-void TWindowSubStatusDisp__sub_80077760(void* p) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)10, p); }
+void get_message_10__20TWindowSubStatusDispFPv(void* p) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)10, p); }
 
 }

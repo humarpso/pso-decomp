@@ -9,7 +9,7 @@ extern "C" {
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *arg0);
 void update_target__16TObjEneBm5GibonUFPv(void *arg0);
 void TObjEneBm5GibonU__sub_800D0BC8(void* p);
-M2C_UNK TObjEneEpsilon__sub_800B96D4(f32);
+M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(f32);
 
 extern f32 lbl_805DA244;
@@ -17,10 +17,10 @@ extern f32 lbl_805DA248;
 
 void play_sound_variant__16TObjEneBm5GibonUFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x464) != 0) {
-        TObjEneEpsilon__sub_800B96D4(lbl_805DA244);
+        update_linked_position__14TObjEneEpsilonFPv(lbl_805DA244);
         return;
     }
-    TObjEneEpsilon__sub_800B96D4(lbl_805DA248);
+    update_linked_position__14TObjEneEpsilonFPv(lbl_805DA248);
 }
 
 extern f32 lbl_805DA244;

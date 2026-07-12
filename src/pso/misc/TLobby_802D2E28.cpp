@@ -21,7 +21,7 @@ struct VObj_802D2E28_0x30 {
 extern "C" {
 
 s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 s32 TLobby__sub_8001DC24();
 void *TLobby__sub_80101AB0(s32);
@@ -38,11 +38,11 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         return 0;
     case 1:
         if (arg0 == (s32) lbl_805D53A0) {
-            return TWindowSubStatusDisp__sub_80077760(0xF4);
+            return get_message_10__20TWindowSubStatusDispFPv(0xF4);
         }
         TWindowSubStatusDisp__sub_802290E0();
         refresh_player_status__6TLobbyFv(arg0);
-        TWindowSubStatusDisp__sub_80077760(0xEA);
+        get_message_10__20TWindowSubStatusDispFPv(0xEA);
         TWindowSubStatusDisp__sub_80229080();
         return TLobby__sub_8001DC24();
     case 2:
@@ -52,29 +52,29 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         }
         TWindowSubStatusDisp__sub_802290E0();
         if (arg0 == (s32) lbl_805D53A0) {
-            TWindowSubStatusDisp__sub_80077760(0xF3);
+            get_message_10__20TWindowSubStatusDispFPv(0xF3);
             TWindowSubStatusDisp__sub_80229080();
         } else {
             refresh_player_status__6TLobbyFv(arg0);
-            TWindowSubStatusDisp__sub_80077760(0xE8);
+            get_message_10__20TWindowSubStatusDispFPv(0xE8);
             TWindowSubStatusDisp__sub_80229080();
         }
         ((VObj_802D2E28_0x30 *)temp_r3)->vma();
         TWindowSubStatusDisp__sub_80229080();
-        TWindowSubStatusDisp__sub_80077760(0xE9);
+        get_message_10__20TWindowSubStatusDispFPv(0xE9);
         TWindowSubStatusDisp__sub_80229080();
         return TLobby__sub_8001DC24();
     case 3:
         if (arg0 == (s32) lbl_805D53A0) {
-            return TWindowSubStatusDisp__sub_80077760(0xF2);
+            return get_message_10__20TWindowSubStatusDispFPv(0xF2);
         }
         TWindowSubStatusDisp__sub_802290E0();
         refresh_player_status__6TLobbyFv(arg0);
-        TWindowSubStatusDisp__sub_80077760(0xE7);
+        get_message_10__20TWindowSubStatusDispFPv(0xE7);
         TWindowSubStatusDisp__sub_80229080();
         return TLobby__sub_8001DC24();
     case 4:
-        return TWindowSubStatusDisp__sub_80077760(0xEE);
+        return get_message_10__20TWindowSubStatusDispFPv(0xEE);
     default:
         return 0;
     }

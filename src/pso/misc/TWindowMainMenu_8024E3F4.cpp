@@ -8,7 +8,7 @@ extern "C" {
 
 int TWindowMainMenu__sub_8024E3F4(void* p);
 void set_entry_field_20__15TWindowMainMenuFii(s32 arg0, s32 arg1);
-int TWindowDD__sub_8024664C(void*);
+int initialize_subwindow__9TWindowDDFPv(void*);
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
 void TWindowMainMenu__sub_8024E3CC(void);
 void TWindowMainMenu__sub_8024E3D0(void);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_grabbed_state__10TObjPlayerFi(s32 arg0);
-void TObjEneMe1GiGue__sub_80040B3C(void*, M2C_UNK);
+void update_if_active__15TObjEneMe1GiGueFPv(void*, M2C_UNK);
 void *TPhotonMylla__sub_80154CB4(u16);
 
 extern u16 lbl_805D271C;
@@ -17,7 +17,7 @@ void set_grabbed_state__10TObjPlayerFi(s32 arg0) {
 
     temp_r3 = TPhotonMylla__sub_80154CB4(lbl_805D271C);
     if ((temp_r3 != NULL) && ((s16) M2C_FIELD(temp_r3, s16 *, 0x326) != 0xA)) {
-        TObjEneMe1GiGue__sub_80040B3C(temp_r3, 0xA);
+        update_if_active__15TObjEneMe1GiGueFPv(temp_r3, 0xA);
         M2C_FIELD(temp_r3, s32 *, 0x3C4) = arg0;
     }
 }

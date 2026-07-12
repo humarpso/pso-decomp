@@ -4,7 +4,7 @@ extern "C" {
 
 void TObjPlayer__sub_80181B60(void);
 void dispatch_lobby_action__10TObjPlayerFi(s32 arg0);
-s32 TLobby__sub_80181AE8(s32);
+s32 process_lobby_action_14__6TLobbyFPv(s32);
 s32 TObjPlayer__sub_80181BAC(s32);
 s32 fn_80181E10();
 
@@ -14,7 +14,7 @@ void dispatch_lobby_action__10TObjPlayerFi(s32 arg0) {
         TObjPlayer__sub_80181BAC(arg0);
         return;
     }
-    TLobby__sub_80181AE8(arg0);
+    process_lobby_action_14__6TLobbyFPv(arg0);
 }
 
 }

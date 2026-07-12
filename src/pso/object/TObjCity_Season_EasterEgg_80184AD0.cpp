@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjCity_Season_EasterEgg__sub_80184AD0(void *arg0, s16 arg1);
+void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 arg1);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_80156990(void *, M2C_UNK);
@@ -14,7 +14,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 
 extern M2C_UNK lbl_804B5E48[];
 
-void *TObjCity_Season_EasterEgg__sub_80184AD0(void *arg0, s16 arg1) {
+void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         u32 var_r0;
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5E48;

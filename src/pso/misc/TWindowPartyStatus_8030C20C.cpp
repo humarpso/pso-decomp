@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__18TWindowPartyStatusFv(s32 arg0);
 M2C_UNK TWindowComCard__sub_8026F9F4(void *, int);
-M2C_UNK TWindowDD__sub_8024664C(void *);
+M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 s32 TWindowSubComCard__sub_8026CBB8(int);
 M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
 M2C_UNK draw__18TWindowPartyStatusFPv(void *);
@@ -22,7 +22,7 @@ void run_task__18TWindowPartyStatusFv(s32 arg0) {
     draw__18TWindowPartyStatusFPv((void *) (arg0));
     update_status_help_item((void *) (arg0));
     TWindowComCard__sub_8026F9F4((void *) (arg0), (int) (TWindowSubComCard__sub_8026CBB8((int) (0xAC))));
-    TWindowDD__sub_8024664C((void *) (arg0));
+    initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
     TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
     fn_8026FDC0((void *) (arg0));

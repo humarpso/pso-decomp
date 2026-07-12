@@ -9,7 +9,7 @@ void *dt__25TObjCity_Season_SonicAdv2FPvs(void *arg0, s16 arg1);
 void *TObjCity_Season_SonicAdv2__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-void TObjCity_Season_EasterEgg__sub_80184AD0(void *, int);
+void destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *, int);
 
 extern void *tl_05;
 
@@ -26,7 +26,7 @@ extern M2C_UNK lbl_804B5CC4[];
 void *dt__25TObjCity_Season_SonicAdv2FPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5CC4;
-        TObjCity_Season_EasterEgg__sub_80184AD0(arg0, 0);
+        destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

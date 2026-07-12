@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TMCFormatSequence__sub_801F66BC(void *arg0);
-void TMCFormatSequence__sub_801F6750(void *arg0);
+void process_format_result__17TMCFormatSequenceFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
@@ -33,7 +33,7 @@ void TMCFormatSequence__sub_801F66BC(void *arg0) {
     }
 }
 
-void TMCFormatSequence__sub_801F6750(void *arg0) {
+void process_format_result__17TMCFormatSequenceFPv(void *arg0) {
     s32 temp_r3;
 
     if (TAdPlayerLoadGC__sub_801E1E38(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {

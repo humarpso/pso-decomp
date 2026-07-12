@@ -10,7 +10,7 @@ void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TOKey__sub_80158534(void *, M2C_UNK);
+M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
 
 extern M2C_UNK __vt__17TOHangerMachine01[];
 
@@ -19,7 +19,7 @@ void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOHangerMachine01;
         TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
         TObjEneGibbles__sub_80156720(arg0);
-        TOKey__sub_80158534(arg0, 0);
+        destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -47,7 +47,7 @@ struct V_A : Base_A {
 
 extern "C" {
 
-s32 TObjEneEpsilon__sub_800B96D4(void *, f32);
+s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK fn_800B98C0(void *);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK, s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -70,7 +70,7 @@ void handle_event__19TObjEneBm9MericarolFPvi(void *arg0, s32 arg1) {
         fn_800B98C0(arg0);
         return;
     case 3:
-        if ((try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv() == 0) && (TObjEneEpsilon__sub_800B96D4(arg0, lbl_805DE73C) != 0)) {
+        if ((try_set_mode8_if_flag2__19TObjEneBm9MericarolFPv() == 0) && (update_linked_position__14TObjEneEpsilonFPv(arg0, lbl_805DE73C) != 0)) {
             TObjEneDD__sub_800BBA18(arg0, 3);
         }
     case 5:

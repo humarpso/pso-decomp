@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss8Dragon__sub_80064F2C(void);
-M2C_UNK TObjEneEpsilon__sub_800B96D4(f32);
+M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
 
 extern const f32 lbl_805D8EC8;
 
 void TBoss8Dragon__sub_80064F2C(void) {
-    TObjEneEpsilon__sub_800B96D4(lbl_805D8EC8);
+    update_linked_position__14TObjEneEpsilonFPv(lbl_805D8EC8);
 }
 
 }

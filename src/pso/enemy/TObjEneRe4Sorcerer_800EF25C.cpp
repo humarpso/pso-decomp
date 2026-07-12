@@ -8,14 +8,14 @@ extern "C" {
 
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3E8) == 0) {
-        TOTrapAncient01__sub_80226578(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003A812), arg0, arg0 + 0x38, 0, 0);
+        TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003A812), arg0, arg0 + 0x38, 0, 0);
         return;
     }
-    TOTrapAncient01__sub_80226578(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003AB13), arg0, arg0 + 0x38, 0, 0);
+    TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AB13), arg0, arg0 + 0x38, 0, 0);
 }
 
 }

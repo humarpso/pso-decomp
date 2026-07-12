@@ -13,7 +13,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TParticleCtrl__sub_80088010(void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -149,7 +149,7 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         }
         ((TObj *)arg0)->v100();
         ((TObj *)arg0)->v87();
-        TOTrapAncient01__sub_80226578(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003AD0F), arg0, arg0 + 0x38, 0, 0);
+        TOTrapAncient01__sub_80226578(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD0F), arg0, arg0 + 0x38, 0, 0);
         return;
     case 5:
         if ((u32) M2C_FIELD(arg0, u32 *, 0x4C4) != 0U) {

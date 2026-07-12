@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void apply_fall_damage_flag__10TObjPlayerFi(s32 arg0);
-M2C_UNK TObjEneMe1GiGue__sub_80040B3C(s32, M2C_UNK);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(s32, M2C_UNK);
 f32 fn_8013157C(s32, s32);
 
 extern f32 lbl_805D9988;
@@ -20,7 +20,7 @@ void apply_fall_damage_flag__10TObjPlayerFi(s32 arg0) {
     } else {
         var_r4 = 0;
     }
-    TObjEneMe1GiGue__sub_80040B3C(arg0, var_r4);
+    update_if_active__15TObjEneMe1GiGueFPv(arg0, var_r4);
 }
 
 }

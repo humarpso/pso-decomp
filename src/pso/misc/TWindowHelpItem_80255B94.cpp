@@ -13,8 +13,8 @@ M2C_UNK TWindowHelpItem__sub_80255440(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 void __dl__7TObjectFPv(void *);
 s32 fn_80244994(void *);
-M2C_UNK TWindowDD__sub_8024664C(void *);
-void TWindowDD__sub_80246674(void *, int);
+M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
 M2C_UNK fn_80263A20(void *, s16);
 M2C_UNK fn_8026C9C8(s32);
@@ -35,7 +35,7 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
         }
         TWindowHelpItem__sub_802553F8(arg0);
     }
-    TWindowDD__sub_8024664C(arg0);
+    initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
     TWindowSubStatusDisp__sub_80257C28(arg0, arg0 + 0x24);
     if (!(M2C_FIELD(arg0, u8 *, 0x60) & 8)) {
@@ -49,7 +49,7 @@ void *TWindowHelpItem__sub_80255C64(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CF8B0;
         fn_8026CB08(M2C_FIELD(arg0, void **, 0x64), 1);
-        TWindowDD__sub_80246674(arg0, 0);
+        destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -8,7 +8,7 @@ extern "C" {
 
 void *TObjItemNameEntry__ct(void *arg0);
 u32 TKeyBoardControl__ct(void *, void *, M2C_UNK, M2C_UNK, M2C_UNK, s32);
-M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TQuestThread__sub_801F64BC(u32);
 M2C_UNK __ct__7TObjectFP7TObject();
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -45,7 +45,7 @@ void *TObjItemNameEntry__ct(void *arg0) {
     }
     M2C_FIELD(arg0, u32 *, 0x20) = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x56), 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
-        TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x20), TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x20), TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
     }
     TWindowSubComCard__sub_80265DEC(M2C_FIELD(arg0, u32 *, 0x20), lbl_805DC4EC, lbl_805DC4F0);
     TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0x20));

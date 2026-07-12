@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_status_disp__14TWindowComCardFi(s32 arg0);
-s32 TWindowDD__sub_80244CF4();
+s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
 
 void update_status_disp__14TWindowComCardFi(s32 arg0) {
-    M2C_UNK8 *tmp = (M2C_UNK8 *)TWindowDD__sub_80244CF4();
+    M2C_UNK8 *tmp = (M2C_UNK8 *)draw_default_entry__9TWindowDDFi();
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, (s32)tmp);
 }
 

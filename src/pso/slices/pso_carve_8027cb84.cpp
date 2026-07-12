@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_split_screen();
-s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
-M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 fn_8026652C(s32, M2C_UNK, s32, s32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 extern const f32 lbl_805DD688;
@@ -21,16 +21,16 @@ extern const f32 lbl_805DD688;
 s32 create_option_menu_window(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = fn_8026652C(TWindowSubComCard__sub_8026CBB8(0x15), 6, TWindowSubStatusDisp__sub_80077760(0x2A), M2C_FIELD(arg0, s32 *, 0x20));
+    temp_r31 = fn_8026652C(TWindowSubComCard__sub_8026CBB8(0x15), 6, get_message_10__20TWindowSubStatusDispFPv(0x2A), M2C_FIELD(arg0, s32 *, 0x20));
     if (is_split_screen() == 0) {
-        TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x66), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x66), 6, 0);
     }
-    TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x67), 6, 1);
-    TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x68), 6, 2);
-    TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x69), 6, 3);
-    TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x6A), 6, 4);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x67), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x68), 6, 2);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x69), 6, 3);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x6A), 6, 4);
     if (is_split_screen() == 0) {
-        TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x6E), 6, 5);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x6E), 6, 5);
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD688);

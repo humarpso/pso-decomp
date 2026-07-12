@@ -8,14 +8,14 @@ s32 bswap_16__FPUs(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
 s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 alloc__22TQuestVmDownLoadServerFPv();
-s32 TScene__sub_800F9D80();
+s32 update_lobby_scene__6TSceneFPv();
 s32 TLobby__sub_800F9DF4(s32, s32);
 s32 rebuild_all__6TLobbyFi(s32);
 
 void refresh_quest_list__6TLobbyFi(s32 arg0) {
     s32 temp_r3;
 
-    if (TScene__sub_800F9D80() >= 0) {
+    if (update_lobby_scene__6TSceneFPv() >= 0) {
         temp_r3 = alloc__22TQuestVmDownLoadServerFPv();
         if (temp_r3 != 0) {
             TLobby__sub_800F9DF4(arg0, temp_r3);

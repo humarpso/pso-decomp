@@ -13,7 +13,7 @@ u8 *TPhotonMylla__sub_80154CB4(u16);
 f64 TObjPlayer__sub_80019760(f32, f32, f32);
 int TObjEnePanarms__sub_8002AE74(void*, int);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
-M2C_UNK TObjEnePanarms__sub_800F5EB4(void *, M2C_UNK);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
@@ -35,7 +35,7 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3B4) = temp_r0;
     if (temp_r0 == 0) {
         TObjEnePanarms__sub_800E1608(arg0, M2C_FIELD(arg0, s32 *, 0x3B8));
-        TBoss3Volopt__sub_8022675C(TObjEnePanarms__sub_800F5EB4(arg0, 0x4003B72F), arg0 + 0x38, 0, 0);
+        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B72F), arg0 + 0x38, 0, 0);
     }
     if (M2C_FIELD(arg0, f32 *, 0xC0) < TObjEnePanarms__data_805DA544) {
         temp_f3 = M2C_FIELD(temp_r3, f32 *, 0x38);

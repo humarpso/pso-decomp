@@ -4,9 +4,9 @@ extern "C" {
 
 void run_task__17TWindowChatSymbolFv(void* p);
 int update_fade__17TWindowSubComCardFPv(void*);
-int TWindowDD__sub_8024664C(void*);
+int initialize_subwindow__9TWindowDDFPv(void*);
 int TWindowSubStatusDisp__sub_80257C28(void*, void*);
 
-void run_task__17TWindowChatSymbolFv(void* p) { TWindowDD__sub_8024664C(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
+void run_task__17TWindowChatSymbolFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
 
 }

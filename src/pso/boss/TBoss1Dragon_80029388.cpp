@@ -8,7 +8,7 @@ extern "C" {
 
 void calc_target_vector__12TBoss1DragonFPv(u8 *arg0);
 void TBoss1Dragon__sub_800293E4(void);
-M2C_UNK TObjEneEpsilon__sub_800B96D4(f32);
+M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, f32, f32);
 
 extern const f32 TBoss1Dragon__data_805D7F28;
@@ -28,7 +28,7 @@ void calc_target_vector__12TBoss1DragonFPv(u8 *arg0) {
 extern const f32 lbl_805D7F30;
 
 void TBoss1Dragon__sub_800293E4(void) {
-    TObjEneEpsilon__sub_800B96D4(lbl_805D7F30);
+    update_linked_position__14TObjEneEpsilonFPv(lbl_805D7F30);
 }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 void open_menu_window__6TLobbyFv(void);
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 s32 TLobby__sub_8013A14C(M2C_UNK);
-M2C_UNK TObjCityMainWarp__sub_80266354(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TCheckRoomSequence__sub_8013AD28(s32);
 M2C_UNK TWindowSubComCard__sub_80265C10(s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
@@ -29,8 +29,8 @@ void open_menu_window__6TLobbyFv(void) {
     }
     TLobby__sub_8013990C(0x11);
     lbl_805D55E8 = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0xB6), 2);
-    TObjCityMainWarp__sub_80266354(lbl_805D55E8, TLobby__sub_8013A14C(0x45), 6, 0);
-    TObjCityMainWarp__sub_80266354(lbl_805D55E8, TLobby__sub_8013A14C(0x46), 6, 1);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E8, TLobby__sub_8013A14C(0x45), 6, 0);
+    forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E8, TLobby__sub_8013A14C(0x46), 6, 1);
     TWindowSubComCard__sub_80265F60(lbl_805D55E8);
     TWindowSubComCard__sub_80265C30(lbl_805D55E8);
     TCheckRoomSequence__sub_8013AD28(lbl_805D55E8);

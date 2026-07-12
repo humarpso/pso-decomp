@@ -13,7 +13,7 @@ extern u32 lbl_805D660C;
 extern u32 lbl_805D6610;
 extern u32 lbl_805D6614;
 
-void fn_8029FE94(void) {
+void TLobby__sub_8029FE94(void) {
     if ((u32) lbl_805D6614 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D6614);
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D6614);

@@ -10,7 +10,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0);
 s32 TOKeyMachine01__sub_802034A8();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 TScene__sub_800F9D80(char *);
+s32 update_lobby_scene__6TSceneFPv(char *);
 M2C_UNK TLobby__sub_800F9DF4(char *, u32);
 M2C_UNK TLobby__sub_801317E4(char *, s32, const char *);
 
@@ -32,11 +32,11 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
     lbl_805D6018 = 0;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         TLobby__sub_801317E4(sp8, arg0, lbl_8044A9A4);
-        var_r30 = TScene__sub_800F9D80(sp8);
+        var_r30 = update_lobby_scene__6TSceneFPv(sp8);
     }
     if (var_r30 <= 0) {
         TLobby__sub_801317E4(sp8, arg0, lbl_8044A940);
-        var_r30 = TScene__sub_800F9D80(sp8);
+        var_r30 = update_lobby_scene__6TSceneFPv(sp8);
     }
     if (temp_r31 == 0xF) {
         if ((var_r30 > 0) && ((u32) var_r30 <= 0x100U)) {

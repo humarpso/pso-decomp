@@ -12,8 +12,8 @@ s32 TKeyBoardControl__sub_80131FAC(void *);
 s32 TWindowKeyBoardHard__sub_80260444();
 void __dl__7TObjectFPv(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
-M2C_UNK TWindowDD__sub_8024664C(void *);
-void TWindowDD__sub_80246674(void *, int);
+M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK TWindowKeyBoardHard__sub_8025CC48(void *);
 s32 TKeyBoardControl__sub_8025EC54(void *);
 M2C_UNK TKeyBoardControl__sub_8025FBE8(void *);
@@ -45,7 +45,7 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0) {
         if (temp_r3_2 > 0) {
             M2C_FIELD(arg0, s32 *, 0x68) = (s32) (temp_r3_2 - 1);
         }
-        TWindowDD__sub_8024664C(arg0);
+        initialize_subwindow__9TWindowDDFPv(arg0);
         update_fade__17TWindowSubComCardFPv(arg0);
     }
 }
@@ -55,7 +55,7 @@ extern M2C_UNK __vt__19TWindowKeyBoardHard[];
 void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowKeyBoardHard;
-        TWindowDD__sub_80246674(arg0, 0);
+        destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
