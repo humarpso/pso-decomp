@@ -15,8 +15,8 @@ struct VObj_800D7E10 : Base_800D7E10 {
 extern "C" {
 
 void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1);
-void *TDeadSpot__sub_800D7DCC(void *arg0);
-void TDeadSpot__sub_800D7E10(void *arg0);
+void *init__9TDeadSpotFPv(void *arg0);
+void update_lifetime__9TDeadSpotFPv(void *arg0);
 void TDeadSpot__sub_800D7F08(void *, int);
 void TDeadSpot__sub_800D7F60(void *);
 void __dl__7TObjectFPv(void *);
@@ -38,14 +38,14 @@ void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804949D8[];
 
-void *TDeadSpot__sub_800D7DCC(void *arg0) {
+void *init__9TDeadSpotFPv(void *arg0) {
     TDeadSpot__sub_800D7F60(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804949D8;
     M2C_FIELD(arg0, u32 *, 0x30) = 8;
     return arg0;
 }
 
-void TDeadSpot__sub_800D7E10(void *arg0) {
+void update_lifetime__9TDeadSpotFPv(void *arg0) {
     u32 tmp34 = M2C_FIELD(arg0, u32 *, 0x34);
     if ((tmp34 == 0U) || (all_parents_unqueued_for_destruction__7TObjectFv(tmp34) == 0)) {
         queue_destruction__7TObjectFv(arg0);

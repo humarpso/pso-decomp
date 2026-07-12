@@ -13,7 +13,7 @@ struct VObj1_80166568 : Base1_80166568 {
 extern "C" {
 
 void explode__18TOExplosiveMachineFPv(u8 *arg0);
-void TOExplosiveMachine__sub_801665DC(void);
+void destroy_static_lobby__18TOExplosiveMachineFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
@@ -36,7 +36,7 @@ void explode__18TOExplosiveMachineFPv(u8 *arg0) {
 
 extern u32 lbl_805D59A8;
 
-void TOExplosiveMachine__sub_801665DC(void) {
+void destroy_static_lobby__18TOExplosiveMachineFv(void) {
     if ((u32) lbl_805D59A8 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D59A8, 1);
         lbl_805D59A8 = 0U;

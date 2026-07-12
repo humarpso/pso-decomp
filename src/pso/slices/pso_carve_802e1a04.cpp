@@ -9,7 +9,7 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(s32 a0 = 0, s32 a1 = 0);
 s32 fn_8023F18C(void);
 s32 fn_8023F160(void);
-s32 TAdMultiChgGameModeGC__sub_8023ED04(void);
+s32 init_change_mode__21TAdMultiChgGameModeGCFv(void);
 s32 TLobby__sub_80226328(void);
 s32 TLobby__sub_802261E0(s16 a0 = 0);
 s32 TLobby__sub_8022614C(s32 a0 = 0);

@@ -31,7 +31,7 @@ void* get_item_pmt_record__10TObjPlayerFii(int type, int id) {
     return NULL;
 }
 
-void* TObjPlayer__sub_8011CCD8(int type, int id) {
+void* get_pmt_record_by_type_id__10TObjPlayerFii(int type, int id) {
     char* cat = *(char**)((char*)item_pmt_tbl + 0x0C);
     if (type < 24) {
         PmtSub* s = (PmtSub*)(cat + type * 8);
@@ -42,7 +42,7 @@ void* TObjPlayer__sub_8011CCD8(int type, int id) {
     return *(void**)(cat + 196);
 }
 
-void* TObjPlayer__sub_8011CD14(int i) {
+void* get_pmt_record_by_index__10TObjPlayerFi(int i) {
     PmtSub* c = *(PmtSub**)((char*)item_pmt_tbl + 0x08);
     if (i < c->count) {
         return &c->records[i * 0x10];

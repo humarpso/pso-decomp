@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TEndingAB__sub_8008C9FC(void *arg0);
+void advance_fade_sequence__9TEndingABFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8001A808(s32);
 
 extern s32 TEndingAB__data_805D4F10;
 
-void TEndingAB__sub_8008C9FC(void *arg0) {
+void advance_fade_sequence__9TEndingABFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;

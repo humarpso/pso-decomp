@@ -6,7 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_8035A934(void *arg0, void *arg1) {
+void calc_world_position__15TBoss7LaserPtclFPvPv(void *arg0, void *arg1);
+
+void calc_world_position__15TBoss7LaserPtclFPvPv(void *arg0, void *arg1) {
     if (arg1 != NULL) {
         M2C_FIELD(arg1, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + M2C_FIELD(arg0, f32 *, 0x38));
         M2C_FIELD(arg1, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) + M2C_FIELD(arg0, f32 *, 0x3C));

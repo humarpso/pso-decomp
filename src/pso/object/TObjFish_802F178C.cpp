@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80071654(u16);
+void spawn_default_particle__8TObjFishFv(void);
+M2C_UNK spawn_particle__8TObjFishFiif(f32);
 
-s32 fn_800717B0(u16 *arg0) {
-    if (arg0 == NULL) {
-        return -1;
-    }
-    return TLobby__sub_80071654(*arg0);
+extern const f32 lbl_805DEC90;
+
+void spawn_default_particle__8TObjFishFv(void) {
+    spawn_particle__8TObjFishFiif(lbl_805DEC90);
 }
 
 }

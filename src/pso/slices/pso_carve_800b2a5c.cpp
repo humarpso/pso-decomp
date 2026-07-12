@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TObjEneBm3FlyNest__sub_800B2A14(void* p);
+int init__17TObjEneBm3FlyNestFPv(void* p);
 int TObjEneBm3FlyNest__sub_800B2A34(void* p);
 void* TObjEneBm3FlyNest__sub_800B2A54(void* p);
 int init_params__17TObjEneBm3FlyNestFPv(void*);

@@ -8,7 +8,7 @@ extern "C" {
 
 void enter_state_4__10TObjPlayerFPv(u8 *arg0);
 void update_invuln_timer__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_800C055C(void *arg0);
+void set_action_state_3__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
@@ -60,7 +60,7 @@ void update_invuln_timer__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_800C055C(void *arg0) {
+void set_action_state_3__10TObjPlayerFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) {
         M2C_FIELD(arg0, s16 *, 0x326) = 3;
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;

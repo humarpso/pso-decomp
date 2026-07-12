@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *fn_80213D84(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_80211F54(void *arg0) {
+void *create_lobby_object_05(void *arg0) {
     void *o = __nw__7TObjectFUl(0x40);
     if (o != NULL) {
         o = fn_80213D84(o, tl_05, arg0);

@@ -6,14 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8033EAF0(s32);
+void free_indexed_entry__10TObjPlayerFPv(void *arg0);
+M2C_UNK TObjPlayer__sub_8033EAF0(s32);
 
-void fn_8033EAB8(void *arg0) {
+void free_indexed_entry__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
     if (temp_r0 < 0x10) {
-        fn_8033EAF0(M2C_FIELD(arg0, s32 *, 0x1C) + (temp_r0 * 0x24));
+        TObjPlayer__sub_8033EAF0(M2C_FIELD(arg0, s32 *, 0x1C) + (temp_r0 * 0x24));
     }
 }
 

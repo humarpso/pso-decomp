@@ -4,10 +4,10 @@ extern "C" {
 
 void set_flag_40000__6TLobbyFPv(void *arg0);
 int check_flag_24576__6TLobbyFPv(void* p);
-int fn_801F3384(void* p);
-int fn_801F33A8(void* p);
-int fn_801F33CC(void* p);
-int fn_801F33F0(void* p);
+int TLobby__sub_801F3384(void* p);
+int TLobby__sub_801F33A8(void* p);
+int TLobby__sub_801F33CC(void* p);
+int TLobby__sub_801F33F0(void* p);
 int test_flag_16__6TLobbyFPv(void* p);
 int set_flag_4__6TLobbyFPv(void* p);
 int fn_801F345C(void* p);
@@ -26,17 +26,17 @@ void set_flag_80000__6TLobbyFi(s32 arg0) {
 void set_flag_40000__6TLobbyFPv(void *arg0) {
     TLobby__sub_800822E8(arg0, 0x40000);
 }
-void fn_801F3314(s32 arg0) {
+void TLobby__sub_801F3314(s32 arg0) {
     TLobby__sub_800822E8((void*)(arg0), 0x10000);
 }
 void set_flag_8000__6TLobbyFi(s32 arg0) {
     TLobby__sub_800822E8((void*)(arg0), 0x8000);
 }
 int check_flag_24576__6TLobbyFPv(void* p) { return TLobby__sub_800822E8(p, 24576); }
-int fn_801F3384(void* p) { return TLobby__sub_800822E8(p, 1024); }
-int fn_801F33A8(void* p) { return TLobby__sub_800822E8(p, 512); }
-int fn_801F33CC(void* p) { return TLobby__sub_800822E8(p, 256); }
-int fn_801F33F0(void* p) { return TLobby__sub_800822E8(p, 224); }
+int TLobby__sub_801F3384(void* p) { return TLobby__sub_800822E8(p, 1024); }
+int TLobby__sub_801F33A8(void* p) { return TLobby__sub_800822E8(p, 512); }
+int TLobby__sub_801F33CC(void* p) { return TLobby__sub_800822E8(p, 256); }
+int TLobby__sub_801F33F0(void* p) { return TLobby__sub_800822E8(p, 224); }
 int test_flag_16__6TLobbyFPv(void* p) { return TLobby__sub_800822E8(p, 16); }
 int set_flag_4__6TLobbyFPv(void* p) { return TLobby__sub_800822E8(p, 4); }
 int fn_801F345C(void* p) { return TLobby__sub_800822E8(p, 2); }

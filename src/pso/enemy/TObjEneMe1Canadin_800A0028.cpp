@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_800A0028(u8 *arg0);
+void spawn_periodic_effect__17TObjEneMe1CanadinFPv(u8 *arg0);
 void *TObjEneMe1Canadin__sub_800A00A8(void *arg0, s16 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 void __dl__7TObjectFPv(void *);
@@ -14,7 +14,7 @@ void __dt__7TObjectFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_800A02AC(void *, s32, void *, void *);
 
-void TObjEneMe1Canadin__sub_800A0028(u8 *arg0) {
+void spawn_periodic_effect__17TObjEneMe1CanadinFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, M2C_FIELD(arg0, s32 *, 0x20));
     VecCopy__FP3VecPC3Vec(arg0 + 0x34, M2C_FIELD(arg0, s32 *, 0x24));
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);

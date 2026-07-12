@@ -10,7 +10,7 @@ void cleanup_game_objects__9TMainTaskFv(void);
 M2C_UNK TEnding__sub_8008C9F8();
 M2C_UNK TItemDisconnectCtrl__ct();
 M2C_UNK TItemDrop__sub_8010643C();
-M2C_UNK TItemLoad__sub_8011070C();
+M2C_UNK create__9TItemLoadFv();
 M2C_UNK TLobby__sub_80103B70(s32);
 M2C_UNK TLobby__sub_80103F5C();
 s32 TOKeyMachine01__sub_802034A8();
@@ -33,7 +33,7 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     s32 temp_r31;
 
     TEnding__sub_8008C9F8();
-    TItemLoad__sub_8011070C();
+    create__9TItemLoadFv();
     spawn_cleanup_helper__10TObjPlayerFPv(tl_particlemodel);
     fn_80363CA0(tl_item_equip);
     temp_r30 = get_main_phase();

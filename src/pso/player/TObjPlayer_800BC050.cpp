@@ -14,9 +14,9 @@ struct VObj800BC050_800bc050 : VPad800BC050_800bc050 {
 
 extern "C" {
 
-void TObjPlayer__sub_800BC050(void *arg0, void *arg1);
+void dispatch_vt15__10TObjPlayerFPvPv(void *arg0, void *arg1);
 
-void TObjPlayer__sub_800BC050(void *arg0, void *arg1) {
+void dispatch_vt15__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     ((VObj800BC050_800bc050*)arg0)->m15(arg1, 0);
 }
 

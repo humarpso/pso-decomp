@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 compare_version__6TLobbyFPvPv(void *arg0, void *arg1);
-s32 TLobby__sub_80223150(void *arg0, void *arg1);
+s32 compare_greater__6TLobbyFPvPv(void *arg0, void *arg1);
 u32 TLobby__sub_8022318C(u8 *arg0, u8 *arg1);
 
 s32 compare_version__6TLobbyFPvPv(void *arg0, void *arg1) {
@@ -36,7 +36,7 @@ s32 compare_version__6TLobbyFPvPv(void *arg0, void *arg1) {
     return 0;
 }
 
-s32 TLobby__sub_80223150(void *arg0, void *arg1) {
+s32 compare_greater__6TLobbyFPvPv(void *arg0, void *arg1) {
     u8 temp_r0;
     u8 temp_r5;
 

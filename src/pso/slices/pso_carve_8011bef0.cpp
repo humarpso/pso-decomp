@@ -10,7 +10,7 @@ M2C_UNK TItemShootParticle__sub_8011B704(s32, M2C_UNK, M2C_UNK);
 s32 spawn_shoot_particle__10TObjPlayerFUiiif();
 M2C_UNK fn_8011BFA0(s32, M2C_UNK);
 
-s32 fn_8011BEF0(void) {
+s32 spawn_shoot_particle_9f(void) {
     s32 temp_r3;
 
     temp_r3 = spawn_shoot_particle__10TObjPlayerFUiiif();

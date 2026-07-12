@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK allow_rendering__7TObjectFv(void *);
-f32 fn_801A5228(s16);
+f32 TWindowSubStatusDisp__sub_801A5228(s16);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DCAD4;
 
@@ -23,7 +23,7 @@ void window_request_show(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (temp_r3 | 4);
         return;
     }
-    if (fn_801A5228(M2C_FIELD(arg0, s16 *, 0x20)) > lbl_805DCAD4) {
+    if (TWindowSubStatusDisp__sub_801A5228(M2C_FIELD(arg0, s16 *, 0x20)) > lbl_805DCAD4) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0;
     }
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 3);

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BF034(void* p);
-void TBoss6Type2__sub_802BF064(void *arg0);
+void check_state_0x460_eq4__11TBoss6Type2FPv(void* p);
+void init_timer__11TBoss6Type2FPv(void *arg0);
 void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0);
-void TBoss6Type2__sub_802BF234(void* p);
+void update_state_34__11TBoss6Type2FPv(void* p);
 void init_attack_timers__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TBoss6Type2__sub_802B9BBC(void *, M2C_UNK);
@@ -22,14 +22,14 @@ M2C_UNK TBoss6Type2__sub_802BC6DC(void *);
 M2C_UNK TBoss6Type2__sub_802BD014(void *, M2C_UNK);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 
-void TBoss6Type2__sub_802BF034(void* p) { if (*(int*)((char*)p + 0x460) == 4) { TBoss6Type2__sub_802BAFEC(p, (void*)0); } }
+void check_state_0x460_eq4__11TBoss6Type2FPv(void* p) { if (*(int*)((char*)p + 0x460) == 4) { TBoss6Type2__sub_802BAFEC(p, (void*)0); } }
 
 extern s32 lbl_805D6760;
 extern u8 lbl_805D6764;
 extern f32 lbl_805DE3FC;
 extern f32 lbl_805DE4DC;
 
-void TBoss6Type2__sub_802BF064(void *arg0) {
+void init_timer__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
     if ((s8) lbl_805D6764 == 0) {
         lbl_805D6764 = 1;
@@ -87,7 +87,7 @@ void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0) {
     }
 }
 
-void TBoss6Type2__sub_802BF234(void* p) { if (*(int*)((char*)p + 0x460) == 34) { TBoss6Type2__sub_802BAFEC(p, (void*)0); } }
+void update_state_34__11TBoss6Type2FPv(void* p) { if (*(int*)((char*)p + 0x460) == 34) { TBoss6Type2__sub_802BAFEC(p, (void*)0); } }
 
 void init_attack_timers__11TBoss6Type2FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x45C) = 0xB4;

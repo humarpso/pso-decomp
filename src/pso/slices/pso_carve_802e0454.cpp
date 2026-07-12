@@ -3,9 +3,9 @@
 extern "C" {
 
 void TAdMultiConfirmGC__sub_802E03D0(void* p);
-int TAdMultiConfirmGC__sub_802E03DC(void* p);
-int TAdMultiConfirmGC__sub_802E0400(void* p);
-int TAdMultiConfirmGC__sub_802E0424(void* p);
+int set_cursor_index_2__17TAdMultiConfirmGCFPv(void* p);
+int set_cursor_index_1__17TAdMultiConfirmGCFPv(void* p);
+int reset_cursor__17TAdMultiConfirmGCFPv(void* p);
 void TAdMultiConfirmGC__sub_802E0448(void* p);
 int set_cursor_index__17TAdMultiConfirmGCFPvi(void*, int);
 

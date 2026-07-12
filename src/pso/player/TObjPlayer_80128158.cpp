@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80128158(void *arg0);
+void ramp_up_field200__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80128188(void* p);
 int TBoss7Tentacle__sub_803D9BA0(void*);
 int TObjPlayer__sub_80121200(void*);
@@ -14,7 +14,7 @@ int TObjPlayer__sub_80121200(void*);
 extern const f32 lbl_805DADE4;
 extern const f32 lbl_805DADE8;
 
-void TObjPlayer__sub_80128158(void *arg0) {
+void ramp_up_field200__10TObjPlayerFPv(void *arg0) {
     f32 temp_f2;
 
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x200);

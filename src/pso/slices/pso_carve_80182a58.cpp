@@ -28,7 +28,7 @@ struct VObj_80182A58 : Base_80182A58 {
 
 extern "C" {
 
-void TObjPlayer__sub_80182A58(void *arg0) {
+void check_ground_or_fall__10TObjPlayerFPv(void *arg0) {
     void *temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, void **, 0xB8);

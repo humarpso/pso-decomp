@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdMultiChgGameModeGC__sub_8023EAC4(void);
-void TAdMultiChgGameModeGC__sub_8023EAF4(void);
-void TAdMultiChgGameModeGC__sub_8023EB24(void);
-void TAdMultiChgGameModeGC__sub_8023EB54(void);
+void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void);
+void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void);
+void set_state_0xc__21TAdMultiChgGameModeGCFv(void);
 void TAdMultiChgGameModeGC__sub_8023EB84(void);
 M2C_UNK TAdMultiChgGameModeGC__sub_8023F654();
 
@@ -25,7 +25,7 @@ void TAdMultiChgGameModeGC__sub_8023EAC4(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023EAF4(void) {
+void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 0xE;
     lbl_805D63C8 = 1;
@@ -34,7 +34,7 @@ void TAdMultiChgGameModeGC__sub_8023EAF4(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023EB24(void) {
+void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 0xD;
     lbl_805D63C8 = 1;
@@ -43,7 +43,7 @@ void TAdMultiChgGameModeGC__sub_8023EB24(void) {
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
-void TAdMultiChgGameModeGC__sub_8023EB54(void) {
+void set_state_0xc__21TAdMultiChgGameModeGCFv(void) {
     TAdMultiChgGameModeGC__sub_8023F654();
     lbl_805D3848 = 0xC;
     lbl_805D63C8 = 1;

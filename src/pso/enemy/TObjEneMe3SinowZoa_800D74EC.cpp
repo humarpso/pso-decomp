@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe3SinowZoa__sub_800D74EC(void *arg0, s32 arg1);
+void set_speed_scale__18TObjEneMe3SinowZoaFPvi(void *arg0, s32 arg1);
 
 extern const f64 lbl_8043C6F8;
 extern const f32 lbl_805DA34C;
 
-void TObjEneMe3SinowZoa__sub_800D74EC(void *arg0, s32 arg1) {
+void set_speed_scale__18TObjEneMe3SinowZoaFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x10) = (f32) (lbl_805DA34C / (f32) arg1);
 }
 

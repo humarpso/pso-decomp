@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int fn_802A2D6C(void*);
+int create_ch_cr_tag_occ_header(void*);
 void fn_802A2DB8(void);
 
-void fn_802A2DB8(void) { { int i; for (i = 0; i < 15; i++) { fn_802A2D6C((void*)i); } } }
+void fn_802A2DB8(void) { { int i; for (i = 0; i < 15; i++) { create_ch_cr_tag_occ_header((void*)i); } } }
 
 }

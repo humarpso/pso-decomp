@@ -6,18 +6,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK *fn_80071820(s32);
+s32 get_status_index_or_default__20TWindowSubStatusDispFPv(u16 *arg0);
+M2C_UNK *TWindowSubStatusDisp__sub_800717E4(int arg0);
+s32 TLobby__sub_80071654(u16);
+M2C_UNK *TWindowSubStatusDisp__sub_80071820(s32);
 u32 get_card_window__17TWindowSubComCardFUi(u16);
+
+s32 get_status_index_or_default__20TWindowSubStatusDispFPv(u16 *arg0) {
+    if (arg0 == NULL) {
+        return -1;
+    }
+    return TLobby__sub_80071654(*arg0);
+}
+
 extern M2C_UNK lbl_805D285C;
 
-M2C_UNK *fn_800717E4(int arg0) {
+M2C_UNK *TWindowSubStatusDisp__sub_800717E4(int arg0) {
     u32 temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi(arg0);
     if (temp_r3 == 0U) {
         return &lbl_805D285C;
     }
-    return fn_80071820(temp_r3 + 0x21C4);
+    return TWindowSubStatusDisp__sub_80071820(temp_r3 + 0x21C4);
 }
 
 }

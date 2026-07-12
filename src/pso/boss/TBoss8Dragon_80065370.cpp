@@ -3,13 +3,6 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-M2C_UNK set_animation_by_state__12TBoss8DragonFPv();
-
-}
-
 struct Base_80065370 { char pad[0x18]; };
 struct VObj_80065370 : Base_80065370 {
     virtual void v0();
@@ -102,7 +95,10 @@ struct VObj_80065370 : Base_80065370 {
 
 extern "C" {
 
-void fn_80065370(struct VObj_80065370 *obj) {
+void TBoss8Dragon__sub_80065370(struct VObj_80065370 *obj);
+M2C_UNK set_animation_by_state__12TBoss8DragonFPv();
+
+void TBoss8Dragon__sub_80065370(struct VObj_80065370 *obj) {
     if (!(M2C_FIELD(obj, s32 *, 0x4C0) & 0xC) && (M2C_FIELD(obj, s16 *, 0x32C) <= 0)) {
         set_animation_by_state__12TBoss8DragonFPv();
     } else {

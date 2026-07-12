@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TEndingPic__sub_80352BB8(void *arg0);
+void advance_animation_state__10TEndingPicFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8001A808(s32);
 
 extern s32 TEndingPic__data_805D6EE0;
 
-void TEndingPic__sub_80352BB8(void *arg0) {
+void advance_animation_state__10TEndingPicFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;

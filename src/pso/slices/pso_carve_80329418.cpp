@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TLobby__sub_803293C8(void* p);
+int is_invalid_state__6TLobbyFPv(void* p);
 int TLobby__sub_803293F0(void* p);
 int is_valid_state__6TLobbyFPvi(void*);
 int TLobby__sub_8032900C(void*);

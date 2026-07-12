@@ -9,13 +9,13 @@ extern "C" {
 void init_effect__15TObjBoss2TunnelFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_802F25AC(void *);
 M2C_UNK TObjBoss2Tunnel__sub_802F2664(void *, M2C_UNK *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjBoss2Tunnel__sub_802F2714();
+M2C_UNK advance_effect_timer__15TObjBoss2TunnelFPv();
 
 extern M2C_UNK lbl_804E49A0[];
 extern s32 lbl_805D6968;
 
 void init_effect__15TObjBoss2TunnelFPv(void *arg0) {
-    TObjBoss2Tunnel__sub_802F2714();
+    advance_effect_timer__15TObjBoss2TunnelFPv();
     TObjBoss2Tunnel__sub_802F2664(arg0, lbl_804E49A0, 0x1F, 0);
     if (lbl_805D6968 & 0x200) {
         lbl_805D6968 &= 0xFFFFFDFF;

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOChatSensor__sub_8015B1E0(void);
+void destroy_global__12TOChatSensorFv(void);
 void TLobby__sub_800F957C(void*);
 
 extern u32 lbl_805D58D4;
 
-void TOChatSensor__sub_8015B1E0(void) {
+void destroy_global__12TOChatSensorFv(void) {
     if ((u32) lbl_805D58D4 != 0U) {
         TLobby__sub_800F957C((void*)lbl_805D58D4);
         lbl_805D58D4 = 0U;

@@ -9,7 +9,7 @@ extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *p);
 M2C_UNK TWindowSubStatusDisp__sub_80258A28(s32, s32, s32);
 
-void fn_802670A8(void *arg0, s32 arg1, s32 arg2) {
+void push_status_disp_entry(void *arg0, s32 arg1, s32 arg2) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x72) < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
         TWindowSubStatusDisp__sub_80258A28(get_array_entry__20TWindowSubStatusDispFPvi(arg0), arg1, arg2);
         M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);

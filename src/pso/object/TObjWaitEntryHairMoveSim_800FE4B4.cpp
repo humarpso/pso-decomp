@@ -7,11 +7,11 @@ extern "C" {
 void * create__24TObjWaitEntryHairMoveSimFPv(void *arg0);
 void *construct__24TObjWaitEntryHairMoveSimFPvi(void *, void *);
 void *__nw__7TObjectFUl(int);
-int TObjWaitEntryHairMoveSim__sub_800FE300(void *);
+int is_move_done__24TObjWaitEntryHairMoveSimFv(void *);
 
 void * create__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
     void *o;
-    if (TObjWaitEntryHairMoveSim__sub_800FE300(arg0) == 0) {
+    if (is_move_done__24TObjWaitEntryHairMoveSimFv(arg0) == 0) {
         return NULL;
     }
     o = __nw__7TObjectFUl(0x24);

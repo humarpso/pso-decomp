@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemLoad__sub_8010F52C(void);
+void free_all_models__9TItemLoadFv(void);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
 extern void *lbl_805D549C;
@@ -18,7 +18,7 @@ struct VObj_8010F52C : Base_8010F52C {
     virtual void m0(int);
 };
 
-void TItemLoad__sub_8010F52C(void) {
+void free_all_models__9TItemLoadFv(void) {
     free__11TOBoss4RockFUi(lbl_805D54A4);
     if (lbl_805D54A0 != NULL) {
         ((struct VObj_8010F52C *)lbl_805D54A0)->m0(1);

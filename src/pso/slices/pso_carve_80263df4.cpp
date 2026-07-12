@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_80263DBC(void *);
-s32 fn_80264A6C(s32);
+s32 test_keyboard_card_flag4(s32);
 
 void fn_80263DF4(void *arg0) {
-    if (fn_80264A6C(M2C_FIELD(arg0, s32 *, 0x54)) != 0) {
+    if (test_keyboard_card_flag4(M2C_FIELD(arg0, s32 *, 0x54)) != 0) {
         M2C_FIELD(arg0, s16 *, 0x52) = 0;
         return;
     }

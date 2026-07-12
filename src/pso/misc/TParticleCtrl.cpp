@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TParticleCtrl__sub_80086218(void *arg0);
+void mark_active__13TParticleCtrlFPv(void *arg0);
 M2C_UNK TParticleCtrl__sub_803280C8(M2C_UNK);
 
-void TParticleCtrl__sub_80086218(void *arg0) {
+void mark_active__13TParticleCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x24) = (u16) (M2C_FIELD(arg0, u16 *, 0x24) | 0x2000);
     TParticleCtrl__sub_803280C8(0x1F);
 }

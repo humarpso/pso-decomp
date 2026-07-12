@@ -8,7 +8,7 @@ extern void *tl_clipout;
 void *__nw__7TObjectFUl(int);
 void *__ct__14TObjWarpStringFv(void *, void *, void *, void *);
 
-void * fn_8019B42C(void *arg0, void *arg1) {
+void * create_TObjWarpString(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {

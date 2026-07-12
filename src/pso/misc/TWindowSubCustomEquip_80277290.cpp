@@ -6,13 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_801D6BC8(s32 *arg0) {
-    *arg0 -= 1;
-    if ((s32) *arg0 < 0) {
-        *arg0 = 0;
-        return 0;
-    }
-    return 1;
+s32 calc_equip_index__21TWindowSubCustomEquipFPv(void *arg0);
+
+s32 calc_equip_index__21TWindowSubCustomEquipFPv(void *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0x78) + (((s8) M2C_FIELD(arg0, u8 *, 0x70) + ((s8) M2C_FIELD(arg0, u8 *, 0x71) * 3)) * 4);
 }
 
 }

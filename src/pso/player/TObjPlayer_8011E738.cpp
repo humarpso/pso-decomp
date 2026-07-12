@@ -18,7 +18,7 @@ struct VObj_8011E828 : Base_8011E828 {
 
 extern "C" {
 
-void TObjPlayer__sub_8011E738(void *arg0, s32 arg1, s32 arg2);
+void call_callback_1ec__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 void apply_model_params__10TObjPlayerFPv(void *arg0);
 void copy_item_to_data__10TObjPlayerFi(s32 arg0);
 void update_model_flags__10TObjPlayerFPv(struct VObj_8011E828 *o);
@@ -31,7 +31,7 @@ M2C_UNK init__9TItemDataFv(M2C_UNK *);
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_8011E738(void *arg0, s32 arg1, s32 arg2) {
+void call_callback_1ec__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_UNK (*temp_r12)(s32, void *, s32, s32);
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32, void *, s32, s32), 0x1EC);

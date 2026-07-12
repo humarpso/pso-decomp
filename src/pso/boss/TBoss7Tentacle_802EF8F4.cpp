@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss7Tentacle__sub_802EF8F4(void *arg0, f32 farg0);
+s32 advance_toward_limit__14TBoss7TentacleFPvf(void *arg0, f32 farg0);
 
 extern M2C_UNK TBoss7Tentacle__data_804740C8;
 extern const f32 TBoss7Tentacle__data_805DEC00;
 extern const f32 TBoss7Tentacle__data_805DEC04;
 
-s32 TBoss7Tentacle__sub_802EF8F4(void *arg0, f32 farg0) {
+s32 advance_toward_limit__14TBoss7TentacleFPvf(void *arg0, f32 farg0) {
     f32 temp_f4;
 
     temp_f4 = M2C_FIELD(arg0, f32 *, 0x74);

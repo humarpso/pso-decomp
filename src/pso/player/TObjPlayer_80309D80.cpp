@@ -8,14 +8,14 @@ extern "C" {
 
 void clear_foot_stamp__10TObjPlayerFii(s32 arg0, s32 arg1);
 void enable_foot_stamp__10TObjPlayerFii(s32 arg1, s32 arg2);
-M2C_UNK TPlayerFootStamp__sub_802B014C(s32, M2C_UNK);
+M2C_UNK create__16TPlayerFootStampFPvPv(s32, M2C_UNK);
 
 void enable_foot_stamp__10TObjPlayerFii(s32 arg1, s32 arg2) {
-    TPlayerFootStamp__sub_802B014C(arg2, 1);
+    create__16TPlayerFootStampFPvPv(arg2, 1);
 }
 
 void clear_foot_stamp__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    TPlayerFootStamp__sub_802B014C(arg1, 0);
+    create__16TPlayerFootStampFPvPv(arg1, 0);
 }
 
 }

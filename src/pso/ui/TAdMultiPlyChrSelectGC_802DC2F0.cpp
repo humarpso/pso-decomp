@@ -13,10 +13,10 @@ s32 TAdMultiPlyChrSelectGC__sub_802E00BC(s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802E00C4(s32);
 u32 TAdMultiPlyChrSelectGC__sub_802E0100();
 s32 TAdChrMoveEffectGC__sub_803490AC();
-int TAdMultiPlyChrSelectGC__sub_802DC2F0(void* p);
+int request_scene_change__22TAdMultiPlyChrSelectGCFPv(void* p);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
-int TAdMultiPlyChrSelectGC__sub_802DC2F0(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
+int request_scene_change__22TAdMultiPlyChrSelectGCFPv(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x88));

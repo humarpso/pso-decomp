@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TObjEnemyCustom__sub_800C8040(void);
-int TObjEnemyCustom__sub_800C8018(void);
+void reset_instance__15TObjEnemyCustomFv(void);
+int init_globals__15TObjEnemyCustomFv(void);
 
     extern int lbl_805D5198;
-void TObjEnemyCustom__sub_800C8040(void) { lbl_805D5198 = 0; TObjEnemyCustom__sub_800C8018(); }
+void reset_instance__15TObjEnemyCustomFv(void) { lbl_805D5198 = 0; init_globals__15TObjEnemyCustomFv(); }
 
 }

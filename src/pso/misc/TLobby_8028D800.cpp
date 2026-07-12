@@ -8,7 +8,7 @@ extern "C" {
 
 void free_single_player_chr_select__6TLobbyFv(void);
 void alloc_download_server__6TLobbyFv(void);
-void TLobby__sub_8028D884(void);
+void free_chr_select_singleton__6TLobbyFv(void);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 u32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 
@@ -36,7 +36,7 @@ void alloc_download_server__6TLobbyFv(void) {
 
 extern u32 lbl_805D6518;
 
-void TLobby__sub_8028D884(void) {
+void free_chr_select_singleton__6TLobbyFv(void) {
     if ((u32) lbl_805D6518 != 0U) {
         safe_free__23TAdSinglePlyChrSelectGCFUi((void*)((void*)lbl_805D6518));
         lbl_805D6518 = 0U;

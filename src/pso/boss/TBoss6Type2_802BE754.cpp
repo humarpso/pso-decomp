@@ -25,7 +25,7 @@ void TBoss6Type2__vt46(void);
 void TBoss6Type2__vt47(void);
 void TBoss6Type2__vt48(void);
 
-void TBoss6Type2__sub_802BE754(void *arg0) {
+void tick_timer_0x460__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;

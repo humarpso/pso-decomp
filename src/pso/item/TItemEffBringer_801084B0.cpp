@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TItemEffBringer__sub_801084B0(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
+void *create__15TItemEffBringerFUiiif(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
 void *__ct__15TItemEffBringerFv(void *, u32, s32, s32, f32);
 void *__nw__7TObjectFUl(M2C_UNK);
 
 extern f32 lbl_805DAB10;
 
-void *TItemEffBringer__sub_801084B0(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+void *create__15TItemEffBringerFUiiif(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     if ((lbl_805DAB10 != farg0) && (arg0 != 0U)) {
         void *obj = __nw__7TObjectFUl(0x90);
         if (obj != NULL) {

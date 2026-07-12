@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__13TObjCHTimeWinFv(void *arg0);
-M2C_UNK TObjCHTimeWin__sub_80074CF0(void *);
+M2C_UNK init_timer__13TObjCHTimeWinFv(void *);
 s32 TWindowCtrlMain__sub_8024CE58();
 M2C_UNK TWindowCtrl__sub_8024A4B0(s32);
 
@@ -19,7 +19,7 @@ void run_task__13TObjCHTimeWinFv(void *arg0) {
         return;
     }
     if (TWindowCtrlMain__sub_8024CE58() == 1) {
-        TObjCHTimeWin__sub_80074CF0(arg0);
+        init_timer__13TObjCHTimeWinFv(arg0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }
 }

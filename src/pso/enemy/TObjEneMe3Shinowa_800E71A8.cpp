@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjEneMe3Shinowa__sub_800E71A8(void);
-void TObjEneMe3Shinowa__sub_800E71AC(u8 *arg0);
-s32 TObjEneMe3Shinowa__sub_800E71FC(u8 *arg0);
+void dispatch_if_active__17TObjEneMe3ShinowaFPv(u8 *arg0);
+s32 update_effect__17TObjEneMe3ShinowaFPv(u8 *arg0);
 
 void TObjEneMe3Shinowa__sub_800E71A8(void) {  }
 
@@ -24,7 +24,7 @@ struct E71ACObj_800e71ac : E71ACBase_800e71ac {
     virtual void m7();
 };
 
-void TObjEneMe3Shinowa__sub_800E71AC(u8 *arg0) {
+void dispatch_if_active__17TObjEneMe3ShinowaFPv(u8 *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
@@ -44,7 +44,7 @@ struct E71FCObj_800e71fc : E71FCBase_800e71fc {
     virtual void m6();
 };
 
-s32 TObjEneMe3Shinowa__sub_800E71FC(u8 *arg0) {
+s32 update_effect__17TObjEneMe3ShinowaFPv(u8 *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

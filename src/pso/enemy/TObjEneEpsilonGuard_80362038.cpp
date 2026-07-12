@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneEpsilonGuard__sub_80362038(void);
 void request_state8__19TObjEneEpsilonGuardFPv(void *arg0);
-void TObjEneEpsilonGuard__sub_80362080(void* p);
+void set_action_9__19TObjEneEpsilonGuardFPv(void* p);
 void TObjEneEpsilonGuard__sub_803620B0(void);
 int TObjEneDD__sub_800BBA18(void*, void*);
 
@@ -23,7 +23,7 @@ void request_state8__19TObjEneEpsilonGuardFPv(void *arg0) {
         }
     }
 }
-void TObjEneEpsilonGuard__sub_80362080(void* p) { if (*(short*)((char*)p + 0x326) != 9) { TObjEneDD__sub_800BBA18(p, (void*)9); } }
+void set_action_9__19TObjEneEpsilonGuardFPv(void* p) { if (*(short*)((char*)p + 0x326) != 9) { TObjEneDD__sub_800BBA18(p, (void*)9); } }
 void TObjEneEpsilonGuard__sub_803620B0(void) {  }
 
 }

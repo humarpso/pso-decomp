@@ -9,8 +9,8 @@ extern "C" {
 void drop_item_if_state3__10TObjPlayerFPv(void* p);
 void update_guarded_by_flag__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8012A2EC(void *arg0);
-void TObjPlayer__sub_8012A304(void *arg0);
-void TObjPlayer__sub_8012A334(u8 *arg0);
+void update_recovery_meter__10TObjPlayerFPv(void *arg0);
+void update_field1fc__10TObjPlayerFPv(u8 *arg0);
 int TObjContainerIdo__sub_803D96A8(void*, void*);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
 M2C_UNK TObjPlayer__sub_8011E87C(void *, M2C_UNK);
@@ -44,7 +44,7 @@ void TObjPlayer__sub_8012A2EC(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_8012A304(void *arg0) {
+void update_recovery_meter__10TObjPlayerFPv(void *arg0) {
     s32 temp_r4;
 
     M2C_FIELD(arg0, s32 *, 0x204) = (s32) (M2C_FIELD(arg0, s32 *, 0x204) + 1);
@@ -56,7 +56,7 @@ void TObjPlayer__sub_8012A304(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_8012A334(u8 *arg0) {
+void update_field1fc__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_80115BFC(arg0 + 0x1FC, M2C_FIELD(arg0, s32 *, 0x200));
 }
 

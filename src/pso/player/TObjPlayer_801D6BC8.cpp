@@ -6,12 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8022F1F4(s32, s32);
+s32 decrement_timer__10TObjPlayerFPv(s32 *arg0);
 
-void fn_8022F1C0(s32 arg0, s32 arg1, s32 arg2) {
-    if (arg1 < 6) {
-        fn_8022F1F4(arg0 + (arg1 * 8), arg2);
+s32 decrement_timer__10TObjPlayerFPv(s32 *arg0) {
+    *arg0 -= 1;
+    if ((s32) *arg0 < 0) {
+        *arg0 = 0;
+        return 0;
     }
+    return 1;
 }
 
 }

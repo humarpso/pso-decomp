@@ -17,7 +17,7 @@ s32 TAdPlayerLoadGC__sub_80076BBC();
 s32 load_player__23TAdSinglePlyChrSelectGCFv();
 s32 load_system_file(s32);
 void TAdSinglePlyChrSelectGC__sub_802E2D3C(void* p);
-int TAdSinglePlyChrSelectGC__sub_802E2DA8(void* p);
+int close_and_next_cancel__23TAdSinglePlyChrSelectGCFPv(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E2F20(void);
 int TAdSinglePlyChrSelectGC__sub_802E2F68(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E2FEC(void);

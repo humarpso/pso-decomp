@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TObjEneEpsilonBody__ct(void *, void *, void *);
 extern void *tl_04;
 
-void *fn_80362264(void *arg0) {
+void *create_TObjEneEpsilonBody(void *arg0) {
     void *o = __nw__7TObjectFUl(0x514);
     if (o != NULL) {
         o = TObjEneEpsilonBody__ct(o, tl_04, arg0);

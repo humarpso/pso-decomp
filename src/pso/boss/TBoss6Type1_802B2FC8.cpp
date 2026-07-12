@@ -8,7 +8,7 @@ extern "C" {
 
 void init_hp_and_state__11TBoss6Type1FPv(void* p);
 void update_charge__11TBoss6Type1FPv(u8 *arg0);
-void TBoss6Type1__sub_802B307C(void* p);
+void start_action_if_idle__11TBoss6Type1FPv(void* p);
 void set_phase_90__11TBoss6Type1FPv(void* p);
 void update_timer__11TBoss6Type1FPv(void *arg0);
 void TBoss6Type1__sub_802B3178(void* p);
@@ -37,7 +37,7 @@ void update_charge__11TBoss6Type1FPv(u8 *arg0) {
     }
 }
 
-void TBoss6Type1__sub_802B307C(void* p) { if (*(int*)((char*)p + 0x410) == 0) { TBoss6Type1__sub_802B9204(p, (void*)25); } }
+void start_action_if_idle__11TBoss6Type1FPv(void* p) { if (*(int*)((char*)p + 0x410) == 0) { TBoss6Type1__sub_802B9204(p, (void*)25); } }
 
 void set_phase_90__11TBoss6Type1FPv(void* p) { *(int*)((char*)p + 0x40c) = 90; *(int*)((char*)p + 0x410) = 90; TBoss6Type1__sub_802B7E7C((void*)(p)); TBoss6Type1__sub_802B4BA8(p, (void*)0); TBoss6Type1__sub_802B4B64(p, (void*)1); }
 

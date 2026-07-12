@@ -8,11 +8,11 @@ extern "C" {
 
 s32 __ct__12TPlyCharDataFv(s32 arg0);
 M2C_UNK __ct__14TPlyDispConfigFv(s32);
-M2C_UNK fn_80072188(s32);
+M2C_UNK init_inventory_items__12TPlyCharDataFPv(s32);
 
 s32 __ct__12TPlyCharDataFv(s32 arg0) {
     __ct__14TPlyDispConfigFv(arg0 + 0x3C0);
-    fn_80072188(arg0);
+    init_inventory_items__12TPlyCharDataFPv(arg0);
     return arg0;
 }
 

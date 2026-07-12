@@ -12,12 +12,12 @@ void TItemList__sub_801D5884(void* p, u8 v);
 void TItemList__sub_801D58C8(void* p);
 u8 TItemList__sub_801D58D4(void* p);
 u16 TItemList__sub_801D58DC(void* p);
-int TItemList__sub_801D5968(void* p);
+int copy_position__9TItemListFPv(void* p);
 void TItemList__sub_801D59DC(void* p);
 void TItemList__sub_801D5A64(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 int copy_item_data__6TLobbyFPvPv(void*);
 
-int TItemList__sub_801D5968(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x4); }
+int copy_position__9TItemListFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x4); }
 
 }

@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TItemLoad__sub_8010FDC4(void);
+void free_boss4_rock__9TItemLoadFv(void);
 int free__11TOBoss4RockFUi(void*);
 
     extern int lbl_805D5494;
-void TItemLoad__sub_8010FDC4(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5494)); lbl_805D5494 = 0; }
+void free_boss4_rock__9TItemLoadFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5494)); lbl_805D5494 = 0; }
 
 }

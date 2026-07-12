@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void THunterGuildSeqOffline__sub_8021269C(void);
+void init_quest_list__22THunterGuildSeqOfflineFv(void);
 M2C_UNK TQuestListVM__sub_80073DC4(s32, M2C_UNK);
 
 extern s32 THunterGuildSeqOffline__data_805D6188;
 
-void THunterGuildSeqOffline__sub_8021269C(void) {
+void init_quest_list__22THunterGuildSeqOfflineFv(void) {
     TQuestListVM__sub_80073DC4(THunterGuildSeqOffline__data_805D6188, 9);
 }
 

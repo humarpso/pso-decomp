@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void * TPlayerFootStamp__sub_802B014C(void *arg0, void *arg1);
-void TPlayerFootStamp__sub_802B019C(void);
+void * create__16TPlayerFootStampFPvPv(void *arg0, void *arg1);
+void free_instance__16TPlayerFootStampFv(void);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 void *__ct__16TPlayerFootStampFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 
-void * TPlayerFootStamp__sub_802B014C(void *arg0, void *arg1) {
+void * create__16TPlayerFootStampFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xC4);
     if (o != NULL) {
@@ -24,7 +24,7 @@ void * TPlayerFootStamp__sub_802B014C(void *arg0, void *arg1) {
 
 extern u32 lbl_805D6710;
 
-void TPlayerFootStamp__sub_802B019C(void) {
+void free_instance__16TPlayerFootStampFv(void) {
     if ((u32) lbl_805D6710 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D6710);
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D6710);

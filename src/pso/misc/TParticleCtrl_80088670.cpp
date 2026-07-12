@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TParticleCtrl__sub_80088670(s32 arg0);
+s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
 
 extern s32 lbl_805D4EF8;
 extern s32 lbl_805D4EFC;
 
-s32 TParticleCtrl__sub_80088670(s32 arg0) {
+s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0) {
     if (arg0 >= 0x200) {
         return lbl_805D4EFC + ((arg0 - 0x200) * 0x98);
     }

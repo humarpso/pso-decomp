@@ -8,7 +8,7 @@ void TItemObject__ct(void *);
 extern M2C_UNK lbl_804F0C48[];
 void TObjPlayer__sub_80102BEC(void *, int);
 
-void *fn_803502F4(void *arg0) {
+void *create_item_object_lbl_804F0C48(void *arg0) {
     TItemObject__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0C48;
     TObjPlayer__sub_80102BEC(arg0, 16);

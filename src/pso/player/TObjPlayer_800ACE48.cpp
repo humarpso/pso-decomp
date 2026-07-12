@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800ACE48(void *arg0);
+void update_state_flags__10TObjPlayerFPv(void *arg0);
 void update_invincibility__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_800ACF60(void *arg0);
+void update_down_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 
-void TObjPlayer__sub_800ACE48(void *arg0) {
+void update_state_flags__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     void *temp_r5;
 
@@ -61,7 +61,7 @@ void update_invincibility__10TObjPlayerFPv(void *arg0) {
 
 extern const s32 lbl_805D9BFC;
 
-void TObjPlayer__sub_800ACF60(void *arg0) {
+void update_down_state__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;
     s32 gbits;
     void *temp_r6;

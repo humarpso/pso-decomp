@@ -13,7 +13,7 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(s32);
 s32 TAdPlayerLoadGC__sub_801E24F8(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK fn_801F6554(void *);
+M2C_UNK close_window__17TMCFormatSequenceFPv(void *);
 M2C_UNK fn_801F6594(void *, s32, M2C_UNK);
 M2C_UNK TWindow__close(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
@@ -47,7 +47,7 @@ void fn_801F6750(void *arg0) {
             }
         }
         if (temp_r3 == 1) {
-            fn_801F6554(arg0);
+            close_window__17TMCFormatSequenceFPv(arg0);
             M2C_FIELD(arg0, s32 *, 0x24) = 4;
         }
         TWindow__close(M2C_FIELD(arg0, u32 *, 0x38));
@@ -57,7 +57,7 @@ void fn_801F6750(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x24) = 4;
         TWindow__close(M2C_FIELD(arg0, u32 *, 0x38));
         M2C_FIELD(arg0, u32 *, 0x38) = 0U;
-        fn_801F6554(arg0);
+        close_window__17TMCFormatSequenceFPv(arg0);
     }
 }
 

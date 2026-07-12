@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_802F178C(s32, M2C_UNK);
+M2C_UNK spawn_default_particle__8TObjFishFv(s32, M2C_UNK);
 
 void fn_802EC504(s32 arg1, s32 arg2) {
-    fn_802F178C(arg2, 0x201);
+    spawn_default_particle__8TObjFishFv(arg2, 0x201);
 }
 
 }

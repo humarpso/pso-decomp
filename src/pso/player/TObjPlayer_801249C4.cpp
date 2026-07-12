@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_photon_chair_state__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_80124A34(void *arg0);
+void update_breath_pulse__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
 s32 TObjPlayer__sub_80121200();
@@ -29,7 +29,7 @@ void update_photon_chair_state__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80124A34(void *arg0) {
+void update_breath_pulse__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
     void *temp_r4;
     void *temp_r4_2;

@@ -6,11 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 should_update__11TCameraCtrlFv();
+void update_when_camera_active__13TObjWarnChimeFPv(void *arg0);
 M2C_UNK fn_80076760(void *);
 M2C_UNK fn_800767D8(void *);
+s32 should_update__11TCameraCtrlFv();
 
-void fn_80076964(void *arg0) {
+void update_when_camera_active__13TObjWarnChimeFPv(void *arg0) {
     if (should_update__11TCameraCtrlFv() == 0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 0;
         return;

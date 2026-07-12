@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type1__sub_802B27D4(void* p);
+void update_if_idle__11TBoss6Type1FPv(void* p);
 void enter_release_state__11TBoss6Type1FPv(u8 *arg0);
-void TBoss6Type1__sub_802B28A8(void *arg0);
+void tick_state_410_timer__11TBoss6Type1FPv(void *arg0);
 void init_move_attack__11TBoss6Type1FPv(u8 *arg0);
 void update_hit_timer__11TBoss6Type1FPv(u8 *arg0);
 void update_attack_state__11TBoss6Type1FPv(void *arg0);
@@ -31,7 +31,7 @@ M2C_UNK release_object__11TBoss6Type1FPv();
 M2C_UNK reset_state__14TBoss6PlotFalzFPv(s32);
 M2C_UNK set_state_2__14TBoss6PlotFalzFPv(s32);
 
-void TBoss6Type1__sub_802B27D4(void* p) { if (*(int*)((char*)p + 0x410) == 0) { TBoss6Type1__sub_802B8E1C(p); } }
+void update_if_idle__11TBoss6Type1FPv(void* p) { if (*(int*)((char*)p + 0x410) == 0) { TBoss6Type1__sub_802B8E1C(p); } }
 
 void enter_release_state__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x40C) = 0x5A;
@@ -47,7 +47,7 @@ void enter_release_state__11TBoss6Type1FPv(u8 *arg0) {
     }
 }
 
-void TBoss6Type1__sub_802B28A8(void *arg0) {
+void tick_state_410_timer__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x410) - 1;

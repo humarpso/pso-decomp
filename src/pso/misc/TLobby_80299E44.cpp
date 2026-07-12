@@ -32,7 +32,7 @@ M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 int TWindow__close(void*);
 M2C_UNK TLobby__sub_8007340C(u32);
-int fn_8024ABDC(void*);
+int TObjPlayer__sub_8024ABDC(void*);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
 M2C_UNK send_code_45_1__10TObjPlayerFi(int);
 
@@ -98,7 +98,7 @@ void send_giveup_to_all_players__6TLobbyFv(void) {
 void close_giveup_window__6TLobbyFPv(void* a0) { TWindowCtrl__sub_8024AEAC((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
 
     extern int lbl_805D53A0;
-void play_all_players_effect__6TLobbyFPv(void* a0) { fn_8024ABDC((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
+void play_all_players_effect__6TLobbyFPv(void* a0) { TObjPlayer__sub_8024ABDC((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
 
 void play_effect_all_players__6TLobbyFPv(void*) {
     s32 var_r31;

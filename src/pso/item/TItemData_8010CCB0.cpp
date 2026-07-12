@@ -12,12 +12,12 @@ s32 bswap_16__FPUs(s16 *);
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
-int TItemData__sub_8010CCEC(void* p);
+int register_drop__9TItemDataFPv(void* p);
 int register_item_drop__10TObjPlayerFPv(void*);
 
 void TItemData__sub_8010CCB0(void) {  }
 void TItemData__sub_8010CCB4(void) {  }
-u8 TItemData__sub_8010CCB8(void) {
+u8 get_entry_field16__9TItemDataFv(void) {
     void *temp_r3;
 
     temp_r3 = TItemData__sub_8010EA38();
@@ -26,6 +26,6 @@ u8 TItemData__sub_8010CCB8(void) {
     }
     return 0U;
 }
-int TItemData__sub_8010CCEC(void* p) { return register_item_drop__10TObjPlayerFPv(p); }
+int register_drop__9TItemDataFPv(void* p) { return register_item_drop__10TObjPlayerFPv(p); }
 
 }

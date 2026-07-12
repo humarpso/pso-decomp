@@ -16,7 +16,7 @@ s32 TBoss6Type2__sub_802BD014(void * a0 = 0, s32 a1 = 0);
 int TBoss6Type2__sub_802BDC5C(void*);
 int TBoss6Type2__sub_802BDDF8(void*, void*);
 void TBoss6Type2__sub_802BF528(void* p);
-void TBoss6Type2__sub_802BF8D8(void* p);
+void check_state_0x460_eq0__11TBoss6Type2FPv(void* p);
 void TBoss6Type2__sub_802BF904(void* p);
 
 int TBoss6Type2__sub_802BF4B8(void) { return 0; }

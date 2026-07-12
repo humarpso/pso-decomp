@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800F5874(u32, M2C_UNK);
+M2C_UNK TObjEneMe3Stelth__sub_800F5874(u32, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
 void fn_80119370(int arg0) {
     u32 temp = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
     if (temp != 0U) {
-        fn_800F5874(temp, 1);
+        TObjEneMe3Stelth__sub_800F5874(temp, 1);
     }
 }
 

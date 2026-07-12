@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK *fn_800717E4(u16);
+M2C_UNK *TWindowSubStatusDisp__sub_800717E4(u16);
 M2C_UNK fn_80222704(s32, M2C_UNK *);
 extern M2C_UNK lbl_8044C290[];
 extern s32 lbl_805D53A0;
@@ -14,7 +14,7 @@ extern s32 lbl_805D53A0;
 void show_message_or_error(s32 arg0) {
     M2C_UNK *temp_r3;
 
-    temp_r3 = fn_800717E4((u16) lbl_805D53A0);
+    temp_r3 = TWindowSubStatusDisp__sub_800717E4((u16) lbl_805D53A0);
     if (temp_r3 != NULL) {
         fn_80222704(arg0, temp_r3);
         return;

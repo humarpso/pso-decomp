@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void advance_load_state__9TItemLoadFPv(u8 *arg0);
-M2C_UNK TItemLoad__sub_8010FF38(void *, void *);
+M2C_UNK request_load__9TItemLoadFPvi(void *, void *);
 u32 load_data__9TItemLoadFPvi(void *, int);
 M2C_UNK TItemLoad__sub_801107DC(void *);
 M2C_UNK TObjPlayer__sub_8001BED8(void *, int);
@@ -27,7 +27,7 @@ void advance_load_state__9TItemLoadFPv(u8 *arg0) {
 block_3:
         if (load_data__9TItemLoadFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x20))) != 0U) {
             TItemLoad__sub_801107DC((void *) (arg0));
-            TItemLoad__sub_8010FF38((void *) (arg0), (void *) (lbl_805D5494));
+            request_load__9TItemLoadFPvi((void *) (arg0), (void *) (lbl_805D5494));
             M2C_FIELD(arg0, s32 *, 0x18) = 2;
         }
     }

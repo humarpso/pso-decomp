@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *__ct__17TChCrTagOccHeaderFv(void *, void *, void *);
 extern void *tl_03;
 
-void *fn_802A2D6C(void *arg0) {
+void *create_ch_cr_tag_occ_header(void *arg0) {
     void *o = __nw__7TObjectFUl(0x40);
     if (o != NULL) {
         o = __ct__17TChCrTagOccHeaderFv(o, tl_03, arg0);

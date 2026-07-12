@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *enter_state_341__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_802D55F4(int a0, void* a1);
+void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1);
 int set_radar_marker_params__10TObjPlayerFPvPv(void);
 void TObjPlayer__sub_802D5ECC(void *);
 
@@ -23,6 +23,6 @@ void *enter_state_341__10TObjPlayerFPv(void *arg0) {
 }
 
     extern const float lbl_805DE790;
-void TObjPlayer__sub_802D55F4(int a0, void* a1) { set_radar_marker_params__10TObjPlayerFPvPv(); *(float*)((char*)a1 + 0x38) = lbl_805DE790; }
+void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1) { set_radar_marker_params__10TObjPlayerFPvPv(); *(float*)((char*)a1 + 0x38) = lbl_805DE790; }
 
 }

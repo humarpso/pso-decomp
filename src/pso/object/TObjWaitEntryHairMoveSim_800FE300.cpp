@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TObjWaitEntryHairMoveSim__sub_800FE300(void);
+int is_move_done__24TObjWaitEntryHairMoveSimFv(void);
 int TObjWaitEntryHairMoveSim__sub_800FE32C();
 
-int TObjWaitEntryHairMoveSim__sub_800FE300(void) {
+int is_move_done__24TObjWaitEntryHairMoveSimFv(void) {
     return (~TObjWaitEntryHairMoveSim__sub_800FE32C()) != 0 ? 1 : 0;
 }
 

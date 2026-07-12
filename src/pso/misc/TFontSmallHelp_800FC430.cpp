@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TFontSmallHelp__sub_800FC430(u8 *arg0, u32 arg1);
+void set_help_text__14TFontSmallHelpFPvUi(u8 *arg0, u32 arg1);
 u32 fn_800FC0F8(void *);
 M2C_UNK strncpy(void *, void *, M2C_UNK);
 
 extern const f64 lbl_8043DAA0;
 extern const f32 lbl_805DA9C0;
 
-void TFontSmallHelp__sub_800FC430(u8 *arg0, u32 arg1) {
+void set_help_text__14TFontSmallHelpFPvUi(u8 *arg0, u32 arg1) {
     if (arg1 == 0U) {
         M2C_FIELD(arg0, s8 *, 0x30) = 0;
         M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DA9C0;

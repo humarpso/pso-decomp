@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TDPBShower__ct(void *, void *, void *);
 
-void * fn_8035D860(void *arg0, void *arg1) {
+void * create_TDPBShower(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {

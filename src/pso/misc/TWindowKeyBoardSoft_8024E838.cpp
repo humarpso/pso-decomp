@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowKeyBoardSoft__sub_8024E838(void* p, f32 a, f32 b, f32 c, f32 d);
 void TWindowKeyBoardSoft__sub_8024E84C(void *arg0);
-void TWindowKeyBoardSoft__sub_8024E86C(void *arg0);
+void animate_scale__19TWindowKeyBoardSoftFPv(void *arg0);
 s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1);
 
 void TWindowKeyBoardSoft__sub_8024E838(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x3c) = a; *(f32*)((char*)p + 0x40) = b; *(f32*)((char*)p + 0x44) = c; *(f32*)((char*)p + 0x48) = d; }
@@ -22,7 +22,7 @@ void TWindowKeyBoardSoft__sub_8024E84C(void *arg0) {
 
 extern const f32 lbl_805DCC90;
 
-void TWindowKeyBoardSoft__sub_8024E86C(void *arg0) {
+void animate_scale__19TWindowKeyBoardSoftFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x14) = (f32) (M2C_FIELD(arg0, f32 *, 0x14) + lbl_805DCC90);
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - lbl_805DCC90);
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x40) + lbl_805DCC90);

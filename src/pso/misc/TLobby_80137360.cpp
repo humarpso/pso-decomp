@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80137360(void);
+void queue_static_object_destruction__6TLobbyFv(void);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
 extern s32 TLobby__data_805D5604;
 
-void TLobby__sub_80137360(void) {
+void queue_static_object_destruction__6TLobbyFv(void) {
     queue_destruction__7TObjectFv(TLobby__data_805D5604);
 }
 

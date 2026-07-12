@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TQuestThread__sub_801F4A04(void *arg0);
-s32 TQuestThread__sub_801F4A38(void *arg0);
+s32 tick_com_card__12TQuestThreadFPv(void *arg0);
+s32 update_board_card__12TQuestThreadFPv(void *arg0);
 s32 TWindowSubComCard__sub_8007341C(void *);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 
-s32 TQuestThread__sub_801F4A04(void *arg0) {
+s32 tick_com_card__12TQuestThreadFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x60);
     if (temp_r3 != NULL) {
         return TWindowSubComCard__sub_80265BF8(temp_r3);
@@ -19,7 +19,7 @@ s32 TQuestThread__sub_801F4A04(void *arg0) {
     return -1;
 }
 
-s32 TQuestThread__sub_801F4A38(void *arg0) {
+s32 update_board_card__12TQuestThreadFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x60);
     if (temp_r3 != NULL) {
         return TWindowSubComCard__sub_8007341C(temp_r3);

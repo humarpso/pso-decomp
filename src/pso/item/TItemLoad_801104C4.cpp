@@ -13,7 +13,7 @@ extern "C" {
 
 void update__9TItemLoadFv(void);
 s32 TItemLoad__sub_801107F4(void *);
-M2C_UNK TItemLoad__sub_8010F4F0();
+M2C_UNK update_all__9TItemLoadFv();
 M2C_UNK set_parent__7TObjectFP7TObject(void *, u32);
 
 extern void *TItemLoad__data_805D5484;
@@ -22,7 +22,7 @@ extern u32 TItemLoad__data_805D5488;
 void update__9TItemLoadFv(void) {
     void *temp_r31;
 
-    TItemLoad__sub_8010F4F0();
+    update_all__9TItemLoadFv();
     if (((void *) TItemLoad__data_805D5484 != NULL) && ((u32) TItemLoad__data_805D5488 != 0U)) {
         temp_r31 = M2C_FIELD(TItemLoad__data_805D5484, void **, 0x14);
         if (temp_r31 != NULL) {

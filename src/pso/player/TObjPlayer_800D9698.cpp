@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800D9698(void *arg0, s32 arg1);
+void set_rate_from_divisor__10TObjPlayerFPvi(void *arg0, s32 arg1);
 
 extern const f64 lbl_8043C758;
 extern const f32 lbl_805DA3E0;
 
-void TObjPlayer__sub_800D9698(void *arg0, s32 arg1) {
+void set_rate_from_divisor__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x10) = (f32) (lbl_805DA3E0 / (f32) arg1);
 }
 

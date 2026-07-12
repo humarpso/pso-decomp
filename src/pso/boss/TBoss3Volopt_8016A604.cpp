@@ -30,9 +30,9 @@ struct VObj_8016A604 : Base_8016A604 {
 
 extern "C" {
 
-void TBoss3Volopt__sub_8016A604(void *arg0);
+void call_vt21__12TBoss3VoloptFPv(void *arg0);
 
-void TBoss3Volopt__sub_8016A604(void *arg0) {
+void call_vt21__12TBoss3VoloptFPv(void *arg0) {
     struct VObj_8016A604 *o = (struct VObj_8016A604 *)arg0;
     o->m21();
 }

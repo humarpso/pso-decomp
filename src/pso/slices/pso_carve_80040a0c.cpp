@@ -10,7 +10,7 @@ M2C_UNK TBoss3VoloptCore__ct(void *, M2C_UNK *);
 M2C_UNK TObjEnemyCustom__ct();
 extern M2C_UNK lbl_80483A10[];
 
-void *fn_80040A0C(void *arg0, void *arg1, s16 arg2, s16 arg3) {
+void *create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3) {
     TObjEnemyCustom__ct();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80483A10;
     M2C_FIELD(arg0, s16 *, 0x1C) = arg2;

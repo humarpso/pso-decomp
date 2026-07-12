@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TMedicalCenterSequence__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8021E344(void *arg0) {
+void *create_medical_center_sequence(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
         o = TMedicalCenterSequence__ct(o, tl_05, arg0);

@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TChCrLoadReq__ct(void *, void *, void *);
 
-void * fn_8028D3F8(void *arg0, void *arg1) {
+void * create_ch_cr_load_req(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {

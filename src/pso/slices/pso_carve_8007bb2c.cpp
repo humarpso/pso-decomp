@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 TLobby__sub_8007BA98();
-s32 fn_800F7BA8();
+s32 handle_disconnect_cleanup();
 s32 TLobby__sub_800F8AE8();
 s32 TLobby__sub_800F8B20();
 s32 TItemDrop__sub_800FD98C();
@@ -26,7 +26,7 @@ s32 check_disconnect_conditions__6TLobbyFv(void) {
         reset_and_invoke__6TLobbyFv();
         return 1;
     }
-    if (fn_800F7BA8() == 0) {
+    if (handle_disconnect_cleanup() == 0) {
         TItemDrop__sub_800FDDF4();
         reset_and_invoke__6TLobbyFv();
         return 1;

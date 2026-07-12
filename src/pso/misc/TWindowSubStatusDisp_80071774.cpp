@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_status_index__20TWindowSubStatusDispFi(int arg0);
-s32 fn_800717B0(s32);
+s32 get_status_index_or_default__20TWindowSubStatusDispFPv(s32);
 u32 get_card_window__17TWindowSubComCardFUi(u16);
 
 s32 get_status_index__20TWindowSubStatusDispFi(int arg0) {
@@ -17,7 +17,7 @@ s32 get_status_index__20TWindowSubStatusDispFi(int arg0) {
     if (temp_r3 == 0U) {
         return -1;
     }
-    return fn_800717B0(temp_r3 + 0x21C4);
+    return get_status_index_or_default__20TWindowSubStatusDispFPv(temp_r3 + 0x21C4);
 }
 
 }

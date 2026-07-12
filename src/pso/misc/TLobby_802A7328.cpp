@@ -28,11 +28,11 @@ struct VObj_802A7328 : Base_802A7328 {
 
 extern "C" {
 
-s32 TLobby__sub_802A7328(void *arg0, s32 arg1, s32 arg2);
+s32 calc_cell_offset__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
 
 extern s32 lbl_805D6680;
 
-s32 TLobby__sub_802A7328(void *arg0, s32 arg1, s32 arg2) {
+s32 calc_cell_offset__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     struct VObj_802A7328 *o = (struct VObj_802A7328 *)arg0;
     return lbl_805D6680 + ((arg2 + (arg1 * o->m73())) << 0xE);
 }

@@ -7,20 +7,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdMultiSelGameModeGC__sub_80300338(void);
-void TAdMultiSelGameModeGC__sub_80300360(void *arg0);
+void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0);
 int TKeyBoardControl__sub_8000F9CC(int);
 s32 TAdMultiChgGameModeGC__sub_8023EB84();
-s32 TAdMultiChgGameModeGC__sub_8023EBB4();
+s32 begin_transition__21TAdMultiChgGameModeGCFv();
 int fn_80300CE4(void);
 
 void TAdMultiSelGameModeGC__sub_80300338(void) { fn_80300CE4(); TKeyBoardControl__sub_8000F9CC(14); }
-void TAdMultiSelGameModeGC__sub_80300360(void *arg0) {
+void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TAdMultiChgGameModeGC__sub_8023EBB4();
+        begin_transition__21TAdMultiChgGameModeGCFv();
         return;
     case 1:
         TAdMultiChgGameModeGC__sub_8023EB84();

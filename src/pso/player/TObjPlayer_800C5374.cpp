@@ -8,7 +8,7 @@ extern "C" {
 
 void enter_state7__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_800C53B4(void);
-int TObjPlayer__sub_800C53B8(void* p);
+int clear_flag_0x100__10TObjPlayerFPv(void* p);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
 
 void enter_state7__10TObjPlayerFPv(void *arg0) {
@@ -19,6 +19,6 @@ void enter_state7__10TObjPlayerFPv(void *arg0) {
     obj_clearFlags30(arg0, 0x240000);
 }
 void TObjPlayer__sub_800C53B4(void) {  }
-int TObjPlayer__sub_800C53B8(void* p) { return obj_clearFlags30(p, 256); }
+int clear_flag_0x100__10TObjPlayerFPv(void* p) { return obj_clearFlags30(p, 256); }
 
 }

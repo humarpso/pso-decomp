@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrl__sub_80269FB0(void *arg0, void *arg1);
+void set_position__11TWindowCtrlFPvPv(void *arg0, void *arg1);
 
-void TWindowCtrl__sub_80269FB0(void *arg0, void *arg1) {
+void set_position__11TWindowCtrlFPvPv(void *arg0, void *arg1) {
     if ((M2C_FIELD(arg0, f32 *, 0x30) != M2C_FIELD(arg1, f32 *, 0)) || (M2C_FIELD(arg0, f32 *, 0x34) != M2C_FIELD(arg1, f32 *, 4))) {
         M2C_FIELD(arg0, f32 *, 0x30) = M2C_FIELD(arg1, f32 *, 0);
         M2C_FIELD(arg0, f32 *, 0x34) = (f32) M2C_FIELD(arg1, f32 *, 4);

@@ -38,9 +38,9 @@ VA
 
 extern "C" {
 
-void TOTrapChainSaw__sub_802C9564(void *arg0);
+void update_sweep__14TOTrapChainSawFPv(void *arg0);
 
-void TOTrapChainSaw__sub_802C9564(void *arg0) {
+void update_sweep__14TOTrapChainSawFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) == 0) {
             ((VObj_802C9564 *)arg0)->m24();

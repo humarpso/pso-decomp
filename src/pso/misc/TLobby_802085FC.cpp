@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TLobby__sub_802085FC(void* p);
-int TLobby__sub_8020861C(void* p);
+int link_matching_objects__6TLobbyFPv(void* p);
+int spawn_objects_at_pos__6TLobbyFPv(void* p);
 void TLobby__sub_8020863C(void);
 void TLobby__sub_80208648(void);
 void TLobby__sub_8020864C(s32 arg0);
 int link_matching_objects__6TLobbyFss(void*);
 int spawn_objects_at_pos__6TLobbyFss(void*);
 
-int TLobby__sub_802085FC(void* p) { return link_matching_objects__6TLobbyFss(p); }
-int TLobby__sub_8020861C(void* p) { return spawn_objects_at_pos__6TLobbyFss(p); }
+int link_matching_objects__6TLobbyFPv(void* p) { return link_matching_objects__6TLobbyFss(p); }
+int spawn_objects_at_pos__6TLobbyFPv(void* p) { return spawn_objects_at_pos__6TLobbyFss(p); }
 
     extern int lbl_805D6080;
 void TLobby__sub_8020863C(void) { lbl_805D6080 = 1; }

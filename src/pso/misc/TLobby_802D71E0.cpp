@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_802D71E0(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1);
 u8 *TObjNpcEnemy__sub_802D732C();
-M2C_UNK fn_802D712C(void *, s32);
+M2C_UNK copy_position_data(void *, s32);
 
 void TLobby__sub_802D71E0(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32 farg1) {
     u8 *temp_r3;
@@ -21,7 +21,7 @@ void TLobby__sub_802D71E0(s16 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0, f32
         M2C_FIELD(temp_r3, s32 *, 8) = arg1;
         M2C_FIELD(temp_r3, s32 *, 0xC) = arg2;
         M2C_FIELD(temp_r3, f32 *, 0x10) = farg0;
-        fn_802D712C(temp_r3 + 0x14, arg3);
+        copy_position_data(temp_r3 + 0x14, arg3);
     }
 }
 

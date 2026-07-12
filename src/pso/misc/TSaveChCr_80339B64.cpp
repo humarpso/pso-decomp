@@ -20,7 +20,7 @@ int TSaveChCr__sub_80339B94(void* p);
 int TSaveChCr__sub_80339BF4(void* p);
 int TSaveChCr__sub_80339CC0(void* p);
 void TSaveChCr__sub_80339CE4(void);
-int TSaveChCr__sub_80339CE8(void* p);
+int save_1__9TSaveChCrFPv(void* p);
 int TSaveChCr__sub_80339F5C(void*, int);
 int close_window__9TSaveChCrFPv(void*);
 
@@ -53,7 +53,7 @@ void update_save_status__9TSaveChCrFPv(void *arg0) {
 }
 int TSaveChCr__sub_80339CC0(void* p) { return TSaveChCr__sub_80339F5C(p, 2); }
 void TSaveChCr__sub_80339CE4(void) {  }
-int TSaveChCr__sub_80339CE8(void* p) { return TSaveChCr__sub_80339F5C(p, 1); }
+int save_1__9TSaveChCrFPv(void* p) { return TSaveChCr__sub_80339F5C(p, 1); }
 void update_save_state__9TSaveChCrFPv(void *arg0) {
     s32 temp_r4;
 

@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemEffectWeapon__sub_803631A0(void *arg0);
+void play_effect_sound__17TItemEffectWeaponFPv(void *arg0);
 s32 TObjPlayer__sub_80121200();
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 
 extern f32 lbl_805E0268;
 
-void TItemEffectWeapon__sub_803631A0(void *arg0) {
+void play_effect_sound__17TItemEffectWeaponFPv(void *arg0) {
     if (TObjPlayer__sub_80121200() == 1) {
         TObjPlayer__sub_803D9624(0, lbl_805E0268, M2C_FIELD(arg0, f32 *, 0x1FC), lbl_805E0268);
     }

@@ -26,7 +26,7 @@ int TEndingPic__sub_803530A0(void* p);
 void TEndingPic__sub_803530C4(void *arg0);
 int TEndingPic__sub_80353110(void* p);
 int TEndingPic__sub_80353134(void* p);
-void TEndingPic__sub_80353158(void *arg0);
+void update_shield__10TEndingPicFPv(void *arg0);
 void TEndingPic__sub_80353194(void *arg0);
 int TEndingPic__sub_80353018(void*, int);
 s32 TItemProShield__sub_8001140C(s32, s32);
@@ -48,7 +48,7 @@ void TEndingPic__sub_803530C4(void *arg0) {
 
 int TEndingPic__sub_80353110(void* p) { return TEndingPic__sub_80353018(p, 16); }
 int TEndingPic__sub_80353134(void* p) { return TEndingPic__sub_80353018(p, 15); }
-void TEndingPic__sub_80353158(void *arg0) {
+void update_shield__10TEndingPicFPv(void *arg0) {
     TItemProShield__sub_8001140C(M2C_FIELD(arg0, s32 *, 0xF0), TItemProShield__sub_80076B5C(M2C_FIELD(arg0, s32 *, 0xF0)));
 }
 void TEndingPic__sub_80353194(void *arg0) {

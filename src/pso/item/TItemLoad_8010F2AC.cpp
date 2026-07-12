@@ -8,11 +8,11 @@ extern "C" {
 
 void update_load__9TItemLoadFPv(u8 *arg0);
 M2C_UNK TItemLoad__sub_8010F61C(u32, s32, s32);
-M2C_UNK TItemLoad__sub_8010F8A4(u32, u32, s32);
+M2C_UNK begin_load_if_pending__9TItemLoadFPvii(u32, u32, s32);
 s32 TItemLoad__sub_80110740(u32);
 u32 TItemLoad__sub_80110748(u32);
 s32 TItemLoad__sub_80110750(u32, s32);
-s32 TItemLoad__sub_80110760(u32);
+s32 update_item__9TItemLoadFPv(u32);
 
 extern u32 lbl_805D549C;
 extern u32 lbl_805D54A0;
@@ -33,7 +33,7 @@ void update_load__9TItemLoadFPv(u8 *arg0) {
         }
         return;
     case 2:
-        if (TItemLoad__sub_80110760(lbl_805D54A0) == 1) {
+        if (update_item__9TItemLoadFPv(lbl_805D54A0) == 1) {
             var_r30 = 0;
             var_r31 = 0;
             do {
@@ -46,7 +46,7 @@ void update_load__9TItemLoadFPv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x40) = TItemLoad__sub_80110740(lbl_805D54A0);
             if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
                 M2C_FIELD(arg0, s32 *, 0x20) = 3;
-                TItemLoad__sub_8010F8A4(lbl_805D549C, M2C_FIELD(arg0, u32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x28));
+                begin_load_if_pending__9TItemLoadFPvii(lbl_805D549C, M2C_FIELD(arg0, u32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x28));
                 return;
             }
             M2C_FIELD(arg0, s32 *, 0x20) = 0;
@@ -54,7 +54,7 @@ void update_load__9TItemLoadFPv(u8 *arg0) {
         }
         break;
     case 3:
-        if (TItemLoad__sub_80110760(lbl_805D549C) == 1) {
+        if (update_item__9TItemLoadFPv(lbl_805D549C) == 1) {
             M2C_FIELD(arg0, s32 *, 0x20) = 0;
         }
         break;

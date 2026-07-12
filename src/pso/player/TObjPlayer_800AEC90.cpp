@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800AEC90(void *arg0);
+void update_meseta_anim_state__10TObjPlayerFPv(void *arg0);
 
-void TObjPlayer__sub_800AEC90(void *arg0) {
+void update_meseta_anim_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

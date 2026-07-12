@@ -9,7 +9,7 @@ extern "C" {
 
 void draw_mag__10TObjPlayerFPv(void *arg0);
 void try_spawn_cane_effect__10TObjPlayerFi(s32 arg0);
-void TObjPlayer__sub_801236F8(void *arg0);
+void update_pulse__10TObjPlayerFPv(void *arg0);
 s32 TItemMag__sub_80102C4C();
 M2C_UNK TOHangerMachine01__sub_803D9C00(Sp8Type_80123524 *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
@@ -85,7 +85,7 @@ void try_spawn_cane_effect__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801236F8(void *arg0) {
+void update_pulse__10TObjPlayerFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) != 0) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) + 0x38E);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) >= 0x1555) {

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BE864(void *arg0);
+void init_speed_from_ratio__11TBoss6Type2FPv(void *arg0);
 
 extern s32 lbl_805D6790;
 extern u8 lbl_805D6794;
 extern f32 lbl_805DE408;
 extern f32 lbl_805DE4DC;
 
-void TBoss6Type2__sub_802BE864(void *arg0) {
+void init_speed_from_ratio__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
     if ((s8) lbl_805D6794 == 0) {
         lbl_805D6794 = 1;

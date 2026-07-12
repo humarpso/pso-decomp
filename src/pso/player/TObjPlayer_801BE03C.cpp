@@ -18,14 +18,14 @@ int TLobby__sub_802A7C5C(void);
 int TWindowSnapShot__sub_802A7D68(void);
 int free_shared_instance__15TWindowSnapShotFv(void);
 int TWindowSnapShot__sub_802A7E28(void);
-int TPlayerFootStamp__sub_802B019C(void);
+int free_instance__16TPlayerFootStampFv(void);
 int load_player_footstamp(void);
 int TObjPlayer__sub_80354E7C(void);
 
     extern unsigned char lbl_8050EA40[];
     extern int lbl_805D5D7C;
     extern int lbl_805D5D88;
-void finalize_shared__10TObjPlayerFv(void) { TLobby__sub_8013A4A0((void*)0); TObjPlayer__sub_801BECA0((void*)0); TObjPlayer__sub_801BEC98((void*)0); lbl_805D5D7C = 0; reset_settings_to_default__6TLobbyFPv(lbl_8050EA40); lbl_805D5D88 = 0; TLockOnCursor__sub_8013DBF4(); TLobby__sub_802A7BD8(); TPlayerFootStamp__sub_802B019C(); free_shared_data__10TObjPlayerFv(); }
+void finalize_shared__10TObjPlayerFv(void) { TLobby__sub_8013A4A0((void*)0); TObjPlayer__sub_801BECA0((void*)0); TObjPlayer__sub_801BEC98((void*)0); lbl_805D5D7C = 0; reset_settings_to_default__6TLobbyFPv(lbl_8050EA40); lbl_805D5D88 = 0; TLockOnCursor__sub_8013DBF4(); TLobby__sub_802A7BD8(); free_instance__16TPlayerFootStampFv(); free_shared_data__10TObjPlayerFv(); }
 
     extern int lbl_805D5D7C;
     extern int lbl_805D5D88;

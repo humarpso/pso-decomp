@@ -13,7 +13,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802E00BC(s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802E00C4(s32);
 u32 TAdMultiPlyChrSelectGC__sub_802E0100();
 s32 TAdChrMoveEffectGC__sub_803490AC();
-int TAdMultiPlyChrSelectGC__sub_802DC2F0(void* p);
+int request_scene_change__22TAdMultiPlyChrSelectGCFPv(void* p);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
 int TAdMultiPlyChrSelectGC__sub_802DC294(void) { return 0; }

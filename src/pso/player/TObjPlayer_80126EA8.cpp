@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_tentacle_state_2__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_80126EE4(s32 arg0);
+void update_orga_flow_shot__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_80126F10(s32 arg0);
 void TObjPlayer__sub_80126F3C(void);
 int TBoss7Tentacle__sub_803D9BA0(void*);
@@ -19,7 +19,7 @@ void handle_tentacle_state_2__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_801
 extern const f32 lbl_805DADA0;
 extern const f32 lbl_805DADA4;
 
-void TObjPlayer__sub_80126EE4(s32 arg0) {
+void update_orga_flow_shot__10TObjPlayerFi(s32 arg0) {
     approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x200, lbl_805DADA0, lbl_805DADA4);
 }
 

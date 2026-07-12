@@ -12,7 +12,7 @@ s32 bswap_16__FPUs(s16 *);
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
-int TItemData__sub_8010CCEC(void* p);
+int register_drop__9TItemDataFPv(void* p);
 int register_item_drop__10TObjPlayerFPv(void*);
 
 s16 TItemData__sub_8010CDEC(void *arg0) {

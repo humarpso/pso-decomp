@@ -11,8 +11,8 @@ int TLobby__send_and_handle_60(void*);
 
 int TOMineTrap__vt18(void) { return 0; }
 int TOMineTrap__vt19(void) { return 0; }
-void fn_801713AC(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
-void send_and_handle_60__10TOMineTrapFPv(void* p) { fn_801713AC(p); TLobby__send_and_handle_60(p); }
+void bswap_6x80_trigger_trap__10TOMineTrapFPv(void* p) { TObjPlayer__sub_8001960C(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
+void send_and_handle_60__10TOMineTrapFPv(void* p) { bswap_6x80_trigger_trap__10TOMineTrapFPv(p); TLobby__send_and_handle_60(p); }
 void fn_8017141C(void* p) { *(u8*)((char*)p + 0x0) = 128; *(u8*)((char*)p + 0x1) = 2; }
 
 }

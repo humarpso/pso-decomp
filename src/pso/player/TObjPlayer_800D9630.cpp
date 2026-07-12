@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_800D9630(void *arg0);
+s32 decay_value_toward_floor__10TObjPlayerFPv(void *arg0);
 
 extern f32 lbl_805DA3D8;
 
-s32 TObjPlayer__sub_800D9630(void *arg0) {
+s32 decay_value_toward_floor__10TObjPlayerFPv(void *arg0) {
     f32 temp_f1;
     s32 var_r0;
 

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *create__12TItemTexLoadFPv(void *arg0);
-void TItemTexLoad__sub_8011D37C(void);
+void free_textures__12TItemTexLoadFv(void);
 void *TItemTexLoad__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 int free__11TOBoss4RockFUi(void*);
@@ -20,6 +20,6 @@ void *create__12TItemTexLoadFPv(void *arg0) {
 
     extern int lbl_805D5500;
     extern int lbl_805D5504;
-void TItemTexLoad__sub_8011D37C(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5504)); lbl_805D5504 = 0; free__11TOBoss4RockFUi((void*)(lbl_805D5500)); lbl_805D5500 = 0; }
+void free_textures__12TItemTexLoadFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5504)); lbl_805D5504 = 0; free__11TOBoss4RockFUi((void*)(lbl_805D5500)); lbl_805D5500 = 0; }
 
 }

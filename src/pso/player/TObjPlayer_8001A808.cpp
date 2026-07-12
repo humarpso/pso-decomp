@@ -11,7 +11,7 @@ void TObjPlayer__sub_8001A860(void);
 void TObjPlayer__sub_8001A864(void* p);
 void *TObjPlayer__sub_8001A898(void *arg0, s16 arg1);
 M2C_UNK TObjPlayer__sub_8001A4CC(s32, s8);
-s32 TObjPlayer__sub_8001A678(s32);
+s32 get_flag890_state__10TObjPlayerFPv(s32);
 int TObjPlayer__sub_8001A6A8(void*);
 int TObjPlayer__sub_8001A77C(void*);
 void __dl__7TObjectFPv(void *);
@@ -27,7 +27,7 @@ void TObjPlayer__sub_8001A808(s32 arg0) {
     if (((s32) lbl_805D5550 != 3) && (fn_8001A988() == 0)) {
         s32 temp;
         lbl_805D49E4 = (s8) arg0;
-        temp = TObjPlayer__sub_8001A678(lbl_805D49E0);
+        temp = get_flag890_state__10TObjPlayerFPv(lbl_805D49E0);
         lbl_805D49E8 = temp;
         TObjPlayer__sub_8001A4CC(temp, (s8) arg0);
     }

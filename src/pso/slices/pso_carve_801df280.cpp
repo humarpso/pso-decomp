@@ -16,12 +16,12 @@ int fn_801DF7F8(void* a0 = 0);
 void fn_801DF310(void* p);
 void fn_801DF42C(void* p);
 void fn_801DF6F0(void* p);
-void fn_801DF7A8(void* p);
+void bswap_c0_lobby_entries(void* p);
 int __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void*);
 void* fn_801DF3F0(void* p, void* a1);
 void fn_801DF6BC(void* p);
 int fn_801DF2F0(void* p);
-int fn_801DF818(void* p);
+int bswap_packet_header_cmd_b1(void* p);
 
 void fn_801DF280(s32 arg0) {
     bswap__13packet_headerFv();
@@ -52,9 +52,9 @@ void fn_801DF6BC(void* p) { bswap__13packet_headerFv(p); fn_801DF6F0((char*)p + 
 void fn_801DF6F0(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 5; i++) { fn_801DF740((char*)p + 0x4 + i * 4); } } }
 int fn_801DF740(void*) { return 0; }
 int TProtocol__sub_801DF774(void) { return 0; }
-void fn_801DF7A8(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 56; i++) { fn_801DF7F8((char*)p + 0x4 + i * 32); } } }
+void bswap_c0_lobby_entries(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 56; i++) { fn_801DF7F8((char*)p + 0x4 + i * 32); } } }
 int fn_801DF7F8(void*) { return 0; }
-int fn_801DF818(void* p) { return bswap__13packet_headerFv(p); }
+int bswap_packet_header_cmd_b1(void* p) { return bswap__13packet_headerFv(p); }
 void fn_801DF838(s32 arg0) {
     bswap__13packet_headerFv();
     bswap_32__FPUl((void*)(arg0 + 4));

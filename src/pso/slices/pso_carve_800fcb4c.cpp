@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 fn_800717B0(void *, s32);
+s32 get_status_index_or_default__20TWindowSubStatusDispFPv(void *, s32);
 M2C_UNK fn_800FC424(void *, s32);
-M2C_UNK TFontSmallHelp__sub_800FC430(void *, u32);
+M2C_UNK set_help_text__14TFontSmallHelpFPvUi(void *, u32);
 M2C_UNK run_task__14TFontSmallHelpFv(void *);
 u32 TWindowSubStatusDisp__sub_800FC968(s32);
 s32 fn_800FCCF4(s32);
-s32 TWindowShortListCtrl__sub_801A5188(s32);
+s32 get_card_status_bits__20TWindowShortListCtrlFv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s8 lbl_80509D5C[];
 
@@ -28,15 +28,15 @@ void fn_800FCB4C(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r3_2 = TWindowShortListCtrl__sub_801A5188(M2C_FIELD(arg0, s32 *, 0x5C));
+    temp_r3_2 = get_card_status_bits__20TWindowShortListCtrlFv(M2C_FIELD(arg0, s32 *, 0x5C));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x60) != temp_r3_2) {
         M2C_FIELD(arg0, s32 *, 0x60) = temp_r3_2;
         temp_r3_3 = TWindowSubStatusDisp__sub_800FC968(M2C_FIELD(arg0, s32 *, 0x5C));
-        TFontSmallHelp__sub_800FC430(arg0, temp_r3_3);
+        set_help_text__14TFontSmallHelpFPvUi(arg0, temp_r3_3);
         if (temp_r3_3 != 0U) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 3) {
                 temp_r4 = M2C_FIELD(arg0, s32 *, 0x5C);
-                fn_800FC424(arg0, fn_800717B0(lbl_80509D5C + (temp_r4 * 0x11C) + 4, temp_r4));
+                fn_800FC424(arg0, get_status_index_or_default__20TWindowSubStatusDispFPv(lbl_80509D5C + (temp_r4 * 0x11C) + 4, temp_r4));
             } else {
                 fn_800FC424(arg0, fn_800FCCF4(temp_r3));
             }

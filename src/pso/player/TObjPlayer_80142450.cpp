@@ -6,8 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8016ED9C(void *arg0, u16 arg1) {
-    if ((arg1 == (u16) M2C_FIELD(arg0, u16 *, 0xA8)) && ((s32) M2C_FIELD(arg0, s32 *, 0xA4) != 2)) {
+s32 is_in_range__10TObjPlayerFf(f32 farg0);
+
+extern f32 lbl_805DB15C;
+extern f32 lbl_805DB160;
+
+s32 is_in_range__10TObjPlayerFf(f32 farg0) {
+    if ((lbl_805DB160 < farg0) && (farg0 < lbl_805DB15C)) {
         return 1;
     }
     return 0;

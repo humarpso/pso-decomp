@@ -13,13 +13,13 @@ M2C_UNK TCameraCtrl__sub_8006A410(M2C_UNK, M2C_UNK);
 M2C_UNK reset_battle_camera__11TCameraCtrlFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK player_flag_1__6TLobbyFPv();
-M2C_UNK TObjPlayer__sub_801B3468();
+M2C_UNK stop_battle__10TObjPlayerFPv();
 
 extern s32 lbl_805D53A0;
 
 void handle_active_battle__6TLobbyFv(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
-        TObjPlayer__sub_801B3468();
+        stop_battle__10TObjPlayerFPv();
     }
 }
 

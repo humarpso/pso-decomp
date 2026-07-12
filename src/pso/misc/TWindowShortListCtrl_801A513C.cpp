@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TWindowShortListCtrl__sub_801A513C(void* p);
 int TWindowShortListCtrl__sub_801A5144(void* p);
-s32 TWindowShortListCtrl__sub_801A5188(void);
+s32 get_card_status_bits__20TWindowShortListCtrlFv(void);
 s32 get_card_window_flags__20TWindowShortListCtrlFv(void);
 void *get_card_window__17TWindowSubComCardFUi();
 
@@ -23,7 +23,7 @@ s32 get_card_window_flags__20TWindowShortListCtrlFv(void) {
     }
     return ((u32) M2C_FIELD(temp_r3, u32 *, 0x10) >> 0x10U) & 3;
 }
-s32 TWindowShortListCtrl__sub_801A5188(void) {
+s32 get_card_status_bits__20TWindowShortListCtrlFv(void) {
     void *temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi();

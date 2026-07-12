@@ -20,7 +20,7 @@ int TSaveChCr__sub_80339B94(void* p);
 int TSaveChCr__sub_80339BF4(void* p);
 int TSaveChCr__sub_80339CC0(void* p);
 void TSaveChCr__sub_80339CE4(void);
-int TSaveChCr__sub_80339CE8(void* p);
+int save_1__9TSaveChCrFPv(void* p);
 int TSaveChCr__sub_80339F5C(void*, int);
 int close_window__9TSaveChCrFPv(void*);
 

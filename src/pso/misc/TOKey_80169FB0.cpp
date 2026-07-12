@@ -16,7 +16,7 @@ struct VObj_8016A004 : Base_8016A004 {
 extern "C" {
 
 void TOKey__sub_80169FB0(void* p);
-s32 TOKey__sub_80169FBC(void *arg0);
+s32 set_ready_if_pressed__5TOKeyFPv(void *arg0);
 void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_800196EC();
@@ -25,7 +25,7 @@ M2C_UNK TSwitch__sub_802293A0(u16);
 s32 fn_801A2340();
 
 void TOKey__sub_80169FB0(void* p) { *(s32*)((char*)p + 0x0) = 1; }
-s32 TOKey__sub_80169FBC(void *arg0) {
+s32 set_ready_if_pressed__5TOKeyFPv(void *arg0) {
     if (fn_801A2340() == 1) {
         M2C_FIELD(arg0, s32 *, 0xE4) = 1;
         return 1;

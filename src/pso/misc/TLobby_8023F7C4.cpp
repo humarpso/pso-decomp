@@ -10,7 +10,7 @@ f32 TLobby__sub_8023F7C4(void* p);
 s32 TLobby__sub_8023F7CC(void* p);
 void TLobby__sub_8023F7D4(void* p, s32 v);
 void set_mode__6TLobbyFPvi(void *arg0, s32 arg1);
-void TLobby__sub_8023F858(void *arg0, f32 farg0);
+void set_clamped_field27c__6TLobbyFPvf(void *arg0, f32 farg0);
 s32 TLobby__sub_803AA35C(s32);
 
 f32 TLobby__sub_8023F7C4(void* p) { return *(f32*)((char*)p + 0x2a4); }
@@ -36,7 +36,7 @@ void set_mode__6TLobbyFPvi(void *arg0, s32 arg1) {
 extern f32 lbl_805DC9C0;
 extern f32 lbl_805DC9C4;
 
-void TLobby__sub_8023F858(void *arg0, f32 farg0) {
+void set_clamped_field27c__6TLobbyFPvf(void *arg0, f32 farg0) {
     f32 var_f1;
 
     var_f1 = farg0;

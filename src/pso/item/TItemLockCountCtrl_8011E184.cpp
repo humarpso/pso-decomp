@@ -9,14 +9,14 @@ void *TItemLockCountCtrl__ct(void *, int, int, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern unsigned char notify_if_active__15TItemTimerEventFi[];
-extern unsigned char TItemTimerEvent__sub_8011E0E0[];
+extern unsigned char check_battle_ctrl__15TItemTimerEventFi[];
 extern void *lbl_805D5508;
 
 void create_instance__18TItemLockCountCtrlFv(void) {
     void *o;
     o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
-        o = TItemLockCountCtrl__ct(o, 0, 12, notify_if_active__15TItemTimerEventFi, TItemTimerEvent__sub_8011E0E0);
+        o = TItemLockCountCtrl__ct(o, 0, 12, notify_if_active__15TItemTimerEventFi, check_battle_ctrl__15TItemTimerEventFi);
     }
     lbl_805D5508 = o;
 }

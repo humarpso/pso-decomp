@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK fn_800FCCC8(s32, s32);
-s32 TWindowShortListCtrl__sub_801A5188();
+s32 get_card_status_bits__20TWindowShortListCtrlFv();
 
 void fn_800FC924(s32 arg0) {
     s32 var_r4;
 
-    var_r4 = TWindowShortListCtrl__sub_801A5188() + 1;
+    var_r4 = get_card_status_bits__20TWindowShortListCtrlFv() + 1;
     if (var_r4 >= 5) {
         var_r4 = 0;
     }

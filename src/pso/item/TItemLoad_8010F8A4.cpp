@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemLoad__sub_8010F8A4(void *arg0, s32 arg1, s32 arg2);
+void begin_load_if_pending__9TItemLoadFPvii(void *arg0, s32 arg1, s32 arg2);
 void reload_item__9TItemLoadFPv(void *arg0);
 s32 begin_load__9TItemLoadFPvi(void *, s32);
 M2C_UNK reset_state__9TItemLoadFPv(void *);
@@ -16,7 +16,7 @@ s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(s32);
 M2C_UNK TLobby__sub_803DE084(s32, s32);
 
-void TItemLoad__sub_8010F8A4(void *arg0, s32 arg1, s32 arg2) {
+void begin_load_if_pending__9TItemLoadFPvii(void *arg0, s32 arg1, s32 arg2) {
     if ((arg1 != 0) && (begin_load__9TItemLoadFPvi(arg0, arg2) == 1)) {
         M2C_FIELD(arg0, s32 *, 0x24) = arg1;
     }

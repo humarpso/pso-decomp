@@ -58,7 +58,7 @@ int TObjPlayer__sub_801BEA80(void* p);
 int TObjPlayer__sub_801BEAA4(void* p);
 int TObjPlayer__sub_801BEAB0(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
-int TObjPlayer__sub_801BEADC(void* p);
+int start_freeze_self__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BEAFC(void* p, s32 v);
 void TObjPlayer__sub_801BEB04(void* p, s32 v);
 int TObjPlayer__sub_801BED70(void*);

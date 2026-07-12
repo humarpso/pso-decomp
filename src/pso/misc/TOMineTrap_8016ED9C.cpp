@@ -6,11 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK spawn_particle__8TObjFishFiif(f32);
-extern const f32 lbl_805DEC90;
+s32 matches_id__10TOMineTrapFPvUs(void *arg0, u16 arg1);
 
-void fn_802F178C(void) {
-    spawn_particle__8TObjFishFiif(lbl_805DEC90);
+s32 matches_id__10TOMineTrapFPvUs(void *arg0, u16 arg1) {
+    if ((arg1 == (u16) M2C_FIELD(arg0, u16 *, 0xA8)) && ((s32) M2C_FIELD(arg0, s32 *, 0xA4) != 2)) {
+        return 1;
+    }
+    return 0;
 }
 
 }

@@ -36,11 +36,11 @@ void TWindowCtrl__sub_8024C72C(void* p) { *(u16*)((char*)p + 0x1c) |= 0x8; }
 void TWindowCtrl__sub_8024C73C(void* p) { *(u16*)((char*)p + 0x1c) &= 0xfffffff7; }
 void TWindowCtrl__sub_8024C74C(void* p) { *(u16*)((char*)p + 0x1c) |= 0x10; }
 void TWindowCtrl__sub_8024C75C(void* p) { *(u16*)((char*)p + 0x1c) &= 0xffffffef; }
-void TWindowCtrl__sub_8024C76C(void *arg0) {
+void set_radar_dirty_flag__11TWindowCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) | 1);
     TRaderMapCore__sub_801F9110();
 }
-void TWindowCtrl__sub_8024C798(void *arg0) {
+void clear_flag_bit0__11TWindowCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) & 0xFFFE);
     TRaderMapCore__sub_801F9144();
 }

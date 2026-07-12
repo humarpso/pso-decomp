@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 handle_main_phase__6TLobbyFi(s32 arg0);
-s32 fn_80211F54(s32);
+s32 create_lobby_object_05(s32);
 s32 fn_80211FA0(s32);
 s32 fn_80212014(s32);
 
@@ -23,7 +23,7 @@ s32 handle_main_phase__6TLobbyFi(s32 arg0) {
         if ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC) {
             return fn_80211FA0(arg0);
         }
-        return fn_80211F54(arg0);
+        return create_lobby_object_05(arg0);
     }
     return 0;
 }

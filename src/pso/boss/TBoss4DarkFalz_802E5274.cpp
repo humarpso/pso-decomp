@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+
+void free_global_instance__14TBoss4DarkFalzFv(void);
 void TLobby__sub_8001FE7C(void*, int);
+
 extern u32 lbl_805D68F4;
 
-void fn_802E5274(void) {
+void free_global_instance__14TBoss4DarkFalzFv(void) {
     if ((u32) lbl_805D68F4 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D68F4, 1);
         lbl_805D68F4 = 0U;

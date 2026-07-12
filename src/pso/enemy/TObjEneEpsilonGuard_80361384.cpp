@@ -114,7 +114,7 @@ M2C_UNK set_guard_state__19TObjEneEpsilonGuardFPv(void *, s32);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneEpsilonGuard__sub_8035FB44(void *);
 s32 TObjEneEpsilonGuard__sub_8035FCEC(void *);
-M2C_UNK TObjEneEpsilonGuard__sub_803600C0(void *);
+M2C_UNK tick_stun_timer__19TObjEneEpsilonGuardFPv(void *);
 
 extern void *lbl_805D6F8C;
 
@@ -142,7 +142,7 @@ void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
         break;
     case 0:
         TBoss1Dragon__sub_80143504();
-        TObjEneEpsilonGuard__sub_803600C0(arg0);
+        tick_stun_timer__19TObjEneEpsilonGuardFPv(arg0);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4E4);
         switch (temp_r0) {
         case 0:

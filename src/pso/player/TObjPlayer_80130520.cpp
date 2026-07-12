@@ -9,7 +9,7 @@ extern "C" {
 void handle_container_state_3__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_80130560(void *arg0);
 void TObjPlayer__sub_801305E8(void *arg0);
-void TObjPlayer__sub_80130600(void *arg0);
+void tick_meseta_counter__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80130630(u8 *arg0);
 int TObjContainerIdo__sub_803D96A8(void*, void*);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
@@ -44,7 +44,7 @@ void TObjPlayer__sub_801305E8(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80130600(void *arg0) {
+void tick_meseta_counter__10TObjPlayerFPv(void *arg0) {
     s32 temp_r4;
 
     M2C_FIELD(arg0, s32 *, 0x200) = (s32) (M2C_FIELD(arg0, s32 *, 0x200) + 1);

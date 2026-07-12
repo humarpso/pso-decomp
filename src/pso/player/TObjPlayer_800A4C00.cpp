@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800A4C00(void *arg0);
+void enter_state_7__10TObjPlayerFPv(void *arg0);
 
-void TObjPlayer__sub_800A4C00(void *arg0) {
+void enter_state_7__10TObjPlayerFPv(void *arg0) {
     void *temp_r5;
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 7) {

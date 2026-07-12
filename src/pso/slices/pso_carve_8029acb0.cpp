@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *__ct__11TChCrEffTagFv(void *, void *);
 
-void *fn_8029ACB0(void *arg0) {
+void *create_TChCrEffTag(void *arg0) {
     void *o = __nw__7TObjectFUl(0x2C);
     if (o != NULL) {
         o = __ct__11TChCrEffTagFv(o, arg0);

@@ -16,7 +16,7 @@ void add_clamped_stat__8TItemMagFPvi(void *arg0, s32 arg1) {
     }
 }
 
-void TItemMag__sub_801140BC(s16 *arg0, s32 arg1) {
+void add_stat_clamped__8TItemMagFPvi(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
     if (*arg0 < 0) {
         *arg0 = 0;

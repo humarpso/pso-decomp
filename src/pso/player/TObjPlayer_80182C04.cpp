@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80182C04(void *arg0);
+void begin_state_1__10TObjPlayerFPv(void *arg0);
 
 struct Base_80182C04 { char pad[0x18]; };
 struct VObj_80182C04 : Base_80182C04 {
@@ -19,7 +19,7 @@ struct VObj_80182C04 : Base_80182C04 {
     virtual void m18();
 };
 
-void TObjPlayer__sub_80182C04(void *arg0) {
+void begin_state_1__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
     void *temp_r4;
     VObj_80182C04 *obj = (VObj_80182C04 *)arg0;

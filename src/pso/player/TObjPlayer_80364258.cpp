@@ -7,9 +7,9 @@ struct Elt80364258_80364258 { s32 f0; };
 
 extern "C" {
 
-void TObjPlayer__sub_80364258(u8 *arg0, s32 arg1);
+void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 
-void TObjPlayer__sub_80364258(u8 *arg0, s32 arg1) {
+void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB0);

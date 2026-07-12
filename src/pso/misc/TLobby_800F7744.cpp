@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_800F7744(void);
-void TLobby__sub_800F7748(void);
+void clear_flag_on_phase_e__6TLobbyFv(void);
 s32 get_main_phase();
 
 void TLobby__sub_800F7744(void) {  }
 
 extern s32 lbl_805D5328;
 
-void TLobby__sub_800F7748(void) {
+void clear_flag_on_phase_e__6TLobbyFv(void) {
     if (get_main_phase() == 0xE) {
         lbl_805D5328 = 0;
     }

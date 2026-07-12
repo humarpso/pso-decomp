@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjWarpJung__sub_801A0324(void);
+f32 get_static_field4_as_float__12TObjWarpJungFv(void);
 
 extern M2C_UNK lbl_80446708;
 extern void *lbl_805D5CAC;
 
-f32 TObjWarpJung__sub_801A0324(void) {
+f32 get_static_field4_as_float__12TObjWarpJungFv(void) {
     return (f32) M2C_FIELD(lbl_805D5CAC, u32 *, 4);
 }
 

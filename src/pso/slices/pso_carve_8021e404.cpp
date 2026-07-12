@@ -8,7 +8,7 @@ void *__nw__7TObjectFUl(int);
 void *TShopItemTecSequence__ct(void *, void *, void *);
 extern void *tl_05;
 
-void *fn_8021E404(void *arg0) {
+void *create_shop_item_tec_sequence(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
         o = TShopItemTecSequence__ct(o, tl_05, arg0);

@@ -11,14 +11,14 @@ s32 obj_getField1c(s32);
 s32 TWindowSubComCard__sub_801058F8(s32);
 M2C_UNK fn_801C6518(s32, s32, s32);
 M2C_UNK TObjPlayer__sub_801C7264(s32);
-s32 TObjPlayer__sub_801C728C();
+s32 check_flag_0x8000__10TObjPlayerFPv();
 s32 __nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_06;
 
 void fn_801C65A4(s32 arg0) {
     s32 temp_r3;
 
-    if ((TObjPlayer__sub_801C728C() != 0) || (obj_isState3_324(arg0) != 0) || (TWindowSubComCard__sub_801058F8(arg0) != 0)) {
+    if ((check_flag_0x8000__10TObjPlayerFPv() != 0) || (obj_isState3_324(arg0) != 0) || (TWindowSubComCard__sub_801058F8(arg0) != 0)) {
         TObjPlayer__sub_801C7264(arg0);
         return;
     }

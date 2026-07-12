@@ -4,8 +4,8 @@ extern "C" {
 
 int run_task__9TEndingABFv(void* p);
 
-int TEndingAB__sub_8008C9FC(void*);
+int advance_fade_sequence__9TEndingABFPv(void*);
 
-int run_task__9TEndingABFv(void* p) { return TEndingAB__sub_8008C9FC(p); }
+int run_task__9TEndingABFv(void* p) { return advance_fade_sequence__9TEndingABFPv(p); }
 
 }

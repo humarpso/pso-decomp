@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnemyCustom__sub_800C6CF0(void *arg0);
+void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0);
 M2C_UNK call_vt78__10TObjPlayerFPv();
 
-void TObjEnemyCustom__sub_800C6CF0(void *arg0) {
+void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0) {
     s16 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, s16 *, 0x326);

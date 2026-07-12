@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjCMIcon__sub_8029997C(void *arg0);
+void *create__10TObjCMIconFPv(void *arg0);
 void *__ct__10TObjCMIconFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjCMIcon__sub_8029997C(void *arg0) {
+void *create__10TObjCMIconFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
         o = __ct__10TObjCMIconFv(o, arg0);

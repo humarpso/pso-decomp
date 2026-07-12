@@ -7,7 +7,7 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TChCrLoadAfsTextureReq__ct(void *, void *, void *, void *, void *);
 
-void * fn_8028C45C(void *arg0, void *arg1, void *arg2, void *arg3) {
+void * create_ch_cr_load_afs_texture_req(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x194);
     if (o != NULL) {

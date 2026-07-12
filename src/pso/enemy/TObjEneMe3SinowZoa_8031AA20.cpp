@@ -12,8 +12,8 @@ void init_setup__18TObjEneMe3SinowZoaFPv(void* p);
 void update_shadow_height__18TObjEneMe3SinowZoaFPv(void *arg0);
 int TObjEneDD__vt92(void*);
 int TObjEneDD__vt93(void*);
-int fn_800F5864(void*, void*);
-int fn_800F5874(void*, void*);
+int TObjEneMe3Stelth__sub_800F5864(void*, void*);
+int TObjEneMe3Stelth__sub_800F5874(void*, void*);
 s32 TObjEneMe3SinowZoa__sub_8031A494(void *);
 s32 TObjEneMe3SinowZoa__sub_8031A4D0();
 
@@ -41,9 +41,9 @@ void setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(arg0, s32 *, 0x368);
 }
 
-void TObjEneMe3SinowZoa__sub_8031AADC(void* p) { TObjEneDD__vt93(p); fn_800F5864(p, (void*)38); }
+void TObjEneMe3SinowZoa__sub_8031AADC(void* p) { TObjEneDD__vt93(p); TObjEneMe3Stelth__sub_800F5864(p, (void*)38); }
 
-void init_setup__18TObjEneMe3SinowZoaFPv(void* p) { TObjEneDD__vt92(p); fn_800F5874(p, (void*)38); }
+void init_setup__18TObjEneMe3SinowZoaFPv(void* p) { TObjEneDD__vt92(p); TObjEneMe3Stelth__sub_800F5874(p, (void*)38); }
 
 void update_shadow_height__18TObjEneMe3SinowZoaFPv(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));

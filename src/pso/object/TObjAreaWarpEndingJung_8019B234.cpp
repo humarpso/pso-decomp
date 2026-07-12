@@ -22,7 +22,7 @@ void render__22TObjAreaWarpEndingJungFv(u8 *arg0);
 void run_task__22TObjAreaWarpEndingJungFv(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjAreaWarp__sub_8019CAB0(void *);
-f32 TObjWarpJung__sub_801A0324(f32);
+f32 get_static_field4_as_float__12TObjWarpJungFv(f32);
 M2C_UNK TObjWarpJung__sub_801A0354();
 M2C_UNK TObjWarpJung__sub_801A0378(M2C_UNK, s32);
 M2C_UNK render_warp__12TObjWarpJungFPv(M2C_UNK);
@@ -75,7 +75,7 @@ void run_task__22TObjAreaWarpEndingJungFv(void *arg0) {
 
     temp_f1 = M2C_FIELD(arg0, f32 *, 0xC4);
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (temp_f1 + lbl_805DBFDC);
-    if (M2C_FIELD(arg0, f32 *, 0xC4) > (TObjWarpJung__sub_801A0324(temp_f1) - lbl_805DBFE0)) {
+    if (M2C_FIELD(arg0, f32 *, 0xC4) > (get_static_field4_as_float__12TObjWarpJungFv(temp_f1) - lbl_805DBFE0)) {
         M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBFE4;
     }
     TObjAreaWarp__sub_8019CAB0(arg0);

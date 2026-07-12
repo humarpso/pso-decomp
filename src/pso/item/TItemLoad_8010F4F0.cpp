@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemLoad__sub_8010F4F0(void);
+void update_all__9TItemLoadFv(void);
 M2C_UNK update_state__9TItemLoadFPv(void *);
 
 extern void *lbl_805D549C;
 extern void *lbl_805D54A0;
 
-void TItemLoad__sub_8010F4F0(void) {
+void update_all__9TItemLoadFv(void) {
     void *temp_r3;
     temp_r3 = lbl_805D549C;
     if (temp_r3 != 0) {

@@ -19,7 +19,7 @@ s16 TItemData__sub_8010EE40(void *arg0);
 s16 TItemData__sub_8010EE54(void *arg0);
 s16 TItemData__sub_8010EE68(void *arg0);
 s16 TItemData__sub_8010EE7C(void *arg0);
-void TItemData__sub_8010EE90(s32 arg0);
+void update_player_field__9TItemDataFi(s32 arg0);
 s32 TObjPlayer__sub_801AFDB0();
 M2C_UNK TObjPlayer__sub_803373D0(s32, s32);
 
@@ -75,7 +75,7 @@ s16 TItemData__sub_8010EE7C(void *arg0) {
     return (s16) ((s16) M2C_FIELD(arg0, s16 *, 6) / 100);
 }
 
-void TItemData__sub_8010EE90(s32 arg0) {
+void update_player_field__9TItemDataFi(s32 arg0) {
     TObjPlayer__sub_803373D0(arg0 + 0x374, TObjPlayer__sub_801AFDB0());
 }
 

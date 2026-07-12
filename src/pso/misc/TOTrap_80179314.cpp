@@ -54,13 +54,13 @@ struct VObj_80179358 : Base_80179358 {
 
 extern "C" {
 
-f32 TOTrap__sub_80179314(struct VObj_80179314 *arg0, u32 arg1);
+f32 check_trigger_range__6TOTrapFPvUi(struct VObj_80179314 *arg0, u32 arg1);
 f32 get_scale__6TOTrapFPvUi(struct VObj_80179358 *arg0, u32 arg1);
 
 extern f32 TOTrap__data_805DBA38;
 extern f32 TOTrap__data_805DBA3C;
 
-f32 TOTrap__sub_80179314(struct VObj_80179314 *arg0, u32 arg1) {
+f32 check_trigger_range__6TOTrapFPvUi(struct VObj_80179314 *arg0, u32 arg1) {
     if (arg1 != M2C_FIELD(arg0, u32 *, 0x2A8)) {
         arg0->m20(0, TOTrap__data_805DBA38);
     }
