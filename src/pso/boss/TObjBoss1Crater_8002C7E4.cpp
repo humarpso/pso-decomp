@@ -3,9 +3,9 @@
 extern "C" {
 
 s32 TObjBoss1Crater__sub_8002C7E4(void* p);
-void fn_8002C838(void);
-int fn_8002C868(void* p);
-void fn_8002C888(void);
+void TLobby__sub_8002C838(void);
+int TLobby__sub_8002C868(void* p);
+void TLobby__sub_8002C888(void);
 int fn_8002C140(void);
 int fn_8002C190(void);
 int TObjBoss1Crater__sub_8002C7B4(void);

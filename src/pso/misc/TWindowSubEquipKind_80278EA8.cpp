@@ -12,7 +12,7 @@ M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 M2C_UNK fn_80257BC0(void *, void *, s32);
 M2C_UNK fn_80267E20(void *, s32);
 M2C_UNK fn_8026D790(s32, s32, void *);
-M2C_UNK fn_8027831C(void *, s32);
+M2C_UNK TWindowSubStatusDisp__sub_8027831C(void *, s32);
 M2C_UNK fn_80288030(s32, s32);
 
 void render__19TWindowSubEquipKindFv(u8 *arg0) {
@@ -23,7 +23,7 @@ void render__19TWindowSubEquipKindFv(u8 *arg0) {
     fn_80257BC0(arg0, arg0 + 0x24, temp_r3);
     fn_80267E20(arg0, temp_r3);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x88) != 4) {
-        fn_8027831C(arg0, temp_r3);
+        TWindowSubStatusDisp__sub_8027831C(arg0, temp_r3);
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
         fn_80288030(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);

@@ -11,7 +11,7 @@ M2C_UNK TLobby__sub_80103114(void *, M2C_UNK);
 M2C_UNK TLobby__sub_80103B04();
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK fn_801566CC(void *);
-M2C_UNK fn_80156990(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_80156990(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_8049F038[];
 
@@ -25,7 +25,7 @@ void *fn_80108C00(void *arg0, s16 arg1) {
             TLobby__sub_80103B04();
             TLobby__sub_80103114(arg0, 0xFFFF);
         }
-        fn_80156990(arg0, 0);
+        TObjPlayer__sub_80156990(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

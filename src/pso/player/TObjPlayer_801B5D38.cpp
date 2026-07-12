@@ -14,7 +14,7 @@ M2C_UNK fn_801C1E74(s32);
 M2C_UNK fn_801C1EA4(s32);
 M2C_UNK fn_801C1EC4(s32);
 M2C_UNK fn_801C1EF4(s32);
-s32 fn_801C1F50(s32);
+s32 TObjPlayer__sub_801C1F50(s32);
 s32 TObjPlayer__sub_803517F8(s32, s32);
 
 s32 obj_getField1c(s32);
@@ -23,12 +23,12 @@ void update_ground_contact__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_80019248() != 0) {
         if (TObjPlayer__sub_803517F8(arg0 + 0x550, fn_8002AE08(obj_getField1c(arg0))) != 0) {
             fn_801C1EF4(arg0 + 0x500);
-            if (fn_801C1F50(arg0 + 0x4AC) != 0) {
+            if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) != 0) {
                 fn_801C1EC4(arg0 + 0x500);
             }
         } else {
             fn_801C1EA4(arg0 + 0x500);
-            if (fn_801C1F50(arg0 + 0x4AC) != 0) {
+            if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) != 0) {
                 fn_801C1E74(arg0 + 0x500);
             }
         }

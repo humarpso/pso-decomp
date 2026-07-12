@@ -9,14 +9,14 @@ void request_destroy__11TBoss4Type2FUi(void *);
 void __dt__15TObjEneSlimeOneFis(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
-void fn_80156720(void *);
+void TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK __vt__15TObjEneSlimeOne[];
 
 void *__dt__15TObjEneSlimeOneFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjEneSlimeOne;
-        fn_80156720(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
         M2C_FIELD(arg0, M2C_UNK *, 0x38C) = 0;
         if (M2C_FIELD(arg0, void **, 0x3E8) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x3E8)); M2C_FIELD(arg0, M2C_UNK *, 0x3E8) = 0; }
         __dt__15TObjEneSlimeOneFis(M2C_FIELD(arg0, void **, 0x388), 1);

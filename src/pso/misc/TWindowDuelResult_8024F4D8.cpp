@@ -9,19 +9,19 @@ extern "C" {
 void update__17TWindowDuelResultFPv(u8 *arg0);
 M2C_UNK TWindowDuelResult__sub_8024F330(void *);
 M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
-M2C_UNK fn_8024664C(void *);
+M2C_UNK TWindowDD__sub_8024664C(void *);
 M2C_UNK fn_80257C28(void *, void *);
-s32 fn_8026C9DC(s32);
+s32 TWindowShortListCtrl__sub_8026C9DC(s32);
 
 void update__17TWindowDuelResultFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }
-    if (fn_8026C9DC(M2C_FIELD(arg0, s32 *, 0x68)) != 0) {
+    if (TWindowShortListCtrl__sub_8026C9DC(M2C_FIELD(arg0, s32 *, 0x68)) != 0) {
         TWindowDuelResult__sub_8024F3CC(arg0);
     }
     TWindowDuelResult__sub_8024F330(arg0);
-    fn_8024664C(arg0);
+    TWindowDD__sub_8024664C(arg0);
     fn_80257C28(arg0, arg0 + 0x24);
 }
 

@@ -16,34 +16,5 @@ int set_flag62_bit2__16TKeyBoardControlFPv(void*);
 int TLobby__sub_80244D2C(void*);
 
 int TLobby__sub_8013194C(void) { return 0; }
-void fn_80131998(void *arg0) {
-    u16 temp_r3;
-
-    temp_r3 = M2C_FIELD(arg0, u16 *, 0x1C);
-    if (!(temp_r3 & 4)) {
-        M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (temp_r3 | 4);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-            set_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, void **, 0x24));
-        }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, void **, 0x28));
-        }
-    }
-}
-void fn_801319F4(void *arg0) {
-    u16 temp_r3;
-
-    temp_r3 = M2C_FIELD(arg0, u16 *, 0x1C);
-    if (temp_r3 & 4) {
-        M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (temp_r3 & 0xFFFFFFFB);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-            clear_flag60_bit200__16TKeyBoardControlFPv(M2C_FIELD(arg0, void **, 0x24));
-        }
-        if (!(M2C_FIELD(arg0, u16 *, 0x1C) & 1) && ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U)) {
-            fn_80244B64(M2C_FIELD(arg0, void **, 0x28));
-        }
-    }
-}
-int fn_80131A5C(void* p) { return set_flag62_bit2__16TKeyBoardControlFPv(*(void**)((char*)p + 0x20)); }
 
 }

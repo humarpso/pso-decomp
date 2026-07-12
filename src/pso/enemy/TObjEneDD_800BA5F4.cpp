@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3);
-M2C_UNK fn_800BC3C4(void *, s32);
+M2C_UNK TBoss1Dragon__sub_800BC3C4(void *, s32);
 M2C_UNK fn_800BC3E8(void *, s32);
 
 extern u8 *lbl_805D5138;
@@ -33,7 +33,7 @@ struct EneDDObj : EneDDBase {
 
 void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     fn_800BC3E8(lbl_805D5138, arg0);
-    fn_800BC3C4(lbl_805D5138, arg1);
+    TBoss1Dragon__sub_800BC3C4(lbl_805D5138, arg1);
     M2C_FIELD(M2C_FIELD(lbl_805D5138, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);
     M2C_FIELD(M2C_FIELD(lbl_805D5138, void **, 0xA4), s32 *, 0x18) = 0x9D03;
     if (M2C_FIELD(arg2, f32 *, 8) > lbl_805D9EA0) {

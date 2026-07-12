@@ -11,7 +11,7 @@ M2C_UNK TBoss5GryphonSnarl__sub_80066E84();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(u32);
 M2C_UNK fn_803255F8();
 M2C_UNK fn_80355A1C();
-M2C_UNK fn_803DA16C(void*);
+M2C_UNK TLobby__sub_803DA16C(void*);
 extern u32 lbl_805D4DA0;
 extern u32 lbl_805D4DA4;
 extern u32 lbl_805D4DA8;
@@ -22,7 +22,7 @@ void fn_80065BC0(void) {
     fn_80355A1C();
     fn_80066A4C();
     if ((u32) lbl_805D4DA8 != 0U) {
-        fn_803DA16C((void*)lbl_805D4DA8);
+        TLobby__sub_803DA16C((void*)lbl_805D4DA8);
         TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D4DA8);
         lbl_805D4DA8 = 0U;
     }

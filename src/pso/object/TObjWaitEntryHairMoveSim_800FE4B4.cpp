@@ -7,11 +7,11 @@ extern "C" {
 void * TObjWaitEntryHairMoveSim__sub_800FE4B4(void *arg0);
 void *TObjWaitEntryHairMoveSim__sub_800FE45C(void *, void *);
 void *__nw__7TObjectFUl(int);
-int fn_800FE300(void *);
+int TObjWaitEntryHairMoveSim__sub_800FE300(void *);
 
 void * TObjWaitEntryHairMoveSim__sub_800FE4B4(void *arg0) {
     void *o;
-    if (fn_800FE300(arg0) == 0) {
+    if (TObjWaitEntryHairMoveSim__sub_800FE300(arg0) == 0) {
         return NULL;
     }
     o = __nw__7TObjectFUl(0x24);

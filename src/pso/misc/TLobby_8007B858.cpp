@@ -23,8 +23,8 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create__13TRaderMapCoreFv();
 M2C_UNK create__6TSceneFv();
 M2C_UNK create_instance__10TSceneSoraFv();
-M2C_UNK fn_8008350C(u32, s32, M2C_UNK);
-M2C_UNK fn_800F8144(M2C_UNK);
+M2C_UNK TLobby__sub_8008350C(u32, s32, M2C_UNK);
+M2C_UNK TLobby__sub_800F8144(M2C_UNK);
 M2C_UNK fn_800F8208(u32, s32);
 M2C_UNK fn_80198D98();
 M2C_UNK fn_8020D918();
@@ -48,11 +48,11 @@ void TLobby__sub_8007B858(void) {
     if (is_split_screen() == 0) {
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            fn_8008350C(tmp, tl_particlemodel, 1);
+            TLobby__sub_8008350C(tmp, tl_particlemodel, 1);
         }
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {
-            fn_8008350C(tmp, tl_particlemodel, 0);
+            TLobby__sub_8008350C(tmp, tl_particlemodel, 0);
         }
         tmp = __nw__7TObjectFUl(0x84);
         if (tmp != 0U) {
@@ -80,7 +80,7 @@ void TLobby__sub_8007B858(void) {
     if (tmp != 0U) {
         fn_800F8208(tmp, tl_fade);
     }
-    fn_800F8144(0);
+    TLobby__sub_800F8144(0);
     tmp = __nw__7TObjectFUl(0x30);
     if (tmp != 0U) {
         TCineCtrl__ct(tmp, tl_00);

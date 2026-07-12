@@ -13,7 +13,7 @@ M2C_UNK fn_80141A30();
 f32 TObjPlayer__sub_80141CF8(void *, s32);
 M2C_UNK TObjPlayer__sub_80141F1C();
 M2C_UNK TObjFish__sub_803DA798(s32);
-M2C_UNK fn_803DA7A8(s32);
+M2C_UNK TParticleCtrl__sub_803DA7A8(s32);
 M2C_UNK fn_803E29B0(void *, M2C_UNK, M2C_UNK);
 
 extern s32 lbl_805D4DF0;
@@ -28,7 +28,7 @@ void render__9TDeadSpotFv(u8 *arg0) {
         TObjPlayer__sub_80141F1C();
         fn_801418C4(0x8F);
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xB8));
-        fn_803DA7A8(M2C_FIELD(arg0, s32 *, 0xBC));
+        TParticleCtrl__sub_803DA7A8(M2C_FIELD(arg0, s32 *, 0xBC));
         fn_803E29B0(arg0 + 0x1C, 4, 1);
         fn_80141A30();
         some_id_805c6f74 = lbl_805D5660;

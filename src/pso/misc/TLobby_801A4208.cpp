@@ -15,9 +15,9 @@ M2C_UNK apply_all_players__9TTecLukerFv();
 M2C_UNK TLobby__sub_80103F68();
 M2C_UNK TLobby__sub_801A3B84();
 M2C_UNK TLobby__sub_801A3BA4();
-M2C_UNK fn_801A3BF4();
-M2C_UNK fn_801A3C00();
-M2C_UNK fn_801A3C18();
+M2C_UNK TLobby__sub_801A3BF4();
+M2C_UNK TLobby__sub_801A3C00();
+M2C_UNK TLobby__sub_801A3C18();
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
 void enable_all_battle_ctrl__10TNpcPlayerFv();
 M2C_UNK queue_destruction__7TObjectFv(u32);
@@ -36,10 +36,10 @@ void free_objects__6TLobbyFv(void) {
     TObjCityMainWarp__sub_80186634();
     THunterGuildSeqOffline__sub_80213430();
     TLobby__sub_801A3B84();
-    fn_801A3C18();
+    TLobby__sub_801A3C18();
     TObjDoor__sub_801A3C0C();
-    fn_801A3C00();
-    fn_801A3BF4();
+    TLobby__sub_801A3C00();
+    TLobby__sub_801A3BF4();
     TLobby__sub_801A3BA4();
 }
 

@@ -9,7 +9,7 @@ void fn_80141CB0(void);
 void fn_80141CB4(void);
 void fn_80141CB8(void);
 void TOTrapAncient02R__sub_80141CF0(void);
-void fn_80141CF4(void);
+void TObjRoomId__sub_80141CF4(void);
 
 void TOTrapAncient02R__sub_80141CF0(void) {  }
 

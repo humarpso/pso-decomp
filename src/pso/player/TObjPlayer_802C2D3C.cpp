@@ -18,14 +18,14 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjPlayer__sub_803E4BC4();
 M2C_UNK TObjPlayer__sub_803E4BD0();
-M2C_UNK fn_802C2FBC(void *, s32, s32, f32);
+M2C_UNK TObjPlayer__sub_802C2FBC(void *, s32, s32, f32);
 
 extern s32 lbl_805D679C;
 extern const f32 lbl_805DE4FC;
 
 void TObjPlayer__sub_802C2D3C(u8 *arg0) {
     if ((TObjPlayer__sub_80080750() == 1) && (TMainTask__sub_8001A430() == 0)) {
-        fn_802C2FBC(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), lbl_805DE4FC);
+        TObjPlayer__sub_802C2FBC(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), lbl_805DE4FC);
     }
     TObjFish__sub_803DA798(lbl_805D679C);
     TObjPlayer__sub_803D9B2C();

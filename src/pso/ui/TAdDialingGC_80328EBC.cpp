@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void open__12TAdDialingGCFv(void);
-M2C_UNK fn_802A0F70();
+M2C_UNK TLobby__sub_802A0F70();
 M2C_UNK fn_802A5154();
 
 extern s32 TAdDialingGC__data_805D6C78;
 
 void open__12TAdDialingGCFv(void) {
     TAdDialingGC__data_805D6C78 = 0;
-    fn_802A0F70();
+    TLobby__sub_802A0F70();
     fn_802A5154();
 }
 

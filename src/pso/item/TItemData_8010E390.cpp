@@ -9,7 +9,7 @@ extern "C" {
 s32 TItemData__sub_8010E390(void *arg0);
 s32 TItemData__sub_8010DF68();
 s32 TItemData__sub_8010EEC8(s32);
-s32 fn_8010EC88(void *);
+s32 TItemData__sub_8010EC88(void *);
 
 extern s32 lbl_805D2B10;
 
@@ -19,7 +19,7 @@ s32 TItemData__sub_8010E390(void *arg0) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
         temp_r0 = M2C_FIELD(arg0, u8 *, 4);
         if ((temp_r0 != 0) && (temp_r0 < 0x29U) && (TItemData__sub_8010DF68() == 0)) {
-            if (fn_8010EC88(arg0) == 1) {
+            if (TItemData__sub_8010EC88(arg0) == 1) {
                 return TItemData__sub_8010EEC8(M2C_FIELD(arg0, u8 *, 4) + 0x1CB);
             }
             return TItemData__sub_8010EEC8(0x1F4);

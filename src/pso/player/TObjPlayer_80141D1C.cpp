@@ -11,7 +11,7 @@ void TObjPlayer__sub_80141D68(s32 arg0, void *arg1, f32 farg0);
 f32 TBoss8Dragon__sub_803D64C0();
 f32 TBoss8Dragon__sub_803D64DC(s32, f32);
 f32 TCameraCtrl__sub_803D8D00();
-M2C_UNK fn_803D97B4(s32);
+M2C_UNK TNpcPlayer__sub_803D97B4(s32);
 
 extern f32 lbl_805DB158;
 
@@ -19,7 +19,7 @@ s32 TObjPlayer__sub_80141D1C(s32 arg0) {
     if (TCameraCtrl__sub_803D8D00() < lbl_805DB158) {
         return 0;
     }
-    fn_803D97B4(arg0);
+    TNpcPlayer__sub_803D97B4(arg0);
     return 1;
 }
 

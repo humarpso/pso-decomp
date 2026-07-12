@@ -13,7 +13,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 TWindowSubComCard__sub_8007341C(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 M2C_UNK TWindow__close(void *);
-s32 fn_801A6D60(void *, M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_801A6D60(void *, M2C_UNK);
 
 extern const f64 lbl_804772F0;
 extern s8 lbl_8050E208[];
@@ -60,7 +60,7 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x24) = 4;
                 break;
             }
-        } else if ((TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) || (fn_801A6D60(lbl_8050E208 + 0x160, 2) != 0)) {
+        } else if ((TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) || (TAdSinglePlyChrSelectGC__sub_801A6D60(lbl_8050E208 + 0x160, 2) != 0)) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
             M2C_FIELD(arg0, s32 *, 0x24) = 4;
         }

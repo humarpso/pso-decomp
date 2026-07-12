@@ -2,10 +2,9 @@
 
 extern "C" {
 
-void fn_8007340C(void* p);
+void TLobby__sub_8007340C(void* p);
 int TWindowSubComCard__sub_8007341C(void* p);
 
 int fn_800733C4(void) { return 0; }
-void fn_8007340C(void* p) { *(u16*)((char*)p + 0x70) |= 0x200; }
 
 }

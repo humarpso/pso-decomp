@@ -19,7 +19,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjFish__sub_803DA798();
-M2C_UNK fn_803DC894(s32, s32, f32);
+M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 
 extern s32 TObjLaboMapWarp__data_805D5B58;
 extern const f32 lbl_805DBC80;
@@ -51,11 +51,11 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
             TObjFish__sub_8001EDC4(TObjLaboMapWarp__data_805D5B58, 1);
             TObjBoss2Tunnel__sub_803DB470();
             TParticleCtrl__sub_801E2EFC();
-            fn_803DC894(TObjFish__sub_8001EDC4(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
+            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
             TParticleCtrl__sub_801E2F20();
         } else {
             TParticleCtrl__sub_801E2EFC();
-            fn_803DC894(TObjFish__sub_8001EDC4(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
+            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
             TParticleCtrl__sub_801E2F20();
         }
         TObjPlayer__sub_803D9B78();

@@ -67,8 +67,8 @@ s32 TLockOnCursor__sub_8013EB2C(void* p);
 int TObjPlayer__sub_8001BED8(void*, int);
 int TAdRicoRing__sub_8001BEE8(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
-int fn_8013B2A4(void*);
-int fn_8013DEF8(void*);
+int TMainCursor__sub_8013B2A4(void*);
+int TObjPlayer__sub_8013DEF8(void*);
 int TMainCursor__sub_8013DF08(void*);
 int TMainCursor__sub_8013DF3C(void*);
 int TMainCursor__sub_8013DF44(void*);
@@ -77,7 +77,7 @@ int TWindowActionPalette__sub_8013DF54(void*);
 int fn_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
 
-int TMainCursor__sub_8013E8A0(void* p) { return fn_8013DEF8(p); }
+int TMainCursor__sub_8013E8A0(void* p) { return TObjPlayer__sub_8013DEF8(p); }
 int TMainCursor__sub_8013E8C0(void* p) { return TMainCursor__sub_8013DF08(p); }
 int TMainCursor__sub_8013E8E0(void* p) { return TMainCursor__sub_8013DF3C(p); }
 int TMainCursor__sub_8013E900(void* p) { return TMainCursor__sub_8013DF44(p); }

@@ -21,7 +21,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjFish__sub_803DA798(s32);
-M2C_UNK fn_803DC894(s32, s32, f32);
+M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 
 extern const f32 lbl_805DBFD4;
 extern const f32 lbl_805DBFD8;
@@ -34,7 +34,7 @@ void render__17TObjMapWarpForestFv(u8 *arg0) {
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x100));
         TParticleCtrl__sub_801E2EFC();
-        fn_803DC894(M2C_FIELD(arg0, s32 *, 0x104), M2C_FIELD(arg0, s32 *, 0x108), M2C_FIELD(arg0, f32 *, 0xFC));
+        TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x104), M2C_FIELD(arg0, s32 *, 0x108), M2C_FIELD(arg0, f32 *, 0xFC));
         TParticleCtrl__sub_801E2F20();
         TObjPlayer__sub_803D9B78();
     }

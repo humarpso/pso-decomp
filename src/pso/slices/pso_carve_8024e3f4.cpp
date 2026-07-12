@@ -9,7 +9,7 @@ extern "C" {
 void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
 void TWindowDeposit__sub_8024E434(void *arg0, s32 arg1);
 M2C_UNK fn_80287580(s32, s32, M2C_UNK, f32);
-int fn_8024664C(void*);
+int TWindowDD__sub_8024664C(void*);
 int fn_80257C28(void*, void*);
 void fn_8024E3CC(void);
 void fn_8024E3D0(void);

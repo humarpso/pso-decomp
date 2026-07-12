@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *fn_80243010();
+void *TBoss3Volopt__sub_80243010();
 
 void TBoss3Volopt__sub_80242E74(s16 arg0, s16 arg1) {
     void *temp_r3;
 
-    temp_r3 = fn_80243010();
+    temp_r3 = TBoss3Volopt__sub_80243010();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s8 *, 0) = 0x1D;
         M2C_FIELD(temp_r3, s16 *, 0x10) = arg0;
@@ -19,12 +19,12 @@ void TBoss3Volopt__sub_80242E74(s16 arg0, s16 arg1) {
     }
 }
 
-void *fn_80243010();
+void *TBoss3Volopt__sub_80243010();
 
 void spawn_effect__11TBoss4Type3Fsss(s16 arg0, s16 arg1, s16 arg2) {
     void *temp_r3;
 
-    temp_r3 = fn_80243010();
+    temp_r3 = TBoss3Volopt__sub_80243010();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s8 *, 0) = 0xD;
         M2C_FIELD(temp_r3, s16 *, 0x10) = arg0;

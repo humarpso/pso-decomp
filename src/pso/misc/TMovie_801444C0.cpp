@@ -15,7 +15,7 @@ s32 TLobby__sub_800F8FB8();
 M2C_UNK fn_801449E4();
 M2C_UNK fn_801449F0();
 s32 check_reset_button__16TKeyBoardControlFv();
-s32 fn_801A6D60(void *, M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_801A6D60(void *, M2C_UNK);
 s8 fn_802A1144();
 s8 func_801A5E54__Fv();
 
@@ -52,8 +52,8 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
         if (TWindowShortListCtrl__check_controller_button(var_r31, 0x20000) != 0) goto block_fn_8000F91C;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 0x10000) != 0) goto block_fn_8000F91C;
         var_r31 = lbl_8050E208 + 0x160;
-        if (fn_801A6D60(var_r31, 4) != 0) goto block_fn_8000F91C;
-        if (fn_801A6D60(var_r31, 2) != 0) goto block_fn_8000F91C;
+        if (TAdSinglePlyChrSelectGC__sub_801A6D60(var_r31, 4) != 0) goto block_fn_8000F91C;
+        if (TAdSinglePlyChrSelectGC__sub_801A6D60(var_r31, 2) != 0) goto block_fn_8000F91C;
         if (TLobby__sub_800F8FB8() == 0) goto block_fn_8000F91C;
         if (check_reset_button__16TKeyBoardControlFv() != 0) goto block_fn_8000F91C;
         if (TMovie__sub_80143EFC(M2C_FIELD(arg0, s32 *, 0x20)) == 0) goto block_return0;
@@ -69,8 +69,8 @@ block_fn_8000F91C:
         if (TWindowShortListCtrl__check_controller_button(var_r31, 2) != 0) goto block_call_func;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 8) != 0) goto block_call_func;
         var_r31 = lbl_8050E208 + 0x160;
-        if (fn_801A6D60(var_r31, 4) != 0) goto block_call_func;
-        if (fn_801A6D60(var_r31, 2) != 0) goto block_call_func;
+        if (TAdSinglePlyChrSelectGC__sub_801A6D60(var_r31, 4) != 0) goto block_call_func;
+        if (TAdSinglePlyChrSelectGC__sub_801A6D60(var_r31, 2) != 0) goto block_call_func;
         if (TLobby__sub_800F8FB8() == 0) goto block_call_func;
         if (var_r30 != 0) goto block_call_func;
         if (TMovie__sub_80143EFC(M2C_FIELD(arg0, s32 *, 0x20)) == 0) goto block_return0;

@@ -9,7 +9,7 @@ extern "C" {
 void dispatch_state__11TObjMesBaseFPv(void *arg0);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void fn_80156990(void *, int);
+void TObjPlayer__sub_80156990(void *, int);
 
 struct Base_80194CE8 { char pad[0x18]; };
 struct VObj_80194CE8 : Base_80194CE8 {
@@ -48,7 +48,7 @@ extern M2C_UNK __vt__11TObjMesBase[];
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjMesBase;
-        fn_80156990(arg0, 0);
+        TObjPlayer__sub_80156990(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

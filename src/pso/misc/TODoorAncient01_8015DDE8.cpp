@@ -10,13 +10,13 @@ void TODoorAncient01__vt13(u8 *arg0);
 void TODoorAncient01__vt15(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
-s32 fn_80158360(f32);
+s32 TODragonfly__sub_80158360(f32);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 
 extern const f32 lbl_805DB3E0;
 
 void TODoorAncient01__vt15(u8 *arg0) {
-    if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1) || (fn_80158360(lbl_805DB3E0) == 0)) {
+    if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1) || (TODragonfly__sub_80158360(lbl_805DB3E0) == 0)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         TObjPlayer__sub_80154764(arg0, 0, 8);
         TBoss3Volopt__sub_8022675C(0x4004B708, arg0 + 0x38, 0, 0);
@@ -26,7 +26,7 @@ void TODoorAncient01__vt15(u8 *arg0) {
 extern const f32 lbl_805DB3E4;
 
 void TODoorAncient01__vt13(u8 *arg0) {
-    if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (fn_80158360(lbl_805DB3E4) != 0)) {
+    if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (TODragonfly__sub_80158360(lbl_805DB3E4) != 0)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);
         TBoss3Volopt__sub_8022675C(0x4004B708, arg0 + 0x38, 0, 0);

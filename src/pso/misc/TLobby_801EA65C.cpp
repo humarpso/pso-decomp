@@ -7,18 +7,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void get_or_create_handle__6TLobbyFv(void);
-u32 fn_800FA8A4();
-u32 fn_800FA8C4();
+u32 TQuestVmDownLoadServer__sub_800FA8A4();
+u32 TQuestVmDownLoadServer__sub_800FA8C4();
 
 extern u32 TLobby__data_805D5EC4;
 
 void get_or_create_handle__6TLobbyFv(void) {
     u32 temp_r3;
 
-    temp_r3 = fn_800FA8A4();
+    temp_r3 = TQuestVmDownLoadServer__sub_800FA8A4();
     TLobby__data_805D5EC4 = temp_r3;
     if (temp_r3 == 0U) {
-        TLobby__data_805D5EC4 = fn_800FA8C4();
+        TLobby__data_805D5EC4 = TQuestVmDownLoadServer__sub_800FA8C4();
     }
 }
 

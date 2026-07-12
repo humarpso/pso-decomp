@@ -8,17 +8,17 @@ extern "C" {
 
 s32 is_split_screen();
 
-s32 fn_802ADCD8(void) {
+s32 TWindowMainMenu__sub_802ADCD8(void) {
     return (u32)__cntlzw(is_split_screen()) >> 5;
 }
 
 M2C_UNK fn_802AD74C();
-s32 fn_802ADD38();
+s32 TWindowMainMenu__sub_802ADD38();
 
-s32 fn_802ADD00(void) {
+s32 TWindowMainMenu__sub_802ADD00(void) {
     s32 temp_r3;
 
-    temp_r3 = fn_802ADD38();
+    temp_r3 = TWindowMainMenu__sub_802ADD38();
     if (temp_r3 != 0) {
         fn_802AD74C();
     }

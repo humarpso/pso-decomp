@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int fn_8024664C(void*);
+int TWindowDD__sub_8024664C(void*);
 int fn_80257C28(void*, void*);
 void TBoss7Crawfish__vt42(void);
 void TBoss7Crawfish__vt43(void);
@@ -13,7 +13,7 @@ void TBoss7Crawfish__vt47(void);
 void TBoss7Crawfish__vt48(void);
 f32 TBoss7Crawfish__sub_803094D8(void* p);
 void TBoss7Crawfish__sub_803094E0(void* p, s16 v);
-int fn_803094E8(void* p);
+int TShopEquipmentSellWindow__sub_803094E8(void* p);
 int fn_80269078(void*);
 
 void TBoss7Crawfish__vt42(void) {  }

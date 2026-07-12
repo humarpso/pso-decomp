@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjCityAreaWarp__vt13(void *arg0, s16 arg1);
 
-M2C_UNK fn_800740FC(u32);
+M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
@@ -22,7 +22,7 @@ void TObjCityAreaWarp__vt13(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, arg1);
         TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TAdSinglePlyChrSelectGC__sub_80132F2C(9, 0x24), 0xA, 0, -1);
         set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
-        fn_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
+        TAdChrSelASlotGC__sub_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
         TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, s16 *, 0xB8) = arg1;

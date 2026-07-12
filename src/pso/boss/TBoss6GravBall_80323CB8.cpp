@@ -8,7 +8,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
 void init_parts__14TBoss6GravBallFPv(void *);
 void TBoss6GravBall__sub_80323348(void *);
 void __dl__7TObjectFPv(void *);
-void fn_80156990(void *, int);
+void TObjPlayer__sub_80156990(void *, int);
 
 extern M2C_UNK __vt__14TBoss6GravBall[];
 
@@ -17,7 +17,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss6GravBall;
         init_parts__14TBoss6GravBallFPv(arg0);
         TBoss6GravBall__sub_80323348(arg0);
-        fn_80156990(arg0, 0);
+        TObjPlayer__sub_80156990(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

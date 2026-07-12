@@ -9,8 +9,8 @@ int TObjPlayer__sub_801C0014(void);
 int TObjPlayer__sub_801C001C(void);
 int TObjPlayer__sub_801C0024(void* p);
 int TObjPlayer__sub_801C0044(void* p);
-int fn_802A7290(void*);
-int fn_802A72D4(void*);
+int TLobby__sub_802A7290(void*);
+int TLobby__sub_802A72D4(void*);
 
 int TObjPlayer__sub_801BFFA8(void) { return 0; }
 

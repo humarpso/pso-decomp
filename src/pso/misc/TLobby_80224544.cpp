@@ -8,7 +8,7 @@ struct SRock_80224544;
 extern "C" {
 
 void TLobby__sub_80224544(void);
-M2C_UNK fn_800F957C(u32);
+M2C_UNK TLobby__sub_800F957C(u32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
 extern M2C_UNK lbl_80513F20[];
@@ -29,7 +29,7 @@ void TLobby__sub_80224544(void) {
         var_r31 -= 1;
     } while (var_r28 >= 0);
     if ((u32) lbl_805D6260 != 0U) {
-        fn_800F957C(lbl_805D6260);
+        TLobby__sub_800F957C(lbl_805D6260);
         lbl_805D6260 = var_r30;
     }
 }

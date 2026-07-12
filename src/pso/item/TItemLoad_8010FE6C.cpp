@@ -12,7 +12,7 @@ s32 TLobby__sub_800F9DF4(u32, s32);
 u32 TOBoss4Rock__sub_80147AA8(s32);
 s32 create_item_buff(s32);
 s32 fn_800F7D30(s32, u32, s32);
-M2C_UNK fn_800F93F0(M2C_UNK *, M2C_UNK);
+M2C_UNK TItemDrop__sub_800F93F0(M2C_UNK *, M2C_UNK);
 s32 fn_800F9C00(M2C_UNK *);
 M2C_UNK fn_800F9CA4(M2C_UNK *);
 
@@ -51,7 +51,7 @@ void *TItemLoad__sub_8010FE6C(void *arg0, u32 arg1, s32 arg2) {
             sp8.field1c = M2C_FIELD(arg0, u32 *, 0);
             sp8.field20 = temp_r31;
             M2C_FIELD(arg0, s32 *, 4) = fn_800F9C00((M2C_UNK *)&sp8);
-            fn_800F93F0((M2C_UNK *)&sp8, -1);
+            TItemDrop__sub_800F93F0((M2C_UNK *)&sp8, -1);
         }
         TItemBuff__ct();
     }

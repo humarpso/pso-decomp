@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void fn_80246674(void *, int);
+void TWindowDD__sub_80246674(void *, int);
 
 extern M2C_UNK __vt__24TWindowSubSymbolChatHelp[];
 
 void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__24TWindowSubSymbolChatHelp;
-        fn_80246674(arg0, 0);
+        TWindowDD__sub_80246674(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

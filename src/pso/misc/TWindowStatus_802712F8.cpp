@@ -8,20 +8,20 @@ extern "C" {
 
 void run_task__13TWindowStatusFv(s32 arg0);
 M2C_UNK TWindowSubComCard__sub_80246258(s32);
-M2C_UNK fn_8024664C(s32);
+M2C_UNK TWindowDD__sub_8024664C(s32);
 M2C_UNK fn_80257C28(s32, s32);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK fn_8026F9F4(s32, s32);
 M2C_UNK fn_80270014(s32);
 M2C_UNK fn_802701F0(s32);
-M2C_UNK fn_80270F14();
+M2C_UNK TWindowSubStatusDisp__sub_80270F14();
 
 void run_task__13TWindowStatusFv(s32 arg0) {
-    fn_80270F14();
+    TWindowSubStatusDisp__sub_80270F14();
     fn_80270014(arg0);
     fn_802701F0(arg0);
     fn_8026F9F4(arg0, TWindowSubComCard__sub_8026CBB8(0x1D));
-    fn_8024664C(arg0);
+    TWindowDD__sub_8024664C(arg0);
     TWindowSubComCard__sub_80246258(arg0);
     fn_80257C28(arg0, arg0 + 0x24);
 }

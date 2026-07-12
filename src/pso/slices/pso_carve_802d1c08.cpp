@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_8008741C(s32, M2C_UNK, M2C_UNK);
+s32 TBoss8Dragon__sub_8008741C(s32, M2C_UNK, M2C_UNK);
 s32 is_alive__9TObjEneDDFPv(s32);
 M2C_UNK __ct__7TObjectFP7TObject();
 extern M2C_UNK lbl_804E1908[];
@@ -19,7 +19,7 @@ void *fn_802D1C08(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;
     if (is_alive__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x20)) != 0) {
-        M2C_FIELD(arg0, s32 *, 0x24) = fn_8008741C(M2C_FIELD(arg0, s32 *, 0x20) + 0x38, 0x20D, 0x40);
+        M2C_FIELD(arg0, s32 *, 0x24) = TBoss8Dragon__sub_8008741C(M2C_FIELD(arg0, s32 *, 0x20) + 0x38, 0x20D, 0x40);
     }
     return arg0;
 }

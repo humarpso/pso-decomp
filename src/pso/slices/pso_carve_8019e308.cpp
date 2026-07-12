@@ -44,7 +44,7 @@ struct P_V : P_A {
 
 extern "C" {
 
-M2C_UNK fn_8001A438(void *);
+M2C_UNK TObjLuker__sub_8001A438(void *);
 M2C_UNK allow_rendering__7TObjectFv(u32);
 M2C_UNK disallow_rendering__7TObjectFv(u32);
 M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
@@ -66,15 +66,15 @@ void fn_8019E308(void *arg0) {
     }
     if (var_r30 == 0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x168) != 0U) {
-            fn_8001A438(M2C_FIELD(arg0, void **, 0x168));
+            TObjLuker__sub_8001A438(M2C_FIELD(arg0, void **, 0x168));
             disallow_rendering__7TObjectFv(M2C_FIELD(arg0, u32 *, 0x168));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
-            fn_8001A438(M2C_FIELD(arg0, void **, 0xB0));
+            TObjLuker__sub_8001A438(M2C_FIELD(arg0, void **, 0xB0));
             disallow_rendering__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xB0));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x164) != 0U) {
-            fn_8001A438(M2C_FIELD(arg0, void **, 0x164));
+            TObjLuker__sub_8001A438(M2C_FIELD(arg0, void **, 0x164));
             disallow_rendering__7TObjectFv(M2C_FIELD(arg0, u32 *, 0x164));
         }
     } else {

@@ -10,7 +10,7 @@ int TLobby__sub_80146740(void);
 s32 TLobby__sub_80146748(void);
 int TLobby__sub_8014677C(void);
 int TLobby__sub_801467A0(void);
-int fn_80145DB4(void*);
+int TLobby__sub_80145DB4(void*);
 s32 fn_804245DC();
 
 int TLobby__sub_80146740(void) { return 0; }
@@ -24,7 +24,7 @@ s32 TLobby__sub_80146748(void) {
     return 0;
 }
 
-int TLobby__sub_8014677C(void) { return fn_80145DB4((void*)(1)); }
-int TLobby__sub_801467A0(void) { return fn_80145DB4((void*)(4)); }
+int TLobby__sub_8014677C(void) { return TLobby__sub_80145DB4((void*)(1)); }
+int TLobby__sub_801467A0(void) { return TLobby__sub_80145DB4((void*)(4)); }
 
 }

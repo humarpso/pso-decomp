@@ -10,8 +10,8 @@ void render__8TEndingCFv(u8 *arg0);
 M2C_UNK TObjFish__sub_803DA798(void *);
 M2C_UNK fn_803DEE6C(M2C_UNK);
 M2C_UNK fn_803DEEAC();
-M2C_UNK fn_803DEECC(void *, f32);
-M2C_UNK fn_803DF160(M2C_UNK, s32, f32);
+M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, s32, f32);
 
 extern M2C_UNK lbl_8048EB30[];
 extern const f32 lbl_805D95C0;
@@ -21,11 +21,11 @@ extern const f32 lbl_805D95C8;
 void render__8TEndingCFv(u8 *arg0) {
     TObjFish__sub_803DA798(lbl_8048EB30);
     fn_803DEE6C(1);
-    fn_803DF160(1, ((s32) (lbl_805D95C0 * M2C_FIELD(arg0, f32 *, 0x28)) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
-    fn_803DEECC(arg0 + 0x30, lbl_805D95C4);
-    fn_803DEECC(arg0 + 0x50, lbl_805D95C4);
-    fn_803DF160(0, ((s32) (lbl_805D95C0 * M2C_FIELD(arg0, f32 *, 0x2C)) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
-    fn_803DEECC(arg0 + 0x70, lbl_805D95C8);
+    TWindowSubStatusDisp__sub_803DF160(1, ((s32) (lbl_805D95C0 * M2C_FIELD(arg0, f32 *, 0x28)) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
+    TWindowSubComCard__sub_803DEECC(arg0 + 0x30, lbl_805D95C4);
+    TWindowSubComCard__sub_803DEECC(arg0 + 0x50, lbl_805D95C4);
+    TWindowSubStatusDisp__sub_803DF160(0, ((s32) (lbl_805D95C0 * M2C_FIELD(arg0, f32 *, 0x2C)) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
+    TWindowSubComCard__sub_803DEECC(arg0 + 0x70, lbl_805D95C8);
     fn_803DEEAC();
 }
 

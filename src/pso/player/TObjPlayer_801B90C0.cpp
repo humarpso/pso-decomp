@@ -11,7 +11,7 @@ void can_pickup_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 TItemObject__sub_80101A1C();
 M2C_UNK TItem__sub_80101CFC(s32, M2C_UNK *);
 s32 TItemData__sub_8010CD6C(u8 *);
-u32 fn_8010ED0C(u8 *);
+u32 TItemList__sub_8010ED0C(u8 *);
 u32 TObjPlayer__sub_801D4E10(void *, u8 *);
 void *TObjPlayer__sub_801D5764();
 
@@ -54,7 +54,7 @@ s32 can_pickup_item__10TObjPlayerFPvPv(void *arg0, u8 *arg1) {
             }
             temp_r31_2 = TItemObject__sub_80101A1C();
             temp_r31 = temp_r31_2 - ((V_B *)temp_r3)->m34();
-            return ((s32) fn_8010ED0C(arg1) <= temp_r31) ? 1 : 0;
+            return ((s32) TItemList__sub_8010ED0C(arg1) <= temp_r31) ? 1 : 0;
         }
         goto block_7;
     }

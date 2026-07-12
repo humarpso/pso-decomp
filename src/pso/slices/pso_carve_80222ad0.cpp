@@ -8,14 +8,14 @@ extern "C" {
 
 M2C_UNK fn_8024422C(u32, f32, f32);
 u32 fn_8026AEE0(s32, s32, M2C_UNK);
-s32 fn_8030A6FC();
+s32 TLobby__sub_8030A6FC();
 extern f32 lbl_805DC71C;
 extern f32 lbl_805DC720;
 
 u32 fn_80222AD0(void *arg0, s32 arg1, s32 arg2) {
     f32 var_f31;
 
-    if (fn_8030A6FC() > 2) {
+    if (TLobby__sub_8030A6FC() > 2) {
         var_f31 = lbl_805DC71C;
     } else {
         var_f31 = lbl_805DC720;

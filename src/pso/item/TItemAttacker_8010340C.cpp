@@ -11,7 +11,7 @@ void TItemAttacker__sub_80103448(s32 arg0, s32 arg1, s32 arg2);
 void TItemAttacker__sub_8010349C(u32 arg0);
 M2C_UNK TItemTimer__ct(void *, s32, s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_801031CC();
+M2C_UNK TObjPlayer__sub_801031CC();
 
 void TItemAttacker__sub_8010340C(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
@@ -35,7 +35,7 @@ void TItemAttacker__sub_80103448(s32 arg0, s32 arg1, s32 arg2) {
 
 void TItemAttacker__sub_8010349C(u32 arg0) {
     if (arg0 != 0U) {
-        fn_801031CC();
+        TObjPlayer__sub_801031CC();
     }
 }
 

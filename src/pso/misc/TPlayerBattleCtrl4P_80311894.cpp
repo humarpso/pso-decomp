@@ -9,7 +9,7 @@ extern "C" {
 void TPlayerBattleCtrl4P__vt32(s32 arg0);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112A4(s32, M2C_UNK);
 M2C_UNK TPlayerBattleCtrl4P__sub_80311380();
-M2C_UNK fn_800F8144(M2C_UNK *);
+M2C_UNK TLobby__sub_800F8144(M2C_UNK *);
 
 extern M2C_UNK TPlayerBattleCtrl4P__sub_803105AC[];
 extern s32 lbl_805D6AAC;
@@ -17,7 +17,7 @@ extern s32 lbl_805D6AAC;
 void TPlayerBattleCtrl4P__vt32(s32 arg0) {
     if ((s32) lbl_805D6AAC != 0) {
         TPlayerBattleCtrl4P__sub_80311380();
-        fn_800F8144(TPlayerBattleCtrl4P__sub_803105AC);
+        TLobby__sub_800F8144(TPlayerBattleCtrl4P__sub_803105AC);
         TPlayerBattleCtrl4P__sub_803112A4(arg0, 3);
     }
 }

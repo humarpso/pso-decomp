@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_split_screen_camera__6TLobbyFv(void);
-M2C_UNK fn_80071BC0(s32);
+M2C_UNK TObjPlayer__sub_80071BC0(s32);
 M2C_UNK TLobby__sub_80292730(s32);
 
 s32 is_split_screen(void);
@@ -22,7 +22,7 @@ void update_split_screen_camera__6TLobbyFv(void) {
         TLobby__sub_80292730(temp_r31);
         return;
     }
-    fn_80071BC0(temp_r31);
+    TObjPlayer__sub_80071BC0(temp_r31);
 }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 s32 TOBoss4Rock__sub_80147AA8();
 s32 fn_8025C974(s32, s32);
 s32 fn_8025CA70(s32);
-int fn_80131BA0(void* p);
+int TWindowMakeTeam__sub_80131BA0(void* p);
 int TWindowSubComCard__sub_80131C10(void* p);
 int TWindowSubComCard__sub_80131C34(void* p);
 int TKeyBoardControl__sub_80131FA0(void*);

@@ -13,7 +13,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_802A5748(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
-s32 fn_801A6D60(void *, M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_801A6D60(void *, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802D50A0(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802D50B0(s32, M2C_UNK);
@@ -60,7 +60,7 @@ void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x54));
         M2C_FIELD(arg0, u32 *, 0x54) = 0U;
     }
-    if ((TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 2) != 0) || (fn_801A6D60(lbl_8050E208 + 0x160, 2) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 2) != 0) || (TAdSinglePlyChrSelectGC__sub_801A6D60(lbl_8050E208 + 0x160, 2) != 0)) {
         TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x20) = 0xB;
         return;

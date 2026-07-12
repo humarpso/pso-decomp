@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_800740FC(u32);
+M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 u32 fn_8019E570(f32);
 M2C_UNK TWindow__close(void *);
@@ -38,7 +38,7 @@ void fn_8019E81C(void *arg0) {
                 M2C_FIELD(arg0, u32 *, 0xB0) = TAdChrSelASlotGC__sub_80266508(TWindowSubComCard__sub_8026CBB8(0x35), 7);
                 if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
                     TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TWindowSubStatusDisp__sub_80077760(0x40), 0, 0, -1);
-                    fn_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
+                    TAdChrSelASlotGC__sub_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
                     TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
                     TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
                 }

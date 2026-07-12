@@ -10,7 +10,7 @@ void close_windows__12TQuestListVMFPv(void *arg0);
 void set_enemy_mode_3__12TQuestListVMFv(void);
 M2C_UNK TWindow__close(void *);
 int TKeyBoardControl__sub_8000F950(void);
-int fn_80073DAC(void);
+int TLobby__sub_80073DAC(void);
 
 void close_windows__12TQuestListVMFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2378) != 0U) {
@@ -32,6 +32,6 @@ void close_windows__12TQuestListVMFPv(void *arg0) {
 }
 
     extern int evt2_random_enemies_mode;
-void set_enemy_mode_3__12TQuestListVMFv(void) { fn_80073DAC(); evt2_random_enemies_mode = 3; TKeyBoardControl__sub_8000F950(); }
+void set_enemy_mode_3__12TQuestListVMFv(void) { TLobby__sub_80073DAC(); evt2_random_enemies_mode = 3; TKeyBoardControl__sub_8000F950(); }
 
 }

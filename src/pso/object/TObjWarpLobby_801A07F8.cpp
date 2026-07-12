@@ -20,7 +20,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjFish__sub_803DA798(s32);
-M2C_UNK fn_803DC894(s32, s32, f32);
+M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 
 extern u8 *TObjWarpLobby__data_805D5CC8;
 extern s32 lbl_805D5CCC;
@@ -34,7 +34,7 @@ void render__13TObjWarpLobbyFv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         TParticleCtrl__sub_801E2EFC();
-        fn_803DC894(M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x430), s32 *, 4), M2C_FIELD(arg0, f32 *, 0xC8));
+        TObjDoor__sub_803DC894(M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(TObjWarpLobby__data_805D5CC8, void **, 0x430), s32 *, 4), M2C_FIELD(arg0, f32 *, 0xC8));
         TParticleCtrl__sub_801E2F20();
         TObjPlayer__sub_803D9B78();
     }

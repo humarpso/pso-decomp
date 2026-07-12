@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void fn_80156720(void *);
+void TObjEneGibbles__sub_80156720(void *);
 void queue_destruction__7TObjectFv(void *);
 void TBoss3Volopt__sub_800450D0(void *);
 void TBoss3Volopt__sub_800445A4(void *);
@@ -16,7 +16,7 @@ extern M2C_UNK lbl_80484610[];
 void *fn_80047E20(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484610;
-        fn_80156720(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
         if (M2C_FIELD(arg0, void **, 0x474) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x474)); }
         if (M2C_FIELD(arg0, void **, 0x478) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x478)); }
         TBoss3Volopt__sub_800450D0(arg0);

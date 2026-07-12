@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 apply_table_entry__6TLobbyFs(s16 arg0);
-M2C_UNK fn_8011B24C(s32);
+M2C_UNK TLobby__sub_8011B24C(s32);
 
 extern s32 TLobby__data_805D6140;
 
@@ -15,7 +15,7 @@ s32 apply_table_entry__6TLobbyFs(s16 arg0) {
     if (arg0 > 0xB9F) {
         return 0;
     }
-    fn_8011B24C(TLobby__data_805D6140 + (arg0 * 4));
+    TLobby__sub_8011B24C(TLobby__data_805D6140 + (arg0 * 4));
     return 1;
 }
 

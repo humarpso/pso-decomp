@@ -5,7 +5,7 @@ extern "C" {
 s32 obj_isState2_324();
 s32 is_current_room__10TObjRoomIdFPv(s32);
 s32 TObjPlayer__sub_801AEE10();
-s32 fn_801BAA00(s32);
+s32 TObjPlayer__sub_801BAA00(s32);
 s32 set_flag_400000__10TObjPlayerFPv(s32);
 int queue_destruction__7TObjectFv(void*);
 void destroy_owned_object__10TObjPlayerFPv(void* p);
@@ -30,7 +30,7 @@ void update_state__10TObjPlayerFi(s32 arg0) {
         TObjPlayer__sub_801AFF50((void*)(arg0));
     }
     if ((TObjPlayer__sub_801AEE10() != 0) && (is_current_room__10TObjRoomIdFPv(arg0) != 0)) {
-        fn_801BAA00(arg0);
+        TObjPlayer__sub_801BAA00(arg0);
     }
 }
 void TObjPlayer__sub_801BCB28(void) {  }

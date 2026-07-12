@@ -7,7 +7,7 @@ int spawn_part__14TObjEneEpsilonFi(void*);
 
 int fn_800B98A4(void) { return 0; }
 int fn_800B98C0(void) { return 0; }
-int fn_800B98D8(void) { return 0; }
-int fn_800B9958(void) { return 0; }
+int TBoss2DeRolLe__sub_800B98D8(void) { return 0; }
+int TBoss8Dragon__sub_800B9958(void) { return 0; }
 
 }

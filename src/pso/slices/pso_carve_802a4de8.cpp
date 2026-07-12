@@ -9,21 +9,21 @@ extern "C" {
 M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK fn_803DEE6C(M2C_UNK);
 M2C_UNK fn_803DEEAC();
-M2C_UNK fn_803DEECC(s32, f32);
-M2C_UNK fn_803DF160(M2C_UNK, s32);
+M2C_UNK TWindowSubComCard__sub_803DEECC(s32, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, s32);
 extern s32 lbl_805D6668;
 extern f32 lbl_805DDF88;
 
 void fn_802A4DE8(s32 arg0, s32 arg1) {
     fn_803DEE6C(1);
     TObjFish__sub_803DA798(lbl_805D6668);
-    fn_803DF160(0, arg1);
-    fn_803DEECC(arg0 + 0x1C, lbl_805DDF88);
+    TWindowSubStatusDisp__sub_803DF160(0, arg1);
+    TWindowSubComCard__sub_803DEECC(arg0 + 0x1C, lbl_805DDF88);
     fn_803DEEAC();
     fn_803DEE6C(1);
     TObjFish__sub_803DA798(lbl_805D6668);
-    fn_803DF160(0, arg1);
-    fn_803DEECC(arg0 + 0x3C, lbl_805DDF88);
+    TWindowSubStatusDisp__sub_803DF160(0, arg1);
+    TWindowSubComCard__sub_803DEECC(arg0 + 0x3C, lbl_805DDF88);
     fn_803DEEAC();
 }
 

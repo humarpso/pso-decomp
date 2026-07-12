@@ -12,9 +12,9 @@ void clear_child_flags__16TObjEneRe2FlowerFPv(void *arg0);
 void set_child_flags__16TObjEneRe2FlowerFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
 s32 TObjEneRe2Flower__sub_800C3B80();
-int fn_800BB7D4(void*, void*);
+int TBoss8Dragon__sub_800BB7D4(void*, void*);
 
-void begin_state_242__16TObjEneRe2FlowerFPv(void* p) { if (*(int*)((char*)p + 0x3d4) == 0) { fn_800BB7D4(p, (void*)242); *(int*)((char*)p + 0x3d4) = 20; } }
+void begin_state_242__16TObjEneRe2FlowerFPv(void* p) { if (*(int*)((char*)p + 0x3d4) == 0) { TBoss8Dragon__sub_800BB7D4(p, (void*)242); *(int*)((char*)p + 0x3d4) = 20; } }
 
 s32 check_hit_flag__16TObjEneRe2FlowerFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3C4) & 2) {

@@ -7,7 +7,7 @@ extern "C" {
 void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void TObjEneDD__sub_800B9A34(void *, int);
-void fn_80156720(void *);
+void TObjEneGibbles__sub_80156720(void *);
 void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK __vt__13TObjEneBm3Fly[];
@@ -16,7 +16,7 @@ void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjEneBm3Fly;
         if (M2C_FIELD(arg0, void **, 0x458) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x458)); M2C_FIELD(arg0, M2C_UNK *, 0x458) = 0; }
-        fn_80156720(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
         TObjEneDD__sub_800B9A34(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

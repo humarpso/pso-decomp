@@ -8,11 +8,11 @@ extern "C" {
 
 void close__18TShopGetItemWindowFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
-M2C_UNK fn_801F8FD4(void *);
+M2C_UNK TWindowSubItem__sub_801F8FD4(void *);
 
 void close__18TShopGetItemWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-        fn_801F8FD4(M2C_FIELD(arg0, void **, 0x28));
+        TWindowSubItem__sub_801F8FD4(M2C_FIELD(arg0, void **, 0x28));
     }
     TQuestListVM__sub_80073DC4(arg0, 1);
 }

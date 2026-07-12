@@ -14,7 +14,7 @@ M2C_UNK TQuestThread__sub_801F64BC(s32);
 s32 TWindowSubStatusDisp__sub_80077760(M2C_UNK);
 s32 get_card_window_area__6TLobbyFv();
 s32 TLobby__sub_8001DB44();
-M2C_UNK fn_800740FC(s32);
+M2C_UNK TAdChrSelASlotGC__sub_800740FC(s32);
 M2C_UNK TWindowSubComCard__sub_80265C10(s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265DEC(s32, f32, f32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
@@ -56,7 +56,7 @@ s32 create_window__19TWindowSubShortMailFv(void) {
         TObjCityMainWarp__sub_80266354(temp_r31, TWindowSubStatusDisp__sub_80077760(0x106), 0, 0);
         TWindowSubComCard__sub_802661D4(temp_r31, get_card_window_area__6TLobbyFv(), 0, 0);
     }
-    fn_800740FC(temp_r31);
+    TAdChrSelASlotGC__sub_800740FC(temp_r31);
     TQuestThread__sub_801F64BC(temp_r31);
     TWindowSubComCard__sub_80265DEC(temp_r31, TWindowSubShortMail__data_805DD6C8, lbl_805DD6CC);
     return temp_r31;

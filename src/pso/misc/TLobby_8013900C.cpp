@@ -13,7 +13,7 @@ M2C_UNK TWindow__close(u32);
 M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK fn_801DB4E4(s32);
 s32 fn_802693B4(u32);
-M2C_UNK fn_80269454(u32);
+M2C_UNK TLobby__sub_80269454(u32);
 
 extern s8 lbl_8050E208[];
 extern s32 TLobby__data_805D5580;
@@ -23,7 +23,7 @@ void update__6TLobbyFv(void) {
     if ((u32) TLobby__data_805D55DC != 0U) {
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 8) != 0) {
             if (fn_802693B4(TLobby__data_805D55DC) == 0) {
-                fn_80269454(TLobby__data_805D55DC);
+                TLobby__sub_80269454(TLobby__data_805D55DC);
             } else {
                 TWindow__close(TLobby__data_805D55DC);
                 TLobby__data_805D55DC = 0U;

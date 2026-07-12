@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int fn_8035A69C(void*, void*);
+int TObjPlayer__sub_8035A69C(void*, void*);
 void fn_8035A740(void* p);
 
-void fn_8035A740(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { *(int*)((char*)p + 0x30) = 0; fn_8035A69C(p, *(void**)((char*)p + 0x1c)); } }
+void fn_8035A740(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { *(int*)((char*)p + 0x30) = 0; TObjPlayer__sub_8035A69C(p, *(void**)((char*)p + 0x1c)); } }
 
 }

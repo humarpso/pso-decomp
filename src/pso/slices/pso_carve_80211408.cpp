@@ -9,8 +9,8 @@ void* fn_802115C0(void* p);
 void TShopWindowBase__sub_802115F0(void);
 int fn_802115F4(void* p);
 s32 fn_80211600(void* p);
-int fn_80211608(void* p);
-void fn_80211614(void* p, f32 a, f32 b);
+int TWindowInputNumber__sub_80211608(void* p);
+void TCheckRoomSequence__sub_80211614(void* p, f32 a, f32 b);
 
 int TCheckRoomSequence__sub_80211408(void) { return 0; }
 

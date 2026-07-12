@@ -23,7 +23,7 @@ extern "C" {
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1);
 void run_task__11TObjPathObjFv(void *arg0);
 void __dl__7TObjectFPv(void *);
-void fn_801A25B4(void *, int);
+void TParticleCtrl__sub_801A25B4(void *, int);
 
 void run_task__11TObjPathObjFv(void *arg0) {
     struct VObj_802C3188 *o = (struct VObj_802C3188 *)arg0;
@@ -35,7 +35,7 @@ extern M2C_UNK __vt__11TObjPathObj[];
 void *__dt__11TObjPathObjFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjPathObj;
-        fn_801A25B4(arg0, 0);
+        TParticleCtrl__sub_801A25B4(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

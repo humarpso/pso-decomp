@@ -7,14 +7,14 @@ extern "C" {
 void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
-void fn_80156720(void *);
+void TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK __vt__19TBoss3VoloptMonitor[];
 
 void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss3VoloptMonitor;
-        fn_80156720(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -17,7 +17,7 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_801C23A8(void*, void*);
-M2C_UNK fn_801C4F78(s32, s32);
+M2C_UNK TPlayerBattleCtrl4P__sub_801C4F78(s32, s32);
 int TLobby__sub_8022727C(void*);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -66,7 +66,7 @@ s32 assign_player_id__6TLobbyFv(void) {
         return 0;
     }
     temp_r3 = TObjPlayer__sub_801AFFD0();
-    fn_801C4F78(temp_r3_2 + 0x7AC, temp_r3);
+    TPlayerBattleCtrl4P__sub_801C4F78(temp_r3_2 + 0x7AC, temp_r3);
     return temp_r3;
 }
 

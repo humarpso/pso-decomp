@@ -9,7 +9,7 @@ extern "C" {
 void TAdMultiSelGameModeGC__sub_80300338(void);
 void TAdMultiSelGameModeGC__sub_80300360(void *arg0);
 int TKeyBoardControl__sub_8000F9CC(int);
-s32 fn_8023EB84();
+s32 TAdMultiChgGameModeGC__sub_8023EB84();
 s32 TAdMultiChgGameModeGC__sub_8023EBB4();
 int fn_80300CE4(void);
 
@@ -23,7 +23,7 @@ void TAdMultiSelGameModeGC__sub_80300360(void *arg0) {
         TAdMultiChgGameModeGC__sub_8023EBB4();
         return;
     case 1:
-        fn_8023EB84();
+        TAdMultiChgGameModeGC__sub_8023EB84();
         return;
     }
 }

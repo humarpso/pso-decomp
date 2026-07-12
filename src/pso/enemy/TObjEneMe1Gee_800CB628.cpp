@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 int TObjEneMe1Gee__sub_800CB560(void* a0 = 0);
 
-s32 fn_800B98D8();
+s32 TBoss2DeRolLe__sub_800B98D8();
 s32 TPhotonMylla__sub_80154CB4(u16);
 void set_flag3c8_bit40__13TObjEneMe1GeeFPv(void* p);
 void set_flag3c8_bit8__13TObjEneMe1GeeFPv(void* p);

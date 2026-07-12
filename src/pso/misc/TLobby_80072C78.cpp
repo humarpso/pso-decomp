@@ -14,7 +14,7 @@ M2C_UNK TWindowSubComCard__sub_80265C10(u32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindow__close(u32);
-M2C_UNK fn_8007340C(u32);
+M2C_UNK TLobby__sub_8007340C(u32);
 
 void TLobby__sub_80072C78(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
@@ -27,7 +27,7 @@ void TLobby__sub_80072C78(void *arg0) {
         TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);
         TObjCityMainWarp__sub_80266354(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5D), 5, 2);
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x2C));
-        fn_8007340C(M2C_FIELD(arg0, u32 *, 0x2C));
+        TLobby__sub_8007340C(M2C_FIELD(arg0, u32 *, 0x2C));
         TWindowSubComCard__sub_80265C10(M2C_FIELD(arg0, u32 *, 0x2C), 2);
     }
 }

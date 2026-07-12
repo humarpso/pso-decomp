@@ -37,7 +37,7 @@ void run_task__11TObjDoorKeyFv(void *arg0);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__5TOKeyFv(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK fn_80156720(void *);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void run_task__11TObjDoorKeyFv(void *arg0) {
@@ -51,7 +51,7 @@ void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjDoorKey;
         TObjPlayer__sub_80154A00(arg0);
-        fn_80156720(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xF8));
             M2C_FIELD(arg0, u32 *, 0xF8) = 0U;

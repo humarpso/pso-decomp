@@ -9,7 +9,7 @@ extern "C" {
 void TObjPlayer__sub_80143434(void *arg0, s16 arg1);
 M2C_UNK TObjPlayer__sub_80142B8C(void *, s16);
 M2C_UNK TObjPlayer__sub_8014394C(void *, f64);
-void *fn_80143978(void *, s16);
+void *TObjPlayer__sub_80143978(void *, s16);
 
 extern const f64 lbl_8043F2D8[];
 extern const f32 lbl_805DB168;
@@ -21,7 +21,7 @@ void TObjPlayer__sub_80143434(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 0xB8) = arg1;
     M2C_FIELD(arg0, s16 *, 0xBA) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     TObjPlayer__sub_80142B8C(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    temp_r3 = fn_80143978(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    temp_r3 = TObjPlayer__sub_80143978(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) M2C_FIELD(temp_r3, f32 *, 8);
     M2C_FIELD(arg0, s16 *, 0xF4) = (s16) M2C_FIELD(temp_r3, s16 *, 0);
     conv = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), u32 *, 4);

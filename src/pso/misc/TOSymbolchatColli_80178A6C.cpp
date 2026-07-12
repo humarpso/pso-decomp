@@ -10,7 +10,7 @@ void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TObjPlayer__sub_80018FE0(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK fn_80156720(void *);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK __vt__17TOSymbolchatColli[];
 
@@ -18,7 +18,7 @@ void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOSymbolchatColli;
         TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        fn_80156720(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
         TObjPlayer__sub_80018FE0(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

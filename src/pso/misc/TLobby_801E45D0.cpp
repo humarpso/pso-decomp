@@ -9,7 +9,7 @@ extern "C" {
 void update_players__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__send_and_handle_60();
 M2C_UNK fn_801A5544(void *, s32);
-M2C_UNK fn_801E3FA4(s32);
+M2C_UNK TLobby__sub_801E3FA4(s32);
 
 extern s32 TLobby__data_805D5598;
 extern void *lbl_805D5E48;
@@ -30,7 +30,7 @@ void update_players__6TLobbyFi(s32 arg0) {
         }
     }
     lbl_805D5E50 = 1;
-    fn_801E3FA4(arg0);
+    TLobby__sub_801E3FA4(arg0);
     lbl_805D5E50 = 0;
 }
 

@@ -10,7 +10,7 @@ extern "C" void  fn_80084E98(void*, Vec*);
 extern "C" Vec*  VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 extern "C" void  TBoss6Type1__sub_803D9370(Vec*, const Vec*);
 extern "C" f32   TBoss6Kakusan__sub_803D8BD8(Vec*);
-extern "C" void  fn_803D97B4(Vec*);
+extern "C" void  TNpcPlayer__sub_803D97B4(Vec*);
 extern "C" f64   TObjPlayer__sub_80019760(f32, f32);
 extern "C" void  TBoss1Dragon__sub_8014220C(Vec*, s32*, s32*);
 extern "C" void* TObjPlayer__sub_80099EF8(void*);
@@ -26,7 +26,7 @@ TItemShoot::TItemShoot(void* owner, const Vec* pos, const Vec* dir, f32 life)
     this->m_life = life;
     TBoss6Type1__sub_803D9370(&this->m_dir, pos);
     f32 len = TBoss6Kakusan__sub_803D8BD8(&this->m_dir);
-    fn_803D97B4(&this->m_dir);
+    TNpcPlayer__sub_803D97B4(&this->m_dir);
     f32 scale = len / life;
     this->m_dir.x *= scale;
     this->m_dir.y *= scale;

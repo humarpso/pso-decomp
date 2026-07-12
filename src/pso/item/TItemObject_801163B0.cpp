@@ -13,7 +13,7 @@ M2C_UNK TObjPlayer__sub_8010043C(void *, u8);
 M2C_UNK TObjPlayer__sub_80102BEC(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80102BFC(void *, M2C_UNK);
 void *TItemData__sub_8010EA38(void *);
-s32 fn_8010ED0C(void *);
+s32 TItemList__sub_8010ED0C(void *);
 
 extern void* __vt__11TItemObject[];
 extern s32 lbl_805D2C28;
@@ -26,7 +26,7 @@ void *TItemObject__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C28;
     M2C_FIELD(arg0, void **, 0xF8) = TItemData__sub_8010EA38(arg2);
     M2C_FIELD(arg0, u8 *, 0x100) = (u8) M2C_FIELD(arg2, u8 *, 4);
-    TItemObject__sub_80115D6C(arg0, fn_8010ED0C(arg2));
+    TItemObject__sub_80115D6C(arg0, TItemList__sub_8010ED0C(arg2));
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s32 *, 0x10) & 1) {
         TObjPlayer__sub_80102BFC(arg0, 0x10);
     } else {

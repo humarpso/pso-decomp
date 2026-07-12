@@ -9,7 +9,7 @@ extern "C" {
 void run_task__15TAdDrawLineTaskFv(void *arg0);
 M2C_UNK allow_rendering__7TObjectFv();
 M2C_UNK fn_80019B08(u32, s32);
-M2C_UNK fn_8001A438(void *);
+M2C_UNK TObjLuker__sub_8001A438(void *);
 
 extern const f32 lbl_805D7DD8;
 
@@ -45,7 +45,7 @@ void run_task__15TAdDrawLineTaskFv(void *arg0) {
             fn_80019B08(temp, M2C_FIELD(arg0, s32 *, 0x20));
         }
     }
-    fn_8001A438(arg0);
+    TObjLuker__sub_8001A438(arg0);
 }
 
 }

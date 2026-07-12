@@ -13,7 +13,7 @@ void __dt__14TObjEneBalClawFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void *fn_80091B98(void *, void *, void *, void *, void *, void *, void *, void *);
 void *fn_80091C58(void *, void *, void *);
-void fn_80156720(void *);
+void TObjEneGibbles__sub_80156720(void *);
 
 extern void *tl_04;
 
@@ -52,7 +52,7 @@ extern M2C_UNK lbl_8048F148[];
 void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048F148;
-        fn_80156720(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
         __dt__14TObjEneBalClawFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

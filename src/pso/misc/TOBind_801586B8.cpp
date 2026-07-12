@@ -15,7 +15,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjFish__sub_803DA798(s32);
-M2C_UNK fn_803DC894(s32, s32, f32);
+M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 
 struct BindBase { char pad[0x18]; };
 struct BindObj : BindBase {
@@ -40,7 +40,7 @@ void render__6TOBindFv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB0) != 1) {
             TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xC8));
             TParticleCtrl__sub_801E2EFC();
-            fn_803DC894(M2C_FIELD(arg0, s32 *, 0xC4), M2C_FIELD(arg0, s32 *, 0xCC), M2C_FIELD(arg0, f32 *, 0xB8));
+            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xC4), M2C_FIELD(arg0, s32 *, 0xCC), M2C_FIELD(arg0, f32 *, 0xB8));
             TParticleCtrl__sub_801E2F20();
         }
         TObjPlayer__sub_803D9B78();

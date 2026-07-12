@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0);
-M2C_UNK fn_8023EB84();
+M2C_UNK TAdMultiChgGameModeGC__sub_8023EB84();
 M2C_UNK TAdMultiChgGameModeGC__sub_8023EC14();
 M2C_UNK TAdMultiChgGameModeGC__sub_8023ECA4();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
@@ -21,7 +21,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
     switch (temp_r0) {
     case 0:
         if (TAdMultiPlyChrSelectGC__sub_802E011C() != 0) {
-            fn_8023EB84();
+            TAdMultiChgGameModeGC__sub_8023EB84();
             return;
         }
         TAdMultiChgGameModeGC__sub_8023ECA4();
@@ -30,7 +30,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
         TAdMultiChgGameModeGC__sub_8023EC14();
         return;
     case 2:
-        fn_8023EB84();
+        TAdMultiChgGameModeGC__sub_8023EB84();
         return;
     }
 }

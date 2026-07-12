@@ -12,9 +12,9 @@ M2C_UNK *TLobby__sub_8013A14C(M2C_UNK);
 M2C_UNK TObjCityMainWarp__sub_80266354(u32, M2C_UNK *, M2C_UNK, M2C_UNK);
 M2C_UNK TWindow__close(u32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_800740FC(u32);
+M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
 M2C_UNK fn_80131B18(s32, s32);
-M2C_UNK fn_80131B54(s32, s32);
+M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 u32 TAdChrSelASlotGC__sub_80266508(s32, M2C_UNK);
@@ -49,14 +49,14 @@ void open_keyboard_window__6TLobbyFv(void) {
         TObjCityMainWarp__sub_80266354(lbl_805D55F0, lbl_805D5614, 2, 1);
         TWindowSubComCard__sub_80265F60(lbl_805D55F0);
         TWindowSubComCard__sub_80265C30(lbl_805D55F0);
-        fn_800740FC(lbl_805D55F0);
+        TAdChrSelASlotGC__sub_800740FC(lbl_805D55F0);
     }
     var_r0 = __nw__7TObjectFUl(0x2C);
     if (var_r0 != 0) {
         var_r0 = TKeyBoardControl__ct(var_r0, TLobby__data_805D5604, 0x10, 0, 0, lbl_805D53A0);
     }
     lbl_805D55F4 = var_r0;
-    fn_80131B54(lbl_805D55F4, TWindowSubComCard__sub_8026CBB8(0xC4));
+    TWindowMakeTeam__sub_80131B54(lbl_805D55F4, TWindowSubComCard__sub_8026CBB8(0xC4));
     fn_80131B18(lbl_805D55F4, TWindowSubComCard__sub_8026CBB8(0xC5));
     TLobby__data_805D5594 = 9;
 }

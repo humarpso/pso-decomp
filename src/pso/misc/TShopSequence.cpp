@@ -12,12 +12,12 @@ extern "C" {
 s32 TShopSequence__sub_8022356C(void *arg0);
 void TShopSequence__sub_802235A0(void *arg0);
 M2C_UNK close__17TMedicalCenterMesFPv(void *);
-s32 fn_80222814(void *);
+s32 TQuestVmDownLoadServer__sub_80222814(void *);
 
 s32 TShopSequence__sub_8022356C(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x28);
     if (temp_r3 != NULL) {
-        return fn_80222814(temp_r3);
+        return TQuestVmDownLoadServer__sub_80222814(temp_r3);
     }
     return 1;
 }

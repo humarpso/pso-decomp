@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 fn_8030A770();
+s32 TLobby__sub_8030A770();
 s32 TLobby__sub_8030A7B0();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 obj_getField1c();
@@ -23,7 +23,7 @@ s32 fn_8006E8A0(void) {
     if (TLobby__sub_8030A7B0() != 1) {
         return 1;
     }
-    return fn_8030A770() != 0 ? 1 : 0;
+    return TLobby__sub_8030A770() != 0 ? 1 : 0;
 }
 
 }

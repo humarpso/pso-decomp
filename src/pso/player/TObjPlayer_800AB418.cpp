@@ -8,12 +8,12 @@ extern "C" {
 
 void TObjPlayer__sub_800AB418(void *arg0);
 s32 TObjPlayer__sub_800AB464();
-M2C_UNK fn_800A3284(u32);
+M2C_UNK TObjPlayer__sub_800A3284(u32);
 
 void TObjPlayer__sub_800AB418(void *arg0) {
     if (TObjPlayer__sub_800AB464() != 1) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xD0) != 0U) {
-            fn_800A3284(M2C_FIELD(arg0, u32 *, 0xD0));
+            TObjPlayer__sub_800A3284(M2C_FIELD(arg0, u32 *, 0xD0));
         }
         M2C_FIELD(arg0, s16 *, 0xAE) = 2;
     }

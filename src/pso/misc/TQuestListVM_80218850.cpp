@@ -23,7 +23,7 @@ M2C_UNK close_windows__12TQuestListVMFPv(void *);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 s32 TLobby__sub_8013AD38(void *);
 s32 TLobby__sub_8013AD44(void *);
-M2C_UNK fn_801F8FD4(void *);
+M2C_UNK TWindowSubItem__sub_801F8FD4(void *);
 M2C_UNK fn_80219EC4(void *);
 
 void update_close__12TQuestListVMFPv(void *arg0) {
@@ -36,7 +36,7 @@ void update_close__12TQuestListVMFPv(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x2380) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2374) != 0U) {
-            fn_801F8FD4(M2C_FIELD(arg0, void **, 0x2374));
+            TWindowSubItem__sub_801F8FD4(M2C_FIELD(arg0, void **, 0x2374));
             fn_80219EC4(M2C_FIELD(arg0, void **, 0x2374));
         }
         ((VObj18 *) arg0)->vf24(0x19, 1);

@@ -22,7 +22,7 @@ int bswap_32__FPUl(void*);
 f32 fn_8002ADE4(void);
 int fn_8002AE38(void* p);
 int fn_801A529C(void*, int);
-f64 fn_803A24E4();
+f64 TWindowSubComCard__sub_803A24E4();
 
 void TObjPlayer__sub_8002AE7C(void* p, s32 v) { *(s32*)((char*)p + 0xdc) = v; }
 void TObjPlayer__sub_8002AE84(void* p, s32 v) { *(s32*)((char*)p + 0xd8) = v; }

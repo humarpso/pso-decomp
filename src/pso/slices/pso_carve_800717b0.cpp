@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80071654(u16);
+s32 TLobby__sub_80071654(u16);
 
 s32 fn_800717B0(u16 *arg0) {
     if (arg0 == NULL) {
         return -1;
     }
-    return fn_80071654(*arg0);
+    return TLobby__sub_80071654(*arg0);
 }
 
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80131BC4(u32);
+s32 TWindowSubComCard__sub_80131BC4(u32);
 s32 TWindowSubComCard__sub_80131C34(u32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK fn_801F4F20(s32);
@@ -21,7 +21,7 @@ s32 fn_801F4F60(void *arg0) {
 
     temp_field = M2C_FIELD(arg0, u32 *, 0x1C);
     if ((temp_field != 0U) && (TWindowSubComCard__sub_80131C34(temp_field) != 0)) {
-        temp_r31 = fn_80131BC4(M2C_FIELD(arg0, u32 *, 0x1C));
+        temp_r31 = TWindowSubComCard__sub_80131BC4(M2C_FIELD(arg0, u32 *, 0x1C));
         if (TLobby__sub_8039DAFC(temp_r31, &lbl_805DC4FC) == 0) {
             free__11TOBoss4RockFUi(temp_r31);
             fn_801F64F4(M2C_FIELD(arg0, u32 *, 0x1C));

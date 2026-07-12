@@ -16,7 +16,7 @@ s32 TItemProArmor__sub_80102C3C(void *);
 s32 TLobby__sub_80101AB0();
 s8 TObjPlayer__sub_80102C30();
 u16 TObjPlayer__sub_80100474(void* p);
-void fn_801005D8(void);
+void TItem__sub_801005D8(void);
 void TItem__sub_801005DC(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);

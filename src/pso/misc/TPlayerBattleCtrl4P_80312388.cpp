@@ -8,7 +8,7 @@ extern "C" {
 
 void TPlayerBattleCtrl4P__vt8(void *arg0);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112A4(void *, M2C_UNK);
-u8 fn_801D7064(M2C_UNK *);
+u8 TLobby__sub_801D7064(M2C_UNK *);
 
 extern M2C_UNK lbl_8050EA40[];
 
@@ -18,7 +18,7 @@ void TPlayerBattleCtrl4P__vt8(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x240) - 1;
     M2C_FIELD(arg0, s32 *, 0x240) = temp_r0;
     if (temp_r0 <= 0) {
-        if (fn_801D7064(lbl_8050EA40) == 1) {
+        if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
             TPlayerBattleCtrl4P__sub_803112A4(arg0, 3);
             return;
         }

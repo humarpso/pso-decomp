@@ -22,7 +22,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjFish__sub_803DA798(s32);
-M2C_UNK fn_803DC894(s32, s32, f32);
+M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 
 extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DC008;
@@ -50,10 +50,10 @@ block_4:
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xF0);
         switch (temp_r0) {
         case 0:
-            fn_803DC894(M2C_FIELD(arg0, s32 *, 0xD8), M2C_FIELD(arg0, s32 *, 0xE0), M2C_FIELD(arg0, f32 *, 0xF8));
+            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xD8), M2C_FIELD(arg0, s32 *, 0xE0), M2C_FIELD(arg0, f32 *, 0xF8));
             break;
         case 1:
-            fn_803DC894(M2C_FIELD(arg0, s32 *, 0xDC), M2C_FIELD(arg0, s32 *, 0xE4), M2C_FIELD(arg0, f32 *, 0xF8));
+            TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xDC), M2C_FIELD(arg0, s32 *, 0xE4), M2C_FIELD(arg0, f32 *, 0xF8));
             break;
         }
         TParticleCtrl__sub_801E2F20();

@@ -10,7 +10,7 @@ u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1);
 u32 TObjMapCsn__sub_8007A728();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK fn_80140E38(u32, void *);
-M2C_UNK fn_801A25B4(void *, M2C_UNK);
+M2C_UNK TParticleCtrl__sub_801A25B4(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804B5A00[];
 
@@ -20,7 +20,7 @@ u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
         if (((s32) M2C_FIELD(arg0, s32 *, 0x250) != 0) && (TObjMapCsn__sub_8007A728() != 0U)) {
             fn_80140E38(TObjMapCsn__sub_8007A728(), arg0 + 0x90);
         }
-        fn_801A25B4(arg0, 0);
+        TParticleCtrl__sub_801A25B4(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

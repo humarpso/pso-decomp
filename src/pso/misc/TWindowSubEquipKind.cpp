@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__19TWindowSubEquipKindFv(void *arg0);
-M2C_UNK fn_80268048();
+M2C_UNK TWindowSubStatusDisp__sub_80268048();
 
 void run_task__19TWindowSubEquipKindFv(void *arg0) {
     int temp_r3;
 
-    fn_80268048();
+    TWindowSubStatusDisp__sub_80268048();
     temp_r3 = M2C_FIELD(arg0, s16 *, 0x8A);
     if (temp_r3 != 0) {
         M2C_FIELD(arg0, s16 *, 0x8A) = (s16) (temp_r3 - 1);

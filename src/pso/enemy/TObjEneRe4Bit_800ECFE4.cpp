@@ -10,7 +10,7 @@ void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1);
 
 M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK fn_800ED4BC();
+M2C_UNK TObjEneRe4Bit__sub_800ED4BC();
 M2C_UNK TObjEneRe4Bit__sub_800ED578(void *);
 
 void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
@@ -36,7 +36,7 @@ void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
     case 5:
         break;
     case 0:
-        fn_800ED4BC();
+        TObjEneRe4Bit__sub_800ED4BC();
         TObjEneRe4Bit__sub_800ED578(arg0);
         break;
     }

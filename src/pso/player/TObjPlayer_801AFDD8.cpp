@@ -4,8 +4,8 @@ extern "C" {
 
 s32 TObjPlayer__sub_801AEE84();
 s32 TTecCtrl__sub_801B0EE8();
-s32 fn_801B3540(s32);
-s32 fn_801B3564(s32);
+s32 TObjPlayer__sub_801B3540(s32);
+s32 TObjPlayer__sub_801B3564(s32);
 s32 TObjPlayer__sub_80203418();
 s32 TOKeyMachine01__sub_802034A8();
 s32 TBoss3Volopt__sub_8003F108();
@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_801AFDD8(s32 arg0) {
     s32 temp_r3;
 
     if ((TTecCtrl__sub_801B0EE8() != 0) || (TObjPlayer__sub_801AEE84() != 0) || (TObjPlayer__sub_80203418() != 0)) {
-        fn_801B3564(arg0);
+        TObjPlayer__sub_801B3564(arg0);
         return 0;
     }
     temp_r3 = TOKeyMachine01__sub_802034A8();
@@ -24,10 +24,10 @@ s32 TObjPlayer__sub_801AFDD8(s32 arg0) {
     case 0:
     case 15:
     case 18:
-        fn_801B3564(arg0);
+        TObjPlayer__sub_801B3564(arg0);
         return 0;
     default:
-        fn_801B3540(arg0);
+        TObjPlayer__sub_801B3540(arg0);
         return 1;
     }
 }

@@ -42,9 +42,9 @@ s32 TItemObject__sub_80101A1C(void *);
 M2C_UNK TItemObject__sub_80115D6C(void *, s32);
 M2C_UNK TObjPlayer__sub_80099EF8(void *);
 s32 TWindowSubStatusDisp__sub_800FFE1C();
-M2C_UNK fn_80100508(void *, M2C_UNK);
-M2C_UNK fn_80100564(void *, M2C_UNK);
-M2C_UNK fn_80100824();
+M2C_UNK TItem__sub_80100508(void *, M2C_UNK);
+M2C_UNK TItem__sub_80100564(void *, M2C_UNK);
+M2C_UNK TItem__sub_80100824();
 s32 fn_80116578(void *);
 
 struct Base_801161A4 { char pad[0x18]; };
@@ -92,12 +92,12 @@ void TItemObject__vt29(void *arg0) {
         M2C_FIELD(arg0, u8 *, 0x101) = 0U;
         o->m42();
         if ((u8) M2C_FIELD(arg0, u8 *, 0x101) == 0) {
-            fn_80100564(arg0, 0x1AF);
-            fn_80100508(arg0, 0x5B211);
+            TItem__sub_80100564(arg0, 0x1AF);
+            TItem__sub_80100508(arg0, 0x5B211);
         }
         if (fn_80116578(arg0) & 0x10) {
             TObjPlayer__sub_80099EF8(arg0);
-            fn_80100824();
+            TItem__sub_80100824();
         }
     }
 }

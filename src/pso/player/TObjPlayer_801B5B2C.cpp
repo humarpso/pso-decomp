@@ -10,7 +10,7 @@ s32 TMainCursor__sub_8013E940(void *);
 s32 fn_801C1E44(s32);
 s32 fn_801C1E48(s32);
 s32 fn_801C1E50(s32);
-s32 fn_801C1F50(s32);
+s32 TObjPlayer__sub_801C1F50(s32);
 int TObjPlayer__sub_8011E204(void*, void*);
 int TObjPlayer__sub_8011E238(void*, void*);
 int fn_8019DD14(void*, void*);
@@ -24,7 +24,7 @@ void TObjPlayer__sub_801B57BC(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 int TObjPlayer__sub_801C0044(void*);
 int TObjPlayer__sub_801C1B38(void*);
-int fn_801C1B60(void*);
+int TObjPlayer__sub_801C1B60(void*);
 
 void set_effect_enabled__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (arg1 == 1) {
@@ -34,7 +34,7 @@ void set_effect_enabled__10TObjPlayerFii(s32 arg0, s32 arg1) {
     fn_801C1E44(arg0 + 0x500);
 }
 void refresh_effect__10TObjPlayerFi(s32 arg0) {
-    if (fn_801C1F50(arg0 + 0x4AC) != 0) {
+    if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) != 0) {
         if (fn_801C1E50(arg0 + 0x500) != 0) {
             fn_801C1E44(arg0 + 0x500);
             return;

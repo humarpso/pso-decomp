@@ -8,7 +8,7 @@ extern "C" {
 
 u32 TAdSinglePlyChrSelectGC__sub_8007EB94(M2C_UNK);
 s32 fn_8029E764();
-M2C_UNK fn_8029F6C0();
+M2C_UNK TObjPlayer__sub_8029F6C0();
 extern s32 lbl_805D65F0;
 extern s32 lbl_805D65F4;
 extern u32 lbl_805D65FC;
@@ -21,7 +21,7 @@ void fn_8029EBE8(void) {
         temp_r3 = TAdSinglePlyChrSelectGC__sub_8007EB94(0x28);
         lbl_805D65FC = temp_r3;
         if (temp_r3 != 0U) {
-            fn_8029F6C0();
+            TObjPlayer__sub_8029F6C0();
             lbl_805D65F0 = lbl_805D65FC + 0x1C;
         }
     }

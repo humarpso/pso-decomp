@@ -6,23 +6,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int fn_803DA16C();
+int TLobby__sub_803DA16C();
 
 s32 fn_8023E700(u32 arg0) {
     if (arg0 == 0U) {
         return 0;
     }
-    fn_803DA16C();
+    TLobby__sub_803DA16C();
     return 1;
 }
 
-M2C_UNK fn_803DDC50();
+M2C_UNK TObjPlayer__sub_803DDC50();
 
 s32 fn_8023E734(u32 arg0) {
     if (arg0 == 0U) {
         return 0;
     }
-    fn_803DDC50();
+    TObjPlayer__sub_803DDC50();
     return 1;
 }
 

@@ -4,10 +4,10 @@ extern "C" {
 
 f32 TObjEneMe1CanadinLeader__sub_80085774(void);
 
-f64 fn_803A22A4();
+f64 TWindowSubStatusDisp__sub_803A22A4();
 
 f32 TObjEneMe1CanadinLeader__sub_80085774(void) {
-    return (f32) fn_803A22A4();
+    return (f32) TWindowSubStatusDisp__sub_803A22A4();
 }
 
 }

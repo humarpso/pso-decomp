@@ -15,8 +15,8 @@ u32 TItemData__sub_8010D028(s32, M2C_UNK, s32);
 s32 TItemData__sub_8010DF68(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s32 TWindowHelpItem__sub_80104FCC(s32, s32, s32 *);
-u8 fn_8010EB10(s32);
-s32 fn_8010EC88(s32);
+u8 TItemData__sub_8010EB10(s32);
+s32 TItemData__sub_8010EC88(s32);
 
 void TWindowSubStatusDisp__sub_80258518(void *arg0, s32 arg1) {
     s32 sp8;
@@ -31,7 +31,7 @@ void TWindowSubStatusDisp__sub_80258518(void *arg0, s32 arg1) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 2));
     if (temp_r3 != 0) {
         temp_r29 = TWindowHelpItem__sub_80104FCC(temp_r3, arg1, &sp8);
-        temp_r30 = fn_8010EC88(arg1);
+        temp_r30 = TItemData__sub_8010EC88(arg1);
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0x33) {
             if ((temp_r30 == 0) && (TItemData__sub_8010DF68(arg1) != 0)) {
                 M2C_FIELD(arg0, u8 *, 0x1C) = 0x19U;
@@ -55,7 +55,7 @@ void TWindowSubStatusDisp__sub_80258518(void *arg0, s32 arg1) {
                 M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x800);
                 return;
             }
-            if (fn_8010EB10(arg1) >= 9U) {
+            if (TItemData__sub_8010EB10(arg1) >= 9U) {
                 M2C_FIELD(arg0, s32 *, 0x30) = -0x1600;
                 return;
             }

@@ -15,7 +15,7 @@ M2C_UNK free__11TOBoss4RockFUi(s32);
 s32 TWindowSubComCard__sub_80131C10(u32);
 s32 TWindowSubComCard__sub_80131C34(u32);
 M2C_UNK TWindow__close(s32);
-s32 fn_80131BC4(u32);
+s32 TWindowSubComCard__sub_80131BC4(u32);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK send_action__9TProtocolFR13GameListEntryPcPc(GBig_80138D3C *, GLE_80138D3C *, M2C_UNK *, s32, GBig_80138D3C *);
 
@@ -36,7 +36,7 @@ void handle_comcard_window__6TLobbyFv(void) {
             return;
         }
         if (TWindowSubComCard__sub_80131C34(lbl_805D55F4) != 0) {
-            temp_r3 = fn_80131BC4(lbl_805D55F4);
+            temp_r3 = TWindowSubComCard__sub_80131BC4(lbl_805D55F4);
             send_action__9TProtocolFR13GameListEntryPcPc(TLobby__data_805D5580, &TLobby__data_805D5580->arr[lbl_805D5600], &TLobby__data_805DB0B0, temp_r3, TLobby__data_805D5580);
             free__11TOBoss4RockFUi(temp_r3);
             queue_destruction__7TObjectFv(lbl_805D55F4);

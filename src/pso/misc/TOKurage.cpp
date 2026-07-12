@@ -8,13 +8,13 @@ extern "C" {
 
 void update_state__8TOKurageFPv(void *arg0);
 
-s32 fn_80158360(f32);
+s32 TODragonfly__sub_80158360(f32);
 
 void update_state__8TOKurageFPv(void *arg0) {
     f32 temp_f0;
 
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
-    if (fn_80158360(temp_f0 * temp_f0) == 1) {
+    if (TODragonfly__sub_80158360(temp_f0 * temp_f0) == 1) {
         M2C_FIELD(arg0, s8 *, 0x100) = 4;
     }
 }

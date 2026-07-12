@@ -9,12 +9,10 @@ void* fn_802115C0(void* p);
 void TShopWindowBase__sub_802115F0(void);
 int fn_802115F4(void* p);
 s32 fn_80211600(void* p);
-int fn_80211608(void* p);
-void fn_80211614(void* p, f32 a, f32 b);
+int TWindowInputNumber__sub_80211608(void* p);
+void TCheckRoomSequence__sub_80211614(void* p, f32 a, f32 b);
 
 int fn_802115F4(void* p) { return (*(u16*)((char*)p + 0x60) >> 2) & 0x1; }
 s32 fn_80211600(void* p) { return *(s32*)((char*)p + 0x6c); }
-int fn_80211608(void* p) { return (*(u16*)((char*)p + 0x60) >> 1) & 0x1; }
-void fn_80211614(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x74) = a; *(f32*)((char*)p + 0x78) = b; }
 
 }

@@ -6,7 +6,7 @@ s32 TLobby__sub_8007BA98();
 s32 fn_800F7BA8();
 s32 TLobby__sub_800F8AE8();
 s32 TLobby__sub_800F8B20();
-s32 fn_800FD98C();
+s32 TItemDrop__sub_800FD98C();
 s32 TItemDrop__sub_800FDDF4();
 s32 TLobby__sub_8020809C();
 void TLobby__sub_8007BBC4(void);
@@ -20,7 +20,7 @@ s32 TLobby__sub_8007BB2C(void) {
         TLobby__sub_8007BBC4();
         return 1;
     }
-    fn_800FD98C();
+    TItemDrop__sub_800FD98C();
     if (TLobby__sub_8020809C() == 0) {
         TItemDrop__sub_800FDDF4();
         TLobby__sub_8007BBC4();

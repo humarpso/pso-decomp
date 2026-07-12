@@ -7,7 +7,7 @@ int TLobby__sub_801E44D8(void*, void*);
 s32 TWindowSubComCard__sub_8007B6D8(void* p);
 int TWindowSubComCard__sub_8007B6E0(void* p);
 u8 TWindowSubComCard__sub_8007B6EC(void* p);
-int fn_8007B73C(void* p);
+int TWindowSubComCard__sub_8007B73C(void* p);
 int bswap__16TPlyGuildCardTagFv(void*);
 
 s32 TWindowSubComCard__sub_8007B6D8(void* p) { return *(s32*)((char*)p + 0x4); }

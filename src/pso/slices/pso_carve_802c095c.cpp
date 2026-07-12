@@ -5,13 +5,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *__nw__7TObjectFUl(int);
-void *fn_802C1204(void *, void *, void *);
+void *TObjPlayer__sub_802C1204(void *, void *, void *);
 extern void *tl_05;
 
 void *fn_802C095C(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = fn_802C1204(o, tl_05, arg0);
+        o = TObjPlayer__sub_802C1204(o, tl_05, arg0);
     }
     return o;
 }

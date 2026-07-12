@@ -14,7 +14,7 @@ void TForceOperate__sub_8013E018(void* p, s16 v);
 u16 fn_8013E03C(void* p);
 int fn_801D7A78(void*);
 
-int fn_8013DEF8(void) { return 0; }
+int TObjPlayer__sub_8013DEF8(void) { return 0; }
 int TMainCursor__sub_8013DF08(void) { return 0; }
 
 }

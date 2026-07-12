@@ -14,7 +14,7 @@ M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 M2C_UNK TCheckRoomSequence__sub_8013AD28(u32);
 s32 fn_802115F4(u32);
 s32 fn_80211600(u32);
-s32 fn_80211608(u32);
+s32 TWindowInputNumber__sub_80211608(u32);
 s32 TLobby__sub_80222CFC(M2C_UNK);
 M2C_UNK fn_8024422C(u32, f32, f32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
@@ -28,7 +28,7 @@ void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
 
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x394) != 0U) && (fn_80211608(M2C_FIELD(arg0, u32 *, 0x394)) != 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x394) != 0U) && (TWindowInputNumber__sub_80211608(M2C_FIELD(arg0, u32 *, 0x394)) != 0)) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
             temp_r31 = (u16) obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, u32 *, 0x390) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x2B), 2, temp_r31);

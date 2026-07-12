@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, u32);
-u8 *fn_80242F94(s32);
-u8 *fn_80243010();
+u8 *TBoss3Volopt__sub_80242F94(s32);
+u8 *TBoss3Volopt__sub_80243010();
 
 void fn_80242DF8(u32 arg0, s16 arg1, s32 arg2) {
     u8 *var_r31;
 
-    var_r31 = fn_80242F94(arg2);
-    if ((var_r31 != NULL) || (var_r31 = fn_80243010(), ((var_r31 == NULL) == 0))) {
+    var_r31 = TBoss3Volopt__sub_80242F94(arg2);
+    if ((var_r31 != NULL) || (var_r31 = TBoss3Volopt__sub_80243010(), ((var_r31 == NULL) == 0))) {
         M2C_FIELD(var_r31, u8 *, 0) = 0xF9U;
         if (arg0 != 0U) {
             M2C_FIELD(var_r31, u8 *, 0) = (u8) (M2C_FIELD(var_r31, u8 *, 0) | 2);

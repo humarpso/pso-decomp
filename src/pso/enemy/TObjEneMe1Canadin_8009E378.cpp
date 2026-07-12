@@ -15,10 +15,10 @@ int TObjEneMe1CanadinLeader__sub_8009E36C(void* p);
 int TObjEneMe1Canadin__vt114(void);
 void TObjEneMe1Canadin__vt115(void);
 s32 TPhotonMylla__sub_80154CB4(u16);
-void fn_8009E27C(void* p);
-void fn_8009E28C(void* p);
+void TObjEneMe1CanadinLeader__sub_8009E27C(void* p);
+void TObjEneMe1CanadinLeader__sub_8009E28C(void* p);
 int fn_8009E2DC(void* a0 = 0);
-s32 fn_800B98D8(void *);
+s32 TBoss2DeRolLe__sub_800B98D8(void *);
 
 void fn_8009E378(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 2) {

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TCameraCtrl__sub_8003D1F0(void);
 void *TPhotonMylla__sub_80154CB4(u16);
-s32 fn_8003F3EC();
+s32 TCameraCtrl__sub_8003F3EC();
 
 extern u16 lbl_80483770[];
 extern u16 lbl_805D271C;
@@ -23,7 +23,7 @@ s32 TCameraCtrl__sub_8003D1F0(void) {
         return 1;
     }
     for (var_r29 = 0; var_r29 < 6; var_r29 += 1) {
-        if ((TPhotonMylla__sub_80154CB4(lbl_80483770[var_r29]) != NULL) && (fn_8003F3EC() == 0)) {
+        if ((TPhotonMylla__sub_80154CB4(lbl_80483770[var_r29]) != NULL) && (TCameraCtrl__sub_8003F3EC() == 0)) {
             return 0;
         }
     }

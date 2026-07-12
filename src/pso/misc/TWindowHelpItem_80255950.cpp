@@ -9,7 +9,7 @@ extern "C" {
 void TWindowHelpItem__sub_80255950(void *arg0, u32 arg1);
 void TWindowHelpItem__sub_80255980(void* p, void* a1, void* a2);
 int TWindowHelpItem__sub_80255440(void*);
-int fn_80255AB4(void*);
+int TWindowHelpItem__sub_80255AB4(void*);
 
 void TWindowHelpItem__sub_80255950(void *arg0, u32 arg1) {
     M2C_UNK var_r5;
@@ -21,6 +21,6 @@ void TWindowHelpItem__sub_80255950(void *arg0, u32 arg1) {
     TWindowHelpItem__sub_80255980((void*)(arg0), (void*)(arg1), (void*)(var_r5));
 }
 
-void TWindowHelpItem__sub_80255980(void* p, void* a1, void* a2) { *(void**)((char*)p + 0xa4) = a2; *(void**)((char*)p + 0x70) = a1; fn_80255AB4(p); TWindowHelpItem__sub_80255440(p); }
+void TWindowHelpItem__sub_80255980(void* p, void* a1, void* a2) { *(void**)((char*)p + 0xa4) = a2; *(void**)((char*)p + 0x70) = a1; TWindowHelpItem__sub_80255AB4(p); TWindowHelpItem__sub_80255440(p); }
 
 }

@@ -10,10 +10,10 @@ s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
 s32 TObjEneRe4Sorcerer__sub_800EFB60(s32, f32, f32);
 s32 fn_800B9194(s32);
 M2C_UNK fn_800B98C0(s32);
-s32 fn_800BBE64(s32, M2C_UNK, M2C_UNK);
+s32 TObjEneEpsilon__sub_800BBE64(s32, M2C_UNK, M2C_UNK);
 
 s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
-    if (fn_800BBE64(arg0, arg0 + 0x3B0, 0x1E) != 0) {
+    if (TObjEneEpsilon__sub_800BBE64(arg0, arg0 + 0x3B0, 0x1E) != 0) {
         return TObjEneRe4Sorcerer__sub_800EFB60(arg0, farg0, farg1);
     }
     if (fn_800B9194(arg0) != 0) {

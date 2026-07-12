@@ -28,7 +28,7 @@ struct VObj_8014C610 : Base_8014C610 {
     virtual s32 m8(f32, f32);
 };
 
-void fn_8014C610(u8 *arg0) {
+void TObjPlayer__sub_8014C610(u8 *arg0) {
     if ((((VObj_8014C610 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
         some_id_805c6f74 |= 1;
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));

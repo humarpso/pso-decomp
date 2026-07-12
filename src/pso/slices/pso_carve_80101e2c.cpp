@@ -7,7 +7,7 @@ extern "C" {
 void TLobby__sub_80102E00(void *);
 s32 fn_80102DA8(void *);
 void TItemData__sub_8010CCB0(void *);
-void fn_801007B4(int, void *);
+void TItem__sub_801007B4(int, void *);
 struct VOff_80101E2C_arg0 { char pad_0[0x4]; char f_4[1]; };
 
 void handle_6x5E_buy_shop_item(void *arg0) {
@@ -17,7 +17,7 @@ void handle_6x5E_buy_shop_item(void *arg0) {
     x = fn_80102DA8(arg0);
     if (x != 0) {
         TItemData__sub_8010CCB0(self->f_4);
-        fn_801007B4(M2C_FIELD(arg0, u16 *, 0x2), self->f_4);
+        TItem__sub_801007B4(M2C_FIELD(arg0, u16 *, 0x2), self->f_4);
     }
 }
 

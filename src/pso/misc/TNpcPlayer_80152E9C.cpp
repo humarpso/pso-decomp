@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int fn_80152F28(void* a0 = 0);
+int TFontSmallLobby__sub_80152F28(void* a0 = 0);
 void* fn_80152EF8(void* p);
 int bswap_16__FPUs(void*);
 void TNpcPlayer__sub_80152E9C(void* p, s16 v);

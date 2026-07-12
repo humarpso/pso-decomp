@@ -8,6 +8,6 @@ int TObjPlayer__sub_8034F0AC(void* p);
 int TObjPlayer__sub_8034F0D8(void* p);
 int TObjPlayer__sub_80115BC0(void*, int, int);
 
-int fn_8034F020(void) { return 0; }
+int TObjPlayer__sub_8034F020(void) { return 0; }
 
 }

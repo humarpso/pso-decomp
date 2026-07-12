@@ -7,7 +7,7 @@ extern "C" {
 void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1);
 void TObjPlayer__sub_80154A00(void *);
 void __dl__7TObjectFPv(void *);
-void fn_80156720(void *);
+void TObjEneGibbles__sub_80156720(void *);
 void fn_80158534(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
@@ -18,7 +18,7 @@ void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B528C;
         if (M2C_FIELD(arg0, void **, 0xC8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xC8)); M2C_FIELD(arg0, M2C_UNK *, 0xC8) = 0; }
         TObjPlayer__sub_80154A00(arg0);
-        fn_80156720(arg0);
+        TObjEneGibbles__sub_80156720(arg0);
         fn_80158534(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

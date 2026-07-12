@@ -8,7 +8,7 @@ extern "C" {
 
 void dispatch_packet__6TLobbyFPv(void *arg0);
 M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
-M2C_UNK fn_801E3FA4(void *);
+M2C_UNK TLobby__sub_801E3FA4(void *);
 
 s32 get_main_phase();
 extern s32 TLobby__data_805D53AC;
@@ -21,7 +21,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
     temp_r31 = M2C_FIELD(arg0, u8 *, 1) * 4;
     if (get_main_phase() == 0xE) {
         lbl_805D5E50 = 1;
-        fn_801E3FA4(arg0);
+        TLobby__sub_801E3FA4(arg0);
         lbl_805D5E50 = 0;
         return;
     }

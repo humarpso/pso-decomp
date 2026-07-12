@@ -8,14 +8,14 @@ extern "C" {
 
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
-M2C_UNK fn_801A2640();
+M2C_UNK TPhotonMagicSquare__sub_801A2640();
 
 extern void *__vt__14TPhotonRainbow[];
 extern s32 lbl_805D3520;
 extern u8 *lbl_805D5D28;
 
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2) {
-    fn_801A2640();
+    TPhotonMagicSquare__sub_801A2640();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)&__vt__14TPhotonRainbow;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3520;
     if ((s32) M2C_FIELD(arg0, s32 *, 0xA8) == 1) {

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_buffers__9TWindowDDFv(void);
-void fn_800F957C(void*);
+void TLobby__sub_800F957C(void*);
 M2C_UNK fn_8034AF18();
 void free__11TOBoss4RockFUi(void*);
 
@@ -50,23 +50,23 @@ void free_buffers__9TWindowDDFv(void) {
         TWindowDD__data_805D6E0C = 0U;
     }
     if ((u32) lbl_805D6E60 != 0U) {
-        fn_800F957C((void*)lbl_805D6E60);
+        TLobby__sub_800F957C((void*)lbl_805D6E60);
         lbl_805D6E60 = 0U;
     }
     if ((u32) lbl_805D6E5C != 0U) {
-        fn_800F957C((void*)lbl_805D6E5C);
+        TLobby__sub_800F957C((void*)lbl_805D6E5C);
         lbl_805D6E5C = 0U;
     }
     if ((u32) lbl_805D6E58 != 0U) {
-        fn_800F957C((void*)lbl_805D6E58);
+        TLobby__sub_800F957C((void*)lbl_805D6E58);
         lbl_805D6E58 = 0U;
     }
     if ((u32) lbl_805D6E54 != 0U) {
-        fn_800F957C((void*)lbl_805D6E54);
+        TLobby__sub_800F957C((void*)lbl_805D6E54);
         lbl_805D6E54 = 0U;
     }
     if ((u32) lbl_805D6E50 != 0U) {
-        fn_800F957C((void*)lbl_805D6E50);
+        TLobby__sub_800F957C((void*)lbl_805D6E50);
         lbl_805D6E50 = 0U;
     }
 }

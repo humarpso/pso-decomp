@@ -10,7 +10,7 @@ void TObjPlayer__sub_801D551C(void *arg0);
 s32 TItemList__sub_801D5ABC(void *);
 M2C_UNK TItem__sub_80101CFC(M2C_UNK, M2C_UNK *);
 u32 TObjPlayer__sub_801D5764(void *);
-s32 fn_801049C8(M2C_UNK *, s32);
+s32 TObjPlayer__sub_801049C8(M2C_UNK *, s32);
 
 extern s32 lbl_805D5DF4;
 extern s32 lbl_805D5DFC;
@@ -25,7 +25,7 @@ void TObjPlayer__sub_801D551C(void *arg0) {
     while (var_r31 != NULL) {
         if ((TItemList__sub_801D5ABC(var_r31) != 0) && ((temp = TObjPlayer__sub_801D5764(var_r31)) != 0U)) {
             TItem__sub_80101CFC(temp, &sp8[0]);
-            if (fn_801049C8(&sp8[0], lbl_805D5DFC) != 0) {
+            if (TObjPlayer__sub_801049C8(&sp8[0], lbl_805D5DFC) != 0) {
                 lbl_805D5DF4 += 1;
             }
         }

@@ -9,7 +9,7 @@ extern "C" {
 s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 s32 TWindowSubComCard__sub_80265660(s32, s32);
-s32 fn_8026F664(s32);
+s32 TWindowShortListCtrl__sub_8026F664(s32);
 
 s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0) {
     if (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, s32 *, 0x38)) != 0x20) {
@@ -18,7 +18,7 @@ s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0) {
     s32 temp;
     s32 ret;
 
-    temp = fn_8026F664(M2C_FIELD(arg0, s32 *, 0x38));
+    temp = TWindowShortListCtrl__sub_8026F664(M2C_FIELD(arg0, s32 *, 0x38));
     ret = TWindowSubComCard__sub_80265660(M2C_FIELD(arg0, s32 *, 0x38), temp);
     return ret ? 1 : 0;
 }

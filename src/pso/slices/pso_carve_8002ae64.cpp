@@ -11,7 +11,7 @@ void TObjPlayer__sub_8002AF90(void* p);
 void TObjPlayer__sub_8002AEC0(void* p);
 int TLobby__send_and_handle_60(void*);
 f32 fn_8002ADE4(void);
-f64 fn_803A24E4();
+f64 TWindowSubComCard__sub_803A24E4();
 int TObjEneMe3ShinowaReal__sub_8002ADD8(void* p);
 int fn_8002AE38(void* p);
 void TBoss8Dragon__sub_8002AE5C(void* p, f32 v);

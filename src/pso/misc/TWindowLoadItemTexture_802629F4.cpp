@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__22TWindowLoadItemTextureFv(u8 *arg0);
-u32 fn_8011D164(s32);
+u32 TItemTexLoad__sub_8011D164(s32);
 s32 fn_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 M2C_UNK fn_80257BC0(void *, void *, s32);
@@ -17,7 +17,7 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
     s32 temp_r31;
 
     if ((s32) M2C_FIELD(arg0, u8 *, 0x60) == 1) {
-        M2C_FIELD(arg0, u32 *, 0x70) = fn_8011D164(M2C_FIELD(arg0, s32 *, 0x6C));
+        M2C_FIELD(arg0, u32 *, 0x70) = TItemTexLoad__sub_8011D164(M2C_FIELD(arg0, s32 *, 0x6C));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
             fn_8026287C(arg0);
             M2C_FIELD(arg0, u8 *, 0x60) = 1U;

@@ -4,8 +4,8 @@ extern "C" {
 
 s32 TObjPlayer__sub_801AEE84();
 s32 TTecCtrl__sub_801B0EE8();
-s32 fn_801B3540(s32);
-s32 fn_801B3564(s32);
+s32 TObjPlayer__sub_801B3540(s32);
+s32 TObjPlayer__sub_801B3564(s32);
 s32 TObjPlayer__sub_80203418();
 s32 TOKeyMachine01__sub_802034A8();
 s32 TBoss3Volopt__sub_8003F108();

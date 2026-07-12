@@ -15,7 +15,7 @@ void fn_80010EC0(void);
 void fn_80010EC4(void);
 void fn_80010EC8(void);
 u16 fn_80010F4C(void* p);
-void fn_80011010(void);
+void TObjPlayer__sub_80011010(void);
 
 void fn_80010EBC(void) {  }
 void fn_80010EC0(void) {  }
@@ -45,6 +45,5 @@ void fn_80010FCC(s32 arg0, u32 arg1) {
         TOMineTrap__sub_80010F54((void*)(arg0), (void*)(obj_getField1c(arg1)));
     }
 }
-void fn_80011010(void) {  }
 
 }

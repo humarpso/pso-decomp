@@ -10,7 +10,7 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
-M2C_UNK fn_8001A438(void *);
+M2C_UNK TObjLuker__sub_8001A438(void *);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 
 extern s32 lbl_805D55C0;
@@ -28,7 +28,7 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0) {
     {
         if ((s32) lbl_805D55C0 != 0) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x29C) != 0U) {
-                fn_8001A438(M2C_FIELD(arg0, void **, 0x29C));
+                TObjLuker__sub_8001A438(M2C_FIELD(arg0, void **, 0x29C));
             }
         } else {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x29C) != 0U) {

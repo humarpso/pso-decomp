@@ -6,19 +6,19 @@ extern "C" {
 
 void *TButterfly__ct(void *arg0, void *arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void fn_80020898(void *, void *);
+void TObjPlayer__sub_80020898(void *, void *);
 void fn_8017E978(void *);
-void fn_801A2640(void *);
+void TPhotonMagicSquare__sub_801A2640(void *);
 
 extern M2C_UNK __vt__10TButterfly[];
 extern void *lbl_805D3230;
 
 void *TButterfly__ct(void *arg0, void *arg1, void *arg2) {
-    fn_801A2640(arg0);
+    TPhotonMagicSquare__sub_801A2640(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TButterfly;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3230;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 56), (void *)((char *)arg2 + 12));
-    fn_80020898((void *)((char *)arg0 + 92), (void *)((char *)arg2 + 24));
+    TObjPlayer__sub_80020898((void *)((char *)arg0 + 92), (void *)((char *)arg2 + 24));
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 104), (void *)((char *)arg2 + 36));
     fn_8017E978(arg0);
     return arg0;

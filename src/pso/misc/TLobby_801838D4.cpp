@@ -19,7 +19,7 @@ M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK fn_800F5BC0(s32, s16, M2C_UNK);
+M2C_UNK TObjPlayer__sub_800F5BC0(s32, s16, M2C_UNK);
 
 extern u32 lbl_805D5B38;
 extern s32 lbl_805D5B3C;
@@ -32,7 +32,7 @@ extern const f32 lbl_805DBC48;
 void TLobby__sub_801838D4(u8 *arg0) {
     if (((u32) lbl_805D5B38 != 0U) && (((Fn801838D4VObj_801838d4*)arg0)->m8(lbl_805DBC44, lbl_805DBC48) != 0)) {
         TObjFish__sub_803DA798(lbl_805D5B44);
-        fn_800F5BC0(lbl_805D5B48, (s16) M2C_FIELD(arg0, s32 *, 0x90), 0);
+        TObjPlayer__sub_800F5BC0(lbl_805D5B48, (s16) M2C_FIELD(arg0, s32 *, 0x90), 0);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

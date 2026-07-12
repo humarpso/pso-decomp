@@ -9,9 +9,9 @@ extern "C" {
 s32 TLobby__sub_80147284(void);
 M2C_UNK TLobby__sub_80147168();
 M2C_UNK TLobby__sub_803FB1A4(s16 *);
-M2C_UNK fn_80146294();
-M2C_UNK fn_803FAFDC();
-M2C_UNK fn_80423064(s16, M2C_UNK);
+M2C_UNK TLobby__sub_80146294();
+M2C_UNK TLobby__sub_803FAFDC();
+M2C_UNK TLobby__sub_80423064(s16, M2C_UNK);
 
 extern s32 lbl_805D2D00;
 extern s32 lbl_805D56F8;
@@ -20,13 +20,13 @@ s32 TLobby__sub_80147284(void) {
     s16 sp8;
 
     if ((s32) lbl_805D2D00 != -1) {
-        fn_80423064((s16) lbl_805D2D00, 0);
+        TLobby__sub_80423064((s16) lbl_805D2D00, 0);
         sp8 = 1;
         TLobby__sub_803FB1A4(&sp8);
     }
-    fn_80146294();
+    TLobby__sub_80146294();
     if (lbl_805D56F8 & 4) {
-        fn_803FAFDC();
+        TLobby__sub_803FAFDC();
         lbl_805D56F8 &= 0xFFFFFFFB;
     }
     TLobby__sub_80147168();

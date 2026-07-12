@@ -10,14 +10,14 @@ struct Outer_80132A5C { struct Inner_80132A5C *f0; };
 extern "C" {
 
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(void *);
-M2C_UNK fn_803DA16C(void *);
+M2C_UNK TLobby__sub_803DA16C(void *);
 extern struct Outer_80132A5C *lbl_805D5540;
 
 void fn_80132A5C(void) {
     if (lbl_805D5540 != NULL) {
         struct Inner_80132A5C *inner = lbl_805D5540->f0;
         if (inner->f8 != 0U) {
-            fn_803DA16C(lbl_805D5540);
+            TLobby__sub_803DA16C(lbl_805D5540);
         }
         TAdSinglePlyChrSelectGC__sub_8007EBB4(lbl_805D5540);
         lbl_805D5540 = NULL;

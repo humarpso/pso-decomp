@@ -14,7 +14,7 @@ s32 get_card_data__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801334DC(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
-M2C_UNK fn_80266130(s32);
+M2C_UNK TWindowSubComCard__sub_80266130(s32);
 M2C_UNK TAdMultiSelGameModeGC__sub_802D5098(s32, M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802D50A0(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802D50A8(s32, M2C_UNK);
@@ -35,13 +35,13 @@ void handle_card_select__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 0xC;
             return;
         case 1:
-            fn_80266130(M2C_FIELD(arg0, s32 *, 0x38));
+            TWindowSubComCard__sub_80266130(M2C_FIELD(arg0, s32 *, 0x38));
             TAdMultiSelGameModeGC__sub_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);
             M2C_FIELD(arg0, s32 *, 0x20) = 5;
             return;
         }
     } else if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x50)) != 0) {
-        fn_80266130(M2C_FIELD(arg0, s32 *, 0x38));
+        TWindowSubComCard__sub_80266130(M2C_FIELD(arg0, s32 *, 0x38));
         TAdMultiSelGameModeGC__sub_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);
         M2C_FIELD(arg0, s32 *, 0x20) = 5;
     }
@@ -62,13 +62,13 @@ void handle_card_select2__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 0xC;
             return;
         case 1:
-            fn_80266130(M2C_FIELD(arg0, s32 *, 0x38));
+            TWindowSubComCard__sub_80266130(M2C_FIELD(arg0, s32 *, 0x38));
             TAdMultiSelGameModeGC__sub_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);
             M2C_FIELD(arg0, s32 *, 0x20) = 5;
             return;
         }
     } else if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x4C)) != 0) {
-        fn_80266130(M2C_FIELD(arg0, s32 *, 0x38));
+        TWindowSubComCard__sub_80266130(M2C_FIELD(arg0, s32 *, 0x38));
         TAdMultiSelGameModeGC__sub_802D5098(M2C_FIELD(arg0, s32 *, 0x2C), 1);
         M2C_FIELD(arg0, s32 *, 0x20) = 5;
     }

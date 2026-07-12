@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_rocks__6TLobbyFv(void);
-M2C_UNK fn_800F957C(u32);
+M2C_UNK TLobby__sub_800F957C(u32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
 extern u32 lbl_80513D78[];
@@ -28,7 +28,7 @@ void free_rocks__6TLobbyFv(void) {
         var_r31 -= 1;
     } while (var_r28 >= 0);
     if ((u32) lbl_805D6158 != 0U) {
-        fn_800F957C(lbl_805D6158);
+        TLobby__sub_800F957C(lbl_805D6158);
         lbl_805D6158 = var_r30;
     }
 }

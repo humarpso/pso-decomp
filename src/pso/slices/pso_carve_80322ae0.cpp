@@ -4,6 +4,6 @@ extern "C" {
 
 void render__15TAdLdQuestPrtGCFv(void);
 
-int fn_80322AE0(void) { return 0; }
+int TBoss6Type1__sub_80322AE0(void) { return 0; }
 
 }

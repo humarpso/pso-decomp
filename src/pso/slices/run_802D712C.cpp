@@ -16,7 +16,7 @@ void fn_802D712C(void *arg0, void *arg1) {
 
 void *TObjNpcEnemy__sub_802D732C();
 
-void fn_802D7158(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void TMotorcycle__sub_802D7158(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     void *temp_r3;
 
     temp_r3 = TObjNpcEnemy__sub_802D732C();

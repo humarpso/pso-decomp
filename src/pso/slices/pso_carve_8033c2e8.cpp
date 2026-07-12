@@ -8,15 +8,15 @@ extern "C" {
 
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 fn_8033BC88(void *, s32, s32, s32, s32);
-s32 fn_8033BB14();
-s32 fn_8033C024(void *, s32);
-int fn_8033C178(void* p);
-void fn_8033C198(void);
-int fn_8033C19C(void* p);
+s32 TQuestVmDownLoadServer__sub_8033BC88(void *, s32, s32, s32, s32);
+s32 TAdPlayerLoadGC__sub_8033BB14();
+s32 TWindowSubComCard__sub_8033C024(void *, s32);
+int TWindowSubComCard__sub_8033C178(void* p);
+void TWindowSubComCard__sub_8033C198(void);
+int TWindowSubComCard__sub_8033C19C(void* p);
 void render__16TCheckMemoryCardFv(void);
 int fn_8033BC34(void*, int, int, int, int);
-int fn_8033BF90(void*);
+int TWindowSubComCard__sub_8033BF90(void*);
 
 void fn_8033C2E8(void *arg0) {
     s32 temp_r4;
@@ -30,30 +30,30 @@ void fn_8033C2E8(void *arg0) {
         } else {
             if (temp_r4 & 4) {
                 if ((s32) M2C_FIELD(arg0, s32 *, 0x40) != 0) {
-                    fn_8033C024((void *)(arg0), 3);
+                    TWindowSubComCard__sub_8033C024((void *)(arg0), 3);
                     return;
                 }
-                fn_8033C024((void *)(arg0), 1);
+                TWindowSubComCard__sub_8033C024((void *)(arg0), 1);
                 return;
             }
             if (temp_r4 & 8) {
                 if ((s32) M2C_FIELD(arg0, s32 *, 0x40) != 0) {
-                    fn_8033C024((void *)(arg0), 3);
+                    TWindowSubComCard__sub_8033C024((void *)(arg0), 3);
                     return;
                 }
-                fn_8033C024((void *)(arg0), 1);
+                TWindowSubComCard__sub_8033C024((void *)(arg0), 1);
                 return;
             }
             if (temp_r4 & 0x10) {
                 if ((s32) M2C_FIELD(arg0, s32 *, 0x40) != 0) {
-                    fn_8033C024((void *)(arg0), 3);
+                    TWindowSubComCard__sub_8033C024((void *)(arg0), 3);
                     return;
                 }
-                fn_8033C024((void *)(arg0), 1);
+                TWindowSubComCard__sub_8033C024((void *)(arg0), 1);
                 return;
             }
             if (temp_r4 == 0) {
-                fn_8033C024((void *)(arg0), 2);
+                TWindowSubComCard__sub_8033C024((void *)(arg0), 2);
             }
         }
     }

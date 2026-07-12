@@ -10,7 +10,7 @@ s32 create_keyboard__19TWindowSubShortMailFv(void);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_80131A5C(s32);
-M2C_UNK fn_80131B54(s32, s32);
+M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
 M2C_UNK fn_80265410(s32);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80275254(s32);
@@ -26,7 +26,7 @@ s32 create_keyboard__19TWindowSubShortMailFv(void) {
         var_r31 = TKeyBoardControl__ct(var_r31, tl_00, 0xC6, 5, 4, lbl_805D53A0);
     }
     fn_80265410(var_r31);
-    fn_80131B54(var_r31, TWindowSubComCard__sub_8026CBB8(0xBB));
+    TWindowMakeTeam__sub_80131B54(var_r31, TWindowSubComCard__sub_8026CBB8(0xBB));
     fn_80131A5C(var_r31);
     TWindowSubComCard__sub_80275254(var_r31);
     return var_r31;

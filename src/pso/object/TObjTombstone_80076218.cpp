@@ -14,7 +14,7 @@ s32 TObjTombstone__sub_80076098(void *);
 M2C_UNK TObjTombstone__sub_80076190(void *);
 void __dl__7TObjectFPv(void *);
 s32 check_owner__13TObjTombstoneFPv();
-void fn_80156990(void *, int);
+void TObjPlayer__sub_80156990(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_805D4E4C;
@@ -38,7 +38,7 @@ extern M2C_UNK __vt__13TObjTombstone[];
 void *__dt__13TObjTombstoneFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjTombstone;
-        fn_80156990(arg0, 0);
+        TObjPlayer__sub_80156990(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_8028783C(s32 a0 = 0, s32 a1 = 0);
 s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 fn_80211608();
+s32 TWindowInputNumber__sub_80211608();
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 void set_flag0_bit20__15TWindowHelpItemFPv(void* p);
 s16 fn_80255DF4(void* p);
@@ -19,7 +19,7 @@ void set_flag60_bit4__13TWindowSubMagFPv(void* p);
 
 int TWindowSubMag__sub_80255E24(void) { return 0; }
 void fn_80255E3C(void *arg0) {
-    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 8) && (fn_80211608() == 0)) {
+    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 8) && (TWindowInputNumber__sub_80211608() == 0)) {
         M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 4);
     }
 }

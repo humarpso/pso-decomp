@@ -9,8 +9,8 @@ s32 bswap_32__FPUl(s32);
 s32 TLobby__sub_800C80FC();
 s32 TLobby__sub_801E44D8(s32, s32);
 s32 TLobby__send_and_handle_60(s32);
-void fn_8013A578(void* p);
-void fn_8013A5C0(void* p);
+void TLobby__sub_8013A578(void* p);
+void TLobby__sub_8013A5C0(void* p);
 
 int TObjPlayer__sub_8013A820(void*, void*) { return 0; }
 

@@ -14,7 +14,7 @@ void TWindowRoom__sub_8026D594(s32 arg0);
 int get_array_entry__20TWindowSubStatusDispFPvi(void*, int);
 s32 TWindowSubStatusDisp__sub_8025AC50(s32, s32, s32);
 s32 TWindowDD__sub_80244CF4();
-int fn_8024664C(void*);
+int TWindowDD__sub_8024664C(void*);
 s32 fn_80257BC0(s32, s32, s32);
 int fn_80257C28(void*, void*);
 M2C_UNK fn_80287580(s32, s32, M2C_UNK, f32);
@@ -33,6 +33,6 @@ void TWindowRoom__sub_8026D594(s32 arg0) {
     fn_8026D564((void *)(arg0), temp_r3);
     fn_80257BC0(arg0, arg0 + 0x24, temp_r3);
 }
-void run_task__11TWindowRoomFv(void* p) { fn_8024664C(p); fn_80257C28(p, (char*)p + 0x24); }
+void run_task__11TWindowRoomFv(void* p) { TWindowDD__sub_8024664C(p); fn_80257C28(p, (char*)p + 0x24); }
 
 }

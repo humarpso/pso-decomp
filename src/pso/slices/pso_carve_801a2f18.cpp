@@ -12,10 +12,10 @@ M2C_UNK TLobby__sub_8011AFB8();
 M2C_UNK TObjCityMainWarp__sub_80186634();
 M2C_UNK TLobby__sub_801A3B84();
 M2C_UNK TLobby__sub_801A3BA4();
-M2C_UNK fn_801A3BF4();
-M2C_UNK fn_801A3C00();
+M2C_UNK TLobby__sub_801A3BF4();
+M2C_UNK TLobby__sub_801A3C00();
 M2C_UNK TObjDoor__sub_801A3C0C();
-M2C_UNK fn_801A3C18();
+M2C_UNK TLobby__sub_801A3C18();
 M2C_UNK TRaderMapCore__sub_801F9540();
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
 M2C_UNK TSwitch__sub_8022942C();
@@ -36,10 +36,10 @@ void fn_801A2F18(void) {
     TObjCityMainWarp__sub_80186634();
     THunterGuildSeqOffline__sub_80213430();
     TLobby__sub_801A3B84();
-    fn_801A3C18();
+    TLobby__sub_801A3C18();
     TObjDoor__sub_801A3C0C();
-    fn_801A3C00();
-    fn_801A3BF4();
+    TLobby__sub_801A3C00();
+    TLobby__sub_801A3BF4();
     TLobby__sub_801A3BA4();
 }
 

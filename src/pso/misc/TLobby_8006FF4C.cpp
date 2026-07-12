@@ -14,7 +14,7 @@ M2C_UNK TLobby__sub_800722AC(s32);
 M2C_UNK TLobby__sub_80072618();
 s32 TLobby__sub_801B31AC();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK fn_80074034(s32);
+M2C_UNK TLobby__sub_80074034(s32);
 M2C_UNK fn_80074A5C(s32);
 M2C_UNK fn_80074DBC(s32);
 
@@ -24,7 +24,7 @@ extern s32 tl_07;
 void TLobby__sub_8006FF4C(void) {
     TLobby__sub_8006FE7C();
     fn_80074DBC(tl_07);
-    fn_80074034(tl_07);
+    TLobby__sub_80074034(tl_07);
     if ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x30) == 0) {
         fn_80074A5C(tl_07);
     }

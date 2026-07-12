@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK run_task__18TObjAreaWarpForestFv(void *);
-s32 fn_802F2070();
+s32 TObjBoss2Tunnel__sub_802F2070();
 
 void fn_802F0F30(void *arg0) {
-    if (fn_802F2070() != 0) {
+    if (TObjBoss2Tunnel__sub_802F2070() != 0) {
         M2C_FIELD(arg0, s32 *, 0xDC) = 1;
     }
     run_task__18TObjAreaWarpForestFv(arg0);

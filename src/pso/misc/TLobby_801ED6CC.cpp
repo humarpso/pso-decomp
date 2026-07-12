@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void dispatch_split_screen__6TLobbyFv(void);
-M2C_UNK fn_800715FC(s32);
+M2C_UNK TLobby__sub_800715FC(s32);
 M2C_UNK TLobby__sub_802926EC(s32);
 
 s32 is_split_screen(void);
@@ -21,7 +21,7 @@ void dispatch_split_screen__6TLobbyFv(void) {
         TLobby__sub_802926EC(temp_r31);
         return;
     }
-    fn_800715FC(temp_r31);
+    TLobby__sub_800715FC(temp_r31);
 }
 
 }

@@ -16,7 +16,7 @@ int fn_802C46BC(void* p);
 int fn_802C46E0(void* p);
 int fn_802C4748(void* p);
 int TWindowActionPalette__sub_801C1CA8(void*);
-int fn_801D7D4C(void*);
+int TObjPlayer__sub_801D7D4C(void*);
 int TObjPlayer__sub_802C4288(void*);
 s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
 s32 get_main_phase();

@@ -8,7 +8,7 @@ extern "C" {
 
 void send_command__6TLobbyFPvUi(void *arg0, u32 arg1);
 M2C_UNK bswap_32__FPUl(s32 *);
-M2C_UNK fn_801E3FA4(void *);
+M2C_UNK TLobby__sub_801E3FA4(void *);
 M2C_UNK send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
 
 extern u32 lbl_805D53A0;
@@ -22,7 +22,7 @@ void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
     bswap_32__FPUl(&sp8);
     if ((u32) lbl_805D53A0 == arg1) {
         lbl_805D5E50 = 1;
-        fn_801E3FA4(arg0);
+        TLobby__sub_801E3FA4(arg0);
         lbl_805D5E50 = 0;
         return;
     }

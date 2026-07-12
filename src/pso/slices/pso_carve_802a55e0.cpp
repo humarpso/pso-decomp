@@ -16,14 +16,14 @@ s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
 int TWindowMenu__sub_802657E4(void*);
 int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
 void run_task__19TWindowMessageYesNoFv(void* p);
-int fn_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
+int TWindowSubShortMail__sub_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void TAdChrSelASlotGC__sub_802A596C(void* p, void* a1, void* a2);
 void fn_802A56C4(void* p);
 void fn_802A56F0(void* p);
-void fn_802A571C(void* p);
+void TWindowSubShortMail__sub_802A571C(void* p);
 int TWindowSubComCard__sub_802A5748(void* p);
 void free_member__17TWindowSubComCardFPv(void* p);
-int fn_800740FC(void*);
+int TAdChrSelASlotGC__sub_800740FC(void*);
 int set_flag70_bit10__16TObjCityMainWarpFPv(void*);
 int TWindowSubComCard__sub_80265C10(void*);
 int TWindowSubTradeMain__sub_80287560(void*);
@@ -38,8 +38,7 @@ void fn_802A55E0(void *arg0) {
     }
 }
 int fn_802A5628(void) { return 0; }
-void fn_802A56C4(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) fn_800740FC(m); }
+void fn_802A56C4(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) TAdChrSelASlotGC__sub_800740FC(m); }
 void fn_802A56F0(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) TWindowSubTradeMain__sub_80287560(m); }
-void fn_802A571C(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) set_flag70_bit10__16TObjCityMainWarpFPv(m); }
 
 }

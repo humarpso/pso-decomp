@@ -17,7 +17,7 @@ M2C_UNK empty_func2__7TObjectFv(s32);
 M2C_UNK empty_func__7TObjectFv(s32);
 M2C_UNK fn_80141A30();
 M2C_UNK fn_801E2C50();
-M2C_UNK fn_803382E4();
+M2C_UNK TLobby__sub_803382E4();
 s8 func_801A5E54__Fv();
 M2C_UNK func_803DCDFC__Fv();
 s32 is_ready__22TQuestVmDownLoadServerFv();
@@ -63,7 +63,7 @@ void TLobby__sub_800F9E18(void) {
     if (func_801A5E54__Fv() != 0) {
         TLobby__sub_800F8AD0();
     }
-    fn_803382E4();
+    TLobby__sub_803382E4();
     render_tick__Fv();
 }
 

@@ -8,7 +8,7 @@ extern "C" {
 
 void free_key__11TObjDoorKeyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK fn_801E483C(s32);
+M2C_UNK TObjPlayer__sub_801E483C(s32);
 
 extern u32 lbl_805D5BF8;
 extern s32 TObjDoorKey__data_805D5BFC;
@@ -19,7 +19,7 @@ void free_key__11TObjDoorKeyFv(void) {
         TLobby__sub_8001FE7C((void*)lbl_805D5BF8, 1);
         lbl_805D5BF8 = 0U;
     }
-    fn_801E483C(TObjDoorKey__data_805D5BFC);
+    TObjPlayer__sub_801E483C(TObjDoorKey__data_805D5BFC);
     TObjDoorKey__data_805D5BFC = 0;
     TObjDoorKey__data_805D5C04 = 0;
 }

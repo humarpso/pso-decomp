@@ -12,7 +12,7 @@ M2C_UNK TLobby__sub_80215720(s32);
 M2C_UNK TLobby__sub_8021587C(s32);
 M2C_UNK TLobby__sub_8021599C(s32);
 s32 TLobby__sub_80215ABC();
-void fn_800F957C(void*);
+void TLobby__sub_800F957C(void*);
 
 extern u32 lbl_805D61C0;
 extern s32 lbl_805D61C4;
@@ -32,7 +32,7 @@ extern u32 lbl_805D61C0;
 
 void free_window__6TLobbyFv(void) {
     if ((u32) lbl_805D61C0 != 0U) {
-        fn_800F957C((void*)lbl_805D61C0);
+        TLobby__sub_800F957C((void*)lbl_805D61C0);
         lbl_805D61C0 = 0U;
     }
 }

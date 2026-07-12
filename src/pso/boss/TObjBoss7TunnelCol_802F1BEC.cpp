@@ -8,7 +8,7 @@ void *TObjBoss7TunnelCol__ct(void *arg0);
 void fn_8002B630(void *, void *);
 void TObjPlayer__sub_80154B28(void *);
 void fn_801566DC(void *, void *);
-void fn_801569F4(void *);
+void TObjPlayer__sub_801569F4(void *);
 
 extern M2C_UNK __vt__18TObjBoss7TunnelCol[];
 extern M2C_UNK lbl_80474420[];
@@ -19,7 +19,7 @@ struct VOff_802F1BEC_arg0 { char pad_0[0xAC]; char f_AC[1]; };
 
 void *TObjBoss7TunnelCol__ct(void *arg0) {
     struct VOff_802F1BEC_arg0 *self = (struct VOff_802F1BEC_arg0 *)arg0;
-    fn_801569F4(arg0);
+    TObjPlayer__sub_801569F4(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjBoss7TunnelCol;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3FF0;
     fn_8002B630(self->f_AC, lbl_80474420);

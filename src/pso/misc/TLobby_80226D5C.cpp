@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_80226D5C(void);
 M2C_UNK TLobby__sub_803C9CBC(s32);
-M2C_UNK fn_802260F0();
+M2C_UNK TLobby__sub_802260F0();
 
 extern M2C_UNK lbl_804CB850[];
 extern s32 lbl_805D6330;
@@ -17,7 +17,7 @@ void TLobby__sub_80226D5C(void) {
     if ((s32) lbl_805D6330 != 0) {
         TLobby__sub_803C9CBC(M2C_FIELD(lbl_804CB850, s32 *, 4));
         lbl_805D6330 = 0;
-        fn_802260F0();
+        TLobby__sub_802260F0();
     }
 }
 

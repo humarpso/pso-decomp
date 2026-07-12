@@ -21,7 +21,7 @@ M2C_UNK TObjPlayer__sub_800F6DD8(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK fn_800A8B8C(void *);
+M2C_UNK TObjPlayer__sub_800A8B8C(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 obj_testFlags30(void *, M2C_UNK);
 
@@ -30,7 +30,7 @@ void TObjPlayer__sub_800AA5A4(u8 *arg0) {
         TObjPlayer__sub_800AA330(arg0);
         return;
     }
-    fn_800A8B8C(arg0);
+    TObjPlayer__sub_800A8B8C(arg0);
     M2C_FIELD(arg0, s32 *, 0x2A8) = TNpcPlayer__sub_800D87EC(M2C_FIELD(arg0, u16 *, 0x338));
     TObjPlayer__sub_800C6A18(arg0);
     TObjPlayer__sub_800AA10C(arg0);

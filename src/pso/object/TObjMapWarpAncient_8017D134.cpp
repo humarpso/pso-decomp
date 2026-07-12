@@ -8,8 +8,8 @@ extern "C" {
 
 u8 *TObjMapWarpAncient__ct(u8 *arg0);
 M2C_UNK TObjMapWarp__ct();
-s32 fn_8017D27C(int);
-s32 fn_8017D2AC(int);
+s32 TObjGoalWarpAncient__sub_8017D27C(int);
+s32 TObjGoalWarpAncient__sub_8017D2AC(int);
 s32 fn_8017D2D4(int);
 
 extern M2C_UNK __vt__18TObjMapWarpAncient[];
@@ -24,10 +24,10 @@ u8 *TObjMapWarpAncient__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x100) = fn_8017D2D4(2);
     M2C_FIELD(arg0, s32 *, 0x104) = fn_8017D2D4(0);
     M2C_FIELD(arg0, s32 *, 0x108) = fn_8017D2D4(4);
-    M2C_FIELD(arg0, s32 *, 0x10C) = fn_8017D27C(2);
-    M2C_FIELD(arg0, s32 *, 0x110) = fn_8017D27C(0);
-    M2C_FIELD(arg0, s32 *, 0x114) = fn_8017D27C(4);
-    M2C_FIELD(arg0, s32 *, 0x118) = fn_8017D2AC(1);
+    M2C_FIELD(arg0, s32 *, 0x10C) = TObjGoalWarpAncient__sub_8017D27C(2);
+    M2C_FIELD(arg0, s32 *, 0x110) = TObjGoalWarpAncient__sub_8017D27C(0);
+    M2C_FIELD(arg0, s32 *, 0x114) = TObjGoalWarpAncient__sub_8017D27C(4);
+    M2C_FIELD(arg0, s32 *, 0x118) = TObjGoalWarpAncient__sub_8017D2AC(1);
     return arg0;
 }
 

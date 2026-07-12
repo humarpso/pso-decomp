@@ -9,11 +9,11 @@ extern "C" {
 void THunterGuildSeqOffline__sub_80213B98(void *arg0);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 M2C_UNK TShopSequence__sub_802237D8();
-s32 fn_8022350C(void *, M2C_UNK);
+s32 THunterGuildSeqOffline__sub_8022350C(void *, M2C_UNK);
 
 void THunterGuildSeqOffline__sub_80213B98(void *arg0) {
     TShopSequence__sub_802237D8();
-    M2C_FIELD(arg0, s32 *, 0x2C) = fn_8022350C(arg0, 1);
+    M2C_FIELD(arg0, s32 *, 0x2C) = THunterGuildSeqOffline__sub_8022350C(arg0, 1);
     TQuestListVM__sub_80073DC4(arg0, 1);
 }
 

@@ -16,7 +16,7 @@ struct VObj_8021E068 : Base_8021E068 {
 extern "C" {
 
 void *TShopGenerator__ct(void *arg0, s32 arg1);
-M2C_UNK fn_801A2640(void *, s32);
+M2C_UNK TPhotonMagicSquare__sub_801A2640(void *, s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK __vt__14TShopGenerator[];
@@ -26,7 +26,7 @@ extern s32 tl_05;
 void *TShopGenerator__ct(void *arg0, s32 arg1) {
     s32 temp_r0;
 
-    fn_801A2640(arg0, tl_05);
+    TPhotonMagicSquare__sub_801A2640(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TShopGenerator;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36C0;
     ((VObj_8021E068 *)arg0)->m5(arg1);

@@ -16,7 +16,7 @@ void TItemMag__sub_80114084(void *arg0, s32 arg1) {
     }
 }
 
-void fn_801140BC(s16 *arg0, s32 arg1) {
+void TItemMag__sub_801140BC(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
     if (*arg0 < 0) {
         *arg0 = 0;

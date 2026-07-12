@@ -6,7 +6,7 @@ extern "C" {
 
 void *TObjEneMe3Shinowa__ct(void *arg0);
 void init_object__9TObjEneDDFPv(void *);
-void fn_800D764C(void *);
+void TObjEneMe3SinowZoa__sub_800D764C(void *);
 
 extern M2C_UNK __vt__17TObjEneMe3Shinowa[];
 extern void *lbl_805D2AC8;
@@ -14,7 +14,7 @@ extern void *lbl_805D2AC8;
 void *TObjEneMe3Shinowa__ct(void *arg0) {
     init_object__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjEneMe3Shinowa;
-    fn_800D764C((void *)((char *)arg0 + 1000));
+    TObjEneMe3SinowZoa__sub_800D764C((void *)((char *)arg0 + 1000));
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2AC8;
     return arg0;
 }

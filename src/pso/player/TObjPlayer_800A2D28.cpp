@@ -12,8 +12,8 @@ M2C_UNK TEneEffHamon__sub_800A380C();
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjPlayer__sub_800A2F94(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK fn_800A4288();
-void fn_801E483C(void*);
+M2C_UNK TObjPlayer__sub_800A4288();
+void TObjPlayer__sub_801E483C(void*);
 
 extern void *tl_04;
 
@@ -34,10 +34,10 @@ void TObjPlayer__sub_800A2D74(void) {
         lbl_805D500C = 0U;
     }
     if ((u32) lbl_805D5010 != 0U) {
-        fn_801E483C((void*)lbl_805D5010);
+        TObjPlayer__sub_801E483C((void*)lbl_805D5010);
         lbl_805D5010 = 0U;
     }
-    fn_800A4288();
+    TObjPlayer__sub_800A4288();
     TEneEffHamon__sub_800A380C();
 }
 

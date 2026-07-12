@@ -15,7 +15,7 @@ void TObjPlayer__sub_80102AE0(void);
 int fn_8010542C(void*);
 M2C_UNK fn_80105874();
 M2C_UNK fn_80363CE0();
-M2C_UNK fn_803641EC();
+M2C_UNK TObjPlayer__sub_803641EC();
 void free__11TOBoss4RockFUi(void*);
 void free_rock_objects__6TLobbyFis(void*, int);
 int heap_alloc__5THeapFUl(void*, void*);
@@ -45,7 +45,7 @@ extern u32 lbl_805D5400;
 void TObjPlayer__sub_80102AE0(void) {
     fn_80105874();
     fn_80363CE0();
-    fn_803641EC();
+    TObjPlayer__sub_803641EC();
     if ((u32) lbl_805D5400 != 0U) {
         free_rock_objects__6TLobbyFis((void*)lbl_805D5400, 1);
         lbl_805D5400 = 0U;

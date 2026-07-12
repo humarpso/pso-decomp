@@ -16,8 +16,8 @@ u16 get_card_field__23TAdSinglePlyChrSelectGCFi(int arg0);
 u16 get_card_status__23TAdSinglePlyChrSelectGCFi(int arg0);
 u16 TAdSinglePlyChrSelectGC__sub_801FC484(int arg0);
 u16 TAdSinglePlyChrSelectGC__sub_801FC4BC(int arg0);
-s32 fn_8030A730();
-s32 fn_8030A770();
+s32 TLobby__sub_8030A730();
+s32 TLobby__sub_8030A770();
 s32 TLobby__sub_8030A7B0();
 void *get_card_window__17TWindowSubComCardFUi(u16);
 
@@ -25,10 +25,10 @@ s32 is_ready__23TAdSinglePlyChrSelectGCFv(void) {
     if (TLobby__sub_8030A7B0() == 0) {
         return 1;
     }
-    if (fn_8030A770() != 0) {
+    if (TLobby__sub_8030A770() != 0) {
         return 0;
     }
-    return (u32) __cntlzw(fn_8030A730()) >> 5;
+    return (u32) __cntlzw(TLobby__sub_8030A730()) >> 5;
 }
 
 u16 TAdSinglePlyChrSelectGC__sub_801FC2FC(int arg0) {

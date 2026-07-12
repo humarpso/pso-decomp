@@ -12,7 +12,7 @@ int TObjPlayer__sub_801BEEE0(void*, void*);
 int TObjPlayer__sub_801BEEEC(void*, void*);
 int TObjPlayer__sub_801BEF30(void*, void*);
 s32 TLobby__sub_8001E5C8();
-int fn_80020898(void*, void*);
+int TObjPlayer__sub_80020898(void*, void*);
 int TLobby__sub_80072048(void*, void*);
 int TObjPlayer__sub_801BEAFC(void*, void*);
 int TObjPlayer__sub_801BEB04(void*, void*);
@@ -33,6 +33,6 @@ block_14:
     return 1;
 }
 void TObjPlayer__sub_801BC504(void) {  }
-void init_from_data__10TObjPlayerFPvPv(void* p, void* a1) { TObjPlayer__sub_801BC6C4(p); *(short*)((char*)p + 0x1c) = *(unsigned short*)(a1); *(short*)((char*)p + 0x2e) = *(short*)((char*)a1 + 0x2); *(void**)((char*)p + 0x30) = *(void**)((char*)a1 + 0x4); fn_80020898((char*)p + 0x5c, (char*)a1 + 0x14); *(short*)((char*)p + 0x326) = *(short*)((char*)a1 + 0x20); *(short*)((char*)p + 0x32c) = *(short*)((char*)a1 + 0x22); TLobby__sub_80072048((char*)p + 0xdac, (char*)a1 + 0x68); TObjPlayer__sub_801BEF30((char*)p + 0x828, (char*)a1 + 0x70); TObjPlayer__sub_801BEEEC((char*)p + 0x830, (char*)a1 + 0x78); TObjPlayer__sub_801BEEE0((char*)p + 0x858, (char*)a1 + 0x94); TObjPlayer__sub_801BEEAC((char*)p + 0x730, (char*)a1 + 0x98); TObjPlayer__sub_801BEB04(p, *(void**)((char*)a1 + 0xac)); TObjPlayer__sub_801BEAFC(p, *(void**)((char*)a1 + 0x488)); *(void**)((char*)p + 0x334) = *(void**)((char*)a1 + 0xb0); fn_801BEB54(p, *(void**)((char*)a1 + 0x64)); }
+void init_from_data__10TObjPlayerFPvPv(void* p, void* a1) { TObjPlayer__sub_801BC6C4(p); *(short*)((char*)p + 0x1c) = *(unsigned short*)(a1); *(short*)((char*)p + 0x2e) = *(short*)((char*)a1 + 0x2); *(void**)((char*)p + 0x30) = *(void**)((char*)a1 + 0x4); TObjPlayer__sub_80020898((char*)p + 0x5c, (char*)a1 + 0x14); *(short*)((char*)p + 0x326) = *(short*)((char*)a1 + 0x20); *(short*)((char*)p + 0x32c) = *(short*)((char*)a1 + 0x22); TLobby__sub_80072048((char*)p + 0xdac, (char*)a1 + 0x68); TObjPlayer__sub_801BEF30((char*)p + 0x828, (char*)a1 + 0x70); TObjPlayer__sub_801BEEEC((char*)p + 0x830, (char*)a1 + 0x78); TObjPlayer__sub_801BEEE0((char*)p + 0x858, (char*)a1 + 0x94); TObjPlayer__sub_801BEEAC((char*)p + 0x730, (char*)a1 + 0x98); TObjPlayer__sub_801BEB04(p, *(void**)((char*)a1 + 0xac)); TObjPlayer__sub_801BEAFC(p, *(void**)((char*)a1 + 0x488)); *(void**)((char*)p + 0x334) = *(void**)((char*)a1 + 0xb0); fn_801BEB54(p, *(void**)((char*)a1 + 0x64)); }
 
 }

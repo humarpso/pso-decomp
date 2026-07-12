@@ -9,7 +9,7 @@ extern "C" {
 void run_task__13TWindowMesetaFv(u8 *arg0);
 s32 get_meseta_value__13TWindowMesetaFPv();
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-M2C_UNK fn_8024664C(void *);
+M2C_UNK TWindowDD__sub_8024664C(void *);
 M2C_UNK fn_80257C28(void *, void *);
 M2C_UNK TWindowSubStatusDisp__sub_80259E00(M2C_UNK, s32, f32);
 
@@ -23,7 +23,7 @@ void run_task__13TWindowMesetaFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x68) = temp_r3;
         TWindowSubStatusDisp__sub_80259E00(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), M2C_FIELD(arg0, s32 *, 0x68), lbl_805DD200);
     }
-    fn_8024664C(arg0);
+    TWindowDD__sub_8024664C(arg0);
     fn_80257C28(arg0, arg0 + 0x24);
 }
 

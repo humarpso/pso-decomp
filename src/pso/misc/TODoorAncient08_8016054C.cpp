@@ -9,14 +9,14 @@ extern "C" {
 void free_objects__15TODoorAncient08Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK fn_801E483C(s32);
+M2C_UNK TObjPlayer__sub_801E483C(s32);
 
 extern u32 lbl_805D5948;
 extern void *TODoorAncient08__data_805D594C;
 
 void free_objects__15TODoorAncient08Fv(void) {
     if ((void *) TODoorAncient08__data_805D594C != NULL) {
-        fn_801E483C(M2C_FIELD(TODoorAncient08__data_805D594C, s32 *, 4));
+        TObjPlayer__sub_801E483C(M2C_FIELD(TODoorAncient08__data_805D594C, s32 *, 4));
         if ((void *) TODoorAncient08__data_805D594C != NULL) {
             free__11TOBoss4RockFUi((void*)TODoorAncient08__data_805D594C);
             TODoorAncient08__data_805D594C = NULL;

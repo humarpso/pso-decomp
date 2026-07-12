@@ -9,7 +9,7 @@ extern "C" {
 void destroy__15TODoorAncient06Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK fn_801E483C(s32);
+M2C_UNK TObjPlayer__sub_801E483C(s32);
 
 extern void *lbl_805D5928;
 extern void *TODoorAncient06__data_805D592C;
@@ -21,8 +21,8 @@ void destroy__15TODoorAncient06Fv(void) {
         lbl_805D5930 = NULL;
     }
     if (TODoorAncient06__data_805D592C != NULL) {
-        fn_801E483C(M2C_FIELD(TODoorAncient06__data_805D592C, s32 *, 4));
-        fn_801E483C(M2C_FIELD(TODoorAncient06__data_805D592C, s32 *, 0));
+        TObjPlayer__sub_801E483C(M2C_FIELD(TODoorAncient06__data_805D592C, s32 *, 4));
+        TObjPlayer__sub_801E483C(M2C_FIELD(TODoorAncient06__data_805D592C, s32 *, 0));
         if (TODoorAncient06__data_805D592C != NULL) {
             free__11TOBoss4RockFUi(TODoorAncient06__data_805D592C);
             TODoorAncient06__data_805D592C = NULL;

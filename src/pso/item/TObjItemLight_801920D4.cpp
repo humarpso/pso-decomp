@@ -8,7 +8,7 @@ extern "C" {
 
 u8 *TObjItemLight__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 TObjParticle__sub_800870BC(void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK fn_801A2640();
+M2C_UNK TPhotonMagicSquare__sub_801A2640();
 
 extern M2C_UNK __vt__13TObjItemLight[];
 extern s32 lbl_805D3390;
@@ -26,7 +26,7 @@ struct VObjItemLight {
 };
 
 u8 *TObjItemLight__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    fn_801A2640();
+    TPhotonMagicSquare__sub_801A2640();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjItemLight;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3390;
     ((VObjItemLight *)arg0)->m5(arg2);

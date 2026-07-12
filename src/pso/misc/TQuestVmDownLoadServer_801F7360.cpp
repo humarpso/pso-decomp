@@ -9,7 +9,7 @@ extern "C" {
 void finish_download__22TQuestVmDownLoadServerFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007EBB4(void *);
-M2C_UNK fn_801F8FD4(void *);
+M2C_UNK TWindowSubItem__sub_801F8FD4(void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8033A8EC();
 
 extern s32 lbl_805D49B4;
@@ -22,7 +22,7 @@ void finish_download__22TQuestVmDownLoadServerFPv(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x260) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x28C) != 0U) {
-            fn_801F8FD4(M2C_FIELD(arg0, void **, 0x28C));
+            TWindowSubItem__sub_801F8FD4(M2C_FIELD(arg0, void **, 0x28C));
         }
         M2C_FIELD(arg0, s32 *, 0x2A0) = 0xE;
         lbl_805D49B4 = 0;

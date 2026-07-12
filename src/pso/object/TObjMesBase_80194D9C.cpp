@@ -16,13 +16,13 @@ struct TObjMesBase80194 : TObjBase80194 {
 extern "C" {
 
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK fn_801569F4();
+M2C_UNK TObjPlayer__sub_801569F4();
 
 extern M2C_UNK __vt__11TObjMesBase[];
 extern s32 lbl_805D33C8;
 
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
-    fn_801569F4();
+    TObjPlayer__sub_801569F4();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjMesBase;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33C8;
     ((TObjMesBase80194 *)arg0)->ct(arg2);
