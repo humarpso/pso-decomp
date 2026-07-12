@@ -11,7 +11,7 @@ void TWindowFukidasi__sub_8024961C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 int TWindowSubComCard__sub_80249604(void* p);
 s32 TWindowFukidasi__sub_80244DFC(s32, s32, s32, s32);
-s16 fn_802495FC(void* p);
+s16 TWindowSubComCard__sub_802495FC(void* p);
 
 int TWindowChoiceSetting__sub_80249610(void* p) { return (*(u16*)((char*)p + 0x70) >> 5) & 0x1; }
 void TWindowFukidasi__sub_8024961C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

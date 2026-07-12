@@ -29,7 +29,7 @@ M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(u32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE338(s32);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80266130(u32);
+M2C_UNK clear_transition_flag__17TWindowSubComCardFPv(u32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C561C(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5688(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
@@ -160,7 +160,7 @@ void update_card_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         return;
     }
     if (get_card_data__17TWindowSubComCardFPv((s32)(M2C_FIELD(arg0, u32 *, 0x98))) != 0) {
-        TWindowSubComCard__sub_80266130(M2C_FIELD(arg0, u32 *, 0x7C));
+        clear_transition_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x7C));
         clear_flag_and_release__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x7C));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x98) != 0U) {
             close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x98));
@@ -173,7 +173,7 @@ void update_card_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         temp_r3 = get_slot_or_neg1__17TWindowSubComCardFPv((s32)(M2C_FIELD(arg0, u32 *, 0x98)));
         switch (temp_r3) {
         case 1:
-            TWindowSubComCard__sub_80266130(M2C_FIELD(arg0, u32 *, 0x7C));
+            clear_transition_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x7C));
             clear_flag_and_release__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x7C));
             if ((u32) M2C_FIELD(arg0, u32 *, 0x98) != 0U) {
                 close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x98));

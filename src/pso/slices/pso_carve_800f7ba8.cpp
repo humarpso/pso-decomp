@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TLobby__sub_800F7B84(void);
+void reset_keyboard_control__6TLobbyFv(void);
 void handle_disconnect_cleanup(void);
 int TLobby__sub_800F7A8C(void);
 int TLobby__sub_800F7B08(void);

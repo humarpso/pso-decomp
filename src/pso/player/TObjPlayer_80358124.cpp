@@ -85,18 +85,18 @@ M2C_UNK TOSwitchAttack__sub_80087278(s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800822D4(f32, f32);
 M2C_UNK TObjPlayer__sub_800868C4(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801AF03C();
+M2C_UNK update_battle_control_if_unlocked__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_80357B2C(s32, M2C_UNK);
 
 void TObjPlayer__sub_80358124(void *arg0, void *arg1, void *arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjPlayer__sub_801AF03C();
+        update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
 }
 
 void TObjPlayer__sub_8035814C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjPlayer__sub_801AF03C();
+        update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA8));
@@ -108,7 +108,7 @@ extern f32 lbl_805E0078;
 
 void handle_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjPlayer__sub_801AF03C();
+        update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if ((arg3 == 1) && (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA8)) != 0U)) {
         TObjPlayer__sub_800822D4(lbl_805E0074, lbl_805E0078);
@@ -117,7 +117,7 @@ void handle_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 void dispatch_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjPlayer__sub_801AF03C();
+        update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x10A));
@@ -126,7 +126,7 @@ void dispatch_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s3
 
 void TObjPlayer__sub_80358238(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjPlayer__sub_801AF03C();
+        update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg2), (M2C_UNK)(0x1AC));
@@ -138,7 +138,7 @@ extern f32 lbl_805E0078;
 
 void handle_symbol_chat_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjPlayer__sub_801AF03C();
+        update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if ((arg3 == 1) && (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x67)) != 0U)) {
         TObjPlayer__sub_800822D4(lbl_805E0074, lbl_805E0078);
@@ -147,7 +147,7 @@ void handle_symbol_chat_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, 
 
 void handle_action_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjPlayer__sub_801AF03C();
+        update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x67));
@@ -156,7 +156,7 @@ void handle_action_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 
 
 void handle_stage_event__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
-        TObjPlayer__sub_801AF03C();
+        update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if (arg3 == 1) {
         TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x66));

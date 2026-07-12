@@ -8,13 +8,13 @@ extern "C" {
 
 void update_display__20TWindowSubSymbolChatFi(s32 arg0);
 s32 fn_8026CB74();
-M2C_UNK TAdEnterSerialAccessGC__sub_802ACF04(s32, s32, s32);
+M2C_UNK create_callback__22TAdEnterSerialAccessGCFPvPvPv(s32, s32, s32);
 
 void update_display__20TWindowSubSymbolChatFi(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = fn_8026CB74();
-    TAdEnterSerialAccessGC__sub_802ACF04(fn_8026CB74(), temp_r31, arg0);
+    create_callback__22TAdEnterSerialAccessGCFPvPvPv(fn_8026CB74(), temp_r31, arg0);
 }
 
 }

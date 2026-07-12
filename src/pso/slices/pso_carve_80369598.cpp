@@ -2,9 +2,9 @@
 
 extern "C" {
 
-s32 fn_80369644(void* p);
+s32 TBoss6MagMine__sub_80369644(void* p);
 
 int fn_80369598(void) { return 0; }
-s32 fn_80369644(void* p) { return *(s32*)((char*)p + 0x42c); }
+s32 TBoss6MagMine__sub_80369644(void* p) { return *(s32*)((char*)p + 0x42c); }
 
 }

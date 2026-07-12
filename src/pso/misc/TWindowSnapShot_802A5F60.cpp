@@ -20,7 +20,7 @@ void TWindowSnapShot__sub_802A604C(void* p, s32 v);
 s32 TWindowSnapShot__sub_802A6054(void* p);
 void fn_802A6070(void* p, s32 v);
 void fn_802A6078(void* p, s32 v);
-int fn_802A6080(void);
+int TLobby__sub_802A6080(void);
 
 void update_both__15TWindowSnapShotFPv(void* p) { TWindowSnapShot__sub_802A5D28(p); TWindowSnapShot__sub_802A5E84(p); }
 s32 start_capture__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {

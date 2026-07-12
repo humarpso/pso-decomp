@@ -12,20 +12,20 @@ M2C_UNK TLobby__sub_800FD6A0(M2C_UNK *, M2C_UNK);
 M2C_UNK update_current_floor__6TLobbyFv();
 M2C_UNK TLobby__sub_80227248();
 M2C_UNK TLobby__sub_8022743C();
-M2C_UNK TLobby__sub_80227F7C();
+M2C_UNK refresh_render_state__6TLobbyFv();
 M2C_UNK free_heap__13TParticleCtrlFv();
-M2C_UNK TLobby__sub_800F7B84();
+M2C_UNK reset_keyboard_control__6TLobbyFv();
 
 extern M2C_UNK lbl_804A7368[];
 
 void cleanup_floor_state__6TLobbyFv(void) {
-    TLobby__sub_80227F7C();
+    refresh_render_state__6TLobbyFv();
     TLobby__sub_8022743C();
     TLobby__sub_80227248();
     TLobby__sub_800FD6A0(lbl_804A7368, 8);
     free_heap__13TParticleCtrlFv();
     update_current_floor__6TLobbyFv();
-    TLobby__sub_800F7B84();
+    reset_keyboard_control__6TLobbyFv();
     TLobby__sub_8007BA20();
 }
 

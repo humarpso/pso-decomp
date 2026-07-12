@@ -24,7 +24,7 @@ int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
 int TObjPlayer__sub_801BEF68(void*);
 void TObjPlayer__sub_801AEFFC(void* p);
-void TObjPlayer__sub_801AF03C(void* p);
+void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801AEB80(void);
 int TObjPlayer__sub_801AF288(void);
 

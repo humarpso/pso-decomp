@@ -11,7 +11,7 @@ s32 TItemDrop__sub_800FDDF4();
 s32 update_key_machine__6TLobbyFv();
 void reset_and_invoke__6TLobbyFv(void);
 int reset_keyboard_state__6TLobbyFv(void);
-int TLobby__sub_800F8AF8(void);
+int clear_callback_and_reset_keyboard__6TLobbyFv(void);
 int invoke_callback__6TLobbyFv(void);
 
 s32 check_disconnect_conditions__6TLobbyFv(void) {
@@ -36,9 +36,9 @@ s32 check_disconnect_conditions__6TLobbyFv(void) {
         reset_and_invoke__6TLobbyFv();
         return 1;
     }
-    TLobby__sub_800F8AF8();
+    clear_callback_and_reset_keyboard__6TLobbyFv();
     return 0;
 }
-void reset_and_invoke__6TLobbyFv(void) { reset_keyboard_state__6TLobbyFv(); invoke_callback__6TLobbyFv(); TLobby__sub_800F8AF8(); }
+void reset_and_invoke__6TLobbyFv(void) { reset_keyboard_state__6TLobbyFv(); invoke_callback__6TLobbyFv(); clear_callback_and_reset_keyboard__6TLobbyFv(); }
 
 }

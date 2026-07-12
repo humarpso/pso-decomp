@@ -12,7 +12,7 @@ M2C_UNK TAdMultiChgGameModeGC__sub_8036E19C(void *, M2C_UNK);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E224(void *);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E26C(void *);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E2AC(void *, M2C_UNK);
-s32 TAdMultiChgGameModeGC__sub_8036E624();
+s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv();
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
 M2C_UNK TLobby__sub_80269C6C(u32, s32, M2C_UNK);
 s32 TWindowSubComCard__sub_8007341C(void *);
@@ -23,7 +23,7 @@ s32 TAdMultiChgGameModeGC__sub_8036DE10(void *, M2C_UNK, s32);
 void TAdMultiChgGameModeGC__sub_8036E050(void *arg0) {
     s32 temp_r3;
 
-    if (TAdMultiChgGameModeGC__sub_8036E624() == 0) {
+    if (handle_mode_selection__21TAdMultiChgGameModeGCFPv() == 0) {
         if (M2C_FIELD(arg0, void **, 0x34) != 0) {
             if (TWindowSubComCard__sub_8007341C(M2C_FIELD(arg0, void **, 0x34)) != 0) {
                 temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, void **, 0x34));

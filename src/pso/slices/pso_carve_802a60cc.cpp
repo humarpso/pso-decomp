@@ -20,7 +20,7 @@ void TWindowSnapShot__sub_802A604C(void* p, s32 v);
 s32 TWindowSnapShot__sub_802A6054(void* p);
 void fn_802A6070(void* p, s32 v);
 void fn_802A6078(void* p, s32 v);
-int fn_802A6080(void);
+int TLobby__sub_802A6080(void);
 
 int TObjSuisoChip__vt10(void) { return 0; }
 

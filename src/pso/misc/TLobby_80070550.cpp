@@ -11,7 +11,7 @@ s32 TLobby__sub_80070078(void *);
 s32 TLobby__sub_800739BC(void *);
 s32 fn_80076B14(void *);
 s32 init__23TAdSinglePlyChrSelectGCFv();
-s32 fn_8026A328();
+s32 TLobby__sub_8026A328();
 int TLobby__sub_8006FF98(void*);
 int TLobby__sub_80070170(void*);
 int TLobby__sub_800704CC(void* a0 = 0);

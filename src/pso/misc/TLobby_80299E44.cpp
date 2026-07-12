@@ -19,7 +19,7 @@ u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK TLobby__sub_8024AC20(int);
 M2C_UNK TLobby__sub_80269C6C(u32, s32, M2C_UNK);
-u32 TLobby__sub_80269D24(M2C_UNK, M2C_UNK *, M2C_UNK);
+u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, M2C_UNK *, M2C_UNK);
 s32 TLobby__sub_80292F5C();
 s32 TLobby__sub_80292F7C();
 M2C_UNK TObjCityMainWarp__sub_80266354(u32, s32, M2C_UNK, M2C_UNK);
@@ -52,7 +52,7 @@ void open_message_window__6TLobbyFPv(void *arg0) {
         TWindow__close((void*)(M2C_FIELD(arg0, void **, 0x30)));
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x30) = TLobby__sub_80269D24(TWindowSubComCard__sub_8026CBB8(0x39), lbl_804DBE9C, 1);
+    M2C_FIELD(arg0, u32 *, 0x30) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x39), lbl_804DBE9C, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         TLobby__sub_80269C6C(M2C_FIELD(arg0, u32 *, 0x30), TQuestVmDownLoadServer__sub_8006EF6C(0x5E), 1);
     }

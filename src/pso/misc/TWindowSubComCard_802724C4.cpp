@@ -18,7 +18,7 @@ M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
 M2C_UNK get_keyboard_field_6c__15TWindowMakeTeamFPv(s32, s32);
 M2C_UNK set_field_1c__6TLobbyFPvf(f32);
 s32 TWindowComCard__sub_80249C10(s32);
-s32 TLobby__sub_80269D24(M2C_UNK, M2C_UNK *, M2C_UNK);
+s32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, M2C_UNK *, M2C_UNK);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK destroy_keyboard__17TWindowSubComCardFPv(s32);
 
@@ -64,7 +64,7 @@ s32 create__17TWindowSubComCardFv(void) {
     M2C_UNK temp_r3;
 
     temp_r3 = TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0x98));
-    temp_r31 = TLobby__sub_80269D24(temp_r3, lbl_8044F6CC, 1);
+    temp_r31 = set_window_mode_4__6TLobbyFPvii(temp_r3, lbl_8044F6CC, 1);
     set_field_1c__6TLobbyFPvf(lbl_805DD4FC);
     return temp_r31;
 }

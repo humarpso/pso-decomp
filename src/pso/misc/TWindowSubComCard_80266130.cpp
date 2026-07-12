@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_80266130(void *arg0);
+void clear_transition_flag__17TWindowSubComCardFPv(void *arg0);
 
 extern const f32 lbl_805DD154;
 
-void TWindowSubComCard__sub_80266130(void *arg0) {
+void clear_transition_flag__17TWindowSubComCardFPv(void *arg0) {
     u16 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, u16 *, 0x70);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdMultiChgGameModeGC__sub_8036E624(void *arg0);
+s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 int load_system_file(void* a0 = 0);
 void TAdMultiChgGameModeGC__sub_8036E5F4(void* p);
 s32 TAdMultiChgGameModeGC__sub_8036E858(void *, s32);

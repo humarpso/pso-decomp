@@ -5,9 +5,9 @@ extern "C" {
 void TObjPlayer__sub_800822D0(void);
 void TObjPlayer__sub_800822D4(void* p, f32 a, f32 b);
 f32 TObjPlayer__sub_800822E0(void* p);
-s32 fn_80082300(void* p);
+s32 TObjPlayer__sub_80082300(void* p);
 
 int TLobby__sub_800822E8(void) { return 0; }
-s32 fn_80082300(void* p) { return *(s32*)((char*)p + 0xc); }
+s32 TObjPlayer__sub_80082300(void* p) { return *(s32*)((char*)p + 0xc); }
 
 }

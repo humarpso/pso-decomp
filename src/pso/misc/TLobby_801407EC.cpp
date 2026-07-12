@@ -11,18 +11,18 @@ M2C_UNK TLobby__sub_8007BA20();
 M2C_UNK TLobby__sub_800FD6A0(M2C_UNK *, M2C_UNK);
 M2C_UNK update_current_floor__6TLobbyFv();
 M2C_UNK TLobby__sub_8022743C();
-M2C_UNK TLobby__sub_80227F7C();
-M2C_UNK TLobby__sub_800F7B84();
+M2C_UNK refresh_render_state__6TLobbyFv();
+M2C_UNK reset_keyboard_control__6TLobbyFv();
 M2C_UNK fn_80226254();
 
 extern M2C_UNK lbl_804A7370[];
 
 void cleanup_boss3_scene__6TLobbyFv(void) {
-    TLobby__sub_80227F7C();
+    refresh_render_state__6TLobbyFv();
     TLobby__sub_8022743C();
     fn_80226254();
     TLobby__sub_800FD6A0(lbl_804A7370, 0x60);
-    TLobby__sub_800F7B84();
+    reset_keyboard_control__6TLobbyFv();
     update_current_floor__6TLobbyFv();
     TLobby__sub_8007BA20();
 }
