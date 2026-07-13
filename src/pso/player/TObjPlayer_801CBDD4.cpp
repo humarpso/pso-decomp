@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void apply_photon_blast__10TObjPlayerFii(s32 arg0, s32 arg1);
-void TObjPlayer__sub_801CBE10(s32 arg0);
+void update_active_instance__10TObjPlayerFi(s32 arg0);
 M2C_UNK TObjPlayer__sub_801A8868(s32, s32);
 s32 reset_volopt_state__10TObjPlayerFv();
 s32 TObjPlayer__sub_801CBD98(s32);
@@ -25,7 +25,7 @@ void apply_photon_blast__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 extern u32 lbl_805D5D68;
 
-void TObjPlayer__sub_801CBE10(s32 arg0) {
+void update_active_instance__10TObjPlayerFi(s32 arg0) {
     if ((u32) lbl_805D5D68 != 0U) {
         if (reset_volopt_state__10TObjPlayerFv() == 0) {
             TObjPlayer__sub_80312F0C(lbl_805D5D68);

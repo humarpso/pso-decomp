@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TChCrTagInformationStr__sub_803098F4(void *arg0, void *arg1);
+void * create__22TChCrTagInformationStrFPvPv(void *arg0, void *arg1);
 void *__ct__22TChCrTagInformationStrFv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * TChCrTagInformationStr__sub_803098F4(void *arg0, void *arg1) {
+void * create__22TChCrTagInformationStrFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TItemEffFlame__sub_80108C00(void *arg0, s16 arg1);
+void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1);
 void notify_hit__13TItemEffFlameFPv(u8 *arg0);
 u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0);
 M2C_UNK TLobby__sub_80103114(void *, M2C_UNK);
@@ -305,7 +305,7 @@ void VObj80108BB0_80108bb0::m63(s32, void *){}
 
 extern M2C_UNK lbl_8049F038[];
 
-void *TItemEffFlame__sub_80108C00(void *arg0, s16 arg1) {
+void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F038;
         if ((u32) M2C_FIELD(arg0, u32 *, 0xA4) != 0U) {

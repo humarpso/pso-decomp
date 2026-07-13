@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_80063C1C(void *arg0);
+void spawn_switch_attack__12TBoss8DragonFPv(void *arg0);
 void spawn_attack_effect__12TBoss8DragonFPv(void *arg0);
 s32 TOSwitchAttack__sub_80087278(void *, M2C_UNK, M2C_UNK);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
@@ -16,7 +16,7 @@ extern s32 lbl_805D4DA4;
 extern s32 lbl_805D4DA8;
 extern f32 lbl_805D8D88;
 
-void TBoss8Dragon__sub_80063C1C(void *arg0) {
+void spawn_switch_attack__12TBoss8DragonFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TOSwitchAttack__sub_80087278(arg0, 0x211, 0x40);

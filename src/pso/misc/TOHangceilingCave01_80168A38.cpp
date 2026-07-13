@@ -8,7 +8,7 @@ extern "C" {
 
 void destroy_instance__19TOHangceilingCave01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_801E483C(s32);
+M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 
 extern u32 lbl_805D59D0;
@@ -16,8 +16,8 @@ extern void *lbl_805D59D4;
 
 void destroy_instance__19TOHangceilingCave01Fv(void) {
     if ((void *) lbl_805D59D4 != NULL) {
-        TObjPlayer__sub_801E483C(M2C_FIELD(lbl_805D59D4, s32 *, 4));
-        TObjPlayer__sub_801E483C(M2C_FIELD(lbl_805D59D4, s32 *, 0));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D59D4, s32 *, 4));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D59D4, s32 *, 0));
         if ((void *) lbl_805D59D4 != NULL) {
             free__11TOBoss4RockFUi((void*)lbl_805D59D4);
             lbl_805D59D4 = NULL;

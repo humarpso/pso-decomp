@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjAreaWarpEnding__sub_8019BB9C(void);
+void create_and_init__18TObjAreaWarpEndingFv(void);
 void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -24,7 +24,7 @@ M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
 extern M2C_UNK fn_8019BB2C[];
 extern s32 tl_00;
 
-void TObjAreaWarpEnding__sub_8019BB9C(void) {
+void create_and_init__18TObjAreaWarpEndingFv(void) {
     TBoss3Volopt__sub_8022675C(0x40003205, 0, 0, 0);
     u32 obj = __nw__7TObjectFUl(0x28);
     if (obj != 0U) {

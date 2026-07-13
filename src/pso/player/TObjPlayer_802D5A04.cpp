@@ -8,15 +8,15 @@ void *init_type_447__10TObjPlayerFPv(void *arg0);
 void init_state_445__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804E22F4[];
-extern M2C_UNK TObjPlayer__sub_8032DEB4[];
-extern M2C_UNK TObjPlayer__sub_8032DF0C[];
+extern M2C_UNK alloc_and_init__10TObjPlayerFiii[];
+extern M2C_UNK create_and_init_effect__10TObjPlayerFiPvi[];
 
 void *init_type_447__10TObjPlayerFPv(void *arg0) {
     init_state_445__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E22F4;
     M2C_FIELD(arg0, u32 *, 0x1FC) = 447;
-    M2C_FIELD(arg0, M2C_UNK **, 0x204) = TObjPlayer__sub_8032DEB4;
-    M2C_FIELD(arg0, M2C_UNK **, 0x208) = TObjPlayer__sub_8032DF0C;
+    M2C_FIELD(arg0, M2C_UNK **, 0x204) = alloc_and_init__10TObjPlayerFiii;
+    M2C_FIELD(arg0, M2C_UNK **, 0x208) = create_and_init_effect__10TObjPlayerFiPvi;
     return arg0;
 }
 

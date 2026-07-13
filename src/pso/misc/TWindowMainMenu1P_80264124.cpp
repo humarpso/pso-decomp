@@ -7,12 +7,12 @@ extern "C" {
 void create_char_select_slot__17TWindowMainMenu1PFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
 void TWindowSubEquip__sub_80263B28(void *);
-void TWindowMainMenu__sub_802640E4(void *);
+void destroy_submenu__15TWindowMainMenuFPv(void *);
 void *TAdChrSelSlotGC__sub_802C7250(void *, void *, void *);
 
 void create_char_select_slot__17TWindowMainMenu1PFPv(void *arg0) {
     void *o;
-    TWindowMainMenu__sub_802640E4(arg0);
+    destroy_submenu__15TWindowMainMenuFPv(arg0);
     TWindowSubEquip__sub_80263B28(arg0);
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {

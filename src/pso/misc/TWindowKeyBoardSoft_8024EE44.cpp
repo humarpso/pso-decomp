@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TWindowKeyBoardSoft__sub_8024EE44(u32 arg0, s16 arg1);
+u32 free_singleton__19TWindowKeyBoardSoftFUis(u32 arg0, s16 arg1);
 void init_layout__19TWindowKeyBoardSoftFPv(void* a0);
 M2C_UNK __dl__FPv(u32);
 
 extern u32 lbl_805D6420;
 
-u32 TWindowKeyBoardSoft__sub_8024EE44(u32 arg0, s16 arg1) {
+u32 free_singleton__19TWindowKeyBoardSoftFUis(u32 arg0, s16 arg1) {
     if (arg0 != 0U) {
         if ((u32) lbl_805D6420 == arg0) {
             lbl_805D6420 = 0U;

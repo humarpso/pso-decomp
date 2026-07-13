@@ -12,7 +12,7 @@ M2C_UNK TObjEneDD__sub_800BBA04(void *, s32);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
-M2C_UNK TObjEneMe1Canadin__sub_8009EB6C(void *);
+M2C_UNK update_position_with_offset__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
@@ -74,7 +74,7 @@ void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
             copy_position__14TObjEneEpsilonFPv(arg0, arg0 + 0x50);
             update_velocity__9TObjEneDDFPv(arg0);
             update_angle__17TObjEneMe1CanadinFPv(arg0);
-            TObjEneMe1Canadin__sub_8009EB6C(arg0);
+            update_position_with_offset__17TObjEneMe1CanadinFPv(arg0);
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805D98B0) {
                 TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), TObjEneMe1Canadin__data_805D98B4);
             }

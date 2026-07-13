@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubStatusDisp__sub_801A5258(s32 arg0);
+s32 get_card_window_flags__20TWindowSubStatusDispFi(s32 arg0);
 void *get_card_window__17TWindowSubComCardFUi(s32);
 
 extern s32 lbl_805D53A0;
 
-s32 TWindowSubStatusDisp__sub_801A5258(s32 arg0) {
+s32 get_card_window_flags__20TWindowSubStatusDispFi(s32 arg0) {
     s32 var_r3;
     void *temp_r3;
 

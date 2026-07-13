@@ -40,7 +40,7 @@ s32 check_flag_400__20TWindowSubStatusDispFv(void *);
 s32 lookup_item_data__20TWindowSubStatusDispFPv(void *);
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
-M2C_UNK TWindowSubStatusDisp__sub_8025829C(void *, s32);
+M2C_UNK update_stat_line_if_positive__20TWindowSubStatusDispFPvi(void *, s32);
 M2C_UNK update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *, void *);
 M2C_UNK TWindowSubStatusDisp__sub_802586FC(void *, s32, s32, s32, s32);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, M2C_UNK, M2C_UNK);
@@ -55,7 +55,7 @@ void set_inventory_item__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s
     TWindowSubStatusDisp__sub_802586FC(arg0, temp_r29, TOSwitchItem__sub_80102C44(arg1), TObjPlayer__sub_8001972C(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
     M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268(arg0, ((VObj_80258D38 *) arg1)->m10(), M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
     if (TObjPlayer__sub_801C1AC8(arg1) != 0) {
-        TWindowSubStatusDisp__sub_8025829C(arg0, arg2);
+        update_stat_line_if_positive__20TWindowSubStatusDispFPvi(arg0, arg2);
     }
     update_item_icon_colors__20TWindowSubStatusDispFPvPv(arg0, arg1);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg0, s32 *, 0x30);

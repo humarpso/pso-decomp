@@ -20,7 +20,7 @@ VV(61)VV(62)VV(63)VV(64)
 
 extern "C" {
 
-void TObjPlayer__sub_8011F578(void *arg0, f32 farg0);
+void apply_scale_if_active__10TObjPlayerFPvf(void *arg0, f32 farg0);
 void update_active_game_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8011E484(void *);
 M2C_UNK TObjPlayer__sub_8011E4D8(void *);
@@ -47,7 +47,7 @@ struct VObj_8011F578 : Base_8011F578 {
     virtual void m64(); virtual void m65(f32);
 };
 
-void TObjPlayer__sub_8011F578(void *arg0, f32 farg0) {
+void apply_scale_if_active__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     void *temp_r3;
 
     if (is_active_in_game__10TObjPlayerFPv() != 0) {

@@ -22,7 +22,7 @@ void TBoss6Type2__sub_80337160(void);
 void TBoss6Type2__sub_803371B4(void* p);
 
 void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; TBoss6Type2__sub_8032E7B4(p, (void*)0); }
-void TBoss6Type2__sub_80336FE4(void *arg0) {
+void tick_attack_timer__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) - 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) < 0) {
         TBoss6Type2__sub_8032E770(arg0, 3);

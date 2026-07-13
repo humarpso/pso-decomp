@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80275484(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 TWindowComCard__sub_802499E4(s32 a0 = 0, s32 a1 = 0);
+s32 create__14TWindowComCardFPvPv(s32 a0 = 0, s32 a1 = 0);
 s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
@@ -21,15 +21,15 @@ void TWindowSubComCard__sub_80272180(void);
 s32 TWindowSubComCard__sub_8026CBB8(s32 a0 = 0);
 int fn_802754EC(void);
 
-void TWindowSubComCard__sub_8027208C(void* p, void* a1) { get_message_10__20TWindowSubStatusDispFPv((char*)a1 + 0xa6); }
-void TWindowSubComCard__sub_802720B0(s32 arg0) {
+void get_message_10__17TWindowSubComCardFPvPv(void* p, void* a1) { get_message_10__20TWindowSubStatusDispFPv((char*)a1 + 0xa6); }
+void apply_selection__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = TWindowSubComCard__sub_8007BC04(0);
     TWindowComCard__sub_80249980(TWindowSubComCard__sub_8026CBB8(0x92), arg0, temp_r31);
 }
 void send_command__17TWindowSubComCardFi(s32 arg0) {
-    TWindowComCard__sub_802499E4(TWindowSubComCard__sub_8026CBB8(0x86), arg0);
+    create__14TWindowComCardFPvPv(TWindowSubComCard__sub_8026CBB8(0x86), arg0);
 }
 void init_layout__17TWindowSubComCardFv(void) {
     s32 temp_r31;

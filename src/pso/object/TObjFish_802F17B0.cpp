@@ -11,13 +11,13 @@ struct VObj_802F17B0 : Base_802F17B0 {
 
 extern "C" {
 
-void TObjFish__sub_802F17B0(s32 arg0, s32 arg1, s32 arg2);
+void create_splash_particle__8TObjFishFiii(s32 arg0, s32 arg1, s32 arg2);
 void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_802F190C(void *, s32);
 s32 get_particle_by_index__13TParticleCtrlFi(s32);
 
-void TObjFish__sub_802F17B0(s32 arg0, s32 arg1, s32 arg2) {
+void create_splash_particle__8TObjFishFiii(s32 arg0, s32 arg1, s32 arg2) {
     void *var_r31;
 
     var_r31 = __nw__7TObjectFUl(0x78);

@@ -19,7 +19,7 @@ void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0) {
 
 extern s32 lbl_805D6510;
 
-s32 TAdSinglePlyChrSelectGC__sub_8028CF1C(void *arg0) {
+s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0) || ((s32) lbl_805D6510 < 0) || ((s32) lbl_805D6510 > 1)) {
         return 0;
     }

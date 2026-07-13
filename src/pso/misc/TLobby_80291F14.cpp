@@ -11,13 +11,13 @@ s32 check_ready_status__6TLobbyFv(void);
 s32 TLobby__sub_80291F9C();
 s32 TLobby__sub_80293080();
 s32 is_multi_ready__6TLobbyFv();
-M2C_UNK TObjChallenge4PRetry__sub_8029A6A4(void*);
+M2C_UNK create__20TObjChallenge4PRetryFPv(void*);
 
 extern u32 lbl_805D6580;
 
 void draw_if_ready2__6TLobbyFv(void) {
     if ((TLobby__sub_80293080() != 0) && (is_multi_ready__6TLobbyFv() != 0) && ((u32) lbl_805D6580 != 0U)) {
-        TObjChallenge4PRetry__sub_8029A6A4((void*)lbl_805D6580);
+        create__20TObjChallenge4PRetryFPv((void*)lbl_805D6580);
     }
 }
 

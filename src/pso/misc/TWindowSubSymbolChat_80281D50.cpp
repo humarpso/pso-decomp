@@ -10,7 +10,7 @@ s32 create_keyboard_control__20TWindowSubSymbolChatFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, void *, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 TWindowSubSymbolChat__sub_80283800(s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TWindowMakeTeam__sub_80131A5C(s32);
+M2C_UNK set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(s32);
 M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
 M2C_UNK get_keyboard_field_6c__15TWindowMakeTeamFPv(s32, s32);
 M2C_UNK fn_80265410(s32);
@@ -29,7 +29,7 @@ s32 create_keyboard_control__20TWindowSubSymbolChatFPv(void *arg0) {
     fn_80265410(var_r31);
     get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, TWindowSubSymbolChat__sub_80283800(M2C_FIELD(arg0, s32 *, 0x28)));
     TWindowMakeTeam__sub_80131B54(var_r31, TWindowSubComCard__sub_8026CBB8(0xBB));
-    TWindowMakeTeam__sub_80131A5C(var_r31);
+    set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(var_r31);
     destroy_keyboard__17TWindowSubComCardFPv(var_r31);
     return var_r31;
 }

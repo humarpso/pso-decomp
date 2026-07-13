@@ -11,7 +11,7 @@ s32 TObjEneRecon__sub_8029EA4C(M2C_UNK *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D8F74(M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
-s32 TOKeyMachine01__sub_8029E764();
+s32 is_state_active__14TOKeyMachine01Fv();
 s32 fn_8029E7BC(s32, M2C_UNK *);
 
 extern u16 lbl_805D65F8;
@@ -21,7 +21,7 @@ s32 TObjEneRecon__sub_8029E89C(u16 arg0, s32 arg1) {
     s32 var_r3;
     u32 temp_r3;
 
-    if (TOKeyMachine01__sub_8029E764() == 0) {
+    if (is_state_active__14TOKeyMachine01Fv() == 0) {
         return 0;
     }
     if ((u16) lbl_805D65F8 == 0) {

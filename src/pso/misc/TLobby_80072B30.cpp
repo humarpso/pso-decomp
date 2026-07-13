@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80072B30(void);
+s32 is_ready_to_draw__6TLobbyFv(void);
 s32 TLobby__sub_8006F23C();
 s32 fn_8006FBE4();
 
-s32 TLobby__sub_80072B30(void) {
+s32 is_ready_to_draw__6TLobbyFv(void) {
     if ((TLobby__sub_8006F23C() != 0) || (fn_8006FBE4() <= 1)) {
         return 0;
     }

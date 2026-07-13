@@ -7,7 +7,7 @@ extern "C" {
 void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 void *__nw__7TObjectFUl(int);
-void *TAdDialingMessageWindow__sub_8036A128(void *, void *, void *, void *);
+void *init__23TAdDialingMessageWindowFPvPvPvPv(void *, void *, void *, void *);
 
 extern void *tl_fadeafter;
 extern M2C_UNK __vt__23TAdDialingMessageWindow[];
@@ -24,7 +24,7 @@ void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x20) = arg1;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = TAdDialingMessageWindow__sub_8036A128(o, tl_camera, arg0, arg2);
+        o = init__23TAdDialingMessageWindowFPvPvPvPv(o, tl_camera, arg0, arg2);
     }
     M2C_FIELD(arg0, void **, 0x24) = o;
     o2 = __nw__7TObjectFUl(0x1C);

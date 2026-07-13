@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TWindowDuelResult__sub_801C2528(void *arg0, void *arg1, void *arg2, void *arg3);
+void *init__17TWindowDuelResultFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void __ct__7TObjectFP7TObject(void *);
 void set_and_notify__6TLobbyFi(void *);
 
 extern M2C_UNK lbl_804C3E60[];
 
-void *TWindowDuelResult__sub_801C2528(void *arg0, void *arg1, void *arg2, void *arg3) {
+void *init__17TWindowDuelResultFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3E60;
     M2C_FIELD(arg0, void **, 0x1C) = arg3;

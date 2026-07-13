@@ -12,7 +12,7 @@ s32 TLobby__sub_800739BC(void *);
 s32 fn_80076B14(void *);
 s32 init__23TAdSinglePlyChrSelectGCFv();
 s32 TLobby__sub_8026A328();
-int TLobby__sub_8006FF98(void*);
+int update_battle_cleanup_flag__6TLobbyFPv(void*);
 int TLobby__sub_80070170(void*);
 int TLobby__sub_800704CC(void* a0 = 0);
 void cleanup_if_inactive__6TLobbyFPv(void* p);

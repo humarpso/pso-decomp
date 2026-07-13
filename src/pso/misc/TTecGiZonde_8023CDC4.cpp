@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecGiZonde__sub_8023CDC4(void *arg0);
+void tick_lifetime__11TTecGiZondeFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv();
 
-void TTecGiZonde__sub_8023CDC4(void *arg0) {
+void tick_lifetime__11TTecGiZondeFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38) = (s32) (M2C_FIELD(arg0, s32 *, 0x38) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x38) >= 0x46) {
         queue_destruction__7TObjectFv();

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80211F0C(void);
+void update_guild_or_quest_phase__6TLobbyFv(void);
 M2C_UNK THunterGuildSeqOffline__sub_8021339C();
 M2C_UNK THunterGuildWarning__sub_8021170C();
 M2C_UNK TQuestListOnline__sub_802155B4();
@@ -14,7 +14,7 @@ M2C_UNK fn_80213CA4();
 M2C_UNK fn_80214A5C();
 s32 get_main_phase();
 
-void TLobby__sub_80211F0C(void) {
+void update_guild_or_quest_phase__6TLobbyFv(void) {
     if (get_main_phase() == 0xE) {
         THunterGuildSeqOffline__sub_8021339C();
         THunterGuildWarning__sub_8021170C();

@@ -18,7 +18,7 @@ s32 TObjPlayer__sub_801C675C(void *, M2C_UNK);
 u32 run_and_get_result__10TObjPlayerFPvi(s32, M2C_UNK *);
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(s16);
 M2C_UNK add_list_entry__23TShopJudgmentItemWindowFPvii(void *, s32, s32);
-M2C_UNK TWindowSubStatusDisp__sub_80266FCC(void *, M2C_UNK);
+M2C_UNK add_list_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 
 void build_shop_item_list__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK spC[30];
@@ -45,7 +45,7 @@ void build_shop_item_list__10TObjPlayerFPv(u8 *arg0) {
             add_list_entry__23TShopJudgmentItemWindowFPvii(arg0, temp_r3_3, temp_r5);
         }
         if (M2C_FIELD(arg0, s16 *, 0x72) <= 0) {
-            TWindowSubStatusDisp__sub_80266FCC(arg0, -1);
+            add_list_entry__20TWindowSubStatusDispFPvi(arg0, -1);
         }
         TLobby__sub_80266E34(arg0);
     }

@@ -18,12 +18,12 @@ struct VObj_80215D34 : Base_80215D34 {
 
 extern "C" {
 
-void TJudgmentSequence__sub_80215D34(void *arg0);
+void handle_confirm__17TJudgmentSequenceFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 
-void TJudgmentSequence__sub_80215D34(void *arg0) {
+void handle_confirm__17TJudgmentSequenceFPv(void *arg0) {
     if ((((VObj_80215D34 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         TQuestListVM__sub_80073DC4(arg0, 3);
     }

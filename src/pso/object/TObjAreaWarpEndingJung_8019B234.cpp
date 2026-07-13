@@ -24,7 +24,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjAreaWarp__sub_8019CAB0(void *);
 f32 get_static_field4_as_float__12TObjWarpJungFv(f32);
 M2C_UNK TObjWarpJung__sub_801A0354();
-M2C_UNK TObjWarpJung__sub_801A0378(M2C_UNK, s32);
+M2C_UNK render_warp_effect__12TObjWarpJungFii(M2C_UNK, s32);
 M2C_UNK render_warp__12TObjWarpJungFPv(M2C_UNK);
 M2C_UNK TObjWarpJung__sub_801A0404(M2C_UNK);
 s32 update_warp_display__12TObjWarpJungFv();
@@ -60,7 +60,7 @@ void render__22TObjAreaWarpEndingJungFv(u8 *arg0) {
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         render_warp__12TObjWarpJungFPv(0);
         TParticleCtrl__sub_801E2EFC();
-        TObjWarpJung__sub_801A0378(1, (s32) M2C_FIELD(arg0, f32 *, 0xC4));
+        render_warp_effect__12TObjWarpJungFii(1, (s32) M2C_FIELD(arg0, f32 *, 0xC4));
         TParticleCtrl__sub_801E2F20();
         TObjPlayer__sub_803D9B78();
     }

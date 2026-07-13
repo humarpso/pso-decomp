@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801D859C(s32 arg0, void *arg1);
+void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
 s32 TLobby__sub_8011AF58();
 s32 TObjPlayer__sub_80099EF8();
 void *TObjPlayer__sub_80102AC0(void *);
@@ -32,7 +32,7 @@ struct VObj_84_801d859c : VObj_84Base_801d859c {
     virtual s8 m31();
 };
 
-void TObjPlayer__sub_801D859C(s32 arg0, void *arg1) {
+void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     void *temp_r3;
 
     obj_getField1c();

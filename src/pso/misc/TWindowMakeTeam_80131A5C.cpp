@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TWindowMakeTeam__sub_80131A5C(void* p);
+int set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(void* p);
 int set_field_1c__6TLobbyFPvf(void*);
 s32 TWindowSubTradeMain__sub_80244A4C(void *);
 s32 clear_flag60_bit200__16TKeyBoardControlFPv(void * a0 = 0);
@@ -15,6 +15,6 @@ s32 set_flag60_bit200__16TKeyBoardControlFPv(void *);
 int set_flag62_bit2__16TKeyBoardControlFPv(void*);
 s32 window_request_show(void * a0 = 0);
 
-int TWindowMakeTeam__sub_80131A5C(void* p) { return set_flag62_bit2__16TKeyBoardControlFPv(*(void**)((char*)p + 0x20)); }
+int set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(void* p) { return set_flag62_bit2__16TKeyBoardControlFPv(*(void**)((char*)p + 0x20)); }
 
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_802A4C44(void *arg0);
+void update_missile__13TObjEneMe1GeeFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_802A445C(void *, M2C_UNK);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_802A4668(void *);
@@ -14,7 +14,7 @@ M2C_UNK fn_802A4694(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
 
-void TObjEneMe1Gee__sub_802A4C44(void *arg0) {
+void update_missile__13TObjEneMe1GeeFPv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x34));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         queue_destruction__7TObjectFv(arg0);

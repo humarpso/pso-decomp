@@ -2,12 +2,12 @@
 
 extern "C" {
 
-void TShopArmorListWindow__sub_8027870C(void* p, void* a1, void* a2);
+void save_and_refresh_cursor__20TShopArmorListWindowFPvPvPv(void* p, void* a1, void* a2);
 int TShopArmorListWindow__sub_80266CF8(void*);
 int TShopArmorListWindow__sub_80266DB0(void*);
 int fn_80278BD8(void*, void*, void*);
 int save_cursor_selection__20TShopArmorListWindowFPv(void*);
 
-void TShopArmorListWindow__sub_8027870C(void* p, void* a1, void* a2) { save_cursor_selection__20TShopArmorListWindowFPv(p); TShopArmorListWindow__sub_80266DB0(p); fn_80278BD8(p, a1, a2); TShopArmorListWindow__sub_80266CF8(p); }
+void save_and_refresh_cursor__20TShopArmorListWindowFPvPvPv(void* p, void* a1, void* a2) { save_cursor_selection__20TShopArmorListWindowFPv(p); TShopArmorListWindow__sub_80266DB0(p); fn_80278BD8(p, a1, a2); TShopArmorListWindow__sub_80266CF8(p); }
 
 }

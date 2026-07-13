@@ -18,7 +18,7 @@ void fn_80010EC8(void);
 u16 fn_80010F4C(void* p);
 void TObjPlayer__sub_80011010(void);
 
-void TObjPlayer__sub_80010FCC(s32 arg0, u32 arg1) {
+void attach_mine_trap__10TObjPlayerFiUi(s32 arg0, u32 arg1) {
     if (arg1 != 0U) {
         TOMineTrap__sub_80010F54((void*)(arg0), (void*)(obj_getField1c(arg1)));
     }

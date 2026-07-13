@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TItemProShield__sub_8011679C(void *arg0);
+void apply_to_equip_slot__14TItemProShieldFPv(void *arg0);
 M2C_UNK TItemMag__sub_80111188(s32, s32);
 s32 TItemProShield__sub_8010B734(void *);
 s32 activate_d04_slot__10TObjPlayerFPv(s32);
 
-void TItemProShield__sub_8011679C(void *arg0) {
+void apply_to_equip_slot__14TItemProShieldFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = activate_d04_slot__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0));

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowTimer__sub_80199EA0(void *arg0);
+void update_best_time__12TWindowTimerFPv(void *arg0);
 M2C_UNK TWindowTimer__sub_8019A44C(void *, s32);
 
 extern M2C_UNK lbl_8050DDAC[];
 
-void TWindowTimer__sub_80199EA0(void *arg0) {
+void update_best_time__12TWindowTimerFPv(void *arg0) {
     if ((M2C_FIELD(lbl_8050DDAC, s16 *, 0x12) == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x354) <= (s32) M2C_FIELD(lbl_8050DDAC, s32 *, 0x14))) {
         M2C_FIELD(arg0, s32 *, 0x354) = (s32) M2C_FIELD(lbl_8050DDAC, s32 *, 0x14);
         M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 0);

@@ -13,7 +13,7 @@ void TObjEneDD__sub_800BB8E0(void *, void *);
 void init_common__18TObjEneMe3SinowZoaFPv(void *);
 
 extern M2C_UNK __vt__13TObjEneMorfos[];
-extern M2C_UNK TObjPlayer__sub_800D7CB0[];
+extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 void __construct_array(void *, void *, void *, int, int);
 extern void *lbl_805D4230;
@@ -23,7 +23,7 @@ void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjEneMorfos;
     init_vtable_and_field18__10TObjPlayerFPv((void *)((char *)arg0 + 1004));
     init_common__18TObjEneMe3SinowZoaFPv((void *)((char *)arg0 + 1032));
-    __construct_array((void *)((char *)arg0 + 1060), TObjPlayer__sub_800D7CB0, TObjPlayer__sub_800D7C58, 28, 4);
+    __construct_array((void *)((char *)arg0 + 1060), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4230;
     TObjEneDD__sub_800BB8E0(arg0, arg2);
     TObjEneMorfos__sub_8033471C(arg0);

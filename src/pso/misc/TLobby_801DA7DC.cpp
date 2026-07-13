@@ -19,13 +19,13 @@ struct VObj_801DA7DC : Base_801DA7DC {
 extern "C" {
 
 void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1);
-M2C_UNK TLobby__sub_801DF084(void *);
+M2C_UNK bswap_c6_packet__6TLobbyFPv(void *);
 
 void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1910) != 0) {
         M2C_FIELD(arg1, u8 *, 0) = 0xC6;
         M2C_FIELD(arg1, s16 *, 2) = 0x7C;
-        TLobby__sub_801DF084(arg1);
+        bswap_c6_packet__6TLobbyFPv(arg1);
         ((VObj_801DA7DC *)arg0)->m_call(arg1, 0x7C);
     }
 }

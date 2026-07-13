@@ -8,7 +8,7 @@ extern "C" {
 
 void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0);
 s32 fn_802183B4(void* p);
-void TQuestListVM__sub_802183F8(void* p, void* a1);
+void set_selected_entry__12TQuestListVMFPvPv(void* p, void* a1);
 void poll_download__12TQuestListVMFv(void);
 int TQuestListVM__sub_80073DC4(void*, void*);
 u32 TQuestVmDownLoadServer__sub_800FA8A4();
@@ -24,7 +24,7 @@ void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0) {
         set_entry_state__20TWindowSubStatusDispFPvc(temp, 1);
     }
 }
-void TQuestListVM__sub_802183F8(void* p, void* a1) { TQuestListVM__sub_80073DC4(p, (void*)20); *(void**)((char*)p + 0x23b4) = a1; }
+void set_selected_entry__12TQuestListVMFPvPv(void* p, void* a1) { TQuestListVM__sub_80073DC4(p, (void*)20); *(void**)((char*)p + 0x23b4) = a1; }
 void poll_download__12TQuestListVMFv(void) {
     if (TQuestVmDownLoadServer__sub_800FA8A4() == 0U) {
         TQuestVmDownLoadServer__sub_800FA8C4();

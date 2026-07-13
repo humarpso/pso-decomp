@@ -17,13 +17,13 @@ void free_member__15TWindowCtrlMainFPv(void* p);
 int fn_802437C4(void*);
 int TWindowCtrlMain__sub_8024D7C0(void*);
 int TWindowSubEquip__sub_80263B34(void*);
-int TWindowMainMenu__sub_80263B70(void*);
+int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
 int TLobby__sub_80269C6C(void*);
 
 void update_child_2c__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) TLobby__sub_80269C6C(m); }
 void TWindowCtrlMain__sub_8024D8A8(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) fn_802437C4(m); }
 void update_field28__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) TWindowSubEquip__sub_80263B34(m); }
-void free_member__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) TWindowMainMenu__sub_80263B70(m); }
+void free_member__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) try_open_battle_menu__15TWindowMainMenuFPvs(m); }
 s32 get_main_menu_message__15TWindowCtrlMainFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0x28);
     if (p == 0) {

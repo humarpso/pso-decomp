@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80268738(void *arg0, s32 arg1, s32 arg2);
+void add_text_entry__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 s32 TWindowSubComCard__sub_80249604();
@@ -26,7 +26,7 @@ s32 set_text__20TWindowSubStatusDispFPvUii(s32, s32, s32);
 s32 set_text__20TWindowSubStatusDispFPvUiii(s32, s32, s32, s32);
 void update_selected_entry__17TWindowSubComCardFPv(void *arg0);
 
-void TWindowSubStatusDisp__sub_80268738(void *arg0, s32 arg1, s32 arg2) {
+void add_text_entry__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2) {
     s16 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x72);

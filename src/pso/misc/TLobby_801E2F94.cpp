@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801E2F94(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
+void draw_with_camera__6TLobbyFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
 M2C_UNK TLobby__sub_80228154(s32, s32, s32, f32);
 
-void TLobby__sub_801E2F94(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+void draw_with_camera__6TLobbyFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     TCameraCtrl__sub_80069024();
     TLobby__sub_80228154(arg0, arg1, arg2, farg0);
     TCameraCtrl__sub_80068EF0();

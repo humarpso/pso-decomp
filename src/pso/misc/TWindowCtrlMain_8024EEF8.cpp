@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void free_keyboard_soft__15TWindowCtrlMainFv(void);
-void TWindowKeyBoardSoft__sub_8024EE44(void*, int);
+void free_singleton__19TWindowKeyBoardSoftFUis(void*, int);
 
 extern u32 lbl_805D6420;
 
 void free_keyboard_soft__15TWindowCtrlMainFv(void) {
     if ((u32) lbl_805D6420 != 0U) {
-        TWindowKeyBoardSoft__sub_8024EE44((void*)lbl_805D6420, 1);
+        free_singleton__19TWindowKeyBoardSoftFUis((void*)lbl_805D6420, 1);
         lbl_805D6420 = 0U;
     }
 }

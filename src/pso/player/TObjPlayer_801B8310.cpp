@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801B8310(void *arg0);
+s32 query_state_if_present__10TObjPlayerFPv(void *arg0);
 s32 run_state_query__10TObjPlayerFPvi(void *);
 
-s32 TObjPlayer__sub_801B8310(void *arg0) {
+s32 query_state_if_present__10TObjPlayerFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0xD00);
     if (temp_r3 == NULL) {
         return 0;

@@ -13,7 +13,7 @@ void TLobby__sub_8001FE7C(void*, int);
 void *TObjPlayer__sub_800A2F94(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK TObjPlayer__sub_800A4288();
-void TObjPlayer__sub_801E483C(void*);
+void free_if_valid__10TObjPlayerFi(void*);
 
 extern void *tl_04;
 
@@ -34,7 +34,7 @@ void cleanup_effects__10TObjPlayerFv(void) {
         lbl_805D500C = 0U;
     }
     if ((u32) lbl_805D5010 != 0U) {
-        TObjPlayer__sub_801E483C((void*)lbl_805D5010);
+        free_if_valid__10TObjPlayerFi((void*)lbl_805D5010);
         lbl_805D5010 = 0U;
     }
     TObjPlayer__sub_800A4288();

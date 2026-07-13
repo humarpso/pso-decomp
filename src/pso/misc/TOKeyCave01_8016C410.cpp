@@ -9,14 +9,14 @@ extern "C" {
 void free_objects__11TOKeyCave01Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_801E483C(s32);
+M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
 extern u32 lbl_805D5A18;
 extern s32 *TOKeyCave01__data_805D5A1C;
 
 void free_objects__11TOKeyCave01Fv(void) {
     if ((s32 *) TOKeyCave01__data_805D5A1C != NULL) {
-        TObjPlayer__sub_801E483C(*TOKeyCave01__data_805D5A1C);
+        free_if_valid__10TObjPlayerFi(*TOKeyCave01__data_805D5A1C);
         if ((s32 *) TOKeyCave01__data_805D5A1C != NULL) {
             free__11TOBoss4RockFUi((void*)TOKeyCave01__data_805D5A1C);
             TOKeyCave01__data_805D5A1C = NULL;

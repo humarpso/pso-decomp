@@ -9,16 +9,16 @@ extern "C" {
 void destroy__17TOSensorAncient01Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_801E483C(s32);
+M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
 extern u32 lbl_805D5A88;
 extern void *lbl_805D5A8C;
 
 void destroy__17TOSensorAncient01Fv(void) {
     if ((void *) lbl_805D5A8C != NULL) {
-        TObjPlayer__sub_801E483C(M2C_FIELD(lbl_805D5A8C, s32 *, 0));
-        TObjPlayer__sub_801E483C(M2C_FIELD(lbl_805D5A8C, s32 *, 0xC));
-        TObjPlayer__sub_801E483C(M2C_FIELD(lbl_805D5A8C, s32 *, 8));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 0));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 0xC));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 8));
         if ((void *) lbl_805D5A8C != NULL) {
             free__11TOBoss4RockFUi((void*)lbl_805D5A8C);
             lbl_805D5A8C = NULL;

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800CBE14(void *arg0);
+void update_animation_frame__13TObjEneMe1GeeFPv(void *arg0);
 
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(f32);
 
-void TObjEneMe1Gee__sub_800CBE14(void *arg0) {
+void update_animation_frame__13TObjEneMe1GeeFPv(void *arg0) {
     TObjEneMe1Gee__sub_800CBE6C(M2C_FIELD(arg0, f32 *, 0x3E8) + M2C_FIELD(arg0, f32 *, 0x3C));
 }
 

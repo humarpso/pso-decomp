@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjCity_Season_EasterEgg__sub_80184810(void *arg0);
+void advance_egg_anim__25TObjCity_Season_EasterEggFPv(void *arg0);
 u32 TObjCity_Season_EasterEgg__sub_80184AB8();
 
-void TObjCity_Season_EasterEgg__sub_80184810(void *arg0) {
+void advance_egg_anim__25TObjCity_Season_EasterEggFPv(void *arg0) {
     s32 temp_r3;
 
     if (TObjCity_Season_EasterEgg__sub_80184AB8() != 0U) {

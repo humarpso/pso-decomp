@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009EB6C(void *arg0);
+void update_position_with_offset__17TObjEneMe1CanadinFPv(void *arg0);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB98(f32);
 
-void TObjEneMe1Canadin__sub_8009EB6C(void *arg0) {
+void update_position_with_offset__17TObjEneMe1CanadinFPv(void *arg0) {
     TObjEneMe1Canadin__sub_8009EB98(M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E8));
 }
 

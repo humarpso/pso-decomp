@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjSoloPlayWin__sub_80074908(void *arg0);
+void start_win_timer__15TObjSoloPlayWinFPv(void *arg0);
 s32 fn_80074724(void *);
 s32 fn_800747C4();
 M2C_UNK fn_8007483C(void *);
 
-void TObjSoloPlayWin__sub_80074908(void *arg0) {
+void start_win_timer__15TObjSoloPlayWinFPv(void *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U) && (fn_800747C4() != 0) && (fn_80074724(arg0) != 0)) {
         fn_8007483C(arg0);
         M2C_FIELD(arg0, s32 *, 0x24) = 0x12C;

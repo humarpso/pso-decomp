@@ -9,7 +9,7 @@ void *TItemMagSub__sub_80115728(void *, s32);
 void  TItemEffectWeapon__sub_803639F0(s32);
 s32   TItemEffectWeapon__sub_80363A1C(void);
 void  free_to_heap__11TItemMagSubFPv(void *);
-void  TItemEffArmorParticle__sub_80364328(void *);
+void  init_object__21TItemEffArmorParticleFPv(void *);
 
 extern void *__vt__17TItemEffectWeapon[];
 
@@ -29,7 +29,7 @@ extern void *__vt__17TItemEffectWeapon[];
 extern s32 lbl_805D4470;
 
 void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
-    TItemEffArmorParticle__sub_80364328(self);
+    init_object__21TItemEffArmorParticleFPv(self);
     M2C_FIELD(self, void **, 0x18) = __vt__17TItemEffectWeapon;
     M2C_FIELD(self, s32 *, 0) = lbl_805D4470;
     M2C_FIELD(self, s32 *, 0x1C) = TItemEffectWeapon__sub_80363A1C();

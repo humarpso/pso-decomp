@@ -10,7 +10,7 @@ M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK release_object__14TBoss6PlotFalzFPv(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AC4D8();
 M2C_UNK init_warp__15TBoss6EmptyWarpFv();
-s32 TObjFish__sub_803403B0(void *);
+s32 alloc__8TObjFishFPv(void *);
 extern M2C_UNK lbl_804709A8[];
 
 void init_hall_boss_scene(void *arg0) {
@@ -19,7 +19,7 @@ void init_hall_boss_scene(void *arg0) {
     TObjBgmColCtrl__sub_802274B8(lbl_804709A8);
     TBoss6PlotFalz__sub_802AC4D8();
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
-    M2C_FIELD(arg0, s32 *, 0x3DC) = TObjFish__sub_803403B0(arg0);
+    M2C_FIELD(arg0, s32 *, 0x3DC) = alloc__8TObjFishFPv(arg0);
 }
 
 }

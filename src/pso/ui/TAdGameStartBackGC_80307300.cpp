@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdGameStartBackGC__sub_80307300(u8 *arg0);
+void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0);
 M2C_UNK TObjFish__sub_803DA798(void *);
 M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
@@ -16,7 +16,7 @@ M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 lbl_805D6A50;
 extern const f32 lbl_805DF078;
 
-void TAdGameStartBackGC__sub_80307300(u8 *arg0) {
+void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0) {
     TWindowSubStatusDisp__sub_803DEE6C((int) (1));
     TObjFish__sub_803DA798((void *) (lbl_805D6A50));
     TWindowSubStatusDisp__sub_803DF160((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x78) << 0x18) | 0xFF0000 | 0xFFFF));

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 fn_80275484(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-s32 TWindowComCard__sub_802499E4(s32 a0 = 0, s32 a1 = 0);
+s32 create__14TWindowComCardFPvPv(s32 a0 = 0, s32 a1 = 0);
 s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);

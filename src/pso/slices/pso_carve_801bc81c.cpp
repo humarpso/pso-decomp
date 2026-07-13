@@ -17,7 +17,7 @@ void TObjPlayer__sub_801BCA0C(void);
 void TObjPlayer__sub_801BCA10(void);
 void TObjPlayer__sub_801BCAB0(void);
 void TObjPlayer__sub_801BCB28(void);
-int TObjPlayer__sub_801BCC30(void* p);
+int can_cast_technique__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCC50(void);
 int check_technique_castable__10TObjPlayerFi(void*);
 

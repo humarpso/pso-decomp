@@ -9,14 +9,14 @@ extern "C" {
 void free_rocks__17TOSensorGeneral01Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_801E483C(s32);
+M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
 extern u32 lbl_805D5AA0;
 extern s32 *TOSensorGeneral01__data_805D5AA4;
 
 void free_rocks__17TOSensorGeneral01Fv(void) {
     if ((s32 *) TOSensorGeneral01__data_805D5AA4 != NULL) {
-        TObjPlayer__sub_801E483C(*TOSensorGeneral01__data_805D5AA4);
+        free_if_valid__10TObjPlayerFi(*TOSensorGeneral01__data_805D5AA4);
         if ((s32 *) TOSensorGeneral01__data_805D5AA4 != NULL) {
             free__11TOBoss4RockFUi((void*)TOSensorGeneral01__data_805D5AA4);
             TOSensorGeneral01__data_805D5AA4 = NULL;

@@ -8,7 +8,7 @@ void TAdYesNoBaseGC__vt4(void);
 void TAdYesNoBaseGC__vt5(void);
 void TAdVIConfigGC__sub_80308200(void* p, s32 v);
 
-void TAdVIConfigGC__sub_80308208(s32 arg0, s32 arg1) {
+void apply_config_if_valid__13TAdVIConfigGCFii(s32 arg0, s32 arg1) {
     u32 temp_r3 = TLobby__sub_80101AB0();
     if (temp_r3 != 0U) {
         fn_80308294(temp_r3, arg1);

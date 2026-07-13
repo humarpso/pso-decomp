@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801C662C(void *arg0);
+void update_battle_ctrl_field1c__10TObjPlayerFPv(void *arg0);
 M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
-void TObjPlayer__sub_801C662C(void *arg0) {
+void update_battle_ctrl_field1c__10TObjPlayerFPv(void *arg0) {
     TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C));
 }
 

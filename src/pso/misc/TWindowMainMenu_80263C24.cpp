@@ -16,15 +16,15 @@ struct VObj_80263C24 : Base_80263C24 {
 
 extern "C" {
 
-s32 TWindowMainMenu__sub_80263C24(void *arg0);
+s32 close_active_submenu__15TWindowMainMenuFPv(void *arg0);
 M2C_UNK TWindowMainMenu__sub_80263D7C(void *);
 M2C_UNK TWindowMainMenu__sub_80263DBC(void *);
-M2C_UNK TWindowMainMenu__sub_802640E4();
+M2C_UNK destroy_submenu__15TWindowMainMenuFPv();
 M2C_UNK close_submenu__15TWindowMainMenuFPvPv(void *, u32);
 
-s32 TWindowMainMenu__sub_80263C24(void *arg0) {
+s32 close_active_submenu__15TWindowMainMenuFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C) & 0xFFFFFFFB);
-    TWindowMainMenu__sub_802640E4();
+    destroy_submenu__15TWindowMainMenuFPv();
     if ((u32) M2C_FIELD(arg0, u32 *, 0x5C) == 0U) {
         ((VObj_80263C24 *)arg0)->m6();
         return 0;

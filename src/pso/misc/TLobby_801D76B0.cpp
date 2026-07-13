@@ -19,7 +19,7 @@ M2C_UNK set_field_b__6TLobbyFPvUc(void *, s32);
 M2C_UNK set_field_a__6TLobbyFPvUc(void *, s32);
 M2C_UNK set_byte9_clamped__6TLobbyFPvUc(void *, s32);
 M2C_UNK set_difficulty__6TLobbyFPvUc(void *, s32);
-M2C_UNK TLobby__sub_801D74B0(void *, s32);
+M2C_UNK set_field7_clamped__6TLobbyFPvUc(void *, s32);
 M2C_UNK set_field_0x6__6TLobbyFPvUc(void *, s32);
 M2C_UNK set_field_5__6TLobbyFPvUc(void *, s32);
 M2C_UNK set_clamped_field_4__6TLobbyFPvUc(void *, s32);
@@ -54,7 +54,7 @@ void reset_settings_to_default__6TLobbyFPv(u8 *arg0) {
     set_clamped_field_4__6TLobbyFPvUc(arg0, ret_801D7944(arg0));
     set_field_5__6TLobbyFPvUc(arg0, ret_801D793C(arg0));
     set_field_0x6__6TLobbyFPvUc(arg0, ret_801D7934(arg0));
-    TLobby__sub_801D74B0(arg0, ret_801D792C(arg0));
+    set_field7_clamped__6TLobbyFPvUc(arg0, ret_801D792C(arg0));
     set_difficulty__6TLobbyFPvUc(arg0, ret_801D7924(arg0));
     set_byte9_clamped__6TLobbyFPvUc(arg0, ret_801D791C(arg0));
     set_field_a__6TLobbyFPvUc(arg0, ret_801D7914(arg0));

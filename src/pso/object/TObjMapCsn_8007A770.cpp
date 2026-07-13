@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjMapCsn__sub_8007A770(s32 arg0);
+s32 init_and_return__10TObjMapCsnFi(s32 arg0);
 M2C_UNK fn_8007A7A0();
 
-s32 TObjMapCsn__sub_8007A770(s32 arg0) {
+s32 init_and_return__10TObjMapCsnFi(s32 arg0) {
     fn_8007A7A0();
     return arg0;
 }

@@ -16,7 +16,7 @@ int update_scaled_position__15TWindowMainMenuFi(void*);
 int TWindowMainMenu__sub_802646E4(void* a0 = 0, void* a1 = 0);
 void show_child_window__15TWindowMainMenuFPv(void* p);
 void close_submenu__15TWindowMainMenuFPvPv(void* p, void* a1);
-void TWindowMainMenu__sub_802645E4(void* p, void* a1);
+void refresh_submenu__15TWindowMainMenuFPvPv(void* p, void* a1);
 void close__15TWindowMainMenuFPv(void* p);
 void update_trade_submenu__15TWindowMainMenuFPv(void* p);
 int TWindowSubTradeMain__sub_80244A4C(void*);

@@ -3,9 +3,9 @@
 extern "C" {
 
 void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void);
-int TObjPlayer__sub_800D95C0(void);
+int set_flags_and_apply_damage_color__10TObjPlayerFv(void);
 int TObjPlayer__sub_803E38FC(int);
 
-void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void) { TObjPlayer__sub_800D95C0(); TObjPlayer__sub_803E38FC(8448); }
+void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void) { set_flags_and_apply_damage_color__10TObjPlayerFv(); TObjPlayer__sub_803E38FC(8448); }
 
 }

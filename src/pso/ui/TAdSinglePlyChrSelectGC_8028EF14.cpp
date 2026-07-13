@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_8028EF14(u8 *arg0);
+void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803DA16C(void *);
 
-void TAdSinglePlyChrSelectGC__sub_8028EF14(u8 *arg0) {
+void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x14) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x10) != 0)) {
         TLobby__sub_803DA16C(arg0 + 0x178);
     }

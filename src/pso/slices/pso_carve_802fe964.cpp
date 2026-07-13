@@ -11,7 +11,7 @@ s32 TObjPlayer__sub_800196EC();
 s32 TLobby__sub_8020C1F0(s32, s32);
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32);
-M2C_UNK TObjLiveMonitor__sub_8030B5E8(s32);
+M2C_UNK create__15TObjLiveMonitorFPv(s32);
 M2C_UNK TObjLiveCameraCtrl__ct(void *, s32);
 M2C_UNK __ct__17TObjBoss8DemoRoomFv(void *, s32);
 extern s32 tl_05;
@@ -21,7 +21,7 @@ void create_boss8_demo_objects(void) {
     if ((is_split_screen() == 0) && ((obj = __nw__7TObjectFUl(0x13C)) != 0)) {
         TObjLiveCameraCtrl__ct(obj, tl_05);
     }
-    TObjLiveMonitor__sub_8030B5E8(tl_05);
+    create__15TObjLiveMonitorFPv(tl_05);
     spawn_for_each_fish__20TObjLiveMonitorSmallFi(tl_05);
     if ((TLobby__sub_8020C1F0(TObjPlayer__sub_800196EC(), 1) == 0) && ((obj = __nw__7TObjectFUl(0x1C)) != 0)) {
         __ct__17TObjBoss8DemoRoomFv(obj, tl_05);

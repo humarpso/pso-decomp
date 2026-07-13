@@ -8,7 +8,7 @@ extern "C" {
 
 void draw_effect_model__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80121708(void *arg0);
-void *TObjPlayer__sub_80121718(void *arg0);
+void *init_item_shoot_model__10TObjPlayerFPv(void *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
 s32 is_owner_alive__10TObjPlayerFPv();
@@ -39,7 +39,7 @@ void TObjPlayer__sub_80121708(void *arg0) {
 
 extern M2C_UNK lbl_804A0AA8[];
 
-void *TObjPlayer__sub_80121718(void *arg0) {
+void *init_item_shoot_model__10TObjPlayerFPv(void *arg0) {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A0AA8;
     M2C_FIELD(arg0, u32 *, 0x30) = 0;

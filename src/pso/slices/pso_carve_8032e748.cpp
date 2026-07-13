@@ -2,8 +2,8 @@
 
 extern "C" {
 
-int TBoss6Type2__sub_8032FBF8(void*);
-void TBoss6Type2__sub_8032E718(void* p, void* a1, void* a2);
+int update_segment_angles__11TBoss6Type2FPv(void*);
+void set_target_nodes__11TBoss6Type2FPvPvPv(void* p, void* a1, void* a2);
 void TBoss6Type2__sub_8032E708(void* p, s32 v);
 void TBoss6Type2__sub_8032E710(void* p, s16 v);
 void TBoss6Type2__sub_8032E740(void* p, s32 v);

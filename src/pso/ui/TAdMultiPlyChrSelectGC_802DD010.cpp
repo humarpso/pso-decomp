@@ -33,7 +33,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802E0044(s32, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802E00BC(s32, M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802E00C4(s32);
 u32 TAdMultiPlyChrSelectGC__sub_802E0100();
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0C28(s32, s32);
+M2C_UNK set_status_value__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0) {
@@ -107,7 +107,7 @@ loop_7:
         TAdMultiPlyChrSelectGC__sub_802E001C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802DC294(arg0, TAdMultiPlyChrSelectGC__sub_802E0014(M2C_FIELD(arg0, s32 *, 0x5C)));
         load_tables();
-        TAdMultiPlyChrSelectGC__sub_802E0C28(M2C_FIELD(arg0, s32 *, 0x60), temp_r3);
+        set_status_value__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x60), temp_r3);
         TAdMultiPlyChrSelectGC__sub_802D50B0(M2C_FIELD(arg0, s32 *, 0x60), 2);
         M2C_FIELD(arg0, s32 *, 0x80) = TAdMultiPlyChrSelectGC__sub_802DBEC4(arg0, lbl_80472870);
         TAdMultiPlyChrSelectGC__sub_802D50A8(M2C_FIELD(arg0, u32 *, 0x68), 0x11);

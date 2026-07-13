@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void create_time_window__6TLobbyFv(void);
-void TLobby__sub_8006FF98(void *arg0);
+void update_battle_cleanup_flag__6TLobbyFPv(void *arg0);
 M2C_UNK TLobby__sub_8006FC7C(void *);
 M2C_UNK TLobby__sub_8006FE7C();
 M2C_UNK TLobby__sub_800722AC(s32);
@@ -33,7 +33,7 @@ void create_time_window__6TLobbyFv(void) {
 extern M2C_UNK lbl_8048C9D8[];
 extern s32 lbl_805D53A0;
 
-void TLobby__sub_8006FF98(void *arg0) {
+void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) == 0U) {
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
         return;

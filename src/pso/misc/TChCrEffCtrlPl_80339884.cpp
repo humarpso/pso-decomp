@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TChCrEffCtrlPl__sub_80339884(void *arg0);
+void *create__14TChCrEffCtrlPlFPv(void *arg0);
 void *__ct__14TChCrEffCtrlPlFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TChCrEffCtrlPl__sub_80339884(void *arg0) {
+void *create__14TChCrEffCtrlPlFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);
     if (o != NULL) {
         o = __ct__14TChCrEffCtrlPlFv(o, arg0);

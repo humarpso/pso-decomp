@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TObjPlayer__sub_80141F50(void);
+void init_xyz_limits__10TObjPlayerFv(void);
 int abs__4cXyzCFv(int, int);
 
 int TObjPlayer__sub_80141F84(void) { return 0; }

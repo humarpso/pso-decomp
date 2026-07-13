@@ -18,7 +18,7 @@ struct VObj_802143AC : Base_802143AC {
 
 extern "C" {
 
-void TShopWindowBase__sub_802143AC(void *arg0);
+void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0);
 s32 TQuestListVM__sub_80073DC4(void *, s32);
 s32 TShopJudgmentItemWindow__sub_80266388(s32, u16, s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
@@ -29,7 +29,7 @@ s32 fn_8024422C(s32, f32, f32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u16 obj_getField1c(s32);
 
-void TShopWindowBase__sub_802143AC(void *arg0) {
+void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
     VObj_802143AC *vobj = (VObj_802143AC *)arg0;

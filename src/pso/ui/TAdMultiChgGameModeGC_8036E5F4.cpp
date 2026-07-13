@@ -8,7 +8,7 @@ extern "C" {
 
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 int load_system_file(void* a0 = 0);
-void TAdMultiChgGameModeGC__sub_8036E5F4(void* p);
+void load_system_on_mode_default__21TAdMultiChgGameModeGCFPv(void* p);
 s32 TAdMultiChgGameModeGC__sub_8036E858(void *, s32);
 void TAdMultiChgGameModeGC__sub_8036E6EC(void);
 void TAdMultiChgGameModeGC__sub_8036E750(void);
@@ -19,7 +19,7 @@ void TAdMultiChgGameModeGC__sub_8036E854(void);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int init_change_mode__21TAdMultiChgGameModeGCFv(void*);
 
-void TAdMultiChgGameModeGC__sub_8036E5F4(void* p) { if (handle_mode_selection__21TAdMultiChgGameModeGCFPv(p) == 0) { load_system_file((void*)0); } }
+void load_system_on_mode_default__21TAdMultiChgGameModeGCFPv(void* p) { if (handle_mode_selection__21TAdMultiChgGameModeGCFPv(p) == 0) { load_system_file((void*)0); } }
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
     s32 temp_r4;
 

@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
-M2C_UNK TObjBoss2CeilJunk__sub_8003B07C(s32, M2C_UNK);
+M2C_UNK create_particle__17TObjBoss2CeilJunkFv(s32, M2C_UNK);
 
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2) {
-    TObjBoss2CeilJunk__sub_8003B07C(arg2, 0x121);
+    create_particle__17TObjBoss2CeilJunkFv(arg2, 0x121);
 }
 
 }

@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjItemNameEntry__sub_801F5018(void *arg0);
+void *create__17TObjItemNameEntryFPv(void *arg0);
 void *TObjItemNameEntry__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjItemNameEntry__sub_801F5018(void *arg0) {
+void *create__17TObjItemNameEntryFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
         o = TObjItemNameEntry__ct(o, arg0);

@@ -22,8 +22,8 @@ void free_member_0x28__13TShopSequenceFPv(void* p);
 void TShopSequence__sub_802236A0(void* p);
 void free_member_0x28_variant__13TShopSequenceFPv(void* p);
 void free_member__13TShopSequenceFPv(void* p);
-int TQuestVmDownLoadServer__sub_80222848(void*);
-int TQuestVmDownLoadServer__sub_80222898(void*);
+int send_message__22TQuestVmDownLoadServerFPvii(void*);
+int format_and_send_message__22TQuestVmDownLoadServerFPvii(void*);
 int fn_80222910(void*);
 int fn_8022297C(void*);
 

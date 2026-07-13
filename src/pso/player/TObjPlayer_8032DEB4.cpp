@@ -6,24 +6,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8032DEB4(s32 arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_8032DF0C(s32 arg0, u32 *arg1, s32 arg2);
-M2C_UNK TObjPlayer__sub_8032DE2C(void*, s32, s32, s32, s32, s32);
+void alloc_and_init__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
+void create_and_init_effect__10TObjPlayerFiPvi(s32 arg0, u32 *arg1, s32 arg2);
+M2C_UNK init_offsets_object__10TObjPlayerFPv(void*, s32, s32, s32, s32, s32);
 M2C_UNK TObjPlayer__sub_8032DE70(void *, s32, u32 *, s32, s32, s32);
 void *__nw__7TObjectFUl(M2C_UNK);
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_8032DEB4(s32 arg0, s32 arg1, s32 arg2) {
+void alloc_and_init__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     void* obj = __nw__7TObjectFUl((M2C_UNK)(0x90));
     if (obj != 0) {
-        TObjPlayer__sub_8032DE2C(obj, tl_05, arg1, arg2, 0, arg0);
+        init_offsets_object__10TObjPlayerFPv(obj, tl_05, arg1, arg2, 0, arg0);
     }
 }
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_8032DF0C(s32 arg0, u32 *arg1, s32 arg2) {
+void create_and_init_effect__10TObjPlayerFiPvi(s32 arg0, u32 *arg1, s32 arg2) {
     void *obj;
 
     if ((arg1 != NULL) && ((u32) *arg1 != 0U)) {

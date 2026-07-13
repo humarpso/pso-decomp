@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TItemAttackCol__sub_802E4454(void *arg0, void *arg1);
+void create__14TItemAttackColFPvPv(void *arg0, void *arg1);
 void *TItemAttackCol__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void TItemAttackCol__sub_802E4454(void *arg0, void *arg1) {
+void create__14TItemAttackColFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x144);
     if (o != NULL) {

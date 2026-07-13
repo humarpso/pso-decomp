@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80299A60(void);
+void refresh_lobby_state__6TLobbyFv(void);
 s32 init_particle_model__6TLobbyFv(void);
 void update_field_state__6TLobbyFv(void);
 M2C_UNK create_tasks__6TLobbyFv();
@@ -26,7 +26,7 @@ M2C_UNK create__15TBoss6EmptyWarpFv();
 int fn_802FE9E0(void);
 s32 is_split_screen();
 
-void TLobby__sub_80299A60(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); TLobby__sub_80227248(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+void refresh_lobby_state__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); TLobby__sub_80227248(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 
 extern s32 tl_particlemodel;
 

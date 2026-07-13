@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjOnlineEnding__sub_802E522C(void *arg0);
+void *create__16TObjOnlineEndingFPv(void *arg0);
 void *TObjOnlineEnding__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjOnlineEnding__sub_802E522C(void *arg0) {
+void *create__16TObjOnlineEndingFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x158);
     if (o != NULL) {
         o = TObjOnlineEnding__ct(o, arg0);

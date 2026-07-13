@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TChCrLoadReq__sub_8028D448(void *arg0);
+void *create__12TChCrLoadReqFPv(void *arg0);
 void *TChCrLoadReq__sub_8028D360(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TChCrLoadReq__sub_8028D448(void *arg0) {
+void *create__12TChCrLoadReqFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
         o = TChCrLoadReq__sub_8028D360(o, arg0);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TPlyPhotonChair__sub_8035B678(void);
+void free_instance__15TPlyPhotonChairFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 lbl_805D6F48;
 
-void TPlyPhotonChair__sub_8035B678(void) {
+void free_instance__15TPlyPhotonChairFv(void) {
     if ((u32) lbl_805D6F48 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D6F48, 1);
         lbl_805D6F48 = 0U;

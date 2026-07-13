@@ -116,7 +116,7 @@ void set_difficulty__6TLobbyFPvUc(void *arg0, u8 arg1) {
 
 u8 ret_801D792C();
 
-void TLobby__sub_801D74B0(void *arg0, u8 arg1) {
+void set_field7_clamped__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;

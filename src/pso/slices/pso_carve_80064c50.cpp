@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void TBoss8Dragon__sub_80066060(void *);
+void bswap_boss_actions__12TBoss8DragonFi(void *);
 void *get_enemy_entity(int);
 void set_target_from_action__12TBoss8DragonFPvPv(void *, void *);
 
 void handle_6x9F_gal_gryphon_boss_actions(void *arg0) {
     void *x;
-    TBoss8Dragon__sub_80066060(arg0);
+    bswap_boss_actions__12TBoss8DragonFi(arg0);
     x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
     if (x != NULL) {
         set_target_from_action__12TBoss8DragonFPvPv(x, arg0);

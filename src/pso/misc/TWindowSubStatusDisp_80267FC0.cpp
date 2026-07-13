@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80267FC0(u8 *arg0);
+void render_card_and_list__20TWindowSubStatusDispFPv(u8 *arg0);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
@@ -14,7 +14,7 @@ M2C_UNK TWindowSubStatusDisp__sub_8026D790(s32, s32, void *);
 M2C_UNK draw_selected_list_entry(void *, s32);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 
-void TWindowSubStatusDisp__sub_80267FC0(u8 *arg0) {
+void render_card_and_list__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();

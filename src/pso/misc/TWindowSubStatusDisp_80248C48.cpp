@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80248C48(s32 a, s32 b);
+void refresh_with_default_list__20TWindowSubStatusDispFii(s32 a, s32 b);
 M2C_UNK TWindowSubStatusDisp__sub_80248BE8(s32, s32, s32);
 
 extern s32 lbl_805D53A0;
 
-void TWindowSubStatusDisp__sub_80248C48(s32 a, s32 b) {
+void refresh_with_default_list__20TWindowSubStatusDispFii(s32 a, s32 b) {
     TWindowSubStatusDisp__sub_80248BE8(a, b, lbl_805D53A0);
 }
 

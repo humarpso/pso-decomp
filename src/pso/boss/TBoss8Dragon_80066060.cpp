@@ -14,7 +14,7 @@ void TBoss8Dragon__sub_80065F34(void);
 void TBoss8Dragon__sub_80065F38(void* p);
 void TBoss8Dragon__sub_800660A4(void* p);
 
-void TBoss8Dragon__sub_80066060(s32 arg0) {
+void bswap_boss_actions__12TBoss8DragonFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv();
     bswap_32__FPUl(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);

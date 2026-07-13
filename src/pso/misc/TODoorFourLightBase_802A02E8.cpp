@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TODoorFourLightBase__sub_802A02E8(void *arg0);
+void clamp_light_index__19TODoorFourLightBaseFPv(void *arg0);
 
-void TODoorFourLightBase__sub_802A02E8(void *arg0) {
+void clamp_light_index__19TODoorFourLightBaseFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x88) < 0) {
         M2C_FIELD(arg0, s32 *, 0x88) = 0;
     }

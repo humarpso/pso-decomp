@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOBoss4Rock__sub_8035A7FC(void *arg0, s16 arg1);
+void *destroy__11TOBoss4RockFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void free__11TOBoss4RockFUi(void *);
 
 extern M2C_UNK lbl_804F1C58[];
 
-void *TOBoss4Rock__sub_8035A7FC(void *arg0, s16 arg1) {
+void *destroy__11TOBoss4RockFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F1C58;
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x28));

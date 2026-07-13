@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_802E746C(void);
 void TObjPlayer__sub_802E7470(void);
-void TObjPlayer__sub_802E7474(void *arg0, s32 arg1);
+void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 *TBreakUpMdl__sub_8009705C(s32 *, s32);
 s32 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_802E75B8(void *, s32 *);
 
 void TObjPlayer__sub_802E746C(void) {  }
 void TObjPlayer__sub_802E7470(void) {  }
-void TObjPlayer__sub_802E7474(void *arg0, s32 arg1) {
+void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     s32 *temp_r4;
     s32 *var_r0;
 

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TFontSmallLobby__sub_801B10F8(s32 arg0);
+s32 disable_stealth_suit_effect__15TFontSmallLobbyFi(s32 arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 
-s32 TFontSmallLobby__sub_801B10F8(s32 arg0) {
+s32 disable_stealth_suit_effect__15TFontSmallLobbyFi(s32 arg0) {
     TFontSmallLobby__sub_801C0228();
     return arg0;
 }

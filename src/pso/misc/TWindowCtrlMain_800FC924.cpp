@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrlMain__sub_800FC924(s32 arg0);
+void advance_card_status__15TWindowCtrlMainFi(s32 arg0);
 M2C_UNK fn_800FCCC8(s32, s32);
 s32 get_card_status_bits__20TWindowShortListCtrlFv();
 
-void TWindowCtrlMain__sub_800FC924(s32 arg0) {
+void advance_card_status__15TWindowCtrlMainFi(s32 arg0) {
     s32 var_r4;
 
     var_r4 = get_card_status_bits__20TWindowShortListCtrlFv() + 1;

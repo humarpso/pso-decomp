@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801D8548(s32 arg0, void *arg1);
+void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(s32 arg0, void *arg1);
 s32 TLobby__sub_8011AF58(u16);
 M2C_UNK TObjPlayer__sub_801B811C(s32, void *);
 
 extern s32 lbl_805D53A0;
 
-void TObjPlayer__sub_801D8548(s32 arg0, void *arg1) {
+void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     if (M2C_FIELD(arg1, s32 *, 4) & 8) {
         M2C_FIELD(arg1, s32 *, 0x14) = TLobby__sub_8011AF58((u16) lbl_805D53A0);
         TObjPlayer__sub_801B811C(arg0, arg1);

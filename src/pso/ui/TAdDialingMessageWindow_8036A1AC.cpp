@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TAdDialingMessageWindow__sub_8036A1AC(void* p);
+void run_child_tasks__23TAdDialingMessageWindowFPv(void* p);
 int run_tasks__7TObjectFv(void*);
 
-void TAdDialingMessageWindow__sub_8036A1AC(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) run_tasks__7TObjectFv(m); }
+void run_child_tasks__23TAdDialingMessageWindowFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) run_tasks__7TObjectFv(m); }
 
 }

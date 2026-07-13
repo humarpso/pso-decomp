@@ -9,7 +9,7 @@ extern "C" {
 void render__20TItemEffOrgaFlowShotFv(s32 arg0);
 M2C_UNK fn_80141A30();
 M2C_UNK TObjPlayer__sub_80141F1C();
-M2C_UNK TObjPlayer__sub_80141F50();
+M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK TParticleCtrl__sub_801E2EFC();
 M2C_UNK TParticleCtrl__sub_801E2F20();
 M2C_UNK fn_803DF5C4();
@@ -24,7 +24,7 @@ void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     TParticleCtrl__sub_801E2EFC();
     lbl_805D5660 = some_id_805c6f74;
     set_depth_buffer_settings_1__Fv();
-    TObjPlayer__sub_80141F50();
+    init_xyz_limits__10TObjPlayerFv();
     fn_803DF768(1);
     fn_803DF5E4(arg0 + 0xC4, 0xA);
     fn_803DF5C4();

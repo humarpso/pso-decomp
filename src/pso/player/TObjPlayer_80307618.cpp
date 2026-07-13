@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80307618(u8 *arg0);
-void TObjPlayer__sub_80307660(void *arg0);
+void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0);
+void update_invincible_blink__10TObjPlayerFPv(void *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TObjPlayer__sub_80120908();
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 M2C_UNK TObjPlayer__sub_8012106C(void *, M2C_UNK);
 
-void TObjPlayer__sub_80307618(u8 *arg0) {
+void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r31;
 
     temp_r31 = M2C_FIELD(arg0, s32 *, 0xF4);
@@ -26,7 +26,7 @@ void TObjPlayer__sub_80307618(u8 *arg0) {
 
 extern f32 lbl_805DF0A8;
 
-void TObjPlayer__sub_80307660(void *arg0) {
+void update_invincible_blink__10TObjPlayerFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) > 0) {
         if (TItemProShield__sub_8010B734() == 1) {
             M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) - 1);

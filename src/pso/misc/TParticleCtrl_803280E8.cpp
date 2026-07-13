@@ -16,14 +16,14 @@ int TParticleCtrl__sub_803280C8(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_802A8260(void*);
-s32 TObjPlayer__sub_802A8368(u8, u8, s32, s32, s32, s32);
+s32 play_particle_at_active_slot__10TObjPlayerFiiiiii(u8, u8, s32, s32, s32, s32);
 
 void reset_ind_tev_stages__13TParticleCtrlFv(void) { GXSetTevDirect(1); GXSetNumIndStages(0); TObjPlayer__sub_803DC83C(0); }
 void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2) {
     if (arg2 < 0) {
         arg2 = (s16) M2C_FIELD(arg0, u8 *, 0x1C);
     }
-    TObjPlayer__sub_802A8368((u8) arg2, M2C_FIELD(arg0, u8 *, 0x1D), 0, 0, 0, 1);
+    play_particle_at_active_slot__10TObjPlayerFiiiiii((u8) arg2, M2C_FIELD(arg0, u8 *, 0x1D), 0, 0, 0, 1);
 }
 
 extern M2C_UNK lbl_804ED5B0[];

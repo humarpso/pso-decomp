@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TItemShoot__sub_8011BDC8(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
+u32 spawn_shoot_particle_attached__10TItemShootFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 M2C_UNK TItemShootParticle__sub_8011B704(u32, M2C_UNK, M2C_UNK);
 u32 TObjPlayer__sub_8011BA54();
 M2C_UNK set_parent__7TObjectFP7TObject(u32, u32);
 u32 spawn_shoot_particle__10TObjPlayerFUiiif(s32, s32, s32, f32);
 
-u32 TItemShoot__sub_8011BDC8(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+u32 spawn_shoot_particle_attached__10TItemShootFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     u32 temp_r31;
     u32 temp_r30;
 

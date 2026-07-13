@@ -7,7 +7,7 @@ void close_window__11TAdEp3ExistFPv(void* p);
 int request_game_mode_transition__11TAdEp3ExistFPv(void* p);
 int request_scene_change__11TAdEp3ExistFPv(void* p);
 int TAdEp3Exist__sub_8036F0AC(void* p);
-int TAdMultiChgGameModeGC__sub_8023E974(void*);
+int reset_and_set_mode__21TAdMultiChgGameModeGCFv(void*);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjWarpJung__sub_801A0378(s32 arg0, s32 arg1);
+void render_warp_effect__12TObjWarpJungFii(s32 arg0, s32 arg1);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 s32 TObjFish__sub_8001EDC4(s32, s32);
 
 extern s32 lbl_805D5CA8;
 extern s32 lbl_805D5CAC;
 
-void TObjWarpJung__sub_801A0378(s32 arg0, s32 arg1) {
+void render_warp_effect__12TObjWarpJungFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
 
     temp_r3 = TObjFish__sub_8001EDC4(lbl_805D5CA8, arg0);

@@ -15,11 +15,11 @@ struct VObj_8022C03C : Base_8022C03C {
 
 extern "C" {
 
-void TTecLuker__sub_8022C03C(void *arg0);
+void dispatch_state__9TTecLukerFPv(void *arg0);
 M2C_UNK TTecLuker__sub_8022BF8C(void *);
 M2C_UNK TTecLuker__sub_8022C008();
 
-void TTecLuker__sub_8022C03C(void *arg0) {
+void dispatch_state__9TTecLukerFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x6C);

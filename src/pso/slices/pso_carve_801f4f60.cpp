@@ -11,7 +11,7 @@ s32 update_keyboard__17TWindowSubComCardFPv(u32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK fn_801F4F20(s32);
 M2C_UNK fn_801F64F4(u32);
-s32 TWindowSubComCard__sub_80225E0C(s32);
+s32 submit_card_password__17TWindowSubComCardFi(s32);
 s32 TLobby__sub_8039DAFC(s32, M2C_UNK *);
 extern M2C_UNK lbl_805DC4FC;
 
@@ -27,7 +27,7 @@ s32 fn_801F4F60(void *arg0) {
             fn_801F64F4(M2C_FIELD(arg0, u32 *, 0x1C));
             return 0;
         }
-        if (TWindowSubComCard__sub_80225E0C(temp_r31) != 0) {
+        if (submit_card_password__17TWindowSubComCardFi(temp_r31) != 0) {
             fn_801F64F4(M2C_FIELD(arg0, u32 *, 0x1C));
             free__11TOBoss4RockFUi(temp_r31);
             return 0;

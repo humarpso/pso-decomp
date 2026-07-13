@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void calc_target_vector__12TBoss1DragonFPv(u8 *arg0);
-void TBoss1Dragon__sub_800293E4(void);
+void update_linked_epsilon_position__12TBoss1DragonFv(void);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, f32, f32);
 
@@ -27,7 +27,7 @@ void calc_target_vector__12TBoss1DragonFPv(u8 *arg0) {
 
 extern const f32 lbl_805D7F30;
 
-void TBoss1Dragon__sub_800293E4(void) {
+void update_linked_epsilon_position__12TBoss1DragonFv(void) {
     update_linked_position__14TObjEneEpsilonFPv(lbl_805D7F30);
 }
 

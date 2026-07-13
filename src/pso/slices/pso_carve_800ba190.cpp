@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TObjEneDD__sub_800BA288(void* p);
+int set_state_8__9TObjEneDDFPv(void* p);
 int TObjEneDD__sub_800BA2AC(void* p);
 int TObjEneDD__sub_800BA2D0(void* p);
 int TObjEneDD__sub_800BA2F4(void* p);

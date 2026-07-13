@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TLoadCtrl__sub_8001CAB0(void);
+int poll_default__9TLoadCtrlFv(void);
 int TLoadCtrl__sub_8001C978(void*);
 
-int TLoadCtrl__sub_8001CAB0(void) { return TLoadCtrl__sub_8001C978((void*)(0)); }
+int poll_default__9TLoadCtrlFv(void) { return TLoadCtrl__sub_8001C978((void*)(0)); }
 
 }

@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjChallenge4PRetry__sub_8029A6A4(void *arg0);
+void *create__20TObjChallenge4PRetryFPv(void *arg0);
 void *TObjChallenge4PRetry__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void *TObjChallenge4PRetry__sub_8029A6A4(void *arg0) {
+void *create__20TObjChallenge4PRetryFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x34);
     if (o != NULL) {
         o = TObjChallenge4PRetry__ct(o, arg0);

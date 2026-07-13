@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TNpcPlayer__sub_80190E64(void* p);
+void queue_destruction_if_dead__10TNpcPlayerFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
-void TNpcPlayer__sub_80190E64(void* p) { if (*(int*)((char*)p + 0x2c) == 1) { queue_destruction__7TObjectFv(p); } }
+void queue_destruction_if_dead__10TNpcPlayerFPv(void* p) { if (*(int*)((char*)p + 0x2c) == 1) { queue_destruction__7TObjectFv(p); } }
 
 }

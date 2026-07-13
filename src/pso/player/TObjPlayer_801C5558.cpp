@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s8 TObjPlayer__sub_801C5558(s32 arg0, s8 arg1, s32 arg2);
+s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2);
 
-s8 TObjPlayer__sub_801C5558(s32 arg0, s8 arg1, s32 arg2) {
+s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2) {
     s32 temp_r4;
     s8 var_r3;
 

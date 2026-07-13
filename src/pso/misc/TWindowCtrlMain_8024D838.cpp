@@ -17,7 +17,7 @@ void free_member__15TWindowCtrlMainFPv(void* p);
 int fn_802437C4(void*);
 int TWindowCtrlMain__sub_8024D7C0(void*);
 int TWindowSubEquip__sub_80263B34(void*);
-int TWindowMainMenu__sub_80263B70(void*);
+int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
 int TLobby__sub_80269C6C(void*);
 
 int TWindowCtrlMain__sub_8024D838(void) { return TWindowCtrlMain__sub_8024D7C0((void*)(0)); }

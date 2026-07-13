@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjBoss2CeilJunk__sub_8003B07C(void);
+void create_particle__17TObjBoss2CeilJunkFv(void);
 M2C_UNK create_particle_effect__15TObjBoss2TunnelFiif(f32);
 
 extern const f32 lbl_805D85D8;
 
-void TObjBoss2CeilJunk__sub_8003B07C(void) {
+void create_particle__17TObjBoss2CeilJunkFv(void) {
     create_particle_effect__15TObjBoss2TunnelFiif(lbl_805D85D8);
 }
 

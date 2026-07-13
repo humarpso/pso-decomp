@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TProtocol__sub_801DFD98(void* p);
-s32 TProtocol__sub_801DFDCC(s32 arg0);
+void bswap_action_header__9TProtocolFPv(void* p);
+s32 init_guild_card_tag__9TProtocolFi(s32 arg0);
 M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
 int bswap__13packet_headerFv(void*);
 int bswap__16TPlyGuildCardTagFv(void*);
 
-void TProtocol__sub_801DFD98(void* p) { bswap__13packet_headerFv(p); bswap__16TPlyGuildCardTagFv((char*)p + 0x4); }
+void bswap_action_header__9TProtocolFPv(void* p) { bswap__13packet_headerFv(p); bswap__16TPlyGuildCardTagFv((char*)p + 0x4); }
 
-s32 TProtocol__sub_801DFDCC(s32 arg0) {
+s32 init_guild_card_tag__9TProtocolFi(s32 arg0) {
     __ct__16TPlyGuildCardTagFv(arg0 + 4);
     return arg0;
 }

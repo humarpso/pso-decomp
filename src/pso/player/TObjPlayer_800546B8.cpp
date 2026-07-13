@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void snapshot_position__10TObjPlayerFPv(u8 *arg0);
-void TObjPlayer__sub_800546FC(void* p);
+void render_and_update_effects__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_800531C8(void*);
 int TObjPlayer__sub_80053E40(void*);
 int render_effects__10TObjPlayerFPv(void*);
@@ -20,6 +20,6 @@ void snapshot_position__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805D8B24);
 }
 
-void TObjPlayer__sub_800546FC(void* p) { TObjPlayer__sub_80053E40(p); render_effects__10TObjPlayerFPv(p); TObjPlayer__sub_800531C8(p); }
+void render_and_update_effects__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80053E40(p); render_effects__10TObjPlayerFPv(p); TObjPlayer__sub_800531C8(p); }
 
 }

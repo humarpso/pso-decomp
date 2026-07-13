@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_80225E0C(s32 arg0);
+void submit_card_password__17TWindowSubComCardFi(s32 arg0);
 M2C_UNK TQuestVmDownLoadServer__sub_8039DABC(void *, void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80225E80(void *, void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 
-void TWindowSubComCard__sub_80225E0C(s32 arg0) {
+void submit_card_password__17TWindowSubComCardFi(s32 arg0) {
     char sp1C[0x11];
     char sp8[0x11];
 

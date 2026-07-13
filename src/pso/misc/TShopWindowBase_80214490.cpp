@@ -25,14 +25,14 @@ struct V_A_80214544 : Base_A_80214544 {
 
 extern "C" {
 
-void TShopWindowBase__sub_80214490(void *arg0);
-void TShopWindowBase__sub_80214544(void *arg0);
+void update__15TShopWindowBaseFPv(void *arg0);
+void update_confirm_input__15TShopWindowBaseFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 
-void TShopWindowBase__sub_80214490(void *arg0) {
+void update__15TShopWindowBaseFPv(void *arg0) {
     u32 v = M2C_FIELD(arg0, u32 *, 0x3C);
     if (v != 0U) {
         if (all_parents_unqueued_for_destruction__7TObjectFv((void *)(v)) != 1) {
@@ -49,7 +49,7 @@ block_3:
     }
 }
 
-void TShopWindowBase__sub_80214544(void *arg0) {
+void update_confirm_input__15TShopWindowBaseFPv(void *arg0) {
     void *parent = M2C_FIELD(arg0, void **, 0x3C);
     if (parent != NULL) {
         if (all_parents_unqueued_for_destruction__7TObjectFv((void *)(parent)) == 0) {

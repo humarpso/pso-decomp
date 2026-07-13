@@ -3,10 +3,10 @@
 extern "C" {
 
 s32 init_sub_object__10TObjPlayerFi(s32 arg0);
-int TObjPlayer__sub_801D7890();
+int init_sub_object_vectors__10TObjPlayerFi();
 
 s32 init_sub_object__10TObjPlayerFi(s32 arg0) {
-    TObjPlayer__sub_801D7890();
+    init_sub_object_vectors__10TObjPlayerFi();
     return arg0;
 }
 

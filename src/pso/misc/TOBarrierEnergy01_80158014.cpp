@@ -9,14 +9,14 @@ extern "C" {
 void free_resources__17TOBarrierEnergy01Fv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_801E483C(s32);
+M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
 extern u32 lbl_805D5890;
 extern s32 *TOBarrierEnergy01__data_805D5894;
 
 void free_resources__17TOBarrierEnergy01Fv(void) {
     if ((s32 *) TOBarrierEnergy01__data_805D5894 != NULL) {
-        TObjPlayer__sub_801E483C(*TOBarrierEnergy01__data_805D5894);
+        free_if_valid__10TObjPlayerFi(*TOBarrierEnergy01__data_805D5894);
         if ((s32 *) TOBarrierEnergy01__data_805D5894 != NULL) {
             free__11TOBoss4RockFUi((void*)TOBarrierEnergy01__data_805D5894);
             TOBarrierEnergy01__data_805D5894 = NULL;

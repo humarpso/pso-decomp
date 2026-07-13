@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8034DF2C(void);
+void notify_all_battle_players__10TObjPlayerFv(void);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK notify_field1c__10TObjPlayerFi();
 
-void TObjPlayer__sub_8034DF2C(void) {
+void notify_all_battle_players__10TObjPlayerFv(void) {
     s32 var_r31;
 
     var_r31 = 0;

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_8028C8E0(void *arg0);
+s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
 extern s32 lbl_805D64E8;
 
-s32 TAdSinglePlyChrSelectGC__sub_8028C8E0(void *arg0) {
+s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (((s32) lbl_805D64E8 < 0) || ((s32) lbl_805D64E8 > 1)) {
         return 0;
     }

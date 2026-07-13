@@ -8,7 +8,7 @@ extern "C" {
 
 void update_motion_state__10TObjPlayerFi(s32 arg0);
 void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0);
-void* TObjPlayer__sub_8012AAB8(void* a0);
+void* init_state_object__10TObjPlayerFPv(void* a0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_80115BFC(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E2FC(s32, f32);
@@ -41,6 +41,6 @@ void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0) {
     extern unsigned char fn_80109710[];
     extern unsigned char lbl_804A4A88[];
     extern const float lbl_805DAE70;
-void* TObjPlayer__sub_8012AAB8(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A4A88; TObjPlayer__sub_8012106C(a0, (void*)34); *(int*)((char*)a0 + 0x1f0) = (int)fn_80109710; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE70; *(int*)((char*)a0 + 0x1f8) = 0; return a0; }
+void* init_state_object__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A4A88; TObjPlayer__sub_8012106C(a0, (void*)34); *(int*)((char*)a0 + 0x1f0) = (int)fn_80109710; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE70; *(int*)((char*)a0 + 0x1f8) = 0; return a0; }
 
 }

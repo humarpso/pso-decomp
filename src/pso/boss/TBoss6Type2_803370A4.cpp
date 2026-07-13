@@ -32,7 +32,7 @@ void TBoss6Type2__sub_803370A4(void *arg0) {
     }
 }
 void TBoss6Type2__sub_80337108(void) {  }
-void TBoss6Type2__sub_8033710C(void *arg0) {
+void update_attack_state__11TBoss6Type2FPv(void *arg0) {
     TBoss6Type2__sub_8032F824();
     TBoss6Type2__sub_8032ECE0(arg0);
     TBoss6Type2__sub_8032EAE4(arg0);
@@ -41,7 +41,7 @@ void TBoss6Type2__sub_8033710C(void *arg0) {
     }
 }
 void TBoss6Type2__sub_80337160(void) {  }
-void TBoss6Type2__sub_80337164(void *arg0) {
+void advance_phase_counter__11TBoss6Type2FPv(void *arg0) {
     TBoss6Type2__sub_8032FB84();
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) >= 4) {

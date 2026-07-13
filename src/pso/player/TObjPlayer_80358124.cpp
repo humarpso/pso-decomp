@@ -66,7 +66,7 @@ struct VObj_803584FC : Base_803584FC {
 
 extern "C" {
 
-void TObjPlayer__sub_80358124(void *arg0, void *arg1, void *arg2, s32 arg3);
+void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 void TObjPlayer__sub_8035814C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void handle_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void dispatch_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -88,7 +88,7 @@ M2C_UNK TObjPlayer__sub_800868C4(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK update_battle_control_if_unlocked__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_80357B2C(s32, M2C_UNK);
 
-void TObjPlayer__sub_80358124(void *arg0, void *arg1, void *arg2, s32 arg3) {
+void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3) {
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
