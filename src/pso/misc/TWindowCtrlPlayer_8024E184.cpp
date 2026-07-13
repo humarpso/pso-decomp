@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int fn_8024DAAC(void*);
+int TWindowCtrl__sub_8024DAAC(void*);
 int TWindowCtrl__sub_8024DAC4(void*);
 int show_active_window__11TWindowCtrlFPv(void*);
 int TWindowCtrl__sub_8024DCE8(void*);

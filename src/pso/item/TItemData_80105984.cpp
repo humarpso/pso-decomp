@@ -9,8 +9,8 @@ int activate_d04_slot__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C675C(void*, int);
 void clear_fields__20TWindowSubStatusDispFPv(void* p);
 void fn_801058E8(void* p);
-int fn_80114524(void*);
+int TItemMagSub__sub_80114524(void*);
 
-void* TItemData__sub_80105984(void* p) { fn_80114524(p); return p; }
+void* TItemData__sub_80105984(void* p) { TItemMagSub__sub_80114524(p); return p; }
 
 }

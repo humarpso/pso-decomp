@@ -11,7 +11,7 @@ s32 poll_memcard_status();
 s32 TSaveChCr__sub_8033A138(void *);
 s32 save_character__9TSaveChCrFPv(void *);
 int TKeyBoardControl__sub_8000F9B0(void);
-int fn_80339F30(void*);
+int TSaveChCr__sub_80339F30(void*);
 int TSaveChCr__sub_8033A184(void*, void*);
 int queue_destruction__7TObjectFv(void*);
 void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p);
@@ -26,7 +26,7 @@ int close_window__9TSaveChCrFPv(void*);
 
 void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p) { if (*(int*)((char*)p + 0x38) == 0) { queue_destruction__7TObjectFv(p); TKeyBoardControl__sub_8000F9B0(); } }
 int TSaveChCr__sub_80339B94(void* p) { return close_window__9TSaveChCrFPv(p); }
-void save_if_dirty__9TSaveChCrFPv(void* p) { if (fn_80339F30(p) != 0) { TSaveChCr__sub_8033A184(p, (void*)4); } }
+void save_if_dirty__9TSaveChCrFPv(void* p) { if (TSaveChCr__sub_80339F30(p) != 0) { TSaveChCr__sub_8033A184(p, (void*)4); } }
 int close_and_advance_to_3__9TSaveChCrFPv(void* p) { return close_and_advance__9TSaveChCrFPvPv(p, 3); }
 void update_save_status__9TSaveChCrFPv(void *arg0) {
     s32 var_r3;

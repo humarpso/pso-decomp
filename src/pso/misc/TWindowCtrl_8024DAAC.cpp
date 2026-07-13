@@ -6,10 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjCMProportion__sub_8029916C(M2C_UNK);
+void TWindowCtrl__sub_8024DAAC(void *arg0);
 
-s32 fn_80339F30(void) {
-    return TObjCMProportion__sub_8029916C(4) ? 1 : 0;
+void TWindowCtrl__sub_8024DAAC(void *arg0) {
+    s32 temp_r4;
+
+    temp_r4 = M2C_FIELD(arg0, s16 *, 0x20);
+    if (temp_r4 > 0) {
+        M2C_FIELD(arg0, s16 *, 0x20) = (s16) (temp_r4 - 1);
+    }
 }
 
 }

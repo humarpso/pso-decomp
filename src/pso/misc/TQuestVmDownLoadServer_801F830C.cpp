@@ -12,7 +12,7 @@ M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
-M2C_UNK fn_80222B64(void *, M2C_UNK);
+M2C_UNK TMedicalCenterMes__sub_80222B64(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_804C8714[];
@@ -42,7 +42,7 @@ u8 *TQuestVmDownLoadServer__vt0(u8 *arg0, s16 arg1) {
         close_message__22TQuestVmDownLoadServerFPv(arg0);
         TQuestVmDownLoadServer__data_805D5F24 = 0;
         TQuestVmDownLoadServer__data_805D5F18 = 0;
-        fn_80222B64(arg0 + 0x1C, 0);
+        TMedicalCenterMes__sub_80222B64(arg0 + 0x1C, 0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

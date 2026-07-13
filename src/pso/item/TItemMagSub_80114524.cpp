@@ -6,7 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_80114524(void *arg0) {
+void TItemMagSub__sub_80114524(void *arg0);
+
+void TItemMagSub__sub_80114524(void *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0x1F4;
     M2C_FIELD(arg0, s16 *, 0xA) = 0;
     M2C_FIELD(arg0, s16 *, 8) = 0;

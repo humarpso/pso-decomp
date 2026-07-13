@@ -11,7 +11,7 @@ s32 poll_memcard_status();
 s32 TSaveChCr__sub_8033A138(void *);
 s32 save_character__9TSaveChCrFPv(void *);
 int TKeyBoardControl__sub_8000F9B0(void);
-int fn_80339F30(void*);
+int TSaveChCr__sub_80339F30(void*);
 int TSaveChCr__sub_8033A184(void*, void*);
 int queue_destruction__7TObjectFv(void*);
 void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p);

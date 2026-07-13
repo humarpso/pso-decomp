@@ -6,16 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 realloc_buffer__17TWindowSubComCardFPv(u32);
-s32 update_keyboard__17TWindowSubComCardFPv(u32);
-M2C_UNK free__11TOBoss4RockFUi(s32);
+s32 TWindowSubComCard__sub_801F4F60(void *arg0);
+s32 TLobby__sub_8039DAFC(s32, M2C_UNK *);
 M2C_UNK fn_801F4F20(s32);
 M2C_UNK fn_801F64F4(u32);
+M2C_UNK free__11TOBoss4RockFUi(s32);
+s32 realloc_buffer__17TWindowSubComCardFPv(u32);
 s32 submit_card_password__17TWindowSubComCardFi(s32);
-s32 TLobby__sub_8039DAFC(s32, M2C_UNK *);
+s32 update_keyboard__17TWindowSubComCardFPv(u32);
+
 extern M2C_UNK lbl_805DC4FC;
 
-s32 fn_801F4F60(void *arg0) {
+s32 TWindowSubComCard__sub_801F4F60(void *arg0) {
     s32 temp_r31;
     u32 temp_field;
 

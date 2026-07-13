@@ -17,7 +17,7 @@ M2C_UNK TObjEneMe1GiGueBarrier__sub_80325CC0();
 void *TObjEneMe1GiGue__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK TLobby__sub_8001FE7C(M2C_UNK, M2C_UNK);
-M2C_UNK fn_802CE4E8();
+M2C_UNK TObjEneMe1GiGue__sub_802CE4E8();
 
 extern void *tl_04;
 
@@ -40,7 +40,7 @@ extern void *TObjEneMe1GiGue__data_805D683C;
 
 void delete_barrier__15TObjEneMe1GiGueFv(void) {
     TObjEneMe1GiGueBarrier__sub_80325CC0();
-    fn_802CE4E8();
+    TObjEneMe1GiGue__sub_802CE4E8();
     if (TObjEneMe1GiGue__data_805D683C != NULL) {
         if (TObjEneMe1GiGue__data_805D683C != NULL) {
             ((VObj_802CD5C0*)TObjEneMe1GiGue__data_805D683C)->m0(1);

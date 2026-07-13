@@ -34,10 +34,10 @@ extern "C" {
 
 void update_or_dispatch__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_802ECAA4(void *);
-s32 fn_802ECB10();
+s32 TObjPlayer__sub_802ECB10();
 
 void update_or_dispatch__10TObjPlayerFPv(void *arg0) {
-    if (fn_802ECB10() != 0) {
+    if (TObjPlayer__sub_802ECB10() != 0) {
         TObjPlayer__sub_802ECAA4(arg0);
         return;
     }

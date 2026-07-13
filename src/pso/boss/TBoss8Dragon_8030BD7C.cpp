@@ -6,11 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TBoss8Dragon__sub_8030BD7C(void *arg0);
+s32 TBoss8Dragon__sub_802F3638();
 M2C_UNK TObjPlayer__sub_80082CBC(void *);
 M2C_UNK TObjPlayer__sub_80082CCC(void *);
-s32 TBoss8Dragon__sub_802F3638();
 
-void fn_8030BD7C(void *arg0) {
+void TBoss8Dragon__sub_8030BD7C(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x4C) >= TBoss8Dragon__sub_802F3638()) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 1) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {

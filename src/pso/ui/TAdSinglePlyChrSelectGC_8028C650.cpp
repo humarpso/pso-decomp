@@ -6,13 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TAdSinglePlyChrSelectGC__sub_8028C650(u8 *arg0);
 s32 TLobby__sub_8001EEF4();
 u32 TLobby__sub_8002058C(u32, M2C_UNK, void *, void *, M2C_UNK, M2C_UNK, s32);
+s32 TLobby__sub_8028D714(s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 TLobby__sub_8028D714(s32);
 
-void fn_8028C650(u8 *arg0) {
+void TAdSinglePlyChrSelectGC__sub_8028C650(u8 *arg0) {
     u32 var_r31;
 
     if ((TLobby__sub_8001EEF4() != 0) && (try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(arg0) != 0)) {

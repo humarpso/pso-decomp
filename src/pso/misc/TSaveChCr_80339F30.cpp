@@ -6,12 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
+s32 TSaveChCr__sub_80339F30(void);
+s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 
-void *fn_801E0314(void *arg0, void *arg1) {
-    __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
-    return arg0;
+s32 TSaveChCr__sub_80339F30(void) {
+    return TObjCMProportion__sub_8029916C(4) ? 1 : 0;
 }
 
 }

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdGameStartBackGC__sub_80307298(void);
+void destroy_instance__18TAdGameStartBackGCFv(void);
 void TLobby__sub_803DA16C(void*);
 
 extern u32 lbl_805D6A48;
 
-void TAdGameStartBackGC__sub_80307298(void) {
+void destroy_instance__18TAdGameStartBackGCFv(void) {
     if ((u32) lbl_805D6A48 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D6A48);
         lbl_805D6A48 = 0U;
