@@ -15,7 +15,7 @@ int TLobby__sub_80145A94(void);
 int TLobby__sub_803F4B68(void*);
 M2C_UNK TLobby__sub_804219D0(M2C_UNK, M2C_UNK, s32);
 M2C_UNK TLobby__sub_80421A50(M2C_UNK, M2C_UNK, s32);
-s16 fn_80426BD8();
+s16 TLobby__sub_80426BD8();
 s8 func_801A5E54__Fv();
 int xmalloc__FUl(void);
 
@@ -37,7 +37,7 @@ loop_1:
     if (func_801A5E54__Fv() != 0) {
         return 1;
     }
-    if (fn_80426BD8() == 1) {
+    if (TLobby__sub_80426BD8() == 1) {
         return 2;
     }
     goto loop_1;

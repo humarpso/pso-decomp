@@ -8,7 +8,7 @@ extern "C" {
 
 extern s32 lbl_805D6510;
 
-void fn_8028CEEC(void *arg0) {
+void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0) {
     if (((s32) lbl_805D6510 <= 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x8C) = 0;
         if (--lbl_805D6510 == 0) {
@@ -19,7 +19,7 @@ void fn_8028CEEC(void *arg0) {
 
 extern s32 lbl_805D6510;
 
-s32 fn_8028CF1C(void *arg0) {
+s32 TAdSinglePlyChrSelectGC__sub_8028CF1C(void *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0) || ((s32) lbl_805D6510 < 0) || ((s32) lbl_805D6510 > 1)) {
         return 0;
     }
@@ -33,7 +33,7 @@ s32 fn_8028CF1C(void *arg0) {
 
 extern s32 lbl_805D6510;
 
-s32 fn_8028CF6C(void) {
+s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void) {
     return lbl_805D6510 < 1;
 }
 

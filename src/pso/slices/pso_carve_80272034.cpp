@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80275484(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowComCard__sub_802499E4(s32 a0 = 0, s32 a1 = 0);
-s32 fn_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
 s32 TLobby__sub_80269C6C(s32, s32, s32);

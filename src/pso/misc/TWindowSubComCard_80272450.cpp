@@ -9,7 +9,7 @@ extern "C" {
 void update_display_value__17TWindowSubComCardFUiUiPv(u32 arg0, u32 arg1, s32 *arg2);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 s32 TWindowSubComCard__sub_8007A8F8(M2C_UNK);
-M2C_UNK fn_80249950(u32, s32, s32);
+M2C_UNK TWindowComCard__sub_80249950(u32, s32, s32);
 
 void update_display_value__17TWindowSubComCardFUiUiPv(u32 arg0, u32 arg1, s32 *arg2) {
     s32 temp_r31;
@@ -20,7 +20,7 @@ void update_display_value__17TWindowSubComCardFUiUiPv(u32 arg0, u32 arg1, s32 *a
         temp_r3 = TWindowSubComCard__sub_80265BF8(arg0);
         if (temp_r3 != (s32) *arg2) {
             *arg2 = temp_r3;
-            fn_80249950(arg1, temp_r3, temp_r31);
+            TWindowComCard__sub_80249950(arg1, temp_r3, temp_r31);
         }
     }
 }

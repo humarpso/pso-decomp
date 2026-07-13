@@ -8,7 +8,7 @@ extern "C" {
 
 s32 fn_80275484(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowComCard__sub_802499E4(s32 a0 = 0, s32 a1 = 0);
-s32 fn_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
 s32 TLobby__sub_80269C6C(s32, s32, s32);
@@ -26,7 +26,7 @@ void TWindowSubComCard__sub_802720B0(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = TWindowSubComCard__sub_8007BC04(0);
-    fn_80249980(TWindowSubComCard__sub_8026CBB8(0x92), arg0, temp_r31);
+    TWindowComCard__sub_80249980(TWindowSubComCard__sub_8026CBB8(0x92), arg0, temp_r31);
 }
 void send_command__17TWindowSubComCardFi(s32 arg0) {
     TWindowComCard__sub_802499E4(TWindowSubComCard__sub_8026CBB8(0x86), arg0);

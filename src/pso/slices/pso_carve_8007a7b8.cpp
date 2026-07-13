@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8007A7E8();
+M2C_UNK TObjPlayer__sub_8007A7E8();
 
 s32 fn_8007A7B8(s32 arg0) {
-    fn_8007A7E8();
+    TObjPlayer__sub_8007A7E8();
     return arg0;
 }
 

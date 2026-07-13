@@ -13,14 +13,14 @@ M2C_UNK update_current_floor__6TLobbyFv();
 M2C_UNK TLobby__sub_8022743C();
 M2C_UNK refresh_render_state__6TLobbyFv();
 M2C_UNK reset_keyboard_control__6TLobbyFv();
-M2C_UNK fn_80226254();
+M2C_UNK TTecRaFoie__sub_80226254();
 
 extern M2C_UNK lbl_804A7370[];
 
 void cleanup_boss3_scene__6TLobbyFv(void) {
     refresh_render_state__6TLobbyFv();
     TLobby__sub_8022743C();
-    fn_80226254();
+    TTecRaFoie__sub_80226254();
     TLobby__sub_800FD6A0(lbl_804A7370, 0x60);
     reset_keyboard_control__6TLobbyFv();
     update_current_floor__6TLobbyFv();

@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_slot__14TItemEquipBaseFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK fn_8022F1F4(s32, s32);
+M2C_UNK TItemEquipBase__sub_8022F1F4(s32, s32);
 
 void set_slot__14TItemEquipBaseFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (arg1 < 6) {
-        fn_8022F1F4(arg0 + (arg1 * 8), arg2);
+        TItemEquipBase__sub_8022F1F4(arg0 + (arg1 * 8), arg2);
     }
 }
 

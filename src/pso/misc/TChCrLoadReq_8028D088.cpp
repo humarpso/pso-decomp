@@ -7,22 +7,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TChCrLoadReq__sub_8028D088(void *arg0);
-M2C_UNK fn_8028CC28(void *);
-M2C_UNK fn_8028CD18(void *);
-s32 fn_8028CF1C(void *);
-s32 fn_8028CF6C();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8028CC28(void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8028CD18(void *);
+s32 TAdSinglePlyChrSelectGC__sub_8028CF1C(void *);
+s32 TAdSinglePlyChrSelectGC__sub_8028CF6C();
 
 void TChCrLoadReq__sub_8028D088(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x64) > 0x1512) {
-        if (fn_8028CF6C() == 0) {
+        if (TAdSinglePlyChrSelectGC__sub_8028CF6C() == 0) {
             M2C_FIELD(arg0, s32 *, 0x64) = 0x1512;
             goto block_3;
         }
     } else {
 block_3:
-        if (fn_8028CF1C(arg0) != 0) {
-            fn_8028CD18(arg0);
-            fn_8028CC28(arg0);
+        if (TAdSinglePlyChrSelectGC__sub_8028CF1C(arg0) != 0) {
+            TAdSinglePlyChrSelectGC__sub_8028CD18(arg0);
+            TAdSinglePlyChrSelectGC__sub_8028CC28(arg0);
             M2C_FIELD(arg0, s32 *, 0x60) = 1;
         }
     }
