@@ -6,7 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_803570C8(s8 *arg0) {
+void TBoss6Type2__sub_803570C8(s8 *arg0);
+
+void TBoss6Type2__sub_803570C8(s8 *arg0) {
     s32 var_ctr;
 
     for (var_ctr = 0x40; var_ctr != 0; var_ctr -= 1) {

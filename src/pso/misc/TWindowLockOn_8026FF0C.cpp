@@ -3,9 +3,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct VObj;
-struct VObj {
+struct VObj_8026ff0c;
+struct VObj_8026ff0c {
     char pad[0x18];
     virtual M2C_UNK m0();
     virtual M2C_UNK m1();
@@ -43,17 +42,18 @@ struct VObj {
 
 extern "C" {
 
-s32 TObjPlayer__sub_80084854(void *);
-struct VObj *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK TWindowSubStatusDisp__sub_8024420C(void *);
-M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(void *);
-u32 TWindowSubComCard__sub_8024477C(void *);
-M2C_UNK TWindowSubStatusDisp__sub_8025AC50(void *, s32, M2C_UNK);
+void TWindowLockOn__sub_8026FF0C(u8 *arg0, s32 arg1);
 s32 TLobby__sub_8039DAFC(s32, s32);
+s32 TObjPlayer__sub_80084854(void *);
+struct VObj_8026ff0c *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 TWindowSubComCard__sub_8024477C(void *);
+M2C_UNK TWindowSubStatusDisp__sub_8024420C(void *);
+M2C_UNK TWindowSubStatusDisp__sub_8025AC50(void *, s32, M2C_UNK);
+M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(void *);
 
-void fn_8026FF0C(u8 *arg0, s32 arg1) {
+void TWindowLockOn__sub_8026FF0C(u8 *arg0, s32 arg1) {
     s32 temp_r31;
-    struct VObj *temp_r30;
+    struct VObj_8026ff0c *temp_r30;
     u8 *temp_r29;
 
     temp_r30 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
