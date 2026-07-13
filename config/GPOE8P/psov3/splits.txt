@@ -3372,6 +3372,15 @@ pso/misc/TParticleCtrl_8008861C.cpp:
 pso/misc/TParticleCtrl_80088670.cpp:
 	.text       start:0x80088670 end:0x8008869C
 
+pso/misc/TParticleCtrl_8008968C.cpp:
+	.text       start:0x8008968C end:0x800896E4
+
+pso/misc/TParticleCtrl_8008ABCC.cpp:
+	.text       start:0x8008ABCC end:0x8008AC24
+
+pso/misc/TParticleCtrl_8008BF00.cpp:
+	.text       start:0x8008BF00 end:0x8008BF58
+
 pso/slices/pso_carve_8008c4bc.cpp:
 	.text       start:0x8008C4BC end:0x8008C4F4
 
@@ -7042,6 +7051,9 @@ pso/item/TItemMag_8011370C.cpp:
 pso/item/TItemMag_80113954.cpp:
 	.text       start:0x80113954 end:0x8011399C
 
+pso/item/TItemMag_8011399C.cpp:
+	.text       start:0x8011399C end:0x801139F4
+
 pso/item/TItemMag_80113B2C.cpp:
 	.text       start:0x80113B2C end:0x80113B6C
 
@@ -7121,6 +7133,9 @@ pso/item/TItemMagSub_80114C80.cpp:
 pso/item/TItemMagSub_801151A8.cpp:
 	.text       start:0x801151A8 end:0x801151E0
 
+pso/item/TItemMagSub_801156D0.cpp:
+	.text       start:0x801156D0 end:0x80115780
+
 pso/item/TItemMagSub_80115780.cpp:
 	.text       start:0x80115780 end:0x80115800
 
@@ -7164,6 +7179,9 @@ pso/item/TItemEffectWeapon_80115C24.cpp:
 pso/slices/pso_carve_80115c44.cpp:
 	.text       start:0x80115C44 end:0x80115C50
 
+pso/item/TItemMoney.cpp:
+	.text       start:0x80115C50 end:0x80115CA8
+
 pso/item/TItem_80115D68.cpp:
 	.text       start:0x80115D68 end:0x80115D6C
 
@@ -7191,6 +7209,9 @@ pso/item/TItemObject_801163B0.cpp:
 pso/item/TItemObject_801164C4.cpp:
 	.text       start:0x801164C4 end:0x80116510
 
+pso/item/TItemObject_80116510.cpp:
+	.text       start:0x80116510 end:0x80116568
+
 pso/slices/pso_carve_80116568.cpp:
 	.text       start:0x80116568 end:0x80116578
 
@@ -7203,14 +7224,23 @@ pso/player/TObjPlayer_80116618.cpp:
 pso/slices/pso_carve_80116620.cpp:
 	.text       start:0x80116620 end:0x80116634
 
+pso/item/TItemProShield_801166B0.cpp:
+	.text       start:0x801166B0 end:0x80116708
+
 pso/item/TItemProShield_80116708.cpp:
 	.text       start:0x80116708 end:0x80116744
 
 pso/item/TItemProShield_8011679C.cpp:
 	.text       start:0x8011679C end:0x801167E8
 
+pso/item/TItemProShield_801167E8.cpp:
+	.text       start:0x801167E8 end:0x80116840
+
 pso/item/TItemProShield_80116840.cpp:
 	.text       start:0x80116840 end:0x8011687C
+
+pso/item/TItemProShield_80116970.cpp:
+	.text       start:0x80116970 end:0x801169C8
 
 pso/item/TItemProShield_801169C8.cpp:
 	.text       start:0x801169C8 end:0x80116A04
@@ -7218,11 +7248,17 @@ pso/item/TItemProShield_801169C8.cpp:
 pso/item/TItemProShield_80116A5C.cpp:
 	.text       start:0x80116A5C end:0x80116AD0
 
+pso/item/TItemProShield_80116AD0.cpp:
+	.text       start:0x80116AD0 end:0x80116B28
+
 pso/item/TItemProShield_80116B28.cpp:
 	.text       start:0x80116B28 end:0x80116B64
 
 pso/slices/pso_carve_80116bbc.cpp:
 	.text       start:0x80116BBC end:0x80116BEC
+
+pso/item/TItemObjectVariant_80116BEC.cpp:
+	.text       start:0x80116BEC end:0x80116C44
 
 pso/item/TItemProShield_80116C44.cpp:
 	.text       start:0x80116C44 end:0x80116C80
@@ -7230,17 +7266,29 @@ pso/item/TItemProShield_80116C44.cpp:
 pso/slices/pso_carve_80116cd8.cpp:
 	.text       start:0x80116CD8 end:0x80116CFC
 
+pso/item/TItemObjectVariant_80116CFC.cpp:
+	.text       start:0x80116CFC end:0x80116D54
+
 pso/slices/pso_carve_80116d54.cpp:
 	.text       start:0x80116D54 end:0x80116D90
 
+pso/item/TItemObjectVariant_80116F10.cpp:
+	.text       start:0x80116F10 end:0x80116F68
+
 pso/slices/pso_carve_80116f68.cpp:
 	.text       start:0x80116F68 end:0x80116FA4
+
+pso/item/TItemObjectVariant_80117044.cpp:
+	.text       start:0x80117044 end:0x8011709C
 
 pso/item/TItemProArmor_8011709C.cpp:
 	.text       start:0x8011709C end:0x801170D8
 
 pso/item/TItemProArmor_80117130.cpp:
 	.text       start:0x80117130 end:0x80117160
+
+pso/item/TItemProArmor_80117160.cpp:
+	.text       start:0x80117160 end:0x801171B8
 
 pso/item/TItemProArmor_801171B8.cpp:
 	.text       start:0x801171B8 end:0x801171F4
@@ -7254,6 +7302,9 @@ pso/item/TItemProArmor_801172A4.cpp:
 pso/item/TItemProArmor_801172D8.cpp:
 	.text       start:0x801172D8 end:0x80117368
 
+pso/item/TItemProArmor_80117368.cpp:
+	.text       start:0x80117368 end:0x801173C0
+
 pso/item/TItemProArmor_801173C0.cpp:
 	.text       start:0x801173C0 end:0x801173FC
 
@@ -7263,11 +7314,17 @@ pso/item/TItemProArmor_80117454.cpp:
 pso/item/TItemProArmor_80117578.cpp:
 	.text       start:0x80117578 end:0x801175F8
 
+pso/item/TItemProArmor_801175F8.cpp:
+	.text       start:0x801175F8 end:0x80117650
+
 pso/item/TItemProArmor_80117650.cpp:
 	.text       start:0x80117650 end:0x8011768C
 
 pso/item/TItemProArmor_801176E4.cpp:
 	.text       start:0x801176E4 end:0x80117730
+
+pso/item/TItemProArmor_80117730.cpp:
+	.text       start:0x80117730 end:0x80117788
 
 pso/item/TItemProArmor_80117788.cpp:
 	.text       start:0x80117788 end:0x801177C4
@@ -7298,6 +7355,9 @@ pso/item/TItemProArmor_80117B58.cpp:
 
 pso/item/TItemProArmor_80117D00.cpp:
 	.text       start:0x80117D00 end:0x80117D08
+
+pso/item/TItemProArmor_80117D08.cpp:
+	.text       start:0x80117D08 end:0x80117D60
 
 pso/item/TItemProArmor_80117D60.cpp:
 	.text       start:0x80117D60 end:0x80117DD8
@@ -7335,6 +7395,9 @@ pso/item/TItemProShield_80118828.cpp:
 pso/item/TItemProShield_80118854.cpp:
 	.text       start:0x80118854 end:0x801188D4
 
+pso/item/TItemProShield_801188D4.cpp:
+	.text       start:0x801188D4 end:0x8011892C
+
 pso/item/TItem_8011892C.cpp:
 	.text       start:0x8011892C end:0x80118930
 
@@ -7349,6 +7412,9 @@ pso/item/TItemProUnit_80118E64.cpp:
 
 pso/item/TItemProUnit_80118FB4.cpp:
 	.text       start:0x80118FB4 end:0x80118FBC
+
+pso/item/TItemProUnit_80118FBC.cpp:
+	.text       start:0x80118FBC end:0x80119014
 
 pso/item/TItemProUnit.cpp:
 	.text       start:0x80119014 end:0x80119024
@@ -7597,6 +7663,12 @@ pso/item/TItemTimerEvent_8011DB50.cpp:
 pso/item/TItemTimerEvent.cpp:
 	.text       start:0x8011DB98 end:0x8011DBA8
 
+pso/item/TItemTimerEvent_8011DC38.cpp:
+	.text       start:0x8011DC38 end:0x8011DC90
+
+pso/item/TItemTimerEvent_8011DCF8.cpp:
+	.text       start:0x8011DCF8 end:0x8011E068
+
 pso/item/TItemTimerEvent_8011E0E0.cpp:
 	.text       start:0x8011E0E0 end:0x8011E184
 
@@ -7654,6 +7726,9 @@ pso/player/TObjPlayer_801207E8.cpp:
 pso/slices/pso_carve_80120c10.cpp:
 	.text       start:0x80120C10 end:0x80120C5C
 
+pso/item/TItemEquipVariant_80120CF8.cpp:
+	.text       start:0x80120CF8 end:0x80120D50
+
 pso/player/TObjPlayer_80121010.cpp:
 	.text       start:0x80121010 end:0x8012105C
 
@@ -7678,14 +7753,23 @@ pso/player/TObjPlayer_8012121C.cpp:
 pso/slices/pso_carve_80121248.cpp:
 	.text       start:0x80121248 end:0x80121278
 
+pso/item/TItemEquipVariant_80121278.cpp:
+	.text       start:0x80121278 end:0x801212D0
+
 pso/player/TObjPlayer_801212D0.cpp:
 	.text       start:0x801212D0 end:0x80121318
 
 pso/player/TObjPlayer_80121370.cpp:
 	.text       start:0x80121370 end:0x80121420
 
+pso/item/TItemEquipVariant_80121420.cpp:
+	.text       start:0x80121420 end:0x80121478
+
 pso/player/TObjPlayer_80121478.cpp:
 	.text       start:0x80121478 end:0x801214B4
+
+pso/item/TItemEquipVariant_8012157C.cpp:
+	.text       start:0x8012157C end:0x801215D4
 
 pso/player/TObjPlayer_801215D4.cpp:
 	.text       start:0x801215D4 end:0x80121630
@@ -7695,6 +7779,9 @@ pso/player/TObjPlayer_80121688.cpp:
 
 pso/player/TObjPlayer_801217CC.cpp:
 	.text       start:0x801217CC end:0x80121820
+
+pso/item/TItemEquipVariant_80121820.cpp:
+	.text       start:0x80121820 end:0x80121878
 
 pso/player/TObjPlayer_80121878.cpp:
 	.text       start:0x80121878 end:0x801218D4
@@ -7706,6 +7793,9 @@ pso/player/TObjPlayer_8012192C.cpp:
 pso/player/TObjPlayer_80121B64.cpp:
 	.text       start:0x80121B64 end:0x80121B98
 
+pso/item/TItemEquipVariant_80121B98.cpp:
+	.text       start:0x80121B98 end:0x80121BF0
+
 pso/player/TObjPlayer_80121BF0.cpp:
 	.text       start:0x80121BF0 end:0x80121C50
 
@@ -7715,11 +7805,17 @@ pso/player/TObjPlayer_80121CA8.cpp:
 pso/player/TObjPlayer_80121D88.cpp:
 	.text       start:0x80121D88 end:0x80121E94
 
+pso/item/TItemEquipVariant_80121F00.cpp:
+	.text       start:0x80121F00 end:0x80121F58
+
 pso/player/TObjPlayer_80121F58.cpp:
 	.text       start:0x80121F58 end:0x80121FBC
 
 pso/player/TObjPlayer_80122014.cpp:
 	.text       start:0x80122014 end:0x80122070
+
+pso/item/TItemEquipVariant_801220A4.cpp:
+	.text       start:0x801220A4 end:0x801220FC
 
 pso/player/TObjPlayer_801220FC.cpp:
 	.text       start:0x801220FC end:0x80122148
@@ -7727,11 +7823,17 @@ pso/player/TObjPlayer_801220FC.cpp:
 pso/player/TObjPlayer_8012227C.cpp:
 	.text       start:0x8012227C end:0x801222DC
 
+pso/item/TItemEquipVariant_801222DC.cpp:
+	.text       start:0x801222DC end:0x80122334
+
 pso/player/TObjPlayer_80122334.cpp:
 	.text       start:0x80122334 end:0x80122388
 
 pso/player/TObjPlayer_80122444.cpp:
 	.text       start:0x80122444 end:0x801224D4
+
+pso/item/TItemEquipVariant_801225A0.cpp:
+	.text       start:0x801225A0 end:0x801225F8
 
 pso/player/TObjPlayer_801225F8.cpp:
 	.text       start:0x801225F8 end:0x80122768
@@ -7740,11 +7842,17 @@ pso/player/TObjPlayer_801225F8.cpp:
 pso/player/TObjPlayer_801227E0.cpp:
 	.text       start:0x801227E0 end:0x80122814
 
+pso/item/TItemEquipVariant_80122814.cpp:
+	.text       start:0x80122814 end:0x8012286C
+
 pso/player/TObjPlayer_8012286C.cpp:
 	.text       start:0x8012286C end:0x801228CC
 
 pso/player/TObjPlayer_80122924.cpp:
 	.text       start:0x80122924 end:0x80122958
+
+pso/item/TItemEquipVariant_80122958.cpp:
+	.text       start:0x80122958 end:0x801229B0
 
 pso/player/TObjPlayer_801229B0.cpp:
 	.text       start:0x801229B0 end:0x801229EC
@@ -7752,14 +7860,23 @@ pso/player/TObjPlayer_801229B0.cpp:
 pso/player/TObjPlayer_80122A44.cpp:
 	.text       start:0x80122A44 end:0x80122A88
 
+pso/item/TItemEquipVariant_80122A88.cpp:
+	.text       start:0x80122A88 end:0x80122AE0
+
 pso/player/TObjPlayer_80122AE0.cpp:
 	.text       start:0x80122AE0 end:0x80122B1C
 
 pso/player/TObjPlayer_80122B74.cpp:
 	.text       start:0x80122B74 end:0x80122C2C
 
+pso/item/TItemEquipVariant_80122C84.cpp:
+	.text       start:0x80122C84 end:0x80122CDC
+
 pso/player/TObjPlayer_80122CDC.cpp:
 	.text       start:0x80122CDC end:0x80122D74
+
+pso/item/TItemEquipVariant_80122DCC.cpp:
+	.text       start:0x80122DCC end:0x80122E24
 
 pso/player/TObjPlayer_80122E24.cpp:
 	.text       start:0x80122E24 end:0x80122E60
@@ -7767,11 +7884,17 @@ pso/player/TObjPlayer_80122E24.cpp:
 pso/player/TObjPlayer_80122E9C.cpp:
 	.text       start:0x80122E9C end:0x80122ED8
 
+pso/item/TItemEquipVariant_80122F3C.cpp:
+	.text       start:0x80122F3C end:0x80122F94
+
 pso/player/TObjPlayer_80122F94.cpp:
 	.text       start:0x80122F94 end:0x80122FEC
 
 pso/player/TObjPlayer_80123044.cpp:
 	.text       start:0x80123044 end:0x801230D4
+
+pso/item/TItemEquipVariant_8012312C.cpp:
+	.text       start:0x8012312C end:0x801231DC
 
 pso/player/TObjPlayer_801231DC.cpp:
 	.text       start:0x801231DC end:0x80123224
@@ -7779,8 +7902,14 @@ pso/player/TObjPlayer_801231DC.cpp:
 pso/player/TObjPlayer_801232C0.cpp:
 	.text       start:0x801232C0 end:0x80123344
 
+pso/item/TItemEquipVariant_8012339C.cpp:
+	.text       start:0x8012339C end:0x801233F4
+
 pso/player/TObjPlayer_801233F4.cpp:
 	.text       start:0x801233F4 end:0x80123438
+
+pso/item/TItemEquipVariant_80123438.cpp:
+	.text       start:0x80123438 end:0x80123490
 
 pso/player/TObjPlayer_80123490.cpp:
 	.text       start:0x80123490 end:0x801234CC
@@ -7788,17 +7917,29 @@ pso/player/TObjPlayer_80123490.cpp:
 pso/player/TObjPlayer_80123524.cpp:
 	.text       start:0x80123524 end:0x8012375C
 
+pso/item/TItemEquipVariant_8012375C.cpp:
+	.text       start:0x8012375C end:0x801237B4
+
 pso/player/TObjPlayer_801237B4.cpp:
 	.text       start:0x801237B4 end:0x8012380C
 
 pso/player/TObjPlayer_80123864.cpp:
 	.text       start:0x80123864 end:0x801238AC
 
+pso/item/TItemEquipVariant_801238AC.cpp:
+	.text       start:0x801238AC end:0x80123904
+
 pso/player/TObjPlayer_801239A8.cpp:
 	.text       start:0x801239A8 end:0x80123A38
 
+pso/item/TItemEquipVariant_80123A90.cpp:
+	.text       start:0x80123A90 end:0x80123AE8
+
 pso/player/TObjPlayer_80123B18.cpp:
 	.text       start:0x80123B18 end:0x80123B84
+
+pso/item/TItemEquipVariant_80123B84.cpp:
+	.text       start:0x80123B84 end:0x80123BDC
 
 pso/player/TObjPlayer_80123BDC.cpp:
 	.text       start:0x80123BDC end:0x80123C50
@@ -7806,8 +7947,14 @@ pso/player/TObjPlayer_80123BDC.cpp:
 pso/slices/run_80123E2C.cpp:
 	.text       start:0x80123E2C end:0x80123E6C
 
+pso/item/TItemEquipVariant_80123E6C.cpp:
+	.text       start:0x80123E6C end:0x80123EC4
+
 pso/player/TObjPlayer_80123F70.cpp:
 	.text       start:0x80123F70 end:0x80123FD4
+
+pso/item/TItemEquipVariant_80123FD4.cpp:
+	.text       start:0x80123FD4 end:0x8012402C
 
 pso/player/TObjPlayer_8012402C.cpp:
 	.text       start:0x8012402C end:0x80124068
@@ -7820,6 +7967,9 @@ pso/player/TObjPlayer_8012429C.cpp:
 
 pso/player/TObjPlayer_801244C0.cpp:
 	.text       start:0x801244C0 end:0x8012463C
+
+pso/item/TItemEquipVariant_8012463C.cpp:
+	.text       start:0x8012463C end:0x80124694
 
 pso/player/TObjPlayer_80124694.cpp:
 	.text       start:0x80124694 end:0x80124708
@@ -7835,6 +7985,9 @@ pso/slices/pso_carve_8012484c.cpp:
 
 pso/player/TObjPlayer_801249C4.cpp:
 	.text       start:0x801249C4 end:0x80124AEC
+
+pso/item/TItemEquipVariant_80124AEC.cpp:
+	.text       start:0x80124AEC end:0x80124B44
 
 pso/player/TObjPlayer_80124B44.cpp:
 	.text       start:0x80124B44 end:0x80124BB4
@@ -7854,14 +8007,23 @@ pso/player/TObjPlayer_80124C88.cpp:
 pso/player/TObjPlayer_80124FBC.cpp:
 	.text       start:0x80124FBC end:0x801250A0
 
+pso/item/TItemEquipVariant_801250A0.cpp:
+	.text       start:0x801250A0 end:0x801250F8
+
 pso/player/TObjPlayer_801251AC.cpp:
 	.text       start:0x801251AC end:0x801252C0
+
+pso/item/TItemEquipVariant_801252C0.cpp:
+	.text       start:0x801252C0 end:0x80125318
 
 pso/player/TObjPlayer_80125318.cpp:
 	.text       start:0x80125318 end:0x80125380
 
 pso/player/TObjPlayer_801253D8.cpp:
 	.text       start:0x801253D8 end:0x80125428
+
+pso/item/TItemEquipVariant_80125480.cpp:
+	.text       start:0x80125480 end:0x801254D8
 
 pso/player/TObjPlayer_801254D8.cpp:
 	.text       start:0x801254D8 end:0x80125550
@@ -7884,11 +8046,17 @@ pso/slices/pso_carve_80125824.cpp:
 pso/player/TObjPlayer_8012583C.cpp:
 	.text       start:0x8012583C end:0x80125848
 
+pso/item/TItemEquipVariant_80125848.cpp:
+	.text       start:0x80125848 end:0x801258A0
+
 pso/player/TObjPlayer_8012599C.cpp:
 	.text       start:0x8012599C end:0x80125AF8
 
 pso/player/TObjPlayer_80125B80.cpp:
 	.text       start:0x80125B80 end:0x80125D7C
+
+pso/item/TItemEquipVariant_80125D7C.cpp:
+	.text       start:0x80125D7C end:0x80125DD4
 
 pso/player/TObjPlayer_80125DD4.cpp:
 	.text       start:0x80125DD4 end:0x80125E30
@@ -7896,17 +8064,29 @@ pso/player/TObjPlayer_80125DD4.cpp:
 pso/player/TObjPlayer_80125E88.cpp:
 	.text       start:0x80125E88 end:0x80125ECC
 
+pso/item/TItemEquipVariant_80125ECC.cpp:
+	.text       start:0x80125ECC end:0x80125F24
+
 pso/player/TObjPlayer_80125F24.cpp:
 	.text       start:0x80125F24 end:0x80125F60
 
+pso/item/TItemEquipVariant_801260AC.cpp:
+	.text       start:0x801260AC end:0x80126104
+
 pso/player/TObjPlayer_80126278.cpp:
 	.text       start:0x80126278 end:0x801262DC
+
+pso/item/TItemEquipVariant_801262DC.cpp:
+	.text       start:0x801262DC end:0x80126334
 
 pso/player/TObjPlayer_80126460.cpp:
 	.text       start:0x80126460 end:0x8012654C
 
 pso/player/TObjPlayer_8012665C.cpp:
 	.text       start:0x8012665C end:0x80126680
+
+pso/item/TItemEquipVariant_80126680.cpp:
+	.text       start:0x80126680 end:0x801266D8
 
 pso/player/TObjPlayer_801266D8.cpp:
 	.text       start:0x801266D8 end:0x80126740
@@ -7917,11 +8097,20 @@ pso/player/TObjPlayer_801267C4.cpp:
 pso/player/TObjPlayer_80126990.cpp:
 	.text       start:0x80126990 end:0x80126A34
 
+pso/item/TItemEquipVariant_80126A8C.cpp:
+	.text       start:0x80126A8C end:0x80126AE4
+
 pso/player/TObjPlayer_80126AE4.cpp:
 	.text       start:0x80126AE4 end:0x80126B6C
 
+pso/item/TItemEquipVariant_80126C80.cpp:
+	.text       start:0x80126C80 end:0x80126D30
+
 pso/player/TObjPlayer_80126D30.cpp:
 	.text       start:0x80126D30 end:0x80126D78
+
+pso/item/TItemEquipVariant_80126DAC.cpp:
+	.text       start:0x80126DAC end:0x80126E04
 
 pso/player/TObjPlayer_80126E04.cpp:
 	.text       start:0x80126E04 end:0x80126E50
@@ -7929,23 +8118,41 @@ pso/player/TObjPlayer_80126E04.cpp:
 pso/player/TObjPlayer_80126EA8.cpp:
 	.text       start:0x80126EA8 end:0x80126F40
 
+pso/item/TItemEquipVariant_80126F40.cpp:
+	.text       start:0x80126F40 end:0x80126F98
+
 pso/player/TObjPlayer_80126F98.cpp:
 	.text       start:0x80126F98 end:0x80126FE4
 
 pso/player/TObjPlayer_8012703C.cpp:
 	.text       start:0x8012703C end:0x801270D4
 
+pso/item/TItemEquipVariant_801270D4.cpp:
+	.text       start:0x801270D4 end:0x8012712C
+
 pso/player/TObjPlayer_801271FC.cpp:
 	.text       start:0x801271FC end:0x8012725C
+
+pso/item/TItemEquipVariant_8012725C.cpp:
+	.text       start:0x8012725C end:0x801272B4
 
 pso/player/TObjPlayer_8012736C.cpp:
 	.text       start:0x8012736C end:0x801273B0
 
+pso/item/TItemEquipVariant_8012763C.cpp:
+	.text       start:0x8012763C end:0x80127694
+
 pso/player/TObjPlayer_801277A4.cpp:
 	.text       start:0x801277A4 end:0x801277EC
 
+pso/item/TItemEquipVariant_80127844.cpp:
+	.text       start:0x80127844 end:0x8012789C
+
 pso/player/TObjPlayer_8012789C.cpp:
 	.text       start:0x8012789C end:0x80127978
+
+pso/item/TItemEquipVariant_80127978.cpp:
+	.text       start:0x80127978 end:0x801279D0
 
 pso/player/TObjPlayer_801279D0.cpp:
 	.text       start:0x801279D0 end:0x80127A24
@@ -7953,8 +8160,14 @@ pso/player/TObjPlayer_801279D0.cpp:
 pso/player/TObjPlayer_80127A7C.cpp:
 	.text       start:0x80127A7C end:0x80127AE8
 
+pso/item/TItemEquipVariant_80127AE8.cpp:
+	.text       start:0x80127AE8 end:0x80127B40
+
 pso/player/TObjPlayer_80127B40.cpp:
 	.text       start:0x80127B40 end:0x80127B88
+
+pso/item/TItemEquipVariant_80127CCC.cpp:
+	.text       start:0x80127CCC end:0x80127D24
 
 pso/player/TObjPlayer_80127D24.cpp:
 	.text       start:0x80127D24 end:0x80127D6C
@@ -7962,8 +8175,14 @@ pso/player/TObjPlayer_80127D24.cpp:
 pso/player/TObjPlayer_80127DC4.cpp:
 	.text       start:0x80127DC4 end:0x80127E54
 
+pso/item/TItemEquipVariant_80127E54.cpp:
+	.text       start:0x80127E54 end:0x80127EAC
+
 pso/player/TObjPlayer_80127EAC.cpp:
 	.text       start:0x80127EAC end:0x80127EE8
+
+pso/item/TItemEquipVariant_80128008.cpp:
+	.text       start:0x80128008 end:0x80128060
 
 pso/player/TObjPlayer_80128060.cpp:
 	.text       start:0x80128060 end:0x801280D0
@@ -7971,29 +8190,50 @@ pso/player/TObjPlayer_80128060.cpp:
 pso/player/TObjPlayer_80128158.cpp:
 	.text       start:0x80128158 end:0x801281C4
 
+pso/item/TItemEquipVariant_801281C4.cpp:
+	.text       start:0x801281C4 end:0x8012821C
+
 pso/player/TObjPlayer_8012821C.cpp:
 	.text       start:0x8012821C end:0x80128268
 
 pso/player/TObjPlayer_801282C0.cpp:
 	.text       start:0x801282C0 end:0x80128308
 
+pso/item/TItemEquipVariant_80128360.cpp:
+	.text       start:0x80128360 end:0x801283B8
+
 pso/player/TObjPlayer_801283B8.cpp:
 	.text       start:0x801283B8 end:0x80128440
+
+pso/item/TItemEquipVariant_80128498.cpp:
+	.text       start:0x80128498 end:0x801284F0
 
 pso/player/TObjPlayer_801284F0.cpp:
 	.text       start:0x801284F0 end:0x80128580
 
+pso/item/TItemEquipVariant_801285D8.cpp:
+	.text       start:0x801285D8 end:0x80128630
+
 pso/player/TObjPlayer_80128630.cpp:
 	.text       start:0x80128630 end:0x80128678
 
+pso/item/TItemEquipVariant_801286D0.cpp:
+	.text       start:0x801286D0 end:0x80128728
+
 pso/player/TObjPlayer_80128728.cpp:
 	.text       start:0x80128728 end:0x80128770
+
+pso/item/TItemEquipVariant_801287A4.cpp:
+	.text       start:0x801287A4 end:0x801287FC
 
 pso/player/TObjPlayer_801287FC.cpp:
 	.text       start:0x801287FC end:0x80128848
 
 pso/player/TObjPlayer_8012896C.cpp:
 	.text       start:0x8012896C end:0x801289C0
+
+pso/item/TItemEquipVariant_80128A18.cpp:
+	.text       start:0x80128A18 end:0x80128A70
 
 pso/player/TObjPlayer_80128A70.cpp:
 	.text       start:0x80128A70 end:0x80128A74
@@ -8016,6 +8256,9 @@ pso/player/TObjPlayer_80128C38.cpp:
 pso/player/TObjPlayer_80128E80.cpp:
 	.text       start:0x80128E80 end:0x80128F08
 
+pso/item/TItemEquipVariant_80128F08.cpp:
+	.text       start:0x80128F08 end:0x80128F60
+
 pso/player/TObjPlayer_80128F60.cpp:
 	.text       start:0x80128F60 end:0x80128FF0
 
@@ -8034,6 +8277,12 @@ pso/player/TObjPlayer_80129124.cpp:
 pso/player/TObjPlayer_80129308.cpp:
 	.text       start:0x80129308 end:0x8012934C
 
+pso/item/TItemEquipVariant_801293A4.cpp:
+	.text       start:0x801293A4 end:0x801293FC
+
+pso/item/TItemEquipVariant_801294E8.cpp:
+	.text       start:0x801294E8 end:0x80129540
+
 pso/player/TObjPlayer_80129540.cpp:
 	.text       start:0x80129540 end:0x80129588
 
@@ -8043,11 +8292,17 @@ pso/player/TObjPlayer_801295E0.cpp:
 pso/player/TObjPlayer_80129724.cpp:
 	.text       start:0x80129724 end:0x8012976C
 
+pso/item/TItemEquipVariant_801297C4.cpp:
+	.text       start:0x801297C4 end:0x8012981C
+
 pso/player/TObjPlayer_8012981C.cpp:
 	.text       start:0x8012981C end:0x80129878
 
 pso/player/TObjPlayer_801299DC.cpp:
 	.text       start:0x801299DC end:0x80129AB0
+
+pso/item/TItemEquipVariant_80129B08.cpp:
+	.text       start:0x80129B08 end:0x80129B60
 
 pso/player/TObjPlayer_80129B60.cpp:
 	.text       start:0x80129B60 end:0x80129BB0
@@ -8058,8 +8313,17 @@ pso/player/TObjPlayer_80129CA0.cpp:
 pso/player/TObjPlayer_80129D70.cpp:
 	.text       start:0x80129D70 end:0x80129D7C
 
+pso/item/TItemEquipVariant_80129D7C.cpp:
+	.text       start:0x80129D7C end:0x80129DD4
+
 pso/player/TObjPlayer_80129F2C.cpp:
 	.text       start:0x80129F2C end:0x80129F98
+
+pso/item/TItemEquipVariant_80129FF0.cpp:
+	.text       start:0x80129FF0 end:0x8012A048
+
+pso/item/TItemEquipVariant_8012A114.cpp:
+	.text       start:0x8012A114 end:0x8012A16C
 
 pso/player/TObjPlayer_8012A16C.cpp:
 	.text       start:0x8012A16C end:0x8012A1CC
@@ -8067,17 +8331,29 @@ pso/player/TObjPlayer_8012A16C.cpp:
 pso/player/TObjPlayer_8012A224.cpp:
 	.text       start:0x8012A224 end:0x8012A35C
 
+pso/item/TItemEquipVariant_8012A35C.cpp:
+	.text       start:0x8012A35C end:0x8012A3B4
+
 pso/player/TObjPlayer_8012A3B4.cpp:
 	.text       start:0x8012A3B4 end:0x8012A418
 
 pso/player/TObjPlayer_8012A78C.cpp:
 	.text       start:0x8012A78C end:0x8012A82C
 
+pso/item/TItemEquipVariant_8012A82C.cpp:
+	.text       start:0x8012A82C end:0x8012A884
+
 pso/player/TObjPlayer_8012AA0C.cpp:
 	.text       start:0x8012AA0C end:0x8012AB1C
 
+pso/item/TItemEquipVariant_8012AB74.cpp:
+	.text       start:0x8012AB74 end:0x8012ABCC
+
 pso/player/TObjPlayer_8012AE00.cpp:
 	.text       start:0x8012AE00 end:0x8012AE50
+
+pso/item/TItemEquipVariant_8012AEA8.cpp:
+	.text       start:0x8012AEA8 end:0x8012AF00
 
 pso/player/TObjPlayer_8012AF50.cpp:
 	.text       start:0x8012AF50 end:0x8012AF80
@@ -8089,14 +8365,23 @@ pso/player/TObjPlayer_8012AF98.cpp:
 pso/player/TObjPlayer_8012B0F8.cpp:
 	.text       start:0x8012B0F8 end:0x8012B140
 
+pso/item/TItemEquipVariant_8012B198.cpp:
+	.text       start:0x8012B198 end:0x8012B1F0
+
 pso/player/TObjPlayer_8012B1F0.cpp:
 	.text       start:0x8012B1F0 end:0x8012B200
+
+pso/item/TItemEquipVariant_8012B200.cpp:
+	.text       start:0x8012B200 end:0x8012B258
 
 pso/player/TObjPlayer_8012B318.cpp:
 	.text       start:0x8012B318 end:0x8012B3C4
 
 pso/player/TObjPlayer_8012B618.cpp:
 	.text       start:0x8012B618 end:0x8012B664
+
+pso/item/TItemEquipVariant_8012B7FC.cpp:
+	.text       start:0x8012B7FC end:0x8012B854
 
 pso/player/TObjPlayer_8012B854.cpp:
 	.text       start:0x8012B854 end:0x8012B898
@@ -8110,8 +8395,14 @@ pso/player/TObjPlayer_8012BC28.cpp:
 pso/player/TObjPlayer_8012BDA8.cpp:
 	.text       start:0x8012BDA8 end:0x8012BDC0
 
+pso/item/TItemEquipVariant_8012BDC0.cpp:
+	.text       start:0x8012BDC0 end:0x8012BE18
+
 pso/player/TObjPlayer_8012BE18.cpp:
 	.text       start:0x8012BE18 end:0x8012BE68
+
+pso/item/TItemEquipVariant_8012BE68.cpp:
+	.text       start:0x8012BE68 end:0x8012BEC0
 
 pso/player/TObjPlayer_8012BEC0.cpp:
 	.text       start:0x8012BEC0 end:0x8012BEFC
@@ -8119,8 +8410,14 @@ pso/player/TObjPlayer_8012BEC0.cpp:
 pso/player/TObjPlayer_8012BF54.cpp:
 	.text       start:0x8012BF54 end:0x8012C0D0
 
+pso/item/TItemEquipVariant_8012C128.cpp:
+	.text       start:0x8012C128 end:0x8012C180
+
 pso/player/TObjPlayer_8012C180.cpp:
 	.text       start:0x8012C180 end:0x8012C268
+
+pso/item/TItemEquipVariant_8012C32C.cpp:
+	.text       start:0x8012C32C end:0x8012C384
 
 pso/slices/pso_carve_8012c384.cpp:
 	.text       start:0x8012C384 end:0x8012C3F4
@@ -8140,11 +8437,17 @@ pso/player/TObjPlayer_8012C548.cpp:
 pso/player/TObjPlayer_8012C78C.cpp:
 	.text       start:0x8012C78C end:0x8012C810
 
+pso/item/TItemEquipVariant_8012C810.cpp:
+	.text       start:0x8012C810 end:0x8012C868
+
 pso/player/TObjPlayer_8012C868.cpp:
 	.text       start:0x8012C868 end:0x8012C8F8
 
 pso/player/TObjPlayer_8012C950.cpp:
 	.text       start:0x8012C950 end:0x8012CA20
+
+pso/item/TItemEquipVariant_8012CA20.cpp:
+	.text       start:0x8012CA20 end:0x8012CA78
 
 pso/player/TObjPlayer_8012CA78.cpp:
 	.text       start:0x8012CA78 end:0x8012CB2C
@@ -8152,8 +8455,14 @@ pso/player/TObjPlayer_8012CA78.cpp:
 pso/player/TObjPlayer_8012CB84.cpp:
 	.text       start:0x8012CB84 end:0x8012CBC4
 
+pso/item/TItemEquipVariant_8012CBC4.cpp:
+	.text       start:0x8012CBC4 end:0x8012CC1C
+
 pso/player/TObjPlayer_8012CC1C.cpp:
 	.text       start:0x8012CC1C end:0x8012CC74
+
+pso/item/TItemEquipVariant_8012CD90.cpp:
+	.text       start:0x8012CD90 end:0x8012CDE8
 
 pso/player/TObjPlayer_8012CDE8.cpp:
 	.text       start:0x8012CDE8 end:0x8012CE44
@@ -8161,14 +8470,23 @@ pso/player/TObjPlayer_8012CDE8.cpp:
 pso/player/TObjPlayer_8012CE9C.cpp:
 	.text       start:0x8012CE9C end:0x8012CF84
 
+pso/item/TItemEquipVariant_8012CFDC.cpp:
+	.text       start:0x8012CFDC end:0x8012D034
+
 pso/player/TObjPlayer_8012D034.cpp:
 	.text       start:0x8012D034 end:0x8012D080
 
 pso/player/TObjPlayer_8012D218.cpp:
 	.text       start:0x8012D218 end:0x8012D354
 
+pso/item/TItemEquipVariant_8012D410.cpp:
+	.text       start:0x8012D410 end:0x8012D468
+
 pso/player/TObjPlayer_8012D4C0.cpp:
 	.text       start:0x8012D4C0 end:0x8012D5C8
+
+pso/item/TItemEquipVariant_8012D5C8.cpp:
+	.text       start:0x8012D5C8 end:0x8012D620
 
 pso/player/TObjPlayer_8012D620.cpp:
 	.text       start:0x8012D620 end:0x8012D65C
@@ -8176,17 +8494,26 @@ pso/player/TObjPlayer_8012D620.cpp:
 pso/player/TObjPlayer_8012D6B4.cpp:
 	.text       start:0x8012D6B4 end:0x8012D6BC
 
+pso/item/TItemEquipVariant_8012D7EC.cpp:
+	.text       start:0x8012D7EC end:0x8012D844
+
 pso/player/TObjPlayer_8012D844.cpp:
 	.text       start:0x8012D844 end:0x8012D88C
 
 pso/player/TObjPlayer_8012D8E4.cpp:
 	.text       start:0x8012D8E4 end:0x8012D9C8
 
+pso/item/TItemEquipVariant_8012DCEC.cpp:
+	.text       start:0x8012DCEC end:0x8012DD44
+
 pso/player/TObjPlayer_8012DD44.cpp:
 	.text       start:0x8012DD44 end:0x8012DE24
 
 pso/player/TObjPlayer_8012DEB8.cpp:
 	.text       start:0x8012DEB8 end:0x8012DF60
+
+pso/item/TItemEquipVariant_8012E190.cpp:
+	.text       start:0x8012E190 end:0x8012E1E8
 
 pso/player/TObjPlayer_8012E32C.cpp:
 	.text       start:0x8012E32C end:0x8012E3B4
@@ -8203,17 +8530,29 @@ pso/player/TObjPlayer_8012E690.cpp:
 pso/player/TObjPlayer_8012E760.cpp:
 	.text       start:0x8012E760 end:0x8012E7D8
 
+pso/item/TItemEquipVariant_8012E7D8.cpp:
+	.text       start:0x8012E7D8 end:0x8012E830
+
 pso/player/TObjPlayer_8012E830.cpp:
 	.text       start:0x8012E830 end:0x8012E83C
 
 pso/player/TObjPlayer_8012E98C.cpp:
 	.text       start:0x8012E98C end:0x8012E9F8
 
+pso/item/TItemEquipVariant_8012EA50.cpp:
+	.text       start:0x8012EA50 end:0x8012EAA8
+
 pso/player/TObjPlayer_8012EAA8.cpp:
 	.text       start:0x8012EAA8 end:0x8012EC4C
 
+pso/item/TItemEquipVariant_8012ECA4.cpp:
+	.text       start:0x8012ECA4 end:0x8012ECFC
+
 pso/player/TObjPlayer_8012ECFC.cpp:
 	.text       start:0x8012ECFC end:0x8012EDCC
+
+pso/item/TItemEquipVariant_8012EDCC.cpp:
+	.text       start:0x8012EDCC end:0x8012EE24
 
 pso/player/TObjPlayer_8012EE24.cpp:
 	.text       start:0x8012EE24 end:0x8012EE68
@@ -8221,11 +8560,17 @@ pso/player/TObjPlayer_8012EE24.cpp:
 pso/player/TObjPlayer_8012EEC0.cpp:
 	.text       start:0x8012EEC0 end:0x8012EFAC
 
+pso/item/TItemEquipVariant_8012F004.cpp:
+	.text       start:0x8012F004 end:0x8012F05C
+
 pso/player/TObjPlayer_8012F05C.cpp:
 	.text       start:0x8012F05C end:0x8012F0F8
 
 pso/player/TObjPlayer_8012F19C.cpp:
 	.text       start:0x8012F19C end:0x8012F1F4
+
+pso/item/TItemEquipVariant_8012F1F4.cpp:
+	.text       start:0x8012F1F4 end:0x8012F24C
 
 pso/player/TObjPlayer_8012F24C.cpp:
 	.text       start:0x8012F24C end:0x8012F298
@@ -8233,11 +8578,17 @@ pso/player/TObjPlayer_8012F24C.cpp:
 pso/player/TObjPlayer_8012F2F0.cpp:
 	.text       start:0x8012F2F0 end:0x8012F384
 
+pso/item/TItemEquipVariant_8012F384.cpp:
+	.text       start:0x8012F384 end:0x8012F3DC
+
 pso/player/TObjPlayer_8012F3DC.cpp:
 	.text       start:0x8012F3DC end:0x8012F478
 
 pso/player/TObjPlayer_8012F558.cpp:
 	.text       start:0x8012F558 end:0x8012F5A0
+
+pso/item/TItemEquipVariant_8012F5F8.cpp:
+	.text       start:0x8012F5F8 end:0x8012F650
 
 pso/player/TObjPlayer_8012F650.cpp:
 	.text       start:0x8012F650 end:0x8012F6CC
@@ -8245,14 +8596,23 @@ pso/player/TObjPlayer_8012F650.cpp:
 pso/slices/run_8012F6CC.cpp:
 	.text       start:0x8012F6CC end:0x8012F704
 
+pso/item/TItemEquipVariant_8012F7D8.cpp:
+	.text       start:0x8012F7D8 end:0x8012F830
+
 pso/player/TObjPlayer_8012F830.cpp:
 	.text       start:0x8012F830 end:0x8012F890
 
 pso/player/TObjPlayer_8012F9BC.cpp:
 	.text       start:0x8012F9BC end:0x8012F9F0
 
+pso/item/TItemEquipVariant_8012F9F0.cpp:
+	.text       start:0x8012F9F0 end:0x8012FA48
+
 pso/player/TObjPlayer_8012FA48.cpp:
 	.text       start:0x8012FA48 end:0x8012FAB0
+
+pso/item/TItemEquipVariant_8012FC58.cpp:
+	.text       start:0x8012FC58 end:0x8012FCB0
 
 pso/player/TObjPlayer_8012FCB0.cpp:
 	.text       start:0x8012FCB0 end:0x8012FCF8
@@ -8263,6 +8623,9 @@ pso/player/TObjPlayer_8012FD50.cpp:
 pso/player/TObjPlayer_8012FE90.cpp:
 	.text       start:0x8012FE90 end:0x8012FEE8
 
+pso/item/TItemEquipVariant_8012FEE8.cpp:
+	.text       start:0x8012FEE8 end:0x8012FF40
+
 pso/player/TObjPlayer_8012FF40.cpp:
 	.text       start:0x8012FF40 end:0x8012FF8C
 
@@ -8272,11 +8635,17 @@ pso/player/TObjPlayer_8012FFE4.cpp:
 pso/player/TObjPlayer_80130040.cpp:
 	.text       start:0x80130040 end:0x801300A0
 
+pso/item/TItemEquipVariant_80130178.cpp:
+	.text       start:0x80130178 end:0x801301D0
+
 pso/player/TObjPlayer_80130290.cpp:
 	.text       start:0x80130290 end:0x80130368
 
 pso/player/TObjPlayer_80130520.cpp:
 	.text       start:0x80130520 end:0x80130658
+
+pso/item/TItemEquipVariant_80130658.cpp:
+	.text       start:0x80130658 end:0x801306B0
 
 pso/player/TObjPlayer_801306B0.cpp:
 	.text       start:0x801306B0 end:0x80130720
@@ -8287,11 +8656,17 @@ pso/player/TObjPlayer_80130778.cpp:
 pso/player/TObjPlayer_8013085C.cpp:
 	.text       start:0x8013085C end:0x80130898
 
+pso/item/TItemEquipVariant_80130AC4.cpp:
+	.text       start:0x80130AC4 end:0x80130B1C
+
 pso/player/TObjPlayer_80130B1C.cpp:
 	.text       start:0x80130B1C end:0x80130B98
 
 pso/player/TObjPlayer_80130BF0.cpp:
 	.text       start:0x80130BF0 end:0x80130C2C
+
+pso/item/TItemEquipVariant_80130D84.cpp:
+	.text       start:0x80130D84 end:0x80130DDC
 
 pso/player/TObjPlayer_80130DDC.cpp:
 	.text       start:0x80130DDC end:0x80130E48
@@ -8299,11 +8674,17 @@ pso/player/TObjPlayer_80130DDC.cpp:
 pso/slices/pso_carve_80130ea0.cpp:
 	.text       start:0x80130EA0 end:0x80130EF8
 
+pso/item/TItemEquipVariant_801310A8.cpp:
+	.text       start:0x801310A8 end:0x80131100
+
 pso/object/TObjGyaranzoMissile_80131100.cpp:
 	.text       start:0x80131100 end:0x80131180
 
 pso/object/TObjGyaranzoMissile_801311D8.cpp:
 	.text       start:0x801311D8 end:0x80131214
+
+pso/object/TObjGyaranzoMissile_8013136C.cpp:
+	.text       start:0x8013136C end:0x801313C4
 
 pso/object/TObjGyaranzoMissile_801313C4.cpp:
 	.text       start:0x801313C4 end:0x80131430
@@ -8452,6 +8833,9 @@ pso/object/TObjLight_80133CE4.cpp:
 pso/object/TObjLight_80133D3C.cpp:
 	.text       start:0x80133D3C end:0x80133D78
 
+pso/object/TObjLight_80133E48.cpp:
+	.text       start:0x80133E48 end:0x80133E7C
+
 pso/object/TObjLight_80133ED8.cpp:
 	.text       start:0x80133ED8 end:0x80133F30
 
@@ -8592,6 +8976,9 @@ pso/misc/TLobby_801393F8.cpp:
 
 pso/misc/TLobby_80139538.cpp:
 	.text       start:0x80139538 end:0x801395D8
+
+pso/misc/TLobby_80139860.cpp:
+	.text       start:0x80139860 end:0x80139894
 
 pso/misc/TLobby_8013A14C.cpp:
 	.text       start:0x8013A14C end:0x8013A1C0
@@ -9378,6 +9765,9 @@ pso/npc/TObjNpcCloakroomBase.cpp:
 pso/npc/TObjNpcCloakroomBase_80149698.cpp:
 	.text       start:0x80149698 end:0x80149700
 
+pso/npc/TObjNpcCloakroomBase_80149700.cpp:
+	.text       start:0x80149700 end:0x80149738
+
 pso/npc/TObjNpcCloakroomBase_80149788.cpp:
 	.text       start:0x80149788 end:0x801497E0
 
@@ -9387,11 +9777,17 @@ pso/npc/TObjNpcCloakroomBase_80149870.cpp:
 pso/npc/TObjNpcConnoisseur_80149878.cpp:
 	.text       start:0x80149878 end:0x801498E0
 
+pso/npc/TObjNpcConnoisseur_801498E0.cpp:
+	.text       start:0x801498E0 end:0x80149918
+
 pso/npc/TObjNpcConnoisseur.cpp:
 	.text       start:0x80149984 end:0x801499DC
 
 pso/npc/TObjNpcExpertBase_80149A6C.cpp:
 	.text       start:0x80149A6C end:0x80149AD4
+
+pso/npc/TObjNpcExpertBase_80149AD4.cpp:
+	.text       start:0x80149AD4 end:0x80149B0C
 
 pso/npc/TObjNpcExpertBase.cpp:
 	.text       start:0x80149B5C end:0x80149BB4
@@ -9411,11 +9807,17 @@ pso/npc/TObjNpcFemaleBase_80149C88.cpp:
 pso/npc/TObjNpcFemaleBase_80149D40.cpp:
 	.text       start:0x80149D40 end:0x80149DA8
 
+pso/npc/TObjNpcFemaleBase_80149DA8.cpp:
+	.text       start:0x80149DA8 end:0x80149DE0
+
 pso/npc/TObjNpcFemaleBase.cpp:
 	.text       start:0x80149E30 end:0x80149E88
 
 pso/npc/TObjNpcFemaleChild_80149F18.cpp:
 	.text       start:0x80149F18 end:0x80149F80
+
+pso/npc/TObjNpcFemaleChild_80149F80.cpp:
+	.text       start:0x80149F80 end:0x80149FB8
 
 pso/npc/TObjNpcFemaleChild.cpp:
 	.text       start:0x8014A008 end:0x8014A060
@@ -9423,11 +9825,17 @@ pso/npc/TObjNpcFemaleChild.cpp:
 pso/npc/TObjNpcFemaleDwarf_8014A0F0.cpp:
 	.text       start:0x8014A0F0 end:0x8014A158
 
+pso/npc/TObjNpcFemaleDwarf_8014A158.cpp:
+	.text       start:0x8014A158 end:0x8014A190
+
 pso/npc/TObjNpcFemaleDwarf.cpp:
 	.text       start:0x8014A1E0 end:0x8014A238
 
 pso/npc/TObjNpcFemaleFat_8014A2C8.cpp:
 	.text       start:0x8014A2C8 end:0x8014A330
+
+pso/npc/TObjNpcFemaleFat_8014A330.cpp:
+	.text       start:0x8014A330 end:0x8014A368
 
 pso/npc/TObjNpcFemaleFat.cpp:
 	.text       start:0x8014A3B8 end:0x8014A410
@@ -9435,17 +9843,26 @@ pso/npc/TObjNpcFemaleFat.cpp:
 pso/npc/TObjNpcFemaleMacho_8014A4A0.cpp:
 	.text       start:0x8014A4A0 end:0x8014A508
 
+pso/npc/TObjNpcFemaleMacho_8014A508.cpp:
+	.text       start:0x8014A508 end:0x8014A540
+
 pso/npc/TObjNpcFemaleMacho.cpp:
 	.text       start:0x8014A590 end:0x8014A5E8
 
 pso/npc/TObjNpcFemaleOld_8014A678.cpp:
 	.text       start:0x8014A678 end:0x8014A6E0
 
+pso/npc/TObjNpcFemaleOld_8014A6E0.cpp:
+	.text       start:0x8014A6E0 end:0x8014A718
+
 pso/npc/TObjNpcFemaleOld.cpp:
 	.text       start:0x8014A768 end:0x8014A7C0
 
 pso/npc/TObjNpcFemaleTall_8014A850.cpp:
 	.text       start:0x8014A850 end:0x8014A8B8
+
+pso/npc/TObjNpcFemaleTall_8014A8B8.cpp:
+	.text       start:0x8014A8B8 end:0x8014A8F0
 
 pso/npc/TObjNpcFemaleTall.cpp:
 	.text       start:0x8014A940 end:0x8014A998
@@ -9464,6 +9881,9 @@ pso/npc/TObjNpcFemaleTall_8014AA6C.cpp:
 
 pso/npc/TObjNpcGovernorBase_8014AB24.cpp:
 	.text       start:0x8014AB24 end:0x8014AB8C
+
+pso/npc/TObjNpcGovernorBase_8014AB8C.cpp:
+	.text       start:0x8014AB8C end:0x8014ABC4
 
 pso/npc/TObjNpcGovernorBase.cpp:
 	.text       start:0x8014AC14 end:0x8014AC6C
@@ -9522,11 +9942,17 @@ pso/npc/TObjNpcLappy_8014B84C.cpp:
 pso/npc/TObjNpcMaleBase_8014B904.cpp:
 	.text       start:0x8014B904 end:0x8014B96C
 
+pso/npc/TObjNpcMaleBase_8014B96C.cpp:
+	.text       start:0x8014B96C end:0x8014B9A4
+
 pso/npc/TObjNpcMaleBase.cpp:
 	.text       start:0x8014B9F4 end:0x8014BA4C
 
 pso/npc/TObjNpcMaleChild_8014BADC.cpp:
 	.text       start:0x8014BADC end:0x8014BB44
+
+pso/npc/TObjNpcMaleChild_8014BB44.cpp:
+	.text       start:0x8014BB44 end:0x8014BB7C
 
 pso/npc/TObjNpcMaleChild.cpp:
 	.text       start:0x8014BBCC end:0x8014BC24
@@ -9534,11 +9960,17 @@ pso/npc/TObjNpcMaleChild.cpp:
 pso/npc/TObjNpcMaleDwarf_8014BCB4.cpp:
 	.text       start:0x8014BCB4 end:0x8014BD1C
 
+pso/npc/TObjNpcMaleDwarf_8014BD1C.cpp:
+	.text       start:0x8014BD1C end:0x8014BD54
+
 pso/npc/TObjNpcMaleDwarf.cpp:
 	.text       start:0x8014BDA4 end:0x8014BDFC
 
 pso/npc/TObjNpcMaleFat_8014BE8C.cpp:
 	.text       start:0x8014BE8C end:0x8014BEF4
+
+pso/npc/TObjNpcMaleFat_8014BEF4.cpp:
+	.text       start:0x8014BEF4 end:0x8014BF2C
 
 pso/npc/TObjNpcMaleFat.cpp:
 	.text       start:0x8014BF7C end:0x8014BFD4
@@ -9546,17 +9978,26 @@ pso/npc/TObjNpcMaleFat.cpp:
 pso/npc/TObjNpcMaleMacho_8014C064.cpp:
 	.text       start:0x8014C064 end:0x8014C0CC
 
+pso/npc/TObjNpcMaleMacho_8014C0CC.cpp:
+	.text       start:0x8014C0CC end:0x8014C104
+
 pso/npc/TObjNpcMaleMacho.cpp:
 	.text       start:0x8014C154 end:0x8014C1AC
 
 pso/npc/TObjNpcMaleOld_8014C23C.cpp:
 	.text       start:0x8014C23C end:0x8014C2A4
 
+pso/npc/TObjNpcMaleOld_8014C2A4.cpp:
+	.text       start:0x8014C2A4 end:0x8014C2DC
+
 pso/npc/TObjNpcMaleOld.cpp:
 	.text       start:0x8014C32C end:0x8014C384
 
 pso/npc/TObjNpcMaleTall_8014C414.cpp:
 	.text       start:0x8014C414 end:0x8014C47C
+
+pso/npc/TObjNpcMaleTall_8014C47C.cpp:
+	.text       start:0x8014C47C end:0x8014C4B4
 
 pso/npc/TObjNpcMaleTall.cpp:
 	.text       start:0x8014C504 end:0x8014C55C
@@ -9609,11 +10050,17 @@ pso/npc/TObjNpcNHW01.cpp:
 pso/npc/TObjNpcNurseBase_8014D37C.cpp:
 	.text       start:0x8014D37C end:0x8014D3E4
 
+pso/npc/TObjNpcNurseBase_8014D3E4.cpp:
+	.text       start:0x8014D3E4 end:0x8014D41C
+
 pso/npc/TObjNpcNurseBase.cpp:
 	.text       start:0x8014D46C end:0x8014D4C4
 
 pso/npc/TObjNpcSecretaryBase_8014D554.cpp:
 	.text       start:0x8014D554 end:0x8014D5BC
+
+pso/npc/TObjNpcSecretaryBase_8014D5BC.cpp:
+	.text       start:0x8014D5BC end:0x8014D5F4
 
 pso/npc/TObjNpcSecretaryBase.cpp:
 	.text       start:0x8014D644 end:0x8014D69C
@@ -9621,11 +10068,17 @@ pso/npc/TObjNpcSecretaryBase.cpp:
 pso/npc/TObjNpcSoldierBase_8014D72C.cpp:
 	.text       start:0x8014D72C end:0x8014D794
 
+pso/npc/TObjNpcSoldierBase_8014D794.cpp:
+	.text       start:0x8014D794 end:0x8014D7CC
+
 pso/npc/TObjNpcSoldierBase.cpp:
 	.text       start:0x8014D81C end:0x8014D874
 
 pso/npc/TObjNpcSoldierMacho_8014D904.cpp:
 	.text       start:0x8014D904 end:0x8014D96C
+
+pso/npc/TObjNpcSoldierMacho_8014D96C.cpp:
+	.text       start:0x8014D96C end:0x8014D9A4
 
 pso/npc/TObjNpcSoldierMacho.cpp:
 	.text       start:0x8014D9F4 end:0x8014DA4C
@@ -9973,6 +10426,9 @@ pso/misc/TOBind_801586B8.cpp:
 pso/misc/TOBind_80158758.cpp:
 	.text       start:0x80158758 end:0x801587A0
 
+pso/misc/TOBind_801587A0.cpp:
+	.text       start:0x801587A0 end:0x801587D8
+
 pso/misc/TOBind_80158828.cpp:
 	.text       start:0x80158828 end:0x80158890
 
@@ -10006,11 +10462,17 @@ pso/misc/TOCakeshopCave01.cpp:
 pso/misc/TOCakeshopCave01_8015A088.cpp:
 	.text       start:0x8015A088 end:0x8015A0D0
 
+pso/misc/TOCakeshopCave01_8015A0D0.cpp:
+	.text       start:0x8015A0D0 end:0x8015A108
+
 pso/misc/TOCakeshopCave01_8015A158.cpp:
 	.text       start:0x8015A158 end:0x8015A1C0
 
 pso/misc/TOCapsuleAncient01_8015A394.cpp:
 	.text       start:0x8015A394 end:0x8015A3E0
+
+pso/misc/TOCapsuleAncient01_8015A3E0.cpp:
+	.text       start:0x8015A3E0 end:0x8015A418
 
 pso/misc/TOCapsuleAncient01_8015A468.cpp:
 	.text       start:0x8015A468 end:0x8015A4D0
@@ -10141,6 +10603,9 @@ pso/misc/TOCtrlDubchik_8015CC60.cpp:
 
 pso/misc/TOCtrlDubchik_8015D290.cpp:
 	.text       start:0x8015D290 end:0x8015D2DC
+
+pso/misc/TOCtrlDubchik_8015D2DC.cpp:
+	.text       start:0x8015D2DC end:0x8015D314
 
 pso/misc/TOCtrlDubchik_8015D364.cpp:
 	.text       start:0x8015D364 end:0x8015D3CC
@@ -10328,6 +10793,9 @@ pso/misc/TODoorCave03.cpp:
 pso/misc/TODoorCave03_801626BC.cpp:
 	.text       start:0x801626BC end:0x80162708
 
+pso/misc/TODoorCave03_80162708.cpp:
+	.text       start:0x80162708 end:0x80162740
+
 pso/misc/TODoorCave03_801627E0.cpp:
 	.text       start:0x801627E0 end:0x80162848
 
@@ -10364,6 +10832,9 @@ pso/misc/TODoorMachine02_801636F8.cpp:
 pso/misc/TODoorVoShip.cpp:
 	.text       start:0x80163B08 end:0x80163B54
 
+pso/misc/TODoorVoShip_80163B54.cpp:
+	.text       start:0x80163B54 end:0x80163B8C
+
 pso/misc/TODoorVoShip_80163BDC.cpp:
 	.text       start:0x80163BDC end:0x80163C44
 
@@ -10391,6 +10862,9 @@ pso/misc/TODoorVS2Door01_801642D8.cpp:
 pso/misc/TODragonflyCave01.cpp:
 	.text       start:0x80164414 end:0x8016445C
 
+pso/misc/TODragonflyCave01_8016445C.cpp:
+	.text       start:0x8016445C end:0x80164494
+
 pso/misc/TODragonflyCave01_80164540.cpp:
 	.text       start:0x80164540 end:0x80164598
 
@@ -10408,6 +10882,9 @@ pso/misc/TODragonflyMachine01.cpp:
 
 pso/misc/TODragonflyMachine01_801652D4.cpp:
 	.text       start:0x801652D4 end:0x801653FC
+
+pso/misc/TODragonflyMachine01_801653FC.cpp:
+	.text       start:0x801653FC end:0x80165434
 
 pso/misc/TODragonflyMachine01_801654E0.cpp:
 	.text       start:0x801654E0 end:0x80165538
@@ -10548,6 +11025,9 @@ pso/slices/pso_carve_80168d3c.cpp:
 pso/misc/TOHangerMachine01.cpp:
 	.text       start:0x80168F14 end:0x80168F5C
 
+pso/misc/TOHangerMachine01_80168F5C.cpp:
+	.text       start:0x80168F5C end:0x80168F94
+
 pso/misc/TOHangerMachine01_80168FE4.cpp:
 	.text       start:0x80168FE4 end:0x8016904C
 
@@ -10562,6 +11042,9 @@ pso/misc/TOHealGeneral.cpp:
 
 pso/misc/TOHealGeneral_80169690.cpp:
 	.text       start:0x80169690 end:0x801696D8
+
+pso/misc/TOHealGeneral_801696D8.cpp:
+	.text       start:0x801696D8 end:0x80169710
 
 pso/misc/TOHealGeneral_801699EC.cpp:
 	.text       start:0x801699EC end:0x801699F4
@@ -10740,6 +11223,9 @@ pso/misc/TOKurage_8016DAA4.cpp:
 pso/misc/TOKurage_8016E77C.cpp:
 	.text       start:0x8016E77C end:0x8016E7C8
 
+pso/misc/TOKurage_8016E7C8.cpp:
+	.text       start:0x8016E7C8 end:0x8016E800
+
 pso/misc/TOKurage_8016E850.cpp:
 	.text       start:0x8016E850 end:0x8016E8A8
 
@@ -10751,6 +11237,9 @@ pso/misc/TOLightMachine01_8016E9F4.cpp:
 
 pso/misc/TOLightMachine01_8016EABC.cpp:
 	.text       start:0x8016EABC end:0x8016EB04
+
+pso/misc/TOLightMachine01_8016EB04.cpp:
+	.text       start:0x8016EB04 end:0x8016EB3C
 
 pso/misc/TOLightMachine01_8016EBAC.cpp:
 	.text       start:0x8016EBAC end:0x8016EC04
@@ -10899,6 +11388,9 @@ pso/misc/TOMonumentAncient02_80172A34.cpp:
 pso/misc/TOMonumentAncient02.cpp:
 	.text       start:0x80172CCC end:0x80172D18
 
+pso/misc/TOMonumentAncient02_80172D18.cpp:
+	.text       start:0x80172D18 end:0x80172D50
+
 pso/misc/TOMonumentAncient02_80172E2C.cpp:
 	.text       start:0x80172E2C end:0x80172EA0
 
@@ -10907,6 +11399,9 @@ pso/misc/TORainbowCave01_80173014.cpp:
 
 pso/misc/TORainbowCave01_801732AC.cpp:
 	.text       start:0x801732AC end:0x801732F8
+
+pso/misc/TORainbowCave01_801732F8.cpp:
+	.text       start:0x801732F8 end:0x80173330
 
 pso/misc/TORainbowCave01_80173380.cpp:
 	.text       start:0x80173380 end:0x801733D8
@@ -10922,6 +11417,9 @@ pso/misc/TORevlightCave01_801734C8.cpp:
 
 pso/misc/TORevlightCave01.cpp:
 	.text       start:0x80173590 end:0x801735DC
+
+pso/misc/TORevlightCave01_801735DC.cpp:
+	.text       start:0x801735DC end:0x80173614
 
 pso/misc/TORevlightCave01_80173664.cpp:
 	.text       start:0x80173664 end:0x801736BC
@@ -11054,11 +11552,17 @@ pso/misc/TOSensorGeneral01_8017638C.cpp:
 pso/misc/TOSignCave01.cpp:
 	.text       start:0x801766D4 end:0x80176720
 
+pso/misc/TOSignCave01_80176720.cpp:
+	.text       start:0x80176720 end:0x80176758
+
 pso/misc/TOSignCave01_801767A8.cpp:
 	.text       start:0x801767A8 end:0x80176800
 
 pso/misc/TOSignCave02.cpp:
 	.text       start:0x80176A88 end:0x80176AD4
+
+pso/misc/TOSignCave02_80176AD4.cpp:
+	.text       start:0x80176AD4 end:0x80176B0C
 
 pso/misc/TOSignCave02_80176B5C.cpp:
 	.text       start:0x80176B5C end:0x80176BB4
@@ -11066,11 +11570,17 @@ pso/misc/TOSignCave02_80176B5C.cpp:
 pso/misc/TOSignCave03.cpp:
 	.text       start:0x80176ECC end:0x80176F18
 
+pso/misc/TOSignCave03_80176F18.cpp:
+	.text       start:0x80176F18 end:0x80176F50
+
 pso/misc/TOSignCave03_80176FA0.cpp:
 	.text       start:0x80176FA0 end:0x80176FF8
 
 pso/misc/TOSparkMachine01.cpp:
 	.text       start:0x801772B0 end:0x801772F8
+
+pso/misc/TOSparkMachine01_801772F8.cpp:
+	.text       start:0x801772F8 end:0x80177330
 
 pso/misc/TOSparkMachine01_80177380.cpp:
 	.text       start:0x80177380 end:0x801773D8
@@ -11190,6 +11700,9 @@ pso/misc/TOTrapAncient02.cpp:
 
 pso/misc/TOTrapAncient02_8017B3B4.cpp:
 	.text       start:0x8017B3B4 end:0x8017B4B4
+
+pso/misc/TOTrapAncient02_8017B4B4.cpp:
+	.text       start:0x8017B4B4 end:0x8017B4EC
 
 pso/misc/TOTrapAncient02_8017B670.cpp:
 	.text       start:0x8017B670 end:0x8017B6D8
@@ -11702,6 +12215,9 @@ pso/misc/TWindowSubTradeMain_80187D24.cpp:
 pso/object/TObjGbAdvance_80187D44.cpp:
 	.text       start:0x80187D44 end:0x80187D90
 
+pso/object/TObjGbAdvance_80187D90.cpp:
+	.text       start:0x80187D90 end:0x80187DC8
+
 pso/object/TObjGbAdvance_80187E18.cpp:
 	.text       start:0x80187E18 end:0x80187ECC
 
@@ -12014,17 +12530,26 @@ pso/object/TObjHashiVersus2_801912A4.cpp:
 pso/object/TObjHashiVersus2.cpp:
 	.text       start:0x801912BC end:0x80191308
 
+pso/object/TObjHashiVersus2_80191308.cpp:
+	.text       start:0x80191308 end:0x80191340
+
 pso/object/TObjHashiVersus2_80191390.cpp:
 	.text       start:0x80191390 end:0x801913F8
 
 pso/object/TObjHashiVersus1.cpp:
 	.text       start:0x801914B8 end:0x80191504
 
+pso/object/TObjHashiVersus1_80191504.cpp:
+	.text       start:0x80191504 end:0x8019153C
+
 pso/object/TObjHashiVersus1_8019158C.cpp:
 	.text       start:0x8019158C end:0x801915F4
 
 pso/object/TObjHashi.cpp:
 	.text       start:0x801916AC end:0x801916F8
+
+pso/object/TObjHashi_801916F8.cpp:
+	.text       start:0x801916F8 end:0x80191730
 
 pso/object/TObjHashi_80191780.cpp:
 	.text       start:0x80191780 end:0x801917E8
@@ -15876,6 +16401,9 @@ pso/misc/TQuestThread_801F5ECC.cpp:
 
 pso/misc/TQuestThread_801F5ED0.cpp:
 	.text       start:0x801F5ED0 end:0x801F5F58
+
+pso/misc/TQuestThread_801F5F58.cpp:
+	.text       start:0x801F5F58 end:0x801F5F8C
 
 pso/misc/TQuestThread_801F64BC.cpp:
 	.text       start:0x801F64BC end:0x801F64D4
@@ -19857,11 +20385,17 @@ pso/misc/TQuestListChallenge_80289338.cpp:
 pso/npc/TObjNpcKenkyu_80289360.cpp:
 	.text       start:0x80289360 end:0x802893C8
 
+pso/npc/TObjNpcKenkyu_802893C8.cpp:
+	.text       start:0x802893C8 end:0x80289400
+
 pso/npc/TObjNpcKenkyu.cpp:
 	.text       start:0x80289450 end:0x802894A8
 
 pso/npc/TObjNpcSoutokufu_80289538.cpp:
 	.text       start:0x80289538 end:0x802895A0
+
+pso/npc/TObjNpcSoutokufu_802895A0.cpp:
+	.text       start:0x802895A0 end:0x802895D8
 
 pso/npc/TObjNpcSoutokufu.cpp:
 	.text       start:0x80289628 end:0x80289680
@@ -20529,6 +21063,9 @@ pso/misc/TORockJungleS01_8029CB38.cpp:
 pso/misc/TOGrassJungle.cpp:
 	.text       start:0x8029CC68 end:0x8029CCB4
 
+pso/misc/TOGrassJungle_8029CCB4.cpp:
+	.text       start:0x8029CCB4 end:0x8029CD0C
+
 pso/misc/TOGrassJungle_8029CD90.cpp:
 	.text       start:0x8029CD90 end:0x8029CE0C
 
@@ -20832,11 +21369,17 @@ pso/npc/TObjNpcHosa_802A39B0.cpp:
 pso/npc/TObjNpcHosa_802A39B8.cpp:
 	.text       start:0x802A39B8 end:0x802A3A20
 
+pso/npc/TObjNpcHosa_802A3A20.cpp:
+	.text       start:0x802A3A20 end:0x802A3A58
+
 pso/npc/TObjNpcHosa.cpp:
 	.text       start:0x802A3AA8 end:0x802A3B00
 
 pso/npc/TObjNpcKenkyuW_802A3B90.cpp:
 	.text       start:0x802A3B90 end:0x802A3BF8
+
+pso/npc/TObjNpcKenkyuW_802A3BF8.cpp:
+	.text       start:0x802A3BF8 end:0x802A3C30
 
 pso/npc/TObjNpcKenkyuW.cpp:
 	.text       start:0x802A3C80 end:0x802A3CD8
@@ -21172,17 +21715,26 @@ pso/misc/TBGLightning_802AA21C.cpp:
 pso/misc/TOBiwaMushi.cpp:
 	.text       start:0x802AA2D4 end:0x802AA31C
 
+pso/misc/TOBiwaMushi_802AA31C.cpp:
+	.text       start:0x802AA31C end:0x802AA354
+
 pso/misc/TOBiwaMushi_802AA3A4.cpp:
 	.text       start:0x802AA3A4 end:0x802AA3FC
 
 pso/misc/TOMekaFish01.cpp:
 	.text       start:0x802AA5C4 end:0x802AA60C
 
+pso/misc/TOMekaFish01_802AA60C.cpp:
+	.text       start:0x802AA60C end:0x802AA644
+
 pso/misc/TOMekaFish01_802AA694.cpp:
 	.text       start:0x802AA694 end:0x802AA6EC
 
 pso/misc/TOMekaFish00.cpp:
 	.text       start:0x802AA8B4 end:0x802AA8FC
+
+pso/misc/TOMekaFish00_802AA8FC.cpp:
+	.text       start:0x802AA8FC end:0x802AA934
 
 pso/misc/TOMekaFish00_802AA984.cpp:
 	.text       start:0x802AA984 end:0x802AA9DC
@@ -21216,6 +21768,9 @@ pso/boss/TBoss6PlotFalz.cpp:
 
 pso/boss/TBoss6PlotFalz_802ABA5C.cpp:
 	.text       start:0x802ABA5C end:0x802ABA9C
+
+pso/boss/TBoss6PlotFalz_802ABB1C.cpp:
+	.text       start:0x802ABB1C end:0x802ABB84
 
 pso/boss/TBoss6PlotFalz_802ABB84.cpp:
 	.text       start:0x802ABB84 end:0x802ABBC4
@@ -21349,6 +21904,9 @@ pso/ui/TAdSelectCurGC_802AF274.cpp:
 
 pso/misc/TOCapsuleLabo_802AF27C.cpp:
 	.text       start:0x802AF27C end:0x802AF2C8
+
+pso/misc/TOCapsuleLabo_802AF2C8.cpp:
+	.text       start:0x802AF2C8 end:0x802AF300
 
 pso/misc/TOCapsuleLabo.cpp:
 	.text       start:0x802AF47C end:0x802AF48C
@@ -22362,6 +22920,9 @@ pso/slices/pso_carve_802d50b8.cpp:
 pso/player/TObjPlayer_802D5174.cpp:
 	.text       start:0x802D5174 end:0x802D51BC
 
+pso/item/TItemEquipVariant_802D5214.cpp:
+	.text       start:0x802D5214 end:0x802D52C4
+
 pso/player/TObjPlayer_802D52C4.cpp:
 	.text       start:0x802D52C4 end:0x802D52E8
 
@@ -22404,6 +22965,9 @@ pso/player/TObjPlayer_802D5C0C.cpp:
 pso/player/TObjPlayer_802D5ECC.cpp:
 	.text       start:0x802D5ECC end:0x802D5F44
 
+pso/item/TItemEquipVariant_802D60E0.cpp:
+	.text       start:0x802D60E0 end:0x802D6348
+
 pso/ui/TAdPlayerLoadGC_802D6348.cpp:
 	.text       start:0x802D6348 end:0x802D6390
 
@@ -22418,6 +22982,9 @@ pso/ui/TAdPlayerLoadGC_802D6488.cpp:
 
 pso/ui/TAdPlayerLoadGC_802D64B4.cpp:
 	.text       start:0x802D64B4 end:0x802D6504
+
+pso/ui/TAdPlayerLoadGC_802D655C.cpp:
+	.text       start:0x802D655C end:0x802D65B4
 
 pso/ui/TAdPlayerLoadGC.cpp:
 	.text       start:0x802D65B4 end:0x802D65B8
@@ -23306,11 +23873,17 @@ pso/slices/pso_carve_802fe964.cpp:
 pso/npc/TObjNpcKenkyu2_802FEA38.cpp:
 	.text       start:0x802FEA38 end:0x802FEAA0
 
+pso/npc/TObjNpcKenkyu2_802FEAA0.cpp:
+	.text       start:0x802FEAA0 end:0x802FEAD8
+
 pso/npc/TObjNpcKenkyu2.cpp:
 	.text       start:0x802FEB28 end:0x802FEB80
 
 pso/npc/TObjNpcHosa2_802FEC10.cpp:
 	.text       start:0x802FEC10 end:0x802FEC78
+
+pso/npc/TObjNpcHosa2_802FEC78.cpp:
+	.text       start:0x802FEC78 end:0x802FECB0
 
 pso/npc/TObjNpcHosa2.cpp:
 	.text       start:0x802FED00 end:0x802FED58
@@ -23444,11 +24017,17 @@ pso/enemy/TObjEneDellBiter_803061C0.cpp:
 pso/enemy/TObjEneDellBiter_80306720.cpp:
 	.text       start:0x80306720 end:0x803067AC
 
+pso/enemy/TObjEneDellBiter_803067D4.cpp:
+	.text       start:0x803067D4 end:0x8030680C
+
 pso/enemy/TObjEneDellBiter_8030680C.cpp:
 	.text       start:0x8030680C end:0x80306858
 
 pso/slices/pso_carve_80306994.cpp:
 	.text       start:0x80306994 end:0x803069D0
+
+pso/item/TItemObjectVariant_803069D0.cpp:
+	.text       start:0x803069D0 end:0x80306A28
 
 pso/slices/pso_carve_80306a28.cpp:
 	.text       start:0x80306A28 end:0x80306A64
@@ -23479,6 +24058,9 @@ pso/menu/TAdGameStartBackGC.cpp:
 
 pso/player/TObjPlayer_80307618.cpp:
 	.text       start:0x80307618 end:0x803076F8
+
+pso/item/TItemEquipVariant_80307858.cpp:
+	.text       start:0x80307858 end:0x803078B0
 
 pso/player/TObjPlayer_803078BC.cpp:
 	.text       start:0x803078BC end:0x8030790C
@@ -23543,6 +24125,9 @@ pso/slices/pso_carve_80308244.cpp:
 pso/player/TObjPlayer_803083B0.cpp:
 	.text       start:0x803083B0 end:0x803083F8
 
+pso/item/TItemEquipVariant_80308450.cpp:
+	.text       start:0x80308450 end:0x803084A8
+
 pso/ui/TAdLoadNetworkGC.cpp:
 	.text       start:0x803084A8 end:0x803084AC
 
@@ -23575,6 +24160,9 @@ pso/boss/TBoss7Crawfish_80308E0C.cpp:
 
 pso/boss/TBoss7Crawfish_8030919C.cpp:
 	.text       start:0x8030919C end:0x8030920C
+
+pso/boss/TBoss7Crawfish_80309434.cpp:
+	.text       start:0x80309434 end:0x8030946C
 
 pso/boss/TBoss7Crawfish_803094BC.cpp:
 	.text       start:0x803094BC end:0x803094E8
@@ -24003,6 +24591,9 @@ pso/enemy/TObjEneDelDepth.cpp:
 pso/enemy/TObjEneDelDepth_8031580C.cpp:
 	.text       start:0x8031580C end:0x80315888
 
+pso/enemy/TObjEneDelDepth_80315AD8.cpp:
+	.text       start:0x80315AD8 end:0x80315B10
+
 pso/enemy/TObjEneDelDepth_80315C64.cpp:
 	.text       start:0x80315C64 end:0x80315CCC
 
@@ -24369,8 +24960,14 @@ pso/boss/TBoss5GryphonLightningHorn_8032627C.cpp:
 pso/boss/TBoss5GryphonLightningHorn.cpp:
 	.text       start:0x803262BC end:0x80326314
 
+pso/item/TItemEquipVariant_80326520.cpp:
+	.text       start:0x80326520 end:0x80326578
+
 pso/player/TObjPlayer_80326578.cpp:
 	.text       start:0x80326578 end:0x803265C0
+
+pso/item/TItemEquipVariant_80326618.cpp:
+	.text       start:0x80326618 end:0x80326670
 
 pso/player/TObjPlayer_80326670.cpp:
 	.text       start:0x80326670 end:0x803266B8
@@ -24378,8 +24975,14 @@ pso/player/TObjPlayer_80326670.cpp:
 pso/player/TObjPlayer_80326710.cpp:
 	.text       start:0x80326710 end:0x80326880
 
+pso/item/TItemEquipVariant_80326880.cpp:
+	.text       start:0x80326880 end:0x803268D8
+
 pso/player/TObjPlayer_803269C8.cpp:
 	.text       start:0x803269C8 end:0x80326AD0
+
+pso/item/TItemEquipVariant_80326AD0.cpp:
+	.text       start:0x80326AD0 end:0x80326B28
 
 pso/player/TObjPlayer_80326B28.cpp:
 	.text       start:0x80326B28 end:0x80326B7C
@@ -24387,14 +24990,23 @@ pso/player/TObjPlayer_80326B28.cpp:
 pso/player/TObjPlayer_80326BD4.cpp:
 	.text       start:0x80326BD4 end:0x80326CA4
 
+pso/item/TItemEquipVariant_80326CFC.cpp:
+	.text       start:0x80326CFC end:0x80326D54
+
 pso/player/TObjPlayer_80326E10.cpp:
 	.text       start:0x80326E10 end:0x80326EA0
+
+pso/item/TItemEquipVariant_80326EA0.cpp:
+	.text       start:0x80326EA0 end:0x80326EF8
 
 pso/player/TObjPlayer_80326EF8.cpp:
 	.text       start:0x80326EF8 end:0x80326F44
 
 pso/player/TObjPlayer_80326FF4.cpp:
 	.text       start:0x80326FF4 end:0x8032704C
+
+pso/item/TItemEquipVariant_8032704C.cpp:
+	.text       start:0x8032704C end:0x803270A4
 
 pso/player/TObjPlayer_803270A4.cpp:
 	.text       start:0x803270A4 end:0x803270E8
@@ -24404,6 +25016,9 @@ pso/player/TObjPlayer_80327140.cpp:
 
 pso/player/TObjPlayer_80327258.cpp:
 	.text       start:0x80327258 end:0x80327298
+
+pso/item/TItemEquipVariant_80327298.cpp:
+	.text       start:0x80327298 end:0x803272F0
 
 pso/player/TObjPlayer_803272F0.cpp:
 	.text       start:0x803272F0 end:0x80327338
@@ -24736,6 +25351,9 @@ pso/ui/TAdGuideButtonGC.cpp:
 
 pso/player/TObjPlayer_8032DA84.cpp:
 	.text       start:0x8032DA84 end:0x8032DB8C
+
+pso/item/TItemEquipVariant_8032DBE4.cpp:
+	.text       start:0x8032DBE4 end:0x8032DC3C
 
 pso/player/TObjPlayer_8032DC3C.cpp:
 	.text       start:0x8032DC3C end:0x8032DC94
@@ -25850,8 +26468,14 @@ pso/slices/pso_carve_8034f020.cpp:
 pso/player/TObjPlayer_8034F064.cpp:
 	.text       start:0x8034F064 end:0x8034F104
 
+pso/item/TItemEquipVariant_8034F104.cpp:
+	.text       start:0x8034F104 end:0x8034F15C
+
 pso/player/TObjPlayer_8034F15C.cpp:
 	.text       start:0x8034F15C end:0x8034F1AC
+
+pso/item/TItemEquipVariant_8034F36C.cpp:
+	.text       start:0x8034F36C end:0x8034F3C4
 
 pso/player/TObjPlayer_8034F3C4.cpp:
 	.text       start:0x8034F3C4 end:0x8034F418
@@ -25859,11 +26483,17 @@ pso/player/TObjPlayer_8034F3C4.cpp:
 pso/player/TObjPlayer_8034F5B8.cpp:
 	.text       start:0x8034F5B8 end:0x8034F6FC
 
+pso/item/TItemEquipVariant_8034F6FC.cpp:
+	.text       start:0x8034F6FC end:0x8034F754
+
 pso/player/TObjPlayer_8034F810.cpp:
 	.text       start:0x8034F810 end:0x8034F8B8
 
 pso/player/TObjPlayer_8034F8B8.cpp:
 	.text       start:0x8034F8B8 end:0x8034F948
+
+pso/item/TItemEquipVariant_8034F948.cpp:
+	.text       start:0x8034F948 end:0x8034F9A0
 
 pso/item/TItemEffPG_8034F9A0.cpp:
 	.text       start:0x8034F9A0 end:0x8034F9F8
@@ -25889,6 +26519,9 @@ pso/item/TItemEffPG_8034FF4C.cpp:
 pso/item/TItemEffPG_80350124.cpp:
 	.text       start:0x80350124 end:0x803501BC
 
+pso/item/TItemObjectVariant_8035029C.cpp:
+	.text       start:0x8035029C end:0x803502F4
+
 pso/slices/pso_carve_803502f4.cpp:
 	.text       start:0x803502F4 end:0x8035033C
 
@@ -25901,6 +26534,9 @@ pso/slices/pso_carve_803504a8.cpp:
 pso/slices/pso_carve_80350504.cpp:
 	.text       start:0x80350504 end:0x80350530
 
+pso/item/TItemObjectVariant_80350530.cpp:
+	.text       start:0x80350530 end:0x80350588
+
 pso/slices/pso_carve_80350588.cpp:
 	.text       start:0x80350588 end:0x803505C4
 
@@ -25909,6 +26545,9 @@ pso/object/TObjRainbowLobby_8035061C.cpp:
 
 pso/object/TObjRainbowLobby.cpp:
 	.text       start:0x80350784 end:0x803507D0
+
+pso/object/TObjRainbowLobby_803507D0.cpp:
+	.text       start:0x803507D0 end:0x80350808
 
 pso/object/TObjRainbowLobby_80350858.cpp:
 	.text       start:0x80350858 end:0x803508B0
@@ -26016,8 +26655,14 @@ pso/object/TObjLobbyMain.cpp:
 pso/object/TObjLobbyMain_8035276C.cpp:
 	.text       start:0x8035276C end:0x803527B8
 
+pso/object/TObjLobbyMain_803527B8.cpp:
+	.text       start:0x803527B8 end:0x803527F0
+
 pso/object/TObjLobbyMain_803528A4.cpp:
 	.text       start:0x803528A4 end:0x80352940
+
+pso/item/TItemObjectVariant_80352AC0.cpp:
+	.text       start:0x80352AC0 end:0x80352B18
 
 pso/slices/pso_carve_80352b18.cpp:
 	.text       start:0x80352B18 end:0x80352B60
@@ -26052,6 +26697,9 @@ pso/misc/TEndingPic_803531D0.cpp:
 pso/misc/TEndingPic_803531F8.cpp:
 	.text       start:0x803531F8 end:0x803531FC
 
+pso/item/TItemObjectVariant_80353380.cpp:
+	.text       start:0x80353380 end:0x803533D8
+
 pso/slices/pso_carve_803533d8.cpp:
 	.text       start:0x803533D8 end:0x80353414
 
@@ -26060,6 +26708,9 @@ pso/object/TObjKabochaLobby_8035346C.cpp:
 
 pso/object/TObjKabochaLobby.cpp:
 	.text       start:0x80353600 end:0x8035364C
+
+pso/object/TObjKabochaLobby_8035364C.cpp:
+	.text       start:0x8035364C end:0x80353684
 
 pso/object/TObjKabochaLobby_803536DC.cpp:
 	.text       start:0x803536DC end:0x80353734
@@ -26124,6 +26775,9 @@ pso/boss/TBoss8Dragon_80355A1C.cpp:
 pso/player/TObjPlayer_80355A58.cpp:
 	.text       start:0x80355A58 end:0x80355AE0
 
+pso/item/TItemEquipVariant_80355B48.cpp:
+	.text       start:0x80355B48 end:0x80355BA0
+
 pso/ui/TAdPlyPltAnimCtrlGC_80355D20.cpp:
 	.text       start:0x80355D20 end:0x80355D38
 
@@ -26181,6 +26835,9 @@ pso/slices/run_80357734.cpp:
 pso/player/TObjPlayer_803579C8.cpp:
 	.text       start:0x803579C8 end:0x80357A20
 
+pso/item/TItemEquipVariant_80357A20.cpp:
+	.text       start:0x80357A20 end:0x80357A78
+
 pso/player/TObjPlayer_80357A78.cpp:
 	.text       start:0x80357A78 end:0x80357AD4
 
@@ -26222,6 +26879,9 @@ pso/object/TObjStendGlassLobby_80359854.cpp:
 
 pso/object/TObjStendGlassLobby_803598C0.cpp:
 	.text       start:0x803598C0 end:0x8035990C
+
+pso/object/TObjStendGlassLobby_8035990C.cpp:
+	.text       start:0x8035990C end:0x80359944
 
 pso/object/TObjStendGlassLobby_8035999C.cpp:
 	.text       start:0x8035999C end:0x803599F4
@@ -26292,6 +26952,9 @@ pso/boss/TBoss7LaserPtcl_8035AF0C.cpp:
 pso/player/TObjPlayer_8035AFD0.cpp:
 	.text       start:0x8035AFD0 end:0x8035B00C
 
+pso/misc/TPlyPhotonChair_8035B2A4.cpp:
+	.text       start:0x8035B2A4 end:0x8035B2DC
+
 pso/misc/TPlyPhotonChair_8035B340.cpp:
 	.text       start:0x8035B340 end:0x8035B3C0
 
@@ -26331,6 +26994,9 @@ pso/object/TObjCurtainLobby_8035B8B8.cpp:
 
 pso/object/TObjCurtainLobby.cpp:
 	.text       start:0x8035BA48 end:0x8035BA94
+
+pso/object/TObjCurtainLobby_8035BA94.cpp:
+	.text       start:0x8035BA94 end:0x8035BACC
 
 pso/object/TObjCurtainLobby_8035BB24.cpp:
 	.text       start:0x8035BB24 end:0x8035BB7C
@@ -26399,6 +27065,9 @@ pso/boss/TBoss6Thanks_8035D270.cpp:
 
 pso/boss/TBoss6Thanks_8035D290.cpp:
 	.text       start:0x8035D290 end:0x8035D2EC
+
+pso/item/TItemEquipVariant_8035D444.cpp:
+	.text       start:0x8035D444 end:0x8035D49C
 
 pso/misc/TLobby_8035D540.cpp:
 	.text       start:0x8035D540 end:0x8035D548
@@ -26505,6 +27174,9 @@ pso/enemy/TObjEneEpsilon_80362BBC.cpp:
 pso/player/TObjPlayer_80362CFC.cpp:
 	.text       start:0x80362CFC end:0x80362D38
 
+pso/item/TItemEquipVariant_80362D90.cpp:
+	.text       start:0x80362D90 end:0x80362DE8
+
 pso/player/TObjPlayer_80362E60.cpp:
 	.text       start:0x80362E60 end:0x80362EB0
 
@@ -26513,6 +27185,9 @@ pso/player/TObjPlayer_80362EB0.cpp:
 
 pso/player/TObjPlayer_803630A0.cpp:
 	.text       start:0x803630A0 end:0x803630F0
+
+pso/item/TItemEquipVariant_80363148.cpp:
+	.text       start:0x80363148 end:0x803631A0
 
 pso/item/TItemEffectWeapon_803631A0.cpp:
 	.text       start:0x803631A0 end:0x803631E8
@@ -26528,6 +27203,9 @@ pso/item/TItemEffectWeapon_803632E0.cpp:
 
 pso/item/TItemEffectWeapon_8036330C.cpp:
 	.text       start:0x8036330C end:0x8036335C
+
+pso/item/TItemEffectWeapon_803633B4.cpp:
+	.text       start:0x803633B4 end:0x8036340C
 
 pso/item/TItemEffectWeapon_8036340C.cpp:
 	.text       start:0x8036340C end:0x80363414
@@ -26616,11 +27294,17 @@ pso/item/TItemProArmorParticle.cpp:
 pso/item/TItemProArmorParticle_80364794.cpp:
 	.text       start:0x80364794 end:0x803647D8
 
+pso/item/TItemProArmorParticle_803647D8.cpp:
+	.text       start:0x803647D8 end:0x80364830
+
 pso/object/TObjTreeLobby_80364830.cpp:
 	.text       start:0x80364830 end:0x803648B8
 
 pso/object/TObjTreeLobby.cpp:
 	.text       start:0x80364998 end:0x803649E4
+
+pso/object/TObjTreeLobby_803649E4.cpp:
+	.text       start:0x803649E4 end:0x80364A1C
 
 pso/object/TObjTreeLobby_80364A74.cpp:
 	.text       start:0x80364A74 end:0x80364ACC
@@ -26747,6 +27431,9 @@ pso/object/TObjSuisouLobby_80369B60.cpp:
 
 pso/object/TObjSuisouLobby_80369CF0.cpp:
 	.text       start:0x80369CF0 end:0x80369DB8
+
+pso/object/TObjSuisouLobby_80369DB8.cpp:
+	.text       start:0x80369DB8 end:0x80369DF0
 
 pso/object/TObjSuisouLobby_80369E48.cpp:
 	.text       start:0x80369E48 end:0x80369ED4
