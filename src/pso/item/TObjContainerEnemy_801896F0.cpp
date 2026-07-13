@@ -13,7 +13,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK fn_8015C8D8(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_8015C8D8(void *, M2C_UNK);
 
 extern void *tl_05;
 
@@ -32,7 +32,7 @@ void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjContainerEnemy;
         TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
         TObjEneGibbles__sub_80156720(arg0);
-        fn_8015C8D8(arg0, 0);
+        TObjPlayer__sub_8015C8D8(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

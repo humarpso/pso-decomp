@@ -9,13 +9,13 @@ extern "C" {
 s32 TLobby__sub_8001EEF4();
 u32 TLobby__sub_8002058C(u32, M2C_UNK, void *, void *, M2C_UNK, M2C_UNK, s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-s32 fn_8028C8E0(void *);
+s32 TAdSinglePlyChrSelectGC__sub_8028C8E0(void *);
 s32 TLobby__sub_8028D714(s32);
 
 void fn_8028C650(u8 *arg0) {
     u32 var_r31;
 
-    if ((TLobby__sub_8001EEF4() != 0) && (fn_8028C8E0(arg0) != 0)) {
+    if ((TLobby__sub_8001EEF4() != 0) && (TAdSinglePlyChrSelectGC__sub_8028C8E0(arg0) != 0)) {
         var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (var_r31 != 0U) {
             var_r31 = TLobby__sub_8002058C(var_r31, 6, arg0 + 0x60, arg0 + 0x64, 0, 0, TLobby__sub_8028D714(M2C_FIELD(arg0, s32 *, 0x24)));

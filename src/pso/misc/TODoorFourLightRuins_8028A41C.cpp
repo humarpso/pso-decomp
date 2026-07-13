@@ -11,7 +11,7 @@ M2C_UNK TODoorFourLightRuins__sub_8028A28C(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 s32 fn_801582C4(void *, f32);
-M2C_UNK fn_8028A8F8();
+M2C_UNK TBoss8Dragon__sub_8028A8F8();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -43,7 +43,7 @@ void render__20TODoorFourLightRuinsFv(u8 *arg0) {
         case 1:
         case 3:
             TObjPlayer__sub_803D9B2C();
-            fn_8028A8F8();
+            TBoss8Dragon__sub_8028A8F8();
             TObjFish__sub_803DA798();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -52,7 +52,7 @@ void render__20TODoorFourLightRuinsFv(u8 *arg0) {
             return;
         case 2:
             TObjPlayer__sub_803D9B2C();
-            fn_8028A8F8();
+            TBoss8Dragon__sub_8028A8F8();
             TObjFish__sub_803DA798();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -66,7 +66,7 @@ void render__20TODoorFourLightRuinsFv(u8 *arg0) {
                 return;
             }
             TObjPlayer__sub_803D9B2C();
-            fn_8028A8F8();
+            TBoss8Dragon__sub_8028A8F8();
             TObjFish__sub_803DA798();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

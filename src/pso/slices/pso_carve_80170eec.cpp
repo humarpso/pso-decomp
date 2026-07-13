@@ -2,10 +2,10 @@
 
 extern "C" {
 
-int fn_80170EEC(void* p);
+int TOMine__sub_80170EEC(void* p);
 int TObjPlayer__sub_801B4AC8(void*);
 
-int fn_80170EEC(void* p) { return TObjPlayer__sub_801B4AC8(p); }
-int fn_80170F0C(void) { return 0; }
+int TOMine__sub_80170EEC(void* p) { return TObjPlayer__sub_801B4AC8(p); }
+int TOMine__sub_80170F0C(void) { return 0; }
 
 }

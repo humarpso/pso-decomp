@@ -9,7 +9,7 @@ extern "C" {
 s32 create_option_menu__17TWindowOptionCtrlFv(void);
 s32 get_option_field_C__17TWindowOptionCtrlFv();
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
-M2C_UNK fn_80248968(s32, s32);
+M2C_UNK TWindowSubStatusDisp__sub_80248968(s32, s32);
 M2C_UNK add_menu_item__17TWindowOptionCtrlFiii(s32, s32, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80248C48(M2C_UNK, M2C_UNK *);
 s32 TWindowOptionCtrl__sub_8026CBA4(M2C_UNK);
@@ -25,7 +25,7 @@ s32 create_option_menu__17TWindowOptionCtrlFv(void) {
     add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x10), 0);
     add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x11), 1);
     add_menu_item__17TWindowOptionCtrlFiii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0x12), 2);
-    fn_80248968(temp_r31, (s16) get_option_field_C__17TWindowOptionCtrlFv());
+    TWindowSubStatusDisp__sub_80248968(temp_r31, (s16) get_option_field_C__17TWindowOptionCtrlFv());
     return temp_r31;
 }
 

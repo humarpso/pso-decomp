@@ -8,7 +8,7 @@ extern "C" {
 
 s32 create_sound_mode_menu__17TWindowOptionCtrlFPv(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
-M2C_UNK fn_80248968(s32, M2C_UNK);
+M2C_UNK TWindowSubStatusDisp__sub_80248968(s32, M2C_UNK);
 M2C_UNK add_menu_item__17TWindowOptionCtrlFiii(s32, s32, M2C_UNK);
 s32 TWindowSubStatusDisp__sub_80248C48(s32, M2C_UNK *);
 M2C_UNK TWindowOptionCtrl__sub_8026CBA4(M2C_UNK);
@@ -27,13 +27,13 @@ s32 create_sound_mode_menu__17TWindowOptionCtrlFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x20);
     switch (temp_r0) {
     case 0:
-        fn_80248968(temp_r31, 0);
+        TWindowSubStatusDisp__sub_80248968(temp_r31, 0);
         break;
     case 1:
-        fn_80248968(temp_r31, 1);
+        TWindowSubStatusDisp__sub_80248968(temp_r31, 1);
         break;
     case 2:
-        fn_80248968(temp_r31, 2);
+        TWindowSubStatusDisp__sub_80248968(temp_r31, 2);
         break;
     }
     return temp_r31;

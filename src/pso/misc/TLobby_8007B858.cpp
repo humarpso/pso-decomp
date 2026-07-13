@@ -26,7 +26,7 @@ M2C_UNK create_instance__10TSceneSoraFv();
 M2C_UNK init_subobject__6TLobbyFPvPvPv(u32, s32, M2C_UNK);
 M2C_UNK set_fade_params__6TLobbyFi(M2C_UNK);
 M2C_UNK ct_register__6TLobbyFPv(u32, s32);
-M2C_UNK fn_80198D98();
+M2C_UNK TWindowTimer__sub_80198D98();
 M2C_UNK create__11TSetManagerFv();
 M2C_UNK TLobby__sub_8032BDC4(u32, s32);
 M2C_UNK TLobby__sub_8033ED24(u32, s32);
@@ -100,7 +100,7 @@ void create_tasks__6TLobbyFv(void) {
         TLobby__sub_80351F3C();
     }
     if ((TOKeyMachine01__sub_802034A8() == 0xF) && (is_scene_ready__6TLobbyFv() != 0)) {
-        fn_80198D98();
+        TWindowTimer__sub_80198D98();
     }
     if ((get_main_phase() == 0xF) && ((TOKeyMachine01__sub_802034A8() == 0) || (TOKeyMachine01__sub_802034A8() == 0x12))) {
         tmp = __nw__7TObjectFUl(0x1C);

@@ -18,7 +18,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32, M2C_UNK *);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
-M2C_UNK fn_800FC924(s32);
+M2C_UNK TWindowCtrlMain__sub_800FC924(s32);
 M2C_UNK window_request_show(u32);
 
 extern s32 lbl_805D53A0;
@@ -50,7 +50,7 @@ extern s32 lbl_805D53A0;
 
 void handle_controller__11TWindowCtrlFi(s32 arg0) {
     if ((TOKeyMachine01__sub_802034A8() == 0xF) && (TWindowCtrl__sub_8024B054(lbl_805D53A0) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) == 0) && (TWindowCtrl__sub_8024AF74(lbl_805D53A0) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(lbl_805D53A0), (M2C_UNK *)lbl_8050E208) != 0)) {
-        fn_800FC924(lbl_805D53A0);
+        TWindowCtrlMain__sub_800FC924(lbl_805D53A0);
     }
 }
 
