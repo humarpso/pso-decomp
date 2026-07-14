@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjFish__sub_802EC330(u8 *arg0);
+void update_projectile_spawns__8TObjFishFPv(u8 *arg0);
 M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
 M2C_UNK TObjEneDD__sub_800B9BEC(void *, void *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
@@ -18,7 +18,7 @@ extern const f32 lbl_805DEA30;
 extern const f32 lbl_805DEA58;
 extern const f32 lbl_805DEB68;
 
-void TObjFish__sub_802EC330(u8 *arg0) {
+void update_projectile_spawns__8TObjFishFPv(u8 *arg0) {
     u8 *temp_r31;
 
     TObjEneDD__sub_800B9BEC((void *) (arg0 + 0x38), (void *) (arg0 + 0x50C), (f32) (lbl_805DEB68));

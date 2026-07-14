@@ -89,7 +89,7 @@ extern "C" {
 
 void create_objects__6TLobbyFi(s32 arg0);
 u8 *TLobby__sub_8020CCF4(void *);
-u8 *TLobby__sub_8020B334();
+u8 *resolve_matching_object__6TLobbyFPv();
 s32 TLobby__sub_8020B454(s32);
 
 extern s32 TLobby__data_805D6144;
@@ -102,7 +102,7 @@ void create_objects__6TLobbyFi(s32 arg0) {
     s32 i;
     u8 *temp_r3_2;
 
-    ptr = TLobby__sub_8020B334();
+    ptr = resolve_matching_object__6TLobbyFPv();
     count = TLobby__sub_8020B454(arg0);
     for (i = 0; i < count; i++, ptr += 0x48) {
         temp_r3 = M2C_FIELD(ptr, s16 *, 2);

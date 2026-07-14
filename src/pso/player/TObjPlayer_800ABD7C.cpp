@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_particle_by_phase__10TObjPlayerFv(void);
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 
 extern s32 lbl_805D50C4;
 
@@ -17,10 +17,10 @@ void update_particle_by_phase__10TObjPlayerFv(void) {
     case 0x10:
     case 0x1A:
     case 0x20:
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         break;
     default:
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
         break;
     }
     lbl_805D50C4 += 1;

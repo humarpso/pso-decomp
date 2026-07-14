@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecRaFoie__sub_80226258(s32 arg0);
+void update_technique_slot__10TTecRaFoieFi(s32 arg0);
 M2C_UNK TLobby__sub_8023F8F4();
 
 extern s32 lbl_805D62B0;
 
-void TTecRaFoie__sub_80226258(s32 arg0) {
+void update_technique_slot__10TTecRaFoieFi(s32 arg0) {
     if (((s32) lbl_805D62B0 != 0) && (arg0 >= 0) && (arg0 < 0x28)) {
         TLobby__sub_8023F8F4();
     }

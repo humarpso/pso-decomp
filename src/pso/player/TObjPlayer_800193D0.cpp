@@ -3,7 +3,7 @@
 extern "C" {
 
 int TObjPlayer__sub_800192DC(void*);
-s16 TObjPlayer__sub_800193D0(void* p);
+s16 get_model_animation_id__10TObjPlayerFPv(void* p);
 s16 TObjPlayer__sub_800193F4(void* p);
 s16 TObjPlayer__sub_8001944C(void* p);
 s32 update_field_318__10TObjPlayerFPv(void* p);
@@ -18,7 +18,7 @@ void TObjPlayer__sub_8001951C(void* p);
 void TObjPlayer__sub_80019528(void* p, u32 v);
 void TObjPlayer__sub_80019568(void* p, s16 v);
 
-s16 TObjPlayer__sub_800193D0(void* p) { return TObjPlayer__sub_800193F4(*(void**)((char*)p + 0x318)); }
+s16 get_model_animation_id__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_800193F4(*(void**)((char*)p + 0x318)); }
 s16 TObjPlayer__sub_800193F4(void* p) { return *(s16*)((char*)p + 0x0); }
 
 }

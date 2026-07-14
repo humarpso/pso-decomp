@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjBoss2Tunnel__sub_802F2740(u8 *arg0);
+void update_phase_motion__15TObjBoss2TunnelFPv(u8 *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_8007DEE4(void *, f32, f32, f32, f32, f32);
 s32 TObjBoss2Tunnel__sub_802F2300(void *);
-f32 TObjFish__sub_8001973C(f32);
+f32 get_random_float__8TObjFishFv(f32);
 s32 advance_phase__15TObjBoss2TunnelFPv(void *, void *);
 s32 check_both__15TObjBoss2TunnelFi();
 f32 update_position__15TObjBoss2TunnelFPv(void *);
@@ -23,7 +23,7 @@ extern const f32 lbl_805DED00;
 extern const f32 lbl_805DED04;
 extern const f32 lbl_805DED08;
 
-void TObjBoss2Tunnel__sub_802F2740(u8 *arg0) {
+void update_phase_motion__15TObjBoss2TunnelFPv(u8 *arg0) {
     f32 sp8;
     s32 temp_r0;
 
@@ -44,7 +44,7 @@ void TObjBoss2Tunnel__sub_802F2740(u8 *arg0) {
     case 1:
         if (check_both__15TObjBoss2TunnelFi() == 0) {
             M2C_FIELD(arg0, s32 *, 0x4C) = 3;
-            sp8 = TObjFish__sub_8001973C((f32) (M2C_FIELD(arg0, f32 *, 0x54)));
+            sp8 = get_random_float__8TObjFishFv((f32) (M2C_FIELD(arg0, f32 *, 0x54)));
             TObjBoss2Tunnel__sub_8007DEE4((void *) (arg0 + 0x20), (f32) (lbl_805DECC4), (f32) (lbl_805DED00), (f32) (M2C_FIELD(arg0, f32 *, 0x54)), (f32) (-update_position__15TObjBoss2TunnelFPv((void *) (arg0 + 0x20))), (f32) (lbl_805DECF8));
             return;
         }

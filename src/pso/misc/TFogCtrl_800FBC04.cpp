@@ -10,7 +10,7 @@ void reset__8TFogCtrlFv(void);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK TObjFogCollisionPoison__sub_801533BC();
 M2C_UNK destroy_instance__22TQuestVmDownLoadServerFv();
-M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK fn_803E1FC8(M2C_UNK);
 M2C_UNK fn_803E1FFC(f32, f32);
 M2C_UNK fn_803E2070();
@@ -29,7 +29,7 @@ void reset__8TFogCtrlFv(void) {
     fn_803E1FC8(-1);
     fn_803E1FFC(lbl_805DA964, lbl_805DA968);
     fn_803E2070();
-    TParticleCtrl__sub_801E2EFC();
+    begin_effect_render__13TParticleCtrlFv();
 }
 
 }

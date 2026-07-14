@@ -15,7 +15,7 @@ M2C_UNK TWindowSubQuestBoard__sub_8027CF50(s32, s32);
 M2C_UNK set_card_flags_scaled__20TWindowSubQuestBoardFii(s32, s32);
 M2C_UNK set_card_flags_direct__20TWindowSubQuestBoardFPvi(s32, s32);
 
-void fn_8027C7CC(void *arg0) {
+void update_quest_board_card_flags(void *arg0) {
     s32 temp_r31;
     s32 temp_r4;
 

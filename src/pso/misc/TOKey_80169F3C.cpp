@@ -6,12 +6,12 @@ extern "C" {
 
 void *init__5TOKeyFPv(void *arg0);
 void TOKey__sub_80169FB0(void *);
-void fn_8015858C(void *);
+void init_map_object_base(void *);
 
 extern M2C_UNK lbl_804B27D8[];
 
 void *init__5TOKeyFPv(void *arg0) {
-    fn_8015858C(arg0);
+    init_map_object_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B27D8;
     M2C_FIELD(arg0, u32 *, 0xD0) = -1;
     M2C_FIELD(arg0, u32 *, 0xC8) = 0;

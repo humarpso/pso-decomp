@@ -8,7 +8,7 @@ extern "C" {
 
 s32 should_update__11TCameraCtrlFv(void);
 s32 TCameraCtrl__sub_8006B368();
-s32 TLobby__sub_801B31AC();
+s32 check_player_state_flag_2__6TLobbyFPv();
 s32 TOKeyMachine01__sub_802034A8();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 is_split_screen();
@@ -19,7 +19,7 @@ s32 should_update__11TCameraCtrlFv(void) {
     s32 temp_r3;
 
     if (is_split_screen() == 0) {
-        if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) == 0U) || (TLobby__sub_801B31AC() != 0)) {
+        if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) == 0U) || (check_player_state_flag_2__6TLobbyFPv() != 0)) {
             return 0;
         }
         if (TCameraCtrl__sub_8006B368() == 0) {

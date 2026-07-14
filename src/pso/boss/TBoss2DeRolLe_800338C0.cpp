@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss2DeRolLe__sub_800338C0(u8 *arg0);
+void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0);
 M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 M2C_UNK TObjEneDD__sub_800B9BEC(void *, void *, f32);
@@ -18,7 +18,7 @@ extern const f32 TBoss2DeRolLe__data_805D8288;
 extern const f32 TBoss2DeRolLe__data_805D8294;
 extern const f32 TBoss2DeRolLe__data_805D82F0;
 
-void TBoss2DeRolLe__sub_800338C0(u8 *arg0) {
+void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
     u8 *temp_r31;
 
     TObjEneDD__sub_800B9BEC((void *) (arg0 + 0x38), (void *) (arg0 + 0x518), (f32) (TBoss2DeRolLe__data_805D8280));

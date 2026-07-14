@@ -8,7 +8,7 @@ void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *a
 void TObjEneMe1Gee__sub_800CC0C4(void *);
 void TObjEneMe1Gee__sub_800CC430(void *);
 void init_object__9TObjEneDDFPv(void *);
-void TObjEneDD__sub_800BB8E0(void *, void *);
+void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 void init_common__18TObjEneMe3SinowZoaFPv(void *);
 
 extern M2C_UNK __vt__13TObjEneMe1Gee[];
@@ -19,7 +19,7 @@ void *init__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *a
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjEneMe1Gee;
     init_common__18TObjEneMe3SinowZoaFPv((void *)((char *)arg0 + 972));
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2A68;
-    TObjEneDD__sub_800BB8E0(arg0, arg2);
+    invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     M2C_FIELD(arg0, u32 *, 0x3C8) = 0;
     TObjEneMe1Gee__sub_800CC0C4(arg0);
     M2C_FIELD(arg0, void **, 0x3C0) = arg0;

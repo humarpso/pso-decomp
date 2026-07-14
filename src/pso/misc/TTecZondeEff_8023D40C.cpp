@@ -7,16 +7,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0);
-f32 TObjFish__sub_8001973C(f32);
+f32 get_random_float__8TObjFishFv(f32);
 
 s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0) {
     f32 temp_f1;
     f32 temp_f30;
     f32 temp_f31;
 
-    temp_f30 = TObjFish__sub_8001973C(M2C_FIELD(arg0, f32 *, 0x28));
-    temp_f31 = TObjFish__sub_8001973C(M2C_FIELD(arg0, f32 *, 0x2C));
-    temp_f1 = TObjFish__sub_8001973C(M2C_FIELD(arg0, f32 *, 0x30));
+    temp_f30 = get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0x28));
+    temp_f31 = get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0x2C));
+    temp_f1 = get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0x30));
     if (temp_f30 > temp_f31) {
         if (temp_f30 > temp_f1) {
             return 0;

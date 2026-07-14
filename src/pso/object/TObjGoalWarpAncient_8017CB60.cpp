@@ -21,8 +21,8 @@ extern "C" {
 void render__19TObjGoalWarpAncientFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -37,12 +37,12 @@ void render__19TObjGoalWarpAncientFv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xD8));
         TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xCC), M2C_FIELD(arg0, s32 *, 0xE4), M2C_FIELD(arg0, f32 *, 0xC4));
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xE0));
         TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, s32 *, 0xE8), M2C_FIELD(arg0, f32 *, 0xC8));
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
         TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xDC));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0xD0));
         TObjPlayer__sub_803D9B78();

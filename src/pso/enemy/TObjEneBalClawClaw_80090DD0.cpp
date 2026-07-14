@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void action__18TObjEneBalClawClawFPv(u8 *arg0);
-M2C_UNK TObjEneBalClawClaw__sub_8009082C(void *, s32, s32);
+M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *, s32, s32);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *, s32);
@@ -48,7 +48,7 @@ void action__18TObjEneBalClawClawFPv(u8 *arg0) {
             temp_r4_2 = temp_r5 & ~5;
             M2C_FIELD(arg0, s32 *, 0x388) = temp_r4_2;
             M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-            TObjEneBalClawClaw__sub_8009082C(arg0, temp_r4_2, temp_r5);
+            reset_active_state__18TObjEneBalClawClawFPv(arg0, temp_r4_2, temp_r5);
         }
         return;
     case -1:

@@ -315,7 +315,7 @@ extern "C" {
 
 void set_flag_400000__10TObjPlayerFPv(void *arg0);
 short get_model_field_m25__10TObjPlayerFPv(void *arg0);
-short TObjPlayer__sub_801BE40C(void *arg0);
+short get_action_animation__10TObjPlayerFPv(void *arg0);
 short call_model_m24__10TObjPlayerFPv(void *arg0);
 short TObjPlayer__sub_801BE474(void *arg0);
 short call_obj_vt26__10TObjPlayerFPv(void *arg0);
@@ -339,7 +339,7 @@ short get_model_field_m25__10TObjPlayerFPv(void *arg0) {
     return o->m25();
 }
 
-short TObjPlayer__sub_801BE40C(void *arg0) {
+short get_action_animation__10TObjPlayerFPv(void *arg0) {
     struct VObj_801BE40C *o = (struct VObj_801BE40C *)M2C_FIELD(arg0, void **, 0x380);
     return o->m22();
 }

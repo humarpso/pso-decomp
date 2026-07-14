@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_802E21AC(u8 *arg0);
+void build_selection_summary__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DC70(void *, void *);
 M2C_UNK close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void *, void *, int, int, int);
@@ -14,7 +14,7 @@ M2C_UNK create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
 
 extern M2C_UNK lbl_805DE8F8;
 
-void TAdSinglePlyChrSelectGC__sub_802E21AC(u8 *arg0) {
+void build_selection_summary__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
     M2C_FIELD(arg0, s8 *, 0x68) = 0;
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x80) {

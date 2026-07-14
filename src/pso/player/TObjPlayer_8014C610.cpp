@@ -8,7 +8,7 @@ extern "C" {
 
 void draw_if_visible__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjFish__sub_803DA798(s32);
-M2C_UNK TObjPlayer__sub_80011080(void *, M2C_UNK, M2C_UNK);
+M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D8C7C(M2C_UNK, void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D97F0(M2C_UNK);
@@ -40,7 +40,7 @@ void draw_if_visible__10TObjPlayerFPv(u8 *arg0) {
         draw__16TObjEneRe7BeruraFPv(arg0);
         TObjPlayer__sub_803D9B78();
         some_id_805c6f74 &= 0xFFFFFFFE;
-        TObjPlayer__sub_80011080(arg0, 0, 0);
+        render_with_position_override__10TObjPlayerFPvPvi(arg0, 0, 0);
     }
 }
 

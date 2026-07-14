@@ -10,7 +10,7 @@ s32 render_anim_model__10TObjPlayerFPvf(void *arg0, f32 farg0);
 M2C_UNK TObjEneRe7Berura__sub_803E4CE0(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803E4BC4();
 M2C_UNK TObjPlayer__sub_803E4BD0();
-M2C_UNK TBoss8Dragon__sub_801E3CFC(u32, u32, f32);
+M2C_UNK render_model_tree__12TBoss8DragonFPvPv(u32, u32, f32);
 
 extern M2C_UNK TObjPlayer__sub_80142EEC[];
 extern s32 lbl_805D5678;
@@ -23,7 +23,7 @@ s32 render_anim_model__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     TObjPlayer__sub_803E4BC4();
     lbl_805D567C = lbl_805D5678;
     TObjEneRe7Berura__sub_803E4CE0(TObjPlayer__sub_80142EEC);
-    TBoss8Dragon__sub_801E3CFC(M2C_FIELD(arg0, u32 *, 0x34), M2C_FIELD(arg0, u32 *, 0xF8), farg0);
+    render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, u32 *, 0x34), M2C_FIELD(arg0, u32 *, 0xF8), farg0);
     TObjEneRe7Berura__sub_803E4CE0(NULL);
     TObjPlayer__sub_803E4BD0();
     return 1;

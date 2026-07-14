@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__26TOContainerAncientItemRareFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void TObjPlayer__sub_8015C4CC(void *, int);
+void destroy_ancient_container__10TObjPlayerFPvs(void *, int);
 
 extern M2C_UNK __vt__26TOContainerAncientItemRare[];
 
 void *__dt__26TOContainerAncientItemRareFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__26TOContainerAncientItemRare;
-        TObjPlayer__sub_8015C4CC(arg0, 0);
+        destroy_ancient_container__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

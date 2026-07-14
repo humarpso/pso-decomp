@@ -10,8 +10,8 @@ void render__11TMainCursorFPv(u8 *arg0);
 M2C_UNK update_photon_chair__11TMainCursorFi(void *);
 M2C_UNK update_chair__11TMainCursorFPv(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, M2C_UNK);
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK fn_8023601C(void *, M2C_UNK *, f32);
 M2C_UNK TObjPlayer__sub_803D8C7C(M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -26,7 +26,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     M2C_UNK sp8;
     f32 temp_f31;
 
-    TParticleCtrl__sub_801E2EFC();
+    begin_effect_render__13TParticleCtrlFv();
     temp_f31 = M2C_FIELD(arg0, f32 *, 0x30);
     TObjPlayer__sub_803D9B2C();
     fn_8023601C(arg0 + 0x40, &sp8, M2C_FIELD(arg0, f32 *, 0x2C));
@@ -51,7 +51,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     update_chair__11TMainCursorFPv(arg0);
     TObjPlayer__sub_803D9B78();
     TObjPlayer__sub_803D9B78();
-    TParticleCtrl__sub_801E2F20();
+    end_effect_render__13TParticleCtrlFv();
 }
 
 }

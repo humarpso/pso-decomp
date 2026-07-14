@@ -9,7 +9,7 @@ void __dl__7TObjectFPv(void *);
 void TObjPlayer__sub_800D7C58(void *, int);
 void TObjPlayer__sub_80154A00(void *);
 void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80156990(void *, int);
+void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK __vt__11TObjTuitate[];
@@ -21,7 +21,7 @@ void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
         TObjPlayer__sub_80154A00(arg0);
         TObjEneGibbles__sub_80156720(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xAC, -1);
-        TObjPlayer__sub_80156990(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

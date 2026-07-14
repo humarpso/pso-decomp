@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_8035DF78(u8 *arg0);
+void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
 s32 TCameraCtrl__sub_8006B360(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
@@ -22,7 +22,7 @@ extern M2C_UNK main_task[];
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 
-void TObjEneEpsilonGuard__sub_8035DF78(u8 *arg0) {
+void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     f32 temp_f1;
 
     if ((M2C_FIELD(arg0, s32 *, 0x46C) & 0x20) && (TCameraCtrl__sub_8006B360((void *) (main_task)) & 0x200)) {

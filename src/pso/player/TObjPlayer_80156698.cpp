@@ -3,7 +3,7 @@
 extern "C" {
 
 int TObjPlayer__sub_80154E3C(void*);
-void* fn_801566DC(void* p, void* a1);
+void* initialize_linked_object_reference(void* p, void* a1);
 int TObjPlayer__sub_801564A0(void*);
 int check_object_collisions__10TObjPlayerFPv(void*);
 void fn_801566CC(void* p);

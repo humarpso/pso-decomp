@@ -9,9 +9,9 @@ extern "C" {
 void init_models__20TBoss3VoloptHiraisinFv(void);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
-s32 TLobby__sub_8001E1D8(M2C_UNK);
+s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 register_object__6TLobbyFPv(M2C_UNK);
-s32 TLobby__sub_8001E248(M2C_UNK);
+s32 dispatch_shared_handler_b__6TLobbyFPv(M2C_UNK);
 s32 register_boss__6TLobbyFPv(M2C_UNK);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 *collect_and_count__12TBoss3VoloptFUii(M2C_UNK, M2C_UNK);
@@ -39,9 +39,9 @@ void init_models__20TBoss3VoloptHiraisinFv(void) {
     }
     lbl_805D4C88 = var_r31;
     lbl_805D4C70 = register_boss__6TLobbyFPv(0x24);
-    lbl_805D4C74 = TLobby__sub_8001E248(0x24);
+    lbl_805D4C74 = dispatch_shared_handler_b__6TLobbyFPv(0x24);
     lbl_805D4C78 = register_object__6TLobbyFPv(0x24);
-    lbl_805D4C7C = TLobby__sub_8001E1D8(0x24);
+    lbl_805D4C7C = dispatch_shared_handler_a__6TLobbyFPv(0x24);
 }
 
 }

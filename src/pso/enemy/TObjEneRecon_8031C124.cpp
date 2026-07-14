@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void advance_intro_stage__12TObjEneReconFv(void);
-M2C_UNK TObjEneDD__sub_800B9F24();
-M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK update_camera_sequence__9TObjEneDDFPv();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK TCameraCtrl__sub_803D8934(M2C_UNK, s32, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -20,12 +20,12 @@ void advance_intro_stage__12TObjEneReconFv(void) {
     switch ((s32) lbl_805D6B08) {
     case 0:
         TObjPlayer__sub_803D9B2C();
-        TObjEneDD__sub_800B9F24();
+        update_camera_sequence__9TObjEneDDFPv();
         TCameraCtrl__sub_803D8934(0, lbl_805D6B0C, lbl_805D6B0C);
         TObjPlayer__sub_803D9B78();
         break;
     case 10:
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         break;
     }
     lbl_805D6B08 += 1;

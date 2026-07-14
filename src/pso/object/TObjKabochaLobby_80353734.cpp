@@ -16,7 +16,7 @@ struct TObjKabochaLobby803537 : TObjBase803537 {
 extern "C" {
 
 void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK fn_8015858C();
+M2C_UNK init_map_object_base();
 s32 TLobby__sub_80351DFC();
 
 extern M2C_UNK __vt__16TObjKabochaLobby[];
@@ -26,7 +26,7 @@ extern s32 TObjKabochaLobby__data_805D6EEC;
 extern const f32 TObjKabochaLobby__data_805DFF38;
 
 void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
-    fn_8015858C();
+    init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjKabochaLobby;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4384;
     ((TObjKabochaLobby803537 *)arg0)->ct(arg2);

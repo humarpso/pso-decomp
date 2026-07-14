@@ -8,10 +8,10 @@ extern "C" {
 
 f32 get_target_pos_y__18TBoss7PhotonBulletFv(void);
 
-void *TLobby__sub_8001E1D8(M2C_UNK);
+void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 
 f32 get_target_pos_y__18TBoss7PhotonBulletFv(void) {
-    return M2C_FIELD(TLobby__sub_8001E1D8(0xF), f32 *, 4);
+    return M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0xF), f32 *, 4);
 }
 
 }

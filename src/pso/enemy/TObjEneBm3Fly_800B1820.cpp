@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1);
-f32 TObjFish__sub_8001973C(f32);
+f32 get_random_float__8TObjFishFv(f32);
 
 extern const f32 TObjEneBm3Fly__data_805D9C78;
 extern const f32 lbl_805D9CE0;
@@ -20,7 +20,7 @@ f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1) {
     f32 cap;
 
     temp_f31 = farg1 - farg0;
-    if (TObjFish__sub_8001973C(temp_f31) < lbl_805D9CE0) {
+    if (get_random_float__8TObjFishFv(temp_f31) < lbl_805D9CE0) {
         return farg1;
     }
     var_f1 = TObjEneBm3Fly__data_805D9C78;

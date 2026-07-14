@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void apply_with_callback__10TObjPlayerFPvif(void *arg0, s32 arg1, f32 farg0);
-M2C_UNK TBoss8Dragon__sub_801E3CFC(s32, s32, f32);
+M2C_UNK render_model_tree__12TBoss8DragonFPvPv(s32, s32, f32);
 M2C_UNK TObjEneRe7Berura__sub_803E4CE0(M2C_UNK *);
 
 extern M2C_UNK process_callback_list__10TObjPlayerFi[];
@@ -24,7 +24,7 @@ void apply_with_callback__10TObjPlayerFPvif(void *arg0, s32 arg1, f32 farg0) {
     lbl_805D6F38 = M2C_FIELD(arg0, s32 *, 0x28);
     lbl_805D6F3C = M2C_FIELD(arg0, s32 *, 0x38);
     TObjEneRe7Berura__sub_803E4CE0(process_callback_list__10TObjPlayerFi);
-    TBoss8Dragon__sub_801E3CFC(M2C_FIELD(arg0, s32 *, 0x1C), arg1, farg0);
+    render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, s32 *, 0x1C), arg1, farg0);
     TObjEneRe7Berura__sub_803E4CE0(NULL);
 }
 

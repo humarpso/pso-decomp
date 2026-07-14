@@ -22,7 +22,7 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 
-void fn_8002CB7C(u8 *arg0) {
+void render_boss_effect_object(u8 *arg0) {
     TObjFish__sub_803DA798((void *) (lbl_805D4B54));
     TBoss8Dragon__sub_8002D4C0((void *) (arg0 + 0x28));
     TObjPlayer__sub_803D9B2C();

@@ -9,13 +9,13 @@ extern "C" {
 void TObjPlayer__sub_80101008(void);
 M2C_UNK TAdRicoRing__sub_8001BEE8(M2C_UNK *, M2C_UNK);
 s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 
 extern M2C_UNK lbl_805D53EC;
 
 void TObjPlayer__sub_80101008(void) {
     if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 2) != 0) {
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
         TAdRicoRing__sub_8001BEE8(&lbl_805D53EC, 2);
     }
 }

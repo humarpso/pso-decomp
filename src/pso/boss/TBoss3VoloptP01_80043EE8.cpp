@@ -8,9 +8,9 @@ extern "C" {
 
 void init_breakup_effect__15TBoss3VoloptP01Fv(void);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
-s32 TLobby__sub_8001E1D8(M2C_UNK);
+s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 register_object__6TLobbyFPv(M2C_UNK);
-s32 TLobby__sub_8001E248(M2C_UNK);
+s32 dispatch_shared_handler_b__6TLobbyFPv(M2C_UNK);
 s32 register_boss__6TLobbyFPv(M2C_UNK);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 void *collect_and_count__12TBoss3VoloptFUii(s32, M2C_UNK);
@@ -36,9 +36,9 @@ void init_breakup_effect__15TBoss3VoloptP01Fv(void) {
     lbl_805D4CC4 = temp_r3;
     lbl_805D4CC8 = collect_and_count__12TBoss3VoloptFUii(M2C_FIELD(M2C_FIELD(lbl_805D4CC0, void **, 0x42C), s32 *, 0x118), 0xD);
     lbl_805D4CB0 = register_boss__6TLobbyFPv(0x22);
-    lbl_805D4CB4 = TLobby__sub_8001E248(0x22);
+    lbl_805D4CB4 = dispatch_shared_handler_b__6TLobbyFPv(0x22);
     lbl_805D4CB8 = register_object__6TLobbyFPv(0x22);
-    lbl_805D4CBC = TLobby__sub_8001E1D8(0x22);
+    lbl_805D4CBC = dispatch_shared_handler_a__6TLobbyFPv(0x22);
     lbl_805D4CCC = M2C_FIELD(M2C_FIELD(lbl_805D4CC8, void **, 4), s32 *, 4);
 }
 

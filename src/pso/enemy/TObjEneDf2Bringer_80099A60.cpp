@@ -9,7 +9,7 @@ void TObjEneDf2Bringer__sub_800994F8(void *);
 void TObjEneDf2Bringer__sub_80099800(void *);
 void init_vtable_and_field18__10TObjPlayerFPv(void *);
 void init_object__9TObjEneDDFPv(void *);
-void TObjEneDD__sub_800BB8E0(void *, void *);
+void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 
 extern M2C_UNK __vt__17TObjEneDf2Bringer[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
@@ -23,7 +23,7 @@ void *TObjEneDf2Bringer__ct(void *arg0, void *arg1, void *arg2) {
     init_vtable_and_field18__10TObjPlayerFPv((void *)((char *)arg0 + 964));
     __construct_array((void *)((char *)arg0 + 992), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D29A0;
-    TObjEneDD__sub_800BB8E0(arg0, arg2);
+    invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     TObjEneDf2Bringer__sub_800994F8(arg0);
     TObjEneDf2Bringer__sub_80099800(arg0);
     return arg0;

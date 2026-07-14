@@ -11,7 +11,7 @@ M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(u32, s32, s32, f32);
 u32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
 s32 TWindowOptionCtrl__sub_8026CBA4(M2C_UNK);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
-M2C_UNK fn_802A5830(u32, s32, s32, f32);
+M2C_UNK initialize_option_dialog(u32, s32, s32, f32);
 
 extern s32 lbl_805D53A0;
 extern s32 tl_01;
@@ -27,7 +27,7 @@ void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg
         forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(M2C_FIELD(arg0, u32 *, 0x2C), arg1, TWindowOptionCtrl__sub_8026CBA4(0xCF), lbl_805DFDD0);
         return;
     }
-    fn_802A5830(M2C_FIELD(arg0, u32 *, 0x2C), arg1, TWindowOptionCtrl__sub_8026CBA4(0xCF), lbl_805DFDD0);
+    initialize_option_dialog(M2C_FIELD(arg0, u32 *, 0x2C), arg1, TWindowOptionCtrl__sub_8026CBA4(0xCF), lbl_805DFDD0);
 }
 
 }

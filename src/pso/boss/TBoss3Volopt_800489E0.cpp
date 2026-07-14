@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TBoss3Volopt__sub_800489E0(void *arg0, s16 arg1);
+void *destroy_task_object__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_804999E8[];
 
-void *TBoss3Volopt__sub_800489E0(void *arg0, s16 arg1) {
+void *destroy_task_object__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999E8;
         __dt__7TObjectFv(arg0, 0);

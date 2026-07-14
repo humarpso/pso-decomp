@@ -12,7 +12,7 @@ void TWindowSubStatusDisp__sub_8026D9C0(void *arg0) {
 
 int __dl__FPv();
 
-s32 TWindowSubStatusDisp__sub_8026D9D0(s32 arg0, s16 arg1) {
+s32 destroy_allocation__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
     }

@@ -10,7 +10,7 @@ int TItemData__sub_8010C738(void);
 void TItemData__sub_8010C740(void);
 void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1);
 M2C_UNK TItemData__sub_8010D510(void *, M2C_UNK *);
-M2C_UNK TItemData__sub_80105984(M2C_UNK *);
+M2C_UNK initialize_mag_data__9TItemDataFPv(M2C_UNK *);
 M2C_UNK set_stack_count__24TShopEquipmentListWindowFPvc(void *, M2C_UNK);
 M2C_UNK init__9TItemDataFv();
 
@@ -58,7 +58,7 @@ void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
             M2C_FIELD(arg0, u8 *, 4) = (u8) ((u32) M2C_FIELD(arg1, u32 *, 0x34) >> 0x10U);
             return;
         case 2:
-            TItemData__sub_80105984(&sp8);
+            initialize_mag_data__9TItemDataFPv(&sp8);
             TItemData__sub_8010D510(arg0, &sp8);
             break;
         }

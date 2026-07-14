@@ -21,7 +21,7 @@ void TBoss6Type2__sub_80337108(void);
 void TBoss6Type2__sub_80337160(void);
 void TBoss6Type2__sub_803371B4(void* p);
 
-void TBoss6Type2__sub_803370A4(void *arg0) {
+void update_effect_subsystems__11TBoss6Type2FPv(void *arg0) {
     TBoss6Type2__sub_8032F690();
     TBoss6Type2__sub_8032F5FC(arg0);
     TBoss6Type2__sub_8032ECE0(arg0);

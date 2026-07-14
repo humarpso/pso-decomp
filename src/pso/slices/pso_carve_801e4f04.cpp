@@ -9,7 +9,7 @@ void __dt__7TObjectFv(void *, int);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK lbl_804C57F0[];
 
-void *fn_801E4F04(void *arg0, s16 arg1) {
+void *destroy_quad_sprite_base(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C57F0;
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x20));

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowHelpItem__vt4(void *arg0);
-M2C_UNK TWindowDuelResult__sub_8025AD38(void *, s32);
+M2C_UNK set_default_status__17TWindowDuelResultFPvi(void *, s32);
 M2C_UNK TWindowHelpItem__sub_8025A9B4(void *);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
@@ -20,7 +20,7 @@ void TWindowHelpItem__vt4(void *arg0) {
     TWindowHelpItem__sub_802541E0();
     temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 5);
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
-    TWindowDuelResult__sub_8025AD38(temp_r30, get_message_10__20TWindowSubStatusDispFPv(0xA1));
+    set_default_status__17TWindowDuelResultFPvi(temp_r30, get_message_10__20TWindowSubStatusDispFPv(0xA1));
     TWindowHelpItem__sub_8025A9B4(temp_r30);
     M2C_FIELD(temp_r31, s32 *, 0x20) = (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x68), u8 *, 5);
 }

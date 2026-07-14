@@ -9,7 +9,7 @@ extern "C" {
 void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 arg1);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjPlayer__sub_80156990(void *, M2C_UNK);
+M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 
 extern M2C_UNK lbl_804B5E48[];
@@ -23,7 +23,7 @@ void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 a
             TObjPlayer__sub_80154A00(arg0);
             TObjEneGibbles__sub_80156720(arg0);
         }
-        TObjPlayer__sub_80156990(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

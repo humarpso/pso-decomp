@@ -30,7 +30,7 @@ int TWindowSubTradeMain__sub_80287560(void*);
 int queue_destruction__7TObjectFv(void*);
 
 int TWindowSubComCard__sub_802A57FC(void*) { return 0; }
-void fn_802A5830(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0x28) = TCheckRoomSequence__sub_802664A8(arg2, 1, M2C_FIELD(arg0, s32 *, 0x24));
     forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, s32 *, 0x28), arg1, 0x21, 0);
     TAdChrSelASlotGC__sub_800740FC((void*)(M2C_FIELD(arg0, s32 *, 0x28)));

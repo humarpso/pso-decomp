@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_all_ready__9TWindowDDFi(s32 arg0);
-u8 *TLobby__sub_8020B334();
+u8 *resolve_matching_object__6TLobbyFPv();
 s32 TLobby__sub_8020B454(s32);
 
 s32 check_all_ready__9TWindowDDFi(s32 arg0) {
@@ -16,7 +16,7 @@ s32 check_all_ready__9TWindowDDFi(s32 arg0) {
     s32 i;
     u8 *var_r31;
 
-    var_r31 = TLobby__sub_8020B334();
+    var_r31 = resolve_matching_object__6TLobbyFPv();
     temp_r3 = TLobby__sub_8020B454(arg0);
     if (var_r31 != NULL) {
         for (i = 0; i < temp_r3; i++) {

@@ -7,7 +7,7 @@ s32 is_scene_ready__6TLobbyFv(void);
 int TLobby__sub_80207E24(void* p);
 void TLobby__sub_80207E44(void);
 int TLobby__sub_80207E48(void* p);
-int TLobby__sub_80207E68(void* p);
+int lookup_scene_object__6TLobbyFPv(void* p);
 int set_state__16TAdStorySelectGCFi(void*);
 int TLobby__sub_802077CC(void*);
 int TLobby__sub_8020780C(void*);
@@ -33,6 +33,6 @@ s32 is_scene_ready__6TLobbyFv(void) {
 int TLobby__sub_80207E24(void* p) { return TLobby__sub_8020780C(p); }
 void TLobby__sub_80207E44(void) {  }
 int TLobby__sub_80207E48(void* p) { return TOBoss4Rock__sub_802078A4(p); }
-int TLobby__sub_80207E68(void* p) { return TLobby__sub_802077CC(p); }
+int lookup_scene_object__6TLobbyFPv(void* p) { return TLobby__sub_802077CC(p); }
 
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80011080(u8 *arg0, u8 *arg1, s32 arg2);
+void render_with_position_override__10TObjPlayerFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
@@ -20,7 +20,7 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 extern const f32 lbl_805D7D40;
 extern const f32 TObjPlayer__data_805D7D44;
 
-void TObjPlayer__sub_80011080(u8 *arg0, u8 *arg1, s32 arg2) {
+void render_with_position_override__10TObjPlayerFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     s32 spC;
     s32 sp8;
 

@@ -11,7 +11,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
 M2C_UNK TObjFish__sub_803DA798(void *);
-M2C_UNK TObjPlayer__sub_80141F1C();
+M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
@@ -35,7 +35,7 @@ void render__15TObjBoss8PillerFv(u8 *arg0) {
         TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805DF150), (f32) (lbl_805DF150), (f32) (lbl_805DF150));
         TObjEneSlimeOne__sub_803E4AF4((int) (var_r31), (int) (M2C_FIELD(arg0, s32 *, 0x2C)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
         TObjPlayer__sub_803D9B78();
-        TObjPlayer__sub_80141F1C();
+        reset_transform_state__10TObjPlayerFv();
     }
 }
 

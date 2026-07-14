@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TOKey__ct(void *arg0);
-void fn_8015858C(void *);
+void init_map_object_base(void *);
 void TOKeyAncient01__sub_8016AD58(void *);
 
 extern M2C_UNK __vt__5TOKey[];
@@ -13,7 +13,7 @@ extern const f32 lbl_805DB6E0;
 extern void *lbl_805D3010;
 
 void *TOKey__ct(void *arg0) {
-    fn_8015858C(arg0);
+    init_map_object_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__5TOKey;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3010;
     M2C_FIELD(arg0, u32 *, 0xC8) = -1;

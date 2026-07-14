@@ -9,7 +9,7 @@ extern "C" {
 u8 is_alive__9TObjEneDDFPv(void *arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 int TObjEneDD__sub_800BA754(void* a0 = 0, void* a1 = 0, void* a2 = 0);
-void TObjEneDD__sub_800BA728(void* p, void* a1);
+void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
 

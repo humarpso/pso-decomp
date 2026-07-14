@@ -9,6 +9,5 @@ void TLobby__sub_8015C9BC(void* p);
 void TOCtrlDubchik__sub_8015C9D0(void);
 
 void TObjPlayer__sub_8015C940(void) {  }
-int TLobby__sub_8015C944(void) { return 0; }
 
 }

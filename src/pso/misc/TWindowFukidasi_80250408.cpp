@@ -9,7 +9,7 @@ extern "C" {
 void TWindowFukidasi__sub_80250408(void* p);
 s32 approach__15TWindowFukidasiFPvf(void *arg0, f32 farg0);
 void TWindowFukidasi__sub_802504A8(void *arg0);
-f32 TObjFish__sub_8001973C(f32);
+f32 get_random_float__8TObjFishFv(f32);
 
 void TWindowFukidasi__sub_80250408(void* p) { *(f32*)((char*)p + 0x60) = *(f32*)((char*)p + 0x80); *(f32*)((char*)p + 0x64) = *(f32*)((char*)p + 0x80); }
 
@@ -20,7 +20,7 @@ s32 approach__15TWindowFukidasiFPvf(void *arg0, f32 farg0) {
     f32 temp_f31;
 
     temp_f31 = lbl_805DCD00 * (farg0 - M2C_FIELD(arg0, f32 *, 0x80));
-    if (TObjFish__sub_8001973C(temp_f31) < lbl_805DCD04) {
+    if (get_random_float__8TObjFishFv(temp_f31) < lbl_805DCD04) {
         M2C_FIELD(arg0, f32 *, 0x80) = farg0;
         return 1;
     }

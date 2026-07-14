@@ -12,8 +12,8 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -55,9 +55,9 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
             TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 1), TObjFish__sub_8001ED9C(TOKeyJungleMain__data_805D65E0, 1), M2C_FIELD(arg0, f32 *, 0xE8));
-            TParticleCtrl__sub_801E2EFC();
+            begin_effect_render__13TParticleCtrlFv();
             TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 0), TObjFish__sub_8001ED9C(TOKeyJungleMain__data_805D65E0, 0), M2C_FIELD(arg0, f32 *, 0xEC));
-            TParticleCtrl__sub_801E2F20();
+            end_effect_render__13TParticleCtrlFv();
             TObjPlayer__sub_803D9B78();
             break;
         }

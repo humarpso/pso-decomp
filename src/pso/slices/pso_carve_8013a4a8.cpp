@@ -15,6 +15,5 @@ s32 bswap_32__FPUl(s32);
 s32 bswap_packet_header__6TLobbyFPv();
 
 int TLobby__sub_8013A4A8(void) { return 0; }
-int TLobby__sub_8013A4E4(void* p) { return bswap_header_fields__6TLobbyFi(p); }
 
 }

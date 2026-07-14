@@ -18,7 +18,7 @@ s32 fn_801F34C8(void* p);
 void TLobby__sub_801F34E0(void* p, s16 v);
 int TLobby__sub_800822E8(void*, int);
 int TObjPlayer__sub_801B3540(void*);
-int TObjPlayer__sub_801B3564(void*);
+int check_technique_flag__10TObjPlayerFPv(void*);
 
 void set_flag_80000__6TLobbyFi(s32 arg0) {
     TLobby__sub_800822E8((void*)(arg0), 0x80000);

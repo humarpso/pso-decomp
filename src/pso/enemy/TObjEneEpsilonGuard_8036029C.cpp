@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_8036029C(u8 *arg0);
+void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
 s32 TCameraCtrl__sub_8006B360(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 
 extern M2C_UNK main_task[];
@@ -26,7 +26,7 @@ extern const f32 lbl_805E0208;
 extern const f32 lbl_805E0214;
 extern const f32 lbl_805E0218;
 
-void TObjEneEpsilonGuard__sub_8036029C(u8 *arg0) {
+void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     f32 temp_f1;
 
     if (TCameraCtrl__sub_8006B360(main_task) & 0x200) {
@@ -40,7 +40,7 @@ void TObjEneEpsilonGuard__sub_8036029C(u8 *arg0) {
         toggle_particle_effect__10TObjPlayerFv();
         TObjFish__sub_8001EDC4((void *) (lbl_805D6FA0), (int) (4));
         TObjFish__sub_803E46BC();
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
         TObjPlayer__sub_803D9B78();
     }
 }

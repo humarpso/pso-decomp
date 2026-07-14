@@ -55,7 +55,7 @@ s32 TMainCursor__sub_8013E828(void* p);
 void TMainCursor__sub_8013E830(void* p, void* a1, void* a2);
 int TMainCursor__sub_8013E854(void* a0 = 0);
 int TMainCursor__sub_8013E8A0(void* p);
-int TMainCursor__sub_8013E8C0(void* p);
+int get_selected_entry__11TMainCursorFPv(void* p);
 int get_active__11TMainCursorFPv(void* p);
 int TMainCursor__sub_8013E900(void* p);
 s16 TMainCursor__sub_8013E920(void* p);

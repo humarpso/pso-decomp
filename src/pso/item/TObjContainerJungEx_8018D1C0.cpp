@@ -12,8 +12,8 @@ M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjContainerJungEx__sub_8018D900(M2C_UNK);
 M2C_UNK TObjContainerJungEx__sub_8018D93C(M2C_UNK);
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -35,10 +35,10 @@ void TObjContainerJungEx__vt79(u8 *arg0) {
         TOMonitorMachine01__sub_803D8B5C(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         TObjContainerJungEx__sub_8018D93C(0);
         TObjBoss2Tunnel__sub_803DB470();
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         TObjContainerJungEx__sub_8018D93C(3);
         TObjBoss2Tunnel__sub_803DB470();
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
         TObjPlayer__sub_803D9B78();
     case 1:
         return;

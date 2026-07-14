@@ -8,7 +8,7 @@ extern "C" {
 
 void start_action_0e__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_8002AEB8(void *, M2C_UNK);
-s32 TObjPlayer__sub_801BE40C(void *);
+s32 get_action_animation__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
@@ -53,7 +53,7 @@ void start_action_0e__10TObjPlayerFPv(u8 *arg0) {
         trigger_switch_attack__10TObjPlayerFPvi(arg0, ((VObj_801cac08 *)arg0)->m7());
     }
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
-    set_action_state__10TObjPlayerFPvss(arg0, 0xE, TObjPlayer__sub_801BE40C(arg0));
+    set_action_state__10TObjPlayerFPvss(arg0, 0xE, get_action_animation__10TObjPlayerFPv(arg0));
 }
 
 }

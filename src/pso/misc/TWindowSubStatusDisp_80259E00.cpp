@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 farg0);
-f32 TObjFish__sub_8001973C(f32, f32);
+f32 get_random_float__8TObjFishFv(f32, f32);
 
 extern M2C_UNK lbl_8044F010;
 extern const f32 lbl_805DCF58;
@@ -23,7 +23,7 @@ void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 
         temp_f2 = M2C_FIELD(arg0, f32 *, 0x28);
         var_f31 = temp_f2 - M2C_FIELD(arg0, f32 *, 0x24);
         var_f31 = var_f31 / farg0;
-        if (TObjFish__sub_8001973C(var_f31, temp_f2) < lbl_805DCF5C) {
+        if (get_random_float__8TObjFishFv(var_f31, temp_f2) < lbl_805DCF5C) {
             if (var_f31 > lbl_805DCF58) {
                 var_f31 = lbl_805DCF5C;
             } else {

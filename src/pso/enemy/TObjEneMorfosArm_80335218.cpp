@@ -13,7 +13,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv();
 
@@ -30,7 +30,7 @@ void render__16TObjEneMorfosArmFv(u8 *arg0) {
     TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
     toggle_particle_effect__10TObjPlayerFv();
     draw__16TObjEneRe7BeruraFPv((void *) (arg0));
-    TParticleCtrl__sub_801E2F20();
+    end_effect_render__13TParticleCtrlFv();
     TObjPlayer__sub_803D9B78();
 }
 

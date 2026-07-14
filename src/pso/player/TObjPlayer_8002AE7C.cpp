@@ -4,7 +4,7 @@ extern "C" {
 
 void TObjPlayer__sub_8002AE7C(void* p, s32 v);
 void TObjPlayer__sub_8002AE84(void* p, s32 v);
-void TObjPlayer__sub_8002AE8C(void* p);
+void reset_lobby_model__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_8002AEAC(void* p);
 void TObjPlayer__sub_8002AEB8(void* p, s32 v);
 void send_6x12_packet__10TObjPlayerFPv(void* p);
@@ -19,14 +19,14 @@ void TObjEnePanarms__sub_8002AE74(void* p, s16 v);
 int read_be16_field2__10TObjPlayerFPv(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-f32 TObjEneMe3ShinowaReal__sub_8002ADE4(void);
+f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
 int fn_8002AE38(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 f64 TWindowSubComCard__sub_803A24E4();
 
 void TObjPlayer__sub_8002AE7C(void* p, s32 v) { *(s32*)((char*)p + 0xdc) = v; }
 void TObjPlayer__sub_8002AE84(void* p, s32 v) { *(s32*)((char*)p + 0xd8) = v; }
-void TObjPlayer__sub_8002AE8C(void* p) { TObjPlayer__sub_8002AEAC((void*)(p)); }
+void reset_lobby_model__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8002AEAC((void*)(p)); }
 void TObjPlayer__sub_8002AEAC(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 void TObjPlayer__sub_8002AEB8(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 void send_6x12_packet__10TObjPlayerFPv(void* p) { bswap_6x12_packet__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801CFC6C(u8 *arg0);
+s32 update_combat_stats__10TObjPlayerFPv(u8 *arg0);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int, f32);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
@@ -19,7 +19,7 @@ s32 check_player_flag1__6TLobbyFPv(void *);
 
 extern const f32 TObjPlayer__data_805DC36C;
 
-s32 TObjPlayer__sub_801CFC6C(u8 *arg0) {
+s32 update_combat_stats__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f31;
     s32 temp_r3;

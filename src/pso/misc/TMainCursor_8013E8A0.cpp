@@ -41,7 +41,7 @@ s32 TMainCursor__sub_8013E818(void* p);
 s32 TMainCursor__sub_8013E820(void* p);
 s32 TMainCursor__sub_8013E828(void* p);
 int TMainCursor__sub_8013E8A0(void* p);
-int TMainCursor__sub_8013E8C0(void* p);
+int get_selected_entry__11TMainCursorFPv(void* p);
 int get_active__11TMainCursorFPv(void* p);
 int TMainCursor__sub_8013E900(void* p);
 s16 TMainCursor__sub_8013E920(void* p);
@@ -78,7 +78,7 @@ int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
 
 int TMainCursor__sub_8013E8A0(void* p) { return TObjPlayer__sub_8013DEF8(p); }
-int TMainCursor__sub_8013E8C0(void* p) { return TMainCursor__sub_8013DF08(p); }
+int get_selected_entry__11TMainCursorFPv(void* p) { return TMainCursor__sub_8013DF08(p); }
 int get_active__11TMainCursorFPv(void* p) { return TMainCursor__sub_8013DF3C(p); }
 int TMainCursor__sub_8013E900(void* p) { return TMainCursor__sub_8013DF44(p); }
 s16 TMainCursor__sub_8013E920(void* p) { return *(s16*)((char*)p + 0x2); }

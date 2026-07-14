@@ -29,7 +29,7 @@ struct VObj_80170f64 : Base18_80170f64 {
 
 extern "C" {
 
-void TOMine__sub_80170F64(u8 *arg0);
+void run_task__6TOMineFPv(u8 *arg0);
 M2C_UNK TOMineTrap__sub_80170AC8(void *);
 M2C_UNK TOMineTrap__sub_80170BEC(void *);
 M2C_UNK TOMineTrap__sub_80170CD4(void *);
@@ -40,7 +40,7 @@ M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
 
-void TOMine__sub_80170F64(u8 *arg0) {
+void run_task__6TOMineFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r0_2;
     s32 temp_r3;

@@ -10,7 +10,7 @@ u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1);
 M2C_UNK free__11TOBoss4RockFUi(void *);
 M2C_UNK release_slot__11TWindowCtrlFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TWindowAddition__sub_802443F0(void *, M2C_UNK);
+M2C_UNK destroy_window__15TWindowAdditionFPvs(void *, M2C_UNK);
 M2C_UNK TWindowFukidasi__sub_80252C48(void *);
 s32 TWindowFukidasi__sub_80252C78(M2C_UNK *);
 
@@ -27,7 +27,7 @@ u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1) {
             free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x78));
             M2C_FIELD(arg0, u32 *, 0x78) = 0U;
         }
-        TWindowAddition__sub_802443F0(arg0, 0);
+        destroy_window__15TWindowAdditionFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

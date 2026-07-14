@@ -12,7 +12,7 @@ s32 get_main_phase();
 s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
-M2C_UNK TObjPlayer__sub_80141F1C();
+M2C_UNK reset_transform_state__10TObjPlayerFv();
 s32 toggle_flag_9__10TObjPlayerFPv();
 M2C_UNK render_nodes__7TObjectFv(void *);
 
@@ -24,7 +24,7 @@ void render__15TAdDrawLineCtrlFv(void *arg0) {
         }
     } else if ((get_main_phase() != 2) || (TMainTask__sub_8001A430() != 1)) {
 block_5:
-        TObjPlayer__sub_80141F1C();
+        reset_transform_state__10TObjPlayerFv();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
             render_nodes__7TObjectFv(M2C_FIELD(arg0, void **, 0x20));
         }

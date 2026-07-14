@@ -26,8 +26,8 @@ M2C_UNK TObjFish__sub_803DA798(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 
 extern u32 TObjKabochaLobby__data_805D6EEC;
 extern const f32 TObjKabochaLobby__data_805DFF38;
@@ -36,7 +36,7 @@ void render__16TObjKabochaLobbyFv(u8 *arg0) {
     f32 temp_f1;
 
     if (((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) && ((u32) TObjKabochaLobby__data_805D6EEC != 0U) && (((VObj18_8035346c *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0)) {
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
@@ -47,7 +47,7 @@ void render__16TObjKabochaLobbyFv(u8 *arg0) {
         }
         TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         TObjPlayer__sub_803D9B78();
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
     }
 }
 

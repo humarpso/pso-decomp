@@ -9,7 +9,7 @@ extern "C" {
 void handle_cancel__25TWindowSubSymbolChatPartsFPv(void *arg0);
 void add_part__25TWindowSubSymbolChatPartsFPv(void *arg0);
 void handle_add__25TWindowSubSymbolChatPartsFPv(void *arg0);
-s32 TWindowSubSymbolChat__sub_80077310();
+s32 refresh_parts__20TWindowSubSymbolChatFPv();
 s32 TWindowSubSymbolChat__sub_80283974();
 s32 TWindowSubSymbolChat__sub_80284D4C();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -26,7 +26,7 @@ void add_part__25TWindowSubSymbolChatPartsFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = TWindowSubSymbolChat__sub_80284D4C();
-    if (((s8) M2C_FIELD(arg0, u8 *, 0x71) != 0) || (temp_r3 >= (s16) M2C_FIELD(arg0, s16 *, 0x76)) || (TWindowSubSymbolChat__sub_80077310() < 2)) {
+    if (((s8) M2C_FIELD(arg0, u8 *, 0x71) != 0) || (temp_r3 >= (s16) M2C_FIELD(arg0, s16 *, 0x76)) || (refresh_parts__20TWindowSubSymbolChatFPv() < 2)) {
         TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
         return;
     }

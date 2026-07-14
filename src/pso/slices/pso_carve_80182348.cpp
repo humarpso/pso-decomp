@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TTecRaFoie__sub_80226258(M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK update_technique_slot__10TTecRaFoieFi(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
 void fn_80182348(s32 arg0) {
-    TTecRaFoie__sub_80226258(TBoss3Volopt__sub_8022675C(0x42A05, arg0 + 0x38, 0, 0), -0x500, 0);
+    update_technique_slot__10TTecRaFoieFi(TBoss3Volopt__sub_8022675C(0x42A05, arg0 + 0x38, 0, 0), -0x500, 0);
 }
 
 }

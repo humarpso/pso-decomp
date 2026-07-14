@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Rock__sub_80353848(u8 *arg0);
+void render_if_active__10TBoss6RockFPv(u8 *arg0);
 s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -22,7 +22,7 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 extern const f32 TBoss6Rock__data_805DFF48;
 extern const f32 TBoss6Rock__data_805DFF4C;
 
-void TBoss6Rock__sub_80353848(u8 *arg0) {
+void render_if_active__10TBoss6RockFPv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (M2C_FIELD(arg0, f32 *, 0x2C) - TBoss6Rock__data_805DFF48)) != 0)) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x20));

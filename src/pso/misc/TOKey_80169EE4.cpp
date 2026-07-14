@@ -4,13 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TOKey__sub_80169EE4(void *arg0, s16 arg1);
+void *destroy_key_object__5TOKeyFPvs(void *arg0, s16 arg1);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 
 extern M2C_UNK lbl_804B27D8[];
 
-void *TOKey__sub_80169EE4(void *arg0, s16 arg1) {
+void *destroy_key_object__5TOKeyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B27D8;
         destroy_key_base__5TOKeyFPvs(arg0, 0);

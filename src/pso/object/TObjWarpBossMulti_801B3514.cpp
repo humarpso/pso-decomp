@@ -14,7 +14,7 @@ u32 get_owner_if_alive__10TObjPlayerFPv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 int is_flag_clear__17TObjWarpBossMultiFPv(void* p);
 int TObjPlayer__sub_801B3540(void* p);
-int TObjPlayer__sub_801B3564(void* p);
+int check_technique_flag__10TObjPlayerFPv(void* p);
 int is_flag_400_set__10TObjPlayerFPv(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);

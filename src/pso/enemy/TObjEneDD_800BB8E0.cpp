@@ -88,9 +88,9 @@ struct VObj_800BB8E0 : Base_800BB8E0 {
 
 extern "C" {
 
-void TObjEneDD__sub_800BB8E0(void *arg0);
+void invoke_initialization_hook__9TObjEneDDFPv(void *arg0);
 
-void TObjEneDD__sub_800BB8E0(void *arg0) {
+void invoke_initialization_hook__9TObjEneDDFPv(void *arg0) {
     struct VObj_800BB8E0 *o = (struct VObj_800BB8E0 *)arg0;
     o->m79();
 }

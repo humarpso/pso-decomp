@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneRecon__sub_8031BDF4(u8 *arg0);
+s32 render_model_if_visible__12TObjEneReconFPv(u8 *arg0);
 s32 TCameraCtrl__sub_8006B360(void *);
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK TObjFish__sub_803DA798(int);
@@ -19,7 +19,7 @@ M2C_UNK restore_render_scissor(int);
 
 extern M2C_UNK main_task[];
 
-s32 TObjEneRecon__sub_8031BDF4(u8 *arg0) {
+s32 render_model_if_visible__12TObjEneReconFPv(u8 *arg0) {
     if (TCameraCtrl__sub_8006B360(main_task) & 0x20) {
         if (TObjEneRecon__sub_8029E960((void *) (arg0 + 0x41C)) != 0) {
             TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));

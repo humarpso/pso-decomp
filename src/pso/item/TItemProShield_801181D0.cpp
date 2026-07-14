@@ -11,8 +11,8 @@ s32 TItemMag__sub_80102C4C(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
 M2C_UNK TObjPlayer__sub_800FFA88(u32, s32);
 M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(s32);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80364028();
@@ -33,12 +33,12 @@ void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
         get_mag_scale__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_80364028();
         if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {
-            TParticleCtrl__sub_801E2EFC();
+            begin_effect_render__13TParticleCtrlFv();
         }
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0xF4));
         if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {
-            TParticleCtrl__sub_801E2F20();
+            end_effect_render__13TParticleCtrlFv();
         }
         warn_if_gauge_low__10TObjPlayerFv();
         TObjPlayer__sub_8036414C();

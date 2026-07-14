@@ -9,13 +9,13 @@ extern "C" {
 void play_particle_effect_once__10TObjPlayerFv(void);
 M2C_UNK TObjPlayer__sub_8001BED8(M2C_UNK *, M2C_UNK);
 s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
-M2C_UNK TParticleCtrl__sub_801E2EFC();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
 
 extern M2C_UNK lbl_805D53EC;
 
 void play_particle_effect_once__10TObjPlayerFv(void) {
     if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 2) == 0) {
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         TObjPlayer__sub_8001BED8(&lbl_805D53EC, 2);
     }
 }

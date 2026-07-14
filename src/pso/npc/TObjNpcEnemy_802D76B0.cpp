@@ -9,7 +9,7 @@ extern "C" {
 void update_state__12TObjNpcEnemyFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK draw__16TObjEneRe7BeruraFPv();
-M2C_UNK TObjPlayer__sub_80141F1C();
+M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK draw_model__12TObjNpcEnemyFPv();
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjPlayer__sub_803E4BC4(void *);
@@ -25,7 +25,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
     case 0:
         TObjPlayer__sub_803E4BC4(arg0);
         TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
-        TObjPlayer__sub_80141F1C();
+        reset_transform_state__10TObjPlayerFv();
         TObjPlayer__sub_803E4BD0();
         return;
     case 1:
@@ -34,7 +34,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
     case 2:
         TObjPlayer__sub_803E4BC4(arg0);
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
-        TObjPlayer__sub_80141F1C();
+        reset_transform_state__10TObjPlayerFv();
         TObjPlayer__sub_803E4BD0();
         return;
     case 3:

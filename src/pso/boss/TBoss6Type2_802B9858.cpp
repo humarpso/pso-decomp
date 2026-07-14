@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802B9858(u8 *arg0);
+void render_body_effects__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 M2C_UNK TBoss6Type2__sub_802B9EE4(void *);
 M2C_UNK TBoss6Type2__sub_802B9F0C();
@@ -15,14 +15,14 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
 
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE410;
 
-void TBoss6Type2__sub_802B9858(u8 *arg0) {
+void render_body_effects__11TBoss6Type2FPv(u8 *arg0) {
     s32 var_r31;
 
     TBoss6Type2__sub_802B9F0C();
@@ -42,7 +42,7 @@ void TBoss6Type2__sub_802B9858(u8 *arg0) {
         update_camera_target__14TBoss6PlotFalzFv();
     }
     TObjPlayer__sub_803D9B78();
-    TParticleCtrl__sub_801E2F20();
+    end_effect_render__13TParticleCtrlFv();
     TBoss6Type2__sub_802B9EE4((void *) (arg0));
 }
 

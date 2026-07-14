@@ -42,7 +42,7 @@ struct VObj_8026ff0c {
 
 extern "C" {
 
-void TWindowLockOn__sub_8026FF0C(u8 *arg0, s32 arg1);
+void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
 s32 TLobby__sub_8039DAFC(s32, s32);
 s32 TObjPlayer__sub_80084854(void *);
 struct VObj_8026ff0c *TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -51,7 +51,7 @@ M2C_UNK TWindowSubStatusDisp__sub_8024420C(void *);
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(void *, s32, M2C_UNK);
 M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(void *);
 
-void TWindowLockOn__sub_8026FF0C(u8 *arg0, s32 arg1) {
+void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r31;
     struct VObj_8026ff0c *temp_r30;
     u8 *temp_r29;

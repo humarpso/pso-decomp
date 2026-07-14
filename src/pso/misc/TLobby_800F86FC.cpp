@@ -6,7 +6,7 @@ extern "C" {
 
 void *TLobby__sub_800F86FC(void *arg0, s16 arg1);
 void *init_fade__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2);
-void TBoss3Volopt__sub_800489E0(void *, int);
+void destroy_task_object__12TBoss3VoloptFPvs(void *, int);
 void init_object__12TBoss3VoloptFPvPv(void *, void *);
 void __dl__7TObjectFPv(void *);
 
@@ -15,7 +15,7 @@ extern M2C_UNK lbl_804999B8[];
 void *TLobby__sub_800F86FC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999B8;
-        TBoss3Volopt__sub_800489E0(arg0, 0);
+        destroy_task_object__12TBoss3VoloptFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

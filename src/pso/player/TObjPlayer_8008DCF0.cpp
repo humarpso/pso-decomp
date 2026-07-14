@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TObjPlayer__sub_8008DCF0(void* p);
+int reset_enemy_state__10TObjPlayerFPv(void* p);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 
-int TObjPlayer__sub_8008DCF0(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 0); }
+int reset_enemy_state__10TObjPlayerFPv(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 0); }
 
 }

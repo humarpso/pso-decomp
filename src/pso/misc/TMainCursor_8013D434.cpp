@@ -8,7 +8,7 @@ extern "C" {
 
 void sort_list__11TMainCursorFii(s32 arg0, s32 arg1);
 M2C_UNK quick_sort__11TMainCursorFiiii(s32, s32, M2C_UNK, s32);
-s32 TMainCursor__sub_8013E8C0(s32, s32);
+s32 get_selected_entry__11TMainCursorFPv(s32, s32);
 s32 TMainCursor__sub_8013F154(s32, M2C_UNK);
 s32 TMainCursor__sub_8013F168(s32);
 
@@ -19,7 +19,7 @@ void sort_list__11TMainCursorFii(s32 arg0, s32 arg1) {
 
     temp_r4 = arg1 * 0x124;
     temp_r30 = arg0 + temp_r4 + 0x5C;
-    if (TMainCursor__sub_8013E8C0(temp_r30, temp_r4) != 0) {
+    if (get_selected_entry__11TMainCursorFPv(temp_r30, temp_r4) != 0) {
         temp_r31 = TMainCursor__sub_8013F168(temp_r30 + 0x40);
         quick_sort__11TMainCursorFiiii(temp_r30, TMainCursor__sub_8013F154(temp_r30 + 0x40, 0), 0, temp_r31 - 1);
     }

@@ -19,7 +19,7 @@ struct VObj_8009c7d8 : VBase_8009c7d8 {
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009C7D8(u8 *arg0, s32 arg1);
+void run_task__17TObjEneMe1CanadinFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
@@ -36,7 +36,7 @@ M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 extern const f32 TObjEneMe1Canadin__data_805D98B4;
 extern const f32 lbl_805D98D4;
 
-void TObjEneMe1Canadin__sub_8009C7D8(u8 *arg0, s32 arg1) {
+void run_task__17TObjEneMe1CanadinFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         advance_state_5_to_4__17TObjEneMe1CanadinFPv();

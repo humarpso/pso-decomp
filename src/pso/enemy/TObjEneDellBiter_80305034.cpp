@@ -24,7 +24,7 @@ struct WObj_80305034 : WBase_80305034 {
 
 extern "C" {
 
-void TObjEneDellBiter__sub_80305034(u8 *arg0, s32 arg1);
+void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
@@ -41,7 +41,7 @@ M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 extern const f32 TObjEneDellBiter__data_805DF00C;
 extern const f32 lbl_805DF014;
 
-void TObjEneDellBiter__sub_80305034(u8 *arg0, s32 arg1) {
+void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
     switch (arg1) {

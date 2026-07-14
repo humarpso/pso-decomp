@@ -10,7 +10,7 @@ void bswap_dragon_boss_fields__10TObjPlayerFPv(void* p);
 void bswap_stats__10TObjPlayerFPv(void* p);
 void send_6x12_packet__10TObjPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
-f32 TObjEneMe3ShinowaReal__sub_8002ADE4(void);
+f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
 f64 TWindowSubComCard__sub_803A24E4();
 int TObjEneMe3ShinowaReal__sub_8002ADD8(void* p);
 int fn_8002AE38(void* p);
@@ -18,13 +18,13 @@ void TBoss8Dragon__sub_8002AE5C(void* p, f32 v);
 void TObjEnePanarms__sub_8002AE74(void* p, s16 v);
 void TObjPlayer__sub_8002AE7C(void* p, s32 v);
 void TObjPlayer__sub_8002AE84(void* p, s32 v);
-void TObjPlayer__sub_8002AE8C(void* p);
+void reset_lobby_model__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_8002AEAC(void* p);
 void TObjPlayer__sub_8002AEB8(void* p, s32 v);
 void TObjPlayer__sub_8002AF38(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
-f32 TObjEneMe3ShinowaReal__sub_8002ADE4(void) {
+f32 get_random_float__21TObjEneMe3ShinowaRealFv(void) {
     return (f32) TWindowSubComCard__sub_803A24E4();
 }
 

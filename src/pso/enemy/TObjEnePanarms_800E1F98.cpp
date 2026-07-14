@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800E1F98(u8 *arg0);
+void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_8014220C(void *, void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *, f32);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
@@ -23,7 +23,7 @@ extern const f32 TObjEnePanarms__data_805DA530;
 extern const f32 lbl_805DA58C;
 extern const f32 lbl_805DA590;
 
-void TObjEnePanarms__sub_800E1F98(u8 *arg0) {
+void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0) {
     struct { u8 b[0x10]; } sp10;
     s32 spC;
     s32 sp8;

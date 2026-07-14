@@ -18,7 +18,7 @@ struct TORevlightCave01 : TORevlightCave01Base {
 extern "C" {
 
 void *TORevlightCave01__ct(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK fn_8015858C();
+M2C_UNK init_map_object_base();
 
 extern const M2C_UNK lbl_80442498[];
 extern const M2C_UNK __vt__16TORevlightCave01[];
@@ -30,7 +30,7 @@ extern const f32 lbl_805DB968;
 extern const f32 lbl_805DB96C;
 
 void *TORevlightCave01__ct(void *arg0, s32 arg1, s32 arg2) {
-    fn_8015858C();
+    init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__16TORevlightCave01;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D30D8;
     ((TORevlightCave01*)arg0)->m5(arg2);

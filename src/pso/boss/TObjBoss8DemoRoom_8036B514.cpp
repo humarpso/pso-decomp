@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__17TObjBoss8DemoRoomFv(void);
-M2C_UNK TObjPlayer__sub_80141F1C();
+M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 M2C_UNK TObjFish__sub_803DA798(s32);
@@ -19,7 +19,7 @@ void render__17TObjBoss8DemoRoomFv(void) {
     TObjFish__sub_803DA798(M2C_FIELD(M2C_FIELD(TObjBoss8DemoRoom__data_805D7010, void **, 0x42C), s32 *, 0xC));
     TObjPlayer__sub_803D9B2C();
     TObjFish__sub_803E46BC(M2C_FIELD(M2C_FIELD(TObjBoss8DemoRoom__data_805D7010, void **, 0x42C), s32 *, 8));
-    TObjPlayer__sub_80141F1C();
+    reset_transform_state__10TObjPlayerFv();
     TObjPlayer__sub_803D9B78();
 }
 

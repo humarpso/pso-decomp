@@ -24,7 +24,7 @@ struct WObj_8031c7bc : WBase_8031c7bc {
 
 extern "C" {
 
-void TObjEneRecon__sub_8031C7BC(u8 *arg0, s32 arg1);
+void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TLobby__sub_800869A4(void *, int, int, int);
 M2C_UNK TObjEneDD__sub_800BA934(void *);
@@ -37,7 +37,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_trap_b__12TObjEneReconFi(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 
-void TObjEneRecon__sub_8031C7BC(u8 *arg0, s32 arg1) {
+void run_task__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r3;
 
     switch (arg1) {

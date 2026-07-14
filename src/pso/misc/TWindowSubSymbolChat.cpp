@@ -12,7 +12,7 @@ void* TWindowSubSymbolChat__sub_80283800(void* p);
 unsigned char TWindowSubSymbolChat__sub_80283808(void);
 void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0);
 s32 commit__20TWindowSubSymbolChatFi(s32 arg0);
-s32 TWindowSubSymbolChat__sub_80077310();
+s32 refresh_parts__20TWindowSubSymbolChatFPv();
 M2C_UNK TWindowSubSymbolChat__sub_80283850();
 s32 update_layout__20TWindowSubSymbolChatFPv(void);
 
@@ -25,7 +25,7 @@ s32 compute_total_height__20TWindowSubSymbolChatFv(void) {
     return temp_r3 + temp_r31;
 }
 s32 calc_remaining_slots__20TWindowSubSymbolChatFv(void) {
-    return 0xC - TWindowSubSymbolChat__sub_80077310();
+    return 0xC - refresh_parts__20TWindowSubSymbolChatFPv();
 }
 void* TWindowSubSymbolChat__sub_80283800(void* p) { return (char*)p + 0x4; }
 

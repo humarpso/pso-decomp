@@ -15,6 +15,5 @@ void TCheckRoomSequence__sub_80211614(void* p, f32 a, f32 b);
 int TCheckRoomSequence__sub_802114D4(void) { return 0; }
 int TCheckRoomSequence__sub_80211574(void) { return 0; }
 int TAdSinglePlyChrSelectGC__sub_80211584(void*) { return 0; }
-void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p) { TAdSinglePlyChrSelectGC__sub_80211584(p); return p; }
 
 }

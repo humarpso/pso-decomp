@@ -8,7 +8,7 @@ extern "C" {
 
 void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80156990(void *, M2C_UNK);
+M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -21,7 +21,7 @@ void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xD0) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD0));
         }
-        TObjPlayer__sub_80156990(arg0, 0);
+        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

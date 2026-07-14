@@ -27,7 +27,7 @@ void *TPhotonFarlla__sub_801AB2EC(void *arg0, s16 arg1);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK fn_801A7D38(void *, M2C_UNK);
+M2C_UNK destroy_photon_motion_object(void *, M2C_UNK);
 M2C_UNK free_photon__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804C3564[];
@@ -39,7 +39,7 @@ void *TPhotonFarlla__sub_801AB2EC(void *arg0, s16 arg1) {
         free_photon__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_80154A00(arg0);
         TObjEneGibbles__sub_80156720(arg0);
-        fn_801A7D38(arg0, 0);
+        destroy_photon_motion_object(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

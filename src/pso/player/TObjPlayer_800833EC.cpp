@@ -18,8 +18,8 @@ M2C_UNK TObjPlayer__sub_80084790();
 s32 TObjPlayer__sub_800847A8();
 s32 TObjPlayer__sub_800847CC();
 M2C_UNK setup_tev_swap__10TObjPlayerFv();
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 
 extern u8 lbl_805D2910;
 extern f32 lbl_805D93D0;
@@ -29,9 +29,9 @@ void update_camera_effect__10TObjPlayerFPv(void *arg0) {
         if (M2C_FIELD(arg0, s32 *, 0x1C) & 1) {
             if (TObjPlayer__sub_800847A8() == 1) {
                 TCameraCtrl__sub_80069024();
-                TParticleCtrl__sub_801E2EFC();
+                begin_effect_render__13TParticleCtrlFv();
                 TObjPlayer__sub_80084038(lbl_805D2910 << 0x18, 0, lbl_805D93D0);
-                TParticleCtrl__sub_801E2F20();
+                end_effect_render__13TParticleCtrlFv();
                 TCameraCtrl__sub_80068EF0();
                 TObjPlayer__sub_80084790();
             }

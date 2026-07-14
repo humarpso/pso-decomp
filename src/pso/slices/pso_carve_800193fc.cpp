@@ -3,7 +3,7 @@
 extern "C" {
 
 int TObjPlayer__sub_800192DC(void*);
-s16 TObjPlayer__sub_800193D0(void* p);
+s16 get_model_animation_id__10TObjPlayerFPv(void* p);
 s16 TObjPlayer__sub_800193F4(void* p);
 s16 TObjPlayer__sub_8001944C(void* p);
 s32 update_field_318__10TObjPlayerFPv(void* p);

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneRecon__sub_8029E89C(u16 arg0, s32 arg1);
+s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1);
 s32 TObjEneRecon__sub_8029EA4C(M2C_UNK *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D8F74(M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -16,7 +16,7 @@ s32 fn_8029E7BC(s32, M2C_UNK *);
 
 extern u16 lbl_805D65F8;
 
-s32 TObjEneRecon__sub_8029E89C(u16 arg0, s32 arg1) {
+s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
     M2C_UNK sp8[8];
     s32 var_r3;
     u32 temp_r3;

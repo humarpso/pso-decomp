@@ -4,7 +4,7 @@ extern "C" {
 
 s32 TWindowLockOn__sub_800F5DD8(void* p);
 void TObjEneLappy__sub_800F5DE0(void* p, s32 v);
-int fn_800F5DE8(void* p);
+int initialize_enemy_photon_effect(void* p);
 int reset_photon_effect__12TBoss3VoloptFPv(void*);
 
 s32 TWindowLockOn__sub_800F5DD8(void* p) { return *(s32*)((char*)p + 0x370); }

@@ -17,7 +17,7 @@ extern "C" {
 
 void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2);
 s32 TObjCurtainLobby__sub_8035B87C(void *);
-M2C_UNK fn_8015858C();
+M2C_UNK init_map_object_base();
 
 extern M2C_UNK __vt__16TObjCurtainLobby[];
 extern s32 lbl_805D4424;
@@ -26,7 +26,7 @@ extern s32 lbl_805D6F5C;
 extern const f32 TObjCurtainLobby__data_805E0148;
 
 void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
-    fn_8015858C();
+    init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjCurtainLobby;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4424;
     ((TObjCurtainLobby8035BB *)arg0)->ct(arg2);

@@ -16,7 +16,7 @@ M2C_UNK TWindowDD__sub_80348A2C(s32, Buf *);
 M2C_UNK TWindowDD__sub_80348A9C(Buf *, s32);
 M2C_UNK TWindowDD__sub_80348AD4(f32, f32);
 s32 TWindowDD__sub_80348AE8(s32);
-M2C_UNK TWindowDD__sub_801E32E8(Buf *, M2C_UNK, s32, M2C_UNK);
+M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(Buf *, M2C_UNK, s32, M2C_UNK);
 M2C_UNK TWindowDD__sub_803403F8(Buf *, M2C_UNK);
 s32 strlen();
 M2C_UNK strncpy(s32, s32, s32);
@@ -45,7 +45,7 @@ void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     TWindowDD__sub_80348A9C(&sp8, arg2);
     TWindowDD__sub_80348A2C(arg1, &sp8);
     TWindowDD__sub_803489B8(arg1, &sp8, 0);
-    TWindowDD__sub_801E32E8(&sp8, 8, temp_r31, 1);
+    draw_transformed_primitive__9TWindowDDFPvPvPvPv(&sp8, 8, temp_r31, 1);
 }
 
 }

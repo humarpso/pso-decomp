@@ -15,7 +15,7 @@ M2C_UNK TObjLaboDesignBase__sub_80364F18(void *, int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 
 void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     TObjFish__sub_8001EDB0((int) (M2C_FIELD(arg0, s32 *, 0xAC)), (int) (0));
@@ -25,7 +25,7 @@ void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TObjLaboDesignBase__sub_80364F18((void *) (arg0), (int) (TObjFish__sub_8001EDC4((int) (M2C_FIELD(arg0, s32 *, 0xAC)), (int) (0))));
     TObjPlayer__sub_803D9B78();
-    TParticleCtrl__sub_801E2F20();
+    end_effect_render__13TParticleCtrlFv();
 }
 
 }

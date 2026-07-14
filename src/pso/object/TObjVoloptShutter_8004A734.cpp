@@ -8,7 +8,7 @@ extern "C" {
 
 void render__17TObjVoloptShutterFv(void *arg0);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -35,7 +35,7 @@ void render__17TObjVoloptShutterFv(void *arg0) {
     TObjPlayer__sub_803E4684(lbl_805D4D48);
     TObjPlayer__sub_803D9B78();
     TObjPlayer__sub_803D9B78();
-    TParticleCtrl__sub_801E2F20();
+    end_effect_render__13TParticleCtrlFv();
 }
 
 }

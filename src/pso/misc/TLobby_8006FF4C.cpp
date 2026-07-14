@@ -12,7 +12,7 @@ M2C_UNK TLobby__sub_8006FC7C(void *);
 M2C_UNK TLobby__sub_8006FE7C();
 M2C_UNK TLobby__sub_800722AC(s32);
 M2C_UNK TLobby__sub_80072618();
-s32 TLobby__sub_801B31AC();
+s32 check_player_state_flag_2__6TLobbyFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TLobby__sub_80074034(s32);
 M2C_UNK create_solo_play_win__6TLobbyFPv(s32);
@@ -38,7 +38,7 @@ void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
         return;
     }
-    if (TLobby__sub_801B31AC() != 0) {
+    if (check_player_state_flag_2__6TLobbyFPv() != 0) {
         if (((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) && ((s32) M2C_FIELD(&lbl_8048C9D8, s32 *, 0x34) == 0)) {
             TLobby__sub_8006FC7C(arg0);
             TLobby__sub_800722AC(lbl_805D53A0);

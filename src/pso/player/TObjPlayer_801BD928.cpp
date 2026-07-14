@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TObjPlayer__sub_801BD928(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, u8 *arg4);
+u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, u8 *arg4);
 M2C_UNK TFontSmallLobby__sub_801C0164(void *);
 M2C_UNK TFontSmallLobby__sub_801D65B4(void *);
 M2C_UNK TObjPlayer__sub_80019038();
@@ -74,7 +74,7 @@ M2C_UNK wrap_update__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__10TObjPlayer[];
 extern s32 lbl_805D3530;
 
-u8 *TObjPlayer__sub_801BD928(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, u8 *arg4) {
+u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, u8 *arg4) {
     TObjPlayer__sub_80019038();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
     init_subobject__10TObjPlayerFPv((void *) (arg0 + 0x340));

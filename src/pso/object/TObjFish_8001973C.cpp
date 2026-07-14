@@ -9,7 +9,7 @@ u8 TObjPlayer__sub_8001972C(void* p);
 s32 TObjPlayer__sub_80019734(void* p);
 int TObjPlayer__sub_801C675C(void*, int);
 
-f32 TObjFish__sub_8001973C(void) {
+f32 get_random_float__8TObjFishFv(void) {
     return (f32) TObjPlayer__sub_80019784();
 }
 

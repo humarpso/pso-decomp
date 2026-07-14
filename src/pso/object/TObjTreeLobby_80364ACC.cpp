@@ -16,7 +16,7 @@ struct TObjTreeLobby80364A : TObjBase80364A {
 extern "C" {
 
 void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK fn_8015858C();
+M2C_UNK init_map_object_base();
 s32 is_lobby_event_active();
 
 extern M2C_UNK __vt__13TObjTreeLobby[];
@@ -26,7 +26,7 @@ extern s32 lbl_805D6FC4;
 extern const f32 TObjTreeLobby__data_805E0290;
 
 void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
-    fn_8015858C();
+    init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjTreeLobby;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4484;
     ((TObjTreeLobby80364A *)arg0)->ct(arg2);

@@ -13,7 +13,7 @@ M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK init_part__16TObjEneRe7BeruraFi(s32);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
@@ -63,7 +63,7 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) == 2) {
             ((VObjHang *)(arg0 + 0xF8))->m7();
         }
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
         some_id_805c6f74 = lbl_805D5660;
     }
 }

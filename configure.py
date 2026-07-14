@@ -8264,6 +8264,12 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TLobby_80156B18.cpp"),
                 NonMatching("pso/misc/TMovie_80143CA4.cpp"),
                 NonMatching("pso/enemy/TObjEneMe3ShinowaMirage_800E3B90.cpp"),
+                NonMatching("pso/misc/TMainCursor_80154120.cpp"),
+                NonMatching("pso/misc/TLobby_8013A4E4.cpp"),
+                NonMatching("pso/object/TObjMapWarp_80141CB8.cpp"),
+                NonMatching("pso/player/TObjPlayer_8015C940.cpp"),
+                NonMatching("pso/misc/TOMine_80170EEC.cpp"),
+                NonMatching("pso/ui/TAdSinglePlyChrSelectGC_802115C0.cpp"),
             ],
         },
         # ------------------------------------------------------------------

@@ -6,14 +6,14 @@ extern "C" {
 
 void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void TObjPlayer__sub_800BC40C(void *, int);
+void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 
 extern M2C_UNK lbl_8048FE08[];
 
 void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048FE08;
-        TObjPlayer__sub_800BC40C(arg0, 0);
+        destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

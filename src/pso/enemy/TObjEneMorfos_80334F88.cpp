@@ -9,7 +9,7 @@ void TObjEneMorfos__sub_8033471C(void *);
 void TObjEneMorfos__sub_80334D74(void *);
 void init_vtable_and_field18__10TObjPlayerFPv(void *);
 void init_object__9TObjEneDDFPv(void *);
-void TObjEneDD__sub_800BB8E0(void *, void *);
+void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 void init_common__18TObjEneMe3SinowZoaFPv(void *);
 
 extern M2C_UNK __vt__13TObjEneMorfos[];
@@ -25,7 +25,7 @@ void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2) {
     init_common__18TObjEneMe3SinowZoaFPv((void *)((char *)arg0 + 1032));
     __construct_array((void *)((char *)arg0 + 1060), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4230;
-    TObjEneDD__sub_800BB8E0(arg0, arg2);
+    invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     TObjEneMorfos__sub_8033471C(arg0);
     TObjEneMorfos__sub_80334D74(arg0);
     M2C_FIELD(arg0, u32 *, 0x494) = 0;

@@ -6,7 +6,7 @@ extern "C" {
 
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void TObjPlayer__sub_800BC40C(void *, int);
+void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 void fn_800BC5A0(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
@@ -17,7 +17,7 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjBoss1Crater;
         if (M2C_FIELD(arg0, void **, 0xB4) != NULL) { fn_800BC5A0(M2C_FIELD(arg0, void **, 0xB4), 1); M2C_FIELD(arg0, M2C_UNK *, 0xB4) = 0; }
         if (M2C_FIELD(arg0, void **, 0xB0) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xB0)); M2C_FIELD(arg0, M2C_UNK *, 0xB0) = 0; }
-        TObjPlayer__sub_800BC40C(arg0, 0);
+        destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

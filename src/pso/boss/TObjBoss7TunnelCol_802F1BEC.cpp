@@ -7,7 +7,7 @@ extern "C" {
 void *TObjBoss7TunnelCol__ct(void *arg0);
 void fn_8002B630(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-void fn_801566DC(void *, void *);
+void initialize_linked_object_reference(void *, void *);
 void TObjPlayer__sub_801569F4(void *);
 
 extern M2C_UNK __vt__18TObjBoss7TunnelCol[];
@@ -26,7 +26,7 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DECA0;
     M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DEC9C;
     M2C_FIELD(arg0, f32 *, 0x40) = lbl_805DEC9C;
-    fn_801566DC(arg0, self->f_AC);
+    initialize_linked_object_reference(arg0, self->f_AC);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     return arg0;
 }

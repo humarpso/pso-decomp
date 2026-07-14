@@ -9009,7 +9009,10 @@ pso/misc/TLobby_8013A450.cpp:
 	.text       start:0x8013A450 end:0x8013A4A8
 
 pso/slices/pso_carve_8013a4a8.cpp:
-	.text       start:0x8013A4A8 end:0x8013A504
+	.text       start:0x8013A4A8 end:0x8013A4E4
+
+pso/misc/TLobby_8013A4E4.cpp:
+	.text       start:0x8013A4E4 end:0x8013A504
 
 pso/misc/TLobby_8013A504.cpp:
 	.text       start:0x8013A504 end:0x8013A5D4
@@ -9458,8 +9461,11 @@ pso/object/TObjMapWarp_80141C68.cpp:
 pso/object/TObjMapWarp_80141CB4.cpp:
 	.text       start:0x80141CB4 end:0x80141CB8
 
-pso/slices/pso_carve_80141cb8.cpp:
-	.text       start:0x80141CB8 end:0x80141CF0
+pso/object/TObjMapWarp_80141CB8.cpp:
+	.text       start:0x80141CB8 end:0x80141CBC
+
+pso/slices/pso_carve_80141cbc.cpp:
+	.text       start:0x80141CBC end:0x80141CF0
 
 pso/misc/TOTrapAncient02R_80141CF0.cpp:
 	.text       start:0x80141CF0 end:0x80141CF4
@@ -10266,7 +10272,10 @@ pso/object/TObjFogCollision_80154044.cpp:
 	.text       start:0x80154044 end:0x80154090
 
 pso/slices/pso_carve_80154090.cpp:
-	.text       start:0x80154090 end:0x80154178
+	.text       start:0x80154090 end:0x80154120
+
+pso/misc/TMainCursor_80154120.cpp:
+	.text       start:0x80154120 end:0x80154178
 
 pso/misc/TMainCursor_80154178.cpp:
 	.text       start:0x80154178 end:0x80154288
@@ -10607,8 +10616,11 @@ pso/misc/TLobby_8015C8C4.cpp:
 pso/player/TObjPlayer_8015C8D8.cpp:
 	.text       start:0x8015C8D8 end:0x8015C940
 
-pso/slices/pso_carve_8015c940.cpp:
-	.text       start:0x8015C940 end:0x8015C978
+pso/player/TObjPlayer_8015C940.cpp:
+	.text       start:0x8015C940 end:0x8015C944
+
+pso/slices/pso_carve_8015c944.cpp:
+	.text       start:0x8015C944 end:0x8015C978
 
 pso/misc/TLobby_8015C978.cpp:
 	.text       start:0x8015C978 end:0x8015C9D0
@@ -11314,8 +11326,11 @@ pso/misc/TOMineTrap_80170CD4.cpp:
 pso/misc/TOMineTrap_80170D9C.cpp:
 	.text       start:0x80170D9C end:0x80170DD8
 
-pso/slices/pso_carve_80170eec.cpp:
-	.text       start:0x80170EEC end:0x80170F64
+pso/misc/TOMine_80170EEC.cpp:
+	.text       start:0x80170EEC end:0x80170F0C
+
+pso/slices/pso_carve_80170f0c.cpp:
+	.text       start:0x80170F0C end:0x80170F64
 
 pso/misc/TOMine_80170F64.cpp:
 	.text       start:0x80170F64 end:0x80171074
@@ -17049,7 +17064,10 @@ pso/misc/TCheckRoomSequence_80211444.cpp:
 	.text       start:0x80211444 end:0x802114D4
 
 pso/slices/pso_carve_802114d4.cpp:
-	.text       start:0x802114D4 end:0x802115F0
+	.text       start:0x802114D4 end:0x802115C0
+
+pso/ui/TAdSinglePlyChrSelectGC_802115C0.cpp:
+	.text       start:0x802115C0 end:0x802115F0
 
 pso/misc/TShopWindowBase_802115F0.cpp:
 	.text       start:0x802115F0 end:0x802115F4

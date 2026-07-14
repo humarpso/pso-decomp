@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe3ShinowaMirage__sub_800E3B90(u8 *arg0, s32 arg1);
+void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504(void *, int);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
@@ -19,7 +19,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f64 lbl_8043CFA0;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 
-void TObjEneMe3ShinowaMirage__sub_800E3B90(u8 *arg0, s32 arg1) {
+void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     s32 temp_r4;
     s32 temp_r4_2;

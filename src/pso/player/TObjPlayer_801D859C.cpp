@@ -9,7 +9,7 @@ extern "C" {
 void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
 s32 TLobby__sub_8011AF58();
 s32 TObjPlayer__sub_80099EF8();
-void *TObjPlayer__sub_80102AC0(void *);
+void *lookup_inventory_item__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, M2C_UNK);
 u32 TObjPlayer__sub_801B8E68(s32, void *);
 M2C_UNK TObjPlayer__sub_801B9F40(s32, void *, M2C_UNK);
@@ -37,7 +37,7 @@ void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
 
     obj_getField1c();
     M2C_FIELD(arg1, s32 *, 0xC) = TLobby__sub_8011AF58();
-    temp_r3 = TObjPlayer__sub_80102AC0(arg1);
+    temp_r3 = lookup_inventory_item__10TObjPlayerFPv(arg1);
     if (temp_r3 != NULL) {
         s8 val = ((VObj_84_801d859c *)temp_r3)->m31();
         s32 val_ext = (s32)val;

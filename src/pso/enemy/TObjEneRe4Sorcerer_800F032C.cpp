@@ -10,7 +10,7 @@ void TObjEneRe4Sorcerer__sub_800F0118(void *);
 void TObjPlayer__sub_8004433C(void *);
 void init_vtable_and_field18__10TObjPlayerFPv(void *);
 void init_object__9TObjEneDDFPv(void *);
-void TObjEneDD__sub_800BB8E0(void *, void *);
+void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 
 extern M2C_UNK __vt__18TObjEneRe4Sorcerer[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
@@ -25,7 +25,7 @@ void *TObjEneRe4Sorcerer__ct(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_8004433C((void *)((char *)arg0 + 1048));
     __construct_array((void *)((char *)arg0 + 1140), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2AF0;
-    TObjEneDD__sub_800BB8E0(arg0, arg2);
+    invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     TObjEneRe4Sorcerer__sub_800EFE30(arg0);
     TObjEneRe4Sorcerer__sub_800F0118(arg0);
     return arg0;

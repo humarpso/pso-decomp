@@ -23,7 +23,5 @@ int fn_80154098(void) { return 0; }
 int fn_801540B8(void) { return 0; }
 int fn_801540D8(void*, void*) { return 0; }
 int fn_801540FC(void*, void*) { return 0; }
-void TMainCursor__sub_80154120(void* p) { fn_801540D8(*(void**)((char*)p + 0xa4), *(void**)((char*)p + 0xa8)); }
-void TMainCursor__sub_8015414C(void* p) { fn_801540FC(*(void**)((char*)p + 0xa4), *(void**)((char*)p + 0xa8)); }
 
 }

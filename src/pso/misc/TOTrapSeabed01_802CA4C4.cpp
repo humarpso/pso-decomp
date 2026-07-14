@@ -11,8 +11,8 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOTrapSeabed01__sub_802CA3EC(void *, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK fn_80141A30();
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -27,14 +27,14 @@ void draw__14TOTrapSeabed01FPv(u8 *arg0) {
     if ((is_not_split_screen__13TRaderMapCoreFv() != 1) || ((s32) M2C_FIELD(arg0, s32 *, 0x34C) == 0)) {
         set_depth_buffer_settings_3__Fv();
         set_depth_buffer_settings_id__FUl(1);
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         TObjFish__sub_803DA798(TOTrapSeabed01__data_805D6814);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         TOTrapSeabed01__sub_802CA3EC(arg0, M2C_FIELD(arg0, s32 *, 0x34));
         TObjPlayer__sub_803D9B78();
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
         func_80141618__Fv();
         fn_80141A30();
     }

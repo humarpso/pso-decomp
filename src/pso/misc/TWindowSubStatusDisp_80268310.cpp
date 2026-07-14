@@ -5,19 +5,19 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
-void TWindowSubStatusDisp__sub_8026D9D0(void *, int);
+void destroy_allocation__20TWindowSubStatusDispFis(void *, int);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 void __dl__7TObjectFPv(void *);
-void TWindowAddition__sub_802443F0(void *, int);
+void destroy_window__15TWindowAdditionFPvs(void *, int);
 
 extern M2C_UNK lbl_804D0618[];
 
 void *destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D0618;
-        TWindowSubStatusDisp__sub_8026D9D0(M2C_FIELD(arg0, void **, 0x84), 1);
+        destroy_allocation__20TWindowSubStatusDispFis(M2C_FIELD(arg0, void **, 0x84), 1);
         destroy_status_display__20TWindowSubStatusDispFis(M2C_FIELD(arg0, void **, 0x80), 1);
-        TWindowAddition__sub_802443F0(arg0, 0);
+        destroy_window__15TWindowAdditionFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

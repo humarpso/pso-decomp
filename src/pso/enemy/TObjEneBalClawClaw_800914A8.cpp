@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBalClawClaw__sub_800914A8(u8 *arg0);
+void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK TObjEneBalClawClaw__sub_8008DC04(void *);
-M2C_UNK TObjEneBalClawClaw__sub_8009082C(void *);
+M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *);
 M2C_UNK TObjPlayer__sub_80090448(void *);
 M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
 f32 fn_8013157C(void *, void *);
@@ -30,7 +30,7 @@ struct VObj_800914a8 : VObjBase_800914a8 {
     virtual M2C_UNK m16(); virtual M2C_UNK m17(M2C_UNK);
 };
 
-void TObjEneBalClawClaw__sub_800914A8(u8 *arg0) {
+void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0) {
     f32 temp_f1;
     s16 temp_r0;
     s32 temp_r0_2;
@@ -54,7 +54,7 @@ void TObjEneBalClawClaw__sub_800914A8(u8 *arg0) {
                 update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (8));
                 return;
             }
-            TObjEneBalClawClaw__sub_8009082C((void *) (arg0));
+            reset_active_state__18TObjEneBalClawClawFPv((void *) (arg0));
         }
         return;
     case 1:

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMcSelectCursorGC__sub_8032A1D0(u8 *arg0);
+void render_cursor__19TAdMcSelectCursorGCFPv(u8 *arg0);
 M2C_UNK TObjFish__sub_803DA798(void *);
 M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
@@ -16,7 +16,7 @@ M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 TAdMcSelectCursorGC__data_805D6C90;
 extern const f32 lbl_805DF728;
 
-void TAdMcSelectCursorGC__sub_8032A1D0(u8 *arg0) {
+void render_cursor__19TAdMcSelectCursorGCFPv(u8 *arg0) {
     TWindowSubStatusDisp__sub_803DEE6C((int) (1));
     TObjFish__sub_803DA798((void *) (TAdMcSelectCursorGC__data_805D6C90));
     TWindowSubStatusDisp__sub_803DF160((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x128) << 0x18) | 0xFF0000 | 0xFFFF));

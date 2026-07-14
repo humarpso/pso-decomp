@@ -11,7 +11,7 @@ void render__15TAdMcSelectMcGCFv(void *arg0);
 s32 TMainTask__sub_8001A430();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
-M2C_UNK TObjPlayer__sub_80141F1C();
+M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 s32 toggle_flag_9__10TObjPlayerFPv();
 M2C_UNK TAdMcSelectMcGC__sub_8032A6F4(void *);
@@ -28,7 +28,7 @@ void render__15TAdMcSelectMcGCFv(void *arg0) {
 block_5:
         init_xyz_limits__10TObjPlayerFv();
         TAdMcSelectMcGC__sub_8032A6F4(arg0);
-        TObjPlayer__sub_80141F1C();
+        reset_transform_state__10TObjPlayerFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
             fn_80141A30();
         }

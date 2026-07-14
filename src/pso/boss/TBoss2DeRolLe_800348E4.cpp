@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
-f32 TObjFish__sub_8001973C(f32);
+f32 get_random_float__8TObjFishFv(f32);
 M2C_UNK set_move_params__13TBoss2DeRolLeFPvffff(void *, f32, f32, f32, f32);
 M2C_UNK init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
 
@@ -21,8 +21,8 @@ extern const f32 TBoss2DeRolLe__data_805D83DC;
 
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x660) = 0;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, TObjFish__sub_8001973C(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, TObjFish__sub_8001973C(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
 }
 
 }

@@ -13,7 +13,7 @@ extern "C" {
 
 void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2);
 u8 TODoorAncient08__sub_80229220(u16, f32);
-M2C_UNK fn_8015858C();
+M2C_UNK init_map_object_base();
 
 extern M2C_UNK __vt__13TObjHashiBase[];
 extern s32 lbl_805D3374;
@@ -23,7 +23,7 @@ extern const f32 lbl_805DBE34;
 extern const f32 lbl_805DBE38;
 
 void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2) {
-    fn_8015858C();
+    init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjHashiBase;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3374;
     ((VObj_80191BEC *)arg0)->m5(arg2);

@@ -10,13 +10,13 @@ void draw_item_model__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK get_model_ids__9TItemLoadFUcPvPv(u8, u32 *, s32 *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
-M2C_UNK TObjPlayer__sub_80141F1C();
+M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 
@@ -27,15 +27,15 @@ void draw_item_model__10TObjPlayerFPv(u8 *arg0) {
     get_model_ids__9TItemLoadFUcPvPv(M2C_FIELD(arg0, u8 *, 0xEF), &spC, &sp8);
     if (spC != 0U) {
         set_depth_buffer_settings_id__FUl(3);
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         notify_fish_if_valid__10TObjPlayerFUi(sp8);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjBoss2Tunnel__sub_803DB470(spC);
         TObjPlayer__sub_803D9B78();
-        TParticleCtrl__sub_801E2F20();
-        TObjPlayer__sub_80141F1C();
+        end_effect_render__13TParticleCtrlFv();
+        reset_transform_state__10TObjPlayerFv();
         func_80141618__Fv();
     }
 }

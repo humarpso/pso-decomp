@@ -22,8 +22,8 @@ M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 alloc__13TItemProArmorFi(M2C_UNK);
 M2C_UNK init_vtable__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
 
@@ -51,9 +51,9 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
             TObjPlayer__sub_803D9214(0, M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60));
             M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 0x11);
             TObjBoss2Tunnel__sub_803DB470(temp_r31);
-            TParticleCtrl__sub_801E2EFC();
+            begin_effect_render__13TParticleCtrlFv();
             TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(temp_r31, void **, 0x2C));
-            TParticleCtrl__sub_801E2F20();
+            end_effect_render__13TParticleCtrlFv();
             temp_r3 = M2C_FIELD(temp_r31, s32 *, 0);
             M2C_FIELD(temp_r31, s32 *, 0) = (s32) (temp_r3 & ~0x11);
             warn_if_gauge_low__10TObjPlayerFv(temp_r3);

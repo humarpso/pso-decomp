@@ -16,7 +16,7 @@ struct TObjRainbowLobby803508 : TObjBase803508 {
 extern "C" {
 
 void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK fn_8015858C();
+M2C_UNK init_map_object_base();
 s32 is_lobby_event_active();
 
 extern M2C_UNK __vt__16TObjRainbowLobby[];
@@ -25,7 +25,7 @@ extern void *TObjRainbowLobby__data_805D6EB0;
 extern const f32 TObjRainbowLobby__data_805DFE30;
 
 void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2) {
-    fn_8015858C();
+    init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjRainbowLobby;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D435C;
     ((TObjRainbowLobby803508 *)arg0)->ct(arg2);

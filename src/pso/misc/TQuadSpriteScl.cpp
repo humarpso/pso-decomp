@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__14TQuadSpriteSclFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void fn_801E4F04(void *, int);
+void destroy_quad_sprite_base(void *, int);
 
 extern M2C_UNK __vt__14TQuadSpriteScl[];
 
 void *__dt__14TQuadSpriteSclFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TQuadSpriteScl;
-        fn_801E4F04(arg0, 0);
+        destroy_quad_sprite_base(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

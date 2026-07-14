@@ -19,7 +19,7 @@ struct VObj_800c9964 : VBase_800c9964 {
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800C9964(u8 *arg0, s32 arg1);
+void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
@@ -34,7 +34,7 @@ M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 extern const f32 lbl_805DA0D0;
 extern const f32 TObjEneMe1Gee__data_805DA0EC;
 
-void TObjEneMe1Gee__sub_800C9964(u8 *arg0, s32 arg1) {
+void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;

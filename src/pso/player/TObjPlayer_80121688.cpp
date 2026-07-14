@@ -16,19 +16,19 @@ M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TParticleCtrl__sub_801E2EFC();
-M2C_UNK TParticleCtrl__sub_801E2F20();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
 
 void draw_effect_model__10TObjPlayerFPv(u8 *arg0) {
     if ((is_owner_alive__10TObjPlayerFPv() != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x58) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0x5C) != 0U)) {
         TObjPlayer__sub_803D9B2C();
-        TParticleCtrl__sub_801E2EFC();
+        begin_effect_render__13TParticleCtrlFv();
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x5C));
         TOHangerMachine01__sub_803D9C00(arg0 + 0x1C);
         TObjPlayer__sub_803D99F8(arg0 + 0x28, 1);
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, u32 *, 0x58));
-        TParticleCtrl__sub_801E2F20();
+        end_effect_render__13TParticleCtrlFv();
         TObjPlayer__sub_803D9B78();
     }
 }

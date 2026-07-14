@@ -18,7 +18,7 @@ s32 fn_801F34C8(void* p);
 void TLobby__sub_801F34E0(void* p, s16 v);
 int TLobby__sub_800822E8(void*, int);
 int TObjPlayer__sub_801B3540(void*);
-int TObjPlayer__sub_801B3564(void*);
+int check_technique_flag__10TObjPlayerFPv(void*);
 
 void TLobby__sub_801F34E0(void* p, s16 v) { *(s16*)((char*)p + 0x11a) = v; }
 

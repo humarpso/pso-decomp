@@ -9,7 +9,7 @@ void TObjEneRe7Berura__sub_80095328(void *);
 void TObjEneRe7Berura__sub_800955E0(void *);
 void init_vtable_and_field18__10TObjPlayerFPv(void *);
 void init_object__9TObjEneDDFPv(void *);
-void TObjEneDD__sub_800BB8E0(void *, void *);
+void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 
 extern M2C_UNK __vt__16TObjEneRe7Berura[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
@@ -24,7 +24,7 @@ void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
     init_vtable_and_field18__10TObjPlayerFPv((void *)((char *)arg0 + 1020));
     __construct_array((void *)((char *)arg0 + 1096), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2988;
-    TObjEneDD__sub_800BB8E0(arg0, arg2);
+    invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     TObjEneRe7Berura__sub_80095328(arg0);
     TObjEneRe7Berura__sub_800955E0(arg0);
     return arg0;

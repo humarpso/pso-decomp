@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMultiPlyChrSelectGC__sub_801A6EA0(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TRaderMapCore__sub_801A6CEC();
 M2C_UNK fn_801A6FF8(s32, s32, s32, s32);
 
-void TAdMultiPlyChrSelectGC__sub_801A6EA0(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 t = TRaderMapCore__sub_801A6CEC();
     fn_801A6FF8(arg0, t, arg2, arg3);
 }

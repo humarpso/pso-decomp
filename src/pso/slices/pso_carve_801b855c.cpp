@@ -11,7 +11,7 @@ s32 obj_getField1c(s32);
 s32 init_owner__5TItemFPvUs(void *, s32);
 s32 get_item_type_or_default__9TItemListFPv(void *);
 s32 can_pickup_item__10TObjPlayerFPvPv();
-int TShopJudgmentItemWindow__sub_801B853C(void* p);
+int get_item_record__23TShopJudgmentItemWindowFPv(void* p);
 int TObjPlayer__sub_801B8DE8(void*);
 
 int fn_801B855C(void) { return 0; }

@@ -10,7 +10,7 @@ void free_obj_heap__10TObjPlayerFPv(void* a0);
 void alloc_from_obj_heap__10TObjPlayerFPv(void* a0);
 int TObjPlayer__sub_80102AA8(void);
 void TObjPlayer__sub_80102AB0(void);
-int TObjPlayer__sub_80102AC0(void* p);
+int lookup_inventory_item__10TObjPlayerFPv(void* p);
 void free_globals__10TObjPlayerFv(void);
 int TLobby__sub_8010542C(void*);
 M2C_UNK fn_80105874();
@@ -36,7 +36,7 @@ void TObjPlayer__sub_80102AB0(void) {
     lbl_805D5408 = temp_r3 + 1;
 }
 
-int TObjPlayer__sub_80102AC0(void* p) { return TLobby__sub_8010542C(p); }
+int lookup_inventory_item__10TObjPlayerFPv(void* p) { return TLobby__sub_8010542C(p); }
 
 extern s32 lbl_805D53F0;
 extern u32 lbl_805D53F4;
