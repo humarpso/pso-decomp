@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK fn_80356F28(M2C_UNK, s32, s32, s32, s32);
+M2C_UNK TBoss6Type2__sub_80356F28(M2C_UNK, s32, s32, s32, s32);
 
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2) {
-    fn_80356F28(0, arg0, arg1, arg2, arg0);
+    TBoss6Type2__sub_80356F28(0, arg0, arg1, arg2, arg0);
 }
 
 }

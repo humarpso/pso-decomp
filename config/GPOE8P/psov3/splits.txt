@@ -5325,6 +5325,10 @@ pso/enemy/TObjEneMe3ShinowaMirage_800E3B34.cpp:
 pso/enemy/TObjEneMe3ShinowaMirage.cpp:
 	.text       start:0x800E3B6C end:0x800E3B90
 
+pso/enemy/TObjEneMe3ShinowaMirage_800E3B90.cpp:
+	.text       start:0x800E3B90 end:0x800E3C98
+	.rodata     start:0x8043CFA0 end:0x8043CFA8
+
 pso/enemy/TObjEneMe3ShinowaMirage_800E3C98.cpp:
 	.text       start:0x800E3C98 end:0x800E3CCC
 
@@ -9590,7 +9594,7 @@ pso/misc/TMovie_80143BBC.cpp:
 pso/misc/TMovie_80143C94.cpp:
 	.text       start:0x80143C94 end:0x80143CA4
 
-pso/slices/pso_carve_80143ca4.cpp:
+pso/misc/TMovie_80143CA4.cpp:
 	.text       start:0x80143CA4 end:0x80143CC8
 
 pso/misc/TMovie_80143CC8.cpp:
@@ -10315,7 +10319,7 @@ pso/player/TObjPlayer_80156990.cpp:
 pso/player/TObjPlayer_80156A68.cpp:
 	.text       start:0x80156A68 end:0x80156A80
 
-pso/slices/pso_carve_80156b18.cpp:
+pso/misc/TLobby_80156B18.cpp:
 	.text       start:0x80156B18 end:0x80156B38
 
 pso/misc/TLobby_80156B38.cpp:

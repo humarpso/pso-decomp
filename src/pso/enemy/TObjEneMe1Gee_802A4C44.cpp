@@ -10,7 +10,7 @@ void update_missile__13TObjEneMe1GeeFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_802A445C(void *, M2C_UNK);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK TNeedleShoot__sub_802A4668(void *);
-M2C_UNK fn_802A4694(void *);
+M2C_UNK TNeedleShoot__sub_802A4694(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
 
@@ -21,7 +21,7 @@ void update_missile__13TObjEneMe1GeeFPv(void *arg0) {
         return;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB8) == 1) {
-        fn_802A4694(arg0);
+        TNeedleShoot__sub_802A4694(arg0);
         update_lifetime__22TObjEneMe1GiGueMissileFPv(arg0);
         TObjPlayer__sub_802A445C(arg0, 1);
         return;

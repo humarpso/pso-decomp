@@ -8261,6 +8261,9 @@ if args.target == "psov3":
                 NonMatching("pso/misc/TSlicerHistory.cpp"),
                 NonMatching("pso/misc/TWindowLockOn_8026FF0C.cpp"),
                 NonMatching("pso/misc/TWindowSubSymbolChatFaceType_802839C0.cpp"),
+                NonMatching("pso/misc/TLobby_80156B18.cpp"),
+                NonMatching("pso/misc/TMovie_80143CA4.cpp"),
+                NonMatching("pso/enemy/TObjEneMe3ShinowaMirage_800E3B90.cpp"),
             ],
         },
         # ------------------------------------------------------------------
