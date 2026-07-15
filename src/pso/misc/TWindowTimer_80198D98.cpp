@@ -8,14 +8,14 @@ extern "C" {
 
 void TWindowTimer__sub_80198D98(void);
 void * __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_80199410(void *, s32);
+M2C_UNK TWindowTimer__sub_80199410(void *, s32);
 
 extern s32 tl_03;
 
 void TWindowTimer__sub_80198D98(void) {
     void *obj = __nw__7TObjectFUl(0x20);
     if (obj != 0) {
-        fn_80199410(obj, tl_03);
+        TWindowTimer__sub_80199410(obj, tl_03);
     }
 }
 

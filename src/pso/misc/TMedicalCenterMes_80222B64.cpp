@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TMedicalCenterMes__sub_80222B64(void *arg0, s16 arg1);
+void *destroy__17TMedicalCenterMesFPvs(void *arg0, s16 arg1);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__FPv(void *);
 
 extern M2C_UNK lbl_804CA27C[];
 
-void *TMedicalCenterMes__sub_80222B64(void *arg0, s16 arg1) {
+void *destroy__17TMedicalCenterMesFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0) = lbl_804CA27C;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {

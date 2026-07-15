@@ -12,7 +12,7 @@ s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 TWindow__close(u32);
 s32 TAdVIConfigGC__sub_80307DEC(void* p);
 
-void *TAdVIConfigGC__sub_80307E74(void *arg0, s16 arg1) {
+void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
             clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x24));

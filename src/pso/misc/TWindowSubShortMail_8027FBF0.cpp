@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowSubShortMail__sub_8027FBF0(void *arg0);
-void *TWindowSubShortMail__sub_8027FC58(void *arg0, s16 arg1);
+void *destroy__19TWindowSubShortMailFPvs(void *arg0, s16 arg1);
 s32 TWindowSubComCard__sub_80073DB8(s32);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 void TWindow__close(void *);
@@ -40,7 +40,7 @@ void TWindowSubShortMail__sub_8027FBF0(void *arg0) {
 
 extern M2C_UNK lbl_804D1AD0[];
 
-void *TWindowSubShortMail__sub_8027FC58(void *arg0, s16 arg1) {
+void *destroy__19TWindowSubShortMailFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D1AD0;
         if (M2C_FIELD(arg0, void **, 0x28) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x28)); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }

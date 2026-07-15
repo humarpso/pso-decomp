@@ -6,14 +6,14 @@ extern "C" {
 
 void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-void TWindowSubStatusDisp__sub_80268F90(void *, int);
+void destroy_children__20TWindowSubStatusDispFPvs(void *, int);
 
 extern M2C_UNK __vt__20TWindowChoiceSetting[];
 
 void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TWindowChoiceSetting;
-        TWindowSubStatusDisp__sub_80268F90(arg0, 0);
+        destroy_children__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }

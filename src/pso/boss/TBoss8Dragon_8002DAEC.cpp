@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0);
 s32 TBoss8Dragon__sub_8002DB04(void *arg0);
-void *TBoss8Dragon__sub_8002DB10(void *arg0, s16 arg1);
+void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
@@ -20,7 +20,7 @@ s32 TBoss8Dragon__sub_8002DB04(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x10) + 8;
 }
 
-void *TBoss8Dragon__sub_8002DB10(void *arg0, s16 arg1) {
+void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x10));
         M2C_FIELD(arg0, s32 *, 0x10) = 0;

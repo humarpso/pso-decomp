@@ -9,10 +9,10 @@ extern "C" {
 void update_displayed_item__15TWindowHelpItemFi(s32 arg0);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowHelpItem__sub_802531A4(s32, s32);
-M2C_UNK fn_80253154();
+M2C_UNK TWindowSubStatusDisp__sub_80253154();
 
 void update_displayed_item__15TWindowHelpItemFi(s32 arg0) {
-    fn_80253154();
+    TWindowSubStatusDisp__sub_80253154();
     TWindowHelpItem__sub_802531A4(arg0, TLobby__sub_8001DC24());
 }
 

@@ -23,7 +23,7 @@ struct VObj_801AE174 : Base_801AE174 {
 
 extern "C" {
 
-void *TPhotonPilla__sub_801AE174(void *arg0, s16 arg1);
+void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -32,7 +32,7 @@ M2C_UNK free_photon__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804C3ACC[];
 
-void *TPhotonPilla__sub_801AE174(void *arg0, s16 arg1) {
+void *destroy__12TPhotonPillaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3ACC;
         ((VObj_801AE174 *)arg0)->m13();

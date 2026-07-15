@@ -10,14 +10,14 @@ void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-extern M2C_UNK lbl_804EDBE8[];
+extern M2C_UNK __vt__16TAdWarningBaseGC[];
 extern void *lbl_805D4208;
 
 void *TAdWarningBaseGC__ct(void *arg0) {
     void *o;
     void *o2;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDBE8;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TAdWarningBaseGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4208;
     M2C_FIELD(arg0, u32 *, 0x28) = 0;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;

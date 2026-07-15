@@ -15,7 +15,7 @@ void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowMainMenu__sub_80263E40(void *, s16 *, s32 *);
 M2C_UNK TWindowMainMenu__sub_80264674(void *, s16);
-M2C_UNK fn_8026417C(void *, s16);
+M2C_UNK TWindowSubEquip__sub_8026417C(void *, s16);
 M2C_UNK reset_equip_slots__10TObjPlayerFPv(s32);
 
 void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1) {
@@ -29,7 +29,7 @@ void try_open_battle_menu__15TWindowMainMenuFPvs(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, s32 *, 0x4C) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C) | 1);
         M2C_FIELD(arg0, s32 *, 0x5C) = 0;
         TWindowMainMenu__sub_80264674(arg0, sp8);
-        fn_8026417C(arg0, sp8);
+        TWindowSubEquip__sub_8026417C(arg0, sp8);
         reset_equip_slots__10TObjPlayerFPv(temp_r3);
         ((V_A_80263b70 *) arg0)->m5();
     }

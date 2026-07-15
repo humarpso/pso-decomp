@@ -11,7 +11,7 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK TWindowMainMenu__sub_802AD7F0(void *);
 M2C_UNK TWindowMainMenu__sub_802AE380(void *);
-M2C_UNK fn_802AE59C(void *);
+M2C_UNK TWindowMainMenu__sub_802AE59C(void *);
 
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     s32 var_r31;
@@ -30,7 +30,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
         var_r31 += 1;
         var_r30 += 0x18;
     } while (var_r31 < 8);
-    fn_802AE59C(arg0);
+    TWindowMainMenu__sub_802AE59C(arg0);
     initialize_subwindow__9TWindowDDFPv(arg0);
     TWindowMainMenu__sub_802AE380(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);

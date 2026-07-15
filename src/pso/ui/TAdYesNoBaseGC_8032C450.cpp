@@ -10,7 +10,7 @@ void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-extern M2C_UNK lbl_804EDB10[];
+extern M2C_UNK __vt__14TAdYesNoBaseGC[];
 extern const f32 lbl_805DF790;
 extern const f32 lbl_805DF794;
 extern void *lbl_805D41F8;
@@ -21,7 +21,7 @@ void *TAdYesNoBaseGC__ct(void *arg0) {
     void *o;
     void *o2;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDB10;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TAdYesNoBaseGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D41F8;
     M2C_FIELD(arg0, u32 *, 0x28) = 0;
     M2C_FIELD(arg0, f32 *, 0x30) = lbl_805DF790;

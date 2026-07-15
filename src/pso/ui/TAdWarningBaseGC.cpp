@@ -9,11 +9,11 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_804EDBE8[];
+extern M2C_UNK __vt__16TAdWarningBaseGC[];
 
 void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDBE8;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TAdWarningBaseGC;
         if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x2C)); M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

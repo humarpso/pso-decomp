@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TProtocol__sub_801DFCAC(s32 arg0, s16 arg1);
+s32 destroy__9TProtocolFis(s32 arg0, s16 arg1);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK __dt__12TPlyCharDataFv(s32, M2C_UNK);
 
-s32 TProtocol__sub_801DFCAC(s32 arg0, s16 arg1) {
+s32 destroy__9TProtocolFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__12TPlyCharDataFv(arg0 + 4, -1);
         if (arg1 > 0) {
