@@ -12,7 +12,7 @@ M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 M2C_UNK init__23TAdSinglePlyChrSelectGCFv();
 s32 fn_80219EE8();
 
-void fn_8019BB2C(void) {
+void TKeyBoardControl__sub_8019BB2C(void) {
     s32 temp_r3;
 
     temp_r3 = TAdStorySelectGC__sub_8019DC14();

@@ -21,7 +21,7 @@ struct VObj_80213F78 : Base_80213F78 {
 };
 extern struct VObj_80213F78 *lbl_805D61B8;
 
-void fn_80213F78(void) {
+void THunterGuildSeqOffline__sub_80213F78(void) {
     if (lbl_805D61B8 != NULL) {
         lbl_805D61B8->m7(0xC, 1);
         TQuestListVM__sub_80073DC4(lbl_805D61B8, 9);

@@ -6,14 +6,14 @@ extern "C" {
 
 void *TBoss3VoloptCore__sub_800407E0(void *arg0);
 void *__nw__7TObjectFUl(int);
-void *fn_80040A7C(void *, void *, void *);
+void *TBoss3VoloptCore__sub_80040A7C(void *, void *, void *);
 
 extern void *tl_04;
 
 void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3D4);
     if (o != NULL) {
-        o = fn_80040A7C(o, tl_04, arg0);
+        o = TBoss3VoloptCore__sub_80040A7C(o, tl_04, arg0);
     }
     return o;
 }

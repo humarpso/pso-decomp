@@ -6,14 +6,14 @@ extern "C" {
 
 void *create_tl05_object__6TLobbyFPv(void *arg0);
 void *__nw__7TObjectFUl(int);
-void *fn_80214B3C(void *, void *, void *);
+void *THunterGuildSeqOffline__sub_80214B3C(void *, void *, void *);
 
 extern void *tl_05;
 
 void *create_tl05_object__6TLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44);
     if (o != NULL) {
-        o = fn_80214B3C(o, tl_05, arg0);
+        o = THunterGuildSeqOffline__sub_80214B3C(o, tl_05, arg0);
     }
     return o;
 }
