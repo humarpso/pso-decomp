@@ -5397,7 +5397,7 @@ pso/enemy/TObjEneMe3ShinowaMirage_800E3A88.cpp:
 pso/enemy/TObjEneMe3ShinowaMirage_800E3AB8.cpp:
 	.text       start:0x800E3AB8 end:0x800E3AFC
 
-pso/slices/pso_carve_800e3afc.cpp:
+pso/enemy/TObjEneMe3ShinowaMirage_800E3AFC.cpp:
 	.text       start:0x800E3AFC end:0x800E3B34
 
 pso/enemy/TObjEneMe3ShinowaMirage_800E3B34.cpp:
@@ -12186,20 +12186,8 @@ pso/object/TObjCityDoor_Shop_801827CC.cpp:
 pso/object/TObjCityDoor_Shop.cpp:
 	.text       start:0x801827F8 end:0x8018289C
 
-pso/slices/pso_carve_8018291c.cpp:
-	.text       start:0x8018291C end:0x80182954
-
-pso/slices/pso_carve_80182954.cpp:
-	.text       start:0x80182954 end:0x801829E8
-
-pso/slices/pso_carve_801829e8.cpp:
-	.text       start:0x801829E8 end:0x80182A20
-
-pso/slices/pso_carve_80182a20.cpp:
-	.text       start:0x80182A20 end:0x80182A58
-
-pso/slices/pso_carve_80182a58.cpp:
-	.text       start:0x80182A58 end:0x80182ABC
+pso/player/TObjPlayer_8018291C.cpp:
+	.text       start:0x8018291C end:0x80182ABC
 
 pso/player/TObjPlayer_80182C04.cpp:
 	.text       start:0x80182C04 end:0x80182C78

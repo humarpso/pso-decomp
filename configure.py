@@ -8454,6 +8454,8 @@ if args.target == "psov3":
                 NonMatching("pso/npc/TObjNpcEnemy_802D7748.cpp"),
                 NonMatching("pso/misc/TWindowHelpItem_8025A904.cpp"),
                 NonMatching("pso/misc/TChCrTagPlBack_802A552C.cpp"),
+                NonMatching("pso/player/TObjPlayer_8018291C.cpp"),
+                NonMatching("pso/enemy/TObjEneMe3ShinowaMirage_800E3AFC.cpp"),
             ],
         },
         # ------------------------------------------------------------------
