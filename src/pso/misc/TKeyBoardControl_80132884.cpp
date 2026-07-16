@@ -8,13 +8,13 @@ extern "C" {
 
 void reset_input__16TKeyBoardControlFi(s32 arg0);
 M2C_UNK TKeyBoardControl__sub_80132824(s32);
-M2C_UNK fn_803F0C50();
+M2C_UNK TKeyBoardControl__sub_803F0C50();
 M2C_UNK fn_803F1864(M2C_UNK *);
 
 extern M2C_UNK TKeyBoardControl__sub_801320CC[];
 
 void reset_input__16TKeyBoardControlFi(s32 arg0) {
-    fn_803F0C50();
+    TKeyBoardControl__sub_803F0C50();
     TKeyBoardControl__sub_80132824(arg0);
     fn_803F1864(TKeyBoardControl__sub_801320CC);
 }

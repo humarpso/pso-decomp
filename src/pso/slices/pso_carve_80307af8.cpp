@@ -16,14 +16,14 @@ M2C_UNK TLobby__sub_801E2F44(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK render_tick__Fv();
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_80307964();
-M2C_UNK fn_803D6688(f32, f32);
+M2C_UNK TCameraCtrl__sub_803D6688(f32, f32);
 extern s32 lbl_805D6A58;
 extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
 
 void start_ending_sequence(void) {
     lbl_805D6A58 = 1;
-    fn_803D6688(lbl_805DF0B0, lbl_805DF0B4);
+    TCameraCtrl__sub_803D6688(lbl_805DF0B0, lbl_805DF0B4);
     TLobby__sub_801E2F44(0, 0, 0);
     TKeyBoardControl__sub_801A66B8();
     TKeyBoardControl__sub_8000F91C(2);

@@ -12,7 +12,7 @@ M2C_UNK TWindowKeyBoardSoft__sub_8025D47C(void *, M2C_UNK *, s8 *);
 s32 TWindowKeyBoardSoft__sub_8025D544(void *, M2C_UNK *, s8 *);
 s32 fn_8025CE00(void *, u8 *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
-s32 fn_803E68D0(u8 *, M2C_UNK *, s8 *);
+s32 TWindowKeyBoardSoft__sub_803E68D0(u8 *, M2C_UNK *, s8 *);
 
 M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
 
@@ -48,7 +48,7 @@ void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0) {
         sp108[0] = 0;
     } else {
         M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & 0xFFFFFFEF);
-        M2C_FIELD(arg0, s32 *, 0xAC) = fn_803E68D0(M2C_FIELD(arg0, u8 **, 0x9C), (M2C_UNK *)sp8, sp108);
+        M2C_FIELD(arg0, s32 *, 0xAC) = TWindowKeyBoardSoft__sub_803E68D0(M2C_FIELD(arg0, u8 **, 0x9C), (M2C_UNK *)sp8, sp108);
         M2C_FIELD(arg0, s32 *, 0xA8) = 1;
         TWindowKeyBoardSoft__sub_8025CFA8(arg0, (M2C_UNK *)sp8);
     }
