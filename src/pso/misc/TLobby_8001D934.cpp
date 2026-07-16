@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TLobby__sub_8001D934(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 u8 *fn_803DE864(s32, M2C_UNK);
 
-u8 *TLobby__sub_8001D934(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r4;
     u8 *temp_r3;
     u8 *temp_r5;
