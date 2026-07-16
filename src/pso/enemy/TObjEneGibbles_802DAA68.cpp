@@ -12,14 +12,14 @@ struct VObj802DAAC8_802daac8 : VBase802DAAC8_802daac8 {
 
 extern "C" {
 
-void TObjEneGibbles__sub_802DAA68(u8 *arg0);
+void init_state__14TObjEneGibblesFPv(u8 *arg0);
 void TObjEneGibbles__sub_802DAAC8(u8 *arg0);
 M2C_UNK TBoss4DarkFalz__sub_8004C220(void *, void *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK obj_setFlags30(void *, int);
 
-void TObjEneGibbles__sub_802DAA68(u8 *arg0) {
+void init_state__14TObjEneGibblesFPv(u8 *arg0) {
     u8 *temp_r3;
 
     TBoss4DarkFalz__sub_8004C220((void *) arg0, (void *) (arg0 + 0x50));

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneGibbles__sub_802DA578(u8 *arg0);
+void update_spawn_state__14TObjEneGibblesFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
 f32 TObjPlayer__sub_80141CF8(int, void *);
 
 extern const f32 TObjEneGibbles__data_805DE7E4;
 extern const f32 lbl_805DE870;
 
-void TObjEneGibbles__sub_802DA578(u8 *arg0) {
+void update_spawn_state__14TObjEneGibblesFPv(u8 *arg0) {
     s16 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);

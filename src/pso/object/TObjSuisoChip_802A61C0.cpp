@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TObjSuisoChip__sub_802A6254(u8 *arg0, u8 *arg1);
+u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1);
 u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1);
 M2C_UNK TObjChip__sub_80180BD4(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -40,7 +40,7 @@ extern s32 lbl_805D3E08;
 extern s32 tl_05;
 extern const f32 lbl_805DDFF8;
 
-u8 *TObjSuisoChip__sub_802A6254(u8 *arg0, u8 *arg1) {
+u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
     TObjChip__sub_80180BD4((void *) (arg0), (void *) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjSuisoChip;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E08;

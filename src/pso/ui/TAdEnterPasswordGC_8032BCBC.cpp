@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdEnterPasswordGC__sub_8032BCBC(s32 arg0);
+s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(s32 arg0);
 M2C_UNK TAdEnterPasswordGC__sub_8032BC94(u32, s32);
 s32 fn_8032BE48(u32);
 
 extern u32 lbl_805D6CB8;
 
-s32 TAdEnterPasswordGC__sub_8032BCBC(s32 arg0) {
+s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(s32 arg0) {
     if ((u32) lbl_805D6CB8 != 0U) {
         if (fn_8032BE48(lbl_805D6CB8) != 0) {
             return 0;

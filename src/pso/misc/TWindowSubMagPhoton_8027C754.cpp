@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubMagPhoton__sub_8027C754(void *arg0);
+void update_photon_selection__19TWindowSubMagPhotonFPv(void *arg0);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 M2C_UNK spawn_effect__11TBoss4Type3Fsss(M2C_UNK, M2C_UNK, s16);
 s32 update_selected_item__17TWindowOptionCtrlFPv(s32);
 
-void TWindowSubMagPhoton__sub_8027C754(void *arg0) {
+void update_photon_selection__19TWindowSubMagPhotonFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r3;
 

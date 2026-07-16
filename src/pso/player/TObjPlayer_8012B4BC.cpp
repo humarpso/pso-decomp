@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012B4BC(u8 *arg0);
+void apply_proshield_charge_bonus__10TObjPlayerFPv(u8 *arg0);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TObjPlayer__sub_80115BFC(void *, s32);
 s32 obj_getPtr2B0_20(s32);
 
-void TObjPlayer__sub_8012B4BC(u8 *arg0) {
+void apply_proshield_charge_bonus__10TObjPlayerFPv(u8 *arg0) {
     s32 var_r4;
 
     if (TItemProShield__sub_8010B734() == 6) {

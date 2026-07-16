@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowShortListCtrl__sub_8026E81C(u8 *arg0);
+s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 s32 is_technique_ready__8TTecCtrlFv();
 
-s32 TWindowShortListCtrl__sub_8026E81C(u8 *arg0) {
+s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
     u32 temp_r3;
     u8 *temp_r31;
 

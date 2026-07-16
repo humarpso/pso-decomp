@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_synced_state__10TObjPlayerFPv(u8 *arg0);
-void * TObjPlayer__sub_800AA69C(void *arg0);
+void * create_dubchik__10TObjPlayerFPv(void *arg0);
 s32 TNpcPlayer__sub_800D87EC(u16);
 void *TObjControl__ct(void *, void *);
 void *TObjEneDubchik__ct(void *, void *, void *);
@@ -54,7 +54,7 @@ void update_synced_state__10TObjPlayerFPv(u8 *arg0) {
 
 extern void *tl_04;
 
-void * TObjPlayer__sub_800AA69C(void *arg0) {
+void * create_dubchik__10TObjPlayerFPv(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);

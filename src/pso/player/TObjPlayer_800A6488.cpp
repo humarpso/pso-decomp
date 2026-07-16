@@ -12,14 +12,14 @@ struct VObj800A64E8_800a64e8 : VBase800A64E8_800a64e8 {
 
 extern "C" {
 
-void TObjPlayer__sub_800A6488(u8 *arg0);
+void init_render_flags__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_800A64E8(u8 *arg0);
 M2C_UNK TBoss4DarkFalz__sub_8004C220(void *, void *);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK obj_setFlags30(void *, int);
 
-void TObjPlayer__sub_800A6488(u8 *arg0) {
+void init_render_flags__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
 
     TBoss4DarkFalz__sub_8004C220((void *) arg0, (void *) (arg0 + 0x50));

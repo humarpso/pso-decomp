@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_801FC234(u8 *arg0, s32 arg1);
+s32 register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TCheckRoomSequence__sub_802114D4(int, void *);
 s32 TCheckRoomSequence__sub_80211574(int);
 
-s32 TAdSinglePlyChrSelectGC__sub_801FC234(u8 *arg0, s32 arg1) {
+s32 register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1) {
     s32 var_r31;
     s32 var_r30;
 

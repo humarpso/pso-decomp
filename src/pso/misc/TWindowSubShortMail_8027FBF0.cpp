@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubShortMail__sub_8027FBF0(void *arg0);
+void update__19TWindowSubShortMailFPv(void *arg0);
 void *destroy__19TWindowSubShortMailFPvs(void *arg0, s16 arg1);
 s32 TWindowSubComCard__sub_80073DB8(s32);
 s32 TWindowSubComCard__sub_80265BF8(s32);
@@ -30,7 +30,7 @@ struct VObj_8027FBF0 : VObj_8027FBF0_Base_8027fbf0 {
     virtual void m9();
 };
 
-void TWindowSubShortMail__sub_8027FBF0(void *arg0) {
+void update__19TWindowSubShortMailFPv(void *arg0) {
     is_player_input_active(M2C_FIELD(arg0, s32 *, 0x1C));
     if (TWindowSubComCard__sub_80073DB8(M2C_FIELD(arg0, s32 *, 0x24)) != 0) {
         ((VObj_8027FBF0 *) M2C_FIELD(arg0, void **, 0x20))->m7();

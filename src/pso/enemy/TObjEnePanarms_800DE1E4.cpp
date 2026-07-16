@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEnePanarms__sub_800DE1E4(u8 *arg0);
+void init_state__14TObjEnePanarmsFPv(u8 *arg0);
 M2C_UNK TObjEnePanarms__sub_800DECC4(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK obj_setFlags30(void *, int, f32);
 
 extern const f32 lbl_805DA4E0;
 
-void TObjEnePanarms__sub_800DE1E4(u8 *arg0) {
+void init_state__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r4;
     u8 *temp_r4_2;
 
