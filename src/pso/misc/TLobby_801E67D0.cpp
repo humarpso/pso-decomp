@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801E67D0(void);
+void append_card_window_text__6TLobbyFv(void);
 M2C_UNK append_string(void *);
 u32 get_card_window__17TWindowSubComCardFUi(int);
 
 extern M2C_UNK lbl_80449C6C[];
 
-void TLobby__sub_801E67D0(void) {
+void append_card_window_text__6TLobbyFv(void) {
     u32 temp_r3;
 
     temp_r3 = get_card_window__17TWindowSubComCardFUi((int) (0xFFFF));

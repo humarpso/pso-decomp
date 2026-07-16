@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOHangerMachine01__sub_80168F5C(void);
+void free_static_model__17TOHangerMachine01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOHangerMachine01__data_805D59E8;
 
-void TOHangerMachine01__sub_80168F5C(void) {
+void free_static_model__17TOHangerMachine01Fv(void) {
     if ((u32) TOHangerMachine01__data_805D59E8 != 0U) {
         TLobby__sub_8001FE7C((void*)TOHangerMachine01__data_805D59E8, 1);
         TOHangerMachine01__data_805D59E8 = 0U;

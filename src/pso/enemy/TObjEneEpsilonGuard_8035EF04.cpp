@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneEpsilonGuard__sub_8035EF04(u8 *arg0);
+void update_center_position__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *, f32);
 
 extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 
-void TObjEneEpsilonGuard__sub_8035EF04(u8 *arg0) {
+void update_center_position__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (TObjEneEpsilonGuard__data_805E01DC + M2C_FIELD(arg0, f32 *, 0x3C));
     M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);

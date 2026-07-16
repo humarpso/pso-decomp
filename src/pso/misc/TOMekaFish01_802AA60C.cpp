@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOMekaFish01__sub_802AA60C(void);
+void free_static_data__12TOMekaFish01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOMekaFish01__data_805D66DC;
 
-void TOMekaFish01__sub_802AA60C(void) {
+void free_static_data__12TOMekaFish01Fv(void) {
     if ((u32) TOMekaFish01__data_805D66DC != 0U) {
         TLobby__sub_8001FE7C((void*)TOMekaFish01__data_805D66DC, 1);
         TOMekaFish01__data_805D66DC = 0U;

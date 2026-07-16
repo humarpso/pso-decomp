@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMorfos__sub_803347BC(u8 *arg0);
+void set_hover_target_position__13TObjEneMorfosFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *, f32);
 
 extern const f32 TObjEneMorfos__data_805DF89C;
 
-void TObjEneMorfos__sub_803347BC(u8 *arg0) {
+void set_hover_target_position__13TObjEneMorfosFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (TObjEneMorfos__data_805DF89C + M2C_FIELD(arg0, f32 *, 0x3C));
     M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);

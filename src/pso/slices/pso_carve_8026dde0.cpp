@@ -8,9 +8,8 @@ extern "C" {
 
 s32 init_list_entry__20TWindowSubStatusDispFPvUcii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0);
-void fn_8026DE28(void* p, s32 v);
+void TWindowSetLevelUp__sub_8026DE28(void* p, s32 v);
 
-int fn_8026DDE0(void) { return 0; }
-void fn_8026DE28(void* p, s32 v) { *(s32*)((char*)p + 0x88) = v; }
+int TWindowSetLevelUp__sub_8026DDE0(void) { return 0; }
 
 }

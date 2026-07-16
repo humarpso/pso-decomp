@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLight__sub_80133E48(void);
+void free_shared_data__9TObjLightFv(void);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 
 extern u32 TObjLight__data_805D5574;
 
-void TObjLight__sub_80133E48(void) {
+void free_shared_data__9TObjLightFv(void) {
     if ((u32) TObjLight__data_805D5574 != 0U) {
         safe_free__23TAdSinglePlyChrSelectGCFUi((void*)TObjLight__data_805D5574);
         TObjLight__data_805D5574 = 0U;

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012B318(u8 *arg0);
+void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 u8 TItemProShield__sub_8010B734();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 s32 TObjPlayer__sub_80121200();
 
-void TObjPlayer__sub_8012B318(u8 *arg0) {
+void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3_2;
     u8 temp_r3;
 

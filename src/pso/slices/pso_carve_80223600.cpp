@@ -24,7 +24,7 @@ void free_member_0x28_variant__13TShopSequenceFPv(void* p);
 void free_member__13TShopSequenceFPv(void* p);
 int send_message__22TQuestVmDownLoadServerFPvii(void*);
 int format_and_send_message__22TQuestVmDownLoadServerFPvii(void*);
-int fn_80222910(void*);
+int TQuestVmDownLoadServer__sub_80222910(void*);
 int TMedicalCenterMes__sub_8022297C(void*);
 
 int TShopSequence__sub_80223600(void) { return 0; }

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjLobbyMain__sub_803527B8(void);
+void release_static_instance__13TObjLobbyMainFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjLobbyMain__data_805D6EC8;
 
-void TObjLobbyMain__sub_803527B8(void) {
+void release_static_instance__13TObjLobbyMainFv(void) {
     if ((u32) TObjLobbyMain__data_805D6EC8 != 0U) {
         TLobby__sub_8001FE7C((void*)TObjLobbyMain__data_805D6EC8, 1);
         TObjLobbyMain__data_805D6EC8 = 0U;

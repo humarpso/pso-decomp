@@ -8,7 +8,7 @@ extern "C" {
 
 void update_target__13TRaderMapCoreFPv(void *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 fn_801FBA48(u16);
+s32 TWindowKeyBoardHard__sub_801FBA48(u16);
 
 int obj_getField1c(void*);
 extern s32 lbl_805D53A0;
@@ -22,7 +22,7 @@ void update_target__13TRaderMapCoreFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x184) = temp_r3;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x184) != 0U) {
-        if (fn_801FBA48(obj_getField1c((void*)M2C_FIELD(arg0, u32 *, 0x184))) != 0) {
+        if (TWindowKeyBoardHard__sub_801FBA48(obj_getField1c((void*)M2C_FIELD(arg0, u32 *, 0x184))) != 0) {
             M2C_FIELD(arg0, s32 *, 0x168) = (s32) (M2C_FIELD(arg0, s32 *, 0x168) | lbl_805DC56C);
             return;
         }

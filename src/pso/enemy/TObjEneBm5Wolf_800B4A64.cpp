@@ -8,7 +8,7 @@ extern "C" {
 
 void update_state__14TObjEneBm5WolfFPv(void *arg0);
 M2C_UNK TObjEneBm5Wolf__sub_800B7EA0(void *);
-M2C_UNK TObjEneBm5Wolf__sub_800B7F60(void *);
+M2C_UNK update_collision_center__14TObjEneBm5WolfFPv(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B8570(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B85A0(void *);
 s32 TObjEneDD__sub_800BB858();
@@ -26,7 +26,7 @@ void update_state__14TObjEneBm5WolfFPv(void *arg0) {
                 TObjEneBm5Wolf__sub_800B85A0(arg0);
             }
         }
-        TObjEneBm5Wolf__sub_800B7F60(arg0);
+        update_collision_center__14TObjEneBm5WolfFPv(arg0);
     }
 }
 

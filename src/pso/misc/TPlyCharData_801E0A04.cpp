@@ -10,7 +10,7 @@ void bswap__12TPlyCharDataFv(s32 arg0);
 M2C_UNK bswap__12player_statsFv(s32);
 M2C_UNK bswap__15disp_data_part2Fv(s32);
 M2C_UNK bswap__17TPlyInventoryItemFv(s32);
-M2C_UNK fn_801E0A68(s32);
+M2C_UNK TPlyDispConfig__sub_801E0A68(s32);
 
 void bswap__12TPlyCharDataFv(s32 arg0) {
     s32 off;
@@ -21,7 +21,7 @@ void bswap__12TPlyCharDataFv(s32 arg0) {
     }
     bswap__15disp_data_part2Fv(arg0 + 0x370);
     bswap__12player_statsFv(arg0 + 0x34C);
-    fn_801E0A68(arg0 + 0x3C0);
+    TPlyDispConfig__sub_801E0A68(arg0 + 0x3C0);
 }
 
 }

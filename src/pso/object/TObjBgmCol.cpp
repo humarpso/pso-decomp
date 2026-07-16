@@ -8,13 +8,13 @@ extern "C" {
 
 s32 check__10TObjBgmColFPv(void *arg0);
 
-s32 fn_8017E664(f32);
+s32 TObjBgmCol__sub_8017E664(f32);
 
 s32 check__10TObjBgmColFPv(void *arg0) {
     f32 temp_f0;
 
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x98);
-    if (fn_8017E664(temp_f0 * temp_f0) != 0) {
+    if (TObjBgmCol__sub_8017E664(temp_f0 * temp_f0) != 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 0) {
             M2C_FIELD(arg0, s32 *, 0x90) = 0;
             return 1;

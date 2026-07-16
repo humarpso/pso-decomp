@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOSignCave02__sub_80176AD4(void);
+void free_static_model__12TOSignCave02Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOSignCave02__data_805D5AB0;
 
-void TOSignCave02__sub_80176AD4(void) {
+void free_static_model__12TOSignCave02Fv(void) {
     if ((u32) TOSignCave02__data_805D5AB0 != 0U) {
         TLobby__sub_8001FE7C((void*)TOSignCave02__data_805D5AB0, 1);
         TOSignCave02__data_805D5AB0 = 0U;

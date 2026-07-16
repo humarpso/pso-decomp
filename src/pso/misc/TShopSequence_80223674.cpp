@@ -24,12 +24,12 @@ void free_member_0x28_variant__13TShopSequenceFPv(void* p);
 void free_member__13TShopSequenceFPv(void* p);
 int send_message__22TQuestVmDownLoadServerFPvii(void*);
 int format_and_send_message__22TQuestVmDownLoadServerFPvii(void*);
-int fn_80222910(void*);
+int TQuestVmDownLoadServer__sub_80222910(void*);
 int TMedicalCenterMes__sub_8022297C(void*);
 
 void free_member_0x28__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_and_send_message__22TQuestVmDownLoadServerFPvii(m); }
 void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) send_message__22TQuestVmDownLoadServerFPvii(m); }
-void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) fn_80222910(m); }
+void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) TQuestVmDownLoadServer__sub_80222910(m); }
 void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) TMedicalCenterMes__sub_8022297C(m); }
 void close_if_single_screen__13TShopSequenceFv(void) {
     if ((TAdSinglePlyChrSelectGC__sub_801D5DAC() != 0) && (is_split_screen() == 0)) {

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOCakeshopCave01__sub_8015A0D0(void);
+void close_dialog_window__16TOCakeshopCave01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOCakeshopCave01__data_805D58B0;
 
-void TOCakeshopCave01__sub_8015A0D0(void) {
+void close_dialog_window__16TOCakeshopCave01Fv(void) {
     if ((u32) TOCakeshopCave01__data_805D58B0 != 0U) {
         TLobby__sub_8001FE7C((void*)TOCakeshopCave01__data_805D58B0, 1);
         TOCakeshopCave01__data_805D58B0 = 0U;

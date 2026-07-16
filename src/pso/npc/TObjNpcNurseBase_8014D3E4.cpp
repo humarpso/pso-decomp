@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjNpcNurseBase__sub_8014D3E4(void);
+void free_shared_data__16TObjNpcNurseBaseFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjNpcNurseBase__data_805D5840;
 
-void TObjNpcNurseBase__sub_8014D3E4(void) {
+void free_shared_data__16TObjNpcNurseBaseFv(void) {
     if ((u32) TObjNpcNurseBase__data_805D5840 != 0U) {
         TLobby__sub_8001FE7C((void*)TObjNpcNurseBase__data_805D5840, 1);
         TObjNpcNurseBase__data_805D5840 = 0U;

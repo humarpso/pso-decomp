@@ -9,7 +9,7 @@ extern "C" {
 void cleanup_pillar_demo__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80066EC0();
 M2C_UNK fn_802898E8();
-M2C_UNK fn_8028AB38();
+M2C_UNK TObjBoss5PillarDemo__sub_8028AB38();
 M2C_UNK TObjBoss5PillarDemo__sub_8028ACE0();
 M2C_UNK update_pillar__19TObjBoss5PillarCtrlFPv();
 void queue_destruction__7TObjectFv(void*);
@@ -24,7 +24,7 @@ void cleanup_pillar_demo__6TLobbyFv(void) {
     TObjBoss5PillarDemo__sub_8028ACE0();
     update_pillar__19TObjBoss5PillarCtrlFPv();
     fn_802898E8();
-    fn_8028AB38();
+    TObjBoss5PillarDemo__sub_8028AB38();
     TLobby__sub_80066EC0();
 }
 

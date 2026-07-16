@@ -21,9 +21,9 @@ M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-int fn_80181E10(void*);
+int TObjEneDD__sub_80181E10(void*);
 
-void run_action_14_if_ready__6TLobbyFPv(void* p) { if (fn_80181E10(p) != 0) { process_lobby_action_14__6TLobbyFPv((u8 *)(p)); } }
+void run_action_14_if_ready__6TLobbyFPv(void* p) { if (TObjEneDD__sub_80181E10(p) != 0) { process_lobby_action_14__6TLobbyFPv((u8 *)(p)); } }
 
 extern s32 lbl_805D5B2C;
 extern const f32 lbl_805DBBE0;

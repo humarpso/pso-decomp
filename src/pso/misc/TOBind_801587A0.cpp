@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOBind__sub_801587A0(void);
+void free_static_model__6TOBindFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOBind__data_805D58A0;
 
-void TOBind__sub_801587A0(void) {
+void free_static_model__6TOBindFv(void) {
     if ((u32) TOBind__data_805D58A0 != 0U) {
         TLobby__sub_8001FE7C((void*)TOBind__data_805D58A0, 1);
         TOBind__data_805D58A0 = 0U;

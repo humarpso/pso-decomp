@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOHealGeneral__sub_801696D8(void);
+void close_dialog_window__13TOHealGeneralFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOHealGeneral__data_805D59F0;
 
-void TOHealGeneral__sub_801696D8(void) {
+void close_dialog_window__13TOHealGeneralFv(void) {
     if ((u32) TOHealGeneral__data_805D59F0 != 0U) {
         TLobby__sub_8001FE7C((void*)TOHealGeneral__data_805D59F0, 1);
         TOHealGeneral__data_805D59F0 = 0U;

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOBiwaMushi__sub_802AA31C(void);
+void free_shared_data__11TOBiwaMushiFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOBiwaMushi__data_805D66E0;
 
-void TOBiwaMushi__sub_802AA31C(void) {
+void free_shared_data__11TOBiwaMushiFv(void) {
     if ((u32) TOBiwaMushi__data_805D66E0 != 0U) {
         TLobby__sub_8001FE7C((void*)TOBiwaMushi__data_805D66E0, 1);
         TOBiwaMushi__data_805D66E0 = 0U;

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOCapsuleLabo__sub_802AF2C8(void);
+void unload_static_data__13TOCapsuleLaboFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOCapsuleLabo__data_805D6708;
 
-void TOCapsuleLabo__sub_802AF2C8(void) {
+void unload_static_data__13TOCapsuleLaboFv(void) {
     if ((u32) TOCapsuleLabo__data_805D6708 != 0U) {
         TLobby__sub_8001FE7C((void*)TOCapsuleLabo__data_805D6708, 1);
         TOCapsuleLabo__data_805D6708 = 0U;

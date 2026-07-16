@@ -12,7 +12,7 @@ int TObjBoss1Crater__sub_8002C7B4(void);
 int TObjBoss1Crater__sub_8002C7B8(void);
 int TObjBoss1Floor__sub_8002CB40(void);
 int create_instance__14TObjBoss1FloorFv(void*);
-int fn_8002CB78(void);
+int TObjBoss1Floor__sub_8002CB78(void);
 int free_resources__12TBoss8DragonFv(void);
 int TBoss8Dragon__sub_8002D5F8(void);
 int TObjBoss1Rock__sub_8002E3CC(void);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOMonumentAncient02__sub_80172D18(void);
+void free_shared_data__19TOMonumentAncient02Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TOMonumentAncient02__data_805D5A68;
 
-void TOMonumentAncient02__sub_80172D18(void) {
+void free_shared_data__19TOMonumentAncient02Fv(void) {
     if ((u32) TOMonumentAncient02__data_805D5A68 != 0U) {
         TLobby__sub_8001FE7C((void*)TOMonumentAncient02__data_805D5A68, 1);
         TOMonumentAncient02__data_805D5A68 = 0U;

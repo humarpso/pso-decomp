@@ -7,7 +7,7 @@ extern "C" {
 void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3);
 void reset_sub_status_disp__10TObjPlayerFPv(void *);
 void __ct__7TObjectFP7TObject(void *);
-void fn_8026DDE0(void *, void *);
+void TWindowSetLevelUp__sub_8026DDE0(void *, void *);
 
 extern M2C_UNK __vt__17TWindowSetLevelUp[];
 extern void *lbl_805D39C8;
@@ -19,7 +19,7 @@ void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TWindowSetLevelUp;
     reset_sub_status_disp__10TObjPlayerFPv(self->f_24);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D39C8;
-    fn_8026DDE0(self->f_24, arg2);
+    TWindowSetLevelUp__sub_8026DDE0(self->f_24, arg2);
     M2C_FIELD(arg0, u16 *, 0x1E) = 0;
     M2C_FIELD(arg0, void **, 0x20) = arg3;
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;

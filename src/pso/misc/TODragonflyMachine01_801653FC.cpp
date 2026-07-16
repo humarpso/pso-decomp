@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TODragonflyMachine01__sub_801653FC(void);
+void unload_static_data__20TODragonflyMachine01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TODragonflyMachine01__data_805D5998;
 
-void TODragonflyMachine01__sub_801653FC(void) {
+void unload_static_data__20TODragonflyMachine01Fv(void) {
     if ((u32) TODragonflyMachine01__data_805D5998 != 0U) {
         TLobby__sub_8001FE7C((void*)TODragonflyMachine01__data_805D5998, 1);
         TODragonflyMachine01__data_805D5998 = 0U;

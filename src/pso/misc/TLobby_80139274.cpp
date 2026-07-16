@@ -10,7 +10,7 @@ void handle_com_card__6TLobbyFv(void);
 M2C_UNK close_menu_windows__6TLobbyFv();
 M2C_UNK return_to_main_menu__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
-M2C_UNK TLobby__sub_80139860();
+M2C_UNK close_com_card_window__6TLobbyFv();
 s32 TWindowSubComCard__sub_8007341C(void*);
 s32 TWindowSubComCard__sub_80073DB8(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
@@ -22,7 +22,7 @@ void handle_com_card__6TLobbyFv(void) {
 
     if ((u32) lbl_805D55E4 != 0U) {
         if (TWindowSubComCard__sub_8007341C((void*)lbl_805D55E4) != 0) {
-            TLobby__sub_80139860();
+            close_com_card_window__6TLobbyFv();
             temp_r3 = TWindowSubComCard__sub_80265BF8(lbl_805D55E4);
             switch (temp_r3) {
             case 0:

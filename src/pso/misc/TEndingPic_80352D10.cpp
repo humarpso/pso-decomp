@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TEndingPic__sub_80352D10(u8 *arg0);
+void draw_current_pic__10TEndingPicFPv(u8 *arg0);
 M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
 M2C_UNK TWindowSubStatusDisp__sub_803DEEAC();
@@ -15,7 +15,7 @@ M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 extern s32 TEndingPic__data_805D6EE0;
 extern const f32 lbl_805DFEF0;
 
-void TEndingPic__sub_80352D10(u8 *arg0) {
+void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
     TWindowSubStatusDisp__sub_803DEE6C((int) (1));
     switch ((s32) TEndingPic__data_805D6EE0) {
     case 1:

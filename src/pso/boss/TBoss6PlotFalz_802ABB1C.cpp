@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802ABB1C(void);
-void TBoss6PlotFalz__sub_802ABB50(void);
+void destroy_static_instance__14TBoss6PlotFalzFv(void);
+void queue_instance_destruction__14TBoss6PlotFalzFv(void);
 void queue_destruction__7TObjectFv(void*);
 
 extern u32 TBoss6PlotFalz__data_805D66F4;
 
-void TBoss6PlotFalz__sub_802ABB1C(void) {
+void destroy_static_instance__14TBoss6PlotFalzFv(void) {
     if ((u32) TBoss6PlotFalz__data_805D66F4 != 0U) {
         queue_destruction__7TObjectFv((void*)TBoss6PlotFalz__data_805D66F4);
         TBoss6PlotFalz__data_805D66F4 = 0U;
@@ -21,7 +21,7 @@ void TBoss6PlotFalz__sub_802ABB1C(void) {
 
 extern u32 TBoss6PlotFalz__data_805D66F0;
 
-void TBoss6PlotFalz__sub_802ABB50(void) {
+void queue_instance_destruction__14TBoss6PlotFalzFv(void) {
     if ((u32) TBoss6PlotFalz__data_805D66F0 != 0U) {
         queue_destruction__7TObjectFv((void*)TBoss6PlotFalz__data_805D66F0);
         TBoss6PlotFalz__data_805D66F0 = 0U;

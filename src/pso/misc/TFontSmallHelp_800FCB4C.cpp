@@ -9,7 +9,7 @@ extern "C" {
 void update_help_text__14TFontSmallHelpFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 u32 TWindowSubStatusDisp__sub_800FC968(s32);
-M2C_UNK fn_800FC424(void *, s32);
+M2C_UNK TFontSmallHelp__sub_800FC424(void *, s32);
 s32 fn_800FCCF4(s32);
 s32 get_card_status_bits__20TWindowShortListCtrlFv(s32);
 s32 get_status_index_or_default__20TWindowSubStatusDispFPv(void *, s32);
@@ -38,9 +38,9 @@ void update_help_text__14TFontSmallHelpFPv(void *arg0) {
         if (temp_r3_3 != 0U) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 3) {
                 temp_r4 = M2C_FIELD(arg0, s32 *, 0x5C);
-                fn_800FC424(arg0, get_status_index_or_default__20TWindowSubStatusDispFPv(lbl_80509D5C + (temp_r4 * 0x11C) + 4, temp_r4));
+                TFontSmallHelp__sub_800FC424(arg0, get_status_index_or_default__20TWindowSubStatusDispFPv(lbl_80509D5C + (temp_r4 * 0x11C) + 4, temp_r4));
             } else {
-                fn_800FC424(arg0, fn_800FCCF4(temp_r3));
+                TFontSmallHelp__sub_800FC424(arg0, fn_800FCCF4(temp_r3));
             }
         }
     }

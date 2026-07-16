@@ -8,7 +8,7 @@ extern "C" {
 
 void update_state__16TObjEneBm5GibonUFPv(void *arg0);
 M2C_UNK TObjEneBm5GibonU__sub_800D10A0(void *);
-M2C_UNK TObjEneBm5GibonU__sub_800D11AC(void *);
+M2C_UNK update_center_position__16TObjEneBm5GibonUFPv(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D184C(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D187C(void *);
 s32 TObjEneDD__sub_800BB858();
@@ -26,7 +26,7 @@ void update_state__16TObjEneBm5GibonUFPv(void *arg0) {
                 TObjEneBm5GibonU__sub_800D187C(arg0);
             }
         }
-        TObjEneBm5GibonU__sub_800D11AC(arg0);
+        update_center_position__16TObjEneBm5GibonUFPv(arg0);
     }
 }
 

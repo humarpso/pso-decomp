@@ -9,7 +9,7 @@ extern "C" {
 void TMedicalCenterMes__sub_8022297C(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_80222CFC(s32);
 M2C_UNK TWindowMessagePage__sub_8026AE20(u32, void *, s32);
-M2C_UNK fn_80222774(void *, s32, void *);
+M2C_UNK TQuestVmDownLoadServer__sub_80222774(void *, s32, void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 
 void TMedicalCenterMes__sub_8022297C(u8 *arg0, s32 arg1, s32 arg2) {
@@ -18,7 +18,7 @@ void TMedicalCenterMes__sub_8022297C(u8 *arg0, s32 arg1, s32 arg2) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
         temp_r31 = TLobby__sub_80222CFC(arg1);
         memset(arg0 + 4, 0, 0x200);
-        fn_80222774(arg0, temp_r31, arg0 + 4);
+        TQuestVmDownLoadServer__sub_80222774(arg0, temp_r31, arg0 + 4);
         TWindowMessagePage__sub_8026AE20(M2C_FIELD(arg0, u32 *, 0x20C), arg0 + 4, arg2 | 0x80);
     }
 }

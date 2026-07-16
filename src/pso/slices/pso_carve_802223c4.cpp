@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK *get_status_window__20TWindowSubStatusDispFi(u16);
-M2C_UNK fn_80222704(s32, M2C_UNK *);
+M2C_UNK TQuestVmDownLoadServer__sub_80222704(s32, M2C_UNK *);
 extern M2C_UNK lbl_8044C290[];
 extern s32 lbl_805D53A0;
 
@@ -16,10 +16,10 @@ void show_message_or_error(s32 arg0) {
 
     temp_r3 = get_status_window__20TWindowSubStatusDispFi((u16) lbl_805D53A0);
     if (temp_r3 != NULL) {
-        fn_80222704(arg0, temp_r3);
+        TQuestVmDownLoadServer__sub_80222704(arg0, temp_r3);
         return;
     }
-    fn_80222704(arg0, lbl_8044C290);
+    TQuestVmDownLoadServer__sub_80222704(arg0, lbl_8044C290);
 }
 
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDelDepth__sub_803150B8(u8 *arg0);
+void try_relocate_on_timer__15TObjEneDelDepthFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 u16 TObjPlayer__sub_800115C4(void *, int, f32);
@@ -14,7 +14,7 @@ M2C_UNK set_default_depth_offset__15TObjEneDelDepthFPv(void *);
 
 extern const f32 TObjEneDelDepth__data_805DF26C;
 
-void TObjEneDelDepth__sub_803150B8(u8 *arg0) {
+void try_relocate_on_timer__15TObjEneDelDepthFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

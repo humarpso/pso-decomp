@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDelDepth__sub_80313AF8(u8 *arg0);
-void TObjEneDelDepth__sub_80313BC0(u8 *arg0);
+void update_ai_state__15TObjEneDelDepthFPv(u8 *arg0);
+void start_attack_motion__15TObjEneDelDepthFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
@@ -19,7 +19,7 @@ M2C_UNK set_draw_mode__15TObjEneDelDepthFPvi(void *, int);
 extern const f32 TObjEneDelDepth__data_805DF270;
 extern const f32 TObjEneDelDepth__data_805DF280;
 
-void TObjEneDelDepth__sub_80313AF8(u8 *arg0) {
+void update_ai_state__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_UNK sp8;
     s32 temp_r0;
     u16 temp_r3;
@@ -45,7 +45,7 @@ void TObjEneDelDepth__sub_80313AF8(u8 *arg0) {
 
 extern const f32 TObjEneDelDepth__data_805DF260;
 
-void TObjEneDelDepth__sub_80313BC0(u8 *arg0) {
+void start_attack_motion__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFBFFFF);
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) TObjEneDelDepth__data_805DF260;
     M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) TObjEneDelDepth__data_805DF260;

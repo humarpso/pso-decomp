@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TPlayerBattleCtrl4P__sub_803105AC(void);
+void reset_ctrl_to_default__19TPlayerBattleCtrl4PFv(void);
 M2C_UNK init_ctrl_default__19TPlayerBattleCtrl4PFPv(void *);
 
 extern void *TPlayerBattleCtrl4P__data_805D6AA8;
 
-void TPlayerBattleCtrl4P__sub_803105AC(void) {
+void reset_ctrl_to_default__19TPlayerBattleCtrl4PFv(void) {
     void *temp_r3;
     temp_r3 = TPlayerBattleCtrl4P__data_805D6AA8;
     if (temp_r3 != NULL) {

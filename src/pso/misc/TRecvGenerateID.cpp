@@ -9,12 +9,12 @@ extern "C" {
 void bswap__15TRecvGenerateIDFv(s32 arg0);
 M2C_UNK bswap_32__FPUl(s32);
 M2C_UNK bswap__13packet_headerFv();
-M2C_UNK fn_801DFBC4(s32);
+M2C_UNK TRecvGenerateID__sub_801DFBC4(s32);
 
 void bswap__15TRecvGenerateIDFv(s32 arg0) {
     bswap__13packet_headerFv();
     bswap_32__FPUl(arg0 + 4);
-    fn_801DFBC4(arg0 + 8);
+    TRecvGenerateID__sub_801DFBC4(arg0 + 8);
 }
 
 }

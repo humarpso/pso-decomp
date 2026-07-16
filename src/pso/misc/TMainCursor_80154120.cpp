@@ -10,14 +10,14 @@ s32 TObjPlayer__sub_8001BED8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TAdRicoRing__sub_8001BEE8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TMainCursor__sub_80154288(void);
 s32 TObjPlayer__sub_8001BEF8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-int fn_801540D8(void* a0 = 0, void* a1 = 0);
-int fn_801540FC(void* a0 = 0, void* a1 = 0);
+int TMainCursor__sub_801540D8(void* a0 = 0, void* a1 = 0);
+int TMainCursor__sub_801540FC(void* a0 = 0, void* a1 = 0);
 void TMainCursor__sub_80154120(void* p);
 void TMainCursor__sub_8015414C(void* p);
-void fn_80154090(void);
-void fn_80154094(void);
+void TMainCursor__sub_80154090(void);
+void TMainCursor__sub_80154094(void);
 
-void TMainCursor__sub_80154120(void* p) { fn_801540D8(*(void**)((char*)p + 0xa4), *(void**)((char*)p + 0xa8)); }
-void TMainCursor__sub_8015414C(void* p) { fn_801540FC(*(void**)((char*)p + 0xa4), *(void**)((char*)p + 0xa8)); }
+void TMainCursor__sub_80154120(void* p) { TMainCursor__sub_801540D8(*(void**)((char*)p + 0xa4), *(void**)((char*)p + 0xa8)); }
+void TMainCursor__sub_8015414C(void* p) { TMainCursor__sub_801540FC(*(void**)((char*)p + 0xa4), *(void**)((char*)p + 0xa8)); }
 
 }

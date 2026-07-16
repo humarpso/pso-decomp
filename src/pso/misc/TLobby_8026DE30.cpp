@@ -8,7 +8,7 @@ extern "C" {
 
 s32 init_list_entry__20TWindowSubStatusDispFPvUcii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0);
-void fn_8026DE28(void* p, s32 v);
+void TWindowSetLevelUp__sub_8026DE28(void* p, s32 v);
 
 void add_list_entry__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x72) < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {

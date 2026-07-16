@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneBm5Wolf__sub_800B7F60(u8 *arg0);
+void update_collision_center__14TObjEneBm5WolfFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *, f32, f32);
 
 extern const f32 TObjEneBm5Wolf__data_805D9DB4;
 
-void TObjEneBm5Wolf__sub_800B7F60(u8 *arg0) {
+void update_collision_center__14TObjEneBm5WolfFPv(u8 *arg0) {
     f32 temp_f2;
 
     M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);

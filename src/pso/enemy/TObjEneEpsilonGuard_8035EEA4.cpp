@@ -9,7 +9,7 @@ extern "C" {
 void TObjEneEpsilonGuard__vt87(void *arg0);
 
 M2C_UNK TObjEneDD__vt86();
-M2C_UNK TObjEneEpsilonGuard__sub_8035EF04(void *);
+M2C_UNK update_center_position__19TObjEneEpsilonGuardFPv(void *);
 
 void TObjEneEpsilonGuard__vt87(void *arg0) {
     TObjEneDD__vt86();
@@ -18,7 +18,7 @@ void TObjEneEpsilonGuard__vt87(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) & 0xFFFFFF7F);
     }
-    TObjEneEpsilonGuard__sub_8035EF04(arg0);
+    update_center_position__19TObjEneEpsilonGuardFPv(arg0);
 }
 
 }

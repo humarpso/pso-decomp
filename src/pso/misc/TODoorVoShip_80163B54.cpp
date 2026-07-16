@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TODoorVoShip__sub_80163B54(void);
+void free_static_data__12TODoorVoShipFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TODoorVoShip__data_805D5980;
 
-void TODoorVoShip__sub_80163B54(void) {
+void free_static_data__12TODoorVoShipFv(void) {
     if ((u32) TODoorVoShip__data_805D5980 != 0U) {
         TLobby__sub_8001FE7C((void*)TODoorVoShip__data_805D5980, 1);
         TODoorVoShip__data_805D5980 = 0U;

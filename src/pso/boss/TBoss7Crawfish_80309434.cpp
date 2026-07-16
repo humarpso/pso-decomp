@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss7Crawfish__sub_80309434(void);
+void destroy_instance__14TBoss7CrawfishFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TBoss7Crawfish__data_805D6A60;
 
-void TBoss7Crawfish__sub_80309434(void) {
+void destroy_instance__14TBoss7CrawfishFv(void) {
     if ((u32) TBoss7Crawfish__data_805D6A60 != 0U) {
         TLobby__sub_8001FE7C((void*)TBoss7Crawfish__data_805D6A60, 1);
         TBoss7Crawfish__data_805D6A60 = 0U;

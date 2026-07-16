@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOGrassJungle__sub_8029CCB4(void);
+void release_static_instance__13TOGrassJungleFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -14,7 +14,7 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 extern u32 TOGrassJungle__data_805D65D8;
 extern u32 TOGrassJungle__data_805D65DC;
 
-void TOGrassJungle__sub_8029CCB4(void) {
+void release_static_instance__13TOGrassJungleFv(void) {
     if ((u32) TOGrassJungle__data_805D65DC != 0U) {
         TLobby__sub_803DA16C((void*)TOGrassJungle__data_805D65DC);
         safe_free__23TAdSinglePlyChrSelectGCFUi(TOGrassJungle__data_805D65DC);
