@@ -6,17 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *, int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
-M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
-M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
+void draw__12TBoss8DragonFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *, int);
+
 extern u8 *TBoss8Dragon__data_805D6988;
 
-void TBoss8Dragon__sub_802F42A0(u8 *arg0) {
+void draw__12TBoss8DragonFPv(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r4;
 

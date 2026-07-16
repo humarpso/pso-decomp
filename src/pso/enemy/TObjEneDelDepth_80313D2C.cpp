@@ -6,14 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK create_ex__9TTecBartaFPvPvPvPv(void *, void *, int, int);
-M2C_UNK create_ex__9TTecMegidFiiii(void *, void *, int, int);
+void update_attack_cast__15TObjEneDelDepthFPv(u8 *arg0);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 s32 TObjEneDelDepth__sub_8031624C(void *);
+M2C_UNK create_ex__9TTecBartaFPvPvPvPv(void *, void *, int, int);
+M2C_UNK create_ex__9TTecMegidFiiii(void *, void *, int, int);
+
 extern s32 lbl_805D5550;
 extern u8 *TObjEneDelDepth__data_805D6AC0;
 
-void TObjEneDelDepth__sub_80313D2C(u8 *arg0) {
+void update_attack_cast__15TObjEneDelDepthFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 

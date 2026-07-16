@@ -6,8 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK destroy__20TWindowSubStatusDispFPvs(void *, s16);
+
 extern M2C_UNK lbl_804CFA10[];
 
 void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1) {

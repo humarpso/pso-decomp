@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TItemEffectWeapon__sub_80363780(u8 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK memcpy(void *, int, int);
 
 void TItemEffectWeapon__sub_80363780(u8 *arg0, u8 *arg1, u8 *arg2) {

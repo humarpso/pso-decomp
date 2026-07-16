@@ -6,9 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *__dt__16TObjCMAutoMkDataFv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK fn_802911E8(f32);
+
 extern M2C_UNK __vt__16TObjCMAutoMkData[];
 extern const f32 lbl_805DDA70;
 

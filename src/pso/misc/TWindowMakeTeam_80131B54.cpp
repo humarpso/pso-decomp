@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowMakeTeam__sub_80131B54(u8 *arg0, u8 *arg1);
+void set_sub_position__15TWindowMakeTeamFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK TWindowSubComCard__sub_802448C0(void *, int, int, f32);
 
 extern const f32 lbl_805DB078;
 extern const f32 lbl_805DB07C;
 
-void TWindowMakeTeam__sub_80131B54(u8 *arg0, u8 *arg1) {
+void set_sub_position__15TWindowMakeTeamFPvPv(u8 *arg0, u8 *arg1) {
     f32 temp_f1;
     u8 *temp_r4;
     u8 *temp_r5;

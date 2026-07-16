@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TOTrapAncient02__sub_8017B16C(u8 *arg0);
-void TOTrapAncient02__sub_8017B2C4(u8 *arg0);
+void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0);
+void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
 M2C_UNK TOTrapAncient02__sub_800837D4(int);
@@ -21,7 +21,7 @@ M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(int);
 
-void TOTrapAncient02__sub_8017B16C(u8 *arg0) {
+void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;
@@ -70,7 +70,7 @@ void TOTrapAncient02__sub_8017B16C(u8 *arg0) {
     TObjPlayer__sub_803D9B78();
 }
 
-void TOTrapAncient02__sub_8017B2C4(u8 *arg0) {
+void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r31_2;
     u8 *temp_r31_3;

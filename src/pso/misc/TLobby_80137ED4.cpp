@@ -14,7 +14,7 @@ M2C_UNK TWindow__close(u32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
 M2C_UNK fn_80131B18(s32, s32);
-M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
+M2C_UNK set_sub_position__15TWindowMakeTeamFPvPv(s32, s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(s32, M2C_UNK);
@@ -56,7 +56,7 @@ void open_keyboard_window__6TLobbyFv(void) {
         var_r0 = TKeyBoardControl__ct(var_r0, TLobby__data_805D5604, 0x10, 0, 0, lbl_805D53A0);
     }
     lbl_805D55F4 = var_r0;
-    TWindowMakeTeam__sub_80131B54(lbl_805D55F4, TWindowSubComCard__sub_8026CBB8(0xC4));
+    set_sub_position__15TWindowMakeTeamFPvPv(lbl_805D55F4, TWindowSubComCard__sub_8026CBB8(0xC4));
     fn_80131B18(lbl_805D55F4, TWindowSubComCard__sub_8026CBB8(0xC5));
     TLobby__data_805D5594 = 9;
 }

@@ -6,24 +6,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_800C6A18(void *);
-M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0);
 s32 TNpcPlayer__sub_800D87EC(int);
-f32 fn_8013157C(void *, void *);
-M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
-M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK TObjEneMe1GiGue__sub_802CAF24(void *);
 M2C_UNK TObjEneMe1GiGue__sub_802CB6D4(void *);
 M2C_UNK TObjEneMe1GiGue__sub_802CD054(void *);
 M2C_UNK TObjEneMe1GiGue__sub_802CD2EC(void *);
+M2C_UNK TObjPlayer__sub_800C6A18(void *);
+M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 check_demo_mode__10TObjPlayerFv();
+f32 fn_8013157C(void *, void *);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+
 extern const f32 TObjEneMe1GiGue__data_805DE6A4;
 extern const f32 TObjEneMe1GiGue__data_805DE6A8;
 extern const f32 lbl_805DE6B8;
 extern const f32 lbl_805DE6BC;
 
-void TObjEneMe1GiGue__sub_802CD390(u8 *arg0) {
+void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;

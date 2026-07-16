@@ -34,7 +34,7 @@ struct VObjB0_800b07d0 : VBaseB0_800b07d0 {
 
 extern "C" {
 
-void TObjEneBm3Fly__sub_800B07D0(u8 *arg0, s32 arg1);
+void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
@@ -65,7 +65,7 @@ extern const f32 lbl_805D9CB0;
 extern const f32 lbl_805D9CB4;
 extern const f32 lbl_805D9CB8;
 
-void TObjEneBm3Fly__sub_800B07D0(u8 *arg0, s32 arg1) {
+void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r0_2;
     u8 *temp_r3;

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TObjLight__sub_8022F3B0(u8 *arg0, s32 arg1, s32 arg2);
+u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 
 extern M2C_UNK lbl_804CC74C[];
 
-u8 *TObjLight__sub_8022F3B0(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CC74C;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;

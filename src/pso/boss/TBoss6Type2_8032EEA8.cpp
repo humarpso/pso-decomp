@@ -6,12 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 get_random_float__8TObjFishFv(f32);
+void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s32 arg3);
 f32 TBoss8Dragon__sub_803D64C0(void *);
 f32 TBoss8Dragon__sub_803D64DC(void *);
+f32 get_random_float__8TObjFishFv(f32);
+
 extern const f32 lbl_805DF7F4;
 
-void TBoss6Type2__sub_8032EEA8(s32 arg0, u8 *arg1, s32 arg2, s32 arg3) {
+void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s32 arg3) {
     f32 temp_f31;
     f32 temp_f30;
 

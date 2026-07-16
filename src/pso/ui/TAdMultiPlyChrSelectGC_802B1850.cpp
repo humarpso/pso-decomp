@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdMultiPlyChrSelectGC__sub_802B1850(s32 arg0, s32 arg1, u32 arg2);
+void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32 arg0, s32 arg1, u32 arg2);
 
-void TAdMultiPlyChrSelectGC__sub_802B1850(s32 arg0, s32 arg1, u32 arg2) {
+void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32 arg0, s32 arg1, u32 arg2) {
     u8 *temp_r3;
 
     temp_r3 = (unsigned char *) (arg0 + (arg1 * 4));

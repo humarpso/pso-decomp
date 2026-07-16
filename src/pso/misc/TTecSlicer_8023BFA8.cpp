@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TTecSlicer__sub_8023BFA8(u8 *arg0, s32 arg1, s32 arg2);
+u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 
 extern M2C_UNK lbl_804CCD0C[];
 
-u8 *TTecSlicer__sub_8023BFA8(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *init_from_owner__10TTecSlicerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CCD0C;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012F4D0(u8 *arg0);
+void update_cane_effect__10TObjPlayerFPv(u8 *arg0);
 s32 TObjPlayer__sub_8011F63C();
 M2C_UNK create_ex__9TTecBartaFPvPvPvPv(int, void *, int, int);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
@@ -16,7 +16,7 @@ M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 
 extern s32 tl_05;
 
-void TObjPlayer__sub_8012F4D0(u8 *arg0) {
+void update_cane_effect__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
     u8 *temp_r3;
 

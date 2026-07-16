@@ -24,8 +24,8 @@ extern "C" {
 void draw_model__15TOTrapAncient02FPv(void *arg0);
 void *create__15TOTrapAncient02FPv(void *arg0);
 void *TOTrapAncient02__ct(void *, void *, void *);
-M2C_UNK TOTrapAncient02__sub_8017B16C(void *);
-M2C_UNK TOTrapAncient02__sub_8017B2C4(void *);
+M2C_UNK render_particle_chain__15TOTrapAncient02FPv(void *);
+M2C_UNK draw_effect_chain__15TOTrapAncient02FPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_split_screen();
 s32 TMainTask__sub_8001A430();
@@ -42,9 +42,9 @@ void draw_model__15TOTrapAncient02FPv(void *arg0) {
         if (((s32) M2C_FIELD(arg0, s32 *, 0x340) == 1) && (((s32) M2C_FIELD(arg0, s32 *, 0x358) == 0) || (is_split_screen() != 0) || (TAdEnterPasswordGC__sub_8032BCBC(arg0) == 0))) {
             set_depth_buffer_settings_id__FUl(3);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x358) != 0) {
-                TOTrapAncient02__sub_8017B16C(arg0);
+                render_particle_chain__15TOTrapAncient02FPv(arg0);
             } else {
-                TOTrapAncient02__sub_8017B2C4(arg0);
+                draw_effect_chain__15TOTrapAncient02FPv(arg0);
             }
             func_80141618__Fv();
         }

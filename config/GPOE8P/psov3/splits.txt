@@ -19313,7 +19313,7 @@ pso/misc/TWindowHelpItem_8025A600.cpp:
 pso/misc/TWindowHelpItem_8025A900.cpp:
 	.text       start:0x8025A900 end:0x8025A904
 
-pso/slices/pso_carve_8025a904.cpp:
+pso/misc/TWindowHelpItem_8025A904.cpp:
 	.text       start:0x8025A904 end:0x8025A95C
 
 pso/misc/TWindowHelpItem_8025A9B4.cpp:
@@ -21056,7 +21056,7 @@ pso/misc/TLobby_80293610.cpp:
 pso/misc/TChCrCharSelect_802937D4.cpp:
 	.text       start:0x802937D4 end:0x802937E8
 
-pso/slices/pso_carve_80293860.cpp:
+pso/misc/TChCrCharSelect_80293860.cpp:
 	.text       start:0x80293860 end:0x802938E4
 
 pso/misc/TChCrCharSelect_802938E4.cpp:
@@ -21129,7 +21129,7 @@ pso/object/TObjCMAutoMkData.cpp:
 pso/object/TObjCMAutoMkData_80295900.cpp:
 	.text       start:0x80295900 end:0x80295948
 
-pso/slices/pso_carve_80295948.cpp:
+pso/object/TObjCMAutoMkData_80295948.cpp:
 	.text       start:0x80295948 end:0x802959AC
 
 pso/object/TObjCMAutoMkData_802959AC.cpp:
@@ -21980,7 +21980,7 @@ pso/slices/pso_carve_802a8728.cpp:
 pso/misc/TEffIndirectCtrl_802A88AC.cpp:
 	.text       start:0x802A88AC end:0x802A88B0
 
-pso/slices/pso_carve_802a8a94.cpp:
+pso/misc/TEffIndirectCtrl_802A8A94.cpp:
 	.text       start:0x802A8A94 end:0x802A8AD4
 
 pso/misc/TEffIndirectCtrl_802A8AD4.cpp:
@@ -22234,7 +22234,7 @@ pso/misc/TOCapsuleLabo_802AF27C.cpp:
 pso/misc/TOCapsuleLabo_802AF2C8.cpp:
 	.text       start:0x802AF2C8 end:0x802AF300
 
-pso/slices/pso_carve_802af370.cpp:
+pso/misc/TOCapsuleLabo_802AF370.cpp:
 	.text       start:0x802AF370 end:0x802AF47C
 
 pso/misc/TOCapsuleLabo.cpp:
@@ -23069,7 +23069,7 @@ pso/enemy/TObjEneMe1GiGue_802CC350.cpp:
 pso/enemy/TObjEneMe1GiGue_802CD054.cpp:
 	.text       start:0x802CD054 end:0x802CD058
 
-pso/slices/pso_carve_802cd390.cpp:
+pso/enemy/TObjEneMe1GiGue_802CD390.cpp:
 	.text       start:0x802CD390 end:0x802CD558
 
 pso/enemy/TObjEneMe1GiGue_802CD558.cpp:
@@ -23366,7 +23366,7 @@ pso/npc/TObjNpcEnemy_802D7484.cpp:
 pso/npc/TObjNpcEnemy_802D76B0.cpp:
 	.text       start:0x802D76B0 end:0x802D7748
 
-pso/slices/pso_carve_802d7748.cpp:
+pso/npc/TObjNpcEnemy_802D7748.cpp:
 	.text       start:0x802D7748 end:0x802D7848
 
 pso/npc/TObjNpcEnemy_802D7848.cpp:
@@ -24110,7 +24110,7 @@ pso/slices/run_802F3C84.cpp:
 pso/boss/TBoss8Dragon_802F3EE4.cpp:
 	.text       start:0x802F3EE4 end:0x802F3F20
 
-pso/slices/pso_carve_802f42a0.cpp:
+pso/boss/TBoss8Dragon_802F42A0.cpp:
 	.text       start:0x802F42A0 end:0x802F4324
 
 pso/boss/TBoss8Dragon_802F4324.cpp:
@@ -24934,7 +24934,7 @@ pso/enemy/TObjEneDelDepth_80313AF8.cpp:
 pso/enemy/TObjEneDelDepth_80313C64.cpp:
 	.text       start:0x80313C64 end:0x80313D2C
 
-pso/slices/pso_carve_80313d2c.cpp:
+pso/enemy/TObjEneDelDepth_80313D2C.cpp:
 	.text       start:0x80313D2C end:0x80313DE4
 
 pso/enemy/TObjEneDelDepth_80313DE4.cpp:
@@ -25843,7 +25843,7 @@ pso/boss/TBoss6Type2_8032E9CC.cpp:
 pso/slices/run_8032EAB8.cpp:
 	.text       start:0x8032EAB8 end:0x8032EAE4
 
-pso/slices/pso_carve_8032eea8.cpp:
+pso/boss/TBoss6Type2_8032EEA8.cpp:
 	.text       start:0x8032EEA8 end:0x8032EF34
 
 pso/boss/TBoss6Type2_8032F1B0.cpp:
@@ -26341,11 +26341,8 @@ pso/misc/TCheckMemoryCard_8033C5E4.cpp:
 pso/ui/TAdSinglePlyChrSelectGC_8033C640.cpp:
 	.text       start:0x8033C640 end:0x8033C69C
 
-pso/slices/pso_carve_8033c7c8.cpp:
-	.text       start:0x8033C7C8 end:0x8033C84C
-
-pso/slices/pso_carve_8033c84c.cpp:
-	.text       start:0x8033C84C end:0x8033C86C
+pso/player/TObjPlayer_8033C7C8.cpp:
+	.text       start:0x8033C7C8 end:0x8033C86C
 
 pso/object/TObjFish_8033CAB0.cpp:
 	.text       start:0x8033CAB0 end:0x8033CB4C
@@ -26423,7 +26420,7 @@ pso/ui/TAdPlyStatusGC_8033FDA8.cpp:
 pso/slices/pso_carve_8033fe28.cpp:
 	.text       start:0x8033FE28 end:0x8033FE30
 
-pso/slices/pso_carve_8033feec.cpp:
+pso/boss/TBoss4Type2_8033FEEC.cpp:
 	.text       start:0x8033FEEC end:0x8033FF64
 	.rodata     start:0x80478560 end:0x80478568
 
@@ -27674,7 +27671,7 @@ pso/item/TItemEffectWeapon_8036340C.cpp:
 pso/item/TItemEffectWeapon_80363414.cpp:
 	.text       start:0x80363414 end:0x803634A4
 
-pso/slices/pso_carve_80363780.cpp:
+pso/item/TItemEffectWeapon_80363780.cpp:
 	.text       start:0x80363780 end:0x80363874
 
 pso/item/TItemEffectWeapon.cpp:

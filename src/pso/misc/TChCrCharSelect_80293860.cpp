@@ -6,16 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TNpcPlayer__sub_8007206C(int, int);
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
+void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0);
+M2C_UNK TChCrCharSelect__sub_802937D4(void *);
 s32 TCharaMaking__sub_8028DE78();
 M2C_UNK TCharaMaking__sub_8028E8F4(void *, int);
-M2C_UNK TChCrCharSelect__sub_802937D4(void *);
+M2C_UNK TNpcPlayer__sub_8007206C(int, int);
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+
 extern s32 TChCrCharSelect__data_805D3CB8;
 extern s32 tl_03;
 
-void TChCrCharSelect__sub_80293860(u8 *arg0) {
+void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0) {
     s32 temp_r0;
     u8 *temp_r31;
 

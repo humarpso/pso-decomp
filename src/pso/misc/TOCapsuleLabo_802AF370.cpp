@@ -3,9 +3,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct VBase802AF370 { char pad[0x18]; };
-struct VObj802AF370 : VBase802AF370 {
+struct VBase802AF370_802af370 { char pad[0x18]; };
+struct VObj802AF370_802af370 : VBase802AF370_802af370 {
     virtual M2C_UNK m0();
     virtual M2C_UNK m1();
     virtual M2C_UNK m2();
@@ -19,15 +18,17 @@ struct VObj802AF370 : VBase802AF370 {
 
 extern "C" {
 
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+void render__13TOCapsuleLaboFv(u8 *arg0);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+M2C_UNK TObjFish__sub_803DA798(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TObjFish__sub_803DA798(int);
-M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+
 extern s32 *lbl_805D670C;
 
 void render__13TOCapsuleLaboFv(u8 *arg0) {
@@ -35,7 +36,7 @@ void render__13TOCapsuleLaboFv(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r31_2;
 
-    M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj802AF370 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
+    M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj802AF370_802af370 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
         TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {

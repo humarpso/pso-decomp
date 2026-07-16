@@ -27,13 +27,13 @@ VA
 
 extern "C" {
 
-void TShopGetItemWindow__sub_8021EEEC(void *arg0, s32 *arg1);
+void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern s32 lbl_805D53A0;
 
-void TShopGetItemWindow__sub_8021EEEC(void *arg0, s32 *arg1) {
+void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1) {
     s32 var_r31;
     void *temp_r3;
 

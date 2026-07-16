@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDD__sub_800BB158(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2);
+void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2);
 u32 TObjEneDD__sub_800BB218(f32, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, s32);
 
-void TObjEneDD__sub_800BB158(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
+void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
     s32 temp_r5;
 
     f32 temp_f3 = farg2 + M2C_FIELD(arg0, f32 *, 0x37C);

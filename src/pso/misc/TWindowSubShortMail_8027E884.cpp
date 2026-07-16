@@ -16,7 +16,7 @@ s32 get_card_window_area__6TLobbyFv();
 s32 TLobby__sub_8001DB44();
 M2C_UNK TAdChrSelASlotGC__sub_800740FC(s32);
 M2C_UNK TWindowSubComCard__sub_80265C10(s32, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80265DEC(s32, f32, f32);
+M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(s32, f32, f32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
@@ -58,7 +58,7 @@ s32 create_window__19TWindowSubShortMailFv(void) {
     }
     TAdChrSelASlotGC__sub_800740FC(temp_r31);
     TQuestThread__sub_801F64BC(temp_r31);
-    TWindowSubComCard__sub_80265DEC(temp_r31, TWindowSubShortMail__data_805DD6C8, lbl_805DD6CC);
+    set_scroll_target__17TWindowSubComCardFPvff(temp_r31, TWindowSubShortMail__data_805DD6C8, lbl_805DD6CC);
     return temp_r31;
 }
 

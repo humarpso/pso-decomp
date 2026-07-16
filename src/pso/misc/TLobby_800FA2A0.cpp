@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_800FA2A0(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
+s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4);
 s32 TLobby__sub_803CC500(int);
 s32 TLobby__sub_803CC53C(int);
 M2C_UNK TLobby__sub_803CCE9C(int);
@@ -16,7 +16,7 @@ u8 *alloc_from_heap__6TLobbyFPv(M2C_UNK);
 u8 *link_into_list__6TLobbyFPv();
 M2C_UNK strncpy(void *, void *, int);
 
-s32 TLobby__sub_800FA2A0(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4) {
+s32 create_named_entry__6TLobbyFiiUiiPv(s32 arg0, s32 arg1, u32 arg2, s32 arg3, void **arg4) {
     u8 *var_r31;
     s32 temp_r3;
 

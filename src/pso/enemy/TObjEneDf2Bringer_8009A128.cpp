@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDf2Bringer__sub_8009A128(u8 *arg0, const void *arg1, s32 arg2, f32 farg0);
+void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 arg2, f32 farg0);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
@@ -14,7 +14,7 @@ M2C_UNK fn_8002B094(int);
 
 extern const f32 lbl_805D9860;
 
-void TObjEneDf2Bringer__sub_8009A128(u8 *arg0, const void *arg1, s32 arg2, f32 farg0) {
+void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 arg2, f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), arg1);
     M2C_FIELD(arg0, s32 *, 0x60) = arg2;
     M2C_FIELD(arg0, f32 *, 0xB8) = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));

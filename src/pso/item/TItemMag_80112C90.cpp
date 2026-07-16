@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemMag__sub_80112C90(u8 *arg0, u8 *arg1);
+s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1);
 u8 TItemMagSub__sub_8011455C(void *);
 M2C_UNK TItemMag__sub_80100D94(void *, void *);
 M2C_UNK TItemMag__sub_801124C4(void *);
@@ -24,7 +24,7 @@ s32 get_item_field_6__10TObjPlayerFPv(int);
 s32 get_item_info__10TObjPlayerFiiPv(int, int, int);
 s32 obj_isState2_324(int);
 
-s32 TItemMag__sub_80112C90(u8 *arg0, u8 *arg1) {
+s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
     if (arg1 != NULL) {
         TItemMag__sub_801142E0((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 4)));
         TItemMag__sub_8011423C((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 6)));

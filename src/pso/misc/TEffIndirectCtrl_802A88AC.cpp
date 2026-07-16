@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 DCFlushRange(s32, s32);
-s32 TEffIndirectCtrl__sub_802A8A94(void *, s32);
+s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
 s32 TEffIndirectCtrl__sub_802A8CC0(s32, s32, s32, s32, s32, u8);
 s32 TEffIndirectCtrl__sub_802A9234(u8);
 s32 TEffIndirectCtrl__sub_802A8E4C(s32, s32, s32, s32, s32, u8);

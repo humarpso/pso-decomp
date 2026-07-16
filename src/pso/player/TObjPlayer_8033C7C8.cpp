@@ -6,15 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK clear_render_callback__8TObjFishFv(s32);
+void TObjPlayer__sub_8033C84C(void* p);
+void clear_render_effect_state__10TObjPlayerFPv(void *arg0);
+M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 M2C_UNK TObjFish__sub_800E3074(s32);
+M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
-M2C_UNK TObjFish__sub_803DA798(s32);
-M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
 M2C_UNK TObjPlayer__sub_803E4BC4();
 M2C_UNK TObjPlayer__sub_803E4BD0();
+M2C_UNK clear_render_callback__8TObjFishFv(s32);
+
 extern M2C_UNK lbl_80477DEC[];
 
 void clear_render_effect_state__10TObjPlayerFPv(void *arg0) {
@@ -30,5 +33,7 @@ void clear_render_effect_state__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_803E4BD0();
     TObjPlayer__sub_803D9B78();
 }
+
+void TObjPlayer__sub_8033C84C(void* p) { clear_render_effect_state__10TObjPlayerFPv((void *)(p)); }
 
 }

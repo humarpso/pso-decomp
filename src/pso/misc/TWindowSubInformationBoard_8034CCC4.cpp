@@ -8,7 +8,7 @@ extern "C" {
 
 s32 open_keyboard__26TWindowSubInformationBoardFi(s32 arg0);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
-M2C_UNK TWindowMakeTeam__sub_80131B54(s32, s32);
+M2C_UNK set_sub_position__15TWindowMakeTeamFPvPv(s32, s32);
 M2C_UNK get_keyboard_field_6c__15TWindowMakeTeamFPv(s32, s32);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK destroy_keyboard__17TWindowSubComCardFPv(s32);
@@ -26,7 +26,7 @@ s32 open_keyboard__26TWindowSubInformationBoardFi(s32 arg0) {
         var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0xC6, 5, 4, lbl_805D53A0);
     }
     get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, get_card_window_field__6TLobbyFv());
-    TWindowMakeTeam__sub_80131B54(var_r31, TWindowSubComCard__sub_8026CBB8(0xBB));
+    set_sub_position__15TWindowMakeTeamFPvPv(var_r31, TWindowSubComCard__sub_8026CBB8(0xBB));
     set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(var_r31);
     destroy_keyboard__17TWindowSubComCardFPv(var_r31);
     return var_r31;

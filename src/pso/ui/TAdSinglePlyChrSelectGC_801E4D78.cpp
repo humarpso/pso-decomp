@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_801E4D78(u8 *arg0, u8 *arg1, s32 arg2);
+void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 M2C_UNK TLobby__sub_801E47C4(void *);
 M2C_UNK TObjPlayer__sub_803DA204(void *, int, int, int, int);
 M2C_UNK TObjPlayer__sub_803DA218(void *, void *, int, int);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
 
-void TAdSinglePlyChrSelectGC__sub_801E4D78(u8 *arg0, u8 *arg1, s32 arg2) {
+void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     u8 *temp_r3;
 
     M2C_FIELD(arg0, void **, 0x40) = arg1;
