@@ -21764,14 +21764,8 @@ pso/menu/TChCrTagPlBack.cpp:
 pso/misc/TChCrTagPlBack_802A54D0.cpp:
 	.text       start:0x802A54D0 end:0x802A552C
 
-pso/slices/pso_carve_802a552c.cpp:
-	.text       start:0x802A552C end:0x802A5578
-
-pso/slices/pso_carve_802a5578.cpp:
-	.text       start:0x802A5578 end:0x802A559C
-
-pso/slices/pso_carve_802a559c.cpp:
-	.text       start:0x802A559C end:0x802A55E0
+pso/misc/TChCrTagPlBack_802A552C.cpp:
+	.text       start:0x802A552C end:0x802A55E0
 
 pso/misc/TWindowSubComCard_802A55E0.cpp:
 	.text       start:0x802A55E0 end:0x802A5628
