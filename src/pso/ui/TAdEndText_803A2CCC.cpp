@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdEndText__sub_803A2CCC(void);
-M2C_UNK fn_803A027C();
+M2C_UNK TAdEndText__sub_803A027C();
 
 void TAdEndText__sub_803A2CCC(void) {
-    fn_803A027C();
+    TAdEndText__sub_803A027C();
 }
 
 }

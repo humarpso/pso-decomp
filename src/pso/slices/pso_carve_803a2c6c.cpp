@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_8039FB0C();
+M2C_UNK TAdEndText__sub_8039FB0C();
 
 void fn_803A2C6C(void) {
-    fn_8039FB0C();
+    TAdEndText__sub_8039FB0C();
 }
 
 }

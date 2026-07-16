@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_803A2C4C(void);
-M2C_UNK fn_8039F7FC();
+M2C_UNK TAdEndText__sub_8039F7FC();
 
 void TObjPlayer__sub_803A2C4C(void) {
-    fn_8039F7FC();
+    TAdEndText__sub_8039F7FC();
 }
 
 }
