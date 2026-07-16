@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8015C944(s32 arg0);
+void byteswap_and_send__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__send_and_handle_60(void *);
 void TLobby__sub_8015C9BC(void* p);
 void TOCtrlDubchik__sub_8015C9D0(void);
@@ -22,7 +22,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TLobby__sub_8015C944(s32 arg0) {
+void byteswap_and_send__6TLobbyFi(s32 arg0) {
     byteswap_event_packet__6TLobbyFi();
     TLobby__send_and_handle_60((void *) (arg0));
 }

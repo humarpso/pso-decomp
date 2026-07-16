@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801AEB84(s32 arg0, u8 arg1);
-void TObjPlayer__sub_801AEBE8(s32 arg0, u8 arg1);
-void TObjPlayer__sub_801AEC4C(s32 arg0, u8 arg1);
-void TObjPlayer__sub_801AECB0(s32 arg0, u8 arg1);
-void TObjPlayer__sub_801AED14(s32 arg0, u8 arg1);
+void apply_luck_reward__10TObjPlayerFiUc(s32 arg0, u8 arg1);
+void add_dfp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1);
+void add_evp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1);
+void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
+void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void TObjPlayer__sub_801AED78(s32 arg0, u8 arg1);
 void TObjPlayer__sub_801AEDC4(s32 arg0, u8 arg1);
 s32 TLobby__sub_800822E8(s32, s32);
@@ -72,7 +72,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TObjPlayer__sub_801AEB84(s32 arg0, u8 arg1) {
+void apply_luck_reward__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;
@@ -84,7 +84,7 @@ void TObjPlayer__sub_801AEB84(s32 arg0, u8 arg1) {
 }
 
 }
-void TObjPlayer__sub_801AEBE8(s32 arg0, u8 arg1) {
+void add_dfp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;
@@ -96,7 +96,7 @@ void TObjPlayer__sub_801AEBE8(s32 arg0, u8 arg1) {
 }
 
 }
-void TObjPlayer__sub_801AEC4C(s32 arg0, u8 arg1) {
+void add_evp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;
@@ -108,7 +108,7 @@ void TObjPlayer__sub_801AEC4C(s32 arg0, u8 arg1) {
 }
 
 }
-void TObjPlayer__sub_801AECB0(s32 arg0, u8 arg1) {
+void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;
@@ -120,7 +120,7 @@ void TObjPlayer__sub_801AECB0(s32 arg0, u8 arg1) {
 }
 
 }
-void TObjPlayer__sub_801AED14(s32 arg0, u8 arg1) {
+void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;

@@ -89,7 +89,7 @@ int TWindowActionPalette__sub_8013DF54(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
 
-s32 TMainCursor__sub_8013E780(s32 arg0) {
+s32 reset__11TMainCursorFi(s32 arg0) {
     fn_80072004();
     reset_target__11TMainCursorFi((void *) (arg0));
     return arg0;

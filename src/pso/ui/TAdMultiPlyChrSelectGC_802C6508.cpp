@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdMultiPlyChrSelectGC__sub_802C6508(void);
+s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32);
 
-s32 TAdMultiPlyChrSelectGC__sub_802C6508(void) {
+s32 count_ready__22TAdMultiPlyChrSelectGCFv(void) {
     s32 var_r31;
     s32 var_r30;
 

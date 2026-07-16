@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803C45EC(s32 arg0);
-M2C_UNK TLobby__sub_803C4630();
-M2C_UNK TLobby__sub_803C4660();
+void clear_entry__6TLobbyFi(s32 arg0);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
 M2C_UNK memset(void *, int, int);
 
-void TLobby__sub_803C45EC(s32 arg0) {
+void clear_entry__6TLobbyFi(s32 arg0) {
     if (arg0 != 0) {
-        TLobby__sub_803C4660();
+        init_once__6TLobbyFv();
         memset((void *) (arg0), (int) (0), (int) (0x30));
-        TLobby__sub_803C4630();
+        release_ref__6TLobbyFv();
     }
 }
 

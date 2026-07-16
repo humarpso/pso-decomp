@@ -11,29 +11,29 @@ void TObjPlayer__sub_803E21DC(void);
 void TObjPlayer__sub_803E2200(void);
 void TObjPlayer__sub_803E2224(void);
 void TObjPlayer__sub_803E2248(void);
-M2C_UNK TObjPlayer__sub_803E2350();
-M2C_UNK TObjPlayer__sub_803E23C8();
+M2C_UNK setup_vertex_format__10TObjPlayerFv();
+M2C_UNK setup_vtx_desc__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803E24E0();
 M2C_UNK TObjPlayer__sub_803E2504();
 
 void TObjPlayer__sub_803E21B8(void) {
     TObjPlayer__sub_803E24E0();
-    TObjPlayer__sub_803E2350();
+    setup_vertex_format__10TObjPlayerFv();
 }
 
 void TObjPlayer__sub_803E21DC(void) {
     TObjPlayer__sub_803E2504();
-    TObjPlayer__sub_803E2350();
+    setup_vertex_format__10TObjPlayerFv();
 }
 
 void TObjPlayer__sub_803E2200(void) {
     TObjPlayer__sub_803E24E0();
-    TObjPlayer__sub_803E23C8();
+    setup_vtx_desc__10TObjPlayerFv();
 }
 
 void TObjPlayer__sub_803E2224(void) {
     TObjPlayer__sub_803E2504();
-    TObjPlayer__sub_803E23C8();
+    setup_vtx_desc__10TObjPlayerFv();
 }
 
 void TObjPlayer__sub_803E2248(void) {

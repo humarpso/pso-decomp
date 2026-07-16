@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TNpcPlayer__sub_80149374(s32 arg0);
+void send_6x3E__10TNpcPlayerFi(s32 arg0);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 M2C_UNK TLobby__send_and_handle_60(void *);
 void TObjNpcBase__sub_80149358(void* p, s32 v);
@@ -25,7 +25,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TNpcPlayer__sub_80149374(s32 arg0) {
+void send_6x3E__10TNpcPlayerFi(s32 arg0) {
     bswap_6x3E__10TNpcPlayerFi();
     TLobby__send_and_handle_60((void *) (arg0));
 }

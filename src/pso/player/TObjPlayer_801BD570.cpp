@@ -16,7 +16,7 @@ void TObjPlayer__sub_801BBC2C(void *, void *);
 void update_position__10TObjPlayerFPvi(void *, void *);
 void init_from_data__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801BC6C4(void *);
-void TObjPlayer__sub_801BC81C(void *, void *);
+void init_battle__10TObjPlayerFi(void *, void *);
 void TObjPlayer__sub_801BC948(void *, void *);
 void TObjPlayer__sub_801BCAB0(void *, void *);
 void TObjPlayer__sub_801BCB70(void *, void *);
@@ -165,7 +165,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BC948(arg0, arg2);
     init_from_source__10TObjPlayerFPvPv(arg0, arg2);
     TObjPlayer__sub_801BCAB0(arg0, arg2);
-    TObjPlayer__sub_801BC81C(arg0, arg2);
+    init_battle__10TObjPlayerFi(arg0, arg2);
     TObjPlayer__sub_801BBB70(arg0, arg2);
     init_class_flags__10TObjPlayerFPvi(arg0, arg2);
     TObjPlayer__sub_801BB85C(arg0, arg2);

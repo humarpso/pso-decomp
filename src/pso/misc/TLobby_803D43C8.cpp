@@ -10,14 +10,14 @@ void TLobby__sub_803D43C8(void);
 void TLobby__sub_803D43E8(void);
 void TLobby__sub_803D4408(u8 *arg0, s32 arg1);
 M2C_UNK TLobby__sub_803D1FD4();
-M2C_UNK TLobby__sub_803D2010();
+M2C_UNK lock_enter__6TLobbyFv();
 
 void TLobby__sub_803D43C8(void) {
     TLobby__sub_803D1FD4();
 }
 
 void TLobby__sub_803D43E8(void) {
-    TLobby__sub_803D2010();
+    lock_enter__6TLobbyFv();
 }
 
 void TLobby__sub_803D4408(u8 *arg0, s32 arg1) {

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss8Dragon__sub_802F3AB4(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4);
+s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4);
 M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void TBoss8Dragon__sub_802F3B50(void);
 void TBoss8Dragon__sub_802F3B54(void);
@@ -21,7 +21,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-s32 TBoss8Dragon__sub_802F3AB4(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4) {
+s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 arg3, u8 *arg4) {
     if ((arg3 < 0) || (arg3 > 5)) {
         return 0;
     }

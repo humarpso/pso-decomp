@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowKeyBoardSoft__sub_80080BCC(u8 *arg0, s32 arg1, s32 arg2);
-void TWindowKeyBoardSoft__sub_80080C18(u8 *arg0);
+void delete_char__19TWindowKeyBoardSoftFPv(u8 *arg0);
 
 void TWindowKeyBoardSoft__sub_80080BCC(u8 *arg0, s32 arg1, s32 arg2) {
     u16 *var_r4;
@@ -27,7 +27,7 @@ void TWindowKeyBoardSoft__sub_80080BCC(u8 *arg0, s32 arg1, s32 arg2) {
     }
 }
 
-void TWindowKeyBoardSoft__sub_80080C18(u8 *arg0) {
+void delete_char__19TWindowKeyBoardSoftFPv(u8 *arg0) {
     u16 *var_r4;
     u16 *var_r5;
     u16 temp_r0;

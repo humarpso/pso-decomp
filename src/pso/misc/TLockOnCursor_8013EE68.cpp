@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TLockOnCursor__sub_8013EE68(void *arg0, s16 arg1);
+void *destroy__13TLockOnCursorFPvs(void *arg0, s16 arg1);
 M2C_UNK TPlyDispConfig__sub_80071F1C(void *, s16);
 M2C_UNK __dl__FPv(void *);
 
 extern M2C_UNK lbl_804A7248[];
 
-void *TLockOnCursor__sub_8013EE68(void *arg0, s16 arg1) {
+void *destroy__13TLockOnCursorFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 8) = lbl_804A7248;
         TPlyDispConfig__sub_80071F1C(arg0, 0);

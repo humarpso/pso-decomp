@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803CC274(void);
+void invalidate_cache__6TLobbyFv(void);
 M2C_UNK DCInvalidateRange();
 
-void TLobby__sub_803CC274(void) {
+void invalidate_cache__6TLobbyFv(void) {
     DCInvalidateRange();
 }
 

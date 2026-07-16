@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803CB384(u8 *arg0);
+void update_receive_check__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803CB450(u8 *arg0);
 void TLobby__sub_803CB458(u8 *arg0);
 void TLobby__sub_803CB470(u8 *arg0);
@@ -20,7 +20,7 @@ M2C_UNK memset(void *, int, int);
 
 extern s32 lbl_805D7588;
 
-void TLobby__sub_803CB384(u8 *arg0) {
+void update_receive_check__6TLobbyFPv(u8 *arg0) {
     u32 temp_r0;
     u32 temp_r3;
 

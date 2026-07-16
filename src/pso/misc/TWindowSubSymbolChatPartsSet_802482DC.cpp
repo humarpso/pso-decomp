@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubSymbolChatPartsSet__sub_802482DC(void *arg0, s32 arg1);
+void get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *arg0, s32 arg1);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 
-void TWindowSubSymbolChatPartsSet__sub_802482DC(void *arg0, s32 arg1) {
+void get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *arg0, s32 arg1) {
     get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg1 + 9);
 }
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TAdVIConfigGC__sub_80307EE0(u8 *arg0, f32 farg0);
+u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0);
 M2C_UNK TAdVIConfigGC__sub_80307D00(void *);
 s32 TAdVIConfigGC__sub_80307DEC(void* p);
 s32 TLobby__sub_801B0974();
@@ -20,7 +20,7 @@ M2C_UNK memset(void *, int, int);
 #include "types.h"
 extern "C" {
 
-u8 *TAdVIConfigGC__sub_80307EE0(u8 *arg0, f32 farg0) {
+u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 8));
     M2C_FIELD(arg0, f32 *, 0) = (f32) (farg0 * farg0);
     M2C_FIELD(arg0, s32 *, 0x24) = 0;

@@ -34,7 +34,7 @@ int can_cast_technique__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCC50(void);
 int check_technique_castable__10TObjPlayerFi(void*);
 
-void TObjPlayer__sub_801BC81C(s32 arg0) {
+void init_battle__10TObjPlayerFi(s32 arg0) {
     TObjPlayer__sub_801BC8F0();
     set_flag_400000__10TObjPlayerFi((void *) (arg0));
     enter_battle_state__10TObjPlayerFPv((void *) (arg0 + 0x634));

@@ -26,7 +26,7 @@ void TLobby__sub_80103114(void* p, s16 v);
 
 }
 int TLobby__sub_80103044(void) { return 0; }
-void TLobby__sub_80103074(s32 arg0) {
+void send_pick_up_item_request__6TLobbyFi(s32 arg0) {
     bswap_pick_up_item_request__6TLobbyFi();
     dispatch_packet__6TLobbyFPv((void *) (arg0));
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009EDD4(u8 *arg0);
+void copy_pos__17TObjEneMe1CanadinFPv(u8 *arg0);
 int TObjEneDD__sub_800BBA18(void*, void*);
 void TObjEneMe1Canadin__sub_8009EE18(void);
 void TObjEneMe1Canadin__sub_8009EE84(void);
@@ -16,7 +16,7 @@ void set_state_12__17TObjEneMe1CanadinFPv(void* p);
 #include "types.h"
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009EDD4(u8 *arg0) {
+void copy_pos__17TObjEneMe1CanadinFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) M2C_FIELD(arg0, f32 *, 0x3F8);
     M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);

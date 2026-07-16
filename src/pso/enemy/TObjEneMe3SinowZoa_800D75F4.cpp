@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjEneMe3SinowZoa__sub_800D75F4(void *arg0, s16 arg1);
+void *__dt__18TObjEneMe3SinowZoaFPvs(void *arg0, s16 arg1);
 M2C_UNK TObjPlayer__sub_800D96D0(void *, s16);
 M2C_UNK __dl__FPv(void *);
 
 extern M2C_UNK lbl_80494938[];
 
-void *TObjEneMe3SinowZoa__sub_800D75F4(void *arg0, s16 arg1) {
+void *__dt__18TObjEneMe3SinowZoaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x14) = lbl_80494938;
         TObjPlayer__sub_800D96D0(arg0, 0);

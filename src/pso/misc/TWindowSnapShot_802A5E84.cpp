@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSnapShot__sub_802A5E84(u8 *arg0);
+void reset__15TWindowSnapShotFPv(u8 *arg0);
 s32 TGStream__sub_800FDADC(s32, s32);
 s32 TLobby__sub_800FD944(s32);
 s32 TWindowSnapShot__sub_802A604C(void *, s32);
@@ -19,7 +19,7 @@ M2C_UNK memset(void *, int, int);
 #include "types.h"
 extern "C" {
 
-void TWindowSnapShot__sub_802A5E84(u8 *arg0) {
+void reset__15TWindowSnapShotFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = 0;
     M2C_FIELD(arg0, s32 *, 4) = 0;
     memset((void *) (arg0 + 0x1C), (int) (0), (int) (0x20));

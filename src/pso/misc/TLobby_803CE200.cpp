@@ -9,14 +9,14 @@ extern "C" {
 void TLobby__sub_803CE200(void);
 void TLobby__sub_803CE220(void);
 M2C_UNK TLobby__sub_803D1FD4();
-M2C_UNK TLobby__sub_803D2010();
+M2C_UNK lock_enter__6TLobbyFv();
 
 void TLobby__sub_803CE200(void) {
     TLobby__sub_803D1FD4();
 }
 
 void TLobby__sub_803CE220(void) {
-    TLobby__sub_803D2010();
+    lock_enter__6TLobbyFv();
 }
 
 }

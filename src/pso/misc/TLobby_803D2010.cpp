@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803D2010(void);
+void lock_enter__6TLobbyFv(void);
 s32 OSDisableInterrupts();
 
 extern s32 lbl_805D7638;
 extern s32 lbl_805D763C;
 
-void TLobby__sub_803D2010(void) {
+void lock_enter__6TLobbyFv(void) {
     if ((s32) lbl_805D7638 == 0) {
         lbl_805D763C = OSDisableInterrupts();
     }

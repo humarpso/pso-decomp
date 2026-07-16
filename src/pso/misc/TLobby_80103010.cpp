@@ -24,7 +24,7 @@ s32 bswap_32__FPUl(s32);
 s32 TLobby__sub_8010314C();
 void TLobby__sub_80103114(void* p, s16 v);
 
-void TLobby__sub_80103010(s32 arg0) {
+void send_pick_up_item__6TLobbyFi(s32 arg0) {
     bswap_pick_up_item_packet__6TLobbyFi();
     TLobby__send_and_handle_60((void *) (arg0));
 }

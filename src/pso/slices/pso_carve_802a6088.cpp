@@ -14,7 +14,7 @@ s32 open_stream__15TWindowSnapShotFPvi(void *, s32);
 s32 init__15TWindowSnapShotFPvi();
 int TObjChip__vt8(void*, void*);
 int TWindowSnapShot__sub_802A5D28(void*);
-int TWindowSnapShot__sub_802A5E84(void*);
+int reset__15TWindowSnapShotFPv(void*);
 int TWindowSnapShot__sub_802A6044(void);
 void TWindowSnapShot__sub_802A604C(void* p, s32 v);
 s32 TWindowSnapShot__sub_802A6054(void* p);

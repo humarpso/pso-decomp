@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TPlyPhotonChair__sub_80143888(void *arg0, s16 arg1);
+void *destroy__15TPlyPhotonChairFPvs(void *arg0, s16 arg1);
 M2C_UNK TPlyPhotonChair__sub_801438E0(void *, s16);
 M2C_UNK __dl__FPv(void *);
 
 extern M2C_UNK lbl_804A7478[];
 
-void *TPlyPhotonChair__sub_80143888(void *arg0, s16 arg1) {
+void *destroy__15TPlyPhotonChairFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 4) = lbl_804A7478;
         TPlyPhotonChair__sub_801438E0(arg0, 0);

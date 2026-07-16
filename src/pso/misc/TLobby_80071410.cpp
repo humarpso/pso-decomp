@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80071410(s32 arg0, s32 arg1, s32 arg2);
+s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_8006F910(void *, void *, int);
 s32 TLobby__sub_80070AB0();
 
 extern s8 lbl_8048C9D8[];
 
-s32 TLobby__sub_80071410(s32 arg0, s32 arg1, s32 arg2) {
+s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     u8 *temp_r30;
 
     if ((TLobby__sub_80070AB0() == 0) || ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x1C) < 0) || ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x1C) >= 0x10)) {

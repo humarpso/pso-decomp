@@ -28,7 +28,7 @@ void TObjPlayer__sub_801AA518(void* p, s16 v);
 void TObjPlayer__sub_801AA520(void* p, s16 v);
 u16 TObjPlayer__sub_801AA664(void* p);
 
-s32 TObjPlayer__sub_801AA5C0(s32 arg0) {
+s32 init_arrays__10TObjPlayerFi(s32 arg0) {
     init_forward__10TObjPlayerFPv((void *) (arg0 + 4));
     __construct_array((void *) (arg0 + 8), (void *) (&TObjPlayer__sub_801AA61C), (void *) (&TObjPlayer__sub_801AA584), (int) (4), (int) (4));
     TObjPlayer__sub_80313138((void *) (arg0));

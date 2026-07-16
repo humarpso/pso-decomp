@@ -18,7 +18,7 @@ M2C_UNK __dl__FPv(void *);
 int TRaderMapCore__sub_8002F588(void*);
 int fn_8004438C(void*);
 int fn_80072004(void*);
-int TMainCursor__sub_8013E780(void*);
+int reset__11TMainCursorFi(void*);
 void TMainCursor__sub_8013F104(void* p, s32 v);
 void TMainCursor__sub_8013F10C(void* p, s32 v);
 void TMainCursor__sub_8013F114(void* p);

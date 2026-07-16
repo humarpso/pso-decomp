@@ -6,7 +6,7 @@ int init_forward__10TObjPlayerFPv(void*);
 int fn_8004438C(void*);
 int fn_80072004(void*);
 int TMainCursor__sub_8013E240(void*);
-int TMainCursor__sub_8013E780(void*);
+int reset__11TMainCursorFi(void*);
 int TLockOnCursor__sub_8013EC1C(void*);
 int TLockOnCursor__sub_8013EC38(void*);
 void reset_fields__13TLockOnCursorFPv(void* p);
@@ -26,6 +26,6 @@ int TRaderMapCore__sub_8002F588(void*);
 
 void* init_cursor__13TLockOnCursorFPv(void* p) { TMainCursor__sub_8013E240(p); return p; }
 void* init_forward__13TLockOnCursorFPv(void* p) { TLockOnCursor__sub_8013EC1C(p); return p; }
-void* cleanup__13TLockOnCursorFPv(void* p) { fn_80072004((char*)p + 0x8); TMainCursor__sub_8013E780((char*)p + 0xc); TMainCursor__sub_8013E780((char*)p + 0x14); TLockOnCursor__sub_8013EC38(p); return p; }
+void* cleanup__13TLockOnCursorFPv(void* p) { fn_80072004((char*)p + 0x8); reset__11TMainCursorFi((char*)p + 0xc); reset__11TMainCursorFi((char*)p + 0x14); TLockOnCursor__sub_8013EC38(p); return p; }
 
 }

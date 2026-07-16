@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803C4630(void);
+void release_ref__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803D3988();
 
 extern s32 lbl_805D7518;
 
-void TLobby__sub_803C4630(void) {
+void release_ref__6TLobbyFv(void) {
     s32 temp_r0;
 
     temp_r0 = lbl_805D7518 - 1;

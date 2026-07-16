@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowTimer__sub_8019A678(s32 arg0);
+void send_gogo_ball__12TWindowTimerFi(s32 arg0);
 M2C_UNK TLobby__send_and_handle_60(void *);
 void TWindowTimer__sub_8019A6F8(void* p);
 s32 bswap_32__FPUl(s32);
@@ -20,7 +20,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TWindowTimer__sub_8019A678(s32 arg0) {
+void send_gogo_ball__12TWindowTimerFi(s32 arg0) {
     bswap_6x79_gogo_ball__12TWindowTimerFi();
     TLobby__send_and_handle_60((void *) (arg0));
 }

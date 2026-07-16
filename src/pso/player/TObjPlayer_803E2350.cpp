@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_803E2350(void);
-void TObjPlayer__sub_803E23C8(void);
+void setup_vertex_format__10TObjPlayerFv(void);
+void setup_vtx_desc__10TObjPlayerFv(void);
 M2C_UNK GXClearVtxDesc();
 M2C_UNK TObjPlayer__sub_803892B4(int, int);
 M2C_UNK TObjPlayer__sub_803897D8(int, int, int, int, int);
@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_803E256C(int);
 M2C_UNK TObjPlayer__sub_803E2640();
 M2C_UNK TObjPlayer__sub_803E2664();
 
-void TObjPlayer__sub_803E2350(void) {
+void setup_vertex_format__10TObjPlayerFv(void) {
     GXClearVtxDesc();
     TObjPlayer__sub_803892B4((int) (9), (int) (1));
     TObjPlayer__sub_803892B4((int) (0xB), (int) (1));
@@ -28,7 +28,7 @@ void TObjPlayer__sub_803E2350(void) {
     TObjPlayer__sub_803E2640();
 }
 
-void TObjPlayer__sub_803E23C8(void) {
+void setup_vtx_desc__10TObjPlayerFv(void) {
     GXClearVtxDesc();
     TObjPlayer__sub_803892B4((int) (9), (int) (1));
     TObjPlayer__sub_803892B4((int) (0xB), (int) (1));

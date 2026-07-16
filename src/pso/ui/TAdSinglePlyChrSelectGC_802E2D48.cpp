@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_802E2D48(s32 arg0);
+void update_load_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdPlayerLoadGC__sub_80076BBC();
 s32 TAdPlayerLoadGC__sub_801E0CE0(s32);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
@@ -30,7 +30,7 @@ s32 load_system_file(s32);
 #include "types.h"
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_802E2D48(s32 arg0) {
+void update_load_state__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     if (is_load_complete__23TAdSinglePlyChrSelectGCFv() != 0) {
         if (TAdPlayerLoadGC__sub_801E0CE0((int) (0)) == 0) {
             TAdSinglePlyChrSelectGC__sub_802E1DF8((void *) (arg0), (int) (0x16));

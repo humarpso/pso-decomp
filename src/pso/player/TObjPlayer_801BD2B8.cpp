@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801BD2B8(s32 arg0);
+void update_input_and_draw__10TObjPlayerFi(s32 arg0);
 M2C_UNK TKeyBoardControl__sub_801AFCF4(void *, int);
 M2C_UNK TObjPlayer__sub_801BD1B4(void *);
 void TObjPlayer__sub_801BD314(void);
@@ -22,7 +22,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TObjPlayer__sub_801BD2B8(s32 arg0) {
+void update_input_and_draw__10TObjPlayerFi(s32 arg0) {
     if (reset_key_machine_state__10TObjPlayerFv() == 0) {
         TKeyBoardControl__sub_801AFCF4((void *) (arg0), (int) (TObjPlayer__sub_801C2114()));
     }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TMainCursor__sub_8013AE78(u8 *arg0, s16 arg1);
+u8 *__dt__11TMainCursorFPvs(u8 *arg0, s16 arg1);
 u8 *TMainCursor__sub_8013DFD4(void *);
 M2C_UNK TMainCursor__sub_8013E0AC(int, int);
 s32 TObjPlayer__sub_801C6DAC(void *);
@@ -15,7 +15,7 @@ M2C_UNK destroy_cursor__11TMainCursorFPvs(void *, int);
 
 extern M2C_UNK lbl_804A71C4[];
 
-u8 *TMainCursor__sub_8013AE78(u8 *arg0, s16 arg1) {
+u8 *__dt__11TMainCursorFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A71C4;
         if ((TObjPlayer__sub_801C6DAC((void *) (arg0 + 0x1C)) != 0) &&((u32) M2C_FIELD(TMainCursor__sub_8013DFD4(arg0 + 0x1C), u32 *, 0x424) != 0U)) {

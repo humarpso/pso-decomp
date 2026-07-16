@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CC910(u8 *arg0);
-void TObjPlayer__sub_801CC96C(u8 *arg0);
+void update_band_state__10TObjPlayerFPv(u8 *arg0);
+void update_target_approach__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_801CC194(void *);
 void TObjPlayer__sub_801CC9E4(void);
 M2C_UNK TObjPlayer__sub_801D2620(void *);
@@ -26,7 +26,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TObjPlayer__sub_801CC910(u8 *arg0) {
+void update_band_state__10TObjPlayerFPv(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x328) == 2) {
         TObjPlayer__sub_801D2AF4((void *) (arg0 + 0x4AC));
         if (objInBand__FP7GameObjf((void *) (arg0)) != 0) {
@@ -37,7 +37,7 @@ void TObjPlayer__sub_801CC910(u8 *arg0) {
 }
 
 }
-void TObjPlayer__sub_801CC96C(u8 *arg0) {
+void update_target_approach__10TObjPlayerFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         update_position_from_target__10TObjPlayerFPv();
         return;

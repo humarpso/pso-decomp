@@ -10,9 +10,9 @@ s32 TLobby__sub_803D2BA8(u8 *arg0, s32 arg1);
 void TLobby__sub_803D2C04(u8 *arg0);
 void TLobby__sub_803D2C20(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803D2C2C(u8 *arg0);
-void TLobby__sub_803D2C34(u8 *arg0);
+void clear_entry__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803D1FD4();
-M2C_UNK TLobby__sub_803D2010();
+M2C_UNK lock_enter__6TLobbyFv();
 M2C_UNK memset(void *, int, int);
 
 s32 TLobby__sub_803D2BA8(u8 *arg0, s32 arg1) {
@@ -47,8 +47,8 @@ s32 TLobby__sub_803D2C2C(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 8);
 }
 
-void TLobby__sub_803D2C34(u8 *arg0) {
-    TLobby__sub_803D2010();
+void clear_entry__6TLobbyFPv(u8 *arg0) {
+    lock_enter__6TLobbyFv();
     if (arg0 != NULL) {
         memset((void *) (arg0), (int) (0), (int) (0x30));
         M2C_FIELD(arg0, s32 *, 4) = 0;

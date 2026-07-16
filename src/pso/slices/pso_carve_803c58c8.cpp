@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TLobby__sub_803C4630();
-M2C_UNK TLobby__sub_803C4660();
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
 M2C_UNK TLobby__sub_803C8610();
 M2C_UNK TLobby__sub_803CC884();
 M2C_UNK TLobby__sub_803CEF60();
@@ -15,7 +15,7 @@ extern s32 lbl_805D7530;
 
 void ARAlloc(void) {
     if ((s32) lbl_805D7530 == 0) {
-        TLobby__sub_803C4660();
+        init_once__6TLobbyFv();
         lbl_805D7530 = 1;
         TLobby__sub_803C8610();
         lbl_805D7530 = 2;
@@ -25,7 +25,7 @@ void ARAlloc(void) {
         lbl_805D7530 = 6;
         TLobby__sub_803CC884();
         lbl_805D7530 = 0;
-        TLobby__sub_803C4630();
+        release_ref__6TLobbyFv();
     }
 }
 

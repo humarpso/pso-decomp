@@ -14,7 +14,7 @@ s32 open_stream__15TWindowSnapShotFPvi(void *, s32);
 s32 init__15TWindowSnapShotFPvi();
 int TObjChip__vt8(void*, void*);
 int TWindowSnapShot__sub_802A5D28(void*);
-int TWindowSnapShot__sub_802A5E84(void*);
+int reset__15TWindowSnapShotFPv(void*);
 int TWindowSnapShot__sub_802A6044(void);
 void TWindowSnapShot__sub_802A604C(void* p, s32 v);
 s32 TWindowSnapShot__sub_802A6054(void* p);
@@ -22,7 +22,7 @@ void fn_802A6070(void* p, s32 v);
 void fn_802A6078(void* p, s32 v);
 int TLobby__sub_802A6080(void);
 
-void update_both__15TWindowSnapShotFPv(void* p) { TWindowSnapShot__sub_802A5D28(p); TWindowSnapShot__sub_802A5E84(p); }
+void update_both__15TWindowSnapShotFPv(void* p) { TWindowSnapShot__sub_802A5D28(p); reset__15TWindowSnapShotFPv(p); }
 s32 start_capture__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     if (arg1 == 0) {
         TWindowSnapShot__sub_802A604C((void*)(arg0), 3);

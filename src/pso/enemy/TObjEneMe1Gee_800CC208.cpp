@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800CC208(u8 *arg0);
+void copy_pos__13TObjEneMe1GeeFPv(u8 *arg0);
 int TObjEneDD__sub_800BBA18(void*, void*);
 void TObjEneMe1Gee__vt26(void);
 void TObjEneMe1Gee__vt59(void);
@@ -20,7 +20,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TObjEneMe1Gee__sub_800CC208(u8 *arg0) {
+void copy_pos__13TObjEneMe1GeeFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) M2C_FIELD(arg0, f32 *, 0x3F8);
     M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
