@@ -5397,6 +5397,9 @@ pso/enemy/TObjEneMe3ShinowaMirage_800E3A88.cpp:
 pso/enemy/TObjEneMe3ShinowaMirage_800E3AB8.cpp:
 	.text       start:0x800E3AB8 end:0x800E3AFC
 
+pso/slices/pso_carve_800e3afc.cpp:
+	.text       start:0x800E3AFC end:0x800E3B34
+
 pso/enemy/TObjEneMe3ShinowaMirage_800E3B34.cpp:
 	.text       start:0x800E3B34 end:0x800E3B6C
 
