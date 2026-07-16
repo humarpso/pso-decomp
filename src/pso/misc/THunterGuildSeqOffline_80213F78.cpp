@@ -6,8 +6,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
-
 struct Base_80213F78 { char pad[0x18]; };
 struct VObj_80213F78 : Base_80213F78 {
     virtual void m0();
@@ -19,6 +17,10 @@ struct VObj_80213F78 : Base_80213F78 {
     virtual void m6();
     virtual void m7(int, int);
 };
+
+void THunterGuildSeqOffline__sub_80213F78(void);
+M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
+
 extern struct VObj_80213F78 *lbl_805D61B8;
 
 void THunterGuildSeqOffline__sub_80213F78(void) {

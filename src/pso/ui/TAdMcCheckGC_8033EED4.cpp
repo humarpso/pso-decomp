@@ -6,12 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+void run_task__12TAdMcCheckGCFv(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E0D8C(int);
 s32 TAdPlayerLoadGC__sub_801E1530(int);
 s32 TAdPlayerLoadGC__sub_801E1E38(int);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
 u32 create__12TAdMcCheckGCFPvi(void *, int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void run_task__12TAdMcCheckGCFv(u8 *arg0) {
     s32 temp_r0;

@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TQuestVmDownLoadServer__sub_803E719C(u8 arg0, s32 arg1);
+
 s32 TQuestVmDownLoadServer__sub_803E719C(u8 arg0, s32 arg1) {
     return arg0 | ((arg1 & 0x100) + 0x2400);
 }

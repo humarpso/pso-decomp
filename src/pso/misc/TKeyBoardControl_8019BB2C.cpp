@@ -6,11 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
+void TKeyBoardControl__sub_8019BB2C(void);
 s32 TAdStorySelectGC__sub_8019DC14();
+M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
-M2C_UNK init__23TAdSinglePlyChrSelectGCFv();
 s32 fn_80219EE8();
+M2C_UNK init__23TAdSinglePlyChrSelectGCFv();
 
 void TKeyBoardControl__sub_8019BB2C(void) {
     s32 temp_r3;
