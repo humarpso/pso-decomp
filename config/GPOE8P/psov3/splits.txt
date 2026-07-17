@@ -5795,6 +5795,9 @@ pso/player/TObjPlayer_800F0878.cpp:
 pso/player/TObjPlayer_800F08CC.cpp:
 	.text       start:0x800F08CC end:0x800F0928
 
+pso/slices/pso_carve_800f09c0.cpp:
+	.text       start:0x800F09C0 end:0x800F09E8
+
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp:
 	.text       start:0x800F0AE4 end:0x800F0B20
 
@@ -5926,6 +5929,9 @@ pso/slices/pso_carve_800f6b68.cpp:
 
 pso/player/TObjPlayer_800F6DD8.cpp:
 	.text       start:0x800F6DD8 end:0x800F6E2C
+
+pso/slices/pso_carve_800f7428.cpp:
+	.text       start:0x800F7428 end:0x800F7450
 
 pso/misc/TLobby_800F7744.cpp:
 	.text       start:0x800F7744 end:0x800F7778
@@ -13401,6 +13407,9 @@ pso/object/TObjWarpBossMulti_8019E1D8.cpp:
 pso/slices/pso_carve_8019e308.cpp:
 	.text       start:0x8019E308 end:0x8019E418
 
+pso/slices/pso_carve_8019e48c.cpp:
+	.text       start:0x8019E48C end:0x8019E4B4
+
 pso/object/TObjWarpBossMulti_8019E5F8.cpp:
 	.text       start:0x8019E5F8 end:0x8019E67C
 
@@ -15750,6 +15759,9 @@ pso/misc/TPlyItem.cpp:
 
 pso/player/TObjPlayer_801D5220.cpp:
 	.text       start:0x801D5220 end:0x801D52A8
+
+pso/slices/pso_carve_801d53e8.cpp:
+	.text       start:0x801D53E8 end:0x801D5468
 
 pso/player/TObjPlayer_801D551C.cpp:
 	.text       start:0x801D551C end:0x801D55A4
@@ -18342,6 +18354,9 @@ pso/misc/TTecLuker_80233CA8.cpp:
 
 pso/misc/TTecLuker.cpp:
 	.text       start:0x80233DA8 end:0x80233DF4
+
+pso/slices/pso_carve_80233df4.cpp:
+	.text       start:0x80233DF4 end:0x80233E3C
 
 pso/misc/TTecLuker_802340D0.cpp:
 	.text       start:0x802340D0 end:0x802340E4
@@ -27599,6 +27614,9 @@ pso/boss/TBoss6CrushPtcl.cpp:
 pso/boss/TBoss6CrushPtcl_80359F78.cpp:
 	.text       start:0x80359F78 end:0x80359FC4
 
+pso/slices/pso_carve_80359fc4.cpp:
+	.text       start:0x80359FC4 end:0x80359FEC
+
 pso/boss/TBoss6CrushRock_80359FEC.cpp:
 	.text       start:0x80359FEC end:0x8035A064
 
@@ -28240,6 +28258,9 @@ pso/boss/TObjBoss8DemoRoom_8036B654.cpp:
 
 pso/boss/TObjBoss8DemoRoom_8036B698.cpp:
 	.text       start:0x8036B698 end:0x8036B6D0
+
+pso/slices/pso_carve_8036b720.cpp:
+	.text       start:0x8036B720 end:0x8036B748
 
 pso/enemy/TObjEneHoldEffect_8036B7E8.cpp:
 	.text       start:0x8036B7E8 end:0x8036B8D0
