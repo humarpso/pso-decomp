@@ -9886,6 +9886,9 @@ pso/misc/TOBoss4Rock.cpp:
 pso/npc/TObjNpcAHM01_80147AC8.cpp:
 	.text       start:0x80147AC8 end:0x80147B30
 
+pso/slices/pso_carve_80147b30.cpp:
+	.text       start:0x80147B30 end:0x80147B84
+
 pso/npc/TObjNpcAHM01.cpp:
 	.text       start:0x80147BC0 end:0x80147C18
 
@@ -9898,6 +9901,9 @@ pso/npc/TObjNpcFemaleBase_80147CD4.cpp:
 pso/npc/TObjNpcARM00_80147CDC.cpp:
 	.text       start:0x80147CDC end:0x80147D44
 
+pso/slices/pso_carve_80147d44.cpp:
+	.text       start:0x80147D44 end:0x80147D98
+
 pso/npc/TObjNpcARM00_80147DD4.cpp:
 	.text       start:0x80147DD4 end:0x80147E2C
 
@@ -9906,6 +9912,9 @@ pso/npc/TObjNpcARM00.cpp:
 
 pso/npc/TObjNpcARW00_80147EE8.cpp:
 	.text       start:0x80147EE8 end:0x80147F50
+
+pso/slices/pso_carve_80147f50.cpp:
+	.text       start:0x80147F50 end:0x80147FA4
 
 pso/npc/TObjNpcARW00.cpp:
 	.text       start:0x80147FE0 end:0x80148038
@@ -10084,11 +10093,17 @@ pso/npc/TObjNpcGovernorBase.cpp:
 pso/npc/TObjNpcHFW00_8014ACFC.cpp:
 	.text       start:0x8014ACFC end:0x8014AD64
 
+pso/slices/pso_carve_8014ad64.cpp:
+	.text       start:0x8014AD64 end:0x8014ADB8
+
 pso/npc/TObjNpcHFW00.cpp:
 	.text       start:0x8014ADF4 end:0x8014AE4C
 
 pso/npc/TObjNpcHFW01_8014AED0.cpp:
 	.text       start:0x8014AED0 end:0x8014AF38
+
+pso/slices/pso_carve_8014af38.cpp:
+	.text       start:0x8014AF38 end:0x8014AF8C
 
 pso/npc/TObjNpcHFW01.cpp:
 	.text       start:0x8014AFC8 end:0x8014B020
@@ -10096,17 +10111,26 @@ pso/npc/TObjNpcHFW01.cpp:
 pso/npc/TObjNpcHHM00_8014B0A4.cpp:
 	.text       start:0x8014B0A4 end:0x8014B10C
 
+pso/slices/pso_carve_8014b10c.cpp:
+	.text       start:0x8014B10C end:0x8014B160
+
 pso/npc/TObjNpcHHM00.cpp:
 	.text       start:0x8014B19C end:0x8014B1F4
 
 pso/npc/TObjNpcHRM00_8014B278.cpp:
 	.text       start:0x8014B278 end:0x8014B2E0
 
+pso/slices/pso_carve_8014b2e0.cpp:
+	.text       start:0x8014B2E0 end:0x8014B334
+
 pso/npc/TObjNpcHRM00.cpp:
 	.text       start:0x8014B370 end:0x8014B3C8
 
 pso/npc/TObjNpcHRM01_8014B44C.cpp:
 	.text       start:0x8014B44C end:0x8014B4B4
+
+pso/slices/pso_carve_8014b4b4.cpp:
+	.text       start:0x8014B4B4 end:0x8014B508
 
 pso/npc/TObjNpcHRM01.cpp:
 	.text       start:0x8014B544 end:0x8014B59C
@@ -10206,6 +10230,9 @@ pso/npc/TObjNpcMoja.cpp:
 
 pso/npc/TObjNpcNFM00_8014C884.cpp:
 	.text       start:0x8014C884 end:0x8014C8EC
+
+pso/slices/pso_carve_8014c8ec.cpp:
+	.text       start:0x8014C8EC end:0x8014C940
 
 pso/npc/TObjNpcNFM00.cpp:
 	.text       start:0x8014C97C end:0x8014C9D4
@@ -17402,6 +17429,9 @@ pso/misc/THunterGuildSeqOffline_802133C4.cpp:
 pso/misc/THunterGuildSeqOffline_80213458.cpp:
 	.text       start:0x80213458 end:0x80213474
 
+pso/slices/pso_carve_802136a4.cpp:
+	.text       start:0x802136A4 end:0x80213788
+
 pso/misc/THunterGuildSeqOffline_80213788.cpp:
 	.text       start:0x80213788 end:0x80213980
 
@@ -20167,6 +20197,9 @@ pso/misc/TWindowSubComCard_802724C4.cpp:
 pso/misc/TWindowSubComCard_80273054.cpp:
 	.text       start:0x80273054 end:0x802730E0
 
+pso/slices/pso_carve_8027315c.cpp:
+	.text       start:0x8027315C end:0x802731E8
+
 pso/misc/TWindowSubComCard_802731E8.cpp:
 	.text       start:0x802731E8 end:0x80273308
 
@@ -20460,6 +20493,9 @@ pso/misc/TWindowSubQuestBoardSelect_8027D9AC.cpp:
 
 pso/slices/pso_carve_8027db20.cpp:
 	.text       start:0x8027DB20 end:0x8027DB2C
+
+pso/slices/pso_carve_8027db2c.cpp:
+	.text       start:0x8027DB2C end:0x8027DBB8
 
 pso/misc/TWindowSubShortCut_8027DC38.cpp:
 	.text       start:0x8027DC38 end:0x8027DD18
@@ -27925,6 +27961,9 @@ pso/boss/TBoss6MagMine_8036897C.cpp:
 
 pso/boss/TBoss6MagMine_803689AC.cpp:
 	.text       start:0x803689AC end:0x803689D8
+
+pso/slices/pso_carve_803689d8.cpp:
+	.text       start:0x803689D8 end:0x80368A6C
 
 pso/boss/TBoss6MagMine_80368A6C.cpp:
 	.text       start:0x80368A6C end:0x80368AB8

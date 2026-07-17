@@ -1,0 +1,38 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TBoss6MagMine__sub_803689D8(void *arg0);
+M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
+M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
+s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
+s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
+s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
+M2C_UNK TObjPlayer__sub_803E4BC4();
+M2C_UNK TObjPlayer__sub_803E4BD0();
+
+extern f32 TBoss6MagMine__data_805E0314;
+
+void TBoss6MagMine__sub_803689D8(void *arg0) {
+    s32 temp_r31;
+    s32 temp_r31_2;
+    s32 temp_r30;
+
+    TObjPlayer__sub_803E4BC4();
+    temp_r31 = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x374), 2);
+    temp_r30 = TObjFish__sub_8001EDC4(M2C_FIELD(arg0, s32 *, 0x374), 2);
+    temp_r31_2 = TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x374), 0);
+    TObjFish__sub_803DA798(temp_r31);
+    TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3A8), TBoss6MagMine__data_805E0314);
+    TObjEneSlimeOne__sub_803E4AF4(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x398));
+    update_camera_target__14TBoss6PlotFalzFv();
+    TObjPlayer__sub_803E4BD0();
+}
+
+}
