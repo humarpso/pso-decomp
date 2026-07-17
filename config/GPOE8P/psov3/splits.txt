@@ -21035,6 +21035,9 @@ pso/boss/TObjBoss5Pillar.cpp:
 pso/boss/TObjBoss5Pillar_8028B6C0.cpp:
 	.text       start:0x8028B6C0 end:0x8028B714
 
+pso/slices/pso_carve_8028b714.cpp:
+	.text       start:0x8028B714 end:0x8028B810
+
 pso/slices/pso_carve_8028b810.cpp:
 	.text       start:0x8028B810 end:0x8028B8B8
 
@@ -23648,6 +23651,9 @@ pso/enemy/TObjEneGibbles_802D82D8.cpp:
 
 pso/enemy/TObjEneGibbles_802D87D8.cpp:
 	.text       start:0x802D87D8 end:0x802D8828
+
+pso/slices/pso_carve_802da394.cpp:
+	.text       start:0x802DA394 end:0x802DA578
 
 pso/enemy/TObjEneGibbles_802DA578.cpp:
 	.text       start:0x802DA578 end:0x802DA64C
@@ -28106,6 +28112,9 @@ pso/enemy/TObjEneIllGill.cpp:
 pso/enemy/TObjEneIllGill_80366A50.cpp:
 	.text       start:0x80366A50 end:0x80366AE4
 
+pso/slices/pso_carve_80367984.cpp:
+	.text       start:0x80367984 end:0x80367B00
+
 pso/enemy/TObjEneIllGill_803684B0.cpp:
 	.text       start:0x803684B0 end:0x80368518
 
@@ -28732,6 +28741,9 @@ pso/misc/TLobby_803C25F8.cpp:
 pso/misc/TLobby_803C3974.cpp:
 	.text       start:0x803C3974 end:0x803C3A1C
 
+pso/slices/pso_carve_803c3a1c.cpp:
+	.text       start:0x803C3A1C end:0x803C3A8C
+
 pso/misc/TLobby_803C3A8C.cpp:
 	.text       start:0x803C3A8C end:0x803C3ACC
 
@@ -29040,6 +29052,9 @@ pso/misc/TLobby_803DF1FC.cpp:
 
 pso/slices/pso_carve_803df5c4.cpp:
 	.text       start:0x803DF5C4 end:0x803DF5E4
+
+pso/slices/pso_carve_803df7a8.cpp:
+	.text       start:0x803DF7A8 end:0x803DF840
 
 pso/player/TObjPlayer_803E1BDC.cpp:
 	.text       start:0x803E1BDC end:0x803E1C40
