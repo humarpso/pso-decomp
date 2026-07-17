@@ -17564,6 +17564,9 @@ pso/misc/THunterGuildSeqOffline_80212CE8.cpp:
 pso/misc/THunterGuildSeqOffline_80212D9C.cpp:
 	.text       start:0x80212D9C end:0x80212E50
 
+pso/slices/pso_carve_80212e50.cpp:
+	.text       start:0x80212E50 end:0x80212F34
+
 pso/misc/THunterGuildSeqOffline.cpp:
 	.text       start:0x80213134 end:0x8021317C
 
@@ -21805,6 +21808,9 @@ pso/ui/TAdSelectGameModeGC.cpp:
 
 pso/player/TObjPlayer_802A1440.cpp:
 	.text       start:0x802A1440 end:0x802A1488
+
+pso/slices/pso_carve_802a1488.cpp:
+	.text       start:0x802A1488 end:0x802A14E4
 
 pso/player/TObjPlayer_802A14E4.cpp:
 	.text       start:0x802A14E4 end:0x802A1544
