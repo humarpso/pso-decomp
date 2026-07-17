@@ -2684,6 +2684,9 @@ pso/object/TObjTombstone_80074F58.cpp:
 pso/object/TObjTombstone_80075004.cpp:
 	.text       start:0x80075004 end:0x80075070
 
+pso/slices/pso_carve_80075764.cpp:
+	.text       start:0x80075764 end:0x80075854
+
 pso/object/TObjTombstone_80075854.cpp:
 	.text       start:0x80075854 end:0x80075920
 
@@ -5466,6 +5469,9 @@ pso/enemy/TObjEneMe3ShinowaMirage_800E6FFC.cpp:
 
 pso/enemy/TObjEneMe3ShinowaMirage_800E7034.cpp:
 	.text       start:0x800E7034 end:0x800E70D4
+
+pso/slices/pso_carve_800e70d4.cpp:
+	.text       start:0x800E70D4 end:0x800E71A8
 
 pso/enemy/TObjEneMe3Shinowa_800E71A8.cpp:
 	.text       start:0x800E71A8 end:0x800E7250
@@ -14357,6 +14363,9 @@ pso/slices/pso_carve_801bcb70.cpp:
 pso/player/TObjPlayer_801BCC30.cpp:
 	.text       start:0x801BCC30 end:0x801BCC54
 
+pso/slices/pso_carve_801bcc54.cpp:
+	.text       start:0x801BCC54 end:0x801BCD28
+
 pso/player/TObjPlayer_801BCD28.cpp:
 	.text       start:0x801BCD28 end:0x801BCD58
 
@@ -18728,6 +18737,9 @@ pso/misc/TWindowSubSymbolChatPartsSet_80248064.cpp:
 pso/misc/TWindowSubSymbolChatPartsSet_802482DC.cpp:
 	.text       start:0x802482DC end:0x80248300
 
+pso/slices/pso_carve_80248300.cpp:
+	.text       start:0x80248300 end:0x80248324
+
 pso/slices/pso_carve_802483c8.cpp:
 	.text       start:0x802483C8 end:0x802483F0
 
@@ -22297,6 +22309,9 @@ pso/boss/TBoss6PlotFalz_802B0228.cpp:
 pso/boss/TBoss6PlotFalz_802B02B0.cpp:
 	.text       start:0x802B02B0 end:0x802B0340
 
+pso/slices/pso_carve_802b0340.cpp:
+	.text       start:0x802B0340 end:0x802B03F4
+
 pso/boss/TBoss6PlotFalz_802B03F4.cpp:
 	.text       start:0x802B03F4 end:0x802B0518
 
@@ -23433,6 +23448,9 @@ pso/enemy/TObjEneGibbles_802D80AC.cpp:
 pso/enemy/TObjEneGibbles_802D8274.cpp:
 	.text       start:0x802D8274 end:0x802D82D8
 
+pso/slices/pso_carve_802d82d8.cpp:
+	.text       start:0x802D82D8 end:0x802D8464
+
 pso/enemy/TObjEneGibbles_802D87D8.cpp:
 	.text       start:0x802D87D8 end:0x802D8828
 
@@ -23923,6 +23941,9 @@ pso/boss/TBoss7PhotonPad.cpp:
 pso/boss/TBoss7Tentacle_802EF8F4.cpp:
 	.text       start:0x802EF8F4 end:0x802EF954
 	.rodata     start:0x804740C8 end:0x804740D0
+
+pso/slices/pso_carve_802ef954.cpp:
+	.text       start:0x802EF954 end:0x802EF99C
 
 pso/boss/TBoss7TentacleNeedle_802EFBA4.cpp:
 	.text       start:0x802EFBA4 end:0x802EFBD0
