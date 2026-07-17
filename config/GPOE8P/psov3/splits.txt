@@ -12396,6 +12396,9 @@ pso/object/TObjCity_Season_ValentineHeart_801845F8.cpp:
 pso/object/TObjCity_Season_ValentineHeart.cpp:
 	.text       start:0x80184620 end:0x801846E0
 
+pso/slices/pso_carve_80184774.cpp:
+	.text       start:0x80184774 end:0x80184810
+
 pso/object/TObjCity_Season_EasterEgg_80184810.cpp:
 	.text       start:0x80184810 end:0x80184864
 
@@ -16032,6 +16035,9 @@ pso/slices/pso_carve_801db10c.cpp:
 
 pso/slices/pso_carve_801db160.cpp:
 	.text       start:0x801DB160 end:0x801DB1B4
+
+pso/slices/pso_carve_801db630.cpp:
+	.text       start:0x801DB630 end:0x801DB684
 
 pso/slices/pso_carve_801db8ec.cpp:
 	.text       start:0x801DB8EC end:0x801DB93C
@@ -20643,6 +20649,9 @@ pso/misc/TWindowSubShortMail_8027E65C.cpp:
 
 pso/misc/TWindowSubShortMail_8027E6FC.cpp:
 	.text       start:0x8027E6FC end:0x8027E76C
+
+pso/slices/pso_carve_8027e7f8.cpp:
+	.text       start:0x8027E7F8 end:0x8027E884
 
 pso/misc/TWindowSubShortMail_8027E884.cpp:
 	.text       start:0x8027E884 end:0x8027E9FC
