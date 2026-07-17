@@ -10240,11 +10240,17 @@ pso/npc/TObjNpcNFM00.cpp:
 pso/npc/TObjNpcNFM01_8014CA58.cpp:
 	.text       start:0x8014CA58 end:0x8014CAC0
 
+pso/slices/pso_carve_8014cac0.cpp:
+	.text       start:0x8014CAC0 end:0x8014CB14
+
 pso/npc/TObjNpcNFM01.cpp:
 	.text       start:0x8014CB50 end:0x8014CBA8
 
 pso/npc/TObjNpcNFW00_8014CC2C.cpp:
 	.text       start:0x8014CC2C end:0x8014CC94
+
+pso/slices/pso_carve_8014cc94.cpp:
+	.text       start:0x8014CC94 end:0x8014CCE8
 
 pso/npc/TObjNpcNFW00.cpp:
 	.text       start:0x8014CD24 end:0x8014CD7C
@@ -10252,17 +10258,26 @@ pso/npc/TObjNpcNFW00.cpp:
 pso/npc/TObjNpcNFW01_8014CE00.cpp:
 	.text       start:0x8014CE00 end:0x8014CE68
 
+pso/slices/pso_carve_8014ce68.cpp:
+	.text       start:0x8014CE68 end:0x8014CEBC
+
 pso/npc/TObjNpcNFW01.cpp:
 	.text       start:0x8014CEF8 end:0x8014CF50
 
 pso/npc/TObjNpcNHW00_8014CFD4.cpp:
 	.text       start:0x8014CFD4 end:0x8014D03C
 
+pso/slices/pso_carve_8014d03c.cpp:
+	.text       start:0x8014D03C end:0x8014D090
+
 pso/npc/TObjNpcNHW00.cpp:
 	.text       start:0x8014D0CC end:0x8014D124
 
 pso/npc/TObjNpcNHW01_8014D1A8.cpp:
 	.text       start:0x8014D1A8 end:0x8014D210
+
+pso/slices/pso_carve_8014d210.cpp:
+	.text       start:0x8014D210 end:0x8014D264
 
 pso/npc/TObjNpcNHW01.cpp:
 	.text       start:0x8014D2A0 end:0x8014D2F8
