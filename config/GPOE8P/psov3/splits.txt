@@ -15168,6 +15168,9 @@ pso/player/TObjPlayer_801CC910.cpp:
 pso/player/TObjPlayer_801CC9E4.cpp:
 	.text       start:0x801CC9E4 end:0x801CCA08
 
+pso/slices/pso_carve_801ccbb8.cpp:
+	.text       start:0x801CCBB8 end:0x801CCC40
+
 pso/player/TObjPlayer_801CCC40.cpp:
 	.text       start:0x801CCC40 end:0x801CCD38
 
