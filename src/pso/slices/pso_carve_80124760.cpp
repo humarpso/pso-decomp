@@ -17,7 +17,7 @@ M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
 extern const f32 lbl_805DAD28;
 extern const f32 lbl_805DAD2C;
 
-void TObjPlayer__sub_80124760(u8 *arg0) {
+void reset_owner_target__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;

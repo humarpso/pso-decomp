@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801C4F80(s32 arg0);
+void update_child_player__6TLobbyFi(s32 arg0);
 void TLobby__sub_801C4FBC(void* p, f32 v);
 s32 TLobby__sub_801C4FC4(void* p);
 void TLobby__sub_801C4FCC(void* p, f32 v);
@@ -23,7 +23,7 @@ M2C_UNK TObjPlayer__sub_801C19C8(f32);
 
 extern const f32 lbl_805DC300;
 
-void TLobby__sub_801C4F80(s32 arg0) {
+void update_child_player__6TLobbyFi(s32 arg0) {
     TObjPlayer__sub_801C19C8(lbl_805DC300);
     TLobby__sub_801C4FBC((void*)(arg0), lbl_805DC300);
 }

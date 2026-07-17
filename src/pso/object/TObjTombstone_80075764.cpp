@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjTombstone__sub_80075764(u8 *arg0);
+void update_render_flags__13TObjTombstoneFPv(u8 *arg0);
 M2C_UNK PPCSync();
 M2C_UNK TOComputerMachine01__sub_8023DDC8(void *, int, int, int, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -19,7 +19,7 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 extern u32 TObjTombstone__data_805D4E48;
 extern s32 lbl_805D4E4C;
 
-void TObjTombstone__sub_80075764(u8 *arg0) {
+void update_render_flags__13TObjTombstoneFPv(u8 *arg0) {
     u8 *temp_r3;
     s32 *temp_r4;
 

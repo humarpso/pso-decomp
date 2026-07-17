@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK send_45_and_close_windows__6TLobbyFv(void *);
-M2C_UNK TLobby__sub_80072DA0(void *);
+M2C_UNK show_ctrl_and_play_effect__6TLobbyFPv(void *);
 M2C_UNK play_default_effect__6TLobbyFPv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -19,7 +19,7 @@ void handle_challenge_retry_confirm(void *arg0) {
     play_default_effect__6TLobbyFPv();
     if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
         send_45_and_close_windows__6TLobbyFv(arg0);
-        TLobby__sub_80072DA0(arg0);
+        show_ctrl_and_play_effect__6TLobbyFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 2;
     }
 }

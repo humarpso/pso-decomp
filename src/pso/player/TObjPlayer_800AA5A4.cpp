@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_800AA330(void *);
 M2C_UNK TObjPlayer__sub_800AA528(void *);
 M2C_UNK TObjPlayer__sub_800AB068(void *);
 M2C_UNK TObjPlayer__sub_800C6A18(void *);
-M2C_UNK TObjPlayer__sub_800F6DD8(void *);
+M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -44,7 +44,7 @@ void update_synced_state__10TObjPlayerFPv(u8 *arg0) {
     }
     TObjPlayer__sub_800AA528(arg0);
     TObjPlayer__sub_800AB068(arg0);
-    TObjPlayer__sub_800F6DD8(arg0);
+    update_prev_position__10TObjPlayerFPv(arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
     if (obj_testFlags30(arg0, 0x04000000) == 0) {
         TObjPlayer__sub_801B4A18(arg0, -1);

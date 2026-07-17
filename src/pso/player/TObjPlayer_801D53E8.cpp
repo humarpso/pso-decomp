@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801D53E8(void *arg0);
+void collect_alive_owners__10TObjPlayerFPv(void *arg0);
 u32 get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(s32);
 
 extern s32 lbl_805D5DF4;
 extern u32 *lbl_805D5DF8;
 
-void TObjPlayer__sub_801D53E8(void *arg0) {
+void collect_alive_owners__10TObjPlayerFPv(void *arg0) {
     u32 temp_r3;
     void *var_r31;
 
@@ -27,7 +27,7 @@ void TObjPlayer__sub_801D53E8(void *arg0) {
                 lbl_805D5DF4 += 1;
             }
         }
-        TObjPlayer__sub_801D53E8((void *)(var_r31));
+        collect_alive_owners__10TObjPlayerFPv((void *)(var_r31));
         var_r31 = M2C_FIELD(var_r31, void **, 0xC);
     }
 }

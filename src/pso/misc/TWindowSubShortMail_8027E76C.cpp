@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubShortMail__sub_8027E76C(void *arg0);
-s32 TWindowSubShortMail__sub_8027E7F8(void *arg0);
+s32 open_delete_confirm_dialog__19TWindowSubShortMailFPv(void *arg0);
+s32 open_confirm_dialog__19TWindowSubShortMailFPv(void *arg0);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubShortMail__sub_802A58AC(s32, s32, s32, s32, f32);
@@ -17,7 +17,7 @@ M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
 
 extern const f32 TWindowSubShortMail__data_805DD6C8;
 
-s32 TWindowSubShortMail__sub_8027E76C(void *arg0) {
+s32 open_delete_confirm_dialog__19TWindowSubShortMailFPv(void *arg0) {
     s32 temp_r29;
 
     temp_r29 = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
@@ -29,7 +29,7 @@ s32 TWindowSubShortMail__sub_8027E76C(void *arg0) {
 
 extern const f32 TWindowSubShortMail__data_805DD6C8;
 
-s32 TWindowSubShortMail__sub_8027E7F8(void *arg0) {
+s32 open_confirm_dialog__19TWindowSubShortMailFPv(void *arg0) {
     s32 temp_r29;
 
     temp_r29 = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);

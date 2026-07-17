@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_803E21B8(void);
 void TObjPlayer__sub_803E21DC(void);
-void TObjPlayer__sub_803E2200(void);
+void setup_render__10TObjPlayerFv(void);
 void TObjPlayer__sub_803E2224(void);
 void TObjPlayer__sub_803E2248(void);
 M2C_UNK setup_vertex_format__10TObjPlayerFv();
@@ -26,7 +26,7 @@ void TObjPlayer__sub_803E21DC(void) {
     setup_vertex_format__10TObjPlayerFv();
 }
 
-void TObjPlayer__sub_803E2200(void) {
+void setup_render__10TObjPlayerFv(void) {
     TObjPlayer__sub_803E24E0();
     setup_vtx_desc__10TObjPlayerFv();
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 void TWindowSubStatusDisp__sub_80338A9C(void);
 void *TWindowSubStatusDisp__sub_80338AA0(void *arg0, s16 arg1);
-M2C_UNK TWindowSubStatusDisp__sub_80258058(void *, M2C_UNK);
+M2C_UNK deleting_destructor__20TWindowSubStatusDispFPvs(void *, M2C_UNK);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK free__11TOBoss4RockFUi(void *);
 
@@ -23,7 +23,7 @@ void *TWindowSubStatusDisp__sub_80338AA0(void *arg0, s16 arg1) {
             free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x24));
             M2C_FIELD(arg0, u32 *, 0x24) = 0U;
         }
-        TWindowSubStatusDisp__sub_80258058(arg0, 0);
+        deleting_destructor__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

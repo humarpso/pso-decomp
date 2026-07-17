@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800F6DD8(u8 *arg0);
+void update_prev_position__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 extern const f32 lbl_805DA8DC;
 
-void TObjPlayer__sub_800F6DD8(u8 *arg0) {
+void update_prev_position__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
 
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));

@@ -12,7 +12,7 @@ M2C_UNK TLobby__sub_80269C6C(u32, s32, M2C_UNK);
 u32 TLobby__sub_80269CC0(u32, M2C_UNK *, M2C_UNK, s32);
 u32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 s32 select_main_menu_item_10(s32);
-M2C_UNK fn_80263AB0(u32, s32);
+M2C_UNK call_if_split_screen(u32, s32);
 
 extern M2C_UNK lbl_8044F2E0[];
 extern const f32 lbl_805DD13C;
@@ -24,7 +24,7 @@ void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1) {
             u32 tmp = TWindowSubComCard__sub_8026CBB8(0x1B);
             M2C_FIELD(arg0, u32 *, 0x24) = TLobby__sub_80269CC0(tmp, lbl_8044F2E0, 1, M2C_FIELD(arg0, s32 *, 0x54));
             set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x24), lbl_805DD13C);
-            fn_80263AB0(M2C_FIELD(arg0, u32 *, 0x24), M2C_FIELD(arg0, s32 *, 0x54));
+            call_if_split_screen(M2C_FIELD(arg0, u32 *, 0x24), M2C_FIELD(arg0, s32 *, 0x54));
         }
         TLobby__sub_80269C6C(M2C_FIELD(arg0, u32 *, 0x24), select_main_menu_item_10(arg1), 0x80);
     }

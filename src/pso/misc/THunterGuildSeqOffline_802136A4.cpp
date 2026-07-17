@@ -18,7 +18,7 @@ struct VObj_802136A4 : Base_802136A4 {
 
 extern "C" {
 
-void THunterGuildSeqOffline__sub_802136A4(void *arg0);
+void open_judgment_item_window__22THunterGuildSeqOfflineFPv(void *arg0);
 s32 TQuestListVM__sub_80073DC4(void *, s32);
 s32 TShopJudgmentItemWindow__sub_80266388(s32, u16, s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
@@ -29,7 +29,7 @@ s32 fn_8024422C(s32, f32, f32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 u16 obj_getField1c(s32);
 
-void THunterGuildSeqOffline__sub_802136A4(void *arg0) {
+void open_judgment_item_window__22THunterGuildSeqOfflineFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
 

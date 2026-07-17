@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6PlotFalz__sub_802B0340(u8 *arg0);
+void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0);
 M2C_UNK TBoss6PlotFalz__sub_802ABBC4(void *, void *);
 M2C_UNK TBoss6PlotFalz__sub_802AC6D0();
 M2C_UNK TBoss6Type2__sub_802BD3CC(void *, void *, void *, void *);
@@ -19,7 +19,7 @@ M2C_UNK try_dispatch_darkfalz_phase__12TBoss6ThanksFv();
 
 extern u32 TBoss6PlotFalz__data_805D66F4;
 
-void TBoss6PlotFalz__sub_802B0340(u8 *arg0) {
+void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0) {
     s32 sp10[2];
     u16 sp8[4];
     s32 var_r29;

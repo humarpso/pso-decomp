@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803C8990(u8 *arg0, s32 arg1);
+void set_scroll_position__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void TLobby__sub_803C89B8(u8 *arg0, s32 arg1, s32 arg2);
 
-void TLobby__sub_803C8990(u8 *arg0, s32 arg1) {
+void set_scroll_position__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     if (arg1 >= 0) {
         M2C_FIELD(arg0, s32 *, 0x30) = arg1;
         return;

@@ -11,7 +11,7 @@ M2C_UNK TLobby__sub_80072308(s32);
 M2C_UNK close_window_2c__6TLobbyFPv(void *);
 M2C_UNK open_loss_menu__6TLobbyFPv(void *);
 M2C_UNK send_45_and_close_windows__6TLobbyFv(void *);
-M2C_UNK TLobby__sub_80072DA0();
+M2C_UNK show_ctrl_and_play_effect__6TLobbyFPv();
 M2C_UNK play_default_effect__6TLobbyFPv(void *);
 M2C_UNK play_player_default_effect__6TLobbyFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
@@ -25,7 +25,7 @@ void update_challenge_retry__6TLobbyFPv(void *arg0) {
     s32 temp_r3;
     s32 var_r31;
 
-    TLobby__sub_80072DA0();
+    show_ctrl_and_play_effect__6TLobbyFPv();
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
         open_loss_menu__6TLobbyFPv(arg0);
     }
