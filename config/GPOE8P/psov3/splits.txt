@@ -13724,6 +13724,9 @@ pso/slices/pso_carve_801a5544.cpp:
 pso/misc/TPacket_801A558C.cpp:
 	.text       start:0x801A558C end:0x801A5598
 
+pso/slices/pso_carve_801a5598.cpp:
+	.text       start:0x801A5598 end:0x801A5604
+
 pso/misc/TPacket.cpp:
 	.text       start:0x801A5604 end:0x801A5650
 
