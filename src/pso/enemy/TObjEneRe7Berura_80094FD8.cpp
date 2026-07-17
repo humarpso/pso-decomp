@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe7Berura__sub_80094FD8(s32 arg0, u8 *arg1);
+void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1);
 M2C_UNK TObjEneRe7Berura__sub_8009503C(void *, int);
 M2C_UNK TObjPlayer__sub_803D97F0(void *, int, int, int);
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -17,7 +17,7 @@ extern s32 lbl_805D4F94;
 extern s32 TObjEneRe7Berura__data_805D4F98;
 extern s32 lbl_805D4F9C;
 
-void TObjEneRe7Berura__sub_80094FD8(s32 arg0, u8 *arg1) {
+void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1) {
     s32 temp_r4;
     s32 temp_r5;
     s32 temp_r6;

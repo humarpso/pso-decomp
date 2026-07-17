@@ -12,7 +12,7 @@ M2C_UNK add_battle_stat_entry(void *, u32, s32, M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80279044(void *);
 s32 TWindowSubItem__sub_8027AA78(u32);
 
-void fn_80278964(void *arg0) {
+void refresh_battle_stat_list(void *arg0) {
     u32 var_r31;
 
     var_r31 = 0U;

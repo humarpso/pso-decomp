@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
-void fn_8023508C(u8 *arg0) {
+void update_by_state__9TTecMegidFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r3;
 

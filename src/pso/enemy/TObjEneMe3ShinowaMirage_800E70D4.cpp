@@ -15,7 +15,7 @@ struct VObj18b_800e70d4 : VBase18b_800e70d4 {
     virtual M2C_UNK m4(void *, void *);
 };
 
-void TObjEneMe3ShinowaMirage__sub_800E70D4(u8 *arg0);
+void apply_effect_pair__23TObjEneMe3ShinowaMirageFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
@@ -27,7 +27,7 @@ u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 extern s32 TObjEneMe3ShinowaMirage__data_805D52A4;
 extern s32 TObjEneMe3ShinowaMirage__data_805D52A8;
 
-void TObjEneMe3ShinowaMirage__sub_800E70D4(u8 *arg0) {
+void apply_effect_pair__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
     M2C_UNK sp8[8];
     u32 temp_r3;
     u32 temp_r3_3;

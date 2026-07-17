@@ -21,14 +21,14 @@ s32 get_main_phase();
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, M2C_UNK *);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
 
-extern M2C_UNK TKeyBoardControl__sub_8019BB2C[];
+extern M2C_UNK dispatch_select_phase__16TKeyBoardControlFv[];
 extern s32 tl_00;
 
 void create_and_init__18TObjAreaWarpEndingFv(void) {
     TBoss3Volopt__sub_8022675C(0x40003205, 0, 0, 0);
     u32 obj = __nw__7TObjectFUl(0x28);
     if (obj != 0U) {
-        init__22THunterGuildSeqOfflineFPvPvPv(obj, tl_00, TKeyBoardControl__sub_8019BB2C);
+        init__22THunterGuildSeqOfflineFPvPvPv(obj, tl_00, dispatch_select_phase__16TKeyBoardControlFv);
     }
 }
 

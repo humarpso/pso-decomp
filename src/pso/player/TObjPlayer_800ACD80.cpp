@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_800ACD80(u8 *arg0);
+void update_ground_effect__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
@@ -17,7 +17,7 @@ M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 
 extern const f32 lbl_805D9BD8;
 
-void TObjPlayer__sub_800ACD80(u8 *arg0) {
+void update_ground_effect__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r4;
 
     TBoss1Dragon__sub_80143504();

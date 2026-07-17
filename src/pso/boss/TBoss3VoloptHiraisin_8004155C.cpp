@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3VoloptHiraisin__sub_8004155C(void *arg0);
+void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0);
 M2C_UNK TBoss3VoloptHiraisin__sub_8004118C();
 M2C_UNK TBoss3VoloptHiraisin__sub_800411F0();
 M2C_UNK TBoss3VoloptHiraisin__sub_80041314();
 M2C_UNK fn_80040FDC();
 
-void TBoss3VoloptHiraisin__sub_8004155C(void *arg0) {
+void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);

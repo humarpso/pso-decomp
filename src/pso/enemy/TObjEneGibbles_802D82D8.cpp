@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneGibbles__sub_802D82D8(u8 *arg0);
+void update_action_state__14TObjEneGibblesFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TObjEneGibbles__sub_802D7F94(void *, int);
@@ -21,7 +21,7 @@ M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 
 extern const f32 TObjEneGibbles__data_805DE7E4;
 
-void TObjEneGibbles__sub_802D82D8(u8 *arg0) {
+void update_action_state__14TObjEneGibblesFPv(u8 *arg0) {
     s16 temp_r0;
     u8 *temp_r4;
 

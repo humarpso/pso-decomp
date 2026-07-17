@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_803D0EB8(u32 arg0, s32 arg1);
 void TLobby__sub_803D0EDC(void);
-void TLobby__sub_803D0EFC(void);
+void enter_lock__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803D1FD4();
 M2C_UNK lock_enter__6TLobbyFv();
 
@@ -29,7 +29,7 @@ void TLobby__sub_803D0EDC(void) {
     TLobby__sub_803D1FD4();
 }
 
-void TLobby__sub_803D0EFC(void) {
+void enter_lock__6TLobbyFv(void) {
     lock_enter__6TLobbyFv();
 }
 

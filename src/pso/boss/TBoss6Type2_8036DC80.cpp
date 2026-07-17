@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_8036DC80(u8 *arg0);
+void apply_pending_effect__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK TBoss6Type2__sub_802BA20C(void *, void *);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 u16 obj_getField1c();
 
 extern s8 lbl_804F36F8[];
 
-void TBoss6Type2__sub_8036DC80(u8 *arg0) {
+void apply_pending_effect__11TBoss6Type2FPv(u8 *arg0) {
     u16 temp_r3;
     u8 *temp_r31;
 
