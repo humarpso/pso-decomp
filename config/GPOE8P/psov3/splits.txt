@@ -18031,6 +18031,9 @@ pso/slices/pso_carve_8022b35c.cpp:
 pso/misc/TTecAnti_8022B414.cpp:
 	.text       start:0x8022B414 end:0x8022B418
 
+pso/slices/pso_carve_8022b418.cpp:
+	.text       start:0x8022B418 end:0x8022B540
+
 pso/misc/TTecBarta_8022B844.cpp:
 	.text       start:0x8022B844 end:0x8022B8F4
 
@@ -18117,6 +18120,9 @@ pso/misc/TTecFoie_80230094.cpp:
 pso/misc/TTecFoie.cpp:
 	.text       start:0x802301E8 end:0x802301EC
 
+pso/slices/pso_carve_80230378.cpp:
+	.text       start:0x80230378 end:0x802304A0
+
 pso/misc/TTecGiBarta_80230A98.cpp:
 	.text       start:0x80230A98 end:0x80230B48
 
@@ -18202,6 +18208,9 @@ pso/misc/TTecLuker_80234F68.cpp:
 pso/slices/pso_carve_80234f7c.cpp:
 	.text       start:0x80234F7C end:0x8023508C
 
+pso/slices/pso_carve_8023508c.cpp:
+	.text       start:0x8023508C end:0x802351B4
+
 pso/misc/TTecMegid.cpp:
 	.text       start:0x802355E0 end:0x80235694
 
@@ -18249,6 +18258,9 @@ pso/misc/TTecRaBarta_80237B48.cpp:
 
 pso/slices/pso_carve_80237b4c.cpp:
 	.text       start:0x80237B4C end:0x80237BD8
+
+pso/slices/pso_carve_80237e90.cpp:
+	.text       start:0x80237E90 end:0x80237FB8
 
 pso/misc/TTecRaFoie.cpp:
 	.text       start:0x80238488 end:0x802384E0
