@@ -4540,6 +4540,9 @@ pso/enemy/TObjEneDD_800BBD18.cpp:
 pso/enemy/TObjEneDD_800BBD70.cpp:
 	.text       start:0x800BBD70 end:0x800BBDD4
 
+pso/slices/pso_carve_800bbdd4.cpp:
+	.text       start:0x800BBDD4 end:0x800BBE1C
+
 pso/enemy/TObjEneDD_800BBE1C.cpp:
 	.text       start:0x800BBE1C end:0x800BBE64
 
@@ -14489,6 +14492,9 @@ pso/player/TObjPlayer_801BD570.cpp:
 pso/player/TObjPlayer_801BD928.cpp:
 	.text       start:0x801BD928 end:0x801BDBB4
 
+pso/slices/pso_carve_801bdd8c.cpp:
+	.text       start:0x801BDD8C end:0x801BDDDC
+
 pso/player/TObjPlayer_801BDDDC.cpp:
 	.text       start:0x801BDDDC end:0x801BDE60
 
@@ -14548,6 +14554,9 @@ pso/player/TObjPlayer_801BEC90.cpp:
 
 pso/player/TObjPlayer.cpp:
 	.text       start:0x801BEC98 end:0x801BEDC0
+
+pso/slices/pso_carve_801bedc0.cpp:
+	.text       start:0x801BEDC0 end:0x801BEE08
 
 pso/player/TObjPlayer_801BEE08.cpp:
 	.text       start:0x801BEE08 end:0x801BEE18
@@ -15772,6 +15781,9 @@ pso/item/TItemList_801D5ABC.cpp:
 pso/item/TItemList_801D5B10.cpp:
 	.text       start:0x801D5B10 end:0x801D5BC0
 
+pso/slices/pso_carve_801d5bc0.cpp:
+	.text       start:0x801D5BC0 end:0x801D5C08
+
 pso/item/TItemList_801D5C08.cpp:
 	.text       start:0x801D5C08 end:0x801D5CB8
 
@@ -16568,8 +16580,20 @@ pso/slices/run_801F25A4.cpp:
 pso/slices/run_801F263C.cpp:
 	.text       start:0x801F263C end:0x801F26A8
 
+pso/slices/pso_carve_801f2700.cpp:
+	.text       start:0x801F2700 end:0x801F2748
+
 pso/misc/TLobby_801F2974.cpp:
 	.text       start:0x801F2974 end:0x801F29CC
+
+pso/slices/pso_carve_801f29cc.cpp:
+	.text       start:0x801F29CC end:0x801F2A14
+
+pso/slices/pso_carve_801f2a14.cpp:
+	.text       start:0x801F2A14 end:0x801F2A5C
+
+pso/slices/pso_carve_801f2b0c.cpp:
+	.text       start:0x801F2B0C end:0x801F2B54
 
 pso/misc/TLobby_801F2BFC.cpp:
 	.text       start:0x801F2BFC end:0x801F2C34
@@ -27893,6 +27917,9 @@ pso/player/TObjPlayer_80363CA0.cpp:
 pso/player/TObjPlayer_80363CE0.cpp:
 	.text       start:0x80363CE0 end:0x80363D14
 
+pso/slices/pso_carve_80363d14.cpp:
+	.text       start:0x80363D14 end:0x80363D4C
+
 pso/player/TObjPlayer_80363E78.cpp:
 	.text       start:0x80363E78 end:0x80363EC4
 
@@ -27913,6 +27940,9 @@ pso/player/TObjPlayer_80363FEC.cpp:
 
 pso/player/TObjPlayer_803641EC.cpp:
 	.text       start:0x803641EC end:0x80364220
+
+pso/slices/pso_carve_80364220.cpp:
+	.text       start:0x80364220 end:0x80364258
 
 pso/player/TObjPlayer_80364258.cpp:
 	.text       start:0x80364258 end:0x80364280
