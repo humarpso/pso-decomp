@@ -1275,6 +1275,9 @@ pso/boss/TBoss3Volopt_80040FCC.cpp:
 pso/boss/TBoss3VoloptHiraisin_800410EC.cpp:
 	.text       start:0x800410EC end:0x8004118C
 
+pso/slices/pso_carve_8004155c.cpp:
+	.text       start:0x8004155C end:0x800415D0
+
 pso/boss/TBoss3VoloptHiraisin_8004172C.cpp:
 	.text       start:0x8004172C end:0x80041770
 
@@ -2840,6 +2843,9 @@ pso/misc/TCineCtrl_80077F08.cpp:
 pso/misc/TCineCtrl.cpp:
 	.text       start:0x80078000 end:0x80078064
 
+pso/slices/pso_carve_80078064.cpp:
+	.text       start:0x80078064 end:0x800780D0
+
 pso/slices/pso_carve_800780d0.cpp:
 	.text       start:0x800780D0 end:0x80078110
 
@@ -3004,6 +3010,9 @@ pso/encryption/PSOV3EncryptionTCP.cpp:
 
 pso/item/TItemDrop.cpp:
 	.text       start:0x8007C520 end:0x8007C550
+
+pso/slices/pso_carve_8007c550.cpp:
+	.text       start:0x8007C550 end:0x8007C584
 
 pso/slices/pso_carve_8007cc68.cpp:
 	.text       start:0x8007CC68 end:0x8007CCD0
@@ -7086,6 +7095,9 @@ pso/item/TItemLoad_8010FF68.cpp:
 
 pso/item/TItemLoad_8010FFAC.cpp:
 	.text       start:0x8010FFAC end:0x80110010
+
+pso/slices/pso_carve_80110010.cpp:
+	.text       start:0x80110010 end:0x8011006C
 
 pso/item/TItemLoad_80110154.cpp:
 	.text       start:0x80110154 end:0x8011029C
@@ -13332,11 +13344,17 @@ pso/object/TObjMapWarpForest_8019CF38.cpp:
 pso/object/TObjMapWarp.cpp:
 	.text       start:0x8019D4E4 end:0x8019D5AC
 
+pso/slices/pso_carve_8019d6f8.cpp:
+	.text       start:0x8019D6F8 end:0x8019D764
+
 pso/object/TObjWarpBase_8019D880.cpp:
 	.text       start:0x8019D880 end:0x8019D964
 
 pso/object/TObjWarpBase.cpp:
 	.text       start:0x8019D964 end:0x8019D9CC
+
+pso/slices/pso_carve_8019da54.cpp:
+	.text       start:0x8019DA54 end:0x8019DAC0
 
 pso/object/TObjWarpBase_8019DB64.cpp:
 	.text       start:0x8019DB64 end:0x8019DBB4
@@ -18083,6 +18101,9 @@ pso/misc/TLobby_80227F7C.cpp:
 
 pso/misc/TLobby_80228500.cpp:
 	.text       start:0x80228500 end:0x80228578
+
+pso/slices/pso_carve_80228818.cpp:
+	.text       start:0x80228818 end:0x8022884C
 
 pso/slices/pso_carve_80228ab0.cpp:
 	.text       start:0x80228AB0 end:0x80228AF0
