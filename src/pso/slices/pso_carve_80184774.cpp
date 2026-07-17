@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_80184774(u8 *arg0);
+void notify_fish_on_easter_egg(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjFish__sub_803DA798(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
@@ -26,7 +26,7 @@ struct VObj_8018455c : VBase_8018455c {
     virtual s32 m8(f32, f32);
 };
 
-void fn_80184774(u8 *arg0) {
+void notify_fish_on_easter_egg(u8 *arg0) {
     u8 *temp_r3;
 
     temp_r3 = TObjCity_Season_EasterEgg__sub_80184AB8();

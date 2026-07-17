@@ -8,7 +8,7 @@ extern "C" {
 
 void update_layout__20TWindowSubSymbolChatFPv(void* p);
 void update_symbol_chat_result__20TWindowSubSymbolChatFv(void);
-void TWindowSubSymbolChat__sub_8007737C(void *arg0);
+void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 int TWindowSubSymbolChat__sub_80077098(void);
 int TWindowSubSymbolChat__sub_800770D0(void);
@@ -23,7 +23,7 @@ void update_layout__20TWindowSubSymbolChatFPv(void* p) { TWindowSubSymbolChat__s
     extern int lbl_805D4E50;
 void update_symbol_chat_result__20TWindowSubSymbolChatFv(void) { lbl_805D4E50 = TWindowSubSymbolChat__sub_80077480(); }
 
-void TWindowSubSymbolChat__sub_8007737C(void *arg0) {
+void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
     if (TWindowSubSymbolChat__sub_80077720() != 0) {
         TWindowSubSymbolChat__sub_800773BC(((u32) M2C_FIELD(arg0, u32 *, 0x1C) >> 5U) & 0xF);
     }

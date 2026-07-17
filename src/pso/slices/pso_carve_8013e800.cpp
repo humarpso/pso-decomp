@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TPlyDispConfig__sub_80071F1C(s32, s32);
+s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
 int TMainCursor__sub_8013E378(void* a0 = 0, void* a1 = 0);

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowFukidasi__sub_802502BC(void *arg0, s32 arg1);
+s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *arg0, s32 arg1);
 s32 TLobby__sub_8039DAFC(s32, s32);
 s32 TWindowSubComCard__sub_8024477C();
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 
-s32 TWindowFukidasi__sub_802502BC(void *arg0, s32 arg1) {
+s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0x72) != 0) {
         return 0;
     }

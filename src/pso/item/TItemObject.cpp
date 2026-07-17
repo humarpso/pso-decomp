@@ -9,13 +9,13 @@ extern "C" {
 void copy_and_register_item_data__11TItemObjectFPv(void *arg0);
 
 void copy_to_item_data__5TItemFPvPv(void *, void *);
-void TItemData__sub_8010CD0C(void *);
+void get_item_use_result__9TItemDataFPv(void *);
 
 void copy_and_register_item_data__11TItemObjectFPv(void *arg0) {
     M2C_UNK sp8[4];
 
     copy_to_item_data__5TItemFPvPv(arg0, &sp8);
-    TItemData__sub_8010CD0C(&sp8);
+    get_item_use_result__9TItemDataFPv(&sp8);
 }
 
 }

@@ -12,9 +12,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK fn_80072004();
+M2C_UNK init_gc_tag();
 M2C_UNK reset_target__11TMainCursorFi(void *);
-s32 TPlyDispConfig__sub_80071F1C(s32, s32);
+s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
 int TMainCursor__sub_8013E378(void* a0 = 0, void* a1 = 0);
@@ -90,7 +90,7 @@ int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E1C8(void*, void* a1 = 0);
 
 s32 reset__11TMainCursorFi(s32 arg0) {
-    fn_80072004();
+    init_gc_tag();
     reset_target__11TMainCursorFi((void *) (arg0));
     return arg0;
 }

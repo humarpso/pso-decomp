@@ -17,7 +17,7 @@ int init_forward__10TObjPlayerFPv(void*);
 M2C_UNK __dl__FPv(void *);
 int TRaderMapCore__sub_8002F588(void*);
 int fn_8004438C(void*);
-int fn_80072004(void*);
+int init_gc_tag(void*);
 int reset__11TMainCursorFi(void*);
 void TMainCursor__sub_8013F104(void* p, s32 v);
 void TMainCursor__sub_8013F10C(void* p, s32 v);

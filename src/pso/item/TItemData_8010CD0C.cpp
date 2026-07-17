@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemData__sub_8010CD0C(u8 *arg0);
+s32 get_item_use_result__9TItemDataFPv(u8 *arg0);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
 void *TItemData__sub_8010EA38();
@@ -20,7 +20,7 @@ int register_item_drop__10TObjPlayerFPv(void*);
 #include "types.h"
 extern "C" {
 
-s32 TItemData__sub_8010CD0C(u8 *arg0) {
+s32 get_item_use_result__9TItemDataFPv(u8 *arg0) {
     if (lookup_item_def__9TItemDataFPv() != 0) {
         if (((u8) M2C_FIELD(arg0, u8 *, 0) == 3) && ((u8) M2C_FIELD(arg0, u8 *, 1) == 0x10)) {
             return 0x63;

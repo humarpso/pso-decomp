@@ -40,7 +40,7 @@ void TObjPlayer__sub_801BFBEC(void *);
 void TObjPlayer__sub_801BFC28(void *);
 void wrap_update__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BFCAC(void *);
-void TObjPlayer__sub_801BFCDC(void *);
+void init_members__10TObjPlayerFPv(void *);
 void init_wrapper__10TObjPlayerFPv(void *);
 void init_sub__10TObjPlayerFPv(void *);
 void init_subobjects__10TObjPlayerFPv(void *);
@@ -80,7 +80,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     init_subobjects__10TObjPlayerFPv((void *)((char *)arg0 + 1456));
     init_sub__10TObjPlayerFPv((void *)((char *)arg0 + 1504));
     init_wrapper__10TObjPlayerFPv((void *)((char *)arg0 + 1520));
-    TObjPlayer__sub_801BFCDC((void *)((char *)arg0 + 1532));
+    init_members__10TObjPlayerFPv((void *)((char *)arg0 + 1532));
     TObjPlayer__sub_801BFCAC((void *)((char *)arg0 + 1544));
     wrap_update__10TObjPlayerFPv((void *)((char *)arg0 + 1588));
     TObjPlayer__sub_801BFC28((void *)((char *)arg0 + 1596));
@@ -131,7 +131,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_subobjects__10TObjPlayerFPv((void *)((char *)arg0 + 1456));
     init_sub__10TObjPlayerFPv((void *)((char *)arg0 + 1504));
     init_wrapper__10TObjPlayerFPv((void *)((char *)arg0 + 1520));
-    TObjPlayer__sub_801BFCDC((void *)((char *)arg0 + 1532));
+    init_members__10TObjPlayerFPv((void *)((char *)arg0 + 1532));
     TObjPlayer__sub_801BFCAC((void *)((char *)arg0 + 1544));
     wrap_update__10TObjPlayerFPv((void *)((char *)arg0 + 1588));
     TObjPlayer__sub_801BFC28((void *)((char *)arg0 + 1596));

@@ -4,7 +4,7 @@ extern "C" {
 
 int init_forward__10TObjPlayerFPv(void*);
 int fn_8004438C(void*);
-int fn_80072004(void*);
+int init_gc_tag(void*);
 int TMainCursor__sub_8013E240(void*);
 int reset__11TMainCursorFi(void*);
 int TLockOnCursor__sub_8013EC1C(void*);

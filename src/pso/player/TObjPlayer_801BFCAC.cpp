@@ -14,7 +14,7 @@ int TObjPlayer__sub_801C68B0(void*);
 void TObjPlayer__sub_801BFD3C(void* p);
 
 void* TObjPlayer__sub_801BFCAC(void* p) { set_vec4_const__10TObjPlayerFPv(p); return p; }
-void* TObjPlayer__sub_801BFCDC(void* p) { TObjPlayer__sub_801BF964(p); return p; }
+void* init_members__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BF964(p); return p; }
 void* init_wrapper__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BFD3C(p); return p; }
 void TObjPlayer__sub_801BFD3C(void* p) { *(s16*)((char*)p + 0x0) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; *(s16*)((char*)p + 0x8) = 0; }
 void* init_sub__10TObjPlayerFPv(void* p) { init_forward__10TObjPlayerFPv((char*)p + 0xc); TObjPlayer__sub_801C68B0(p); return p; }

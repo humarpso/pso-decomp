@@ -70,7 +70,7 @@ void TMainCursor__sub_8013E998(void* p, s32 v);
 int TObjPlayer__sub_8001BED8(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 int TObjPlayer__sub_8013DEF8(void*);
-s32 TPlyDispConfig__sub_80071F1C(s32, s32);
+s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 int TWindowActionPalette__sub_8013DF4C(void*);
 int TWindowActionPalette__sub_8013DF54(void*);
 s32 __dl__FPv(void* a0 = 0);

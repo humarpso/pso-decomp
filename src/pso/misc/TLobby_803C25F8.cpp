@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803C25F8(u8 *arg0);
+void dispatch_by_state__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803C263C();
 M2C_UNK TLobby__sub_803C2A00();
 M2C_UNK TLobby__sub_803C2D38();
 
-void TLobby__sub_803C25F8(u8 *arg0) {
+void dispatch_by_state__6TLobbyFPv(u8 *arg0) {
     s16 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xAA);

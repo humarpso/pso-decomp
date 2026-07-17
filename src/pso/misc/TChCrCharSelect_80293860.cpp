@@ -9,7 +9,7 @@ extern "C" {
 void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0);
 M2C_UNK TChCrCharSelect__sub_802937D4(void *);
 s32 TCharaMaking__sub_8028DE78();
-M2C_UNK TCharaMaking__sub_8028E8F4(void *, int);
+M2C_UNK create__12TCharaMakingFPvPv(void *, int);
 M2C_UNK TNpcPlayer__sub_8007206C(int, int);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -29,7 +29,7 @@ void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0) {
         TNpcPlayer__sub_8007206C((int) (temp_r31), (int) (TCharaMaking__sub_8028DE78()));
         M2C_FIELD(temp_r31, s8 *, 0x30) = -1;
         M2C_FIELD(temp_r31, s8 *, 0) = 0;
-        TCharaMaking__sub_8028E8F4((void *) (tl_03), (int) (temp_r31));
+        create__12TCharaMakingFPvPv((void *) (tl_03), (int) (temp_r31));
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

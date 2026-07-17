@@ -4,7 +4,7 @@ extern "C" {
 
 int init__6gc_tagFv();
 
-s32 fn_80072004(s32 arg0) {
+s32 init_gc_tag(s32 arg0) {
     init__6gc_tagFv();
     return arg0;
 }

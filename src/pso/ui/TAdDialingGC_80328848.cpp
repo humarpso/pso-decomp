@@ -8,14 +8,14 @@ extern "C" {
 
 void update_dialing_display__12TAdDialingGCFv(void);
 M2C_UNK TAdDialingGC__sub_8013ADBC();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80145778(f32, f32);
+M2C_UNK render_status_disp__23TAdSinglePlyChrSelectGCFPvff(f32, f32);
 
 extern const f32 TAdDialingGC__data_805DF6EC;
 extern const f32 lbl_805DF6F0;
 
 void update_dialing_display__12TAdDialingGCFv(void) {
     TAdDialingGC__sub_8013ADBC();
-    TAdSinglePlyChrSelectGC__sub_80145778(TAdDialingGC__data_805DF6EC, lbl_805DF6F0);
+    render_status_disp__23TAdSinglePlyChrSelectGCFPvff(TAdDialingGC__data_805DF6EC, lbl_805DF6F0);
 }
 
 }

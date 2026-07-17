@@ -8,13 +8,13 @@ extern "C" {
 
 s32 __dt_deleting__13TLockOnCursorFis(s32 arg0, s16 arg1);
 M2C_UNK TLockOnCursor__sub_8013ED68(s32, M2C_UNK);
-M2C_UNK TPlyDispConfig__sub_80071F1C(s32, M2C_UNK);
+M2C_UNK free_if_valid__14TPlyDispConfigFis(s32, M2C_UNK);
 M2C_UNK __dl__FPv(s32);
 
 s32 __dt_deleting__13TLockOnCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         TLockOnCursor__sub_8013ED68(arg0 + 0x9C, -1);
-        TPlyDispConfig__sub_80071F1C(arg0, -1);
+        free_if_valid__14TPlyDispConfigFis(arg0, -1);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

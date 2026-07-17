@@ -19,7 +19,7 @@ M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
 M2C_UNK fn_80263A20(void *, s16);
 M2C_UNK fn_8026C9C8(s32);
 s32 TWindowShortListCtrl__sub_8026C9DC(s32);
-void fn_8026CB08(void *, int);
+void delete_if_allocated(void *, int);
 
 void update_display__15TWindowHelpItemFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
@@ -48,7 +48,7 @@ extern M2C_UNK lbl_804CF8B0[];
 void *TWindowHelpItem__sub_80255C64(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CF8B0;
-        fn_8026CB08(M2C_FIELD(arg0, void **, 0x64), 1);
+        delete_if_allocated(M2C_FIELD(arg0, void **, 0x64), 1);
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

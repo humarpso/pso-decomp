@@ -34,7 +34,7 @@ M2C_UNK TObjPlayer__sub_801BFB9C(void *);
 M2C_UNK TObjPlayer__sub_801BFBEC(void *);
 M2C_UNK TObjPlayer__sub_801BFC28(void *);
 M2C_UNK TObjPlayer__sub_801BFCAC(void *);
-M2C_UNK TObjPlayer__sub_801BFCDC(void *);
+M2C_UNK init_members__10TObjPlayerFPv(void *);
 M2C_UNK init_state__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801C1A00(void *);
 M2C_UNK TObjPlayer__sub_801C20A4(void *);
@@ -90,7 +90,7 @@ u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2
     init_subobjects__10TObjPlayerFPv((void *) (arg0 + 0x5B0));
     init_sub__10TObjPlayerFPv((void *) (arg0 + 0x5E0));
     init_wrapper__10TObjPlayerFPv((void *) (arg0 + 0x5F0));
-    TObjPlayer__sub_801BFCDC((void *) (arg0 + 0x5FC));
+    init_members__10TObjPlayerFPv((void *) (arg0 + 0x5FC));
     TObjPlayer__sub_801BFCAC((void *) (arg0 + 0x608));
     wrap_update__10TObjPlayerFPv((void *) (arg0 + 0x634));
     TObjPlayer__sub_801BFC28((void *) (arg0 + 0x63C));
