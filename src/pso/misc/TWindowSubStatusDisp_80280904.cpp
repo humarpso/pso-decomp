@@ -11,9 +11,9 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 s16 get_class_id__10TObjPlayerFPv(s32);
 s16 get_item_index__10TObjPlayerFPv(s32);
-s16 TWindowSubStatusDisp__sub_80255DF4(s32);
-s16 TWindowSubStatusDisp__sub_80255DFC(s32);
-s16 TWindowSubStatusDisp__sub_80255E04(s32);
+s16 get_item_type__20TWindowSubStatusDispFPv(s32);
+s16 get_field_2F8__20TWindowSubStatusDispFPv(s32);
+s16 get_stat__20TWindowSubStatusDispFPv(s32);
 
 void TWindowSubStatusDisp__vt13(void *arg0) {
     s32 temp_r3;
@@ -26,15 +26,15 @@ void TWindowSubStatusDisp__vt13(void *arg0) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20));
     if (temp_r3 != 0) {
         temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
-        M2C_FIELD(temp_r31, s32 *, 0x20) = (s32) TWindowSubStatusDisp__sub_80255E04(temp_r3);
+        M2C_FIELD(temp_r31, s32 *, 0x20) = (s32) get_stat__20TWindowSubStatusDispFPv(temp_r3);
         temp_r31_2 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 8);
         M2C_FIELD(temp_r31_2, s32 *, 0x20) = (s32) get_class_id__10TObjPlayerFPv(temp_r3);
         temp_r31_3 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xE);
         M2C_FIELD(temp_r31_3, s32 *, 0x20) = (s32) get_item_index__10TObjPlayerFPv(temp_r3);
         temp_r31_4 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0x14);
-        M2C_FIELD(temp_r31_4, s32 *, 0x20) = (s32) TWindowSubStatusDisp__sub_80255DFC(temp_r3);
+        M2C_FIELD(temp_r31_4, s32 *, 0x20) = (s32) get_field_2F8__20TWindowSubStatusDispFPv(temp_r3);
         temp_r31_5 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0x1A);
-        M2C_FIELD(temp_r31_5, s32 *, 0x20) = (s32) TWindowSubStatusDisp__sub_80255DF4(temp_r3);
+        M2C_FIELD(temp_r31_5, s32 *, 0x20) = (s32) get_item_type__20TWindowSubStatusDispFPv(temp_r3);
     }
 }
 

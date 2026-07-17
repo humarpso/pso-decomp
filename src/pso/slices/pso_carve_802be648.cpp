@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss6Type2__sub_802B9930();
+s32 get_phase__11TBoss6Type2FPv();
 u16 TBoss6Type2__sub_802BA394(void *);
 s32 is_phase_complete__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);

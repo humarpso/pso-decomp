@@ -11,7 +11,7 @@ int TWindow__close(void*);
 int window_request_show(void*);
 int TWindowMainMenu__sub_802AD90C(void*);
 int TWindowMainMenu__sub_802AD980(void*);
-int TWindowMainMenu__sub_802ADB0C(void*);
+int clear_menu_flags__15TWindowMainMenuFPv(void*);
 int update_scaled_position__15TWindowMainMenuFi(void*);
 int TWindowMainMenu__sub_802646E4(void* a0 = 0, void* a1 = 0);
 void show_child_window__15TWindowMainMenuFPv(void* p);

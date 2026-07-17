@@ -16,7 +16,7 @@ int TObjEneMe1Canadin__vt114(void);
 void TObjEneMe1Canadin__vt115(void);
 s32 TPhotonMylla__sub_80154CB4(u16);
 void TObjEneMe1CanadinLeader__sub_8009E27C(void* p);
-void TObjEneMe1CanadinLeader__sub_8009E28C(void* p);
+void set_attack_flag__23TObjEneMe1CanadinLeaderFPv(void* p);
 int fn_8009E2DC(void* a0 = 0);
 s32 TBoss2DeRolLe__sub_800B98D8(void *);
 

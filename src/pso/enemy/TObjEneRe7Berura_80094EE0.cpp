@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneRe7Berura__sub_80094EE0(void *arg0);
+s32 get_field_3D4_shifted__16TObjEneRe7BeruraFPv(void *arg0);
 
-s32 TObjEneRe7Berura__sub_80094EE0(void *arg0) {
+s32 get_field_3D4_shifted__16TObjEneRe7BeruraFPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x3D4) << 0xF;
 }
 

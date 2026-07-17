@@ -8,7 +8,7 @@ extern "C" {
 
 void destroy_singleton__6TLobbyFv(void);
 void init_graph__6TLobbyFv(void);
-M2C_UNK TDLGraph__sub_8007F6F0(M2C_UNK, M2C_UNK);
+M2C_UNK set_graph_param__8TDLGraphFPvi(M2C_UNK, M2C_UNK);
 u32 create__8TDLGraphFv();
 void queue_destruction__7TObjectFv(void*);
 
@@ -32,7 +32,7 @@ void init_graph__6TLobbyFv(void) {
         temp_r3 = create__8TDLGraphFv();
         TLobby__data_805D6CC4 = temp_r3;
         if (temp_r3 != 0U) {
-            TDLGraph__sub_8007F6F0(temp_r3, 2);
+            set_graph_param__8TDLGraphFPvi(temp_r3, 2);
         }
     }
 }

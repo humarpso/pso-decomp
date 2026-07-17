@@ -6,9 +6,9 @@ void TKeyBoardControl__sub_80131F5C(void);
 void TKeyBoardControl__sub_80131F60(void);
 void set_flag60_bit200__16TKeyBoardControlFPv(void* p);
 void clear_flag60_bit200__16TKeyBoardControlFPv(void* p);
-int TKeyBoardControl__sub_80131F84(void* p);
+int is_key_held__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit2__16TKeyBoardControlFPv(void* p);
-int TKeyBoardControl__sub_80131FA0(void* p);
+int is_active__16TKeyBoardControlFPv(void* p);
 int is_key_active__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit8__16TKeyBoardControlFPv(void* p);
 

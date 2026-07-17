@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TObjEneDolmOlm__sub_80300CE4(void);
+void reset_count__14TObjEneDolmOlmFv(void);
 
     extern int lbl_805D69E8;
-void TObjEneDolmOlm__sub_80300CE4(void) { lbl_805D69E8 = 0; }
+void reset_count__14TObjEneDolmOlmFv(void) { lbl_805D69E8 = 0; }
 
 }

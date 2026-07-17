@@ -13,14 +13,14 @@ s32 TBoss4DarkFalz__sub_8004B07C(s32);
 M2C_UNK TBoss4DarkFalz__sub_8004B1BC(s32, M2C_UNK);
 int TBoss4DarkFalz__sub_8004B77C(void*);
 int TBoss4DarkFalz__sub_8004BA18(void*);
-s32 TBoss4DarkFalz__sub_8004C1D4(u32);
+s32 get_action_state__14TBoss4DarkFalzFPv(u32);
 
 void TBoss4DarkFalz__sub_8004C540(void) {  }
 
 extern u32 TBoss4DarkFalz__data_805D4D64;
 
 void request_action_e__14TBoss4DarkFalzFi(s32 arg0) {
-    if (((u32) TBoss4DarkFalz__data_805D4D64 == 0U) || (TBoss4DarkFalz__sub_8004C1D4(TBoss4DarkFalz__data_805D4D64) == 3) || (TBoss4DarkFalz__sub_8004C1D4(TBoss4DarkFalz__data_805D4D64) == 2) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
+    if (((u32) TBoss4DarkFalz__data_805D4D64 == 0U) || (get_action_state__14TBoss4DarkFalzFPv(TBoss4DarkFalz__data_805D4D64) == 3) || (get_action_state__14TBoss4DarkFalzFPv(TBoss4DarkFalz__data_805D4D64) == 2) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
         TBoss4DarkFalz__sub_8004B1BC(arg0, 0xE);
     }
 }

@@ -10,7 +10,7 @@ s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1);
 u8 get_slot_count__14TItemProShieldFPv();
 s32 activate_d04_slot__10TObjPlayerFPv();
 s16 TObjPlayer__sub_80113D90(s32);
-s16 TObjPlayer__sub_80113D98(s32);
+s16 get_mag_data__10TObjPlayerFPv(s32);
 s16 fn_80113DA0(s32);
 s16 fn_80113DC4(s32);
 s16 fn_80113DE8(s32);
@@ -56,7 +56,7 @@ s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1) {
             }
             break;
         case 4:
-            if ((get_slot_count__14TItemProShieldFPv() >= 0x78U) && (TObjPlayer__sub_80113D98(temp_r3) >= 0xB4) && (TObjPlayer__sub_80113D90(temp_r3) >= 0x6E)) {
+            if ((get_slot_count__14TItemProShieldFPv() >= 0x78U) && (get_mag_data__10TObjPlayerFPv(temp_r3) >= 0xB4) && (TObjPlayer__sub_80113D90(temp_r3) >= 0x6E)) {
                 return 1;
             }
             break;

@@ -9,7 +9,7 @@ extern "C" {
 void *__dt__19TWindowKeyBoardHardFv(void *arg0, s16 arg1);
 void run_task__19TWindowKeyBoardHardFv(void *arg0);
 s32 is_key_active__16TKeyBoardControlFPv(void *);
-s32 TWindowKeyBoardHard__sub_80260444();
+s32 is_key_active__19TWindowKeyBoardHardFPv();
 void __dl__7TObjectFPv(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
@@ -26,7 +26,7 @@ void run_task__19TWindowKeyBoardHardFv(void *arg0) {
     void *temp_r3;
 
     if ((void *) M2C_FIELD(arg0, void **, 0x70) != NULL) {
-        if ((TWindowKeyBoardHard__sub_80260444() == 0) && (is_key_active__16TKeyBoardControlFPv(M2C_FIELD(arg0, void **, 0x70)) == 0)) {
+        if ((is_key_active__19TWindowKeyBoardHardFPv() == 0) && (is_key_active__16TKeyBoardControlFPv(M2C_FIELD(arg0, void **, 0x70)) == 0)) {
             if (TKeyBoardControl__sub_8025EC54(arg0) != 0) {
                 if ((s32) lbl_805D5544 == 0) {
                     M2C_FIELD(arg0, s32 *, 0x68) = 0x3C;

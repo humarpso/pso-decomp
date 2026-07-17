@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_particle_if_active__12TObjEneReconFv(void);
-u32 TSceneSora__sub_8029F574(void*);
+u32 get_state__10TSceneSoraFPv(void*);
 M2C_UNK reset_ind_tev_stages__13TParticleCtrlFv();
 
 extern u32 lbl_805D65F4;
 
 void update_particle_if_active__12TObjEneReconFv(void) {
-    if (((u32) lbl_805D65F4 != 0U) && (TSceneSora__sub_8029F574((void*)lbl_805D65F4) != 0U)) {
+    if (((u32) lbl_805D65F4 != 0U) && (get_state__10TSceneSoraFPv((void*)lbl_805D65F4) != 0U)) {
         reset_ind_tev_stages__13TParticleCtrlFv();
     }
 }

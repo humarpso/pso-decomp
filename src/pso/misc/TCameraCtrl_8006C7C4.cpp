@@ -9,7 +9,7 @@ extern "C" {
 void update__11TCameraCtrlFPv(void *arg0);
 void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void *TCameraCtrl__vt10(void);
-void *TCameraCtrl__sub_8006A03C(u32);
+void *get_params__11TCameraCtrlFPv(u32);
 void *init_subobject__11TCameraCtrlFPv(void *);
 void *TPlayerBattleCtrl4P__sub_801BA74C(M2C_UNK);
 void __dl__7TObjectFPv(void *);
@@ -32,7 +32,7 @@ void update__11TCameraCtrlFPv(void *arg0) {
     void *temp_r3;
 
     if ((u32) lbl_805D4DF0 != 0U) {
-        temp_r31 = TCameraCtrl__sub_8006A03C(lbl_805D4DF0);
+        temp_r31 = get_params__11TCameraCtrlFPv(lbl_805D4DF0);
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(0);
         if (temp_r3 != NULL) {
             M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(temp_r3, f32 *, 0x38);

@@ -8,7 +8,7 @@ void bswap_fields_x4__10TObjPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 void bswap_and_send_item__10TObjPlayerFPv(void* p);
 s32 get_item_flags__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_80116604(void* p);
+void set_type_bytes__10TObjPlayerFPv(void* p);
 u16 get_type_id__10TObjPlayerFPv(void* p);
 
 int TObjPlayer__sub_80116620(void) { return 0; }

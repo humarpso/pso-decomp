@@ -12,7 +12,7 @@ M2C_UNK TItemDisconnectCtrl__ct();
 M2C_UNK TItemDrop__sub_8010643C();
 M2C_UNK create__9TItemLoadFv();
 M2C_UNK TLobby__sub_80103B70(s32);
-M2C_UNK TLobby__sub_80103F5C();
+M2C_UNK clear_object_count__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TObjPlayer__sub_800196EC();
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -40,7 +40,7 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     temp_r31 = get_global_state__14TOKeyMachine01Fv();
     temp_r29 = TObjPlayer__sub_800196EC();
     lbl_805D543C = 0;
-    TLobby__sub_80103F5C();
+    clear_object_count__6TLobbyFv();
     TLobby__sub_80103B70(temp_r29);
     if ((temp_r31 == 0) || (temp_r31 == 0x12)) {
         set_flags__10TObjPlayerFPvUi(&lbl_805D5440, 1);

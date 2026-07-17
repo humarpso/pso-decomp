@@ -19,7 +19,7 @@ s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 M2C_UNK get_instance__22TAdMultiPlyChrSelectGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 M2C_UNK set_state_ready__22TAdMultiPlyChrSelectGCFPv(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802E0044(s32, M2C_UNK);
+s32 get_card_index__22TAdMultiPlyChrSelectGCFPv(s32, M2C_UNK);
 M2C_UNK get_card_instance__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK set_field_1c__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -71,7 +71,7 @@ void update_state_wait_card__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
             return;
         case 0:
             temp_r31 = TAdMultiPlyChrSelectGC__sub_802DFFE8(M2C_FIELD(arg0, s32 *, 0x5C));
-            temp_r3_2 = TAdMultiPlyChrSelectGC__sub_802E0044(M2C_FIELD(arg0, s32 *, 0x5C), 1);
+            temp_r3_2 = get_card_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C), 1);
             if (try_move_char__23TAdSinglePlyChrSelectGCFii(temp_r3_2 + 4, temp_r31) != 0) {
                 {
                     u32 temp_u0 = get_global_state__22TAdMultiPlyChrSelectGCFv();

@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void refresh_if_current_player__20TWindowSubStatusDispFPv(void *arg0);
-M2C_UNK TLobby__sub_801043F8();
+M2C_UNK mark_selected__6TLobbyFv();
 
 extern s32 lbl_805D53A0;
 
 void refresh_if_current_player__20TWindowSubStatusDispFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, u16 *, 0xE4) == (s32) lbl_805D53A0) {
-        TLobby__sub_801043F8();
+        mark_selected__6TLobbyFv();
     }
 }
 

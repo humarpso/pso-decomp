@@ -9,7 +9,7 @@ extern "C" {
 void update_attack_state__14TBoss7CrawfishFPv(void *arg0);
 s32 TBoss7Crawfish__sub_80308AA8(void *);
 M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, M2C_UNK);
-s16 TObjPlayer__sub_801C0004(void *);
+s16 get_floor__10TObjPlayerFPv(void *);
 M2C_UNK TBoss7Crawfish__sub_803086A8(void *);
 M2C_UNK TBoss7Crawfish__sub_8030880C(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -26,7 +26,7 @@ void update_attack_state__14TBoss7CrawfishFPv(void *arg0) {
     if (temp_r0 < 0) {
         TBoss7Crawfish__sub_80308F8C(arg0, 1);
     }
-    if ((TObjPlayer__sub_801C0004(arg0) == 2) && (objInBand__FP7GameObjf(arg0, lbl_805DF0F8) != 0)) {
+    if ((get_floor__10TObjPlayerFPv(arg0) == 2) && (objInBand__FP7GameObjf(arg0, lbl_805DF0F8) != 0)) {
         temp_r4 = M2C_FIELD(arg0, void **, 0xA4);
         if (M2C_FIELD(temp_r4, s32 *, 0x18) & 0x02000000) {
             M2C_FIELD(temp_r4, s32 *, 0x18) &= ~0x02000000;

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TObjEneMe1GiGue__sub_802CAC80(void);
+int get_barrier_count__15TObjEneMe1GiGueFv(void);
 s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1);
 
     extern int TObjEneMe1GiGue__data_805D6838;
-int TObjEneMe1GiGue__sub_802CAC80(void) {  return TObjEneMe1GiGue__data_805D6838; }
+int get_barrier_count__15TObjEneMe1GiGueFv(void) {  return TObjEneMe1GiGue__data_805D6838; }
 
 s32 *csnVectorUnder(s32, s32, M2C_UNK, s32);
 

@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1);
-M2C_UNK TScene__sub_80203344(M2C_UNK);
-M2C_UNK TScene__sub_8020334C(M2C_UNK);
-M2C_UNK TScene__sub_80203354(M2C_UNK);
+M2C_UNK set_instance__6TSceneFi(M2C_UNK);
+M2C_UNK set_active_scene__6TSceneFi(M2C_UNK);
+M2C_UNK set_id__6TSceneFi(M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -29,9 +29,9 @@ void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x20));
             M2C_FIELD(arg0, u32 *, 0x20) = 0U;
         }
-        TScene__sub_80203354(0);
-        TScene__sub_8020334C(0);
-        TScene__sub_80203344(0);
+        set_id__6TSceneFi(0);
+        set_active_scene__6TSceneFi(0);
+        set_instance__6TSceneFi(0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

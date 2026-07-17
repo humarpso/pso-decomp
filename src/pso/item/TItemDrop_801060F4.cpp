@@ -9,7 +9,7 @@ extern "C" {
 u8 is_enabled__9TItemDropFv(void);
 u8 is_not_special__9TItemDropFv(void);
 u8 can_drop__9TItemDropFv(void);
-s32 TLobby__sub_80104404();
+s32 get_drop_flag__6TLobbyFv();
 s32 TLobby__sub_8030A7B0();
 
 u8 is_enabled__9TItemDropFv(void) {
@@ -24,7 +24,7 @@ u8 can_drop__9TItemDropFv(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((TLobby__sub_8030A7B0() != 1) && (TLobby__sub_80104404() == 0)) {
+    if ((TLobby__sub_8030A7B0() != 1) && (get_drop_flag__6TLobbyFv() == 0)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

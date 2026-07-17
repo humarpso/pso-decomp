@@ -19,7 +19,7 @@ void update_and_send_60__11TBoss7JointFPv(void* p);
 void TBoss7Joint__sub_802EE7B8(void* p);
 void broadcast_state__11TBoss7JointFPv(void* p);
 void TBoss7Joint__sub_802EE800(void* p);
-int TBoss7Joint__sub_802EE814(void* p);
+int is_part_active__11TBoss7JointFPv(void* p);
 void TBoss7Joint__vt91(void *arg0);
 int TLobby__send_and_handle_60(void*);
 M2C_UNK TObjEneDD__vt90(void *);

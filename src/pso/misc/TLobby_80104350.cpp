@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_80104350(void);
-void TLobby__sub_80104374(int a0, int a1);
+void set_boss_buf_entry__6TLobbyFii(int a0, int a1);
 int TLobby__sub_80104384(int a0);
 s32 get_item_data__6TLobbyFUi(u32 arg0);
 void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1);
-void TLobby__sub_801043F8(void);
-int TLobby__sub_80104404(void);
+void mark_selected__6TLobbyFv(void);
+int get_drop_flag__6TLobbyFv(void);
 s32 TItemData__sub_8010C8B4();
 M2C_UNK init_forward__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK TItemData__sub_8010E59C(u32, s32);
@@ -24,7 +24,7 @@ void TLobby__sub_80104350(void) {
 }
 
     extern int* lbl_805D54E8;
-void TLobby__sub_80104374(int a0, int a1) { lbl_805D54E8[(unsigned short)(a1)] = a0; }
+void set_boss_buf_entry__6TLobbyFii(int a0, int a1) { lbl_805D54E8[(unsigned short)(a1)] = a0; }
 
     extern int* lbl_805D54E8;
 int TLobby__sub_80104384(int a0) {  return lbl_805D54E8[(unsigned short)(a0)]; }
@@ -43,9 +43,9 @@ void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1) {
 }
 
     extern int lbl_805D5448;
-void TLobby__sub_801043F8(void) { lbl_805D5448 = 1; }
+void mark_selected__6TLobbyFv(void) { lbl_805D5448 = 1; }
 
     extern int lbl_805D5448;
-int TLobby__sub_80104404(void) {  return lbl_805D5448; }
+int get_drop_flag__6TLobbyFv(void) {  return lbl_805D5448; }
 
 }

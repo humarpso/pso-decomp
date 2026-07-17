@@ -12,9 +12,9 @@ int TFontSmallLobby__sub_801C01BC(void*);
 int bswap_field_u32__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D28DC(void*);
 int TLobby__send_and_handle_60(void*);
-void TObjPlayer__sub_801D1690(void* p);
-void TObjPlayer__sub_801D17C0(void* p);
-void TObjPlayer__sub_801D18B0(void* p);
+void set_type_53__10TObjPlayerFPv(void* p);
+void set_revived_state__10TObjPlayerFPv(void* p);
+void init_revive_packet__10TObjPlayerFPv(void* p);
 
 int TObjPlayer__sub_801D1768(void) { return 0; }
 

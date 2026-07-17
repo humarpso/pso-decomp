@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjGoalWarpAncient__sub_8017D2A4(void);
+s32 get_instance__19TObjGoalWarpAncientFv(void);
 
 extern s32 lbl_805D5AF4;
 
-s32 TObjGoalWarpAncient__sub_8017D2A4(void) {
+s32 get_instance__19TObjGoalWarpAncientFv(void) {
     return lbl_805D5AF4;
 }
 

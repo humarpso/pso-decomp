@@ -18,7 +18,7 @@ void TLobby__sub_80227220(s32 arg0) {
 extern s32 lbl_805D6300;
 extern s32 lbl_805D631C;
 
-void TLobby__sub_80227234(s32 arg0) {
+void set_target_id__6TLobbyFi(s32 arg0) {
     if ((s32) lbl_805D6300 != 4) {
         lbl_805D631C = arg0;
     }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803FC138(s32 arg0);
+s32 get_remaining__6TLobbyFi(s32 arg0);
 
 extern u16 lbl_805D7A78;
 
-s32 TLobby__sub_803FC138(s32 arg0) {
+s32 get_remaining__6TLobbyFi(s32 arg0) {
     return lbl_805D7A78 - arg0;
 }
 

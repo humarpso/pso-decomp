@@ -8,7 +8,7 @@ extern "C" {
 
 void update_receive_check__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803CB450(u8 *arg0);
-void TLobby__sub_803CB458(u8 *arg0);
+void reset_field_0C__6TLobbyFPv(u8 *arg0);
 void reset_client_state__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_803CB4A4(u8 *arg0);
 s32 post_request__6TLobbyFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -46,7 +46,7 @@ s32 TLobby__sub_803CB450(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x10);
 }
 
-void TLobby__sub_803CB458(u8 *arg0) {
+void reset_field_0C__6TLobbyFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 3) {
         M2C_FIELD(arg0, s32 *, 0xC) = 0;
     }

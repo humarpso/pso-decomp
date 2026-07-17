@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TWindowSubStatusDisp__sub_80287798(f32 farg0);
+f32 get_base_y__20TWindowSubStatusDispFf(f32 farg0);
 
 extern f32 lbl_805DD840;
 
-f32 TWindowSubStatusDisp__sub_80287798(f32 farg0) {
+f32 get_base_y__20TWindowSubStatusDispFf(f32 farg0) {
     return lbl_805DD840 + farg0;
 }
 

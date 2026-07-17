@@ -3,13 +3,13 @@
 extern "C" {
 void swap_endian16__10TObjPlayerFPv(void* p);
 
-void TObjPlayer__sub_801D1CC0(void* p);
+void init_shield_attack_packet__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D1F44(void* p);
 void TObjPlayer__sub_801D2618(void* p, f32 v);
 void set_action_flag_40__10TObjPlayerFPv(void* p);
 void clear_status_bit6__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D2680(void* p);
-void TObjPlayer__sub_801D268C(void* p);
+void set_action_flag__10TObjPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int update_players__6TLobbyFi(void*);
 int bswap_16__FPUs(void*);
@@ -24,6 +24,6 @@ int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
 int TObjPlayer__sub_801D2680(void* p) { return (*(u32*)((char*)p + 0xb0) >> 6) & 0x1; }
-void TObjPlayer__sub_801D268C(void* p) { *(u32*)((char*)p + 0xb0) |= 0x80; }
+void set_action_flag__10TObjPlayerFPv(void* p) { *(u32*)((char*)p + 0xb0) |= 0x80; }
 
 }

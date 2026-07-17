@@ -3,12 +3,12 @@
 extern "C" {
 
 s32 is_item_active__15TWindowMainMenuFPv(s32);
-void TWindowMainMenu__sub_802ADB0C(void* p);
-int TWindowMainMenu__sub_802ADB1C(void* p);
-int TWindowMainMenu__sub_802ADB28(void* p);
+void clear_menu_flags__15TWindowMainMenuFPv(void* p);
+int is_flag_set__15TWindowMainMenuFPv(void* p);
+int get_menu_flag__15TWindowMainMenuFPv(void* p);
 
-void TWindowMainMenu__sub_802ADB0C(void* p) { *(u8*)((char*)p + 0x60) &= 0xfc; }
-int TWindowMainMenu__sub_802ADB1C(void* p) { return (*(u8*)((char*)p + 0x60) >> 1) & 0x1; }
-int TWindowMainMenu__sub_802ADB28(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
+void clear_menu_flags__15TWindowMainMenuFPv(void* p) { *(u8*)((char*)p + 0x60) &= 0xfc; }
+int is_flag_set__15TWindowMainMenuFPv(void* p) { return (*(u8*)((char*)p + 0x60) >> 1) & 0x1; }
+int get_menu_flag__15TWindowMainMenuFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
 
 }

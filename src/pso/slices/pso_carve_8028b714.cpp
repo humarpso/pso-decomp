@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK __dl__FPv(void *);
 M2C_UNK fn_8023E700(void *);
-s32 TChCrLoadAfs__sub_8028B8B8();
+s32 is_unloaded__12TChCrLoadAfsFPv();
 
 struct SubBase { char pad[0x18]; };
 struct SubObj : SubBase { virtual void m0(int); virtual void m1(int); virtual void m2(int); };
@@ -17,7 +17,7 @@ u8 *free_chcr_resources(u8 *arg0, s16 arg1) {
     SubObj *temp_r3;
 
     if (arg0 != NULL) {
-        if (((void *) M2C_FIELD(arg0, void **, 0) != NULL) && (TChCrLoadAfs__sub_8028B8B8() == 0)) {
+        if (((void *) M2C_FIELD(arg0, void **, 0) != NULL) && (is_unloaded__12TChCrLoadAfsFPv() == 0)) {
             temp_r3 = (SubObj *) (M2C_FIELD(arg0, void **, 0));
             if (temp_r3 != NULL) {
                 temp_r3->m0(1);

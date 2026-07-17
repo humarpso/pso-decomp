@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TLobby__sub_80103F5C(void);
+void clear_object_count__6TLobbyFv(void);
 
     extern int lbl_805D5428;
-void TLobby__sub_80103F5C(void) { lbl_805D5428 = 0; }
+void clear_object_count__6TLobbyFv(void) { lbl_805D5428 = 0; }
 
 }

@@ -5,7 +5,7 @@ extern "C" {
 int is_player_flag_4000_set__11TWindowCtrlFPv(void* p);
 s32 is_map_visible__11TWindowCtrlFv(void);
 s32 is_level_capped__23TAdSinglePlyChrSelectGCFPv();
-s32 THunterGuildWarning__sub_802116EC();
+s32 is_active__19THunterGuildWarningFv();
 s32 TLobby__sub_8030A770();
 s32 TLobby__sub_8030A7B0();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
-s8 TLobby__sub_8013AD64();
+s8 get_mode__6TLobbyFPv();
 void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 int test_keyboard_card_flag4(void* p);
@@ -20,7 +20,7 @@ void draw_entry_0x110__15TWindowMakeTeamFc(s8 arg0) {
     get_message_10__20TWindowSubStatusDispFPv(arg0 + 0x110);
 }
 u8 is_enabled__15TWindowMakeTeamFPv(void *arg0) {
-    if (TLobby__sub_8013AD64() == 1) {
+    if (get_mode__6TLobbyFPv() == 1) {
         return 0U;
     }
     return M2C_FIELD(arg0, u8 *, 0x1F);

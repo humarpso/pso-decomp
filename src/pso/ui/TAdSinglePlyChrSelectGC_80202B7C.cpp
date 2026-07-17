@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_80202B7C(void);
+int get_selection__23TAdSinglePlyChrSelectGCFv(void);
 void set_global_flags__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 int get_instance__23TAdSinglePlyChrSelectGCFv(void);
 void set_player_index__23TAdSinglePlyChrSelectGCFi(int a0);
 void set_save_slot__23TAdSinglePlyChrSelectGCFi(int a0);
-void TAdSinglePlyChrSelectGC__sub_80202BB8(s32 arg0);
+void clear_flags__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 u8 check_flag__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
     extern int lbl_805D5F74;
-int TAdSinglePlyChrSelectGC__sub_80202B7C(void) {  return lbl_805D5F74; }
+int get_selection__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D5F74; }
 
 extern s32 *lbl_805D5F64;
 
@@ -36,7 +36,7 @@ void set_save_slot__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5FAC = a0; }
 
 extern s32 *lbl_805D5F64;
 
-void TAdSinglePlyChrSelectGC__sub_80202BB8(s32 arg0) {
+void clear_flags__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     if ((s32 *) lbl_805D5F64 != NULL) {
         *lbl_805D5F64 &= ~arg0;
     }

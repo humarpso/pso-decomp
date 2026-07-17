@@ -25,7 +25,7 @@ s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 M2C_UNK set_state_ready__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_cursor__22TAdMultiPlyChrSelectGCFPv(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802E0054(s32);
+s32 get_selection__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
 u32 TAdSinglePlyChrSelectGC__sub_802E012C(s32, M2C_UNK);
 M2C_UNK set_status_value__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
@@ -96,7 +96,7 @@ void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0x15;
         return;
     }
-    if (TAdMultiPlyChrSelectGC__sub_802E0054(M2C_FIELD(arg0, s32 *, 0x5C)) != 0) {
+    if (get_selection__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C)) != 0) {
         load_tables(temp_r30);
         if (TAdSinglePlyChrSelectGC__sub_801FE800(temp_r30) != 0) {
             if (TAdChrSelBSlotGC__sub_8030E378(M2C_FIELD(arg0, s32 *, 0x6C), temp_r30) == 0) {

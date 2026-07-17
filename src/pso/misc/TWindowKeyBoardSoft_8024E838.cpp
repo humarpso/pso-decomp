@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowKeyBoardSoft__sub_8024E838(void* p, f32 a, f32 b, f32 c, f32 d);
+void set_bounds__19TWindowKeyBoardSoftFPvffff(void* p, f32 a, f32 b, f32 c, f32 d);
 void TWindowKeyBoardSoft__sub_8024E84C(void *arg0);
 void animate_scale__19TWindowKeyBoardSoftFPv(void *arg0);
 s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1);
 
-void TWindowKeyBoardSoft__sub_8024E838(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x3c) = a; *(f32*)((char*)p + 0x40) = b; *(f32*)((char*)p + 0x44) = c; *(f32*)((char*)p + 0x48) = d; }
+void set_bounds__19TWindowKeyBoardSoftFPvffff(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x3c) = a; *(f32*)((char*)p + 0x40) = b; *(f32*)((char*)p + 0x44) = c; *(f32*)((char*)p + 0x48) = d; }
 
 extern const f32 lbl_805DCC8C;
 

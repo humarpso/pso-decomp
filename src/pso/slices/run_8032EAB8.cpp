@@ -13,7 +13,7 @@ s32 TBoss6Type2__sub_8032EAB8(void *arg0, s32 arg1) {
     return -arg1;
 }
 
-f32 TBoss6Type2__sub_8032EAD0(void *arg0, f32 farg0) {
+f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x384) != 0) {
         return -farg0;
     }

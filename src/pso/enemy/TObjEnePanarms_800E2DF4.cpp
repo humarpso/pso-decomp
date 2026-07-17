@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjEnePanarms__sub_800E2DF4(void *arg0);
+u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0);
 u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
 u8 TObjEnePanarms__sub_800E2E54(void *arg0);
 u8 TObjEnePanarms__sub_800E2E68(void *arg0);
 u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 
-u8 TObjEnePanarms__sub_800E2DF4(void *arg0) {
+u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x378) == 0xC);
 }
 

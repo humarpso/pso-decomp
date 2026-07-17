@@ -21,7 +21,7 @@ void TObjPlayer__sub_801BBC2C(void* p);
 void TObjPlayer__sub_801BBC64(void);
 int clear_links__10TObjPlayerFPv(void* p);
 s32 is_ready__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801BEB54(void *, int);
+M2C_UNK set_play_time__10TObjPlayerFPvi(void *, int);
 M2C_UNK TObjPlayer__sub_801BF93C(void *, void *);
 s8 TObjPlayer__sub_801C21AC(void *);
 s8 TObjPlayer__sub_801C21B4(void *);
@@ -53,7 +53,7 @@ void TObjPlayer__sub_801BBA8C(u8 *arg0, u8 *arg1) {
     if (is_alive_and_ready__10TObjPlayerFi((void *) (arg0)) != 0) {
         TObjPlayer__sub_801AF7E0((void *) (arg0));
     }
-    TObjPlayer__sub_801BEB54((void *) (arg0), (int) (M2C_FIELD(arg1, u8 *, 3)));
+    set_play_time__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(arg1, u8 *, 3)));
     TObjPlayer__sub_801BF93C((void *) (arg0 + 0x5B0), (void *) (obj_getField1c((void *) (arg0))));
     disable_drop_weapon_on_death__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s8 *, 0x338) = TObjPlayer__sub_801C21BC((void *) (arg1));

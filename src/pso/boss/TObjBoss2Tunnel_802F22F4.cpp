@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjBoss2Tunnel__sub_802F22F4(void);
-s32 TObjBoss2Tunnel__sub_802F2300(void);
+s32 is_phase_active__15TObjBoss2TunnelFv(void);
 
 extern u32 lbl_805D6968;
 
@@ -17,7 +17,7 @@ s32 TObjBoss2Tunnel__sub_802F22F4(void) {
 
 extern u32 lbl_805D6968;
 
-s32 TObjBoss2Tunnel__sub_802F2300(void) {
+s32 is_phase_active__15TObjBoss2TunnelFv(void) {
     return ((u32) lbl_805D6968 >> 0xCU) & 1;
 }
 

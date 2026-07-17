@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void reset__6TLobbyFi(s32 arg0);
-s32 fn_80246CB8();
+s32 is_trade_active();
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
 M2C_UNK fn_80339910(u32, s32);
 
@@ -20,7 +20,7 @@ extern s32 lbl_805D6890;
 extern u32 TLobby__data_805D689C;
 
 void reset__6TLobbyFi(s32 arg0) {
-    if (fn_80246CB8() == 0) {
+    if (is_trade_active() == 0) {
         TLobby__data_805D688B = 0;
         TLobby__data_805D688A = 4;
         TLobby__data_805D688C = 0;

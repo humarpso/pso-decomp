@@ -13,7 +13,7 @@ s32 TObjPlayer__sub_801D0BC0(s32, s32, s32);
 void send_object_id_packet__10TObjPlayerFi(s32 arg0);
 s32 obj_isState2_324();
 s16 obj_getField1c(s32);
-M2C_UNK TObjPlayer__sub_801D1CC0(M2C_UNK *);
+M2C_UNK init_shield_attack_packet__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK draw_font_and_send__10TObjPlayerFPv(M2C_UNK *);
 int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801CBB10(void);

@@ -11,7 +11,7 @@ extern "C" {
 
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TObjEneRe7BeruraPunch__sub_80095E18(void *);
+s32 is_patrol_active__21TObjEneRe7BeruraPunchFPv(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
 
 extern const f32 lbl_805DF878;
@@ -143,7 +143,7 @@ extern "C" void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
         break;
     case 0:
         TBoss1Dragon__sub_80143504();
-        if (TObjEneRe7BeruraPunch__sub_80095E18(arg0) == 0) {
+        if (is_patrol_active__21TObjEneRe7BeruraPunchFPv(arg0) == 0) {
             M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DF878;
         }
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x60);

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TPacket__sub_801A558C(void* p);
+void clear_send_buffer__7TPacketFPv(void* p);
 
-void TPacket__sub_801A558C(void* p) { *(s32*)((char*)p + 0x8b8) = 0; }
+void clear_send_buffer__7TPacketFPv(void* p) { *(s32*)((char*)p + 0x8b8) = 0; }
 
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 extern u16 lbl_805D63FC;
 
-s32 fn_80246CB8(void) {
+s32 is_trade_active(void) {
     return ((u16) lbl_805D63FC >> 3U) & 1;
 }
 

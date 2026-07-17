@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TBoss6Tube__sub_802B11CC(f32 farg0);
+f32 scale_by_const__10TBoss6TubeFf(f32 farg0);
 
 extern f32 lbl_805DE254;
 
-f32 TBoss6Tube__sub_802B11CC(f32 farg0) {
+f32 scale_by_const__10TBoss6TubeFf(f32 farg0) {
     return lbl_805DE254 * farg0;
 }
 

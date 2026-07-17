@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_80242918(void);
-void TLobby__sub_80242928(void);
+void clear_flag_bit2__6TLobbyFv(void);
 
 extern u16 lbl_805D63FC;
 
@@ -17,7 +17,7 @@ void TLobby__sub_80242918(void) {
 
 extern u16 lbl_805D63FC;
 
-void TLobby__sub_80242928(void) {
+void clear_flag_bit2__6TLobbyFv(void) {
     lbl_805D63FC &= 0xFFFFFFFB;
 }
 

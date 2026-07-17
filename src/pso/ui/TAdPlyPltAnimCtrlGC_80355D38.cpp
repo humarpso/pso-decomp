@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0);
-M2C_UNK TAdPlyPltAnimCtrlGC__sub_80355D20(void *, M2C_UNK);
+M2C_UNK set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(void *, M2C_UNK);
 
 void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0) {
-    TAdPlyPltAnimCtrlGC__sub_80355D20(arg0, 0);
+    set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(arg0, 0);
 }
 
 }

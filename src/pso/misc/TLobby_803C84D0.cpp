@@ -11,7 +11,7 @@ void TLobby__sub_803C8514(u8 *arg0, s32 arg1);
 void set_buffer__6TLobbyFPvPv(u8 *arg0, void **arg1);
 s32 get_field_14__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803C8578(u8 *arg0, s32 arg1);
-s32 TLobby__sub_803C8584(u8 *arg0, s32 arg1, s32 arg2);
+s32 set_range__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803C8594(u8 *arg0, s32 *arg1, s32 *arg2);
 M2C_UNK TLobby__sub_803CF100(int, int, int);
 M2C_UNK TLobby__sub_803CF1A8(int);
@@ -46,7 +46,7 @@ s32 TLobby__sub_803C8578(u8 *arg0, s32 arg1) {
     return 1;
 }
 
-s32 TLobby__sub_803C8584(u8 *arg0, s32 arg1, s32 arg2) {
+s32 set_range__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x18) = arg2;
     return 1;

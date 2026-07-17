@@ -17,7 +17,7 @@ void TObjPlayer__sub_80084764(void) { lbl_805D4EE4 = (lbl_805D4EE4 & 0xffffffef)
 
 extern u8 lbl_805D4EE4;
 
-s32 TObjPlayer__sub_80084774(void) {
+s32 get_camera_flag__10TObjPlayerFv(void) {
     return ((u8) lbl_805D4EE4 >> 4U) & 1;
 }
 

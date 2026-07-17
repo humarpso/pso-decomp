@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdEnterSerialAccessGC__sub_80202978(void);
+s32 get_serial_result__22TAdEnterSerialAccessGCFv(void);
 
 extern u8 *lbl_805D5F70;
 
-s32 TAdEnterSerialAccessGC__sub_80202978(void) {
+s32 get_serial_result__22TAdEnterSerialAccessGCFv(void) {
     return M2C_FIELD(lbl_805D5F70, s32 *, 0x118);
 }
 

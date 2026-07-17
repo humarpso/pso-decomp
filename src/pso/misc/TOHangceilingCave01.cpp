@@ -12,7 +12,7 @@ f32 TOHangceilingCave01__sub_8016862C(void);
 f32 TOHangceilingCave01__sub_80168634(void);
 void TOHangceilingCave01__sub_8016863C(void);
 void TOHangceilingCave01__sub_80168640(void);
-M2C_UNK TOHangceilingCave01KeyQuick__sub_80168D34(void *, f32, f32);
+M2C_UNK set_scale__27TOHangceilingCave01KeyQuickFPvf(void *, f32, f32);
 
 extern const f32 lbl_805DB654;
 extern const f32 lbl_805DB688;
@@ -53,7 +53,7 @@ void init_geometry__19TOHangceilingCave01FPv(void *arg0) {
     }
     temp_f2 = lbl_805DB690 + M2C_FIELD(arg0, f32 *, 0x68);
     M2C_FIELD(arg0, f32 *, 0x350) = (f32) (temp_f2 - lbl_805DB654);
-    TOHangceilingCave01KeyQuick__sub_80168D34(arg0, lbl_805DB688 + M2C_FIELD(arg0, f32 *, 0x70), temp_f2);
+    set_scale__27TOHangceilingCave01KeyQuickFPvf(arg0, lbl_805DB688 + M2C_FIELD(arg0, f32 *, 0x70), temp_f2);
     self->v77();
     M2C_FIELD(arg0, f32 *, 0x354) = (f32) (lbl_805DB654 - M2C_FIELD(arg0, f32 *, 0x6C));
 }

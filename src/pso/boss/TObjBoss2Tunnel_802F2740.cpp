@@ -8,7 +8,7 @@ extern "C" {
 
 void update_phase_motion__15TObjBoss2TunnelFPv(u8 *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_8007DEE4(void *, f32, f32, f32, f32, f32);
-s32 TObjBoss2Tunnel__sub_802F2300(void *);
+s32 is_phase_active__15TObjBoss2TunnelFv(void *);
 f32 get_random_float__8TObjFishFv(f32);
 s32 advance_phase__15TObjBoss2TunnelFPv(void *, void *);
 s32 check_both__15TObjBoss2TunnelFi();
@@ -31,7 +31,7 @@ void update_phase_motion__15TObjBoss2TunnelFPv(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         if (check_both__15TObjBoss2TunnelFi() != 0) {
-            if (TObjBoss2Tunnel__sub_802F2300((void *) (arg0)) != 0) {
+            if (is_phase_active__15TObjBoss2TunnelFv((void *) (arg0)) != 0) {
                 M2C_FIELD(arg0, f32 *, 0x50) = (f32) lbl_805DECC8;
             } else {
                 M2C_FIELD(arg0, f32 *, 0x50) = (f32) lbl_805DEC98;

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TBoss4Type2__sub_8004A978(void);
+u8 is_active__11TBoss4Type2Fv(void);
 
 extern s32 lbl_805D4D74;
 
-u8 TBoss4Type2__sub_8004A978(void) {
+u8 is_active__11TBoss4Type2Fv(void) {
     return (u8) (lbl_805D4D74 != 0);
 }
 

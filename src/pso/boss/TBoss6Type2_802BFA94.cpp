@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TBoss6Type2__sub_802BD014(void * a0 = 0, s32 a1 = 0);
 s32 TBoss6Type2__sub_802BB768();
-s32 TBoss6Type2__sub_802B9930(void *);
+s32 get_phase__11TBoss6Type2FPv(void *);
 s16 TBoss6Type2__sub_802BA394(void *);
 s32 is_ready_to_attack__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);
@@ -41,7 +41,7 @@ void select_attack_state__11TBoss6Type2FPv(void *arg0) {
             TBoss6Type2__sub_802BDDF8(arg0, 0xD);
             return;
         }
-        if ((TBoss6Type2__sub_802B9930(arg0) == 0xD) && (is_ready_to_attack__11TBoss6Type2FPv(arg0) != 0)) {
+        if ((get_phase__11TBoss6Type2FPv(arg0) == 0xD) && (is_ready_to_attack__11TBoss6Type2FPv(arg0) != 0)) {
             M2C_FIELD(arg0, s16 *, 0x464) = TBoss6Type2__sub_802BA394(arg0);
             TBoss6Type2__sub_802BDDF8(arg0, 0x18);
             return;
@@ -50,7 +50,7 @@ void select_attack_state__11TBoss6Type2FPv(void *arg0) {
             TBoss6Type2__sub_802BDDF8(arg0, 0xE);
             return;
         }
-        if (TBoss6Type2__sub_802B9930(arg0) == 0xD) {
+        if (get_phase__11TBoss6Type2FPv(arg0) == 0xD) {
             M2C_FIELD(arg0, s32 *, 0x428) = TBoss6Type2__sub_802BD7EC(arg0);
             M2C_FIELD(arg0, s32 *, 0x430) = TBoss6Type2__sub_802BD76C(arg0);
             TBoss6Type2__sub_802BDDF8(arg0, 1);

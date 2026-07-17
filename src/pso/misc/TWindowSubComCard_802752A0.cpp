@@ -8,13 +8,13 @@ extern "C" {
 
 void TWindowSubComCard__sub_802752A0(s32 arg0);
 s16 TWindowSubComCard__sub_80265BF8();
-void* TWindowSubComCard__sub_80275234(void* p);
+void* get_card_data_ptr__17TWindowSubComCardFPv(void* p);
 void* TWindowSubComCard__sub_8027523C(void* p);
-void* TWindowSubComCard__sub_80275244(void* p);
-void* TWindowSubComCard__sub_8027524C(void* p);
+void* get_name__17TWindowSubComCardFPv(void* p);
+void* get_sub_obj__17TWindowSubComCardFPv(void* p);
 s16 get_field_72__17TWindowSubComCardFPv(void* p);
 void TWindowSubComCard__sub_80275288(void* p, s16 v);
-void TWindowSubComCard__sub_80275290(void* p);
+void set_flag_10__17TWindowSubComCardFPv(void* p);
 void destroy_keyboard__17TWindowSubComCardFPv(void* p);
 int fn_80247ED8(void*);
 

@@ -8,7 +8,7 @@ extern "C" {
 
 void play_variant_sound__14TObjEneBm5WolfFPv(void *arg0);
 void select_target__14TObjEneBm5WolfFPv(void *arg0);
-void TObjEneBm5Wolf__sub_800B78E8(void* p);
+void set_attack_flag__14TObjEneBm5WolfFPv(void* p);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(f32);
 M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(f32);
 
@@ -34,6 +34,6 @@ void select_target__14TObjEneBm5WolfFPv(void *arg0) {
     select_and_apply_target__14TObjEneEpsilonFPvf(lbl_805D9E50);
 }
 
-void TObjEneBm5Wolf__sub_800B78E8(void* p) { *(u32*)((char*)p + 0x408) |= 0x1; }
+void set_attack_flag__14TObjEneBm5WolfFPv(void* p) { *(u32*)((char*)p + 0x408) |= 0x1; }
 
 }

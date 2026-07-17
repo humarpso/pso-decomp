@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TAdMultiPlyChrSelectGC__sub_802C6F98(void);
+int get_selected_slot__22TAdMultiPlyChrSelectGCFv(void);
 int TAdMultiPlyChrSelectGC__sub_802C6FA0(void);
 int TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 void update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv(void);
@@ -15,7 +15,7 @@ M2C_UNK TLobby__sub_8001E998(f32, f32, f32, f32);
 M2C_UNK TLobby__sub_8001EA5C(s32, f32, f32, f32, f32);
 
     extern int lbl_805D6F08;
-int TAdMultiPlyChrSelectGC__sub_802C6F98(void) {  return lbl_805D6F08; }
+int get_selected_slot__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D6F08; }
 
     extern int lbl_805D6700;
 int TAdMultiPlyChrSelectGC__sub_802C6FA0(void) {  return lbl_805D6700; }

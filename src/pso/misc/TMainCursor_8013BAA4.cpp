@@ -10,7 +10,7 @@ void run_task__11TMainCursorFv(u8 *arg0);
 s32 init_render_flags__11TMainCursorFPv(void *);
 s32 update__11TMainCursorFPv(void *);
 s32 TMainCursor__sub_8013E520(void *);
-f32 TMainCursor__sub_8013F178(void *);
+f32 get_pos__11TMainCursorFPv(void *);
 M2C_UNK TMainCursor__sub_8013F180(void *);
 M2C_UNK TMainCursor__sub_8013B70C();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
@@ -47,7 +47,7 @@ void run_task__11TMainCursorFv(u8 *arg0) {
     case 1:
         return;
     case 2:
-        if ((TMainCursor__sub_8013F178(arg0 + 0x4C) - lbl_805DB0D0) > TMainCursor__data_805DB0C0) {
+        if ((get_pos__11TMainCursorFPv(arg0 + 0x4C) - lbl_805DB0D0) > TMainCursor__data_805DB0C0) {
             TMainCursor__sub_8013F180(arg0 + 0x4C);
             return;
         }

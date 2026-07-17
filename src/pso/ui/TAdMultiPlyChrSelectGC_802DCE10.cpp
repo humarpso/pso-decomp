@@ -17,14 +17,14 @@ M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 M2C_UNK set_state_ready__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802E0124(s32);
+s32 get_ready_state__22TAdMultiPlyChrSelectGCFPv(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void update_confirm_start__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r3;
 
-    if ((TAdMultiPlyChrSelectGC__sub_802E0124(M2C_FIELD(arg0, s32 *, 0x78)) == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1) && (TAdMultiPlyChrSelectGC__sub_802C64D0(0) != 0)) {
+    if ((get_ready_state__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x78)) == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() > 1) && (TAdMultiPlyChrSelectGC__sub_802C64D0(0) != 0)) {
         temp_r31 = count_ready__22TAdMultiPlyChrSelectGCFv();
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6558();
         if (temp_r3 != temp_r31) {

@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TLobby__sub_80221820(void);
+int get_shop_value__6TLobbyFv(void);
 
     extern int lbl_805D61C8;
-int TLobby__sub_80221820(void) {  return lbl_805D61C8; }
+int get_shop_value__6TLobbyFv(void) {  return lbl_805D61C8; }
 
 }

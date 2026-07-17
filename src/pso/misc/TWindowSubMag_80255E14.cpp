@@ -11,10 +11,10 @@ s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 is_confirmed__18TWindowInputNumberFPv();
 s32 TWindowHelpItem__sub_80255DDC(void* p);
 void set_flag0_bit20__15TWindowHelpItemFPv(void* p);
-s16 TWindowSubStatusDisp__sub_80255DF4(void* p);
-s16 TWindowSubStatusDisp__sub_80255DFC(void* p);
-s16 TWindowSubStatusDisp__sub_80255E04(void* p);
-s16 TWindowSubStatusDisp__sub_80255E0C(void* p);
+s16 get_item_type__20TWindowSubStatusDispFPv(void* p);
+s16 get_field_2F8__20TWindowSubStatusDispFPv(void* p);
+s16 get_stat__20TWindowSubStatusDispFPv(void* p);
+s16 get_value__20TWindowSubStatusDispFPv(void* p);
 void set_flag60_bit4__13TWindowSubMagFPv(void* p);
 
 void set_flag60_bit4__13TWindowSubMagFPv(void* p) { *(u8*)((char*)p + 0x60) |= 0x4; }

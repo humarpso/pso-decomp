@@ -18,7 +18,7 @@ void TObjPlayer__sub_801D12D8(void* p);
 void TObjPlayer__sub_801D12E8(void* p);
 int TObjPlayer__sub_801D1360(void* p);
 void TObjPlayer__sub_801D1440(void* p);
-void TObjPlayer__sub_801D1480(void* p);
+void set_cmd_87__10TObjPlayerFPv(void* p);
 int update_action_palette__10TObjPlayerFPv(void*);
 int TLobby__send_and_handle_60(void*);
 int update_players__6TLobbyFi(void*);
@@ -31,7 +31,7 @@ int TFontSmallLobby__sub_801C0228(void*);
 void handle_recv_packet__10TObjPlayerFPv(void* p) { bswap_packet__10TObjPlayerFPv(p); update_players__6TLobbyFi(p); }
 void TObjPlayer__sub_801D1440(void* p) { *(u16*)((char*)p + 0x6) |= 0x1; }
 void* handle_6x57__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
-void TObjPlayer__sub_801D1480(void* p) { *(u8*)((char*)p + 0x0) = 87; *(u8*)((char*)p + 0x1) = 1; }
+void set_cmd_87__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 87; *(u8*)((char*)p + 0x1) = 1; }
 void draw_and_send__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void swap_endian_words__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); bswap_32__FPUl((char*)p + 0x10); }
 

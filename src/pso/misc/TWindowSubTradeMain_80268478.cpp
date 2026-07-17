@@ -21,7 +21,7 @@ s32 is_open__17TWindowSubComCardFPv();
 void update_selected_entry__17TWindowSubComCardFPv(void *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s16 a1 = 0);
 M2C_UNK get_entry_id__17TWindowSubComCardFPv();
-void TWindowSubTradeMain__sub_80268468(void* p);
+void clear_flag__19TWindowSubTradeMainFPv(void* p);
 void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
 int is_flag80_set__20TWindowSubStatusDispFPv(void* p);
 

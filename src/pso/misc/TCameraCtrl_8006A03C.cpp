@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void* TCameraCtrl__sub_8006A03C(void* p);
+void* get_params__11TCameraCtrlFPv(void* p);
 
-void* TCameraCtrl__sub_8006A03C(void* p) { return (char*)p + 0x20; }
+void* get_params__11TCameraCtrlFPv(void* p) { return (char*)p + 0x20; }
 
 }

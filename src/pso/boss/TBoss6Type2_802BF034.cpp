@@ -18,7 +18,7 @@ M2C_UNK TBoss6Type2__sub_802BAD04(void *);
 int TBoss6Type2__sub_802BAFEC(void*, void*);
 M2C_UNK TBoss6Type2__sub_802BB768(void *);
 M2C_UNK TBoss6Type2__sub_802BB7C0(void *);
-M2C_UNK TBoss6Type2__sub_802BC6DC(void *);
+M2C_UNK reset_attack_counter__11TBoss6Type2FPv(void *);
 M2C_UNK TBoss6Type2__sub_802BD014(void *, M2C_UNK);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 
@@ -78,7 +78,7 @@ void update_attack_sequence__11TBoss6Type2FPv(u8 *arg0) {
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
     M2C_FIELD(arg0, s32 *, 0x460) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        TBoss6Type2__sub_802BC6DC(arg0);
+        reset_attack_counter__11TBoss6Type2FPv(arg0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x418) != 0) {
             TBoss6Type2__sub_802BD014(arg0, 0x1B);
             return;

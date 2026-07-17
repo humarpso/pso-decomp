@@ -14,17 +14,17 @@ void TMainCursor__sub_8013F104(void* p, s32 v);
 void TMainCursor__sub_8013F10C(void* p, s32 v);
 void TMainCursor__sub_8013F114(void* p);
 void set_cursor_id__11TMainCursorFPvs(void* p, s16 v);
-void TMainCursor__sub_8013F12C(void* p, s16 v);
+void set_field2__11TMainCursorFPvs(void* p, s16 v);
 void set_size__11TMainCursorFPvf(void* p, f32 v);
 f32 TMainCursor__sub_8013F14C(void* p);
 s32 TMainCursor__sub_8013F168(void* p);
 void TMainCursor__sub_8013F170(void* p, s32 v);
-f32 TMainCursor__sub_8013F178(void* p);
+f32 get_pos__11TMainCursorFPv(void* p);
 void TMainCursor__sub_8013F180(void* p, f32 v);
 int get_rader_map__11TMainCursorFPv(void* p);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
 
-f32 TMainCursor__sub_8013F178(void* p) { return *(f32*)((char*)p + 0x0); }
+f32 get_pos__11TMainCursorFPv(void* p) { return *(f32*)((char*)p + 0x0); }
 void TMainCursor__sub_8013F180(void* p, f32 v) { *(f32*)((char*)p + 0x0) = v; }
 
 }

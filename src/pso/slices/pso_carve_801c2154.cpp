@@ -27,8 +27,8 @@ u8 TObjPlayer__sub_801C2234(void* p);
 u8 TObjPlayer__sub_801C223C(void* p);
 void TObjPlayer__sub_801C2244(void* p, s16 v);
 int check_flag_at_428__10TObjPlayerFPv(void* p);
-void* TObjPlayer__sub_801C22A4(void* p);
-void* TObjPlayer__sub_801C22AC(void* p);
+void* get_sub_obj__10TObjPlayerFPv(void* p);
+void* get_char_data__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801C22B4(void* p);
 int TObjPlayer__sub_8001BEF8(void*, int);
 

@@ -3,9 +3,9 @@
 extern "C" {
 
 s32 is_item_active__15TWindowMainMenuFPv(s32);
-void TWindowMainMenu__sub_802ADB0C(void* p);
-int TWindowMainMenu__sub_802ADB1C(void* p);
-int TWindowMainMenu__sub_802ADB28(void* p);
+void clear_menu_flags__15TWindowMainMenuFPv(void* p);
+int is_flag_set__15TWindowMainMenuFPv(void* p);
+int get_menu_flag__15TWindowMainMenuFPv(void* p);
 
 s32 find_free_slot__15TWindowMainMenuFi(s32 arg0) {
     s32 counter;

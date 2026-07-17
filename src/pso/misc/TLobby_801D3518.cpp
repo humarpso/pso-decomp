@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_801C2060(s32, s32);
+s32 set_field4__10TObjPlayerFPvi(s32, s32);
 s32 create_node__9TItemListFPvPvPvPv(s32, s32, s32, s32);
 s32 copy_item_data__9TItemListFPv(s32, s32);
 s32 TItemList__sub_801D5844(s32);

@@ -13,7 +13,7 @@ void set_flag3c8_bit40__23TObjEneMe1CanadinLeaderFPv(void* p);
 void set_flag3c8_bit20__23TObjEneMe1CanadinLeaderFPv(void* p);
 void set_flag3c8_bit8__23TObjEneMe1CanadinLeaderFPv(void* p);
 void TObjEneMe1CanadinLeader__sub_8009E27C(void* p);
-void TObjEneMe1CanadinLeader__sub_8009E28C(void* p);
+void set_attack_flag__23TObjEneMe1CanadinLeaderFPv(void* p);
 void TObjEneMe1Canadin__vt115(void);
 int TObjEneMe1CanadinLeader__sub_8009E36C(void* p);
 int TObjEneMe1Canadin__vt107(void);

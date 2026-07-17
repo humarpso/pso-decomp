@@ -9,7 +9,7 @@ extern "C" {
 void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0);
 M2C_UNK clear_attack_flag__18TObjEneBalClawClawFPv(void *);
 M2C_UNK reset_active_state__18TObjEneBalClawClawFPv(void *);
-M2C_UNK TObjPlayer__sub_80090448(void *);
+M2C_UNK set_attack_distance_flag__10TObjPlayerFPv(void *);
 M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
 f32 fn_8013157C(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
@@ -78,7 +78,7 @@ void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0) {
                 break;
             case 2:
                 if (temp_f1 < lbl_805D96C8) {
-                    TObjPlayer__sub_80090448((void *) (arg0));
+                    set_attack_distance_flag__10TObjPlayerFPv((void *) (arg0));
                     M2C_FIELD(arg0, s32 *, 0x38C) = 1;
                 }
                 break;
@@ -93,7 +93,7 @@ void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0) {
                     clear_attack_flag__18TObjEneBalClawClawFPv((void *) (arg0));
                     return;
                 case 2:
-                    TObjPlayer__sub_80090448((void *) (arg0));
+                    set_attack_distance_flag__10TObjPlayerFPv((void *) (arg0));
                     return;
                 }
             }

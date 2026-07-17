@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
-int TObjPlayer__sub_80313260(void* a0 = 0);
+int get_max_children__10TObjPlayerFPv(void* a0 = 0);
 void update_children__10TObjPlayerFPv(void* p);
 int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void);

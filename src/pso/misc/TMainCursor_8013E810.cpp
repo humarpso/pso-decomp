@@ -14,7 +14,7 @@ u16 get_id__11TMainCursorFPv(void* p);
 int TMainCursor__sub_8013E310(void* p);
 int TMainCursor__sub_8013E338(void* p);
 int TMainCursor__sub_8013E358(void* p);
-void* TMainCursor__sub_8013E44C(void* p);
+void* get_list__11TMainCursorFPv(void* p);
 int update_target_sub__11TMainCursorFPv(void* p);
 u16 get_render_flag__11TMainCursorFPv(void* p);
 u16 TMainCursor__sub_8013E4A0(void* p);

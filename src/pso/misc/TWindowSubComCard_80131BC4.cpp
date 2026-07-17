@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0);
-int TKeyBoardControl__sub_80131FA0(void*);
+int is_active__16TKeyBoardControlFPv(void*);
 int is_key_active__16TKeyBoardControlFPv(void*);
 int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
 int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);

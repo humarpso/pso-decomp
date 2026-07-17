@@ -9,7 +9,7 @@ extern "C" {
 void wait_ready_loop__6TLobbyFv(void);
 s32 TLobby__sub_800F8FB8();
 M2C_UNK TLobby__sub_801384E4();
-M2C_UNK TAdPlayerLoadGC__sub_800F9EF8(M2C_UNK);
+M2C_UNK set_state__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 get_main_phase();
 M2C_UNK render_tick__Fv();
 
@@ -22,7 +22,7 @@ loop_1:
         if (get_main_phase() == 0xF) {
             TLobby__sub_801384E4();
         }
-        TAdPlayerLoadGC__sub_800F9EF8(1);
+        set_state__15TAdPlayerLoadGCFi(1);
         lbl_805D5359 = 1;
         render_tick__Fv();
         goto loop_1;

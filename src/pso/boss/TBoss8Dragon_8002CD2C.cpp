@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss8Dragon__sub_8002CD2C(void);
+s32 get_state__12TBoss8DragonFv(void);
 void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern s32 lbl_805D4B7C;
 
-s32 TBoss8Dragon__sub_8002CD2C(void) {
+s32 get_state__12TBoss8DragonFv(void) {
     return lbl_805D4B7C;
 }
 

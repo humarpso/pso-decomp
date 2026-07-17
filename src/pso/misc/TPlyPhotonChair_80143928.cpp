@@ -2,11 +2,11 @@
 
 extern "C" {
 
-f32 TPlyPhotonChair__sub_80143928(void* p);
+f32 get_float_c__15TPlyPhotonChairFPv(void* p);
 s32 TPlyPhotonChair__sub_80143930(void* p);
-s32 TPlyPhotonChair__sub_80143938(void* p);
-void TPlyPhotonChair__sub_80143940(void* p);
+s32 get_id__15TPlyPhotonChairFPv(void* p);
+void activate__15TPlyPhotonChairFPv(void* p);
 
-f32 TPlyPhotonChair__sub_80143928(void* p) { return *(f32*)((char*)p + 0xc); }
+f32 get_float_c__15TPlyPhotonChairFPv(void* p) { return *(f32*)((char*)p + 0xc); }
 
 }

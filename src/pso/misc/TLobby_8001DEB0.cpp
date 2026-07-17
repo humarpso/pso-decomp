@@ -9,7 +9,7 @@ extern "C" {
 void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK TLobby__sub_8001DF0C(s32, s32);
 s32 is_valid_player_index__6TLobbyFi();
-s32 TLobby__sub_8001E200(s32, s32);
+s32 get_player_entry__6TLobbyFii(s32, s32);
 
 void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 var_r31;
@@ -17,7 +17,7 @@ void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1) {
     if (is_valid_player_index__6TLobbyFi() != 0) {
         var_r31 = 0;
         do {
-            TLobby__sub_8001DF0C(TLobby__sub_8001E200(var_r31, arg0), arg1);
+            TLobby__sub_8001DF0C(get_player_entry__6TLobbyFii(var_r31, arg0), arg1);
             var_r31 += 1;
         } while (var_r31 < 4);
     }

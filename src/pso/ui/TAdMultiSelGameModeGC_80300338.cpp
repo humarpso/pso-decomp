@@ -11,9 +11,9 @@ void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0);
 int TKeyBoardControl__sub_8000F9CC(int);
 s32 begin_change_game_mode__21TAdMultiChgGameModeGCFv();
 s32 begin_transition__21TAdMultiChgGameModeGCFv();
-int TObjEneDolmOlm__sub_80300CE4(void);
+int reset_count__14TObjEneDolmOlmFv(void);
 
-void exit_keyboard_mode__21TAdMultiSelGameModeGCFv(void) { TObjEneDolmOlm__sub_80300CE4(); TKeyBoardControl__sub_8000F9CC(14); }
+void exit_keyboard_mode__21TAdMultiSelGameModeGCFv(void) { reset_count__14TObjEneDolmOlmFv(); TKeyBoardControl__sub_8000F9CC(14); }
 void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0) {
     s32 temp_r0;
 

@@ -2,9 +2,9 @@
 
 extern "C" {
 
-unsigned char TLobby__sub_802E03C8(void);
+unsigned char get_trade_mode__6TLobbyFv(void);
 
     extern unsigned char TLobby__data_805D688A;
-unsigned char TLobby__sub_802E03C8(void) {  return TLobby__data_805D688A; }
+unsigned char get_trade_mode__6TLobbyFv(void) {  return TLobby__data_805D688A; }
 
 }

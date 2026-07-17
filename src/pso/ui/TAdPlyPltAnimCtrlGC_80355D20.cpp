@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdPlyPltAnimCtrlGC__sub_80355D20(void *arg0, s32 arg1);
+void set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(void *arg0, s32 arg1);
 
-void TAdPlyPltAnimCtrlGC__sub_80355D20(void *arg0, s32 arg1) {
+void set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(void *arg0, s32 arg1) {
     if (arg1 == 0) {
         M2C_FIELD(arg0, s32 *, 0x78) = -1;
     }

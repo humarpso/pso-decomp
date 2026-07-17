@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_fields4B8__16TObjEneRe7BeruraFPv(void *arg0);
-s32 TObjEneRe7Berura__sub_80094EE0();
+s32 get_field_3D4_shifted__16TObjEneRe7BeruraFPv();
 
 void init_fields4B8__16TObjEneRe7BeruraFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x4B8) = TObjEneRe7Berura__sub_80094EE0();
+    M2C_FIELD(arg0, s32 *, 0x4B8) = get_field_3D4_shifted__16TObjEneRe7BeruraFPv();
     M2C_FIELD(arg0, s32 *, 0x4BC) = 0;
 }
 

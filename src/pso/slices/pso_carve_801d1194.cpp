@@ -17,7 +17,7 @@ void TObjPlayer__sub_801D12D8(void* p);
 void TObjPlayer__sub_801D12E8(void* p);
 int TObjPlayer__sub_801D1360(void* p);
 void TObjPlayer__sub_801D1440(void* p);
-void TObjPlayer__sub_801D1480(void* p);
+void set_cmd_87__10TObjPlayerFPv(void* p);
 int update_action_palette__10TObjPlayerFPv(void*);
 int TLobby__send_and_handle_60(void*);
 int update_players__6TLobbyFi(void*);

@@ -12,7 +12,7 @@ M2C_UNK TCameraCtrl__sub_80069024();
 M2C_UNK TObjPlayer__sub_80084038(s32, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_8008453C();
 M2C_UNK TObjPlayer__sub_80084764();
-s32 TObjPlayer__sub_80084774();
+s32 get_camera_flag__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80084780();
 M2C_UNK TObjPlayer__sub_80084790();
 s32 TObjPlayer__sub_800847A8();
@@ -39,7 +39,7 @@ void update_camera_effect__10TObjPlayerFPv(void *arg0) {
             TObjPlayer__sub_80084780();
             TObjPlayer__sub_8008453C();
         }
-        if (TObjPlayer__sub_80084774() != 0) {
+        if (get_camera_flag__10TObjPlayerFv() != 0) {
             TObjPlayer__sub_80084764();
             setup_tev_swap__10TObjPlayerFv();
         }

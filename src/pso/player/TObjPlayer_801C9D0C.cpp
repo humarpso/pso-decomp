@@ -16,7 +16,7 @@ M2C_UNK TObjPlayer__sub_801AF7E0(u32);
 s32 TObjPlayer__sub_801D0458();
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801D17C0(M2C_UNK *);
+M2C_UNK set_revived_state__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK broadcast_lobby_display__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv();
@@ -54,7 +54,7 @@ void update_lobby_display__10TObjPlayerFUi(u32 arg0) {
     }
     update_if_ready__15TFontSmallLobbyFPv(arg0 + 0x4AC);
     if ((arg0 == 0U) || (obj_isState2_324(arg0) == 0)) {
-        TObjPlayer__sub_801D17C0((M2C_UNK *)&sp8);
+        set_revived_state__10TObjPlayerFPv((M2C_UNK *)&sp8);
         sp8.fieldA = obj_getField1c(arg0);
         broadcast_lobby_display__10TObjPlayerFPv((M2C_UNK *)&sp8);
     }

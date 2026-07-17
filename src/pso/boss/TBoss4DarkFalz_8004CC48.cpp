@@ -10,7 +10,7 @@ void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0);
 void request_action_7__14TBoss4DarkFalzFi(s32 arg0);
 s32 TBoss4DarkFalz__sub_8004B07C(s32);
 M2C_UNK TBoss4DarkFalz__sub_8004B1BC(s32, M2C_UNK);
-s32 TBoss4DarkFalz__sub_8004C1E4(u32);
+s32 get_state__14TBoss4DarkFalzFPv(u32);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TBoss4DarkFalz__sub_8004D990();
 
@@ -23,7 +23,7 @@ void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0) {
 extern u32 TBoss4DarkFalz__data_805D4D5C;
 
 void request_action_7__14TBoss4DarkFalzFi(s32 arg0) {
-    if (((u32) TBoss4DarkFalz__data_805D4D5C == 0U) || (TBoss4DarkFalz__sub_8004C1E4(TBoss4DarkFalz__data_805D4D5C) == 3) || (TBoss4DarkFalz__sub_8004C1E4(TBoss4DarkFalz__data_805D4D5C) == 4) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
+    if (((u32) TBoss4DarkFalz__data_805D4D5C == 0U) || (get_state__14TBoss4DarkFalzFPv(TBoss4DarkFalz__data_805D4D5C) == 3) || (get_state__14TBoss4DarkFalzFPv(TBoss4DarkFalz__data_805D4D5C) == 4) || (TBoss4DarkFalz__sub_8004B07C(arg0) != 0)) {
         TBoss4DarkFalz__sub_8004B1BC(arg0, 7);
     }
 }

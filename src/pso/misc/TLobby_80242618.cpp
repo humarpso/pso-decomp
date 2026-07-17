@@ -12,7 +12,7 @@ M2C_UNK TLobby__sub_802422EC(void *, void *, int);
 void *TLobby__sub_80242458(void *, void *);
 void *TLobby__sub_802424D8(void *);
 M2C_UNK get_id__6TLobbyFPv(void *);
-s32 TWindowSubStatusDisp__sub_80242908(void *);
+s32 get_sub_disp_ptr__20TWindowSubStatusDispFPv(void *);
 M2C_UNK __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
 u32 find_card_by_id__17TWindowSubComCardFUi();
 M2C_UNK strncpy(void *, void *, int);
@@ -31,7 +31,7 @@ void TLobby__sub_80242618(u8 *arg0, u8 *arg1) {
     __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension((void *) (arg0 + 0x58), (void *) (arg1 + 0x60));
     get_id__6TLobbyFPv((void *) (arg0));
     if (find_card_by_id__17TWindowSubComCardFUi() == 0U) {
-        strncpy((void *) (arg0 + 8), (void *) (TWindowSubStatusDisp__sub_80242908((void *) (arg0))), (int) (0x10));
+        strncpy((void *) (arg0 + 8), (void *) (get_sub_disp_ptr__20TWindowSubStatusDispFPv((void *) (arg0))), (int) (0x10));
     } else {
         strncpy((void *) (arg0 + 8), (void *) (get_com_card_list__6TLobbyFPv()), (int) (0x10));
     }

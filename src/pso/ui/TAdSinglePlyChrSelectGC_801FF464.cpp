@@ -9,7 +9,7 @@ extern "C" {
 s32 init__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200470();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802010E8();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BB8(M2C_UNK);
+M2C_UNK clear_flags__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 fn_80203284();
@@ -30,7 +30,7 @@ s32 init__23TAdSinglePlyChrSelectGCFv(void) {
             TObjPlayer__sub_802C4348();
             TAdSinglePlyChrSelectGC__sub_8028DC14();
         }
-        TAdSinglePlyChrSelectGC__sub_80202BB8(3);
+        clear_flags__23TAdSinglePlyChrSelectGCFi(3);
         TAdSinglePlyChrSelectGC__sub_802010E8();
         copy_card_window_data();
         TAdSinglePlyChrSelectGC__sub_80200470();

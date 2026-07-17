@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
-int TObjPlayer__sub_80313260(void* a0 = 0);
+int get_max_children__10TObjPlayerFPv(void* a0 = 0);
 void update_children__10TObjPlayerFPv(void* p);
 int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void);
@@ -18,6 +18,6 @@ void TObjPlayer__sub_80313248(void* p, s16 v);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 
-void update_children__10TObjPlayerFPv(void* p) { { int n = TObjPlayer__sub_80313260(p); int i; for (i = 0; i < n; i++) { TObjPlayer__sub_801AA64C((char*)p + 0x8 + i * 4); } } }
+void update_children__10TObjPlayerFPv(void* p) { { int n = get_max_children__10TObjPlayerFPv(p); int i; for (i = 0; i < n; i++) { TObjPlayer__sub_801AA64C((char*)p + 0x8 + i * 4); } } }
 
 }

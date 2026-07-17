@@ -8,7 +8,7 @@ extern "C" {
 
 void update_difficulty__6TLobbyFv(void);
 M2C_UNK TLobby__sub_8001DC30();
-M2C_UNK TLobby__sub_8001E2B8();
+M2C_UNK set_difficulty__6TLobbyFi();
 M2C_UNK clamp_difficulty__6TLobbyFi(s32);
 M2C_UNK get_instance__6TLobbyFv();
 
@@ -24,7 +24,7 @@ void update_difficulty__6TLobbyFv(void) {
     temp_r30 = TLobby__data_805D4AB8;
     clamp_difficulty__6TLobbyFi(lbl_805D5550);
     get_instance__6TLobbyFv();
-    TLobby__sub_8001E2B8();
+    set_difficulty__6TLobbyFi();
     if (((s32) TLobby__data_805D4AB4 != temp_r31) || ((s32) TLobby__data_805D4AB8 != temp_r30)) {
         TLobby__sub_8001DC30();
     }

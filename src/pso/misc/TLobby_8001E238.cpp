@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void* TLobby__sub_8001E238(int a0, int a1);
+void* get_entry__6TLobbyFii(int a0, int a1);
 
     extern int TLobby__data_805D4AAC;
-void* TLobby__sub_8001E238(int a0, int a1) {  return (char*)(TLobby__data_805D4AAC) + a1 * 32; }
+void* get_entry__6TLobbyFii(int a0, int a1) {  return (char*)(TLobby__data_805D4AAC) + a1 * 32; }
 
 }

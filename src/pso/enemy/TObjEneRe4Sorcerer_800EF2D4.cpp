@@ -11,7 +11,7 @@ s32 is_alive__9TObjEneDDFPv(s32);
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK create__9TTecRestaFPvPvPv(void *, void *, s32);
 s32 clamp_frame_index__9TObjEneDDFi(s32);
-u8 *TObjEneRe4Sorcerer__sub_800ED488();
+u8 *get_spell_data__18TObjEneRe4SorcererFPv();
 
 extern u8 *lbl_805D52DC;
 
@@ -20,7 +20,7 @@ s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0) {
 
     if (is_alive__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x390)) != 0) {
         if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x3E4)) != 0U) {
-            var_r31 = TObjEneRe4Sorcerer__sub_800ED488();
+            var_r31 = get_spell_data__18TObjEneRe4SorcererFPv();
         } else {
             var_r31 = arg0 + 0x38;
         }

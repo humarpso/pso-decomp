@@ -10,7 +10,7 @@ void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
 int test_keyboard_card_flag4(void* p);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
-s8 TLobby__sub_8013AD64();
+s8 get_mode__6TLobbyFPv();
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
 void TWindowMainMenu__sub_80264A64(void) {  }

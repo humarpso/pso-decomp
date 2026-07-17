@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TObjPlayer__sub_800A4288(void);
+void reset_effect_count__10TObjPlayerFv(void);
 
     extern int lbl_805D5038;
-void TObjPlayer__sub_800A4288(void) { lbl_805D5038 = 0; }
+void reset_effect_count__10TObjPlayerFv(void) { lbl_805D5038 = 0; }
 
 }

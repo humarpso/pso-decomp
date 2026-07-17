@@ -8,10 +8,10 @@ extern "C" {
 
 s32 set_hold_flags__18TObjEneRe4SorcererFPv();
 void TObjEneRe4Sorcerer__sub_800ED408(void* p);
-void TObjEneRe4Sorcerer__sub_800ED418(void* p);
+void set_attack_flag__18TObjEneRe4SorcererFPv(void* p);
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p);
-void* TObjEneRe4Sorcerer__sub_800ED488(void* p);
-s32 TObjEneRe4Sorcerer__sub_800ED490(void* p);
+void* get_spell_data__18TObjEneRe4SorcererFPv(void* p);
+s32 get_state__18TObjEneRe4SorcererFPv(void* p);
 
 void set_flag_and_notify__18TObjEneRe4SorcererFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 0x10);
@@ -20,6 +20,6 @@ void set_flag_and_notify__18TObjEneRe4SorcererFPv(void *arg0) {
     }
 }
 void TObjEneRe4Sorcerer__sub_800ED408(void* p) { *(u32*)((char*)p + 0x3cc) &= 0xfffffeff; }
-void TObjEneRe4Sorcerer__sub_800ED418(void* p) { *(u32*)((char*)p + 0x3cc) |= 0x2; }
+void set_attack_flag__18TObjEneRe4SorcererFPv(void* p) { *(u32*)((char*)p + 0x3cc) |= 0x2; }
 
 }

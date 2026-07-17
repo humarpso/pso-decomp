@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_80258164(void *arg0);
+void advance_state__20TWindowSubStatusDispFPv(void *arg0);
 
-void TWindowSubStatusDisp__sub_80258164(void *arg0) {
+void advance_state__20TWindowSubStatusDispFPv(void *arg0) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0x1D) == 0x14) {
         M2C_FIELD(arg0, u8 *, 0x1D) = 0x15U;
     }

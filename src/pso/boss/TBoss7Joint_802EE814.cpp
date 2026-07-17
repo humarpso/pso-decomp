@@ -22,8 +22,8 @@ void TBoss7Joint__sub_802EE6FC(void);
 void TBoss7Joint__sub_802EE700(void);
 void TBoss7Joint__sub_802EE7B8(void* p);
 void TBoss7Joint__sub_802EE800(void* p);
-int TBoss7Joint__sub_802EE814(void* p);
+int is_part_active__11TBoss7JointFPv(void* p);
 
-int TBoss7Joint__sub_802EE814(void* p) { return *(u32*)((char*)p + 0x3bc) & 0x1; }
+int is_part_active__11TBoss7JointFPv(void* p) { return *(u32*)((char*)p + 0x3bc) & 0x1; }
 
 }

@@ -4,7 +4,7 @@ extern "C" {
 
 void TWindowChat__sub_80247D2C(void* p);
 u8 TWindowChat__sub_80247D3C(void* p);
-int TWindowChat__sub_80247D44(void* p);
+int get_flag__11TWindowChatFPv(void* p);
 int forward_card_at_1c__11TWindowChatFPv(void* p);
 int get_subcard_field1c__11TWindowChatFPv(void* p);
 int TWindowChat__sub_80247DAC(void* p);
@@ -21,6 +21,6 @@ int TWindowSubComCard__sub_80265BF8(void*);
 
 void TWindowChat__sub_80247D2C(void* p) { *(u16*)((char*)p + 0x62) |= 0x4; }
 u8 TWindowChat__sub_80247D3C(void* p) { return *(u8*)((char*)p + 0x65); }
-int TWindowChat__sub_80247D44(void* p) { return (*(u16*)((char*)p + 0x60) >> 6) & 0x1; }
+int get_flag__11TWindowChatFPv(void* p) { return (*(u16*)((char*)p + 0x60) >> 6) & 0x1; }
 
 }

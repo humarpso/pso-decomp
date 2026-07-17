@@ -8,13 +8,13 @@ extern "C" {
 
 s32 set_hold_flags__18TObjEneRe4SorcererFPv();
 void TObjEneRe4Sorcerer__sub_800ED408(void* p);
-void TObjEneRe4Sorcerer__sub_800ED418(void* p);
+void set_attack_flag__18TObjEneRe4SorcererFPv(void* p);
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p);
-void* TObjEneRe4Sorcerer__sub_800ED488(void* p);
-s32 TObjEneRe4Sorcerer__sub_800ED490(void* p);
+void* get_spell_data__18TObjEneRe4SorcererFPv(void* p);
+s32 get_state__18TObjEneRe4SorcererFPv(void* p);
 
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p) { *(s32*)((char*)p + 0x3d0) = 3; }
-void* TObjEneRe4Sorcerer__sub_800ED488(void* p) { return (char*)p + 0x2fc; }
-s32 TObjEneRe4Sorcerer__sub_800ED490(void* p) { return *(s32*)((char*)p + 0x404); }
+void* get_spell_data__18TObjEneRe4SorcererFPv(void* p) { return (char*)p + 0x2fc; }
+s32 get_state__18TObjEneRe4SorcererFPv(void* p) { return *(s32*)((char*)p + 0x404); }
 
 }

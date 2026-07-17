@@ -7,7 +7,7 @@ void check_flag_04000000__10TObjPlayerFPv(void* p);
 void set_flag_0x8000__10TObjPlayerFPv(void* p);
 void check_flag_0x8000__10TObjPlayerFPv(void* p);
 void* restore_shrunken_font__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801C72E4(void* p);
+void init_6x88_packet__10TObjPlayerFPv(void* p);
 void send_font_update_60__10TObjPlayerFPv(void* p);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TFontSmallLobby__sub_801C0228(void*);
@@ -23,7 +23,7 @@ void check_flag_04000000__10TObjPlayerFPv(void* p) { check_flag__10TObjPlayerFPv
 void set_flag_0x8000__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8011E204(p, (void*)32768); }
 void check_flag_0x8000__10TObjPlayerFPv(void* p) { check_flag__10TObjPlayerFPvi(p, (void*)32768); }
 void* restore_shrunken_font__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
-void TObjPlayer__sub_801C72E4(void* p) { *(u8*)((char*)p + 0x0) = 136; *(u8*)((char*)p + 0x1) = 1; }
+void init_6x88_packet__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 136; *(u8*)((char*)p + 0x1) = 1; }
 void send_font_update_60__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 
 }

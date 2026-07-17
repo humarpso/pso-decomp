@@ -83,9 +83,9 @@ M2C_UNK TObjPlayer__sub_801D0D34(void *, s32);
 s32 start_action18_sub__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0DF4(void *);
 M2C_UNK TObjPlayer__sub_801D0E18(void *);
-s32 TObjPlayer__sub_801D0E28(void *);
+s32 get_action_flag__10TObjPlayerFPv(void *);
 M2C_UNK forward_1D1044_at_34c__10TObjPlayerFPv(void *, s16);
-s32 TObjPlayer__sub_801D0E58(void *);
+s32 is_action_flag_28__10TObjPlayerFPv(void *);
 M2C_UNK update_facing_from_lock__10TObjPlayerFPv(void *);
 
 void start_action_18__10TObjPlayerFPv(void *arg0) {
@@ -93,13 +93,13 @@ void start_action_18__10TObjPlayerFPv(void *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x18;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
-    if (TObjPlayer__sub_801D0E58(arg0) != 0) {
+    if (is_action_flag_28__10TObjPlayerFPv(arg0) != 0) {
         var_r4 = ((VObj8_801c7630 *) M2C_FIELD(arg0, void **, 0x380))->vf110();
     } else {
         var_r4 = ((VObj8_801c7630 *) M2C_FIELD(arg0, void **, 0x380))->vf10C();
     }
     forward_1D1044_at_34c__10TObjPlayerFPv(arg0, var_r4);
-    if (TObjPlayer__sub_801D0E28(arg0) != 0) {
+    if (get_action_flag__10TObjPlayerFPv(arg0) != 0) {
         update_facing_from_lock__10TObjPlayerFPv(arg0);
     }
     TObjPlayer__sub_801D0E18(arg0);

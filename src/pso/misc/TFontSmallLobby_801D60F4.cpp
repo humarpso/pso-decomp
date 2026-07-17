@@ -12,7 +12,7 @@ s32 TFontSmallLobby__sub_801D66D4(void *);
 s32 TFontSmallLobby__sub_801D66DC(void *);
 M2C_UNK check_flag_at_40__15TFontSmallLobbyFPv(s32);
 M2C_UNK TFontSmallLobby__sub_801D670C(s32, M2C_UNK);
-M2C_UNK TFontSmallLobby__sub_801D6714(s32, M2C_UNK);
+M2C_UNK set_target_index__15TFontSmallLobbyFPvi(s32, M2C_UNK);
 
 extern const f32 lbl_805DC3D8;
 
@@ -24,7 +24,7 @@ s32 is_ready__15TFontSmallLobbyFPv(u8 *arg0) {
 }
 
 void reset_targets__15TFontSmallLobbyFi(s32 arg0) {
-    TFontSmallLobby__sub_801D6714(arg0 + 0x4C, 0);
+    set_target_index__15TFontSmallLobbyFPvi(arg0 + 0x4C, 0);
     TFontSmallLobby__sub_801D670C(arg0 + 0x4C, 0);
     check_flag_at_40__15TFontSmallLobbyFPv(arg0);
 }

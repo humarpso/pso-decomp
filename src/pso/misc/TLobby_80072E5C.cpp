@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TLobby__sub_80072E5C(void);
+u8 is_challenge_lobby__6TLobbyFv(void);
 
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
 
-u8 TLobby__sub_80072E5C(void) {
+u8 is_challenge_lobby__6TLobbyFv(void) {
     return (u8) (lbl_805D53A0 == TLobby__data_805D53AC);
 }
 

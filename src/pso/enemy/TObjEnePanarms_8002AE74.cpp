@@ -21,7 +21,7 @@ void set_field_d8__10TObjPlayerFPvi(void* p, s32 v);
 void reset_lobby_model__10TObjPlayerFPv(void* p);
 void reset_type__10TObjPlayerFPv(void* p);
 void set_type__10TObjPlayerFPvi(void* p, s32 v);
-void TObjPlayer__sub_8002AF38(void* p);
+void set_type_dragon__10TObjPlayerFPv(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
 void set_field_b8__14TObjEnePanarmsFPvs(void* p, s16 v) { *(s16*)((char*)p + 0xb8) = v; }

@@ -14,7 +14,7 @@ M2C_UNK get_entry_id__17TWindowSubComCardFPv();
 s32 set_text__20TWindowSubStatusDispFPvUiii(s32, s32, s32, s32);
 s32 set_text__20TWindowSubStatusDispFPvUii(s32, s32, s32);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
-void TWindowSubTradeMain__sub_80268468(void* p);
+void clear_flag__19TWindowSubTradeMainFPv(void* p);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
 s32 TWindowSubComCard__sub_8026906C(void);

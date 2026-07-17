@@ -12,7 +12,7 @@ s32 TWindowKeyBoardSoft__sub_8025CA70(s32);
 int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
 int is_keyboard_active__17TWindowSubComCardFPv(void* p);
 int update_keyboard__17TWindowSubComCardFPv(void* p);
-int TKeyBoardControl__sub_80131FA0(void*);
+int is_active__16TKeyBoardControlFPv(void*);
 int is_key_active__16TKeyBoardControlFPv(void*);
 int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
 

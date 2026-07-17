@@ -9,7 +9,7 @@ extern "C" {
 s32 TLobby__sub_8041ED24(u8 *arg0);
 s32 get_field_d8__6TLobbyFPv(u8 *arg0);
 s32 get_score__6TLobbyFPv(u8 *arg0);
-s32 TLobby__sub_8041ED58(u8 *arg0);
+s32 get_queue_diff__6TLobbyFPv(u8 *arg0);
 s32 get_adjusted_slot_count__6TLobbyFPv(u8 *arg0);
 
 s32 TLobby__sub_8041ED24(u8 *arg0) {
@@ -27,7 +27,7 @@ s32 get_score__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x20) + M2C_FIELD(arg0, s32 *, 0x34);
 }
 
-s32 TLobby__sub_8041ED58(u8 *arg0) {
+s32 get_queue_diff__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x534) - M2C_FIELD(arg0, s32 *, 0xD8);
 }
 

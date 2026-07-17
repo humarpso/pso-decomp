@@ -10,7 +10,7 @@ void TWindowFukidasi__sub_80252C38(void* p);
 void clear_visible_flag__15TWindowFukidasiFPv(void* p);
 void set_flag__15TWindowFukidasiFPv(void* p);
 void TWindowFukidasi__sub_80252C68(void* p);
-int TWindowFukidasi__sub_80252C78(void* p);
+int is_flag_set__15TWindowFukidasiFPv(void* p);
 void TWindowFukidasi__sub_80252C84(void* p);
 int is_active__15TWindowFukidasiFPv(void* p);
 void clear_flag__15TWindowFukidasiFPv(void* p);

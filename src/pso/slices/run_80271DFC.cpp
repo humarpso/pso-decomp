@@ -16,14 +16,14 @@ void set_flag_bit0__11TWindowCtrlFv(void) {
 
 extern void *TWindowCtrl__data_805D63F8;
 
-void TWindowCtrl__sub_80271E18(void) {
+void clear_active_flag__11TWindowCtrlFv(void) {
     if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
         M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) & 0xFFFE);
     }
 }
 
     extern int TRaderMapCore__data_805D5F3C;
-void TRaderMapCore__sub_80271E34(void) { TRaderMapCore__data_805D5F3C = 0; }
+void clear__13TRaderMapCoreFv(void) { TRaderMapCore__data_805D5F3C = 0; }
 
     extern int lbl_805D63E8;
 int fn_80271E40(void) {  return lbl_805D63E8; }

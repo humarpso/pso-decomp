@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_stat__11TItemMagSubFPv(void *arg0);
-s32 TItemMagSub__sub_80114714();
+s32 is_level_maxed__11TItemMagSubFPv();
 
 void update_stat__11TItemMagSubFPv(void *arg0) {
     s8 temp_r3;
@@ -15,7 +15,7 @@ void update_stat__11TItemMagSubFPv(void *arg0) {
     s16 temp_r3_3;
     s16 temp_r0;
 
-    if (TItemMagSub__sub_80114714() == 0) {
+    if (is_level_maxed__11TItemMagSubFPv() == 0) {
         temp_r3 = M2C_FIELD(arg0, s8 *, 0);
         if (temp_r3 & 0x10) {
             temp_r3_2 = M2C_FIELD(arg0, s16 *, 2) + M2C_FIELD(arg0, s16 *, 6);

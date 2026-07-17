@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TCameraCtrl__sub_8013F25C(void);
+int get_mode__11TCameraCtrlFv(void);
 
     extern int TCameraCtrl__data_805D4E10;
-int TCameraCtrl__sub_8013F25C(void) {  return TCameraCtrl__data_805D4E10; }
+int get_mode__11TCameraCtrlFv(void) {  return TCameraCtrl__data_805D4E10; }
 
 }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 THunterGuildWarning__sub_802116EC(void);
+u8 is_active__19THunterGuildWarningFv(void);
 
 extern s32 THunterGuildWarning__data_805D6178;
 
-u8 THunterGuildWarning__sub_802116EC(void) {
+u8 is_active__19THunterGuildWarningFv(void) {
     return (u8) (THunterGuildWarning__data_805D6178 != 0);
 }
 

@@ -8,7 +8,7 @@ void clear_card_window_flag__19TWindowKeyBoardHardFii(s32 arg0, s32 arg1);
 void set_card_window_flag__19TWindowKeyBoardHardFii(s32 arg0, s32 arg1);
 int TWindowKeyBoardHard__sub_8026042C(void* p);
 int TWindowKeyBoardHard__sub_80260438(void* p);
-int TWindowKeyBoardHard__sub_80260444(void* p);
+int is_key_active__19TWindowKeyBoardHardFPv(void* p);
 s32 set_card_window_flags__19TWindowKeyBoardHardFPvii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 
 void set_bits_shift7__19TWindowKeyBoardHardFii(s32 arg0, s32 arg1) {
@@ -25,6 +25,6 @@ void set_card_window_flag__19TWindowKeyBoardHardFii(s32 arg0, s32 arg1) {
 }
 int TWindowKeyBoardHard__sub_8026042C(void* p) { return (*(u32*)((char*)p + 0x60) >> 6) & 0x1; }
 int TWindowKeyBoardHard__sub_80260438(void* p) { return (*(u32*)((char*)p + 0x60) >> 10) & 0x1; }
-int TWindowKeyBoardHard__sub_80260444(void* p) { return *(u32*)((char*)p + 0x60) & 0x200; }
+int is_key_active__19TWindowKeyBoardHardFPv(void* p) { return *(u32*)((char*)p + 0x60) & 0x200; }
 
 }

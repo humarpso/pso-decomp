@@ -27,9 +27,9 @@ M2C_UNK set_field_100__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 M2C_UNK set_state_ready__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_cursor__22TAdMultiPlyChrSelectGCFPv(s32);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802E001C(s32, M2C_UNK);
+M2C_UNK set_state__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0024(s32, u32);
-s32 TAdMultiPlyChrSelectGC__sub_802E0044(s32, M2C_UNK);
+s32 get_card_index__22TAdMultiPlyChrSelectGCFPv(s32, M2C_UNK);
 M2C_UNK set_field_1c__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
 u32 get_global_state__22TAdMultiPlyChrSelectGCFv();
@@ -93,7 +93,7 @@ void update_state_move__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     }
     iter = 0;
 loop_7:
-    ret = TAdMultiPlyChrSelectGC__sub_802E0044(M2C_FIELD(arg0, s32 *, 0x5C), 1);
+    ret = get_card_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C), 1);
     if (swap_characters__23TAdSinglePlyChrSelectGCFii((u32)iter, ret + 4) == 1) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x84));
@@ -104,7 +104,7 @@ loop_7:
             TAdChrMoveEffectGC__sub_803490D8(temp_u, ret, (u32)iter + 3);
         }
         TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), (u32)iter);
-        TAdMultiPlyChrSelectGC__sub_802E001C(M2C_FIELD(arg0, s32 *, 0x5C), 1);
+        set_state__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x5C), 1);
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802DC294(arg0, get_cursor__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C)));
         load_tables();
         set_status_value__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x60), temp_r3);

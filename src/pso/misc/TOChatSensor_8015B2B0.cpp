@@ -5,8 +5,8 @@ extern "C" {
 void send_state__12TOChatSensorFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int TOChatSensor__sub_8015B274(void*);
-void TOChatSensor__sub_8015B2B0(void* p);
+void init_packet_type__12TOChatSensorFPv(void* p);
 
-void TOChatSensor__sub_8015B2B0(void* p) { *(u8*)((char*)p + 0x0) = 147; *(u8*)((char*)p + 0x1) = 3; }
+void init_packet_type__12TOChatSensorFPv(void* p) { *(u8*)((char*)p + 0x0) = 147; *(u8*)((char*)p + 0x1) = 3; }
 
 }

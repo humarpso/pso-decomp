@@ -24,9 +24,9 @@ int TObjPlayer__sub_801AA64C(void* a0 = 0);
 void* TObjPlayer__sub_801AA61C(void* p);
 s16 get_hp__10TObjPlayerFPv(void* p);
 u16 get_section_id__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801AA518(void* p, s16 v);
-void TObjPlayer__sub_801AA520(void* p, s16 v);
-u16 TObjPlayer__sub_801AA664(void* p);
+void set_field_2__10TObjPlayerFPvs(void* p, s16 v);
+void set_type__10TObjPlayerFPvs(void* p, s16 v);
+u16 get_entity_type__10TObjPlayerFPv(void* p);
 
 s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

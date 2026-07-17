@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_child_player__6TLobbyFi(s32 arg0);
-void TLobby__sub_801C4FBC(void* p, f32 v);
+void set_float_4__6TLobbyFPvf(void* p, f32 v);
 s32 TLobby__sub_801C4FC4(void* p);
 void set_pos_z__6TLobbyFPvf(void* p, f32 v);
 void set_scale__6TLobbyFPvf(void* p, f32 v);
@@ -25,10 +25,10 @@ extern const f32 lbl_805DC300;
 
 void update_child_player__6TLobbyFi(s32 arg0) {
     TObjPlayer__sub_801C19C8(lbl_805DC300);
-    TLobby__sub_801C4FBC((void*)(arg0), lbl_805DC300);
+    set_float_4__6TLobbyFPvf((void*)(arg0), lbl_805DC300);
 }
 
-void TLobby__sub_801C4FBC(void* p, f32 v) { *(f32*)((char*)p + 0x4) = v; }
+void set_float_4__6TLobbyFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x4) = v; }
 s32 TLobby__sub_801C4FC4(void* p) { return *(s32*)((char*)p + 0x14); }
 void set_pos_z__6TLobbyFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
 void set_scale__6TLobbyFPvf(void* p, f32 v) { *(f32*)((char*)p + 0xc) = v; }

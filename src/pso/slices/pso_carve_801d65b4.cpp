@@ -10,7 +10,7 @@ s32 TFontSmallLobby__sub_801D66D4(void* p);
 s32 TFontSmallLobby__sub_801D66DC(void* p);
 int check_flag_at_40__15TFontSmallLobbyFPv(void* p);
 void TFontSmallLobby__sub_801D670C(void* p, s32 v);
-void TFontSmallLobby__sub_801D6714(void* p, s32 v);
+void set_target_index__15TFontSmallLobbyFPvi(void* p, s32 v);
 int set_flag_40_bit5__15TFontSmallLobbyFPv(void* p);
 int update_field_40__15TFontSmallLobbyFPv(void* p);
 int TFontSmallLobby__sub_801D677C(void* p);

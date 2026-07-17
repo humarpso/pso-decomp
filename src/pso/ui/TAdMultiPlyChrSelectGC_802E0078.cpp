@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TAdMultiPlyChrSelectGC__sub_802E0078(void);
+void restore_selection__22TAdMultiPlyChrSelectGCFv(void);
 
     extern int TAdMultiPlyChrSelectGC__data_805D67D8;
     extern int TAdMultiPlyChrSelectGC__data_805D67E0;
-void TAdMultiPlyChrSelectGC__sub_802E0078(void) { TAdMultiPlyChrSelectGC__data_805D67E0 = TAdMultiPlyChrSelectGC__data_805D67D8; }
+void restore_selection__22TAdMultiPlyChrSelectGCFv(void) { TAdMultiPlyChrSelectGC__data_805D67E0 = TAdMultiPlyChrSelectGC__data_805D67D8; }
 
 }

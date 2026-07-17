@@ -89,14 +89,14 @@ M2C_UNK TObjPlayer__sub_8001053C();
 M2C_UNK TObjPlayer__sub_801D0D58(void *);
 M2C_UNK TObjPlayer__sub_801D0D7C(void *);
 M2C_UNK TObjPlayer__sub_801D0D8C(void *);
-M2C_UNK TObjPlayer__sub_801D0D9C(void *);
+M2C_UNK clear_state_flag__10TObjPlayerFPv(void *);
 M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, s32);
 
 void update_state_group__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
     TObjPlayer__sub_8001053C();
-    TObjPlayer__sub_801D0D9C(arg0);
+    clear_state_flag__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_801D0D8C(arg0);
     TObjPlayer__sub_801D0D7C(arg0);
     TObjPlayer__sub_801D0D58(arg0);

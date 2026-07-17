@@ -8,7 +8,7 @@ extern "C" {
 
 s32 is_active__13TRaderMapCoreFv(void);
 s32 should_show_map__13TRaderMapCoreFv(void);
-void TRaderMapCore__sub_801F9104(void* p);
+void reset_counter__13TRaderMapCoreFPv(void* p);
 s32 TRaderMapCore__sub_801F9058();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 is_technique_ready__8TTecCtrlFv();
@@ -32,6 +32,6 @@ s32 should_show_map__13TRaderMapCoreFv(void) {
     }
     return is_technique_ready__8TTecCtrlFv();
 }
-void TRaderMapCore__sub_801F9104(void* p) { *(s32*)((char*)p + 0x184) = 0; }
+void reset_counter__13TRaderMapCoreFPv(void* p) { *(s32*)((char*)p + 0x184) = 0; }
 
 }

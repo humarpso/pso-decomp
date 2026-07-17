@@ -9,7 +9,7 @@ s32 obj_getField1c();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 is_level_capped__23TAdSinglePlyChrSelectGCFPv();
 u32 get_card_window__17TWindowSubComCardFUi(s32);
-s32 THunterGuildWarning__sub_802116EC();
+s32 is_active__19THunterGuildWarningFv();
 s32 TWindowCtrl__sub_8024AF74(u16);
 s32 TWindowCtrl__sub_8024B054(u16);
 int is_player_flag_4000_set__11TWindowCtrlFPv(void* p);
@@ -29,7 +29,7 @@ s32 check_can_open__16TObjBagWarnWin4PFv(void) {
             return 0;
         }
     }
-    if (THunterGuildWarning__sub_802116EC() != 0) {
+    if (is_active__19THunterGuildWarningFv() != 0) {
         return 0;
     }
     var_r31 = 0;

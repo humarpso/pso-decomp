@@ -8,7 +8,7 @@ extern "C" {
 
 s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1);
 u8 TItemMagSub__sub_8011455C(void *);
-M2C_UNK TItemMag__sub_80100D94(void *, void *);
+M2C_UNK set_field_EE__8TItemMagFPvUc(void *, void *);
 M2C_UNK TItemMag__sub_801124C4(void *);
 M2C_UNK TItemMag__sub_801140F4(void *, int);
 M2C_UNK TItemMag__sub_80114198(void *, int);
@@ -32,7 +32,7 @@ s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
         TItemMag__sub_80114198((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 8)));
         add_stat_clamped__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 0)));
         add_clamped_stat__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 2)));
-        TItemMag__sub_80100D94((void *) (arg0), (void *) (TItemMagSub__sub_8011455C((void *) (arg0 + 0x198))));
+        set_field_EE__8TItemMagFPvUc((void *) (arg0), (void *) (TItemMagSub__sub_8011455C((void *) (arg0 + 0x198))));
         if (TObjPlayer__sub_80102C30((void *) (arg0)) == 2) {
             TObjPlayer__sub_8010069C((void *) (arg0));
             if (obj_isState2_324((int) (M2C_FIELD(arg0, s32 *, 0xF0))) == 0) {

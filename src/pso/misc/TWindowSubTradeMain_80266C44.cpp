@@ -12,7 +12,7 @@ M2C_UNK clear_flag70_bit80__19TWindowSubTradeMainFPv(void *);
 s32 get_status_flag__6TLobbyFPv();
 M2C_UNK set_close_flag__19TWindowSubTradeMainFPv(void *);
 M2C_UNK set_visible__19TWindowSubTradeMainFPv();
-M2C_UNK TWindowSubTradeMain__sub_80268468(void *);
+M2C_UNK clear_flag__19TWindowSubTradeMainFPv(void *);
 M2C_UNK set_entry_state__20TWindowSubStatusDispFPvc(u32, M2C_UNK);
 
 void update_trade_state__19TWindowSubTradeMainFPv(void *arg0) {
@@ -24,7 +24,7 @@ void update_trade_state__19TWindowSubTradeMainFPv(void *arg0) {
         }
     }
     clear_flag70_bit80__19TWindowSubTradeMainFPv(arg0);
-    TWindowSubTradeMain__sub_80268468(arg0);
+    clear_flag__19TWindowSubTradeMainFPv(arg0);
 }
 
 void close__19TWindowSubTradeMainFPv(void *arg0) {

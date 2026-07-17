@@ -20,15 +20,15 @@ int get_flag_40__8TItemMagFPv(void* p);
 void TObjPlayer__sub_80102C58(void* p);
 void TObjPlayer__sub_80102C68(void* p);
 void set_facing__10TObjPlayerFPvs(void* p, s16 v);
-s16 TObjPlayer__sub_80102C80(void* p);
-s16 TObjPlayer__sub_80102C88(void* p);
+s16 get_stat_bonus__10TObjPlayerFPv(void* p);
+s16 get_stat__10TObjPlayerFPv(void* p);
 int get_equip_field_d04__10TObjPlayerFPv(void* p);
 f32 get_mag_scale_f__10TObjPlayerFPv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*);
 
 void set_facing__10TObjPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x32e) = v; }
-s16 TObjPlayer__sub_80102C80(void* p) { return *(s16*)((char*)p + 0x2be); }
-s16 TObjPlayer__sub_80102C88(void* p) { return *(s16*)((char*)p + 0x2bc); }
+s16 get_stat_bonus__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2be); }
+s16 get_stat__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2bc); }
 int get_equip_field_d04__10TObjPlayerFPv(void* p) { return get_slot_value__10TObjPlayerFPvi((char*)p + 0xd04); }
 void is_flag_20000_set__10TObjPlayerFv(void) {
     s32 uninit;

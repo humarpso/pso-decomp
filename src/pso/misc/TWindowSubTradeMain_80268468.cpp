@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubTradeMain__sub_80268468(void* p);
+void clear_flag__19TWindowSubTradeMainFPv(void* p);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
@@ -25,6 +25,6 @@ void move_next_choice__20TWindowChoiceSettingFPv(void *arg0);
 void request_close__20TWindowChoiceSettingFPv(void *arg0);
 void update_selected_entry__17TWindowSubComCardFPv(void *arg0);
 
-void TWindowSubTradeMain__sub_80268468(void* p) { *(u16*)((char*)p + 0x70) &= 0xffffffbf; }
+void clear_flag__19TWindowSubTradeMainFPv(void* p) { *(u16*)((char*)p + 0x70) &= 0xffffffbf; }
 
 }

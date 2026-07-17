@@ -13,7 +13,7 @@ u32 TAdPlyStatusGC__sub_802E1138(int);
 M2C_UNK TAdPlyStatusGC__sub_802E1140(int);
 M2C_UNK TAdPlyStatusGC__sub_802E1148(int);
 s32 TAdPlyStatusGC__sub_802E1150(int);
-M2C_UNK TAdPlyStatusGC__sub_802E1158(int);
+M2C_UNK get_status_sub__14TAdPlyStatusGCFPv(int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK get_item_ptr__10TObjPlayerFPvi(void *, int);
@@ -31,7 +31,7 @@ void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    TAdPlyStatusGC__sub_802E1158((int) (M2C_FIELD(arg0, s32 *, 0x170)));
+    get_status_sub__14TAdPlyStatusGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x170)));
     set_global_param__8TObjFishFi();
     draw_model_with_arg__10TObjPlayerFPvPv((void *) (arg0), (int) (TAdPlyStatusGC__sub_802E1150((int) (M2C_FIELD(arg0, s32 *, 0x170)))));
     get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3A));

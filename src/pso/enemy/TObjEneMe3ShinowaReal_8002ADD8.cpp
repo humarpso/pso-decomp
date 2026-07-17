@@ -21,7 +21,7 @@ void set_field_d8__10TObjPlayerFPvi(void* p, s32 v);
 void reset_lobby_model__10TObjPlayerFPv(void* p);
 void reset_type__10TObjPlayerFPv(void* p);
 void set_type__10TObjPlayerFPvi(void* p, s32 v);
-void TObjPlayer__sub_8002AF38(void* p);
+void set_type_dragon__10TObjPlayerFPv(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void* p) { return (*(u32*)((char*)p + 0xb0) >> 4) & 0x1; }

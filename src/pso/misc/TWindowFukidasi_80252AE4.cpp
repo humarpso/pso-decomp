@@ -12,14 +12,14 @@ M2C_UNK release_slot__11TWindowCtrlFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_window__15TWindowAdditionFPvs(void *, M2C_UNK);
 M2C_UNK clear_visible_flag__15TWindowFukidasiFPv(void *);
-s32 TWindowFukidasi__sub_80252C78(M2C_UNK *);
+s32 is_flag_set__15TWindowFukidasiFPv(M2C_UNK *);
 
 extern M2C_UNK lbl_804CF0B8[];
 
 u8 *destroy__15TWindowFukidasiFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CF0B8;
-        if (TWindowFukidasi__sub_80252C78((M2C_UNK *)arg0) != 0) {
+        if (is_flag_set__15TWindowFukidasiFPv((M2C_UNK *)arg0) != 0) {
             clear_visible_flag__15TWindowFukidasiFPv(arg0);
             release_slot__11TWindowCtrlFPv(arg0 + 0x73);
         }

@@ -9,7 +9,7 @@ extern "C" {
 s32 handle_revivable__10TObjPlayerFi(s32 arg0);
 void update_lobby_font__10TObjPlayerFi(s32 arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
-M2C_UNK TObjPlayer__sub_801D18B0(void *);
+M2C_UNK init_revive_packet__10TObjPlayerFPv(void *);
 M2C_UNK bswap_font_lobby2__10TObjPlayerFPv(void *);
 
 s32 handle_revivable__10TObjPlayerFi(s32 arg0) {
@@ -25,7 +25,7 @@ void update_lobby_font__10TObjPlayerFi(s32 arg0) {
     struct S801CA274 sp8;
 
     if ((arg0 == 0) || (obj_isState2_324() == 0)) {
-        TObjPlayer__sub_801D18B0(&sp8);
+        init_revive_packet__10TObjPlayerFPv(&sp8);
         sp8.h = obj_getField1c(arg0);
         bswap_font_lobby2__10TObjPlayerFPv(&sp8);
     }

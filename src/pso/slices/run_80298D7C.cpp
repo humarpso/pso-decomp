@@ -17,7 +17,7 @@ f32 get_scale__14TObjCMMainMenuFv(void) {
 
 extern f32 lbl_805D3CA0;
 
-f32 TObjCMMainMenu__sub_80298D90(void) {
+f32 get_proportion__14TObjCMMainMenuFv(void) {
     return lbl_805D3CA0;
 }
 
@@ -29,7 +29,7 @@ void TObjCMMainMenu__sub_80298DA0(int a0) { lbl_805D6538 = (lbl_805D6538 + a0); 
 
 extern void *lbl_805D653C;
 
-void TObjCMMainMenu__sub_80298DB0(f32 farg0) {
+void set_speed__14TObjCMMainMenuFf(f32 farg0) {
     if ((void *) lbl_805D653C != NULL) {
         M2C_FIELD(lbl_805D653C, f32 *, 0x38) = farg0;
     }

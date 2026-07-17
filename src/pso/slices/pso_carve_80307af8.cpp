@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TAdEndText__sub_8001B370();
-M2C_UNK TLobby__sub_800FC3D0();
+M2C_UNK set_ending_callback__6TLobbyFv();
 M2C_UNK update_keyboard_menu__6TLobbyFv();
 M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK TLobby__sub_801E2F44(M2C_UNK, M2C_UNK, M2C_UNK);
@@ -30,7 +30,7 @@ void start_ending_sequence(void) {
     TKeyBoardControl__sub_8000F90C(2);
     TAdEndText__sub_8001B370();
     update_keyboard_menu__6TLobbyFv();
-    TLobby__sub_800FC3D0();
+    set_ending_callback__6TLobbyFv();
     if (__nw__7TObjectFUl(0x1C) != 0U) {
         fn_80307964();
     }

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void* TOMineTrap__sub_8016FE28(void* p);
+void* get_mine_data_ptr__10TOMineTrapFPv(void* p);
 void *__dt__10TOMineTrapFv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 
-void* TOMineTrap__sub_8016FE28(void* p) { return (char*)p + 0x334; }
+void* get_mine_data_ptr__10TOMineTrapFPv(void* p) { return (char*)p + 0x334; }
 
 extern M2C_UNK __vt__10TOMineTrap[];
 

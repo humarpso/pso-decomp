@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8001E2B8(s32 arg0);
+void set_difficulty__6TLobbyFi(s32 arg0);
 
 extern s32 TLobby__data_805D4AB8;
 
-void TLobby__sub_8001E2B8(s32 arg0) {
+void set_difficulty__6TLobbyFi(s32 arg0) {
     TLobby__data_805D4AB8 = arg0;
 }
 

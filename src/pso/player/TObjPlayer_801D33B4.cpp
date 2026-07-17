@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void reset_movement_state__10TObjPlayerFPv(u8 *arg0);
-s16 TObjPlayer__sub_801D341C(void* p);
+s16 get_obj_id__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D3424(void* p, s16 v);
 int is_flag32_clear__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D345C(void* p);
@@ -44,7 +44,7 @@ void reset_movement_state__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_801D2E20(arg0 + 0x30, arg0, lbl_805DC3C0, lbl_805DC3BC);
 }
 
-s16 TObjPlayer__sub_801D341C(void* p) { return *(s16*)((char*)p + 0x2); }
+s16 get_obj_id__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
 void TObjPlayer__sub_801D3424(void* p, s16 v) { *(s16*)((char*)p + 0x10) = v; }
 int is_flag32_clear__10TObjPlayerFPv(void* p) { return (TObjPlayer__sub_8001BEF8((char*)p + 0xc, 32)) == 0; }
 int TObjPlayer__sub_801D345C(void* p) { return TObjPlayer__sub_80121248((char*)p + 0x30, 0); }

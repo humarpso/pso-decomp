@@ -10,8 +10,8 @@ u8 is_state_ready__14TBoss4DarkFalzFv(void);
 u8 is_active__14TBoss4DarkFalzFv(void);
 u32 TBoss4DarkFalz__sub_8004C1B4();
 u32 get_instance__14TBoss4DarkFalzFv();
-s32 TBoss4DarkFalz__sub_8004C1DC();
-s32 TBoss4DarkFalz__sub_8004C1E4();
+s32 get_phase__14TBoss4DarkFalzFPv();
+s32 get_state__14TBoss4DarkFalzFPv();
 
 u8 is_state_ready__14TBoss4DarkFalzFv(void) {
     int var_r31;
@@ -19,9 +19,9 @@ u8 is_state_ready__14TBoss4DarkFalzFv(void) {
     var_r31 = 0;
     if (TBoss4DarkFalz__sub_8004C1B4() != 0U) {
         TBoss4DarkFalz__sub_8004C1B4();
-        if (TBoss4DarkFalz__sub_8004C1DC() != 3) {
+        if (get_phase__14TBoss4DarkFalzFPv() != 3) {
             TBoss4DarkFalz__sub_8004C1B4();
-            if (TBoss4DarkFalz__sub_8004C1DC() != 2) {
+            if (get_phase__14TBoss4DarkFalzFPv() != 2) {
                 var_r31 = 1;
             }
         }
@@ -35,9 +35,9 @@ u8 is_active__14TBoss4DarkFalzFv(void) {
     var_r31 = 0;
     if (get_instance__14TBoss4DarkFalzFv() != 0U) {
         get_instance__14TBoss4DarkFalzFv();
-        if (TBoss4DarkFalz__sub_8004C1E4() != 3) {
+        if (get_state__14TBoss4DarkFalzFPv() != 3) {
             get_instance__14TBoss4DarkFalzFv();
-            if (TBoss4DarkFalz__sub_8004C1E4() != 4) {
+            if (get_state__14TBoss4DarkFalzFPv() != 4) {
                 var_r31 = 1;
             }
         }

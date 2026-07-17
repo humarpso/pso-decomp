@@ -8,8 +8,8 @@ extern "C" {
 
 void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
 void TItemData__sub_8010B818(void *arg0, s32 arg1);
-void TItemData__sub_8010B828(void *arg0, s32 arg1);
-void TItemData__sub_8010B838(s16 *arg0, s32 arg1);
+void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
+void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
 int check_flag_32__14TItemEquipBaseFPv(void* p);
 int clear_flag_c_bit5__14TItemEquipBaseFPv(void* p);
 s32 TItemData__sub_8010B808(void* p);
@@ -20,10 +20,10 @@ int clear_flags__11TAdRicoRingFPvUi(void*, int);
 void TItemData__sub_8010B818(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) + arg1);
 }
-void TItemData__sub_8010B828(void *arg0, s32 arg1) {
+void add_stat__9TItemDataFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) + arg1);
 }
-void TItemData__sub_8010B838(s16 *arg0, s32 arg1) {
+void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
 }
 

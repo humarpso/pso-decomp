@@ -14,7 +14,7 @@ s32 TObjBoss2Tunnel__sub_8003C1C8(void) {
 
 extern u32 TObjBoss2Tunnel__data_805D4C00;
 
-s32 TObjBoss2Tunnel__sub_8003C1D4(void) {
+s32 is_flag_set__15TObjBoss2TunnelFv(void) {
     return ((u32) TObjBoss2Tunnel__data_805D4C00 >> 0xCU) & 1;
 }
 

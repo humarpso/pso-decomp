@@ -5,13 +5,13 @@ void swap_field6__10TObjPlayerFPv(void* p);
 void swap_header__10TObjPlayerFPv(void* p);
 void swap_endian16__10TObjPlayerFPv(void* p);
 
-void TObjPlayer__sub_801D1CC0(void* p);
+void init_shield_attack_packet__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D1F44(void* p);
 void TObjPlayer__sub_801D2618(void* p, f32 v);
 void set_action_flag_40__10TObjPlayerFPv(void* p);
 void clear_status_bit6__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D2680(void* p);
-void TObjPlayer__sub_801D268C(void* p);
+void set_action_flag__10TObjPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int update_players__6TLobbyFi(void*);
 int bswap_16__FPUs(void*);

@@ -9,8 +9,8 @@ extern "C" {
 void update_visibility__21TWindowSubAreaMapDispFPv(void *arg0);
 M2C_UNK TRaderMapCore__sub_801F9144();
 M2C_UNK TRaderMapCore__sub_801F9770();
-M2C_UNK TRaderMapCore__sub_80271E34();
-M2C_UNK TWindowCtrl__sub_80271E18();
+M2C_UNK clear__13TRaderMapCoreFv();
+M2C_UNK clear_active_flag__11TWindowCtrlFv();
 s32 TWindowSubAreaMapDisp__sub_80246948();
 M2C_UNK set_flag_bit0__11TWindowCtrlFv();
 
@@ -20,8 +20,8 @@ void update_visibility__21TWindowSubAreaMapDispFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
         if (TWindowSubAreaMapDisp__sub_80246948() != 0) {
             M2C_FIELD(arg0, s32 *, 0x6C) = 0;
-            TWindowCtrl__sub_80271E18();
-            TRaderMapCore__sub_80271E34();
+            clear_active_flag__11TWindowCtrlFv();
+            clear__13TRaderMapCoreFv();
         }
     } else if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2) && (TWindowSubAreaMapDisp__sub_80246948() == 0)) {
         M2C_FIELD(arg0, s32 *, 0x6C) = 1;

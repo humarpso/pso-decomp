@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s32 TSceneSora__sub_8029F574(void* p);
+s32 get_state__10TSceneSoraFPv(void* p);
 
-s32 TSceneSora__sub_8029F574(void* p) { return *(s32*)((char*)p + 0x20); }
+s32 get_state__10TSceneSoraFPv(void* p) { return *(s32*)((char*)p + 0x20); }
 
 }

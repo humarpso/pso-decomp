@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void* TObjPlayer__sub_80236D58(void* p);
+void* get_pos_ptr__10TObjPlayerFPv(void* p);
 
-void* TObjPlayer__sub_80236D58(void* p) { return (char*)p + 0x78; }
+void* get_pos_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x78; }
 
 }

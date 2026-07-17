@@ -13,11 +13,11 @@ int TFontSmallLobby__sub_801C01BC(void*);
 int bswap_field_u32__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D28DC(void*);
 int TLobby__send_and_handle_60(void*);
-void TObjPlayer__sub_801D1690(void* p);
-void TObjPlayer__sub_801D17C0(void* p);
-void TObjPlayer__sub_801D18B0(void* p);
+void set_type_53__10TObjPlayerFPv(void* p);
+void set_revived_state__10TObjPlayerFPv(void* p);
+void init_revive_packet__10TObjPlayerFPv(void* p);
 
-void TObjPlayer__sub_801D18B0(void* p) { *(u8*)((char*)p + 0x0) = 78; *(u8*)((char*)p + 0x1) = 1; }
+void init_revive_packet__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 78; *(u8*)((char*)p + 0x1) = 1; }
 void bswap_font_lobby2__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void init_field_4__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_field_u32__10TObjPlayerFPv((char*)p + 0x4); }
 

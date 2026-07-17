@@ -18,7 +18,7 @@ s32 increment_frame__23TAdSinglePlyChrSelectGCFv(void) {
 
 extern void *lbl_805D5F64;
 
-s32 TAdSinglePlyChrSelectGC__sub_80201058(void) {
+s32 get_player_count__23TAdSinglePlyChrSelectGCFv(void) {
     if ((void *) lbl_805D5F64 != NULL) {
         return M2C_FIELD(lbl_805D5F64, s32 *, 4);
     }

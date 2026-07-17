@@ -8,14 +8,14 @@ extern "C" {
 
 void update__10TSceneSoraFv(void);
 void reset_state__10TSceneSoraFv(void);
-M2C_UNK TScene__sub_801A7E40();
+M2C_UNK set_ready__6TSceneFv();
 M2C_UNK reset_counter__6TSceneFv();
 
 extern s32 TSceneSora__data_805D3620;
 extern u32 TSceneSora__data_805D6050;
 
 void update__10TSceneSoraFv(void) {
-    TScene__sub_801A7E40();
+    set_ready__6TSceneFv();
     if ((u32) TSceneSora__data_805D6050 != 0U) {
         TSceneSora__data_805D3620 = 1;
     }

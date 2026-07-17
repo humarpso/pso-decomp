@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjPlayer__sub_800F5E08(void *);
-void TBoss7Joint__sub_802E7B00(void* p);
+void set_flag_800__11TBoss7JointFPv(void* p);
 
 void fn_802E7B10(void *arg0) {
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 1) {

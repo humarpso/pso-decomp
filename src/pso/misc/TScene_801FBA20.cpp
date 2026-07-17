@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TScene__sub_801FBA20(void);
+int get_status__6TSceneFv(void);
 
     extern int lbl_805D5FC8;
-int TScene__sub_801FBA20(void) {  return lbl_805D5FC8; }
+int get_status__6TSceneFv(void) {  return lbl_805D5FC8; }
 
 }

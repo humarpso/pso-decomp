@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_global__22TObjEneMe1GiGueBarrierFv(void);
-s32 TObjEneMe1GiGue__sub_802CAC80();
+s32 get_barrier_count__15TObjEneMe1GiGueFv();
 
 extern s32 lbl_805D6C60;
 
 void init_global__22TObjEneMe1GiGueBarrierFv(void) {
-    lbl_805D6C60 = TObjEneMe1GiGue__sub_802CAC80();
+    lbl_805D6C60 = get_barrier_count__15TObjEneMe1GiGueFv();
 }
 
 }

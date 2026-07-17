@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
-void TItemData__sub_8010EDB8(void *arg0, s32 arg1);
+void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
-void TItemData__sub_8010EDE8(void *arg0, s32 arg1);
-void TItemData__sub_8010EDF8(s16 *arg0, s32 arg1);
-void TItemData__sub_8010EE08(void *arg0, s16 arg1);
+void adjust_count__9TItemDataFPvi(void *arg0, s32 arg1);
+void add_stat_ptr__9TItemDataFPvi(s16 *arg0, s32 arg1);
+void add_bonus__9TItemDataFPvs(void *arg0, s16 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
 s16 TItemData__sub_8010EE40(void *arg0);
@@ -27,7 +27,7 @@ void TItemData__sub_8010EDA8(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 8) = (s16) (M2C_FIELD(arg0, s16 *, 8) + arg1);
 }
 
-void TItemData__sub_8010EDB8(void *arg0, s32 arg1) {
+void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 0xA) = (s16) (M2C_FIELD(arg0, s16 *, 0xA) + arg1);
 }
 
@@ -39,15 +39,15 @@ void TItemData__sub_8010EDD8(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) + arg1);
 }
 
-void TItemData__sub_8010EDE8(void *arg0, s32 arg1) {
+void adjust_count__9TItemDataFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) + arg1);
 }
 
-void TItemData__sub_8010EDF8(s16 *arg0, s32 arg1) {
+void add_stat_ptr__9TItemDataFPvi(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
 }
 
-void TItemData__sub_8010EE08(void *arg0, s16 arg1) {
+void add_bonus__9TItemDataFPvs(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + arg1);
 }
 

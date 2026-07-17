@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s16 TWindowSubComCard__sub_802495FC(void* p);
-int TWindowChoiceSetting__sub_80249610(void* p);
+int is_selected__20TWindowChoiceSettingFPv(void* p);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 s32 TWindowFukidasi__sub_80244DFC(s32, s32, s32, s32);
 int is_open__17TWindowSubComCardFPv(void* p);

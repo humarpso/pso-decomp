@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TAdStorySelectGC__sub_8019DC1C(void);
+int get_story_select__16TAdStorySelectGCFv(void);
 
     extern int lbl_805D5C7C;
-int TAdStorySelectGC__sub_8019DC1C(void) {  return lbl_805D5C7C; }
+int get_story_select__16TAdStorySelectGCFv(void) {  return lbl_805D5C7C; }
 
 }

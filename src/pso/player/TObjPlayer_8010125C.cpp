@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0);
-s32 TObjPlayer__sub_80102C88(s32);
+s32 get_stat__10TObjPlayerFPv(s32);
 u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s16 *fn_8010A768();
@@ -27,7 +27,7 @@ s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0) {
             }
             var_cnt += 1;
         } while (var_cnt != 0xD);
-        return (s16) (TObjPlayer__sub_80102C88(temp_r3) - var_acc);
+        return (s16) (get_stat__10TObjPlayerFPv(temp_r3) - var_acc);
     }
     return 0;
 }

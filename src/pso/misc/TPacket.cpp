@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TPacket__ct(void *arg0);
-void TPacket__sub_801A558C(void *);
+void clear_send_buffer__7TPacketFPv(void *);
 void TUdpSocket__ct(void *);
 
 extern M2C_UNK __vt__7TPacket[];
@@ -15,7 +15,7 @@ void *TPacket__ct(void *arg0) {
     TUdpSocket__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__7TPacket;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D34C0;
-    TPacket__sub_801A558C(arg0);
+    clear_send_buffer__7TPacketFPv(arg0);
     return arg0;
 }
 

@@ -15,7 +15,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 s32 TWindowCtrl__sub_8024A1A8();
 M2C_UNK TWindowChat__sub_8024AD30(s32);
-M2C_UNK TWindowCtrl__sub_8026F6C0();
+M2C_UNK clear_flag_8__11TWindowCtrlFv();
 
 extern void *__vt__20TWindowShortListCtrl[];
 
@@ -29,7 +29,7 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
             init_parts__10TObjPlayerFPv(temp_r3);
         }
         TWindowChat__sub_8024AD30(M2C_FIELD(arg0, s32 *, 0x24));
-        TWindowCtrl__sub_8026F6C0();
+        clear_flag_8__11TWindowCtrlFv();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x34));
             M2C_FIELD(arg0, u32 *, 0x34) = 0U;
