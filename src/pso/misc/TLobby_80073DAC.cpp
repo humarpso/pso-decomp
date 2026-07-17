@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TLobby__sub_80073DAC(void);
+void set_enemy_mode_flag__6TLobbyFv(void);
 
     extern int lbl_805D5ED8;
-void TLobby__sub_80073DAC(void) { lbl_805D5ED8 = 1; }
+void set_enemy_mode_flag__6TLobbyFv(void) { lbl_805D5ED8 = 1; }
 
 }

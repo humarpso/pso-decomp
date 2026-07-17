@@ -8,13 +8,13 @@ extern "C" {
 
 void update_item_follow_effect__10TObjPlayerFPv(void *arg0);
 void *TObjPlayer__sub_80125A8C(void *arg0, s16 arg1);
-s32 TItemMag__sub_80102C4C(s32);
+s32 get_flag_40__8TItemMagFPv(s32);
 s32 TLobby__sub_80101AB0(s32);
-u32 TObjPlayer__sub_80102AA8();
+u32 get_item_ctrl__10TObjPlayerFv();
 s8 TObjPlayer__sub_80102C30();
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
-M2C_UNK TParticleCtrl__sub_80088000(u32);
-M2C_UNK TParticleCtrl__sub_80088010(u32);
+M2C_UNK clear_active_flag__13TParticleCtrlFPv(u32);
+M2C_UNK enable__13TParticleCtrlFPv(u32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, M2C_UNK *);
@@ -26,7 +26,7 @@ void update_item_follow_effect__10TObjPlayerFPv(void *arg0) {
     s32 var_r31;
     s32 var_r30;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != TObjPlayer__sub_80102AA8()) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != get_item_ctrl__10TObjPlayerFv()) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
@@ -37,13 +37,13 @@ void update_item_follow_effect__10TObjPlayerFPv(void *arg0) {
             var_r31 = 1;
             if (draw_icon__10TObjPlayerFPvii(var_r30, M2C_FIELD(arg0, s32 *, 0x20), sp8) != 0) {
                 copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, u32 *, 0x24), sp8);
-                if ((TItemMag__sub_80102C4C(var_r30) == 0) || (obj_testFlags30(var_r30, 0x08000000) == 0)) {
-                    TParticleCtrl__sub_80088000(M2C_FIELD(arg0, u32 *, 0x24));
+                if ((get_flag_40__8TItemMagFPv(var_r30) == 0) || (obj_testFlags30(var_r30, 0x08000000) == 0)) {
+                    clear_active_flag__13TParticleCtrlFPv(M2C_FIELD(arg0, u32 *, 0x24));
                 } else {
-                    TParticleCtrl__sub_80088010(M2C_FIELD(arg0, u32 *, 0x24));
+                    enable__13TParticleCtrlFPv(M2C_FIELD(arg0, u32 *, 0x24));
                 }
             } else {
-                TParticleCtrl__sub_80088010(M2C_FIELD(arg0, u32 *, 0x24));
+                enable__13TParticleCtrlFPv(M2C_FIELD(arg0, u32 *, 0x24));
             }
         }
     }

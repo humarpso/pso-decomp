@@ -7,20 +7,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 init_photon_blast__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TObjPlayer__sub_801BF7F4(void *, s32);
-M2C_UNK TObjPlayer__sub_801BF7FC(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801BF804(void *, s32);
-M2C_UNK TObjPlayer__sub_801BF80C(void *, M2C_UNK);
+M2C_UNK set_anim_state__10TObjPlayerFPvi(void *, s32);
+M2C_UNK set_state__10TObjPlayerFPvs(void *, M2C_UNK);
+M2C_UNK set_anim_state__10TObjPlayerFPvs(void *, s32);
+M2C_UNK set_action_id__10TObjPlayerFPvs(void *, M2C_UNK);
 
 s32 init_photon_blast__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     if (M2C_FIELD(arg0, s32 *, 0x320) & 0x1E000) {
         return 0;
     }
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x10000);
-    TObjPlayer__sub_801BF80C(arg0 + 0x5F0, 0x10);
-    TObjPlayer__sub_801BF804(arg0 + 0x5F0, arg1);
-    TObjPlayer__sub_801BF7FC(arg0 + 0x5F0, 0);
-    TObjPlayer__sub_801BF7F4(arg0 + 0x5F0, M2C_FIELD(arg0, s32 *, 0x60));
+    set_action_id__10TObjPlayerFPvs(arg0 + 0x5F0, 0x10);
+    set_anim_state__10TObjPlayerFPvs(arg0 + 0x5F0, arg1);
+    set_state__10TObjPlayerFPvs(arg0 + 0x5F0, 0);
+    set_anim_state__10TObjPlayerFPvi(arg0 + 0x5F0, M2C_FIELD(arg0, s32 *, 0x60));
     return 1;
 }
 

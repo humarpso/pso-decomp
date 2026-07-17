@@ -12,7 +12,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 obj_testFlags30(s32, s32);
 s32 check_player_flag1__6TLobbyFPv(s32);
 s32 TLobby__sub_800822E8(s32, s32);
-u32 TObjPlayer__sub_801BE778();
+u32 is_action_active__10TObjPlayerFPv();
 void handle_6x99(void);
 void handle_6x98(void);
 
@@ -21,7 +21,7 @@ void handle_6x99(void) {  }
 void handle_6x98(void) {  }
 
 s32 is_usable__14TWindowSubItemFi(s32 arg0) {
-    if ((TObjPlayer__sub_801BE778() != 0U) || (TLobby__sub_800822E8(arg0, 0x43001E) == 0) || (obj_testFlags30(arg0, 0x20) != 0) || (check_player_flag1__6TLobbyFPv(arg0) != 0)) {
+    if ((is_action_active__10TObjPlayerFPv() != 0U) || (TLobby__sub_800822E8(arg0, 0x43001E) == 0) || (obj_testFlags30(arg0, 0x20) != 0) || (check_player_flag1__6TLobbyFPv(arg0) != 0)) {
         return 0;
     }
     return 1;

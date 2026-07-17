@@ -11,7 +11,7 @@ s32 check_hit_flag__16TObjEneRe2FlowerFPv(void *arg0);
 void clear_child_flags__16TObjEneRe2FlowerFPv(void *arg0);
 void set_child_flags__16TObjEneRe2FlowerFPv(void *arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
-s32 TObjEneRe2Flower__sub_800C3B80();
+s32 get_flag_11__16TObjEneRe2FlowerFPv();
 int TBoss8Dragon__sub_800BB7D4(void*, void*);
 
 void begin_state_242__16TObjEneRe2FlowerFPv(void* p) { if (*(int*)((char*)p + 0x3d4) == 0) { TBoss8Dragon__sub_800BB7D4(p, (void*)242); *(int*)((char*)p + 0x3d4) = 20; } }
@@ -28,7 +28,7 @@ void clear_child_flags__16TObjEneRe2FlowerFPv(void *arg0) {
     void *temp_r3;
     void *temp_r3_2;
 
-    if (TObjEneRe2Flower__sub_800C3B80() != 0) {
+    if (get_flag_11__16TObjEneRe2FlowerFPv() != 0) {
         temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
         M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) & 0xFFFFFFFE);
         return;
@@ -41,7 +41,7 @@ void set_child_flags__16TObjEneRe2FlowerFPv(void *arg0) {
     void *temp_r3;
     void *temp_r3_2;
 
-    if (TObjEneRe2Flower__sub_800C3B80() != 0) {
+    if (get_flag_11__16TObjEneRe2FlowerFPv() != 0) {
         temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
         M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 1);
         return;

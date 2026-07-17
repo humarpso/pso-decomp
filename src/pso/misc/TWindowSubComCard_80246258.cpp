@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_fade__17TWindowSubComCardFPv(void *arg0);
-M2C_UNK TWindowSubComCard__sub_802448C0();
+M2C_UNK save_position__17TWindowSubComCardFPv();
 
 extern M2C_UNK lbl_8044E680;
 
@@ -16,7 +16,7 @@ void update_fade__17TWindowSubComCardFPv(void *arg0) {
 
     temp_r5 = M2C_FIELD(arg0, u32 *, 0x50);
     if (temp_r5 == 0) {
-        TWindowSubComCard__sub_802448C0();
+        save_position__17TWindowSubComCardFPv();
         return;
     }
     M2C_FIELD(arg0, f32 *, 0x40) += (M2C_FIELD(arg0, f32 *, 0x30) - M2C_FIELD(arg0, f32 *, 0x40)) / (f32) temp_r5;

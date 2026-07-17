@@ -8,14 +8,14 @@ extern "C" {
 
 void TOTrapChainSawDamage__vt22(void *arg0);
 
-M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
+M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TOTrapChainSaw__sub_802C9600();
 
 void TOTrapChainSawDamage__vt22(void *arg0) {
     TOTrapChainSaw__sub_802C9600();
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
-        TObjPlayer__sub_80154764(arg0, 1, 0x100);
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 1, 0x100);
         return;
     }
     set_indexed_flags(arg0, 1, 0x100);

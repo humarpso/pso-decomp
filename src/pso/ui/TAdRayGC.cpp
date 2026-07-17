@@ -9,14 +9,14 @@ extern "C" {
 void run_task__8TAdRayGCFv(void *arg0);
 void render__8TAdRayGCFv(void *arg0);
 
-s32 TMainTask__sub_8001A430();
+s32 get_state_flag__9TMainTaskFv();
 M2C_UNK TAdRayGC__sub_8029BCB4(void *, s32, M2C_UNK, M2C_UNK);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 
 void render__8TAdRayGCFv(void *arg0) {
     s32 temp_r0;
 
-    if (TMainTask__sub_8001A430() != 1) {
+    if (get_state_flag__9TMainTaskFv() != 1) {
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 0xA);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);

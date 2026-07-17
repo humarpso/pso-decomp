@@ -14,7 +14,7 @@ M2C_UNK close_windows__17TObjWarpBossMultiFPv();
 M2C_UNK TObjWarpBossMulti__sub_8019E6C0(void *, M2C_UNK);
 M2C_UNK warp_player__17TObjWarpBossMultiFPvi(void *, s32);
 M2C_UNK TObjWarpBossMulti__sub_8019EFF0(void *);
-s32 TWindowSubTradeMain__sub_80187D1C();
+s32 get_warp_state__19TWindowSubTradeMainFv();
 
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5C94;
@@ -43,7 +43,7 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x170) = 1;
             }
         }
-        if (TWindowSubTradeMain__sub_80187D1C() != 0) {
+        if (get_warp_state__19TWindowSubTradeMainFv() != 0) {
             M2C_FIELD(arg0, s32 *, 0x160) = (s32) (M2C_FIELD(arg0, s32 *, 0x160) - 1);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x160) <= 0) {
                 var_r3 = 1;

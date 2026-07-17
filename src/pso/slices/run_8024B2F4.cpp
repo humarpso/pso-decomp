@@ -16,7 +16,7 @@ void set_field28__11TWindowCtrlFs(s16 arg0) {
 
 extern void *TWindowCtrl__data_805D63F8;
 
-u16 TWindowCtrl__sub_8024B308(void) {
+u16 get_window_id__11TWindowCtrlFv(void) {
     if ((void *) TWindowCtrl__data_805D63F8 == NULL) {
         return 0xFFFFU;
     }

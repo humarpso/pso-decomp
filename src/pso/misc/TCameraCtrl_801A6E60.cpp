@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 is_on_current_screen__11TCameraCtrlFPv(void *arg0);
-s32 TRaderMapCore__sub_801A6D10();
+s32 pack_flags__13TRaderMapCoreFii();
 
 u8 is_on_current_screen__11TCameraCtrlFPv(void *arg0) {
-    return (u8) ((M2C_FIELD(arg0, s32 *, 0x48) & TRaderMapCore__sub_801A6D10()) != 0);
+    return (u8) ((M2C_FIELD(arg0, s32 *, 0x48) & pack_flags__13TRaderMapCoreFii()) != 0);
 }
 
 }

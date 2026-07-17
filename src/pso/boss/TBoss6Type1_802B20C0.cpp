@@ -13,7 +13,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TBoss6Type1__sub_802B4B64(void *, int);
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
 M2C_UNK TBoss6Type1__sub_802B5100(void *, s32, s32);
-M2C_UNK TBoss6Type1__sub_802B7E7C(void *);
+M2C_UNK latch_phase_counter__11TBoss6Type1FPv(void *);
 M2C_UNK TBoss6Type1__sub_802B82B8(void *, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B865C(void *, M2C_UNK);
 M2C_UNK TBoss6Type1__sub_802B9204(void *, M2C_UNK);
@@ -45,7 +45,7 @@ void update_attack_countdown__11TBoss6Type1FPv(void *arg0) {
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
     M2C_FIELD(arg0, s32 *, 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        TBoss6Type1__sub_802B7E7C(arg0);
+        latch_phase_counter__11TBoss6Type1FPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x414) = 0;
         TBoss6Type1__sub_802B865C(arg0, 1);
     }

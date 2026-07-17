@@ -16,7 +16,7 @@ int TLobby__sub_80227248(void);
 int TLobby__sub_8022743C(void);
 int refresh_render_state__6TLobbyFv(void);
 s32 TLobby__sub_80227FB4();
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 s32 TObjLight__sub_80133D78();
 int free_heap__13TParticleCtrlFv(void);
 s32 init_heap__13TParticleCtrlFPv(s32);
@@ -27,7 +27,7 @@ s32 create__16TBoss4CheckEmptyFv();
 void TLobby__sub_801403B4(void) {  }
 void TLobby__sub_801403B8(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); TLobby__sub_80227248(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
-    TOKeyMachine01__sub_802034A8();
+    get_global_state__14TOKeyMachine01Fv();
     TLobby__sub_80227FB4();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
@@ -41,7 +41,7 @@ s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
 }
 void reset_subsystems__6TLobbyFv(void) { free_heap__13TParticleCtrlFv(); refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); TLobby__sub_80227248(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 s32 init_lobby_scene__6TLobbyFv(void) {
-    TOKeyMachine01__sub_802034A8();
+    get_global_state__14TOKeyMachine01Fv();
     TLobby__sub_80227FB4();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;

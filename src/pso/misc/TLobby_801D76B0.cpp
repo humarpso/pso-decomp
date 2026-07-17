@@ -8,10 +8,10 @@ extern "C" {
 
 void reset_settings_to_default__6TLobbyFPv(u8 *arg0);
 s32 TItemDrop__sub_80107B04();
-M2C_UNK TLobby__sub_801D6DC4(void *, M2C_UNK);
+M2C_UNK set_volume__6TLobbyFPvUc(void *, M2C_UNK);
 M2C_UNK set_validated_field_0x11__6TLobbyFPvUc(void *, M2C_UNK);
 M2C_UNK set_clamped_index__6TLobbyFPvs(void *, M2C_UNK);
-M2C_UNK TLobby__sub_801D6F08(void *, M2C_UNK);
+M2C_UNK set_clamped_value_1c__6TLobbyFPvi(void *, M2C_UNK);
 M2C_UNK set_field_0xE__6TLobbyFPvUc(void *, s32);
 M2C_UNK set_field_d__6TLobbyFPvUc(void *, s32);
 M2C_UNK set_clamped_field_c__6TLobbyFPvUc(void *, s32);
@@ -62,10 +62,10 @@ void reset_settings_to_default__6TLobbyFPv(u8 *arg0) {
     set_clamped_field_c__6TLobbyFPvUc(arg0, ret_801D7904(arg0));
     set_field_d__6TLobbyFPvUc(arg0, ret_801D78FC(arg0));
     set_field_0xE__6TLobbyFPvUc(arg0, ret_801D78F4(arg0));
-    TLobby__sub_801D6DC4(arg0, 0);
+    set_volume__6TLobbyFPvUc(arg0, 0);
     set_validated_field_0x11__6TLobbyFPvUc(arg0, 0xFF);
     set_clamped_index__6TLobbyFPvs(arg0, 0);
-    TLobby__sub_801D6F08(arg0, 0xA);
+    set_clamped_value_1c__6TLobbyFPvi(arg0, 0xA);
     M2C_FIELD(arg0, s8 *, 0x12) = 0;
     for (var_r4 = 0; var_r4 < 4; var_r4++) {
         *(arg0 + var_r4 + 0x20) = 0x14;

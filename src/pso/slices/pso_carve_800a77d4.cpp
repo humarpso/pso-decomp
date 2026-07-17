@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s16 TObjPlayer__sub_800A7764(void* p);
+s16 get_field_2c8__10TObjPlayerFPv(void* p);
 s16 TObjPlayer__sub_800A776C(void* p);
 int TObjPlayer__sub_800A7774(void* p);
 void TObjPlayer__sub_800A77C0(void* p, u32 v);

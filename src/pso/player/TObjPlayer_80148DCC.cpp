@@ -35,7 +35,7 @@ extern "C" {
 
 void update_battle_target__10TObjPlayerFPv(void *arg0);
 void draw_model__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
@@ -45,8 +45,8 @@ M2C_UNK TObjPlayer__sub_803D8C7C(M2C_UNK, void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D97F0(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjPlayer__sub_803E4BC4();
-M2C_UNK TObjPlayer__sub_803E4BD0();
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 
@@ -76,17 +76,17 @@ void draw_model__10TObjPlayerFPv(u8 *arg0) {
     if ((self->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
         TObjLight__sub_80134194(arg0);
         some_id_805c6f74 |= 1;
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D97F0(0);
         TObjPlayer__sub_803D8C7C(0, arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjPlayer__sub_803E4BC4();
+        set_global_flag__10TObjPlayerFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x394) != 0) {
             TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }
-        TObjPlayer__sub_803E4BD0();
+        clear_global_state__10TObjPlayerFv();
         TObjPlayer__sub_803D9B78();
         some_id_805c6f74 &= 0xFFFFFFFE;
         TObjLight__sub_80134098();

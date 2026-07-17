@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TItemMag__vt44(s32 arg0);
-u8 TObjPlayer__sub_8001972C();
+u8 get_field_ed__10TObjPlayerFPv();
 M2C_UNK TItemEquipBase__sub_8010B58C(s32, u8);
 
 void TItemMag__vt44(s32 arg0) {
     u8 temp_r3;
     u8 var_r4;
 
-    temp_r3 = TObjPlayer__sub_8001972C();
+    temp_r3 = get_field_ed__10TObjPlayerFPv();
     var_r4 = temp_r3;
     if (temp_r3 >= 0x42U) {
         var_r4 = 0x42;

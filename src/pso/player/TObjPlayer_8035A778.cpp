@@ -8,7 +8,7 @@ extern "C" {
 
 void apply_with_callback__10TObjPlayerFPvif(void *arg0, s32 arg1, f32 farg0);
 M2C_UNK render_model_tree__12TBoss8DragonFPvPv(s32, s32, f32);
-M2C_UNK TObjEneRe7Berura__sub_803E4CE0(M2C_UNK *);
+M2C_UNK set_global_state__16TObjEneRe7BeruraFi(M2C_UNK *);
 
 extern M2C_UNK process_callback_list__10TObjPlayerFi[];
 extern s32 lbl_805D6F30;
@@ -23,9 +23,9 @@ void apply_with_callback__10TObjPlayerFPvif(void *arg0, s32 arg1, f32 farg0) {
     lbl_805D6F34 = M2C_FIELD(arg0, s32 *, 0x2C);
     lbl_805D6F38 = M2C_FIELD(arg0, s32 *, 0x28);
     lbl_805D6F3C = M2C_FIELD(arg0, s32 *, 0x38);
-    TObjEneRe7Berura__sub_803E4CE0(process_callback_list__10TObjPlayerFi);
+    set_global_state__16TObjEneRe7BeruraFi(process_callback_list__10TObjPlayerFi);
     render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, s32 *, 0x1C), arg1, farg0);
-    TObjEneRe7Berura__sub_803E4CE0(NULL);
+    set_global_state__16TObjEneRe7BeruraFi(NULL);
 }
 
 }

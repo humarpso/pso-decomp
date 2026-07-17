@@ -10,11 +10,11 @@ struct VObj_8002E784 : Base_8002E784 {
 
 extern "C" {
 
-void TObjPlayer__sub_8002E784(void);
+void clear_target_ref__10TObjPlayerFv(void);
 
 extern void *lbl_805D4B8C;
 
-void TObjPlayer__sub_8002E784(void) {
+void clear_target_ref__10TObjPlayerFv(void) {
     if (lbl_805D4B8C != NULL) {
         ((VObj_8002E784 *)lbl_805D4B8C)->m0(1);
     }

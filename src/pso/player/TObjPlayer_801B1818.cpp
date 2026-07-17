@@ -10,7 +10,7 @@ void* draw_font__10TObjPlayerFPv(void* p);
 void notify_field1c__10TObjPlayerFi(s32 arg0);
 int get_field_828__10TObjPlayerFPv(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
-int TObjPlayer__sub_80019734(void*);
+int get_type__10TObjPlayerFPv(void*);
 M2C_UNK fn_801C05A0(M2C_UNK *);
 M2C_UNK fn_801C05B4(M2C_UNK *);
 
@@ -27,6 +27,6 @@ void notify_field1c__10TObjPlayerFi(s32 arg0) {
         fn_801C05B4((M2C_UNK *)&sp8);
     }
 }
-int get_field_828__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80019734((char*)p + 0x828); }
+int get_field_828__10TObjPlayerFPv(void* p) { return get_type__10TObjPlayerFPv((char*)p + 0x828); }
 
 }

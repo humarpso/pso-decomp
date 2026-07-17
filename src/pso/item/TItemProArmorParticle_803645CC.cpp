@@ -8,9 +8,9 @@ extern "C" {
 
 void TItemProArmorParticle__vt14(void *arg0);
 M2C_UNK create__21TItemProArmorParticleFiiii(s32, s32, s32, s32);
-s32 TItemProArmor__sub_80102C3C(void *);
-s32 TOKeyMachine01__sub_802034A8();
-s32 TObjPlayer__sub_80099EF8(void *);
+s32 get_id__13TItemProArmorFPv(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 get_field_d8__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_802034B0();
 
 extern s32 tl_05;
@@ -20,11 +20,11 @@ void TItemProArmorParticle__vt14(void *arg0) {
     s32 temp_r31;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 2) {
-        temp_r3 = TOKeyMachine01__sub_802034A8();
+        temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x198)) {
             M2C_FIELD(arg0, s32 *, 0x198) = temp_r3;
             if (TObjPlayer__sub_802034B0() != 0) {
-                create__21TItemProArmorParticleFiiii(tl_05, TObjPlayer__sub_80099EF8(arg0), TItemProArmor__sub_80102C3C(arg0), M2C_FIELD(arg0, s32 *, 0x19C));
+                create__21TItemProArmorParticleFiiii(tl_05, get_field_d8__10TObjPlayerFPv(arg0), get_id__13TItemProArmorFPv(arg0), M2C_FIELD(arg0, s32 *, 0x19C));
             }
         }
     }

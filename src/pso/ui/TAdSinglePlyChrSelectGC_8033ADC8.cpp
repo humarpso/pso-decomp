@@ -8,14 +8,14 @@ extern "C" {
 
 void update_select_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FDA4C();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BA8(M2C_UNK);
+M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 M2C_UNK set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
 
 void update_select_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (TAdSinglePlyChrSelectGC__sub_801FDA4C() == 0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 5;
-        TAdSinglePlyChrSelectGC__sub_80202BA8(6);
+        set_player_index__23TAdSinglePlyChrSelectGCFi(6);
         set_char_slots__23TAdSinglePlyChrSelectGCFPvii(arg0, 0xC, -1);
         return;
     }

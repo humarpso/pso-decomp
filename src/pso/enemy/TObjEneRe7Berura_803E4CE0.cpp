@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneRe7Berura__sub_803E4CE0(s32 arg0);
+void set_global_state__16TObjEneRe7BeruraFi(s32 arg0);
 
 extern s32 lbl_805D7810;
 
-void TObjEneRe7Berura__sub_803E4CE0(s32 arg0) {
+void set_global_state__16TObjEneRe7BeruraFi(s32 arg0) {
     lbl_805D7810 = arg0;
 }
 

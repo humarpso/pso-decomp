@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 is_technique_ready__8TTecCtrlFv(void);
-s32 TObjPlayer__sub_800196FC();
+s32 get_player_count__10TObjPlayerFv();
 s8 TObjPlayer__sub_801BE388();
 
 u8 is_technique_ready__8TTecCtrlFv(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((TObjPlayer__sub_800196FC() == 1) && (TObjPlayer__sub_801BE388() == 1)) {
+    if ((get_player_count__10TObjPlayerFv() == 1) && (TObjPlayer__sub_801BE388() == 1)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

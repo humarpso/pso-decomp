@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 set_language__19TWindowKeyBoardSoftFc(s8 arg0);
-void *TAdSinglePlyChrSelectGC__sub_8001ED80();
+void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TLanguage__ct(s32);
 M2C_UNK free_instance__19TWindowKeyBoardSoftFv();
 M2C_UNK TWindowKeyBoardSoft__sub_80132DA0(s8);
@@ -23,7 +23,7 @@ s32 set_language__19TWindowKeyBoardSoftFc(s8 arg0) {
     }
     free_instance__19TWindowKeyBoardSoftFv();
     free_resources__19TWindowKeyBoardSoftFv();
-    temp_r3 = TAdSinglePlyChrSelectGC__sub_8001ED80();
+    temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s8 *, 7) = arg0;
     }

@@ -9,7 +9,7 @@ extern "C" {
 #include "types.h"
 extern "C" {
 M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_8011E238(void *, int);
+M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, int, int);
 M2C_UNK set_flag_20000__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801BF690(void *);

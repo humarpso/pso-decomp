@@ -16,7 +16,7 @@ extern s32 lbl_805D7740;
 extern s32 lbl_805D7750;
 extern s32 lbl_805D7754;
 
-void fn_803DD014(u8 *arg0) {
+void init_locked_cache_heap(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3;
 

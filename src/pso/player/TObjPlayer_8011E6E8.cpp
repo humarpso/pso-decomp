@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *TObjPlayer__sub_8011E6E8(u8 *arg0);
+u8 *get_motion_ptr__10TObjPlayerFPv(u8 *arg0);
 
 struct VBase18c_8011e6e8 { char pad[0x18]; };
 struct VObj18c_8011e6e8 : VBase18c_8011e6e8 {
@@ -34,7 +34,7 @@ struct VObj18c_8011e6e8 : VBase18c_8011e6e8 {
     virtual M2C_UNK m63(M2C_UNK, void *);
 };
 
-u8 *TObjPlayer__sub_8011E6E8(u8 *arg0) {
+u8 *get_motion_ptr__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
 
     temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xF0));

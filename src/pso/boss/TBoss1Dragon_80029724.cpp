@@ -100,13 +100,13 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 check_phase_advance__12TBoss1DragonFPv(void *);
 s32 update_max_hp_phase__12TBoss1DragonFPv(void *);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
-s32 TBoss1Dragon__sub_800291D4();
+s32 is_hp_low__12TBoss1DragonFPv();
 
 extern s32 enable_v2_features;
 extern s32 lbl_805D4B34;
 
 void choose_next_action__12TBoss1DragonFPv(void *arg0) {
-    if (TBoss1Dragon__sub_800291D4() != 0) {
+    if (is_hp_low__12TBoss1DragonFPv() != 0) {
         if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x400)) {
             if (update_max_hp_phase__12TBoss1DragonFPv(arg0) == 0) {
                 if (check_phase_advance__12TBoss1DragonFPv(arg0) != 0) {

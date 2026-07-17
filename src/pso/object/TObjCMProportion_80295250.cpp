@@ -6,7 +6,7 @@ extern "C" {
 
 void *TObjCMProportion__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-void TChCrEffTag__sub_8029ACA8(int);
+void set_eff_tag__11TChCrEffTagFi(int);
 
 extern M2C_UNK __vt__16TObjCMProportion[];
 extern const f32 lbl_805DDA90;
@@ -21,7 +21,7 @@ void *TObjCMProportion__ct(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 1;
     M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DDA90;
-    TChCrEffTag__sub_8029ACA8(9);
+    set_eff_tag__11TChCrEffTagFi(9);
     return arg0;
 }
 

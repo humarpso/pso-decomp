@@ -18,10 +18,10 @@ M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801D17C0(M2C_UNK *);
 M2C_UNK broadcast_lobby_display__10TObjPlayerFPv(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801D2620(void *);
-M2C_UNK TObjPlayer__sub_801D2630();
+M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
+M2C_UNK clear_status_bit6__10TObjPlayerFPv();
 s32 TObjPlayer__sub_8001BEF8(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_8002AEB8(void *, s32);
+M2C_UNK set_type__10TObjPlayerFPvi(void *, s32);
 M2C_UNK TObjPlayer__sub_801B4430(u32);
 s32 TObjPlayer__sub_801D8ADC(void *);
 s32 is_alive_and_ready__10TObjPlayerFi(u32);
@@ -77,7 +77,7 @@ void update_timer_state__10TObjPlayerFPv(void *arg0) {
         if (temp_f1 < TObjPlayer__data_805DC36C) {
             M2C_FIELD(arg0, s16 *, 0x328) = 1;
             init__14TObjEnePanarmsFPvPv(arg0, TObjPlayer__sub_801D0458());
-            TObjPlayer__sub_801D2620(arg0);
+            set_action_flag_40__10TObjPlayerFPv(arg0);
             M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TObjPlayer__data_805DC378;
         }
         break;
@@ -85,7 +85,7 @@ void update_timer_state__10TObjPlayerFPv(void *arg0) {
         temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x2B4) - TObjPlayer__data_805DC360;
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1_2;
         if (temp_f1_2 < TObjPlayer__data_805DC36C) {
-            TObjPlayer__sub_801D2630();
+            clear_status_bit6__10TObjPlayerFPv();
             TObjPlayer__sub_801D0BC0(arg0, 1, 0);
         }
         break;
@@ -109,7 +109,7 @@ void update_timer_action__10TObjPlayerFPv(u8 *arg0) {
         if (temp_f1 < TObjPlayer__data_805DC36C) {
             M2C_FIELD(arg0, s16 *, 0x328) = 1;
             init__14TObjEnePanarmsFPvPv(arg0, TObjPlayer__sub_801D0458());
-            TObjPlayer__sub_801D2620(arg0);
+            set_action_flag_40__10TObjPlayerFPv(arg0);
             M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TObjPlayer__data_805DC378;
         }
         break;
@@ -117,8 +117,8 @@ void update_timer_action__10TObjPlayerFPv(u8 *arg0) {
         temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x2B4) - TObjPlayer__data_805DC360;
         M2C_FIELD(arg0, f32 *, 0x2B4) = temp_f1_2;
         if (temp_f1_2 < TObjPlayer__data_805DC36C) {
-            TObjPlayer__sub_801D2630();
-            TObjPlayer__sub_8002AEB8(arg0 + 0x644, TObjPlayer__sub_801D8ADC(arg0));
+            clear_status_bit6__10TObjPlayerFPv();
+            set_type__10TObjPlayerFPvi(arg0 + 0x644, TObjPlayer__sub_801D8ADC(arg0));
             update_position_from_target__10TObjPlayerFPv(arg0);
         }
         break;

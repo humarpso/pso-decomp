@@ -8,7 +8,7 @@ extern "C" {
 
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_800196EC();
-s32 TObjPlayer__sub_800196F4();
+s32 get_field_3e4__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801AA17C(void *, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
@@ -20,7 +20,7 @@ s32 is_any_teammate_in_state__10TObjPlayerFv(void) {
     temp_r31 = TObjPlayer__sub_800196EC();
     var_r30 = 0;
 loop_1:
-    if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) && (temp_r31 == TObjPlayer__sub_800196F4()) && (TObjPlayer__sub_801AA17C(&sp8, var_r30) == 2)) {
+    if ((TPlayerBattleCtrl4P__sub_801BA74C(var_r30) != 0U) && (temp_r31 == get_field_3e4__10TObjPlayerFPv()) && (TObjPlayer__sub_801AA17C(&sp8, var_r30) == 2)) {
         return 1;
     }
     var_r30 += 1;

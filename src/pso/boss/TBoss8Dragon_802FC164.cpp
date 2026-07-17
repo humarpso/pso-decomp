@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void check_hit_result__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
-void TBoss8Dragon__sub_802FC1B4(void* a0);
-void TBoss8Dragon__sub_802FC1CC(void* a0);
-void TBoss8Dragon__sub_802FC1E4(void* a0);
-void TBoss8Dragon__sub_802FC1FC(void* p);
-void TBoss8Dragon__sub_802FC208(void* p);
-void TBoss8Dragon__sub_802FC214(void* p);
+void reset_action__12TBoss8DragonFPv(void* a0);
+void activate_attack__12TBoss8DragonFPv(void* a0);
+void set_active_flag__12TBoss8DragonFPv(void* a0);
+void set_action_state__12TBoss8DragonFPv(void* p);
+void set_state__12TBoss8DragonFPv(void* p);
+void reset_timer__12TBoss8DragonFPv(void* p);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 
 void check_hit_result__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
@@ -24,16 +24,16 @@ void check_hit_result__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
 }
 
     extern const float lbl_805DED70;
-void TBoss8Dragon__sub_802FC1B4(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) & 0xfffffffe); *(float*)((char*)a0 + 0x3c) = lbl_805DED70; }
+void reset_action__12TBoss8DragonFPv(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) & 0xfffffffe); *(float*)((char*)a0 + 0x3c) = lbl_805DED70; }
 
     extern const float lbl_805DEE70;
-void TBoss8Dragon__sub_802FC1CC(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) | 0x1); *(float*)((char*)a0 + 0x3c) = lbl_805DEE70; }
+void activate_attack__12TBoss8DragonFPv(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) | 0x1); *(float*)((char*)a0 + 0x3c) = lbl_805DEE70; }
 
     extern const float TBoss8Dragon__data_805DED50;
-void TBoss8Dragon__sub_802FC1E4(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) | 0x1); *(float*)((char*)a0 + 0x3c) = TBoss8Dragon__data_805DED50; }
+void set_active_flag__12TBoss8DragonFPv(void* a0) { *(int*)((char*)a0 + 0x3c0) = (*(int*)((char*)a0 + 0x3c0) | 0x1); *(float*)((char*)a0 + 0x3c) = TBoss8Dragon__data_805DED50; }
 
-void TBoss8Dragon__sub_802FC1FC(void* p) { *(s32*)((char*)p + 0x3e4) = 2; }
-void TBoss8Dragon__sub_802FC208(void* p) { *(s32*)((char*)p + 0x3e4) = 1; }
-void TBoss8Dragon__sub_802FC214(void* p) { *(s32*)((char*)p + 0x3e4) = 0; }
+void set_action_state__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x3e4) = 2; }
+void set_state__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x3e4) = 1; }
+void reset_timer__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x3e4) = 0; }
 
 }

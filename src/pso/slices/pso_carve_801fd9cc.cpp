@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdPlayerLoadGC__sub_80076BBC();
+s32 get_instance__15TAdPlayerLoadGCFv();
 s32 TAdPlayerLoadGC__sub_801E2048(s32, M2C_UNK *);
 s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
 s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BA8(M2C_UNK);
+M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 extern M2C_UNK lbl_804C8914[];
 extern u32 lbl_805D5F6C;
 extern s32 lbl_805D5F8C;
@@ -19,13 +19,13 @@ s32 pso_system_load_gc(void) {
     s32 var_r31;
 
     var_r31 = 0xFFFF0000;
-    if (((u32) lbl_805D5F6C != 0U) && (TAdPlayerLoadGC__sub_80076BBC() == 0)) {
+    if (((u32) lbl_805D5F6C != 0U) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
         var_r31 = TAdPlayerLoadGC__sub_801E2048(lbl_805D5F8C, lbl_804C8914);
         if (var_r31 == 0) {
             if (try_confirm_selection__23TAdSinglePlyChrSelectGCFv() != 0) {
                 var_r31 = TAdSinglePlyChrSelectGC__sub_801FD990(lbl_805D5F8C);
                 if (var_r31 == 0) {
-                    TAdSinglePlyChrSelectGC__sub_80202BA8(0xF);
+                    set_player_index__23TAdSinglePlyChrSelectGCFi(0xF);
                 }
             }
         }

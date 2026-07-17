@@ -10,7 +10,7 @@ void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
 void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C();
-M2C_UNK TWindowCtrl__sub_8024C818();
+M2C_UNK get_width__11TWindowCtrlFPv();
 M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
 M2C_UNK TWindowSubStatusDisp__sub_8026F6DC(s32);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
@@ -47,7 +47,7 @@ void update_status_entry__20TWindowSubStatusDispFi(s32 arg0) {
     void *temp_r31;
     VObj_8026F77C *temp_r3;
 
-    TWindowCtrl__sub_8024C818();
+    get_width__11TWindowCtrlFPv();
     temp_r3 = (VObj_8026F77C *) TPlayerBattleCtrl4P__sub_801BA74C();
     if (temp_r3 != NULL) {
         temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(2));
@@ -65,7 +65,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
     void *temp_r30;
     void *temp_r3;
 
-    TWindowCtrl__sub_8024C818();
+    get_width__11TWindowCtrlFPv();
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C();
     if (temp_r3 == NULL) {
         TWindowSubStatusDisp__sub_8026F6DC(arg0);

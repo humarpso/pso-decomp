@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__16TAdWarningBaseGCFi(s32 arg0);
-M2C_UNK TObjFish__sub_803DA798(u32);
+M2C_UNK set_global_param__8TObjFishFi(u32);
 M2C_UNK TWindowSubComCard__sub_803DEECC(s32, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_803DEEAC();
@@ -18,7 +18,7 @@ extern f32 lbl_805DF7C0;
 
 void render__16TAdWarningBaseGCFi(s32 arg0) {
     if ((u32) lbl_805D6D00 != 0U) {
-        TObjFish__sub_803DA798(lbl_805D6D00);
+        set_global_param__8TObjFishFi(lbl_805D6D00);
         TWindowSubStatusDisp__sub_803DEE6C(1);
         TWindowSubStatusDisp__sub_803DF160(0, -1);
         TWindowSubComCard__sub_803DEECC(arg0 + 0x1C, lbl_805DF7C0);

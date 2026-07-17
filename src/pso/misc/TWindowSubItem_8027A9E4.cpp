@@ -9,7 +9,7 @@ extern "C" {
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 void get_selected_entry__14TWindowSubItemFPv(void *arg0);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
-M2C_UNK TWindowSubItem__sub_80249058();
+M2C_UNK get_cursor_pos__14TWindowSubItemFPv();
 int TShopArmorListWindow__sub_80266CF8(void*);
 int save_cursor_selection__20TShopArmorListWindowFPv(void*);
 int TShopArmorListWindow__sub_80266DB0(void*);
@@ -17,7 +17,7 @@ int TWindowSubStatusDisp__sub_80266EB8(void*);
 int fn_8027ABFC(void* a0 = 0);
 void refresh__14TWindowSubItemFPv(void* p);
 void set_flag60_bit10__14TWindowSubItemFPv(void* p);
-void TWindowSubItem__sub_8027AA3C(void* p);
+void reset_selected__14TWindowSubItemFPv(void* p);
 void TWindowSubItem__sub_8027AA48(void* p, s16 v);
 
 void set_flag60_bit10__14TWindowSubItemFPv(void* p) { *(u16*)((char*)p + 0x60) |= 0x10; }

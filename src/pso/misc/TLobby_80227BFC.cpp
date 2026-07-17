@@ -10,7 +10,7 @@ s32 is_camera_state_active__6TLobbyFv(void);
 void set_mode__6TLobbyFi(s32 arg0);
 u16 TCameraCtrl__sub_8006A5DC();
 M2C_UNK set_mode__6TLobbyFPvi(M2C_UNK *, s32);
-M2C_UNK TLobby__sub_803C90E4(M2C_UNK);
+M2C_UNK on_set_mode__6TLobbyFv(M2C_UNK);
 
 s32 is_camera_state_active__6TLobbyFv(void) {
     if ((TCameraCtrl__sub_8006A5DC() == 5) || (TCameraCtrl__sub_8006A5DC() == 9)) {
@@ -24,13 +24,13 @@ extern M2C_UNK lbl_80514F64[];
 void set_mode__6TLobbyFi(s32 arg0) {
     switch (arg0) {
     case 0:
-        TLobby__sub_803C90E4(1);
+        on_set_mode__6TLobbyFv(1);
         break;
     case 1:
-        TLobby__sub_803C90E4(0);
+        on_set_mode__6TLobbyFv(0);
         break;
     case 2:
-        TLobby__sub_803C90E4(0);
+        on_set_mode__6TLobbyFv(0);
         break;
     }
     set_mode__6TLobbyFPvi(lbl_80514F64, arg0);

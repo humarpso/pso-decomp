@@ -9,7 +9,7 @@ extern "C" {
 s32 find_target_enemy__12TBoss8DragonFv(void);
 s32 is_any_part_alive__12TBoss8DragonFv(void);
 void update_all_parts__12TBoss8DragonFv(void);
-M2C_UNK TBoss8Dragon__sub_802F3C84(u32, s32);
+M2C_UNK get_part_count_plus__12TBoss8DragonFPvi(u32, s32);
 u32 get_enemy_entity();
 M2C_UNK set_state_22__12TBoss8DragonFPv();
 
@@ -23,7 +23,7 @@ s32 find_target_enemy__12TBoss8DragonFv(void) {
     }
     var_r31 = 1;
 loop_3:
-    TBoss8Dragon__sub_802F3C84(lbl_805D6978, var_r31);
+    get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, var_r31);
     if (get_enemy_entity() != 0U) {
         return 1;
     }
@@ -44,7 +44,7 @@ s32 is_any_part_alive__12TBoss8DragonFv(void) {
     }
     var_r31 = 1;
 loop_3:
-    TBoss8Dragon__sub_802F3C84(lbl_805D6978, var_r31);
+    get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, var_r31);
     if (get_enemy_entity() != 0U) {
         return 0;
     }
@@ -63,7 +63,7 @@ void update_all_parts__12TBoss8DragonFv(void) {
     if ((u32) lbl_805D6978 != 0U) {
         var_r31 = 1;
         do {
-            TBoss8Dragon__sub_802F3C84(lbl_805D6978, var_r31);
+            get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, var_r31);
             if (get_enemy_entity() != 0U) {
                 set_state_22__12TBoss8DragonFPv();
             }

@@ -10,7 +10,7 @@ void update_band_state__10TObjPlayerFPv(u8 *arg0);
 void update_target_approach__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_801CC194(void *);
 void TObjPlayer__sub_801CC9E4(void);
-M2C_UNK TObjPlayer__sub_801D2620(void *);
+M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D2AF4(void *);
 s32 objInBand__FP7GameObjf(void *);
 int try_apply_status_action__10TObjPlayerFi(void*);
@@ -31,7 +31,7 @@ void update_band_state__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_801D2AF4((void *) (arg0 + 0x4AC));
         if (objInBand__FP7GameObjf((void *) (arg0)) != 0) {
             M2C_FIELD(arg0, s16 *, 0x328) = 3;
-            TObjPlayer__sub_801D2620((void *) (arg0));
+            set_action_flag_40__10TObjPlayerFPv((void *) (arg0));
         }
     }
 }
@@ -46,7 +46,7 @@ void update_target_approach__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_801D2AF4((void *) (arg0 + 0x4AC));
         if (objInBand__FP7GameObjf((void *) (arg0)) != 0) {
             M2C_FIELD(arg0, s16 *, 0x328) = 3;
-            TObjPlayer__sub_801D2620((void *) (arg0));
+            set_action_flag_40__10TObjPlayerFPv((void *) (arg0));
             TObjPlayer__sub_801CC194((void *) (arg0));
         }
     }

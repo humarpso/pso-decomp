@@ -8,10 +8,10 @@ extern "C" {
 
 void TLobby__sub_803C94B8(void);
 void TLobby__sub_803C94D8(void);
-M2C_UNK TLobby__sub_803C5828();
+M2C_UNK set_params__6TLobbyFii();
 
 void TLobby__sub_803C94B8(void) {
-    TLobby__sub_803C5828();
+    set_params__6TLobbyFii();
 }
 
 void TLobby__sub_803C94D8(void) {

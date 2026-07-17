@@ -9,7 +9,7 @@ extern "C" {
 void ramp_up_field200__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80128188(void* p);
 int TBoss7Tentacle__sub_803D9BA0(void*);
-int TObjPlayer__sub_80121200(void*);
+int get_player_list__10TObjPlayerFv(void*);
 
 extern const f32 lbl_805DADE4;
 extern const f32 lbl_805DADE8;
@@ -26,6 +26,6 @@ void ramp_up_field200__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80128188(void* p) { if (TObjPlayer__sub_80121200(p) == 0) { TBoss7Tentacle__sub_803D9BA0((char*)p + 0x1f8); } }
+void TObjPlayer__sub_80128188(void* p) { if (get_player_list__10TObjPlayerFv(p) == 0) { TBoss7Tentacle__sub_803D9BA0((char*)p + 0x1f8); } }
 
 }

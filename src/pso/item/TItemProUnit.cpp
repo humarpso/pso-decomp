@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TItemProUnit__sub_80119014(void* p, f32 v);
+void set_evp__12TItemProUnitFPvf(void* p, f32 v);
 f32 TItemProUnit__sub_8011901C(void* p);
 
-void TItemProUnit__sub_80119014(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
+void set_evp__12TItemProUnitFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
 f32 TItemProUnit__sub_8011901C(void* p) { return *(f32*)((char*)p + 0x8); }
 
 }

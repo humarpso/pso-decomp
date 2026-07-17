@@ -12,13 +12,13 @@ void try_spawn_cane_effects__10TObjPlayerFi(s32 arg0);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C();
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 
 void apply_turn__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_80121200();
+    temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 1:
         play_particle_effect_once__10TObjPlayerFv();

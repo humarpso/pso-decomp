@@ -8,7 +8,7 @@ extern "C" {
 
 s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0);
 int TKeyBoardControl__sub_80131FA0(void*);
-int TKeyBoardControl__sub_80131FAC(void*);
+int is_key_active__16TKeyBoardControlFPv(void*);
 int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
 int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
 s32 alloc_buffer__11TOBoss4RockFPv();

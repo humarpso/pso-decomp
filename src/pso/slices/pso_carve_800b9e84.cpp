@@ -11,7 +11,7 @@ int update_camera_sequence__9TObjEneDDFPv(void* p);
 int initialize_enemy_state__9TObjEneDDFPv(void* p);
 int TCameraCtrl__sub_80069148(void*);
 int TCameraCtrl__sub_800691C8(void*);
-int TObjEneLappy__sub_800F5DE0(void*);
+int set_param__12TObjEneLappyFPvi(void*);
 int TObjLight__sub_80134098(void*);
 int TObjLight__sub_80134194(void*);
 

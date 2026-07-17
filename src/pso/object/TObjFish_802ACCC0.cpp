@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TObjFish__sub_802ACCC0(void);
+int get_fish_count__8TObjFishFv(void);
 
     extern int lbl_805D66E8;
-int TObjFish__sub_802ACCC0(void) {  return lbl_805D66E8; }
+int get_fish_count__8TObjFishFv(void) {  return lbl_805D66E8; }
 
 }

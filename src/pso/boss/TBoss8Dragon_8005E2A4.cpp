@@ -8,7 +8,7 @@ extern "C" {
 
 void free_parts__12TBoss8DragonFPv(void *arg0);
 void update_particle_positions__12TBoss8DragonFPv(void *arg0);
-void TParticleCtrl__sub_80088010(void *);
+void enable__13TParticleCtrlFPv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -32,15 +32,15 @@ extern M2C_UNK lbl_804882BC[];
 void update_particle_positions__12TBoss8DragonFPv(void *arg0) {
     if (M2C_FIELD(arg0, void **, 0x724) != NULL) {
         copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x724), lbl_804882BC);
-        TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0x724));
+        enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0x724));
     }
     if (M2C_FIELD(arg0, void **, 0x728) != NULL) {
         copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x728), lbl_804882BC);
-        TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0x728));
+        enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0x728));
     }
     if (M2C_FIELD(arg0, void **, 0x72C) != NULL) {
         copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x72C), lbl_804882BC);
-        TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0x72C));
+        enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0x72C));
     }
 }
 

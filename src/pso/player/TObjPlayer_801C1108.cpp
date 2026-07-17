@@ -29,7 +29,7 @@ void *copy_short_fields__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     return arg0;
 }
 
-void TObjPlayer__sub_801C11BC(void *arg0)
+void init_trap_packet__10TObjPlayerFPv(void *arg0)
 {
   *((s16 *) (((s8 *) arg0) + 4)) = 0;
   *((s16 *) (((s8 *) arg0) + 6)) = 0;

@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK DVDCancelAsync();
 
-void fn_803A2CAC(void) {
+void cancel_dvd_async(void) {
     DVDCancelAsync();
 }
 

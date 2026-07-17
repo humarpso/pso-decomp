@@ -14,7 +14,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(s32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(u32 *, M2C_UNK);
 M2C_UNK init_timestamped_data();
 s32 TAdSinglePlyChrSelectGC__sub_80202958();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BB0(M2C_UNK);
+M2C_UNK set_save_slot__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 M2C_UNK memcpy(s32, s32, u32);
 extern s32 lbl_80513910[];
 extern s32 lbl_805D5F68;
@@ -25,7 +25,7 @@ s32 load_and_verify_data(s32 arg0) {
     u32 *var_r31;
     u32 temp_r30;
 
-    TAdSinglePlyChrSelectGC__sub_80202BB0(0);
+    set_save_slot__23TAdSinglePlyChrSelectGCFi(0);
     temp_r3 = TAdSinglePlyChrSelectGC__sub_80202958();
     lbl_80513910[1] = temp_r3;
     lbl_80513910[0] = temp_r3;
@@ -50,7 +50,7 @@ s32 load_and_verify_data(s32 arg0) {
         __dl__FPv(var_r31);
         return 1;
     }
-    TAdSinglePlyChrSelectGC__sub_80202BB0(1);
+    set_save_slot__23TAdSinglePlyChrSelectGCFi(1);
 block_9:
     __dl__FPv(var_r31);
     return 1;

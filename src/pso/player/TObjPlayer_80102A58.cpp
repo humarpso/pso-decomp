@@ -8,8 +8,8 @@ extern "C" {
 
 void free_obj_heap__10TObjPlayerFPv(void* a0);
 void alloc_from_obj_heap__10TObjPlayerFPv(void* a0);
-int TObjPlayer__sub_80102AA8(void);
-void TObjPlayer__sub_80102AB0(void);
+int get_item_ctrl__10TObjPlayerFv(void);
+void inc_player_count__10TObjPlayerFv(void);
 int lookup_inventory_item__10TObjPlayerFPv(void* p);
 void free_globals__10TObjPlayerFv(void);
 int TLobby__sub_8010542C(void*);
@@ -28,10 +28,10 @@ void free_obj_heap__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj
 void alloc_from_obj_heap__10TObjPlayerFPv(void* a0) { heap_alloc__5THeapFUl((void*)(obj_heap), a0); }
 
     extern int lbl_805D5408;
-int TObjPlayer__sub_80102AA8(void) {  return lbl_805D5408; }
+int get_item_ctrl__10TObjPlayerFv(void) {  return lbl_805D5408; }
 
     extern int lbl_805D5408;
-void TObjPlayer__sub_80102AB0(void) {
+void inc_player_count__10TObjPlayerFv(void) {
     int temp_r3 = lbl_805D5408;
     lbl_805D5408 = temp_r3 + 1;
 }

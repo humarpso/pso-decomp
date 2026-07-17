@@ -9,10 +9,10 @@ extern "C" {
 void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0);
 void set_area__6TLobbyFPvi(void *arg0, s32 arg1);
 s32 TLobby__sub_80207770(s32);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 
 void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0) {
-    if (TOKeyMachine01__sub_802034A8() != 0xF) {
+    if (get_global_state__14TOKeyMachine01Fv() != 0xF) {
         M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFE);
     }
 }

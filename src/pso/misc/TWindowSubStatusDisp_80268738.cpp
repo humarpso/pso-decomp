@@ -9,10 +9,10 @@ extern "C" {
 void add_text_entry__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
-s32 TWindowSubComCard__sub_80249604();
-M2C_UNK TWindowSubComCard__sub_80269064();
+s32 is_open__17TWindowSubComCardFPv();
+M2C_UNK get_entry_id__17TWindowSubComCardFPv();
 s32 TWindowSubComCard__sub_8026906C(void);
-int TWindowSubStatusDisp__sub_80268488(void* p);
+int is_flag80_set__20TWindowSubStatusDispFPv(void* p);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 void TWindowSubTradeMain__sub_80268468(void* p);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);

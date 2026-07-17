@@ -10,9 +10,9 @@ int TLobby__send_and_handle_60(void*);
 void TOKey__sub_8016AC88(void);
 void TOKey__sub_8016AC8C(void);
 void TOKey__sub_8016AC90(void);
-void TOKeyAncient01__sub_8016AD58(void* p);
+void set_type__14TOKeyAncient01FPv(void* p);
 void TOKeyAncient01__vt23(void);
 
-void TOKeyAncient01__sub_8016AD58(void* p) { *(s32*)((char*)p + 0x0) = 3; }
+void set_type__14TOKeyAncient01FPv(void* p) { *(s32*)((char*)p + 0x0) = 3; }
 
 }

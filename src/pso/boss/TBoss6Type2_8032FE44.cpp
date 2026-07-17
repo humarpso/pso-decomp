@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_8032FE44(void *arg0);
+void sync_hp__11TBoss6Type2FPv(void *arg0);
 
-void TBoss6Type2__sub_8032FE44(void *arg0) {
+void sync_hp__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x404) = (s32) M2C_FIELD(arg0, s16 *, 0x32C);
 }
 

@@ -16,7 +16,7 @@ M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(s32);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_8011F63C();
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_8012B9B4(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
@@ -59,7 +59,7 @@ extern const f32 lbl_805DAECC;
 void play_action_sound__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_80121200();
+    temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 2:
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x278));

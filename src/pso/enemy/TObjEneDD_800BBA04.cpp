@@ -8,8 +8,8 @@ extern "C" {
 
 void TObjEneDD__vt77(void *arg0);
 M2C_UNK call_vt78__10TObjPlayerFPv();
-void TObjEneDD__sub_800BBA04(void* p, s32 v);
+void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
 
-void TObjEneDD__sub_800BBA04(void* p, s32 v) { *(s32*)((char*)p + 0x378) = v; }
+void set_field_378__9TObjEneDDFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x378) = v; }
 
 }

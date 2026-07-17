@@ -9,7 +9,7 @@ extern "C" {
 void reset__15TWindowSnapShotFPv(u8 *arg0);
 s32 TGStream__sub_800FDADC(s32, s32);
 s32 TLobby__sub_800FD944(s32);
-s32 TWindowSnapShot__sub_802A604C(void *, s32);
+s32 set_mode__15TWindowSnapShotFPvi(void *, s32);
 s32 TWindowSnapShot__sub_802A6054();
 s32 TWindowSnapShot__sub_802A605C(void *);
 u32 alloc_buffer__11TOBoss4RockFPv();

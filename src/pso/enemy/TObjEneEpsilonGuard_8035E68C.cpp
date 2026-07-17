@@ -37,7 +37,7 @@ extern "C" {
 
 void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, void *, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(void *);
 M2C_UNK TObjEneEpsilonGuard__sub_8035EFD8(void *, s32);
@@ -59,7 +59,7 @@ void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        TObjEneDD__sub_800BBA04(arg0, 2);
+        set_field_378__9TObjEneDDFPvi(arg0, 2);
         M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) | 4);
         M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) & 0xFFFFFFE7);
         ((VObj18 *) arg0)->vf180();

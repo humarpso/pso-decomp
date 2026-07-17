@@ -8,7 +8,7 @@ extern "C" {
 
 void TOMineTrap__vt81(s32 arg0);
 u32 TOMineTrapDisp__ct(u32, s32, u16, s32);
-s32 TOMineTrap__sub_80171338(s32);
+s32 get_trap_type__10TOMineTrapFPv(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 s32 is_split_screen();
@@ -22,7 +22,7 @@ void TOMineTrap__vt81(s32 arg0) {
     if (is_split_screen() == 0) {
         var_r31 = __nw__7TObjectFUl(0xB0);
         if (var_r31 != 0U) {
-            var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) lbl_805D53A0, TOMineTrap__sub_80171338(arg0));
+            var_r31 = TOMineTrapDisp__ct(var_r31, arg0, (u16) lbl_805D53A0, get_trap_type__10TOMineTrapFPv(arg0));
         }
         if (var_r31 != 0U) {
             VecCopy__FP3VecPC3Vec(var_r31 + 0x50, arg0 + 0x50);
@@ -32,7 +32,7 @@ void TOMineTrap__vt81(s32 arg0) {
         for (var_r30 = 0; var_r30 != 4; var_r30++) {
             var_r31 = __nw__7TObjectFUl(0xB0);
             if (var_r31 != 0U) {
-                var_r31 = TOMineTrapDisp__ct(var_r31, arg0, var_r30, TOMineTrap__sub_80171338(arg0));
+                var_r31 = TOMineTrapDisp__ct(var_r31, arg0, var_r30, get_trap_type__10TOMineTrapFPv(arg0));
             }
             if (var_r31 != 0U) {
                 VecCopy__FP3VecPC3Vec(var_r31 + 0x50, arg0 + 0x50);

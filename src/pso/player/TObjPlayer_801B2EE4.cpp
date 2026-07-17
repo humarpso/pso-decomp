@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1);
-s32 TOBoss4Rock__sub_8039C880();
+s32 rand__11TOBoss4RockFv();
 s32 is_flag30_10_set__10TObjPlayerFi();
 
 extern M2C_UNK TObjPlayer__data_80446F48;
@@ -17,7 +17,7 @@ extern f32 lbl_805DC288;
 
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (is_flag30_10_set__10TObjPlayerFi() != 0) {
-        return (s32) (lbl_805DC280 * (lbl_805DC284 * (lbl_805DC288 * (f32) TOBoss4Rock__sub_8039C880())));
+        return (s32) (lbl_805DC280 * (lbl_805DC284 * (lbl_805DC288 * (f32) rand__11TOBoss4RockFv())));
     }
     return arg1;
 }

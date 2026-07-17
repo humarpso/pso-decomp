@@ -14,7 +14,7 @@ M2C_UNK init__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C658C();
 void * TAdMultiPlyChrSelectGC__sub_802C6920();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0024(s32, s32);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802E0064(s32, s32);
+M2C_UNK set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
 
 void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     void *temp_r3;
@@ -28,7 +28,7 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
         temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
         TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &sp14, &sp10);
         init__22TAdMultiPlyChrSelectGCFv();
-        TAdMultiPlyChrSelectGC__sub_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), sp14);
+        set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x5C), sp14);
         TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp10);
         M2C_FIELD(arg0, s32 *, 0x9C) = 1;
         return;
@@ -39,7 +39,7 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
             temp_r3 = TAdMultiPlyChrSelectGC__sub_802C6920();
             TAdMultiPlyChrSelectGC__sub_802C5BCC(temp_r3, &spC, &sp8);
             init__22TAdMultiPlyChrSelectGCFv();
-            TAdMultiPlyChrSelectGC__sub_802E0064(M2C_FIELD(arg0, s32 *, 0x5C), spC);
+            set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x5C), spC);
             TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), sp8);
         }
         M2C_FIELD(arg0, s32 *, 0x9C) = 1;

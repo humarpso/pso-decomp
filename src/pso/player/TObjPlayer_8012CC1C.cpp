@@ -8,7 +8,7 @@ extern "C" {
 
 void *init_state__10TObjPlayerFPviPv(void *arg0, M2C_UNK arg1, void *arg2);
 M2C_UNK TObjPlayer__sub_80120D50();
-M2C_UNK TObjPlayer__sub_801225F8(void *, M2C_UNK);
+M2C_UNK set_atp__10TObjPlayerFPvs(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804A5550[];
 
@@ -16,7 +16,7 @@ void *init_state__10TObjPlayerFPviPv(void *arg0, M2C_UNK arg1, void *arg2) {
     TObjPlayer__sub_80120D50();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A5550;
     if ((u8) M2C_FIELD(arg2, u8 *, 2) >= 5U) {
-        TObjPlayer__sub_801225F8(arg0, -1);
+        set_atp__10TObjPlayerFPvs(arg0, -1);
     }
     return arg0;
 }

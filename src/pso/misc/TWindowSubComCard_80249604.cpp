@@ -9,9 +9,9 @@ extern "C" {
 s32 TWindowFukidasi__sub_80244DFC(s32, s32, s32, s32);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 s16 TWindowSubComCard__sub_802495FC(void* p);
-int TWindowSubComCard__sub_80249604(void* p);
+int is_open__17TWindowSubComCardFPv(void* p);
 int TWindowChoiceSetting__sub_80249610(void* p);
 
-int TWindowSubComCard__sub_80249604(void* p) { return (*(u16*)((char*)p + 0x70) >> 1) & 0x1; }
+int is_open__17TWindowSubComCardFPv(void* p) { return (*(u16*)((char*)p + 0x70) >> 1) & 0x1; }
 
 }

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TLobby__sub_803D4B68(u8 *arg0);
-u32 TLobby__sub_803D4C04(u8 *arg0);
+u32 get_packet_size__6TLobbyFPv(u8 *arg0);
+u32 get_available_size__6TLobbyFPv(u8 *arg0);
 
-u32 TLobby__sub_803D4B68(u8 *arg0) {
+u32 get_packet_size__6TLobbyFPv(u8 *arg0) {
     s32 var_r0;
     s32 var_r0_2;
     s32 var_r3;
@@ -40,7 +40,7 @@ u32 TLobby__sub_803D4B68(u8 *arg0) {
     return (u32) var_r3 >> 1U;
 }
 
-u32 TLobby__sub_803D4C04(u8 *arg0) {
+u32 get_available_size__6TLobbyFPv(u8 *arg0) {
     s32 var_r0;
     s32 var_r0_2;
     s32 var_r3;

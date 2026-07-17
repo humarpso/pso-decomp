@@ -58,7 +58,7 @@ struct V_Sub : Base_Sub {
 extern "C" {
 
 void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK, s32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK, s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK init_fields4B8__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
@@ -74,7 +74,7 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
         temp_r5 = M2C_FIELD(arg0, s32 *, 0x3C0);
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (temp_r5 & ~5);
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 2);
-        TObjEneDD__sub_800BBA04(arg0, 3, temp_r5);
+        set_field_378__9TObjEneDDFPvi(arg0, 3, temp_r5);
         TObjPlayer__sub_800A0554(arg0 + 0x3D8);
         TBoss3Volopt__sub_800D8C48(arg0 + 0x38);
         init_fields4B8__16TObjEneRe7BeruraFPv(arg0);

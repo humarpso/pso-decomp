@@ -10,7 +10,7 @@ s32 load_file__8TGStreamFi(s32 arg0);
 
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 M2C_UNK read_sectors_sync__8TGStreamFPvii(M2C_UNK *, s32, s32);
-s32 TGStream__sub_800FDD68(M2C_UNK *);
+s32 get_instance__8TGStreamFv(M2C_UNK *);
 M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
 M2C_UNK open__8TGStreamFPvPvi(M2C_UNK *, s32, M2C_UNK);
 
@@ -21,7 +21,7 @@ s32 load_file__8TGStreamFi(s32 arg0) {
     s32 temp_r3_2;
 
     open__8TGStreamFPvPvi(sp8, arg0, 1);
-    temp_r3_2 = TGStream__sub_800FDD68(sp8);
+    temp_r3_2 = get_instance__8TGStreamFv(sp8);
     if (temp_r3_2 <= 0) {
         TGStream__ct(sp8, -1);
         return 0;

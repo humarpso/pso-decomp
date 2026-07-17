@@ -6,7 +6,7 @@ int set_state_8__9TObjEneDDFPv(void* p);
 int check_state_flag_4__9TObjEneDDFPv(void* p);
 int check_state_flag_2__9TObjEneDDFPv(void* p);
 int check_state_flag_1__9TObjEneDDFPv(void* p);
-int TObjPlayer__sub_80019528(void*, int);
+int add_flags_2e4__10TObjPlayerFPvUi(void*, int);
 
 int TObjEneDD__vt91(void) { return 0; }
 int TObjEneDD__vt90(void) { return 0; }

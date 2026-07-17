@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 u32 __nw__7TObjectFUl(M2C_UNK);
 u32 fn_801C5380(void *, s32);
 
@@ -18,7 +18,7 @@ s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     u32 var_r0;
 
-    temp_r3 = TOKeyMachine01__sub_802034A8();
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
     if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
         return 0;
     }

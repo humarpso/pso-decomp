@@ -13,8 +13,8 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
 M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
-M2C_UNK TObjFish__sub_802ABE20();
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK reset_fish_globals__8TObjFishFv();
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -29,10 +29,10 @@ void render_if_active__10TBoss6RockFPv(u8 *arg0) {
         TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
         TObjContainerIdo__sub_803D96A8((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
         TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
-        TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x3C)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x3C)));
         TBoss6PlotFalz__sub_802ABF44((f32) (TBoss6Rock__data_805DFF4C));
         TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x40)));
-        TObjFish__sub_802ABE20();
+        reset_fish_globals__8TObjFishFv();
         TObjPlayer__sub_803D9B78();
     }
 }

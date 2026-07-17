@@ -9,10 +9,10 @@ extern "C" {
 void reset_split_flag__11TCameraCtrlFPv(void *arg0);
 M2C_UNK TCameraCtrl__sub_8006AF9C(void *, M2C_UNK);
 s32 is_split_screen();
-s32 TMainTask__sub_8001A430();
+s32 get_state_flag__9TMainTaskFv();
 
 void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
-    if ((is_split_screen() == 0) && (TMainTask__sub_8001A430() != 1)) {
+    if ((is_split_screen() == 0) && (get_state_flag__9TMainTaskFv() != 1)) {
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0) {
             TCameraCtrl__sub_8006AF9C(arg0, 0);
         }

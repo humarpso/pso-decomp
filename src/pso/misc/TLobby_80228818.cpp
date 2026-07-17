@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80228818(void* arg0);
+s32 init_range_zero__6TLobbyFPv(void* arg0);
 M2C_UNK init_range__6TLobbyFPvi(void*, int);
 
-s32 TLobby__sub_80228818(void* arg0) {
+s32 init_range_zero__6TLobbyFPv(void* arg0) {
     init_range__6TLobbyFPvi(arg0, 0);
     return (s32)arg0;
 }

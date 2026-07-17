@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TBoss8Dragon__sub_80067064(void *arg0, f32 farg0);
+f32 calc_sq_offset__12TBoss8DragonFPvf(void *arg0, f32 farg0);
 
-f32 TBoss8Dragon__sub_80067064(void *arg0, f32 farg0) {
+f32 calc_sq_offset__12TBoss8DragonFPvf(void *arg0, f32 farg0) {
     f32 temp_f0;
 
     temp_f0 = M2C_FIELD(arg0, f32 *, 8) + farg0;

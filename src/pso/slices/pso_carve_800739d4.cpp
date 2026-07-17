@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TLobby__sub_80269C6C(u32, void *, M2C_UNK);
+M2C_UNK send_and_handle__6TLobbyFPvii(u32, void *, M2C_UNK);
 u32 set_window_mode_4__6TLobbyFPvii(void *, void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DC70(void *, void *);
@@ -37,7 +37,7 @@ void fn_800739D4(u8 *arg0) {
             var_r30 += 1;
             var_r31 += 0x10;
         } while (var_r30 < 4);
-        TLobby__sub_80269C6C(M2C_FIELD(arg0, u32 *, 0x20), sp8, 2);
+        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x20), sp8, 2);
     }
 }
 

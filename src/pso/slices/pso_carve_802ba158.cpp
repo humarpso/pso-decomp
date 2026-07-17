@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BA20C(void* p, void* q);
+void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
 int TBoss6Type2__sub_802BA394(void* p);
 int TBoss6PlotFalz__sub_802AAFCC(void*);
 

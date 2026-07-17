@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TItemList__sub_801D5BC0(void *arg0, s16 arg1);
+void *dt__9TItemListFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__FPv(void *);
 
 extern M2C_UNK lbl_804C4444[];
 
-void *TItemList__sub_801D5BC0(void *arg0, s16 arg1) {
+void *dt__9TItemListFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x24) = lbl_804C4444;
         if (arg1 > 0) {

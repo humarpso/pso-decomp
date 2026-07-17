@@ -6,18 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_803E1FB0(void);
-void TObjPlayer__sub_803E1FBC(void);
+void set_effect_active__10TObjPlayerFv(void);
+void reset_particle_counter__10TObjPlayerFv(void);
 
 extern s8 lbl_805D77C8;
 
-void TObjPlayer__sub_803E1FB0(void) {
+void set_effect_active__10TObjPlayerFv(void) {
     lbl_805D77C8 = 1;
 }
 
 extern s8 lbl_805D77C8;
 
-void TObjPlayer__sub_803E1FBC(void) {
+void reset_particle_counter__10TObjPlayerFv(void) {
     lbl_805D77C8 = 0;
 }
 

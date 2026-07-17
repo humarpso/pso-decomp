@@ -9,9 +9,9 @@ extern "C" {
 void render_shadow__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_800A1974(void);
 M2C_UNK TOHangerMachine01__sub_803D9C00(s32);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
-s32 TObjPlayer__sub_800A3224(s32);
+s32 is_flag_set_388_bit26__10TObjPlayerFPv(s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 s32 obj_testFlags30(s32, s32);
@@ -22,10 +22,10 @@ extern s32 lbl_805D501C;
 
 void render_shadow__10TObjPlayerFi(s32 arg0) {
     if (obj_testFlags30(arg0, 0x800) == 0) {
-        if (TObjPlayer__sub_800A3224(arg0) == 0) {
-            TObjFish__sub_803DA798(lbl_805D5014);
+        if (is_flag_set_388_bit26__10TObjPlayerFPv(arg0) == 0) {
+            set_global_param__8TObjFishFi(lbl_805D5014);
         } else {
-            TObjFish__sub_803DA798(lbl_805D5018);
+            set_global_param__8TObjFishFi(lbl_805D5018);
         }
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x3B4);

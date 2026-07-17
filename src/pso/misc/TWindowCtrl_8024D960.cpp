@@ -18,7 +18,7 @@ int fn_802437C4(void*);
 int TWindowCtrlMain__sub_8024D7C0(void*);
 int TWindowSubEquip__sub_80263B34(void*);
 int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
-int TLobby__sub_80269C6C(void*);
+int send_and_handle__6TLobbyFPvii(void*);
 
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0) {
     void *p = M2C_FIELD(arg0, void **, 0x28);

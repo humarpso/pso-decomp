@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_params__15TOAttackableColFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
+M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
 extern const f32 lbl_805DB2C8;
@@ -40,7 +40,7 @@ void init_params__15TOAttackableColFPv(void *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x6C) < lbl_805DB2C8) {
         set_indexed_flags(arg0, 0, 0x08000000);
     } else {
-        TObjPlayer__sub_80154764(arg0, 0, 0x08000000);
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x08000000);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) {
         M2C_FIELD(arg0, s32 *, 0x348) = (s32) M2C_FIELD(arg0, f32 *, 0x70);

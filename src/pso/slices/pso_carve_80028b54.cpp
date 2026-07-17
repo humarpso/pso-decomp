@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TBoss1Dragon__sub_80028B74(void* p);
-void TBoss1Dragon__sub_80028B80(void* p);
-void TBoss1Dragon__sub_80028B8C(void* p);
+void set_phase_2__12TBoss1DragonFPv(void* p);
+void set_active__12TBoss1DragonFPv(void* p);
+void clear_state__12TBoss1DragonFPv(void* p);
 
 int TBoss1Dragon__sub_80028B54(void) { return 0; }
 

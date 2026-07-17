@@ -10,8 +10,8 @@ M2C_UNK TBoss8Dragon__sub_8002D4C0(void *);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(void *);
-M2C_UNK TObjPlayer__sub_803DED78(int, int, void *, void *);
+M2C_UNK set_global_param__8TObjFishFi(void *);
+M2C_UNK set_global_pair__10TObjPlayerFii(int, int, void *, void *);
 M2C_UNK TObjFish__sub_803E46BC(void *);
 extern u8 *lbl_805D4B50;
 extern s32 lbl_805D4B54;
@@ -23,7 +23,7 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 
 void render_boss_effect_object(u8 *arg0) {
-    TObjFish__sub_803DA798((void *) (lbl_805D4B54));
+    set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
     TBoss8Dragon__sub_8002D4C0((void *) (arg0 + 0x28));
     TObjPlayer__sub_803D9B2C();
     TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x28)), (f32) (M2C_FIELD(arg0, f32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
@@ -32,7 +32,7 @@ void render_boss_effect_object(u8 *arg0) {
         lbl_805D5664 = lbl_805D7784;
         lbl_805D5668 = lbl_805D7780;
         some_id_805c6f74 |= 0x800;
-        TObjPlayer__sub_803DED78((int) (0xFF00), (int) (0x100), (void *) (lbl_805D7780), (void *) (lbl_805D7784));
+        set_global_pair__10TObjPlayerFii((int) (0xFF00), (int) (0x100), (void *) (lbl_805D7780), (void *) (lbl_805D7784));
         TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;

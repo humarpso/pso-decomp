@@ -2,8 +2,8 @@
 
 extern "C" {
 
-int TBoss3Volopt__sub_80242C48(void* p);
+int is_active__12TBoss3VoloptFPv(void* p);
 
-int TBoss3Volopt__sub_80242C48(void* p) { return *(u8*)((char*)p + 0x0) & 0x1; }
+int is_active__12TBoss3VoloptFPv(void* p) { return *(u8*)((char*)p + 0x0) & 0x1; }
 
 }

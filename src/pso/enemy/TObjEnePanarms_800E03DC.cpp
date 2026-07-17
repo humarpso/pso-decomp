@@ -11,7 +11,7 @@ void init_attack_state2__14TObjEnePanarmsFPv(void* a0);
 M2C_UNK TObjEnePanarms__sub_800E1608(void *, s32);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 f64 TObjPlayer__sub_80019760(f32, f32, f32);
-int TObjEnePanarms__sub_8002AE74(void*, int);
+int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
@@ -55,7 +55,7 @@ void init_attack_state2__14TObjEnePanarmsFPv(void* a0) {
     *(float*)((char*)a0 + 0x3b0) = TObjEnePanarms__data_805DA524;
     *(int*)((char*)a0 + 0x3b4) = 12;
     *(int*)((char*)a0 + 0xb0) = (*(int*)((char*)a0 + 0xb0) & 0xfffffffe);
-    TObjEnePanarms__sub_8002AE74(a0, 3);
+    set_field_b8__14TObjEnePanarmsFPvs(a0, 3);
 }
 
 }

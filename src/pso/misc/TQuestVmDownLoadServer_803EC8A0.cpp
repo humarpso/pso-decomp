@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TQuestVmDownLoadServer__sub_803EC8A0(u16 arg0, s32 arg1);
+s32 is_download_command__22TQuestVmDownLoadServerFUsi(u16 arg0, s32 arg1);
 
-s32 TQuestVmDownLoadServer__sub_803EC8A0(u16 arg0, s32 arg1) {
+s32 is_download_command__22TQuestVmDownLoadServerFUsi(u16 arg0, s32 arg1) {
     if ((arg1 != 0) && (arg0 == 0x213C)) {
         return 1;
     }

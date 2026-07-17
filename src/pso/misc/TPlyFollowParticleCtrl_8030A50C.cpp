@@ -8,11 +8,11 @@ extern "C" {
 
 void destroy_if_inactive__22TPlyFollowParticleCtrlFi(s32 arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
-s32 TPlyFollowParticleCtrl__sub_8030A698();
+s32 get_lifetime__22TPlyFollowParticleCtrlFPv();
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
 void destroy_if_inactive__22TPlyFollowParticleCtrlFi(s32 arg0) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C((u16) TPlyFollowParticleCtrl__sub_8030A698()) == 0U) {
+    if (TPlayerBattleCtrl4P__sub_801BA74C((u16) get_lifetime__22TPlyFollowParticleCtrlFPv()) == 0U) {
         queue_destruction__7TObjectFv(arg0);
     }
 }

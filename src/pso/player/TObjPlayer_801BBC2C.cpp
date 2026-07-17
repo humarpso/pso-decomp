@@ -18,9 +18,9 @@ void TObjPlayer__sub_801BBB94(void);
 void TObjPlayer__sub_801BBC2C(void* p);
 void update_lock_on_cursor__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BBC64(void);
-int TObjPlayer__sub_801BBD38(void* p);
+int clear_links__10TObjPlayerFPv(void* p);
 int TLockOnCursor__sub_8013DAB0(void*);
-int fn_801566CC(void*);
+int clear_obj_links(void*);
 int TObjPlayer__sub_801B35AC(void*);
 
 void TObjPlayer__sub_801BBC2C(void* p) { *(s32*)((char*)p + 0x424) = 0; }
@@ -46,6 +46,6 @@ void create_lockon_cursor__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x424) = var_r31_2;
     }
 }
-int TObjPlayer__sub_801BBD38(void* p) { return fn_801566CC(p); }
+int clear_links__10TObjPlayerFPv(void* p) { return clear_obj_links(p); }
 
 }

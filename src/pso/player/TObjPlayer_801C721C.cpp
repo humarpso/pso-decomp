@@ -14,11 +14,11 @@ int TFontSmallLobby__sub_801C0228(void*);
 int TLobby__send_and_handle_60(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_8011E204(void*, void*);
-int TObjPlayer__sub_8011E238(void*, void*);
+int set_state_flags__10TObjPlayerFPvUi(void*, void*);
 int bswap_32__FPUl(void*);
 int check_flag__10TObjPlayerFPvi(void*, void*);
 
-void set_flag_2000000_alt__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8011E238(p, (void*)2097152); }
+void set_flag_2000000_alt__10TObjPlayerFPv(void* p) { set_state_flags__10TObjPlayerFPvUi(p, (void*)2097152); }
 void check_flag_04000000__10TObjPlayerFPv(void* p) { check_flag__10TObjPlayerFPvi(p, (void*)4194304); }
 void set_flag_0x8000__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8011E204(p, (void*)32768); }
 void check_flag_0x8000__10TObjPlayerFPv(void* p) { check_flag__10TObjPlayerFPvi(p, (void*)32768); }

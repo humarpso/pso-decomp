@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 bool has_enough_enemies__12TBoss8DragonFv(void);
-M2C_UNK TBoss8Dragon__sub_802F3C84(u32, s32);
+M2C_UNK get_part_count_plus__12TBoss8DragonFPvi(u32, s32);
 u32 get_enemy_entity();
 s32 is_split_screen();
 
@@ -26,7 +26,7 @@ bool has_enough_enemies__12TBoss8DragonFv(void) {
     count = 0;
     i = 0;
     do {
-        TBoss8Dragon__sub_802F3C84(lbl_805D6978, i);
+        get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, i);
         if (get_enemy_entity() != 0U) {
             count += 1;
         }

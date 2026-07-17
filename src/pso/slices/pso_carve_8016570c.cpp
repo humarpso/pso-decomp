@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 void play_cave01_key_sound(void *arg0) {
@@ -23,14 +23,14 @@ void play_cave01_key_sound(void *arg0) {
         TBoss3Volopt__sub_8022675C(0x53F06, 0, 0, 0);
         return;
     case 3:
-        temp_r3 = TOKeyMachine01__sub_802034A8();
+        temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
             TBoss3Volopt__sub_8022675C(0x52812, 0, 0, 0);
             return;
         }
         break;
     case 4:
-        temp_r3_2 = TOKeyMachine01__sub_802034A8();
+        temp_r3_2 = get_global_state__14TOKeyMachine01Fv();
         if ((temp_r3_2 != 0x10) && (temp_r3_2 != 0x11)) {
             TBoss3Volopt__sub_8022675C(0x52813, 0, 0, 0);
             return;

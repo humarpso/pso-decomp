@@ -8,11 +8,11 @@ extern "C" {
 
 void feed_by_item_flags__8TItemMagFPvc(void *arg0, s8 arg1);
 M2C_UNK TItemMag__sub_80112E20(void *, u8);
-M2C_UNK TOBoss4Rock__sub_8039C880();
+M2C_UNK rand__11TOBoss4RockFv();
 s32 check_action_probability__8TItemMagFPvi(void *, M2C_UNK);
 
 void feed_by_item_flags__8TItemMagFPvc(void *arg0, s8 arg1) {
-    TOBoss4Rock__sub_8039C880();
+    rand__11TOBoss4RockFv();
     if (arg1 & 0x40) {
         if (check_action_probability__8TItemMagFPvi(arg0, 0) != 0) {
             TItemMag__sub_80112E20(arg0, M2C_FIELD(arg0, u8 *, 0x1BD));

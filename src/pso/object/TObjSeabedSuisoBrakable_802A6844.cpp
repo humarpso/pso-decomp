@@ -9,7 +9,7 @@ extern "C" {
 void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK TOComputerMachine01__sub_8023DDC8(s32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
 u8 TODoorAncient08__sub_80229220(u16);
-s32 TObjSeabedSuisoBrakable__sub_802A71F8(M2C_UNK);
+s32 get_break_data__23TObjSeabedSuisoBrakableFi(M2C_UNK);
 s32 *get_table1_entry__23TObjSeabedSuisoBrakableFi(M2C_UNK);
 
 extern s32 lbl_805D53A4;
@@ -57,12 +57,12 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
         }
     }
     if ((s32) lbl_805D6678 != (s32) lbl_805D53A4) {
-        temp_r31 = TObjSeabedSuisoBrakable__sub_802A71F8(4);
+        temp_r31 = get_break_data__23TObjSeabedSuisoBrakableFi(4);
         temp_r3_5 = get_table1_entry__23TObjSeabedSuisoBrakableFi(2);
         if ((temp_r3_5 != NULL) && (temp_r31 != -1)) {
             TOComputerMachine01__sub_8023DDC8(M2C_FIELD(temp_r3_5, s32 *, 4), 0, 1, (u16) temp_r31, 1);
         }
-        temp_r31_2 = TObjSeabedSuisoBrakable__sub_802A71F8(3);
+        temp_r31_2 = get_break_data__23TObjSeabedSuisoBrakableFi(3);
         temp_r3_6 = get_table1_entry__23TObjSeabedSuisoBrakableFi(0);
         if ((temp_r3_6 != NULL) && (temp_r31_2 != -1)) {
             TOComputerMachine01__sub_8023DDC8(M2C_FIELD(temp_r3_6, s32 *, 4), 0, 3, (u16) temp_r31_2, 1);

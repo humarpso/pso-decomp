@@ -134,9 +134,9 @@ extern "C" {
 void handle_action_state__12TObjEneReconFPvi(void *arg0, s32 arg1);
 void update_state__12TObjEneReconFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8();
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK TObjEneRecon__sub_8031F8C4(void *);
 s32 is_out_of_range__12TObjEneReconFPv();
 
@@ -149,7 +149,7 @@ void handle_action_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x40C) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 2;
         ((VObj_8031F4A8 *)arg0)->m94();
-        TObjEneDD__sub_800BBA04(arg0, 2);
+        set_field_378__9TObjEneDDFPvi(arg0, 2);
         return;
     case 3:
         if (is_out_of_range__12TObjEneReconFPv() != 0) {
@@ -170,10 +170,10 @@ void update_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x40C) = M2C_FIELD(arg0, s32 *, 0x40C) & 0xFFFFFFFE;
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
         ((VObj_8031F550 *)arg0)->m94();
-        TObjEneDD__sub_800BBA04(arg0, 3);
+        set_field_378__9TObjEneDDFPvi(arg0, 3);
         return;
     case 3:
-        if (TObjEneMe3ShinowaReal__sub_8002ADD8() != 0) {
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
             M2C_FIELD(arg0, s32 *, 0x4D8) = 0;
             M2C_FIELD(arg0, s32 *, 0x4DC) = 0x1E;
             TObjEneDD__sub_800BBA18(arg0, 4);

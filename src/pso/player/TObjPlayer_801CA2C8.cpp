@@ -9,7 +9,7 @@ extern "C" {
 void update_action_render__10TObjPlayerFPv(u8 *arg0);
 s32 TObjPlayer__sub_8001BEF8(void *, int);
 s16 get_action_animation__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D2620(void *);
+M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK draw__10TObjPlayerFPvf(void *, f32);
 s16 get_model_field_m25__10TObjPlayerFPv(void *);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
@@ -25,7 +25,7 @@ void update_action_render__10TObjPlayerFPv(u8 *arg0) {
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) - TObjPlayer__data_805DC360);
     draw__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
-    TObjPlayer__sub_801D2620((void *) (arg0));
+    set_action_flag_40__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFDF);
 }
 

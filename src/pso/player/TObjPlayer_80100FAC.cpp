@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void setup_particle_once__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_8001BED8(M2C_UNK *, M2C_UNK);
+M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(s32);
@@ -20,7 +20,7 @@ void setup_particle_once__10TObjPlayerFPv(void *arg0) {
     if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 8) == 0) {
         setup_particle_tev(0);
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjPlayer__sub_8001BED8(&lbl_805D53EC, 8);
+        set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 8);
     }
 }
 

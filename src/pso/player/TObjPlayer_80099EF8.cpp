@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_80099EF8(void* p);
+s32 get_field_d8__10TObjPlayerFPv(void* p);
 
-s32 TObjPlayer__sub_80099EF8(void* p) { return *(s32*)((char*)p + 0xd8); }
+s32 get_field_d8__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0xd8); }
 
 }

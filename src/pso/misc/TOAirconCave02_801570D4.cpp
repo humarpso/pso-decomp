@@ -9,7 +9,7 @@ extern "C" {
 void render__14TOAirconCave02Fv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -39,7 +39,7 @@ void render__14TOAirconCave02Fv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         TObjBoss2Tunnel__sub_803DB470((int) (temp_r31));
         TObjPlayer__sub_803D9B78();
     }

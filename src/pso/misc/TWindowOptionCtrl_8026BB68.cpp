@@ -12,7 +12,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
-M2C_UNK TWindowOptionCtrl__sub_8026CBA4(M2C_UNK);
+M2C_UNK get_option_entry__17TWindowOptionCtrlFi(M2C_UNK);
 
 extern const f32 lbl_805DD268;
 
@@ -20,7 +20,7 @@ s32 create_menu__17TWindowOptionCtrlFv(void) {
     s32 temp_r3;
     s32 temp_r31;
 
-    temp_r3 = TWindowOptionCtrl__sub_8026CBA4(0xCE);
+    temp_r3 = get_option_entry__17TWindowOptionCtrlFi(0xCE);
     temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii(temp_r3, 9);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 0), 6, 3);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0xF, 1), 6, 7);

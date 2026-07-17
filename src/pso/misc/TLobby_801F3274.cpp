@@ -9,7 +9,7 @@ extern "C" {
 void clear_quest_vm_flag__6TLobbyFv(void);
 void free_luker_object__6TLobbyFv(void);
 M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void*);
-M2C_UNK TObjLuker__sub_8001A438(void*);
+M2C_UNK set_flag_4__9TObjLukerFPv(void*);
 
 extern u32 lbl_805D5EE8;
 
@@ -23,7 +23,7 @@ extern u32 lbl_805D5EE8;
 
 void free_luker_object__6TLobbyFv(void) {
     if ((u32) lbl_805D5EE8 != 0U) {
-        TObjLuker__sub_8001A438((void*)lbl_805D5EE8);
+        set_flag_4__9TObjLukerFPv((void*)lbl_805D5EE8);
     }
 }
 

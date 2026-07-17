@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803BCA40(s32 *arg0);
+void shift_left_8__6TLobbyFPv(s32 *arg0);
 
-void TLobby__sub_803BCA40(s32 *arg0) {
+void shift_left_8__6TLobbyFPv(s32 *arg0) {
     *arg0 <<= 8;
 }
 

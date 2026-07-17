@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0);
-M2C_UNK fn_803DC88C(M2C_UNK);
+M2C_UNK set_npc_enemy_param(M2C_UNK);
 
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0) {
     if (arg0 != 0U) {
-        fn_803DC88C(0);
+        set_npc_enemy_param(0);
     }
 }
 

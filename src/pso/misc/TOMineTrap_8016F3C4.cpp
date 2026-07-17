@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TOMineTrap__vt10(void);
-u16 TOMineTrap__sub_80171338();
+u16 get_trap_type__10TOMineTrapFPv();
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 
 struct VObj8016F3C4Base { char pad[0x18]; };
@@ -18,7 +18,7 @@ s32 TOMineTrap__vt10(void) {
     void *temp_r3;
 
     var_r31 = 0;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) TOMineTrap__sub_80171338());
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) get_trap_type__10TOMineTrapFPv());
     if (temp_r3 != NULL) {
         var_r31 = ((VObj8016F3C4 *)temp_r3)->m10();
     }

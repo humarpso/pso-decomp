@@ -16,7 +16,7 @@ s32 TObjEneEpsilonGuard__sub_800D7B1C(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(u32);
+M2C_UNK set_global_param__8TObjFishFi(u32);
 
 extern s32 lbl_805D5B98;
 extern const u32 lbl_805D5B9C;
@@ -62,7 +62,7 @@ void render__16TObjContainerIdoFv(u8 *arg0) {
         {
             u32 temp = (u32) lbl_805D5B9C;
             if (temp != 0U) {
-                TObjFish__sub_803DA798(temp);
+                set_global_param__8TObjFishFi(temp);
             }
         }
         TObjPlayer__sub_803D9B2C();

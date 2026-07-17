@@ -19,7 +19,7 @@ M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 check_flag_100__10TObjPlayerFPv();
-M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
+M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 s32 TObjLuker__sub_801329B0();
 M2C_UNK fn_8019DD14(s32, M2C_UNK);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -58,7 +58,7 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
         TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
-        TAdChrSelASlotGC__sub_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
+        set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, u16 *, 0xB8) = arg1;
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, u16 *, 0xB8)));
         if (temp_r3 != 0U) {

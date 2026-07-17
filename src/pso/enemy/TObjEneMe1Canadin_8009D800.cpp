@@ -41,7 +41,7 @@ struct VObj18D : VBase18D {
 extern "C" {
 
 void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update_hover_height__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
@@ -62,7 +62,7 @@ void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         advance_state_5_to_4__17TObjEneMe1CanadinFPv();
-        TObjEneDD__sub_800BBA04(arg0, 5);
+        set_field_378__9TObjEneDDFPvi(arg0, 5);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         ((VObj18D *) arg0)->vf180();
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x01000000);

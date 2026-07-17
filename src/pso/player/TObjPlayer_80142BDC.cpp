@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TObjPlayer__sub_80142BDC(u8 *arg0);
+
 extern u8 *lbl_805D5684;
 
 void TObjPlayer__sub_80142BDC(u8 *arg0) {
@@ -38,13 +40,13 @@ void TObjPlayer__sub_80142BDC(u8 *arg0) {
     if (test_2c != NULL) {
         M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 0x40);
         lbl_805D5684 = lbl_805D5684 + 8;
-        TObjPlayer__sub_80142BDC(test_2c);
+        TObjPlayer__sub_80142BDC((u8 *)(test_2c));
     }
     test_30 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x30));
     if (test_30 != NULL) {
         M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 0x80);
         lbl_805D5684 = lbl_805D5684 + 8;
-        TObjPlayer__sub_80142BDC(test_30);
+        TObjPlayer__sub_80142BDC((u8 *)(test_30));
     }
 }
 

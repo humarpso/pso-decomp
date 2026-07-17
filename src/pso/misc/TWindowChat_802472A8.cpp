@@ -11,10 +11,10 @@ void open_input__11TWindowChatFPv(void *arg0);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK close_all_children__11TWindowChatFPv(void *);
 M2C_UNK TWindowChat__sub_8024792C(void *);
-s32 TWindowChat__sub_80247DF0(void *);
+s32 is_mode_bit6__11TWindowChatFPv(void *);
 M2C_UNK TWindowChat__sub_80247DFC(void *);
 M2C_UNK TWindowChat__sub_80247E50(void *);
-s32 TWindowChat__sub_80247EB4();
+s32 is_open__11TWindowChatFPv();
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowChat__sub_8025CB70(s32);
 s32 TWindowCtrl__sub_8024AF74(s32);
@@ -27,12 +27,12 @@ extern s32 lbl_805D53A0;
 void update__11TWindowChatFPv(void *arg0) {
     s32 temp_r3;
 
-    if (TWindowChat__sub_80247EB4() == 0) {
+    if (is_open__11TWindowChatFPv() == 0) {
         M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) | 1);
         TWindowChat__sub_80247E50(arg0);
         TWindowChat__sub_80247DFC(arg0);
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
-        if ((temp_r3 != 0) && !(M2C_FIELD(arg0, u16 *, 0x1E) & 2) && (TWindowChat__sub_80247DF0(arg0) != 0)) {
+        if ((temp_r3 != 0) && !(M2C_FIELD(arg0, u16 *, 0x1E) & 2) && (is_mode_bit6__11TWindowChatFPv(arg0) != 0)) {
             if (TWindowCtrl__sub_8024AF74(lbl_805D53A0) == 0) {
                 init_parts__10TObjPlayerFPv(temp_r3);
             }
@@ -45,7 +45,7 @@ void update__11TWindowChatFPv(void *arg0) {
 }
 
 void open_input__11TWindowChatFPv(void *arg0) {
-    if (TWindowChat__sub_80247EB4() != 0) {
+    if (is_open__11TWindowChatFPv() != 0) {
         TWindowChat__sub_80247E50(arg0);
         TWindowChat__sub_80247DFC(arg0);
         M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFE);

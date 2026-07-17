@@ -12,12 +12,12 @@ void reset_aim_angles__10TObjPlayerFPv(void* p);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 int TObjPlayer__sub_80115BC0(void*, void*, void*);
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 
 void handle_turn_input__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_80121200();
+    temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 2:
         TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x1F8));

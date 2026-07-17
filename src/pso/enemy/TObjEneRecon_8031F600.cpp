@@ -37,7 +37,7 @@ struct VObj_8031F600 : Base_8031F600 {
 extern "C" {
 
 void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
 s32 TObjEneRecon__sub_8031FACC(void *);
@@ -53,7 +53,7 @@ void TObjEneRecon__sub_8031F600(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x40C) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         ((VObj_8031F600 *)arg0)->m94(temp_r4);
-        TObjEneDD__sub_800BBA04(arg0, 2);
+        set_field_378__9TObjEneDDFPvi(arg0, 2);
         return;
     case 3:
         if ((((VObj_8031F600 *)arg0)->m102(TObjEneRecon__data_805DF438) != 0) && (TObjEneRecon__sub_8031FACC(arg0) != 0)) {

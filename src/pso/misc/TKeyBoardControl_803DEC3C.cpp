@@ -6,7 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_803DEC3C(u8 *arg0) {
+void clamp_axes__16TKeyBoardControlFPv(u8 *arg0);
+
+void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
     u8 temp_r0;
     u8 temp_r0_2;
 

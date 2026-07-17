@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
+M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 u32 TObjCityMainWarp__sub_80186BBC(f32);
 M2C_UNK TWindow__close(void *);
@@ -38,7 +38,7 @@ void update_challenge_warp_window(void *arg0) {
                 M2C_FIELD(arg0, u32 *, 0xB0) = check_room_seq_4__16TAdChrSelASlotGCFii(TWindowSubComCard__sub_8026CBB8(0x35), 7);
                 if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
                     TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_message_10__20TWindowSubStatusDispFPv(0x40), 0, 0, -1);
-                    TAdChrSelASlotGC__sub_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
+                    set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
                     TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
                     TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
                 }

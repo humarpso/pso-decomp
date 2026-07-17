@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void begin_action4__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjEneMe1GiGue__sub_80040B68(void *, M2C_UNK);
+M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, M2C_UNK);
 
 void begin_action4__10TObjPlayerFPv(void *arg0) {
-    TObjEneMe1GiGue__sub_80040B68(arg0, 4);
+    set_state__15TObjEneMe1GiGueFPvi(arg0, 4);
     M2C_FIELD(arg0, s32 *, 0x380) = (s32) M2C_FIELD(arg0, s32 *, 0x378);
     M2C_FIELD(arg0, s32 *, 0x378) = 4;
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x10000 | 1);

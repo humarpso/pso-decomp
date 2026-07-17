@@ -11,7 +11,7 @@ M2C_UNK init_player_window_effect__6TLobbyFv();
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 s32 TLobby__sub_8013A14C(M2C_UNK);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TCheckRoomSequence__sub_8013AD28(s32);
+M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265F60(s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
@@ -37,7 +37,7 @@ void open_lobby_warp_menu__6TLobbyFv(void) {
     }
     TWindowSubComCard__sub_80265F60(lbl_805D55E0);
     TWindowSubComCard__sub_80265C30(lbl_805D55E0);
-    TCheckRoomSequence__sub_8013AD28(lbl_805D55E0);
+    set_ready_flag__18TCheckRoomSequenceFPv(lbl_805D55E0);
     init_player_window_effect__6TLobbyFv();
     TLobby__data_805D5594 = 3;
 }

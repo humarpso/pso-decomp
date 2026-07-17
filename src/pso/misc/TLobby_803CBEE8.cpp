@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803CBEE8(void);
+s32 run_step_4430__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803D4430();
 
-s32 TLobby__sub_803CBEE8(void) {
+s32 run_step_4430__6TLobbyFv(void) {
     TLobby__sub_803D4430();
     return 0;
 }

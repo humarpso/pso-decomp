@@ -107,7 +107,7 @@ struct F_V : F_A {
 extern "C" {
 
 void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilonGuard__sub_8035FFA8(void *);
 M2C_UNK set_guard_state__19TObjEneEpsilonGuardFPv(void *, s32);
@@ -125,7 +125,7 @@ void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        TObjEneDD__sub_800BBA04(arg0, 4);
+        set_field_378__9TObjEneDDFPvi(arg0, 4);
         ((F_V *) arg0)->m94();
         M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) | 0x400);
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x438);

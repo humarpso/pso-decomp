@@ -9,7 +9,7 @@ typedef struct { f32 x; f32 y; f32 z; } Vec3;
 extern "C" {
 
 M2C_UNK VecCopy__FP3VecPC3Vec(Vec3 *, s32);
-M2C_UNK TObjEnePanarms__sub_8002AE74(void *, M2C_UNK);
+M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 s32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK TCameraCtrl__sub_801A7310(void *, M2C_UNK);
@@ -55,7 +55,7 @@ void update_photon_blast(void *arg0) {
     if ((lbl_805DC238 == (f32) M2C_FIELD(arg0, s32 *, 0x1A8)) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x1A4) == 1)) {
         TCameraCtrl__sub_801A7310(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x1A8) = 0;
-        TObjEnePanarms__sub_8002AE74(arg0, 0);
+        set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
         TObjPlayer__sub_801A7748(arg0, 3);
     }
     M2C_FIELD(arg0, s16 *, 0x198) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);

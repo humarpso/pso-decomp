@@ -20,9 +20,9 @@ extern "C" {
 void update_close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK close_windows__12TQuestListVMFPv(void *);
-M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
-s32 TLobby__sub_8013AD38(void *);
-s32 TLobby__sub_8013AD44(void *);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 get_status_flag__6TLobbyFPv(void *);
+s32 get_flag_bit2__6TLobbyFPv(void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 M2C_UNK TQuestVmDownLoadServer__sub_80219EC4(void *);
 
@@ -30,7 +30,7 @@ void update_close__12TQuestListVMFPv(void *arg0) {
     void *p;
 
     p = M2C_FIELD(arg0, void **, 0x2374);
-    if ((p != NULL) && (TLobby__sub_8013AD44(p) != 0)) {
+    if ((p != NULL) && (get_flag_bit2__6TLobbyFPv(p) != 0)) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2380) != 0U) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x2380));
             M2C_FIELD(arg0, u32 *, 0x2380) = 0U;
@@ -41,12 +41,12 @@ void update_close__12TQuestListVMFPv(void *arg0) {
         }
         ((VObj18 *) arg0)->vf24(0x19, 1);
         close_windows__12TQuestListVMFPv(arg0);
-        TQuestListVM__sub_80073DC4(arg0, 5);
+        set_field_20__12TQuestListVMFPvi(arg0, 5);
         return;
     }
     p = M2C_FIELD(arg0, void **, 0x2374);
-    if ((p != NULL) && (TLobby__sub_8013AD38(p) != 0)) {
-        TQuestListVM__sub_80073DC4(arg0, 0x11);
+    if ((p != NULL) && (get_status_flag__6TLobbyFPv(p) != 0)) {
+        set_field_20__12TQuestListVMFPvi(arg0, 0x11);
     }
 }
 

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjNpcEnemy__sub_803D8090(s32 arg0);
+void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 
 extern s32 lbl_805D76DC;
 
-void TObjNpcEnemy__sub_803D8090(s32 arg0) {
+void set_global_count__12TObjNpcEnemyFi(s32 arg0) {
     lbl_805D76DC = arg0;
 }
 

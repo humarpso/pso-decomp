@@ -11,7 +11,7 @@ M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK TObjLight__sub_80133D78();
 M2C_UNK TLobby__sub_801403B4(M2C_UNK);
-M2C_UNK TOKeyMachine01__sub_802034A8();
+M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK TLobby__sub_80227FB4();
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -23,7 +23,7 @@ extern s32 tl_particlemodel;
 
 s32 init_scene_delo2(void) {
     void *obj;
-    TOKeyMachine01__sub_802034A8();
+    get_global_state__14TOKeyMachine01Fv();
     TLobby__sub_80227FB4();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;

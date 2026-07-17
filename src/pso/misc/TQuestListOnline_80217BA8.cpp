@@ -9,7 +9,7 @@ extern "C" {
 void request_quest_list__16TQuestListOnlineFi(s32 arg0);
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
-M2C_UNK TQuestListVM__sub_80073DC4(s32, M2C_UNK);
+M2C_UNK set_field_20__12TQuestListVMFPvi(s32, M2C_UNK);
 
 extern M2C_UNK lbl_8044BEB0[];
 extern s32 TQuestListOnline__data_805D61E4;
@@ -17,7 +17,7 @@ extern s32 TQuestListOnline__data_805D61E4;
 void request_quest_list__16TQuestListOnlineFi(s32 arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
         TQuestListOnline__data_805D61E4 = TLobby__sub_8001EEFC(lbl_8044BEB0);
-        TQuestListVM__sub_80073DC4(arg0, 6);
+        set_field_20__12TQuestListVMFPvi(arg0, 6);
     }
 }
 

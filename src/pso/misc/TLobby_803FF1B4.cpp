@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803FF1B4(u8 *arg0, s32 arg1);
-s32 TLobby__sub_803FF1EC(u8 *arg0, s32 arg1);
-s32 TLobby__sub_803FF224(u8 *arg0, s32 arg1);
-s32 TLobby__sub_803FF25C(u8 *arg0, s32 arg1);
-s32 TLobby__sub_803FF294(u8 *arg0, s32 arg1);
+s32 set_target_index__6TLobbyFPvi(u8 *arg0, s32 arg1);
+s32 set_filter_index__6TLobbyFPvi(u8 *arg0, s32 arg1);
+s32 set_filter_id__6TLobbyFPvi(u8 *arg0, s32 arg1);
+s32 set_target_slot__6TLobbyFPvi(u8 *arg0, s32 arg1);
+s32 set_target_id__6TLobbyFPvi(u8 *arg0, s32 arg1);
 s32 TLobby__sub_803FF2CC(u8 *arg0, s32 arg1);
 
-s32 TLobby__sub_803FF1B4(u8 *arg0, s32 arg1) {
+s32 set_target_index__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     if (arg1 == -1) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 0;
         M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) & 0xFFFFF7FF);
@@ -24,7 +24,7 @@ s32 TLobby__sub_803FF1B4(u8 *arg0, s32 arg1) {
     return 0;
 }
 
-s32 TLobby__sub_803FF1EC(u8 *arg0, s32 arg1) {
+s32 set_filter_index__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     if (arg1 == -1) {
         M2C_FIELD(arg0, s32 *, 0x18) = 0;
         M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) & 0xFFFFFDFF);
@@ -35,7 +35,7 @@ s32 TLobby__sub_803FF1EC(u8 *arg0, s32 arg1) {
     return 0;
 }
 
-s32 TLobby__sub_803FF224(u8 *arg0, s32 arg1) {
+s32 set_filter_id__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     if (arg1 == -1) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 0;
         M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) & 0xFFFFF7FF);
@@ -46,7 +46,7 @@ s32 TLobby__sub_803FF224(u8 *arg0, s32 arg1) {
     return 0;
 }
 
-s32 TLobby__sub_803FF25C(u8 *arg0, s32 arg1) {
+s32 set_target_slot__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     if (arg1 == -1) {
         M2C_FIELD(arg0, s32 *, 0x18) = 0;
         M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) & 0xFFFFFDFF);
@@ -57,7 +57,7 @@ s32 TLobby__sub_803FF25C(u8 *arg0, s32 arg1) {
     return 0;
 }
 
-s32 TLobby__sub_803FF294(u8 *arg0, s32 arg1) {
+s32 set_target_id__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     if (arg1 == -1) {
         M2C_FIELD(arg0, s32 *, 8) = 0;
         M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) & 0xFFFFFFF7);

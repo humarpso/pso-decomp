@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 TLobby__sub_8028C50C(void);
-f64 fn_803A2CAC();
+f64 cancel_dvd_async();
 
 f32 TLobby__sub_8028C50C(void) {
-    return (f32) fn_803A2CAC();
+    return (f32) cancel_dvd_async();
 }
 
 }

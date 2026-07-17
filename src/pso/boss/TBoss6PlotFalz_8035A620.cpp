@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss6PlotFalz__sub_8035A620(void);
+s32 get_hp__14TBoss6PlotFalzFv(void);
 
 extern s32 TBoss6PlotFalz__data_805D66EC;
 
-s32 TBoss6PlotFalz__sub_8035A620(void) {
+s32 get_hp__14TBoss6PlotFalzFv(void) {
     return TBoss6PlotFalz__data_805D66EC;
 }
 

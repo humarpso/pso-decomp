@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_801D5DAC(void);
+int get_game_mode__23TAdSinglePlyChrSelectGCFv(void);
 
     extern int lbl_805D5FA4;
-int TAdSinglePlyChrSelectGC__sub_801D5DAC(void) {  return lbl_805D5FA4; }
+int get_game_mode__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D5FA4; }
 
 }

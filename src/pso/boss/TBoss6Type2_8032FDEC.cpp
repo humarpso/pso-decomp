@@ -8,7 +8,7 @@ extern "C" {
 
 void sync_hp_apply_damage__11TBoss6Type2FPv(void *arg0);
 M2C_UNK apply_damage__11TBoss6Type2FPvi(s32, s32);
-M2C_UNK TBoss6Type2__sub_8032FE44();
+M2C_UNK sync_hp__11TBoss6Type2FPv();
 
 void sync_hp_apply_damage__11TBoss6Type2FPv(void *arg0) {
     s16 temp_r0;
@@ -18,7 +18,7 @@ void sync_hp_apply_damage__11TBoss6Type2FPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x32C);
     if (temp_r4 != temp_r0) {
         if (temp_r4 < temp_r0) {
-            TBoss6Type2__sub_8032FE44();
+            sync_hp__11TBoss6Type2FPv();
             return;
         }
         apply_damage__11TBoss6Type2FPvi(M2C_FIELD(arg0, s32 *, 0x378), temp_r4 - temp_r0);

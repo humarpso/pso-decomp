@@ -6,16 +6,16 @@ extern "C" {
 
 void *init_substate_b__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80120D50(void *);
-void TObjPlayer__sub_8012106C(void *, int);
-void TObjPlayer__sub_80121CB0(void *, int);
+void set_status_flags__10TObjPlayerFPvUi(void *, int);
+void set_effect_state__10TObjPlayerFPvi(void *, int);
 
 extern M2C_UNK lbl_804A3450[];
 
 void *init_substate_b__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A3450;
-    TObjPlayer__sub_8012106C(arg0, 34);
-    TObjPlayer__sub_80121CB0(arg0, 2);
+    set_status_flags__10TObjPlayerFPvUi(arg0, 34);
+    set_effect_state__10TObjPlayerFPvi(arg0, 2);
     return arg0;
 }
 

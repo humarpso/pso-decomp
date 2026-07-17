@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int is_boss_phase_reached__6TLobbyFv(void);
-s32 TBoss4Uro__sub_8004C19C(void*);
+s32 get_phase__9TBoss4UroFPv(void*);
 
 extern void* lbl_805D4D74;
 extern s32 lbl_805D5550;
@@ -18,7 +18,7 @@ int is_boss_phase_reached__6TLobbyFv(void) {
     if (lbl_805D4D74 == 0) {
         return 0;
     }
-    temp_r3 = TBoss4Uro__sub_8004C19C(lbl_805D4D74);
+    temp_r3 = get_phase__9TBoss4UroFPv(lbl_805D4D74);
     if (lbl_805D5550 == 0) {
         return (temp_r3 >= 9) ? 1 : 0;
     }

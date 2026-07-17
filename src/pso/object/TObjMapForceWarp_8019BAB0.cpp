@@ -9,7 +9,7 @@ extern "C" {
 void *TObjMapForceWarp__ct(void *arg0);
 M2C_UNK TObjMapWarp__ct();
 M2C_UNK disallow_rendering__7TObjectFv(void *);
-M2C_UNK TObjLuker__sub_8001A438(u32);
+M2C_UNK set_flag_4__9TObjLukerFPv(u32);
 
 extern M2C_UNK __vt__16TObjMapForceWarp[];
 extern s32 lbl_805D3478;
@@ -25,7 +25,7 @@ void *TObjMapForceWarp__ct(void *arg0) {
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 0U) {
         disallow_rendering__7TObjectFv(M2C_FIELD(arg0, void **, 0xB4));
-        TObjLuker__sub_8001A438(M2C_FIELD(arg0, u32 *, 0xB4));
+        set_flag_4__9TObjLukerFPv(M2C_FIELD(arg0, u32 *, 0xB4));
     }
     return arg0;
 }

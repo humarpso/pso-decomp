@@ -29,7 +29,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjChip__sub_803D8AE4(M2C_UNK, s32, s32, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 lbl_805D4DF0;
 extern s32 lbl_805D53A4;
@@ -48,7 +48,7 @@ void render__9TKomorebiFv(u8 *arg0) {
             lbl_805D5C24 = lbl_805D53A4;
         }
         TObjPlayer__sub_803D9B2C();
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjChip__sub_803D8AE4(0, M2C_FIELD(arg0, s32 *, 0x5C), M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x64));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x70);

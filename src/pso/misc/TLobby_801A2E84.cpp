@@ -12,13 +12,13 @@ s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
 M2C_UNK TLobby__sub_80103F68();
 M2C_UNK TLobby__sub_8011AFB8();
-M2C_UNK TLobby__sub_801A3B84();
-M2C_UNK TLobby__sub_801A3BA4();
-M2C_UNK TLobby__sub_801A3BF4();
-M2C_UNK TLobby__sub_801A3C00();
-M2C_UNK TLobby__sub_801A3C18();
+M2C_UNK clear_counter__6TLobbyFv();
+M2C_UNK clear_quest_state__6TLobbyFv();
+M2C_UNK reset_quest_counter__6TLobbyFv();
+M2C_UNK set_cleanup_flag__6TLobbyFv();
+M2C_UNK reset_door_state__6TLobbyFv();
 M2C_UNK TObjCityMainWarp__sub_80186634();
-M2C_UNK TObjDoor__sub_801A3C0C();
+M2C_UNK reset_instance__8TObjDoorFv();
 M2C_UNK TObjPlayer__sub_801BDEF8(s32, s32, u32);
 M2C_UNK TRaderMapCore__sub_801F9540();
 M2C_UNK TSwitch__sub_8022942C();
@@ -69,12 +69,12 @@ void reset_quest_state__6TLobbyFv(void) {
     }
     TObjCityMainWarp__sub_80186634();
     THunterGuildSeqOffline__sub_80213430();
-    TLobby__sub_801A3B84();
-    TLobby__sub_801A3C18();
-    TObjDoor__sub_801A3C0C();
-    TLobby__sub_801A3C00();
-    TLobby__sub_801A3BF4();
-    TLobby__sub_801A3BA4();
+    clear_counter__6TLobbyFv();
+    reset_door_state__6TLobbyFv();
+    reset_instance__8TObjDoorFv();
+    set_cleanup_flag__6TLobbyFv();
+    reset_quest_counter__6TLobbyFv();
+    clear_quest_state__6TLobbyFv();
 }
 
 }

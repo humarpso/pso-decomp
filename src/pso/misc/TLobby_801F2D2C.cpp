@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-unsigned char TLobby__sub_801F2D2C(void);
+unsigned char read_packet_byte__6TLobbyFv(void);
 s32 dispatch_quest__6TLobbyFi(s32 arg0);
 void close_windows__6TLobbyFv(void);
 M2C_UNK TLobby__sub_801F2EF4(s32);
@@ -16,7 +16,7 @@ M2C_UNK queue_destruction__7TObjectFv(s32);
 
     extern unsigned char* TLobby__data_805D5E70;
     extern int TLobby__data_805D5E90;
-unsigned char TLobby__sub_801F2D2C(void) { return TLobby__data_805D5E70[TLobby__data_805D5E90++]; }
+unsigned char read_packet_byte__6TLobbyFv(void) { return TLobby__data_805D5E70[TLobby__data_805D5E90++]; }
 
 s32 dispatch_quest_opcode();
 

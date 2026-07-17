@@ -13,7 +13,7 @@ s32 create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
 s32 TAdPlayerLoadGC__sub_801E0CE0(s32);
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
-s32 TAdPlayerLoadGC__sub_80076BBC();
+s32 get_instance__15TAdPlayerLoadGCFv();
 s32 load_player__23TAdSinglePlyChrSelectGCFv();
 s32 load_system_file(s32);
 void TAdSinglePlyChrSelectGC__sub_802E2D3C(void* p);
@@ -31,7 +31,7 @@ void open_char_select__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, arg0 + 0x68, 1, TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x29), TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x16));
 }
 void reset_on_load_complete__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (TAdPlayerLoadGC__sub_80076BBC() == 0) {
+    if (get_instance__15TAdPlayerLoadGCFv() == 0) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0;
         TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 0x18);
     }
@@ -45,7 +45,7 @@ void ensure_player_loaded__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 int TAdSinglePlyChrSelectGC__sub_802E2F68(void* p) { return close_windows__23TAdSinglePlyChrSelectGCFPv(p); }
 void update_load_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (TAdPlayerLoadGC__sub_80076BBC() == 0) {
+    if (get_instance__15TAdPlayerLoadGCFv() == 0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 1;
         if ((s32) M2C_FIELD(arg0, s32 *, 0x44) == 0) {
             TAdSinglePlyChrSelectGC__sub_802E1DF8(arg0, 3);

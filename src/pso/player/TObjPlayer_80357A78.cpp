@@ -6,7 +6,7 @@ extern "C" {
 
 void *init_state_34_alt__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80120D50(void *);
-void TObjPlayer__sub_8012106C(void *, int);
+void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern M2C_UNK lbl_804F14A8[];
 extern M2C_UNK spawn_shoot_particle__10TItemShootFv[];
@@ -14,7 +14,7 @@ extern M2C_UNK spawn_shoot_particle__10TItemShootFv[];
 void *init_state_34_alt__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F14A8;
-    TObjPlayer__sub_8012106C(arg0, 34);
+    set_status_flags__10TObjPlayerFPvUi(arg0, 34);
     M2C_FIELD(arg0, u32 *, 0x1F8) = 0;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = spawn_shoot_particle__10TItemShootFv;
     return arg0;

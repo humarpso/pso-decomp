@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_8033A904(s32 arg0);
+void init_logo_state__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
 extern s32 lbl_805D6D80;
 extern s32 lbl_805D6D84;
 extern s32 lbl_805D6D88;
 extern s32 lbl_805D6D8C;
 
-void TAdSinglePlyChrSelectGC__sub_8033A904(s32 arg0) {
+void init_logo_state__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     lbl_805D6D88 = 0;
     lbl_805D6D84 = 0;
     lbl_805D6D80 = arg0;

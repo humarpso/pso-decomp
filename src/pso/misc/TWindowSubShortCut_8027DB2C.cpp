@@ -8,11 +8,11 @@ extern "C" {
 
 s32 open_confirm_message__18TWindowSubShortCutFPv(void *arg0);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK TWindowSubShortMail__sub_802A58AC(s32, s32, s32, s32, f32);
 M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
-M2C_UNK TWindowSubShortMail__sub_802A58AC(s32, s32, s32, s32, f32);
 
 extern const f32 lbl_805DD6C0;
 

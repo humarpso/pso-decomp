@@ -9,7 +9,7 @@ extern "C" {
 int TBoss8Dragon__sub_802FB984(void);
 s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0);
 s32 TBoss8Dragon__sub_802FBBFC(void * a0 = 0, s32 a1 = 0);
-s32 TBoss8Dragon__sub_802FC8CC(void * a0 = 0, s32 a1 = 0);
+s32 set_damage_phase_value__12TBoss8DragonFPvi(void * a0 = 0, s32 a1 = 0);
 
 int TBoss8Dragon__sub_802FB984(void) { return 0; }
 s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0) {
@@ -18,7 +18,7 @@ s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0) {
     }
     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s16) M2C_FIELD(arg0, s16 *, 0x67A)) {
         M2C_FIELD(arg0, s16 *, 0x32C) = M2C_FIELD(arg0, s16 *, 0x67A);
-        TBoss8Dragon__sub_802FC8CC(arg0, 1);
+        set_damage_phase_value__12TBoss8DragonFPvi(arg0, 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3E4) == 0) {
             TBoss8Dragon__sub_802FBBFC(arg0, 0xD);
             return 1;

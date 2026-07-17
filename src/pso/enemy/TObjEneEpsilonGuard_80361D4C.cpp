@@ -30,7 +30,7 @@ extern "C" {
 
 void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1);
 void TObjEneEpsilonGuard__sub_80361E20(void);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 M2C_UNK set_guard_state__19TObjEneEpsilonGuardFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -38,7 +38,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjEneEpsilonGuard__sub_80361D4C(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        TObjEneDD__sub_800BBA04(arg0, 0);
+        set_field_378__9TObjEneDDFPvi(arg0, 0);
         ((VObj *)arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) | 0x43);
         M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) & 0xFFFFFDFF);

@@ -8,13 +8,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
-s32 TOBoss4Rock__sub_8039C880();
+s32 rand__11TOBoss4RockFv();
 
 extern M2C_UNK lbl_804355D0;
 extern const f32 lbl_805D818C;
 
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1) {
-    return ((farg1 - farg0) * (lbl_805D818C * (f32) TOBoss4Rock__sub_8039C880())) + farg0;
+    return ((farg1 - farg0) * (lbl_805D818C * (f32) rand__11TOBoss4RockFv())) + farg0;
 }
 
 }

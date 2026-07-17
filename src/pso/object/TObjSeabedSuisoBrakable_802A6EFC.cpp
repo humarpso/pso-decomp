@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TObjSeabedSuisoBrakable__sub_802A6EFC(void);
+int get_instance__23TObjSeabedSuisoBrakableFv(void);
 
     extern int lbl_805D6674;
-int TObjSeabedSuisoBrakable__sub_802A6EFC(void) {  return lbl_805D6674; }
+int get_instance__23TObjSeabedSuisoBrakableFv(void) {  return lbl_805D6674; }
 
 }

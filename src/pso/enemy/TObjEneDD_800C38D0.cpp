@@ -157,10 +157,10 @@ extern "C" {
 void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
-s32 TObjEneRe2Flower__sub_800C3B80(void *);
+s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_800B98C0(void *);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
@@ -173,10 +173,10 @@ void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
         ((V_En_800c38d0 *) arg0)->m93();
         clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 8);
-        TObjEneDD__sub_800BBA04(arg0, 2);
+        set_field_378__9TObjEneDDFPvi(arg0, 2);
         fn_800B98C0(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
-        if (TObjEneRe2Flower__sub_800C3B80(arg0) != 0) {
+        if (get_flag_11__16TObjEneRe2FlowerFPv(arg0) != 0) {
             TBoss3Volopt__sub_800D8C48(arg0 + 0x38);
             return;
         }

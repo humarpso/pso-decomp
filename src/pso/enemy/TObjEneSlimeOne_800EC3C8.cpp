@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TObjEneSlimeOne__sub_800EC3C8(void);
+int get_instance__15TObjEneSlimeOneFv(void);
 
     extern int lbl_805D52B0;
-int TObjEneSlimeOne__sub_800EC3C8(void) {  return lbl_805D52B0; }
+int get_instance__15TObjEneSlimeOneFv(void) {  return lbl_805D52B0; }
 
 }

@@ -8,13 +8,13 @@ extern "C" {
 
 void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneDf2Bringer__sub_80098EB4(void *);
 M2C_UNK TObjEneDf2Bringer__sub_80099148(void *);
 M2C_UNK TObjEneDf2Bringer__sub_80099188(void *);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
@@ -139,7 +139,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-        TObjEneDD__sub_800BBA04(arg0, 4);
+        set_field_378__9TObjEneDDFPvi(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFFE);
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 2);
         ((TObj *)arg0)->v93();
@@ -177,7 +177,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
             break;
         case 1:
             TObjEneDf2Bringer__sub_80099148(arg0);
-            if (TObjEneMe3ShinowaReal__sub_8002ADD8(arg0) != 0) {
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 2;
             }
             break;

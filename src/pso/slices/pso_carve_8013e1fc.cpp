@@ -10,7 +10,7 @@ void TMainCursor__sub_8013E18C(void* p, s16 v);
 u16 TMainCursor__sub_8013E194(void* p);
 void set_target__11TMainCursorFPvi(void* p, s32 a1);
 void TMainCursor__sub_8013E1C0(void* p, s32 v);
-void TMainCursor__sub_8013E1C8(void* p, s16 v);
+void set_target_index__11TMainCursorFPvs(void* p, s16 v);
 
 int TMainCursor__sub_8013E1FC(void*, void*) { return 0; }
 

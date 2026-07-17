@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg1);
-M2C_UNK TWindowSubComCard__sub_802448C0(void *);
+M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowSubComCard__sub_80265484(void *);
 M2C_UNK TWindowSubComCard__sub_8026556C(void *);
 M2C_UNK TWindowSubComCard__sub_80265E60();
@@ -21,7 +21,7 @@ void set_scroll_target__17TWindowSubComCardFPvff(void *arg0, f32 farg0, f32 farg
     }
     M2C_FIELD(arg0, f32 *, 0x3C) = farg1;
     M2C_FIELD(arg0, f32 *, 0x7C) = (f32) (farg1 - lbl_805DD154);
-    TWindowSubComCard__sub_802448C0(arg0);
+    save_position__17TWindowSubComCardFPv(arg0);
     TWindowSubComCard__sub_80265484(arg0);
 }
 

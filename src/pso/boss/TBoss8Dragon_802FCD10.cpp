@@ -100,10 +100,10 @@ extern "C" {
 void check_death__12TBoss8DragonFPv(void *arg0);
 s32 check_damage_reaction__12TBoss8DragonFPv(void *);
 M2C_UNK TBoss8Dragon__sub_802FBBFC(void *, M2C_UNK);
-s32 TBoss8Dragon__sub_802FC8AC();
+s32 is_health_low__12TBoss8DragonFPv();
 
 void check_death__12TBoss8DragonFPv(void *arg0) {
-    if (TBoss8Dragon__sub_802FC8AC() != 0) {
+    if (is_health_low__12TBoss8DragonFPv() != 0) {
         if (check_damage_reaction__12TBoss8DragonFPv(arg0) != 0) {
             return;
         }

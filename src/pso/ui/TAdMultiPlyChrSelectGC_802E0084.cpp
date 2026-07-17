@@ -8,14 +8,14 @@ extern "C" {
 
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8();
 s32 TAdMultiPlyChrSelectGC__sub_802E00B4(void* p);
-void TAdMultiPlyChrSelectGC__sub_802E00BC(void* p, s32 v);
-s32 TAdMultiPlyChrSelectGC__sub_802E00C4(void* p);
+void set_field_1c__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v);
+s32 get_mode__22TAdMultiPlyChrSelectGCFPv(void* p);
 
 void update_field_4E8__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4E8) = TAdMultiPlyChrSelectGC__sub_802DFFE8();
 }
 s32 TAdMultiPlyChrSelectGC__sub_802E00B4(void* p) { return *(s32*)((char*)p + 0x530); }
-void TAdMultiPlyChrSelectGC__sub_802E00BC(void* p, s32 v) { *(s32*)((char*)p + 0x1c) = v; }
-s32 TAdMultiPlyChrSelectGC__sub_802E00C4(void* p) { return *(s32*)((char*)p + 0x1c); }
+void set_field_1c__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x1c) = v; }
+s32 get_mode__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x1c); }
 
 }

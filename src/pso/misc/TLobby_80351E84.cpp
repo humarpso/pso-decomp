@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80351E84(void);
-int TLobby__sub_80351EA4(void);
+s32 is_lobby_obj_active__6TLobbyFv(void);
+int get_lobby_type__6TLobbyFv(void);
 
 extern void *lbl_805D6EC0;
 
-s32 TLobby__sub_80351E84(void) {
+s32 is_lobby_obj_active__6TLobbyFv(void) {
     if ((void *) lbl_805D6EC0 != NULL) {
         return ((u32) M2C_FIELD(lbl_805D6EC0, u32 *, 0x1C) >> 1U) & 1;
     }
@@ -19,6 +19,6 @@ s32 TLobby__sub_80351E84(void) {
 }
 
     extern int lbl_805D6EC4;
-int TLobby__sub_80351EA4(void) {  return lbl_805D6EC4; }
+int get_lobby_type__6TLobbyFv(void) {  return lbl_805D6EC4; }
 
 }

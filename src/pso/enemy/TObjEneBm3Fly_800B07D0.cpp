@@ -44,7 +44,7 @@ s32 TObjEneBm3Fly__sub_800B177C(void *);
 M2C_UNK TObjEneBm3Fly__sub_800B1978(void *);
 M2C_UNK TObjEneDD__sub_800BA3D8(void *, void *);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 approach_value__13TObjEneBm3FlyFff(void *, f32, f32);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 check_v2_mode__9TObjEneDDFv();
@@ -149,7 +149,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
                 TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A524)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
                 play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
             }
-            if (TObjEneMe3ShinowaReal__sub_8002ADD8((void *) (arg0)) != 0) {
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
                 if ((s32) M2C_FIELD(arg0, s32 *, 0x440) >= 4) {
                     M2C_FIELD(arg0, s32 *, 0x440) = 0;
                     M2C_FIELD(arg0, s32 *, 0x3C0) = 3;

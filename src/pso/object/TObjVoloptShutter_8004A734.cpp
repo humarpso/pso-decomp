@@ -13,7 +13,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803E4684(s32);
 
 extern s32 lbl_805D4D48;
@@ -24,7 +24,7 @@ extern f32 TObjVoloptShutter__data_805D88F4;
 
 void render__17TObjVoloptShutterFv(void *arg0) {
     toggle_particle_effect__10TObjPlayerFv();
-    TObjFish__sub_803DA798(lbl_805D4D50);
+    set_global_param__8TObjFishFi(lbl_805D4D50);
     TObjPlayer__sub_803D9B2C();
     some_id_805c6f74 &= 0xFFFFFBFF;
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x30));

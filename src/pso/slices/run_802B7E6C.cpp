@@ -10,7 +10,7 @@ s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x4B0) - M2C_FIELD(arg0, s16 *, 0x32C);
 }
 
-void TBoss6Type1__sub_802B7E7C(void *arg0) {
+void latch_phase_counter__11TBoss6Type1FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4B0) = (s32) M2C_FIELD(arg0, s16 *, 0x32C);
 }
 

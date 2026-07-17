@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjFish__sub_803DA798(s32 arg0);
+s32 set_global_param__8TObjFishFi(s32 arg0);
 
 extern u8 *lbl_805D774C;
 
-s32 TObjFish__sub_803DA798(s32 arg0) {
+s32 set_global_param__8TObjFishFi(s32 arg0) {
     M2C_FIELD(lbl_805D774C, s32 *, 0x20) = arg0;
     return 1;
 }

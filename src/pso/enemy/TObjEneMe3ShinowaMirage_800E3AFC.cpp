@@ -103,9 +103,9 @@ struct VObj_800E3AFC : Base_800E3AFC {
 
 extern "C" {
 
-void TObjEneMe3ShinowaMirage__sub_800E3AFC(void *arg0);
+void clear_mirage__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 
-void TObjEneMe3ShinowaMirage__sub_800E3AFC(void *arg0) {
+void clear_mirage__23TObjEneMe3ShinowaMirageFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFEFF);
     ((VObj_800E3AFC *)arg0)->m91();
 }

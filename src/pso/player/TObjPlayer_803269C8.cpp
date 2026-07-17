@@ -11,12 +11,12 @@ void approach_target_angle__10TObjPlayerFPv(u8 *arg0);
 void step_angles__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_80115BC0(void *, int, int);
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 
 void apply_container_item__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_80121200();
+    temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 1:
         TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x1F8));

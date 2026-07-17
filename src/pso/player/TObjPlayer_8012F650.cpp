@@ -9,12 +9,12 @@ extern "C" {
 void handle_move_input__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 
 void handle_move_input__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_80121200();
+    temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 1:
         TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x204));

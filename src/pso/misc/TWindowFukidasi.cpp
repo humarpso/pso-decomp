@@ -11,7 +11,7 @@ s32 alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK clear_flag2c_bit100__15TWindowFukidasiFPv(void *);
 s32 strnlen__19TWindowKeyBoardSoftFPvUi(s32, M2C_UNK);
 M2C_UNK set_color__15TWindowFukidasiFPvUs(void *, s16);
-M2C_UNK TWindowFukidasi__sub_80252CA0(void *);
+M2C_UNK clear_flag__15TWindowFukidasiFPv(void *);
 
 M2C_UNK strncpy(s32, s32, s32);
 extern s32 lbl_805D3900;
@@ -39,7 +39,7 @@ void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x7C) = farg0;
     M2C_FIELD(arg0, f32 *, 0x48) = (f32) TWindowFukidasi__data_805DCD30;
     M2C_FIELD(arg0, f32 *, 0x4C) = (f32) TWindowFukidasi__data_805DCD30;
-    TWindowFukidasi__sub_80252CA0(arg0);
+    clear_flag__15TWindowFukidasiFPv(arg0);
     clear_flag2c_bit100__15TWindowFukidasiFPv(arg0);
 }
 

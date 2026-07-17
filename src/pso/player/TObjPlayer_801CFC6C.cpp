@@ -11,7 +11,7 @@ f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int, f32);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 s32 TObjPlayer__sub_80019248(void *);
-s32 TObjPlayer__sub_80084854();
+s32 is_inactive__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801B5DDC(void *);
 s32 TObjPlayer__sub_801B5EA4(void *);
 f32 apply_stat_multipliers_default__10TObjPlayerFv(void *, void *);
@@ -24,7 +24,7 @@ s32 update_combat_stats__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r3;
 
-    if (TObjPlayer__sub_80084854() == 0) {
+    if (is_inactive__10TObjPlayerFPv() == 0) {
         return 0;
     }
     temp_f31 = apply_stat_multipliers_default__10TObjPlayerFv((void *) (arg0 + 0x5E0), (void *) (arg0));

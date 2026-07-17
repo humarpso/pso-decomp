@@ -13,10 +13,10 @@ M2C_UNK TItemDrop__sub_8010643C();
 M2C_UNK create__9TItemLoadFv();
 M2C_UNK TLobby__sub_80103B70(s32);
 M2C_UNK TLobby__sub_80103F5C();
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 s32 TObjPlayer__sub_800196EC();
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TObjPlayer__sub_8001BED8(M2C_UNK *, M2C_UNK);
+M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 s32 TLobby__sub_8030A7B0();
 M2C_UNK TObjPlayer__sub_80363CA0(s32);
 M2C_UNK spawn_cleanup_helper__10TObjPlayerFPv(s32);
@@ -37,13 +37,13 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     spawn_cleanup_helper__10TObjPlayerFPv(tl_particlemodel);
     TObjPlayer__sub_80363CA0(tl_item_equip);
     temp_r30 = get_main_phase();
-    temp_r31 = TOKeyMachine01__sub_802034A8();
+    temp_r31 = get_global_state__14TOKeyMachine01Fv();
     temp_r29 = TObjPlayer__sub_800196EC();
     lbl_805D543C = 0;
     TLobby__sub_80103F5C();
     TLobby__sub_80103B70(temp_r29);
     if ((temp_r31 == 0) || (temp_r31 == 0x12)) {
-        TObjPlayer__sub_8001BED8(&lbl_805D5440, 1);
+        set_flags__10TObjPlayerFPvUi(&lbl_805D5440, 1);
         if ((temp_r30 != 0xE) && (temp_r30 == 0xF)) {
             TItemDrop__sub_8010643C();
         }

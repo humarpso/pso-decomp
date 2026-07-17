@@ -9,11 +9,11 @@ extern "C" {
 void handle_cancel__26TWindowSubQuestBoardSelectFPv(void *arg0);
 void handle_decide__26TWindowSubQuestBoardSelectFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TWindowSubQuestBoard__sub_8027D1D0();
+s32 is_open__20TWindowSubQuestBoardFPv();
 s32 fn_8027DB20();
 
 void handle_cancel__26TWindowSubQuestBoardSelectFPv(void *arg0) {
-    if (TWindowSubQuestBoard__sub_8027D1D0() == 0) {
+    if (is_open__20TWindowSubQuestBoardFPv() == 0) {
         TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
     }

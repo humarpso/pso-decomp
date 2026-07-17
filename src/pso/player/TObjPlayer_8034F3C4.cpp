@@ -6,7 +6,7 @@ extern "C" {
 
 void *init_photon_state__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80120D50(void *);
-void TObjPlayer__sub_8012106C(void *, int);
+void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern M2C_UNK lbl_804F0908[];
 extern M2C_UNK TObjPlayer__sub_8034F204[];
@@ -15,7 +15,7 @@ void *init_photon_state__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0908;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = TObjPlayer__sub_8034F204;
-    TObjPlayer__sub_8012106C(arg0, 2);
+    set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
 }
 

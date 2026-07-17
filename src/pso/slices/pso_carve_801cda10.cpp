@@ -8,7 +8,7 @@ extern "C" {
 
 void reset_linked_obj__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8001053C();
-M2C_UNK TObjPlayer__sub_801D2630(void *);
+M2C_UNK clear_status_bit6__10TObjPlayerFPv(void *);
 int TObjPlayer__sub_801CD9F0(void* p);
 int update_action_state__10TObjPlayerFPv(void*);
 

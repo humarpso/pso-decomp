@@ -8,7 +8,7 @@ extern "C" {
 
 s32 update_if_flag8_set__10TObjPlayerFi(s32 arg0);
 s32 tick_countdown_timer__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjPlayer__sub_8001BED8(void *, M2C_UNK);
+M2C_UNK set_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 s32 TObjPlayer__sub_8001BEF8(s32, M2C_UNK);
 
 s32 update_if_flag8_set__10TObjPlayerFi(s32 arg0) {
@@ -24,7 +24,7 @@ s32 tick_countdown_timer__10TObjPlayerFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C) - 1;
     M2C_FIELD(arg0, s32 *, 0x1C) = temp_r0;
     if (temp_r0 < 0) {
-        TObjPlayer__sub_8001BED8(arg0 + 0xC, 1);
+        set_flags__10TObjPlayerFPvUi(arg0 + 0xC, 1);
         return 1;
     }
     return 0;

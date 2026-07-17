@@ -12,7 +12,7 @@ s32 fn_801C1E48(s32);
 s32 fn_801C1E50(s32);
 s32 TObjPlayer__sub_801C1F50(s32);
 int TObjPlayer__sub_8011E204(void*, void*);
-int TObjPlayer__sub_8011E238(void*, void*);
+int set_state_flags__10TObjPlayerFPvUi(void*, void*);
 int fn_8019DD14(void*, void*);
 int fn_8019DD24(void*, void*);
 int TChallenge4PResult__sub_801B3BB4(void*);

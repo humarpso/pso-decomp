@@ -34,7 +34,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 
 extern s32 some_id_805c6f74;
@@ -52,7 +52,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
         temp_r3 = ((VA *)arg0)->m9(lbl_805D9698, lbl_805D969C, lbl_805D96A0);
         if (temp_r3 != 0) {
             var_r30 = 1;
-            TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+            set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
             TObjLight__sub_80134194(arg0);
             toggle_particle_effect__10TObjPlayerFv();
             TObjPlayer__sub_803D9B2C();

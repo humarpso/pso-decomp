@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TLobby__sub_803D3988();
 
-void fn_803CBDA0(void) {
+void dispatch_lobby_callback(void) {
     TLobby__sub_803D3988();
 }
 

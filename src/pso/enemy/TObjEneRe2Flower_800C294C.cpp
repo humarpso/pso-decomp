@@ -45,7 +45,7 @@ extern "C" {
 void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800C3A5C(void *, s32);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
@@ -64,7 +64,7 @@ void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1) {
         ((V_A_800c294c *) arg0)->m94();
         clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
-        TObjEneDD__sub_800BBA04(arg0, 3);
+        set_field_378__9TObjEneDDFPvi(arg0, 3);
         M2C_FIELD(arg0, s32 *, 0x410) = 0;
         TBoss3Volopt__sub_8022675C(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
         play_effect_if_v2__10TObjPlayerFi(-0x200);

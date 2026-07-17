@@ -9,7 +9,7 @@ extern "C" {
 int TWindowChoiceSetting__sub_80249610(void* p);
 void draw_resolved_window__15TWindowFukidasiFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
-int TWindowSubComCard__sub_80249604(void* p);
+int is_open__17TWindowSubComCardFPv(void* p);
 s32 TWindowFukidasi__sub_80244DFC(s32, s32, s32, s32);
 s16 TWindowSubComCard__sub_802495FC(void* p);
 

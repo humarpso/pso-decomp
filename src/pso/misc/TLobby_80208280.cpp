@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_drop_item_mode__6TLobbyFv(void);
-s32 TLobby__sub_8001E5C8();
+s32 get_instance__6TLobbyFv();
 s32 get_main_phase();
 s32 is_split_screen();
 
@@ -19,18 +19,18 @@ s32 get_drop_item_mode__6TLobbyFv(void) {
     temp_r3 = get_main_phase();
     switch (temp_r3) {
     case 15:
-        if ((TLobby__sub_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
+        if ((get_instance__6TLobbyFv() == 0) && ((s32) lbl_805D5550 == 3)) {
             return 3;
         }
         return 2;
     case 14:
         if (is_split_screen() == 1) {
-            if ((TLobby__sub_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
+            if ((get_instance__6TLobbyFv() == 0) && ((s32) lbl_805D5550 == 3)) {
                 return 3;
             }
             return 2;
         }
-        if ((TLobby__sub_8001E5C8() == 0) && ((s32) lbl_805D5550 == 3)) {
+        if ((get_instance__6TLobbyFv() == 0) && ((s32) lbl_805D5550 == 3)) {
             return 1;
         }
         return 0;

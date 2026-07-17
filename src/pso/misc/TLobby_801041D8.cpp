@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_801041D8(void);
-M2C_UNK TObjPlayer__sub_8001BED8(M2C_UNK *, M2C_UNK);
+M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 
 extern M2C_UNK lbl_805D5430;
 
 void TLobby__sub_801041D8(void) {
-    TObjPlayer__sub_8001BED8(&lbl_805D5430, 1);
+    set_flags__10TObjPlayerFPvUi(&lbl_805D5430, 1);
 }
 
 }

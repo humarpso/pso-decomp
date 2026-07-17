@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_if_active__15TObjEneMe1GiGueFPv(void *arg0);
-M2C_UNK TObjEneMe1GiGue__sub_80040B68();
+M2C_UNK set_state__15TObjEneMe1GiGueFPvi();
 
 void update_if_active__15TObjEneMe1GiGueFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x388) & 1)) {
-        TObjEneMe1GiGue__sub_80040B68();
+        set_state__15TObjEneMe1GiGueFPvi();
     }
 }
 

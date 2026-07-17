@@ -11,11 +11,11 @@ void reset_random_enemies_mode__6TLobbyFv(void);
 s32 TCameraCtrl__sub_8006B368();
 int TKeyBoardControl__sub_8000F950(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
-int TLobby__sub_801A3B84(void);
+int clear_counter__6TLobbyFv(void);
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(void *, s32, M2C_UNK *);
 
     extern int evt2_random_enemies_mode;
-void reset_random_enemies_mode__6TLobbyFv(void) { TLobby__sub_801A3B84(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
+void reset_random_enemies_mode__6TLobbyFv(void) { clear_counter__6TLobbyFv(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
 
 extern s32 tl_00;
 

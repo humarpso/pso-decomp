@@ -14,7 +14,7 @@ s32 TLobby__sub_80226328(void);
 s32 TLobby__sub_802261E0(s16 a0 = 0);
 s32 TLobby__sub_8022614C(s32 a0 = 0);
 s32 set_language__19TWindowKeyBoardSoftFc(u8 a0 = 0);
-void * TAdSinglePlyChrSelectGC__sub_8001ED80(void);
+void * get_global_state__23TAdSinglePlyChrSelectGCFv(void);
 void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
 int TAdSinglePlyChrSelectGC__sub_802E1A04(void*, void*, void*, void*, void*);
 int TAdSinglePlyChrSelectGC__sub_802E1A8C(void*, void*, void*, void*, void*);

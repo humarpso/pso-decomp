@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void play_particle_effect_once__10TObjPlayerFv(void);
-M2C_UNK TObjPlayer__sub_8001BED8(M2C_UNK *, M2C_UNK);
+M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 
@@ -16,7 +16,7 @@ extern M2C_UNK lbl_805D53EC;
 void play_particle_effect_once__10TObjPlayerFv(void) {
     if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 2) == 0) {
         begin_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_8001BED8(&lbl_805D53EC, 2);
+        set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 2);
     }
 }
 

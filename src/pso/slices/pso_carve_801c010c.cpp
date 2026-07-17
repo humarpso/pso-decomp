@@ -4,8 +4,8 @@ extern "C" {
 
 int TObjPlayer__sub_801C00FC(void);
 int TObjPlayer__sub_801C0104(void);
-void TObjPlayer__sub_801C011C(void* p, s16 v);
-int TObjPlayer__sub_801C0134(void);
+void set_technique_id__10TObjPlayerFPvs(void* p, s16 v);
+int get_item_count_max__10TObjPlayerFv(void);
 
 int TObjPlayer__sub_801C010C(void) { return 0; }
 

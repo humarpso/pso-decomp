@@ -16,8 +16,8 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8011EDFC(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(s32);
 int TObjPlayer__sub_80120D50(void);
-int TObjPlayer__sub_8012106C(void*, void*);
-s32 TObjPlayer__sub_80121200();
+int set_status_flags__10TObjPlayerFPvUi(void*, void*);
+s32 get_player_list__10TObjPlayerFv();
 
 extern f32 lbl_805DAE68;
 extern f32 lbl_805DAE6C;
@@ -32,7 +32,7 @@ void update_motion_state__10TObjPlayerFi(s32 arg0) {
 }
 
 void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0) {
-    if (TObjPlayer__sub_80121200() == 2) {
+    if (get_player_list__10TObjPlayerFv() == 2) {
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x1F8));
         TObjPlayer__sub_80115BFC(arg0 + 0x1F8, 0x1999);
     }
@@ -41,6 +41,6 @@ void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0) {
     extern unsigned char fn_80109710[];
     extern unsigned char lbl_804A4A88[];
     extern const float lbl_805DAE70;
-void* init_state_object__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A4A88; TObjPlayer__sub_8012106C(a0, (void*)34); *(int*)((char*)a0 + 0x1f0) = (int)fn_80109710; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE70; *(int*)((char*)a0 + 0x1f8) = 0; return a0; }
+void* init_state_object__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A4A88; set_status_flags__10TObjPlayerFPvUi(a0, (void*)34); *(int*)((char*)a0 + 0x1f0) = (int)fn_80109710; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE70; *(int*)((char*)a0 + 0x1f8) = 0; return a0; }
 
 }

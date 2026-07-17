@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80351E64(void);
+s32 is_connected__6TLobbyFv(void);
 
 extern void *lbl_805D6EC0;
 
-s32 TLobby__sub_80351E64(void) {
+s32 is_connected__6TLobbyFv(void) {
     if ((void *) lbl_805D6EC0 != NULL) {
         return ((u32) M2C_FIELD(lbl_805D6EC0, u32 *, 0x1C) >> 2U) & 1;
     }

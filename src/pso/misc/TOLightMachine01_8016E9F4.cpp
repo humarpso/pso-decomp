@@ -22,7 +22,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 lbl_805D5A44;
 extern s32 lbl_805D5A48;
@@ -33,14 +33,14 @@ void render__16TOLightMachine01Fv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4));
         TObjPlayer__sub_803D9B2C();
         TObjPlayer__sub_803D9624(0, lbl_805DB828, M2C_FIELD(arg0, f32 *, 0x9C), lbl_805DB828);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0xAC));
         TOSignCave03__sub_803DB510(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), s32 *, 4));
         begin_effect_render__13TParticleCtrlFv();
-        TObjFish__sub_803DA798(lbl_805D5A48);
+        set_global_param__8TObjFishFi(lbl_805D5A48);
         TObjBoss2Tunnel__sub_803DB470(lbl_805D5A44);
         end_effect_render__13TParticleCtrlFv();
         TObjPlayer__sub_803D9B78();

@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 begin_action_state__10TObjPlayerFPv(u8 *arg0);
-s32 TObjPlayer__sub_801C2214();
+s32 get_ptr_4__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801D8D8C(u8);
 M2C_UNK TObjPlayer__sub_802C3790(s32, s32);
 M2C_UNK setup_effect_slots__10TObjPlayerFii(s32, void *);
-M2C_UNK TObjPlayer__sub_802C4518(void *, M2C_UNK);
+M2C_UNK set_action_state__10TObjPlayerFPvUc(void *, M2C_UNK);
 s32 TObjPlayer__sub_802C45C0(void *);
 M2C_UNK TObjPlayer__sub_802C39CC(void *);
 M2C_UNK fn_802C39F8(M2C_UNK, s32, s32);
@@ -27,8 +27,8 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
     }
     temp_r30 = M2C_FIELD(arg0, u8 *, 0x3A1);
     M2C_FIELD(arg0, s8 *, 0) = 5;
-    fn_802C39F8(5, TObjPlayer__sub_801D8D8C(temp_r30), TObjPlayer__sub_801C2214());
-    TObjPlayer__sub_802C4518(arg0, 1);
+    fn_802C39F8(5, TObjPlayer__sub_801D8D8C(temp_r30), get_ptr_4__10TObjPlayerFPv());
+    set_action_state__10TObjPlayerFPvUc(arg0, 1);
     TObjPlayer__sub_802C39CC(arg0);
     setup_effect_slots__10TObjPlayerFii(M2C_FIELD(arg0, s32 *, 0x3A4), arg0 + 0x3C0);
     TObjPlayer__sub_802C3790(M2C_FIELD(arg0, s32 *, 0x3A4), TObjPlayer__sub_802C45C0(arg0));

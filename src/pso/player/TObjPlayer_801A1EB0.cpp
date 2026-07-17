@@ -10,18 +10,18 @@ u16 fn_801A2078(s32);
 u16 TLobby__sub_801A20C8(s32);
 u16 fn_801A210C(s32);
 s32 TContainerAncient01__sub_8020335C(void);
-s32 TOKeyMachine01__sub_802034A8(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
 int TObjRoomId__sub_801A1E2C(void);
 void fn_801A1FD8(void);
 
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    if ((TOKeyMachine01__sub_802034A8() == 0) || (TOKeyMachine01__sub_802034A8() == 0x12)) {
+    if ((get_global_state__14TOKeyMachine01Fv() == 0) || (get_global_state__14TOKeyMachine01Fv() == 0x12)) {
         return 0;
     }
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) < 0x1000U) {
-        temp_r3 = TOKeyMachine01__sub_802034A8();
+        temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if (((u32) (temp_r3 - 1) <= 1U) || (TContainerAncient01__sub_8020335C() != 0) || (temp_r3 == 0xC) || (temp_r3 == 0x20)) {
             return M2C_FIELD(arg0, s16 *, 0x2E);
         }

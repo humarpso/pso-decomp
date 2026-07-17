@@ -23,7 +23,7 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 u32 TBoss8Dragon__sub_8008741C(M2C_UNK, s32, s32);
 M2C_UNK TObjPlayer__sub_80087638(u32, u16);
-s32 TObjPlayer__sub_80102AA8();
+s32 get_item_ctrl__10TObjPlayerFv();
 
 extern void* __vt__21TItemEffArmorParticle[];
 extern s32 lbl_805D447C;
@@ -38,7 +38,7 @@ void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 
     disallow_rendering__7TObjectFv(arg0);
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s16 *, 0x24) = (s16) arg3;
-    M2C_FIELD(arg0, s32 *, 0x28) = TObjPlayer__sub_80102AA8();
+    M2C_FIELD(arg0, s32 *, 0x28) = get_item_ctrl__10TObjPlayerFv();
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) arg3);
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, u32 *, 0x20) = TBoss8Dragon__sub_8008741C(((V_A *) temp_r3)->m7(), arg4, 0x10);

@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_trade_field_4__6TLobbyFii(s32 arg0, s32 arg1);
-void *TLobby__sub_802D2304(s32);
+void *get_trade_obj_ptr__6TLobbyFPv(s32);
 
 void set_trade_field_4__6TLobbyFii(s32 arg0, s32 arg1) {
-    M2C_FIELD(TLobby__sub_802D2304(arg0 + 0xF8), s32 *, 4) = arg1;
+    M2C_FIELD(get_trade_obj_ptr__6TLobbyFPv(arg0 + 0xF8), s32 *, 4) = arg1;
 }
 
 }

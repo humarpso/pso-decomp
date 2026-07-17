@@ -5,11 +5,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *init_trade_action__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_8001BED8(void *, int);
+void set_flags__10TObjPlayerFPvUi(void *, int);
 void init_forward__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_8001BF40(void *);
+void clear_id__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80120D50(void *);
-void TObjPlayer__sub_8012106C(void *, int);
+void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern M2C_UNK lbl_804A535C[];
 extern M2C_UNK send_trade_action__10TObjPlayerFUiUiUiUi[];
@@ -23,13 +23,13 @@ void *init_trade_action__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A535C;
     init_forward__10TObjPlayerFPv(self->f_1F8);
-    TObjPlayer__sub_8001BED8((void *)((char *)arg0 + 376), 32);
-    TObjPlayer__sub_8012106C(arg0, 515);
+    set_flags__10TObjPlayerFPvUi((void *)((char *)arg0 + 376), 32);
+    set_status_flags__10TObjPlayerFPvUi(arg0, 515);
     M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = send_trade_action__10TObjPlayerFUiUiUiUi;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = TObjPlayer__sub_8012C384;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = create_shot_effect__10TObjPlayerFiiif;
     M2C_FIELD(arg0, f32 *, 0x1E4) = lbl_805DAEF0;
-    TObjPlayer__sub_8001BF40(self->f_1F8);
+    clear_id__10TObjPlayerFPv(self->f_1F8);
     return arg0;
 }
 

@@ -9,11 +9,11 @@ extern "C" {
 void render__14TObjDFUsoTowerFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK TObjPlayer__sub_80052374();
+M2C_UNK sync_player_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80052390();
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK fn_803DC86C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern const f32 lbl_805D8A30;
@@ -30,11 +30,11 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
         }
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
         TObjPlayer__sub_803D9B78();
         if (M2C_FIELD(arg0, f32 *, 0x94) < lbl_805D8A34) {
-            TObjPlayer__sub_80052374();
+            sync_player_globals__10TObjPlayerFv();
         }
     }
 }

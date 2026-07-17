@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TLobby__sub_803CB538(s32 *arg0);
 M2C_UNK memset(void *, int, int);
 
 void TLobby__sub_803CB538(s32 *arg0) {

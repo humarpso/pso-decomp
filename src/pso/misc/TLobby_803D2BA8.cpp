@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803D2BA8(u8 *arg0, s32 arg1);
+s32 get_slot_count__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void TLobby__sub_803D2C04(u8 *arg0);
 void TLobby__sub_803D2C20(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803D2C2C(u8 *arg0);
@@ -15,7 +15,7 @@ M2C_UNK TLobby__sub_803D1FD4();
 M2C_UNK lock_enter__6TLobbyFv();
 M2C_UNK memset(void *, int, int);
 
-s32 TLobby__sub_803D2BA8(u8 *arg0, s32 arg1) {
+s32 get_slot_count__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     M2C_UNK (*temp_r12)(s32, M2C_UNK);
 
     if (arg1 == 1) {

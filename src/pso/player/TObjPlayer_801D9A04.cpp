@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TObjPlayer__sub_801D9A04(s16 arg0);
-u8 TObjPlayer__sub_801D9A28(u8 arg0);
+u8 is_valid_technique_id__10TObjPlayerFs(s16 arg0);
+u8 is_valid_technique_slot__10TObjPlayerFUc(u8 arg0);
 s32 check_technique_level__10TObjPlayerFiiUc(s32 arg0, s32 arg1, u8 arg2);
 u8 TObjPlayer__sub_801C010C(s32, s32);
-s32 TObjPlayer__sub_801D9988(u8);
+s32 is_invalid_slot__10TObjPlayerFUc(u8);
 u8 TObjPlayer__sub_801D9BE8(s32, s32);
 
-u8 TObjPlayer__sub_801D9A04(s16 arg0) {
+u8 is_valid_technique_id__10TObjPlayerFs(s16 arg0) {
     s32 var_r4;
 
     var_r4 = 0;
@@ -23,12 +23,12 @@ u8 TObjPlayer__sub_801D9A04(s16 arg0) {
     return (u8)var_r4;
 }
 
-u8 TObjPlayer__sub_801D9A28(u8 arg0) {
+u8 is_valid_technique_slot__10TObjPlayerFUc(u8 arg0) {
     return (u8) (arg0 <= 0xFU);
 }
 
 s32 check_technique_level__10TObjPlayerFiiUc(s32 arg0, s32 arg1, u8 arg2) {
-    if (TObjPlayer__sub_801D9988(arg2) != 0) {
+    if (is_invalid_slot__10TObjPlayerFUc(arg2) != 0) {
         return 1;
     }
     if (arg2 > TObjPlayer__sub_801C010C(arg0, arg1)) {

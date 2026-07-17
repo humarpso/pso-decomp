@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK TKeyBoardControl__sub_8000F950();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006B368();
-M2C_UNK TLobby__sub_801A3B84();
+M2C_UNK clear_counter__6TLobbyFv();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TLobby__sub_8022727C(M2C_UNK *);
 s32 TLobby__sub_80291F9C();
@@ -36,7 +36,7 @@ void giveup_window_handle_select(void *arg0) {
         close_window_field30__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
         if (TCameraCtrl__sub_8006B368() == 1) {
-            TLobby__sub_801A3B84();
+            clear_counter__6TLobbyFv();
             evt2_random_enemies_mode = 0;
             TKeyBoardControl__sub_8000F950();
         }

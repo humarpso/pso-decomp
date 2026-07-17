@@ -9,7 +9,7 @@ extern "C" {
 void update_feed_anim__8TItemMagFPv(void *arg0);
 void do_action_by_class__8TItemMagFi(s32 arg0);
 s32 get_max_stat_flags__8TItemMagFi();
-u8 TObjPlayer__sub_8001972C(s32);
+u8 get_field_ed__10TObjPlayerFPv(s32);
 s32 TItemMag__sub_80105348(void *, M2C_UNK);
 M2C_UNK try_add_action__8TItemMagFii(void *, M2C_UNK);
 s16 fn_80113DA0(void *);
@@ -199,7 +199,7 @@ void do_action_by_class__8TItemMagFi(s32 arg0) {
     u8 temp_r3;
 
     temp_r31 = get_max_stat_flags__8TItemMagFi();
-    temp_r3 = TObjPlayer__sub_8001972C(arg0);
+    temp_r3 = get_field_ed__10TObjPlayerFPv(arg0);
     switch ((s32) temp_r3) {
     case 1:
         if (temp_r31 & 0x108) {

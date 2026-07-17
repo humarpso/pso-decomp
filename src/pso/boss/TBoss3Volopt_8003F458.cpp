@@ -8,7 +8,7 @@ extern "C" {
 
 u8 fn_8003F3F8(void *arg0);
 u8 TBoss3Volopt__sub_8003F458(void *arg0);
-int TCameraCtrl__sub_8003F3EC(void* p);
+int is_photon_blast_active__11TCameraCtrlFPv(void* p);
 
 u8 TBoss3Volopt__sub_8003F458(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s16 *, 0x326) == 0);

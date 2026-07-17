@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOBoss4Rock__sub_8039C880(void);
+s32 rand__11TOBoss4RockFv(void);
 
 extern u32 lbl_805D45F0;
 
-s32 TOBoss4Rock__sub_8039C880(void) {
+s32 rand__11TOBoss4RockFv(void) {
     u32 temp_r0;
 
     temp_r0 = (lbl_805D45F0 * 0x41C64E6D) + 0x3039;

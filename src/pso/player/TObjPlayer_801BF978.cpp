@@ -10,8 +10,8 @@ void init_tag__10TObjPlayerFPv(s32 *arg0);
 void reset_counter_field4__10TObjPlayerFPv(void *arg0);
 void set_vec3_const__10TObjPlayerFPv(void* a0);
 void TObjPlayer__sub_801BF9E0(void* p, s16 v);
-void TObjPlayer__sub_801BF9E8(void* p, f32 v);
-M2C_UNK TObjPlayer__sub_8001BF40();
+void set_pos_z__10TObjPlayerFPvf(void* p, f32 v);
+M2C_UNK clear_id__10TObjPlayerFPv();
 void init__6gc_tagFv(void *);
 
 void init_tag__10TObjPlayerFPv(s32 *arg0) {
@@ -21,13 +21,13 @@ void init_tag__10TObjPlayerFPv(s32 *arg0) {
 
 void reset_counter_field4__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
-    TObjPlayer__sub_8001BF40();
+    clear_id__10TObjPlayerFPv();
 }
 
     extern const float TObjPlayer__data_805DC294;
 void set_vec3_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x0) = TObjPlayer__data_805DC294; *(float*)((char*)a0 + 0x4) = TObjPlayer__data_805DC294; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC294; }
 
 void TObjPlayer__sub_801BF9E0(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
-void TObjPlayer__sub_801BF9E8(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
+void set_pos_z__10TObjPlayerFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
 
 }

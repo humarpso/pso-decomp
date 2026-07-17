@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TBoss4DarkFalz__sub_8004C1B4(void);
-s32 TBoss4DarkFalz__sub_8004C1BC(void);
+s32 get_instance__14TBoss4DarkFalzFv(void);
 
 extern s32 TBoss4DarkFalz__data_805D4D60;
 
@@ -17,7 +17,7 @@ s32 TBoss4DarkFalz__sub_8004C1B4(void) {
 
 extern s32 TBoss4DarkFalz__data_805D4D5C;
 
-s32 TBoss4DarkFalz__sub_8004C1BC(void) {
+s32 get_instance__14TBoss4DarkFalzFv(void) {
     return TBoss4DarkFalz__data_805D4D5C;
 }
 

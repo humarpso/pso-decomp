@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_photon_chair__11TMainCursorFi(s32 arg0);
-M2C_UNK TMainCursor__sub_8013E2D4();
+M2C_UNK get_cursor_state__11TMainCursorFv();
 f32 TMainCursor__sub_8013F178(s32);
 M2C_UNK fn_801424DC(s32, f32, f32, f32, f32);
 M2C_UNK TObjFish__sub_803E46BC();
@@ -22,7 +22,7 @@ void update_photon_chair__11TMainCursorFi(s32 arg0) {
     if (TMainCursor__sub_8013F178(arg0 + 0x4C) > lbl_805DB0C8) {
         update_parts2__15TPlyPhotonChairFPv(arg0 + 0x4C);
         fn_801424DC(arg0 + 0x4C, TMainCursor__data_805DB0CC, TMainCursor__data_805DB0C0, TMainCursor__data_805DB0C0, TMainCursor__data_805DB0C0);
-        TMainCursor__sub_8013E2D4();
+        get_cursor_state__11TMainCursorFv();
         TObjFish__sub_803E46BC();
         update_parts__15TPlyPhotonChairFPv(arg0 + 0x4C);
     }

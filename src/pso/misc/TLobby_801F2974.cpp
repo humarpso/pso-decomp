@@ -8,7 +8,7 @@ struct Ent_A { s32 a; M2C_UNK (*fn)(s32, s32); };
 extern "C" {
 
 void dispatch_command__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_801F2D2C(struct Ent_A *);
+s32 read_packet_byte__6TLobbyFv(struct Ent_A *);
 
 s32 read_be_u16();
 extern struct Ent_A lbl_804C69D8[];
@@ -21,7 +21,7 @@ void dispatch_command__6TLobbyFi(s32 arg0) {
     e = (struct Ent_A *) (u8 *) lbl_804C69D8;
     e = (struct Ent_A *) ((u8 *) e + (arg0 * 8));
     temp_r31 = e->fn;
-    temp_r30 = TLobby__sub_801F2D2C(e);
+    temp_r30 = read_packet_byte__6TLobbyFv(e);
     temp_r31(temp_r30, read_be_u16());
 }
 

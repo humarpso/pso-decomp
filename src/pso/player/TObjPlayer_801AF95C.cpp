@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1);
-s32 TObjPlayer__sub_801AF288();
+s32 get_max_level__10TObjPlayerFv();
 M2C_UNK check_stat_flag_41c__10TObjPlayerFPv(s32);
 M2C_UNK check_flag_at_41c__10TObjPlayerFPv(s32);
 M2C_UNK set_flag_41c_bit1__10TObjPlayerFPv(s32);
 M2C_UNK clamp_stat_41c__10TObjPlayerFPv(s32);
-void *TQuestListVM__sub_8007EAF8();
+void *get_quest_id__12TQuestListVMFPv();
 M2C_UNK TObjPlayer__sub_801AFDB0(s32);
 s32 get_current_state_field__10TObjPlayerFv(s32, s32);
 void *TObjPlayer__sub_801D9390();
@@ -41,7 +41,7 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     void *temp_r28;
     void *temp_r31;
 
-    temp_r31 = TQuestListVM__sub_8007EAF8();
+    temp_r31 = get_quest_id__12TQuestListVMFPv();
     TObjPlayer__sub_801AFDB0(arg0);
     temp_r28 = TObjPlayer__sub_801D9390();
     temp_r4 = M2C_FIELD(temp_r31, s16 *, 0);
@@ -144,7 +144,7 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     M2C_FIELD(arg1, f32 *, 0x10) = (f32) M2C_FIELD(temp_r31, f32 *, 0x10);
     M2C_FIELD(arg1, f32 *, 0x14) = (f32) M2C_FIELD(temp_r31, f32 *, 0x14);
     temp_r28_2 = M2C_FIELD(temp_r31, s32 *, 0x18);
-    temp_r27 = TObjPlayer__sub_801AF288();
+    temp_r27 = get_max_level__10TObjPlayerFv();
     if (temp_r28_2 < 0) {
         M2C_FIELD(arg1, s32 *, 0x18) = 0;
         set_flag_41c_bit1__10TObjPlayerFPv(arg0);

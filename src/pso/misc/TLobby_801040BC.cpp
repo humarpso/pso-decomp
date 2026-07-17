@@ -9,7 +9,7 @@ extern "C" {
 void alloc_objects__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80103F68();
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-M2C_UNK TObjPlayer__sub_8001BF40(M2C_UNK *);
+M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
 s32 TCheckRoomSequence__sub_80396920(M2C_UNK, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern M2C_UNK drop_stacked_item_passthrough__6TLobbyFi[];
@@ -28,7 +28,7 @@ void alloc_objects__6TLobbyFv(void) {
     lbl_805D5424 = alloc_buffer__11TOBoss4RockFPv(0x40);
     lbl_805D5428 = 0;
     lbl_805D542C = alloc_buffer__11TOBoss4RockFPv(0x24);
-    TObjPlayer__sub_8001BF40(&lbl_805D5430);
+    clear_id__10TObjPlayerFPv(&lbl_805D5430);
     TLobby__sub_80103F68();
 }
 

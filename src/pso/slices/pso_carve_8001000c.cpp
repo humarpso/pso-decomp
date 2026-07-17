@@ -13,7 +13,7 @@ int has_flag_0x800__10TObjPlayerFPv(void* p);
 int test_flag30_512__10TObjPlayerFPv(void* p);
 int test_flag_256__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_8000FF4C(void* p, s16 v);
-u16 TObjPlayer__sub_8000FF54(void* p);
+u16 get_field_2d4__10TObjPlayerFPv(void* p);
 int obj_testFlags30(void*, int);
 
 int TObjPlayer__sub_8001000C(void) { return 0; }

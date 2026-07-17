@@ -80,7 +80,7 @@ extern "C" {
 void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1);
 void handle_state__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
-M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 
@@ -93,7 +93,7 @@ void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x40C) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         ((VObj_8031F6C0 *)arg0)->m93(temp_r4);
-        TObjEneDD__sub_800BBA04((void *)(arg0), (int)(0));
+        set_field_378__9TObjEneDDFPvi((void *)(arg0), (int)(0));
         return;
     case 3:
         TObjEneDD__sub_800BBA18((void *)(arg0), (int)(1));
@@ -112,7 +112,7 @@ void handle_state__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x40C) = temp_r4;
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         ((V_En_8031f748 *) arg0)->m93();
-        TObjEneDD__sub_800BBA04((void *)(arg0), (int)(0));
+        set_field_378__9TObjEneDDFPvi((void *)(arg0), (int)(0));
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3C0);
         return;
     case 3:

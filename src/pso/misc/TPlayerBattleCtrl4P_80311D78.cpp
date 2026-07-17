@@ -4,10 +4,10 @@ extern "C" {
 
 void TPlayerBattleCtrl4P__vt21(void* p);
 int TPlayerBattleCtrl4P__sub_803101D4(void*);
-int TPlayerBattleCtrl4P__sub_803112A4(void*, void*);
+int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 int TPlayerBattleCtrl4P__sub_8031012C(void*);
 int update_players__19TPlayerBattleCtrl4PFv(void*);
 
-void TPlayerBattleCtrl4P__vt21(void* p) { if (TPlayerBattleCtrl4P__sub_8031012C(p) != 0) { TPlayerBattleCtrl4P__sub_803101D4(p); update_players__19TPlayerBattleCtrl4PFv(p); TPlayerBattleCtrl4P__sub_803112A4(p, (void*)5); } }
+void TPlayerBattleCtrl4P__vt21(void* p) { if (TPlayerBattleCtrl4P__sub_8031012C(p) != 0) { TPlayerBattleCtrl4P__sub_803101D4(p); update_players__19TPlayerBattleCtrl4PFv(p); set_score__19TPlayerBattleCtrl4PFPvi(p, (void*)5); } }
 
 }

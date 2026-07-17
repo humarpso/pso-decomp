@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803C9C84(s32 arg0);
+void set_rate_mode__6TLobbyFi(s32 arg0);
 
 extern s32 lbl_805D7560;
 extern s32 lbl_805D7570;
 
-void TLobby__sub_803C9C84(s32 arg0) {
+void set_rate_mode__6TLobbyFi(s32 arg0) {
     if (arg0 == 1) {
         lbl_805D7570 = 0x176A;
     } else if (arg0 == 2) {

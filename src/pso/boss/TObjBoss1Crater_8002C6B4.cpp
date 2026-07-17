@@ -8,7 +8,7 @@ void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1);
 void *TObjBoss1Crater__ct(void *, void *, void *, void *);
 int is_count_below_limit__15TObjBoss1CraterFv(void *, void *);
 void *__nw__7TObjectFUl(int);
-void *TBoss1Dragon__sub_8002AA74(void);
+void *get_instance__12TBoss1DragonFv(void);
 
 void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
     void *x1;
@@ -16,7 +16,7 @@ void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
     if (is_count_below_limit__15TObjBoss1CraterFv(arg0, arg1) == 0) {
         return NULL;
     }
-    x1 = TBoss1Dragon__sub_8002AA74();
+    x1 = get_instance__12TBoss1DragonFv();
     if (x1 == NULL) {
         return NULL;
     }

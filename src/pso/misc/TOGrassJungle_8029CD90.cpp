@@ -13,7 +13,7 @@ M2C_UNK TObjFish__sub_8001EDC4(s32, s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 TOGrassJungle__data_805D65D8;
 extern s32 TOGrassJungle__data_805D65DC;
@@ -35,7 +35,7 @@ struct VObj : Base {
 
 void render__13TOGrassJungleFv(u8 *arg0) {
     if (((VObj *)arg0)->m8(lbl_805DDD30, lbl_805DDD34) == 1) {
-        TObjFish__sub_803DA798(TOGrassJungle__data_805D65DC);
+        set_global_param__8TObjFishFi(TOGrassJungle__data_805D65DC);
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

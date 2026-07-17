@@ -8,7 +8,7 @@ extern "C" {
 
 s32 tick_com_card__12TQuestThreadFPv(void *arg0);
 s32 update_board_card__12TQuestThreadFPv(void *arg0);
-s32 TWindowSubComCard__sub_8007341C(void *);
+s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 
 s32 tick_com_card__12TQuestThreadFPv(void *arg0) {
@@ -22,7 +22,7 @@ s32 tick_com_card__12TQuestThreadFPv(void *arg0) {
 s32 update_board_card__12TQuestThreadFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x60);
     if (temp_r3 != NULL) {
-        return TWindowSubComCard__sub_8007341C(temp_r3);
+        return is_visible__17TWindowSubComCardFPv(temp_r3);
     }
     return 0;
 }

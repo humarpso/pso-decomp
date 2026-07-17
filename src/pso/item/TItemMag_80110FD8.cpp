@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1);
-s32 TOBoss4Rock__sub_8039C880();
+s32 rand__11TOBoss4RockFv();
 
 extern M2C_UNK TItemMag__data_8043E558;
 extern const f32 lbl_805DAB9C;
@@ -63,7 +63,7 @@ s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1) {
             }
             break;
         }
-        if ((u8) (s32) (lbl_805DABAC * (lbl_805DAB9C * (f32) TOBoss4Rock__sub_8039C880())) < var_r31) {
+        if ((u8) (s32) (lbl_805DABAC * (lbl_805DAB9C * (f32) rand__11TOBoss4RockFv())) < var_r31) {
             return 1;
         }
         goto block_29;

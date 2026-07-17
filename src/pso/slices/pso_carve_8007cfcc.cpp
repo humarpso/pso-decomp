@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdPlayerLoadGC__sub_80076BBC();
+s32 get_instance__15TAdPlayerLoadGCFv();
 s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E0FA4(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E1530(M2C_UNK);
+s32 get_load_result__15TAdPlayerLoadGCFv(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
@@ -20,7 +20,7 @@ extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     s32 temp_r3;
 
-    if (TAdPlayerLoadGC__sub_80076BBC() != 0) {
+    if (get_instance__15TAdPlayerLoadGCFv() != 0) {
         return 0;
     }
     if (TAdPlayerLoadGC__sub_801E1E38(1) == 0) {
@@ -31,11 +31,11 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     }
     if (TAdPlayerLoadGC__sub_801E0D8C(1) == 0) {
         if (arg1 != NULL) {
-            if ((u32)(TAdPlayerLoadGC__sub_801E1530(1) + 0x10000) == 0xff83U) {
+            if ((u32)(get_load_result__15TAdPlayerLoadGCFv(1) + 0x10000) == 0xff83U) {
                 if (arg1 != NULL) {
                     *arg1 = -6;
                 }
-            } else if ((u32)(TAdPlayerLoadGC__sub_801E1530(1) + 0x10000) == 0xff21U) {
+            } else if ((u32)(get_load_result__15TAdPlayerLoadGCFv(1) + 0x10000) == 0xff21U) {
                 if (arg1 != NULL) {
                     *arg1 = -8;
                 }

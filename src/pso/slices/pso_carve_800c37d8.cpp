@@ -55,7 +55,7 @@ extern "C" {
 
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK fn_800B98C0(void *);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 check_hit_flag__16TObjEneRe2FlowerFPv();
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
@@ -69,7 +69,7 @@ void handle_flower_state_change(void *arg0, s32 arg1) {
         ((V_A *) arg0)->m94();
         clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
-        TObjEneDD__sub_800BBA04(arg0, 2);
+        set_field_378__9TObjEneDDFPvi(arg0, 2);
         fn_800B98C0(arg0);
         return;
     case 3:

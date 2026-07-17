@@ -9,7 +9,7 @@ extern "C" {
 void update_action_animation__10TObjPlayerFPv(u8 *arg0);
 s32 TFontSmallLobby__sub_801AFEE0();
 s16 get_action_animation__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801BF9E8(void *, f32);
+M2C_UNK set_pos_z__10TObjPlayerFPvf(void *, f32);
 s32 TPlyPhotonChair__sub_801BEC44(void *);
 s32 TObjPlayer__sub_8001BEF8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
@@ -37,7 +37,7 @@ void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
             } else {
                 TObjPlayer__sub_801CA35C(arg0);
             }
-            TObjPlayer__sub_801BF9E8(arg0 + 0x5FC, TObjPlayer__data_805DC294);
+            set_pos_z__10TObjPlayerFPvf(arg0 + 0x5FC, TObjPlayer__data_805DC294);
             revive_or_spawn_marker__10TObjPlayerFi(arg0);
             return;
         }

@@ -47,9 +47,9 @@ M2C_UNK TObjEneBm5GibonU__sub_800D086C(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D08E4(void *);
 M2C_UNK TObjEneBm5GibonU__sub_800D0FDC(void *, s32);
 M2C_UNK TObjEneBm5GibonU__sub_800D17E8(s32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8();
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
@@ -64,13 +64,13 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VObj_CE *)arg0)->m95();
-        TObjEneDD__sub_800BBA04(arg0, 8);
+        set_field_378__9TObjEneDDFPvi(arg0, 8);
         M2C_FIELD(arg0, s16 *, 0xB8) = 9;
         M2C_FIELD(arg0, s32 *, 0x518) = 0;
         TObjEneBm5GibonU__sub_800D17E8(M2C_FIELD(arg0, s32 *, 0x46C));
         return;
     case 3:
-        if (TObjEneMe3ShinowaReal__sub_8002ADD8() != 0) {
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
             TObjEneDD__sub_800BBA18(arg0, 8);
         }
     case 5:

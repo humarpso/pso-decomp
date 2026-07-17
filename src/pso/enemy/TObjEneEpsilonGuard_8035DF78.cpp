@@ -7,16 +7,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
-s32 TCameraCtrl__sub_8006B360(void *);
+s32 get_mode__11TCameraCtrlFPv(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjPlayer__sub_803E4BC4();
-M2C_UNK TObjPlayer__sub_803E4BD0();
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
 
 extern M2C_UNK main_task[];
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
@@ -25,16 +25,16 @@ extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     f32 temp_f1;
 
-    if ((M2C_FIELD(arg0, s32 *, 0x46C) & 0x20) && (TCameraCtrl__sub_8006B360((void *) (main_task)) & 0x200)) {
-        TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+    if ((M2C_FIELD(arg0, s32 *, 0x46C) & 0x20) && (get_mode__11TCameraCtrlFPv((void *) (main_task)) & 0x200)) {
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         TObjPlayer__sub_803D9624((int) (0), (f32) (TObjEneEpsilonGuard__data_805E01D8), (f32) (TObjEneEpsilonGuard__data_805E01DC), (f32) (TObjEneEpsilonGuard__data_805E01D8));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x458);
         TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
-        TObjPlayer__sub_803E4BC4();
+        set_global_flag__10TObjPlayerFv();
         TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x444)), (int) (M2C_FIELD(arg0, s32 *, 0x448)), (f32) (M2C_FIELD(arg0, f32 *, 0x454)));
-        TObjPlayer__sub_803E4BD0();
+        clear_global_state__10TObjPlayerFv();
         TObjPlayer__sub_803D9B78();
     }
 }

@@ -9,7 +9,7 @@ extern "C" {
 s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void);
 s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E0D8C(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E1530(M2C_UNK);
+s32 get_load_result__15TAdPlayerLoadGCFv(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
@@ -45,7 +45,7 @@ s32 poll_load_status__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         return 1;
     }
     if (TAdPlayerLoadGC__sub_801E0D8C(0) == 0) {
-        temp_r3 = TAdPlayerLoadGC__sub_801E1530(0);
+        temp_r3 = get_load_result__15TAdPlayerLoadGCFv(0);
         switch (temp_r3) {
         case -125:
             return 4;

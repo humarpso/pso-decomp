@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TBoss8Dragon__sub_802FBBA0(void* p);
-void TBoss8Dragon__sub_802FBBB4(void* p);
-void TBoss8Dragon__sub_802FBBE8(void* p);
+void save_position__12TBoss8DragonFPv(void* p);
+void restore_target_pos__12TBoss8DragonFPv(void* p);
+void sync_target_pos__12TBoss8DragonFPv(void* p);
 
-void TBoss8Dragon__sub_802FBBE8(void* p) { *(f32*)((char*)p + 0x394) = *(f32*)((char*)p + 0x690); *(f32*)((char*)p + 0x39c) = *(f32*)((char*)p + 0x694); }
+void sync_target_pos__12TBoss8DragonFPv(void* p) { *(f32*)((char*)p + 0x394) = *(f32*)((char*)p + 0x690); *(f32*)((char*)p + 0x39c) = *(f32*)((char*)p + 0x694); }
 
 }

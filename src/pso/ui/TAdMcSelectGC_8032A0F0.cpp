@@ -5,7 +5,7 @@ extern "C" {
 void open__13TAdMcSelectGCFv(void);
 void close__13TAdMcSelectGCFv(void);
 void TAdMcSelectGC__sub_8032A140(void* p);
-int TAdMcSelectGC__sub_8032A14C(void);
+int get_mc_count__13TAdMcSelectGCFv(void);
 int TAdMcSelectCursorGC__sub_8032A668(void);
 int init_resource__19TAdMcSelectCursorGCFv(void);
 int TAdMcSelectMcGC__sub_8032AA54(void);
@@ -18,6 +18,6 @@ void close__13TAdMcSelectGCFv(void) { init_resource__19TAdMcSelectCursorGCFv(); 
 void TAdMcSelectGC__sub_8032A140(void* p) { *(s32*)((char*)p + 0x1c) = 0; }
 
     extern int lbl_805D6C94;
-int TAdMcSelectGC__sub_8032A14C(void) {  return lbl_805D6C94; }
+int get_mc_count__13TAdMcSelectGCFv(void) {  return lbl_805D6C94; }
 
 }

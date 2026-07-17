@@ -40,12 +40,12 @@ s32 TItemObject__vt36(void *arg0, s32 arg1);
 M2C_UNK set_flag_1024__11TItemObjectFPv(void *);
 s32 copy_and_register_item_data__11TItemObjectFPv(void *);
 M2C_UNK TItemObject__sub_80115D6C(void *, s32);
-M2C_UNK TObjPlayer__sub_80099EF8(void *);
+M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
 s32 check_flag_400__20TWindowSubStatusDispFv();
 M2C_UNK notify_owner__5TItemFPvi(void *, M2C_UNK);
 M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
 M2C_UNK TItem__sub_80100824();
-s32 TObjPlayer__sub_80116578(void *);
+s32 get_item_flags__10TObjPlayerFPv(void *);
 
 struct Base_801161A4 { char pad[0x18]; };
 struct VObj_801161A4 : Base_801161A4 {
@@ -95,8 +95,8 @@ void TItemObject__vt29(void *arg0) {
             apply_switch_attack__5TItemFPvi(arg0, 0x1AF);
             notify_owner__5TItemFPvi(arg0, 0x5B211);
         }
-        if (TObjPlayer__sub_80116578(arg0) & 0x10) {
-            TObjPlayer__sub_80099EF8(arg0);
+        if (get_item_flags__10TObjPlayerFPv(arg0) & 0x10) {
+            get_field_d8__10TObjPlayerFPv(arg0);
             TItem__sub_80100824();
         }
     }

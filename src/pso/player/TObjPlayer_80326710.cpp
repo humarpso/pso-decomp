@@ -9,7 +9,7 @@ extern "C" {
 void sync_hp_from_target__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80326794(void* p);
 void spawn_armor_effects__10TObjPlayerFPv(void *arg0);
-s32 TItemProArmor__sub_80102C3C(void *);
+s32 get_id__13TItemProArmorFPv(void *);
 s32 TObjPlayer__sub_800112A4(s32, s16);
 M2C_UNK TObjPlayer__sub_80126414(s32, u32, s32, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80127F40(s32, u32, s32, M2C_UNK, f32);
@@ -52,15 +52,15 @@ void spawn_armor_effects__10TObjPlayerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
         temp_r3 = alloc__13TItemProArmorFi(0x30);
         if (temp_r3 != 0) {
-            TObjPlayer__sub_80126414(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x2328, lbl_805DF658);
+            TObjPlayer__sub_80126414(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
         }
         temp_r3_2 = alloc__13TItemProArmorFi(0x30);
         if (temp_r3_2 != 0) {
-            TObjPlayer__sub_80127F40(temp_r3_2, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x2328, lbl_805DF658);
+            TObjPlayer__sub_80127F40(temp_r3_2, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
         }
         temp_r3_3 = alloc__13TItemProArmorFi(0x30);
         if (temp_r3_3 != 0) {
-            TObjPlayer__sub_8032697C(temp_r3_3, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x2328, lbl_805DF658);
+            TObjPlayer__sub_8032697C(temp_r3_3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
         }
     }
 }

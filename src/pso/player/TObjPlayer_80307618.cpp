@@ -9,10 +9,10 @@ extern "C" {
 void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0);
 void update_invincible_blink__10TObjPlayerFPv(void *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
-u8 TItemProShield__sub_8010B734();
+u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK TObjPlayer__sub_80120908();
 M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
-M2C_UNK TObjPlayer__sub_8012106C(void *, M2C_UNK);
+M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 
 void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r31;
@@ -28,10 +28,10 @@ extern f32 lbl_805DF0A8;
 
 void update_invincible_blink__10TObjPlayerFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) > 0) {
-        if (TItemProShield__sub_8010B734() == 1) {
+        if (get_slot_count__14TItemProShieldFPv() == 1) {
             M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) - 1);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) == 0) {
-                TObjPlayer__sub_8012106C(arg0, 0x800);
+                set_status_flags__10TObjPlayerFPvUi(arg0, 0x800);
             }
         }
     } else {

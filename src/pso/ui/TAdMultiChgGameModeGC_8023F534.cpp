@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_mode_1c__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK TAdMultiChgGameModeGC__sub_8023F654();
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
 
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
 void set_mode_1c__21TAdMultiChgGameModeGCFv(void) {
-    TAdMultiChgGameModeGC__sub_8023F654();
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
     lbl_805D3848 = 0x1C;
     lbl_805D63C8 = 1;
 }

@@ -7,19 +7,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void reset_ring_state__9TItemLoadFPv(u8 *arg0);
-M2C_UNK TAdRicoRing__sub_8001BEE8(void *, int);
+M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 s32 TObjPlayer__sub_8001BEF8(void *, int);
-M2C_UNK TObjPlayer__sub_8001BF40(void *);
+M2C_UNK clear_id__10TObjPlayerFPv(void *);
 
 extern s32 lbl_805D5498;
 
 void reset_ring_state__9TItemLoadFPv(u8 *arg0) {
     if (TObjPlayer__sub_8001BEF8(arg0 + 0x1C, 4) != 0) {
         lbl_805D5498 = 0;
-        TAdRicoRing__sub_8001BEE8(arg0 + 0x1C, 4);
+        clear_flags__11TAdRicoRingFPvUi(arg0 + 0x1C, 4);
     }
     M2C_FIELD(arg0, s32 *, 0x18) = 0;
-    TObjPlayer__sub_8001BF40(arg0 + 0x1C);
+    clear_id__10TObjPlayerFPv(arg0 + 0x1C);
 }
 
 }

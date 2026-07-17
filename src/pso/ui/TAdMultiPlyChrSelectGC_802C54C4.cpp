@@ -10,12 +10,12 @@ void update__22TAdMultiPlyChrSelectGCFi(s32 arg0);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C50EC(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C522C(s32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5314(s32);
-s32 TMainTask__sub_8001A430();
+s32 get_state_flag__9TMainTaskFv();
 
 extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
 
 void update__22TAdMultiPlyChrSelectGCFi(s32 arg0) {
-    if (TMainTask__sub_8001A430() != 1) {
+    if (get_state_flag__9TMainTaskFv() != 1) {
         TAdMultiPlyChrSelectGC__sub_802C5314(arg0);
         switch ((s32) TAdMultiPlyChrSelectGC__data_805D67DC) {
         case 0:

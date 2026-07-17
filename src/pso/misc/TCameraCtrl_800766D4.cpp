@@ -9,7 +9,7 @@ extern "C" {
 s32 should_update__11TCameraCtrlFv(void);
 s32 TCameraCtrl__sub_8006B368();
 s32 check_player_state_flag_2__6TLobbyFPv();
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 is_split_screen();
 
@@ -28,7 +28,7 @@ s32 should_update__11TCameraCtrlFv(void) {
         goto block_6;
     }
 block_6:
-    temp_r3 = TOKeyMachine01__sub_802034A8();
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
     if (temp_r3 < 0xF) {
         if (temp_r3 == 0) {
             goto block_10;

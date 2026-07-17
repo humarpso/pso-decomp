@@ -15,8 +15,8 @@ extern "C" {
 void render__11TObjDoorKeyFv(void *arg0);
 M2C_UNK TObjDoorKey__sub_8018FBB8(void *);
 M2C_UNK TObjDoorKey__sub_8018FCD8(void *);
-M2C_UNK TParticleCtrl__sub_80088000(void *);
-M2C_UNK TParticleCtrl__sub_80088010(void *);
+M2C_UNK clear_active_flag__13TParticleCtrlFPv(void *);
+M2C_UNK enable__13TParticleCtrlFPv(void *);
 
 extern const f32 lbl_805DBE00;
 extern const f32 lbl_805DBE04;
@@ -26,11 +26,11 @@ void render__11TObjDoorKeyFv(void *arg0) {
 
     if (((TObjDoorKeyVObj*)arg0)->m8(lbl_805DBE00, lbl_805DBE04) == 0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) != 0U) {
-            TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0xF8));
+            enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xF8));
         }
     } else {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) != 0U) {
-            TParticleCtrl__sub_80088000(M2C_FIELD(arg0, void **, 0xF8));
+            clear_active_flag__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xF8));
         }
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
         switch (temp_r0) {

@@ -12,7 +12,7 @@ s32 create__17TWindowSubComCardFv(void);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 TWindowSubComCard__sub_8007A860(s32);
-s32 TWindowSubComCard__sub_8007B798();
+s32 get_keyboard_mode__17TWindowSubComCardFv();
 M2C_UNK set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(s32);
 M2C_UNK set_sub_position__15TWindowMakeTeamFPvPv(s32, s32);
 M2C_UNK get_keyboard_field_6c__15TWindowMakeTeamFPv(s32, s32);
@@ -44,7 +44,7 @@ s32 create_keyboard__17TWindowSubComCardFi(s32 arg0) {
     s32 temp_r31;
     s32 var_r30;
 
-    var_r30 = TWindowSubComCard__sub_8007B798();
+    var_r30 = get_keyboard_mode__17TWindowSubComCardFv();
     temp_r31 = __nw__7TObjectFUl(0x2C);
     if (temp_r31 != 0) {
         temp_r31 = TKeyBoardControl__ct(temp_r31, arg0, 0xC6, 3, 4, lbl_805D53A0);

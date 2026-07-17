@@ -20,8 +20,8 @@ M2C_UNK TLobby__sub_803D4540();
 M2C_UNK TLobby__sub_803D4654();
 M2C_UNK TLobby__sub_803D4704();
 M2C_UNK TLobby__sub_803D4714();
-M2C_UNK TLobby__sub_803D4B68();
-M2C_UNK TLobby__sub_803D4C04();
+M2C_UNK get_packet_size__6TLobbyFPv();
+M2C_UNK get_available_size__6TLobbyFPv();
 M2C_UNK TLobby__sub_803D4CA0();
 M2C_UNK TLobby__sub_803D504C();
 
@@ -46,11 +46,11 @@ void TLobby__sub_803CBFD0(void) {
 }
 
 void TLobby__sub_803CBFF0(void) {
-    TLobby__sub_803D4B68();
+    get_packet_size__6TLobbyFPv();
 }
 
 void TLobby__sub_803CC010(void) {
-    TLobby__sub_803D4C04();
+    get_available_size__6TLobbyFPv();
 }
 
 void TLobby__sub_803CC030(void) {

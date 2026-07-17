@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TGStream__sub_800FDD68(void);
+int get_instance__8TGStreamFv(void);
 
     extern int lbl_805D53E0;
-int TGStream__sub_800FDD68(void) {  return lbl_805D53E0; }
+int get_instance__8TGStreamFv(void) {  return lbl_805D53E0; }
 
 }

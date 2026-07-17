@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TBoss6PlotFalz__sub_802AC18C(void);
+int get_phase__14TBoss6PlotFalzFv(void);
 
     extern int lbl_805D66F8;
-int TBoss6PlotFalz__sub_802AC18C(void) {  return lbl_805D66F8; }
+int get_phase__14TBoss6PlotFalzFv(void) {  return lbl_805D66F8; }
 
 }

@@ -18,7 +18,7 @@ M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 
 extern s32 TObjEneRe4Sorcerer__data_805D52F4;
@@ -46,7 +46,7 @@ void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
     TObjEneDD__sub_800BB858();
     if (((VObj *)arg0)->m8(lbl_805DA788, TObjEneRe4Sorcerer__data_805DA78C) != 0) {
         update_player_state__9TObjEneDDFPv(arg0, 0, 0);
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9624(0, TObjEneRe4Sorcerer__data_805DA790, TObjEneRe4Sorcerer__data_805DA794, TObjEneRe4Sorcerer__data_805DA790);

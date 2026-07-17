@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void* TObjMapCsn__sub_8007A720(void* p);
+void* get_data_ptr__10TObjMapCsnFPv(void* p);
 
-void* TObjMapCsn__sub_8007A720(void* p) { return (char*)p + 0x1c; }
+void* get_data_ptr__10TObjMapCsnFPv(void* p) { return (char*)p + 0x1c; }
 
 }

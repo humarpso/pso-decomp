@@ -14,7 +14,7 @@ M2C_UNK reset_settings_to_default__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TLobby__sub_80207E44();
 M2C_UNK TLobby__sub_8021EF84();
 M2C_UNK TLobby__sub_80227FB4();
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TObjBgmColCtrl__sub_8017E3B8();
 M2C_UNK TObjLight__sub_80133D78();
 M2C_UNK TQuestBgmCtrl__ct(void *, s32);
@@ -30,7 +30,7 @@ extern s32 tl_07;
 s32 setup_scene__6TLobbyFv(void) {
     void *obj;
 
-    TOKeyMachine01__sub_802034A8();
+    get_global_state__14TOKeyMachine01Fv();
     TLobby__sub_80227FB4();
     TLobby__sub_80207E44();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
@@ -42,7 +42,7 @@ s32 setup_scene__6TLobbyFv(void) {
     reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
     create_tasks__6TLobbyFv();
     TObjBgmColCtrl__sub_8017E3B8();
-    if (TOKeyMachine01__sub_802034A8() == 0) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0) {
         obj = __nw__7TObjectFUl(0x78);
         if (obj != NULL) {
             fn_801815F8(obj, tl_05);

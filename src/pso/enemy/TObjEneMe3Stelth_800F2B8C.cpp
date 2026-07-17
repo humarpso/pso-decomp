@@ -9,7 +9,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 update_linked_position__14TObjEneEpsilonFPv(f32);
 M2C_UNK TBoss1Dragon__sub_80143504(void *, s32);
@@ -128,7 +128,7 @@ extern "C" void handle_message__16TObjEneMe3StelthFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 9;
-        TObjEneDD__sub_800BBA04(arg0, 0xD);
+        set_field_378__9TObjEneDDFPvi(arg0, 0xD);
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFF8);
         ((V_A *) arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x3EC) = 0;

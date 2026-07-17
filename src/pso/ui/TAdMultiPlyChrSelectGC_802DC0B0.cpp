@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-s32 TAdMultiPlyChrSelectGC__sub_802DFFE0(s32);
+s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 
 s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r0;
@@ -20,7 +20,7 @@ s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         var_r4 = 0;
         break;
     case 12:
-        var_r4 = TAdMultiPlyChrSelectGC__sub_802DFFE0(M2C_FIELD(arg0, s32 *, 0x5C));
+        var_r4 = get_instance__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C));
         break;
     case 29:
         var_r4 = 0;

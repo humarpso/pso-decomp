@@ -9,7 +9,7 @@ extern "C" {
 u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK disallow_rendering__7TObjectFv(void *, int);
-s32 TObjPlayer__sub_80099EF8(void *);
+s32 get_field_d8__10TObjPlayerFPv(void *);
 
 extern M2C_UNK __vt__18TItemEffNeedleBase[];
 extern s32 lbl_805D2BC8;
@@ -21,7 +21,7 @@ u8 *__ct__18TItemEffNeedleBaseFv(u8 *arg0, void *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TItemEffNeedleBase;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2BC8;
-    M2C_FIELD(arg0, s32 *, 0x2C) = TObjPlayer__sub_80099EF8(arg2);
+    M2C_FIELD(arg0, s32 *, 0x2C) = get_field_d8__10TObjPlayerFPv(arg2);
     temp_r4 = M2C_FIELD(arg2, s32 *, 0x60);
     M2C_FIELD(arg0, s32 *, 0x48) = temp_r4;
     M2C_FIELD(arg0, s32 *, 0x4C) = 0;

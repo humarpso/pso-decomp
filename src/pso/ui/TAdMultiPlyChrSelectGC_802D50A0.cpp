@@ -2,13 +2,13 @@
 
 extern "C" {
 
-void TAdMultiSelGameModeGC__sub_802D5098(void* p, s32 v);
-s32 TAdMultiPlyChrSelectGC__sub_802D50A0(void* p);
-void TAdMultiPlyChrSelectGC__sub_802D50A8(void* p, s32 v);
-void TAdMultiPlyChrSelectGC__sub_802D50B0(void* p, s32 v);
+void set_selection_state__21TAdMultiSelGameModeGCFPvi(void* p, s32 v);
+s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(void* p);
+void set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v);
+void set_field_100__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v);
 
-s32 TAdMultiPlyChrSelectGC__sub_802D50A0(void* p) { return *(s32*)((char*)p + 0x24); }
-void TAdMultiPlyChrSelectGC__sub_802D50A8(void* p, s32 v) { *(s32*)((char*)p + 0x24) = v; }
-void TAdMultiPlyChrSelectGC__sub_802D50B0(void* p, s32 v) { *(s32*)((char*)p + 0x100) = v; }
+s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x24); }
+void set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x24) = v; }
+void set_field_100__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x100) = v; }
 
 }

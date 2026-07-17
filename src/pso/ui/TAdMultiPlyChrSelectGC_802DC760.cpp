@@ -11,8 +11,8 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 s32 TWindowSubComCard__sub_802A57FC(u32);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TAdMultiPlyChrSelectGC__sub_802D50A0(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802E00C4(s32);
+s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
+s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(u32);
 
 extern M2C_UNK lbl_8050E3B8[];
@@ -30,8 +30,8 @@ void update_input_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1F;
         return;
     }
-    if (TAdMultiPlyChrSelectGC__sub_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) {
-        if (TAdMultiPlyChrSelectGC__sub_802D50A0(M2C_FIELD(arg0, s32 *, 0x68)) < 0xE) {
+    if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) {
+        if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x68)) < 0xE) {
             M2C_FIELD(arg0, s32 *, 0x58) = 0;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {

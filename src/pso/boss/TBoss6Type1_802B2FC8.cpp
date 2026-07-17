@@ -17,7 +17,7 @@ int TBoss6Type1__sub_802B4B64(void*, void*);
 int TBoss6Type1__sub_802B4BA8(void*, void*);
 M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
 int TBoss6Type1__sub_802B54F0(void*, void*);
-int TBoss6Type1__sub_802B7E7C(void*);
+int latch_phase_counter__11TBoss6Type1FPv(void*);
 M2C_UNK TBoss6Type1__sub_802B865C(void *, M2C_UNK);
 int TBoss6Type1__sub_802B9204(void*, void*);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
@@ -39,7 +39,7 @@ void update_charge__11TBoss6Type1FPv(u8 *arg0) {
 
 void start_action_if_idle__11TBoss6Type1FPv(void* p) { if (*(int*)((char*)p + 0x410) == 0) { TBoss6Type1__sub_802B9204(p, (void*)25); } }
 
-void set_phase_90__11TBoss6Type1FPv(void* p) { *(int*)((char*)p + 0x40c) = 90; *(int*)((char*)p + 0x410) = 90; TBoss6Type1__sub_802B7E7C((void*)(p)); TBoss6Type1__sub_802B4BA8(p, (void*)0); TBoss6Type1__sub_802B4B64(p, (void*)1); }
+void set_phase_90__11TBoss6Type1FPv(void* p) { *(int*)((char*)p + 0x40c) = 90; *(int*)((char*)p + 0x410) = 90; latch_phase_counter__11TBoss6Type1FPv((void*)(p)); TBoss6Type1__sub_802B4BA8(p, (void*)0); TBoss6Type1__sub_802B4B64(p, (void*)1); }
 
 void update_timer__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;
@@ -55,7 +55,7 @@ void update_timer__11TBoss6Type1FPv(void *arg0) {
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
     M2C_FIELD(arg0, s32 *, 0x410) = temp_r0_2;
     if (temp_r0_2 < 0) {
-        TBoss6Type1__sub_802B7E7C((void*)(arg0));
+        latch_phase_counter__11TBoss6Type1FPv((void*)(arg0));
         M2C_FIELD(arg0, s32 *, 0x414) = 1;
         TBoss6Type1__sub_802B865C(arg0, 1);
     }

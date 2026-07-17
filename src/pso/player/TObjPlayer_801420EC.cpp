@@ -2,9 +2,9 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_801420EC(s32 arg0, s32 arg1, s32 arg2);
+s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 
-s32 TObjPlayer__sub_801420EC(s32 arg0, s32 arg1, s32 arg2) {
+s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 var_r3;
 
     var_r3 = arg0;

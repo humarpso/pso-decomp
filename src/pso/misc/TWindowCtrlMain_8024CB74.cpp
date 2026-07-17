@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TWindowCtrlMain__sub_8024CB74(void);
+f32 get_scale__15TWindowCtrlMainFv(void);
 
 extern f32 lbl_805D6418;
 
-f32 TWindowCtrlMain__sub_8024CB74(void) {
+f32 get_scale__15TWindowCtrlMainFv(void) {
     return lbl_805D6418;
 }
 

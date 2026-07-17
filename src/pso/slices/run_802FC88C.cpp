@@ -10,11 +10,11 @@ u8 TBoss8Dragon__sub_802FC88C(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x674) >= 0x32);
 }
 
-s32 TBoss8Dragon__sub_802FC8AC(void *arg0) {
+s32 is_health_low__12TBoss8DragonFPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x674) < 0x32;
 }
 
-void TBoss8Dragon__sub_802FC8CC(void *arg0, s32 arg1) {
+void set_damage_phase_value__12TBoss8DragonFPvi(void *arg0, s32 arg1) {
     if (arg1 == 0) {
         M2C_FIELD(arg0, s32 *, 0x674) = 0;
         return;

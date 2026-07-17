@@ -10,7 +10,7 @@ void TLobby__sub_802A7890(void* p, s32 v);
 s32 get_hold_effect_size_by_type__6TLobbyFv(void);
 s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TObjPlayer__sub_801C00F4(void);
+s32 get_hold_effect_count__10TObjPlayerFv(void);
 s32 write_packet_header__6TLobbyFPviiUi(s32, s32, s32, M2C_UNK);
 M2C_UNK send_type2_event__6TLobbyFiii(s32, s32, s32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
@@ -19,7 +19,7 @@ void TLobby__sub_802A7890(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 s32 get_hold_effect_size_by_type__6TLobbyFv(void) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_801C00F4();
+    temp_r3 = get_hold_effect_count__10TObjPlayerFv();
     switch (temp_r3) {
     case 0:
         return 0x38;

@@ -8,13 +8,13 @@ extern "C" {
 
 s32 is_mag_active__11TItemMagSubFPv(void *arg0);
 
-s32 TItemMag__sub_80113E8C(u32);
+s32 is_active__8TItemMagFPv(u32);
 
 s32 is_mag_active__11TItemMagSubFPv(void *arg0) {
     s32 var_r31;
 
     var_r31 = 0;
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (TItemMag__sub_80113E8C(M2C_FIELD(arg0, u32 *, 0xF0)) != 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (is_active__8TItemMagFPv(M2C_FIELD(arg0, u32 *, 0xF0)) != 0)) {
         var_r31 = 1;
     }
     return var_r31;

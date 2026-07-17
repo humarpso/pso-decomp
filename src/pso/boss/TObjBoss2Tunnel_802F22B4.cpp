@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TObjBoss2Tunnel__sub_802F22B4(void);
+void clear_flags_0x3000__15TObjBoss2TunnelFv(void);
 
     extern int lbl_805D6968;
-void TObjBoss2Tunnel__sub_802F22B4(void) { lbl_805D6968 = (lbl_805D6968 & 0xffffcfff); }
+void clear_flags_0x3000__15TObjBoss2TunnelFv(void) { lbl_805D6968 = (lbl_805D6968 & 0xffffcfff); }
 
 }

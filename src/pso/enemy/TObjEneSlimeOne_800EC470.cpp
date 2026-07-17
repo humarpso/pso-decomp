@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TObjEneSlimeOne__sub_800EC41C(void* p);
+int is_timer_active__15TObjEneSlimeOneFPv(void* p);
 void TObjEneSlimeOne__sub_800EC470(void* p);
 int check_player_field_7cc__15TObjEneSlimeOneFPv(void* p);
 int TObjPlayer__sub_801D2EA8(void*);

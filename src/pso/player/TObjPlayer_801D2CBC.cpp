@@ -24,28 +24,28 @@ void TObjPlayer__sub_801D2AC4(void* p, f32 v);
 int start_photon_blast_action__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_801D2AF4(void* p);
 int TObjPlayer__sub_801D2B08(void* p);
-void TObjPlayer__sub_801D2C74(void* p, s32 v);
-void TObjPlayer__sub_801D2C7C(void* p, u8 v);
+void set_technique_state__10TObjPlayerFPvi(void* p, s32 v);
+void set_technique_id__10TObjPlayerFPvUc(void* p, u8 v);
 int TObjPlayer__sub_801D2C84(void* p);
 f32 TObjPlayer__sub_801D2CBC(void* p);
 void TObjPlayer__sub_801D2CC4(void* p, f32 v);
-void* TObjPlayer__sub_801D2CCC(void* p);
+void* get_technique_data__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D2CD4(void* p, u8 v);
 f32 TObjPlayer__sub_801D2CDC(void* p);
-void TObjPlayer__sub_801D2CE4(void* p, s16 v);
+void set_attack_target__10TObjPlayerFPvs(void* p, s16 v);
 void* TObjPlayer__sub_801D2CEC(void* p);
 int bswap_32__FPUl(void*);
-int TObjPlayer__sub_8001BED8(void*, int);
-int TAdRicoRing__sub_8001BEE8(void*, int);
+int set_flags__10TObjPlayerFPvUi(void*, int);
+int clear_flags__11TAdRicoRingFPvUi(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 int fn_801D7BF4(void*);
 
 f32 TObjPlayer__sub_801D2CBC(void* p) { return *(f32*)((char*)p + 0x14); }
 void TObjPlayer__sub_801D2CC4(void* p, f32 v) { *(f32*)((char*)p + 0x14) = v; }
-void* TObjPlayer__sub_801D2CCC(void* p) { return (char*)p + 0x20; }
+void* get_technique_data__10TObjPlayerFPv(void* p) { return (char*)p + 0x20; }
 void TObjPlayer__sub_801D2CD4(void* p, u8 v) { *(u8*)((char*)p + 0x1) = v; }
 f32 TObjPlayer__sub_801D2CDC(void* p) { return *(f32*)((char*)p + 0x4); }
-void TObjPlayer__sub_801D2CE4(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
+void set_attack_target__10TObjPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 void* TObjPlayer__sub_801D2CEC(void* p) { return (char*)p + 0xc; }
 
 }

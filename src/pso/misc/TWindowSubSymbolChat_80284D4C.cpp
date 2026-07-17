@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubSymbolChat__sub_80284D4C(void *arg0);
+s32 calc_symbol_index__20TWindowSubSymbolChatFPv(void *arg0);
 
-s32 TWindowSubSymbolChat__sub_80284D4C(void *arg0) {
+s32 calc_symbol_index__20TWindowSubSymbolChatFPv(void *arg0) {
     return (s8) M2C_FIELD(arg0, u8 *, 0x72) + ((s8) M2C_FIELD(arg0, u8 *, 0x73) * 4);
 }
 

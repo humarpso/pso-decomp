@@ -18,9 +18,9 @@ int fn_802437C4(void*);
 int TWindowCtrlMain__sub_8024D7C0(void*);
 int TWindowSubEquip__sub_80263B34(void*);
 int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
-int TLobby__sub_80269C6C(void*);
+int send_and_handle__6TLobbyFPvii(void*);
 
-void update_child_2c__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) TLobby__sub_80269C6C(m); }
+void update_child_2c__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) send_and_handle__6TLobbyFPvii(m); }
 void TWindowCtrlMain__sub_8024D8A8(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) fn_802437C4(m); }
 void update_field28__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) TWindowSubEquip__sub_80263B34(m); }
 void free_member__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) try_open_battle_menu__15TWindowMainMenuFPvs(m); }

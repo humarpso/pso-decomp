@@ -32,7 +32,7 @@ extern "C" {
 s32 link_matching_objects__6TLobbyFss(s16 arg0, s16 arg1);
 u8 *TLobby__sub_8020CCF4(void *);
 u8 *resolve_matching_object__6TLobbyFPv(s32);
-s32 TLobby__sub_8020B454(s32);
+s32 get_object_type__6TLobbyFi(s32);
 
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6144;
@@ -51,7 +51,7 @@ s32 link_matching_objects__6TLobbyFss(s16 arg0, s16 arg1) {
         return 0;
     }
     var_r29 = resolve_matching_object__6TLobbyFPv(TLobby__data_805D60FC);
-    temp_r31 = TLobby__sub_8020B454(TLobby__data_805D60FC);
+    temp_r31 = get_object_type__6TLobbyFi(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
         temp_r3 = M2C_FIELD(var_r29, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) M2C_FIELD(var_r29, s16 *, 0xC) == arg0) && ((s16) M2C_FIELD(var_r29, s16 *, 0xE) == arg1)) {

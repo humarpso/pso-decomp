@@ -13,7 +13,7 @@ s32 TObjPlayer__sub_801B5DDC(void *);
 s32 TObjPlayer__sub_801B5EA4(void *);
 int TObjPlayer__sub_8001053C(void*);
 s32 check_player_flag1__6TLobbyFPv(void *);
-s32 TObjPlayer__sub_80084854();
+s32 is_inactive__10TObjPlayerFPv();
 int TObjEnePanarms__sub_800E2DE4(void*, void*);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32, f32, f32);
@@ -25,7 +25,7 @@ s32 update_aim_target__10TObjPlayerFPv(void *arg0) {
     f32 temp_f1;
     s32 temp_r3;
 
-    if (TObjPlayer__sub_80084854() == 0) {
+    if (is_inactive__10TObjPlayerFPv() == 0) {
         return 0;
     }
     temp_f1 = lbl_805DC3B0 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x3F0));

@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u32 TLobby__sub_80101AB0(s32);
-M2C_UNK TObjPlayer__sub_80102BFC(u32, M2C_UNK);
+M2C_UNK add_item_flags__10TObjPlayerFPvUi(u32, M2C_UNK);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void set_judgment_target_flag(void *arg0, void *arg1) {
     u32 temp_r3;
     if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && ((temp_r3 = TLobby__sub_80101AB0(M2C_FIELD(arg1, s32 *, 0xC))) != 0U) && ((s32) M2C_FIELD(arg0, s32 *, 0x168) != 0)) {
-        TObjPlayer__sub_80102BFC(temp_r3, 0x80);
+        add_item_flags__10TObjPlayerFPvUi(temp_r3, 0x80);
     }
 }
 

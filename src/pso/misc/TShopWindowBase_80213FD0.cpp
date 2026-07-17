@@ -15,7 +15,7 @@ struct VObj_80213FD0 : Base_80213FD0 {
 extern "C" {
 
 void confirm_and_close_if_valid__15TShopWindowBaseFPv(void *arg0);
-int TQuestListVM__sub_80073DC4(void *, int);
+int set_field_20__12TQuestListVMFPvi(void *, int);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
 
@@ -23,7 +23,7 @@ void confirm_and_close_if_valid__15TShopWindowBaseFPv(void *arg0) {
     VObj_80213FD0 *o = (VObj_80213FD0 *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m7(0xc, 1);
-        TQuestListVM__sub_80073DC4(arg0, 0xc);
+        set_field_20__12TQuestListVMFPvi(arg0, 0xc);
     }
 }
 

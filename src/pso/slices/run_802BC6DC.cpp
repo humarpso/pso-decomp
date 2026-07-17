@@ -14,7 +14,7 @@ s32 calc_field4f0_delta__11TBoss6Type2FPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x4F0) - M2C_FIELD(arg0, s16 *, 0x32C);
 }
 
-void TBoss6Type2__sub_802BC6F8(void *arg0) {
+void copy_anim_state__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4F0) = (s32) M2C_FIELD(arg0, s16 *, 0x32C);
 }
 

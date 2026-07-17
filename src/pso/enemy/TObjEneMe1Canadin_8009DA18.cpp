@@ -115,7 +115,7 @@ struct V_A : public Base_A {
 extern "C" {
 
 void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
@@ -129,7 +129,7 @@ void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         advance_state_5_to_4__17TObjEneMe1CanadinFPv();
-        TObjEneDD__sub_800BBA04(arg0, 4);
+        set_field_378__9TObjEneDDFPvi(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         ((V_A *) arg0)->m94();
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x01000000);

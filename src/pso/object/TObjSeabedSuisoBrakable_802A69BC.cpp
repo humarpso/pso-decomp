@@ -8,9 +8,9 @@ extern "C" {
 
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK TOComputerMachine01__sub_8023DDC8(u32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
-s32 TObjSeabedSuisoBrakable__sub_802A71F8(M2C_UNK);
+s32 get_break_data__23TObjSeabedSuisoBrakableFi(M2C_UNK);
 void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, M2C_UNK);
-M2C_UNK fn_803DC88C(M2C_UNK *);
+M2C_UNK set_npc_enemy_param(M2C_UNK *);
 
 extern M2C_UNK notify_break__23TObjSeabedSuisoBrakableFUi[];
 extern s32 lbl_805D53A4;
@@ -23,14 +23,14 @@ void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0xD4), 4);
     if ((s32) lbl_805D6678 != (s32) lbl_805D53A4) {
         if ((temp_r31 != NULL) && ((u32) M2C_FIELD(temp_r31, u32 *, 4) != 0U)) {
-            temp_r3 = TObjSeabedSuisoBrakable__sub_802A71F8(0);
+            temp_r3 = get_break_data__23TObjSeabedSuisoBrakableFi(0);
             if (temp_r3 != -1) {
                 TOComputerMachine01__sub_8023DDC8(M2C_FIELD(temp_r31, u32 *, 4), 1, 0, (u16) temp_r3, 1);
             }
         }
         lbl_805D6678 = lbl_805D53A4;
     }
-    fn_803DC88C(notify_break__23TObjSeabedSuisoBrakableFUi);
+    set_npc_enemy_param(notify_break__23TObjSeabedSuisoBrakableFUi);
 }
 
 }

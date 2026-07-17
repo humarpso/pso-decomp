@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u32 alloc_buffer__11TOBoss4RockFPv();
-s32 TWindowSnapShot__sub_802A604C(void *, s32);
+s32 set_mode__15TWindowSnapShotFPvi(void *, s32);
 s32 TWindowSnapShot__sub_802A6054();
 s32 TGStream__sub_800FDADC(s32, s32);
 s32 TWindowSnapShot__sub_802A605C(void *);

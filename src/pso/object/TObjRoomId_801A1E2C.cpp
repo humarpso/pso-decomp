@@ -10,7 +10,7 @@ u16 fn_801A2078(s32);
 u16 TLobby__sub_801A20C8(s32);
 u16 fn_801A210C(s32);
 s32 TContainerAncient01__sub_8020335C(void);
-s32 TOKeyMachine01__sub_802034A8(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
 int TObjRoomId__sub_801A1E2C(void);
 void fn_801A1FD8(void);
 
@@ -19,7 +19,7 @@ void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
     u32 temp_r3;
 
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) < 0x1000U) {
-        temp_r3 = TOKeyMachine01__sub_802034A8();
+        temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if ((temp_r3 <= 2U) || ((s32) temp_r3 == 0x12) || (TContainerAncient01__sub_8020335C() != 0) || ((s32) temp_r3 == 0xC) || ((s32) temp_r3 == 0x20)) {
             M2C_FIELD(arg0, s16 *, 0x2E) = arg1;
         }

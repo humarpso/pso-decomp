@@ -8,7 +8,7 @@ extern "C" {
 
 void update_message__18TWindowMessagePageFPv(void *arg0);
 s32 TLobby__sub_8001DC24();
-M2C_UNK TLobby__sub_80269C6C(void *, s32, s32);
+M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
 u32 TWindowSubStatusDisp__sub_80228F84(u32);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 
@@ -16,7 +16,7 @@ void update_message__18TWindowMessagePageFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
         TWindowSubStatusDisp__sub_802290E0();
         M2C_FIELD(arg0, u32 *, 0x94) = TWindowSubStatusDisp__sub_80228F84(M2C_FIELD(arg0, u32 *, 0x94));
-        TLobby__sub_80269C6C(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x90));
+        send_and_handle__6TLobbyFPvii(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x90));
     }
 }
 

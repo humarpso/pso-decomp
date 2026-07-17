@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_803DA204(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void set_render_rect__10TObjPlayerFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 
-void TObjPlayer__sub_803DA204(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void set_render_rect__10TObjPlayerFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0) = arg1;
     M2C_FIELD(arg0, s32 *, 0x10) = arg3;
     M2C_FIELD(arg0, s32 *, 0x14) = arg4;

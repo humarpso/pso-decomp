@@ -8,8 +8,8 @@ extern "C" {
 
 f32 calc_random_ratio__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_800196EC(void);
-s32 TObjPlayer__sub_800196F4(void* p);
-s32 TObjPlayer__sub_800196FC(void);
+s32 get_field_3e4__10TObjPlayerFPv(void* p);
+s32 get_player_count__10TObjPlayerFv(void);
 u32 TAdSinglePlyChrSelectGC__sub_8007C3E0();
 
 extern M2C_UNK lbl_80434088;
@@ -25,11 +25,11 @@ s32 TObjPlayer__sub_800196EC(void) {
     return lbl_805D5FC0;
 }
 
-s32 TObjPlayer__sub_800196F4(void* p) { return *(s32*)((char*)p + 0x3e4); }
+s32 get_field_3e4__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x3e4); }
 
 extern s32 lbl_805D5D6C;
 
-s32 TObjPlayer__sub_800196FC(void) {
+s32 get_player_count__10TObjPlayerFv(void) {
     return lbl_805D5D6C;
 }
 

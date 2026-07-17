@@ -15,7 +15,7 @@ M2C_UNK show_ctrl_and_play_effect__6TLobbyFPv();
 M2C_UNK play_default_effect__6TLobbyFPv(void *);
 M2C_UNK play_player_default_effect__6TLobbyFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-s32 TWindowSubComCard__sub_8007341C(u32);
+s32 is_visible__17TWindowSubComCardFPv(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 
 extern M2C_UNK lbl_8048D120[];
@@ -30,7 +30,7 @@ void update_challenge_retry__6TLobbyFPv(void *arg0) {
         open_loss_menu__6TLobbyFPv(arg0);
     }
     var_r31 = 0;
-    if (TWindowSubComCard__sub_8007341C(M2C_FIELD(arg0, u32 *, 0x2C)) != 0) {
+    if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x2C)) != 0) {
         temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x2C));
         if (temp_r3 == 2) {
             var_r31 = 1;

@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_80336054(void);
+int get_data__23TAdSinglePlyChrSelectGCFv(void);
 
     extern int lbl_805D6D44;
-int TAdSinglePlyChrSelectGC__sub_80336054(void) {  return lbl_805D6D44; }
+int get_data__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D6D44; }
 
 }

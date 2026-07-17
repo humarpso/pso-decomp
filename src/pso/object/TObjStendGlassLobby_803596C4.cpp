@@ -10,7 +10,7 @@ void render__19TObjStendGlassLobbyFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -24,7 +24,7 @@ void render__19TObjStendGlassLobbyFv(u8 *arg0) {
 
     if (((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U)) {
         begin_effect_render__13TParticleCtrlFv();
-        TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, u32 *, 0x24)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, u32 *, 0x24)));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));

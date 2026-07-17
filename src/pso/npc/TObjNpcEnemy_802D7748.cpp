@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__12TObjNpcEnemyFv(u8 *arg0);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 s32 TObjNpcEnemy__sub_802D7444(void *);
@@ -38,7 +38,7 @@ void render__12TObjNpcEnemyFv(u8 *arg0) {
         if (TObjNpcEnemy__sub_802D7444((void *) (arg0)) != 0) {
             some_id_805c6f74 |= 1;
         }
-        TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         TObjPlayer__sub_803D97F0((int) (0));
         TObjPlayer__sub_803D8C7C((int) (0), (void *) (arg0 + 0x38));
         temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x3B8));

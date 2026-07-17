@@ -11,7 +11,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 
 extern s32 lbl_805D4D24;
@@ -35,7 +35,7 @@ struct TObjVoloptCageVObj : TObjVoloptCageBase {
 
 void render__14TObjVoloptCageFv(u8 *arg0) {
     if (((TObjVoloptCageVObj *)arg0)->m8(lbl_805D887C, lbl_805D8880) != 0) {
-        TObjFish__sub_803DA798(TObjVoloptCage__data_805D4D28);
+        set_global_param__8TObjFishFi(TObjVoloptCage__data_805D4D28);
         TObjPlayer__sub_803D9B2C();
         some_id_805c6f74 &= 0xFFFFFBFF;
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

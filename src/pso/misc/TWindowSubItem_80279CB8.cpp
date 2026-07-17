@@ -9,7 +9,7 @@ extern "C" {
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
 s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
 M2C_UNK set_value__18TWindowInputNumberFPvf(s32, f32);
@@ -39,7 +39,7 @@ void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1) {
-    if (TOKeyMachine01__sub_802034A8() == 0xF) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         draw_text_gray__17TWindowSubComCardFiiii((s32)(arg1), (s32)(get_message_10__20TWindowSubStatusDispFPv(0x5F)), (M2C_UNK)(6), (s32)(6));
         return;
     }

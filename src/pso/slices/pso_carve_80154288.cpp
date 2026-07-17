@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_8001BED8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-s32 TAdRicoRing__sub_8001BEE8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 set_flags__10TObjPlayerFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 clear_flags__11TAdRicoRingFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TMainCursor__sub_80154288(void);
 s32 TObjPlayer__sub_8001BEF8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 int TMainCursor__sub_801540D8(void* a0 = 0, void* a1 = 0);

@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 TObjEneMe3SinowZoa__sub_800D7310(void *, f32);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK, s32);
@@ -58,7 +58,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0xC;
-        TObjEneDD__sub_800BBA04(arg0, 6);
+        set_field_378__9TObjEneDDFPvi(arg0, 6);
         ((VO18*)arg0)->m94();
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFF1);
         temp_r7 = M2C_FIELD(arg0, s32 *, 0x3CC) | 1;
@@ -76,7 +76,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
         return;
     case 0:
         TBoss1Dragon__sub_80143504();
-        if (TObjEneMe3ShinowaReal__sub_8002ADD8(arg0) != 0) {
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
             M2C_FIELD(arg0, s32 *, 0x424) = 3;
         } else if (is_split_screen() != 0) {
             temp_r0 = M2C_FIELD(arg0, s32 *, 0x424);

@@ -12,13 +12,13 @@ void TPlayerBattleCtrl4P__vt14(void *arg0);
 void TPlayerBattleCtrl4P__vt15(void* p);
 M2C_UNK TDuelEffectCtrl__ct(void *, void *, M2C_UNK);
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void *);
-int TPlayerBattleCtrl4P__sub_803112A4(void*, void*);
+int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
 M2C_UNK TWindow__close(void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 int TPlayerBattleCtrl4P__sub_80311618(void*);
 
-void TPlayerBattleCtrl4P__vt15(void* p) { TPlayerBattleCtrl4P__sub_80311618(p); TPlayerBattleCtrl4P__sub_803112A4((void*)(p), (void*)((void*)1)); }
+void TPlayerBattleCtrl4P__vt15(void* p) { TPlayerBattleCtrl4P__sub_80311618(p); set_score__19TPlayerBattleCtrl4PFPvi((void*)(p), (void*)((void*)1)); }
 
 void TPlayerBattleCtrl4P__vt14(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x20);
@@ -35,7 +35,7 @@ void TPlayerBattleCtrl4P__vt13(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x240) - 1;
     M2C_FIELD(arg0, s32 *, 0x240) = temp_r0;
     if (temp_r0 <= 0) {
-        TPlayerBattleCtrl4P__sub_803112A4((void*)(arg0), (void*)(8));
+        set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)(8));
     }
 }
 
@@ -52,7 +52,7 @@ void TPlayerBattleCtrl4P__vt12(void *arg0) {
             }
         }
         M2C_FIELD(arg0, s32 *, 0x240) = 0x96;
-        TPlayerBattleCtrl4P__sub_803112A4((void*)(arg0), (void*)(7));
+        set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)(7));
         }
     }
 }

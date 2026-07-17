@@ -22,7 +22,7 @@ extern "C" {
 void run_task__17TObjEneMe1CanadinFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
 s32 TPhotonMylla__sub_80154CB4(int);
@@ -40,7 +40,7 @@ void run_task__17TObjEneMe1CanadinFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         advance_state_5_to_4__17TObjEneMe1CanadinFPv();
-        TObjEneDD__sub_800BBA04((void *) (arg0), (int) (9));
+        set_field_378__9TObjEneDDFPvi((void *) (arg0), (int) (9));
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         ((VObj_8009c7d8 *) arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x01000000);

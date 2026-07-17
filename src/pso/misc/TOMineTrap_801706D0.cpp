@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void detonate_if_triggered__10TOMineTrapFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_800822D4(f32, f32);
+M2C_UNK set_position_xy__10TObjPlayerFPvff(f32, f32);
 u32 TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
 
 extern f32 lbl_805DB864;
 
 void detonate_if_triggered__10TOMineTrapFi(s32 arg0) {
     if (TObjEneDellBiter__sub_80087350(arg0 + 0x2FC, 0x45) != 0U) {
-        TObjPlayer__sub_800822D4(lbl_805DB864, lbl_805DB864);
+        set_position_xy__10TObjPlayerFPvff(lbl_805DB864, lbl_805DB864);
     }
 }
 

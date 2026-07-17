@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_page__26TWindowSubInformationBoardFPvi(void *arg0, s32 arg1);
-M2C_UNK TLobby__sub_80269C6C(s32, s32, M2C_UNK);
+M2C_UNK send_and_handle__6TLobbyFPvii(s32, s32, M2C_UNK);
 s32 TLobby__sub_8034C1FC();
 
 void set_page__26TWindowSubInformationBoardFPvi(void *arg0, s32 arg1) {
@@ -17,7 +17,7 @@ void set_page__26TWindowSubInformationBoardFPvi(void *arg0, s32 arg1) {
         temp_r3 = TLobby__sub_8034C1FC();
         if (temp_r3 != 0) {
             M2C_FIELD(arg0, s32 *, 0x24) = arg1;
-            TLobby__sub_80269C6C(M2C_FIELD(arg0, s32 *, 0x34), temp_r3 + (arg1 * 0xBC) + 0x14, 0x80);
+            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x34), temp_r3 + (arg1 * 0xBC) + 0x14, 0x80);
         }
     }
 }

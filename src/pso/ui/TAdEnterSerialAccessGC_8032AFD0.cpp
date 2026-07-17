@@ -9,7 +9,7 @@ extern "C" {
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
 void clear_serial_buffer__22TAdEnterSerialAccessGCFv(void);
 u8 *TAdEnterSerialAccessGC__sub_8032AEB4();
-u32 TAdSinglePlyChrSelectGC__sub_80202BA0();
+u32 get_instance__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void) {
@@ -19,7 +19,7 @@ s32 has_serial_input__22TAdEnterSerialAccessGCFv(void) {
 void clear_serial_buffer__22TAdEnterSerialAccessGCFv(void) {
     u32 temp_r3;
 
-    temp_r3 = TAdSinglePlyChrSelectGC__sub_80202BA0();
+    temp_r3 = get_instance__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 != 0U) {
         memset(temp_r3 + 0x1154C, 0, 0x10);
     }

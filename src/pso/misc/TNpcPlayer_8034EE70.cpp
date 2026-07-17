@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_8002AEB8(s32, s32);
+s32 set_type__10TObjPlayerFPvi(s32, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 s32 init_photon_blast__10TObjPlayerFPvi(u32, s16);
 int bswap_16__FPUs(void*);
@@ -18,7 +18,7 @@ void update_player_field__10TNpcPlayerFUsi(u16 arg0, s32 arg1) {
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg0);
     if (temp_r3 != 0U) {
-        TObjPlayer__sub_8002AEB8(temp_r3 + 0x644, arg1);
+        set_type__10TObjPlayerFPvi(temp_r3 + 0x644, arg1);
     }
 }
 

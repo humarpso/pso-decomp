@@ -9,8 +9,8 @@ extern "C" {
 void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0);
 M2C_UNK update_state__13TAdMcSelectGCFv();
 M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
-s32 TWindowSubComCard__sub_8007341C(u32);
-s32 TWindowSubComCard__sub_80073DB8(u32);
+s32 is_visible__17TWindowSubComCardFPv(u32);
+s32 get_status_flag__17TWindowSubComCardFPv(u32);
 M2C_UNK TWindow__close(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
@@ -20,7 +20,7 @@ void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0) {
     s32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x290) != 0U) {
-        if (TWindowSubComCard__sub_8007341C(M2C_FIELD(arg0, u32 *, 0x290)) != 0) {
+        if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x290)) != 0) {
             temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x290));
             if (temp_r3 == 0) {
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x290) != 0U) {
@@ -46,7 +46,7 @@ void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0) {
             goto block_12;
         }
 block_12:
-        if (TWindowSubComCard__sub_80073DB8(M2C_FIELD(arg0, u32 *, 0x290)) != 0) {
+        if (get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x290)) != 0) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x290) != 0U) {
                 TWindow__close(M2C_FIELD(arg0, void **, 0x290));
                 M2C_FIELD(arg0, u32 *, 0x290) = 0U;

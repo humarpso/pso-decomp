@@ -9,7 +9,7 @@ extern "C" {
 void draw__19TObjGyaranzoMissileFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -18,7 +18,7 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 extern s32 some_id_805c6f74;
 
 void draw__19TObjGyaranzoMissileFPv(u8 *arg0) {
-    TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xC8));
+    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0xBC));

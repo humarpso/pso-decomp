@@ -58,7 +58,7 @@ struct V_Sub : Base_Sub {
 extern "C" {
 
 void state_move__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK update_hover_height__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
@@ -74,7 +74,7 @@ void state_move__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        TObjEneDD__sub_800BBA04(arg0, 3);
+        set_field_378__9TObjEneDDFPvi(arg0, 3);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         ((V_En *) arg0)->m93();
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x30) & 0xFEFFFFFF;

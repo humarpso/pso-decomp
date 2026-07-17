@@ -9,13 +9,13 @@ extern "C" {
 void update_state_flag__15TObjEneDelDepthFPv(void *arg0);
 void init_state__15TObjEneDelDepthFPv(void *arg0);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, M2C_UNK);
-s32 TObjEneDelDepth__sub_8031624C();
+s32 get_flag_bit4__15TObjEneDelDepthFPv();
 M2C_UNK TObjEneDelDepth__sub_80316488(s32, M2C_UNK);
 M2C_UNK set_draw_mode__15TObjEneDelDepthFPvi(void *, M2C_UNK);
 
 void update_state_flag__15TObjEneDelDepthFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
-        if (TObjEneDelDepth__sub_8031624C() != 0) {
+        if (get_flag_bit4__15TObjEneDelDepthFPv() != 0) {
             TObjEneDelDepth__sub_803154A8(arg0, 7);
             return;
         }

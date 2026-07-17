@@ -11,13 +11,13 @@ M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 s32 draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(s32, void *, s32, s32);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8033A8FC(s32);
+M2C_UNK set_quest_download_server__23TAdSinglePlyChrSelectGCFi(s32);
 
 extern s32 lbl_805D49B4;
 extern s32 TQuestVmDownLoadServer__data_805D5F18;
 
 void load_quest_data__22TQuestVmDownLoadServerFPv(u8 *arg0) {
-    TAdSinglePlyChrSelectGC__sub_8033A8FC(M2C_FIELD(arg0, s32 *, 0x25C));
+    set_quest_download_server__23TAdSinglePlyChrSelectGCFi(M2C_FIELD(arg0, s32 *, 0x25C));
     lbl_805D49B4 = 1;
     if (draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(M2C_FIELD(arg0, s32 *, 0x25C), arg0 + 0x270, M2C_FIELD(arg0, s32 *, 0x260), M2C_FIELD(arg0, s32 *, 0x264)) == 0) {
         M2C_FIELD(arg0, s32 *, 0x2A0) = 0xA;

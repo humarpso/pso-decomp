@@ -10,14 +10,14 @@ void *init_object__10TBoss6RockFPvPv(void *arg0, void *);
 void *create__10TBoss6RockFv(void);
 int TBoss6Rock__sub_80353A04(void);
 int TBoss6Rock__sub_80353A0C(void);
-int TBoss6Rock__sub_80354A30(void*);
+int is_active__10TBoss6RockFv(void*);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 int queue_destruction__7TObjectFv(void*);
 
-void check_and_destroy__10TBoss6RockFPv(void* p) { if (TBoss6Rock__sub_80354A30(p) == 0) { *(int*)((char*)p + 0x1c) = 0; queue_destruction__7TObjectFv(p); } }
+void check_and_destroy__10TBoss6RockFPv(void* p) { if (is_active__10TBoss6RockFv(p) == 0) { *(int*)((char*)p + 0x1c) = 0; queue_destruction__7TObjectFv(p); } }
 
 extern M2C_UNK lbl_804F1280[];
 

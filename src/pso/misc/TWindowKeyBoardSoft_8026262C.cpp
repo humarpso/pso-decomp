@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TWindowKeyBoardSoft__sub_8026262C(void *arg0);
-s32 TKeyBoardControl__sub_80131FAC(u32);
+s32 is_key_active__16TKeyBoardControlFPv(u32);
 M2C_UNK TWindowKeyBoardSoft__sub_80260904(void *, s32);
 M2C_UNK TWindowKeyBoardSoft__sub_80260E30(void *, s32);
 s32 fn_80244994();
@@ -26,7 +26,7 @@ void TWindowKeyBoardSoft__sub_8026262C(void *arg0) {
     s32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
-        if ((fn_80244994() != 0) && (TKeyBoardControl__sub_80131FAC(M2C_FIELD(arg0, u32 *, 0x6C)) == 0)) {
+        if ((fn_80244994() != 0) && (is_key_active__16TKeyBoardControlFPv(M2C_FIELD(arg0, u32 *, 0x6C)) == 0)) {
             temp_r3 = is_player_input_active(M2C_FIELD(arg0, s16 *, 0x20));
             TWindowKeyBoardSoft__sub_80261204(arg0, temp_r3);
             TWindowKeyBoardSoft__sub_80260E30(arg0, temp_r3);

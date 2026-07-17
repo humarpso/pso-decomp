@@ -4,7 +4,7 @@ extern "C" {
 
 int TFontSmallLobby__sub_801C0228(void*);
 s32 TObjPlayer__sub_801B1E54(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-s32 TObjPlayer__sub_801BEAB0(void);
+s32 is_status_flag_200__10TObjPlayerFPv(void);
 void TObjPlayer__sub_801C959C(void);
 s32 TObjPlayer__sub_801CB874(void * a0 = 0);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);

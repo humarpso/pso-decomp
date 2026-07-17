@@ -9,7 +9,7 @@ extern "C" {
 s32 check_phase_advance__12TBoss1DragonFPv(void *arg0);
 s32 update_max_hp_phase__12TBoss1DragonFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
-M2C_UNK TBoss1Dragon__sub_800291F4(void *, M2C_UNK);
+M2C_UNK set_hp_phase_value__12TBoss1DragonFPvi(void *, M2C_UNK);
 
 s32 check_phase_advance__12TBoss1DragonFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s16) M2C_FIELD(arg0, s16 *, 0x680)) {
@@ -28,7 +28,7 @@ s32 update_max_hp_phase__12TBoss1DragonFPv(void *arg0) {
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (temp_r4 = M2C_FIELD(arg0, s16 *, 0x682))) {
         M2C_FIELD(arg0, s16 *, 0x32C) = temp_r4;
-        TBoss1Dragon__sub_800291F4(arg0, 1);
+        set_hp_phase_value__12TBoss1DragonFPvi(arg0, 1);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3E4) == 0) {
             TBoss1Dragon__sub_800284B4(arg0, 0xD);
             return 1;

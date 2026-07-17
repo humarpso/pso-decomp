@@ -8,13 +8,13 @@ extern "C" {
 
 void copy_all_data__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK copy_data__6TLobbyFPvPv(s32, s32);
-s32 TLobby__sub_8001E1B8();
+s32 is_valid_player_index__6TLobbyFi();
 s32 TLobby__sub_8001E2A8(s32, s32);
 
 void copy_all_data__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 var_r31;
 
-    if (TLobby__sub_8001E1B8() != 0) {
+    if (is_valid_player_index__6TLobbyFi() != 0) {
         var_r31 = 0;
         do {
             copy_data__6TLobbyFPvPv(TLobby__sub_8001E2A8(var_r31, arg0), arg1);

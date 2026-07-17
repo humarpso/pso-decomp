@@ -22,7 +22,7 @@ void render__13TOCapsuleLaboFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -38,7 +38,7 @@ void render__13TOCapsuleLaboFv(u8 *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj802AF370_802af370 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
-        TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
             if ((s32 *) lbl_805D670C != NULL) {
                 *lbl_805D670C &= 0xFFFFFFF7;

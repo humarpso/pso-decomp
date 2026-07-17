@@ -8,7 +8,7 @@ void *__ct__11TAdSEGAlogoFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
-void TAdSinglePlyChrSelectGC__sub_8033A904(int);
+void init_logo_state__23TAdSinglePlyChrSelectGCFi(int);
 
 extern M2C_UNK __vt__11TAdSEGAlogo[];
 extern void *lbl_805D2620;
@@ -25,7 +25,7 @@ void *__ct__11TAdSEGAlogoFv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     TAdSEGAlogo__data_805D4A3C = 0;
     lbl_805D4A40 = 0;
-    TAdSinglePlyChrSelectGC__sub_8033A904(0);
+    init_logo_state__23TAdSinglePlyChrSelectGCFi(0);
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
         init_fade__6TLobbyFPvPvPv(o, tl_00, request_destroy__11TAdSEGAlogoFv);

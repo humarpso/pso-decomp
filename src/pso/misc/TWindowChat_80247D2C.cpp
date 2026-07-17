@@ -8,15 +8,15 @@ int TWindowChat__sub_80247D44(void* p);
 int forward_card_at_1c__11TWindowChatFPv(void* p);
 int get_subcard_field1c__11TWindowChatFPv(void* p);
 int TWindowChat__sub_80247DAC(void* p);
-void TWindowChat__sub_80247DD0(void* p);
-void TWindowChat__sub_80247DE0(void* p);
-int TWindowChat__sub_80247DF0(void* p);
-int TWindowChat__sub_80247E44(void* p);
-int TWindowChat__sub_80247EA8(void* p);
-int TWindowChat__sub_80247EB4(void* p);
+void set_active_flag__11TWindowChatFPv(void* p);
+void set_input_active__11TWindowChatFPv(void* p);
+int is_mode_bit6__11TWindowChatFPv(void* p);
+int is_visible__11TWindowChatFPv(void* p);
+int is_mode_bit4__11TWindowChatFPv(void* p);
+int is_open__11TWindowChatFPv(void* p);
 void fn_80247ED8(void* p);
-int TWindowSubComCard__sub_8007341C(void*);
-int TWindowSubComCard__sub_80073DB8(void*);
+int is_visible__17TWindowSubComCardFPv(void*);
+int get_status_flag__17TWindowSubComCardFPv(void*);
 int TWindowSubComCard__sub_80265BF8(void*);
 
 void TWindowChat__sub_80247D2C(void* p) { *(u16*)((char*)p + 0x62) |= 0x4; }

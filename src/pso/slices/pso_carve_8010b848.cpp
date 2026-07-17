@@ -14,8 +14,8 @@ int check_flag_32__14TItemEquipBaseFPv(void* p);
 int clear_flag_c_bit5__14TItemEquipBaseFPv(void* p);
 s32 TItemData__sub_8010B808(void* p);
 s32 TItemData__sub_8010B810(void* p);
-int TObjPlayer__sub_8001BED8(void*, int);
-int TAdRicoRing__sub_8001BEE8(void*, int);
+int set_flags__10TObjPlayerFPvUi(void*, int);
+int clear_flags__11TAdRicoRingFPvUi(void*, int);
 
 int TItemData__sub_8010B848(void) { return 0; }
 int TItemData__sub_8010B8B0(void) { return 0; }

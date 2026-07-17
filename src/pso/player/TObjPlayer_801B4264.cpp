@@ -12,7 +12,7 @@ s32 send_field_state_if_active__10TObjPlayerFii(s32, s32);
 s32 TObjPlayer__sub_801D8E90(s32);
 s32 TObjPlayer__sub_800113E4(void *, s16);
 s32 obj_isState3_324(void *);
-s32 TObjPlayer__sub_80102C78(void *, s16);
+s32 set_facing__10TObjPlayerFPvs(void *, s16);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 reset_volopt_state__10TObjPlayerFv(void *);
 s32 check_camera_mode__10TObjPlayerFv();
@@ -36,7 +36,7 @@ void update_rotation__10TObjPlayerFPv(void *arg0) {
         return;
     }
     TObjPlayer__sub_800113E4(arg0, M2C_FIELD(arg0, s16 *, 0x2B8));
-    TObjPlayer__sub_80102C78(arg0, M2C_FIELD(arg0, s16 *, 0x2BA));
+    set_facing__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0x2BA));
 }
 
 }

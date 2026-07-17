@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_render_target_singleton__10TObjPlayerFv(void);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK init_render_target__10TObjPlayerFPv();
 
@@ -17,7 +17,7 @@ void init_render_target_singleton__10TObjPlayerFv(void) {
     u32 temp_r3;
 
     lbl_805D4EE8 = 0U;
-    if (TOKeyMachine01__sub_802034A8() == 0x21) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0x21) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
         lbl_805D4EE8 = temp_r3;
         if (temp_r3 != 0U) {

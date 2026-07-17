@@ -9,7 +9,7 @@ extern "C" {
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK TBoss8Dragon__sub_8034D500(void *, int, int, void *, f32);
 
-void fn_80324D68(u8 *arg0) {
+void update_wing_segments(u8 *arg0) {
     TBoss8Dragon__sub_8034D500((void *) (arg0 + 0x48), (int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (0), (void *) (arg0 + 0x20), (f32) (M2C_FIELD(arg0, f32 *, 0x88)));
     TBoss8Dragon__sub_8034D500((void *) (arg0 + 0x48), (int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (0), (void *) (arg0 + 0x2C), (f32) (M2C_FIELD(arg0, f32 *, 0x8C)));
     if (M2C_FIELD(arg0, void **, 0x38) != 0) {

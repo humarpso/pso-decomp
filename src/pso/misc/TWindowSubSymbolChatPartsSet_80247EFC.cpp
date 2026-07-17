@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TWindowSubSymbolChatPartsSet__sub_80247EFC(int a0);
+int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0);
 
     extern int lbl_8044EA74[];
-int TWindowSubSymbolChatPartsSet__sub_80247EFC(int a0) {  return lbl_8044EA74[a0]; }
+int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0) {  return lbl_8044EA74[a0]; }
 
 }

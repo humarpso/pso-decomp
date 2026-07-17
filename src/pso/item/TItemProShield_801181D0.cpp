@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1);
-s32 TItemMag__sub_80102C4C(void *);
+s32 get_flag_40__8TItemMagFPv(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
-M2C_UNK TObjPlayer__sub_800FFA88(u32, s32);
+M2C_UNK get_item_ptr__10TObjPlayerFPvi(u32, s32);
 M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -25,8 +25,8 @@ s32 obj_testFlags30(void *, M2C_UNK);
 extern s32 some_id_805c6f74;
 
 void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (obj_testFlags30(arg0, 0x08000000) == 0) && (TItemMag__sub_80102C4C(arg0) == 0)) {
-        TObjPlayer__sub_800FFA88(M2C_FIELD(arg0, u32 *, 0xF0), arg1);
+    if (((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (obj_testFlags30(arg0, 0x08000000) == 0) && (get_flag_40__8TItemMagFPv(arg0) == 0)) {
+        get_item_ptr__10TObjPlayerFPvi(M2C_FIELD(arg0, u32 *, 0xF0), arg1);
         TObjPlayer__sub_803D97F0();
         TObjPlayer__sub_80364198();
         some_id_805c6f74 &= 0xFFFFFFEF;

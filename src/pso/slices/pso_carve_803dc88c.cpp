@@ -8,7 +8,7 @@ extern "C" {
 
 extern s32 lbl_805D7710;
 
-void fn_803DC88C(s32 arg0) {
+void set_npc_enemy_param(s32 arg0) {
     lbl_805D7710 = arg0;
 }
 

@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, s32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, s32);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
@@ -44,7 +44,7 @@ void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        TObjEneDD__sub_800BBA04(arg0, 0xE);
+        set_field_378__9TObjEneDDFPvi(arg0, 0xE);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         ((VObj *)arg0)->m94();
         M2C_FIELD(arg0, s32 *, 0x470) = 0;

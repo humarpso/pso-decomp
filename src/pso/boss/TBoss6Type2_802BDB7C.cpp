@@ -12,7 +12,7 @@ u16 TBoss6Type2__sub_802BB694(void *);
 M2C_UNK TBoss6Type2__sub_802BD938(void *, M2C_UNK *);
 M2C_UNK TBoss6Type2__sub_802BDD6C(void *, s32, M2C_UNK *);
 M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(u16);
-s32 TBoss6PlotFalz__sub_802AC18C();
+s32 get_phase__14TBoss6PlotFalzFv();
 
 void update_attack_target__11TBoss6Type2FPv(void *arg0) {
     M2C_UNK sp8;
@@ -46,7 +46,7 @@ void update_attack_target__11TBoss6Type2FPv(void *arg0) {
             }
         }
         M2C_FIELD(arg0, u16 *, 0x466) = var_r30;
-        if ((TBoss6PlotFalz__sub_802AC18C() == 0) && (M2C_FIELD(arg0, s32 *, 0x374) & 1)) {
+        if ((get_phase__14TBoss6PlotFalzFv() == 0) && (M2C_FIELD(arg0, s32 *, 0x374) & 1)) {
             M2C_FIELD(arg0, u16 *, 0x466) = 0xFFFFU;
         }
         var_r31 = M2C_FIELD(arg0, s32 *, 0x374) - 1;

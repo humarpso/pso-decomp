@@ -8,8 +8,8 @@ extern "C" {
 
 void draw_held_item__10TObjPlayerFPv(void *arg0);
 void init_armor__10TObjPlayerFPv(void *arg0);
-s32 TItemMag__sub_80102C4C();
-s32 TItemProArmor__sub_80102C3C(void *);
+s32 get_flag_40__8TItemMagFPv();
+s32 get_id__13TItemProArmorFPv(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
 M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
@@ -35,7 +35,7 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
     void *temp_r31;
     void *temp_r5;
 
-    if (((void *) M2C_FIELD(arg0, void **, 0xF4) != NULL) && (TItemMag__sub_80102C4C() == 0)) {
+    if (((void *) M2C_FIELD(arg0, void **, 0xF4) != NULL) && (get_flag_40__8TItemMagFPv() == 0)) {
         temp_r5 = M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0xF4), void **, 0x2C), void **, 0x30);
         temp_r31 = M2C_FIELD(temp_r5, void **, 0x30);
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 0x18);
@@ -70,7 +70,7 @@ void init_armor__10TObjPlayerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
         temp_r3 = alloc__13TItemProArmorFi(0x2C);
         if (temp_r3 != 0) {
-            init_vtable__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
+            init_vtable__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x5A);
         }
     }
     TObjPlayer__sub_8011E618(arg0);

@@ -13,7 +13,7 @@ M2C_UNK TObjPlayer__sub_8011EB84(void *, M2C_UNK *, s32, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C(void *);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 void TObjPlayer__sub_80120D50(void *);
-void TObjPlayer__sub_8012106C(void *, int);
+void set_status_flags__10TObjPlayerFPvUi(void *, int);
 s16 TObjPlayer__sub_801D2EA8(s32);
 
 extern s32 tl_05;
@@ -39,7 +39,7 @@ extern M2C_UNK lbl_804EDC28[];
 void *init_variant_2_dc28__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDC28;
-    TObjPlayer__sub_8012106C(arg0, 2);
+    set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
 }
 

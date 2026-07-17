@@ -10,7 +10,7 @@ void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK fn_801566CC(void *);
+M2C_UNK clear_obj_links(void *);
 M2C_UNK free_child__14TBoss7CrawfishFPv(void *);
 
 extern M2C_UNK __vt__14TBoss7Crawfish[];
@@ -19,7 +19,7 @@ void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss7Crawfish;
         TObjPlayer__sub_80154A00(arg0);
-        fn_801566CC(arg0);
+        clear_obj_links(arg0);
         free_child__14TBoss7CrawfishFPv(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {

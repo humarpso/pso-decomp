@@ -3,10 +3,10 @@
 extern "C" {
 
 void init_npc_animation__10TObjPlayerFPvPvPvPv(void* p, void* a1, void* a2, void* a3);
-int TObjPlayer__sub_8002AE7C(void*, void*);
-int TObjPlayer__sub_8002AE84(void*);
+int set_field_dc__10TObjPlayerFPvi(void*, void*);
+int set_field_d8__10TObjPlayerFPvi(void*);
 int set_animation__10TObjPlayerFPvs(void*, void*);
 
-void init_npc_animation__10TObjPlayerFPvPvPvPv(void* p, void* a1, void* a2, void* a3) { TObjPlayer__sub_8002AE84(p); TObjPlayer__sub_8002AE7C(p, a2); set_animation__10TObjPlayerFPvs(p, a3); }
+void init_npc_animation__10TObjPlayerFPvPvPvPv(void* p, void* a1, void* a2, void* a3) { set_field_d8__10TObjPlayerFPvi(p); set_field_dc__10TObjPlayerFPvi(p, a2); set_animation__10TObjPlayerFPvs(p, a3); }
 
 }

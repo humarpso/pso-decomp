@@ -8,10 +8,10 @@ extern "C" {
 
 u8 is_flag_set__11TLoadingCurFPv(void *arg0);
 
-s32 TRaderMapCore__sub_801A6CEC();
+s32 pack_color_bits__13TRaderMapCoreFii();
 
 u8 is_flag_set__11TLoadingCurFPv(void *arg0) {
-    return (u8) ((M2C_FIELD(arg0, s32 *, 0x48) & TRaderMapCore__sub_801A6CEC()) != 0);
+    return (u8) ((M2C_FIELD(arg0, s32 *, 0x48) & pack_color_bits__13TRaderMapCoreFii()) != 0);
 }
 
 }

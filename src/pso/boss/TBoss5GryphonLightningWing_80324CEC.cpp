@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 TBoss5GryphonLightningWing__sub_80324CEC(void);
-f64 fn_803A2C6C();
+f64 get_end_value();
 
 f32 TBoss5GryphonLightningWing__sub_80324CEC(void) {
-    return (f32) fn_803A2C6C();
+    return (f32) get_end_value();
 }
 
 }

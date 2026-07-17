@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
-s32 TWindowSubShortMail__sub_80246CC4();
+s32 is_active__19TWindowSubShortMailFv();
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 s32 fn_80246CD0();
 s32 fn_80246CDC();
@@ -18,7 +18,7 @@ void update_chat_parts__12TWindowTimerFPv(u8 *arg0) {
 
     if (M2C_FIELD(arg0, s32 *, 0x60) & 1) {
         var_r3 = TWindowSubComCard__sub_8026CBB8(0xA9);
-    } else if ((TWindowSubShortMail__sub_80246CC4() != 0) || (fn_80246CD0() != 0) || (fn_80246CDC() != 0)) {
+    } else if ((is_active__19TWindowSubShortMailFv() != 0) || (fn_80246CD0() != 0) || (fn_80246CDC() != 0)) {
         var_r3 = TWindowSubComCard__sub_8026CBB8(0xA8);
     } else {
         var_r3 = TWindowSubComCard__sub_8026CBB8(0x22);

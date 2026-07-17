@@ -11,13 +11,13 @@ void ensure_default__10TObjPlayerFPv(void *arg0);
 void init_action__10TObjPlayerFPv(u8 *arg0);
 void *TObjPlayer__sub_801B5EA4(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801D2630();
+M2C_UNK clear_status_bit6__10TObjPlayerFPv();
 M2C_UNK TTecReverser__sub_80239E44(void *, void *, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TObjPlayer__sub_8000FF4C(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 void apply_velocity__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_8002AEB8(void *, M2C_UNK);
+M2C_UNK set_type__10TObjPlayerFPvi(void *, M2C_UNK);
 M2C_UNK fn_800660B8(void *);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s16);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -27,7 +27,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 u16 obj_getField1c(s32);
 
 void notify_lobby__10TObjPlayerFi(s32 arg0) {
-    TObjPlayer__sub_801D2630();
+    clear_status_bit6__10TObjPlayerFPv();
     TLobby__sub_8024AC20(obj_getField1c(arg0));
 }
 
@@ -47,7 +47,7 @@ void init_action__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x12;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     TObjPlayer__sub_8001053C(arg0);
-    TObjPlayer__sub_8002AEB8(arg0 + 0x644, 0x12C);
+    set_type__10TObjPlayerFPvi(arg0 + 0x644, 0x12C);
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
     M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) lbl_805DC374;
     TObjPlayer__sub_8000FF4C(arg0, 0xFFFF);

@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_target_player__11TMainCursorFi(s32 arg0);
-void *TMainCursor__sub_8013DFD4(s32);
+void *get_state__11TMainCursorFPv(s32);
 M2C_UNK TObjPlayer__sub_8013DEF8(s32);
 s32 TObjPlayer__sub_801C6DAC(s32);
 
 void update_target_player__11TMainCursorFi(s32 arg0) {
-    if ((TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) && ((u32) M2C_FIELD(TMainCursor__sub_8013DFD4(arg0 + 0x1C), u32 *, 0x424) != 0U)) {
-        TObjPlayer__sub_8013DEF8(M2C_FIELD(TMainCursor__sub_8013DFD4(arg0 + 0x1C), s32 *, 0x424) + 0x520);
+    if ((TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) && ((u32) M2C_FIELD(get_state__11TMainCursorFPv(arg0 + 0x1C), u32 *, 0x424) != 0U)) {
+        TObjPlayer__sub_8013DEF8(M2C_FIELD(get_state__11TMainCursorFPv(arg0 + 0x1C), s32 *, 0x424) + 0x520);
     }
 }
 

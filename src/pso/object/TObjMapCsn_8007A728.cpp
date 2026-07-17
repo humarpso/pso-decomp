@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjMapCsn__sub_8007A728(void);
+s32 get_map_count__10TObjMapCsnFv(void);
 
 extern s32 lbl_805D5650;
 
-s32 TObjMapCsn__sub_8007A728(void) {
+s32 get_map_count__10TObjMapCsnFv(void) {
     return lbl_805D5650;
 }
 

@@ -13,7 +13,7 @@ int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
 int is_keyboard_active__17TWindowSubComCardFPv(void* p);
 int update_keyboard__17TWindowSubComCardFPv(void* p);
 int TKeyBoardControl__sub_80131FA0(void*);
-int TKeyBoardControl__sub_80131FAC(void*);
+int is_key_active__16TKeyBoardControlFPv(void*);
 int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
 
 int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p) { return get_field_6c__19TWindowKeyBoardSoftFPv(*(void**)((char*)p + 0x20)); }

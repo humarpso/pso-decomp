@@ -7,17 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TWindowSubMag__sub_802627D8(void* p);
-int TWindowSubMag__sub_802627E4(void* p);
-int TWindowSubMag__sub_802627F0(void* p);
-int TWindowSubMag__sub_802627FC(void* p);
+int is_cursor_locked__13TWindowSubMagFPv(void* p);
+int get_flag_bit6__13TWindowSubMagFPv(void* p);
+int get_flag_bit5__13TWindowSubMagFPv(void* p);
 int TWindowSubMag__sub_80262808(void* p);
 s32 TItemTexLoad__sub_8011D098(s32 a0 = 0, s32 a1 = 0);
 u16 * get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s32 a1 = 0);
 
 int TWindowSubMag__sub_802627D8(void* p) { return *(u32*)((char*)p + 0x60) & 0x1; }
-int TWindowSubMag__sub_802627E4(void* p) { return (*(u32*)((char*)p + 0x60) >> 7) & 0x1; }
-int TWindowSubMag__sub_802627F0(void* p) { return (*(u32*)((char*)p + 0x60) >> 6) & 0x1; }
-int TWindowSubMag__sub_802627FC(void* p) { return (*(u32*)((char*)p + 0x60) >> 5) & 0x1; }
+int is_cursor_locked__13TWindowSubMagFPv(void* p) { return (*(u32*)((char*)p + 0x60) >> 7) & 0x1; }
+int get_flag_bit6__13TWindowSubMagFPv(void* p) { return (*(u32*)((char*)p + 0x60) >> 6) & 0x1; }
+int get_flag_bit5__13TWindowSubMagFPv(void* p) { return (*(u32*)((char*)p + 0x60) >> 5) & 0x1; }
 int TWindowSubMag__sub_80262808(void* p) { return *(u16*)((char*)p + 0x62) & 0x8; }
 
 }

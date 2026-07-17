@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TNpcPlayer__sub_80152DE4(void* a0);
+void reset_move_state__10TNpcPlayerFPv(void* a0);
 void sync_from_lobby__10TNpcPlayerFPv(void* p);
 void swap_endian__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152E74(void* a0);
@@ -12,7 +12,7 @@ int TObjPlayer__sub_80102CE0(void*);
 int update_players__6TLobbyFi(void*);
 
     extern const float TNpcPlayer__data_805DB1F0;
-void TNpcPlayer__sub_80152DE4(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(unsigned char*)((char*)a0 + 0x0) = 66; *(unsigned char*)((char*)a0 + 0x1) = 3; }
+void reset_move_state__10TNpcPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(unsigned char*)((char*)a0 + 0x0) = 66; *(unsigned char*)((char*)a0 + 0x1) = 3; }
 
 void sync_from_lobby__10TNpcPlayerFPv(void* p) { swap_endian__10TNpcPlayerFPv((void*)(p)); update_players__6TLobbyFi(p); }
 

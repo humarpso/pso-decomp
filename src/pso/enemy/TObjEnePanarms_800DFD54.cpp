@@ -8,7 +8,7 @@ extern "C" {
 
 void init_attack_state__14TObjEnePanarmsFPv(void *arg0);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
-M2C_UNK TObjEnePanarms__sub_8002AE74(void *, M2C_UNK);
+M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
 s32 TObjPlayer__sub_80141F84(s32, s32, void *);
 
 extern const f32 TObjEnePanarms__data_805DA524;
@@ -31,7 +31,7 @@ void init_attack_state__14TObjEnePanarmsFPv(void *arg0) {
         }
     }
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
-    TObjEnePanarms__sub_8002AE74(arg0, 2);
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, 2);
 }
 
 }

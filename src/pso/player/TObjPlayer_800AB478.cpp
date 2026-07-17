@@ -9,7 +9,7 @@ extern "C" {
 void draw_model_no_fog__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -20,8 +20,8 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805D9B68;
 
 void draw_model_no_fog__10TObjPlayerFPv(u8 *arg0) {
-    TObjFish__sub_803DA798(lbl_805D5094);
-    TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xD8));
+    set_global_param__8TObjFishFi(lbl_805D5094);
+    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xD8));
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0 + 0xF0);
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0xC0));

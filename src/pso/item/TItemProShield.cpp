@@ -2,12 +2,12 @@
 
 extern "C" {
 
-u8 TItemProShield__sub_8010B734(void* p);
+u8 get_slot_count__14TItemProShieldFPv(void* p);
 void* TItemEquipBase__sub_8010B73C(void* p);
 
-int TItemEquipBase__sub_8010B76C(void*);
+int init_slot__14TItemEquipBaseFPv(void*);
 
-u8 TItemProShield__sub_8010B734(void* p) { return *(u8*)((char*)p + 0xee); }
-void* TItemEquipBase__sub_8010B73C(void* p) { TItemEquipBase__sub_8010B76C(p); return p; }
+u8 get_slot_count__14TItemProShieldFPv(void* p) { return *(u8*)((char*)p + 0xee); }
+void* TItemEquipBase__sub_8010B73C(void* p) { init_slot__14TItemEquipBaseFPv(p); return p; }
 
 }

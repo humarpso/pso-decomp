@@ -9,17 +9,17 @@ extern "C" {
 void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, s32, f32);
-M2C_UNK TObjFish__sub_803DA798(s32, void *);
+M2C_UNK set_global_param__8TObjFishFi(s32, void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjPlayer__sub_803E4BC4();
-M2C_UNK TObjPlayer__sub_803E4BD0();
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
 
 extern u8 *lbl_805D5108;
 
 void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0) {
-    TObjFish__sub_803DA798(M2C_FIELD(M2C_FIELD(lbl_805D5108, void **, 0x42C), s32 *, 0xC), lbl_805D5108);
+    set_global_param__8TObjFishFi(M2C_FIELD(M2C_FIELD(lbl_805D5108, void **, 0x42C), s32 *, 0xC), lbl_805D5108);
     TObjPlayer__sub_803D9B2C();
     if ((s32) M2C_FIELD(arg0, s32 *, 0x2C) == 0) {
         TOHangerMachine01__sub_803D9C00(M2C_FIELD(arg0, void **, 0x30));
@@ -28,9 +28,9 @@ void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     }
     TOHangerMachine01__sub_803D9C00(arg0 + 0x1C);
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x40));
-    TObjPlayer__sub_803E4BC4();
+    set_global_flag__10TObjPlayerFv();
     TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(M2C_FIELD(lbl_805D5108, void **, 0x42C), s32 *, 8), M2C_FIELD(arg0, s32 *, 0x48), M2C_FIELD(arg0, f32 *, 0x4C));
-    TObjPlayer__sub_803E4BD0();
+    clear_global_state__10TObjPlayerFv();
     TObjPlayer__sub_803D9B78();
 }
 

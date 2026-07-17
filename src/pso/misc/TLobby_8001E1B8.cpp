@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TLobby__sub_8001E1B8(s32 arg0);
+u8 is_valid_player_index__6TLobbyFi(s32 arg0);
 
-u8 TLobby__sub_8001E1B8(s32 arg0) {
+u8 is_valid_player_index__6TLobbyFi(s32 arg0) {
     s32 var_r0;
 
     var_r0 = 0;

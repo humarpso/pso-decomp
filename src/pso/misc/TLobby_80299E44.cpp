@@ -18,7 +18,7 @@ void play_effect_all_players__6TLobbyFPv(void*);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK TLobby__sub_8024AC20(int);
-M2C_UNK TLobby__sub_80269C6C(u32, s32, M2C_UNK);
+M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
 u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, M2C_UNK *, M2C_UNK);
 s32 TLobby__sub_80292F5C();
 s32 TLobby__sub_80292F7C();
@@ -27,11 +27,11 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 int TWindowCtrl__sub_8024AEAC(void*);
 M2C_UNK TWindowCtrl__sub_8024AEF0(int);
-M2C_UNK TWindowSubComCard__sub_80265C10(u32, M2C_UNK);
+M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 int TWindow__close(void*);
-M2C_UNK TLobby__sub_8007340C(u32);
+M2C_UNK set_loss_flag__6TLobbyFPv(u32);
 int TObjPlayer__sub_8024ABDC(void*);
 M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
 M2C_UNK send_code_45_1__10TObjPlayerFi(int);
@@ -54,7 +54,7 @@ void open_message_window__6TLobbyFPv(void *arg0) {
     }
     M2C_FIELD(arg0, u32 *, 0x30) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x39), lbl_804DBE9C, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        TLobby__sub_80269C6C(M2C_FIELD(arg0, u32 *, 0x30), TQuestVmDownLoadServer__sub_8006EF6C(0x5E), 1);
+        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x30), TQuestVmDownLoadServer__sub_8006EF6C(0x5E), 1);
     }
 }
 
@@ -73,8 +73,8 @@ void open_giveup_window__6TLobbyFPv(void *arg0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5B), 5, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TQuestVmDownLoadServer__sub_8006EF6C(0x5C), 5, 1);
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x2C));
-        TLobby__sub_8007340C(M2C_FIELD(arg0, u32 *, 0x2C));
-        TWindowSubComCard__sub_80265C10(M2C_FIELD(arg0, u32 *, 0x2C), 0);
+        set_loss_flag__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x2C));
+        set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, u32 *, 0x2C), 0);
     }
 }
 

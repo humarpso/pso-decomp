@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TWindowMainMenu__sub_802AD740(s32);
+s32 is_item_active__15TWindowMainMenuFPv(s32);
 void TWindowMainMenu__sub_802ADB0C(void* p);
 int TWindowMainMenu__sub_802ADB1C(void* p);
 int TWindowMainMenu__sub_802ADB28(void* p);
@@ -14,7 +14,7 @@ s32 count_active_items__15TWindowMainMenuFi(s32 arg0) {
     ptr = arg0 + 0x64;
     counter = 0;
 loop_1:
-    if (TWindowMainMenu__sub_802AD740(ptr) == 0) {
+    if (is_item_active__15TWindowMainMenuFPv(ptr) == 0) {
         return counter;
     }
     counter += 1;

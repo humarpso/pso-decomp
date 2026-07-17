@@ -13,7 +13,7 @@ M2C_UNK THunterGuildSeqOnlineTask__ct(u32, s32);
 s32 is_scene_ready__6TLobbyFv();
 M2C_UNK TLobby__sub_80208BD8();
 M2C_UNK cleanup_game_objects__9TMainTaskFv();
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TTecLuker__sub_80233F8C();
 M2C_UNK TWindowCtrlMain__ct();
 M2C_UNK TWindowCtrl__ct(u32, s32);
@@ -96,13 +96,13 @@ void create_tasks__6TLobbyFv(void) {
         __ct__7TSwitchFv(tmp, tl_00);
     }
     init__13TQuestColCtrlFv();
-    if (TOKeyMachine01__sub_802034A8() == 0xF) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         TLobby__sub_80351F3C();
     }
-    if ((TOKeyMachine01__sub_802034A8() == 0xF) && (is_scene_ready__6TLobbyFv() != 0)) {
+    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (is_scene_ready__6TLobbyFv() != 0)) {
         TWindowTimer__sub_80198D98();
     }
-    if ((get_main_phase() == 0xF) && ((TOKeyMachine01__sub_802034A8() == 0) || (TOKeyMachine01__sub_802034A8() == 0x12))) {
+    if ((get_main_phase() == 0xF) && ((get_global_state__14TOKeyMachine01Fv() == 0) || (get_global_state__14TOKeyMachine01Fv() == 0x12))) {
         tmp = __nw__7TObjectFUl(0x1C);
         if (tmp != 0U) {
             THunterGuildSeqOnlineTask__ct(tmp, tl_01);

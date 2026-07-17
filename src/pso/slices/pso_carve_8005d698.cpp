@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TBoss8Dragon__sub_8005D6F4(void* p);
+int get_flag_bit6__12TBoss8DragonFPv(void* p);
 int TBoss8Dragon__sub_8005D700(void);
 
 int TBoss4Uro__sub_8005D698(void) { return 0; }

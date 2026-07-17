@@ -11,7 +11,7 @@ void apply_switch_attack__5TItemFPvi(void *arg0, s32 arg1);
 void TItem__sub_801005D8(void);
 s32 PPCSync();
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
-s32 TItemProArmor__sub_80102C3C(void *);
+s32 get_id__13TItemProArmorFPv(void *);
 void TItem__sub_801005DC(void);
 void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
@@ -34,7 +34,7 @@ void apply_switch_attack__5TItemFPvi(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0xF0)) == 0)) {
         temp_r3 = TOSwitchAttack__sub_80087278(M2C_FIELD(arg0, u32 *, 0xF0) + 0x2FC, arg1, 0x10);
         if (temp_r3 != 0) {
-            TObjPlayer__sub_80087638(temp_r3, TItemProArmor__sub_80102C3C(arg0));
+            TObjPlayer__sub_80087638(temp_r3, get_id__13TItemProArmorFPv(arg0));
         }
     }
 }

@@ -8,8 +8,8 @@ extern "C" {
 
 s32 TOSwitchAttack__sub_80087278(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_testFlags30(void * a0 = 0, s32 a1 = 0);
-void TObjPlayer__sub_80015DB0(void* p, void* q);
+void copy_entry_bytes__10TObjPlayerFPvPv(void* p, void* q);
 
-void TObjPlayer__sub_80015DB0(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); }
+void copy_entry_bytes__10TObjPlayerFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); }
 
 }

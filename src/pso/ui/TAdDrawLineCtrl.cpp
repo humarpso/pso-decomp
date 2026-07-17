@@ -9,7 +9,7 @@ extern "C" {
 void render__15TAdDrawLineCtrlFv(void *arg0);
 
 s32 get_main_phase();
-s32 TMainTask__sub_8001A430();
+s32 get_state_flag__9TMainTaskFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK fn_80141A30();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
@@ -22,7 +22,7 @@ void render__15TAdDrawLineCtrlFv(void *arg0) {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
         }
-    } else if ((get_main_phase() != 2) || (TMainTask__sub_8001A430() != 1)) {
+    } else if ((get_main_phase() != 2) || (get_state_flag__9TMainTaskFv() != 1)) {
 block_5:
         reset_transform_state__10TObjPlayerFv();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {

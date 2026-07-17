@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s16 TCameraCtrl__sub_8002ADD0(void);
+s16 get_camera_mode__11TCameraCtrlFv(void);
 
 extern s16 lbl_805D4E08;
 
-s16 TCameraCtrl__sub_8002ADD0(void) {
+s16 get_camera_mode__11TCameraCtrlFv(void) {
     return lbl_805D4E08;
 }
 

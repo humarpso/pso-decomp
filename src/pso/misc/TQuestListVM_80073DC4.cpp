@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TWindowSubComCard__sub_80073DB8(void* p);
-void TQuestListVM__sub_80073DC4(void* p, s32 v);
+int get_status_flag__17TWindowSubComCardFPv(void* p);
+void set_field_20__12TQuestListVMFPvi(void* p, s32 v);
 
-void TQuestListVM__sub_80073DC4(void* p, s32 v) { *(s32*)((char*)p + 0x20) = v; }
+void set_field_20__12TQuestListVMFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x20) = v; }
 
 }

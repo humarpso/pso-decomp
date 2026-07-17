@@ -12,8 +12,8 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK draw_model__12TObjNpcEnemyFPv();
 M2C_UNK TObjFish__sub_803E46BC(s32);
-M2C_UNK TObjPlayer__sub_803E4BC4(void *);
-M2C_UNK TObjPlayer__sub_803E4BD0();
+M2C_UNK set_global_flag__10TObjPlayerFv(void *);
+M2C_UNK clear_global_state__10TObjPlayerFv();
 
 void update_state__12TObjNpcEnemyFPv(void *arg0) {
     void *sp4;
@@ -23,19 +23,19 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
     temp_r0 = M2C_FIELD(sp4, u16 *, 2);
     switch ((s32) temp_r0) {
     case 0:
-        TObjPlayer__sub_803E4BC4(arg0);
+        set_global_flag__10TObjPlayerFv(arg0);
         TObjFish__sub_803E46BC(M2C_FIELD(arg0, s32 *, 0x34));
         reset_transform_state__10TObjPlayerFv();
-        TObjPlayer__sub_803E4BD0();
+        clear_global_state__10TObjPlayerFv();
         return;
     case 1:
         draw__16TObjEneRe7BeruraFPv();
         return;
     case 2:
-        TObjPlayer__sub_803E4BC4(arg0);
+        set_global_flag__10TObjPlayerFv(arg0);
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
         reset_transform_state__10TObjPlayerFv();
-        TObjPlayer__sub_803E4BD0();
+        clear_global_state__10TObjPlayerFv();
         return;
     case 3:
         draw_model__12TObjNpcEnemyFPv();

@@ -10,7 +10,7 @@ u16 fn_801A2078(s32);
 u16 TLobby__sub_801A20C8(s32);
 u16 fn_801A210C(s32);
 s32 TContainerAncient01__sub_8020335C(void);
-s32 TOKeyMachine01__sub_802034A8(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
 int TObjRoomId__sub_801A1E2C(void);
 void fn_801A1FD8(void);
 

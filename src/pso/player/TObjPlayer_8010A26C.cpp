@@ -76,13 +76,13 @@ extern "C" {
 void update_indicator_particle__10TObjPlayerFPv(void *arg0);
 u32 TBoss4Type2__sub_800874F4(M2C_UNK *, M2C_UNK);
 s32 TObjPlayer__sub_800196EC();
-s32 TObjPlayer__sub_800196F4(void *);
+s32 get_field_3e4__10TObjPlayerFPv(void *);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
-u8 TObjPlayer__sub_8001972C();
-u32 TObjPlayer__sub_80102AA8();
+u8 get_field_ed__10TObjPlayerFPv();
+u32 get_item_ctrl__10TObjPlayerFv();
 s32 reset_key_machine_state__10TObjPlayerFv();
-M2C_UNK TParticleCtrl__sub_80088000(u32);
-M2C_UNK TParticleCtrl__sub_80088010(u32);
+M2C_UNK clear_active_flag__13TParticleCtrlFPv(u32);
+M2C_UNK enable__13TParticleCtrlFPv(u32);
 VObj_8010A26C *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, M2C_UNK *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -93,7 +93,7 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
     u32 temp_r3_3;
     VObj_8010A26C *temp_r3;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != TObjPlayer__sub_80102AA8()) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != get_item_ctrl__10TObjPlayerFv()) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -103,7 +103,7 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
         temp_r3_2 = TObjPlayer__sub_800196EC();
         if (temp_r3_2 != (s32) M2C_FIELD(arg0, s32 *, 0x20)) {
             M2C_FIELD(arg0, s32 *, 0x20) = temp_r3_2;
-            if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == TObjPlayer__sub_800196F4(temp_r3))) {
+            if ((reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3_2 == get_field_3e4__10TObjPlayerFPv(temp_r3))) {
                 M2C_FIELD(arg0, u32 *, 0x1C) = TBoss4Type2__sub_800874F4(sp8, 0x101);
             } else {
                 M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
@@ -112,13 +112,13 @@ void update_indicator_particle__10TObjPlayerFPv(void *arg0) {
         temp_r3_3 = get_item_field_6__10TObjPlayerFPv(temp_r3);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
             s32 var_r30 = 0;
-            if ((temp_r3_3 != 0U) && (TObjPlayer__sub_8001972C() == 0x1A)) {
+            if ((temp_r3_3 != 0U) && (get_field_ed__10TObjPlayerFPv() == 0x1A)) {
                 var_r30 = 1;
             }
             if (var_r30 != 0) {
-                TParticleCtrl__sub_80088000(M2C_FIELD(arg0, u32 *, 0x1C));
+                clear_active_flag__13TParticleCtrlFPv(M2C_FIELD(arg0, u32 *, 0x1C));
             } else {
-                TParticleCtrl__sub_80088010(M2C_FIELD(arg0, u32 *, 0x1C));
+                enable__13TParticleCtrlFPv(M2C_FIELD(arg0, u32 *, 0x1C));
             }
             copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, u32 *, 0x1C), sp8);
         }

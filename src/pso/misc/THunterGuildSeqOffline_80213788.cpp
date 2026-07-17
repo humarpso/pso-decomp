@@ -51,7 +51,7 @@ void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 
 void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0) {
     void *temp_r3;
@@ -67,7 +67,7 @@ block_3:
         if ((((V_A_80213788 *) arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
             ((V_A_80213788 *) arg0)->m7(0xC, 1);
             M2C_FIELD(arg0, s32 *, 0x34) = 1;
-            TQuestListVM__sub_80073DC4(arg0, 0xC);
+            set_field_20__12TQuestListVMFPvi(arg0, 0xC);
         }
     }
 }
@@ -84,7 +84,7 @@ block_3:
         if ((((V_A_8021383c *) arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
             ((V_A_8021383c *) arg0)->m7(0xC, 1);
             M2C_FIELD(arg0, s32 *, 0x34) = 1;
-            TQuestListVM__sub_80073DC4(arg0, 0xC);
+            set_field_20__12TQuestListVMFPvi(arg0, 0xC);
         }
     }
 }
@@ -93,7 +93,7 @@ void handle_close__22THunterGuildSeqOfflineFPv(void *arg0) {
     if ((((VObj_802138F0 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_802138F0 *)arg0)->m7(0xC, 1);
         M2C_FIELD(arg0, s32 *, 0x34) = 0;
-        TQuestListVM__sub_80073DC4(arg0, 0xC);
+        set_field_20__12TQuestListVMFPvi(arg0, 0xC);
     }
 }
 

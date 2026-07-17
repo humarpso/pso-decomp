@@ -10,9 +10,9 @@ s32 is_online_ready__6TLobbyFv(void);
 s32 is_camera_ctrl_active__6TLobbyFv(void);
 s32 is_ready__6TLobbyFv(void);
 s32 TLobby__sub_8030A770(void);
-s32 TCameraCtrl__sub_8006B330();
+s32 get_instance__11TCameraCtrlFv();
 s32 TCameraCtrl__sub_8006B368();
-s32 TLobby__sub_8001E5C8();
+s32 get_instance__6TLobbyFv();
 s32 TLobby__sub_8030A7B0();
 s32 TLobby__sub_8030A834();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -20,7 +20,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D5550;
 
 s32 is_online_ready__6TLobbyFv(void) {
-    if (((s32) lbl_805D5550 == 3) && (TLobby__sub_8001E5C8() == 0)) {
+    if (((s32) lbl_805D5550 == 3) && (get_instance__6TLobbyFv() == 0)) {
         return 1;
     }
     if (TLobby__sub_8030A834() != 0) {
@@ -31,7 +31,7 @@ s32 is_online_ready__6TLobbyFv(void) {
 
 s32 is_camera_ctrl_active__6TLobbyFv(void) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        return TCameraCtrl__sub_8006B330();
+        return get_instance__11TCameraCtrlFv();
     }
     return 1;
 }

@@ -10,7 +10,7 @@ s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 
 M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void TBoss8Dragon__sub_802F3B50(void);
 void TBoss8Dragon__sub_802F3B54(void);
-s16 TBoss8Dragon__sub_802F3C84(void *, void *);
+s16 get_part_count_plus__12TBoss8DragonFPvi(void *, void *);
 s16 TBoss8Dragon__sub_802F3C94(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
@@ -28,7 +28,7 @@ s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(s32 arg0, u32 arg1, s32 arg2, s32 
     TBoss4DarkFalz__sub_8004B4F0((void *) (arg4), (void *) (arg0 + 0x1C));
     M2C_FIELD(arg4, s16 *, 0) = TBoss8Dragon__sub_802F3C94((void *) (arg0), (void *) (arg3));
     M2C_FIELD(arg4, s16 *, 2) = 0;
-    M2C_FIELD(arg4, s16 *, 6) = TBoss8Dragon__sub_802F3C84((void *) (arg0), (void *) (arg3));
+    M2C_FIELD(arg4, s16 *, 6) = get_part_count_plus__12TBoss8DragonFPvi((void *) (arg0), (void *) (arg3));
     if (arg1 != 0U) {
         VecCopy__FP3VecPC3Vec((void *) (arg4 + 0x10), (void *) (arg1));
     }

@@ -11,13 +11,13 @@ void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void);
 void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void);
 void set_state_0xc__21TAdMultiChgGameModeGCFv(void);
 void begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK TAdMultiChgGameModeGC__sub_8023F654();
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
 
 extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
 void reset_mode_state__21TAdMultiChgGameModeGCFv(void) {
-    TAdMultiChgGameModeGC__sub_8023F654();
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
     lbl_805D3848 = 0xF;
     lbl_805D63C8 = 1;
 }
@@ -26,7 +26,7 @@ extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
 void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void) {
-    TAdMultiChgGameModeGC__sub_8023F654();
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
     lbl_805D3848 = 0xE;
     lbl_805D63C8 = 1;
 }
@@ -35,7 +35,7 @@ extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
 void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void) {
-    TAdMultiChgGameModeGC__sub_8023F654();
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
     lbl_805D3848 = 0xD;
     lbl_805D63C8 = 1;
 }
@@ -44,7 +44,7 @@ extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
 void set_state_0xc__21TAdMultiChgGameModeGCFv(void) {
-    TAdMultiChgGameModeGC__sub_8023F654();
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
     lbl_805D3848 = 0xC;
     lbl_805D63C8 = 1;
 }
@@ -53,7 +53,7 @@ extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 
 void begin_change_game_mode__21TAdMultiChgGameModeGCFv(void) {
-    TAdMultiChgGameModeGC__sub_8023F654();
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
     lbl_805D3848 = 0xB;
     lbl_805D63C8 = 1;
 }

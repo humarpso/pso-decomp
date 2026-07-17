@@ -12,7 +12,7 @@ M2C_UNK fn_8007FFF4(void *, M2C_UNK *);
 M2C_UNK fn_800800EC(void *, void *, s32);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_803DEEAC();
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
@@ -25,7 +25,7 @@ void render__17TDuelEffectNumberFv(void *arg0) {
     fn_800800EC(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0x24));
     init_xyz_limits__10TObjPlayerFv();
     TWindowSubStatusDisp__sub_803DEE6C(1);
-    TObjFish__sub_803DA798(lbl_805D63F0);
+    set_global_param__8TObjFishFi(lbl_805D63F0);
     TWindowSubStatusDisp__sub_803DF160(6, -1);
     fn_8007FFF4(arg0, (M2C_UNK *)&sp8);
     fn_8007FF28(arg0, (M2C_UNK *)&sp8);

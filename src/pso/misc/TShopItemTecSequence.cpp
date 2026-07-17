@@ -42,7 +42,7 @@ void close__20TShopItemTecSequenceFPv(void *arg0);
 void close_if_done__20TShopItemTecSequenceFPv(void *arg0);
 void handle_select__20TShopItemTecSequenceFPv(void *arg0);
 void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
-M2C_UNK TQuestListVM__sub_80073DC4(void *, s32);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 M2C_UNK close_if_single_screen__13TShopSequenceFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -64,7 +64,7 @@ struct VObj_8021FE80 : Base_8021FE80 {
 void select_and_advance__20TShopItemTecSequenceFPv(void *arg0) {
     if (arg0 != NULL) {
         ((VObj_8021FE80 *)arg0)->m4(0x1B, 1);
-        TQuestListVM__sub_80073DC4((void *)(arg0), (s32)(6));
+        set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(6));
         lbl_805D6248 = 0x1A;
         lbl_805D624C = 2;
     }
@@ -74,7 +74,7 @@ void close__20TShopItemTecSequenceFPv(void *arg0) {
     struct VObj_8021FEE0 *o = (struct VObj_8021FEE0 *)arg0;
     if (o != NULL) {
         o->m4(0x1A, 1);
-        TQuestListVM__sub_80073DC4((void *)(arg0), (s32)(2));
+        set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(2));
     }
 }
 
@@ -84,7 +84,7 @@ extern s32 lbl_805D624C;
 void handle_select__20TShopItemTecSequenceFPv(void *arg0) {
     if ((((VObj_8021FF30*)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_8021FF30*)arg0)->m4(lbl_805D6248, 1);
-        TQuestListVM__sub_80073DC4((void *)(arg0), (s32)(lbl_805D624C));
+        set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(lbl_805D624C));
     }
 }
 

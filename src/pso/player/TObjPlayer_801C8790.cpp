@@ -9,7 +9,7 @@ extern "C" {
 #include "types.h"
 extern "C" {
 M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_8011E238(void *, int);
+M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, int, int);
 M2C_UNK set_flag_20000__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801BF690(void *);
@@ -32,7 +32,7 @@ void TObjPlayer__sub_801C8790(u8 *arg0) {
     TObjPlayer__sub_801BF690((void *) (arg0 + 0x730));
     TObjPlayer__sub_801BF964((void *) (arg0 + 0x5FC));
     reset_lobby_model__10TObjPlayerFPv((void *) (arg0 + 0x644));
-    TObjPlayer__sub_8011E238((void *) (arg0), (int) (4));
+    set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (4));
     TObjPlayer__sub_801B130C((void *) (arg0));
     set_flag_20000__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x328) = 0;

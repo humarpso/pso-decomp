@@ -9,7 +9,7 @@ extern "C" {
 u8 is_state_ready__14TBoss4DarkFalzFv(void);
 u8 is_active__14TBoss4DarkFalzFv(void);
 u32 TBoss4DarkFalz__sub_8004C1B4();
-u32 TBoss4DarkFalz__sub_8004C1BC();
+u32 get_instance__14TBoss4DarkFalzFv();
 s32 TBoss4DarkFalz__sub_8004C1DC();
 s32 TBoss4DarkFalz__sub_8004C1E4();
 
@@ -33,10 +33,10 @@ u8 is_active__14TBoss4DarkFalzFv(void) {
     int var_r31;
 
     var_r31 = 0;
-    if (TBoss4DarkFalz__sub_8004C1BC() != 0U) {
-        TBoss4DarkFalz__sub_8004C1BC();
+    if (get_instance__14TBoss4DarkFalzFv() != 0U) {
+        get_instance__14TBoss4DarkFalzFv();
         if (TBoss4DarkFalz__sub_8004C1E4() != 3) {
-            TBoss4DarkFalz__sub_8004C1BC();
+            get_instance__14TBoss4DarkFalzFv();
             if (TBoss4DarkFalz__sub_8004C1E4() != 4) {
                 var_r31 = 1;
             }

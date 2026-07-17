@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void apply_shield_scale_to_unit__10TObjPlayerFPv(void *arg0);
-u8 TItemProShield__sub_8010B734();
-M2C_UNK TItemProUnit__sub_80119014(s32, f32);
+u8 get_slot_count__14TItemProShieldFPv();
+M2C_UNK set_evp__12TItemProUnitFPvf(s32, f32);
 
 extern f32 lbl_805DAD80;
 extern f32 lbl_805DAD84;
@@ -21,7 +21,7 @@ void apply_shield_scale_to_unit__10TObjPlayerFPv(void *arg0) {
     u8 temp_r3;
 
     var_f31 = lbl_805DAD80;
-    temp_r3 = TItemProShield__sub_8010B734();
+    temp_r3 = get_slot_count__14TItemProShieldFPv();
     switch ((s32) temp_r3) {
     case 0:
         var_f31 = lbl_805DAD84;
@@ -36,7 +36,7 @@ void apply_shield_scale_to_unit__10TObjPlayerFPv(void *arg0) {
         var_f31 = lbl_805DAD90;
         break;
     }
-    TItemProUnit__sub_80119014(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC, var_f31);
+    set_evp__12TItemProUnitFPvf(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC, var_f31);
 }
 
 }

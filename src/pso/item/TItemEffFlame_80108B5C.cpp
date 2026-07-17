@@ -9,13 +9,13 @@ extern "C" {
 void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1);
 void notify_hit__13TItemEffFlameFPv(u8 *arg0);
 u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0);
-M2C_UNK TLobby__sub_80103114(void *, M2C_UNK);
+M2C_UNK set_item_count__6TLobbyFPvs(void *, M2C_UNK);
 M2C_UNK TLobby__sub_80103B04();
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK fn_801566CC(void *);
+M2C_UNK clear_obj_links(void *);
 M2C_UNK obj_getField1c(void *);
 
 struct VBase0x18_80108b5c { char pad[0x18]; };
@@ -310,10 +310,10 @@ void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F038;
         if ((u32) M2C_FIELD(arg0, u32 *, 0xA4) != 0U) {
             TObjPlayer__sub_80154A00(arg0);
-            fn_801566CC(arg0);
+            clear_obj_links(arg0);
             obj_getField1c(arg0);
             TLobby__sub_80103B04();
-            TLobby__sub_80103114(arg0, 0xFFFF);
+            set_item_count__6TLobbyFPvs(arg0, 0xFFFF);
         }
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

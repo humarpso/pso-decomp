@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-M2C_UNK TObjEneRe7Berura__sub_803E4CE0(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803E4BC4();
-M2C_UNK TObjPlayer__sub_803E4BD0();
+M2C_UNK set_global_state__16TObjEneRe7BeruraFi(M2C_UNK *);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK render_model_tree__12TBoss8DragonFPvPv(u32, s32, f32);
 
 extern M2C_UNK TObjPlayer__sub_80142EEC[];
@@ -19,12 +19,12 @@ s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2,
     if ((arg1 == 0) || ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U)) {
         return 0;
     }
-    TObjPlayer__sub_803E4BC4();
+    set_global_flag__10TObjPlayerFv();
     lbl_805D567C = arg2;
-    TObjEneRe7Berura__sub_803E4CE0(TObjPlayer__sub_80142EEC);
+    set_global_state__16TObjEneRe7BeruraFi(TObjPlayer__sub_80142EEC);
     render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, u32 *, 0x34), arg1, farg0);
-    TObjEneRe7Berura__sub_803E4CE0(NULL);
-    TObjPlayer__sub_803E4BD0();
+    set_global_state__16TObjEneRe7BeruraFi(NULL);
+    clear_global_state__10TObjPlayerFv();
     return 1;
 }
 

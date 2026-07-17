@@ -16,7 +16,7 @@ M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TAdChrSelASlotGC__sub_800740FC(u32);
+M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 s32 get_main_phase();
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, M2C_UNK *);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
@@ -43,7 +43,7 @@ void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
         TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
-        TAdChrSelASlotGC__sub_800740FC(M2C_FIELD(arg0, u32 *, 0xB0));
+        set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, s16 *, 0xB8) = arg1;
     }
 }

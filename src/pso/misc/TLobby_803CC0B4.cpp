@@ -6,24 +6,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803CC0B4(void);
-void TLobby__sub_803CC0D4(void);
-void TLobby__sub_803CC0F4(void);
+void run_step_5210__6TLobbyFv(void);
+void flush_update__6TLobbyFv(void);
+void shutdown_cleanup__6TLobbyFv(void);
 void TLobby__sub_803CC114(void);
 M2C_UNK TLobby__sub_803D5210();
 M2C_UNK TLobby__sub_803D5DD0();
 M2C_UNK TLobby__sub_803D5F10();
 M2C_UNK TLobby__sub_803D60A8();
 
-void TLobby__sub_803CC0B4(void) {
+void run_step_5210__6TLobbyFv(void) {
     TLobby__sub_803D5210();
 }
 
-void TLobby__sub_803CC0D4(void) {
+void flush_update__6TLobbyFv(void) {
     TLobby__sub_803D60A8();
 }
 
-void TLobby__sub_803CC0F4(void) {
+void shutdown_cleanup__6TLobbyFv(void) {
     TLobby__sub_803D5DD0();
 }
 

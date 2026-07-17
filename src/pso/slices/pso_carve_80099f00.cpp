@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_80099EF8(void* p);
+s32 get_field_d8__10TObjPlayerFPv(void* p);
 
 int fn_80099F00(void) { return 0; }
 

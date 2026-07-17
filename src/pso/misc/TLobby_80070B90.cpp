@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_state__6TLobbyFv(void);
-s32 TLobby__sub_80070AB0();
+s32 is_flag_set__6TLobbyFv();
 
 extern M2C_UNK lbl_8048C9D8[];
 
 s32 get_state__6TLobbyFv(void) {
-    if (TLobby__sub_80070AB0() == 0) {
+    if (is_flag_set__6TLobbyFv() == 0) {
         return 0;
     }
     if (((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x2C) != 1) && ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x2C) != 0)) {

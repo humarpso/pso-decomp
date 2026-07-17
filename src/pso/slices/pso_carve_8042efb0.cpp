@@ -10,7 +10,7 @@ extern s32 lbl_805D7CA8;
 extern u8 *lbl_805D7CC0;
 extern u8 *lbl_805D7CC4;
 
-s32 fn_8042EFB0(s16 arg0) {
+s32 set_modem_param(s16 arg0) {
     if ((s32) lbl_805D7CA8 == 0) {
         return -1;
     }

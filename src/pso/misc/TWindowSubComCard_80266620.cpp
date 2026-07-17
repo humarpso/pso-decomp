@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render_selected_entry__17TWindowSubComCardFPvi(void *arg0, s32 arg1);
-s32 TWindowSubComCard__sub_8007341C(void *);
+s32 is_visible__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowSubComCard__sub_8024503C(s32, u16 *, s32);
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 
@@ -16,7 +16,7 @@ void render_selected_entry__17TWindowSubComCardFPvi(void *arg0, s32 arg1) {
 
     temp_r3 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x78));
     if (*temp_r3 & 1) {
-        TWindowSubComCard__sub_8024503C(arg1, temp_r3, TWindowSubComCard__sub_8007341C(arg0));
+        TWindowSubComCard__sub_8024503C(arg1, temp_r3, is_visible__17TWindowSubComCardFPv(arg0));
     }
 }
 

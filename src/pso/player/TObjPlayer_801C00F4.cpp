@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TObjPlayer__sub_801C00F4(void);
+int get_hold_effect_count__10TObjPlayerFv(void);
 
     extern int lbl_805D6688;
-int TObjPlayer__sub_801C00F4(void) {  return lbl_805D6688; }
+int get_hold_effect_count__10TObjPlayerFv(void) {  return lbl_805D6688; }
 
 }

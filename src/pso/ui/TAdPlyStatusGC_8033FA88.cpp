@@ -9,7 +9,7 @@ extern "C" {
 void close_window__14TAdPlyStatusGCFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK disallow_rendering__7TObjectFv();
-u32 TAdPlyStatusGC__sub_8033FDA8();
+u32 get_player_index__14TAdPlyStatusGCFv();
 
 void close_window__14TAdPlyStatusGCFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x6C);
@@ -17,7 +17,7 @@ void close_window__14TAdPlyStatusGCFPv(void *arg0) {
         TWindow__close(temp_r3);
         M2C_FIELD(arg0, u32 *, 0x6C) = 0U;
     }
-    if (TAdPlyStatusGC__sub_8033FDA8() != 0U) {
+    if (get_player_index__14TAdPlyStatusGCFv() != 0U) {
         disallow_rendering__7TObjectFv();
     }
 }

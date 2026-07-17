@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80402E14(u8 *arg0);
-void TLobby__sub_80402E3C(u8 *arg0);
+s32 mark_ready__6TLobbyFPv(u8 *arg0);
+void set_active__6TLobbyFPv(u8 *arg0);
 
-s32 TLobby__sub_80402E14(u8 *arg0) {
+s32 mark_ready__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0x38) = 2;
     M2C_FIELD(arg0, u8 *, 0x3A) = (u8) (M2C_FIELD(arg0, u8 *, 0x3A) | 0x20);
     M2C_FIELD(arg0, u8 *, 2) = (u8) (M2C_FIELD(arg0, u8 *, 2) | 0x20);
     return 0;
 }
 
-void TLobby__sub_80402E3C(u8 *arg0) {
+void set_active__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0x38) = 1;
     M2C_FIELD(arg0, u8 *, 0x3A) = (u8) (M2C_FIELD(arg0, u8 *, 0x3A) | 0x10);
     M2C_FIELD(arg0, u8 *, 2) = (u8) (M2C_FIELD(arg0, u8 *, 2) | 0x10);

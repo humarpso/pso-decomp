@@ -28,12 +28,12 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 M2C_UNK TObjEneDellBiter__sub_80305684(void *);
 M2C_UNK TObjEneDellBiter__sub_803058DC(void *);
 M2C_UNK TObjEneDellBiter__sub_8030591C(void *);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
@@ -47,7 +47,7 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-        TObjEneDD__sub_800BBA04((void *) (arg0), (int) (5));
+        set_field_378__9TObjEneDDFPvi((void *) (arg0), (int) (5));
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFFE);
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 2);
         ((VObj_80305034 *) arg0)->m93();
@@ -84,7 +84,7 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
             break;
         case 1:
             TObjEneDellBiter__sub_803058DC((void *) (arg0));
-            if (TObjEneMe3ShinowaReal__sub_8002ADD8((void *) (arg0)) != 0) {
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x4D0) = 2;
             }
             break;

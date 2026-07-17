@@ -9,7 +9,7 @@ extern "C" {
 void TPlayerBattleCtrl4P__vt30(void *arg0);
 M2C_UNK play_effect_default__10TObjPlayerFii(u32, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK TPlayerBattleCtrl4P__sub_803112A4(void *, M2C_UNK);
+M2C_UNK set_score__19TPlayerBattleCtrl4PFPvi(void *, M2C_UNK);
 
 void TPlayerBattleCtrl4P__vt30(void *arg0) {
     s32 var_r31;
@@ -24,7 +24,7 @@ void TPlayerBattleCtrl4P__vt30(void *arg0) {
         var_r31 += 1;
     } while (var_r31 < 4);
     M2C_FIELD(arg0, s32 *, 0x240) = 0xF;
-    TPlayerBattleCtrl4P__sub_803112A4(arg0, 1);
+    set_score__19TPlayerBattleCtrl4PFPvi(arg0, 1);
 }
 
 }

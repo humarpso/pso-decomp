@@ -11,9 +11,9 @@ M2C_UNK TObjEneBm5Wolf__sub_800B74B8(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B7530(void *);
 M2C_UNK TObjEneBm5Wolf__sub_800B7DDC(void *, s32);
 M2C_UNK TObjEneBm5Wolf__sub_800B850C(s32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8();
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 void *copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
@@ -44,13 +44,13 @@ void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         ((VEne *)arg0)->m94();
-        TObjEneDD__sub_800BBA04(arg0, 7);
+        set_field_378__9TObjEneDDFPvi(arg0, 7);
         M2C_FIELD(arg0, s16 *, 0xB8) = 0xB;
         M2C_FIELD(arg0, s32 *, 0x41C) = 0;
         TObjEneBm5Wolf__sub_800B850C(M2C_FIELD(arg0, s32 *, 0x3DC));
         return;
     case 3:
-        if (TObjEneMe3ShinowaReal__sub_8002ADD8() != 0) {
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
             TObjEneDD__sub_800BBA18(arg0, 7);
         }
     case 5:

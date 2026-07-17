@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_task__10TObjPlayerFv(u8 *arg0);
-s32 TObjPlayer__sub_80019734(void *);
+s32 get_type__10TObjPlayerFPv(void *);
 s32 check_flag__10TObjPlayerFPvi(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
@@ -42,7 +42,7 @@ void run_task__10TObjPlayerFv(u8 *arg0) {
     copy_offset_position__10TObjPlayerFPvPv(arg0 + 0x84C, arg0);
     if (obj_testFlags30(arg0, 0x800) != 0) {
         TObjPlayer__sub_80154E3C(arg0);
-    } else if (TObjPlayer__sub_80019734(arg0 + 0x828) == 0) {
+    } else if (get_type__10TObjPlayerFPv(arg0 + 0x828) == 0) {
         temp_r0 = M2C_FIELD(arg0, s16 *, 0x324);
         switch (temp_r0) {
         case 1:

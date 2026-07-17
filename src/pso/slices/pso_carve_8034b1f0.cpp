@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TCameraCtrl__sub_8006B330();
+s32 get_instance__11TCameraCtrlFv();
 s32 TItemData__sub_8010EEDC(s32);
-M2C_UNK fn_8024422C(u32, f32, f32);
+M2C_UNK set_position_xy(u32, f32, f32);
 M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
 M2C_UNK TWindowSubComCard__sub_80265500(u32);
 M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(u32, f32, f32);
@@ -41,8 +41,8 @@ void challenge4p_item_select_open_menu(void *arg0) {
             set_scroll_target__17TWindowSubComCardFPvff(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFD98, lbl_805DFD9C);
             TWindowSubComCard__sub_80265500(M2C_FIELD(arg0, u32 *, 0x2C));
             set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFDA0);
-            if (TCameraCtrl__sub_8006B330() > 2) {
-                fn_8024422C(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFDA4, lbl_805DFDA4);
+            if (get_instance__11TCameraCtrlFv() > 2) {
+                set_position_xy(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFDA4, lbl_805DFDA4);
             }
             M2C_FIELD(arg0, s32 *, 0x20) = 1;
         }

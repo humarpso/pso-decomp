@@ -6,7 +6,7 @@ extern "C" {
 
 void *TOKey__ct(void *arg0);
 void init_map_object_base(void *);
-void TOKeyAncient01__sub_8016AD58(void *);
+void set_type__14TOKeyAncient01FPv(void *);
 
 extern M2C_UNK __vt__5TOKey[];
 extern const f32 lbl_805DB6E0;
@@ -23,7 +23,7 @@ void *TOKey__ct(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0xE0) = 0;
     M2C_FIELD(arg0, u32 *, 0xD8) = 28;
     M2C_FIELD(arg0, u32 *, 0xDC) = 28;
-    TOKeyAncient01__sub_8016AD58((void *)((char *)arg0 + 152));
+    set_type__14TOKeyAncient01FPv((void *)((char *)arg0 + 152));
     M2C_FIELD(arg0, u32 *, 0xE4) = 0;
     return arg0;
 }

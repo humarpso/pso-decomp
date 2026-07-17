@@ -116,14 +116,14 @@ struct V_A_8009dfac : Base_A_8009dfac {
 extern "C" {
 
 void handle_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
 void handle_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        TObjEneDD__sub_800BBA04(arg0, 2);
+        set_field_378__9TObjEneDDFPvi(arg0, 2);
         ((V_A_8009dfac *) arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 0x400000);
         M2C_FIELD(arg0, s32 *, 0x3FC) = 4;

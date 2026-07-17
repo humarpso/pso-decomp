@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TLobby__sub_801A3C18(void);
+void reset_door_state__6TLobbyFv(void);
 
     extern int lbl_805D58F8;
-void TLobby__sub_801A3C18(void) { lbl_805D58F8 = 0; }
+void reset_door_state__6TLobbyFv(void) { lbl_805D58F8 = 0; }
 
 }

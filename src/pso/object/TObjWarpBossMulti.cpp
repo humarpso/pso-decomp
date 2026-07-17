@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update__17TObjWarpBossMultiFPv(void *arg0);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 
 void update__17TObjWarpBossMultiFPv(void *arg0) {
     s32 temp_r0;
 
-    if (TOKeyMachine01__sub_802034A8() == 0) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0) {
         M2C_FIELD(arg0, s32 *, 0xF4) = -1;
     } else {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x88);

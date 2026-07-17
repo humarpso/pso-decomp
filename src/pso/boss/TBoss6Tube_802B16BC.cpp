@@ -9,7 +9,7 @@ extern "C" {
 void *create__10TBoss6TubeFPv(void *arg0);
 void free_resources__10TBoss6TubeFv(void);
 void *TBoss6Tube__ct(void *, void *);
-M2C_UNK TBoss6Tube__sub_802B1288();
+M2C_UNK reset_state__10TBoss6TubeFv();
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 void *__nw__7TObjectFUl(int);
@@ -36,7 +36,7 @@ void free_resources__10TBoss6TubeFv(void) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D671C);
         lbl_805D671C = 0U;
     }
-    TBoss6Tube__sub_802B1288();
+    reset_state__10TBoss6TubeFv();
 }
 
 }

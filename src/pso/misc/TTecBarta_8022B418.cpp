@@ -6,39 +6,40 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
 s32 TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 
-void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0) {
+void update_technique_by_state__9TTecBartaFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r3;
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xC6);
     switch (temp_r0) {
     case 0:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         return;
     case 2:
     case 3:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A605, (int) (arg0 + 0x20), 0, 0);
+        temp_r3 = TBoss3Volopt__sub_8022675C(0x4002A604, (int) (arg0 + 0x20), 0, 0);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);
         }

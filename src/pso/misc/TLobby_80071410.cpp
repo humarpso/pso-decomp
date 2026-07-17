@@ -8,14 +8,14 @@ extern "C" {
 
 s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_8006F910(void *, void *, int);
-s32 TLobby__sub_80070AB0();
+s32 is_flag_set__6TLobbyFv();
 
 extern s8 lbl_8048C9D8[];
 
 s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     u8 *temp_r30;
 
-    if ((TLobby__sub_80070AB0() == 0) || ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x1C) < 0) || ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x1C) >= 0x10)) {
+    if ((is_flag_set__6TLobbyFv() == 0) || ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x1C) < 0) || ((s32) M2C_FIELD(lbl_8048C9D8, s32 *, 0x1C) >= 0x10)) {
         return 0;
     }
     temp_r30 = (unsigned char *) (lbl_8048C9D8 + (M2C_FIELD(lbl_8048C9D8, s32 *, 0x1C) * 0x1C) + 0x5C);

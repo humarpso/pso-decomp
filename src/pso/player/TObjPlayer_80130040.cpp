@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_80130040(u8 *arg0);
-u8 TItemProShield__sub_8010B734(void *);
+u8 get_slot_count__14TItemProShieldFPv(void *);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
 
 extern const f32 lbl_805DAFF0;
@@ -17,7 +17,7 @@ void TObjPlayer__sub_80130040(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 1) {
         M2C_FIELD(arg0, s32 *, 0x1FC) = 0;
     }
-    if (TItemProShield__sub_8010B734(arg0) == 5) {
+    if (get_slot_count__14TItemProShieldFPv(arg0) == 5) {
         approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x1F8, lbl_805DAFF0, lbl_805DAFF4);
     }
 }

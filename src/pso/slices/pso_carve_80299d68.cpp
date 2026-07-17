@@ -14,7 +14,7 @@ s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK TObjLight__sub_80133D78();
 M2C_UNK TLobby__sub_801403B4(M2C_UNK);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TLobby__sub_80226E44(M2C_UNK);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK TLobby__sub_80227FB4();
@@ -27,7 +27,7 @@ s32 initialize_boss_scene(void) {
     s32 temp_r3;
     u32 temp_new;
 
-    TOKeyMachine01__sub_802034A8();
+    get_global_state__14TOKeyMachine01Fv();
     TLobby__sub_80227FB4();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;
@@ -47,7 +47,7 @@ s32 initialize_boss_scene(void) {
         TLobby__sub_80226E44(6);
     }
     if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
-        temp_r3 = TOKeyMachine01__sub_802034A8();
+        temp_r3 = get_global_state__14TOKeyMachine01Fv();
         switch (temp_r3) {
         case 28:
             dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x54);

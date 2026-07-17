@@ -13,7 +13,7 @@ M2C_UNK TObjEneBalClaw__sub_8008D79C(void *);
 M2C_UNK TObjEneMe1GiGue__sub_8008FC0C(void *);
 M2C_UNK TObjEneMe1GiGue__sub_8008FC10(void *);
 M2C_UNK TObjPlayer__sub_8008FF50(void *);
-s32 TObjPlayer__sub_80090458(void *);
+s32 get_flag_0x388_b24__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, int, int, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -32,7 +32,7 @@ void update_control_state__10TObjPlayerFPv(u8 *arg0) {
         TObjEneMe1GiGue__sub_8008FC0C((void *) (arg0));
         return;
     }
-    if ((M2C_FIELD(arg0, s32 *, 0x388) & 0x02000000) && (TObjPlayer__sub_80090458((void *) (arg0)) == 0)) {
+    if ((M2C_FIELD(arg0, s32 *, 0x388) & 0x02000000) && (get_flag_0x388_b24__10TObjPlayerFPv((void *) (arg0)) == 0)) {
         update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (2));
     } else {
         TObjEneMe1GiGue__sub_8008FC10((void *) (arg0));

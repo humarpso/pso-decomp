@@ -11,7 +11,7 @@ void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_80019248();
 u32 get_item_field_6__10TObjPlayerFPv(s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
-s32 TObjPlayer__sub_80099EF8();
+s32 get_field_d8__10TObjPlayerFPv();
 u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 TWindowSubComCard__sub_801058F8(s32);
 u32 activate_d04_slot__10TObjPlayerFPv(s32);
@@ -71,7 +71,7 @@ void handle_player_event__6TLobbyFii(s32 arg0, s32 arg1) {
             break;
         }
         if (var_r3 != 0U) {
-            TObjPlayer__sub_801B9EDC(temp_r3, TObjPlayer__sub_80099EF8());
+            TObjPlayer__sub_801B9EDC(temp_r3, get_field_d8__10TObjPlayerFPv());
         }
     }
 }

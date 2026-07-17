@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TObjEneDelDepth__sub_8031623C(void);
+int get_data__15TObjEneDelDepthFv(void);
 
     extern int TObjEneDelDepth__data_805D6AC4;
-int TObjEneDelDepth__sub_8031623C(void) {  return TObjEneDelDepth__data_805D6AC4; }
+int get_data__15TObjEneDelDepthFv(void) {  return TObjEneDelDepth__data_805D6AC4; }
 
 }

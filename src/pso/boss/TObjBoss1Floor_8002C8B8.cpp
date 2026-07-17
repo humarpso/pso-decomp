@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__14TObjBoss1FloorFv(void);
-s32 TMainTask__sub_8001A430();
+s32 get_state_flag__9TMainTaskFv();
 M2C_UNK TOSignCave03__sub_803DB510(int);
-M2C_UNK TObjFish__sub_803DA798(void *);
+M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TObjPlayer__sub_80083914(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -30,7 +30,7 @@ void render__14TObjBoss1FloorFv(void) {
     s32 temp_r3;
     u8 *temp_r31;
 
-    if ((is_any_teammate_in_state__10TObjPlayerFv() == 0) && ((check_v2_mode__9TObjEneDDFv() != 0) || (TMainTask__sub_8001A430() != 1))) {
+    if ((is_any_teammate_in_state__10TObjPlayerFv() == 0) && ((check_v2_mode__9TObjEneDDFv() != 0) || (get_state_flag__9TMainTaskFv() != 1))) {
         temp_r3 = some_id_805c6f74;
         lbl_805D5660 = temp_r3;
         some_id_805c6f74 = temp_r3 | 0x400;
@@ -39,7 +39,7 @@ void render__14TObjBoss1FloorFv(void) {
         some_id_805c6f74 = 1;
         set_depth_buffer_settings_id__FUl((int) (3));
         draw_if_all_ready__10TObjPlayerFv();
-        TObjFish__sub_803DA798((void *) (lbl_805D4B54));
+        set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
         temp_r31 = (unsigned char *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), void **, 0x58));
         TObjPlayer__sub_80083914((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
         TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));

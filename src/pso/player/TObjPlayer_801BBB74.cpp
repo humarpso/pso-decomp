@@ -18,9 +18,9 @@ void TObjPlayer__sub_801BBB94(void);
 void TObjPlayer__sub_801BBC2C(void* p);
 void update_lock_on_cursor__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BBC64(void);
-int TObjPlayer__sub_801BBD38(void* p);
+int clear_links__10TObjPlayerFPv(void* p);
 int TLockOnCursor__sub_8013DAB0(void*);
-int fn_801566CC(void*);
+int clear_obj_links(void*);
 int TObjPlayer__sub_801B35AC(void*);
 
 int TObjPlayer__sub_801BBB74(void* p) { return TObjPlayer__sub_801B35AC(p); }

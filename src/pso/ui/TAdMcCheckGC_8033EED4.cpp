@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__12TAdMcCheckGCFv(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E0D8C(int);
-s32 TAdPlayerLoadGC__sub_801E1530(int);
+s32 get_load_result__15TAdPlayerLoadGCFv(int);
 s32 TAdPlayerLoadGC__sub_801E1E38(int);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
 u32 create__12TAdMcCheckGCFPvi(void *, int);
@@ -44,7 +44,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
         }
         break;
     case 1:
-        if ((TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (TAdPlayerLoadGC__sub_801E1530((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF83U)) {
+        if ((TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (get_load_result__15TAdPlayerLoadGCFv((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF83U)) {
             if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U)) {
                 M2C_FIELD(arg0, u32 *, 0x2C) = create__12TAdMcCheckGCFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x28) + 2));
             }
@@ -57,7 +57,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
         }
         break;
     case 2:
-        if ((TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (TAdPlayerLoadGC__sub_801E1530((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF21U)) {
+        if ((TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (get_load_result__15TAdPlayerLoadGCFv((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF21U)) {
             if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U)) {
                 M2C_FIELD(arg0, u32 *, 0x30) = create__12TAdMcCheckGCFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x28) + 4));
             }

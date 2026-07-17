@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TLobby__sub_8007340C(void* p);
-int TWindowSubComCard__sub_8007341C(void* p);
+void set_loss_flag__6TLobbyFPv(void* p);
+int is_visible__17TWindowSubComCardFPv(void* p);
 
-int TWindowSubComCard__sub_8007341C(void* p) { return (*(u16*)((char*)p + 0x70) >> 1) & 0x1; }
+int is_visible__17TWindowSubComCardFPv(void* p) { return (*(u16*)((char*)p + 0x70) >> 1) & 0x1; }
 
 }

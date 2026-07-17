@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestThread__sub_801F5F58(void);
+void destroy_quest_obj__12TQuestThreadFv(void);
 void queue_destruction__7TObjectFv(void*);
 
 extern u32 lbl_805D5EEC;
 
-void TQuestThread__sub_801F5F58(void) {
+void destroy_quest_obj__12TQuestThreadFv(void) {
     if ((u32) lbl_805D5EEC != 0U) {
         queue_destruction__7TObjectFv((void*)lbl_805D5EEC);
         lbl_805D5EEC = 0U;

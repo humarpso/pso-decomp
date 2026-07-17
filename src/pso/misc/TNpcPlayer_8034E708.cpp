@@ -10,7 +10,7 @@ void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2);
 M2C_UNK TObjPlayer__sub_801C5F54(s32, s32, f32, f32, f32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TTecLuker__sub_801BAB1C(s32, s32);
-u16 TNpcPlayer__sub_80152F48(s32);
+u16 get_action_flags__10TNpcPlayerFPv(s32);
 
 s32 obj_isState3_324();
 s32 obj_getField1c(s32);
@@ -22,7 +22,7 @@ void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2) {
     var_r31 = 0;
     do {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r31);
-        if ((temp_r3 != 0) && (obj_isState3_324() != 0) && ((u16) TNpcPlayer__sub_80152F48(temp_r3) != 0xFFFF)) {
+        if ((temp_r3 != 0) && (obj_isState3_324() != 0) && ((u16) get_action_flags__10TNpcPlayerFPv(temp_r3) != 0xFFFF)) {
             TObjPlayer__sub_801C5F54(obj_getField1c(temp_r3), arg2, M2C_FIELD(arg1, f32 *, 0), M2C_FIELD(arg1, f32 *, 4), M2C_FIELD(arg1, f32 *, 8));
             TTecLuker__sub_801BAB1C(temp_r3, arg0);
         }

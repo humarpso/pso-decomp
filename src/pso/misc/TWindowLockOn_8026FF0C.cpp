@@ -44,10 +44,10 @@ extern "C" {
 
 void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
 s32 TLobby__sub_8039DAFC(s32, s32);
-s32 TObjPlayer__sub_80084854(void *);
+s32 is_inactive__10TObjPlayerFPv(void *);
 struct VObj_8026ff0c *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-u32 TWindowSubComCard__sub_8024477C(void *);
-M2C_UNK TWindowSubStatusDisp__sub_8024420C(void *);
+u32 get_field_20__17TWindowSubComCardFPv(void *);
+M2C_UNK clear_visible_flag__20TWindowSubStatusDispFPv(void *);
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(void *, s32, M2C_UNK);
 M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(void *);
 
@@ -71,12 +71,12 @@ void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
         set_flag0_bit2__15TWindowHelpItemFPv(arg0);
         return;
     }
-    if (TObjPlayer__sub_80084854(temp_r30) == 0) {
+    if (is_inactive__10TObjPlayerFPv(temp_r30) == 0) {
         set_flag0_bit2__15TWindowHelpItemFPv(arg0);
         return;
     }
-    TWindowSubStatusDisp__sub_8024420C(arg0);
-    if ((TWindowSubComCard__sub_8024477C(arg0) == 0U) || (TLobby__sub_8039DAFC(TWindowSubComCard__sub_8024477C(arg0), temp_r31) != 0)) {
+    clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
+    if ((get_field_20__17TWindowSubComCardFPv(arg0) == 0U) || (TLobby__sub_8039DAFC(get_field_20__17TWindowSubComCardFPv(arg0), temp_r31) != 0)) {
         TWindowSubStatusDisp__sub_8025AC50(arg0, temp_r31, 0x20);
     }
     if (temp_r30->m31() != 0) {

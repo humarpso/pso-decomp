@@ -8,14 +8,14 @@ extern "C" {
 
 s32 obj_testFlags30(s32, s32);
 s32 is_camera_ready__10TObjPlayerFv();
-s32 TObjPlayer__sub_801BE2DC(s32);
+s32 is_ready__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80203418();
 s32 reset_key_machine_state__10TObjPlayerFv();
 u32 TObjPlayer__sub_801C6D40(s32 a0 = 0, s32 a1 = 0);
 s32 TObjPlayer__sub_801BF40C(u32 a0 = 0, s32 a1 = 0);
 s32 TFontSmallLobby__sub_801AFEE0(void);
 s32 obj_getField1c(void * a0 = 0);
-s32 TObjPlayer__sub_80102C78(void * a0 = 0, s16 a1 = 0);
+s32 set_facing__10TObjPlayerFPvs(void * a0 = 0, s16 a1 = 0);
 s32 TObjPlayer__sub_800113E4(void * a0 = 0, s16 a1 = 0);
 int update_rotation__10TObjPlayerFPv(void*);
 int obj_clearFlags30(void*, void*);
@@ -24,7 +24,7 @@ int fn_801C543C(void*);
 
 void play_voice_pair__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_800113E4(arg0, M2C_FIELD(arg0, s16 *, 0x2B8));
-    TObjPlayer__sub_80102C78(arg0, M2C_FIELD(arg0, s16 *, 0x2BA));
+    set_facing__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0x2BA));
 }
 void TObjPlayer__vt62(void* p) { obj_clearFlags30(p, (void*)2048); update_rotation__10TObjPlayerFPv(p); }
 u32 get_or_create_lobby_font__10TObjPlayerFPvi(void *arg0, s32 arg1) {
@@ -49,7 +49,7 @@ s32 is_action_available__10TObjPlayerFi(s32 arg0) {
     if (is_camera_ready__10TObjPlayerFv() != 0) {
         return (u32)__cntlzw(obj_testFlags30(arg0, 0x20000)) >> 5;
     }
-    return TObjPlayer__sub_801BE2DC(arg0) != 0 ? 1 : 0;
+    return is_ready__10TObjPlayerFPv(arg0) != 0 ? 1 : 0;
 }
 
 }

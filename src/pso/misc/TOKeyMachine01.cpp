@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TOKeyMachine01__sub_802034A8(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
 
 extern s32 lbl_805D5FC4;
 
-s32 TOKeyMachine01__sub_802034A8(void) {
+s32 get_global_state__14TOKeyMachine01Fv(void) {
     return lbl_805D5FC4;
 }
 

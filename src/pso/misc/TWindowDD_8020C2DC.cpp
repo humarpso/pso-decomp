@@ -8,7 +8,7 @@ extern "C" {
 
 s32 check_all_ready__9TWindowDDFi(s32 arg0);
 u8 *resolve_matching_object__6TLobbyFPv();
-s32 TLobby__sub_8020B454(s32);
+s32 get_object_type__6TLobbyFi(s32);
 
 s32 check_all_ready__9TWindowDDFi(s32 arg0) {
     s16 temp_r3_2;
@@ -17,7 +17,7 @@ s32 check_all_ready__9TWindowDDFi(s32 arg0) {
     u8 *var_r31;
 
     var_r31 = resolve_matching_object__6TLobbyFPv();
-    temp_r3 = TLobby__sub_8020B454(arg0);
+    temp_r3 = get_object_type__6TLobbyFi(arg0);
     if (var_r31 != NULL) {
         for (i = 0; i < temp_r3; i++) {
             temp_r3_2 = M2C_FIELD(var_r31, s16 *, 2);

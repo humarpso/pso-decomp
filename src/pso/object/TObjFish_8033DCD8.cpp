@@ -10,23 +10,23 @@ void render_effect__8TObjFishFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
 M2C_UNK TObjFish__sub_800E3074(int);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjPlayer__sub_803E4BC4();
-M2C_UNK TObjPlayer__sub_803E4BD0();
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK clear_render_callback__8TObjFishFv(int);
 
 void render_effect__8TObjFishFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x50) >= 0x1AC) {
         TObjPlayer__sub_803D9B2C();
-        TObjPlayer__sub_803E4BC4();
+        set_global_flag__10TObjPlayerFv();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x58));
-        TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x44)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x44)));
         TObjFish__sub_800E3074((int) (M2C_FIELD(arg0, s32 *, 0x9C)));
         TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x40)), (int) (M2C_FIELD(arg0, s32 *, 0x48)), (f32) (M2C_FIELD(arg0, f32 *, 0x4C)));
         clear_render_callback__8TObjFishFv((int) (M2C_FIELD(arg0, s32 *, 0x9C)));
-        TObjPlayer__sub_803E4BD0();
+        clear_global_state__10TObjPlayerFv();
         TObjPlayer__sub_803D9B78();
     }
 }

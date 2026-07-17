@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowHelpItem__sub_8025A9B4(void *arg0);
+void reset_float_field__15TWindowHelpItemFPv(void *arg0);
 
 extern f32 lbl_805DCFA8;
 
-void TWindowHelpItem__sub_8025A9B4(void *arg0) {
+void reset_float_field__15TWindowHelpItemFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DCFA8;
 }
 

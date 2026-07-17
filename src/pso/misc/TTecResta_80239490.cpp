@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TTecResta__sub_80239490(void* p);
+int init_cast__9TTecRestaFPv(void* p);
 int fn_80236EE8(void*);
 
-int TTecResta__sub_80239490(void* p) { return fn_80236EE8(p); }
+int init_cast__9TTecRestaFPv(void* p) { return fn_80236EE8(p); }
 
 }

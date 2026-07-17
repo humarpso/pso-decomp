@@ -10,8 +10,8 @@ void dec_ref_and_shutdown__6TLobbyFv(void);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
 M2C_UNK TLobby__sub_803C5850();
-M2C_UNK TLobby__sub_803C9090();
-M2C_UNK TLobby__sub_803CC0F4();
+M2C_UNK si_get_type_async__6TLobbyFv();
+M2C_UNK shutdown_cleanup__6TLobbyFv();
 M2C_UNK TLobby__sub_803CC134();
 M2C_UNK TLobby__sub_803D1C24();
 M2C_UNK TLobby__sub_803D259C();
@@ -30,9 +30,9 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
     temp_r0 = lbl_805D7538 - 1;
     lbl_805D7538 = temp_r0;
     if (temp_r0 == 0) {
-        TLobby__sub_803CC0F4();
+        shutdown_cleanup__6TLobbyFv();
         TLobby__sub_803CC134();
-        TLobby__sub_803C9090();
+        si_get_type_async__6TLobbyFv();
         TLobby__sub_803D1C24();
         init_once__6TLobbyFv();
         TLobby__sub_803D3678((int) (2), (void *) (1));

@@ -3,10 +3,10 @@
 extern "C" {
 
 f32 TBoss8Dragon__sub_8008072C(void);
-f64 TAdEndText__sub_803A2CCC();
+f64 stop__10TAdEndTextFv();
 
 f32 TBoss8Dragon__sub_8008072C(void) {
-    return (f32) TAdEndText__sub_803A2CCC();
+    return (f32) stop__10TAdEndTextFv();
 }
 
 }

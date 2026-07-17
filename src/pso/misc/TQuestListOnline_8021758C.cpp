@@ -8,13 +8,13 @@ extern "C" {
 
 u8 get_unlocked_tier__16TQuestListOnlineFv(void);
 s32 TODoorVoShip__sub_801F44BC(M2C_UNK);
-s32 TLobby__sub_80070AB0();
+s32 is_flag_set__6TLobbyFv();
 s32 TLobby__sub_80071698(M2C_UNK);
 
 extern s32 lbl_805D61F8;
 
 u8 get_unlocked_tier__16TQuestListOnlineFv(void) {
-    if (TLobby__sub_80070AB0() != 0) {
+    if (is_flag_set__6TLobbyFv() != 0) {
         switch ((s32) lbl_805D61F8) {
         case 0:
             return (u8) TLobby__sub_80071698(0);

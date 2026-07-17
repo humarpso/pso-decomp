@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801D6DC4(void *arg0, u8 arg1);
+void set_volume__6TLobbyFPvUc(void *arg0, u8 arg1);
 
-void TLobby__sub_801D6DC4(void *arg0, u8 arg1) {
+void set_volume__6TLobbyFPvUc(void *arg0, u8 arg1) {
     u8 var_r4;
 
     var_r4 = arg1;

@@ -8,7 +8,7 @@ extern "C" {
 
 void reset_child_transform__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(void *);
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 
 extern const f32 lbl_805DAD58;
 extern const f32 lbl_805DAD5C;
@@ -17,7 +17,7 @@ void reset_child_transform__10TObjPlayerFPv(void *arg0) {
     void *temp_r31;
     void *temp_r3;
 
-    if (TObjPlayer__sub_80121200() == 1) {
+    if (get_player_list__10TObjPlayerFv() == 1) {
         temp_r3 = M2C_FIELD(arg0, void **, 0x188);
         if ((temp_r3 != NULL) && ((s32) M2C_FIELD(arg0, s32 *, 0x234) == 0)) {
             temp_r31 = M2C_FIELD(temp_r3, void **, 0x2C);

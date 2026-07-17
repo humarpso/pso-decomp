@@ -16,9 +16,9 @@ void TItemData__sub_8010EE08(void *arg0, s16 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
 s16 TItemData__sub_8010EE40(void *arg0);
-s16 TItemData__sub_8010EE54(void *arg0);
-s16 TItemData__sub_8010EE68(void *arg0);
-s16 TItemData__sub_8010EE7C(void *arg0);
+s16 get_stat_percent__9TItemDataFPv(void *arg0);
+s16 get_level__9TItemDataFPv(void *arg0);
+s16 get_percent__9TItemDataFPv(void *arg0);
 void update_player_field__9TItemDataFi(s32 arg0);
 s32 TObjPlayer__sub_801AFDB0();
 M2C_UNK TObjPlayer__sub_803373D0(s32, s32);
@@ -63,15 +63,15 @@ s16 TItemData__sub_8010EE40(void *arg0) {
     return (s16) ((s16) M2C_FIELD(arg0, s16 *, 0xA) / 100);
 }
 
-s16 TItemData__sub_8010EE54(void *arg0) {
+s16 get_stat_percent__9TItemDataFPv(void *arg0) {
     return (s16) ((s16) M2C_FIELD(arg0, s16 *, 4) / 100);
 }
 
-s16 TItemData__sub_8010EE68(void *arg0) {
+s16 get_level__9TItemDataFPv(void *arg0) {
     return (s16) ((s16) M2C_FIELD(arg0, s16 *, 8) / 100);
 }
 
-s16 TItemData__sub_8010EE7C(void *arg0) {
+s16 get_percent__9TItemDataFPv(void *arg0) {
     return (s16) ((s16) M2C_FIELD(arg0, s16 *, 6) / 100);
 }
 

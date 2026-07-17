@@ -15,8 +15,8 @@ int set_flag_40_bit5__15TFontSmallLobbyFPv(void* p);
 int update_field_40__15TFontSmallLobbyFPv(void* p);
 int TFontSmallLobby__sub_801D677C(void* p);
 u16 TFontSmallLobby__sub_801D67A4(void* p);
-int TObjPlayer__sub_8001BED8(void*, int);
-int TAdRicoRing__sub_8001BEE8(void*, int);
+int set_flags__10TObjPlayerFPvUi(void*, int);
+int clear_flags__11TAdRicoRingFPvUi(void*, int);
 
 int TFontSmallLobby__sub_801D65B4(void) { return 0; }
 int TFontSmallLobby__sub_801D6614(void) { return 0; }

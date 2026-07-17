@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s32 TObjFish__sub_802ACCB8(void* p);
+s32 get_phase__8TObjFishFPv(void* p);
 
-s32 TObjFish__sub_802ACCB8(void* p) { return *(s32*)((char*)p + 0x378); }
+s32 get_phase__8TObjFishFPv(void* p) { return *(s32*)((char*)p + 0x378); }
 
 }

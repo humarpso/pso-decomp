@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_801EE4FC(u16 arg0);
+void notify_guild_offline__6TLobbyFUs(u16 arg0);
 int THunterGuildSeqOffline__sub_801F3718(void*);
 void TLobby__sub_801EE4D4(void);
 int TLobby__sub_801EE4D8(void);
@@ -18,7 +18,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TLobby__sub_801EE4FC(u16 arg0) {
+void notify_guild_offline__6TLobbyFUs(u16 arg0) {
     THunterGuildSeqOffline__sub_801F3718((void *) (arg0));
 }
 

@@ -14,7 +14,7 @@ s32 fn_80246CB8(void) {
 
 extern u16 lbl_805D63FC;
 
-s32 TWindowSubShortMail__sub_80246CC4(void) {
+s32 is_active__19TWindowSubShortMailFv(void) {
     return lbl_805D63FC & 1;
 }
 

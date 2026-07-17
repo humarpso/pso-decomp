@@ -20,7 +20,7 @@ void set_global_flag_100__15TObjBoss2TunnelFv(void) {
 
 extern s32 TObjBoss2Tunnel__data_805D4C00;
 
-s32 TObjBoss2Tunnel__sub_8003C5DC(void) {
+s32 is_active__15TObjBoss2TunnelFv(void) {
     return TObjBoss2Tunnel__data_805D4C00 & 1;
 }
 

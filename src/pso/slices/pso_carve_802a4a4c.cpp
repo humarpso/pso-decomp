@@ -8,13 +8,13 @@ extern "C" {
 
 #include "types.h"
 extern "C" {
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 int queue_destruction__7TObjectFv(void*);
 
 int TNeedleShoot__sub_802A4A4C(void) { return 0; }
 void TNeedleShoot__sub_802A4A7C(u8 *arg0) {
-    if (TOKeyMachine01__sub_802034A8() == 0x22) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0x22) {
         TBoss3Volopt__sub_8022675C((int) (0x4003B20E), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
     } else {
         TBoss3Volopt__sub_8022675C((int) (0x3A847), (void *) (arg0 + 0x6C), (int) (0), (int) (0));

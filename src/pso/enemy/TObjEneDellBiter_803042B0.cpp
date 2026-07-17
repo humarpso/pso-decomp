@@ -9,14 +9,14 @@ extern "C" {
 void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
-M2C_UNK TBoss4Type3__sub_800D7A20(int);
+M2C_UNK reset_timer__11TBoss4Type3FPv(int);
 s32 TObjBoss2Tunnel__sub_8007E5A0(int, int, int, int, int);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 s32 TObjEneDellBiter__sub_803054FC(void *);
 M2C_UNK TObjEneDellBiter__sub_80305B60(void *);
 M2C_UNK TObjEneDellBiter__sub_80305E1C(void *);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, void *);
 M2C_UNK fn_8002B094(int);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -39,11 +39,11 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 4;
-        TObjEneDD__sub_800BBA04((void *) (arg0), (int) (5));
+        set_field_378__9TObjEneDDFPvi((void *) (arg0), (int) (5));
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFFC);
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 4);
         fn_8002B094((int) (M2C_FIELD(arg0, s32 *, 0x4A0)));
-        TBoss4Type3__sub_800D7A20((int) (M2C_FIELD(arg0, s32 *, 0x4A4)));
+        reset_timer__11TBoss4Type3FPv((int) (M2C_FIELD(arg0, s32 *, 0x4A4)));
         M2C_FIELD(arg0, s32 *, 0x4CC) = 0;
         M2C_FIELD(arg0, s32 *, 0x4D0) = 0;
         M2C_FIELD(arg0, s32 *, 0x48C) = 0;
@@ -74,7 +74,7 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
             if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEFF0)) != 0) {
                 TBoss3Volopt__sub_8022675C((int) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (void *) (0x40039E16))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             }
-            if (TObjEneMe3ShinowaReal__sub_8002ADD8((void *) (arg0)) != 0) {
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = 0;
                 M2C_FIELD(arg0, s32 *, 0x4D0) = 1;
                 M2C_FIELD(arg0, s32 *, 0x4CC) = 0;

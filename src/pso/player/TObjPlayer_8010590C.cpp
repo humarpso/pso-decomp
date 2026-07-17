@@ -8,8 +8,8 @@ int activate_d04_slot__10TObjPlayerFPv(void* p);
 int test_flag3__9TItemDataFPv(void* p);
 int get_item_field_2__9TItemDataFPv(void* p);
 void clear_fields__20TWindowSubStatusDispFPv(void* p);
-int TObjPlayer__sub_801C675C(void*, int);
+int get_slot_value__10TObjPlayerFPvi(void*, int);
 
-int activate_d04_slot__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801C675C((char*)p + 0xd04, 1); }
+int activate_d04_slot__10TObjPlayerFPv(void* p) { return get_slot_value__10TObjPlayerFPvi((char*)p + 0xd04, 1); }
 
 }

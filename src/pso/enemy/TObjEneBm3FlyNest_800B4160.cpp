@@ -8,12 +8,12 @@ extern "C" {
 
 void free_fly__17TObjEneBm3FlyNestFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjEneBm3Fly__sub_800B2214();
+M2C_UNK release_shared_data__13TObjEneBm3FlyFv();
 
 extern u32 lbl_805D5108;
 
 void free_fly__17TObjEneBm3FlyNestFv(void) {
-    TObjEneBm3Fly__sub_800B2214();
+    release_shared_data__13TObjEneBm3FlyFv();
     if ((u32) lbl_805D5108 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D5108, 1);
         lbl_805D5108 = 0U;

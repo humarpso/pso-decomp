@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803FC458(u8 *arg0);
+s32 set_active_flag__6TLobbyFPv(u8 *arg0);
 
-s32 TLobby__sub_803FC458(u8 *arg0) {
+s32 set_active_flag__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0xA0) = 2;
     M2C_FIELD(arg0, u8 *, 0xA2) = (u8) (M2C_FIELD(arg0, u8 *, 0xA2) | 0x20);
     M2C_FIELD(arg0, u8 *, 2) = (u8) (M2C_FIELD(arg0, u8 *, 2) | 0x20);

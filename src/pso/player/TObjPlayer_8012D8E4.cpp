@@ -9,11 +9,11 @@ extern "C" {
 void TObjPlayer__sub_8012D8E4(void *arg0);
 void setup_item_render__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-u8 TItemProShield__sub_8010B734();
+u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 
 extern const f32 lbl_805DAF34;
 
@@ -30,10 +30,10 @@ void setup_item_render__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3_3;
     u8 temp_r3;
 
-    temp_r3 = TItemProShield__sub_8010B734();
+    temp_r3 = get_slot_count__14TItemProShieldFPv();
     switch ((s32) temp_r3) {
     case 5:
-        temp_r3_2 = TObjPlayer__sub_80121200();
+        temp_r3_2 = get_player_list__10TObjPlayerFv();
         switch (temp_r3_2) {
         case 1:
             TObjContainerIdo__sub_803D96A8(0, M2C_FIELD(arg0, s32 *, 0x1F8));
@@ -44,7 +44,7 @@ void setup_item_render__10TObjPlayerFPv(u8 *arg0) {
         }
         break;
     case 7:
-        temp_r3_3 = TObjPlayer__sub_80121200();
+        temp_r3_3 = get_player_list__10TObjPlayerFv();
         switch (temp_r3_3) {
         case 4:
             TOHangerMachine01__sub_803D9C00(arg0 + 0x1FC);

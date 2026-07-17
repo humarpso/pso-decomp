@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_8026D9C0(void *arg0) {
+void increment_counter__20TWindowSubStatusDispFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 8) = (s32) (M2C_FIELD(arg0, s32 *, 8) + 1);
 }
 
@@ -19,10 +19,10 @@ s32 destroy_allocation__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-M2C_UNK TWindowMenu__sub_80266B04();
+M2C_UNK copy_position__11TWindowMenuFPvPv();
 
 void *reset_selection__20TWindowSubStatusDispFPv(void *arg0) {
-    TWindowMenu__sub_80266B04();
+    copy_position__11TWindowMenuFPvPv();
     M2C_FIELD(arg0, s32 *, 8) = 0;
     return arg0;
 }

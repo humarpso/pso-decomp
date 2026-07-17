@@ -9,7 +9,7 @@ extern "C" {
 s32 select_next__19TWindowKeyBoardSoftFPv();
 s32 update__19TWindowKeyBoardSoftFPv();
 s32 convert_input_text__19TWindowKeyBoardSoftFPv();
-int TWindowSubComCard__sub_8025B850(void* p);
+int is_flag_4_set__17TWindowSubComCardFPv(void* p);
 s32 TWindowKeyBoardSoft__sub_8025B8C8(void* p);
 void TWindowKeyBoardSoft__sub_8025B928(void);
 

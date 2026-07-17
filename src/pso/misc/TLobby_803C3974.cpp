@@ -12,7 +12,7 @@ void TLobby__sub_803C3984(u8 *arg0);
 void TLobby__sub_803C39CC(u8 *arg0);
 void TLobby__sub_803C3A04(u8 *arg0);
 M2C_UNK TLobby__sub_803CB458(int);
-M2C_UNK TLobby__sub_803CB470(int);
+M2C_UNK reset_client_state__6TLobbyFPv(int);
 
 s32 TLobby__sub_803C3974(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0xA0);
@@ -31,7 +31,7 @@ void TLobby__sub_803C3984(u8 *arg0) {
 }
 
 void TLobby__sub_803C39CC(u8 *arg0) {
-    TLobby__sub_803CB470((int) (M2C_FIELD(arg0, s32 *, 8)));
+    reset_client_state__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 8)));
     M2C_FIELD(arg0, s32 *, 4) = 0;
 }
 

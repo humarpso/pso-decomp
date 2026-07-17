@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1);
-u8 TOSwitchItem__sub_80102C44();
+u8 get_field_ec__12TOSwitchItemFPv();
 s32 is_technique_ready__8TTecCtrlFv();
 u32 start_inventory_update__10TObjPlayerFPvi(s32, s32);
 u32 get_owner_if_alive__10TObjPlayerFPv();
@@ -25,7 +25,7 @@ s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1) {
             if (get_owner_if_alive__10TObjPlayerFPv() == 0U) {
                 return 0;
             }
-            if (TOSwitchItem__sub_80102C44() == 0) {
+            if (get_field_ec__12TOSwitchItemFPv() == 0) {
                 return 0;
             }
             goto block_8;
@@ -38,7 +38,7 @@ block_8:
             if (get_owner_if_alive__10TObjPlayerFPv() == 0U) {
                 return 0;
             }
-            if (TOSwitchItem__sub_80102C44() == 2) {
+            if (get_field_ec__12TOSwitchItemFPv() == 2) {
                 return 0;
             }
             goto block_15;

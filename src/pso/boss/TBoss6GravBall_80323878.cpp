@@ -8,7 +8,7 @@ extern "C" {
 
 void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
-s32 TBoss6GravBall__sub_802ACCD0(int);
+s32 get_state__14TBoss6GravBallFPv(int);
 M2C_UNK TBoss6GravBall__sub_803231D0(void *, int);
 M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
 M2C_UNK TBoss6GravBall__sub_80323348(void *);
@@ -47,7 +47,7 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0xB8) = (s32) (M2C_FIELD(arg0, s32 *, 0xB8) + 1);
     M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (M2C_FIELD(arg0, s32 *, 0xB4) + 1);
-    temp_r3 = TBoss6GravBall__sub_802ACCD0((int) (M2C_FIELD(arg0, s32 *, 0xAC)));
+    temp_r3 = get_state__14TBoss6GravBallFPv((int) (M2C_FIELD(arg0, s32 *, 0xAC)));
     switch (temp_r3) {
     case 29:
     case 30:

@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TItemMag__sub_8001A468(void* p);
+s32 get_type__8TItemMagFPv(void* p);
 
 int fn_8001A470(void) { return 0; }
 

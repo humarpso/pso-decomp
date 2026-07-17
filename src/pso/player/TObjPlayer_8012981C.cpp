@@ -8,13 +8,13 @@ extern "C" {
 
 void apply_directional_input__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 
 void apply_directional_input__10TObjPlayerFPv(void *arg0) {
-    if (TObjPlayer__sub_80121200() == 1) {
+    if (get_player_list__10TObjPlayerFv() == 1) {
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x200));
     }
-    if (TObjPlayer__sub_80121200() == 4) {
+    if (get_player_list__10TObjPlayerFv() == 4) {
         TObjBoss2Tunnel__sub_803D929C(0, -M2C_FIELD(arg0, s32 *, 0x200));
     }
 }

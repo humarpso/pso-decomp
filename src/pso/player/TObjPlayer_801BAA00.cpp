@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void apply_state_transform__10TObjPlayerFUi(u32 arg0);
-s32 TObjPlayer__sub_800196F4(u32);
+s32 get_field_3e4__10TObjPlayerFPv(u32);
 M2C_UNK set_flag_400000__10TObjPlayerFi();
 M2C_UNK TObjPlayer__sub_801C17D0(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_801C17EC(M2C_UNK *);
@@ -27,7 +27,7 @@ void apply_state_transform__10TObjPlayerFUi(u32 arg0) {
     if ((arg0 == 0U) || (obj_isState2_324(arg0) == 0)) {
         TObjPlayer__sub_801C17D0((M2C_UNK *)&sp8);
         sp8.fA = obj_getField1c(arg0);
-        sp8.fC = TObjPlayer__sub_800196F4(arg0);
+        sp8.fC = get_field_3e4__10TObjPlayerFPv(arg0);
         TObjPlayer__sub_801C17EC((M2C_UNK *)&sp8);
     }
 }

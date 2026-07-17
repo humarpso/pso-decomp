@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 TBoss6Rock__sub_80354A30(void);
+u8 is_active__10TBoss6RockFv(void);
 
 extern s32 TBoss6Rock__data_805D6EF8;
 
-u8 TBoss6Rock__sub_80354A30(void) {
+u8 is_active__10TBoss6RockFv(void) {
     return (u8) (TBoss6Rock__data_805D6EF8 != 0);
 }
 

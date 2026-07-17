@@ -10,12 +10,12 @@ void update_photon_chair_state__10TObjPlayerFPv(void *arg0);
 void update_breath_pulse__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 
 void update_photon_chair_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_80121200();
+    temp_r3 = get_player_list__10TObjPlayerFv();
     if ((temp_r3 > 0) && (temp_r3 < 4)) {
         TObjBoss2Tunnel__sub_803D929C(0, M2C_FIELD(arg0, s32 *, 0x200));
         return;

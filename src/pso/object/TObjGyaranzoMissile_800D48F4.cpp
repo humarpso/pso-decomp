@@ -12,7 +12,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
 M2C_UNK TObjFish__sub_8001EDC4(void *, int);
-M2C_UNK TObjFish__sub_803DA798();
+M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK TObjFish__sub_803E46BC();
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
@@ -25,7 +25,7 @@ extern const f32 lbl_805DA2C4;
 
 void render__19TObjGyaranzoMissileFv(u8 *arg0) {
     TObjFish__sub_8001EDB0((void *) (lbl_805D51FC), (int) (6));
-    TObjFish__sub_803DA798();
+    set_global_param__8TObjFishFi();
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
     TObjContainerIdo__sub_803D96A8((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));

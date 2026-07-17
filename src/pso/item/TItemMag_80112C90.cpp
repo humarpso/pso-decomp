@@ -14,7 +14,7 @@ M2C_UNK TItemMag__sub_801140F4(void *, int);
 M2C_UNK TItemMag__sub_80114198(void *, int);
 M2C_UNK TItemMag__sub_8011423C(void *, int);
 M2C_UNK TItemMag__sub_801142E0(void *, int);
-s32 TObjPlayer__sub_80099EF8(int);
+s32 get_field_d8__10TObjPlayerFPv(int);
 M2C_UNK TObjPlayer__sub_8010069C(void *);
 s8 TObjPlayer__sub_80102C30(void *);
 M2C_UNK TObjPlayer__sub_801B9EDC(int, int);
@@ -38,7 +38,7 @@ s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
             if (obj_isState2_324((int) (M2C_FIELD(arg0, s32 *, 0xF0))) == 0) {
                 arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0xF0)));
                 if ((arg1 != NULL) && (get_item_info__10TObjPlayerFiiPv((int) (arg1), (int) (M2C_FIELD(arg0, s32 *, 0xF0)), (int) (0)) == 0)) {
-                    TObjPlayer__sub_801B9EDC((int) (M2C_FIELD(arg0, s32 *, 0xF0)), (int) (TObjPlayer__sub_80099EF8((int) (arg1))));
+                    TObjPlayer__sub_801B9EDC((int) (M2C_FIELD(arg0, s32 *, 0xF0)), (int) (get_field_d8__10TObjPlayerFPv((int) (arg1))));
                 }
             }
         }

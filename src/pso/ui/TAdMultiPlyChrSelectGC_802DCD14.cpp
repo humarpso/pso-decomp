@@ -11,7 +11,7 @@ M2C_UNK begin_change_game_mode__21TAdMultiChgGameModeGCFv();
 M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
 M2C_UNK set_game_mode_state__21TAdMultiChgGameModeGCFv();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C6A10();
-s32 TAdMultiPlyChrSelectGC__sub_802E011C();
+s32 get_chr_select_state__22TAdMultiPlyChrSelectGCFv();
 
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
     s32 temp_r0;
@@ -20,7 +20,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x48);
     switch (temp_r0) {
     case 0:
-        if (TAdMultiPlyChrSelectGC__sub_802E011C() != 0) {
+        if (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() != 0) {
             begin_change_game_mode__21TAdMultiChgGameModeGCFv();
             return;
         }

@@ -9,7 +9,7 @@ extern "C" {
 void run_task__19TOMonumentAncient02Fv(u8 *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(s32, void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
-M2C_UNK TParticleCtrl__sub_80088010(void *);
+M2C_UNK enable__13TParticleCtrlFPv(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void run_task__19TOMonumentAncient02Fv(u8 *arg0) {
@@ -20,7 +20,7 @@ void run_task__19TOMonumentAncient02Fv(u8 *arg0) {
     default:
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         if ((u32) M2C_FIELD(arg0, u32 *, 0xE8) != 0U) {
-            TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0xE8));
+            enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xE8));
         }
         return;
     case 1:
@@ -28,7 +28,7 @@ void run_task__19TOMonumentAncient02Fv(u8 *arg0) {
             TObjPlayer__sub_801B4A18(arg0, -1);
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xE8) != 0U) {
-            TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0xE8));
+            enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xE8));
             return;
         }
         break;

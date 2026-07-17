@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TFogCtrl__sub_800FB12C(void* p);
+s32 get_param__8TFogCtrlFPv(void* p);
 
 int TFogCtrl__sub_800FAF3C(void) { return 0; }
 int TFogCtrl__sub_800FAFE0(void) { return 0; }

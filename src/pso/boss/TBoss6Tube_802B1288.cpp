@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Tube__sub_802B1288(void);
+void reset_state__10TBoss6TubeFv(void);
 
 extern s32 TBoss6Tube__data_805D6720;
 extern f32 TBoss6Tube__data_805D6724;
 extern f32 TBoss6Tube__data_805DE250;
 
-void TBoss6Tube__sub_802B1288(void) {
+void reset_state__10TBoss6TubeFv(void) {
     TBoss6Tube__data_805D6720 = 0;
     TBoss6Tube__data_805D6724 = TBoss6Tube__data_805DE250;
 }

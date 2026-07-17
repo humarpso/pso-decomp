@@ -28,12 +28,12 @@ extern "C" {
 
 struct VObj_80101350 *TLobby__sub_80101AB0(s32);
 M2C_UNK swap_6x61_fields__10TObjPlayerFPv(void *);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 
 void handle_6x61_activate_mag_effect(void *arg0) {
     struct VObj_80101350 *obj;
 
-    if (TOKeyMachine01__sub_802034A8() != 0xF) {
+    if (get_global_state__14TOKeyMachine01Fv() != 0xF) {
         swap_6x61_fields__10TObjPlayerFPv(arg0);
         obj = TLobby__sub_80101AB0(M2C_FIELD(arg0, s32 *, 4));
         if ((obj != NULL) && ((u32) M2C_FIELD(obj, u32 *, 0xF0) != 0U)) {

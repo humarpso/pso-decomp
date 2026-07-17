@@ -22,7 +22,7 @@ void render__12TODoorCave01Fv(u8 *arg0);
 M2C_UNK TODoorCave01__sub_80161804(void *, int, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -48,7 +48,7 @@ void render__12TODoorCave01Fv(u8 *arg0) {
                 var_r30 = (unsigned char *) (M2C_FIELD(var_r30, void **, 0x30));
             } while (var_r29 < 4);
         } else {
-            TObjFish__sub_803DA798((int) (M2C_FIELD(TODoorCave01__data_805D595C, s32 *, 4)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(TODoorCave01__data_805D595C, s32 *, 4)));
             TObjDoor__sub_803DC894((void *) (M2C_FIELD(arg0, void **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         }
         TObjPlayer__sub_803D9B78();

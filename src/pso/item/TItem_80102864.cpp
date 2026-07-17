@@ -10,7 +10,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1);
 M2C_UNK set_mode__5TItemFPvc(void *, M2C_UNK);
 M2C_UNK TItem__sub_80101B20(void *);
 M2C_UNK free_obj_heap__10TObjPlayerFPv(void *);
-M2C_UNK fn_801566CC(void *);
+M2C_UNK clear_obj_links(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 
 extern void *__vt__5TItem[];
@@ -19,7 +19,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__5TItem;
         set_mode__5TItemFPvc(arg0, 3);
-        fn_801566CC(arg0);
+        clear_obj_links(arg0);
         TItem__sub_80101B20(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

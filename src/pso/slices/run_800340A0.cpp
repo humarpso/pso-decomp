@@ -16,7 +16,7 @@ u8 is_ready__13TBoss2DeRolLeFPv(void *arg0) {
     return (u8)var_r4;
 }
 
-void TBoss2DeRolLe__sub_800340C8(void *arg0) {
+void clear_play_flags__13TBoss2DeRolLeFPv(void *arg0) {
     void *temp_r3;
     void *temp_r4;
 

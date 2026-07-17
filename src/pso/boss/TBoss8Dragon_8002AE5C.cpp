@@ -12,18 +12,18 @@ void send_6x12_packet__10TObjPlayerFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
 f64 TWindowSubComCard__sub_803A24E4();
-int TObjEneMe3ShinowaReal__sub_8002ADD8(void* p);
+int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void* p);
 int fn_8002AE38(void* p);
-void TBoss8Dragon__sub_8002AE5C(void* p, f32 v);
-void TObjEnePanarms__sub_8002AE74(void* p, s16 v);
-void TObjPlayer__sub_8002AE7C(void* p, s32 v);
-void TObjPlayer__sub_8002AE84(void* p, s32 v);
+void set_speed__12TBoss8DragonFPvf(void* p, f32 v);
+void set_field_b8__14TObjEnePanarmsFPvs(void* p, s16 v);
+void set_field_dc__10TObjPlayerFPvi(void* p, s32 v);
+void set_field_d8__10TObjPlayerFPvi(void* p, s32 v);
 void reset_lobby_model__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_8002AEAC(void* p);
-void TObjPlayer__sub_8002AEB8(void* p, s32 v);
+void reset_type__10TObjPlayerFPv(void* p);
+void set_type__10TObjPlayerFPvi(void* p, s32 v);
 void TObjPlayer__sub_8002AF38(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
-void TBoss8Dragon__sub_8002AE5C(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
+void set_speed__12TBoss8DragonFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
 
 }

@@ -15,7 +15,7 @@ s32 set_state__16TAdStorySelectGCFi(s32);
 int TLobby__sub_801EA5FC(void*);
 M2C_UNK TLobby__sub_80070AFC();
 M2C_UNK update_dead_list_win__6TLobbyFv();
-void *TAdSinglePlyChrSelectGC__sub_8007B7E4();
+void *get_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK update_screen__6TLobbyFPv();
 M2C_UNK TLobby__sub_80291DC0();
 
@@ -40,7 +40,7 @@ void cache_player_field__6TLobbyFv(void) {
     s32 var_r0;
     void *temp_r3;
 
-    temp_r3 = TAdSinglePlyChrSelectGC__sub_8007B7E4();
+    temp_r3 = get_state__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 != NULL) {
         var_r0 = M2C_FIELD(temp_r3, s32 *, 0xE284);
     } else {

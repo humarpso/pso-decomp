@@ -3,9 +3,9 @@
 extern "C" {
 
 void TCameraCtrl__sub_800687BC(void);
-void* TCameraCtrl__sub_800687C0(void* p);
+void* get_target_ptr__11TCameraCtrlFPv(void* p);
 
 void TCameraCtrl__sub_800687BC(void) {  }
-void* TCameraCtrl__sub_800687C0(void* p) { return (char*)p + 0x44; }
+void* get_target_ptr__11TCameraCtrlFPv(void* p) { return (char*)p + 0x44; }
 
 }

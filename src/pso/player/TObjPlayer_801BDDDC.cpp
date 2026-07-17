@@ -9,7 +9,7 @@ extern "C" {
 s32 create__10TObjPlayerFUii(u32 arg0, s32 arg1);
 s32 construct_player_instance__10TObjPlayerFPvisiPv(s32, s32, u16, s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TLobby__sub_80072048(s32, s32);
+M2C_UNK copy_header_struct__6TLobbyFPvPv(s32, s32);
 s32 TObjPlayer__sub_801C22A4(s32);
 s32 TObjPlayer__sub_801C22AC(s32);
 s32 TObjPlayer__sub_801C22B4(s32);
@@ -24,7 +24,7 @@ s32 create__10TObjPlayerFUii(u32 arg0, s32 arg1) {
     if (var_r30 != 0) {
         var_r30 = construct_player_instance__10TObjPlayerFPvisiPv(var_r30, tl_03, (u16)arg0, TObjPlayer__sub_801C22B4(arg1), TObjPlayer__sub_801C22AC(arg1));
     }
-    TLobby__sub_80072048(var_r30 + 0xDAC, TObjPlayer__sub_801C22A4(arg1));
+    copy_header_struct__6TLobbyFPvPv(var_r30 + 0xDAC, TObjPlayer__sub_801C22A4(arg1));
     return var_r30;
 }
 

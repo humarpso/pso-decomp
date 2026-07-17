@@ -11,15 +11,15 @@ void cast_gifoie__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80125C70(void* p);
 void create_pro_armor__10TObjPlayerFPv(void *arg0);
 void update_terminal_state__10TObjPlayerFPv(void *arg0);
-s32 TItemProArmor__sub_80102C3C(void *);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_id__13TItemProArmorFPv(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_mag_active__10TObjPlayerFPv(void *);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 s32 TObjPlayer__sub_8011E618(void *);
 s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
-s32 TObjPlayer__sub_80121CA8(void *);
-s16 TObjPlayer__sub_801251AC(s32);
+s32 get_tp__10TObjPlayerFPv(void *);
+s16 get_tech_level__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80125AF8(u32 a0 = 0, s32 a1 = 0, u32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
 s32 TObjPlayer__sub_802034B0(s32);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
@@ -37,8 +37,8 @@ void cast_gifoie__10TObjPlayerFPv(void *arg0) {
     s32 sp8;
 
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
-        if ((TObjPlayer__sub_801251AC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0)) {
-            create__10TTecGiFoieFPvPvPv(M2C_FIELD(arg0, s32 *, 0xF0), &sp8, TObjPlayer__sub_80121CA8(arg0));
+        if ((get_tech_level__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0)) {
+            create__10TTecGiFoieFPvPvPv(M2C_FIELD(arg0, s32 *, 0xF0), &sp8, get_tp__10TObjPlayerFPv(arg0));
             TObjPlayer__sub_8011E618(arg0);
         }
     } else {
@@ -53,7 +53,7 @@ void create_pro_armor__10TObjPlayerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
         temp_r3 = alloc__13TItemProArmorFi(0x2C);
         if (temp_r3 != 0) {
-            ct__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), TItemProArmor__sub_80102C3C(arg0), 0x5A);
+            ct__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x5A);
         }
     }
     TObjPlayer__sub_8011E618(arg0);
@@ -65,7 +65,7 @@ extern s32 tl_05;
 void update_terminal_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TOKeyMachine01__sub_802034A8();
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
     if ((temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x1F8)) && (is_mag_active__10TObjPlayerFPv(arg0) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = temp_r3;
         if (TObjPlayer__sub_802034B0(temp_r3) != 0) {

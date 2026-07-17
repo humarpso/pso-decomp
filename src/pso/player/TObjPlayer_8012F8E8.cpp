@@ -10,7 +10,7 @@ void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_8011E618(void *);
 u8 *TObjPlayer__sub_80121248(s32, s32);
 s32 TObjPlayer__sub_8012125C();
-s32 TObjPlayer__sub_80121CA8(void *);
+s32 get_tp__10TObjPlayerFPv(void *);
 M2C_UNK create__11TTecGiZondeFPvPvPvPv(int, void *, void *, void *);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
 s32 get_extended_state__10TObjPlayerFPv(int);
@@ -40,7 +40,7 @@ void cast_gizonde_chain__10TObjPlayerFPv(u8 *arg0) {
                 var_r29 += 1;
             } while (var_r29 != 0xA);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x204) != 0) {
-                create__11TTecGiZondeFPvPvPvPv((int) (M2C_FIELD(arg0, s32 *, 0xF0)), (void *) (arg0 + 0x1F8), (void *) (arg0 + 0x204), (void *) (TObjPlayer__sub_80121CA8((void *) (arg0))));
+                create__11TTecGiZondeFPvPvPvPv((int) (M2C_FIELD(arg0, s32 *, 0xF0)), (void *) (arg0 + 0x1F8), (void *) (arg0 + 0x204), (void *) (get_tp__10TObjPlayerFPv((void *) (arg0))));
             }
             TObjPlayer__sub_8011E618((void *) (arg0));
         }

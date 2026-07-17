@@ -8,7 +8,7 @@ extern "C" {
 
 void render__10TAdTitleGCFv(u8 *arg0);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
-s32 TMainTask__sub_8001A430();
+s32 get_state_flag__9TMainTaskFv();
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
 M2C_UNK fn_80141A30();
 s32 toggle_flag_9__10TObjPlayerFPv();
@@ -18,7 +18,7 @@ M2C_UNK set_depth_buffer_settings_2__Fv();
 
 void render__10TAdTitleGCFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x134) == 1) {
-        if (TMainTask__sub_8001A430() == 1) {
+        if (get_state_flag__9TMainTaskFv() == 1) {
             return;
         }
         goto block_5;

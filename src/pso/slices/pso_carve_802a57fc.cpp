@@ -8,8 +8,8 @@ extern "C" {
 
 s32 TWindowSubComCard__sub_80244888(void *);
 s32 TWindowSubComCard__sub_80265BF8(s32);
-s32 TWindowSubComCard__sub_80073DB8(s32);
-s32 TQuestThread__sub_801F64BC(s32);
+s32 get_status_flag__17TWindowSubComCardFPv(s32);
+s32 set_status_flag_80__12TQuestThreadFPv(s32);
 s32 TWindowSubComCard__sub_80265CFC(s32, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
@@ -23,18 +23,18 @@ void notify_trade_main__17TWindowSubComCardFPv(void* p);
 void notify_warp_flag70__19TWindowSubShortMailFPv(void* p);
 int close__17TWindowSubComCardFPv(void* p);
 void free_member__17TWindowSubComCardFPv(void* p);
-int TAdChrSelASlotGC__sub_800740FC(void*);
+int set_flag_40__16TAdChrSelASlotGCFPv(void*);
 int set_flag70_bit10__16TObjCityMainWarpFPv(void*);
-int TWindowSubComCard__sub_80265C10(void*);
-int TWindowSubTradeMain__sub_80287560(void*);
+int set_selected_index__17TWindowSubComCardFPvs(void*);
+int clear_trade_flag__19TWindowSubTradeMainFPv(void*);
 int queue_destruction__7TObjectFv(void*);
 
 int TWindowSubComCard__sub_802A57FC(void*) { return 0; }
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0x28) = TCheckRoomSequence__sub_802664A8(arg2, 1, M2C_FIELD(arg0, s32 *, 0x24));
     forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, s32 *, 0x28), arg1, 0x21, 0);
-    TAdChrSelASlotGC__sub_800740FC((void*)(M2C_FIELD(arg0, s32 *, 0x28)));
-    TQuestThread__sub_801F64BC(M2C_FIELD(arg0, s32 *, 0x28));
+    set_flag_40__16TAdChrSelASlotGCFPv((void*)(M2C_FIELD(arg0, s32 *, 0x28)));
+    set_status_flag_80__12TQuestThreadFPv(M2C_FIELD(arg0, s32 *, 0x28));
     TWindowSubComCard__sub_80265CFC(M2C_FIELD(arg0, s32 *, 0x28), farg0);
 }
 int TWindowSubShortMail__sub_802A58AC(void*, void*, void*, void*) { return 0; }

@@ -9,9 +9,9 @@ extern "C" {
 void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
 u32 TBoss4Type2__sub_800874F4(void *, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TParticleCtrl__sub_80088010(void *);
+M2C_UNK enable__13TParticleCtrlFPv(void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504();
@@ -126,7 +126,7 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 8;
-        TObjEneDD__sub_800BBA04(arg0, 7);
+        set_field_378__9TObjEneDDFPvi(arg0, 7);
         M2C_FIELD(arg0, u32 *, 0x4C4) = 0U;
         return;
     case 3:
@@ -140,7 +140,7 @@ void action__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x4C4) == 0U) {
             M2C_FIELD(arg0, u32 *, 0x4C4) = TBoss4Type2__sub_800874F4(arg0 + 0x450, 0x100);
             if ((u32) M2C_FIELD(arg0, u32 *, 0x4C4) != 0U) {
-                TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0x4C4));
+                enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0x4C4));
             }
         } else if (M2C_FIELD(arg0, s32 *, 0x484) & 1) {
             copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x4C4), arg0 + 0x450);

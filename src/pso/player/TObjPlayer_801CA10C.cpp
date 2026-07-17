@@ -8,7 +8,7 @@ extern "C" {
 
 void update_active_state__10TObjPlayerFPv(u8 *arg0);
 s16 get_action_animation__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801BF9E8(void *, f32);
+M2C_UNK set_pos_z__10TObjPlayerFPvf(void *, f32);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_8001BEF8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
@@ -32,7 +32,7 @@ void update_active_state__10TObjPlayerFPv(u8 *arg0) {
         } else {
             TObjPlayer__sub_801CA35C(arg0);
         }
-        TObjPlayer__sub_801BF9E8(arg0 + 0x5FC, TObjPlayer__data_805DC360);
+        set_pos_z__10TObjPlayerFPvf(arg0 + 0x5FC, TObjPlayer__data_805DC360);
         revive_or_spawn_marker__10TObjPlayerFi(arg0);
     }
 }

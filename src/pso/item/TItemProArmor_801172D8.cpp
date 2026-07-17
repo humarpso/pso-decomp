@@ -10,7 +10,7 @@ void apply_armor_stat__13TItemProArmorFPv(void *arg0);
 s32 get_stat_value__13TItemProArmorFPv(void *);
 s32 calc_scaled_offset__13TItemProArmorFv(void *);
 s32 calc_armor_value__13TItemProArmorFv(void *);
-u8 TItemProShield__sub_8010B734();
+u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK TObjPlayer__sub_800112A4(s32, s32);
 
 void apply_armor_stat__13TItemProArmorFPv(void *arg0) {
@@ -18,7 +18,7 @@ void apply_armor_stat__13TItemProArmorFPv(void *arg0) {
     u8 temp_r3;
 
     var_r31 = 0;
-    temp_r3 = TItemProShield__sub_8010B734();
+    temp_r3 = get_slot_count__14TItemProShieldFPv();
     switch ((s32) temp_r3) {
     case 0:
         var_r31 = calc_armor_value__13TItemProArmorFv(arg0);

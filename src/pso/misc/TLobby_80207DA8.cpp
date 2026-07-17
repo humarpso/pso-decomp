@@ -12,7 +12,7 @@ int set_state__16TAdStorySelectGCFi(void*);
 int TLobby__sub_802077CC(void*);
 int TLobby__sub_8020780C(void*);
 int TOBoss4Rock__sub_802078A4(void*);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 s32 TScene__sub_801FBA20();
 
     extern int lbl_805D3628;
@@ -21,7 +21,7 @@ void reset_story_select__6TLobbyFv(void) { set_state__16TAdStorySelectGCFi((void
 s32 is_scene_ready__6TLobbyFv(void) {
     s32 temp_r3;
 
-    if (TOKeyMachine01__sub_802034A8() != 0xF) {
+    if (get_global_state__14TOKeyMachine01Fv() != 0xF) {
         return 0;
     }
     temp_r3 = TScene__sub_801FBA20();

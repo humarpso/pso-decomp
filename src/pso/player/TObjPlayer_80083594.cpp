@@ -9,7 +9,7 @@ extern "C" {
 void setup_tev_stage__10TObjPlayerFv(void);
 M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjFish__sub_803DA798(M2C_UNK *);
+M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803E1D90(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
@@ -24,7 +24,7 @@ void setup_tev_stage__10TObjPlayerFv(void) {
         GXSetTevOrder(1, 1, 1, 4);
         GXSetTevOp(1, 2);
         set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
-        TObjFish__sub_803DA798(lbl_8048E5B4);
+        set_global_param__8TObjFishFi(lbl_8048E5B4);
         TObjPlayer__sub_803E1D90(0, 0, 0, 1);
         some_id_805c6f74 |= 0x80000;
         TObjPlayer__sub_803DC850(1);

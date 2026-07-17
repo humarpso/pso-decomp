@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TAdLdQuestPrtGC__sub_80323114(void* p);
+int get_abs__15TAdLdQuestPrtGCFPv(void* p);
 int TAdEndText__sub_803997FC(void*);
 
 int fn_80323134(void) { return 0; }

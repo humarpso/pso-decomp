@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 queue_destruction__7TObjectFv(void *);
-s32 TAdMultiPlyChrSelectGC__sub_802D50A0(s32);
-s32 TAdMultiPlyChrSelectGC__sub_802D50A8(s32, s32);
-s32 TAdMultiPlyChrSelectGC__sub_802E00BC(s32, s32);
-s32 TAdMultiPlyChrSelectGC__sub_802E00C4(s32);
-u32 TAdMultiPlyChrSelectGC__sub_802E0100();
+s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
+s32 set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
+s32 set_field_1c__22TAdMultiPlyChrSelectGCFPvi(s32, s32);
+s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
+u32 get_global_state__22TAdMultiPlyChrSelectGCFv();
 s32 TAdChrMoveEffectGC__sub_803490AC();
 int request_scene_change__22TAdMultiPlyChrSelectGCFPv(void* p);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
@@ -22,23 +22,23 @@ void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x88));
         M2C_FIELD(arg0, u32 *, 0x88) = 0U;
     }
-    if (TAdMultiPlyChrSelectGC__sub_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) {
-        if (TAdMultiPlyChrSelectGC__sub_802D50A0(M2C_FIELD(arg0, s32 *, 0x68)) < 0xE) {
+    if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) {
+        if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x68)) < 0xE) {
             M2C_FIELD(arg0, s32 *, 0x58) = 0;
         }
-        if (TAdMultiPlyChrSelectGC__sub_802E0100() != 0U) {
+        if (get_global_state__22TAdMultiPlyChrSelectGCFv() != 0U) {
             TAdChrMoveEffectGC__sub_803490AC();
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
         return;
     }
-    if (TAdMultiPlyChrSelectGC__sub_802E00C4(M2C_FIELD(arg0, s32 *, 0x6C)) == 0x1D) {
-        if (TAdMultiPlyChrSelectGC__sub_802E0100() != 0U) {
+    if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) == 0x1D) {
+        if (get_global_state__22TAdMultiPlyChrSelectGCFv() != 0U) {
             TAdChrMoveEffectGC__sub_803490AC();
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
-        TAdMultiPlyChrSelectGC__sub_802D50A8(M2C_FIELD(arg0, s32 *, 0x68), 1);
-        TAdMultiPlyChrSelectGC__sub_802E00BC(M2C_FIELD(arg0, s32 *, 0x6C), 1);
+        set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x68), 1);
+        set_field_1c__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x6C), 1);
     }
 }
 

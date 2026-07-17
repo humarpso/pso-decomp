@@ -16,7 +16,7 @@ int TObjChip__vt8(void*, void*);
 int TWindowSnapShot__sub_802A5D28(void*);
 int reset__15TWindowSnapShotFPv(void*);
 int TWindowSnapShot__sub_802A6044(void);
-void TWindowSnapShot__sub_802A604C(void* p, s32 v);
+void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
 s32 TWindowSnapShot__sub_802A6054(void* p);
 void fn_802A6070(void* p, s32 v);
 void fn_802A6078(void* p, s32 v);

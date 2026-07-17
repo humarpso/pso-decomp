@@ -8,13 +8,13 @@ extern "C" {
 
 void update_setup__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 setup__23TAdSinglePlyChrSelectGCFi(s32);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BA8(M2C_UNK);
+M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
 
 void update_setup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (setup__23TAdSinglePlyChrSelectGCFi(M2C_FIELD(arg0, s32 *, 0x24)) == 0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 8;
-        TAdSinglePlyChrSelectGC__sub_80202BA8(0xC);
+        set_player_index__23TAdSinglePlyChrSelectGCFi(0xC);
         return;
     }
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

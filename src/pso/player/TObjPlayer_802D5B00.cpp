@@ -11,7 +11,7 @@ M2C_UNK get_data_entry__9TItemLoadFiPv(M2C_UNK, s32 *);
 M2C_UNK lookup_item_data__9TItemLoadFiPv(M2C_UNK, s32 *);
 s32 TObjEneDellBiter__sub_80087350(M2C_UNK, s32);
 M2C_UNK TObjFish__sub_800660D4(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_800822D4(s32, f32, f32);
+M2C_UNK set_position_xy__10TObjPlayerFPvff(s32, f32, f32);
 
 extern f32 lbl_805DE78C;
 extern f32 lbl_805DE79C;
@@ -26,7 +26,7 @@ void spawn_item__10TObjPlayerFi(s32 arg0) {
         lookup_item_data__9TItemLoadFiPv(0xD, &spC);
         get_data_entry__9TItemLoadFiPv(0xD, &sp8);
         TObjFish__sub_800660D4(temp_r3, spC, sp8, 0, 0, lbl_805DE78C);
-        TObjPlayer__sub_800822D4(temp_r3, lbl_805DE79C, lbl_805DE79C);
+        set_position_xy__10TObjPlayerFPvff(temp_r3, lbl_805DE79C, lbl_805DE79C);
     }
 }
 

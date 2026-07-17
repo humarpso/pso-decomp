@@ -24,8 +24,8 @@ void copy_item_to_data__10TObjPlayerFi(s32 arg0);
 void update_model_flags__10TObjPlayerFPv(struct VObj_8011E828 *o);
 M2C_UNK copy_to_item_data__5TItemFPvPv(s32, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_8011C8BC(s32, s16 *, s16 *);
-M2C_UNK TObjPlayer__sub_801210C0(void *, s16);
-M2C_UNK TObjPlayer__sub_801210C8(void *, s16);
+M2C_UNK set_model_param__10TObjPlayerFPvs(void *, s16);
+M2C_UNK set_model_id__10TObjPlayerFPvs(void *, s16);
 M2C_UNK check_item_flags__9TItemDataFPv(M2C_UNK *);
 M2C_UNK init__9TItemDataFv(M2C_UNK *);
 
@@ -68,8 +68,8 @@ void apply_model_params__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
     TObjPlayer__sub_8011C8BC(M2C_FIELD(arg0, u8 *, 0x1D2) & 0x3F, &spA, &sp8);
-    TObjPlayer__sub_801210C8(M2C_FIELD(arg0, void **, 0xF0), spA);
-    TObjPlayer__sub_801210C0(M2C_FIELD(arg0, void **, 0xF0), sp8);
+    set_model_id__10TObjPlayerFPvs(M2C_FIELD(arg0, void **, 0xF0), spA);
+    set_model_param__10TObjPlayerFPvs(M2C_FIELD(arg0, void **, 0xF0), sp8);
     temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
     ((VObj_8011E77C *)temp_r3)->m71();
 }

@@ -16,7 +16,7 @@ extern "C" {
 void TObjSeabedSuisoBrakable__vt12(void *arg0);
 void render__23TObjSeabedSuisoBrakableFv(void *arg0);
 M2C_UNK TOComputerMachine01__sub_8023DDC8(u32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
-s32 TObjSeabedSuisoBrakable__sub_802A71F8(M2C_UNK);
+s32 get_break_data__23TObjSeabedSuisoBrakableFi(M2C_UNK);
 void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, M2C_UNK);
 M2C_UNK TORockCave__sub_80175134(void *);
 
@@ -33,7 +33,7 @@ void TObjSeabedSuisoBrakable__vt12(void *arg0) {
         temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0x34), 2);
         if ((s32) lbl_805D667C != (s32) lbl_805D53A4) {
             if ((temp_r31 != NULL) && ((u32) M2C_FIELD(temp_r31, u32 *, 4) != 0U)) {
-                temp_r3 = TObjSeabedSuisoBrakable__sub_802A71F8(1);
+                temp_r3 = get_break_data__23TObjSeabedSuisoBrakableFi(1);
                 if (temp_r3 != -1) {
                     TOComputerMachine01__sub_8023DDC8(M2C_FIELD(temp_r31, u32 *, 4), 0, 1, (u16) temp_r3, 1);
                 }
@@ -45,7 +45,7 @@ void TObjSeabedSuisoBrakable__vt12(void *arg0) {
         temp_r31_2 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0x34), 8);
         if ((s32) lbl_805D667C != (s32) lbl_805D53A4) {
             if ((temp_r31_2 != NULL) && ((u32) M2C_FIELD(temp_r31_2, u32 *, 4) != 0U)) {
-                temp_r3_2 = TObjSeabedSuisoBrakable__sub_802A71F8(2);
+                temp_r3_2 = get_break_data__23TObjSeabedSuisoBrakableFi(2);
                 if (temp_r3_2 != -1) {
                     TOComputerMachine01__sub_8023DDC8(M2C_FIELD(temp_r31_2, u32 *, 4), 0, 1, (u16) temp_r3_2, 1);
                 }

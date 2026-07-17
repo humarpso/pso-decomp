@@ -43,7 +43,7 @@ M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm9Mericarol__sub_802D073C(void *, s32);
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK, s32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK, s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(f32);
@@ -61,7 +61,7 @@ void handle_motion_event__19TObjEneBm9MericarolFPvi(u8 *arg0, s32 arg1) {
         TObjEneBm9Mericarol__sub_802D093C(arg0);
         temp_r5 = M2C_FIELD(arg0, s32 *, 0x438);
         M2C_FIELD(arg0, s32 *, 0x438) = (s32) (temp_r5 & ~0x28);
-        TObjEneDD__sub_800BBA04(arg0, 3, temp_r5);
+        set_field_378__9TObjEneDDFPvi(arg0, 3, temp_r5);
         M2C_FIELD(arg0, s32 *, 0x490) = 0;
         TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x3AD0F), arg0 + 0x38, 0, 0);
         return;

@@ -9,7 +9,7 @@ extern "C" {
 void run_task__12TObjParticleFv(u8 *arg0);
 M2C_UNK copy_vec3__11TBoss4Type2FPvPv(u32, void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, void *);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 f32 fn_801315A0(void *, s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -21,7 +21,7 @@ extern const f32 lbl_805DBEE8;
 void run_task__12TObjParticleFv(u8 *arg0) {
     f32 var_f31;
 
-    if (((TOKeyMachine01__sub_802034A8() == 0xE) || ((s32) M2C_FIELD(arg0, s32 *, 0x84) == 1)) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 1)) {
+    if (((get_global_state__14TOKeyMachine01Fv() == 0xE) || ((s32) M2C_FIELD(arg0, s32 *, 0x84) == 1)) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 1)) {
         var_f31 = lbl_805DBEE0;
     } else {
         var_f31 = lbl_805DBEE4;

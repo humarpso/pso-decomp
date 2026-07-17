@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 poll_input__16TKeyBoardControlFPv(void *arg0);
-u8 TKeyBoardControl__sub_80132404(M2C_UNK *);
+u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
 
 extern M2C_UNK TKeyBoardControl__data_80506270[];
 
@@ -17,7 +17,7 @@ s32 poll_input__16TKeyBoardControlFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x60) & 0x40) {
         return 3;
     }
-    temp_r3 = TKeyBoardControl__sub_80132404(TKeyBoardControl__data_80506270);
+    temp_r3 = get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270);
     switch ((s32) temp_r3) {
     case 4:
         return 1;

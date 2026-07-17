@@ -4,7 +4,7 @@ extern "C" {
 
 s32 release_attached_resource__10TObjPlayerFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-void TPlayerBattleCtrl4P__sub_803112A4(void* p, s32 v);
+void set_score__19TPlayerBattleCtrl4PFPvi(void* p, s32 v);
 
 void update_all_players__19TPlayerBattleCtrl4PFv(void) {
     s32 var_r31;

@@ -12,7 +12,7 @@ int is_field378_zero__14TBoss4DarkFalzFPv(void* p);
 s32 TBoss4DarkFalz__sub_8004C1D4(void* p);
 s32 TBoss4DarkFalz__sub_8004C1DC(void* p);
 s32 TBoss4DarkFalz__sub_8004C1E4(void* p);
-void* TBoss4DarkFalz__sub_8004C1EC(void* p);
+void* get_hit_data__14TBoss4DarkFalzFPv(void* p);
 int TBoss4DarkFalz__sub_8004C220(void* p);
 void set_code_25_4__14TBoss4DarkFalzFPv(void* p);
 int VecCopy__FP3VecPC3Vec(void*, void* a1 = 0);
@@ -21,7 +21,7 @@ int is_field378_zero__14TBoss4DarkFalzFPv(void* p) { return *(u32*)((char*)p + 0
 s32 TBoss4DarkFalz__sub_8004C1D4(void* p) { return *(s32*)((char*)p + 0x374); }
 s32 TBoss4DarkFalz__sub_8004C1DC(void* p) { return *(s32*)((char*)p + 0x374); }
 s32 TBoss4DarkFalz__sub_8004C1E4(void* p) { return *(s32*)((char*)p + 0x374); }
-void* TBoss4DarkFalz__sub_8004C1EC(void* p) { return (char*)p + 0x5c; }
+void* get_hit_data__14TBoss4DarkFalzFPv(void* p) { return (char*)p + 0x5c; }
 void save_position__14TBoss4DarkFalzFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec((void*)(arg0 + 0x44), (void*)(arg0 + 0x38));
 }

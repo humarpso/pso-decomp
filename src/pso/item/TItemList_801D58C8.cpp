@@ -10,7 +10,7 @@ int TItemList__sub_801D5844(void* p);
 void* TItemList__sub_801D587C(void* p);
 void TItemList__sub_801D5884(void* p, u8 v);
 void TItemList__sub_801D58C8(void* p);
-u8 TItemList__sub_801D58D4(void* p);
+u8 get_item_count__9TItemListFPv(void* p);
 u16 TItemList__sub_801D58DC(void* p);
 int copy_position__9TItemListFPv(void* p);
 void TItemList__sub_801D59DC(void* p);
@@ -19,7 +19,7 @@ int VecCopy__FP3VecPC3Vec(void*);
 int copy_item_data__6TLobbyFPvPv(void*);
 
 void TItemList__sub_801D58C8(void* p) { *(s32*)((char*)p + 0x0) = 3; }
-u8 TItemList__sub_801D58D4(void* p) { return *(u8*)((char*)p + 0x1c); }
+u8 get_item_count__9TItemListFPv(void* p) { return *(u8*)((char*)p + 0x1c); }
 u16 TItemList__sub_801D58DC(void* p) { return *(u16*)((char*)p + 0x20); }
 
 }

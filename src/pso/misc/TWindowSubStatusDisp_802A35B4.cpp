@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void render_status__20TWindowSubStatusDispFPv(void *arg0);
-void TObjFish__sub_803DA798(void *);
+void set_global_param__8TObjFishFi(void *);
 void TWindowSubComCard__sub_803DEECC(void *, f32);
 void TWindowSubStatusDisp__sub_803DEE6C(int);
 void TWindowSubStatusDisp__sub_803DEEAC(void);
@@ -16,7 +16,7 @@ extern const f32 lbl_805DDF38;
 
 void render_status__20TWindowSubStatusDispFPv(void *arg0) {
     TWindowSubStatusDisp__sub_803DEE6C(1);
-    TObjFish__sub_803DA798(lbl_805D6648);
+    set_global_param__8TObjFishFi(lbl_805D6648);
     TWindowSubStatusDisp__sub_803DF160(M2C_FIELD(arg0, void **, 0x20), M2C_FIELD(arg0, void **, 0x80));
     TWindowSubComCard__sub_803DEECC((void *)((char *)arg0 + 68), lbl_805DDF38);
     TWindowSubStatusDisp__sub_803DEEAC();

@@ -8,7 +8,7 @@ extern "C" {
 
 void init_move__15TObjEneDelDepthFPv(void *arg0);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv();
-s32 TObjEneDelDepth__sub_803162A0(s32);
+s32 get_type__15TObjEneDelDepthFPv(s32);
 M2C_UNK TObjEneDelDepth__sub_80316488(s32, M2C_UNK);
 M2C_UNK set_draw_mode__15TObjEneDelDepthFPvi(void *, M2C_UNK);
 
@@ -20,7 +20,7 @@ void init_move__15TObjEneDelDepthFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) TObjEneDelDepth__data_805DF260;
     refresh_lobby_state__10TObjPlayerFPv();
     M2C_FIELD(arg0, s32 *, 0x378) = 0;
-    if (TObjEneDelDepth__sub_803162A0(M2C_FIELD(arg0, s32 *, 0x37C)) < 6) {
+    if (get_type__15TObjEneDelDepthFPv(M2C_FIELD(arg0, s32 *, 0x37C)) < 6) {
         M2C_FIELD(arg0, s32 *, 0x384) = 0x22;
         TObjEneDelDepth__sub_80316488(M2C_FIELD(arg0, s32 *, 0x37C), 5);
     } else {

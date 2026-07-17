@@ -114,7 +114,7 @@ void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 s32 TObjEneBm3FlyNest__sub_800B3AC8();
 M2C_UNK TObjEneBm3FlyNest__sub_800B3ADC(void *);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
 extern const f32 lbl_805D9CF8;
@@ -124,7 +124,7 @@ void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 4;
         ((VObj18_800b30b0 *) arg0)->vf180();
-        TObjEneDD__sub_800BBA04(arg0, 5);
+        set_field_378__9TObjEneDDFPvi(arg0, 5);
         M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9CF8;
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) == 0) {
             M2C_FIELD(arg0, s32 *, 0x3A8) = 1;

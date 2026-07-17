@@ -10,9 +10,9 @@ void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504(void *, int);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
-M2C_UNK TObjEneMe3ShinowaMirage__sub_800E3AFC(void *);
+M2C_UNK clear_mirage__23TObjEneMe3ShinowaMirageFPv(void *);
 s32 TObjEneMe3ShinowaReal__sub_800E45CC(int, int);
-M2C_UNK TObjPlayer__sub_80020898(void *, void *);
+M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 s32 TPhotonMylla__sub_80154CB4(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
@@ -29,7 +29,7 @@ void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38));
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
         VecCopy__FP3VecPC3Vec((void *) (M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C), (void *) (arg0 + 0x38));
-        TObjPlayer__sub_80020898((void *) (arg0 + 0x5C), (void *) (temp_r3 + 0x5C));
+        copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (temp_r3 + 0x5C));
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFF7FF;
         M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
         M2C_FIELD(arg0, s32 *, 0x30) = 0x20000000;
@@ -43,7 +43,7 @@ void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
         TBoss1Dragon__sub_80143504((void *) (arg0), (int) (temp_r4_2));
         M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (u32) (M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s32 *, 4) - 1);
         TObjEneDD__sub_800BBA18((void *) (arg0), (int) (8));
-        TObjEneMe3ShinowaMirage__sub_800E3AFC((void *) (arg0));
+        clear_mirage__23TObjEneMe3ShinowaMirageFPv((void *) (arg0));
     }
 }
 

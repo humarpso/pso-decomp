@@ -15,7 +15,7 @@ s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798();
+M2C_UNK set_global_param__8TObjFishFi();
 
 struct TObjDoaEx01_base { char pad[0x18]; };
 struct TObjDoaEx01_VObj : TObjDoaEx01_base {
@@ -43,7 +43,7 @@ void try_open__11TObjDoaEx01FPv(u8 *arg0) {
         free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__data_805D5BB4, s32 *, 4), 1);
         free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__data_805D5BB8, s32 *, 4), 1);
         TObjFish__sub_8001EDB0(TObjDoaEx01__data_805D5BB0, 0);
-        TObjFish__sub_803DA798();
+        set_global_param__8TObjFishFi();
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

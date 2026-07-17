@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TRaderMapCore__sub_801A6CEC(s32 arg1, s32 arg2);
+s32 pack_color_bits__13TRaderMapCoreFii(s32 arg1, s32 arg2);
 s32 TRaderMapCore__sub_801A6D00(void *arg0, s32 arg1);
 
-s32 TRaderMapCore__sub_801A6CEC(s32 arg1, s32 arg2) {
+s32 pack_color_bits__13TRaderMapCoreFii(s32 arg1, s32 arg2) {
     s32 temp_r3;
 
     temp_r3 = arg2 | ((arg2 << 0x10) & 0xF00000);

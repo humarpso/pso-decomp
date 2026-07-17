@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TAdEndText__sub_8039FB0C();
 
-void fn_803A2C6C(void) {
+void get_end_value(void) {
     TAdEndText__sub_8039FB0C();
 }
 

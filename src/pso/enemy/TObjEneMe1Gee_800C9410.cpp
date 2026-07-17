@@ -115,7 +115,7 @@ extern "C" {
 
 void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update_angle__13TObjEneMe1GeeFPv(void *);
@@ -133,7 +133,7 @@ void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        TObjEneDD__sub_800BBA04(arg0, 0xF);
+        set_field_378__9TObjEneDDFPvi(arg0, 0xF);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         arg0->m94();
         M2C_FIELD(arg0, s32 *, 0x434) = 0;

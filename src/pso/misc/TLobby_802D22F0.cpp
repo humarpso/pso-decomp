@@ -8,9 +8,9 @@ extern "C" {
 
 void * TLobby__sub_802D2334(void);
 void TLobby__sub_802D22F0(void* p, void* q);
-void* TLobby__sub_802D2304(void* p);
+void* get_trade_obj_ptr__6TLobbyFPv(void* p);
 
 void TLobby__sub_802D22F0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
-void* TLobby__sub_802D2304(void* p) { return (char*)p + 0xf0; }
+void* get_trade_obj_ptr__6TLobbyFPv(void* p) { return (char*)p + 0xf0; }
 
 }

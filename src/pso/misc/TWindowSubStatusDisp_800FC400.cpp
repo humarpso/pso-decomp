@@ -3,9 +3,9 @@
 extern "C" {
 
 void begin_render__20TWindowSubStatusDispFv(void);
-int TObjFish__sub_803DA798(void*);
+int set_global_param__8TObjFishFi(void*);
 
     extern int lbl_805D5540;
-void begin_render__20TWindowSubStatusDispFv(void) { TObjFish__sub_803DA798((void*)(lbl_805D5540)); }
+void begin_render__20TWindowSubStatusDispFv(void) { set_global_param__8TObjFishFi((void*)(lbl_805D5540)); }
 
 }

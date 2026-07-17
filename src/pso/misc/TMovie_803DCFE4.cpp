@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TMovie__sub_803DCFE4(void);
+void run_callback__6TMovieFv(void);
 extern M2C_UNK (*lbl_805D7718)();
 
-void TMovie__sub_803DCFE4(void) {
+void run_callback__6TMovieFv(void) {
     if (((M2C_UNK (*)()) lbl_805D7718) != NULL) {
         lbl_805D7718();
     }

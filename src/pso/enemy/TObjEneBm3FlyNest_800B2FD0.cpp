@@ -113,7 +113,7 @@ extern "C" {
 void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(f32);
 
@@ -125,7 +125,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 5;
         ((VObj18_800b2fd0 *) arg0)->vf180();
-        TObjEneDD__sub_800BBA04(arg0, 5);
+        set_field_378__9TObjEneDDFPvi(arg0, 5);
         M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9CF8;
         return;
     case 3:

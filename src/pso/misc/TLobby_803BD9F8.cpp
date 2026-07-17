@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_803BD9F8(void);
-s32 TLobby__sub_803BDA04(s32 arg0);
+s32 get_slot_value__6TLobbyFi(s32 arg0);
 
 extern s32 lbl_805D747C;
 
@@ -17,7 +17,7 @@ void TLobby__sub_803BD9F8(void) {
 
 extern s32 lbl_805D748C;
 
-s32 TLobby__sub_803BDA04(s32 arg0) {
+s32 get_slot_value__6TLobbyFi(s32 arg0) {
     u8 *temp_r3;
 
     temp_r3 = (unsigned char *) (lbl_805D748C + (arg0 * 0xF4));

@@ -8,9 +8,9 @@ extern "C" {
 
 int TObjPlayer__sub_801B3540(void* p);
 int check_technique_flag__10TObjPlayerFPv(void* p);
-s32 TObjPlayer__sub_80099EF8();
+s32 get_field_d8__10TObjPlayerFPv();
 int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_8011E238(void*, int);
+int set_state_flags__10TObjPlayerFPvUi(void*, int);
 int is_flag_400_set__10TObjPlayerFPv(void* p);
 u32 set_mode_and_refresh_object__10TObjPlayerFPvi(s32, s8 *);
 u32 get_owner_if_alive__10TObjPlayerFPv();
@@ -21,6 +21,6 @@ s32 init__9TItemDataFv(s8 *);
 int is_flag_clear__17TObjWarpBossMultiFPv(void* p);
 
 int TObjPlayer__sub_801B3540(void* p) { return TObjPlayer__sub_8011E204(p, 4096); }
-int check_technique_flag__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8011E238(p, 4096); }
+int check_technique_flag__10TObjPlayerFPv(void* p) { return set_state_flags__10TObjPlayerFPvUi(p, 4096); }
 
 }

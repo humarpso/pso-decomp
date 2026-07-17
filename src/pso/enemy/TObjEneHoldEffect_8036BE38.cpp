@@ -11,12 +11,12 @@ s32 TObjEneHoldEffect__sub_8036BEB4(void *arg0);
 s32 check_active__17TObjEneHoldEffectFi(s32 arg0);
 s32 TObjEneHoldEffect__sub_8036BF10(s32);
 s32 is_target_valid__17TObjEneHoldEffectFPv();
-s32 TObjPlayer__sub_801D9A04(s32);
+s32 is_valid_technique_id__10TObjPlayerFs(s32);
 
 s32 TObjEneHoldEffect__sub_8036BE38(void *arg0) {
     s8 b3;
 
-    if (TObjPlayer__sub_801D9A04((s32) M2C_FIELD(arg0, s8 *, 0)) == 0) {
+    if (is_valid_technique_id__10TObjPlayerFs((s32) M2C_FIELD(arg0, s8 *, 0)) == 0) {
         return 0;
     }
     if (M2C_FIELD(arg0, s8 *, 1) < 0) {

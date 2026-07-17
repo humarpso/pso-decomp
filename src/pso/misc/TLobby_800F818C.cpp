@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_800F818C(void);
+s32 get_quest_thread_state__6TLobbyFv(void);
 
 extern void *lbl_805D5330;
 
-s32 TLobby__sub_800F818C(void) {
+s32 get_quest_thread_state__6TLobbyFv(void) {
     if ((void *) lbl_805D5330 != NULL) {
         return M2C_FIELD(lbl_805D5330, s32 *, 0x24);
     }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TMainTask__sub_8001A430(void);
+s32 get_state_flag__9TMainTaskFv(void);
 
 extern s32 some_main_task_flag;
 
-s32 TMainTask__sub_8001A430(void) {
+s32 get_state_flag__9TMainTaskFv(void) {
     return some_main_task_flag;
 }
 

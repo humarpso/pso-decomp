@@ -8,6 +8,6 @@ extern "C" {
 
 int queue_destruction__7TObjectFv(void*);
 
-void* TNeedleShoot__sub_802A4A44(void* p) { return (char*)p + 0x28; }
+void* get_shoot_data__12TNeedleShootFPv(void* p) { return (char*)p + 0x28; }
 
 }

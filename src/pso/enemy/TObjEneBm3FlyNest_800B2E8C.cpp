@@ -13,7 +13,7 @@ M2C_UNK TBoss8Dragon__sub_800BB780();
 M2C_UNK TBoss8Dragon__sub_800BB7D0(void *);
 M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, s32);
-s32 TObjEneMe3ShinowaReal__sub_8002ADD8();
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 
 extern const f32 lbl_805D9CF8;
@@ -66,7 +66,7 @@ void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9D04;
         return;
     case 3:
-        if (TObjEneMe3ShinowaReal__sub_8002ADD8() != 0) {
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) != 0) {
                 TObjEneDD__sub_800BBA18(arg0, 5);
                 return;

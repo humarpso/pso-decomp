@@ -11,11 +11,11 @@ struct VObj_800BBDD4 : Base_800BBDD4 {
     virtual void m0(int);
 };
 
-void TObjEneDD__sub_800BBDD4(void);
+void release_resource__9TObjEneDDFv(void);
 
 extern struct VObj_800BBDD4 *lbl_805D5138;
 
-void TObjEneDD__sub_800BBDD4(void) {
+void release_resource__9TObjEneDDFv(void) {
     if (lbl_805D5138 != NULL) {
         if (lbl_805D5138 != NULL) {
             lbl_805D5138->m0(1);

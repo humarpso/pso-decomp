@@ -8,7 +8,7 @@ extern "C" {
 
 s32 is_target_valid__17TObjEneHoldEffectFPv();
 
-s32 fn_8036B720(void) {
+s32 has_valid_target(void) {
     return is_target_valid__17TObjEneHoldEffectFPv() ? 1 : 0;
 }
 

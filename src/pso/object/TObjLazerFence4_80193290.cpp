@@ -10,12 +10,12 @@ void TObjBoss2Tunnel__sub_803DB470(void *);
 void TObjPlayer__sub_803D9214(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
-void TObjFish__sub_803DA798(void *);
+void set_global_param__8TObjFishFi(void *);
 
 extern void *lbl_805D5C28;
 
 void draw__15TObjLazerFence4FPv(void *arg0) {
-    TObjFish__sub_803DA798(lbl_805D5C28);
+    set_global_param__8TObjFishFi(lbl_805D5C28);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0x60));

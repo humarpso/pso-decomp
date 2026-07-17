@@ -8,7 +8,7 @@ extern "C" {
 
 void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1);
 M2C_UNK TItemProUnit__sub_801D98F8(s32, s16, s32);
-s32 TObjPlayer__sub_801D9988();
+s32 is_invalid_slot__10TObjPlayerFUc();
 M2C_UNK fn_801D9870(s32, s16);
 
 void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
@@ -17,7 +17,7 @@ void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
     var_r31 = 0;
     do {
         fn_801D9870(arg0, (s16) var_r31);
-        if (TObjPlayer__sub_801D9988() == 0) {
+        if (is_invalid_slot__10TObjPlayerFUc() == 0) {
             TItemProUnit__sub_801D98F8(arg0, (s16) var_r31, arg1);
         }
         var_r31 += 1;

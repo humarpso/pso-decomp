@@ -5,7 +5,7 @@ extern "C" {
 s32 is_value_out_of_range__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_80292F34(s32 arg0);
 int TLobby__sub_80292F5C(void* p);
-int TCameraCtrl__sub_8006B330(void*);
+int get_instance__11TCameraCtrlFv(void*);
 s32 get_clamped_time_limit__6TLobbyFv();
 
 s32 is_value_out_of_range__6TLobbyFi(s32 arg0) {
@@ -20,6 +20,6 @@ s32 TLobby__sub_80292F34(s32 arg0) {
     }
     return 0;
 }
-int TLobby__sub_80292F5C(void* p) { return TCameraCtrl__sub_8006B330(p); }
+int TLobby__sub_80292F5C(void* p) { return get_instance__11TCameraCtrlFv(p); }
 
 }

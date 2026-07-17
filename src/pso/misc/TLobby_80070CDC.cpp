@@ -9,7 +9,7 @@ extern "C" {
 void update_dead_list_win__6TLobbyFv(void);
 void draw_if_ready__6TLobbyFv(void);
 s32 check_ready_state__6TLobbyFv(void);
-s32 TLobby__sub_80070AB0();
+s32 is_flag_set__6TLobbyFv();
 s32 TLobby__sub_80070DA8();
 s32 is_ready_to_draw__6TLobbyFv();
 M2C_UNK fn_800733C4(void*);
@@ -18,7 +18,7 @@ M2C_UNK create__15TObjDeadListWinFPv(void*);
 extern u32 lbl_805D4E28;
 
 void update_dead_list_win__6TLobbyFv(void) {
-    if ((TLobby__sub_80070AB0() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) lbl_805D4E28 != 0U)) {
+    if ((is_flag_set__6TLobbyFv() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) lbl_805D4E28 != 0U)) {
         create__15TObjDeadListWinFPv((void*)lbl_805D4E28);
     }
 }
@@ -26,7 +26,7 @@ void update_dead_list_win__6TLobbyFv(void) {
 extern u32 lbl_805D4E28;
 
 void draw_if_ready__6TLobbyFv(void) {
-    if ((TLobby__sub_80070AB0() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) lbl_805D4E28 != 0U)) {
+    if ((is_flag_set__6TLobbyFv() != 0) && (is_ready_to_draw__6TLobbyFv() != 0) && ((u32) lbl_805D4E28 != 0U)) {
         fn_800733C4((void*)lbl_805D4E28);
     }
 }

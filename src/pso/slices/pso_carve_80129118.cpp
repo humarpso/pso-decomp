@@ -13,8 +13,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 TObjPlayer__sub_8001BEF8(void *, int);
-s32 TAdRicoRing__sub_8001BEE8(s32, s32);
-int TObjPlayer__sub_80121200(void*);
+s32 clear_flags__11TAdRicoRingFPvUi(s32, s32);
+int get_player_list__10TObjPlayerFv(void*);
 int TObjBoss2Tunnel__sub_803D929C(void*, void*);
 void handle_tunnel_state_0__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_80129124(void* p);

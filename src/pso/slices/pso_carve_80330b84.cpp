@@ -8,7 +8,7 @@ extern "C" {
 
 s32 refresh_item_list__19TWindowSubTradeMainFPvPv(u32, s32);
 s32 TLobby__sub_802D29AC();
-s32 TWindowSubTradeMain__sub_80278300(u32, s32);
+s32 set_trade_state__19TWindowSubTradeMainFPvs(u32, s32);
 s32 TLobby__sub_802D299C();
 void TWindowSubTradeMain__sub_80330A84(void* p);
 

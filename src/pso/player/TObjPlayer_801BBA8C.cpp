@@ -19,8 +19,8 @@ int TObjPlayer__sub_801BBB74(void* p);
 void TObjPlayer__sub_801BBB94(void);
 void TObjPlayer__sub_801BBC2C(void* p);
 void TObjPlayer__sub_801BBC64(void);
-int TObjPlayer__sub_801BBD38(void* p);
-s32 TObjPlayer__sub_801BE2DC(void *);
+int clear_links__10TObjPlayerFPv(void* p);
+s32 is_ready__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801BEB54(void *, int);
 M2C_UNK TObjPlayer__sub_801BF93C(void *, void *);
 s8 TObjPlayer__sub_801C21AC(void *);
@@ -29,7 +29,7 @@ s8 TObjPlayer__sub_801C21BC(void *);
 u32 __nw__7TObjectFUl(s32);
 s32 check_camera_mode__10TObjPlayerFv();
 M2C_UNK disable_drop_weapon_on_death__10TObjPlayerFPv(void *);
-int fn_801566CC(void*);
+int clear_obj_links(void*);
 s32 is_alive_and_ready__10TObjPlayerFi(void *);
 s32 is_single_screen__10TObjPlayerFv();
 s32 obj_getField1c(void *);
@@ -47,7 +47,7 @@ void TObjPlayer__sub_801BBA8C(u8 *arg0, u8 *arg1) {
     if ((obj_isState2_324() != 0) && (TFontSmallLobby__sub_801AFEE0() == 0) && (check_camera_mode__10TObjPlayerFv() == 0)) {
         TObjPlayer__sub_801B130C((void *) (arg0));
     }
-    if (TObjPlayer__sub_801BE2DC((void *) (arg0)) != 0) {
+    if (is_ready__10TObjPlayerFPv((void *) (arg0)) != 0) {
         set_flag_10000__10TObjPlayerFPv((void *) (arg0));
     }
     if (is_alive_and_ready__10TObjPlayerFi((void *) (arg0)) != 0) {

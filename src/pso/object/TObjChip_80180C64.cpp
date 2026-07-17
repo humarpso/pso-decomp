@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK TObjPlayer__sub_80020898(void *, void *);
+M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
@@ -16,7 +16,7 @@ u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
     VecCopy__FP3VecPC3Vec(arg0 + 0xC, arg1 + 0xC);
     VecCopy__FP3VecPC3Vec(arg0 + 0x18, arg1 + 0x18);
-    TObjPlayer__sub_80020898(arg0 + 0x24, arg1 + 0x24);
+    copy_xyz__10TObjPlayerFPvPv(arg0 + 0x24, arg1 + 0x24);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x34);
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg1, f32 *, 0x38);

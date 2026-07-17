@@ -10,7 +10,7 @@ void TAdYesNoBaseGC__vt6(void *arg0);
 u32 TAdYesNoBaseGC__sub_8032C0B4();
 u32 TAdYesNoBaseGC__sub_8032C118(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-s32 TWindowSubComCard__sub_8007341C(u32);
+s32 is_visible__17TWindowSubComCardFPv(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 M2C_UNK TWindow__close(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, M2C_UNK);
@@ -46,7 +46,7 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         break;
     case 1:
-        if (TWindowSubComCard__sub_8007341C(M2C_FIELD(arg0, u32 *, 0x44)) != 0) {
+        if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x44)) != 0) {
             temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x44));
             switch (temp_r3) {
             case 0:

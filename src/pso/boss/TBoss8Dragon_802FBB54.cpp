@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss8Dragon__sub_802FBB54(void* p);
+void copy_pos_to_field688__12TBoss8DragonFPv(void* p);
 void set_speed__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
 
-void TBoss8Dragon__sub_802FBB54(void* p) { *(f32*)((char*)p + 0x688) = *(f32*)((char*)p + 0x38); *(f32*)((char*)p + 0x68c) = *(f32*)((char*)p + 0x40); }
+void copy_pos_to_field688__12TBoss8DragonFPv(void* p) { *(f32*)((char*)p + 0x688) = *(f32*)((char*)p + 0x38); *(f32*)((char*)p + 0x68c) = *(f32*)((char*)p + 0x40); }
 
 extern M2C_UNK TBoss8Dragon__data_80474B10;
 extern const f32 TBoss8Dragon__data_805DED50;

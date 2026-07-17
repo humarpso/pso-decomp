@@ -3,9 +3,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct IllGillBase { char pad[0x14]; };
-struct IllGillVObj : IllGillBase {
+struct IllGillBase_80367984 { char pad[0x14]; };
+struct IllGillVObj_80367984 : IllGillBase_80367984 {
     virtual M2C_UNK m0();
     virtual M2C_UNK m1();
     virtual M2C_UNK m2();
@@ -16,17 +15,19 @@ struct IllGillVObj : IllGillBase {
 
 extern "C" {
 
+void TObjEneIllGill__sub_80367984(u8 *arg0);
+M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
+M2C_UNK TObjEneIllGill__sub_80367B00(void *);
+M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
 M2C_UNK TObjPlayer__sub_80017BA8(void *, int, f32, f32, f32);
-M2C_UNK obj_clearFlags30(void *, int);
-M2C_UNK obj_setFlags30(void *, int);
-M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
-M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 f32 TObjPlayer__sub_80141CF8(void *, void *);
-M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjPlayer__sub_80154E3C(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
-M2C_UNK TObjEneIllGill__sub_80367B00(void *);
+M2C_UNK obj_clearFlags30(void *, int);
+M2C_UNK obj_setFlags30(void *, int);
+
 extern const f32 TObjEneIllGill__data_805E02BC;
 extern const f32 lbl_805E02C4;
 extern const f32 lbl_805E02C8;
@@ -49,7 +50,7 @@ void TObjEneIllGill__sub_80367984(u8 *arg0) {
         break;
     case 1:
         obj_setFlags30((void *) (arg0), (int) (0x04040000));
-        if (((IllGillVObj *) (arg0 + 0x374))->m5() == 1) {
+        if (((IllGillVObj_80367984 *) (arg0 + 0x374))->m5() == 1) {
             M2C_FIELD(arg0, s16 *, 0x328) = 2;
             M2C_FIELD(arg0, s16 *, 0xB8) = 1;
             M2C_FIELD(arg0, s32 *, 0x390) = 0;

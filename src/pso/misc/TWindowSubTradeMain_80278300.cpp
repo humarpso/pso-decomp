@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubTradeMain__sub_80278300(void *arg0, s16 arg1);
+void set_trade_state__19TWindowSubTradeMainFPvs(void *arg0, s16 arg1);
 
-void TWindowSubTradeMain__sub_80278300(void *arg0, s16 arg1) {
+void set_trade_state__19TWindowSubTradeMainFPvs(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 0x88) = arg1;
     if ((s16) M2C_FIELD(arg0, s16 *, 0x88) == 3) {
         M2C_FIELD(arg0, s16 *, 0x8A) = 0x3C;

@@ -6,16 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
+struct VDisp_800a42c4 { char pad[0x18]; virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(void *, void *); };
+
+void TObjPlayer__sub_800A42C4(u8 *arg0);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-extern s32 lbl_805D5064;
+s32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 
-struct VDisp { char pad[0x18]; virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(void *, void *); };
+extern s32 lbl_805D5064;
 
 void TObjPlayer__sub_800A42C4(u8 *arg0) {
     struct { M2C_UNK a, b, c; M2C_UNK d, e, f, g, h; } sp8;
@@ -32,7 +34,7 @@ void TObjPlayer__sub_800A42C4(u8 *arg0) {
         TObjPlayer__sub_803D9B78();
         temp_r3_2 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x3C0));
         if (temp_r3_2 != NULL) {
-            ((struct VDisp *) temp_r3_2)->m4(&sp8, &sp8.d);
+            ((struct VDisp_800a42c4 *) temp_r3_2)->m4(&sp8, &sp8.d);
         }
     }
 }

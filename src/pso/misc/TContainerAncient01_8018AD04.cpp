@@ -20,7 +20,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 
 extern const f32 TContainerAncient01__data_805DBD3C;
@@ -28,7 +28,7 @@ extern const f32 lbl_805DBD4C;
 
 void draw__19TContainerAncient01FPv(u8 *arg0) {
     if (((VObj8018AD04 *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

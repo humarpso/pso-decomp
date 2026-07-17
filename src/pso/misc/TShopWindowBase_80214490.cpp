@@ -27,7 +27,7 @@ extern "C" {
 
 void update__15TShopWindowBaseFPv(void *arg0);
 void update_confirm_input__15TShopWindowBaseFPv(void *arg0);
-M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -44,7 +44,7 @@ block_3:
         if ((((V_A_80214490 *) arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
             ((V_A_80214490 *) arg0)->m7(0xC, 1);
             M2C_FIELD(arg0, s32 *, 0x34) = 1;
-            TQuestListVM__sub_80073DC4(arg0, 0xC);
+            set_field_20__12TQuestListVMFPvi(arg0, 0xC);
         }
     }
 }
@@ -61,7 +61,7 @@ block_3:
         if ((((V_A_80214544 *) arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
             ((V_A_80214544 *) arg0)->m7(0xC, 1);
             M2C_FIELD(arg0, s32 *, 0x34) = 1;
-            TQuestListVM__sub_80073DC4(arg0, 0xC);
+            set_field_20__12TQuestListVMFPvi(arg0, 0xC);
         }
     }
 }

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_params__18TObjButterflyLobbyFPv(u8 *arg0);
-s32 TOBoss4Rock__sub_8039C880();
+s32 rand__11TOBoss4RockFv();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 extern M2C_UNK lbl_80478DF0;
@@ -20,7 +20,7 @@ void init_params__18TObjButterflyLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xA4) = (f32) TObjButterflyLobby__data_805DFE40;
     M2C_FIELD(arg0, f32 *, 0xA8) = (f32) TObjButterflyLobby__data_805DFE40;
     M2C_FIELD(arg0, f32 *, 0xAC) = (f32) TObjButterflyLobby__data_805DFE40;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DFE44 * (lbl_805DFE48 * (f32) TOBoss4Rock__sub_8039C880()));
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DFE44 * (lbl_805DFE48 * (f32) rand__11TOBoss4RockFv()));
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TObjButterflyLobby__data_805DFE40;
     M2C_FIELD(arg0, s8 *, 0xC0) = 0;
     M2C_FIELD(arg0, s8 *, 0xC1) = 0;

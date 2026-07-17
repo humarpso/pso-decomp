@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TChCrEffTag__sub_8029ACA8(int a0);
+void set_eff_tag__11TChCrEffTagFi(int a0);
 
     extern int TChCrEffTag__data_805D3D0C;
-void TChCrEffTag__sub_8029ACA8(int a0) { TChCrEffTag__data_805D3D0C = a0; }
+void set_eff_tag__11TChCrEffTagFi(int a0) { TChCrEffTag__data_805D3D0C = a0; }
 
 }

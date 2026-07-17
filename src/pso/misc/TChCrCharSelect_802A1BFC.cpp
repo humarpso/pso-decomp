@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TChCrCharSelect__sub_802A1BFC(void);
+int get_selected_index__15TChCrCharSelectFv(void);
 
     extern int TChCrCharSelect__data_805D6590;
-int TChCrCharSelect__sub_802A1BFC(void) {  return TChCrCharSelect__data_805D6590; }
+int get_selected_index__15TChCrCharSelectFv(void) {  return TChCrCharSelect__data_805D6590; }
 
 }

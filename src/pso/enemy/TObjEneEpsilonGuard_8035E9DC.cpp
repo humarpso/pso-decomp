@@ -15,14 +15,14 @@ struct EG : EGPad {
 extern "C" {
 
 void handle_event__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 
 void handle_event__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        TObjEneDD__sub_800BBA04(arg0, 0);
+        set_field_378__9TObjEneDDFPvi(arg0, 0);
         ((EG *) arg0)->slot93();
         M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) | 0x10);
         M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) & ~5);

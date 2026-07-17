@@ -12,7 +12,7 @@ void *TBoss2DeRolLe__ct(void *, void *, void *);
 M2C_UNK TBoss2Mine__sub_80038D84();
 void *__nw__7TObjectFUl(int);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_8002E784();
+M2C_UNK clear_target_ref__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_8002EB88();
 M2C_UNK TBoss2Fin__sub_800367C0();
 M2C_UNK TBoss2Tentacle__sub_8003A0A8();
@@ -20,7 +20,7 @@ M2C_UNK TBoss2Tentacle__sub_8003A0A8();
 extern u32 lbl_805D4BA4;
 
 void reset_parts__13TBoss2DeRolLeFv(void) {
-    TObjPlayer__sub_8002E784();
+    clear_target_ref__10TObjPlayerFv();
     TObjPlayer__sub_8002EB88();
     TBoss2Fin__sub_800367C0();
     TBoss2Mine__sub_80038D84();

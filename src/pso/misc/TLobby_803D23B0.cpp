@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803D23B0(u8 *arg0, s32 arg1);
+s32 get_count_or_cancel__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void TLobby__sub_803D240C(u8 *arg0);
 void TLobby__sub_803D2420(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803D242C(u8 *arg0);
 
-s32 TLobby__sub_803D23B0(u8 *arg0, s32 arg1) {
+s32 get_count_or_cancel__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     M2C_UNK (*temp_r12)(s32, M2C_UNK);
 
     if (arg1 == 1) {

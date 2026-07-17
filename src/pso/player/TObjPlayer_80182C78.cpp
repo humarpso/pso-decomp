@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
-s32 TBoss3Volopt__sub_8003F108();
+s32 get_field_3e0__12TBoss3VoloptFPv();
 f32 TObjPlayer__sub_80141CF8(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
@@ -19,7 +19,7 @@ s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
     var_r30 = 0;
 loop_1:
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(var_r30);
-    if ((temp_r3 != 0) && ((temp_r3_2 = TBoss3Volopt__sub_8003F108(), ((temp_r3_2 == 0) != 0)) || (temp_r3_2 == 0x12)) && (TObjPlayer__sub_80141CF8(arg1, temp_r3 + 0x38) < farg0)) {
+    if ((temp_r3 != 0) && ((temp_r3_2 = get_field_3e0__12TBoss3VoloptFPv(), ((temp_r3_2 == 0) != 0)) || (temp_r3_2 == 0x12)) && (TObjPlayer__sub_80141CF8(arg1, temp_r3 + 0x38) < farg0)) {
         return 1;
     }
     var_r30 += 1;

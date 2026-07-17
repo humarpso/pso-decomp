@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 copy_target_state__14TObjEnePanarmsFPvPv();
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 void TObjEneMe1Gee__vt105(void);
 int TObjEneMe1Gee__vt102(void* p);
@@ -18,7 +18,7 @@ s32 handle_message__13TObjEneMe1GeeFii(s32 arg0, s32 arg1) {
 
     if (arg1 == 0x3A843) {
         var_r3 = 0x3A843;
-        if (TOKeyMachine01__sub_802034A8() == 0x22) {
+        if (get_global_state__14TOKeyMachine01Fv() == 0x22) {
             return 0x4003B20D;
         }
         return var_r3;

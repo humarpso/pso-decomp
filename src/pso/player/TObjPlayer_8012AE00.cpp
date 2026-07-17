@@ -6,7 +6,7 @@ extern "C" {
 
 void *init_subobject_state__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80120D50(void *);
-void TObjPlayer__sub_8012106C(void *, int);
+void set_status_flags__10TObjPlayerFPvUi(void *, int);
 void TObjPlayer__sub_8012AF00(void *);
 
 extern M2C_UNK lbl_804A4B80[];
@@ -15,7 +15,7 @@ void *init_subobject_state__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A4B80;
     TObjPlayer__sub_8012AF00((void *)((char *)arg0 + 504));
-    TObjPlayer__sub_8012106C(arg0, 34);
+    set_status_flags__10TObjPlayerFPvUi(arg0, 34);
     return arg0;
 }
 

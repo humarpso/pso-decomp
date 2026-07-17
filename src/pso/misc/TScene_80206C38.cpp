@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void load_map_texture_archive__6TSceneFi(s32 arg0);
-s32 TOKeyMachine01__sub_802034A8();
+s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 update_lobby_scene__6TSceneFPv(char *);
@@ -26,7 +26,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
     u32 temp_r3;
     u32 temp_r3_2;
 
-    temp_r31 = TOKeyMachine01__sub_802034A8();
+    temp_r31 = get_global_state__14TOKeyMachine01Fv();
     TScene__data_805D6004 = 0U;
     var_r30 = 0;
     lbl_805D6018 = 0;

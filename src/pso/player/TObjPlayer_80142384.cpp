@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u16 TObjPlayer__sub_80142384(u16 arg0, u16 arg1);
+u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1);
 
-u16 TObjPlayer__sub_80142384(u16 arg0, u16 arg1) {
+u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1) {
     return (u16) (arg0 + ((s16) ((u16) arg1 - arg0) >> 1));
 }
 

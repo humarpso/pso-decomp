@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_800F09C0(void);
+s32 is_split_screen__10TObjPlayerFv(void);
 s32 is_split_screen();
 
-s32 TObjPlayer__sub_800F09C0(void) {
+s32 is_split_screen__10TObjPlayerFv(void) {
     return is_split_screen() ? 1 : 0;
 }
 

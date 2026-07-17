@@ -9,7 +9,7 @@ extern "C" {
 void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4);
 M2C_UNK TBoss2Mine__sub_80038BA0(void *, s32);
 M2C_UNK TObjEneDD__ct(void *, s32);
-s32 TBoss2DeRolLe__sub_80036280(void);
+s32 get_instance__13TBoss2DeRolLeFv(void);
 M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, s32);
 
 extern void *__vt__10TBoss2Mine[];
@@ -21,7 +21,7 @@ void *TBoss2Mine__ct(void *arg0, s32 arg1, s16 arg2, s16 arg3, s32 arg4) {
     TObjEneDD__ct(arg0, arg1);
     M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__10TBoss2Mine;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D26D0;
-    temp_r3 = TBoss2DeRolLe__sub_80036280();
+    temp_r3 = get_instance__13TBoss2DeRolLeFv();
     if (temp_r3 != 0) {
         init_common_from__9TObjEneDDFPvPv(arg0, temp_r3);
     }

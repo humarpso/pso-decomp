@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803C5AA0(void);
-s32 TLobby__sub_803C5AC4(void);
+s32 ar_alloc__6TLobbyFv(void);
+s32 get_state_zero__6TLobbyFv(void);
 s32 TLobby__sub_803C5AE8(void);
 M2C_UNK ARAlloc();
 M2C_UNK TLobby__sub_803C9608();
@@ -16,12 +16,12 @@ M2C_UNK TLobby__sub_803CBA38();
 M2C_UNK TLobby__sub_803CE240();
 M2C_UNK TLobby__sub_803D1444();
 
-s32 TLobby__sub_803C5AA0(void) {
+s32 ar_alloc__6TLobbyFv(void) {
     ARAlloc();
     return 0;
 }
 
-s32 TLobby__sub_803C5AC4(void) {
+s32 get_state_zero__6TLobbyFv(void) {
     TLobby__sub_803C9608();
     return 0;
 }

@@ -10,7 +10,7 @@ s32 obj_getField1c(void *);
 M2C_UNK TLobby__sub_800869A4(void *, M2C_UNK, M2C_UNK, M2C_UNK, void *);
 s32 TLobby__sub_80101AB0();
 void *__ct__14TItemEffNeedleFv(void *, s32, s32, s32, s32);
-s32 TObjPlayer__sub_8010A050(s32);
+s32 get_entity_id__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_8010A058(s32);
 void *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_05;
@@ -31,7 +31,7 @@ void create_needle_effect(s32 arg0, void *arg1) {
     }
     if (var_r31 != NULL) {
         M2C_FIELD(var_r31, s32 *, 0x3C) = TObjPlayer__sub_8010A058(temp_r29);
-        M2C_FIELD(var_r31, s32 *, 0x40) = TObjPlayer__sub_8010A050(temp_r29);
+        M2C_FIELD(var_r31, s32 *, 0x40) = get_entity_id__10TObjPlayerFPv(temp_r29);
         M2C_FIELD(var_r31, s32 *, 0x44) = (s32) (M2C_FIELD(var_r31, s32 *, 0x44) + 0x8000);
     }
     temp_r7 = M2C_FIELD(arg1, void **, 0);

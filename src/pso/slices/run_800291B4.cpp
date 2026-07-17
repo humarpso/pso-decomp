@@ -10,11 +10,11 @@ u8 TBoss1Dragon__sub_800291B4(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x67C) >= 0x32);
 }
 
-s32 TBoss1Dragon__sub_800291D4(void *arg0) {
+s32 is_hp_low__12TBoss1DragonFPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x67C) < 0x32;
 }
 
-void TBoss1Dragon__sub_800291F4(void *arg0, s32 arg1) {
+void set_hp_phase_value__12TBoss1DragonFPvi(void *arg0, s32 arg1) {
     if (arg1 == 0) {
         M2C_FIELD(arg0, s32 *, 0x67C) = 0;
         return;

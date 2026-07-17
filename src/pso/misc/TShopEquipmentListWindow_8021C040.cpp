@@ -30,7 +30,7 @@ void handle_confirm__24TShopEquipmentListWindowFPv(void *arg0);
 void handle_select__24TShopEquipmentListWindowFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-s32 TQuestListVM__sub_80073DC4(void *, s32);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 clear_selected_and_update_entry__14TWindowSubItemFPv(s32);
 
 void handle_confirm__24TShopEquipmentListWindowFPv(void *arg0) {
@@ -38,7 +38,7 @@ void handle_confirm__24TShopEquipmentListWindowFPv(void *arg0) {
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m4(0xB, 1);
         clear_selected_and_update_entry__14TWindowSubItemFPv(*(s32 *)((s8 *)arg0 + 0x30));
-        TQuestListVM__sub_80073DC4(arg0, 1);
+        set_field_20__12TQuestListVMFPvi(arg0, 1);
     }
 }
 
@@ -47,7 +47,7 @@ void handle_select__24TShopEquipmentListWindowFPv(void *arg0) {
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m4(0xB, 1);
         clear_selected_and_update_entry__14TWindowSubItemFPv(*(s32 *)((s8 *)arg0 + 0x30));
-        TQuestListVM__sub_80073DC4(arg0, 1);
+        set_field_20__12TQuestListVMFPvi(arg0, 1);
     }
 }
 

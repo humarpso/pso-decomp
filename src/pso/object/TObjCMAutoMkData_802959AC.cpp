@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 *TObjCMAutoMkData__ct(u8 *arg0);
-M2C_UNK TChCrEffTag__sub_8029ACA8(int);
+M2C_UNK set_eff_tag__11TChCrEffTagFi(int);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 
@@ -24,7 +24,7 @@ u8 *TObjCMAutoMkData__ct(u8 *arg0) {
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x30), (int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x48));
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DDA90;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    TChCrEffTag__sub_8029ACA8((int) (0xB));
+    set_eff_tag__11TChCrEffTagFi((int) (0xB));
     return arg0;
 }
 

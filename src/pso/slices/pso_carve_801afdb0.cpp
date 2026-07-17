@@ -7,10 +7,10 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 TObjPlayer__sub_801B3540(s32);
 s32 check_technique_flag__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80203418();
-s32 TOKeyMachine01__sub_802034A8();
-s32 TBoss3Volopt__sub_8003F108();
-s32 TRaderMapCore__sub_801AFD84(void* p);
-s32 TObjPlayer__sub_801AFDA8(void* p);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 get_field_3e0__12TBoss3VoloptFPv();
+s32 get_map_id__13TRaderMapCoreFPv(void* p);
+s32 get_move_mode__10TObjPlayerFPv(void* p);
 
 int TObjPlayer__sub_801AFDB0(void) { return 0; }
 int TObjPlayer__sub_801AFDBC(void) { return 0; }

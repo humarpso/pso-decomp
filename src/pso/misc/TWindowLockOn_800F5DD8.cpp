@@ -2,11 +2,11 @@
 
 extern "C" {
 
-s32 TWindowLockOn__sub_800F5DD8(void* p);
-void TObjEneLappy__sub_800F5DE0(void* p, s32 v);
+s32 get_target_id__13TWindowLockOnFPv(void* p);
+void set_param__12TObjEneLappyFPvi(void* p, s32 v);
 int initialize_enemy_photon_effect(void* p);
 int reset_photon_effect__12TBoss3VoloptFPv(void*);
 
-s32 TWindowLockOn__sub_800F5DD8(void* p) { return *(s32*)((char*)p + 0x370); }
+s32 get_target_id__13TWindowLockOnFPv(void* p) { return *(s32*)((char*)p + 0x370); }
 
 }

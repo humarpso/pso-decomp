@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void start_action_0e__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjPlayer__sub_8002AEB8(void *, M2C_UNK);
+M2C_UNK set_type__10TObjPlayerFPvi(void *, M2C_UNK);
 s32 get_action_animation__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -46,7 +46,7 @@ void start_action_0e__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0xE;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
     VecCopy__FP3VecPC3Vec(arg0 + 0x308, &sp8);
-    TObjPlayer__sub_8002AEB8(arg0 + 0x644, 0x12C);
+    set_type__10TObjPlayerFPvi(arg0 + 0x644, 0x12C);
     obj_clearFlags30(arg0, 0x10000);
     send_field_state_if_active__10TObjPlayerFii(arg0, 0x4000AD13);
     if (obj_isState2_324(arg0) != 0) {

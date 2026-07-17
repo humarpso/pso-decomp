@@ -6,15 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_80275484(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
+s32 create_card_list__17TWindowSubComCardFiiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 create__14TWindowComCardFPvPv(s32 a0 = 0, s32 a1 = 0);
 s32 TWindowComCard__sub_80249980(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TWindowSubComCard__sub_8007BC04(s32 a0 = 0);
 s32 TWindowSubComCard__sub_8007A860(s32);
-s32 TLobby__sub_80269C6C(s32, s32, s32);
+s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 int get_message_10__20TWindowSubStatusDispFPv(void*);
 int TWindowSubComCard__sub_8007A8F8(void);
-int TWindowSubComCard__sub_8007B6D8(void);
+int get_card_id__17TWindowSubComCardFPv(void);
 int TLobby__sub_802421C4(void);
 int TWindowSubComCard__sub_80265BF8(void*);
 void TWindowSubComCard__sub_80272180(void);
@@ -24,7 +24,7 @@ int fn_802754EC(void);
 void set_card_index__17TWindowSubComCardFPvi(void *arg0, s32 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;
-        TLobby__sub_80269C6C(M2C_FIELD(arg0, s32 *, 0x6C), TWindowSubComCard__sub_8007A860(arg1), 0x82);
+        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x6C), TWindowSubComCard__sub_8007A860(arg1), 0x82);
     }
 }
 

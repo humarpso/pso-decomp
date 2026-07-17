@@ -12,7 +12,7 @@ void create_cane_effect_from_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, M2C_UNK, s32);
 s32 TObjPlayer__sub_8011F63C();
 M2C_UNK TObjPlayer__sub_80120304(M2C_UNK *, void *);
-M2C_UNK TRaderMapCore__sub_8002F588(void *, M2C_UNK *);
+M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, M2C_UNK *);
 
 void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_UNK sp8;
@@ -21,7 +21,7 @@ void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg1, s32 *, 0x58) = 0xC000;
     M2C_FIELD(arg1, s32 *, 0x40) = (s32) (M2C_FIELD(arg1, s32 *, 0x40) | 2);
     TObjPlayer__sub_80120304(&sp8, arg0);
-    TRaderMapCore__sub_8002F588(arg1 + 0x60, &sp8);
+    copy_vec4__13TRaderMapCoreFPvPv(arg1 + 0x60, &sp8);
     M2C_FIELD(arg1, s32 *, 0x74) = (s32) M2C_FIELD(arg0, s32 *, 0x208);
     M2C_FIELD(arg1, s32 *, 0x70) = (s32) M2C_FIELD(arg0, s32 *, 0x204);
 }

@@ -9,11 +9,11 @@ void TOHangerMachine01__sub_803D9C00(void *);
 void TObjPlayer__sub_803D9214(int, void *);
 void TObjPlayer__sub_803D9B2C(void);
 void TObjPlayer__sub_803D9B78(void);
-void TObjFish__sub_803DA798(void *);
+void set_global_param__8TObjFishFi(void *);
 void TObjDoor__sub_803DC894(void *, void *, f32);
 
 void TOTrapChainSawDamage__vt23(void *arg0) {
-    TObjFish__sub_803DA798(M2C_FIELD(arg0, void **, 0x24));
+    set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
     TObjPlayer__sub_803D9B2C();

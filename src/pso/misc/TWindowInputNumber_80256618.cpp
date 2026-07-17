@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__18TWindowInputNumberFv(u8 *arg0);
-s32 TWindowInputNumber__sub_80211608(void *);
+s32 is_confirmed__18TWindowInputNumberFPv(void *);
 M2C_UNK TWindowInputNumber__sub_802563A0(void *, int, int, int);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -22,7 +22,7 @@ void render__18TWindowInputNumberFv(u8 *arg0) {
     temp_r3 = TWindowSubComCard__sub_80244C0C((void *) (arg0), (void *) (arg0 + 0x74));
     TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    temp_r31 = TWindowInputNumber__sub_80211608((void *) (arg0));
+    temp_r31 = is_confirmed__18TWindowInputNumberFPv((void *) (arg0));
     TWindowInputNumber__sub_802563A0((void *) (arg0), (int) (temp_r3), (int) (get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) M2C_FIELD(arg0, s8 *, 0x63))), (int) (temp_r31));
     {
         void *temp_ptr = (void *) M2C_FIELD(arg0, u32 *, 0x70);

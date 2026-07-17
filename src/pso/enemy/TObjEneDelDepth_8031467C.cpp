@@ -8,13 +8,13 @@ extern "C" {
 
 void update_state__15TObjEneDelDepthFPv(void *arg0);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, M2C_UNK);
-s32 TObjEneDelDepth__sub_8031624C(void *);
+s32 get_flag_bit4__15TObjEneDelDepthFPv(void *);
 s32 is_state_complete__15TObjEneDelDepthFPv(s32);
 
 void update_state__15TObjEneDelDepthFPv(void *arg0) {
     if (is_state_complete__15TObjEneDelDepthFPv(M2C_FIELD(arg0, s32 *, 0x37C)) == 1) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFFFFFF);
-        if (TObjEneDelDepth__sub_8031624C(arg0) != 0) {
+        if (get_flag_bit4__15TObjEneDelDepthFPv(arg0) != 0) {
             TObjEneDelDepth__sub_803154A8(arg0, 7);
             return;
         }

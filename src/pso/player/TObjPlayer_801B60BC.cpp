@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 is_matching_id__10TObjPlayerFPvs(void *arg0, s16 arg1);
-s32 TObjPlayer__sub_8012121C();
+s32 is_flag_b0_4__10TObjPlayerFPv();
 
 s32 is_matching_id__10TObjPlayerFPvs(void *arg0, s16 arg1) {
-    if ((TObjPlayer__sub_8012121C() != 0) && (arg1 == (s16) M2C_FIELD(arg0, s16 *, 0xBC))) {
+    if ((is_flag_b0_4__10TObjPlayerFPv() != 0) && (arg1 == (s16) M2C_FIELD(arg0, s16 *, 0xBC))) {
         return 1;
     }
     return 0;

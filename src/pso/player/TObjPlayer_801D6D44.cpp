@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801D6D44(u8 *arg0, s32 arg1);
+void set_level__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 
-void TObjPlayer__sub_801D6D44(u8 *arg0, s32 arg1) {
+void set_level__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;

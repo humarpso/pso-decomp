@@ -8,7 +8,7 @@ extern "C" {
 
 void TOKeyJungleMain__vt20(s32 arg0);
 
-s32 TOKeyMachine01__sub_802034A8(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 
 void TOKeyJungleMain__vt20(s32 arg0) {
@@ -16,7 +16,7 @@ void TOKeyJungleMain__vt20(s32 arg0) {
     s32 temp_r3;
 
     var_r31 = 0x4AD12;
-    temp_r3 = TOKeyMachine01__sub_802034A8();
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
     switch (temp_r3) {
     case 34:
         var_r31 = 0x4004AD12;

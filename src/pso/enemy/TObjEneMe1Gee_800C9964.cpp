@@ -22,7 +22,7 @@ extern "C" {
 void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 M2C_UNK TObjEneMe1Gee__sub_800CBEC4(void *);
 s32 TPhotonMylla__sub_80154CB4(int);
@@ -38,7 +38,7 @@ void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        TObjEneDD__sub_800BBA04((void *) (arg0), (int) (0xA));
+        set_field_378__9TObjEneDDFPvi((void *) (arg0), (int) (0xA));
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFBFFFFF);
         ((VObj_800c9964 *) arg0)->m93();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {

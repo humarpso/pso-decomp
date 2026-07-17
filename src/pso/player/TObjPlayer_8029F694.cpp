@@ -9,7 +9,7 @@ extern "C" {
 void reset_lobby_subobject__10TObjPlayerFPv(u8 *arg0);
 void init_render_target__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803DA16C(void *);
-M2C_UNK TObjPlayer__sub_803DA204(M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_render_rect__10TObjPlayerFPviiii(M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DA218(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_803DDC50(void *);
 
@@ -23,7 +23,7 @@ void init_render_target__10TObjPlayerFPv(u8 *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (arg0 + 0x10);
     M2C_FIELD(arg0, s32 *, 0x20) = 1;
-    TObjPlayer__sub_803DA204(sp8, 0, 4, 0x280, 0x1E0);
+    set_render_rect__10TObjPlayerFPviiii(sp8, 0, 4, 0x280, 0x1E0);
     TObjPlayer__sub_803DA218(M2C_FIELD(arg0, s32 *, 0x1C), sp8, 0x901, 0x08800000);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjPlayer__sub_803DDC50(arg0 + 0x1C);
 }

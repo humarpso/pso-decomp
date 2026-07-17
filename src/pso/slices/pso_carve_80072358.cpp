@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_80070AB0();
+s32 is_flag_set__6TLobbyFv();
 M2C_UNK TLobby__sub_800727A0(void *);
 extern M2C_UNK lbl_8048C9D8[];
 
 void handle_6x97_select_challenge_mode_failure_option(void *arg0) {
     s32 var_r0;
 
-    if (TLobby__sub_80070AB0() != 0) {
+    if (is_flag_set__6TLobbyFv() != 0) {
         TLobby__sub_800727A0(arg0);
         var_r0 = M2C_FIELD(arg0, s32 *, 8);
         if ((var_r0 < 0) || (var_r0 > 1)) {

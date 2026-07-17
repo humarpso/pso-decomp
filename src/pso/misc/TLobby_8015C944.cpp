@@ -8,7 +8,7 @@ extern "C" {
 
 void byteswap_and_send__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby__send_and_handle_60(void *);
-void TLobby__sub_8015C9BC(void* p);
+void init_packet_67_04__6TLobbyFPv(void* p);
 void TOCtrlDubchik__sub_8015C9D0(void);
 void TObjPlayer__sub_8015C940(void);
 s32 bswap_32__FPUl(s32);

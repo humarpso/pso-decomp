@@ -8,7 +8,7 @@ extern "C" {
 
 void update_collision__18TObjBoss7TunnelColFPv(void *arg0);
 s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *arg0);
-s32 TCameraCtrl__sub_8006B360(M2C_UNK *);
+s32 get_mode__11TCameraCtrlFPv(M2C_UNK *);
 void TObjChip__sub_803D8AE4(void *, void *, void *, void *);
 void TObjPlayer__sub_803D8C7C(void *, void *);
 void TObjPlayer__sub_803D8CD4(void *);
@@ -29,7 +29,7 @@ extern f32 lbl_805DECA8;
 s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *arg0) {
     f32 temp_f1;
 
-    if (TCameraCtrl__sub_8006B360(main_task) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x24);
         if ((temp_f1 < lbl_805DECA4) && (lbl_805DECA8 < temp_f1)) {
             return 0;

@@ -10,7 +10,7 @@ void advance_load_state__9TItemLoadFPv(u8 *arg0);
 M2C_UNK request_load__9TItemLoadFPvi(void *, void *);
 u32 load_data__9TItemLoadFPvi(void *, int);
 M2C_UNK TItemLoad__sub_801107DC(void *);
-M2C_UNK TObjPlayer__sub_8001BED8(void *, int);
+M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 s32 TObjPlayer__sub_8001BEF8(void *, int);
 
 extern s32 lbl_805D5494;
@@ -20,7 +20,7 @@ void advance_load_state__9TItemLoadFPv(u8 *arg0) {
     if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x1C), (int) (4)) == 0) {
         if ((s32) lbl_805D5498 != 1) {
             lbl_805D5498 = 1;
-            TObjPlayer__sub_8001BED8((void *) (arg0 + 0x1C), (int) (4));
+            set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x1C), (int) (4));
             goto block_3;
         }
     } else {

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdPlayerLoadGC__sub_801E1530(void);
+s32 get_load_result__15TAdPlayerLoadGCFv(void);
 
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 
-s32 TAdPlayerLoadGC__sub_801E1530(void) {
+s32 get_load_result__15TAdPlayerLoadGCFv(void) {
     return TAdPlayerLoadGC__data_805D5E40;
 }
 

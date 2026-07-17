@@ -9,11 +9,11 @@ extern "C" {
 void update_receive_check__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803CB450(u8 *arg0);
 void TLobby__sub_803CB458(u8 *arg0);
-void TLobby__sub_803CB470(u8 *arg0);
+void reset_client_state__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_803CB4A4(u8 *arg0);
-s32 TLobby__sub_803CB4C4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 TLobby__sub_803CB4F8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 TLobby__sub_803CB530(u8 *arg0);
+s32 post_request__6TLobbyFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 try_post_command__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 get_client_count__6TLobbyFPv(u8 *arg0);
 u32 PADReceiveCheckCallback(int, int, int, void *, int, int);
 u32 TLobby__sub_803C4C44(int, int, int, void *, int, void *, int, int);
 M2C_UNK memset(void *, int, int);
@@ -52,7 +52,7 @@ void TLobby__sub_803CB458(u8 *arg0) {
     }
 }
 
-void TLobby__sub_803CB470(u8 *arg0) {
+void reset_client_state__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xC) = 0;
     memset((void *) (arg0 + 0x28), (int) (0), (int) (8));
 }
@@ -64,7 +64,7 @@ void TLobby__sub_803CB4A4(u8 *arg0) {
     }
 }
 
-s32 TLobby__sub_803CB4C4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 post_request__6TLobbyFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 0) {
         M2C_FIELD(arg0, s32 *, 0x14) = 2;
         M2C_FIELD(arg0, s32 *, 0x18) = arg1;
@@ -76,7 +76,7 @@ s32 TLobby__sub_803CB4C4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     return 0;
 }
 
-s32 TLobby__sub_803CB4F8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 try_post_command__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 0) {
         M2C_FIELD(arg0, s32 *, 0x14) = 1;
         M2C_FIELD(arg0, s32 *, 0x18) = arg1;
@@ -88,7 +88,7 @@ s32 TLobby__sub_803CB4F8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return 0;
 }
 
-s32 TLobby__sub_803CB530(u8 *arg0) {
+s32 get_client_count__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0xC);
 }
 

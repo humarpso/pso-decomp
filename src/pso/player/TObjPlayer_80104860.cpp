@@ -9,7 +9,7 @@ extern "C" {
 s32 is_active_battle_player__10TObjPlayerFv(void);
 u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0);
 s32 TObjPlayer__sub_800196EC();
-s32 TObjPlayer__sub_800196F4(s32);
+s32 get_field_3e4__10TObjPlayerFPv(s32);
 M2C_UNK TObjPlayer__sub_8011C8BC(u8, s16 *, s16 *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 is_split_screen();
@@ -26,7 +26,7 @@ s32 is_active_battle_player__10TObjPlayerFv(void) {
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
     if (temp_r3 != 0) {
         temp_r31 = TObjPlayer__sub_800196EC();
-        return temp_r31 - TObjPlayer__sub_800196F4(temp_r3) ? 1 : 0;
+        return temp_r31 - get_field_3e4__10TObjPlayerFPv(temp_r3) ? 1 : 0;
     }
     return 0;
 }

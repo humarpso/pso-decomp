@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TBoss4Uro__sub_8004C1A4(void);
+int get_instance_count__9TBoss4UroFv(void);
 
     extern int lbl_805D4D58;
-int TBoss4Uro__sub_8004C1A4(void) {  return lbl_805D4D58; }
+int get_instance_count__9TBoss4UroFv(void) {  return lbl_805D4D58; }
 
 }

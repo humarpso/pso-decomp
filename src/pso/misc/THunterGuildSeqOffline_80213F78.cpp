@@ -19,14 +19,14 @@ struct VObj_80213F78 : Base_80213F78 {
 };
 
 void THunterGuildSeqOffline__sub_80213F78(void);
-M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 
 extern struct VObj_80213F78 *lbl_805D61B8;
 
 void THunterGuildSeqOffline__sub_80213F78(void) {
     if (lbl_805D61B8 != NULL) {
         lbl_805D61B8->m7(0xC, 1);
-        TQuestListVM__sub_80073DC4(lbl_805D61B8, 9);
+        set_field_20__12TQuestListVMFPvi(lbl_805D61B8, 9);
         M2C_FIELD(lbl_805D61B8, s32 *, 0x34) = 0;
     }
 }

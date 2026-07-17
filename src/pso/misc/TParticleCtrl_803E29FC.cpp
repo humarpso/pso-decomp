@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TParticleCtrl__sub_803E29FC(void);
+void reset_particles__13TParticleCtrlFv(void);
 M2C_UNK TObjPlayer__sub_803E2248();
 
-void TParticleCtrl__sub_803E29FC(void) {
+void reset_particles__13TParticleCtrlFv(void) {
     TObjPlayer__sub_803E2248();
 }
 

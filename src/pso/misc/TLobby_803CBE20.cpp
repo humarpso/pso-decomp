@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_803CBE20(void);
-M2C_UNK TLobby__sub_803CBE88();
+M2C_UNK run_step_60c8__6TLobbyFv();
 
 void TLobby__sub_803CBE20(void) {
-    TLobby__sub_803CBE88();
+    run_step_60c8__6TLobbyFv();
 }
 
 }

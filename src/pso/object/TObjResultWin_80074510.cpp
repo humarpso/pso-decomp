@@ -8,9 +8,9 @@ extern "C" {
 
 void create_window__13TObjResultWinFPv(u8 *arg0);
 s32 TCameraCtrl__sub_8006B338();
-M2C_UNK fn_8024422C(u32, f32, f32);
+M2C_UNK set_position_xy(u32, f32, f32);
 M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
-M2C_UNK TLobby__sub_80269C6C(u32, void *, M2C_UNK);
+M2C_UNK send_and_handle__6TLobbyFPvii(u32, void *, M2C_UNK);
 u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, void *, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 
@@ -22,9 +22,9 @@ void create_window__13TObjResultWinFPv(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x41), lbl_8048D1A0, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         if (TCameraCtrl__sub_8006B338() == 4) {
-            fn_8024422C(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D915C, lbl_805D915C);
+            set_position_xy(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D915C, lbl_805D915C);
         }
-        TLobby__sub_80269C6C(M2C_FIELD(arg0, u32 *, 0x1C), arg0 + 0x28, 0);
+        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x1C), arg0 + 0x28, 0);
         set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D9160);
     }
 }

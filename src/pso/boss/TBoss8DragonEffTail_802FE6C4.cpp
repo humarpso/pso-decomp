@@ -6,16 +6,16 @@ extern "C" {
 
 void enable__19TBoss8DragonEffTailFPv(void* p);
 void disable__19TBoss8DragonEffTailFPv(void* p);
-int TBoss8DragonEffTail__sub_802FE714(void* p);
+int get_state__19TBoss8DragonEffTailFPv(void* p);
 void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 int fn_8002B094(void*);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 void fn_800BC5A0(void *, int);
 
-void enable__19TBoss8DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 1; TBoss8DragonEffTail__sub_802FE714(p); }
-void disable__19TBoss8DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 0; TBoss8DragonEffTail__sub_802FE714(p); }
-int TBoss8DragonEffTail__sub_802FE714(void* p) { return fn_8002B094(*(void**)((char*)p + 0xb8)); }
+void enable__19TBoss8DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 1; get_state__19TBoss8DragonEffTailFPv(p); }
+void disable__19TBoss8DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 0; get_state__19TBoss8DragonEffTailFPv(p); }
+int get_state__19TBoss8DragonEffTailFPv(void* p) { return fn_8002B094(*(void**)((char*)p + 0xb8)); }
 
 extern M2C_UNK __vt__19TBoss8DragonEffTail[];
 

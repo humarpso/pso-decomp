@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32);
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80202BB0(M2C_UNK);
+M2C_UNK set_save_slot__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D5F68;
@@ -20,7 +20,7 @@ void init_timestamped_data(void) {
     memset(lbl_805D5F68, 0, 0xE28C);
     getDateStamp__FP9DateStamp((M2C_UNK *) sp8);
     DateToSeconds__FP9DateStampPi((M2C_UNK *) sp8, lbl_805D5F68 + 0xE284);
-    TAdSinglePlyChrSelectGC__sub_80202BB0(0);
+    set_save_slot__23TAdSinglePlyChrSelectGCFi(0);
 }
 
 }

@@ -16,18 +16,18 @@ void reset_model__10TNpcPlayerFPv(void* p);
 int TNpcPlayer__sub_80152A78(void* a0 = 0);
 void* init__10TNpcPlayerFPv(void* p);
 s32 TNpcPlayer__sub_801528DC(void* p);
-s32 TNpcPlayer__sub_801528E4(void* p);
-u16 TNpcPlayer__sub_801528EC(void* p);
+s32 get_npc_state__10TNpcPlayerFPv(void* p);
+u16 get_npc_type__10TNpcPlayerFPv(void* p);
 s32 TNpcPlayer__sub_80152978(void* p);
-s32 TNpcPlayer__sub_80152980(void* p);
+s32 get_condition__10TNpcPlayerFPv(void* p);
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
-s32 TNpcPlayer__sub_801529C8(void* p);
+s32 get_action_state__10TNpcPlayerFPv(void* p);
 void reset_fields_8c__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A30(void);
 void TNpcPlayer__sub_80152D64(void* p);
 
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
-s32 TNpcPlayer__sub_801529C8(void* p) { return *(s32*)((char*)p + 0x8c); }
+s32 get_action_state__10TNpcPlayerFPv(void* p) { return *(s32*)((char*)p + 0x8c); }
 void reset_fields_8c__10TNpcPlayerFPv(void* p) { *(s32*)((char*)p + 0x8c) = 0; *(s32*)((char*)p + 0x90) = 0; }
 
 }

@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjEneMe3Stelth__sub_800F4424(u8 *arg0, s32 arg1);
 s32 check_v2_mode__9TObjEneDDFv(void);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
@@ -51,10 +51,10 @@ void TObjEneMe3Stelth__sub_800F4424(u8 *arg0, s32 arg1) {
     case 4:
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 2;
-            TObjEneDD__sub_800BBA04(arg0, 1);
+            set_field_378__9TObjEneDDFPvi(arg0, 1);
         } else {
             M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-            TObjEneDD__sub_800BBA04(arg0, 3);
+            set_field_378__9TObjEneDDFPvi(arg0, 3);
         }
         ((VObj18F *)arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 2);

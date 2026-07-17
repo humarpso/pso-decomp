@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 apply_stat_multipliers__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
-f32 TItemMag__sub_80113F08(s32);
+f32 get_stat_f32__8TItemMagFPv(s32);
 s32 check_state_flag_1__8TItemMagFPv(s32);
 s32 TObjPlayer__sub_8001BEF8(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801C6FCC(s32, f32);
@@ -27,7 +27,7 @@ f32 apply_stat_multipliers__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
     }
     TObjPlayer__sub_801C6FCC(arg0, var_f31);
     if (check_state_flag_1__8TItemMagFPv(arg1 + 0x5B0) != 0) {
-        var_f31 *= TItemMag__sub_80113F08(arg1 + 0x5B0);
+        var_f31 *= get_stat_f32__8TItemMagFPv(arg1 + 0x5B0);
     }
     return var_f31;
 }

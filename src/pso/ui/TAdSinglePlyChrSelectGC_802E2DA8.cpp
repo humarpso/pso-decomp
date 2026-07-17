@@ -13,7 +13,7 @@ s32 create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
 s32 TAdPlayerLoadGC__sub_801E0CE0(s32);
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void *);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
-s32 TAdPlayerLoadGC__sub_80076BBC();
+s32 get_instance__15TAdPlayerLoadGCFv();
 s32 load_player__23TAdSinglePlyChrSelectGCFv();
 s32 load_system_file(s32);
 void TAdSinglePlyChrSelectGC__sub_802E2D3C(void* p);

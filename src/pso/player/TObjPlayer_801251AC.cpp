@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s16 TObjPlayer__sub_801251AC(void* p);
+s16 get_tech_level__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801251B4(void *arg0);
 void reset_effect_slots__10TObjPlayerFPv(void* p);
 void apply_11e618_twice__10TObjPlayerFPv(void* p);
@@ -16,10 +16,10 @@ int TObjPlayer__sub_8011E87C(void*, void*);
 s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
 int TObjPlayer__sub_80120BBC(void*, void*);
-s32 TObjPlayer__sub_80121CA8(void *);
+s32 get_tp__10TObjPlayerFPv(void *);
 s32 create__8TTecFoieFPvPvPvPv(void *, s32 *, s32, s32);
 
-s16 TObjPlayer__sub_801251AC(void* p) { return *(s16*)((char*)p + 0x12); }
+s16 get_tech_level__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x12); }
 void TObjPlayer__sub_801251B4(void *arg0) {
     s32 sp8;
     void *temp_r31;
@@ -27,7 +27,7 @@ void TObjPlayer__sub_801251B4(void *arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         if (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0) {
             temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
-            create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), TObjPlayer__sub_80121CA8(arg0) + 2);
+            create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), get_tp__10TObjPlayerFPv(arg0) + 2);
             TObjPlayer__sub_8011E618(arg0);
         }
     } else {

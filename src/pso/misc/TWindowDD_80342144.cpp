@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_8024477C(void);
+s32 get_field_20__17TWindowSubComCardFPv(void);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s32 a1 = 0);
 s32 TWindowDD__sub_80342144(void* p);
 s32 TWindowDD__sub_8034218C(void* p);

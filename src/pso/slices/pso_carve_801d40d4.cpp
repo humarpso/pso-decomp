@@ -5,7 +5,7 @@ extern "C" {
 s32 get_main_phase();
 s32 TCameraCtrl__sub_8006B368();
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TAdSinglePlyChrSelectGC__sub_801D5DAC();
+s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
 s32 TLobby__sub_8030A7B0();
 int reset(void* p);
 int memset(void*, int, int);
@@ -15,7 +15,7 @@ s32 check_player_action_allowed(void) {
     if ((get_main_phase() == 0xE) || (is_technique_ready__8TTecCtrlFv() != 0) || ((TCameraCtrl__sub_8006B368() == 1) && (TLobby__sub_8030A7B0() == 1))) {
         return 0;
     }
-    return TAdSinglePlyChrSelectGC__sub_801D5DAC();
+    return get_game_mode__23TAdSinglePlyChrSelectGCFv();
 }
 int fn_801D41B4(void) { return 0; }
 int fn_801D4270(void) { return 0; }

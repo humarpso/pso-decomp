@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_801B130C();
 s32 init_effect_5f0__10TObjPlayerFPv(void *);
 s32 TWindowCtrl__sub_8024AEAC(u16);
 s32 is_split_screen();
-s32 TAdSinglePlyChrSelectGC__sub_801D5DAC();
+s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
 s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
 void free_member_0x28__13TShopSequenceFPv(void* p);
 void TShopSequence__sub_802236A0(void* p);
@@ -32,7 +32,7 @@ void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28)
 void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) display_message__22TQuestVmDownLoadServerFPvii(m); }
 void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) show_message__17TMedicalCenterMesFPvii(m); }
 void close_if_single_screen__13TShopSequenceFv(void) {
-    if ((TAdSinglePlyChrSelectGC__sub_801D5DAC() != 0) && (is_split_screen() == 0)) {
+    if ((get_game_mode__23TAdSinglePlyChrSelectGCFv() != 0) && (is_split_screen() == 0)) {
         TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
     }
 }

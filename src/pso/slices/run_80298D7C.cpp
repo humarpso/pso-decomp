@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
     extern int TObjCMMainMenu__data_805D659C;
-void TObjCMMainMenu__sub_80298D7C(void) { TObjCMMainMenu__data_805D659C = 0; }
+void clear_task_state__14TObjCMMainMenuFv(void) { TObjCMMainMenu__data_805D659C = 0; }
 
 extern f32 lbl_805D3C98;
 
-f32 TObjCMMainMenu__sub_80298D88(void) {
+f32 get_scale__14TObjCMMainMenuFv(void) {
     return lbl_805D3C98;
 }
 

@@ -8,7 +8,7 @@ extern "C" {
 
 void reset_target_link__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8001053C();
-M2C_UNK TObjPlayer__sub_801D2630(void *);
+M2C_UNK clear_status_bit6__10TObjPlayerFPv(void *);
 int TObjPlayer__sub_801CDDEC(void* p);
 int update_action_state__10TObjPlayerFPv(void*);
 
@@ -16,7 +16,7 @@ void reset_target_link__10TObjPlayerFPv(void *arg0) {
     void *temp_r4;
 
     TObjPlayer__sub_8001053C();
-    TObjPlayer__sub_801D2630(arg0);
+    clear_status_bit6__10TObjPlayerFPv(arg0);
     temp_r4 = M2C_FIELD(arg0, void **, 0x424);
     if (temp_r4 != NULL) {
         M2C_FIELD(temp_r4, u16 *, 0x508) = 0xFFFF;

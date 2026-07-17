@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TQuestVmDownLoadServer__sub_803ECCE8(u8 arg0);
+s32 is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(u8 arg0);
 
-s32 TQuestVmDownLoadServer__sub_803ECCE8(u8 arg0) {
+s32 is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(u8 arg0) {
     if ((arg0 < 0x81U) || (arg0 > 0xFCU) || ((arg0 >= 0xA0U) && (arg0 < 0xE0U))) {
         return 0;
     }

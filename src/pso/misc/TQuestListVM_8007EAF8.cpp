@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TQuestListVM__sub_8007EAF8(u8 *arg0);
+s32 get_quest_id__12TQuestListVMFPv(u8 *arg0);
 
-s32 TQuestListVM__sub_8007EAF8(u8 *arg0) {
+s32 get_quest_id__12TQuestListVMFPv(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x2B0);
 }
 

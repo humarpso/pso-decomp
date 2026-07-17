@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0);
-s32 TCameraCtrl__sub_8006B360(void *);
+s32 get_mode__11TCameraCtrlFPv(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 s32 TObjEneRecon__sub_8029E960(void *);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -22,9 +22,9 @@ extern M2C_UNK main_task[];
 extern const f32 TObjEneDellBiter__data_805DEFB8;
 
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0) {
-    if (TCameraCtrl__sub_8006B360(main_task) & 0x20) {
+    if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
         if (TObjEneRecon__sub_8029E960((void *) (arg0 + 0x3C8)) != 0) {
-            TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
             TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));

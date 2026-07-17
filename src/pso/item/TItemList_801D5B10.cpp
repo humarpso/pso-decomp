@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
-void *TItemList__sub_801D5B68(void *arg0, s16 arg1);
-M2C_UNK TItemList__sub_801D5BC0(void *, M2C_UNK);
+void *__dt__9TItemListFPvs(void *arg0, s16 arg1);
+M2C_UNK dt__9TItemListFPvs(void *, M2C_UNK);
 M2C_UNK __dl__FPv(void *);
 
 extern M2C_UNK lbl_804C445C[];
@@ -16,7 +16,7 @@ extern M2C_UNK lbl_804C445C[];
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x24) = lbl_804C445C;
-        TItemList__sub_801D5B68((void *)(arg0), (s16)(0));
+        __dt__9TItemListFPvs((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -26,10 +26,10 @@ void *TItemList__sub_801D5B10(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804C4450[];
 
-void *TItemList__sub_801D5B68(void *arg0, s16 arg1) {
+void *__dt__9TItemListFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x24) = lbl_804C4450;
-        TItemList__sub_801D5BC0(arg0, 0);
+        dt__9TItemListFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

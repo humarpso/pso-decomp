@@ -83,7 +83,7 @@ void dispatch_attack_event__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s
 void dispatch_by_type__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 M2C_UNK TOSwitchAttack__sub_80087278(s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneDellBiter__sub_80087350(M2C_UNK *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_800822D4(f32, f32);
+M2C_UNK set_position_xy__10TObjPlayerFPvff(f32, f32);
 M2C_UNK TObjPlayer__sub_800868C4(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK update_battle_control_if_unlocked__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_80357B2C(s32, M2C_UNK);
@@ -111,7 +111,7 @@ void handle_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if ((arg3 == 1) && (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA8)) != 0U)) {
-        TObjPlayer__sub_800822D4(lbl_805E0074, lbl_805E0078);
+        set_position_xy__10TObjPlayerFPvff(lbl_805E0074, lbl_805E0078);
     }
 }
 
@@ -141,7 +141,7 @@ void handle_symbol_chat_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, 
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
     if ((arg3 == 1) && (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0x67)) != 0U)) {
-        TObjPlayer__sub_800822D4(lbl_805E0074, lbl_805E0078);
+        set_position_xy__10TObjPlayerFPvff(lbl_805E0074, lbl_805E0078);
     }
 }
 
@@ -192,10 +192,10 @@ void play_action_sound__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3
     }
     if (arg3 == 1) {
         if (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg2), (M2C_UNK)(0x1C5)) != 0U) {
-            TObjPlayer__sub_800822D4(lbl_805E007C, lbl_805E007C);
+            set_position_xy__10TObjPlayerFPvff(lbl_805E007C, lbl_805E007C);
         }
         if (TObjEneDellBiter__sub_80087350((M2C_UNK *)(arg2), (M2C_UNK)(0x1C8)) != 0U) {
-            TObjPlayer__sub_800822D4(lbl_805E007C, lbl_805E007C);
+            set_position_xy__10TObjPlayerFPvff(lbl_805E007C, lbl_805E007C);
         }
     }
 }

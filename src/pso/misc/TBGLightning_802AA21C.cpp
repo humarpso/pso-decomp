@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0);
-s32 TOBoss4Rock__sub_8039C880();
+s32 rand__11TOBoss4RockFv();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32, s8, f32, f32);
 M2C_UNK __ct__7TObjectFP7TObject(u8 *, void *);
 
@@ -26,7 +26,7 @@ u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, void **, 0x18) = (void *) &__vt__12TBGLightning;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E38;
-    temp_f2 = (f32) TOBoss4Rock__sub_8039C880();
+    temp_f2 = (f32) rand__11TOBoss4RockFv();
     temp_f1 = lbl_805DE038 * temp_f2;
     temp_r5 = (s8) (lbl_805DE064 * temp_f1);
     M2C_FIELD(arg0, s8 *, 0x1C) = temp_r5;

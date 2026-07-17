@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_8011C094(u8 arg0);
+s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0);
 
 extern void *item_pmt_tbl;
 
-s32 TObjPlayer__sub_8011C094(u8 arg0) {
+s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0) {
     if (arg0 == 0) {
         return 0;
     }

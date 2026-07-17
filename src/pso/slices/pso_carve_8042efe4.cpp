@@ -10,7 +10,7 @@ extern s32 lbl_805D7CA8;
 extern u8 *lbl_805D7CC0;
 extern u8 *lbl_805D7CC4;
 
-s32 fn_8042EFE4(s8 arg0) {
+s32 set_modem_check_char(s8 arg0) {
     if ((s32) lbl_805D7CA8 == 0) {
         return -1;
     }

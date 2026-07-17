@@ -13,7 +13,7 @@ M2C_UNK TLobby__sub_803C8A14(int);
 M2C_UNK set_scroll_offset__6TLobbyFPvi(int, int);
 M2C_UNK TLobby__sub_803CE198(int, int, void *, void *);
 s32 TLobby__sub_803CE1D0(int);
-M2C_UNK TLobby__sub_803CE200();
+M2C_UNK update_scroll_impl__6TLobbyFv();
 M2C_UNK TLobby__sub_803CE220();
 
 void update_scroll__6TLobbyFPv(u8 *arg0) {
@@ -30,7 +30,7 @@ void update_scroll__6TLobbyFPv(u8 *arg0) {
         set_scroll_offset__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (spC / 2048));
         set_scroll_position__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 8)), (void *) ((s32) (spC + sp8) / 2048));
         TLobby__sub_803C8A14((int) (M2C_FIELD(arg0, s32 *, 8)));
-        TLobby__sub_803CE200();
+        update_scroll_impl__6TLobbyFv();
     }
 }
 

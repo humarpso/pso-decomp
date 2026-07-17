@@ -6,12 +6,12 @@ s32 TCameraCtrl__sub_8006B368();
 void TObjPlayer__sub_801BE2C0(void* p, s32 v);
 s32 TObjPlayer__sub_801BE2C8(void* p);
 int TObjPlayer__sub_801BE2D0(void* p);
-int TObjPlayer__sub_801BE2DC(void* p);
+int is_ready__10TObjPlayerFPv(void* p);
 int check_stat_flag_41c__10TObjPlayerFPv(void* p);
 int check_flag_at_41c__10TObjPlayerFPv(void* p);
 int set_flag_41c_bit1__10TObjPlayerFPv(void* p);
 int clamp_stat_41c__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_8001BED8(void*, int);
+int set_flags__10TObjPlayerFPvUi(void*, int);
 
 int TObjPlayer__vt77(void) { return 0; }
 u8 check_camera_mode__10TObjPlayerFv(void) {
@@ -20,10 +20,10 @@ u8 check_camera_mode__10TObjPlayerFv(void) {
 void TObjPlayer__sub_801BE2C0(void* p, s32 v) { *(s32*)((char*)p + 0x370) = v; }
 s32 TObjPlayer__sub_801BE2C8(void* p) { return *(s32*)((char*)p + 0x370); }
 int TObjPlayer__sub_801BE2D0(void* p) { return (*(u32*)((char*)p + 0x890) >> 3) & 0x1; }
-int TObjPlayer__sub_801BE2DC(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }
-int check_stat_flag_41c__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x41c, 32); }
-int check_flag_at_41c__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x41c, 4); }
-int set_flag_41c_bit1__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x41c, 2); }
-int clamp_stat_41c__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BED8((char*)p + 0x41c, 8); }
+int is_ready__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x890) >> 4) & 0x1; }
+int check_stat_flag_41c__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x41c, 32); }
+int check_flag_at_41c__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x41c, 4); }
+int set_flag_41c_bit1__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x41c, 2); }
+int clamp_stat_41c__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x41c, 8); }
 
 }

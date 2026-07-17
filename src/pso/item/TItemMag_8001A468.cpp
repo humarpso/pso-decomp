@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s32 TItemMag__sub_8001A468(void* p);
+s32 get_type__8TItemMagFPv(void* p);
 
-s32 TItemMag__sub_8001A468(void* p) { return *(s32*)((char*)p + 0x4); }
+s32 get_type__8TItemMagFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 
 }

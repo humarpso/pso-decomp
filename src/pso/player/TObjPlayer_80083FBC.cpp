@@ -8,7 +8,7 @@ extern "C" {
 
 s32 check_all_players_ready__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_80083F9C();
-s32 TObjPlayer__sub_80084854();
+s32 is_inactive__10TObjPlayerFPv();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 get_main_phase();
 
@@ -23,7 +23,7 @@ s32 check_all_players_ready__10TObjPlayerFv(void) {
     if (get_main_phase() == 0xF) {
         counter = 0;
         do {
-            if ((TPlayerBattleCtrl4P__sub_801BA74C(counter) != 0U) && (TObjPlayer__sub_80084854() == 0)) {
+            if ((TPlayerBattleCtrl4P__sub_801BA74C(counter) != 0U) && (is_inactive__10TObjPlayerFPv() == 0)) {
                 flag = 0;
             }
             counter += 1;

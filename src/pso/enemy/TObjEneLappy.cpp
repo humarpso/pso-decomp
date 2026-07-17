@@ -8,7 +8,7 @@ extern "C" {
 
 int TObjEneLappy__sub_800C2014(void);
 void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1);
-s32 TLobby__sub_8001E5C8();
+s32 get_instance__6TLobbyFv();
 
 int TObjEneLappy__sub_800C2014(void) { return 0; }
 
@@ -19,7 +19,7 @@ void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1) {
     s32 var_r0;
     s32 var_r0_2;
 
-    if (TLobby__sub_8001E5C8() == 0) {
+    if (get_instance__6TLobbyFv() == 0) {
         M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5164, void **, 0x42C), s32 *, 8);
     } else {
         if (arg1 == 0) {

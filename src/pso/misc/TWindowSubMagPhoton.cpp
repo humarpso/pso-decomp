@@ -9,10 +9,10 @@ extern "C" {
 void handle_cancel__19TWindowSubMagPhotonFPv(void *arg0);
 void play_open_sound__19TWindowSubMagPhotonFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 TWindowSubMag__sub_8027C0DC();
+s32 get_active_flag__13TWindowSubMagFPv();
 
 void handle_cancel__19TWindowSubMagPhotonFPv(void *arg0) {
-    if (TWindowSubMag__sub_8027C0DC() == 0) {
+    if (get_active_flag__13TWindowSubMagFPv() == 0) {
         TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
     }

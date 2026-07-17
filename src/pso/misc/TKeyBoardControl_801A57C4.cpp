@@ -2,9 +2,9 @@
 
 extern "C" {
 
-void TKeyBoardControl__sub_801A57C4(void);
+void reset__16TKeyBoardControlFv(void);
 
     extern unsigned char lbl_805D5D09;
-void TKeyBoardControl__sub_801A57C4(void) { lbl_805D5D09 = 0; }
+void reset__16TKeyBoardControlFv(void) { lbl_805D5D09 = 0; }
 
 }

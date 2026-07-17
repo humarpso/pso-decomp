@@ -14,14 +14,14 @@ extern "C" {
 
 void render__18TObjButterflyLobbyFv(void *arg0);
 M2C_UNK render__18TObjButterflyLobbyFPv(void *);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern const f32 lbl_805DFE4C;
 extern const f32 lbl_805DFE50;
 
 void render__18TObjButterflyLobbyFv(void *arg0) {
     if ((((ButterflyLobbyVObj*)arg0)->m8(lbl_805DFE4C, lbl_805DFE50) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 0)) {
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0xC8));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
         render__18TObjButterflyLobbyFPv(arg0);
     }
 }

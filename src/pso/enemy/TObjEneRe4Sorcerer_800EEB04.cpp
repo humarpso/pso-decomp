@@ -106,7 +106,7 @@ struct V_A : Base_A {
 extern "C" {
 
 void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800EF95C(void *, f32);
 s32 try_attack__18TObjEneRe4SorcererFiff(f32, f32);
@@ -120,7 +120,7 @@ void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s32 *, 0x4E4) = 0;
-        TObjEneDD__sub_800BBA04(arg0, 4);
+        set_field_378__9TObjEneDDFPvi(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFFFFFFD);
         ((V_A *) arg0)->m93();
         fn_800B98C0(arg0);

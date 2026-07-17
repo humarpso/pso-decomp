@@ -3,8 +3,8 @@
 extern "C" {
 
 int TAdSinglePlyChrSelectGC__sub_80202958(void* p);
-int TAdEnterSerialAccessGC__sub_80202984(void*);
+int get_field_118__22TAdEnterSerialAccessGCFv(void*);
 
-int TAdSinglePlyChrSelectGC__sub_80202958(void* p) { return TAdEnterSerialAccessGC__sub_80202984(p); }
+int TAdSinglePlyChrSelectGC__sub_80202958(void* p) { return get_field_118__22TAdEnterSerialAccessGCFv(p); }
 
 }

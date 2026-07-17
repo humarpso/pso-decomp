@@ -17,13 +17,13 @@ s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 void move_cursor_prev__20TWindowChoiceSettingFPv(void *arg0);
 void request_close__20TWindowChoiceSettingFPv(void *arg0);
-s32 TWindowSubComCard__sub_80249604();
+s32 is_open__17TWindowSubComCardFPv();
 void update_selected_entry__17TWindowSubComCardFPv(void *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s16 a1 = 0);
-M2C_UNK TWindowSubComCard__sub_80269064();
+M2C_UNK get_entry_id__17TWindowSubComCardFPv();
 void TWindowSubTradeMain__sub_80268468(void* p);
 void clear_flag70_bit80__19TWindowSubTradeMainFPv(void* p);
-int TWindowSubStatusDisp__sub_80268488(void* p);
+int is_flag80_set__20TWindowSubStatusDispFPv(void* p);
 
 void update_next_entry__17TWindowSubComCardFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s16 temp_r4;

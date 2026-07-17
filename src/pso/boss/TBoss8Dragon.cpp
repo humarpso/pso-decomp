@@ -8,10 +8,10 @@ extern "C" {
 
 void init_default__12TBoss8DragonFPv(void *arg0);
 
-M2C_UNK TBoss8Dragon__sub_802FC8CC(void *, M2C_UNK);
+M2C_UNK set_damage_phase_value__12TBoss8DragonFPvi(void *, M2C_UNK);
 
 void init_default__12TBoss8DragonFPv(void *arg0) {
-    TBoss8Dragon__sub_802FC8CC(arg0, 0);
+    set_damage_phase_value__12TBoss8DragonFPvi(arg0, 0);
 }
 
 }

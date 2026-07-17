@@ -9,7 +9,7 @@ extern "C" {
 u32 create_message_window__17TMedicalCenterMesFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 u32 create_window__17TMedicalCenterMesFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 is_camera_ctrl_active__6TLobbyFv();
-M2C_UNK fn_8024422C(u32, f32, f32);
+M2C_UNK set_position_xy(u32, f32, f32);
 u32 TWindowMessagePage__sub_8026AE7C(s32, s32, M2C_UNK, s32);
 u32 set_text__18TWindowMessagePageFiii(s32, s32, M2C_UNK);
 
@@ -26,7 +26,7 @@ u32 create_message_window__17TMedicalCenterMesFPviii(void *arg0, s32 arg1, s32 a
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) == 0U) {
         M2C_FIELD(arg0, u32 *, 0x20C) = TWindowMessagePage__sub_8026AE7C(arg1, arg2, 1, arg3);
-        fn_8024422C(M2C_FIELD(arg0, u32 *, 0x20C), var_f31, var_f31);
+        set_position_xy(M2C_FIELD(arg0, u32 *, 0x20C), var_f31, var_f31);
         return M2C_FIELD(arg0, u32 *, 0x20C);
     }
     return 0U;
@@ -45,7 +45,7 @@ u32 create_window__17TMedicalCenterMesFPvii(void *arg0, s32 arg1, s32 arg2) {
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) == 0U) {
         M2C_FIELD(arg0, u32 *, 0x20C) = set_text__18TWindowMessagePageFiii(arg1, arg2, 1);
-        fn_8024422C(M2C_FIELD(arg0, u32 *, 0x20C), var_f31, var_f31);
+        set_position_xy(M2C_FIELD(arg0, u32 *, 0x20C), var_f31, var_f31);
         return M2C_FIELD(arg0, u32 *, 0x20C);
     }
     return 0U;

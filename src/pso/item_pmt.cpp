@@ -10,7 +10,7 @@ extern "C" char* const lbl_805D2C78;
 extern "C" void*    alloc__23TAdSinglePlyChrSelectGCFPv(int size);
 extern "C" void*    load_buffer__9TItemLoadFPvUii(void* obj, const char* file, int flags);
 extern "C" void     __dt__9TItemLoadFPvs(void* obj, int flag);
-extern "C" void*    TItemMag__sub_8001A468(void* pmt);
+extern "C" void*    get_type__8TItemMagFPv(void* pmt);
 extern "C" TObject* TItemDrop__sub_80107A68(int arg);
 
 extern "C" {
@@ -34,7 +34,7 @@ void load_item_pmt() {
     }
     item_pmt = p;
     if (p != NULL) {
-        item_pmt_tbl = TItemMag__sub_8001A468(p);
+        item_pmt_tbl = get_type__8TItemMagFPv(p);
     }
 }
 

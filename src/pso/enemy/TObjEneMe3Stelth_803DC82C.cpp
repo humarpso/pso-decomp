@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe3Stelth__sub_803DC82C(s32 arg0);
+void set_depth_buffer_id__16TObjEneMe3StelthFi(s32 arg0);
 
 extern s32 lbl_805D7708;
 
-void TObjEneMe3Stelth__sub_803DC82C(s32 arg0) {
+void set_depth_buffer_id__16TObjEneMe3StelthFi(s32 arg0) {
     lbl_805D7708 = arg0;
 }
 

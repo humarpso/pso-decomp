@@ -21,7 +21,7 @@ M2C_UNK TBoss6Type1__sub_802B4BA8(void *, M2C_UNK);
 s32 TBoss6Type1__sub_802B529C(void *, M2C_UNK, M2C_UNK);
 s32 TBoss6Type1__sub_802B5E48();
 M2C_UNK TBoss6Type1__sub_802B6B34();
-M2C_UNK TBoss6Type1__sub_802B7E7C(void *);
+M2C_UNK latch_phase_counter__11TBoss6Type1FPv(void *);
 M2C_UNK TBoss6Type1__sub_802B865C(void *, M2C_UNK);
 int TBoss6Type1__sub_802B8E1C(void*);
 M2C_UNK TBoss6Type1__sub_802B9204(void *, M2C_UNK);
@@ -98,7 +98,7 @@ void advance_plot_to_state2__11TBoss6Type1FPv(u8 *arg0) {
     TBoss3Volopt__sub_8022675C(0x40039C13, arg0 + 0x38, 0, 0);
     TBoss6Type1__sub_802B4B64(arg0, 0);
     TBoss6Type1__sub_802B4B64(arg0, 1);
-    TBoss6Type1__sub_802B7E7C(arg0);
+    latch_phase_counter__11TBoss6Type1FPv(arg0);
 }
 
 }

@@ -9,7 +9,7 @@ extern "C" {
 void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1);
 M2C_UNK set_field_1c__6TLobbyFPvf(f32);
 s32 TWindowSubAreaMapDisp__sub_80246948(void *);
-M2C_UNK TWindowFukidasi__sub_80252C58(void *);
+M2C_UNK set_flag__15TWindowFukidasiFPv(void *);
 M2C_UNK set_flag2c_bit200__15TWindowFukidasiFPv(void *);
 
 extern const f32 TWindowFukidasi__data_805DCD30;
@@ -29,7 +29,7 @@ void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
     }
     if (arg1 & 0x20) {
         M2C_FIELD(arg0, u8 *, 0x71) = (u8) (M2C_FIELD(arg0, u8 *, 0x71) | 2);
-        TWindowFukidasi__sub_80252C58(arg0);
+        set_flag__15TWindowFukidasiFPv(arg0);
         set_flag2c_bit200__15TWindowFukidasiFPv(arg0);
         M2C_FIELD(arg0, s8 *, 0x73) = 4;
         return;

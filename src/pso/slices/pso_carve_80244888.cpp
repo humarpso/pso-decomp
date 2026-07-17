@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TWindowSubComCard__sub_802448C0(void* p);
+void save_position__17TWindowSubComCardFPv(void* p);
 s32 TWindowCtrlMain__sub_8024CE24();
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);

@@ -8,9 +8,9 @@ extern "C" {
 
 void reset__6TLobbyFv(void);
 s32 fn_80246CB8();
-M2C_UNK fn_802B1A70(s32);
+M2C_UNK reset__15TLobby_802D2F7CFPv(s32);
 M2C_UNK fn_80330A40(s32);
-M2C_UNK fn_803398CC(s32);
+M2C_UNK reset_impl__15TLobby_802D2F7CFPv(s32);
 
 extern u16 lbl_805D6888;
 extern s8 TLobby__data_805D688A;
@@ -29,13 +29,13 @@ void reset__6TLobbyFv(void) {
         lbl_805D6890 = 0;
         lbl_805D6888 &= 0xFFFFF80F;
         if ((u32) TLobby__data_805D689C != 0U) {
-            fn_803398CC(TLobby__data_805D689C);
+            reset_impl__15TLobby_802D2F7CFPv(TLobby__data_805D689C);
         }
         if ((u32) TLobby__data_805D6898 != 0U) {
             fn_80330A40(TLobby__data_805D6898);
         }
         if ((u32) TLobby__data_805D6894 != 0U) {
-            fn_802B1A70(TLobby__data_805D6894);
+            reset__15TLobby_802D2F7CFPv(TLobby__data_805D6894);
         }
     }
 }

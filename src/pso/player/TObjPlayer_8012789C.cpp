@@ -13,7 +13,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 int TObjPlayer__sub_8011E618(void*);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_8011F63C();
-s32 TObjPlayer__sub_80121CA8(void *);
+s32 get_tp__10TObjPlayerFPv(void *);
 M2C_UNK create__9TTecJelinFiiii(s32, s32, s32, M2C_UNK);
 M2C_UNK create_instance__9TTecZaruaFiiii(s32, s32, s32, M2C_UNK);
 
@@ -31,7 +31,7 @@ void cast_jellen_zalure__10TObjPlayerFPv(void *arg0) {
         spawn_cane_effects__10TObjPlayerFiUiii(tl_05, arg0, 2, 1);
     }
     if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
-        if (TObjPlayer__sub_80121CA8(arg0) == 0) {
+        if (get_tp__10TObjPlayerFPv(arg0) == 0) {
             temp_r3 = M2C_FIELD(arg0, s32 *, 0xF0);
             temp_r4 = temp_r3 + 0x38;
             create__9TTecJelinFiiii(temp_r3, temp_r4, temp_r4, 4);

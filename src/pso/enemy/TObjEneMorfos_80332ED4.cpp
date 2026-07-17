@@ -9,7 +9,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneRe7BeruraPunch__sub_80095E18(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
@@ -130,7 +130,7 @@ extern "C" void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         ((V_A *) arg0)->m94();
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFF8);
-        TObjEneDD__sub_800BBA04(arg0, 8);
+        set_field_378__9TObjEneDDFPvi(arg0, 8);
         M2C_FIELD(arg0, s32 *, 0x4B0) = 0;
         M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + 0x3800);
         break;

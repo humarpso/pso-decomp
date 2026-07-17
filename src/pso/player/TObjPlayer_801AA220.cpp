@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1);
-void* TObjPlayer__sub_801AA3A0(int a0);
+void* get_photon_blast_entry__10TObjPlayerFi(int a0);
 M2C_UNK TObjEneDellBiter__sub_80087350(s32, M2C_UNK);
 s32 TObjPlayer__sub_80019248(s32);
 M2C_UNK TPhotonMagicSquare__sub_801AD330(void *, s32, s32, s32);
@@ -25,7 +25,7 @@ void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
 
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
     if (temp_r3 != 0) {
-        temp_r31 = TObjPlayer__sub_801AA3A0((int)(arg0));
+        temp_r31 = get_photon_blast_entry__10TObjPlayerFi((int)(arg0));
         if (TObjPlayer__sub_80019248(temp_r3) != 0) {
             play_effect_default__10TObjPlayerFii(temp_r3, M2C_FIELD(temp_r31, s16 *, 0x20));
         }
@@ -78,6 +78,6 @@ void start_photon_blast__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
 }
 
     extern unsigned char lbl_804C32C0[];
-void* TObjPlayer__sub_801AA3A0(int a0) {  return (char*)lbl_804C32C0 + a0 * 44; }
+void* get_photon_blast_entry__10TObjPlayerFi(int a0) {  return (char*)lbl_804C32C0 + a0 * 44; }
 
 }

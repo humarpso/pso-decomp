@@ -8,20 +8,20 @@ extern "C" {
 
 void handle_ring_release__10TObjPlayerFi(s32 arg0);
 void try_trigger_effect__10TObjPlayerFi(s32 arg0);
-M2C_UNK TAdRicoRing__sub_8001BEE8(s32, M2C_UNK);
+M2C_UNK clear_flags__11TAdRicoRingFPvUi(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801D0BC0(s32, M2C_UNK, M2C_UNK);
 s32 TObjPlayer__sub_8001BEF8(s32, M2C_UNK);
 
 void handle_ring_release__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_8001BEF8(arg0 + 0x5EC, 4) != 0) {
-        TAdRicoRing__sub_8001BEE8(arg0 + 0x5EC, 4);
+        clear_flags__11TAdRicoRingFPvUi(arg0 + 0x5EC, 4);
         TObjPlayer__sub_801D0BC0(arg0, 1, 0);
     }
 }
 
 void try_trigger_effect__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_8001BEF8(arg0 + 0x5EC, 4) != 0) {
-        TAdRicoRing__sub_8001BEE8(arg0 + 0x5EC, 4);
+        clear_flags__11TAdRicoRingFPvUi(arg0 + 0x5EC, 4);
         TObjPlayer__sub_801D0BC0(arg0, 1, 5);
     }
 }

@@ -9,7 +9,7 @@ extern "C" {
 s32 get_clamped_index__10TObjPlayerFPv(void *arg0);
 void set_move_mode__10TObjPlayerFi(s32 arg0);
 void apply_input_mode__10TObjPlayerFi(s32 arg0);
-s32 TObjPlayer__sub_801AFDA8();
+s32 get_move_mode__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_801BE8E4(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801BE8EC(s32, M2C_UNK);
 
@@ -26,7 +26,7 @@ s32 get_clamped_index__10TObjPlayerFPv(void *arg0) {
 void set_move_mode__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_801AFDA8();
+    temp_r3 = get_move_mode__10TObjPlayerFPv();
     if (temp_r3 & 0x10) {
         TObjPlayer__sub_801BE8E4(arg0, 2);
         return;
@@ -41,7 +41,7 @@ void set_move_mode__10TObjPlayerFi(s32 arg0) {
 void apply_input_mode__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_801AFDA8();
+    temp_r3 = get_move_mode__10TObjPlayerFPv();
     if (temp_r3 & 0x20) {
         TObjPlayer__sub_801BE8EC(arg0, 0);
         return;

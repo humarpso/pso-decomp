@@ -11,7 +11,7 @@ f32 TLobby__sub_803A2D10(void);
 f32 TLobby__sub_803A2D34(void);
 f32 TLobby__sub_803A2D58(void);
 f32 TLobby__sub_803A2D7C(void);
-f64 TAdEndText__sub_803A2CCC();
+f64 stop__10TAdEndTextFv();
 f64 TLobby__sub_803A2410();
 f64 TWindowSubComCard__sub_803A24E4();
 f64 TLobby__sub_803A2AFC();
@@ -22,7 +22,7 @@ f32 TLobby__sub_803A2CEC(void) {
 }
 
 f32 TLobby__sub_803A2D10(void) {
-    return (f32) TAdEndText__sub_803A2CCC();
+    return (f32) stop__10TAdEndTextFv();
 }
 
 f32 TLobby__sub_803A2D34(void) {

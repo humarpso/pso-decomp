@@ -20,7 +20,7 @@ M2C_UNK TObjPlayer__sub_80011378(void *, int);
 int TObjPlayer__sub_80019248(void*);
 void TObjPlayer__sub_801AEB80(void);
 void TObjPlayer__sub_801AEFFC(void* p);
-int TObjPlayer__sub_801AF288(void);
+int get_max_level__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_801AF868(s32);
 s32 TObjPlayer__sub_801AFDB0(void *);
 int TObjPlayer__sub_801BEF60(void*, void*);

@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TAdPlayerLoadGC__sub_803F18B8(s32 arg0, s32 arg1);
+
 extern M2C_UNK lbl_805D4700;
 
 s32 TAdPlayerLoadGC__sub_803F18B8(s32 arg0, s32 arg1) {

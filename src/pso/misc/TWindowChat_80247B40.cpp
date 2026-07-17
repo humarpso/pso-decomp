@@ -12,7 +12,7 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-s32 TWindowChat__sub_80247DF0(void *);
+s32 is_mode_bit6__11TWindowChatFPv(void *);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -27,7 +27,7 @@ void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
         temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
         if (temp_r3 != 0) {
             if (!(M2C_FIELD(arg0, u16 *, 0x1E) & 2)) {
-                if (TWindowChat__sub_80247DF0(arg0) != 0) {
+                if (is_mode_bit6__11TWindowChatFPv(arg0) != 0) {
                     init_parts__10TObjPlayerFPv(temp_r3);
                     TWindowChat__sub_8024AD30(lbl_805D53A0);
                 }

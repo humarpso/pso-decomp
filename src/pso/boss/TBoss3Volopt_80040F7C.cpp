@@ -8,11 +8,11 @@ extern "C" {
 
 void set_flag_08000000__12TBoss3VoloptFPv(void *arg0);
 void set_player_flag_08000000__12TBoss3VoloptFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_80154764(void *, M2C_UNK, M2C_UNK);
+M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
 void set_player_flag_08000000__12TBoss3VoloptFPv(void *arg0) {
-    TObjPlayer__sub_80154764(arg0, 0, 0x08000000);
+    clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x08000000);
 }
 
 void set_flag_08000000__12TBoss3VoloptFPv(void *arg0) {

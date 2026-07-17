@@ -10,11 +10,11 @@ struct VObj_800B2214 : Base_800B2214 {
 
 extern "C" {
 
-void TObjEneBm3Fly__sub_800B2214(void);
+void release_shared_data__13TObjEneBm3FlyFv(void);
 
 extern void *TObjEneBm3Fly__data_805D50F4;
 
-void TObjEneBm3Fly__sub_800B2214(void) {
+void release_shared_data__13TObjEneBm3FlyFv(void) {
     void *obj = TObjEneBm3Fly__data_805D50F4;
     if (obj != NULL) {
         if (obj != NULL) {

@@ -113,7 +113,7 @@ struct F_V : F_A {
 extern "C" {
 
 void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, M2C_UNK);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(f32);
@@ -134,7 +134,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         ((F_V *) arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFF8);
-        TObjEneDD__sub_800BBA04(arg0, 4);
+        set_field_378__9TObjEneDDFPvi(arg0, 4);
         M2C_FIELD(arg0, s32 *, 0x3D4) = 0;
         M2C_FIELD(arg0, s32 *, 0x4B0) = 0;
         M2C_FIELD(arg0, f32 *, 0x4C4) = (f32) TObjEneMorfos__data_805DF874;

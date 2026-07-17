@@ -13,12 +13,12 @@ s32 TObjBoss2Tunnel__sub_803D929C(s32, s32);
 s32 play_particle_effect_once__10TObjPlayerFv();
 int TObjPlayer__sub_80115BFC(void*, int);
 void TObjPlayer__sub_80120D50(void *);
-s32 TObjPlayer__sub_80121200();
+s32 get_player_list__10TObjPlayerFv();
 
 void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TObjPlayer__sub_80121200();
+    temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 1:
         play_particle_effect_once__10TObjPlayerFv();

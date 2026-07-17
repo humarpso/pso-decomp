@@ -8,8 +8,8 @@ extern "C" {
 
 void load_scene_data__6TSceneFi(s32 arg0);
 s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
-s32 TOKeyMachine01__sub_802034A8();
-u32 TObjMapCsn__sub_8007A728();
+s32 get_global_state__14TOKeyMachine01Fv();
+u32 get_map_count__10TObjMapCsnFv();
 M2C_UNK alloc_scene_buffer__18TObjButterflyLobbyFv();
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 update_lobby_scene__6TSceneFPv(M2C_UNK *);
@@ -40,7 +40,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
     lbl_805D6014 = 0;
     TLobby__sub_801317E4((M2C_UNK *)&sp8, arg0, lbl_8044A950);
     temp_r31 = update_lobby_scene__6TSceneFPv((M2C_UNK *)&sp8);
-    if (TOKeyMachine01__sub_802034A8() == 0xF) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         if ((temp_r31 > 0) && ((u32) temp_r31 <= 0x10000U)) {
             temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x10000);
             TScene__data_805D6000 = temp_r3;
@@ -57,8 +57,8 @@ void load_scene_data__6TSceneFi(s32 arg0) {
             lbl_805D6014 = temp_r31;
         }
     }
-    if (((s32 *) lbl_805D4E68 != NULL) && (TObjMapCsn__sub_8007A728() != 0U)) {
-        u32 temp_csn = TObjMapCsn__sub_8007A728();
+    if (((s32 *) lbl_805D4E68 != NULL) && (get_map_count__10TObjMapCsnFv() != 0U)) {
+        u32 temp_csn = get_map_count__10TObjMapCsnFv();
         fn_80140F18(temp_csn, *lbl_805D4E68);
         return;
     }

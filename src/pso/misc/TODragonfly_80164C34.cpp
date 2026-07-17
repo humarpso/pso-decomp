@@ -22,7 +22,7 @@ M2C_UNK TODragonfly__sub_80164A90(void *);
 M2C_UNK TODragonfly__sub_80164B34(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -51,7 +51,7 @@ void draw_model__11TODragonflyFPv(u8 *arg0) {
         TObjPlayer__sub_803D9624(0, lbl_805DB580, M2C_FIELD(arg0, f32 *, 0xF0), lbl_805DB580);
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjDoor__sub_803DC894(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
         TObjPlayer__sub_803D9B78();
     }

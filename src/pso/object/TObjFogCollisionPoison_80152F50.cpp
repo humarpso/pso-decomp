@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_poison_damage__22TObjFogCollisionPoisonFPv(void *arg0);
-u16 TNpcPlayer__sub_80152F48(void* p);
+u16 get_action_flags__10TNpcPlayerFPv(void* p);
 s32 TObjFogCollisionPoison__sub_8015346C(s32, u16);
 s32 TObjFogCollisionPoison__sub_801534E8(s32, u16);
 s32 TObjFogCollisionPoison__sub_80153520(s32);

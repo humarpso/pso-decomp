@@ -11,8 +11,8 @@ M2C_UNK close_menu_windows__6TLobbyFv();
 M2C_UNK return_to_main_menu__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK close_com_card_window__6TLobbyFv();
-s32 TWindowSubComCard__sub_8007341C(void*);
-s32 TWindowSubComCard__sub_80073DB8(u32);
+s32 is_visible__17TWindowSubComCardFPv(void*);
+s32 get_status_flag__17TWindowSubComCardFPv(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 
 extern u32 lbl_805D55E4;
@@ -21,7 +21,7 @@ void handle_com_card__6TLobbyFv(void) {
     s32 temp_r3;
 
     if ((u32) lbl_805D55E4 != 0U) {
-        if (TWindowSubComCard__sub_8007341C((void*)lbl_805D55E4) != 0) {
+        if (is_visible__17TWindowSubComCardFPv((void*)lbl_805D55E4) != 0) {
             close_com_card_window__6TLobbyFv();
             temp_r3 = TWindowSubComCard__sub_80265BF8(lbl_805D55E4);
             switch (temp_r3) {
@@ -32,7 +32,7 @@ void handle_com_card__6TLobbyFv(void) {
                 close_menu_windows__6TLobbyFv();
                 return;
             }
-        } else if (TWindowSubComCard__sub_80073DB8(lbl_805D55E4) != 0) {
+        } else if (get_status_flag__17TWindowSubComCardFPv(lbl_805D55E4) != 0) {
             close_all_windows__6TLobbyFv();
         }
     } else {

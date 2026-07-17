@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TAdMultiPlyChrSelectGC__sub_802DFFE0(void);
+int get_instance__22TAdMultiPlyChrSelectGCFv(void);
 
     extern int TAdMultiPlyChrSelectGC__data_805D67E0;
-int TAdMultiPlyChrSelectGC__sub_802DFFE0(void) {  return TAdMultiPlyChrSelectGC__data_805D67E0; }
+int get_instance__22TAdMultiPlyChrSelectGCFv(void) {  return TAdMultiPlyChrSelectGC__data_805D67E0; }
 
 }

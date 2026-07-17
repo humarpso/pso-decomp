@@ -17,7 +17,7 @@ void TObjPlayer__sub_80040558(void);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -33,7 +33,7 @@ extern const f32 lbl_805D86F0;
 
 void teardown_render_state__10TObjPlayerFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((Fn80040464VObj_80040464*)arg0)->m8(lbl_805D86E8, lbl_805D86EC) != 0)) {
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D9B2C();
         some_id_805c6f74 &= 0xFFFFFBFF;
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

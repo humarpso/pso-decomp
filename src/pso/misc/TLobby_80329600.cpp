@@ -11,14 +11,14 @@ void apply_player_flag_2__6TLobbyFv(void);
 void init_object_flag__6TLobbyFv(void);
 void set_flag_1_at_6c84__6TLobbyFv(void);
 void clear_flag_at_6c84__6TLobbyFv(void);
-M2C_UNK TObjPlayer__sub_8001BED8(M2C_UNK *, M2C_UNK);
+M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_8001BF40(M2C_UNK *);
+M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
 
 extern M2C_UNK lbl_805D6C84;
 
 void apply_state_6c84__6TLobbyFv(void) {
-    TObjPlayer__sub_8001BED8(&lbl_805D6C84, 2);
+    set_flags__10TObjPlayerFPvUi(&lbl_805D6C84, 2);
 }
 
 extern M2C_UNK lbl_805D6C84;
@@ -30,7 +30,7 @@ void apply_player_flag_2__6TLobbyFv(void) {
 extern M2C_UNK lbl_805D6C84;
 
 void init_object_flag__6TLobbyFv(void) {
-    TObjPlayer__sub_8001BED8(&lbl_805D6C84, 1);
+    set_flags__10TObjPlayerFPvUi(&lbl_805D6C84, 1);
 }
 
 extern M2C_UNK lbl_805D6C84;
@@ -42,7 +42,7 @@ void set_flag_1_at_6c84__6TLobbyFv(void) {
 extern M2C_UNK lbl_805D6C84;
 
 void clear_flag_at_6c84__6TLobbyFv(void) {
-    TObjPlayer__sub_8001BF40(&lbl_805D6C84);
+    clear_id__10TObjPlayerFPv(&lbl_805D6C84);
 }
 
 }

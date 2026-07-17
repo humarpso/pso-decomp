@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TBoss2DeRolLe__sub_80036280(void);
+s32 get_instance__13TBoss2DeRolLeFv(void);
 
 extern s32 TBoss2DeRolLe__data_805D4BC4;
 
-s32 TBoss2DeRolLe__sub_80036280(void) {
+s32 get_instance__13TBoss2DeRolLeFv(void) {
     return TBoss2DeRolLe__data_805D4BC4;
 }
 

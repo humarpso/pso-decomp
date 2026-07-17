@@ -3,9 +3,9 @@
 extern "C" {
 
 void TObjWarpJung__sub_801A0354(void);
-int TObjFish__sub_803DA798(void*);
+int set_global_param__8TObjFishFi(void*);
 
     extern int lbl_805D5CB0;
-void TObjWarpJung__sub_801A0354(void) { TObjFish__sub_803DA798((void*)(lbl_805D5CB0)); }
+void TObjWarpJung__sub_801A0354(void) { set_global_param__8TObjFishFi((void*)(lbl_805D5CB0)); }
 
 }

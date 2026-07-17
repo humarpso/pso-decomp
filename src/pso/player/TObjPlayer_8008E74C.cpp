@@ -10,7 +10,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
@@ -56,7 +56,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = ((VObj18_8008e74c*)arg0)->m9(lbl_805D963C, lbl_805D9640, lbl_805D9628);
         if (temp_r3 != 0) {
             var_r30 = 1;
-            TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+            set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
             TObjLight__sub_80134194(arg0);
             toggle_particle_effect__10TObjPlayerFv();
             TObjPlayer__sub_803D9B2C();

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_if_visible__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D8C7C(M2C_UNK, void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -33,7 +33,7 @@ struct VObj_8014C610 : Base_8014C610 {
 void draw_if_visible__10TObjPlayerFPv(u8 *arg0) {
     if ((((VObj_8014C610 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
         some_id_805c6f74 |= 1;
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D97F0(0);
         TObjPlayer__sub_803D8C7C(0, arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));

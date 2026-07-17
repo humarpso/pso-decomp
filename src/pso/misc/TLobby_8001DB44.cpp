@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TLobby__sub_8001DB44(void);
+int get_flag_bit0__6TLobbyFv(void);
 
     extern int TLobby__data_805D4A98;
-int TLobby__sub_8001DB44(void) {  return (TLobby__data_805D4A98 & 0x1); }
+int get_flag_bit0__6TLobbyFv(void) {  return (TLobby__data_805D4A98 & 0x1); }
 
 }

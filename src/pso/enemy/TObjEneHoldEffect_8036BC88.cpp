@@ -10,8 +10,8 @@ s32 is_valid__17TObjEneHoldEffectFPv(void *arg0);
 s32 is_target_affected__17TObjEneHoldEffectFPv(void *arg0);
 s32 is_active__17TObjEneHoldEffectFPv(void *arg0);
 s32 is_target_valid__17TObjEneHoldEffectFPv();
-s32 TObjPlayer__sub_801D9A04(s16);
-s32 TObjPlayer__sub_801D9A28(u8);
+s32 is_valid_technique_id__10TObjPlayerFs(s16);
+s32 is_valid_technique_slot__10TObjPlayerFUc(u8);
 
 s32 is_valid__17TObjEneHoldEffectFPv(void *arg0) {
     s8 temp_r4;
@@ -38,14 +38,14 @@ s32 is_target_affected__17TObjEneHoldEffectFPv(void *arg0) {
     if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
-    return TObjPlayer__sub_801D9A04(M2C_FIELD(arg0, s16 *, 4)) != 0 ? 1 : 0;
+    return is_valid_technique_id__10TObjPlayerFs(M2C_FIELD(arg0, s16 *, 4)) != 0 ? 1 : 0;
 }
 
 s32 is_active__17TObjEneHoldEffectFPv(void *arg0) {
     if (is_target_valid__17TObjEneHoldEffectFPv() == 0) {
         return 0;
     }
-    return TObjPlayer__sub_801D9A28(M2C_FIELD(arg0, u8 *, 4)) != 0 ? 1 : 0;
+    return is_valid_technique_slot__10TObjPlayerFUc(M2C_FIELD(arg0, u8 *, 4)) != 0 ? 1 : 0;
 }
 
 }

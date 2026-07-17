@@ -12,7 +12,7 @@ s32 test_flag_2000000__10TObjPlayerFPv(u32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
 s32 TObjPlayer__sub_80087638(s32, s32);
-s32 TItemProArmor__sub_80102C3C(void *);
+s32 get_id__13TItemProArmorFPv(void *);
 s32 TLobby__sub_80101AB0();
 s8 TObjPlayer__sub_80102C30();
 u16 TObjPlayer__sub_80100474(void* p);

@@ -11,7 +11,7 @@ M2C_UNK TChallenge4PResult__sub_8034B720(void *, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
-s32 TRaderMapCore__sub_801AFD84();
+s32 get_map_id__13TRaderMapCoreFPv();
 s32 TMCFormatSequence__sub_802693B4(u32);
 
 extern u8 lbl_8050E208[];
@@ -32,7 +32,7 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
             return;
         }
         if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x24)) != 0U) {
-            temp_r5 = TRaderMapCore__sub_801AFD84() * 0x50;
+            temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
             if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + temp_r5 + 0x20, 4, temp_r5) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 1;
             }

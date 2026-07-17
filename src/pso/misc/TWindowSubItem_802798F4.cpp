@@ -43,12 +43,12 @@ extern "C" {
 
 void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 TObjPlayer__sub_80099EF8();
+s32 get_field_d8__10TObjPlayerFPv();
 void *TLobby__sub_80101AB0(s32);
 M2C_UNK fn_801B7F4C(s32, s32);
 M2C_UNK TObjPlayer__sub_801B9EDC(s32, s32);
 M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, M2C_UNK);
-u32 TObjPlayer__sub_801C675C(s32, s8);
+u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
 
 void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
@@ -65,8 +65,8 @@ void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2) {
             M2C_FIELD(arg0, s8 *, 0x1C) = 0x16;
             break;
         case 1:
-            if (TObjPlayer__sub_801C675C(temp_r3 + 0xD04, (s8) ((V_A *) temp_r3_2)->m31()) != 0U) {
-                t = TObjPlayer__sub_80099EF8();
+            if (get_slot_value__10TObjPlayerFPvi(temp_r3 + 0xD04, (s8) ((V_A *) temp_r3_2)->m31()) != 0U) {
+                t = get_field_d8__10TObjPlayerFPv();
                 TObjPlayer__sub_801B9EDC(temp_r3, t);
             }
             TObjPlayer__sub_801BA0F0(temp_r3, arg1, 0);

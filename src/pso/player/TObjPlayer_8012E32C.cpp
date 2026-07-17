@@ -12,7 +12,7 @@ M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(u32);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
 u8 *query_game_join_id__10TObjPlayerFv(s32);
-M2C_UNK TObjPlayer__sub_8010A050();
+M2C_UNK get_entity_id__10TObjPlayerFPv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -26,7 +26,7 @@ void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0) {
     if (temp_r3 != NULL) {
         temp_r31 = M2C_FIELD(temp_r3, u32 *, 0x188);
         if (temp_r31 != 0U) {
-            TObjPlayer__sub_8010A050();
+            get_entity_id__10TObjPlayerFPv();
             notify_fish_if_valid__10TObjPlayerFUi();
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x2C);

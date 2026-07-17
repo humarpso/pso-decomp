@@ -5,7 +5,7 @@ extern "C" {
 s32 read_be16_field2__10TObjPlayerFPv();
 s32 bswap_32__FPUl(s32);
 void TObjPlayer__sub_8015C940(void);
-void TLobby__sub_8015C9BC(void* p);
+void init_packet_67_04__6TLobbyFPv(void* p);
 void TOCtrlDubchik__sub_8015C9D0(void);
 
 void byteswap_event_packet__6TLobbyFi(s32 arg0) {
@@ -14,6 +14,6 @@ void byteswap_event_packet__6TLobbyFi(s32 arg0) {
     bswap_32__FPUl(arg0 + 8);
     bswap_32__FPUl(arg0 + 0xC);
 }
-void TLobby__sub_8015C9BC(void* p) { *(u8*)((char*)p + 0x0) = 103; *(u8*)((char*)p + 0x1) = 4; }
+void init_packet_67_04__6TLobbyFPv(void* p) { *(u8*)((char*)p + 0x0) = 103; *(u8*)((char*)p + 0x1) = 4; }
 
 }

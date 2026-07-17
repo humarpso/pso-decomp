@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s16 TObjPlayer__sub_801D95B8(void *arg0);
+s16 get_section_clamped__10TObjPlayerFPv(void *arg0);
 s16 get_or_init_field_4__10TObjPlayerFPv(void *arg0);
 void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2);
 u8 get_valid_technique__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_801C011C(void *, M2C_UNK);
-s32 TObjPlayer__sub_801D9988();
-s32 TObjPlayer__sub_801D9A04(s16);
-s32 TObjPlayer__sub_801D9A28(u8);
+M2C_UNK set_technique_id__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 is_invalid_slot__10TObjPlayerFUc();
+s32 is_valid_technique_id__10TObjPlayerFs(s16);
+s32 is_valid_technique_slot__10TObjPlayerFUc(u8);
 
-s16 TObjPlayer__sub_801D95B8(void *arg0) {
+s16 get_section_clamped__10TObjPlayerFPv(void *arg0) {
     s16 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s16 *, 6);
@@ -26,14 +26,14 @@ s16 TObjPlayer__sub_801D95B8(void *arg0) {
 }
 
 s16 get_or_init_field_4__10TObjPlayerFPv(void *arg0) {
-    if (TObjPlayer__sub_801D9A04(M2C_FIELD(arg0, s16 *, 4)) == 0) {
-        TObjPlayer__sub_801C011C(arg0, 0);
+    if (is_valid_technique_id__10TObjPlayerFs(M2C_FIELD(arg0, s16 *, 4)) == 0) {
+        set_technique_id__10TObjPlayerFPvs(arg0, 0);
     }
     return M2C_FIELD(arg0, s16 *, 4);
 }
 
 void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2) {
-    if ((TObjPlayer__sub_801D9988() != 0) || (arg0 <= 0xEU)) {
+    if ((is_invalid_slot__10TObjPlayerFUc() != 0) || (arg0 <= 0xEU)) {
         *arg1 = arg0;
         *arg2 = 0;
         return;
@@ -46,7 +46,7 @@ u8 get_valid_technique__10TObjPlayerFPv(void *arg0) {
     u8 var_r31;
 
     var_r31 = M2C_FIELD(arg0, u8 *, 1);
-    if (TObjPlayer__sub_801D9A28(var_r31) == 0) {
+    if (is_valid_technique_slot__10TObjPlayerFUc(var_r31) == 0) {
         var_r31 = 0;
     }
     return var_r31;

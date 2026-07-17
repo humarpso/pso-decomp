@@ -12,7 +12,7 @@ M2C_UNK close_window_30__21TAdMultiChgGameModeGCFPv(void *);
 M2C_UNK close_window__21TAdMultiChgGameModeGCFPv(void *);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv();
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
-s32 TWindowSubComCard__sub_8007341C(u32);
+s32 is_visible__17TWindowSubComCardFPv(u32);
 s32 TWindowSubComCard__sub_80265BF8(u32);
 
 void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
@@ -22,7 +22,7 @@ void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv() == 0) {
         temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x34);
         if (temp_r3_2 != 0U) {
-            if (TWindowSubComCard__sub_8007341C(temp_r3_2) != 0) {
+            if (is_visible__17TWindowSubComCardFPv(temp_r3_2) != 0) {
                 temp_r3 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x34));
                 switch (temp_r3) {
                 case 0:

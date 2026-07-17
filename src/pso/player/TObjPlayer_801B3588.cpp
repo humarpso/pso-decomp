@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80099EF8();
+s32 get_field_d8__10TObjPlayerFPv();
 s32 init__9TItemDataFv(s8 *);
 s32 fn_801B7F4C(void *, s32);
 u32 set_mode_and_refresh_object__10TObjPlayerFPvi(s32, s8 *);
@@ -18,7 +18,7 @@ int check_technique_flag__10TObjPlayerFPv(void* p);
 int is_flag_400_set__10TObjPlayerFPv(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_8011E238(void*, int);
+int set_state_flags__10TObjPlayerFPvUi(void*, int);
 
 int is_flag_400_set__10TObjPlayerFPv(void* p) { return check_flag__10TObjPlayerFPvi(p, 1024); }
 

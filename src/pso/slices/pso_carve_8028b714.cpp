@@ -13,7 +13,7 @@ s32 TChCrLoadAfs__sub_8028B8B8();
 struct SubBase { char pad[0x18]; };
 struct SubObj : SubBase { virtual void m0(int); virtual void m1(int); virtual void m2(int); };
 
-u8 *fn_8028B714(u8 *arg0, s16 arg1) {
+u8 *free_chcr_resources(u8 *arg0, s16 arg1) {
     SubObj *temp_r3;
 
     if (arg0 != NULL) {

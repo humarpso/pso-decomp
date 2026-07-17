@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TObjPlayer__sub_801D1568(void* a0);
+void init_position_packet__10TObjPlayerFPv(void* a0);
 void update_and_send2__10TObjPlayerFPv(void* p);
 void swap_and_send__10TObjPlayerFPv(void* p);
 void swap_endian__10TObjPlayerFPv(void* p);
@@ -13,7 +13,7 @@ int swap_endian_words__10TObjPlayerFPv(void*);
 int bswap_32__FPUl(void*);
 
     extern const float TObjPlayer__data_805DC36C;
-void TObjPlayer__sub_801D1568(void* a0) { *(float*)((char*)a0 + 0x10) = TObjPlayer__data_805DC36C; *(float*)((char*)a0 + 0xc) = TObjPlayer__data_805DC36C; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC36C; *(unsigned char*)((char*)a0 + 0x0) = 86; *(unsigned char*)((char*)a0 + 0x1) = 5; }
+void init_position_packet__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x10) = TObjPlayer__data_805DC36C; *(float*)((char*)a0 + 0xc) = TObjPlayer__data_805DC36C; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC36C; *(unsigned char*)((char*)a0 + 0x0) = 86; *(unsigned char*)((char*)a0 + 0x1) = 5; }
 
 void update_and_send2__10TObjPlayerFPv(void* p) { swap_endian_words__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 

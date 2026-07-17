@@ -10,8 +10,8 @@ void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
 M2C_UNK TItemObject__sub_80115D6C(void *, s32);
 M2C_UNK TItem__ct();
 M2C_UNK TObjPlayer__sub_8010043C(void *, u8);
-M2C_UNK TObjPlayer__sub_80102BEC(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80102BFC(void *, M2C_UNK);
+M2C_UNK clear_item_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
+M2C_UNK add_item_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 void *TItemData__sub_8010EA38(void *);
 s32 get_item_type_or_default__9TItemListFPv(void *);
 
@@ -28,9 +28,9 @@ void *TItemObject__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u8 *, 0x100) = (u8) M2C_FIELD(arg2, u8 *, 4);
     TItemObject__sub_80115D6C(arg0, get_item_type_or_default__9TItemListFPv(arg2));
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s32 *, 0x10) & 1) {
-        TObjPlayer__sub_80102BFC(arg0, 0x10);
+        add_item_flags__10TObjPlayerFPvUi(arg0, 0x10);
     } else {
-        TObjPlayer__sub_80102BEC(arg0, 0x10);
+        clear_item_flags__10TObjPlayerFPvUi(arg0, 0x10);
     }
     temp_r3 = M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s16 *, 4);
     if (temp_r3 != 0) {

@@ -8,8 +8,8 @@ extern "C" {
 
 void TLobby__sub_803C84D0(u8 *arg0, s32 arg1);
 void TLobby__sub_803C8514(u8 *arg0, s32 arg1);
-void TLobby__sub_803C8520(u8 *arg0, void **arg1);
-s32 TLobby__sub_803C8570(u8 *arg0);
+void set_buffer__6TLobbyFPvPv(u8 *arg0, void **arg1);
+s32 get_field_14__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803C8578(u8 *arg0, s32 arg1);
 s32 TLobby__sub_803C8584(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_803C8594(u8 *arg0, s32 *arg1, s32 *arg2);
@@ -26,7 +26,7 @@ void TLobby__sub_803C8514(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x14) = (s32) (arg1 << 0xB);
 }
 
-void TLobby__sub_803C8520(u8 *arg0, void **arg1) {
+void set_buffer__6TLobbyFPvPv(u8 *arg0, void **arg1) {
     s32 temp_r3;
     u8 *temp_r5;
 
@@ -37,7 +37,7 @@ void TLobby__sub_803C8520(u8 *arg0, void **arg1) {
     M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3;
 }
 
-s32 TLobby__sub_803C8570(u8 *arg0) {
+s32 get_field_14__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x14);
 }
 

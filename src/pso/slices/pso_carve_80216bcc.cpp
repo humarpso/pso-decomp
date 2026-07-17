@@ -24,9 +24,9 @@ struct Entry_80216BCC {
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_8007341C(void *);
-s32 TWindowSubComCard__sub_80073DB8(void *);
-M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 M2C_UNK TLobby__sub_801F387C(s32);
 M2C_UNK close_sub_windows__7TWindowFPv(void *);
 s32 TWindowSubComCard__sub_80265BF8(u32);
@@ -41,12 +41,12 @@ void handle_confirm_dialog(void *arg0) {
 
     temp_r3 = M2C_FIELD(arg0, VObj_80216BCC **, 0x34);
     if (temp_r3->m8() != 0) {
-        if ((M2C_FIELD(arg0, void **, 0x38) != NULL) && (TWindowSubComCard__sub_8007341C(M2C_FIELD(arg0, void **, 0x38)) != 0)) {
+        if ((M2C_FIELD(arg0, void **, 0x38) != NULL) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x38)) != 0)) {
             temp_r3_2 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u32 *, 0x38));
             if (temp_r3_2 == 0) {
                 temp_r0 = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x3C));
                 TLobby__sub_801F387C(M2C_FIELD(arg0, Entry_80216BCC **, 0x54)[temp_r0].field18);
-                TQuestListVM__sub_80073DC4(arg0, 3);
+                set_field_20__12TQuestListVMFPvi(arg0, 3);
                 return;
             }
             if (temp_r3_2 == 1) {
@@ -55,19 +55,19 @@ void handle_confirm_dialog(void *arg0) {
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 1);
                 }
-                TQuestListVM__sub_80073DC4(arg0, 0);
+                set_field_20__12TQuestListVMFPvi(arg0, 0);
                 return;
             }
             goto block_9;
         }
 block_9:
-        if ((M2C_FIELD(arg0, void **, 0x38) != NULL) && (TWindowSubComCard__sub_80073DB8(M2C_FIELD(arg0, void **, 0x38)) != 0)) {
+        if ((M2C_FIELD(arg0, void **, 0x38) != NULL) && (get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x38)) != 0)) {
             close_sub_windows__7TWindowFPv(arg0);
             temp_r3_4 = M2C_FIELD(arg0, VObj_80216BCC **, 0x34);
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 1);
             }
-            TQuestListVM__sub_80073DC4(arg0, 0);
+            set_field_20__12TQuestListVMFPvi(arg0, 0);
         }
     }
 }

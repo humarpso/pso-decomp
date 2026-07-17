@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80429544(void);
+void reset_buffer_pool__6TLobbyFv(void);
 
 extern u32 lbl_805D7C04;
 extern s32 lbl_805D7C08;
@@ -19,7 +19,7 @@ extern s32 lbl_805D7C20;
 extern s32 lbl_805D7C24;
 extern s32 lbl_805D7C28;
 
-void TLobby__sub_80429544(void) {
+void reset_buffer_pool__6TLobbyFv(void) {
     lbl_805D7C0C = 0;
     lbl_805D7C24 = 0;
     lbl_805D7C28 = 0;

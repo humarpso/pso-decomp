@@ -12,8 +12,8 @@ s32 TObjFogCollisionPoison__sub_801534E8(s32, u16);
 s32 TObjFogCollisionPoison__sub_80153520(s32);
 s32 TObjFogCollisionPoison__sub_801535D0(s32);
 s32 check_collision__16TObjFogCollisionFPvUs(s32, u16);
-u16 TNpcPlayer__sub_80152F48(void* p);
+u16 get_action_flags__10TNpcPlayerFPv(void* p);
 
-u16 TNpcPlayer__sub_80152F48(void* p) { return *(u16*)((char*)p + 0x678); }
+u16 get_action_flags__10TNpcPlayerFPv(void* p) { return *(u16*)((char*)p + 0x678); }
 
 }

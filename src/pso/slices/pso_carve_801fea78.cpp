@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdPlayerLoadGC__sub_80076BBC();
+s32 get_instance__15TAdPlayerLoadGCFv();
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
 s32 TAdSinglePlyChrSelectGC__sub_801FDBC4();
@@ -19,7 +19,7 @@ s32 load_pso_system(void) {
     s32 var_r3;
 
     var_r31 = 0xFFFF0000;
-    if (((u32) lbl_805D5F70 != 0U) && (TAdPlayerLoadGC__sub_80076BBC() == 0)) {
+    if (((u32) lbl_805D5F70 != 0U) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
         var_r31 = TAdPlayerLoadGC__sub_801E1B50(1);
         if (var_r31 == 0) {
             var_r31 = TAdPlayerLoadGC__sub_801E2048(1, lbl_804C8914);

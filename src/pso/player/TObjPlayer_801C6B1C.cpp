@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0);
-M2C_UNK TObjPlayer__sub_8001BED8(void *, int);
+M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0) {
-    TObjPlayer__sub_8001BED8(arg0 + 4, 1);
+    set_flags__10TObjPlayerFPvUi(arg0 + 4, 1);
     M2C_FIELD(arg0, f32 *, 8) = farg0;
 }
 

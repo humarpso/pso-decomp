@@ -17,7 +17,7 @@ int TLobby__sub_80227248(void);
 int TLobby__sub_8022743C(void);
 int refresh_render_state__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80227FB4();
-M2C_UNK TOKeyMachine01__sub_802034A8();
+M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TObjLight__sub_80133D78();
 u32 __nw__7TObjectFUl(M2C_UNK);
 int reset_keyboard_control__6TLobbyFv(void);
@@ -32,7 +32,7 @@ extern s32 tl_particlemodel;
 
 s32 init_particle_model__6TLobbyFv(void) {
     void* obj;
-    TOKeyMachine01__sub_802034A8();
+    get_global_state__14TOKeyMachine01Fv();
     TLobby__sub_80227FB4();
     if (check_disconnect_conditions__6TLobbyFv() != 0) {
         return 0;

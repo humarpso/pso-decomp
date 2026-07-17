@@ -11,7 +11,7 @@ void start_attack_motion__15TObjEneDelDepthFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
-s32 TObjEneDelDepth__sub_803162A0(int);
+s32 get_type__15TObjEneDelDepthFPv(int);
 M2C_UNK TObjEneDelDepth__sub_80316488(int, int);
 u16 TObjPlayer__sub_800115C4(void *, void *, f32);
 M2C_UNK set_draw_mode__15TObjEneDelDepthFPvi(void *, int);
@@ -24,7 +24,7 @@ void update_ai_state__15TObjEneDelDepthFPv(u8 *arg0) {
     s32 temp_r0;
     u16 temp_r3;
 
-    if (TObjEneDelDepth__sub_803162A0((int) (M2C_FIELD(arg0, s32 *, 0x37C))) < 6) {
+    if (get_type__15TObjEneDelDepthFPv((int) (M2C_FIELD(arg0, s32 *, 0x37C))) < 6) {
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
             TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (5));
         }
@@ -51,7 +51,7 @@ void start_attack_motion__15TObjEneDelDepthFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) TObjEneDelDepth__data_805DF260;
     M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) TObjEneDelDepth__data_805DF260;
     TBoss3Volopt__sub_8022675C((int) (0x4003A321), (void *) (arg0 + 0x38), (int) (0), (int) (0));
-    if (TObjEneDelDepth__sub_803162A0((int) (M2C_FIELD(arg0, s32 *, 0x37C))) < 6) {
+    if (get_type__15TObjEneDelDepthFPv((int) (M2C_FIELD(arg0, s32 *, 0x37C))) < 6) {
         TObjEneDelDepth__sub_80316488((int) (M2C_FIELD(arg0, s32 *, 0x37C)), (int) (4));
     } else {
         M2C_FIELD(arg0, s32 *, 0x384) = 0x10;

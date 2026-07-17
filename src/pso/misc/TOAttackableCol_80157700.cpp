@@ -3,8 +3,8 @@
 extern "C" {
 
 int handle_6x91_update_state__15TOAttackableColFPv(void* p);
-int TObjPlayer__sub_80154764(void*, int, int);
+int clear_player_status_flag__10TObjPlayerFPviUi(void*, int, int);
 
-int handle_6x91_update_state__15TOAttackableColFPv(void* p) { return TObjPlayer__sub_80154764(p, 0, 1); }
+int handle_6x91_update_state__15TOAttackableColFPv(void* p) { return clear_player_status_flag__10TObjPlayerFPviUi(p, 0, 1); }
 
 }

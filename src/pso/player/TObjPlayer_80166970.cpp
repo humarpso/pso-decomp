@@ -13,7 +13,7 @@ M2C_UNK TOSignCave03__sub_803DB510(int);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
 M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
 M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
-M2C_UNK TObjFish__sub_803DA798(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -38,7 +38,7 @@ void TObjPlayer__sub_80166970(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
         TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        TObjFish__sub_803DA798((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) == 0) {
             TObjDoor__sub_803DC894((void *) (M2C_FIELD(arg0, void **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         } else {

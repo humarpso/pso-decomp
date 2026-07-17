@@ -26,7 +26,7 @@ int TObjPlayer__sub_801BEF68(void*);
 void TObjPlayer__sub_801AEFFC(void* p);
 void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801AEB80(void);
-int TObjPlayer__sub_801AF288(void);
+int get_max_level__10TObjPlayerFv(void);
 
 void update_movement_effects__10TObjPlayerFi(s32 arg0) {
     if ((is_technique_ready__8TTecCtrlFv() != 0) && (TObjPlayer__sub_801AF868(arg0) == 0) && (update_movement_by_screen__10TObjPlayerFv(arg0) != 0) && (TLobby__sub_800822E8(arg0, 0x408000) == 0) && (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (check_flag_800000__10TObjPlayerFPv(arg0) == 0)) {
@@ -36,6 +36,6 @@ void update_movement_effects__10TObjPlayerFi(s32 arg0) {
         TObjPlayer__sub_801BF19C(arg0 + 0x384);
     }
 }
-int TObjPlayer__sub_801AF288(void) { return 199; }
+int get_max_level__10TObjPlayerFv(void) { return 199; }
 
 }

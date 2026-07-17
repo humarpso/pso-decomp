@@ -9,7 +9,7 @@ extern "C" {
 s32 is_split_screen();
 s32 get_camera_no__11TCameraCtrlFv();
 M2C_UNK fn_801E4BCC(void *);
-M2C_UNK TObjFish__sub_803DA798(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 struct Base_801E4B68 { char pad[0x50]; };
 struct VObj_801E4B68 : Base_801E4B68 {
@@ -18,7 +18,7 @@ struct VObj_801E4B68 : Base_801E4B68 {
 
 void fn_801E4B68(void *arg0) {
     if ((is_split_screen() == 0) || (get_camera_no__11TCameraCtrlFv() == 0)) {
-        TObjFish__sub_803DA798(M2C_FIELD(arg0, s32 *, 0x3C));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x3C));
         ((VObj_801E4B68 *)arg0)->m0();
         fn_801E4BCC(arg0);
     }

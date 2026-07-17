@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjPlayer__sub_80072218(void* p);
+void clear_header_struct__10TObjPlayerFPv(void* p);
 
-void TObjPlayer__sub_80072218(void* p) { *(u8*)((char*)p + 0x0) = 0; *(u8*)((char*)p + 0x1) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; }
+void clear_header_struct__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 0; *(u8*)((char*)p + 0x1) = 0; *(s16*)((char*)p + 0x2) = 0; *(s32*)((char*)p + 0x4) = 0; }
 
 }

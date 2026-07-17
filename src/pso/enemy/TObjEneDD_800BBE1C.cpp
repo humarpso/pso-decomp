@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void create_instance__9TObjEneDDFv(void);
-int TObjEneDD__sub_800BBE5C(void);
+int get_enemy_count__9TObjEneDDFv(void);
 void *__nw__7TObjectFUl(int);
 void *fn_800BC4C8(void *, int, int);
 
@@ -21,6 +21,6 @@ void create_instance__9TObjEneDDFv(void) {
 }
 
     extern int lbl_805D5870;
-int TObjEneDD__sub_800BBE5C(void) {  return lbl_805D5870; }
+int get_enemy_count__9TObjEneDDFv(void) {  return lbl_805D5870; }
 
 }

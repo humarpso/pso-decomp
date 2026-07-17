@@ -3,8 +3,8 @@
 extern "C" {
 
 int clear_render_callback__8TObjFishFv(void);
-int TObjEneRe7Berura__sub_803E4CE0(void*);
+int set_global_state__16TObjEneRe7BeruraFi(void*);
 
-int clear_render_callback__8TObjFishFv(void) { return TObjEneRe7Berura__sub_803E4CE0((void*)(0)); }
+int clear_render_callback__8TObjFishFv(void) { return set_global_state__16TObjEneRe7BeruraFi((void*)(0)); }
 
 }

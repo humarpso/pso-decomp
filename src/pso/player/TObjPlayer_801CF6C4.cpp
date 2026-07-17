@@ -12,7 +12,7 @@ M2C_UNK TObjPlayer__sub_801D0BC0(void *, s16, M2C_UNK);
 f32 TObjPlayer__sub_801D2640(void *);
 M2C_UNK TObjPlayer__sub_801D268C(void *);
 f32 TObjPlayer__sub_801D2858(void *);
-M2C_UNK TObjPlayer__sub_8001BF40(void *);
+M2C_UNK clear_id__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_800A7798(void *, f32);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s16);
 M2C_UNK apply_stat_multipliers_and_reset__10TObjPlayerFPv(void *, void *, f32);
@@ -27,7 +27,7 @@ void start_action__10TObjPlayerFPv(u8 *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0x33C) = 4;
     TObjPlayer__sub_801D0BC0(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
-    TObjPlayer__sub_8001BF40(arg0 + 0x5EC);
+    clear_id__10TObjPlayerFPv(arg0 + 0x5EC);
     temp_r3 = TObjPlayer__sub_801BE614(arg0);
     if (is_matching_id__10TObjPlayerFPvs(arg0, temp_r3) != 0) {
         TObjPlayer__sub_801D268C(arg0);

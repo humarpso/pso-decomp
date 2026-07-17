@@ -4,7 +4,7 @@ extern "C" {
 int TWindowSubSymbolChat__sub_80077108(void* a0 = 0, void* a1 = 0);
 int TWindowSubSymbolChat__sub_800771E4(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0, void* a4 = 0, void* a5 = 0, void* a6 = 0);
 
-int TWindowSubSymbolChat__sub_80077718(void*);
+int get_instance__20TWindowSubSymbolChatFv(void*);
 void refresh_parts__20TWindowSubSymbolChatFPv(void* p);
 void update_layout__20TWindowSubSymbolChatFPv(void* p);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);

@@ -13,7 +13,7 @@ s32 is_mag_active__10TObjPlayerFPv(void *arg0);
 void fn_80100D68(void *arg0);
 void fn_80100D9C(void* p, u8 v);
 void lookup_item_data__20TWindowSubStatusDispFPv(void *arg0);
-s32 TItemMag__sub_80102C4C();
+s32 get_flag_40__8TItemMagFPv();
 s32 get_main_phase();
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void get_item_data__6TLobbyFUi(void *);
@@ -31,7 +31,7 @@ u8 fn_80100CC8(void) {
 }
 int TObjPlayer__sub_80100D10(void* p) { return *(u16*)((char*)p + 0x4) & 0x400; }
 s32 is_mag_active__10TObjPlayerFPv(void *arg0) {
-    if ((TItemMag__sub_80102C4C() == 0) && ((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U)) {
+    if ((get_flag_40__8TItemMagFPv() == 0) && ((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U)) {
         return 1;
     }
     return 0;

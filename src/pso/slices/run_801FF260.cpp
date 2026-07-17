@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TAdSinglePlyChrSelectGC__sub_80202BA0();
+void *get_instance__23TAdSinglePlyChrSelectGCFv();
 
 void increment_counter__23TAdSinglePlyChrSelectGCFv(void) {
     void *temp_r3;
 
-    temp_r3 = TAdSinglePlyChrSelectGC__sub_80202BA0();
+    temp_r3 = get_instance__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s32 *, 0x11564) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x11564) + 1);
     }

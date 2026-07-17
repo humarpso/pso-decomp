@@ -11,7 +11,7 @@ int TObjPlayer__sub_8010069C(void*);
 int TObjPlayer__sub_8011E87C(void*, void*);
 int TObjPlayer__sub_80120BBC(void*, void*);
 void TObjPlayer__sub_80120D50(void *);
-void TObjPlayer__sub_8012106C(void *, int);
+void set_status_flags__10TObjPlayerFPvUi(void *, int);
 void TObjPlayer__sub_801210B0(void *, int, int, int);
 
 int TObjPlayer__sub_80326BD4(void* p) { return TObjPlayer__sub_8010069C(p); }
@@ -23,7 +23,7 @@ void *init_variant_b__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED1A0;
     TObjPlayer__sub_801210B0(arg0, 2, 6, 5);
-    TObjPlayer__sub_8012106C(arg0, 1);
+    set_status_flags__10TObjPlayerFPvUi(arg0, 1);
     return arg0;
 }
 

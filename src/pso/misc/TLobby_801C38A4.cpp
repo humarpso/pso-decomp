@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_801C38A4(void);
 void init_and_set_flag__6TLobbyFv(void);
-int TObjPlayer__sub_80102AB0(void);
+int inc_player_count__10TObjPlayerFv(void);
 int TLobby__sub_801B09A4(void);
 
 extern void *TLobby__data_805D5D98;
@@ -20,6 +20,6 @@ void TLobby__sub_801C38A4(void) {
 }
 
     extern int lbl_805D5DB4;
-void init_and_set_flag__6TLobbyFv(void) { TLobby__sub_801B09A4(); TObjPlayer__sub_80102AB0(); lbl_805D5DB4 = 1; }
+void init_and_set_flag__6TLobbyFv(void) { TLobby__sub_801B09A4(); inc_player_count__10TObjPlayerFv(); lbl_805D5DB4 = 1; }
 
 }

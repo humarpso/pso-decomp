@@ -12,7 +12,7 @@ struct VObj_80305268 : VBase_80305268 {
 extern "C" {
 
 void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BBA04(void *, int);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
 f64 TObjPlayer__sub_80019760(f32, f32);
@@ -26,7 +26,7 @@ extern const f32 TObjEneDellBiter__data_805DF00C;
 void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        TObjEneDD__sub_800BBA04((void *) (arg0), (int) (1));
+        set_field_378__9TObjEneDDFPvi((void *) (arg0), (int) (1));
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 1);
         ((VObj_80305268 *) arg0)->m93();
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x50));

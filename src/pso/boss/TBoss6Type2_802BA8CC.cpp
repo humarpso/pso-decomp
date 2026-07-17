@@ -8,7 +8,7 @@ extern "C" {
 
 s32 is_phase_complete__11TBoss6Type2FPv(void *arg0);
 s32 calc_field4f0_delta__11TBoss6Type2FPv();
-s32 TBoss6PlotFalz__sub_802AC18C();
+s32 get_phase__14TBoss6PlotFalzFv();
 
 s32 is_phase_complete__11TBoss6Type2FPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x418) == 0) {
@@ -17,7 +17,7 @@ s32 is_phase_complete__11TBoss6Type2FPv(void *arg0) {
     if (calc_field4f0_delta__11TBoss6Type2FPv() >= (s32) M2C_FIELD(arg0, s32 *, 0x4C4)) {
         return 1;
     }
-    if ((TBoss6PlotFalz__sub_802AC18C() == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x420) >= 8)) {
+    if ((get_phase__14TBoss6PlotFalzFv() == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x420) >= 8)) {
         return 1;
     }
     return 0;

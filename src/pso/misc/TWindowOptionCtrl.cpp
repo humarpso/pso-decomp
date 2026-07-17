@@ -11,7 +11,7 @@ void apply_selection_change__17TWindowOptionCtrlFPv(void *arg0);
 void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0);
 void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
 s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
-void *TAdSinglePlyChrSelectGC__sub_8001ED80();
+void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 s32 set_language__19TWindowKeyBoardSoftFc(s8);
 M2C_UNK close_option_window__6TLobbyFv();
 M2C_UNK init_layout_positions__6TLobbyFv();
@@ -29,7 +29,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void set_params__17TWindowOptionCtrlFPvsc(void *arg0, s16 arg1, s8 arg2) {
     void *temp_r3;
 
-    temp_r3 = TAdSinglePlyChrSelectGC__sub_8001ED80();
+    temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, s16 *, 4) = arg1;
         M2C_FIELD(temp_r3, s8 *, 6) = arg2;

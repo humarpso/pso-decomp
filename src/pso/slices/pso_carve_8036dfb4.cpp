@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK TWindow__close(void *);
-M2C_UNK TLobby__sub_80269C6C(u32, s32, M2C_UNK);
+M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
 s32 TAdMultiChgGameModeGC__sub_8036DE10(void *, M2C_UNK, s32);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E19C(void *, M2C_UNK);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E2AC(void *, M2C_UNK);
@@ -24,7 +24,7 @@ void close_windows_and_cleanup(void *arg0) {
     TAdMultiChgGameModeGC__sub_8036E2AC(arg0, 0);
     TAdMultiChgGameModeGC__sub_8036E19C(arg0, 4);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        TLobby__sub_80269C6C(M2C_FIELD(arg0, u32 *, 0x30), TAdMultiChgGameModeGC__sub_8036DE10(arg0, 3, M2C_FIELD(arg0, s32 *, 0x24)), 3);
+        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x30), TAdMultiChgGameModeGC__sub_8036DE10(arg0, 3, M2C_FIELD(arg0, s32 *, 0x24)), 3);
     }
 }
 

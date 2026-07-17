@@ -11,7 +11,7 @@ typedef struct {
     M2C_UNK (*fn)(M2C_UNK);
 } Ent_801F2B0C;
 
-M2C_UNK TLobby__sub_801F2D2C(void *);
+M2C_UNK read_packet_byte__6TLobbyFv(void *);
 extern Ent_801F2B0C lbl_804C69D8[];
 
 void qst_getargs_801F2B0C(s32 arg0) {
@@ -21,7 +21,7 @@ void qst_getargs_801F2B0C(s32 arg0) {
     temp_r3 = lbl_804C69D8;
     temp_r3 += arg0;
     temp_r31 = temp_r3->fn;
-    temp_r31(TLobby__sub_801F2D2C(temp_r3));
+    temp_r31(read_packet_byte__6TLobbyFv(temp_r3));
 }
 
 }

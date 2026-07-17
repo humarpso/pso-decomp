@@ -17,7 +17,7 @@ M2C_UNK TObjPlayer__sub_801AF7E0(s32);
 M2C_UNK send_field_state__10TObjPlayerFi(s32);
 M2C_UNK send_code_49_1__10TObjPlayerFi(s32);
 M2C_UNK TObjPlayer__sub_80011138(s32, M2C_UNK);
-M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 M2C_UNK send_code50_packet__10TObjPlayerFi(s32);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
@@ -26,7 +26,7 @@ s32 obj_getPtr2B0_20(s32);
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0) {
     if (obj_getPtr2B0_20(M2C_FIELD(arg0, s32 *, 0x24)) < 0xA) {
         ((VObj_802165D8 *)arg0)->m4(0xF, 1);
-        TQuestListVM__sub_80073DC4(arg0, 0xA);
+        set_field_20__12TQuestListVMFPvi(arg0, 0xA);
         return;
     }
     TBoss3Volopt__sub_8022675C(0x42D08, 0, 0, 0);
@@ -38,7 +38,7 @@ void exec_heal__22TMedicalCenterSequenceFPv(void *arg0) {
     send_field_state__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
     TObjPlayer__sub_80011138(M2C_FIELD(arg0, s32 *, 0x24), 0xA);
     ((VObj_802165D8 *)arg0)->m4(0x22, 1);
-    TQuestListVM__sub_80073DC4(arg0, 0xA);
+    set_field_20__12TQuestListVMFPvi(arg0, 0xA);
 }
 
 }

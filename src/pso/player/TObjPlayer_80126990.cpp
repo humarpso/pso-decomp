@@ -8,16 +8,16 @@ extern "C" {
 
 void update_shield_ready__10TObjPlayerFi(s32 arg0);
 void *TObjPlayer__sub_801269EC(void *arg0);
-u8 TItemProShield__sub_8010B734();
+u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK TObjPlayer__sub_80120908(s32);
 M2C_UNK TObjPlayer__sub_80120BBC(s32, M2C_UNK);
 void TObjPlayer__sub_80120D50(void *);
-void TObjPlayer__sub_8012106C(void *, int);
+void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern s32 lbl_805D5518;
 
 void update_shield_ready__10TObjPlayerFi(s32 arg0) {
-    if (TItemProShield__sub_8010B734() == 3) {
+    if (get_slot_count__14TItemProShieldFPv() == 3) {
         lbl_805D5518 = 0;
         TObjPlayer__sub_80120908(arg0);
         lbl_805D5518 = 1;
@@ -30,7 +30,7 @@ extern M2C_UNK lbl_804A2B98[];
 void *TObjPlayer__sub_801269EC(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2B98;
-    TObjPlayer__sub_8012106C(arg0, 577);
+    set_status_flags__10TObjPlayerFPvUi(arg0, 577);
     return arg0;
 }
 

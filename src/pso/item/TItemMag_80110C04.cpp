@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1);
-u8 TItemProShield__sub_8010B734();
+u8 get_slot_count__14TItemProShieldFPv();
 s32 activate_d04_slot__10TObjPlayerFPv();
 s16 TObjPlayer__sub_80113D90(s32);
 s16 TObjPlayer__sub_80113D98(s32);
@@ -23,12 +23,12 @@ s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1) {
     if ((arg0 != 0U) && (temp_r3 = activate_d04_slot__10TObjPlayerFPv(), ((temp_r3 == 0) == 0))) {
         switch (arg1) {
         case 0:
-            if (TItemProShield__sub_8010B734() >= 0x64U) {
+            if (get_slot_count__14TItemProShieldFPv() >= 0x64U) {
                 return 1;
             }
             break;
         case 1:
-            if (TItemProShield__sub_8010B734() >= 0x64U) {
+            if (get_slot_count__14TItemProShieldFPv() >= 0x64U) {
                 return 1;
             }
             break;
@@ -51,12 +51,12 @@ s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1) {
             }
             break;
         case 3:
-            if (TItemProShield__sub_8010B734() >= 0x64U) {
+            if (get_slot_count__14TItemProShieldFPv() >= 0x64U) {
                 return 1;
             }
             break;
         case 4:
-            if ((TItemProShield__sub_8010B734() >= 0x78U) && (TObjPlayer__sub_80113D98(temp_r3) >= 0xB4) && (TObjPlayer__sub_80113D90(temp_r3) >= 0x6E)) {
+            if ((get_slot_count__14TItemProShieldFPv() >= 0x78U) && (TObjPlayer__sub_80113D98(temp_r3) >= 0xB4) && (TObjPlayer__sub_80113D90(temp_r3) >= 0x6E)) {
                 return 1;
             }
             break;

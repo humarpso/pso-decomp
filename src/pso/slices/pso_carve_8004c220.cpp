@@ -12,7 +12,7 @@ int is_field378_zero__14TBoss4DarkFalzFPv(void* p);
 s32 TBoss4DarkFalz__sub_8004C1D4(void* p);
 s32 TBoss4DarkFalz__sub_8004C1DC(void* p);
 s32 TBoss4DarkFalz__sub_8004C1E4(void* p);
-void* TBoss4DarkFalz__sub_8004C1EC(void* p);
+void* get_hit_data__14TBoss4DarkFalzFPv(void* p);
 int TBoss4DarkFalz__sub_8004C220(void* p);
 void set_code_25_4__14TBoss4DarkFalzFPv(void* p);
 int VecCopy__FP3VecPC3Vec(void*, void* a1 = 0);

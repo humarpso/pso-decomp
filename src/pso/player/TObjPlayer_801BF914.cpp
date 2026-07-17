@@ -19,10 +19,10 @@ void TObjPlayer__sub_801BF6DC(void* p, s16 v);
 int TObjPlayer__sub_801BF6E4(void* p);
 int update_main_cursor__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BF7B8(void* p);
-void TObjPlayer__sub_801BF7F4(void* p, s32 v);
-void TObjPlayer__sub_801BF7FC(void* p, s16 v);
-void TObjPlayer__sub_801BF804(void* p, s16 v);
-void TObjPlayer__sub_801BF80C(void* p, s16 v);
+void set_anim_state__10TObjPlayerFPvi(void* p, s32 v);
+void set_state__10TObjPlayerFPvs(void* p, s16 v);
+void set_anim_state__10TObjPlayerFPvs(void* p, s16 v);
+void set_action_id__10TObjPlayerFPvs(void* p, s16 v);
 f32 TObjPlayer__sub_801BF814(void* p);
 int test_flag_16__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BF840(void* p);
@@ -31,17 +31,17 @@ int check_flag_2__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BF8AC(void* p);
 int TObjPlayer__sub_801BF8CC(void* p);
 void TObjPlayer__sub_801BF914(void);
-s16 TObjPlayer__sub_801BF92C(void* p);
+s16 get_action_id__10TObjPlayerFPv(void* p);
 void* TObjPlayer__sub_801BF934(void* p);
 void TObjPlayer__sub_801BF93C(void* p, s16 v);
 void* TObjPlayer__sub_801BF944(void* p);
 s32 TObjPlayer__sub_801BF94C(void* p);
 void TObjPlayer__sub_801BF954(void* p, s32 v);
 s32 TObjPlayer__sub_801BF95C(void* p);
-int TObjPlayer__sub_8001BED8(void*, int);
-int TObjPlayer__sub_8001BF40(void*);
-int TMainCursor__sub_8013DF3C(void*);
-int TMainCursor__sub_8013DF44(void*);
+int set_flags__10TObjPlayerFPvUi(void*, int);
+int clear_id__10TObjPlayerFPv(void*);
+int get_enabled__11TMainCursorFPv(void*);
+int get_type__11TMainCursorFPv(void*);
 
 void TObjPlayer__sub_801BF914(void) {  }
 

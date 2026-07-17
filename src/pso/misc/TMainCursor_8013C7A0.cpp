@@ -11,7 +11,7 @@ void reset_slots__11TMainCursorFi(s32 arg0);
 void init_slots__11TMainCursorFPv(void* p);
 s32 find_by_pos__11TMainCursorFiss(s32 arg0, s16 arg1, s16 arg2);
 s32 TMainCursor__sub_8013C678();
-M2C_UNK TMainCursor__sub_8013E2C0(s32);
+M2C_UNK reset_slot__11TMainCursorFPv(s32);
 M2C_UNK fn_80044330(s32);
 int TMainCursor__sub_8013E870(void*, void*);
 s32 get_selected_entry__11TMainCursorFPv(s32);
@@ -36,7 +36,7 @@ void reset_slots__11TMainCursorFi(s32 arg0) {
     i = 0;
     do {
         fn_80044330(base + 0x40);
-        TMainCursor__sub_8013E2C0(base + 0x9C);
+        reset_slot__11TMainCursorFPv(base + 0x9C);
         i += 1;
         base += 0x124;
     } while (i < 4);

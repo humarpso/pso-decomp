@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss3VoloptP01__sub_800430AC(void *arg0);
+void reset_state__15TBoss3VoloptP01FPv(void *arg0);
 
 extern const f32 lbl_805D8770;
 
-void TBoss3VoloptP01__sub_800430AC(void *arg0) {
+void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
     void *temp_r3;
 
     M2C_FIELD(arg0, s8 *, 0x390) = 0;

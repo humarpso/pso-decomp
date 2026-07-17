@@ -2,13 +2,13 @@
 
 extern "C" {
 
-short TCameraCtrl__sub_800766C4(void);
-short TCameraCtrl__sub_800766CC(void);
+short get_screen_width__11TCameraCtrlFv(void);
+short get_screen_height__11TCameraCtrlFv(void);
 
     extern short TCameraCtrl__data_805D4DFC;
-short TCameraCtrl__sub_800766C4(void) {  return TCameraCtrl__data_805D4DFC; }
+short get_screen_width__11TCameraCtrlFv(void) {  return TCameraCtrl__data_805D4DFC; }
 
     extern short TCameraCtrl__data_805D4DFA;
-short TCameraCtrl__sub_800766CC(void) {  return TCameraCtrl__data_805D4DFA; }
+short get_screen_height__11TCameraCtrlFv(void) {  return TCameraCtrl__data_805D4DFA; }
 
 }

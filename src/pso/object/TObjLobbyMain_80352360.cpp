@@ -7,35 +7,35 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_particles__13TObjLobbyMainFPv(void *arg0);
-M2C_UNK TParticleCtrl__sub_80088000(void *);
-M2C_UNK TParticleCtrl__sub_80088010(void *);
+M2C_UNK clear_active_flag__13TParticleCtrlFPv(void *);
+M2C_UNK enable__13TParticleCtrlFPv(void *);
 
 void update_particles__13TObjLobbyMainFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) == 2) {
         switch ((s16) M2C_FIELD(arg0, s16 *, 0xD0)) {
         case 3:
             if ((u32) M2C_FIELD(arg0, u32 *, 0xD8) != 0U) {
-                TParticleCtrl__sub_80088000(M2C_FIELD(arg0, void **, 0xD8));
+                clear_active_flag__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD8));
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0xDC) != 0U) {
-                TParticleCtrl__sub_80088000(M2C_FIELD(arg0, void **, 0xDC));
+                clear_active_flag__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xDC));
             }
             break;
         default:
             if ((u32) M2C_FIELD(arg0, u32 *, 0xD8) != 0U) {
-                TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0xD8));
+                enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD8));
             }
             if ((u32) M2C_FIELD(arg0, u32 *, 0xDC) != 0U) {
-                TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0xDC));
+                enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xDC));
             }
             break;
         }
     } else {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xD8) != 0U) {
-            TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0xD8));
+            enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xD8));
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0xDC) != 0U) {
-            TParticleCtrl__sub_80088010(M2C_FIELD(arg0, void **, 0xDC));
+            enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xDC));
         }
     }
 }

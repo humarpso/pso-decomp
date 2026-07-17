@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void close__24TShopEquipmentSellWindowFPv(void *arg0);
-M2C_UNK TQuestListVM__sub_80073DC4(void *, M2C_UNK);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 
 void close__24TShopEquipmentSellWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x38C) != 0U) {
         clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x38C));
     }
-    TQuestListVM__sub_80073DC4(arg0, 1);
+    set_field_20__12TQuestListVMFPvi(arg0, 1);
 }
 
 }

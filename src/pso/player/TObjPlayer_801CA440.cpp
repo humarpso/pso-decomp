@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801CA440(u8 *arg0);
 M2C_UNK TObjPlayer__sub_801BF964(void *, s32);
-M2C_UNK TObjPlayer__sub_801D2630(void *);
+M2C_UNK clear_status_bit6__10TObjPlayerFPv(void *);
 
 void TObjPlayer__sub_801CA440(u8 *arg0) {
     s32 temp_r4;
@@ -17,7 +17,7 @@ void TObjPlayer__sub_801CA440(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
     M2C_FIELD(arg0, s32 *, 0x36C) = 0;
     TObjPlayer__sub_801BF964(arg0 + 0x5FC, temp_r4);
-    TObjPlayer__sub_801D2630(arg0);
+    clear_status_bit6__10TObjPlayerFPv(arg0);
 }
 
 }

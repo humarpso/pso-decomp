@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s16 TItemProShield__sub_80076B5C(void* p);
+s16 get_field_2b8__14TItemProShieldFPv(void* p);
 
-s16 TItemProShield__sub_80076B5C(void* p) { return *(s16*)((char*)p + 0x2b8); }
+s16 get_field_2b8__14TItemProShieldFPv(void* p) { return *(s16*)((char*)p + 0x2b8); }
 
 }
