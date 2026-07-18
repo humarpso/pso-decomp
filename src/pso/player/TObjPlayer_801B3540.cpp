@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TObjPlayer__sub_801B3540(void* p);
+int has_item_flag_4096__10TObjPlayerFPv(void* p);
 int check_technique_flag__10TObjPlayerFPv(void* p);
 s32 get_field_d8__10TObjPlayerFPv();
 int TObjPlayer__sub_8011E204(void*, int);
@@ -20,7 +20,7 @@ s32 fn_801B7F4C(void *, s32);
 s32 init__9TItemDataFv(s8 *);
 int is_flag_clear__17TObjWarpBossMultiFPv(void* p);
 
-int TObjPlayer__sub_801B3540(void* p) { return TObjPlayer__sub_8011E204(p, 4096); }
+int has_item_flag_4096__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8011E204(p, 4096); }
 int check_technique_flag__10TObjPlayerFPv(void* p) { return set_state_flags__10TObjPlayerFPvUi(p, 4096); }
 
 }

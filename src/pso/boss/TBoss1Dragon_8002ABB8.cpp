@@ -4,7 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TBoss1Dragon__sub_8002ABB8(void *arg0, s16 arg1);
+void *dt__12TBoss1DragonFPvs(void *arg0, s16 arg1);
 void *init_base__12TBoss1DragonFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
@@ -12,7 +12,7 @@ void fn_800BC4C8(void *);
 
 extern M2C_UNK lbl_80481B34[];
 
-void *TBoss1Dragon__sub_8002ABB8(void *arg0, s16 arg1) {
+void *dt__12TBoss1DragonFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80481B34;
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);

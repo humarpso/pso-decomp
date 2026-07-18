@@ -9,7 +9,7 @@ extern "C" {
 void TBoss6Type2__sub_802BFA1C(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 get_phase__11TBoss6Type2FPv(void *);
-s16 TBoss6Type2__sub_802BA394(void *);
+s16 is_falz_ready__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4();
 s32 TBoss6Type2__sub_802BB768();

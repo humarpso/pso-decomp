@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TQuestThread__sub_801F5ED0(void *arg0, s16 arg1);
+void *destroy__12TQuestThreadFPvs(void *arg0, s16 arg1);
 M2C_UNK TQuestThread__sub_801F5E7C();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
@@ -16,7 +16,7 @@ extern M2C_UNK TQuestThread__data_804C8678[];
 extern s32 lbl_805D5EE8;
 extern s32 lbl_805D5EEC;
 
-void *TQuestThread__sub_801F5ED0(void *arg0, s16 arg1) {
+void *destroy__12TQuestThreadFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TQuestThread__data_804C8678;
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 0) {

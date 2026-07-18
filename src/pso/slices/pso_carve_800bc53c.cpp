@@ -28,7 +28,7 @@ void *fn_800BC620(void *arg0, s32 arg1, s32 arg2) {
     fn_8002B094(arg0);
     return arg0;
 }
-u32 *TBoss8Dragon__sub_800BC688(u32 *arg0, s16 arg1) {
+u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *arg0 != 0U) {
             free__11TOBoss4RockFUi(*arg0);

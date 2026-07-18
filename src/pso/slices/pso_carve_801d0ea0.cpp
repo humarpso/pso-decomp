@@ -3,7 +3,7 @@
 extern "C" {
 
 int update_lobby_chair__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801D0D34(void* p);
+int get_chair_state__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D0D58(void* p);
 void TObjPlayer__sub_801D0D7C(void* p);
 void TObjPlayer__sub_801D0D8C(void* p);

@@ -10,7 +10,7 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0);
 void init_attack_state2__14TObjEnePanarmsFPv(void* a0);
 M2C_UNK TObjEnePanarms__sub_800E1608(void *, s32);
 u8 *TPhotonMylla__sub_80154CB4(u16);
-f64 TObjPlayer__sub_80019760(f32, f32, f32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
 int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
 M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
@@ -39,7 +39,7 @@ void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     }
     if (M2C_FIELD(arg0, f32 *, 0xC0) < TObjEnePanarms__data_805DA544) {
         temp_f3 = M2C_FIELD(temp_r3, f32 *, 0x38);
-        M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (TObjEnePanarms__data_8043CDD0 * TObjPlayer__sub_80019760(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
+        M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), lbl_8043CDA0[M2C_FIELD(arg0, s32 *, 0x380)] + (s32) (TObjEnePanarms__data_8043CDD0 * get_ad_end_text_start__10TObjPlayerFv(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3)), 0x200);
     }
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1C98(arg0, 0xA);

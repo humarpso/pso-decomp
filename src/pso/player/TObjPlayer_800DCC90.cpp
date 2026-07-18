@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjPlayer__sub_800DCC90(void *arg0, s16 arg1);
+void *destroy_particle_obj__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_80494E48[];
 
-void *TObjPlayer__sub_800DCC90(void *arg0, s16 arg1) {
+void *destroy_particle_obj__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494E48;
         if (M2C_FIELD(arg0, void **, 0xF8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xF8)); M2C_FIELD(arg0, M2C_UNK *, 0xF8) = 0; }

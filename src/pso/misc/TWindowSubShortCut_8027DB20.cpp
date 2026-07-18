@@ -2,8 +2,8 @@
 
 extern "C" {
 
-int TWindowSubShortCut__sub_8027DB20(void* p);
+int is_shortcut_active__18TWindowSubShortCutFPv(void* p);
 
-int TWindowSubShortCut__sub_8027DB20(void* p) { return *(u8*)((char*)p + 0x60) & 0x4; }
+int is_shortcut_active__18TWindowSubShortCutFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x4; }
 
 }

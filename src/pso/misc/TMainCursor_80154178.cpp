@@ -12,8 +12,8 @@ s32 TMainCursor__sub_80154288(void);
 s32 TObjPlayer__sub_8001BEF8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 int TMainCursor__sub_801540D8(void* a0 = 0, void* a1 = 0);
 int TMainCursor__sub_801540FC(void* a0 = 0, void* a1 = 0);
-void TMainCursor__sub_80154120(void* p);
-void TMainCursor__sub_8015414C(void* p);
+void update_pair__11TMainCursorFPv(void* p);
+void update_cursor_pair__11TMainCursorFPv(void* p);
 void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 

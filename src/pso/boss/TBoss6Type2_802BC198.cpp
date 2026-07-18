@@ -9,7 +9,7 @@ extern "C" {
 s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
-f64 TObjPlayer__sub_80019760(f32, f32, f32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
 
 extern const f64 TBoss6Type2__data_804713C0;
 
@@ -29,7 +29,7 @@ s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0) {
         return var_r31_2;
     }
     temp_f3 = M2C_FIELD(temp_r3, f32 *, 0x38);
-    temp_f0 = TObjPlayer__sub_80019760(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3);
+    temp_f0 = get_ad_end_text_start__10TObjPlayerFv(temp_f3 - M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(temp_r3, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40), temp_f3);
     var_r31 = 0xF;
     if (TBoss4Type2__sub_80141FA8(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TBoss6Type2__data_804713C0 * temp_f0)) < 0) {
         var_r31 = 0x10;

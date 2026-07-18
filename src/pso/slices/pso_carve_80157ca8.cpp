@@ -12,6 +12,6 @@ s32 TOAttackableCol__sub_80157C28(void* p);
 void TOBarrierEnergy01__vt18(void);
 
 int fn_80157CA8(void) { return 0; }
-void* TOBarrierEnergy01__sub_80157CF4(void* p) { TLobby__sub_80156BA8(p); return p; }
+void* init__17TOBarrierEnergy01FPv(void* p) { TLobby__sub_80156BA8(p); return p; }
 
 }

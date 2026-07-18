@@ -8,7 +8,7 @@ extern "C" {
 
 void TBoss6Type2__sub_802BFBE4(void* p);
 s32 get_phase__11TBoss6Type2FPv(void *);
-s16 TBoss6Type2__sub_802BA394(void *);
+s16 is_falz_ready__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4();
 s32 TBoss6Type2__sub_802BB768();

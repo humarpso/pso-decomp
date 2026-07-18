@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TOBarrierEnergy01__sub_80157CF4(void*);
+int init__17TOBarrierEnergy01FPv(void*);
 void* init__11TOVS2Wall01FPv(void* p);
 int bswap_16__FPUs(void*);
 int bswap_header__6TLobbyFi(void*);

@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TWindowKeyBoardHard__sub_801FBA48(void* p);
+int is_card_flag_set__19TWindowKeyBoardHardFPv(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
-int TWindowKeyBoardHard__sub_801FBA48(void* p) { return test_card_flag__19TWindowKeyBoardHardFii(p, 1); }
+int is_card_flag_set__19TWindowKeyBoardHardFPv(void* p) { return test_card_flag__19TWindowKeyBoardHardFii(p, 1); }
 
 }

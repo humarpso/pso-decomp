@@ -9,7 +9,7 @@ int TBoss6Type2__sub_802BA180(void);
 int TBoss6Type2__sub_802BA220(void* a0 = 0, void* a1 = 0);
 
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
-int TBoss6Type2__sub_802BA394(void* p);
+int is_falz_ready__11TBoss6Type2FPv(void* p);
 int TBoss6PlotFalz__sub_802AAFCC(void*);
 
 s32 check_target__11TBoss6Type2FPv(void *arg0) {
@@ -25,6 +25,6 @@ s32 check_target__11TBoss6Type2FPv(void *arg0) {
     }
     return 1;
 }
-int TBoss6Type2__sub_802BA394(void* p) { return TBoss6PlotFalz__sub_802AAFCC(p); }
+int is_falz_ready__11TBoss6Type2FPv(void* p) { return TBoss6PlotFalz__sub_802AAFCC(p); }
 
 }

@@ -41,7 +41,7 @@ M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
 u16 TObjPlayer__sub_800115C4(void *, M2C_UNK, f32 *, f32);
-M2C_UNK TObjPlayer__sub_803D8C7C(M2C_UNK, void *);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D97F0(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9B78();
@@ -78,7 +78,7 @@ void draw_model__10TObjPlayerFPv(u8 *arg0) {
         some_id_805c6f74 |= 1;
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjPlayer__sub_803D97F0(0);
-        TObjPlayer__sub_803D8C7C(0, arg0 + 0x38);
+        set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
         TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_flag__10TObjPlayerFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x394) != 0) {

@@ -10,7 +10,7 @@ void render__16TAdWarningBaseGCFi(s32 arg0);
 M2C_UNK set_global_param__8TObjFishFi(u32);
 M2C_UNK TWindowSubComCard__sub_803DEECC(s32, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_803DEEAC();
+M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
 
 extern u32 lbl_805D6D00;
@@ -22,7 +22,7 @@ void render__16TAdWarningBaseGCFi(s32 arg0) {
         TWindowSubStatusDisp__sub_803DEE6C(1);
         TWindowSubStatusDisp__sub_803DF160(0, -1);
         TWindowSubComCard__sub_803DEECC(arg0 + 0x1C, lbl_805DF7C0);
-        TWindowSubStatusDisp__sub_803DEEAC();
+        get_player__20TWindowSubStatusDispFv();
     }
 }
 

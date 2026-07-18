@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8036F81C(s32 arg0, s16 arg1);
+s32 destroy_ep3_exist__6TLobbyFis(s32 arg0, s16 arg1);
 void *reset_counters__6TLobbyFPv(void *arg0);
 M2C_UNK TAdEp3Exist__sub_8036F574();
 M2C_UNK __dl__FPv(s32);
 M2C_UNK free_if_valid__11TAdEp3ExistFis(s32, s32);
 
-s32 TLobby__sub_8036F81C(s32 arg0, s16 arg1) {
+s32 destroy_ep3_exist__6TLobbyFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         free_if_valid__11TAdEp3ExistFis(arg0, 0);
         if (arg1 > 0) {

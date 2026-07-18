@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjPlayer__sub_800C4C54(void *arg0, s16 arg1);
+void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *init_target_ref__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 TBoss8Dragon__sub_8008741C(s32, M2C_UNK, M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
@@ -17,7 +17,7 @@ void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK lbl_80493438[];
 
-void *TObjPlayer__sub_800C4C54(void *arg0, s16 arg1) {
+void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80493438;
         if (M2C_FIELD(arg0, void **, 0x24) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x24)); M2C_FIELD(arg0, M2C_UNK *, 0x24) = 0; }

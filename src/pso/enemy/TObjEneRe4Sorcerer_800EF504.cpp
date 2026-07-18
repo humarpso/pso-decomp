@@ -8,7 +8,7 @@ extern "C" {
 
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
 M2C_UNK TObjEneEpsilon__sub_800B96A4();
-f64 TObjPlayer__sub_80019760(f32, f32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
 
@@ -17,7 +17,7 @@ extern const f64 TObjEneRe4Sorcerer__data_8043D408;
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();
     update_velocity__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneRe4Sorcerer__data_8043D408 * TObjPlayer__sub_80019760(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0xA00);
+    M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneRe4Sorcerer__data_8043D408 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0xA00);
 }
 
 }

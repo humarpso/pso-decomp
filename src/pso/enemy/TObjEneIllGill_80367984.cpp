@@ -15,7 +15,7 @@ struct IllGillVObj_80367984 : IllGillBase_80367984 {
 
 extern "C" {
 
-void TObjEneIllGill__sub_80367984(u8 *arg0);
+void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 M2C_UNK TObjEneIllGill__sub_80367B00(void *);
@@ -35,7 +35,7 @@ extern const f32 TObjEneIllGill__data_805E02DC;
 extern const f32 lbl_805E02E8;
 extern const f32 lbl_805E02FC;
 
-void TObjEneIllGill__sub_80367984(u8 *arg0) {
+void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0) {
     s16 temp_r0;
     u8 *temp_r4;
 

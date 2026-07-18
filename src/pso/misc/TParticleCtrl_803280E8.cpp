@@ -12,7 +12,7 @@ void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int TObjPlayer__sub_803DC83C(int);
-int TParticleCtrl__sub_803280C8(void* p);
+int get_object__13TParticleCtrlFPv(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int fn_802A8260(void*);

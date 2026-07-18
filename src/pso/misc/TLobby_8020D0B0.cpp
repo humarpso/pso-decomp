@@ -16,7 +16,7 @@ extern "C" {
 
 void attach_objects_by_id__6TLobbyFi(s32 arg0);
 u8 *TLobby__sub_8020D054(void *);
-u8 *TLobby__sub_8020B354();
+u8 *get_object_count__6TLobbyFPv();
 s32 get_obj_table_entry__6TLobbyFi(s32);
 
 extern s32 TLobby__data_805D6140;
@@ -29,7 +29,7 @@ void attach_objects_by_id__6TLobbyFi(s32 arg0) {
     s32 i;
     u8 *temp_r3_2;
 
-    ptr = TLobby__sub_8020B354();
+    ptr = get_object_count__6TLobbyFPv();
     count = get_obj_table_entry__6TLobbyFi(arg0);
     for (i = 0; i < count; i++, ptr += 0x44) {
         temp_r3 = M2C_FIELD(ptr, s16 *, 2);

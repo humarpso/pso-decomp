@@ -8,7 +8,7 @@ void render_status__20TWindowSubStatusDispFPv(void *arg0);
 void set_global_param__8TObjFishFi(void *);
 void TWindowSubComCard__sub_803DEECC(void *, f32);
 void TWindowSubStatusDisp__sub_803DEE6C(int);
-void TWindowSubStatusDisp__sub_803DEEAC(void);
+void get_player__20TWindowSubStatusDispFv(void);
 void TWindowSubStatusDisp__sub_803DF160(void *, void *);
 
 extern void *lbl_805D6648;
@@ -19,7 +19,7 @@ void render_status__20TWindowSubStatusDispFPv(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D6648);
     TWindowSubStatusDisp__sub_803DF160(M2C_FIELD(arg0, void **, 0x20), M2C_FIELD(arg0, void **, 0x80));
     TWindowSubComCard__sub_803DEECC((void *)((char *)arg0 + 68), lbl_805DDF38);
-    TWindowSubStatusDisp__sub_803DEEAC();
+    get_player__20TWindowSubStatusDispFv();
 }
 
 }

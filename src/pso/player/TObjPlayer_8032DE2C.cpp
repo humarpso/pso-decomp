@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *init_offsets_object__10TObjPlayerFPv(void *arg0);
-void *TObjPlayer__sub_8032DE70(void *arg0);
+void *init_effect_object__10TObjPlayerFPv(void *arg0);
 void init_offset_vectors__10TObjPlayerFPv(void *);
 void fn_8032E34C(void *);
 void TObjPlayer__sub_8032E400(void *);
@@ -21,7 +21,7 @@ void *init_offsets_object__10TObjPlayerFPv(void *arg0) {
 
 extern M2C_UNK lbl_804EDD20[];
 
-void *TObjPlayer__sub_8032DE70(void *arg0) {
+void *init_effect_object__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8032E400(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDD20;
     init_offset_vectors__10TObjPlayerFPv(arg0);

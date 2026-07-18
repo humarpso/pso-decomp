@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_803304BC(u8 *arg0);
+void spawn_trap_by_stat__10TObjPlayerFPv(u8 *arg0);
 int TObjPlayer__sub_8033051C(void* p);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 int TObjPlayer__sub_8033040C(void*);
 
 extern const f32 lbl_805DF7FC;
 
-void TObjPlayer__sub_803304BC(u8 *arg0) {
+void spawn_trap_by_stat__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK var_r3;
 
     var_r3 = 0x4006C919;

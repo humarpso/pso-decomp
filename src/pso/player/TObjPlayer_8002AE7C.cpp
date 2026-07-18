@@ -20,7 +20,7 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
-int TBoss8Dragon__sub_8002AE38(void* p);
+int test_card_flag_2__12TBoss8DragonFPv(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 f64 TWindowSubComCard__sub_803A24E4();
 

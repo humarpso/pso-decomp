@@ -14,12 +14,12 @@ struct VObj_8020d1bc : VBase_8020d1bc {
 
 extern "C" {
 
-void TLobby__sub_8020D1BC(u8 *arg0, s32 arg1);
+void assign_objects_to_slots__6TLobbyFPvi(u8 *arg0, s32 arg1);
 u8 *TLobby__sub_8020D054(void *);
 
 extern s32 TLobby__data_805D6140;
 
-void TLobby__sub_8020D1BC(u8 *arg0, s32 arg1) {
+void assign_objects_to_slots__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     s16 temp_r3;
     s16 temp_r0;
     u8 *ptr;

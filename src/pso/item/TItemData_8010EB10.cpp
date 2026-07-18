@@ -9,7 +9,7 @@ extern "C" {
 int calc_display_grade__9TItemDataFPv(void *arg0);
 s16 get_field6_bswap__9TItemDataFPv(void *);
 s32 TItemData__sub_8010EBD8();
-s32 TObjPlayer__sub_8011C55C(u8);
+s32 get_unit_attribute_index__10TObjPlayerFUc(u8);
 
 int calc_display_grade__9TItemDataFPv(void *arg0) {
     s16 temp_r3;
@@ -22,7 +22,7 @@ int calc_display_grade__9TItemDataFPv(void *arg0) {
         if ((u8) var_r31 < 9U) {
             temp_b = M2C_FIELD(arg0, u8 *, 4);
             if (!(temp_b & 0x80)) {
-                var_r31 += TObjPlayer__sub_8011C55C(temp_b);
+                var_r31 += get_unit_attribute_index__10TObjPlayerFUc(temp_b);
             }
         } else if (M2C_FIELD(arg0, u8 *, 4) & 0x80) {
             var_r31 = 0;

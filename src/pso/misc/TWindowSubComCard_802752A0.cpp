@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubComCard__sub_802752A0(s32 arg0);
+void set_display_page__17TWindowSubComCardFi(s32 arg0);
 s16 TWindowSubComCard__sub_80265BF8();
 void* get_card_data_ptr__17TWindowSubComCardFPv(void* p);
 void* TWindowSubComCard__sub_8027523C(void* p);
@@ -25,7 +25,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TWindowSubComCard__sub_802752A0(s32 arg0) {
+void set_display_page__17TWindowSubComCardFi(s32 arg0) {
     TWindowSubComCard__sub_80275288((void *) (arg0), (int) (TWindowSubComCard__sub_80265BF8()));
 }
 

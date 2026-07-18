@@ -11,7 +11,7 @@ void check_action_7__14TBoss6PlotFalzFi(s32 arg0);
 void TBoss6PlotFalz__sub_802B0448(void* p);
 void advance_timer__14TBoss6PlotFalzFPv(void *arg0);
 void advance_phase_if_ready__14TBoss6PlotFalzFPv(void* p);
-int TBoss6PlotFalz__sub_802AACEC(void*);
+int is_ready__14TBoss6PlotFalzFv(void*);
 s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
 s32 TBoss6PlotFalz__sub_802ABA9C();
 int TBoss6PlotFalz__sub_802ABC64(void*);
@@ -21,7 +21,7 @@ int TBoss6PlotFalz__sub_802AC86C(void*, void*);
 
 void TBoss6PlotFalz__sub_802B03F4(void) {  }
 void check_action_7__14TBoss6PlotFalzFi(s32 arg0) {
-    if ((TBoss6PlotFalz__sub_802ABA9C() == 0) || (TBoss6PlotFalz__sub_802AACEC((void*)(arg0)) != 0)) {
+    if ((TBoss6PlotFalz__sub_802ABA9C() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)(arg0)) != 0)) {
         TBoss6PlotFalz__sub_802AC86C((void*)(arg0), (void*)(7));
     }
 }
@@ -36,6 +36,6 @@ void advance_timer__14TBoss6PlotFalzFPv(void *arg0) {
         TBoss6PlotFalz__sub_802AB2B8(arg0, 6);
     }
 }
-void advance_phase_if_ready__14TBoss6PlotFalzFPv(void* p) { if (TBoss6PlotFalz__sub_802AACEC(p) != 0) { TBoss6PlotFalz__sub_802AC86C(p, (void*)6); } }
+void advance_phase_if_ready__14TBoss6PlotFalzFPv(void* p) { if (is_ready__14TBoss6PlotFalzFv(p) != 0) { TBoss6PlotFalz__sub_802AC86C(p, (void*)6); } }
 
 }

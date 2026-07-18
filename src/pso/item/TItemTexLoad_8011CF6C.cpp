@@ -8,11 +8,11 @@ extern "C" {
 
 void unload_texture__12TItemTexLoadFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803CCE9C(s32);
-M2C_UNK fn_8023E700(void *);
+M2C_UNK free_texture_if_valid(void *);
 
 void unload_texture__12TItemTexLoadFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 2) {
-        fn_8023E700(arg0 + 0x2C);
+        free_texture_if_valid(arg0 + 0x2C);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 1) {
         TLobby__sub_803CCE9C(M2C_FIELD(arg0, s32 *, 0x28));

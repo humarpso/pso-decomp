@@ -10,7 +10,7 @@ void TObjEneRe4Sorcerer__vt104(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK update_player_state__9TObjEneDDFPv(void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
-M2C_UNK TObjEneDD__sub_800BB858();
+M2C_UNK get_target_info__9TObjEneDDFPv();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_800F5BC0(s32, s16, M2C_UNK);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -43,7 +43,7 @@ struct VObj : Base {
 };
 
 void TObjEneRe4Sorcerer__vt104(u8 *arg0) {
-    TObjEneDD__sub_800BB858();
+    get_target_info__9TObjEneDDFPv();
     if (((VObj *)arg0)->m8(lbl_805DA788, TObjEneRe4Sorcerer__data_805DA78C) != 0) {
         update_player_state__9TObjEneDDFPv(arg0, 0, 0);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));

@@ -33,7 +33,7 @@ void* get_technique_data__10TObjPlayerFPv(void* p);
 void set_tech_override__10TObjPlayerFPvUc(void* p, u8 v);
 f32 TObjPlayer__sub_801D2CDC(void* p);
 void set_attack_target__10TObjPlayerFPvs(void* p, s16 v);
-void* TObjPlayer__sub_801D2CEC(void* p);
+void* get_anim_field_c__10TObjPlayerFPv(void* p);
 int bswap_32__FPUl(void*);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);

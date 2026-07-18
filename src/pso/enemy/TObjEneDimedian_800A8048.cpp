@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneDimedian__sub_800A8048(void);
+void free_boss_objects__15TObjEneDimedianFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void free__11TOBoss4RockFUi(void*);
@@ -19,7 +19,7 @@ extern u32 lbl_805D5080;
 extern u32 lbl_805D5084;
 extern u32 lbl_805D5088;
 
-void TObjEneDimedian__sub_800A8048(void) {
+void free_boss_objects__15TObjEneDimedianFv(void) {
     if ((u32) lbl_805D5070 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D5070);
         lbl_805D5070 = 0U;

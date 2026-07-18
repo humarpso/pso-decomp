@@ -3,8 +3,8 @@
 extern "C" {
 
 int TObjLight__sub_8002F238(void* p);
-int TObjEneDD__sub_800BB858(void*);
+int get_target_info__9TObjEneDDFPv(void*);
 
-int TObjLight__sub_8002F238(void* p) { return TObjEneDD__sub_800BB858(p); }
+int TObjLight__sub_8002F238(void* p) { return get_target_info__9TObjEneDDFPv(p); }
 
 }

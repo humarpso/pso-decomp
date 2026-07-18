@@ -8,7 +8,7 @@ extern "C" {
 
 s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK TObjEneEpsilon__sub_800B96A4();
-f64 TObjPlayer__sub_80019760(f32, f32, f32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
 
 extern const f64 lbl_80479C88;
 
@@ -17,7 +17,7 @@ s32 calc_angle_to_target__19TObjEneEpsilonGuardFPv(u8 *arg0) {
 
     TObjEneEpsilon__sub_800B96A4();
     temp_f3 = M2C_FIELD(arg0, f32 *, 0x38);
-    return (s32) (lbl_80479C88 * TObjPlayer__sub_80019760((f32) (temp_f3 - M2C_FIELD(arg0, f32 *, 0x394)), (f32) (M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x39C)), (f32) (temp_f3)));
+    return (s32) (lbl_80479C88 * get_ad_end_text_start__10TObjPlayerFv((f32) (temp_f3 - M2C_FIELD(arg0, f32 *, 0x394)), (f32) (M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x39C)), (f32) (temp_f3)));
 }
 
 }

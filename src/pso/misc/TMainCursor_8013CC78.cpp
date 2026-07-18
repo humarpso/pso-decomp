@@ -12,7 +12,7 @@ void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 get_type__10TObjPlayerFPv(s32);
 M2C_UNK set_color_mode__11TMainCursorFPvi(s32, M2C_UNK);
 M2C_UNK set_color__11TMainCursorFPvi(s32, M2C_UNK);
-M2C_UNK TMainCursor__sub_8013E990(s32, M2C_UNK);
+M2C_UNK set_field_0c__11TMainCursorFPvi(s32, M2C_UNK);
 M2C_UNK set_flags__11TMainCursorFPvi(s32, M2C_UNK);
 s32 TObjPlayer__sub_801B066C(s32);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -32,19 +32,19 @@ void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     set_color_mode__11TMainCursorFPvi(arg2, 0x10000000);
     set_flags__11TMainCursorFPvi(arg2, 0xE0000800);
     if (is_technique_ready__8TTecCtrlFv() == 0) {
-        TMainCursor__sub_8013E990(arg2, 0x30000);
+        set_field_0c__11TMainCursorFPvi(arg2, 0x30000);
         return;
     }
     if (TObjPlayer__sub_801B066C(arg1) == 1) {
-        TMainCursor__sub_8013E990(arg2, 0x40030000);
+        set_field_0c__11TMainCursorFPvi(arg2, 0x40030000);
         return;
     }
-    TMainCursor__sub_8013E990(arg2, 0x40030000);
+    set_field_0c__11TMainCursorFPvi(arg2, 0x40030000);
 }
 
 void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     set_color__11TMainCursorFPvi(arg2, 0x2000);
-    TMainCursor__sub_8013E990(arg2, 0x3C000);
+    set_field_0c__11TMainCursorFPvi(arg2, 0x3C000);
     set_color_mode__11TMainCursorFPvi(arg2, 0x800);
     set_flags__11TMainCursorFPvi(arg2, 0xE0000000);
 }

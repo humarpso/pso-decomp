@@ -4,7 +4,7 @@ extern "C" {
 
 void TObjPlayer__sub_801BF47C(void* p);
 int update_action_palette__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801BF4DC(void* p);
+int set_action_palette_mode__10TObjPlayerFPv(void* p);
 int clear_flag0_bit1__10TObjPlayerFPv(void* p);
 int set_flag_2__10TObjPlayerFPv(void* p);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);

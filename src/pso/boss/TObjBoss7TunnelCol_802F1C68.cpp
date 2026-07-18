@@ -10,7 +10,7 @@ void update_collision__18TObjBoss7TunnelColFPv(void *arg0);
 s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *arg0);
 s32 get_mode__11TCameraCtrlFPv(M2C_UNK *);
 void TObjChip__sub_803D8AE4(void *, void *, void *, void *);
-void TObjPlayer__sub_803D8C7C(void *, void *);
+void set_position_vec3__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_803D8CD4(void *);
 
 struct VOff_802F1C68_arg0_802f1c68 { char pad_0[0x48]; char f_48[1]; };
@@ -18,7 +18,7 @@ struct VOff_802F1C68_arg0_802f1c68 { char pad_0[0x48]; char f_48[1]; };
 void update_collision__18TObjBoss7TunnelColFPv(void *arg0) {
     struct VOff_802F1C68_arg0_802f1c68 *self = (struct VOff_802F1C68_arg0_802f1c68 *)arg0;
     TObjPlayer__sub_803D8CD4(self->f_48);
-    TObjPlayer__sub_803D8C7C(self->f_48, (void *)((char *)arg0 + 28));
+    set_position_vec3__10TObjPlayerFPvPv(self->f_48, (void *)((char *)arg0 + 28));
     TObjChip__sub_803D8AE4(self->f_48, M2C_FIELD(arg0, void **, 0x28), M2C_FIELD(arg0, void **, 0x2C), M2C_FIELD(arg0, void **, 0x30));
 }
 

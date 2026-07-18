@@ -29,7 +29,7 @@ s32 TAdSelectGameModeGC__sub_802A1438();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 getDateStamp__FP9DateStamp(s32 *);
 
-void TObjPlayer__sub_802C4700(void* p) { TObjPlayer__sub_8011E204(p, (void*)524288); }
+void set_flag_524288__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8011E204(p, (void*)524288); }
 void set_flag_80000__10TObjPlayerFPv(void* p) { set_state_flags__10TObjPlayerFPvUi(p, (void*)524288); }
 
 }

@@ -120,7 +120,7 @@ M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK update_hover_height__17TObjEneMe1CanadinFPv(void *);
-M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
+M2C_UNK noop__17TObjEneMe1CanadinFv(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
 
 extern const f32 TObjEneMe1Canadin__data_805D988C;
@@ -148,7 +148,7 @@ void TObjEneMe1Canadin__vt109(void *arg0, s32 arg1) {
         update_move__17TObjEneMe1CanadinFPv(arg0);
         update_hover_height__17TObjEneMe1CanadinFPv(arg0);
         ((V_A *) arg0)->m87();
-        TObjEneMe1Canadin__sub_8009E6B0(arg0);
+        noop__17TObjEneMe1CanadinFv(arg0);
         break;
     }
 }

@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8001D6A0(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4);
+void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4);
 M2C_UNK TLobby__sub_8001D568(M2C_UNK, s32);
 M2C_UNK TLobby__sub_8001D600(M2C_UNK, void *, s32);
 
-void TLobby__sub_8001D6A0(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
+void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
     if (arg4 == 0U) {
         TLobby__sub_8001D600(0, arg1, M2C_FIELD(arg2, s32 *, 8));
         return;

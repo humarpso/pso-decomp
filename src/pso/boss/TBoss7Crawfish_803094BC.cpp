@@ -13,7 +13,7 @@ void TBoss7Crawfish__vt47(void);
 void TBoss7Crawfish__vt48(void);
 f32 get_health__14TBoss7CrawfishFPv(void* p);
 void set_anim_timer__14TBoss7CrawfishFPvs(void* p, s16 v);
-int TShopEquipmentSellWindow__sub_803094E8(void* p);
+int get_item_count__24TShopEquipmentSellWindowFPv(void* p);
 int fn_80269078(void*);
 
 void TBoss7Crawfish__vt42(void) {  }

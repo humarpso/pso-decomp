@@ -8,7 +8,7 @@ extern "C" {
 
 s32 ar_alloc__6TLobbyFv(void);
 s32 get_state_zero__6TLobbyFv(void);
-s32 TLobby__sub_803C5AE8(void);
+s32 process_connection_state__6TLobbyFv(void);
 M2C_UNK ARAlloc();
 M2C_UNK TLobby__sub_803C9608();
 s32 TLobby__sub_803CB844();
@@ -26,7 +26,7 @@ s32 get_state_zero__6TLobbyFv(void) {
     return 0;
 }
 
-s32 TLobby__sub_803C5AE8(void) {
+s32 process_connection_state__6TLobbyFv(void) {
     if (TLobby__sub_803CB844() == 1) {
         TLobby__sub_803D1444();
         TLobby__sub_803CE240();

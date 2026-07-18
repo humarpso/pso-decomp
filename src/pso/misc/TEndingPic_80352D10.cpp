@@ -9,7 +9,7 @@ extern "C" {
 void draw_current_pic__10TEndingPicFPv(u8 *arg0);
 M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
-M2C_UNK TWindowSubStatusDisp__sub_803DEEAC();
+M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
 
 extern s32 TEndingPic__data_805D6EE0;
@@ -33,7 +33,7 @@ void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
     default:
         break;
     }
-    TWindowSubStatusDisp__sub_803DEEAC();
+    get_player__20TWindowSubStatusDispFv();
 }
 
 }

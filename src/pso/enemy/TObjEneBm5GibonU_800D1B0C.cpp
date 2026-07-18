@@ -27,7 +27,7 @@ s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 void* reset__16TObjEneBm5GibonUFPv(void* p) { reset_fields__16TObjEneBm5GibonUFPv(p); return p; }
-void TObjEneBm5GibonU__sub_800D1BE8(void *arg0) {
+void update_photon_mylla__16TObjEneBm5GibonUFPv(void *arg0) {
     TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 8));
 }
 void set_field8_from_obj__16TObjEneBm5GibonUFPvi(void *arg0, s32 arg1) {

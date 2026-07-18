@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjWarpBossMulti__sub_8019E48C(void);
+s32 is_lobby_active__17TObjWarpBossMultiFv(void);
 s32 get_state__6TLobbyFv();
 
-s32 TObjWarpBossMulti__sub_8019E48C(void) {
+s32 is_lobby_active__17TObjWarpBossMultiFv(void) {
     return get_state__6TLobbyFv() ? 1 : 0;
 }
 

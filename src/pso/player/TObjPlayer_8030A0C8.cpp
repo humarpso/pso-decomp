@@ -9,7 +9,7 @@ void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p);
 int check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 
-s32 TObjPlayer__sub_8030A0C8(s32 arg0, s16 arg1) {
+s32 dt_follow_particle_ctrl__10TObjPlayerFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
         __dt__22TPlyFollowParticleCtrlFis(arg0, 0);
         if (arg1 > 0) {

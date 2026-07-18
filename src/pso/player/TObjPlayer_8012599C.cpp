@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_item_follow_effect__10TObjPlayerFPv(void *arg0);
-void *TObjPlayer__sub_80125A8C(void *arg0, s16 arg1);
+void *__dt__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 get_flag_40__8TItemMagFPv(s32);
 s32 TLobby__sub_80101AB0(s32);
 u32 get_item_ctrl__10TObjPlayerFv();
@@ -54,7 +54,7 @@ void update_item_follow_effect__10TObjPlayerFPv(void *arg0) {
 
 extern M2C_UNK lbl_804A2660[];
 
-void *TObjPlayer__sub_80125A8C(void *arg0, s16 arg1) {
+void *__dt__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2660;
         if (M2C_FIELD(arg0, void **, 0x24) != NULL) { queue_destruction__7TObjectFv((void *)(M2C_FIELD(arg0, void **, 0x24))); }

@@ -21,9 +21,9 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-int TObjEneDD__sub_80181E10(void*);
+int is_phase_e__9TObjEneDDFPv(void*);
 
-void run_action_14_if_ready__6TLobbyFPv(void* p) { if (TObjEneDD__sub_80181E10(p) != 0) { process_lobby_action_14__6TLobbyFPv((u8 *)(p)); } }
+void run_action_14_if_ready__6TLobbyFPv(void* p) { if (is_phase_e__9TObjEneDDFPv(p) != 0) { process_lobby_action_14__6TLobbyFPv((u8 *)(p)); } }
 
 extern s32 lbl_805D5B2C;
 extern const f32 lbl_805DBBE0;

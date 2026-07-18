@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803C84D0(u8 *arg0, s32 arg1);
+void set_field_10_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void TLobby__sub_803C8514(u8 *arg0, s32 arg1);
 void set_buffer__6TLobbyFPvPv(u8 *arg0, void **arg1);
 s32 get_field_14__6TLobbyFPv(u8 *arg0);
@@ -16,7 +16,7 @@ s32 TLobby__sub_803C8594(u8 *arg0, s32 *arg1, s32 *arg2);
 M2C_UNK TLobby__sub_803CF100(int, int, int);
 M2C_UNK TLobby__sub_803CF1A8(int);
 
-void TLobby__sub_803C84D0(u8 *arg0, s32 arg1) {
+void set_field_10_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x10) = arg1;
     TLobby__sub_803CF100((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10)), (int) (0));
     TLobby__sub_803CF1A8((int) (M2C_FIELD(arg0, s32 *, 8)));

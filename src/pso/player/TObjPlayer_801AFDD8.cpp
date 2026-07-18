@@ -4,7 +4,7 @@ extern "C" {
 
 s32 is_camera_mode_active__10TObjPlayerFv();
 s32 is_technique_ready__8TTecCtrlFv();
-s32 TObjPlayer__sub_801B3540(s32);
+s32 has_item_flag_4096__10TObjPlayerFPv(s32);
 s32 check_technique_flag__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80203418();
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -27,7 +27,7 @@ s32 check_technique_castable__10TObjPlayerFi(s32 arg0) {
         check_technique_flag__10TObjPlayerFPv(arg0);
         return 0;
     default:
-        TObjPlayer__sub_801B3540(arg0);
+        has_item_flag_4096__10TObjPlayerFPv(arg0);
         return 1;
     }
 }

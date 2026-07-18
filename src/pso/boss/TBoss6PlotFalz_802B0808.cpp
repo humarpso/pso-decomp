@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TBoss6PlotFalz__sub_802ABADC();
 s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
-int TBoss6PlotFalz__sub_802AACEC(void*);
+int is_ready__14TBoss6PlotFalzFv(void*);
 int TBoss6PlotFalz__sub_802AC86C(void*, void*);
 void set_state4_if_ready__14TBoss6PlotFalzFPv(void* p);
 void TBoss6PlotFalz__sub_802B08F0(void* p);
@@ -20,7 +20,7 @@ void TBoss6PlotFalz__sub_802B0808(void);
 
 void TBoss6PlotFalz__sub_802B0808(void) {  }
 void update_phase__14TBoss6PlotFalzFi(s32 arg0) {
-    if ((TBoss6PlotFalz__sub_802ABADC() == 0) || (TBoss6PlotFalz__sub_802AACEC((void*)(arg0)) != 0)) {
+    if ((TBoss6PlotFalz__sub_802ABADC() == 0) || (is_ready__14TBoss6PlotFalzFv((void*)(arg0)) != 0)) {
         TBoss6PlotFalz__sub_802AC86C((void*)(arg0), (void*)(3));
     }
 }

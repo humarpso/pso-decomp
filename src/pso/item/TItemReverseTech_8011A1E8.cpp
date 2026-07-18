@@ -11,7 +11,7 @@ void free__16TItemReverseTechFv(void);
 M2C_UNK TItemReverseTech__ct(void *, s32);
 int __dl__FPv(void*);
 void * __nw__7TObjectFUl(M2C_UNK);
-int fn_8023E700(void*);
+int free_texture_if_valid(void*);
 int free__11TOBoss4RockFUi(void*);
 
 extern s32 tl_01;
@@ -26,6 +26,6 @@ void create__16TItemReverseTechFv(void) {
     extern int TItemReverseTech__data_805D54D0;
     extern int lbl_805D54D4;
     extern int lbl_805D54D8;
-void free__16TItemReverseTechFv(void) { fn_8023E700((void*)(TItemReverseTech__data_805D54D0)); free__11TOBoss4RockFUi((void*)(lbl_805D54D8)); lbl_805D54D8 = 0; free__11TOBoss4RockFUi((void*)(lbl_805D54D4)); lbl_805D54D4 = 0; __dl__FPv((void*)(TItemReverseTech__data_805D54D0)); TItemReverseTech__data_805D54D0 = 0; }
+void free__16TItemReverseTechFv(void) { free_texture_if_valid((void*)(TItemReverseTech__data_805D54D0)); free__11TOBoss4RockFUi((void*)(lbl_805D54D8)); lbl_805D54D8 = 0; free__11TOBoss4RockFUi((void*)(lbl_805D54D4)); lbl_805D54D4 = 0; __dl__FPv((void*)(TItemReverseTech__data_805D54D0)); TItemReverseTech__data_805D54D0 = 0; }
 
 }

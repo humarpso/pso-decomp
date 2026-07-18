@@ -8,7 +8,7 @@ extern "C" {
 
 struct VDisp_800a42c4 { char pad[0x18]; virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(void *, void *); };
 
-void TObjPlayer__sub_800A42C4(u8 *arg0);
+void apply_lookup_entry_effect__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
@@ -19,7 +19,7 @@ s32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 
 extern s32 lbl_805D5064;
 
-void TObjPlayer__sub_800A42C4(u8 *arg0) {
+void apply_lookup_entry_effect__10TObjPlayerFPv(u8 *arg0) {
     struct { M2C_UNK a, b, c; M2C_UNK d, e, f, g, h; } sp8;
     s32 temp_r3;
     u8 *temp_r3_2;

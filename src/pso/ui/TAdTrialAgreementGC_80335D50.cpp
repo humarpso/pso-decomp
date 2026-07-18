@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdTrialAgreementGC__sub_80335D50(void *arg0);
+void run_state__19TAdTrialAgreementGCFPv(void *arg0);
 M2C_UNK TAdTrialAgreementGC__sub_80335974();
 M2C_UNK TAdTrialAgreementGC__sub_80335A58();
 
-void TAdTrialAgreementGC__sub_80335D50(void *arg0) {
+void run_state__19TAdTrialAgreementGCFPv(void *arg0) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);

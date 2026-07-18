@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TWindowSubEquip__sub_80275C0C(void *arg0, s16 arg1);
+void *destroy__15TWindowSubEquipFPvs(void *arg0, s16 arg1);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_804D1160[];
 
-void *TWindowSubEquip__sub_80275C0C(void *arg0, s16 arg1) {
+void *destroy__15TWindowSubEquipFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D1160;
         if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x2C)); M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0; }

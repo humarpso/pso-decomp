@@ -9,7 +9,7 @@ extern "C" {
 s32 process_keyboard_input__17TWindowSubComCardFPv(void *arg0);
 s32 TLobby__sub_8039DAFC(s32, M2C_UNK *);
 M2C_UNK fn_801F4F20(s32);
-M2C_UNK fn_801F64F4(u32);
+M2C_UNK free_menu_object(u32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 s32 realloc_buffer__17TWindowSubComCardFPv(u32);
 s32 submit_card_password__17TWindowSubComCardFi(s32);
@@ -26,11 +26,11 @@ s32 process_keyboard_input__17TWindowSubComCardFPv(void *arg0) {
         temp_r31 = realloc_buffer__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x1C));
         if (TLobby__sub_8039DAFC(temp_r31, &lbl_805DC4FC) == 0) {
             free__11TOBoss4RockFUi(temp_r31);
-            fn_801F64F4(M2C_FIELD(arg0, u32 *, 0x1C));
+            free_menu_object(M2C_FIELD(arg0, u32 *, 0x1C));
             return 0;
         }
         if (submit_card_password__17TWindowSubComCardFi(temp_r31) != 0) {
-            fn_801F64F4(M2C_FIELD(arg0, u32 *, 0x1C));
+            free_menu_object(M2C_FIELD(arg0, u32 *, 0x1C));
             free__11TOBoss4RockFUi(temp_r31);
             return 0;
         }

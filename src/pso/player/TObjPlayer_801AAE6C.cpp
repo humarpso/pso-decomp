@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_801AAE6C(void* a0);
 void update_all_slots__10TObjPlayerFPv(void *arg0);
-u32 TObjPlayer__sub_80040B28(s32);
+u32 get_battle_param__10TObjPlayerFi(s32);
 M2C_UNK TObjPlayer__sub_8015610C(void *);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_801A720C(u16, M2C_UNK, M2C_UNK, f32);
@@ -25,7 +25,7 @@ void update_all_slots__10TObjPlayerFPv(void *arg0) {
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x100000) {
         var_r31 = 0;
         do {
-            if (TObjPlayer__sub_80040B28(var_r31) != 0U) {
+            if (get_battle_param__10TObjPlayerFi(var_r31) != 0U) {
                 TObjPlayer__sub_801A720C((u16) obj_getField1c(), 0, 0, M2C_FIELD(arg0, f32 *, 0x150));
             }
             var_r31 += 1;

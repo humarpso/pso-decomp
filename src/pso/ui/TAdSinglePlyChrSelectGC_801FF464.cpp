@@ -15,7 +15,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 fn_80203284();
 M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028DC14();
-M2C_UNK TObjPlayer__sub_802C4348();
+M2C_UNK init_battle_selection__10TObjPlayerFv();
 
 M2C_UNK copy_card_window_data();
 extern s32 lbl_805D53A0;
@@ -27,7 +27,7 @@ s32 init__23TAdSinglePlyChrSelectGCFv(void) {
     init_slots__23TAdSinglePlyChrSelectGCFv();
     if (((u32) lbl_805D5F60 != 0U) && ((u32) lbl_805D5F64 != 0U) && ((u32) lbl_805D5F58 != 0U)) {
         if ((TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) && (is_technique_ready__8TTecCtrlFv() == 0) && (fn_80203284() != 1)) {
-            TObjPlayer__sub_802C4348();
+            init_battle_selection__10TObjPlayerFv();
             TAdSinglePlyChrSelectGC__sub_8028DC14();
         }
         clear_flags__23TAdSinglePlyChrSelectGCFi(3);

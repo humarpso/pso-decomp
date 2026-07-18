@@ -8,10 +8,10 @@ extern "C" {
 
 void close_when_chat_closed__28TWindowSubSymbolChatFaceTypeFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
-s32 TWindowSubSymbolChat__sub_8028398C();
+s32 is_open__20TWindowSubSymbolChatFPv();
 
 void close_when_chat_closed__28TWindowSubSymbolChatFaceTypeFPv(u8 *arg0) {
-    if (TWindowSubSymbolChat__sub_8028398C() == 0) {
+    if (is_open__20TWindowSubSymbolChatFPv() == 0) {
         TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
     }

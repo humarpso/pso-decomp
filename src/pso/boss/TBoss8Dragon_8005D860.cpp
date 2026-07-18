@@ -3,8 +3,8 @@
 extern "C" {
 
 int TBoss8Dragon__sub_8005D860(void* p);
-int TObjEneDD__sub_800BB858(void*);
+int get_target_info__9TObjEneDDFPv(void*);
 
-int TBoss8Dragon__sub_8005D860(void* p) { return TObjEneDD__sub_800BB858(p); }
+int TBoss8Dragon__sub_8005D860(void* p) { return get_target_info__9TObjEneDDFPv(p); }
 
 }

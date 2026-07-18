@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80364220(void);
+void alloc_and_init_object_b4__10TObjPlayerFv(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 void *run_and_return_arg__10TObjPlayerFi(void *);
 
 extern void *lbl_805D6FB8;
 
-void TObjPlayer__sub_80364220(void) {
+void alloc_and_init_object_b4__10TObjPlayerFv(void) {
     void *o;
 
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0xB4);

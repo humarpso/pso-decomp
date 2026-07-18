@@ -8,7 +8,7 @@ extern "C" {
 
 s32 get_max_stat_flags__8TItemMagFi(s32 arg0);
 s16 fn_80113DA0(s32);
-s16 fn_80113DC4(s32);
+s16 get_mag_level(s32);
 s16 fn_80113DE8();
 M2C_UNK fn_80113E0C(s32);
 
@@ -22,7 +22,7 @@ s32 get_max_stat_flags__8TItemMagFi(s32 arg0) {
 
     var_r31 = 0;
     temp_r30 = fn_80113DE8();
-    temp_r29 = fn_80113DC4(arg0);
+    temp_r29 = get_mag_level(arg0);
     temp_r28 = fn_80113DA0(arg0);
     fn_80113E0C(arg0);
     if ((temp_r29 < temp_r30) && (temp_r28 < temp_r30)) {

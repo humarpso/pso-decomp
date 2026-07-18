@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_shield_ready__10TObjPlayerFi(s32 arg0);
-void *TObjPlayer__sub_801269EC(void *arg0);
+void *init_vtable_and_flags__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK TObjPlayer__sub_80120908(s32);
 M2C_UNK TObjPlayer__sub_80120BBC(s32, M2C_UNK);
@@ -27,7 +27,7 @@ void update_shield_ready__10TObjPlayerFi(s32 arg0) {
 
 extern M2C_UNK lbl_804A2B98[];
 
-void *TObjPlayer__sub_801269EC(void *arg0) {
+void *init_vtable_and_flags__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2B98;
     set_status_flags__10TObjPlayerFPvUi(arg0, 577);

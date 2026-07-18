@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss7Crawfish__sub_8030880C(s32 arg0, s32 arg1);
+void spawn_effect__14TBoss7CrawfishFii(s32 arg0, s32 arg1);
 M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 
-void TBoss7Crawfish__sub_8030880C(s32 arg0, s32 arg1) {
+void spawn_effect__14TBoss7CrawfishFii(s32 arg0, s32 arg1) {
     TBoss3Volopt__sub_8022675C(arg1, arg0 + 0x38, 0, 0);
 }
 

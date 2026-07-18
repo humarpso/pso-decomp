@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TTecLuker__sub_80233DF4(int arg0, s32 arg1);
+void create_for_player__9TTecLukerFii(int arg0, s32 arg1);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK create__9TTecLukerFPvPvPvPv(s32, s32, s32, M2C_UNK);
 
-void TTecLuker__sub_80233DF4(int arg0, s32 arg1) {
+void create_for_player__9TTecLukerFii(int arg0, s32 arg1) {
     u32 r = TPlayerBattleCtrl4P__sub_801BA74C((u16)arg0);
     if (r != 0U) {
         create__9TTecLukerFPvPvPvPv(r, arg1, arg1, 0xA);

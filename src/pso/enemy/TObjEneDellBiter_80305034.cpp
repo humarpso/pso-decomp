@@ -30,7 +30,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
-M2C_UNK TObjEneDellBiter__sub_80305684(void *);
+M2C_UNK noop__16TObjEneDellBiterFv(void *);
 M2C_UNK TObjEneDellBiter__sub_803058DC(void *);
 M2C_UNK TObjEneDellBiter__sub_8030591C(void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -80,7 +80,7 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
             }
             TObjEneDellBiter__sub_8030591C((void *) (arg0));
             TObjEneDD__sub_800BACE0((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DF014));
-            TObjEneDellBiter__sub_80305684((void *) (arg0));
+            noop__16TObjEneDellBiterFv((void *) (arg0));
             break;
         case 1:
             TObjEneDellBiter__sub_803058DC((void *) (arg0));

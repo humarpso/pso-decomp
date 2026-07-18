@@ -8,15 +8,15 @@ extern "C" {
 
 void update_press__17TWindowSubComCardFv(void);
 s32 TWindowSubComCard__sub_8007A8F8();
-s32 TWindowSubComCard__sub_8007BD94();
-M2C_UNK TWindowSubComCard__sub_8007BF48(s32);
+s32 scroll_list__17TWindowSubComCardFi();
+M2C_UNK select_card_entry__17TWindowSubComCardFi(s32);
 
 void update_press__17TWindowSubComCardFv(void) {
     s32 temp_r31;
 
     temp_r31 = TWindowSubComCard__sub_8007A8F8();
-    if (TWindowSubComCard__sub_8007BD94() == 0) {
-        TWindowSubComCard__sub_8007BF48(temp_r31);
+    if (scroll_list__17TWindowSubComCardFi() == 0) {
+        select_card_entry__17TWindowSubComCardFi(temp_r31);
     }
 }
 

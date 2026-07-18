@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0);
-f64 TObjPlayer__sub_80019760(f32, f32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32, f32);
 
@@ -18,7 +18,7 @@ void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0) {
     f32 temp_f1;
     s32 temp_r31;
 
-    temp_r31 = (s32) (lbl_80446F68 * TObjPlayer__sub_80019760(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 8)));
+    temp_r31 = (s32) (lbl_80446F68 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 8)));
     temp_f1 = farg0 * TBoss8Dragon__sub_803D64C0(temp_r31);
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;
     M2C_FIELD(arg1, f32 *, 4) = (f32) TObjPlayer__data_805DC278;

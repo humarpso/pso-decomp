@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_803CBF50(void);
-void TLobby__sub_803CBF70(void);
+void trigger_sub_task__6TLobbyFv(void);
 void TLobby__sub_803CBF90(void);
 void TLobby__sub_803CBFB0(void);
-void TLobby__sub_803CBFD0(void);
+void run_sequence__6TLobbyFv(void);
 void TLobby__sub_803CBFF0(void);
-void TLobby__sub_803CC010(void);
+void query_available_size__6TLobbyFv(void);
 void TLobby__sub_803CC030(void);
-void TLobby__sub_803CC050(void);
+void dispatch_packet__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803D4448();
 M2C_UNK TLobby__sub_803D4540();
 M2C_UNK TLobby__sub_803D4654();
@@ -29,7 +29,7 @@ void TLobby__sub_803CBF50(void) {
     TLobby__sub_803D4448();
 }
 
-void TLobby__sub_803CBF70(void) {
+void trigger_sub_task__6TLobbyFv(void) {
     TLobby__sub_803D4540();
 }
 
@@ -41,7 +41,7 @@ void TLobby__sub_803CBFB0(void) {
     TLobby__sub_803D4704();
 }
 
-void TLobby__sub_803CBFD0(void) {
+void run_sequence__6TLobbyFv(void) {
     TLobby__sub_803D4714();
 }
 
@@ -49,7 +49,7 @@ void TLobby__sub_803CBFF0(void) {
     get_packet_size__6TLobbyFPv();
 }
 
-void TLobby__sub_803CC010(void) {
+void query_available_size__6TLobbyFv(void) {
     get_available_size__6TLobbyFPv();
 }
 
@@ -57,7 +57,7 @@ void TLobby__sub_803CC030(void) {
     TLobby__sub_803D4CA0();
 }
 
-void TLobby__sub_803CC050(void) {
+void dispatch_packet__6TLobbyFv(void) {
     TLobby__sub_803D504C();
 }
 

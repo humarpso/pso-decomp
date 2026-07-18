@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TWindowTimer__sub_801993B0(void *arg0, s16 arg1);
+void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1);
 void TWindowTimer__sub_8019A770();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_804B8E00[];
 
-void *TWindowTimer__sub_801993B0(void *arg0, s16 arg1) {
+void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B8E00;
         TWindowTimer__sub_8019A770();

@@ -10,7 +10,7 @@ void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1);
 M2C_UNK reset_ring_state__9TItemLoadFPv(s32);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK fn_8023E700(void *, void *);
+M2C_UNK free_texture_if_valid(void *, void *);
 
 extern M2C_UNK lbl_8049F3F4[];
 extern s32 lbl_805D549C;
@@ -33,7 +33,7 @@ void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1) {
         }
         temp_r3 = M2C_FIELD(arg0, void ***, 0x3C);
         if ((temp_r3 != NULL) && ((u32) M2C_FIELD(*temp_r3, u32 *, 8) != 0U)) {
-            fn_8023E700(temp_r3, *temp_r3);
+            free_texture_if_valid(temp_r3, *temp_r3);
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

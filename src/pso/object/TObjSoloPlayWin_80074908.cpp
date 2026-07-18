@@ -8,11 +8,11 @@ extern "C" {
 
 void start_win_timer__15TObjSoloPlayWinFPv(void *arg0);
 s32 fn_80074724(void *);
-s32 fn_800747C4();
+s32 fn_can_show_solo_win_screen();
 M2C_UNK fn_8007483C(void *);
 
 void start_win_timer__15TObjSoloPlayWinFPv(void *arg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U) && (fn_800747C4() != 0) && (fn_80074724(arg0) != 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U) && (fn_can_show_solo_win_screen() != 0) && (fn_80074724(arg0) != 0)) {
         fn_8007483C(arg0);
         M2C_FIELD(arg0, s32 *, 0x24) = 0x12C;
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;

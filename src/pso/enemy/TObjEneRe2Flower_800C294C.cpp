@@ -47,7 +47,7 @@ M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800C3A5C(void *, s32);
+M2C_UNK noop__9TObjEneDDFv(void *, s32);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK fn_800C3A60(void *, M2C_UNK);
@@ -80,7 +80,7 @@ void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1) {
         TBoss1Dragon__sub_80143504();
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x410);
         M2C_FIELD(arg0, s32 *, 0x410) = (s32) (temp_r4 + 1);
-        TObjEneDD__sub_800C3A5C(arg0, temp_r4);
+        noop__9TObjEneDDFv(arg0, temp_r4);
         return;
     case 5:
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFFD);

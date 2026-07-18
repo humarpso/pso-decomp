@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe3Stelth__sub_800F0AE4(void);
+void destroy_resources__16TObjEneMe3StelthFv(void);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 lbl_805D52F8;
 
-void TObjEneMe3Stelth__sub_800F0AE4(void) {
+void destroy_resources__16TObjEneMe3StelthFv(void) {
     if ((u32) lbl_805D52F8 != 0U) {
         TLobby__sub_803DA16C((void*)lbl_805D52F8);
         safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D52F8);

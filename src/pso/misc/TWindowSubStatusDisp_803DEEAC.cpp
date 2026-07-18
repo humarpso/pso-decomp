@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_803DEEAC(void);
+void get_player__20TWindowSubStatusDispFv(void);
 M2C_UNK TObjPlayer__sub_803E2248();
 
-void TWindowSubStatusDisp__sub_803DEEAC(void) {
+void get_player__20TWindowSubStatusDispFv(void) {
     TObjPlayer__sub_803E2248();
 }
 

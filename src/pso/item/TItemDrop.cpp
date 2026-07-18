@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemDrop__sub_8007C520(s32 arg0);
+s32 run_step__9TItemDropFi(s32 arg0);
 
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C48C();
 
-s32 TItemDrop__sub_8007C520(s32 arg0) {
+s32 run_step__9TItemDropFi(s32 arg0) {
     TAdSinglePlyChrSelectGC__sub_8007C48C();
     return arg0;
 }

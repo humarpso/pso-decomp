@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TLobby__sub_803A2CEC(void);
-f32 TLobby__sub_803A2D10(void);
+f32 get_com_card_value__6TLobbyFv(void);
+f32 stop_end_text__6TLobbyFv(void);
 f32 TLobby__sub_803A2D34(void);
-f32 TLobby__sub_803A2D58(void);
+f32 get_angle_as_float__6TLobbyFv(void);
 f32 TLobby__sub_803A2D7C(void);
 f64 stop__10TAdEndTextFv();
 f64 TLobby__sub_803A2410();
@@ -17,11 +17,11 @@ f64 TWindowSubComCard__sub_803A24E4();
 f64 TLobby__sub_803A2AFC();
 f64 fn_803A2BD4();
 
-f32 TLobby__sub_803A2CEC(void) {
+f32 get_com_card_value__6TLobbyFv(void) {
     return (f32) TWindowSubComCard__sub_803A24E4();
 }
 
-f32 TLobby__sub_803A2D10(void) {
+f32 stop_end_text__6TLobbyFv(void) {
     return (f32) stop__10TAdEndTextFv();
 }
 
@@ -29,7 +29,7 @@ f32 TLobby__sub_803A2D34(void) {
     return (f32) fn_803A2BD4();
 }
 
-f32 TLobby__sub_803A2D58(void) {
+f32 get_angle_as_float__6TLobbyFv(void) {
     return (f32) TLobby__sub_803A2AFC();
 }
 

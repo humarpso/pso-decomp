@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TBoss8Dragon__sub_80065F14(void);
+int get_instance_count__12TBoss8DragonFv(void);
 
     extern int lbl_805D4DBC;
-int TBoss8Dragon__sub_80065F14(void) {  return lbl_805D4DBC; }
+int get_instance_count__12TBoss8DragonFv(void) {  return lbl_805D4DBC; }
 
 }

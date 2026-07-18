@@ -10,7 +10,7 @@ void render_status_pair__20TWindowSubStatusDispFii(s32 arg0, s32 arg1);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TWindowSubComCard__sub_803DEECC(s32, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_803DEEAC();
+M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, s32);
 
 extern s32 lbl_805D6668;
@@ -21,12 +21,12 @@ void render_status_pair__20TWindowSubStatusDispFii(s32 arg0, s32 arg1) {
     set_global_param__8TObjFishFi(lbl_805D6668);
     TWindowSubStatusDisp__sub_803DF160(0, arg1);
     TWindowSubComCard__sub_803DEECC(arg0 + 0x1C, lbl_805DDF88);
-    TWindowSubStatusDisp__sub_803DEEAC();
+    get_player__20TWindowSubStatusDispFv();
     TWindowSubStatusDisp__sub_803DEE6C(1);
     set_global_param__8TObjFishFi(lbl_805D6668);
     TWindowSubStatusDisp__sub_803DF160(0, arg1);
     TWindowSubComCard__sub_803DEECC(arg0 + 0x3C, lbl_805DDF88);
-    TWindowSubStatusDisp__sub_803DEEAC();
+    get_player__20TWindowSubStatusDispFv();
 }
 
 }

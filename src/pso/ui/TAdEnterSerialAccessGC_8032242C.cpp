@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TAdEnterSerialAccessGC__sub_8032242C(void* p);
+void set_state_3__22TAdEnterSerialAccessGCFPv(void* p);
 
-void TAdEnterSerialAccessGC__sub_8032242C(void* p) { *(s32*)((char*)p + 0x700) = 3; }
+void set_state_3__22TAdEnterSerialAccessGCFPv(void* p) { *(s32*)((char*)p + 0x700) = 3; }
 
 }

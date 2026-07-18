@@ -9,27 +9,27 @@ extern "C" {
 s32 TLobby__sub_803C9740(u8 *arg0);
 s32 apply_if_v2__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803C97B8(u8 *arg0);
-s32 TLobby__sub_803BFF0C(int);
-s32 TLobby__sub_803BFF78(int);
-s32 TLobby__sub_803BFF9C(int);
+s32 send_packet_by_id__6TLobbyFPv(int);
+s32 send_with_offset4__6TLobbyFPv(int);
+s32 notify_field_4__6TLobbyFPv(int);
 
 s32 TLobby__sub_803C9740(u8 *arg0) {
     if ((s8) M2C_FIELD(arg0, u8 *, 1) >= 2) {
-        return TLobby__sub_803BFF78((int) (M2C_FIELD(arg0, s32 *, 4)));
+        return send_with_offset4__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
     }
     return 0;
 }
 
 s32 apply_if_v2__6TLobbyFPv(u8 *arg0) {
     if ((s8) M2C_FIELD(arg0, u8 *, 1) >= 2) {
-        return TLobby__sub_803BFF9C((int) (M2C_FIELD(arg0, s32 *, 4)));
+        return notify_field_4__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
     }
     return 0;
 }
 
 s32 TLobby__sub_803C97B8(u8 *arg0) {
     if ((s8) M2C_FIELD(arg0, u8 *, 1) >= 2) {
-        return TLobby__sub_803BFF0C((int) (M2C_FIELD(arg0, s32 *, 4)));
+        return send_packet_by_id__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
     }
     return 0;
 }

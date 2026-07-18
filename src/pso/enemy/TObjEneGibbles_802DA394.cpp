@@ -15,7 +15,7 @@ struct GibVObj_802da394 : GibBase_802da394 {
 
 extern "C" {
 
-void TObjEneGibbles__sub_802DA394(u8 *arg0);
+void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(int);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TObjEneGibbles__sub_800D8988(void *);
@@ -33,7 +33,7 @@ extern const f32 TObjEneGibbles__data_805DE830;
 extern const f32 lbl_805DE868;
 extern const f32 lbl_805DE86C;
 
-void TObjEneGibbles__sub_802DA394(u8 *arg0) {
+void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0) {
     f32 temp_f2;
     f32 temp_f2_2;
     s16 temp_r0;

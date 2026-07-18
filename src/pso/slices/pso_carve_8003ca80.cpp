@@ -6,13 +6,13 @@ extern "C" {
 
 void bswap_actions__12TBoss3VoloptFPv(void *);
 extern M2C_UNK lbl_804FEE74[];
-void TLobby__sub_803DE778(void *, void *, int);
+void move_data__6TLobbyFv(void *, void *, int);
 extern u32 lbl_805D4C44;
 void TCameraCtrl__sub_8003CFFC(int);
 
 void handle_6x84_vol_opt_boss_actions(void *arg0) {
     bswap_actions__12TBoss3VoloptFPv(arg0);
-    TLobby__sub_803DE778(lbl_804FEE74, (void *)((char *)arg0 + 4), 6);
+    move_data__6TLobbyFv(lbl_804FEE74, (void *)((char *)arg0 + 4), 6);
     lbl_805D4C44 = M2C_FIELD(arg0, s16 *, 0xC);
     TCameraCtrl__sub_8003CFFC(M2C_FIELD(arg0, s16 *, 0xA));
 }

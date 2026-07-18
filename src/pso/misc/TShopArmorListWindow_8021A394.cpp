@@ -26,7 +26,7 @@ extern "C" {
 void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
 void TShopArmorListWindow__vt4(void *arg0);
 void TShopArmorListWindow__vt5(void *arg0);
-M2C_UNK TShopEquipmentSellWindow__sub_803094E8(void *a, s32 b);
+M2C_UNK get_item_count__24TShopEquipmentSellWindowFPv(void *a, s32 b);
 
 void TShopArmorListWindow__vt5(void *arg0) {
     struct VObj_8021A394 *o = (struct VObj_8021A394 *)M2C_FIELD(arg0, void **, 0x28);
@@ -47,7 +47,7 @@ void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1) {
     if (r3 != 0) {
         s32 r4 = M2C_FIELD(arg1, s32 *, 0x10);
         if (r4 > 0) {
-            TShopEquipmentSellWindow__sub_803094E8(r3, r4);
+            get_item_count__24TShopEquipmentSellWindowFPv(r3, r4);
         }
     }
 }

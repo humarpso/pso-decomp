@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 play_particle_at_active_slot__10TObjPlayerFiiiiii(u8, u8, s32, s32, s32, s32);
-int TParticleCtrl__sub_803280C8(void* p);
+int get_object__13TParticleCtrlFPv(void* p);
 void reset_ind_tev_stages__13TParticleCtrlFv(void);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);

@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int TShopEquipmentSellWindow__sub_803094E8(void* p);
+int get_item_count__24TShopEquipmentSellWindowFPv(void* p);
 void run_task__11TWindowCostFv(void* p);
 f32 get_health__14TBoss7CrawfishFPv(void* p);
 void set_anim_timer__14TBoss7CrawfishFPvs(void* p, s16 v);
@@ -17,7 +17,7 @@ int initialize_subwindow__9TWindowDDFPv(void*);
 int TWindowSubStatusDisp__sub_80257C28(void*, void*);
 int fn_80269078(void*);
 
-int TShopEquipmentSellWindow__sub_803094E8(void* p) { return fn_80269078(p); }
+int get_item_count__24TShopEquipmentSellWindowFPv(void* p) { return fn_80269078(p); }
 void run_task__11TWindowCostFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
 
 }

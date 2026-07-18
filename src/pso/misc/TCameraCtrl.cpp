@@ -3,7 +3,7 @@
 extern "C" {
 
 int get_instance__11TCameraCtrlFv(void);
-int TCameraCtrl__sub_8006B338(void);
+int get_camera_id__11TCameraCtrlFv(void);
 void set_target__11TCameraCtrlFii(int a0, int a1);
 void set_target_coords__11TCameraCtrlFii(int a0, int a1);
 u16 TCameraCtrl__sub_8006B358(void* p);
@@ -14,7 +14,7 @@ int TCameraCtrl__sub_8006B368(void);
 int get_instance__11TCameraCtrlFv(void) {  return lbl_805D34B8; }
 
     extern int lbl_805D4E04;
-int TCameraCtrl__sub_8006B338(void) {  return lbl_805D4E04; }
+int get_camera_id__11TCameraCtrlFv(void) {  return lbl_805D4E04; }
 
     extern short TCameraCtrl__data_805D2838;
     extern short TCameraCtrl__data_805D283A;

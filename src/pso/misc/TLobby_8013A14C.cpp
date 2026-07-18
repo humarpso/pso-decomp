@@ -2,12 +2,12 @@
 
 extern "C" {
 
-int TLobby__sub_8013A14C(void* p);
+int get_seq_phase__6TLobbyFPv(void* p);
 void TLobby__sub_8013A16C(void);
 void TLobby__sub_8013A170(s32 arg0, ...);
 int fn_8013ADD0(void*);
 
-int TLobby__sub_8013A14C(void* p) { return fn_8013ADD0(p); }
+int get_seq_phase__6TLobbyFPv(void* p) { return fn_8013ADD0(p); }
 void TLobby__sub_8013A16C(void) {  }
 void TLobby__sub_8013A170(s32 arg0, ...) {}
 

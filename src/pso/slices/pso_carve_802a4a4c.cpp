@@ -13,7 +13,7 @@ M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 int queue_destruction__7TObjectFv(void*);
 
 int TNeedleShoot__sub_802A4A4C(void) { return 0; }
-void TNeedleShoot__sub_802A4A7C(u8 *arg0) {
+void init_velocity__12TNeedleShootFPv(u8 *arg0) {
     if (get_global_state__14TOKeyMachine01Fv() == 0x22) {
         TBoss3Volopt__sub_8022675C((int) (0x4003B20E), (void *) (arg0 + 0x6C), (int) (0), (int) (0));
     } else {

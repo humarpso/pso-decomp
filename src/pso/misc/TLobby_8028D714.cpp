@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TLobby__sub_8028D714(void* p);
+int start_load_default__6TLobbyFPv(void* p);
 int TLobby__sub_8028D628(void*, int);
 
-int TLobby__sub_8028D714(void* p) { return TLobby__sub_8028D628(p, 0); }
+int start_load_default__6TLobbyFPv(void* p) { return TLobby__sub_8028D628(p, 0); }
 
 }

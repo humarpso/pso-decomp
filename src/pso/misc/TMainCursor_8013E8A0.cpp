@@ -48,10 +48,10 @@ s16 TMainCursor__sub_8013E920(void* p);
 void TMainCursor__sub_8013E928(void* p, s16 v);
 void TMainCursor__sub_8013E930(void* p, s16 v);
 u16 get_target_id__11TMainCursorFPv(void* p);
-int TMainCursor__sub_8013E940(void* p);
+int is_cursor_clear__11TMainCursorFPv(void* p);
 void set_color_mode__11TMainCursorFPvi(void* p, s32 v);
 void set_color__11TMainCursorFPvi(void* p, s32 v);
-void TMainCursor__sub_8013E990(void* p, s32 v);
+void set_field_0c__11TMainCursorFPvi(void* p, s32 v);
 void set_flags__11TMainCursorFPvi(void* p, s32 v);
 int TMainCursor__sub_8013E9A0(void* p);
 int TMainCursor__sub_8013E9C0(void* p);
@@ -85,6 +85,6 @@ s16 TMainCursor__sub_8013E920(void* p) { return *(s16*)((char*)p + 0x2); }
 void TMainCursor__sub_8013E928(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 void TMainCursor__sub_8013E930(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 u16 get_target_id__11TMainCursorFPv(void* p) { return *(u16*)((char*)p + 0x20); }
-int TMainCursor__sub_8013E940(void* p) { return (TObjPlayer__sub_8001BEF8((char*)p + 0x1c, 1)) == 0; }
+int is_cursor_clear__11TMainCursorFPv(void* p) { return (TObjPlayer__sub_8001BEF8((char*)p + 0x1c, 1)) == 0; }
 
 }

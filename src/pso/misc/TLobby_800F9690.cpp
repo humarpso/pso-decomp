@@ -10,7 +10,7 @@ u32 write_packet_header__6TLobbyFPviiUi(u8 *arg0, s32 arg1, s32 arg2, u32 arg3);
 s32 alloc_download_quest__6TLobbyFPviPv(u8 *arg0, s32 arg1, s32 *arg2);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C378(M2C_UNK *, void *, s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C48C(M2C_UNK *, s32);
-M2C_UNK TLobby__sub_8007C550(M2C_UNK *);
+M2C_UNK init_single_player_chr_select__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TLobby__sub_800F7DAC(void *, s32);
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 
@@ -23,7 +23,7 @@ u32 write_packet_header__6TLobbyFPviiUi(u8 *arg0, s32 arg1, s32 arg2, u32 arg3) 
     if (v0 > arg3) {
         return 0U;
     }
-    TLobby__sub_8007C550((M2C_UNK *)&sp8);
+    init_single_player_chr_select__6TLobbyFPv((M2C_UNK *)&sp8);
     TAdSinglePlyChrSelectGC__sub_8007C48C((M2C_UNK *)&sp8, v4);
     TAdSinglePlyChrSelectGC__sub_8007C378((M2C_UNK *)&sp8, arg0 + 8, arg1 - 8);
     TLobby__sub_800F7DAC(arg0 + 8, arg2);
@@ -41,7 +41,7 @@ s32 alloc_download_quest__6TLobbyFPviPv(u8 *arg0, s32 arg1, s32 *arg2) {
     if (ret == 0) {
         return 0;
     }
-    TLobby__sub_8007C550((M2C_UNK *)&sp8);
+    init_single_player_chr_select__6TLobbyFPv((M2C_UNK *)&sp8);
     TAdSinglePlyChrSelectGC__sub_8007C48C((M2C_UNK *)&sp8, v4);
     TAdSinglePlyChrSelectGC__sub_8007C378((M2C_UNK *)&sp8, arg0 + 8, arg1 - 8);
     TLobby__sub_800F7DAC(arg0 + 8, ret);

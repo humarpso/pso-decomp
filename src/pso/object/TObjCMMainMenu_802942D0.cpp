@@ -4,11 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void * TObjCMMainMenu__sub_802942D0(void *arg0, void *arg1);
+void * create_fade_effect__14TObjCMMainMenuFPvPv(void *arg0, void *arg1);
 void *__ct__12TChCrEffFadeFv(void *, int, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-void * TObjCMMainMenu__sub_802942D0(void *arg0, void *arg1) {
+void * create_fade_effect__14TObjCMMainMenuFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {

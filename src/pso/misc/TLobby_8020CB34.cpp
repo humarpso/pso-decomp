@@ -8,7 +8,7 @@ extern "C" {
 
 s32 spawn_objects_at_pos__6TLobbyFss(s16 arg0, s16 arg1);
 u8 *TLobby__sub_8020D054(void *);
-u8 *TLobby__sub_8020B354(s32);
+u8 *get_object_count__6TLobbyFPv(s32);
 s32 get_obj_table_entry__6TLobbyFi(s32);
 
 struct VObj8020 {
@@ -32,7 +32,7 @@ s32 spawn_objects_at_pos__6TLobbyFss(s16 arg0, s16 arg1) {
     u8 *temp_r3_2;
 
     var_r30 = 0;
-    var_r29 = TLobby__sub_8020B354(TLobby__data_805D60FC);
+    var_r29 = get_object_count__6TLobbyFPv(TLobby__data_805D60FC);
     temp_r31 = get_obj_table_entry__6TLobbyFi(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < temp_r31; var_r28++, var_r29 += 0x44) {
         temp_r3 = M2C_FIELD(var_r29, s16 *, 2);

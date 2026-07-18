@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
-s32 TCameraCtrl__sub_8006B338();
+s32 get_camera_id__11TCameraCtrlFv();
 s32 TItemData__sub_8010C52C(void *);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
@@ -29,7 +29,7 @@ void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 a
     TWindowSubStatusDisp__sub_802586FC(arg0, temp_r31, M2C_FIELD(arg1, u8 *, 0), M2C_FIELD(arg1, u8 *, 1), TItemData__sub_8010C52C(arg1));
     forward_message__6TLobbyFiUi(TLobby__sub_8001DC24(), arg1);
     M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
-    if (TCameraCtrl__sub_8006B338() <= 2) {
+    if (get_camera_id__11TCameraCtrlFv() <= 2) {
         TWindowSubStatusDisp__sub_802290E0();
         TWindowSubStatusDisp__sub_80228F5C(M2C_FIELD(arg1, s32 *, 0x10));
         M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);

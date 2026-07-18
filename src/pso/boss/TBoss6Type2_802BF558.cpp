@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TBoss6Type2__sub_802BF558(u8 *arg0);
+void start_death_sequence__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 M2C_UNK TBoss6Type2__sub_802B9BBC(int, int);
 s32 TBoss6Type2__sub_802B9C00(void *, s32);
@@ -25,7 +25,7 @@ s32 update_zako__11TBoss6Type2FPv(void *);
 #include "types.h"
 extern "C" {
 
-void TBoss6Type2__sub_802BF558(u8 *arg0) {
+void start_death_sequence__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     u8 *temp_r31;

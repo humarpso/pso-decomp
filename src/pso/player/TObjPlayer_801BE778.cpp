@@ -29,11 +29,11 @@ u8 get_mag_level__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE7B4(void* p, u8 v);
 int TObjPlayer__sub_801BE7BC(void* p);
 void TObjPlayer__sub_801BE7E0(void* p, u8 v);
-int TObjPlayer__sub_801BE7E8(void* p);
+int get_equip_flags__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE80C(void* p, u8 v);
-int TObjPlayer__sub_801BE814(void* p);
+int get_inventory_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE838(void* p, u8 v);
-int TObjPlayer__sub_801BE840(void* p);
+int get_field_374_state__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int get_field_374__10TObjPlayerFPv(void* p);
 void set_move_mode__10TObjPlayerFPvi(void* p, s32 v);
@@ -45,7 +45,7 @@ int is_status_flag_200__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEABC(void* p);
 int start_freeze_self__10TObjPlayerFPv(void* p);
 void set_floor__10TObjPlayerFPvi(void* p, s32 v);
-void TObjPlayer__sub_801BEB04(void* p, s32 v);
+void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 int unregister_sub__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BEB34(void* p, s32 v);
@@ -60,7 +60,7 @@ int query_field374__10TObjPlayerFPv(void* p);
 u8 TObjPlayer__sub_801BEBB8(void* p);
 int query_flags_374__10TObjPlayerFPv(void* p);
 u8 TObjPlayer__sub_801BEBE4(void* p);
-int TObjPlayer__sub_801BEBEC(void* p);
+int get_quest_status__10TObjPlayerFPv(void* p);
 u8 TObjPlayer__sub_801BEC10(void* p);
 int get_field_0x374__10TObjPlayerFPv(void* p);
 u8 TObjPlayer__sub_801BEC3C(void* p);
@@ -92,11 +92,11 @@ u8 get_mag_level__10TObjPlayerFPv(void* p) { return *(u8*)((char*)p + 0x338); }
 void TObjPlayer__sub_801BE7B4(void* p, u8 v) { *(u8*)((char*)p + 0x293) = v; }
 int TObjPlayer__sub_801BE7BC(void* p) { return TObjPlayer__sub_801BED70((char*)p + 0x374); }
 void TObjPlayer__sub_801BE7E0(void* p, u8 v) { *(u8*)((char*)p + 0x277) = v; }
-int TObjPlayer__sub_801BE7E8(void* p) { return TObjPlayer__sub_801BED78((char*)p + 0x374); }
+int get_equip_flags__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801BED78((char*)p + 0x374); }
 void TObjPlayer__sub_801BE80C(void* p, u8 v) { *(u8*)((char*)p + 0x25b) = v; }
-int TObjPlayer__sub_801BE814(void* p) { return TObjPlayer__sub_801BED80((char*)p + 0x374); }
+int get_inventory_state__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801BED80((char*)p + 0x374); }
 void TObjPlayer__sub_801BE838(void* p, u8 v) { *(u8*)((char*)p + 0x23f) = v; }
-int TObjPlayer__sub_801BE840(void* p) { return TObjPlayer__sub_801BED88((char*)p + 0x374); }
+int get_field_374_state__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801BED88((char*)p + 0x374); }
 void TObjPlayer__sub_801BE864(void* p, u8 v) { *(u8*)((char*)p + 0x223) = v; }
 int get_field_374__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801BED90((char*)p + 0x374); }
 

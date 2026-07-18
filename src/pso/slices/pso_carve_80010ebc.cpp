@@ -21,7 +21,7 @@ void fn_80010EBC(void) {  }
 void fn_80010EC0(void) {  }
 void fn_80010EC4(void) {  }
 void fn_80010EC8(void) {  }
-void fn_80010ECC(void *arg0, s32 arg1) {
+void fn_assign_slots_from_list(void *arg0, s32 arg1) {
     s32 var_r31;
 
     if (arg1 != 0) {

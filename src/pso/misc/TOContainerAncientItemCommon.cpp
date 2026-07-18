@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK TObjContainerItem__sub_80189C90(void *, void *);
+M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -40,7 +40,7 @@ void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((struct VObj_8015C098 *) arg0)->m77();
-            TObjContainerItem__sub_80189C90(arg0, arg0);
+            spawn_item__17TObjContainerItemFPvi(arg0, arg0);
         }
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
         set_flag8__6TLobbyFPv(arg0);

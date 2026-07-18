@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void clear_next_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
-M2C_UNK TObjPlayer__sub_80142BDC();
+M2C_UNK serialize_node_flags__10TObjPlayerFPv();
 
 extern u8 *lbl_805D5684;
 
 void clear_next_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
     lbl_805D5684 = arg1;
-    TObjPlayer__sub_80142BDC();
+    serialize_node_flags__10TObjPlayerFPv();
     lbl_805D5684 += 8;
     M2C_FIELD(lbl_805D5684, s32 *, 0) = 0;
 }

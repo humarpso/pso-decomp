@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK __dl__FPv(void *);
-M2C_UNK fn_8023E700(void *);
+M2C_UNK free_texture_if_valid(void *);
 s32 is_unloaded__12TChCrLoadAfsFPv();
 
 struct SubBase { char pad[0x18]; };
@@ -26,19 +26,19 @@ u8 *free_chcr_resources(u8 *arg0, s16 arg1) {
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x54) != 0) {
             if (!(M2C_FIELD(arg0, s32 *, 0x4A8) & 1)) {
-                fn_8023E700((void *) (arg0 + 0x1B8));
+                free_texture_if_valid((void *) (arg0 + 0x1B8));
             }
             M2C_FIELD(arg0, s32 *, 0x54) = 0;
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1C0) != 0) {
             if (!(M2C_FIELD(arg0, s32 *, 0x4A8) & 2)) {
-                fn_8023E700((void *) (arg0 + 0x324));
+                free_texture_if_valid((void *) (arg0 + 0x324));
             }
             M2C_FIELD(arg0, s32 *, 0x1C0) = 0;
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x32C) != 0) {
             if (!(M2C_FIELD(arg0, s32 *, 0x4A8) & 4)) {
-                fn_8023E700((void *) (arg0 + 0x490));
+                free_texture_if_valid((void *) (arg0 + 0x490));
             }
             M2C_FIELD(arg0, s32 *, 0x32C) = 0;
         }

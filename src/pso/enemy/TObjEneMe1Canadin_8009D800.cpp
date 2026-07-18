@@ -49,7 +49,7 @@ M2C_UNK advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
 s32 TObjEneMe1CanadinLeader__sub_8009E31C(void *, M2C_UNK);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E4AC(void *, M2C_UNK);
-M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
+M2C_UNK noop__17TObjEneMe1CanadinFv(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK update_move__17TObjEneMe1CanadinFPv(void *);
 
@@ -117,7 +117,7 @@ void move__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
             break;
         }
         ((VObj18D *) arg0)->vf164();
-        TObjEneMe1Canadin__sub_8009E6B0(arg0);
+        noop__17TObjEneMe1CanadinFv(arg0);
         break;
     }
 }

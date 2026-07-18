@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowMessageLog__sub_8026A3CC(void);
+s32 get_active_photon_object__17TWindowMessageLogFv(void);
 s32 TObjPlayer__sub_80019248(s32);
 s32 TPhotonMylla__sub_80154CB4();
 s32 obj_isState2_324();
 
-s32 TWindowMessageLog__sub_8026A3CC(void) {
+s32 get_active_photon_object__17TWindowMessageLogFv(void) {
     s32 temp_r3;
     s32 var_r3;
 

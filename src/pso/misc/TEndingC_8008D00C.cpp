@@ -9,7 +9,7 @@ extern "C" {
 void render__8TEndingCFv(u8 *arg0);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_803DEEAC();
+M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, s32, f32);
 
@@ -26,7 +26,7 @@ void render__8TEndingCFv(u8 *arg0) {
     TWindowSubComCard__sub_803DEECC(arg0 + 0x50, lbl_805D95C4);
     TWindowSubStatusDisp__sub_803DF160(0, ((s32) (lbl_805D95C0 * M2C_FIELD(arg0, f32 *, 0x2C)) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
     TWindowSubComCard__sub_803DEECC(arg0 + 0x70, lbl_805D95C8);
-    TWindowSubStatusDisp__sub_803DEEAC();
+    get_player__20TWindowSubStatusDispFv();
 }
 
 }

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TWindowSubStatusDisp__sub_8025B784(void *arg0, s16 arg1);
+void *destroy_free_buffers__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
 M2C_UNK deleting_destructor__20TWindowSubStatusDispFPvs(void *, M2C_UNK);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
 extern M2C_UNK lbl_804CFA58[];
 
-void *TWindowSubStatusDisp__sub_8025B784(void *arg0, s16 arg1) {
+void *destroy_free_buffers__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 4) = lbl_804CFA58;
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x20));

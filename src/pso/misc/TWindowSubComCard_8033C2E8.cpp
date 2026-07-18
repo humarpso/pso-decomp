@@ -15,7 +15,7 @@ int TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
 void render__16TCheckMemoryCardFv(void);
-int TWindowSubComCard__sub_8033BC34(void*, int, int, int, int);
+int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
 int TWindowSubComCard__sub_8033BF90(void*);
 
 void update_display_state__17TWindowSubComCardFPv(void *arg0) {
@@ -25,7 +25,7 @@ void update_display_state__17TWindowSubComCardFPv(void *arg0) {
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U) {
-                TWindowSubComCard__sub_8033BC34((void*)(arg0), 0, -1, -1, -1);
+                update_card_display__17TWindowSubComCardFPvPvPvPvPv((void*)(arg0), 0, -1, -1, -1);
             }
         } else {
             if (temp_r4 & 4) {

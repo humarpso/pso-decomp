@@ -10,7 +10,7 @@ u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
 s32 TLanguage__sub_801E4AF0();
 u16 TLanguage__sub_801E4B40();
-M2C_UNK TLobby__sub_803DE778(s32, s32, s32);
+M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
 M2C_UNK bswap_16__FPUs(void *);
 M2C_UNK bswap_32__FPUl(void *);
 
@@ -31,7 +31,7 @@ u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
 extern s32 lbl_805D5E58;
 
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1) {
-    TLobby__sub_803DE778(arg0, lbl_805D5E58, arg1);
+    move_data__6TLobbyFv(arg0, lbl_805D5E58, arg1);
     lbl_805D5E58 += arg1;
 }
 

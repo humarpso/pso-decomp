@@ -87,12 +87,12 @@ struct CE4C_VObj_8020ce4c : CE4C_VBase_8020ce4c {
 
 extern "C" {
 
-void TLobby__sub_8020CE4C(u8 *arg0, s32 arg1);
+void assign_display_objects__6TLobbyFPvi(u8 *arg0, s32 arg1);
 u8 *TLobby__sub_8020CCF4(void *);
 
 extern s32 TLobby__data_805D6144;
 
-void TLobby__sub_8020CE4C(u8 *arg0, s32 arg1) {
+void assign_display_objects__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     s16 temp_r3;
     s16 temp_r0;
     u8 *ptr;

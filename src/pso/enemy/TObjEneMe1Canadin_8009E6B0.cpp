@@ -8,11 +8,11 @@ extern "C" {
 
 s32 TObjEneDD__sub_800BBA18(void * a0 = 0, s32 a1 = 0);
 int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p);
-void TObjEneMe1Canadin__sub_8009E6B0(void);
+void noop__17TObjEneMe1CanadinFv(void);
 void TObjEneMe1Canadin__vt105(void);
 int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 
-void TObjEneMe1Canadin__sub_8009E6B0(void) {  }
+void noop__17TObjEneMe1CanadinFv(void) {  }
 s32 try_trigger_action__17TObjEneMe1CanadinFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x390) == 0U) {
         TObjEneDD__sub_800BBA18(arg0, 0xE);

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_phase__11TBoss6Type2FPv();
-u16 TBoss6Type2__sub_802BA394(void *);
+u16 is_falz_ready__11TBoss6Type2FPv(void *);
 s32 is_phase_complete__11TBoss6Type2FPv(void *);
 s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
@@ -44,7 +44,7 @@ void select_next_state__11TBoss6Type2FPv(void *arg0) {
                 return;
             }
             if (M2C_FIELD(arg0, u16 *, 0x55C) == 0xFFFF) {
-                temp_r3 = TBoss6Type2__sub_802BA394(arg0);
+                temp_r3 = is_falz_ready__11TBoss6Type2FPv(arg0);
                 if (temp_r3 != 0xFFFF) {
                     M2C_FIELD(arg0, u16 *, 0x464) = temp_r3;
                     TBoss6Type2__sub_802BDDF8((void *)(arg0), 0x19);

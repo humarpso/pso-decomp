@@ -24,7 +24,7 @@ M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
-M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
+M2C_UNK noop__17TObjEneMe1CanadinFv(void *);
 s32 TPhotonMylla__sub_80154CB4(int);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv();
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
@@ -64,7 +64,7 @@ void run_task__17TObjEneMe1CanadinFPvi(u8 *arg0, s32 arg1) {
         update_position_with_offset__17TObjEneMe1CanadinFPv((void *) (arg0));
         TObjEneDD__sub_800BAC14((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (TObjEneMe1Canadin__data_805D98B4));
         ((VObj_8009c7d8 *) arg0)->m86();
-        TObjEneMe1Canadin__sub_8009E6B0((void *) (arg0));
+        noop__17TObjEneMe1CanadinFv((void *) (arg0));
         break;
     }
 }

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TMainCursor__sub_8013E940(void *);
+s32 is_cursor_clear__11TMainCursorFPv(void *);
 s32 fn_801C1E44(s32);
 s32 fn_801C1E48(s32);
 s32 fn_801C1E50(s32);
@@ -15,8 +15,8 @@ int TObjPlayer__sub_8011E204(void*, void*);
 int set_state_flags__10TObjPlayerFPvUi(void*, void*);
 int fn_8019DD14(void*, void*);
 int fn_8019DD24(void*, void*);
-int TChallenge4PResult__sub_801B3BB4(void*);
-int TChallenge4PResult__sub_801B3BFC(void*, void*);
+int get_player_rank__18TChallenge4PResultFPv(void*);
+int get_player_result__18TChallenge4PResultFPv(void*, void*);
 int has_valid_handle__10TObjPlayerFPv(void* p);
 int check_flag_100__10TObjPlayerFPv(void* p);
 void release_attached_resource__10TObjPlayerFPv(void* p);

@@ -14,7 +14,7 @@ s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(void *, f32);
 M2C_UNK update_position_with_offset__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *);
-M2C_UNK TObjEneMe1Canadin__sub_8009E6B0(void *);
+M2C_UNK noop__17TObjEneMe1CanadinFv(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK update_angle__17TObjEneMe1CanadinFPv(void *);
@@ -81,7 +81,7 @@ void TObjEneMe1Canadin__sub_8009BFF8(u8 *arg0, s32 arg1) {
             break;
         }
         ((VObj *)arg0)->m87();
-        TObjEneMe1Canadin__sub_8009E6B0(arg0);
+        noop__17TObjEneMe1CanadinFv(arg0);
         break;
     }
 }

@@ -3,7 +3,7 @@
 extern "C" {
 
 int update_lobby_chair__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801D0D34(void* p);
+int get_chair_state__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D0D58(void* p);
 void TObjPlayer__sub_801D0D7C(void* p);
 void TObjPlayer__sub_801D0D8C(void* p);
@@ -28,7 +28,7 @@ int TBoss7LaserPtcl__sub_8035AF14(void*);
 int fn_8035AF18(void*);
 
 int update_lobby_chair__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801D1024((char*)p + 0x34c); }
-int TObjPlayer__sub_801D0D34(void* p) { return TObjPlayer__sub_801D102C((char*)p + 0x34c); }
+int get_chair_state__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801D102C((char*)p + 0x34c); }
 int TObjPlayer__sub_801D0D58(void* p) { return TBoss7LaserPtcl__sub_8035AF14((char*)p + 0x34c); }
 void TObjPlayer__sub_801D0D7C(void* p) { *(u32*)((char*)p + 0x334) &= 0xfbffffff; }
 void TObjPlayer__sub_801D0D8C(void* p) { *(u32*)((char*)p + 0x334) &= 0xf7ffffff; }

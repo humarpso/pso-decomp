@@ -23,12 +23,12 @@ int TObjPlayer__sub_80019248(void*);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
 int TObjPlayer__sub_801BEF68(void*);
-void TObjPlayer__sub_801AEFFC(void* p);
+void stop_force_if_alive__10TObjPlayerFPv(void* p);
 void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801AEB80(void);
 int get_max_level__10TObjPlayerFv(void);
 
-void TObjPlayer__sub_801AEFFC(void* p) { if (TObjPlayer__sub_80019248(p) != 0) { TObjPlayer__sub_801BEF60((char*)p + 0x550, (void*)0); } }
+void stop_force_if_alive__10TObjPlayerFPv(void* p) { if (TObjPlayer__sub_80019248(p) != 0) { TObjPlayer__sub_801BEF60((char*)p + 0x550, (void*)0); } }
 void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p) { if (test_flag_2000000__10TObjPlayerFPv(p) == 0) { TObjPlayer__sub_801BEF68((char*)p + 0x384); } }
 
 }

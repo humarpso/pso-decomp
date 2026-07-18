@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 update_aim_target__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_801CF534(void* p);
+void apply_damage_and_reset__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_80019248(void *);
 s32 TObjPlayer__sub_801B5DDC(void *);
 s32 TObjPlayer__sub_801B5EA4(void *);
@@ -46,6 +46,6 @@ s32 update_aim_target__10TObjPlayerFPv(void *arg0) {
     return 0;
 }
 
-void TObjPlayer__sub_801CF534(void* p) { TObjEnePanarms__sub_800E2DE4(p, (void*)256); TObjPlayer__sub_8001053C((void*)(p)); }
+void apply_damage_and_reset__10TObjPlayerFPv(void* p) { TObjEnePanarms__sub_800E2DE4(p, (void*)256); TObjPlayer__sub_8001053C((void*)(p)); }
 
 }

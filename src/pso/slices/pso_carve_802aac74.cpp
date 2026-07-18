@@ -10,7 +10,7 @@ s32 get_main_phase();
 s32 is_split_screen();
 s32 TBoss6PlotFalz__sub_802AAC74(void);
 void TBoss6PlotFalz__sub_802AAC98(void* p);
-int TBoss6PlotFalz__sub_802AACEC(void);
+int is_ready__14TBoss6PlotFalzFv(void);
 
 s32 TBoss6PlotFalz__sub_802AAC74(void) { return 0; }
 

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TShopJudgmentItemWindow__sub_8026DFC0(s32 a);
+void open_default__23TShopJudgmentItemWindowFi(s32 a);
 M2C_UNK TShopJudgmentItemWindow__sub_8026DF00(s32, s32, s32);
 
 extern s32 lbl_805D53A0;
 
-void TShopJudgmentItemWindow__sub_8026DFC0(s32 a) {
+void open_default__23TShopJudgmentItemWindowFi(s32 a) {
     TShopJudgmentItemWindow__sub_8026DF00(a, 0x40, lbl_805D53A0);
 }
 

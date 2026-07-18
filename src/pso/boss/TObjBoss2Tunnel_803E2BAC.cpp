@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjBoss2Tunnel__sub_803E2BAC(void);
+void reset_player_state__15TObjBoss2TunnelFv(void);
 M2C_UNK TObjPlayer__sub_803E2248();
 
-void TObjBoss2Tunnel__sub_803E2BAC(void) {
+void reset_player_state__15TObjBoss2TunnelFv(void) {
     TObjPlayer__sub_803E2248();
 }
 

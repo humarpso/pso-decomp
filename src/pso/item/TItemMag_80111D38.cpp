@@ -13,7 +13,7 @@ u8 get_field_ed__10TObjPlayerFPv(s32);
 s32 TItemMag__sub_80105348(void *, M2C_UNK);
 M2C_UNK try_add_action__8TItemMagFii(void *, M2C_UNK);
 s16 fn_80113DA0(void *);
-s16 fn_80113DC4(void *);
+s16 get_mag_level(void *);
 s16 fn_80113DE8(void *, void *);
 s16 fn_80113E0C(void *);
 
@@ -31,7 +31,7 @@ void update_feed_anim__8TItemMagFPv(void *arg0) {
         temp_r4 = M2C_FIELD(arg0, void **, 0xF0);
         temp_r28 = (s8) M2C_FIELD(temp_r4, u8 *, 0x88C);
         temp_r29 = fn_80113DE8(arg0, temp_r4);
-        temp_r30 = fn_80113DC4(arg0);
+        temp_r30 = get_mag_level(arg0);
         temp_r31 = fn_80113DA0(arg0);
         temp_r26 = fn_80113E0C(arg0);
         if (TItemMag__sub_80105348(M2C_FIELD(arg0, void **, 0xF0), 0xF9) != 0) {

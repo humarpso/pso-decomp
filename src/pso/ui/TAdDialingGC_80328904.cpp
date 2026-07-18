@@ -8,7 +8,7 @@ extern "C" {
 
 void handle_state__12TAdDialingGCFPv(void *arg0);
 M2C_UNK update_dialing_display__12TAdDialingGCFv(M2C_UNK);
-M2C_UNK TAdDialingGC__sub_80328A4C();
+M2C_UNK refresh_display__12TAdDialingGCFv();
 
 void handle_state__12TAdDialingGCFPv(void *arg0) {
     s32 temp_r0;
@@ -25,7 +25,7 @@ void handle_state__12TAdDialingGCFPv(void *arg0) {
         update_dialing_display__12TAdDialingGCFv(0x13);
         return;
     case 14:
-        TAdDialingGC__sub_80328A4C();
+        refresh_display__12TAdDialingGCFv();
         return;
     case 15:
         update_dialing_display__12TAdDialingGCFv(0x16);

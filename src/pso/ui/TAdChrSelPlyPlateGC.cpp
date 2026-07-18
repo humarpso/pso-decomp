@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TAdChrSelPlyPlateGC__sub_802C6D64(void *arg0, s16 arg1);
+void *destroy__19TAdChrSelPlyPlateGCFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804E0B10[];
 extern u32 lbl_805D67E4;
 
-void *TAdChrSelPlyPlateGC__sub_802C6D64(void *arg0, s16 arg1) {
+void *destroy__19TAdChrSelPlyPlateGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0B10;
         if ((u32) lbl_805D67E4 != 0U) {

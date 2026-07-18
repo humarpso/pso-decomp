@@ -13,7 +13,7 @@ M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK fn_8023601C(void *, M2C_UNK *, f32);
-M2C_UNK TObjPlayer__sub_803D8C7C(M2C_UNK, M2C_UNK *);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -30,7 +30,7 @@ void render__11TMainCursorFPv(u8 *arg0) {
     temp_f31 = M2C_FIELD(arg0, f32 *, 0x30);
     TObjPlayer__sub_803D9B2C();
     fn_8023601C(arg0 + 0x40, &sp8, M2C_FIELD(arg0, f32 *, 0x2C));
-    TObjPlayer__sub_803D8C7C(0, &sp8);
+    set_position_vec3__10TObjPlayerFPvPv(0, &sp8);
     TObjPlayer__sub_803D9214(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
     TObjPlayer__sub_803D9B2C();
     TObjBoss2Tunnel__sub_803D929C(0, 0x2AAA);

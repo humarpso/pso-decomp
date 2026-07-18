@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TCameraCtrl__sub_803D6538(void);
+void update_camera_state__11TCameraCtrlFv(void);
 M2C_UNK TCameraCtrl__sub_803D65C8();
 
-void TCameraCtrl__sub_803D6538(void) {
+void update_camera_state__11TCameraCtrlFv(void) {
     TCameraCtrl__sub_803D65C8();
 }
 

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TWindowTimer__sub_8019A50C(void *arg0, s16 arg1);
+void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1);
 M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -14,7 +14,7 @@ M2C_UNK clear_obj_links(void *);
 
 extern M2C_UNK lbl_804B8E18[];
 
-void *TWindowTimer__sub_8019A50C(void *arg0, s16 arg1) {
+void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B8E18;
         TObjPlayer__sub_80154A00((M2C_UNK *)arg0);

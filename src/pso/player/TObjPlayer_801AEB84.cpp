@@ -11,15 +11,15 @@ void add_dfp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void add_evp_material__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-void TObjPlayer__sub_801AED78(s32 arg0, u8 arg1);
-void TObjPlayer__sub_801AEDC4(s32 arg0, u8 arg1);
+void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1);
+void apply_speed_with_camera_scale__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 s32 TLobby__sub_800822E8(s32, s32);
 s32 TLobby__sub_8030A7B0();
 M2C_UNK TObjPlayer__sub_80011274(void *, int);
 M2C_UNK TObjPlayer__sub_80011378(void *, int);
 int TObjPlayer__sub_80019248(void*);
 void TObjPlayer__sub_801AEB80(void);
-void TObjPlayer__sub_801AEFFC(void* p);
+void stop_force_if_alive__10TObjPlayerFPv(void* p);
 int get_max_level__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_801AF868(s32);
 s32 TObjPlayer__sub_801AFDB0(void *);
@@ -132,7 +132,7 @@ void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
 }
 
 }
-void TObjPlayer__sub_801AED78(s32 arg0, u8 arg1) {
+void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;
@@ -143,7 +143,7 @@ void TObjPlayer__sub_801AED78(s32 arg0, u8 arg1) {
 }
 
 }
-void TObjPlayer__sub_801AEDC4(s32 arg0, u8 arg1) {
+void apply_speed_with_camera_scale__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     u8 var_r31;
 
     var_r31 = arg1;

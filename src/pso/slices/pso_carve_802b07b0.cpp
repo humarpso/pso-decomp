@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TBoss6PlotFalz__sub_802ABADC();
 s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
-int TBoss6PlotFalz__sub_802AACEC(void*);
+int is_ready__14TBoss6PlotFalzFv(void*);
 int TBoss6PlotFalz__sub_802AC86C(void*, void*);
 void set_state4_if_ready__14TBoss6PlotFalzFPv(void* p);
 void TBoss6PlotFalz__sub_802B08F0(void* p);

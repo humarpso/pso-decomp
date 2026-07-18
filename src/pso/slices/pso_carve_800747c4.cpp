@@ -12,7 +12,7 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 extern s32 lbl_805D53A0;
 
-s32 fn_800747C4(s32 arg0) {
+s32 fn_can_show_solo_win_screen(s32 arg0) {
     u32 temp_r31;
 
     temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

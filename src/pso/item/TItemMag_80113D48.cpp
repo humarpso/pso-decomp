@@ -8,7 +8,7 @@ int test_feed_flags__11TItemMagSubFPvUi(void* p, u32 m);
 s16 TObjPlayer__sub_80113D90(void* p);
 s16 get_mag_data__10TObjPlayerFPv(void* p);
 int fn_80113DA0(void* p);
-int fn_80113DC4(void* p);
+int get_mag_level(void* p);
 int fn_80113DE8(void* p);
 int fn_80113E0C(void* p);
 int get_status_flag__8TItemMagFPv(void* p);

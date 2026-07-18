@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjEneDD__sub_800C3A5C(void);
+void noop__9TObjEneDDFv(void);
 
-void TObjEneDD__sub_800C3A5C(void) {  }
+void noop__9TObjEneDDFv(void) {  }
 
 }

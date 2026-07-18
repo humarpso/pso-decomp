@@ -11,7 +11,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
 s32 TObjNpcEnemy__sub_802D7444(void *);
-M2C_UNK TObjPlayer__sub_803D8C7C(int, void *);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D97F0(int);
@@ -40,7 +40,7 @@ void render__12TObjNpcEnemyFv(u8 *arg0) {
         }
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         TObjPlayer__sub_803D97F0((int) (0));
-        TObjPlayer__sub_803D8C7C((int) (0), (void *) (arg0 + 0x38));
+        set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x38));
         temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x3B8));
         TObjPlayer__sub_803D9624((int) (0), (int) (temp_r4), (f32) (lbl_805DE7D8), (f32) (M2C_FIELD(temp_r4, f32 *, 4)), (f32) (lbl_805DE7D8));
         TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));

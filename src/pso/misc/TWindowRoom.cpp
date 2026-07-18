@@ -8,7 +8,7 @@ extern "C" {
 
 void run_task__11TWindowRoomFv(void* p);
 int fn_8026D504(void* p);
-void TWindowSubStatusDisp__sub_8026D528(void *arg0, s32 arg1);
+void set_entry_display_value__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 void fn_8026D564(void *arg0, s32 arg1);
 void draw_status__11TWindowRoomFi(s32 arg0);
 int get_array_entry__20TWindowSubStatusDispFPvi(void*, int);
@@ -20,7 +20,7 @@ int TWindowSubStatusDisp__sub_80257C28(void*, void*);
 M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
 
 int fn_8026D504(void* p) { return get_array_entry__20TWindowSubStatusDispFPvi(p, 0); }
-void TWindowSubStatusDisp__sub_8026D528(void *arg0, s32 arg1) {
+void set_entry_display_value__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     TWindowSubStatusDisp__sub_8025AC50(get_array_entry__20TWindowSubStatusDispFPvi((void*)(arg0), 0), arg1, 0x60);
 }
 void fn_8026D564(void *arg0, s32 arg1) {

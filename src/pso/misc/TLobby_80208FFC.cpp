@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TLobby__sub_80208FFC(void* p);
+int get_team_state__6TLobbyFPv(void* p);
 int TLobby__sub_80208E30(void*);
 
-int TLobby__sub_80208FFC(void* p) { return TLobby__sub_80208E30(p); }
+int get_team_state__6TLobbyFPv(void* p) { return TLobby__sub_80208E30(p); }
 
 }

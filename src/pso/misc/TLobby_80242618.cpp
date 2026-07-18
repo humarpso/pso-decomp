@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80242618(u8 *arg0, u8 *arg1);
+void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 s32 get_com_card_list__6TLobbyFPv();
 M2C_UNK TLobby__sub_802422EC(void *, void *, int);
 void *TLobby__sub_80242458(void *, void *);
@@ -19,7 +19,7 @@ M2C_UNK strncpy(void *, void *, int);
 
 extern s32 lbl_805D63D8;
 
-void TLobby__sub_80242618(u8 *arg0, u8 *arg1) {
+void init_player_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     s32 temp_r5;
     void *p;
 

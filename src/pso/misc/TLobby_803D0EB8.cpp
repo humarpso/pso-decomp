@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_callback__6TLobbyFUii(u32 arg0, s32 arg1);
-void TLobby__sub_803D0EDC(void);
+void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803D1FD4();
 M2C_UNK lock_enter__6TLobbyFv();
@@ -25,7 +25,7 @@ void set_callback__6TLobbyFUii(u32 arg0, s32 arg1) {
     lbl_805D761C = arg1;
 }
 
-void TLobby__sub_803D0EDC(void) {
+void notify_dvd_read__6TLobbyFv(void) {
     TLobby__sub_803D1FD4();
 }
 

@@ -26,13 +26,13 @@ struct VObj_80114950 : Base_80114950 {
 
 extern "C" {
 
-void TItemMag__sub_80114950(u8 *arg0, s32 arg1);
+void set_mag_type__8TItemMagFPvi(u8 *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK reset__11TItemMagSubFPv();
 
 extern s32 lbl_805D54B0;
 
-void TItemMag__sub_80114950(u8 *arg0, s32 arg1) {
+void set_mag_type__8TItemMagFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r5;
 
     reset__11TItemMagSubFPv();

@@ -39,6 +39,6 @@ u8 TObjPlayer__sub_801C222C(void* p) { return *(u8*)((char*)p + 0x11f); }
 u8 TObjPlayer__sub_801C2234(void* p) { return *(u8*)((char*)p + 0x103); }
 u8 TObjPlayer__sub_801C223C(void* p) { return *(u8*)((char*)p + 0xe7); }
 void TObjPlayer__sub_801C2244(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
-void* TObjPlayer__sub_801C224C(void* p) { fn_8035B00C(p); return p; }
+void* setup_ctrl__10TObjPlayerFPv(void* p) { fn_8035B00C(p); return p; }
 
 }

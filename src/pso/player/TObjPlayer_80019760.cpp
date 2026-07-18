@@ -9,7 +9,7 @@ u8 get_field_ed__10TObjPlayerFPv(void* p);
 s32 get_type__10TObjPlayerFPv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 
-f32 TObjPlayer__sub_80019760(void) {
+f32 get_ad_end_text_start__10TObjPlayerFv(void) {
     return (f32) start__10TAdEndTextFv();
 }
 

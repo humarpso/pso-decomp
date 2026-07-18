@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_display__15TWindowHelpItemFPv(u8 *arg0);
-void *TWindowHelpItem__sub_80255C64(void *arg0, s16 arg1);
+void *dt__15TWindowHelpItemFPvs(void *arg0, s16 arg1);
 M2C_UNK TWindowHelpItem__sub_802553F8(void *);
 M2C_UNK TWindowHelpItem__sub_80255440(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
@@ -45,7 +45,7 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
 
 extern M2C_UNK lbl_804CF8B0[];
 
-void *TWindowHelpItem__sub_80255C64(void *arg0, s16 arg1) {
+void *dt__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CF8B0;
         delete_if_allocated(M2C_FIELD(arg0, void **, 0x64), 1);

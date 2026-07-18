@@ -23,14 +23,14 @@ s32 get_help_value__15TWindowHelpItemFv(void);
 void *TLobby__sub_80101AB0();
 s32 TWindowHelpItem__sub_802434B8();
 M2C_UNK TWindowHelpItem__sub_8025B08C(s32, f32, f32);
-s32 TBoss8Dragon__sub_8002AE38(s32);
+s32 test_card_flag_2__12TBoss8DragonFPv(s32);
 
 extern f32 lbl_805DCA1C;
 extern f32 lbl_805DCA20;
 extern f32 lbl_805DCA24;
 
 void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1) {
-    if (TBoss8Dragon__sub_8002AE38(arg1) != 0) {
+    if (test_card_flag_2__12TBoss8DragonFPv(arg1) != 0) {
         TWindowHelpItem__sub_8025B08C(arg0, lbl_805DCA1C, lbl_805DCA20);
         return;
     }

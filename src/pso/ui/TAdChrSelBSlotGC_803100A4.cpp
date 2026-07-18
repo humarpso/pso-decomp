@@ -6,7 +6,7 @@ extern "C" {
 
 void *create__16TAdChrSelBSlotGCFPv(void *arg0);
 int get_global_state__16TAdChrSelBSlotGCFv(void);
-int TAdChrSelBSlotGC__sub_803100F4(void);
+int get_global_slot_data__16TAdChrSelBSlotGCFv(void);
 void *TAdChrSelBSlotGC__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -22,6 +22,6 @@ void *create__16TAdChrSelBSlotGCFPv(void *arg0) {
 int get_global_state__16TAdChrSelBSlotGCFv(void) {  return lbl_805D6AA0; }
 
     extern int lbl_805D6A98;
-int TAdChrSelBSlotGC__sub_803100F4(void) {  return lbl_805D6A98; }
+int get_global_slot_data__16TAdChrSelBSlotGCFv(void) {  return lbl_805D6A98; }
 
 }

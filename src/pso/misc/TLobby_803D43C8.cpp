@@ -6,17 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803D43C8(void);
-void TLobby__sub_803D43E8(void);
+void process_pending_request__6TLobbyFv(void);
+void acquire_lock__6TLobbyFv(void);
 void TLobby__sub_803D4408(u8 *arg0, s32 arg1);
 M2C_UNK TLobby__sub_803D1FD4();
 M2C_UNK lock_enter__6TLobbyFv();
 
-void TLobby__sub_803D43C8(void) {
+void process_pending_request__6TLobbyFv(void) {
     TLobby__sub_803D1FD4();
 }
 
-void TLobby__sub_803D43E8(void) {
+void acquire_lock__6TLobbyFv(void) {
     lock_enter__6TLobbyFv();
 }
 

@@ -4,8 +4,8 @@ extern "C" {
 
 void init_sub_objects__6TLobbyFv(void);
 int rebuild_entry__6TLobbyFPv(void);
-int TLobby__sub_8020AD20(void);
+int init_sub_state__6TLobbyFPv(void);
 
-void init_sub_objects__6TLobbyFv(void) { TLobby__sub_8020AD20(); rebuild_entry__6TLobbyFPv(); }
+void init_sub_objects__6TLobbyFv(void) { init_sub_state__6TLobbyFPv(); rebuild_entry__6TLobbyFPv(); }
 
 }

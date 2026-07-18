@@ -5,7 +5,7 @@ extern "C" {
 void TOTrapAncient02R__sub_80154D78(void);
 void init_all_slots__10TObjPlayerFv(void);
 s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0);
-u32 TObjPlayer__sub_80040B28(s32);
+u32 get_battle_param__10TObjPlayerFi(s32);
 int TObjPlayer__sub_80154E28(void*, void*);
 
 void TOTrapAncient02R__sub_80154D78(void) {  }
@@ -16,7 +16,7 @@ s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0) {
 
     var_r31 = 0;
 loop_1:
-    temp_r3 = TObjPlayer__sub_80040B28(var_r31);
+    temp_r3 = get_battle_param__10TObjPlayerFi(var_r31);
     if (temp_r3 == arg0) {
         return var_r31;
     }

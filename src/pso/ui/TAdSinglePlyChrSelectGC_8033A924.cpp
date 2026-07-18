@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TAdSinglePlyChrSelectGC__sub_8033A924(void);
+void noop__23TAdSinglePlyChrSelectGCFv(void);
 void free_buffer__23TAdSinglePlyChrSelectGCFPv(void* p);
 void alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void clear_buffer(void* p);
@@ -14,7 +14,7 @@ int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 int memset(void*, void*, void*);
 
-void TAdSinglePlyChrSelectGC__sub_8033A924(void) {  }
+void noop__23TAdSinglePlyChrSelectGCFv(void) {  }
 void free_buffer__23TAdSinglePlyChrSelectGCFPv(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { safe_free__23TAdSinglePlyChrSelectGCFUi(*(void**)((char*)p + 0x20)); *(int*)((char*)p + 0x20) = 0; *(int*)((char*)p + 0x1c) = 0; } }
 void clear_buffer(void* p) { if (*(unsigned int*)((char*)p + 0x20) != 0) { memset(*(void**)((char*)p + 0x20), (void*)0, *(void**)((char*)p + 0x1c)); } }
 void alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {

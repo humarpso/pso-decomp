@@ -4,14 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void *TObjEneLappy__sub_800C1BEC(void *arg0, s16 arg1);
+void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1);
 void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 
 extern M2C_UNK lbl_80492F28[];
 
-void *TObjEneLappy__sub_800C1BEC(void *arg0, s16 arg1) {
+void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80492F28;
         TObjEneGibbles__sub_80156720(arg0);

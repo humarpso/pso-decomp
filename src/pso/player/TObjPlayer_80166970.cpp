@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80166970(u8 *arg0);
+void on_zone_exit__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
@@ -31,7 +31,7 @@ struct VObj18_80166970 : VBase18_80166970 {
     virtual M2C_UNK m8(f32, f32);
 };
 
-void TObjPlayer__sub_80166970(u8 *arg0) {
+void on_zone_exit__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r31;
 
     if (((VObj18_80166970 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {

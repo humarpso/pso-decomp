@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *get_valid_target_player__10TNpcPlayerFv(void);
-void *TObjPlayer__sub_80040B28();
+void *get_battle_param__10TObjPlayerFi();
 s32 is_valid_and_active__10TObjPlayerFUi();
 
 void *get_valid_target_player__10TNpcPlayerFv(void) {
     void *temp_r31;
 
-    temp_r31 = TObjPlayer__sub_80040B28();
+    temp_r31 = get_battle_param__10TObjPlayerFi();
     if (is_valid_and_active__10TObjPlayerFUi() != 0) {
         return temp_r31;
     }

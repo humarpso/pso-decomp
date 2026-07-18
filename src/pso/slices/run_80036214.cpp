@@ -13,7 +13,7 @@ s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1) {
 
 int TBoss2DeRolLe__sub_800361E8();
 
-s32 TBoss2DeRolLe__sub_80036250(s32 arg0) {
+s32 init_resources__13TBoss2DeRolLeFi(s32 arg0) {
     TBoss2DeRolLe__sub_800361E8();
     return arg0;
 }

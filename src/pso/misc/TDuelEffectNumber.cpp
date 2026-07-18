@@ -14,7 +14,7 @@ M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_803DEEAC();
+M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
 
 extern s32 lbl_805D63F0;
@@ -29,7 +29,7 @@ void render__17TDuelEffectNumberFv(void *arg0) {
     TWindowSubStatusDisp__sub_803DF160(6, -1);
     fn_8007FFF4(arg0, (M2C_UNK *)&sp8);
     fn_8007FF28(arg0, (M2C_UNK *)&sp8);
-    TWindowSubStatusDisp__sub_803DEEAC();
+    get_player__20TWindowSubStatusDispFv();
     reset_transform_state__10TObjPlayerFv();
 }
 

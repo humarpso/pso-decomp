@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TKeyBoardControl__sub_803CBDE0(void);
+void flush_input__16TKeyBoardControlFv(void);
 M2C_UNK TLobby__sub_803D32B4();
 
-void TKeyBoardControl__sub_803CBDE0(void) {
+void flush_input__16TKeyBoardControlFv(void) {
     TLobby__sub_803D32B4();
 }
 

@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TQuestVmDownLoadServer__sub_801F9010(void);
+void reset_download__22TQuestVmDownLoadServerFv(void);
 M2C_UNK fn_801F9030();
 
-void TQuestVmDownLoadServer__sub_801F9010(void) {
+void reset_download__22TQuestVmDownLoadServerFv(void) {
     fn_801F9030();
 }
 

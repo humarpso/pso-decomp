@@ -15,7 +15,7 @@ s32 post_request__6TLobbyFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
 s32 try_post_command__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 get_client_count__6TLobbyFPv(u8 *arg0);
 u32 PADReceiveCheckCallback(int, int, int, void *, int, int);
-u32 TLobby__sub_803C4C44(int, int, int, void *, int, void *, int, int);
+u32 dispatch_receive_update__6TLobbyFv(int, int, int, void *, int, void *, int, int);
 M2C_UNK memset(void *, int, int);
 
 extern s32 lbl_805D7588;
@@ -31,7 +31,7 @@ void update_receive_check__6TLobbyFPv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x14) == 1) {
             M2C_FIELD(arg0, u32 *, 0x10) = PADReceiveCheckCallback((int) (M2C_FIELD(arg0, s32 *, 0x18)), (int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x28), (int) (M2C_FIELD(arg0, s16 *, 0x30)), (int) (M2C_FIELD(arg0, s16 *, 0x32)));
         } else {
-            M2C_FIELD(arg0, u32 *, 0x10) = TLobby__sub_803C4C44((int) (M2C_FIELD(arg0, s32 *, 0x18)), (int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x28), (int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (arg0 + 0x2C), (int) (M2C_FIELD(arg0, s16 *, 0x30)), (int) (M2C_FIELD(arg0, s16 *, 0x32)));
+            M2C_FIELD(arg0, u32 *, 0x10) = dispatch_receive_update__6TLobbyFv((int) (M2C_FIELD(arg0, s32 *, 0x18)), (int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x28), (int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (arg0 + 0x2C), (int) (M2C_FIELD(arg0, s16 *, 0x30)), (int) (M2C_FIELD(arg0, s16 *, 0x32)));
             temp_r0 = M2C_FIELD(arg0, u32 *, 0x10);
             temp_r3 = temp_r0 >> 0x1FU;
             if ((s32) (((temp_r0 & 1) ^ temp_r3) - temp_r3) == 1) {

@@ -17,7 +17,7 @@ s32 fn_801F34C0(void* p);
 s32 fn_801F34C8(void* p);
 void TLobby__sub_801F34E0(void* p, s16 v);
 int TLobby__sub_800822E8(void*, int);
-int TObjPlayer__sub_801B3540(void*);
+int has_item_flag_4096__10TObjPlayerFPv(void*);
 int check_technique_flag__10TObjPlayerFPv(void*);
 
 void set_flag_80000__6TLobbyFi(s32 arg0) {
