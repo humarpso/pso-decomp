@@ -12,11 +12,11 @@ u16 fn_801A210C(s32);
 s32 TContainerAncient01__sub_8020335C(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 int TObjRoomId__sub_801A1E2C(void);
-void fn_801A1FD8(void);
+void TLobby__sub_801A1FD8(void);
 
 int fn_801A1F48(void) { return 0; }
-void fn_801A1FD8(void) {  }
-u16 fn_801A1FDC(void *arg0, s32 arg1) {
+void TLobby__sub_801A1FD8(void) {  }
+u16 TLobby__sub_801A1FDC(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     if (M2C_FIELD(arg0, u16 *, 0x1C) == 0xFFFF) {

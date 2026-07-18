@@ -12,7 +12,7 @@ u16 fn_801A210C(s32);
 s32 TContainerAncient01__sub_8020335C(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 int TObjRoomId__sub_801A1E2C(void);
-void fn_801A1FD8(void);
+void TLobby__sub_801A1FD8(void);
 
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;

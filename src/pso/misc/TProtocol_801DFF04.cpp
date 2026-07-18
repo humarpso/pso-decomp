@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 TProtocol__sub_801DFF04(s32 arg0);
+M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
 
-void fn_80215BCC(void *arg0) {
-    if (arg0 != NULL) {
-        set_field_20__12TQuestListVMFPvi(arg0, 4);
-    }
+s32 TProtocol__sub_801DFF04(s32 arg0) {
+    __ct__16TPlyGuildCardTagFv(arg0 + 4);
+    return arg0;
 }
 
 }

@@ -4,12 +4,14 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 extern "C" {
 
-void queue_destruction__7TObjectFv(void *);
-void __dt__7TObjectFv(void *, int);
+void *TWindowTimer__sub_80198C84(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+void queue_destruction__7TObjectFv(void *);
+
 extern M2C_UNK lbl_804B8DE8[];
 
-void *fn_80198C84(void *arg0, s16 arg1) {
+void *TWindowTimer__sub_80198C84(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B8DE8;
         if (M2C_FIELD(arg0, void **, 0x3C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x3C)); M2C_FIELD(arg0, M2C_UNK *, 0x3C) = 0; }

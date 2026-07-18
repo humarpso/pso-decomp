@@ -6,11 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_802F1960(f32);
-extern const f32 lbl_805DEC90;
+void TItemEffEquip__sub_801088D0(u32 arg0);
+M2C_UNK queue_destruction__7TObjectFv();
 
-void fn_802F18E8(void) {
-    fn_802F1960(lbl_805DEC90);
+void TItemEffEquip__sub_801088D0(u32 arg0) {
+    if (arg0 != 0U) {
+        queue_destruction__7TObjectFv();
+    }
 }
 
 }

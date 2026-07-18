@@ -6,13 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 obj_testFlags30(u32, M2C_UNK);
-s32 fn_80074758(s32);
+s32 TObjSoloPlayWin__sub_800747C4(s32 arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
+s32 fn_80074758(s32);
+s32 obj_testFlags30(u32, M2C_UNK);
+
 extern s32 lbl_805D53A0;
 
-s32 fn_can_show_solo_win_screen(s32 arg0) {
+s32 TObjSoloPlayWin__sub_800747C4(s32 arg0) {
     u32 temp_r31;
 
     temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);

@@ -6,11 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
+void TNpcPlayer__sub_80149448(void *arg0);
 
-s32 fn_801DFF04(s32 arg0) {
-    __ct__16TPlyGuildCardTagFv(arg0 + 4);
-    return arg0;
+void TNpcPlayer__sub_80149448(void *arg0) {
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 2) {
+        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        return;
+    }
+    M2C_FIELD(arg0, s16 *, 0xB8) = 1;
 }
 
 }

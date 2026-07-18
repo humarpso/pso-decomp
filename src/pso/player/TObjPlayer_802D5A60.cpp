@@ -9,14 +9,14 @@ void init_state_445__10TObjPlayerFPv(void *);
 
 extern M2C_UNK lbl_804E1F04[];
 extern M2C_UNK TItemWpnCardEffect__sub_8032E588[];
-extern M2C_UNK fn_8032E5E0[];
+extern M2C_UNK TObjPlayer__sub_8032E5E0[];
 
 void *init_vtable_and_handlers_341__10TObjPlayerFPv(void *arg0) {
     init_state_445__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E1F04;
     M2C_FIELD(arg0, u32 *, 0x1FC) = 341;
     M2C_FIELD(arg0, M2C_UNK **, 0x204) = TItemWpnCardEffect__sub_8032E588;
-    M2C_FIELD(arg0, M2C_UNK **, 0x208) = fn_8032E5E0;
+    M2C_FIELD(arg0, M2C_UNK **, 0x208) = TObjPlayer__sub_8032E5E0;
     return arg0;
 }
 

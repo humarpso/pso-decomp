@@ -6,12 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_80149448(void *arg0) {
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 2) {
-        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-        return;
+void TJudgmentSequence__sub_80215BCC(void *arg0);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+
+void TJudgmentSequence__sub_80215BCC(void *arg0) {
+    if (arg0 != NULL) {
+        set_field_20__12TQuestListVMFPvi(arg0, 4);
     }
-    M2C_FIELD(arg0, s16 *, 0xB8) = 1;
 }
 
 }
