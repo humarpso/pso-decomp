@@ -8,7 +8,7 @@ extern "C" {
 
 u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0);
 M2C_UNK TAdVIConfigGC__sub_80307D00(void *);
-s32 TAdVIConfigGC__sub_80307DEC(void* p);
+s32 get_field_14__13TAdVIConfigGCFPv(void* p);
 s32 TLobby__sub_801B0974();
 s32 TWindow__close(u32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *);

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TBoss7DeRolLeC__sub_8035A628(void* p, s32 v);
+void set_field_38__14TBoss7DeRolLeCFPvi(void* p, s32 v);
 
-void TBoss7DeRolLeC__sub_8035A628(void* p, s32 v) { *(s32*)((char*)p + 0x38) = v; }
+void set_field_38__14TBoss7DeRolLeCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x38) = v; }
 
 }

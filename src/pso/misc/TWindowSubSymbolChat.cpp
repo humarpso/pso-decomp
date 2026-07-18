@@ -8,8 +8,8 @@ extern "C" {
 
 s32 compute_total_height__20TWindowSubSymbolChatFv(void);
 s32 calc_remaining_slots__20TWindowSubSymbolChatFv(void);
-void* TWindowSubSymbolChat__sub_80283800(void* p);
-unsigned char TWindowSubSymbolChat__sub_80283808(void);
+void* get_keyboard_ptr__20TWindowSubSymbolChatFPv(void* p);
+unsigned char get_global_4e54__20TWindowSubSymbolChatFv(void);
 void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0);
 s32 commit__20TWindowSubSymbolChatFi(s32 arg0);
 s32 refresh_parts__20TWindowSubSymbolChatFPv();
@@ -27,10 +27,10 @@ s32 compute_total_height__20TWindowSubSymbolChatFv(void) {
 s32 calc_remaining_slots__20TWindowSubSymbolChatFv(void) {
     return 0xC - refresh_parts__20TWindowSubSymbolChatFPv();
 }
-void* TWindowSubSymbolChat__sub_80283800(void* p) { return (char*)p + 0x4; }
+void* get_keyboard_ptr__20TWindowSubSymbolChatFPv(void* p) { return (char*)p + 0x4; }
 
     extern unsigned char lbl_805D4E54;
-unsigned char TWindowSubSymbolChat__sub_80283808(void) {  return lbl_805D4E54; }
+unsigned char get_global_4e54__20TWindowSubSymbolChatFv(void) {  return lbl_805D4E54; }
 
 void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0) {
     *arg0 |= 1;

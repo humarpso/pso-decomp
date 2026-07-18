@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void* TObjEneRecon__sub_80320350(void* p);
+void* get_field_38_ptr__12TObjEneReconFPv(void* p);
 
-void* TObjEneRecon__sub_80320350(void* p) { return (char*)p + 0x38; }
+void* get_field_38_ptr__12TObjEneReconFPv(void* p) { return (char*)p + 0x38; }
 
 }

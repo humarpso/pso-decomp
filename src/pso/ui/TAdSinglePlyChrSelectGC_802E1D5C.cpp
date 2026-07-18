@@ -9,14 +9,14 @@ extern "C" {
 s32 count_selected_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_8001C5F0();
 s32 get_flag_count__23TAdSinglePlyChrSelectGCFv();
-s32 TAdSinglePlyChrSelectGC__sub_802E3AEC();
+s32 get_selected_count__23TAdSinglePlyChrSelectGCFv();
 
 s32 count_selected_flags__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 var_r31;
 
     var_r31 = 0;
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x400) {
-        var_r31 = TAdSinglePlyChrSelectGC__sub_802E3AEC();
+        var_r31 = get_selected_count__23TAdSinglePlyChrSelectGCFv();
     }
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x800) {
         var_r31 += get_flag_count__23TAdSinglePlyChrSelectGCFv();

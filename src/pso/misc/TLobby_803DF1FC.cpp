@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803DF1FC(s32 arg0, s32 arg1);
+s32 calc_delta__6TLobbyFii(s32 arg0, s32 arg1);
 
-s32 TLobby__sub_803DF1FC(s32 arg0, s32 arg1) {
+s32 calc_delta__6TLobbyFii(s32 arg0, s32 arg1) {
     return arg1 - arg0;
 }
 

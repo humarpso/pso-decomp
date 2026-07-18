@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TWindowCallBack__sub_802ACDA8(void* p, s32 v);
+void set_field_60__15TWindowCallBackFPvi(void* p, s32 v);
 s32 get_state__11TBoss6Type2FPv(void* p);
 s32 get_state__14TBoss6GravBallFPv(void* p);
 void update_and_send__11TBoss6Type2FPv(void* p);
@@ -22,6 +22,6 @@ void init_packet__11TBoss6Type2FPv(void* p) { *(u8*)((char*)p + 0x0) = 165; *(u8
 int fn_802ACD40(void* p) { return read_be16_field2__10TObjPlayerFPv(p); }
 void fn_802ACD60(void* p) { fn_802ACD40(p); TLobby__send_and_handle_60(p); }
 void build_6xA3_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 163; *(u8*)((char*)p + 0x1) = 5; }
-void TWindowCallBack__sub_802ACDA8(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
+void set_field_60__15TWindowCallBackFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
 
 }

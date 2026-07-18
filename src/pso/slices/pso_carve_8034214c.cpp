@@ -8,8 +8,8 @@ extern "C" {
 
 s32 get_field_20__17TWindowSubComCardFPv(void);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s32 a1 = 0);
-s32 TWindowDD__sub_80342144(void* p);
-s32 TWindowDD__sub_8034218C(void* p);
+s32 get_field_0x74__9TWindowDDFPv(void* p);
+s32 get_cursor_index__9TWindowDDFPv(void* p);
 
 int TWindowDD__sub_8034214C(void) { return 0; }
 int TWindowDD__sub_80342158(void) { return 0; }

@@ -6,6 +6,6 @@ extern "C" {
 unsigned char fn_802A1144(void) {  return lbl_805D6639; }
 
     extern unsigned char lbl_805D6639;
-void fn_802A114C(int a0) { lbl_805D6639 = a0; }
+void set_keyboard_input_flag(int a0) { lbl_805D6639 = a0; }
 
 }

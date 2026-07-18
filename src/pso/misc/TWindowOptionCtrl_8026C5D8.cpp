@@ -8,8 +8,8 @@ void set_flag70_bit100__17TWindowOptionCtrlFPv(void* p);
 void clear_flag70_bit4__17TWindowOptionCtrlFPv(void* p);
 int TWindowOptionCtrl__sub_8026C630(void* p);
 int is_active__17TWindowOptionCtrlFPv(void* p);
-s16 TWindowOptionCtrl__sub_8026C648(void* p);
-s16 TWindowOptionCtrl__sub_8026C650(void* p);
+s16 get_field_64__17TWindowOptionCtrlFPv(void* p);
+s16 get_field_62__17TWindowOptionCtrlFPv(void* p);
 int TWindowOptionCtrl__sub_8026C658(void* p);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 
@@ -21,8 +21,8 @@ void set_flag70_bit100__17TWindowOptionCtrlFPv(void* p) { *(u16*)((char*)p + 0x7
 void clear_flag70_bit4__17TWindowOptionCtrlFPv(void* p) { *(u16*)((char*)p + 0x70) &= 0xfffffffb; }
 int TWindowOptionCtrl__sub_8026C630(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
 int is_active__17TWindowOptionCtrlFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
-s16 TWindowOptionCtrl__sub_8026C648(void* p) { return *(s16*)((char*)p + 0x64); }
-s16 TWindowOptionCtrl__sub_8026C650(void* p) { return *(s16*)((char*)p + 0x62); }
+s16 get_field_64__17TWindowOptionCtrlFPv(void* p) { return *(s16*)((char*)p + 0x64); }
+s16 get_field_62__17TWindowOptionCtrlFPv(void* p) { return *(s16*)((char*)p + 0x62); }
 int TWindowOptionCtrl__sub_8026C658(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
 
 }

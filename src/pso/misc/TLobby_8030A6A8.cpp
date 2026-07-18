@@ -14,7 +14,7 @@ s32 get_instance__11TCameraCtrlFv();
 s32 TCameraCtrl__sub_8006B368();
 s32 get_instance__6TLobbyFv();
 s32 TLobby__sub_8030A7B0();
-s32 TLobby__sub_8030A834();
+s32 get_online_ready_flag__6TLobbyFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 extern s32 lbl_805D5550;
@@ -23,7 +23,7 @@ s32 is_online_ready__6TLobbyFv(void) {
     if (((s32) lbl_805D5550 == 3) && (get_instance__6TLobbyFv() == 0)) {
         return 1;
     }
-    if (TLobby__sub_8030A834() != 0) {
+    if (get_online_ready_flag__6TLobbyFv() != 0) {
         return 1;
     }
     return 0;

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s32 TAdMultiPlyChrSelectGC__sub_802C6F88(void* p);
+s32 get_field_20__22TAdMultiPlyChrSelectGCFPv(void* p);
 
-s32 TAdMultiPlyChrSelectGC__sub_802C6F88(void* p) { return *(s32*)((char*)p + 0x20); }
+s32 get_field_20__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x20); }
 
 }

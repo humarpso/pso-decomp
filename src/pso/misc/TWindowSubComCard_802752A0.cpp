@@ -13,7 +13,7 @@ void* TWindowSubComCard__sub_8027523C(void* p);
 void* get_name__17TWindowSubComCardFPv(void* p);
 void* get_sub_obj__17TWindowSubComCardFPv(void* p);
 s16 get_field_72__17TWindowSubComCardFPv(void* p);
-void TWindowSubComCard__sub_80275288(void* p, s16 v);
+void set_page__17TWindowSubComCardFPvs(void* p, s16 v);
 void set_flag_10__17TWindowSubComCardFPv(void* p);
 void destroy_keyboard__17TWindowSubComCardFPv(void* p);
 int fn_80247ED8(void*);
@@ -26,7 +26,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_display_page__17TWindowSubComCardFi(s32 arg0) {
-    TWindowSubComCard__sub_80275288((void *) (arg0), (int) (TWindowSubComCard__sub_80265BF8()));
+    set_page__17TWindowSubComCardFPvs((void *) (arg0), (int) (TWindowSubComCard__sub_80265BF8()));
 }
 
 }

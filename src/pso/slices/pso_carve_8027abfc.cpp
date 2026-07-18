@@ -18,7 +18,7 @@ int fn_8027ABFC(void* a0 = 0);
 void refresh__14TWindowSubItemFPv(void* p);
 void set_flag60_bit10__14TWindowSubItemFPv(void* p);
 void reset_selected__14TWindowSubItemFPv(void* p);
-void TWindowSubItem__sub_8027AA48(void* p, s16 v);
+void set_field_74__14TWindowSubItemFPvs(void* p, s16 v);
 
 int fn_8027ABFC(void*) { return 0; }
 

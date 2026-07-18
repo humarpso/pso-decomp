@@ -3,7 +3,7 @@
 extern "C" {
 
 void TWindowChat__sub_80247D2C(void* p);
-u8 TWindowChat__sub_80247D3C(void* p);
+u8 get_input_mode__11TWindowChatFPv(void* p);
 int get_flag__11TWindowChatFPv(void* p);
 int forward_card_at_1c__11TWindowChatFPv(void* p);
 int get_subcard_field1c__11TWindowChatFPv(void* p);

@@ -10,7 +10,7 @@ s32 allow_rendering__7TObjectFv(u32);
 s32 __dl__FPv(void *);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 TWindow__close(u32);
-s32 TAdVIConfigGC__sub_80307DEC(void* p);
+s32 get_field_14__13TAdVIConfigGCFPv(void* p);
 
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -2,7 +2,7 @@
 
 extern "C" {
 
-u8 TWindowSubQuestBoard__sub_8027D1C8(void* p);
+u8 get_page_index__20TWindowSubQuestBoardFPv(void* p);
 int is_open__20TWindowSubQuestBoardFPv(void* p);
 int TWindowSubQuestBoard__sub_8027D1DC(void* p);
 

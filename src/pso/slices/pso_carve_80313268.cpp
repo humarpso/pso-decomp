@@ -15,7 +15,7 @@ int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void);
 int check_flag_at_4__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_80313218(void* p);
-void TObjPlayer__sub_80313248(void* p, s16 v);
+void set_field_0__10TObjPlayerFPvs(void* p, s16 v);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 

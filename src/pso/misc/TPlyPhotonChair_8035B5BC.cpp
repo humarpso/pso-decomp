@@ -2,10 +2,10 @@
 
 extern "C" {
 
-void TPlyPhotonChair__sub_8035B5BC(void* p, s32 v);
-void TPlyPhotonChair__sub_8035B5C4(void* p, s32 v);
+void set_field_8__15TPlyPhotonChairFPvi(void* p, s32 v);
+void set_type__15TPlyPhotonChairFPvi(void* p, s32 v);
 
-void TPlyPhotonChair__sub_8035B5BC(void* p, s32 v) { *(s32*)((char*)p + 0x8) = v; }
-void TPlyPhotonChair__sub_8035B5C4(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
+void set_field_8__15TPlyPhotonChairFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x8) = v; }
+void set_type__15TPlyPhotonChairFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 
 }

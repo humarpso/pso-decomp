@@ -2,8 +2,8 @@
 
 extern "C" {
 
-s32 TObjPlayer__sub_8033FE28(void* p);
+s32 get_plot_state__10TObjPlayerFPv(void* p);
 
-s32 TObjPlayer__sub_8033FE28(void* p) { return *(s32*)((char*)p + 0x24); }
+s32 get_plot_state__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x24); }
 
 }

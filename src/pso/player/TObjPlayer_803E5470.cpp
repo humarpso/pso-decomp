@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_803E5470(s32 arg0);
+void set_global_7778__10TObjPlayerFi(s32 arg0);
 void update_render_state__10TObjPlayerFv(void);
 M2C_UNK TObjPlayer__sub_803E4F14();
 M2C_UNK TObjPlayer__sub_803E53BC();
 
 extern s32 lbl_805D7778;
 
-void TObjPlayer__sub_803E5470(s32 arg0) {
+void set_global_7778__10TObjPlayerFi(s32 arg0) {
     lbl_805D7778 = arg0;
 }
 

@@ -7,7 +7,7 @@ void TItemList__sub_801D59E8(void* p, void* a1);
 int copy_item_data__9TItemListFPv(void* p);
 void TItemList__sub_801D5838(void* p);
 int TItemList__sub_801D5844(void* p);
-void* TItemList__sub_801D587C(void* p);
+void* get_ptr_0x44__9TItemListFPv(void* p);
 void TItemList__sub_801D5884(void* p, u8 v);
 void TItemList__sub_801D58C8(void* p);
 u8 get_item_count__9TItemListFPv(void* p);

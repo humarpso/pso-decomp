@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TKeyBoardControl__sub_803DD428(s32 arg0);
+void set_key_state__16TKeyBoardControlFi(s32 arg0);
 
 extern s32 lbl_805D7718;
 
-void TKeyBoardControl__sub_803DD428(s32 arg0) {
+void set_key_state__16TKeyBoardControlFi(s32 arg0) {
     lbl_805D7718 = arg0;
 }
 

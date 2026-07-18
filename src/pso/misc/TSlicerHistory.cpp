@@ -9,7 +9,7 @@ extern "C" {
 u8 *__ct__14TSlicerHistoryFv(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TTecSlicer__sub_8023BE28(void *);
+s32 get_field_110__10TTecSlicerFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject();
 
@@ -35,7 +35,7 @@ u8 *__ct__14TSlicerHistoryFv(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4) {
         M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805DC950;
         M2C_FIELD(arg0, f32 *, 0x48) = (f32) lbl_805DC950;
     }
-    M2C_FIELD(arg0, s32 *, 0x34) = TTecSlicer__sub_8023BE28((void *) (arg1));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_field_110__10TTecSlicerFPv((void *) (arg1));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x4C), (void *) (arg1 + 0x68));
     M2C_FIELD(arg0, s32 *, 0x58) = arg4;
     return arg0;

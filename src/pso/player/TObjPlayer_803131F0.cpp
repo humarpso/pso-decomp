@@ -15,13 +15,13 @@ int query_field40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_803131AC(void);
 int check_flag_at_4__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_80313218(void* p);
-void TObjPlayer__sub_80313248(void* p, s16 v);
+void set_field_0__10TObjPlayerFPvs(void* p, s16 v);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int TObjPlayer__sub_8001BEF8(void*, int);
 
 int check_flag_at_4__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x4, 1); }
 int TObjPlayer__sub_80313218(void* p) { return (TObjPlayer__sub_8001BEF8((char*)p + 0x4, 1)) == 0; }
-void TObjPlayer__sub_80313248(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
+void set_field_0__10TObjPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 void TObjPlayer__sub_80313250(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) + arg1);
 }

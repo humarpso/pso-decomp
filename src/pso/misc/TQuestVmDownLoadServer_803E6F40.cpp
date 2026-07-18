@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TQuestVmDownLoadServer__sub_803E6F40(void);
+s32 get_buffer_size__22TQuestVmDownLoadServerFv(void);
 
-s32 TQuestVmDownLoadServer__sub_803E6F40(void) {
+s32 get_buffer_size__22TQuestVmDownLoadServerFv(void) {
     return 0x48;
 }
 

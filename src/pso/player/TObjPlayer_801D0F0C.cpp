@@ -40,7 +40,7 @@ void TObjPlayer__sub_801D0F70(void* p);
 void* get_field4_ptr__10TObjPlayerFPv(void* p);
 int copy_position__10TObjPlayerFPv(void* p);
 void set_float_param__10TObjPlayerFis(s32 arg0, s16 arg1);
-M2C_UNK TObjPlayer__sub_801D2AC4(s32, f32);
+M2C_UNK set_field_3c__10TObjPlayerFPvf(s32, f32);
 int VecCopy__FP3VecPC3Vec(void*);
 
 short query_child_state2__10TObjPlayerFPv(void *arg0) {
@@ -55,7 +55,7 @@ void* get_field4_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x4; }
 int copy_position__10TObjPlayerFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x4); }
 
 void set_float_param__10TObjPlayerFis(s32 arg0, s16 arg1) {
-    TObjPlayer__sub_801D2AC4(arg0 + 0x4AC, (f32) (s32) arg1);
+    set_field_3c__10TObjPlayerFPvf(arg0 + 0x4AC, (f32) (s32) arg1);
 }
 
 }

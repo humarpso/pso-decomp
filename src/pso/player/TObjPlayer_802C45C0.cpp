@@ -9,8 +9,8 @@ void set_byte_13b__10TObjPlayerFPvUc(void* p, u8 v);
 void set_action_flags__10TObjPlayerFPvUc(void* p, u8 v);
 void set_flag_103__10TObjPlayerFPvUc(void* p, u8 v);
 void set_flag_e7__10TObjPlayerFPvUc(void* p, u8 v);
-void TObjPlayer__sub_802C45F0(void* p, u8 v);
-void TObjPlayer__sub_802C45F8(void* p, u8 v);
+void set_field_1ab__10TObjPlayerFPvUc(void* p, u8 v);
+void set_field_18f__10TObjPlayerFPvUc(void* p, u8 v);
 void set_flag_40__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_802C46BC(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
@@ -25,7 +25,7 @@ int set_state_flags__10TObjPlayerFPvUi(void*, void*);
 int enable_camera__19TAdSelectGameModeGCFv(void*);
 s32 fn_801A2FAC();
 int TAdSinglePlyChrSelectGC__sub_80203220(void*);
-s32 TAdSelectGameModeGC__sub_802A1438();
+s32 get_mode_data__19TAdSelectGameModeGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 getDateStamp__FP9DateStamp(s32 *);
 
@@ -35,7 +35,7 @@ void set_byte_13b__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x13b) =
 void set_action_flags__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x11f) = v; }
 void set_flag_103__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x103) = v; }
 void set_flag_e7__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0xe7) = v; }
-void TObjPlayer__sub_802C45F0(void* p, u8 v) { *(u8*)((char*)p + 0x1ab) = v; }
-void TObjPlayer__sub_802C45F8(void* p, u8 v) { *(u8*)((char*)p + 0x18f) = v; }
+void set_field_1ab__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x1ab) = v; }
+void set_field_18f__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x18f) = v; }
 
 }

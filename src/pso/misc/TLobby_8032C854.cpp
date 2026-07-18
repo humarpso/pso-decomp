@@ -11,7 +11,7 @@ void update_alloc_size__6TLobbyFv(void);
 u32 update_lobby_scene__6TSceneFPv();
 M2C_UNK TLobby__sub_800F9DF4(s32, u32);
 M2C_UNK TAdWarningBaseGC__sub_8032CF70(void*);
-u32 TAdWarningBaseGC__sub_8032D018();
+u32 get_alloc_size__16TAdWarningBaseGCFv();
 u32 TAdWarningBaseGC__sub_8032D020();
 
 extern u32 TLobby__data_805D6CC0;
@@ -47,7 +47,7 @@ void update_alloc_size__6TLobbyFv(void) {
     }
     if ((u32) TLobby__data_805D6CC0 != 0U) {
         TAdWarningBaseGC__sub_8032CF70((void*)TLobby__data_805D6CC0);
-        TLobby__data_805D6CC8 = TAdWarningBaseGC__sub_8032D018();
+        TLobby__data_805D6CC8 = get_alloc_size__16TAdWarningBaseGCFv();
         return;
     }
     TLobby__data_805D6CC8 = 0U;

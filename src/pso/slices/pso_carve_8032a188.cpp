@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TAdMcSelectGC__sub_8032A154(void* p);
+s32 get_slot_index__13TAdMcSelectGCFPv(void* p);
 void TAdMcSelectGC__sub_8032A15C(void* p);
-void TAdMcSelectGC__sub_8032A168(void* p, s32 v);
-void TAdMcSelectGC__sub_8032A170(void* p, s32 v);
-void TAdMcSelectGC__sub_8032A178(void* p, s32 v);
+void set_field_13c__13TAdMcSelectGCFPvi(void* p, s32 v);
+void set_field_0x1c__13TAdMcSelectGCFPvi(void* p, s32 v);
+void set_select_index__13TAdMcSelectGCFPvi(void* p, s32 v);
 void TAdMcSelectGC__sub_8032A180(void* p, s32 v);
-void TAdMcSelectGC__sub_8032A1B0(void* p, s32 v);
-void TAdMcSelectGC__sub_8032A1B8(void* p, f32 v);
-void TAdMcSelectGC__sub_8032A1C0(void* p, s32 v);
-void TAdMcSelectGC__sub_8032A1C8(void* p, f32 v);
+void set_field_24__13TAdMcSelectGCFPvi(void* p, s32 v);
+void set_field20__13TAdMcSelectGCFPvf(void* p, f32 v);
+void set_field_20__13TAdMcSelectGCFPvi(void* p, s32 v);
+void set_float_1c__13TAdMcSelectGCFPvf(void* p, f32 v);
 
 int TAdMcSelectGC__sub_8032A188(void) { return 0; }
 

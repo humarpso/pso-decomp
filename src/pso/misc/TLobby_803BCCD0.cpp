@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803BCCD0(s8 arg0);
+void set_global_flag__6TLobbyFc(s8 arg0);
 
 extern s8 lbl_805D74B8;
 
-void TLobby__sub_803BCCD0(s8 arg0) {
+void set_global_flag__6TLobbyFc(s8 arg0) {
     lbl_805D74B8 = arg0;
 }
 

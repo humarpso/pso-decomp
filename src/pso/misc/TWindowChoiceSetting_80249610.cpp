@@ -11,7 +11,7 @@ void draw_resolved_window__15TWindowFukidasiFiiii(s32 arg0, s32 arg1, s32 arg2, 
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 int is_open__17TWindowSubComCardFPv(void* p);
 s32 TWindowFukidasi__sub_80244DFC(s32, s32, s32, s32);
-s16 TWindowSubComCard__sub_802495FC(void* p);
+s16 get_field_74__17TWindowSubComCardFPv(void* p);
 
 int is_selected__20TWindowChoiceSettingFPv(void* p) { return (*(u16*)((char*)p + 0x70) >> 5) & 0x1; }
 void draw_resolved_window__15TWindowFukidasiFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

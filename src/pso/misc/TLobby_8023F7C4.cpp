@@ -6,16 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TLobby__sub_8023F7C4(void* p);
-s32 TLobby__sub_8023F7CC(void* p);
-void TLobby__sub_8023F7D4(void* p, s32 v);
+f32 get_field_2a4__6TLobbyFPv(void* p);
+s32 get_field_0x280__6TLobbyFPv(void* p);
+void set_menu_index__6TLobbyFPvi(void* p, s32 v);
 void set_mode__6TLobbyFPvi(void *arg0, s32 arg1);
 void set_clamped_field27c__6TLobbyFPvf(void *arg0, f32 farg0);
 s32 TLobby__sub_803AA35C(s32);
 
-f32 TLobby__sub_8023F7C4(void* p) { return *(f32*)((char*)p + 0x2a4); }
-s32 TLobby__sub_8023F7CC(void* p) { return *(s32*)((char*)p + 0x280); }
-void TLobby__sub_8023F7D4(void* p, s32 v) { *(s32*)((char*)p + 0x280) = v; }
+f32 get_field_2a4__6TLobbyFPv(void* p) { return *(f32*)((char*)p + 0x2a4); }
+s32 get_field_0x280__6TLobbyFPv(void* p) { return *(s32*)((char*)p + 0x280); }
+void set_menu_index__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x280) = v; }
 void set_mode__6TLobbyFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 0:

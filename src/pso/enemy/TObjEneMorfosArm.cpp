@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_global__16TObjEneMorfosArmFv(void);
-s32 TObjEneMorfos__sub_803326C4();
+s32 get_instance__13TObjEneMorfosFv();
 
 extern s32 lbl_805D6D38;
 
 void init_global__16TObjEneMorfosArmFv(void) {
-    lbl_805D6D38 = TObjEneMorfos__sub_803326C4();
+    lbl_805D6D38 = get_instance__13TObjEneMorfosFv();
 }
 
 }

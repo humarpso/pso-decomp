@@ -11,7 +11,7 @@ void reset_indices__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x51C) = 0;
 }
 
-s32 TBoss6Type2__sub_802BC6A0(void *arg0) {
+s32 get_hit_count__11TBoss6Type2FPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x4F4);
 }
 

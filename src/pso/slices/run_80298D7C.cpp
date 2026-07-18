@@ -22,7 +22,7 @@ f32 get_proportion__14TObjCMMainMenuFv(void) {
 }
 
     extern int lbl_805D6570;
-void TObjCMMainMenu__sub_80298D98(int a0) { lbl_805D6570 = a0; }
+void set_selection__14TObjCMMainMenuFi(int a0) { lbl_805D6570 = a0; }
 
     extern int lbl_805D6538;
 void TObjCMMainMenu__sub_80298DA0(int a0) { lbl_805D6538 = (lbl_805D6538 + a0); }

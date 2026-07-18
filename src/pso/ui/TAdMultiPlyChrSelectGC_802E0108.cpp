@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TAdMultiPlyChrSelectGC__sub_802E0108(void);
+int get_select_flag__22TAdMultiPlyChrSelectGCFv(void);
 
     extern int lbl_805D384C;
-int TAdMultiPlyChrSelectGC__sub_802E0108(void) {  return lbl_805D384C; }
+int get_select_flag__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D384C; }
 
 }

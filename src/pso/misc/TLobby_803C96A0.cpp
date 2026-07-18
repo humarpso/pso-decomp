@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803C96A0(u8 *arg0, s8 arg1);
+void set_field_6d__6TLobbyFPvc(u8 *arg0, s8 arg1);
 void TLobby__sub_803C96A8(u8 *arg0, s32 arg1);
 s16 TLobby__sub_803C96B0(u8 *arg0);
 void set_field_40_and_notify__6TLobbyFPvs(u8 *arg0, s16 arg1);
 M2C_UNK trigger_sub_task__6TLobbyFv(int);
 
-void TLobby__sub_803C96A0(u8 *arg0, s8 arg1) {
+void set_field_6d__6TLobbyFPvc(u8 *arg0, s8 arg1) {
     M2C_FIELD(arg0, s8 *, 0x6D) = arg1;
 }
 

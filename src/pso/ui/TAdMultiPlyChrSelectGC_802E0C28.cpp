@@ -8,14 +8,14 @@ extern "C" {
 
 void set_status_value__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
 void * get_index__14TAdPlyStatusGCFv();
-M2C_UNK TAdPlyStatusGC__sub_802E1170(void *, s32);
+M2C_UNK set_status_index__14TAdPlyStatusGCFii(void *, s32);
 
 void set_status_value__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     void *temp_r3;
     M2C_FIELD(arg0, s32 *, 0x110) = arg1;
     temp_r3 = get_index__14TAdPlyStatusGCFv();
     if (temp_r3 != 0U) {
-        TAdPlyStatusGC__sub_802E1170(temp_r3, M2C_FIELD(arg0, s32 *, 0x110));
+        set_status_index__14TAdPlyStatusGCFii(temp_r3, M2C_FIELD(arg0, s32 *, 0x110));
     }
 }
 

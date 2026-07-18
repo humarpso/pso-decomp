@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_803CE1D0(u8 *arg0);
+s32 get_scroll_offset__6TLobbyFPv(u8 *arg0);
 
-s32 TLobby__sub_803CE1D0(u8 *arg0) {
+s32 get_scroll_offset__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x2B0);
 }
 

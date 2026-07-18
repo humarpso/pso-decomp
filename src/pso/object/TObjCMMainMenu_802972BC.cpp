@@ -24,7 +24,7 @@ void *get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 s32 TObjCMMainMenu__sub_8028DA7C(void *);
 M2C_UNK fn_80290BE0();
-M2C_UNK TObjCMMainMenu__sub_80298D98(M2C_UNK);
+M2C_UNK set_selection__14TObjCMMainMenuFi(M2C_UNK);
 
 void fn_802972BC(void) {  }
 void fn_802972C0(void) {  }
@@ -62,7 +62,7 @@ void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
     } else {
         try_pay_fee__14TObjCMMainMenuFv();
     }
-    TObjCMMainMenu__sub_80298D98(1);
+    set_selection__14TObjCMMainMenuFi(1);
     fn_80290BE0();
     M2C_FIELD(arg0, s32 *, 0x30) = 0x3C;
     TObjCMMainMenu__data_805D659C = 2;

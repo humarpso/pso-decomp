@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803C9348(u8 *arg0, s8 arg1);
+void set_field98__6TLobbyFPvc(u8 *arg0, s8 arg1);
 void TLobby__sub_803C9350(u8 *arg0, s32 arg1);
 
-void TLobby__sub_803C9348(u8 *arg0, s8 arg1) {
+void set_field98__6TLobbyFPvc(u8 *arg0, s8 arg1) {
     M2C_FIELD(arg0, s8 *, 0x98) = arg1;
 }
 

@@ -15,12 +15,12 @@ s32 init__15TWindowSnapShotFPvi();
 int TObjChip__vt8(void*, void*);
 int TWindowSnapShot__sub_802A5D28(void*);
 int reset__15TWindowSnapShotFPv(void*);
-int TWindowSnapShot__sub_802A6044(void);
+int get_width__15TWindowSnapShotFv(void);
 void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
-s32 TWindowSnapShot__sub_802A6054(void* p);
+s32 get_buffer_size__15TWindowSnapShotFPv(void* p);
 void fn_802A6070(void* p, s32 v);
 void fn_802A6078(void* p, s32 v);
-int TLobby__sub_802A6080(void);
+int get_max_players__6TLobbyFv(void);
 
 int TObjSuisoChip__vt6(void) { return 0; }
 

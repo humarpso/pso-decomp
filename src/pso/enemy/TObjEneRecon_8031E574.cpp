@@ -8,8 +8,8 @@ extern "C" {
 
 u8 *TObjEneRecon__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3, s16 arg4, s32 arg5, s32 arg6);
 M2C_UNK TObjEneRecon__sub_8031E33C(void *);
-f32 TObjEneRecon__sub_8031E7F0(void *);
-f32 TObjEneRecon__sub_8031E7F8(void *);
+f32 get_field_4d4__12TObjEneReconFPv(void *);
+f32 get_field_4d0__12TObjEneReconFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK init_common__18TObjEneMe3SinowZoaFPv(void *);
 M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
@@ -32,8 +32,8 @@ u8 *TObjEneRecon__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3, s16 arg4, s32 arg5,
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x438), (void *) (arg2 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x428), (void *) (arg6));
     TObjEneRecon__sub_8031E33C((void *) (arg0));
-    M2C_FIELD(arg0, f32 *, 0x460) = (f32) (M2C_FIELD(arg0, f32 *, 0x460) + TObjEneRecon__sub_8031E7F8((void *) (arg2)));
-    M2C_FIELD(arg0, f32 *, 0x468) = (f32) (M2C_FIELD(arg0, f32 *, 0x468) + TObjEneRecon__sub_8031E7F0((void *) (arg2)));
+    M2C_FIELD(arg0, f32 *, 0x460) = (f32) (M2C_FIELD(arg0, f32 *, 0x460) + get_field_4d0__12TObjEneReconFPv((void *) (arg2)));
+    M2C_FIELD(arg0, f32 *, 0x468) = (f32) (M2C_FIELD(arg0, f32 *, 0x468) + get_field_4d4__12TObjEneReconFPv((void *) (arg2)));
     M2C_FIELD(arg0, s32 *, 0x80) = 0;
     return arg0;
 }

@@ -13,8 +13,8 @@ M2C_UNK open_session__6TLobbyFi();
 M2C_UNK TLobby__sub_801A2514(u16);
 M2C_UNK TLobby__sub_801A2528(u16);
 M2C_UNK refresh_quest_list__6TLobbyFi();
-M2C_UNK TQuestListVM__sub_801F4398();
-M2C_UNK TQuestListOnline__sub_801F43A0();
+M2C_UNK get_data__12TQuestListVMFv();
+M2C_UNK get_quest_list_flag__16TQuestListOnlineFv();
 M2C_UNK fn_801F43A8();
 M2C_UNK TLobby__sub_8020B2DC();
 M2C_UNK TLobby__sub_8020B308(s32);
@@ -38,15 +38,15 @@ void setup_quest_list__6TLobbyFv(void) {
         open_session__6TLobbyFi();
         break;
     case 2:
-        TQuestListOnline__sub_801F43A0();
+        get_quest_list_flag__16TQuestListOnlineFv();
         update_and_reset__6TLobbyFi();
         break;
     case 3:
-        TQuestListVM__sub_801F4398();
+        get_data__12TQuestListVMFv();
         update_and_reset__6TLobbyFi();
         break;
     case 4:
-        TQuestListOnline__sub_801F43A0();
+        get_quest_list_flag__16TQuestListOnlineFv();
         rebuild_all__6TLobbyFi();
         break;
     case 5:

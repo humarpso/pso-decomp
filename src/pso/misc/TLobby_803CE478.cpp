@@ -12,7 +12,7 @@ M2C_UNK set_scroll_position__6TLobbyFPvi(int, void *);
 M2C_UNK TLobby__sub_803C8A14(int);
 M2C_UNK set_scroll_offset__6TLobbyFPvi(int, int);
 M2C_UNK TLobby__sub_803CE198(int, int, void *, void *);
-s32 TLobby__sub_803CE1D0(int);
+s32 get_scroll_offset__6TLobbyFPv(int);
 M2C_UNK update_scroll_impl__6TLobbyFv();
 M2C_UNK TLobby__sub_803CE220();
 
@@ -24,7 +24,7 @@ void update_scroll__6TLobbyFPv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, u8 *, 0x1A8) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x1B0) >= (s32) M2C_FIELD(arg0, s32 *, 0x1BC))) {
         M2C_FIELD(arg0, s32 *, 0x1B0) = (s32) M2C_FIELD(arg0, s32 *, 0x1B8);
     }
-    if (((s32) M2C_FIELD(arg0, u8 *, 0x1A9) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x1B0) < TLobby__sub_803CE1D0((int) (M2C_FIELD(arg0, s32 *, 4))))) {
+    if (((s32) M2C_FIELD(arg0, u8 *, 0x1A9) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x1B0) < get_scroll_offset__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4))))) {
         TLobby__sub_803CE220();
         TLobby__sub_803CE198((int) (M2C_FIELD(arg0, s32 *, 4)), (int) (M2C_FIELD(arg0, s32 *, 0x1B0)), (void *) (&spC), (void *) (&sp8));
         set_scroll_offset__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (spC / 2048));

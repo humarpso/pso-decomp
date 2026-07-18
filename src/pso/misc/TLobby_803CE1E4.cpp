@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803CE1E4(u8 *arg0, s8 arg1);
-void TLobby__sub_803CE1EC(u8 *arg0, s8 arg1);
+void set_flag_4__6TLobbyFPvc(u8 *arg0, s8 arg1);
+void set_client_slot__6TLobbyFPvc(u8 *arg0, s8 arg1);
 
-void TLobby__sub_803CE1E4(u8 *arg0, s8 arg1) {
+void set_flag_4__6TLobbyFPvc(u8 *arg0, s8 arg1) {
     M2C_FIELD(arg0, s8 *, 4) = arg1;
 }
 
-void TLobby__sub_803CE1EC(u8 *arg0, s8 arg1) {
+void set_client_slot__6TLobbyFPvc(u8 *arg0, s8 arg1) {
     M2C_FIELD(arg0, s8 *, 3) = arg1;
 }
 

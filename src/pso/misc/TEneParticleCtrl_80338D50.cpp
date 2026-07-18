@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void* TEneParticleCtrl__sub_80338D50(void* p);
+void* get_field_38_ptr__16TEneParticleCtrlFPv(void* p);
 
-void* TEneParticleCtrl__sub_80338D50(void* p) { return (char*)p + 0x38; }
+void* get_field_38_ptr__16TEneParticleCtrlFPv(void* p) { return (char*)p + 0x38; }
 
 }

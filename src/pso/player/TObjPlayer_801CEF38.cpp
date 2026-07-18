@@ -13,8 +13,8 @@ M2C_UNK apply_movement_if_ready__10TObjPlayerFPv(void *);
 M2C_UNK update_anim_action__10TObjPlayerFPv(void *);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D2DA4(void *, s32);
-s32 TObjPlayer__sub_801D2DAC(void *);
+M2C_UNK set_action_type__10TObjPlayerFPvi(void *, s32);
+s32 get_field_1c__10TObjPlayerFPv(void *);
 s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
 s32 is_anim_finished__10TObjPlayerFPv(void *);
 
@@ -35,12 +35,12 @@ void update_action_state__10TObjPlayerFPv(u8 *arg0) {
     case 4:
         return;
     case 2:
-        temp_r31 = TObjPlayer__sub_801D2DAC(arg0 + 0x7CC) - 1;
+        temp_r31 = get_field_1c__10TObjPlayerFPv(arg0 + 0x7CC) - 1;
         if (temp_r31 < 0) {
             M2C_FIELD(arg0, s16 *, 0x328) = 3;
             clear_status_bit6__10TObjPlayerFPv(arg0);
         }
-        TObjPlayer__sub_801D2DA4(arg0 + 0x7CC, temp_r31);
+        set_action_type__10TObjPlayerFPvi(arg0 + 0x7CC, temp_r31);
         return;
     case 3:
         update_anim_action__10TObjPlayerFPv(arg0);

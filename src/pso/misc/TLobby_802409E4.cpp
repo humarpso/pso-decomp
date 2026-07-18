@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TLobby__sub_8024219C(s32);
+s32 get_field_308__6TLobbyFPv(s32);
 void TLobby__sub_802409E4(void* p);
 
 void TLobby__sub_802409E4(void* p) { *(s16*)((char*)p + 0x92) = 5; }

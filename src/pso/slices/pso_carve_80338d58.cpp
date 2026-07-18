@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void* TEneParticleCtrl__sub_80338D50(void* p);
+void* get_field_38_ptr__16TEneParticleCtrlFPv(void* p);
 
 int fn_80338D58(void) { return 0; }
 

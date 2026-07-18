@@ -11,7 +11,7 @@ s32 open_main_menu__20TWindowSubSymbolChatFv(void);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
-s8 TWindowSubSymbolChat__sub_80283808();
+s8 get_global_4e54__20TWindowSubSymbolChatFv();
 s32 is_initialized__20TWindowSubSymbolChatFPv(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(s32, f32, f32);
@@ -33,7 +33,7 @@ s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0) {
     } else {
         draw_text_gray__17TWindowSubComCardFiiii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xB4), 6, 0x1E);
     }
-    if (TWindowSubSymbolChat__sub_80283808() > 0) {
+    if (get_global_4e54__20TWindowSubSymbolChatFv() > 0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xB5), 6, 0x20);
     } else {
         draw_text_gray__17TWindowSubComCardFiiii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xB5), 6, 0x20);

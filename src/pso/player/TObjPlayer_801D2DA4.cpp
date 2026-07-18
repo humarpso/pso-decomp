@@ -8,13 +8,13 @@ extern "C" {
 
 int on_attack_finished__10TObjPlayerFPv(void* p);
 int set_flag_1_at_c__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801D2DA4(void* p, s32 v);
-s32 TObjPlayer__sub_801D2DAC(void* p);
+void set_action_type__10TObjPlayerFPvi(void* p, s32 v);
+s32 get_field_1c__10TObjPlayerFPv(void* p);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int TObjPlayer__sub_8012ADD4(void*);
 s32 TObjPlayer__sub_801D3424(void *, s32);
 
-void TObjPlayer__sub_801D2DA4(void* p, s32 v) { *(s32*)((char*)p + 0x1c) = v; }
-s32 TObjPlayer__sub_801D2DAC(void* p) { return *(s32*)((char*)p + 0x1c); }
+void set_action_type__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x1c) = v; }
+s32 get_field_1c__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x1c); }
 
 }

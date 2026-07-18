@@ -10,7 +10,7 @@ s32 select_next__19TWindowKeyBoardSoftFPv();
 s32 update__19TWindowKeyBoardSoftFPv();
 s32 convert_input_text__19TWindowKeyBoardSoftFPv();
 int is_flag_4_set__17TWindowSubComCardFPv(void* p);
-s32 TWindowKeyBoardSoft__sub_8025B8C8(void* p);
+s32 get_state__19TWindowKeyBoardSoftFPv(void* p);
 void TWindowKeyBoardSoft__sub_8025B928(void);
 
 int TWindowKeyBoardSoft__vt19(void) { return 0; }

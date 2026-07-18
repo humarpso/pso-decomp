@@ -9,14 +9,14 @@ int TWindowSnapShot__sub_802A5D28(void* a0 = 0);
 
 u32 alloc_buffer__11TOBoss4RockFPv();
 s32 set_mode__15TWindowSnapShotFPvi(void *, s32);
-s32 TWindowSnapShot__sub_802A6054();
+s32 get_buffer_size__15TWindowSnapShotFPv();
 s32 TGStream__sub_800FDADC(s32, s32);
 s32 TWindowSnapShot__sub_802A605C(void *);
 s32 TLobby__sub_800FD944(s32);
 void fn_802A5CB8(void* p);
 
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0) {
-    TWindowSnapShot__sub_802A6054();
+    get_buffer_size__15TWindowSnapShotFPv();
     M2C_FIELD(arg0, u32 *, 8) = alloc_buffer__11TOBoss4RockFPv();
     if ((u32) M2C_FIELD(arg0, u32 *, 8) == 0U) {
         set_mode__15TWindowSnapShotFPvi(arg0, 4);

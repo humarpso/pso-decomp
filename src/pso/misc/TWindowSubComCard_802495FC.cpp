@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s16 TWindowSubComCard__sub_802495FC(void* p);
+s16 get_field_74__17TWindowSubComCardFPv(void* p);
 int is_selected__20TWindowChoiceSettingFPv(void* p);
 void *TWindowCtrlMain__sub_8024CDD0(s32);
 s32 TWindowFukidasi__sub_80244DFC(s32, s32, s32, s32);
 int is_open__17TWindowSubComCardFPv(void* p);
 
-s16 TWindowSubComCard__sub_802495FC(void* p) { return *(s16*)((char*)p + 0x74); }
+s16 get_field_74__17TWindowSubComCardFPv(void* p) { return *(s16*)((char*)p + 0x74); }
 
 }

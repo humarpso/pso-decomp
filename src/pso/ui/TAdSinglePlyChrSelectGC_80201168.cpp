@@ -10,7 +10,7 @@ s32 init_and_register__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 M2C_UNK register_callback__23TAdSinglePlyChrSelectGCFis(s32, M2C_UNK);
 s32 TAdSinglePlyChrSelectGC__sub_801FC900();
 M2C_UNK set_id__23TAdSinglePlyChrSelectGCFPvi(s32, M2C_UNK);
-u32 TAdSinglePlyChrSelectGC__sub_801FCCD4(s32);
+u32 get_type__23TAdSinglePlyChrSelectGCFPv(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200690(s32, s32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(s32, M2C_UNK);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
@@ -25,7 +25,7 @@ s32 init_and_register__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
         var_r29 = TAdSinglePlyChrSelectGC__sub_801FC900();
     }
     TAdSinglePlyChrSelectGC__sub_80200690(var_r29, arg0);
-    temp_r30 = TAdSinglePlyChrSelectGC__sub_801FCCD4(var_r29);
+    temp_r30 = get_type__23TAdSinglePlyChrSelectGCFPv(var_r29);
     set_id__23TAdSinglePlyChrSelectGCFPvi(var_r29, 0);
     temp_r31 = TAdSinglePlyChrSelectGC__sub_80201204(var_r29, 0x1156C);
     register_callback__23TAdSinglePlyChrSelectGCFis(var_r29, 1);

@@ -8,10 +8,10 @@ void TOTrapChainSaw__sub_802C9BE8(void);
 void TOTrapChainSaw__sub_802C9BEC(void);
 void TOTrapChainSaw__sub_802C9BF0(void);
 void TOTrapChainSaw__sub_802C9BF4(void);
-void TOTrapChainSawDamage__sub_802C9BF8(void* p, s32 v);
+void set_damage__20TOTrapChainSawDamageFPvi(void* p, s32 v);
 void TOTrapChainSaw__vt23(void);
 void TOTrapChainSaw__vt14(void);
 
-void TOTrapChainSawDamage__sub_802C9BF8(void* p, s32 v) { *(s32*)((char*)p + 0xf8) = v; }
+void set_damage__20TOTrapChainSawDamageFPvi(void* p, s32 v) { *(s32*)((char*)p + 0xf8) = v; }
 
 }

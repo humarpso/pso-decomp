@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8();
-s32 TAdMultiPlyChrSelectGC__sub_802E00B4(void* p);
+s32 get_field_0x530__22TAdMultiPlyChrSelectGCFPv(void* p);
 void set_field_1c__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(void* p);
 

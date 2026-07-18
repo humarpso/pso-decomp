@@ -4,8 +4,8 @@ extern "C" {
 
 void finish_quest_thread__10TObjPlayerFv(void);
 int TQuestThread__sub_801F5C50(void);
-int TObjPlayer__sub_80354F7C(void);
+int get_quest_thread_id__10TObjPlayerFPv(void);
 
-void finish_quest_thread__10TObjPlayerFv(void) { TObjPlayer__sub_80354F7C(); TQuestThread__sub_801F5C50(); }
+void finish_quest_thread__10TObjPlayerFv(void) { get_quest_thread_id__10TObjPlayerFPv(); TQuestThread__sub_801F5C50(); }
 
 }

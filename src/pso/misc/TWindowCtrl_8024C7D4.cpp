@@ -23,7 +23,7 @@ int TWindowCtrl__sub_8024C7E0(void* p);
 int is_enabled__11TWindowCtrlFPv(void* p);
 int TWindowCtrl__sub_8024C7F8(void* p);
 int is_visible__11TWindowCtrlFPv(void* p);
-s16 TWindowCtrl__sub_8024C810(void* p);
+s16 get_field_20__11TWindowCtrlFPv(void* p);
 s16 get_width__11TWindowCtrlFPv(void* p);
 
 int TWindowCtrl__sub_8024C7D4(void* p) { return (*(u16*)((char*)p + 0x1c) >> 1) & 0x1; }
@@ -31,7 +31,7 @@ int TWindowCtrl__sub_8024C7E0(void* p) { return (*(u16*)((char*)p + 0x1c) >> 2) 
 int is_enabled__11TWindowCtrlFPv(void* p) { return (*(u16*)((char*)p + 0x1c) >> 3) & 0x1; }
 int TWindowCtrl__sub_8024C7F8(void* p) { return (*(u16*)((char*)p + 0x1c) >> 4) & 0x1; }
 int is_visible__11TWindowCtrlFPv(void* p) { return *(u16*)((char*)p + 0x1c) & 0x1; }
-s16 TWindowCtrl__sub_8024C810(void* p) { return *(s16*)((char*)p + 0x20); }
+s16 get_field_20__11TWindowCtrlFPv(void* p) { return *(s16*)((char*)p + 0x20); }
 s16 get_width__11TWindowCtrlFPv(void* p) { return *(s16*)((char*)p + 0x20); }
 
 }

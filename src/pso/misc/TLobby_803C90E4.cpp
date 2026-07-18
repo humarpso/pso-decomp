@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void on_set_mode__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803C4C3C();
+M2C_UNK set_global_805D7520__6TLobbyFi();
 
 void on_set_mode__6TLobbyFv(void) {
-    TLobby__sub_803C4C3C();
+    set_global_805D7520__6TLobbyFi();
 }
 
 }

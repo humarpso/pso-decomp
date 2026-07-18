@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 TLobby__sub_803BCA98(u32 arg0);
+u32 shift_right_8__6TLobbyFUi(u32 arg0);
 
-u32 TLobby__sub_803BCA98(u32 arg0) {
+u32 shift_right_8__6TLobbyFUi(u32 arg0) {
     return arg0 >> 8U;
 }
 

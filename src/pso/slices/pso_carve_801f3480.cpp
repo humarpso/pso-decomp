@@ -13,17 +13,17 @@ int set_flag_4__6TLobbyFPv(void* p);
 int TLobby__sub_801F345C(void* p);
 int fn_801F3480(void* p);
 int fn_801F34A0(void* p);
-s32 fn_801F34C0(void* p);
-s32 fn_801F34C8(void* p);
-void TLobby__sub_801F34E0(void* p, s16 v);
+s32 get_field_d4(void* p);
+s32 fn_get_field_3ac(void* p);
+void set_floor__6TLobbyFPvs(void* p, s16 v);
 int TLobby__sub_800822E8(void*, int);
 int has_item_flag_4096__10TObjPlayerFPv(void*);
 int check_technique_flag__10TObjPlayerFPv(void*);
 
 int fn_801F3480(void* p) { return has_item_flag_4096__10TObjPlayerFPv(p); }
 int fn_801F34A0(void* p) { return check_technique_flag__10TObjPlayerFPv(p); }
-s32 fn_801F34C0(void* p) { return *(s32*)((char*)p + 0xd4); }
-s32 fn_801F34C8(void* p) { return *(s32*)((char*)p + 0x3ac); }
+s32 get_field_d4(void* p) { return *(s32*)((char*)p + 0xd4); }
+s32 fn_get_field_3ac(void* p) { return *(s32*)((char*)p + 0x3ac); }
 int TMainTask__sub_801F34D0(void) { return 0; }
 
 }

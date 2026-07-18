@@ -2,9 +2,9 @@
 
 extern "C" {
 
-u8 TWindowSubShortMail__sub_8027FAF8(void* p);
-void* TWindowSubShortMail__sub_8027FAF0(void* p);
+u8 get_field_cc__19TWindowSubShortMailFPv(void* p);
+void* get_mail_ptr__19TWindowSubShortMailFPv(void* p);
 
-u8 TWindowSubShortMail__sub_8027FAF8(void* p) { return *(u8*)((char*)p + 0xcc); }
+u8 get_field_cc__19TWindowSubShortMailFPv(void* p) { return *(u8*)((char*)p + 0xcc); }
 
 }

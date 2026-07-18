@@ -7,8 +7,8 @@ void bswap_4x32__6TLobbyFPv(void* p);
 void TLobby__sub_801F3568(void);
 void sync_quest_register_and_send__6TLobbyFPv(void* p);
 void bswap_header__6TLobbyFPv(void* p);
-int TLobby__sub_801F3604(void);
-int TLobby__sub_801F360C(void);
+int get_field_6CE8__6TLobbyFv(void);
+int get_lobby_count__6TLobbyFv(void);
 void TLobby__sub_801F3614(void);
 void build_6x77_sync_quest_register(void* p);
 int TLobby__send_and_handle_60(void*);
@@ -28,10 +28,10 @@ void bswap_header__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); b
 void build_6x77_sync_quest_register(void* p) { *(u8*)((char*)p + 0x0) = 119; *(u8*)((char*)p + 0x1) = 3; }
 
     extern int lbl_805D6CE8;
-int TLobby__sub_801F3604(void) {  return lbl_805D6CE8; }
+int get_field_6CE8__6TLobbyFv(void) {  return lbl_805D6CE8; }
 
     extern int lbl_805D6CF0;
-int TLobby__sub_801F360C(void) {  return lbl_805D6CF0; }
+int get_lobby_count__6TLobbyFv(void) {  return lbl_805D6CF0; }
 
     extern int lbl_805D6CF0;
 void TLobby__sub_801F3614(void) { lbl_805D6CF0 = 0; }

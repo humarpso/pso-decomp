@@ -11,7 +11,7 @@ s32 query_task_active__6TLobbyFv(void);
 int TLobby__sub_8014677C(void);
 int get_link_status_value__6TLobbyFv(void);
 int TLobby__sub_80145DB4(void*);
-s32 TLobby__sub_804245DC();
+s32 get_task_count__6TLobbyFv();
 
 int TLobby__sub_80146740(void) { return 0; }
 
@@ -19,7 +19,7 @@ extern s32 lbl_805D5710;
 
 s32 query_task_active__6TLobbyFv(void) {
     if ((s32) lbl_805D5710 != 0) {
-        return TLobby__sub_804245DC();
+        return get_task_count__6TLobbyFv();
     }
     return 0;
 }

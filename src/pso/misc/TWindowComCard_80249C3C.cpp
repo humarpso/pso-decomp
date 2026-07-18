@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1);
-void* TWindowComCard__sub_80249CB4(void* p);
+void* get_card_name_ptr__14TWindowComCardFPv(void* p);
 M2C_UNK TWindowHelpItem__sub_8025B08C(void *, f32, f32);
 
 extern u8 lbl_8044EB50[];
@@ -29,6 +29,6 @@ void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1) {
     TWindowHelpItem__sub_8025B08C(arg0, M2C_FIELD(temp_r4, f32 *, 0), M2C_FIELD(temp_r4, f32 *, 4));
 }
 
-void* TWindowComCard__sub_80249CB4(void* p) { return (char*)p + 0xa; }
+void* get_card_name_ptr__14TWindowComCardFPv(void* p) { return (char*)p + 0xa; }
 
 }
