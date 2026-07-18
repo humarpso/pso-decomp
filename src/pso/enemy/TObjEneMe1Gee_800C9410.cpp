@@ -120,7 +120,7 @@ M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 M2C_UNK update_angle__13TObjEneMe1GeeFPv(void *);
 M2C_UNK TObjEneMe1Gee__sub_800CBE6C(void *, f32);
-M2C_UNK TObjEneMe1Gee__sub_800CBEC4(void *);
+M2C_UNK set_move_speed_x__13TObjEneMe1GeeFPv(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
 
@@ -162,7 +162,7 @@ void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1) {
             copy_position__14TObjEneEpsilonFPv(arg0, (u8 *)arg0 + 0x50);
             update_velocity__9TObjEneDDFPv(arg0);
             update_angle__13TObjEneMe1GeeFPv(arg0);
-            TObjEneMe1Gee__sub_800CBEC4(arg0);
+            set_move_speed_x__13TObjEneMe1GeeFPv(arg0);
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805DA0CC) {
                 TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805DA0D0);
             }

@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__vt76(s32 arg0, s32 arg1);
 M2C_UNK set_code_12_3__10TObjPlayerFPv(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801C0984(M2C_UNK *);
+M2C_UNK reinit_update_sub4_and_send__10TObjPlayerFPv(M2C_UNK *);
 
 s32 obj_isState2_324();
 M2C_UNK obj_copyVec2_0(M2C_UNK *, s32);
@@ -22,7 +22,7 @@ void TObjPlayer__vt76(s32 arg0, s32 arg1) {
         set_code_12_3__10TObjPlayerFPv(&sp8);
         M2C_FIELD(&sp8, s16 *, 2) = obj_getField1c(arg0);
         obj_copyVec2_0(&spC, arg1);
-        TObjPlayer__sub_801C0984(&sp8);
+        reinit_update_sub4_and_send__10TObjPlayerFPv(&sp8);
     }
 }
 

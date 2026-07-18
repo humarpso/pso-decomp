@@ -9,7 +9,7 @@ extern "C" {
 void run_task__11TMainCursorFv(u8 *arg0);
 s32 init_render_flags__11TMainCursorFPv(void *);
 s32 update__11TMainCursorFPv(void *);
-s32 TMainCursor__sub_8013E520(void *);
+s32 check_flag_1__11TMainCursorFPv(void *);
 f32 get_pos__11TMainCursorFPv(void *);
 M2C_UNK TMainCursor__sub_8013F180(void *);
 M2C_UNK TMainCursor__sub_8013B70C();
@@ -25,7 +25,7 @@ void run_task__11TMainCursorFv(u8 *arg0) {
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 2) {
         TMainCursor__sub_8013B70C();
-        if (TMainCursor__sub_8013E520(arg0) != 0) {
+        if (check_flag_1__11TMainCursorFPv(arg0) != 0) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
         }
     }

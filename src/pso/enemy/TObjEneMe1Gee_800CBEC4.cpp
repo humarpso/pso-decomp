@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjEneMe1Gee__sub_800CBEC4(void *arg0);
+void set_move_speed_x__13TObjEneMe1GeeFPv(void *arg0);
 M2C_UNK TObjEneMe1Gee__sub_800CBF58(f32);
 
-void TObjEneMe1Gee__sub_800CBEC4(void *arg0) {
+void set_move_speed_x__13TObjEneMe1GeeFPv(void *arg0) {
     TObjEneMe1Gee__sub_800CBF58(M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E8));
 }
 

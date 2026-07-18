@@ -14,7 +14,7 @@ int TObjEneDD__sub_800BAAE4(void*, void*, void*);
 void TObjEneBm3FlyNest__sub_800B3BE8(void);
 void TObjEneBm3FlyNest__sub_800B3CBC(void);
 
-void TObjEneBm3FlyNest__sub_800B3B94(void* p) { TObjEneDD__sub_800BAAE4(p, (char*)p + 0x2fc, (void*)0); }
+void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p) { TObjEneDD__sub_800BAAE4(p, (char*)p + 0x2fc, (void*)0); }
 void copy_pos__17TObjEneBm3FlyNestFPv(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
 void TObjEneBm3FlyNest__sub_800B3BE8(void) {  }
 void update_state__17TObjEneBm3FlyNestFPv(void *arg0) {

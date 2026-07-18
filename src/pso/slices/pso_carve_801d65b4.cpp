@@ -4,7 +4,7 @@ extern "C" {
 
 int TFontSmallLobby__sub_801C0228(void*);
 void reset_fields__15TFontSmallLobbyFPv(void* p);
-int TFontSmallLobby__sub_801D6654(void* p);
+int set_bit1_at_40__15TFontSmallLobbyFPv(void* p);
 int update_ready__15TFontSmallLobbyFPv(void* p);
 s32 TFontSmallLobby__sub_801D66D4(void* p);
 s32 TFontSmallLobby__sub_801D66DC(void* p);

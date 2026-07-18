@@ -26,7 +26,7 @@ f32 get_dist__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D2B08(void* p);
 void set_technique_state__10TObjPlayerFPvi(void* p, s32 v);
 void set_technique_id__10TObjPlayerFPvUc(void* p, u8 v);
-int TObjPlayer__sub_801D2C84(void* p);
+int test_bit1_at_10__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_801D2CBC(void* p);
 void TObjPlayer__sub_801D2CC4(void* p, f32 v);
 void* get_technique_data__10TObjPlayerFPv(void* p);
@@ -42,6 +42,6 @@ int fn_801D7BF4(void*);
 
 void set_technique_state__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }
 void set_technique_id__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x0) = v; }
-int TObjPlayer__sub_801D2C84(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x10, 2); }
+int test_bit1_at_10__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x10, 2); }
 
 }

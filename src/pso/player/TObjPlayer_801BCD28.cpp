@@ -2,12 +2,12 @@
 
 extern "C" {
 
-int TObjPlayer__sub_801BCD28(void* p);
+int is_flag_set_550__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCD50(void);
 void TObjPlayer__sub_801BCD54(void);
 int TObjPlayer__sub_801BEF60(void*, int);
 
-int TObjPlayer__sub_801BCD28(void* p) { return TObjPlayer__sub_801BEF60((char*)p + 0x550, 0); }
+int is_flag_set_550__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801BEF60((char*)p + 0x550, 0); }
 void TObjPlayer__sub_801BCD50(void) {  }
 void TObjPlayer__sub_801BCD54(void) {  }
 

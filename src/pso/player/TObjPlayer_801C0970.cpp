@@ -20,7 +20,7 @@ void set_code_49_1__10TObjPlayerFPv(void* p);
 void set_code_45_1__10TObjPlayerFPv(void* p);
 
 void set_code_12_3__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 12; *(u8*)((char*)p + 0x1) = 3; }
-void TObjPlayer__sub_801C0984(void* p) { apply_status_effect__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
+void reinit_update_sub4_and_send__10TObjPlayerFPv(void* p) { apply_status_effect__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 void set_code_161_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 161; *(u8*)((char*)p + 0x1) = 1; }
 void update_font__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void send_font_state__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }

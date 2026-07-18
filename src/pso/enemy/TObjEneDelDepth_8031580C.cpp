@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1);
-M2C_UNK TObjEneDelDepth__sub_80316644(s32, M2C_UNK);
+M2C_UNK conditional_delete__15TObjEneDelDepthFis(s32, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
@@ -19,7 +19,7 @@ void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjEneDelDepth;
         TObjEneGibbles__sub_80156720(arg0);
         M2C_FIELD(arg0, s32 *, 0x380) = 0;
-        TObjEneDelDepth__sub_80316644(M2C_FIELD(arg0, s32 *, 0x37C), 1);
+        conditional_delete__15TObjEneDelDepthFis(M2C_FIELD(arg0, s32 *, 0x37C), 1);
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {

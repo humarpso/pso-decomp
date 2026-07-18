@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TWindowCtrl__sub_8024A294(void);
+void update_focused__11TWindowCtrlFv(void);
 s32 get_active_sub__11TWindowCtrlFv(void);
 s32 TWindowCtrl__sub_8024C5C4(u32);
 M2C_UNK update__11TWindowChatFPv(u32);
 
 extern void *TWindowCtrl__data_805D63F8;
 
-void TWindowCtrl__sub_8024A294(void) {
+void update_focused__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x38) != 0U)) {
         update__11TWindowChatFPv(M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x38));
     }

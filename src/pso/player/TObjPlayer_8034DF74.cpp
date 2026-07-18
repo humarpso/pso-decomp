@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_4p_battle_ctrls__10TObjPlayerFv(void);
-M2C_UNK TObjPlayer__sub_801B170C();
+M2C_UNK send_item_pickup_request__10TObjPlayerFi();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 
 void update_4p_battle_ctrls__10TObjPlayerFv(void) {
@@ -16,7 +16,7 @@ void update_4p_battle_ctrls__10TObjPlayerFv(void) {
     var_r31 = 0;
     do {
         if (TPlayerBattleCtrl4P__sub_801BA74C(var_r31) != 0U) {
-            TObjPlayer__sub_801B170C();
+            send_item_pickup_request__10TObjPlayerFi();
         }
         var_r31 += 1;
     } while (var_r31 < 4);

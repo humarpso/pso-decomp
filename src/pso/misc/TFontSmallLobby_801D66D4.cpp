@@ -14,7 +14,7 @@ int TFontSmallLobby__sub_801D677C(void* p);
 u16 TFontSmallLobby__sub_801D67A4(void* p);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
 int TFontSmallLobby__sub_801C0228(void*);
-int TFontSmallLobby__sub_801D6654(void* p);
+int set_bit1_at_40__15TFontSmallLobbyFPv(void* p);
 int update_ready__15TFontSmallLobbyFPv(void* p);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 void reset_fields__15TFontSmallLobbyFPv(void* p);

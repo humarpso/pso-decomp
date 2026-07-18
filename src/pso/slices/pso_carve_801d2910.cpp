@@ -26,7 +26,7 @@ f32 get_dist__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D2B08(void* p);
 void set_technique_state__10TObjPlayerFPvi(void* p, s32 v);
 void set_technique_id__10TObjPlayerFPvUc(void* p, u8 v);
-int TObjPlayer__sub_801D2C84(void* p);
+int test_bit1_at_10__10TObjPlayerFPv(void* p);
 f32 TObjPlayer__sub_801D2CBC(void* p);
 void TObjPlayer__sub_801D2CC4(void* p, f32 v);
 void* get_technique_data__10TObjPlayerFPv(void* p);

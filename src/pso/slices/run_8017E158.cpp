@@ -35,7 +35,7 @@ struct VObj_8017E184 : Base_8017E184 {
 
 extern "C" {
 
-void TObjContainerIdo__sub_8017E158(void *arg0) {
+void run__16TObjContainerIdoFPv(void *arg0) {
     struct VObj_8017E158 *o = (struct VObj_8017E158 *)arg0;
     o->m12();
 }

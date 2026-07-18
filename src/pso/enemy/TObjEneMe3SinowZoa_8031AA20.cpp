@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *arg0);
-void TObjEneMe3SinowZoa__sub_8031AADC(void* p);
+void activate_appear__18TObjEneMe3SinowZoaFPv(void* p);
 void init_setup__18TObjEneMe3SinowZoaFPv(void* p);
 void update_shadow_height__18TObjEneMe3SinowZoaFPv(void *arg0);
 int TObjEneDD__vt92(void*);
@@ -41,7 +41,7 @@ void setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(arg0, s32 *, 0x368);
 }
 
-void TObjEneMe3SinowZoa__sub_8031AADC(void* p) { TObjEneDD__vt93(p); TObjEneMe3Stelth__sub_800F5864(p, (void*)38); }
+void activate_appear__18TObjEneMe3SinowZoaFPv(void* p) { TObjEneDD__vt93(p); TObjEneMe3Stelth__sub_800F5864(p, (void*)38); }
 
 void init_setup__18TObjEneMe3SinowZoaFPv(void* p) { TObjEneDD__vt92(p); TObjEneMe3Stelth__sub_800F5874(p, (void*)38); }
 

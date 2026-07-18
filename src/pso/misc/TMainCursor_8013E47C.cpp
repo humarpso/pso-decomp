@@ -21,7 +21,7 @@ u16 TMainCursor__sub_8013E4A0(void* p);
 int test_flag_2_at_20__11TMainCursorFPv(void* p);
 int init_render_flags__11TMainCursorFPv(void* p);
 int update__11TMainCursorFPv(void* p);
-int TMainCursor__sub_8013E520(void* p);
+int check_flag_1__11TMainCursorFPv(void* p);
 u8 is_position_moved__11TMainCursorFPv(void* p);
 s16 TMainCursor__sub_8013E570(void* p);
 int check_flag_4__11TMainCursorFPv(void* p);
@@ -60,7 +60,7 @@ void TMainCursor__sub_8013EA00(void* p, s32 v);
 int render_part__13TLockOnCursorFPv(void* p);
 int set_flag_8_bit0__13TLockOnCursorFPv(void* p);
 int update_ring__13TLockOnCursorFPv(void* p);
-int TLockOnCursor__sub_8013EAAC(void* p);
+int is_bit1_set__13TLockOnCursorFPv(void* p);
 int is_inactive__13TLockOnCursorFPv(void* p);
 int update_ring_sub__13TLockOnCursorFPv(void* p);
 s32 TLockOnCursor__sub_8013EB2C(void* p);
@@ -82,7 +82,7 @@ u16 TMainCursor__sub_8013E4A0(void* p) { return *(u16*)((char*)p + 0x0); }
 int test_flag_2_at_20__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 2); }
 int init_render_flags__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 8); }
 int update__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 4); }
-int TMainCursor__sub_8013E520(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 1); }
+int check_flag_1__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 1); }
 u8 is_position_moved__11TMainCursorFPv(void* p) { return (u8)(TMainCursor__sub_8013E570((char*)p + 0x60)); }
 s16 TMainCursor__sub_8013E570(void* p) { return *(s16*)((char*)p + 0x6); }
 int check_flag_4__11TMainCursorFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x20, 4); }

@@ -10,7 +10,7 @@ void TLobby__sub_80134DA0(int a0);
 int init_once__6TLobbyFPv(void* p);
 int TLobby__sub_80134DC8(void* p);
 int TLobby__sub_80134DE8(void* p);
-void TLobby__sub_80134E08(void);
+void reset_lobby_state__6TLobbyFv(void);
 M2C_UNK TLobby__sub_8001E5D0();
 int fn_800779A0(void*);
 int TAdSinglePlyChrSelectGC__sub_80077AE8(void*);
@@ -26,7 +26,7 @@ int TLobby__sub_80134DE8(void* p) { return TAdSinglePlyChrSelectGC__sub_80077AE8
 
 extern s32 TLobby__data_805D5580;
 
-void TLobby__sub_80134E08(void) {
+void reset_lobby_state__6TLobbyFv(void) {
     TLobby__sub_8001E5D0();
     fn_801DB4E4(TLobby__data_805D5580);
 }

@@ -24,7 +24,7 @@ M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
-M2C_UNK TObjEneMe1Gee__sub_800CBEC4(void *);
+M2C_UNK set_move_speed_x__13TObjEneMe1GeeFPv(void *);
 s32 TPhotonMylla__sub_80154CB4(int);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
 M2C_UNK set_flag3c8_bit8__13TObjEneMe1GeeFPv(int);
@@ -58,7 +58,7 @@ void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
         copy_position__14TObjEneEpsilonFPv((void *) (arg0), (void *) (arg0 + 0x50));
         update_velocity__9TObjEneDDFPv((void *) (arg0));
         update_angle__13TObjEneMe1GeeFPv((void *) (arg0));
-        TObjEneMe1Gee__sub_800CBEC4((void *) (arg0));
+        set_move_speed_x__13TObjEneMe1GeeFPv((void *) (arg0));
         TObjEneDD__sub_800BAC14((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DA0D0));
         ((VObj_800c9964 *) arg0)->m86();
         break;

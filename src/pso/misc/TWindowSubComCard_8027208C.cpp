@@ -17,7 +17,7 @@ int TWindowSubComCard__sub_8007A8F8(void);
 int get_card_id__17TWindowSubComCardFPv(void);
 int TLobby__sub_802421C4(void);
 int TWindowSubComCard__sub_80265BF8(void*);
-void TWindowSubComCard__sub_80272180(void);
+void send_cmd_133__17TWindowSubComCardFv(void);
 s32 TWindowSubComCard__sub_8026CBB8(s32 a0 = 0);
 int fn_802754EC(void);
 
@@ -37,7 +37,7 @@ void init_layout__17TWindowSubComCardFv(void) {
     temp_r31 = TWindowSubComCard__sub_8007BC04(0);
     create_card_list__17TWindowSubComCardFiiii(TWindowSubComCard__sub_8026CBB8(0x91), temp_r31, 0x1C, 1);
 }
-void TWindowSubComCard__sub_80272180(void) { TWindowSubComCard__sub_8026CBB8(133); fn_802754EC(); }
+void send_cmd_133__17TWindowSubComCardFv(void) { TWindowSubComCard__sub_8026CBB8(133); fn_802754EC(); }
 void cleanup__17TWindowSubComCardFPv(void* p) { TWindowSubComCard__sub_80265BF8(*(void**)((char*)p + 0x84)); TWindowSubComCard__sub_8007A8F8(); get_card_id__17TWindowSubComCardFPv(); TLobby__sub_802421C4(); }
 
 }

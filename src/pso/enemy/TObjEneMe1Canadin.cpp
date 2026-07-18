@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_hover_height__17TObjEneMe1CanadinFPv(void *arg0);
-void TObjEneMe1Canadin__sub_8009EAE8(void *arg0);
+void set_target_speed_z__17TObjEneMe1CanadinFPv(void *arg0);
 M2C_UNK TObjEneMe1Canadin__sub_8009EB14(f32);
 
 void update_hover_height__17TObjEneMe1CanadinFPv(void *arg0) {
     TObjEneMe1Canadin__sub_8009EB14(M2C_FIELD(arg0, f32 *, 0x3E8) + M2C_FIELD(arg0, f32 *, 0x3C));
 }
 
-void TObjEneMe1Canadin__sub_8009EAE8(void *arg0) {
+void set_target_speed_z__17TObjEneMe1CanadinFPv(void *arg0) {
     TObjEneMe1Canadin__sub_8009EB14(M2C_FIELD(arg0, f32 *, 0x3EC) + M2C_FIELD(arg0, f32 *, 0x3C));
 }
 

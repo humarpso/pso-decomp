@@ -17,7 +17,7 @@ M2C_UNK get_status_sub__14TAdPlyStatusGCFPv(int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK get_item_ptr__10TObjPlayerFPvi(void *, int);
-M2C_UNK TObjPlayer__sub_801B198C();
+M2C_UNK play_phase_transition_sound__10TObjPlayerFi();
 M2C_UNK TObjPlayer__sub_802E0580(void *, int, void *);
 M2C_UNK draw_model_with_arg__10TObjPlayerFPvPv(void *, int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
@@ -39,7 +39,7 @@ void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
     TAdPlyStatusGC__sub_802E1148((int) (M2C_FIELD(arg0, s32 *, 0x170)));
     set_global_param__8TObjFishFi();
     TAdPlyStatusGC__sub_802E1140((int) (M2C_FIELD(arg0, s32 *, 0x170)));
-    TObjPlayer__sub_801B198C();
+    play_phase_transition_sound__10TObjPlayerFi();
     TObjPlayer__sub_803D9B78();
     if (TAdPlyStatusGC__sub_802E1138((int) (M2C_FIELD(arg0, s32 *, 0x170))) != 0U) {
         get_item_ptr__10TObjPlayerFPvi((void *) (arg0), (int) (0x3B));
@@ -48,7 +48,7 @@ void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
         set_global_param__8TObjFishFi();
         enable_making__12TCharaMakingFv();
         TAdPlyStatusGC__sub_802E1138((int) (M2C_FIELD(arg0, s32 *, 0x170)));
-        TObjPlayer__sub_801B198C();
+        play_phase_transition_sound__10TObjPlayerFi();
         clear_flag_bit0__12TCharaMakingFv();
         TObjPlayer__sub_803D9B78();
     }
