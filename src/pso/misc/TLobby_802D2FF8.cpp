@@ -9,7 +9,7 @@ extern "C" {
 void reset__6TLobbyFi(s32 arg0);
 s32 is_trade_active();
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
-M2C_UNK fn_80339910(u32, s32);
+M2C_UNK TLobby_802D2F7C__sub_80339910(u32, s32);
 
 extern s32 lbl_805D53A0;
 extern u16 lbl_805D6888;
@@ -29,7 +29,7 @@ void reset__6TLobbyFi(s32 arg0) {
         TLobby__sub_8024AAA0(lbl_805D53A0, 0x1E);
         u32 temp_r3 = TLobby__data_805D689C;
         if (temp_r3 != 0U) {
-            fn_80339910(temp_r3, arg0);
+            TLobby_802D2F7C__sub_80339910(temp_r3, arg0);
         }
     }
 }

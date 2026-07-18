@@ -7,7 +7,7 @@ extern "C" {
 void draw__11TBoss4Type3FPv(void *arg0);
 void TBoss4Type3__sub_8005A438(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
-void fn_80051E9C(int, f32);
+void TObjPlayer__sub_80051E9C(int, f32);
 void toggle_particle_effect__10TObjPlayerFv(void *);
 void end_effect_render__13TParticleCtrlFv(void);
 void TObjPlayer__sub_803D9214(int, void *);
@@ -24,7 +24,7 @@ void draw__11TBoss4Type3FPv(void *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 1152));
     TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, void **, 0x60));
-    fn_80051E9C(M2C_FIELD(arg0, u16 *, 0x3BA), M2C_FIELD(arg0, f32 *, 0x3C8));
+    TObjPlayer__sub_80051E9C(M2C_FIELD(arg0, u16 *, 0x3BA), M2C_FIELD(arg0, f32 *, 0x3C8));
     TObjPlayer__sub_803D9B78();
     end_effect_render__13TParticleCtrlFv();
 }

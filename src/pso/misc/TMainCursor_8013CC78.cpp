@@ -14,7 +14,7 @@ M2C_UNK set_color_mode__11TMainCursorFPvi(s32, M2C_UNK);
 M2C_UNK set_color__11TMainCursorFPvi(s32, M2C_UNK);
 M2C_UNK TMainCursor__sub_8013E990(s32, M2C_UNK);
 M2C_UNK set_flags__11TMainCursorFPvi(s32, M2C_UNK);
-s32 fn_801B066C(s32);
+s32 TObjPlayer__sub_801B066C(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 
 void set_cursor_color__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -35,7 +35,7 @@ void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
         TMainCursor__sub_8013E990(arg2, 0x30000);
         return;
     }
-    if (fn_801B066C(arg1) == 1) {
+    if (TObjPlayer__sub_801B066C(arg1) == 1) {
         TMainCursor__sub_8013E990(arg2, 0x40030000);
         return;
     }

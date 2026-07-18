@@ -11,12 +11,12 @@ struct VObj_8031E650 : Base_8031E650 {
 extern "C" {
 
 void release_static_instance__12TObjEneReconFv(void);
-M2C_UNK fn_8031BC38();
+M2C_UNK TObjEneRecon__sub_8031BC38();
 
 extern struct VObj_8031E650 *lbl_805D6B04;
 
 void release_static_instance__12TObjEneReconFv(void) {
-    fn_8031BC38();
+    TObjEneRecon__sub_8031BC38();
     if (lbl_805D6B04 != 0) {
         if (lbl_805D6B04 != 0) {
             lbl_805D6B04->m0(1);

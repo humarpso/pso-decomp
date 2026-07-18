@@ -14,7 +14,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK reset_player_transform();
 M2C_UNK fn_803DF5E4(s32, M2C_UNK);
-M2C_UNK fn_803DF768(M2C_UNK);
+M2C_UNK TObjPlayer__sub_803DF768(M2C_UNK);
 M2C_UNK set_depth_buffer_settings_1__Fv();
 
 extern s32 lbl_805D5660;
@@ -25,7 +25,7 @@ void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     lbl_805D5660 = some_id_805c6f74;
     set_depth_buffer_settings_1__Fv();
     init_xyz_limits__10TObjPlayerFv();
-    fn_803DF768(1);
+    TObjPlayer__sub_803DF768(1);
     fn_803DF5E4(arg0 + 0xC4, 0xA);
     reset_player_transform();
     reset_transform_state__10TObjPlayerFv();

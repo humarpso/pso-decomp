@@ -13,7 +13,7 @@ void inc_player_count__10TObjPlayerFv(void);
 int lookup_inventory_item__10TObjPlayerFPv(void* p);
 void free_globals__10TObjPlayerFv(void);
 int TLobby__sub_8010542C(void*);
-M2C_UNK fn_80105874();
+M2C_UNK TObjPlayer__sub_80105874();
 M2C_UNK free_static_buffer__10TObjPlayerFv();
 M2C_UNK free_global_805D6FB8__10TObjPlayerFv();
 void free__11TOBoss4RockFUi(void*);
@@ -43,7 +43,7 @@ extern u32 lbl_805D53F4;
 extern u32 lbl_805D5400;
 
 void free_globals__10TObjPlayerFv(void) {
-    fn_80105874();
+    TObjPlayer__sub_80105874();
     free_static_buffer__10TObjPlayerFv();
     free_global_805D6FB8__10TObjPlayerFv();
     if ((u32) lbl_805D5400 != 0U) {

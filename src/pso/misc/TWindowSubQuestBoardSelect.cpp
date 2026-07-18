@@ -10,7 +10,7 @@ void handle_cancel__26TWindowSubQuestBoardSelectFPv(void *arg0);
 void handle_decide__26TWindowSubQuestBoardSelectFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_open__20TWindowSubQuestBoardFPv();
-s32 fn_8027DB20();
+s32 TWindowSubShortCut__sub_8027DB20();
 
 void handle_cancel__26TWindowSubQuestBoardSelectFPv(void *arg0) {
     if (is_open__20TWindowSubQuestBoardFPv() == 0) {
@@ -20,7 +20,7 @@ void handle_cancel__26TWindowSubQuestBoardSelectFPv(void *arg0) {
 }
 
 void handle_decide__26TWindowSubQuestBoardSelectFPv(void *arg0) {
-    if (fn_8027DB20() == 0) {
+    if (TWindowSubShortCut__sub_8027DB20() == 0) {
         TBoss3Volopt__sub_8022675C(0x52D01, 0, 0, 0);
         M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 1);
     }

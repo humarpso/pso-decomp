@@ -13,7 +13,7 @@ int TLobby__send_and_handle_60(void*);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(void);
 f64 TWindowSubComCard__sub_803A24E4();
 int get_flag_b4__21TObjEneMe3ShinowaRealFPv(void* p);
-int fn_8002AE38(void* p);
+int TBoss8Dragon__sub_8002AE38(void* p);
 void set_speed__12TBoss8DragonFPvf(void* p, f32 v);
 void set_field_b8__14TObjEnePanarmsFPvs(void* p, s16 v);
 void set_field_dc__10TObjPlayerFPvi(void* p, s32 v);

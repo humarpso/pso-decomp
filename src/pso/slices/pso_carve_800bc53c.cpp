@@ -14,7 +14,7 @@ int queue_destruction__12TObjGrassWebFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
 int TObjPlayer__sub_800BC53C(void) { return 0; }
-int fn_800BC5A0(void) { return 0; }
+int TBoss8Dragon__sub_800BC5A0(void) { return 0; }
 int fn_800BC5EC(void) { return 0; }
 void *fn_800BC620(void *arg0, s32 arg1, s32 arg2) {
     if (arg1 > 0) {
@@ -28,7 +28,7 @@ void *fn_800BC620(void *arg0, s32 arg1, s32 arg2) {
     fn_8002B094(arg0);
     return arg0;
 }
-u32 *fn_800BC688(u32 *arg0, s16 arg1) {
+u32 *TBoss8Dragon__sub_800BC688(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) *arg0 != 0U) {
             free__11TOBoss4RockFUi(*arg0);

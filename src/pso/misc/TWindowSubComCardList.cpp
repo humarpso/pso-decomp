@@ -11,13 +11,13 @@ M2C_UNK run_task__11TWindowMenuFv();
 s32 is_visible__17TWindowSubComCardFPv(void *);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, M2C_UNK);
 s32 TWindowShortListCtrl__sub_8026C9DC(s32);
-M2C_UNK fn_80275360(void *);
+M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 
 void run_task__21TWindowSubComCardListFv(void *arg0) {
     run_task__11TWindowMenuFv();
     if ((is_visible__17TWindowSubComCardFPv(arg0) == 0) && (TWindowShortListCtrl__sub_8026C9DC(M2C_FIELD(arg0, s32 *, 0x8C)) != 0)) {
         set_selected_index__17TWindowSubComCardFPvs(arg0, 0);
-        fn_80275360(arg0);
+        TWindowSubComCardList__sub_80275360(arg0);
     }
 }
 

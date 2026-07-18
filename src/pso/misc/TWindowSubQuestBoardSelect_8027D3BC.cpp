@@ -9,12 +9,12 @@ extern "C" {
 void select_next__26TWindowSubQuestBoardSelectFPv(void *arg0);
 M2C_UNK fn_8027D230(void *);
 s32 get_slot_flag__26TWindowSubQuestBoardSelectFic(void *, u8);
-s32 fn_8027DB20();
+s32 TWindowSubShortCut__sub_8027DB20();
 
 void select_next__26TWindowSubQuestBoardSelectFPv(void *arg0) {
     u8 temp_r3;
 
-    if ((fn_8027DB20() == 0) && (get_slot_flag__26TWindowSubQuestBoardSelectFic(arg0, M2C_FIELD(arg0, u8 *, 0x61)) == 0)) {
+    if ((TWindowSubShortCut__sub_8027DB20() == 0) && (get_slot_flag__26TWindowSubQuestBoardSelectFic(arg0, M2C_FIELD(arg0, u8 *, 0x61)) == 0)) {
         do {
             M2C_FIELD(arg0, u8 *, 0x61) = (u8) (M2C_FIELD(arg0, u8 *, 0x61) + 1);
             temp_r3 = M2C_FIELD(arg0, u8 *, 0x61);
