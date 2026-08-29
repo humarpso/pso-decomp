@@ -23,7 +23,7 @@ s32 get_main_phase();
 int TObjPlayer__sub_8011E204(void*, void*);
 int set_state_flags__10TObjPlayerFPvUi(void*, void*);
 int enable_camera__19TAdSelectGameModeGCFv(void*);
-s32 fn_801A2FAC();
+s32 TAdSelectGameModeGC__sub_801A2FAC();
 int TAdSinglePlyChrSelectGC__sub_80203220(void*);
 s32 get_mode_data__19TAdSelectGameModeGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();

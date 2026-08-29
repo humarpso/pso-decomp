@@ -10,7 +10,7 @@ void* __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_8032E34C(void*, s32, s32, s32, s32, s32);
 extern s32 tl_05;
 
-void fn_8032E648(s32 arg0, s32 arg1, s32 arg2) {
+void TObjPlayer__sub_8032E648(s32 arg0, s32 arg1, s32 arg2) {
     void* obj = __nw__7TObjectFUl(0x70);
     if (obj != 0) {
         fn_8032E34C(obj, tl_05, arg1, arg2, 0, arg0);

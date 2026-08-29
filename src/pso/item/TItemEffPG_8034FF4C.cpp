@@ -11,7 +11,7 @@ void run_task__10TItemEffPGFv(void *arg0);
 M2C_UNK TItemEffPG__sub_8034FA50(void *);
 void __dl__7TObjectFPv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
-s32 fn_802E4748();
+s32 has_game_join_id();
 M2C_UNK TItemAttackCol__sub_802E4918(void *);
 void destroy_attack_collision__14TItemAttackColFPvs(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -32,7 +32,7 @@ void run_task__10TItemEffPGFv(void *arg0) {
     s32 var_r31;
 
     var_r31 = 1;
-    if (fn_802E4748() == 0) {
+    if (has_game_join_id() == 0) {
         var_r31 = 0;
     }
     if (((PgV *)arg0)->vf05() == 0) {

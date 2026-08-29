@@ -11,10 +11,10 @@ u8 get_slot_count__14TItemProShieldFPv();
 s32 activate_d04_slot__10TObjPlayerFPv();
 s16 TObjPlayer__sub_80113D90(s32);
 s16 get_mag_data__10TObjPlayerFPv(s32);
-s16 fn_80113DA0(s32);
+s16 get_mag_item_data(s32);
 s16 get_mag_level(s32);
-s16 fn_80113DE8(s32);
-s16 fn_80113E0C();
+s16 get_mag_item_percent(s32);
+s16 get_mag_item_stat_percent();
 
 s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1) {
     s32 temp_r3;
@@ -34,16 +34,16 @@ s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1) {
             break;
         case 2:
             var_r30 = 0;
-            if (fn_80113E0C() >= 0x46) {
+            if (get_mag_item_stat_percent() >= 0x46) {
                 var_r30 = 1;
             }
-            if (fn_80113DE8(temp_r3) >= 0x46) {
+            if (get_mag_item_percent(temp_r3) >= 0x46) {
                 var_r30 += 1;
             }
             if (get_mag_level(temp_r3) >= 0x46) {
                 var_r30 += 1;
             }
-            if (fn_80113DA0(temp_r3) >= 0x46) {
+            if (get_mag_item_data(temp_r3) >= 0x46) {
                 var_r30 += 1;
             }
             if (var_r30 >= 2) {
@@ -61,7 +61,7 @@ s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1) {
             }
             break;
         case 5:
-            if ((fn_80113E0C() >= 0x23) && (fn_80113DE8(temp_r3) >= 0x23) && (get_mag_level(temp_r3) >= 0x23) && (fn_80113DA0(temp_r3) >= 0x23)) {
+            if ((get_mag_item_stat_percent() >= 0x23) && (get_mag_item_percent(temp_r3) >= 0x23) && (get_mag_level(temp_r3) >= 0x23) && (get_mag_item_data(temp_r3) >= 0x23)) {
                 return 1;
             }
             break;

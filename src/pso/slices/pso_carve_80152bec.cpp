@@ -2,8 +2,10 @@
 
 extern "C" {
 
+int bswap_16__FPUs(void* a0 = 0);
+int read_be16_field2__10TObjPlayerFPv(void* a0 = 0);
+void TNpcPlayer__sub_80152BEC(void* p);
 void init_model__10TNpcPlayerFPv(void* p);
-int read_be16_field2__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_80102CE0(void*);
 void update__10TNpcPlayerFPv(void* p);
 int update_players__6TLobbyFi(void*);
@@ -11,7 +13,6 @@ int TNpcPlayer__sub_80152ACC(void*);
 void update_players__10TNpcPlayerFPv(void* p);
 int TNpcPlayer__sub_80152B5C(void*);
 void update_lobby__10TNpcPlayerFPv(void* p);
-int TNpcPlayer__sub_80152BEC(void*);
 void reset_model__10TNpcPlayerFPv(void* p);
 int TNpcPlayer__sub_80152A78(void* a0 = 0);
 void* init__10TNpcPlayerFPv(void* p);
@@ -26,7 +27,7 @@ void reset_fields_8c__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A30(void);
 void TNpcPlayer__sub_80152D64(void* p);
 
-int TNpcPlayer__sub_80152BEC(void*) { return 0; }
+void TNpcPlayer__sub_80152BEC(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 int TNpcPlayer__sub_80152C28(void) { return 0; }
 int TNpcPlayer__sub_80152C48(void) { return 0; }
 int TNpcPlayer__sub_80152C8C(void) { return 0; }

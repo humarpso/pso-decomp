@@ -9,7 +9,7 @@ extern "C" {
 extern u8 *lbl_805D7CC0;
 extern u8 *lbl_805D7CC4;
 
-s32 fn_8042F080(s16 arg0) {
+s32 TAdTrialModemChkGC__sub_8042F080(s16 arg0) {
     M2C_FIELD(lbl_805D7CC4, s16 *, 0x1C2) = arg0;
     M2C_FIELD(lbl_805D7CC0, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D7CC0, s32 *, 4) | 0x800);
     return 0;

@@ -2,6 +2,8 @@
 
 extern "C" {
 
+int copy_transform__10TNpcPlayerFPvPv(void* a0 = 0);
+void TNpcPlayer__sub_80152988(void* p, void* a1, void* a2);
 void init_model__10TNpcPlayerFPv(void* p);
 int read_be16_field2__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_80102CE0(void*);
@@ -20,12 +22,11 @@ s32 get_npc_state__10TNpcPlayerFPv(void* p);
 u16 get_npc_type__10TNpcPlayerFPv(void* p);
 s32 TNpcPlayer__sub_80152978(void* p);
 s32 get_condition__10TNpcPlayerFPv(void* p);
-void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
 s32 get_action_state__10TNpcPlayerFPv(void* p);
 void reset_fields_8c__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A30(void);
 void TNpcPlayer__sub_80152D64(void* p);
 
-int TNpcPlayer__sub_80152988(void) { return 0; }
+void TNpcPlayer__sub_80152988(void* p, void* a1, void* a2) { copy_transform__10TNpcPlayerFPvPv(a2); }
 
 }

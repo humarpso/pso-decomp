@@ -12,7 +12,7 @@ M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, M2C_UNK *);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001A8F0(u32, void *);
 s32 TAdEndText__sub_8001A990();
-extern void fn_destroy_keyboard_objects();
+extern void destroy_keyboard_objects();
 M2C_UNK TAdMultiChgGameModeGC__sub_8023E834();
 
 u32 __cvt_fp2unsigned(f32);
@@ -60,7 +60,7 @@ void run_task__7TEndingFv(void *arg0) {
                 {
                     u32 alloc2 = __nw__7TObjectFUl(0x28);
                     if (alloc2 != 0U) {
-                        init__22THunterGuildSeqOfflineFPvPvPv(alloc2, tl_fade, (M2C_UNK *)fn_destroy_keyboard_objects);
+                        init__22THunterGuildSeqOfflineFPvPvPv(alloc2, tl_fade, (M2C_UNK *)destroy_keyboard_objects);
                     }
                 }
                 M2C_FIELD(arg0, s32 *, 0x1C) = 2;

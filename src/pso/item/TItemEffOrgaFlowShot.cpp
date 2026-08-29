@@ -7,11 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TItemEffOrgaFlowShot__vt4(void* p);
-u8 fn_802E4748(void *arg0);
+u8 has_game_join_id(void *arg0);
 s32 query_game_join_id__10TObjPlayerFv(s32);
 int TObjPlayer__sub_802E456C(void*);
 
-u8 fn_802E4748(void *arg0) {
+u8 has_game_join_id(void *arg0) {
     return (u8) (query_game_join_id__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0xAC)) != 0);
 }
 int TItemEffOrgaFlowShot__vt4(void* p) { return TObjPlayer__sub_802E456C(p); }

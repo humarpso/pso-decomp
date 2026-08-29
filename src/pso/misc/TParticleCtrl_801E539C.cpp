@@ -21,16 +21,15 @@ extern void *tl_particle;
 void create_quad_sprites__13TParticleCtrlFv(void)
 {
     s32 index = 0;
-    s32 output_offset = 0;
-    s32 definition_offset = 0;
+    ParticleDefinition *definitions = lbl_804C5820;
+    void **sprites = TParticleCtrl__data_80511F70;
     void *sprite;
 
     do {
-        ParticleDefinition *definition =
-            (ParticleDefinition *)((u8 *)lbl_804C5820 + definition_offset);
+        ParticleDefinition *definition = &definitions[index];
         void *object;
 
-        switch (definition->sprite_type) {
+        switch (definitions[index].sprite_type) {
         case 0:
             object = __nw__7TObjectFUl(0x2C);
             if (object != NULL) {
@@ -68,10 +67,8 @@ void create_quad_sprites__13TParticleCtrlFv(void)
             break;
         }
 
+        sprites[index] = sprite;
         index++;
-        *(void **)((u8 *)TParticleCtrl__data_80511F70 + output_offset) = sprite;
-        output_offset += 4;
-        definition_offset += sizeof(ParticleDefinition);
     } while (index < 0x6C);
 }
 

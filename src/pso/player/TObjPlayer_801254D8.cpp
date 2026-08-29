@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_fade_timer__10TObjPlayerFPv(void *arg0);
-s32 fn_802E4748();
+s32 has_game_join_id();
 M2C_UNK TItemAttackCol__sub_802E4918(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -17,7 +17,7 @@ void update_fade_timer__10TObjPlayerFPv(void *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
 
-    if (fn_802E4748() != 0) {
+    if (has_game_join_id() != 0) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x40);
         if (temp_f1 < M2C_FIELD(arg0, f32 *, 0xC4)) {
             M2C_FIELD(arg0, f32 *, 0x40) = (f32) (temp_f1 + lbl_805DAD50);

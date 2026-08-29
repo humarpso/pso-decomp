@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TObjSuisoChip__vt6(void);
+M2C_UNK TObjChip__vt6();
 s32 fn_802A5C7C(void *);
 s32 fn_802A5CB8(void *);
 s32 fn_802A5CC4(void *, s32);
@@ -22,6 +24,8 @@ void fn_802A6070(void* p, s32 v);
 void fn_802A6078(void* p, s32 v);
 int get_max_players__6TLobbyFv(void);
 
-int TObjSuisoChip__vt6(void) { return 0; }
+void TObjSuisoChip__vt6(void) {
+    TObjChip__vt6();
+}
 
 }

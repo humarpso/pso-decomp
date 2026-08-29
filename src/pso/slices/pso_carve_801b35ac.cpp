@@ -6,6 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+int TObjPlayer__sub_8011E204(void* a0 = 0, void* a1 = 0);
+int get_player_rank__18TChallenge4PResultFPv(void* a0 = 0);
+int get_player_result__18TChallenge4PResultFPv(void* a0 = 0, void* a1 = 0);
+int set_state_flags__10TObjPlayerFPvUi(void* a0 = 0, void* a1 = 0);
+void TObjPlayer__sub_801B35AC(void* p);
+void TObjPlayer__sub_801B35E4(void* p);
+void TObjPlayer__sub_801B3620(void* p);
 s32 get_field_d8__10TObjPlayerFPv();
 s32 init__9TItemDataFv(s8 *);
 s32 fn_801B7F4C(void *, s32);
@@ -17,12 +24,10 @@ int has_item_flag_4096__10TObjPlayerFPv(void* p);
 int check_technique_flag__10TObjPlayerFPv(void* p);
 int is_flag_400_set__10TObjPlayerFPv(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
-int TObjPlayer__sub_8011E204(void*, int);
-int set_state_flags__10TObjPlayerFPvUi(void*, int);
 
-int TObjPlayer__sub_801B35AC(void) { return 0; }
-int TObjPlayer__sub_801B35E4(void) { return 0; }
-int TObjPlayer__sub_801B3620(void) { return 0; }
+void TObjPlayer__sub_801B35AC(void* p) { TObjPlayer__sub_8011E204(p, (void*)1024); get_player_rank__18TChallenge4PResultFPv(p); }
+void TObjPlayer__sub_801B35E4(void* p) { set_state_flags__10TObjPlayerFPvUi(p, (void*)1024); get_player_result__18TChallenge4PResultFPv(p, (void*)1); }
+void TObjPlayer__sub_801B3620(void* p) { set_state_flags__10TObjPlayerFPvUi(p, (void*)1024); get_player_result__18TChallenge4PResultFPv(p, (void*)1); get_player_result__18TChallenge4PResultFPv(p, (void*)2); get_player_result__18TChallenge4PResultFPv(p, (void*)3); }
 int TObjPlayer__sub_801B3674(void) { return 0; }
 
 }

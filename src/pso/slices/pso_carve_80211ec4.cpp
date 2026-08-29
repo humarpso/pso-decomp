@@ -10,7 +10,7 @@ s32 get_main_phase();
 M2C_UNK THunterGuildWarning__sub_80211700();
 M2C_UNK THunterGuildSeqOffline__sub_80213374();
 M2C_UNK THunterGuildSeqOffline__sub_80213C7C();
-M2C_UNK fn_80214A34();
+M2C_UNK THunterGuildSeqOffline__sub_80214A34();
 M2C_UNK TQuestListOnline__sub_80215498();
 
 void update_hunter_guild_phase(void) {
@@ -20,7 +20,7 @@ void update_hunter_guild_phase(void) {
     }
     if (get_main_phase() == 0xF) {
         THunterGuildSeqOffline__sub_80213C7C();
-        fn_80214A34();
+        THunterGuildSeqOffline__sub_80214A34();
         TQuestListOnline__sub_80215498();
     }
 }

@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_max_stat_flags__8TItemMagFi(s32 arg0);
-s16 fn_80113DA0(s32);
+s16 get_mag_item_data(s32);
 s16 get_mag_level(s32);
-s16 fn_80113DE8();
-M2C_UNK fn_80113E0C(s32);
+s16 get_mag_item_percent();
+M2C_UNK get_mag_item_stat_percent(s32);
 
 s32 get_max_stat_flags__8TItemMagFi(s32 arg0) {
     s32 var_r31;
@@ -21,10 +21,10 @@ s32 get_max_stat_flags__8TItemMagFi(s32 arg0) {
     s32 var_r4;
 
     var_r31 = 0;
-    temp_r30 = fn_80113DE8();
+    temp_r30 = get_mag_item_percent();
     temp_r29 = get_mag_level(arg0);
-    temp_r28 = fn_80113DA0(arg0);
-    fn_80113E0C(arg0);
+    temp_r28 = get_mag_item_data(arg0);
+    get_mag_item_stat_percent(arg0);
     if ((temp_r29 < temp_r30) && (temp_r28 < temp_r30)) {
         var_r31 |= 8;
     }

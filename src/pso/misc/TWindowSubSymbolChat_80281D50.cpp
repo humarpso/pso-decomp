@@ -13,7 +13,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(s32);
 M2C_UNK set_sub_position__15TWindowMakeTeamFPvPv(s32, s32);
 M2C_UNK get_keyboard_field_6c__15TWindowMakeTeamFPv(s32, s32);
-M2C_UNK fn_80265410(s32);
+M2C_UNK update_chat_window(s32);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK destroy_keyboard__17TWindowSubComCardFPv(s32);
 
@@ -26,7 +26,7 @@ s32 create_keyboard_control__20TWindowSubSymbolChatFPv(void *arg0) {
     if (var_r31 != 0) {
         var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0x90, 1, 4, lbl_805D53A0);
     }
-    fn_80265410(var_r31);
+    update_chat_window(var_r31);
     get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, get_keyboard_ptr__20TWindowSubSymbolChatFPv(M2C_FIELD(arg0, s32 *, 0x28)));
     set_sub_position__15TWindowMakeTeamFPvPv(var_r31, TWindowSubComCard__sub_8026CBB8(0xBB));
     set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(var_r31);

@@ -15,8 +15,8 @@ int queue_destruction__7TObjectFv(void*);
 
 int TObjPlayer__sub_800BC53C(void) { return 0; }
 int TBoss8Dragon__sub_800BC5A0(void) { return 0; }
-int fn_800BC5EC(void) { return 0; }
-void *fn_800BC620(void *arg0, s32 arg1, s32 arg2) {
+int TBoss8Dragon__sub_800BC5EC(void) { return 0; }
+void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (arg1 > 0) {
         M2C_FIELD(arg0, s32 *, 0) = alloc_buffer__11TOBoss4RockFPv(arg1 * 4);
     } else {

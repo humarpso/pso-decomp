@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u16 fn_801A2078(s32);
+u16 TLobby__sub_801A2078(s32);
 u16 TLobby__sub_801A20C8(s32);
 u16 fn_801A210C(s32);
 s32 TContainerAncient01__sub_8020335C(void);
