@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TLobby__sub_801EE4D4(void);
-int TLobby__sub_801EE4D8(void);
-int THunterGuildSeqOffline__sub_801F3718(void*);
-
-void TLobby__sub_801EE4D4(void) {  }
-int TLobby__sub_801EE4D8(void) { return THunterGuildSeqOffline__sub_801F3718((void*)(-1)); }
-
-}
+#define PSO_CLASS_PACKAGE 0x801EE4D4
+#include "pso/misc/TLobby.cpp"

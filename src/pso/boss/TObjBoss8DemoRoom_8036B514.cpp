@@ -1,26 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void render__17TObjBoss8DemoRoomFv(void);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjFish__sub_803E46BC(s32);
-
-extern void *TObjBoss8DemoRoom__data_805D7010;
-
-void render__17TObjBoss8DemoRoomFv(void) {
-    set_global_param__8TObjFishFi(M2C_FIELD(M2C_FIELD(TObjBoss8DemoRoom__data_805D7010, void **, 0x42C), s32 *, 0xC));
-    TObjPlayer__sub_803D9B2C();
-    TObjFish__sub_803E46BC(M2C_FIELD(M2C_FIELD(TObjBoss8DemoRoom__data_805D7010, void **, 0x42C), s32 *, 8));
-    reset_transform_state__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B78();
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8036B514
+#include "pso/boss/TObjBoss8DemoRoom.cpp"

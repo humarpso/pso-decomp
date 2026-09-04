@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TCameraCtrl__sub_8006BA04(void);
-
-void TCameraCtrl__sub_8006BA04(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8006BA04
+#include "pso/misc/TCameraCtrl.cpp"

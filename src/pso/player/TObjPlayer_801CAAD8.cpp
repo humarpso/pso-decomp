@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TObjPlayer__sub_801CAAD8(void* p);
-int TObjPlayer__sub_8001053C(void*);
-
-int TObjPlayer__sub_801CAAD8(void* p) { return TObjPlayer__sub_8001053C(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x801CAAD8
+#include "pso/player/TObjPlayer.cpp"

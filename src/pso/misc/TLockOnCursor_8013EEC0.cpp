@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TLockOnCursor__sub_8013EEC0(void* p, s16 v);
-
-void TLockOnCursor__sub_8013EEC0(void* p, s16 v) { *(s16*)((char*)p + 0x20) = v; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8013EEC0
+#include "pso/misc/TLockOnCursor.cpp"

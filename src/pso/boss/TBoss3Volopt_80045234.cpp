@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss3Volopt__sub_80045234(void);
-
-void TBoss3Volopt__sub_80045234(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80045234
+#include "pso/boss/TBoss3Volopt.cpp"

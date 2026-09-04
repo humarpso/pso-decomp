@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOContainerAncientEnemyRare__sub_8015B710(void);
-
-void TOContainerAncientEnemyRare__sub_8015B710(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8015B710
+#include "pso/misc/TOContainerAncientEnemyRare.cpp"

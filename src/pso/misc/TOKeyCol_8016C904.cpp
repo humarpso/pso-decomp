@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__8TOKeyColFv(void);
-
-void render__8TOKeyColFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8016C904
+#include "pso/misc/TOKeyCol.cpp"

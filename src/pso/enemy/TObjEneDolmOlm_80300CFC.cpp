@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneDolmOlm__sub_80300CFC(void);
-
-void TObjEneDolmOlm__sub_80300CFC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80300CFC
+#include "pso/enemy/TObjEneDolmOlm.cpp"

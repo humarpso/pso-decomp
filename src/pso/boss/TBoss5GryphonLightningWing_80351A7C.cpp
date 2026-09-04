@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__26TBoss5GryphonLightningWingFv(void);
-
-void render__26TBoss5GryphonLightningWingFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80351A7C
+#include "pso/boss/TBoss5GryphonLightningWing.cpp"

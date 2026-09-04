@@ -1,20 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
-
-s32 clamp_s32__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
-    s32 var_r3;
-
-    var_r3 = arg0;
-    if (var_r3 < arg1) {
-        var_r3 = arg1;
-    }
-    if (var_r3 > arg2) {
-        return arg2;
-    }
-    return var_r3;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x801420EC
+#include "pso/player/TObjPlayer.cpp"

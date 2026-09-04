@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_table_entry__11TBoss6Type2Fi(int a0);
-
-    extern int lbl_804710BC[];
-int get_table_entry__11TBoss6Type2Fi(int a0) {  return lbl_804710BC[a0]; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802BD8B0
+#include "pso/boss/TBoss6Type2.cpp"

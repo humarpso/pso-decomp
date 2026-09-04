@@ -1,25 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void render_status__20TWindowSubStatusDispFPv(void *arg0);
-void set_global_param__8TObjFishFi(void *);
-void TWindowSubComCard__sub_803DEECC(void *, f32);
-void TWindowSubStatusDisp__sub_803DEE6C(int);
-void get_player__20TWindowSubStatusDispFv(void);
-void TWindowSubStatusDisp__sub_803DF160(void *, void *);
-
-extern void *lbl_805D6648;
-extern const f32 lbl_805DDF38;
-
-void render_status__20TWindowSubStatusDispFPv(void *arg0) {
-    TWindowSubStatusDisp__sub_803DEE6C(1);
-    set_global_param__8TObjFishFi(lbl_805D6648);
-    TWindowSubStatusDisp__sub_803DF160(M2C_FIELD(arg0, void **, 0x20), M2C_FIELD(arg0, void **, 0x80));
-    TWindowSubComCard__sub_803DEECC((void *)((char *)arg0 + 68), lbl_805DDF38);
-    get_player__20TWindowSubStatusDispFv();
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x802A35B4
+#include "pso/misc/TWindowSubStatusDisp.cpp"

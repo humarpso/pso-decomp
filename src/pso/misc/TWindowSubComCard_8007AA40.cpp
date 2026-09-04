@@ -1,13 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 forward_return_arg__17TWindowSubComCardFi(s32 arg0);
-int TWindowSubComCard__sub_8007AA70();
-
-s32 forward_return_arg__17TWindowSubComCardFi(s32 arg0) {
-    TWindowSubComCard__sub_8007AA70();
-    return arg0;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8007AA40
+#include "pso/misc/TWindowSubComCard.cpp"

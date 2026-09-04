@@ -1,18 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void alloc_boss4rock_buffer__6TLobbyFv(void);
-s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-
-extern s32 lbl_805D6680;
-
-void alloc_boss4rock_buffer__6TLobbyFv(void) {
-    lbl_805D6680 = alloc_buffer__11TOBoss4RockFPv(0x100000);
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x802A7674
+#include "pso/misc/TLobby.cpp"

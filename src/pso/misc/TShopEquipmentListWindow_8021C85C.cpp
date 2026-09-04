@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TShopEquipmentListWindow__sub_8021C85C(int a0);
-
-    extern int lbl_80513F40[];
-int TShopEquipmentListWindow__sub_8021C85C(int a0) {  return lbl_80513F40[a0]; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8021C85C
+#include "pso/misc/TShopEquipmentListWindow.cpp"

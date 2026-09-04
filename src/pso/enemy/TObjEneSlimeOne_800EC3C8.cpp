@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_instance__15TObjEneSlimeOneFv(void);
-
-    extern int lbl_805D52B0;
-int get_instance__15TObjEneSlimeOneFv(void) {  return lbl_805D52B0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x800EC3C8
+#include "pso/enemy/TObjEneSlimeOne.cpp"

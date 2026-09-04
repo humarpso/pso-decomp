@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void copy_xyz__10TObjPlayerFPvPv(void* p, void* q);
-
-void copy_xyz__10TObjPlayerFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(u32*)((char*)p + 0x8) = *(u32*)((char*)q + 0x8); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80020898
+#include "pso/player/TObjPlayer.cpp"

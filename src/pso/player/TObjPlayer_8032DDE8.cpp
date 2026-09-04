@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjPlayer__sub_8032DDE8(void* p);
-
-void TObjPlayer__sub_8032DDE8(void* p) { *(u32*)((char*)p + 0x70) |= 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8032DDE8
+#include "pso/player/TObjPlayer.cpp"

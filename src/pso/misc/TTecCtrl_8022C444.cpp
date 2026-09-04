@@ -1,13 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TTecCtrl__sub_8022C444(void);
-void TTecCtrl__sub_8022C448(void);
-void TTecCtrl__sub_8022C44C(void);
-
-void TTecCtrl__sub_8022C444(void) {  }
-void TTecCtrl__sub_8022C448(void) {  }
-void TTecCtrl__sub_8022C44C(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8022C444
+#include "pso/effect/TTecCtrl.cpp"

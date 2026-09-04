@@ -1,15 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMe1GiGue__sub_802CDAB4(void);
-void TObjEneMe1GiGue__sub_802CDAB8(void);
-void TObjEneMe1GiGue__sub_802CDABC(void);
-void TObjEneMe1GiGue__sub_802CDAC0(void);
-
-void TObjEneMe1GiGue__sub_802CDAB4(void) {  }
-void TObjEneMe1GiGue__sub_802CDAB8(void) {  }
-void TObjEneMe1GiGue__sub_802CDABC(void) {  }
-void TObjEneMe1GiGue__sub_802CDAC0(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802CDAB4
+#include "pso/enemy/TObjEneMe1GiGue.cpp"

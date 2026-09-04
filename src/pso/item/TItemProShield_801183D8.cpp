@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TItemProShield__vt43(void* p);
-int TItemEquipBase__sub_8010A82C(void*);
-
-int TItemProShield__vt43(void* p) { return TItemEquipBase__sub_8010A82C(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x801183D8
+#include "pso/item/TItemProShield.cpp"

@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int select_and_apply_target__23TObjEneMe3ShinowaMirageFPv(void* p);
-int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
-
-int select_and_apply_target__23TObjEneMe3ShinowaMirageFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800E6FFC
+#include "pso/enemy/TObjEneMe3ShinowaMirage.cpp"

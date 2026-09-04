@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int send_and_handle__6TLobbyFPvii(void* p, int a1, int a2);
-int fn_80269A0C(void*, int, int, int);
-
-int send_and_handle__6TLobbyFPvii(void* p, int a1, int a2) { return fn_80269A0C(p, a1, a2, -1); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80269C6C
+#include "pso/misc/TLobby.cpp"

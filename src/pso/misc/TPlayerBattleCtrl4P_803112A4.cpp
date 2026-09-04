@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 release_attached_resource__10TObjPlayerFPv();
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-void set_score__19TPlayerBattleCtrl4PFPvi(void* p, s32 v);
-
-void set_score__19TPlayerBattleCtrl4PFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x29c) = v; }
-
-}
+#define PSO_CLASS_PACKAGE 0x803112A4
+#include "pso/misc/TPlayerBattleCtrl4P.cpp"

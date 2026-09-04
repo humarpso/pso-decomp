@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TAdLoadQuestGC__sub_8030984C(void);
-void TAdLoadQuestGC__sub_80309850(void);
-
-void TAdLoadQuestGC__sub_8030984C(void) {  }
-void TAdLoadQuestGC__sub_80309850(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8030984C
+#include "pso/ui/TAdLoadQuestGC.cpp"

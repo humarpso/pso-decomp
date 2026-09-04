@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v);
-
-void set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4ec) = v; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802E0064
+#include "pso/ui/TAdMultiPlyChrSelectGC.cpp"

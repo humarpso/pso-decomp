@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_instance__8TGStreamFv(void);
-
-    extern int lbl_805D53E0;
-int get_instance__8TGStreamFv(void) {  return lbl_805D53E0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x800FDD68
+#include "pso/misc/TGStream.cpp"

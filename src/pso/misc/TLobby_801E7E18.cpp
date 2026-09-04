@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void set_handler_entry__6TLobbyFi(int a0);
-int TWindowSubComCard__sub_8007AFB8(void);
-
-    extern int* TLobby__data_805D5E78;
-void set_handler_entry__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TWindowSubComCard__sub_8007AFB8(); }
-
-}
+#define PSO_CLASS_PACKAGE 0x801E7E18
+#include "pso/misc/TLobby.cpp"

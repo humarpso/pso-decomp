@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TKeyBoardControl__sub_802A12B8(void);
-void TKeyBoardControl__sub_802A12BC(void);
-
-void TKeyBoardControl__sub_802A12B8(void) {  }
-void TKeyBoardControl__sub_802A12BC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802A12B8
+#include "pso/misc/TKeyBoardControl.cpp"

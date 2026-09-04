@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 TAdMcSelectMcGC__sub_8032AAC4(void* p);
-
-s32 TAdMcSelectMcGC__sub_8032AAC4(void* p) { return *(s32*)((char*)p + 0x20); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8032AAC4
+#include "pso/menu/TAdMcSelectMcGC.cpp"

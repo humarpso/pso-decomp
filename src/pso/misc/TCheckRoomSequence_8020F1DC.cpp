@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TCheckRoomSequence__sub_8020F1DC(void);
-
-void TCheckRoomSequence__sub_8020F1DC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8020F1DC
+#include "pso/misc/TCheckRoomSequence.cpp"

@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -36,3 +37,227 @@ void run_task__13TOHealGeneralFv(void *arg0) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x801695A8
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Base_801695a8 { char pad[0x18]; };
+struct VObj_801695a8 : Base_801695a8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual M2C_UNK m8(f32, f32);
+};
+
+extern "C" {
+
+void render__13TOHealGeneralFv(u8 *arg0);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TOSignCave03__sub_803DB510(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+
+void render__13TOHealGeneralFv(u8 *arg0) {
+    u8 *temp_r31;
+    u8 *temp_r31_2;
+    u8 *temp_r31_3;
+
+    if (((VObj_801695a8 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+        TObjPlayer__sub_803D9B2C();
+        temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xCC)));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B2C();
+        temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
+        TObjPlayer__sub_803D9624((int) (0), (f32) (M2C_FIELD(temp_r31_3, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0xC) - M2C_FIELD(arg0, f32 *, 0xD0)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0x10)));
+        TObjPlayer__sub_803D9214((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0xCC)));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B78();
+    }
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x80169690
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *create__13TOHealGeneralFPv(void *arg0);
+void *TOHealGeneral__ct(void *, void *);
+void *__nw__7TObjectFUl(int);
+
+void *create__13TOHealGeneralFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xF8);
+    if (o != NULL) {
+        o = TOHealGeneral__ct(o, arg0);
+    }
+    return o;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801696D8
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void close_dialog_window__13TOHealGeneralFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+
+extern u32 TOHealGeneral__data_805D59F0;
+
+void close_dialog_window__13TOHealGeneralFv(void) {
+    if ((u32) TOHealGeneral__data_805D59F0 != 0U) {
+        TLobby__sub_8001FE7C((void*)TOHealGeneral__data_805D59F0, 1);
+        TOHealGeneral__data_805D59F0 = 0U;
+    }
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801699EC
+#include "types.h"
+
+extern "C" {
+
+void TOHealGeneral__sub_801699F4(void);
+void* TOHealGeneral__vt7(void* p);
+
+void* TOHealGeneral__vt7(void* p) { return (char*)p + 0xe0; }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801699F4
+#include "types.h"
+
+extern "C" {
+
+void TOHealGeneral__sub_801699F4(void);
+void* TOHealGeneral__vt7(void* p);
+
+void TOHealGeneral__sub_801699F4(void) {  }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x80169A8C
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 update_active_state__13TOHealGeneralFPv(void *arg0);
+void TOHealGeneral__sub_80169B28(void *arg0, s32 arg1);
+u8 TODoorAncient08__sub_80229220(u16);
+s32 TODragonfly__sub_80158360(f32);
+
+extern f32 lbl_805DB6D8;
+
+s32 update_active_state__13TOHealGeneralFPv(void *arg0) {
+    s32 temp_r0;
+
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+    switch (temp_r0) {
+    case 1:
+        if (TODragonfly__sub_80158360(lbl_805DB6D8) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xCC) = 1;
+        } else {
+            M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+        }
+        break;
+    case 2:
+        if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xD0)) == 1) {
+            M2C_FIELD(arg0, s32 *, 0xCC) = 1;
+        } else {
+            M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+        }
+        break;
+    }
+    return M2C_FIELD(arg0, s32 *, 0xCC);
+}
+
+void TOHealGeneral__sub_80169B28(void *arg0, s32 arg1) {
+    s32 var_r4;
+
+    var_r4 = arg1;
+    if (var_r4 < 0) {
+        var_r4 = 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0xD8) = var_r4;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x80169B3C
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TOHealGeneral__sub_80169B3C(void *arg0, s32 arg1);
+s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0);
+M2C_UNK TOHealGeneral__sub_80169B28(void *, s32);
+
+void TOHealGeneral__sub_80169B3C(void *arg0, s32 arg1) {
+    s32 var_r4;
+
+    var_r4 = arg1;
+    if (var_r4 < 0) {
+        var_r4 = 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0xD4) = var_r4;
+}
+
+s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0) {
+    s32 temp_r0;
+
+    M2C_FIELD(arg0, s32 *, 0xD0) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);
+    if (temp_r0 > 0xFF) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    } else if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 1;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 2;
+    }
+    TOHealGeneral__sub_80169B3C((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x88)));
+    TOHealGeneral__sub_80169B28(arg0, M2C_FIELD(arg0, s32 *, 0x8C));
+    return M2C_FIELD(arg0, s32 *, 0xD0);
+}
+
+}
+#endif
+#endif

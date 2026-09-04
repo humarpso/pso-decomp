@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_flag_bit0__14TObjEneBm5WolfFPv(void* p);
-
-int get_flag_bit0__14TObjEneBm5WolfFPv(void* p) { return *(u16*)((char*)p + 0x1c) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x800B76D4
+#include "pso/enemy/TObjEneBm5Wolf.cpp"

@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TLobby__sub_8010540C(void* p);
-int TObjPlayer__sub_8011C974(void*);
-
-int TLobby__sub_8010540C(void* p) { return TObjPlayer__sub_8011C974(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8010540C
+#include "pso/misc/TLobby.cpp"

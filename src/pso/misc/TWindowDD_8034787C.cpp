@@ -1,19 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s16 arg0);
-s32 TWindowDD__sub_80347858();
-
-s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s16 arg0) {
-    if (arg0 == 0x2C8) {
-        return 0;
-    }
-    return (u32) __cntlzw((u32) TWindowDD__sub_80347858()) >> 5;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8034787C
+#include "pso/misc/TWindowDD.cpp"

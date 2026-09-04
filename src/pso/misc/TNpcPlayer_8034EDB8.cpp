@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TNpcPlayer__sub_8034EDB8(void);
-
-    extern int lbl_805D6EA0;
-void TNpcPlayer__sub_8034EDB8(void) { lbl_805D6EA0 = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8034EDB8
+#include "pso/misc/TNpcPlayer.cpp"

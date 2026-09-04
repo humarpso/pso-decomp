@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOTrapSeabed01__vt82(void);
-
-void TOTrapSeabed01__vt82(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802CA5F0
+#include "pso/misc/TOTrapSeabed01.cpp"

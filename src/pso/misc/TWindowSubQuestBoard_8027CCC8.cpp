@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TWindowSubQuestBoard__sub_8027CCC8(void);
-
-void TWindowSubQuestBoard__sub_8027CCC8(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8027CCC8
+#include "pso/misc/TWindowSubQuestBoard.cpp"

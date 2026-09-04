@@ -1,25 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TItemList__sub_801D5A0C(void* a0 = 0);
-void TItemList__sub_801D59E8(void* p, void* a1);
-int copy_item_data__9TItemListFPv(void* p);
-void TItemList__sub_801D5838(void* p);
-int TItemList__sub_801D5844(void* p);
-void* get_ptr_0x44__9TItemListFPv(void* p);
-void TItemList__sub_801D5884(void* p, u8 v);
-void TItemList__sub_801D58C8(void* p);
-u8 get_item_count__9TItemListFPv(void* p);
-u16 TItemList__sub_801D58DC(void* p);
-int copy_position__9TItemListFPv(void* p);
-void TItemList__sub_801D59DC(void* p);
-void TItemList__sub_801D5A64(void* p);
-int VecCopy__FP3VecPC3Vec(void*);
-int copy_item_data__6TLobbyFPvPv(void*);
-
-int copy_item_data__9TItemListFPv(void* p) { return copy_item_data__6TLobbyFPvPv((char*)p + 0x8); }
-void TItemList__sub_801D5838(void* p) { *(s32*)((char*)p + 0x0) = 1; }
-int TItemList__sub_801D5844(void* p) { return *(u32*)((char*)p + 0x0) == 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801D5814
+#include "pso/item/TItemList.cpp"

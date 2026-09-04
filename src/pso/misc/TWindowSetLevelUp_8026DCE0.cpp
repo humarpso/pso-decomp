@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__17TWindowSetLevelUpFv(void);
-
-void render__17TWindowSetLevelUpFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8026DCE0
+#include "pso/ui/TWindowSetLevelUp.cpp"

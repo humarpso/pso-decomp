@@ -1,13 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TPlayerBattleCtrl4P__vt21(void* p);
-int TPlayerBattleCtrl4P__sub_803101D4(void*);
-int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
-int TPlayerBattleCtrl4P__sub_8031012C(void*);
-int update_players__19TPlayerBattleCtrl4PFv(void*);
-
-void TPlayerBattleCtrl4P__vt21(void* p) { if (TPlayerBattleCtrl4P__sub_8031012C(p) != 0) { TPlayerBattleCtrl4P__sub_803101D4(p); update_players__19TPlayerBattleCtrl4PFv(p); set_score__19TPlayerBattleCtrl4PFPvi(p, (void*)5); } }
-
-}
+#define PSO_CLASS_PACKAGE 0x80311D78
+#include "pso/misc/TPlayerBattleCtrl4P.cpp"

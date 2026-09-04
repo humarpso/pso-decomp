@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__9TBoss6DPBFv(void);
-
-void render__9TBoss6DPBFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8035DA74
+#include "pso/boss/TBoss6DPB.cpp"

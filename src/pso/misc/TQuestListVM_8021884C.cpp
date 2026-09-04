@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TQuestListVM__sub_8021884C(void);
-
-void TQuestListVM__sub_8021884C(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8021884C
+#include "pso/misc/TQuestListVM.cpp"

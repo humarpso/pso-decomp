@@ -1,27 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1);
-M2C_UNK free__11TOBoss4RockFUi(s32);
-M2C_UNK __dl__FPv(void *);
-
-extern M2C_UNK TBreakUpMdl__data_8048FA00[];
-
-void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0xC) = TBreakUpMdl__data_8048FA00;
-        free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 4));
-        M2C_FIELD(arg0, s32 *, 4) = 0;
-        if (arg1 > 0) {
-            __dl__FPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x80096E5C
+#include "pso/misc/TBreakUpMdl.cpp"

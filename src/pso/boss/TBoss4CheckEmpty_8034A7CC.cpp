@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__16TBoss4CheckEmptyFv(void);
-
-void render__16TBoss4CheckEmptyFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8034A7CC
+#include "pso/boss/TBoss4CheckEmpty.cpp"

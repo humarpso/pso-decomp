@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int render__15TBoss6EmptyWarpFv(void* p);
-
-int fn_802B0DCC(void*);
-
-int render__15TBoss6EmptyWarpFv(void* p) { return fn_802B0DCC(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802B0E2C
+#include "pso/boss/TBoss6EmptyWarp.cpp"

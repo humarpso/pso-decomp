@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void set_state__15TAdPlayerLoadGCFi(int a0);
-
-    extern int lbl_805D63D0;
-void set_state__15TAdPlayerLoadGCFi(int a0) { lbl_805D63D0 = a0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x800F9EF8
+#include "pso/menu/TAdPlayerLoadGC.cpp"

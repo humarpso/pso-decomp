@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjMapForceWarp__vt13(void);
-
-void TObjMapForceWarp__vt13(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8019DC74
+#include "pso/object/TObjMapForceWarp.cpp"

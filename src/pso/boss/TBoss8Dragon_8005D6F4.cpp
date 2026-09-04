@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_flag_bit6__12TBoss8DragonFPv(void* p);
-int TBoss8Dragon__sub_8005D700(void);
-
-int get_flag_bit6__12TBoss8DragonFPv(void* p) { return (*(u32*)((char*)p + 0x4c0) >> 6) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8005D6F4
+#include "pso/boss/TBoss8Dragon.cpp"

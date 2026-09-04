@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TObjNpcHosa__sub_802A39B0(void);
-
-    extern int lbl_805D6640;
-int TObjNpcHosa__sub_802A39B0(void) {  return lbl_805D6640; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802A39B0
+#include "pso/npc/TObjNpcHosa.cpp"

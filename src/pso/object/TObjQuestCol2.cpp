@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -14,3 +15,101 @@ s32 TObjQuestCol2__vt13(void *arg0) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x801957B0
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *TObjQuestCol2__create(void *arg0);
+void *TObjQuestCol2__ct(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+
+extern void *lbl_805D5C50;
+
+void *TObjQuestCol2__create(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xC4);
+    if (o != NULL) {
+        o = TObjQuestCol2__ct(o, lbl_805D5C50, arg0);
+    }
+    return o;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801958A4
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void *TObjQuestCol2__ct(void *arg0);
+M2C_UNK TObjQuestColBase__ct();
+
+extern M2C_UNK __vt__13TObjQuestCol2[];
+extern s32 lbl_805D340C;
+extern s32 lbl_805D5EE8;
+extern s32 lbl_805D5EEC;
+
+void *TObjQuestCol2__ct(void *arg0) {
+    s32 temp_r0;
+
+    TObjQuestColBase__ct();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjQuestCol2;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D340C;
+    M2C_FIELD(arg0, s32 *, 0xC0) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xC0) < 0) {
+        M2C_FIELD(arg0, s32 *, 0xC0) = 0;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xC0) > 1) {
+        M2C_FIELD(arg0, s32 *, 0xC0) = 1;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC0);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5EE8;
+        break;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5EEC;
+        break;
+    default:
+        M2C_FIELD(arg0, s32 *, 0xBC) = 0;
+        break;
+    }
+    return arg0;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x80196E68
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *__dt__13TObjQuestCol2Fv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void __dt__16TObjQuestColBaseFv(void *, int);
+
+extern M2C_UNK __vt__13TObjQuestCol2[];
+
+void *__dt__13TObjQuestCol2Fv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjQuestCol2;
+        __dt__16TObjQuestColBaseFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+#endif
+#endif

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__14TWindowSubItemFv(void);
-
-void render__14TWindowSubItemFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80279FF8
+#include "pso/misc/TWindowSubItem.cpp"

@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_hold_effect_count__10TObjPlayerFv(void);
-
-    extern int lbl_805D6688;
-int get_hold_effect_count__10TObjPlayerFv(void) {  return lbl_805D6688; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801C00F4
+#include "pso/player/TObjPlayer.cpp"

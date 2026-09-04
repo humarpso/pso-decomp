@@ -1,15 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneEpsilonGuard__vt59(void);
-void TObjEneEpsilonGuard__vt60(void);
-void TObjEneEpsilonGuard__vt61(void);
-void TObjEneEpsilonGuard__vt26(void);
-
-void TObjEneEpsilonGuard__vt59(void) {  }
-void TObjEneEpsilonGuard__vt60(void) {  }
-void TObjEneEpsilonGuard__vt61(void) {  }
-void TObjEneEpsilonGuard__vt26(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8035F040
+#include "pso/enemy/TObjEneEpsilonGuard.cpp"

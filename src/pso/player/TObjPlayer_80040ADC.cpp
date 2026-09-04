@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TObjPlayer__sub_80040ADC(void);
-
-int TObjPlayer__sub_80040ADC(void) { return 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80040ADC
+#include "pso/player/TObjPlayer.cpp"

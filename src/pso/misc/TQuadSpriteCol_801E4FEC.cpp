@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TQuadSpriteCol__sub_801E4FEC(void);
-
-void TQuadSpriteCol__sub_801E4FEC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801E4FEC
+#include "pso/misc/TQuadSpriteCol.cpp"

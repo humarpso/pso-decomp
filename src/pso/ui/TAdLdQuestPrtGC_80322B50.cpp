@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__15TAdLdQuestPrtGCFv(void);
-
-void render__15TAdLdQuestPrtGCFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80322B50
+#include "pso/menu/TAdLdQuestPrtGC.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__15TWindowSubEquipFv(void);
-
-void render__15TWindowSubEquipFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80277F48
+#include "pso/misc/TWindowSubEquip.cpp"

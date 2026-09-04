@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int poll_default__9TLoadCtrlFv(void);
-int TLoadCtrl__sub_8001C978(void*);
-
-int poll_default__9TLoadCtrlFv(void) { return TLoadCtrl__sub_8001C978((void*)(0)); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8001CAB0
+#include "pso/misc/TLoadCtrl.cpp"

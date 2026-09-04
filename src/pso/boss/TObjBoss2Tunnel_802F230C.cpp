@@ -1,18 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 is_phase_active__15TObjBoss2TunnelFv(s32 a0 = 0);
-s32 TObjBoss2Tunnel__sub_802F22F4(void);
-void TObjBoss2Tunnel__sub_802F23FC(void);
-
-s32 check_both__15TObjBoss2TunnelFi(s32 arg0) {
-    s32 temp_r31;
-    s32 temp_r3;
-
-    temp_r31 = TObjBoss2Tunnel__sub_802F22F4();
-    temp_r3 = is_phase_active__15TObjBoss2TunnelFv(arg0);
-    return temp_r3 | temp_r31;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x802F230C
+#include "pso/boss/TObjBoss2Tunnel.cpp"

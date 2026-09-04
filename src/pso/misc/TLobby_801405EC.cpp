@@ -1,14 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void run_floor_update__6TLobbyFv(void);
-int TLobby__sub_8007BA20(void);
-int update_current_floor__6TLobbyFv(void);
-int TLobby__sub_8022743C(void);
-int refresh_render_state__6TLobbyFv(void);
-int reset_keyboard_control__6TLobbyFv(void);
-
-void run_floor_update__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); update_current_floor__6TLobbyFv(); reset_keyboard_control__6TLobbyFv(); TLobby__sub_8007BA20(); }
-
-}
+#define PSO_CLASS_PACKAGE 0x801405EC
+#include "pso/misc/TLobby.cpp"

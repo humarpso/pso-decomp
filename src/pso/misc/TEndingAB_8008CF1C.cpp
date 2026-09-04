@@ -1,21 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void destroy_instance__9TEndingABFv(void);
-void TLobby__sub_803DA16C(void*);
-
-extern u32 lbl_805D4F14;
-
-void destroy_instance__9TEndingABFv(void) {
-    if ((u32) lbl_805D4F14 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D4F14);
-        lbl_805D4F14 = 0U;
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8008CF1C
+#include "pso/menu/TEndingAB.cpp"

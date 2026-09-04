@@ -1,22 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void clear_action_flag__10TObjPlayerFPv(void *arg0);
-M2C_UNK clear_flag_0x2__10TObjPlayerFPv(void *);
-M2C_UNK send_code_45_1__10TObjPlayerFi(void *);
-u32 is_action_active__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801C2044(s32);
-
-void clear_action_flag__10TObjPlayerFPv(void *arg0) {
-    if ((TObjPlayer__sub_801C2044(M2C_FIELD(arg0, s32 *, 0xD00) + 0x20) == 0) && (is_action_active__10TObjPlayerFPv(arg0) != 0U)) {
-        clear_flag_0x2__10TObjPlayerFPv(arg0);
-        send_code_45_1__10TObjPlayerFi(arg0);
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x801B4BD8
+#include "pso/player/TObjPlayer.cpp"

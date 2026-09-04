@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void run_task__9TAdBackGCFv(void);
-
-void run_task__9TAdBackGCFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8029A864
+#include "pso/menu/TAdBackGC.cpp"

@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss4Type2__vt8(void* p);
-
-int TBoss4Type2__sub_80056998(void*);
-
-void TBoss4Type2__vt8(void* p) { if (*(int*)((char*)p + 0x398) == 0) { TBoss4Type2__sub_80056998(p); } }
-
-}
+#define PSO_CLASS_PACKAGE 0x80056610
+#include "pso/boss/TBoss4Type2.cpp"

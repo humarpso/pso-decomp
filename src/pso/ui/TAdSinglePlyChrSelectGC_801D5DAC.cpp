@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_game_mode__23TAdSinglePlyChrSelectGCFv(void);
-
-    extern int lbl_805D5FA4;
-int get_game_mode__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D5FA4; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801D5DAC
+#include "pso/ui/TAdSinglePlyChrSelectGC.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__20TWindowSubSymbolChatFv(void);
-
-void render__20TWindowSubSymbolChatFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80282740
+#include "pso/misc/TWindowSubSymbolChat.cpp"

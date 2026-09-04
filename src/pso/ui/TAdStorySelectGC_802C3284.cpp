@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__16TAdStorySelectGCFv(void);
-void TObjPathObj__vt11(void);
-void TObjPathObj__vt12(void);
-
-void render__16TAdStorySelectGCFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802C3284
+#include "pso/menu/TAdStorySelectGC.cpp"

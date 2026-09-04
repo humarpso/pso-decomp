@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMe3ShinowaMirage__vt110(void);
-
-void TObjEneMe3ShinowaMirage__vt110(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800E3A84
+#include "pso/enemy/TObjEneMe3ShinowaMirage.cpp"

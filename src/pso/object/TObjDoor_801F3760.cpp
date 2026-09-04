@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjDoor__sub_801F3760(void);
-
-    extern int lbl_805D58F8;
-void TObjDoor__sub_801F3760(void) { lbl_805D58F8 = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801F3760
+#include "pso/object/TObjDoor.cpp"

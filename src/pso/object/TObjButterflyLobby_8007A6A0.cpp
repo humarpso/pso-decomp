@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void alloc_scene_buffer__18TObjButterflyLobbyFv(void);
-int alloc_buffer__11TOBoss4RockFPv(void*);
-
-    extern int lbl_805D4E6C;
-void alloc_scene_buffer__18TObjButterflyLobbyFv(void) { lbl_805D4E6C = alloc_buffer__11TOBoss4RockFPv((void*)20480); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8007A6A0
+#include "pso/object/TObjButterflyLobby.cpp"

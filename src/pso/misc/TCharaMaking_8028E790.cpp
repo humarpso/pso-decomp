@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TCharaMaking__sub_8028E790(void);
-
-void TCharaMaking__sub_8028E790(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8028E790
+#include "pso/misc/TCharaMaking.cpp"

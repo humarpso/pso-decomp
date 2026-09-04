@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjParticleLobby__sub_80369698(void);
-void render__17TObjParticleLobbyFv(void);
-
-void TObjParticleLobby__sub_80369698(void) {  }
-void render__17TObjParticleLobbyFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80369698
+#include "pso/object/TObjParticleLobby.cpp"

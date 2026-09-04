@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOTrap__vt82(void);
-void TOTrap__sub_801792AC(void);
-void TOTrap__sub_801792B0(void);
-
-void TOTrap__vt82(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801792A8
+#include "pso/misc/TOTrap.cpp"

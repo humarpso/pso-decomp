@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TTecRaFoie__sub_80226254(void);
-
-void TTecRaFoie__sub_80226254(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80226254
+#include "pso/misc/TTecRaFoie.cpp"

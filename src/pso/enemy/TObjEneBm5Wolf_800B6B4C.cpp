@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneBm5Wolf__sub_800B6B4C(void);
-
-void TObjEneBm5Wolf__sub_800B6B4C(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800B6B4C
+#include "pso/enemy/TObjEneBm5Wolf.cpp"

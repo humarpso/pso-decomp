@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneRe4Sorcerer__sub_800EFE30(void);
-
-void TObjEneRe4Sorcerer__sub_800EFE30(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800EFE30
+#include "pso/enemy/TObjEneRe4Sorcerer.cpp"

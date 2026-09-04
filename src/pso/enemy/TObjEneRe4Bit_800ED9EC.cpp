@@ -1,21 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void create_enabled__13TObjEneRe4BitFiiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
-void create_disabled__13TObjEneRe4BitFiiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
-M2C_UNK create__13TObjEneRe4BitFPvPvPvPvPv(M2C_UNK, M2C_UNK, s32, s32, s32);
-
-void create_enabled__13TObjEneRe4BitFiiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
-    create__13TObjEneRe4BitFPvPvPvPvPv(arg0, arg1, 1, arg2, arg3);
-}
-
-void create_disabled__13TObjEneRe4BitFiiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
-    create__13TObjEneRe4BitFPvPvPvPvPv(arg0, arg1, 0, arg2, arg3);
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x800ED9EC
+#include "pso/enemy/TObjEneRe4Bit.cpp"

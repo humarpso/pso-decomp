@@ -1,27 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 update_trigger_state__12TObjQuestColFPvf(void *arg0, f32 farg0);
-s32 is_within_range__16TObjQuestColBaseFif(f32);
-
-s32 update_trigger_state__12TObjQuestColFPvf(void *arg0, f32 farg0) {
-    if (is_within_range__16TObjQuestColBaseFif(farg0 * farg0) != 0) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) != 0) {
-            M2C_FIELD(arg0, s32 *, 0xB4) = 0;
-            return 1;
-        }
-        return 0;
-    }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) != 0) {
-        return 2;
-    }
-    M2C_FIELD(arg0, s32 *, 0xB4) = 1;
-    return 3;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x80196B80
+#include "pso/object/TObjQuestCol.cpp"

@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TLobby__sub_801ED50C(void* p);
-int TBoss1Dragon__sub_8002A378(void*);
-
-int TLobby__sub_801ED50C(void* p) { return TBoss1Dragon__sub_8002A378(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x801ED50C
+#include "pso/misc/TLobby.cpp"

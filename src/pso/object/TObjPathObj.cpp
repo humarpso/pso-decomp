@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -44,3 +45,19 @@ void *__dt__11TObjPathObjFv(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x802C327C
+#include "types.h"
+
+extern "C" {
+
+void TObjPathObj__vt12(void);
+void TObjPathObj__vt11(void);
+void render__16TAdStorySelectGCFv(void);
+
+void TObjPathObj__vt12(void) {  }
+void TObjPathObj__vt11(void) {  }
+
+}
+#endif
+#endif

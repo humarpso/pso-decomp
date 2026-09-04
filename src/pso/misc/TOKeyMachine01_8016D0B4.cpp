@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOKeyMachine01__vt23(void);
-
-void TOKeyMachine01__vt23(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8016D0B4
+#include "pso/misc/TOKeyMachine01.cpp"

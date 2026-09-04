@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TWindowCtrl__sub_8024B048(void* p);
-
-int TWindowCtrl__sub_8024B048(void* p) { return (*(u16*)((char*)p + 0x1c) >> 2) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8024B048
+#include "pso/misc/TWindowCtrl.cpp"

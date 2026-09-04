@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -27,3 +28,130 @@ void TObjWarpBase__vt12(void *arg0) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x8019D880
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Base_8019D880 { char pad[0x18]; };
+struct VObj_8019D880 : Base_8019D880 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30();
+    virtual s32 m31();
+};
+
+extern "C" {
+
+u8 TObjWarpBase__vt13(void *arg0);
+s32 test_flag_2000000__10TObjPlayerFPv(void *);
+s32 check_flag_100__10TObjPlayerFPv();
+void *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+s32 is_flag_400_set__10TObjPlayerFPv(void *);
+
+extern s32 lbl_805D3458;
+extern s32 lbl_805D55C0;
+
+u8 TObjWarpBase__vt13(void *arg0) {
+    void *var_r31;
+    u32 id = M2C_FIELD(arg0, u16 *, 0xB8);
+
+    var_r31 = NULL;
+    if ((id != 0xFFFF) && ((var_r31 = TPlayerBattleCtrl4P__sub_801BA74C(id), ((var_r31 == NULL) != 0)) || (check_flag_100__10TObjPlayerFPv() != 0))) {
+        return 0U;
+    }
+    if ((s32) lbl_805D3458 == 0) {
+        return 0U;
+    }
+    if ((s32) lbl_805D55C0 != 0) {
+        return 0U;
+    }
+    if ((var_r31 != NULL) && (((VObj_8019D880 *)var_r31)->m31() != 0)) {
+        return 0U;
+    }
+    if (var_r31 != NULL) {
+        return (u8) (is_flag_400_set__10TObjPlayerFPv(var_r31) == 0);
+    }
+    if ((var_r31 != NULL) && (test_flag_2000000__10TObjPlayerFPv(var_r31) != 0)) {
+        return 0U;
+    }
+    return 1U;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x8019DA54
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+struct Base_8019DA54 { char pad[0x18]; };
+struct VObj_8019DA54 : Base_8019DA54 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13();
+};
+
+void *TObjWarpBase__vt0(void *arg0, s16 arg1);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
+
+extern M2C_UNK __vt__12TObjWarpBase[];
+
+void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        struct VObj_8019DA54 *o = (struct VObj_8019DA54 *)arg0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjWarpBase;
+        o->m12();
+        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x8019DB64
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void free_globals__12TObjWarpBaseFv(void);
+M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
+M2C_UNK TLobby__sub_803DA16C(void*);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+
+extern s32 lbl_805D5C78;
+extern u32 lbl_805D5C7C;
+
+void free_globals__12TObjWarpBaseFv(void) {
+    if ((u32) lbl_805D5C7C != 0U) {
+        TLobby__sub_803DA16C((void*)lbl_805D5C7C);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5C7C);
+        lbl_805D5C7C = 0U;
+    }
+    TLobby__sub_8001FE7C(lbl_805D5C78, 1);
+    lbl_805D5C78 = 0;
+}
+
+}
+#endif
+#endif

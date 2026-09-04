@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -23,3 +24,17 @@ void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x8007410C
+#include "types.h"
+
+extern "C" {
+
+int TObjNewFloorWin__sub_8007410C(void);
+
+    extern int lbl_805D5FD8;
+int TObjNewFloorWin__sub_8007410C(void) {  return lbl_805D5FD8; }
+
+}
+#endif
+#endif

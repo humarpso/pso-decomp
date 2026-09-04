@@ -1,17 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TCameraCtrl__sub_80067654(void);
-void TCameraCtrl__sub_80067658(void);
-void TCameraCtrl__sub_8006765C(void);
-void TCameraCtrl__sub_80067660(void);
-void TCameraCtrl__sub_80067664(void);
-
-void TCameraCtrl__sub_80067654(void) {  }
-void TCameraCtrl__sub_80067658(void) {  }
-void TCameraCtrl__sub_8006765C(void) {  }
-void TCameraCtrl__sub_80067660(void) {  }
-void TCameraCtrl__sub_80067664(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80067654
+#include "pso/misc/TCameraCtrl.cpp"

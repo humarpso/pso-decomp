@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TLobby__sub_80132EC8(void);
-
-int TLobby__sub_80132EC8(void) { return 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80132EC8
+#include "pso/misc/TLobby.cpp"

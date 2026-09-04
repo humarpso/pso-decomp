@@ -1,19 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 play_particle_at_active_slot__10TObjPlayerFiiiiii(u8, u8, s32, s32, s32, s32);
-int get_object__13TParticleCtrlFPv(void* p);
-void reset_ind_tev_stages__13TParticleCtrlFv(void);
-int GXSetNumIndStages(int);
-int GXSetTevDirect(int);
-int fn_802A8260(void*);
-int TObjPlayer__sub_803DC83C(int);
-
-int get_object__13TParticleCtrlFPv(void* p) { return fn_802A8260(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x803280C8
+#include "pso/effect/TParticleCtrl.cpp"

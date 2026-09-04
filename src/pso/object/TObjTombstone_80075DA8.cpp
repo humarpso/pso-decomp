@@ -1,15 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void init_parts__13TObjTombstoneFPv(void* p);
-int TObjTombstone__sub_80075A00(void*);
-int TObjTombstone__sub_80075AE8(void*);
-int TObjTombstone__sub_80075B5C(void*);
-int TObjTombstone__sub_80075BE0(void*);
-int TObjTombstone__sub_80075C60(void*);
-int TObjTombstone__sub_80075CB4(void*);
-
-void init_parts__13TObjTombstoneFPv(void* p) { TObjTombstone__sub_80075CB4(p); TObjTombstone__sub_80075C60(p); TObjTombstone__sub_80075BE0(p); TObjTombstone__sub_80075B5C(p); TObjTombstone__sub_80075AE8(p); TObjTombstone__sub_80075A00(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80075DA8
+#include "pso/object/TObjTombstone.cpp"

@@ -1,16 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TItemMag__vt16(s32 arg0, s32 arg1);
-M2C_UNK TItemData__sub_8010D510(s32, s32, s32);
-
-void TItemMag__vt16(s32 arg0, s32 arg1) {
-    TItemData__sub_8010D510(arg1, arg0 + 0x198, arg0);
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8011370C
+#include "pso/item/TItemMag.cpp"

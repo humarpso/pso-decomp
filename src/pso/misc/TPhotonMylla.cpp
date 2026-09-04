@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -36,3 +37,17 @@ void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x801AD4A8
+#include "types.h"
+
+extern "C" {
+
+void TPhotonMylla__sub_801AD4A8(void* a0);
+
+    extern const float lbl_805DC1F8;
+void TPhotonMylla__sub_801AD4A8(void* a0) { *(float*)((char*)a0 + 0x184) = lbl_805DC1F8; *(float*)((char*)a0 + 0x188) = lbl_805DC1F8; *(float*)((char*)a0 + 0x18c) = lbl_805DC1F8; *(float*)((char*)a0 + 0x190) = lbl_805DC1F8; }
+
+}
+#endif
+#endif

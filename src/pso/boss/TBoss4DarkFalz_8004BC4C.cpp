@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__14TBoss4DarkFalzFv(void);
-void TBoss4DarkFalz__vt61(void);
-
-void TBoss4DarkFalz__vt61(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8004BC4C
+#include "pso/boss/TBoss4DarkFalz.cpp"

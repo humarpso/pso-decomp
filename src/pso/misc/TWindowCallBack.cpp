@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 
 extern "C" {
@@ -25,3 +26,44 @@ void build_6xA3_olga_flow_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 163; 
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x60) = v; }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x802ACDF8
+#include "types.h"
+
+extern "C" {
+
+void run_task__15TWindowCallBackFv(void* p);
+int update_fade__17TWindowSubComCardFPv(void*);
+int initialize_subwindow__9TWindowDDFPv(void*);
+
+void run_task__15TWindowCallBackFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x802ACE2C
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
+
+extern M2C_UNK __vt__15TWindowCallBack[];
+
+void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TWindowCallBack;
+        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+#endif
+#endif

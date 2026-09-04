@@ -1,23 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
-M2C_UNK TLobby__sub_8001F8D8(void *, void *);
-
-void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
-    s32 *temp_r3;
-    void *temp_r4;
-
-    temp_r4 = M2C_FIELD(arg0, void **, 0);
-    M2C_FIELD(temp_r4, s32 *, 0xC) = (s32) (M2C_FIELD(temp_r4, s32 *, 0xC) + 1);
-    TLobby__sub_8001F8D8(M2C_FIELD(arg0, void **, 0), temp_r4);
-    temp_r3 = M2C_FIELD(arg0, s32 **, 4);
-    *temp_r3 |= 1;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8001F948
+#include "pso/misc/TLobby.cpp"

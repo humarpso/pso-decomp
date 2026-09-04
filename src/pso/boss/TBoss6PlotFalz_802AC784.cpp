@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__14TBoss6PlotFalzFv(void);
-void TBoss6PlotFalz__vt61(void);
-
-void render__14TBoss6PlotFalzFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802AC784
+#include "pso/boss/TBoss6PlotFalz.cpp"

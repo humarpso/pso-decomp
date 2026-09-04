@@ -1,16 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 free_if_valid__11TAdEp3ExistFis(s32 arg0, s16 arg1);
-int __dl__FPv();
-void TAdEp3Exist__sub_8036F5A4(void* p);
-
-s32 free_if_valid__11TAdEp3ExistFis(s32 arg0, s16 arg1) {
-    if ((arg0 != 0) && (arg1 > 0)) {
-        __dl__FPv();
-    }
-    return arg0;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8036F538
+#include "pso/ui/TAdEp3Exist.cpp"

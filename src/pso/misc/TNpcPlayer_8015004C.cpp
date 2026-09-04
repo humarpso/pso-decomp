@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__10TNpcPlayerFv(void);
-
-void render__10TNpcPlayerFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8015004C
+#include "pso/misc/TNpcPlayer.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjCMMainMenu__sub_80298310(void);
-
-void TObjCMMainMenu__sub_80298310(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80298310
+#include "pso/object/TObjCMMainMenu.cpp"

@@ -1,16 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int init__17TOBarrierEnergy01FPv(void*);
-void* init__11TOVS2Wall01FPv(void* p);
-int bswap_16__FPUs(void*);
-int bswap_header__6TLobbyFi(void*);
-int TLobby__send_and_handle_60(void*);
-void TOVS2Wall01__vt23(void);
-void TOVS2Wall01__sub_8017CA48(void* p, s32 v);
-s32 TOVS2Wall01__sub_8017CA50(void* p);
-
-void TOVS2Wall01__vt23(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8017CA44
+#include "pso/misc/TOVS2Wall01.cpp"

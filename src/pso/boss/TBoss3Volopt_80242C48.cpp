@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int is_active__12TBoss3VoloptFPv(void* p);
-
-int is_active__12TBoss3VoloptFPv(void* p) { return *(u8*)((char*)p + 0x0) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80242C48
+#include "pso/boss/TBoss3Volopt.cpp"

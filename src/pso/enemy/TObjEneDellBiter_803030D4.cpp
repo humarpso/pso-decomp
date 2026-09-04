@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneDellBiter__sub_803030D4(void);
-
-void TObjEneDellBiter__sub_803030D4(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x803030D4
+#include "pso/enemy/TObjEneDellBiter.cpp"

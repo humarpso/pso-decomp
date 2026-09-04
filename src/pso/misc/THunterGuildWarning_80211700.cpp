@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void THunterGuildWarning__sub_80211700(void);
-
-    extern int THunterGuildWarning__data_805D6178;
-void THunterGuildWarning__sub_80211700(void) { THunterGuildWarning__data_805D6178 = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80211700
+#include "pso/player/THunterGuildWarning.cpp"

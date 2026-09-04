@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TAdPlayerLoadGC__sub_801E14E4(void);
-
-void TAdPlayerLoadGC__sub_801E14E4(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801E14E4
+#include "pso/menu/TAdPlayerLoadGC.cpp"

@@ -1,18 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TObjPlayer__sub_80124C64(void *arg0);
-s32 get_anim_state__10TObjPlayerFPv(void* p);
-
-void TObjPlayer__sub_80124C64(void *arg0) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x80124C64
+#include "pso/player/TObjPlayer.cpp"

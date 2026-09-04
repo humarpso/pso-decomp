@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjBoss1Floor__sub_8002CB78(void);
-
-void TObjBoss1Floor__sub_8002CB78(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8002CB78
+#include "pso/boss/TObjBoss1Floor.cpp"

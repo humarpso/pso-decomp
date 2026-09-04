@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TBoss8Dragon__sub_8030B80C(void);
-
-    extern int lbl_805D53A0;
-int TBoss8Dragon__sub_8030B80C(void) {  return (lbl_805D53A0 & 0xffff); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8030B80C
+#include "pso/boss/TBoss8Dragon.cpp"

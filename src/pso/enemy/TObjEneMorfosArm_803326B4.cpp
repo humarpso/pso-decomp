@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void* TObjEneMorfosArm__sub_803326B4(void* p);
-s32 TObjEneMorfosArm__sub_803326BC(void* p);
-
-void* TObjEneMorfosArm__sub_803326B4(void* p) { return (char*)p + 0x4a4; }
-s32 TObjEneMorfosArm__sub_803326BC(void* p) { return *(s32*)((char*)p + 0x60); }
-
-}
+#define PSO_CLASS_PACKAGE 0x803326B4
+#include "pso/enemy/TObjEneMorfosArm.cpp"

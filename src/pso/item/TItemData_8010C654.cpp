@@ -1,19 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-u16 get_packed_value__9TItemDataFPv(void *arg0);
-s32 is_usable__9TItemDataFPv();
-
-u16 get_packed_value__9TItemDataFPv(void *arg0) {
-    if (is_usable__9TItemDataFPv() != 0) {
-        return (u16) (((M2C_FIELD(arg0, u8 *, 0xA) << 8) & 0x7F00) | M2C_FIELD(arg0, u8 *, 0xB));
-    }
-    return 0U;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8010C654
+#include "pso/item/TItemData.cpp"

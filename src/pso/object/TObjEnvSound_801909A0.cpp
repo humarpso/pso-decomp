@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__12TObjEnvSoundFv(void);
-
-void render__12TObjEnvSoundFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801909A0
+#include "pso/object/TObjEnvSound.cpp"

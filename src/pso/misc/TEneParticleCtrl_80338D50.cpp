@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void* get_field_38_ptr__16TEneParticleCtrlFPv(void* p);
-
-void* get_field_38_ptr__16TEneParticleCtrlFPv(void* p) { return (char*)p + 0x38; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80338D50
+#include "pso/misc/TEneParticleCtrl.cpp"

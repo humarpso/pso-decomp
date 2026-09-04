@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
-void set_symbol_chat_parts__15TWindowMainMenuFPv(void* p);
-int is_item_active__15TWindowMainMenuFPv(void* p);
-void TWindowMainMenu__sub_802AD74C(void* p);
-
-int is_item_active__15TWindowMainMenuFPv(void* p) { return *(u8*)((char*)p + 0x13) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802AD740
+#include "pso/misc/TWindowMainMenu.cpp"

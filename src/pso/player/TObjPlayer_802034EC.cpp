@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void reset_key_machine_state__10TObjPlayerFv(void);
-int get_global_state__14TOKeyMachine01Fv(void);
-int TObjPlayer__sub_802034B0(void);
-
-void reset_key_machine_state__10TObjPlayerFv(void) { get_global_state__14TOKeyMachine01Fv(); TObjPlayer__sub_802034B0(); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802034EC
+#include "pso/player/TObjPlayer.cpp"

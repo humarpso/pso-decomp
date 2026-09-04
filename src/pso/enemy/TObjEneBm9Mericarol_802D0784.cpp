@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 get_phase__19TObjEneBm9MericarolFPv(void* p);
-
-s32 get_phase__19TObjEneBm9MericarolFPv(void* p) { return *(s32*)((char*)p + 0x45c); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802D0784
+#include "pso/enemy/TObjEneBm9Mericarol.cpp"

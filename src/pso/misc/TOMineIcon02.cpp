@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -41,3 +42,16 @@ void *__dt__12TOMineIcon02Fv(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x801716C8
+#include "types.h"
+
+extern "C" {
+
+void TOMineIcon02__vt82(void);
+
+void TOMineIcon02__vt82(void) {  }
+
+}
+#endif
+#endif

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__13TBoss6KakusanFv(void);
-
-void render__13TBoss6KakusanFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x803226BC
+#include "pso/boss/TBoss6Kakusan.cpp"

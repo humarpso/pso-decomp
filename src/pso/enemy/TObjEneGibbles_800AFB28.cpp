@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-f32 get_pos_x__14TObjEneGibblesFPv(void* p);
-
-f32 get_pos_x__14TObjEneGibblesFPv(void* p) { return *(f32*)((char*)p + 0x10); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800AFB28
+#include "pso/enemy/TObjEneGibbles.cpp"

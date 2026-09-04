@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TAdExNetConfirmGC__vt4(void* p);
-int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
-
-int TAdExNetConfirmGC__vt4(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8032C574
+#include "pso/ui/TAdExNetConfirmGC.cpp"

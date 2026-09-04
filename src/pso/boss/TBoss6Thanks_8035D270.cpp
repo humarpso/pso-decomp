@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 fn_8035CAE0();
-int TBoss6Thanks__sub_8035D270(void* p);
-int check_ship_door__12TBoss6ThanksFv(void*);
-
-int TBoss6Thanks__sub_8035D270(void* p) { return check_ship_door__12TBoss6ThanksFv(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8035D270
+#include "pso/boss/TBoss6Thanks.cpp"

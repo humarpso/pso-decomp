@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjBoss2DustCtrl__sub_8003AD50(void);
-
-void TObjBoss2DustCtrl__sub_8003AD50(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8003AD50
+#include "pso/boss/TObjBoss2DustCtrl.cpp"

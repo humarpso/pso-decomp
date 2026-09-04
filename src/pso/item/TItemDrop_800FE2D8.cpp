@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TItemDrop__sub_800FE2D8(void);
-
-void TItemDrop__sub_800FE2D8(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800FE2D8
+#include "pso/item/TItemDrop.cpp"

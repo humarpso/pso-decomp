@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int rebuild_entry__6TLobbyFPv(void* p);
-int TLobby__sub_8020C458(void*);
-
-int rebuild_entry__6TLobbyFPv(void* p) { return TLobby__sub_8020C458(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8020AB30
+#include "pso/misc/TLobby.cpp"

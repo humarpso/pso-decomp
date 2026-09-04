@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TODoorAncient08__vt18(void);
-
-void TODoorAncient08__vt18(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80160308
+#include "pso/misc/TODoorAncient08.cpp"

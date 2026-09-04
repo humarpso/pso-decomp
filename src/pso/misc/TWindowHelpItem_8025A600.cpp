@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TWindowHelpItem__sub_8025A600(void* p);
-
-int TWindowHelpItem__sub_8025A600(void* p) { return *(u16*)((char*)p + 0x0) & 0x20; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8025A600
+#include "pso/misc/TWindowHelpItem.cpp"

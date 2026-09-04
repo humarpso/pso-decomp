@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjLobbyMain__sub_803520D8(void);
-
-void TObjLobbyMain__sub_803520D8(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x803520D8
+#include "pso/object/TObjLobbyMain.cpp"

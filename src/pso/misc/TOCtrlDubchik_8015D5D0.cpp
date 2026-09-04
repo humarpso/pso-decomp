@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOCtrlDubchik__vt23(void);
-
-void TOCtrlDubchik__vt23(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8015D5D0
+#include "pso/misc/TOCtrlDubchik.cpp"

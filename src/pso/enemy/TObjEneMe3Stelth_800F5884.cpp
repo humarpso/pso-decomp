@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int draw_model__16TObjEneMe3StelthFPv(void* p);
-int draw_model__12TObjNpcEnemyFPv(void*);
-
-int draw_model__16TObjEneMe3StelthFPv(void* p) { return draw_model__12TObjNpcEnemyFPv(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800F5884
+#include "pso/enemy/TObjEneMe3Stelth.cpp"

@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_instance__13TParticleCtrlFv(void);
-
-    extern int TParticleCtrl__data_805D4F04;
-int get_instance__13TParticleCtrlFv(void) {  return TParticleCtrl__data_805D4F04; }
-
-}
+#define PSO_CLASS_PACKAGE 0x800868BC
+#include "pso/effect/TParticleCtrl.cpp"

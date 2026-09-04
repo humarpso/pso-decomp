@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int is_patrol_active__21TObjEneRe7BeruraPunchFPv(void* p);
-
-int is_patrol_active__21TObjEneRe7BeruraPunchFPv(void* p) { return (*(u32*)((char*)p + 0xb0) >> 2) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80095E18
+#include "pso/enemy/TObjEneRe7BeruraPunch.cpp"

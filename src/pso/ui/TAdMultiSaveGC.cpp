@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -28,3 +29,84 @@ void *__dt__14TAdMultiSaveGCFv(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x802FF0A0
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void free_window__14TAdMultiSaveGCFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+
+extern u32 lbl_805D69E0;
+
+void free_window__14TAdMultiSaveGCFv(void) {
+    if ((u32) lbl_805D69E0 != 0U) {
+        TLobby__sub_8001FE7C((void*)lbl_805D69E0, 1);
+        lbl_805D69E0 = 0U;
+    }
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x802FF14C
+#include "types.h"
+
+extern "C" {
+
+void queue_destruction__14TAdMultiSaveGCFv(void);
+int begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
+int queue_destruction__7TObjectFv(void);
+
+void queue_destruction__14TAdMultiSaveGCFv(void) { queue_destruction__7TObjectFv(); begin_change_game_mode__21TAdMultiChgGameModeGCFv(); }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x802FF6CC
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *TAdMultiSaveGC__ct(void *arg0);
+void *__ct__12TAdBackTxtGCFv(void *, void *);
+void __ct__7TObjectFP7TObject(void *);
+void *__ct__9TAdBackGCFv(void *, void *);
+void *__nw__7TObjectFUl(int);
+void TAdSinglePlyChrSelectGC__sub_801FE538(void);
+
+extern M2C_UNK __vt__14TAdMultiSaveGC[];
+extern void *lbl_805D4048;
+
+void *TAdMultiSaveGC__ct(void *arg0) {
+    void *o;
+    void *o2;
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TAdMultiSaveGC;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4048;
+    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, u32 *, 0x20) = 0;
+    M2C_FIELD(arg0, u32 *, 0x24) = 0;
+    M2C_FIELD(arg0, u32 *, 0x28) = 0;
+    M2C_FIELD(arg0, u32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, u32 *, 0x30) = 0;
+    o = __nw__7TObjectFUl(0x24);
+    if (o != NULL) {
+        __ct__9TAdBackGCFv(o, arg0);
+    }
+    o2 = __nw__7TObjectFUl(0x28);
+    if (o2 != NULL) {
+        __ct__12TAdBackTxtGCFv(o2, arg0);
+    }
+    TAdSinglePlyChrSelectGC__sub_801FE538();
+    return arg0;
+}
+
+}
+#endif
+#endif

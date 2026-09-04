@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -40,3 +41,79 @@ void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x8033C420
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 TKeyBoardControl__sub_8000F8EC();
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
+s32 poll_memcard_status__15TAdPlayerLoadGCFPv();
+s32 TWindowSubComCard__sub_8033C024(void *, s32);
+int TWindowSubComCard__sub_8033C178(void* p);
+void TWindowSubComCard__sub_8033C198(void);
+int TWindowSubComCard__sub_8033C19C(void* p);
+void render__16TCheckMemoryCardFv(void);
+int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
+int TWindowSubComCard__sub_8033BF90(void*);
+
+void render__16TCheckMemoryCardFv(void) {  }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x8033C580
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void __ct__7TObjectFP7TObject(void *);
+void reset__17TWindowSubComCardFPv(void *);
+
+extern M2C_UNK __vt__16TCheckMemoryCard[];
+extern void *lbl_805D4290;
+
+void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TCheckMemoryCard;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4290;
+    M2C_FIELD(arg0, void **, 0x48) = arg2;
+    M2C_FIELD(arg0, void **, 0x1C) = arg4;
+    M2C_FIELD(arg0, void **, 0x4C) = arg3;
+    reset__17TWindowSubComCardFPv(arg0);
+    return arg0;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x8033C5E4
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void * create__16TCheckMemoryCardFPvPvPv(void *arg0, void *arg1, void *arg2);
+void *TCheckMemoryCard__ct(void *, void *, void *, void *, int);
+void *__nw__7TObjectFUl(int);
+
+void * create__16TCheckMemoryCardFPvPvPv(void *arg0, void *arg1, void *arg2) {
+    void *o;
+    o = __nw__7TObjectFUl(0x250);
+    if (o != NULL) {
+        o = TCheckMemoryCard__ct(o, arg0, arg1, arg2, 1);
+    }
+    return o;
+}
+
+}
+#endif
+#endif

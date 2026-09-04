@@ -1,13 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 fn_80308294(u32 a0 = 0, s32 a1 = 0);
-u32 TLobby__sub_80101AB0(void);
-void TAdYesNoBaseGC__vt4(void);
-void TAdYesNoBaseGC__vt5(void);
-void set_field_2c__13TAdVIConfigGCFPvi(void* p, s32 v);
-
-void set_field_2c__13TAdVIConfigGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x2c) = v; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80308200
+#include "pso/ui/TAdVIConfigGC.cpp"

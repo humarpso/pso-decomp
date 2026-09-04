@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjPlayer__sub_8023AC84(void);
-int TTecSifta__sub_8023AC88(void* p);
-int fn_80236EE8(void*);
-
-int TTecSifta__sub_8023AC88(void* p) { return fn_80236EE8(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8023AC88
+#include "pso/misc/TTecSifta.cpp"

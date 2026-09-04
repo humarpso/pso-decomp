@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOHangerMachine01__sub_80169168(void);
-
-void TOHangerMachine01__sub_80169168(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80169168
+#include "pso/misc/TOHangerMachine01.cpp"

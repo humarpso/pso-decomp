@@ -1,13 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int reset_battle_camera__11TCameraCtrlFPv(void* p);
-int TCameraCtrl__sub_8006B3B8(void* p);
-int TCameraCtrl__sub_8006CCEC(void*);
-int TCameraCtrl__sub_8006CD78(void*);
-
-int reset_battle_camera__11TCameraCtrlFPv(void* p) { return TCameraCtrl__sub_8006CCEC(p); }
-int TCameraCtrl__sub_8006B3B8(void* p) { return TCameraCtrl__sub_8006CD78(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8006B398
+#include "pso/misc/TCameraCtrl.cpp"

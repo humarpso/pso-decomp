@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TItemEffNeedleBase__sub_80109FF0(void);
-
-int TItemEffNeedleBase__sub_80109FF0(void) { return 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80109FF0
+#include "pso/item/TItemEffNeedleBase.cpp"

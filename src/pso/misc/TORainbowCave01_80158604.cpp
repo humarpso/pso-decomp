@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TORainbowCave01__sub_80158604(void);
-void TOBind__sub_80158608(void);
-
-void TORainbowCave01__sub_80158604(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80158604
+#include "pso/misc/TORainbowCave01.cpp"

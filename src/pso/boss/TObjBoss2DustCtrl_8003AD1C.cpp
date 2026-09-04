@@ -1,22 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void create__17TObjBoss2DustCtrlFv(void);
-M2C_UNK TObjBoss2DustCtrl__ct(void*, s32);
-void* __nw__7TObjectFUl(M2C_UNK);
-
-extern s32 tl_05;
-
-void create__17TObjBoss2DustCtrlFv(void) {
-    void* obj = __nw__7TObjectFUl(0x1C);
-    if (obj != 0) {
-        TObjBoss2DustCtrl__ct(obj, tl_05);
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8003AD1C
+#include "pso/boss/TObjBoss2DustCtrl.cpp"

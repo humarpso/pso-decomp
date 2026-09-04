@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_position__12TBoss1DragonFPv(void* p);
-int VecCopy__FP3VecPC3Vec(void*);
-
-int get_position__12TBoss1DragonFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x38); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800BC3C4
+#include "pso/boss/TBoss1Dragon.cpp"

@@ -1,16 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TLobby__send_and_handle_60(void*);
-int handle_word_select__9TWindowDDFPv(void*);
-void init_header__9TWindowDDFPv(void* p);
-void reset_index__9TWindowDDFPv(void* p);
-void set_field14__9TWindowDDFPvi(void* p, s32 v);
-s32 TWindowDD__sub_80348D88(void* p);
-
-void reset_index__9TWindowDDFPv(void* p) { *(s32*)((char*)p + 0x14) = 0; }
-void set_field14__9TWindowDDFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x14) = v; }
-s32 TWindowDD__sub_80348D88(void* p) { return *(s32*)((char*)p + 0x14); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80348D74
+#include "pso/misc/TWindowDD.cpp"

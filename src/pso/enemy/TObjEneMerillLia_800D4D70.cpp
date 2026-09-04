@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMerillLia__sub_800D4D70(void);
-
-void TObjEneMerillLia__sub_800D4D70(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800D4D70
+#include "pso/enemy/TObjEneMerillLia.cpp"

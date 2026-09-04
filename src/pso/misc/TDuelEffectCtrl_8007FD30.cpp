@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__15TDuelEffectCtrlFv(void);
-
-void render__15TDuelEffectCtrlFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8007FD30
+#include "pso/misc/TDuelEffectCtrl.cpp"

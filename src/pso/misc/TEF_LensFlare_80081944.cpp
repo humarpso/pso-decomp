@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TEF_LensFlare__sub_80081944(void);
-void TEF_LensFlare__sub_80081948(void);
-
-void TEF_LensFlare__sub_80081944(void) {  }
-void TEF_LensFlare__sub_80081948(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80081944
+#include "pso/misc/TEF_LensFlare.cpp"

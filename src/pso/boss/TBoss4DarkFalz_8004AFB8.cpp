@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss4DarkFalz__sub_8004AFB8(void* p);
-
-void TBoss4DarkFalz__sub_8004AFB8(void* p) { *(s32*)((char*)p + 0x384) = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8004AFB8
+#include "pso/boss/TBoss4DarkFalz.cpp"

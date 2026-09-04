@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMe1Canadin__sub_8009FD2C(void);
-
-void TObjEneMe1Canadin__sub_8009FD2C(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8009FD2C
+#include "pso/enemy/TObjEneMe1Canadin.cpp"

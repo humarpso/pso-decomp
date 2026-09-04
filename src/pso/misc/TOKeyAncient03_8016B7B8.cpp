@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOKeyAncient03__vt23(void);
-
-void TOKeyAncient03__vt23(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8016B7B8
+#include "pso/misc/TOKeyAncient03.cpp"

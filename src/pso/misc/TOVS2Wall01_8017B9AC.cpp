@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOVS2Wall01__sub_8017B9AC(void);
-
-void TOVS2Wall01__sub_8017B9AC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8017B9AC
+#include "pso/misc/TOVS2Wall01.cpp"

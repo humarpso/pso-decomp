@@ -1,16 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-f32 get_target_distance__13TWindowLockOnFv(void);
-void *TWindowSubComCard__sub_8026CBB8();
-
-f32 get_target_distance__13TWindowLockOnFv(void) {
-    return M2C_FIELD(TWindowSubComCard__sub_8026CBB8(), f32 *, 4);
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8026CB80
+#include "pso/misc/TWindowLockOn.cpp"

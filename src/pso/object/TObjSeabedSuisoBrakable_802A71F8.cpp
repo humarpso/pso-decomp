@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_break_data__23TObjSeabedSuisoBrakableFi(int a0);
-
-    extern int lbl_80540AC0[];
-int get_break_data__23TObjSeabedSuisoBrakableFi(int a0) {  return lbl_80540AC0[a0]; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802A71F8
+#include "pso/object/TObjSeabedSuisoBrakable.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TAdChrSelSlotGC__sub_802C70AC(void);
-
-void TAdChrSelSlotGC__sub_802C70AC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802C70AC
+#include "pso/menu/TAdChrSelSlotGC.cpp"

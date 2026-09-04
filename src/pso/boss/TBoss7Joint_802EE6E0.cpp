@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_state__11TBoss7JointFv(void);
-
-    extern int lbl_805D6938;
-int get_state__11TBoss7JointFv(void) {  return lbl_805D6938; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802EE6E0
+#include "pso/boss/TBoss7Joint.cpp"

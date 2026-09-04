@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void set_scene_flag__10TSceneSoraFi(int a0);
-
-    extern int lbl_805D65F0;
-void set_scene_flag__10TSceneSoraFi(int a0) { lbl_805D65F0 = a0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8029F57C
+#include "pso/misc/TSceneSora.cpp"

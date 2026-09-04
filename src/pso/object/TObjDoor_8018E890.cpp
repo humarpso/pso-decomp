@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjDoor__sub_8018E890(void);
-
-void TObjDoor__sub_8018E890(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8018E890
+#include "pso/object/TObjDoor.cpp"

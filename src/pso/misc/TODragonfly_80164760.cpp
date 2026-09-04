@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TODragonfly__sub_80164760(void);
-
-void TODragonfly__sub_80164760(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80164760
+#include "pso/misc/TODragonfly.cpp"

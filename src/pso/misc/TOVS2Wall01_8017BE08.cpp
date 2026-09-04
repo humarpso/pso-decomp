@@ -1,13 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int set_flag8__6TLobbyFPv(void*);
-int queue_destruction__7TObjectFv(void*);
-int interact_player_neg1__11TOVS2Wall01FPv(void* p);
-int TObjPlayer__sub_801B4A18(void*, int);
-
-void release__11TOVS2Wall01FPv(void* p) { set_flag8__6TLobbyFPv(p); queue_destruction__7TObjectFv(p); }
-int interact_player_neg1__11TOVS2Wall01FPv(void* p) { return TObjPlayer__sub_801B4A18(p, -1); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8017BE08
+#include "pso/misc/TOVS2Wall01.cpp"

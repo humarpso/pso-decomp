@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjFogCollisionPoison__sub_801533BC(void);
-
-void TObjFogCollisionPoison__sub_801533BC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801533BC
+#include "pso/object/TObjFogCollisionPoison.cpp"

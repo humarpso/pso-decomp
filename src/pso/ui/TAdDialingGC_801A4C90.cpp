@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TAdDialingGC__sub_801A4C90(void);
-
-    extern int lbl_805D6688;
-void TAdDialingGC__sub_801A4C90(void) { lbl_805D6688 = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801A4C90
+#include "pso/ui/TAdDialingGC.cpp"

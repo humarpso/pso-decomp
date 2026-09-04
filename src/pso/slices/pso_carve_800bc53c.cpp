@@ -16,32 +16,5 @@ int queue_destruction__7TObjectFv(void*);
 int TObjPlayer__sub_800BC53C(void) { return 0; }
 int TBoss8Dragon__sub_800BC5A0(void) { return 0; }
 int TBoss8Dragon__sub_800BC5EC(void) { return 0; }
-void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
-    if (arg1 > 0) {
-        M2C_FIELD(arg0, s32 *, 0) = alloc_buffer__11TOBoss4RockFPv(arg1 * 4);
-    } else {
-        M2C_FIELD(arg0, s32 *, 0) = 0;
-    }
-    M2C_FIELD(arg0, s32 *, 4) = arg2;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xC) = arg1;
-    fn_8002B094(arg0);
-    return arg0;
-}
-u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        if ((u32) *arg0 != 0U) {
-            free__11TOBoss4RockFUi(*arg0);
-            *arg0 = 0U;
-        }
-        if (arg1 > 0) {
-            __dl__FPv(arg0);
-        }
-    }
-    return arg0;
-}
-int fn_800BC6E4(void) { return 0; }
-int fn_800BC71C(void) { return 0; }
-int fn_800BC758(void) { return 0; }
 
 }

@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TMedicalCenterSequence__vt10(void* p);
-
-int set_field_20__12TQuestListVMFPvi(void*, void*);
-int restore_player_state__13TShopSequenceFPv(void*);
-
-void TMedicalCenterSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFPvi(p, (void*)1); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802168CC
+#include "pso/misc/TMedicalCenterSequence.cpp"

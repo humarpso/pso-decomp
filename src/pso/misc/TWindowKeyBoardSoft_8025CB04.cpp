@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_flag__11TWindowChatFPv(void* a0 = 0);
-int TWindowChat__sub_8025CB70(void* a0 = 0);
-void flush_if_flagged__11TWindowChatFPv(void* p);
-int is_key_state_2__19TWindowKeyBoardSoftFPv(void* p);
-
-int is_key_state_2__19TWindowKeyBoardSoftFPv(void* p) { return (*(u16*)((char*)p + 0x60) >> 2) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8025CB04
+#include "pso/misc/TWindowKeyBoardSoft.cpp"

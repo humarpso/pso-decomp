@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__19TWindowTradeRequestFv(void);
-
-void render__19TWindowTradeRequestFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802E0170
+#include "pso/misc/TWindowTradeRequest.cpp"

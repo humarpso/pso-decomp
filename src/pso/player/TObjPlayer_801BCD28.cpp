@@ -1,14 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int is_flag_set_550__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BCD50(void);
-void TObjPlayer__sub_801BCD54(void);
-int TObjPlayer__sub_801BEF60(void*, int);
-
-int is_flag_set_550__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801BEF60((char*)p + 0x550, 0); }
-void TObjPlayer__sub_801BCD50(void) {  }
-void TObjPlayer__sub_801BCD54(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801BCD28
+#include "pso/player/TObjPlayer.cpp"

@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int render__19TChCrTagInformationFv(void* p);
-
-int TObjCMAssignMenu__sub_802A1C04(void*);
-
-int render__19TChCrTagInformationFv(void* p) { return TObjCMAssignMenu__sub_802A1C04(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802A1E6C
+#include "pso/misc/TChCrTagInformation.cpp"

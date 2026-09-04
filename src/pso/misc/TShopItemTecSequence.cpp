@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -97,3 +98,29 @@ void close_if_done__20TShopItemTecSequenceFPv(void *arg0) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x8021E450
+#include "types.h"
+
+extern "C" {
+
+int TShopItemTecSequence__sub_8021E450(int a0);
+
+    extern int TShopItemTecSequence__data_80513EE0[];
+int TShopItemTecSequence__sub_8021E450(int a0) {  return TShopItemTecSequence__data_80513EE0[a0]; }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x8021FE6C
+#include "types.h"
+
+extern "C" {
+
+int TShopItemTecSequence__sub_8021FE6C(int a0);
+
+    extern int lbl_80513EF0[];
+int TShopItemTecSequence__sub_8021FE6C(int a0) {  return lbl_80513EF0[a0]; }
+
+}
+#endif
+#endif

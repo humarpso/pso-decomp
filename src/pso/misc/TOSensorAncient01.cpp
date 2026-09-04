@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -19,3 +20,102 @@ void *create__17TOSensorAncient01FPv(void *arg0) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x80175858
+#include "types.h"
+
+extern "C" {
+
+void TOSensorAncient01__vt23(void);
+void TOSensor__vt14(void);
+void TOSensor__vt15(void);
+void render__8TOSensorFv(void);
+
+void TOSensorAncient01__vt23(void) {  }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801758D0
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TOSensorAncient01__vt15(void *arg0);
+M2C_UNK TOSensorAncient01__sub_8017585C(s32);
+
+void TOSensorAncient01__vt15(void *arg0) {
+    s32 temp_r4;
+
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0xEC);
+    M2C_FIELD(arg0, s32 *, 0xEC) = (s32) (temp_r4 + 0x28F);
+    TOSensorAncient01__sub_8017585C((s32) arg0);
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x80175C90
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void destroy__17TOSensorAncient01Fv(void);
+M2C_UNK free__11TOBoss4RockFUi(void*);
+void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK free_if_valid__10TObjPlayerFi(s32);
+
+extern u32 lbl_805D5A88;
+extern void *lbl_805D5A8C;
+
+void destroy__17TOSensorAncient01Fv(void) {
+    if ((void *) lbl_805D5A8C != NULL) {
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 0));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 0xC));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 8));
+        if ((void *) lbl_805D5A8C != NULL) {
+            free__11TOBoss4RockFUi((void*)lbl_805D5A8C);
+            lbl_805D5A8C = NULL;
+        }
+    }
+    if ((u32) lbl_805D5A88 != 0U) {
+        TLobby__sub_8001FE7C((void*)lbl_805D5A88, 1);
+        lbl_805D5A88 = 0U;
+    }
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x80175DD4
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void __dt__8TOSensorFv(void *, int);
+
+extern M2C_UNK __vt__17TOSensorAncient01[];
+
+void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOSensorAncient01;
+        __dt__8TOSensorFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+#endif
+#endif

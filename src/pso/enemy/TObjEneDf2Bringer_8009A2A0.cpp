@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneDf2Bringer__sub_8009A2A0(void);
-
-void TObjEneDf2Bringer__sub_8009A2A0(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8009A2A0
+#include "pso/enemy/TObjEneDf2Bringer.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneRe4Bit__sub_800EDAB0(void);
-
-void TObjEneRe4Bit__sub_800EDAB0(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800EDAB0
+#include "pso/enemy/TObjEneRe4Bit.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjWaitEntryHairMoveSim__sub_800FE3BC(void);
-
-void TObjWaitEntryHairMoveSim__sub_800FE3BC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800FE3BC
+#include "pso/object/TObjWaitEntryHairMoveSim.cpp"

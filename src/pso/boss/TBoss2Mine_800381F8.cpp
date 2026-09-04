@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss2Mine__vt107(void);
-void TBoss2Mine__vt108(void);
-
-void TBoss2Mine__vt108(void) {  }
-void TBoss2Mine__vt107(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800381F8
+#include "pso/boss/TBoss2Mine.cpp"

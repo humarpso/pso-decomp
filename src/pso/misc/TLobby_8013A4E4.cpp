@@ -1,19 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TLobby__sub_8013A4E4(void* p);
-int bswap_header_fields__6TLobbyFi(void*);
-s32 TLobby__send_and_handle_60(s32);
-void TLobby__sub_8013A578(void* p);
-void TLobby__sub_8013A5C0(void* p);
-s32 TLobby__sub_801E44D8(s32, s32);
-void* TObjPlayer__sub_8013A788(void* p, void* a1);
-int TObjPlayer__sub_8013A820(void* a0 = 0, void* a1 = 0);
-s32 bswap_16__FPUs(s32);
-s32 bswap_32__FPUl(s32);
-s32 bswap_packet_header__6TLobbyFPv();
-
-int TLobby__sub_8013A4E4(void* p) { return bswap_header_fields__6TLobbyFi(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8013A4E4
+#include "pso/misc/TLobby.cpp"

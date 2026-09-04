@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void* TCameraCtrl__sub_8006BA68(void* a0);
-int TCameraCtrl__sub_80068714(void);
-
-    extern unsigned char lbl_80488B08[];
-    extern int TCameraCtrl__data_805D4E10;
-void* TCameraCtrl__sub_8006BA68(void* a0) { TCameraCtrl__sub_80068714(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B08; *(int*)((char*)a0 + 0x38) = 4; TCameraCtrl__data_805D4E10 = 0; return a0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8006BA68
+#include "pso/misc/TCameraCtrl.cpp"

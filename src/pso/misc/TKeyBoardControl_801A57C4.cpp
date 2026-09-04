@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void reset__16TKeyBoardControlFv(void);
-
-    extern unsigned char lbl_805D5D09;
-void reset__16TKeyBoardControlFv(void) { lbl_805D5D09 = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801A57C4
+#include "pso/misc/TKeyBoardControl.cpp"

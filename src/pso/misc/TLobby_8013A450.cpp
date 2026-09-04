@@ -1,15 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void bswap_inventory__6TLobbyFPv(void* p);
-void set_player_count__6TLobbyFi(int a0);
-int bswap_32__FPUl(void*);
-int bswap__17TPlyInventoryItemFv(void*);
-
-void bswap_inventory__6TLobbyFPv(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 30; i++) { bswap__17TPlyInventoryItemFv((char*)p + 0x4 + i * 28); } } }
-
-    extern int lbl_805D5D6C;
-void set_player_count__6TLobbyFi(int a0) { lbl_805D5D6C = a0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8013A450
+#include "pso/misc/TLobby.cpp"

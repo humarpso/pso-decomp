@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TORevlightCave01__sub_80173478(void);
-
-void TORevlightCave01__sub_80173478(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80173478
+#include "pso/misc/TORevlightCave01.cpp"

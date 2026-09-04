@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-unsigned char TObjPlayer__sub_800847CC(void);
-
-    extern unsigned char lbl_805D4EE4;
-unsigned char TObjPlayer__sub_800847CC(void) {  return lbl_805D4EE4; }
-
-}
+#define PSO_CLASS_PACKAGE 0x800847CC
+#include "pso/player/TObjPlayer.cpp"

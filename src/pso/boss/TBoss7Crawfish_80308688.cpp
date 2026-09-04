@@ -1,17 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 TBoss7Crawfish__sub_80308688(void *arg0);
-
-extern f32 lbl_805DF0C8;
-
-s32 TBoss7Crawfish__sub_80308688(void *arg0) {
-    return (u32) __cntlzw((u32) (lbl_805DF0C8 < M2C_FIELD(arg0, f32 *, 0x38))) >> 5;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x80308688
+#include "pso/boss/TBoss7Crawfish.cpp"

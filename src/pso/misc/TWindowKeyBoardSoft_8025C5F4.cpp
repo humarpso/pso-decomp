@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_field_6c__19TWindowKeyBoardSoftFPv(void* p);
-int TWindowKeyBoardSoft__sub_8008081C(void*);
-
-int get_field_6c__19TWindowKeyBoardSoftFPv(void* p) { return TWindowKeyBoardSoft__sub_8008081C((char*)p + 0x6c); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8025C5F4
+#include "pso/misc/TWindowKeyBoardSoft.cpp"

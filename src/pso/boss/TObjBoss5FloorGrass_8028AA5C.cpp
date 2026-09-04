@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void run_task__19TObjBoss5FloorGrassFv(void);
-
-void run_task__19TObjBoss5FloorGrassFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8028AA5C
+#include "pso/boss/TObjBoss5FloorGrass.cpp"

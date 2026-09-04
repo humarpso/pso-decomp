@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__11TWindowChatFv(void);
-
-void render__11TWindowChatFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80247AAC
+#include "pso/misc/TWindowChat.cpp"

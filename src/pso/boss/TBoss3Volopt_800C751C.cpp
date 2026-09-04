@@ -1,14 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void set_flag8_list__12TBoss3VoloptFPv(u32 **arg0);
-
-void set_flag8_list__12TBoss3VoloptFPv(u32 **arg0) {
-    while (*arg0 != 0) {
-        u32 *p = *arg0++;
-        *p |= 8;
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x800C751C
+#include "pso/boss/TBoss3Volopt.cpp"

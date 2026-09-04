@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 get_phase__8TObjFishFPv(void* p);
-
-s32 get_phase__8TObjFishFPv(void* p) { return *(s32*)((char*)p + 0x378); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802ACCB8
+#include "pso/object/TObjFish.cpp"

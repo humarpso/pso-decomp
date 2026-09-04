@@ -21,6 +21,5 @@ s32 bswap_16__FPUs(s32);
 s32 bswap__9TItemDataFv(s32);
 
 int TObjPlayer__sub_801C0E40(void) { return 0; }
-void TObjPlayer__sub_801C0E5C(void* p) { bswap_cmd_u32__10TObjPlayerFi(p); TLobby__send_and_handle_60(p); }
 
 }

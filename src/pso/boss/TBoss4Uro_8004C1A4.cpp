@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_instance_count__9TBoss4UroFv(void);
-
-    extern int lbl_805D4D58;
-int get_instance_count__9TBoss4UroFv(void) {  return lbl_805D4D58; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8004C1A4
+#include "pso/boss/TBoss4Uro.cpp"

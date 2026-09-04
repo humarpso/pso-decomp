@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void run_task__19TObjBoss5FloorStoneFv(void);
-
-void run_task__19TObjBoss5FloorStoneFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8028980C
+#include "pso/boss/TObjBoss5FloorStone.cpp"

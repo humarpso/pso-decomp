@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__13TObjRaderIconFv(void);
-
-void render__13TObjRaderIconFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8019710C
+#include "pso/object/TObjRaderIcon.cpp"

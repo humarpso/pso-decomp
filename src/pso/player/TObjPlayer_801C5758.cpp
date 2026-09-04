@@ -1,15 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-u8 clamp_char_at__10TObjPlayerFPvi(s8 *arg0, s32 arg1);
-
-u8 clamp_char_at__10TObjPlayerFPvi(s8 *arg0, s32 arg1) {
-    s8 c = arg0[arg1];
-    if (c < 0 || (s32)c > 20) {
-        arg0[arg1] = 0;
-    }
-    return arg0[arg1];
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x801C5758
+#include "pso/player/TObjPlayer.cpp"

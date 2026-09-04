@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v);
-
-void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
-
-}
+#define PSO_CLASS_PACKAGE 0x800D74E4
+#include "pso/enemy/TObjEneMe3SinowZoa.cpp"

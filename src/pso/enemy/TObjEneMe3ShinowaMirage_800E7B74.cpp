@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TObjEneMe3ShinowaMirage__sub_800E7B74(void* p);
-int create__21TObjEneMe3ShinowaRealFPv(void*);
-
-int TObjEneMe3ShinowaMirage__sub_800E7B74(void* p) { return create__21TObjEneMe3ShinowaRealFPv(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800E7B74
+#include "pso/enemy/TObjEneMe3ShinowaMirage.cpp"

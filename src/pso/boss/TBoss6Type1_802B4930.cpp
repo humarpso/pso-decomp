@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__11TBoss6Type1Fv(void* p);
-
-int TBoss6Type1__sub_802B4898(void*);
-int TBoss6Type1__sub_802B626C(void*);
-
-void render__11TBoss6Type1Fv(void* p) { TBoss6Type1__sub_802B4898(p); TBoss6Type1__sub_802B626C(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802B4930
+#include "pso/boss/TBoss6Type1.cpp"

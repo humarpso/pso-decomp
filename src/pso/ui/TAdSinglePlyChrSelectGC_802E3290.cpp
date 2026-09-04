@@ -1,22 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void rebuild_and_maybe_close__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-M2C_UNK close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void *, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK close_windows__23TAdSinglePlyChrSelectGCFPv(void *);
-M2C_UNK create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
-
-void rebuild_and_maybe_close__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
-    close_windows__23TAdSinglePlyChrSelectGCFPv(arg0);
-    if (M2C_FIELD(arg0, s32 *, 0x44) & 1) {
-        close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(arg0, 0, -1, -1, -1);
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x802E3290
+#include "pso/ui/TAdSinglePlyChrSelectGC.cpp"

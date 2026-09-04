@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void copy_state__11TBoss6Type2FPvPv(void* p, void* q);
-
-void copy_state__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8033013C
+#include "pso/boss/TBoss6Type2.cpp"

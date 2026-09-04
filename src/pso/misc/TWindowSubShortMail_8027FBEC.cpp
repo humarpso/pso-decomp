@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TWindowSubShortMail__sub_8027FBEC(void);
-
-void TWindowSubShortMail__sub_8027FBEC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8027FBEC
+#include "pso/misc/TWindowSubShortMail.cpp"

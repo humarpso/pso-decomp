@@ -1,22 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void push_download_entry__22TQuestVmDownLoadServerFPv(M2C_UNK *arg0);
-
-extern s32 lbl_805D78AC;
-extern M2C_UNK *lbl_805D78B0;
-
-void push_download_entry__22TQuestVmDownLoadServerFPv(M2C_UNK *arg0) {
-    if (arg0 != NULL) {
-        *arg0 = (long) (lbl_805D78B0);
-        lbl_805D78B0 = arg0;
-        lbl_805D78AC += 1;
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x803ECFC0
+#include "pso/misc/TQuestVmDownLoadServer.cpp"

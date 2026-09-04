@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -22,3 +23,39 @@ void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x802C7F78
+#include "types.h"
+
+extern "C" {
+
+void render__18TObjTradeCollisionFv(void);
+
+void render__18TObjTradeCollisionFv(void) {  }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x802C80A4
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *TObjTradeCollision__create(void *arg0);
+void *TObjTradeCollision__ct(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+
+extern void *tl_05;
+
+void *TObjTradeCollision__create(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xB0);
+    if (o != NULL) {
+        o = TObjTradeCollision__ct(o, tl_05, arg0);
+    }
+    return o;
+}
+
+}
+#endif
+#endif

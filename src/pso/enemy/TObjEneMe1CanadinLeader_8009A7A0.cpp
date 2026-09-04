@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMe1CanadinLeader__sub_8009A7A0(void);
-
-void TObjEneMe1CanadinLeader__sub_8009A7A0(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8009A7A0
+#include "pso/enemy/TObjEneMe1CanadinLeader.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void set_field_90__6TLobbyFPvi(void* p, s32 v);
-
-void set_field_90__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x90) = v; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8026B06C
+#include "pso/misc/TLobby.cpp"

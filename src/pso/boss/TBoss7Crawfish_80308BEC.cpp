@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TBoss7Crawfish__sub_80308BEC(void* p);
-
-int TBoss7Crawfish__sub_80308F8C(void*, int);
-
-int TBoss7Crawfish__sub_80308BEC(void* p) { return TBoss7Crawfish__sub_80308F8C(p, 5); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80308BEC
+#include "pso/boss/TBoss7Crawfish.cpp"

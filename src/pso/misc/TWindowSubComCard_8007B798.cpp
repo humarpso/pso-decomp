@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_keyboard_mode__17TWindowSubComCardFv(void);
-
-    extern int lbl_805D4E80;
-int get_keyboard_mode__17TWindowSubComCardFv(void) {  return lbl_805D4E80; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8007B798
+#include "pso/misc/TWindowSubComCard.cpp"

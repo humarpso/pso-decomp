@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjBoss2Tunnel__sub_8007DD24(void);
-
-void TObjBoss2Tunnel__sub_8007DD24(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8007DD24
+#include "pso/boss/TObjBoss2Tunnel.cpp"

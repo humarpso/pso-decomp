@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void update__16TKeyBoardControlFv(void);
-int TKeyBoardControl__sub_8000F828(void);
-
-void update__16TKeyBoardControlFv(void) {  }
-int TKeyBoardControl__sub_8000F828(void) { return 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8000F824
+#include "pso/misc/TKeyBoardControl.cpp"

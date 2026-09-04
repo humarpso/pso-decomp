@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TBoss4Type2__sub_80057578(void* p);
-int init_hanger__11TBoss4Type2FPv(void*);
-
-int TBoss4Type2__sub_80057578(void* p) { return init_hanger__11TBoss4Type2FPv(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80057578
+#include "pso/boss/TBoss4Type2.cpp"

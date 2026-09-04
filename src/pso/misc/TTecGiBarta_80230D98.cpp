@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__11TTecGiBartaFv(void);
-
-void render__11TTecGiBartaFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80230D98
+#include "pso/misc/TTecGiBarta.cpp"

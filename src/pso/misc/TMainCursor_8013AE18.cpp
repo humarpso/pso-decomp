@@ -1,20 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void update_target_player__11TMainCursorFi(s32 arg0);
-void *get_state__11TMainCursorFPv(s32);
-M2C_UNK TObjPlayer__sub_8013DEF8(s32);
-s32 TObjPlayer__sub_801C6DAC(s32);
-
-void update_target_player__11TMainCursorFi(s32 arg0) {
-    if ((TObjPlayer__sub_801C6DAC(arg0 + 0x1C) != 0) && ((u32) M2C_FIELD(get_state__11TMainCursorFPv(arg0 + 0x1C), u32 *, 0x424) != 0U)) {
-        TObjPlayer__sub_8013DEF8(M2C_FIELD(get_state__11TMainCursorFPv(arg0 + 0x1C), s32 *, 0x424) + 0x520);
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8013AE18
+#include "pso/misc/TMainCursor.cpp"

@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int create_default__19TChCrTagInformationFv(void);
-int create__19TChCrTagInformationFPv(void*);
-
-int create_default__19TChCrTagInformationFv(void) { return create__19TChCrTagInformationFPv((void*)(0)); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802A2058
+#include "pso/misc/TChCrTagInformation.cpp"

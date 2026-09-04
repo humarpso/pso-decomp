@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void bswap_header_3words__6TLobbyFPv(void* p);
-int bswap_32__FPUl(void*);
-
-void bswap_header_3words__6TLobbyFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8013A8AC
+#include "pso/misc/TLobby.cpp"

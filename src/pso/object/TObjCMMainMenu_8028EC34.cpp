@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjCMMainMenu__sub_8028EC34(void);
-
-    extern int lbl_805D652C;
-void TObjCMMainMenu__sub_8028EC34(void) { lbl_805D652C = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8028EC34
+#include "pso/object/TObjCMMainMenu.cpp"

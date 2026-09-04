@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void* get_pos_ptr__10TObjPlayerFPv(void* p);
-
-void* get_pos_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x78; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80236D58
+#include "pso/player/TObjPlayer.cpp"

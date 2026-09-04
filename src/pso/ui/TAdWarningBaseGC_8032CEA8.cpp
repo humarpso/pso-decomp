@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TAdWarningBaseGC__sub_8032CEA8(void* p);
-
-void TAdWarningBaseGC__sub_8032CEA8(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8032CEA8
+#include "pso/ui/TAdWarningBaseGC.cpp"

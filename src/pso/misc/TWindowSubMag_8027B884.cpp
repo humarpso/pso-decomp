@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__13TWindowSubMagFv(void);
-
-void render__13TWindowSubMagFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8027B884
+#include "pso/misc/TWindowSubMag.cpp"

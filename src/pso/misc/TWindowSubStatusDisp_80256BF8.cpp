@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TWindowSubStatusDisp__sub_80256BF8(void);
-void TWindowSubStatusDisp__sub_80256BFC(void);
-
-void TWindowSubStatusDisp__sub_80256BF8(void) {  }
-void TWindowSubStatusDisp__sub_80256BFC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80256BF8
+#include "pso/misc/TWindowSubStatusDisp.cpp"

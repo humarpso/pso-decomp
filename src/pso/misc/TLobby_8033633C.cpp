@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TLobby__sub_8033633C(void);
-
-void TLobby__sub_8033633C(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8033633C
+#include "pso/misc/TLobby.cpp"

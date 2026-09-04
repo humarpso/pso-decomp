@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TTecLuker__sub_80233C18(void* p);
-
-void TTecLuker__sub_80233C18(void* p) { *(s32*)((char*)p + 0xb0) = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80233C18
+#include "pso/misc/TTecLuker.cpp"

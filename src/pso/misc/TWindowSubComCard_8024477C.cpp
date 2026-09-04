@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 get_field_20__17TWindowSubComCardFPv(void* p);
-
-s32 get_field_20__17TWindowSubComCardFPv(void* p) { return *(s32*)((char*)p + 0x20); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8024477C
+#include "pso/misc/TWindowSubComCard.cpp"

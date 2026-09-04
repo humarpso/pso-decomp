@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__15TBoss2PhotonPadFv(void);
-
-void render__15TBoss2PhotonPadFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8003913C
+#include "pso/boss/TBoss2PhotonPad.cpp"

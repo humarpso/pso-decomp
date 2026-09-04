@@ -1,15 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void* init_state_445__10TObjPlayerFPv(void* a0);
-int TObjPlayer__sub_80120D50(void);
-int set_status_flags__10TObjPlayerFPvUi(void*, void*);
-
-    extern unsigned char TObjPlayer__sub_8032E648[];
-    extern unsigned char create_network_object__10TObjPlayerFiPvi[];
-    extern unsigned char lbl_804E23F0[];
-    extern const float lbl_805DE7A0;
-void* init_state_445__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E23F0; set_status_flags__10TObjPlayerFPvUi(a0, (void*)3); *(int*)((char*)a0 + 0x1f8) = 0; *(int*)((char*)a0 + 0x1fc) = 445; *(int*)((char*)a0 + 0x204) = (int)TObjPlayer__sub_8032E648; *(int*)((char*)a0 + 0x208) = (int)create_network_object__10TObjPlayerFiPvi; *(float*)((char*)a0 + 0x200) = lbl_805DE7A0; return a0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802D5ECC
+#include "pso/player/TObjPlayer.cpp"

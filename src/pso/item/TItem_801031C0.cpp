@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TItem__sub_801031C0(void* p);
-
-void TItem__sub_801031C0(void* p) { *(s32*)((char*)p + 0x0) = 4; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801031C0
+#include "pso/item/TItem.cpp"

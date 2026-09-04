@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOSensorAncient01__vt23(void);
-void TOSensor__vt14(void);
-void TOSensor__vt15(void);
-void render__8TOSensorFv(void);
-
-void TOSensorAncient01__vt23(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80175858
+#include "pso/misc/TOSensorAncient01.cpp"

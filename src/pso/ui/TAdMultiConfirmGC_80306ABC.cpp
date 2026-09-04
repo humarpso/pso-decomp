@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TAdMultiConfirmGC__sub_80306ABC(void* p);
-
-int TAdMultiConfirmGC__sub_80306ABC(void* p) { return *(u32*)((char*)p + 0x980) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80306ABC
+#include "pso/ui/TAdMultiConfirmGC.cpp"

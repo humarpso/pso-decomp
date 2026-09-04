@@ -1,21 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 query_state__12TCharaMakingFv(void);
-s32 TObjCMMainMenu__sub_8028EBCC(void*);
-
-extern u32 lbl_805D6524;
-
-s32 query_state__12TCharaMakingFv(void) {
-    if ((u32) lbl_805D6524 == 0U) {
-        return -1;
-    }
-    return TObjCMMainMenu__sub_8028EBCC((void*)lbl_805D6524);
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8028DC40
+#include "pso/misc/TCharaMaking.cpp"

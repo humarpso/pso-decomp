@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TWindowSubComCard__sub_80249220(void* p);
-int fn_80268C5C(void*);
-
-int TWindowSubComCard__sub_80249220(void* p) { return fn_80268C5C(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80249220
+#include "pso/misc/TWindowSubComCard.cpp"

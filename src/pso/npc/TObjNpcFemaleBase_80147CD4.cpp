@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TObjNpcFemaleBase__sub_80147CD4(void);
-
-int TObjNpcFemaleBase__sub_80147CD4(void) { return 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80147CD4
+#include "pso/npc/TObjNpcFemaleBase.cpp"

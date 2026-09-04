@@ -1,23 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void update_message__18TWindowMessagePageFPv(void *arg0);
-s32 TLobby__sub_8001DC24();
-M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
-u32 TWindowSubStatusDisp__sub_80228F84(u32);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
-
-void update_message__18TWindowMessagePageFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
-        TWindowSubStatusDisp__sub_802290E0();
-        M2C_FIELD(arg0, u32 *, 0x94) = TWindowSubStatusDisp__sub_80228F84(M2C_FIELD(arg0, u32 *, 0x94));
-        send_and_handle__6TLobbyFPvii(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x90));
-    }
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8026ADC8
+#include "pso/misc/TWindowMessagePage.cpp"

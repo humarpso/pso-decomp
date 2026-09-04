@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -28,3 +29,39 @@ void *destroy__16TBoss3VoloptCoreFPvs(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x80040788
+#include "types.h"
+
+extern "C" {
+
+void TBoss3VoloptCore__sub_80040788(void);
+
+void TBoss3VoloptCore__sub_80040788(void) {  }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x800407E0
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *TBoss3VoloptCore__sub_800407E0(void *arg0);
+void *__nw__7TObjectFUl(int);
+void *TBoss3VoloptCore__sub_80040A7C(void *, void *, void *);
+
+extern void *tl_04;
+
+void *TBoss3VoloptCore__sub_800407E0(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x3D4);
+    if (o != NULL) {
+        o = TBoss3VoloptCore__sub_80040A7C(o, tl_04, arg0);
+    }
+    return o;
+}
+
+}
+#endif
+#endif

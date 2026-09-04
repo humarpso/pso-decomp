@@ -1,21 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void init_state__14TBoss4DarkFalzFPv(void *arg0);
-void TBoss4DarkFalz__sub_8004BA70(void *);
-void create__11TObjDFDemo4FPvPvPv(void *, void *, void *);
-void TObjBgmColCtrl__sub_802274B8(void *);
-
-extern M2C_UNK lbl_80437298[];
-
-void init_state__14TBoss4DarkFalzFPv(void *arg0) {
-    TBoss4DarkFalz__sub_8004BA70(arg0);
-    create__11TObjDFDemo4FPvPvPv(arg0, (void *)((char *)arg0 + 924), M2C_FIELD(arg0, void **, 0x3A8));
-    TObjBgmColCtrl__sub_802274B8(lbl_80437298);
-    M2C_FIELD(arg0, u32 *, 0x380) = 114;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8004C798
+#include "pso/boss/TBoss4DarkFalz.cpp"

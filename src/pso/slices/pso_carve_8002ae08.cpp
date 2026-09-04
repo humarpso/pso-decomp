@@ -25,6 +25,5 @@ void set_type_dragon__10TObjPlayerFPv(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
 int fn_8002AE08(void) { return 0; }
-int test_card_flag_2__12TBoss8DragonFPv(void* p) { return test_card_flag__19TWindowKeyBoardHardFii(p, 2); }
 
 }

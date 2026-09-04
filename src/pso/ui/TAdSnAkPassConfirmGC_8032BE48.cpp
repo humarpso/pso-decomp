@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(void* p);
-
-s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(void* p) { return *(s32*)((char*)p + 0x1c); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8032BE48
+#include "pso/ui/TAdSnAkPassConfirmGC.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__19TWindowSubShortMailFv(void);
-
-void render__19TWindowSubShortMailFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8027EF94
+#include "pso/misc/TWindowSubShortMail.cpp"

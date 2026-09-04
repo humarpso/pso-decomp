@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TOTrapChainSaw__sub_802C91DC(void*);
-void TOTrapChainSawKey__vt15(void* p);
-void TOTrapChainSawKey__vt25(void);
-
-void TOTrapChainSawKey__vt25(void) {  }
-void TOTrapChainSawKey__vt15(void* p) { if (*(int*)((char*)p + 0xf0) != 1) { TOTrapChainSaw__sub_802C91DC(p); } }
-
-}
+#define PSO_CLASS_PACKAGE 0x802C84E4
+#include "pso/misc/TOTrapChainSawKey.cpp"

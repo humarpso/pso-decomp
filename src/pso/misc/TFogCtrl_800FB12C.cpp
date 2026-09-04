@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 get_param__8TFogCtrlFPv(void* p);
-
-s32 get_param__8TFogCtrlFPv(void* p) { return *(s32*)((char*)p + 0x1c0); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800FB12C
+#include "pso/misc/TFogCtrl.cpp"

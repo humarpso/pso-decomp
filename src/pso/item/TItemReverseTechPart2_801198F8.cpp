@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__21TItemReverseTechPart2Fv(void);
-
-void render__21TItemReverseTechPart2Fv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801198F8
+#include "pso/item/TItemReverseTechPart2.cpp"

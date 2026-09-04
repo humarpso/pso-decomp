@@ -1,17 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void reset_quest_id__23TAdSinglePlyChrSelectGCFv(void);
-
-extern s32 lbl_805D6D8C;
-
-void reset_quest_id__23TAdSinglePlyChrSelectGCFv(void) {
-    lbl_805D6D8C = 0xFFFF;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8033A8EC
+#include "pso/ui/TAdSinglePlyChrSelectGC.cpp"

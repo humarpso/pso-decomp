@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TPlyPhotonChair__sub_80142770(void);
-void TPlyPhotonChair__sub_80142774(void);
-
-void TPlyPhotonChair__sub_80142770(void) {  }
-void TPlyPhotonChair__sub_80142774(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80142770
+#include "pso/misc/TPlyPhotonChair.cpp"

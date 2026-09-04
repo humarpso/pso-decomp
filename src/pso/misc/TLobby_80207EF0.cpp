@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int reset_story_select__6TLobbyFPv(void* p);
-int TLobby__sub_80207F10(void* p);
-int reset_story_select__6TLobbyFv(void*);
-
-int reset_story_select__6TLobbyFPv(void* p) { return reset_story_select__6TLobbyFv(p); }
-int TLobby__sub_80207F10(void* p) { return reset_story_select__6TLobbyFv(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80207EF0
+#include "pso/misc/TLobby.cpp"

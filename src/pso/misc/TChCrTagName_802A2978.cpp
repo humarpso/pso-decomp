@@ -1,21 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__12TChCrTagNameFPv(void *arg0);
-void *__ct__12TChCrTagNameFv(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
-extern void *tl_03;
-
-void *create__12TChCrTagNameFPv(void *arg0) {
-    void *o = __nw__7TObjectFUl(0x50);
-    if (o != NULL) {
-        o = __ct__12TChCrTagNameFv(o, tl_03, arg0);
-    }
-    return o;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x802A2978
+#include "pso/menu/TChCrTagName.cpp"

@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TItemEffOrgaFlowShot__sub_80357210(void);
-
-    extern int lbl_805D6F20;
-void TItemEffOrgaFlowShot__sub_80357210(void) { lbl_805D6F20 = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80357210
+#include "pso/item/TItemEffOrgaFlowShot.cpp"

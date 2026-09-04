@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TWindowDuelResult__vt2(void);
-
-void TWindowDuelResult__vt2(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8024F090
+#include "pso/misc/TWindowDuelResult.cpp"

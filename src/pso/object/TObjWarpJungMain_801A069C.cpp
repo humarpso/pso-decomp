@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjWarpJungMain__vt18(void);
-
-void TObjWarpJungMain__vt18(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801A069C
+#include "pso/object/TObjWarpJungMain.cpp"

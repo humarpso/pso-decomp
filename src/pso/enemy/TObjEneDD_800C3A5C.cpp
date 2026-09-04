@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void noop__9TObjEneDDFv(void);
-
-void noop__9TObjEneDDFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800C3A5C
+#include "pso/enemy/TObjEneDD.cpp"

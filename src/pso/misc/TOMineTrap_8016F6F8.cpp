@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void set_state__10TOMineTrapFPv(void* p);
-
-void set_state__10TOMineTrapFPv(void* p) { *(s16*)((char*)p + 0x326) = 4; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8016F6F8
+#include "pso/misc/TOMineTrap.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TWindowSubCustomEquip__sub_80275A88(void);
-
-void TWindowSubCustomEquip__sub_80275A88(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80275A88
+#include "pso/misc/TWindowSubCustomEquip.cpp"

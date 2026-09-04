@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMe1GiGueBarrier__sub_80325CC0(void);
-
-void TObjEneMe1GiGueBarrier__sub_80325CC0(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80325CC0
+#include "pso/enemy/TObjEneMe1GiGueBarrier.cpp"

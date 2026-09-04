@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__12TObjRaderColFv(void);
-
-void render__12TObjRaderColFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80197508
+#include "pso/object/TObjRaderCol.cpp"

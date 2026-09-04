@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TAdSinglePlyChrSelectGC__sub_801C5120(void);
-
-    extern int lbl_805D5D90;
-void TAdSinglePlyChrSelectGC__sub_801C5120(void) { lbl_805D5D90 = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801C5120
+#include "pso/ui/TAdSinglePlyChrSelectGC.cpp"

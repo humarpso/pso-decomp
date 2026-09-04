@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjPlayer__sub_800A100C(void);
-
-void TObjPlayer__sub_800A100C(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800A100C
+#include "pso/player/TObjPlayer.cpp"

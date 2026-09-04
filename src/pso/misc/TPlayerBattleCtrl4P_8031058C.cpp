@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TPlayerBattleCtrl4P__sub_8031058C(void* p);
-int TPlayerBattleCtrl4P__sub_803104CC(void*);
-
-int TPlayerBattleCtrl4P__sub_8031058C(void* p) { return TPlayerBattleCtrl4P__sub_803104CC(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x8031058C
+#include "pso/misc/TPlayerBattleCtrl4P.cpp"

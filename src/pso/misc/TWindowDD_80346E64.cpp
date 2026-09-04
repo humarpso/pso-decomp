@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__9TWindowDDFv(void);
-
-void render__9TWindowDDFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80346E64
+#include "pso/misc/TWindowDD.cpp"

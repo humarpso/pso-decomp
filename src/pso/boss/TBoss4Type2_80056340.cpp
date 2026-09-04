@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss4Type2__vt14(void);
-
-void TBoss4Type2__vt14(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80056340
+#include "pso/boss/TBoss4Type2.cpp"

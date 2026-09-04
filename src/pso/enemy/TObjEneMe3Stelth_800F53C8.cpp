@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int create_real__16TObjEneMe3StelthFPv(void* p);
-int create__20TObjEneMe3StelthRealFPv(void*);
-
-int create_real__16TObjEneMe3StelthFPv(void* p) { return create__20TObjEneMe3StelthRealFPv(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800F53C8
+#include "pso/enemy/TObjEneMe3Stelth.cpp"

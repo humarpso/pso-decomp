@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOMineIcon02__vt82(void);
-
-void TOMineIcon02__vt82(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801716C8
+#include "pso/misc/TOMineIcon02.cpp"

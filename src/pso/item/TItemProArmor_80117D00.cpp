@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TItemProArmor__sub_80117D00(void);
-void TItemProArmor__sub_80117D04(void);
-
-void TItemProArmor__sub_80117D00(void) {  }
-void TItemProArmor__sub_80117D04(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80117D00
+#include "pso/item/TItemProArmor.cpp"

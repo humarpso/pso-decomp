@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int send_and_handle__6TLobbyFPv(void* p);
-int TLobby__sub_801A400C(void*);
-
-int send_and_handle__6TLobbyFPv(void* p) { return TLobby__sub_801A400C(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x801A3FEC
+#include "pso/misc/TLobby.cpp"

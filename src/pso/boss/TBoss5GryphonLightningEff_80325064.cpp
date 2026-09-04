@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss5GryphonLightningEff__sub_80325064(void* p);
-
-void TBoss5GryphonLightningEff__sub_80325064(void* p) { *(u8*)((char*)p + 0x260) = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80325064
+#include "pso/boss/TBoss5GryphonLightningEff.cpp"

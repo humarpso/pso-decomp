@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TEndingPic__sub_80353010(void);
-
-    extern int lbl_805D4F14;
-int TEndingPic__sub_80353010(void) {  return lbl_805D4F14; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80353010
+#include "pso/menu/TEndingPic.cpp"

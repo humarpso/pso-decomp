@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_data__15TObjEneDelDepthFv(void);
-
-    extern int TObjEneDelDepth__data_805D6AC4;
-int get_data__15TObjEneDelDepthFv(void) {  return TObjEneDelDepth__data_805D6AC4; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8031623C
+#include "pso/enemy/TObjEneDelDepth.cpp"

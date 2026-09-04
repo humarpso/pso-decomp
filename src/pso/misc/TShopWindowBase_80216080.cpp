@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TShopWindowBase__sub_80216080(void);
-
-void TShopWindowBase__sub_80216080(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80216080
+#include "pso/ui/TShopWindowBase.cpp"

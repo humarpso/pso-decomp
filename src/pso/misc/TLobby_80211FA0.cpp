@@ -1,21 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create_tl05_object__6TLobbyFPv(void *arg0);
-void *__nw__7TObjectFUl(int);
-void *THunterGuildSeqOffline__sub_80214B3C(void *, void *, void *);
-
-extern void *tl_05;
-
-void *create_tl05_object__6TLobbyFPv(void *arg0) {
-    void *o = __nw__7TObjectFUl(0x44);
-    if (o != NULL) {
-        o = THunterGuildSeqOffline__sub_80214B3C(o, tl_05, arg0);
-    }
-    return o;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x80211FA0
+#include "pso/misc/TLobby.cpp"

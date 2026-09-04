@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOWreckAncientBrakable__sub_8017D444(void);
-
-void TOWreckAncientBrakable__sub_8017D444(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8017D444
+#include "pso/misc/TOWreckAncientBrakable.cpp"

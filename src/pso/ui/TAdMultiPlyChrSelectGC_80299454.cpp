@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TAdMultiPlyChrSelectGC__sub_80299454(void);
-
-    extern int lbl_805D68C8;
-int TAdMultiPlyChrSelectGC__sub_80299454(void) {  return lbl_805D68C8; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80299454
+#include "pso/ui/TAdMultiPlyChrSelectGC.cpp"

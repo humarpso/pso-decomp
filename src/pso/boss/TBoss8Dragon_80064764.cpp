@@ -1,18 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void run_default_state__12TBoss8DragonFPv(void* p);
-int update_state_3__12TBoss8DragonFPv(void* p);
-int set_state_2__12TBoss8DragonFPv(void* p);
-int attack_default__12TBoss8DragonFPv(void* p);
-int query_default__12TBoss8DragonFPv(void* p);
-int TBoss8Dragon__sub_80064968(void*, int);
-
-void run_default_state__12TBoss8DragonFPv(void* p) { query_default__12TBoss8DragonFPv((void*)(p)); attack_default__12TBoss8DragonFPv((void*)(p)); }
-int update_state_3__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 3); }
-int set_state_2__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 2); }
-int attack_default__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 1); }
-int query_default__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 0); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80064764
+#include "pso/boss/TBoss8Dragon.cpp"

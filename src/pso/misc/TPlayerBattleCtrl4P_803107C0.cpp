@@ -1,16 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 set_state__19TPlayerBattleCtrl4PFPv(void *arg0);
-
-s32 set_state__19TPlayerBattleCtrl4PFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x260) = 2;
-    return 1;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x803107C0
+#include "pso/misc/TPlayerBattleCtrl4P.cpp"

@@ -1,13 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMe3ShinowaMirage__sub_800E4DC4(void);
-void TObjEneMe3ShinowaMirage__sub_800E4DC8(void);
-void TObjEneMe3ShinowaMirage__sub_800E4DCC(void);
-
-void TObjEneMe3ShinowaMirage__sub_800E4DC4(void) {  }
-void TObjEneMe3ShinowaMirage__sub_800E4DC8(void) {  }
-void TObjEneMe3ShinowaMirage__sub_800E4DCC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800E4DC4
+#include "pso/enemy/TObjEneMe3ShinowaMirage.cpp"

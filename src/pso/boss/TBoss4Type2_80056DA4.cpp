@@ -1,19 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1);
-
-extern const f32 lbl_805D8BF4;
-extern const f32 lbl_805D8BF8;
-
-void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) ((lbl_805D8BF4 + M2C_FIELD(arg1, f32 *, 0)) / lbl_805D8BF8);
-    M2C_FIELD(arg0, s32 *, 0x3B0) = (s32) ((lbl_805D8BF4 + M2C_FIELD(arg1, f32 *, 8)) / lbl_805D8BF8);
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x80056DA4
+#include "pso/boss/TBoss4Type2.cpp"

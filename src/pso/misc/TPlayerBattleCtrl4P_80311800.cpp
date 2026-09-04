@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TPlayerBattleCtrl4P__vt29(void);
-void TPlayerBattleCtrl4P__vt28(void);
-
-void TPlayerBattleCtrl4P__vt29(void) {  }
-void TPlayerBattleCtrl4P__vt28(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80311800
+#include "pso/misc/TPlayerBattleCtrl4P.cpp"

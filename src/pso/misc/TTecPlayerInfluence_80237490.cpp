@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TTecPlayerInfluence__vt5(void);
-
-void TTecPlayerInfluence__vt5(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80237490
+#include "pso/misc/TTecPlayerInfluence.cpp"

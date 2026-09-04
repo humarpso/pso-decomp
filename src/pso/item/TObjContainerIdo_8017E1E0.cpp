@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjContainerIdo__vt13(void);
-
-void TObjContainerIdo__vt13(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8017E1E0
+#include "pso/item/TObjContainerIdo.cpp"

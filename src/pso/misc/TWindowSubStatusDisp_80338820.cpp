@@ -1,27 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 get_flag_or_zero__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
-s32 query_status_field__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
-s32 get_message_10__20TWindowSubStatusDispFPv(s32);
-
-s32 query_status_field__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
-    if (arg1 == 0) {
-        return 0;
-    }
-    return get_message_10__20TWindowSubStatusDispFPv(arg1 + 0x110);
-}
-
-s32 get_flag_or_zero__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
-    if (arg1 == 0) {
-        return 0;
-    }
-    return get_message_10__20TWindowSubStatusDispFPv(arg1 + 0x10D);
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x80338820
+#include "pso/misc/TWindowSubStatusDisp.cpp"

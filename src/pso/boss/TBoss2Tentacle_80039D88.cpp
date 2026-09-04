@@ -1,21 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss2Tentacle__sub_80039D88(void* p);
-void TBoss2Tentacle__sub_80039DA4(void* p);
-void TBoss2Tentacle__sub_80039DBC(void* p);
-void TBoss2Tentacle__sub_80039DD4(void* p);
-void TBoss2Tentacle__sub_80039D98(void* p);
-void TBoss2Tentacle__sub_80039DB0(void* p);
-void TBoss2Tentacle__sub_80039DC8(void* p);
-
-void TBoss2Tentacle__sub_80039D88(void* p) { *(s32*)((char*)p + 0x120) = 0; *(s32*)((char*)p + 0x11c) = 0; }
-void TBoss2Tentacle__sub_80039D98(void* p) { *(s32*)((char*)p + 0x20) = 5; }
-void TBoss2Tentacle__sub_80039DA4(void* p) { *(s32*)((char*)p + 0x20) = 3; }
-void TBoss2Tentacle__sub_80039DB0(void* p) { *(s32*)((char*)p + 0x20) = 2; }
-void TBoss2Tentacle__sub_80039DBC(void* p) { *(s32*)((char*)p + 0x20) = 4; }
-void TBoss2Tentacle__sub_80039DC8(void* p) { *(s32*)((char*)p + 0x20) = 1; }
-void TBoss2Tentacle__sub_80039DD4(void* p) { *(s32*)((char*)p + 0x20) = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80039D88
+#include "pso/boss/TBoss2Tentacle.cpp"

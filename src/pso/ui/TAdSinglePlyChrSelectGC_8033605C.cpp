@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TAdSinglePlyChrSelectGC__sub_8033605C(void);
-
-int TAdSinglePlyChrSelectGC__sub_8033605C(void) { return 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8033605C
+#include "pso/ui/TAdSinglePlyChrSelectGC.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss8Dragon__sub_80063714(void);
-
-void TBoss8Dragon__sub_80063714(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80063714
+#include "pso/boss/TBoss8Dragon.cpp"

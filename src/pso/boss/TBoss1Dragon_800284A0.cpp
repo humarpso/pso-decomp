@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void save_pos__12TBoss1DragonFPv(void* p);
-void restore_position__12TBoss1DragonFPv(void* p);
-void save_position__12TBoss1DragonFPv(void* p);
-
-void save_position__12TBoss1DragonFPv(void* p) { *(f32*)((char*)p + 0x394) = *(f32*)((char*)p + 0x698); *(f32*)((char*)p + 0x39c) = *(f32*)((char*)p + 0x69c); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800284A0
+#include "pso/boss/TBoss1Dragon.cpp"

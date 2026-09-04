@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__17TBoss5GryphonDemoFv(void);
-
-void render__17TBoss5GryphonDemoFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80066540
+#include "pso/boss/TBoss5GryphonDemo.cpp"

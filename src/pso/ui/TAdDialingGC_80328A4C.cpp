@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int refresh_display__12TAdDialingGCFv(void);
-int update_dialing_display__12TAdDialingGCFv(void*);
-
-int refresh_display__12TAdDialingGCFv(void) { return update_dialing_display__12TAdDialingGCFv((void*)(8)); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80328A4C
+#include "pso/ui/TAdDialingGC.cpp"

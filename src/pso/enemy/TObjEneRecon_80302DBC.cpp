@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneRecon__sub_80302DBC(void);
-
-void TObjEneRecon__sub_80302DBC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80302DBC
+#include "pso/enemy/TObjEneRecon.cpp"

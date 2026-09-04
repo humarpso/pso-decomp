@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOSensor__sub_80175468(void);
-void TORockCave__sub_80175460(void);
-void TORockCave__sub_80175464(void);
-
-void TOSensor__sub_80175468(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80175468
+#include "pso/misc/TOSensor.cpp"

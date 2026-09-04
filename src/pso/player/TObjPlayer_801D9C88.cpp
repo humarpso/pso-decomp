@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void reset_slots__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801D9AD0(void*, void*, void*, void*);
-
-void reset_slots__10TObjPlayerFPv(void* p) { *(short*)((char*)p + 0x6) = 0; { int i; for (i = 0; i < 10; i++) { TObjPlayer__sub_801D9AD0(p, (void*)i, (void*)65535, (void*)0); } } }
-
-}
+#define PSO_CLASS_PACKAGE 0x801D9C88
+#include "pso/player/TObjPlayer.cpp"

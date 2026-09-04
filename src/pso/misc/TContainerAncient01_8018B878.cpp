@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TContainerAncient01__vt19(void);
-
-int TContainerAncient01__vt19(void) { return 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8018B878
+#include "pso/misc/TContainerAncient01.cpp"

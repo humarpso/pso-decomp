@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TGStream__sub_800FDD64(void);
-
-void TGStream__sub_800FDD64(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800FDD64
+#include "pso/misc/TGStream.cpp"

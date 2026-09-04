@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjFish__sub_802ED920(void);
-void TObjFish__sub_802ED924(void);
-
-void TObjFish__sub_802ED920(void) {  }
-void TObjFish__sub_802ED924(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802ED920
+#include "pso/object/TObjFish.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOTrapChainSawDamage__vt24(void* p);
-
-void TOTrapChainSawDamage__vt24(void* p) { *(s32*)((char*)p + 0x100) = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802C8A90
+#include "pso/misc/TOTrapChainSawDamage.cpp"

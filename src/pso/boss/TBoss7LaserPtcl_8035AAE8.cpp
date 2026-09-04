@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__15TBoss7LaserPtclFv(void);
-
-void render__15TBoss7LaserPtclFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8035AAE8
+#include "pso/boss/TBoss7LaserPtcl.cpp"

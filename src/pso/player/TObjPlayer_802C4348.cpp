@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void init_battle_selection__10TObjPlayerFv(void);
-int update_battle__10TObjPlayerFi(void);
-int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
-
-void init_battle_selection__10TObjPlayerFv(void) { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); update_battle__10TObjPlayerFi(); }
-
-}
+#define PSO_CLASS_PACKAGE 0x802C4348
+#include "pso/player/TObjPlayer.cpp"

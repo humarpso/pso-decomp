@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void save_state__15TPlyPhotonChairFv(void);
-
-    extern int lbl_805D566C;
-    extern int some_id_805c6f74;
-void save_state__15TPlyPhotonChairFv(void) { lbl_805D566C = some_id_805c6f74; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80142764
+#include "pso/misc/TPlyPhotonChair.cpp"

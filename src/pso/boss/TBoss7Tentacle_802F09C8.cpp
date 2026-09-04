@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss7Tentacle__sub_802F09C8(void* a0);
-
-    extern int TBoss7Tentacle__data_8047407C[];
-void TBoss7Tentacle__sub_802F09C8(void* a0) { *(int*)((char*)a0 + 0x13c) = TBoss7Tentacle__data_8047407C[*(int*)((char*)a0 + 0x4c)]; *(int*)((char*)a0 + 0x140) = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802F09C8
+#include "pso/boss/TBoss7Tentacle.cpp"

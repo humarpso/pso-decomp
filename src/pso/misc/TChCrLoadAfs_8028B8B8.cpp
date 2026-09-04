@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int is_unloaded__12TChCrLoadAfsFPv(void* p);
-
-int is_unloaded__12TChCrLoadAfsFPv(void* p) { return *(u32*)((char*)p + 0x4a8) == 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8028B8B8
+#include "pso/menu/TChCrLoadAfs.cpp"

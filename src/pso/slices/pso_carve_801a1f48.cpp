@@ -15,26 +15,5 @@ int TObjRoomId__sub_801A1E2C(void);
 void TLobby__sub_801A1FD8(void);
 
 int fn_801A1F48(void) { return 0; }
-void TLobby__sub_801A1FD8(void) {  }
-u16 TLobby__sub_801A1FDC(void *arg0, s32 arg1) {
-    s32 temp_r3;
-
-    if (M2C_FIELD(arg0, u16 *, 0x1C) == 0xFFFF) {
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x30) & 0x70000000;
-        switch (temp_r3) {
-        case 0x10000000:
-            M2C_FIELD(arg0, u16 *, 0x1C) = fn_801A210C(arg1);
-            break;
-        case 0x20000000:
-            M2C_FIELD(arg0, u16 *, 0x1C) = TLobby__sub_801A20C8(arg1);
-            break;
-        default:
-        case 0x40000000:
-            M2C_FIELD(arg0, u16 *, 0x1C) = TLobby__sub_801A2078(arg1);
-            break;
-        }
-    }
-    return M2C_FIELD(arg0, u16 *, 0x1C);
-}
 
 }

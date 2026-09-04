@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TObjEneEpsilonGuard__sub_8035DD68(void* p);
-
-int TObjEneEpsilonGuard__sub_8035DD68(void* p) { return (*(u32*)((char*)p + 0x46c) >> 7) & 0x1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8035DD68
+#include "pso/enemy/TObjEneEpsilonGuard.cpp"

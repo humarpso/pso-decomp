@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TItemMag__sub_8011271C(void);
-
-void TItemMag__sub_8011271C(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8011271C
+#include "pso/item/TItemMag.cpp"

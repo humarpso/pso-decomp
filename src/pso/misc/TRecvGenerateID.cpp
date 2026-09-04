@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -18,3 +19,18 @@ void bswap__15TRecvGenerateIDFv(s32 arg0) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x801DFBC4
+#include "types.h"
+
+extern "C" {
+
+void TRecvGenerateID__sub_801DFBC4(void* p);
+int bswap_16__FPUs(void*);
+int bswap_32__FPUl(void*);
+
+void TRecvGenerateID__sub_801DFBC4(void* p) { bswap_16__FPUs((char*)p + 0x2); bswap_32__FPUl((char*)p + 0x4); }
+
+}
+#endif
+#endif

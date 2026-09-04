@@ -1,21 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void update_timer__8TObjDoorFPv(void *arg0);
-M2C_UNK TObjDoor__sub_8018E5F4();
-M2C_UNK TObjDoor__sub_8018E74C();
-
-void update_timer__8TObjDoorFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC0) < 0x3C) {
-        TObjDoor__sub_8018E5F4();
-        return;
-    }
-    TObjDoor__sub_8018E74C();
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8018E718
+#include "pso/object/TObjDoor.cpp"

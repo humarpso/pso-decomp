@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__9TTecKafunFv(void);
-
-void render__9TTecKafunFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802A97E8
+#include "pso/effect/TTecKafun.cpp"

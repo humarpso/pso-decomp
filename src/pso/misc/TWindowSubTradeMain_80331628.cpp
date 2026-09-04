@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__19TWindowSubTradeMainFv(void);
-
-void render__19TWindowSubTradeMainFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80331628
+#include "pso/misc/TWindowSubTradeMain.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjLight__sub_801336DC(void);
-
-void TObjLight__sub_801336DC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x801336DC
+#include "pso/object/TObjLight.cpp"

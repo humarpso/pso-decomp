@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TScene__sub_80205AE8(void);
-
-void TScene__sub_80205AE8(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80205AE8
+#include "pso/misc/TScene.cpp"

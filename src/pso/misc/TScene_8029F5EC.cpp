@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TScene__sub_8029F5EC(void);
-
-    extern int TScene__data_805D5FE0;
-void TScene__sub_8029F5EC(void) { TScene__data_805D5FE0 = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8029F5EC
+#include "pso/misc/TScene.cpp"

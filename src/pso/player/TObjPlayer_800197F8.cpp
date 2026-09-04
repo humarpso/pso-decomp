@@ -1,13 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 register_object__10TObjPlayerFi(s32 arg0);
-int TObjPlayer__sub_80019828();
-
-s32 register_object__10TObjPlayerFi(s32 arg0) {
-    TObjPlayer__sub_80019828();
-    return arg0;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x800197F8
+#include "pso/player/TObjPlayer.cpp"

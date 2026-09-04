@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void try_advance_state__23TAdSinglePlyChrSelectGCFPv(void* p);
-int TAdSinglePlyChrSelectGC__sub_8028C998(void*);
-int TAdSinglePlyChrSelectGC__sub_8028CB6C(void*);
-
-void try_advance_state__23TAdSinglePlyChrSelectGCFPv(void* p) { if (TAdSinglePlyChrSelectGC__sub_8028C998(p) != 0) { TAdSinglePlyChrSelectGC__sub_8028CB6C(p); *(int*)((char*)p + 0x60) = 2; } }
-
-}
+#define PSO_CLASS_PACKAGE 0x8028D044
+#include "pso/ui/TAdSinglePlyChrSelectGC.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TBoss5GryphonSnarl__sub_80066E84(void);
-
-void TBoss5GryphonSnarl__sub_80066E84(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80066E84
+#include "pso/boss/TBoss5GryphonSnarl.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TWindowHelpItem__sub_802531A0(void);
-
-void TWindowHelpItem__sub_802531A0(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802531A0
+#include "pso/misc/TWindowHelpItem.cpp"

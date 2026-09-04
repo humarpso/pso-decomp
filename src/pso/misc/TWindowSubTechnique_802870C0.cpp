@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__19TWindowSubTechniqueFv(void);
-
-void render__19TWindowSubTechniqueFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802870C0
+#include "pso/misc/TWindowSubTechnique.cpp"

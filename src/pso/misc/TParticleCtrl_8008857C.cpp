@@ -1,11 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TParticleCtrl__sub_800884F0(void* p);
-void TParticleCtrl__sub_8008857C(void* p, f32 a, f32 b);
-int copy_xyz__10TObjPlayerFPvPv(void*);
-
-void TParticleCtrl__sub_8008857C(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8008857C
+#include "pso/effect/TParticleCtrl.cpp"

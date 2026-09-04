@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void reset_door_state__6TLobbyFv(void);
-
-    extern int lbl_805D58F8;
-void reset_door_state__6TLobbyFv(void) { lbl_805D58F8 = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801A3C18
+#include "pso/misc/TLobby.cpp"

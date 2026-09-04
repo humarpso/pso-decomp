@@ -1,22 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 apply_by_index__9TObjEnemyFs(s16 arg0);
-M2C_UNK copy_header__6TLobbyFPvPv(s32);
-
-extern s32 TLobby__data_805D6144;
-
-s32 apply_by_index__9TObjEnemyFs(s16 arg0) {
-    if (arg0 > 0xB4F) {
-        return 0;
-    }
-    copy_header__6TLobbyFPvPv(TLobby__data_805D6144 + (arg0 * 0xC));
-    return 1;
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x800F78C8
+#include "pso/enemy/TObjEnemy.cpp"

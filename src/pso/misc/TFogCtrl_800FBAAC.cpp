@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TFogCtrl__sub_800FBAAC(void);
-
-void TFogCtrl__sub_800FBAAC(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800FBAAC
+#include "pso/misc/TFogCtrl.cpp"

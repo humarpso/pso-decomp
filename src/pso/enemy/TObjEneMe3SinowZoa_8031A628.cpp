@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMe3SinowZoa__vt105(void);
-
-void TObjEneMe3SinowZoa__vt105(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8031A628
+#include "pso/enemy/TObjEneMe3SinowZoa.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
-
-s32 get_field_0x42c__13TBoss6MagMineFPv(void* p) { return *(s32*)((char*)p + 0x42c); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80369644
+#include "pso/boss/TBoss6MagMine.cpp"

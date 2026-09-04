@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -22,3 +23,81 @@ void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x8019BB9C
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void create_and_init__18TObjAreaWarpEndingFv(void);
+void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, s16);
+M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+u32 __nw__7TObjectFUl(M2C_UNK);
+M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
+s32 get_main_phase();
+M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, M2C_UNK *);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
+
+extern M2C_UNK dispatch_select_phase__16TKeyBoardControlFv[];
+extern s32 tl_00;
+
+void create_and_init__18TObjAreaWarpEndingFv(void) {
+    TBoss3Volopt__sub_8022675C(0x40003205, 0, 0, 0);
+    u32 obj = __nw__7TObjectFUl(0x28);
+    if (obj != 0U) {
+        init__22THunterGuildSeqOfflineFPvPvPv(obj, tl_00, dispatch_select_phase__16TKeyBoardControlFv);
+    }
+}
+
+void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
+        M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(TWindowSubComCard__sub_8026CBB8(0x33), 1, arg1);
+        if (get_main_phase() == 0xE) {
+            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TAdSinglePlyChrSelectGC__sub_80132F2C(9, 0x26), 3, 0, -1);
+        } else {
+            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TAdSinglePlyChrSelectGC__sub_80132F2C(9, 0x23), 2, 0, -1);
+        }
+        TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
+        TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
+        set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
+        set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
+        M2C_FIELD(arg0, s16 *, 0xB8) = arg1;
+    }
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801A2970
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *TObjAreaWarpEnding__create(void *arg0);
+void *TObjAreaWarpEnding__ct(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+
+extern void *tl_05;
+
+void *TObjAreaWarpEnding__create(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xDC);
+    if (o != NULL) {
+        o = TObjAreaWarpEnding__ct(o, tl_05, arg0);
+    }
+    return o;
+}
+
+}
+#endif
+#endif

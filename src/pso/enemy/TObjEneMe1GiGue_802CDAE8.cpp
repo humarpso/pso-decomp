@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjEneMe1GiGue__sub_802CDAE8(void);
-
-void TObjEneMe1GiGue__sub_802CDAE8(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x802CDAE8
+#include "pso/enemy/TObjEneMe1GiGue.cpp"

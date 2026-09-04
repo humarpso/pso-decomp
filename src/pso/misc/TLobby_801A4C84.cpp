@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void reset_counter__6TLobbyFv(void);
-
-    extern int lbl_805D4E2C;
-void reset_counter__6TLobbyFv(void) { lbl_805D4E2C = 0; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801A4C84
+#include "pso/misc/TLobby.cpp"

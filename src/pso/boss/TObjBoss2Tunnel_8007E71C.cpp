@@ -1,18 +1,2 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-
-extern f32 TObjBoss2Tunnel__data_805D926C;
-
-f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0) {
-    return (TObjBoss2Tunnel__data_805D926C * farg0) / TBoss8Dragon__sub_803D64C0(arg0 / 2);
-}
-
-}
+#define PSO_CLASS_PACKAGE 0x8007E71C
+#include "pso/boss/TObjBoss2Tunnel.cpp"

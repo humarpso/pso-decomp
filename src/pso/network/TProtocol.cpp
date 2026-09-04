@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include <global_types.h>
 #include <string.h>
 #include <stdio.h>
@@ -1128,3 +1129,153 @@ extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {
 	((packet_header *)p)->bswap();
 	bswap_16((u16 *)((char *)p + 4));
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x801DEEEC
+#include "types.h"
+
+extern "C" {
+
+void bswap_packet__9TProtocolFPv(void* p);
+int bswap_packet_header__9TProtocolFPv(void* p);
+int bswap_16__FPUs(void*);
+int bswap_32__FPUl(void*);
+int bswap__13packet_headerFv(void*);
+
+void bswap_packet__9TProtocolFPv(void* p) { bswap__13packet_headerFv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_16__FPUs((char*)p + 0x8); bswap_16__FPUs((char*)p + 0xa); { int i; for (i = 0; i < 8; i++) { bswap_32__FPUl((char*)p + 0xc + i * 4); } } }
+int bswap_packet_header__9TProtocolFPv(void* p) { return bswap__13packet_headerFv(p); }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801DFCAC
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 destroy__9TProtocolFis(s32 arg0, s16 arg1);
+M2C_UNK __dl__FPv(s32);
+M2C_UNK __dt__12TPlyCharDataFv(s32, M2C_UNK);
+
+s32 destroy__9TProtocolFis(s32 arg0, s16 arg1) {
+    if (arg0 != 0) {
+        __dt__12TPlyCharDataFv(arg0 + 4, -1);
+        if (arg1 > 0) {
+            __dl__FPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801DFCFC
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 init_char_data__9TProtocolFi(s32 arg0);
+M2C_UNK __ct__12TPlyCharDataFv(s32);
+
+s32 init_char_data__9TProtocolFi(s32 arg0) {
+    __ct__12TPlyCharDataFv(arg0 + 4);
+    return arg0;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801DFD30
+#include "types.h"
+
+extern "C" {
+
+void TProtocol__sub_801DFD30(void* p);
+int bswap__13packet_headerFv(void*);
+int bswap__16TPlyGuildCardTagFv(void*);
+
+void TProtocol__sub_801DFD30(void* p) { bswap__13packet_headerFv(p); bswap__16TPlyGuildCardTagFv((char*)p + 0x4); }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801DFD98
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void bswap_action_header__9TProtocolFPv(void* p);
+s32 init_guild_card_tag__9TProtocolFi(s32 arg0);
+M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
+int bswap__13packet_headerFv(void*);
+int bswap__16TPlyGuildCardTagFv(void*);
+
+void bswap_action_header__9TProtocolFPv(void* p) { bswap__13packet_headerFv(p); bswap__16TPlyGuildCardTagFv((char*)p + 0x4); }
+
+s32 init_guild_card_tag__9TProtocolFi(s32 arg0) {
+    __ct__16TPlyGuildCardTagFv(arg0 + 4);
+    return arg0;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801DFE00
+#include "types.h"
+
+extern "C" {
+
+void bswap_guild_card_tag__9TProtocolFPv(void* p);
+int bswap__13packet_headerFv(void*);
+int bswap__16TPlyGuildCardTagFv(void*);
+
+void bswap_guild_card_tag__9TProtocolFPv(void* p) { bswap__13packet_headerFv(p); bswap__16TPlyGuildCardTagFv((char*)p + 0x4); }
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801DFE34
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 TProtocol__sub_801DFE34(s32 arg0);
+M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
+
+s32 TProtocol__sub_801DFE34(s32 arg0) {
+    __ct__16TPlyGuildCardTagFv(arg0 + 4);
+    return arg0;
+}
+
+}
+#endif
+#if PSO_CLASS_PACKAGE == 0x801DFF04
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 TProtocol__sub_801DFF04(s32 arg0);
+M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
+
+s32 TProtocol__sub_801DFF04(s32 arg0) {
+    __ct__16TPlyGuildCardTagFv(arg0 + 4);
+    return arg0;
+}
+
+}
+#endif
+#endif

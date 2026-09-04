@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void add_instance__16TObjEneMe3StelthFv(void);
-int TOTrapAncient02__sub_800837D4(void*);
-
-    extern int TObjEneMe3Stelth__data_805D5304;
-    extern int lbl_805D5310;
-void add_instance__16TObjEneMe3StelthFv(void) { TOTrapAncient02__sub_800837D4((void*)(lbl_805D5310)); TObjEneMe3Stelth__data_805D5304 = (TObjEneMe3Stelth__data_805D5304 + 0x1); }
-
-}
+#define PSO_CLASS_PACKAGE 0x800F2240
+#include "pso/enemy/TObjEneMe3Stelth.cpp"

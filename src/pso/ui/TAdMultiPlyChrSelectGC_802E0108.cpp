@@ -1,10 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int get_select_flag__22TAdMultiPlyChrSelectGCFv(void);
-
-    extern int lbl_805D384C;
-int get_select_flag__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D384C; }
-
-}
+#define PSO_CLASS_PACKAGE 0x802E0108
+#include "pso/ui/TAdMultiPlyChrSelectGC.cpp"

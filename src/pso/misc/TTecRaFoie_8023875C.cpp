@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void render__10TTecRaFoieFv(void);
-
-void render__10TTecRaFoieFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8023875C
+#include "pso/misc/TTecRaFoie.cpp"

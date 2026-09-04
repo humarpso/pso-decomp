@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjVoloptCage__sub_800C76F0(void);
-
-void TObjVoloptCage__sub_800C76F0(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x800C76F0
+#include "pso/object/TObjVoloptCage.cpp"

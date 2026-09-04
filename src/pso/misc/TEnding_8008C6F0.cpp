@@ -1,12 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TEnding__sub_8008C6E8(void);
-void TEnding__sub_8008C6EC(void);
-void render__7TEndingFv(void);
-int TEndingC__sub_8008C6F4(void);
-
-void render__7TEndingFv(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x8008C6F0
+#include "pso/misc/TEnding.cpp"

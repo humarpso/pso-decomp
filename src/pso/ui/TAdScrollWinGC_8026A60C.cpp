@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void advance_scroll__14TAdScrollWinGCFPvf(void* p, f32 v);
-
-void advance_scroll__14TAdScrollWinGCFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x94) += v; }
-
-}
+#define PSO_CLASS_PACKAGE 0x8026A60C
+#include "pso/ui/TAdScrollWinGC.cpp"

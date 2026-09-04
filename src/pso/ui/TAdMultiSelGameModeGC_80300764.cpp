@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TAdMultiSelGameModeGC__sub_80300764(void* p);
-
-void TAdMultiSelGameModeGC__sub_80300764(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
-
-}
+#define PSO_CLASS_PACKAGE 0x80300764
+#include "pso/menu/TAdMultiSelGameModeGC.cpp"

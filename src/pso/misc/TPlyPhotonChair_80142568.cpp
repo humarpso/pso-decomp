@@ -1,24 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void play_sound__15TPlyPhotonChairFPv(void* p);
-void update_parts__15TPlyPhotonChairFPv(void* p);
-void update_parts2__15TPlyPhotonChairFPv(void* p);
-int TPlyPhotonChair__sub_801426C0(void*, void*);
-int restore_state__15TPlyPhotonChairFv(void*);
-int TPlyPhotonChair__sub_801426DC(void*);
-int TPlyPhotonChair__sub_8014270C(void*);
-int TPlyPhotonChair__sub_80142720(void*);
-int TPlyPhotonChair__sub_80142734(void*);
-int save_state__15TPlyPhotonChairFv(void*);
-int set_global_pair__10TObjPlayerFii(void*, void*);
-int TObjPlayer__sub_803DED84(void*);
-
-void play_sound__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_801426C0(p, (void*)2064); set_global_pair__10TObjPlayerFii((void*)-1, (void*)2048); TObjPlayer__sub_803DED84(p); }
-
-void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C(p); TPlyPhotonChair__sub_801426DC(p); restore_state__15TPlyPhotonChairFv(p); }
-
-void update_parts2__15TPlyPhotonChairFPv(void* p) { save_state__15TPlyPhotonChairFv(p); TPlyPhotonChair__sub_80142734(p); TPlyPhotonChair__sub_80142720(p); }
-
-}
+#define PSO_CLASS_PACKAGE 0x80142568
+#include "pso/misc/TPlyPhotonChair.cpp"

@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TObjQuestColBase__sub_80196CC4(void);
-
-void TObjQuestColBase__sub_80196CC4(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80196CC4
+#include "pso/object/TObjQuestColBase.cpp"

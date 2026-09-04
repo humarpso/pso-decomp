@@ -1,9 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-void TOSwitchItem__vt24(void);
-
-void TOSwitchItem__vt24(void) {  }
-
-}
+#define PSO_CLASS_PACKAGE 0x80177E20
+#include "pso/misc/TOSwitchItem.cpp"

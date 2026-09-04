@@ -1,3 +1,4 @@
+#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -41,3 +42,21 @@ void *__dt__12TOMineIcon01Fv(void *arg0, s16 arg1) {
 }
 
 }
+#else
+#if PSO_CLASS_PACKAGE == 0x80171430
+#include "types.h"
+
+extern "C" {
+
+void TOMineTrap__sub_80171380(void);
+void TOMineTrap__sub_8017141C(void* p);
+void TOMineIcon01__vt82(void);
+int bswap_16__FPUs(void*);
+int read_be16_field2__10TObjPlayerFPv(void*);
+int TLobby__send_and_handle_60(void*);
+
+void TOMineIcon01__vt82(void) {  }
+
+}
+#endif
+#endif

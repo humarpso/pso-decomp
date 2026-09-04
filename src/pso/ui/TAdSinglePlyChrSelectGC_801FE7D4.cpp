@@ -1,14 +1,2 @@
-#include "types.h"
-
-extern "C" {
-
-int TAdSinglePlyChrSelectGC__sub_801FE7D4(int a0);
-int get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int a0);
-
-    extern int lbl_805137D8[];
-int TAdSinglePlyChrSelectGC__sub_801FE7D4(int a0) {  return lbl_805137D8[a0 + 4]; }
-
-    extern int lbl_805137D8[];
-int get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int a0) {  return lbl_805137D8[a0]; }
-
-}
+#define PSO_CLASS_PACKAGE 0x801FE7D4
+#include "pso/ui/TAdSinglePlyChrSelectGC.cpp"
