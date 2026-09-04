@@ -12,3 +12,59 @@ fill_gaps: true
 detect_objects: true
 detect_strings: true
 mw_comment_version: 10
+# --- force_active (BEGIN) ---
+force_active:
+  - TAdSinglePlyChrSelectGC__sub_80133530
+  - TLobby__sub_803AA864
+  - TLobby__sub_803BE0DC
+  - TLobby__sub_803C5E58
+  - TLobby__sub_803C5E68
+  - TLobby__sub_803C8594
+  - TLobby__sub_803C9350
+  - TLobby__sub_803C94D8
+  - TLobby__sub_803C96A8
+  - TLobby__sub_803C96B0
+  - TLobby__sub_803CBA18
+  - TLobby__sub_803CBE40
+  - TLockOnCursor__sub_8013EBBC
+  - TLockOnCursor__sub_8013EBE8
+  - TLockOnCursor__sub_8013EC14
+  - TMainCursor__sub_8013E1C0
+  - TMainCursor__sub_8013E290
+  - TMainCursor__sub_8013E4A0
+  - TMainCursor__sub_8013E570
+  - TMainCursor__sub_8013E694
+  - TObjPlayer__sub_801BF7B8
+  - TObjPlayer__sub_801BF8CC
+  - TObjPlayer__sub_801BFD3C
+  - apply_if_v2__6TLobbyFPv
+  - bswap_guild_card_tag__17TWindowSubComCardFPv
+  - create__13TItemProArmorFiUi
+  - create_icon__10TObjPlayerFiii
+  - dispatch_callback
+  - dispatch_lobby_callback
+  - draw_value__13TWindowMesetaFPvi
+  - fn_8013F288
+  - fn_801F6520
+  - fn_8026D564
+  - fn_803CBE00
+  - free_item_pmt
+  - get_state__19TBoss8DragonEffTailFPv
+  - init__18TObjAreaWarpForestFPvPvPv
+  - init_default_fields__6TLobbyFPv
+  - init_inventory_items__10TObjPlayerFi
+  - init_object__10TBoss6RockFPvPv
+  - init_object__23TAdSinglePlyChrSelectGCFPvPv
+  - is_end__12TCharaMakingFv
+  - is_visible__19TBoss1DragonEffTailFPv
+  - load_item_pmt
+  - maybe_handle_destruction__6TLobbyFPv
+  - open_windows__22TAdMultiPlyChrSelectGCFPv
+  - reset_and_invoke__6TLobbyFv
+  - set_code_43_6__10TObjPlayerFPv
+  - set_rate_mode__6TLobbyFi
+  - setup_state_helper__10TObjPlayerFPv
+  - spawn_effect__10TObjPlayerFiUiii
+  - try_pay_fee__14TObjCMMainMenuFv
+  - update_and_destroy__10TObjPlayerFPv
+# --- force_active (END) ---

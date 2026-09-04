@@ -37,9 +37,22 @@ def Matching(name: str, **kwargs: Any) -> Object:
     """An object that byte-matches the original binary."""
     return Object(True, name, **kwargs)
 
+# Units whose compiled object is LINKED into the DOL. Earned from report.json
+# (every function + section 100%); never
+# hand-edit. A listed unit is treated as Matching even though it is registered
+# below with NonMatching(...) — the list, not the call site, is the authority.
+_LINKED_UNITS_FILE = Path(__file__).resolve().parent / "config" / "GPOE8P" / "psov3" / "linked_units.txt"
+_LINKED_UNITS = set()
+if _LINKED_UNITS_FILE.exists():
+    for _line in _LINKED_UNITS_FILE.read_text().splitlines():
+        _line = _line.split("#", 1)[0].strip()
+        if _line:
+            _LINKED_UNITS.add(_line)
+
 def NonMatching(name: str, **kwargs: Any) -> Object:
-    """An object that does not yet match (work in progress)."""
-    return Object(False, name, **kwargs)
+    """An object that does not yet match (work in progress) — unless
+    linked_units.txt lists it as verified exact."""
+    return Object(name in _LINKED_UNITS, name, **kwargs)
 
 Equivalent = NonMatching
 
