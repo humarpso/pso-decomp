@@ -1,2 +1,36 @@
-#define PSO_CLASS_PACKAGE 0x8019BB2C
-#include "pso/misc/TKeyBoardControl.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void dispatch_select_phase__16TKeyBoardControlFv(void);
+s32 TAdStorySelectGC__sub_8019DC14();
+M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
+M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
+s32 fn_80219EE8();
+M2C_UNK init__23TAdSinglePlyChrSelectGCFv();
+
+void dispatch_select_phase__16TKeyBoardControlFv(void) {
+    s32 temp_r3;
+
+    temp_r3 = TAdStorySelectGC__sub_8019DC14();
+    switch (temp_r3) {
+    case 0:
+        if (fn_80219EE8() != 0) {
+            dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x3FE);
+            TKeyBoardControl__sub_8000F9CC(0xC);
+        } else {
+            TKeyBoardControl__sub_8000F9CC(0x10);
+        }
+        break;
+    case 1:
+        TKeyBoardControl__sub_8000F9CC(8);
+        break;
+    }
+    init__23TAdSinglePlyChrSelectGCFv();
+}
+
+}

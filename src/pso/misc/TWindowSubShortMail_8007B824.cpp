@@ -1,2 +1,0 @@
-#define PSO_CLASS_PACKAGE 0x8007B824
-#include "pso/misc/TWindowSubShortMail.cpp"

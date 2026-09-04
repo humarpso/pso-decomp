@@ -1,48 +1,12 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TBoss3VoloptP01__sub_80043CA8(void);
-
-void TBoss3VoloptP01__sub_80043CA8(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x800430AC
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void reset_state__15TBoss3VoloptP01FPv(void *arg0);
-
-extern const f32 lbl_805D8770;
-
-void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
-    void *temp_r3;
-
-    M2C_FIELD(arg0, s8 *, 0x390) = 0;
-    M2C_FIELD(arg0, f32 *, 0x38C) = (f32) lbl_805D8770;
-    temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
-    M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 1);
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8004394C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct VObjBase_8004394c {
+struct VObjBase_8004394c_800430AC {
     char pad[0x18];
 };
-struct VObj_8004394c : VObjBase_8004394c {
+struct VObj_8004394c_800430AC : VObjBase_8004394c_800430AC {
     virtual void m0();
     virtual void m1();
     virtual void m2();
@@ -104,19 +68,55 @@ struct VObj_8004394c : VObjBase_8004394c {
     virtual void m58();
     virtual void m59();
 };
+struct VBos_800430AC { char pad[0x18]; };
+struct TBoss3VoloptP01_800430AC : VBos_800430AC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+};
 
 extern "C" {
 
+void TBoss3VoloptP01__sub_80043CA8(void);
+void render__15TBoss3VoloptP01Fv(u8 *arg0);
+void reset_state__15TBoss3VoloptP01FPv(void *arg0);
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3VoloptP01__sub_80042F84(void *);
 s32 TBoss3VoloptP01__sub_80042FCC();
 s32 TBoss3Volopt__sub_8003F398();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+M2C_UNK TBoss8Dragon__sub_803D64C0(s32);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK TObjLight__sub_80134098();
+M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
-M2C_UNK set_grabbed_state__10TObjPlayerFi(M2C_UNK);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjPlayer__sub_803E4684(s32);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+f32 get_random_float__8TObjFishFv();
 M2C_UNK link_photon__10TObjPlayerFUs(u16, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK set_grabbed_state__10TObjPlayerFi(M2C_UNK);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+
+extern const f32 lbl_805D8770;
+
+void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
+    void *temp_r3;
+
+    M2C_FIELD(arg0, s8 *, 0x390) = 0;
+    M2C_FIELD(arg0, f32 *, 0x38C) = (f32) lbl_805D8770;
+    temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
+    M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 1);
+}
 
 extern s32 lbl_805D4C28;
 
@@ -158,7 +158,7 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
                 temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x388);
                 if (temp_r3_2 & 0x10000) {
                     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r3_2 & 0xFFFFFFFE);
-                    ((VObj_8004394c*)arg0)->m58();
+                    ((VObj_8004394c_800430AC*)arg0)->m58();
                 } else if (temp_r3_2 & 0x20000) {
                     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r3_2 & 0xFFFFFFFE);
                     TBoss3VoloptP01__sub_80042F84(arg0);
@@ -172,7 +172,7 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
     case 2:
         if (TBoss3VoloptP01__sub_80042FCC() == 1) {
             M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
-            ((VObj_8004394c*)arg0)->m56();
+            ((VObj_8004394c_800430AC*)arg0)->m56();
         }
         break;
     case -1:
@@ -183,41 +183,6 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80043B48
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct VBos { char pad[0x18]; };
-struct TBoss3VoloptP01 : VBos {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-
-extern "C" {
-
-void render__15TBoss3VoloptP01Fv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-f32 get_random_float__8TObjFishFv();
-M2C_UNK TObjLight__sub_80134098();
-M2C_UNK TObjLight__sub_80134194(void *);
-s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TBoss8Dragon__sub_803D64C0(s32);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjPlayer__sub_803E4684(s32);
-M2C_UNK TObjFish__sub_803E46BC(void *);
-
 extern u8 *lbl_805D4CCC;
 extern const f32 lbl_805D8780;
 extern const f32 lbl_805D8784;
@@ -226,7 +191,7 @@ extern const f32 lbl_805D8788;
 void render__15TBoss3VoloptP01Fv(u8 *arg0) {
     s32 temp_r3;
 
-    if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((TBoss3VoloptP01*)arg0)->m8(lbl_805D8780, lbl_805D8784) != 0)) {
+    if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((TBoss3VoloptP01_800430AC*)arg0)->m8(lbl_805D8780, lbl_805D8784) != 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         TObjLight__sub_80134194(arg0);
         toggle_particle_effect__10TObjPlayerFv();
@@ -261,120 +226,6 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80043EA4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct Base_80043EA4 { char pad[0xC]; };
-struct VObj_80043EA4 : Base_80043EA4 {
-    virtual void m0(int);
-};
-
-extern "C" {
-
-void destroy__15TBoss3VoloptP01Fv(void);
-
-extern struct VObj_80043EA4 *lbl_805D4CC4;
-
-void destroy__15TBoss3VoloptP01Fv(void) {
-    if (lbl_805D4CC4 != NULL) {
-        lbl_805D4CC4->m0(1);
-    }
-    lbl_805D4CC4 = NULL;
-}
+void TBoss3VoloptP01__sub_80043CA8(void) {  }
 
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x80043EE8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void init_breakup_effect__15TBoss3VoloptP01Fv(void);
-s32 TBreakUpMdl__sub_8009705C(s32, s32);
-s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
-s32 register_object__6TLobbyFPv(M2C_UNK);
-s32 dispatch_shared_handler_b__6TLobbyFPv(M2C_UNK);
-s32 register_boss__6TLobbyFPv(M2C_UNK);
-s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-void *collect_and_count__12TBoss3VoloptFUii(s32, M2C_UNK);
-
-extern void *lbl_805D4C10;
-extern s32 lbl_805D4CB0;
-extern s32 lbl_805D4CB4;
-extern s32 lbl_805D4CB8;
-extern s32 lbl_805D4CBC;
-extern void *lbl_805D4CC0;
-extern s32 lbl_805D4CC4;
-extern void *lbl_805D4CC8;
-extern s32 lbl_805D4CCC;
-
-void init_breakup_effect__15TBoss3VoloptP01Fv(void) {
-    s32 temp_r3;
-
-    lbl_805D4CC0 = lbl_805D4C10;
-    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
-    if (temp_r3 != 0) {
-        temp_r3 = TBreakUpMdl__sub_8009705C(temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4CC0, void **, 0x42C), s32 *, 0x118));
-    }
-    lbl_805D4CC4 = temp_r3;
-    lbl_805D4CC8 = collect_and_count__12TBoss3VoloptFUii(M2C_FIELD(M2C_FIELD(lbl_805D4CC0, void **, 0x42C), s32 *, 0x118), 0xD);
-    lbl_805D4CB0 = register_boss__6TLobbyFPv(0x22);
-    lbl_805D4CB4 = dispatch_shared_handler_b__6TLobbyFPv(0x22);
-    lbl_805D4CB8 = register_object__6TLobbyFPv(0x22);
-    lbl_805D4CBC = dispatch_shared_handler_a__6TLobbyFPv(0x22);
-    lbl_805D4CCC = M2C_FIELD(M2C_FIELD(lbl_805D4CC8, void **, 4), s32 *, 4);
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80043F8C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__15TBoss3VoloptP01FPv(void *arg0);
-void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1);
-void *TBoss3VoloptP01__sub_800442A0(void *, void *, void *);
-void __dl__7TObjectFPv(void *);
-void __dt__15TObjEnemyCustomFv(void *, int);
-void *__nw__7TObjectFUl(int);
-void TObjEneGibbles__sub_80156720(void *);
-
-extern void *tl_04;
-
-void *create__15TBoss3VoloptP01FPv(void *arg0) {
-    void *o = __nw__7TObjectFUl(0x418);
-    if (o != NULL) {
-        o = TBoss3VoloptP01__sub_800442A0(o, tl_04, arg0);
-    }
-    return o;
-}
-
-extern M2C_UNK __vt__15TBoss3VoloptP01[];
-
-void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss3VoloptP01;
-        TObjEneGibbles__sub_80156720(arg0);
-        __dt__15TObjEnemyCustomFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#endif
-#endif

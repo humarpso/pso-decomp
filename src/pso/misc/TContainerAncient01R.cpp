@@ -1,14 +1,20 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *TContainerAncient01R__create(void *arg0);
 void TContainerAncient01R__sub_8018AF74(void);
+void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1);
 void *TContainerAncient01R__ct(void *, void *, void *);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
+M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
 
 extern void *tl_05;
 
@@ -22,23 +28,6 @@ void *TContainerAncient01R__create(void *arg0) {
 
     extern int TContainerAncient01R__data_805D5B94;
 void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__data_805D5B94 = 0; }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8018AFC8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK lbl_804B6E1C[];
 
@@ -56,5 +45,3 @@ void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

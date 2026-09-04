@@ -1,18 +1,30 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-struct Base_8036A248 { char pad[0x18]; };
-struct VObj_8036A248 : Base_8036A248 { virtual void m0(int); };
+struct Base_8036A248_8036A174 { char pad[0x18]; };
+struct VObj_8036A248_8036A174 : Base_8036A248_8036A174 { virtual void m0(int); };
 
 extern "C" {
 
+void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1);
+void run_child_tasks__23TAdDialingMessageWindowFPv(void* p);
+void set_flag_and_notify__23TAdDialingMessageWindowFPv(void* a0);
+int TAdMcSelectGC__sub_80019DA8(void*, int, float);
+void __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+void *__nw__7TObjectFUl(int);
+void *init__23TAdDialingMessageWindowFPvPvPvPv(void *, void *, void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
+int run_tasks__7TObjectFv(void*);
+
+    extern const float lbl_805E0360;
+void set_flag_and_notify__23TAdDialingMessageWindowFPv(void* a0) { *(int*)((char*)a0 + 0x1c) = (*(int*)((char*)a0 + 0x1c) | 0x1); TAdMcSelectGC__sub_80019DA8((void*)(*(int*)((char*)a0 + 0x28)), 17, lbl_805E0360); }
+
+void run_child_tasks__23TAdDialingMessageWindowFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) run_tasks__7TObjectFv(m); }
 
 extern M2C_UNK __vt__23TAdDialingMessageWindow[];
 
@@ -26,7 +38,7 @@ void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1) {
         }
         temp_r3 = M2C_FIELD(arg0, void **, 0x28);
         if ((temp_r3 != NULL) && (temp_r3 != NULL)) {
-            ((VObj_8036A248 *)temp_r3)->m0(1);
+            ((VObj_8036A248_8036A174 *)temp_r3)->m0(1);
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -35,127 +47,6 @@ void *__dt__23TAdDialingMessageWindowFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8036A064
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void tick_countdown__23TAdDialingMessageWindowFPv(void *arg0);
-M2C_UNK run_child_tasks__23TAdDialingMessageWindowFPv(u32);
-M2C_UNK set_flag_and_notify__23TAdDialingMessageWindowFPv(void *);
-
-void tick_countdown__23TAdDialingMessageWindowFPv(void *arg0) {
-    u32 temp_r3;
-    void *temp2_r3;
-
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
-        temp_r3 = M2C_FIELD(arg0, u32 *, 0x1C);
-        if (temp_r3 != 0U) {
-            M2C_FIELD(arg0, u32 *, 0x1C) = (u32) (temp_r3 - 1);
-            if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
-                temp2_r3 = M2C_FIELD(arg0, void **, 0x20);
-                if ((u32) temp2_r3 != 0U) {
-                    set_flag_and_notify__23TAdDialingMessageWindowFPv(temp2_r3);
-                }
-            }
-        }
-        run_child_tasks__23TAdDialingMessageWindowFPv(M2C_FIELD(arg0, u32 *, 0x20));
-    }
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8036A0D0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TAdDialingMessageWindow__sub_8036A0D0(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-
-extern M2C_UNK lbl_804F3428[];
-
-void *TAdDialingMessageWindow__sub_8036A0D0(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3428;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8036A128
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *init__23TAdDialingMessageWindowFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void __ct__7TObjectFP7TObject(void *);
-
-extern M2C_UNK lbl_804F3428[];
-
-void *init__23TAdDialingMessageWindowFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
-    __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3428;
-    M2C_FIELD(arg0, void **, 0x20) = arg2;
-    M2C_FIELD(arg0, void **, 0x1C) = arg3;
-    return arg0;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8036A174
-#include "types.h"
-
-extern "C" {
-
-void set_flag_and_notify__23TAdDialingMessageWindowFPv(void* a0);
-int TAdMcSelectGC__sub_80019DA8(void*, int, float);
-
-    extern const float lbl_805E0360;
-void set_flag_and_notify__23TAdDialingMessageWindowFPv(void* a0) { *(int*)((char*)a0 + 0x1c) = (*(int*)((char*)a0 + 0x1c) | 0x1); TAdMcSelectGC__sub_80019DA8((void*)(*(int*)((char*)a0 + 0x28)), 17, lbl_805E0360); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8036A1AC
-#include "types.h"
-
-extern "C" {
-
-void run_child_tasks__23TAdDialingMessageWindowFPv(void* p);
-int run_tasks__7TObjectFv(void*);
-
-void run_child_tasks__23TAdDialingMessageWindowFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) run_tasks__7TObjectFv(m); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8036A2D8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2);
-void __ct__7TObjectFP7TObject(void *, void *);
-void *__nw__7TObjectFUl(int);
-void *init__23TAdDialingMessageWindowFPvPvPvPv(void *, void *, void *, void *);
 
 extern void *tl_fadeafter;
 extern M2C_UNK __vt__23TAdDialingMessageWindow[];
@@ -184,5 +75,3 @@ void *TAdDialingMessageWindow__ct(void *arg0, void *arg1, void *arg2) {
 }
 
 }
-#endif
-#endif

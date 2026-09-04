@@ -1,3 +1,36 @@
 #include "pso/TObjNewFloorWin.h"
 
 TObjNewFloorWin::~TObjNewFloorWin() {}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+int TLobby__sub_80074034(void);
+void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2);
+int fn_800740DC(void* p);
+void __ct__7TObjectFP7TObject(void *);
+int close_active_window__11TWindowCtrlFv(void*);
+void set_flag_40__16TAdChrSelASlotGCFPv(void* p);
+
+extern M2C_UNK __vt__15TObjNewFloorWin[];
+extern void *lbl_805D2870;
+
+void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2) {
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjNewFloorWin;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2870;
+    M2C_FIELD(arg0, void **, 0x4C) = arg2;
+    M2C_FIELD(arg0, u32 *, 0x20) = 0;
+    M2C_FIELD(arg0, u32 *, 0x24) = 450;
+    M2C_FIELD(arg0, u32 *, 0x28) = 150;
+    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    return arg0;
+}
+
+int TLobby__sub_80074034(void) { return 0; }
+int fn_800740DC(void* p) { return close_active_window__11TWindowCtrlFv(p); }
+
+}

@@ -1,28 +1,35 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void run_task__18TObjBoss7TunnelColFv(void);
-void render__18TObjBoss7TunnelColFv(void);
-
-void render__18TObjBoss7TunnelColFv(void) {  }
-void run_task__18TObjBoss7TunnelColFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x802F1B84
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+struct VOff_802F1BEC_arg0_802F1B7C { char pad_0[0xAC]; char f_AC[1]; };
+struct VOff_802F1C68_arg0_802f1c68_802F1B7C { char pad_0[0x48]; char f_48[1]; };
+
+void *TObjBoss7TunnelCol__ct(void *arg0);
 void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
+s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *arg0);
+void render__18TObjBoss7TunnelColFv(void);
+void run_task__18TObjBoss7TunnelColFv(void);
+void update_collision__18TObjBoss7TunnelColFPv(void *arg0);
+void TObjChip__sub_803D8AE4(void *, void *, void *, void *);
 void TObjPlayer__sub_80154A00(void *);
+void TObjPlayer__sub_801569F4(void *);
+void TObjPlayer__sub_803D8CD4(void *);
+void __dl__7TObjectFPv(void *);
 void clear_obj_links(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void fn_8002B630(void *, void *);
+s32 get_mode__11TCameraCtrlFPv(M2C_UNK *);
+void initialize_linked_object_reference(void *, void *);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+void set_position_vec3__10TObjPlayerFPvPv(void *, void *);
+
+void render__18TObjBoss7TunnelColFv(void) {  }
+void run_task__18TObjBoss7TunnelColFv(void) {  }
 
 extern M2C_UNK __vt__18TObjBoss7TunnelCol[];
 
@@ -39,30 +46,14 @@ void *__dt__18TObjBoss7TunnelColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802F1BEC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TObjBoss7TunnelCol__ct(void *arg0);
-void fn_8002B630(void *, void *);
-void reset_photon_effect__10TObjPlayerFPv(void *);
-void initialize_linked_object_reference(void *, void *);
-void TObjPlayer__sub_801569F4(void *);
-
 extern M2C_UNK __vt__18TObjBoss7TunnelCol[];
 extern M2C_UNK lbl_80474420[];
 extern void *lbl_805D3FF0;
 extern const f32 lbl_805DECA0;
 extern const f32 lbl_805DEC9C;
-struct VOff_802F1BEC_arg0 { char pad_0[0xAC]; char f_AC[1]; };
 
 void *TObjBoss7TunnelCol__ct(void *arg0) {
-    struct VOff_802F1BEC_arg0 *self = (struct VOff_802F1BEC_arg0 *)arg0;
+    struct VOff_802F1BEC_arg0_802F1B7C *self = (struct VOff_802F1BEC_arg0_802F1B7C *)arg0;
     TObjPlayer__sub_801569F4(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjBoss7TunnelCol;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3FF0;
@@ -75,28 +66,8 @@ void *TObjBoss7TunnelCol__ct(void *arg0) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802F1C68
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void update_collision__18TObjBoss7TunnelColFPv(void *arg0);
-s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *arg0);
-s32 get_mode__11TCameraCtrlFPv(M2C_UNK *);
-void TObjChip__sub_803D8AE4(void *, void *, void *, void *);
-void set_position_vec3__10TObjPlayerFPvPv(void *, void *);
-void TObjPlayer__sub_803D8CD4(void *);
-
-struct VOff_802F1C68_arg0_802f1c68 { char pad_0[0x48]; char f_48[1]; };
-
 void update_collision__18TObjBoss7TunnelColFPv(void *arg0) {
-    struct VOff_802F1C68_arg0_802f1c68 *self = (struct VOff_802F1C68_arg0_802f1c68 *)arg0;
+    struct VOff_802F1C68_arg0_802f1c68_802F1B7C *self = (struct VOff_802F1C68_arg0_802f1c68_802F1B7C *)arg0;
     TObjPlayer__sub_803D8CD4(self->f_48);
     set_position_vec3__10TObjPlayerFPvPv(self->f_48, (void *)((char *)arg0 + 28));
     TObjChip__sub_803D8AE4(self->f_48, M2C_FIELD(arg0, void **, 0x28), M2C_FIELD(arg0, void **, 0x2C), M2C_FIELD(arg0, void **, 0x30));
@@ -119,5 +90,3 @@ s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *arg0) {
 }
 
 }
-#endif
-#endif

@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__16TObjEvtCollisionFv(void);
-
-void render__16TObjEvtCollisionFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80190BFC
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -18,8 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TObjEvtCollision__create(void *arg0);
+void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1);
 s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0);
+void render__16TObjEvtCollisionFv(void);
+void *TObjEvtCollision__ct(void *, void *, void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
+void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 f32 fn_801315A0(s32, s32);
 s32 is_split_screen();
 
@@ -47,19 +42,6 @@ block_10:
     return 0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80190CAC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TObjEvtCollision__create(void *arg0);
-void *TObjEvtCollision__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 extern void *tl_05;
 
 void *TObjEvtCollision__create(void *arg0) {
@@ -70,18 +52,7 @@ void *TObjEvtCollision__create(void *arg0) {
     return o;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80190D8C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+void render__16TObjEvtCollisionFv(void) {  }
 
 extern M2C_UNK __vt__16TObjEvtCollision[];
 
@@ -97,5 +68,3 @@ void *__dt__16TObjEvtCollisionFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

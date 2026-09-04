@@ -1,74 +1,10 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TOCapsuleLabo__vt13(void *arg0);
-
-void TOCapsuleLabo__vt13(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0xE4) = (s32) (M2C_FIELD(arg0, s32 *, 0xE4) + 0x222);
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x802AF27C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TOCapsuleLabo__create(void *arg0);
-void *TOCapsuleLabo__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
-extern void *tl_05;
-
-void *TOCapsuleLabo__create(void *arg0) {
-    void *o = __nw__7TObjectFUl(0xE8);
-    if (o != NULL) {
-        o = TOCapsuleLabo__ct(o, tl_05, arg0);
-    }
-    return o;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802AF2C8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void unload_static_data__13TOCapsuleLaboFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
-extern u32 TOCapsuleLabo__data_805D6708;
-
-void unload_static_data__13TOCapsuleLaboFv(void) {
-    if ((u32) TOCapsuleLabo__data_805D6708 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOCapsuleLabo__data_805D6708, 1);
-        TOCapsuleLabo__data_805D6708 = 0U;
-    }
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802AF370
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct VBase802AF370_802af370 { char pad[0x18]; };
-struct VObj802AF370_802af370 : VBase802AF370_802af370 {
+struct VBase802AF370_802af370_802AF2C8 { char pad[0x18]; };
+struct VObj802AF370_802af370_802AF2C8 : VBase802AF370_802af370_802AF2C8 {
     virtual M2C_UNK m0();
     virtual M2C_UNK m1();
     virtual M2C_UNK m2();
@@ -82,16 +18,33 @@ struct VObj802AF370_802af370 : VBase802AF370_802af370 {
 
 extern "C" {
 
+void TOCapsuleLabo__vt13(void *arg0);
+void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1);
 void render__13TOCapsuleLaboFv(u8 *arg0);
+void unload_static_data__13TOCapsuleLaboFv(void);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK set_global_param__8TObjFishFi(int);
+void TObjEneGibbles__sub_80156720(void *);
+void TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
+void __dl__7TObjectFPv(void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
+void destroy_key_object__5TOKeyFPvs(void *, int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK set_global_param__8TObjFishFi(int);
+
+extern u32 TOCapsuleLabo__data_805D6708;
+
+void unload_static_data__13TOCapsuleLaboFv(void) {
+    if ((u32) TOCapsuleLabo__data_805D6708 != 0U) {
+        TLobby__sub_8001FE7C((void*)TOCapsuleLabo__data_805D6708, 1);
+        TOCapsuleLabo__data_805D6708 = 0U;
+    }
+}
 
 extern s32 *lbl_805D670C;
 
@@ -100,7 +53,7 @@ void render__13TOCapsuleLaboFv(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r31_2;
 
-    M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj802AF370_802af370 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
+    M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj802AF370_802af370_802AF2C8 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
@@ -131,20 +84,9 @@ void render__13TOCapsuleLaboFv(u8 *arg0) {
     }
 }
 
+void TOCapsuleLabo__vt13(void *arg0) {
+    M2C_FIELD(arg0, s32 *, 0xE4) = (s32) (M2C_FIELD(arg0, s32 *, 0xE4) + 0x222);
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x802AF48C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void TObjPlayer__sub_80154A00(void *);
-void TObjEneGibbles__sub_80156720(void *);
-void destroy_key_object__5TOKeyFPvs(void *, int);
 
 extern M2C_UNK __vt__13TOCapsuleLabo[];
 
@@ -162,5 +104,3 @@ void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

@@ -6,15 +6,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void* construct__8TPlySmthFPv(void* p);
 void __ct__8TPlySmthFv(void*);
+void* construct__8TPlySmthFPv(void* p);
+s32 init_ply_guild_card_tag(s32 arg0);
 int __ct__16TPlyGuildCardTagFv(void*);
 int fn_80077AA4(void*);
 
-void* construct__8TPlySmthFPv(void* p) { __ct__16TPlyGuildCardTagFv((char*)p + 0x4); __ct__8TPlySmthFv((char*)p + 0xc); fn_80077AA4((char*)p + 0xec); return p; }
+void* construct__8TPlySmthFPv(void* p) { __ct__16TPlyGuildCardTagFv((void*)((char*)p + 0x4)); __ct__8TPlySmthFv((void*)((char*)p + 0xc)); fn_80077AA4((char*)p + 0xec); return p; }
 
 void __ct__8TPlySmthFv(void*) {
 
+}
+
+s32 init_ply_guild_card_tag(s32 arg0) {
+    __ct__16TPlyGuildCardTagFv((void*)(arg0 + 4));
+    return arg0;
 }
 
 }

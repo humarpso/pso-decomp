@@ -1,13 +1,29 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+void * TObjNpcSoldierBase__create(void *arg0);
 void *__dt__20TObjNpcSecretaryBaseFv(void *arg0, s16 arg1);
+void free_static_data__20TObjNpcSecretaryBaseFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+void *TObjControl__ct(void *, void *);
+void *TObjNpcSoldierBase__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
 void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
+
+extern u32 TObjNpcSecretaryBase__data_805D5848;
+
+void free_static_data__20TObjNpcSecretaryBaseFv(void) {
+    if ((u32) TObjNpcSecretaryBase__data_805D5848 != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcSecretaryBase__data_805D5848, 1);
+        TObjNpcSecretaryBase__data_805D5848 = 0U;
+    }
+}
 
 extern M2C_UNK __vt__20TObjNpcSecretaryBase[];
 
@@ -22,23 +38,9 @@ void *__dt__20TObjNpcSecretaryBaseFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8014D554
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void * TObjNpcSecretaryBase__create(void *arg0);
-void *TObjControl__ct(void *, void *);
-void *TObjNpcSecretaryBase__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 extern void *tl_04;
 
-void * TObjNpcSecretaryBase__create(void *arg0) {
+void * TObjNpcSoldierBase__create(void *arg0) {
     void *o;
     void *o2;
     o = __nw__7TObjectFUl(0x20);
@@ -47,34 +49,9 @@ void * TObjNpcSecretaryBase__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3B8);
     if (o2 != NULL) {
-        o2 = TObjNpcSecretaryBase__ct(o2, o, arg0);
+        o2 = TObjNpcSoldierBase__ct(o2, o, arg0);
     }
     return o2;
 }
 
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x8014D5BC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void free_static_data__20TObjNpcSecretaryBaseFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
-extern u32 TObjNpcSecretaryBase__data_805D5848;
-
-void free_static_data__20TObjNpcSecretaryBaseFv(void) {
-    if ((u32) TObjNpcSecretaryBase__data_805D5848 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcSecretaryBase__data_805D5848, 1);
-        TObjNpcSecretaryBase__data_805D5848 = 0U;
-    }
-}
-
-}
-#endif
-#endif

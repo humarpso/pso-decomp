@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TItemMagGrowEff.h"
 
 extern "C" void request_destroy__11TBoss4Type2FUi(void*);
@@ -10,8 +9,7 @@ TItemMagGrowEff::~TItemMagGrowEff() {
     request_destroy__11TBoss4Type2FUi(m_20);
     if (m_24 != nullptr) clear_flag_64__11TItemMagSubFPv(m_24);
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x8011488C
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -22,9 +20,9 @@ extern "C" {
 
 void *TItemMagGrowEff__ct(void *arg0, void *arg1, u32 arg2);
 s32 TBoss4Type2__sub_800874F4(s32, M2C_UNK);
-M2C_UNK set_grow_flag__15TItemMagGrowEffFPv(u32);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK set_grow_flag__15TItemMagGrowEffFPv(u32);
 
 extern M2C_UNK __vt__15TItemMagGrowEff[];
 extern s32 lbl_805D2C14;
@@ -47,23 +45,3 @@ void *TItemMagGrowEff__ct(void *arg0, void *arg1, u32 arg2) {
 }
 
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x80115924
-#include "types.h"
-
-extern "C" {
-
-int set_grow_flag__15TItemMagGrowEffFPv(void* p);
-int fn_80115948(void* p);
-int fn_80115954(void* p);
-void clear_flag_64__11TItemMagSubFPv(void* p);
-void clear_flags64__11TItemMagSubFPvUi(void* p, u32 v);
-int set_flags64__8TItemMagFPvUi(void*, int);
-
-int set_grow_flag__15TItemMagGrowEffFPv(void* p) { return set_flags64__8TItemMagFPvUi(p, 64); }
-int fn_80115948(void* p) { return (*(u8*)((char*)p + 0x0) >> 7) & 0x1; }
-int fn_80115954(void* p) { return (*(u8*)((char*)p + 0x0) >> 6) & 0x1; }
-
-}
-#endif
-#endif

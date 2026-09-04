@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,9 +6,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *__dt__8TOKurageFv(void *arg0, s16 arg1);
+void check_player_distance__8TOKurageFPv(u8 *arg0);
+void *create__8TOKurageFPv(void *arg0);
+void destroy_static_instance__8TOKurageFv(void);
+void init__8TOKurageFPv(u8 *arg0);
 void update_state__8TOKurageFPv(void *arg0);
-
+void TLobby__sub_8001FE7C(void*, int);
 s32 TODragonfly__sub_80158360(f32);
+void *TOKurage__ct(void *, void *, void *);
+f32 TObjPlayer__sub_803E1A58(void *, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
+void destroy_key_base__5TOKeyFPvs(void *, int);
+
+void check_player_distance__8TOKurageFPv(u8 *arg0) {
+    if ((TObjPlayer__sub_803E1A58(arg0 + 0xE4, arg0 + 0x38) > M2C_FIELD(arg0, f32 *, 0x6C)) && ((u8) M2C_FIELD(arg0, u8 *, 0x100) != 4)) {
+        M2C_FIELD(arg0, u8 *, 0x100) = 3U;
+    }
+}
 
 void update_state__8TOKurageFPv(void *arg0) {
     f32 temp_f0;
@@ -19,40 +35,6 @@ void update_state__8TOKurageFPv(void *arg0) {
         M2C_FIELD(arg0, s8 *, 0x100) = 4;
     }
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8016D99C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void check_player_distance__8TOKurageFPv(u8 *arg0);
-f32 TObjPlayer__sub_803E1A58(void *, void *);
-
-void check_player_distance__8TOKurageFPv(u8 *arg0) {
-    if ((TObjPlayer__sub_803E1A58(arg0 + 0xE4, arg0 + 0x38) > M2C_FIELD(arg0, f32 *, 0x6C)) && ((u8) M2C_FIELD(arg0, u8 *, 0x100) != 4)) {
-        M2C_FIELD(arg0, u8 *, 0x100) = 3U;
-    }
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8016DAA4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void init__8TOKurageFPv(u8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
 extern const f32 lbl_805DB7A8;
 extern const f32 TOKurage__data_805DB7AC;
@@ -74,19 +56,6 @@ void init__8TOKurageFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x110) = (f32) TOKurage__data_805DB7AC;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8016E77C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__8TOKurageFPv(void *arg0);
-void *TOKurage__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 extern void *tl_05;
 
 void *create__8TOKurageFPv(void *arg0) {
@@ -97,20 +66,6 @@ void *create__8TOKurageFPv(void *arg0) {
     return o;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8016E7C8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void destroy_static_instance__8TOKurageFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
 extern u32 TOKurage__data_805D5A38;
 
 void destroy_static_instance__8TOKurageFv(void) {
@@ -119,19 +74,6 @@ void destroy_static_instance__8TOKurageFv(void) {
         TOKurage__data_805D5A38 = 0U;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8016E850
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__8TOKurageFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
 
 extern M2C_UNK __vt__8TOKurage[];
 
@@ -147,5 +89,3 @@ void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

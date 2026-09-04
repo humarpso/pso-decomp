@@ -1,2 +1,26 @@
-#define PSO_CLASS_PACKAGE 0x80105874
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+
+extern "C" {
+
+int TWindowSubComCard__sub_801058F8(void);
+int activate_d04_slot__10TObjPlayerFPv(void* p);
+void fn_801058E8(void* p);
+void free_item_globals__10TObjPlayerFv(void);
+int TItemDrop__sub_8010F168(void*, void*);
+int TItemMagSub__sub_80114524(void*);
+void clear_fields__20TWindowSubStatusDispFPv(void* p);
+int free_all__9TItemLoadFv(void);
+int free_all_and_init__9TItemBuffFv(void);
+int get_item_field_2__9TItemDataFPv(void* p);
+int get_slot_value__10TObjPlayerFPvi(void*, int);
+int test_flag3__9TItemDataFPv(void* p);
+
+    extern int lbl_805D5444;
+void free_item_globals__10TObjPlayerFv(void) { TItemDrop__sub_8010F168((void*)(lbl_805D5444), (void*)1); lbl_805D5444 = 0; free_all__9TItemLoadFv(); free_all_and_init__9TItemBuffFv(); }
+
+void fn_801058E8(void* p) { *(u8*)((char*)p + 0x7) |= 0x1; }
+int TWindowSubComCard__sub_801058F8(void) { return 0; }
+
+int activate_d04_slot__10TObjPlayerFPv(void* p) { return get_slot_value__10TObjPlayerFPvi((char*)p + 0xd04, 1); }
+
+}

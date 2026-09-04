@@ -1,9 +1,12 @@
+#include "pso/TChCrEffTag.h"
+
+TChCrEffTag::~TChCrEffTag() {}
+
 #include "types.h"
 
 extern "C" {
 
 void render__11TChCrEffTagFv(void* p);
-
 int fn_80141A30(void);
 int fn_8029A97C(void*);
 int fn_8029A9B8(void*);

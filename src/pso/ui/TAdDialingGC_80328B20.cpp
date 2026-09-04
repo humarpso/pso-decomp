@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x80328B20
-#include "pso/ui/TAdDialingGC.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TAdDialingGC__sub_80328B20(void);
+
+void TAdDialingGC__sub_80328B20(void) {  }
+
+}

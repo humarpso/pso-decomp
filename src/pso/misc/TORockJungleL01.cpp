@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -42,17 +41,3 @@ void *destroy__15TORockJungleL01FPvs(void *arg0, s16 arg1) {
 }
 
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x8029C030
-#include "types.h"
-
-extern "C" {
-
-int TORockJungleL01__sub_8029C030(void* p);
-int TObjPlayer__sub_800D7BB0(void*);
-
-int TORockJungleL01__sub_8029C030(void* p) { return TObjPlayer__sub_800D7BB0((char*)p + 0xb4); }
-
-}
-#endif
-#endif

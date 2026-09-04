@@ -1,3 +1,7 @@
+#include "pso/TAdGameStartShadowGC.h"
+
+TAdGameStartShadowGC::~TAdGameStartShadowGC() {}
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -6,11 +10,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void run_task__20TAdGameStartShadowGCFv(void *arg0);
 void render__20TAdGameStartShadowGCFv(void* p);
-
-int get_state_flag__9TMainTaskFv(void*);
+void run_task__20TAdGameStartShadowGCFv(void *arg0);
 int fn_80320B38(void*);
+int get_state_flag__9TMainTaskFv(void*);
 
 void render__20TAdGameStartShadowGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { fn_80320B38(p); } }
 

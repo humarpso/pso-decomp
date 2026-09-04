@@ -1,27 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__16TObjRainbowLobbyFPv(void *arg0);
-void *TObjRainbowLobby__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
-extern void *tl_05;
-
-void *create__16TObjRainbowLobbyFPv(void *arg0) {
-    void *o = __nw__7TObjectFUl(0xD0);
-    if (o != NULL) {
-        o = TObjRainbowLobby__ct(o, tl_05, arg0);
-    }
-    return o;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8035061C
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -30,16 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *create__16TObjRainbowLobbyFPv(void *arg0);
 void render__16TObjRainbowLobbyFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
+void *TObjRainbowLobby__ct(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK set_global_param__8TObjFishFi(int);
 
 extern const f32 TObjRainbowLobby__data_805DFE30;
 
@@ -62,100 +41,14 @@ void render__16TObjRainbowLobbyFv(u8 *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x803507D0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+extern void *tl_05;
 
-extern "C" {
-
-void free_static_data__16TObjRainbowLobbyFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
-extern u32 TObjRainbowLobby__data_805D6EB0;
-
-void free_static_data__16TObjRainbowLobbyFv(void) {
-    if ((u32) TObjRainbowLobby__data_805D6EB0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjRainbowLobby__data_805D6EB0, 1);
-        TObjRainbowLobby__data_805D6EB0 = 0U;
+void *create__16TObjRainbowLobbyFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xD0);
+    if (o != NULL) {
+        o = TObjRainbowLobby__ct(o, tl_05, arg0);
     }
+    return o;
 }
 
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x80350858
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
-
-extern M2C_UNK __vt__16TObjRainbowLobby[];
-
-void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjRainbowLobby;
-        destroy_key_base__5TOKeyFPvs(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x803508B0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct TObjBase803508 { char pad[0x18]; };
-struct TObjRainbowLobby803508 : TObjBase803508 {
-    virtual void v0(s32);
-    virtual void v1(s32);
-    virtual void v2(s32);
-    virtual void v3(s32);
-    virtual void v4(s32);
-    virtual void ct(s32);
-};
-
-extern "C" {
-
-void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK init_map_object_base();
-s32 is_lobby_event_active();
-
-extern M2C_UNK __vt__16TObjRainbowLobby[];
-extern s32 lbl_805D435C;
-extern void *TObjRainbowLobby__data_805D6EB0;
-extern const f32 TObjRainbowLobby__data_805DFE30;
-
-void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2) {
-    init_map_object_base();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjRainbowLobby;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D435C;
-    ((TObjRainbowLobby803508 *)arg0)->ct(arg2);
-    if (is_lobby_event_active() != 0) {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
-    } else {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 3;
-    }
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TObjRainbowLobby__data_805DFE30;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjRainbowLobby__data_805D6EB0, void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjRainbowLobby__data_805D6EB0, void **, 0x42C), s32 *, 0xC);
-    return arg0;
-}
-
-}
-#endif
-#endif

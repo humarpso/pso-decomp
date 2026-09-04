@@ -1,10 +1,9 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-struct Base_8016AE84 { char pad[0x18]; };
-struct VObj_8016AE84 : Base_8016AE84 {
+struct Base_8016AE84_8016AD58 { char pad[0x18]; };
+struct VObj_8016AE84_8016AD58 : Base_8016AE84_8016AD58 {
     virtual void m0();
     virtual void m1();
     virtual void m2();
@@ -28,13 +27,32 @@ struct VObj_8016AE84 : Base_8016AE84 {
 
 extern "C" {
 
-void *create__14TOKeyAncient01FPv(void *arg0);
 void TOKeyAncient01__vt14(void *arg0);
+void TOKeyAncient01__vt23(void);
+void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1);
+void *create__14TOKeyAncient01FPv(void *arg0);
+void set_type__14TOKeyAncient01FPv(void* p);
+int TLobby__send_and_handle_60(void*);
 void *TOKeyAncient01__ct(void *, void *, void *);
+void TOKey__sub_8016AC88(void);
+void TOKey__sub_8016AC8C(void);
+void TOKey__sub_8016AC90(void);
+void TObjEneGibbles__sub_80156720(void *);
+void TObjPlayer__sub_80154A00(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
+int bswap_16__FPUs(void*);
+int fn_8016AD3C(void* a0 = 0);
+void* init_6x05_switch_changed__6TLobbyFPv(void* p);
+int read_be16_field2__10TObjPlayerFPv(void*);
+
+void set_type__14TOKeyAncient01FPv(void* p) { *(s32*)((char*)p + 0x0) = 3; }
+
+void TOKeyAncient01__vt23(void) {  }
 
 void TOKeyAncient01__vt14(void *arg0) {
-    struct VObj_8016AE84 *o = (struct VObj_8016AE84 *)arg0;
+    struct VObj_8016AE84_8016AD58 *o = (struct VObj_8016AE84_8016AD58 *)arg0;
     o->m18();
 }
 
@@ -47,61 +65,6 @@ void *create__14TOKeyAncient01FPv(void *arg0) {
     }
     return o;
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8016AD58
-#include "types.h"
-
-extern "C" {
-
-int fn_8016AD3C(void* a0 = 0);
-void* init_6x05_switch_changed__6TLobbyFPv(void* p);
-int bswap_16__FPUs(void*);
-int read_be16_field2__10TObjPlayerFPv(void*);
-int TLobby__send_and_handle_60(void*);
-void TOKey__sub_8016AC88(void);
-void TOKey__sub_8016AC8C(void);
-void TOKey__sub_8016AC90(void);
-void set_type__14TOKeyAncient01FPv(void* p);
-void TOKeyAncient01__vt23(void);
-
-void set_type__14TOKeyAncient01FPv(void* p) { *(s32*)((char*)p + 0x0) = 3; }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8016AD64
-#include "types.h"
-
-extern "C" {
-
-int fn_8016AD3C(void* a0 = 0);
-void* init_6x05_switch_changed__6TLobbyFPv(void* p);
-int bswap_16__FPUs(void*);
-int read_be16_field2__10TObjPlayerFPv(void*);
-int TLobby__send_and_handle_60(void*);
-void TOKey__sub_8016AC88(void);
-void TOKey__sub_8016AC8C(void);
-void TOKey__sub_8016AC90(void);
-void set_type__14TOKeyAncient01FPv(void* p);
-void TOKeyAncient01__vt23(void);
-
-void TOKeyAncient01__vt23(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8016B038
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
-void TObjPlayer__sub_80154A00(void *);
-void TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK __vt__14TOKeyAncient01[];
 
@@ -119,5 +82,3 @@ void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

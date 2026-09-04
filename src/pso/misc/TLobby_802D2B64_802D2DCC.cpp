@@ -1,0 +1,131 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct VObj_802D2E28_0x30_802D2B64 {
+    char pad[0x18];
+    virtual void vm0();
+    virtual void vm1();
+    virtual void vm2();
+    virtual void vm3();
+    virtual void vm4();
+    virtual void vm5();
+    virtual void vm6();
+    virtual void vm7();
+    virtual void vm8();
+    virtual void vm9();
+    virtual void vma();
+};
+
+extern "C" {
+
+void reset__6TLobbyFv(void);
+s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
+void update_sub_status_disp__6TLobbyFi(s32 arg0);
+s32 TLobby__sub_8001DC24();
+void *TLobby__sub_80101AB0(s32);
+M2C_UNK TWindowSubStatusDisp__sub_80229080();
+M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK fn_80330A40(s32);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+s32 is_trade_active();
+M2C_UNK refresh_player_status__6TLobbyFv(s32);
+M2C_UNK reset__15TLobby_802D2F7CFPv(s32);
+M2C_UNK reset_impl__15TLobby_802D2F7CFPv(s32);
+
+extern s32 lbl_805D53A0;
+
+void update_sub_status_disp__6TLobbyFi(s32 arg0) {
+    if ((s32) lbl_805D53A0 == arg0) {
+        get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF0));
+        return;
+    }
+    TWindowSubStatusDisp__sub_802290E0();
+    refresh_player_status__6TLobbyFv(arg0);
+    get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xEF));
+    TWindowSubStatusDisp__sub_80229080();
+    TLobby__sub_8001DC24();
+}
+
+extern s32 lbl_805D53A0;
+
+s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
+    void *temp_r3;
+
+    switch (arg1) {
+    case 0:
+        return 0;
+    case 1:
+        if (arg0 == (s32) lbl_805D53A0) {
+            return get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF4));
+        }
+        TWindowSubStatusDisp__sub_802290E0();
+        refresh_player_status__6TLobbyFv(arg0);
+        get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xEA));
+        TWindowSubStatusDisp__sub_80229080();
+        return TLobby__sub_8001DC24();
+    case 2:
+        temp_r3 = TLobby__sub_80101AB0(arg2);
+        if (temp_r3 == NULL) {
+            return 0;
+        }
+        TWindowSubStatusDisp__sub_802290E0();
+        if (arg0 == (s32) lbl_805D53A0) {
+            get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF3));
+            TWindowSubStatusDisp__sub_80229080();
+        } else {
+            refresh_player_status__6TLobbyFv(arg0);
+            get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xE8));
+            TWindowSubStatusDisp__sub_80229080();
+        }
+        ((VObj_802D2E28_0x30_802D2B64 *)temp_r3)->vma();
+        TWindowSubStatusDisp__sub_80229080();
+        get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xE9));
+        TWindowSubStatusDisp__sub_80229080();
+        return TLobby__sub_8001DC24();
+    case 3:
+        if (arg0 == (s32) lbl_805D53A0) {
+            return get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF2));
+        }
+        TWindowSubStatusDisp__sub_802290E0();
+        refresh_player_status__6TLobbyFv(arg0);
+        get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xE7));
+        TWindowSubStatusDisp__sub_80229080();
+        return TLobby__sub_8001DC24();
+    case 4:
+        return get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xEE));
+    default:
+        return 0;
+    }
+}
+
+extern u16 lbl_805D6888;
+extern s8 TLobby__data_805D688A;
+extern s8 TLobby__data_805D688B;
+extern s32 TLobby__data_805D688C;
+extern s32 lbl_805D6890;
+extern const u32 TLobby__data_805D6894;
+extern const u32 TLobby__data_805D6898;
+extern const u32 TLobby__data_805D689C;
+
+void reset__6TLobbyFv(void) {
+    if (is_trade_active() == 0) {
+        TLobby__data_805D688A = 4;
+        TLobby__data_805D688B = 0;
+        TLobby__data_805D688C = 0;
+        lbl_805D6890 = 0;
+        lbl_805D6888 &= 0xFFFFF80F;
+        if ((u32) TLobby__data_805D689C != 0U) {
+            reset_impl__15TLobby_802D2F7CFPv(TLobby__data_805D689C);
+        }
+        if ((u32) TLobby__data_805D6898 != 0U) {
+            fn_80330A40(TLobby__data_805D6898);
+        }
+        if ((u32) TLobby__data_805D6894 != 0U) {
+            reset__15TLobby_802D2F7CFPv(TLobby__data_805D6894);
+        }
+    }
+}
+
+}

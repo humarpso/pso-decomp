@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TItemEffBringer.h"
 
 extern "C" void TObjEneDellBiter__sub_80087350(Vec*, int);
@@ -19,8 +18,6 @@ TItemEffBringer::~TItemEffBringer() {
     }
 }
 
-#else
-#if PSO_CLASS_PACKAGE == 0x801084B0
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -47,5 +44,3 @@ void *create__15TItemEffBringerFUiiif(u32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 }
 
 }
-#endif
-#endif

@@ -1,27 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__9TTecRestaFv(void);
-
-void render__9TTecRestaFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80239490
-#include "types.h"
-
-extern "C" {
-
-int init_cast__9TTecRestaFPv(void* p);
-int fn_80236EE8(void*);
-
-int init_cast__9TTecRestaFPv(void* p) { return fn_80236EE8(p); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802395F0
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -30,11 +6,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void tick_lifetime__9TTecRestaFPv(void *arg0);
 void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1);
+void *__dt__9TTecRestaFv(void *arg0, s16 arg1);
+void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2);
+void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+int init_cast__9TTecRestaFPv(void* p);
+void render__9TTecRestaFv(void);
+void tick_lifetime__9TTecRestaFPv(void *arg0);
+void *TTecResta__ct(void *, void *, void *, void *, void *);
+void *TTecResta__sub_80239C48(void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
+void __dt__19TTecPlayerInfluenceFv(void *, int);
 void __dt__7TObjectFv(void *, int);
+void *__nw__7TObjectFUl(int);
+int fn_80236EE8(void*);
 M2C_UNK queue_destruction__7TObjectFv();
+
+int init_cast__9TTecRestaFPv(void* p) { return fn_80236EE8(p); }
 
 void tick_lifetime__9TTecRestaFPv(void *arg0) {
     s32 temp_r4;
@@ -59,21 +47,6 @@ void *__dt__9TTecRestaFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802397B4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *TTecResta__ct(void *, void *, void *, void *, void *);
-void *TTecResta__sub_80239C48(void *, void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 void create__9TTecRestaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x140);
@@ -90,18 +63,7 @@ void create__9TTecRestaFPvPvPv(void *arg0, void *arg1, void *arg2) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80239B30
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__9TTecRestaFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__19TTecPlayerInfluenceFv(void *, int);
+void render__9TTecRestaFv(void) {  }
 
 extern M2C_UNK __vt__9TTecResta[];
 
@@ -117,5 +79,3 @@ void *__dt__9TTecRestaFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

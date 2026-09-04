@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,17 +6,45 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+struct TODoorBase_8015FCBC { char pad[0x14]; void **vtbl; };
+struct TODoorVObj_8015FCBC : TODoorBase_8015FCBC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
 s32 TODoorAncient08__vt17(void *arg0);
+void TODoorAncient08__vt18(void);
 void TODoorAncient08__vt4(void *arg0, s16 *arg1);
+void *__dt__15TODoorAncient08Fv(void *arg0, s16 arg1);
+void *create__15TODoorAncient08FPv(void *arg0);
+void free_objects__15TODoorAncient08Fv(void);
+void render__15TODoorAncient08Fv(u8 *arg0);
+void TLobby__sub_8001FE7C(void*, int);
+void *TODoorAncient08__ct(void *, void *, void *);
+M2C_UNK TODoorAncient08__sub_80160000(void *);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
+M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
+s32 fn_801582C4(void *, f32);
+M2C_UNK free__11TOBoss4RockFUi(void*);
+M2C_UNK free_if_valid__10TObjPlayerFi(s32);
+s32 get_main_phase();
+s32 is_split_screen();
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void TODoorAncient08__vt4(void *arg0, s16 *arg1) {
     if ((s16) *arg1 == 1) {
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
     }
 }
-
-s32 get_main_phase();
-s32 is_split_screen();
 
 s32 TODoorAncient08__vt17(void *arg0) {
     s32 temp_r0;
@@ -36,37 +63,10 @@ s32 TODoorAncient08__vt17(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0xC8);
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80160204
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void render__15TODoorAncient08Fv(u8 *arg0);
-M2C_UNK TODoorAncient08__sub_80160000(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-s32 fn_801582C4(void *, f32);
-M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
-
 extern const f32 lbl_805DB470;
 extern const f32 lbl_805DB474;
 
-struct TODoorBase { char pad[0x14]; void **vtbl; };
-struct TODoorVObj : TODoorBase {
-    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
-    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
-    virtual s32 m8(f32, f32);
-};
-#define VCALL_m8(obj) (((TODoorVObj*)(obj))->m8(M2C_FIELD(obj, f32 *, 0xC0), M2C_FIELD(obj, f32 *, 0xC4)))
+#define VCALL_m8(obj) (((TODoorVObj_8015FCBC*)(obj))->m8(M2C_FIELD(obj, f32 *, 0xC0), M2C_FIELD(obj, f32 *, 0xC4)))
 
 void render__15TODoorAncient08Fv(u8 *arg0) {
     s32 temp_r0;
@@ -98,29 +98,7 @@ void render__15TODoorAncient08Fv(u8 *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80160308
-#include "types.h"
-
-extern "C" {
-
-void TODoorAncient08__vt18(void);
-
 void TODoorAncient08__vt18(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80160500
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__15TODoorAncient08FPv(void *arg0);
-void *TODoorAncient08__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
@@ -131,22 +109,6 @@ void *create__15TODoorAncient08FPv(void *arg0) {
     }
     return o;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8016054C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void free_objects__15TODoorAncient08Fv(void);
-M2C_UNK free__11TOBoss4RockFUi(void*);
-void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
 extern u32 lbl_805D5948;
 extern void *TODoorAncient08__data_805D594C;
@@ -165,23 +127,6 @@ void free_objects__15TODoorAncient08Fv(void) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80160634
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *__dt__15TODoorAncient08Fv(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
-
 extern M2C_UNK __vt__15TODoorAncient08[];
 
 void *__dt__15TODoorAncient08Fv(void *arg0, s16 arg1) {
@@ -198,5 +143,3 @@ void *__dt__15TODoorAncient08Fv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

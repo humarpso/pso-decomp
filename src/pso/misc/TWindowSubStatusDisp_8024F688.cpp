@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x8024F688
-#include "pso/misc/TWindowSubStatusDisp.cpp"
+#include "types.h"
+
+extern "C" {
+
+u8 get_type__20TWindowSubStatusDispFPv(void* p);
+
+u8 get_type__20TWindowSubStatusDispFPv(void* p) { return *(u8*)((char*)p + 0x0); }
+
+}

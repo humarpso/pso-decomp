@@ -1,0 +1,42 @@
+#include "types.h"
+
+extern "C" {
+
+int TWindowSubTechnique__sub_80286BD4(void* p);
+int TWindowSubTechnique__sub_80286BF4(void* a0 = 0, void* a1 = 0);
+void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
+s32 lookup_technique__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
+s32 TItemData__sub_80076E84(s16);
+s32 TObjPlayer__sub_801D8044(u32, s32, u8);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s16, s32);
+s32 draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s16);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);
+int get_selection__19TWindowSubTechniqueFPvPvi(void*, void* a1 = 0);
+
+int TWindowSubTechnique__sub_80286BD4(void* p) { return get_selection__19TWindowSubTechniqueFPvPvi(p); }
+int TWindowSubTechnique__sub_80286BF4(void* a0, void* a1) { return 0; }
+
+s32 lookup_technique__19TWindowSubTechniqueFii(s32 arg0, s32 arg1) {
+    u32 temp = TPlayerBattleCtrl4P__sub_801BA74C(arg1);
+    if (temp == 0U) {
+        return 0;
+    }
+    return TObjPlayer__sub_801D8044(temp, 3, (u8) arg0);
+}
+void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2) {
+    s32 temp_r31;
+
+    temp_r31 = TItemData__sub_80076E84(arg0);
+    if (lookup_technique__19TWindowSubTechniqueFii((s32)(arg0), (s32)(arg1)) == 0) {
+        draw_text_gray__17TWindowSubComCardFiiii(arg2, temp_r31, 6, arg0);
+        return;
+    }
+    if (TWindowSubTechnique__sub_80286BF4((void*)((void*)(arg0)), (void*)((void*)(arg1))) == 0) {
+        TWindowSubTradeMain__sub_80266200(arg2, temp_r31, 0x16, arg0, 0xFFFD3901);
+        return;
+    }
+    forward_trade_action_default__16TObjCityMainWarpFPviii(arg2, temp_r31, 6, arg0);
+}
+
+}

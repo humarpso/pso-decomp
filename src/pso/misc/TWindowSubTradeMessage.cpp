@@ -1,26 +1,20 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__22TWindowSubTradeMessageFv(void);
-
-void render__22TWindowSubTradeMessageFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80339A80
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
+void *TWindowSubTradeMessage__ct(void *arg0, void *arg1, void *arg2);
 void *__dt__22TWindowSubTradeMessageFv(void *arg0, s16 arg1);
+void render__22TWindowSubTradeMessageFv(void);
+void TLobby__sub_802D29B8(void *);
+void TLobby__sub_802D29DC(void *);
 void TWindow__close(void *);
+void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void TLobby__sub_802D29B8(void *);
+
+void render__22TWindowSubTradeMessageFv(void) {  }
 
 extern M2C_UNK __vt__22TWindowSubTradeMessage[];
 
@@ -36,19 +30,6 @@ void *__dt__22TWindowSubTradeMessageFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80339AF8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TWindowSubTradeMessage__ct(void *arg0, void *arg1, void *arg2);
-void __ct__7TObjectFP7TObject(void *);
-void TLobby__sub_802D29DC(void *);
 
 extern M2C_UNK __vt__22TWindowSubTradeMessage[];
 extern void *lbl_805D4278;
@@ -66,5 +47,3 @@ void *TWindowSubTradeMessage__ct(void *arg0, void *arg1, void *arg2) {
 }
 
 }
-#endif
-#endif

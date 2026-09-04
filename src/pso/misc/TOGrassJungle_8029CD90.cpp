@@ -1,2 +1,84 @@
-#define PSO_CLASS_PACKAGE 0x8029CD90
-#include "pso/misc/TOGrassJungle.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+struct Base_8029CD90 { char pad[0x18]; };
+struct VObj_8029CD90 : Base_8029CD90 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+void TOKeyJungleMain__vt20(s32 arg0);
+void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1);
+void render__13TOGrassJungleFv(u8 *arg0);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+M2C_UNK TObjFish__sub_8001EDC4(s32, s32);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+void __dl__7TObjectFPv(void *);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+
+extern s32 TOGrassJungle__data_805D65D8;
+extern s32 TOGrassJungle__data_805D65DC;
+extern const f32 lbl_805DDD30;
+extern const f32 lbl_805DDD34;
+
+void render__13TOGrassJungleFv(u8 *arg0) {
+    if (((VObj_8029CD90 *)arg0)->m8(lbl_805DDD30, lbl_805DDD34) == 1) {
+        set_global_param__8TObjFishFi(TOGrassJungle__data_805D65DC);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjFish__sub_8001EDC4(TOGrassJungle__data_805D65D8, M2C_FIELD(arg0, s32 *, 0x90));
+        TObjBoss2Tunnel__sub_803DB470();
+        TObjPlayer__sub_803D9B78();
+    }
+}
+
+extern M2C_UNK __vt__13TOGrassJungle[];
+
+void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TOGrassJungle;
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+void TOKeyJungleMain__vt20(s32 arg0) {
+    M2C_UNK var_r31;
+    s32 temp_r3;
+
+    var_r31 = 0x4AD12;
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    switch (temp_r3) {
+    case 34:
+        var_r31 = 0x4004AD12;
+        break;
+    case 35:
+        var_r31 = 0x4004AD12;
+        break;
+    }
+    TBoss3Volopt__sub_8022675C(var_r31, arg0 + 0x38, 0, 0);
+}
+
+}

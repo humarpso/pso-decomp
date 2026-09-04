@@ -1,13 +1,24 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+s32 TObjEneRecon__sub_8031C274(int);
+f32 TObjEneRecon__sub_8031C2BC(int);
+f32 TObjEneRecon__sub_8031C2C8(int);
+f32 TObjEneRecon__sub_8031C2D4(int);
+M2C_UNK TObjPlayer__sub_80019038();
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+s16 obj_getField1c(int);
 
 extern M2C_UNK __vt__16TObjEneReconBomb[];
 
@@ -21,28 +32,6 @@ void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8031BB44
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-s32 TObjEneRecon__sub_8031C274(int);
-f32 TObjEneRecon__sub_8031C2BC(int);
-f32 TObjEneRecon__sub_8031C2C8(int);
-f32 TObjEneRecon__sub_8031C2D4(int);
-M2C_UNK TObjPlayer__sub_80019038();
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, int);
-s16 obj_getField1c(int);
 
 extern M2C_UNK __vt__16TObjEneReconBomb[];
 extern s32 lbl_805D4128;
@@ -76,5 +65,3 @@ u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 }
-#endif
-#endif

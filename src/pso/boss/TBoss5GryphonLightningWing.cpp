@@ -1,9 +1,7 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TBoss5GryphonLightningWing.h"
 
 TBoss5GryphonLightningWing::~TBoss5GryphonLightningWing() {}
-#else
-#if PSO_CLASS_PACKAGE == 0x80324CEC
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -12,42 +10,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TBoss5GryphonLightningWing__sub_80324CEC(void);
-f64 get_end_value();
-
-f32 TBoss5GryphonLightningWing__sub_80324CEC(void) {
-    return (f32) get_end_value();
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80324D10
-#include "types.h"
-
-extern "C" {
-
-void get_wing_position__26TBoss5GryphonLightningWingFii(s32 arg0, s32 arg1);
-int VecCopy__FP3VecPC3Vec(s32, s32, s32);
-
-void get_wing_position__26TBoss5GryphonLightningWingFii(s32 arg0, s32 arg1) {
-    VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x2C, arg0);
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80351A2C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
+void TLobby__sub_80351DF8(void);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
-M2C_UNK get_wing_position__26TBoss5GryphonLightningWingFii(s32, M2C_UNK *);
+int fn_80351DA8(void);
+u8 is_lobby_event_active(void);
+void render__26TBoss5GryphonLightningWingFv(void);
 M2C_UNK TBoss8Dragon__sub_80063FB8(s32, M2C_UNK *, f32);
+s32 TLobby__sub_80351DFC();
 s32 get_instance_count__12TBoss8DragonFv();
+M2C_UNK get_wing_position__26TBoss5GryphonLightningWingFii(s32, M2C_UNK *);
 
 extern f32 lbl_805DFED0;
 
@@ -62,17 +33,14 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80351A7C
-#include "types.h"
-
-extern "C" {
-
-void render__26TBoss5GryphonLightningWingFv(void);
-
 void render__26TBoss5GryphonLightningWingFv(void) {  }
 
+int fn_80351DA8(void) { return 0; }
+
+void TLobby__sub_80351DF8(void) {  }
+
+u8 is_lobby_event_active(void) {
+    return (u8) (TLobby__sub_80351DFC() != 0);
 }
-#endif
-#endif
+
+}

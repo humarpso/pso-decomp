@@ -1,19 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__16TAdGuideButtonGCFv(void* p);
-
-int get_state_flag__9TMainTaskFv(void*);
-int TAdWarningBaseGC__sub_8032D514(void*, void*, void*);
-int render__16TAdWarningBaseGCFi(void*, void*);
-
-void render__16TAdGuideButtonGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { render__16TAdWarningBaseGCFi(p, (void*)0); TAdWarningBaseGC__sub_8032D514(p, (void*)0, *(void**)((char*)p + 0x1a0)); } }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8032D8E8
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -23,8 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__16TAdGuideButtonGCFv(void *arg0, s16 arg1);
+void render__16TAdGuideButtonGCFv(void* p);
+int TAdWarningBaseGC__sub_8032D514(void*, void*, void*);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+int get_state_flag__9TMainTaskFv(void*);
+int render__16TAdWarningBaseGCFi(void*, void*);
+
+void render__16TAdGuideButtonGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { render__16TAdWarningBaseGCFi(p, (void*)0); TAdWarningBaseGC__sub_8032D514(p, (void*)0, *(void**)((char*)p + 0x1a0)); } }
 
 extern M2C_UNK __vt__16TAdGuideButtonGC[];
 extern u32 lbl_805D6D04;
@@ -44,5 +34,3 @@ void *__dt__16TAdGuideButtonGCFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

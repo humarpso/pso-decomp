@@ -1,0 +1,88 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
+s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
+void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
+void *TPlayerBattleCtrl4P__sub_801BA74C();
+M2C_UNK get_width__11TWindowCtrlFPv();
+M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
+M2C_UNK TWindowSubStatusDisp__sub_8026F6DC(s32);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+s16 obj_getS16_2BA(void *);
+
+struct VtBase4_8026f71c { void *vtable; };
+struct VObj3_8026f71c : VtBase4_8026f71c { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
+
+extern f32 lbl_805DD388;
+extern f32 lbl_805DD38C;
+
+void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0) {
+    VObj3_8026f71c *temp_r3;
+    f32 temp_f0;
+
+    temp_r3 = (VObj3_8026f71c *) get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(3));
+    temp_f0 = lbl_805DD388;
+    M2C_FIELD(temp_r3, f32 *, 0x20) = temp_f0;
+    M2C_FIELD(temp_r3, f32 *, 0x24) = temp_f0;
+    temp_r3->m3();
+    TWindowSubStatusDisp__sub_802575C0(temp_r3, 0xFF00FF15, lbl_805DD38C);
+}
+
+struct Base_8026F77C { char pad[0x18]; };
+struct VObj_8026F77C : Base_8026F77C {
+    virtual void m0();virtual void m1();virtual void m2();virtual void m3();
+    virtual void m4();virtual void m5();virtual void m6();virtual void m7();
+    virtual void m8();virtual void m9();virtual void m10();virtual void m11();
+    virtual void m12();virtual void m13();
+    virtual int m14();
+};
+
+void update_status_entry__20TWindowSubStatusDispFi(s32 arg0) {
+    void *temp_r31;
+    VObj_8026F77C *temp_r3;
+
+    get_width__11TWindowCtrlFPv();
+    temp_r3 = (VObj_8026F77C *) TPlayerBattleCtrl4P__sub_801BA74C();
+    if (temp_r3 != NULL) {
+        temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(2));
+        M2C_FIELD(temp_r31, s32 *, 0x20) = temp_r3->m14() + 1;
+    }
+}
+
+extern M2C_UNK lbl_8044F608;
+extern const f32 lbl_805DD390;
+extern const f32 lbl_805DD394;
+
+s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
+    M2C_UNK var_r4;
+    s32 var_r31;
+    void *temp_r30;
+    void *temp_r3;
+
+    get_width__11TWindowCtrlFPv();
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C();
+    if (temp_r3 == NULL) {
+        TWindowSubStatusDisp__sub_8026F6DC(arg0);
+        return 0xFF008CFC;
+    }
+    temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(4));
+    M2C_FIELD(temp_r30, f32 *, 0x20) = (f32) obj_getS16_2BA(temp_r3);
+    M2C_FIELD(temp_r30, f32 *, 0x24) = (f32) M2C_FIELD(temp_r3, s16 *, 0x32E);
+    if (M2C_FIELD(temp_r30, f32 *, 0x24) > (lbl_805DD390 * M2C_FIELD(temp_r30, f32 *, 0x20))) {
+        var_r31 = -1;
+        var_r4 = 0xFF008CFC;
+    } else {
+        var_r4 = -0x3EEC;
+        var_r31 = -0x3EEC;
+    }
+    TWindowSubStatusDisp__sub_802575C0(temp_r30, var_r4, lbl_805DD394);
+    return var_r31;
+}
+
+}

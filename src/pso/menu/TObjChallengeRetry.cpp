@@ -9,3 +9,15 @@ TObjChallengeRetry::~TObjChallengeRetry() {
         TLobby__sub_80072308(0);
     }
 }
+
+#include "types.h"
+
+extern "C" {
+
+int fn_800733C4(void);
+int is_visible__17TWindowSubComCardFPv(void* p);
+void set_loss_flag__6TLobbyFPv(void* p);
+
+int fn_800733C4(void) { return 0; }
+
+}

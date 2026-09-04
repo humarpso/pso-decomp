@@ -1,0 +1,38 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+int TObjPlayer__sub_80087638(void);
+int TTecLuker__sub_8008764C(void);
+void copy_vec3__11TBoss4Type2FPvPv(void* p, void* q);
+void set_flags__11TBoss4Type2FPvUi(void* p, u32 v);
+void set_param_ptr__11TBoss4Type2FPvi(void *arg0, s32 arg1);
+void copy_pos__11TNowLoadingFPvPv(void* p, void* q);
+
+extern s32 lbl_805D4EF8;
+extern s32 lbl_805D4EFC;
+extern const f32 TParticleCtrl__data_805D94E0;
+extern const f32 TParticleCtrl__data_805D94E4;
+
+void set_param_ptr__11TBoss4Type2FPvi(void *arg0, s32 arg1) {
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) TParticleCtrl__data_805D94E0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) TParticleCtrl__data_805D94E4;
+    if (arg1 >= 0x200) {
+        M2C_FIELD(arg0, s32 *, 0x28) = (s32) (lbl_805D4EFC + ((arg1 - 0x200) * 0x98));
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x28) = (s32) (lbl_805D4EF8 + (arg1 * 0x98));
+}
+
+void copy_vec3__11TBoss4Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x6c) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x70) = *(u32*)((char*)q + 0x4); *(u32*)((char*)p + 0x74) = *(u32*)((char*)q + 0x8); }
+void set_flags__11TBoss4Type2FPvUi(void* p, u32 v) { *(u16*)((char*)p + 0x2c) |= v; }
+
+int TObjPlayer__sub_80087638(void) { return 0; }
+int TTecLuker__sub_8008764C(void) { return 0; }
+
+}

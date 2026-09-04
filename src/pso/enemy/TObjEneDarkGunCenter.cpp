@@ -1,27 +1,23 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TObjEneDarkGunCenter__sub_800A0B18(void);
-void render__20TObjEneDarkGunCenterFv(void);
-
-void TObjEneDarkGunCenter__sub_800A0B18(void) {  }
-void render__20TObjEneDarkGunCenterFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x800A0E14
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
+void TObjEneDarkGunCenter__sub_800A0B18(void);
+void TObjEneDarkGunCenter__sub_800A0E7C(void);
+void TObjEneDarkGunCenter__sub_800A0E80(void);
+void *__dt__20TObjEneDarkGunCenterFv(void *arg0, s16 arg1);
 void * create__20TObjEneDarkGunCenterFPv(void *arg0);
+void render__20TObjEneDarkGunCenterFv(void);
 void *TObjControl__ct(void *, void *);
 void *TObjEneDarkGunCenter__ct(void *, void *, void *);
+void __dl__7TObjectFPv(void *);
+void __dt__9TObjEnemyFv(void *, int);
 void *__nw__7TObjectFUl(int);
+
+void TObjEneDarkGunCenter__sub_800A0B18(void) {  }
+void render__20TObjEneDarkGunCenterFv(void) {  }
 
 extern void *tl_04;
 
@@ -38,21 +34,6 @@ void * create__20TObjEneDarkGunCenterFPv(void *arg0) {
     }
     return o2;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800A0E7C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void TObjEneDarkGunCenter__sub_800A0E7C(void);
-void TObjEneDarkGunCenter__sub_800A0E80(void);
-void *__dt__20TObjEneDarkGunCenterFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
 
 void TObjEneDarkGunCenter__sub_800A0E7C(void) {  }
 void TObjEneDarkGunCenter__sub_800A0E80(void) {  }
@@ -71,5 +52,3 @@ void *__dt__20TObjEneDarkGunCenterFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

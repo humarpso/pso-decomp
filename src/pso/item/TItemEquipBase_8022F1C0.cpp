@@ -1,2 +1,28 @@
-#define PSO_CLASS_PACKAGE 0x8022F1C0
-#include "pso/item/TItemEquipBase.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TItemEquipBase__sub_8022F1F4(void *arg0, void *arg1);
+void init_slots__14TItemEquipBaseFPv(void* p);
+void set_slot__14TItemEquipBaseFiii(s32 arg0, s32 arg1, s32 arg2);
+int init_slot__14TItemEquipBaseFPv(void*);
+
+void set_slot__14TItemEquipBaseFiii(s32 arg0, s32 arg1, s32 arg2) {
+    if (arg1 < 6) {
+        TItemEquipBase__sub_8022F1F4((void *)(arg0 + (arg1 * 8)), (void *)(arg2));
+    }
+}
+
+void TItemEquipBase__sub_8022F1F4(void *arg0, void *arg1) {
+    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
+    M2C_FIELD(arg0, u16 *, 2) = (u16) M2C_FIELD(arg1, u16 *, 2);
+    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
+}
+
+void init_slots__14TItemEquipBaseFPv(void* p) { { int i; for (i = 0; i < 6; i++) { init_slot__14TItemEquipBaseFPv((char*)p + i * 8); } } }
+
+}

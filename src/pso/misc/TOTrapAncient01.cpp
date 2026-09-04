@@ -1,26 +1,10 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TOTrapAncient01__vt84(void);
-void TOTrapAncient01__vt86(void);
-void TOTrap__sub_8017939C(void);
-
-void TOTrap__sub_8017939C(void) {  }
-void TOTrapAncient01__vt84(void) {  }
-void TOTrapAncient01__vt86(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x801793A8
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-struct Base_801793A8 { char pad[0x18]; };
-struct VObj_801793A8 : Base_801793A8 {
+struct Base_801793A8_8017939C { char pad[0x18]; };
+struct VObj_801793A8_8017939C : Base_801793A8_8017939C {
     virtual void m0();
     virtual void m1();
     virtual void m2();
@@ -109,15 +93,33 @@ struct VObj_801793A8 : Base_801793A8 {
 
 extern "C" {
 
+int TOTrapAncient01__vt20(void);
 void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2);
+void TOTrapAncient01__vt82(void);
+void TOTrapAncient01__vt84(void);
+void TOTrapAncient01__vt86(void);
+void TOTrapAncient02R__vt84(void *arg0);
+void TOTrap__sub_8017939C(void);
+void *create__15TOTrapAncient01FPv(void *arg0);
+void release_static_resource__15TOTrapAncient01Fv(void);
+void TLobby__sub_8001FE7C(void*, int);
+void *TOTrapAncient01__ct(void *, void *, void *);
 M2C_UNK TOTrapAncient01__sub_8017940C(void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
+void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
+void TOTrapAncient02R__sub_80154D78(void *);
+void *__nw__7TObjectFUl(int);
+s32 fn_800FD8B4(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK set_flag8__6TLobbyFPv(void *);
+
+void TOTrap__sub_8017939C(void) {  }
+void TOTrapAncient01__vt84(void) {  }
+void TOTrapAncient01__vt86(void) {  }
 
 void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 4) {
         if (arg2 == 1) {
-            ((VObj_801793A8 *)arg0)->m83();
+            ((VObj_801793A8_8017939C *)arg0)->m83();
         }
         TOTrapAncient01__sub_8017940C(arg0);
         set_flag8__6TLobbyFPv(arg0);
@@ -125,29 +127,9 @@ void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x801797D0
-#include "types.h"
-
-extern "C" {
-
-void TOTrapAncient01__vt82(void);
+int TOTrapAncient01__vt20(void) { return 0; }
 
 void TOTrapAncient01__vt82(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80179DB0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__15TOTrapAncient01FPv(void *arg0);
-void *TOTrapAncient01__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
@@ -159,20 +141,6 @@ void *create__15TOTrapAncient01FPv(void *arg0) {
     return o;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80179DFC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void release_static_resource__15TOTrapAncient01Fv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
 extern u32 TOTrapAncient01__data_805D5AD0;
 
 void release_static_resource__15TOTrapAncient01Fv(void) {
@@ -182,34 +150,16 @@ void release_static_resource__15TOTrapAncient01Fv(void) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80226534
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+extern M2C_UNK lbl_8050BEE0[];
+extern M2C_UNK lbl_804A7468[];
 
-extern "C" {
-
-s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1);
-s32 TLobby__sub_80226918();
-
-s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1) {
-    s32 var_r3;
-
-    if (arg1 & 0x2000) {
-        var_r3 = 0;
-    } else {
-        var_r3 = TLobby__sub_80226918();
+void TOTrapAncient02R__vt84(void *arg0) {
+    s32 x;
+    x = fn_800FD8B4(arg0);
+    if (x == 1) {
+        TOTrapAncient02R__sub_80141CF0((void *)((char *)arg0 + 80), lbl_8050BEE0, lbl_804A7468);
+        TOTrapAncient02R__sub_80154D78(arg0);
     }
-    if (var_r3 == -0x100) {
-        return 0;
-    }
-    return 1;
 }
 
 }
-#endif
-#endif

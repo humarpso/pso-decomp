@@ -1,13 +1,36 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *__dt__14TWindowDepositFv(void *arg0, s16 arg1);
+int render__14TWindowDepositFv(void);
+void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
+void run_task__14TWindowDepositFv(void* p);
+void TWindowMainMenu__sub_8024E3CC(void);
+void TWindowMainMenu__sub_8024E3D0(void);
+int TWindowMainMenu__sub_8024E3D4(void* p);
+int TWindowMainMenu__sub_8024E3E0(void* p);
+int TWindowMainMenu__sub_8024E3F4(void* p);
+void TWindowMainMenu__vt4(void);
+void TWindowMainMenu__vt6(void);
+int TWindowSubStatusDisp__sub_80257C28(void*, void*);
+M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
+void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
+int initialize_subwindow__9TWindowDDFPv(void*);
+
+void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1) {
+    TWindowSubStatusDisp__sub_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
+}
+
+int render__14TWindowDepositFv(void) { return 0; }
+
+void run_task__14TWindowDepositFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
 
 extern M2C_UNK __vt__14TWindowDeposit[];
 
@@ -23,59 +46,3 @@ void *__dt__14TWindowDepositFv(void *arg0, s16 arg1) {
 }
 
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x8024E434
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
-void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
-M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
-int initialize_subwindow__9TWindowDDFPv(void*);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
-void TWindowMainMenu__sub_8024E3CC(void);
-void TWindowMainMenu__sub_8024E3D0(void);
-int TWindowMainMenu__sub_8024E3D4(void* p);
-int TWindowMainMenu__sub_8024E3E0(void* p);
-void TWindowMainMenu__vt4(void);
-void TWindowMainMenu__vt6(void);
-int TWindowMainMenu__sub_8024E3F4(void* p);
-
-void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8024E4B8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
-void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
-M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
-int initialize_subwindow__9TWindowDDFPv(void*);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
-void TWindowMainMenu__sub_8024E3CC(void);
-void TWindowMainMenu__sub_8024E3D0(void);
-int TWindowMainMenu__sub_8024E3D4(void* p);
-int TWindowMainMenu__sub_8024E3E0(void* p);
-void TWindowMainMenu__vt4(void);
-void TWindowMainMenu__vt6(void);
-int TWindowMainMenu__sub_8024E3F4(void* p);
-
-void run_task__14TWindowDepositFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
-
-}
-#endif
-#endif

@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TItemShootGun.h"
 
 extern "C" {
@@ -33,8 +32,7 @@ void TItemShootGun::render() {
 void TItemShootGun::hook() {
     this->m_6C += 0x1999;
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x8011B598
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -64,5 +62,3 @@ u32 create__13TItemShootGunFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
 }
 
 }
-#endif
-#endif

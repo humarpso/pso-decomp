@@ -1,0 +1,35 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+f32 get_attached_float_24__10TObjPlayerFPv(void *arg0);
+s32 get_target_field_1c__10TObjPlayerFPv(void *arg0);
+s32 get_flag_1__10TObjPlayerFPv();
+
+s32 get_target_field_1c__10TObjPlayerFPv(void *arg0) {
+    if ((void *) M2C_FIELD(arg0, void **, 0xC) == NULL) {
+        return 0;
+    }
+    if (get_flag_1__10TObjPlayerFPv() != 0) {
+        return M2C_FIELD(M2C_FIELD(arg0, void **, 0xC), s32 *, 0x1C);
+    }
+    return 0;
+}
+
+extern f32 lbl_805DFEC8;
+
+f32 get_attached_float_24__10TObjPlayerFPv(void *arg0) {
+    if ((void *) M2C_FIELD(arg0, void **, 0xC) == NULL) {
+        return lbl_805DFEC8;
+    }
+    if (get_flag_1__10TObjPlayerFPv() != 0) {
+        return M2C_FIELD(M2C_FIELD(arg0, void **, 0xC), f32 *, 0x24);
+    }
+    return lbl_805DFEC8;
+}
+
+}

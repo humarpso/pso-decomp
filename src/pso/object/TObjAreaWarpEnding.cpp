@@ -1,30 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__12TObjAreaWarpFv(void *, int);
-
-extern M2C_UNK __vt__18TObjAreaWarpEnding[];
-
-void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjAreaWarpEnding;
-        __dt__12TObjAreaWarpFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8019BB9C
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -33,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1);
 void create_and_init__18TObjAreaWarpEndingFv(void);
 void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
@@ -42,11 +16,13 @@ M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+void __dl__7TObjectFPv(void *);
+void __dt__12TObjAreaWarpFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 s32 get_main_phase();
 M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, M2C_UNK *);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
+M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 
 extern M2C_UNK dispatch_select_phase__16TKeyBoardControlFv[];
 extern s32 tl_00;
@@ -75,29 +51,17 @@ void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x801A2970
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+extern M2C_UNK __vt__18TObjAreaWarpEnding[];
 
-extern "C" {
-
-void *TObjAreaWarpEnding__create(void *arg0);
-void *TObjAreaWarpEnding__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
-extern void *tl_05;
-
-void *TObjAreaWarpEnding__create(void *arg0) {
-    void *o = __nw__7TObjectFUl(0xDC);
-    if (o != NULL) {
-        o = TObjAreaWarpEnding__ct(o, tl_05, arg0);
+void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjAreaWarpEnding;
+        __dt__12TObjAreaWarpFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
     }
-    return o;
+    return arg0;
 }
 
 }
-#endif
-#endif

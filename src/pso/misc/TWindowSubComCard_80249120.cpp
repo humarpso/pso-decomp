@@ -1,2 +1,29 @@
-#define PSO_CLASS_PACKAGE 0x80249120
-#include "pso/misc/TWindowSubComCard.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+int TWindowSubComCard__sub_802491C4(void);
+int TWindowSubComCard__sub_80249220(void* p);
+void begin_scroll__17TWindowSubComCardFPvf(void *arg0, f32 farg0);
+int fn_80268C5C(void*);
+
+void begin_scroll__17TWindowSubComCardFPvf(void *arg0, f32 farg0) {
+    u16 temp_r4;
+
+    temp_r4 = M2C_FIELD(arg0, u16 *, 0x80);
+    if (temp_r4 & 1) {
+        M2C_FIELD(arg0, u16 *, 0x80) = (u16) (temp_r4 & 0xFFFE);
+        M2C_FIELD(arg0, f32 *, 0x3C) = farg0;
+        M2C_FIELD(arg0, s32 *, 0x50) = 3;
+    }
+}
+
+int TWindowSubComCard__sub_802491C4(void) { return 0; }
+
+int TWindowSubComCard__sub_80249220(void* p) { return fn_80268C5C(p); }
+
+}

@@ -1,9 +1,7 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TObjSuisoChip.h"
 
 TObjSuisoChip::~TObjSuisoChip() {}
-#else
-#if PSO_CLASS_PACKAGE == 0x802A60A8
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -12,37 +10,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 fn_802A5C7C(void *);
-s32 fn_802A5CB8(void *);
-s32 fn_802A5CC4(void *, s32);
-s32 alloc_buffer__15TWindowSnapShotFPv(void *);
-s32 open_stream__15TWindowSnapShotFPvi(void *, s32);
-s32 init__15TWindowSnapShotFPvi();
-int TObjChip__vt8(void*, void*);
-int TWindowSnapShot__sub_802A5D28(void*);
-int reset__15TWindowSnapShotFPv(void*);
-int get_width__15TWindowSnapShotFv(void);
-void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
-s32 get_buffer_size__15TWindowSnapShotFPv(void* p);
-void fn_802A6070(void* p, s32 v);
-void fn_802A6078(void* p, s32 v);
-int get_max_players__6TLobbyFv(void);
-
-void TObjSuisoChip__vt8(void* p) { TObjChip__vt8(p, (char*)p + 0x234); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802A61C0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1);
 u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1);
+u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK TObjChip__sub_80180BD4(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK __ct__8TObjChipFv(void *, void *);
@@ -94,38 +63,3 @@ u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
 }
 
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x802A6088
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TObjSuisoChip__vt6(void);
-M2C_UNK TObjChip__vt6();
-int TObjChip__vt8(void*, void*);
-int TWindowSnapShot__sub_802A5D28(void*);
-s32 alloc_buffer__15TWindowSnapShotFPv(void *);
-s32 fn_802A5C7C(void *);
-s32 fn_802A5CB8(void *);
-s32 fn_802A5CC4(void *, s32);
-void fn_802A6070(void* p, s32 v);
-void fn_802A6078(void* p, s32 v);
-s32 get_buffer_size__15TWindowSnapShotFPv(void* p);
-int get_max_players__6TLobbyFv(void);
-int get_width__15TWindowSnapShotFv(void);
-s32 init__15TWindowSnapShotFPvi();
-s32 open_stream__15TWindowSnapShotFPvi(void *, s32);
-int reset__15TWindowSnapShotFPv(void*);
-void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
-
-void TObjSuisoChip__vt6(void) {
-    TObjChip__vt6();
-}
-
-}
-#endif
-#endif

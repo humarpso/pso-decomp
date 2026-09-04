@@ -1,2 +1,10 @@
-#define PSO_CLASS_PACKAGE 0x801FBA20
-#include "pso/misc/TScene.cpp"
+#include "types.h"
+
+extern "C" {
+
+int get_status__6TSceneFv(void);
+
+    extern int lbl_805D5FC8;
+int get_status__6TSceneFv(void) {  return lbl_805D5FC8; }
+
+}

@@ -8,9 +8,11 @@ extern "C" {
 
 s32 __ct__9TRegisterFv(s32 arg0);
 void bswap__9TRegisterFv(s32 arg0);
+int fn_801E0018(void* p);
 M2C_UNK __ct__8TPlySmthFv(s32);
 M2C_UNK bswap_32__FPUl(s32);
 M2C_UNK bswap__13packet_headerFv();
+int bswap__16TPlyGuildCardTagFv(void*);
 M2C_UNK fn_801E0900(s32);
 
 void bswap__9TRegisterFv(s32 arg0) {
@@ -23,5 +25,7 @@ s32 __ct__9TRegisterFv(s32 arg0) {
     __ct__8TPlySmthFv(arg0 + 4);
     return arg0;
 }
+
+int fn_801E0018(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
 
 }

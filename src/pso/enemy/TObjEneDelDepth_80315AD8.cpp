@@ -1,2 +1,42 @@
-#define PSO_CLASS_PACKAGE 0x80315AD8
-#include "pso/enemy/TObjEneDelDepth.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+s32 TObjEneDelDepth__create(s32 arg0);
+void free_shared_data__15TObjEneDelDepthFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+s32 TObjControl__ct(s32, s32);
+s32 TObjEneDelDepth__ct(s32, s32, s32);
+s32 __nw__7TObjectFUl(M2C_UNK);
+
+extern u32 TObjEneDelDepth__data_805D6AC4;
+
+void free_shared_data__15TObjEneDelDepthFv(void) {
+    if ((u32) TObjEneDelDepth__data_805D6AC4 != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjEneDelDepth__data_805D6AC4, 1);
+        TObjEneDelDepth__data_805D6AC4 = 0U;
+    }
+}
+
+extern s32 tl_04;
+
+s32 TObjEneDelDepth__create(s32 arg0) {
+    s32 var_r31;
+    s32 var_r4;
+
+    var_r31 = __nw__7TObjectFUl(0x434);
+    if (var_r31 != 0) {
+        var_r4 = __nw__7TObjectFUl(0x20);
+        if (var_r4 != 0) {
+            var_r4 = TObjControl__ct(var_r4, tl_04);
+        }
+        var_r31 = TObjEneDelDepth__ct(var_r31, var_r4, arg0);
+    }
+    return var_r31;
+}
+
+}

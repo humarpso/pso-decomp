@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TObjSuisouLobby__sub_80369B5C(void);
-
-void TObjSuisouLobby__sub_80369B5C(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80369B60
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -18,16 +6,32 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TObjSuisouLobby__sub_80369B5C(void);
+void TObjSuisouLobby__sub_80369D68(void);
+void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
+void *create__15TObjSuisouLobbyFPv(void *arg0);
+void destroy_instance__15TObjSuisouLobbyFv(void);
 void render__15TObjSuisouLobbyFv(u8 *arg0);
+void update_particle__15TObjSuisouLobbyFPv(void *arg0);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
+void *TObjSuisouLobby__ct(void *, void *, void *);
+void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
+s32 clear_active_flag__13TParticleCtrlFPv(void *);
+void destroy_key_base__5TOKeyFPvs(void *, int);
+s32 enable__13TParticleCtrlFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
+void queue_destruction__7TObjectFv(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+
+void TObjSuisouLobby__sub_80369B5C(void) {  }
 
 extern const f32 TObjSuisouLobby__data_805E0350;
 
@@ -49,25 +53,6 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80369CF0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void update_particle__15TObjSuisouLobbyFPv(void *arg0);
-void TObjSuisouLobby__sub_80369D68(void);
-void *create__15TObjSuisouLobbyFPv(void *arg0);
-void *TObjSuisouLobby__ct(void *, void *, void *);
-s32 clear_active_flag__13TParticleCtrlFPv(void *);
-s32 enable__13TParticleCtrlFPv(void *);
-void *__nw__7TObjectFUl(int);
 
 void update_particle__15TObjSuisouLobbyFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) == 3) {
@@ -98,20 +83,6 @@ void *create__15TObjSuisouLobbyFPv(void *arg0) {
     return o;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80369DB8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void destroy_instance__15TObjSuisouLobbyFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
 extern u32 TObjSuisouLobby__data_805D6FF0;
 
 void destroy_instance__15TObjSuisouLobbyFv(void) {
@@ -120,20 +91,6 @@ void destroy_instance__15TObjSuisouLobbyFv(void) {
         TObjSuisouLobby__data_805D6FF0 = 0U;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80369E48
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
-void queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK __vt__15TObjSuisouLobby[];
 
@@ -151,5 +108,3 @@ void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

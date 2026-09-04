@@ -1,2 +1,11 @@
-#define PSO_CLASS_PACKAGE 0x80067F8C
-#include "pso/misc/TCameraCtrl.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TCameraCtrl__sub_80067F8C(void* p);
+int TCameraCtrl__sub_80067D20(void*);
+int TCameraCtrl__sub_80067EE0(void*);
+
+void TCameraCtrl__sub_80067F8C(void* p) { TCameraCtrl__sub_80067EE0(p); TCameraCtrl__sub_80067D20(p); }
+
+}

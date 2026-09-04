@@ -1,10 +1,16 @@
+#include "pso/TAdADXlogo.h"
+TAdADXlogo::~TAdADXlogo() {}
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
+void TLogo__sub_80019A28(void);
+void TLogo__sub_80019A2C(void);
 void *__ct__10TAdADXlogoFv(void *arg0);
+int TObject__sub_80019A60(void);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
@@ -30,5 +36,10 @@ void *__ct__10TAdADXlogoFv(void *arg0) {
     }
     return arg0;
 }
+
+void TLogo__sub_80019A28(void) {  }
+
+    extern int lbl_805D49C8;
+void TLogo__sub_80019A2C(void) { lbl_805D49C8 = TObject__sub_80019A60(); }
 
 }

@@ -1,2 +1,29 @@
-#define PSO_CLASS_PACKAGE 0x8008CE08
-#include "pso/menu/TEndingAB.cpp"
+#include "pso/TEndingAB.h"
+
+TEndingAB::~TEndingAB() {}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void destroy_instance__9TEndingABFv(void);
+int run_task__9TEndingABFv(void* p);
+void TLobby__sub_803DA16C(void*);
+int advance_fade_sequence__9TEndingABFPv(void*);
+
+int run_task__9TEndingABFv(void* p) { return advance_fade_sequence__9TEndingABFPv(p); }
+
+extern u32 lbl_805D4F14;
+
+void destroy_instance__9TEndingABFv(void) {
+    if ((u32) lbl_805D4F14 != 0U) {
+        TLobby__sub_803DA16C((void*)lbl_805D4F14);
+        lbl_805D4F14 = 0U;
+    }
+}
+
+}

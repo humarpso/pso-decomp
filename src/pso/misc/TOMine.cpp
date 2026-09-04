@@ -1,49 +1,10 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__6TOMineFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_motion_object__10TObjPlayerFPvs(void *, int);
-
-extern M2C_UNK __vt__6TOMine[];
-
-void *__dt__6TOMineFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__6TOMine;
-        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80170EEC
-#include "types.h"
-
-extern "C" {
-
-int get_player_state__6TOMineFPv(void* p);
-int TObjPlayer__sub_801B4AC8(void*);
-
-int get_player_state__6TOMineFPv(void* p) { return TObjPlayer__sub_801B4AC8(p); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80170F64
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-struct Base18_80170f64 { char pad[0x18]; };
-struct VObj_80170f64 : Base18_80170f64 {
+struct Base18_80170f64_80170EEC { char pad[0x18]; };
+struct VObj_80170f64_80170EEC : Base18_80170f64_80170EEC {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
     virtual void m4();  virtual void m5();  virtual void m6();  virtual void m7();
     virtual void m8();  virtual void m9();  virtual void m10(); virtual void m11();
@@ -68,16 +29,31 @@ struct VObj_80170f64 : Base18_80170f64 {
 
 extern "C" {
 
+int TOMine__sub_80170F0C(void *);
+void *__dt__6TOMineFv(void *arg0, s16 arg1);
+void free_instance__6TOMineFv(void);
+void free_parts__6TOMineFPv(void* p);
+void free_sub_objects__6TOMineFPv(void* p);
+int get_player_state__6TOMineFPv(void* p);
 void run_task__6TOMineFPv(u8 *arg0);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOMineTrap__sub_80170AC8(void *);
 M2C_UNK TOMineTrap__sub_80170BEC(void *);
 M2C_UNK TOMineTrap__sub_80170CD4(void *);
 M2C_UNK TOMineTrap__sub_80170CF4(void *);
 M2C_UNK TOMineTrap__sub_80170DD8(void *);
-M2C_UNK TOMine__sub_80170F0C(void *);
+int TObjBoss2Tunnel__sub_803DB470(void*);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+int TObjPlayer__sub_801B4AC8(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void __dl__7TObjectFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
+void destroy_motion_object__10TObjPlayerFPvs(void *, int);
+int set_global_param__8TObjFishFi(void*);
+
+int get_player_state__6TOMineFPv(void* p) { return TObjPlayer__sub_801B4AC8(p); }
+
+int TOMine__sub_80170F0C(void *) { return 0; }
 
 void run_task__6TOMineFPv(u8 *arg0) {
     s16 temp_r0;
@@ -85,13 +61,13 @@ void run_task__6TOMineFPv(u8 *arg0) {
     s32 temp_r3;
 
     if (check_demo_mode__10TObjPlayerFv() != 1) {
-        ((VObj_80170f64 *) arg0)->m77();
+        ((VObj_80170f64_80170EEC *) arg0)->m77();
         TOMineTrap__sub_80170CF4((void *) (arg0));
         temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
         switch (temp_r0) {
         case 2:
         case 0:
-            TOMine__sub_80170F0C((void *) (arg0));
+            TOMine__sub_80170F0C((void *)((void *) (arg0)));
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x334));
             VecCopy__FP3VecPC3Vec((void *) (M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C), (void *) (arg0 + 0x334));
             return;
@@ -122,35 +98,9 @@ void run_task__6TOMineFPv(u8 *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80171074
-#include "types.h"
-
-extern "C" {
-
-void free_sub_objects__6TOMineFPv(void* p);
-void free_parts__6TOMineFPv(void* p);
-int TObjBoss2Tunnel__sub_803DB470(void*);
-int set_global_param__8TObjFishFi(void*);
-
 void free_sub_objects__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((char*)p + 0x378)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0x374)); }
 
 void free_parts__6TOMineFPv(void* p) { set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0x34)); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80171198
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void free_instance__6TOMineFv(void);
-void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 lbl_805D5A50;
 
@@ -161,6 +111,17 @@ void free_instance__6TOMineFv(void) {
     }
 }
 
+extern M2C_UNK __vt__6TOMine[];
+
+void *__dt__6TOMineFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__6TOMine;
+        destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
-#endif
-#endif
+
+}

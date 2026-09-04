@@ -1,22 +1,7 @@
 #ifndef PSO_CLASS_PACKAGE
-#include "types.h"
 
-extern "C" {
-
-void update_camera__15TObjLiveMonitorFPv(void* p);
-void fn_8030B7B4(void);
-void fn_8030B7B8(void);
-int call_null__12TBoss8DragonFv(void);
-int update_single_screen__11TCameraCtrlFv(void*);
-int TBoss8Dragon__sub_802F3388(void*);
-
-void fn_8030B7B4(void) {  }
-void fn_8030B7B8(void) {  }
-void update_camera__15TObjLiveMonitorFPv(void* p) { void* m = *(void**)((char*)p + 0x50); if (m) update_single_screen__11TCameraCtrlFv(m); }
-int call_null__12TBoss8DragonFv(void) { return TBoss8Dragon__sub_802F3388((void*)(0)); }
-
-}
 #else
+
 #if PSO_CLASS_PACKAGE == 0x8030B4FC
 #include "types.h"
 

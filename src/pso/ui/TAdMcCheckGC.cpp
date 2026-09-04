@@ -1,23 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__12TAdMcCheckGCFv(void);
-void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void TLobby__sub_8033EE38(void* p);
-
-s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
-
-void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    GXSetTexCoordGen2(arg0, arg1, arg2, arg3, 0, 0x7D);
-}
-void TLobby__sub_8033EE38(void* p) { *(s32*)((char*)p + 0x18) = 0; *(s32*)((char*)p + 0x1c) = 0; }
-void render__12TAdMcCheckGCFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8033EE4C
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -26,13 +6,31 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TAdMcCheckGC__ct(void *arg0, void *arg1, void *arg2);
+void TLobby__sub_8033EE38(void* p);
 s32 create__12TAdMcCheckGCFPvi(void *arg0, s32 arg1);
-M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
-M2C_UNK set_status_flag_80__12TQuestThreadFPv(s32);
-M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(s32);
+void render__12TAdMcCheckGCFv(void);
+void run_task__12TAdMcCheckGCFv(u8 *arg0);
+void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
+s32 TAdPlayerLoadGC__sub_801E0D8C(int);
+s32 TAdPlayerLoadGC__sub_801E1E38(int);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_80265CFC(s32, f32);
+void __ct__7TObjectFP7TObject(void *);
+s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, M2C_UNK, s32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
+s32 get_load_result__15TAdPlayerLoadGCFv(int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(s32);
+M2C_UNK set_status_flag_80__12TQuestThreadFPv(s32);
+
+void set_tex_coord_gen2(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    GXSetTexCoordGen2(arg0, arg1, arg2, arg3, 0, 0x7D);
+}
+void TLobby__sub_8033EE38(void* p) { *(s32*)((char*)p + 0x18) = 0; *(s32*)((char*)p + 0x1c) = 0; }
+void render__12TAdMcCheckGCFv(void) {  }
 
 extern u8 lbl_804783B8[];
 extern f32 lbl_805DFAD8;
@@ -49,25 +47,6 @@ s32 create__12TAdMcCheckGCFPvi(void *arg0, s32 arg1) {
     TWindowSubComCard__sub_80265CFC(temp_r31, lbl_805DFAD8);
     return temp_r31;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8033EED4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void run_task__12TAdMcCheckGCFv(u8 *arg0);
-s32 TAdPlayerLoadGC__sub_801E0D8C(int);
-s32 get_load_result__15TAdPlayerLoadGCFv(int);
-s32 TAdPlayerLoadGC__sub_801E1E38(int);
-s32 check_memcard_status__15TAdPlayerLoadGCFi(int);
-u32 create__12TAdMcCheckGCFPvi(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void run_task__12TAdMcCheckGCFv(u8 *arg0) {
     s32 temp_r0;
@@ -101,7 +80,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
     case 1:
         if ((TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (get_load_result__15TAdPlayerLoadGCFv((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF83U)) {
             if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U)) {
-                M2C_FIELD(arg0, u32 *, 0x2C) = create__12TAdMcCheckGCFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x28) + 2));
+                M2C_FIELD(arg0, u32 *, 0x2C) = create__12TAdMcCheckGCFPvi((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x28) + 2)));
             }
         } else {
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
@@ -114,7 +93,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
     case 2:
         if ((TAdPlayerLoadGC__sub_801E0D8C((int) (M2C_FIELD(arg0, s32 *, 0x28))) == 0) && ((u32) (get_load_result__15TAdPlayerLoadGCFv((int) (M2C_FIELD(arg0, s32 *, 0x28))) + 0x10000) == 0xFF21U)) {
             if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U)) {
-                M2C_FIELD(arg0, u32 *, 0x30) = create__12TAdMcCheckGCFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x28) + 4));
+                M2C_FIELD(arg0, u32 *, 0x30) = create__12TAdMcCheckGCFPvi((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x28) + 4)));
             }
         } else {
             M2C_FIELD(arg0, s32 *, 0x1C) = 3;
@@ -136,7 +115,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
                 M2C_FIELD(arg0, u32 *, 0x34) = 0U;
             }
         } else if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U)) {
-            M2C_FIELD(arg0, u32 *, 0x34) = create__12TAdMcCheckGCFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x28) + 6));
+            M2C_FIELD(arg0, u32 *, 0x34) = create__12TAdMcCheckGCFPvi((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x28) + 6)));
         }
         break;
     case 4:
@@ -147,7 +126,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
                 M2C_FIELD(arg0, u32 *, 0x38) = 0U;
             }
         } else if (((s32) M2C_FIELD(arg0, s32 *, 0x24) > 0xA) && ((u32) M2C_FIELD(arg0, u32 *, 0x38) == 0U)) {
-            M2C_FIELD(arg0, u32 *, 0x38) = create__12TAdMcCheckGCFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x28) + 8));
+            M2C_FIELD(arg0, u32 *, 0x38) = create__12TAdMcCheckGCFPvi((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x28) + 8)));
         }
         break;
     case 5:
@@ -160,18 +139,6 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg0, s32 *, 0x1C);
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8033F2A4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TAdMcCheckGC__ct(void *arg0, void *arg1, void *arg2);
-void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__12TAdMcCheckGC[];
 extern void *lbl_805D42B8;
@@ -192,5 +159,3 @@ void *TAdMcCheckGC__ct(void *arg0, void *arg1, void *arg2) {
 }
 
 }
-#endif
-#endif

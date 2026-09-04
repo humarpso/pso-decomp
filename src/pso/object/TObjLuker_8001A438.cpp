@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x8001A438
-#include "pso/object/TObjLuker.cpp"
+#include "types.h"
+
+extern "C" {
+
+void set_flag_4__9TObjLukerFPv(void* p);
+
+void set_flag_4__9TObjLukerFPv(void* p) { *(u16*)((char*)p + 0x4) |= 0x4; }
+
+}

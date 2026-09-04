@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -13,19 +12,53 @@ struct VObj_8021F134 : Base_8021F134 {
     virtual void m4();
     virtual void m5();
 };
-struct Base_8021F16C { char pad[0x18]; };
-struct VObj_8021F16C : Base_8021F16C {
+struct Base_8021F16C_8021F134 { char pad[0x18]; };
+struct VObj_8021F16C_8021F134 : Base_8021F16C_8021F134 {
     virtual void m0();
     virtual void m1();
     virtual void m2();
     virtual void m3();
     virtual void m4();
 };
+struct Base_8021F678_8021F134 { char pad[0x18]; };
+struct VObj_8021F678_8021F134 : Base_8021F678_8021F134 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(int, int);
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual int  m8();
+};
+struct Base_8021F708_8021F134 { char pad[0x18]; };
+struct VObj_8021F708_8021F134 : Base_8021F708_8021F134 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(int, int);
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual int  m8();
+};
 
 extern "C" {
 
 void TShopItemListWindow__vt4(void *arg0);
 void TShopItemListWindow__vt5(void *arg0);
+void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1);
+void handle_confirm__19TShopItemListWindowFPv(void *arg0);
+void update__19TShopItemListWindowFPv(void *arg0);
+s32 TShopWindowBase__sub_802239EC(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
+void TWindow__close(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__15TShopWindowBaseFv(void *, int);
+s32 clear_selected_and_update_entry__14TWindowSubItemFPv(s32);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 
 void TShopItemListWindow__vt5(void *arg0) {
     struct VObj_8021F134 *temp_r3;
@@ -37,54 +70,16 @@ void TShopItemListWindow__vt5(void *arg0) {
 }
 
 void TShopItemListWindow__vt4(void *arg0) {
-    struct VObj_8021F16C *temp_r3;
+    struct VObj_8021F16C_8021F134 *temp_r3;
 
-    temp_r3 = (struct VObj_8021F16C *)M2C_FIELD(arg0, void **, 0x2C);
+    temp_r3 = (struct VObj_8021F16C_8021F134 *)M2C_FIELD(arg0, void **, 0x2C);
     if (temp_r3 != NULL) {
         temp_r3->m4();
     }
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8021F678
-#include "types.h"
-struct Base_8021F678 { char pad[0x18]; };
-struct VObj_8021F678 : Base_8021F678 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4(int, int);
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual int  m8();
-};
-struct Base_8021F708 { char pad[0x18]; };
-struct VObj_8021F708 : Base_8021F708 {
-    virtual void m0();
-    virtual void m1();
-    virtual void m2();
-    virtual void m3();
-    virtual void m4(int, int);
-    virtual void m5();
-    virtual void m6();
-    virtual void m7();
-    virtual int  m8();
-};
-
-extern "C" {
-
-void handle_confirm__19TShopItemListWindowFPv(void *arg0);
-void update__19TShopItemListWindowFPv(void *arg0);
-s32 TShopWindowBase__sub_802239EC(void *);
-s32 TShopWindowBase__sub_80223A48(void *);
-s32 set_field_20__12TQuestListVMFPvi(void *, s32);
-s32 clear_selected_and_update_entry__14TWindowSubItemFPv(s32);
-
 void handle_confirm__19TShopItemListWindowFPv(void *arg0) {
-    VObj_8021F678 *o = (VObj_8021F678 *)arg0;
+    VObj_8021F678_8021F134 *o = (VObj_8021F678_8021F134 *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m4(0xB, 1);
         clear_selected_and_update_entry__14TWindowSubItemFPv(*(s32 *)((s8 *)arg0 + 0x28));
@@ -93,27 +88,13 @@ void handle_confirm__19TShopItemListWindowFPv(void *arg0) {
 }
 
 void update__19TShopItemListWindowFPv(void *arg0) {
-    VObj_8021F708 *o = (VObj_8021F708 *)arg0;
+    VObj_8021F708_8021F134 *o = (VObj_8021F708_8021F134 *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48(arg0) != 0 || TShopWindowBase__sub_802239EC(arg0) != 0)) {
         o->m4(0xB, 1);
         clear_selected_and_update_entry__14TWindowSubItemFPv(*(s32 *)((s8 *)arg0 + 0x28));
         set_field_20__12TQuestListVMFPvi(arg0, 1);
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8021FCDC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1);
-void TWindow__close(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__15TShopWindowBaseFv(void *, int);
 
 extern M2C_UNK __vt__19TShopItemListWindow[];
 
@@ -135,5 +116,3 @@ void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

@@ -1,13 +1,29 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1);
+void close_dialog_window__16TObjNpcSoutokufuFv(void);
+void render__19TObjBoss5FloorStoneFv(void);
+void run_task__19TObjBoss5FloorStoneFv(void);
+void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
+s32 is_any_teammate_in_state__10TObjPlayerFv();
+M2C_UNK render_impl__19TObjBoss5FloorStoneFPvPv(s32, s32);
+
+extern u32 TObjNpcSoutokufu__data_805D64C0;
+
+void close_dialog_window__16TObjNpcSoutokufuFv(void) {
+    if ((u32) TObjNpcSoutokufu__data_805D64C0 != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcSoutokufu__data_805D64C0, 1);
+        TObjNpcSoutokufu__data_805D64C0 = 0U;
+    }
+}
 
 extern M2C_UNK __vt__16TObjNpcSoutokufu[];
 
@@ -22,59 +38,15 @@ void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80289538
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+extern void *lbl_805D4DD8;
+extern s32 lbl_805D4DDC;
 
-extern "C" {
-
-void * TObjNpcSoutokufu__create(void *arg0);
-void *TObjControl__ct(void *, void *);
-void *TObjNpcSoutokufu__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
-extern void *tl_04;
-
-void * TObjNpcSoutokufu__create(void *arg0) {
-    void *o;
-    void *o2;
-    o = __nw__7TObjectFUl(0x20);
-    if (o != NULL) {
-        o = TObjControl__ct(o, tl_04);
-    }
-    o2 = __nw__7TObjectFUl(0x3B8);
-    if (o2 != NULL) {
-        o2 = TObjNpcSoutokufu__ct(o2, o, arg0);
-    }
-    return o2;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802895A0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void close_dialog_window__16TObjNpcSoutokufuFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
-extern u32 TObjNpcSoutokufu__data_805D64C0;
-
-void close_dialog_window__16TObjNpcSoutokufuFv(void) {
-    if ((u32) TObjNpcSoutokufu__data_805D64C0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcSoutokufu__data_805D64C0, 1);
-        TObjNpcSoutokufu__data_805D64C0 = 0U;
+void render__19TObjBoss5FloorStoneFv(void) {
+    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
+        render_impl__19TObjBoss5FloorStoneFPvPv(lbl_805D4DDC, M2C_FIELD(M2C_FIELD(lbl_805D4DD8, void **, 0x42C), s32 *, 0x58));
     }
 }
 
+void run_task__19TObjBoss5FloorStoneFv(void) {  }
+
 }
-#endif
-#endif

@@ -1,2 +1,10 @@
-#define PSO_CLASS_PACKAGE 0x800C3BA8
-#include "pso/enemy/TObjEneRe2Flower.cpp"
+#include "types.h"
+
+extern "C" {
+
+int get_flag_11__16TObjEneRe2FlowerFPv(void* p);
+void TObjEneRe2Flower__sub_800C3BA8(void);
+
+void TObjEneRe2Flower__sub_800C3BA8(void) {  }
+
+}

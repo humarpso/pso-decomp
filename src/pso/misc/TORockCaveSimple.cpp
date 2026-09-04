@@ -1,30 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__10TORockCaveFv(void *, int);
-
-extern M2C_UNK __vt__16TORockCaveSimple[];
-
-void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TORockCaveSimple;
-        __dt__10TORockCaveFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80175024
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -39,13 +12,18 @@ struct VObj1_80175024 : Base1_80175024 {
 
 extern "C" {
 
+void *TORockCaveSimple__ct(void *arg0);
+void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1);
 void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+void TORockCave__ct(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
+void __dl__7TObjectFPv(void *);
+void __dt__10TORockCaveFv(void *, int);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0) {
     VObj1_80175024 *self = (VObj1_80175024 *)arg0;
@@ -59,17 +37,18 @@ void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0) {
     }
 }
 
+extern M2C_UNK __vt__16TORockCaveSimple[];
+
+void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TORockCaveSimple;
+        __dt__10TORockCaveFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x801750F0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TORockCaveSimple__ct(void *arg0);
-void TORockCave__ct(void *);
 
 extern M2C_UNK __vt__16TORockCaveSimple[];
 extern void *lbl_805D30FC;
@@ -82,5 +61,3 @@ void *TORockCaveSimple__ct(void *arg0) {
 }
 
 }
-#endif
-#endif

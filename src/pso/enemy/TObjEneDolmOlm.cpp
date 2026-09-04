@@ -1,106 +1,10 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void * TObjEneDolmOlm__create(void *arg0);
-void *TObjControl__ct(void *, void *);
-void *TObjEneDolmOlm__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
-extern void *tl_04;
-
-void * TObjEneDolmOlm__create(void *arg0) {
-    void *o;
-    void *o2;
-    o = __nw__7TObjectFUl(0x20);
-    if (o != NULL) {
-        o = TObjControl__ct(o, tl_04);
-    }
-    o2 = __nw__7TObjectFUl(0x3E8);
-    if (o2 != NULL) {
-        o2 = TObjEneDolmOlm__ct(o2, o, arg0);
-    }
-    return o2;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80300CE4
-#include "types.h"
-
-extern "C" {
-
-void reset_count__14TObjEneDolmOlmFv(void);
-
-    extern int lbl_805D69E8;
-void reset_count__14TObjEneDolmOlmFv(void) { lbl_805D69E8 = 0; }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80300CFC
-#include "types.h"
-
-extern "C" {
-
-void TObjEneDolmOlm__sub_80300CFC(void);
-
-void TObjEneDolmOlm__sub_80300CFC(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80300E8C
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void init_body_sub__14TObjEneDolmOlmFPv(void *arg0);
-M2C_UNK TObjEneDolmOlm__sub_80300D00(void *, void *);
-
-void init_body_sub__14TObjEneDolmOlmFPv(void *arg0) {
-    TObjEneDolmOlm__sub_80300D00(arg0, (s8 *)arg0 + 0x38);
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x803012F8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TObjEneDolmOlm__sub_803012F8(void* p);
-void advance_position__14TObjEneDolmOlmFPv(u8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-
-void TObjEneDolmOlm__sub_803012F8(void* p) { *(s16*)((char*)p + 0xb8) = 1; }
-
-extern const f32 TObjEneDolmOlm__data_805DEF6C;
-
-void advance_position__14TObjEneDolmOlmFPv(u8 *arg0) {
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + TObjEneDolmOlm__data_805DEF6C);
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80301690
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct Base_80301690 { char pad[0x18]; };
-struct VObj_80301690 : Base_80301690 {
+struct Base_80301690_80300CE4 { char pad[0x18]; };
+struct VObj_80301690_80300CE4 : Base_80301690_80300CE4 {
 #define V(n) virtual void m##n();
     V(0)V(1)V(2)V(3)V(4)V(5)V(6)V(7)V(8)V(9)
     V(10)V(11)V(12)V(13)V(14)V(15)V(16)V(17)V(18)V(19)
@@ -118,10 +22,57 @@ struct VObj_80301690 : Base_80301690 {
 
 extern "C" {
 
+void * TObjEneDolmOlm__create(void *arg0);
+int TObjEneDolmOlm__sub_80300CF0(void);
+void TObjEneDolmOlm__sub_80300CFC(void);
+void TObjEneDolmOlm__sub_803012F8(void* p);
+void advance_position__14TObjEneDolmOlmFPv(u8 *arg0);
+void check_scale_trigger__14TObjEneDolmOlmFPv(void *arg0);
+void free_shared_resources__14TObjEneDolmOlmFv(void);
+void init_body_sub__14TObjEneDolmOlmFPv(void *arg0);
+s32 render_model_if_visible__14TObjEneDolmOlmFPv(u8 *arg0);
+void reset_count__14TObjEneDolmOlmFv(void);
 void update_state__14TObjEneDolmOlmFPv(void *arg0);
-
+void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+void *TObjControl__ct(void *, void *);
+void *TObjEneDolmOlm__ct(void *, void *, void *);
+M2C_UNK TObjEneDolmOlm__sub_80300D00(void *, void *);
+s32 TObjEneRecon__sub_8029E960(void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void __dt__11TBoss4Type3FPvs(void*, int);
+void *__nw__7TObjectFUl(int);
+f32 calc_boss4_scale__10TObjPlayerFi();
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+void free__11TOBoss4RockFUi(void*);
+s32 get_mode__11TCameraCtrlFPv(void *);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
+M2C_UNK restore_render_scissor(int);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+
+    extern int lbl_805D69E8;
+void reset_count__14TObjEneDolmOlmFv(void) { lbl_805D69E8 = 0; }
+
+int TObjEneDolmOlm__sub_80300CF0(void) { return 0; }
+
+void TObjEneDolmOlm__sub_80300CFC(void) {  }
+
+void init_body_sub__14TObjEneDolmOlmFPv(void *arg0) {
+    TObjEneDolmOlm__sub_80300D00(arg0, (s8 *)arg0 + 0x38);
+}
+
+void TObjEneDolmOlm__sub_803012F8(void* p) { *(s16*)((char*)p + 0xb8) = 1; }
+
+extern const f32 TObjEneDolmOlm__data_805DEF6C;
+
+void advance_position__14TObjEneDolmOlmFPv(u8 *arg0) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + TObjEneDolmOlm__data_805DEF6C);
+}
 
 void update_state__14TObjEneDolmOlmFPv(void *arg0) {
     s16 temp_r0;
@@ -152,26 +103,12 @@ void update_state__14TObjEneDolmOlmFPv(void *arg0) {
             M2C_FIELD(arg0, s16 *, 0x326) = 1;
         }
         M2C_FIELD(arg0, s16 *, 0x328) = 0;
-        ((VObj_80301690 *) arg0)->m100();
+        ((VObj_80301690_80300CE4 *) arg0)->m100();
         obj_setFlags30(arg0, 0x04040000);
         set_indexed_flags(arg0, 0, 0x0A000000);
         break;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80301FBC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void check_scale_trigger__14TObjEneDolmOlmFPv(void *arg0);
-f32 calc_boss4_scale__10TObjPlayerFi();
 
 void check_scale_trigger__14TObjEneDolmOlmFPv(void *arg0) {
     if (calc_boss4_scale__10TObjPlayerFi() < M2C_FIELD(arg0, f32 *, 0x3CC)) {
@@ -179,28 +116,6 @@ void check_scale_trigger__14TObjEneDolmOlmFPv(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0x328) = 0;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80302120
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 render_model_if_visible__14TObjEneDolmOlmFPv(u8 *arg0);
-s32 get_mode__11TCameraCtrlFPv(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-s32 TObjEneRecon__sub_8029E960(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TObjPlayer__sub_803D9214(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-M2C_UNK restore_render_scissor(int);
 
 extern M2C_UNK main_task[];
 
@@ -220,21 +135,21 @@ s32 render_model_if_visible__14TObjEneDolmOlmFPv(u8 *arg0) {
     return 0;
 }
 
+extern void *tl_04;
+
+void * TObjEneDolmOlm__create(void *arg0) {
+    void *o;
+    void *o2;
+    o = __nw__7TObjectFUl(0x20);
+    if (o != NULL) {
+        o = TObjControl__ct(o, tl_04);
+    }
+    o2 = __nw__7TObjectFUl(0x3E8);
+    if (o2 != NULL) {
+        o2 = TObjEneDolmOlm__ct(o2, o, arg0);
+    }
+    return o2;
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x803026B4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void free_shared_resources__14TObjEneDolmOlmFv(void);
-void __dt__11TBoss4Type3FPvs(void*, int);
-void free__11TOBoss4RockFUi(void*);
-void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 lbl_805D6A00;
 extern u32 lbl_805D6A04;
@@ -276,5 +191,3 @@ void free_shared_resources__14TObjEneDolmOlmFv(void) {
 }
 
 }
-#endif
-#endif

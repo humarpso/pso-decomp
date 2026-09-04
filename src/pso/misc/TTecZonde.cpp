@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__9TTecZondeFv(void);
-
-void render__9TTecZondeFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8023C740
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -17,6 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *__dt__9TTecZondeFv(void *arg0, s16 arg1);
+void render__9TTecZondeFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, int);
 
@@ -33,6 +22,6 @@ void *__dt__9TTecZondeFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+void render__9TTecZondeFv(void) {  }
+
 }
-#endif
-#endif

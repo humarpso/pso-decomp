@@ -1,17 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__11TPhotonLineFv(void);
-int begin_effect_render__13TParticleCtrlFv(void);
-int end_effect_render__13TParticleCtrlFv(void);
-
-void render__11TPhotonLineFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x801ACCAC
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -21,10 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *__dt__11TPhotonLineFv(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+void render__11TPhotonLineFv(void);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK __dl__7TObjectFPv(void *);
+int begin_effect_render__13TParticleCtrlFv(void);
+M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
+int end_effect_render__13TParticleCtrlFv(void);
+
+void render__11TPhotonLineFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
 
 extern M2C_UNK __vt__11TPhotonLine[];
 
@@ -42,5 +33,3 @@ void *__dt__11TPhotonLineFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

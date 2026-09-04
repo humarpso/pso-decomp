@@ -1,2 +1,22 @@
-#define PSO_CLASS_PACKAGE 0x8015C944
-#include "pso/misc/TLobby.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TOCtrlDubchik__sub_8015C9D0(void);
+void byteswap_event_packet__6TLobbyFi(s32 arg0);
+void init_packet_67_04__6TLobbyFPv(void* p);
+void TObjPlayer__sub_8015C940(void);
+s32 bswap_32__FPUl(s32);
+s32 read_be16_field2__10TObjPlayerFPv();
+
+void byteswap_event_packet__6TLobbyFi(s32 arg0) {
+    read_be16_field2__10TObjPlayerFPv();
+    bswap_32__FPUl(arg0 + 4);
+    bswap_32__FPUl(arg0 + 8);
+    bswap_32__FPUl(arg0 + 0xC);
+}
+void init_packet_67_04__6TLobbyFPv(void* p) { *(u8*)((char*)p + 0x0) = 103; *(u8*)((char*)p + 0x1) = 4; }
+
+void TOCtrlDubchik__sub_8015C9D0(void) {  }
+
+}

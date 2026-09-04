@@ -1,2 +1,53 @@
-#define PSO_CLASS_PACKAGE 0x80190E64
-#include "pso/misc/TNpcPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TLobby__sub_80190FD0(int a0);
+void TLobby__sub_80190FD8(void);
+u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1);
+void queue_destruction_if_dead__10TNpcPlayerFPv(void* p);
+s32 TNpcPlayer__sub_80152674(s32);
+M2C_UNK TObjPlayer__sub_801B1FA4(u16, void *, s32);
+u8 *TObjPlayer__sub_801BDEF8(u16, M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_801CA0B4();
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+M2C_UNK fn_8019127C(void *);
+int queue_destruction__7TObjectFv(void*);
+
+void queue_destruction_if_dead__10TNpcPlayerFPv(void* p) { if (*(int*)((char*)p + 0x2c) == 1) { queue_destruction__7TObjectFv(p); } }
+
+extern M2C_UNK lbl_804B7C04[];
+
+u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
+    u8 *temp_r3;
+
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B7C04;
+        temp_r3 = TObjPlayer__sub_801BDEF8(M2C_FIELD(arg0, u16 *, 0x30), 6, TNpcPlayer__sub_80152674(M2C_FIELD(arg0, s32 *, 0x34)));
+        if (temp_r3 != NULL) {
+            M2C_FIELD(temp_r3, s16 *, 0x324) = 6;
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 1) {
+                TObjPlayer__sub_801CA0B4();
+                fn_8019127C(temp_r3);
+            }
+            TObjPlayer__sub_801B1FA4(M2C_FIELD(arg0, u16 *, 0x30), arg0 + 0x1C, M2C_FIELD(arg0, s32 *, 0x28));
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+    extern int lbl_805D3360;
+void TLobby__sub_80190FD0(int a0) { lbl_805D3360 = a0; }
+
+void TLobby__sub_80190FD8(void) {  }
+
+}

@@ -1,2 +1,80 @@
-#define PSO_CLASS_PACKAGE 0x8024D960
-#include "pso/misc/TWindowCtrl.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TWindowCtrl__sub_8024DAAC(void *arg0);
+int TWindowCtrl__sub_8024DE60(void*);
+int TWindowCtrl__sub_8024DF5C(void*);
+int TWindowCtrl__sub_8024DFF4(void*);
+int fn_8024E0F0(void*);
+s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
+void run_all_updates__11TWindowCtrlFPv(void* p);
+void show_active_window__11TWindowCtrlFPv(void *arg0);
+int TWindowCtrlMain__sub_8024D7C0(void*);
+int TWindowCtrlMain__sub_8024D838(void);
+void TWindowCtrlMain__sub_8024D85C(void* p);
+void TWindowCtrlMain__sub_8024D8A8(void* p);
+int TWindowCtrl__sub_8024DAC4(void*);
+int TWindowCtrl__sub_8024DCE8(void*);
+s32 TWindowMainMenu__sub_8024E3D4(void *);
+s32 TWindowMainMenu__sub_8024E3E0(void *);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
+int fn_802437C4(void*);
+void free_member__15TWindowCtrlMainFPv(void* p);
+s32 is_visible__11TWindowCtrlFPv();
+int open_submenu__15TWindowSubEquipFii(void*);
+void render__17TWindowCtrlPlayerFv(void);
+void run_task__17TWindowCtrlPlayerFv(void* p);
+int send_and_handle__6TLobbyFPvii(void*);
+M2C_UNK set_position__11TWindowCtrlFPvPv(u32, s32);
+int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
+void update_child_2c__15TWindowCtrlMainFPv(void* p);
+void update_field28__15TWindowCtrlMainFPv(void* p);
+M2C_UNK window_request_show(u32);
+
+s32 get_active_menu__11TWindowCtrlFPv(void *arg0) {
+    void *p = M2C_FIELD(arg0, void **, 0x28);
+    if (p == 0) {
+        return 0;
+    }
+    return TWindowMainMenu__sub_8024E3E0(p);
+}
+
+void TWindowCtrl__sub_8024DAAC(void *arg0) {
+    s32 temp_r4;
+
+    temp_r4 = M2C_FIELD(arg0, s16 *, 0x20);
+    if (temp_r4 > 0) {
+        M2C_FIELD(arg0, s16 *, 0x20) = (s16) (temp_r4 - 1);
+    }
+}
+
+void show_active_window__11TWindowCtrlFPv(void *arg0) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
+        if (is_visible__11TWindowCtrlFPv() != 0) {
+            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x2C));
+            return;
+        }
+        window_request_show(M2C_FIELD(arg0, u32 *, 0x2C));
+        if (get_active_menu__11TWindowCtrlFPv((void *)(arg0)) != 0) {
+            set_position__11TWindowCtrlFPvPv(M2C_FIELD(arg0, u32 *, 0x2C), TWindowSubComCard__sub_8026CBB8(0x21));
+            return;
+        }
+        set_position__11TWindowCtrlFPvPv(M2C_FIELD(arg0, u32 *, 0x2C), TWindowSubComCard__sub_8026CBB8(0x20));
+    }
+}
+
+int TWindowCtrl__sub_8024DE60(void*) { return 0; }
+int TWindowCtrl__sub_8024DF5C(void*) { return 0; }
+int TWindowCtrl__sub_8024DFF4(void*) { return 0; }
+
+void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4((void*)(p)); TWindowCtrl__sub_8024DF5C((void*)(p)); TWindowCtrl__sub_8024DE60((void*)(p)); TWindowCtrl__sub_8024DCE8(p); show_active_window__11TWindowCtrlFPv((void *)(p)); TWindowCtrl__sub_8024DAC4(p); TWindowCtrl__sub_8024DAAC((void *)(p)); }
+
+int fn_8024E0F0(void*) { return 0; }
+
+}

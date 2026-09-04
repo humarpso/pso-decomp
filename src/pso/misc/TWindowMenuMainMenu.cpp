@@ -1,30 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
-
-extern M2C_UNK __vt__19TWindowMenuMainMenu[];
-
-void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowMenuMainMenu;
-        destroy_window_base__9TWindowDDFPvs(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x802AE77C
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -33,12 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
-M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
-M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK TWindowMainMenu__sub_802AD7F0(void *);
 M2C_UNK TWindowMainMenu__sub_802AE380(void *);
 M2C_UNK TWindowMainMenu__sub_802AE59C(void *);
+void __dl__7TObjectFPv(void *);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
+M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
+M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     s32 var_r31;
@@ -67,6 +43,17 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     }
 }
 
+extern M2C_UNK __vt__19TWindowMenuMainMenu[];
+
+void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowMenuMainMenu;
+        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
-#endif
-#endif
+
+}

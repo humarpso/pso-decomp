@@ -1,101 +1,10 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TBoss2Joint__vt42(void);
-void TBoss2Joint__vt43(void);
-void TBoss2Joint__vt44(void);
-void TBoss2Joint__vt45(void);
-void TBoss2Joint__vt46(void);
-void TBoss2Joint__vt47(void);
-void TBoss2Joint__vt48(void);
-
-void TBoss2Joint__vt42(void) {  }
-void TBoss2Joint__vt43(void) {  }
-void TBoss2Joint__vt44(void) {  }
-void TBoss2Joint__vt45(void) {  }
-void TBoss2Joint__vt46(void) {  }
-void TBoss2Joint__vt47(void) {  }
-void TBoss2Joint__vt48(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8003691C
-#include "types.h"
-
-extern "C" {
-
-int call_36A90_with_1__11TBoss2JointFPv(void* p);
-int TBoss2Joint__sub_80036A90(void*, int);
-
-int call_36A90_with_1__11TBoss2JointFPv(void* p) { return TBoss2Joint__sub_80036A90(p, 1); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80036B70
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TBoss2Joint__vt91(void *arg0);
-
-M2C_UNK TObjEneDD__vt91(void *);
-M2C_UNK TObjEneDD__vt90(void *);
-
-void TBoss2Joint__vt91(void *arg0) {
-    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 6) {
-        TObjEneDD__vt90(arg0);
-        return;
-    }
-    TObjEneDD__vt91(arg0);
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80036C4C
-#include "types.h"
-
-extern "C" {
-
-void update_position_history__11TBoss2JointFi(s32 arg0);
-void TBoss2Joint__vt59(void);
-s32 VecCopy__FP3VecPC3Vec(s32, s32);
-
-void update_position_history__11TBoss2JointFi(s32 arg0) {
-    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
-}
-void TBoss2Joint__vt59(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80036C90
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TBoss2Joint__vt60(u8 *arg0);
-M2C_UNK TBoss2Joint__sub_80036A90(void *, s32);
-M2C_UNK TBoss2DeRolLe__sub_800339BC(void *, f32, f32);
-M2C_UNK TBoss2DeRolLe__sub_80034134(s32, s32, u16);
-M2C_UNK TBoss8Dragon__sub_800BB780(void *);
-
-extern const f32 lbl_805D8484;
-extern const f32 lbl_805D8488;
-
-}
-
-struct TBJ { char pad[0x18]; };
-struct VTbj : TBJ {
+struct TBJ_8003688C { char pad[0x18]; };
+struct VTbj_8003688C : TBJ_8003688C {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
     virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
     virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
@@ -122,17 +31,65 @@ struct VTbj : TBJ {
 
 extern "C" {
 
+int TBoss2Joint__sub_8003688C(void);
+void TBoss2Joint__vt26(void);
+void TBoss2Joint__vt42(void);
+void TBoss2Joint__vt43(void);
+void TBoss2Joint__vt44(void);
+void TBoss2Joint__vt45(void);
+void TBoss2Joint__vt46(void);
+void TBoss2Joint__vt47(void);
+void TBoss2Joint__vt48(void);
+void TBoss2Joint__vt59(void);
+void TBoss2Joint__vt60(u8 *arg0);
+void TBoss2Joint__vt61(void* p);
+void TBoss2Joint__vt91(void *arg0);
+void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
+int call_36A90_with_1__11TBoss2JointFPv(void* p);
+void update_position_history__11TBoss2JointFi(s32 arg0);
+M2C_UNK TBoss2DeRolLe__sub_800339BC(void *, f32, f32);
+M2C_UNK TBoss2DeRolLe__sub_80034134(s32, s32, u16);
+int TBoss2Joint__sub_80036A90(void*, int);
+M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+void TObjEneDD__vt0(void *, int);
+M2C_UNK TObjEneDD__vt90(void *);
+M2C_UNK TObjEneDD__vt91(void *);
+void TObjEneGibbles__sub_80156720(void *);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+void __dl__7TObjectFPv(void *);
+
+int TBoss2Joint__sub_8003688C(void) { return 0; }
+
+int call_36A90_with_1__11TBoss2JointFPv(void* p) { return TBoss2Joint__sub_80036A90((void*)(p), (int)(1)); }
+
+void TBoss2Joint__vt91(void *arg0) {
+    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 6) {
+        TObjEneDD__vt90(arg0);
+        return;
+    }
+    TObjEneDD__vt91(arg0);
+}
+
+void update_position_history__11TBoss2JointFi(s32 arg0) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+}
+void TBoss2Joint__vt59(void) {  }
+
+extern const f32 lbl_805D8484;
+extern const f32 lbl_805D8488;
+
 void TBoss2Joint__vt60(u8 *arg0) {
     s32 temp_r31;
-    struct TBJ *self = (struct TBJ *)arg0;
+    struct TBJ_8003688C *self = (struct TBJ_8003688C *)arg0;
 
     temp_r31 = M2C_FIELD(self, s16 *, 0x2B8) - M2C_FIELD(self, s16 *, 0x32C);
     if (!(M2C_FIELD(self, s32 *, 0x38C) & 1)) {
-        TBoss2Joint__sub_80036A90(self, 0);
+        TBoss2Joint__sub_80036A90((void*)(self), (int)(0));
         M2C_FIELD(self, s32 *, 0x394) = (s32) (M2C_FIELD(self, s32 *, 0x394) - temp_r31);
         if ((s32) M2C_FIELD(self, s32 *, 0x394) <= 0) {
             M2C_FIELD(self, s32 *, 0x394) = 0;
-            ((VTbj *)self)->m102();
+            ((VTbj_8003688C *)self)->m102();
         }
     } else {
         TBoss2DeRolLe__sub_800339BC(arg0 + 0x38, lbl_805D8484, lbl_805D8488);
@@ -142,32 +99,8 @@ void TBoss2Joint__vt60(u8 *arg0) {
     TBoss8Dragon__sub_800BB780(arg0);
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80036D40
-#include "types.h"
-
-extern "C" {
-
-void TBoss2Joint__vt26(void);
-void TBoss2Joint__vt61(void* p);
-
 void TBoss2Joint__vt61(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffff7ff; }
 void TBoss2Joint__vt26(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80036E48
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
-void TObjEneDD__vt0(void *, int);
-void __dl__7TObjectFPv(void *);
-void TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK __vt__11TBoss2Joint[];
 
@@ -183,6 +116,12 @@ void *__dt__11TBoss2JointFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+void TBoss2Joint__vt42(void) {  }
+void TBoss2Joint__vt43(void) {  }
+void TBoss2Joint__vt44(void) {  }
+void TBoss2Joint__vt45(void) {  }
+void TBoss2Joint__vt46(void) {  }
+void TBoss2Joint__vt47(void) {  }
+void TBoss2Joint__vt48(void) {  }
+
 }
-#endif
-#endif

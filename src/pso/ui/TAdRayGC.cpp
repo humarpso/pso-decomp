@@ -1,3 +1,7 @@
+#include "pso/TAdRayGC.h"
+
+TAdRayGC::~TAdRayGC() {}
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -6,12 +10,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void run_task__8TAdRayGCFv(void *arg0);
+void *__ct__8TAdRayGCFv(void *arg0);
 void render__8TAdRayGCFv(void *arg0);
-
-s32 get_state_flag__9TMainTaskFv();
+void run_task__8TAdRayGCFv(void *arg0);
 M2C_UNK TAdRayGC__sub_8029BCB4(void *, s32, M2C_UNK, M2C_UNK);
+void __ct__7TObjectFP7TObject(void *);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
+s32 get_state_flag__9TMainTaskFv();
+M2C_UNK queue_destruction__7TObjectFv();
 
 void render__8TAdRayGCFv(void *arg0) {
     s32 temp_r0;
@@ -37,8 +43,6 @@ void render__8TAdRayGCFv(void *arg0) {
     }
 }
 
-M2C_UNK queue_destruction__7TObjectFv();
-
 void run_task__8TAdRayGCFv(void *arg0) {
     s32 temp_r0;
 
@@ -63,6 +67,18 @@ void run_task__8TAdRayGCFv(void *arg0) {
         }
         break;
     }
+}
+
+extern M2C_UNK __vt__8TAdRayGC[];
+extern void *lbl_805D3D30;
+
+void *__ct__8TAdRayGCFv(void *arg0) {
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TAdRayGC;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3D30;
+    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, u32 *, 0x20) = -1;
+    return arg0;
 }
 
 }

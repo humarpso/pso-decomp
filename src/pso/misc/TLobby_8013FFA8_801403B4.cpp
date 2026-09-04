@@ -1,0 +1,56 @@
+#include "types.h"
+
+extern "C" {
+
+void TLobby__sub_801403B4(void);
+void TLobby__sub_801403B8(void);
+s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void);
+void reset_subsystems__6TLobbyFv(void);
+s32 init_lobby_scene__6TLobbyFv(void);
+s32 TBoss3VoloptCtrl__ct();
+s32 create_tasks__6TLobbyFv();
+int TLobby__sub_8007BA20(void);
+s32 check_disconnect_conditions__6TLobbyFv();
+int update_current_floor__6TLobbyFv(void);
+int TLobby__sub_80227248(void);
+int TLobby__sub_8022743C(void);
+int refresh_render_state__6TLobbyFv(void);
+s32 TLobby__sub_80227FB4();
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 TObjLight__sub_80133D78();
+int free_heap__13TParticleCtrlFv(void);
+s32 init_heap__13TParticleCtrlFPv(s32);
+u32 __nw__7TObjectFUl(s32);
+int reset_keyboard_control__6TLobbyFv(void);
+s32 create__16TBoss4CheckEmptyFv();
+
+void TLobby__sub_801403B4(void) {  }
+void TLobby__sub_801403B8(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); TLobby__sub_80227248(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
+    get_global_state__14TOKeyMachine01Fv();
+    TLobby__sub_80227FB4();
+    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+        return 0;
+    }
+    TObjLight__sub_80133D78();
+    create_tasks__6TLobbyFv();
+    if (__nw__7TObjectFUl(0x24) != 0U) {
+        TBoss3VoloptCtrl__ct();
+    }
+    return 1;
+}
+void reset_subsystems__6TLobbyFv(void) { free_heap__13TParticleCtrlFv(); refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); TLobby__sub_80227248(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+s32 init_lobby_scene__6TLobbyFv(void) {
+    get_global_state__14TOKeyMachine01Fv();
+    TLobby__sub_80227FB4();
+    if (check_disconnect_conditions__6TLobbyFv() != 0) {
+        return 0;
+    }
+    TObjLight__sub_80133D78();
+    create_tasks__6TLobbyFv();
+    init_heap__13TParticleCtrlFPv(0x10000);
+    create__16TBoss4CheckEmptyFv();
+    return 1;
+}
+
+}

@@ -1,45 +1,9 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-int TAdSnAkPassConfirmGC__vt4(void* p);
-int TAdSnAkPassConfirmGC__vt5(void* p);
-void TAdSnAkPassConfirmGC__vt6(void* p);
-void TAdSnAkPassConfirmGC__vt7(void* p);
-void TAdSnAkPassConfirmGC__vt8(void);
-
-int TWindow__close(void*);
-int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
-int set_state_0x1a__21TAdMultiChgGameModeGCFv(void*);
-int request_transition__21TAdMultiChgGameModeGCFv(void*);
-
-void TAdSnAkPassConfirmGC__vt8(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)39, (void*)0); }
-void TAdSnAkPassConfirmGC__vt7(void* p) { if (*(unsigned int*)((char*)p + 0x48) != 0) { TWindow__close(*(void**)((char*)p + 0x48)); *(int*)((char*)p + 0x48) = 0; } }
-void TAdSnAkPassConfirmGC__vt6(void* p) { if (*(unsigned int*)((char*)p + 0x48) != 0) { TWindow__close(*(void**)((char*)p + 0x48)); *(int*)((char*)p + 0x48) = 0; } }
-int TAdSnAkPassConfirmGC__vt5(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
-int TAdSnAkPassConfirmGC__vt4(void* p) { return set_state_0x1a__21TAdMultiChgGameModeGCFv(p); }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8032BE48
-#include "types.h"
-
-extern "C" {
-
-s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(void* p);
-
-s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(void* p) { return *(s32*)((char*)p + 0x1c); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8032BE50
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-struct Base_8032BE50 { char pad[0x18]; };
-struct VObj_8032BE50 : Base_8032BE50 {
+struct Base_8032BE50_8032BE48 { char pad[0x18]; };
+struct VObj_8032BE50_8032BE48 : Base_8032BE50_8032BE48 {
     virtual void m0();
     virtual void m1();
     virtual void m2();
@@ -52,25 +16,8 @@ struct VObj_8032BE50 : Base_8032BE50 {
     virtual void m9();
     virtual void m10();
 };
-
-extern "C" {
-
-void render__20TAdSnAkPassConfirmGCFv(void *arg0);
-
-void render__20TAdSnAkPassConfirmGCFv(void *arg0) {
-    struct VObj_8032BE50 *o = (struct VObj_8032BE50 *)arg0;
-    o->m10();
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8032BF64
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-struct Base_8032BF64 { char pad[0x18]; };
-struct VObj_8032BF64 : Base_8032BF64 {
+struct Base_8032BF64_8032BE48 { char pad[0x18]; };
+struct VObj_8032BF64_8032BE48 : Base_8032BF64_8032BE48 {
     virtual void m0();
     virtual void m1();
     virtual void m2();
@@ -85,14 +32,38 @@ struct VObj_8032BF64 : Base_8032BF64 {
 
 extern "C" {
 
+int TAdSnAkPassConfirmGC__vt4(void* p);
+int TAdSnAkPassConfirmGC__vt5(void* p);
+void TAdSnAkPassConfirmGC__vt6(void* p);
+void TAdSnAkPassConfirmGC__vt7(void* p);
+void TAdSnAkPassConfirmGC__vt8(void);
 void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1);
+s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(void* p);
+void render__20TAdSnAkPassConfirmGCFv(void *arg0);
 void run_task__20TAdSnAkPassConfirmGCFv(void *arg0);
+int TAdSinglePlyChrSelectGC__sub_80132F2C(void*, void*);
 void TAdYesNoBaseGC__vt0(void *, int);
+int TWindow__close(void*);
 void __dl__7TObjectFPv(void *);
 void queue_destruction__7TObjectFv(void *);
+int request_transition__21TAdMultiChgGameModeGCFv(void*);
+int set_state_0x1a__21TAdMultiChgGameModeGCFv(void*);
+
+s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(void* p) { return *(s32*)((char*)p + 0x1c); }
+
+void render__20TAdSnAkPassConfirmGCFv(void *arg0) {
+    struct VObj_8032BE50_8032BE48 *o = (struct VObj_8032BE50_8032BE48 *)arg0;
+    o->m10();
+}
+
+void TAdSnAkPassConfirmGC__vt8(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)39, (void*)0); }
+void TAdSnAkPassConfirmGC__vt7(void* p) { if (*(unsigned int*)((char*)p + 0x48) != 0) { TWindow__close(*(void**)((char*)p + 0x48)); *(int*)((char*)p + 0x48) = 0; } }
+void TAdSnAkPassConfirmGC__vt6(void* p) { if (*(unsigned int*)((char*)p + 0x48) != 0) { TWindow__close(*(void**)((char*)p + 0x48)); *(int*)((char*)p + 0x48) = 0; } }
+int TAdSnAkPassConfirmGC__vt5(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
+int TAdSnAkPassConfirmGC__vt4(void* p) { return set_state_0x1a__21TAdMultiChgGameModeGCFv(p); }
 
 void run_task__20TAdSnAkPassConfirmGCFv(void *arg0) {
-    struct VObj_8032BF64 *o = (struct VObj_8032BF64 *)arg0;
+    struct VObj_8032BF64_8032BE48 *o = (struct VObj_8032BF64_8032BE48 *)arg0;
     o->m9();
 }
 
@@ -111,5 +82,3 @@ void *__dt__20TAdSnAkPassConfirmGCFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

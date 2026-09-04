@@ -1,36 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
-
-extern M2C_UNK __vt__23TOContainerAncientEnemy[];
-
-void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TOContainerAncientEnemy;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
-        destroy_container_object__10TObjPlayerFPvs(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8015B8E8
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -120,7 +87,12 @@ struct VObj_8015B8E8 : Base_8015B8E8 {
 
 extern "C" {
 
+void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 
@@ -135,6 +107,19 @@ void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s
     }
 }
 
+extern M2C_UNK __vt__23TOContainerAncientEnemy[];
+
+void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TOContainerAncientEnemy;
+        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
+        TObjEneGibbles__sub_80156720(arg0);
+        destroy_container_object__10TObjPlayerFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
-#endif
-#endif
+
+}

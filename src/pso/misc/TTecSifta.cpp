@@ -1,28 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__9TTecSiftaFv(void);
-
-void render__9TTecSiftaFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8023AC88
-#include "types.h"
-
-extern "C" {
-
-void TObjPlayer__sub_8023AC84(void);
-int TTecSifta__sub_8023AC88(void* p);
-int fn_80236EE8(void*);
-
-int TTecSifta__sub_8023AC88(void* p) { return fn_80236EE8(p); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8023AD68
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -31,9 +6,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+int TTecSifta__sub_8023AC88(void* p);
+int TTecSifta__sub_8023ACA8(void);
+void *__dt__9TTecSiftaFv(void *arg0, s16 arg1);
+void create__9TTecSiftaFPvPvPv(void *arg0, void *arg1, void *arg2);
+void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void render__9TTecSiftaFv(void);
 void update_effect_params__9TTecSiftaFPv(u8 *arg0);
+void TObjPlayer__sub_8023AC84(void);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
 s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
+void *TTecSifta__ct(void *, void *, void *, void *, void *);
+void *TTecSifta__sub_8023B17C(void *, void *, void *, void *);
+void __dl__7TObjectFPv(void *);
+void __dt__19TTecPlayerInfluenceFv(void *, int);
+void *__nw__7TObjectFUl(int);
+int fn_80236EE8(void*);
+
+int TTecSifta__sub_8023AC88(void* p) { return fn_80236EE8(p); }
+
+int TTecSifta__sub_8023ACA8(void) { return 0; }
 
 extern const f64 lbl_8044DC18;
 
@@ -43,21 +35,6 @@ void update_effect_params__9TTecSiftaFPv(u8 *arg0) {
     TTecAnti__sub_8022B35C(arg0 + 0x74, res);
     M2C_FIELD(arg0, f32 *, 0x74) = (f32) (M2C_FIELD(arg0, s16 *, 0x98) * M2C_FIELD(arg0, s16 *, 0xA4));
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8023ADE4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void create__9TTecSiftaFPvPvPv(void *arg0, void *arg1, void *arg2);
-void *TTecSifta__ct(void *, void *, void *, void *, void *);
-void *TTecSifta__sub_8023B17C(void *, void *, void *, void *);
-void *__nw__7TObjectFUl(int);
 
 void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
@@ -75,19 +52,6 @@ void create__9TTecSiftaFPvPvPv(void *arg0, void *arg1, void *arg2) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8023AF3C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__9TTecSiftaFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__19TTecPlayerInfluenceFv(void *, int);
-
 extern M2C_UNK __vt__9TTecSifta[];
 
 void *__dt__9TTecSiftaFv(void *arg0, s16 arg1) {
@@ -101,6 +65,6 @@ void *__dt__9TTecSiftaFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+void render__9TTecSiftaFv(void) {  }
+
 }
-#endif
-#endif

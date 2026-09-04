@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -6,9 +5,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *__dt__15TDuelEffectCtrlFv(void *arg0, s16 arg1);
+void render__15TDuelEffectCtrlFv(void);
+int run_task__15TDuelEffectCtrlFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
+
+void render__15TDuelEffectCtrlFv(void) {  }
+
+int run_task__15TDuelEffectCtrlFv(void) { return 0; }
 
 extern M2C_UNK __vt__15TDuelEffectCtrl[];
 
@@ -25,16 +30,3 @@ void *__dt__15TDuelEffectCtrlFv(void *arg0, s16 arg1) {
 }
 
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x8007FD30
-#include "types.h"
-
-extern "C" {
-
-void render__15TDuelEffectCtrlFv(void);
-
-void render__15TDuelEffectCtrlFv(void) {  }
-
-}
-#endif
-#endif

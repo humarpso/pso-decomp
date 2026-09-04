@@ -1,0 +1,30 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *__dt__9TTecKafunFv(void *arg0, s16 arg1);
+void render__9TTecKafunFv(void);
+int run_task__9TTecKafunFv(void);
+void __dl__7TObjectFPv(void *);
+void destroy_technique_base__9TTecLukerFPvs(void *, int);
+
+extern M2C_UNK __vt__9TTecKafun[];
+
+void *__dt__9TTecKafunFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TTecKafun;
+        destroy_technique_base__9TTecLukerFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+void render__9TTecKafunFv(void) {  }
+
+int run_task__9TTecKafunFv(void) { return 0; }
+
+}

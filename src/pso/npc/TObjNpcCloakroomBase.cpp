@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,9 +6,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+f32 TObjNpcCloakroomBase__vt21(void);
 void TObjNpcCloakroomBase__vt88(s32 arg0);
-s32 get_global_state__14TOKeyMachine01Fv();
+void * TObjNpcConnoisseur__create(void *arg0);
+void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1);
+void * create__20TObjNpcCloakroomBaseFPv(void *arg0);
+void destroy_static_instance__20TObjNpcCloakroomBaseFv(void);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+void TLobby__sub_8001FE7C(void*, int);
+void *TObjControl__ct(void *, void *);
+void *TObjNpcCloakroomBase__ct(void *, void *, void *);
+void *TObjNpcConnoisseur__ct(void *, void *, void *);
+void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
+void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
+s32 get_global_state__14TOKeyMachine01Fv();
 
 void TObjNpcCloakroomBase__vt88(s32 arg0) {
     if (get_global_state__14TOKeyMachine01Fv() != 5) {
@@ -18,20 +29,6 @@ void TObjNpcCloakroomBase__vt88(s32 arg0) {
     }
     TBoss3Volopt__sub_8022675C(0x40003802, arg0 + 0x38, 0, 0);
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80149698
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void * create__20TObjNpcCloakroomBaseFPv(void *arg0);
-void *TObjControl__ct(void *, void *);
-void *TObjNpcCloakroomBase__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
@@ -49,20 +46,6 @@ void * create__20TObjNpcCloakroomBaseFPv(void *arg0) {
     return o2;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80149700
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void destroy_static_instance__20TObjNpcCloakroomBaseFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
 extern u32 TObjNpcCloakroomBase__data_805D5740;
 
 void destroy_static_instance__20TObjNpcCloakroomBaseFv(void) {
@@ -71,19 +54,6 @@ void destroy_static_instance__20TObjNpcCloakroomBaseFv(void) {
         TObjNpcCloakroomBase__data_805D5740 = 0U;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80149788
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_npc_female_base__17TObjNpcFemaleBaseFPvs(void *, int);
 
 extern M2C_UNK __vt__20TObjNpcCloakroomBase[];
 
@@ -98,25 +68,26 @@ void *__dt__20TObjNpcCloakroomBaseFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80149870
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-f32 TObjNpcCloakroomBase__vt21(void);
-
 extern f32 lbl_805DB1E8;
 
 f32 TObjNpcCloakroomBase__vt21(void) {
     return lbl_805DB1E8;
 }
 
+extern void *tl_04;
+
+void * TObjNpcConnoisseur__create(void *arg0) {
+    void *o;
+    void *o2;
+    o = __nw__7TObjectFUl(0x20);
+    if (o != NULL) {
+        o = TObjControl__ct(o, tl_04);
+    }
+    o2 = __nw__7TObjectFUl(0x3B8);
+    if (o2 != NULL) {
+        o2 = TObjNpcConnoisseur__ct(o2, o, arg0);
+    }
+    return o2;
 }
-#endif
-#endif
+
+}

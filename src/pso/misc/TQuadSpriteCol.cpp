@@ -1,13 +1,17 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
+void *TQuadSpriteCol__ct(void *arg0);
+void TQuadSpriteCol__sub_801E4FEC(void);
 void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_quad_sprite_base(void *, int);
+void quad_sprite_base_ct(void *);
+
+void TQuadSpriteCol__sub_801E4FEC(void) {  }
 
 extern M2C_UNK __vt__14TQuadSpriteCol[];
 
@@ -22,29 +26,6 @@ void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x801E4FEC
-#include "types.h"
-
-extern "C" {
-
-void TQuadSpriteCol__sub_801E4FEC(void);
-
-void TQuadSpriteCol__sub_801E4FEC(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x801E52EC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TQuadSpriteCol__ct(void *arg0);
-void quad_sprite_base_ct(void *);
-
 extern M2C_UNK __vt__14TQuadSpriteCol[];
 extern void *lbl_805D3598;
 
@@ -56,5 +37,3 @@ void *TQuadSpriteCol__ct(void *arg0) {
 }
 
 }
-#endif
-#endif

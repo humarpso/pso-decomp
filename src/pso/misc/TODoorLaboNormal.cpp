@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -9,6 +8,16 @@ extern "C" {
 
 s32 TODoorLaboNormal__vt19(void);
 s32 TODoorLaboNormal__vt20(void);
+void *__dt__16TODoorLaboNormalFv(void *arg0, s16 arg1);
+void init_field_d4__16TODoorLaboNormalFPv(void* a0);
+void TObjEneGibbles__sub_80156720(void *);
+int TObjFish__sub_8001EDC4(void*, void*);
+void TObjPlayer__sub_80154A00(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__19TODoorFourLightBaseFv(void *, int);
+
+    extern int lbl_805D6624;
+void init_field_d4__16TODoorLaboNormalFPv(void* a0) { *(int*)((char*)a0 + 0xd4) = TObjFish__sub_8001EDC4((void*)(lbl_805D6624), (void*)0); }
 
 extern s32 lbl_805D6628;
 
@@ -21,57 +30,6 @@ extern s32 lbl_805D662C;
 s32 TODoorLaboNormal__vt19(void) {
     return lbl_805D662C;
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x801A27F4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TODoorLaboNormal__create(void *arg0);
-void *TODoorLaboNormal__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
-extern void *tl_05;
-
-void *TODoorLaboNormal__create(void *arg0) {
-    void *o = __nw__7TObjectFUl(0xFC);
-    if (o != NULL) {
-        o = TODoorLaboNormal__ct(o, tl_05, arg0);
-    }
-    return o;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8029F730
-#include "types.h"
-
-extern "C" {
-
-void init_field_d4__16TODoorLaboNormalFPv(void* a0);
-int TObjFish__sub_8001EDC4(void*, void*);
-
-    extern int lbl_805D6624;
-void init_field_d4__16TODoorLaboNormalFPv(void* a0) { *(int*)((char*)a0 + 0xd4) = TObjFish__sub_8001EDC4((void*)(lbl_805D6624), (void*)0); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8029F778
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__16TODoorLaboNormalFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__19TODoorFourLightBaseFv(void *, int);
-void TObjPlayer__sub_80154A00(void *);
-void TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK __vt__16TODoorLaboNormal[];
 
@@ -89,5 +47,3 @@ void *__dt__16TODoorLaboNormalFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

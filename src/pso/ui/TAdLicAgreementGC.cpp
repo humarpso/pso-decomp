@@ -1,26 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TAdLicAgreementGC__vt4(void* p);
-int TAdLicAgreementGC__vt5(void* p);
-int TAdLicAgreementGC__vt6(void* p);
-int TAdLicAgreementGC__vt7(void* p);
-
-int close_window__14TAdScrollWinGCFPv(void*);
-int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
-int set_game_mode__21TAdMultiChgGameModeGCFv(void*);
-int set_mode_1c__21TAdMultiChgGameModeGCFv(void*);
-
-int TAdLicAgreementGC__vt7(void* p) { return set_game_mode__21TAdMultiChgGameModeGCFv(p); }
-int TAdLicAgreementGC__vt6(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
-int TAdLicAgreementGC__vt5(void* p) { return set_mode_1c__21TAdMultiChgGameModeGCFv(p); }
-void TAdLicAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { close_window__14TAdScrollWinGCFPv(*(void**)((char*)p + 0x38)); *(int*)((char*)p + 0x38) = 0; } }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80329BB8
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -39,25 +16,8 @@ struct VObj_80329BB8 : Base_80329BB8 {
     virtual void m9();
     virtual void m10();
 };
-
-extern "C" {
-
-void render__17TAdLicAgreementGCFv(void *arg0);
-
-void render__17TAdLicAgreementGCFv(void *arg0) {
-    struct VObj_80329BB8 *o = (struct VObj_80329BB8 *)arg0;
-    o->m10();
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80329C84
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-struct Base_80329C84 { char pad[0x18]; };
-struct VObj_80329C84 : Base_80329C84 {
+struct Base_80329C84_80329BB8 { char pad[0x18]; };
+struct VObj_80329C84_80329BB8 : Base_80329C84_80329BB8 {
     virtual void m0();
     virtual void m1();
     virtual void m2();
@@ -72,13 +32,36 @@ struct VObj_80329C84 : Base_80329C84 {
 
 extern "C" {
 
+void *TAdLicAgreementGC__ct(void *arg0);
+void TAdLicAgreementGC__vt4(void* p);
+int TAdLicAgreementGC__vt5(void* p);
+int TAdLicAgreementGC__vt6(void* p);
+int TAdLicAgreementGC__vt7(void* p);
 void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1);
+void render__17TAdLicAgreementGCFv(void *arg0);
 void run_task__17TAdLicAgreementGCFv(void *arg0);
+void TAdAgreementBaseGC__ct(void *);
+void *TAdScrollWinGC__ct(void *, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__18TAdAgreementBaseGCFv(void *, int);
+void *__nw__7TObjectFUl(int);
+int close_window__14TAdScrollWinGCFPv(void*);
+int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
+int set_game_mode__21TAdMultiChgGameModeGCFv(void*);
+int set_mode_1c__21TAdMultiChgGameModeGCFv(void*);
+
+void render__17TAdLicAgreementGCFv(void *arg0) {
+    struct VObj_80329BB8 *o = (struct VObj_80329BB8 *)arg0;
+    o->m10();
+}
+
+int TAdLicAgreementGC__vt7(void* p) { return set_game_mode__21TAdMultiChgGameModeGCFv(p); }
+int TAdLicAgreementGC__vt6(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
+int TAdLicAgreementGC__vt5(void* p) { return set_mode_1c__21TAdMultiChgGameModeGCFv(p); }
+void TAdLicAgreementGC__vt4(void* p) { if (*(unsigned int*)((char*)p + 0x38) != 0) { close_window__14TAdScrollWinGCFPv(*(void**)((char*)p + 0x38)); *(int*)((char*)p + 0x38) = 0; } }
 
 void run_task__17TAdLicAgreementGCFv(void *arg0) {
-    struct VObj_80329C84 *o = (struct VObj_80329C84 *)arg0;
+    struct VObj_80329C84_80329BB8 *o = (struct VObj_80329C84_80329BB8 *)arg0;
     o->m9();
 }
 
@@ -94,20 +77,6 @@ void *__dt__17TAdLicAgreementGCFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80329D08
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TAdLicAgreementGC__ct(void *arg0);
-void TAdAgreementBaseGC__ct(void *);
-void *TAdScrollWinGC__ct(void *, void *, int, int);
-void *__nw__7TObjectFUl(int);
 
 extern M2C_UNK __vt__17TAdLicAgreementGC[];
 extern void *lbl_805D41C0;
@@ -128,5 +97,3 @@ void *TAdLicAgreementGC__ct(void *arg0) {
 }
 
 }
-#endif
-#endif

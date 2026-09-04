@@ -1,3 +1,7 @@
+#include "pso/TAdGameStartShineGC.h"
+
+TAdGameStartShineGC::~TAdGameStartShineGC() {}
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,10 +11,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__19TAdGameStartShineGCFv(void *arg0);
-
+M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK render_status_box__20TWindowSubStatusDispFPv(void *);
-M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 
 void render__19TAdGameStartShineGCFv(void *arg0) {
     if ((get_state_flag__9TMainTaskFv() != 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x7C) != 0)) {

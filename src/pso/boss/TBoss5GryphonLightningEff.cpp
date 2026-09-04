@@ -1,20 +1,7 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TBoss5GryphonLightningEff.h"
 
 TBoss5GryphonLightningEff::~TBoss5GryphonLightningEff() {}
-#else
-#if PSO_CLASS_PACKAGE == 0x80325064
-#include "types.h"
 
-extern "C" {
-
-void TBoss5GryphonLightningEff__sub_80325064(void* p);
-
-void TBoss5GryphonLightningEff__sub_80325064(void* p) { *(u8*)((char*)p + 0x260) = 1; }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8032514C
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -23,18 +10,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TBoss5GryphonLightningEff__sub_80325064(void* p);
 void render__25TBoss5GryphonLightningEffFv(void *arg0);
 s32 TBoss5GryphonLightningEff__sub_80325070(void *, void *);
-M2C_UNK fn_80141A30();
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, M2C_UNK);
+M2C_UNK TObjPlayer__sub_803DED84(void *);
 M2C_UNK TTecZondeEff__sub_8023CED4(void *, void *, void *, void *, void *);
 M2C_UNK TTecZondeEff__sub_8023D128(void *, void *, void *, void *);
-M2C_UNK TObjPlayer__sub_803DED84(void *);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, M2C_UNK);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK fn_80141A30();
+M2C_UNK init_xyz_limits__10TObjPlayerFv();
+M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_depth_buffer_settings_1__Fv();
+
+void TBoss5GryphonLightningEff__sub_80325064(void* p) { *(u8*)((char*)p + 0x260) = 1; }
 
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -68,5 +58,3 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
 }
 
 }
-#endif
-#endif

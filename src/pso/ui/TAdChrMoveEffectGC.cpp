@@ -1,19 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__18TAdChrMoveEffectGCFv(void* p);
-
-int abs__4cXyzCFv(void*, void*);
-int get_state_flag__9TMainTaskFv(void*);
-int fn_80348E34(void*);
-
-void render__18TAdChrMoveEffectGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); fn_80348E34(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x803494F8
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -22,9 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TAdChrMoveEffectGC__ct(void *arg0);
 void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1);
+void render__18TAdChrMoveEffectGCFv(void* p);
+void __ct__7TObjectFP7TObject(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+int abs__4cXyzCFv(void*, void*);
+int fn_80348E34(void*);
+int get_state_flag__9TMainTaskFv(void*);
+
+void render__18TAdChrMoveEffectGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); fn_80348E34(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
 
 extern M2C_UNK __vt__18TAdChrMoveEffectGC[];
 extern u32 lbl_805D6E78;
@@ -43,18 +35,6 @@ void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80349568
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TAdChrMoveEffectGC__ct(void *arg0);
-void __ct__7TObjectFP7TObject(void *);
-
 extern M2C_UNK __vt__18TAdChrMoveEffectGC[];
 extern void *lbl_805D42F0;
 
@@ -67,5 +47,3 @@ void *TAdChrMoveEffectGC__ct(void *arg0) {
 }
 
 }
-#endif
-#endif

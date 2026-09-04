@@ -1,2 +1,82 @@
-#define PSO_CLASS_PACKAGE 0x801519FC
-#include "pso/misc/TNpcPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+int TNpcPlayer__sub_801528A8(void);
+int TNpcPlayer__sub_801528B8(void);
+int TNpcPlayer__sub_801528C8(void);
+s32 TNpcPlayer__sub_801528DC(void* p);
+void copy__10TNpcPlayerFPvPv(void* p, void* q);
+void ensure_rock_singleton__10TNpcPlayerFv(void);
+s32 get_npc_state__10TNpcPlayerFPv(void* p);
+u16 get_npc_type__10TNpcPlayerFPv(void* p);
+s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0);
+M2C_UNK TNpcPlayer__sub_8014E090(void *, int);
+s32 TNpcPlayer__sub_8014FF5C(void *);
+s32 TNpcPlayer__sub_801500F4();
+M2C_UNK TNpcPlayer__sub_801501A0(void *);
+s32 TNpcPlayer__sub_80152978(void* p);
+void TNpcPlayer__sub_80152A30(void);
+int TNpcPlayer__sub_80152A78(void* a0 = 0);
+int TNpcPlayer__sub_80152ACC(void*);
+int TNpcPlayer__sub_80152B5C(void*);
+int TNpcPlayer__sub_80152BEC(void*);
+void TNpcPlayer__sub_80152D64(void* p);
+int TObjPlayer__sub_80102CE0(void*);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
+void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
+s32 get_action_state__10TNpcPlayerFPv(void* p);
+s32 get_condition__10TNpcPlayerFPv(void* p);
+void* init__10TNpcPlayerFPv(void* p);
+void init_model__10TNpcPlayerFPv(void* p);
+int read_be16_field2__10TObjPlayerFPv(void*);
+void reset_fields_8c__10TNpcPlayerFPv(void* p);
+void reset_model__10TNpcPlayerFPv(void* p);
+void update__10TNpcPlayerFPv(void* p);
+void update_lobby__10TNpcPlayerFPv(void* p);
+void update_players__10TNpcPlayerFPv(void* p);
+int update_players__6TLobbyFi(void*);
+
+s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0) {
+    if (TNpcPlayer__sub_801500F4() != 0) {
+        TNpcPlayer__sub_801501A0((void *) (arg0));
+        if (TNpcPlayer__sub_8014FF5C((void *) (arg0)) != 0) {
+            VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xAC), (void *) (arg0 + 0xD0));
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 2U) {
+                TNpcPlayer__sub_8014E090((void *) (arg0), (int) (1));
+            }
+        } else {
+            VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xAC), (void *) (M2C_FIELD(M2C_FIELD(arg0, void **, 0x78), s32 *, 0x94) + 0x38));
+        }
+        return 1;
+    }
+    if ((M2C_FIELD(arg0, s32 *, 0x80) & 0x20) && ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 8U)) {
+        TNpcPlayer__sub_8014E090((void *) (arg0), (int) (0));
+    }
+    return 0;
+}
+
+void copy__10TNpcPlayerFPvPv(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)p + 0x1c) = *(f32*)((char*)q + 0x1c); *(u8*)((char*)p + 0x20) = *(u8*)((char*)q + 0x20); *(u8*)((char*)p + 0x21) = *(u8*)((char*)q + 0x21); *(u8*)((char*)p + 0x22) = *(u8*)((char*)q + 0x22); *(u8*)((char*)p + 0x23) = *(u8*)((char*)q + 0x23); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }
+
+extern u32 lbl_805D5860;
+
+void ensure_rock_singleton__10TNpcPlayerFv(void) {
+    if ((u32) lbl_805D5860 == 0U) {
+        lbl_805D5860 = alloc_buffer__11TOBoss4RockFPv(0x1400);
+    }
+}
+
+int TNpcPlayer__sub_801528A8(void) { return 0; }
+int TNpcPlayer__sub_801528B8(void) { return 0; }
+int TNpcPlayer__sub_801528C8(void) { return 0; }
+
+s32 TNpcPlayer__sub_801528DC(void* p) { return *(s32*)((char*)p + 0x84); }
+s32 get_npc_state__10TNpcPlayerFPv(void* p) { return *(s32*)((char*)p + 0x7c); }
+u16 get_npc_type__10TNpcPlayerFPv(void* p) { return *(u16*)((char*)p + 0x8a); }
+
+}

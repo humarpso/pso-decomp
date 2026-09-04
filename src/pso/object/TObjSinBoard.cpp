@@ -1,24 +1,18 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void run_task__12TObjSinBoardFv(void);
-
-void run_task__12TObjSinBoardFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x801981D0
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
+void *TObjSinBoard__create(void *arg0);
 void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1);
+void run_task__12TObjSinBoardFv(void);
+void *TObjSinBoard__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
+
+void run_task__12TObjSinBoardFv(void) {  }
 
 extern M2C_UNK __vt__12TObjSinBoard[];
 
@@ -33,19 +27,6 @@ void *__dt__12TObjSinBoardFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80198288
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TObjSinBoard__create(void *arg0);
-void *TObjSinBoard__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 extern void *tl_05;
 
 void *TObjSinBoard__create(void *arg0) {
@@ -57,5 +38,3 @@ void *TObjSinBoard__create(void *arg0) {
 }
 
 }
-#endif
-#endif

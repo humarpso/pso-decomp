@@ -1,14 +1,19 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void * create__15TObjEneDimedianFPv(void *arg0);
+void free_boss_objects__15TObjEneDimedianFv(void);
+void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
 void *TObjEneDimedian__ct(void *, void *, void *);
+void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
+void free__11TOBoss4RockFUi(void*);
 
 extern void *tl_04;
 
@@ -25,22 +30,6 @@ void * create__15TObjEneDimedianFPv(void *arg0) {
     }
     return o2;
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x800A8048
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void free_boss_objects__15TObjEneDimedianFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-void __dt__11TBoss4Type3FPvs(void*, int);
-void free__11TOBoss4RockFUi(void*);
 
 extern u32 lbl_805D5070;
 extern u32 lbl_805D5074;
@@ -82,5 +71,3 @@ void free_boss_objects__15TObjEneDimedianFv(void) {
 }
 
 }
-#endif
-#endif

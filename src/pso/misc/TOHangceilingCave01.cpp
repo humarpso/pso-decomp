@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -6,18 +5,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-
-void init_geometry__19TOHangceilingCave01FPv(void *arg0);
-int TOHangceilingCave01__sub_80168624(void);
-f32 TOHangceilingCave01__sub_8016862C(void);
-f32 TOHangceilingCave01__sub_80168634(void);
-void TOHangceilingCave01__sub_8016863C(void);
-void TOHangceilingCave01__sub_80168640(void);
-M2C_UNK set_scale__27TOHangceilingCave01KeyQuickFPvf(void *, f32, f32);
-
-extern const f32 lbl_805DB654;
-extern const f32 lbl_805DB688;
-extern const f32 lbl_805DB690;
 
 struct VBase_80168588 { char pad[0x18]; };
 struct VObj_80168588 : VBase_80168588 {
@@ -42,61 +29,7 @@ struct VObj_80168588 : VBase_80168588 {
     virtual void v72(); virtual void v73(); virtual void v74(); virtual void v75();
     virtual void v76(); virtual void v77();
 };
-
-void init_geometry__19TOHangceilingCave01FPv(void *arg0) {
-    f32 temp_f2;
-    VObj_80168588 *self = (VObj_80168588 *)arg0;
-
-    M2C_FIELD(arg0, s32 *, 0x35C) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    M2C_FIELD(arg0, u32 *, 0x358) = (u32) M2C_FIELD(arg0, u32 *, 0x8C);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x358) >= 3U) {
-        M2C_FIELD(arg0, u32 *, 0x358) = 2U;
-    }
-    temp_f2 = lbl_805DB690 + M2C_FIELD(arg0, f32 *, 0x68);
-    M2C_FIELD(arg0, f32 *, 0x350) = (f32) (temp_f2 - lbl_805DB654);
-    set_scale__27TOHangceilingCave01KeyQuickFPvf(arg0, lbl_805DB688 + M2C_FIELD(arg0, f32 *, 0x70), temp_f2);
-    self->v77();
-    M2C_FIELD(arg0, f32 *, 0x354) = (f32) (lbl_805DB654 - M2C_FIELD(arg0, f32 *, 0x6C));
-}
-
-int TOHangceilingCave01__sub_80168624(void) { return 1; }
-
-extern f32 lbl_805DB650;
-
-f32 TOHangceilingCave01__sub_8016862C(void) {
-    return lbl_805DB650;
-}
-
-extern f32 lbl_805DB650;
-
-f32 TOHangceilingCave01__sub_80168634(void) {
-    return lbl_805DB650;
-}
-
-void TOHangceilingCave01__sub_8016863C(void) {  }
-void TOHangceilingCave01__sub_80168640(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80168834
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0);
-s32 TOHangceilingCave01__sub_801688C0(void *);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
-s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK fn_80168398(void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-
-extern const f32 lbl_805DB694;
-
-struct VObj_80168834 {
+struct VObj_80168834_80168588 {
     char pad[0x18];
     virtual void m0();
     virtual void m1();
@@ -179,31 +112,72 @@ struct VObj_80168834 {
     virtual void m78();
 };
 
+int TOHangceilingCave01__sub_80168624(void);
+f32 TOHangceilingCave01__sub_8016862C(void);
+f32 TOHangceilingCave01__sub_80168634(void);
+void TOHangceilingCave01__sub_8016863C(void);
+void TOHangceilingCave01__sub_80168640(void);
+void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0);
+void destroy_instance__19TOHangceilingCave01Fv(void);
+void init_geometry__19TOHangceilingCave01FPv(void *arg0);
+void TLobby__sub_8001FE7C(void*, int);
+s32 TOHangceilingCave01__sub_801688C0(void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK fn_80168398(void *);
+M2C_UNK free__11TOBoss4RockFUi(void*);
+M2C_UNK free_if_valid__10TObjPlayerFi(s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK set_scale__27TOHangceilingCave01KeyQuickFPvf(void *, f32, f32);
+
+extern const f32 lbl_805DB654;
+extern const f32 lbl_805DB688;
+extern const f32 lbl_805DB690;
+
+void init_geometry__19TOHangceilingCave01FPv(void *arg0) {
+    f32 temp_f2;
+    VObj_80168588 *self = (VObj_80168588 *)arg0;
+
+    M2C_FIELD(arg0, s32 *, 0x35C) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    M2C_FIELD(arg0, u32 *, 0x358) = (u32) M2C_FIELD(arg0, u32 *, 0x8C);
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x358) >= 3U) {
+        M2C_FIELD(arg0, u32 *, 0x358) = 2U;
+    }
+    temp_f2 = lbl_805DB690 + M2C_FIELD(arg0, f32 *, 0x68);
+    M2C_FIELD(arg0, f32 *, 0x350) = (f32) (temp_f2 - lbl_805DB654);
+    set_scale__27TOHangceilingCave01KeyQuickFPvf(arg0, lbl_805DB688 + M2C_FIELD(arg0, f32 *, 0x70), temp_f2);
+    self->v77();
+    M2C_FIELD(arg0, f32 *, 0x354) = (f32) (lbl_805DB654 - M2C_FIELD(arg0, f32 *, 0x6C));
+}
+
+int TOHangceilingCave01__sub_80168624(void) { return 1; }
+
+extern f32 lbl_805DB650;
+
+f32 TOHangceilingCave01__sub_8016862C(void) {
+    return lbl_805DB650;
+}
+
+extern f32 lbl_805DB650;
+
+f32 TOHangceilingCave01__sub_80168634(void) {
+    return lbl_805DB650;
+}
+
+void TOHangceilingCave01__sub_8016863C(void) {  }
+void TOHangceilingCave01__sub_80168640(void) {  }
+
+extern const f32 lbl_805DB694;
+
 void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() == 0) {
-        ((VObj_80168834*)arg0)->m78();
+        ((VObj_80168834_80168588*)arg0)->m78();
         fn_80168398(arg0);
         if ((TOHangceilingCave01__sub_801688C0(arg0) != 0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) && (objInBand__FP7GameObjf(arg0, lbl_805DB694) != 0)) {
             TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x64);
         }
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80168A38
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void destroy_instance__19TOHangceilingCave01Fv(void);
-void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK free_if_valid__10TObjPlayerFi(s32);
-M2C_UNK free__11TOBoss4RockFUi(void*);
 
 extern u32 lbl_805D59D0;
 extern void *lbl_805D59D4;
@@ -224,5 +198,3 @@ void destroy_instance__19TOHangceilingCave01Fv(void) {
 }
 
 }
-#endif
-#endif

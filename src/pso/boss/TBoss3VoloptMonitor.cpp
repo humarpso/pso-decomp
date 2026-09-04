@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -8,11 +7,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss3VoloptMonitor__sub_800420D8(void);
+int TBoss3VoloptMonitor__sub_8004292C(void);
+void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1);
+void *create__19TBoss3VoloptMonitorFPv(void *arg0);
+void release__19TBoss3VoloptMonitorFv(void);
+void set_flags_30__19TBoss3VoloptMonitorFPv(void* p);
 void update_state__19TBoss3VoloptMonitorFPv(void *arg0);
-s32 update_state__20TBoss3VoloptHiraisinFPv();
 s32 TBoss3VoloptHiraisin__sub_80041D0C();
 s32 TBoss3VoloptHiraisin__sub_80041D3C();
+void *TBoss3VoloptMonitor__ct(void *, void *, void *);
+void TLobby__sub_803DA16C(void*);
+void TObjEneGibbles__sub_80156720(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__15TObjEnemyCustomFv(void *, int);
+void *__nw__7TObjectFUl(int);
 s32 fn_80041E88();
+s32 update_state__20TBoss3VoloptHiraisinFPv();
 
 void TBoss3VoloptMonitor__sub_800420D8(void) {  }
 void update_state__19TBoss3VoloptMonitorFPv(void *arg0) {
@@ -35,20 +45,6 @@ void update_state__19TBoss3VoloptMonitorFPv(void *arg0) {
     }
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x800423D4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void release__19TBoss3VoloptMonitorFv(void);
-void TLobby__sub_803DA16C(void*);
-
 extern u32 lbl_805D4CA4;
 
 void release__19TBoss3VoloptMonitorFv(void) {
@@ -57,19 +53,6 @@ void release__19TBoss3VoloptMonitorFv(void) {
         lbl_805D4CA4 = 0U;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800424C4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__19TBoss3VoloptMonitorFPv(void *arg0);
-void *TBoss3VoloptMonitor__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
@@ -80,20 +63,6 @@ void *create__19TBoss3VoloptMonitorFPv(void *arg0) {
     }
     return o;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8004268C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__15TObjEnemyCustomFv(void *, int);
-void TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK __vt__19TBoss3VoloptMonitor[];
 
@@ -109,17 +78,8 @@ void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8004291C
-#include "types.h"
-
-extern "C" {
-
-void set_flags_30__19TBoss3VoloptMonitorFPv(void* p);
-
 void set_flags_30__19TBoss3VoloptMonitorFPv(void* p) { *(u32*)((char*)p + 0x30) |= 0x4040000; }
 
+int TBoss3VoloptMonitor__sub_8004292C(void) { return 0; }
+
 }
-#endif
-#endif

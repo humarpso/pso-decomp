@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TItemEffCane.h"
 
 extern "C" void request_destroy__11TBoss4Type2FUi(void*);
@@ -8,8 +7,7 @@ void TItemEffCane::run_task() {}
 TItemEffCane::~TItemEffCane() {
     request_destroy__11TBoss4Type2FUi(this->m_20);
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x801087B8
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -22,8 +20,8 @@ void *TItemEffCane__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 TBoss4Type2__sub_800874F4(M2C_UNK *, s32);
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK disallow_rendering__7TObjectFv(void *);
-s32 get_field_d8__10TObjPlayerFPv(s32);
 M2C_UNK draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
+s32 get_field_d8__10TObjPlayerFPv(s32);
 
 extern M2C_UNK __vt__12TItemEffCane[];
 extern s32 lbl_805D2B98;
@@ -47,5 +45,3 @@ void *TItemEffCane__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 }
 
 }
-#endif
-#endif

@@ -1,20 +1,12 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-void enter_state_3__11TBoss4BishiFPv(void* p);
-
-int TBoss4Uro__sub_8005D6D4(void*);
-
-void enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8005BABC
-#include "types.h"
-
-extern "C" {
+struct VOff_8005C450_arg0_8005BABC { char pad_0[0x38]; char f_38[1]; };
 
 void TBoss4Bishi__sub_8005BABC(void);
 void TBoss4Bishi__sub_8005BAC0(void);
@@ -23,6 +15,23 @@ void TBoss4Bishi__sub_8005BAC8(void);
 void TBoss4Bishi__sub_8005BACC(void);
 void TBoss4Bishi__sub_8005BAD0(void);
 void TBoss4Bishi__sub_8005BAD4(void);
+void TBoss4Bishi__vt0(u8 *arg0);
+void TBoss4Zako__vt4(void *arg0);
+void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1);
+s32 create__11TBoss4BishiFi(s32 arg0);
+void enter_state_3__11TBoss4BishiFPv(void* p);
+void try_enter_state_3__11TBoss4BishiFPv(void* p);
+s32 TBoss4Bishi__ct(s32, s32, s32);
+int TBoss4Uro__sub_8005D6D4(void*);
+void TBoss4Zako__sub_8005C218(void *);
+void TBoss4Zako__sub_8005C368(void *);
+void TBoss4Zako__sub_803D8910(void *, void *);
+s32 TObjControl__ct(s32, s32);
+int TObjPlayer__sub_800F6B68(void*);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void __dl__7TObjectFPv(void *);
+void __dt__10TBoss4ZakoFPvs(void *, int);
+s32 __nw__7TObjectFUl(M2C_UNK);
 
 void TBoss4Bishi__sub_8005BABC(void) {  }
 void TBoss4Bishi__sub_8005BAC0(void) {  }
@@ -32,20 +41,6 @@ void TBoss4Bishi__sub_8005BACC(void) {  }
 void TBoss4Bishi__sub_8005BAD0(void) {  }
 void TBoss4Bishi__sub_8005BAD4(void) {  }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8005BBE8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TBoss4Bishi__vt0(u8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-
 extern const f32 lbl_805D8CC8;
 extern const f32 lbl_805D8CCC;
 
@@ -53,7 +48,7 @@ void TBoss4Bishi__vt0(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f2;
 
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x44), (void *)(arg0 + 0x38));
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x3C);
     if (temp_f2 < lbl_805D8CC8) {
         temp_f0 = temp_f2 + lbl_805D8CCC;
@@ -65,23 +60,9 @@ void TBoss4Bishi__vt0(u8 *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8005BED0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+void enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
 
-extern "C" {
-
-void try_enter_state_3__11TBoss4BishiFPv(void* p);
-void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1);
-int enter_state_3__11TBoss4BishiFPv(void*);
-void __dt__10TBoss4ZakoFPvs(void *, int);
-void __dl__7TObjectFPv(void *);
-int TObjPlayer__sub_800F6B68(void*);
-
-void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TObjPlayer__sub_800F6B68(p); enter_state_3__11TBoss4BishiFPv(p); } }
+void try_enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TObjPlayer__sub_800F6B68(p); enter_state_3__11TBoss4BishiFPv((void*)(p)); } }
 
 extern M2C_UNK lbl_80487460[];
 
@@ -95,22 +76,6 @@ void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8005C0B8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 create__11TBoss4BishiFi(s32 arg0);
-s32 TBoss4Bishi__ct(s32, s32, s32);
-s32 TObjControl__ct(s32, s32);
-s32 __nw__7TObjectFUl(M2C_UNK);
 
 extern s32 tl_04;
 
@@ -129,6 +94,12 @@ s32 create__11TBoss4BishiFi(s32 arg0) {
     return var_r31;
 }
 
+void TBoss4Zako__vt4(void *arg0) {
+    struct VOff_8005C450_arg0_8005BABC *self = (struct VOff_8005C450_arg0_8005BABC *)arg0;
+    TBoss4Zako__sub_8005C368(arg0);
+    TBoss4Zako__sub_8005C218(arg0);
+    VecCopy__FP3VecPC3Vec((void *)((void *)((char *)arg0 + 68)), (void *)(self->f_38));
+    TBoss4Zako__sub_803D8910(self->f_38, (void *)((char *)arg0 + 908));
 }
-#endif
-#endif
+
+}

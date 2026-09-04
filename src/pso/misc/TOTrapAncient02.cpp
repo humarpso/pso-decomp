@@ -1,39 +1,143 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TOTrapAncient02__vt84(void);
-void TOTrapAncient02__vt86(void);
-
-void TOTrapAncient02__vt84(void) {  }
-void TOTrapAncient02__vt86(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8017B16C
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+#define CAT2(a, b) a##b
+#define CAT(a, b) CAT2(a, b)
+#define PADV virtual void CAT(pv, __LINE__)();
+struct Base_B_8017AC98 { char pad[0x18]; };
+struct V_B_8017AC98 : Base_B_8017AC98 {
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    PADV
+    virtual s32 m8(f32, f32);
+};
+struct Base_8017B84C_8017AC98 { char pad[0x18]; };
+struct VObj_8017B84C_8017AC98 : Base_8017B84C_8017AC98 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+};
 
 extern "C" {
 
-void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0);
+void TOTrapAncient02R__vt78(void *arg0);
+void TOTrapAncient02__vt84(void);
+void TOTrapAncient02__vt86(void);
+void *__dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
+void *create__15TOTrapAncient02FPv(void *arg0);
+void destroy_instance__15TOTrapAncient02Fv(void);
 void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0);
+void draw_model__15TOTrapAncient02FPv(void *arg0);
+void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0);
+void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
+void *TOTrapAncient02__ct(void *, void *, void *);
 M2C_UNK TOTrapAncient02__sub_800837D4(int);
-M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK __dt__6TOTrapFv(void *, M2C_UNK);
+void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
+s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK func_80141618__Fv();
+s32 get_state_flag__9TMainTaskFv();
+s32 is_split_screen();
+M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
+M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK setup_particle_tev(int);
+
+void TOTrapAncient02__vt84(void) {  }
+void TOTrapAncient02__vt86(void) {  }
 
 void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     u8 *temp_r31;
@@ -118,56 +222,18 @@ void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0) {
     TObjPlayer__sub_803D9B78();
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8017B3B4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define CAT2(a, b) a##b
-#define CAT(a, b) CAT2(a, b)
-#define PADV virtual void CAT(pv, __LINE__)();
-struct Base_B { char pad[0x18]; };
-struct V_B : Base_B {
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    virtual s32 m8(f32, f32);
-};
-
-extern "C" {
-
-void draw_model__15TOTrapAncient02FPv(void *arg0);
-void *create__15TOTrapAncient02FPv(void *arg0);
-void *TOTrapAncient02__ct(void *, void *, void *);
-M2C_UNK render_particle_chain__15TOTrapAncient02FPv(void *);
-M2C_UNK draw_effect_chain__15TOTrapAncient02FPv(void *);
-void *__nw__7TObjectFUl(int);
-s32 is_split_screen();
-s32 get_state_flag__9TMainTaskFv();
-s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
-M2C_UNK func_80141618__Fv();
-M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
-
 extern const f32 lbl_805DBA94;
 extern const f32 lbl_805DBAA4;
 
 void draw_model__15TOTrapAncient02FPv(void *arg0) {
     if (get_state_flag__9TMainTaskFv() != 1) {
-        M2C_FIELD(arg0, s32 *, 0x340) = ((V_B *) arg0)->m8(lbl_805DBAA4, lbl_805DBA94);
+        M2C_FIELD(arg0, s32 *, 0x340) = ((V_B_8017AC98 *) arg0)->m8(lbl_805DBAA4, lbl_805DBA94);
         if (((s32) M2C_FIELD(arg0, s32 *, 0x340) == 1) && (((s32) M2C_FIELD(arg0, s32 *, 0x358) == 0) || (is_split_screen() != 0) || (dispatch_input_to_instance__18TAdEnterPasswordGCFi(arg0) == 0))) {
             set_depth_buffer_settings_id__FUl(3);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x358) != 0) {
-                render_particle_chain__15TOTrapAncient02FPv(arg0);
+                render_particle_chain__15TOTrapAncient02FPv((u8 *)(arg0));
             } else {
-                draw_effect_chain__15TOTrapAncient02FPv(arg0);
+                draw_effect_chain__15TOTrapAncient02FPv((u8 *)(arg0));
             }
             func_80141618__Fv();
         }
@@ -184,20 +250,6 @@ void *create__15TOTrapAncient02FPv(void *arg0) {
     return o;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8017B4B4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void destroy_instance__15TOTrapAncient02Fv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
 extern u32 TOTrapAncient02__data_805D5AD8;
 
 void destroy_instance__15TOTrapAncient02Fv(void) {
@@ -206,23 +258,6 @@ void destroy_instance__15TOTrapAncient02Fv(void) {
         TOTrapAncient02__data_805D5AD8 = 0U;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8017B670
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *__dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__6TOTrapFv(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
 
 extern M2C_UNK __vt__15TOTrapAncient02[];
 
@@ -239,6 +274,9 @@ void *__dt__15TOTrapAncient02Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+void TOTrapAncient02R__vt78(void *arg0) {
+    struct VObj_8017B84C_8017AC98 *o = (struct VObj_8017B84C_8017AC98 *)arg0;
+    o->m77();
 }
-#endif
-#endif
+
+}

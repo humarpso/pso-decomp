@@ -1,9 +1,78 @@
+#include "pso/TShopWindowBase.h"
+
+TShopWindowBase::~TShopWindowBase() {}
+
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+struct Base_80223AA4_80223938 { char pad[0x18]; };
+struct VObj_80223AA4_80223938 : Base_80223AA4_80223938 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+};
+
 void TShopWindowBase__vt9(void);
+void *__ct__15TShopWindowBaseFv(void *arg0);
+void draw_if_ready__15TShopWindowBaseFPv(void *arg0);
+s32 get_child_field1c__15TShopWindowBaseFPv(void *arg0);
+f32 get_scale__15TShopWindowBaseFv(void);
+void __ct__7TObjectFP7TObject(void *);
+s32 get_instance__11TCameraCtrlFv();
+s32 is_not_split_screen__13TRaderMapCoreFv();
+s32 obj_getField1c(void *);
 
 void TShopWindowBase__vt9(void) {  }
+
+extern f32 lbl_805DC728;
+extern f32 lbl_805DC72C;
+
+f32 get_scale__15TShopWindowBaseFv(void) {
+    if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && (get_instance__11TCameraCtrlFv() > 2)) {
+        return lbl_805DC728;
+    }
+    return lbl_805DC72C;
+}
+
+s32 get_child_field1c__15TShopWindowBaseFPv(void *arg0) {
+    void *temp_r3 = M2C_FIELD(arg0, void **, 0x24);
+    if (temp_r3 != NULL) {
+        return obj_getField1c(temp_r3);
+    }
+    return 0;
+}
+
+extern s32 lbl_805D55C0;
+
+void draw_if_ready__15TShopWindowBaseFPv(void *arg0) {
+    if ((s32) lbl_805D55C0 == 0) {
+        ((VObj_80223AA4_80223938 *)arg0)->m9();
+    }
+}
+
+extern M2C_UNK __vt__15TShopWindowBase[];
+extern void *lbl_805D3700;
+
+void *__ct__15TShopWindowBaseFv(void *arg0) {
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TShopWindowBase;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3700;
+    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, u32 *, 0x20) = 0;
+    M2C_FIELD(arg0, u32 *, 0x24) = 0;
+    return arg0;
+}
 
 }

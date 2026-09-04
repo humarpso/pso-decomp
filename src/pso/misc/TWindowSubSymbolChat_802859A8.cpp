@@ -1,2 +1,19 @@
-#define PSO_CLASS_PACKAGE 0x802859A8
-#include "pso/misc/TWindowSubSymbolChat.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void update_height__20TWindowSubSymbolChatFPv(void *arg0);
+s16 compute_total_height__20TWindowSubSymbolChatFv();
+M2C_UNK fn_80284C04(void *);
+
+void update_height__20TWindowSubSymbolChatFPv(void *arg0) {
+    M2C_FIELD(arg0, s16 *, 0x76) = compute_total_height__20TWindowSubSymbolChatFv();
+    fn_80284C04(arg0);
+    M2C_FIELD(arg0, s8 *, 0x71) = 2;
+}
+
+}

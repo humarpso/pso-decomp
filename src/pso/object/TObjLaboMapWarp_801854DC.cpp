@@ -1,2 +1,21 @@
-#define PSO_CLASS_PACKAGE 0x801854DC
-#include "pso/object/TObjLaboMapWarp.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void release_static_resource__15TObjLaboMapWarpFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+
+extern u32 TObjLaboMapWarp__data_805D5B58;
+
+void release_static_resource__15TObjLaboMapWarpFv(void) {
+    if ((u32) TObjLaboMapWarp__data_805D5B58 != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjLaboMapWarp__data_805D5B58, 1);
+        TObjLaboMapWarp__data_805D5B58 = 0U;
+    }
+}
+
+}

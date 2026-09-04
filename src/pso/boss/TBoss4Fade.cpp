@@ -1,9 +1,7 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TBoss4Fade.h"
 
 TBoss4Fade::~TBoss4Fade() {}
-#else
-#if PSO_CLASS_PACKAGE == 0x80359618
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -27,5 +25,3 @@ void *__ct__10TBoss4FadeFv(void *arg0) {
 }
 
 }
-#endif
-#endif

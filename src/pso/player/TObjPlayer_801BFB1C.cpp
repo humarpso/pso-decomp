@@ -1,2 +1,26 @@
-#define PSO_CLASS_PACKAGE 0x801BFB1C
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void clear_base__10TObjPlayerFPv(void* p);
+void* forward_release__10TObjPlayerFPv(void* p);
+s32 reset_and_return__10TObjPlayerFi(s32 arg0);
+void* set_vec3_const_wrapper__10TObjPlayerFPv(void* p);
+M2C_UNK TObjPlayer__sub_801BF8F8();
+int TObjPlayer__sub_801C5FCC(void*);
+int set_vec3_const__10TObjPlayerFPv(void*);
+
+s32 reset_and_return__10TObjPlayerFi(s32 arg0) {
+    TObjPlayer__sub_801BF8F8();
+    return arg0;
+}
+
+void clear_base__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; }
+void* forward_release__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801C5FCC(p); return p; }
+void* set_vec3_const_wrapper__10TObjPlayerFPv(void* p) { set_vec3_const__10TObjPlayerFPv(p); return p; }
+
+}

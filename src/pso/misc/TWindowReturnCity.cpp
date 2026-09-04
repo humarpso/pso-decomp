@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__17TWindowReturnCityFv(void);
-
-void render__17TWindowReturnCityFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8026D208
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -30,8 +18,17 @@ struct VObj_8026D208 : Base_8026D208 {
 
 extern "C" {
 
+void TWindowCtrl__sub_8026D4E8(void);
+void TWindowReturnCity__sub_8026D4BC(void);
+void TWindowReturnCity__sub_8026D4C0(void);
+void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1);
+void clear_flag_bit5__17TWindowReturnCityFv(void);
 s32 query_battle_state__17TWindowReturnCityFPv(void *arg0);
+void render__17TWindowReturnCityFv(void);
 void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+void close__17TWindowSubComCardFPv(void *);
 
 s32 query_battle_state__17TWindowReturnCityFPv(void *arg0) {
     struct VObj_8026D208 *o = (struct VObj_8026D208 *)TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x24));
@@ -41,19 +38,7 @@ s32 query_battle_state__17TWindowReturnCityFPv(void *arg0) {
     return o->m31();
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8026D398
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1);
-void close__17TWindowSubComCardFPv(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
+void render__17TWindowReturnCityFv(void) {  }
 
 extern M2C_UNK __vt__17TWindowReturnCity[];
 
@@ -69,21 +54,6 @@ void *__dt__17TWindowReturnCityFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8026D4BC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TWindowReturnCity__sub_8026D4BC(void);
-void TWindowReturnCity__sub_8026D4C0(void);
-void clear_flag_bit5__17TWindowReturnCityFv(void);
-
 void TWindowReturnCity__sub_8026D4BC(void) {  }
 
     extern int TWindowReturnCity__data_805D6468;
@@ -97,6 +67,12 @@ void clear_flag_bit5__17TWindowReturnCityFv(void) {
     }
 }
 
+extern void *TWindowCtrl__data_805D63F8;
+
+void TWindowCtrl__sub_8026D4E8(void) {
+    if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__data_805D63F8, u16 *, 0x1C) | 0x20);
+    }
 }
-#endif
-#endif
+
+}

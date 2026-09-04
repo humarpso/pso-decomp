@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,15 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
 void render__15TAdDrawLineCtrlFv(void *arg0);
-
+void __ct__7TObjectFP7TObject(void *);
+void *__nw__7TObjectFUl(int);
+void fn_80019AB0(void *, f32);
+void fn_80019B08(void *, int);
+M2C_UNK fn_80141A30();
 s32 get_main_phase();
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK set_depth_buffer_settings_2__Fv();
-M2C_UNK fn_80141A30();
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-s32 toggle_flag_9__10TObjPlayerFPv();
 M2C_UNK render_nodes__7TObjectFv(void *);
+M2C_UNK reset_transform_state__10TObjPlayerFv();
+M2C_UNK set_depth_buffer_settings_2__Fv();
+s32 toggle_flag_9__10TObjPlayerFPv();
 
 void render__15TAdDrawLineCtrlFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
@@ -34,21 +37,6 @@ block_5:
         }
     }
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80019D10
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
-void __ct__7TObjectFP7TObject(void *);
-void *__nw__7TObjectFUl(int);
-void fn_80019AB0(void *, f32);
-void fn_80019B08(void *, int);
 
 extern M2C_UNK __vt__15TAdDrawLineCtrl[];
 extern void *lbl_805D260C;
@@ -71,5 +59,3 @@ void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
 }
 
 }
-#endif
-#endif

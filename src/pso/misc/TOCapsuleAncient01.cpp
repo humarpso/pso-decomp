@@ -1,21 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TOCapsuleAncient01__vt13(void *arg0);
-
-void TOCapsuleAncient01__vt13(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0xE4) = (s32) (M2C_FIELD(arg0, s32 *, 0xE4) + 0x222);
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8015A2B8
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -36,16 +18,27 @@ struct VObj_8015a2b8 : VBase_8015a2b8 {
 
 extern "C" {
 
+void TOCapsuleAncient01__vt13(void *arg0);
+void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1);
+void *create__18TOCapsuleAncient01FPv(void *arg0);
+void destroy_static_instance__18TOCapsuleAncient01Fv(void);
 void render__18TOCapsuleAncient01Fv(u8 *arg0);
+void TLobby__sub_8001FE7C(void*, int);
+void *TOCapsuleAncient01__ct(void *, void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(int);
-M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK destroy_key_object__5TOKeyFPvs(void *, M2C_UNK);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK set_global_param__8TObjFishFi(int);
 
 void render__18TOCapsuleAncient01Fv(u8 *arg0) {
     u8 *temp_r31;
@@ -74,19 +67,6 @@ void render__18TOCapsuleAncient01Fv(u8 *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8015A394
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__18TOCapsuleAncient01FPv(void *arg0);
-void *TOCapsuleAncient01__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 extern void *tl_05;
 
 void *create__18TOCapsuleAncient01FPv(void *arg0) {
@@ -97,20 +77,6 @@ void *create__18TOCapsuleAncient01FPv(void *arg0) {
     return o;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8015A3E0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void destroy_static_instance__18TOCapsuleAncient01Fv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
 extern u32 TOCapsuleAncient01__data_805D58B8;
 
 void destroy_static_instance__18TOCapsuleAncient01Fv(void) {
@@ -119,23 +85,6 @@ void destroy_static_instance__18TOCapsuleAncient01Fv(void) {
         TOCapsuleAncient01__data_805D58B8 = 0U;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8015A468
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK destroy_key_object__5TOKeyFPvs(void *, M2C_UNK);
 
 extern M2C_UNK __vt__18TOCapsuleAncient01[];
 
@@ -152,6 +101,8 @@ void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+void TOCapsuleAncient01__vt13(void *arg0) {
+    M2C_FIELD(arg0, s32 *, 0xE4) = (s32) (M2C_FIELD(arg0, s32 *, 0xE4) + 0x222);
 }
-#endif
-#endif
+
+}

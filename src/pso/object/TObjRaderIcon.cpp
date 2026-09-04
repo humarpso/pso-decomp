@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -6,8 +5,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjRaderIcon__create(void *arg0);
+void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1);
+void render__13TObjRaderIconFv(void);
+int run_task__13TObjRaderIconFv(void);
 void *TObjRaderIcon__ct(void *, void *, void *);
+void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern void *tl_05;
 
@@ -19,29 +23,9 @@ void *TObjRaderIcon__create(void *arg0) {
     return o;
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8019710C
-#include "types.h"
-
-extern "C" {
-
-void render__13TObjRaderIconFv(void);
-
 void render__13TObjRaderIconFv(void) {  }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x801972E4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
+int run_task__13TObjRaderIconFv(void) { return 0; }
 
 extern M2C_UNK __vt__13TObjRaderIcon[];
 
@@ -57,5 +41,3 @@ void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

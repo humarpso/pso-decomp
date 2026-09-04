@@ -1,15 +1,47 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+struct IllGillBase_80367984_8036690C { char pad[0x14]; };
+struct IllGillVObj_80367984_8036690C : IllGillBase_80367984_8036690C {
+    virtual M2C_UNK m0();
+    virtual M2C_UNK m1();
+    virtual M2C_UNK m2();
+    virtual M2C_UNK m3();
+    virtual M2C_UNK m4();
+    virtual M2C_UNK m5();
+};
 
 extern "C" {
 
+int TObjEneIllGill__vt59(void* p);
 void TObjEneIllGill__vt60(void *arg0);
-
-M2C_UNK free_resources__14TObjEneIllGillFPv(M2C_UNK);
+void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1);
+void * create__14TObjEneIllGillFPv(void *arg0);
+void free_effect__14TObjEneIllGillFv(void);
+void free_resources__14TObjEneIllGillFPv(void *arg0);
+void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0);
+M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
+int TLobby__sub_8001FE7C(void*, void*);
+void *TObjControl__ct(void *, void *);
+void TObjEneGibbles__sub_80156720(void *);
+void *TObjEneIllGill__ct(void *, void *, void *);
+M2C_UNK TObjEneIllGill__sub_80367B00(void *);
+M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK TObjPlayer__sub_80017BA8(void *, int, f32, f32, f32);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__9TObjEnemyFv(void *, int);
+void *__nw__7TObjectFUl(int);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+int obj_clearFlags30(void*, int);
+M2C_UNK obj_setFlags30(void *, int);
+s32 request_destroy__11TBoss4Type2FUi(void *);
 
 void TObjEneIllGill__vt60(void *arg0) {
     s16 temp_r0;
@@ -27,30 +59,13 @@ void TObjEneIllGill__vt60(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 7) {
         M2C_FIELD(arg0, s16 *, 0x326) = 7;
         M2C_FIELD(arg0, s16 *, 0xB8) = 5;
-        free_resources__14TObjEneIllGillFPv((M2C_UNK) arg0);
+        free_resources__14TObjEneIllGillFPv((void *)((M2C_UNK) arg0));
     }
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80366A50
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void free_resources__14TObjEneIllGillFPv(void *arg0);
-int TObjEneIllGill__vt59(void* p);
-s32 request_destroy__11TBoss4Type2FUi(void *);
-
-int obj_clearFlags30(void*, int);
-
-int TObjEneIllGill__vt59(void* p) { return obj_clearFlags30(p, 256); }
+int TObjEneIllGill__vt59(void* p) { return obj_clearFlags30((void*)(p), (int)(256)); }
 void free_resources__14TObjEneIllGillFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x414) != 0U) {
         request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x414));
@@ -65,39 +80,6 @@ void free_resources__14TObjEneIllGillFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x41C) = 0U;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80367984
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct IllGillBase_80367984 { char pad[0x14]; };
-struct IllGillVObj_80367984 : IllGillBase_80367984 {
-    virtual M2C_UNK m0();
-    virtual M2C_UNK m1();
-    virtual M2C_UNK m2();
-    virtual M2C_UNK m3();
-    virtual M2C_UNK m4();
-    virtual M2C_UNK m5();
-};
-
-extern "C" {
-
-void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504();
-M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
-M2C_UNK TObjEneIllGill__sub_80367B00(void *);
-M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
-M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
-M2C_UNK TObjPlayer__sub_80017BA8(void *, int, f32, f32, f32);
-f32 TObjPlayer__sub_80141CF8(void *, void *);
-M2C_UNK TObjPlayer__sub_80154E3C(void *);
-M2C_UNK minimap_render_dot(void *, int, int, int);
-M2C_UNK obj_clearFlags30(void *, int);
-M2C_UNK obj_setFlags30(void *, int);
 
 extern const f32 TObjEneIllGill__data_805E02BC;
 extern const f32 lbl_805E02C4;
@@ -121,14 +103,14 @@ void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0) {
         break;
     case 1:
         obj_setFlags30((void *) (arg0), (int) (0x04040000));
-        if (((IllGillVObj_80367984 *) (arg0 + 0x374))->m5() == 1) {
+        if (((IllGillVObj_80367984_8036690C *) (arg0 + 0x374))->m5() == 1) {
             M2C_FIELD(arg0, s16 *, 0x328) = 2;
             M2C_FIELD(arg0, s16 *, 0xB8) = 1;
             M2C_FIELD(arg0, s32 *, 0x390) = 0;
         }
         break;
     case 2:
-        obj_clearFlags30((void *) (arg0), (int) (0x04040000));
+        obj_clearFlags30((void*)((void *) (arg0)), (int)((int) (0x04040000)));
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
         if (TObjPlayer__sub_80141CF8((void *) (arg0 + 0x38), (void *) (arg0 + 0x50)) > lbl_805E02C8) {
             TObjEneIllGill__sub_80367B00((void *) (arg0));
@@ -147,22 +129,8 @@ void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0) {
         break;
     }
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
-    obj_clearFlags30((void *) (arg0), (int) (0x200000));
+    obj_clearFlags30((void*)((void *) (arg0)), (int)((int) (0x200000)));
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x803684B0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void * create__14TObjEneIllGillFPv(void *arg0);
-void *TObjControl__ct(void *, void *);
-void *TObjEneIllGill__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
@@ -180,28 +148,12 @@ void * create__14TObjEneIllGillFPv(void *arg0) {
     return o2;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80368518
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1);
-void free_resources__14TObjEneIllGillFPv(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__9TObjEnemyFv(void *, int);
-void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-void TObjEneGibbles__sub_80156720(void *);
-
 extern M2C_UNK __vt__14TObjEneIllGill[];
 
 void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjEneIllGill;
-        free_resources__14TObjEneIllGillFPv(arg0);
+        free_resources__14TObjEneIllGillFPv((void *)(arg0));
         TObjEneGibbles__sub_80156720(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x374, -1);
         __dt__9TObjEnemyFv(arg0, 0);
@@ -212,19 +164,7 @@ void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x803687E8
-#include "types.h"
-
-extern "C" {
-
-void free_effect__14TObjEneIllGillFv(void);
-int TLobby__sub_8001FE7C(void*, void*);
-
     extern int lbl_805D6FD0;
 void free_effect__14TObjEneIllGillFv(void) { TLobby__sub_8001FE7C((void*)(lbl_805D6FD0), (void*)1); lbl_805D6FD0 = 0; }
 
 }
-#endif
-#endif

@@ -1,2 +1,10 @@
-#define PSO_CLASS_PACKAGE 0x800C80FC
-#include "pso/misc/TLobby.cpp"
+#include "types.h"
+
+extern "C" {
+
+int bswap_packet_header__6TLobbyFPv(void* p);
+int read_be16_field2__10TObjPlayerFPv(void*);
+
+int bswap_packet_header__6TLobbyFPv(void* p) { return read_be16_field2__10TObjPlayerFPv(p); }
+
+}

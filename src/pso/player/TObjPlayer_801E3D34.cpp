@@ -1,2 +1,67 @@
-#define PSO_CLASS_PACKAGE 0x801E3D34
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void render_tick__Fv(void);
+void render_tree__10TObjPlayerFPv(void *arg0);
+M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
+M2C_UNK GXSetZMode(M2C_UNK, M2C_UNK, M2C_UNK);
+extern M2C_UNK (*lbl_805D7810)(void *);
+M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK TKeyBoardControl__sub_8000F7FC();
+M2C_UNK TObjPlayer__sub_803D7CA4(void *);
+M2C_UNK TObjPlayer__sub_803D85D8(s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK fn_803DCEC8();
+M2C_UNK fn_803DCF0C();
+M2C_UNK run_tasks__16TKeyBoardControlFv();
+M2C_UNK set_cull_none__8TObjFishFv();
+
+void render_tree__10TObjPlayerFPv(void *arg0) {
+    void *var_r31;
+
+    var_r31 = arg0;
+    do {
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D7CA4(var_r31);
+        if (((M2C_UNK (*)(void *)) lbl_805D7810) != NULL) {
+            lbl_805D7810(var_r31);
+        }
+        if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
+            render_tree__10TObjPlayerFPv((void *)(M2C_FIELD(var_r31, void **, 0x2C)));
+        }
+        TObjPlayer__sub_803D9B78();
+        var_r31 = M2C_FIELD(var_r31, void **, 0x30);
+    } while (var_r31 != NULL);
+}
+
+extern s32 lbl_805D3584;
+extern f32 lbl_805DC428;
+extern f32 lbl_805DC42C;
+extern f32 lbl_805DC430;
+extern f32 lbl_805DC43C;
+
+void render_tick__Fv(void) {
+    run_tasks__16TKeyBoardControlFv();
+    begin_effect_render__13TParticleCtrlFv();
+    GXSetZMode(1, 7, 0);
+    TCameraCtrl__sub_80069024();
+    set_cull_none__8TObjFishFv();
+    TObjPlayer__sub_803D85D8(lbl_805D3584);
+    GXSetZMode(1, 3, 1);
+    GXSetViewport(lbl_805DC43C, lbl_805DC43C, lbl_805DC430, lbl_805DC42C, lbl_805DC43C, lbl_805DC428);
+    set_cull_none__8TObjFishFv();
+    end_effect_render__13TParticleCtrlFv();
+    fn_803DCEC8();
+    fn_803DCF0C();
+    TKeyBoardControl__sub_8000F7FC();
+}
+
+}

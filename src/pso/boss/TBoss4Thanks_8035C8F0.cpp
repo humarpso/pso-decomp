@@ -1,2 +1,46 @@
-#define PSO_CLASS_PACKAGE 0x8035C8F0
-#include "pso/boss/TBoss4Thanks.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+int TBoss4Thanks__sub_8035C92C(void);
+int TBoss4Thanks__sub_8035C96C(void* p);
+s32 check_ready__12TBoss4ThanksFv(void);
+void *create__12TBoss4ThanksFv(void);
+void *TBoss4Thanks__ct(void *, void *);
+void *__nw__7TObjectFUl(int);
+M2C_UNK dispatch_main_phase__12TBoss4ThanksFv();
+s32 fn_8035C2B4();
+s32 fn_8035C9E8();
+s32 get_main_phase();
+int is_door_0x97_open__12TBoss4ThanksFv(void*);
+s32 is_split_screen();
+
+extern void *tl_02;
+
+void *create__12TBoss4ThanksFv(void) {
+    void *o = __nw__7TObjectFUl(0x54);
+    if (o != NULL) {
+        o = TBoss4Thanks__ct(o, tl_02);
+    }
+    return o;
+}
+
+int TBoss4Thanks__sub_8035C92C(void) { return 0; }
+
+int TBoss4Thanks__sub_8035C96C(void* p) { return is_door_0x97_open__12TBoss4ThanksFv(p); }
+
+extern s32 lbl_805D5550;
+
+s32 check_ready__12TBoss4ThanksFv(void) {
+    if (((s32) lbl_805D5550 == 0) || ((get_main_phase() == 0xE) && (is_split_screen() == 0)) || (fn_8035C9E8() == 0)) {
+        return 0;
+    }
+    dispatch_main_phase__12TBoss4ThanksFv();
+    return 1;
+}
+
+}

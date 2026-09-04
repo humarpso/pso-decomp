@@ -1,2 +1,0 @@
-#define PSO_CLASS_PACKAGE 0x801BF47C
-#include "pso/player/TObjPlayer.cpp"

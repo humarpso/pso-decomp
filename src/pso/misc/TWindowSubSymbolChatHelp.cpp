@@ -1,30 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void run_task__24TWindowSubSymbolChatHelpFv(void* p);
-int initialize_subwindow__9TWindowDDFPv(void*);
-int handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void*);
-int TWindowSubSymbolChatHelp__sub_80284A28(void*);
-
-void run_task__24TWindowSubSymbolChatHelpFv(void* p) { TWindowSubSymbolChatHelp__sub_80284A28(p); handle_toggle_input__24TWindowSubSymbolChatHelpFPv(p); initialize_subwindow__9TWindowDDFPv(p); }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80247EE8
-#include "types.h"
-
-extern "C" {
-
-int TWindowSubSymbolChatHelp__sub_80247EE8(int a0);
-
-    extern int lbl_8044EA94[];
-int TWindowSubSymbolChatHelp__sub_80247EE8(int a0) {  return lbl_8044EA94[a0]; }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802846E8
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -33,17 +6,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1);
 void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1);
 void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0);
-M2C_UNK set_global_param__8TObjFishFi(s32);
+void run_task__24TWindowSubSymbolChatHelpFv(void* p);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubSymbolChatHelp__sub_8028429C(void *, void *);
 M2C_UNK TWindowSubSymbolChatHelp__sub_802844C8(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubSymbolChatHelp__sub_802845EC(void *, void *, M2C_UNK, M2C_UNK);
+int TWindowSubSymbolChatHelp__sub_80284A28(void*);
+void __dl__7TObjectFPv(void *);
 M2C_UNK begin_render__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
+int initialize_subwindow__9TWindowDDFPv(void*);
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 lbl_805D63F0;
 
@@ -127,18 +106,7 @@ void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80284B2C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
+void run_task__24TWindowSubSymbolChatHelpFv(void* p) { TWindowSubSymbolChatHelp__sub_80284A28(p); handle_toggle_input__24TWindowSubSymbolChatHelpFPv((void *)(p)); initialize_subwindow__9TWindowDDFPv(p); }
 
 extern M2C_UNK __vt__24TWindowSubSymbolChatHelp[];
 
@@ -154,5 +122,3 @@ void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

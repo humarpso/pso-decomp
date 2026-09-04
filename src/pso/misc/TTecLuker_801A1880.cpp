@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x801A1880
-#include "pso/misc/TTecLuker.cpp"
+#include "types.h"
+
+extern "C" {
+
+void set_state__9TTecLukerFPvi(void* p, s32 v);
+
+void set_state__9TTecLukerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
+
+}

@@ -1,2 +1,46 @@
-#define PSO_CLASS_PACKAGE 0x8034C23C
-#include "pso/misc/TLobby.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void init_once_data__6TLobbyFUi(u32 arg0);
+void flush_pending_send__6TLobbyFv(void);
+s32 get_card_window_field__6TLobbyFv(void);
+M2C_UNK TLobby__sub_801DA548(u32, s32);
+M2C_UNK TLobby__sub_801DA65C(u32);
+s32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
+
+extern u32 TLobby__data_805D5580;
+extern s32 lbl_805D6E98;
+extern u32 lbl_805D6E9C;
+
+void init_once_data__6TLobbyFUi(u32 arg0) {
+    if ((u32) lbl_805D6E9C == 0U) {
+        lbl_805D6E9C = arg0;
+        lbl_805D6E98 &= 0xFFFFFFFD;
+        if ((u32) TLobby__data_805D5580 != 0U) {
+            TLobby__sub_801DA65C(TLobby__data_805D5580);
+        }
+    }
+}
+
+extern u32 TLobby__data_805D5580;
+extern s32 lbl_805D6E98;
+
+void flush_pending_send__6TLobbyFv(void) {
+    if (lbl_805D6E98 & 1) {
+        if ((u32) TLobby__data_805D5580 != 0U) {
+            TLobby__sub_801DA548(TLobby__data_805D5580, get_card_window_field__6TLobbyFv());
+        }
+        lbl_805D6E98 &= 0xFFFFFFFE;
+    }
+}
+
+s32 get_card_window_field__6TLobbyFv(void) {
+    return get_card_window__17TWindowSubComCardFUi(0xFFFF) + 0x20FC;
+}
+
+}

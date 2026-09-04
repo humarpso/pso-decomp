@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x8034DC20
-#include "pso/misc/TNpcPlayer.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TNpcPlayer__sub_8034DC20(void);
+
+void TNpcPlayer__sub_8034DC20(void) {  }
+
+}

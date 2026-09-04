@@ -1,2 +1,20 @@
-#define PSO_CLASS_PACKAGE 0x802AF5FC
-#include "pso/misc/TLobby.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void * create_mist_ctrl__6TLobbyFPvPv(void *arg0, void *arg1);
+void *TObjMistCtrl__ct(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+
+void * create_mist_ctrl__6TLobbyFPvPv(void *arg0, void *arg1) {
+    void *o;
+    o = __nw__7TObjectFUl(0x94);
+    if (o != NULL) {
+        o = TObjMistCtrl__ct(o, arg0, arg1);
+    }
+    return o;
+}
+
+}

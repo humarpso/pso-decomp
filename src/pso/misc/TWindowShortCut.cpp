@@ -1,19 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void run_task__15TWindowShortCutFv(void* p);
-int update_fade__17TWindowSubComCardFPv(void*);
-int initialize_subwindow__9TWindowDDFPv(void*);
-int TWindowSubStatusDisp__sub_80257C28(void*, void*);
-int update_subwindow__20TWindowSubStatusDispFPv(void*);
-
-void run_task__15TWindowShortCutFv(void* p) { update_subwindow__20TWindowSubStatusDispFPv(*(void**)((char*)p + 0x60)); initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8026E690
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -21,10 +5,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1);
+void run_task__15TWindowShortCutFv(void* p);
+int TWindowSubStatusDisp__sub_80257C28(void*, void*);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
-void destroy_window_base__9TWindowDDFPvs(void *, int);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
+int initialize_subwindow__9TWindowDDFPv(void*);
+int update_fade__17TWindowSubComCardFPv(void*);
+int update_subwindow__20TWindowSubStatusDispFPv(void*);
+
+void run_task__15TWindowShortCutFv(void* p) { update_subwindow__20TWindowSubStatusDispFPv(*(void**)((char*)p + 0x60)); initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
 
 extern M2C_UNK __vt__15TWindowShortCut[];
 
@@ -43,5 +34,3 @@ void *__dt__15TWindowShortCutFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

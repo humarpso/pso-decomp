@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TObjStendGlassLobby__sub_803596C0(void);
-
-void TObjStendGlassLobby__sub_803596C0(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x803596C4
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -18,16 +6,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TObjStendGlassLobby__sub_803596C0(void);
+void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1);
+void *create__19TObjStendGlassLobbyFPv(void *arg0);
+void free_static_model__19TObjStendGlassLobbyFv(void);
 void render__19TObjStendGlassLobbyFv(u8 *arg0);
+void update_state__19TObjStendGlassLobbyFPv(void *arg0);
+void TLobby__sub_8001FE7C(void*, int);
+s32 TLobby__sub_80351DFC();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
-M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
+void *TObjStendGlassLobby__ct(void *, void *, void *);
+void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
+void destroy_key_base__5TOKeyFPvs(void *, int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK set_global_param__8TObjFishFi(int);
+
+void TObjStendGlassLobby__sub_803596C0(void) {  }
 
 extern const f32 TObjStendGlassLobby__data_805E00A0;
 
@@ -50,20 +51,6 @@ void render__19TObjStendGlassLobbyFv(u8 *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80359854
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void update_state__19TObjStendGlassLobbyFPv(void *arg0);
-s32 TLobby__sub_80351DFC();
-
 void update_state__19TObjStendGlassLobbyFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 1) {
         M2C_FIELD(arg0, s32 *, 0xD0) = 0;
@@ -77,19 +64,6 @@ void update_state__19TObjStendGlassLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x803598C0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *create__19TObjStendGlassLobbyFPv(void *arg0);
-void *TObjStendGlassLobby__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 extern void *tl_05;
 
 void *create__19TObjStendGlassLobbyFPv(void *arg0) {
@@ -100,20 +74,6 @@ void *create__19TObjStendGlassLobbyFPv(void *arg0) {
     return o;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8035990C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void free_static_model__19TObjStendGlassLobbyFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-
 extern u32 TObjStendGlassLobby__data_805D6F28;
 
 void free_static_model__19TObjStendGlassLobbyFv(void) {
@@ -122,19 +82,6 @@ void free_static_model__19TObjStendGlassLobbyFv(void) {
         TObjStendGlassLobby__data_805D6F28 = 0U;
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8035999C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_key_base__5TOKeyFPvs(void *, int);
 
 extern M2C_UNK __vt__19TObjStendGlassLobby[];
 
@@ -150,5 +97,3 @@ void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

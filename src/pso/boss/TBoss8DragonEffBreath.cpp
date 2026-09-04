@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__21TBoss8DragonEffBreathFv(void);
-
-void render__21TBoss8DragonEffBreathFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x802FDF38
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -18,11 +6,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1);
+void render__21TBoss8DragonEffBreathFv(void);
 void run_task__21TBoss8DragonEffBreathFv(u8 *arg0);
 M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+void TBoss8Dragon__sub_800BC5A0(void *, int);
 M2C_UNK TBoss8Dragon__sub_802FB290(u32, void *, int, int);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
 u32 get_enemy_entity(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
+
+void render__21TBoss8DragonEffBreathFv(void) {  }
 
 extern const f32 lbl_805DEEF0;
 extern const f32 lbl_805DEEF4;
@@ -42,20 +37,6 @@ void run_task__21TBoss8DragonEffBreathFv(u8 *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x802FDFB4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-void TBoss8Dragon__sub_800BC5A0(void *, int);
-
 extern M2C_UNK __vt__21TBoss8DragonEffBreath[];
 
 void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1) {
@@ -72,5 +53,3 @@ void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

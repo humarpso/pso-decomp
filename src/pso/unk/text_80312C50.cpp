@@ -1,0 +1,37 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+int TObjPlayer__sub_80312E0C(void);
+int TObjPlayer__sub_80312E98(void);
+void TObjPlayer__sub_80312F0C(void* p);
+int TObjPlayer__sub_80312F5C(void);
+int TObjPlayer__sub_80312FB0(void);
+int TObjPlayer__sub_80313010(void);
+int TObjPlayer__sub_8001BEF8(void*, int);
+int TObjPlayer__sub_801AA64C(void* a0 = 0);
+int TObjPlayer__sub_803131AC(void* a0 = 0);
+int TObjPlayer__sub_80313218(void* p);
+void TObjPlayer__sub_80313250(void *arg0, s32 arg1);
+int check_flag_at_4__10TObjPlayerFPv(void* p);
+int get_max_children__10TObjPlayerFPv(void* a0 = 0);
+int process_indexed_element__10TObjPlayerFii(void* a0 = 0, void* a1 = 0);
+int query_field40__10TObjPlayerFPv(void* p);
+void set_field_0__10TObjPlayerFPvs(void* p, s16 v);
+int set_flags__10TObjPlayerFPvUi(void*, int);
+void update_children__10TObjPlayerFPv(void* p);
+
+int TObjPlayer__sub_80312E0C(void) { return 0; }
+int TObjPlayer__sub_80312E98(void) { return 0; }
+
+void TObjPlayer__sub_80312F0C(void* p) { { int n = TObjPlayer__sub_803131AC(p); int i; for (i = 0; i < n; i++) { process_indexed_element__10TObjPlayerFii(p, (void*)i); } } }
+
+int TObjPlayer__sub_80312F5C(void) { return 0; }
+int TObjPlayer__sub_80312FB0(void) { return 0; }
+int TObjPlayer__sub_80313010(void) { return 0; }
+
+}

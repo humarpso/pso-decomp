@@ -1,2 +1,41 @@
-#define PSO_CLASS_PACKAGE 0x800F8820
-#include "pso/misc/THunterGuildSeqOffline.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1);
+void *init__22THunterGuildSeqOfflineFPvPvPv(void *arg0, void *arg1, void *arg2);
+void __dl__7TObjectFPv(void *);
+void destroy_task_object__12TBoss3VoloptFPvs(void *, int);
+void init_object__12TBoss3VoloptFPvPv(void *, void *);
+
+extern M2C_UNK lbl_804999D0[];
+
+void *THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999D0;
+        destroy_task_object__12TBoss3VoloptFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+extern void *tl_fade;
+extern const f32 lbl_805DA8E8;
+extern M2C_UNK lbl_804999D0[];
+
+void *init__22THunterGuildSeqOfflineFPvPvPv(void *arg0, void *arg1, void *arg2) {
+    init_object__12TBoss3VoloptFPvPv(arg0, tl_fade);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999D0;
+    M2C_FIELD(arg0, void **, 0x24) = arg2;
+    M2C_FIELD(arg0, f32 *, 0x1C) = lbl_805DA8E8;
+    M2C_FIELD(arg0, u8 *, 0x20) = 0;
+    M2C_FIELD(arg0, u8 *, 0x21) = 0;
+    M2C_FIELD(arg0, u8 *, 0x22) = 0;
+    return arg0;
+}
+
+}

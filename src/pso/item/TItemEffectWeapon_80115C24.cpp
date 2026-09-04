@@ -1,2 +1,13 @@
-#define PSO_CLASS_PACKAGE 0x80115C24
-#include "pso/item/TItemEffectWeapon.cpp"
+#include "types.h"
+
+extern "C" {
+
+int TItemMoney__vt16(void);
+int decrement_timer__17TItemEffectWeaponFPv(void* p);
+int decrement_packed_timer__15TObjBoss2TunnelFPvi(void*);
+
+int decrement_timer__17TItemEffectWeaponFPv(void* p) { return decrement_packed_timer__15TObjBoss2TunnelFPvi(p); }
+
+int TItemMoney__vt16(void) { return 0; }
+
+}

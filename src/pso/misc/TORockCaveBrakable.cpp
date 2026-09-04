@@ -1,51 +1,10 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__10TORockCaveFv(void *, int);
-
-extern M2C_UNK __vt__18TORockCaveBrakable[];
-
-void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TORockCaveBrakable;
-        __dt__10TORockCaveFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80174CC0
-#include "types.h"
-
-extern "C" {
-
-void TORockCaveBrakable__sub_80174CC0(void);
-void TORockCaveBrakable__sub_80174CC4(void* p);
-int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
-
-void TORockCaveBrakable__sub_80174CC0(void) {  }
-void TORockCaveBrakable__sub_80174CC4(void* p) { TBoss3Volopt__sub_8022675C((void*)277521, (char*)p + 0x38, (void*)0, (void*)0); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80174E50
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-struct Base_80174EA0 { char pad[0x18]; };
-struct VObj_80174EA0 : Base_80174EA0 {
+struct Base_80174EA0_80174CC0 { char pad[0x18]; };
+struct VObj_80174EA0_80174CC0 : Base_80174EA0_80174CC0 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
     virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
     virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
@@ -58,16 +17,8 @@ struct VObj_80174EA0 : Base_80174EA0 {
 
 extern "C" {
 
-void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0);
-void update_break_state__18TORockCaveBrakableFPv(void *arg0);
-u8 TODoorAncient08__sub_80229220(u16);
-M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
-s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
-
-struct E4E50Base_80174e50 { char pad[0x18]; };
-struct E4E50Obj_80174e50 : E4E50Base_80174e50 {
+struct E4E50Base_80174e50_80174CC0 { char pad[0x18]; };
+struct E4E50Obj_80174e50_80174CC0 : E4E50Base_80174e50_80174CC0 {
     virtual void m0();
     virtual void m1();
     virtual void m2();
@@ -87,8 +38,27 @@ struct E4E50Obj_80174e50 : E4E50Base_80174e50 {
     virtual void m16();
 };
 
+void *TORockCaveBrakable__ct(void *arg0);
+void TORockCaveBrakable__sub_80174CC0(void);
+void TORockCaveBrakable__sub_80174CC4(void* p);
+void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
+void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0);
+void update_break_state__18TORockCaveBrakableFPv(void *arg0);
+int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
+u8 TODoorAncient08__sub_80229220(u16);
+void TORockCave__ct(void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, M2C_UNK);
+void __dl__7TObjectFPv(void *);
+void __dt__10TORockCaveFv(void *, int);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK set_flag8__6TLobbyFPv(void *);
+
+void TORockCaveBrakable__sub_80174CC0(void) {  }
+void TORockCaveBrakable__sub_80174CC4(void* p) { TBoss3Volopt__sub_8022675C((void*)277521, (char*)p + 0x38, (void*)0, (void*)0); }
+
 void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0) {
-    ((E4E50Obj_80174e50*)arg0)->m16();
+    ((E4E50Obj_80174e50_80174CC0*)arg0)->m16();
     TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x45);
     TObjEneDellBiter__sub_80087350(arg0 + 0x38, 0x46);
 }
@@ -98,7 +68,7 @@ void update_break_state__18TORockCaveBrakableFPv(void *arg0) {
     s32 temp_r0_2;
 
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        ((VObj_80174EA0 *)arg0)->m17();
+        ((VObj_80174EA0_80174CC0 *)arg0)->m17();
         return;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
@@ -109,8 +79,8 @@ void update_break_state__18TORockCaveBrakableFPv(void *arg0) {
         temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xB8);
         if ((temp_r0_2 >= 0) && (temp_r0_2 < 0x100) && (TODoorAncient08__sub_80229220((u16) temp_r0_2) == 1)) {
             M2C_FIELD(arg0, s32 *, 0xB4) = 1;
-            ((VObj_80174EA0 *)arg0)->m15();
-            ((VObj_80174EA0 *)arg0)->m14();
+            ((VObj_80174EA0_80174CC0 *)arg0)->m15();
+            ((VObj_80174EA0_80174CC0 *)arg0)->m14();
         }
         break;
     case 1:
@@ -120,17 +90,18 @@ void update_break_state__18TORockCaveBrakableFPv(void *arg0) {
     }
 }
 
+extern M2C_UNK __vt__18TORockCaveBrakable[];
+
+void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TORockCaveBrakable;
+        __dt__10TORockCaveFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x80174FD0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TORockCaveBrakable__ct(void *arg0);
-void TORockCave__ct(void *);
 
 extern M2C_UNK __vt__18TORockCaveBrakable[];
 extern void *lbl_805D3100;
@@ -145,5 +116,3 @@ void *TORockCaveBrakable__ct(void *arg0) {
 }
 
 }
-#endif
-#endif

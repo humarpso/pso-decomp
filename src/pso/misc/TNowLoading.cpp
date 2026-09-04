@@ -1,25 +1,18 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void render__11TNowLoadingFv(void);
-
-void render__11TNowLoadingFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8001D2EC
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
+void TNowLoading__sub_8001D4D0(void);
+void TNowLoading__sub_8001D4D4(void);
 void *__dt__11TNowLoadingFv(void *arg0, s16 arg1);
+void render__11TNowLoadingFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
+
+void render__11TNowLoadingFv(void) {  }
 
 extern M2C_UNK __vt__11TNowLoading[];
 
@@ -38,32 +31,7 @@ void *__dt__11TNowLoadingFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8001D4D0
-#include "types.h"
-
-extern "C" {
-
-void TNowLoading__sub_8001D4D0(void);
-void TNowLoading__sub_8001D4D4(void);
-
 void TNowLoading__sub_8001D4D0(void) {  }
 void TNowLoading__sub_8001D4D4(void) {  }
 
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x80087660
-#include "types.h"
-
-extern "C" {
-
-void copy_vec3__11TBoss4Type2FPvPv(void* p, void* q);
-void set_flags__11TBoss4Type2FPvUi(void* p, u32 v);
-void copy_pos__11TNowLoadingFPvPv(void* p, void* q);
-
-void copy_pos__11TNowLoadingFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x60) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x64) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x68) = *(f32*)((char*)q + 0x8); }
-
-}
-#endif
-#endif

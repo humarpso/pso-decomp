@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TOAttackableCol__sub_80157310(void);
-
-void TOAttackableCol__sub_80157310(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80157314
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -18,9 +6,47 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TOAttackableCol__sub_80157310(void);
+int TOAttackableCol__sub_801575AC(void *, s32);
+int TOAttackableCol__sub_80157A28(void);
+void TOAttackableCol__sub_80157C20(void* p, s32 v);
+s32 TOAttackableCol__sub_80157C28(void* p);
+int TOAttackableCol__vt18(void);
+int TOAttackableCol__vt19(void);
+int TOAttackableCol__vt20(void);
+int TOAttackableCol__vt21(void);
+int TOAttackableCol__vt22(void);
+void TOAttackableCol__vt23(void);
+int TOAttackableCol__vt24(void);
+int TOAttackableCol__vt25(void);
+int TOAttackableCol__vt4(void);
+void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
+void broadcast_state__15TOAttackableColFPv(void* p);
+void bswap_state__15TOAttackableColFPv(void* p);
+void check_door_trigger__15TOAttackableColFPv(void *arg0);
+int fn_80157CA8(void);
+int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 void init_params__15TOAttackableColFPv(void *arg0);
-M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
+void release__15TOAttackableColFPv(void* p);
+void render__15TOAttackableColFv(void);
+int run_task__15TOAttackableColFv(void);
+int TLobby__send_and_handle_60(void*);
+int TLobby__sub_80156BA8(void*);
+void TOBarrierEnergy01__vt18(void);
+u8 TODoorAncient08__sub_80229220(u16);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(void *);
+s32 TObjPlayer__sub_801B4A18(void *, s32);
+M2C_UNK __dl__7TObjectFPv(void *);
+int bswap_16__FPUs(void*);
+int bswap_header__6TLobbyFi(void*);
+int clear_player_status_flag__10TObjPlayerFPviUi(void*, int, int);
+M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
+int queue_destruction__7TObjectFv(void*);
+int set_flag8__6TLobbyFPv(void*);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+
+void TOAttackableCol__sub_80157310(void) {  }
 
 extern const f32 lbl_805DB2C8;
 
@@ -52,7 +78,7 @@ void init_params__15TOAttackableColFPv(void *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x6C) < lbl_805DB2C8) {
         set_indexed_flags(arg0, 0, 0x08000000);
     } else {
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x08000000);
+        clear_player_status_flag__10TObjPlayerFPviUi((void*)(arg0), (int)(0), (int)(0x08000000));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) {
         M2C_FIELD(arg0, s32 *, 0x348) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
@@ -65,35 +91,10 @@ void init_params__15TOAttackableColFPv(void *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80157700
-#include "types.h"
+int TOAttackableCol__sub_801575AC(void *, s32) { return 0; }
+int TOAttackableCol__vt4(void) { return 0; }
 
-extern "C" {
-
-int handle_6x91_update_state__15TOAttackableColFPv(void* p);
-int clear_player_status_flag__10TObjPlayerFPviUi(void*, int, int);
-
-int handle_6x91_update_state__15TOAttackableColFPv(void* p) { return clear_player_status_flag__10TObjPlayerFPviUi(p, 0, 1); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x801578CC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 TOAttackableCol__sub_801575AC(void *, s32);
-s32 TObjPlayer__sub_801B4A18(void *, s32);
-u8 TODoorAncient08__sub_80229220(u16);
-int set_flag8__6TLobbyFPv(void*);
-int queue_destruction__7TObjectFv(void*);
-void render__15TOAttackableColFv(void);
+int handle_6x91_update_state__15TOAttackableColFPv(void* p) { return clear_player_status_flag__10TObjPlayerFPviUi((void*)(p), (int)(0), (int)(1)); }
 
 void release__15TOAttackableColFPv(void* p) { set_flag8__6TLobbyFPv(p); queue_destruction__7TObjectFv(p); }
 void check_door_trigger__15TOAttackableColFPv(void *arg0) {
@@ -103,46 +104,15 @@ void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x34C);
     if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (TODoorAncient08__sub_80229220((u16) temp_r0) == 1)) && ((TObjPlayer__sub_801B4A18(arg0, -1), (((s32) M2C_FIELD(arg0, s32 *, 0x33C) > 0) == 0)) || (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) && (temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (TODoorAncient08__sub_80229220((u16) temp_r0_2) == 1)))) {
         M2C_FIELD(arg0, s32 *, 0x33C) = 0;
-        TOAttackableCol__sub_801575AC(arg0, 1);
+        TOAttackableCol__sub_801575AC((void *)(arg0), (s32)(1));
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80157A24
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 TOAttackableCol__sub_801575AC(void *, s32);
-s32 TObjPlayer__sub_801B4A18(void *, s32);
-u8 TODoorAncient08__sub_80229220(u16);
-int set_flag8__6TLobbyFPv(void*);
-int queue_destruction__7TObjectFv(void*);
-void render__15TOAttackableColFv(void);
+int run_task__15TOAttackableColFv(void) { return 0; }
 
 void render__15TOAttackableColFv(void) {  }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80157A70
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+int TOAttackableCol__sub_80157A28(void) { return 0; }
 
 extern M2C_UNK __vt__15TOAttackableCol[];
 
@@ -159,45 +129,21 @@ void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80157C1C
-#include "types.h"
-
-extern "C" {
-
-int bswap_16__FPUs(void*);
-int bswap_header__6TLobbyFi(void*);
-int TLobby__sub_80156BA8(void*);
-int TLobby__send_and_handle_60(void*);
-void TOAttackableCol__vt23(void);
-void TOAttackableCol__sub_80157C20(void* p, s32 v);
-s32 TOAttackableCol__sub_80157C28(void* p);
-void TOBarrierEnergy01__vt18(void);
+int TOAttackableCol__vt24(void) { return 0; }
+int TOAttackableCol__vt25(void) { return 0; }
+int TOAttackableCol__vt18(void) { return 0; }
+int TOAttackableCol__vt19(void) { return 0; }
+int TOAttackableCol__vt20(void) { return 0; }
+int TOAttackableCol__vt21(void) { return 0; }
+int TOAttackableCol__vt22(void) { return 0; }
 
 void TOAttackableCol__vt23(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80157C20
-#include "types.h"
-
-extern "C" {
-
-int bswap_16__FPUs(void*);
-int bswap_header__6TLobbyFi(void*);
-int TLobby__sub_80156BA8(void*);
-int TLobby__send_and_handle_60(void*);
-void TOAttackableCol__vt23(void);
-void TOAttackableCol__sub_80157C20(void* p, s32 v);
-s32 TOAttackableCol__sub_80157C28(void* p);
-void TOBarrierEnergy01__vt18(void);
 
 void TOAttackableCol__sub_80157C20(void* p, s32 v) { *(s32*)((char*)p + 0x33c) = v; }
 s32 TOAttackableCol__sub_80157C28(void* p) { return *(s32*)((char*)p + 0x33c); }
 void bswap_state__15TOAttackableColFPv(void* p) { bswap_header__6TLobbyFi(p); bswap_16__FPUs((char*)p + 0xc); bswap_16__FPUs((char*)p + 0xe); bswap_16__FPUs((char*)p + 0x10); }
-void broadcast_state__15TOAttackableColFPv(void* p) { bswap_state__15TOAttackableColFPv(p); TLobby__send_and_handle_60(p); }
+void broadcast_state__15TOAttackableColFPv(void* p) { bswap_state__15TOAttackableColFPv((void*)(p)); TLobby__send_and_handle_60(p); }
+
+int fn_80157CA8(void) { return 0; }
 
 }
-#endif
-#endif

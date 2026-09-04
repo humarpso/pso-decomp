@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -6,11 +5,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-
-void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
 
 struct Base_8015C098 { char pad[0x18]; };
 struct VObj_8015C098 : Base_8015C098 {
@@ -37,6 +31,16 @@ struct VObj_8015C098 : Base_8015C098 {
     virtual void m77();
 };
 
+void *TOContainerAncientItemCommon__ct(void *arg0);
+void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2);
+void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void destroy_ancient_container__10TObjPlayerFPvs(void *, int);
+void fn_8015C534(void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK set_flag8__6TLobbyFPv(void *);
+M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
+
 void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
@@ -48,19 +52,6 @@ void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8015C198
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void destroy_ancient_container__10TObjPlayerFPvs(void *, int);
 
 extern M2C_UNK __vt__28TOContainerAncientItemCommon[];
 
@@ -75,18 +66,6 @@ void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8015C1F0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TOContainerAncientItemCommon__ct(void *arg0);
-void fn_8015C534(void *);
-
 extern M2C_UNK __vt__28TOContainerAncientItemCommon[];
 extern void *lbl_805D2EFC;
 
@@ -98,5 +77,3 @@ void *TOContainerAncientItemCommon__ct(void *arg0) {
 }
 
 }
-#endif
-#endif

@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x802A4540
-#include "pso/misc/TNeedleShoot.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TNeedleShoot__sub_802A4540(void);
+
+void TNeedleShoot__sub_802A4540(void) {  }
+
+}

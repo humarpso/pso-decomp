@@ -1,3 +1,7 @@
+#include "pso/TEffStarLightChild.h"
+
+TEffStarLightChild::~TEffStarLightChild() {}
+
 #include "types.h"
 
 extern "C" {

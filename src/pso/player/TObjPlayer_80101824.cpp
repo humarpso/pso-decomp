@@ -1,2 +1,59 @@
-#define PSO_CLASS_PACKAGE 0x80101824
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void apply_sign_effect__10TObjPlayerFPvi(void* a0, int a1);
+void apply_to_child__10TObjPlayerFPvi(void* a0, int a1);
+int check_boss2tunnel_field_f4__10TObjPlayerFPv(void* p);
+void get_item_info__10TObjPlayerFiiPv(s32 arg0, s32 arg1, s16 *arg2);
+void run_with_callback__10TObjPlayerFPvi(void* a0, int a1);
+void run_with_transform_context__10TObjPlayerFiii(int a0, int a1, int a2);
+int TObjBoss2Tunnel__sub_803DB470(void*);
+int TObjPlayer__sub_801016D0(void*);
+M2C_UNK TWindowHelpItem__sub_80104FCC(s32, void *, s32 *);
+M2C_UNK copy_to_item_data__5TItemFPvPv(s32, void *);
+M2C_UNK init__9TItemDataFv(void *);
+int reset_transform_state__10TObjPlayerFv(void);
+
+    extern unsigned char TOSignCave03__sub_803DB510[];
+    extern int lbl_805D53F8;
+    extern int lbl_805D53FC;
+    extern int lbl_805D5404;
+void run_with_transform_context__10TObjPlayerFiii(int a0, int a1, int a2) { lbl_805D53FC = a1; lbl_805D5404 = 0; lbl_805D53F8 = (int)TOSignCave03__sub_803DB510; TObjPlayer__sub_801016D0((void*)(a0)); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+
+int check_boss2tunnel_field_f4__10TObjPlayerFPv(void* p) { return TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0xf4)); }
+
+    extern unsigned char TOSignCave03__sub_803DB510[];
+    extern int lbl_805D53F8;
+    extern int lbl_805D53FC;
+    extern int lbl_805D5404;
+void run_with_callback__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D53FC = *(int*)((char*)a0 + 0xe0); lbl_805D5404 = a1; lbl_805D53F8 = (int)TOSignCave03__sub_803DB510; TObjPlayer__sub_801016D0((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+
+    extern unsigned char TOSignCave03__sub_803DB510[];
+    extern int lbl_805D53F8;
+    extern int lbl_805D53FC;
+    extern int lbl_805D5404;
+void apply_sign_effect__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D53FC = *(int*)((char*)a0 + 0xe0); lbl_805D5404 = a1; lbl_805D53F8 = (int)TOSignCave03__sub_803DB510; TObjPlayer__sub_801016D0((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+
+    extern int lbl_805D53F8;
+    extern int lbl_805D53FC;
+    extern int lbl_805D5404;
+void apply_to_child__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D53FC = *(int*)((char*)a0 + 0xe0); lbl_805D5404 = a1; lbl_805D53F8 = 0; TObjPlayer__sub_801016D0((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+
+void get_item_info__10TObjPlayerFiiPv(s32 arg0, s32 arg1, s16 *arg2) {
+    s32 spC[2];
+    s32 sp8;
+
+    init__9TItemDataFv(spC);
+    copy_to_item_data__5TItemFPvPv(arg0, spC);
+    TWindowHelpItem__sub_80104FCC(arg1, spC, &sp8);
+    if (arg2 != NULL) {
+        *arg2 = (s16) sp8;
+    }
+}
+
+}

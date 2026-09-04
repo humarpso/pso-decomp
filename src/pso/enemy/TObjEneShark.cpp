@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TObjPlayer__sub_800AC9D8(void);
+void TObjPlayer__sub_800ACA0C(void);
 void * create__12TObjEneSharkFPv(void *arg0);
 void free_resources__12TObjEneSharkFv(void);
 void TLobby__sub_8001FE7C(void*, int);
@@ -69,5 +71,9 @@ void free_resources__12TObjEneSharkFv(void) {
         lbl_805D50B8 = 0U;
     }
 }
+
+void TObjPlayer__sub_800AC9D8(void) {  }
+
+void TObjPlayer__sub_800ACA0C(void) {  }
 
 }

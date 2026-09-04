@@ -1,37 +1,10 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__22TPlyPtclObjectLeftHandFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__22TPlyFollowParticleCtrlFv(void *, int);
-
-extern M2C_UNK __vt__22TPlyPtclObjectLeftHand[];
-
-void *__dt__22TPlyPtclObjectLeftHandFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TPlyPtclObjectLeftHand;
-        __dt__22TPlyFollowParticleCtrlFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8030A400
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-struct VBase_PTR18 { char pad[0x18]; };
-struct VObj_PTR18 : VBase_PTR18 {
+struct VBase_PTR18_8030A400 { char pad[0x18]; };
+struct VObj_PTR18_8030A400 : VBase_PTR18_8030A400 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
     virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
     virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
@@ -53,8 +26,11 @@ struct VObj_PTR18 : VBase_PTR18 {
 
 extern "C" {
 
+void *__dt__22TPlyPtclObjectLeftHandFv(void *arg0, s16 arg1);
 s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void __dl__7TObjectFPv(void *);
+void __dt__22TPlyFollowParticleCtrlFv(void *, int);
 u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
 s32 get_position_ptr__10TObjPlayerFPv(s32);
 
@@ -65,32 +41,21 @@ s32 update_attachment__22TPlyPtclObjectLeftHandFi(s32 arg0) {
     if (temp_r3 == NULL) {
         return 0;
     }
-    ((VObj_PTR18 *) temp_r3)->m63(0x23, get_position_ptr__10TObjPlayerFPv(arg0));
+    ((VObj_PTR18_8030A400 *) temp_r3)->m63(0x23, get_position_ptr__10TObjPlayerFPv(arg0));
     return get_position_ptr__10TObjPlayerFPv(arg0);
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8030A4C8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TPlyPtclObjectLeftHand__ct(void *arg0);
-void TPlyFollowParticleCtrl__ct(void *);
-
 extern M2C_UNK __vt__22TPlyPtclObjectLeftHand[];
-extern void *lbl_805D40C4;
 
-void *TPlyPtclObjectLeftHand__ct(void *arg0) {
-    TPlyFollowParticleCtrl__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TPlyPtclObjectLeftHand;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D40C4;
+void *__dt__22TPlyPtclObjectLeftHandFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TPlyPtclObjectLeftHand;
+        __dt__22TPlyFollowParticleCtrlFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
     return arg0;
 }
 
 }
-#endif
-#endif

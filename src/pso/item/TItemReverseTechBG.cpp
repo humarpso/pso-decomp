@@ -1,22 +1,24 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TItemReverseTechBG.h"
 
 TItemReverseTechBG::~TItemReverseTechBG() {}
-#else
-#if PSO_CLASS_PACKAGE == 0x80119600
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
 void render__18TItemReverseTechBGFv(void *arg0);
-void reset_transform_state__10TObjPlayerFv(void *);
-void notify_fish_if_valid__10TObjPlayerFUi(void *);
-void TWindowSubStatusDisp__sub_803DEE6C(int);
-void get_player__20TWindowSubStatusDispFv(void);
 void TWindowSubComCard__sub_803DEECC(void *, f32);
+void TWindowSubStatusDisp__sub_803DEE6C(int);
 void TWindowSubStatusDisp__sub_803DF160(void *, void *);
+M2C_UNK __ct__7TObjectFP7TObject();
+void get_player__20TWindowSubStatusDispFv(void);
+void notify_fish_if_valid__10TObjPlayerFUi(void *);
+void reset_transform_state__10TObjPlayerFv(void *);
 
 void render__18TItemReverseTechBGFv(void *arg0) {
     reset_transform_state__10TObjPlayerFv(arg0);
@@ -26,20 +28,6 @@ void render__18TItemReverseTechBGFv(void *arg0) {
     TWindowSubComCard__sub_803DEECC((void *)((char *)arg0 + 56), M2C_FIELD(arg0, f32 *, 0x58));
     get_player__20TWindowSubStatusDispFv();
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x801197F4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3);
-M2C_UNK __ct__7TObjectFP7TObject();
 
 extern void *__vt__18TItemReverseTechBG[];
 extern s32 lbl_805D2C54;
@@ -79,5 +67,3 @@ void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3) {
 }
 
 }
-#endif
-#endif

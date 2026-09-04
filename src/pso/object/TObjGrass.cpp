@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void TObjGrass__sub_800BCA2C(void);
-
-void TObjGrass__sub_800BCA2C(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x800BCFD4
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -18,7 +6,35 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void TObjGrass__sub_800BCA2C(void);
+s32 TObjGrass__vt34(void *arg0);
+s32 TObjGrass__vt37(void *arg0);
+void TObjGrass__vt57(void *arg0);
+void TObjGrass__vt58(void *arg0);
+void TObjGrass__vt59(void *arg0);
 void TObjGrass__vt60(void *arg0);
+void * create__9TObjGrassFPv(void *arg0);
+void destroy_all__9TObjGrassFv(void);
+void update__9TObjGrassFPv(u8 *arg0);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+void *TObjControl__ct(void *, void *);
+void *TObjGrass__ct(void *, void *, void *);
+M2C_UNK TObjGrass__sub_800BFB68();
+M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
+s32 TObjPlayer__sub_80016D78();
+s32 TObjPlayer__sub_80016FF8();
+void __dt__11TBoss4Type3FPvs(void*, int);
+void *__nw__7TObjectFUl(int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+void free__11TOBoss4RockFUi(void*);
+M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+void obj_clearFlags30(void *, u32);
+M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+
+void TObjGrass__sub_800BCA2C(void) {  }
 
 void TObjGrass__vt60(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 7) {
@@ -29,33 +45,12 @@ void TObjGrass__vt60(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800BD00C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void update__9TObjGrassFPv(u8 *arg0);
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
-M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-M2C_UNK TBoss1Dragon__sub_80143504(void *);
-M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
-
-M2C_UNK obj_clearFlags30(void *, M2C_UNK);
-M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 TObjGrass__data_805D9EB8;
 
 void update__9TObjGrassFPv(u8 *arg0) {
     s16 temp_r4;
 
-    obj_clearFlags30(arg0, 0x04040000);
+    obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
     TBoss1Dragon__sub_80143504(arg0);
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
         TObjPlayer__sub_80011734(arg0, 0, TObjGrass__data_805D9EB8);
@@ -73,19 +68,6 @@ void update__9TObjGrassFPv(u8 *arg0) {
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800BD0D8
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TObjGrass__vt59(void *arg0);
-
 void TObjGrass__vt59(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 6) {
         M2C_FIELD(arg0, s16 *, 0x326) = 6;
@@ -93,20 +75,6 @@ void TObjGrass__vt59(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFF9BFFFF);
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800BE120
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TObjGrass__vt58(void *arg0);
-M2C_UNK TObjGrass__sub_800BFB68();
 
 extern const f32 TObjGrass__data_805D9EB8;
 
@@ -135,21 +103,6 @@ void TObjGrass__vt58(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800BE898
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void TObjGrass__vt57(void *arg0);
-
-M2C_UNK obj_clearFlags30(void *, M2C_UNK);
-
 void TObjGrass__vt57(void *arg0) {
     s16 temp_r0;
 
@@ -162,27 +115,9 @@ void TObjGrass__vt57(void *arg0) {
             M2C_FIELD(arg0, s16 *, 0x326) = 2;
         }
         M2C_FIELD(arg0, s16 *, 0x328) = 0;
-        obj_clearFlags30(arg0, 0x04040000);
+        obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
     }
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800BEEA4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 TObjGrass__vt34(void *arg0);
-s32 TObjGrass__vt37(void *arg0);
-s32 TObjPlayer__sub_80016D78();
-s32 TObjPlayer__sub_80016FF8();
-
-void obj_clearFlags30(void *, u32);
 
 s32 TObjGrass__vt37(void *arg0) {
     if (TObjPlayer__sub_80016D78() != 0) {
@@ -191,14 +126,12 @@ s32 TObjGrass__vt37(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x3AC) = 0;
             M2C_FIELD(arg0, s16 *, 0x328) = 2;
             M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-            obj_clearFlags30(arg0, 0x04040000);
+            obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
         }
         return 1;
     }
     return 0;
 }
-
-void obj_clearFlags30(void *, u32);
 
 s32 TObjGrass__vt34(void *arg0) {
     if (TObjPlayer__sub_80016FF8() != 0) {
@@ -207,26 +140,12 @@ s32 TObjGrass__vt34(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x3AC) = 0;
             M2C_FIELD(arg0, s16 *, 0x328) = 2;
             M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-            obj_clearFlags30(arg0, 0x04040000);
+            obj_clearFlags30((void *)(arg0), (u32)(0x04040000));
         }
         return 1;
     }
     return 0;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800BF57C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void * create__9TObjGrassFPv(void *arg0);
-void *TObjControl__ct(void *, void *);
-void *TObjGrass__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
 
 extern void *tl_04;
 
@@ -243,22 +162,6 @@ void * create__9TObjGrassFPv(void *arg0) {
     }
     return o2;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x800BF5E4
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void destroy_all__9TObjGrassFv(void);
-void __dt__11TBoss4Type3FPvs(void*, int);
-void free__11TOBoss4RockFUi(void*);
-void TLobby__sub_8001FE7C(void*, int);
 
 extern u32 TObjGrass__data_805D5144;
 extern u32 TObjGrass__data_805D5154;
@@ -285,5 +188,3 @@ void destroy_all__9TObjGrassFv(void) {
 }
 
 }
-#endif
-#endif

@@ -1,2 +1,15 @@
-#define PSO_CLASS_PACKAGE 0x80086C44
-#include "pso/boss/TBoss4Type2.cpp"
+#include "types.h"
+
+extern "C" {
+
+void request_destroy__11TBoss4Type2FUi(u32 arg0);
+
+int queue_destruction__7TObjectFv();
+
+void request_destroy__11TBoss4Type2FUi(u32 arg0) {
+    if (arg0 != 0U) {
+        queue_destruction__7TObjectFv();
+    }
+}
+
+}

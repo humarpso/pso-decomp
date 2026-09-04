@@ -1,2 +1,23 @@
-#define PSO_CLASS_PACKAGE 0x80055678
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TObjPlayer__sub_80055678(void);
+void TObjPlayer__sub_8005567C(void);
+void TObjPlayer__sub_80055680(void);
+void TObjPlayer__sub_80055684(void);
+void TObjPlayer__sub_80055688(void);
+void TObjPlayer__sub_8005568C(void);
+void TObjPlayer__sub_80055690(void);
+void* get_position_ptr__10TObjPlayerFPv(void* p);
+
+void TObjPlayer__sub_80055678(void) {  }
+void TObjPlayer__sub_8005567C(void) {  }
+void TObjPlayer__sub_80055680(void) {  }
+void TObjPlayer__sub_80055684(void) {  }
+void TObjPlayer__sub_80055688(void) {  }
+void TObjPlayer__sub_8005568C(void) {  }
+void TObjPlayer__sub_80055690(void) {  }
+void* get_position_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x38; }
+
+}

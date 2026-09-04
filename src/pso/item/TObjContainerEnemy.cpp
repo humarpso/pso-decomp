@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -8,8 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjContainerEnemy__vt78(void *arg0);
-
+void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1);
+void *create__18TObjContainerEnemyFPv(void *arg0);
+void *TObjContainerEnemy__ct(void *, void *, void *);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
+M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
 
 void TObjContainerEnemy__vt78(void *arg0) {
     s16 temp_r0;
@@ -24,26 +30,6 @@ void TObjContainerEnemy__vt78(void *arg0) {
         return;
     }
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x801896F0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void *create__18TObjContainerEnemyFPv(void *arg0);
-void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1);
-void *TObjContainerEnemy__ct(void *, void *, void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
 
 extern void *tl_05;
 
@@ -71,5 +57,3 @@ void *__dt__18TObjContainerEnemyFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

@@ -1,0 +1,12 @@
+#include "types.h"
+
+extern "C" {
+
+int TOKeyMachine01__vt13(void);
+void TOKeyMachine01__vt23(void);
+
+void TOKeyMachine01__vt23(void) {  }
+
+int TOKeyMachine01__vt13(void) { return 0; }
+
+}

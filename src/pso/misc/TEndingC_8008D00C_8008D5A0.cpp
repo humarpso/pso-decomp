@@ -1,0 +1,43 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TEndingAB__sub_8008D5A0(void);
+void TEndingPic__sub_8008D5AC(void);
+int TEnding__sub_8008D5B8(void);
+s32 TObjEneBalClaw__vt34(s32 arg0);
+s32 TObjEneBalClaw__vt37(s32 arg0);
+M2C_UNK TObjEneBalClaw__sub_8008D5C0(s32);
+s32 TObjPlayer__sub_80016D78();
+s32 TObjPlayer__sub_80016FF8();
+
+    extern int TEndingAB__data_805D4F10;
+void TEndingAB__sub_8008D5A0(void) { TEndingAB__data_805D4F10 = 1; }
+
+    extern int TEndingPic__data_805D6EE0;
+void TEndingPic__sub_8008D5AC(void) { TEndingPic__data_805D6EE0 = 1; }
+
+    extern int lbl_805D4F08;
+int TEnding__sub_8008D5B8(void) {  return lbl_805D4F08; }
+
+s32 TObjEneBalClaw__vt37(s32 arg0) {
+    if (TObjPlayer__sub_80016D78() != 0) {
+        TObjEneBalClaw__sub_8008D5C0(arg0);
+        return 1;
+    }
+    return 0;
+}
+
+s32 TObjEneBalClaw__vt34(s32 arg0) {
+    if (TObjPlayer__sub_80016FF8() != 0) {
+        TObjEneBalClaw__sub_8008D5C0(arg0);
+        return 1;
+    }
+    return 0;
+}
+
+}

@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,8 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TWindowMainMenu4P__ct(void *arg0);
 void TWindowMainMenu4P__vt6(void *arg0);
 void TWindowMainMenu4P__vt7(void* p);
+void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1);
+void render__17TWindowMainMenu4PFv(void);
+void run_task__17TWindowMainMenu4PFv(void* p);
+void TWindowMainMenu__ct(void *);
+int TWindowMainMenu__sub_80263FE0(void*);
+int TWindowMainMenu__sub_802647CC(void*);
+void __dl__7TObjectFPv(void *);
+void __dt__15TWindowMainMenuFv(void *, int);
 int close_active_submenu__15TWindowMainMenuFPv(void*);
 M2C_UNK close_and_clear_flags__15TWindowMainMenuFPv();
 int show_child_window__15TWindowMainMenuFPv(void*);
@@ -21,33 +29,8 @@ void TWindowMainMenu4P__vt6(void *arg0) {
     }
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80288A30
-#include "types.h"
-
-extern "C" {
-
-void run_task__17TWindowMainMenu4PFv(void* p);
-void render__17TWindowMainMenu4PFv(void);
-int TWindowMainMenu__sub_80263FE0(void*);
-int TWindowMainMenu__sub_802647CC(void*);
-
 void render__17TWindowMainMenu4PFv(void) {  }
 void run_task__17TWindowMainMenu4PFv(void* p) { TWindowMainMenu__sub_802647CC(p); TWindowMainMenu__sub_80263FE0(p); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80288A68
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1);
-void __dl__7TObjectFPv(void *);
-void __dt__15TWindowMainMenuFv(void *, int);
 
 extern M2C_UNK __vt__17TWindowMainMenu4P[];
 
@@ -62,18 +45,6 @@ void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80288AC0
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TWindowMainMenu4P__ct(void *arg0);
-void TWindowMainMenu__ct(void *);
-
 extern M2C_UNK __vt__17TWindowMainMenu4P[];
 extern void *lbl_805D3AF0;
 
@@ -85,5 +56,3 @@ void *TWindowMainMenu4P__ct(void *arg0) {
 }
 
 }
-#endif
-#endif

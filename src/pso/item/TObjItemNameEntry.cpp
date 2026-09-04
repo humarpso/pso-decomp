@@ -1,3 +1,13 @@
+#include "pso/TObjItemNameEntry.h"
+
+extern "C" void TWindow__close(void*);
+extern "C" void queue_destruction__7TObjectFv(void*);
+
+TObjItemNameEntry::~TObjItemNameEntry() {
+    if (m_20 != nullptr) { TWindow__close(m_20); m_20 = nullptr; }
+    if (m_1c != nullptr) { queue_destruction__7TObjectFv(m_1c); m_1c = nullptr; }
+}
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -8,19 +18,19 @@ extern "C" {
 
 void *TObjItemNameEntry__ct(void *arg0);
 u32 TKeyBoardControl__ct(void *, void *, M2C_UNK, M2C_UNK, M2C_UNK, s32);
-M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
-M2C_UNK set_status_flag_80__12TQuestThreadFPv(u32);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 u32 __nw__7TObjectFUl(M2C_UNK);
-s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
+u32 check_room_seq_4__16TAdChrSelASlotGCFii(s32, s32);
 M2C_UNK fn_80131ADC(u32, s32);
 M2C_UNK fn_80131B18(u32, s32);
-M2C_UNK set_sub_position__15TWindowMakeTeamFPvPv(u32, s32);
-M2C_UNK TWindowSubComCard__sub_80265C30(u32);
-M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(u32, f32, f32);
-u32 check_room_seq_4__16TAdChrSelASlotGCFii(s32, s32);
 s32 fn_8026CB5C();
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(u32, f32, f32);
+M2C_UNK set_status_flag_80__12TQuestThreadFPv(u32);
+M2C_UNK set_sub_position__15TWindowMakeTeamFPvPv(u32, s32);
 
 extern M2C_UNK __vt__17TObjItemNameEntry[];
 extern s32 lbl_805D35D8;

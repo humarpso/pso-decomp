@@ -1,91 +1,25 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
 void render__18TWindowEffectPartyFv(void);
+void run_task__18TWindowEffectPartyFv(void *arg0);
+u32 TWindowCtrl__sub_8024FB80(s8);
+s32 TWindowEffectParty__sub_8024F690(void *, f32, f32);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+M2C_UNK calc_effect_position__18TWindowEffectPartyFPvPv(void *, M2C_UNK *);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, M2C_UNK *);
+s32 fn_80244994();
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void request_destroy__11TBoss4Type2FUi(void *);
 
 void render__18TWindowEffectPartyFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8024F744
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void calc_effect_position__18TWindowEffectPartyFPvPv(void *arg0, void *arg1);
-f32 get_scale__15TWindowCtrlMainFv(s32);
-
-extern s32 lbl_805D53A0;
-extern f32 lbl_805DCCC0;
-
-void calc_effect_position__18TWindowEffectPartyFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg1, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
-    M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x24);
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (lbl_805DCCC0 / get_scale__15TWindowCtrlMainFv(lbl_805D53A0));
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8024F790
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2);
-M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
-void *TWindowCtrl__sub_8024FB80(s8);
-s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
-
-extern const f32 lbl_805DCCC4;
-extern const f32 lbl_805DCCC8;
-extern const f32 lbl_805DCCCC;
-extern const f32 lbl_805DCCD0;
-
-void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2) {
-    void *temp_r3;
-    (void)arg0;
-
-    if (arg1 <= 0) {
-        copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg2, TWindowSubComCard__sub_8026CBB8(0x1C));
-        M2C_FIELD(arg2, f32 *, 0) = (f32) (M2C_FIELD(arg2, f32 *, 0) + lbl_805DCCC4);
-        M2C_FIELD(arg2, f32 *, 4) = (f32) (M2C_FIELD(arg2, f32 *, 4) + lbl_805DCCC8);
-        return;
-    }
-    temp_r3 = TWindowCtrl__sub_8024FB80((s8) (arg1 - 1));
-    if (temp_r3 != NULL) {
-        M2C_FIELD(arg2, f32 *, 0) = (f32) (lbl_805DCCCC + M2C_FIELD(temp_r3, f32 *, 0x30));
-        M2C_FIELD(arg2, f32 *, 4) = (f32) (lbl_805DCCD0 + M2C_FIELD(temp_r3, f32 *, 0x34));
-    }
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8024F940
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void run_task__18TWindowEffectPartyFv(void *arg0);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, M2C_UNK *);
-s32 TWindowEffectParty__sub_8024F690(void *, f32, f32);
-M2C_UNK calc_effect_position__18TWindowEffectPartyFPvPv(void *, M2C_UNK *);
-s32 fn_80244994();
-u32 TWindowCtrl__sub_8024FB80(s8);
-M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern const f32 lbl_805DCCD4;
 
@@ -128,20 +62,6 @@ void run_task__18TWindowEffectPartyFv(void *arg0) {
     }
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8024FA74
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1);
-void request_destroy__11TBoss4Type2FUi(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-
 extern M2C_UNK __vt__18TWindowEffectParty[];
 
 void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
@@ -157,5 +77,3 @@ void *__dt__18TWindowEffectPartyFv(void *arg0, s16 arg1) {
 }
 
 }
-#endif
-#endif

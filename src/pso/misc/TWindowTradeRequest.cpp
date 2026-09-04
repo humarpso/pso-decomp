@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -23,16 +22,3 @@ void reset_trade__19TWindowTradeRequestFv(void) {
 }
 
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x802E0170
-#include "types.h"
-
-extern "C" {
-
-void render__19TWindowTradeRequestFv(void);
-
-void render__19TWindowTradeRequestFv(void) {  }
-
-}
-#endif
-#endif

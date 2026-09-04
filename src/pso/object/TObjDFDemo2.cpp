@@ -5,8 +5,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjDFDemo2__sub_8004EB20(void *arg0, s16 arg1);
-void destroy_particle__13TParticleCtrlFPvs(void *, int);
+void * create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void *TObjDFDemo2__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern M2C_UNK lbl_8048568C[];
 
@@ -19,6 +22,15 @@ void *TObjDFDemo2__sub_8004EB20(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void * create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
+    void *o;
+    o = __nw__7TObjectFUl(0xC4);
+    if (o != NULL) {
+        o = TObjDFDemo2__ct(o, arg0, arg1, arg2, arg3);
+    }
+    return o;
 }
 
 }

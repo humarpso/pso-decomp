@@ -6,9 +6,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+s32 TAdStorySelectGC__sub_80207D44(s32 arg0);
 void set_state__16TAdStorySelectGCFi(s32 arg0);
 M2C_UNK TLobby__sub_80207BB0();
 M2C_UNK TLobby__sub_80207C60();
+
+extern s32 lbl_805D3628;
+
+s32 TAdStorySelectGC__sub_80207D44(s32 arg0) {
+    if ((s32) lbl_805D3628 == -1) {
+        lbl_805D3628 = arg0;
+        return 1;
+    }
+    return 0;
+}
 
 extern s32 lbl_805D6060;
 

@@ -1,17 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void bswap__13TPlyStartGameFPv(void* p);
-int bswap_32__FPUl(void*);
-int bswap__16TPlyGuildCardTagFv(void*);
-
-void bswap__13TPlyStartGameFPv(void* p) { bswap__16TPlyGuildCardTagFv(p); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x801E0614
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -21,8 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 u8 *__ct__13TPlyStartGameFRC13TPlyStartGame(u8 *arg0, u8 *arg1);
+void bswap__13TPlyStartGameFPv(void* p);
+int fn_801E0700(void* p);
+int bswap_32__FPUl(void*);
+int bswap__16TPlyGuildCardTagFv(void*);
 M2C_UNK fn_801DF61C(void *, void *);
 M2C_UNK fn_801E051C(void *, void *);
+
+void bswap__13TPlyStartGameFPv(void* p) { bswap__16TPlyGuildCardTagFv(p); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); }
 
 u8 *__ct__13TPlyStartGameFRC13TPlyStartGame(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
@@ -38,6 +30,6 @@ u8 *__ct__13TPlyStartGameFRC13TPlyStartGame(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
+int fn_801E0700(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
+
 }
-#endif
-#endif

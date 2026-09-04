@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -10,18 +9,32 @@ struct VObj1_80166568 : Base1_80166568 {
     virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
     virtual s32 m8(f32, f32);
 };
+struct Base_A_801668cc_80166568 { char pad[0x18]; };
+struct V_A_801668cc_80166568 : Base_A_801668cc_80166568 {
+    virtual void f0();
+    virtual void f1(); virtual void f2(); virtual void f3();
+    virtual void f4(); virtual void f5(); virtual void f6();
+    virtual void f7(); virtual void f8(); virtual void f9();
+    virtual void f10(); virtual void f11(); virtual void f12();
+    virtual void f13();
+    virtual void m14();
+};
 
 extern "C" {
 
-void explode__18TOExplosiveMachineFPv(u8 *arg0);
 void destroy_static_lobby__18TOExplosiveMachineFv(void);
+void explode__18TOExplosiveMachineFPv(u8 *arg0);
+void update__18TOExplosiveMachineFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK TOExplosiveMachine__sub_80166778(void *);
+M2C_UNK TOExplosiveMachine__sub_80166814(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
-M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void explode__18TOExplosiveMachineFPv(u8 *arg0) {
     VObj1_80166568 *self = (VObj1_80166568 *)arg0;
@@ -44,32 +57,6 @@ void destroy_static_lobby__18TOExplosiveMachineFv(void) {
     }
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x801668CC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct Base_A_801668cc { char pad[0x18]; };
-struct V_A_801668cc : Base_A_801668cc {
-    virtual void f0();
-    virtual void f1(); virtual void f2(); virtual void f3();
-    virtual void f4(); virtual void f5(); virtual void f6();
-    virtual void f7(); virtual void f8(); virtual void f9();
-    virtual void f10(); virtual void f11(); virtual void f12();
-    virtual void f13();
-    virtual void m14();
-};
-
-extern "C" {
-
-void update__18TOExplosiveMachineFPv(void *arg0);
-M2C_UNK TOExplosiveMachine__sub_80166778(void *);
-M2C_UNK TOExplosiveMachine__sub_80166814(void *);
-s32 check_demo_mode__10TObjPlayerFv();
-
 extern const f32 lbl_805DB608;
 
 void update__18TOExplosiveMachineFPv(void *arg0) {
@@ -78,7 +65,7 @@ void update__18TOExplosiveMachineFPv(void *arg0) {
     s32 temp_r0;
 
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        ((V_A_801668cc *)arg0)->m14();
+        ((V_A_801668cc_80166568 *)arg0)->m14();
         return;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
@@ -99,5 +86,3 @@ void update__18TOExplosiveMachineFPv(void *arg0) {
 }
 
 }
-#endif
-#endif

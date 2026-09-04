@@ -1,2 +1,27 @@
-#define PSO_CLASS_PACKAGE 0x8019DC14
-#include "pso/menu/TAdStorySelectGC.cpp"
+#include "types.h"
+
+extern "C" {
+
+int TAdStorySelectGC__sub_8019DC14(void);
+void TObjMapForceWarp__vt13(void);
+int get_story_select__16TAdStorySelectGCFv(void);
+void register_area_warp_object__16TAdStorySelectGCFPv(void* a0);
+void register_warp__16TObjMapForceWarpFPv(void* a0);
+int TObjFish__sub_8001ED9C(void*, void*);
+int TObjFish__sub_8001EDC4(void*, void*);
+
+    extern int lbl_805D67C0;
+int TAdStorySelectGC__sub_8019DC14(void) {  return lbl_805D67C0; }
+
+    extern int lbl_805D5C7C;
+int get_story_select__16TAdStorySelectGCFv(void) {  return lbl_805D5C7C; }
+
+    extern int lbl_805D5C78;
+void register_area_warp_object__16TAdStorySelectGCFPv(void* a0) { TObjFish__sub_8001ED9C((void*)(lbl_805D5C78), a0); }
+
+    extern int lbl_805D5C78;
+void register_warp__16TObjMapForceWarpFPv(void* a0) { TObjFish__sub_8001EDC4((void*)(lbl_805D5C78), a0); }
+
+void TObjMapForceWarp__vt13(void) {  }
+
+}

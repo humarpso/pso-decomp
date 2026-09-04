@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x800D7A20
-#include "pso/boss/TBoss4Type3.cpp"
+#include "types.h"
+
+extern "C" {
+
+void reset_timer__11TBoss4Type3FPv(void* p);
+
+void reset_timer__11TBoss4Type3FPv(void* p) { *(s32*)((char*)p + 0x1c) = 0; }
+
+}

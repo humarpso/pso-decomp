@@ -1,9 +1,7 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "pso/TObjVoloptShutter.h"
 
 TObjVoloptShutter::~TObjVoloptShutter() {}
-#else
-#if PSO_CLASS_PACKAGE == 0x8004A734
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -13,14 +11,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render__17TObjVoloptShutterFv(void *arg0);
-M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9624(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803E4684(s32);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 
 extern s32 lbl_805D4D48;
 extern s32 lbl_805D4D4C;
@@ -45,5 +43,3 @@ void render__17TObjVoloptShutterFv(void *arg0) {
 }
 
 }
-#endif
-#endif

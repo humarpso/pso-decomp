@@ -1,13 +1,28 @@
+#include "pso/TChCrTagInformationStr.h"
+
+TChCrTagInformationStr::~TChCrTagInformationStr() {}
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *__ct__22TChCrTagInformationStrFv(void *arg0, M2C_UNK arg1, s32 arg2);
+void * create__22TChCrTagInformationStrFPvPv(void *arg0, void *arg1);
 M2C_UNK __ct__7TObjectFP7TObject();
+void *__nw__7TObjectFUl(int);
+
+void * create__22TChCrTagInformationStrFPvPv(void *arg0, void *arg1) {
+    void *o;
+    o = __nw__7TObjectFUl(0x38);
+    if (o != NULL) {
+        o = __ct__22TChCrTagInformationStrFv((void *)(o), (M2C_UNK)(arg0), (s32)(arg1));
+    }
+    return o;
+}
 
 extern M2C_UNK __vt__22TChCrTagInformationStr[];
 extern s32 lbl_805D40B8;

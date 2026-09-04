@@ -1,2 +1,39 @@
-#define PSO_CLASS_PACKAGE 0x80328904
-#include "pso/ui/TAdDialingGC.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void handle_state__12TAdDialingGCFPv(void *arg0);
+M2C_UNK update_dialing_display__12TAdDialingGCFv(M2C_UNK);
+M2C_UNK refresh_display__12TAdDialingGCFv();
+
+void handle_state__12TAdDialingGCFPv(void *arg0) {
+    s32 temp_r0;
+
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x9C);
+    switch (temp_r0) {
+    case 11:
+        update_dialing_display__12TAdDialingGCFv(0x11);
+        return;
+    case 12:
+        update_dialing_display__12TAdDialingGCFv(0x12);
+        return;
+    case 13:
+        update_dialing_display__12TAdDialingGCFv(0x13);
+        return;
+    case 14:
+        refresh_display__12TAdDialingGCFv();
+        return;
+    case 15:
+        update_dialing_display__12TAdDialingGCFv(0x16);
+        return;
+    default:
+        update_dialing_display__12TAdDialingGCFv(0x10);
+        return;
+    }
+}
+
+}

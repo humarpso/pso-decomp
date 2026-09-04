@@ -1,0 +1,57 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Base_802A752C_802A7290 { char pad[0x8]; };
+struct VObj_802A752C_802A7290 : Base_802A752C_802A7290 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+};
+
+extern "C" {
+
+void TLobby__sub_802A7640(void);
+s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK TLobby__sub_802A7848(void *, s32);
+s32 TLobby__sub_802A7868(void *, s32, s32);
+s32 TLobby__sub_802A7994(void *, s32, s32, s32);
+M2C_UNK forward_801C210C__10TObjPlayerFPv(void *, s32);
+void free__11TOBoss4RockFUi(void*);
+
+s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 temp_r3;
+
+    if (TLobby__sub_802A7868(arg0, arg2, arg3) != 0) {
+        return 1;
+    }
+    forward_801C210C__10TObjPlayerFPv(arg0, arg2);
+    TLobby__sub_802A7848(arg0, arg3);
+    temp_r3 = TLobby__sub_802A7994(arg0, arg1, arg2, arg3);
+    if (temp_r3 != 0) {
+        ((VObj_802A752C_802A7290 *)arg0)->m12();
+    }
+    return temp_r3;
+}
+
+extern u32 lbl_805D6680;
+
+void TLobby__sub_802A7640(void) {
+    if ((u32) lbl_805D6680 != 0U) {
+        free__11TOBoss4RockFUi((void*)lbl_805D6680);
+        lbl_805D6680 = 0U;
+    }
+}
+
+}

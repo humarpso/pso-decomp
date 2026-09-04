@@ -1,2 +1,21 @@
-#define PSO_CLASS_PACKAGE 0x800548AC
-#include "pso/boss/TBoss4Type2.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void request_state_3__11TBoss4Type2FPv(void *arg0);
+M2C_UNK TBoss4Type2__sub_800542B0(void *, M2C_UNK);
+
+void request_state_3__11TBoss4Type2FPv(void *arg0) {
+    s32 temp_r0;
+
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x374);
+    if ((temp_r0 != 3) && (temp_r0 != 4)) {
+        TBoss4Type2__sub_800542B0(arg0, 3);
+    }
+}
+
+}

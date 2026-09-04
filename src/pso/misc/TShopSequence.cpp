@@ -1,19 +1,42 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-struct VObj_802235A0 {
+struct VObj_802235A0_8022356C {
     virtual void m0(int);
 };
 
 extern "C" {
 
-s32 update_download_server__13TShopSequenceFPv(void *arg0);
+int TShopSequence__sub_80223600(void);
+void TShopSequence__sub_802236A0(void* p);
+void close_if_single_screen__13TShopSequenceFv(void);
 void close_message_window__13TShopSequenceFPv(void *arg0);
+void close_window__13TShopSequenceFPv(void *arg0);
+void free_member_0x28__13TShopSequenceFPv(void* p);
+void free_member_0x28_variant__13TShopSequenceFPv(void* p);
+void free_member__13TShopSequenceFPv(void* p);
+void restore_player_state__13TShopSequenceFPv(void *arg0);
+s32 update_download_server__13TShopSequenceFPv(void *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
+s32 TObjPlayer__sub_801B12CC();
+s32 TObjPlayer__sub_801B130C();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TWindowCtrl__sub_8024AEAC(u16);
+s32 TWindowCtrl__sub_8024AEF0(u16);
+s32 clear_lobby_flag__10TObjPlayerFPv(u32);
 M2C_UNK close__17TMedicalCenterMesFPv(void *);
+int display_message__22TQuestVmDownLoadServerFPvii(void*);
+int format_and_send_message__22TQuestVmDownLoadServerFPvii(void*);
+s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
+s32 init_effect_5f0__10TObjPlayerFPv(void *);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+s32 is_split_screen();
+s32 obj_getField1c(u32);
 s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
+int send_message__22TQuestVmDownLoadServerFPvii(void*);
+int show_message__17TMedicalCenterMesFPvii(void*);
 
 s32 update_download_server__13TShopSequenceFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x28);
@@ -24,49 +47,19 @@ s32 update_download_server__13TShopSequenceFPv(void *arg0) {
 }
 
 void close_message_window__13TShopSequenceFPv(void *arg0) {
-    VObj_802235A0 *temp_r3;
+    VObj_802235A0_8022356C *temp_r3;
 
-    if (M2C_FIELD(arg0, VObj_802235A0 **, 0x28) != NULL) {
-        close__17TMedicalCenterMesFPv(M2C_FIELD(arg0, VObj_802235A0 **, 0x28));
-        temp_r3 = M2C_FIELD(arg0, VObj_802235A0 **, 0x28);
+    if (M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28) != NULL) {
+        close__17TMedicalCenterMesFPv(M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28));
+        temp_r3 = M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28);
         if (temp_r3 != NULL) {
             temp_r3->m0(1);
         }
-        M2C_FIELD(arg0, VObj_802235A0 **, 0x28) = NULL;
+        M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28) = NULL;
     }
 }
 
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x80223674
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-s32 obj_getField1c(u32);
-s32 TObjPlayer__sub_801B12CC();
-s32 clear_lobby_flag__10TObjPlayerFPv(u32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 TWindowCtrl__sub_8024AEF0(u16);
-s32 is_not_split_screen__13TRaderMapCoreFv();
-s32 TObjPlayer__sub_801B130C();
-s32 init_effect_5f0__10TObjPlayerFPv(void *);
-s32 TWindowCtrl__sub_8024AEAC(u16);
-s32 is_split_screen();
-s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
-s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
-void free_member_0x28__13TShopSequenceFPv(void* p);
-void TShopSequence__sub_802236A0(void* p);
-void free_member_0x28_variant__13TShopSequenceFPv(void* p);
-void free_member__13TShopSequenceFPv(void* p);
-int send_message__22TQuestVmDownLoadServerFPvii(void*);
-int format_and_send_message__22TQuestVmDownLoadServerFPvii(void*);
-int display_message__22TQuestVmDownLoadServerFPvii(void*);
-int show_message__17TMedicalCenterMesFPvii(void*);
+int TShopSequence__sub_80223600(void) { return 0; }
 
 void free_member_0x28__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_and_send_message__22TQuestVmDownLoadServerFPvii(m); }
 void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) send_message__22TQuestVmDownLoadServerFPvii(m); }
@@ -113,5 +106,3 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
 }
 
 }
-#endif
-#endif

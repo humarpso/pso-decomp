@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -23,52 +22,3 @@ s32 __dt__14TPlyDispConfigFv(s32 arg0, s16 arg1) {
 }
 
 }
-#else
-#if PSO_CLASS_PACKAGE == 0x80071F1C
-#include "types.h"
-
-extern "C" {
-
-s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1);
-int __dl__FPv();
-
-s32 free_if_valid__14TPlyDispConfigFis(s32 arg0, s16 arg1) {
-    if ((arg0 != 0) && (arg1 > 0)) {
-        __dl__FPv();
-    }
-    return arg0;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80071F58
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__ct__14TPlyDispConfigFv(void *arg0);
-void fn_80071F90(void *);
-
-void *__ct__14TPlyDispConfigFv(void *arg0) {
-    fn_80071F90(arg0);
-    fn_80071F90((void *)((char *)arg0 + 36));
-    return arg0;
-}
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x801E0A68
-#include "types.h"
-
-extern "C" {
-
-void TPlyDispConfig__sub_801E0A68(void* p);
-int bswap__18TPlyDispConfigSmthFv(void*);
-
-void TPlyDispConfig__sub_801E0A68(void* p) { bswap__18TPlyDispConfigSmthFv(p); bswap__18TPlyDispConfigSmthFv((char*)p + 0x24); }
-
-}
-#endif
-#endif

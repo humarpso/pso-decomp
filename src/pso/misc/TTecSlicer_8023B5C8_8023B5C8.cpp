@@ -1,0 +1,22 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void destroy_on_collision__10TTecSlicerFi(s32 arg0);
+void reset_fields_1e__10TTecSlicerFPv(void* p);
+u32 TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
+M2C_UNK queue_destruction__7TObjectFv(s32);
+
+void reset_fields_1e__10TTecSlicerFPv(void* p) { *(u8*)((char*)p + 0x1e) = 0; *(u8*)((char*)p + 0x1f) = 0; }
+
+void destroy_on_collision__10TTecSlicerFi(s32 arg0) {
+    if (TObjButterflyLobby__sub_8007A5D8(arg0 + 0x44, arg0 + 0x38, 0x8100) != 0U) {
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
+
+}

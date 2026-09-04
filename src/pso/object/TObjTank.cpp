@@ -1,15 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void run_task__8TObjTankFv(void);
-
-void run_task__8TObjTankFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8019A818
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -18,11 +6,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TObjTank__create(void *arg0);
 void *__dt__8TObjTankFv(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+void free_globals__8TObjTankFv(void);
+void run_task__8TObjTankFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+void *TObjTank__ct(void *, void *, void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+
+void run_task__8TObjTankFv(void) {  }
 
 extern M2C_UNK __vt__8TObjTank[];
 
@@ -39,19 +37,6 @@ void *__dt__8TObjTankFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8019A914
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TObjTank__create(void *arg0);
-void *TObjTank__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 extern void *tl_05;
 
 void *TObjTank__create(void *arg0) {
@@ -61,22 +46,6 @@ void *TObjTank__create(void *arg0) {
     }
     return o;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8019A960
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void free_globals__8TObjTankFv(void);
-void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 lbl_805D5C68;
 extern u32 lbl_805D5C6C;
@@ -94,5 +63,3 @@ void free_globals__8TObjTankFv(void) {
 }
 
 }
-#endif
-#endif

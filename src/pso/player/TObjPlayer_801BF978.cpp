@@ -1,2 +1,46 @@
-#define PSO_CLASS_PACKAGE 0x801BF978
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TObjPlayer__sub_801BF9E0(void* p, s16 v);
+s32 TObjPlayer__sub_801BFA4C(s32 arg0, s16 arg1);
+void init_tag__10TObjPlayerFPv(s32 *arg0);
+void reset_counter_field4__10TObjPlayerFPv(void *arg0);
+void set_pos_z__10TObjPlayerFPvf(void* p, f32 v);
+void set_vec3_const__10TObjPlayerFPv(void* a0);
+M2C_UNK __dl__FPv(s32);
+M2C_UNK clear_id__10TObjPlayerFPv();
+M2C_UNK free_if_valid__10TObjPlayerFis(s32, s32);
+void init__6gc_tagFv(void *);
+
+void init_tag__10TObjPlayerFPv(s32 *arg0) {
+    *arg0 = 0;
+    init__6gc_tagFv((char *)arg0 + 4);
+}
+
+void reset_counter_field4__10TObjPlayerFPv(void *arg0) {
+    M2C_FIELD(arg0, s32 *, 4) = 0;
+    clear_id__10TObjPlayerFPv();
+}
+
+    extern const float TObjPlayer__data_805DC294;
+void set_vec3_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x0) = TObjPlayer__data_805DC294; *(float*)((char*)a0 + 0x4) = TObjPlayer__data_805DC294; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC294; }
+
+void TObjPlayer__sub_801BF9E0(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
+void set_pos_z__10TObjPlayerFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
+
+s32 TObjPlayer__sub_801BFA4C(s32 arg0, s16 arg1) {
+    if (arg0 != 0) {
+        free_if_valid__10TObjPlayerFis(arg0, 0);
+        if (arg1 > 0) {
+            __dl__FPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}

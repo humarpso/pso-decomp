@@ -1,14 +1,25 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
+u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
+void TBoss8Dragon__sub_80066A4C(void);
 void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
+void render__22TBoss5GryphonShockWaveFv(void);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+
+void render__22TBoss5GryphonShockWaveFv(void) {  }
 
 extern M2C_UNK __vt__22TBoss5GryphonShockWave[];
 
@@ -23,35 +34,6 @@ void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x800666F8
-#include "types.h"
-
-extern "C" {
-
-void render__22TBoss5GryphonShockWaveFv(void);
-
-void render__22TBoss5GryphonShockWaveFv(void) {  }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x80066948
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8 *arg4, s32 arg5, s16 arg6);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-f32 update_scale__15TObjBoss2TunnelFPv(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
 
 extern M2C_UNK __vt__22TBoss5GryphonShockWave[];
 extern s32 lbl_805D2818;
@@ -84,6 +66,6 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
     return arg0;
 }
 
+void TBoss8Dragon__sub_80066A4C(void) {  }
+
 }
-#endif
-#endif

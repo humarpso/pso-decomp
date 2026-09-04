@@ -1,39 +1,25 @@
-#ifndef PSO_CLASS_PACKAGE
-#include "types.h"
-
-extern "C" {
-
-void run_task__14TObjLiveCameraFv(void);
-void render__14TObjLiveCameraFv(void);
-
-void render__14TObjLiveCameraFv(void) {  }
-void run_task__14TObjLiveCameraFv(void) {  }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8030B630
-#include "types.h"
-
-extern "C" {
-
-void TObjLiveCamera__sub_8030B630(void);
-int TLobby__sub_8001FE7C(void*, void*);
-
-    extern int lbl_805D6A80;
-void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(lbl_805D6A80), (void*)1); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8030B6B0
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
+void *TObjLiveCamera__create(void *arg0);
+void TObjLiveCamera__sub_8030B630(void);
 void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1);
+void render__14TObjLiveCameraFv(void);
+void run_task__14TObjLiveCameraFv(void);
+int TLobby__sub_8001FE7C(void*, void*);
+void *TObjLiveCamera__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
+
+    extern int lbl_805D6A80;
+void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(lbl_805D6A80), (void*)1); }
+
+void render__14TObjLiveCameraFv(void) {  }
+void run_task__14TObjLiveCameraFv(void) {  }
 
 extern M2C_UNK __vt__14TObjLiveCamera[];
 
@@ -48,19 +34,6 @@ void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8030B768
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TObjLiveCamera__create(void *arg0);
-void *TObjLiveCamera__ct(void *, void *, void *);
-void *__nw__7TObjectFUl(int);
-
 extern void *tl_05;
 
 void *TObjLiveCamera__create(void *arg0) {
@@ -72,5 +45,3 @@ void *TObjLiveCamera__create(void *arg0) {
 }
 
 }
-#endif
-#endif

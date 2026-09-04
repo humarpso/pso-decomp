@@ -1,2 +1,22 @@
-#define PSO_CLASS_PACKAGE 0x80324CEC
-#include "pso/boss/TBoss5GryphonLightningWing.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+f32 TBoss5GryphonLightningWing__sub_80324CEC(void);
+void get_wing_position__26TBoss5GryphonLightningWingFii(s32 arg0, s32 arg1);
+int VecCopy__FP3VecPC3Vec(s32, s32, s32);
+f64 get_end_value();
+
+f32 TBoss5GryphonLightningWing__sub_80324CEC(void) {
+    return (f32) get_end_value();
+}
+
+void get_wing_position__26TBoss5GryphonLightningWingFii(s32 arg0, s32 arg1) {
+    VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x2C, arg0);
+}
+
+}

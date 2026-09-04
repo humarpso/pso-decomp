@@ -1,4 +1,3 @@
-#ifndef PSO_CLASS_PACKAGE
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,9 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
+void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
+void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1);
 void close__18TShopGetItemWindowFPv(void *arg0);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+void TWindow__close(void *);
+void __ct__15TShopWindowBaseFv(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__15TShopWindowBaseFv(void *, int);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
+void init__9TItemDataFv(void *);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 
 void close__18TShopGetItemWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
@@ -17,20 +23,6 @@ void close__18TShopGetItemWindowFPv(void *arg0) {
     }
     set_field_20__12TQuestListVMFPvi(arg0, 1);
 }
-
-}
-#else
-#if PSO_CLASS_PACKAGE == 0x8021ED9C
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1);
-void TWindow__close(void *);
-void __dl__7TObjectFPv(void *);
-void __dt__15TShopWindowBaseFv(void *, int);
 
 extern M2C_UNK __vt__18TShopGetItemWindow[];
 
@@ -48,19 +40,6 @@ void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8021EE58
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-void __ct__15TShopWindowBaseFv(void *);
-void init__9TItemDataFv(void *);
 
 extern M2C_UNK __vt__18TShopGetItemWindow[];
 extern void *lbl_805D36C8;
@@ -86,76 +65,3 @@ void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
 }
 
 }
-#endif
-#if PSO_CLASS_PACKAGE == 0x8021EEE4
-#include "types.h"
-
-extern "C" {
-
-s16 get_cursor_index__18TShopGetItemWindowFPv(void* p);
-
-s16 get_cursor_index__18TShopGetItemWindowFPv(void* p) { return *(s16*)((char*)p + 0x74); }
-
-}
-#endif
-#if PSO_CLASS_PACKAGE == 0x8021EEEC
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define CAT2(a,b) a##b
-#define CAT(a,b) CAT2(a,b)
-#define VA virtual void CAT(f,__LINE__)();
-struct Base_8021EEEC { char pad[0x18]; };
-struct VObj_8021EEEC : Base_8021EEEC {
-VA
-VA
-VA
-VA
-VA
-VA
-VA
-VA
-VA
-VA
-VA
-VA
-VA
-VA
-    virtual s32 m14();
-};
-
-extern "C" {
-
-void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1);
-void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 is_not_split_screen__13TRaderMapCoreFv();
-
-extern s32 lbl_805D53A0;
-
-void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1) {
-    s32 var_r31;
-    void *temp_r3;
-
-    var_r31 = 1;
-    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        var_r31 = ((VObj_8021EEEC *)arg0)->m14() + 1;
-    } else {
-        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
-        if (temp_r3 != NULL) {
-            var_r31 = ((VObj_8021EEEC *)temp_r3)->m14() + 1;
-        }
-    }
-    if (var_r31 < 1) {
-        var_r31 = 1;
-    }
-    if (var_r31 > 0xC7) {
-        var_r31 = 0xC7;
-    }
-    *arg1 = var_r31;
-}
-
-}
-#endif
-#endif
