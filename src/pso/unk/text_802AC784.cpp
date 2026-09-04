@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 query_teammate_state__9TObjEneDDFPv();
+M2C_UNK TBoss6PlotFalz__sub_802AB14C(void *);
+M2C_UNK TBoss6PlotFalz__sub_802AB1C8(void *);
+M2C_UNK set_visible_flag__14TBoss6PlotFalzFPv(void *);
+void run_task__14TBoss6PlotFalzFv(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss6PlotFalz__vt61(void);
 s32 create__14TBoss6PlotFalzFi(s32 arg0);
@@ -12,7 +20,6 @@ void free_all__14TBoss6PlotFalzFv(void);
 int get_fish_count__8TObjFishFv(void);
 s32 get_phase__8TObjFishFPv(void* p);
 void render__14TBoss6PlotFalzFv(void);
-int run_task__14TBoss6PlotFalzFv(void);
 s32 TBoss6PlotFalz__ct(s32, s32, s32);
 int TItemEffOrgaFlowShot__sub_80357204(void);
 int TLobby__sub_8001FE7C(void*, void*);
@@ -24,7 +31,15 @@ int free_resources__10TBoss6TubeFv(void);
 
 void render__14TBoss6PlotFalzFv(void) {  }
 
-int run_task__14TBoss6PlotFalzFv(void) { return 0; }
+void run_task__14TBoss6PlotFalzFv(u8 *arg0) {
+    if (query_teammate_state__9TObjEneDDFPv() == 0) {
+        set_visible_flag__14TBoss6PlotFalzFPv((void *) (arg0));
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 0) {
+            TBoss6PlotFalz__sub_802AB1C8((void *) (arg0));
+        }
+        TBoss6PlotFalz__sub_802AB14C((void *) (arg0));
+    }
+}
 
 void TBoss6PlotFalz__vt61(void) {  }
 

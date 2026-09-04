@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
+}
+
+extern "C" {
 
 int TAdSinglePlyChrSelectGC__sub_80211584(void*);
 void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p);
@@ -14,7 +18,6 @@ void TCheckRoomSequence__sub_802100F8(void);
 void TCheckRoomSequence__sub_802100FC(void);
 int TCheckRoomSequence__sub_80211408(void);
 int TCheckRoomSequence__sub_802114D4(void);
-int TCheckRoomSequence__sub_80211574(void);
 void TCheckRoomSequence__vt10(void* p);
 void TShopWindowBase__sub_802115F0(void);
 s32 check_room_ready__18TCheckRoomSequenceFv(void);
@@ -80,7 +83,11 @@ int TCheckRoomSequence__sub_80211408(void) { return 0; }
 void copy_data__18TCheckRoomSequenceFPvPv(void* p, void* a1) { *(unsigned char*)(a1) = *(unsigned char*)(p); *(unsigned char*)((char*)a1 + 0x1) = *(unsigned char*)((char*)p + 0x1); *(unsigned char*)((char*)a1 + 0x2) = *(unsigned char*)((char*)p + 0x2); *(unsigned char*)((char*)a1 + 0x3) = *(unsigned char*)((char*)p + 0x3); *(unsigned char*)((char*)a1 + 0x4) = *(unsigned char*)((char*)p + 0x4); *(unsigned char*)((char*)a1 + 0x5) = *(unsigned char*)((char*)p + 0x5); copy_entry_bytes__10TObjPlayerFPvPv((char*)a1 + 0x6, (char*)p + 0x6); copy_entry_bytes__10TObjPlayerFPvPv((char*)a1 + 0x8, (char*)p + 0x8); copy_entry_bytes__10TObjPlayerFPvPv((char*)a1 + 0xa, (char*)p + 0xa); *(void**)((char*)a1 + 0xc) = *(void**)((char*)p + 0xc); *(void**)((char*)a1 + 0x10) = *(void**)((char*)p + 0x10); }
 
 int TCheckRoomSequence__sub_802114D4(void) { return 0; }
-int TCheckRoomSequence__sub_80211574(void) { return 0; }
+
+u8 TCheckRoomSequence__sub_80211574(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s16 *, 0x16) == 0);
+}
+
 int TAdSinglePlyChrSelectGC__sub_80211584(void*) { return 0; }
 
 void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p) { TAdSinglePlyChrSelectGC__sub_80211584((void*)(p)); return p; }

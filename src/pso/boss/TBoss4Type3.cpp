@@ -13,6 +13,9 @@ extern f32 TBoss4Type2__data_805D8BAC;
 extern f32 TBoss4Type2__data_805D8BAC;
 extern f32 TBoss4Type2__data_805D8BAC;
 void TBoss4Type3__vt2(void *arg0);
+M2C_UNK TBoss4Type3__sub_8005A678(void *, int);
+M2C_UNK reset_timer__11TBoss4Type3FPv(int);
+void TBoss4Type3__vt7(u8 *arg0);
 }
 
 extern "C" {
@@ -30,7 +33,6 @@ void TBoss4Type3__vt38(void *arg0);
 void TBoss4Type3__vt4(void *arg0);
 void TBoss4Type3__vt5(void);
 int TBoss4Type3__vt6(void);
-int TBoss4Type3__vt7(void);
 int TBoss4Type3__vt8(void);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 TBoss4Type3__sub_8005254C(u16);
@@ -113,7 +115,15 @@ void TBoss4Type3__vt22(u8 *arg0) {
 }
 
 int TBoss4Type3__vt8(void) { return 0; }
-int TBoss4Type3__vt7(void) { return 0; }
+
+void TBoss4Type3__vt7(u8 *arg0) {
+    reset_timer__11TBoss4Type3FPv((int) (M2C_FIELD(arg0, s32 *, 0x524)));
+    reset_timer__11TBoss4Type3FPv((int) (M2C_FIELD(arg0, s32 *, 0x528)));
+    TBoss4Type3__sub_8005A678((void *) (arg0), (int) (((M2C_FIELD(arg0, s32 *, 0x374) - 4) & 1) + 3));
+    M2C_FIELD(arg0, s32 *, 0x52C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
+}
+
 int TBoss4Type3__vt6(void) { return 0; }
 
 void TBoss4Type3__vt5(void) {  }

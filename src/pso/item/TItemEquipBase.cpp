@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+}
+
+extern "C" {
 
 struct Base_8010B054_8010A710 { char pad[0x18]; };
 struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
@@ -18,7 +22,6 @@ struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
     virtual void m19();
 };
 
-int TItemEquipBase__sub_8010A77C(void);
 void TItemEquipBase__sub_8010A788(void);
 int TItemEquipBase__sub_8010A82C(void);
 int TItemEquipBase__sub_8010A89C(void);
@@ -61,7 +64,10 @@ int memset(void*, void*, void*);
 int fn_8010A710(void) { return 0; }
 void* fn_8010A768(void* p) { return (char*)p + 0x16c; }
 int TObjPlayer__sub_8010A770(void) { return 0; }
-int TItemEquipBase__sub_8010A77C(void) { return 0; }
+
+s8 TItemEquipBase__sub_8010A77C(u8 *arg0) {
+    return (s8) M2C_FIELD(arg0, u8 *, 0x170);
+}
 
 void TItemEquipBase__sub_8010A788(void) {  }
 

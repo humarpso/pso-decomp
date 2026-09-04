@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEneEpsilon__sub_800B965C(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 struct Base_800B9578_800B92AC { char pad[0x18]; };
 struct VObj_800B9578_800B92AC : Base_800B9578_800B92AC {
@@ -36,7 +40,6 @@ struct VObj_800B9578_800B92AC : Base_800B9578_800B92AC {
 };
 
 int TObjEneEpsilon__sub_800B95E0(void *);
-int TObjEneEpsilon__sub_800B965C(void);
 int TObjEneEpsilon__sub_800B96A4(void);
 int copy_position__14TObjEneEpsilonFPv(void* p);
 void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -101,7 +104,11 @@ s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {
 }
 
 int TObjEneEpsilon__sub_800B95E0(void *) { return 0; }
-int TObjEneEpsilon__sub_800B965C(void) { return 0; }
+
+void TObjEneEpsilon__sub_800B965C(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s32 *, 0x3BC) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x3B8) = (s32) ((M2C_FIELD(arg0, u16 *, 0x1C) + 3) % M2C_FIELD(arg0, s32 *, 0x3BC));
+}
 
 int copy_position__14TObjEneEpsilonFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x394); }
 

@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 draw_default_entry__9TWindowDDFi();
+M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *, int);
+void render__19TWindowSubMagPhotonFv(s32 arg0);
+}
+
+extern "C" {
 
 void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1);
 s32 create_option_menu_window(void *arg0);
@@ -49,6 +57,14 @@ void play_open_sound__19TWindowSubMagPhotonFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__19TWindowSubMagPhoton[];
+
+void render__19TWindowSubMagPhotonFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = draw_default_entry__9TWindowDDFi();
+    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    TWindowSubMagPhoton__sub_8027C4C8((void *) (arg0), (int) (temp_r3));
+}
 
 void *__dt__19TWindowSubMagPhotonFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

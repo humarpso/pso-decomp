@@ -14,6 +14,17 @@ TMCFormatSequence::~TMCFormatSequence() {
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK TMCFormatSequence__sub_801F65C4();
+M2C_UNK TMCFormatSequence__sub_801F6640();
+M2C_UNK check_memcard_load_result__17TMCFormatSequenceFPv();
+M2C_UNK process_format_result__17TMCFormatSequenceFPv();
+M2C_UNK TMCFormatSequence__sub_801F68FC();
+void run_task__17TMCFormatSequenceFv(u8 *arg0);
+}
+
 extern "C" {
 
 void *TMCFormatSequence__ct(void *arg0, void *arg1, void *arg2);
@@ -21,6 +32,28 @@ void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__17TMCFormatSequence[];
 extern void *lbl_805D35EC;
+
+void run_task__17TMCFormatSequenceFv(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
+    switch (temp_r0) {
+    case 0:
+        TMCFormatSequence__sub_801F68FC();
+        return;
+    case 1:
+        process_format_result__17TMCFormatSequenceFPv();
+        return;
+    case 2:
+        check_memcard_load_result__17TMCFormatSequenceFPv();
+        return;
+    case 3:
+        TMCFormatSequence__sub_801F65C4();
+        return;
+    case 4:
+        TMCFormatSequence__sub_801F6640();
+        return;
+    }
+}
 
 void *TMCFormatSequence__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);

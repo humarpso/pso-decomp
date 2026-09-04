@@ -212,6 +212,13 @@ extern "C" {
 int TObjEneDD__sub_800BBA18(void*, int);
 void TBoss8Dragon__sub_800BB780(void *);
 void TObjEneMe3ShinowaMirage__vt60(void *arg0);
+M2C_UNK TObjEneMe3ShinowaMirage__sub_800E4B40();
+void render__23TObjEneMe3ShinowaMirageFv(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjEneMe3Shinowa__sub_800E7724(void *);
+s32 TPhotonMylla__sub_80154CB4(int);
+s32 all_parents_unqueued_for_destruction__7TObjectFv();
+void run_task__23TObjEneMe3ShinowaMirageFv(u8 *arg0);
 }
 
 extern "C" {
@@ -229,8 +236,6 @@ void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
 void clear_mirage__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 void * create__23TObjEneMe3ShinowaMirageFPvPvPv(void *arg0, void *arg1, void *arg2);
 int init_mirage__23TObjEneMe3ShinowaMirageFPv(void* p);
-int render__23TObjEneMe3ShinowaMirageFv(void);
-int run_task__23TObjEneMe3ShinowaMirageFv(void);
 void set_flag_0x100__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *, int);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, int);
@@ -246,7 +251,11 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK set_global_pair__10TObjPlayerFii(M2C_UNK, M2C_UNK);
 
-int render__23TObjEneMe3ShinowaMirageFv(void) { return 0; }
+void render__23TObjEneMe3ShinowaMirageFv(u8 *arg0) {
+    if (!(M2C_FIELD(arg0, s32 *, 0x3C4) & 0x100)) {
+        TObjEneMe3ShinowaMirage__sub_800E4B40();
+    }
+}
 
 void TObjEneMe3ShinowaMirage__vt110(void) {  }
 
@@ -323,9 +332,18 @@ void TObjEneMe3ShinowaMirage__vt60(void *arg0) {
 }
 
 int TObjEneMe3ShinowaMirage__vt61(void) { return 0; }
-int run_task__23TObjEneMe3ShinowaMirageFv(void) { return 0; }
 
 extern M2C_UNK __vt__23TObjEneMe3ShinowaMirage[];
+
+void run_task__23TObjEneMe3ShinowaMirageFv(u8 *arg0) {
+    if ((TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x42C))) == 0U) || (all_parents_unqueued_for_destruction__7TObjectFv() == 0)) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (!(M2C_FIELD(arg0, s32 *, 0x3C4) & 0x100)) {
+        TObjEneMe3Shinowa__sub_800E7724((void *) (arg0));
+    }
+}
 
 void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

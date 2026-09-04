@@ -1252,12 +1252,6 @@ int set_player_state_default__12TBoss8DragonFPv(void* p) { return TObjPlayer__su
 
 extern "C" {
 
-void set_visible__12TBoss8DragonFPv(void* p);
-void clear_render_state__12TBoss8DragonFPv(void* p);
-
-void set_visible__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x18) = 1; }
-void clear_render_state__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x18) = 0; }
-
 }
 #endif
 #if PSO_CLASS_PACKAGE == 0x801E3CFC

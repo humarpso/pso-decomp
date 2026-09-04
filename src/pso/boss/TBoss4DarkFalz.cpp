@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
+}
 
-int TBoss4DarkFalz__sub_8004AF5C(void);
+extern "C" {
+
 void TBoss4DarkFalz__sub_8004AFB8(void* p);
 int TBoss4DarkFalz__sub_8004B07C(void);
 s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0);
@@ -18,7 +21,20 @@ void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 s32 get_main_phase();
 s32 is_split_screen();
 
-int TBoss4DarkFalz__sub_8004AF5C(void) { return 0; }
+s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2) {
+    s32 temp_r6;
+    temp_r6 = M2C_FIELD(arg0, s32 *, 0x384);
+    if ((temp_r6 < 1) || (temp_r6 > 0x1FE)) {
+        return 0;
+    }
+    if (temp_r6 > 0x1FD) {
+        return 0;
+    }
+    *arg1 = M2C_FIELD(arg0, s16 *, 0x2C) + temp_r6;
+    *arg2 = M2C_FIELD(arg0, u16 *, 0x1C) + M2C_FIELD(arg0, s32 *, 0x384);
+    M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) + 1);
+    return 1;
+}
 
 void TBoss4DarkFalz__sub_8004AFB8(void* p) { *(s32*)((char*)p + 0x384) = 1; }
 

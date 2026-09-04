@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjLaboMapWarp__sub_80185400(u8 *arg0);
+}
+
+extern "C" {
 
 struct Base_80185248 { u8 pad[0x18]; };
 struct VObj_80185248 : Base_80185248 {
@@ -19,7 +23,6 @@ struct VObj_80185248 : Base_80185248 {
     virtual s32 m8(f32, f32) = 0;
 };
 
-int TObjLaboMapWarp__sub_80185400(void);
 int is_field88_zero__15TObjLaboMapWarpFPv(void* p);
 void render__15TObjLaboMapWarpFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -65,6 +68,15 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
 
 int is_field88_zero__15TObjLaboMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }
 
-int TObjLaboMapWarp__sub_80185400(void) { return 0; }
+void TObjLaboMapWarp__sub_80185400(u8 *arg0) {
+    s32 var_r0;
+    var_r0 = M2C_FIELD(arg0, s32 *, 0x8C);
+    if (var_r0 < 0) {
+        var_r0 = 0;
+    } else if (var_r0 >= 3) {
+        var_r0 = 2;
+    }
+    M2C_FIELD(arg0, s32 *, 0x8C) = var_r0;
+}
 
 }

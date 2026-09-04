@@ -123,9 +123,12 @@ struct VObj_8011D94C_8011D414 : Base_8011D94C_8011D414 {
 };
 
 extern "C" {
+void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-int TItemTimer__sub_8011D598(void *, void *, void *);
 void TItemTimer__sub_8011D7DC(void *arg0);
 void TItemTimer__sub_8011D94C(void *arg0);
 void apply_to_player__10TItemTimerFPv(void *arg0);
@@ -163,7 +166,7 @@ u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) < 1) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }
-    TItemTimer__sub_8011D598((void *)((void *) (arg0 + 0x20)), (void *)((void *) (arg1)), (void *)((void *) (arg2)));
+    TItemTimer__sub_8011D598((u8 *)((void *)((void *) (arg0 + 0x20))), (s32)((void *)((void *) (arg1))), (s32)((void *)((void *) (arg2))));
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }
@@ -177,7 +180,10 @@ void invoke_callback__10TItemTimerFPv(void *arg0) {
     }
 }
 
-int TItemTimer__sub_8011D598(void *, void *, void *) { return 0; }
+void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2) {
+    M2C_FIELD(arg0, s32 *, 0) = arg1;
+    M2C_FIELD(arg0, s32 *, 4) = arg2;
+}
 
 void reset_fields__10TItemTimerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 

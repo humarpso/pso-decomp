@@ -2,12 +2,18 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+void TAdEp3Exist__sub_8036F574(u8 *arg0);
+u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
+}
+
 extern "C" {
 
 int TAdEp3Exist__sub_8036F0AC(void* p);
 int TAdEp3Exist__sub_8036F4DC(void);
-int TAdEp3Exist__sub_8036F574(void);
-int TAdEp3Exist__sub_8036F590(void);
 void TAdEp3Exist__sub_8036F5A4(void* p);
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1);
 void close_window__11TAdEp3ExistFPv(void* p);
@@ -55,8 +61,19 @@ s32 free_if_valid__11TAdEp3ExistFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-int TAdEp3Exist__sub_8036F574(void) { return 0; }
-int TAdEp3Exist__sub_8036F590(void) { return 0; }
+void TAdEp3Exist__sub_8036F574(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0xC) = 0;
+    M2C_FIELD(arg0, s32 *, 0) = 0;
+    M2C_FIELD(arg0, s32 *, 4) = 0;
+    M2C_FIELD(arg0, s8 *, 8) = 1;
+}
+
+u8 TAdEp3Exist__sub_8036F590(u8 *arg0) {
+    u8 *temp_r4;
+    temp_r4 = M2C_FIELD(arg0, u8 **, 0xC);
+    M2C_FIELD(arg0, u8 **, 0xC) = (u8 *) (temp_r4 + 1);
+    return *temp_r4;
+}
 
 void TAdEp3Exist__sub_8036F5A4(void* p) { *(s32*)((char*)p + 0x10) = 0; }
 

@@ -5,9 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEneRe4Sorcerer__sub_800ED428(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 void TObjEneRe4Sorcerer__sub_800ED408(void* p);
-int TObjEneRe4Sorcerer__sub_800ED428(void);
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p);
 int TObjEneRe4Sorcerer__sub_800ED498(void);
 void* get_spell_data__18TObjEneRe4SorcererFPv(void* p);
@@ -25,7 +28,20 @@ void set_flag_and_notify__18TObjEneRe4SorcererFPv(void *arg0) {
 void TObjEneRe4Sorcerer__sub_800ED408(void* p) { *(u32*)((char*)p + 0x3cc) &= 0xfffffeff; }
 void set_attack_flag__18TObjEneRe4SorcererFPv(void* p) { *(u32*)((char*)p + 0x3cc) |= 0x2; }
 
-int TObjEneRe4Sorcerer__sub_800ED428(void) { return 0; }
+void TObjEneRe4Sorcerer__sub_800ED428(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 1);
+    switch (arg1) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x3D4) = 4;
+        return;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0x3D4) = 5;
+        return;
+    case 2:
+        M2C_FIELD(arg0, s32 *, 0x3D4) = 6;
+        return;
+    }
+}
 
 void TObjEneRe4Sorcerer__sub_800ED47C(void* p) { *(s32*)((char*)p + 0x3d0) = 3; }
 void* get_spell_data__18TObjEneRe4SorcererFPv(void* p) { return (char*)p + 0x2fc; }

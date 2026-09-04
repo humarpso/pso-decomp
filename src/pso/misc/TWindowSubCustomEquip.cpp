@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 draw_default_entry__9TWindowDDFi();
+M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK TWindowSubCustomEquip__sub_80275F90(void *, int);
+M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
+void render__21TWindowSubCustomEquipFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1);
 s32 calc_equip_index__21TWindowSubCustomEquipFPv(void *arg0);
@@ -76,6 +85,15 @@ void handle_decide__21TWindowSubCustomEquipFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__21TWindowSubCustomEquip[];
+
+void render__21TWindowSubCustomEquipFv(u8 *arg0) {
+    s32 temp_r3;
+    temp_r3 = draw_default_entry__9TWindowDDFi();
+    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    TWindowSubCustomEquip__sub_80275F90((void *) (arg0), (int) (temp_r3));
+    forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x6C)), (int) (temp_r3));
+}
 
 void *__dt__21TWindowSubCustomEquipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

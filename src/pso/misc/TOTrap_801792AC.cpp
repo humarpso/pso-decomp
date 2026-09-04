@@ -53,13 +53,16 @@ struct VObj_80179358_801792AC : Base_80179358_801792AC {
 };
 
 extern "C" {
+u8 TOTrap__sub_801792B4(u8 *arg0, s32 arg1);
+u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1);
+u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1);
+u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 void TOTrap__sub_801792AC(void);
 void TOTrap__sub_801792B0(void);
-int TOTrap__sub_801792B4(void);
-int TOTrap__sub_801792CC(void);
-int TOTrap__sub_801792E4(void);
-int TOTrap__sub_801792FC(void);
 f32 check_trigger_range__6TOTrapFPvUi(struct VObj_80179314_801792AC *arg0, u32 arg1);
 f32 get_scale__6TOTrapFPvUi(struct VObj_80179358_801792AC *arg0, u32 arg1);
 void TOTrap__vt82(void);
@@ -67,13 +70,24 @@ void TOTrap__vt82(void);
 void TOTrap__sub_801792AC(void) {  }
 void TOTrap__sub_801792B0(void) {  }
 
-int TOTrap__sub_801792B4(void) { return 0; }
-int TOTrap__sub_801792CC(void) { return 0; }
-int TOTrap__sub_801792E4(void) { return 0; }
-int TOTrap__sub_801792FC(void) { return 0; }
+u8 TOTrap__sub_801792B4(u8 *arg0, s32 arg1) {
+    return (u8) (arg1 != M2C_FIELD(arg0, s32 *, 0x2A8));
+}
+
+u8 TOTrap__sub_801792CC(u8 *arg0, s32 arg1) {
+    return (u8) (arg1 != M2C_FIELD(arg0, s32 *, 0x2A8));
+}
+
+u8 TOTrap__sub_801792E4(u8 *arg0, s32 arg1) {
+    return (u8) (arg1 != M2C_FIELD(arg0, s32 *, 0x2A8));
+}
 
 extern f32 TOTrap__data_805DBA38;
 extern f32 TOTrap__data_805DBA3C;
+
+u8 TOTrap__sub_801792FC(u8 *arg0, s32 arg1) {
+    return (u8) (arg1 != M2C_FIELD(arg0, s32 *, 0x2A8));
+}
 
 f32 check_trigger_range__6TOTrapFPvUi(struct VObj_80179314_801792AC *arg0, u32 arg1) {
     if (arg1 != M2C_FIELD(arg0, u32 *, 0x2A8)) {

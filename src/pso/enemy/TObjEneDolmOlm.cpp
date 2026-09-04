@@ -21,9 +21,12 @@ struct VObj_80301690_80300CE4 : Base_80301690_80300CE4 {
 };
 
 extern "C" {
+s32 TObjEneDolmOlm__sub_80300CF0(void);
+}
+
+extern "C" {
 
 void * TObjEneDolmOlm__create(void *arg0);
-int TObjEneDolmOlm__sub_80300CF0(void);
 void TObjEneDolmOlm__sub_80300CFC(void);
 void TObjEneDolmOlm__sub_803012F8(void* p);
 void advance_position__14TObjEneDolmOlmFPv(u8 *arg0);
@@ -57,7 +60,9 @@ M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
     extern int lbl_805D69E8;
 void reset_count__14TObjEneDolmOlmFv(void) { lbl_805D69E8 = 0; }
 
-int TObjEneDolmOlm__sub_80300CF0(void) { return 0; }
+s32 TObjEneDolmOlm__sub_80300CF0(void) {
+    return 0x7FFFFFFF;
+}
 
 void TObjEneDolmOlm__sub_80300CFC(void) {  }
 

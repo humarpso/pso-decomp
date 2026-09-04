@@ -1,8 +1,15 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+u8 TMainCursor__sub_8013DF08(u8 *arg0);
+}
+
 extern "C" {
 
-int TMainCursor__sub_8013DF08(void);
 int TObjPlayer__sub_8013DEF8(void);
 int check_visible__11TMainCursorFPv(void* p);
 u8 get_enabled__11TMainCursorFPv(void* p);
@@ -17,7 +24,10 @@ void set_mode__20TWindowActionPaletteFPvUc(void* p, u8 v);
 void set_slot__20TWindowActionPaletteFPvUc(void* p, u8 v);
 
 int TObjPlayer__sub_8013DEF8(void) { return 0; }
-int TMainCursor__sub_8013DF08(void) { return 0; }
+
+u8 TMainCursor__sub_8013DF08(u8 *arg0) {
+    return (u8) ((M2C_FIELD(arg0, s16 *, 2) & 1) ^ 1);
+}
 
 int check_visible__11TMainCursorFPv(void* p) { return find_action_slot_for_target__11TMainCursorFiiii(p); }
 u8 get_enabled__11TMainCursorFPv(void* p) { return *(u8*)((char*)p + 0x1); }

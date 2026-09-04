@@ -2,11 +2,16 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void);
-int TTecAnti__sub_8022B35C(void);
 int TTecAnti__sub_8022B3E8(void);
 void *__dt__8TTecAntiFPvs(void *arg0, s16 arg1);
 void *__dt__8TTecAntiFv(void *arg0, s16 arg1);
@@ -59,7 +64,26 @@ void *__dt__8TTecAntiFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TTecAnti__sub_8022B35C(void) { return 0; }
+void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
+    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
+    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
+    M2C_FIELD(arg0, s16 *, 0x10) = (s16) M2C_FIELD(arg1, s16 *, 0x10);
+    M2C_FIELD(arg0, s16 *, 0x12) = (s16) M2C_FIELD(arg1, s16 *, 0x12);
+    M2C_FIELD(arg0, s16 *, 0x14) = (s16) M2C_FIELD(arg1, s16 *, 0x14);
+    M2C_FIELD(arg0, s16 *, 0x16) = (s16) M2C_FIELD(arg1, s16 *, 0x16);
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg1, s32 *, 0x1C);
+    M2C_FIELD(arg0, s16 *, 0x20) = (s16) M2C_FIELD(arg1, s16 *, 0x20);
+    M2C_FIELD(arg0, u8 *, 0x22) = (u8) M2C_FIELD(arg1, u8 *, 0x22);
+    M2C_FIELD(arg0, u8 *, 0x23) = (u8) M2C_FIELD(arg1, u8 *, 0x23);
+    M2C_FIELD(arg0, s16 *, 0x24) = (s16) M2C_FIELD(arg1, s16 *, 0x24);
+    M2C_FIELD(arg0, s16 *, 0x26) = (s16) M2C_FIELD(arg1, s16 *, 0x26);
+    M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
+    M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
+}
+
 int TTecAnti__sub_8022B3E8(void) { return 0; }
 
 void render__8TTecAntiFv(void) {  }

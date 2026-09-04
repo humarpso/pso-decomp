@@ -5,11 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TMainCursor__sub_8013F13C(s32 *arg0);
+}
+
+extern "C" {
 
 void TMainCursor__sub_8013F104(void* p, s32 v);
 void TMainCursor__sub_8013F10C(void* p, s32 v);
 void TMainCursor__sub_8013F114(void* p);
-int TMainCursor__sub_8013F13C(void);
 f32 TMainCursor__sub_8013F14C(void* p);
 int TMainCursor__sub_8013F154(void);
 s32 TMainCursor__sub_8013F168(void* p);
@@ -43,7 +46,9 @@ void set_cursor_id__11TMainCursorFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x0) 
 void set_field2__11TMainCursorFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 void set_size__11TMainCursorFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x4) = v; }
 
-int TMainCursor__sub_8013F13C(void) { return 0; }
+void TMainCursor__sub_8013F13C(s32 *arg0) {
+    *arg0 += 1;
+}
 
 f32 TMainCursor__sub_8013F14C(void* p) { return *(f32*)((char*)p + 0x4); }
 

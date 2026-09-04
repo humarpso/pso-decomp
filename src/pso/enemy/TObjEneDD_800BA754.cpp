@@ -30,13 +30,16 @@ struct VObj_800BA8E8_800BA754 : Base_800BA8E8_800BA754 {
 };
 
 extern "C" {
+u32 TObjEneDD__sub_800BA828(u16 arg0);
+void TObjEneDD__sub_800BA870(u8 *arg0);
+void TObjEneDD__sub_800BA88C(u8 *arg0);
+}
+
+extern "C" {
 
 int TObjEneDD__sub_800BA754(void*, void*, void*);
 int TObjEneDD__sub_800BA804(void);
-int TObjEneDD__sub_800BA828(void);
 int TObjEneDD__sub_800BA838(void);
-int TObjEneDD__sub_800BA870(void);
-int TObjEneDD__sub_800BA88C(void);
 void TObjEneDD__vt85(void);
 void TObjEneDD__vt86(void *arg0);
 int TObjEneDD__vt87(void);
@@ -67,10 +70,23 @@ u8 is_valid_target__9TObjEneDDFPv(void *arg0) {
 }
 
 int TObjEneDD__sub_800BA804(void) { return 0; }
-int TObjEneDD__sub_800BA828(void) { return 0; }
+
+u32 TObjEneDD__sub_800BA828(u16 arg0) {
+    return (u32) (arg0 - 0x1000) >> 0x1FU;
+}
+
 int TObjEneDD__sub_800BA838(void) { return 0; }
-int TObjEneDD__sub_800BA870(void) { return 0; }
-int TObjEneDD__sub_800BA88C(void) { return 0; }
+
+void TObjEneDD__sub_800BA870(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) & 0xFFFFFFFB);
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) | 2);
+}
+
+void TObjEneDD__sub_800BA88C(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) | 4);
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) & 0xFFFFFFFD);
+}
+
 int TObjEneDD__vt87(void) { return 0; }
 
 void TObjEneDD__vt86(void *arg0) {

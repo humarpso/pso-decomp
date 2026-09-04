@@ -3,12 +3,18 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
+void TObjEneMe3Shinowa__sub_800E7630(u8 *arg0);
+s32 check_v2_mode__9TObjEneDDFv();
+M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+int TObjEneDD__sub_800BBA18(void*, void*);
+void TObjEneMe3Shinowa__vt60(u8 *arg0);
+}
+
+extern "C" {
 
 void *TObjEneMe3Shinowa__ct(void *arg0);
-int TObjEneMe3Shinowa__sub_800E7630(void);
 void TObjEneMe3Shinowa__sub_800E767C(void);
 void TObjEneMe3Shinowa__sub_800E7720(void);
-int TObjEneMe3Shinowa__vt60(void);
 void TObjEneMe3Shinowa__vt61(void* p);
 void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1);
 void copy_position_vector__17TObjEneMe3ShinowaFPv(void* p);
@@ -24,12 +30,27 @@ void init_object__9TObjEneDDFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 
 void fn_800E762C(void) {  }
-int TObjEneMe3Shinowa__sub_800E7630(void) { return 0; }
+
+void TObjEneMe3Shinowa__sub_800E7630(u8 *arg0) {
+    M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3CC) + (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C)));
+}
 
 void copy_position_vector__17TObjEneMe3ShinowaFPv(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }
 void TObjEneMe3Shinowa__sub_800E767C(void) {  }
 
-int TObjEneMe3Shinowa__vt60(void) { return 0; }
+void TObjEneMe3Shinowa__vt60(u8 *arg0) {
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        TBoss8Dragon__sub_800BB780((void *) (arg0));
+        return;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x3C4) & 1) {
+        TBoss8Dragon__sub_800BB780((void *) (arg0));
+        return;
+    }
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xC) {
+        TObjEneDD__sub_800BBA18((void*)((void *) (arg0)), (void*)((int) (0xC)));
+    }
+}
 
 void TObjEneMe3Shinowa__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 13) { TObjEneDD__sub_800BBA18(p, (void*)13); } }
 void TObjEneMe3Shinowa__sub_800E7720(void) {  }

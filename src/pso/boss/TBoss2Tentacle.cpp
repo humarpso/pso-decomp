@@ -4,11 +4,18 @@ TBoss2Tentacle::~TBoss2Tentacle() {}
 
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0);
+}
+
 extern "C" {
 
 void TBoss2Tentacle__sub_8003998C(void);
 void TBoss2Tentacle__sub_80039990(void);
-int TBoss2Tentacle__sub_80039CA0(void);
 void TBoss2Tentacle__sub_80039CB4(void* p);
 void TBoss2Tentacle__sub_80039D50(void* p);
 void TBoss2Tentacle__sub_80039D64(void* a0);
@@ -31,7 +38,9 @@ int TBoss2Tentacle__sub_80039DE0(void);
 void TBoss2Tentacle__sub_8003998C(void) {  }
 void TBoss2Tentacle__sub_80039990(void) {  }
 
-int TBoss2Tentacle__sub_80039CA0(void) { return 0; }
+u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x1C) == 4);
+}
 
 void TBoss2Tentacle__sub_80039CB4(void* p) { *(s32*)((char*)p + 0x11c) = 0; *(s32*)((char*)p + 0x120) = 16384; }
 

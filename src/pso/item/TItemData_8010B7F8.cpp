@@ -5,13 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TItemData__sub_8010B848(u8 *arg0, s32 arg1);
+s32 TItemData__sub_8010B8B0(u8 *arg0);
+}
+
+extern "C" {
 
 void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
 s32 TItemData__sub_8010B808(void* p);
 s32 TItemData__sub_8010B810(void* p);
 void TItemData__sub_8010B818(void *arg0, s32 arg1);
-int TItemData__sub_8010B848(void);
-int TItemData__sub_8010B8B0(void);
 void TItemData__sub_8010C638(void *arg0, u16 arg1);
 void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
 void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
@@ -38,8 +41,39 @@ void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
 }
 
-int TItemData__sub_8010B848(void) { return 0; }
-int TItemData__sub_8010B8B0(void) { return 0; }
+void TItemData__sub_8010B848(u8 *arg0, s32 arg1) {
+    u8 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u8 *, 0);
+    switch ((s32) temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, u8 *, 5) = (u8) (M2C_FIELD(arg0, u8 *, 5) | (arg1 & 0xF));
+        return;
+    case 1:
+        M2C_FIELD(arg0, u8 *, 4) = (u8) (M2C_FIELD(arg0, u8 *, 4) | (arg1 & 0xF));
+        return;
+    case 3:
+        M2C_FIELD(arg0, u8 *, 3) = (u8) (M2C_FIELD(arg0, u8 *, 3) | (arg1 & 0xF));
+        return;
+    case 2:
+        return;
+    }
+}
+
+s32 TItemData__sub_8010B8B0(u8 *arg0) {
+    u8 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u8 *, 0);
+    switch ((s32) temp_r0) {
+    case 0:
+        return M2C_FIELD(arg0, u8 *, 5) & 0xF;
+    case 1:
+        return M2C_FIELD(arg0, u8 *, 4) & 0xF;
+    case 3:
+        return M2C_FIELD(arg0, u8 *, 3) & 0xF;
+    default:
+    case 2:
+        return 0;
+    }
+}
 
 void TItemData__sub_8010C638(void *arg0, u16 arg1) {
     M2C_FIELD(arg0, u8 *, 0xA) = (u8) (arg1 >> 8U);

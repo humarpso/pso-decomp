@@ -1,3 +1,5 @@
+#include "pso/misc/RenderFadeState.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -57,7 +59,6 @@ void set_motion__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 void TBoss3Volopt__sub_800445A4(void *);
 void TBoss3Volopt__sub_800450D0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-s32 TObjEneEpsilonGuard__sub_800D7B1C(void *, void *);
 void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjLight__sub_80134098();
@@ -122,7 +123,7 @@ extern const f32 lbl_805D8820;
 
 void render__12TBoss3VoloptFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((VObjA_80044498 *)arg0)->m8(lbl_805D881C, lbl_805D8820) != 0)) {
-        if (TObjEneEpsilonGuard__sub_800D7B1C(arg0 + 0x490, arg0 + 0x2FC) != 0) {
+        if (((RenderFadeState*)(arg0 + 0x490))->updateFromCamera((const f32*)(arg0 + 0x2FC)) != 0) {
             ((VObjB_80044498 *)(arg0 + 0x490))->n6();
         }
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));

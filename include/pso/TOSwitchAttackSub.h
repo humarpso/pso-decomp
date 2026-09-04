@@ -6,11 +6,19 @@
 
 class TOSwitchAttackSub : public TObject {
 public:
-    u8 _pad1C[0x4];
- void* m_20;
-public:
+    u16 stopSwitchId;
+    u16 requiredSwitchId;
+    void* particle;
+    f32 position[3];
+
     virtual ~TOSwitchAttackSub();
     virtual void run_task();
 };
+
+#include <stddef.h>
+typedef char SwitchAttackStopOffset[(offsetof(TOSwitchAttackSub, stopSwitchId) == 0x1C) ? 1 : -1];
+typedef char SwitchAttackRequiredOffset[(offsetof(TOSwitchAttackSub, requiredSwitchId) == 0x1E) ? 1 : -1];
+typedef char SwitchAttackParticleOffset[(offsetof(TOSwitchAttackSub, particle) == 0x20) ? 1 : -1];
+typedef char SwitchAttackPositionOffset[(offsetof(TOSwitchAttackSub, position) == 0x24) ? 1 : -1];
 
 #endif

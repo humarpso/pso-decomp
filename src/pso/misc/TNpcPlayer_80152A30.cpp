@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TNpcPlayer__sub_80152D64(void* p);
+void* fn_80152EF8(void* p);
+void __construct_array(void *, void *, int, int, int);
+void *TNpcPlayer__sub_80152D04(void *arg0);
+}
+
+extern "C" {
 
 int TFontSmallLobby__sub_80152F28(void*);
 void TNpcPlayer__sub_80152A30(void);
@@ -19,7 +26,6 @@ int TNpcPlayer__sub_80152C28(void);
 int TNpcPlayer__sub_80152C48(void);
 int TNpcPlayer__sub_80152C8C(void);
 int TNpcPlayer__sub_80152CE8(void);
-int TNpcPlayer__sub_80152D04(void);
 void TNpcPlayer__sub_80152D64(void* p);
 void TNpcPlayer__sub_80152E74(void* a0);
 int TObjPlayer__sub_80152F40(void);
@@ -89,7 +95,14 @@ int TNpcPlayer__sub_80152C28(void) { return 0; }
 int TNpcPlayer__sub_80152C48(void) { return 0; }
 int TNpcPlayer__sub_80152C8C(void) { return 0; }
 int TNpcPlayer__sub_80152CE8(void) { return 0; }
-int TNpcPlayer__sub_80152D04(void) { return 0; }
+
+void *TNpcPlayer__sub_80152D04(void *arg0) {
+    TNpcPlayer__sub_80152D64((void*)((void *)((char *)arg0 + 4)));
+    __construct_array((void *)((char *)arg0 + 8), fn_80152EF8, 0, 4, 10);
+    M2C_FIELD(arg0, u8 *, 0x0) = 71;
+    M2C_FIELD(arg0, u8 *, 0x1) = 12;
+    return arg0;
+}
 
 void TNpcPlayer__sub_80152D64(void* p) { *(u8*)((char*)p + 0x3) = 0; *(u8*)((char*)p + 0x2) = 0; *(u8*)((char*)p + 0x1) = 0; *(u8*)((char*)p + 0x0) = 0; }
 void reset_model__10TNpcPlayerFPv(void* p) { init_model__10TNpcPlayerFPv((void*)(p)); update_players__6TLobbyFi(p); }

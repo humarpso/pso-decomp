@@ -1,3 +1,5 @@
+#include "pso/misc/RenderFadeState.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -36,7 +38,6 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 void *TObjContainerIdo__ct(void *, void *, void *);
 M2C_UNK TObjContainerIdo__sub_803D96A8(M2C_UNK, s32);
-s32 TObjEneEpsilonGuard__sub_800D7B1C(void *, void *);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -56,7 +57,7 @@ void render__16TObjContainerIdoFv(u8 *arg0) {
     if (((VOuter_8018C06C*)arg0)->m8(lbl_805DBD6C, lbl_805DBD70) != 0) {
         var_r31 = 0;
         if (is_not_split_screen__13TRaderMapCoreFv() == 0) {
-            var_r31 = TObjEneEpsilonGuard__sub_800D7B1C(arg0 + 0xF0, arg0 + 0x38);
+            var_r31 = ((RenderFadeState*)(arg0 + 0xF0))->updateFromCamera((const f32*)(arg0 + 0x38));
         }
         if (var_r31 != 0) {
             ((VMem_8018C06C*)(arg0 + 0xF0))->m6();

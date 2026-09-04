@@ -17,9 +17,12 @@ struct VObj_801695a8_80169520 : Base_801695a8_80169520 {
 };
 
 extern "C" {
+void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1);
+}
+
+extern "C" {
 
 void TOHealGeneral__sub_801699F4(void);
-int TOHealGeneral__sub_801699F8(void);
 void TOHealGeneral__sub_80169B28(void *arg0, s32 arg1);
 void TOHealGeneral__sub_80169B3C(void *arg0, s32 arg1);
 void* TOHealGeneral__vt7(void* p);
@@ -118,9 +121,11 @@ void* TOHealGeneral__vt7(void* p) { return (char*)p + 0xe0; }
 
 void TOHealGeneral__sub_801699F4(void) {  }
 
-int TOHealGeneral__sub_801699F8(void) { return 0; }
-
 extern f32 lbl_805DB6D8;
+
+void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1) {
+    M2C_FIELD(arg0, s32 *, 0xAC) = (s32) *arg1;
+}
 
 s32 update_active_state__13TOHealGeneralFPv(void *arg0) {
     s32 temp_r0;

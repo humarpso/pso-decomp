@@ -26,11 +26,16 @@ struct VObj_800B2214_800B1978 : Base_800B2214_800B1978 {
 };
 
 extern "C" {
+s32 TObjEneBm3Fly__sub_800BB774();
+int TObjEneDD__sub_800BBA18(void*, void*);
+void TObjEneBm3Fly__vt61(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjEneBm3Fly__vt26(void);
 void TObjEneBm3Fly__vt59(void);
 void TObjEneBm3Fly__vt60(void* p);
-int TObjEneBm3Fly__vt61(void);
 void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1);
 void * create__13TObjEneBm3FlyFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void release_shared_data__13TObjEneBm3FlyFv(void);
@@ -98,7 +103,17 @@ void update__13TObjEneBm3FlyFPv(void *arg0) {
 void TObjEneBm3Fly__vt59(void) {  }
 void TObjEneBm3Fly__vt60(void* p) { if (*(short*)((char*)p + 0x326) != 6) { TObjEneDD__sub_800BBA18(p, (void*)6); } }
 
-int TObjEneBm3Fly__vt61(void) { return 0; }
+void TObjEneBm3Fly__vt61(u8 *arg0) {
+    s16 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    if ((temp_r0 != 8) && (temp_r0 != 9) && (temp_r0 != 7)) {
+        if (TObjEneBm3Fly__sub_800BB774() != 0) {
+            TObjEneDD__sub_800BBA18((void*)((void *) (arg0)), (void*)((int) (7)));
+            return;
+        }
+        TObjEneDD__sub_800BBA18((void*)((void *) (arg0)), (void*)((int) (8)));
+    }
+}
 
 void TObjEneBm3Fly__vt26(void) {  }
 

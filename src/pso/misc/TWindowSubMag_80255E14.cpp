@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TWindowSubMag__sub_80255E24(u8 *arg0);
+}
 
-int TWindowSubMag__sub_80255E24(void);
+extern "C" {
+
 void set_flag60_bit4__13TWindowSubMagFPv(void* p);
 s32 TBoss3Volopt__sub_8022675C(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
@@ -20,6 +23,12 @@ void set_flag0_bit20__15TWindowHelpItemFPv(void* p);
 
 void set_flag60_bit4__13TWindowSubMagFPv(void* p) { *(u8*)((char*)p + 0x60) |= 0x4; }
 
-int TWindowSubMag__sub_80255E24(void) { return 0; }
+void TWindowSubMag__sub_80255E24(u8 *arg0) {
+    u8 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, u8 *, 0x60);
+    if (temp_r4 & 2) {
+        M2C_FIELD(arg0, u8 *, 0x60) = (u8) (temp_r4 & 0xFFFFFFFB);
+    }
+}
 
 }

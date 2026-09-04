@@ -5,13 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void run_task__17TOHangerMachine01Fv(u8 *arg0);
+}
+
+extern "C" {
 
 void TOHangerMachine01__sub_80169168(void);
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1);
 void *create__17TOHangerMachine01FPv(void *arg0);
 void free_static_model__17TOHangerMachine01Fv(void);
 s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1);
-int run_task__17TOHangerMachine01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void TOHangceilingCave01KeyQuick__sub_80168D30(void);
 void *TOHangerMachine01__ct(void *, void *);
@@ -23,7 +26,9 @@ M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void* p, f32 v);
 
-int run_task__17TOHangerMachine01Fv(void) { return 0; }
+void run_task__17TOHangerMachine01Fv(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0xC8) = (s32) (M2C_FIELD(arg0, s32 *, 0xC8) + 0x888);
+}
 
 void *create__17TOHangerMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xCC);

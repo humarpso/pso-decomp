@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEneMe3Shinowa__sub_800E7250(u8 *arg0);
+void TObjEneMe3Shinowa__sub_800E7268(u8 *arg0);
+}
+
+extern "C" {
 
 struct E71ACBase_800e71ac_800E71A8 { char pad[0x14]; };
 struct E71ACObj_800e71ac_800E71A8 : E71ACBase_800e71ac_800E71A8 {
@@ -29,8 +34,6 @@ struct E71FCObj_800e71fc_800E71A8 : E71FCBase_800e71fc_800E71A8 {
 };
 
 void TObjEneMe3Shinowa__sub_800E71A8(void);
-int TObjEneMe3Shinowa__sub_800E7250(void);
-int TObjEneMe3Shinowa__sub_800E7268(void);
 void TObjEneMe3Shinowa__vt105(void);
 void dispatch_if_active__17TObjEneMe3ShinowaFPv(u8 *arg0);
 s32 update_effect__17TObjEneMe3ShinowaFPv(u8 *arg0);
@@ -56,8 +59,15 @@ s32 update_effect__17TObjEneMe3ShinowaFPv(u8 *arg0) {
     return 0;
 }
 
-int TObjEneMe3Shinowa__sub_800E7250(void) { return 0; }
-int TObjEneMe3Shinowa__sub_800E7268(void) { return 0; }
+void TObjEneMe3Shinowa__sub_800E7250(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFEF);
+    M2C_FIELD(arg0, s16 *, 0x2CC) = (s16) M2C_FIELD(arg0, s16 *, 0x3DC);
+}
+
+void TObjEneMe3Shinowa__sub_800E7268(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 0x10);
+    M2C_FIELD(arg0, s16 *, 0x2CC) = (s16) ((s16) M2C_FIELD(arg0, s16 *, 0x3DC) / 2);
+}
 
 void TObjEneMe3Shinowa__vt105(void) {  }
 

@@ -93,6 +93,7 @@ struct VBase_8003508C_80035084 {
     virtual void m84();
     virtual void m85(s16, int);
 };
+
 extern "C" {
 int TObjPlayer__sub_80019664(void);
 void TObjPlayer__sub_801C1820(void* p);
@@ -207,6 +208,16 @@ extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern s32 TBoss2DeRolLe__data_805D4BC4;
 s32 TObjPlayer__sub_801C1FBC(s32 arg0, s16 arg1);
+void TObjPlayer__sub_801C1914(s32 arg0);
+void TObjPlayer__sub_801C18E0(void* p);
+s32 TLobby__send_and_handle_60(s32);
+void TObjPlayer__sub_801C1914(s32 arg0);
+extern M2C_UNK lbl_80434088;
+extern const f32 lbl_805D7D3C;
+extern s32 lbl_805D5FC0;
+extern s32 lbl_805D5D6C;
+void TObjPlayer__sub_801C18E0(void* p);
+s32 TWindowDuelResult__sub_801C19AC(f32 *arg0);
 }
 
 extern "C" {
@@ -233,7 +244,7 @@ int TObjPlayer__sub_801C1890(void) { return 0; }
 
 void TObjPlayer__sub_801C18AC(void* p) { TObjPlayer__sub_801C1820((void*)(p)); TLobby__send_and_handle_60((s32)(p)); }
 
-int TObjPlayer__sub_801C18E0(void) { return 0; }
+void TObjPlayer__sub_801C18E0(void* p) { TObjPlayer__sub_801C1914((s32)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
 
 void TObjPlayer__sub_801C1914(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv();
@@ -248,6 +259,10 @@ void TObjPlayer__sub_801C1914(s32 arg0) {
 
 int TObjPlayer__sub_801C1978(void) { return 0; }
 f32 fn_801C19A4(void* p) { return *(f32*)((char*)p + 0xc); }
+
+s32 TWindowDuelResult__sub_801C19AC(f32 *arg0) {
+    return (s32) *arg0;
+}
 
 void TObjPlayer__sub_801C19C8(void* p, f32 v) { *(f32*)((char*)p + 0x0) = v; }
 

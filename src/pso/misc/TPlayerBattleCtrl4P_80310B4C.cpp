@@ -5,9 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TPlayerBattleCtrl4P__sub_80311294(u8 *arg0);
+void TPlayerBattleCtrl4P__sub_803112AC(u8 *arg0, s32 arg1);
+}
 
-int TPlayerBattleCtrl4P__sub_80311294(void);
-int TPlayerBattleCtrl4P__sub_803112AC(void);
+extern "C" {
+
 int TPlayerBattleCtrl4P__sub_8031171C(void);
 s32 check_all_players_flag__19TPlayerBattleCtrl4PFv(void);
 void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *arg0, u16 arg1, s32 arg2);
@@ -85,11 +88,16 @@ void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *arg0, u16 arg1, s32 arg2) 
     }
 }
 
-int TPlayerBattleCtrl4P__sub_80311294(void) { return 0; }
+s32 TPlayerBattleCtrl4P__sub_80311294(u8 *arg0) {
+    return M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), s32 *, 0x24) * 0x3C;
+}
 
 void set_score__19TPlayerBattleCtrl4PFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x29c) = v; }
 
-int TPlayerBattleCtrl4P__sub_803112AC(void) { return 0; }
+void TPlayerBattleCtrl4P__sub_803112AC(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s32 *, 0x298) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x29C) = 0;
+}
 
 void update_all_players__19TPlayerBattleCtrl4PFv(void) {
     s32 var_r31;

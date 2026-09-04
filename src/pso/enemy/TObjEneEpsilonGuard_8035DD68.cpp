@@ -42,6 +42,11 @@ struct EG_8035DD68 : EGPad_8035DD68 {
 };
 
 extern "C" {
+s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0);
+s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0);
+}
+
+extern "C" {
 
 struct GuardBase_8035DD68 { char pad[0x18]; };
 struct GuardVObj_8035DD68 : GuardBase_8035DD68 {
@@ -90,8 +95,6 @@ struct VObj_8035E3B8_8035DD68 : Base_8035E3B8_8035DD68 {
 };
 
 int TObjEneEpsilonGuard__sub_8035DD68(void* p);
-int TObjEneEpsilonGuard__sub_8035DD74(void);
-int TObjEneEpsilonGuard__sub_8035DD94(void);
 int TObjEneEpsilonGuard__sub_8035DDC8(void);
 int TObjEneEpsilonGuard__sub_8035DE08(void);
 void handle_event__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
@@ -125,8 +128,23 @@ M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 
 int TObjEneEpsilonGuard__sub_8035DD68(void* p) { return (*(u32*)((char*)p + 0x46c) >> 7) & 0x1; }
 
-int TObjEneEpsilonGuard__sub_8035DD74(void) { return 0; }
-int TObjEneEpsilonGuard__sub_8035DD94(void) { return 0; }
+s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0x30) & 0xA00) {
+        return 0;
+    }
+    return ((u32) M2C_FIELD(arg0, u32 *, 0x46C) >> 4U) & 1;
+}
+
+s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0x30) & 0xA00) {
+        return 0;
+    }
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 1) {
+        return 0;
+    }
+    return ((u32) M2C_FIELD(arg0, u32 *, 0x46C) >> 9U) & 1;
+}
+
 int TObjEneEpsilonGuard__sub_8035DDC8(void) { return 0; }
 int TObjEneEpsilonGuard__sub_8035DE08(void) { return 0; }
 

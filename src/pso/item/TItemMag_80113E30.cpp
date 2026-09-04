@@ -5,11 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1);
+u8 TItemMag__sub_80113EC8(u8 *arg0);
+}
+
+extern "C" {
 
 void TItemMag__sub_80113E3C(void* p);
-int TItemMag__sub_80113E48(void);
 u8 TItemMag__sub_80113E74(void* p);
-int TItemMag__sub_80113EC8(void);
 int TItemMag__sub_80113EDC(void);
 f32 TItemMag__sub_80113EEC(void* p);
 void add_clamped_stat__8TItemMagFPvi(void *arg0, s32 arg1);
@@ -46,7 +49,13 @@ int test_feed_flags__11TItemMagSubFPvUi(void* p, u32 m);
 int get_status_flag__8TItemMagFPv(void* p) { return *(u32*)((char*)p + 0x18c) & 0x10; }
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }
 
-int TItemMag__sub_80113E48(void) { return 0; }
+void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
+    M2C_FIELD(arg0, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 1);
+    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
+    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
+    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
+}
 
 u8 TItemMag__sub_80113E74(void* p) { return *(u8*)((char*)p + 0xe); }
 s16 get_item_type__8TItemMagFPv(void* p) { return *(s16*)((char*)p + 0x0); }
@@ -56,7 +65,10 @@ s32 get_sub_value__8TItemMagFi(s32 arg0) {
     return (s32) TItemMag__sub_80113EEC((void*)((void*)(arg0 + 0x4AC)));
 }
 
-int TItemMag__sub_80113EC8(void) { return 0; }
+u8 TItemMag__sub_80113EC8(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s16 *, 0x324) == 7);
+}
+
 int TItemMag__sub_80113EDC(void) { return 0; }
 
 f32 TItemMag__sub_80113EEC(void* p) { return *(f32*)((char*)p + 0x3c); }

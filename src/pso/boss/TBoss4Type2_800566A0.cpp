@@ -13,6 +13,9 @@ extern f32 TBoss4Type2__data_805D8BAC;
 extern f32 TBoss4Type2__data_805D8BAC;
 extern f32 TBoss4Type2__data_805D8BAC;
 void TBoss4Type2__vt2(void *arg0);
+M2C_UNK TBoss4Type2__sub_80056F90(void *, int, int);
+s32 TBoss4Type2__sub_80057224();
+void TBoss4Type2__vt1(u8 *arg0);
 }
 
 extern "C" {
@@ -26,7 +29,6 @@ void TBoss4Type2__sub_80058218(void);
 void TBoss4Type2__sub_8005821C(void);
 void TBoss4Type2__sub_80058220(void);
 void TBoss4Type2__vt0(void *arg0);
-int TBoss4Type2__vt1(void);
 int TBoss4Type2__vt3(void);
 void TBoss4Type3__vt40(void* p);
 void TBoss4Type3__vt41(void *arg0);
@@ -76,9 +78,13 @@ void TBoss4Type2__vt2(void *arg0) {
     }
 }
 
-int TBoss4Type2__vt1(void) { return 0; }
-
 extern f32 TBoss4Type2__data_805D8BAC;
+
+void TBoss4Type2__vt1(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
+        TBoss4Type2__sub_80056F90((void *) (arg0), (int) (4), (int) (TBoss4Type2__sub_80057224()));
+    }
+}
 
 void TBoss4Type2__vt0(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;

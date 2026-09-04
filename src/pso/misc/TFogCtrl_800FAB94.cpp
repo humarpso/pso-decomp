@@ -5,13 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 s32 TFogCtrl__sub_800FAC84(void* p);
 int TFogCtrl__sub_800FAC90(void);
 int TFogCtrl__sub_800FAF3C(void);
 int TFogCtrl__sub_800FAFE0(void);
 int TFogCtrl__sub_800FB06C(void);
-int TFogCtrl__sub_800FB0F8(void);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
 void* get_entry__8TFogCtrlFi(int a0);
 void update_all__8TFogCtrlFv(void);
@@ -65,6 +68,16 @@ void clear_active_flag__8TFogCtrlFPv(void *arg0) {
 int TFogCtrl__sub_800FAF3C(void) { return 0; }
 int TFogCtrl__sub_800FAFE0(void) { return 0; }
 int TFogCtrl__sub_800FB06C(void) { return 0; }
-int TFogCtrl__sub_800FB0F8(void) { return 0; }
+
+void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2) {
+    if (arg2 & 1) {
+        M2C_FIELD(arg0, s32 *, 0x20) = 1;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x20) = 2;
+    }
+    M2C_FIELD(arg0, s32 *, 0x19C) = (s32) M2C_FIELD(arg0, s32 *, 0x184);
+    M2C_FIELD(arg0, s32 *, 0x1A0) = 2;
+    M2C_FIELD(arg0, s32 *, 0x1A4) = arg1;
+}
 
 }

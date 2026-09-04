@@ -2,9 +2,14 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void TItemList__sub_801D5804(s32 *arg0);
+}
+
 extern "C" {
 
-int TItemList__sub_801D5804(void);
 void TItemList__sub_801D5838(void* p);
 int TItemList__sub_801D5844(void* p);
 int TItemList__sub_801D5854(void);
@@ -43,7 +48,9 @@ void *__ct__9TItemListFv(void *arg0) {
     return arg0;
 }
 
-int TItemList__sub_801D5804(void) { return 0; }
+void TItemList__sub_801D5804(s32 *arg0) {
+    *arg0 += 1;
+}
 
 int copy_item_data__9TItemListFPv(void* p) { return copy_item_data__6TLobbyFPvPv((char*)p + 0x8); }
 void TItemList__sub_801D5838(void* p) { *(s32*)((char*)p + 0x0) = 1; }

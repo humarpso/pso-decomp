@@ -40,10 +40,13 @@ struct V_A_80279714 : Base_A_80279714 {
 };
 
 extern "C" {
+void TWindowSubItem__sub_8027AA30(u8 *arg0);
+s32 TWindowSubItem__sub_8027AA78(s32 arg0);
+}
+
+extern "C" {
 
 void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2);
-int TWindowSubItem__sub_8027AA30(void);
-int TWindowSubItem__sub_8027AA78(void);
 int TWindowSubItem__sub_8027AA80(void);
 int TWindowSubItem__sub_8027AB10(void);
 void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1);
@@ -247,7 +250,9 @@ void clear_flag_and_release__14TWindowSubItemFPv(void *arg0) {
     }
 }
 
-int TWindowSubItem__sub_8027AA30(void) { return 0; }
+void TWindowSubItem__sub_8027AA30(u8 *arg0) {
+    M2C_FIELD(arg0, s16 *, 0x88) = (s16) M2C_FIELD(arg0, s16 *, 0x74);
+}
 
 void reset_selected__14TWindowSubItemFPv(void* p) { *(s16*)((char*)p + 0x88) = -1; }
 void set_field_74__14TWindowSubItemFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x74) = v; }
@@ -256,7 +261,10 @@ void get_selected_entry__14TWindowSubItemFPv(void *arg0) {
     get_cursor_pos__14TWindowSubItemFPv();
 }
 
-int TWindowSubItem__sub_8027AA78(void) { return 0; }
+s32 TWindowSubItem__sub_8027AA78(s32 arg0) {
+    return arg0 - 0x10;
+}
+
 int TWindowSubItem__sub_8027AA80(void) { return 0; }
 int TWindowSubItem__sub_8027AB10(void) { return 0; }
 

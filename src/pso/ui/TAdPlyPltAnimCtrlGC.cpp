@@ -5,9 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
+M2C_UNK TAdPlyPltAnimCtrlGC__sub_80355D38();
+void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0);
+}
+
+extern "C" {
 
 int TAdPlyPltAnimCtrlGC__sub_80355148(void);
-int TAdPlyPltAnimCtrlGC__sub_80355168(void*);
 void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1);
 int fn_8035510C(void*, void*);
 u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0);
@@ -40,9 +45,21 @@ void set_player_index__10TObjPlayerFPvi(void* p, s32 v);
 int fn_8035510C(void*, void*) { return 0; }
 int render__19TAdPlyPltAnimCtrlGCFv(void) { return 0; }
 int TAdPlyPltAnimCtrlGC__sub_80355148(void) { return 0; }
-int TAdPlyPltAnimCtrlGC__sub_80355168(void*) { return 0; }
 
-void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((void*)(p)); copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((char*)p + 0x24, a1); *(int*)((char*)p + 0x1c) = 1; }
+void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0) {
+    s32 var_r31;
+    var_r31 = 0;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = -1;
+    do {
+        if (get_table_value__19TAdPlyPltAnimCtrlGCFi((int) (var_r31)) != 0U) {
+            TAdPlyPltAnimCtrlGC__sub_80355D38();
+        }
+        var_r31 += 1;
+    } while (var_r31 < 5);
+}
+
+void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(p))); copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((char*)p + 0x24, a1); *(int*)((char*)p + 0x1c) = 1; }
 
 extern M2C_UNK __vt__19TAdPlyPltAnimCtrlGC[];
 extern u32 lbl_805D6F08;

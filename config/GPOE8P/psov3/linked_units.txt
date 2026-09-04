@@ -249,6 +249,7 @@ pso/enemy/TObjEneMe1Gee_802A4BB8_802A4D4C.cpp
 pso/enemy/TObjEneMe1GiGueMissile_802A4628.cpp
 pso/enemy/TObjEneMe1GiGue_80040B3C.cpp
 pso/enemy/TObjEneMe1GiGue_80040B3C_80040B68.cpp
+pso/enemy/TObjEneMe3Shinowa_800E71A8.cpp
 pso/enemy/TObjEneMe3SinowZoa.cpp
 pso/enemy/TObjEneMe3SinowZoaReal_8031B220.cpp
 pso/enemy/TObjEneMe3SinowZoa_800D72A4_800D74C4.cpp
@@ -961,6 +962,7 @@ pso/misc/TOBarrierEnergy01_80157E2C.cpp
 pso/misc/TOBarrierEnergy01_80157E90.cpp
 pso/misc/TOBarrierEnergy01_80157ECC.cpp
 pso/misc/TOBarrierEnergy01_80157F30.cpp
+pso/misc/TOBind.cpp
 pso/misc/TOBind_80158608.cpp
 pso/misc/TOBoss4Bird.cpp
 pso/misc/TOBoss4Rock.cpp
@@ -1014,8 +1016,10 @@ pso/misc/TORockCaveSimple.cpp
 pso/misc/TORockJungleL01.cpp
 pso/misc/TOSwitchItem_80102C44.cpp
 pso/misc/TOTrapAncient02R.cpp
+pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
 pso/misc/TOTrapChainSaw_802C9BE4.cpp
 pso/misc/TOTrap_80179140.cpp
+pso/misc/TOTrap_801792AC.cpp
 pso/misc/TOVS2Wall01_8017BCC8.cpp
 pso/misc/TOVS2Wreck01.cpp
 pso/misc/TOVS2Wreck02.cpp
@@ -1299,6 +1303,7 @@ pso/misc/TWindowSubInformationBoard_8034C224.cpp
 pso/misc/TWindowSubItem_801F8FD4.cpp
 pso/misc/TWindowSubItem_80249058.cpp
 pso/misc/TWindowSubMag_802559F8.cpp
+pso/misc/TWindowSubMag_80255E14.cpp
 pso/misc/TWindowSubMag_80267BF8.cpp
 pso/misc/TWindowSubMag_80278760.cpp
 pso/misc/TWindowSubQuestBoardSelect.cpp
@@ -2335,5 +2340,6 @@ pso/unk/text_8035B750.cpp
 pso/unk/text_8035D444.cpp
 pso/unk/text_80362264.cpp
 pso/unk/text_8036A5B4.cpp
+pso/unk/text_8038B804.cpp
 pso/unk/text_8039A298.cpp
 pso/unk/text_803DCF0C.cpp

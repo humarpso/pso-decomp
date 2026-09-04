@@ -10,8 +10,11 @@ struct VObj800BBC80_800BB804 : VBase800BBC80_800BB804 {
 };
 
 extern "C" {
+void TObjEneDD__sub_800BBA0C(u8 *arg0);
+}
 
-int TObjEneDD__sub_800BBA0C(void);
+extern "C" {
+
 u8 TObjEneDD__vt84(void *arg0);
 void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
 void TObjEneDD__vt77(void *arg0);
@@ -20,7 +23,9 @@ M2C_UNK call_vt78__10TObjPlayerFPv();
 M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
 
-int TObjEneDD__sub_800BBA0C(void) { return 0; }
+void TObjEneDD__sub_800BBA0C(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x374) = (s32) M2C_FIELD(arg0, s16 *, 0x326);
+}
 
 u8 TObjEneDD__vt84(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x374) != M2C_FIELD(arg0, s16 *, 0x326));

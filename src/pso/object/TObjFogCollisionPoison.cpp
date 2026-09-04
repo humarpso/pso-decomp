@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjFogCollisionPoison__sub_801531EC(void *, int, int);
+void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1);
+}
+
+extern "C" {
 
 void *TObjFogCollisionPoison__sub_8015302C(void *arg0, s16 arg1);
 void TObjFogCollisionPoison__sub_801533BC(void);
@@ -71,6 +76,10 @@ u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0) {
 
     temp_r31 = TObjFogCollisionSwitch__sub_80153A0C();
     return (u8) (temp_r31 == TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0x8C)));
+}
+
+void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1) {
+    TObjFogCollisionPoison__sub_801531EC((void *) (arg1), (int) (M2C_FIELD(arg0, s32 *, 0x84)), (int) ((u8) (M2C_FIELD(arg0, s32 *, 0x88) == 0)));
 }
 
 }

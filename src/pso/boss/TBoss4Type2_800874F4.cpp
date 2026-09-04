@@ -5,9 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TTecLuker__sub_8008764C(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 int TObjPlayer__sub_80087638(void);
-int TTecLuker__sub_8008764C(void);
 void copy_vec3__11TBoss4Type2FPvPv(void* p, void* q);
 void set_flags__11TBoss4Type2FPvUi(void* p, u32 v);
 void set_param_ptr__11TBoss4Type2FPvi(void *arg0, s32 arg1);
@@ -33,6 +36,10 @@ void copy_vec3__11TBoss4Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x6c) 
 void set_flags__11TBoss4Type2FPvUi(void* p, u32 v) { *(u16*)((char*)p + 0x2c) |= v; }
 
 int TObjPlayer__sub_80087638(void) { return 0; }
-int TTecLuker__sub_8008764C(void) { return 0; }
+
+void TTecLuker__sub_8008764C(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, u16 *, 0x2C) = (u16) (M2C_FIELD(arg0, u16 *, 0x2C) | 0x100);
+    M2C_FIELD(arg0, s32 *, 0x48) = arg1;
+}
 
 }

@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowSubStatusDisp__sub_80244364();
+M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_8026D790(int, int, void *);
+M2C_UNK TWindowSubCustomSelect__sub_80277638(void *, int);
+M2C_UNK TWindowSubCustomSelect__sub_802776D0(void *, int);
+M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
+void render__22TWindowSubCustomSelectFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1);
 void handle_cancel__22TWindowSubCustomSelectFPv(void *arg0);
@@ -31,6 +41,16 @@ void handle_decide__22TWindowSubCustomSelectFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__22TWindowSubCustomSelect[];
+
+void render__22TWindowSubCustomSelectFv(u8 *arg0) {
+    s32 temp_r3;
+    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    TWindowSubCustomSelect__sub_802776D0((void *) (arg0), (int) (temp_r3));
+    TWindowSubCustomSelect__sub_80277638((void *) (arg0), (int) (temp_r3));
+    forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x7C)), (int) (temp_r3));
+    TWindowSubStatusDisp__sub_8026D790((int) (M2C_FIELD(arg0, s32 *, 0x80)), (int) (temp_r3), (void *) (arg0 + 0x68));
+}
 
 void *__dt__22TWindowSubCustomSelectFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

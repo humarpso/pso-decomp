@@ -5,9 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss3VoloptMonitor__sub_800420D8(void);
-int TBoss3VoloptMonitor__sub_8004292C(void);
 void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1);
 void *create__19TBoss3VoloptMonitorFPv(void *arg0);
 void release__19TBoss3VoloptMonitorFv(void);
@@ -80,6 +83,8 @@ void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1) {
 
 void set_flags_30__19TBoss3VoloptMonitorFPv(void* p) { *(u32*)((char*)p + 0x30) |= 0x4040000; }
 
-int TBoss3VoloptMonitor__sub_8004292C(void) { return 0; }
+void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFBFFFF);
+}
 
 }

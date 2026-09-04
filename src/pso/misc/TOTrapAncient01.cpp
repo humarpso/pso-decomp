@@ -92,8 +92,13 @@ struct VObj_801793A8_8017939C : Base_801793A8_8017939C {
 };
 
 extern "C" {
+M2C_UNK TOTrapAncient01__sub_8017940C(void *);
+void TOTrap__sub_80178F54(void *, void *, f32);
+void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
+}
 
-int TOTrapAncient01__vt20(void);
+extern "C" {
+
 void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2);
 void TOTrapAncient01__vt82(void);
 void TOTrapAncient01__vt84(void);
@@ -127,7 +132,10 @@ void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
     }
 }
 
-int TOTrapAncient01__vt20(void) { return 0; }
+void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0) {
+    TOTrapAncient01__sub_8017940C(arg0);
+    TOTrap__sub_80178F54(arg0, arg1, farg0);
+}
 
 void TOTrapAncient01__vt82(void) {  }
 

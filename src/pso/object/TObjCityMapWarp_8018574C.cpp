@@ -17,8 +17,11 @@ struct VObj_8018574C : VObjBase_8018574C {
 };
 
 extern "C" {
+void TObjCityMapWarp__sub_801858E4(u8 *arg0);
+}
 
-int TObjCityMapWarp__sub_801858E4(void);
+extern "C" {
+
 int is_field88_zero__15TObjCityMapWarpFPv(void* p);
 void render__15TObjCityMapWarpFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -58,6 +61,15 @@ void render__15TObjCityMapWarpFv(u8 *arg0) {
 
 int is_field88_zero__15TObjCityMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }
 
-int TObjCityMapWarp__sub_801858E4(void) { return 0; }
+void TObjCityMapWarp__sub_801858E4(u8 *arg0) {
+    s32 var_r0;
+    var_r0 = M2C_FIELD(arg0, s32 *, 0x8C);
+    if (var_r0 < 0) {
+        var_r0 = 0;
+    } else if (var_r0 >= 3) {
+        var_r0 = 1;
+    }
+    M2C_FIELD(arg0, s32 *, 0x8C) = var_r0;
+}
 
 }

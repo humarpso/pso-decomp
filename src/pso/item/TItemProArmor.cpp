@@ -5,14 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TItemProArmor__sub_801178B4(u8 *arg0);
+void TItemProArmor__sub_801178D4(u8 *arg0);
+}
+
+extern "C" {
 
 void *TItemProArmor__sub_80117650(void *arg0);
 void *TItemProArmor__sub_80117730(void *arg0, s16 arg1);
 int TItemProArmor__sub_8011781C(void);
 void TItemProArmor__sub_801178A8(void* p, void* q);
-int TItemProArmor__sub_801178B4(void);
 u8 TItemProArmor__sub_801178CC(void* p);
-int TItemProArmor__sub_801178D4(void);
 void TItemProArmor__sub_80117D00(void);
 void TItemProArmor__sub_80117D04(void);
 void TItemProArmor__vt14(void *arg0);
@@ -80,11 +83,24 @@ int TItemProArmor__sub_8011781C(void) { return 0; }
 
 void TItemProArmor__sub_801178A8(void* p, void* q) { *(u8*)((char*)p + 0x5) = *(u8*)((char*)q + 0x192); }
 
-int TItemProArmor__sub_801178B4(void) { return 0; }
+void TItemProArmor__sub_801178B4(u8 *arg0) {
+    u8 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, u8 *, 0x192);
+    if (temp_r4 < 4U) {
+        M2C_FIELD(arg0, u8 *, 0x192) = (u8) (temp_r4 + 1);
+    }
+}
 
 u8 TItemProArmor__sub_801178CC(void* p) { return *(u8*)((char*)p + 0x192); }
 
-int TItemProArmor__sub_801178D4(void) { return 0; }
+void TItemProArmor__sub_801178D4(u8 *arg0) {
+    if ((u8) M2C_FIELD(arg0, u8 *, 0x195) < (u8) M2C_FIELD(arg0, u8 *, 0x193)) {
+        M2C_FIELD(arg0, u8 *, 0x193) = 0U;
+    }
+    if ((u8) M2C_FIELD(arg0, u8 *, 0x196) < (u8) M2C_FIELD(arg0, u8 *, 0x194)) {
+        M2C_FIELD(arg0, u8 *, 0x194) = 0U;
+    }
+}
 
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg1, u8 *, 5) = (u8) M2C_FIELD(arg0, u8 *, 0x192);

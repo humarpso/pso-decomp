@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjEneDf2Bringer__sub_800991E0(void *);
+s32 objInBand__FP7GameObjf(f32);
+extern const f32 lbl_805D9810;
+void TObjEneDf2Bringer__sub_80099148(s32 arg0);
+}
+
+extern "C" {
 
 struct Base_80098E4C_80098DB0 { char pad[0x18]; };
 struct VObj_80098E4C_80098DB0 : Base_80098E4C_80098DB0 {
@@ -142,6 +149,12 @@ void update_flag_0x3C0__17TObjEneDf2BringerFPv(void *arg0) {
     }
     if (TObjEneEpsilon__sub_800B95E0() == 0) {
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFF7);
+    }
+}
+
+void TObjEneDf2Bringer__sub_80099148(s32 arg0) {
+    if (objInBand__FP7GameObjf((f32) (lbl_805D9810)) != 0) {
+        TObjEneDf2Bringer__sub_800991E0((void *) (arg0));
     }
 }
 

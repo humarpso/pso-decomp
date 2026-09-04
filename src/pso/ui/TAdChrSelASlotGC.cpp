@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK free_windows__17TWindowSubComCardFPv(s32);
+M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(s32, s32, s32, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
+extern const f32 lbl_805DF214;
+s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 void *TAdChrSelASlotGC__ct(void *arg0, void *arg1, void *arg2);
 void TAdChrSelASlotGC__sub_8030CBD0(void);
@@ -65,6 +76,15 @@ s32 open_yes_no_window__16TAdChrSelASlotGCFiii(s32 arg0, s32 arg1, s32 arg2) {
     forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(temp_r31, TAdSinglePlyChrSelectGC__sub_80132F2C(0x16, 0x1B), arg1, lbl_805DF210);
     free_member__17TWindowSubComCardFPv(temp_r31, 1);
     free_windows__17TWindowSubComCardFPv(temp_r31);
+    return temp_r31;
+}
+
+s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1) {
+    s32 temp_r31;
+    temp_r31 = TWindowMessageYesNo__sub_802A59D8((s32)((void *) (arg0)), (s32)((int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv())), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((s32)((int) (temp_r31)), (s32)((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x16), (int) (0x1A)))), (s32)((void *) (arg1)), (f32) (lbl_805DF214));
+    free_member__17TWindowSubComCardFPv((s32)((int) (temp_r31)), (M2C_UNK)((int) (1)));
+    free_windows__17TWindowSubComCardFPv((s32)((int) (temp_r31)));
     return temp_r31;
 }
 

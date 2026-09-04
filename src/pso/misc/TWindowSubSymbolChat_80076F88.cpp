@@ -1,11 +1,19 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 int TWindowSubSymbolChat__sub_80076FEC(void);
-int TWindowSubSymbolChat__sub_80077034(void);
-int TWindowSubSymbolChat__sub_8007706C(void);
 int TWindowSubSymbolChat__sub_80077098(void);
 int TWindowSubSymbolChat__sub_800770D0(void);
 int TWindowSubSymbolChat__sub_80077108(void* a0 = 0, void* a1 = 0);
@@ -21,8 +29,24 @@ void update_layout__20TWindowSubSymbolChatFPv(void* p);
 int TWindowSubSymbolChat__sub_80076FE0(void* p) { return (*(u32*)((char*)p + 0x1c) >> 9) & 0x1; }
 
 int TWindowSubSymbolChat__sub_80076FEC(void) { return 0; }
-int TWindowSubSymbolChat__sub_80077034(void) { return 0; }
-int TWindowSubSymbolChat__sub_8007706C(void) { return 0; }
+
+void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1) {
+    s32 var_r4;
+    var_r4 = arg1;
+    if (var_r4 != 0) {
+        var_r4 = 1;
+    }
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFDFF);
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) | (var_r4 << 9));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 1);
+}
+
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFE1F);
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) | (arg1 << 5));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 1);
+}
+
 int TWindowSubSymbolChat__sub_80077098(void) { return 0; }
 int TWindowSubSymbolChat__sub_800770D0(void) { return 0; }
 int TWindowSubSymbolChat__sub_80077108(void* a0, void* a1) { return 0; }

@@ -47,6 +47,13 @@ struct VObj_80306994_80305BDC : Base_80306994_80305BDC {
 };
 
 extern "C" {
+M2C_UNK TBoss8Dragon__sub_800BB780(void *);
+int TObjEneDD__sub_800BBA18(void*, void*);
+M2C_UNK TObjEneDellBiter__sub_803055C8();
+void TObjEneDellBiter__vt60(u8 *arg0);
+}
+
+extern "C" {
 
 void *item_object_variant_deleting_dtor_803069D0(void *arg0, s16 arg1);
 void *TItemObject__sub_80306A28(void *arg0);
@@ -54,7 +61,6 @@ void *TObjEneDellBiter__create(void *arg0);
 void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2);
 void TObjEneDellBiter__vt26(void);
 void TObjEneDellBiter__vt59(void);
-int TObjEneDellBiter__vt60(void);
 void TObjEneDellBiter__vt61(void* p);
 void TObjEneDellBiter__vt86(void);
 void destroy_static_instance__16TObjEneDellBiterFv(void);
@@ -90,7 +96,16 @@ void TObjEneDellBiter__vt86(void) {  }
 
 void TObjEneDellBiter__vt59(void) {  }
 
-int TObjEneDellBiter__vt60(void) { return 0; }
+void TObjEneDellBiter__vt60(u8 *arg0) {
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xA) {
+        TObjEneDellBiter__sub_803055C8();
+        if (M2C_FIELD(arg0, s32 *, 0x3C0) & 0x14) {
+            TBoss8Dragon__sub_800BB780((void *) (arg0));
+            return;
+        }
+        TObjEneDD__sub_800BBA18((void*)((void *) (arg0)), (void*)((int) (0xA)));
+    }
+}
 
 void TObjEneDellBiter__vt61(void* p) { if (*(short*)((char*)p + 0x326) != 11) { TObjEneDD__sub_800BBA18(p, (void*)11); } }
 void TObjEneDellBiter__vt26(void) {  }

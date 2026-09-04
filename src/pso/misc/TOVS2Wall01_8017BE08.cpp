@@ -2,13 +2,22 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK TOVS2Wall01__sub_8017B9AC(void *);
+void release__11TOVS2Wall01FPv(void* p);
+int interact_player_neg1__11TOVS2Wall01FPv(void* p);
+void run_task__11TOVS2Wall01Fv(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__11TOVS2Wall01Fv(void *arg0, s16 arg1);
 void *create__11TOVS2Wall01FPv(void *arg0);
 int interact_player_neg1__11TOVS2Wall01FPv(void* p);
 void release__11TOVS2Wall01FPv(void* p);
-int run_task__11TOVS2Wall01Fv(void);
 void *TOVS2Wall01__ct(void *, void *);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_800D7C58(void *, int);
@@ -23,7 +32,24 @@ int set_flag8__6TLobbyFPv(void*);
 void release__11TOVS2Wall01FPv(void* p) { set_flag8__6TLobbyFPv(p); queue_destruction__7TObjectFv(p); }
 int interact_player_neg1__11TOVS2Wall01FPv(void* p) { return TObjPlayer__sub_801B4A18(p, -1); }
 
-int run_task__11TOVS2Wall01Fv(void) { return 0; }
+void run_task__11TOVS2Wall01Fv(u8 *arg0) {
+    s16 temp_r0;
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        TOVS2Wall01__sub_8017B9AC((void *) (arg0));
+        return;
+    }
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    switch (temp_r0) {
+    default:
+        M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    case 0:
+        interact_player_neg1__11TOVS2Wall01FPv((void*)((void *) (arg0)));
+        return;
+    case 1:
+        release__11TOVS2Wall01FPv((void*)((void *) (arg0)));
+        return;
+    }
+}
 
 void *create__11TOVS2Wall01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x360);

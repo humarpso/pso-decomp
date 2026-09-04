@@ -5,8 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void TObjNpcAHM01__vt88(s32 arg0);
+}
 
-int TObjNpcAHM01__vt88(void);
+extern "C" {
+
 void * TObjNpcARM00__create(void *arg0);
 int TObjNpcFemaleBase__sub_80147CD4(void);
 void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1);
@@ -48,7 +52,9 @@ void *__dt__12TObjNpcAHM01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TObjNpcAHM01__vt88(void) { return 0; }
+void TObjNpcAHM01__vt88(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((int) (0x40004C15), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
 
 int TObjNpcFemaleBase__sub_80147CD4(void) { return 0; }
 

@@ -2572,11 +2572,8 @@ pso/boss/TBoss4Type3_800D7A20.cpp:
 pso/misc/TAttackTrace.cpp:
 	.text       start:0x800D7A2C end:0x800D7AD0
 
-pso/unk/text_800D7B1C.cpp:
-	.text       start:0x800D7B1C end:0x800D7B80
-
-pso/boss/TBoss8Dragon_800D7B80.cpp:
-	.text       start:0x800D7B80 end:0x800D7BFC
+pso/misc/RenderFadeState.cpp:
+	.text       start:0x800D7B1C end:0x800D7BFC
 
 pso/player/TObjPlayer_800D7BFC.cpp:
 	.text       start:0x800D7BFC end:0x800D7CF4

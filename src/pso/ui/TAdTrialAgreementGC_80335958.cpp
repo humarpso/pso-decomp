@@ -5,9 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0);
+}
+
+extern "C" {
 
 void *destroy_object_804EE458(void *arg0, s16 arg1);
-int TAdTrialAgreementGC__sub_80335958(void);
 s32 TAdTrialAgreementGC__sub_8033596C(void* p);
 void run_state__19TAdTrialAgreementGCFPv(void *arg0);
 M2C_UNK TAdTrialAgreementGC__sub_80335974();
@@ -15,7 +18,9 @@ M2C_UNK TAdTrialAgreementGC__sub_80335A58();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-int TAdTrialAgreementGC__sub_80335958(void) { return 0; }
+u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x24) == 2);
+}
 
 s32 TAdTrialAgreementGC__sub_8033596C(void* p) { return *(s32*)((char*)p + 0x20); }
 

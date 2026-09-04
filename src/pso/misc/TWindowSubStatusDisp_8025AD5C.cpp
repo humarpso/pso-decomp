@@ -5,12 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0);
+void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0);
+}
+
+extern "C" {
 
 void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1);
 void TWindowSubStatusDisp__sub_8025B2D8(void);
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
-int TWindowSubSymbolChatPartsSet__sub_8025B050(void);
-int TWindowSubSymbolChatPartsSet__sub_8025B064(void);
 void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void* p, f32 a, f32 b);
 void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d);
 M2C_UNK __dl__FPv(void *);
@@ -40,8 +43,20 @@ void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TWindowSubSymbolChatPartsSet__sub_8025B050(void) { return 0; }
-int TWindowSubSymbolChatPartsSet__sub_8025B064(void) { return 0; }
+void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0) {
+    f32 temp_f1;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
+    M2C_FIELD(arg0, f32 *, 0x28) = temp_f1;
+}
+
+void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0) {
+    f32 temp_f1;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x1C);
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg0, f32 *, 0x24);
+    M2C_FIELD(arg0, f32 *, 0x24) = temp_f1;
+}
+
 void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x1c) = a; *(f32*)((char*)p + 0x20) = b; *(f32*)((char*)p + 0x24) = c; *(f32*)((char*)p + 0x28) = d; }
 
 void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x10) = a; *(f32*)((char*)p + 0x14) = b; }

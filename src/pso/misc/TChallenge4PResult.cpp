@@ -11,13 +11,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+M2C_UNK TLobby__sub_802924B4(void *, int);
+s32 TChallenge4PResult__sub_8034B720(void *, s32);
+void TChallenge4PResult__sub_8034B8BC(u8 *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+M2C_UNK TLobby__sub_802924B4(void *, int);
+s32 TChallenge4PResult__sub_8034B720(void *, s32);
+void TChallenge4PResult__sub_8034B918(u8 *arg0);
+void TChallenge4PResult__sub_8034BA2C(u8 *arg0);
+s32 is_active__11TBoss4Type2Fv();
+s32 get_global_state__14TOKeyMachine01Fv();
+void TChallenge4PResult__sub_8034BA2C(u8 *arg0);
+int queue_destruction__18TChallenge4PResultFPv(void* p);
+M2C_UNK TChallenge4PResult__sub_8034BA68(void *);
+M2C_UNK TChallenge4PResult__sub_8034BADC(void *);
+void update_input__18TChallenge4PResultFPv(void *arg0);
+void run_task__18TChallenge4PResultFv(u8 *arg0);
+}
+
+extern "C" {
 
 void TChallenge4PResult__sub_8034B420(void *arg0);
 void TChallenge4PResult__sub_8034B8B0(void* p);
-int TChallenge4PResult__sub_8034B8BC(void);
-int TChallenge4PResult__sub_8034B918(void);
 int TChallenge4PResult__sub_8034B974(void);
-int TChallenge4PResult__sub_8034BA2C(void);
 void close_window__18TChallenge4PResultFPv(void* p);
 void create__18TChallenge4PResultFii(int arg0, s32 arg1);
 void init__18TChallenge4PResultFPv(void *arg0);
@@ -92,10 +109,30 @@ void init__18TChallenge4PResultFPv(void *arg0) {
 }
 void TChallenge4PResult__sub_8034B8B0(void* p) { *(s32*)((char*)p + 0x1c) = 3; }
 
-int TChallenge4PResult__sub_8034B8BC(void) { return 0; }
-int TChallenge4PResult__sub_8034B918(void) { return 0; }
+void TChallenge4PResult__sub_8034B8BC(u8 *arg0) {
+    TChallenge4PResult__sub_8034B720((void *)((void *) (arg0)), (s32)((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x2B), (int) (1)))));
+    TLobby__sub_802924B4((void *) (arg0 + 0x34), (int) (M2C_FIELD(arg0, u16 *, 0x24)));
+    M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 5;
+}
+
+void TChallenge4PResult__sub_8034B918(u8 *arg0) {
+    TChallenge4PResult__sub_8034B720((void *)((void *) (arg0)), (s32)((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x2B), (int) (2)))));
+    TLobby__sub_802924B4((void *) (arg0 + 0x48), (int) (M2C_FIELD(arg0, u16 *, 0x24)));
+    M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 5;
+}
+
 int TChallenge4PResult__sub_8034B974(void) { return 0; }
-int TChallenge4PResult__sub_8034BA2C(void) { return 0; }
+
+void TChallenge4PResult__sub_8034BA2C(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x20) - 1;
+    M2C_FIELD(arg0, s32 *, 0x20) = temp_r0;
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+    }
+}
 
 int queue_destruction__18TChallenge4PResultFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
@@ -123,6 +160,30 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
             }
         } else {
             M2C_FIELD(arg0, s32 *, 0x1C) = 3;
+        }
+    }
+}
+
+void run_task__18TChallenge4PResultFv(u8 *arg0) {
+    s32 temp_r0;
+    if ((get_global_state__14TOKeyMachine01Fv() != 0xE) || (is_active__11TBoss4Type2Fv() != 1)) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+        switch (temp_r0) {
+        case 0:
+            update_input__18TChallenge4PResultFPv((void *) (arg0));
+            return;
+        case 1:
+            TChallenge4PResult__sub_8034BADC((void *) (arg0));
+            return;
+        case 2:
+            TChallenge4PResult__sub_8034BA68((void *) (arg0));
+            return;
+        case 3:
+            queue_destruction__18TChallenge4PResultFPv((void*)((void *) (arg0)));
+            return;
+        case 5:
+            TChallenge4PResult__sub_8034BA2C((u8 *)((void *) (arg0)));
+            break;
         }
     }
 }

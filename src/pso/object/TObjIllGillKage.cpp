@@ -5,8 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void TObjIllGillKage__sub_80365470(u8 *arg0);
+}
 
-int TObjIllGillKage__sub_80365470(void);
+extern "C" {
+
 void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1);
 void attack_target__15TObjIllGillKageFPv(void *arg0);
 int queue_destruction__15TObjIllGillKageFPv(void* p);
@@ -23,7 +27,15 @@ int queue_destruction__7TObjectFv(void*);
 
 int queue_destruction__15TObjIllGillKageFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
-int TObjIllGillKage__sub_80365470(void) { return 0; }
+void TObjIllGillKage__sub_80365470(u8 *arg0) {
+    s32 temp_r3;
+    TOTrapAncient01__sub_80226578((int) (0x4003A357), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x94);
+    M2C_FIELD(arg0, s32 *, 0x94) = (s32) (temp_r3 - 1);
+    if (temp_r3 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x90) = 2;
+    }
+}
 
 void attack_target__15TObjIllGillKageFPv(void *arg0) {
     s32 temp_r3;

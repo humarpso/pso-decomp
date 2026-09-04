@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
+}
 
-int TObjEneBm3FlyNest__sub_800B3AC8(void);
+extern "C" {
+
 int TObjEneBm3FlyNest__sub_800B3ADC(void);
 void TObjEneBm3FlyNest__sub_800B3BE8(void);
 void TObjEneBm3FlyNest__sub_800B3CBC(void);
@@ -45,7 +48,10 @@ void init_params__17TObjEneBm3FlyNestFPv(void *arg0) {
     }
 }
 
-int TObjEneBm3FlyNest__sub_800B3AC8(void) { return 0; }
+s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0x4B8) > 0;
+}
+
 int TObjEneBm3FlyNest__sub_800B3ADC(void) { return 0; }
 
 void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p) { TObjEneDD__sub_800BAAE4(p, (char*)p + 0x2fc, (void*)0); }

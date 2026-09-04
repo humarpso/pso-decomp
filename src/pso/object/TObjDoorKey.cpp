@@ -37,10 +37,13 @@ struct VObj_8018FF74_8018FAEC : Base_8018FF74_8018FAEC {
 };
 
 extern "C" {
+void TObjDoorKey__vt14(u8 *arg0);
+}
+
+extern "C" {
 
 void *TObjDoorKey__create(void *arg0);
 void TObjDoorKey__sub_8018FAEC(void);
-int TObjDoorKey__vt14(void);
 int TObjDoorKey__vt15(void* p);
 int TObjDoorKey__vt16(void);
 void TObjDoorKey__vt17(void);
@@ -107,7 +110,11 @@ void render__11TObjDoorKeyFv(void *arg0) {
 void TObjDoorKey__vt17(void) {  }
 
 int TObjDoorKey__vt16(void) { return 0; }
-int TObjDoorKey__vt14(void) { return 0; }
+
+void TObjDoorKey__vt14(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) + 0x14);
+    M2C_FIELD(arg0, s32 *, 0xF0) = (s32) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x200);
+}
 
 int TObjDoorKey__vt15(void* p) { return TObjPlayer__sub_801B4A18(p, -1); }
 int TObjDoorKey__vt22(void* p) { return TOKey__sub_8016A960(p); }

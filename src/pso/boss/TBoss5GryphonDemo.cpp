@@ -9,6 +9,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK set_active_player__10TObjPlayerFi(int);
+M2C_UNK TCameraCtrl__sub_80069DA8();
+u8 *TCameraCtrl__sub_8006C1F0();
+void run_task__17TBoss5GryphonDemoFv(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss5GryphonDemo__sub_80066268(void);
 void TBoss5GryphonDemo__sub_8006626C(void* p);
@@ -17,7 +25,6 @@ int TBoss5GryphonDemo__sub_8006633C(void*);
 void *destroy__17TBoss5GryphonDemoFPvs(void *arg0, s16 arg1);
 void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2);
 void render__17TBoss5GryphonDemoFv(void);
-int run_task__17TBoss5GryphonDemoFv(void);
 int TCameraCtrl__sub_803D8934(void*, void*, void*);
 int TOHangerMachine01__sub_803D9C00(void*);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
@@ -54,6 +61,14 @@ void *destroy__17TBoss5GryphonDemoFPvs(void *arg0, s16 arg1) {
 
 void render__17TBoss5GryphonDemoFv(void) {  }
 
-int run_task__17TBoss5GryphonDemoFv(void) { return 0; }
+void run_task__17TBoss5GryphonDemoFv(u8 *arg0) {
+    u8 *temp_r31;
+    temp_r31 = TCameraCtrl__sub_8006C1F0();
+    set_active_player__10TObjPlayerFi((int) (0x8F));
+    if ((M2C_FIELD(temp_r31, u16 *, 2) & 1) || ((s32) *M2C_FIELD(arg0, s32 **, 0x24) == 0)) {
+        TCameraCtrl__sub_80069DA8();
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
 
 }

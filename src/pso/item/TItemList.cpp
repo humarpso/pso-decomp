@@ -9,10 +9,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TItemList__sub_801D5A0C(s32 *arg0);
+}
+
+extern "C" {
 
 void TItemList__sub_801D59DC(void* p);
 void TItemList__sub_801D59E8(void* p, void* a1);
-int TItemList__sub_801D5A0C(void*);
 int TItemList__sub_801D5A28(void);
 void TItemList__sub_801D5A64(void* p);
 int TItemList__sub_801D5A70(void);
@@ -42,9 +45,17 @@ u8 get_item_count__9TItemListFPv(void* p);
 void* get_ptr_0x44__9TItemListFPv(void* p);
 
 void TItemList__sub_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
-void TItemList__sub_801D59E8(void* p, void* a1) { TItemList__sub_801D5A0C((void*)(a1)); }
+void TItemList__sub_801D59E8(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)((void*)(a1))); }
 
-int TItemList__sub_801D5A0C(void*) { return 0; }
+void TItemList__sub_801D5A0C(s32 *arg0) {
+    s32 temp_r0;
+    temp_r0 = *arg0 - 1;
+    *arg0 = temp_r0;
+    if (temp_r0 < 0) {
+        *arg0 = 0;
+    }
+}
+
 int TItemList__sub_801D5A28(void) { return 0; }
 
 void TItemList__sub_801D5A64(void* p) { *(s32*)((char*)p + 0x0) = 0; }

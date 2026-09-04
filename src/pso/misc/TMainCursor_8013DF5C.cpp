@@ -2,10 +2,15 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void TMainCursor__sub_8013DFC4(u8 *arg0);
+}
+
 extern "C" {
 
 int TMainCursor__sub_8013DF5C(void);
-int TMainCursor__sub_8013DFC4(void);
 u16 TMainCursor__sub_8013E03C(void* p);
 s32 destroy__13TForceOperateFis(s32 arg0, s16 arg1);
 void *destroy_cursor__11TMainCursorFPvs(void *arg0, s16 arg1);
@@ -25,7 +30,10 @@ void set_mode__20TWindowActionPaletteFPvUc(void* p, u8 v);
 void set_slot__20TWindowActionPaletteFPvUc(void* p, u8 v);
 
 int TMainCursor__sub_8013DF5C(void) { return 0; }
-int TMainCursor__sub_8013DFC4(void) { return 0; }
+
+void TMainCursor__sub_8013DFC4(u8 *arg0) {
+    M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) & 0xFFFFFFFE);
+}
 
 s32 get_state__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 

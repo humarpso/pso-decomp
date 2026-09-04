@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 TItemObject__sub_80115D84(u8 *arg0);
+}
+
+extern "C" {
 
 struct Base_80115D94_80115D6C { char pad[0x18]; };
 struct VObj_80115D94_80115D6C : Base_80115D94_80115D6C {
@@ -25,7 +29,6 @@ struct VObj_80115D94_80115D6C : Base_80115D94_80115D6C {
 
 int TItemObject__sub_80115D6C(void);
 u8 TItemObject__sub_80115D7C(void* p);
-int TItemObject__sub_80115D84(void);
 void TItemObject__vt12(void *arg0);
 u8 *TItemObject__vt7(u8 *arg0);
 void TItem__sub_80115D68(void);
@@ -36,7 +39,9 @@ int TItemObject__sub_80115D6C(void) { return 0; }
 
 u8 TItemObject__sub_80115D7C(void* p) { return *(u8*)((char*)p + 0x100); }
 
-int TItemObject__sub_80115D84(void) { return 0; }
+u8 TItemObject__sub_80115D84(u8 *arg0) {
+    return (u8) M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), u16 *, 8);
+}
 
 void TItemObject__vt12(void *arg0) {
     s32 temp_r31;

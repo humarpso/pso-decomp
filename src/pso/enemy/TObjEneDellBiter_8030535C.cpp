@@ -106,6 +106,13 @@ struct VObj_8030561C_8030535C : Base_8030561C_8030535C {
 };
 
 extern "C" {
+s32 objInBand__FP7GameObjf(f32);
+M2C_UNK TObjEneDellBiter__sub_80305B60(void *);
+extern const f32 lbl_805DF008;
+void TObjEneDellBiter__sub_803058DC(s32 arg0);
+}
+
+extern "C" {
 
 void TObjEneDellBiter__vt102(void *arg0, f32 farg0);
 void clear_active_flag__16TObjEneDellBiterFPv(void *arg0);
@@ -153,6 +160,12 @@ void clear_active_flag__16TObjEneDellBiterFPv(void *arg0) {
     }
     if (TObjEneEpsilon__sub_800B95E0() == 0) {
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFF7);
+    }
+}
+
+void TObjEneDellBiter__sub_803058DC(s32 arg0) {
+    if (objInBand__FP7GameObjf((f32) (lbl_805DF008)) != 0) {
+        TObjEneDellBiter__sub_80305B60((void *) (arg0));
     }
 }
 
