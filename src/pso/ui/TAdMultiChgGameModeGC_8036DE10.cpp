@@ -5,9 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FD6B4();
+s32 TAdSinglePlyChrSelectGC__sub_801FF200();
+int handle_mode_selection__21TAdMultiChgGameModeGCFPv(void*);
+int TAdMultiChgGameModeGC__sub_8036E858(void*, void*);
+void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0);
+}
+
+extern "C" {
 
 void TAdMultiChgGameModeGC__sub_8036E6EC(void);
-int TAdMultiChgGameModeGC__sub_8036E6F0(void);
 void TAdMultiChgGameModeGC__sub_8036E750(void);
 int TAdMultiChgGameModeGC__sub_8036E754(void);
 int TAdMultiChgGameModeGC__sub_8036E7DC(void);
@@ -32,7 +39,16 @@ int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 
 void TAdMultiChgGameModeGC__sub_8036E6EC(void) {  }
 
-int TAdMultiChgGameModeGC__sub_8036E6F0(void) { return 0; }
+void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0) {
+    if (handle_mode_selection__21TAdMultiChgGameModeGCFPv((void*)arg0) == 0) {
+        TAdSinglePlyChrSelectGC__sub_801FD6B4();
+        if (TAdSinglePlyChrSelectGC__sub_801FF200() != 0) {
+            TAdMultiChgGameModeGC__sub_8036E858((void*)((void *) (arg0)), (void*)((int) (7)));
+            return;
+        }
+        TAdMultiChgGameModeGC__sub_8036E858((void*)((void *) (arg0)), (void*)((int) (8)));
+    }
+}
 
 void TAdMultiChgGameModeGC__sub_8036E750(void) {  }
 

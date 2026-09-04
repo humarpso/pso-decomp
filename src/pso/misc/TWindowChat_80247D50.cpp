@@ -8,13 +8,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TWindowChat__sub_80247D50(u8 *arg0);
 u8 TWindowChat__sub_80247EC0(u8 *arg0);
+M2C_UNK TWindowChat__sub_8024792C(void *);
+int is_mode_bit4__11TWindowChatFPv(void* p);
+M2C_UNK flush_if_flagged__11TWindowChatFPv(void *);
+void TWindowChat__sub_80247E50(u8 *arg0);
+M2C_UNK TWindowChat__sub_8024792C(void *);
+int is_visible__11TWindowChatFPv(void* p);
+void TWindowChat__sub_80247DFC(u8 *arg0);
 }
 
 extern "C" {
 
 int TWindowChat__sub_80247DAC(void* p);
-int TWindowChat__sub_80247DFC(void);
-int TWindowChat__sub_80247E50(void);
 int TWindowSubSymbolChatHelp__sub_80247EE8(int a0);
 void fn_80247ED8(void* p);
 int forward_card_at_1c__11TWindowChatFPv(void* p);
@@ -43,11 +48,24 @@ void set_active_flag__11TWindowChatFPv(void* p) { *(u16*)((char*)p + 0x1e) |= 0x
 void set_input_active__11TWindowChatFPv(void* p) { *(u16*)((char*)p + 0x1e) |= 0x20; }
 int is_mode_bit6__11TWindowChatFPv(void* p) { return (*(u16*)((char*)p + 0x1e) >> 6) & 0x1; }
 
-int TWindowChat__sub_80247DFC(void) { return 0; }
+void TWindowChat__sub_80247DFC(u8 *arg0) {
+    if (is_visible__11TWindowChatFPv((void*)arg0) != 0) {
+        M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFFFFDF);
+        TWindowChat__sub_8024792C((void *) (arg0));
+    }
+}
 
 int is_visible__11TWindowChatFPv(void* p) { return (*(u16*)((char*)p + 0x1e) >> 5) & 0x1; }
 
-int TWindowChat__sub_80247E50(void) { return 0; }
+void TWindowChat__sub_80247E50(u8 *arg0) {
+    if (is_mode_bit4__11TWindowChatFPv((void*)arg0) != 0) {
+        M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFFFFEF);
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
+            flush_if_flagged__11TWindowChatFPv(M2C_FIELD(arg0, void **, 0x20));
+        }
+        TWindowChat__sub_8024792C((void *) (arg0));
+    }
+}
 
 int is_mode_bit4__11TWindowChatFPv(void* p) { return (*(u16*)((char*)p + 0x1e) >> 4) & 0x1; }
 int is_open__11TWindowChatFPv(void* p) { return *(u16*)((char*)p + 0x1e) & 0x1; }

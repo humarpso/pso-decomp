@@ -3,6 +3,89 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+struct Base_800BB8E0_800BB804 { char pad[0x18]; };
+struct VObj_800BB8E0_800BB804 : Base_800BB8E0_800BB804 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+};
 struct VBase800BBC80_800BB804 { char pad[0x18]; };
 struct VObj800BBC80_800BB804 : VBase800BBC80_800BB804 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19(); virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39(); virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59(); virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63(); virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75(); virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
@@ -10,18 +93,67 @@ struct VObj800BBC80_800BB804 : VBase800BBC80_800BB804 {
 };
 
 extern "C" {
+
+s32 TObjEneDD__sub_800BB878(s32 arg0, s32 arg1);
+int TObjEneDD__sub_800BB940(void);
+void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1);
+int TObjEneDD__sub_800BB9AC(void);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
-}
-
-extern "C" {
-
-u8 TObjEneDD__vt84(void *arg0);
-void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
 void TObjEneDD__vt77(void *arg0);
+u8 TObjEneDD__vt84(void *arg0);
+int get_target_info__9TObjEneDDFPv(void* p);
+void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
+void init_position_vectors__9TObjEneDDFPv(u8 *arg0);
+void invoke_initialization_hook__9TObjEneDDFPv(void *arg0);
+void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8007C48C(void *, int);
+M2C_UNK TObjEneDD__sub_800BB88C();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK call_vt78__10TObjPlayerFPv();
+int fn_800FD8A0(void*);
 M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
-void set_field_378__9TObjEneDDFPvi(void* p, s32 v);
+
+extern s32 lbl_805D5328;
+
+void init_common_from__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
+    TObjEneDD__sub_800BB88C();
+    M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
+    M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
+    TAdSinglePlyChrSelectGC__sub_8007C48C((void *) (arg0 + 0x160), (int) (M2C_FIELD(arg0, u16 *, 0x1C) + lbl_805D5328));
+}
+
+int get_target_info__9TObjEneDDFPv(void* p) { return fn_800FD8A0(p); }
+
+s32 TObjEneDD__sub_800BB878(s32 arg0, s32 arg1) {
+    return ((arg0 + 0x13) << 0x10) | (arg1 + 0x1A);
+}
+
+void invoke_initialization_hook__9TObjEneDDFPv(void *arg0) {
+    struct VObj_800BB8E0_800BB804 *o = (struct VObj_800BB8E0_800BB804 *)arg0;
+    o->m79();
+}
+
+void TObjEneDD__vt77(void *arg0) {
+    s16 temp_r31;
+
+    temp_r31 = M2C_FIELD(arg0, s16 *, 0x326);
+    call_vt78__10TObjPlayerFPv();
+    M2C_FIELD(arg0, s16 *, 0x326) = temp_r31;
+}
+
+int TObjEneDD__sub_800BB940(void) { return 0; }
+
+void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    M2C_FIELD(arg0, s16 *, 0xC) = (s16) M2C_FIELD(arg1, s16 *, 0xC);
+    M2C_FIELD(arg0, s16 *, 0xE) = (s16) M2C_FIELD(arg1, s16 *, 0xE);
+}
+
+int TObjEneDD__sub_800BB9AC(void) { return 0; }
+
+void set_field_378__9TObjEneDDFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x378) = v; }
 
 void TObjEneDD__sub_800BBA0C(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x374) = (s32) M2C_FIELD(arg0, s16 *, 0x326);

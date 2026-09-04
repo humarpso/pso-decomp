@@ -6,13 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
+s32 get_param__8TFogCtrlFPv(void* p);
+s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 s32 TFogCtrl__sub_800FAC84(void* p);
 int TFogCtrl__sub_800FAC90(void);
-int TFogCtrl__sub_800FAF3C(void);
 int TFogCtrl__sub_800FAFE0(void);
 int TFogCtrl__sub_800FB06C(void);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
@@ -65,7 +66,29 @@ void clear_active_flag__8TFogCtrlFPv(void *arg0) {
     }
 }
 
-int TFogCtrl__sub_800FAF3C(void) { return 0; }
+s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1) {
+    s32 temp_r0;
+    if (get_param__8TFogCtrlFPv((void*)arg0) != 0) {
+        return 0;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x184);
+    if (temp_r0 == 0) {
+        return 1;
+    }
+    if ((temp_r0 == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x1B4) == 0)) {
+        return 1;
+    }
+    if (arg1 & 1) {
+        M2C_FIELD(arg0, s32 *, 0x20) = 1;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x20) = 2;
+    }
+    M2C_FIELD(arg0, s32 *, 0x19C) = (s32) M2C_FIELD(arg0, s32 *, 0x184);
+    M2C_FIELD(arg0, s32 *, 0x1A0) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
+    return 1;
+}
+
 int TFogCtrl__sub_800FAFE0(void) { return 0; }
 int TFogCtrl__sub_800FB06C(void) { return 0; }
 

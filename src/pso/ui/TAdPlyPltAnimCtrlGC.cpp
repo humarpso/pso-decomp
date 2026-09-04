@@ -8,13 +8,13 @@ extern "C" {
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 M2C_UNK TAdPlyPltAnimCtrlGC__sub_80355D38();
 void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0);
+u8 fn_8035510C(s32 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 int TAdPlyPltAnimCtrlGC__sub_80355148(void);
 void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1);
-int fn_8035510C(void*, void*);
 u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0);
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1);
@@ -42,7 +42,10 @@ int set_flag1__10TObjPlayerFPv(void* p);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 void set_player_index__10TObjPlayerFPvi(void* p, s32 v);
 
-int fn_8035510C(void*, void*) { return 0; }
+u8 fn_8035510C(s32 *arg0, s32 arg1) {
+    return (u8) (arg1 == (arg1 & *arg0));
+}
+
 int render__19TAdPlyPltAnimCtrlGCFv(void) { return 0; }
 int TAdPlyPltAnimCtrlGC__sub_80355148(void) { return 0; }
 

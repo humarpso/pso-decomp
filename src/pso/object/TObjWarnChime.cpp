@@ -13,7 +13,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int fn_80076B14(void);
 void reset_state__13TObjWarnChimeFPv(void *arg0);
 void update_when_camera_active__13TObjWarnChimeFPv(void *arg0);
 M2C_UNK fn_80076760(void *);
@@ -54,7 +53,20 @@ void TObjWarnChime::run_task() {
 TObjWarnChime::~TObjWarnChime() {}
 
 extern "C" {
+void *__nw__7TObjectFUl(int);
+void *TObjWarnChime__ct(void *, void *);
+void * fn_80076B14(void *arg0);
+}
 
-int fn_80076B14(void) { return 0; }
+extern "C" {
+
+void * fn_80076B14(void *arg0) {
+    void *o;
+    o = __nw__7TObjectFUl(0x38);
+    if (o != NULL) {
+        o = TObjWarnChime__ct(o, arg0);
+    }
+    return o;
+}
 
 }

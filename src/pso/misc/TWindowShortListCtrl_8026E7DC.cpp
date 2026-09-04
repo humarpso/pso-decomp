@@ -5,9 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
+void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
+}
+
+extern "C" {
 
 int TWindowShortListCtrl__sub_8026EBB0(void* a0 = 0, void* a1 = 0, void* a2 = 0);
-int TWindowShortListCtrl__sub_8026F66C(void);
 void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1);
 void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 void destroy_children__20TWindowShortListCtrlFPv(void *arg0);
@@ -122,7 +126,9 @@ void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1) {
 }
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p) { return *(s16*)((char*)p + 0x78); }
 
-int TWindowShortListCtrl__sub_8026F66C(void) { return 0; }
+void TWindowShortListCtrl__sub_8026F66C(u8 *arg0) {
+    M2C_FIELD(arg0, s16 *, 0x7A) = get_cursor_pos__20TWindowShortListCtrlFPv((void*)arg0);
+}
 
 s16 get_selected_index__20TWindowShortListCtrlFPv(void* p) { return *(s16*)((char*)p + 0x7a); }
 

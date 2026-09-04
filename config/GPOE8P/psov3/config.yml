@@ -22,12 +22,14 @@ force_active:
   - TMainCursor__sub_8013E4A0
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
+  - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801BF7B8
   - TObjPlayer__sub_801BF8CC
   - TPlyDispConfig__sub_801E0A68
   - TRecvGenerateID__sub_801DFBC4
   - create_icon__10TObjPlayerFiii
   - draw_value__13TWindowMesetaFPvi
+  - fn_8016AD3C
   - fn_803CBE00
   - free_item_pmt
   - init__18TObjAreaWarpForestFPvPvPv

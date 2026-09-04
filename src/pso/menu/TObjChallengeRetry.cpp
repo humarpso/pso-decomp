@@ -16,6 +16,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_ready_to_draw__6TLobbyFv();
@@ -28,11 +29,14 @@ M2C_UNK handle_loss_sequence(void *);
 M2C_UNK update_challenge_retry__6TLobbyFPv(void *);
 M2C_UNK handle_challenge_retry_confirm(void *);
 M2C_UNK fn_8007313C(void *);
+void *fn_800733C4(void *arg0);
+void *TObjChallengeRetry__ct(void *, void *);
+void *__nw__7TObjectFUl(int);
+void *fn_800733C4(void *arg0);
 }
 
 extern "C" {
 
-int fn_800733C4(void);
 int is_visible__17TWindowSubComCardFPv(void* p);
 void set_loss_flag__6TLobbyFPv(void* p);
 
@@ -65,6 +69,12 @@ void run_task__18TObjChallengeRetryFv(u8 *arg0) {
     }
 }
 
-int fn_800733C4(void) { return 0; }
+void *fn_800733C4(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x34);
+    if (o != NULL) {
+        o = TObjChallengeRetry__ct(o, arg0);
+    }
+    return o;
+}
 
 }

@@ -9,6 +9,10 @@ int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
 void TWindowSubTradeMain__sub_802448E4(void *arg0);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C();
 void TWindow__close(u8 *arg0);
+int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
+void fn_8024491C(void *arg0);
+int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
+void fn_80244958(void *arg0);
 }
 
 extern "C" {
@@ -28,6 +32,20 @@ extern const f32 lbl_805DCAD4;
 void TWindowSubTradeMain__sub_802448E4(void *arg0) {
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void*)((void *)((char *)arg0 + 48)));
     M2C_FIELD(arg0, u32 *, 0x50) = 3;
+}
+
+struct VOff_8024491C_arg0 { char pad_0[0x38]; char f_38[1]; };
+void fn_8024491C(void *arg0) {
+    struct VOff_8024491C_arg0 *self = (struct VOff_8024491C_arg0 *)arg0;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void*)(self->f_38));
+    ((void (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv)((void *)((char *)arg0 + 72), self->f_38);
+}
+
+struct VOff_80244958_arg0 { char pad_0[0x30]; char f_30[1]; };
+void fn_80244958(void *arg0) {
+    struct VOff_80244958_arg0 *self = (struct VOff_80244958_arg0 *)arg0;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void*)(self->f_30));
+    ((void (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv)((void *)((char *)arg0 + 64), self->f_30);
 }
 
 void TWindow__close(u8 *arg0) {

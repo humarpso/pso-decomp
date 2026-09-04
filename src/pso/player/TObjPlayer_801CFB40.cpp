@@ -1,2 +1,13 @@
-#define PSO_CLASS_PACKAGE 0x801CFB40
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TObjPlayer__sub_801CFB40(void);
+void TObjPlayer__sub_801CFB44(void);
+void TObjPlayer__sub_801CFB48(void);
+
+void TObjPlayer__sub_801CFB40(void) {  }
+void TObjPlayer__sub_801CFB44(void) {  }
+void TObjPlayer__sub_801CFB48(void) {  }
+
+}

@@ -5,12 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int queue_destruction__12TObjGrassWebFPv(void* p);
+M2C_UNK TObjGrassWeb__sub_800BC798();
+void apply_to_player__12TObjGrassWebFPv(void *arg0);
+void run_task__12TObjGrassWebFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1);
 void apply_to_player__12TObjGrassWebFPv(void *arg0);
 int queue_destruction__12TObjGrassWebFPv(void* p);
 void render__12TObjGrassWebFv(void);
-int run_task__12TObjGrassWebFv(void);
 s32 TObjPlayer__sub_80019248();
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void __dl__7TObjectFPv(void *);
@@ -36,7 +42,21 @@ void apply_to_player__12TObjGrassWebFPv(void *arg0) {
     }
 }
 
-int run_task__12TObjGrassWebFv(void) { return 0; }
+void run_task__12TObjGrassWebFv(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x90);
+    switch (temp_r0) {
+    case 0:
+        apply_to_player__12TObjGrassWebFPv((void *)arg0);
+        return;
+    case 1:
+        TObjGrassWeb__sub_800BC798();
+        return;
+    default:
+        queue_destruction__12TObjGrassWebFPv((void*)arg0);
+        return;
+    }
+}
 
 void render__12TObjGrassWebFv(void) {  }
 

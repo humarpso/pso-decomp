@@ -13,6 +13,7 @@ extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
 extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
 extern void *lbl_805D2CB4;
 s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1);
+s32 fn_800BC758(u8 *arg0);
 }
 
 extern "C" {
@@ -21,7 +22,6 @@ int TBoss8Dragon__sub_800BC5EC(void);
 int TObjPlayer__sub_800BC53C(void);
 int fn_800BC6E4(void);
 int fn_800BC71C(void);
-int fn_800BC758(void);
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
 void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 __dl__FPv(u32 *);
@@ -73,6 +73,9 @@ u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
 
 int fn_800BC6E4(void) { return 0; }
 int fn_800BC71C(void) { return 0; }
-int fn_800BC758(void) { return 0; }
+
+s32 fn_800BC758(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 8) < M2C_FIELD(arg0, s32 *, 0xC);
+}
 
 }

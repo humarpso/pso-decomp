@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x801CAA58
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TObjPlayer__sub_801CAA58(void);
+
+void TObjPlayer__sub_801CAA58(void) {  }
+
+}

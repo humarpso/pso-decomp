@@ -12,10 +12,8 @@ void TTecLuker__sub_80234F7C(void* p);
 s32 TTecLuker__sub_80234F88(void* p);
 s32 TTecLuker__sub_80234F88(void* p);
 int TObjPlayer__sub_80019664(void);
-void TTecLuker__sub_80234FC4(void* p);
 void TTecLuker__sub_80234F90(void* p);
 s32 TLobby__send_and_handle_60(s32);
-void TTecLuker__sub_80234FC4(void* p);
 int TObjPlayer__sub_80019664(void);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
@@ -31,6 +29,10 @@ void TTecLuker__sub_80235048(void* p);
 int TTecLuker__sub_80235054(void* p);
 int fn_80235078(void*);
 int TTecLuker__sub_80235054(void* p);
+void read_be16_field2__10TObjPlayerFPv(void *);
+s32 bswap_16__FPUs(s32);
+s32 bswap_32__FPUl(s32);
+void TTecLuker__sub_80234FC4(void *arg0);
 }
 
 extern "C" {
@@ -64,7 +66,6 @@ M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK destroy_technique_base__9TTecLukerFPvs(void *, M2C_UNK);
 s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 read_be16_field2__10TObjPlayerFPv();
 
 extern M2C_UNK lbl_804CC990[];
 
@@ -188,7 +189,18 @@ void TTecLuker__sub_80234F7C(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
 s32 TTecLuker__sub_80234F88(void* p) { return *(s32*)((char*)p + 0xb0); }
 
-void TTecLuker__sub_80234F90(void* p) { TTecLuker__sub_80234FC4((void*)(p)); TLobby__send_and_handle_60((s32)(p)); }
+void TTecLuker__sub_80234F90(void* p) { TTecLuker__sub_80234FC4((void *)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
+
+void TTecLuker__sub_80234FC4(void *arg0) {
+    read_be16_field2__10TObjPlayerFPv(arg0);
+    bswap_16__FPUs((s32)((void *)((char *)arg0 + 4)));
+    bswap_16__FPUs((s32)((void *)((char *)arg0 + 6)));
+    bswap_16__FPUs((s32)((void *)((char *)arg0 + 8)));
+    bswap_32__FPUl((s32)((void *)((char *)arg0 + 12)));
+    bswap_32__FPUl((s32)((void *)((char *)arg0 + 16)));
+    bswap_32__FPUl((s32)((void *)((char *)arg0 + 20)));
+    bswap_32__FPUl((s32)((void *)((char *)arg0 + 24)));
+}
 
 void TTecLuker__sub_80235028(void* p) { *(u8*)((char*)p + 0x0) = 104; *(u8*)((char*)p + 0x1) = 7; }
 

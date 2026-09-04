@@ -316,18 +316,7 @@ void action__18TObjEneMe3SinowZoaFPvi(u8 *arg0, s32 arg1) {
 
 }
 #endif
-#if PSO_CLASS_PACKAGE == 0x8031A474
-#include "types.h"
 
-extern "C" {
-
-int select_and_apply_target__18TObjEneMe3SinowZoaFPv(void* p);
-int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
-
-int select_and_apply_target__18TObjEneMe3SinowZoaFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
-
-}
-#endif
 #if PSO_CLASS_PACKAGE == 0x8031A4E8
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;

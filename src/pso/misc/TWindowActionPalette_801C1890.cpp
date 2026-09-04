@@ -220,6 +220,104 @@ void TObjPlayer__sub_801C18E0(void* p);
 s32 TWindowDuelResult__sub_801C19AC(f32 *arg0);
 void TObjPlayer__sub_801C1890(u8 *arg0);
 void TObjPlayer__sub_801C1978(u8 *arg0);
+void reset_settings_to_default__6TLobbyFPv(void *);
+void *TObjPlayer__sub_801C1A40(void *arg0);
+void fn_801C19D8(void* p, s32 v);
+void fn_801C19D8(void* p, s32 v);
+void fn_801C19E0(void* p, s32 v);
+void fn_801C19E0(void* p, s32 v);
+void fn_801C19E8(void* p);
+void fn_801C19E8(void* p);
+void fn_801C19F4(void* p);
+void fn_801C19F4(void* p);
+s32 fn_801C1B88(void* p);
+s32 fn_801C1B88(void* p);
+f32 fn_801C1B90(void* p);
+f32 fn_801C1B90(void* p);
+u16 fn_801C1B98(void* p);
+u16 fn_801C1B98(void* p);
+s32 fn_801C1BA0(void* p);
+s32 fn_801C1BA0(void* p);
+void fn_801C1E44(void);
+void fn_801C1E44(void);
+void* fn_801C1E48(void* p);
+void* fn_801C1E48(void* p);
+int fn_801C1E50(void* p);
+int TWindowActionPalette__sub_801C1C20(void* p);
+int fn_801C1E50(void* p);
+int fn_801C1E74(void* p);
+int fn_801C1E98(void*);
+int fn_801C1E74(void* p);
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F950(void);
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F95C(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F978(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F984(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F998(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F9A4(void);
+int fn_801C1EA4(void* p);
+int fn_801C1E98(void*);
+extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_805D62B0;
+    extern int lbl_805D49A0;
+    extern int lbl_805D49A4;
+    extern int lbl_805D49A8;
+    extern int lbl_805D49B0;
+    extern int lbl_805D5678;
+    extern int lbl_805D5680;
+extern s32 lbl_805D49C0;
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F950(void);
+void TKeyBoardControl__sub_8000F95C(void);
+void TKeyBoardControl__sub_8000F978(void);
+void TKeyBoardControl__sub_8000F984(void);
+void TKeyBoardControl__sub_8000F998(void);
+void TKeyBoardControl__sub_8000F9A4(void);
+int fn_801C1EA4(void* p);
+int fn_801C1EC4(void* p);
+int fn_801C1EE8(void*);
+int fn_801C1EC4(void* p);
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F950(void);
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F95C(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F978(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F984(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F998(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F9A4(void);
+int fn_801C1EF4(void* p);
+int fn_801C1EE8(void*);
+extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_805D62B0;
+    extern int lbl_805D49A0;
+    extern int lbl_805D49A4;
+    extern int lbl_805D49A8;
+    extern int lbl_805D49B0;
+    extern int lbl_805D5678;
+    extern int lbl_805D5680;
+extern s32 lbl_805D49C0;
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F950(void);
+void TKeyBoardControl__sub_8000F95C(void);
+void TKeyBoardControl__sub_8000F978(void);
+void TKeyBoardControl__sub_8000F984(void);
+void TKeyBoardControl__sub_8000F998(void);
+void TKeyBoardControl__sub_8000F9A4(void);
+int fn_801C1EF4(void* p);
+void fn_801C1F14(void* p, s16 v);
+void fn_801C1F14(void* p, s16 v);
+int fn_801C1F1C(void* p);
+int fn_801C1F40(void*);
+int fn_801C1F1C(void* p);
 }
 
 extern "C" {
@@ -240,7 +338,6 @@ s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
 int TFontSmallLobby__sub_801C0228(void*);
 s32 bswap_pkt_u16x2_u32x2__10TObjPlayerFPv();
 s32 bswap_pkt_u32x5__10TObjPlayerFPv();
-s32 reset_settings_to_default__6TLobbyFPv();
 
 void TObjPlayer__sub_801C1890(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
@@ -282,9 +379,22 @@ void TObjPlayer__sub_801C19C8(void* p, f32 v) { *(f32*)((char*)p + 0x0) = v; }
 
 s32 TLobby__sub_801C19D0(void* p) { return *(s32*)((char*)p + 0x4); }
 
+void fn_801C19D8(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
+
+void fn_801C19E0(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
+
+void fn_801C19E8(void* p) { *(s32*)((char*)p + 0x0) = 0; }
+
+void fn_801C19F4(void* p) { *(s32*)((char*)p + 0x0) = 1; }
+
 void* TObjPlayer__sub_801C1A00(void* p) { TObjPlayer__sub_801C1A30(p); return p; }
 
 void TObjPlayer__sub_801C1A30(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+
+void *TObjPlayer__sub_801C1A40(void *arg0) {
+    reset_settings_to_default__6TLobbyFPv(arg0);
+    return arg0;
+}
 
 void TObjPlayer__sub_801C1B0C(void) {  }
 
@@ -294,9 +404,39 @@ int TObjPlayer__sub_801C1B38(void* p) { return set_flags__10TObjPlayerFPvUi((cha
 
 int TObjPlayer__sub_801C1B60(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0x1c, 1); }
 
+s32 fn_801C1B88(void* p) { return *(s32*)((char*)p + 0x0); }
+
+f32 fn_801C1B90(void* p) { return *(f32*)((char*)p + 0x8); }
+
+u16 fn_801C1B98(void* p) { return *(u16*)((char*)p + 0x4); }
+
+s32 fn_801C1BA0(void* p) { return *(s32*)((char*)p + 0x24); }
+
 int TWindowActionPalette__sub_801C1C00(void* p) { return TWindowActionPalette__sub_801C1C20(p); }
 
 int TWindowActionPalette__sub_801C1C20(void* p) { return *(u32*)((char*)p + 0x0) == 0; }
+
+void fn_801C1E44(void) {  }
+
+void* fn_801C1E48(void* p) { return (char*)p + 0x24; }
+
+int fn_801C1E50(void* p) { return TWindowActionPalette__sub_801C1C20((char*)p + 0x24); }
+
+int fn_801C1E74(void* p) { return fn_801C1E98((char*)p + 0x24); }
+
+}
+extern "C" {
+int fn_801C1EA4(void* p) { return fn_801C1E98(p); }
+
+int fn_801C1EC4(void* p) { return fn_801C1EE8((char*)p + 0x24); }
+
+}
+extern "C" {
+int fn_801C1EF4(void* p) { return fn_801C1EE8(p); }
+
+void fn_801C1F14(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
+
+int fn_801C1F1C(void* p) { return fn_801C1F40((char*)p + 0x4c); }
 
 int TObjPlayer__sub_801C1F50(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x40, 2); }
 

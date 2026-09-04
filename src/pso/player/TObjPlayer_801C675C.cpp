@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 fn_801C6F2C(u8 *arg0);
+}
+
+extern "C" {
 
 u8 TObjPlayer__sub_801C6BEC(void *arg0);
 void TObjPlayer__sub_801C6D30(void *arg0);
@@ -17,7 +21,6 @@ void TObjPlayer__sub_801C6FE0(void* p, f32 a, f32 b, f32 c);
 int TObjPlayer__sub_801C7098(void* p);
 void *__dt__13TForceOperateFv(void *arg0, s16 arg1);
 int clear_target_lock_flag__10TObjPlayerFPv(void* p);
-int fn_801C6F2C(void);
 void free__10TObjPlayerFPv(void* a0);
 u16 get_obj_type__10TObjPlayerFPv(void* p);
 void heap_alloc__10TObjPlayerFPv(void* a0);
@@ -66,7 +69,9 @@ void *__dt__13TForceOperateFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int fn_801C6F2C(void) { return 0; }
+u8 fn_801C6F2C(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s32 *, 4) == 1);
+}
 
 void set_lock_timer__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 

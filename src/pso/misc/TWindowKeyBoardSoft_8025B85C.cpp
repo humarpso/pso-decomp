@@ -37,6 +37,12 @@ void TWindowKeyBoardSoft__vt19(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_800809C0(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C804();
 void TWindowKeyBoardSoft__vt0(u8 *arg0);
+M2C_UNK reset_state__19TWindowKeyBoardSoftFPv(void *);
+void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
+void TWindowKeyBoardSoft__vt21(u8 *arg0);
+M2C_UNK reset_state__19TWindowKeyBoardSoftFPv(void *);
+void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
+void TWindowKeyBoardSoft__vt2(u8 *arg0);
 }
 
 extern "C" {
@@ -50,8 +56,6 @@ int TWindowKeyBoardSoft__sub_8025CA70(void);
 int TWindowKeyBoardSoft__vt1(void);
 int TWindowKeyBoardSoft__vt15(void);
 int TWindowKeyBoardSoft__vt16(void);
-int TWindowKeyBoardSoft__vt2(void);
-int TWindowKeyBoardSoft__vt21(void);
 int TWindowKeyBoardSoft__vt3(void);
 int TWindowKeyBoardSoft__vt4(void);
 int TWindowKeyBoardSoft__vt5(void);
@@ -77,7 +81,15 @@ int TWindowKeyBoardSoft__sub_8025B85C(void) { return 0; }
 
 s32 get_state__19TWindowKeyBoardSoftFPv(void* p) { return *(s32*)((char*)p + 0x70); }
 
-int TWindowKeyBoardSoft__vt2(void) { return 0; }
+void TWindowKeyBoardSoft__vt2(u8 *arg0) {
+    if (M2C_FIELD(arg0, u16 *, 0x60) & 2) {
+        init__19TWindowKeyBoardSoftFPv((u8 *)arg0);
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
+        reset_state__19TWindowKeyBoardSoftFPv((void *) (arg0 + 0x6C));
+    }
+    M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 0x20);
+}
 
 void TWindowKeyBoardSoft__sub_8025B928(void) {  }
 
@@ -202,7 +214,24 @@ void TWindowKeyBoardSoft__vt20(u8 *arg0) {
 
 int TWindowKeyBoardSoft__sub_8025C24C(void) { return 0; }
 int TWindowKeyBoardSoft__vt1(void) { return 0; }
-int TWindowKeyBoardSoft__vt21(void) { return 0; }
+
+void TWindowKeyBoardSoft__vt21(u8 *arg0) {
+    u16 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, u16 *, 0x60);
+    if (temp_r4 & 4) {
+        M2C_FIELD(arg0, u16 *, 0x60) = (u16) (temp_r4 & 0xFFFFFFFB);
+        return;
+    }
+    if (temp_r4 & 2) {
+        init__19TWindowKeyBoardSoftFPv((u8 *)arg0);
+        return;
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
+        reset_state__19TWindowKeyBoardSoftFPv((void *) (arg0 + 0x6C));
+        return;
+    }
+    M2C_FIELD(arg0, u16 *, 0x60) = (u16) (temp_r4 | 0x20);
+}
 
 void update_input_state2__19TWindowKeyBoardSoftFPv(void *arg0) {
     u16 temp_r4;

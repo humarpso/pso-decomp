@@ -1,2 +1,32 @@
-#define PSO_CLASS_PACKAGE 0x801232C0
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void update_linked_object__10TObjPlayerFPv(void *arg0);
+void *set_state_35__10TObjPlayerFPv(void *arg0);
+M2C_UNK submit_computer_command__10TObjPlayerFPv(s32, s16, M2C_UNK, M2C_UNK);
+void TObjPlayer__sub_80120D50(void *);
+
+void update_linked_object__10TObjPlayerFPv(void *arg0) {
+    void *temp_r3;
+
+    temp_r3 = M2C_FIELD(arg0, void **, 0xF4);
+    if (temp_r3 != NULL) {
+        submit_computer_command__10TObjPlayerFPv(M2C_FIELD(temp_r3, s32 *, 0x2C), M2C_FIELD(arg0, s16 *, 0x1F8), 0, 0);
+    }
+}
+
+extern M2C_UNK lbl_804A1858[];
+
+void *set_state_35__10TObjPlayerFPv(void *arg0) {
+    TObjPlayer__sub_80120D50(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A1858;
+    M2C_FIELD(arg0, u16 *, 0x1F8) = 35;
+    return arg0;
+}
+
+}

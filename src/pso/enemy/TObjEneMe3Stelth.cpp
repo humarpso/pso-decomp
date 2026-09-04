@@ -482,18 +482,7 @@ void TObjEneMe3Stelth__sub_800F4424(u8 *arg0, s32 arg1) {
 
 }
 #endif
-#if PSO_CLASS_PACKAGE == 0x800F47F4
-#include "types.h"
 
-extern "C" {
-
-int select_and_apply_target__16TObjEneMe3StelthFPv(void* p);
-int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
-
-int select_and_apply_target__16TObjEneMe3StelthFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
-
-}
-#endif
 #if PSO_CLASS_PACKAGE == 0x800F4868
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -898,18 +887,7 @@ int create_real__16TObjEneMe3StelthFPv(void* p) { return create__20TObjEneMe3Ste
 
 }
 #endif
-#if PSO_CLASS_PACKAGE == 0x800F5884
-#include "types.h"
 
-extern "C" {
-
-int draw_model__16TObjEneMe3StelthFPv(void* p);
-int draw_model__12TObjNpcEnemyFPv(void*);
-
-int draw_model__16TObjEneMe3StelthFPv(void* p) { return draw_model__12TObjNpcEnemyFPv(p); }
-
-}
-#endif
 #if PSO_CLASS_PACKAGE == 0x802D70AC
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;

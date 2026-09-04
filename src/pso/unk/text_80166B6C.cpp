@@ -5,14 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 fn_80166E64(u8 *arg0);
+s32 fn_80166EA8(u8 *arg0);
+}
+
+extern "C" {
 
 void TOFenceAncient02__vt12(void* p);
 void TOFenceAncient02__vt13(void* p);
 void TOFenceAncient02__vt14(void);
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1);
 void *create__16TOFenceAncient01FPv(void *arg0);
-int fn_80166E64(void);
-int fn_80166EA8(void);
 void *TOFenceAncient01__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
@@ -47,8 +50,31 @@ void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int fn_80166E64(void) { return 0; }
-int fn_80166EA8(void) { return 0; }
+s32 fn_80166E64(u8 *arg0) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, s32 *, 0xCC) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xCC);
+    if (temp_r0 > 0x100) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    } else if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 1;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 2;
+    }
+    return M2C_FIELD(arg0, s32 *, 0xCC);
+}
+
+s32 fn_80166EA8(u8 *arg0) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, s32 *, 0xD4) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0xD4) = 0;
+    } else if (temp_r0 >= 4) {
+        M2C_FIELD(arg0, s32 *, 0xD4) = 3;
+    }
+    return M2C_FIELD(arg0, s32 *, 0xD4);
+}
 
 void TOFenceAncient02__vt14(void) {  }
 void TOFenceAncient02__vt13(void* p) { *(int*)((char*)p + 0xac) = 0; *(int*)((char*)p + 0xd0) = 0; clear_player_status_flag__10TObjPlayerFPviUi(p, (void*)0, (void*)8); }

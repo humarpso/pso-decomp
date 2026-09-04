@@ -1,31 +1,134 @@
 #include "types.h"
-
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
+s32 TWindowSubSymbolChat__sub_80077464();
+u8 *get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+    extern int lbl_805D4E50;
+u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
+void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0);
+M2C_UNK TWindowSubSymbolChat__sub_800773BC(s32);
+s32 is_initialized__20TWindowSubSymbolChatFPv();
+    extern int lbl_805D4E50;
+void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0);
+void update_symbol_chat_result__20TWindowSubSymbolChatFv(void);
+int TWindowSubSymbolChat__sub_80077480(void);
+    extern int lbl_805D4E50;
+void update_symbol_chat_result__20TWindowSubSymbolChatFv(void);
+void update_layout__20TWindowSubSymbolChatFPv(void* p);
+int get_instance__20TWindowSubSymbolChatFv(void*);
+    extern int lbl_805D4E50;
+void update_layout__20TWindowSubSymbolChatFPv(void* p);
+void refresh_parts__20TWindowSubSymbolChatFPv(void* p);
+int get_instance__20TWindowSubSymbolChatFv(void*);
+    extern int lbl_805D4E50;
+void refresh_parts__20TWindowSubSymbolChatFPv(void* p);
+void TWindowSubSymbolChat__sub_800772D8(u8 *arg0, s32 arg1, s32 arg2);
+    extern int lbl_805D4E50;
+void TWindowSubSymbolChat__sub_800772D8(u8 *arg0, s32 arg1, s32 arg2);
+void TWindowSubSymbolChat__sub_800772D8(u8 *arg0, s32 arg1, s32 arg2);
+int TWindowSubSymbolChat__sub_8007728C(void);
+void TWindowSubSymbolChat__sub_800772D8(u8 *arg0, s32 arg1, s32 arg2);
+    extern int lbl_805D4E50;
+int TWindowSubSymbolChat__sub_8007728C(void);
+void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+int TWindowSubSymbolChat__sub_800771E4(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0, void* a4 = 0, void* a5 = 0, void* a6 = 0);
+int TWindowSubSymbolChat__sub_800771E4(void* a0, void* a1, void* a2, void* a3, void* a4, void* a5, void* a6);
+int TWindowSubSymbolChat__sub_800771C4(void);
+int TWindowSubSymbolChat__sub_800771C4(void);
+int TWindowSubSymbolChat__sub_800771B0(void);
+int TWindowSubSymbolChat__sub_800771B0(void);
+int TWindowSubSymbolChat__sub_8007714C(void);
+int TWindowSubSymbolChat__sub_8007714C(void);
+int TWindowSubSymbolChat__sub_80077108(void* a0 = 0, void* a1 = 0);
+int TWindowSubSymbolChat__sub_80077108(void* a0, void* a1);
+int TWindowSubSymbolChat__sub_800770D0(void);
+int TWindowSubSymbolChat__sub_800770D0(void);
+int TWindowSubSymbolChat__sub_80077098(void);
+int TWindowSubSymbolChat__sub_80077098(void);
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+int TWindowSubSymbolChat__sub_80076FEC(void);
+void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+int TWindowSubSymbolChat__sub_80076FEC(void);
+void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+int TWindowSubSymbolChat__sub_80076FE0(void* p);
+void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
+void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+int TWindowSubSymbolChat__sub_80076FE0(void* p);
 }
 
 extern "C" {
 
-int TWindowSubSymbolChat__sub_80076FE0(void* p);
-int TWindowSubSymbolChat__sub_80076FEC(void);
-int TWindowSubSymbolChat__sub_80077098(void);
-int TWindowSubSymbolChat__sub_800770D0(void);
-int TWindowSubSymbolChat__sub_80077108(void* a0 = 0, void* a1 = 0);
-int TWindowSubSymbolChat__sub_8007714C(void);
-int TWindowSubSymbolChat__sub_800771B0(void);
-int TWindowSubSymbolChat__sub_800771C4(void);
-int TWindowSubSymbolChat__sub_800771E4(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0, void* a4 = 0, void* a5 = 0, void* a6 = 0);
-void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
-int get_instance__20TWindowSubSymbolChatFv(void*);
-void refresh_parts__20TWindowSubSymbolChatFPv(void* p);
-void update_layout__20TWindowSubSymbolChatFPv(void* p);
+}
+extern "C" {
 
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
 int TWindowSubSymbolChat__sub_80076FE0(void* p) { return (*(u32*)((char*)p + 0x1c) >> 9) & 0x1; }
 
 int TWindowSubSymbolChat__sub_80076FEC(void) { return 0; }
@@ -48,21 +151,57 @@ void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1) {
 }
 
 int TWindowSubSymbolChat__sub_80077098(void) { return 0; }
+
 int TWindowSubSymbolChat__sub_800770D0(void) { return 0; }
+
 int TWindowSubSymbolChat__sub_80077108(void* a0, void* a1) { return 0; }
+
 int TWindowSubSymbolChat__sub_8007714C(void) { return 0; }
+
 int TWindowSubSymbolChat__sub_800771B0(void) { return 0; }
+
 int TWindowSubSymbolChat__sub_800771C4(void) { return 0; }
+
 int TWindowSubSymbolChat__sub_800771E4(void* a0, void* a1, void* a2, void* a3, void* a4, void* a5, void* a6) { return 0; }
 
 void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 temp;
-
-    temp = TWindowSubSymbolChat__sub_80077108((void*)((void*)(arg0)), (void*)((void*)(0)));
+    temp = TWindowSubSymbolChat__sub_80077108((void*)((void*)((void*)(arg0))), (void*)((void*)((void*)(0))));
     if (temp < 0xC) {
-        TWindowSubSymbolChat__sub_800771E4((void*)((void*)(arg0)), (void*)((void*)(temp)), (void*)((void*)(arg1)), (void*)((void*)(arg2)), (void*)((void*)(arg3)), (void*)((void*)(arg4)), (void*)((void*)(arg5)));
+        TWindowSubSymbolChat__sub_800771E4((void*)((void*)((void*)(arg0))), (void*)((void*)((void*)(temp))), (void*)((void*)((void*)(arg1))), (void*)((void*)((void*)(arg2))), (void*)((void*)((void*)(arg3))), (void*)((void*)((void*)(arg4))), (void*)((void*)((void*)(arg5))));
         *arg0 |= 1;
     }
+}
+
+int TWindowSubSymbolChat__sub_8007728C(void) { return 0; }
+
+void TWindowSubSymbolChat__sub_800772D8(u8 *arg0, s32 arg1, s32 arg2) {
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFFE0);
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) | (arg2 * 4));
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) | arg1);
+    M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 1);
+}
+
+void refresh_parts__20TWindowSubSymbolChatFPv(void* p) { get_instance__20TWindowSubSymbolChatFv(p); TWindowSubSymbolChat__sub_80077098(); }
+
+void update_layout__20TWindowSubSymbolChatFPv(void* p) { get_instance__20TWindowSubSymbolChatFv(p); TWindowSubSymbolChat__sub_800770D0(); }
+
+void update_symbol_chat_result__20TWindowSubSymbolChatFv(void) { lbl_805D4E50 = TWindowSubSymbolChat__sub_80077480(); }
+
+void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
+    if (is_initialized__20TWindowSubSymbolChatFPv() != 0) {
+        TWindowSubSymbolChat__sub_800773BC(((u32) M2C_FIELD(arg0, u32 *, 0x1C) >> 5U) & 0xF);
+    }
+}
+
+u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0) {
+    if (TWindowSubSymbolChat__sub_80077464() == 0) {
+        return get_message_10__20TWindowSubStatusDispFPv(0xCC);
+    }
+    if ((s8) M2C_FIELD(arg0, u8 *, 4) == 0) {
+        return get_message_10__20TWindowSubStatusDispFPv(0xCD);
+    }
+    return arg0 + 4;
 }
 
 }

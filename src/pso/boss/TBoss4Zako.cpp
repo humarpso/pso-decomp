@@ -7,6 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 TBoss4Uro__sub_8005D698(u8 *arg0);
 void TBoss4Uro__sub_8005D6D4(u8 *arg0);
+void fn_8005D6E4(u8 *arg0);
 }
 
 extern "C" {
@@ -14,7 +15,6 @@ extern "C" {
 int TBoss4Zako__sub_8005D6B0(void);
 void *__dt__10TBoss4ZakoFPvs(void *arg0, s16 arg1);
 s32 create__10TBoss4ZakoFi(s32 arg0);
-int fn_8005D6E4(void);
 void update_state3__10TBoss4ZakoFPv(void* p);
 s32 TBoss4Zako__ct(s32, s32, s32);
 int TBoss8Dragon__sub_8005D700(void);
@@ -75,6 +75,8 @@ void TBoss4Uro__sub_8005D6D4(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) + 1);
 }
 
-int fn_8005D6E4(void) { return 0; }
+void fn_8005D6E4(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) + 1);
+}
 
 }

@@ -5,8 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 fn_8035CAE0();
+int check_ship_door__12TBoss6ThanksFv(void*);
+s32 TBoss6Thanks__sub_8035D230(void* self);
+}
 
-int TBoss6Thanks__sub_8035D230(void);
+extern "C" {
+
 int TBoss6Thanks__sub_8035D270(void* p);
 void *create__12TBoss6ThanksFv(void);
 s32 try_dispatch_darkfalz_phase__12TBoss6ThanksFv(void);
@@ -29,7 +34,12 @@ void *create__12TBoss6ThanksFv(void) {
     return o;
 }
 
-int TBoss6Thanks__sub_8035D230(void) { return 0; }
+s32 TBoss6Thanks__sub_8035D230(void* self) {
+    if ((check_ship_door__12TBoss6ThanksFv((void*)self) != 0) && (fn_8035CAE0() == 0)) {
+        return 1;
+    }
+    return 0;
+}
 
 int TBoss6Thanks__sub_8035D270(void* p) { return check_ship_door__12TBoss6ThanksFv(p); }
 

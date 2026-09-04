@@ -1,2 +1,42 @@
-#define PSO_CLASS_PACKAGE 0x802C1AF8
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void *create__10TObjPlayerFPv(void *arg0);
+void free_statics__10TObjPlayerFv(void);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+void TLobby__sub_8001FE7C(void*, int);
+M2C_UNK TLobby__sub_803DA16C(void*);
+void *TObjPlayer__sub_802C20E8(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+
+extern void *tl_05;
+
+void *create__10TObjPlayerFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xCC);
+    if (o != NULL) {
+        o = TObjPlayer__sub_802C20E8(o, tl_05, arg0);
+    }
+    return o;
+}
+
+extern u32 lbl_805D67A8;
+extern u32 lbl_805D67AC;
+
+void free_statics__10TObjPlayerFv(void) {
+    if ((u32) lbl_805D67AC != 0U) {
+        TLobby__sub_803DA16C((void*)lbl_805D67AC);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D67AC);
+        lbl_805D67AC = 0U;
+    }
+    if ((u32) lbl_805D67A8 != 0U) {
+        TLobby__sub_8001FE7C((void*)lbl_805D67A8, 1);
+        lbl_805D67A8 = 0U;
+    }
+}
+
+}

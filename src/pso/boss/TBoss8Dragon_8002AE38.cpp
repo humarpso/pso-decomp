@@ -1,8 +1,15 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void fn_8002AE64(u8 *arg0);
+}
+
 extern "C" {
 
-int fn_8002AE64(void);
 void set_speed__12TBoss8DragonFPvf(void* p, f32 v);
 int test_card_flag_2__12TBoss8DragonFPv(void* p);
 int TLobby__send_and_handle_60(void*);
@@ -29,6 +36,8 @@ int test_card_flag_2__12TBoss8DragonFPv(void* p) { return test_card_flag__19TWin
 
 void set_speed__12TBoss8DragonFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x10) = v; }
 
-int fn_8002AE64(void) { return 0; }
+void fn_8002AE64(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
+}
 
 }

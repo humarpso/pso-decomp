@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void fn_80095DD0(u8 *arg0);
+void fn_80095DF4(u8 *arg0);
+}
+
+extern "C" {
 
 void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2);
 void TObjEneRe7Berura__vt26(void);
@@ -12,8 +17,6 @@ int TObjEneRe7Berura__vt60(void);
 void TObjEneRe7Berura__vt61(void* p);
 void *create__16TObjEneRe7BeruraFPv(void *arg0);
 void destroy_children__16TObjEneRe7BeruraFv(void);
-int fn_80095DD0(void);
-int fn_80095DF4(void);
 void TLobby__sub_8001FE7C(void*, int);
 int TObjEneDD__sub_800BBA18(void*, void*);
 void TObjEneRe7Berura__sub_80095328(void *);
@@ -86,7 +89,22 @@ void *create__16TObjEneRe7BeruraFPv(void *arg0) {
     return o;
 }
 
-int fn_80095DD0(void) { return 0; }
-int fn_80095DF4(void) { return 0; }
+void fn_80095DD0(u8 *arg0) {
+    s32 *temp_r3;
+    s32 *temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 **, 0x18);
+    *temp_r4 &= 0xFFFFFFF7;
+    temp_r3 = M2C_FIELD(arg0, s32 **, 0x1C);
+    *temp_r3 &= 0xFFFFFFF7;
+}
+
+void fn_80095DF4(u8 *arg0) {
+    s32 *temp_r3;
+    s32 *temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 **, 0x18);
+    *temp_r4 |= 8;
+    temp_r3 = M2C_FIELD(arg0, s32 **, 0x1C);
+    *temp_r3 |= 8;
+}
 
 }

@@ -1,2 +1,9 @@
-#define PSO_CLASS_PACKAGE 0x801BD314
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+
+extern "C" {
+
+void TObjPlayer__sub_801BD314(void);
+
+void TObjPlayer__sub_801BD314(void) {  }
+
+}

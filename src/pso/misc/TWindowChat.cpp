@@ -5,13 +5,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK handle_input__11TWindowChatFPv(void *);
+M2C_UNK TWindowChat__sub_8024775C(void *);
+int is_visible__11TWindowChatFPv(void* p);
+int is_mode_bit4__11TWindowChatFPv(void* p);
+int is_open__11TWindowChatFPv(void* p);
+s32 TWindowChat__sub_8025CB10(int);
+void run_task__11TWindowChatFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *TWindowChat__ct(void *arg0, void *arg1, void *arg2);
 void TWindowChat__sub_80247D2C(void* p);
 void *__dt__11TWindowChatFv(void *arg0, s16 arg1);
 int get_flag__11TWindowChatFPv(void* p);
 u8 get_input_mode__11TWindowChatFPv(void* p);
-int run_task__11TWindowChatFv(void);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void TWindowChat__sub_8024792C(void *);
 int TWindowChat__sub_80247DAC(void* p);
@@ -40,10 +49,20 @@ void render__11TWindowChatFv(void);
 void set_active_flag__11TWindowChatFPv(void* p);
 void set_input_active__11TWindowChatFPv(void* p);
 
-int run_task__11TWindowChatFv(void) { return 0; }
-
 extern M2C_UNK __vt__11TWindowChat[];
 extern s32 lbl_805D53A0;
+
+void run_task__11TWindowChatFv(u8 *arg0) {
+    if ((is_open__11TWindowChatFPv((void*)arg0) == 0) && (is_mode_bit4__11TWindowChatFPv((void*)((void *) (arg0))) == 0) && (is_visible__11TWindowChatFPv((void*)((void *) (arg0))) == 0)) {
+        TWindowChat__sub_8024775C((void *) (arg0));
+        handle_input__11TWindowChatFPv((void *) (arg0));
+        if (TWindowChat__sub_8025CB10((int) (M2C_FIELD(arg0, s32 *, 0x20))) != 0) {
+            M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) | 4);
+            return;
+        }
+        M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) & 0xFFFFFFFB);
+    }
+}
 
 void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
     s32 temp_r3;

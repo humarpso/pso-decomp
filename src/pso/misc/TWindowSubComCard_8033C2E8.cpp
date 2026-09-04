@@ -5,8 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
+int TWindowSubComCard__sub_8033BF90(void*);
+void TWindowSubComCard__sub_8033C3D0(u8 *arg0);
+}
 
-int TWindowSubComCard__sub_8033C3D0(void);
+extern "C" {
+
 void update_display_state__17TWindowSubComCardFPv(void *arg0);
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
@@ -61,6 +66,11 @@ void update_display_state__17TWindowSubComCardFPv(void *arg0) {
     }
 }
 
-int TWindowSubComCard__sub_8033C3D0(void) { return 0; }
+void TWindowSubComCard__sub_8033C3D0(u8 *arg0) {
+    TWindowSubComCard__sub_8033BF90((void*)arg0);
+    if (M2C_FIELD(arg0, s32 *, 0x28) & 1) {
+        update_card_display__17TWindowSubComCardFPvPvPvPvPv((void*)((void *) (arg0)), (int)((int) (0)), (int)((int) (-1)), (int)((int) (-1)), (int)((int) (-1)));
+    }
+}
 
 }

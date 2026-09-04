@@ -7,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 void TObjIllGillKage__sub_80365470(u8 *arg0);
+int queue_destruction__15TObjIllGillKageFPv(void* p);
+void TObjIllGillKage__sub_80365470(u8 *arg0);
+void attack_target__15TObjIllGillKageFPv(void *arg0);
+void run_task__15TObjIllGillKageFv(u8 *arg0);
 }
 
 extern "C" {
@@ -15,7 +19,6 @@ void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1);
 void attack_target__15TObjIllGillKageFPv(void *arg0);
 int queue_destruction__15TObjIllGillKageFPv(void* p);
 void render__15TObjIllGillKageFv(void);
-int run_task__15TObjIllGillKageFv(void);
 s32 TObjPlayer__sub_80019248();
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void __dl__7TObjectFPv(void *);
@@ -47,7 +50,21 @@ void attack_target__15TObjIllGillKageFPv(void *arg0) {
     }
 }
 
-int run_task__15TObjIllGillKageFv(void) { return 0; }
+void run_task__15TObjIllGillKageFv(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x90);
+    switch (temp_r0) {
+    case 0:
+        attack_target__15TObjIllGillKageFPv((void *)arg0);
+        return;
+    case 1:
+        TObjIllGillKage__sub_80365470((u8 *)arg0);
+        return;
+    default:
+        queue_destruction__15TObjIllGillKageFPv((void*)arg0);
+        return;
+    }
+}
 
 void render__15TObjIllGillKageFv(void) {  }
 

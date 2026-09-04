@@ -1635,19 +1635,7 @@ s32 pop_byte__6TLobbyFPv(u8 *arg0) {
 
 }
 #endif
-#if PSO_CLASS_PACKAGE == 0x8020F028
-#include "types.h"
 
-extern "C" {
-
-s32 TLobby__sub_8030A7B0();
-s32 is_not_split_screen__13TRaderMapCoreFv();
-void reset_counter_64__6TLobbyFPv(void* p);
-
-void reset_counter_64__6TLobbyFPv(void* p) { *(s32*)((char*)p + 0x64) = 0; }
-
-}
-#endif
 #if PSO_CLASS_PACKAGE == 0x80211C1C
 #include "types.h"
 

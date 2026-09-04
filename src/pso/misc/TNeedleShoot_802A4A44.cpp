@@ -6,7 +6,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-int TNeedleShoot__sub_802A4A4C(void);
 void *TNeedleShoot__sub_802A4B60(void *arg0, s16 arg1);
 void* get_shoot_data__12TNeedleShootFPv(void* p);
 void init_velocity__12TNeedleShootFPv(u8 *arg0);
@@ -21,12 +20,24 @@ void* get_shoot_data__12TNeedleShootFPv(void* p) { return (char*)p + 0x28; }
 #include "types.h"
 extern "C" {
 
-int TNeedleShoot__sub_802A4A4C(void) { return 0; }
-
 }
 
 #include "types.h"
 extern "C" {
+int queue_destruction__7TObjectFv(void*);
+void TNeedleShoot__sub_802A4A4C(u8 *arg0);
+}
+
+extern "C" {
+
+void TNeedleShoot__sub_802A4A4C(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC0) - 1;
+    M2C_FIELD(arg0, s32 *, 0xC0) = temp_r0;
+    if (temp_r0 <= 0) {
+        queue_destruction__7TObjectFv((void*)arg0);
+    }
+}
 
 void init_velocity__12TNeedleShootFPv(u8 *arg0) {
     if (get_global_state__14TOKeyMachine01Fv() == 0x22) {

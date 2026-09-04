@@ -1,2 +1,14 @@
-#define PSO_CLASS_PACKAGE 0x80124B44
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+
+extern "C" {
+
+void* enter_state_34__10TObjPlayerFPv(void* a0);
+int TObjPlayer__sub_80120D50(void);
+int set_status_flags__10TObjPlayerFPvUi(void*, void*);
+
+    extern unsigned char spawn_shoot_particle_entity__10TObjPlayerFiiif[];
+    extern unsigned char lbl_804A2164[];
+    extern const float lbl_805DAD30;
+void* enter_state_34__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804A2164; *(int*)((char*)a0 + 0x1f0) = (int)spawn_shoot_particle_entity__10TObjPlayerFiiif; *(float*)((char*)a0 + 0x1e4) = lbl_805DAD30; set_status_flags__10TObjPlayerFPvUi(a0, (void*)34); *(int*)((char*)a0 + 0x1f8) = 1; *(int*)((char*)a0 + 0x1fc) = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
+
+}

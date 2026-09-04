@@ -1,2 +1,142 @@
-#define PSO_CLASS_PACKAGE 0x801BD928
-#include "pso/player/TObjPlayer.cpp"
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, u8 *arg4);
+M2C_UNK TFontSmallLobby__sub_801C0164(void *);
+M2C_UNK TFontSmallLobby__sub_801D65B4(void *);
+M2C_UNK TObjPlayer__sub_80019038();
+M2C_UNK clear_header_struct__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_801BB524(void *, void *);
+M2C_UNK TObjPlayer__sub_801BB8B0(void *, void *);
+M2C_UNK TObjPlayer__sub_801BBA8C(void *, void *);
+M2C_UNK TObjPlayer__sub_801BBB98(void *, void *);
+M2C_UNK TObjPlayer__sub_801BC6C4(void *);
+M2C_UNK TObjPlayer__sub_801BC8F0(void *);
+M2C_UNK TObjPlayer__sub_801BCA14(void *, void *);
+M2C_UNK init_player_data__10TObjPlayerFPv(void *, void *);
+M2C_UNK init_control_mode__10TObjPlayerFPvi(void *, void *);
+M2C_UNK TObjPlayer__sub_801BD318(void *);
+M2C_UNK TObjPlayer__sub_801BEB68(void *, void *);
+M2C_UNK get_quest_status__10TObjPlayerFPv(void *, void *);
+M2C_UNK TObjPlayer__sub_801BEC50(void *);
+M2C_UNK TObjPlayer__sub_801BEC78(void *);
+M2C_UNK TObjPlayer__sub_801BEE24(void *, int);
+M2C_UNK TObjPlayer__sub_801BEE2C(void *, int);
+M2C_UNK TObjPlayer__sub_801BF660(void *);
+M2C_UNK TObjPlayer__sub_801BFB4C(void *);
+M2C_UNK clear_base__10TObjPlayerFPv(void *);
+M2C_UNK set_vec3_const_wrapper__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_801BFBEC(void *);
+M2C_UNK reset_and_clear__10TObjPlayerFPv(void *);
+M2C_UNK set_vec4_const_wrapper__10TObjPlayerFPv(void *);
+M2C_UNK init_members__10TObjPlayerFPv(void *);
+M2C_UNK init_state__10TObjPlayerFi(void *);
+M2C_UNK TObjPlayer__sub_801C1A00(void *);
+M2C_UNK TObjPlayer__sub_801C20A4(void *);
+s32 TObjPlayer__sub_801C221C(void *);
+s32 TObjPlayer__sub_801C2224(void *);
+s32 TObjPlayer__sub_801C222C(void *);
+s32 TObjPlayer__sub_801C2234(void *);
+s32 TObjPlayer__sub_801C223C(void *);
+M2C_UNK setup_ctrl__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_80309E9C(void *);
+M2C_UNK TObjPlayer__sub_803374C4(void *);
+M2C_UNK TObjPlayer__sub_80351974(void *);
+M2C_UNK __ct__14TPlyDispConfigFv(void *);
+M2C_UNK create_lockon_cursor__10TObjPlayerFPv(void *);
+M2C_UNK forward_release__10TObjPlayerFPv(void *);
+M2C_UNK get_field_0x374__10TObjPlayerFPv(void *, void *);
+M2C_UNK init__10TObjPlayerFPv(void *);
+M2C_UNK init_forward__10TObjPlayerFPv(void *);
+M2C_UNK init_partial__10TObjPlayerFi(void *);
+M2C_UNK init_sub__10TObjPlayerFPv(void *);
+M2C_UNK init_sub_objects__10TObjPlayerFPv(void *);
+M2C_UNK init_subobject__10TObjPlayerFPv(void *);
+M2C_UNK init_subobjects__10TObjPlayerFPv(void *);
+M2C_UNK init_wrapper__10TObjPlayerFPv(void *);
+M2C_UNK load_character_state__10TObjPlayerFPvPv(void *, void *);
+u16 obj_getField1c(void *);
+M2C_UNK query_field374__10TObjPlayerFPv(void *, void *);
+M2C_UNK query_flags_374__10TObjPlayerFPv(void *, void *);
+M2C_UNK reset_and_return__10TObjPlayerFi(void *);
+M2C_UNK reset_fields__10TObjPlayerFPv(void *);
+M2C_UNK reset_scale_vector__10TObjPlayerFPv(void *);
+M2C_UNK set_com_card_window__10TObjPlayerFi(void *);
+M2C_UNK update_body_parts__10TObjPlayerFPv(void *, void *);
+M2C_UNK update_if_active__10TObjPlayerFPv(void *);
+M2C_UNK wrap_update__10TObjPlayerFPv(void *);
+
+extern M2C_UNK __vt__10TObjPlayer[];
+extern s32 lbl_805D3530;
+
+u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, u8 *arg4) {
+    TObjPlayer__sub_80019038();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
+    init_subobject__10TObjPlayerFPv((void *) (arg0 + 0x340));
+    setup_ctrl__10TObjPlayerFPv((void *) (arg0 + 0x34C));
+    init_state__10TObjPlayerFi((void *) (arg0 + 0x360));
+    TObjPlayer__sub_803374C4((void *) (arg0 + 0x374));
+    TObjPlayer__sub_80309E9C((void *) (arg0 + 0x384));
+    init_forward__10TObjPlayerFPv((void *) (arg0 + 0x41C));
+    TFontSmallLobby__sub_801C0164((void *) (arg0 + 0x428));
+    TFontSmallLobby__sub_801D65B4((void *) (arg0 + 0x4AC));
+    __ct__14TPlyDispConfigFv((void *) (arg0 + 0x500));
+    TObjPlayer__sub_80351974((void *) (arg0 + 0x550));
+    init_subobjects__10TObjPlayerFPv((void *) (arg0 + 0x5B0));
+    init_sub__10TObjPlayerFPv((void *) (arg0 + 0x5E0));
+    init_wrapper__10TObjPlayerFPv((void *) (arg0 + 0x5F0));
+    init_members__10TObjPlayerFPv((void *) (arg0 + 0x5FC));
+    set_vec4_const_wrapper__10TObjPlayerFPv((void *) (arg0 + 0x608));
+    wrap_update__10TObjPlayerFPv((void *) (arg0 + 0x634));
+    reset_and_clear__10TObjPlayerFPv((void *) (arg0 + 0x63C));
+    TObjPlayer__sub_801BFBEC((void *) (arg0 + 0x644));
+    reset_fields__10TObjPlayerFPv((void *) (arg0 + 0x64C));
+    reset_scale_vector__10TObjPlayerFPv((void *) (arg0 + 0x658));
+    set_vec3_const_wrapper__10TObjPlayerFPv((void *) (arg0 + 0x66C));
+    TObjPlayer__sub_801BEC78((void *) (arg0 + 0x678));
+    forward_release__10TObjPlayerFPv((void *) (arg0 + 0x6AC));
+    TObjPlayer__sub_801BF660((void *) (arg0 + 0x730));
+    TObjPlayer__sub_801BEC50((void *) (arg0 + 0x744));
+    init_sub_objects__10TObjPlayerFPv((void *) (arg0 + 0x754));
+    init_partial__10TObjPlayerFi((void *) (arg0 + 0x7C4));
+    clear_base__10TObjPlayerFPv((void *) (arg0 + 0x7C8));
+    init__10TObjPlayerFPv((void *) (arg0 + 0x7CC));
+    TObjPlayer__sub_801C1A00((void *) (arg0 + 0x828));
+    TObjPlayer__sub_801C20A4((void *) (arg0 + 0x830));
+    TObjPlayer__sub_801BFB4C((void *) (arg0 + 0x84C));
+    init_forward__10TObjPlayerFPv((void *) (arg0 + 0x858));
+    reset_and_return__10TObjPlayerFi((void *) (arg0 + 0xD04));
+    clear_header_struct__10TObjPlayerFPv((void *) (arg0 + 0xDAC));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3530;
+    TObjPlayer__sub_801BC6C4((void *) (arg0));
+    M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
+    TObjPlayer__sub_801BB524((void *) (arg0), (void *) (arg3));
+    update_body_parts__10TObjPlayerFPv((void *) (arg0), (void *) (arg4 + 0x370));
+    TObjPlayer__sub_801BEE2C((void *) (arg0), (int) (M2C_FIELD(arg4, u8 *, 1)));
+    TObjPlayer__sub_801BEE24((void *) (arg0), (int) (M2C_FIELD(arg4, u8 *, 2)));
+    get_field_0x374__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801C223C((void *) (arg4))));
+    get_quest_status__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801C2234((void *) (arg4))));
+    query_flags_374__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801C222C((void *) (arg4))));
+    query_field374__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801C2224((void *) (arg4))));
+    TObjPlayer__sub_801BEB68((void *) (arg0), (void *) (TObjPlayer__sub_801C221C((void *) (arg4))));
+    init_player_data__10TObjPlayerFPv((void *) (arg0), (void *) (arg4 + 0x34C));
+    create_lockon_cursor__10TObjPlayerFPv((void *) (arg0));
+    TObjPlayer__sub_801BD318((void *) (arg0));
+    init_control_mode__10TObjPlayerFPvi((void *) (arg0), (void *) (arg3));
+    TObjPlayer__sub_801BCA14((void *) (arg0), (void *) (arg4));
+    TObjPlayer__sub_801BBB98((void *) (arg0), (void *) (arg4 + 0x3C0));
+    load_character_state__10TObjPlayerFPvPv((void *) (arg0), (void *) (arg4));
+    update_if_active__10TObjPlayerFPv((void *) (arg0));
+    TObjPlayer__sub_801BC8F0((void *) (arg0));
+    TObjPlayer__sub_801BBA8C((void *) (arg0), (void *) (arg4));
+    TObjPlayer__sub_801BB8B0((void *) (arg0), (void *) (arg4));
+    set_com_card_window__10TObjPlayerFi((void *) (obj_getField1c((void *) (arg0))));
+    return arg0;
+}
+
+}

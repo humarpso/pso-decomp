@@ -201,19 +201,7 @@ void TObjEneRecon__sub_80302DBC(void) {  }
 
 }
 #endif
-#if PSO_CLASS_PACKAGE == 0x8031BC94
-#include "types.h"
 
-extern "C" {
-
-void TObjEneRecon__sub_8031BC94(void);
-int TObjEneRecobox__sub_803201D0(void);
-
-    extern int lbl_805D6AE8;
-void TObjEneRecon__sub_8031BC94(void) { lbl_805D6AE8 = TObjEneRecobox__sub_803201D0(); }
-
-}
-#endif
 #if PSO_CLASS_PACKAGE == 0x8031BD64
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -1630,15 +1618,5 @@ void* get_field_38_ptr__12TObjEneReconFPv(void* p) { return (char*)p + 0x38; }
 
 }
 #endif
-#if PSO_CLASS_PACKAGE == 0x8031BC38
-#include "types.h"
 
-extern "C" {
-
-void TObjEneRecon__sub_8031BC38(void);
-
-void TObjEneRecon__sub_8031BC38(void) {  }
-
-}
-#endif
 #endif

@@ -17,6 +17,8 @@ int TOAttackableCol__vt21(void* p);
 int TOAttackableCol__sub_80157728(void*);
 int TOAttackableCol__vt22(void* p);
 int TOAttackableCol__sub_80157728(void*);
+void init__17TOBarrierEnergy01FPv(void *);
+void *fn_80157CA8(void *arg0);
 }
 
 extern "C" {
@@ -31,7 +33,6 @@ void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
 void broadcast_state__15TOAttackableColFPv(void* p);
 void bswap_state__15TOAttackableColFPv(void* p);
 void check_door_trigger__15TOAttackableColFPv(void *arg0);
-int fn_80157CA8(void);
 int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 void init_params__15TOAttackableColFPv(void *arg0);
 void release__15TOAttackableColFPv(void* p);
@@ -164,6 +165,13 @@ s32 TOAttackableCol__sub_80157C28(void* p) { return *(s32*)((char*)p + 0x33c); }
 void bswap_state__15TOAttackableColFPv(void* p) { bswap_header__6TLobbyFi(p); bswap_16__FPUs((char*)p + 0xc); bswap_16__FPUs((char*)p + 0xe); bswap_16__FPUs((char*)p + 0x10); }
 void broadcast_state__15TOAttackableColFPv(void* p) { bswap_state__15TOAttackableColFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 
-int fn_80157CA8(void) { return 0; }
+void *fn_80157CA8(void *arg0) {
+    init__17TOBarrierEnergy01FPv(arg0);
+    M2C_FIELD(arg0, u16 *, 0xC) = 0;
+    M2C_FIELD(arg0, u16 *, 0xE) = 0;
+    M2C_FIELD(arg0, u8 *, 0x0) = 145;
+    M2C_FIELD(arg0, u8 *, 0x1) = 5;
+    return arg0;
+}
 
 }

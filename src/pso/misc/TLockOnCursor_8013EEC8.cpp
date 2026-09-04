@@ -3,11 +3,19 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
+void TMainCursor__sub_8013F114(void* p);
+extern M2C_UNK TMainCursor__sub_8013E2B0[];
+void __construct_array(void *, void *, int, int, int);
+void TMainCursor__sub_8013F10C(void* p, s32 v);
+void TMainCursor__sub_8013F104(void* p, s32 v);
+void *fn_8013F0A0(void *arg0);
+}
+
+extern "C" {
 
 int TLockOnCursor__sub_8013EFB8(void);
 int TLockOnCursor__sub_8013F000(void);
 void* cleanup__13TLockOnCursorFPv(void* p);
-int fn_8013F0A0(void);
 void* init_cursor__13TLockOnCursorFPv(void* p);
 void* init_forward__13TLockOnCursorFPv(void* p);
 void* init_sub__13TLockOnCursorFPv(void* p);
@@ -53,6 +61,14 @@ int TLockOnCursor__sub_8013F000(void) { return 0; }
 void* init_sub__13TLockOnCursorFPv(void* p) { fn_8004438C(p); init_forward__10TObjPlayerFPv((char*)p + 0x8); return p; }
 void reset_fields__13TLockOnCursorFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*)p + 0x8) = 0; }
 
-int fn_8013F0A0(void) { return 0; }
+struct VOff_8013F0A0_arg0 { char pad_0[0x8]; char f_8[1]; };
+void *fn_8013F0A0(void *arg0) {
+    struct VOff_8013F0A0_arg0 *self = (struct VOff_8013F0A0_arg0 *)arg0;
+    TMainCursor__sub_8013F114((void*)(arg0));
+    __construct_array(self->f_8, TMainCursor__sub_8013E2B0, 0, 4, 4);
+    TMainCursor__sub_8013F10C((void*)(arg0), (s32)(4));
+    TMainCursor__sub_8013F104((void*)(arg0), (s32)(self->f_8));
+    return arg0;
+}
 
 }

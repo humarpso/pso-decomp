@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TObjPlayer__sub_801E3F24(s32 arg0);
 void TObjPlayer__sub_801E3F30(f32 farg0, f32 farg1, f32 farg2);
+void fn_801E3F44(f32 farg0, f32 farg1);
 }
 
 extern "C" {
 
 void TObjCMHairMenu__sub_801E3F54(void* p, void* q);
-int fn_801E3F44(void);
 void handle_6x02(void);
 void handle_6x03(void);
 void handle_6x04_legacy_activate_switch_by_token(void *arg0);
@@ -34,7 +34,10 @@ void TObjPlayer__sub_801E3F30(f32 farg0, f32 farg1, f32 farg2) {
     *(f32 *)0xCC008000 = farg2;
 }
 
-int fn_801E3F44(void) { return 0; }
+void fn_801E3F44(f32 farg0, f32 farg1) {
+    *(f32 *)0xCC008000 = farg0;
+    *(f32 *)0xCC008000 = farg1;
+}
 
 void TObjCMHairMenu__sub_801E3F54(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 

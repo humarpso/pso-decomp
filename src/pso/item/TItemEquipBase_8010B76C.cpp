@@ -5,11 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void fn_8010B7D8(u8 *arg0, s32 arg1);
+void fn_8010B7E8(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 int check_flag_32__14TItemEquipBaseFPv(void* p);
 int clear_flag_c_bit5__14TItemEquipBaseFPv(void* p);
-int fn_8010B7D8(void);
-int fn_8010B7E8(void);
 void init_slot__14TItemEquipBaseFPv(void* a0);
 void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
 s32 TItemData__sub_8010B808(void* p);
@@ -26,7 +29,12 @@ void init_slot__14TItemEquipBaseFPv(void* a0) { *(short*)((char*)a0 + 0x0) = -1;
 int check_flag_32__14TItemEquipBaseFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0xc, 32); }
 int clear_flag_c_bit5__14TItemEquipBaseFPv(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0xc, 32); }
 
-int fn_8010B7D8(void) { return 0; }
-int fn_8010B7E8(void) { return 0; }
+void fn_8010B7D8(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) - arg1);
+}
+
+void fn_8010B7E8(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) - arg1);
+}
 
 }

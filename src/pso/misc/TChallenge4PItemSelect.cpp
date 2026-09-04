@@ -15,6 +15,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void queue_destruction_with_callback__22TChallenge4PItemSelectFPv(void *arg0);
+M2C_UNK TChallenge4PItemSelect__sub_8034B158();
+void challenge4p_item_select_open_menu(void *arg0);
+void run_task__22TChallenge4PItemSelectFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *TChallenge4PItemSelect__ct(void *arg0, void *arg1, void *arg2);
 void challenge4p_item_select_open_menu(void *arg0);
@@ -77,6 +84,22 @@ void challenge4p_item_select_open_menu(void *arg0) {
 
 extern M2C_UNK __vt__22TChallenge4PItemSelect[];
 extern void *lbl_805D433C;
+
+void run_task__22TChallenge4PItemSelectFv(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        challenge4p_item_select_open_menu((void *)arg0);
+        return;
+    case 1:
+        TChallenge4PItemSelect__sub_8034B158();
+        return;
+    case 2:
+        queue_destruction_with_callback__22TChallenge4PItemSelectFPv((void *)arg0);
+        return;
+    }
+}
 
 void *TChallenge4PItemSelect__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
