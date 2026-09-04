@@ -1,10 +1,10 @@
 #include "types.h"
+#include "pso/boss/TBoss1Dragon.h"
 
 extern "C" {
 
-int TLobby__sub_801ED50C(void* p);
-int TBoss1Dragon__sub_8002A378(void*);
+void TLobby__sub_801ED50C(void* p);
 
-int TLobby__sub_801ED50C(void* p) { return TBoss1Dragon__sub_8002A378(p); }
+void TLobby__sub_801ED50C(void* p) { TBoss1Dragon::clearControlOverride(); }
 
 }

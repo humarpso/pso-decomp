@@ -34,7 +34,7 @@ CATEGORIES = {
     ".prs": "data-compressed (PRS)",
     ".pr2": "text/data archive (PRS-compressed body)",
     ".pr3": "text/data archive (pointer table)",
-    ".rel": "relocatable code module",
+    ".rel": "REL-named data",
     ".bml": "model/animation archive (BML)",
     ".nj": "model (Ninja)",
     ".njm": "animation (Ninja motion)",
@@ -175,7 +175,8 @@ def cmd_inventory(args) -> int:
     files = []
     for p in _iter_disc_files():
         ext = p.suffix.lower()
-        cat = CATEGORIES.get(ext, f"other ({ext or 'no ext'})")
+        cat = ("relocatable code module" if p.name == "movie.rel" else
+               CATEGORIES.get(ext, f"other ({ext or 'no ext'})"))
         c = cats.setdefault(cat, {"count": 0, "bytes": 0})
         c["count"] += 1
         c["bytes"] += p.stat().st_size

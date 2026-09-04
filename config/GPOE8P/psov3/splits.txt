@@ -313,15 +313,9 @@ pso/misc/TLobby_8001EF5C.cpp:
 pso/player/TObjPlayer_80020898.cpp:
 	.text       start:0x80020898 end:0x800208B4
 
-pso/boss/TBoss1Dragon_800208B4.cpp:
-	.text       start:0x800208B4 end:0x800286B8
-	.rodata     start:0x80435380 end:0x80435388
-
 pso/boss/TBoss1Dragon.cpp:
-	.text       start:0x800286B8 end:0x80029388
-
-pso/boss/TBoss1Dragon_80029388.cpp:
-	.text       start:0x80029388 end:0x8002ADC8
+	.text       start:0x800208B4 end:0x8002ADC8
+	.rodata     start:0x80435380 end:0x80435388
 
 pso/misc/TLobby_8002ADC8.cpp:
 	.text       start:0x8002ADC8 end:0x8002ADD0

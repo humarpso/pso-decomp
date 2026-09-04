@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss1Dragon.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -7,10 +8,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 int TLobby__sub_801EE028(void* p);
-int TLobby__sub_801EE09C(void* p);
+void TLobby__sub_801EE09C(void* p);
 void create_quest_bgm_ctrl__6TLobbyFv(void);
 int forward_801F36E4__6TLobbyFPv(void* p);
-int TBoss1Dragon__sub_8002A3A0(void*);
 int TLobby__sub_801F36E4(void*);
 void* TQuestBgmCtrl__ct(void*, s32);
 void* __nw__7TObjectFUl(u32);
@@ -28,6 +28,6 @@ void create_quest_bgm_ctrl__6TLobbyFv(void) {
 int forward_801F36E4__6TLobbyFPv(void* p) { return TLobby__sub_801F36E4(p); }
 int TLobby__sub_801EE028(void* p) { return set_cleanup_flag__6TLobbyFv(p); }
 
-int TLobby__sub_801EE09C(void* p) { return TBoss1Dragon__sub_8002A3A0(p); }
+void TLobby__sub_801EE09C(void* p) { TBoss1Dragon::requestActionRefresh(); }
 
 }
