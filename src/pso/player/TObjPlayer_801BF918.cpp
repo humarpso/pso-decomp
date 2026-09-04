@@ -8,11 +8,11 @@ extern "C" {
 void TObjPlayer__sub_801BF964(void* a0);
     extern const float TObjPlayer__data_805DC278;
 void TObjPlayer__sub_801BF964(void* a0);
+u8 TObjPlayer__sub_801BF918(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_801BF918(void);
 void* TObjPlayer__sub_801BF934(void* p);
 void TObjPlayer__sub_801BF93C(void* p, s16 v);
 void TObjPlayer__sub_801BF954(void* p, s32 v);
@@ -50,7 +50,9 @@ void set_state__10TObjPlayerFPvs(void* p, s16 v);
 int test_flag_16__10TObjPlayerFPv(void* p);
 int update_main_cursor__10TObjPlayerFPv(void* p);
 
-int TObjPlayer__sub_801BF918(void) { return 0; }
+u8 TObjPlayer__sub_801BF918(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s32 *, 4) == 2);
+}
 
 s16 get_action_id__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
 void* TObjPlayer__sub_801BF934(void* p) { return (char*)p + 0xc; }

@@ -1,11 +1,20 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+s16 TObjPlayer__sub_8001942C(u8 *arg0, s32 arg1);
+u8 TObjPlayer__sub_80019570(u8 *arg0);
+}
+
 extern "C" {
 
 int TObjPlayer__sub_800193FC(void);
 int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
-int TObjPlayer__sub_8001942C(void);
 int TObjPlayer__sub_8001943C(void);
 s16 TObjPlayer__sub_8001944C(void* p);
 int TObjPlayer__sub_800194AC(void);
@@ -14,7 +23,6 @@ s16 TObjPlayer__sub_800194E8(void* p);
 s16 TObjPlayer__sub_800194F0(void* p);
 void TObjPlayer__sub_8001951C(void* p);
 void TObjPlayer__sub_80019568(void* p, s16 v);
-int TObjPlayer__sub_80019570(void);
 void add_flags_2e4__10TObjPlayerFPvUi(void* p, u32 v);
 s32 get_field_0c__10TObjPlayerFPv(void* p);
 s16 get_id__10TObjPlayerFPv(void* p);
@@ -33,7 +41,11 @@ s16 get_id__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x0); }
 int TObjPlayer__sub_800193FC(void) { return 0; }
 int TObjPlayer__sub_8001940C(void) { return 0; }
 int TObjPlayer__sub_8001941C(void) { return 0; }
-int TObjPlayer__sub_8001942C(void) { return 0; }
+
+s16 TObjPlayer__sub_8001942C(u8 *arg0, s32 arg1) {
+    return (s16) (M2C_FIELD(arg0, s16 *, 0x11C) & arg1);
+}
+
 int TObjPlayer__sub_8001943C(void) { return 0; }
 
 s16 TObjPlayer__sub_8001944C(void* p) { return *(s16*)((char*)p + 0x2d0); }
@@ -53,9 +65,12 @@ void add_flags_2e4__10TObjPlayerFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x2e4
 void* init_192dc_return_self__10TObjPlayerFPv(void* p) { TObjPlayer__sub_800192DC(p); return p; }
 void TObjPlayer__sub_80019568(void* p, s16 v) { *(s16*)((char*)p + 0x94) = v; }
 
-int TObjPlayer__sub_80019570(void) { return 0; }
-
     extern int TObjPlayer__data_8050D460[];
+
+u8 TObjPlayer__sub_80019570(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, u16 *, 0x96) == 1);
+}
+
 int get_player_data__10TObjPlayerFi(int a0) {  return TObjPlayer__data_8050D460[a0]; }
 
 }

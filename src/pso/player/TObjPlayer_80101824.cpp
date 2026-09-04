@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+void TObjPlayer__sub_80101980(u8 *arg0, u16 arg1);
+}
+
+extern "C" {
 
 void apply_sign_effect__10TObjPlayerFPvi(void* a0, int a1);
 void apply_to_child__10TObjPlayerFPvi(void* a0, int a1);
@@ -43,6 +48,11 @@ void apply_sign_effect__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D53FC = *(in
     extern int lbl_805D53FC;
     extern int lbl_805D5404;
 void apply_to_child__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D53FC = *(int*)((char*)a0 + 0xe0); lbl_805D5404 = a1; lbl_805D53F8 = 0; TObjPlayer__sub_801016D0((void*)((void*)(*(int*)((char*)a0 + 0xf4)))); lbl_805D53F8 = 0; lbl_805D5404 = 0; lbl_805D53FC = 0; reset_transform_state__10TObjPlayerFv(); }
+
+void TObjPlayer__sub_80101980(u8 *arg0, u16 arg1) {
+    M2C_FIELD(arg0, u16 *, 0xE4) = arg1;
+    M2C_FIELD(arg0, s32 *, 0xF0) = TPlayerBattleCtrl4P__sub_801BA74C((void *) (arg1));
+}
 
 void get_item_info__10TObjPlayerFiiPv(s32 arg0, s32 arg1, s16 *arg2) {
     s32 spC[2];

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/protocol/subcommand_validation.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -8,10 +9,8 @@ extern "C" {
 
 void *__ct__17TObjBoss8DemoRoomFv(void *arg0);
 void free_static_instance__17TObjBoss8DemoRoomFv(void);
-s32 has_valid_target(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __ct__7TObjectFP7TObject(void *);
-s32 is_target_valid__17TObjEneHoldEffectFPv();
 
 extern M2C_UNK __vt__17TObjBoss8DemoRoom[];
 extern void *lbl_805D44E4;
@@ -32,8 +31,8 @@ void free_static_instance__17TObjBoss8DemoRoomFv(void) {
     }
 }
 
-s32 has_valid_target(void) {
-    return is_target_valid__17TObjEneHoldEffectFPv() ? 1 : 0;
+s32 validate_6x0E_clear_negative_status_effects(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
 }
 
 }

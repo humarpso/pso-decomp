@@ -5,12 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1);
+}
+
+extern "C" {
 
 void TObjPlayer__sub_80100068(void);
 void TObjPlayer__sub_8010006C(void);
 int TObjPlayer__sub_8010043C(void);
 u16 TObjPlayer__sub_80100474(void* p);
-int TObjPlayer__sub_8010047C(void);
 void apply_item_flags__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void draw_item_model__10TObjPlayerFPv(u8 *arg0);
 s32 query_game_join_id__10TObjPlayerFv(void);
@@ -80,7 +83,11 @@ int TObjPlayer__sub_8010043C(void) { return 0; }
 
 u16 TObjPlayer__sub_80100474(void* p) { return *(u16*)((char*)p + 0xe8); }
 
-int TObjPlayer__sub_8010047C(void) { return 0; }
+void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1) {
+    if (M2C_FIELD(arg0, s32 *, 0xDC) & 0x100) {
+        M2C_FIELD(arg0, s16 *, 0xE8) = arg1;
+    }
+}
 
 s32 query_game_join_id__10TObjPlayerFv(void) {
     s32 temp_r3;

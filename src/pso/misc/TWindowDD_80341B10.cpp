@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s16 TWindowDD__sub_8034214C(u8 *arg0);
+s32 TWindowDD__sub_8034217C(u8 *arg0);
+}
 
-int TWindowDD__sub_8034214C(void);
+extern "C" {
+
 int TWindowDD__sub_80342158(void);
-int TWindowDD__sub_8034217C(void);
 void add_scroll_offset__9TWindowDDFPvi(void* a0, int a1);
 void free_child__9TWindowDDFPv(void *arg0);
 s32 get_cursor_index__9TWindowDDFPv(void* p);
@@ -59,9 +62,15 @@ void set_pos_and_data__9TWindowDDFPvf(u8 *arg0, f32 farg0) {
 
 s32 get_field_0x74__9TWindowDDFPv(void* p) { return *(s32*)((char*)p + 0x74); }
 
-int TWindowDD__sub_8034214C(void) { return 0; }
+s16 TWindowDD__sub_8034214C(u8 *arg0) {
+    return (s16) M2C_FIELD(arg0, s32 *, 0x70);
+}
+
 int TWindowDD__sub_80342158(void) { return 0; }
-int TWindowDD__sub_8034217C(void) { return 0; }
+
+s32 TWindowDD__sub_8034217C(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0x68) - M2C_FIELD(arg0, s32 *, 0x6C);
+}
 
 s32 get_cursor_index__9TWindowDDFPv(void* p) { return *(s32*)((char*)p + 0x6c); }
 s32 update_if_field28_set__9TWindowDDFPv(void *arg0) {

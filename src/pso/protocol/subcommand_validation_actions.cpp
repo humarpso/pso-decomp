@@ -1,0 +1,113 @@
+#include "pso/protocol/subcommand_validation.h"
+
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+s32 get_hold_effect_size_by_type__6TLobbyFv();
+s32 TObjPlayer__sub_801C00E4(s16);
+s32 is_in_view__17TObjEneHoldEffectFPv(s32);
+s32 fn_800FD7C0(void *);
+
+s32 validate_6xAB(G_ClientIDHeader *packet) {
+    if (validate_subcommand_client(packet) == 0) {
+        return 0;
+    }
+    if (((TObjPlayer__sub_801C00E4(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
+        return 0;
+    }
+    return 1;
+}
+
+s32 validate_6x58_lobby_animation(G_ClientIDHeader *packet) {
+    if (validate_subcommand_client(packet) == 0) {
+        return 0;
+    }
+    if (((TObjPlayer__sub_801C00E4(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
+        return 0;
+    }
+    return 1;
+}
+
+s32 validate_6x57(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
+}
+
+s32 validate_6x56_set_player_position_and_angle(G_ClientIDHeader *packet) {
+    if (validate_subcommand_client(packet) == 0) {
+        return 0;
+    }
+    return (u32) __cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)packet + 8)) >> 5;
+}
+
+s32 validate_6x55_intra_map_warp(G_ClientIDHeader *packet) {
+    if (validate_subcommand_client(packet) == 0) {
+        return 0;
+    }
+    if (is_in_view__17TObjEneHoldEffectFPv((s32)packet + 8) != 0) {
+        return 0;
+    }
+    return (u32) __cntlzw(is_in_view__17TObjEneHoldEffectFPv((s32)packet + 0x14)) >> 5;
+}
+
+s32 validate_6x53(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
+}
+
+s32 validate_6x52_set_animation_state(G_ClientIDHeader *packet) {
+    if (validate_subcommand_client(packet) == 0) {
+        return 0;
+    }
+    if (((TObjPlayer__sub_801C00E4(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
+        return 0;
+    }
+    return 1;
+}
+
+s32 validate_6x50_switch_interaction(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
+}
+
+s32 validate_6x4F_player_revived(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
+}
+
+s32 validate_6x4E_player_revivable(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
+}
+
+s32 validate_6x89_set_killer_entity_id(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
+}
+
+s32 validate_6x4D_player_died(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
+}
+
+s32 validate_6x4C_hit_by_enemy(G_ClientIDHeader *packet) {
+    s16 v;
+    if (validate_subcommand_client(packet) == 0) {
+        return 0;
+    }
+    v = M2C_FIELD((u8*)packet, s16 *, 6);
+    if (v < 0) {
+        return 0;
+    }
+    return (u32) __cntlzw(fn_800FD7C0((u8*)packet + 8)) >> 5;
+}
+
+s32 validate_6x4B_hit_by_enemy(G_ClientIDHeader *packet) {
+    s16 v;
+    if (validate_subcommand_client(packet) == 0) {
+        return 0;
+    }
+    v = M2C_FIELD((u8*)packet, s16 *, 6);
+    if (v < 0) {
+        return 0;
+    }
+    return (u32) __cntlzw(fn_800FD7C0((u8*)packet + 8)) >> 5;
+}
+
+s32 validate_6x4A_shield_attack(G_ClientIDHeader *packet) {
+    return validate_subcommand_client(packet) ? 1 : 0;
+}
+}

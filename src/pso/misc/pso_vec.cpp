@@ -11,9 +11,16 @@ void VecCopy(Vec* dst, const Vec* src) {
 
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+u8 TObjPlayer__sub_80019248(u8 *arg0);
+}
+
 extern "C" {
 
-int TObjPlayer__sub_80019248(void);
 s16 get_atp__10TObjPlayerFPv(void* p);
 s16 get_class_id__10TObjPlayerFPv(void* p);
 s16 get_field_2c0__10TObjPlayerFPv(void* p);
@@ -21,6 +28,8 @@ s16 get_field_2c2__10TObjPlayerFPv(void* p);
 s16 get_item_index__10TObjPlayerFPv(void* p);
 s16 get_s16_2c4__10TObjPlayerFPv(void* p);
 
-int TObjPlayer__sub_80019248(void) { return 0; }
+u8 TObjPlayer__sub_80019248(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s16 *, 0x324) == 1);
+}
 
 }

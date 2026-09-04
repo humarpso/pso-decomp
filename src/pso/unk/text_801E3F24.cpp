@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjPlayer__sub_801E3F24(s32 arg0);
+void TObjPlayer__sub_801E3F30(f32 farg0, f32 farg1, f32 farg2);
+}
+
+extern "C" {
 
 void TObjCMHairMenu__sub_801E3F54(void* p, void* q);
-int TObjPlayer__sub_801E3F24(void);
-int TObjPlayer__sub_801E3F30(void);
 int fn_801E3F44(void);
 void handle_6x02(void);
 void handle_6x03(void);
@@ -21,8 +24,16 @@ void TObjEneRe4Sorcerer__sub_801E3F1C(void);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
 M2C_UNK bswap_switch_activate_token__6TLobbyFPv();
 
-int TObjPlayer__sub_801E3F24(void) { return 0; }
-int TObjPlayer__sub_801E3F30(void) { return 0; }
+void TObjPlayer__sub_801E3F24(s32 arg0) {
+    *(s32 *)0xCC008000 = arg0;
+}
+
+void TObjPlayer__sub_801E3F30(f32 farg0, f32 farg1, f32 farg2) {
+    *(f32 *)0xCC008000 = farg0;
+    *(f32 *)0xCC008000 = farg1;
+    *(f32 *)0xCC008000 = farg2;
+}
+
 int fn_801E3F44(void) { return 0; }
 
 void TObjCMHairMenu__sub_801E3F54(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }

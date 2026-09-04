@@ -5,12 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TWindowDD__sub_80343BC0(int, void *);
+M2C_UNK reset_selection__9TWindowDDFPv(void *, void *);
+int TWindowDD__sub_80348520(void*);
+void TWindowDD__sub_803484C4(u8 *arg0);
+}
+
+extern "C" {
 
 int TWindowDD__sub_80348398(void);
 int TWindowDD__sub_80348424(void);
 int TWindowDD__sub_80348448(void);
 int TWindowDD__sub_80348470(void);
-int TWindowDD__sub_803484C4(void);
 int TWindowDD__sub_80348520(void*);
 int TWindowDD__sub_803485F4(void);
 s32 clamp_range_2C9_552__9TWindowDDFs(s16 arg0);
@@ -66,7 +72,15 @@ int TWindowDD__sub_80348470(void) { return 0; }
 
 void set_state__9TWindowDDFPv(void* p) { *(int*)((char*)p + 0xa8) = 3; TWindowDD__sub_80348520((void*)(p)); }
 
-int TWindowDD__sub_803484C4(void) { return 0; }
+void TWindowDD__sub_803484C4(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0xA8) = 2;
+    TWindowDD__sub_80343BC0((int) (M2C_FIELD(arg0, s32 *, 0xC0)), (void *) (arg0 + 0xC4));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xA4) != 0) {
+        reset_selection__9TWindowDDFPv((void *) (arg0), (void *) (arg0 + 0xC4));
+    }
+    TWindowDD__sub_80348520((void*)((void *) (arg0)));
+}
+
 int TWindowDD__sub_80348520(void*) { return 0; }
 int TWindowDD__sub_803485F4(void) { return 0; }
 

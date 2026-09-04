@@ -4,6 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 int TObjPlayer__sub_80019664(void);
 void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
@@ -16,6 +17,7 @@ extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5D6C;
 void TBoss8Dragon__sub_8006602C(void* p);
+void TObjFish__sub_800660D4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 }
 
 extern "C" {
@@ -31,7 +33,6 @@ int TBoss8Dragon__sub_80065F4C(void);
 int TBoss8Dragon__sub_80065F80(void);
 int TBoss8Dragon__sub_80065FD4(void);
 void TBoss8Dragon__sub_800660A4(void* p);
-int TObjFish__sub_800660D4(void);
 void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
 int fn_800660B8(void);
 int get_instance_count__12TBoss8DragonFv(void);
@@ -66,6 +67,16 @@ void bswap_boss_actions__12TBoss8DragonFi(s32 arg0) {
 void TBoss8Dragon__sub_800660A4(void* p) { *(u8*)((char*)p + 0x0) = 159; *(u8*)((char*)p + 0x1) = 4; }
 
 int fn_800660B8(void) { return 0; }
-int TObjFish__sub_800660D4(void) { return 0; }
+
+void TObjFish__sub_800660D4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
+    M2C_FIELD(arg0, s32 *, 0x4C) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x50) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x54) = arg3;
+    M2C_FIELD(arg0, u16 *, 0x2C) = (u16) (M2C_FIELD(arg0, u16 *, 0x2C) | 0x200);
+    M2C_FIELD(arg0, f32 *, 0x5C) = farg0;
+    if (arg4 != 0) {
+        M2C_FIELD(arg0, u16 *, 0x2C) = (u16) (M2C_FIELD(arg0, u16 *, 0x2C) | 0x400);
+    }
+}
 
 }

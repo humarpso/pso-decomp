@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F950(void);
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F95C(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F978(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F984(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F998(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F9A4(void);
+}
+
+extern "C" {
 
 int TKeyBoardControl__sub_8000F828(void);
 int get_fog_ctrl__16TKeyBoardControlFPv(void* p);
@@ -77,8 +92,32 @@ s32 get_input__16TKeyBoardControlFv(void) {
 
 extern s32 lbl_805D49B8;
 
+void TKeyBoardControl__sub_8000F950(void) {
+    lbl_805D49C0 = 1;
+}
+
+void TKeyBoardControl__sub_8000F95C(void) {
+    lbl_805D49C0 = 0;
+}
+
+void TKeyBoardControl__sub_8000F978(void) {
+    lbl_805D49BC = 1;
+}
+
+void TKeyBoardControl__sub_8000F984(void) {
+    lbl_805D49BC = 0;
+}
+
 s32 get_key_state__16TKeyBoardControlFv(void) {
     return lbl_805D49B8;
+}
+
+void TKeyBoardControl__sub_8000F998(void) {
+    lbl_805D49B8 = 1;
+}
+
+void TKeyBoardControl__sub_8000F9A4(void) {
+    lbl_805D49B8 = 0;
 }
 
 }

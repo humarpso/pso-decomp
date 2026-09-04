@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
+}
 
-int TLobby__sub_80240B40(void);
+extern "C" {
+
 int TLobby__sub_80240E8C(void);
 void TLobby__sub_80240F38(void);
 void TLobby__sub_80241A0C(void);
@@ -14,7 +17,17 @@ void clamp_params__6TLobbyFPv(void *arg0);
 void TLobby__sub_802409E4(void* p);
 s32 get_field_308__6TLobbyFPv(s32);
 
-int TLobby__sub_80240B40(void) { return 0; }
+s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 var_r5;
+    var_r5 = arg2;
+    if (var_r5 <= 0) {
+        var_r5 = 0x88888888;
+    }
+    M2C_FIELD(arg0, s32 *, 0x7C) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x80) = var_r5;
+    M2C_FIELD(arg0, s32 *, 0x84) = var_r5;
+    return 0;
+}
 
 int TLobby__sub_80240E8C(void) { return 0; }
 

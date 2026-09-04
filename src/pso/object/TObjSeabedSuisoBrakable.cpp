@@ -5,9 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 TLobby__sub_802A7260(u32 arg0);
+u8 TLobby__sub_802A7278(u32 arg0);
+}
 
-int TLobby__sub_802A7260(void* a0 = 0);
-int TLobby__sub_802A7278(void* a0 = 0);
+extern "C" {
+
 void TObjSeabedSuisoBrakable__vt17(void);
 int fn_802A7238(void);
 void free_static_resources__23TObjSeabedSuisoBrakableFv(void);
@@ -46,7 +49,13 @@ int get_table1_entry__23TObjSeabedSuisoBrakableFi(int a0) {  return lbl_80540AE0
 void TObjSeabedSuisoBrakable__vt17(void) {  }
 
 int fn_802A7238(void) { return 0; }
-int TLobby__sub_802A7260(void* a0) { return 0; }
-int TLobby__sub_802A7278(void* a0) { return 0; }
+
+u8 TLobby__sub_802A7260(u32 arg0) {
+    return (u8) (arg0 < 0x13U);
+}
+
+u8 TLobby__sub_802A7278(u32 arg0) {
+    return (u8) (arg0 < 6U);
+}
 
 }

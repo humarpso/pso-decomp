@@ -556,6 +556,7 @@ void TBoss1Dragon::requestActionRefresh() {
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
 s32 objInBand__FP7GameObjf(f32);
@@ -563,6 +564,8 @@ extern const f32 TBoss1Dragon__data_805D8018;
 void TBoss1Dragon__sub_800274A4(s32 arg0);
 extern f32 TObjEneDf2Bringer__data_805D9820;
 void TBoss1Dragon__sub_800274A4(s32 arg0);
+extern const f32 lbl_805D800C;
+void TBoss1Dragon__sub_80028AFC(u8 *arg0);
 }
 
 extern "C" {
@@ -674,6 +677,12 @@ void TBoss1Dragon__sub_800274A4(s32 arg0) {
     if (objInBand__FP7GameObjf((f32) (TBoss1Dragon__data_805D8018)) != 0) {
         update_switch_attack__12TBoss1DragonFPv((u8 *)((void *) (arg0)));
     }
+}
+
+void TBoss1Dragon__sub_80028AFC(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFEFF);
+    M2C_FIELD(arg0, f32 *, 0x5D8) = (f32) (lbl_805D800C + M2C_FIELD(arg0, f32 *, 0x3C));
+    M2C_FIELD(arg0, f32 *, 0x5DC) = (f32) (lbl_805D800C + M2C_FIELD(arg0, f32 *, 0x5E0));
 }
 
 void free_resources__12TBoss1DragonFv(void) {

@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TAdMultiPlyChrSelectGC__sub_802E006C(u8 *arg0, s32 arg1, s32 arg2);
+}
 
-int TAdMultiPlyChrSelectGC__sub_802E006C(void);
+extern "C" {
+
 int TAdMultiPlyChrSelectGC__sub_802E00CC(void);
 s32 get_field_0x530__22TAdMultiPlyChrSelectGCFPv(void* p);
 int get_global_state__22TAdMultiPlyChrSelectGCFv(void);
@@ -20,10 +23,14 @@ s32 TAdMultiPlyChrSelectGC__sub_802DFFE8();
 
 void set_field_4ec__22TAdMultiPlyChrSelectGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4ec) = v; }
 
-int TAdMultiPlyChrSelectGC__sub_802E006C(void) { return 0; }
-
     extern int TAdMultiPlyChrSelectGC__data_805D67D8;
     extern int TAdMultiPlyChrSelectGC__data_805D67E0;
+
+void TAdMultiPlyChrSelectGC__sub_802E006C(u8 *arg0, s32 arg1, s32 arg2) {
+    M2C_FIELD(arg0, s32 *, 0x4F4) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x4F0) = arg2;
+}
+
 void restore_selection__22TAdMultiPlyChrSelectGCFv(void) { TAdMultiPlyChrSelectGC__data_805D67E0 = TAdMultiPlyChrSelectGC__data_805D67D8; }
 
 void update_field_4E8__22TAdMultiPlyChrSelectGCFPv(void *arg0) {

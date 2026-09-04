@@ -5,11 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 TWindowDD__sub_80346F30(u8 *arg0);
+}
+
+extern "C" {
 
 int TWindowDD__sub_80346DB8(void);
 int TWindowDD__sub_80346E68(void);
 int TWindowDD__sub_80346ECC(void);
-int TWindowDD__sub_80346F30(void);
 s32 get_element_ptr__9TWindowDDFi(s32 arg0);
 void render__9TWindowDDFv(void);
 void ws_data_load(void);
@@ -162,6 +165,9 @@ void render__9TWindowDDFv(void) {  }
 
 int TWindowDD__sub_80346E68(void) { return 0; }
 int TWindowDD__sub_80346ECC(void) { return 0; }
-int TWindowDD__sub_80346F30(void) { return 0; }
+
+u8 TWindowDD__sub_80346F30(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s16 *, 0x1C) != -1);
+}
 
 }

@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
+s8 TObjPlayer__sub_8010A770(u8 *arg0);
 }
 
 extern "C" {
@@ -33,7 +34,6 @@ void TItemEquipBase__sub_8010AD80(s32 unused, s16 *arg1, s16 arg2);
 int TItemEquipBase__sub_8010B58C(void* a0 = 0, void* a1 = 0);
 void TItemEquipBase__sub_8010B620(void);
 void TItemEquipBase__vt42(void);
-int TObjPlayer__sub_8010A770(void);
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1);
 int fn_8010A710(void);
@@ -63,7 +63,10 @@ int memset(void*, void*, void*);
 
 int fn_8010A710(void) { return 0; }
 void* fn_8010A768(void* p) { return (char*)p + 0x16c; }
-int TObjPlayer__sub_8010A770(void) { return 0; }
+
+s8 TObjPlayer__sub_8010A770(u8 *arg0) {
+    return (s8) M2C_FIELD(arg0, u8 *, 0x171);
+}
 
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0) {
     return (s8) M2C_FIELD(arg0, u8 *, 0x170);

@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjPlayer__sub_8032DDD8(u8 *arg0);
+}
+
+extern "C" {
 
 void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1);
-int TObjPlayer__sub_8032DDD8(void);
 void TObjPlayer__sub_8032DDE8(void* p);
 void fire_projectiles__10TObjPlayerFPv(void *arg0);
 void *init_variant_2_dc28__10TObjPlayerFPv(void *arg0);
@@ -78,7 +81,9 @@ void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TObjPlayer__sub_8032DDD8(void) { return 0; }
+void TObjPlayer__sub_8032DDD8(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x70) = (s32) (M2C_FIELD(arg0, s32 *, 0x70) & 0xFFFFFFFE);
+}
 
 void TObjPlayer__sub_8032DDE8(void* p) { *(u32*)((char*)p + 0x70) |= 0x1; }
 

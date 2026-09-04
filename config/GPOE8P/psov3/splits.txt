@@ -14490,59 +14490,20 @@ pso/boss/TObjBoss8DemoRoom.cpp:
 pso/boss/TObjBoss8DemoRoom_8036B654.cpp:
 	.text       start:0x8036B654 end:0x8036B748
 
-pso/enemy/TObjEneHoldEffect_8036B7E8.cpp:
-	.text       start:0x8036B7E8 end:0x8036B8D0
+pso/protocol/subcommand_validation_actions.cpp:
+	.text       start:0x8036B7E8 end:0x8036BBF4
 
-pso/enemy/TObjEneHoldEffect_8036B8F8.cpp:
-	.text       start:0x8036B8F8 end:0x8036B944
-
-pso/enemy/TObjEneHoldEffect_8036B944.cpp:
-	.text       start:0x8036B944 end:0x8036B9A8
-
-pso/enemy/TObjEneHoldEffect_8036B9D0.cpp:
-	.text       start:0x8036B9D0 end:0x8036BA44
-
-pso/enemy/TObjEneHoldEffect_8036BB0C.cpp:
-	.text       start:0x8036BB0C end:0x8036BBCC
-
-pso/enemy/TObjEneHoldEffect_8036BC88.cpp:
+pso/protocol/subcommand_validation_photon_blast.cpp:
 	.text       start:0x8036BC88 end:0x8036BDA0
 
-pso/enemy/TObjEneHoldEffect_8036BE38.cpp:
+pso/protocol/subcommand_validation_technique.cpp:
 	.text       start:0x8036BE38 end:0x8036BF10
 
-pso/enemy/TObjEneHoldEffect_8036BF8C.cpp:
-	.text       start:0x8036BF8C end:0x8036C240
+pso/protocol/subcommand_validation_player.cpp:
+	.text       start:0x8036BF8C end:0x8036C9D8
 
-pso/enemy/TObjEneHoldEffect_8036C268.cpp:
-	.text       start:0x8036C268 end:0x8036C330
-
-pso/enemy/TObjEneHoldEffect_8036C3A8.cpp:
-	.text       start:0x8036C3A8 end:0x8036C490
-
-pso/enemy/TObjEneHoldEffect_8036C4E0.cpp:
-	.text       start:0x8036C4E0 end:0x8036C64C
-
-pso/enemy/TObjEneHoldEffect_8036C69C.cpp:
-	.text       start:0x8036C69C end:0x8036C70C
-
-pso/enemy/TObjEneHoldEffect_8036C734.cpp:
-	.text       start:0x8036C734 end:0x8036C80C
-
-pso/enemy/TObjEneHoldEffect_8036C884.cpp:
-	.text       start:0x8036C884 end:0x8036C988
-
-pso/enemy/TObjEneHoldEffect_8036CA9C.cpp:
-	.text       start:0x8036CA9C end:0x8036CBC0
-
-pso/enemy/TObjEneHoldEffect_8036CC60.cpp:
-	.text       start:0x8036CC60 end:0x8036CD08
-
-pso/enemy/TObjEneHoldEffect_8036CD58.cpp:
-	.text       start:0x8036CD58 end:0x8036CDA8
-
-pso/enemy/TObjEneHoldEffect_8036CDA8.cpp:
-	.text       start:0x8036CDA8 end:0x8036CDFC
+pso/protocol/subcommand_validation_movement.cpp:
+	.text       start:0x8036CA9C end:0x8036CDFC
 
 pso/enemy/TObjEneHoldEffect.cpp:
 	.text       start:0x8036CFFC end:0x8036D070

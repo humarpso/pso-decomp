@@ -9,7 +9,6 @@ extern "C" {
 void TBoss6Type2__sub_802BE648(void *arg0);
 int TBoss6Type2__sub_802BE6A0(void);
 int TBoss6Type2__sub_802BE6D4(void);
-int TBoss6Type2__sub_802BE738(void);
 void TBoss6Type2__sub_802BF3F4(void* p);
 void check_state_0x460_eq4__11TBoss6Type2FPv(void* p);
 void init_attack_timers__11TBoss6Type2FPv(u8 *arg0);
@@ -98,7 +97,6 @@ void TBoss6Type2__sub_802BE648(void *arg0) {
 }
 int TBoss6Type2__sub_802BE6A0(void) { return 0; }
 int TBoss6Type2__sub_802BE6D4(void) { return 0; }
-int TBoss6Type2__sub_802BE738(void) { return 0; }
 
 void tick_timer_0x460__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
@@ -261,6 +259,18 @@ void TBoss6Type2__sub_802BF3F4(void* p) { if (*(int*)((char*)p + 0x460) == 45) {
 
 #include "types.h"
 extern "C" {
+void TBoss6Type2__sub_802BE738(u8 *arg0);
+}
+
+extern "C" {
+
+void TBoss6Type2__sub_802BE738(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x4D4);
+    M2C_FIELD(arg0, s32 *, 0x45C) = temp_r0;
+    M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
+    M2C_FIELD(arg0, s32 *, 0x420) = (s32) (M2C_FIELD(arg0, s32 *, 0x420) + 1);
+}
 
 void update_timer__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;

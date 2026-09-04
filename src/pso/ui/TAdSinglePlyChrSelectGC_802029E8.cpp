@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
+}
 
-int TAdSinglePlyChrSelectGC__sub_80202A68(void);
+extern "C" {
+
 int TAdSinglePlyChrSelectGC__sub_80202A74(void);
 int TAdSinglePlyChrSelectGC__sub_80202B1C(void);
 u8 TAdSinglePlyChrSelectGC__sub_80202B30(void* p);
@@ -51,7 +54,10 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
     return lbl_805D5F60;
 }
 
-int TAdSinglePlyChrSelectGC__sub_80202A68(void) { return 0; }
+s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0x194AC);
+}
+
 int TAdSinglePlyChrSelectGC__sub_80202A74(void) { return 0; }
 
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {

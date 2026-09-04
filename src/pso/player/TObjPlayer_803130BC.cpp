@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s16 TObjPlayer__sub_80313114(u8 *arg0);
+}
 
-int TObjPlayer__sub_80313114(void);
+extern "C" {
+
 int TObjPlayer__sub_80313138(void* a0 = 0);
 int TObjPlayer__sub_803131AC(void);
 int TObjPlayer__sub_803131B4(void);
@@ -24,7 +27,15 @@ int set_flags__10TObjPlayerFPvUi(void*, int);
 
 void update_children__10TObjPlayerFPv(void* p) { { int n = get_max_children__10TObjPlayerFPv((void*)(p)); int i; for (i = 0; i < n; i++) { TObjPlayer__sub_801AA64C((char*)p + 0x8 + i * 4); } } }
 
-int TObjPlayer__sub_80313114(void) { return 0; }
+s16 TObjPlayer__sub_80313114(u8 *arg0) {
+    s16 temp_r3;
+    temp_r3 = M2C_FIELD(arg0, s16 *, 2);
+    if (((temp_r3 < 0) || (temp_r3 >= 6)) && (temp_r3 != -1)) {
+        return 0;
+    }
+    return temp_r3;
+}
+
 int TObjPlayer__sub_80313138(void* a0) { return 0; }
 
 int query_field40__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x40, 4); }

@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TKeyBoardControl__sub_8025EC04(u8 *arg0);
+}
 
-int TKeyBoardControl__sub_8025EC04(void);
+extern "C" {
+
 int TKeyBoardControl__sub_8025EC1C(void);
 void enable_caps_led__16TKeyBoardControlFPv(void *arg0);
 void enable_kana_led__16TKeyBoardControlFPv(void *arg0);
@@ -32,7 +35,11 @@ int test_card_flag_16__19TWindowKeyBoardHardFPv(void* p);
 int test_card_flag_64__19TWindowKeyBoardHardFPv(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
-int TKeyBoardControl__sub_8025EC04(void) { return 0; }
+void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x68) = 0;
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 0x100);
+}
+
 int TKeyBoardControl__sub_8025EC1C(void) { return 0; }
 
 extern M2C_UNK TKeyBoardControl__data_80506270[];

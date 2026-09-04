@@ -18,6 +18,21 @@ struct VObj18B_802582c4_80257784 : VBase18B_802582c4_80257784 {
 };
 
 extern "C" {
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
+extern const f32 lbl_805DCF04;
+void TWindowSubStatusDisp__sub_8025882C(u8 *arg0, s32 arg1);
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
+extern const f32 lbl_805DCF08;
+void TWindowSubStatusDisp__sub_802588AC(u8 *arg0, s32 arg1);
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
+extern const f32 lbl_805DCF08;
+void TWindowSubStatusDisp__sub_8025892C(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
@@ -185,6 +200,36 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
 }
 
 extern const f32 lbl_805DCF08;
+
+void TWindowSubStatusDisp__sub_8025882C(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF04;
+    M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
+    M2C_FIELD(arg0, s8 *, 0x1D) = 0x33;
+    M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268((void *)((void *) (arg0)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0xD1)))), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x20))), (s32)((int) (8)), (s32)((int) (1)));
+    M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
+    M2C_FIELD(arg0, s32 *, 0x18) = arg1;
+    M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0xC5);
+}
+
+void TWindowSubStatusDisp__sub_802588AC(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF08;
+    M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
+    M2C_FIELD(arg0, s8 *, 0x1D) = 0x33;
+    M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268((void *)((void *) (arg0)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0xD0)))), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x20))), (s32)((int) (8)), (s32)((int) (1)));
+    M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
+    M2C_FIELD(arg0, s32 *, 0x18) = arg1;
+    M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0xC5);
+}
+
+void TWindowSubStatusDisp__sub_8025892C(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF08;
+    M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
+    M2C_FIELD(arg0, s8 *, 0x1D) = 0x33;
+    M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268((void *)((void *) (arg0)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0xCF)))), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x20))), (s32)((int) (8)), (s32)((int) (1)));
+    M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
+    M2C_FIELD(arg0, s32 *, 0x18) = arg1;
+    M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0xC5);
+}
 
 void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF08;

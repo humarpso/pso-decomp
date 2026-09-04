@@ -5,15 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TBoss6Type1__sub_802B4B04(u8 *arg0);
+u8 TBoss6Type1__sub_802B5D9C(u8 *arg0);
+}
+
+extern "C" {
 
 int TBoss6Type1__sub_802B4A70(void* p);
 void TBoss6Type1__sub_802B4A90(void* p);
-int TBoss6Type1__sub_802B4B04(void);
 int TBoss6Type1__sub_802B4B14(void* p);
 void TBoss6Type1__sub_802B4CF4(void* p);
 void TBoss6Type1__sub_802B59A8(void);
 void TBoss6Type1__sub_802B5AB0(void);
-int TBoss6Type1__sub_802B5D9C(void);
 int TBoss6Type1__sub_802B5DD4(void);
 int TBoss6Type1__sub_802B5E48(void);
 int handle_6xa4_action__11TBoss6Type1FPv(void* p);
@@ -36,7 +39,9 @@ int release_object__11TBoss6Type1FPv(void*);
 int TBoss6Type1__sub_802B4A70(void* p) { return release_object__11TBoss6Type1FPv(p); }
 void TBoss6Type1__sub_802B4A90(void* p) { *(s32*)((char*)p + 0x680) = 0; }
 
-int TBoss6Type1__sub_802B4B04(void) { return 0; }
+void TBoss6Type1__sub_802B4B04(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x508) = (s32) (M2C_FIELD(arg0, s32 *, 0x508) + 1);
+}
 
 int TBoss6Type1__sub_802B4B14(void* p) { return TBoss6Type1__sub_802B4A9C(p); }
 
@@ -56,7 +61,16 @@ void TBoss6Type1__sub_802B5AB0(void) {
     TBoss6Type1__sub_802B5AD4(TBoss6Type1__data_805DE32C);
 }
 
-int TBoss6Type1__sub_802B5D9C(void) { return 0; }
+u8 TBoss6Type1__sub_802B5D9C(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r5;
+    temp_r5 = M2C_FIELD(arg0, s32 *, 0x4E0);
+    if ((temp_r5 <= 0) || (temp_r0 = M2C_FIELD(arg0, s32 *, 0x4E4), ((temp_r0 < 0) != 0))) {
+        return 1U;
+    }
+    return (u8) (temp_r5 <= temp_r0);
+}
+
 int TBoss6Type1__sub_802B5DD4(void) { return 0; }
 
 void reset_fields_4e0__11TBoss6Type1FPv(void* p) { *(s32*)((char*)p + 0x4e0) = 0; *(s32*)((char*)p + 0x4e4) = 0; }
