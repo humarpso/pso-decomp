@@ -7,6 +7,33 @@ struct BaseM_80234C90_80233B38 { char pad[0x24]; };
 struct VM_80234C90_80233B38 : BaseM_80234C90_80233B38 { virtual void m0(int); };
 
 extern "C" {
+void TTecLuker__sub_80234F7C(void* p);
+void TTecLuker__sub_80234F7C(void* p);
+s32 TTecLuker__sub_80234F88(void* p);
+s32 TTecLuker__sub_80234F88(void* p);
+int TObjPlayer__sub_80019664(void);
+void TTecLuker__sub_80234FC4(void* p);
+void TTecLuker__sub_80234F90(void* p);
+s32 TLobby__send_and_handle_60(s32);
+void TTecLuker__sub_80234FC4(void* p);
+int TObjPlayer__sub_80019664(void);
+extern M2C_UNK lbl_80434088;
+extern const f32 lbl_805D7D3C;
+extern s32 lbl_805D5FC0;
+extern s32 lbl_805D5D6C;
+void TTecLuker__sub_80234F90(void* p);
+void TTecLuker__sub_80235028(void* p);
+void TTecLuker__sub_80235028(void* p);
+void TTecLuker__sub_8023503C(void* p);
+void TTecLuker__sub_8023503C(void* p);
+void TTecLuker__sub_80235048(void* p);
+void TTecLuker__sub_80235048(void* p);
+int TTecLuker__sub_80235054(void* p);
+int fn_80235078(void*);
+int TTecLuker__sub_80235054(void* p);
+}
+
+extern "C" {
 
 void TTecLuker__sub_80233C18(void* p);
 void TTecLuker__sub_80234F68(void* p);
@@ -156,5 +183,19 @@ void *__dt__9TTecLukerFv(void *arg0, s16 arg1) {
 
 void TTecLuker__sub_80234F68(void* p) { *(s32*)((char*)p + 0x0) = 6; }
 s16 get_field_2__9TTecLukerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
+
+void TTecLuker__sub_80234F7C(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
+
+s32 TTecLuker__sub_80234F88(void* p) { return *(s32*)((char*)p + 0xb0); }
+
+void TTecLuker__sub_80234F90(void* p) { TTecLuker__sub_80234FC4((void*)(p)); TLobby__send_and_handle_60((s32)(p)); }
+
+void TTecLuker__sub_80235028(void* p) { *(u8*)((char*)p + 0x0) = 104; *(u8*)((char*)p + 0x1) = 7; }
+
+void TTecLuker__sub_8023503C(void* p) { *(s32*)((char*)p + 0x38) = 1; }
+
+void TTecLuker__sub_80235048(void* p) { *(s32*)((char*)p + 0x38) = 0; }
+
+int TTecLuker__sub_80235054(void* p) { return fn_80235078((char*)p + 0x4); }
 
 }

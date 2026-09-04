@@ -5,6 +5,7 @@
 
 class TAdSoniclogo : public TObject {
 public:
+    virtual void render();
     virtual ~TAdSoniclogo();
 };
 

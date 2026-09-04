@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TBoss4Type2__vt2(void *arg0);
+M2C_UNK TBoss4Type2__sub_80057048(void *, M2C_UNK);
+extern f32 lbl_805D8BB0;
+extern f32 TBoss4Type2__data_805D8BAC;
+extern f32 TBoss4Type2__data_805D8BAC;
+extern f32 TBoss4Type2__data_805D8BAC;
+extern f32 TBoss4Type2__data_805D8BAC;
+void TBoss4Type2__vt2(void *arg0);
+}
+
+extern "C" {
 
 void TBoss4Type2__sub_80057578(void* p);
 void TBoss4Type2__sub_80058208(void);
@@ -16,7 +27,6 @@ void TBoss4Type2__sub_8005821C(void);
 void TBoss4Type2__sub_80058220(void);
 void TBoss4Type2__vt0(void *arg0);
 int TBoss4Type2__vt1(void);
-int TBoss4Type2__vt2(void);
 int TBoss4Type2__vt3(void);
 void TBoss4Type3__vt40(void* p);
 void TBoss4Type3__vt41(void *arg0);
@@ -56,7 +66,16 @@ M2C_UNK spawn_random_effect__11TBoss4Type3Fi(void *);
 int toggle_particle_effect__10TObjPlayerFv(void*);
 
 int TBoss4Type2__vt3(void) { return 0; }
-int TBoss4Type2__vt2(void) { return 0; }
+
+void TBoss4Type2__vt2(void *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;
+    M2C_FIELD(arg0, s32 *, 0x398) = temp_r0;
+    if (temp_r0 < 0) {
+        TBoss4Type2__sub_80057048(arg0, 1);
+    }
+}
+
 int TBoss4Type2__vt1(void) { return 0; }
 
 extern f32 TBoss4Type2__data_805D8BAC;

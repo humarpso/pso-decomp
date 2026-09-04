@@ -1,3 +1,5 @@
+#include "pso/ui/TAdLoadQuestLineGC.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -5,9 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_state_flag__9TMainTaskFv();
+void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
+}
+
+extern "C" {
 
 void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
-int render__18TAdLoadQuestLineGCFv(void);
 void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
 void run_task__18TAdLoadQuestLineGCFv(void);
 void __ct__7TObjectFP7TObject(void *);
@@ -28,7 +34,18 @@ void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0) {
     }
 }
 
-int render__18TAdLoadQuestLineGCFv(void) { return 0; }
+}
+
+void TAdLoadQuestLineGC::render() {
+    if (get_state_flag__9TMainTaskFv() != 1) {
+        ++m_frameCount;
+        if (m_frameCount >= 2) {
+            render_by_state__18TAdLoadQuestLineGCFPv(this);
+        }
+    }
+}
+
+extern "C" {
 
 void run_task__18TAdLoadQuestLineGCFv(void) {  }
 

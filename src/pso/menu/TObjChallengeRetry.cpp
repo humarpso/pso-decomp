@@ -12,11 +12,58 @@ TObjChallengeRetry::~TObjChallengeRetry() {
 
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 is_ready_to_draw__6TLobbyFv();
+M2C_UNK TLobby__sub_80072B70(void *);
+M2C_UNK close_window_2c__6TLobbyFPv(void *);
+M2C_UNK send_45_and_close_windows__6TLobbyFv(void *);
+s32 is_challenge_lobby__6TLobbyFv();
+M2C_UNK update_destroy_countdown__6TLobbyFPv(void *);
+M2C_UNK handle_loss_sequence(void *);
+M2C_UNK update_challenge_retry__6TLobbyFPv(void *);
+M2C_UNK handle_challenge_retry_confirm(void *);
+M2C_UNK fn_8007313C(void *);
+}
+
 extern "C" {
 
 int fn_800733C4(void);
 int is_visible__17TWindowSubComCardFPv(void* p);
 void set_loss_flag__6TLobbyFPv(void* p);
+
+void run_task__18TObjChallengeRetryFv(u8 *arg0) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, s32 *, 0x20) = is_challenge_lobby__6TLobbyFv();
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    switch (temp_r0) {
+    case 0:
+        fn_8007313C((void *) (arg0));
+        break;
+    case 1:
+        handle_challenge_retry_confirm((void *) (arg0));
+        break;
+    case 2:
+        update_challenge_retry__6TLobbyFPv((void *) (arg0));
+        break;
+    case 3:
+        handle_loss_sequence((void *) (arg0));
+        break;
+    case 4:
+        update_destroy_countdown__6TLobbyFPv((void *) (arg0));
+        break;
+    }
+    if (is_ready_to_draw__6TLobbyFv() == 0) {
+        send_45_and_close_windows__6TLobbyFv((void *) (arg0));
+        close_window_2c__6TLobbyFPv((void *) (arg0));
+        TLobby__sub_80072B70((void *) (arg0));
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
 
 int fn_800733C4(void) { return 0; }
 

@@ -5,8 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *__nw__7TObjectFUl(int);
+void *TObjBoss5PillarCtrl__ct(void *, void *);
+}
 
-int TObjBoss5PillarCtrl__sub_8028B324(void);
+extern "C" {
+
 int forward_pillar_2B710__19TObjBoss5PillarCtrlFPv(void* p);
 void play_sound_once__19TObjBoss5PillarCtrlFPv(void *arg0);
 void render__19TObjBoss5PillarCtrlFv(void);
@@ -19,7 +23,14 @@ int TObjBoss5Pillar__sub_8028B710(void*);
 void render__19TObjBoss5PillarCtrlFv(void) {  }
 void run_task__19TObjBoss5PillarCtrlFv(void) {  }
 
-int TObjBoss5PillarCtrl__sub_8028B324(void) { return 0; }
+void * TObjBoss5PillarCtrl__sub_8028B324(void *arg0) {
+    void *o;
+    o = __nw__7TObjectFUl(0x24);
+    if (o != NULL) {
+        o = TObjBoss5PillarCtrl__ct(o, arg0);
+    }
+    return o;
+}
 
 int update_pillar__19TObjBoss5PillarCtrlFPv(void* p) { return TObjBoss5Pillar__sub_8028B70C(p); }
 int forward_pillar_2B710__19TObjBoss5PillarCtrlFPv(void* p) { return TObjBoss5Pillar__sub_8028B710(p); }

@@ -1,8 +1,9 @@
 #include "pso/TObjSoloPlayWin.h"
 
-void TObjSoloPlayWin::run_task() {}
-
-TObjSoloPlayWin::~TObjSoloPlayWin() {}
+extern "C" {
+void start_win_timer__15TObjSoloPlayWinFPv(void*);
+void update_close_timer__15TObjSoloPlayWinFPv(void*);
+}
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -29,6 +30,23 @@ void start_win_timer__15TObjSoloPlayWinFPv(void *arg0) {
 
 extern M2C_UNK __vt__15TObjSoloPlayWin[];
 extern void *lbl_805D2880;
+
+}
+
+void TObjSoloPlayWin::run_task() {
+    switch (m_state) {
+    case 0:
+        start_win_timer__15TObjSoloPlayWinFPv(this);
+        return;
+    case 1:
+        update_close_timer__15TObjSoloPlayWinFPv(this);
+        return;
+    }
+}
+
+TObjSoloPlayWin::~TObjSoloPlayWin() {}
+
+extern "C" {
 
 void *TObjSoloPlayWin__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);

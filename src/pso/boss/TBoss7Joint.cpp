@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TBoss7Joint__vt61(void* p);
+}
+
+extern "C" {
 
 struct VOff_802EE9A4_arg0_802EE9A4 { char pad_0[0x2FC]; char f_2FC[1]; };
 
@@ -18,7 +22,6 @@ void TBoss7Joint__vt47(void);
 void TBoss7Joint__vt48(void);
 void TBoss7Joint__vt59(void);
 void TBoss7Joint__vt60(u8 *arg0);
-int TBoss7Joint__vt61(void);
 void TBoss7Joint__vt85(void);
 void *__dt__11TBoss7JointFv(void *arg0, s16 arg1);
 void store_position__11TBoss7JointFPv(void *arg0);
@@ -80,7 +83,7 @@ void *__dt__11TBoss7JointFv(void *arg0, s16 arg1) {
 void TBoss7Joint__vt85(void) {  }
 void TBoss7Joint__vt26(void) {  }
 
-int TBoss7Joint__vt61(void) { return 0; }
+void TBoss7Joint__vt61(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffff7ff; }
 
 void TBoss7Joint__vt59(void) {  }
 void TBoss7Joint__vt42(void) {  }

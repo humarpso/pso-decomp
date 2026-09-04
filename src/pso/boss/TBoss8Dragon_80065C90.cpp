@@ -1,5 +1,23 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+int TObjPlayer__sub_80019664(void);
+void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
+void TBoss8Dragon__sub_8006602C(void* p);
+int TLobby__send_and_handle_60(void*);
+void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
+int TObjPlayer__sub_80019664(void);
+extern M2C_UNK lbl_80434088;
+extern const f32 lbl_805D7D3C;
+extern s32 lbl_805D5FC0;
+extern s32 lbl_805D5D6C;
+void TBoss8Dragon__sub_8006602C(void* p);
+}
+
 extern "C" {
 
 void TBoss8Dragon__sub_80065F1C(void);
@@ -12,7 +30,6 @@ void TBoss8Dragon__sub_80065F34(void);
 int TBoss8Dragon__sub_80065F4C(void);
 int TBoss8Dragon__sub_80065F80(void);
 int TBoss8Dragon__sub_80065FD4(void);
-int TBoss8Dragon__sub_8006602C(void);
 void TBoss8Dragon__sub_800660A4(void* p);
 int TObjFish__sub_800660D4(void);
 void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
@@ -37,7 +54,8 @@ void init_color__12TBoss8DragonFPv(void* p) { *(u8*)((char*)p + 0x0) = 160; *(u8
 int TBoss8Dragon__sub_80065F4C(void) { return 0; }
 int TBoss8Dragon__sub_80065F80(void) { return 0; }
 int TBoss8Dragon__sub_80065FD4(void) { return 0; }
-int TBoss8Dragon__sub_8006602C(void) { return 0; }
+
+void TBoss8Dragon__sub_8006602C(void* p) { bswap_boss_actions__12TBoss8DragonFi((s32)((void*)(p))); TLobby__send_and_handle_60(p); }
 
 void bswap_boss_actions__12TBoss8DragonFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv();

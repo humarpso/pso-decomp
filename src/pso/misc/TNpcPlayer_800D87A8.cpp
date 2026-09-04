@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *TNpcPlayer__sub_800D87EC(void);
+void *TPhotonMylla__sub_80154CB4();
+s32 is_valid_and_active__10TObjPlayerFUi();
+void *TNpcPlayer__sub_800D87EC(void);
+}
+
+extern "C" {
 
 void *get_valid_target_player__10TNpcPlayerFv(void);
 void *get_battle_param__10TObjPlayerFi();
@@ -14,6 +21,15 @@ void *get_valid_target_player__10TNpcPlayerFv(void) {
     void *temp_r31;
 
     temp_r31 = get_battle_param__10TObjPlayerFi();
+    if (is_valid_and_active__10TObjPlayerFUi() != 0) {
+        return temp_r31;
+    }
+    return 0;
+}
+
+void *TNpcPlayer__sub_800D87EC(void) {
+    void *temp_r31;
+    temp_r31 = TPhotonMylla__sub_80154CB4();
     if (is_valid_and_active__10TObjPlayerFUi() != 0) {
         return temp_r31;
     }

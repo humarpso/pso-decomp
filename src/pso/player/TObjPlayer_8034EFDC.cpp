@@ -72,6 +72,15 @@ struct VObj_8034EFDC : Base_8034EFDC {
 };
 
 extern "C" {
+void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
+int fn_80308244(void);
+u32 TLobby__sub_80101AB0(void);
+s32 TObjPlayer__sub_8034F4FC(u32 a0 = 0, s32 a1 = 0);
+int fn_80308244(void);
+void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1);
@@ -164,6 +173,13 @@ void *init_photon_state__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = TObjPlayer__sub_8034F204;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
+}
+
+void TObjPlayer__sub_8034F470(s32 arg0, s32 arg1) {
+    u32 temp_r3 = TLobby__sub_80101AB0();
+    if (temp_r3 != 0U) {
+        TObjPlayer__sub_8034F4FC(temp_r3, arg1);
+    }
 }
 
 void handle_turn_input__10TObjPlayerFPv(void *arg0) {

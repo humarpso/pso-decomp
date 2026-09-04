@@ -5,11 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void render__19TWindowMessageYesNoFv(void);
+void *__nw__7TObjectFUl(int);
+void *TWindowMessageYesNo__ct(void *, void *, void *, void *, void *);
+}
+
+extern "C" {
 
 void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-int TWindowMessageYesNo__sub_802A59D8(void);
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
-int render__19TWindowMessageYesNoFv(void);
 void run_task__19TWindowMessageYesNoFv(void* p);
 s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
 int TWindowMenu__sub_802657E4(void*);
@@ -37,13 +41,20 @@ int set_selected_index__17TWindowSubComCardFPvs(void*);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 void update_card_slot__17TWindowSubComCardFPv(void* p);
 
-int render__19TWindowMessageYesNoFv(void) { return 0; }
+void render__19TWindowMessageYesNoFv(void) {  }
 
 void run_task__19TWindowMessageYesNoFv(void* p) { if (TWindowSubComCard__sub_802A57FC(p) != 0) { TWindowMenu__sub_802657E4(*(void**)((char*)p + 0x28)); } }
 
-int TWindowMessageYesNo__sub_802A59D8(void) { return 0; }
-
 extern M2C_UNK __vt__19TWindowMessageYesNo[];
+
+void * TWindowMessageYesNo__sub_802A59D8(void *arg0, void *arg1, void *arg2, void *arg3) {
+    void *o;
+    o = __nw__7TObjectFUl(0x30);
+    if (o != NULL) {
+        o = TWindowMessageYesNo__ct(o, arg0, arg1, arg2, arg3);
+    }
+    return o;
+}
 
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

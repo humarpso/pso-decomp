@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int TObjEneDelDepthBomb__sub_80313268(void);
+}
+
+extern "C" {
 
 void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1);
 void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -24,6 +28,8 @@ int query_field40__10TObjPlayerFPv(void* p);
 void set_field_0__10TObjPlayerFPvs(void* p, s16 v);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 void update_children__10TObjPlayerFPv(void* p);
+
+int TObjEneDelDepthBomb__sub_80313268(void) { return 0; }
 
 void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;

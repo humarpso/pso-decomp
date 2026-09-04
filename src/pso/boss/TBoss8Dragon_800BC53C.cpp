@@ -5,8 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1);
+s32 __dl__FPv(u32 *);
+u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
+extern M2C_UNK __vt__13TLockOnCursor[];
+extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
+extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
+extern void *lbl_805D2CB4;
+s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1);
+}
 
-int TBoss8Dragon__sub_800BC5A0(void);
+extern "C" {
+
 int TBoss8Dragon__sub_800BC5EC(void);
 int TObjPlayer__sub_800BC53C(void);
 int fn_800BC6E4(void);
@@ -22,7 +32,18 @@ int queue_destruction__12TObjGrassWebFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
 int TObjPlayer__sub_800BC53C(void) { return 0; }
-int TBoss8Dragon__sub_800BC5A0(void) { return 0; }
+
+struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
+s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1) {
+    if (arg0 != 0) {
+        free_buffer__12TBoss8DragonFPvs((u32 *)(arg0), (s16)(0));
+        if (arg1 > 0) {
+            __dl__FPv((u32 *)(arg0));
+        }
+    }
+    return arg0;
+}
+
 int TBoss8Dragon__sub_800BC5EC(void) { return 0; }
 
 void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {

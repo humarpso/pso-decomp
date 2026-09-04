@@ -15,6 +15,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 TLobby__sub_80101AB0(int);
+s8 TObjPlayer__sub_80102C30();
+u32 test_flags_1b8__10TObjPlayerFPvUi(int, int);
+M2C_UNK draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
+void run_task__12TItemEffCaneFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *TItemEffCane__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 TBoss4Type2__sub_800874F4(M2C_UNK *, s32);
@@ -25,6 +35,22 @@ s32 get_field_d8__10TObjPlayerFPv(s32);
 
 extern M2C_UNK __vt__12TItemEffCane[];
 extern s32 lbl_805D2B98;
+
+void run_task__12TItemEffCaneFv(u8 *arg0) {
+    M2C_UNK sp8;
+    s32 temp_r3;
+    temp_r3 = TLobby__sub_80101AB0((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+    if (temp_r3 == 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if ((TObjPlayer__sub_80102C30() != 2) || (test_flags_1b8__10TObjPlayerFPvUi((int) (temp_r3), (int) (0x10)) == 0U) || ((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U)) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    draw_icon__10TObjPlayerFPvii((s32)((int) (temp_r3)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x1C))), (M2C_UNK *)((void *) (&sp8)));
+    copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x20)), (void *) (&sp8));
+}
 
 void *TItemEffCane__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_UNK sp8[4];

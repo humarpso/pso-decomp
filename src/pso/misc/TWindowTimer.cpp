@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 draw_default_entry__9TWindowDDFi();
+M2C_UNK TWindowTimer__sub_80287DD8(void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+extern M2C_UNK __vt__14TWindowMessage[];
+void render__12TWindowTimerFv(s32 arg0);
+}
+
+extern "C" {
 
 void *__dt__12TWindowTimerFv(void *arg0, s16 arg1);
 s32 create__12TWindowTimerFv(void);
@@ -82,6 +90,15 @@ s32 create_alt__12TWindowTimerFv(void) {
 }
 
 extern M2C_UNK __vt__12TWindowTimer[];
+
+}
+extern "C" {
+void render__12TWindowTimerFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = draw_default_entry__9TWindowDDFi();
+    TWindowTimer__sub_80287DD8((void *) (arg0), (int) (temp_r3));
+    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+}
 
 void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

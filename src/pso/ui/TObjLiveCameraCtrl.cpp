@@ -11,6 +11,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void update_toggle_state__12TBoss8DragonFPv(void *);
+void TBoss8Dragon__sub_8030BB24(void *);
+void TBoss8Dragon__sub_8030B8A8(void *);
+void copy_position_vectors__11TCameraCtrlFPvPvPv(void *, void *, void *);
+}
+
+extern "C" {
 
 s32 TObjLiveMonitor__sub_8030C050(void* p);
 void fn_8030C058(void);
@@ -19,6 +26,15 @@ void reset_globals_805D6A84(void);
 M2C_UNK memset(M2C_UNK *, M2C_UNK, M2C_UNK);
 
 extern M2C_UNK TObjLiveCameraCtrl__data_805D6A88;
+
+void run_task__18TObjLiveCameraCtrlFv(void *arg0) {
+    update_toggle_state__12TBoss8DragonFPv(arg0);
+    TBoss8Dragon__sub_8030BB24(arg0);
+    TBoss8Dragon__sub_8030B8A8(arg0);
+    if (M2C_FIELD(arg0, void **, 0x50) != NULL) {
+        copy_position_vectors__11TCameraCtrlFPvPvPv(M2C_FIELD(arg0, void **, 0x50), (void *)((char *)arg0 + 52), (void *)((char *)arg0 + 64));
+    }
+}
 
 s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0) {
     if (arg0 < 0) {

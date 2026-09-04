@@ -4,6 +4,24 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct LazerFence4Base_801930E8 { char pad[0x18]; };
+struct LazerFence4VObj_801930E8 : LazerFence4Base_801930E8 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+extern "C" {
+s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
+f32 fn_8013157C(void *, s32);
+s16 fn_801A2340(void *, f32, f32);
+s32 get_state_flag__9TMainTaskFv();
+extern s32 lbl_805D4DF0;
+extern void *lbl_805D5C28;
+extern const f32 lbl_805DBE70;
+extern const f32 lbl_805DBE74;
+s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
+}
+
 extern "C" {
 
 void *create_labo_design_base(void *arg0);
@@ -92,6 +110,17 @@ void *TObjLaboDesignBase__create(void *arg0) {
         o = TObjLaboDesignBase__ct(o, tl_05, arg0, 0);
     }
     return o;
+}
+
+s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1) {
+    if (get_state_flag__9TMainTaskFv() == 1) {
+        return M2C_FIELD(arg0, s16 *, 0x1E);
+    }
+    if (fn_8013157C(arg0 + 0x38, lbl_805D4DF0 + 0x178) < (farg1 * farg1)) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+        return M2C_FIELD(arg0, s16 *, 0x1E);
+    }
+    return fn_801A2340(arg0, farg0, farg1);
 }
 
 void render__18TObjLaboDesignBaseFPv(u8 *arg0) {

@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s16 TObjPlayer__sub_801D2F0C(void *arg0);
+s32 TObjPlayer__sub_801D2F8C(s16);
+s16 TObjPlayer__sub_801D2F0C(void *arg0);
+}
+
+extern "C" {
 
 s16 TObjPlayer__sub_801D2824(void* p);
 s16 TObjPlayer__sub_801D282C(void* p);
@@ -35,7 +41,6 @@ int TObjPlayer__sub_801D2DDC(void);
 int TObjPlayer__sub_801D2E20(void *, void *, f32, f32);
 int TObjPlayer__sub_801D2EA8(void);
 int TObjPlayer__sub_801D2EE8(void* a0 = 0);
-int TObjPlayer__sub_801D2F0C(void);
 void TObjPlayer__sub_801D3424(void* p, s16 v);
 int TObjPlayer__sub_801D345C(void* p);
 void advance_and_clamp_state__10TObjPlayerFPv(void *arg0);
@@ -171,7 +176,15 @@ void advance_and_clamp_state__10TObjPlayerFPv(void *arg0) {
 
 int TObjPlayer__sub_801D2EA8(void) { return 0; }
 int TObjPlayer__sub_801D2EE8(void* a0) { return 0; }
-int TObjPlayer__sub_801D2F0C(void) { return 0; }
+
+s16 TObjPlayer__sub_801D2F0C(void *arg0) {
+    s16 var_r31;
+    var_r31 = M2C_FIELD(arg0, s16 *, 2);
+    if (TObjPlayer__sub_801D2F8C(var_r31) == 0) {
+        var_r31 = 0;
+    }
+    return var_r31;
+}
 
 s32 update_if_flag8_set__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_8001BEF8((void*)(arg0 + 0xC), (int)(8)) != 0) {

@@ -24,10 +24,15 @@ struct VObj_8032C594_8032C504 : Base_8032C594_8032C504 {
     virtual void m6();
 };
 
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+s32 is_confirmed__17TAdExNetConfirmGCFv();
+}
+
 extern "C" {
 
 int TAdExNetConfirmGC__vt4(void* p);
-int TAdExNetConfirmGC__vt5(void);
 void *__dt__17TAdExNetConfirmGCFv(void *arg0, s16 arg1);
 void render__17TAdExNetConfirmGCFv(void *arg0);
 void run_task__17TAdExNetConfirmGCFv(void *arg0);
@@ -40,7 +45,13 @@ void render__17TAdExNetConfirmGCFv(void *arg0) {
     o->m7();
 }
 
-int TAdExNetConfirmGC__vt5(void) { return 0; }
+void TAdExNetConfirmGC__vt5(void) {
+    if (is_confirmed__17TAdExNetConfirmGCFv() != 0) {
+        TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x22), (int) (1));
+        return;
+    }
+    TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x22), (int) (0));
+}
 
 int TAdExNetConfirmGC__vt4(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 

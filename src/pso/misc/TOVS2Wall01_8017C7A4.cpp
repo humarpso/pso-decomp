@@ -5,17 +5,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int TOVS2Wall01__vt24(void);
+int TOVS2Wall01__vt25(void);
+int TOVS2Wall01__vt18(void);
+int TOVS2Wall01__vt19(void);
+int TOVS2Wall01__vt20(void* p);
+int take_hit__11TOVS2Wall01FPvUi(void*);
+int TOVS2Wall01__vt21(void* p);
+int take_hit__11TOVS2Wall01FPvUi(void*);
+int TOVS2Wall01__vt22(void* p);
+int take_hit__11TOVS2Wall01FPvUi(void*);
+}
+
+extern "C" {
 
 void TOVS2Wall01__sub_8017CA48(void* p, s32 v);
 s32 TOVS2Wall01__sub_8017CA50(void* p);
-int TOVS2Wall01__vt18(void);
-int TOVS2Wall01__vt19(void);
-int TOVS2Wall01__vt20(void);
-int TOVS2Wall01__vt21(void);
-int TOVS2Wall01__vt22(void);
 void TOVS2Wall01__vt23(void);
-int TOVS2Wall01__vt24(void);
-int TOVS2Wall01__vt25(void);
 void *TObjGoalWarpAncient__create(void *arg0);
 void byteswap_hit_packet__11TOVS2Wall01FPv(void* p);
 void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1);
@@ -60,13 +66,19 @@ void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TOVS2Wall01__vt24(void) { return 0; }
-int TOVS2Wall01__vt25(void) { return 0; }
-int TOVS2Wall01__vt18(void) { return 0; }
-int TOVS2Wall01__vt19(void) { return 0; }
-int TOVS2Wall01__vt20(void) { return 0; }
-int TOVS2Wall01__vt21(void) { return 0; }
-int TOVS2Wall01__vt22(void) { return 0; }
+int TOVS2Wall01__vt24(void) { return 1; }
+
+int TOVS2Wall01__vt25(void) { return 1; }
+
+int TOVS2Wall01__vt18(void) { return 1; }
+
+int TOVS2Wall01__vt19(void) { return 1; }
+
+int TOVS2Wall01__vt20(void* p) { return take_hit__11TOVS2Wall01FPvUi(p); }
+
+int TOVS2Wall01__vt21(void* p) { return take_hit__11TOVS2Wall01FPvUi(p); }
+
+int TOVS2Wall01__vt22(void* p) { return take_hit__11TOVS2Wall01FPvUi(p); }
 
 void TOVS2Wall01__vt23(void) {  }
 

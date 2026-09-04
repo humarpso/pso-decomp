@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+}
 
-int TOMineIcon02__vt80(void);
+extern "C" {
+
 void TOMineIcon02__vt82(void);
 void *__dt__12TOMineIcon01Fv(void *arg0, s16 arg1);
 void *create__12TOMineIcon01FPv(void *arg0);
@@ -44,6 +47,9 @@ void *__dt__12TOMineIcon01Fv(void *arg0, s16 arg1) {
 
 void TOMineIcon02__vt82(void) {  }
 
-int TOMineIcon02__vt80(void) { return 0; }
+void TOMineIcon02__vt80(s32 arg0) {
+    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0x8E));
+    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0x8E));
+}
 
 }

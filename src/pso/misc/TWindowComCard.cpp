@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 draw_default_entry__9TWindowDDFi();
+M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+extern M2C_UNK __vt__14TWindowMessage[];
+void render__14TWindowComCardFv(s32 arg0);
+}
+
+extern "C" {
 
 void TWindowComCard__sub_80249920(s32 arg0, s32 arg1, s32 arg2);
 u8 TWindowComCard__sub_80249C18(void* p);
@@ -50,6 +58,15 @@ void * create__14TWindowComCardFPvPv(void *arg0, void *arg1) {
         o = TWindowComCard__ct(o, arg0, x0);
     }
     return o;
+}
+
+}
+extern "C" {
+void render__14TWindowComCardFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = draw_default_entry__9TWindowDDFi();
+    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
 void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }

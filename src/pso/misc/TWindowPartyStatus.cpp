@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 draw_default_entry__9TWindowDDFi();
+M2C_UNK TWindowPartyStatus__sub_8030C0C4(void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+extern M2C_UNK __vt__14TWindowMessage[];
+void render__18TWindowPartyStatusFv(s32 arg0);
+}
+
+extern "C" {
 
 void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1);
 void draw__18TWindowPartyStatusFPv(void* p);
@@ -23,6 +31,15 @@ int update_status_entry__20TWindowSubStatusDispFi(void*);
 M2C_UNK update_status_help_item(void *);
 
 void draw__18TWindowPartyStatusFPv(void* p) { fn_8026F8CC(p); update_status_entry__20TWindowSubStatusDispFi(p); }
+
+}
+extern "C" {
+void render__18TWindowPartyStatusFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = draw_default_entry__9TWindowDDFi();
+    TWindowPartyStatus__sub_8030C0C4((void *) (arg0), (int) (temp_r3));
+    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+}
 
 void run_task__18TWindowPartyStatusFv(s32 arg0) {
     fn_80270014();

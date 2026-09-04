@@ -290,6 +290,7 @@ pso/enemy/TObjEneMe3Stelth_800F5884.cpp
 pso/enemy/TObjEneMe3Stelth_802D70AC.cpp
 pso/enemy/TObjEneMe3Stelth_803DC82C.cpp
 pso/enemy/TObjEneMoja.cpp
+pso/enemy/TObjEneMorfosArm.cpp
 pso/enemy/TObjEneNanoDrago.cpp
 pso/enemy/TObjEneNanoDrago_800DBF88.cpp
 pso/enemy/TObjEnePanarms_8002AE74.cpp
@@ -366,6 +367,7 @@ pso/item/TItemEffEquip_801088D0.cpp
 pso/item/TItemEffEquip_801088F8.cpp
 pso/item/TItemEffEquip_80108920.cpp
 pso/item/TItemEffOrgaFlowShot.cpp
+pso/item/TItemEffectWeapon_80115C24.cpp
 pso/item/TItemEffectWeapon_803632B4.cpp
 pso/item/TItemEffectWeapon_803632E0.cpp
 pso/item/TItemEquipBase_8022F1C0.cpp
@@ -947,6 +949,7 @@ pso/misc/TMovie_801444C0.cpp
 pso/misc/TMovie_803DCFE4.cpp
 pso/misc/TNeedleShoot.cpp
 pso/misc/TNowLoading_80087660.cpp
+pso/misc/TNpcPlayer_800D87A8.cpp
 pso/misc/TNpcPlayer_80149374.cpp
 pso/misc/TNpcPlayer_80149374_80149374.cpp
 pso/misc/TNpcPlayer_80149374_8014940C.cpp
@@ -1242,6 +1245,7 @@ pso/misc/TWindowMeseta_802690B4.cpp
 pso/misc/TWindowMessageLog_8026A52C.cpp
 pso/misc/TWindowMessageLog_8026A5A0.cpp
 pso/misc/TWindowMessageQuest.cpp
+pso/misc/TWindowMessageYesNo.cpp
 pso/misc/TWindowOptionCtrl.cpp
 pso/misc/TWindowOptionCtrl_80248940.cpp
 pso/misc/TWindowOptionCtrl_80248AA8.cpp
@@ -2131,6 +2135,7 @@ pso/slices/run_8024AD74.cpp
 pso/slices/run_8024B2F4.cpp
 pso/slices/run_802F3C84.cpp
 pso/slices/run_802FC88C.cpp
+pso/ui/TAdADXlogo.cpp
 pso/ui/TAdBackGC.cpp
 pso/ui/TAdChrMoveEffectGC_80257720.cpp
 pso/ui/TAdChrSelASlotGC_802A596C.cpp
@@ -2165,6 +2170,7 @@ pso/ui/TAdMultiChgGameModeGC_8023E7A8_8023E9A4.cpp
 pso/ui/TAdMultiChgGameModeGC_8023F4E4.cpp
 pso/ui/TAdMultiChgGameModeGC_8023F4E4_8023F4E4.cpp
 pso/ui/TAdMultiConfirmGC_802E072C.cpp
+pso/ui/TAdMultiPlyChrSelectGC_801A6EA0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802C50EC_802C6418.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802C50EC_802C6444.cpp
@@ -2183,6 +2189,7 @@ pso/ui/TAdPlyPltAnimGC_80356190.cpp
 pso/ui/TAdPsoPassSaveGC.cpp
 pso/ui/TAdRayGC_8029BFC8.cpp
 pso/ui/TAdRayGC_8029BFFC.cpp
+pso/ui/TAdSEGAlogo.cpp
 pso/ui/TAdScrollWinGC_803274D0.cpp
 pso/ui/TAdSelectCurGC.cpp
 pso/ui/TAdSelectCurGC_802AEA38.cpp

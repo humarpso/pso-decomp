@@ -9,6 +9,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TSwitch__sub_802292E0(s32 arg0);
+void TSwitch__sub_80229258(void* p, s16 v);
+s16 TObjPlayer__sub_800196EC();
+void TSwitch__sub_80229258(void* p, s16 v);
+void TSwitch__sub_802292E0(s32 arg0);
+void TSwitch__sub_802293A0(s32 arg0);
+void TSwitch__sub_80229318(void* p, s16 v);
+s16 TObjPlayer__sub_800196EC();
+void TSwitch__sub_80229318(void* p, s16 v);
+void TSwitch__sub_802293A0(s32 arg0);
+}
+
+extern "C" {
 
 u8 TSwitch__sub_802291F4(void);
 void *__ct__7TSwitchFv(void *arg0);
@@ -26,6 +39,18 @@ u8 TSwitch__sub_802291F4(void) {
 
 extern M2C_UNK __vt__7TSwitch[];
 extern void *lbl_805D3728;
+
+extern "C" {
+void TSwitch__sub_802292E0(s32 arg0) {
+    TSwitch__sub_80229258((void*)((void *) (arg0)), (s16)((int) (TObjPlayer__sub_800196EC())));
+}
+}
+
+extern "C" {
+void TSwitch__sub_802293A0(s32 arg0) {
+    TSwitch__sub_80229318((void*)((void *) (arg0)), (s16)((int) (TObjPlayer__sub_800196EC())));
+}
+}
 
 void *__ct__7TSwitchFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);

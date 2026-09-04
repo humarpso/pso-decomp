@@ -5,9 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *__nw__7TObjectFUl(int);
+void *TObjEneMe1GiGueBarrier__ct(void *, void *, void *);
+}
+
+extern "C" {
 
 void TObjEneMe1GiGueBarrier__sub_80325CC0(void);
-int TObjEneMe1GiGueBarrier__sub_80325CC4(void);
 void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1);
 void init_global__22TObjEneMe1GiGueBarrierFv(void);
 void __dl__7TObjectFPv(void *);
@@ -31,9 +35,16 @@ void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1) {
 
 void TObjEneMe1GiGueBarrier__sub_80325CC0(void) {  }
 
-int TObjEneMe1GiGueBarrier__sub_80325CC4(void) { return 0; }
-
 extern s32 lbl_805D6C60;
+
+void * TObjEneMe1GiGueBarrier__sub_80325CC4(void *arg0, void *arg1) {
+    void *o;
+    o = __nw__7TObjectFUl(0x10C);
+    if (o != NULL) {
+        o = TObjEneMe1GiGueBarrier__ct(o, arg0, arg1);
+    }
+    return o;
+}
 
 void init_global__22TObjEneMe1GiGueBarrierFv(void) {
     lbl_805D6C60 = get_barrier_count__15TObjEneMe1GiGueFv();

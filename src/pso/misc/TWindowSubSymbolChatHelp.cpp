@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1);
+M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+s32 draw_default_entry__9TWindowDDFi();
+extern M2C_UNK __vt__19TWindowMenuMainMenu[];
+void render__24TWindowSubSymbolChatHelpFv(s32 arg0);
+}
+
+extern "C" {
 
 void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1);
 void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1);
@@ -104,6 +112,15 @@ void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0) {
             *temp_r3_2 = 1;
         }
     }
+}
+
+}
+extern "C" {
+void render__24TWindowSubSymbolChatHelpFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = draw_default_entry__9TWindowDDFi();
+    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_help_entries__24TWindowSubSymbolChatHelpFPvPv((void *)((void *) (arg0)), (void *)((int) (temp_r3)));
 }
 
 void run_task__24TWindowSubSymbolChatHelpFv(void* p) { TWindowSubSymbolChatHelp__sub_80284A28(p); handle_toggle_input__24TWindowSubSymbolChatHelpFPv((void *)(p)); initialize_subwindow__9TWindowDDFPv(p); }

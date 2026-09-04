@@ -1,8 +1,9 @@
 #include "pso/TObjWarnChime.h"
 
-void TObjWarnChime::run_task() {}
-
-TObjWarnChime::~TObjWarnChime() {}
+extern "C" {
+void reset_state__13TObjWarnChimeFPv(void*);
+void update_when_camera_active__13TObjWarnChimeFPv(void*);
+}
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -36,6 +37,23 @@ void reset_state__13TObjWarnChimeFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }
 }
+
+}
+
+void TObjWarnChime::run_task() {
+    switch (m_state) {
+    case 0:
+        reset_state__13TObjWarnChimeFPv(this);
+        return;
+    case 1:
+        update_when_camera_active__13TObjWarnChimeFPv(this);
+        return;
+    }
+}
+
+TObjWarnChime::~TObjWarnChime() {}
+
+extern "C" {
 
 int fn_80076B14(void) { return 0; }
 

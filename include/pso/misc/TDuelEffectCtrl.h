@@ -1,14 +1,21 @@
 #ifndef PSO_MISC_TDUELEFFECTCTRL_H
 #define PSO_MISC_TDUELEFFECTCTRL_H
 
-#include "types.h"
+#include "pso/TObject.h"
+#include <stddef.h>
 
-struct TDuelEffectCtrl
-{
-    u8 m_1c;
-    u8 _pad1D[0x3];
-    u32 m_20;
-    u32 m_24;
+class TDuelEffectCtrl : public TObject {
+public:
+    virtual ~TDuelEffectCtrl();
+    virtual void run_task();
+    virtual void render();
+    u8 m_state;
+    u8 m_padding[3];
+    s32 m_frameCount;
+    TObject* m_effect;
 };
 
+typedef char DuelFrameOffset[(offsetof(TDuelEffectCtrl, m_frameCount) == 0x20) ? 1 : -1];
+typedef char DuelEffectOffset[(offsetof(TDuelEffectCtrl, m_effect) == 0x24) ? 1 : -1];
+typedef char DuelControllerSize[(sizeof(TDuelEffectCtrl) == 0x28) ? 1 : -1];
 #endif

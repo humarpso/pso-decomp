@@ -1,32 +1,27 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#include "pso/misc/TDuelEffectCtrl.h"
 
 extern "C" {
-
-void *__dt__15TDuelEffectCtrlFv(void *arg0, s16 arg1);
-void render__15TDuelEffectCtrlFv(void);
-int run_task__15TDuelEffectCtrlFv(void);
-void __dl__7TObjectFPv(void *);
-void __dt__7TObjectFv(void *, int);
-void queue_destruction__7TObjectFv(void *);
-
-void render__15TDuelEffectCtrlFv(void) {  }
-
-int run_task__15TDuelEffectCtrlFv(void) { return 0; }
-
-extern M2C_UNK __vt__15TDuelEffectCtrl[];
-
-void *__dt__15TDuelEffectCtrlFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TDuelEffectCtrl;
-        if (M2C_FIELD(arg0, void **, 0x24) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x24)); M2C_FIELD(arg0, M2C_UNK *, 0x24) = 0; }
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
+void fn_8007FA94(TDuelEffectCtrl*);
+void fn_8007FB14(TDuelEffectCtrl*);
 }
 
+void TDuelEffectCtrl::render() {}
+
+void TDuelEffectCtrl::run_task() {
+    switch (m_state) {
+    case 0:
+        fn_8007FB14(this);
+        break;
+    case 1:
+        fn_8007FA94(this);
+        break;
+    }
+    ++m_frameCount;
+}
+
+TDuelEffectCtrl::~TDuelEffectCtrl() {
+    if (m_effect != NULL) {
+        m_effect->queue_destruction();
+        m_effect = NULL;
+    }
 }

@@ -5,6 +5,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowCtrl__sub_8024A314(void);
+s32 TWindowCtrl__sub_8024701C(u32);
+extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
+extern void *TWindowCtrl__data_805D63F8;
+s32 TWindowCtrl__sub_8024A314(void);
+void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
+int fn_80308244(void);
+u32 get_window__11TWindowCtrlFi(void);
+s32 update_field28__15TWindowCtrlMainFPv(u32 a0 = 0, s32 a1 = 0);
+int fn_80308244(void);
+void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 void close_active_window__11TWindowCtrlFv(void);
 void create_alt_timer__11TWindowCtrlFv(void);
@@ -54,6 +75,16 @@ s32 get_active_sub__11TWindowCtrlFv(void) {
 
 extern void *TWindowCtrl__data_805D63F8;
 
+s32 TWindowCtrl__sub_8024A314(void) {
+    if ((void *) TWindowCtrl__data_805D63F8 == NULL) {
+        return 0;
+    }
+    if ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x38) == 0U) {
+        return 0;
+    }
+    return TWindowCtrl__sub_8024701C(M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x38));
+}
+
 void open_status_111__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x34) == 0U)) {
         get_message_10__20TWindowSubStatusDispFPv(0x111);
@@ -100,6 +131,13 @@ extern void *TWindowCtrl__data_805D63F8;
 void create_alt_timer__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) == 0U)) {
         M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) = create_alt__12TWindowTimerFv();
+    }
+}
+
+void TLobby__sub_8024AAA0(s32 arg0, s32 arg1) {
+    u32 temp_r3 = get_window__11TWindowCtrlFi();
+    if (temp_r3 != 0U) {
+        update_field28__15TWindowCtrlMainFPv(temp_r3, arg1);
     }
 }
 

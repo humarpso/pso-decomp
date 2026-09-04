@@ -1,12 +1,15 @@
 #ifndef PSO_UI_TADLOADQUESTLINEGC_H
 #define PSO_UI_TADLOADQUESTLINEGC_H
 
-#include "types.h"
+#include "pso/TObject.h"
+#include <stddef.h>
 
-struct TAdLoadQuestLineGC
-{
-    u32 m_1c;
-    u32 m_20;
+class TAdLoadQuestLineGC : public TObject {
+public:
+    virtual void render();
+    s32 m_state;
+    s32 m_frameCount;
 };
 
+typedef char TAdLoadQuestLineGCFrameOffset[(offsetof(TAdLoadQuestLineGC, m_frameCount) == 0x20) ? 1 : -1];
 #endif

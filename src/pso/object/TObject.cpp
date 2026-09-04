@@ -176,3 +176,15 @@ TObject::TObject(TObject *parent) {
 }
 
 #undef TOBJECT_CPP
+
+#include "types.h"
+extern "C" {
+void allow_rendering_shadows__7TObjectFv(void* p);
+void allow_rendering_shadows__7TObjectFv(void* p);
+}
+
+extern "C" {
+
+void allow_rendering_shadows__7TObjectFv(void* p) { *(u16*)((char*)p + 0x4) &= 0xfffffeff; }
+
+}

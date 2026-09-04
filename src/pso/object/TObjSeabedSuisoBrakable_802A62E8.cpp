@@ -12,8 +12,12 @@ struct VObj_802A63F8_802A62E8 : Base_802A63F8_802A62E8 {
 };
 
 extern "C" {
+void *__nw__7TObjectFUl(int);
+void *TObjSeabedSuisoBrakable__ct(void *, void *);
+}
 
-int TObjSeabedSuisoBrakable__sub_802A65B8(void);
+extern "C" {
+
 void TObjSeabedSuisoBrakable__vt12(void *arg0);
 void TObjSeabedSuisoBrakable__vt15(void);
 void *__dt__23TObjSeabedSuisoBrakableFv(void *arg0, s16 arg1);
@@ -82,9 +86,16 @@ void render__23TObjSeabedSuisoBrakableFv(void *arg0) {
 
 void TObjSeabedSuisoBrakable__vt15(void) {  }
 
-int TObjSeabedSuisoBrakable__sub_802A65B8(void) { return 0; }
-
 extern M2C_UNK __vt__23TObjSeabedSuisoBrakable[];
+
+void * TObjSeabedSuisoBrakable__sub_802A65B8(void *arg0) {
+    void *o;
+    o = __nw__7TObjectFUl(0xC0);
+    if (o != NULL) {
+        o = TObjSeabedSuisoBrakable__ct(o, arg0);
+    }
+    return o;
+}
 
 void *__dt__23TObjSeabedSuisoBrakableFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -2,6 +2,18 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+int run_tasks__7TObjectFv(void*);
+void run_task__13TQuestColCtrlFv(void);
+M2C_UNK TQuestColCtrl__sub_80196EC0();
+extern u32 lbl_805D5C50;
+extern u32 lbl_805D5C50;
+int run_tasks__7TObjectFv(void*);
+void run_task__13TQuestColCtrlFv(void);
+}
+
 extern "C" {
 
 void *TQuestColCtrl__ct(void *arg0);
@@ -12,6 +24,13 @@ void render__13TQuestColCtrlFv(void) {  }
 
 extern M2C_UNK __vt__13TQuestColCtrl[];
 extern void *lbl_805D3404;
+
+void run_task__13TQuestColCtrlFv(void) {
+    TQuestColCtrl__sub_80196EC0();
+    if ((u32) lbl_805D5C50 != 0U) {
+        run_tasks__7TObjectFv((void*)((void*)lbl_805D5C50));
+    }
+}
 
 void *TQuestColCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);

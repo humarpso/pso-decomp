@@ -9,6 +9,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TWindowSubStatusDisp__sub_8026DA44();
+}
+
+extern "C" {
 
 struct VOff_8026DD70_arg0_8026DCE0 { char pad_0[0x24]; char f_24[1]; };
 
@@ -16,7 +20,6 @@ int TWindowSetLevelUp__sub_8026DDE0(void *, void *);
 void TWindowSetLevelUp__sub_8026DE28(void* p, s32 v);
 void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__17TWindowSetLevelUpFv(void);
-int run_task__17TWindowSetLevelUpFv(void);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0);
 s32 init_list_entry__20TWindowSubStatusDispFPvUcii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
@@ -24,10 +27,17 @@ void reset_sub_status_disp__10TObjPlayerFPv(void *);
 
 void render__17TWindowSetLevelUpFv(void) {  }
 
-int run_task__17TWindowSetLevelUpFv(void) { return 0; }
-
 extern M2C_UNK __vt__17TWindowSetLevelUp[];
 extern void *lbl_805D39C8;
+
+void run_task__17TWindowSetLevelUpFv(u8 *arg0) {
+    s16 temp_r5;
+    temp_r5 = M2C_FIELD(arg0, s16 *, 0x1E);
+    M2C_FIELD(arg0, s16 *, 0x1E) = (s16) (temp_r5 - 1);
+    if (temp_r5 <= 0) {
+        TWindowSubStatusDisp__sub_8026DA44();
+    }
+}
 
 void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     struct VOff_8026DD70_arg0_8026DCE0 *self = (struct VOff_8026DD70_arg0_8026DCE0 *)arg0;

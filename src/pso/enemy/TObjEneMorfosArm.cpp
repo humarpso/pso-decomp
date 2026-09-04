@@ -5,17 +5,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *__nw__7TObjectFUl(int);
+void *TObjEneMorfosArm__ct(void *, void *, void *);
+}
+
+extern "C" {
 
 void TObjEneMorfosArm__sub_8033542C(void);
-int TObjEneMorfosArm__sub_80335430(void);
 void init_global__16TObjEneMorfosArmFv(void);
 s32 get_instance__13TObjEneMorfosFv();
 
 void TObjEneMorfosArm__sub_8033542C(void) {  }
 
-int TObjEneMorfosArm__sub_80335430(void) { return 0; }
-
 extern s32 lbl_805D6D38;
+
+void * TObjEneMorfosArm__sub_80335430(void *arg0, void *arg1) {
+    void *o;
+    o = __nw__7TObjectFUl(0x104);
+    if (o != NULL) {
+        o = TObjEneMorfosArm__ct(o, arg0, arg1);
+    }
+    return o;
+}
 
 void init_global__16TObjEneMorfosArmFv(void) {
     lbl_805D6D38 = get_instance__13TObjEneMorfosFv();

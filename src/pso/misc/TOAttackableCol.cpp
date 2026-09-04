@@ -5,20 +5,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *__nw__7TObjectFUl(int);
+void *TOAttackableCol__ct(void *, void *);
+int TOAttackableCol__vt24(void);
+int TOAttackableCol__vt25(void);
+int TOAttackableCol__vt18(void);
+int TOAttackableCol__vt19(void);
+int TOAttackableCol__vt20(void* p);
+int TOAttackableCol__sub_80157728(void*);
+int TOAttackableCol__vt21(void* p);
+int TOAttackableCol__sub_80157728(void*);
+int TOAttackableCol__vt22(void* p);
+int TOAttackableCol__sub_80157728(void*);
+}
+
+extern "C" {
 
 void TOAttackableCol__sub_80157310(void);
 int TOAttackableCol__sub_801575AC(void *, s32);
-int TOAttackableCol__sub_80157A28(void);
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
-int TOAttackableCol__vt18(void);
-int TOAttackableCol__vt19(void);
-int TOAttackableCol__vt20(void);
-int TOAttackableCol__vt21(void);
-int TOAttackableCol__vt22(void);
 void TOAttackableCol__vt23(void);
-int TOAttackableCol__vt24(void);
-int TOAttackableCol__vt25(void);
 int TOAttackableCol__vt4(void);
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
 void broadcast_state__15TOAttackableColFPv(void* p);
@@ -112,9 +119,16 @@ int run_task__15TOAttackableColFv(void) { return 0; }
 
 void render__15TOAttackableColFv(void) {  }
 
-int TOAttackableCol__sub_80157A28(void) { return 0; }
-
 extern M2C_UNK __vt__15TOAttackableCol[];
+
+void * TOAttackableCol__sub_80157A28(void *arg0) {
+    void *o;
+    o = __nw__7TObjectFUl(0x350);
+    if (o != NULL) {
+        o = TOAttackableCol__ct(o, arg0);
+    }
+    return o;
+}
 
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -129,13 +143,19 @@ void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TOAttackableCol__vt24(void) { return 0; }
-int TOAttackableCol__vt25(void) { return 0; }
-int TOAttackableCol__vt18(void) { return 0; }
-int TOAttackableCol__vt19(void) { return 0; }
-int TOAttackableCol__vt20(void) { return 0; }
-int TOAttackableCol__vt21(void) { return 0; }
-int TOAttackableCol__vt22(void) { return 0; }
+int TOAttackableCol__vt24(void) { return 1; }
+
+int TOAttackableCol__vt25(void) { return 1; }
+
+int TOAttackableCol__vt18(void) { return 1; }
+
+int TOAttackableCol__vt19(void) { return 1; }
+
+int TOAttackableCol__vt20(void* p) { return TOAttackableCol__sub_80157728(p); }
+
+int TOAttackableCol__vt21(void* p) { return TOAttackableCol__sub_80157728(p); }
+
+int TOAttackableCol__vt22(void* p) { return TOAttackableCol__sub_80157728(p); }
 
 void TOAttackableCol__vt23(void) {  }
 

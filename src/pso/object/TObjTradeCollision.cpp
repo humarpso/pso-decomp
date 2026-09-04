@@ -2,13 +2,20 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 fn_802C7ECC(void *, int);
+M2C_UNK TWindowSubTradeMain__sub_802D3940(int);
+M2C_UNK TWindowSubTradeMain__sub_802D3958(int);
+}
+
 extern "C" {
 
 void TOTrapChainSawEdge__vt23(void *arg0);
 void *TObjTradeCollision__create(void *arg0);
 void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
 void render__18TObjTradeCollisionFv(void);
-int run_task__18TObjTradeCollisionFv(void);
 void TOHangerMachine01__sub_803D9C00(void *);
 void TObjDoor__sub_803DC894(void *, void *, f32);
 void TObjPlayer__sub_803D9214(int, void *);
@@ -22,9 +29,20 @@ void set_global_param__8TObjFishFi(void *);
 
 void render__18TObjTradeCollisionFv(void) {  }
 
-int run_task__18TObjTradeCollisionFv(void) { return 0; }
-
 extern M2C_UNK __vt__18TObjTradeCollision[];
+
+void run_task__18TObjTradeCollisionFv(s32 arg0) {
+    s32 var_r31;
+    var_r31 = 0;
+    do {
+        if (fn_802C7ECC((void *) (arg0), (int) (var_r31)) != 0) {
+            TWindowSubTradeMain__sub_802D3958((int) (var_r31));
+        } else {
+            TWindowSubTradeMain__sub_802D3940((int) (var_r31));
+        }
+        var_r31 += 1;
+    } while (var_r31 < 4);
+}
 
 void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

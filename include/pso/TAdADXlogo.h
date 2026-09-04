@@ -4,6 +4,7 @@
 #include "types.h"
 class TAdADXlogo : public TObject {
 public:
+    virtual void render();
     virtual ~TAdADXlogo();
 };
 #endif

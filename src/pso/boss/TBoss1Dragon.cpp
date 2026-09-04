@@ -255,6 +255,12 @@ void update_switch_attack__12TBoss1DragonFPv(u8 *arg0) {
     TOSwitchAttack__sub_80087278(arg0 + 0x38, M2C_FIELD(M2C_FIELD(arg0, void **, 0x778), s32 *, 4), 0x40);
 }
 
+void TBoss1Dragon__sub_800275BC(s32, s32, u8*, s32);
+
+void TBoss1Dragon__sub_80027590(void* object, void* action) {
+    TBoss1Dragon__sub_800275BC((s32)object, (s32)((char*)object + 0x38), (u8*)action, 0);
+}
+
 void TBoss1Dragon__sub_80027B20(void) {
     TBoss1Dragon__sub_80027B78(TBoss1Dragon__data_805D8010, lbl_805D8098, TBoss1Dragon__data_805D7F84);
 }
@@ -547,7 +553,6 @@ void TBoss1Dragon::requestActionRefresh() {
 }
 
 extern "C" {
-
 void free_resources__12TBoss1DragonFv(void) {
     if ((u32) TBoss1Dragon__data_805D4B28 != 0U) {
         safe_free__23TAdSinglePlyChrSelectGCFUi((void*)TBoss1Dragon__data_805D4B28);

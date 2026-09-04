@@ -16,6 +16,14 @@ TChCrLoadGmNjReq::~TChCrLoadGmNjReq() {
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv();
+M2C_UNK TLobby__sub_8028C530();
+M2C_UNK start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
+}
+
 extern "C" {
 
 struct VOff_8028C7BC_arg0_8028C6EC { char pad_0[0x30]; char f_30[1]; };
@@ -28,6 +36,26 @@ void strncpy(void *, void *, int);
 
 extern M2C_UNK __vt__16TChCrLoadGmNjReq[];
 extern void *lbl_805D3B58;
+
+void run_task__16TChCrLoadGmNjReqFv(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x70) - 1;
+    M2C_FIELD(arg0, s32 *, 0x70) = temp_r0;
+    if (temp_r0 < 0) {
+        queue_destruction__7TObjectFv();
+        return;
+    }
+    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x2C);
+    switch (temp_r0_2) {
+    case 0:
+        start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
+        return;
+    case 1:
+        TLobby__sub_8028C530();
+        return;
+    }
+}
 
 void *TChCrLoadGmNjReq__ct(void *arg0, void *arg1, void *arg2) {
     struct VOff_8028C7BC_arg0_8028C6EC *self = (struct VOff_8028C7BC_arg0_8028C6EC *)arg0;

@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TWindowMainMenu__sub_802ADED4(void *, int);
+M2C_UNK TWindowMainMenu__sub_802ADF20(void *, int);
+s32 TWindowMainMenu__sub_802AE2B0();
+}
+
+extern "C" {
 
 void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
@@ -15,6 +21,13 @@ void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
+
+void render__19TWindowMenuMainMenuFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = TWindowMainMenu__sub_802AE2B0();
+    TWindowMainMenu__sub_802ADF20((void *) (arg0), (int) (temp_r3));
+    TWindowMainMenu__sub_802ADED4((void *) (arg0), (int) (temp_r3));
+}
 
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     s32 var_r31;

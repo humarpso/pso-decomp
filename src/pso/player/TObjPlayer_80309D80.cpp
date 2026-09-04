@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
+int TObjEneDellBiter__sub_80087350(void*, void*);
+void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
+}
+
+extern "C" {
 
 struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
@@ -96,5 +102,7 @@ s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     }
     return temp_r3;
 }
+
+void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2) { TObjEneDellBiter__sub_80087350(a1, a2); }
 
 }

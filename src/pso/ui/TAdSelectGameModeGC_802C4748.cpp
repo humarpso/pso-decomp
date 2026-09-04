@@ -5,6 +5,12 @@ TAdSelectGameModeGC::~TAdSelectGameModeGC() {}
 #include "types.h"
 
 extern "C" {
+void render__19TAdSelectGameModeGCFv(void);
+int TAdSelectGameModeGC__sub_802C476C(void* p);
+int enable_camera__19TAdSelectGameModeGCFv(void*);
+}
+
+extern "C" {
 
 int fn_802C4748(void* p);
 s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
@@ -34,5 +40,9 @@ int set_state_flags__10TObjPlayerFPvUi(void*, void*);
 int sync_char_select_state__10TObjPlayerFv(void*);
 
 int fn_802C4748(void* p) { return sync_char_select_state__10TObjPlayerFv(p); }
+
+void render__19TAdSelectGameModeGCFv(void) {  }
+
+int TAdSelectGameModeGC__sub_802C476C(void* p) { return enable_camera__19TAdSelectGameModeGCFv(p); }
 
 }

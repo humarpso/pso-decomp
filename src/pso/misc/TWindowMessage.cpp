@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowSubStatusDisp__sub_80244364();
+M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+}
+
+extern "C" {
 
 void *__dt__14TWindowMessageFv(void *arg0, s16 arg1);
 void draw__14TWindowMessageFPv(u8 *arg0);
@@ -18,6 +24,13 @@ M2C_UNK fn_802698C4(void *);
 void free__11TOBoss4RockFUi(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
+
+void render__14TWindowMessageFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+}
 
 void draw__14TWindowMessageFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {

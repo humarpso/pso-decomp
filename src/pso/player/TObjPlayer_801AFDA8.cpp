@@ -1,5 +1,17 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+u8 TFontSmallLobby__sub_801AFEE0(void);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern s32 enable_v2_features;
+extern s32 lbl_805D5550;
+u8 TFontSmallLobby__sub_801AFEE0(void);
+}
+
 extern "C" {
 
 int TObjPlayer__sub_801AFDB0(void);
@@ -59,6 +71,10 @@ u8 is_key_machine_ready__10TObjPlayerFv(void) {
 }
 u8 is_volopt_phase_final__10TObjPlayerFv(void) {
     return (u8) (get_field_3e0__12TBoss3VoloptFPv() == 0xF);
+}
+
+u8 TFontSmallLobby__sub_801AFEE0(void) {
+    return (u8) (get_global_state__14TOKeyMachine01Fv() == 0xF);
 }
 
 void apply_camera_shake__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
