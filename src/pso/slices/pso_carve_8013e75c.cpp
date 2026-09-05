@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int set_target_index__11TMainCursorFPvs(void*, void* a1);
+int TMainCursor__sub_8013E75C(void* p, void* _w1);
+}
+
+extern "C" {
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -47,7 +52,6 @@ int TMainCursor__sub_8013E6E0(void* p);
 int update_action_palette__11TMainCursorFPv(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
-int TMainCursor__sub_8013E75C(void* p);
 s32 TMainCursor__sub_8013E810(void* p);
 s32 TMainCursor__sub_8013E818(void* p);
 s32 TMainCursor__sub_8013E820(void* p);
@@ -87,10 +91,9 @@ int get_type__11TMainCursorFPv(void*);
 int set_slot__20TWindowActionPaletteFPvUc(void*);
 int set_mode__20TWindowActionPaletteFPvUc(void*);
 int TMainCursor__sub_8013DFC4(void*);
-int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
-
-int TMainCursor__sub_8013E75C(void* p) { return set_target_index__11TMainCursorFPvs((char*)p + 0x60); }
 
 }
+
+int TMainCursor__sub_8013E75C(void* p, void* _w1) { return set_target_index__11TMainCursorFPvs((void*)((char*)p + 0x60), (void*)(_w1)); }
 
 }

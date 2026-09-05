@@ -8,13 +8,20 @@ extern "C" {
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
 s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1);
+s32 is_split_screen();
+int TFogCtrl__sub_800FAFE0(s32, s32, s32);
+extern M2C_UNK TFogCtrl__data_80501188[];
+s32 TFogCtrl__sub_800FAB94(s32 arg0, s32 arg1, s32 arg2);
+s32 is_split_screen();
+s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1);
+extern M2C_UNK TFogCtrl__data_80501188[];
+s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0);
 }
 
 extern "C" {
 
 s32 TFogCtrl__sub_800FAC84(void* p);
 int TFogCtrl__sub_800FAC90(void);
-int TFogCtrl__sub_800FAFE0(void);
 int TFogCtrl__sub_800FB06C(void);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
 void* get_entry__8TFogCtrlFi(int a0);
@@ -22,6 +29,29 @@ void update_all__8TFogCtrlFv(void);
 M2C_UNK TFogCtrl__sub_800FAE1C(void *);
 s32 get_param__8TFogCtrlFPv(void* p);
 s32 is_split_screen();
+
+s32 TFogCtrl__sub_800FAB94(s32 arg0, s32 arg1, s32 arg2) {
+    if (is_split_screen() == 0) {
+        arg0 = 0;
+    }
+    if ((arg0 >= 0) && (arg0 < 4) && ((u32) TFogCtrl__data_80501188[arg0] != 0U)) {
+        return ((s32)TFogCtrl__sub_800FAFE0((s32)(TFogCtrl__data_80501188[arg0]), (s32)(arg1), (s32)(arg2)));
+    }
+    return 0;
+}
+
+s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0) {
+    if (is_split_screen() == 0) {
+        arg1 = 0;
+    }
+    if ((arg1 >= 0) && (arg1 < 4)) {
+        s32 elem = *(s32 *)(((s8 *)&TFogCtrl__data_80501188) + arg1 * 4);
+        if ((u32) elem != 0U) {
+            return TFogCtrl__sub_800FAF3C((u8 *)(elem), (s32)(arg0));
+        }
+    }
+    return 0;
+}
 
 s32 TFogCtrl__sub_800FAC84(void* p) { return *(s32*)((char*)*(void**)((char*)p + 0x174) + 0x40); }
 
@@ -89,7 +119,7 @@ s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1) {
     return 1;
 }
 
-int TFogCtrl__sub_800FAFE0(void) { return 0; }
+int TFogCtrl__sub_800FAFE0(s32 _w0, s32 _w1, s32 _w2) { return 0; }
 int TFogCtrl__sub_800FB06C(void) { return 0; }
 
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2) {

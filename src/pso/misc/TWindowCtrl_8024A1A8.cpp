@@ -23,6 +23,11 @@ u32 get_window__11TWindowCtrlFi(void);
 s32 update_field28__15TWindowCtrlMainFPv(u32 a0 = 0, s32 a1 = 0);
 int fn_80308244(void);
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
+s32 TWindowCtrl__sub_8024A314(void);
+extern void *TWindowCtrl__data_805D63F8;
+void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
+M2C_UNK TWindow__close(void *);
+void TWindowCtrl__sub_8024A4EC(void);
 }
 
 extern "C" {
@@ -127,6 +132,13 @@ void create_timer__11TWindowCtrlFv(void) {
 }
 
 extern void *TWindowCtrl__data_805D63F8;
+
+void TWindowCtrl__sub_8024A4EC(void) {
+    if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) != 0U)) {
+        TWindow__close(M2C_FIELD(TWindowCtrl__data_805D63F8, void **, 0x30));
+        M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) = 0U;
+    }
+}
 
 void create_alt_timer__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) == 0U)) {

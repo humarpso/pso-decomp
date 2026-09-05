@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
 M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
@@ -27,15 +32,15 @@ extern const f32 lbl_805DFAC8;
 extern const f32 lbl_805DFACC;
 extern const f32 lbl_805DFAD0;
 void TObjPlayer__sub_8033E988(void);
+void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-void free_indexed_entry__10TObjPlayerFPv(void *arg0);
+void free_indexed_entry__10TObjPlayerFPv(void *arg0, s32 _w1);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 int TObjPlayer__sub_803078B0(void);
-M2C_UNK TObjPlayer__sub_8033EAF0(s32);
 int TObjPlayer__sub_803DC83C(void*);
 int TObjPlayer__sub_803DC850(void*);
 int TObjPlayer__sub_803E1D90(int, int, int, int);
@@ -75,13 +80,22 @@ void TObjPlayer__sub_8033E988(void) {
     }
 }
 
-void free_indexed_entry__10TObjPlayerFPv(void *arg0) {
+void free_indexed_entry__10TObjPlayerFPv(void *arg0, s32 _w1) {
     s32 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
     if (temp_r0 < 0x10) {
-        TObjPlayer__sub_8033EAF0(M2C_FIELD(arg0, s32 *, 0x1C) + (temp_r0 * 0x24));
+        TObjPlayer__sub_8033EAF0((s32)(M2C_FIELD(arg0, s32 *, 0x1C) + (temp_r0 * 0x24)), (s32)(_w1));
     }
+}
+void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1) {
+    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
+    *(M2CCopy_C *)(arg0 + 0xC) = *(const M2CCopy_C *)(arg1 + 0xC);
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg1, s32 *, 0x1C);
+    M2C_FIELD(arg0, u16 *, 0x20) = (u16) M2C_FIELD(arg1, u16 *, 0x20);
+    M2C_FIELD(arg0, u8 *, 0x22) = (u8) M2C_FIELD(arg1, u8 *, 0x22);
+    M2C_FIELD(arg0, u8 *, 0x23) = (u8) M2C_FIELD(arg1, u8 *, 0x23);
 }
 
 }

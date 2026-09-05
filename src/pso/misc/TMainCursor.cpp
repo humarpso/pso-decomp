@@ -5,12 +5,32 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F950(void);
+void TKeyBoardControl__sub_8000F95C(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F978(void);
+void TKeyBoardControl__sub_8000F984(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F998(void);
+void TKeyBoardControl__sub_8000F9A4(void);
+int TMainCursor__sub_8013DF5C(void*, void* a1, void* a2);
+extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_805D62B0;
+    extern int lbl_805D49A0;
+    extern int lbl_805D49A4;
+    extern int lbl_805D49A8;
+    extern int lbl_805D49B0;
+    extern int lbl_805D5678;
+    extern int lbl_805D5680;
+int TMainCursor__sub_8013BE98(void* p, void* _w1, void* _w2);
+}
 
-int TMainCursor__sub_8013BE98(void* p);
+extern "C" {
+
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1);
 void update_position__11TMainCursorFi(s32 arg0);
 s32 TMainCursor__sub_8013DF08();
-int TMainCursor__sub_8013DF5C(void*, void* a1 = 0, void* a2 = 0);
 void TMainCursor__sub_8013E5E8(void *, int);
 void *TPhotonMylla__sub_80154CB4();
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
@@ -47,7 +67,6 @@ void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-int TMainCursor__sub_8013BE98(void* p) { return TMainCursor__sub_8013DF5C(p); }
+int TMainCursor__sub_8013BE98(void* p, void* _w1, void* _w2) { return TMainCursor__sub_8013DF5C((void*)(p), (void*)(_w1), (void*)(_w2)); }
 
 }

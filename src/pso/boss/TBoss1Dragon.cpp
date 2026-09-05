@@ -82,6 +82,17 @@ struct VObj_18_5c4a6f : VBase_18_5c4a6f {
 
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 objInBand__FP7GameObjf(f32);
+void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
+extern const f32 TBoss1Dragon__data_805D7FF8;
+void TBoss1Dragon__sub_80028B98(s32 arg0);
+}
+
 extern "C" {
 int TBoss1Dragon__sub_80020A34(void* p);
 void draw__12TBoss1DragonFPv(u8 *arg0);
@@ -469,6 +480,12 @@ void TBoss1Dragon::clearState() {
 }
 
 extern "C" {
+
+void TBoss1Dragon__sub_80028B98(s32 arg0) {
+    if (objInBand__FP7GameObjf((f32) (TBoss1Dragon__data_805D7FF8)) != 0) {
+        play_se_at_pos__12TBoss1DragonFii((s32)((void *) (arg0)), (s32)((int) (0x4003A804)));
+    }
+}
 
 void spawn_trap__12TBoss1DragonFii(s32 arg0, s32 arg1) {
     TOTrapAncient01__sub_80226578(arg1, arg0, arg0 + 0x63C, 0, 0);

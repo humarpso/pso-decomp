@@ -4,6 +4,55 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_546d8d { char pad[0x18]; };
+
+struct VObj_18_546d8d : VBase_18_546d8d {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual M2C_UNK m21(M2C_UNK);
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual M2C_UNK m43();
+};
+
 extern "C" {
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 s8 TObjPlayer__sub_8010A770(u8 *arg0);
@@ -13,6 +62,11 @@ M2C_UNK check_flag_32__14TItemEquipBaseFPv(int);
 M2C_UNK TItemEquipBase__sub_801190B0(M2C_UNK, int);
 M2C_UNK TItemTimerEvent__sub_8011E0A4();
 void TItemEquipBase__sub_8010A948(u8 *arg0);
+M2C_UNK set_mode__5TItemFPvc(void *, int);
+M2C_UNK clear_item_flags__10TObjPlayerFPvUi(void *, int);
+void TItemEquipBase__sub_8010AAD0(void *);
+M2C_UNK delete_children__7TObjectFv(void *);
+void TItemEquipBase__sub_8010B198(u8 *arg0);
 }
 
 extern "C" {
@@ -169,6 +223,19 @@ void update_equip__14TItemEquipBaseFPv(void *arg0) {
         ((VObj_8010B054_8010A710 *)arg0)->m19();
     }
     destroy__5TItemFPv(arg0);
+}
+
+void TItemEquipBase__sub_8010B198(u8 *arg0) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
+        set_mode__5TItemFPvc((void *)(arg0), (int) (1));
+        clear_item_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x28));
+        ((VObj_18_546d8d *)(arg0))->m21(1);
+        TItemEquipBase__sub_8010AAD0((void *) (arg0));
+        ((VObj_18_546d8d *)(arg0))->m43();
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
+            delete_children__7TObjectFv(M2C_FIELD(arg0, void **, 0x174));
+        }
+    }
 }
 
 void release__14TItemEquipBaseFPv(void *arg0) {

@@ -261,12 +261,7 @@ public:
     char unused[4];
     TPlyJoinLobbyEntry entries[12];
 public:
-    void bswap() {
-        header.bswap();
-        for (int i = 0; i < 12; ++i) {
-            entries[i].bswap();
-        }
-    };
+    void bswap();
 };
 
 class TPlyJoinGame {

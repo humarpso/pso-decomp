@@ -5,10 +5,31 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F950(void);
+void TKeyBoardControl__sub_8000F95C(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F978(void);
+void TKeyBoardControl__sub_8000F984(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F998(void);
+void TKeyBoardControl__sub_8000F9A4(void);
+int TWindowSubTradeMain__sub_803312BC(void*, void* a1);
+extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_805D62B0;
+    extern int lbl_805D49A0;
+    extern int lbl_805D49A4;
+    extern int lbl_805D49A8;
+    extern int lbl_805D49B0;
+    extern int lbl_805D5678;
+    extern int lbl_805D5680;
+int TWindowSubTradeMain__sub_8033131C(void* p, void* _w1);
+}
+
+extern "C" {
 
 void TWindowSubTradeMain__sub_80330A84(void* p);
 int TWindowSubTradeMain__sub_80330B84(void *, u32, s32);
-int TWindowSubTradeMain__sub_8033131C(void* p);
 s32 create_help_item__19TWindowSubTradeMainFPv(void *arg0);
 s32 create_input_number__19TWindowSubTradeMainFPvi(void *arg0, s32 arg1);
 s32 create_list__19TWindowSubTradeMainFPv(void *arg0);
@@ -29,7 +50,6 @@ s32 TWindowShortListCtrl__sub_80278E48(M2C_UNK, M2C_UNK *, s32);
 s32 TWindowSubComCard__sub_8026CBB8(s32);
 M2C_UNK TWindowSubComCard__sub_802A5628(u32, s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
-int TWindowSubTradeMain__sub_803312BC(void*, void* a1 = 0);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create__18TWindowInputNumberFPvi(s32, s32);
 M2C_UNK ensure_status_display__20TWindowSubStatusDispFPvi(s32, s32);
@@ -145,7 +165,6 @@ s32 create_list__19TWindowSubTradeMainFPv(void *arg0) {
     set_field_1c__6TLobbyFPvf(temp_r31);
     return temp_r31;
 }
-
-int TWindowSubTradeMain__sub_8033131C(void* p) { return TWindowSubTradeMain__sub_803312BC(p); }
+int TWindowSubTradeMain__sub_8033131C(void* p, void* _w1) { return TWindowSubTradeMain__sub_803312BC((void*)(p), (void*)(_w1)); }
 
 }

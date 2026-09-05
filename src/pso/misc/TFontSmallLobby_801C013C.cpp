@@ -95,6 +95,11 @@ struct VBase_8003508C_80035084 {
     virtual void m85(s16, int);
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -126,10 +131,8 @@ extern s32 lbl_805D49B8;
 int TFontSmallLobby__sub_801C01BC(void* p);
 void TLobby__sub_8039664C(void *, void *, int);
 void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1);
-void* TFontSmallLobby__sub_801C0228(void* p);
 int TFontSmallLobby__sub_801C0258(void*);
     extern int TObjPlayer__data_8050D460[];
-void* TFontSmallLobby__sub_801C0228(void* p);
 int TFontSmallLobby__sub_801C01BC(void* p);
 void TFontSmallLobby__sub_801C029C(void* p);
 int TLobby__send_and_handle_60(void*);
@@ -149,7 +152,6 @@ extern const f32 TBoss2DeRolLe__data_805D827C;
 extern s32 TBoss2DeRolLe__data_805D4BC4;
 void TFontSmallLobby__sub_801C02D0(void* p);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
-void* TFontSmallLobby__sub_801C0228(void* p);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void TFontSmallLobby__sub_801C02D0(void* p);
 void TFontSmallLobby__sub_801C0378(void* p);
@@ -202,7 +204,6 @@ extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5D6C;
 void TLobby__sub_801C0524(void* p);
-void* TFontSmallLobby__sub_801C0228(void* p);
 void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1);
 void TObjPlayer__sub_801C0734(void* p);
 int TLobby__send_and_handle_60(void*);
@@ -215,7 +216,6 @@ void TObjPlayer__sub_801C0768(void *arg0);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_801C0768(void *arg0);
-void* TFontSmallLobby__sub_801C0228(void* p);
 void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1);
 int read_be16_field2__10TObjPlayerFPv(void*);
 int bswap_32__FPUl(void*);
@@ -278,6 +278,8 @@ extern s32 lbl_805D5D6C;
 void fn_801C0644(void* p);
 void TFontSmallLobby__sub_801C0274(u8 *arg0);
 void TFontSmallLobby__sub_801C041C(u8 *arg0);
+void* TFontSmallLobby__sub_801C0228(void* p);
+u8 *TObjPlayer__sub_801C07B4(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -301,7 +303,7 @@ void *TFontSmallLobby__sub_801C0164(void *arg0) {
 int TFontSmallLobby__sub_801C01BC(void* p) { return read_be16_field2__10TObjPlayerFPv(p); }
 
 void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1) {
-    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    TFontSmallLobby__sub_801C0228((void*)((void*)(arg0)));
     M2C_FIELD(arg0, u8 *, 0x4) = M2C_FIELD(arg1, u8 *, 0x4);
     TLobby__sub_8039664C((void *)((char *)arg0 + 5), (void *)((char *)arg1 + 5), 3);
     return arg0;
@@ -322,14 +324,14 @@ void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC((voi
 
 void TFontSmallLobby__sub_801C02D0(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 
-void* TFontSmallLobby__sub_801C030C(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
+void* TFontSmallLobby__sub_801C030C(void* p, void* a1) { TFontSmallLobby__sub_801C0228((void*)(p)); *(short*)((char*)p + 0x4) = *(unsigned short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); return p; }
 
 void TFontSmallLobby__sub_801C0378(void* p) { TFontSmallLobby__sub_801C02D0((void*)(p)); TLobby__sub_801E4534(p); }
 
 void TFontSmallLobby__sub_801C03AC(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_32__FPUl((char*)p + 0x4); }
 
 void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1) {
-    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    TFontSmallLobby__sub_801C0228((void*)((void*)(arg0)));
     M2C_FIELD(arg0, void **, 0x4) = M2C_FIELD(arg1, void **, 0x4);
     return arg0;
 }
@@ -380,7 +382,7 @@ void TObjPlayer__sub_801C0678(void *arg0) {
 }
 
 void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1) {
-    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    TFontSmallLobby__sub_801C0228((void*)((void*)(arg0)));
     M2C_FIELD(arg0, void **, 0x4) = M2C_FIELD(arg1, void **, 0x4);
     M2C_FIELD(arg0, u16 *, 0x8) = M2C_FIELD(arg1, s16 *, 0x8);
     M2C_FIELD(arg0, u16 *, 0xA) = M2C_FIELD(arg1, u16 *, 0xA);
@@ -395,6 +397,12 @@ void TObjPlayer__sub_801C0768(void *arg0) {
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 8)));
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 12)));
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 16)));
+}
+u8 *TObjPlayer__sub_801C07B4(u8 *arg0, u8 *arg1) {
+    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    *(M2CCopy_C *)((s32) arg0 + 8) = *(const M2CCopy_C *)((s32) arg1 + 8);
+    return arg0;
 }
 
 }

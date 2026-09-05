@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+extern int lbl_8044EA74[];
+void TWindowSubSymbolChatPartsSet__sub_802482B8(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 void get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(void *arg0, s32 arg1);
 void get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *arg0, s32 arg1);
@@ -17,6 +23,10 @@ int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0) {  return lbl_8044
 
 void get_entry_offset_d__28TWindowSubSymbolChatPartsSetFPvi(void *arg0, s32 arg1) {
     get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(arg1 + 0xD));
+}
+
+void TWindowSubSymbolChatPartsSet__sub_802482B8(s32 arg0, s32 arg1) {
+    get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(arg1 + 0x1));
 }
 
 void get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *arg0, s32 arg1) {

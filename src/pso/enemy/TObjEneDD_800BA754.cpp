@@ -33,11 +33,13 @@ extern "C" {
 u32 TObjEneDD__sub_800BA828(u16 arg0);
 void TObjEneDD__sub_800BA870(u8 *arg0);
 void TObjEneDD__sub_800BA88C(u8 *arg0);
+u32 TObjPlayer__sub_8007A3AC(void *, void *);
+s32 is_alive__9TObjEneDDFPv(void *arg0);
+s32 TObjEneDD__sub_800BA754(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-int TObjEneDD__sub_800BA754(void*, void*, void*);
 int TObjEneDD__sub_800BA804(void);
 int TObjEneDD__sub_800BA838(void);
 void TObjEneDD__vt85(void);
@@ -53,11 +55,15 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 void clear_field_388__9TObjEneDDFPv(void* p);
 void init_model__9TObjEneDDFPv(void* p);
-u8 is_alive__9TObjEneDDFPv(void *arg0);
 void set_active__9TObjEneDDFPv(void* p);
 void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1);
 
-int TObjEneDD__sub_800BA754(void*, void*, void*) { return 0; }
+s32 TObjEneDD__sub_800BA754(s32 arg0, s32 arg1) {
+    if ((is_alive__9TObjEneDDFPv((void *)(arg0)) != 0) && (TObjPlayer__sub_8007A3AC((void *) (arg1), (void *) (arg0 + 0x2FC)) == 0U)) {
+        return 1;
+    }
+    return 0;
+}
 
 u8 is_valid_target__9TObjEneDDFPv(void *arg0) {
     int var_r31;

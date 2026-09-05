@@ -4,11 +4,27 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase18 { char pad[0x18]; };
+
+struct VObj18 : VBase18 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual M2C_UNK m8(f32, f32); };
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
 s32 TOKey__sub_8016A310(void *);
 s32 TOKeyAncient03__vt13(u8 *arg0);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TOSignCave03__sub_803DB510(int);
+extern s32 lbl_805D5A04;
+extern void *lbl_805D5A08;
+void render__14TOKeyAncient02Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -31,6 +47,53 @@ M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 void TOKeyAncient02__vt23(void) {  }
 
 extern void *tl_05;
+
+void render__14TOKeyAncient02Fv(u8 *arg0) {
+    u8 *temp_r31;
+    u8 *temp_r31_2;
+    u8 *temp_r31_3;
+    u8 *temp_r31_4;
+    u8 *temp_r31_5;
+    if (((VObj18*)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        temp_r31 = M2C_FIELD(arg0, u8 **, 0x34);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+        temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+        set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x68));
+        begin_effect_render__13TParticleCtrlFv();
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B78();
+        temp_r31_3 = M2C_FIELD(temp_r31_2, u8 **, 0x30);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B78();
+        set_global_param__8TObjFishFi((int) (M2C_FIELD((*(s32 *)&lbl_805D5A08), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xD4) * 4))));
+        begin_effect_render__13TParticleCtrlFv();
+        temp_r31_4 = (u8 *)((*(u8 * *)&lbl_805D5A04));
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_4 + 8));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
+        temp_r31_5 = M2C_FIELD(temp_r31_4, u8 **, 0x2C);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_5 + 8));
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xEC)));
+        TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_5, s32 *, 4)));
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803D9B78();
+        end_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B78();
+    }
+}
 
 void *create__14TOKeyAncient02FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);

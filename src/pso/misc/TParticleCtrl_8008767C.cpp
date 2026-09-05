@@ -5,6 +5,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void render__19TWindowMessageYesNoFv(void);
+void *TParticleCtrl__sub_8008673C(int);
+void *TParticleCtrl__sub_8008B060(void *, void *, void *, void *, void *);
+void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void render__19TWindowMessageYesNoFv(void);
+extern M2C_UNK __vt__19TWindowMessageYesNo[];
+extern void *lbl_805D3DF8;
+void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3);
+void *TParticleCtrl__sub_80089B50(void *, void *, void *, void *);
+void *TParticleCtrl__sub_8008673C(int);
+void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2);
+void *TParticleCtrl__sub_8008C21C(void *, void *, void *, void *);
+void *TParticleCtrl__sub_8008673C(int);
+void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2);
+}
+
+extern "C" {
 
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
@@ -71,6 +88,15 @@ s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0) {
 
 extern M2C_UNK TParticleCtrl__data_8048E778[];
 
+void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2) {
+    void *o;
+    o = TParticleCtrl__sub_8008673C(0xd0);
+    if (o != NULL) {
+        o = TParticleCtrl__sub_80089B50(o, arg0, arg1, arg2);
+    }
+    return o;
+}
+
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E778;
@@ -84,6 +110,15 @@ void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1) {
 
 extern M2C_UNK TParticleCtrl__data_8048E790[];
 
+void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3) {
+    void *o;
+    o = TParticleCtrl__sub_8008673C(0xe0);
+    if (o != NULL) {
+        o = TParticleCtrl__sub_8008B060(o, arg0, arg1, arg2, arg3);
+    }
+    return o;
+}
+
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E790;
@@ -96,6 +131,15 @@ void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK TParticleCtrl__data_8048E7A8[];
+
+void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2) {
+    void *o;
+    o = TParticleCtrl__sub_8008673C(0xc4);
+    if (o != NULL) {
+        o = TParticleCtrl__sub_8008C21C(o, arg0, arg1, arg2);
+    }
+    return o;
+}
 
 void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -3,6 +3,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
+void TWindowCtrl__sub_8027D1F8(void);
+void TWindow__close(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+extern M2C_UNK __vt__20TWindowSubQuestBoard[];
+extern void *lbl_805D4278;
+void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1);
+}
+
+extern "C" {
 
 void TWindowSubQuestBoard__sub_8027CCC8(void);
 void TWindowSubQuestBoard__sub_8027CF50(s32 arg0, s32 arg1);
@@ -52,5 +62,17 @@ void set_card_flags_scaled__20TWindowSubQuestBoardFii(s32 arg0, s32 arg1) {
 }
 int set_card_flags_direct__20TWindowSubQuestBoardFPvi(void* p, int a1) { return set_card_window_flags__19TWindowKeyBoardHardFPvii(p, a1, -2); }
 void render__20TWindowSubQuestBoardFv(void) {  }
+void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TWindowSubQuestBoard;
+        TWindowCtrl__sub_8027D1F8();
+        if (M2C_FIELD(arg0, void **, 0x28) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x28)); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 }

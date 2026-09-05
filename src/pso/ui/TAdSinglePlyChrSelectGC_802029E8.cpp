@@ -6,11 +6,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
+int fn_8020325C(void *arg0);
+s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
+M2C_UNK TObjPlayer__sub_803966F8(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
+s32 __dl__FPv(s32);
+extern M2C_UNK lbl_805D5FB0;
+extern int lbl_805D5F58;
+extern s32 lbl_805D5F60;
+extern s32 *lbl_805D5F64;
+extern int lbl_805D5F74;
+s32 TAdSinglePlyChrSelectGC__sub_80202A74(s32 arg0, s16 arg1);
 }
 
 extern "C" {
 
-int TAdSinglePlyChrSelectGC__sub_80202A74(void);
 int TAdSinglePlyChrSelectGC__sub_80202B1C(void);
 u8 TAdSinglePlyChrSelectGC__sub_80202B30(void* p);
 int TAdSinglePlyChrSelectGC__sub_80202B38(void);
@@ -23,7 +32,6 @@ int TAdSinglePlyChrSelectGC__sub_80203220(void);
 u8 check_flag__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void clear_flags__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
-int fn_8020325C(void);
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 int get_instance__23TAdSinglePlyChrSelectGCFv(void);
@@ -58,7 +66,15 @@ s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x194AC);
 }
 
-int TAdSinglePlyChrSelectGC__sub_80202A74(void) { return 0; }
+s32 TAdSinglePlyChrSelectGC__sub_80202A74(s32 arg0, s16 arg1) {
+    if (arg0 != 0) {
+        TObjPlayer__sub_803966F8(arg0 + 4, (M2C_UNK *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39b4, 7);
+        if (arg1 > 0) {
+            __dl__FPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
@@ -132,6 +148,13 @@ void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p) { init_guild_ca
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p) { *(u32*)((char*)p + 0x4) &= 0xfffffff7; }
 
 int TAdSinglePlyChrSelectGC__sub_80203220(void) { return 0; }
-int fn_8020325C(void) { return 0; }
+int fn_8020325C(void *arg0) {
+    int var_r4;
+    var_r4 = 0;
+    if (((u8) M2C_FIELD(arg0, u8 *, 0x0) == 1) && ((u8) M2C_FIELD(arg0, u8 *, 0x1) == 3)) {
+        var_r4 = 1;
+    }
+    return (u8)var_r4;
+}
 
 }

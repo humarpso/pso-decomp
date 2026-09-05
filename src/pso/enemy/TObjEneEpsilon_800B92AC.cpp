@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjEneEpsilon__sub_800B965C(u8 *arg0, s32 arg1);
+int copy_position__14TObjEneEpsilonFPv(void *, void *);
+void TObjEneEpsilon__sub_800B96A4(u8 *arg0);
 }
 
 extern "C" {
@@ -40,8 +42,6 @@ struct VObj_800B9578_800B92AC : Base_800B9578_800B92AC {
 };
 
 int TObjEneEpsilon__sub_800B95E0(void *);
-int TObjEneEpsilon__sub_800B96A4(void);
-int copy_position__14TObjEneEpsilonFPv(void* p);
 void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -110,8 +110,13 @@ void TObjEneEpsilon__sub_800B965C(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x3B8) = (s32) ((M2C_FIELD(arg0, u16 *, 0x1C) + 3) % M2C_FIELD(arg0, s32 *, 0x3BC));
 }
 
-int copy_position__14TObjEneEpsilonFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x394); }
-
-int TObjEneEpsilon__sub_800B96A4(void) { return 0; }
+int copy_position__14TObjEneEpsilonFPv(void* p, void * _w1) { return VecCopy__FP3VecPC3Vec((char*)p + 0x394); }
+void TObjEneEpsilon__sub_800B96A4(u8 *arg0) {
+    u32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, u32 *, 0x390);
+    if (temp_r4 != 0U) {
+        copy_position__14TObjEneEpsilonFPv((void *)((void *)(arg0)), (void *)((void *) (temp_r4 + 0x38)));
+    }
+}
 
 }

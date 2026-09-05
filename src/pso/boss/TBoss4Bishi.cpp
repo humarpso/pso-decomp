@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805D8CBC;
+extern const f32 lbl_805D8CC8;
+extern const f32 lbl_805D8CE4;
+void TBoss4Zako__vt6(u8 *arg0);
+}
+
+extern "C" {
 
 struct VOff_8005C450_arg0_8005BABC { char pad_0[0x38]; char f_38[1]; };
 
@@ -28,7 +37,6 @@ void TBoss4Zako__sub_8005C368(void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
 s32 TObjControl__ct(s32, s32);
 int TObjPlayer__sub_800F6B68(void*);
-void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TBoss4ZakoFPvs(void *, int);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -92,6 +100,19 @@ s32 create__11TBoss4BishiFi(s32 arg0) {
         var_r31 = TBoss4Bishi__ct(var_r31, var_r4, arg0);
     }
     return var_r31;
+}
+
+void TBoss4Zako__vt6(u8 *arg0) {
+    f32 temp_f1;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x390);
+    M2C_FIELD(arg0, f32 *, 0x390) = (f32) (temp_f1 + lbl_805D8CE4);
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x44)), (void *)((void *) (arg0 + 0x38)));
+    TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (arg0 + 0x38C));
+    if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC8) {
+        M2C_FIELD(arg0, f32 *, 0x390) = (f32) lbl_805D8CBC;
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D8CC8;
+        M2C_FIELD(arg0, s32 *, 0x374) = 2;
+    }
 }
 
 void TBoss4Zako__vt4(void *arg0) {

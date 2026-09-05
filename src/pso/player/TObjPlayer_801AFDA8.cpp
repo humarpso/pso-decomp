@@ -7,7 +7,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 TFontSmallLobby__sub_801AFEE0(void);
-s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 enable_v2_features;
 extern s32 lbl_805D5550;
 u8 TFontSmallLobby__sub_801AFEE0(void);
@@ -15,8 +14,26 @@ s8 TObjPlayer__sub_801AFDB0(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8 arg0);
 s32 TObjPlayer__sub_800196EC();
 void TObjPlayer__sub_801AFF50(u8 *arg0);
-s32 TObjPlayer__sub_801AFFB0();
 void TObjPlayer__sub_801AFF80(u8 *arg0);
+extern s32 lbl_805D49C0;
+void TKeyBoardControl__sub_8000F950(void);
+void TKeyBoardControl__sub_8000F95C(void);
+extern s32 lbl_805D49BC;
+void TKeyBoardControl__sub_8000F978(void);
+void TKeyBoardControl__sub_8000F984(void);
+extern s32 lbl_805D49B8;
+void TKeyBoardControl__sub_8000F998(void);
+void TKeyBoardControl__sub_8000F9A4(void);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_805D62B0;
+    extern int lbl_805D49A0;
+    extern int lbl_805D49A4;
+    extern int lbl_805D49A8;
+    extern int lbl_805D49B0;
+    extern int lbl_805D5678;
+    extern int lbl_805D5680;
+int TObjPlayer__sub_801AFFB0(void* p);
 }
 
 extern "C" {
@@ -32,7 +49,6 @@ s32 TObjPlayer__sub_80019248(s32);
 s32 TObjPlayer__sub_80203418();
 s32 check_technique_flag__10TObjPlayerFPv(s32);
 s32 get_field_3e0__12TBoss3VoloptFPv();
-s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_map_id__13TRaderMapCoreFPv(void* p);
 s32 has_item_flag_4096__10TObjPlayerFPv(s32);
 s32 is_camera_mode_active__10TObjPlayerFv();
@@ -95,8 +111,10 @@ void TObjPlayer__sub_801AFF50(u8 *arg0) {
 }
 
 void TObjPlayer__sub_801AFF80(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x3E0) = TObjPlayer__sub_801AFFB0();
+    M2C_FIELD(arg0, s32 *, 0x3E0) = TObjPlayer__sub_801AFFB0((void*)(arg0));
 }
+
+int TObjPlayer__sub_801AFFB0(void* p) { return ((int)get_global_state__14TOKeyMachine01Fv()); }
 
 void apply_camera_shake__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     if ((is_technique_ready__8TTecCtrlFv() != 0) && (obj_testFlags30(arg1, 0x10000000) == 0) && (TObjPlayer__sub_80019248(arg0) != 0)) {

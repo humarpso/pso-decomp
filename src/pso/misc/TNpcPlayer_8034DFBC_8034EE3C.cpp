@@ -4,15 +4,18 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void TNpcPlayer__sub_8034EE3C(u16 arg0);
+M2C_UNK end_camera_pan__10TObjPlayerFPv();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void TNpcPlayer__sub_8034EEB4(u16 arg0);
 }
 
 extern "C" {
 
-int TNpcPlayer__sub_8034EEB4(void);
 void apply_to_battle_player_slot__10TNpcPlayerFUss(u16 arg0, s16 arg1);
 void build_6x69_npc_control(void* p);
 void byteswap_header__10TNpcPlayerFPv(void* p);
@@ -45,7 +48,11 @@ void update_player_field__10TNpcPlayerFUsi(u16 arg0, s32 arg1) {
     }
 }
 
-int TNpcPlayer__sub_8034EEB4(void) { return 0; }
+void TNpcPlayer__sub_8034EEB4(u16 arg0) {
+    if (TPlayerBattleCtrl4P__sub_801BA74C((u32)((void *) (arg0))) != 0U) {
+        end_camera_pan__10TObjPlayerFPv();
+    }
+}
 
 void apply_to_battle_player_slot__10TNpcPlayerFUss(u16 arg0, s16 arg1) {
     u32 temp_r3;

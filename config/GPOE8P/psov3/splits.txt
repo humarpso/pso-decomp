@@ -793,16 +793,7 @@ pso/boss/TBoss4Uro.cpp:
 	.text       start:0x8004C19C end:0x8004C1AC
 
 pso/unk/text_8004C1AC.cpp:
-	.text       start:0x8004C1AC end:0x8004C474
-
-pso/unk/text_8004C1AC_8004C474.cpp:
-	.text       start:0x8004C474 end:0x8004C540
-
-pso/unk/text_8004C1AC_8004C540.cpp:
-	.text       start:0x8004C540 end:0x8004C798
-
-pso/unk/text_8004C1AC_8004C798.cpp:
-	.text       start:0x8004C798 end:0x8004C93C
+	.text       start:0x8004C1AC end:0x8004C93C
 
 pso/boss/TBoss4DarkFalz_8004C93C_8004C93C.cpp:
 	.text       start:0x8004C93C end:0x8004D050
@@ -14273,10 +14264,7 @@ pso/misc/TWindowMessageYesNo.cpp:
 	.text       start:0x802A5998 end:0x802A5B2C
 
 pso/misc/TWindowSnapShot_802A5B2C.cpp:
-	.text       start:0x802A5B2C end:0x802A5EDC
-
-pso/misc/TWindowSnapShot_802A5B2C_802A5EDC.cpp:
-	.text       start:0x802A5EDC end:0x802A6080
+	.text       start:0x802A5B2C end:0x802A6080
 
 pso/misc/TLobby_802A6080.cpp:
 	.text       start:0x802A6080 end:0x802A6168
@@ -16371,13 +16359,7 @@ pso/misc/TScene_80327B00.cpp:
 	.text       start:0x80327B00 end:0x80327D30
 
 pso/misc/TParticleCtrl_80327D30.cpp:
-	.text       start:0x80327D30 end:0x80327F0C
-
-pso/misc/TParticleCtrl_80327D30_80327F0C.cpp:
-	.text       start:0x80327F0C end:0x80328090
-
-pso/misc/TParticleCtrl_80327D30_80328090.cpp:
-	.text       start:0x80328090 end:0x803281B8
+	.text       start:0x80327D30 end:0x803281B8
 
 pso/unk/text_803281B8.cpp:
 	.text       start:0x803281B8 end:0x80328210
@@ -17123,17 +17105,8 @@ pso/object/TObjButterflyLobby.cpp:
 pso/unk/text_803516F8.cpp:
 	.text       start:0x803516F8 end:0x80351748
 
-pso/player/TObjPlayer_80351748_80351748.cpp:
-	.text       start:0x80351748 end:0x803517F8
-
 pso/player/TObjPlayer_80351748.cpp:
-	.text       start:0x803517F8 end:0x80351938
-
-pso/player/TObjPlayer_80351748_80351938.cpp:
-	.text       start:0x80351938 end:0x80351974
-
-pso/player/TObjPlayer_80351748_80351974.cpp:
-	.text       start:0x80351974 end:0x80351A2C
+	.text       start:0x80351748 end:0x80351A2C
 
 pso/boss/TBoss5GryphonLightningWing.cpp:
 	.text       start:0x80351A2C end:0x80351E64

@@ -6,6 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjEnePanarms__sub_800E0930(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
+void TObjEnePanarms__sub_800E0CB0(u8 *arg0);
 }
 
 extern "C" {
@@ -32,7 +35,6 @@ s32 TObjPlayer__sub_801423A4(s32, s32, M2C_UNK);
 u8 *TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
-int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
 
 void update_move_timer__14TObjEnePanarmsFPv(u8 *arg0) {
     s32 temp_r0;
@@ -128,6 +130,18 @@ void update_hit_state__14TObjEnePanarmsFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800E1C98((void *)(arg0), (s32)(0));
     }
+}
+
+void TObjEnePanarms__sub_800E0CB0(u8 *arg0) {
+    u8 *temp_r4;
+    u8 *temp_r5;
+    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
+    M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (M2C_FIELD(arg0, u8 **, 0x39C) + 0x38));
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x39C));
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(temp_r5, s32 *, 0x60);
+    M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) | 1);
+    set_field_b8__14TObjEnePanarmsFPvs((void*)((void *) (arg0)), (int)((int) (8)));
 }
 
 void start_action__14TObjEnePanarmsFPv(void *arg0) {

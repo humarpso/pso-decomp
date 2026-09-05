@@ -15,12 +15,13 @@ s32 add_damage__11TBoss6Type2FPvi(void *, int);
 extern const f32 TBoss6Type2__data_805DE40C;
 void TBoss6Type2__vt60(u8 *arg0);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
+s32 VecCopy__FP3VecPC3Vec(s32 a0, s32 a1);
+void TBoss6Type2__sub_802BD2D0(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 int TBoss6Type2__sub_802BCFD4(void);
-void TBoss6Type2__sub_802BD2D0(s32 arg0, s32 arg1, s32 arg2);
 void TBoss6Type2__sub_802BD340(void);
 int TBoss6Type2__sub_802BD378(void);
 int TBoss6Type2__sub_802BD3CC(void);
@@ -62,7 +63,6 @@ s32 TObjControl__ct(s32, s32);
 f32 TObjPlayer__sub_80014108(void *, u32, f32);
 u8 *TObjPlayer__sub_80015DC4(u32, s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(u16);
-s32 VecCopy__FP3VecPC3Vec(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 get_phase__11TBoss6Type2FPv();
 s32 get_phase__14TBoss6PlotFalzFv();
@@ -98,16 +98,16 @@ void copy_transform__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0
 int TBoss6Type2__sub_802BCFD4(void) { return 0; }
 
 void copy_pos_620__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
-    VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x620, arg0);
+    VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x620);
 }
 
 void TBoss6Type2__sub_802BD2D0(s32 arg0, s32 arg1, s32 arg2) {
-    VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x5FC);
-    VecCopy__FP3VecPC3Vec(arg2, arg0 + 0x5C0);
+    VecCopy__FP3VecPC3Vec((s32)((void *) (arg1)), (s32)((void *) (arg0 + 0x5FC)));
+    VecCopy__FP3VecPC3Vec((s32)((void *) (arg2)), (s32)((void *) (arg0 + 0x5C0)));
 }
 
 void copy_pos_59c__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
-    VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x59C, arg0);
+    VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x59C);
 }
 void TBoss6Type2__sub_802BD340(void) {  }
 void apply_damage__11TBoss6Type2FPvi(void *arg0, s32 arg1) {

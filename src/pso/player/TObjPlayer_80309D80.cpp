@@ -4,6 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_PTR18_8030A400 { char pad[0x18]; };
+
+struct VObj_PTR18_8030A400 : VBase_PTR18_8030A400 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62();
+    virtual M2C_UNK m63(M2C_UNK, s32);
+};
+
 extern "C" {
 void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 int TObjEneDellBiter__sub_80087350(void*, void*);
@@ -14,6 +36,11 @@ void TObjPlayer__sub_8030A030(void *arg0, void *arg1);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectLeftHand__ct(void *, void *);
 void TObjPlayer__sub_8030A07C(void *arg0, void *arg1);
+void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
+s32 get_position_ptr__10TObjPlayerFPv(s32);
+extern M2C_UNK __vt__22TPlyPtclObjectLeftHand[];
+s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
 }
 
 extern "C" {
@@ -124,5 +151,14 @@ s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2) { TObjEneDellBiter__sub_80087350(a1, a2); }
+s32 TPlyPtclObjectRightHand__vt7(s32 arg0) {
+    void *temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u16) get_lifetime__22TPlyFollowParticleCtrlFPv());
+    if (temp_r3 == NULL) {
+        return 0;
+    }
+    ((VObj_PTR18_8030A400 *) temp_r3)->m63(0x30, get_position_ptr__10TObjPlayerFPv(arg0));
+    return get_position_ptr__10TObjPlayerFPv(arg0);
+}
 
 }

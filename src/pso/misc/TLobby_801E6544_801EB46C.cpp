@@ -11,6 +11,46 @@ s32 is_split_screen(void);
 M2C_UNK TLobby__sub_80071064(int);
 M2C_UNK TLobby__sub_80292604(int);
 void TLobby__sub_801ECF2C(s32 arg0);
+u8 *get_state__23TAdSinglePlyChrSelectGCFv();
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EB94C(s32 arg0);
+s32 is_boss_phase_reached__6TLobbyFv();
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EBE14(s32 arg0);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EBB88(s32 arg0, s32 arg1);
+s32 is_current_room__10TObjRoomIdFPv();
+M2C_UNK draw_small_label__15TFontSmallLobbyFi(int);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EBCA0(s32 arg0);
+s32 is_current_room__10TObjRoomIdFPv();
+M2C_UNK TLobby__sub_801B1254(int);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EBCF0(s32 arg0);
+s32 obj_isState2_324();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
+M2C_UNK TObjPlayer__sub_801C6A3C(void *);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801ED1BC(s32 arg0);
+s32 obj_isState2_324();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
+M2C_UNK TObjPlayer__sub_801C6B60(void *);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801ED20C(s32 arg0);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
+M2C_UNK TLobby__sub_801F3694(void *);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EBC28(s32 arg0);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
+M2C_UNK TFontSmallLobby__sub_801C013C(void *);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EBC64(s32 arg0);
+M2C_UNK TObjPlayer__sub_801AF904();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EB914(s32 arg0);
 }
 
 extern "C" {
@@ -33,14 +73,13 @@ int forward_802272B4__6TLobbyFPv(void* p);
 void init_menu_state__6TLobbyFi(int a0);
 void init_state__6TLobbyFv(void);
 void init_window__6TLobbyFv(void);
-void update_main_phase__6TLobbyFv(void);
+void update_main_phase__6TLobbyFv(int _w0, int _w1);
 M2C_UNK TLobby__sub_8006F848(s32);
 int TLobby__sub_801F36BC(void*);
 int TLobby__sub_801F36D8(void*);
 int TLobby__sub_802272B4(void*);
 int TLobby__sub_8022733C(void*);
 int TNpcPlayer__sub_8014DC30(void*);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 int clear_quest_state__6TLobbyFv(void*);
 int create__16TObjItemOKWindowFPv(void*);
 int create__17TObjItemNameEntryFPv(void*);
@@ -60,6 +99,82 @@ void TLobby__sub_801EB478(void) { TLobby__data_805D5DC0 = 1; }
 int forward_802272B4__6TLobbyFPv(void* p) { return TLobby__sub_802272B4(p); }
 int TLobby__sub_801EB588(void* p) { return TLobby__sub_8022733C(p); }
 void TLobby__sub_801EB5A8(void) {  }
+
+void TLobby__sub_801EB914(s32 arg0) {
+    if (TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int) ((*(s32 *)&TLobby__data_805D5E78))) != 0U) {
+        TObjPlayer__sub_801AF904();
+    }
+}
+
+void TLobby__sub_801EB94C(s32 arg0) {
+    u8 *temp_r3;
+    temp_r3 = get_state__23TAdSinglePlyChrSelectGCFv();
+    if (temp_r3 != NULL) {
+        M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = M2C_FIELD(temp_r3, s32 *, 0xE284);
+        return;
+    }
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 0;
+}
+
+void TLobby__sub_801EBB88(s32 arg0, s32 arg1) {
+    s32 temp_r3_2;
+    u8 *temp_r3;
+    temp_r3 = ((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int)(arg1)));
+    if (temp_r3 != NULL) {
+        temp_r3_2 = M2C_FIELD(temp_r3, s32 *, 0x890);
+        if (temp_r3_2 & 1) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 0;
+            return;
+        }
+        if (temp_r3_2 & 2) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 1;
+            return;
+        }
+        M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 2;
+        return;
+    }
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 2;
+}
+
+void TLobby__sub_801EBC28(s32 arg0) {
+    u32 temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int) ((*(s32 *)&TLobby__data_805D5E78)));
+    if (temp_r3 != 0U) {
+        TLobby__sub_801F3694((void *) (temp_r3 + 0x428));
+    }
+}
+
+void TLobby__sub_801EBC64(s32 arg0) {
+    u32 temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int) ((*(s32 *)&TLobby__data_805D5E78)));
+    if (temp_r3 != 0U) {
+        TFontSmallLobby__sub_801C013C((void *) (temp_r3 + 0x428));
+    }
+}
+
+void TLobby__sub_801EBCA0(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (int)((int) ((*(s32 *)&TLobby__data_805D5E78)))));
+    if ((temp_r3 != 0) && (is_current_room__10TObjRoomIdFPv() != 0)) {
+        draw_small_label__15TFontSmallLobbyFi((int) (temp_r3));
+    }
+}
+
+void TLobby__sub_801EBCF0(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int) ((*(s32 *)&TLobby__data_805D5E78))));
+    if ((temp_r3 != 0) && (is_current_room__10TObjRoomIdFPv() != 0)) {
+        TLobby__sub_801B1254((int) (temp_r3));
+    }
+}
+
+void TLobby__sub_801EBE14(s32 arg0) {
+    if (is_boss_phase_reached__6TLobbyFv() != 0) {
+        M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 1;
+        return;
+    }
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 0;
+}
 
 int TLobby__sub_801EBE6C(void) { return set_trap_count__10TOMineTrapFi((void*)(0)); }
 int enable_mine_trap__6TLobbyFv(void) { return set_trap_count__10TOMineTrapFi((void*)(1)); }
@@ -88,8 +203,8 @@ void init_state__6TLobbyFv(void) { TLobby__data_805D5EB0 = create__17TObjItemNam
 
 extern s32 lbl_805D53A0;
 
-void update_main_phase__6TLobbyFv(void) {
-    if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {
+void update_main_phase__6TLobbyFv(int _w0, int _w1) {
+    if (TPlayerBattleCtrl4P__sub_801BA74C((int)(lbl_805D53A0), (int)(_w1)) != 0U) {
         handle_main_phase__6TLobbyFi();
     }
 }
@@ -124,5 +239,19 @@ void TLobby__sub_801ECF2C(s32 arg0) {
 }
 
 int TLobby__sub_801ECFBC(void* p) { return TNpcPlayer__sub_8014DC30(p); }
+void TLobby__sub_801ED1BC(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int) ((*(s32 *)&TLobby__data_805D5E78))));
+    if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
+        TObjPlayer__sub_801C6A3C((void *) (temp_r3 + 0x5B0));
+    }
+}
+void TLobby__sub_801ED20C(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int) ((*(s32 *)&TLobby__data_805D5E78))));
+    if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
+        TObjPlayer__sub_801C6B60((void *) (temp_r3 + 0x5B0));
+    }
+}
 
 }

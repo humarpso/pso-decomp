@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int TObjEneDelDepth__sub_80316488(void*, void*);
+int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
+extern f32 lbl_805DA678;
+    extern const float TObjEneDelDepth__data_805DF260;
+    extern const float TObjEneDelDepth__data_805DF258;
+void TObjEneDelDepth__sub_80314E78(void* a0);
+}
+
+extern "C" {
 
 void enter_appear_state__15TObjEneDelDepthFPv(u8 *arg0);
 void enter_state8__15TObjEneDelDepthFPv(u8 *arg0);
@@ -78,6 +87,8 @@ void enter_state8__15TObjEneDelDepthFPv(u8 *arg0) {
 }
 
 extern const f32 TObjEneDelDepth__data_805DF26C;
+
+void TObjEneDelDepth__sub_80314E78(void* a0) { *(float*)((char*)a0 + 0x38c) = TObjEneDelDepth__data_805DF260; *(float*)((char*)a0 + 0x39c) = TObjEneDelDepth__data_805DF258; set_draw_mode__15TObjEneDelDepthFPvi((void*)((void*)(a0)), (void*)((int)(0))); TObjEneDelDepth__sub_80316488((void*)((void*)(*(int*)((char*)a0 + 0x37c))), (void*)((void*)0x6)); }
 
 void try_relocate_on_timer__15TObjEneDelDepthFPv(u8 *arg0) {
     s32 temp_r0;

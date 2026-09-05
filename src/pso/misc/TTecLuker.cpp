@@ -27,12 +27,12 @@ void TTecLuker__sub_8023503C(void* p);
 void TTecLuker__sub_80235048(void* p);
 void TTecLuker__sub_80235048(void* p);
 int TTecLuker__sub_80235054(void* p);
-int fn_80235078(void*);
 int TTecLuker__sub_80235054(void* p);
 void read_be16_field2__10TObjPlayerFPv(void *);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 void TTecLuker__sub_80234FC4(void *arg0);
+int fn_80235078(void *arg0);
 }
 
 extern "C" {
@@ -208,6 +208,9 @@ void TTecLuker__sub_8023503C(void* p) { *(s32*)((char*)p + 0x38) = 1; }
 
 void TTecLuker__sub_80235048(void* p) { *(s32*)((char*)p + 0x38) = 0; }
 
-int TTecLuker__sub_80235054(void* p) { return fn_80235078((char*)p + 0x4); }
+int TTecLuker__sub_80235054(void* p) { return fn_80235078((void *)((char*)p + 0x4)); }
+int fn_80235078(void *arg0) {
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x0) == 2);
+}
 
 }

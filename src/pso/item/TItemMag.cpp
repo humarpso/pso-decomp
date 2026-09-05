@@ -5,10 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TItemMag__sub_801112B8(void *, int);
+M2C_UNK TItemMag__sub_80111758(void *, int);
+void apply_feed_delta__8TItemMagFPv(u8 *arg0);
+extern const f32 lbl_805DABB4;
+void TItemMag__sub_80112DB4(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 void TItemMag__sub_8011271C(void);
-int TItemMag__vt15(void* p);
-void apply_feed_delta__8TItemMagFPv(u8 *arg0);
+void TItemMag__vt15(void* p, s32 _w1);
 s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1);
 void check_level_cap__8TItemMagFPv(void *arg0);
 void check_level_evolve__8TItemMagFPv(void *arg0);
@@ -20,7 +27,6 @@ void update_feed_timer__8TItemMagFPv(void *arg0);
 u8 TItemMagSub__sub_8011455C(void *);
 M2C_UNK TItemMag__sub_801124C4(void *);
 M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
-int TItemMag__sub_80112DB4(void*);
 int TItemMag__sub_80112E20(void*, void*);
 M2C_UNK TItemMag__sub_80112FB4();
 M2C_UNK TItemMag__sub_801140F4(void *, int);
@@ -71,7 +77,19 @@ s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
     return 0;
 }
 
-int TItemMag__vt15(void* p) { return TItemMag__sub_80112DB4(p); }
+void TItemMag__vt15(void* p, s32 _w1) { TItemMag__sub_80112DB4((u8 *)(p), (s32)(_w1)); }
+
+void TItemMag__sub_80112DB4(u8 *arg0, s32 arg1) {
+    s32 temp_r4;
+    apply_feed_delta__8TItemMagFPv((u8 *)(arg0));
+    M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) & 0xF0);
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x18C) | arg1;
+    M2C_FIELD(arg0, s32 *, 0x18C) = temp_r4;
+    M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) lbl_805DABB4;
+    M2C_FIELD(arg0, s32 *, 0x1CC) = 0;
+    TItemMag__sub_801112B8((void *) (arg0), (int) (temp_r4));
+    TItemMag__sub_80111758((void *) (arg0), (int) (1));
+}
 
 void transfer_energy__8TItemMagFPv(void *arg0) {
     u32 temp_r3;
@@ -104,7 +122,7 @@ void update_feed_timer__8TItemMagFPv(void *arg0) {
     }
     transfer_energy__8TItemMagFPv((void *)(arg0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1D0) <= (s32) M2C_FIELD(arg0, s32 *, 0x1CC)) {
-        apply_feed_delta__8TItemMagFPv((u8 *)(arg0));
+        apply_feed_delta__8TItemMagFPv((u8 *)((u8 *)(arg0)));
         TItemMag__sub_80112E20((void*)(arg0), (void*)(1));
     }
     if ((M2C_FIELD(arg0, s32 *, 0x1CC) % 60) == 0) {

@@ -5,13 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+s32 get_move_mode__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_801B5450(u8 *arg0);
+}
+
+extern "C" {
 
 void apply_input_mode__10TObjPlayerFi(s32 arg0);
 s32 get_clamped_index__10TObjPlayerFPv(void *arg0);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 void set_move_mode__10TObjPlayerFi(s32 arg0);
 M2C_UNK TObjPlayer__sub_801B5328(s32, s32, s32, M2C_UNK, f32);
-s32 get_move_mode__10TObjPlayerFPv();
 s32 get_position_ptr__10TObjPlayerFPv();
 M2C_UNK set_input_mode__10TObjPlayerFPvi(s32, M2C_UNK);
 M2C_UNK set_move_mode__10TObjPlayerFPvi(s32, M2C_UNK);
@@ -20,6 +25,18 @@ extern f32 TObjPlayer__data_805DC278;
 
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1) {
     TObjPlayer__sub_801B5328(arg0, get_position_ptr__10TObjPlayerFPv(), arg1, 0, TObjPlayer__data_805DC278);
+}
+
+void TObjPlayer__sub_801B5450(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x2E4) = 0;
+    if (get_move_mode__10TObjPlayerFPv((void *)((void *) (arg0))) & 0x10) {
+        add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (4));
+    } else {
+        add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (1));
+    }
+    if (get_move_mode__10TObjPlayerFPv((void *)((void *) (arg0))) & 0x40) {
+        add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (0x20));
+    }
 }
 
 s32 get_clamped_index__10TObjPlayerFPv(void *arg0) {
@@ -35,7 +52,7 @@ s32 get_clamped_index__10TObjPlayerFPv(void *arg0) {
 void set_move_mode__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = get_move_mode__10TObjPlayerFPv();
+    temp_r3 = get_move_mode__10TObjPlayerFPv((void *)(arg0));
     if (temp_r3 & 0x10) {
         set_move_mode__10TObjPlayerFPvi(arg0, 2);
         return;
@@ -50,7 +67,7 @@ void set_move_mode__10TObjPlayerFi(s32 arg0) {
 void apply_input_mode__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = get_move_mode__10TObjPlayerFPv();
+    temp_r3 = get_move_mode__10TObjPlayerFPv((void *)(arg0));
     if (temp_r3 & 0x20) {
         set_input_mode__10TObjPlayerFPvi(arg0, 0);
         return;

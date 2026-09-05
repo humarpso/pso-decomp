@@ -1,5 +1,19 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
+extern "C" {
+int TFontSmallLobby__sub_801C0228(void*);
+u8 *TObjPlayer__sub_801D1514(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 void bswap_packet__10TObjPlayerFPv(void* p);
 
@@ -26,8 +40,12 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
 int TFontSmallLobby__sub_801C01BC(void*);
-int TFontSmallLobby__sub_801C0228(void*);
 
-int TObjPlayer__sub_801D1514(void) { return 0; }
+u8 *TObjPlayer__sub_801D1514(u8 *arg0, u8 *arg1) {
+    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    *(M2CCopy_C *)((s32) arg0 + 8) = *(const M2CCopy_C *)((s32) arg1 + 8);
+    return arg0;
+}
 
 }

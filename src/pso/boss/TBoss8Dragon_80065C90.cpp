@@ -19,10 +19,13 @@ extern s32 lbl_805D5D6C;
 void TBoss8Dragon__sub_8006602C(void* p);
 void TObjFish__sub_800660D4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void fn_800660B8(u8 *arg0);
-int TBoss8Dragon__sub_80065F80(void* p = 0);
 void TBoss8Dragon__sub_80065F4C(void* p);
 int TLobby__send_and_handle_60(void*);
 void TBoss8Dragon__sub_80065F4C(void* p);
+s32 read_be16_field2__10TObjPlayerFPv(void *);
+int TBoss8Dragon__sub_80065FD4(void *);
+s32 bswap_32__FPUl(s32);
+void TBoss8Dragon__sub_80065F80(void *arg0);
 }
 
 extern "C" {
@@ -34,13 +37,11 @@ void TBoss8Dragon__sub_80065F28(void);
 void TBoss8Dragon__sub_80065F2C(void);
 void TBoss8Dragon__sub_80065F30(void);
 void TBoss8Dragon__sub_80065F34(void);
-int TBoss8Dragon__sub_80065FD4(void);
 void TBoss8Dragon__sub_800660A4(void* p);
 void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
 int get_instance_count__12TBoss8DragonFv(void);
 void init_color__12TBoss8DragonFPv(void* p);
 s32 bswap_32__FPUl(s32);
-s32 read_be16_field2__10TObjPlayerFPv();
 
     extern int lbl_805D4DBC;
 int get_instance_count__12TBoss8DragonFv(void) {  return lbl_805D4DBC; }
@@ -54,15 +55,23 @@ void TBoss8Dragon__sub_80065F30(void) {  }
 void TBoss8Dragon__sub_80065F34(void) {  }
 void init_color__12TBoss8DragonFPv(void* p) { *(u8*)((char*)p + 0x0) = 160; *(u8*)((char*)p + 0x1) = 10; }
 
-void TBoss8Dragon__sub_80065F4C(void* p) { TBoss8Dragon__sub_80065F80((void*)((void*)(p))); TLobby__send_and_handle_60(p); }
+void TBoss8Dragon__sub_80065F4C(void* p) { TBoss8Dragon__sub_80065F80((void *)((void*)((void*)(p)))); TLobby__send_and_handle_60(p); }
 
-int TBoss8Dragon__sub_80065F80(void* _w0) { return 0; }
-int TBoss8Dragon__sub_80065FD4(void) { return 0; }
+void TBoss8Dragon__sub_80065F80(void *arg0) {
+    read_be16_field2__10TObjPlayerFPv((void *)(arg0));
+    TBoss8Dragon__sub_80065FD4((void *)((void *)((char *)arg0 + 20)));
+    bswap_32__FPUl((s32)((void *)((char *)arg0 + 4)));
+    bswap_32__FPUl((s32)((void *)((char *)arg0 + 8)));
+    bswap_32__FPUl((s32)((void *)((char *)arg0 + 12)));
+    bswap_32__FPUl((s32)((void *)((char *)arg0 + 16)));
+}
+
+int TBoss8Dragon__sub_80065FD4(void * _w0) { return 0; }
 
 void TBoss8Dragon__sub_8006602C(void* p) { bswap_boss_actions__12TBoss8DragonFi((s32)((void*)(p))); TLobby__send_and_handle_60(p); }
 
 void bswap_boss_actions__12TBoss8DragonFi(s32 arg0) {
-    read_be16_field2__10TObjPlayerFPv();
+    read_be16_field2__10TObjPlayerFPv((void *)(arg0));
     bswap_32__FPUl(arg0 + 4);
     bswap_32__FPUl(arg0 + 8);
     bswap_32__FPUl(arg0 + 0xC);
