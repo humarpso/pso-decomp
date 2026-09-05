@@ -2,6 +2,14 @@
 
 TParticleCtrl::~TParticleCtrl() {}
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void TParticleCtrl__sub_80088514(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+}
+
 extern "C" {
 
 struct ParticleVec {
@@ -169,7 +177,6 @@ void *initialize__13TParticleCtrlFPvPviiiii(
 extern "C" {
 
 int TParticleCtrl__sub_800884F0(void* p);
-int TParticleCtrl__sub_80088514(void);
 int TParticleCtrl__sub_80088548(void);
 void TParticleCtrl__sub_8008857C(void* p, f32 a, f32 b);
 void clear_active_flag__13TParticleCtrlFPv(void* p);
@@ -183,7 +190,17 @@ void enable__13TParticleCtrlFPv(void* p) { *(u16*)((char*)p + 0x2c) |= 0x1; }
 
 int TParticleCtrl__sub_800884F0(void* p) { return copy_xyz__10TObjPlayerFPvPv((char*)p + 0x98); }
 
-int TParticleCtrl__sub_80088514(void) { return 0; }
+void TParticleCtrl__sub_80088514(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
+    M2C_FIELD(arg0, s32 *, 0xB0) = arg1;
+    M2C_FIELD(arg0, s32 *, 0xB4) = arg2;
+    M2C_FIELD(arg0, s32 *, 0xB8) = arg3;
+    M2C_FIELD(arg0, f32 *, 0xC0) = farg0;
+    if (arg4 != 0) {
+        M2C_FIELD(arg0, u16 *, 0x24) = (u16) (M2C_FIELD(arg0, u16 *, 0x24) | 0x400);
+    }
+    M2C_FIELD(arg0, u16 *, 0x24) = (u16) (M2C_FIELD(arg0, u16 *, 0x24) | 0x200);
+}
+
 int TParticleCtrl__sub_80088548(void) { return 0; }
 
 void TParticleCtrl__sub_8008857C(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }

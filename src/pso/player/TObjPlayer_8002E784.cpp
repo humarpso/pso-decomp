@@ -9,6 +9,12 @@ struct VObj_8002E784 : Base_8002E784 {
 };
 
 extern "C" {
+extern f32 lbl_805D4B90;
+extern const f32 lbl_805D8258;
+void TObjPlayer__sub_8002EF80(void);
+}
+
+extern "C" {
 
 struct VObj8002EB88_8002eb88_8002E784 {
     char pad[0xC];
@@ -84,6 +90,10 @@ void *init_base__10TObjPlayerFPv(void *arg0) {
 extern M2C_UNK lbl_80435620;
 extern const f32 lbl_805D8244;
 extern const f32 lbl_805D8248;
+
+void TObjPlayer__sub_8002EF80(void) {
+    lbl_805D4B90 = lbl_805D8258;
+}
 
 s32 calc_random_scaled__10TObjPlayerFv(void) {
     return (s32) (lbl_805D8248 * (lbl_805D8244 * (f32) rand__11TOBoss4RockFv()));

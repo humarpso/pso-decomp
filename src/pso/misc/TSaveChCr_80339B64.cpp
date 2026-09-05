@@ -5,13 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int close_and_advance__9TSaveChCrFPvPv(void*, int);
+int close_window__9TSaveChCrFPv(void*);
+void fn_80339D78(u8 *arg0);
+}
+
+extern "C" {
 
 int TSaveChCr__sub_80339B94(void* p);
 void TSaveChCr__sub_80339CE4(void);
 int close_and_advance_step2__9TSaveChCrFPv(void* p);
 int close_and_advance_to_3__9TSaveChCrFPv(void* p);
 void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p);
-int fn_80339D78(void);
 int save_1__9TSaveChCrFPv(void* p);
 void save_if_dirty__9TSaveChCrFPv(void* p);
 void update_save_state__9TSaveChCrFPv(void *arg0);
@@ -22,7 +27,6 @@ int TSaveChCr__sub_80339F30(void*);
 s32 TSaveChCr__sub_8033A138(void *);
 int TSaveChCr__sub_8033A184(void*, void*);
 int close_and_advance__9TSaveChCrFPvPv(void*, int);
-int close_window__9TSaveChCrFPv(void*);
 s32 poll_memcard_status();
 int queue_destruction__7TObjectFv(void*);
 s32 save_character__9TSaveChCrFPv(void *);
@@ -77,7 +81,11 @@ void update_save_state__9TSaveChCrFPv(void *arg0) {
         }
     }
 }
-
-int fn_80339D78(void) { return 0; }
+void fn_80339D78(u8 *arg0) {
+    ((M2C_UNK)close_window__9TSaveChCrFPv((void*)(arg0)));
+    if (M2C_FIELD(arg0, s32 *, 0x2C) & 1) {
+        ((M2C_UNK)close_and_advance__9TSaveChCrFPvPv((void*)((void *) (arg0)), (int)((int) (0))));
+    }
+}
 
 }

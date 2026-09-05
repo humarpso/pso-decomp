@@ -5,13 +5,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+s32 TAdPlyStatusGC__sub_802E11C8(void *);
+s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
+int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
+void TAdSinglePlyChrSelectGC__sub_802E2610(u8 *arg0);
+}
+
+extern "C" {
 
 int TAdSinglePlyChrSelectGC__sub_802E23E8(void);
 int TAdSinglePlyChrSelectGC__sub_802E2450(void);
 int TAdSinglePlyChrSelectGC__sub_802E24B8(void);
 int TAdSinglePlyChrSelectGC__sub_802E2520(void);
 int TAdSinglePlyChrSelectGC__sub_802E2588(void);
-int TAdSinglePlyChrSelectGC__sub_802E2610(void);
 void TAdSinglePlyChrSelectGC__sub_802E2848(void* p);
 void TAdSinglePlyChrSelectGC__sub_802E289C(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p);
@@ -32,7 +39,6 @@ s32 check_ready__23TAdSinglePlyChrSelectGCFv();
 s32 close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(s32, s32, s32, s32, s32);
 int close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void*, void*, void*, void*, void*);
 s32 close_windows__23TAdSinglePlyChrSelectGCFPv(void *);
-int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 get_instance__15TAdPlayerLoadGCFv();
 s32 init_timestamped_data();
@@ -46,7 +52,14 @@ int TAdSinglePlyChrSelectGC__sub_802E2450(void) { return 0; }
 int TAdSinglePlyChrSelectGC__sub_802E24B8(void) { return 0; }
 int TAdSinglePlyChrSelectGC__sub_802E2520(void) { return 0; }
 int TAdSinglePlyChrSelectGC__sub_802E2588(void) { return 0; }
-int TAdSinglePlyChrSelectGC__sub_802E2610(void) { return 0; }
+
+void TAdSinglePlyChrSelectGC__sub_802E2610(u8 *arg0) {
+    ((M2C_UNK)create_backgrounds__23TAdSinglePlyChrSelectGCFPv((void*)(arg0)));
+    ((M2C_UNK)close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((s32)((void *) (arg0)), (s32)((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0x1C), (int) (0xB)))), (s32)((int) (1)), (s32)((int) (0)), (s32)((int) (0))));
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x58) != 0U) {
+        ((M2C_UNK)TAdPlyStatusGC__sub_802E11C8(M2C_FIELD(arg0, void **, 0x58)));
+    }
+}
 
 void update_close_on_load__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x44) & 2) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {

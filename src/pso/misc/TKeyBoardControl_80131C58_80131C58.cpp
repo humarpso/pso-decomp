@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void render__16TKeyBoardControlFv(void);
+void render__16TKeyBoardControlFv(void);
+}
+
+extern "C" {
 
 void TKeyBoardControl__sub_80131F5C(void);
 void TKeyBoardControl__sub_80131F60(void);
@@ -13,7 +18,6 @@ void clear_flag60_bit200__16TKeyBoardControlFPv(void* p);
 int is_active__16TKeyBoardControlFPv(void* p);
 int is_key_active__16TKeyBoardControlFPv(void* p);
 int is_key_held__16TKeyBoardControlFPv(void* p);
-int render__16TKeyBoardControlFv(void);
 void set_flag60_bit200__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit2__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit8__16TKeyBoardControlFPv(void* p);
@@ -28,9 +32,9 @@ int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
 int is_keyboard_active__17TWindowSubComCardFPv(void* p);
 int update_keyboard__17TWindowSubComCardFPv(void* p);
 
-int render__16TKeyBoardControlFv(void) { return 0; }
-
 extern M2C_UNK __vt__16TKeyBoardControl[];
+
+void render__16TKeyBoardControlFv(void) {  }
 
 void *__dt__16TKeyBoardControlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

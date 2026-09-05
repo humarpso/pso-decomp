@@ -5,9 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEneDelDepth__sub_803152A0(u8 *arg0);
+void TObjEneDelDepth__sub_803152C0(u8 *arg0);
+}
 
-int TObjEneDelDepth__sub_803152A0(void);
-int TObjEneDelDepth__sub_803152C0(void);
+extern "C" {
+
 int TObjEneDelDepth__vt59(void);
 int TObjEneDelDepth__vt60(void);
 void TObjEneDelDepth__vt61(void* p);
@@ -30,10 +33,21 @@ int TObjEneDelDepth__vt60(void) { return 0; }
 
 void TObjEneDelDepth__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 13) { TObjEneDelDepth__sub_803154A8(p, (void*)13); } }
 
-int TObjEneDelDepth__sub_803152A0(void) { return 0; }
-int TObjEneDelDepth__sub_803152C0(void) { return 0; }
+void TObjEneDelDepth__sub_803152A0(u8 *arg0) {
+    u8 *temp_r3;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x3F0) == 0) {
+        temp_r3 = M2C_FIELD(arg0, u8 **, 0x380);
+        M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) & 0xFFFFFFFE);
+    }
+}
 
 extern s32 lbl_805DF2D4;
+
+void TObjEneDelDepth__sub_803152C0(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = M2C_FIELD(arg0, u8 **, 0x380);
+    M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 1);
+}
 
 void set_draw_mode__15TObjEneDelDepthFPvi(void *arg0, s32 arg1) {
     void *temp_r5;

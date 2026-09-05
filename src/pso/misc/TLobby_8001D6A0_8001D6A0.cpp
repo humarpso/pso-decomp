@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D4A90;
+void TLobby__sub_8001D9DC(void);
+}
+
+extern "C" {
 
 void TLobby__sub_8001D9E8(void* p);
 u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1);
@@ -62,6 +67,10 @@ u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         M2C_FIELD(temp_r5, s32 *, 0xC) = temp_r4;
     }
     return arg0;
+}
+
+void TLobby__sub_8001D9DC(void) {
+    lbl_805D4A90 = 0;
 }
 
 void TLobby__sub_8001D9E8(void* p) { *(s32*)((char*)p + 0x4) = 0; *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0xc) = 0; *(s32*)((char*)p + 0x8) = 0; }

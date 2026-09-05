@@ -1,5 +1,16 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void fn_80076C68(s32 *arg0);
+M2C_UNK set_field22__11TWindowCtrlFv();
+s32 TWindowCtrl__sub_8024A26C();
+s32 fn_80076CD0(s32 arg0);
+}
+
 extern "C" {
 
 s32 TLobby__sub_80076BC8(void *);
@@ -7,7 +18,6 @@ s32 TWindowSubSymbolChat__sub_80076F88(void *);
 s32 TWindowDD__sub_80348C78(void *);
 void TWindowShortListCtrl__sub_80076D1C(void);
 int TWindowKeyBoardSoft__sub_80076E2C(void);
-int fn_80076CD0(void);
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
 
 void fn_80076C68(s32 *arg0) {
@@ -27,6 +37,13 @@ void fn_80076C68(s32 *arg0) {
         return;
     }
 }
-int fn_80076CD0(void) { return 0; }
+s32 fn_80076CD0(s32 arg0) {
+    if (TWindowCtrl__sub_8024A26C() == 0) {
+        return 0;
+    }
+    set_field22__11TWindowCtrlFv();
+    fn_80076C68((s32 *)((void *) (arg0)));
+    return 1;
+}
 
 }

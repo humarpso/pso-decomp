@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 TBoss1Dragon__sub_80143960(u8 *arg0, s32 arg1);
+void TObjPlayer__sub_8014394C(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_8014394C(void);
 void *TPlyPhotonChair__sub_801438E0(void *arg0, s16 arg1);
 s32 TPlyPhotonChair__sub_80143930(void* p);
 void activate__15TPlyPhotonChairFPv(void* p);
@@ -50,7 +50,11 @@ s32 TPlyPhotonChair__sub_80143930(void* p) { return *(s32*)((char*)p + 0x8); }
 s32 get_id__15TPlyPhotonChairFPv(void* p) { return *(s32*)((char*)p + 0x0); }
 void activate__15TPlyPhotonChairFPv(void* p) { *(s32*)((char*)p + 0x18) = 1; }
 
-int TObjPlayer__sub_8014394C(void) { return 0; }
+void TObjPlayer__sub_8014394C(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = M2C_FIELD(arg0, u8 **, 0xF8);
+    M2C_FIELD(temp_r3, u16 *, 0xA) = (u16) (M2C_FIELD(temp_r3, u16 *, 0xA) | 0x80);
+}
 
 u8 TBoss1Dragon__sub_80143960(u8 *arg0, s32 arg1) {
     return (u8) ((M2C_FIELD(arg0, s32 *, 0xB0) & arg1) != 0);

@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TMainCursor__sub_80154288(u8 *arg0, s32 arg1, u16 arg2);
+}
+
+extern "C" {
 
 s32 set_flags__10TObjPlayerFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 clear_flags__11TAdRicoRingFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-s32 TMainCursor__sub_80154288(void);
 s32 TObjPlayer__sub_8001BEF8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 int TMainCursor__sub_801540D8(void* a0 = 0, void* a1 = 0);
 int TMainCursor__sub_801540FC(void* a0 = 0, void* a1 = 0);
@@ -17,6 +20,14 @@ void update_cursor_pair__11TMainCursorFPv(void* p);
 void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 
-s32 TMainCursor__sub_80154288(void) { return 0; }
+s32 TMainCursor__sub_80154288(u8 *arg0, s32 arg1, u16 arg2) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x9C) == 0U) {
+        return 0;
+    }
+    if (arg2 >= 0xCU) {
+        return 0;
+    }
+    return arg1 < M2C_FIELD(arg0, s32 *, 0xA8);
+}
 
 }

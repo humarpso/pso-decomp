@@ -38,9 +38,12 @@ struct VObj_8009E7C4_8009E474 : Base_8009E7C4_8009E474 {
 };
 
 extern "C" {
+void TObjEneMe1Canadin__sub_8009E930(u8 *arg0);
+void TObjEneMe1Canadin__sub_8009E948(u8 *arg0);
+}
 
-int TObjEneMe1Canadin__sub_8009E930(void);
-int TObjEneMe1Canadin__sub_8009E948(void);
+extern "C" {
+
 int TObjEneMe1Canadin__vt103(void);
 void TObjEneMe1Canadin__vt105(void);
 int TObjEneMe1Canadin__vt106(void);
@@ -116,8 +119,17 @@ s32 check_target__17TObjEneMe1CanadinFPv(void *arg0) {
     return var_r31;
 }
 
-int TObjEneMe1Canadin__sub_8009E930(void) { return 0; }
-int TObjEneMe1Canadin__sub_8009E948(void) { return 0; }
+void TObjEneMe1Canadin__sub_8009E930(u8 *arg0) {
+    u8 *temp_r4;
+    temp_r4 = M2C_FIELD(arg0, u8 **, 0xA4);
+    M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & ~0x28);
+}
+
+void TObjEneMe1Canadin__sub_8009E948(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = M2C_FIELD(arg0, u8 **, 0xA4);
+    M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 0x28);
+}
 
 int call_dd_vt86__17TObjEneMe1CanadinFPv(void* p) { return TObjEneDD__vt86(p); }
 

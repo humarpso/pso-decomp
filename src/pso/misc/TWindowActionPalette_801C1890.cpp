@@ -245,9 +245,8 @@ void* fn_801C1E48(void* p);
 int fn_801C1E50(void* p);
 int TWindowActionPalette__sub_801C1C20(void* p);
 int fn_801C1E50(void* p);
-int fn_801C1E74(void* p);
-int fn_801C1E98(void*);
-int fn_801C1E74(void* p);
+void fn_801C1E74(void* p);
+void fn_801C1E74(void* p);
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
 extern s32 lbl_805D49C0;
@@ -260,8 +259,7 @@ extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F998(void);
 extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F9A4(void);
-int fn_801C1EA4(void* p);
-int fn_801C1E98(void*);
+void fn_801C1EA4(void* p);
 extern M2C_UNK lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
@@ -278,10 +276,9 @@ void TKeyBoardControl__sub_8000F978(void);
 void TKeyBoardControl__sub_8000F984(void);
 void TKeyBoardControl__sub_8000F998(void);
 void TKeyBoardControl__sub_8000F9A4(void);
-int fn_801C1EA4(void* p);
-int fn_801C1EC4(void* p);
-int fn_801C1EE8(void*);
-int fn_801C1EC4(void* p);
+void fn_801C1EA4(void* p);
+void fn_801C1EC4(void* p);
+void fn_801C1EC4(void* p);
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
 extern s32 lbl_805D49C0;
@@ -294,8 +291,7 @@ extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F998(void);
 extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F9A4(void);
-int fn_801C1EF4(void* p);
-int fn_801C1EE8(void*);
+void fn_801C1EF4(void* p);
 extern M2C_UNK lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
@@ -312,12 +308,16 @@ void TKeyBoardControl__sub_8000F978(void);
 void TKeyBoardControl__sub_8000F984(void);
 void TKeyBoardControl__sub_8000F998(void);
 void TKeyBoardControl__sub_8000F9A4(void);
-int fn_801C1EF4(void* p);
+void fn_801C1EF4(void* p);
 void fn_801C1F14(void* p, s16 v);
 void fn_801C1F14(void* p, s16 v);
-int fn_801C1F1C(void* p);
-int fn_801C1F40(void*);
-int fn_801C1F1C(void* p);
+void fn_801C1F1C(void* p);
+void fn_801C1F1C(void* p);
+void fn_801C1E98(void* p);
+void fn_801C1E98(void* p);
+void fn_801C1EE8(void* p);
+void fn_801C1EE8(void* p);
+void fn_801C1F40(s32 *arg0);
 }
 
 extern "C" {
@@ -422,21 +422,31 @@ void* fn_801C1E48(void* p) { return (char*)p + 0x24; }
 
 int fn_801C1E50(void* p) { return TWindowActionPalette__sub_801C1C20((char*)p + 0x24); }
 
-int fn_801C1E74(void* p) { return fn_801C1E98((char*)p + 0x24); }
+void fn_801C1E74(void* p) { fn_801C1E98((void*)((char*)p + 0x24)); }
 
 }
 extern "C" {
-int fn_801C1EA4(void* p) { return fn_801C1E98(p); }
 
-int fn_801C1EC4(void* p) { return fn_801C1EE8((char*)p + 0x24); }
+void fn_801C1E98(void* p) { *(s32*)((char*)p + 0x0) = 0; }
+
+void fn_801C1EA4(void* p) { fn_801C1E98((void*)(p)); }
+
+void fn_801C1EC4(void* p) { fn_801C1EE8((void*)((char*)p + 0x24)); }
 
 }
 extern "C" {
-int fn_801C1EF4(void* p) { return fn_801C1EE8(p); }
+
+void fn_801C1EE8(void* p) { *(s32*)((char*)p + 0x0) = 1; }
+
+void fn_801C1EF4(void* p) { fn_801C1EE8((void*)(p)); }
 
 void fn_801C1F14(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 
-int fn_801C1F1C(void* p) { return fn_801C1F40((char*)p + 0x4c); }
+void fn_801C1F1C(void* p) { fn_801C1F40((s32 *)((char*)p + 0x4c)); }
+
+void fn_801C1F40(s32 *arg0) {
+    *arg0 -= 1;
+}
 
 int TObjPlayer__sub_801C1F50(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x40, 2); }
 

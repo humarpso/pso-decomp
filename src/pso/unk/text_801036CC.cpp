@@ -37,6 +37,12 @@ struct VObj_80103748 : Base_80103748 {
 };
 
 extern "C" {
+extern s32 lbl_805D5420;
+s32 TLobby__sub_8010385C(s32 arg0);
+s32 TLobby__sub_80103B44(s32 arg0);
+}
+
+extern "C" {
 
 void *TLobby__sub_80101AB0(s32);
 M2C_UNK TLobby__sub_80103BFC(s32, s32);
@@ -51,6 +57,18 @@ void handle_6x63_destroy_floor_item(void *arg0) {
     if (o != NULL) {
         o->m27();
     }
+}
+s32 TLobby__sub_8010385C(s32 arg0) {
+    if ((arg0 >= 0) && (arg0 < 0x12) && ((s32) M2C_FIELD(lbl_805D5420, M2C_UNK *, (arg0 * 4)) < 0x32)) {
+        return 0;
+    }
+    return 1;
+}
+s32 TLobby__sub_80103B44(s32 arg0) {
+    if (((s32) M2C_FIELD(lbl_805D5420, M2C_UNK *, (arg0 * 4)) < 0xC0) && (arg0 < 0x12)) {
+        return 1;
+    }
+    return 0;
 }
 
 }

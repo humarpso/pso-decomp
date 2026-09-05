@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjPlayer__sub_8013A748(void *);
+int TObjPlayer__sub_801BBBD0(void * = 0);
+void TObjPlayer__sub_801BBB98(void *arg0);
+}
+
+extern "C" {
 
 s32 TObjPlayer__sub_80019248(void *);
 s32 obj_isState3_324(void *);
@@ -23,7 +29,11 @@ int TLockOnCursor__sub_8013DAB0(void*);
 int clear_obj_links(void*);
 int TObjPlayer__sub_801B35AC(void*);
 
-int TObjPlayer__sub_801BBB98(void) { return 0; }
-int TObjPlayer__sub_801BBBD0(void) { return 0; }
+void TObjPlayer__sub_801BBB98(void *arg0) {
+    TObjPlayer__sub_8013A748((void *)((char *)arg0 + 1280));
+    TObjPlayer__sub_801BBBD0((void *)(arg0));
+}
+
+int TObjPlayer__sub_801BBBD0(void * _w0) { return 0; }
 
 }

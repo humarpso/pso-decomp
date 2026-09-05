@@ -5,15 +5,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0);
+}
 
-s32 TBoss6PlotFalz__sub_802AAC74(void);
+extern "C" {
+
 void TBoss6PlotFalz__sub_802AAC98(void* p);
 u8 is_ending_or_split_screen__14TBoss6PlotFalzFv(void);
 int is_ready__14TBoss6PlotFalzFv(void);
 s32 get_main_phase();
 s32 is_split_screen();
 
-s32 TBoss6PlotFalz__sub_802AAC74(void) { return 0; }
+s32 TBoss6PlotFalz__sub_802AAC74(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x3C8);
+    if ((temp_r0 < 1) || (temp_r0 > 0x1FD)) {
+        return 0;
+    }
+    return 0x1FD - temp_r0;
+}
 
 void TBoss6PlotFalz__sub_802AAC98(void* p) { *(s32*)((char*)p + 0x3c8) = 1; }
 u8 is_ending_or_split_screen__14TBoss6PlotFalzFv(void) {

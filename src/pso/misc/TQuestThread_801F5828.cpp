@@ -9,9 +9,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TQuestThread__sub_801F5EAC(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 int TQuestThread__sub_801F5D88(void* p);
-int TQuestThread__sub_801F5EAC(void);
 void clear_buffer__12TQuestThreadFPv(void* p);
 u32 create__12TQuestThreadFi(s32 arg0);
 int TQuestThread__sub_801F5DA8(void*);
@@ -44,7 +47,11 @@ u32 create__12TQuestThreadFi(s32 arg0) {
 int TQuestThread__sub_801F5D88(void* p) { return TQuestThread__sub_801F5DA8(p); }
 
 void clear_buffer__12TQuestThreadFPv(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { memset(*(void**)((char*)p + 0x2c), (void*)0, (void*)1024); } }
-
-int TQuestThread__sub_801F5EAC(void) { return 0; }
+s32 TQuestThread__sub_801F5EAC(u8 *arg0, s32 arg1) {
+    if (arg0 != NULL) {
+        return M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x2C), M2C_UNK *, (arg1 * 4));
+    }
+    return 0;
+}
 
 }

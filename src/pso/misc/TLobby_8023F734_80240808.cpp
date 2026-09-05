@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 lbl_805DC9D8;
+void TLobby__sub_80240858(u8 *arg0);
+}
+
+extern "C" {
 
 void *TLobby__sub_80240808(void *arg0, s16 arg1);
 void TLobby__sub_802409E4(void* p);
@@ -25,6 +30,21 @@ void *TLobby__sub_80240808(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void TLobby__sub_80240858(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x2BC) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2B8) = 0;
+    M2C_FIELD(arg0, s32 *, 0x294) = 0;
+    M2C_FIELD(arg0, s32 *, 0x290) = 0;
+    M2C_FIELD(arg0, s32 *, 0x284) = 0;
+    M2C_FIELD(arg0, s32 *, 0x288) = -1;
+    M2C_FIELD(arg0, s32 *, 0x298) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2B0) = -1;
+    M2C_FIELD(arg0, s32 *, 0x2B4) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+    M2C_FIELD(arg0, f32 *, 0x2A4) = (f32) lbl_805DC9D8;
+    M2C_FIELD(arg0, s32 *, 0x2AC) = 0x1E240;
 }
 
 void set_field0__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }

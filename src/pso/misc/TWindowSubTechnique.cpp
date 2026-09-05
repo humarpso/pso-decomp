@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern u8 *lbl_805D553C;
+s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
+}
+
+extern "C" {
 
 void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1);
@@ -81,6 +86,10 @@ void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s16 *, 0x1E) = 0x13;
     M2C_FIELD(arg0, s8 *, 0x1C) = 0;
     return arg0;
+}
+
+s32 TWindowSubTechnique__sub_8028753C(s32 arg0) {
+    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x14), M2C_UNK *, (arg0 * 4));
 }
 
 void clear_flag70_bit80__19TWindowSubTechniqueFPv(void* p) { *(u16*)((char*)p + 0x70) &= 0xffffff7f; }

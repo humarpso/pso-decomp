@@ -32,16 +32,27 @@ struct VObj_803080B0_80307DEC : Base_803080B0_80307DEC {
 };
 
 extern "C" {
+int disable_progressive_mode__13TAdVIConfigGCFv(void* p = 0);
+void TAdVIConfigGC__vt5(void* p);
+void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
+extern M2C_UNK lbl_80434088;
+extern const f32 lbl_805D7D3C;
+extern s32 lbl_805D5FC0;
+extern s32 lbl_805D5D6C;
+void TAdVIConfigGC__vt5(void* p);
+void *fn_8037CCE8(void *);
+void enable_progressive_mode__13TAdVIConfigGCFv(void * = 0);
+void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
+void TAdVIConfigGC__vt4(void *arg0);
+}
+
+extern "C" {
 
 void *TAdVIConfigGC__ct(void *arg0);
 int TAdVIConfigGC__sub_80307DF4(void);
-int TAdVIConfigGC__vt4(void);
-int TAdVIConfigGC__vt5(void);
 void TAdVIConfigGC__vt8(void);
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1);
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
-int disable_progressive_mode__13TAdVIConfigGCFv(void);
-void enable_progressive_mode__13TAdVIConfigGCFv(void);
 s32 get_field_14__13TAdVIConfigGCFPv(void* p);
 u8 *init__13TAdVIConfigGCFPvf(u8 *arg0, f32 farg0);
 void render__13TAdVIConfigGCFv(void *arg0);
@@ -116,13 +127,21 @@ void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0) {
 
     extern unsigned char lbl_804F4F98[];
     extern int lbl_805D7734;
-void enable_progressive_mode__13TAdVIConfigGCFv(void) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)lbl_804F4F98; fn_8037C11C(lbl_804F4F98); fn_8037C8B8(); fn_8037BC54(); fn_8037BC54(); }
+void enable_progressive_mode__13TAdVIConfigGCFv(void * _w0) { OSSetProgressiveMode((void*)1); lbl_805D7734 = (int)lbl_804F4F98; fn_8037C11C(lbl_804F4F98); fn_8037C8B8(); fn_8037BC54(); fn_8037BC54(); }
 
-int disable_progressive_mode__13TAdVIConfigGCFv(void) { return OSSetProgressiveMode((void*)(0)); }
+int disable_progressive_mode__13TAdVIConfigGCFv(void* _w0) { return OSSetProgressiveMode((void*)(0)); }
 void TAdVIConfigGC__vt8(void) { TAdSinglePlyChrSelectGC__sub_80132F2C((void*)29, (void*)0); }
 
-int TAdVIConfigGC__vt5(void) { return 0; }
-int TAdVIConfigGC__vt4(void) { return 0; }
+void TAdVIConfigGC__vt5(void* p) { disable_progressive_mode__13TAdVIConfigGCFv((void*)((void*)(p))); set_field48_clear_global__13TAdVIConfigGCFPv((void *)(p)); }
+
+void TAdVIConfigGC__vt4(void *arg0) {
+    void *x;
+    x = fn_8037CCE8(arg0);
+    if (x != NULL) {
+        enable_progressive_mode__13TAdVIConfigGCFv((void *)(arg0));
+    }
+    set_field48_clear_global__13TAdVIConfigGCFPv(arg0);
+}
 
 void run_task__13TAdVIConfigGCFv(void *arg0) {
     struct VObj_803080B0_80307DEC *o = (struct VObj_803080B0_80307DEC *)arg0;

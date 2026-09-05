@@ -9,11 +9,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 check_can_open__16TObjBagWarnWin4PFv(void *);
+void create_window__16TObjBagWarnWin4PFPv(u8 *arg0);
+M2C_UNK TWindow__close(int);
+s32 TWindowCtrlMain__sub_8024CE58();
+void run_task__16TObjBagWarnWin4PFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__ct__16TObjBagWarnWin4PFv(void *arg0);
-s32 check_can_open__16TObjBagWarnWin4PFv(void);
 void create_window__16TObjBagWarnWin4PFPv(u8 *arg0);
-int run_task__16TObjBagWarnWin4PFv(void);
 u32 TLobby__sub_80269CC0(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 TLobby__sub_8030A770();
 s32 TLobby__sub_8030A7B0();
@@ -33,7 +39,7 @@ s32 obj_getField1c();
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, void *, M2C_UNK);
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 
-s32 check_can_open__16TObjBagWarnWin4PFv(void) {
+s32 check_can_open__16TObjBagWarnWin4PFv(void * _w0) {
     s32 var_r31;
     s32 var_r30;
 
@@ -61,9 +67,31 @@ s32 check_can_open__16TObjBagWarnWin4PFv(void) {
     return var_r31;
 }
 
-int run_task__16TObjBagWarnWin4PFv(void) { return 0; }
-
 extern M2C_UNK lbl_80488E48[];
+
+void run_task__16TObjBagWarnWin4PFv(u8 *arg0) {
+    s32 temp_r0;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+        if (TWindowCtrlMain__sub_8024CE58() != 0) {
+            if (check_can_open__16TObjBagWarnWin4PFv((void *)((void *) (arg0))) != 0) {
+                temp_r0 = M2C_FIELD(arg0, s32 *, 0xA0) - 1;
+                M2C_FIELD(arg0, s32 *, 0xA0) = temp_r0;
+                if (temp_r0 < 0) {
+                    M2C_FIELD(arg0, s32 *, 0xA0) = 0;
+                }
+            } else {
+                M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;
+            }
+            if ((s32) M2C_FIELD(arg0, s32 *, 0xA0) == 0) {
+                create_window__16TObjBagWarnWin4PFPv((u8 *)((void *) (arg0)));
+            }
+        }
+    } else if (check_can_open__16TObjBagWarnWin4PFv((void *)((void *) (arg0))) == 0) {
+        TWindow__close((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
+        M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
+        M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;
+    }
+}
 
 void create_window__16TObjBagWarnWin4PFPv(u8 *arg0) {
     M2C_UNK r3 = TWindowSubComCard__sub_8026CBB8(0x5B);

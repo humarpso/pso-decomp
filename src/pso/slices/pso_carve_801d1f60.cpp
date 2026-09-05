@@ -1,5 +1,17 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+int TObjPlayer__sub_801D1FA4(void *);
+u8 TObjPlayer__sub_801D2004(u8 *arg0);
+int TLobby__send_and_handle_60(void*);
+void TObjPlayer__sub_801D1F60(u8 *arg0);
+}
+
 extern "C" {
 void swap_endian16__10TObjPlayerFPv(void* p);
 
@@ -23,8 +35,15 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-int TObjPlayer__sub_801D1F60(void) { return 0; }
-int TObjPlayer__sub_801D1FA4(void) { return 0; }
-int TObjPlayer__sub_801D2004(void) { return 0; }
+void TObjPlayer__sub_801D1F60(u8 *arg0) {
+    M2C_FIELD(arg0, s8 *, 1) = (s8) ((((u32)TObjPlayer__sub_801D2004((u8 *)(arg0))) >> 2U) & 0x3F);
+    ((M2C_UNK)TObjPlayer__sub_801D1FA4((void *)((void *) (arg0))));
+    ((M2C_UNK)TLobby__send_and_handle_60((void*)((void *) (arg0))));
+}
+
+int TObjPlayer__sub_801D1FA4(void * _w0) { return 0; }
+u8 TObjPlayer__sub_801D2004(u8 *arg0) {
+    return (u8) (0x34 - ((0xA - M2C_FIELD(arg0, s16 *, 6)) * 4));
+}
 
 }

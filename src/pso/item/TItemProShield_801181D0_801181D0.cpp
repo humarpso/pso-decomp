@@ -22,16 +22,19 @@ struct VObj_80118334_801181D0 : Base_80118334_801181D0 {
 };
 
 extern "C" {
+void TItemProShield__vt12(u8 *arg0);
+s32 TItemData__sub_8010CE70(s32 a0, int a1);
+s32 TItemData__sub_8010CE1C(s32 a0, int a1);
+void TItemProShield__vt16(void *arg0, void *arg1);
+}
 
-int TItemProShield__vt12(void);
+extern "C" {
+
 void TItemProShield__vt14(void *arg0);
-int TItemProShield__vt16(void);
 int TItemProShield__vt44(void* p);
 void TItemProShield__vt49(void);
 void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1);
 void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1);
-s32 TItemData__sub_8010CE1C(s32 a0 = 0, u8 a1 = 0);
-s32 TItemData__sub_8010CE70(s32 a0 = 0, u8 a1 = 0);
 M2C_UNK TItemEquipBase__sub_8010A78C(void *);
 int TItemEquipBase__sub_8010A82C(void*);
 M2C_UNK TItemEquipBase__sub_8010A89C(void *, s32);
@@ -84,7 +87,14 @@ void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1) {
     TItemData__sub_8010CE1C(arg0, M2C_FIELD(arg1, u8 *, 0x199));
 }
 
-int TItemProShield__vt12(void) { return 0; }
+void TItemProShield__vt12(u8 *arg0) {
+    if ((u8) M2C_FIELD(arg0, u8 *, 0x19A) < (u8) M2C_FIELD(arg0, u8 *, 0x198)) {
+        M2C_FIELD(arg0, u8 *, 0x198) = 0U;
+    }
+    if ((u8) M2C_FIELD(arg0, u8 *, 0x19B) < (u8) M2C_FIELD(arg0, u8 *, 0x199)) {
+        M2C_FIELD(arg0, u8 *, 0x199) = 0U;
+    }
+}
 
 void TItemProShield__vt14(void *arg0) {
     ((VObj_80118334_801181D0 *)arg0)->m51();
@@ -94,7 +104,9 @@ void TItemProShield__vt14(void *arg0) {
     }
     TItemEquipBase__sub_8010A78C(arg0);
 }
-
-int TItemProShield__vt16(void) { return 0; }
+void TItemProShield__vt16(void *arg0, void *arg1) {
+    TItemData__sub_8010CE70((s32)(arg1), (int)(M2C_FIELD(arg0, u8 *, 0x198)));
+    TItemData__sub_8010CE1C((s32)(arg1), (int)(M2C_FIELD(arg0, u8 *, 0x199)));
+}
 
 }

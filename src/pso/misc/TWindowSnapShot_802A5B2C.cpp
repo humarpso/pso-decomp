@@ -5,8 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK strncpy(void *, void *, int);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DCE0(void *, void *);
+s32 strlen(void *);
+void fn_802A5CC4(u8 *arg0, s32 arg1);
+void free__11TOBoss4RockFUi(void *);
+void TWindowSnapShot__sub_802A5D28(void *arg0);
+}
 
-int TWindowSnapShot__sub_802A5D28(void* a0 = 0);
+extern "C" {
+
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0);
 int fn_802A5B2C(void);
 int fn_802A5B50(void);
@@ -17,7 +25,6 @@ int fn_802A5BFC(void);
 int fn_802A5C3C(void);
 void fn_802A5C7C(void *arg0);
 void fn_802A5CB8(void* p);
-int fn_802A5CC4(void);
 s32 init__15TWindowSnapShotFPvi(void *arg0, s32 arg1);
 s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1);
 void reset__15TWindowSnapShotFPv(u8 *arg0);
@@ -40,8 +47,22 @@ void fn_802A5C7C(void *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = (s32) (M2C_FIELD(arg0, s32 *, 8) + fn_802A5BB4((void*)((void*)(M2C_FIELD(arg0, s32 *, 0)))));
 }
 void fn_802A5CB8(void* p) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)p + 0x8); }
-int fn_802A5CC4(void) { return 0; }
-int TWindowSnapShot__sub_802A5D28(void* a0) { return 0; }
+
+void fn_802A5CC4(u8 *arg0, s32 arg1) {
+    if (strlen((void *) (arg1)) > 0x1F) {
+        strncpy((void *) (arg0 + 0x1C), (void *) (arg1), (int) (0x1F));
+        M2C_FIELD(arg0, s8 *, 0x3B) = 0;
+        return;
+    }
+    TAdSinglePlyChrSelectGC__sub_8039DCE0((void *) (arg0 + 0x1C), (void *) (arg1));
+}
+
+void TWindowSnapShot__sub_802A5D28(void *arg0) {
+    if (M2C_FIELD(arg0, void **, 0x8) != NULL) {
+        free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x8));
+        M2C_FIELD(arg0, u32 *, 0x8) = 0;
+    }
+}
 
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0) {
     get_buffer_size__15TWindowSnapShotFPv();
@@ -56,7 +77,7 @@ s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xC) = TGStream__sub_800FDADC(arg1, M2C_FIELD(arg0, s32 *, 8));
     if (TWindowSnapShot__sub_802A605C(arg0) == 0) {
         set_mode__15TWindowSnapShotFPvi(arg0, 2);
-        TWindowSnapShot__sub_802A5D28((void*)((void*)(arg0)));
+        TWindowSnapShot__sub_802A5D28((void *)((void*)((void*)(arg0))));
         return 0;
     }
     return 1;

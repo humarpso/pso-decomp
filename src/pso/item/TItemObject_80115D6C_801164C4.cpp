@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TItemObject__vt34(u8 *arg0);
+}
 
-int TItemObject__vt34(void);
+extern "C" {
+
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 s32 call_dispatch__11TItemObjectFi(s32 arg0);
 int TLobby__send_and_handle_60(void*);
@@ -42,7 +45,8 @@ void *__dt__11TItemObjectFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-int TItemObject__vt34(void) { return 0; }
+s32 TItemObject__vt34(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0xFC) ^ (s32) (arg0 + 0xFC);
+}
 
 }

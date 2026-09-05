@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjPlayer__sub_801BEA38(s32 arg0, s32 arg1, f32 farg0, f32 farg1);
+}
+
+extern "C" {
 
 s32 get_max_level__10TObjPlayerFv();
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
@@ -82,6 +86,11 @@ int TObjPlayer__sub_801BEDA8(void*);
 int TObjPlayer__sub_801BEDB0(void*);
 int TObjPlayer__sub_801BEDB8(void*);
 
-int TObjPlayer__sub_801BEA38(void) { return 0; }
+void TObjPlayer__sub_801BEA38(s32 arg0, s32 arg1, f32 farg0, f32 farg1) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(arg0 + (arg1 * 8));
+    M2C_FIELD(temp_r3, f32 *, 0x6B0) = farg0;
+    M2C_FIELD(temp_r3, f32 *, 0x6B4) = farg1;
+}
 
 }

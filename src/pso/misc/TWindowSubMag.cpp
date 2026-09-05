@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern u8 *lbl_805D553C;
+s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
+}
+
+extern "C" {
 
 void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2);
 int TWindowSubMag__sub_8027C0C4(s32);
@@ -213,6 +218,10 @@ void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s8 *, 0x1C) = 0;
     M2C_FIELD(arg0, s16 *, 0x20) = 0;
     return arg0;
+}
+
+s32 TWindowSubMag__sub_8027C0B0(s32 arg0) {
+    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x20), M2C_UNK *, (arg0 * 4));
 }
 
 int TWindowSubMag__sub_8027C0C4(s32) { return 0; }

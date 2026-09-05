@@ -29,6 +29,7 @@ force_active:
   - TRecvGenerateID__sub_801DFBC4
   - create_icon__10TObjPlayerFiii
   - draw_value__13TWindowMesetaFPvi
+  - fn_80076C68
   - fn_8016AD3C
   - fn_803CBE00
   - free_item_pmt

@@ -10,6 +10,8 @@ M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__14TWindowComCardFv(s32 arg0);
+extern u8 *lbl_805D553C;
+s32 TWindowComCard__sub_80249C28(s32 arg0);
 }
 
 extern "C" {
@@ -87,5 +89,8 @@ void *__dt__14TWindowComCardFv(void *arg0, s16 arg1) {
 void* get_kbd_ptr__14TWindowComCardFPv(void* p) { return (char*)p + 0x20; }
 u8 TWindowComCard__sub_80249C18(void* p) { return *(u8*)((char*)p + 0x8e); }
 u8 TWindowComCard__sub_80249C20(void* p) { return *(u8*)((char*)p + 0x8d); }
+s32 TWindowComCard__sub_80249C28(s32 arg0) {
+    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x1C), M2C_UNK *, (arg0 * 4));
+}
 
 }

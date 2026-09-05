@@ -1,8 +1,17 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void TNpcPlayer__sub_8034EE3C(u16 arg0);
+}
+
 extern "C" {
 
-int TNpcPlayer__sub_8034EE3C(void);
 int TNpcPlayer__sub_8034EEB4(void);
 void apply_to_battle_player_slot__10TNpcPlayerFUss(u16 arg0, s16 arg1);
 void build_6x69_npc_control(void* p);
@@ -19,7 +28,13 @@ s32 init_photon_blast__10TObjPlayerFPvi(u32, s16);
 int read_be16_field2__10TObjPlayerFPv(void*);
 s32 set_type__10TObjPlayerFPvi(s32, s32);
 
-int TNpcPlayer__sub_8034EE3C(void) { return 0; }
+void TNpcPlayer__sub_8034EE3C(u16 arg0) {
+    u32 temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u32)((void *) (arg0)));
+    if (temp_r3 != 0U) {
+        reset_lobby_model__10TObjPlayerFPv((void *) (temp_r3 + 0x644));
+    }
+}
 
 void update_player_field__10TNpcPlayerFUsi(u16 arg0, s32 arg1) {
     u32 temp_r3;

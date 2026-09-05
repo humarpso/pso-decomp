@@ -5,11 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
+s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
+}
+
+extern "C" {
 
 int TAdSinglePlyChrSelectGC__sub_801FCBA0(void);
 int TAdSinglePlyChrSelectGC__sub_801FCC18(void);
-int TAdSinglePlyChrSelectGC__sub_801FCCB4(void);
-int TAdSinglePlyChrSelectGC__sub_801FCCC0(void);
 int TAdSinglePlyChrSelectGC__sub_801FCCDC(void);
 int TAdSinglePlyChrSelectGC__sub_801FCD04(void);
 int TAdSinglePlyChrSelectGC__sub_801FCD3C(void);
@@ -27,8 +30,14 @@ s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv();
 
 int TAdSinglePlyChrSelectGC__sub_801FCBA0(void) { return 0; }
 int TAdSinglePlyChrSelectGC__sub_801FCC18(void) { return 0; }
-int TAdSinglePlyChrSelectGC__sub_801FCCB4(void) { return 0; }
-int TAdSinglePlyChrSelectGC__sub_801FCCC0(void) { return 0; }
+
+void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s32 *, 0x11568) = arg1;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0x11568);
+}
 
 void set_id__23TAdSinglePlyChrSelectGCFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 s32 get_type__23TAdSinglePlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x0); }

@@ -5,9 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u32 TObjEneDD__vt99();
+void TObjEneRe4Sorcerer__vt100(u8 *arg0);
+u32 TObjEneDD__vt98();
+void TObjEneRe4Sorcerer__vt99(u8 *arg0);
+}
 
-int TObjEneRe4Sorcerer__vt100(void);
-int TObjEneRe4Sorcerer__vt99(void);
+extern "C" {
+
 void advance_anim_frame__18TObjEneRe4SorcererFPv(void *arg0);
 void apply_mylla_effect__18TObjEneRe4SorcererFPv(void *arg0);
 void calc_orb_positions__18TObjEneRe4SorcererFPv(void *arg0);
@@ -110,7 +115,19 @@ s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
     return 0;
 }
 
-int TObjEneRe4Sorcerer__vt100(void) { return 0; }
-int TObjEneRe4Sorcerer__vt99(void) { return 0; }
+void TObjEneRe4Sorcerer__vt100(u8 *arg0) {
+    if (TObjEneDD__vt99() == 0U) {
+        M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFFFFFEF);
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 0x10);
+}
+void TObjEneRe4Sorcerer__vt99(u8 *arg0) {
+    if (TObjEneDD__vt98() == 0U) {
+        M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) & 0xFFFFFFEF);
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 0x10);
+}
 
 }

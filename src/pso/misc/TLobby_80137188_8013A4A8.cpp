@@ -1,5 +1,20 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+void TObjPlayer__sub_8013A820(void *arg0, void *arg1);
+    extern int lbl_805D60D0;
+    extern int lbl_805D5328;
+void TObjPlayer__sub_8013A820(void *arg0, void *arg1);
+void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
+void* TObjPlayer__sub_8013A788(void* p, void* a1);
+void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);
+}
+
 extern "C" {
 
 void TLobby__sub_8013A4A8(void* p, void* a1);
@@ -7,9 +22,6 @@ void TLobby__sub_8013A4E4(void* p);
 void TLobby__sub_8013A578(void* p);
 void TLobby__sub_8013A5C0(void* p);
 int TLobby__sub_8013A5D4(void);
-int TObjPlayer__sub_8013A748(void);
-void* TObjPlayer__sub_8013A788(void* p, void* a1);
-int TObjPlayer__sub_8013A820(void*, void*);
 int TProtocol__sub_8013A650(void);
 void bswap_and_handle_packet__6TLobbyFii(s32 arg0, s32 arg1);
 void bswap_header_fields__6TLobbyFi(s32 arg0);
@@ -42,10 +54,18 @@ void TLobby__sub_8013A5C0(void* p) { *(u8*)((char*)p + 0x0) = 114; *(u8*)((char*
 
 int TLobby__sub_8013A5D4(void) { return 0; }
 int TProtocol__sub_8013A650(void) { return 0; }
-int TObjPlayer__sub_8013A748(void) { return 0; }
 
-void* TObjPlayer__sub_8013A788(void* p, void* a1) { *(void**)(p) = *(void**)((char*)a1 + 0x0); TObjPlayer__sub_8013A820((void*)((char*)p + 0x4), (void*)((char*)a1 + 0x4)); TObjPlayer__sub_8013A820((void*)((char*)p + 0x8), (void*)((char*)a1 + 0x8)); TObjPlayer__sub_8013A820((void*)((char*)p + 0xc), (void*)((char*)a1 + 0xc)); TObjPlayer__sub_8013A820((void*)((char*)p + 0x10), (void*)((char*)a1 + 0x10)); TObjPlayer__sub_8013A820((void*)((char*)p + 0x14), (void*)((char*)a1 + 0x14)); TObjPlayer__sub_8013A820((void*)((char*)p + 0x18), (void*)((char*)a1 + 0x18)); TObjPlayer__sub_8013A820((void*)((char*)p + 0x1c), (void*)((char*)a1 + 0x1c)); TObjPlayer__sub_8013A820((void*)((char*)p + 0x20), (void*)((char*)a1 + 0x20)); return p; }
+void *TObjPlayer__sub_8013A748(void *arg0, void *arg1) {
+    TObjPlayer__sub_8013A788((void*)(arg0), (void*)(arg1));
+    ((void (*)(void *, void *))TObjPlayer__sub_8013A788)((void *)((char *)arg0 + 36), (void *)((char *)arg1 + 36));
+    return arg0;
+}
 
-int TObjPlayer__sub_8013A820(void*, void*) { return 0; }
+void* TObjPlayer__sub_8013A788(void* p, void* a1) { *(void**)(p) = *(void**)((char*)a1 + 0x0); TObjPlayer__sub_8013A820((void *)((void*)((char*)p + 0x4)), (void *)((void*)((char*)a1 + 0x4))); TObjPlayer__sub_8013A820((void *)((void*)((char*)p + 0x8)), (void *)((void*)((char*)a1 + 0x8))); TObjPlayer__sub_8013A820((void *)((void*)((char*)p + 0xc)), (void *)((void*)((char*)a1 + 0xc))); TObjPlayer__sub_8013A820((void *)((void*)((char*)p + 0x10)), (void *)((void*)((char*)a1 + 0x10))); TObjPlayer__sub_8013A820((void *)((void*)((char*)p + 0x14)), (void *)((void*)((char*)a1 + 0x14))); TObjPlayer__sub_8013A820((void *)((void*)((char*)p + 0x18)), (void *)((void*)((char*)a1 + 0x18))); TObjPlayer__sub_8013A820((void *)((void*)((char*)p + 0x1c)), (void *)((void*)((char*)a1 + 0x1c))); TObjPlayer__sub_8013A820((void *)((void*)((char*)p + 0x20)), (void *)((void*)((char*)a1 + 0x20))); return p; }
+void TObjPlayer__sub_8013A820(void *arg0, void *arg1) {
+    M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
+    M2C_FIELD(arg0, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 1);
+    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
+}
 
 }

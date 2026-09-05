@@ -19,6 +19,10 @@ extern s32 lbl_805D5D6C;
 void TBoss8Dragon__sub_8006602C(void* p);
 void TObjFish__sub_800660D4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void fn_800660B8(u8 *arg0);
+int TBoss8Dragon__sub_80065F80(void* p = 0);
+void TBoss8Dragon__sub_80065F4C(void* p);
+int TLobby__send_and_handle_60(void*);
+void TBoss8Dragon__sub_80065F4C(void* p);
 }
 
 extern "C" {
@@ -30,8 +34,6 @@ void TBoss8Dragon__sub_80065F28(void);
 void TBoss8Dragon__sub_80065F2C(void);
 void TBoss8Dragon__sub_80065F30(void);
 void TBoss8Dragon__sub_80065F34(void);
-int TBoss8Dragon__sub_80065F4C(void);
-int TBoss8Dragon__sub_80065F80(void);
 int TBoss8Dragon__sub_80065FD4(void);
 void TBoss8Dragon__sub_800660A4(void* p);
 void bswap_boss_actions__12TBoss8DragonFi(s32 arg0);
@@ -52,8 +54,9 @@ void TBoss8Dragon__sub_80065F30(void) {  }
 void TBoss8Dragon__sub_80065F34(void) {  }
 void init_color__12TBoss8DragonFPv(void* p) { *(u8*)((char*)p + 0x0) = 160; *(u8*)((char*)p + 0x1) = 10; }
 
-int TBoss8Dragon__sub_80065F4C(void) { return 0; }
-int TBoss8Dragon__sub_80065F80(void) { return 0; }
+void TBoss8Dragon__sub_80065F4C(void* p) { TBoss8Dragon__sub_80065F80((void*)((void*)(p))); TLobby__send_and_handle_60(p); }
+
+int TBoss8Dragon__sub_80065F80(void* _w0) { return 0; }
 int TBoss8Dragon__sub_80065FD4(void) { return 0; }
 
 void TBoss8Dragon__sub_8006602C(void* p) { bswap_boss_actions__12TBoss8DragonFi((s32)((void*)(p))); TLobby__send_and_handle_60(p); }

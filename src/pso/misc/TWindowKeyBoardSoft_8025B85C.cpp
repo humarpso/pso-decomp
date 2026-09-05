@@ -43,6 +43,10 @@ void TWindowKeyBoardSoft__vt21(u8 *arg0);
 M2C_UNK reset_state__19TWindowKeyBoardSoftFPv(void *);
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 void TWindowKeyBoardSoft__vt2(u8 *arg0);
+void TWindowKeyBoardSoft__sub_8025BA28(u8 *arg0);
+M2C_UNK TWindowKeyBoardSoft__sub_8025D664();
+M2C_UNK TWindowKeyBoardSoft__sub_8025D8C8();
+void TWindowKeyBoardSoft__vt15(u8 *arg0);
 }
 
 extern "C" {
@@ -50,11 +54,9 @@ extern "C" {
 int TWindowKeyBoardSoft__sub_8025B85C(void);
 void TWindowKeyBoardSoft__sub_8025B928(void);
 int TWindowKeyBoardSoft__sub_8025B92C(void);
-int TWindowKeyBoardSoft__sub_8025BA28(void);
 int TWindowKeyBoardSoft__sub_8025C24C(void);
 int TWindowKeyBoardSoft__sub_8025CA70(void);
 int TWindowKeyBoardSoft__vt1(void);
-int TWindowKeyBoardSoft__vt15(void);
 int TWindowKeyBoardSoft__vt16(void);
 int TWindowKeyBoardSoft__vt3(void);
 int TWindowKeyBoardSoft__vt4(void);
@@ -112,7 +114,13 @@ void update_input_state__19TWindowKeyBoardSoftFPv(void *arg0) {
     }
 }
 
-int TWindowKeyBoardSoft__sub_8025BA28(void) { return 0; }
+void TWindowKeyBoardSoft__sub_8025BA28(u8 *arg0) {
+    u8 *temp_r3;
+    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 4)) {
+        temp_r3 = M2C_FIELD(arg0, u8 **, 0x68);
+        M2C_FIELD(temp_r3, s32 *, 4) = (s32) M2C_FIELD(temp_r3, s32 *, 0x10);
+    }
+}
 
 void TWindowKeyBoardSoft__sub_8025BA44(u8 *arg0) {
     if (!(M2C_FIELD(arg0, u16 *, 0x60) & 4)) {
@@ -197,7 +205,24 @@ void TWindowKeyBoardSoft__vt18(u8 *arg0) {
 }
 
 int TWindowKeyBoardSoft__vt16(void) { return 0; }
-int TWindowKeyBoardSoft__vt15(void) { return 0; }
+
+void TWindowKeyBoardSoft__vt15(u8 *arg0) {
+    u32 temp_r3;
+    u8 *temp_r4;
+    if (M2C_FIELD(arg0, u16 *, 0x60) & 4) {
+        if ((M2C_FIELD(arg0, u16 *, 0x62) & 1) && !(M2C_FIELD(arg0, s32 *, 0xB4) & 0x20)) {
+            TWindowKeyBoardSoft__sub_8025D664();
+            return;
+        }
+        TWindowKeyBoardSoft__sub_8025D8C8();
+        return;
+    }
+    temp_r4 = M2C_FIELD(arg0, u8 **, 0x68);
+    temp_r3 = M2C_FIELD(temp_r4, u32 *, 4);
+    if (temp_r3 < (u32) M2C_FIELD(temp_r4, u32 *, 0x10)) {
+        M2C_FIELD(temp_r4, u32 *, 4) = (u32) (temp_r3 + 1);
+    }
+}
 
 void TWindowKeyBoardSoft__vt20(u8 *arg0) {
     u16 temp_r3;

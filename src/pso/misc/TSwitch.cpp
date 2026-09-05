@@ -19,11 +19,14 @@ void TSwitch__sub_80229318(void* p, s16 v);
 s16 TObjPlayer__sub_800196EC();
 void TSwitch__sub_80229318(void* p, s16 v);
 void TSwitch__sub_802293A0(s32 arg0);
+void TODoorAncient08__sub_80229220(s32 arg0);
+u8 TSwitch__sub_802291F4(void* p = 0, s16 v = 0);
+s16 TObjPlayer__sub_800196EC();
+void TODoorAncient08__sub_80229220(s32 arg0);
 }
 
 extern "C" {
 
-u8 TSwitch__sub_802291F4(void);
 void *__ct__7TSwitchFv(void *arg0);
 void render__7TSwitchFv(void);
 void run_task__7TSwitchFv(void);
@@ -33,7 +36,7 @@ void __ct__7TObjectFP7TObject(void *);
 void render__7TSwitchFv(void) {  }
 void run_task__7TSwitchFv(void) {  }
 
-u8 TSwitch__sub_802291F4(void) {
+u8 TSwitch__sub_802291F4(void* _w0, s16 _w1) {
     return (u8) (TSwitch__sub_80229164() != 0);
 }
 
@@ -41,6 +44,14 @@ extern M2C_UNK __vt__7TSwitch[];
 extern void *lbl_805D3728;
 
 extern "C" {
+
+#include "types.h"
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+void TODoorAncient08__sub_80229220(s32 arg0) {
+    TSwitch__sub_802291F4((void*)((void*)((void *) (arg0))), (s16)((s16)((int) (TObjPlayer__sub_800196EC()))));
+}
+
 void TSwitch__sub_802292E0(s32 arg0) {
     TSwitch__sub_80229258((void*)((void *) (arg0)), (s16)((int) (TObjPlayer__sub_800196EC())));
 }

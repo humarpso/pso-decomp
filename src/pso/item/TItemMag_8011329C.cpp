@@ -5,10 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
+int TItemData__sub_8010EE40(void*);
+int get_stat_percent__9TItemDataFPv(void*);
+int get_level__9TItemDataFPv(void*);
+int get_percent__9TItemDataFPv(void*);
+s16 TItemMagSub__sub_8011455C(void *);
+void TItemMag__vt12(s32 arg0);
+}
+
+extern "C" {
 
 int TItemMag__sub_80113CA8(void);
 void TItemMag__sub_80113CB8(u8 *arg0, s32 arg1, u32 arg2);
-int TItemMag__vt12(void);
 int TItemMag__vt13(void* p);
 void TItemMag__vt16(s32 arg0, s32 arg1);
 void TItemMag__vt44(s32 arg0);
@@ -68,7 +77,11 @@ void update__8TItemMagFPv(void *arg0) {
 
 int TItemMag__vt13(void* p) { return TItemMag__sub_80110F04(p); }
 
-int TItemMag__vt12(void) { return 0; }
+void TItemMag__vt12(s32 arg0) {
+    if ((TItemMagSub__sub_8011455C((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)TItemData__sub_8010EE40((void*)((void *) (arg0 + 0x198)))) < 0)) {
+        refresh_if_current_player__20TWindowSubStatusDispFPv((void *) (arg0));
+    }
+}
 
 void TItemMag__vt16(s32 arg0, s32 arg1) {
     TItemData__sub_8010D510(arg1, arg0 + 0x198, arg0);

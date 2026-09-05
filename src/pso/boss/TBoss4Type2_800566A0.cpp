@@ -14,8 +14,14 @@ extern f32 TBoss4Type2__data_805D8BAC;
 extern f32 TBoss4Type2__data_805D8BAC;
 void TBoss4Type2__vt2(void *arg0);
 M2C_UNK TBoss4Type2__sub_80056F90(void *, int, int);
-s32 TBoss4Type2__sub_80057224();
 void TBoss4Type2__vt1(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+M2C_UNK TBoss4Type2__sub_80056A54(void *);
+M2C_UNK TBoss4Type2__sub_80056B3C(void *, int, int);
+M2C_UNK TBoss4Type2__sub_80056F90(void *, int, int);
+s32 TBoss4Type2__sub_80057224(void *);
+extern const f32 lbl_805D8BE4;
+void TBoss4Type2__sub_80056998(u8 *arg0);
 }
 
 extern "C" {
@@ -82,7 +88,7 @@ extern f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt1(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
-        TBoss4Type2__sub_80056F90((void *) (arg0), (int) (4), (int) (TBoss4Type2__sub_80057224()));
+        TBoss4Type2__sub_80056F90((void *) (arg0), (int) (4), (int) (TBoss4Type2__sub_80057224(arg0)));
     }
 }
 
@@ -102,6 +108,34 @@ void apply_resta_heal__11TBoss4Type2FPv(void *arg0) {
 
 extern const f32 lbl_805D8BF4;
 extern const f32 lbl_805D8BF8;
+
+void TBoss4Type2__sub_80056998(u8 *arg0) {
+    s32 temp_r3;
+    s32 var_r4;
+    s32 var_r5;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x3E0) < 3) && (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) < lbl_805D8BE4)) {
+        TBoss4Type2__sub_80056F90((void *)((void *) (arg0)), (int)((int) (4)), (int)((void *) (TBoss4Type2__sub_80057224((void *)((void *) (arg0))))));
+        return;
+    }
+    if (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) < lbl_805D8BE4) {
+        temp_r3 = M2C_FIELD(arg0, s32 *, 0x424);
+        var_r5 = temp_r3 + 1;
+        var_r4 = temp_r3;
+        if (var_r5 < temp_r3) {
+            var_r4 = var_r5;
+            var_r5 = temp_r3;
+        }
+        if (var_r4 < 9) {
+            var_r4 = 9;
+        }
+        if (var_r5 > 0xC) {
+            var_r5 = 0xC;
+        }
+        TBoss4Type2__sub_80056B3C((void *) (arg0), (int) (var_r4), (int) (var_r5));
+        return;
+    }
+    TBoss4Type2__sub_80056A54((void *) (arg0));
+}
 
 void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 0x3AC) = (s32) ((lbl_805D8BF4 + M2C_FIELD(arg1, f32 *, 0)) / lbl_805D8BF8);

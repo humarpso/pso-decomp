@@ -5,11 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2);
+}
+
+extern "C" {
 
 void TObjEneBm5GibonU__sub_800D119C(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D11F8(void);
 void TObjEneBm5GibonU__sub_800D1264(void);
-int TObjEneBm5GibonU__sub_800D1C40(void*, void*, void*);
 int TObjEneBm5GibonU__sub_800D1C78(void*, void*, void*);
 int TObjEneBm5GibonU__sub_800D1CF8(void);
 s32 TObjEneBm5GibonU__sub_800D1D70(void* p);
@@ -88,7 +91,7 @@ void *create__16TObjEneBm5GibonUFPv(void *arg0) {
 }
 
 void forward_hit__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C78((void*)(a1), (void*)(p), (void*)((char*)p + 0x4)); }
-void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C40((void*)(a1), (void*)(p), (void*)((char*)p + 0x4)); }
+void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C40((u8 *)((void*)(a1)), (void **)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
 void reset_fields__16TObjEneBm5GibonUFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
@@ -104,7 +107,20 @@ void set_field8_from_obj__16TObjEneBm5GibonUFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 8) = obj_getField1c(arg1);
 }
 
-int TObjEneBm5GibonU__sub_800D1C40(void*, void*, void*) { return 0; }
+void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2) {
+    u8 *temp_r0;
+    temp_r0 = (u8 *)(*arg2);
+    if (temp_r0 != NULL) {
+        M2C_FIELD(arg0, void **, 0) = temp_r0;
+        M2C_FIELD(*arg2, void **, 4) = arg0;
+    } else {
+        M2C_FIELD(arg0, void **, 0) = NULL;
+        *arg1 = arg0;
+    }
+    *arg2 = arg0;
+    M2C_FIELD(arg0, s32 *, 4) = 0;
+}
+
 int TObjEneBm5GibonU__sub_800D1C78(void*, void*, void*) { return 0; }
 
 s32 destroy__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1) {

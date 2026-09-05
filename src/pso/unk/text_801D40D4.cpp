@@ -1,9 +1,20 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 get_field_ed__10TObjPlayerFPv(void *);
+u8 get_field_ec__12TOSwitchItemFPv(void *, int);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+s32 TObjPlayer__sub_801C1A70(void *, int);
+void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 int TObjPlayer__sub_801D4308(void);
-int TObjPlayer__sub_801D45B0(void);
 int TObjPlayer__sub_801D4678(void);
 int TObjPlayer__sub_801D46D4(void);
 void TObjPlayer__sub_801D4730(void* p);
@@ -34,7 +45,24 @@ int fn_801D4270(void) { return 0; }
 int reset(void* p) { return memset(p, 0, 28); }
 int TObjPlayer__sub_801D4308(void) { return 0; }
 
-int TObjPlayer__sub_801D45B0(void) { return 0; }
+void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
+    s32 temp_r4;
+    u8 temp_r3;
+    *arg0 = 0;
+    temp_r4 = get_field_ec__12TOSwitchItemFPv((void *) (arg1), (int) (arg1)) << 0x19;
+    *arg0 |= temp_r4;
+    if (get_field_ec__12TOSwitchItemFPv((void *) (arg1), (int) (temp_r4)) == 1) {
+        *arg0 |= (get_field_ed__10TObjPlayerFPv((void *) (arg1)) << 0x11) & 0x01FE0000;
+    } else {
+        *arg0 |= (get_field_ed__10TObjPlayerFPv((void *) (arg1)) << 8) & 0xFF00;
+    }
+    temp_r3 = get_slot_count__14TItemProShieldFPv((void *) (arg1));
+    *arg0 |= temp_r3;
+    if (TObjPlayer__sub_801C1A70((void *) (arg1), (int) (temp_r3)) == 0) {
+        *arg0 |= 0x10000;
+    }
+}
+
 int TObjPlayer__sub_801D4678(void) { return 0; }
 int TObjPlayer__sub_801D46D4(void) { return 0; }
 

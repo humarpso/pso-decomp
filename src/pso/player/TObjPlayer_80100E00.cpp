@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjPlayer__sub_80102C58(void *);
+M2C_UNK TObjPlayer__sub_80102C68(void *);
+s32 is_flag_20000_set__10TObjPlayerFv(int);
+s32 test_flag_2000000__10TObjPlayerFPv(int);
+s32 reset_key_machine_state__10TObjPlayerFv();
+void TObjPlayer__sub_80100E38(u8 *arg0);
+}
+
+extern "C" {
 
 int TObjPlayer__sub_80100F34(void);
 void draw_shield_particle__10TObjPlayerFPv(void *arg0);
@@ -37,6 +46,20 @@ f32 get_mag_scale__10TObjPlayerFPv(void *arg0) {
 }
 
 extern M2C_UNK lbl_805D53EC;
+
+void TObjPlayer__sub_80100E38(u8 *arg0) {
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0xF0);
+    if (temp_r0 != 0U) {
+        if ((test_flag_2000000__10TObjPlayerFPv((int) (temp_r0)) == 0) && (reset_key_machine_state__10TObjPlayerFv() == 1) && (is_flag_20000_set__10TObjPlayerFv((int) (M2C_FIELD(arg0, u32 *, 0xF0))) == 0)) {
+            TObjPlayer__sub_80102C68((void *) (arg0));
+            return;
+        }
+        TObjPlayer__sub_80102C58((void *) (arg0));
+        return;
+    }
+    TObjPlayer__sub_80102C58((void *) (arg0));
+}
 
 void update_screen_particle_effect__10TObjPlayerFPv(void *arg0) {
     if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 0x10) != 0) {

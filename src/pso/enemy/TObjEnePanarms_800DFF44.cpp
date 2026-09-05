@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEnePanarms__sub_800E0930(u8 *arg0);
+}
+
+extern "C" {
 
 int TObjEnePanarms__sub_800E08D8(void);
 void TObjEnePanarms__sub_800E092C(void);
-int TObjEnePanarms__sub_800E0930(void);
 void apply_effect_if_flagged__14TObjEnePanarmsFPv(void *arg0);
 void handle_split_flag__14TObjEnePanarmsFPv(void *arg0);
 void init_action__14TObjEnePanarmsFPv(void* a0);
@@ -103,7 +106,13 @@ int TObjEnePanarms__sub_800E08D8(void) { return 0; }
 
 void TObjEnePanarms__sub_800E092C(void) {  }
 
-int TObjEnePanarms__sub_800E0930(void) { return 0; }
+void TObjEnePanarms__sub_800E0930(u8 *arg0) {
+    u8 *temp_r5;
+    temp_r5 = M2C_FIELD(arg0, u8 **, 0x37C);
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFFFFFFFE);
+    M2C_FIELD(arg0, s32 *, 0x384) = 0;
+    M2C_FIELD(arg0, s32 *, 0x388) = 0;
+}
 
 void apply_effect_if_flagged__14TObjEnePanarmsFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {

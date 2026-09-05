@@ -2,12 +2,17 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void fn_8002C7EC(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TObjBoss1Crater__sub_8002C7B4(void);
 s32 TObjBoss1Crater__sub_8002C7E4(void* p);
 void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1);
-int fn_8002C7EC(void);
 int TBoss8Dragon__sub_8002D5F8(void);
 void *TObjBoss1Crater__ct(void *, void *, void *, void *);
 int TObjBoss1Crater__sub_8002C7B8(void);
@@ -46,7 +51,18 @@ void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
 void TObjBoss1Crater__sub_8002C7B4(void) {  }
 
 s32 TObjBoss1Crater__sub_8002C7E4(void* p) { return *(s32*)((char*)p + 0x8); }
-
-int fn_8002C7EC(void) { return 0; }
+void fn_8002C7EC(u8 *arg0, s32 arg1) {
+    s32 temp_r5;
+    s32 temp_r5_2;
+    if (arg1 >= 0) {
+        temp_r5 = M2C_FIELD(arg0, s32 *, 8);
+        if (arg1 < temp_r5) {
+            M2C_FIELD(arg0, s32 *, 8) = (s32) (temp_r5 - 1);
+            temp_r5_2 = M2C_FIELD(arg0, s32 *, 0);
+            M2C_FIELD(temp_r5_2, M2C_UNK *, (arg1 * 4)) = M2C_FIELD(temp_r5_2, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 8) * 4));
+            M2C_FIELD(M2C_FIELD(arg0, s32 *, 0), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 8) * 4)) = M2C_FIELD(arg0, s32 *, 4);
+        }
+    }
+}
 
 }

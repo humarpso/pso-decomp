@@ -11,6 +11,9 @@ void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 void *__nw__7TObjectFUl(int);
 void *TPlyPtclObjectRightHand__ct(void *, void *);
 void TObjPlayer__sub_8030A030(void *arg0, void *arg1);
+void *__nw__7TObjectFUl(int);
+void *TPlyPtclObjectLeftHand__ct(void *, void *);
+void TObjPlayer__sub_8030A07C(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -21,7 +24,6 @@ s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1);
 int TObjPlayer__sub_80309F30(void);
 int TObjPlayer__sub_80309F78(void);
 int TObjPlayer__sub_80309FD4(void);
-int TObjPlayer__sub_8030A07C(void *);
 int TObjPlayer__sub_8030A150(void);
 s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1);
 s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -51,7 +53,7 @@ void clear_foot_stamp__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 void update_child__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     struct VOff_80309DD0_arg0_80309dd0_80309D80 *self = (struct VOff_80309DD0_arg0_80309dd0_80309D80 *)arg0;
-    TObjPlayer__sub_8030A07C((void *)(self->f_4));
+    TObjPlayer__sub_8030A07C((void *)((void *)(self->f_4)), (void *)(arg1));
     TObjPlayer__sub_8030A030((void *)((void *)(self->f_4)), (void *)((void *)(arg1)));
 }
 
@@ -84,7 +86,14 @@ void TObjPlayer__sub_8030A030(void *arg0, void *arg1) {
     M2C_FIELD(arg0, void **, 0x4) = o;
 }
 
-int TObjPlayer__sub_8030A07C(void *) { return 0; }
+void TObjPlayer__sub_8030A07C(void *arg0, void *arg1) {
+    void *o;
+    o = __nw__7TObjectFUl(0xB0);
+    if (o != NULL) {
+        o = TPlyPtclObjectLeftHand__ct(o, arg1);
+    }
+    M2C_FIELD(arg0, void **, 0x0) = o;
+}
 
 s32 dt_follow_particle_ctrl__10TObjPlayerFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

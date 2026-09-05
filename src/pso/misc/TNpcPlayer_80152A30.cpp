@@ -13,7 +13,13 @@ void TNpcPlayer__sub_80152A34(u8 *arg0, s32 arg1, s32 arg2);
 void TNpcPlayer__sub_80152B08(u8 *arg0);
 void TNpcPlayer__sub_80152B98(u8 *arg0);
 void TNpcPlayer__sub_80152C28(u8 *arg0);
+void *TObjPlayer__sub_801D2304(void *arg0, void *arg1);
+void *TObjPlayer__sub_801D2348(void *arg0, void *arg1);
+void TNpcPlayer__sub_80152C48(u8 *arg0);
+int TNpcPlayer__sub_80152C8C(void* p);
+int TLobby__send_and_handle_60(void*);
 u8 TNpcPlayer__sub_80152CE8(u8 *arg0);
+void TNpcPlayer__sub_80152C48(u8 *arg0);
 }
 
 extern "C" {
@@ -24,8 +30,6 @@ int TNpcPlayer__sub_80152A78(void*);
 void TNpcPlayer__sub_80152ACC(void* p);
 void TNpcPlayer__sub_80152B5C(void* p);
 void TNpcPlayer__sub_80152BEC(void* p);
-int TNpcPlayer__sub_80152C48(void);
-int TNpcPlayer__sub_80152C8C(void);
 void TNpcPlayer__sub_80152D64(void* p);
 void TNpcPlayer__sub_80152E74(void* a0);
 int TObjPlayer__sub_80152F40(void);
@@ -112,8 +116,13 @@ void TNpcPlayer__sub_80152C28(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 2;
 }
 
-int TNpcPlayer__sub_80152C48(void) { return 0; }
-int TNpcPlayer__sub_80152C8C(void) { return 0; }
+void TNpcPlayer__sub_80152C48(u8 *arg0) {
+    M2C_FIELD(arg0, s8 *, 1) = (s8) ((((u32)TNpcPlayer__sub_80152CE8((u8 *)(arg0))) >> 2U) & 0x3F);
+    TNpcPlayer__sub_80152C8C((void*)((void*)((void *) (arg0))));
+    TLobby__send_and_handle_60((void*)((void *) (arg0)));
+}
+
+int TNpcPlayer__sub_80152C8C(void* _w0) { return 0; }
 
 u8 TNpcPlayer__sub_80152CE8(u8 *arg0) {
     return (u8) (0x30 - ((0xA - (s8) M2C_FIELD(arg0, u8 *, 7)) * 4));

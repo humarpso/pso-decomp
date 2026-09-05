@@ -5,9 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 TWindowSnapShot__sub_802A605C(u8 *arg0);
+}
+
+extern "C" {
 
 void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1);
-int TWindowSnapShot__sub_802A605C(void);
 void fn_802A6070(void* p, s32 v);
 void fn_802A6078(void* p, s32 v);
 s32 get_buffer_size__15TWindowSnapShotFPv(void* p);
@@ -64,7 +67,10 @@ int get_width__15TWindowSnapShotFv(void) { return 32; }
 void set_mode__15TWindowSnapShotFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x18) = v; }
 s32 get_buffer_size__15TWindowSnapShotFPv(void* p) { return *(s32*)((char*)p + 0xc); }
 
-int TWindowSnapShot__sub_802A605C(void) { return 0; }
+u8 TWindowSnapShot__sub_802A605C(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s32 *, 0xC) != 0);
+}
+
 void fn_802A6070(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void fn_802A6078(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 

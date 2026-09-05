@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 check_demo_mode__10TObjPlayerFv();
+void TORevlightCave01__sub_80173478(void * = 0);
+void run_task__16TORevlightCave01Fv(u8 *arg0);
+}
+
+extern "C" {
 
 struct TORevlightCave01Base_80173478 { char pad[0x18]; };
 struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
@@ -19,9 +25,7 @@ struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
     virtual s32 m8(f32, f32);
 };
 
-void TORevlightCave01__sub_80173478(void);
 void render__16TORevlightCave01Fv(u8 *arg0);
-int run_task__16TORevlightCave01Fv(void);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOSignCave03__sub_803DB510(s32);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(M2C_UNK, s32);
@@ -33,9 +37,14 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-void TORevlightCave01__sub_80173478(void) {  }
+void TORevlightCave01__sub_80173478(void * _w0) {  }
 
-int run_task__16TORevlightCave01Fv(void) { return 0; }
+void run_task__16TORevlightCave01Fv(u8 *arg0) {
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        TORevlightCave01__sub_80173478((void *)((void *) (arg0)));
+    }
+    M2C_FIELD(arg0, s32 *, 0xC8) = (s32) (M2C_FIELD(arg0, s32 *, 0xC8) + M2C_FIELD(arg0, s32 *, 0xCC));
+}
 
 void render__16TORevlightCave01Fv(u8 *arg0) {
     if (((TORevlightCave01_80173478*)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {

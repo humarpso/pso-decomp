@@ -19,11 +19,21 @@ int TOAttackableCol__vt22(void* p);
 int TOAttackableCol__sub_80157728(void*);
 void init__17TOBarrierEnergy01FPv(void *);
 void *fn_80157CA8(void *arg0);
+s32 check_demo_mode__10TObjPlayerFv();
+void TOAttackableCol__sub_80157310(void * = 0);
+void release__15TOAttackableColFPv(void* p);
+void check_door_trigger__15TOAttackableColFPv(void *arg0);
+void run_task__15TOAttackableColFv(u8 *arg0);
+void check_door_trigger__15TOAttackableColFPv(void *arg0);
+void release__15TOAttackableColFPv(void* p);
+void release__15TOAttackableColFPv(void* p);
+void check_door_trigger__15TOAttackableColFPv(void *arg0);
+extern M2C_UNK __vt__11TOVS2Wall01[];
+void run_task__15TOAttackableColFv(u8 *arg0);
 }
 
 extern "C" {
 
-void TOAttackableCol__sub_80157310(void);
 int TOAttackableCol__sub_801575AC(void *, s32);
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
@@ -37,7 +47,6 @@ int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 void init_params__15TOAttackableColFPv(void *arg0);
 void release__15TOAttackableColFPv(void* p);
 void render__15TOAttackableColFv(void);
-int run_task__15TOAttackableColFv(void);
 int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
 void TOBarrierEnergy01__vt18(void);
@@ -54,7 +63,7 @@ int queue_destruction__7TObjectFv(void*);
 int set_flag8__6TLobbyFPv(void*);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
-void TOAttackableCol__sub_80157310(void) {  }
+void TOAttackableCol__sub_80157310(void * _w0) {  }
 
 extern const f32 lbl_805DB2C8;
 
@@ -116,7 +125,24 @@ void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     }
 }
 
-int run_task__15TOAttackableColFv(void) { return 0; }
+void run_task__15TOAttackableColFv(u8 *arg0) {
+    s16 temp_r0;
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        TOAttackableCol__sub_80157310((void *)((void *) (arg0)));
+        return;
+    }
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    switch (temp_r0) {
+    default:
+        M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    case 0:
+        check_door_trigger__15TOAttackableColFPv((void *)((void*)((void *) (arg0))));
+        return;
+    case 1:
+        release__15TOAttackableColFPv((void*)((void *) (arg0)));
+        return;
+    }
+}
 
 void render__15TOAttackableColFv(void) {  }
 

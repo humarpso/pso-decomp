@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern u8 *lbl_805D553C;
+s32 TItemData__sub_8010EEC8(s32 arg0);
+s32 TItemData__sub_8010EEDC(s32 arg0);
+}
+
+extern "C" {
 
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
@@ -77,6 +83,12 @@ s16 get_percent__9TItemDataFPv(void *arg0) {
 
 void update_player_field__9TItemDataFi(s32 arg0) {
     TObjPlayer__sub_803373D0(arg0 + 0x374, TObjPlayer__sub_801AFDB0());
+}
+s32 TItemData__sub_8010EEC8(s32 arg0) {
+    return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 4), M2C_UNK *, (arg0 * 4));
+}
+s32 TItemData__sub_8010EEDC(s32 arg0) {
+    return M2C_FIELD(*(*(s32 * *)&lbl_805D553C), M2C_UNK *, (arg0 * 4));
 }
 
 }
