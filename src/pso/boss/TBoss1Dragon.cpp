@@ -80,6 +80,8 @@ struct VObj_18_5c4a6f : VBase_18_5c4a6f {
     virtual M2C_UNK m46(M2C_UNK);
 };
 
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 int TBoss1Dragon__sub_80020A34(void* p);
 void draw__12TBoss1DragonFPv(u8 *arg0);
@@ -148,7 +150,6 @@ s32 get_instance__12TBoss1DragonFv(void);
 void *dt__12TBoss1DragonFPvs(void *arg0, s16 arg1);
 void *init_base__12TBoss1DragonFPv(void *arg0);
 int TBoss1Dragon__sub_8002AC4C(void);
-int TBoss1Dragon__sub_8002ACE0(void);
 int TBoss1Dragon__sub_8002AD54(void);
 void TBoss1Dragon__sub_8002ADAC(void);
 void TBoss1Dragon__sub_8002ADB0(void);
@@ -634,6 +635,9 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m20(s32, f32);
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
 extern "C" {
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
 s32 objInBand__FP7GameObjf(f32);
@@ -647,6 +651,7 @@ extern const f32 TBoss1Dragon__data_805D7F40;
 void TBoss1Dragon__sub_8002AA7C(u8 *arg0, u8 *arg1);
 s32 obj_isState2_324();
 void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
+void TBoss1Dragon__sub_8002ACE0(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -811,7 +816,16 @@ void *init_base__12TBoss1DragonFPv(void *arg0) {
 
 int TBoss1Dragon__sub_8002AC4C(void) { return 0; }
 
-int TBoss1Dragon__sub_8002ACE0(void) { return 0; }
+void TBoss1Dragon__sub_8002ACE0(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    *(M2CCopy_C *)((s32) arg0 + 8) = *(const M2CCopy_C *)((s32) arg1 + 8);
+    *(M2CCopy_C *)((s32) arg0 + 0x14) = *(const M2CCopy_C *)((s32) arg1 + 0x14);
+    *(M2CCopy_C *)((s32) arg0 + 0x20) = *(const M2CCopy_C *)((s32) arg1 + 0x20);
+    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x2C);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) M2C_FIELD(arg1, f32 *, 0x34);
+}
 
 int TBoss1Dragon__sub_8002AD54(void) { return 0; }
 

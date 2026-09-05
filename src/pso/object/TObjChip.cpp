@@ -36,9 +36,15 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m10();
     virtual M2C_UNK m11();
 };
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(int);
 void TObjChip__sub_80180134(u8 *arg0);
+void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -79,6 +85,22 @@ void update__8TObjChipFPv(void *arg0) {
     if (o->m6() == 1) {
         queue_destruction__7TObjectFv(arg0);
     }
+}
+
+void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
+    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
+    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
+    *(M2CCopy_C *)((s32) arg0 + 0xC) = *(const M2CCopy_C *)((s32) arg1 + 0xC);
+    *(M2CCopy_C *)((s32) arg0 + 0x18) = *(const M2CCopy_C *)((s32) arg1 + 0x18);
+    *(M2CCopy_C *)((s32) arg0 + 0x24) = *(const M2CCopy_C *)((s32) arg1 + 0x24);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x34);
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg1, f32 *, 0x38);
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(arg1, f32 *, 0x3C);
+    M2C_FIELD(arg0, s32 *, 0x40) = (s32) M2C_FIELD(arg1, s32 *, 0x40);
+    M2C_FIELD(arg0, s32 *, 0x44) = (s32) M2C_FIELD(arg1, s32 *, 0x44);
+    M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(arg1, s32 *, 0x48);
 }
 
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {

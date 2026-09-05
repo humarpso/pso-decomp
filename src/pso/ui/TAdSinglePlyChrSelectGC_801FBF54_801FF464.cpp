@@ -4,11 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct M2CCopy_FC0 { u8 bytes[0xfc0]; };
+
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+extern "C" {
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFCFC(void *, void *);
+u8 *TAdSinglePlyChrSelectGC__sub_801FFC74(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 s32 init__23TAdSinglePlyChrSelectGCFv(void);
 s32 load_and_verify_data(s32 arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFC74(u32 *, s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200470();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802010E8();
@@ -68,7 +77,7 @@ s32 load_and_verify_data(s32 arg0) {
     if (var_r31 != NULL) {
         var_r31 = init_windows__23TAdSinglePlyChrSelectGCFi();
     }
-    TAdSinglePlyChrSelectGC__sub_801FFC74(var_r31, lbl_805D5F68);
+    TAdSinglePlyChrSelectGC__sub_801FFC74((u8 *)(var_r31), (u8 *)(lbl_805D5F68));
     temp_r30 = *var_r31;
     *var_r31 = 0U;
     if (temp_r30 != TAdSinglePlyChrSelectGC__sub_80201204(var_r31, 0xE28C)) {
@@ -87,6 +96,14 @@ s32 load_and_verify_data(s32 arg0) {
 block_9:
     __dl__FPv(var_r31);
     return 1;
+}
+u8 *TAdSinglePlyChrSelectGC__sub_801FFC74(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
+    TAdSinglePlyChrSelectGC__sub_801FFCFC((void *) (arg0 + 4), (void *) (arg1 + 4));
+    *(M2CCopy_FC0 *)((s32) (arg0 + 0xD2C0) + 4) = *(const M2CCopy_FC0 *)((s32) (arg1 + 0xD2C0) + 4);
+    M2C_FIELD(arg0, s32 *, 0xE284) = (s32) M2C_FIELD(arg1, s32 *, 0xE284);
+    M2C_FIELD(arg0, s32 *, 0xE288) = (s32) M2C_FIELD(arg1, s32 *, 0xE288);
+    return arg0;
 }
 
 }

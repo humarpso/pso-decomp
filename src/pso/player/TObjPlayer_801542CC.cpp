@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 struct Elt_801542CC { char pad[0x18]; s32 f18; char pad2[0x2C - 0x1C]; };
 
+struct M2CCopy_C { u8 bytes[0xc]; };
+
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_60 { u8 bytes[0x60]; };
+
+extern "C" {
+void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
+u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TOTrapAncient02R__sub_80154D78(void);
@@ -94,6 +109,16 @@ loop_1:
         return -1;
     }
     goto loop_1;
+}
+
+u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1) {
+    *(M2CCopy_60 *)(arg0) = *(const M2CCopy_60 *)(arg1);
+    return (u8 *)arg0;
+}
+
+void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1) {
+    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
+    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
 }
 
 s32 check_flag_pair__10TObjPlayerFii(s32 arg0, s32 arg1) {

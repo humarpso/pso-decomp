@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_8 { u8 bytes[0x8]; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -15,6 +20,8 @@ s16 TObjPlayer__sub_801D2EA8(u8 *arg0);
 s32 TObjPlayer__sub_801D2EE8(s16 arg0);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s32 TObjPlayer__sub_801D2F8C(s16 arg0);
+int TFontSmallLobby__sub_801C0228(void*);
+u8 *TObjPlayer__sub_801D2910(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -26,7 +33,6 @@ s32 TObjPlayer__sub_801D2870(void* p);
 s32 TObjPlayer__sub_801D2878(void* p);
 void* TObjPlayer__sub_801D28A0(void* p, void* a1);
 void TObjPlayer__sub_801D28DC(void* p);
-int TObjPlayer__sub_801D2910(void);
 int TObjPlayer__sub_801D2964(void);
 int TObjPlayer__sub_801D2A50(void* p);
 void TObjPlayer__sub_801D2A78(void* p, f32 v);
@@ -83,7 +89,6 @@ int test_bit1_at_10__10TObjPlayerFPv(void* p);
 s32 tick_countdown_timer__10TObjPlayerFPv(u8 *arg0);
 int trigger_photon_blast__10TObjPlayerFPv(void* p);
 s32 update_if_flag8_set__10TObjPlayerFi(s32 arg0);
-int TFontSmallLobby__sub_801C0228(void*);
 int TObjPlayer__sub_8001BEF8(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
 int TObjPlayer__sub_80121248(void*, int);
@@ -112,7 +117,14 @@ int bswap_field_u32__10TObjPlayerFPv(void* p) { return bswap_32__FPUl(p); }
 void* TObjPlayer__sub_801D28A0(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 void TObjPlayer__sub_801D28DC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
 
-int TObjPlayer__sub_801D2910(void) { return 0; }
+u8 *TObjPlayer__sub_801D2910(u8 *arg0, u8 *arg1) {
+    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
+    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
+    *(M2CCopy_8 *)((s32) arg0 + 8) = *(const M2CCopy_8 *)((s32) arg1 + 8);
+    return arg0;
+}
+
 int TObjPlayer__sub_801D2964(void) { return 0; }
 
 int clear_photon_blast_state__10TObjPlayerFPv(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0x40, 62); }

@@ -4,16 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_8 { u8 bytes[0x8]; };
+
 extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
 void TObjPlayer__sub_801BFF80(u8 *arg0);
+M2C_UNK TFontSmallLobby__sub_801C0228();
+u8 *TObjPlayer__sub_801BFFA8(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
 
 void TObjPlayer__sub_801BFED4(void* p);
 s32 TObjPlayer__sub_801BFFA0(void* p);
-int TObjPlayer__sub_801BFFA8(void);
 int TObjPlayer__sub_801C000C(void);
 int TObjPlayer__sub_801C0014(void);
 int TObjPlayer__sub_801C001C(void);
@@ -56,7 +62,14 @@ void TObjPlayer__sub_801BFF80(u8 *arg0) {
 
 s32 TObjPlayer__sub_801BFFA0(void* p) { return *(s32*)((char*)p + 0x0); }
 
-int TObjPlayer__sub_801BFFA8(void) { return 0; }
+u8 *TObjPlayer__sub_801BFFA8(u8 *arg0, u8 *arg1) {
+    TFontSmallLobby__sub_801C0228();
+    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
+    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
+    *(M2CCopy_8 *)((s32) arg0 + 8) = *(const M2CCopy_8 *)((s32) arg1 + 8);
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
+    return arg0;
+}
 
 s16 get_floor__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0xb8); }
 int TObjPlayer__sub_801C000C(void) { return 0; }

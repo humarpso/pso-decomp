@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
+extern "C" {
+u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1);
+}
+
 extern "C" {
 
 int TBoss6Type1__sub_802B8624(void);
@@ -160,6 +169,11 @@ void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1) {
 }
 
 extern s32 tl_04;
+
+u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1) {
+    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
+    return (u8 *)arg0;
+}
 
 s32 create__11TBoss6Type1Fi(s32 arg0) {
     s32 var_r31;

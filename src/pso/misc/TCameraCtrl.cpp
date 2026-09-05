@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_30 { u8 bytes[0x30]; };
+
+extern "C" {
+u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1);
+}
+
 extern "C" {
 
 u16 TCameraCtrl__sub_8006B358(void* p);
@@ -33,6 +42,12 @@ void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
 }
 
     extern int lbl_805D34B8;
+
+u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1) {
+    *(M2CCopy_30 *)(arg0) = *(const M2CCopy_30 *)(arg1);
+    return (u8 *)arg0;
+}
+
 int get_instance__11TCameraCtrlFv(void) {  return lbl_805D34B8; }
 
     extern int lbl_805D4E04;

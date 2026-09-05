@@ -13,7 +13,6 @@ s32 get_normalized_mode__6TLobbyFv();
 void TLobby__sub_801EA690(s32 arg0);
 M2C_UNK send_code50_packet__10TObjPlayerFi(int);
 M2C_UNK send_code_49_1__10TObjPlayerFi();
-s32 TPlayerBattleCtrl4P__sub_801BA74C(int, void *);
 void TLobby__sub_801EA7A0(s32 arg0);
 s32 is_split_screen();
 s32 check_ready_state__6TLobbyFv();
@@ -30,6 +29,20 @@ M2C_UNK TLobby__sub_80070EE4(int);
 M2C_UNK TLobby__sub_80292200(int);
 void TLobby__sub_801EB0A0(s32 arg0);
 void TLobby__sub_801EB0F8(s32 arg0);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int, void *);
+s32 set_flag_80000__6TLobbyFi(int);
+s32 set_flag_40000__6TLobbyFPv(int);
+s32 TLobby__sub_801F3314(int);
+s32 set_flag_8000__6TLobbyFi(int);
+s32 check_flag_24576__6TLobbyFPv(int);
+s32 TLobby__sub_801F3384(int);
+s32 TLobby__sub_801F33A8(int);
+s32 TLobby__sub_801F33CC(int);
+s32 TLobby__sub_801F33F0(int);
+s32 test_flag_16__6TLobbyFPv(int);
+s32 set_flag_4__6TLobbyFPv(int);
+s32 TLobby__sub_801F345C();
+void TLobby__sub_801EB25C(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -209,6 +222,63 @@ void TLobby__sub_801EB0F8(s32 arg0) {
 s32 init_guild_card_tag__6TLobbyFi(s32 arg0) {
     __ct__16TPlyGuildCardTagFv(arg0 + 4);
     return arg0;
+}
+void TLobby__sub_801EB25C(s32 arg0, s32 arg1) {
+    s32 temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int)((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (void *)(arg1));
+    if (temp_r3 != 0) {
+        if (TLobby__sub_801F345C() != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 1;
+            return;
+        }
+        if (set_flag_4__6TLobbyFPv((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 2;
+            return;
+        }
+        if (test_flag_16__6TLobbyFPv((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 3;
+            return;
+        }
+        if (TLobby__sub_801F33F0((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 4;
+            return;
+        }
+        if (TLobby__sub_801F33CC((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 5;
+            return;
+        }
+        if (TLobby__sub_801F33A8((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 6;
+            return;
+        }
+        if (TLobby__sub_801F3384((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 7;
+            return;
+        }
+        if (check_flag_24576__6TLobbyFPv((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 8;
+            return;
+        }
+        if (set_flag_8000__6TLobbyFi((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 9;
+            return;
+        }
+        if (TLobby__sub_801F3314((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 0xA;
+            return;
+        }
+        if (set_flag_40000__6TLobbyFPv((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 0xB;
+            return;
+        }
+        if (set_flag_80000__6TLobbyFi((int) (temp_r3)) != 0) {
+            M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 0xC;
+            return;
+        }
+        M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 0;
+        return;
+    }
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = 0;
 }
 
 }

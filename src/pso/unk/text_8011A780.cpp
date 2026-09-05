@@ -9,6 +9,8 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
 void TLobby__sub_8011AF58(s32 arg0);
+M2C_UNK TLobby__sub_80103BFC(s32, s32);
+void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
 }
 
 extern "C" {
@@ -16,12 +18,15 @@ extern "C" {
 int TLobby__sub_8011AED8(void);
 void handle_6x5C_destroy_floor_item(void *arg0);
 void handle_6x62(void);
-M2C_UNK TLobby__sub_80103BFC(s32, s32);
 M2C_UNK bswap_packet__6TLobbyFPv();
 
 void handle_6x5C_destroy_floor_item(void *arg0) {
     bswap_packet__6TLobbyFPv();
     TLobby__sub_80103BFC(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
+}
+
+void TLobby__sub_8011AA44(s16 arg0, s32 _w1) {
+    TLobby__sub_80103BFC((s32)((void *) (arg0)), (s32)(_w1));
 }
 
 int TLobby__sub_8011AED8(void) { return 0; }

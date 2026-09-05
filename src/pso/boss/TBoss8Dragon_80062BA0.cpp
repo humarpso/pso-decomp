@@ -93,6 +93,11 @@ struct VObj_80065370_80062BA0 : Base_80065370_80062BA0 {
     virtual void vcall(s16 a, int b);
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_10 { u8 bytes[0x10]; };
+
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_80063F34(void *);
 s32 objInBand__FP7GameObjf(f32);
@@ -100,6 +105,7 @@ extern const f32 lbl_805D8EBC;
 void TBoss8Dragon__sub_80063EF4(s32 arg0);
 extern f32 TObjEneDf2Bringer__data_805D9820;
 void TBoss8Dragon__sub_80063EF4(s32 arg0);
+void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -293,6 +299,12 @@ int attack_default__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_800649
 int query_default__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 0); }
 
 void copy_spawn_params__12TBoss8DragonFPvPv(void* p, void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short*)((char*)p + 0x1c); VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)p + 0x38)); *(void**)((char*)a1 + 0x10) = *(void**)((char*)p + 0x60); TBoss8Dragon__sub_80065F4C(a1); }
+
+void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
+    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
+    *(M2CCopy_10 *)((s32) arg0 + 4) = *(const M2CCopy_10 *)((s32) arg1 + 4);
+}
 
 void handle_6xA0_gal_gryphon_boss_actions(void *arg0) {
     void *x;

@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-u8 get_field_ed__10TObjPlayerFPv(void *);
 M2C_UNK try_add_action__8TItemMagFii(void *, int);
 M2C_UNK TItemMag__sub_801123F8(void *);
 void TItemMag__sub_80111188(u8 *arg0, u8 arg1);
+u8 get_field_ed__10TObjPlayerFPv(void *);
+u8 *get_type__8TItemMagFPv(s32);
+extern s32 TItemMag__data_805D54A8;
+s32 TItemMag__sub_801117C0(void * _w0);
 }
 
 extern "C" {
@@ -120,5 +123,18 @@ void TItemMag__sub_80111188(u8 *arg0, u8 arg1) {
 int TItemMag__sub_801112B0(void) { return 0; }
 
 int TItemMag__sub_801112B8(void) { return 0; }
+s32 TItemMag__sub_801117C0(void * _w0) {
+    u8 temp_r3;
+    u8 var_r31;
+    temp_r3 = get_field_ed__10TObjPlayerFPv((void *)(_w0));
+    var_r31 = temp_r3;
+    if (temp_r3 >= 0x42U) {
+        var_r31 = 0x42;
+    }
+    if (var_r31 <= 0x42U) {
+        return M2C_FIELD(M2C_FIELD(get_type__8TItemMagFPv(TItemMag__data_805D54A8), s32 *, 0x14), s8 *, var_r31);
+    }
+    return 0;
+}
 
 }

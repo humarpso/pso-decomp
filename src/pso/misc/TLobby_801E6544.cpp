@@ -44,6 +44,9 @@ void qst_op_gget(u16 arg0, s32 arg1);
 M2C_UNK TLobby__sub_801F45FC(void *);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(void *);
 void qst_op_glet(u16 arg0, s32 arg1);
+void qst_op_xori(s32 arg0, s32 arg1);
+void qst_op_andi(s32 arg0, s32 arg1);
+void qst_op_muli(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -302,6 +305,13 @@ void TLobby__sub_801F2234(s32 arg0, s32 arg1) {
 }
 
 void qst_op_jmp(int a0) { TLobby__data_805D5E90 = TLobby__data_805D5E74[(unsigned short)(a0)]; }
+
+void qst_op_xori(s32 arg0, s32 arg1) {
+    s32 temp_r3;
+    temp_r3 = (arg0 * 4) & 0x3FC;
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) ^= arg1;
+}
+
 void qst_op_xor(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
@@ -312,6 +322,13 @@ void qst_op_or(s32 arg0, s32 arg1) {
     temp_r5 = (arg0 * 4) & 0x3FC;
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) = M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) | M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC));
 }
+
+void qst_op_andi(s32 arg0, s32 arg1) {
+    s32 temp_r3;
+    temp_r3 = (arg0 * 4) & 0x3FC;
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) &= arg1;
+}
+
 void qst_op_and(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
@@ -327,6 +344,13 @@ void qst_op_div(s32 arg0, s32 arg1) {
     temp_r5 = (arg0 * 4) & 0x3FC;
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) = (s32) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) / (s32) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC));
 }
+
+void qst_op_muli(s32 arg0, s32 arg1) {
+    s32 temp_r3;
+    temp_r3 = (arg0 * 4) & 0x3FC;
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) *= arg1;
+}
+
 void qst_op_mul(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;

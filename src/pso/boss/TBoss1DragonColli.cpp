@@ -18,8 +18,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "types.h"
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 int TBoss1DragonColli__sub_8002B3F4(void*);
+void fn_8002B630(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -30,7 +36,6 @@ int TBoss1DragonColli__sub_8002B3F4(void*);
 int TBoss1DragonColli__sub_8002B42C(void*);
 void *destroy__17TBoss1DragonColliFPvs(void *arg0, s16 arg1);
 void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2);
-int fn_8002B630(void);
 void TBoss1DragonDemo__sub_8002B68C(void);
 void TBoss1DragonDemo__sub_8002B690(void);
 int TCameraCtrl__sub_803D8934(void*, void*, void*);
@@ -69,7 +74,14 @@ void *destroy__17TBoss1DragonColliFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-int fn_8002B630(void) { return 0; }
+void fn_8002B630(u8 *arg0, u8 *arg1) {
+    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
+    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
+    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
+    *(M2CCopy_C *)((s32) arg0 + 0x1C) = *(const M2CCopy_C *)((s32) arg1 + 0x1C);
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg1, f32 *, 0x28);
+}
 
 }

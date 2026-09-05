@@ -4,11 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 add_damage__11TBoss6Type2FPvi(void *, int);
 extern const f32 TBoss6Type2__data_805DE40C;
 void TBoss6Type2__vt60(u8 *arg0);
+void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -276,6 +282,11 @@ void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1) {
 }
 
 extern s32 tl_04;
+
+void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1) {
+    *arg0 = *arg1;
+    *(M2CCopy_C *)((s32) arg0 + 4) = *(const M2CCopy_C *)((s32) arg1 + 4);
+}
 
 s32 create__11TBoss6Type2Fi(s32 arg0) {
     s32 var_r31;

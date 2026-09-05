@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_8 { u8 bytes[0x8]; };
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 void TObjPlayer__sub_801BEE24(void* p, s16 v);
 void TObjPlayer__sub_801BEE24(void* p, s16 v);
@@ -71,6 +81,8 @@ void TObjPlayer__sub_801BF250(s32 arg0);
 void* TObjPlayer__sub_801BF1D4(void* p);
 M2C_UNK TObjPlayer__sub_80309F30(void *, int);
 void TObjPlayer__sub_801BF19C(s32 arg0);
+void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
+void TObjPlayer__sub_801BEEEC(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -165,7 +177,24 @@ void TObjPlayer__sub_801BEE34(void *arg0) {
     bswap_32__FPUl((void *)((char *)arg0 + 4));
 }
 
+void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
+    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
+    *(M2CCopy_8 *)((s32) arg0 + 0xC) = *(const M2CCopy_8 *)((s32) arg1 + 0xC);
+}
+
 void TObjPlayer__sub_801BEEE0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
+
+void TObjPlayer__sub_801BEEEC(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, u16 *, 0) = (u16) M2C_FIELD(arg1, u16 *, 0);
+    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    *(M2CCopy_C *)((s32) arg0 + 8) = *(const M2CCopy_C *)((s32) arg1 + 8);
+    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
+}
 
 void TObjPlayer__sub_801BEF30(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 

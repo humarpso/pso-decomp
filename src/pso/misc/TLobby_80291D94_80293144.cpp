@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
+extern "C" {
+void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 void create_time_window2__6TLobbyFv(void);
@@ -64,6 +73,14 @@ void setup_split_screen(void) {
 
 extern M2C_UNK lbl_804DB1F0[];
 extern s32 tl_07;
+
+void TLobby__sub_802932B0(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
+    M2C_FIELD(arg0, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 1);
+    M2C_FIELD(arg0, u8 *, 2) = (u8) M2C_FIELD(arg1, u8 *, 2);
+    M2C_FIELD(arg0, u8 *, 3) = (u8) M2C_FIELD(arg1, u8 *, 3);
+    *(M2CCopy_C *)((s32) arg0 + 4) = *(const M2CCopy_C *)((s32) arg1 + 4);
+}
 
 void create_time_window2__6TLobbyFv(void) {
     TLobby__sub_802932EC();

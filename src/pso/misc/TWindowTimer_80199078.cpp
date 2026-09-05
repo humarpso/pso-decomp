@@ -2,6 +2,17 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
+extern "C" {
+void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1);
@@ -10,6 +21,27 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_804B8E00[];
+
+void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
+    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
+    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
+    M2C_FIELD(arg0, s16 *, 0x14) = (s16) M2C_FIELD(arg1, s16 *, 0x14);
+    M2C_FIELD(arg0, u8 *, 0x16) = (u8) M2C_FIELD(arg1, u8 *, 0x16);
+    M2C_FIELD(arg0, u8 *, 0x17) = (u8) M2C_FIELD(arg1, u8 *, 0x17);
+    M2C_FIELD(arg0, u8 *, 0x18) = (u8) M2C_FIELD(arg1, u8 *, 0x18);
+    M2C_FIELD(arg0, u8 *, 0x19) = (u8) M2C_FIELD(arg1, u8 *, 0x19);
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg1, f32 *, 0x1C);
+    *(M2CCopy_C *)((s32) arg0 + 0x20) = *(const M2CCopy_C *)((s32) arg1 + 0x20);
+    *(M2CCopy_C *)((s32) arg0 + 0x2C) = *(const M2CCopy_C *)((s32) arg1 + 0x2C);
+    *(M2CCopy_C *)((s32) arg0 + 0x38) = *(const M2CCopy_C *)((s32) arg1 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg1, f32 *, 0x44);
+    M2C_FIELD(arg0, u16 *, 0x48) = (u16) M2C_FIELD(arg1, u16 *, 0x48);
+    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) M2C_FIELD(arg1, f32 *, 0x4C);
+    M2C_FIELD(arg0, f32 *, 0x50) = (f32) M2C_FIELD(arg1, f32 *, 0x50);
+}
 
 void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

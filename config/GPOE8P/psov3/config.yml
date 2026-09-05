@@ -37,6 +37,7 @@ force_active:
   - init_default_fields__6TLobbyFPv
   - load_item_pmt
   - reset_and_invoke__6TLobbyFv
+  - setup_state_helper__10TObjPlayerFPv
   - spawn_effect__10TObjPlayerFiUiii
   - update_and_destroy__10TObjPlayerFPv
   - update_load_state__9TItemLoadFPv
