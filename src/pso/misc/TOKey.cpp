@@ -51,8 +51,37 @@ struct VObj_18 : VBase_18 {
     virtual void m18();
     virtual M2C_UNK m19();
 };
+struct VBase_18_d1dc07 { char pad[0x18]; };
+
+struct VObj_18_d1dc07 : VBase_18_d1dc07 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual M2C_UNK m22();
+};
+
 extern "C" {
 void TOKey__sub_8016A960(u8 *arg0);
+void TOKey__sub_8016AAE0(u8 *arg0);
 }
 
 extern "C" {
@@ -124,6 +153,11 @@ void TOKey__sub_8016A960(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xE0) = 0;
         return;
     }
+}
+
+void TOKey__sub_8016AAE0(u8 *arg0) {
+    ((VObj_18_d1dc07 *)(arg0))->m22();
+    M2C_FIELD(arg0, s32 *, 0xE4) = 0;
 }
 
 void init_switch_id__5TOKeyFPv(void *arg0) {

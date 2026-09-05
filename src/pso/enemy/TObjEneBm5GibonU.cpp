@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2);
+void TObjEneBm5GibonU__sub_800D1C78(u8 *arg0, void ***arg1, void **arg2);
 }
 
 extern "C" {
@@ -13,7 +14,6 @@ extern "C" {
 void TObjEneBm5GibonU__sub_800D119C(u8 *arg0);
 void TObjEneBm5GibonU__sub_800D11F8(void);
 void TObjEneBm5GibonU__sub_800D1264(void);
-int TObjEneBm5GibonU__sub_800D1C78(void*, void*, void*);
 int TObjEneBm5GibonU__sub_800D1CF8(void);
 s32 TObjEneBm5GibonU__sub_800D1D70(void* p);
 void* TObjEneBm5GibonU__sub_800D1D78(void* p);
@@ -90,7 +90,7 @@ void *create__16TObjEneBm5GibonUFPv(void *arg0) {
     return o;
 }
 
-void forward_hit__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C78((void*)(a1), (void*)(p), (void*)((char*)p + 0x4)); }
+void forward_hit__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C78((u8 *)((void*)(a1)), (void ***)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
 void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1) { TObjEneBm5GibonU__sub_800D1C40((u8 *)((void*)(a1)), (void **)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
 void reset_fields__16TObjEneBm5GibonUFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1) {
@@ -121,7 +121,22 @@ void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
 }
 
-int TObjEneBm5GibonU__sub_800D1C78(void*, void*, void*) { return 0; }
+void TObjEneBm5GibonU__sub_800D1C78(u8 *arg0, void ***arg1, void **arg2) {
+    void **temp_r4;
+    u8 *temp_r6;
+    temp_r6 = M2C_FIELD(arg0, u8 **, 0);
+    if (temp_r6 != NULL) {
+        M2C_FIELD(temp_r6, void ***, 4) = (void **) M2C_FIELD(arg0, void ***, 4);
+    } else {
+        *arg1 = M2C_FIELD(arg0, void ***, 4);
+    }
+    temp_r4 = M2C_FIELD(arg0, void ***, 4);
+    if (temp_r4 != NULL) {
+        *temp_r4 = M2C_FIELD(arg0, u8 **, 0);
+        return;
+    }
+    *arg2 = M2C_FIELD(arg0, u8 **, 0);
+}
 
 s32 destroy__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

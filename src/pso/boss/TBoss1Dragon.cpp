@@ -28,6 +28,58 @@ struct DragonVirtualInterface : DragonVirtualBase {
     virtual void m84(); virtual void m85(s16, s32);
 };
 
+struct VBase_18_5c4a6f { char pad[0x18]; };
+
+struct VObj_18_5c4a6f : VBase_18_5c4a6f {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual M2C_UNK m46(M2C_UNK);
+};
+
 extern "C" {
 int TBoss1Dragon__sub_80020A34(void* p);
 void draw__12TBoss1DragonFPv(u8 *arg0);
@@ -581,6 +633,7 @@ struct VObj_18 : VBase_18 {
     virtual void m19();
     virtual M2C_UNK m20(s32, f32);
 };
+
 extern "C" {
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
 s32 objInBand__FP7GameObjf(f32);
@@ -590,9 +643,10 @@ extern f32 TObjEneDf2Bringer__data_805D9820;
 void TBoss1Dragon__sub_800274A4(s32 arg0);
 extern const f32 lbl_805D800C;
 void TBoss1Dragon__sub_80028AFC(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_8002AB6C(void *);
 extern const f32 TBoss1Dragon__data_805D7F40;
 void TBoss1Dragon__sub_8002AA7C(u8 *arg0, u8 *arg1);
+s32 obj_isState2_324();
+void TBoss1Dragon__sub_8002AB6C(u8 *arg0);
 }
 
 extern "C" {
@@ -729,7 +783,13 @@ s32 get_instance__12TBoss1DragonFv(void) {
 
 void TBoss1Dragon__sub_8002AA7C(u8 *arg0, u8 *arg1) {
     ((VObj_18 *)(arg1))->m20(M2C_FIELD(arg0, s32 *, 0xAC), TBoss1Dragon__data_805D7F40);
-    TBoss1Dragon__sub_8002AB6C((void *) (arg1));
+    TBoss1Dragon__sub_8002AB6C((u8 *)((void *) (arg1)));
+}
+
+void TBoss1Dragon__sub_8002AB6C(u8 *arg0) {
+    if (obj_isState2_324() == 0) {
+        ((VObj_18_5c4a6f *)(arg0))->m46(0);
+    }
 }
 
 void *dt__12TBoss1DragonFPvs(void *arg0, s16 arg1) {

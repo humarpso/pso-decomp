@@ -4,12 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma scheduling off
+extern "C" {
+M2C_UNK TObjPlayer__sub_803E2190();
+M2C_UNK TObjPlayer__sub_803E21B8();
+M2C_UNK TObjPlayer__sub_803E21DC();
+void TObjPlayer__sub_803DF768(s32 arg0);
+}
+
 extern "C" {
 
 M2C_UNK TObjPlayer__sub_803E2248();
 
 void reset_player_transform(void) {
     TObjPlayer__sub_803E2248();
+}
+void TObjPlayer__sub_803DF768(s32 arg0) {
+    TObjPlayer__sub_803E2190();
+    if (arg0 != 0) {
+        TObjPlayer__sub_803E21DC();
+        return;
+    }
+    TObjPlayer__sub_803E21B8();
 }
 
 }

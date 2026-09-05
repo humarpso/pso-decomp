@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2);
+}
+
+extern "C" {
 
 void TAdPlayerLoadGC__sub_801E14E4(void);
 int TAdPlayerLoadGC__sub_801E1510(void);
@@ -45,5 +49,8 @@ void TAdPlayerLoadGC__sub_801E14E4(void) {  }
 
     extern int lbl_805D5E44;
 int TAdPlayerLoadGC__sub_801E1510(void) {  return lbl_805D5E44; }
+s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2) {
+    return (s32) (((arg2 >> 0xDU) + 3) << 0xD) / 8192;
+}
 
 }

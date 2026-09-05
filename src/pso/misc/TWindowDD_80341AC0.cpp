@@ -7,15 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TWindowDD__sub_80341AE0(u8 *arg0);
 void TWindowDD__sub_80341AF8(u8 *arg0);
+s32 TWindowDD__sub_80341AC0(u8 *arg0);
 }
 
 extern "C" {
 
-s32 TWindowDD__sub_80341AC0(void);
 void set_mode_2__9TWindowDDFPv(void* p);
 void reset_cursor__9TWindowDDFPv(void* p);
 
-s32 TWindowDD__sub_80341AC0(void) { return 0; }
+s32 TWindowDD__sub_80341AC0(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0x74) > M2C_FIELD(arg0, s32 *, 0x78);
+}
 
 void TWindowDD__sub_80341AE0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 1);

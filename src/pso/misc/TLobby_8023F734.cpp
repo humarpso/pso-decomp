@@ -6,6 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
+M2C_UNK TLobby__sub_803AA0E0(int, int, int);
+void TLobby__sub_80241AD8(u8 *arg0);
 }
 
 extern "C" {
@@ -34,6 +36,35 @@ int TLobby__sub_80240E8C(void) { return 0; }
 void TLobby__sub_80240F38(void) {  }
 
 void TLobby__sub_80241A0C(void) {  }
+
+void TLobby__sub_80241AD8(u8 *arg0) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 temp_r3_3;
+    switch ((s32) M2C_FIELD(arg0, s32 *, 0xC)) {
+    case 0:
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x24);
+    if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x28)) {
+        M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(arg0, s32 *, 0x28);
+        TLobby__sub_803AA0E0((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (7), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x28)));
+    }
+    temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x2C);
+    if (temp_r3_2 != (s32) M2C_FIELD(arg0, s32 *, 0x30)) {
+        M2C_FIELD(arg0, s32 *, 0x2C) = M2C_FIELD(arg0, s32 *, 0x30);
+        TLobby__sub_803AA0E0((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0xA), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x30)));
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x10) == 5) {
+        TLobby__sub_803AA0E0((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0x83), (int) (0U));
+        return;
+    }
+    temp_r3_3 = M2C_FIELD(arg0, s32 *, 0x34);
+    if (temp_r3_3 != (s32) M2C_FIELD(arg0, s32 *, 0x38)) {
+        M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(arg0, s32 *, 0x38);
+        TLobby__sub_803AA0E0((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0x83), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x38)));
+    }
+        break;
+    }
+}
 
 void clamp_params__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x28) = (((M2C_FIELD(arg0, s32 *, 0x48) + M2C_FIELD(arg0, s32 *, 0x40)) + M2C_FIELD(arg0, s32 *, 0x3C)) + M2C_FIELD(arg0, s32 *, 0x44)) + 0x7F;

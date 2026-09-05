@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D74CC;
+void TLobby__sub_803BE000(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 void TLobby__sub_803BD824(void);
 void TLobby__sub_803BD9E0(void);
@@ -73,6 +78,10 @@ s32 get_slot_value__6TLobbyFi(s32 arg0) {
         return -1;
     }
     return M2C_FIELD(temp_r3, s32 *, 0xE8);
+}
+
+void TLobby__sub_803BE000(s32 arg0, s32 arg1) {
+    lbl_805D74CC -= (arg1 + 0x1F) & 0xFFFFFFE0;
 }
 
 void TLobby__sub_803BE0DC(void) {

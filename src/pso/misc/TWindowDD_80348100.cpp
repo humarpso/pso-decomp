@@ -1,8 +1,16 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+int TWindowDD__sub_80340508(void*, int);
+u8 TWindowDD__sub_803482B0(u8 *arg0);
+}
+
 extern "C" {
 
-int TWindowDD__sub_803482B0(void);
 void init_layout__9TWindowDDFiPv(int a0, void* a1);
 void play_se__9TWindowDDFv(void);
 void play_sound__9TWindowDDFv(void);
@@ -37,7 +45,13 @@ void set_default_positions__9TWindowDDFiPv(int a0, void* a1) { update__9TWindowD
 void spawn_window__9TWindowDDFv(void) { TBoss3Volopt__sub_8022675C((void*)344320, (void*)0, (void*)0, (void*)0); }
 void play_se__9TWindowDDFv(void) { TBoss3Volopt__sub_8022675C((void*)339734, (void*)0, (void*)0, (void*)0); }
 void play_sound__9TWindowDDFv(void) { TBoss3Volopt__sub_8022675C((void*)339201, (void*)0, (void*)0, (void*)0); }
-
-int TWindowDD__sub_803482B0(void) { return 0; }
+u8 TWindowDD__sub_803482B0(u8 *arg0) {
+    s32 var_r31;
+    var_r31 = 0;
+    if ((((s32)TWindowDD__sub_80340508((void*)((void *) (arg0 + 0x1C)), (int)((int) (2)))) != 0) || (M2C_FIELD(arg0, s32 *, 0x94) & 2)) {
+        var_r31 = 1;
+    }
+    return (u8) var_r31;
+}
 
 }

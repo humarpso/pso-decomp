@@ -5,6 +5,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_split_screen();
+s32 TCameraCtrl__sub_800689F4();
+M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
+f64 TObjPlayer__sub_80083A50();
+M2C_UNK TObjPlayer__sub_80376420(void *, void *, void *);
+M2C_UNK TObjPlayer__sub_80376B70(void *, f32, f32, f32, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9214(int, void *);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TObjPlayer__sub_803E1D1C(int);
+M2C_UNK TObjPlayer__sub_803E1D54(int);
+extern const f64 lbl_80439358;
+extern s32 lbl_805D7774;
+extern const f32 lbl_805D93DC;
+extern const f32 lbl_805D940C;
+extern const f32 lbl_805D9414;
+void TOTrapAncient02__sub_800837D4(s32 arg0);
+}
+
+extern "C" {
 
 void setup_particle_tev(s32 arg0);
 void setup_tev_stage__10TObjPlayerFv(void);
@@ -50,6 +70,27 @@ void setup_particle_tev(s32 arg0) {
         some_id_805c6f74 |= 0x80000;
         TObjPlayer__sub_803DC850(1);
         TObjPlayer__sub_803DC83C(1);
+    }
+}
+void TOTrapAncient02__sub_800837D4(s32 arg0) {
+    u8 sp10[0x30];
+    f32 spC;
+    f32 sp8;
+    f32 temp_f31;
+    if (is_split_screen() == 0) {
+        TCameraCtrl__sub_80082FCC((void *) (&spC), (void *) (&sp8));
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D9214((int) (0), (void *) (arg0));
+        temp_f31 = (f32) (lbl_80439358 * TObjPlayer__sub_80083A50());
+        if (TCameraCtrl__sub_800689F4() != 0) {
+            TObjPlayer__sub_80376B70((void *) (sp10), (f32) (temp_f31), (f32) (lbl_805D940C), (f32) (lbl_805D93DC), (f32) (lbl_805D9414), (f32) (lbl_805D93DC - spC), (f32) (lbl_805D93DC - sp8));
+        } else {
+            TObjPlayer__sub_80376B70((void *) (sp10), (f32) (temp_f31), (f32) (lbl_805D940C), (f32) (lbl_805D93DC), (f32) (lbl_805D9414), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
+        }
+        TObjPlayer__sub_80376420((void *) (sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
+        TObjPlayer__sub_803E1D54((int) (0));
+        TObjPlayer__sub_803D9B78();
+        TObjPlayer__sub_803E1D1C((int) (0));
     }
 }
 

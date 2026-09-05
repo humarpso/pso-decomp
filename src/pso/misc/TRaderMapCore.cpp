@@ -5,6 +5,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TCameraCtrl__sub_80068EF0();
+M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK TRaderMapCore__sub_801FA1E0(void *);
+M2C_UNK TRaderMapCore__sub_801FA350(void *);
+M2C_UNK TRaderMapCore__sub_801FA6CC(void *, void *);
+M2C_UNK TRaderMapCore__sub_801FA880(void *, void *);
+M2C_UNK TRaderMapCore__sub_801FA964(void *, void *);
+M2C_UNK TRaderMapCore__sub_801FA9D8(void *, void *);
+M2C_UNK TRaderMapCore__sub_801FAAEC(void *, void *);
+s32 TRaderMapCore__sub_801FADF0(void *, void *);
+extern u32 TRaderMapCore__data_805D5F28;
+extern s32 lbl_805D5F2C;
+extern s32 TRaderMapCore__data_805D5F30;
+extern s32 TRaderMapCore__data_805D5F3C;
+void render__13TRaderMapCoreFv(u8 *arg0);
+}
+
+extern "C" {
 
 void copy_transform__13TRaderMapCoreFPvPv(void* p, void* q);
 void free_heap__13TRaderMapCoreFv(void);
@@ -48,6 +66,51 @@ void copy_transform__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p +
 
 extern s32 lbl_805D53A0;
 extern s32 lbl_805DC56C;
+
+void render__13TRaderMapCoreFv(u8 *arg0) {
+    if ((u32) TRaderMapCore__data_805D5F28 != 0U) {
+        if (TRaderMapCore__sub_801FADF0((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C)) == 0) {
+            lbl_805D5F2C = 0;
+            TRaderMapCore__data_805D5F30 = 0;
+            return;
+        }
+        switch ((s32) TRaderMapCore__data_805D5F3C) {
+        case 0:
+            TRaderMapCore__sub_801FA880((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA9D8((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FAAEC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA1E0((void *) (arg0));
+            TRaderMapCore__sub_801FA350((void *) (arg0));
+            TRaderMapCore__sub_801FA964((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA6CC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            break;
+        case 1:
+            TCameraCtrl__sub_80069024();
+            TRaderMapCore__sub_801FA880((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TCameraCtrl__sub_80068EF0();
+            TRaderMapCore__sub_801FA9D8((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FAAEC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA1E0((void *) (arg0));
+            TRaderMapCore__sub_801FA350((void *) (arg0));
+            TRaderMapCore__sub_801FA964((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TCameraCtrl__sub_80069024();
+            M2C_FIELD(arg0, s32 *, 0x174) = 0;
+            TRaderMapCore__sub_801FA6CC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TCameraCtrl__sub_80068EF0();
+            break;
+        case 2:
+            TRaderMapCore__sub_801FA880((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA9D8((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FAAEC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA1E0((void *) (arg0));
+            TRaderMapCore__sub_801FA350((void *) (arg0));
+            TRaderMapCore__sub_801FA964((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            break;
+        }
+        lbl_805D5F2C = 0;
+        TRaderMapCore__data_805D5F30 = 0;
+    }
+}
 
 void update_target__13TRaderMapCoreFPv(void *arg0) {
     u32 temp_r3;

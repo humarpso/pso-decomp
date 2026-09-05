@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 add_damage__11TBoss6Type2FPvi(void *, int);
+extern const f32 TBoss6Type2__data_805DE40C;
+void TBoss6Type2__vt60(u8 *arg0);
+}
+
+extern "C" {
 
 int TBoss6Type2__sub_802BCFD4(void);
 void TBoss6Type2__sub_802BD2D0(s32 arg0, s32 arg1, s32 arg2);
@@ -51,7 +58,6 @@ u8 *TObjPlayer__sub_80015DC4(u32, s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 VecCopy__FP3VecPC3Vec(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 __nw__7TObjectFUl(M2C_UNK);
-s32 add_damage__11TBoss6Type2FPvi(void);
 s32 get_phase__11TBoss6Type2FPv();
 s32 get_phase__14TBoss6PlotFalzFv();
 s32 is_active__14TBoss6PlotFalzFPv();
@@ -100,7 +106,7 @@ void copy_pos_59c__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
 void TBoss6Type2__sub_802BD340(void) {  }
 void apply_damage__11TBoss6Type2FPvi(void *arg0, s32 arg1) {
     if ((arg1 > 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x418) == 0)) {
-        add_damage__11TBoss6Type2FPvi();
+        add_damage__11TBoss6Type2FPvi(arg0, arg1);
     }
 }
 
@@ -153,6 +159,20 @@ f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
 }
 
 void TBoss6Type2__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 35) { TBoss6Type2__sub_802BD014((void*)(p), (void*)((void*)35)); } }
+
+void TBoss6Type2__vt60(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
+    M2C_FIELD(arg0, f32 *, 0x4FC) = (f32) TBoss6Type2__data_805DE40C;
+    {
+        int diff = M2C_FIELD(arg0, s32 *, 0x4F8) - M2C_FIELD(arg0, s16 *, 0x32C);
+        if (diff > 0) {
+            add_damage__11TBoss6Type2FPvi((void *)(arg0), (int)(diff));
+        }
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x418) != 0) {
+        TBoss3Volopt__sub_8022675C(0x68A24, arg0 + 0x38, 0, 1);
+    }
+}
 
 void set_target_state__11TBoss6Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     u32 temp_r31;

@@ -5,13 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdPlayerLoadGC__sub_801E101C(s32);
+s32 TAdPlayerLoadGC__sub_80381C68(void *);
+s32 TAdPlayerLoadGC__sub_80384B30(s32, M2C_UNK *, s32 *);
+s32 TAdPlayerLoadGC__sub_801E1E38(s32 arg0);
+}
+
+extern "C" {
 
 s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0);
 s32 get_load_result__15TAdPlayerLoadGCFv(void);
 s32 TAdPlayerLoadGC__sub_801E0D8C(s32);
 s32 TAdPlayerLoadGC__sub_801E101C(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 TAdPlayerLoadGC__sub_801E1E38();
 s32 fn_803849D8(s32);
 
 extern s32 TAdPlayerLoadGC__data_805D5E40;
@@ -23,6 +29,44 @@ s32 get_load_result__15TAdPlayerLoadGCFv(void) {
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 
+s32 TAdPlayerLoadGC__sub_801E1E38(s32 arg0) {
+    M2C_UNK spC;
+    s32 sp8;
+    s32 temp_r3;
+    if (arg0 >= 2) {
+        return 0;
+    }
+    if ((TAdPlayerLoadGC__data_805D5E30 & (0x400 << arg0)) && (TAdPlayerLoadGC__sub_80381C68((void *)(arg0)) == -5)) {
+        TAdPlayerLoadGC__data_805D5E40 = -0x7D;
+        return 1;
+    }
+    do {
+        temp_r3 = TAdPlayerLoadGC__sub_80384B30(arg0, &spC, &sp8);
+    } while (temp_r3 == -1);
+    if (temp_r3 == -3) {
+        TAdPlayerLoadGC__data_805D5E40 = -0xFF;
+        return 0;
+    }
+    if (sp8 == 0x2000) {
+        switch (temp_r3) {
+        case 0:
+            if (!(TAdPlayerLoadGC__data_805D5E30 & (4 << arg0))) {
+                if (TAdPlayerLoadGC__sub_801E101C(arg0) == 0) {
+                    TAdPlayerLoadGC__data_805D5E40 = 0;
+                    return 1;
+                }
+                return 1;
+            }
+            TAdPlayerLoadGC__data_805D5E40 = 0;
+            return 1;
+        }
+        goto block_17;
+    }
+    TAdPlayerLoadGC__data_805D5E40 = -0xDF;
+block_17:
+    return 1;
+}
+
 s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0) {
     s32 temp_r3;
 
@@ -30,7 +74,7 @@ s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0) {
         TAdPlayerLoadGC__data_805D5E40 = -0xFF;
         return -0xFF;
     }
-    if ((TAdPlayerLoadGC__sub_801E1E38() == 0) || (TAdPlayerLoadGC__sub_801E1B50(arg0) != 0) || (TAdPlayerLoadGC__sub_801E0D8C(arg0) == 0)) {
+    if ((TAdPlayerLoadGC__sub_801E1E38((s32)(arg0)) == 0) || (TAdPlayerLoadGC__sub_801E1B50(arg0) != 0) || (TAdPlayerLoadGC__sub_801E0D8C(arg0) == 0)) {
         TAdPlayerLoadGC__data_805D5E40 = -0xFF;
         return -0xFF;
     }

@@ -74,6 +74,7 @@ pso/boss/TBoss8Dragon_8005E8F4.cpp
 pso/boss/TBoss8Dragon_8005ECF0.cpp
 pso/boss/TBoss8Dragon_8005EDC4.cpp
 pso/boss/TBoss8Dragon_8005F50C.cpp
+pso/boss/TBoss8Dragon_8005F578.cpp
 pso/boss/TBoss8Dragon_8005F5E0.cpp
 pso/boss/TBoss8Dragon_8005F71C.cpp
 pso/boss/TBoss8Dragon_8005FA08.cpp
@@ -152,6 +153,7 @@ pso/enemy/TObjEneDD_800B99B4.cpp
 pso/enemy/TObjEneDD_800B99D8.cpp
 pso/enemy/TObjEneDD_800B9A34.cpp
 pso/enemy/TObjEneDD_800B9AF8.cpp
+pso/enemy/TObjEneDD_800B9B84.cpp
 pso/enemy/TObjEneDD_800B9F64.cpp
 pso/enemy/TObjEneDD_800B9F98.cpp
 pso/enemy/TObjEneDD_800BB804_800BBD18.cpp
@@ -283,6 +285,7 @@ pso/enemy/TObjEnePanarms_800F5E90.cpp
 pso/enemy/TObjEneRe4Bit.cpp
 pso/enemy/TObjEneRe4Bit_800EDB98.cpp
 pso/enemy/TObjEneRe4Bit_800EDC90.cpp
+pso/enemy/TObjEneRe4Sorcerer.cpp
 pso/enemy/TObjEneRe4Sorcerer_800ED34C.cpp
 pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFE30.cpp
 pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFE44.cpp
@@ -1060,6 +1063,7 @@ pso/misc/TPlyDispConfig_80071F1C.cpp
 pso/misc/TPlyFollowParticleCtrl.cpp
 pso/misc/TPlyGuildCardTag.cpp
 pso/misc/TPlyGuildCardTag_80077BBC.cpp
+pso/misc/TPlyGuildCardTag_8007B434.cpp
 pso/misc/TPlyGuildCardTag_8013ABCC.cpp
 pso/misc/TPlyGuildCardTag_8013ABCC_8013ABCC.cpp
 pso/misc/TPlyGuildCardTag_801E09C4.cpp
@@ -1210,9 +1214,11 @@ pso/misc/TWindowDD_8020C2DC.cpp
 pso/misc/TWindowDD_80244CF4.cpp
 pso/misc/TWindowDD_80246F8C.cpp
 pso/misc/TWindowDD_80341A08.cpp
+pso/misc/TWindowDD_80341AC0.cpp
 pso/misc/TWindowDD_803424EC.cpp
 pso/misc/TWindowDD_80342554.cpp
 pso/misc/TWindowDD_80342BB4.cpp
+pso/misc/TWindowDD_80348100.cpp
 pso/misc/TWindowDD_80348738.cpp
 pso/misc/TWindowDD_80348BF4.cpp
 pso/misc/TWindowDuelResult_8025AD38.cpp
@@ -1263,6 +1269,7 @@ pso/misc/TWindowOptionCtrl_8026B774.cpp
 pso/misc/TWindowOptionCtrl_8026B828.cpp
 pso/misc/TWindowOptionCtrl_8026B8C8.cpp
 pso/misc/TWindowOptionCtrl_8026B9B8.cpp
+pso/misc/TWindowOptionCtrl_8026BA88.cpp
 pso/misc/TWindowOptionCtrl_8026BB68.cpp
 pso/misc/TWindowOptionCtrl_8026BCBC.cpp
 pso/misc/TWindowOptionCtrl_8026C40C.cpp
@@ -2115,13 +2122,21 @@ pso/slices/pso_carve_801b9ce0.cpp
 pso/slices/pso_carve_801b9d50.cpp
 pso/slices/pso_carve_801ba168.cpp
 pso/slices/pso_carve_801ba2f4.cpp
+pso/slices/pso_carve_801bcb70.cpp
 pso/slices/pso_carve_801bea38.cpp
 pso/slices/pso_carve_801c8418.cpp
+pso/slices/pso_carve_801caeb0.cpp
 pso/slices/pso_carve_801cb2f4.cpp
 pso/slices/pso_carve_801cbb14.cpp
 pso/slices/pso_carve_801cc0f0.cpp
+pso/slices/pso_carve_801cda10.cpp
 pso/slices/pso_carve_801cdc6c.cpp
+pso/slices/pso_carve_801cde0c.cpp
 pso/slices/pso_carve_801cfb4c.cpp
+pso/slices/pso_carve_801d1108.cpp
+pso/slices/pso_carve_801d1194.cpp
+pso/slices/pso_carve_801d1240.cpp
+pso/slices/pso_carve_801d2260.cpp
 pso/slices/pso_carve_8020a900.cpp
 pso/slices/pso_carve_8020b0c4.cpp
 pso/slices/pso_carve_80211ec4.cpp
@@ -2264,6 +2279,7 @@ pso/ui/TAdWarningBaseGC_8032D1A4.cpp
 pso/ui/TObjBagWarnWin_8006EED4.cpp
 pso/ui/TObjBagWarnWin_8006EF24.cpp
 pso/unk/text_8004C1AC_8004C474.cpp
+pso/unk/text_8004F1FC.cpp
 pso/unk/text_80066F5C.cpp
 pso/unk/text_80072004.cpp
 pso/unk/text_80072004_80072034.cpp
@@ -2275,6 +2291,7 @@ pso/unk/text_8007A7B8.cpp
 pso/unk/text_80090488.cpp
 pso/unk/text_8009A6AC.cpp
 pso/unk/text_800B9254.cpp
+pso/unk/text_800C3A60.cpp
 pso/unk/text_800C3B80.cpp
 pso/unk/text_800D7950.cpp
 pso/unk/text_800F8A18.cpp
@@ -2310,6 +2327,7 @@ pso/unk/text_801A2514.cpp
 pso/unk/text_801A2B38.cpp
 pso/unk/text_801A6A28.cpp
 pso/unk/text_801B0520_801B0520.cpp
+pso/unk/text_801BD318.cpp
 pso/unk/text_801C53D4.cpp
 pso/unk/text_801C5454.cpp
 pso/unk/text_801CF960.cpp
@@ -2362,5 +2380,6 @@ pso/unk/text_8036A5B4.cpp
 pso/unk/text_8036B748.cpp
 pso/unk/text_8037F2EC.cpp
 pso/unk/text_8038B804.cpp
+pso/unk/text_80396328.cpp
 pso/unk/text_8039A298.cpp
 pso/unk/text_803DCF0C.cpp

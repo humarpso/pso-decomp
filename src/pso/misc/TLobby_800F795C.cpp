@@ -1,8 +1,15 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void TLobby__sub_800F79C4(u8 *arg0);
+}
+
 extern "C" {
 
-int TLobby__sub_800F79C4(void);
 void TLobby__sub_800F7A1C(void* p);
 void TLobby__sub_800F7A50(void* p);
 int TLobby__sub_800F7A64(void);
@@ -22,7 +29,11 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 void bswap_field__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); }
 void broadcast_state__6TLobbyFPv(void* p) { bswap_field__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 
-int TLobby__sub_800F79C4(void) { return 0; }
+void TLobby__sub_800F79C4(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 4) = 0;
+    M2C_FIELD(arg0, u8 *, 0) = 0x9C;
+    M2C_FIELD(arg0, s8 *, 1) = 2;
+}
 
 void bswap_enemy_state__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 void TLobby__sub_800F7A1C(void* p) { bswap_enemy_state__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }

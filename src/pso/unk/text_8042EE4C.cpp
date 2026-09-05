@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u32 TLobby__sub_8042BE64();
+s32 fn_80430A10(int, int, void *);
+extern u32 lbl_805D7CC8;
+s32 TLobby__sub_8042EE4C(s32 *arg0);
+}
+
+extern "C" {
 
 s32 TAdPlayerLoadGC__sub_8042F108(s8 arg0);
 s32 TAdTrialModemChkGC__sub_8042F080(s16 arg0);
@@ -20,6 +27,44 @@ s32 set_modem_trial_param(s16 arg0);
 extern s32 lbl_805D7CA8;
 extern s8 *lbl_805D7CB8;
 extern u8 *lbl_805D7CC0;
+
+s32 TLobby__sub_8042EE4C(s32 *arg0) {
+    s32 sp8;
+    if ((u32) lbl_805D7CC8 == 2U) {
+        *arg0 = 2;
+        goto block_18;
+    }
+    if ((u32) lbl_805D7CC8 == 5U) {
+        *arg0 = 5;
+        goto block_18;
+    }
+    if (fn_80430A10((int) (0), (int) (2), (void *) (&sp8)) != 0) {
+        switch (sp8) {
+        case -1:
+            *arg0 = 0;
+            break;
+        case 33685504:
+            *arg0 = 2;
+            lbl_805D7CC8 = 2U;
+            break;
+        case 67240448:
+            if (TLobby__sub_8042BE64() == 0U) {
+                *arg0 = 5;
+                lbl_805D7CC8 = 5U;
+            } else {
+                *arg0 = 1;
+            }
+            break;
+        default:
+            *arg0 = 1;
+            break;
+        }
+    } else {
+        return -5;
+    }
+block_18:
+    return 0;
+}
 
 s32 fn_8042EF48(s8 arg0) {
     if ((s32) lbl_805D7CA8 == 0) {

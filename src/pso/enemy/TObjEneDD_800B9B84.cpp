@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *, f32);
+M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+extern s32 lbl_805D4DF0;
+void TObjEneDD__sub_800B9BEC(s32 arg0, u8 *arg1, f32 farg0);
+}
+
+extern "C" {
 
 s32 check_v2_mode__9TObjEneDDFv(void);
 int get_target_state_a__9TObjEneDDFPv(void* p);
@@ -31,6 +40,17 @@ s32 check_v2_mode__9TObjEneDDFv(void) {
 
 int get_target_state_a__9TObjEneDDFPv(void* p) { return TObjPlayer__sub_801BA42C(p); }
 int get_target_state_b__9TObjEneDDFPv(void* p) { return TObjPlayer__sub_801BA494(p); }
+
+void TObjEneDD__sub_800B9BEC(s32 arg0, u8 *arg1, f32 farg0) {
+    f32 temp_f1;
+    VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (arg0));
+    TBoss6Type1__sub_803D9370((void *) (arg1), (void *) (lbl_805D4DF0 + 0x178));
+    { f32 s = update_scale__15TObjBoss2TunnelFPv((void *) (arg1)); temp_f1 = s * farg0; }
+    M2C_FIELD(arg1, f32 *, 0) = (f32) (M2C_FIELD(arg1, f32 *, 0) * temp_f1);
+    M2C_FIELD(arg1, f32 *, 4) = (f32) (M2C_FIELD(arg1, f32 *, 4) * temp_f1);
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (M2C_FIELD(arg1, f32 *, 8) * temp_f1);
+    TBoss4Zako__sub_803D8910((void *) (arg1), (void *) (lbl_805D4DF0 + 0x178), (f32) (temp_f1));
+}
 
 int query_teammate_state__9TObjEneDDFPv(void* p) { return is_any_teammate_in_state__10TObjPlayerFv(p); }
 int update_lobby_state__9TObjEneDDFPv(void* p) { return TLobby__sub_800C6C10(p); }

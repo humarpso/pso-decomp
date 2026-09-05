@@ -30,6 +30,9 @@ void release__15TOAttackableColFPv(void* p);
 void check_door_trigger__15TOAttackableColFPv(void *arg0);
 extern M2C_UNK __vt__11TOVS2Wall01[];
 void run_task__15TOAttackableColFv(u8 *arg0);
+M2C_UNK TLobby__sub_80156A80(void *, void *, int);
+int handle_6x91_update_state__15TOAttackableColFPv(void* p);
+void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -38,7 +41,6 @@ int TOAttackableCol__sub_801575AC(void *, s32);
 void TOAttackableCol__sub_80157C20(void* p, s32 v);
 s32 TOAttackableCol__sub_80157C28(void* p);
 void TOAttackableCol__vt23(void);
-int TOAttackableCol__vt4(void);
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1);
 void broadcast_state__15TOAttackableColFPv(void* p);
 void bswap_state__15TOAttackableColFPv(void* p);
@@ -109,7 +111,27 @@ void init_params__15TOAttackableColFPv(void *arg0) {
 }
 
 int TOAttackableCol__sub_801575AC(void *, s32) { return 0; }
-int TOAttackableCol__vt4(void) { return 0; }
+
+void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
+    s16 sp8;
+    s32 temp_r0;
+    if (arg1 != NULL) {
+        M2C_FIELD(arg0, s16 *, 0x326) = (s16) *arg1;
+    }
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    if (temp_r0 != 1) {
+        if ((temp_r0 >= 1) || (temp_r0 < 0)) {
+            M2C_FIELD(arg0, s16 *, 0x326) = 0;
+        }
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x33C) = 0;
+        if (arg2 != 0) {
+            handle_6x91_update_state__15TOAttackableColFPv((void*)((void *) (arg0)));
+        }
+    }
+    sp8 = M2C_FIELD(arg0, s16 *, 0x326);
+    TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
+}
 
 int handle_6x91_update_state__15TOAttackableColFPv(void* p) { return clear_player_status_flag__10TObjPlayerFPviUi((void*)(p), (int)(0), (int)(1)); }
 

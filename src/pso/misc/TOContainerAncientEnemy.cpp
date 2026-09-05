@@ -86,6 +86,19 @@ struct VObj_8015B8E8 : Base_8015B8E8 {
 };
 
 extern "C" {
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TOSignCave03__sub_803DB510(int);
+extern u32 lbl_805D58E8;
+void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2);
@@ -108,6 +121,40 @@ void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s
 }
 
 extern M2C_UNK __vt__23TOContainerAncientEnemy[];
+
+void TOContainerAncientEnemy__sub_8015BBFC(u8 *arg0) {
+    u8 *temp_r31;
+    u8 *temp_r31_2;
+    u8 *temp_r31_3;
+    if ((u32) lbl_805D58E8 != 0U) {
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 0:
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+            temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+            temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+            TObjPlayer__sub_803D9B78();
+            temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
+            begin_effect_render__13TParticleCtrlFv();
+            TOSignCave03__sub_803DB510((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+            end_effect_render__13TParticleCtrlFv();
+            TObjPlayer__sub_803D9B78();
+            TObjPlayer__sub_803D9B78();
+            TObjPlayer__sub_803D9B78();
+            break;
+        }
+    }
+}
 
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

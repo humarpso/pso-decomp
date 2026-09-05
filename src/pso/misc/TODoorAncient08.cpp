@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK fn_8015FC40(void *, void *);
+M2C_UNK TODoorAncient08__sub_8015FD70(void *);
+u8 TODoorAncient08__sub_80229220(int);
+void TODoorAncient08__vt12(u8 *arg0);
+}
+
+extern "C" {
 
 struct TODoorBase_8015FCBC { char pad[0x14]; void **vtbl; };
 struct TODoorVObj_8015FCBC : TODoorBase_8015FCBC {
@@ -67,6 +75,42 @@ extern const f32 lbl_805DB470;
 extern const f32 lbl_805DB474;
 
 #define VCALL_m8(obj) (((TODoorVObj_8015FCBC*)(obj))->m8(M2C_FIELD(obj, f32 *, 0xC0), M2C_FIELD(obj, f32 *, 0xC4)))
+
+void TODoorAncient08__vt12(u8 *arg0) {
+    s16 sp8;
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xCC);
+    switch (temp_r0) {
+    case 1:
+        TODoorAncient08__sub_8015FD70((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
+        return;
+    case 2:
+        if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD6))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD8))) == 1)) {
+            TODoorAncient08__sub_8015FD70((void *) (arg0));
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
+            M2C_FIELD(arg0, s32 *, 0xDC) = 1;
+            return;
+        }
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFFFFFE);
+        M2C_FIELD(arg0, s32 *, 0xDC) = 0;
+        return;
+    case 3:
+        if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD6))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD8))) == 1)) {
+            TODoorAncient08__sub_8015FD70((void *) (arg0));
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
+            if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+                sp8 = 1;
+                fn_8015FC40((void *) (arg0), (void *) (&sp8));
+                TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
+            }
+        }
+        return;
+    default:
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFFFFFE);
+        break;
+    }
+}
 
 void render__15TODoorAncient08Fv(u8 *arg0) {
     s32 temp_r0;

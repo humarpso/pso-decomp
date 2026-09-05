@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *get_message_10__20TWindowSubStatusDispFPv(int);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
+M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int, int);
+s32 draw_card_icon__17TWindowSubComCardFiii(int, int, void *);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+extern const f32 lbl_805DD508;
+s32 TWindowSubComCard__sub_80272814(void);
+}
+
+extern "C" {
 
 s32 create__17TWindowSubComCardFv(void);
 s32 create_keyboard__17TWindowSubComCardFi(s32 arg0);
@@ -92,6 +103,17 @@ s32 create__17TWindowSubComCardFv(void) {
     temp_r3 = TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0x98));
     temp_r31 = set_window_mode_4__6TLobbyFPvii(temp_r3, lbl_8044F6CC, 1);
     set_field_1c__6TLobbyFPvf(lbl_805DD4FC);
+    return temp_r31;
+}
+s32 TWindowSubComCard__sub_80272814(void) {
+    s32 temp_r31;
+    void *temp_r31_2;
+    temp_r31 = draw_card_icon__17TWindowSubComCardFiii(((M2C_UNK)TWindowSubComCard__sub_8026CBB8((M2C_UNK)((int) (0x93)))), (int) (3), get_message_10__20TWindowSubStatusDispFPv((int) (0x1D)));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (get_message_10__20TWindowSubStatusDispFPv((int) (0xFD))), (int) (6), (int) (0x41));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (get_message_10__20TWindowSubStatusDispFPv((int) (0xFE))), (int) (6), (int) (0x45));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (get_message_10__20TWindowSubStatusDispFPv((int) (0xFF))), (int) (6), (int) (0x4A));
+    set_flag70_bit10__16TObjCityMainWarpFPv((int) (temp_r31));
+    TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DD508));
     return temp_r31;
 }
 

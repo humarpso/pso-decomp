@@ -276,6 +276,8 @@ extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5D6C;
 void fn_801C0644(void* p);
+void TFontSmallLobby__sub_801C0274(u8 *arg0);
+void TFontSmallLobby__sub_801C041C(u8 *arg0);
 }
 
 extern "C" {
@@ -307,6 +309,15 @@ void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1) {
 
 void* TFontSmallLobby__sub_801C0228(void* p) { TFontSmallLobby__sub_801C0258(p); return p; }
 
+void TFontSmallLobby__sub_801C0274(u8 *arg0) {
+    M2C_FIELD(arg0, s8 *, 4) = 0;
+    M2C_FIELD(arg0, s8 *, 5) = 0;
+    M2C_FIELD(arg0, s8 *, 6) = 0;
+    M2C_FIELD(arg0, s8 *, 7) = 0;
+    M2C_FIELD(arg0, u8 *, 0) = 0x9B;
+    M2C_FIELD(arg0, s8 *, 1) = 2;
+}
+
 void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
 
 void TFontSmallLobby__sub_801C02D0(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
@@ -321,6 +332,12 @@ void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)(arg0));
     M2C_FIELD(arg0, void **, 0x4) = M2C_FIELD(arg1, void **, 0x4);
     return arg0;
+}
+
+void TFontSmallLobby__sub_801C041C(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 4) = 0;
+    M2C_FIELD(arg0, u8 *, 0) = 0x90;
+    M2C_FIELD(arg0, s8 *, 1) = 2;
 }
 
 void TFontSmallLobby__sub_801C0438(void* p) { *(u8*)((char*)p + 0x0) = 130; *(u8*)((char*)p + 0x1) = 1; }

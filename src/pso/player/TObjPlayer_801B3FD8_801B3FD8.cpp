@@ -5,12 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 test_flag_2000000__10TObjPlayerFPv();
+int TObjPlayer__sub_801B40D0(void *, int);
+int TObjPlayer__sub_801B4118(void *, f32, f32);
+M2C_UNK TObjPlayer__sub_801BF250(void *);
+M2C_UNK TObjPlayer__sub_801BF288(void *);
+M2C_UNK TObjPlayer__sub_801BF2C0(void *);
+s32 TObjPlayer__sub_801BF548(void *);
+s32 TObjPlayer__sub_801C6E40(void *);
+void TObjPlayer__sub_801B417C(s32 arg0, f32 farg0, f32 farg1);
+}
+
+extern "C" {
 
 int TObjPlayer__sub_801B3FD8(void* p);
 int TObjPlayer__sub_801B4044(void* p);
-int TObjPlayer__sub_801B40D0(void);
-int TObjPlayer__sub_801B4118(void);
-int TObjPlayer__sub_801B417C(void);
 int attach_battle_ctrl_sub__10TObjPlayerFPv(void* p);
 s32 classify_action_state__10TObjPlayerFv(void);
 int forward_1BF500_at_63c__10TObjPlayerFPv(void* p);
@@ -48,8 +57,33 @@ s32 classify_action_state__10TObjPlayerFv(void) {
     }
 }
 
-int TObjPlayer__sub_801B40D0(void) { return 0; }
-int TObjPlayer__sub_801B4118(void) { return 0; }
-int TObjPlayer__sub_801B417C(void) { return 0; }
+int TObjPlayer__sub_801B40D0(void * _w0, int _w1) { return 0; }
+int TObjPlayer__sub_801B4118(void * _w0, f32 _w1, f32 _w2) { return 0; }
+void TObjPlayer__sub_801B417C(s32 arg0, f32 farg0, f32 farg1) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    if ((test_flag_2000000__10TObjPlayerFPv() == 0) && (temp_r3 = ((s32)TObjPlayer__sub_801B4118((void *)((void *) (arg0)), (f32) (farg0), (f32) (farg1))), ((temp_r3 == 0) == 0))) {
+        temp_r3_2 = TObjPlayer__sub_801C6E40((void *) (arg0 + 0x360));
+        switch (temp_r3_2) {
+        case 1:
+            TObjPlayer__sub_801BF2C0((void *) (arg0 + 0x384));
+            return;
+        case 2:
+            TObjPlayer__sub_801BF288((void *) (arg0 + 0x384));
+            return;
+        case 3:
+            TObjPlayer__sub_801BF250((void *) (arg0 + 0x384));
+            return;
+        case 4:
+            ((M2C_UNK)TObjPlayer__sub_801B40D0((void *)((void *) (arg0)), (int)((int) (temp_r3))));
+            return;
+        case 0:
+            if (TObjPlayer__sub_801BF548((void *) (arg0 + 0x360)) != 0) {
+                TObjPlayer__sub_801B40D0((void *)((void *) (arg0)), (int)((int) (temp_r3)));
+            }
+            break;
+        }
+    }
+}
 
 }

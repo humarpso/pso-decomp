@@ -2,19 +2,44 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 fn_80190884(void *, int);
+s32 fn_801908F8(f32);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+void run_task__12TObjEnvSoundFv(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1);
 void render__12TObjEnvSoundFv(void);
-int run_task__12TObjEnvSoundFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void render__12TObjEnvSoundFv(void) {  }
 
-int run_task__12TObjEnvSoundFv(void) { return 0; }
-
 extern M2C_UNK __vt__12TObjEnvSound[];
+
+void run_task__12TObjEnvSoundFv(u8 *arg0) {
+    f32 temp_f0;
+    s32 temp_r0;
+    temp_f0 = M2C_FIELD(arg0, f32 *, 0x90);
+    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (fn_80190884((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x98))) != 0)) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x9C);
+        switch (temp_r0) {
+        case 0:
+            break;
+        case 1:
+            TOTrapAncient01__sub_80226578((int) (M2C_FIELD(arg0, s32 *, 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            return;
+        case 2:
+            TOTrapAncient01__sub_80226578((int) (M2C_FIELD(arg0, s32 *, 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x94)), (int) (2));
+            break;
+        }
+    }
+}
 
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

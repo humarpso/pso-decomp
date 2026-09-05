@@ -48,9 +48,23 @@ struct VObj_18 : VBase_18 {
     virtual void m17();
     virtual M2C_UNK m18();
 };
+struct VBase18 { char pad[0x18]; };
+
+struct VObj18 : VBase18 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual M2C_UNK m8(f32, f32); };
+
 extern "C" {
 M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
 void TOKeyAncient01__vt15(u8 *arg0);
+M2C_UNK TObjPlayer__sub_803D9214(int, void *);
+M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, void *);
+M2C_UNK TObjContainerIdo__sub_803D96A8(int, void *);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TOSignCave03__sub_803DB510(void *);
+M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
+void render__14TOKeyAncient01Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -78,6 +92,27 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 void set_type__14TOKeyAncient01FPv(void* p) { *(s32*)((char*)p + 0x0) = 3; }
 
 void TOKeyAncient01__vt23(void) {  }
+
+void render__14TOKeyAncient01Fv(u8 *arg0) {
+    if (((VObj18*)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        TObjPlayer__sub_803D9214((int) (0), (void *) (M2C_FIELD(arg0, s32 *, 0x60)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
+            TObjDoor__sub_803DC894((void *) (M2C_FIELD(arg0, u8 **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+        } else {
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (M2C_FIELD(arg0, u8 **, 0x34) + 8));
+            TObjBoss2Tunnel__sub_803D929C((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x1C)));
+            TObjContainerIdo__sub_803D96A8((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x14)));
+            TObjPlayer__sub_803D9214((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x18)));
+            TOSignCave03__sub_803DB510((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 4)));
+            TObjPlayer__sub_803D9B78();
+        }
+        TObjPlayer__sub_803D9B78();
+    }
+}
 
 void TOKeyAncient01__vt15(u8 *arg0) {
     update_anim_phase__17TOBarrierEnergy01FPv();

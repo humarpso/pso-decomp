@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
+void TObjEneBm3FlyNest__sub_800B3ADC(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjEneBm3FlyNest__sub_800B3ADC(void);
 void TObjEneBm3FlyNest__sub_800B3BE8(void);
 void TObjEneBm3FlyNest__sub_800B3CBC(void);
 int TObjEneBm3FlyNest__sub_800B4158(void);
@@ -52,7 +52,40 @@ s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x4B8) > 0;
 }
 
-int TObjEneBm3FlyNest__sub_800B3ADC(void) { return 0; }
+void TObjEneBm3FlyNest__sub_800B3ADC(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r0_3;
+    s32 var_r5;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x4B4);
+    switch (temp_r0) {
+    case 0:
+        if (((s32) M2C_FIELD(arg0, s32 *, 0x3B0) <= (s32) ((s32) M2C_FIELD(arg0, s32 *, 0x390) / 2)) || ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) != 0)) {
+            M2C_FIELD(arg0, s32 *, 0x4B4) = 1;
+            M2C_FIELD(arg0, s32 *, 0x4BC) = 0;
+        }
+        return;
+    case 1:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x4C0) > 0) {
+            M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) (M2C_FIELD(arg0, s32 *, 0x4BC) + 1);
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x4BC) > (s32) M2C_FIELD(arg0, s32 *, 0x4C4)) {
+                M2C_FIELD(arg0, s32 *, 0x4BC) = 0;
+                var_r5 = M2C_FIELD(arg0, s32 *, 0x4C0);
+                temp_r0_2 = 6 - M2C_FIELD(arg0, s32 *, 0x3B0);
+                if (temp_r0_2 < var_r5) {
+                    var_r5 = temp_r0_2;
+                }
+                temp_r0_3 = M2C_FIELD(arg0, s32 *, 0x394) - M2C_FIELD(arg0, s32 *, 0x3B4);
+                if (temp_r0_3 < var_r5) {
+                    var_r5 = temp_r0_3;
+                }
+                M2C_FIELD(arg0, s32 *, 0x4B8) = var_r5;
+                return;
+            }
+        }
+        break;
+    }
+}
 
 void init_nest_sub__17TObjEneBm3FlyNestFPv(void* p) { TObjEneDD__sub_800BAAE4(p, (char*)p + 0x2fc, (void*)0); }
 void copy_pos__17TObjEneBm3FlyNestFPv(void* p) { VecCopy__FP3VecPC3Vec((char*)p + 0x74, (char*)p + 0x2fc); }

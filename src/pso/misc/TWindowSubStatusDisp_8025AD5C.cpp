@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0);
 void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0);
+extern const f32 lbl_805DCFE0;
+void TWindowHelpItem__sub_8025B08C(u8 *arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -58,6 +60,16 @@ void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0) {
 }
 
 void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x1c) = a; *(f32*)((char*)p + 0x20) = b; *(f32*)((char*)p + 0x24) = c; *(f32*)((char*)p + 0x28) = d; }
+
+void TWindowHelpItem__sub_8025B08C(u8 *arg0, f32 farg0, f32 farg1) {
+    f32 x, y;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (farg0 * lbl_805DCFE0);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (farg1 * lbl_805DCFE0);
+    x = farg0 + M2C_FIELD(arg0, f32 *, 0x10);
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) (x * lbl_805DCFE0);
+    y = farg1 + M2C_FIELD(arg0, f32 *, 0x14);
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (y * lbl_805DCFE0);
+}
 
 void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x10) = a; *(f32*)((char*)p + 0x14) = b; }
 

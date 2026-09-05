@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2);
+void TObjEneBm5Wolf__sub_800B89A4(u8 *arg0, void ***arg1, void **arg2);
 }
 
 extern "C" {
 
-int TObjEneBm5Wolf__sub_800B89A4(void*, void*, void*);
 int TObjEneBm5Wolf__sub_800B8A24(void);
 s32 TObjEneBm5Wolf__sub_800B8AF8(void* p);
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
@@ -39,7 +39,7 @@ void *create__14TObjEneBm5WolfFPv(void *arg0) {
     return o;
 }
 
-void update__14TObjEneBm5WolfFPvPv(void* p, void* a1) { TObjEneBm5Wolf__sub_800B89A4((void*)(a1), (void*)(p), (void*)((char*)p + 0x4)); }
+void update__14TObjEneBm5WolfFPvPv(void* p, void* a1) { TObjEneBm5Wolf__sub_800B89A4((u8 *)((void*)(a1)), (void ***)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
 void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1) { TObjEneBm5Wolf__sub_800B896C((u8 *)((void*)(a1)), (void **)((void*)(p)), (void **)((void*)((char*)p + 0x4))); }
 void reset_fields__14TObjEneBm5WolfFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
@@ -70,7 +70,22 @@ void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
 }
 
-int TObjEneBm5Wolf__sub_800B89A4(void*, void*, void*) { return 0; }
+void TObjEneBm5Wolf__sub_800B89A4(u8 *arg0, void ***arg1, void **arg2) {
+    void **temp_r4;
+    u8 *temp_r6;
+    temp_r6 = M2C_FIELD(arg0, u8 **, 0);
+    if (temp_r6 != NULL) {
+        M2C_FIELD(temp_r6, void ***, 4) = (void **) M2C_FIELD(arg0, void ***, 4);
+    } else {
+        *arg1 = M2C_FIELD(arg0, void ***, 4);
+    }
+    temp_r4 = M2C_FIELD(arg0, void ***, 4);
+    if (temp_r4 != NULL) {
+        *temp_r4 = M2C_FIELD(arg0, u8 **, 0);
+        return;
+    }
+    *arg2 = M2C_FIELD(arg0, u8 **, 0);
+}
 
 s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

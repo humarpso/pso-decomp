@@ -13,6 +13,14 @@ s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 extern const f32 lbl_805DD528;
 s32 TWindowSubComCard__sub_80273308(void);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
+M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
+s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 TWindowSubComCard__sub_8027353C(void);
 }
 
 extern "C" {
@@ -90,6 +98,18 @@ s32 TWindowSubComCard__sub_80273308(void) {
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x38)))), (M2C_UNK)((int) (3)), (M2C_UNK)((int) (0)));
     set_flag_40__16TAdChrSelASlotGCFPv((int) (temp_r31));
     set_scroll_target__17TWindowSubComCardFPvff((int) (temp_r31), (f32) (TWindowSubComCard__data_805DD520), (f32) (lbl_805DD528));
+    return temp_r31;
+}
+
+s32 TWindowSubComCard__sub_8027353C(void) {
+    s32 temp_r31;
+    s32 temp_r31_2;
+    temp_r31 = draw_card_icon__17TWindowSubComCardFiii((s32)(((M2C_UNK)TWindowSubComCard__sub_8026CBB8((int) (0x82)))), (M2C_UNK)((int) (2)), (s32)(get_message_10__20TWindowSubStatusDispFPv((int) (0x1E))));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x55)))), (M2C_UNK)((int) (6)), (M2C_UNK)((int) (5)));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x56)))), (M2C_UNK)((int) (6)), (M2C_UNK)((int) (9)));
+    set_flag70_bit10__16TObjCityMainWarpFPv((s32)((int) (temp_r31)));
+    TWindowSubComCard__sub_80265E60((s32)((int) (temp_r31)), (f32) (TWindowSubComCard__data_805DD520));
+    TWindowSubComCard__sub_80265C30((s32)((int) (temp_r31)));
     return temp_r31;
 }
 

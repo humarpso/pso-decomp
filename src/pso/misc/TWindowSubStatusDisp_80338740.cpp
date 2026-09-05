@@ -131,9 +131,34 @@ void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 extern u8 lbl_804EF440[];
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1);
+s32 alloc_buffer__11TOBoss4RockFPv(void *);
+s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
+M2C_UNK strncpy(int, void *, int);
+void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s8 arg4, s8 arg5, s8 arg6, s8 arg7, s32 arg_sp8);
 }
 
 extern "C" {
+
+void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s8 arg4, s8 arg5, s8 arg6, s8 arg7, s32 arg_sp8) {
+    s32 temp_r3;
+    if (arg1 != 0) {
+        M2C_FIELD(arg0, s8 *, 0x1C) = 0x18;
+    } else {
+        M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
+    }
+    temp_r3 = measure_string_len__20TWindowSubStatusDispFPv((void *) (arg2));
+    M2C_FIELD(arg0, s32 *, 0x24) = alloc_buffer__11TOBoss4RockFPv((void *) (temp_r3 + 1));
+    strncpy((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (arg2), (int) (temp_r3));
+    M2C_FIELD(temp_r3, s8 *, M2C_FIELD(arg0, s32 *, 0x24)) = 0;
+    M2C_FIELD(arg0, s8 *, 0x1D) = arg7;
+    M2C_FIELD(arg0, s8 *, 0x1E) = arg6;
+    M2C_FIELD(arg0, s8 *, 0x1F) = arg5;
+    M2C_FIELD(arg0, s8 *, 0x20) = arg3;
+    M2C_FIELD(arg0, s8 *, 0x21) = arg4;
+    M2C_FIELD(arg0, s32 *, 0x18) = arg_sp8;
+    M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 5);
+}
+
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1) {
     get_message_10__20TWindowSubStatusDispFPv((s32)(arg1 + 0x113));
 }

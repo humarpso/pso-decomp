@@ -5,6 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
+M2C_UNK TItemDrop__sub_80105EA4(void *, void *);
+u32 TItemDrop__sub_801065F8(void *, int, int);
+void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
+void handle_type3__9TItemDropFPvPv(void* p, void* a1);
+void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
+M2C_UNK TItemDrop__sub_80106D0C(s32, void *);
+void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
+M2C_UNK TItemDrop__sub_80106FC8(void *, void *, void *);
+s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2);
+}
+
+extern "C" {
 
 int TItemDrop__sub_80107A68(void);
 int TItemDrop__sub_80107B04(void);
@@ -23,7 +36,6 @@ M2C_UNK TItemData__sub_8010D510(void *, M2C_UNK *);
 s32 TItemData__sub_8010DF68(void *);
 M2C_UNK TItemDrop__sub_801063D8();
 M2C_UNK TItemDrop__sub_80106D0C(s32, void *);
-s32 TItemDrop__sub_80107460(s32, s32, s32);
 s8 TItemDrop__sub_80107790(s32, s32, s32, M2C_UNK, M2C_UNK);
 int TLobby__sub_801D6DDC(void*);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
@@ -60,7 +72,7 @@ extern s32 *TItemDrop__data_805D5464;
 
 s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2) {
     if ((can_drop__9TItemDropFv() == 1) && ((s32 *) TItemDrop__data_805D5464 != NULL) && (arg1 > 0) && (arg1 < 0x58)) {
-        return TItemDrop__sub_80107460(arg0, *TItemDrop__data_805D5464 + (arg1 * 4), arg2);
+        return TItemDrop__sub_80107460((s32)(arg0), (u8 *)(*TItemDrop__data_805D5464 + (arg1 * 4)), (u8 *)(arg2));
     }
     return 0;
 }
@@ -123,6 +135,53 @@ void calc_drop_item__9TItemDropFiPvi(s32 arg0, void *arg1, s32 arg2) {
     if ((u8) M2C_FIELD(arg1, u8 *, 0) == 0) {
         M2C_FIELD(arg1, s8 *, 3) = TItemDrop__sub_80107790((s32)(arg0), (s32)(M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0xC)), (s32)(clamp_s32__10TObjPlayerFiii(arg2, 0, 3)), (M2C_UNK)(9), (M2C_UNK)(4));
     }
+}
+
+s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2) {
+    s32 var_r5;
+    u32 temp_r3;
+    u8 temp_r0;
+    u8 temp_r31;
+    u32 tmp;
+    if ((arg1 != NULL) && (arg2 != NULL)) {
+        temp_r31 = M2C_FIELD(arg1, u8 *, 0);
+        if (temp_r31 != 0) {
+            temp_r3 = TItemDrop__sub_801065F8((void *) (arg0), (int) (-1), (int) (6));
+            var_r5 = ((temp_r31 >> 3U) & 0x1F) - 4;
+            if (var_r5 < 0) {
+                var_r5 = 0;
+            }
+            if (temp_r3 < (u32) ((2 << var_r5) * ((temp_r31 & 7) + 7))) {
+                M2C_FIELD(arg2, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 1);
+                M2C_FIELD(arg2, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 2);
+                M2C_FIELD(arg2, u8 *, 2) = (u8) M2C_FIELD(arg1, u8 *, 3);
+                temp_r0 = M2C_FIELD(arg2, u8 *, 0);
+                switch ((s32) temp_r0) {
+                case 0:
+                    tmp = TItemDrop__sub_801065F8((void *) (arg0), (int) (0xA), (int) (7));
+                    TItemDrop__sub_80106FC8((void *) (arg0), (void *) (arg2), (void *) (tmp));
+                    set_flag__9TItemDropFPvPv((void *) (arg0), (void *) (arg2));
+                    break;
+                case 1:
+                    TItemDrop__sub_80106D0C((s32)((void *) (arg0)), (void *)((void *) (arg2)));
+                    break;
+                case 2:
+                    apply_item_data__9TItemDropFPvPv((void *) (arg0), (void *) (arg2));
+                    break;
+                case 3:
+                    init_rare_item_data__9TItemDropFPvPv((void *) (arg0), (void *) (arg2));
+                    handle_type3__9TItemDropFPvPv((void*)((void *) (arg0)), (void*)((void *) (arg2)));
+                    break;
+                }
+                TItemDrop__sub_80105EA4((void *) (arg0), (void *) (arg2));
+                clear_item_if_player_picked_up__9TItemDropFPvPv((void *) (arg0), (void *) (arg2));
+                return 1;
+            }
+            goto block_18;
+        }
+    }
+block_18:
+    return 0;
 }
 
 int TItemDrop__sub_80107A68(void) { return 0; }

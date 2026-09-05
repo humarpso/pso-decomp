@@ -5,10 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 TBoss6Type2__sub_802BD014(void * a0, s32 a1);
+void TBoss6Type2__sub_802BF834(u8 *arg0);
+}
+
+extern "C" {
 
 int TBoss6Type2__sub_802BF65C(void);
 int TBoss6Type2__sub_802BF6CC(void);
-int TBoss6Type2__sub_802BF834(void);
 void TBoss6Type2__sub_802BF904(void* p);
 void TBoss6Type2__sub_802BFA1C(u8 *arg0);
 void TBoss6Type2__sub_802BFBE4(void* p);
@@ -132,7 +138,19 @@ void init_attack_params__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
-int TBoss6Type2__sub_802BF834(void) { return 0; }
+void TBoss6Type2__sub_802BF834(u8 *arg0) {
+    s32 temp_r0;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x460) == (s32) (M2C_FIELD(arg0, s32 *, 0x45C) - 0x1E)) && ((u16) M2C_FIELD(arg0, u16 *, 0x466) != 0xFFFF)) {
+        TBoss3Volopt__sub_8022675C((int) (0x4006A10A), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+        TBoss3Volopt__sub_8022675C((int) (0x69E27), (void *) (arg0 + 0x38), (int) (0), (int) (1));
+        TOSwitchAttack__sub_80087278((void *) (arg0 + 0x62C), (int) (0x223), (int) (0x40));
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x460) - 1;
+    M2C_FIELD(arg0, s32 *, 0x460) = temp_r0;
+    if (temp_r0 < 0) {
+        TBoss6Type2__sub_802BD014((void *)((void *) (arg0)), (s32)((int) (0x22)));
+    }
+}
 
 void check_state_0x460_eq0__11TBoss6Type2FPv(void* p) { if (*(int*)((char*)p + 0x460) == 0) { TBoss6Type2__sub_802BDC5C(p); } }
 void TBoss6Type2__sub_802BF904(void* p) { *(s32*)((char*)p + 0x45c) = 45; *(s32*)((char*)p + 0x460) = 45; }

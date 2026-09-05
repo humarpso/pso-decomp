@@ -5,11 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+int TBoss6Type2__sub_802BA158(void *);
+void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
+void TBoss6Type2__sub_802BA180(u8 *arg0);
+}
+
+extern "C" {
 
 int TBoss6Type2__sub_802B9EE4(void);
 int TBoss6Type2__sub_802B9F0C(void);
-int TBoss6Type2__sub_802BA158(void);
-int TBoss6Type2__sub_802BA180(void);
 void init_parts__11TBoss6Type2FPv(void* p);
 void set_fields_554__11TBoss6Type2FPv(void* p);
 void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1);
@@ -31,7 +36,24 @@ void set_fields_554__11TBoss6Type2FPv(void* p) { *(s32*)((char*)p + 0x554) = 1; 
 int TBoss6Type2__sub_802B9EE4(void) { return 0; }
 int TBoss6Type2__sub_802B9F0C(void) { return 0; }
 
-int TBoss6Type2__sub_802BA158(void) { return 0; }
-int TBoss6Type2__sub_802BA180(void) { return 0; }
+int TBoss6Type2__sub_802BA158(void * _w0) { return 0; }
+void TBoss6Type2__sub_802BA180(u8 *arg0) {
+    u8 *temp_r3;
+    u32 id = M2C_FIELD(arg0, u16 *, 0x55C);
+    if (id != 0xFFFF) {
+        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(id);
+        if (temp_r3 == NULL) {
+            TBoss6Type2__sub_802BA158((void *)((void *) (arg0)));
+            return;
+        }
+        copy_vec2__11TBoss6Type2FPvPv((void*)((void *) (temp_r3 + 0xCF4)), (void*)((void *) (arg0 + 0x574)));
+        copy_vec2__11TBoss6Type2FPvPv((void*)((void *) (temp_r3 + 0xB88)), (void*)((void *) (arg0 + 0x584)));
+        M2C_FIELD(temp_r3, s32 *, 0x34) = (s32) M2C_FIELD(arg0, s32 *, 0x58C);
+        M2C_FIELD(temp_r3, s32 *, 0x8B0) = (s32) M2C_FIELD(arg0, s32 *, 0x590);
+        M2C_FIELD(temp_r3, s32 *, 0x8AC) = (s32) M2C_FIELD(arg0, s32 *, 0x594);
+        M2C_FIELD(temp_r3, s32 *, 0x8B4) = (s32) M2C_FIELD(arg0, s32 *, 0x598);
+        TBoss6Type2__sub_802BA158((void *)((void *) (arg0)));
+    }
+}
 
 }

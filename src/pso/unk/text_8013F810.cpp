@@ -8,6 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
 u8 TLobby__sub_8013FF94(u8 *arg0);
+u8 TLobby__sub_8013FF78(u8 *arg0);
 }
 
 extern "C" {
@@ -28,7 +29,9 @@ void TLobby__sub_8013FF64(u8 *arg0, s8 arg1) {
     *temp_r5 = arg1;
 }
 
-int TLobby__sub_8013FF78(void) { return 0; }
+u8 TLobby__sub_8013FF78(u8 *arg0) {
+    return (u8) ((u32) M2C_FIELD(arg0, u32 *, 0x7220) > (u32) M2C_FIELD(arg0, u32 *, 0x7228));
+}
 
 u8 TLobby__sub_8013FF94(u8 *arg0) {
     u8 *temp_r4;

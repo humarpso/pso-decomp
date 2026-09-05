@@ -1,5 +1,27 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK TObjPlayer__sub_801B2014(void *);
+M2C_UNK init_player_data__10TObjPlayerFPv(void *, void *);
+M2C_UNK TObjPlayer__sub_801BEB68(void *, void *);
+s32 TObjPlayer__sub_801BEB8C(void *);
+M2C_UNK query_field374__10TObjPlayerFPv(void *, void *);
+s32 TObjPlayer__sub_801BEBB8(void *);
+M2C_UNK query_flags_374__10TObjPlayerFPv(void *, void *);
+s32 TObjPlayer__sub_801BEBE4(void *);
+M2C_UNK get_quest_status__10TObjPlayerFPv(void *, void *);
+s32 TObjPlayer__sub_801BEC10(void *);
+M2C_UNK get_field_0x374__10TObjPlayerFPv(void *, void *);
+s32 TObjPlayer__sub_801BEC3C(void *);
+M2C_UNK TObjPlayer__sub_801BEE24(void *, int);
+M2C_UNK TObjPlayer__sub_801BEE2C(void *, int);
+void TObjPlayer__sub_801BCB70(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 s32 obj_isState2_324();
@@ -21,6 +43,17 @@ int can_cast_technique__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCC50(void);
 int check_technique_castable__10TObjPlayerFi(void*);
 
-int TObjPlayer__sub_801BCB70(void) { return 0; }
+void TObjPlayer__sub_801BCB70(u8 *arg0, u8 *arg1) {
+    TObjPlayer__sub_801BEE2C((void *) (arg0), (int) (M2C_FIELD(arg1, s16 *, 0x24)));
+    TObjPlayer__sub_801BEE24((void *) (arg0), (int) (M2C_FIELD(arg1, s16 *, 0x26)));
+    get_field_0x374__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801BEC3C((void *) (arg1))));
+    get_quest_status__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801BEC10((void *) (arg1))));
+    query_flags_374__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801BEBE4((void *) (arg1))));
+    query_field374__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801BEBB8((void *) (arg1))));
+    TObjPlayer__sub_801BEB68((void *) (arg0), (void *) (TObjPlayer__sub_801BEB8C((void *) (arg1))));
+    init_player_data__10TObjPlayerFPv((void *) (arg0), (void *) (arg1 + 0x118));
+    M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg1, s16 *, 0x22);
+    TObjPlayer__sub_801B2014((void *) (arg0));
+}
 
 }

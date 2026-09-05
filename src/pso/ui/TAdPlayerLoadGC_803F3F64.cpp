@@ -4,6 +4,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma scheduling off
+extern "C" {
+M2C_UNK TAdSinglePlyChrSelectGC__sub_803F47BC();
+s32 TLobby__sub_803F4AB4();
+void TLobby__sub_803F4B2C(s32 arg0);
+}
+
 extern "C" {
 
 s32 TAdPlayerLoadGC__sub_803F4B24(void);
@@ -33,6 +40,13 @@ extern s32 lbl_805D4708;
 
 s32 TAdPlayerLoadGC__sub_803F4B24(void) {
     return lbl_805D4708;
+}
+
+void TLobby__sub_803F4B2C(s32 arg0) {
+    if (TLobby__sub_803F4AB4() >= 1) {
+        lbl_805D4708 = arg0;
+        TAdSinglePlyChrSelectGC__sub_803F47BC();
+    }
 }
 
 s32 TAdPlayerLoadGC__sub_803F4B80(void) {

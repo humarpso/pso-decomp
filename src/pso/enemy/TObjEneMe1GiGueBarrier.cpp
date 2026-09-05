@@ -7,6 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TObjEneMe1GiGueBarrier__ct(void *, void *, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 TObjEneMe1GiGueBarrier__sub_802CAC04(int);
+s32 get_timer__22TObjEneMe1GiGueBarrierFPv(int);
+s32 update_and_get_pos__22TObjEneMe1GiGueBarrierFPv(int);
+void run_task__22TObjEneMe1GiGueBarrierFv(u8 *arg0);
 }
 
 extern "C" {
@@ -20,6 +29,46 @@ void clear_flag388_bit80000__22TObjEneMe1GiGueBarrierFPv(void *);
 s32 get_barrier_count__15TObjEneMe1GiGueFv();
 
 extern M2C_UNK __vt__22TObjEneMe1GiGueBarrier[];
+
+void run_task__22TObjEneMe1GiGueBarrierFv(u8 *arg0) {
+    s32 temp_r0_2;
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0xFC);
+    if (temp_r0 == 0U) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (update_and_get_pos__22TObjEneMe1GiGueBarrierFPv((int) (temp_r0))));
+    M2C_FIELD(arg0, s32 *, 0x60) = get_timer__22TObjEneMe1GiGueBarrierFPv((int) (M2C_FIELD(arg0, u32 *, 0xFC)));
+    TBoss1Dragon__sub_80143504((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x108) = (s32) (M2C_FIELD(arg0, s32 *, 0x108) - 1);
+    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x104);
+    switch (temp_r0_2) {
+    case 0:
+        if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
+            M2C_FIELD(arg0, s32 *, 0x104) = 1;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+            if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+                TBoss3Volopt__sub_8022675C((int) (0x4003A316), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            } else {
+                TBoss3Volopt__sub_8022675C((int) (0x3A346), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            }
+        }
+        break;
+    case 2:
+        if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+        }
+        break;
+    default:
+    case 1:
+        if (((s32) M2C_FIELD(arg0, s32 *, 0x108) <= 0) || (TObjEneMe1GiGueBarrier__sub_802CAC04((int) (M2C_FIELD(arg0, u32 *, 0xFC))) != 0)) {
+            M2C_FIELD(arg0, s32 *, 0x104) = 2;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+        }
+        break;
+    }
+}
 
 void *__dt__22TObjEneMe1GiGueBarrierFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
