@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32, M2C_UNK);
+};
+extern "C" {
+s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+void THunterGuildSeqOffline__sub_80213F14(void);
+}
+
 extern "C" {
 
 void THunterGuildSeqOffline__sub_80213EBC(void);
@@ -27,6 +42,13 @@ void THunterGuildSeqOffline__sub_80213EBC(void) {
         lbl_805D61B8->m7(0xC, 1);
         set_field_20__12TQuestListVMFPvi(lbl_805D61B8, 0xA);
         M2C_FIELD(lbl_805D61B8, s32 *, 0x34) = 2;
+    }
+}
+void THunterGuildSeqOffline__sub_80213F14(void) {
+    if ((void *) (*(u8 * *)&lbl_805D61B8) != NULL) {
+        ((VObj_18 *)((*(u8 * *)&lbl_805D61B8)))->m5(TQuestVmDownLoadServer__sub_8006EF6C((int) (0x43)), 1);
+        set_field_20__12TQuestListVMFPvi((void *)((void *) ((*(u8 * *)&lbl_805D61B8))), (M2C_UNK)((int) (9)));
+        M2C_FIELD((*(u8 * *)&lbl_805D61B8), s32 *, 0x34) = 0;
     }
 }
 

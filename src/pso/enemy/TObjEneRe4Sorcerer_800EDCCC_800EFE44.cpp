@@ -5,9 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TBoss8Dragon__sub_800BB780();
+int TObjEneDD__sub_800BBA18(void*, void*);
+void TObjEneRe4Sorcerer__vt60(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjEneRe4Sorcerer__vt59(void);
-int TObjEneRe4Sorcerer__vt60(void);
 void update_collision_center__18TObjEneRe4SorcererFPv(u8 *arg0);
 int TObjEneDD__sub_800BBA18(void*, void*);
 void TObjEneRe4Sorcerer__vt26(void);
@@ -24,7 +29,14 @@ void update_collision_center__18TObjEneRe4SorcererFPv(u8 *arg0) {
 }
 
 void TObjEneRe4Sorcerer__vt59(void) {  }
-
-int TObjEneRe4Sorcerer__vt60(void) { return 0; }
+void TObjEneRe4Sorcerer__vt60(u8 *arg0) {
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 8) {
+        if (!(M2C_FIELD(arg0, s32 *, 0x3C8) & 8)) {
+            TObjEneDD__sub_800BBA18((void*)((void *)(arg0)), (void*)((int) (8)));
+            return;
+        }
+        TBoss8Dragon__sub_800BB780();
+    }
+}
 
 }

@@ -1,3 +1,26 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
+extern u8 *TObjEneRecon__data_805D6AFC;
+f32 TObjEneRecon__sub_8031C2BC(void);
+f32 TObjEneRecon__sub_8031C2C8(void);
+f32 TObjEneRecon__sub_8031C2D4(void);
+}
+
+extern "C" {
+
+f32 TObjEneRecon__sub_8031C2BC(void) {
+    return M2C_FIELD(TObjEneRecon__data_805D6AFC, f32 *, 0xC);
+}
+f32 TObjEneRecon__sub_8031C2C8(void) {
+    return M2C_FIELD(TObjEneRecon__data_805D6AFC, f32 *, 8);
+}
+f32 TObjEneRecon__sub_8031C2D4(void) {
+    return M2C_FIELD(TObjEneRecon__data_805D6AFC, f32 *, 4);
+}
 
 }

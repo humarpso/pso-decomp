@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TWindowCtrl__sub_8024A4B0(int, void *);
+void TLobby__sub_801EE674(s32 arg0);
+M2C_UNK TQuestColCtrl__sub_80195DE0(int, void *);
+void qst_op_del_obj_param(s32 arg0);
+}
+
+extern "C" {
 
 int TLobby__sub_801EE6A0(void* p);
 int create_alt_timer__6TLobbyFPv(void* p);
@@ -25,6 +32,10 @@ int reset_instance__8TObjDoorFv(void);
     extern int* TLobby__data_805D5E78;
 void set_table_entry__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_803DF1CC(); }
 
+void TLobby__sub_801EE674(s32 arg0) {
+    TWindowCtrl__sub_8024A4B0((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
+}
+
 int TLobby__sub_801EE6A0(void* p) { return TWindowCtrl__sub_8024A4EC(p); }
 int create_alt_timer__6TLobbyFPv(void* p) { return create_alt_timer__11TWindowCtrlFv(p); }
 void open_door__6TLobbyFv(void) { reset_door_state__6TLobbyFv(); reset_instance__8TObjDoorFv(); }
@@ -32,6 +43,10 @@ void update_doors__6TLobbyFv(void) { TObjDoor__sub_801F3760(); TObjDoor__sub_801
 
 extern s32 TLobby__data_80512220[];
 extern s32 lbl_805D53A0;
+
+void qst_op_del_obj_param(s32 arg0) {
+    TQuestColCtrl__sub_80195DE0((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
+}
 
 void notify_battle_ctrl_player__6TLobbyFv(void) {
     s32 temp_r31;

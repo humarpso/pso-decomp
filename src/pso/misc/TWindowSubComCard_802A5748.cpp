@@ -5,8 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_visible__17TWindowSubComCardFPv(s32);
+s32 TWindowSubComCard__sub_802A57FC(void *arg0);
+}
 
-int TWindowSubComCard__sub_802A57FC(void*);
+extern "C" {
+
 int TWindowSubShortMail__sub_802A58AC(void*, void*, void*, void*);
 int close__17TWindowSubComCardFPv(void* p);
 void free_member__17TWindowSubComCardFPv(void* p);
@@ -49,7 +53,13 @@ s32 get_card_data__17TWindowSubComCardFPv(void *arg0) {
     return get_status_flag__17TWindowSubComCardFPv(v);
 }
 
-int TWindowSubComCard__sub_802A57FC(void*) { return 0; }
+s32 TWindowSubComCard__sub_802A57FC(void *arg0) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
+        return 0;
+    }
+    return is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x2C));
+}
+
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0x28) = TCheckRoomSequence__sub_802664A8(arg2, 1, M2C_FIELD(arg0, s32 *, 0x24));
     forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, s32 *, 0x28), arg1, 0x21, 0);

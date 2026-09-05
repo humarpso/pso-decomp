@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_split_screen(void);
+M2C_UNK TLobby__sub_801F36F0(int);
+M2C_UNK TLobby__sub_801F3700(int);
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801ED764(s32 arg0);
+}
+
+extern "C" {
 
 void update_split_screen_camera__6TLobbyFv(void);
 M2C_UNK TObjPlayer__sub_80071BC0(s32);
@@ -23,6 +31,13 @@ void update_split_screen_camera__6TLobbyFv(void) {
         return;
     }
     TObjPlayer__sub_80071BC0(temp_r31);
+}
+void TLobby__sub_801ED764(s32 arg0) {
+    if (is_split_screen() == 1) {
+        TLobby__sub_801F3700((int) (M2C_FIELD(TLobby__data_805D5E78, M2C_UNK *, ((arg0 * 4) & 0x3FC))));
+        return;
+    }
+    TLobby__sub_801F36F0((int) (M2C_FIELD(TLobby__data_805D5E78, M2C_UNK *, ((arg0 * 4) & 0x3FC))));
 }
 
 }

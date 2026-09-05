@@ -28,6 +28,33 @@ struct VObj_8016A8D0 : Base_8016A8D0 {
     virtual void m20();
 };
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual M2C_UNK m12();
+    virtual void m13();
+    virtual M2C_UNK m14();
+    virtual M2C_UNK m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual M2C_UNK m19();
+};
+extern "C" {
+void TOKey__sub_8016A960(u8 *arg0);
+}
+
 extern "C" {
 
 struct Base0_8016ab58_8016A8D0 { char pad[0x18]; };
@@ -72,6 +99,30 @@ void update_lock_state__5TOKeyFPv(void *arg0) {
         if (temp_r3 == 1) {
             M2C_FIELD(arg0, s32 *, 0xD4) = 1;
         }
+    }
+}
+
+void TOKey__sub_8016A960(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    ((VObj_18 *)(arg0))->m12();
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
+    switch (temp_r0) {
+    case 0:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) != 0) {
+            temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xDC) - 1;
+            M2C_FIELD(arg0, s32 *, 0xDC) = temp_r0_2;
+            if (temp_r0_2 < 0) {
+                ((VObj_18 *)(arg0))->m19();
+                M2C_FIELD(arg0, s32 *, 0xE0) = 0;
+            }
+        }
+        ((VObj_18 *)(arg0))->m15();
+        return;
+    case 1:
+        ((VObj_18 *)(arg0))->m14();
+        M2C_FIELD(arg0, s32 *, 0xE0) = 0;
+        return;
     }
 }
 

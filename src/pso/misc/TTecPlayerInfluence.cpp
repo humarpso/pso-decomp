@@ -4,9 +4,21 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4();
+};
+extern "C" {
+void TTecPlayerInfluence__sub_80237258(void* p);
+void run_task__19TTecPlayerInfluenceFv(void *arg0);
+}
+
 extern "C" {
 
-void TTecPlayerInfluence__sub_80237258(void* p);
 void TTecPlayerInfluence__vt5(void);
 void TTecRaBarta__vt7(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
@@ -19,6 +31,11 @@ M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
 void TTecPlayerInfluence__sub_80237258(void* p) { *(f32*)((char*)p + 0xbc) = *(f32*)((char*)p + 0x3c); }
 
 extern M2C_UNK __vt__19TTecPlayerInfluence[];
+
+void run_task__19TTecPlayerInfluenceFv(void *arg0) {
+    TTecPlayerInfluence__sub_80237258((void*)(arg0));
+    ((VObj_18 *)(arg0))->m4();
+}
 
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

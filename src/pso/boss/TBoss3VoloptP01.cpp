@@ -75,9 +75,87 @@ struct TBoss3VoloptP01_800430AC : VBos_800430AC {
     virtual s32 m8(f32, f32);
 };
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual s32 m30();
+    virtual s32 m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual M2C_UNK m53(s32);
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual M2C_UNK m60();
+    virtual M2C_UNK m61();
+};
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TObjPlayer__sub_800192DC(void *);
+s32 TObjPlayer__sub_800194AC(void *, int, int);
+s32 obj_testFlags30(void *, int);
+M2C_UNK obj_clearFlags30(void *, int);
+M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *, int, f32, f32);
+void TBoss3VoloptP01__sub_80043CA8(void *);
+M2C_UNK TBoss3VoloptP01__sub_80043CAC(void *);
+s32 check_demo_mode__10TObjPlayerFv();
+extern const f32 lbl_805D878C;
+void run_task__15TBoss3VoloptP01Fv(u8 *arg0);
+}
+
 extern "C" {
 
-void TBoss3VoloptP01__sub_80043CA8(void);
 void render__15TBoss3VoloptP01Fv(u8 *arg0);
 void reset_state__15TBoss3VoloptP01FPv(void *arg0);
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0);
@@ -226,6 +304,45 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
     }
 }
 
-void TBoss3VoloptP01__sub_80043CA8(void) {  }
+void TBoss3VoloptP01__sub_80043CA8(void * _w0) {  }
+void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
+    f32 temp_f2;
+    s32 temp_r4_2;
+    u8 *temp_r4;
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        TBoss3VoloptP01__sub_80043CA8((void *)((void *) (arg0)));
+        return;
+    }
+    if (((VObj_18 *)(arg0))->m31() != 0) {
+        ((VObj_18 *)(arg0))->m61();
+    } else if ((((VObj_18 *)(arg0))->m30() != 0) && !(M2C_FIELD(arg0, s32 *, 0x30) & 0x04000000)) {
+        ((VObj_18 *)(arg0))->m60();
+    }
+    if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
+        if (TObjPlayer__sub_800194AC((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
+            TObjPlayer__sub_800192DC((void *) (arg0 + 0x284));
+            obj_clearFlags30((void *) (arg0), (int) (0x4000));
+        }
+    } else {
+        if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
+                M2C_FIELD(arg0, s32 *, 0x37C) = -1;
+                TBoss3VoloptP01__sub_80043CAC((void *) (arg0));
+            }
+            M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
+            M2C_FIELD(arg0, s32 *, 0x37C) = 0;
+        }
+        TBoss3VoloptP01__sub_80043CAC((void *) (arg0));
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0x300);
+        M2C_FIELD(arg0, f32 *, 0x300) = (f32) (temp_f2 + (lbl_805D878C + M2C_FIELD(arg0, f32 *, 0x38C)));
+        temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));
+        M2C_FIELD(temp_r4, f32 *, 4) = (f32) (lbl_805D878C + M2C_FIELD(arg0, f32 *, 0x38C));
+        copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0), (int) (temp_r4), (f32) (lbl_805D878C), (f32) (temp_f2));
+        temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x3B4);
+        M2C_FIELD(arg0, s32 *, 0x3B4) = (s32) (temp_r4_2 + 0x400);
+        ((VObj_18 *)(arg0))->m53(temp_r4_2);
+    }
+}
 
 }

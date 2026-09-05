@@ -13,6 +13,102 @@ struct V_A_80178BC0 : Base_A_80178BC0 {
     virtual void m20(u32, f32);
 };
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual M2C_UNK m77();
+    virtual M2C_UNK m78();
+    virtual M2C_UNK m79();
+    virtual M2C_UNK m80();
+    virtual s32 m81();
+    virtual M2C_UNK m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual M2C_UNK m86();
+};
+extern "C" {
+s32 check_demo_mode__10TObjPlayerFv();
+s32 is_any_teammate_in_state__10TObjPlayerFv();
+void TOTrap__sub_80179028(u8 *arg0);
+}
+
 extern "C" {
 
 struct Base_80178EF8_80178BC0 { char pad[0x18]; };
@@ -88,6 +184,34 @@ void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
         }
         set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
+    }
+}
+void TOTrap__sub_80179028(u8 *arg0) {
+    s16 temp_r0;
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        ((VObj_18 *)(arg0))->m86();
+        return;
+    }
+    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
+        ((VObj_18 *)(arg0))->m82();
+        temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+        switch (temp_r0) {
+        case 0:
+            if (((VObj_18 *)(arg0))->m81() != 0) {
+                M2C_FIELD(arg0, s16 *, 0x326) = 1;
+            }
+            ((VObj_18 *)(arg0))->m77();
+            return;
+        case 1:
+            ((VObj_18 *)(arg0))->m78();
+            return;
+        case 2:
+            ((VObj_18 *)(arg0))->m79();
+            return;
+        case 3:
+            ((VObj_18 *)(arg0))->m80();
+            break;
+        }
     }
 }
 

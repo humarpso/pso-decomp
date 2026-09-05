@@ -40,13 +40,15 @@ struct VObj_8009E7C4_8009E474 : Base_8009E7C4_8009E474 {
 extern "C" {
 void TObjEneMe1Canadin__sub_8009E930(u8 *arg0);
 void TObjEneMe1Canadin__sub_8009E948(u8 *arg0);
+s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
+s32 TObjEneMe1Canadin__vt106(u8 *arg0);
+s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
+void TObjEneMe1Canadin__vt103(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjEneMe1Canadin__vt103(void);
 void TObjEneMe1Canadin__vt105(void);
-int TObjEneMe1Canadin__vt106(void);
 void advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *arg0);
 void advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *arg0);
 int call_dd_vt86__17TObjEneMe1CanadinFPv(void* p);
@@ -81,7 +83,22 @@ s32 try_trigger_action__17TObjEneMe1CanadinFPv(void *arg0) {
     return 0;
 }
 
-int TObjEneMe1Canadin__vt106(void) { return 0; }
+s32 TObjEneMe1Canadin__vt106(u8 *arg0) {
+    s32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x3C8);
+    if (temp_r4 & 0x20) {
+        M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r4 & 0xFFFFFFDF);
+        TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (0xA)));
+        M2C_FIELD(arg0, s32 *, 0x40C) = 0;
+        return 1;
+    }
+    if (temp_r4 & 0x40) {
+        M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (temp_r4 & 0xFFFFFFBF);
+        TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (0xB)));
+        return 1;
+    }
+    return 0;
+}
 
 void TObjEneMe1Canadin__vt105(void) {  }
 
@@ -133,7 +150,23 @@ void TObjEneMe1Canadin__sub_8009E948(u8 *arg0) {
 
 int call_dd_vt86__17TObjEneMe1CanadinFPv(void* p) { return TObjEneDD__vt86(p); }
 
-int TObjEneMe1Canadin__vt103(void) { return 0; }
+void TObjEneMe1Canadin__vt103(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0x3C8) & 0x100) {
+        TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (7)));
+        return;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 0) {
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x46C) < 2) {
+            TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (6)));
+            M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) + 1);
+            return;
+        }
+        TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (7)));
+        M2C_FIELD(arg0, s32 *, 0x46C) = 0;
+        return;
+    }
+    TObjEneDD__sub_800BBA18((void *)((void *)(arg0)), (s32)((int) (6)));
+}
 
 void update_move__17TObjEneMe1CanadinFPv(void* p) { if (fn_800B9194(p) != 0) { TObjEneEpsilon__sub_800B96A4(p); update_velocity__9TObjEneDDFPv(p); update_angle__17TObjEneMe1CanadinFPv(p); } }
 

@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern f32 lbl_805D4AC0;
+extern const f32 TLobby__data_805D7EE0;
+void TLobby__sub_8001ED74(void);
+}
+
+extern "C" {
 
 s32 TLobby__sub_8001E8B8(void);
 void TLobby__sub_8001ED70(void);
@@ -35,5 +41,8 @@ s32 get_minutes__6TLobbyFv(void) {
 }
 
 void TLobby__sub_8001ED70(void) {  }
+void TLobby__sub_8001ED74(void) {
+    lbl_805D4AC0 = TLobby__data_805D7EE0;
+}
 
 }

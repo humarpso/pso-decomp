@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowSubComCard__sub_80244C0C(void *, void *);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+void set_position__15TWindowQuantityFPvi(void *arg0, s32 arg1);
+void render__15TWindowQuantityFv(s32 arg0);
+}
+
+extern "C" {
 
 void *create_window_quantity(void *arg0);
 void *__dt__15TWindowQuantityFv(void *arg0, s16 arg1);
@@ -20,6 +27,13 @@ int initialize_subwindow__9TWindowDDFPv(void*);
 
 void set_position__15TWindowQuantityFPvi(void *arg0, s32 arg1) {
     TWindowSubStatusDisp__sub_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
+}
+
+void render__15TWindowQuantityFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = TWindowSubComCard__sub_80244C0C((void *)(arg0), (void *) (arg0 + 0x64));
+    set_position__15TWindowQuantityFPvi((void *)((void *) (arg0)), (s32)((int) (temp_r3)));
+    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
 void run_task__15TWindowQuantityFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }

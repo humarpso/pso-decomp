@@ -5,9 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjWaitEntryHairMoveSim__sub_800FE364(void *);
+void TObjWaitEntryHairMoveSim__sub_800FE3C0(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(void);
-int TObjWaitEntryHairMoveSim__sub_800FE3C0(void);
 void *destroy__24TObjWaitEntryHairMoveSimFPvs(void *arg0, s16 arg1);
 int is_move_done__24TObjWaitEntryHairMoveSimFv(void);
 int TObjWaitEntryHairMoveSim__sub_800FE32C();
@@ -20,9 +25,14 @@ int is_move_done__24TObjWaitEntryHairMoveSimFv(void) {
 
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(void) {  }
 
-int TObjWaitEntryHairMoveSim__sub_800FE3C0(void) { return 0; }
-
 extern M2C_UNK lbl_8049DC8C[];
+
+void TObjWaitEntryHairMoveSim__sub_800FE3C0(u8 *arg0) {
+    if ((s32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 0xCFC) == 0) {
+        TObjWaitEntryHairMoveSim__sub_800FE364((void *)(arg0));
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
 
 void *destroy__24TObjWaitEntryHairMoveSimFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

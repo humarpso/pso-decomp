@@ -21,6 +21,26 @@ struct VObj_801809C4_801809B4 : Base_801809C4_801809B4 {
     virtual void m9();
 };
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual M2C_UNK m10();
+    virtual M2C_UNK m11();
+};
+extern "C" {
+M2C_UNK set_global_param__8TObjFishFi(int);
+void TObjChip__sub_80180134(u8 *arg0);
+}
+
 extern "C" {
 
 struct Base_801809F0_801809B4 { char pad[0x18]; };
@@ -36,6 +56,15 @@ void update__8TObjChipFPv(void *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
+
+void TObjChip__sub_80180134(u8 *arg0) {
+    set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x68)));
+    if (M2C_FIELD(arg0, s32 *, 0x6C) & 0x10) {
+        ((VObj_18 *)(arg0))->m10();
+        return;
+    }
+    ((VObj_18 *)(arg0))->m11();
+}
 
 int TObjChip__vt6(void* p) { return *(u32*)((char*)p + 0x230) == 0; }
 

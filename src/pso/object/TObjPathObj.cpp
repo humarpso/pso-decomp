@@ -18,6 +18,28 @@ struct VObj_802C3188 : Base_802C3188 {
     virtual void m11();
 };
 
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual M2C_UNK m12();
+};
+extern "C" {
+s32 get_state_flag__9TMainTaskFv();
+void render__11TObjPathObjFv(u8 *arg0);
+}
+
 extern "C" {
 
 void TObjPathObj__vt11(void);
@@ -27,6 +49,12 @@ void run_task__11TObjPathObjFv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void render__16TAdStorySelectGCFv(void);
+
+void render__11TObjPathObjFv(u8 *arg0) {
+    if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18 *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0x90), M2C_FIELD(arg0, f32 *, 0x94)) != 0)) {
+        ((VObj_18 *)(arg0))->m12();
+    }
+}
 
 void run_task__11TObjPathObjFv(void *arg0) {
     struct VObj_802C3188 *o = (struct VObj_802C3188 *)arg0;

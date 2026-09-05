@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 obj_testFlags30(s32, s32);
+M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
+M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801D0BC0(s32, s32, s32);
+void TObjPlayer__sub_801CBB14(u8 *arg0);
+}
+
+extern "C" {
 
 s32 obj_testFlags30(s32, s32);
 s32 check_flag30_bit20__10TObjPlayerFi();
@@ -19,6 +27,15 @@ int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801CBB10(void);
 void TObjPlayer__sub_801CBB80(void);
 
-int TObjPlayer__sub_801CBB14(void) { return 0; }
+void TObjPlayer__sub_801CBB14(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
+        if (obj_testFlags30((s32)(arg0), (s32)((int) (0x800))) != 0) {
+            clear_flags__11TAdRicoRingFPvUi((void *) (arg0 + 0x858), (int) (1));
+            TObjPlayer__sub_801D0BC0((s32)((void *) (arg0)), (s32)((int) (0xF)), (s32)((int) (5)));
+            return;
+        }
+        update_position_from_target__10TObjPlayerFPv((void *) (arg0));
+    }
+}
 
 }

@@ -4,6 +4,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual s16 m14();
+};
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -12,6 +30,17 @@ int get_level__9TItemDataFPv(void*);
 int get_percent__9TItemDataFPv(void*);
 s16 TItemMagSub__sub_8011455C(void *);
 void TItemMag__vt12(s32 arg0);
+s32 obj_isState2_324(void *);
+s16 obj_getS16_32E(void *);
+s16 obj_getS16_32C(void *);
+s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 get_flag_40__8TItemMagFPv(void *);
+M2C_UNK TItemMag__sub_80110E7C(void *);
+M2C_UNK TItemMag__sub_80112E20(void *, int);
+s32 TItemMag__sub_80113EC8(void *);
+s16 get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void TItemMag__vt42(u8 *arg0);
 }
 
 extern "C" {
@@ -85,6 +114,31 @@ void TItemMag__vt12(s32 arg0) {
 
 void TItemMag__vt16(s32 arg0, s32 arg1) {
     TItemData__sub_8010D510(arg1, arg0 + 0x198, arg0);
+}
+
+void TItemMag__vt42(u8 *arg0) {
+    u8 *temp_r3;
+    M2C_FIELD(arg0, s32 *, 0x18C) = 0;
+    if (obj_isState2_324((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0) {
+        M2C_FIELD(arg0, s32 *, 0x18C) = 0x10;
+        TItemMag__sub_80110E7C((void *) (arg0));
+    }
+    TItemMag__sub_80112E20((void *) (arg0), (int) (1));
+    temp_r3 = M2C_FIELD(arg0, u8 **, 0xF0);
+    M2C_FIELD(arg0, s16 *, 0x1D4) = ((VObj_18 *)(temp_r3))->m14();
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x1D6) == -1) {
+        M2C_FIELD(arg0, s16 *, 0x1D6) = get_global_state__14TOKeyMachine01Fv();
+    }
+    M2C_FIELD(arg0, s16 *, 0x1DC) = obj_getS16_32C((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
+    M2C_FIELD(arg0, s16 *, 0x1DE) = obj_getS16_32E((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
+    if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x178), (int) (1)) != 0) {
+        M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) & 0xFFFFFFDF);
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) | 0x20);
+    }
+    if ((get_flag_40__8TItemMagFPv((void *) (arg0)) == 0) && (TItemMag__sub_80113EC8((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0)) {
+        TBoss3Volopt__sub_8022675C((int) (0x4000B20A), (void *) (M2C_FIELD(arg0, u8 **, 0xF0) + 0x38), (int) (0), (int) (0));
+    }
 }
 
 void TItemMag__vt44(s32 arg0) {

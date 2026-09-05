@@ -25,6 +25,34 @@ struct VObj_8016AE84_8016AD58 : Base_8016AE84_8016AD58 {
     virtual void m18();
 };
 
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual M2C_UNK m18();
+};
+extern "C" {
+M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
+void TOKeyAncient01__vt15(u8 *arg0);
+}
+
 extern "C" {
 
 void TOKeyAncient01__vt14(void *arg0);
@@ -50,6 +78,11 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 void set_type__14TOKeyAncient01FPv(void* p) { *(s32*)((char*)p + 0x0) = 3; }
 
 void TOKeyAncient01__vt23(void) {  }
+
+void TOKeyAncient01__vt15(u8 *arg0) {
+    update_anim_phase__17TOBarrierEnergy01FPv();
+    ((VObj_18 *)(arg0))->m18();
+}
 
 void TOKeyAncient01__vt14(void *arg0) {
     struct VObj_8016AE84_8016AD58 *o = (struct VObj_8016AE84_8016AD58 *)arg0;

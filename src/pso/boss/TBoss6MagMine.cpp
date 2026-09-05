@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 TBoss6MagMine__data_805E0310;
+void TBoss6MagMine__sub_80368994(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss6MagMine__sub_8036897C(void *arg0);
 int TBoss6MagMine__sub_80369598(void);
@@ -47,6 +52,11 @@ void TBoss6MagMine__sub_8036897C(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x390) != 4) {
         M2C_FIELD(arg0, s32 *, 0x390) = 4;
     }
+}
+
+void TBoss6MagMine__sub_80368994(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
+    M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) TBoss6MagMine__data_805E0310;
 }
 
 void copy_pos__13TBoss6MagMineFi(s32 arg0) {

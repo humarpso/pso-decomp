@@ -557,6 +557,30 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual M2C_UNK m20(s32, f32);
+};
 extern "C" {
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
 s32 objInBand__FP7GameObjf(f32);
@@ -566,6 +590,9 @@ extern f32 TObjEneDf2Bringer__data_805D9820;
 void TBoss1Dragon__sub_800274A4(s32 arg0);
 extern const f32 lbl_805D800C;
 void TBoss1Dragon__sub_80028AFC(u8 *arg0);
+M2C_UNK TBoss1Dragon__sub_8002AB6C(void *);
+extern const f32 TBoss1Dragon__data_805D7F40;
+void TBoss1Dragon__sub_8002AA7C(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -698,6 +725,11 @@ void free_resources__12TBoss1DragonFv(void) {
 
 s32 get_instance__12TBoss1DragonFv(void) {
     return TBoss1Dragon__data_805D4B2C;
+}
+
+void TBoss1Dragon__sub_8002AA7C(u8 *arg0, u8 *arg1) {
+    ((VObj_18 *)(arg1))->m20(M2C_FIELD(arg0, s32 *, 0xAC), TBoss1Dragon__data_805D7F40);
+    TBoss1Dragon__sub_8002AB6C((void *) (arg1));
 }
 
 void *dt__12TBoss1DragonFPvs(void *arg0, s16 arg1) {

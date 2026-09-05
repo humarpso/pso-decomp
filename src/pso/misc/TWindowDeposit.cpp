@@ -5,9 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowSubComCard__sub_80244C0C(void *, void *);
+void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+void render__14TWindowDepositFv(s32 arg0);
+}
+
+extern "C" {
 
 void *__dt__14TWindowDepositFv(void *arg0, s16 arg1);
-int render__14TWindowDepositFv(void);
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
 void run_task__14TWindowDepositFv(void* p);
 void TWindowMainMenu__sub_8024E3CC(void);
@@ -28,7 +34,12 @@ void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1) {
     TWindowSubStatusDisp__sub_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
 }
 
-int render__14TWindowDepositFv(void) { return 0; }
+void render__14TWindowDepositFv(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = TWindowSubComCard__sub_80244C0C((void *)(arg0), (void *) (arg0 + 0x64));
+    render_status__14TWindowDepositFPvi((void *)((void *) (arg0)), (s32)((int) (temp_r3)));
+    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+}
 
 void run_task__14TWindowDepositFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); TWindowSubStatusDisp__sub_80257C28(p, (char*)p + 0x24); }
 

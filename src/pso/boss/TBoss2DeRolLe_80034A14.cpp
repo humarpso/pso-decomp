@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 TBoss2DeRolLe__sub_80034CEC(void);
+f32 TBoss2DeRolLe__sub_80034CF8(void);
+}
+
+extern "C" {
 
 int TBoss2DeRolLe__sub_80034F40(void);
 void TBoss2DeRolLe__sub_80034FD8(void);
@@ -74,6 +79,14 @@ s32 TBoss2Joint_get_shell_max_hp(void) {
 }
 
 extern M2C_UNK lbl_804356AC[];
+
+f32 TBoss2DeRolLe__sub_80034CEC(void) {
+    return M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, f32 *, 8);
+}
+
+f32 TBoss2DeRolLe__sub_80034CF8(void) {
+    return M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, f32 *, 4);
+}
 
 void emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     TBoss2DeRolLe__sub_80034E00(arg0, 2);

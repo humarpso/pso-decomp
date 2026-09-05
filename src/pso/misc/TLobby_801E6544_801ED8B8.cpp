@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D5550;
+void TLobby__sub_801EDF04(s32 arg0);
+}
+
+extern "C" {
 
 int TLobby__sub_801EDDDC(void);
 int TLobby__sub_801EDE00(void);
@@ -45,5 +50,16 @@ int TLobby__sub_801EDE00(void) { return set_mode__13TRaderMapCoreFi((void*)(1));
 
     extern int* TLobby__data_805D5E78;
 void store_status__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_801B0974(); }
+void TLobby__sub_801EDF04(s32 arg0) {
+    s32 var_r5;
+    var_r5 = lbl_805D5550;
+    if (var_r5 < 0) {
+        var_r5 = 0;
+    }
+    if (var_r5 > 3) {
+        var_r5 = 3;
+    }
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = var_r5;
+}
 
 }

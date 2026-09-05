@@ -94,6 +94,10 @@ struct VBase_8003508C_80035084 {
 };
 
 extern "C" {
+void TBoss2DeRolLe__sub_800361E8(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss2DeRolLe__sub_80035084(void);
 void TBoss2DeRolLe__sub_80035088(void);
@@ -121,7 +125,6 @@ void update_and_send__13TBoss2DeRolLeFPv(void* p);
 void *TBoss2DeRolLe__ct(void *, void *, void *);
 M2C_UNK TBoss2DeRolLe__sub_80034034(void *);
 M2C_UNK TBoss2DeRolLe__sub_800360A8();
-int TBoss2DeRolLe__sub_800361E8();
 M2C_UNK TBoss2Fin__sub_800367C0();
 M2C_UNK TBoss2Mine__sub_80038D84();
 M2C_UNK TBoss2Tentacle__sub_8003A0A8();
@@ -198,6 +201,17 @@ void init_params__13TBoss2DeRolLeFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg
     TBoss2DeRolLe__sub_800360A8();
 }
 
+void TBoss2DeRolLe__sub_800361E8(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0) = 0;
+    M2C_FIELD(arg0, f32 *, 4) = (f32) TBoss2DeRolLe__data_805D827C;
+    M2C_FIELD(arg0, f32 *, 8) = (f32) TBoss2DeRolLe__data_805D827C;
+    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TBoss2DeRolLe__data_805D827C;
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TBoss2DeRolLe__data_805D827C;
+    M2C_FIELD(arg0, f32 *, 0x14) = (f32) TBoss2DeRolLe__data_805D827C;
+    M2C_FIELD(arg0, f32 *, 0x18) = (f32) TBoss2DeRolLe__data_805D827C;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) TBoss2DeRolLe__data_805D827C;
+}
+
 s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
@@ -206,7 +220,7 @@ s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1) {
 }
 
 s32 init_resources__13TBoss2DeRolLeFi(s32 arg0) {
-    TBoss2DeRolLe__sub_800361E8();
+    TBoss2DeRolLe__sub_800361E8((u8 *)(arg0));
     return arg0;
 }
 

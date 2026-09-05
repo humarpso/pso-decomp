@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
+M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
+s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 TWindowSubShortMail__sub_8027E9FC(void);
+}
+
+extern "C" {
 
 void TWindowSubShortMail__sub_8027E620(void* p);
 void close__19TWindowSubShortMailFPv(void *arg0);
@@ -163,6 +173,16 @@ s32 create_window__19TWindowSubShortMailFv(void) {
 
 extern s32 lbl_805D53A0;
 extern s32 tl_00;
+
+s32 TWindowSubShortMail__sub_8027E9FC(void) {
+    s32 temp_r31;
+    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii((M2C_UNK)((void *)(((M2C_UNK)TWindowSubComCard__sub_8026CBB8((int) (0xA0))))), (M2C_UNK)((int) (2)));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x107)))), (M2C_UNK)((int) (6)), (M2C_UNK)((int) (0x16)));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x108)))), (M2C_UNK)((int) (6)), (M2C_UNK)((int) (0x18)));
+    set_flag70_bit10__16TObjCityMainWarpFPv((s32)((int) (temp_r31)));
+    TWindowSubComCard__sub_80265E60((s32)((int) (temp_r31)), (f32) (TWindowSubShortMail__data_805DD6C8));
+    return temp_r31;
+}
 
 s32 create_keyboard__19TWindowSubShortMailFv(void) {
     s32 var_r31;

@@ -5,8 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void update_submenu__15TWindowMainMenuFPv(void *arg0);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(int);
+M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
+M2C_UNK TWindowMainMenu__sub_802ADD38(int, void *);
+u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
+void TWindowMainMenu__sub_80264674(u8 *arg0, s16 arg1);
+}
 
-int TWindowMainMenu__sub_80264674(void);
+extern "C" {
+
 int TWindowMainMenu__sub_802646E4(void*, void*);
 void TWindowMainMenu__sub_80264A64(void);
 void TWindowMainMenu__vt7(void);
@@ -47,7 +55,17 @@ void refresh_submenu__15TWindowMainMenuFPvPv(void* p, void* a1) { if (*(unsigned
 
 void close__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { TWindow__close(*(void**)((char*)p + 0x1c)); *(int*)((char*)p + 0x1c) = 0; } }
 
-int TWindowMainMenu__sub_80264674(void) { return 0; }
+void TWindowMainMenu__sub_80264674(u8 *arg0, s16 arg1) {
+    u32 temp_r31;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+        M2C_FIELD(arg0, u32 *, 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(TWindowSubComCard__sub_8026CBB8((int) (0x1A))), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
+    }
+    temp_r31 = M2C_FIELD(arg0, u32 *, 0x1C);
+    TWindowMainMenu__sub_802ADD38((int) (temp_r31), (void *) (arg1));
+    TWindowMainMenu__sub_802ADADC((int) (temp_r31), (int) (0));
+    update_submenu__15TWindowMainMenuFPv((void *) (arg0));
+}
+
 int TWindowMainMenu__sub_802646E4(void*, void*) { return 0; }
 
 void render__15TWindowMainMenuFv(void) {  }

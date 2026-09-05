@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(int, f32, f32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
+s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+extern const f32 lbl_805DD528;
+s32 TWindowSubComCard__sub_80273308(void);
+}
+
+extern "C" {
 
 s32 confirm_and_free__17TWindowSubComCardFPv(void *arg0);
 s32 create_menu__17TWindowSubComCardFv(void);
@@ -72,6 +83,15 @@ s32 open_menu__17TWindowSubComCardFv(void) {
 }
 
 extern const f32 lbl_805DD530;
+
+s32 TWindowSubComCard__sub_80273308(void) {
+    s32 temp_r31;
+    temp_r31 = check_room_seq_4__16TAdChrSelASlotGCFii((void *)(((M2C_UNK)TWindowSubComCard__sub_8026CBB8((M2C_UNK)((int) (0x84))))), (int) (1));
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x38)))), (M2C_UNK)((int) (3)), (M2C_UNK)((int) (0)));
+    set_flag_40__16TAdChrSelASlotGCFPv((int) (temp_r31));
+    set_scroll_target__17TWindowSubComCardFPvff((int) (temp_r31), (f32) (TWindowSubComCard__data_805DD520), (f32) (lbl_805DD528));
+    return temp_r31;
+}
 
 s32 create_menu__17TWindowSubComCardFv(void) {
     s32 temp_r31;

@@ -219,6 +219,8 @@ M2C_UNK TObjEneMe3Shinowa__sub_800E7724(void *);
 s32 TPhotonMylla__sub_80154CB4(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 void run_task__23TObjEneMe3ShinowaMirageFv(u8 *arg0);
+int TObjEneDD__sub_800BBA18(void*, int);
+void TObjEneMe3ShinowaMirage__vt61(u8 *arg0);
 }
 
 extern "C" {
@@ -230,7 +232,6 @@ void TObjEneMe3ShinowaMirage__vt106(void);
 s32 TObjEneMe3ShinowaMirage__vt107(s32 arg0);
 void TObjEneMe3ShinowaMirage__vt108(s32 arg0);
 void TObjEneMe3ShinowaMirage__vt110(void);
-int TObjEneMe3ShinowaMirage__vt61(void);
 void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1);
 void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
 void clear_mirage__23TObjEneMe3ShinowaMirageFPv(void *arg0);
@@ -331,9 +332,13 @@ void TObjEneMe3ShinowaMirage__vt60(void *arg0) {
     TBoss8Dragon__sub_800BB780(arg0);
 }
 
-int TObjEneMe3ShinowaMirage__vt61(void) { return 0; }
-
 extern M2C_UNK __vt__23TObjEneMe3ShinowaMirage[];
+
+void TObjEneMe3ShinowaMirage__vt61(u8 *arg0) {
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xF) {
+        TObjEneDD__sub_800BBA18((void*)((void *)(arg0)), (int)((int) (0xF)));
+    }
+}
 
 void run_task__23TObjEneMe3ShinowaMirageFv(u8 *arg0) {
     if ((TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x42C))) == 0U) || (all_parents_unqueued_for_destruction__7TObjectFv() == 0)) {

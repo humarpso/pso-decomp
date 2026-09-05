@@ -25,6 +25,13 @@ void qst_op_thread_stg(u16 arg0);
 void qst_op_thread(u16 arg0);
 int TQuestThread__sub_801F5C50(void*);
 void qst_op_thread(u16 arg0);
+void qst_op_rev(s32 arg0);
+void qst_op_clear(s32 arg0);
+void qst_op_set(s32 arg0);
+extern s32 TLobby__data_805D5E74;
+void TLobby__sub_801F2570(s32 arg0, s32 arg1);
+void TLobby__sub_801F258C(s32 arg0, s32 arg1);
+void qst_op_let(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -67,6 +74,28 @@ void qst_op_gset(u16 arg0) {
     dispatch_by_main_phase__14TBoss4DarkFalzFUs((s32)((void *) (arg0)));
 }
 
+void qst_op_rev(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = (arg0 * 4) & 0x3FC;
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) = (s32) (u8) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) == 0);
+}
+
+void qst_op_clear(s32 arg0) {
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 0;
+}
+
+void qst_op_set(s32 arg0) {
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 1;
+}
+
+void TLobby__sub_801F2570(s32 arg0, s32 arg1) {
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = TLobby__data_805D5E74 + ((arg1 * 4) & 0x3FFFC);
+}
+
+void TLobby__sub_801F258C(s32 arg0, s32 arg1) {
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = (*(s32 *)&TLobby__data_805D5E78) + ((arg1 * 4) & 0x3FC);
+}
+
 void TLobby__sub_801F25A4(int a0, int a1) { TLobby__data_805D5E78[(unsigned char)(a0)] = (a1 & 0xffff); }
 
     extern int* TLobby__data_805D5E78;
@@ -80,6 +109,11 @@ extern s32 TLobby__data_805D5E98;
 #include "types.h"
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+void qst_op_let(s32 arg0, s32 arg1) {
+    M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC));
+}
+
 void qst_op_thread_stg(u16 arg0) {
     create__12TQuestThreadFi((void *) (arg0));
 }

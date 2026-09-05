@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK create_instance__12TItemDropSubFi(int, void *);
+void TLobby__sub_801EBF04(s32 arg0);
+s32 is_split_screen(void);
+M2C_UNK TLobby__sub_80071064(int);
+M2C_UNK TLobby__sub_80292604(int);
+void TLobby__sub_801ECF2C(s32 arg0);
+}
+
+extern "C" {
 
 void TLobby__sub_801EB46C(void);
 void TLobby__sub_801EB478(void);
@@ -65,6 +74,11 @@ void init_menu_state__6TLobbyFi(int a0) { TLobby__data_805D5EB8 = create__16TObj
     extern int TLobby__data_805D5E98;
     extern int TLobby__data_805D5EB4;
     extern int tl_01;
+
+void TLobby__sub_801EBF04(s32 arg0) {
+    create_instance__12TItemDropSubFi((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
+}
+
 void init_window__6TLobbyFv(void) { TLobby__data_805D5EB4 = create__18TObjItemNameSelectFPv((void*)(tl_01)); TLobby__data_805D5E98 = 10; }
 
     extern int TLobby__data_805D5E98;
@@ -100,6 +114,14 @@ int TLobby__sub_801EC834(void* p) { return clear_quest_state__6TLobbyFv(p); }
 int TLobby__sub_801EC854(void* p) { return TLobby__sub_801F36BC(p); }
 int TLobby__sub_801EC874(void* p) { return reset_quest_counter__6TLobbyFv(p); }
 int forward_801F36D8__6TLobbyFPv(void* p) { return TLobby__sub_801F36D8(p); }
+
+void TLobby__sub_801ECF2C(s32 arg0) {
+    if (is_split_screen() == 1) {
+        TLobby__sub_80292604((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))));
+        return;
+    }
+    TLobby__sub_80071064((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))));
+}
 
 int TLobby__sub_801ECFBC(void* p) { return TNpcPlayer__sub_8014DC30(p); }
 

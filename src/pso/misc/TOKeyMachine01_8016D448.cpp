@@ -4,6 +4,32 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual M2C_UNK m12();
+    virtual s32 m13();
+    virtual M2C_UNK m14();
+    virtual M2C_UNK m15();
+    virtual M2C_UNK m16();
+    virtual M2C_UNK m17();
+};
+extern "C" {
+M2C_UNK TOKeyMachine01__sub_8016D148(void *, int);
+void run_task__14TOKeyMachine01Fv(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1);
@@ -18,6 +44,25 @@ M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
 extern void *tl_05;
+
+void run_task__14TOKeyMachine01Fv(u8 *arg0) {
+    ((VObj_18 *)(arg0))->m12();
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
+        ((VObj_18 *)(arg0))->m15();
+        if (((VObj_18 *)(arg0))->m13() == 1) {
+            TOKeyMachine01__sub_8016D148((void *) (arg0), (int) (1));
+            ((VObj_18 *)(arg0))->m16();
+            M2C_FIELD(arg0, s32 *, 0xD4) = 1;
+        }
+    } else {
+        ((VObj_18 *)(arg0))->m14();
+        if (((VObj_18 *)(arg0))->m13() != 1) {
+            TOKeyMachine01__sub_8016D148((void *) (arg0), (int) (0));
+            ((VObj_18 *)(arg0))->m17();
+            M2C_FIELD(arg0, s32 *, 0xD4) = 0;
+        }
+    }
+}
 
 void *create__14TOKeyMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);

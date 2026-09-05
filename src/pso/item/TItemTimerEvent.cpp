@@ -8,6 +8,21 @@ struct VObj_8011E140_8011DA9C : Base_8011E140_8011DA9C {
     virtual void m0(int);
 };
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4();
+    virtual M2C_UNK m5();
+};
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+void TItemTimerEvent__vt1(void *arg0);
+}
+
 extern "C" {
 
 void TItemTimerEvent__sub_8011DA9C(void *arg0);
@@ -64,6 +79,20 @@ void TItemTimerEvent__vt4(void *arg0) {
 }
 
 extern M2C_UNK __vt__15TItemTimerEvent[];
+
+void TItemTimerEvent__vt1(void *arg0) {
+    M2C_FIELD(arg0, u32 *, 0x28) = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x1C));
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) == 0U) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == (s32) M2C_FIELD(arg0, s32 *, 0x20)) {
+        ((VObj_18 *)(arg0))->m4();
+        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+        return;
+    }
+    ((VObj_18 *)(arg0))->m5();
+}
 
 void *TItemTimerEvent__vt0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

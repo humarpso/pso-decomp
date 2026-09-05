@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 *TObjCMProportion__sub_80298F08();
+f32 TObjCMProportion__sub_80298FF4(void);
+}
+
+extern "C" {
 
 f32 get_ratio__16TObjCMProportionFv(void);
 u8 *TObjCMProportion__sub_80298F08();
@@ -14,6 +19,9 @@ extern const f32 lbl_805DDC20;
 
 f32 get_ratio__16TObjCMProportionFv(void) {
     return (f32) M2C_FIELD(TObjCMProportion__sub_80298F08(), u16 *, 0x18) / lbl_805DDC20;
+}
+f32 TObjCMProportion__sub_80298FF4(void) {
+    return (f32) M2C_FIELD(TObjCMProportion__sub_80298F08(), u16 *, 0x1A) / lbl_805DDC20;
 }
 
 }

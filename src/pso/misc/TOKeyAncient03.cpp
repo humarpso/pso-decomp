@@ -4,11 +4,34 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual M2C_UNK m12();
+    virtual s32 m13();
+    virtual M2C_UNK m14();
+    virtual M2C_UNK m15();
+    virtual M2C_UNK m16();
+    virtual M2C_UNK m17();
+};
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
 s32 TOKey__sub_8016A310(void *);
 s32 TOKeyCave01__vt13(u8 *arg0);
+M2C_UNK TOKeyAncient03__sub_8016B84C(void *, int);
+void run_task__14TOKeyAncient03Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -37,6 +60,25 @@ void TOKeyAncient03__vt16(s32 arg0) {
 }
 
 extern void *tl_05;
+
+void run_task__14TOKeyAncient03Fv(u8 *arg0) {
+    ((VObj_18 *)(arg0))->m12();
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
+        ((VObj_18 *)(arg0))->m15();
+        if (((VObj_18 *)(arg0))->m13() == 1) {
+            TOKeyAncient03__sub_8016B84C((void *) (arg0), (int) (1));
+            ((VObj_18 *)(arg0))->m16();
+            M2C_FIELD(arg0, s32 *, 0xD4) = 1;
+        }
+    } else {
+        ((VObj_18 *)(arg0))->m14();
+        if (((VObj_18 *)(arg0))->m13() != 1) {
+            TOKeyAncient03__sub_8016B84C((void *) (arg0), (int) (0));
+            ((VObj_18 *)(arg0))->m17();
+            M2C_FIELD(arg0, s32 *, 0xD4) = 0;
+        }
+    }
+}
 
 void *create__14TOKeyAncient03FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);

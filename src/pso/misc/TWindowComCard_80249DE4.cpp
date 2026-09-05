@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
+M2C_UNK initialize_subwindow__9TWindowDDFPv(void *, int, f32);
+M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+void TWindowComCard__sub_80249E24(u8 *arg0);
+}
+
+extern "C" {
 
 struct Obj054_80249DE4 { char pad[0x38]; u32 field38; };
 
@@ -23,6 +30,18 @@ void update_status_disp__14TWindowComCardFi(s32 arg0) {
 }
 
 extern M2C_UNK lbl_804CE964[];
+
+void TWindowComCard__sub_80249E24(u8 *arg0) {
+    f32 temp_f1;
+    u8 *temp_r4;
+    temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x60));
+    temp_f1 = M2C_FIELD(temp_r4, f32 *, 0x44);
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x68));
+    M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg0, f32 *, 0x34);
+    initialize_subwindow__9TWindowDDFPv((void *)(arg0), (int) (temp_r4), (f32) (temp_f1));
+    update_fade__17TWindowSubComCardFPv((void *) (arg0));
+    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+}
 
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

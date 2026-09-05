@@ -4,6 +4,93 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#define CAT2(a, b) a##b
+#define CAT(a, b) CAT2(a, b)
+#define PADV virtual void CAT(pv, __LINE__)();
+#define PADV4 virtual void CAT(pa, __LINE__)(); virtual void CAT(pb, __LINE__)(); virtual void CAT(pc, __LINE__)(); virtual void CAT(pd, __LINE__)();
+struct Base_Sub { char pad[0x14]; };
+struct V_Sub : Base_Sub {
+    PADV4
+    PADV
+    virtual s32 m5();
+};
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual M2C_UNK m63(M2C_UNK, void *);
+};
+extern "C" {
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
+M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
+M2C_UNK TBoss3Volopt__sub_800D8D88(void *);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+void TObjPlayer__sub_800A8E04(u8 *arg0);
+M2C_UNK TBoss3Volopt__sub_800C7698();
+void TObjPlayer__sub_800A8B0C(u8 *arg0);
+}
+
 extern "C" {
 
 s32 TObjPlayer__sub_800A8A34(s32 arg0);
@@ -43,6 +130,42 @@ s32 TObjPlayer__sub_800A8A34(s32 arg0) {
         return 1;
     }
     return 0;
+}
+
+void TObjPlayer__sub_800A8B0C(u8 *arg0) {
+    TBoss3Volopt__sub_800C7698();
+    ((VObj_18 *)(arg0))->m63(0x13, arg0 + 0x3D4);
+    ((VObj_18 *)(arg0))->m63(0x28, arg0 + 0x3E0);
+    ((VObj_18 *)(arg0))->m63(0x29, arg0 + 0x3EC);
+}
+
+void TObjPlayer__sub_800A8E04(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r4;
+    s32 temp_r5;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 4);
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0x30) | 0x04000000;
+        M2C_FIELD(arg0, s32 *, 0x30) = temp_r4;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 5;
+        TBoss1Dragon__sub_80143504((void *)(arg0));
+        TBoss3Volopt__sub_800D8D88(arg0 + 0x2FC);
+        TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3B0);
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+    case 1:
+        if (((V_Sub *) (arg0 + 0x3B0))->m5() == 1) {
+            M2C_FIELD(arg0, s32 *, 0x37C) = -1;
+        }
+        return;
+    case -1:
+        temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r5 & ~5);
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFFFFFF);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0, temp_r5);
+        break;
+    }
 }
 
 }

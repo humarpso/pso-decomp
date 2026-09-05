@@ -32,6 +32,50 @@ struct VObj_8011626C_80115D6C : Base_8011626C_80115D6C {
     virtual void m40(); virtual void m41(); virtual void m42();
 };
 
+struct VBase_18 { char pad[0x18]; };
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual u8 m34();
+};
+extern "C" {
+u8 get_field_ed__10TObjPlayerFPv();
+M2C_UNK set_stack_count__24TShopEquipmentListWindowFPvc(void *, void *);
+void TItemObject__vt16(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 struct Base_801161A4_80115D6C { char pad[0x18]; };
@@ -118,6 +162,13 @@ void TItemObject__vt42(void *arg0) {
 
 extern void* __vt__11TItemObject[];
 extern s32 lbl_805D2C28;
+
+void TItemObject__vt16(u8 *arg0, u8 *arg1) {
+    if (get_field_ed__10TObjPlayerFPv() == 2) {
+        M2C_FIELD(arg1, u8 *, 4) = (u8) M2C_FIELD(arg0, u8 *, 0x100);
+    }
+    set_stack_count__24TShopEquipmentListWindowFPvc((void *) (arg1), (void *) (((VObj_18 *)(arg0))->m34()));
+}
 
 void *TItemObject__ct(void *arg0, void *arg1, void *arg2) {
     s16 temp_r3;

@@ -11,17 +11,17 @@ s32 strlen(void *);
 void fn_802A5CC4(u8 *arg0, s32 arg1);
 void free__11TOBoss4RockFUi(void *);
 void TWindowSnapShot__sub_802A5D28(void *arg0);
+int fn_802A5B74(s32, s32);
+void fn_802A5B2C(s32 arg0);
+int fn_802A5BFC(s32, s32);
+void fn_802A5BD8(s32 arg0);
 }
 
 extern "C" {
 
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0);
-int fn_802A5B2C(void);
 int fn_802A5B50(void);
-int fn_802A5B74(void);
 int fn_802A5BB4(void* a0 = 0);
-int fn_802A5BD8(void);
-int fn_802A5BFC(void);
 int fn_802A5C3C(void);
 void fn_802A5C7C(void *arg0);
 void fn_802A5CB8(void* p);
@@ -36,12 +36,19 @@ s32 get_buffer_size__15TWindowSnapShotFPv();
 M2C_UNK memset(void *, int, int);
 s32 set_mode__15TWindowSnapShotFPvi(void *, s32);
 
-int fn_802A5B2C(void) { return 0; }
+void fn_802A5B2C(s32 arg0) {
+    fn_802A5B74((s32)(arg0), (s32)(arg0 + 4));
+}
+
 int fn_802A5B50(void) { return 0; }
-int fn_802A5B74(void) { return 0; }
+int fn_802A5B74(s32 _w0, s32 _w1) { return 0; }
 int fn_802A5BB4(void* a0) { return 0; }
-int fn_802A5BD8(void) { return 0; }
-int fn_802A5BFC(void) { return 0; }
+
+void fn_802A5BD8(s32 arg0) {
+    fn_802A5BFC((s32)(arg0), (s32)(arg0 + 0x10));
+}
+
+int fn_802A5BFC(s32 _w0, s32 _w1) { return 0; }
 int fn_802A5C3C(void) { return 0; }
 void fn_802A5C7C(void *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = (s32) (M2C_FIELD(arg0, s32 *, 8) + fn_802A5BB4((void*)((void*)(M2C_FIELD(arg0, s32 *, 0)))));

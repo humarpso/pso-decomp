@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern u8 *item_pmt_tbl;
+s32 TObjPlayer__sub_8011C940(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -71,6 +76,13 @@ s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
 }
 
 extern s32 lbl_805D2B10;
+
+s32 TObjPlayer__sub_8011C940(s32 arg0, s32 arg1) {
+    if ((arg0 >= 0) && (arg0 < 8)) {
+        return M2C_FIELD(M2C_FIELD(item_pmt_tbl, s32 *, 0x28), M2C_UNK *, (arg0 * 4)) + (arg1 * 8);
+    }
+    return 0;
+}
 
 s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0) {
     if (arg0 & 0x3F) {

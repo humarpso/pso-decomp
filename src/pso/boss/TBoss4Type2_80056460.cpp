@@ -10,6 +10,8 @@ M2C_UNK TBoss4Type2__sub_80057048(void *, int);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 void TBoss4Type2__vt12(u8 *arg0);
+M2C_UNK TBoss4Type2__sub_80057048(void *, int);
+void TBoss4Type2__vt6(u8 *arg0);
 }
 
 extern "C" {
@@ -18,7 +20,6 @@ void TBoss4Type2__vt10(void *arg0);
 void TBoss4Type2__vt11(void);
 void TBoss4Type2__vt4(void* p);
 void TBoss4Type2__vt5(void);
-int TBoss4Type2__vt6(void);
 void TBoss4Type2__vt7(void *arg0);
 void TBoss4Type2__vt8(void* p);
 int TBoss4Type2__sub_80056998(void*);
@@ -58,7 +59,14 @@ void TBoss4Type2__vt7(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x398) = (s32) M2C_FIELD(arg0, s32 *, 0x41C);
 }
 
-int TBoss4Type2__vt6(void) { return 0; }
+void TBoss4Type2__vt6(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;
+    M2C_FIELD(arg0, s32 *, 0x398) = temp_r0;
+    if (temp_r0 < 0) {
+        TBoss4Type2__sub_80057048((void *)(arg0), (int) (2));
+    }
+}
 
 void TBoss4Type2__vt5(void) {  }
 void TBoss4Type2__vt4(void* p) { *(s32*)((char*)p + 0x398) = 75; }

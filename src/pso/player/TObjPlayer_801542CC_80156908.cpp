@@ -2,6 +2,14 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK copy_short_fields__6TLobbyFPvPv(void *, void *);
+extern s32 TLobby__data_805D6140;
+s32 TLobby__sub_80156A80(u8 *arg0, s32 arg1, s16 arg2);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_80156934(void);
@@ -42,5 +50,24 @@ void *destroy_particle_controller__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 
 void TObjPlayer__sub_80156A68(void* p) { *(s16*)((char*)p + 0x96) = 0; }
 void TObjPlayer__sub_80156A74(void* p) { *(s32*)((char*)p + 0x0) = 0; }
+s32 TLobby__sub_80156A80(u8 *arg0, s32 arg1, s16 arg2) {
+    s16 temp_r31;
+    u8 *temp_r3;
+    temp_r3 = M2C_FIELD(arg0, u8 **, 0x80);
+    if (temp_r3 == NULL) {
+        return 0;
+    }
+    temp_r31 = M2C_FIELD(temp_r3, s16 *, 4);
+    if ((temp_r31 < 0) || (temp_r31 > 0xB9F)) {
+        return 0;
+    }
+    if (arg2 == 0) {
+        copy_short_fields__6TLobbyFPvPv((void *) (TLobby__data_805D6140 + (temp_r31 * 4)), (void *) (arg1));
+    }
+    if (arg2 == 1) {
+        copy_short_fields__6TLobbyFPvPv((void *) (arg1), (void *) (TLobby__data_805D6140 + (temp_r31 * 4)));
+    }
+    return 1;
+}
 
 }
