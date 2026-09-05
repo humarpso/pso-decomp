@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_param__12TObjEneLappyFPvi(void *, s32);
+void TObjPlayer__sub_80091F90(u8 *arg0);
+}
+
+extern "C" {
 
 struct VObjBase_800914a8 { char pad_[0x18]; };
 struct VObj_800914a8 : VObjBase_800914a8 {
@@ -187,6 +192,31 @@ void spawn_claw_effect__18TObjEneBalClawClawFi(s32 arg0) {
 void play_claw_effect__18TObjEneBalClawClawFi(s32 arg0) {
     TBoss3Volopt__sub_8022675C(0x4003A82C, arg0 + 0x38, 0, 0);
     play_effect_if_v2__10TObjPlayerFi(-0x200);
+}
+void TObjPlayer__sub_80091F90(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x334);
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x334) = 0;
+    } else if (temp_r0 > 2) {
+        M2C_FIELD(arg0, s32 *, 0x334) = 2;
+    }
+    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x334);
+    switch (temp_r0_2) {
+    case 2:
+        M2C_FIELD(arg0, s32 *, 0x368) = 1;
+        set_param__12TObjEneLappyFPvi(arg0, 0xB);
+        return;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0x368) = 2;
+        set_param__12TObjEneLappyFPvi(arg0, 0xA);
+        return;
+    default:
+        M2C_FIELD(arg0, s32 *, 0x368) = 0;
+        set_param__12TObjEneLappyFPvi(arg0, 9);
+        return;
+    }
 }
 
 }

@@ -8,6 +8,18 @@ struct VObj_8034E440 : Base_8034E440 {
     virtual void m0(int);
 };
 
+struct VBase_18_dac7f3 { char pad[0x18]; };
+
+struct VObj_18_dac7f3 : VBase_18_dac7f3 {
+    virtual M2C_UNK m0(M2C_UNK);
+};
+
+extern "C" {
+void send_item_pickup_request__10TObjPlayerFi(s32);
+void *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TNpcPlayer__sub_8034E4B0(u16 arg0);
+}
+
 extern "C" {
 
 void TNpcPlayer__sub_8034E420(void);
@@ -35,6 +47,16 @@ void enable_all_battle_ctrl__10TNpcPlayerFv(void) {
         }
         var_r31 += 1;
     } while (var_r31 < 4);
+}
+void TNpcPlayer__sub_8034E4B0(u16 arg0) {
+    s32 temp_r3;
+    temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((void *) (arg0))));
+    if (temp_r3 != 0) {
+        send_item_pickup_request__10TObjPlayerFi(temp_r3);
+        if ((u32) temp_r3 != 0U) {
+            ((VObj_18_dac7f3 *)(temp_r3))->m0(1);
+        }
+    }
 }
 
 }

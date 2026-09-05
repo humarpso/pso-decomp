@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+s32 TODragonfly__sub_80158360(f32);
+extern const f32 lbl_805DB4D8;
+void TODoorCave03__vt15(u8 *arg0);
+}
+
+extern "C" {
 
 void TODoorCave03__vt18(void);
 void *__dt__12TODoorCave03Fv(void *arg0, s16 arg1);
@@ -21,6 +28,18 @@ M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
 void TODoorCave03__vt18(void) {  }
 
 extern void *tl_05;
+
+void TODoorCave03__vt15(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
+        if (TODragonfly__sub_80158360((f32) (lbl_805DB4D8)) != 1) {
+            M2C_FIELD(arg0, s32 *, 0xAC) = 3;
+            clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8U);
+        }
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xAC) = 3;
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8U);
+    }
+}
 
 void *create__12TODoorCave03FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);

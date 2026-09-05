@@ -4,8 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
+s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
+void TObjPlayer__sub_800113E4(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -32,7 +35,11 @@ s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1) {
     return 1;
 }
 
-int TObjPlayer__sub_800113E4(void) { return 0; }
+void TObjPlayer__sub_800113E4(u8 *arg0, s16 arg1) {
+    M2C_FIELD(arg0, s16 *, 0x32C) = arg1;
+    TObjPlayer__sub_800113A8((u8 *)(arg0), (s16 *)(arg0 + 0x32C));
+}
+
 int TItemProShield__sub_8001140C(void) { return 0; }
 int TObjectV8047c128_subtract_hp(void* a0 = 0, void* a1 = 0) { return 0; }
 

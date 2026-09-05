@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_indexed_flags(void *, s32, s32);
+void TOMineTrap__sub_8016F87C(u8 *arg0);
+void set_indexed_flags(void *, s32, s32);
+void TOMineTrap__vt84(u8 *arg0);
+}
+
+extern "C" {
 
 s32 TOMineTrap__sub_801702C8(void);
 void *__dt__10TOMineTrapFv(void *arg0, s16 arg1);
@@ -21,6 +28,18 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
 
 void set_state__10TOMineTrapFPv(void* p) { *(s16*)((char*)p + 0x326) = 4; }
+
+void TOMineTrap__sub_8016F87C(u8 *arg0) {
+    M2C_FIELD(arg0, s16 *, 0x326) = 3;
+    set_indexed_flags(arg0, 0, 1);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+}
+
+void TOMineTrap__vt84(u8 *arg0) {
+    M2C_FIELD(arg0, s16 *, 0x326) = 2;
+    set_indexed_flags(arg0, 0, 1);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+}
 
 void* get_mine_data_ptr__10TOMineTrapFPv(void* p) { return (char*)p + 0x334; }
 

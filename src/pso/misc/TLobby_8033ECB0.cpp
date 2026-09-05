@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void free_indexed_entry__10TObjPlayerFPv(void *, s32);
+extern s32 lbl_805D6DA0;
+void TLobby__sub_8033EDA8(s32 arg0);
+}
+
+extern "C" {
 
 void *destroy_object__6TLobbyFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -27,6 +33,12 @@ void *destroy_object__6TLobbyFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+void TLobby__sub_8033EDA8(s32 arg0) {
+    if (((void *) (*(u8 * *)&lbl_805D6DA0) != NULL) && ((s32) M2C_FIELD((*(u8 * *)&lbl_805D6DA0), s32 *, 0x20) < 0x10)) {
+        free_indexed_entry__10TObjPlayerFPv((*(u8 * *)&lbl_805D6DA0), arg0);
+        M2C_FIELD((*(u8 * *)&lbl_805D6DA0), s32 *, 0x20) = (s32) (M2C_FIELD((*(u8 * *)&lbl_805D6DA0), s32 *, 0x20) + 1);
+    }
 }
 
 }

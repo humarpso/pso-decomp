@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
+void TObjEnemyCustom__sub_800C7860(u8 *arg0);
+void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
+void TObjEnemyCustom__sub_800C789C(u8 *arg0);
+void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
+void TObjEnemyCustom__sub_800C79C8(u8 *arg0);
+}
+
+extern "C" {
 
 struct Base_800c76f4 { char pad[0x18]; };
 struct VObj_800c76f4 : Base_800c76f4 {
@@ -60,6 +69,16 @@ void draw__15TObjEnemyCustomFPv(u8 *arg0) {
 extern const f32 lbl_805DA070;
 extern volatile f32 lbl_805DA07C;
 
+void TObjEnemyCustom__sub_800C7860(u8 *arg0) {
+    set_state__15TObjEneMe1GiGueFPvi(arg0, 7);
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 1);
+}
+
+void TObjEnemyCustom__sub_800C789C(u8 *arg0) {
+    set_state__15TObjEneMe1GiGueFPvi(arg0, 5);
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 1);
+}
+
 void update_knockback_state__15TObjEnemyCustomFPv(void *arg0) {
     s32 temp_r0;
 
@@ -91,6 +110,10 @@ void update_knockback_state__15TObjEnemyCustomFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x374) = 1;
         break;
     }
+}
+void TObjEnemyCustom__sub_800C79C8(u8 *arg0) {
+    set_state__15TObjEneMe1GiGueFPvi(arg0, 4);
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 1);
 }
 
 }

@@ -5,6 +5,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void obj_clearFlags30(void *, u32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+void TObjEnePanarms__sub_800DD738(u8 *arg0);
+void obj_clearFlags30(void *, u32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+void TObjEnePanarms__sub_800DD954(u8 *arg0);
+void obj_clearFlags30(void *, u32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+void TObjEnePanarms__sub_800DCF14(u8 *arg0);
+void obj_clearFlags30(void *, u32);
+M2C_UNK obj_setFlags30(void *, int);
+int TObjEnePanarms__sub_800E1D94(void *);
+M2C_UNK TObjEnePanarms__sub_800DE430(void *, int, int);
+void TObjEnePanarms__sub_800DD124(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjEnePanarms__sub_800DE2B0(void* p);
 void TObjEnePanarms__sub_800DE2C0(void* p);
@@ -32,7 +49,6 @@ int check_demo_mode__10TObjPlayerFv(void*);
 int clear_render_callback__8TObjFishFv(void*);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 int draw__16TObjEneRe7BeruraFPv(void*);
-M2C_UNK obj_setFlags30(void *, int, f32);
 int set_global_param__8TObjFishFi(void*);
 
 void update_spin__14TObjEnePanarmsFPv(void *arg0) {
@@ -48,6 +64,16 @@ void update_spin__14TObjEnePanarmsFPv(void *arg0) {
     if (temp_r0 < 0) {
         TObjEnePanarms__sub_800DED30((void*)(arg0), (void*)(7));
     }
+}
+
+void TObjEnePanarms__sub_800DCF14(u8 *arg0) {
+    u8 *temp_r5;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
+    obj_clearFlags30(arg0, 0x04040000U);
+    M2C_FIELD(arg0, s32 *, 0x388) = 0x1E;
+    M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3F0) + 1);
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, 0xB);
 }
 
 void update_timed_action__14TObjEnePanarmsFPv(u8 *arg0) {
@@ -70,6 +96,36 @@ void update_timed_action__14TObjEnePanarmsFPv(u8 *arg0) {
 
 extern const f32 lbl_805DA4E0;
 
+void TObjEnePanarms__sub_800DD124(u8 *arg0) {
+    u8 *temp_r5;
+    M2C_FIELD(arg0, s32 *, 0x3DC) = 0;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFFFFFFFE);
+    obj_clearFlags30(arg0, 0x40000U);
+    obj_setFlags30((void *)(arg0), (int)(0x04000000U));
+    TObjEnePanarms__sub_800DE430((void *) (arg0), (int) (0x2D), (int) (0x25));
+    M2C_FIELD(arg0, s16 *, 0x32C) = (s16) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x3E4), s16 *, 0x32C) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x3E8), s16 *, 0x32C));
+    TObjEnePanarms__sub_800E1D94(M2C_FIELD(arg0, u8 **, 0x3E4));
+    TObjEnePanarms__sub_800E1D94(M2C_FIELD(arg0, u8 **, 0x3E8));
+    M2C_FIELD(arg0, s32 *, 0x388) = 0x40;
+}
+
+void TObjEnePanarms__sub_800DD738(u8 *arg0) {
+    u8 *temp_r5;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
+    obj_clearFlags30(arg0, 0x04040000U);
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, 8);
+}
+
+void TObjEnePanarms__sub_800DD954(u8 *arg0) {
+    u8 *temp_r5;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
+    obj_clearFlags30(arg0, 0x04040000U);
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, 6);
+}
+
 void init_state__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r4;
     u8 *temp_r4_2;
@@ -77,7 +133,7 @@ void init_state__14TObjEnePanarmsFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x50));
     TObjEnePanarms__sub_800DECC4((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805DA4E0 + M2C_FIELD(arg0, f32 *, 0x384));
-    obj_setFlags30((void *) (arg0), (int) (0x04040000), (f32) (lbl_805DA4E0));
+    obj_setFlags30((void *) (arg0), (int) (0x04040000));
     temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x390));
     M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
     temp_r4_2 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x390));

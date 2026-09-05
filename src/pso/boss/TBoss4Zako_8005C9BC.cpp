@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+extern const f32 lbl_805D8CB8;
+extern const f32 lbl_805D8CBC;
+extern const f32 lbl_805D8CC0;
+void TBoss4Zako__vt3(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss4Zako__vt0(u8 *arg0);
 void set_state3__10TBoss4ZakoFPv(void *arg0);
@@ -19,6 +28,19 @@ void set_state3__10TBoss4ZakoFPv(void *arg0) {
 
 extern const f32 lbl_805D8CC8;
 extern const f32 TBoss4Zako__data_805D8D24;
+
+void TBoss4Zako__vt3(u8 *arg0) {
+    f32 temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8CB8);
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
+    if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
+        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0xF3));
+    }
+    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x111);
+    if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
 
 void TBoss4Zako__vt0(u8 *arg0) {
     f32 temp_f0;

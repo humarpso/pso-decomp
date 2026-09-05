@@ -5,8 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TAdSinglePlyChrSelectGC__sub_8033B9E0(void *);
+u8 * create_check_memory_card__23TAdSinglePlyChrSelectGCFPvPvPv(void *, void *, void *);
+void TAdSinglePlyChrSelectGC__sub_8033B190(u8 *arg0);
+}
 
-int TAdSinglePlyChrSelectGC__sub_8033B190(void);
+extern "C" {
+
 int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p);
 void update_select_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void update_setup__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -43,7 +48,14 @@ void update_select_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
     TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
 }
-
-int TAdSinglePlyChrSelectGC__sub_8033B190(void) { return 0; }
+void TAdSinglePlyChrSelectGC__sub_8033B190(u8 *arg0) {
+    u8 *temp_r3;
+    M2C_FIELD(arg0, u8 **, 0x40) = create_check_memory_card__23TAdSinglePlyChrSelectGCFPvPvPv(arg0, NULL, NULL);
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x40));
+    if (temp_r3 != NULL) {
+        TAdSinglePlyChrSelectGC__sub_8033B9E0(temp_r3);
+    }
+    M2C_FIELD(arg0, s32 *, 0x2C) = 1;
+}
 
 }

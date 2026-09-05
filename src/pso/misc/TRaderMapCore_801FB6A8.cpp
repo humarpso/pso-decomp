@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 set_global_param__8TObjFishFi(s32);
+extern u32 TRaderMapCore__data_805D5F4C;
+s32 TRaderMapCore__sub_801FB874(void);
+}
+
+extern "C" {
 
 void create__13TRaderMapCoreFv(void);
 M2C_UNK TRaderMapCore__ct(void *, s32);
@@ -26,6 +32,13 @@ void create__13TRaderMapCoreFv(void) {
             TRaderMapCore__ct(obj, tl_radermap);
         }
     }
+}
+s32 TRaderMapCore__sub_801FB874(void) {
+    if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
+        set_global_param__8TObjFishFi((s32) TRaderMapCore__data_805D5F4C);
+        return 1;
+    }
+    return -1;
 }
 
 }

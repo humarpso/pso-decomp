@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_param__12TObjEneLappyFPvi(void *, s32);
+void TObjPlayer__sub_800ABC24(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjPlayer__sub_800AB970(void);
 int TObjPlayer__sub_800AB974(void);
@@ -70,6 +75,32 @@ int TObjPlayer__sub_800ABA0C(void) { return 0; }
 int TObjPlayer__sub_800ABA50(void) { return 0; }
 
 extern s32 lbl_805D50C4;
+
+void TObjPlayer__sub_800ABC24(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x334);
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x334) = 0;
+    } else if (temp_r0 > 2) {
+        M2C_FIELD(arg0, s32 *, 0x334) = 2;
+    }
+    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x334);
+    switch (temp_r0_2) {
+    case 2:
+        M2C_FIELD(arg0, s32 *, 0x368) = 1;
+        set_param__12TObjEneLappyFPvi(arg0, 0x12);
+        return;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0x368) = 0;
+        set_param__12TObjEneLappyFPvi(arg0, 0x11);
+        return;
+    default:
+        M2C_FIELD(arg0, s32 *, 0x368) = 2;
+        set_param__12TObjEneLappyFPvi(arg0, 0x10);
+        return;
+    }
+}
 
 void update_particle_by_phase__10TObjPlayerFv(void) {
     switch (lbl_805D50C4) {

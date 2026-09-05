@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
+void TPlayerBattleCtrl4P__vt11(u8 *arg0);
+}
+
+extern "C" {
 
 void TPlayerBattleCtrl4P__vt10(void *arg0);
 void TPlayerBattleCtrl4P__vt12(void *arg0);
@@ -85,6 +90,11 @@ void TPlayerBattleCtrl4P__vt12(void *arg0) {
         set_score__19TPlayerBattleCtrl4PFPvi((void*)((void*)(arg0)), (void*)((void*)(7)));
         }
     }
+}
+
+void TPlayerBattleCtrl4P__vt11(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x24C) = 0x384;
+    set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)(6));
 }
 
 void TPlayerBattleCtrl4P__vt10(void *arg0) {

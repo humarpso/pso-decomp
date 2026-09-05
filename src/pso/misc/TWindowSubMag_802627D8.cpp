@@ -5,10 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u16 * get_array_entry__20TWindowSubStatusDispFPvi(void * a0, s32 a1);
+void fn_8026287C(u8 *arg0);
+}
+
+extern "C" {
 
 int TWindowSubMag__sub_802627D8(void* p);
 int TWindowSubMag__sub_80262808(void* p);
-int fn_8026287C(void);
 int get_flag_bit5__13TWindowSubMagFPv(void* p);
 int get_flag_bit6__13TWindowSubMagFPv(void* p);
 int is_cursor_locked__13TWindowSubMagFPv(void* p);
@@ -33,7 +37,11 @@ void set_mag_slot_state__13TWindowSubMagFPvi(void *arg0, s32 arg1) {
     }
     M2C_FIELD(arg0, s8 *, 0x60) = 2;
 }
-
-int fn_8026287C(void) { return 0; }
+void fn_8026287C(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(((s32)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (s32)(0))));
+    M2C_FIELD(temp_r3, u8 **, 0x30) = (unsigned char *) ((void *) (arg0 + 0x70));
+    M2C_FIELD(temp_r3, u16 *, 0) = (u16) (M2C_FIELD(temp_r3, u16 *, 0) & 0xFFFFFFFD);
+}
 
 }

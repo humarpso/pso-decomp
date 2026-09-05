@@ -17,11 +17,12 @@ int fn_800BC71C(void *, void *);
 s32 fn_800BC758(u8 *arg0);
 s32 TObjPlayer__sub_800BC53C(s32 arg0, s32 arg1);
 s32 fn_800BC6E4(u8 *arg0, s32 arg1);
+void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
+u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-int TBoss8Dragon__sub_800BC5EC(void);
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
 void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 __dl__FPv(u32 *);
@@ -51,7 +52,10 @@ s32 TBoss8Dragon__sub_800BC5A0(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-int TBoss8Dragon__sub_800BC5EC(void) { return 0; }
+u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1) {
+    init_buffer__12TBoss8DragonFPvii(arg0, arg1, 0);
+    return arg0;
+}
 
 void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (arg1 > 0) {

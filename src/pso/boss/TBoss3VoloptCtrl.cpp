@@ -11,6 +11,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK TLobby__sub_80226E44(int);
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805D86F8;
+void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
+}
+
+extern "C" {
 
 void *TBoss3VoloptCtrl__ct(void *arg0);
 void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1);
@@ -25,6 +34,15 @@ void __dt__7TObjectFv(void *, int);
 void disallow_rendering__7TObjectFv(void *);
 
 extern M2C_UNK lbl_80483B88[];
+
+void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0));
+    if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, f32 *, 0x40) >= lbl_805D86F8)) {
+        TLobby__sub_80226E44((int) (3));
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
 
 void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

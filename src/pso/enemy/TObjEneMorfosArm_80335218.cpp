@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+u8 * TObjEneMorfosArm__sub_803326B4(void *);
+s32 TObjEneMorfosArm__sub_803326BC(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+M2C_UNK TBoss1Dragon__sub_80143504();
+void run_task__16TObjEneMorfosArmFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__16TObjEneMorfosArmFv(void *arg0, s16 arg1);
 void render__16TObjEneMorfosArmFv(u8 *arg0);
@@ -16,7 +25,6 @@ void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK queue_destruction__7TObjectFv();
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 
@@ -24,7 +32,7 @@ extern u32 lbl_805D6D38;
 
 void render__16TObjEneMorfosArmFv(u8 *arg0) {
     if ((u32) lbl_805D6D38 == 0U) {
-        queue_destruction__7TObjectFv();
+        queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
     TObjPlayer__sub_803D9B2C();
@@ -38,6 +46,21 @@ void render__16TObjEneMorfosArmFv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__16TObjEneMorfosArm[];
+
+void run_task__16TObjEneMorfosArmFv(u8 *arg0) {
+    u8 *temp_r3;
+    TBoss1Dragon__sub_80143504();
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xFC));
+    if (temp_r3 == NULL) {
+        queue_destruction__7TObjectFv((void *)(arg0));
+        return;
+    }
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (int) (TObjEneMorfosArm__sub_803326B4(temp_r3)));
+    M2C_FIELD(arg0, s32 *, 0x60) = TObjEneMorfosArm__sub_803326BC(M2C_FIELD(arg0, u8 **, 0xFC));
+    if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
+        queue_destruction__7TObjectFv((void *)(arg0));
+    }
+}
 
 void *__dt__16TObjEneMorfosArmFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

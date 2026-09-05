@@ -83,6 +83,8 @@ M2C_UNK TObjPlayer__sub_80309F30(void *, int);
 void TObjPlayer__sub_801BF19C(s32 arg0);
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_801BEEEC(u8 *arg0, u8 *arg1);
+int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
+void TObjPlayer__sub_801BF34C(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -235,6 +237,12 @@ void TObjPlayer__sub_801BF2C0(s32 arg0) {
 int TObjPlayer__sub_801BF2F8(void* p, int a1) { return TObjPlayer__sub_8030A2CC(p, a1, 570); }
 
 void* TObjPlayer__sub_801BF31C(void* p) { return (char*)p + 0x18; }
+
+void TObjPlayer__sub_801BF34C(s32 arg0, s32 arg1) {
+    check_hit_by_id__10TObjPlayerFiii((void*)(arg0), (int)(arg1), (int)(5));
+    check_hit_by_id__10TObjPlayerFiii((void*)(arg0), (int)(arg1), (int)(0x2C));
+    check_hit_by_id__10TObjPlayerFiii((void*)(arg0), (int)(arg1), (int)(0x3B));
+}
 
 int TObjPlayer__sub_801BF3A0(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x24); }
 

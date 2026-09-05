@@ -56,9 +56,12 @@ struct VObj_18 : VBase_18 {
     virtual void m48();
     virtual s32 m49(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_80128A70();
 void TObjPlayer__sub_801288A0(u8 *arg0);
+void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
+void TObjPlayer__sub_80128944(u8 *arg0);
 }
 
 extern "C" {
@@ -70,6 +73,9 @@ void TObjPlayer__sub_801288A0(u8 *arg0) {
         return;
     }
     ((VObj_18 *)(arg0))->m49(arg0 + 0x208, 0, 0, 1);
+}
+void TObjPlayer__sub_80128944(u8 *arg0) {
+    draw_status_icons__10TObjPlayerFPvPvPv(arg0, arg0 + 0x1FC, arg0 + 0x208);
 }
 
 }

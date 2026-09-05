@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u32 get_mc_count__13TAdMcSelectGCFv();
+s32 get_slot_index__13TAdMcSelectGCFPv(void *);
+s32 TAdMcSelectGC__sub_80329DD0(void);
+}
+
+extern "C" {
 
 void *__dt__13TAdMcSelectGCFv(void *arg0, s16 arg1);
 void run_task__13TAdMcSelectGCFv(void *arg0);
@@ -20,6 +26,17 @@ void update_state__13TAdMcSelectGCFv(void) {
     if (get_mc_count__13TAdMcSelectGCFv() != 0U) {
         TAdMcSelectGC__sub_8032A140();
     }
+}
+
+s32 TAdMcSelectGC__sub_80329DD0(void) {
+    s32 var_r0;
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(((int)get_mc_count__13TAdMcSelectGCFv()));
+    var_r0 = 0;
+    if (temp_r3 != NULL) {
+        var_r0 = get_slot_index__13TAdMcSelectGCFPv(temp_r3);
+    }
+    return var_r0;
 }
 
 void select_if_mc_present__13TAdMcSelectGCFv(void) {

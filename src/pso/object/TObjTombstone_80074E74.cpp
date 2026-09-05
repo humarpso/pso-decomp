@@ -5,6 +5,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u16 TCameraCtrl__sub_80068958();
+M2C_UNK TObjTombstone__sub_800753DC(void *);
+M2C_UNK get_camera_no__11TCameraCtrlFv();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+f32 TObjPlayer__sub_803E1A58(void *, void *);
+extern f32 TObjTombstone__data_805D9174;
+extern f32 TObjTombstone__data_805D9178;
+extern f32 TObjTombstone__data_805D917C;
+extern const f32 lbl_805D9180;
+extern f32 TObjTombstone__data_805D9184;
+void TObjTombstone__sub_80075340(u8 *arg0);
+}
+
+extern "C" {
 
 s32 check_owner__13TObjTombstoneFPv(void *arg0);
 void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
@@ -29,6 +43,23 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0) {
         return 1;
     }
     return 0;
+}
+void TObjTombstone__sub_80075340(u8 *arg0) {
+    f32 temp_f1;
+    u32 temp_r3;
+    get_camera_no__11TCameraCtrlFv();
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (TCameraCtrl__sub_80068958()));
+    if (temp_r3 != 0U) {
+        temp_f1 = TObjPlayer__sub_803E1A58((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
+        if (temp_f1 <= lbl_805D9180) {
+            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9178;
+        } else if (temp_f1 >= TObjTombstone__data_805D917C) {
+            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9174;
+        } else {
+            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((TObjTombstone__data_805D917C - temp_f1) / TObjTombstone__data_805D9184);
+        }
+        TObjTombstone__sub_800753DC((void *) (arg0));
+    }
 }
 
 }

@@ -47,6 +47,14 @@ void qst_op_glet(u16 arg0, s32 arg1);
 void qst_op_xori(s32 arg0, s32 arg1);
 void qst_op_andi(s32 arg0, s32 arg1);
 void qst_op_muli(s32 arg0, s32 arg1);
+void clear_flag_2__11TWindowCtrlFv(void);
+M2C_UNK TWindow__close(void*);
+void clear_flag__11TWindowCtrlFv(void);
+void clear_flag_bit2__11TWindowCtrlFv(void);
+M2C_UNK TLobby__sub_8024AC20(void *);
+extern s32 lbl_805D53A0;
+extern u8 *TLobby__data_805D5E7C;
+void qst_op_winend(void);
 }
 
 extern "C" {
@@ -148,6 +156,17 @@ int qst_op_cam_zmin(void* p) { return TCameraCtrl__sub_8006D610(p); }
 int qst_op_cam_quake(void) { return set_shake_preset__11TCameraCtrlFi((void*)(2)); }
 
 extern u32 TLobby__data_805D5E80;
+
+void qst_op_winend(void) {
+    if ((void *) TLobby__data_805D5E7C != NULL) {
+        TWindow__close((void*)(TLobby__data_805D5E7C));
+        TLobby__data_805D5E7C = NULL;
+    }
+    clear_flag_bit2__11TWindowCtrlFv();
+    TLobby__sub_8024AC20((void *) (lbl_805D53A0));
+    clear_flag__11TWindowCtrlFv();
+    clear_flag_2__11TWindowCtrlFv();
+}
 
 void close_window__6TLobbyFv(void) {
     if ((u32) TLobby__data_805D5E80 != 0U) {

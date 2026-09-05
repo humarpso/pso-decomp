@@ -120,6 +120,7 @@ struct VObj_18 : VBase_18 {
     virtual void m111();
     virtual M2C_UNK m112();
 };
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009AF54(void *);
@@ -127,6 +128,14 @@ M2C_UNK TObjEneMe1CanadinLeader__sub_8009E504(void *);
 M2C_UNK copy_pos__17TObjEneMe1CanadinFPv(void *);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 void run_task__23TObjEneMe1CanadinLeaderFv(u8 *arg0);
+s32 obj_isState2_324(void *);
+M2C_UNK obj_getField1c(void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 is_alive__9TObjEneDDFPv(void *);
+s32 TObjEneDD__sub_800BA828();
+extern const f32 lbl_805D9880;
+extern const f32 lbl_805D9884;
+void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0);
 }
 
 extern "C" {
@@ -150,6 +159,31 @@ void TObjEneMe1CanadinLeader__sub_8009A7A0(void) {  }
 void TObjEneMe1CanadinLeader__sub_8009A934(void) {  }
 
 extern M2C_UNK lbl_8048FE94[];
+
+void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0) {
+    f32 temp_f1;
+    obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0x1C)));
+    if (TObjEneDD__sub_800BA828() != 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (is_alive__9TObjEneDDFPv((void *) (M2C_FIELD(arg0, u8 **, 0x1C))) == 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (obj_isState2_324((void *) (M2C_FIELD(arg0, u8 **, 0x1C))) != 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x2C);
+    if (temp_f1 <= lbl_805D9880) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x308) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) * temp_f1);
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x310) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) * M2C_FIELD(arg0, f32 *, 0x2C));
+    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) * lbl_805D9884);
+}
 
 void *TObjEneMe1CanadinLeader__sub_8009AA0C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

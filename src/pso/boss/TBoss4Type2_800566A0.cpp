@@ -25,6 +25,8 @@ void TBoss4Type2__sub_80056998(u8 *arg0);
 M2C_UNK TBoss4Type2__sub_80056FEC(void *, int);
 M2C_UNK TBoss4Type2__sub_80057048(void *, M2C_UNK);
 void TBoss4Type2__vt3(u8 *arg0);
+u8 * create_yutai__11TBoss4Type3FPvPvPv(void *, void *, void *);
+void TBoss4Type3__vt43(u8 *arg0);
 }
 
 extern "C" {
@@ -40,7 +42,6 @@ void TBoss4Type2__sub_80058220(void);
 void TBoss4Type2__vt0(void *arg0);
 void TBoss4Type3__vt40(void* p);
 void TBoss4Type3__vt41(void *arg0);
-int TBoss4Type3__vt43(void);
 int TBoss4Type3__vt44(void);
 int TBoss4Type3__vt45(void);
 void advance_afterimage__11TBoss4Type2FPv(u8 *arg0);
@@ -214,9 +215,14 @@ void TBoss4Type2__sub_80058220(void) {  }
 
 int TBoss4Type3__vt45(void) { return 0; }
 int TBoss4Type3__vt44(void) { return 0; }
-int TBoss4Type3__vt43(void) { return 0; }
 
 extern const f32 lbl_805D8C3C;
+
+void TBoss4Type3__vt43(u8 *arg0) {
+    create_yutai__11TBoss4Type3FPvPvPv(arg0, (void *)1, (void *) M2C_FIELD(arg0, u16 *, 0x3BA));
+    M2C_FIELD(arg0, s32 *, 0x52C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x398) = 0x62;
+}
 
 void TBoss4Type3__vt41(void *arg0) {
     s32 temp_r0;

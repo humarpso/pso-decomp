@@ -5,6 +5,45 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+extern s32 lbl_805D3848;
+extern s32 lbl_805D63C8;
+void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void);
+M2C_UNK TLobby__sub_80226C3C();
+s32 TLobby__sub_8039DAFC(M2C_UNK, s32);
+M2C_UNK TObjBgmColCtrl__sub_802274B8(s32);
+void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0);
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+extern s32 lbl_805D3848;
+extern s32 lbl_805D63C8;
+void set_state_0x1a__21TAdMultiChgGameModeGCFv(void);
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+extern s32 lbl_805D3848;
+extern s32 lbl_805D63C8;
+void reset_and_set_mode__21TAdMultiChgGameModeGCFv(void);
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+extern s32 lbl_805D3848;
+extern s32 lbl_805D63C8;
+void set_mode_18__21TAdMultiChgGameModeGCFv(void);
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+extern s32 lbl_805D3848;
+extern s32 lbl_805D63C8;
+void set_mode_17__21TAdMultiChgGameModeGCFv(void);
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+extern s32 lbl_805D3848;
+extern s32 lbl_805D63C8;
+void set_mode_0x15__21TAdMultiChgGameModeGCFv(void);
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+extern s32 lbl_805D3848;
+extern s32 lbl_805D63C8;
+void set_mode_0x14__21TAdMultiChgGameModeGCFv(void);
+M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+extern s32 lbl_805D3848;
+extern s32 lbl_805D63C8;
+void request_transition__21TAdMultiChgGameModeGCFv(void);
+}
+
+extern "C" {
 
 void set_mode_change_state__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
@@ -15,6 +54,47 @@ extern s32 lbl_805D63C8;
 void set_mode_change_state__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     lbl_805D3848 = 3;
+    lbl_805D63C8 = 1;
+}
+void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void) { sync_mode_state__21TAdMultiChgGameModeGCFv(); (*(int *)&lbl_805D3848) = 1; (*(int *)&lbl_805D63C8) = 1; }
+void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0) {
+    if (TLobby__sub_8039DAFC(TLobby__sub_80226C3C(), arg0) != 0) {
+        TObjBgmColCtrl__sub_802274B8(arg0);
+    }
+}
+void set_state_0x1a__21TAdMultiChgGameModeGCFv(void) {
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    lbl_805D3848 = 0x1A;
+    lbl_805D63C8 = 1;
+}
+void reset_and_set_mode__21TAdMultiChgGameModeGCFv(void) {
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    lbl_805D3848 = 0x19;
+    lbl_805D63C8 = 1;
+}
+void set_mode_18__21TAdMultiChgGameModeGCFv(void) {
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    lbl_805D3848 = 0x18;
+    lbl_805D63C8 = 1;
+}
+void set_mode_17__21TAdMultiChgGameModeGCFv(void) {
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    lbl_805D3848 = 0x17;
+    lbl_805D63C8 = 1;
+}
+void set_mode_0x15__21TAdMultiChgGameModeGCFv(void) {
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    lbl_805D3848 = 0x15;
+    lbl_805D63C8 = 1;
+}
+void set_mode_0x14__21TAdMultiChgGameModeGCFv(void) {
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    lbl_805D3848 = 0x14;
+    lbl_805D63C8 = 1;
+}
+void request_transition__21TAdMultiChgGameModeGCFv(void) {
+    sync_mode_state__21TAdMultiChgGameModeGCFv();
+    lbl_805D3848 = 0x11;
     lbl_805D63C8 = 1;
 }
 

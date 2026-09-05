@@ -4,6 +4,38 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+extern "C" {
+s32 get_state_flag__9TMainTaskFv(void);
+s32 set_global_param__8TObjFishFi(s32);
+M2C_UNK TObjFish__sub_8001EDC4(void *, int);
+M2C_UNK func_80141618__Fv();
+M2C_UNK set_depth_buffer_settings_id__FUl(int);
+M2C_UNK TObjChip__sub_803D8AE4(int, int, int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+extern u32 lbl_805D5C40;
+extern u32 lbl_805D5C44;
+extern const f32 lbl_805DBED0;
+extern const f32 lbl_805DBED4;
+void render__11TMotorcycleFv(u8 *arg0);
+}
+
 extern "C" {
 
 void TMotorcycle__vt12(void);
@@ -19,6 +51,22 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__11TObjMesBaseFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+
+void render__11TMotorcycleFv(u8 *arg0) {
+    if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
+        set_depth_buffer_settings_id__FUl((int) (3));
+        if ((u32) lbl_805D5C44 != 0U) {
+            set_global_param__8TObjFishFi((s32) lbl_805D5C44);
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            TObjChip__sub_803D8AE4((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+            TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D5C40)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)));
+            TObjBoss2Tunnel__sub_803DB470();
+            TObjPlayer__sub_803D9B78();
+        }
+        func_80141618__Fv();
+    }
+}
 
 void TMotorcycle__vt12(void) {  }
 

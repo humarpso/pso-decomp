@@ -71,10 +71,14 @@ struct VObj_18 : VBase_18 {
     virtual void m62();
     virtual M2C_UNK m63(M2C_UNK, M2C_UNK *);
 };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_8011EB84(void *, void *, int, int);
 s16 TObjPlayer__sub_801D2EA8(void *);
 void TObjPlayer__sub_802D5D18(u8 *arg0);
+int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+M2C_UNK TObjPlayer__sub_80120908(void *);
+void TObjPlayer__sub_802D5E8C(u8 *arg0);
 }
 
 extern "C" {
@@ -136,6 +140,12 @@ void TObjPlayer__sub_802D5D18(u8 *arg0) {
         TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
     }
     ((VObj_18 *)(arg0))->m60(&sp8);
+}
+
+void TObjPlayer__sub_802D5E8C(u8 *arg0) {
+    if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x01000000U) == 0U) {
+        TObjPlayer__sub_80120908((void *) (arg0));
+    }
 }
 
 void* init_state_445__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E23F0; set_status_flags__10TObjPlayerFPvUi(a0, (void*)3); *(int*)((char*)a0 + 0x1f8) = 0; *(int*)((char*)a0 + 0x1fc) = 445; *(int*)((char*)a0 + 0x204) = (int)TObjPlayer__sub_8032E648; *(int*)((char*)a0 + 0x208) = (int)create_network_object__10TObjPlayerFiPvi; *(float*)((char*)a0 + 0x200) = lbl_805DE7A0; return a0; }

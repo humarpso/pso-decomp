@@ -14,6 +14,8 @@ int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
 void fn_80244958(void *arg0);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 void TWindowSubTradeMain__sub_80244A4C(u8 *arg0);
+void disallow_rendering__7TObjectFv(void *);
+void fn_802449E0(u8 *arg0);
 }
 
 extern "C" {
@@ -47,6 +49,12 @@ void fn_80244958(void *arg0) {
     struct VOff_80244958_arg0 *self = (struct VOff_80244958_arg0 *)arg0;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void*)(self->f_30));
     ((void (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv)((void *)((char *)arg0 + 64), self->f_30);
+}
+
+void fn_802449E0(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) & 0xFFFFFFF8);
+    M2C_FIELD(arg0, s16 *, 0x22) = 0;
+    disallow_rendering__7TObjectFv(arg0);
 }
 
 void TWindow__close(u8 *arg0) {

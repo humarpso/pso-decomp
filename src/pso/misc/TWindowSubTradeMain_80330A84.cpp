@@ -14,7 +14,6 @@ void TKeyBoardControl__sub_8000F984(void);
 extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F998(void);
 void TKeyBoardControl__sub_8000F9A4(void);
-int TWindowSubTradeMain__sub_803312BC(void*, void* a1);
 extern M2C_UNK lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
@@ -23,7 +22,12 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D49B0;
     extern int lbl_805D5678;
     extern int lbl_805D5680;
-int TWindowSubTradeMain__sub_8033131C(void* p, void* _w1);
+u8 * TWindowSubTradeMain__sub_8033131C(void* p, void* _w1);
+void initialize_option_dialog(void *, s32, s32, f32);
+u8 * TWindowMessageYesNo__sub_802A59D8(void *, void *, void *, void *);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+extern f32 TWindowSubTradeMain__data_805DF858;
+u8 *TWindowSubTradeMain__sub_803312BC(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -165,6 +169,14 @@ s32 create_list__19TWindowSubTradeMainFPv(void *arg0) {
     set_field_1c__6TLobbyFPvf(temp_r31);
     return temp_r31;
 }
-int TWindowSubTradeMain__sub_8033131C(void* p, void* _w1) { return TWindowSubTradeMain__sub_803312BC((void*)(p), (void*)(_w1)); }
+
+u8 *TWindowSubTradeMain__sub_803312BC(u8 *arg0, s32 arg1) {
+    u8 *temp_r31;
+    temp_r31 = (u8 *)(TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, u8 **, 0x28), NULL, NULL));
+    initialize_option_dialog(temp_r31, arg1, TWindowSubComCard__sub_8026CBB8((s32)((int) (0x5F))), TWindowSubTradeMain__data_805DF858);
+    return temp_r31;
+}
+
+u8 * TWindowSubTradeMain__sub_8033131C(void* p, void* _w1) { return TWindowSubTradeMain__sub_803312BC((u8 *)((void*)(p)), (s32)((void*)(_w1))); }
 
 }

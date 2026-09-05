@@ -9,6 +9,10 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *, int, f32);
 M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
 void TWindowComCard__sub_80249E24(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+extern struct Obj054_80249DE4 *TWindowCtrl__data_805D63F8;
+extern u16 lbl_805D63FC;
+void TWindowTradeRequest__sub_80249FCC(void);
 }
 
 extern "C" {
@@ -55,6 +59,18 @@ void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {
 }
 
 extern struct Obj054_80249DE4 *TWindowCtrl__data_805D63F8;
+
+void TWindowTradeRequest__sub_80249FCC(void) {
+    u8 *temp_r3;
+    lbl_805D63FC &= 0xFFFFFFF7;
+    if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) != NULL) {
+        temp_r3 = (u8 *)(M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), u8 **, 0x40));
+        if (temp_r3 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3);
+            M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), u8 **, 0x40) = NULL;
+        }
+    }
+}
 
 void request_active_window_close(void) {
     if ((TWindowCtrl__data_805D63F8 != NULL) && (TWindowCtrl__data_805D63F8->field38 != 0U)) {

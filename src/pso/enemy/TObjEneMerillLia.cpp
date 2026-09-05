@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
+void TObjEneMerillLia__sub_800D5480(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+void init_attack_state__16TObjEneMerillLiaFPv(void *arg0);
+void reset_action_state__16TObjEneMerillLiaFPv(void *arg0);
+void TObjEneMerillLia__sub_800D6A44(u8 *arg0);
+}
+
+extern "C" {
 
 void * TObjEneMerillLia__create(void *arg0);
 void TObjEneMerillLia__sub_800D4D70(void);
@@ -63,6 +72,13 @@ block_end:
     ;
 }
 
+void TObjEneMerillLia__sub_800D5480(u8 *arg0) {
+    M2C_FIELD(arg0, s16 *, 0x326) = 0xB;
+    M2C_FIELD(arg0, s16 *, 0x328) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+    clear_player_status_flag__10TObjPlayerFPviUi((void *)(arg0), (M2C_UNK)(0), (M2C_UNK)(0x0A000000U));
+}
+
 void init_attack_state__16TObjEneMerillLiaFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x326) = 4;
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
@@ -80,6 +96,16 @@ void reset_action_state__16TObjEneMerillLiaFPv(void *arg0) {
 }
 
 extern void *tl_04;
+
+void TObjEneMerillLia__sub_800D6A44(u8 *arg0) {
+    if (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) <= M2C_FIELD(arg0, f32 *, 0x3C4)) {
+        init_attack_state__16TObjEneMerillLiaFPv((void *) (arg0));
+        return;
+    }
+    if (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) <= M2C_FIELD(arg0, f32 *, 0x3C8)) {
+        reset_action_state__16TObjEneMerillLiaFPv((void *) (arg0));
+    }
+}
 
 void * TObjEneMerillLia__create(void *arg0) {
     void *o;

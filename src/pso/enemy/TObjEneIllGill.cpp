@@ -14,6 +14,24 @@ struct IllGillVObj_80367984_8036690C : IllGillBase_80367984_8036690C {
 };
 
 extern "C" {
+int obj_clearFlags30(void*, int);
+void free_resources__14TObjEneIllGillFPv(void *arg0);
+void TObjEneIllGill__vt57(u8 *arg0);
+void refresh_lobby_state__10TObjPlayerFPv(void *);
+s32 send_entity_set_flags__6TLobbyFPv(void *);
+void free_resources__14TObjEneIllGillFPv(void *arg0);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+void TObjEneIllGill__vt61(u8 *arg0);
+int obj_clearFlags30(void*, int);
+void update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+extern const f32 TObjEneIllGill__data_805E02BC;
+void TObjEneIllGill__sub_803669B0(u8 *arg0);
+}
+
+extern "C" {
 
 int TObjEneIllGill__vt59(void* p);
 void TObjEneIllGill__vt60(void *arg0);
@@ -22,7 +40,6 @@ void * create__14TObjEneIllGillFPv(void *arg0);
 void free_effect__14TObjEneIllGillFv(void);
 void free_resources__14TObjEneIllGillFPv(void *arg0);
 void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 int TLobby__sub_8001FE7C(void*, void*);
 void *TObjControl__ct(void *, void *);
@@ -42,6 +59,21 @@ M2C_UNK minimap_render_dot(void *, int, int, int);
 int obj_clearFlags30(void*, int);
 M2C_UNK obj_setFlags30(void *, int);
 s32 request_destroy__11TBoss4Type2FUi(void *);
+
+void TObjEneIllGill__vt61(u8 *arg0) {
+    u8 *temp_r5;
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 8) {
+        M2C_FIELD(arg0, s16 *, 0x326) = 8;
+        M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 6;
+        temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFFFF7FFE);
+        free_resources__14TObjEneIllGillFPv(arg0);
+        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0xF2));
+        refresh_lobby_state__10TObjPlayerFPv(arg0);
+        send_entity_set_flags__6TLobbyFPv(arg0);
+    }
+}
 
 void TObjEneIllGill__vt60(void *arg0) {
     s16 temp_r0;
@@ -63,6 +95,24 @@ void TObjEneIllGill__vt60(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
+}
+
+void TObjEneIllGill__sub_803669B0(u8 *arg0) {
+    s32 temp_r3;
+    obj_clearFlags30((void*)(arg0), (int)(0x04040000U));
+    TBoss1Dragon__sub_80143504((void *)((void *) (arg0)));
+    if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800000)) {
+        TObjPlayer__sub_80011734((void *) (arg0), (int) (0), (f32) ((*(f32 *)&TObjEneIllGill__data_805E02BC)));
+    }
+    update_collisions__10TObjPlayerFPv(arg0);
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x39C);
+    M2C_FIELD(arg0, s32 *, 0x39C) = (s32) (temp_r3 - 1);
+    if (temp_r3 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFEFF);
+        M2C_FIELD(arg0, s32 *, 0x39C) = (s32) M2C_FIELD(arg0, s16 *, 0x33A);
+        M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
+    }
+    minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
 }
 
 int TObjEneIllGill__vt59(void* p) { return obj_clearFlags30((void*)(p), (int)(256)); }
@@ -88,11 +138,23 @@ extern const f32 TObjEneIllGill__data_805E02DC;
 extern const f32 lbl_805E02E8;
 extern const f32 lbl_805E02FC;
 
+void TObjEneIllGill__vt57(u8 *arg0) {
+    s16 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    if ((temp_r0 >= 3) || (temp_r0 < 1)) {
+        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        M2C_FIELD(arg0, s16 *, 0x326) = 2;
+        M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        obj_clearFlags30((void*)(arg0), (int)(0x04040000U));
+        free_resources__14TObjEneIllGillFPv(arg0);
+    }
+}
+
 void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0) {
     s16 temp_r0;
     u8 *temp_r4;
 
-    TBoss1Dragon__sub_80143504();
+    TBoss1Dragon__sub_80143504((void *)(arg0));
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {
     case 0:

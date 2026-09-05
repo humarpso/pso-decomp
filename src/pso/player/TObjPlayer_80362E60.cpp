@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
+M2C_UNK TObjPlayer__sub_80120908(void *);
+void TObjPlayer__sub_80363060(u8 *arg0);
+}
+
+extern "C" {
 
 void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
 void create_cane_if_ready__10TObjPlayerFi(s32 arg0);
@@ -35,6 +41,12 @@ void create_cane_if_ready__10TObjPlayerFi(s32 arg0) {
 }
 
 extern M2C_UNK lbl_804F27E0[];
+
+void TObjPlayer__sub_80363060(u8 *arg0) {
+    if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x01000000U) == 0U) {
+        TObjPlayer__sub_80120908((void *) (arg0));
+    }
+}
 
 void *enter_state_804F27E0__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8012A884(arg0);

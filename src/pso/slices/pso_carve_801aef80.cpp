@@ -4,11 +4,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 int TObjPlayer__sub_80019248(void*);
 s32 obj_getField1c(void *);
 M2C_UNK TObjPlayer__sub_803518E0(void *, void *, int);
 void TObjPlayer__sub_801AEFAC(u8 *arg0);
+s32 obj_getField1c(void *);
+s32 get_card_window__17TWindowSubComCardFUi(u32);
+s32 TObjPlayer__sub_801AEF80(u8 *arg0);
 }
 
 extern "C" {
@@ -38,7 +42,10 @@ void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801AEB80(void);
 int get_max_level__10TObjPlayerFv(void);
 
-int TObjPlayer__sub_801AEF80(void) { return 0; }
+s32 TObjPlayer__sub_801AEF80(u8 *arg0) {
+    return M2C_FIELD(get_card_window__17TWindowSubComCardFUi((u32) ((u16)obj_getField1c(arg0))), s32 *, 0x244);
+}
+
 void TObjPlayer__sub_801AEFAC(u8 *arg0) {
     if (((s32)TObjPlayer__sub_80019248((void*)(arg0))) != 0) {
         TObjPlayer__sub_803518E0((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) M2C_FIELD(arg0, s32 *, 0x3D0)));

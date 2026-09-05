@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK set_indexed_flags(void *, int, int);
+s32 TODragonfly__sub_80158360(f32);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern const f32 lbl_805DB514;
+extern const f32 lbl_805DB518;
+extern const f32 lbl_805DB51C;
+extern const f32 lbl_805DB520;
+void TODoorMachine02__vt13(u8 *arg0);
+}
+
+extern "C" {
 
 void TODoorMachine02__vt15(u8 *arg0);
 void TODoorMachine02__vt18(void);
@@ -37,6 +48,25 @@ void TODoorMachine02__vt15(u8 *arg0) {
 }
 
 extern void *tl_05;
+
+void TODoorMachine02__vt13(u8 *arg0) {
+    if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (TODragonfly__sub_80158360((f32) (lbl_805DB514)) == 1)) {
+        M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+        set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
+        TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x4004BC01)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xD0) & 0x10000) {
+        M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD8) + lbl_805DB518);
+        if (lbl_805DB51C <= M2C_FIELD(arg0, f32 *, 0xD8)) {
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFEFFFF);
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD8) - lbl_805DB518);
+        if (M2C_FIELD(arg0, f32 *, 0xD8) <= lbl_805DB520) {
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 0x10000);
+        }
+    }
+}
 
 void *create__15TODoorMachine02FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);

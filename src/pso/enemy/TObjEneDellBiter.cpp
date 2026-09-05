@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 obj_isState2_324(void *);
+M2C_UNK obj_getField1c(void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 is_alive__9TObjEneDDFPv(void *);
+s32 TObjEneDD__sub_800BA828();
+extern const f32 lbl_805DEFB0;
+extern const f32 lbl_805DEFB4;
+void TObjEneDellBiter__sub_803030D8(u8 *arg0);
+}
+
+extern "C" {
 
 struct VObjBase_803042b0_803030D4 { char pad_[0x18]; };
 struct VObj_803042b0_803030D4 : VObjBase_803042b0_803030D4 {
@@ -49,6 +60,31 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 void TObjEneDellBiter__sub_803030D4(void) {  }
 
 extern M2C_UNK lbl_804E6B54[];
+
+void TObjEneDellBiter__sub_803030D8(u8 *arg0) {
+    f32 temp_f1;
+    obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0x1C)));
+    if (TObjEneDD__sub_800BA828() != 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (is_alive__9TObjEneDDFPv((void *) (M2C_FIELD(arg0, u8 **, 0x1C))) == 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (obj_isState2_324((void *) (M2C_FIELD(arg0, u8 **, 0x1C))) != 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x2C);
+    if (temp_f1 <= lbl_805DEFB0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x308) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) * temp_f1);
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x310) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) * M2C_FIELD(arg0, f32 *, 0x2C));
+    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) * lbl_805DEFB4);
+}
 
 void *TObjEneDellBiter__sub_803031AC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

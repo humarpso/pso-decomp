@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void queue_destruction__7TObjectFv(void *);
+M2C_UNK run_tasks__7TObjectFv(int);
+void run_task__15TAdDrawLineCtrlFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
 void render__15TAdDrawLineCtrlFv(void *arg0);
@@ -40,6 +46,16 @@ block_5:
 
 extern M2C_UNK __vt__15TAdDrawLineCtrl[];
 extern void *lbl_805D260C;
+
+void run_task__15TAdDrawLineCtrlFv(u8 *arg0) {
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    if (temp_r0 != 0U) {
+        run_tasks__7TObjectFv((int) (temp_r0));
+        return;
+    }
+    queue_destruction__7TObjectFv(arg0);
+}
 
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
     void *o;

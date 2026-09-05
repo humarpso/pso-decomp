@@ -5,12 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 * get_element__10TObjPlayerFPvi(void *, int);
+int TObjPlayer__sub_80313218(void* p);
+u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
+}
+
+extern "C" {
 
 int TObjPlayer__sub_80312E0C(void);
 int TObjPlayer__sub_80312E98(void);
 void TObjPlayer__sub_80312F0C(void* p);
 int TObjPlayer__sub_80312F5C(void);
-int TObjPlayer__sub_80312FB0(void);
 int TObjPlayer__sub_80313010(void);
 int TObjPlayer__sub_8001BEF8(void*, int);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
@@ -31,7 +36,23 @@ int TObjPlayer__sub_80312E98(void) { return 0; }
 void TObjPlayer__sub_80312F0C(void* p) { { int n = TObjPlayer__sub_803131AC(p); int i; for (i = 0; i < n; i++) { process_indexed_element__10TObjPlayerFii(p, (void*)i); } } }
 
 int TObjPlayer__sub_80312F5C(void) { return 0; }
-int TObjPlayer__sub_80312FB0(void) { return 0; }
+
+u8 *TObjPlayer__sub_80312FB0(u8 *arg0) {
+    s32 var_r31;
+    u8 *temp_r3;
+    var_r31 = 0;
+loop_1:
+    temp_r3 = (u8 *)(get_element__10TObjPlayerFPvi(arg0, var_r31));
+    if (TObjPlayer__sub_80313218((void*)(temp_r3)) != 0) {
+        return temp_r3;
+    }
+    var_r31 += 1;
+    if (var_r31 >= 4) {
+        return NULL;
+    }
+    goto loop_1;
+}
+
 int TObjPlayer__sub_80313010(void) { return 0; }
 
 }

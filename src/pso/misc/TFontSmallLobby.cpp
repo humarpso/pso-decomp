@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_state_flags__10TObjPlayerFPvUi(void *, u32);
+void set_indexed_flags(void *, s32, s32);
+void TFontSmallLobby__sub_801B117C(u8 *arg0);
+}
+
+extern "C" {
 
 s32 TFontSmallLobby__sub_801B1224(s32 arg0);
 void TLobby__sub_801B1254(s32 arg0);
@@ -25,6 +31,11 @@ void draw_small_label__15TFontSmallLobbyFi(s32 arg0) {
         M2C_FIELD(&sp8, s16 *, 2) = obj_getField1c(arg0);
         fn_801C04DC((M2C_UNK *)&sp8);
     }
+}
+
+void TFontSmallLobby__sub_801B117C(u8 *arg0) {
+    set_state_flags__10TObjPlayerFPvUi(arg0, 0x800000U);
+    set_indexed_flags(arg0, 0, 0x08000000);
 }
 
 s32 TFontSmallLobby__sub_801B1224(s32 arg0) {

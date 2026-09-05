@@ -5,8 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK obj_clearFlags30(void *, s32);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void TObjPlayer__sub_800A17B4(u8 *arg0);
+}
 
-int TObjPlayer__sub_800A17B4(void);
+extern "C" {
+
 void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0);
 void update_hide_sequence__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
@@ -64,7 +70,10 @@ void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0) {
         update_if_active__15TObjEneMe1GiGueFPv(arg0, 6);
     }
 }
-
-int TObjPlayer__sub_800A17B4(void) { return 0; }
+void TObjPlayer__sub_800A17B4(u8 *arg0) {
+    obj_clearFlags30((void *)(arg0), (s32)(0x100U));
+    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0xD7));
+    TBoss3Volopt__sub_8022675C((int) (0x4003B22D), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
 
 }

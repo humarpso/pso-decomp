@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
+void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
+}
+
+extern "C" {
 
 void action__15TObjEneMe1GiGueFPv(void *arg0);
 void apply_hit_shake__15TObjEneMe1GiGueFPvUi(void *arg0, u32 arg1);
@@ -70,6 +75,12 @@ void action__15TObjEneMe1GiGueFPv(void *arg0) {
     case -1:
         return;
     }
+}
+void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0) {
+    set_state__15TObjEneMe1GiGueFPvi(arg0, 5);
+    M2C_FIELD(arg0, s32 *, 0x380) = (s32) M2C_FIELD(arg0, s32 *, 0x378);
+    M2C_FIELD(arg0, s32 *, 0x378) = 5;
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 1);
 }
 
 }

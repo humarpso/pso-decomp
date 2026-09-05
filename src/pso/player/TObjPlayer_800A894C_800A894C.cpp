@@ -81,6 +81,7 @@ struct VObj_18 : VBase_18 {
     virtual void m62();
     virtual M2C_UNK m63(M2C_UNK, void *);
 };
+
 extern "C" {
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -89,6 +90,8 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 void TObjPlayer__sub_800A8E04(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_800C7698();
 void TObjPlayer__sub_800A8B0C(u8 *arg0);
+void obj_setFlags30(void *, u32);
+void TObjPlayer__sub_800A8C1C(u8 *arg0);
 }
 
 extern "C" {
@@ -137,6 +140,11 @@ void TObjPlayer__sub_800A8B0C(u8 *arg0) {
     ((VObj_18 *)(arg0))->m63(0x13, arg0 + 0x3D4);
     ((VObj_18 *)(arg0))->m63(0x28, arg0 + 0x3E0);
     ((VObj_18 *)(arg0))->m63(0x29, arg0 + 0x3EC);
+}
+
+void TObjPlayer__sub_800A8C1C(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x02000000);
+    obj_setFlags30(arg0, 0x800U);
 }
 
 void TObjPlayer__sub_800A8E04(u8 *arg0) {

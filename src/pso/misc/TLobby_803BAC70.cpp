@@ -7,6 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern s32 lbl_805D74CC;
 void TLobby__sub_803BE000(s32 arg0, s32 arg1);
+void clear_record__6TLobbyFPv(void *);
+void release_ref__6TLobbyFv(void);
+void init_once__6TLobbyFv(void);
+M2C_UNK memset(void *, int, int);
+void TLobby__sub_803C07F4(u8 *arg0);
 }
 
 extern "C" {
@@ -195,6 +200,18 @@ void set_network_result__6TLobbyFPvi(u8 *arg0, s32 arg1) {
 void set_param_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 8) = arg1;
     TLobby__sub_803C1A24((int) (M2C_FIELD(arg0, s32 *, 4)));
+}
+void TLobby__sub_803C07F4(u8 *arg0) {
+    u8 *temp_r3;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 4));
+        if (temp_r3 != NULL) {
+            clear_record__6TLobbyFPv(temp_r3);
+        }
+        init_once__6TLobbyFv();
+        memset((void *) (arg0), (int) (0), (int) (0x9C));
+        release_ref__6TLobbyFv();
+    }
 }
 
 }

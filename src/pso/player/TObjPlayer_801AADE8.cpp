@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
+extern u8 *lbl_805D5D28;
+extern u32 lbl_805D5D30;
+void TObjPlayer__sub_801AAE20(void);
+}
+
+extern "C" {
 
 void TObjPlayer__sub_801AAE6C(void* a0);
 void destroy_global_buffer__10TObjPlayerFv(void);
@@ -26,6 +34,18 @@ void destroy_global_buffer__10TObjPlayerFv(void) {
 }
 
     extern const float lbl_805DC158;
+
+void TObjPlayer__sub_801AAE20(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), void **, 0x98), s32 *, 0x2C), 0));
+    }
+    (*(s32 *)&lbl_805D5D30) = var_r0;
+}
+
 void TObjPlayer__sub_801AAE6C(void* a0) { *(float*)((char*)a0 + 0x184) = lbl_805DC158; *(float*)((char*)a0 + 0x188) = lbl_805DC158; *(float*)((char*)a0 + 0x18c) = lbl_805DC158; *(float*)((char*)a0 + 0x190) = lbl_805DC158; }
 
 void update_all_slots__10TObjPlayerFPv(void *arg0) {

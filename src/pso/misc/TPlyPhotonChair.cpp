@@ -5,9 +5,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TPlyPhotonChair__sub_801427D0(void *);
+M2C_UNK TPlyPhotonChair__sub_80142874(void *);
+f32 get_float_c__15TPlyPhotonChairFPv(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 is_mounted__15TPlyPhotonChairFPv();
+u16 TPlyPhotonChair__sub_8035B530(void* p);
+void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
+void set_state_ready__15TPlyPhotonChairFPv(void* p);
+extern const f32 lbl_805E0128;
+extern const float lbl_805E012C;
+void run_task__15TPlyPhotonChairFv(u8 *arg0);
+}
+
+extern "C" {
 
 int TPlyPhotonChair__sub_8035B520(void* p);
-u16 TPlyPhotonChair__sub_8035B530(void* p);
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
 void TPlyPhotonChair__sub_8035B610(void* a0);
 void TPlyPhotonChair__sub_8035B66C(void* p);
@@ -30,6 +44,35 @@ void destroy__15TPlyPhotonChairFPvs(void *, int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 extern u32 TPlyPhotonChair__data_805D6F40;
+
+void run_task__15TPlyPhotonChairFv(u8 *arg0) {
+    u32 temp_r0;
+    if (TPlayerBattleCtrl4P__sub_801BA74C((int) (TPlyPhotonChair__sub_8035B530((void*)(arg0)))) == 0U) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x94) == 0U) && (is_mounted__15TPlyPhotonChairFPv() == 0)) {
+        M2C_FIELD(arg0, u32 *, 0x94) = 1U;
+        set_state_ready__15TPlyPhotonChairFPv((void*)((void *) (arg0 + 0x98)));
+        TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0x98)), (f32) (lbl_805E0128));
+        set_state_ready__15TPlyPhotonChairFPv((void*)((void *) (arg0 + 0xB4)));
+        TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0xB4)), (f32) (lbl_805E0128));
+    }
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x94);
+    switch ((s32) temp_r0) {
+    case 0:
+        TPlyPhotonChair__sub_80142874((void *) (arg0 + 0x98));
+        TPlyPhotonChair__sub_80142874((void *) (arg0 + 0xB4));
+        return;
+    case 1:
+        TPlyPhotonChair__sub_801427D0((void *) (arg0 + 0x98));
+        TPlyPhotonChair__sub_801427D0((void *) (arg0 + 0xB4));
+        if (get_float_c__15TPlyPhotonChairFPv((void *) (arg0 + 0x98)) <= (*(const f32 *)&lbl_805E012C)) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+        }
+        return;
+    }
+}
 
 void free_static_model__15TPlyPhotonChairFv(void) {
     if ((u32) TPlyPhotonChair__data_805D6F40 != 0U) {

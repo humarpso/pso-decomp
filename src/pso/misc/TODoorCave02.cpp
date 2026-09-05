@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK set_indexed_flags(void *, int, int);
+s32 TODragonfly__sub_80158360(void *, f32);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern const f32 lbl_805DB4B4;
+extern const f32 lbl_805DB4B8;
+extern const f32 lbl_805DB4BC;
+extern const f32 lbl_805DB4C0;
+void TODoorCave02__vt13(u8 *arg0);
+}
+
+extern "C" {
 
 struct Base_80161D38 { char pad[0x18]; };
 struct VObj_80161D38 : Base_80161D38 {
@@ -57,6 +68,25 @@ void TODoorCave02__vt15(u8 *arg0) {
 
 extern u8 *TODoorCave02__data_805D5964;
 extern const f32 lbl_805DB4C4;
+
+void TODoorCave02__vt13(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0xD0) & 0x100000) {
+        M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD8) + lbl_805DB4B4);
+        if (lbl_805DB4B8 <= M2C_FIELD(arg0, f32 *, 0xD8)) {
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFEFFFFF);
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD8) - lbl_805DB4B4);
+        if (M2C_FIELD(arg0, f32 *, 0xD8) <= lbl_805DB4BC) {
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 0x100000);
+        }
+    }
+    if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (TODragonfly__sub_80158360((void *) (arg0), (f32) (lbl_805DB4C0)) == 1)) {
+        M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+        set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
+        TBoss3Volopt__sub_8022675C((M2C_UNK)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    }
+}
 
 void render__12TODoorCave02Fv(u8 *arg0) {
     if ((((VObj_80161D38 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (fn_801582C4(arg0, lbl_805DB4C4) != 0)) {

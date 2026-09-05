@@ -9,6 +9,12 @@ u32 TObjEneDD__vt99();
 void TObjEneRe4Sorcerer__vt100(u8 *arg0);
 u32 TObjEneDD__vt98();
 void TObjEneRe4Sorcerer__vt99(u8 *arg0);
+s16 obj_getField1c(void *);
+s32 is_alive__9TObjEneDDFPv(void *);
+s32 check_shield__18TObjEneRe4SorcererFiPv(s32 arg0, void *arg1);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+extern const f32 lbl_805DA7E4;
+s32 TObjEneRe4Sorcerer__sub_800EF6A4(u8 *arg0, s32 arg1, f32 *arg2);
 }
 
 extern "C" {
@@ -72,6 +78,20 @@ void set_photon_state__18TObjEneRe4SorcererFPv(void *arg0) {
             TObjEneRe4Sorcerer__sub_800ED428((u32)(temp_r3), (s32)(1));
         }
     }
+}
+
+s32 TObjEneRe4Sorcerer__sub_800EF6A4(u8 *arg0, s32 arg1, f32 *arg2) {
+    f32 temp_f1;
+    if ((is_alive__9TObjEneDDFPv((void *) (arg1)) != 0) && (check_shield__18TObjEneRe4SorcererFiPv((s32)((void *) (arg0)), (void *)((void *) (arg1))) != 0)) {
+        temp_f1 = TObjPlayer__sub_80141CF8((void *) (arg0 + 0x38), (void *) (arg1 + 0x38));
+        if ((temp_f1 <= lbl_805DA7E4) && (temp_f1 > *arg2)) {
+            *arg2 = temp_f1;
+            M2C_FIELD(arg0, s16 *, 0x38C) = obj_getField1c((void *) (arg1));
+            M2C_FIELD(arg0, s32 *, 0x390) = arg1;
+            return 1;
+        }
+    }
+    return 0;
 }
 
 s32 check_shield__18TObjEneRe4SorcererFiPv(s32 arg0, void *arg1) {

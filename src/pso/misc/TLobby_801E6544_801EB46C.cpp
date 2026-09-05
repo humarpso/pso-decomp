@@ -51,6 +51,10 @@ M2C_UNK TObjPlayer__sub_801AF904();
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EB914(s32 arg0);
+void set_floor__6TLobbyFPvs(void *, s16);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801ED3C4(s32 arg0);
 }
 
 extern "C" {
@@ -251,6 +255,13 @@ void TLobby__sub_801ED20C(s32 arg0) {
     temp_r3 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int) ((*(s32 *)&TLobby__data_805D5E78))));
     if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
         TObjPlayer__sub_801C6B60((void *) (temp_r3 + 0x5B0));
+    }
+}
+void TLobby__sub_801ED3C4(s32 arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (int)((*(s32 *)&TLobby__data_805D5E78)))));
+    if (temp_r3 != NULL) {
+        set_floor__6TLobbyFPvs(temp_r3, 0);
     }
 }
 

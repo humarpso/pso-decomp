@@ -2,10 +2,20 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 fn_80244994(void *);
+M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
+M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
+M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+M2C_UNK fn_802697B4(f32);
+void run_task__20TWindowMessageScrollFv(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__20TWindowMessageScrollFv(void *arg0, s16 arg1);
-int run_task__20TWindowMessageScrollFv(void);
 s32 TLobby__sub_80269C90(void);
 s32 TLobby__sub_80269CA4(s32 a0 = 0);
 s32 TLobby__sub_80269DA4(s32 a0 = 0, s32 a1 = 0);
@@ -15,9 +25,20 @@ void __dt__19TWindowMessageQuestFv(void *, int);
 s32 __nw__7TObjectFUl(s32 a0 = 0);
 void set_timer__6TLobbyFPvf(void* p, f32 v);
 
-int run_task__20TWindowMessageScrollFv(void) { return 0; }
-
 extern M2C_UNK __vt__20TWindowMessageScroll[];
+
+void run_task__20TWindowMessageScrollFv(u8 *arg0) {
+    f32 temp_f1;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x6C);
+    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x94));
+    fn_802697B4((f32) (temp_f1));
+    initialize_subwindow__9TWindowDDFPv((void *) (arg0));
+    update_fade__17TWindowSubComCardFPv((void *) (arg0));
+    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+    if ((fn_80244994((void *) (arg0)) != 0) && (M2C_FIELD(arg0, f32 *, 0x80) <= M2C_FIELD(arg0, f32 *, 0x6C))) {
+        *M2C_FIELD(arg0, s32 **, 0x98) = 1;
+    }
+}
 
 void *__dt__20TWindowMessageScrollFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

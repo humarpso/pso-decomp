@@ -17,10 +17,17 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m4();
     virtual M2C_UNK m5();
 };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 void TItemTimerEvent__vt1(void *arg0);
+void fn_8011085C(void *, s32);
+extern struct VObj_8011E140_8011DA9C *lbl_805D5508;
+void TItemTimerEvent__sub_8011E068(u16 arg0);
+void fn_801108C8(void *, s32);
+extern struct VObj_8011E140_8011DA9C *lbl_805D5508;
+void TItemTimerEvent__sub_8011E0A4(u16 arg0);
 }
 
 extern "C" {
@@ -233,6 +240,18 @@ void *TItemTimerEvent__sub_8011E010(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void TItemTimerEvent__sub_8011E068(u16 arg0) {
+    if (((void *) (*(u8 * *)&lbl_805D5508) != NULL) && (arg0 < 0xCU)) {
+        fn_8011085C((*(u8 * *)&lbl_805D5508), (s32) arg0);
+    }
+}
+
+void TItemTimerEvent__sub_8011E0A4(u16 arg0) {
+    if (((void *) (*(u8 * *)&lbl_805D5508) != NULL) && (arg0 < 0xCU)) {
+        fn_801108C8((*(u8 * *)&lbl_805D5508), (s32) arg0);
+    }
 }
 
 void check_battle_ctrl__15TItemTimerEventFi(int arg0) {

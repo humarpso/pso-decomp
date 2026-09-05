@@ -7,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK TObjFogCollisionPoison__sub_801531EC(void *, int, int);
 void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1);
+s32 TFogCtrl__sub_800FAB94(s32, s32, s32);
+s32 TFogCtrl__sub_800FAC10(s32, s32);
+s32 is_any_teammate_in_state__10TObjPlayerFv(void);
+void TObjFogCollisionPoison__sub_801530DC(u8 *arg0);
 }
 
 extern "C" {
@@ -35,6 +39,49 @@ void *TObjFogCollisionPoison__sub_8015302C(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void TObjFogCollisionPoison__sub_801530DC(u8 *arg0) {
+    s32 temp_r0;
+    s32 var_r4;
+    if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x2C);
+        switch (temp_r0) {
+        case 0:
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0) {
+                var_r4 = M2C_FIELD(arg0, s32 *, 0x20);
+                if (var_r4 >= 0x1000) {
+                    var_r4 -= 0x1000;
+                }
+                if (var_r4 < 0) {
+                    var_r4 = 0;
+                } else if (var_r4 >= 0x80) {
+                    var_r4 = 0x7F;
+                }
+                if ((s32) M2C_FIELD(arg0, s32 *, 0x24) != 0) {
+                    TFogCtrl__sub_800FAB94(M2C_FIELD(arg0, s32 *, 0x28), var_r4, 0);
+                } else {
+                    TFogCtrl__sub_800FAB94(M2C_FIELD(arg0, s32 *, 0x28), var_r4, 1);
+                }
+                M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x2C) = 1;
+                if ((s32) M2C_FIELD(arg0, s32 *, 0x24) != 0) {
+                    TFogCtrl__sub_800FAC10(M2C_FIELD(arg0, s32 *, 0x28), 0);
+                } else {
+                    TFogCtrl__sub_800FAC10(M2C_FIELD(arg0, s32 *, 0x28), 1);
+                }
+            }
+            break;
+        case 1:
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0) {
+                M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+                M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+            }
+            break;
+        }
+        M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    }
 }
 
 void record_hit__22TObjFogCollisionPoisonFPvii(void *arg0, s32 arg1, s32 arg2) {

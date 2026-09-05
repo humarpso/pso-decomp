@@ -20,6 +20,14 @@ extern s32 lbl_805D5F2C;
 extern s32 TRaderMapCore__data_805D5F30;
 extern s32 TRaderMapCore__data_805D5F3C;
 void render__13TRaderMapCoreFv(u8 *arg0);
+void disallow_rendering__7TObjectFv(void *);
+void reset_counter__13TRaderMapCoreFPv(void* p);
+extern void *TRaderMapCore__data_805D5F40;
+void TRaderMapCore__sub_801F9110(void);
+void allow_rendering__7TObjectFv(void *);
+void reset_counter__13TRaderMapCoreFPv(void* p);
+extern void *TRaderMapCore__data_805D5F40;
+void TRaderMapCore__sub_801F9144(void);
 }
 
 extern "C" {
@@ -60,6 +68,21 @@ s32 should_show_map__13TRaderMapCoreFv(void) {
 void reset_counter__13TRaderMapCoreFPv(void* p) { *(s32*)((char*)p + 0x184) = 0; }
 
     extern int TRaderMapCore__data_805D5F50;
+
+void TRaderMapCore__sub_801F9110(void) {
+    if ((void *) (*(u8 * *)&TRaderMapCore__data_805D5F40) != NULL) {
+        reset_counter__13TRaderMapCoreFPv((void*)((*(u8 * *)&TRaderMapCore__data_805D5F40)));
+        disallow_rendering__7TObjectFv((*(u8 * *)&TRaderMapCore__data_805D5F40));
+    }
+}
+
+void TRaderMapCore__sub_801F9144(void) {
+    if ((void *) (*(u8 * *)&TRaderMapCore__data_805D5F40) != NULL) {
+        reset_counter__13TRaderMapCoreFPv((void*)((*(u8 * *)&TRaderMapCore__data_805D5F40)));
+        allow_rendering__7TObjectFv((*(u8 * *)&TRaderMapCore__data_805D5F40));
+    }
+}
+
 void free_heap__13TRaderMapCoreFv(void) { __dt__5THeapFv((void*)(TRaderMapCore__data_805D5F50), (void*)1); TRaderMapCore__data_805D5F50 = 0; }
 
 void copy_transform__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(u32*)((char*)p + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)p + 0x1c) = *(u32*)((char*)q + 0x1c); *(f32*)((char*)p + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }

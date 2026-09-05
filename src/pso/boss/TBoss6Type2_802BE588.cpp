@@ -5,8 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 update_attack_target__11TBoss6Type2FPv(void* a0);
+s32 TBoss6Type2__sub_802BC23C();
+int TBoss6Type2__sub_802BDDF8(void*, void*);
+void TBoss6Type2__sub_802BE648(u8 *arg0);
+}
 
-void TBoss6Type2__sub_802BE648(void *arg0);
+extern "C" {
+
 int TBoss6Type2__sub_802BE6A0(void);
 int TBoss6Type2__sub_802BE6D4(void);
 void TBoss6Type2__sub_802BF3F4(void* p);
@@ -86,15 +92,16 @@ void update_zako_timer__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
-void TBoss6Type2__sub_802BE648(void *arg0) {
+void TBoss6Type2__sub_802BE648(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 0x1D) {
-            TBoss6Type2__sub_802BDDF8((void*)(arg0), (void*)(TBoss6Type2__sub_802BC23C()));
+            TBoss6Type2__sub_802BDDF8((void*)((void *) (arg0)), (void*)((int) (TBoss6Type2__sub_802BC23C())));
             return;
         }
-        update_attack_target__11TBoss6Type2FPv();
+        update_attack_target__11TBoss6Type2FPv((void*)(arg0));
     }
 }
+
 int TBoss6Type2__sub_802BE6A0(void) { return 0; }
 int TBoss6Type2__sub_802BE6D4(void) { return 0; }
 

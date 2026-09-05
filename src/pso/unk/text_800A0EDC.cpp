@@ -21,15 +21,23 @@ s32 TObjPlayer__sub_800A1058(s32 arg0);
 f32 TObjPlayer__sub_800A3200(int);
 extern f32 lbl_805D5008;
 void TObjPlayer__sub_800A1298(void);
+void set_param__12TObjEneLappyFPvi(void *, s32);
+void fn_800A0FAC(u8 *arg0);
+void set_param__12TObjEneLappyFPvi(void *, s32);
+void fn_800A0FDC(u8 *arg0);
 }
 
 extern "C" {
 
-int fn_800A0FAC(void);
-int fn_800A0FDC(void);
+void fn_800A0FAC(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFBFFFFFF);
+    set_param__12TObjEneLappyFPvi(arg0, 0x22);
+}
 
-int fn_800A0FAC(void) { return 0; }
-int fn_800A0FDC(void) { return 0; }
+void fn_800A0FDC(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x04000000);
+    set_param__12TObjEneLappyFPvi(arg0, 0x23);
+}
 
 void TObjPlayer__sub_800A100C(s32 _w0) {  }
 

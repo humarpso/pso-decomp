@@ -2,6 +2,12 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_800DC444(void);
@@ -13,6 +19,17 @@ void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800DC444(void) {  }
 
 extern M2C_UNK lbl_80494E10[];
+
+s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0) {
+    f32 temp_f2;
+    if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == arg1) {
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0xC0);
+        if ((temp_f2 >= farg0) && (temp_f2 < (farg0 + M2C_FIELD(arg0, f32 *, 0xC8)))) {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

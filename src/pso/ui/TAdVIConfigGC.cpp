@@ -44,12 +44,19 @@ void *fn_8037CCE8(void *);
 void enable_progressive_mode__13TAdVIConfigGCFv(void * = 0);
 void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0);
 void TAdVIConfigGC__vt4(void *arg0);
+void set_flag_4__9TObjLukerFPv(void *);
+s32 allow_rendering__7TObjectFv(u32);
+void disallow_rendering__7TObjectFv(void *);
+s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
+s32 TLobby__sub_801B0974();
+M2C_UNK fn_80307BE8(void *);
+M2C_UNK TAdVIConfigGC__sub_80307D00(void *);
+void TAdVIConfigGC__sub_80307DF4(u8 *arg0);
 }
 
 extern "C" {
 
 void *TAdVIConfigGC__ct(void *arg0);
-int TAdVIConfigGC__sub_80307DF4(void);
 void TAdVIConfigGC__vt8(void);
 void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1);
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1);
@@ -78,7 +85,26 @@ void set_field_2c__13TAdVIConfigGCFPvi(void *, int);
 
 s32 get_field_14__13TAdVIConfigGCFPv(void* p) { return *(s32*)((char*)p + 0x14); }
 
-int TAdVIConfigGC__sub_80307DF4(void) { return 0; }
+void TAdVIConfigGC__sub_80307DF4(u8 *arg0) {
+    s32 temp_r3;
+    u8 *temp_r3_2;
+    temp_r3 = TLobby__sub_801B0974();
+    if ((s32) M2C_FIELD(arg0, s32 *, 4) != temp_r3) {
+        M2C_FIELD(arg0, s32 *, 4) = temp_r3;
+        TAdVIConfigGC__sub_80307D00((void *) (arg0));
+    }
+    fn_80307BE8((void *) (arg0));
+    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
+    if (temp_r3_2 != NULL) {
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x18) != 0) {
+            clear_flag4_bit4__22TQuestVmDownLoadServerFPv(temp_r3_2);
+            allow_rendering__7TObjectFv((u32)(M2C_FIELD(arg0, u8 **, 0x24)));
+            return;
+        }
+        set_flag_4__9TObjLukerFPv(temp_r3_2);
+        disallow_rendering__7TObjectFv(M2C_FIELD(arg0, u8 **, 0x24));
+    }
+}
 
 void *destroy__13TAdVIConfigGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

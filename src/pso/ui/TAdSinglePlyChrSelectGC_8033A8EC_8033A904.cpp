@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *, s32, s32);
+void init_warps__23TAdSinglePlyChrSelectGCFPv(void *);
+extern s32 lbl_805D6D90;
+void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0);
+}
+
+extern "C" {
 
 void alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void clear_buffer(void* p);
@@ -35,6 +42,12 @@ void alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 0x16000;
         M2C_FIELD(arg0, u32 *, 0x20) = alloc__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, s32 *, 0x1C));
     }
+}
+void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0xB;
+    lbl_805D6D90 &= 0xFFFFFFFE;
+    set_char_slots__23TAdSinglePlyChrSelectGCFPvii(arg0, 0xA, M2C_FIELD(arg0, s32 *, 0x24) + 0xF);
+    init_warps__23TAdSinglePlyChrSelectGCFPv(arg0);
 }
 
 }

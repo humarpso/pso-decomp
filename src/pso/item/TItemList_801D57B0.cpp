@@ -10,20 +10,25 @@ void TItemList__sub_801D5804(s32 *arg0);
 int TItemList__sub_801D5854(int, int);
 u8 get_item_count__9TItemListFPv(void* p);
 void TItemList__sub_801D58E4(u8 *arg0);
+void TItemList__sub_801D58C8(void* p);
+u8 get_item_count__9TItemListFPv(void* p);
+int TItemList__sub_801D5868(s32, s8);
+void TItemList__sub_801D588C(u8 *arg0, s32 arg1);
+u8 get_item_count__9TItemListFPv(void* p);
+void TItemList__sub_801D59DC(void* p);
+int TItemList__sub_801D5868(s32 _w0, s8 _w1);
+void TItemList__sub_801D59A0(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 void TItemList__sub_801D5838(void* p);
 int TItemList__sub_801D5844(void* p);
-int TItemList__sub_801D5868(void);
 void TItemList__sub_801D5884(void* p, u8 v);
-int TItemList__sub_801D588C(void);
 void TItemList__sub_801D58C8(void* p);
 u16 TItemList__sub_801D58DC(void* p);
 int TItemList__sub_801D591C(void);
 int TItemList__sub_801D598C(void);
-int TItemList__sub_801D59A0(void);
 void *__ct__9TItemListFv(void *arg0);
 int copy_item_data__9TItemListFPv(void* p);
 int copy_position__9TItemListFPv(void* p);
@@ -58,12 +63,14 @@ void TItemList__sub_801D5838(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 int TItemList__sub_801D5844(void* p) { return *(u32*)((char*)p + 0x0) == 0; }
 
 int TItemList__sub_801D5854(int _w0, int _w1) { return 0; }
-int TItemList__sub_801D5868(void) { return 0; }
+int TItemList__sub_801D5868(s32 _w0, s8 _w1) { return 0; }
 
 void* get_ptr_0x44__9TItemListFPv(void* p) { return (char*)p + 0x44; }
 void TItemList__sub_801D5884(void* p, u8 v) { *(u8*)((char*)p + 0x1d) = v; }
 
-int TItemList__sub_801D588C(void) { return 0; }
+void TItemList__sub_801D588C(u8 *arg0, s32 arg1) {
+    TItemList__sub_801D58C8((void*)(((u8 *)TItemList__sub_801D5868((s32)(arg1), (s8)(get_item_count__9TItemListFPv((void*)(arg0)))))));
+}
 
 void TItemList__sub_801D58C8(void* p) { *(s32*)((char*)p + 0x0) = 3; }
 u8 get_item_count__9TItemListFPv(void* p) { return *(u8*)((char*)p + 0x1c); }
@@ -78,6 +85,8 @@ int TItemList__sub_801D591C(void) { return 0; }
 int copy_position__9TItemListFPv(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x4); }
 
 int TItemList__sub_801D598C(void) { return 0; }
-int TItemList__sub_801D59A0(void) { return 0; }
+void TItemList__sub_801D59A0(u8 *arg0, s32 arg1) {
+    TItemList__sub_801D59DC((void*)(((u8 *)TItemList__sub_801D5868(arg1, get_item_count__9TItemListFPv((void*)(arg0))))));
+}
 
 }

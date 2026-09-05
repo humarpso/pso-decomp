@@ -4378,17 +4378,8 @@ pso/unk/text_80117FEC.cpp:
 pso/unk/text_80118164.cpp:
 	.text       start:0x80118164 end:0x801181D0
 
-pso/item/TItemProShield_801181D0_801181D0.cpp:
-	.text       start:0x801181D0 end:0x801183D8
-
 pso/item/TItemProShield_801181D0.cpp:
-	.text       start:0x801183D8 end:0x80118828
-
-pso/item/TItemProShield_801181D0_80118828.cpp:
-	.text       start:0x80118828 end:0x80118854
-
-pso/item/TItemProShield_801181D0_80118854.cpp:
-	.text       start:0x80118854 end:0x8011892C
+	.text       start:0x801181D0 end:0x8011892C
 
 pso/unk/text_8011892C.cpp:
 	.text       start:0x8011892C end:0x80118F5C
@@ -12032,16 +12023,7 @@ pso/player/TObjPlayer_8023E480.cpp:
 	.text       start:0x8023E480 end:0x8023E7A8
 
 pso/ui/TAdMultiChgGameModeGC_8023E7A8.cpp:
-	.text       start:0x8023E7A8 end:0x8023E8D4
-
-pso/ui/TAdMultiChgGameModeGC_8023E7A8_8023E8D4.cpp:
-	.text       start:0x8023E8D4 end:0x8023E900
-
-pso/ui/TAdMultiChgGameModeGC_8023E7A8_8023E900.cpp:
-	.text       start:0x8023E900 end:0x8023E9A4
-
-pso/ui/TAdMultiChgGameModeGC_8023E7A8_8023E9A4.cpp:
-	.text       start:0x8023E9A4 end:0x8023EA94
+	.text       start:0x8023E7A8 end:0x8023EA94
 
 pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp:
 	.text       start:0x8023EA94 end:0x8023EAC4
@@ -14305,17 +14287,8 @@ pso/misc/TLobby_802A7290_802A76EC.cpp:
 pso/misc/pso_const_ids3.cpp:
 	.text       start:0x802A7798 end:0x802A7848
 
-pso/misc/TLobby_802A7848_802A7848.cpp:
-	.text       start:0x802A7848 end:0x802A7890
-
 pso/misc/TLobby_802A7848.cpp:
-	.text       start:0x802A7890 end:0x802A7B8C
-
-pso/misc/TLobby_802A7848_802A7B8C.cpp:
-	.text       start:0x802A7B8C end:0x802A7C0C
-
-pso/misc/TLobby_802A7848_802A7C0C.cpp:
-	.text       start:0x802A7C0C end:0x802A7D68
+	.text       start:0x802A7848 end:0x802A7D68
 
 pso/misc/TWindowSnapShot_802A7D68.cpp:
 	.text       start:0x802A7D68 end:0x802A7DDC

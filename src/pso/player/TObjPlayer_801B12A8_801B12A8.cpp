@@ -8,6 +8,12 @@ extern "C" {
 u16 obj_getField1c();
 extern s32 lbl_805D53A4;
 u8 TObjPlayer__vt17(void *arg0, s32 arg1);
+void obj_clearFlags30(void *, u32);
+void set_indexed_flags(void *, s32, s32);
+void TObjPlayer__sub_801B12CC(u8 *arg0);
+void obj_setFlags30(void *, u32);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+void TObjPlayer__sub_801B130C(u8 *arg0);
 }
 
 extern "C" {
@@ -19,6 +25,17 @@ M2C_UNK obj_testFlags30(void *, M2C_UNK);
 void test_flag_2000000__10TObjPlayerFPv(void *arg0) {
     obj_testFlags30(arg0, 0x02000000);
 }
+
+void TObjPlayer__sub_801B12CC(u8 *arg0) {
+    obj_clearFlags30(arg0, 0x02000000U);
+    set_indexed_flags(arg0, 0, 1);
+}
+
+void TObjPlayer__sub_801B130C(u8 *arg0) {
+    obj_setFlags30(arg0, 0x02000000U);
+    clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1U);
+}
+
 u8 TObjPlayer__vt17(void *arg0, s32 arg1) {
     return (u8) ((lbl_805D53A4 & arg1) == obj_getField1c());
 }

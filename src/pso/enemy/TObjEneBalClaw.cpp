@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
+void TObjEneBalClaw__vt60(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjEneBalClawClaw__sub_8008DC14(void);
 int TObjEneBalClaw__vt28(void);
@@ -58,6 +63,11 @@ void update_claw_angle__14TObjEneBalClawFPv(void *arg0) {
 }
 
 extern u32 lbl_805D4F20;
+
+void TObjEneBalClaw__vt60(u8 *arg0) {
+    set_state__15TObjEneMe1GiGueFPvi(arg0, 4);
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 1);
+}
 
 void release_global_805D4F20__14TObjEneBalClawFv(void) {
     if ((u32) lbl_805D4F20 != 0U) {

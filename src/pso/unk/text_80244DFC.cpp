@@ -1,1 +1,53 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+M2C_UNK disallow_rendering__7TObjectFv(void *);
+M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+f32 TWindowSubStatusDisp__sub_801A5228(int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK save_position__17TWindowSubComCardFPv(void *);
+M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, int, int);
+M2C_UNK TWindowCtrlMain__sub_8026CCA4(void *, f32);
+extern s32 lbl_805D3888;
+extern const f32 lbl_805DCAD4;
+extern const f32 lbl_805DCAE0;
+void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3);
+}
 
+extern "C" {
+
+void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
+    f32 temp_f1;
+    s32 temp_r3;
+    s32 temp_r3_2;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3888;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x30), (void *) (arg2));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x38), (void *) (arg1));
+    save_position__17TWindowSubComCardFPv((void *) (arg0));
+    temp_f1 = M2C_FIELD(arg1, f32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0x1C) = temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x54) = (f32) lbl_805DCAE0;
+    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
+    TWindowCtrlMain__sub_8026CCA4((void *) (arg0), (f32) (temp_f1));
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    M2C_FIELD(arg0, s16 *, 0x20) = arg3;
+    TWindowSubStatusDisp__sub_80257D44((void *) (arg0 + 0x24), (int) (M2C_FIELD(arg1, s32 *, 0xC)), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
+    M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+    M2C_FIELD(arg0, s16 *, 0x22) = 0;
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x2C);
+    if (!(temp_r3 & 1) && !(temp_r3 & 2)) {
+        disallow_rendering__7TObjectFv((void *) (arg0));
+    }
+    temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x2C);
+    if ((temp_r3_2 & 1) && (temp_r3_2 & 2) && !(temp_r3_2 & 0x20)) {
+        TBoss3Volopt__sub_8022675C((int) (0x53703), (int) (0), (int) (0), (int) (0));
+    }
+    if (TWindowSubStatusDisp__sub_801A5228((int) (M2C_FIELD(arg0, s16 *, 0x20))) <= lbl_805DCAD4) {
+        M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
+    }
+}
+
+}

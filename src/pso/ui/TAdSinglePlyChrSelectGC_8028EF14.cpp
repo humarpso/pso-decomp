@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 lbl_805DD944;
+extern const f32 lbl_805DD948;
+extern const f32 lbl_805DD94C;
+extern const f32 lbl_805DD950;
+extern const f32 lbl_805DD954;
+s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
+}
+
+extern "C" {
 
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q);
 int TAdSinglePlyChrSelectGC__sub_802905B8(void);
@@ -50,6 +59,37 @@ s32 map_button_code__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 }
 
 extern s32 lbl_805D6530;
+
+s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0) {
+    f32 temp_f3;
+    f32 temp_f4;
+    f32 temp_f4_2;
+    temp_f3 = M2C_FIELD(arg0, f32 *, 0);
+    if (temp_f3 > lbl_805DD948) {
+        if ((lbl_805DD94C * (temp_f3 - lbl_805DD948)) <= M2C_FIELD(arg0, f32 *, 4)) {
+            return 6;
+        }
+        return 7;
+    }
+    if (temp_f3 <= lbl_805DD950) {
+        temp_f4 = M2C_FIELD(arg0, f32 *, 4);
+        if (temp_f3 >= (lbl_805DD948 * temp_f4)) {
+            return 0;
+        }
+        if (temp_f3 <= (lbl_805DD954 * (temp_f4 - lbl_805DD944))) {
+            return 1;
+        }
+        return 2;
+    }
+    temp_f4_2 = M2C_FIELD(arg0, f32 *, 4);
+    if (temp_f3 <= (lbl_805DD954 * (temp_f4_2 - lbl_805DD944))) {
+        return 3;
+    }
+    if (temp_f3 >= (lbl_805DD948 * temp_f4_2)) {
+        return 4;
+    }
+    return 5;
+}
 
 void close_if_active__23TAdSinglePlyChrSelectGCFv(void) {
     if ((s32) lbl_805D6530 != 0) {

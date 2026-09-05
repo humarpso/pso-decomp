@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjLobbyMain__sub_803520DC();
+M2C_UNK TObjLobbyMain__sub_80352240(void *);
+extern const f32 lbl_805DFEE4;
+extern const f32 lbl_805DFEE8;
+void TObjLobbyMain__sub_80352624(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjLobbyMain__sub_803520D8(void);
 void reset_state__13TObjLobbyMainFPv(void *arg0);
@@ -63,6 +71,17 @@ void update_computer_machines__13TObjLobbyMainFv(void) {
 }
 
 extern const f32 TObjLobbyMain__data_805DFEE0;
+
+void TObjLobbyMain__sub_80352624(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (M2C_FIELD(arg0, f32 *, 0xD4) - lbl_805DFEE4);
+    if (M2C_FIELD(arg0, f32 *, 0xD4) <= lbl_805DFEE8) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 1;
+        M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DFEE8;
+        TObjLobbyMain__sub_803520DC();
+        TObjLobbyMain__sub_80352240((void *) (arg0));
+        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DFEE8;
+    }
+}
 
 void reset_state__13TObjLobbyMainFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) != fn_80352094()) {

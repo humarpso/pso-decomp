@@ -9,6 +9,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
+void TObjPlayer__sub_803075EC(u8 *arg0);
+}
+
+extern "C" {
 
 void render__18TAdGameStartBackGCFv(void* p);
 void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0);
@@ -33,5 +38,9 @@ void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0) {
 }
 
 void render__18TAdGameStartBackGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { init_xyz_limits__10TObjPlayerFv(); render_background_status__18TAdGameStartBackGCFPv((u8 *)(p)); reset_transform_state__10TObjPlayerFv(); } }
+void TObjPlayer__sub_803075EC(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x1F8) = 5;
+    clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x800U);
+}
 
 }

@@ -1,5 +1,14 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+u16 get_id__11TMainCursorFPv(void* p);
+int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1);
+}
+
 extern "C" {
 
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
@@ -78,6 +87,8 @@ int TMainCursor__sub_8013DFC4(void*);
 int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
 
 int TMainCursor__sub_8013E378(void*, void*) { return 0; }
-int TMainCursor__sub_8013E40C(void) { return 0; }
+int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1) {
+    return (u8) (arg1 == get_id__11TMainCursorFPv((void*)(arg0)));
+}
 
 }

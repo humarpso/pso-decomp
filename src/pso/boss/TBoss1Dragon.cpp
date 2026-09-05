@@ -86,11 +86,14 @@ struct M2CCopy_C { u8 bytes[0xc]; };
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 objInBand__FP7GameObjf(f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
 extern const f32 TBoss1Dragon__data_805D7FF8;
 void TBoss1Dragon__sub_80028B98(s32 arg0);
+extern const f32 TBoss1Dragon__data_805D8040;
+void TBoss1Dragon__sub_80028B28(u8 *arg0);
 }
 
 extern "C" {
@@ -480,6 +483,12 @@ void TBoss1Dragon::clearState() {
 }
 
 extern "C" {
+
+void TBoss1Dragon__sub_80028B28(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x100);
+    M2C_FIELD(arg0, f32 *, 0x5D8) = (f32) (TBoss1Dragon__data_805D8040 + M2C_FIELD(arg0, f32 *, 0x3C));
+    M2C_FIELD(arg0, f32 *, 0x5DC) = (f32) (TBoss1Dragon__data_805D8040 + M2C_FIELD(arg0, f32 *, 0x5E0));
+}
 
 void TBoss1Dragon__sub_80028B98(s32 arg0) {
     if (objInBand__FP7GameObjf((f32) (TBoss1Dragon__data_805D7FF8)) != 0) {

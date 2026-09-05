@@ -5,8 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *);
+s32 TWindowSubComCard__sub_8033C024(void *, s32);
+void TWindowSubComCard__sub_8033C10C(u8 *arg0);
+}
 
-int TWindowSubComCard__sub_8033C10C(void);
+extern "C" {
+
 int TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
@@ -17,7 +22,6 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int TWindowSubComCard__sub_8033BF90(void*);
 s32 TWindowSubComCard__sub_8033C024(void *, s32);
 s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
-s32 poll_memcard_status__15TAdPlayerLoadGCFPv();
 void render__16TCheckMemoryCardFv(void);
 int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
 
@@ -27,14 +31,25 @@ void reset__17TWindowSubComCardFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    M2C_FIELD(arg0, s32 *, 0x28) = poll_memcard_status__15TAdPlayerLoadGCFPv();
+    M2C_FIELD(arg0, s32 *, 0x28) = poll_memcard_status__15TAdPlayerLoadGCFPv((void *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
     TWindowSubComCard__sub_8033C024(arg0, 0);
 }
 
-int TWindowSubComCard__sub_8033C10C(void) { return 0; }
+void TWindowSubComCard__sub_8033C10C(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x38) <= 0) {
+        M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x28) = poll_memcard_status__15TAdPlayerLoadGCFPv((void *)(arg0));
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) {
+            TWindowSubComCard__sub_8033C024((void *)((void *) (arg0)), (s32)((int) (1)));
+            return;
+        }
+        M2C_FIELD(arg0, s32 *, 0x3C) = 1;
+    }
+}
 
 int TWindowSubComCard__sub_8033C178(void* p) { return TWindowSubComCard__sub_8033BF90(p); }
 void TWindowSubComCard__sub_8033C198(void) {  }

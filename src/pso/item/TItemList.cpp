@@ -10,13 +10,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TItemList__sub_801D5A0C(s32 *arg0);
+u8 get_item_count__9TItemListFPv(void* p);
+void TItemList__sub_801D5A64(void* p);
+u8 *TItemList__sub_801D5868(s32, s8);
+void TItemList__sub_801D5A28(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 void TItemList__sub_801D59DC(void* p);
 void TItemList__sub_801D59E8(void* p, void* a1);
-int TItemList__sub_801D5A28(void);
 void TItemList__sub_801D5A64(void* p);
 int TItemList__sub_801D5A70(void);
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
@@ -56,7 +59,9 @@ void TItemList__sub_801D5A0C(s32 *arg0) {
     }
 }
 
-int TItemList__sub_801D5A28(void) { return 0; }
+void TItemList__sub_801D5A28(u8 *arg0, s32 arg1) {
+    TItemList__sub_801D5A64((void*)(TItemList__sub_801D5868(arg1, get_item_count__9TItemListFPv((void*)(arg0)))));
+}
 
 void TItemList__sub_801D5A64(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 

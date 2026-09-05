@@ -8,8 +8,14 @@ struct VObj_802235A0_8022356C {
 };
 
 extern "C" {
+s32 obj_getField1c(u32);
+u32 create_message_window__17TMedicalCenterMesFPviii(void *, s32, s32, s32);
+u32 create_window__17TMedicalCenterMesFPvii(void *, s32, s32);
+u32 TShopSequence__sub_80223600(u8 *arg0, s32 arg1, s32 arg2);
+}
 
-int TShopSequence__sub_80223600(void);
+extern "C" {
+
 void TShopSequence__sub_802236A0(void* p);
 void close_if_single_screen__13TShopSequenceFv(void);
 void close_message_window__13TShopSequenceFPv(void *arg0);
@@ -59,7 +65,19 @@ void close_message_window__13TShopSequenceFPv(void *arg0) {
     }
 }
 
-int TShopSequence__sub_80223600(void) { return 0; }
+u32 TShopSequence__sub_80223600(u8 *arg0, s32 arg1, s32 arg2) {
+    u8 *temp_r0;
+    u8 *temp_r3;
+    temp_r0 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x28));
+    if (temp_r0 != NULL) {
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
+        if (temp_r3 != NULL) {
+            return create_message_window__17TMedicalCenterMesFPviii(M2C_FIELD(arg0, u8 **, 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)(temp_r3))));
+        }
+        return create_window__17TMedicalCenterMesFPvii(temp_r0, arg1, arg2);
+    }
+    return 0U;
+}
 
 void free_member_0x28__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) format_and_send_message__22TQuestVmDownLoadServerFPvii(m); }
 void TShopSequence__sub_802236A0(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) send_message__22TQuestVmDownLoadServerFPvii(m); }

@@ -11,6 +11,9 @@ struct M2CCopy_C { u8 bytes[0xc]; };
 
 extern "C" {
 u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1);
+M2C_UNK TObjPlayer__sub_800F5E08();
+extern const f32 lbl_805DE3D0;
+void render_shadows__11TBoss6Type1Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -128,6 +131,12 @@ void latch_phase_counter__11TBoss6Type1FPv(void *arg0) {
 void copy_transform__11TBoss6Type1FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 
 int TBoss6Type1__sub_802B8624(void) { return 0; }
+
+void render_shadows__11TBoss6Type1Fv(u8 *arg0) {
+    if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DE3D0) {
+        TObjPlayer__sub_800F5E08();
+    }
+}
 
 void TBoss6Type1__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 40) { TBoss6Type1__sub_802B865C(p, (void*)40); } }
 

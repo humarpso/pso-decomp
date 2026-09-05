@@ -4,6 +4,69 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_8b050c { char pad[0x18]; };
+
+struct VObj_18_8b050c : VBase_18_8b050c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual M2C_UNK m44();
+    virtual M2C_UNK m45();
+};
+
+extern "C" {
+u8 get_field_ed__10TObjPlayerFPv(s32);
+s8 TObjPlayer__sub_80102C30(void *);
+int get_flag_40__8TItemMagFPv(void *);
+void copy_owner_data__8TItemMagFPv(void *);
+u8 * get_pmt_record__10TObjPlayerFi(int);
+M2C_UNK TItemMag__sub_80110E7C(void *);
+M2C_UNK TItemMag__sub_80113F64(void *, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+void TItemMag__sub_801123F8(u8 *arg0);
+}
+
 extern "C" {
 
 void do_action_by_class__8TItemMagFi(s32 arg0);
@@ -246,6 +309,24 @@ void do_action_by_class__8TItemMagFi(s32 arg0) {
         }
         break;
     }
+}
+
+void TItemMag__sub_801123F8(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(get_pmt_record__10TObjPlayerFi((s32) get_field_ed__10TObjPlayerFPv((s32)(arg0))));
+    if (temp_r3 != NULL) {
+        TItemMag__sub_80113F64((void *) (arg0 + 0x198), (int) (M2C_FIELD(temp_r3, u8 *, 0xA)));
+    }
+    if (TObjPlayer__sub_80102C30(arg0) == 2) {
+        ((VObj_18_8b050c *)(arg0))->m45();
+        M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) | 0x40);
+        ((VObj_18_8b050c *)(arg0))->m44();
+        TItemMag__sub_80110E7C((void *) (arg0));
+    }
+    if (get_flag_40__8TItemMagFPv(arg0) == 0) {
+        TBoss3Volopt__sub_8022675C((int) (0x4000B20A), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
+    }
+    copy_owner_data__8TItemMagFPv(arg0);
 }
 
 void feed_by_item_flags__8TItemMagFPvc(void *arg0, s8 arg1) {
