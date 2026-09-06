@@ -1,3 +1,32 @@
+#include "types.h"
 extern "C" {
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+extern const f32 lbl_805DFFA8;
+void fn_803554F0(u8 *arg0, u8 *arg1);
+}
+
+extern "C" {
+
+void fn_803554F0(u8 *arg0, u8 *arg1) {
+  unsigned short new_var;
+  u16 temp_r3;
+  u8 *temp_r3_2;
+  *((f32 *) (((s8 *) arg1) + 0)) = (f32) lbl_805DFFA8;
+  *((f32 *) (((s8 *) arg1) + 4)) = (f32) lbl_805DFFA8;
+  *((f32 *) (((s8 *) arg1) + 8)) = (f32) lbl_805DFFA8;
+  temp_r3 = *((u16 *) (((s8 *) arg0) + 0x24));
+  new_var = -1U;
+  if (temp_r3 != new_var)
+  {
+    temp_r3_2 = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C((u32) temp_r3);
+    if (temp_r3_2 != 0)
+    {
+      *((f32 *) (((s8 *) arg1) + 0)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x28))));
+      *((f32 *) (((s8 *) arg1) + 8)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x40))) - (*((f32 *) (((s8 *) arg0) + 0x30))));
+      update_scale__15TObjBoss2TunnelFPv(arg1);
+    }
+  }
+}
 
 }

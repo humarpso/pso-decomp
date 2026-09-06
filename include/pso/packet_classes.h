@@ -431,11 +431,12 @@ public:
 	packet_header header;
 	TPlyGuildCardTag tag;
 public:
-	void bswap() {
-		header.bswap();
-		tag.bswap();
-	};
+	TSendAction();
+	void bswap();
 };
+
+template<> TSendAction<0>::TSendAction();
+template<> void TSendAction<0>::bswap();
 
 template<>
 class TSendAction<1> {

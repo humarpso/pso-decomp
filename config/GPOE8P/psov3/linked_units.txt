@@ -2490,6 +2490,7 @@ pso/unk/text_803504A8_803504A8.cpp
 pso/unk/text_803504A8_80350504.cpp
 pso/unk/text_80352AC0.cpp
 pso/unk/text_80353380.cpp
+pso/unk/text_803554F0.cpp
 pso/unk/text_8035B750.cpp
 pso/unk/text_8035D444.cpp
 pso/unk/text_80362164.cpp

@@ -9229,6 +9229,7 @@ pso/player/TObjPlayer_801C1FF8.cpp:
 
 pso/unk/text_801C23A8.cpp:
 	.text       start:0x801C23A8 end:0x801C2528
+	.rodata     start:0x80446F78 end:0x80446F80
 
 pso/misc/TWindowDuelResult_801C2528.cpp:
 	.text       start:0x801C2528 end:0x801C25B4
@@ -11914,6 +11915,7 @@ pso/misc/TWindowSubStatusDisp_80242908.cpp:
 
 pso/misc/TLobby_80242910.cpp:
 	.text       start:0x80242910 end:0x80242C48
+	.rodata     start:0x8044E5C8 end:0x8044E5D0
 
 pso/boss/TBoss3Volopt_80242C48.cpp:
 	.text       start:0x80242C48 end:0x80242CFC
