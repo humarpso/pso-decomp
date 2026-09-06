@@ -17,6 +17,7 @@ void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 void TObjBoss2Tunnel__sub_8007E7D8(f32 *arg0, f32 *arg1, s32 arg2);
+s32 TObjBoss2Tunnel__sub_8007E6C4(u8 *arg0);
 }
 
 extern "C" {
@@ -102,6 +103,22 @@ s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0) {
 }
 
 extern f32 TObjBoss2Tunnel__data_805D926C;
+
+s32 TObjBoss2Tunnel__sub_8007E6C4(u8 *arg0) {
+    s32 var_r31;
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    var_r31 = 1;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2C));
+    if (temp_r3 != NULL) {
+        var_r31 = TObjBoss2Tunnel__sub_8007E6C4(temp_r3) + 1;
+    }
+    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
+    if (temp_r3_2 != NULL) {
+        var_r31 += TObjBoss2Tunnel__sub_8007E6C4(temp_r3_2);
+    }
+    return var_r31;
+}
 
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0) {
     return (TObjBoss2Tunnel__data_805D926C * farg0) / TBoss8Dragon__sub_803D64C0(arg0 / 2);

@@ -10,6 +10,10 @@ void TObjPlayer__sub_801274F8(u8 *arg0);
 extern const f32 lbl_805DADD0;
 extern const f32 lbl_805DADD4;
 void TObjPlayer__sub_80127460(void *arg0);
+u8 * TObjPlayer__sub_80127520(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_801275E4(u8 *arg0);
 }
 
 extern "C" {
@@ -29,6 +33,19 @@ void TObjPlayer__sub_80127460(void *arg0) {
 
 void TObjPlayer__sub_801274F8(u8 *arg0) {
     draw_status_icons__10TObjPlayerFPvPvPv(arg0, arg0 + 0x1F8, arg0 + 0x204);
+}
+u8 *TObjPlayer__sub_801275E4(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x220));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(TObjPlayer__sub_80127520(temp_r3, tl_05, arg0));
+        }
+        return var_r0;
+    }
+    return NULL;
 }
 
 }

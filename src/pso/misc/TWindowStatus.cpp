@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+s32 draw_default_entry__9TWindowDDFi(void *, f32, f32);
+M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_8025995C();
+M2C_UNK TWindowSubComCard__sub_802710C4(void *, int);
+extern const f32 lbl_805DD470;
+extern const f32 lbl_805DD474;
+void render__13TWindowStatusFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *TWindowStatus__ct(void *arg0);
 void *__dt__13TWindowStatusFv(void *arg0, s16 arg1);
@@ -20,6 +31,24 @@ M2C_UNK fn_80270014(s32);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(s32);
 M2C_UNK update_fade__17TWindowSubComCardFPv(s32);
 M2C_UNK update_status_help_item(s32);
+
+#pragma fp_contract on
+void render__13TWindowStatusFv(u8 *arg0) {
+  f32 temp_f1;
+  u8 *new_var;
+  s32 temp_r31;
+  f32 new_var2;
+  s32 temp_r3;
+  temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xE);
+  TWindowSubStatusDisp__sub_8025995C();
+  new_var2 = (f32) lbl_805DD474;
+  new_var = arg0;
+  temp_f1 = *((f32 *) (((s8 *) temp_r31) + 0x10));
+  *((f32 *) (((s8 *) temp_r31) + 8)) = (f32) ((lbl_805DD474 * temp_f1) + lbl_805DD470);
+  temp_r3 = draw_default_entry__9TWindowDDFi((void *) arg0, (f32) temp_f1, new_var2);
+  TWindowSubComCard__sub_802710C4((void *) arg0, (int) temp_r3);
+  TWindowSubStatusDisp__sub_80257BC0((void *) new_var, (void *) (arg0 + 0x24), (int) temp_r3);
+}
 
 void run_task__13TWindowStatusFv(s32 arg0) {
     TWindowSubStatusDisp__sub_80270F14();

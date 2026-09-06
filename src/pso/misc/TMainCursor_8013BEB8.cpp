@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 * TObjButterflyLobby__sub_8007A5D8(s32, s32, s32);
+void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 s32 find_by_pos__11TMainCursorFiss(s32 arg0, s16 arg1, s16 arg2);
 void init_slots__11TMainCursorFPv(void* p);
@@ -35,6 +40,10 @@ s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 extern const f32 TMainCursor__data_805DB0C0;
+
+void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2) {
+    TObjButterflyLobby__sub_8007A5D8(arg2, arg1, 0x28A0);
+}
 
 void reset_cursor_parts__11TMainCursorFPv(u8 *arg0) {
     s32 var_r30;

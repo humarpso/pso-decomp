@@ -51,6 +51,10 @@ void __dt__14TItemEquipBaseFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__14TItemProShield[];
 void *__dt__14TItemProShieldFv(void *arg0, s16 arg1);
+u8 * TItemProShield__ct(void *, M2C_UNK, s32);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TItemProShield__sub_801187D0(s32 arg0);
 }
 
 extern "C" {
@@ -173,6 +177,21 @@ void TItemProShield__vt42(u8 *arg0) {
         }
     }
 }
+
+u8 *TItemProShield__sub_801187D0(s32 arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != 0) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1A0));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(TItemProShield__ct(temp_r3, tl_05, arg0));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
+
 void free__14TItemProShieldFv(void) { fn_800F953C((void*)(lbl_805D54C8)); lbl_805D54C8 = 0; }
 void load_data__14TItemProShieldFv(void) {
     s32 temp_r3;

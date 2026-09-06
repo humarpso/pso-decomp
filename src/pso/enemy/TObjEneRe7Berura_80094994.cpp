@@ -157,6 +157,15 @@ struct VObj_80094BA4_80094994 : Base_80094BA4_80094994 {
 };
 
 extern "C" {
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+extern const f32 TObjEneRe7Berura__data_805D9764;
+extern const f32 lbl_805D9770;
+void TObjEneRe7Berura__sub_80094BFC(u8 *arg0);
+}
+
+extern "C" {
 
 s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0);
 void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
@@ -204,5 +213,13 @@ s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0) {
     }
     return 0;
 }
+#pragma push
+#pragma fp_contract on
+void TObjEneRe7Berura__sub_80094BFC(u8 *arg0) {
+    if ((objInBand__FP7GameObjf(arg0, lbl_805D9770) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneRe7Berura__data_805D9764) != 0)) {
+        TBoss3Volopt__sub_8022675C(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003BC1F)), (u32) (arg0 + 0x38), 0, 0);
+    }
+}
+#pragma pop
 
 }

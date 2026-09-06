@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK free_child__9TWindowDDFPv(int);
+M2C_UNK apply_input__9TWindowDDFPvPv(int, int);
+M2C_UNK update__9TWindowDDFPvi(int, int, int);
+void TWindowDD__sub_803434F4(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1);
 void free_buffers__9TWindowDDFv(void);
@@ -28,6 +35,37 @@ s32 update_close_flag__9TWindowDDFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__9TWindowDD[];
+
+void TWindowDD__sub_803434F4(u8 *arg0) {
+    u8 *var_r31;
+    u8 *var_r3;
+    u8 *var_r4;
+    u8 *var_r5;
+    var_r31 = (u8 *)(arg0);
+    var_r3 = (u8 *)(var_r31 + (M2C_FIELD(arg0, s32 *, 0x20) * 4));
+    var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x24));
+    free_child__9TWindowDDFPv((int) (var_r3));
+    var_r3 = (u8 *)(var_r31);
+    var_r4 = (u8 *)(var_r31 + (M2C_FIELD(var_r31, s32 *, 0x20) * 4));
+    var_r4 = (u8 *)(M2C_FIELD(var_r4, u8 **, 0x24));
+    apply_input__9TWindowDDFPvPv((int) (var_r3), (int) (var_r4));
+    var_r3 = (u8 *)(var_r31);
+    var_r5 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
+    var_r4 = (u8 *)(var_r31 + (M2C_FIELD(var_r31, s32 *, 0x20) * 4));
+    M2C_FIELD(var_r4, u8 **, 0x44) = var_r5;
+    var_r4 = (u8 *)((void *) M2C_FIELD(var_r31, s32 *, 0x20));
+    M2C_FIELD(var_r31, s32 *, 0x20) = (s32) (var_r4 + 1);
+    var_r4 = (u8 *)(var_r31 + (M2C_FIELD(var_r31, s32 *, 0x20) * 4));
+    var_r4 = (u8 *)(M2C_FIELD(var_r4, u8 **, 0x24));
+    update__9TWindowDDFPvi((int) (var_r3), (int) (var_r4), (int) (var_r5));
+    var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB4));
+    M2C_FIELD(var_r31, u8 **, 0xB0) = var_r3;
+    var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x8C));
+    M2C_FIELD(var_r31, u8 **, 0x88) = var_r3;
+    var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x90));
+    M2C_FIELD(var_r31, u8 **, 0x8C) = var_r3;
+    M2C_FIELD(var_r31, u8 **, 0x90) = (unsigned char *) ((void *)-1);
+}
 
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

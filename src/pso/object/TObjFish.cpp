@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_split_screen(void);
+u8 * TObjFish__ct(void *, M2C_UNK, void *);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjFish__create(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__8TObjFishFv(void *arg0, s16 arg1);
 void free_resource__8TObjFishFv(void);
@@ -28,6 +36,20 @@ void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
 }
 
 extern u32 TObjFish__data_805D65E8;
+
+u8 *TObjFish__create(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (is_split_screen() != 0) {
+        return NULL;
+    }
+    temp_r3 = (u8 *)(__nw__7TObjectFUl(0xA4));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TObjFish__ct(temp_r3, tl_05, arg0));
+    }
+    return var_r0;
+}
 
 void free_resource__8TObjFishFv(void) {
     if ((u32) TObjFish__data_805D65E8 != 0U) {

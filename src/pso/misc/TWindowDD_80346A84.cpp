@@ -5,12 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-u8 TWindowDD__sub_80346F30(u8 *arg0);
+s32 TWindowDD__sub_80346F30(u8 *arg0);
+s32 TWindowDD__sub_80346F30(u8 *arg0);
+s32 TWindowDD__sub_80348398();
+s32 TWindowDD__sub_80346DB8(s32 arg0);
 }
 
 extern "C" {
 
-int TWindowDD__sub_80346DB8(void);
 int TWindowDD__sub_80346E68(void);
 int TWindowDD__sub_80346ECC(void);
 s32 get_element_ptr__9TWindowDDFi(s32 arg0);
@@ -159,15 +161,55 @@ void ws_data_load(void) {
     }
 }
 
-int TWindowDD__sub_80346DB8(void) { return 0; }
+s32 TWindowDD__sub_80346DB8(s32 arg0) {
+  s32 temp_r3;
+  s32 var_r31;
+  s32 var_r30;
+  s32 var_r3;
+  var_r30 = arg0;
+  var_r31 = 0;
+  temp_r3 = TWindowDD__sub_80348398();
+  switch (temp_r3)
+  {
+    case 0:
+      var_r31 = 1;
+      break;
+    case 1:
+      var_r31 = 3;
+      if (var_r30)
+    {
+    }
+      break;
+    case 2:
+      var_r31 = 5;
+      break;
+    case 3:
+      var_r31 = 7;
+      break;
+    case 4:
+      var_r31 = 9;
+      break;
+    case 5:
+      var_r31 = 0xB;
+      break;
+  }
+  var_r3 = var_r30;
+  var_r30 = 0;
+  if (TWindowDD__sub_80346F30((u8 *)((int) var_r3)) != 0)
+  {
+    var_r30 = 1;
+  }
+  var_r3 = var_r31 + var_r30;
+  return var_r3;
+}
 
 void render__9TWindowDDFv(void) {  }
 
 int TWindowDD__sub_80346E68(void) { return 0; }
 int TWindowDD__sub_80346ECC(void) { return 0; }
 
-u8 TWindowDD__sub_80346F30(u8 *arg0) {
-    return (u8) (M2C_FIELD(arg0, s16 *, 0x1C) != -1);
+s32 TWindowDD__sub_80346F30(u8 *arg0) {
+    return M2C_FIELD(arg0, s16 *, 0x1C) != -1;
 }
 
 }

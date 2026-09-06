@@ -9,6 +9,16 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80156844(void *, void *, M2C_UNK);
 void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0);
+s32 TObjEneMe1GiGue__sub_802CDAC4(M2C_UNK, s32);
+f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK, s32);
+extern f32 lbl_805D6840;
+extern f32 lbl_805D6844;
+extern f32 lbl_805D6848;
+extern f32 lbl_805D684C;
+extern s32 lbl_805D6850;
+extern s32 lbl_805D6854;
+extern const f32 lbl_805DE668;
+void TObjEneMe1GiGue__sub_802CAF24(s32 arg0);
 }
 
 extern "C" {
@@ -60,6 +70,20 @@ s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0) {
     }
     return 0;
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEneMe1GiGue__sub_802CAF24(s32 arg0) {
+    lbl_805D6840 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 1);
+    lbl_805D6844 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 2);
+    lbl_805D6848 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 3);
+    lbl_805D684C = TObjEneMe1GiGue__sub_802CDAD8(arg0, 4);
+    lbl_805D6850 = TObjEneMe1GiGue__sub_802CDAC4(arg0, 0);
+    lbl_805D6854 = TObjEneMe1GiGue__sub_802CDAC4(arg0, 1);
+    M2C_FIELD(arg0, s32 *, 0x44C) = (s32) (lbl_805DE668 * (f32) TObjEneMe1GiGue__sub_802CDAC4(arg0, 3));
+    M2C_FIELD(arg0, s32 *, 0x450) = TObjEneMe1GiGue__sub_802CDAC4(arg0, 4);
+}
+#pragma pop
 
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x438) = get_pos_x__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x318));

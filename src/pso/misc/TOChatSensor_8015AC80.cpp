@@ -4,11 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_8015AF10
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+  f32 sp14;
+};
+
 extern "C" {
 void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
 u8 TODoorAncient08__sub_80229220(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 void run_task__12TOChatSensorFv(u8 *arg0);
+f32 TObjPlayer__sub_8001978C(f32);
+s32 check_demo_mode__10TObjPlayerFv(void);
+M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
+extern const f32 lbl_805DB388;
+extern const f32 lbl_805DB38C;
+void render__12TOChatSensorFv(u8 *arg0);
 }
 
 extern "C" {
@@ -64,6 +78,20 @@ void init_params__12TOChatSensorFPv(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;
 }
+
+typedef struct Stack_8015AF10 Stack_8015AF10;
+void render__12TOChatSensorFv(u8 *arg0) {
+  Stack_8015AF10 stack;
+  if (check_demo_mode__10TObjPlayerFv() == 1)
+  {
+    stack.sp8 = lbl_805DB388;
+    stack.spC = lbl_805DB388;
+    stack.sp14 = (stack.sp10 = lbl_805DB38C);
+    TObjPlayer__sub_8001978C(*((f32 *) (((s8 *) arg0) + 0x9C)));
+    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+  }
+}
+
 void run_task__12TOChatSensorFv(u8 *arg0) {
     s32 temp_r0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x90) == 0U) {

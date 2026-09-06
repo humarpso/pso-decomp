@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjBoss2Tunnel__sub_8003B1D8(void *);
+void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
+}
+
+extern "C" {
 
 void TBoss2DeRolLe__sub_800338BC(void);
 void handle_6x13_de_rol_le_boss_actions(void *arg0);
@@ -60,6 +65,10 @@ void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
 
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2) {
     create_particle__17TObjBoss2CeilJunkFv(arg2, 0x121);
+}
+
+void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1) {
+    TObjBoss2Tunnel__sub_8003B1D8((void *) (arg1));
 }
 
 void reset_fields_3d0__13TBoss2DeRolLeFPv(void* p) { *(s32*)((char*)p + 0x3d0) = 0; *(s32*)((char*)p + 0x3d4) = 0; }

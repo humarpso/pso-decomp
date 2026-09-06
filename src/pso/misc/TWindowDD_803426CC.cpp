@@ -5,11 +5,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s16 TWindowDD__sub_80342158(int);
+M2C_UNK TWindowDD__sub_8034330C(void *);
+M2C_UNK TWindowDD__sub_803435A0(void *);
+M2C_UNK TWindowDD__sub_80347B70(void *);
+M2C_UNK TWindowDD__sub_80347C50();
+M2C_UNK play_se__9TWindowDDFv();
+M2C_UNK play_sound__9TWindowDDFv();
+s32 TWindowDD__sub_803482B0(void *);
+s32 test_input_flag_4__9TWindowDDFPv(void *);
+void TWindowDD__sub_80342800(u8 *arg0);
+s16 TWindowDD__sub_80342158(int);
+void TWindowDD__sub_803428C4(u8 *arg0);
+}
+
+extern "C" {
 
 void enter_state_16__9TWindowDDFPv(void *arg0);
 void update__9TWindowDDFi(s32 arg0);
 void update_state__9TWindowDDFPv(void *arg0);
-M2C_UNK TWindowDD__sub_803428C4(s32);
 s32 TWindowDD__sub_80342F84();
 M2C_UNK TWindowDD__sub_8034330C(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
@@ -64,11 +78,65 @@ void update_state__9TWindowDDFPv(void *arg0) {
     }
 }
 
+void TWindowDD__sub_80342800(u8 *arg0) {
+    u8 *var_r31;
+    u8 *var_r3;
+    var_r31 = (u8 *)(arg0);
+    TWindowDD__sub_80347C50();
+    var_r3 = (u8 *)(var_r31);
+    TWindowDD__sub_80347B70((void *)((int) (var_r3)));
+    var_r3 = (u8 *)(var_r31);
+    if (test_input_flag_4__9TWindowDDFPv((void *)((int) (var_r3))) != 0) {
+        play_sound__9TWindowDDFv();
+        var_r3 = (u8 *)(var_r31 + (M2C_FIELD(var_r31, s32 *, 0x20) * 4));
+        var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x24));
+        if (TWindowDD__sub_80342158((int) (var_r3)) == 0x2C8) {
+            var_r3 = (u8 *)((void *)5);
+            M2C_FIELD(var_r31, s32 *, 0xB4) = 0x11;
+            M2C_FIELD(var_r31, s16 *, 0xC6) = 5;
+            M2C_FIELD(var_r31, s16 *, 0xC4) = 0;
+        } else {
+            var_r3 = (u8 *)((void *)4);
+            M2C_FIELD(var_r31, s32 *, 0xB4) = 0xE;
+            M2C_FIELD(var_r31, s16 *, 0xC6) = 4;
+            M2C_FIELD(var_r31, s16 *, 0xC4) = 1;
+        }
+        var_r3 = (u8 *)(var_r31);
+        TWindowDD__sub_803435A0((void *)((int) (var_r3)));
+        return;
+    }
+    var_r3 = (u8 *)(var_r31);
+    if (TWindowDD__sub_803482B0((void *)((int) (var_r3))) != 0) {
+        play_se__9TWindowDDFv();
+        var_r3 = (u8 *)(var_r31);
+        TWindowDD__sub_8034330C((void *)((int) (var_r3)));
+    }
+}
+
+void TWindowDD__sub_803428C4(u8 *arg0) {
+    u8 *var_r31;
+    u8 *var_r3;
+    var_r31 = (u8 *)(arg0);
+    M2C_FIELD(arg0, M2C_UNK32 *, 0xB4) = 0xD;
+    M2C_FIELD(arg0, s16 *, 0xFC) = 0x37;
+    var_r3 = (u8 *)(var_r31 + (M2C_FIELD(arg0, s32 *, 0x20) * 4));
+    var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x24));
+    if (var_r3 != NULL) {
+        M2C_FIELD(var_r31, s16 *, 0xFC) = TWindowDD__sub_80342158((int)(var_r3));
+        if ((s16) M2C_FIELD(var_r31, s16 *, 0xFC) == 0x43) {
+            var_r3 = (u8 *)((void *)0x11U);
+            M2C_FIELD(var_r31, M2C_UNK32 *, 0xB4) = 0x11;
+            M2C_FIELD(var_r31, s16 *, 0xC6) = 5;
+        }
+        M2C_FIELD(var_r31, s16 *, 0xC4) = 0;
+    }
+}
+
 void update__9TWindowDDFi(s32 arg0) {
     TWindowDD__sub_80347C50();
     if (test_input_flag_4__9TWindowDDFPv((void *)(arg0)) != 0) {
         play_sound__9TWindowDDFv();
-        TWindowDD__sub_803428C4(arg0);
+        TWindowDD__sub_803428C4((u8 *)(arg0));
         TWindowDD__sub_803435A0((void *)(arg0));
         return;
     }

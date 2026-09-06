@@ -3,6 +3,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
@@ -15,9 +16,15 @@ extern s32 lbl_805D3888;
 extern const f32 lbl_805DCAD4;
 extern const f32 lbl_805DCAE0;
 void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3);
+s32 TWindowFukidasi__sub_80244DFC(void *, void *, void *, void *);
+void TWindowFukidasi__sub_80244F00(s32 arg0, s32 arg1);
 }
 
 extern "C" {
+
+void TWindowFukidasi__sub_80244F00(s32 arg0, s32 arg1) {
+    TWindowFukidasi__sub_80244DFC((void *) (arg0), (void *) (arg0 + 0x30), (void *) (arg0 + 0x38), (void *) (arg1));
+}
 
 void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     f32 temp_f1;

@@ -4,10 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_801012DC(void *, s16);
 M2C_UNK TObjPlayer__sub_802D577C(void *);
 void TObjPlayer__sub_802D5894(void *arg0);
+M2C_UNK spawn_item__10TObjPlayerFi(void *);
+void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -32,6 +35,11 @@ void *enter_state_341__10TObjPlayerFPv(void *arg0) {
 
     extern const float lbl_805DE790;
 void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1) { set_radar_marker_params__10TObjPlayerFPvPv(); *(float*)((char*)a1 + 0x38) = lbl_805DE790; }
+
+void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1) {
+    spawn_item__10TObjPlayerFi((void *) (arg1));
+}
+
 void TObjPlayer__sub_802D5894(void *arg0) {
     s16 temp_r4;
     s16 temp_r4_2;

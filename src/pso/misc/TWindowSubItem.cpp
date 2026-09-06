@@ -64,6 +64,11 @@ M2C_UNK TWindowSubItem__sub_80279A60(void *, int, void *);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
 s32 TWindowSubItem__sub_80279F28(u8 *arg0, s32 arg1);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+M2C_UNK TObjPlayer__sub_801B7B58(int, int, int);
+s32 select_cursor_entry__6TLobbyFPv(int);
+s32 get_selected_entry__14TWindowSubItemFPv(void *arg0);
+void TWindowSubItem__sub_802797FC(u8 *arg0);
 }
 
 extern "C" {
@@ -79,7 +84,6 @@ void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
 int fn_8027ABFC(void*);
-void get_selected_entry__14TWindowSubItemFPv(void *arg0);
 void refresh__14TWindowSubItemFPv(void* p);
 void render__14TWindowSubItemFv(void);
 void reset_selected__14TWindowSubItemFPv(void* p);
@@ -129,6 +133,19 @@ void set_displayed_item__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
         TWindowHelpItem__set_displayed_item_by_id(M2C_FIELD(arg0, u32 *, 0x40));
     }
 }
+
+#pragma push
+#pragma scheduling off
+void TWindowSubItem__sub_802797FC(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, u32 *, 0x24)));
+    if (temp_r3 != 0) {
+        temp_r31 = get_selected_entry__14TWindowSubItemFPv((void *)((int) (M2C_FIELD(arg0, s32 *, 0x30))));
+        TObjPlayer__sub_801B7B58((int) (temp_r3), (int) (select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 0x30)))), (int) (temp_r31));
+    }
+}
+#pragma pop
 
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
     if (TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, s32 *, 0x24))) != 0U) {
@@ -309,7 +326,7 @@ void TWindowSubItem__sub_8027AA30(u8 *arg0) {
 
 void reset_selected__14TWindowSubItemFPv(void* p) { *(s16*)((char*)p + 0x88) = -1; }
 void set_field_74__14TWindowSubItemFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x74) = v; }
-void get_selected_entry__14TWindowSubItemFPv(void *arg0) {
+s32 get_selected_entry__14TWindowSubItemFPv(void *arg0) {
     get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x88));
     get_cursor_pos__14TWindowSubItemFPv();
 }

@@ -2,11 +2,19 @@
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+struct M2CCopy_28
+{
+  u8 bytes[0x28];
+};
+
 extern "C" {
 void TObjPlayer__sub_801D1F44(void* p);
 extern M2C_UNK fn_80152EF8[];
 void __construct_array(void *, void *, int, int, int);
 void * TObjPlayer__sub_801D1EE4(void *arg0);
+int TFontSmallLobby__sub_801C0228(void*);
+s32 TObjPlayer__sub_801D1E7C(s32 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -32,7 +40,36 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-int TObjPlayer__sub_801D1E7C(void) { return 0; }
+typedef struct M2CCopy_28 M2CCopy_28;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+s32 TObjPlayer__sub_801D1E7C(s32 arg0, u8 *arg1) {
+  s32 var_r30;
+  s32 var_r3;
+  s32 var_r5;
+  s32 var_r6;
+  u8 *var_r31;
+  u8 *var_r4;
+  var_r30 = arg0;
+  var_r31 = (u8 *) arg1;
+  TFontSmallLobby__sub_801C0228((void*)(arg0));
+  var_r6 = *((s32 *) (((s8 *) var_r31) + 4));
+  var_r3 = *((s32 *) (((s8 *) var_r31) + 8));
+  if ((arg0 && arg0) && arg0)
+  {
+  }
+  var_r5 = var_r30 + 8;
+  var_r4 = (u8 *) (var_r31 + 8);
+  *((s32 *) (((s8 *) var_r30) + 4)) = var_r6;
+  *((s32 *) (((s8 *) var_r30) + 8)) = var_r3;
+  *((M2CCopy_28 *) (var_r5 + 4)) = *((const M2CCopy_28 *) (((s32) var_r4) + 4));
+  var_r5 += 0x28;
+  var_r4 += 0x28;
+  var_r3 = var_r30;
+  return var_r3;
+}
+
 void *TObjPlayer__sub_801D1EE4(void *arg0) {
     TObjPlayer__sub_801D1F44((void*)((void *)((char *)arg0 + 4)));
     __construct_array((void *)((char *)arg0 + 12), fn_80152EF8, 0, 4, 10);

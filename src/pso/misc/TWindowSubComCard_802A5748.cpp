@@ -7,11 +7,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57FC(void *arg0);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
+u8 * TShopJudgmentItemWindow__sub_80266388(M2C_UNK, s32, void *, u32);
+s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+u8 * fn_8026652C(M2C_UNK, M2C_UNK, s32, s32);
+int set_flag_40__16TAdChrSelASlotGCFPv(void*);
+s32 set_status_flag_80__12TQuestThreadFPv(s32);
+s32 TWindowSubComCard__sub_80265CFC(s32, f32);
+M2C_UNK get_position_offset__14TChCrTagPlBackFPvPv(void *, void *);
+void TWindowSubShortMail__sub_802A58AC(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0);
 }
 
 extern "C" {
 
-int TWindowSubShortMail__sub_802A58AC(void*, void*, void*, void*);
 int close__17TWindowSubComCardFPv(void* p);
 void free_member__17TWindowSubComCardFPv(void* p);
 s32 get_card_data__17TWindowSubComCardFPv(void *arg0);
@@ -67,6 +75,19 @@ void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     set_status_flag_80__12TQuestThreadFPv(M2C_FIELD(arg0, s32 *, 0x28));
     TWindowSubComCard__sub_80265CFC(M2C_FIELD(arg0, s32 *, 0x28), farg0);
 }
-int TWindowSubShortMail__sub_802A58AC(void*, void*, void*, void*) { return 0; }
+void TWindowSubShortMail__sub_802A58AC(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0) {
+    M2C_UNK sp8;
+    if (arg1 == 0U) {
+        M2C_FIELD(arg0, s32 *, 0x28) = TCheckRoomSequence__sub_802664A8(arg3, 1, M2C_FIELD(arg0, s32 *, 0x24));
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x28) = (long) (fn_8026652C(arg3, 1, (s32) arg1, M2C_FIELD(arg0, s32 *, 0x24)));
+    }
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((void *) M2C_FIELD(arg0, s32 *, 0x28)), (s32)(arg2), (s32)(0x21), (s32)(0));
+    set_flag_40__16TAdChrSelASlotGCFPv((void*)((int) (M2C_FIELD(arg0, s32 *, 0x28))));
+    set_status_flag_80__12TQuestThreadFPv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x28))));
+    TWindowSubComCard__sub_80265CFC((s32)((int) (M2C_FIELD(arg0, s32 *, 0x28))), (f32) (farg0));
+    get_position_offset__14TChCrTagPlBackFPvPv((void *) (arg0), (void *) (&sp8));
+    M2C_FIELD(arg0, u8 **, 0x2C) = TShopJudgmentItemWindow__sub_80266388((s32) &sp8, M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, u8 **, 0x20), M2C_FIELD(arg0, u32 *, 0x1C));
+}
 
 }

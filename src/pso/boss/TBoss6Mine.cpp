@@ -8,6 +8,12 @@ extern "C" {
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 extern const f32 lbl_805DF58C;
 s32 TBoss6Mine__sub_803240C4(s32 arg0);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 lbl_805DF5BC;
+extern const f32 lbl_805DF5C0;
+extern const f32 lbl_805DF5C4;
+void TBoss6Mine__vt0(u8 *arg0);
 }
 
 extern "C" {
@@ -125,6 +131,35 @@ void TBoss6Mine__vt1(void *arg0) {
 }
 
 extern M2C_UNK lbl_804ECBAC[];
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Mine__vt0(u8 *arg0) {
+    f32 temp_f31;
+    f32 temp_f3;
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r0_3;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x38C);
+    temp_f31 = M2C_FIELD(arg0, f32 *, 0x3AC) / lbl_805DF5BC;
+    if (temp_r0 > 0xF) {
+        temp_r0_2 = 0x1E - temp_r0;
+        if (temp_r0_2 > 0) {
+            temp_f3 = M2C_FIELD(arg0, f32 *, 0x3B4);
+            M2C_FIELD(arg0, f32 *, 0x3B4) = (f32) (temp_f3 + ((lbl_805DF5C0 - temp_f3) / (f32) temp_r0_2));
+        }
+    }
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) ((temp_f31 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x37C))) + M2C_FIELD(arg0, f32 *, 0x38));
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) ((temp_f31 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x37C))) + M2C_FIELD(arg0, f32 *, 0x40));
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((lbl_805DF5C4 * TBoss8Dragon__sub_803D64C0((s32) (M2C_FIELD(arg0, s32 *, 0x38C) << 0xF) / 30)) + M2C_FIELD(arg0, f32 *, 0x3B4));
+    temp_r0_3 = M2C_FIELD(arg0, s32 *, 0x38C) + 1;
+    M2C_FIELD(arg0, s32 *, 0x38C) = temp_r0_3;
+    if (temp_r0_3 > 0x1E) {
+        M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x380) = 1;
+    }
+}
+#pragma pop
 
 void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

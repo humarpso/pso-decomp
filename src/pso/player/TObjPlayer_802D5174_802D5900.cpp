@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK spawn_item__10TObjPlayerFi(void *);
+void TObjPlayer__sub_802D59E0(M2C_UNK arg0, s32 arg1);
+}
+
+extern "C" {
 
 void reset_animation_state__10TObjPlayerFPv(void *arg0);
 f32 TObjPlayer__sub_8017A1A4(s32, M2C_UNK);
@@ -18,6 +23,9 @@ void reset_animation_state__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x24C) = (f32) (lbl_805DE790 + TObjPlayer__sub_8017A1A4(M2C_FIELD(arg0, s32 *, 0xF0), 0));
     M2C_FIELD(arg0, s32 *, 0x250) = 0;
     TObjPlayer__sub_802D577C(arg0);
+}
+void TObjPlayer__sub_802D59E0(M2C_UNK arg0, s32 arg1) {
+    spawn_item__10TObjPlayerFi((void *) (arg1));
 }
 
 }

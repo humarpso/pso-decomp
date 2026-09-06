@@ -3933,6 +3933,7 @@ pso/item/TItemDrop_80105D0C_80105D0C.cpp:
 
 pso/item/TItemDrop_80105D0C.cpp:
 	.text       start:0x80106498 end:0x80107B74
+	.rodata     start:0x8043E120 end:0x8043E128
 
 pso/item/TItemDropSub_80107B74.cpp:
 	.text       start:0x80107B74 end:0x80107B90
@@ -4079,6 +4080,7 @@ pso/item/TItemEquipBase_8010B76C.cpp:
 
 pso/item/TItemData_8010B7F8.cpp:
 	.text       start:0x8010B7F8 end:0x8010C6A0
+	.rodata     start:0x8043E348 end:0x8043E350
 
 pso/item/TItemData.cpp:
 	.text       start:0x8010C6A0 end:0x8010C940
@@ -7078,6 +7080,7 @@ pso/misc/TODragonflyCave01.cpp:
 
 pso/misc/TODragonfly.cpp:
 	.text       start:0x80164760 end:0x80164F50
+	.rodata     start:0x804411A8 end:0x804411B0
 
 pso/misc/TODragonflyMachine01.cpp:
 	.text       start:0x80164F50 end:0x8016582C
@@ -7274,6 +7277,7 @@ pso/misc/TOMonumentAncient02.cpp:
 
 pso/misc/TORainbowCave01_80173014.cpp:
 	.text       start:0x80173014 end:0x80173478
+	.rodata     start:0x80442430 end:0x80442438
 
 pso/misc/TORevlightCave01_80173478.cpp:
 	.text       start:0x80173478 end:0x80173590
@@ -12590,6 +12594,7 @@ pso/misc/TWindowKeyBoardHard_8026038C.cpp:
 
 pso/misc/TWindowKeyBoardSoft_80260450.cpp:
 	.text       start:0x80260450 end:0x8026130C
+	.rodata     start:0x8044F258 end:0x8044F260
 
 pso/misc/TKeyBoardControl.cpp:
 	.text       start:0x8026130C end:0x80261440
@@ -13925,6 +13930,7 @@ pso/unk/text_802A0A30.cpp:
 
 pso/ui/TAdTitleGC.cpp:
 	.text       start:0x802A0A60 end:0x802A0F3C
+	.rodata     start:0x80466238 end:0x80466240
 
 pso/misc/TLobby_802A0F3C.cpp:
 	.text       start:0x802A0F3C end:0x802A1020
@@ -14695,6 +14701,7 @@ pso/enemy/TObjEneMe1GiGueBarrier_802CABE4.cpp:
 
 pso/enemy/TObjEneMe1GiGue.cpp:
 	.text       start:0x802CAC80 end:0x802CB274
+	.rodata     start:0x804722A0 end:0x804722A8
 
 pso/enemy/TObjEneMe1GiGue_802CB274.cpp:
 	.text       start:0x802CB274 end:0x802CB620
@@ -16097,6 +16104,7 @@ pso/boss/TBoss6Type1_80323DCC.cpp:
 
 pso/boss/TBoss6Mine.cpp:
 	.text       start:0x80323E1C end:0x80324CEC
+	.rodata     start:0x804766A8 end:0x804766B0
 
 pso/boss/TBoss5GryphonLightningWing_80324CEC.cpp:
 	.text       start:0x80324CEC end:0x80324D3C
@@ -16665,6 +16673,7 @@ pso/misc/TWindowDD_80341AC0.cpp:
 
 pso/misc/TWindowDD_80341B10.cpp:
 	.text       start:0x80341B10 end:0x80342254
+	.rodata     start:0x80478610 end:0x80478618
 
 pso/misc/TWindowDD_80342254.cpp:
 	.text       start:0x80342254 end:0x803424EC

@@ -12,6 +12,27 @@ struct DfV_80164cc4_80164760 : DfBase_80164cc4_80164760 {
 };
 
 extern "C" {
+s32 TODragonfly__sub_80158360(s32, f32);
+s32 TODragonfly__sub_80164764(void *, f32);
+s32 rand__11TOBoss4RockFv(void);
+extern const f32 lbl_805DB560;
+extern const f32 lbl_805DB578;
+extern const f32 lbl_805DB57C;
+extern const f32 lbl_805DB588;
+extern const f32 lbl_805DB58C;
+void TODragonfly__sub_80164990(u8 *arg0);
+s32 TODragonfly__sub_80158360(s32, f32);
+s32 TODragonfly__sub_80164764(void *, f32);
+s32 rand__11TOBoss4RockFv(void);
+extern const f32 lbl_805DB560;
+extern const f32 lbl_805DB578;
+extern const f32 lbl_805DB57C;
+extern const f32 lbl_805DB58C;
+extern const f32 lbl_805DB590;
+void TODragonfly__sub_80164B34(s32 arg0);
+}
+
+extern "C" {
 
 struct Base_80164c34_80164760 { char pad[0x18]; };
 struct VObj_80164c34_80164760 : Base_80164c34_80164760 {
@@ -32,9 +53,7 @@ void draw_model__11TODragonflyFPv(u8 *arg0);
 void update__11TODragonflyFPv(void *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 M2C_UNK TODragonfly__sub_8016492C(void *);
-M2C_UNK TODragonfly__sub_80164990(void *);
 M2C_UNK TODragonfly__sub_80164A90(void *);
-M2C_UNK TODragonfly__sub_80164B34(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -50,6 +69,46 @@ M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
 void TODragonfly__sub_80164760(void) {  }
 
 extern const f32 lbl_805DB580;
+
+#pragma push
+#pragma fp_contract on
+void TODragonfly__sub_80164990(u8 *arg0) {
+    s32 temp_r5;
+    temp_r5 = M2C_FIELD(arg0, s32 *, 0xCC);
+    M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (temp_r5 + 1);
+    if (lbl_805DB578 < (f32) temp_r5) {
+        if (TODragonfly__sub_80158360((s32) arg0, lbl_805DB588) == 1) {
+            if (TODragonfly__sub_80164764(arg0, lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
+                M2C_FIELD(arg0, s32 *, 0xAC) = 3;
+                M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+            }
+        } else if (TODragonfly__sub_80164764(arg0, M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())) - lbl_805DB560)) == 1) {
+            M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+            M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+        }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TODragonfly__sub_80164B34(s32 arg0) {
+    s32 temp_r4;
+    if (TODragonfly__sub_80158360(arg0, lbl_805DB590) == 1) {
+        if (TODragonfly__sub_80164764((void *) arg0, lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
+            M2C_FIELD(arg0, s32 *, 0xAC) = 3;
+            M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+        }
+    } else {
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0xCC);
+        M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (temp_r4 + 1);
+        if ((lbl_805DB578 < (f32) temp_r4) && (TODragonfly__sub_80164764((void *) arg0, M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())) - lbl_805DB560)) == 1)) {
+            M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+            M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+        }
+    }
+}
+#pragma pop
 
 void draw_model__11TODragonflyFPv(u8 *arg0) {
     if (((VObj_80164c34_80164760 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
@@ -76,13 +135,13 @@ void update__11TODragonflyFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
     switch (temp_r0) {
     case 0:
-        TODragonfly__sub_80164B34(arg0);
+        TODragonfly__sub_80164B34((s32)(arg0));
         return;
     case 1:
         TODragonfly__sub_80164A90(arg0);
         return;
     case 2:
-        TODragonfly__sub_80164990(arg0);
+        TODragonfly__sub_80164990((u8 *)(arg0));
         return;
     case 3:
         TODragonfly__sub_8016492C(arg0);

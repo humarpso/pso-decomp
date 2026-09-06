@@ -41,6 +41,15 @@ f32 TCameraCtrl__sub_803D8D00(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
 void TParticleCtrl__sub_80088844(u8 *arg0);
+u8 * TParticleCtrl__sub_800896E4(void *, void *, void *, void *, s32, u16, s16);
+void *TParticleCtrl__sub_8008673C(int);
+u8 *TParticleCtrl__sub_8008877C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
+u8 * TParticleCtrl__sub_8008AC24(void *, void *, void *, void *, s32, u16, s16);
+void *TParticleCtrl__sub_8008673C(int);
+u8 *TParticleCtrl__sub_80089F7C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
+u8 * TParticleCtrl__sub_8008BF58(void *, void *, void *, s32, u16, s16);
+void *TParticleCtrl__sub_8008673C(int);
+u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 }
 
 extern "C" {
@@ -109,6 +118,17 @@ s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0) {
 
 extern M2C_UNK TParticleCtrl__data_8048E778[];
 
+u8 *TParticleCtrl__sub_8008877C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    temp_r3 = (u8 *)(((u8 *)TParticleCtrl__sub_8008673C((int)(0xD0))));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TParticleCtrl__sub_800896E4(temp_r3, arg0, arg1, arg2, arg3, arg4, arg5));
+    }
+    return var_r0;
+}
+
 void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = TParticleCtrl__sub_8008673C(0xd0);
@@ -149,6 +169,17 @@ void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1) {
 
 extern M2C_UNK TParticleCtrl__data_8048E790[];
 
+u8 *TParticleCtrl__sub_80089F7C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    temp_r3 = (u8 *)(((u8 *)TParticleCtrl__sub_8008673C((int)(0xE0))));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TParticleCtrl__sub_8008AC24(temp_r3, arg0, arg1, arg2, arg3, arg4, arg5));
+    }
+    return var_r0;
+}
+
 void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
     o = TParticleCtrl__sub_8008673C(0xe0);
@@ -176,6 +207,17 @@ void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK TParticleCtrl__data_8048E7A8[];
+
+u8 *TParticleCtrl__sub_8008B478(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    temp_r3 = (u8 *)(((u8 *)TParticleCtrl__sub_8008673C((int)(0xC4))));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TParticleCtrl__sub_8008BF58(temp_r3, arg0, arg1, arg2, arg3, arg4));
+    }
+    return var_r0;
+}
 
 void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2) {
     void *o;

@@ -5,17 +5,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_800BB218
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+};
+
+extern "C" {
+f32 get_random_float__8TObjFishFv(f32);
+s32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+extern const f32 lbl_805D9EA4;
+s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+}
+
 extern "C" {
 
 void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2);
-u32 TObjEneDD__sub_800BB218(f32, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, s32);
 
 void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
     s32 temp_r5;
 
     f32 temp_f3 = farg2 + M2C_FIELD(arg0, f32 *, 0x37C);
-    if (TObjEneDD__sub_800BB218(farg0, farg1, temp_f3) == 0U) {
+    if (TObjEneDD__sub_800BB218((u8 *)(arg0), farg0, farg1, temp_f3) == 0U) {
         M2C_FIELD(arg1, f32 *, 0) = (f32) ((farg0 * farg2) + M2C_FIELD(arg0, f32 *, 0x38));
         M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
         M2C_FIELD(arg1, f32 *, 8) = (f32) ((farg1 * farg2) + M2C_FIELD(arg0, f32 *, 0x40));
@@ -25,6 +38,22 @@ void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 f
     temp_r5 = M2C_FIELD(arg0, s32 *, 0x380);
     M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_r5 + 1);
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x38, temp_r5);
+}
+typedef struct Stack_800BB218 Stack_800BB218;
+s32 TObjEneDD__sub_800BB218(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+  f32 temp_f31;
+  Stack_800BB218 stack;
+  f32 temp_f30;
+  temp_f30 = farg0 * farg2;
+  temp_f31 = farg1 * farg2;
+  if ((get_random_float__8TObjFishFv(temp_f30) < lbl_805D9EA4) && (get_random_float__8TObjFishFv(temp_f31) < lbl_805D9EA4))
+  {
+    return farg0 * 0;
+  }
+  stack.sp8 = (*((f32 *) (((s8 *) arg0) + 0x38))) + temp_f30;
+  stack.spC = *((f32 *) (((s8 *) arg0) + 0x300));
+  stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x40))) + temp_f31;
+  return TObjButterflyLobby__sub_8007A5D8((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) 0x88E0);
 }
 
 }

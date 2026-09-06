@@ -9,6 +9,12 @@ void set_flags_B0__10TObjPlayerFPvUi(void* p, u32 v);
 void TObjPlayer__sub_800A7798(u8 *arg0, f32 farg0);
 void set_param__12TObjEneLappyFPvi(void *, s32);
 void TObjPlayer__sub_800A7B54(u8 *arg0);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+M2C_UNK request_two_effects__10TObjPlayerFPv(void *);
+M2C_UNK apply_effect_variant_a__10TObjPlayerFii(void *, int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(s32, M2C_UNK);
+void TObjPlayer__sub_800A7988(s32 arg0);
 }
 
 extern "C" {
@@ -69,6 +75,18 @@ void play_hit_sound__10TObjPlayerFi(s32 arg0) {
         TBoss3Volopt__sub_8022675C(temp_r3, arg0 + 0x38, 0, 0);
     }
     play_effect_if_v2__10TObjPlayerFi(-0x100);
+}
+
+void TObjPlayer__sub_800A7988(s32 arg0) {
+    s32 temp_r3;
+    apply_effect_variant_a__10TObjPlayerFii((void *) (arg0 + 0x38), (int) (0));
+    request_two_effects__10TObjPlayerFPv((void *) (arg0 + 0x2FC));
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    if ((temp_r3 == 0x13) || (temp_r3 == 0x14)) {
+        TBoss3Volopt__sub_8022675C((M2C_UNK)(0x3AD3F), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
+        return;
+    }
+    TBoss3Volopt__sub_8022675C((M2C_UNK)(((s32)copy_target_state__14TObjEnePanarmsFPvPv((s32)((void *) (arg0)), (M2C_UNK)((int) (0x4003AD25))))), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
 }
 
 void set_dead_and_check_destroy__10TObjPlayerFPv(u8 *arg0) {

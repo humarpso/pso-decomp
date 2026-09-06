@@ -7,21 +7,40 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TObjPlayer__sub_80115BC0(s32 *arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_80115BFC(s32 *arg0, s32 arg1);
+s32 is_split_screen(void);
+u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *fn_80115B14(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 void approach_value__20TItemEffOrgaFlowShotFPvff(f32 *arg0, f32 farg0, f32 farg1);
 int fn_80115AF0(void* p);
-int fn_80115B14(void);
 int decrement_packed_timer__15TObjBoss2TunnelFPvi(void*);
 int decrement_timer__17TItemEffectWeaponFPv(void* p);
 int set_flags__10TObjPlayerFPvUi(void*);
 
 int fn_80115AF0(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x1c); }
-int fn_80115B14(void) { return 0; }
 
 extern const f32 lbl_805DABE8;
+
+#pragma push
+#pragma scheduling off
+u8 *fn_80115B14(s32 arg0, s32 arg1, s32 arg2) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (is_split_screen() == 0) {
+        temp_r3 = (u8 *)(__nw__7TObjectFUl(0x4C));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(__ct__15TEffStarLight2DFv(temp_r3, arg0, arg1, arg2));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
+#pragma pop
 
 void approach_value__20TItemEffOrgaFlowShotFPvff(f32 *arg0, f32 farg0, f32 farg1) {
     *arg0 += farg0;

@@ -14,6 +14,12 @@ M2C_UNK TFontSmallLobby__sub_801D677C(void *);
 extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E4;
 void TFontSmallLobby__sub_801D6350(u8 *arg0, f32 farg0);
+int update_field_40__15TFontSmallLobbyFPv(void *);
+M2C_UNK TFontSmallLobby__sub_801D5FC0();
+extern const f32 lbl_805DC3DC;
+extern const f32 lbl_805DC3E0;
+extern const f32 lbl_805DC3E4;
+s32 TFontSmallLobby__sub_801D62D0(u8 *arg0, f32 farg0);
 }
 
 extern "C" {
@@ -24,6 +30,36 @@ int TFontSmallLobby__sub_801D67AC(void*);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
 u16 get_type__15TFontSmallLobbyFPv();
 M2C_UNK send_field_state__10TObjPlayerFPv();
+
+s32 TFontSmallLobby__sub_801D62D0(u8 *arg0, f32 farg0) {
+  const f32 *new_var;
+  f32 temp_f0;
+  f32 temp_f1;
+  temp_f0 = *((f32 *) (((s8 *) arg0) + 0x3C));
+  if (temp_f0 < lbl_805DC3DC)
+  {
+    *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (temp_f0 - farg0);
+    if ((*((f32 *) (((s8 *) arg0) + 0x3C))) < (*(new_var = &lbl_805DC3E0)))
+    {
+      *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (*new_var);
+      return 0;
+    }
+    goto block_7;
+  }
+  *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (temp_f0 - farg0);
+  temp_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));
+  if (temp_f1 < lbl_805DC3DC)
+  {
+    TFontSmallLobby__sub_801D5FC0();
+  }
+  else
+    if (temp_f1 < lbl_805DC3E4)
+  {
+    update_field_40__15TFontSmallLobbyFPv(arg0);
+  }
+  block_7:
+  return 1;
+}
 
 void TFontSmallLobby__sub_801D6350(u8 *arg0, f32 farg0) {
     f32 temp_f0;

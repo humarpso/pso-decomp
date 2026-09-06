@@ -47,6 +47,10 @@ M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 lbl_805D9B5C;
 extern const f32 lbl_805D9B60;
 void TObjPlayer__sub_800AB1C8(u8 *arg0);
+f32 get_random_float__8TObjFishFv(f32);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+extern const f32 lbl_805D9B10;
+s32 TObjPlayer__sub_800AB068(u8 *arg0);
 }
 
 extern "C" {
@@ -91,6 +95,18 @@ void TObjPlayer__sub_800AB034(u8 *arg0) {
     temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
     M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 0x0A000000);
     obj_setFlags30(arg0, 0x04000000U);
+}
+
+s32 TObjPlayer__sub_800AB068(u8 *arg0) {
+  u8 *new_var;
+  f32 temp_f31;
+  ;
+  if ((get_random_float__8TObjFishFv((*((f32 *) (((s8 *) arg0) + 0x38))) - (*((f32 *) (((s8 *) arg0) + 0x44)))) + get_random_float__8TObjFishFv((*((f32 *) (((s8 *) arg0) + 0x40))) - (*((f32 *) (((s8 *) arg0) + 0x4C))))) > lbl_805D9B10)
+  {
+    VecCopy__FP3VecPC3Vec((void *) ((new_var = arg0) + 0x38), (void *) (arg0 + 0x44));
+    return 1;
+  }
+  return 0;
 }
 
 void TObjPlayer__sub_800AB1C8(u8 *arg0) {

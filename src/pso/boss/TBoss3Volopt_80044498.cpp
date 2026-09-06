@@ -58,12 +58,78 @@ struct Stack_80045A04 {
     f32 sp10;
 };
 
+struct VBase_18_b8f5cb { char pad[0x18]; };
+
+struct VObj_18_b8f5cb : VBase_18_b8f5cb {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual s32 m30();
+    virtual s32 m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual M2C_UNK m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual M2C_UNK m60();
+    virtual M2C_UNK m61();
+};
+
 extern "C" {
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
 extern u16 TBoss3Volopt__data_805D2710;
 void check_and_notify__12TBoss3VoloptFv(s32 _w0);
-M2C_UNK TBoss3Volopt__sub_80044498();
 f32 TBoss8Dragon__sub_803D64C0(s32);
 extern const f32 TBoss3Volopt__data_805D87E4;
 extern const f32 lbl_805D8818;
@@ -125,6 +191,24 @@ extern const f32 lbl_805D87D4;
 extern const f32 TBoss3Volopt__data_805D87D8;
 extern const f32 lbl_805D87DC;
 void TBoss3Volopt__sub_80045A04(u8 *arg0);
+s32 obj_testFlags30(void*, M2C_UNK);
+f32 get_random_float__8TObjFishFv(f32);
+s32 TBoss3Volopt__sub_8003F398(void);
+s32 check_demo_mode__10TObjPlayerFv();
+s32 minimap_render_dot(void *, s32, s16, s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+M2C_UNK TObjPlayer__sub_800192DC(void *);
+s32 TObjPlayer__sub_800194AC(void *, int, int);
+M2C_UNK obj_clearFlags30(void *, int);
+M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
+M2C_UNK TBoss3Volopt__sub_80044498(void *);
+M2C_UNK TBoss3Volopt__sub_80047714(void *);
+M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+extern u8 *TBoss3Volopt__data_805D4D00;
+extern const f32 TBoss3Volopt__data_805D87E4;
+void TBoss3Volopt__sub_800477A0(u8 *arg0);
 }
 
 extern "C" {
@@ -210,7 +294,7 @@ void update_state__12TBoss3VoloptFPv(void *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x46C) = 6;
-        TBoss3Volopt__sub_80044498();
+        TBoss3Volopt__sub_80044498((void *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805D8818 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x46C) * 0x3000));
@@ -285,6 +369,58 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
         ((VObjB_80044498 *)(arg0 + 0x490))->n7();
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss3Volopt__sub_800477A0(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+    temp_f1 = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x47C));
+    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 6) = (s8) get_random_float__8TObjFishFv(temp_f1 * M2C_FIELD(arg0, f32 *, 0x484));
+    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 5) = (s8) get_random_float__8TObjFishFv(temp_f1 * M2C_FIELD(arg0, f32 *, 0x488));
+    M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 4) = (s8) get_random_float__8TObjFishFv(temp_f1 * M2C_FIELD(arg0, f32 *, 0x48C));
+    M2C_FIELD(arg0, s32 *, 0x47C) = (s32) (M2C_FIELD(arg0, s32 *, 0x47C) + M2C_FIELD(arg0, s32 *, 0x480));
+    if (check_demo_mode__10TObjPlayerFv() != 1) {
+        if (((VObj_18_b8f5cb *)(arg0))->m31() != 0) {
+            ((VObj_18_b8f5cb *)(arg0))->m61();
+        } else if (((VObj_18_b8f5cb *)(arg0))->m30() != 0) {
+            if (TBoss3Volopt__sub_8003F398() != 0) {
+                TBoss3Volopt__sub_80044498((void *)((void *) (arg0)));
+                M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
+                M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss3Volopt__data_805D87E4;
+            } else {
+                ((VObj_18_b8f5cb *)(arg0))->m60();
+            }
+        }
+        if (obj_testFlags30((void*)(arg0), (M2C_UNK)(0x4000)) != 0) {
+            if (TObjPlayer__sub_800194AC((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
+                TObjPlayer__sub_800192DC((void *) (arg0 + 0x284));
+                obj_clearFlags30((void *) (arg0), (int) (0x4000));
+            }
+        } else {
+            if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
+                temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+                if (temp_r0 != -1) {
+                    M2C_FIELD(arg0, s32 *, 0x470) = temp_r0;
+                    M2C_FIELD(arg0, s32 *, 0x37C) = -1;
+                    TBoss3Volopt__sub_80047714((void *) (arg0));
+                }
+                M2C_FIELD(arg0, s32 *, 0x380) = (s32) M2C_FIELD(arg0, s16 *, 0x326);
+                M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
+                M2C_FIELD(arg0, s32 *, 0x37C) = 0;
+            }
+            TBoss3Volopt__sub_80047714((void *) (arg0));
+            update_prev_position__10TObjPlayerFPv((void *) (arg0));
+            copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
+            TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+            minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+            TObjPlayer__sub_800D7BB0((void *) (arg0 + 0x490));
+            ((VObj_18_b8f5cb *)(arg0))->m53();
+        }
+    }
+}
+#pragma pop
+
 void *TBoss3Volopt__sub_80047DD4(void *arg0) {
     void *o = __nw__7TObjectFUl((M2C_UNK)(0x510));
     if (o != NULL) {

@@ -7,6 +7,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
+u8 * TLobby__sub_80101AB0(s32);
+u8 get_field_ec__12TOSwitchItemFPv(void *);
+s32 TMainCursor__sub_8013B41C(M2C_UNK, s32, u8, u8);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 TItemObject__sub_80115DE8(int);
+M2C_UNK set_slot__20TWindowActionPaletteFPvUc(int, int);
+M2C_UNK set_mode__20TWindowActionPaletteFPvUc(int, int);
+M2C_UNK TMainCursor__sub_8013DFC4(int);
+void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1);
 }
 
 extern "C" {
@@ -61,6 +70,48 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
         return 1;
     }
     return ((u32) M2C_FIELD(temp_r31, u32 *, 0x34) >> 4U) & 1;
+}
+
+void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1) {
+    s32 var_r30;
+    s32 var_r4;
+    s32 var_r5;
+    u32 temp_r3;
+    u32 var_r29;
+    u32 var_r31;
+    u32 var_r3;
+    u8 var_r6;
+    var_r31 = arg0;
+    var_r3 = arg1;
+    var_r30 = TPlayerBattleCtrl4P__sub_801BA74C((s32)(var_r3));
+    if (var_r30 != 0) {
+        var_r29 = M2C_FIELD(var_r30, u32 *, 0x424);
+        if (var_r29 != 0U) {
+            var_r3 = var_r31;
+            temp_r3 = (unsigned long) (TLobby__sub_80101AB0((s32) var_r3));
+            var_r31 = temp_r3;
+            if ((var_r31 != 0) && (get_field_ec__12TOSwitchItemFPv((void *) temp_r3) == 3)) {
+                var_r3 = var_r31;
+                var_r31 = TItemObject__sub_80115DE8((int) (var_r3));
+                if ((s32) var_r31 != -1) {
+                    var_r4 = var_r30;
+                    var_r3 = var_r29 + 0x520;
+                    var_r6 = (u8) var_r31;
+                    var_r5 = 4;
+                    if (TMainCursor__sub_8013B41C((s32) var_r3, var_r4, 4U, var_r6) != 0) {
+                        var_r3 = var_r29 + 0x520;
+                        var_r4 = 4;
+                        set_mode__20TWindowActionPaletteFPvUc((int) (var_r3), (int) (4));
+                        var_r3 = var_r29 + 0x520;
+                        var_r4 = (s32) (u8) var_r31;
+                        set_slot__20TWindowActionPaletteFPvUc((int) (var_r3), (int) (var_r4));
+                        var_r3 = var_r29 + 0x520;
+                        TMainCursor__sub_8013DFC4((int) (var_r3));
+                    }
+                }
+            }
+        }
+    }
 }
 
 void destroy_children__20TWindowShortListCtrlFPv(void *arg0) {

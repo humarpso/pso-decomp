@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern const f32 lbl_805DB940;
+extern const f32 lbl_805DB944;
+extern const f32 lbl_805DB948;
+extern const f32 lbl_805DB94C;
+void TORainbowCave01__sub_8017307C(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1);
 void *create__15TORainbowCave01FPv(void *arg0);
@@ -31,6 +40,15 @@ s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0) {
 }
 
 extern void *tl_05;
+
+#pragma push
+#pragma fp_contract on
+void TORainbowCave01__sub_8017307C(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (lbl_805DB940 / (((f32) M2C_FIELD(arg0, s32 *, 0x84) * lbl_805DB948) + lbl_805DB944));
+    M2C_FIELD(arg0, f32 *, 0xD0) = (f32) (lbl_805DB94C + (f32) M2C_FIELD(arg0, s32 *, 0x8C));
+    VecCopy__FP3VecPC3Vec(arg0 + 0xD4, arg0 + 0x68);
+}
+#pragma pop
 
 void *create__15TORainbowCave01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);

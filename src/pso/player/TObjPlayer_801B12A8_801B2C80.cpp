@@ -5,13 +5,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
+s32 TObjPlayer__sub_801D92F4(void *);
+s32 TObjPlayer__sub_801D9328();
+s32 TObjPlayer__sub_801D93C4(void *);
+s32 fn_801B2FC8(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 void TObjPlayer__vt76(s32 arg0, s32 arg1);
 int TWindowHelpItem__sub_801B3038(void);
 void apply_speed_scale__10TObjPlayerFif(s32 arg0, f32 farg0);
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 clear_negative_status_effects__10TObjPlayerFi(s32 arg0);
-int fn_801B2FC8(void);
 int fn_801B309C(void* p);
 void send_code_13_3__10TObjPlayerFii(s32 arg0, s32 arg1);
 M2C_UNK TFontSmallLobby__sub_801C0228();
@@ -82,7 +89,28 @@ void apply_speed_scale__10TObjPlayerFif(s32 arg0, f32 farg0) {
     TObjPlayer__sub_800A7798(arg0, var_f1);
 }
 
-int fn_801B2FC8(void) { return 0; }
+#pragma scheduling off
+s32 fn_801B2FC8(s32 arg0, s32 arg1) {
+  void *new_var;
+  unsigned int new_var2;
+  s32 temp_r30;
+  s32 temp_r31;
+  if (arg0 == 0)
+  {
+    if (!arg0)
+    {
+    }
+    return 0;
+  }
+  temp_r31 = TObjPlayer__sub_801D9328();
+  new_var = (void *) arg0;
+  temp_r30 = temp_r31;
+  new_var2 = (int) temp_r30;
+  temp_r31 = TObjPlayer__sub_801D92F4(new_var);
+  set_params__10TObjPlayerFPvPvPviPv((void *) arg1, new_var, (void *) TObjPlayer__sub_801D93C4(new_var), (int) temp_r31, new_var2);
+  return 1;
+}
+
 int TWindowHelpItem__sub_801B3038(void) { return 0; }
 int fn_801B309C(void* p) { return recover_full__10TObjPlayerFPv(p); }
 

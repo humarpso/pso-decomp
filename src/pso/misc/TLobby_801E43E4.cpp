@@ -5,12 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TProtocol__send_60(int, int, int);
+M2C_UNK TLobby__sub_801E3FA4(void *);
+extern u32 TLobby__data_805D5580;
+extern s32 lbl_805D5E50;
+void TLobby__send_and_handle_60(u8 *arg0);
+}
+
+extern "C" {
 
 void bswap_switch_activate_token__6TLobbyFPv(void* p);
 void dispatch_packet__6TLobbyFPv(void *arg0);
 void send_command__6TLobbyFPvUi(void *arg0, u32 arg1);
 void update_players__6TLobbyFi(s32 arg0);
-M2C_UNK TLobby__send_and_handle_60();
 M2C_UNK TLobby__sub_801E3FA4(void *);
 M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
 int bswap_16__FPUs(void*);
@@ -63,11 +70,30 @@ extern s32 TLobby__data_805D5598;
 extern void *lbl_805D5E48;
 extern s32 lbl_805D5E50;
 
+void TLobby__send_and_handle_60(u8 *arg0) {
+    s32 var_r5;
+    u8 *var_r31;
+    u8 *var_r3;
+    u8 *var_r4;
+    var_r31 = (u8 *)(arg0);
+    var_r4 = (u8 *)((*(u8 * *)&TLobby__data_805D5580));
+    var_r5 = M2C_FIELD(arg0, u8 *, 1) * 4;
+    if (var_r4 != NULL) {
+        var_r3 = (u8 *)(var_r4);
+        var_r4 = (u8 *)(var_r31);
+        TProtocol__send_60((int) (var_r3), (int) (var_r4), (int) (var_r5));
+    }
+    var_r3 = (u8 *)(var_r31);
+    lbl_805D5E50 = 1;
+    TLobby__sub_801E3FA4((void *)((int) (var_r3)));
+    lbl_805D5E50 = 0;
+}
+
 void update_players__6TLobbyFi(s32 arg0) {
     void *var_r31;
 
     if ((s32) TLobby__data_805D5598 == 1) {
-        TLobby__send_and_handle_60();
+        TLobby__send_and_handle_60((u8 *)(arg0));
         return;
     }
     if ((void *) lbl_805D5E48 != NULL) {

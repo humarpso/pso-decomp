@@ -5,10 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
+int TAdSinglePlyChrSelectGC__sub_802E1A8C(void*, void*, void*, void*, void*);
+void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+}
+
+extern "C" {
 
 void *TAdSinglePlyChrSelectGC__sub_802E13C8(void *arg0, s16 arg1);
 int TAdSinglePlyChrSelectGC__sub_802E18C8(void);
-int TAdSinglePlyChrSelectGC__sub_802E1A04(void*, void*, void*, void*, void*);
 void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
 void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4);
@@ -205,10 +210,22 @@ void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     fn_8023F18C();
     init_change_mode__21TAdMultiChgGameModeGCFv();
 }
-void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv((void *)(p)); TAdSinglePlyChrSelectGC__sub_802E1A04((void*)(p), (void*)(a1), (void*)(a2), (void*)(a3), (void*)(a4)); }
+void close_and_next__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv((void *)(p)); TAdSinglePlyChrSelectGC__sub_802E1A04((s32)((void*)(p)), (s32)((void*)(a1)), (s32)((void*)(a2)), (s32)((void*)(a3)), (s32)((void*)(a4))); }
 void close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void* p, void* a1, void* a2, void* a3, void* a4) { close_windows__23TAdSinglePlyChrSelectGCFPv((void *)(p)); TAdSinglePlyChrSelectGC__sub_802E1A8C(p, a1, a2, a3, a4); }
 
-int TAdSinglePlyChrSelectGC__sub_802E1A04(void*, void*, void*, void*, void*) { return 0; }
+void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    s32 temp_r31;
+    s32 var_r6;
+    temp_r31 = TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, arg1);
+    var_r6 = 0;
+    if (arg3 >= 0) {
+        var_r6 = TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, arg3);
+    }
+    if (arg4 >= 0) {
+        var_r6 = TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, arg4);
+    }
+    TAdSinglePlyChrSelectGC__sub_802E1A8C((void*)((void *) (arg0)), (void*)((int) (temp_r31)), (void*)((void *) (arg2)), (void*)((int) (var_r6)), (void*)((int) (0)));
+}
 
 void close_windows__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {

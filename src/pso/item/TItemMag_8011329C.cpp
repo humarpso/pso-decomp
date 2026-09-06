@@ -22,6 +22,7 @@ struct VObj_18 : VBase_18 {
     virtual void m13();
     virtual s16 m14();
 };
+
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int TItemData__sub_8010EE40(void*);
@@ -41,6 +42,19 @@ s32 TItemMag__sub_80113EC8(void *);
 s16 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 void TItemMag__vt42(u8 *arg0);
+s32 obj_isState2_324(void *);
+s32 TItemMag__sub_801143E8(void *, s32);
+s32 is_flag_20000_set__10TObjPlayerFv(void *);
+M2C_UNK apply_feed_delta__8TItemMagFPv(void *);
+M2C_UNK TItemMag__sub_80113EDC(void *, int, int, int);
+M2C_UNK init_feed_timer__8TItemMagFPv(void *);
+M2C_UNK TFontSmallLobby__sub_801D5FC0(void *);
+M2C_UNK TItemMag__sub_801D7964(void *);
+void TItemMag__vt43(u8 *arg0);
+u8 * TItemMag__ct(void *, M2C_UNK, s32);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TItemMag__sub_80113AD4(s32 arg0);
 }
 
 extern "C" {
@@ -116,6 +130,36 @@ void TItemMag__vt16(s32 arg0, s32 arg1) {
     TItemData__sub_8010D510(arg1, arg0 + 0x198, arg0);
 }
 
+void TItemMag__vt43(u8 *arg0) {
+  s32 temp_r3;
+  s32 var_r31;
+  u8 *temp_r6;
+  u8 *new_var;
+  if (((volatile int)obj_isState2_324(*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
+  {
+    TItemMag__sub_801D7964((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
+    var_r31 = 0;
+    do
+    {
+      temp_r3 = TItemMag__sub_801143E8(arg0 + 0x198, var_r31);
+      if (temp_r3 != (-1))
+      {
+        new_var = arg0;
+        temp_r6 = (u8 *) (*((u8 **) (((s8 *) new_var) + 0xF0)));
+        TItemMag__sub_80113EDC((void *) (temp_r6 + 0x4AC), (int) ((s16) temp_r3), (int) (-1), (int) temp_r6);
+      }
+      var_r31 += 1;
+    }
+    while (var_r31 != 3);
+    if (is_flag_20000_set__10TObjPlayerFv((void *) (*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
+    {
+      init_feed_timer__8TItemMagFPv((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
+      TFontSmallLobby__sub_801D5FC0((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
+    }
+  }
+  apply_feed_delta__8TItemMagFPv((void *) arg0);
+}
+
 void TItemMag__vt42(u8 *arg0) {
     u8 *temp_r3;
     M2C_FIELD(arg0, s32 *, 0x18C) = 0;
@@ -169,6 +213,21 @@ void *__dt__8TItemMagFv(void *arg0, s16 arg1) {
     extern int TItemMag__data_805D54A8;
     extern int lbl_805D54AC;
     extern int lbl_805D54B0;
+
+u8 *TItemMag__sub_80113AD4(s32 arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != 0) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1E0));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(TItemMag__ct(temp_r3, tl_05, arg0));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
+
 void cleanup__8TItemMagFv(void) { __dt__9TItemLoadFPvs((void*)(TItemMag__data_805D54A8), (void*)1); fn_800F953C((void*)(lbl_805D54B0)); TItemMag__data_805D54A8 = 0; lbl_805D54AC = 0; lbl_805D54B0 = 0; }
 
 void set_flags64__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x64) |= v; }

@@ -27,6 +27,9 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 extern void *lbl_805D4DF0;
 extern const f32 lbl_805DE060;
 void render__12TBGLightningFv(s32 arg0);
+u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *TBGLightning__sub_802AA164(s32 arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -72,6 +75,17 @@ extern struct VTBlob_802AA21C_802AA12C __vt__12TBGLightning;
 extern s32 lbl_805D3E38;
 extern const f32 lbl_805DE038;
 extern const f32 lbl_805DE064;
+
+u8 *TBGLightning__sub_802AA164(s32 arg0, s32 arg1, f32 farg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x30));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(__ct__12TBGLightningFv((u8 *)(temp_r3), (void *)(arg0), (s32)(arg1), farg0));
+    }
+    return var_r0;
+}
 
 u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0) {
     f32 temp_f1;

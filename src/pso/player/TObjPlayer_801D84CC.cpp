@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s8 TObjPlayer__sub_801AFDBC(s8);
+s32 clamp_index_to_max__10TObjPlayerFi(s32);
+extern int lbl_805D5E10;
+s32 TObjPlayer__sub_801D9250(s8 arg0, s32 arg1);
+}
+
+extern "C" {
 
 s32 TBoss4DarkFalz__sub_801D94C0(void* p);
 void *TObjPlayer__sub_801D89E0(void *arg0, s16 arg1);
@@ -12,7 +19,7 @@ void TObjPlayer__sub_801D8A38(void* a0);
 void TObjPlayer__sub_801D92A4(void);
 int TObjPlayer__sub_801D9470(void* p);
 void create_player_ending_motion(void);
-s32 get_current_state_field__10TObjPlayerFv(void);
+s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
 s32 get_falz_phase__10TObjPlayerFPv(void* p);
 int get_instance_count__14TBoss4DarkFalzFv(void);
 void* init_inventory__10TObjPlayerFPv(void* p);
@@ -22,7 +29,6 @@ int TLobby__sub_800F957C(void*);
 int TObjPlayer__sub_801BDFC4(void);
 int TObjPlayer__sub_801BFF80(void*);
 int TObjPlayer__sub_801C6E40(void*);
-void *TObjPlayer__sub_801D9250();
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjPlayerFv(void *, int);
 int create_named_object(void*);
@@ -65,11 +71,20 @@ s32 init_inventory_items__10TObjPlayerFi(s32 arg0) {
     return arg0;
 }
 
-s32 get_current_state_field__10TObjPlayerFv(void) {
-    return M2C_FIELD(TObjPlayer__sub_801D9250(), s32 *, 8);
+s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1) {
+    return M2C_FIELD(TObjPlayer__sub_801D9250(_w0, (s32)(_w1)), s32 *, 8);
 }
 
     extern int lbl_805D5E10;
+
+s32 TObjPlayer__sub_801D9250(s8 arg0, s32 arg1) {
+  s32 temp_r30;
+  s32 temp_r31;
+  temp_r30 = *(*(s32 * *)&lbl_805D5E10);
+  ;
+  return (*((M2C_UNK *) (((s8 *) temp_r30) + (TObjPlayer__sub_801AFDBC(arg0) * 4)))) + (clamp_index_to_max__10TObjPlayerFi(arg1) * 0xC);
+}
+
 void TObjPlayer__sub_801D92A4(void) { TLobby__sub_800F957C((void*)(lbl_805D5E10)); }
 
     extern unsigned char lbl_804492E8[];

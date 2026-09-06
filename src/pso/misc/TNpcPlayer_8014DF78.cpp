@@ -5,11 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TNpcPlayer__sub_801528B8(s32, s32);
+void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
+s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+}
+
+extern "C" {
 
 void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1);
 void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1);
 void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK TNpcPlayer__sub_8014E33C(void *, M2C_UNK);
 s32 TNpcPlayer__sub_8014F28C();
 M2C_UNK TNpcPlayer__sub_80150A34(void *, M2C_UNK);
 s32 fn_801B7C78(s32, M2C_UNK, M2C_UNK);
@@ -25,7 +32,7 @@ void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
             TNpcPlayer__sub_80150A34(arg0, 0xF);
         }
         if (M2C_FIELD(arg0, s32 *, 0x80) & 0x200) {
-            TNpcPlayer__sub_8014E33C(arg0, 0x13);
+            TNpcPlayer__sub_8014E33C((u8 *)(arg0), (u32)(0x13));
         }
         return;
     case 1:
@@ -84,6 +91,45 @@ void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
         }
         break;
     }
+}
+
+void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1) {
+  u32 *new_var;
+  int new_var2;
+  new_var = (u32 *) (((s8 *) arg0) + 0x24);
+  if (((s32) (*((s32 *) (((s8 *) arg0) + 0x84)))) != 0)
+  {
+    if (arg1 != 4U)
+    {
+      if (arg1 == 0x11U)
+      {
+        return;
+      }
+      goto block_4;
+    }
+  }
+  else
+  {
+    new_var2 = 0x24;
+    block_4:
+    TNpcPlayer__sub_801528B8((s32) (arg0 + 0x5C), 0);
+    if (arg1 != ((u32) (*((u32 *) (((s8 *) arg0) + new_var2)))))
+    {
+      *new_var = arg1;
+      *((s32 *) (((s8 *) arg0) + 0x80)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x80))) | 4);
+    }
+  }
+}
+
+s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8(arg1, arg2, 0x2100));
+    if (temp_r3 != NULL) {
+        VecCopy__FP3VecPC3Vec((void *) (arg3), (int) (M2C_FIELD(temp_r3, s32 *, 4)));
+        VecCopy__FP3VecPC3Vec((void *) (arg4), (int) (M2C_FIELD(temp_r3, s32 *, 4) + 0xC));
+        return 1;
+    }
+    return 0;
 }
 
 void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

@@ -1,8 +1,33 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+M2C_UNK *TScene__sub_80203304(M2C_UNK arg0, u8 *arg1);
+M2C_UNK *TScene__sub_80203324(M2C_UNK arg0, u8 *arg1);
+}
+
 extern "C" {
 
     extern int TScene__data_805D5FF4;
+
+M2C_UNK *TScene__sub_80203304(M2C_UNK arg0, u8 *arg1) {
+    if (M2C_FIELD(arg1, s32 *, 0x1C) & 0x200) {
+        return (long *) (*M2C_FIELD(arg1, M2C_UNK **, 0));
+    }
+    return M2C_FIELD(arg1, M2C_UNK **, 0);
+}
+
+M2C_UNK *TScene__sub_80203324(M2C_UNK arg0, u8 *arg1) {
+    if (M2C_FIELD(arg1, s32 *, 0xC) & 0x200) {
+        return (long *) (*M2C_FIELD(arg1, M2C_UNK **, 0));
+    }
+    return M2C_FIELD(arg1, M2C_UNK **, 0);
+}
+
 void set_instance__6TSceneFi(int a0) { TScene__data_805D5FF4 = a0; }
 
     extern int TScene__data_805D5FF0;

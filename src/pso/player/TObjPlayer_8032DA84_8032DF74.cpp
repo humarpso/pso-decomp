@@ -15,15 +15,31 @@ M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
 M2C_UNK TTecLuker__sub_8008764C(u32, int);
 extern const f32 lbl_805DF7E8;
 void TObjPlayer__sub_8032E0A4(u8 *arg0);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+void TObjPlayer__sub_8032DF74(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_8032DF74(void);
 int TObjPlayer__sub_8032DFF8(void);
 void TObjPlayer__sub_8032E054(void);
 
-int TObjPlayer__sub_8032DF74(void) { return 0; }
+void TObjPlayer__sub_8032DF74(u8 *arg0) {
+  u16 temp_r3;
+  u8 *temp_r3_2;
+  temp_r3 = *((u16 *) (((s8 *) arg0) + 0x34));
+  if (temp_r3 != ((-1U) & 0xFFFFu))
+  {
+    if (TPhotonMylla__sub_80154CB4(temp_r3) != 0)
+    {
+      temp_r3_2 = (u8 *) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x28)))) + 0xA4))) + ((*((s32 *) (((s8 *) arg0) + 0x2C))) * 0x2C));
+      *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x1C))) - (*((f32 *) (((s8 *) arg0) + 0x44))));
+      *((f32 *) (((s8 *) arg0) + 0x68)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x20))) - (*((f32 *) (((s8 *) arg0) + 0x48))));
+      *((f32 *) (((s8 *) arg0) + 0x6C)) = (f32) ((*((f32 *) (((s8 *) temp_r3_2) + 0x24))) - (*((f32 *) (((s8 *) arg0) + 0x4C))));
+    }
+  }
+}
+
 int TObjPlayer__sub_8032DFF8(void) { return 0; }
 
 void TObjPlayer__sub_8032E054(void) {  }

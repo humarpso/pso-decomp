@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjPlayer__sub_801093B4(void *);
+void TObjPlayer__sub_8010941C(M2C_UNK arg0, s32 arg1);
+M2C_UNK TObjPlayer__sub_801093B4(void *);
+void TObjPlayer__sub_80109440(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3);
+}
+
+extern "C" {
 
 void spawn_heaven_effect__10TObjPlayerFiUiUsi(s32 arg0, u32 arg1, u16 arg2, s32 arg3);
 M2C_UNK TItemEffHeaven__ct(u32, s32, u32, u16, s32);
@@ -15,6 +22,12 @@ void spawn_heaven_effect__10TObjPlayerFiUiUsi(s32 arg0, u32 arg1, u16 arg2, s32 
     if ((arg0 != 0) && ((u16) arg2 != 0xFFFF) && (arg1 != 0U) && ((obj = __nw__7TObjectFUl(0x4C)) != 0U)) {
         TItemEffHeaven__ct(obj, arg0, arg1, arg2, arg3);
     }
+}
+void TObjPlayer__sub_8010941C(M2C_UNK arg0, s32 arg1) {
+    TObjPlayer__sub_801093B4((void *) (arg1));
+}
+void TObjPlayer__sub_80109440(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3) {
+    TObjPlayer__sub_801093B4((void *) (arg3));
 }
 
 }

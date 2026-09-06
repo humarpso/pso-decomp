@@ -46,12 +46,13 @@ extern M2C_UNK lbl_804DD098[];
 void fn_802A6078(void* p, s32 v);
 int fn_802A5BFC(s32 _w0, s32 _w1);
 int fn_802A5BB4(void *arg0);
+int fn_802A5B74(s32 _w0, s32 _w1);
+int fn_802A5B50(s32 arg0);
 }
 
 extern "C" {
 
 s32 alloc_buffer__15TWindowSnapShotFPv(void *arg0);
-int fn_802A5B50(void);
 int fn_802A5C3C(void);
 void fn_802A5C7C(void *arg0);
 void fn_802A5CB8(void* p);
@@ -66,7 +67,8 @@ void fn_802A5B2C(s32 arg0) {
     fn_802A5B74((s32)(arg0), (s32)(arg0 + 4));
 }
 
-int fn_802A5B50(void) { return 0; }
+int fn_802A5B50(s32 arg0) { return fn_802A5B74((s32)(arg0), (s32)((void *) arg0)); }
+
 int fn_802A5B74(s32 _w0, s32 _w1) { return 0; }
 
 int fn_802A5BB4(void *arg0) { return fn_802A5BFC((s32)(arg0), (s32)((s8 *)arg0 + 0x14)); }

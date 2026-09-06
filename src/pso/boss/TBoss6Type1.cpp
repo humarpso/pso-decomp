@@ -9,11 +9,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct Stack_802B7D74
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+};
+
 extern "C" {
 u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1);
 M2C_UNK TObjPlayer__sub_800F5E08();
 extern const f32 lbl_805DE3D0;
 void render_shadows__11TBoss6Type1Fv(u8 *arg0);
+f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+s32 TObjPlayer__sub_80141F84(int, int);
+s32 TObjPlayer__sub_801423A4(int, int, int);
+f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+extern const f64 TBoss6Type1__data_80471038;
+extern f32 TBoss6Type1__data_805DE2D0;
+extern const f32 TBoss6Type1__data_805DE310;
+void TBoss6Type1__sub_802B7D74(u8 *arg0);
 }
 
 extern "C" {
@@ -118,6 +133,48 @@ void update_position__11TBoss6Type1FPv(u8 *arg0) {
         return;
     }
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - lbl_805DE3A0);
+}
+
+typedef struct Stack_802B7D74 Stack_802B7D74;
+void TBoss6Type1__sub_802B7D74(u8 *arg0) {
+  Stack_802B7D74 stack;
+  M2C_UNK var_r5;
+  int new_var;
+  f32 temp_f1;
+  s32 var_r31;
+  s32 var_r4;
+  var_r31 = 0;
+  if (((s32) (*((s32 *) (((s8 *) arg0) + 0x438)))) != 0)
+  {
+    var_r31 = 0x8000;
+  }
+  if (TObjPlayer__sub_80141F84((int) (*((s32 *) (((s8 *) arg0) + 0x5C))), (int) var_r31) < 0x666)
+  {
+    *((s32 *) (((s8 *) arg0) + 0x5C)) = var_r31;
+  }
+  else
+  {
+    *((s32 *) (((s8 *) arg0) + 0x5C)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x5C))) + 0x666);
+  }
+  stack.sp8 = -(*((f32 *) (((s8 *) arg0) + 0x38)));
+  temp_f1 = -(*((f32 *) (((s8 *) arg0) + 0x40)));
+  stack.spC = (*(const f32 *)&TBoss6Type1__data_805DE2D0);
+  stack.sp10 = temp_f1;
+  if (!(TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8), (f32) temp_f1) <= TBoss6Type1__data_805DE310))
+  {
+    var_r4 = (s32) (TBoss6Type1__data_80471038 * get_ad_end_text_start__10TObjPlayerFv((f64) stack.sp8, (f64) stack.sp10));
+    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x438)))) != 0)
+    {
+      var_r4 += 0x8000;
+    }
+    var_r5 = 0x1555;
+    new_var = (int) (*((s32 *) (((s8 *) arg0) + 0x60)));
+    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x414)))) == 0)
+    {
+      var_r5 = 0x1B4;
+    }
+    *((s32 *) (((s8 *) arg0) + 0x60)) = TObjPlayer__sub_801423A4(new_var, (int) var_r4, (int) var_r5);
+  }
 }
 
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0) {

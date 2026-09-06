@@ -2,6 +2,17 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+u8 * __ct__12TQuestThreadFv(void *, s32, s32);
+M2C_UNK destroy_board__17TQuestThreadBoardFv();
+void *__nw__7TObjectFUl(int);
+M2C_UNK set_parent__7TObjectFP7TObject(int, int);
+extern s32 tl_00;
+u8 *TObjQuestCol2__vt14(u8 *arg0);
+}
+
 extern "C" {
 
 void *TObjQuestCol2__create(void *arg0);
@@ -49,6 +60,25 @@ void *TObjQuestCol2__create(void *arg0) {
         o = TObjQuestCol2__ct(o, lbl_805D5C50, arg0);
     }
     return o;
+}
+u8 *TObjQuestCol2__vt14(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    u8 *var_r31;
+    destroy_board__17TQuestThreadBoardFv();
+    var_r31 = (u8 *)(NULL);
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) {
+        temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x194))));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) M2C_FIELD(arg0, u32 *, 0xBC), M2C_FIELD(arg0, s32 *, 0xB0)));
+        }
+        var_r31 = (u8 *)(var_r0);
+        if (var_r0 != NULL) {
+            set_parent__7TObjectFP7TObject((int) (var_r0), (int) (tl_00));
+        }
+    }
+    return var_r31;
 }
 
 }

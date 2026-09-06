@@ -8,6 +8,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 int query_teammate_state__9TObjEneDDFPv(void *);
@@ -16,6 +17,9 @@ void fn_8035D8B0(void *);
 void fn_8035D924(void *);
 extern const f32 lbl_805E01C8;
 void run_task__9TBoss6DPBFv(u8 *arg0);
+u8 * __ct__9TBoss6DPBFv(void *, s32, s32, f32);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *TBoss6Type2__sub_8035DC60(s32 arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -34,5 +38,18 @@ void run_task__9TBoss6DPBFv(u8 *arg0) {
         }
     }
 }
+#pragma push
+#pragma fp_contract on
+u8 *TBoss6Type2__sub_8035DC60(s32 arg0, s32 arg1, f32 farg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x3C));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(__ct__9TBoss6DPBFv(temp_r3, arg0, arg1, farg0));
+    }
+    return var_r0;
+}
+#pragma pop
 
 }

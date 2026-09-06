@@ -4,8 +4,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+u8 *TBoss8Dragon__sub_8007A544(s32, M2C_UNK);
+s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -29,6 +33,16 @@ s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0) {
         }
     }
     return 0;
+}
+
+s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(TBoss8Dragon__sub_8007A544(arg1, 0x16EF));
+    if (temp_r3 == NULL) {
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec((void *) (arg1), (int) (M2C_FIELD(temp_r3, s32 *, 4)));
+    return 1;
 }
 
 void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1) {

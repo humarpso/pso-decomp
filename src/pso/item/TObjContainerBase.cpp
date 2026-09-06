@@ -13,6 +13,10 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerNoItem__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+M2C_UNK TObjPlayer__sub_80154954(void *, void *);
+s32 TLobby__sub_80156A80(void *, void *, int);
+extern const f32 lbl_805DBCF4;
+f32 TObjContainerNoItem__vt20(u8 *arg0);
 }
 
 extern "C" {
@@ -68,6 +72,15 @@ void TObjContainerNoItem__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv((void *) (arg0));
         M2C_FIELD(arg0, s16 *, 0x326) = 1;
     }
+}
+f32 TObjContainerNoItem__vt20(u8 *arg0) {
+    s16 sp8;
+    if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+        sp8 = 1;
+        TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
+        TObjPlayer__sub_80154954((void *) (arg0), (void *) (&sp8));
+    }
+    return lbl_805DBCF4;
 }
 
 }

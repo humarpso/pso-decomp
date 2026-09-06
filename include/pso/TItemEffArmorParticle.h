@@ -6,8 +6,11 @@
 
 class TItemEffArmorParticle : public TObject {
 public:
-    u8 _pad1C[0x4];
+ s32 m_item_id;
  void* m_20;
+ u16 m_player_id;
+ u8 _pad26[2];
+ u32 m_item_ctrl;
 
     virtual ~TItemEffArmorParticle();
     virtual void run_task();

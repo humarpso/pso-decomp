@@ -5,6 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_split_screen(void);
+u8 * TParticleCtrl__sub_800858D0(void *, s32, s32);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+extern s32 tl_particle;
+u8 *TParticleCtrl__sub_8008592C(s32 arg0);
+s32 is_split_screen(void);
+u8 * TParticleCtrl__sub_80085E78(void *, s32, s32);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+extern s32 tl_particle;
+u8 *TParticleCtrl__sub_8008598C(s32 arg0);
+}
+
+extern "C" {
 
 void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1);
@@ -48,6 +61,34 @@ void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK lbl_8048E6DC[];
+
+u8 *TParticleCtrl__sub_8008592C(s32 arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (is_split_screen() != 0) {
+        return NULL;
+    }
+    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x90));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TParticleCtrl__sub_800858D0(temp_r3, arg0, tl_particle));
+    }
+    return var_r0;
+}
+
+u8 *TParticleCtrl__sub_8008598C(s32 arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (is_split_screen() != 0) {
+        return NULL;
+    }
+    temp_r3 = (u8 *)(__nw__7TObjectFUl(0xAC));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TParticleCtrl__sub_80085E78(temp_r3, arg0, tl_particle));
+    }
+    return var_r0;
+}
 
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

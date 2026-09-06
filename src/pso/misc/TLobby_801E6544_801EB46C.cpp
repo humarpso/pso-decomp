@@ -54,6 +54,9 @@ s16 get_kill_count__10TObjPlayerFPv(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(int, int);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801ED400(s32 arg0, s32 arg1);
+s32 get_global_state__23TAdSinglePlyChrSelectGCFv(void);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801EB85C(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -108,6 +111,27 @@ void TLobby__sub_801EB604(s32 arg0, s32 arg1) {
     temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((u32) (u16) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)))), (int)((int)(arg1)))));
     if (temp_r3 != NULL) {
         M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC)) = TLobby__sub_80142944(temp_r3);
+    }
+}
+
+void TLobby__sub_801EB85C(s32 arg0, s32 arg1) {
+    s32 temp_r0;
+    s32 var_r30;
+    s32 var_r31;
+    s32 var_r4;
+    u32 temp_r3;
+    u8 *var_r3;
+    var_r30 = arg0;
+    var_r31 = arg1;
+    temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
+    if (temp_r3 != 0U) {
+        var_r4 = (*(s32 *)&TLobby__data_805D5E78);
+        temp_r0 = M2C_FIELD(var_r4, M2C_UNK *, ((var_r30 * 4) & 0x3FC));
+        if ((temp_r0 >= 0) && (temp_r0 < 0x100)) {
+            var_r3 = (u8 *)(temp_r3 + temp_r0);
+            var_r3 = (u8 *)((void *) M2C_FIELD(var_r3, u8 *, 0x10));
+            M2C_FIELD(var_r4, M2C_UNK *, ((var_r31 * 4) & 0x3FC)) = (long) (var_r3);
+        }
     }
 }
 

@@ -12,6 +12,16 @@ extern M2C_UNK __vt__14TWindowMessage[];
 void render__14TWindowComCardFv(s32 arg0);
 extern u8 *lbl_805D553C;
 s32 TWindowComCard__sub_80249C28(s32 arg0);
+s32 TWindowSubComCard__sub_8007B070(s32);
+s32 get_keyboard_mode__17TWindowSubComCardFv(void);
+void *TWindowComCard__ct(void *, void *, void *);
+M2C_UNK clear_and_init__17TWindowSubComCardFPvPv(int, void *);
+void *__nw__7TObjectFUl(int);
+extern s32 lbl_805D53A0;
+s32 TWindowSubComCard__sub_80249A48(s32 arg0);
+void *TWindowComCard__ct(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+u8 *TWindowComCard__sub_80249980(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -48,6 +58,32 @@ void set_display_value__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     }
 }
 
+u8 *TWindowComCard__sub_80249980(s32 arg0, s32 arg1, s32 arg2) {
+    s32 var_r30;
+    s32 var_r31;
+    s32 var_r4;
+    s32 var_r5;
+    u8 *temp_r3;
+    u8 *var_r0;
+    u8 *var_r3;
+    var_r30 = arg0;
+    if (arg1 < 0) {
+        var_r3 = (u8 *)(NULL);
+        return NULL;
+    }
+    var_r3 = (u8 *)((void *)0x60);
+    var_r31 = arg2 + (arg1 * 0x90);
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x60))));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r4 = var_r30;
+        var_r5 = var_r31;
+        var_r0 = (u8 *)(((u8 *)TWindowComCard__ct((void *)(temp_r3), (void *)(var_r4), (void *)(var_r5))));
+    }
+    var_r3 = (u8 *)(var_r0);
+    return var_r3;
+}
+
 void * create__14TWindowComCardFPvPv(void *arg0, void *arg1) {
     void *x0;
     void *o;
@@ -64,6 +100,26 @@ void * create__14TWindowComCardFPvPv(void *arg0, void *arg1) {
 
 }
 extern "C" {
+
+s32 TWindowSubComCard__sub_80249A48(s32 arg0) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 var_r0;
+    temp_r3 = get_keyboard_mode__17TWindowSubComCardFv();
+    if (temp_r3 == 0) {
+        return 0;
+    }
+    if (TWindowSubComCard__sub_8007B070(temp_r3) != 0) {
+        clear_and_init__17TWindowSubComCardFPvPv((int) (temp_r3), (void *) (lbl_805D53A0));
+    }
+    temp_r3_2 = ((s32)__nw__7TObjectFUl((int) (0x60)));
+    var_r0 = temp_r3_2;
+    if (var_r0 != 0) {
+        var_r0 = ((s32)TWindowComCard__ct((void *)(temp_r3_2), (void *)(arg0), (void *)(temp_r3)));
+    }
+    return var_r0;
+}
+
 void render__14TWindowComCardFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();

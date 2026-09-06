@@ -70,10 +70,15 @@ struct VObj_18 : VBase_18 {
     virtual void m33();
     virtual u8 m34();
 };
+
 extern "C" {
 u8 get_field_ed__10TObjPlayerFPv();
 M2C_UNK set_stack_count__24TShopEquipmentListWindowFPvc(void *, void *);
 void TItemObject__vt16(u8 *arg0, u8 *arg1);
+void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TItemObject__sub_8011646C(u8 *arg0);
 }
 
 extern "C" {
@@ -189,6 +194,19 @@ void *TItemObject__ct(void *arg0, void *arg1, void *arg2) {
         TObjPlayer__sub_8010043C(arg0, (u8) (temp_r3 + 4));
     }
     return arg0;
+}
+u8 *TItemObject__sub_8011646C(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)TItemObject__ct((void *)(temp_r3), (void *)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
 }
 
 }

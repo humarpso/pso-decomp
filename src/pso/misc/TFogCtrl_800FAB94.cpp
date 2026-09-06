@@ -16,13 +16,16 @@ s32 is_split_screen();
 s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1);
 extern M2C_UNK TFogCtrl__data_80501188[];
 s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0);
+s32 get_param__8TFogCtrlFPv(void* p);
+void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
+M2C_UNK TFogCtrl__sub_800FB424(int, int, int);
+s32 TFogCtrl__sub_800FB06C(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 s32 TFogCtrl__sub_800FAC84(void* p);
 int TFogCtrl__sub_800FAC90(void);
-int TFogCtrl__sub_800FB06C(void);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
 void* get_entry__8TFogCtrlFi(int a0);
 void update_all__8TFogCtrlFv(void);
@@ -120,7 +123,43 @@ s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1) {
 }
 
 int TFogCtrl__sub_800FAFE0(s32 _w0, s32 _w1, s32 _w2) { return 0; }
-int TFogCtrl__sub_800FB06C(void) { return 0; }
+
+s32 TFogCtrl__sub_800FB06C(u8 *arg0, s32 arg1, s32 arg2) {
+  s32 var_r30;
+  s32 var_r31;
+  s32 var_r4;
+  s32 var_r5;
+  u8 *var_r29;
+  u8 *var_r3;
+  var_r29 = arg0;
+  var_r30 = arg1;
+  var_r31 = arg2;
+  if (get_param__8TFogCtrlFPv((void*)(arg0)) != 0)
+  {
+    var_r3 = (u8 *) 0;
+    return 0;
+  }
+  var_r3 = (u8 *) (var_r29 + ((*((s32 *) (((s8 *) var_r29) + 0x184))) * 4));
+  var_r3 = (u8 *) (*((u8 **) (((s8 *) var_r3) + 0x174)));
+  if (((s32) (*((s32 *) (((s8 *) var_r3) + 0x40)))) == var_r30)
+  {
+    var_r3 = (u8 *) ((void *) 1);
+    if (var_r3 && var_r3)
+    {
+    }
+    return 1;
+  }
+  var_r3 = (u8 *) var_r29;
+  var_r5 = var_r30;
+  var_r4 = 2;
+  TFogCtrl__sub_800FB424((int) var_r3, (int) 2, (int) var_r5);
+  var_r3 = (u8 *) var_r29;
+  var_r5 = var_r31;
+  var_r4 = 0;
+  TFogCtrl__sub_800FB0F8((u8 *)((int) var_r3), (s32)((int) 0), (s32)((int) var_r5));
+  var_r3 = (u8 *) ((void *) 1);
+  return 1;
+}
 
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2) {
     if (arg2 & 1) {

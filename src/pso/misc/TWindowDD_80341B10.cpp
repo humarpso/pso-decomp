@@ -7,6 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s16 TWindowDD__sub_8034214C(u8 *arg0);
 s32 TWindowDD__sub_8034217C(u8 *arg0);
+void update_fade__17TWindowSubComCardFPv(void *);
+void initialize_subwindow__9TWindowDDFPv(void *);
+s32 can_scroll__9TWindowDDFPvi(void *, s32);
+s32 TWindowDD__sub_80341AC0(void *);
+void add_scroll_offset__9TWindowDDFPvi(void* a0, int a1);
+M2C_UNK TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 TWindowDD__sub_803404A4(void *, int);
+s32 TWindowDD__sub_80342268();
+extern const f32 TWindowDD__data_805DFB20;
+extern const float TWindowDD__data_805DFCA8;
+void TWindowDD__sub_80341B28(u8 *arg0);
 }
 
 extern "C" {
@@ -24,7 +35,6 @@ void reset_fields__9TWindowDDFPv(void* a0);
 void set_mode_2__9TWindowDDFPv(void* p);
 void set_pos_and_data__9TWindowDDFPvf(u8 *arg0, f32 farg0);
 s32 update_if_field28_set__9TWindowDDFPv(void *arg0);
-s32 TWindowDD__sub_80341AC0(void);
 int TWindowDD__sub_80341F9C(void*);
 int TWindowDD__sub_80341FFC(void*);
 void TWindowSubStatusDisp__sub_80257CB8(void *);
@@ -35,6 +45,102 @@ int spawn_window__9TWindowDDFv(void);
 
 void set_mode_2__9TWindowDDFPv(void* p) { *(s32*)((char*)p + 0x64) = 2; }
 void reset_cursor__9TWindowDDFPv(void* p) { *(s32*)((char*)p + 0x64) = 0; }
+
+#pragma push
+#pragma fp_contract on
+void TWindowDD__sub_80341B28(u8 *arg0) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 temp_r3_3;
+    s32 temp_r3_4;
+    s32 temp_r4;
+    s32 temp_r4_2;
+    s32 temp_r4_3;
+    s32 temp_r5;
+    s32 var_r30;
+    s32 var_r30_2;
+    if (TWindowDD__sub_80342268() != 0) {
+        if (TWindowDD__sub_803404A4((void *) (arg0 + 0x60), (int) (0x20)) != 0) {
+            temp_r4 = M2C_FIELD(arg0, s32 *, 0x68);
+            if (temp_r4 < (s32) (M2C_FIELD(arg0, s32 *, 0x74) - 1)) {
+                temp_r3 = can_scroll__9TWindowDDFPvi(arg0, 1);
+                switch (temp_r3) {
+                case 0:
+                    M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) + 1);
+                    break;
+                case 1:
+                    M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, f32 *, 0x88) + TWindowDD__data_805DFB20);
+                    break;
+                }
+                add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)(1));
+            } else {
+                add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)(-temp_r4));
+                M2C_FIELD(arg0, s32 *, 0x6C) = 0;
+                M2C_FIELD(arg0, f32 *, 0x88) = (f32) (*(const f32 *)&TWindowDD__data_805DFCA8);
+            }
+        } else if (TWindowDD__sub_803404A4((void *) (arg0 + 0x60), (int) (0x10)) != 0) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0) {
+                temp_r3_2 = can_scroll__9TWindowDDFPvi(arg0, -1);
+                switch (temp_r3_2) {
+                case 0:
+                    M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) - 1);
+                    break;
+                case 1:
+                    M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, f32 *, 0x88) - TWindowDD__data_805DFB20);
+                    break;
+                }
+                add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)(-1));
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x7C) - 1);
+                add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)((M2C_FIELD(arg0, s32 *, 0x74) - M2C_FIELD(arg0, s32 *, 0x68)) - 1));
+                M2C_FIELD(arg0, f32 *, 0x88) = (f32) (TWindowDD__data_805DFB20 * (f32) -(M2C_FIELD(arg0, s32 *, 0x68) - M2C_FIELD(arg0, s32 *, 0x6C)));
+            }
+        } else if ((TWindowDD__sub_803404A4((void *) (arg0 + 0x60), (int) (0x10000)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x68) < (s32) (M2C_FIELD(arg0, s32 *, 0x74) - 1))) {
+            if (TWindowDD__sub_80341AC0(arg0) != 0) {
+                temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x78);
+                temp_r4_3 = temp_r4_2 - 1;
+                temp_r5 = M2C_FIELD(arg0, s32 *, 0x68) + (temp_r4_2 - (M2C_FIELD(arg0, s32 *, 0x6C) + 1));
+                temp_r3_3 = M2C_FIELD(arg0, s32 *, 0x74);
+                var_r30 = temp_r4_3;
+                if ((s32) (temp_r5 + temp_r4_3) >= temp_r3_3) {
+                    var_r30 = (temp_r3_3 - temp_r5) - 1;
+                }
+                if (var_r30 <= 0) {
+                    M2C_FIELD(arg0, s32 *, 0x6C) = temp_r4_3;
+                    add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)((M2C_FIELD(arg0, s32 *, 0x74) - 1) - M2C_FIELD(arg0, s32 *, 0x68)));
+                } else {
+                    add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)(var_r30));
+                    M2C_FIELD(arg0, f32 *, 0x88) = (f32) (((f32) var_r30 * TWindowDD__data_805DFB20) + M2C_FIELD(arg0, f32 *, 0x88));
+                }
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x74) - 1);
+                add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)((M2C_FIELD(arg0, s32 *, 0x74) - 1) - M2C_FIELD(arg0, s32 *, 0x68)));
+            }
+        } else if ((TWindowDD__sub_803404A4((void *) (arg0 + 0x60), (int) (0x20000)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0)) {
+            if (TWindowDD__sub_80341AC0(arg0) != 0) {
+                var_r30_2 = M2C_FIELD(arg0, s32 *, 0x78) - 1;
+                temp_r3_4 = M2C_FIELD(arg0, s32 *, 0x68) - M2C_FIELD(arg0, s32 *, 0x6C);
+                if ((temp_r3_4 - var_r30_2) < 0) {
+                    var_r30_2 = temp_r3_4;
+                }
+                if (var_r30_2 <= 0) {
+                    M2C_FIELD(arg0, s32 *, 0x6C) = 0;
+                    add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)(-M2C_FIELD(arg0, s32 *, 0x68)));
+                } else {
+                    add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)(-var_r30_2));
+                    M2C_FIELD(arg0, f32 *, 0x88) = (f32) -(((f32) var_r30_2 * TWindowDD__data_805DFB20) - M2C_FIELD(arg0, f32 *, 0x88));
+                }
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x6C) = 0;
+                add_scroll_offset__9TWindowDDFPvi((void*)(arg0), (int)(-M2C_FIELD(arg0, s32 *, 0x68)));
+            }
+        }
+    }
+    initialize_subwindow__9TWindowDDFPv(arg0);
+    update_fade__17TWindowSubComCardFPv(arg0);
+    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+}
+#pragma pop
 
 void init_and_mark_field8C__9TWindowDDFPv(void* p) { TWindowDD__sub_80341F9C(p); TWindowDD__sub_80341FFC(p); *(int*)((char*)p + 0x8c) = 1; }
 

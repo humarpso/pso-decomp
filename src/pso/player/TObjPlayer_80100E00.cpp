@@ -11,6 +11,8 @@ s32 is_flag_20000_set__10TObjPlayerFv(int);
 s32 test_flag_2000000__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TObjPlayer__sub_80100E38(u8 *arg0);
+M2C_UNK TOTrapAncient02__sub_800837D4(void *);
+void TObjPlayer__sub_80100EB4(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -59,6 +61,10 @@ void TObjPlayer__sub_80100E38(u8 *arg0) {
         return;
     }
     TObjPlayer__sub_80102C58((void *) (arg0));
+}
+
+void TObjPlayer__sub_80100EB4(M2C_UNK arg0, s32 arg1) {
+    TOTrapAncient02__sub_800837D4((void *) (arg1));
 }
 
 void update_screen_particle_effect__10TObjPlayerFPv(void *arg0) {

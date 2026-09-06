@@ -19,6 +19,14 @@ s32 is_mode_bit6__11TWindowChatFPv(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C974(int, void *);
 M2C_UNK TWindowChat__sub_8025CB70(int);
 s32 TWindowChat__sub_802471AC(u8 *arg0);
+int forward_card_at_1c__11TWindowChatFPv(void *);
+int get_subcard_field1c__11TWindowChatFPv(void *);
+int TWindowChat__sub_80247DAC(void *);
+M2C_UNK update_selected_symbol__20TWindowSubSymbolChatFPv();
+M2C_UNK open_symbol_chat__11TWindowChatFPv(void *);
+M2C_UNK set_active_flag__11TWindowChatFPv(void *);
+M2C_UNK set_input_active__11TWindowChatFPv(void *);
+s32 TWindowChat__sub_80247080(u8 *arg0);
 }
 
 extern "C" {
@@ -29,7 +37,31 @@ void free_icon__18TWindowSubShortCutFPv(void* p);
 int TWindowChat__sub_80247D2C(void*);
 
 int TWindowCtrl__sub_8024701C(void) { return 0; }
-int TWindowChat__sub_80247080(void) { return 0; }
+
+s32 TWindowChat__sub_80247080(u8 *arg0) {
+    s32 *temp_r31;
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
+    if (temp_r3 == NULL) {
+        return 0;
+    }
+    if (TWindowChat__sub_80247DAC(temp_r3) != 0) {
+        set_input_active__11TWindowChatFPv((void *) (arg0));
+        return 1;
+    }
+    if (get_subcard_field1c__11TWindowChatFPv(M2C_FIELD(arg0, u8 **, 0x30)) == 0) {
+        return 0;
+    }
+    set_active_flag__11TWindowChatFPv((void *) (arg0));
+    temp_r31 = (s32 *)(M2C_FIELD(arg0, s32 *, 0x38) + 4);
+    *temp_r31 = forward_card_at_1c__11TWindowChatFPv(M2C_FIELD(arg0, u8 **, 0x30));
+    if (M2C_FIELD(arg0, u16 *, 0x1E) & 0x80) {
+        open_symbol_chat__11TWindowChatFPv((void *)((int) (temp_r31)));
+        update_selected_symbol__20TWindowSubSymbolChatFPv();
+    }
+    return 1;
+}
+
 int TWindowChat__sub_80247128(void) { return 0; }
 s32 TWindowChat__sub_802471AC(u8 *arg0) {
     u32 kb = M2C_FIELD(arg0, u32 *, 0x20);

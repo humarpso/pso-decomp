@@ -23,6 +23,15 @@ TPlyMeetUserExtension meet_user_settings;
 u32 game_variations[16][2];
 const char *port_map_copyright = "DreamCast Port Map. Copyright SEGA Enterprises. 1999";
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(void *, void *);
+u8 *__ct__15TRecvGenerateIDFRC15TRecvGenerateID(u8 *arg0, u8 *arg1);
+}
+
 void copy_packet(struct packet *pkt) {
 
 }
@@ -1127,6 +1136,13 @@ TProtocol::TProtocol(TObject *parent, u16 sub_version, int language, char *seria
 
 void packet_header::bswap() {
     bswap_16(&size);
+}
+
+u8 *__ct__15TRecvGenerateIDFRC15TRecvGenerateID(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(arg0 + 8, arg1 + 8);
+    return arg0;
 }
 
 extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {

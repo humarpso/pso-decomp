@@ -6,7 +6,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowTimer__sub_80287DD8(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__12TWindowTimerFv(s32 arg0);
@@ -17,6 +16,9 @@ M2C_UNK fn_80287BE8(void *);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2);
 void run_task__12TWindowTimerFv(u8 *arg0);
+M2C_UNK TWindowSubStatusDisp__sub_80287580(void *, void *, int, f32);
+extern const f32 lbl_805DD890;
+void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -74,6 +76,10 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2) {
     reset_float_field__15TWindowHelpItemFPv(temp_r31);
 }
 
+void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1) {
+    TWindowSubStatusDisp__sub_80287580((void *) (arg1), (void *) (arg1 + 0x10), (int) (3), (f32) (lbl_805DD890));
+}
+
 s32 create__12TWindowTimerFv(void) {
     s32 var_r31;
 
@@ -103,7 +109,7 @@ extern "C" {
 void render__12TWindowTimerFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowTimer__sub_80287DD8((void *) (arg0), (int) (temp_r3));
+    TWindowTimer__sub_80287DD8((M2C_UNK)((void *) (arg0)), (s32)((int) (temp_r3)));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 

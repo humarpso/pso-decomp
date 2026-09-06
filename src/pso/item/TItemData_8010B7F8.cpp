@@ -7,6 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TItemData__sub_8010B848(u8 *arg0, s32 arg1);
 s32 TItemData__sub_8010B8B0(u8 *arg0);
+s32 get_minutes__6TLobbyFv(void);
+extern M2C_UNK lbl_8043E348;
+extern const f32 lbl_805DAB6C;
+f32 TItemData__sub_8010C5DC(u8 *arg0);
 }
 
 extern "C" {
@@ -73,6 +77,26 @@ s32 TItemData__sub_8010B8B0(u8 *arg0) {
     case 2:
         return 0;
     }
+}
+
+f32 TItemData__sub_8010C5DC(u8 *arg0) {
+    M2C_UNK *var_r4;
+    f32 var_f1;
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 var_r3;
+    var_f1 = lbl_805DAB6C;
+    if ((s32) M2C_FIELD(arg0, u8 *, 1) != 0x94) {
+        return var_f1;
+    }
+    temp_r3 = get_minutes__6TLobbyFv();
+    var_r3 = temp_r3 >> 2;
+    var_r3 = temp_r3 / 4;
+    var_r4 = (M2C_UNK *)(&lbl_8043E348);
+    temp_r3_2 = var_r3;
+    var_r3 ^= 0x80000000;
+    var_f1 = (f32) temp_r3_2;
+    return var_f1;
 }
 
 void TItemData__sub_8010C638(void *arg0, u16 arg1) {

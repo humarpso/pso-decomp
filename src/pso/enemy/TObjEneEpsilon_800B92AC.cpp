@@ -123,6 +123,11 @@ void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
+s32 fn_800B9194(void *);
+s32 TObjEneEpsilon__sub_800BBE64(M2C_UNK, void *, s32);
+M2C_UNK fn_800B98C0(void *);
+s32 transform_relative_position__9TObjEneDDFPvPv(void *, int);
+s32 TObjEneEpsilon__sub_800B95E0(u8 *arg0);
 }
 
 extern "C" {
@@ -156,7 +161,6 @@ struct VObj_800B9578_800B92AC : Base_800B9578_800B92AC {
     virtual void m96(); virtual int m97();
 };
 
-int TObjEneEpsilon__sub_800B95E0(void *);
 void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -239,10 +243,23 @@ s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {
         fn_800B98C0(arg0);
         return 0;
     }
-    return TObjEneEpsilon__sub_800B95E0((void *)(arg0));
+    return TObjEneEpsilon__sub_800B95E0((u8 *)((void *)(arg0)));
 }
 
-int TObjEneEpsilon__sub_800B95E0(void *) { return 0; }
+s32 TObjEneEpsilon__sub_800B95E0(u8 *arg0) {
+    if (TObjEneEpsilon__sub_800BBE64((s32) arg0, arg0 + 0x3B8, M2C_FIELD(arg0, s32 *, 0x3BC)) != 0) {
+        if (transform_relative_position__9TObjEneDDFPvPv((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x390))) != 0) {
+            return 1;
+        }
+        goto block_5;
+    }
+    if (fn_800B9194(arg0) != 0) {
+        return 1;
+    }
+block_5:
+    fn_800B98C0((void *) (arg0));
+    return 0;
+}
 
 void TObjEneEpsilon__sub_800B965C(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x3BC) = arg1;

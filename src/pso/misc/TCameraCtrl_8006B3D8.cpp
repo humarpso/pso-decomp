@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_split_screen(void);
+u8 * TCameraCtrl__sub_8006B588(void *, s32, s32, s32);
+void *__nw__7TObjectFUl(int);
+extern s32 lbl_805D53A0;
+extern s32 tl_07;
+u8 *TCameraCtrl__sub_8006B438(s32 arg0);
+}
+
+extern "C" {
 
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1);
 void TCameraCtrl__sub_8006BA04(void);
@@ -44,6 +53,22 @@ void update_battle_camera__11TCameraCtrlFv(void) {
 
 extern const M2C_UNK lbl_80488AD8[];
 extern s32 TCameraCtrl__data_805D4E10;
+
+u8 *TCameraCtrl__sub_8006B438(s32 arg0) {
+    s32 temp_r31;
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (is_split_screen() != 0) {
+        return NULL;
+    }
+    temp_r31 = lbl_805D53A0;
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x38))));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TCameraCtrl__sub_8006B588(temp_r3, temp_r31, arg0, tl_07));
+    }
+    return var_r0;
+}
 
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

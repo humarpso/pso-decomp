@@ -59,6 +59,10 @@ unsigned int __cvt_fp2unsigned(f32);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
 void TContainerAncient01__sub_8018A890(u8 *arg0);
+M2C_UNK TObjPlayer__sub_80154954(void *, void *);
+s32 TLobby__sub_80156A80(void *, void *, int);
+extern f32 TContainerAncient01__data_805DBD14;
+f32 TContainerAncient01__sub_8018ABE0(u8 *arg0);
 }
 
 extern "C" {
@@ -113,6 +117,19 @@ void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 ar
 
 extern f32 TContainerAncient01__data_805DBD10;
 extern f32 TContainerAncient01__data_805DBD14;
+
+f32 TContainerAncient01__sub_8018ABE0(u8 *arg0) {
+    s16 sp8;
+    if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) {
+        M2C_FIELD(arg0, s16 *, 0x338) = (s16) (M2C_FIELD(arg0, s16 *, 0x338) + 1);
+        if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+            sp8 = M2C_FIELD(arg0, s16 *, 0x338);
+            TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
+            TObjPlayer__sub_80154954((void *) (arg0), (void *) (&sp8));
+        }
+    }
+    return (*(const f32 *)&TContainerAncient01__data_805DBD14);
+}
 
 f32 check_item_type_range__19TContainerAncient01FPviPv(void *arg0, s32 arg1, s32 *arg2) {
     s32 temp_r4;

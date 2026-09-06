@@ -14,6 +14,12 @@ M2C_UNK memmove(void *, void *, int);
 M2C_UNK memset(M2C_UNK, s32, s32);
 extern u8 *lbl_805D5F6C;
 void TAdSinglePlyChrSelectGC__sub_802012AC(void);
+M2C_UNK memset(M2C_UNK, s32, s32);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32 allocation);
+extern u32 lbl_805D5F5C;
+extern u32 lbl_805D5F70;
+void TAdSinglePlyChrSelectGC__sub_802028EC(void);
 }
 
 extern "C" {
@@ -32,7 +38,7 @@ s32 init_buffer(void);
 void init_timestamped_data(void);
 s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
-s32 TAdSinglePlyChrSelectGC__sub_801FC900();
+s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32 allocation);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200690(s32, s32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(s32, M2C_UNK);
 void __dl__FPv(void*);
@@ -91,7 +97,7 @@ s32 init_and_register__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
     var_r29 = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
     if (var_r29 != 0) {
-        var_r29 = TAdSinglePlyChrSelectGC__sub_801FC900();
+        var_r29 = TAdSinglePlyChrSelectGC__sub_801FC900(var_r29);
     }
     TAdSinglePlyChrSelectGC__sub_80200690(var_r29, arg0);
     temp_r30 = get_type__23TAdSinglePlyChrSelectGCFPv(var_r29);
@@ -222,6 +228,33 @@ void free_callbacks__23TAdSinglePlyChrSelectGCFv(void) {
         __dl__FPv((void*)lbl_805D5F70);
         lbl_805D5F70 = 0U;
     }
+}
+
+void TAdSinglePlyChrSelectGC__sub_802028EC(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    s32 var_r3;
+    s32 var_r4;
+    s32 var_r5;
+    var_r3 = 0x10000;
+    var_r3 = 0x1156C;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((M2C_UNK)((int) (0x1156C)));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TAdSinglePlyChrSelectGC__sub_801FC900((s32)((int) (temp_r3)));
+    }
+    (*(s32 *)&lbl_805D5F5C) = var_r0;
+    var_r3 = 0x11C;
+    (*(s32 *)&lbl_805D5F70) = alloc__23TAdSinglePlyChrSelectGCFPv((M2C_UNK)((int) (0x11C)));
+    var_r4 = 0x10000;
+    var_r3 = (*(s32 *)&lbl_805D5F5C);
+    var_r5 = 0x1156C;
+    var_r4 = 0;
+    memset((M2C_UNK)((int) (var_r3)), (s32)((int) (0)), (s32)((int) (0x1156C)));
+    var_r3 = (*(s32 *)&lbl_805D5F70);
+    var_r4 = 0;
+    var_r5 = 0x11C;
+    memset((M2C_UNK)((int) (var_r3)), (s32)((int) (0)), (s32)((int) (0x11C)));
 }
 
 int get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv(void* p) { return get_field_118__22TAdEnterSerialAccessGCFv(p); }

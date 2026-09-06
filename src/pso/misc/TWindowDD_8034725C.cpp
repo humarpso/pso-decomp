@@ -5,10 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TWindowDD__sub_80347474(s32, s32, s32, s32);
 void TWindowDD__sub_80348688(s32, void *);
 void TWindowDD__sub_8034886C(s32, s32, void *);
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2);
+s16 TWindowDD__sub_80342158(void *);
+s16 TWindowDD__sub_80347EF4(u8 *arg0);
+M2C_UNK TWindowDD__sub_803474CC(int, int, int, int, int);
+s32 TWindowDD__sub_80348B70(s32);
+void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -71,11 +75,38 @@ block_5:
 }
 
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2) {
-    TWindowDD__sub_80347474((s32) arg0, (s32) M2C_FIELD(arg0, s16 *, 4), arg1, arg2);
+    TWindowDD__sub_80347474((s32)((s32) arg0), (s32)((s32) M2C_FIELD(arg0, s16 *, 4)), (s32)(arg1), (s32)(arg2));
     if ((s16) M2C_FIELD(arg0, s16 *, 0) > 1) {
         TWindowDD__sub_80348688(arg1, (void *) arg2);
         TWindowDD__sub_8034886C((s32) M2C_FIELD(arg0, s16 *, 6), arg1, (void *) arg2);
     }
+}
+
+void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+  s32 temp_r0;
+  s32 var_r28;
+  s32 var_r29;
+  s32 var_r30;
+  s32 var_r31;
+  int var_r3;
+  s32 var_r4;
+  s32 var_r5;
+  s32 var_r6;
+  s32 var_r7;
+  var_r29 = arg1;
+  var_r28 = arg0;
+  var_r30 = arg2;
+  var_r31 = arg3;
+  var_r3 = var_r29;
+  var_r6 = TWindowDD__sub_80348B70((s32)((int) var_r3));
+  temp_r0 = var_r6;
+  var_r3 = var_r28;
+  var_r5 = temp_r0;
+  var_r4 = var_r29;
+  var_r6 = var_r30;
+  var_r7 = var_r31;
+  var_r30 = (int) var_r4;
+  TWindowDD__sub_803474CC((int) var_r3, var_r30, (int) var_r5, (int) var_r6, (int) var_r7);
 }
 
 s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s16 arg0) {
@@ -101,6 +132,16 @@ s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1) {
         var_r31 = 1;
     }
     return var_r31;
+}
+s16 TWindowDD__sub_80347EF4(u8 *arg0) {
+    u8 *var_r3;
+    var_r3 = (u8 *)(arg0 + (M2C_FIELD(arg0, s32 *, 0x20) * 4));
+    var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x24));
+    if (var_r3 != NULL) {
+        return TWindowDD__sub_80342158(var_r3);
+    }
+    var_r3 = (u8 *)((void *)-1U);
+    return -1;
 }
 
 }

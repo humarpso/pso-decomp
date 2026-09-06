@@ -52,6 +52,14 @@ s32 TBoss7LaserPtcl__sub_80086C6C(s32, s32, s32, s32);
 M2C_UNK TObjPlayer__sub_80087638(s32, s32);
 u32 TPhotonMylla__sub_80154CB4(s32);
 s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2);
+s32 TOSwitchAttack__sub_80087278(s32, s32, M2C_UNK);
+void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 TObjPlayer__sub_8030A180(M2C_UNK, M2C_UNK, M2C_UNK, s32);
+void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
+void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1);
+s32 TObjPlayer__sub_8030A180(M2C_UNK, M2C_UNK, M2C_UNK, s32);
+void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
+void TObjPlayer__sub_80309FD4(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -60,9 +68,6 @@ struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
 s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1);
 int TObjPlayer__sub_80309F30(void);
-int TObjPlayer__sub_80309F78(void);
-int TObjPlayer__sub_80309FD4(void);
-int TObjPlayer__sub_8030A150(void);
 s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1);
 s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void clear_foot_stamp__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -112,8 +117,18 @@ s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1) {
 s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii((s32)(p), (s32)(a1), (s32)(431)); }
 
 int TObjPlayer__sub_80309F30(void) { return 0; }
-int TObjPlayer__sub_80309F78(void) { return 0; }
-int TObjPlayer__sub_80309FD4(void) { return 0; }
+
+void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1) {
+    TObjPlayer__sub_8030A180(arg0, arg1, 0x23D, 2);
+    TObjPlayer__sub_8030A180(arg0, arg1, 0x23F, 0);
+    TObjPlayer__sub_8030A2CC((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x23E)));
+}
+
+void TObjPlayer__sub_80309FD4(s32 arg0, s32 arg1) {
+    TObjPlayer__sub_8030A180(arg0, arg1, 0x237, 2);
+    TObjPlayer__sub_8030A180(arg0, arg1, 0x239, 0);
+    TObjPlayer__sub_8030A2CC((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x238)));
+}
 
 void TObjPlayer__sub_8030A030(void *arg0, void *arg1) {
     void *o;
@@ -144,9 +159,12 @@ s32 dt_follow_particle_ctrl__10TObjPlayerFis(s32 arg0, s16 arg1) {
 }
 void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p) { TPlyFollowParticleCtrl__sub_8030A694(p); *(int*)(p) = 0; *(int*)((char*)p + 0x4) = 0; return p; }
 
-int TObjPlayer__sub_8030A150(void) { return 0; }
-
 typedef struct Stack_8030A1E4 Stack_8030A1E4;
+
+void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2) {
+    TOSwitchAttack__sub_80087278((s32)((void *) (arg1)), (s32)((void *) (arg2)), (M2C_UNK)((int) (0x2000)));
+}
+
 s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2) {
   Stack_8030A1E4 stack;
   s32 temp_r3;

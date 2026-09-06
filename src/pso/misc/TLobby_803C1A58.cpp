@@ -18,6 +18,8 @@ void TLobby__sub_803CF250(void *);
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C8B38(u8 *arg0);
 short TLobby__sub_803C8B2C(u8 *arg0);
+M2C_UNK TLobby__sub_803C57C8(void *);
+void TLobby__sub_803C5B2C(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -75,6 +77,10 @@ s32 process_connection_state__6TLobbyFv(void) {
         TLobby__sub_803CE240();
     }
     return 0;
+}
+
+void TLobby__sub_803C5B2C(M2C_UNK arg0, s32 arg1) {
+    TLobby__sub_803C57C8((void *) (arg1));
 }
 
 void TLobby__sub_803C5D00(u8 *arg0) {

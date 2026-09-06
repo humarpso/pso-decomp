@@ -10,13 +10,14 @@ M2C_UNK reset_selection__9TWindowDDFPv(void *, void *);
 int TWindowDD__sub_80348520(void*);
 void TWindowDD__sub_803484C4(u8 *arg0);
 s32 TWindowDD__sub_80348470(u8 *arg0);
+int TWindowDD__sub_8034B008(s32, s32);
+void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1);
 }
 
 extern "C" {
 
 int TWindowDD__sub_80348398(void);
-int TWindowDD__sub_80348424(void);
-int TWindowDD__sub_80348448(void);
+int TWindowDD__sub_80348424(s32 _w0, s32 _w1);
 int TWindowDD__sub_80348520(void*);
 int TWindowDD__sub_803485F4(void);
 s32 clamp_range_2C9_552__9TWindowDDFs(s16 arg0);
@@ -37,7 +38,6 @@ M2C_UNK TWindowDD__sub_80345C64();
 M2C_UNK TWindowDD__sub_803461CC();
 M2C_UNK TWindowDD__sub_80346434();
 M2C_UNK TWindowDD__sub_80346640();
-int TWindowDD__sub_8034B008(void*);
 
 int test_input_flag_4__9TWindowDDFPv(void* p) { return TWindowDD__sub_80340508((char*)p + 0x1c, 4); }
 
@@ -65,9 +65,11 @@ void dispatch_state__9TWindowDDFv(void) {
 
 int TWindowDD__sub_80348398(void) { return 0; }
 
-int TWindowDD__sub_80348424(void) { return TWindowDD__sub_8034B008((void*)(1)); }
+int TWindowDD__sub_80348424(s32 _w0, s32 _w1) { return TWindowDD__sub_8034B008((s32)((void*)(1)), (s32)(_w1)); }
 
-int TWindowDD__sub_80348448(void) { return TWindowDD__sub_8034B008((void*)(0)); }
+void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1) {
+    TWindowDD__sub_8034B008((s32)(0), (s32)((s32) arg1));
+}
 
 s32 TWindowDD__sub_80348470(u8 *arg0) {
     s32 temp_r3;

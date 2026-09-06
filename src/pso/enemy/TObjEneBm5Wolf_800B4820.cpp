@@ -132,6 +132,16 @@ M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 extern const f32 lbl_805D9E38;
 void TObjEneBm5Wolf__sub_800B6E10(u8 *arg0, s32 arg1);
+void play_variant_sound__14TObjEneBm5WolfFPv(void *);
+void set_attack_flag__14TObjEneBm5WolfFPv(void *);
+void set_anim_state__14TObjEneBm5WolfFPv(void *);
+void TObjEneEpsilon__sub_800B96A4(void *);
+void fn_800B98C0(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+void TObjEneBm5Wolf__sub_800B6EFC(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -321,6 +331,51 @@ void TObjEneBm5Wolf__sub_800B6E10(u8 *arg0, s32 arg1) {
       TBoss1Dragon__sub_80143504((void *) arg0);
       PSO_VCALL_VObj_18_7b3d65_m100(arg0);
       PSO_VCALL_VObj_18_7b3d65_m86(arg0);
+      break;
+  }
+}
+
+#define PSO_VCALL_VObj_18_7b3d65_m93(_self) (((VObj_18_7b3d65 *)(_self))->m93())
+#define PSO_VCALL_VObj_18_7b3d65_m100(_self) (((VObj_18_7b3d65 *)(_self))->m100())
+#define PSO_VCALL_VObj_18_7b3d65_m86(_self) (((VObj_18_7b3d65 *)(_self))->m86())
+void TObjEneBm5Wolf__sub_800B6EFC(u8 *arg0, s32 arg1) {
+  u8 *temp_r3;
+  switch (arg1)
+  {
+    case 4:
+      *((s16 *) (((s8 *) arg0) + 0xB8)) = 4;
+      set_field_378__9TObjEneDDFPvi((void *)(arg0), (M2C_UNK)(2));
+      PSO_VCALL_VObj_18_7b3d65_m93(arg0);
+      fn_800B98C0(arg0);
+      *((s32 *) (((s8 *) arg0) + 0x3E4)) = 0;
+      *((s32 *) (((s8 *) arg0) + 0x408)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x408))) & 0xFFFFFFFE);
+      return;
+    case 3:
+      if ((*((s32 *) (((s8 *) arg0) + 0x408))) & 1)
+    {
+      TObjEneDD__sub_800BBA18((void *)(arg0), (M2C_UNK)(4));
+      return;
+      return;
+    }
+      if (((u32) (*((u32 *) (((s8 *) arg0) + 0x390)))) != 0U)
+    {
+      TObjEneEpsilon__sub_800B96A4(arg0);
+      set_anim_state__14TObjEneBm5WolfFPv(arg0);
+      temp_r3 = (u8 *) TPhotonMylla__sub_80154CB4(*((u16 *) (((s8 *) arg0) + 0x3E0)));
+      if (temp_r3 != 0)
+      {
+        set_attack_flag__14TObjEneBm5WolfFPv(temp_r3);
+      }
+    }
+      return;
+    case 0:
+      play_variant_sound__14TObjEneBm5WolfFPv(arg0);
+      TBoss1Dragon__sub_80143504(arg0);
+      PSO_VCALL_VObj_18_7b3d65_m100(arg0);
+      PSO_VCALL_VObj_18_7b3d65_m86(arg0);
+      return;
+    case 5:
+      *((s32 *) (((s8 *) arg0) + 0x408)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x408))) & 0xFFFFFFFE);
       break;
   }
 }

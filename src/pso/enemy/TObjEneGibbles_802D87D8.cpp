@@ -20,6 +20,21 @@ struct VObj802DAAC8_802daac8_802D87D8 : VBase802DAAC8_802daac8_802D87D8 {
 };
 
 extern "C" {
+f32 TObjPlayer__sub_80017BA8(void *, s32, f32, f32, f32);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+M2C_UNK obj_clearFlags30(void *, int);
+M2C_UNK TBoss1Dragon__sub_80143504(int);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(int);
+M2C_UNK TObjPlayer__sub_801564A0(int);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(int);
+M2C_UNK TObjPlayer__sub_801B4A18(int, int);
+M2C_UNK TObjEneGibbles__sub_802D7DAC(int);
+extern f32 lbl_805DE878;
+void TObjEneGibbles__sub_802DA96C(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjEneGibbles__sub_802DAAC8(u8 *arg0);
 void* TObjEneGibbles__sub_802DBC8C(void* p);
@@ -32,7 +47,6 @@ void set_state_dead__14TObjEneGibblesFPv(void *arg0);
 void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0);
 void update_spawn_state__14TObjEneGibblesFPv(u8 *arg0);
 void update_spawn_timer__14TObjEneGibblesFv(void);
-M2C_UNK TBoss1Dragon__sub_80143504(int);
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 M2C_UNK TBoss4DarkFalz__sub_8004C220(void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
@@ -87,7 +101,7 @@ void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x06040000);
     temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));
     M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
-    TBoss1Dragon__sub_80143504((int) (arg0));
+    TBoss1Dragon__sub_80143504((int)((int) (arg0)));
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {
     case 2:
@@ -230,6 +244,61 @@ void update_state__14TObjEneGibblesFPv(void *arg0)
   }
 
   return;
+}
+
+void TObjEneGibbles__sub_802DA96C(u8 *arg0) {
+    f32 var_f1;
+    f32 var_f2;
+    f32 var_f3;
+    s32 var_r5;
+    s32 var_r6;
+    u8 *var_r31;
+    u8 *var_r3;
+    u8 *var_r4;
+    var_r31 = (u8 *)(arg0);
+    TBoss1Dragon__sub_80143504((int)(arg0));
+    if ((u32) M2C_FIELD(var_r31, u32 *, 0x2A8) != 0U) {
+        var_r3 = (u8 *)((void *)3);
+        M2C_FIELD(var_r31, s16 *, 0x326) = 3;
+        var_r3 = (u8 *)(var_r31);
+        var_r4 = (u8 *)((void *)0x06240000);
+        M2C_FIELD(var_r31, s16 *, 0x328) = 0;
+        obj_clearFlags30((void *)((int) (var_r3)), (int)((int) (0x06240000)));
+        M2C_FIELD(var_r31, s32 *, 0x374) = (s32) (M2C_FIELD(var_r31, s32 *, 0x374) & 0xFFFF0000);
+        M2C_FIELD(var_r31, s32 *, 0x374) = (s32) (M2C_FIELD(var_r31, s32 *, 0x374) | 4);
+        var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xA4));
+        M2C_FIELD(var_r3, s32 *, 0x18) = (s32) (M2C_FIELD(var_r3, s32 *, 0x18) | 1);
+    } else {
+        M2C_FIELD(var_r31, s32 *, 0x374) = (s32) (M2C_FIELD(var_r31, s32 *, 0x374) & 0xFFFFFFFB);
+    }
+    var_f2 = (*(const f32 *)&lbl_805DE878);
+    var_r3 = (u8 *)(var_r31);
+    var_r4 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x350));
+    var_f3 = var_f2;
+    var_f1 = M2C_FIELD(var_r4, f32 *, 4);
+    var_r4 = (u8 *)(M2C_FIELD(var_r4, u8 **, 8));
+    TObjPlayer__sub_80017BA8(var_r3, (s32) var_r4, var_f1, var_f2, var_f3);
+    var_r3 = (u8 *)(var_r31);
+    TObjPlayer__sub_80154E3C((void *)((int) (var_r3)));
+    var_r3 = (u8 *)(var_r31);
+    check_object_collisions__10TObjPlayerFPv((int) (var_r3));
+    var_r3 = (u8 *)(var_r31);
+    TObjPlayer__sub_801564A0((int) (var_r3));
+    var_r3 = (u8 *)(var_r31);
+    update_enemy_collision_flags__10TObjPlayerFPv((int) (var_r3));
+    var_r3 = (u8 *)(var_r31);
+    var_r4 = (u8 *)((void *)0x200000);
+    obj_clearFlags30((void *)((int) (var_r3)), (int)((int) (0x200000)));
+    var_r3 = (u8 *)(var_r31);
+    TObjEneGibbles__sub_802D7DAC((int) (var_r3));
+    var_r3 = (u8 *)(var_r31 + 0x38);
+    var_r4 = (u8 *)((void *)-0x5DB4);
+    var_r5 = 1;
+    var_r6 = 0;
+    minimap_render_dot((void *)(var_r3), (int)(-0x5DB4), (int)(1), (int)(0));
+    var_r3 = (u8 *)(var_r31);
+    var_r4 = (u8 *)((void *)-1);
+    TObjPlayer__sub_801B4A18((int) (var_r3), (int) (-1));
 }
 
 void init_state__14TObjEneGibblesFPv(u8 *arg0) {

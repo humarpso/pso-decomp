@@ -29,6 +29,9 @@ M2C_UNK TKeyBoardControl__sub_803F0C50();
 M2C_UNK fn_803F1864(M2C_UNK *);
 extern M2C_UNK TKeyBoardControl__sub_801320CC[];
 void reset_input__16TKeyBoardControlFi(s32 arg0);
+M2C_UNK TKeyBoardControl__sub_803F0E90(s32, M2C_UNK);
+s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
+void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1);
 }
 
 extern "C" {
@@ -142,6 +145,14 @@ void reset_keys__16TKeyBoardControlFPv(void *arg0) {
         ((u8 *)arg0)[i + 5] = 0;
     }
 }
+
+void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1) {
+    M2C_UNK sp8;
+    if (TKeyBoardControl__sub_803F1604((s32)((void *) (arg1)), (M2C_UNK *)((void *) (&sp8))) == 0) {
+        TKeyBoardControl__sub_803F0E90((s32)((void *) (arg1)), (M2C_UNK)((int) (0)));
+    }
+}
+
 void reset_input__16TKeyBoardControlFi(s32 arg0) {
     TKeyBoardControl__sub_803F0C50();
     TKeyBoardControl__sub_80132824(arg0);

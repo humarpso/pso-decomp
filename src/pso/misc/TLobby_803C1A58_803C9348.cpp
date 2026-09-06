@@ -29,6 +29,8 @@ void TLobby__sub_803C9CBC(u8 *arg0);
 M2C_UNK TLobby__sub_803C4A7C(void *, void *, void *, void *);
 void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
+M2C_UNK TLobby__sub_803C57C8(void *);
+void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -306,6 +308,10 @@ void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2) {
     TLobby__sub_803C4A7C((void *) (arg2), arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
 }
 #pragma pop
+
+void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1) {
+    TLobby__sub_803C57C8((void *) (arg1));
+}
 
 void TLobby__sub_803CBA18(void) {
     TLobby__sub_803D33F4();

@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_803FA150(M2C_UNK arg0, u8 *arg1);
+}
+
+extern "C" {
 
 void TLobby__sub_803F8794(void);
 void TLobby__sub_803F87C4(void);
@@ -141,6 +145,13 @@ s32 TLobby__sub_803F9CF4(s32 arg0) {
         return -1;
     }
     lbl_805D4810 = arg0;
+    return 0;
+}
+
+s32 TLobby__sub_803FA150(M2C_UNK arg0, u8 *arg1) {
+    M2C_FIELD(arg1, s16 *, 4) = (s16) (M2C_FIELD(arg1, s16 *, 4) & 0xFFFFFFFB);
+    M2C_FIELD(arg1, s16 *, 0) = (s16) (M2C_FIELD(arg1, s16 *, 0) & 0xFFFFFFFB);
+    M2C_FIELD(arg1, s16 *, 0x1C) = (s16) (M2C_FIELD(arg1, s16 *, 0x1C) & 0xFFFFFFFB);
     return 0;
 }
 

@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 TWindowKeyBoardSoft__data_805DD078;
+extern const f32 TWindowKeyBoardSoft__data_805DD07C;
+f32 TWindowKeyBoardSoft__sub_80260728(M2C_UNK arg0, s32 arg1);
+}
+
+extern "C" {
 
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2);
 s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3);
@@ -65,6 +71,13 @@ s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3) {
 }
 
 extern s32 lbl_805D5544;
+
+#pragma push
+#pragma fp_contract on
+f32 TWindowKeyBoardSoft__sub_80260728(M2C_UNK arg0, s32 arg1) {
+    return (TWindowKeyBoardSoft__data_805DD07C * (f32) arg1) + TWindowKeyBoardSoft__data_805DD078;
+}
+#pragma pop
 
 void update_focus_flags__19TWindowKeyBoardSoftFPv(void *arg0) {
     void *temp_r3;

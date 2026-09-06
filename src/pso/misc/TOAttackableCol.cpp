@@ -11,12 +11,9 @@ int TOAttackableCol__vt24(void);
 int TOAttackableCol__vt25(void);
 int TOAttackableCol__vt18(void);
 int TOAttackableCol__vt19(void);
-int TOAttackableCol__vt20(void* p);
-int TOAttackableCol__sub_80157728(void*);
-int TOAttackableCol__vt21(void* p);
-int TOAttackableCol__sub_80157728(void*);
-int TOAttackableCol__vt22(void* p);
-int TOAttackableCol__sub_80157728(void*);
+f32 TOAttackableCol__vt20(void* p, s32 _w1);
+f32 TOAttackableCol__vt21(void* p, s32 _w1);
+f32 TOAttackableCol__vt22(void* p, s32 _w1);
 void init__17TOBarrierEnergy01FPv(void *);
 void *fn_80157CA8(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -33,6 +30,20 @@ void run_task__15TOAttackableColFv(u8 *arg0);
 M2C_UNK TLobby__sub_80156A80(void *, void *, int);
 int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+int TOAttackableCol__sub_801575AC(void *, s32);
+u8 TODoorAncient08__sub_80229220(int);
+void *__nw__7TObjectFUl(int);
+M2C_UNK set_parent__7TObjectFP7TObject(int, int);
+volatile int TObjPlayer__sub_80019248(void *);
+u16 obj_getField1c(void *);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+u32 __ct__12TQuestThreadFv(int, void *, int);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+extern u32 lbl_805D5EE8;
+extern u32 lbl_805D5EEC;
+extern s32 tl_00;
+extern const f32 lbl_805DB2C8;
+f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -52,7 +63,6 @@ void render__15TOAttackableColFv(void);
 int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
 void TOBarrierEnergy01__vt18(void);
-u8 TODoorAncient08__sub_80229220(u16);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 s32 TObjPlayer__sub_801B4A18(void *, s32);
@@ -135,6 +145,75 @@ void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
 
 int handle_6x91_update_state__15TOAttackableColFPv(void* p) { return clear_player_status_flag__10TObjPlayerFPviUi((void*)(p), (int)(0), (int)(1)); }
 
+f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1) {
+  s32 temp_r0;
+  s32 temp_r0_2;
+  s32 var_r30;
+  u32 temp_r3;
+  u32 temp_r3_2;
+  u32 var_r0;
+  u32 var_r0_2;
+  var_r30 = 0;
+  if (((arg1 != 0) && (obj_getField1c((void *) arg1) < 4U)) && (TObjPlayer__sub_80019248((void *) arg1) != 0))
+  {
+    var_r30 = 1;
+  }
+  if (var_r30 != 0)
+  {
+    temp_r0 = *((s32 *) (((s8 *) arg0) + 0x34C));
+    if (((temp_r0 >= 0) && (temp_r0 < 0x100)) && (TODoorAncient08__sub_80229220((int) ((u16) temp_r0)) == 0))
+    {
+      return lbl_805DB2C8;
+    }
+    *((s32 *) (((s8 *) arg0) + 0x33C)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x33C))) - 1);
+    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x33C)))) <= 0)
+    {
+      *((s32 *) (((s8 *) arg0) + 0x33C)) = 0;
+      TOAttackableCol__sub_801575AC((void *)((void *) arg0), (s32)((int) 1));
+      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x344)))) > 0)
+      {
+        temp_r0_2 = *((s32 *) (((s8 *) arg0) + 0x340));
+        if ((((temp_r0_2 >= 0x64) && (temp_r0_2 < 0x3E8)) && (((u32) lbl_805D5EE8) != 0U)) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) lbl_805D5EE8) != 0))
+        {
+          temp_r3 = ((u32)__nw__7TObjectFUl((int) 0x194));
+          var_r0 = temp_r3;
+          if (var_r0 != 0U)
+          {
+            var_r0 = __ct__12TQuestThreadFv((int) temp_r3, (void *) lbl_805D5EE8, (int) (*((s32 *) (((s8 *) arg0) + 0x344))));
+          }
+          if (var_r0 != 0U)
+          {
+            set_parent__7TObjectFP7TObject((int) var_r0, (int) tl_00);
+          }
+        }
+        else
+          if ((((u32) lbl_805D5EEC) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) lbl_805D5EEC) != 0))
+        {
+          temp_r3_2 = ((u32)__nw__7TObjectFUl((int) 0x194));
+          var_r0_2 = temp_r3_2;
+          if (var_r0_2 != 0U)
+          {
+            var_r0_2 = __ct__12TQuestThreadFv((int) temp_r3_2, (void *) lbl_805D5EEC, (int) (*((s32 *) (((s8 *) arg0) + 0x344))));
+          }
+          if (var_r0_2 != 0U)
+          {
+            set_parent__7TObjectFP7TObject((int) var_r0_2, (int) tl_00);
+          }
+        }
+      }
+    }
+    else
+    {
+      TOAttackableCol__sub_801575AC((void *)((void *) arg0), (s32)((int) 0));
+    }
+    goto block_26;
+  }
+  block_26:
+  TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) 0x1D0);
+  TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) 1);
+  return lbl_805DB2C8;
+}
+
 void release__15TOAttackableColFPv(void* p) { set_flag8__6TLobbyFPv(p); queue_destruction__7TObjectFv(p); }
 void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     s32 temp_r0;
@@ -200,11 +279,11 @@ int TOAttackableCol__vt18(void) { return 1; }
 
 int TOAttackableCol__vt19(void) { return 1; }
 
-int TOAttackableCol__vt20(void* p) { return TOAttackableCol__sub_80157728(p); }
+f32 TOAttackableCol__vt20(void* p, s32 _w1) { return TOAttackableCol__sub_80157728((u8 *)(p), (s32)(_w1)); }
 
-int TOAttackableCol__vt21(void* p) { return TOAttackableCol__sub_80157728(p); }
+f32 TOAttackableCol__vt21(void* p, s32 _w1) { return TOAttackableCol__sub_80157728((u8 *)(p), (s32)(_w1)); }
 
-int TOAttackableCol__vt22(void* p) { return TOAttackableCol__sub_80157728(p); }
+f32 TOAttackableCol__vt22(void* p, s32 _w1) { return TOAttackableCol__sub_80157728((u8 *)(p), (s32)(_w1)); }
 
 void TOAttackableCol__vt23(void) {  }
 

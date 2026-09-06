@@ -1,8 +1,61 @@
 #include "pso/TItemEffArmorParticle.h"
 
-extern "C" void queue_destruction__7TObjectFv(void*);
+#include <stddef.h>
 
-void TItemEffArmorParticle::run_task() {}
+typedef char armor_item_id_offset[(offsetof(TItemEffArmorParticle, m_item_id) == 0x1C) ? 1 : -1];
+typedef char armor_particle_offset[(offsetof(TItemEffArmorParticle, m_20) == 0x20) ? 1 : -1];
+typedef char armor_player_id_offset[(offsetof(TItemEffArmorParticle, m_player_id) == 0x24) ? 1 : -1];
+typedef char armor_item_ctrl_offset[(offsetof(TItemEffArmorParticle, m_item_ctrl) == 0x28) ? 1 : -1];
+typedef char armor_size_check[(sizeof(TItemEffArmorParticle) == 0x2C) ? 1 : -1];
+
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+s32 obj_testFlags30(int, int);
+s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 clear_active_flag__13TParticleCtrlFPv(int);
+s32 enable__13TParticleCtrlFPv(int);
+u32 TLobby__sub_80101AB0(int);
+s32 get_item_ctrl__10TObjPlayerFv();
+s8 TObjPlayer__sub_80102C30();
+s32 get_flag_40__8TItemMagFPv(int);
+void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+}
+
+void TItemEffArmorParticle::run_task() {
+    s32 active;
+    u32 player, item;
+
+    if (m_item_ctrl != (u32)get_item_ctrl__10TObjPlayerFv()) {
+        queue_destruction__7TObjectFv(this);
+        return;
+    }
+    active = 0;
+    if ((u32)m_20 != 0U) {
+        player = (u32)TPlayerBattleCtrl4P__sub_801BA74C(m_player_id);
+        item = TLobby__sub_80101AB0(m_item_id);
+        if (player != 0U) {
+            if (item != 0U) {
+                if (TObjPlayer__sub_80102C30() == 2) {
+                    if (obj_testFlags30((int)player, 0x800) == 0) {
+                        if (get_flag_40__8TItemMagFPv((int)item) == 0) {
+                            clear_active_flag__13TParticleCtrlFPv((int)m_20);
+                        } else {
+                            goto enable_particle;
+                        }
+                    } else {
+                    enable_particle:
+                        enable__13TParticleCtrlFPv((int)m_20);
+                    }
+                    active = 1;
+                    copy_pos__11TNowLoadingFPvPv((int)m_20, (void *)(player + 0x2FC));
+                }
+            }
+        }
+    }
+    if (active == 0) {
+        queue_destruction__7TObjectFv(this);
+    }
+}
 
 TItemEffArmorParticle::~TItemEffArmorParticle() {
     if (m_20 != nullptr) queue_destruction__7TObjectFv(m_20);

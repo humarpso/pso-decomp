@@ -8,6 +8,10 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK run_tasks__7TObjectFv(int);
 void run_task__15TAdDrawLineCtrlFv(u8 *arg0);
+void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
+void *__nw__7TObjectFUl(int);
+extern u32 lbl_805D49D8;
+u8 *TAdMcSelectGC__sub_80019DA8(s32 arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -72,6 +76,19 @@ void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
     fn_80019AB0(arg0, farg0);
     fn_80019B08(arg0, -1);
     return arg0;
+}
+u8 *TAdMcSelectGC__sub_80019DA8(s32 arg0, s32 arg1, f32 farg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if ((u32) lbl_805D49D8 != 0U) {
+        temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x2C))));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)TAdDrawLineCtrl__ct((void *)(temp_r3), (void *)(arg0), (void *)(lbl_805D49D8 + (arg1 * 0xC)), farg0)));
+        }
+        return var_r0;
+    }
+    return NULL;
 }
 
 }

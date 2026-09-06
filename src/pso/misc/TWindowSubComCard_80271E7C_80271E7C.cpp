@@ -5,9 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 *TLobby__sub_8001DC24(void);
+s32 realloc_buffer__17TWindowSubComCardFPv(void *);
+void free__11TOBoss4RockFUi(u32);
+void TLobby__sub_80225828(s32, s32);
+void TWindowSubComCard__sub_80225E80(void *, void *);
+s32 get_id__6TLobbyFPv(void *);
+u8 *TWindowSubComCard__sub_80275228(void);
+void TWindowSubComCard__sub_802721D8(u8 *arg0);
+}
+
+extern "C" {
 
 int TWindowSubComCard__sub_80272034(void);
-int TWindowSubComCard__sub_802721D8(void);
 void apply_selection__17TWindowSubComCardFi(s32 arg0);
 void cleanup__17TWindowSubComCardFPv(void* p);
 void get_message_10__17TWindowSubComCardFPvPv(void* p, void* a1);
@@ -66,7 +76,19 @@ void init_layout__17TWindowSubComCardFv(void) {
 }
 void send_cmd_133__17TWindowSubComCardFv(void) { TWindowSubComCard__sub_8026CBB8(133); fn_802754EC(); }
 void cleanup__17TWindowSubComCardFPv(void* p) { TWindowSubComCard__sub_80265BF8(*(void**)((char*)p + 0x84)); TWindowSubComCard__sub_8007A8F8(); get_card_id__17TWindowSubComCardFPv(); TLobby__sub_802421C4(); }
-
-int TWindowSubComCard__sub_802721D8(void) { return 0; }
+#pragma scheduling off
+void TWindowSubComCard__sub_802721D8(u8 *arg0) {
+  u8 *new_var;
+  s32 temp_r30;
+  u8 *temp_r29;
+  u8 *temp_r31;
+  temp_r30 = realloc_buffer__17TWindowSubComCardFPv(*((u8 **) (((s8 *) arg0) + 0x80)));
+  temp_r29 = (u8 *) TWindowSubComCard__sub_80275228();
+  TWindowSubComCard__sub_80225E80((void *) temp_r30, TLobby__sub_8001DC24());
+  new_var = TLobby__sub_8001DC24();
+  temp_r31 = (u8 *) new_var;
+  TLobby__sub_80225828(get_id__6TLobbyFPv(temp_r29), (s32) temp_r31);
+  free__11TOBoss4RockFUi((u32) temp_r30);
+}
 
 }

@@ -111,7 +111,6 @@ extern "C" {
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 s8 TObjPlayer__sub_8010A770(u8 *arg0);
 M2C_UNK get_id__13TItemProArmorFPv(void *);
-int TItemEquipBase__sub_8010AC60(void *, int, int);
 M2C_UNK check_flag_32__14TItemEquipBaseFPv(int);
 M2C_UNK TItemEquipBase__sub_801190B0(M2C_UNK, int);
 M2C_UNK TItemTimerEvent__sub_8011E0A4();
@@ -129,6 +128,9 @@ u8 get_field_ec__12TOSwitchItemFPv();
 M2C_UNK TItemEquipBase__sub_8010B73C(void *);
 M2C_UNK TItemEquipBase__sub_8022C680(void *, void *, void *);
 void TItemEquipBase__sub_8010A82C(s32 arg0);
+M2C_UNK set_flags__10TObjPlayerFPvUi(void *, void *);
+s32 TObjPlayer__sub_8001BEF8(void *, void *);
+s32 TItemEquipBase__sub_8010AC60(s32 arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -168,7 +170,6 @@ M2C_UNK TItemData__sub_8010B7F8(void *, void *);
 void TItemEquipBase__sub_8010AAD0(void *);
 s32 TItemLoad__sub_801103F4(s16);
 s32 TObjPlayer__sub_800194E8(void *);
-s32 TObjPlayer__sub_8001BEF8(s32);
 s8 TObjPlayer__sub_80102C30();
 void __dt__5TItemFv(void *, int);
 s32 clear_flags__11TAdRicoRingFPvUi(s32, s32);
@@ -236,40 +237,46 @@ void TItemEquipBase__sub_8010A940(void) {  }
 void TItemEquipBase__vt42(void) {  }
 
 void TItemEquipBase__sub_8010A948(u8 *arg0) {
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (2)), (int)((int) (4)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (2))), (s32)((int)((int) (4))))) != 0) {
         get_id__13TItemProArmorFPv((void *) (arg0));
         TItemTimerEvent__sub_8011E0A4();
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (8)), (int)((int) (0x10)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (8))), (s32)((int)((int) (0x10))))) != 0) {
         TItemEquipBase__sub_801190B0(get_id__13TItemProArmorFPv((void *) (arg0)), (int) (0));
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (0x20)), (int)((int) (0x40)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (0x20))), (s32)((int)((int) (0x40))))) != 0) {
         check_flag_32__14TItemEquipBaseFPv((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC));
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (0x80)), (int)((int) (0x100)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (0x80))), (s32)((int)((int) (0x100))))) != 0) {
         TItemEquipBase__sub_801190B0(get_id__13TItemProArmorFPv((void *) (arg0)), (int) (1));
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (0x200)), (int)((int) (0x400)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (0x200))), (s32)((int)((int) (0x400))))) != 0) {
         TItemEquipBase__sub_801190B0(get_id__13TItemProArmorFPv((void *) (arg0)), (int) (2));
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (0x800)), (int)((int) (0x1000)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (0x800))), (s32)((int)((int) (0x1000))))) != 0) {
         TItemEquipBase__sub_801190B0(get_id__13TItemProArmorFPv((void *) (arg0)), (int) (3));
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (0x2000)), (int)((int) (0x4000)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (0x2000))), (s32)((int)((int) (0x4000))))) != 0) {
         TItemEquipBase__sub_801190B0(get_id__13TItemProArmorFPv((void *) (arg0)), (int) (4));
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (0x8000)), (int)((int) (0x10000)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (0x8000))), (s32)((int)((int) (0x10000))))) != 0) {
         TItemEquipBase__sub_801190B0(get_id__13TItemProArmorFPv((void *) (arg0)), (int) (5));
     }
-    if (((s32)TItemEquipBase__sub_8010AC60((void *)((void *) (arg0)), (int)((int) (0x20000)), (int)((int) (0x40000)))) != 0) {
+    if (((s32)TItemEquipBase__sub_8010AC60((s32)((void *)((void *) (arg0))), (M2C_UNK)((int)((int) (0x20000))), (s32)((int)((int) (0x40000))))) != 0) {
         TItemEquipBase__sub_801190B0(get_id__13TItemProArmorFPv((void *) (arg0)), (int) (6));
     }
 }
 
-int TItemEquipBase__sub_8010AC60(void * _w0, int _w1, int _w2) { return 0; }
+s32 TItemEquipBase__sub_8010AC60(s32 arg0, M2C_UNK arg1, s32 arg2) {
+    if ((TObjPlayer__sub_8001BEF8((void *)((void *) (arg0 + 0x178)), (void *)((void *) (arg1))) != 0) && (TObjPlayer__sub_8001BEF8((void *)((void *) (arg0 + 0x178)), (void *)((void *) (arg2))) == 0)) {
+        set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x178), (void *) (arg2));
+        return 1;
+    }
+    return 0;
+}
 
 s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1) {
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x178) != 0) {
+    if (TObjPlayer__sub_8001BEF8((void *)(arg0 + 0x178), (void *)(arg1)) != 0) {
         clear_flags__11TAdRicoRingFPvUi(arg0 + 0x178, arg1);
         return 1;
     }

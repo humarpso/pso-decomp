@@ -28,6 +28,9 @@ void allow_rendering__7TObjectFv(void *);
 void reset_counter__13TRaderMapCoreFPv(void* p);
 extern void *TRaderMapCore__data_805D5F40;
 void TRaderMapCore__sub_801F9144(void);
+s32 TRaderMapCore__sub_801FADF0(void *, void *);
+extern s32 TRaderMapCore__data_805D5F3C;
+s32 TRaderMapCore__sub_801F9058(u8 *arg0);
 }
 
 extern "C" {
@@ -39,7 +42,6 @@ void reset_counter__13TRaderMapCoreFPv(void* p);
 s32 should_show_map__13TRaderMapCoreFv(void);
 void update_target__13TRaderMapCoreFPv(void *arg0);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
-s32 TRaderMapCore__sub_801F9058();
 int __dt__5THeapFv(void*, void*);
 s32 is_card_flag_set__19TWindowKeyBoardHardFPv(u16);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -49,12 +51,16 @@ int obj_getField1c(void*);
 
 extern void *TRaderMapCore__data_805D5F40;
 
+s32 TRaderMapCore__sub_801F9058(u8 *arg0) {
+    return TRaderMapCore__sub_801FADF0((void *)(arg0), (void *)(TRaderMapCore__data_805D5F3C));
+}
+
 s32 is_active__13TRaderMapCoreFv(void) {
     if ((void *) TRaderMapCore__data_805D5F40 != NULL) {
         if (M2C_FIELD(TRaderMapCore__data_805D5F40, u16 *, 4) & 0x10) {
             return 0;
         }
-        return TRaderMapCore__sub_801F9058();
+        return TRaderMapCore__sub_801F9058((u8 *)(TRaderMapCore__data_805D5F40));
     }
     return 0;
 }
