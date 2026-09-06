@@ -231,6 +231,13 @@ struct VObj_18_33b813 : VBase_18_33b813 {
     virtual M2C_UNK m20(M2C_UNK, f32);
 };
 
+struct Stack_80170AC8
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+};
+
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
 void TOMineTrap__sub_8016F87C(u8 *arg0);
@@ -300,6 +307,20 @@ extern f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
 void TOMineTrap__sub_80170CF4(u8 *arg0);
+f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+void calc_attach_pos__10TObjPlayerFPv(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+int TObjPlayer__sub_80154E3C(void*);
+s32 update_enemy_collision_flags__10TObjPlayerFPv(void *);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 TCameraCtrl__sub_803D8D00(void *);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern const f64 lbl_80442200;
+extern const f32 lbl_805DB870;
+extern const f32 lbl_805DB884;
+extern const f32 lbl_805DB888;
+void TOMineTrap__sub_80170AC8(u8 *arg0);
 }
 
 extern "C" {
@@ -506,6 +527,38 @@ void TOMineTrap__sub_80170A5C(u8 *arg0) {
     TObjPlayer__sub_80154E3C((void*)((void *) (arg0)));
     ((VObj_18_d0f3c0 *)(arg0))->m79();
 }
+
+typedef struct Stack_80170AC8 Stack_80170AC8;
+#pragma fp_contract on
+void TOMineTrap__sub_80170AC8(u8 *arg0) {
+  unsigned short new_var;
+  Stack_80170AC8 stack;
+  f32 temp_f2;
+  new_var = -1U;
+  if ((((u16) (*((u16 *) (((s8 *) arg0) + 0x35C)))) == new_var) || (((void *) (*((u8 **) (((s8 *) arg0) + 0x2A8)))) == 0))
+  {
+    *((s16 *) (((s8 *) arg0) + 0x326)) = 2;
+    return;
+  }
+  VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
+  VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) ((*((u8 **) (((s8 *) arg0) + 0x2A8))) + 0x38));
+  stack.spC = *((f32 *) (((s8 *) arg0) + 0x3C));
+  TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+  if (lbl_805DB870 < TCameraCtrl__sub_803D8D00((void *) (&stack.sp8)))
+  {
+    TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+    stack.sp8 *= lbl_805DB870;
+    stack.sp10 *= lbl_805DB870;
+  }
+  TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+  update_enemy_collision_flags__10TObjPlayerFPv((void *) arg0);
+  temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
+  *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x2A8)))) + 0x3C)))) - temp_f2)) + temp_f2);
+  calc_attach_pos__10TObjPlayerFPv((void *) arg0);
+  *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) (lbl_80442200 * get_ad_end_text_start__10TObjPlayerFv((f64) stack.sp8, (f64) stack.sp10));
+  TObjPlayer__sub_80154E3C((void*)((void *) arg0));
+}
+
 void TOMineTrap__sub_80170CD4(void* p) { sync_position__10TOMineTrapFPv((void*)((void*)(p))); }
 
 #pragma push

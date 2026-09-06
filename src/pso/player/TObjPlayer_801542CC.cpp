@@ -35,6 +35,8 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
 extern const f32 TObjPlayer__data_805DB270;
 s32 TObjPlayer__sub_80155050(M2C_UNK arg0, u8 *arg1, u32 arg2);
+extern int lbl_8050DA90[];
+int TObjPlayer__sub_80154E28(int a0, int a1);
 }
 
 extern "C" {
@@ -54,7 +56,6 @@ u8 test_elt_flag__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 int TLobby__sub_801A1FDC(void*, void*);
 M2C_UNK TObjPlayer__sub_8015434C(s32, s32, s32);
 int TObjPlayer__sub_80154B60(void*);
-int TObjPlayer__sub_80154E28(void*, void*);
 u32 get_battle_param__10TObjPlayerFi(s32);
 int memset(void*, void*, void*);
 
@@ -112,7 +113,7 @@ u8 test_elt_flag__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
 void reset_photon_effect__10TObjPlayerFPv(void* p) { TLobby__sub_801A1FDC(p, (void*)0); TObjPlayer__sub_80154B60(p); }
 
 void TOTrapAncient02R__sub_80154D78(void) {  }
-void init_all_slots__10TObjPlayerFv(void) { { int i; for (i = 0; i < 16; i++) { TObjPlayer__sub_80154E28((void*)i, (void*)0); } } }
+void init_all_slots__10TObjPlayerFv(void) { { int i; for (i = 0; i < 16; i++) { TObjPlayer__sub_80154E28((int)((void*)i), (int)((void*)0)); } } }
 s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0) {
     s32 var_r31;
     u32 temp_r3;
@@ -124,13 +125,20 @@ loop_1:
         return var_r31;
     }
     if (temp_r3 == 0U) {
-        return TObjPlayer__sub_80154E28((void*)(var_r31), (void*)(arg0));
+        return TObjPlayer__sub_80154E28((int)((void*)(var_r31)), (int)((void*)(arg0)));
     }
     var_r31 += 1;
     if (var_r31 >= 0x10) {
         return -1;
     }
     goto loop_1;
+}
+
+int TObjPlayer__sub_80154E28(int a0, int a1) {
+  long long new_var;
+  new_var = a0;
+  lbl_8050DA90[new_var] = a1;
+  return a0;
 }
 
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1) {

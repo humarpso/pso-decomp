@@ -5,6 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 TMCFormatSequence__sub_802693B4();
+extern s8 lbl_8050E208[];
+void TMCFormatSequence__sub_801F65C4(void *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 TMCFormatSequence__sub_802693B4();
+extern s8 lbl_8050E208[];
+void TMCFormatSequence__sub_801F6640(void *arg0);
+}
+
+extern "C" {
 
 void check_memcard_load_result__17TMCFormatSequenceFPv(void *arg0);
 void close_window__17TMCFormatSequenceFPv(void* p);
@@ -28,6 +41,32 @@ void show_message__17TMCFormatSequenceFPvii(void *arg0, s32 arg1, s32 arg2) {
     u32 v = M2C_FIELD(arg0, u32 *, 0x34);
     if (v != 0U) {
         send_and_handle__6TLobbyFPvii(v, arg1, arg2 | 0x81);
+    }
+}
+
+void TMCFormatSequence__sub_801F65C4(void *arg0) {
+    M2C_UNK (*temp_r12)(void *);
+    void *self = arg0;
+    arg0 = M2C_FIELD(arg0, void **, 0x34);
+    if (arg0 == NULL || ((TMCFormatSequence__sub_802693B4() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0))) {
+        temp_r12 = M2C_FIELD(self, M2C_UNK (**)(void *), 0x20);
+        if (temp_r12 != NULL) {
+            temp_r12(self);
+            queue_destruction__7TObjectFv(self);
+        }
+    }
+}
+
+void TMCFormatSequence__sub_801F6640(void *arg0) {
+    M2C_UNK (*temp_r12)(void *);
+    void *self = arg0;
+    arg0 = M2C_FIELD(arg0, void **, 0x34);
+    if (arg0 == NULL || ((TMCFormatSequence__sub_802693B4() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0))) {
+        temp_r12 = M2C_FIELD(self, M2C_UNK (**)(void *), 0x1C);
+        if (temp_r12 != NULL) {
+            temp_r12(self);
+            queue_destruction__7TObjectFv(self);
+        }
     }
 }
 

@@ -6,24 +6,34 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 calc_product__12TBoss8DragonFiiii(void *, void *, int, int);
-f32 TBoss8Dragon__sub_8005EAD0(void *, void *, int);
 void TBoss8Dragon__sub_8005EB6C(s32 arg0, u8 *arg1, s32 arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TBoss8Dragon__sub_8005E9E8(void *, void *, int);
-f32 TBoss8Dragon__sub_8005EAD0(void *, void *, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 extern const f64 lbl_80437EB0;
 void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2);
+f32 TBoss8Dragon__sub_8005EA5C(int, f32, f32);
+f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2);
 }
 
 extern "C" {
 
+#pragma push
+#pragma scheduling off
+f32 TBoss8Dragon__sub_8005EAD0(void *arg0, void *arg1, int arg2) {
+  u8 *temp_r4;
+  temp_r4 = (u8 *)arg1 + (arg2 * 8);
+  return TBoss8Dragon__sub_8005EA5C((int)arg0, (f32) (*((f32 *) (((s8 *) temp_r4) + 0x28))), (f32) (*((f32 *) (((s8 *) temp_r4) + 0x2C))));
+}
+
+#pragma pop
+
 void TBoss8Dragon__sub_8005EB6C(s32 arg0, u8 *arg1, s32 arg2) {
     f32 temp_f1;
-    temp_f1 = TBoss8Dragon__sub_8005EAD0((void *) (arg0), (void *) (arg2), (int) (1));
+    temp_f1 = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 1);
     M2C_FIELD(arg1, f32 *, 0xC) = (f32) (temp_f1 * temp_f1);
-    M2C_FIELD(arg1, f32 *, 8) = TBoss8Dragon__sub_8005EAD0((void *) (arg0), (void *) (arg2), (int) (0));
+    M2C_FIELD(arg1, f32 *, 8) = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 0);
     M2C_FIELD(arg1, s32 *, 4) = calc_product__12TBoss8DragonFiiii((void *) (arg0), (void *) (arg2), (int) (0), (int) (1));
 }
 void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2) {
@@ -34,16 +44,16 @@ void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2) {
     switch (temp_r3) {
     case 0:
         temp_r31 = (s32) (lbl_80437EB0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x40))));
-        temp_f31 = TBoss8Dragon__sub_8005EAD0((void *) (arg0), (void *) (arg2), (int) (1));
+        temp_f31 = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 1);
         M2C_FIELD(arg1, f32 *, 4) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64C0((int) (temp_r31)));
         M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64DC((int) (temp_r31)));
         break;
     case 1:
-        M2C_FIELD(arg1, f32 *, 4) = TBoss8Dragon__sub_8005EAD0((void *) (arg0), (void *) (arg2), (int) (1));
-        M2C_FIELD(arg1, f32 *, 8) = TBoss8Dragon__sub_8005EAD0((void *) (arg0), (void *) (arg2), (int) (2));
+        M2C_FIELD(arg1, f32 *, 4) = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 1);
+        M2C_FIELD(arg1, f32 *, 8) = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 2);
         break;
     }
-    M2C_FIELD(arg1, f32 *, 0xC) = TBoss8Dragon__sub_8005EAD0((void *) (arg0), (void *) (arg2), (int) (0));
+    M2C_FIELD(arg1, f32 *, 0xC) = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 0);
     M2C_FIELD(arg1, s32 *, 0x10) = TBoss8Dragon__sub_8005E9E8((void *) (arg0), (void *) (arg2), (int) (1));
 }
 

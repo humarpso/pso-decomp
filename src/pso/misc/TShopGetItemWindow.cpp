@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 obj_getField1c(s32);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(u32);
+s32 is_confirmed__24TShopEquipmentSellWindowFPv(u32);
+s32 get_result__24TShopEquipmentSellWindowFPv(u32);
+s32 is_confirmed__18TWindowInputNumberFPv(u32);
+f32 get_scale__15TShopWindowBaseFv(void *);
+M2C_UNK set_position_xy(u32, f32, f32);
+void TWindow__close(void *);
+u32 TShopJudgmentItemWindow__sub_80266388(M2C_UNK, u16, M2C_UNK, M2C_UNK);
+M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+void TShopGetItemWindow__sub_8021E76C(void *arg0);
+}
+
+extern "C" {
 
 void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1);
@@ -25,6 +40,33 @@ void close__18TShopGetItemWindowFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__18TShopGetItemWindow[];
+
+void TShopGetItemWindow__sub_8021E76C(void *arg0) {
+    f32 temp_f31;
+    u32 temp_r31;
+    u32 w;
+    w = M2C_FIELD(arg0, u32 *, 0x30);
+    if ((w != 0U) && (is_confirmed__18TWindowInputNumberFPv(w) != 0)) {
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
+            temp_r31 = (u16) obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
+            M2C_FIELD(arg0, u32 *, 0x2C) = TShopJudgmentItemWindow__sub_80266388(TWindowSubComCard__sub_8026CBB8(0x2B), temp_r31, 0, 0);
+            set_ready_flag__18TCheckRoomSequenceFPv(M2C_FIELD(arg0, u32 *, 0x2C));
+            temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
+            set_position_xy(M2C_FIELD(arg0, u32 *, 0x2C), get_scale__15TShopWindowBaseFv(arg0), temp_f31);
+        }
+        M2C_FIELD(arg0, s32 *, 0x54) = get_result__24TShopEquipmentSellWindowFPv(M2C_FIELD(arg0, u32 *, 0x30));
+        TWindow__close((void *)(M2C_FIELD(arg0, u32 *, 0x30)));
+        M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        set_field_20__12TQuestListVMFPvi(arg0, 3);
+        return;
+    }
+    w = M2C_FIELD(arg0, u32 *, 0x30);
+    if ((w != 0U) && (is_confirmed__24TShopEquipmentSellWindowFPv(w) != 0)) {
+        TWindow__close((void *)(M2C_FIELD(arg0, u32 *, 0x30)));
+        M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        set_field_20__12TQuestListVMFPvi(arg0, 4);
+    }
+}
 
 void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

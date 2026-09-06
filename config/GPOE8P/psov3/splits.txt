@@ -1851,11 +1851,8 @@ pso/misc/TDuelEffectNumber_80080290.cpp:
 	.text       start:0x80080290 end:0x80080460
 
 pso/misc/TDuelEffectNumber_80080460.cpp:
-	.text       start:0x80080460 end:0x8008055C
+	.text       start:0x80080460 end:0x80080750
 	.rodata     start:0x80438E20 end:0x80438E28
-
-pso/effect/TDuelEffectString.cpp:
-	.text       start:0x8008055C end:0x80080750
 
 pso/player/TObjPlayer_80080750.cpp:
 	.text       start:0x80080750 end:0x80080788
@@ -2407,7 +2404,7 @@ pso/enemy/TObjEneBm3Fly_800B012C.cpp:
 pso/enemy/TObjEneBm3Fly.cpp:
 	.text       start:0x800B1614 end:0x800B1978
 
-pso/unk/text_800B1978.cpp:
+pso/enemy/TObjEneBm3Fly_800B1978.cpp:
 	.text       start:0x800B1978 end:0x800B264C
 
 pso/enemy/TObjEneBm3FlyNest_800B264C.cpp:
@@ -8251,14 +8248,8 @@ pso/misc/TKeyBoardControl_8019BB2C.cpp:
 	.text       start:0x8019BB2C end:0x8019BB9C
 
 pso/object/TObjAreaWarpEnding.cpp:
-	.text       start:0x8019BB9C end:0x8019C250
+	.text       start:0x8019BB9C end:0x8019CA24
 	.rodata     start:0x804463C8 end:0x804463D0
-
-pso/object/TObjAreaWarpQuest_8019C250.cpp:
-	.text       start:0x8019C250 end:0x8019C738
-
-pso/object/TObjAreaWarpForest.cpp:
-	.text       start:0x8019C738 end:0x8019CA24
 
 pso/object/TObjAreaWarp.cpp:
 	.text       start:0x8019CA24 end:0x8019D4E4
@@ -8310,10 +8301,7 @@ pso/object/TObjWarpBoss03.cpp:
 	.text       start:0x8019FA48 end:0x8019FB8C
 
 pso/object/TObjWarpJungMain.cpp:
-	.text       start:0x8019FB8C end:0x801A0070
-
-pso/object/TObjWarpJung.cpp:
-	.text       start:0x801A0070 end:0x801A0354
+	.text       start:0x8019FB8C end:0x801A0354
 	.rodata     start:0x80446708 end:0x80446710
 
 pso/object/TObjWarpJung_801A0354.cpp:
@@ -11998,11 +11986,8 @@ pso/misc/TWindowArea.cpp:
 	.text       start:0x8024467C end:0x80244774
 
 pso/misc/TWindowSubComCard_80244774.cpp:
-	.text       start:0x80244774 end:0x802448E4
+	.text       start:0x80244774 end:0x80244CF4
 	.rodata     start:0x8044E678 end:0x8044E680
-
-pso/unk/text_802448E4.cpp:
-	.text       start:0x802448E4 end:0x80244CF4
 
 pso/misc/TWindowDD_80244CF4.cpp:
 	.text       start:0x80244CF4 end:0x80244D2C
@@ -13013,11 +12998,8 @@ pso/misc/TWindowCtrl_8026F6A4.cpp:
 	.text       start:0x8026F6A4 end:0x8026F6DC
 
 pso/misc/TWindowSubStatusDisp_8026F6DC.cpp:
-	.text       start:0x8026F6DC end:0x8026F8CC
+	.text       start:0x8026F6DC end:0x8026F9F4
 	.rodata     start:0x8044F608 end:0x8044F610
-
-pso/unk/text_8026F8CC.cpp:
-	.text       start:0x8026F8CC end:0x8026F9F4
 
 pso/unk/text_8026F9F4.cpp:
 	.text       start:0x8026F9F4 end:0x8026FDC0
@@ -14406,11 +14388,8 @@ pso/boss/TBoss6Type1_802B3870.cpp:
 	.text       start:0x802B3870 end:0x802B4A70
 	.ctors      start:0x80433FC8 end:0x80433FCC
 
-pso/boss/TBoss6Type1_802B4A70.cpp:
-	.text       start:0x802B4A70 end:0x802B64A8
-
 pso/boss/TBoss6Type1.cpp:
-	.text       start:0x802B64A8 end:0x802B97E0
+	.text       start:0x802B4A70 end:0x802B97E0
 	.rodata     start:0x80471040 end:0x80471048
 
 pso/boss/TBoss6Type2_802B97E0.cpp:

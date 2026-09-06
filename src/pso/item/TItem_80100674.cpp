@@ -159,11 +159,21 @@ struct VObj_18_8a175d : VBase_18_8a175d {
     virtual s32 m34();
 };
 
+struct TItemData
+{
+  u8 kind;
+  u8 sub1;
+  u8 sub2;
+  u8 pad[9];
+  s32 value;
+  s32 pad2[3];
+};
+
 extern "C" {
 u8 *lookup_inventory_item__10TObjPlayerFPv(s32);
 u32 TObjPlayer__sub_801B8E68(int, int);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
-void TItem__sub_801007B4(u16 arg0, s32 arg1);
+void TItem__sub_801007B4(s32 arg0, s32 arg1);
 s16 clamp_field_32E__10TObjPlayerFPv(void *);
 s16 clamp_value__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_800113E4(void *, s16);
@@ -174,11 +184,23 @@ void TObjPlayer__sub_8010069C(u8 *arg0);
 int TObjPlayer__sub_80019248(void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 u8 *TLobby__sub_80101AB0(s32);
-u16 get_id__13TItemProArmorFPv(void *);
 void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
 void TObjPlayer__sub_801B9634(u32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u8 get_field_ed__10TObjPlayerFPv(u32);
+s32 get_field_d8__10TObjPlayerFPv(void *);
+void TItem__sub_801007B4(s32 arg0, s32 arg1);
 s32 TItem__sub_80100824(s32 arg0);
+s32 get_id__13TItemProArmorFPv(void *);
+u8 get_field_ec__12TOSwitchItemFPv(u32);
+M2C_UNK init__9TItemDataFv(void *);
+M2C_UNK call_preserve_flag__8TItemMagFPvi(u8 *, u32);
+M2C_UNK TItem__sub_80115D68(u8 *, u32);
+M2C_UNK TItemProArmor__sub_801178A8(u8 *, u32);
+M2C_UNK set_params__14TItemProShieldFiPv(u8 *, u32);
+M2C_UNK TItem__sub_8011892C(u8 *, u32);
+M2C_UNK copy_field6_from__10TObjPlayerFPvPv(u8 *, u32);
+void TItem__sub_801008F0(void *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -253,10 +275,10 @@ void TItem__sub_801007A8(void) {  }
 void TItem__sub_801007AC(void) {  }
 void TItem__sub_801007B0(void) {  }
 
-void TItem__sub_801007B4(u16 arg0, s32 arg1) {
+void TItem__sub_801007B4(s32 arg0, s32 arg1) {
     s32 temp_r3;
     u8 *temp_r3_2;
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (arg0));
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (u16)arg0);
     if (temp_r3 != 0) {
         temp_r3_2 = lookup_inventory_item__10TObjPlayerFPv(arg1);
         if ((temp_r3_2 != NULL) && (TObjPlayer__sub_801B8E68((int) (temp_r3), (int) (temp_r3_2)) == 0U)) {
@@ -278,7 +300,7 @@ s32 TItem__sub_80100824(s32 arg0) {
   {
     return 0;
   }
-  temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((void *)((u32) get_id__13TItemProArmorFPv(temp_r3)));
+  temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((void *)((u32) ((u16)get_id__13TItemProArmorFPv(temp_r3))));
   if (temp_r3_2 == 0)
   {
     return 0;
@@ -295,6 +317,62 @@ s32 TItem__sub_80100824(s32 arg0) {
     return 0;
   }
   return 1;
+}
+
+typedef struct TItemData TItemData;
+void TItem__sub_801008F0(void *arg0, u32 arg1) {
+  struct TItemData sp8;
+  s32 temp_r31;
+  u8 temp_r3;
+  u8 temp_r3_2;
+  u8 tmp0;
+  u8 tmp1;
+  u8 tmp2;
+  init__9TItemDataFv(&sp8);
+  tmp2 = *((u8 *) (((s8 *) arg0) + 0));
+  tmp0 = tmp2;
+  tmp1 = *((u8 *) (((s8 *) arg0) + 1));
+  tmp2 = *((u8 *) (((s8 *) arg0) + 2));
+  sp8.kind = tmp0;
+  sp8.sub1 = tmp1;
+  sp8.sub2 = tmp2;
+  if (arg1 != 0U)
+  {
+    temp_r3 = get_field_ec__12TOSwitchItemFPv(arg1);
+    switch ((s32) temp_r3)
+    {
+      case 0:
+        copy_field6_from__10TObjPlayerFPvPv((u8 *) (&sp8), arg1);
+        break;
+      case 1:
+        temp_r3_2 = get_field_ed__10TObjPlayerFPv(arg1);
+        switch ((s32) temp_r3_2)
+      {
+        case 1:
+          TItemProArmor__sub_801178A8((u8 *) (&sp8), arg1);
+          break;
+        case 2:
+          set_params__14TItemProShieldFiPv((u8 *) (&sp8), arg1);
+          break;
+        case 3:
+          TItem__sub_8011892C((u8 *) (&sp8), arg1);
+          break;
+      }
+        break;
+      case 2:
+        call_preserve_flag__8TItemMagFPvi((u8 *) (&sp8), arg1);
+        break;
+      case 3:
+        TItem__sub_80115D68((u8 *) (&sp8), arg1);
+        break;
+    }
+    temp_r31 = get_id__13TItemProArmorFPv((void *)(arg1));
+    sp8.value = get_field_d8__10TObjPlayerFPv((void *)(arg1));
+    if (TItem__sub_80100824(get_field_d8__10TObjPlayerFPv((void *)(arg1))) != 0)
+    {
+      TItem__sub_801007B4(temp_r31, (s32)(&sp8));
+    }
+  }
 }
 
 int TItem__sub_80100B8C(void* p) { return TItem__sub_80100A40((char*)p + 0x38); }

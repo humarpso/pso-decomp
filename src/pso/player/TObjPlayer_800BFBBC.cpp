@@ -61,6 +61,21 @@ VA
     virtual void m48();
 };
 
+struct VBase_18_ca64a0 { char pad[0x18]; };
+
+struct VObj_18_ca64a0 : VBase_18_ca64a0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual s32 m9(f32, f32, f32);
+};
+
 extern "C" {
 s32 TObjPlayer__sub_800F06B4(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -102,6 +117,36 @@ void update_invuln_timer__10TObjPlayerFPv(void *arg0);
 void set_action_state_3__10TObjPlayerFPv(void *arg0);
 s32 obj_testFlags30(void *, M2C_UNK);
 void enter_down_state__10TObjPlayerFPv(void *arg0);
+s32 render_with_position_override__10TObjPlayerFPvPvi(void *, int, int);
+s32 obj_testFlags30(void *, M2C_UNK);
+s32 init_lights__9TObjEneDDFv();
+s32 TObjEneDD__sub_800B9B24(f32);
+s32 set_speed_params__12TObjEneLappyFPvi(void *, int);
+s32 toggle_particle_effect__10TObjPlayerFv();
+s32 fn_800FD930();
+s32 TObjLight__sub_80134098();
+s32 TObjLight__sub_80134194(void *);
+s32 render_world_model__10TObjPlayerFPv(void *);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+f32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 TObjFish__sub_803E46BC(int);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+extern s32 *lbl_805D5168;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D9F28;
+extern const f32 lbl_805D9F30;
+extern const f32 lbl_805D9F34;
+extern const f32 lbl_805D9F38;
+extern const f32 lbl_805D9F3C;
+extern const f32 lbl_805D9F40;
+void TObjPlayer__sub_800BFF58(u8 *arg0);
 }
 
 extern "C" {
@@ -158,6 +203,55 @@ void TObjPlayer__sub_800BFEDC(u8 *arg0) {
     }
 }
 void TObjPlayer__sub_800BFF54(void) {  }
+
+void TObjPlayer__sub_800BFF58(u8 *arg0) {
+    s32 temp_r3;
+    if (obj_testFlags30((void *)((void *) (arg0)), (M2C_UNK)((int) (0x02000000))) == 0) {
+        if (M2C_FIELD(arg0, s16 *, 0x374) & 1) {
+            *lbl_805D5168 &= 0xFFFFFFF7;
+        } else {
+            *lbl_805D5168 |= 8;
+        }
+        temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805D9F30, lbl_805D9F34, lbl_805D9F28);
+        if (temp_r3 != 0) {
+            set_speed_params__12TObjEneLappyFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x368)));
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+            TObjLight__sub_80134194((void *) (arg0));
+            toggle_particle_effect__10TObjPlayerFv();
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            if (M2C_FIELD(arg0, s16 *, 0x374) & 0x400) {
+                TOMonitorMachine01__sub_803D8B5C((int) (0), (f32) (lbl_805D9F38), (f32) (lbl_805D9F3C), (f32) (lbl_805D9F38));
+                TObjEneDD__sub_800B9B24((f32) (lbl_805D9F40));
+            }
+            some_id_805c6f74 &= 0xFFFFFBFF;
+            set_global_flag__10TObjPlayerFv();
+            if (fn_800FD930() == 1) {
+                TObjFish__sub_803E46BC((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+            } else {
+                some_id_805c6f74 |= 0x01000000;
+                if (temp_r3 == 1) {
+                    draw__16TObjEneRe7BeruraFPv((void *) (arg0));
+                } else {
+                    render_world_model__10TObjPlayerFPv((void *) (arg0));
+                }
+                some_id_805c6f74 &= 0xFEFFFFFF;
+            }
+            clear_global_state__10TObjPlayerFv();
+            if (M2C_FIELD(arg0, s16 *, 0x374) & 0x400) {
+                init_lights__9TObjEneDDFv();
+            }
+            TObjPlayer__sub_803D9B78();
+            TObjLight__sub_80134098();
+            end_effect_render__13TParticleCtrlFv();
+            if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800) && (obj_testFlags30((void *)((void *) (arg0)), (M2C_UNK)((int) (0x800000))) != 0)) {
+                render_with_position_override__10TObjPlayerFPvPvi((void *) (arg0), (int) (0), (int) (0));
+            }
+        }
+    }
+}
+
 void set_boss4_state__10TObjPlayerFPv(void *arg0) {
     s16 temp_r4;
     s16 temp_r4_2;

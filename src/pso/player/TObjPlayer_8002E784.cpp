@@ -8,6 +8,10 @@ struct VObj_8002E784 : Base_8002E784 {
     virtual void m0(int);
 };
 
+typedef struct Unit { u8 pad[0x2C]; } Unit;
+
+typedef struct Boss2 { u8 pad[0x20]; Unit units[0x13]; } Boss2;
+
 extern "C" {
 extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
@@ -25,6 +29,10 @@ u8 * TBreakUpMdl__sub_8009705C(void *, s32);
 extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002EBCC(void);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TObjPlayer__sub_8002EDCC(void *);
+M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, M2C_UNK);
+void TObjPlayer__sub_8002E974(u8 *arg0);
 }
 
 extern "C" {
@@ -68,6 +76,27 @@ void TObjPlayer__sub_8002E7C8(void) {
     }
     (*(u8 * *)&lbl_805D4B8C) = (unsigned char *) ((void *) var_r0);
     TObjPlayer__sub_8002ECC4((void *) var_r0, 0x1C);
+}
+
+void TObjPlayer__sub_8002E974(u8 *arg0) {
+    u8 *temp_r30;
+    s32 var_r29;
+    Boss2 *self;
+    M2C_FIELD(arg0, s32 *, 0x1C) += 1;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) >= 0xA0) {
+        queue_destruction__7TObjectFv((void *)(arg0));
+        return;
+    }
+    var_r29 = 0;
+    do {
+        temp_r30 = (u8 *)&((Boss2 *)arg0)->units[var_r29];
+        if (TObjPlayer__sub_8002EDCC(temp_r30) != 0) {
+            if ((var_r29 % 2) == 0) {
+                create_particle__17TObjBoss2CeilJunkFv(temp_r30, 0x171);
+            }
+        }
+        var_r29 += 1;
+    } while (var_r29 < 0x13);
 }
 
 void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1) {

@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+void *alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 TQuestVmDownLoadServer__sub_801F8538(void *, s32);
+M2C_UNK move_data__6TLobbyFv(void *, s32, s32);
+s32 TQuestVmDownLoadServer__sub_801F84B8(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 u8 *TQuestVmDownLoadServer__vt0(u8 *arg0, s16 arg1);
 void abort_download__22TQuestVmDownLoadServerFPv(void *arg0);
@@ -227,6 +235,22 @@ u8 *TQuestVmDownLoadServer__vt0(u8 *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+s32 TQuestVmDownLoadServer__sub_801F84B8(s32 arg0, s32 arg1) {
+  s32 temp_r31;
+  void *temp_r3;
+  s32 temp_r29;
+  temp_r3 = alloc__22TQuestVmDownLoadServerFPv(arg1);
+  if (temp_r3 == 0)
+  {
+    return 0;
+  }
+  move_data__6TLobbyFv(temp_r3, arg0, arg1);
+  temp_r29 = *((s32 *) (((s8 *) temp_r3) + 4));
+  *((s32 *) (((s8 *) temp_r3) + 4)) = 0;
+  temp_r31 = TQuestVmDownLoadServer__sub_801F8538(temp_r3, arg1);
+  safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
+  return ((u32) __cntlzw((u32) (temp_r31 - temp_r29))) >> 5;
 }
 
 }

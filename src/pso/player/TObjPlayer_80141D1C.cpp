@@ -17,6 +17,9 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 TObjPlayer__sub_8001978C(f32);
 extern const f64 lbl_8043F2C0;
 void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2);
+f32 TBoss8Dragon__sub_803D64C0();
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0);
 }
 
 extern "C" {
@@ -37,7 +40,6 @@ u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1);
 void reset_transform_state__10TObjPlayerFv(void);
 void vsub(void *arg0, void *arg1, void *arg2);
 f32 TBoss8Dragon__sub_803D64C0();
-f32 TBoss8Dragon__sub_803D64DC(s32, f32);
 f32 TCameraCtrl__sub_803D8D00();
 M2C_UNK TNpcPlayer__sub_803D97B4(s32);
 int abs__4cXyzCFv(int, int);
@@ -61,10 +63,19 @@ void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0) {
     temp_f1 = farg0 * TBoss8Dragon__sub_803D64C0();
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;
     M2C_FIELD(arg1, f32 *, 4) = (f32) lbl_805DB150;
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (farg0 * TBoss8Dragon__sub_803D64DC(arg0, temp_f1));
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (farg0 * TBoss8Dragon__sub_803D64DC(arg0));
 }
 
 extern const f64 lbl_8043F2C0;
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0) {
+    M2C_FIELD(arg2, f32 *, 0) = (f32) ((farg0 * TBoss8Dragon__sub_803D64C0()) + M2C_FIELD(arg1, f32 *, 0));
+    M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
+    M2C_FIELD(arg2, f32 *, 8) = (f32) ((farg0 * TBoss8Dragon__sub_803D64DC((s32)(arg0))) + M2C_FIELD(arg1, f32 *, 8));
+}
+#pragma pop
 
 s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     f32 temp_f3;

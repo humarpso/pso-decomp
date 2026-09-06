@@ -7,7 +7,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 get_instance__12TQuestListVMFv();
 M2C_UNK reset__12TQuestListVMFv();
-s32 TQuestThread__sub_801F624C(s32, s32, s32, s32);
 s32 TQuestThread__sub_801F6418(s32, s32, s32);
 s32 TQuestListVM__sub_801F6530();
 s32 get_quest_count__16TQuestListOnlineFv();
@@ -17,6 +16,15 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 extern s32 evt2_random_enemies_mode;
 extern s32 tl_su;
 s32 TQuestThread__sub_801F60DC(void);
+int queue_destruction__7TObjectFv(void*);
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
+M2C_UNK TLobby__sub_801F3124(s32, void *);
+M2C_UNK TQuestThread__sub_801F5E7C();
+M2C_UNK __ct__7TObjectFP7TObject();
+M2C_UNK memcpy(s32, s32, s32);
+extern M2C_UNK TQuestThread__data_804C8678[];
+extern u8 *lbl_805D5EE8;
+u8 *TQuestThread__sub_801F624C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -58,14 +66,14 @@ s32 TQuestThread__sub_801F60DC(void) {
         var_r30 = __nw__7TObjectFUl(0x1A4);
         if (var_r30 != 0) {
             temp_r31 = get_quest_count__16TQuestListOnlineFv();
-            var_r30 = TQuestThread__sub_801F624C(var_r30, tl_su, TQuestListOnline__sub_801F6540(), temp_r31);
+            var_r30 = (s32)TQuestThread__sub_801F624C((u8 *)(var_r30), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(temp_r31));
         }
         return var_r30;
     case 3:
         var_r30_2 = __nw__7TObjectFUl(0x1A4);
         if (var_r30_2 != 0) {
             temp_r31_2 = TQuestListVM__sub_801F6530();
-            var_r30_2 = TQuestThread__sub_801F624C(var_r30_2, tl_su, get_instance__12TQuestListVMFv(), temp_r31_2);
+            var_r30_2 = (s32)TQuestThread__sub_801F624C((u8 *)(var_r30_2), (s32)(tl_su), (s32)(get_instance__12TQuestListVMFv()), (s32)(temp_r31_2));
         }
         reset__12TQuestListVMFv();
         return var_r30_2;
@@ -73,7 +81,7 @@ s32 TQuestThread__sub_801F60DC(void) {
         var_r30_3 = __nw__7TObjectFUl(0x1A4);
         if (var_r30_3 != 0) {
             temp_r31_3 = get_quest_count__16TQuestListOnlineFv();
-            var_r30_3 = TQuestThread__sub_801F624C(var_r30_3, tl_su, TQuestListOnline__sub_801F6540(), temp_r31_3);
+            var_r30_3 = (s32)TQuestThread__sub_801F624C((u8 *)(var_r30_3), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(temp_r31_3));
         }
         return var_r30_3;
     case 5:
@@ -86,6 +94,27 @@ s32 TQuestThread__sub_801F60DC(void) {
         return 0;
     }
 }
+
+#pragma push
+#pragma fp_contract on
+u8 *TQuestThread__sub_801F624C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 temp_r31;
+    __ct__7TObjectFP7TObject();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = TQuestThread__data_804C8678;
+    if (arg3 < 0) {
+        queue_destruction__7TObjectFv((void*)(arg0));
+    } else {
+        temp_r31 = arg3 + 0x400;
+        M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(temp_r31);
+        memcpy(M2C_FIELD(arg0, s32 *, 0x198), arg2, temp_r31);
+        lbl_805D5EE8 = arg0;
+        TLobby__sub_801F3124(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
+        M2C_FIELD(arg0, s32 *, 0x1A0) = 0;
+    }
+    TQuestThread__sub_801F5E7C();
+    return arg0;
+}
+#pragma pop
 
 void set_status_flag_80__12TQuestThreadFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x80; }
 

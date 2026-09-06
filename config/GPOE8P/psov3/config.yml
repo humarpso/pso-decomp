@@ -44,6 +44,7 @@ force_active:
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
   - load_item_pmt
+  - open_windows__22TAdMultiPlyChrSelectGCFPv
   - reset_and_invoke__6TLobbyFv
   - run_task__12TItemEffCaneFv
   - run_task__7TEffHitFv

@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 get_view_scale__11TCameraCtrlFv(void);
+extern const f64 lbl_8043DAE0;
+extern const f32 lbl_805DAA00;
+extern const f32 lbl_805DAA04;
+f32 TFontSmallTask__sub_800FCCFC(void);
+}
+
+extern "C" {
 
 void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
 s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5, s32 arg6);
@@ -25,6 +33,15 @@ void fn_800FCCC8(s32 arg0, s32 arg1) {
 s32 fn_800FCCF4(void* p) { return *(s32*)((char*)p + 0x874); }
 
 extern M2C_UNK lbl_805DAA34;
+
+f32 TFontSmallTask__sub_800FCCFC(void) {
+    f32 temp_f1;
+    temp_f1 = get_view_scale__11TCameraCtrlFv();
+    if (temp_f1 >= lbl_8043DAE0) {
+        return lbl_805DAA00;
+    }
+    return lbl_805DAA04 / temp_f1;
+}
 
 s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5, s32 arg6) {
     s32 var_r31;

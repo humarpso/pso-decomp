@@ -15,6 +15,96 @@ struct VObj_18_f8ef8c : VBase_18_f8ef8c {
     virtual M2C_UNK m5();
 };
 
+#include <stddef.h>
+struct VBase_18_f2ea1e { char pad[0x18]; };
+
+struct VObj_18_f2ea1e : VBase_18_f2ea1e {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual s32 m19(void *, s32, M2C_UNK, f32);
+    virtual f32 m20(void *, f32);
+    virtual void m21();
+    virtual M2C_UNK m22(void *, s32);
+    virtual M2C_UNK m23(void *, f32);
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual M2C_UNK m73();
+};
+
+struct Stack_802E456C {
+    u8 sp8;
+    u8 sp9;
+    u8 pad_A[0x2];
+    u8 * spC;
+    u8 pad_10[0x4];
+    u8 * sp14;
+    s32 sp18;
+};
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
@@ -26,6 +116,17 @@ void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
 s32 has_game_join_id(void *);
 s32 TItemAttackCol__sub_802E4918(void *);
 void run_task__14TItemAttackColFv(u8 *arg0);
+u8 get_field_ed__10TObjPlayerFPv(int);
+u32 TLobby__sub_80101AB0(int);
+u8 get_slot_count__14TItemProShieldFPv(int);
+s32 TObjPlayer__sub_8011C620(void *);
+s32 reset_status_block__10TObjPlayerFPv(void *);
+s32 apply_camera_shake__10TObjPlayerFiii(int, int, int);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+f32 TObjPlayer__sub_801CBF08(int, int);
+extern const f32 lbl_805DE914;
+extern const f32 lbl_805DE928;
+s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -131,5 +232,53 @@ void create__14TItemAttackColFPvPv(void *arg0, void *arg1) {
     extern const float lbl_805DE918;
     extern const float lbl_805DE920;
 void* TObjPlayer__sub_802E449C(void* a0) { TObjPlayer__sub_802E451C(); *(int*)((char*)a0 + 0x40) = 0; *(int*)((char*)a0 + 0x44) = 0; *(int*)((char*)a0 + 0x48) = 0; *(float*)((char*)a0 + 0x4c) = lbl_805DE918; *(int*)((char*)a0 + 0x50) = 0; *(int*)((char*)a0 + 0x54) = 0; *(int*)((char*)a0 + 0x58) = 0; *(float*)((char*)a0 + 0x5c) = lbl_805DE920; *(float*)((char*)a0 + 0x60) = lbl_805DE918; *(float*)((char*)a0 + 0x64) = lbl_805DE918; *(float*)((char*)a0 + 0x68) = lbl_805DE918; *(float*)((char*)a0 + 0x6c) = lbl_805DE918; *(int*)((char*)a0 + 0x70) = 0; *(int*)((char*)a0 + 0x74) = 0; *(int*)((char*)a0 + 0x78) = -1; *(int*)((char*)a0 + 0x7c) = -1; return a0; }
+s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1) {
+    typedef char sp8_offset[(offsetof(Stack_802E456C, sp8) == 0x0) ? 1 : -1];
+    typedef char sp9_offset[(offsetof(Stack_802E456C, sp9) == 0x1) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_802E456C, spC) == 0x4) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_802E456C, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_802E456C, sp18) == 0x10) ? 1 : -1];
+    Stack_802E456C stack;
+    s32 temp_r31;
+    s32 temp_r31_2;
+    u8 *temp_r30;
+    u8 *temp_r29;
+    u32 temp_r28;
+    s32 temp_r0;
+    f32 var_f31;
+    temp_r30 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
+    temp_r29 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((s32) M2C_FIELD(arg0, u16 *, 0xA8)));
+    temp_r28 = TLobby__sub_80101AB0((int) (M2C_FIELD(arg0, s32 *, 0xAC)));
+    temp_r31 = M2C_FIELD(M2C_FIELD(arg1, u8 **, 0), s32 *, 0xA4) + (M2C_FIELD(arg1, s32 *, 4) * 0x2C);
+    if ((temp_r29 != NULL) && (temp_r28 != 0U) && (((VObj_18_f2ea1e *)(temp_r30))->m19(temp_r29, temp_r31, 0, M2C_FIELD(arg0, f32 *, 0xB0)) != 0)) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
+        var_f31 = lbl_805DE914;
+        switch (temp_r0) {
+        case 0:
+            var_f31 = ((VObj_18_f2ea1e *)(temp_r30))->m20(temp_r29, M2C_FIELD(arg0, f32 *, 0xB4));
+            break;
+        case 1:
+            var_f31 = ((VObj_18_f2ea1e *)(temp_r30))->m20(temp_r29, M2C_FIELD(arg0, f32 *, 0xB4));
+            ((VObj_18_f2ea1e *)(temp_r30))->m23(temp_r29, lbl_805DE928 * var_f31);
+            break;
+        case 2:
+            ((VObj_18_f2ea1e *)(temp_r30))->m22(temp_r29, temp_r31);
+            break;
+        }
+        temp_r31_2 = (s32) var_f31;
+        TObjPlayer__sub_801CBF08((int) (temp_r29), (int) (temp_r31_2));
+        ((VObj_18_f2ea1e *)(temp_r29))->m73();
+        apply_camera_shake__10TObjPlayerFiii((int) (temp_r29), (int) (temp_r30), (int) (temp_r31_2));
+        reset_status_block__10TObjPlayerFPv((void *) (&stack.sp8));
+        stack.sp8 = get_field_ed__10TObjPlayerFPv((int) (temp_r28));
+        stack.sp9 = get_slot_count__14TItemProShieldFPv((int) (temp_r28));
+        stack.spC = (u8 *)(temp_r29);
+        stack.sp14 = (u8 *)(temp_r30);
+        stack.sp18 = M2C_FIELD(arg1, s32 *, 4);
+        TObjPlayer__sub_8011C620((void *) (&stack.sp8));
+        return 1;
+    }
+    return 0;
+}
 
 }

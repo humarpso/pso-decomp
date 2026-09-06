@@ -34,12 +34,14 @@ s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 M2C_UNK TWindowLockOn__sub_8026366C(void *, s32);
 u32 TWindowLockOn__sub_80263748(int, s32);
 void TWindowCtrl__sub_8024DE60(u8 *arg0);
+s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(int);
+s32 reset_key_machine_state__10TObjPlayerFv();
+void fn_8024E0F0(u8 *arg0);
 }
 
 extern "C" {
 
 void TWindowCtrl__sub_8024DAAC(void *arg0);
-int fn_8024E0F0(void*);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 void run_all_updates__11TWindowCtrlFPv(void* p);
 void show_active_window__11TWindowCtrlFPv(void *arg0);
@@ -145,7 +147,36 @@ void TWindowCtrl__sub_8024DFF4(u8 *arg0) {
 }
 
 void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4((u8 *)((void*)(p))); TWindowCtrl__sub_8024DF5C((u8 *)((void*)(p))); TWindowCtrl__sub_8024DE60((u8 *)((void*)(p))); TWindowCtrl__sub_8024DCE8(p); show_active_window__11TWindowCtrlFPv((void *)(p)); TWindowCtrl__sub_8024DAC4(p); TWindowCtrl__sub_8024DAAC((void *)(p)); }
-
-int fn_8024E0F0(void*) { return 0; }
+#pragma push
+#pragma scheduling off
+void fn_8024E0F0(u8 *arg0) {
+    s16 temp_r0;
+    s16 temp_r3_3;
+    u32 temp_r3;
+    u32 temp_r3_2;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x1E);
+    switch (temp_r0) {
+    case 18:
+        temp_r3 = M2C_FIELD(arg0, u32 *, 0x30);
+        if (temp_r3 != 0U) {
+            clear_flag4_bit4__22TQuestVmDownLoadServerFPv((int) (temp_r3));
+        }
+        break;
+    case 38:
+        if (reset_key_machine_state__10TObjPlayerFv() != 0) {
+            temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x34);
+            if (temp_r3_2 != 0U) {
+                clear_flag4_bit4__22TQuestVmDownLoadServerFPv((int) (temp_r3_2));
+            }
+        }
+        break;
+    }
+    temp_r3_3 = M2C_FIELD(arg0, s16 *, 0x1E);
+    if (temp_r3_3 > 0x7530) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = (s16) (temp_r3_3 - 0x2710);
+    }
+    M2C_FIELD(arg0, s16 *, 0x1E) = (s16) (M2C_FIELD(arg0, s16 *, 0x1E) + 1);
+}
+#pragma pop
 
 }

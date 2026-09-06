@@ -5,6 +5,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int queue_destruction__7TObjectFv(void*);
+s32 TObjFish__sub_8001ED9C(void *, int);
+s32 TObjFish__sub_8001EDC4(void *, int);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjContainerIdo__sub_803D96A8(int, int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+f32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 TObjEneSlimeOne__sub_803E4AF4(void *, int, f32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+extern int lbl_805D6858;
+void render__22TObjEneMe1GiGueMissileFv(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjEneMe1GiGueMissile__vt4(void* p);
 void TObjEneMe1GiGueMissile__vt7(void* p, void* a1);
@@ -43,6 +62,28 @@ void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
+  s32 temp_r31;
+  if (((void *) (*(u8 * *)&lbl_805D6858)) == 0)
+  {
+    queue_destruction__7TObjectFv((void*)((void *) arg0));
+    return;
+  }
+  TObjPlayer__sub_803D9B2C();
+  begin_effect_render__13TParticleCtrlFv();
+  TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x6C));
+  temp_r31 = (int) (*((s32 *) (((s8 *) arg0) + 0xA4)));
+  TObjPlayer__sub_803D9214((int) 0, temp_r31);
+  TObjContainerIdo__sub_803D96A8((int) 0, (int) (*((s32 *) (((s8 *) arg0) + 0xA0))));
+  set_global_param__8TObjFishFi((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&lbl_805D6858)) + 0x42C)))) + 0x1C))));
+  set_global_flag__10TObjPlayerFv();
+  temp_r31 = TObjFish__sub_8001ED9C((void *) (*(u8 * *)&lbl_805D6858), (int) 5);
+  TObjEneSlimeOne__sub_803E4AF4((void *) TObjFish__sub_8001EDC4((void *) (*(u8 * *)&lbl_805D6858), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
+  clear_global_state__10TObjPlayerFv();
+  end_effect_render__13TParticleCtrlFv();
+  TObjPlayer__sub_803D9B78();
 }
 
 void TObjEneMe1GiGue__sub_802CE4E8(void) {  }

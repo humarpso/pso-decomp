@@ -16,6 +16,23 @@ struct VObj_800D7E10_800D7D74 : Base_800D7E10_800D7D74 {
     virtual void m4();
 };
 
+struct Stack_800D7E94
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+};
+
+extern "C" {
+s32 calc_random_scaled__10TObjPlayerFv();
+s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805DA380;
+void TDeadSpot__sub_800D7E94(u8 *arg0);
+}
+
 extern "C" {
 
 void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1);
@@ -75,6 +92,20 @@ void update_lifetime__9TDeadSpotFPv(void *arg0) {
 }
 
 extern M2C_UNK lbl_804949F4[];
+
+typedef struct Stack_800D7E94 Stack_800D7E94;
+void TDeadSpot__sub_800D7E94(u8 *arg0) {
+  Stack_800D7E94 stack;
+  f32 temp_f1;
+  s32 temp_r3;
+  temp_r3 = calc_random_scaled__10TObjPlayerFv();
+  temp_f1 = (*((f32 *) (((s8 *) arg0) + 0x28))) * TBoss8Dragon__sub_803D64C0((int) (temp_r3 & 0xFFFFFFFFu));
+  stack.spC = lbl_805DA380;
+  stack.sp8 = temp_f1;
+  stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x28))) * TBoss8Dragon__sub_803D64DC((int) temp_r3);
+  TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
+  copy_pos__11TNowLoadingFPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x34))), (void *) (&stack.sp8));
+}
 
 void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

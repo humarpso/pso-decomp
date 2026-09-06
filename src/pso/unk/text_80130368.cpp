@@ -59,6 +59,8 @@ struct VObj_18_382324 : VBase_18_382324 {
     virtual M2C_UNK m49(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 };
 
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 TObjPlayer__sub_800196EC();
 s32 get_field_3e4__10TObjPlayerFPv(int);
@@ -67,6 +69,9 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 s32 update_technique_slot__10TTecRaFoieFi(int, int, int);
 s32 TBoss3Volopt__sub_8022675C(int, int, int, int);
 void TObjPlayer__sub_801303D8(u8 *arg0);
+s32 init_shoot_model__10TObjPlayerFPv(int, void *, void *, void *, f32);
+s32 __nw__7TObjectFUl(int);
+s32 TObjPlayer__sub_80130368(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 }
 
 extern "C" {
@@ -74,6 +79,23 @@ extern "C" {
 typedef struct VBase_18_382324 VBase_18_382324;
 typedef struct VObj_18_382324 VObj_18_382324;
 #define PSO_VCALL_VObj_18_382324_m49(_self, _arg0, _arg1, _arg2, _arg3) (((VObj_18_382324 *)(_self))->m49((_arg0), (_arg1), (_arg2), (_arg3)))
+
+s32 TObjPlayer__sub_80130368(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+    s32 temp_r3;
+    s32 var_r0;
+    s32 var_r3;
+    var_r3 = 0;
+    if (arg0 != 0) {
+        temp_r3 = __nw__7TObjectFUl((int) (0x6C));
+        var_r0 = temp_r3;
+        if (var_r0 != 0) {
+            var_r0 = init_shoot_model__10TObjPlayerFPv((int) (temp_r3), (void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
+        }
+        var_r3 = var_r0;
+    }
+    return var_r3;
+}
+
 void TObjPlayer__sub_801303D8(u8 *arg0) {
   s32 temp_r31;
   if ((((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U) && (reset_key_machine_state__10TObjPlayerFv() != 0))

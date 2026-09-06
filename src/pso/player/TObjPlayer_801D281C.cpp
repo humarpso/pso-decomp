@@ -9,6 +9,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_8 { u8 bytes[0x8]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_2C { u8 bytes[0x2C]; };
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -20,7 +25,6 @@ s16 TObjPlayer__sub_801D2EA8(u8 *arg0);
 s32 TObjPlayer__sub_801D2EE8(s16 arg0);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s32 TObjPlayer__sub_801D2F8C(s16 arg0);
-int TFontSmallLobby__sub_801C0228(void*);
 u8 *TObjPlayer__sub_801D2910(u8 *arg0, u8 *arg1);
 s32 check_hit_by_id__10TObjPlayerFiii(s32, s32, s32);
 void TObjPlayer__sub_801D2DDC(s32 arg0, s32 arg1);
@@ -30,6 +34,8 @@ int clear_flags__11TAdRicoRingFPvUi(void*, int);
 void TObjPlayer__sub_801D3424(void* p, s16 v);
 extern const f32 lbl_805DC3B8;
 void TObjPlayer__sub_801D31A8(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3);
+int TFontSmallLobby__sub_801C0228(void*);
+s32 TObjPlayer__sub_801D2BB8(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -49,7 +55,6 @@ f32 TObjPlayer__sub_801D2A98(void* p);
 int TObjPlayer__sub_801D2AB0(void);
 int TObjPlayer__sub_801D2B08(void* p);
 int TObjPlayer__sub_801D2B2C(void);
-int TObjPlayer__sub_801D2BB8(void);
 int TObjPlayer__sub_801D2C18(void);
 void TObjPlayer__sub_801D2CC4(void* p, f32 v);
 f32 TObjPlayer__sub_801D2CDC(void* p);
@@ -120,11 +125,11 @@ void TObjPlayer__sub_801D2860(u8 *arg0) {
 s32 TObjPlayer__sub_801D2870(void* p) { return *(s32*)((char*)p + 0x4); }
 s32 TObjPlayer__sub_801D2878(void* p) { return *(s32*)((char*)p + 0xc); }
 int bswap_field_u32__10TObjPlayerFPv(void* p) { return bswap_32__FPUl(p); }
-void* TObjPlayer__sub_801D28A0(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
+void* TObjPlayer__sub_801D28A0(void* p, void* a1) { TFontSmallLobby__sub_801C0228((void*)(p)); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 void TObjPlayer__sub_801D28DC(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
 
 u8 *TObjPlayer__sub_801D2910(u8 *arg0, u8 *arg1) {
-    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    TFontSmallLobby__sub_801C0228((void*)((void*)(arg0)));
     M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
     M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
     *(M2CCopy_8 *)((s32) arg0 + 8) = *(const M2CCopy_8 *)((s32) arg1 + 8);
@@ -162,7 +167,15 @@ int TObjPlayer__sub_801D2B2C(void) { return 0; }
 
 void bswap_u16_pair__10TObjPlayerFPv(void* p) { bswap_16__FPUs(p); bswap_16__FPUs((char*)p + 0x2); }
 
-int TObjPlayer__sub_801D2BB8(void) { return 0; }
+#pragma push
+#pragma fp_contract on
+s32 TObjPlayer__sub_801D2BB8(s32 arg0, s32 arg1) {
+    TFontSmallLobby__sub_801C0228((void*)(arg0));
+    *(M2CCopy_2C *)(arg0 + 4) = *(const M2CCopy_2C *)(arg1 + 4);
+    return arg0;
+}
+#pragma pop
+
 int TObjPlayer__sub_801D2C18(void) { return 0; }
 
 void set_technique_state__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }

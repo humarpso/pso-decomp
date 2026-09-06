@@ -4,12 +4,218 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+extern "C" {
+void TBoss6Type1__sub_802B4B04(u8 *arg0);
+u8 TBoss6Type1__sub_802B5D9C(u8 *arg0);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern const f32 lbl_805DE314;
+extern const f32 TBoss6Type1__data_805DE318;
+extern const f32 lbl_805DE31C;
+void TBoss6Type1__sub_802B5598(void *arg0, void *arg1);
+extern const f32 lbl_805DE354;
+s32 TBoss6Type1__sub_802B5FDC(u8 *arg0);
+extern const f32 lbl_805DE358;
+s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
+extern const f32 TBoss6Type1__data_805DE318;
+s32 TBoss6Type1__sub_802B6060(u8 *arg0);
+s32 rand__11TOBoss4RockFv();
+extern const f32 lbl_805DE300;
+extern f32 TBoss6Type1__data_805DE304;
+s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TBoss6Type1__sub_802B570C(u8 *arg0, u8 *arg1);
+s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
+extern const f32 lbl_805DE34C;
+s32 TBoss6Type1__sub_802B5ED8(u8 *arg0);
+}
+
+extern "C" {
+
+int TBoss6Type1__sub_802B4A70(void* p);
+void TBoss6Type1__sub_802B4A90(void* p);
+int TBoss6Type1__sub_802B4B14(void* p);
+void TBoss6Type1__sub_802B4CF4(void* p);
+void TBoss6Type1__sub_802B59A8(void);
+void TBoss6Type1__sub_802B5AB0(void);
+int TBoss6Type1__sub_802B5DD4(void);
+int TBoss6Type1__sub_802B5E48(void);
+void handle_6xa4_action__11TBoss6Type1FPv(void* p, u8 * _w1);
+void init_parts__11TBoss6Type1FPv(void* p);
+s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *arg0);
+s32 is_ready__11TBoss6Type1FPv(void *arg0);
+int is_time_up__11TBoss6Type1FPv(void *arg0);
+void reset_fields_4e0__11TBoss6Type1FPv(void* p);
+void set_flag_on_threshold__11TBoss6Type1FPv(void *arg0);
+void set_part_default_value__11TBoss6Type1FiPv(int a0, void* a1);
+s32 TBoss6PlotFalz__sub_802AAC74(s32);
+int TBoss6Type1__sub_802B4A9C(void*);
+int TBoss6Type1__sub_802B4B64(void*, void*);
+M2C_UNK TBoss6Type1__sub_802B5AD4(f32);
+int TBoss6Type1__sub_802B60E8(void*);
+s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
+int release_object__11TBoss6Type1FPv(void*);
+
+int TBoss6Type1__sub_802B4A70(void* p) { return release_object__11TBoss6Type1FPv(p); }
+void TBoss6Type1__sub_802B4A90(void* p) { *(s32*)((char*)p + 0x680) = 0; }
+
+void TBoss6Type1__sub_802B4B04(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x508) = (s32) (M2C_FIELD(arg0, s32 *, 0x508) + 1);
+}
+
+int TBoss6Type1__sub_802B4B14(void* p) { return TBoss6Type1__sub_802B4A9C(p); }
+
+void TBoss6Type1__sub_802B4CF4(void* p) { { int i; for (i = 0; i < 4; i++) { TBoss6Type1__sub_802B4B64(p, (void*)i); } } }
+
+s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2) {
+    s32 var_r0;
+    var_r0 = (s32) (((f32) arg2 - lbl_805DE300) * ((*(const f32 *)&TBoss6Type1__data_805DE304) * (f32) rand__11TOBoss4RockFv()));
+    if (var_r0 >= arg2) {
+        var_r0 = 0;
+    }
+    return M2C_FIELD(arg1, M2C_UNK *, (var_r0 * 4));
+}
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Type1__sub_802B5598(void *arg0, void *arg1) {
+    f32 temp_f1;
+    f32 var_f31;
+    s32 temp_r31;
+    s32 var_r4;
+    u32 temp_r5;
+    u32 var_r5;
+    {
+        s32 k = M2C_FIELD(arg0, s32 *, 0x374) * 0x12D687;
+        s8 c = M2C_FIELD(arg0, s8 *, 0x41C);
+        temp_r5 = c * k;
+    }
+    var_r4 = ((temp_r5 & 3) * 0x1800) + 0x2000;
+    var_r5 = (temp_r5 >> 3U) & 1;
+    if ((temp_r5 >> 2U) & 1) {
+        var_r4 = -var_r4;
+    }
+    var_f31 = lbl_805DE314;
+    temp_r31 = M2C_FIELD(arg0, s32 *, 0x60) + var_r4;
+    if ((s32) var_r5 != 0) {
+        var_f31 = lbl_805DE31C;
+    }
+    temp_f1 = var_f31 * TBoss8Dragon__sub_803D64C0(temp_r31);
+    M2C_FIELD(arg1, f32 *, 0) = temp_f1;
+    M2C_FIELD(arg1, f32 *, 4) = (f32) TBoss6Type1__data_805DE318;
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (var_f31 * TBoss8Dragon__sub_803D64DC(temp_r31));
+}
+#pragma pop
+
+void handle_6xa4_action__11TBoss6Type1FPv(void* p, u8 * _w1) { TBoss6Type1__sub_802B570C((u8 *)((char*)p + 0x1), (u8 *)(_w1)); }
+
+extern const f32 TBoss6Type1__data_805DE2D0;
+
+void TBoss6Type1__sub_802B570C(u8 *arg0, u8 *arg1) {
+  f32 temp_f31;
+  f32 temp_f30;
+  s32 temp_r31;
+  temp_r31 = ((s8) (*((u8 *) (((s8 *) arg0) + 0)))) << 8;
+  temp_f31 = (f32) (((s8) (*((u8 *) (((s8 *) arg0) + 1)))) * 0xA);
+  temp_f30 = (f32) (((s8) (*((u8 *) (((s8 *) arg0) + 2)))) * 0xA);
+  *((f32 *) (((s8 *) arg1) + 0)) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64C0(temp_r31));
+  *((f32 *) (((s8 *) arg1) + 8)) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64DC((s32)(temp_r31)));
+  *((f32 *) (((s8 *) arg1) + 4)) = temp_f30;
+}
+
+void TBoss6Type1__sub_802B59A8(void) {
+    TBoss6Type1__sub_802B5AD4(TBoss6Type1__data_805DE2D0);
+}
+
+extern const f32 TBoss6Type1__data_805DE32C;
+
+void TBoss6Type1__sub_802B5AB0(void) {
+    TBoss6Type1__sub_802B5AD4(TBoss6Type1__data_805DE32C);
+}
+
+u8 TBoss6Type1__sub_802B5D9C(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r5;
+    temp_r5 = M2C_FIELD(arg0, s32 *, 0x4E0);
+    if ((temp_r5 <= 0) || (temp_r0 = M2C_FIELD(arg0, s32 *, 0x4E4), ((temp_r0 < 0) != 0))) {
+        return 1U;
+    }
+    return (u8) (temp_r5 <= temp_r0);
+}
+
+int TBoss6Type1__sub_802B5DD4(void) { return 0; }
+
+void reset_fields_4e0__11TBoss6Type1FPv(void* p) { *(s32*)((char*)p + 0x4e0) = 0; *(s32*)((char*)p + 0x4e4) = 0; }
+s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *arg0) {
+    return TBoss6PlotFalz__sub_802AAC74(M2C_FIELD(arg0, s32 *, 0x3F8)) > 0x20;
+}
+
+int TBoss6Type1__sub_802B5E48(void) { return 0; }
+
+s32 is_ready__11TBoss6Type1FPv(void *arg0) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x414) == 0) && (calc_field4b0_delta__11TBoss6Type1FPv(arg0) >= (s32) M2C_FIELD(arg0, s32 *, 0x48C))) {
+        return 1;
+    }
+    return 0;
+}
+
+s32 TBoss6Type1__sub_802B5ED8(u8 *arg0) {
+    s32 temp_r31;
+    temp_r31 = (s32) (M2C_FIELD(arg0, f32 *, 0x4B4) * (f32) M2C_FIELD(arg0, s32 *, 0x494));
+    if (calc_field4b0_delta__11TBoss6Type1FPv(arg0) >= temp_r31) {
+        M2C_FIELD(arg0, f32 *, 0x4B4) = (f32) (M2C_FIELD(arg0, f32 *, 0x4B4) * lbl_805DE34C);
+        return 1;
+    }
+    return 0;
+}
+
+int is_time_up__11TBoss6Type1FPv(void *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x414) == 0) {
+        return 0;
+    }
+    return calc_field4b0_delta__11TBoss6Type1FPv(arg0) >= (s32) M2C_FIELD(arg0, s32 *, 0x490) ? 1 : 0;
+}
+
+extern f32 lbl_805DE350;
+
+void set_flag_on_threshold__11TBoss6Type1FPv(void *arg0) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x4AC) == 0) && (M2C_FIELD(arg0, f32 *, 0x4D8) < lbl_805DE350)) {
+        M2C_FIELD(arg0, s32 *, 0x4AC) = 1;
+    }
+}
+
+    extern const float TBoss6Type1__data_805DE344;
+
+s32 TBoss6Type1__sub_802B5FDC(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805DE354;
+}
+
+s32 TBoss6Type1__sub_802B5FF4(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x3C) > lbl_805DE358;
+}
+
+s32 TBoss6Type1__sub_802B6060(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x3C) > TBoss6Type1__data_805DE318;
+}
+
+void set_part_default_value__11TBoss6Type1FiPv(int a0, void* a1) { *(float*)((char*)a1 + 0x4) = TBoss6Type1__data_805DE344; }
+
+void init_parts__11TBoss6Type1FPv(void* p) { set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5d8)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5e4)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5f0)); TBoss6Type1__sub_802B60E8(p); }
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct M2CCopy_C_boss6_1 { u8 bytes[0xc]; };
 
-struct Stack_802B7D74
+struct Stack_802B7D74_boss6_1
 {
   f32 sp8;
   f32 spC;
@@ -17,7 +223,7 @@ struct Stack_802B7D74
 };
 
 #include <stddef.h>
-struct Stack_802B9204 {
+struct Stack_802B9204_boss6_1 {
     M2C_UNK sp8;
     s8 spC;
     u8 trailing_storage[0xF];
@@ -33,7 +239,7 @@ s32 TObjPlayer__sub_80141F84(int, int);
 s32 TObjPlayer__sub_801423A4(int, int, int);
 f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
 extern const f64 TBoss6Type1__data_80471038;
-extern f32 TBoss6Type1__data_805DE2D0;
+extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE310;
 void TBoss6Type1__sub_802B7D74(u8 *arg0);
 void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1);
@@ -86,7 +292,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 s32 rand__11TOBoss4RockFv();
 int read_be16_field2__10TObjPlayerFPv(void*);
 
-extern f32 TBoss6Type1__data_805DE2D0;
+extern const f32 TBoss6Type1__data_805DE2D0;
 
 void reset_param__11TBoss6Type1FPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x4DC) = (f32) TBoss6Type1__data_805DE2D0;
@@ -147,9 +353,9 @@ void update_position__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - lbl_805DE3A0);
 }
 
-typedef struct Stack_802B7D74 Stack_802B7D74;
+typedef struct Stack_802B7D74_boss6_1 Stack_802B7D74_boss6_1;
 void TBoss6Type1__sub_802B7D74(u8 *arg0) {
-  Stack_802B7D74 stack;
+  Stack_802B7D74_boss6_1 stack;
   M2C_UNK var_r5;
   int new_var;
   f32 temp_f1;
@@ -230,9 +436,9 @@ void do_attack__11TBoss6Type1FPv(void *arg0) {
 }
 
 void TBoss6Type1__sub_802B9204(u8 *arg0, s8 arg1) {
-    typedef char sp8_offset[(offsetof(Stack_802B9204, sp8) == 0x0) ? 1 : -1];
-    typedef char spC_offset[(offsetof(Stack_802B9204, spC) == 0x4) ? 1 : -1];
-    Stack_802B9204 stack;
+    typedef char sp8_offset[(offsetof(Stack_802B9204_boss6_1, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_802B9204_boss6_1, spC) == 0x4) ? 1 : -1];
+    Stack_802B9204_boss6_1 stack;
     if (((s32)is_idle__11TBoss6Type1FPv((void*)((int) (M2C_FIELD(arg0, s32 *, 0x3F8))))) != 0) {
         build_6xA4_olga_flow_boss_actions((void*)((void *) (&stack.sp8)));
         set_sync_data__11TBoss6Type1FPvPv((void *) (arg0), (void *) (&stack.sp8));
@@ -261,7 +467,7 @@ void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1) {
 extern s32 tl_04;
 
 u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1) {
-    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
+    *(M2CCopy_C_boss6_1 *)(arg0) = *(const M2CCopy_C_boss6_1 *)(arg1);
     return (u8 *)arg0;
 }
 

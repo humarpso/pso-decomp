@@ -18,6 +18,12 @@ s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
 s8 TObjPlayer__sub_801AFDB0(s32);
 s8 TObjPlayer__sub_801AFDB0(s32 _w0);
 s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1);
+s16 get_tech_level__10TObjPlayerFPv(void *);
+s16 get_handle_value__10TObjPlayerFPv(void *);
+s32 get_move_mode__10TObjPlayerFPv(void *);
+f32 TObjPlayer__sub_801D90DC(s32, s16, s16, s32);
+s32 get_falz_phase__10TObjPlayerFPv(void* p);
+void TObjPlayer__sub_801D9078(u8 *arg0);
 }
 
 extern "C" {
@@ -79,6 +85,22 @@ s32 init_inventory_items__10TObjPlayerFi(s32 arg0) {
     } while (var_r31 < 2);
     return arg0;
 }
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_801D9078(u8 *arg0) {
+  s16 temp_r30;
+  s16 temp_r31;
+  s16 new_var;
+  s32 temp_r29;
+  temp_r29 = get_move_mode__10TObjPlayerFPv(arg0);
+  new_var = get_tech_level__10TObjPlayerFPv(arg0 + 0x7CC);
+  temp_r30 = new_var;
+  temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)(arg0));
+  TObjPlayer__sub_801D90DC((s32) get_handle_value__10TObjPlayerFPv(arg0), temp_r31, temp_r30, temp_r29);
+}
+
+#pragma pop
 
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1) {
     return M2C_FIELD(TObjPlayer__sub_801D9250(_w0, (s32)(_w1)), s32 *, 8);

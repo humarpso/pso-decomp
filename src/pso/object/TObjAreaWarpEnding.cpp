@@ -1,3 +1,5 @@
+#pragma push
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -9,6 +11,14 @@ void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBFDC;
 extern const f32 lbl_805DBFE4;
 void run_task__18TObjAreaWarpEndingFv(u8 *arg0);
+void TObjAreaWarp__sub_8019CAB0(void *);
+extern const f32 lbl_805DBFDC;
+extern const f32 lbl_805DBFE4;
+void run_task__18TObjAreaWarpForestFv(u8 *arg0);
+void TObjAreaWarp__sub_8019CAB0(void *);
+extern const f32 lbl_805DBFDC;
+extern const f32 lbl_805DBFE4;
+void run_task__17TObjAreaWarpQuestFv(u8 *arg0);
 }
 
 extern "C" {
@@ -84,3 +94,87 @@ void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1) {
 }
 
 }
+
+#pragma pop
+
+#pragma push
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *__dt__17TObjAreaWarpQuestFv(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void __dt__12TObjAreaWarpFv(void *, int);
+
+extern M2C_UNK __vt__17TObjAreaWarpQuest[];
+
+void run_task__17TObjAreaWarpQuestFv(u8 *arg0) {
+  *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC8))) + lbl_805DBFDC);
+  if (((f32) ((unsigned long) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0xD8)))) + 4))) - 1))) < (*((f32 *) (((s8 *) arg0) + 0xC8))))
+  {
+    *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) lbl_805DBFE4;
+  }
+  *((s32 *) (((s8 *) arg0) + 0xCC)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0xCC))) + 0x150);
+  TObjAreaWarp__sub_8019CAB0(arg0);
+}
+
+void *__dt__17TObjAreaWarpQuestFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjAreaWarpQuest;
+        __dt__12TObjAreaWarpFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+
+#pragma pop
+
+#pragma push
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+int TObjAreaWarpForest__vt17(void* p);
+void *__dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1);
+int TObjAreaWarp__sub_8019CA24(void*);
+void __dl__7TObjectFPv(void *);
+void __dt__12TObjAreaWarpFv(void *, int);
+
+int TObjAreaWarpForest__vt17(void* p) { return TObjAreaWarp__sub_8019CA24(p); }
+
+extern M2C_UNK __vt__18TObjAreaWarpForest[];
+
+void run_task__18TObjAreaWarpForestFv(u8 *arg0) {
+  *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DBFDC);
+  if (((f32) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0xD4)))) + 4))) - (1 & 0xFFu))) < (*((f32 *) (((s8 *) arg0) + 0xC4))))
+  {
+    *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DBFE4;
+  }
+  *((s32 *) (((s8 *) arg0) + 0xC8)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0xC8))) + 0x150);
+  TObjAreaWarp__sub_8019CAB0(arg0);
+}
+
+void *__dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjAreaWarpForest;
+        __dt__12TObjAreaWarpFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+
+#pragma pop
