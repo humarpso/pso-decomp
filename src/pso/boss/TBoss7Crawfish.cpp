@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 TBoss7Crawfish__data_805DF0D8;
+s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
+}
+
+extern "C" {
 
 s32 TBoss7Crawfish__sub_80308688(void *arg0);
 void TBoss7Crawfish__sub_803087D4(s32 arg0, s32 arg1);
@@ -46,6 +51,10 @@ void spawn_effect__14TBoss7CrawfishFii(s32 arg0, s32 arg1) {
 }
 
 void free_child__14TBoss7CrawfishFPv(void* p) { if (*(unsigned int*)((char*)p + 0x3cc) != 0) { queue_destruction__7TObjectFv((void*)(*(void**)((char*)p + 0x3cc))); *(int*)((char*)p + 0x3cc) = 0; } }
+
+s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0) {
+    return TBoss7Crawfish__data_805DF0D8 == M2C_FIELD(arg0, f32 *, 0x354);
+}
 
 void render__14TBoss7CrawfishFv(void* p) { if (TBoss7Crawfish__sub_80308840(p) != 0) { notify_fish_if_valid__10TObjPlayerFUi(*(void**)((char*)p + 0x24)); set_global_flag__10TObjPlayerFv(); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjChip__sub_803D8AE4((void*)0, *(void**)((char*)p + 0x5c), *(void**)((char*)p + 0x60), *(void**)((char*)p + 0x64)); TBoss7Tentacle__sub_803D9BA0((char*)p + 0x68); draw__16TObjEneRe7BeruraFPv(p); TObjPlayer__sub_803D9B78(); clear_global_state__10TObjPlayerFv(); } }
 

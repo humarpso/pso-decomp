@@ -17,6 +17,12 @@ void TBoss6Type2__vt60(u8 *arg0);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
 s32 VecCopy__FP3VecPC3Vec(s32 a0, s32 a1);
 void TBoss6Type2__sub_802BD2D0(s32 arg0, s32 arg1, s32 arg2);
+void TBoss6Type2__sub_802BB5B4(void *, void *, void *);
+s32 TBoss6Type2__sub_802BC23C(void *);
+s32 rand__11TOBoss4RockFv(void);
+extern const f32 TBoss6Type2__data_805DE468;
+extern const f32 lbl_805DE4D0;
+void TBoss6Type2__sub_802BDF50(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -53,7 +59,6 @@ s32 TBoss6Type2__sub_802BA944(void *);
 s32 TBoss6Type2__sub_802BA9E4(void *);
 s32 TBoss6Type2__sub_802BAA74();
 u16 TBoss6Type2__sub_802BB694(void *);
-s32 TBoss6Type2__sub_802BC23C();
 M2C_UNK TBoss6Type2__sub_802BC62C(void *);
 int TBoss6Type2__sub_802BD014(void*, void*);
 M2C_UNK TBoss6Type2__sub_802BD938(void *, M2C_UNK *);
@@ -282,6 +287,21 @@ void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1) {
 }
 
 extern s32 tl_04;
+
+void TBoss6Type2__sub_802BDF50(u8 *arg0, u8 *arg1) {
+    u16 spA;
+    u16 sp8;
+    M2C_FIELD(arg1, u16 *, 2) = (u16) M2C_FIELD(arg0, u16 *, 0x1C);
+    M2C_FIELD(arg1, s8 *, 8) = (s8) (lbl_805DE4D0 * (TBoss6Type2__data_805DE468 * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(arg1, s8 *, 9) = TBoss6Type2__sub_802BC23C(arg0);
+    M2C_FIELD(arg1, s8 *, 0xA) = (s8) M2C_FIELD(arg0, s32 *, 0x428);
+    M2C_FIELD(arg1, s8 *, 0xB) = (s8) M2C_FIELD(arg0, s32 *, 0x430);
+    M2C_FIELD(arg1, s8 *, 0xC) = (s8) M2C_FIELD(arg0, u16 *, 0x464);
+    M2C_FIELD(arg1, s8 *, 0xD) = (s8) M2C_FIELD(arg0, u16 *, 0x466);
+    TBoss6Type2__sub_802BB5B4(arg0, &spA, &sp8);
+    M2C_FIELD(arg1, s8 *, 0xE) = (s8) spA;
+    M2C_FIELD(arg1, s8 *, 0xF) = (s8) sp8;
+}
 
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1) {
     *arg0 = *arg1;

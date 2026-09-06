@@ -92,6 +92,12 @@ M2C_UNK fn_802C9C18(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
 void TOTrapSeabed01__sub_802CA038(u8 *arg0);
+void calc_attach_pos__10TObjPlayerFPv(void *);
+void obj_clearFlags30(void *, u32);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+void set_indexed_flags(void *, s32, s32);
+void TOTrapSeabed01__sub_802CA038(u8 *arg0);
+void TOTrapSeabed01__vt79(u8 *arg0);
 }
 
 extern "C" {
@@ -153,6 +159,21 @@ void TOTrapSeabed01__vt80(u8 *arg0) {
         ((VObj_18_f37bb9 *)(arg0))->m20(M2C_FIELD(arg0, s32 *, 0x2A8), lbl_805DE640);
     }
     TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+}
+
+void TOTrapSeabed01__vt79(u8 *arg0) {
+    u32 temp_r0;
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC0) + M2C_FIELD(arg0, f32 *, 0xC8));
+    temp_r0 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF8), s32 *, 4) - 1;
+    if (M2C_FIELD(arg0, f32 *, 0xC0) > (f32) temp_r0) {
+        M2C_FIELD(arg0, f32 *, 0xC0) = (f32) temp_r0;
+        M2C_FIELD(arg0, s16 *, 0x326) = 3;
+        calc_attach_pos__10TObjPlayerFPv(arg0);
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x08001F04U);
+        set_indexed_flags(arg0, 0, 0x8003);
+        obj_clearFlags30(arg0, 0x40000U);
+        TOTrapSeabed01__sub_802CA038((u8 *)((void *) (arg0)));
+    }
 }
 
 void trigger_by_id__14TOTrapSeabed01FUi(u32 arg0) {

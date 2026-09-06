@@ -22,6 +22,18 @@ s32 get_random_scaled__11TBoss4Type3Fv(void);
 M2C_UNK spawn_random_effect__11TBoss4Type3Fi(void *);
 void TBoss4Type3__sub_80059F04(void *, s32, s32, s32);
 void TBoss4Type3__vt8(u8 *arg0);
+f32 TBoss4Type3__sub_800524E8(f32);
+void TBoss4Type3__sub_80059C20(void *);
+M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
+extern const f32 TBoss4Type3__data_805D8C34;
+extern const f32 lbl_805D8C50;
+void TBoss4Type3__vt27(u8 *arg0);
+f32 TBoss4Type3__sub_800524E8(f32);
+void TBoss4Type3__sub_80059C20(void *);
+M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
+extern const f32 TBoss4Type3__data_805D8C34;
+extern const f32 lbl_805D8C50;
+void TBoss4Type3__vt24(u8 *arg0);
 }
 
 extern "C" {
@@ -97,6 +109,18 @@ void TBoss4Type3__vt28(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x398) = 0xC4;
 }
 
+void TBoss4Type3__vt27(u8 *arg0) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) (TBoss4Type3__data_805D8C34 - ((f32) M2C_FIELD(arg0, s32 *, 0x398) / lbl_805D8C50));
+    M2C_FIELD(arg0, f32 *, 0x39C) = TBoss4Type3__sub_800524E8(M2C_FIELD(arg0, f32 *, 0x39C));
+    TBoss4Type3__sub_80059C20(arg0);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;
+    M2C_FIELD(arg0, s32 *, 0x398) = temp_r0;
+    if (temp_r0 < 0) {
+        TBoss4Type3__sub_8005A398((void *)(arg0), (M2C_UNK)(1));
+    }
+}
+
 void TBoss4Type3__vt25(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3A4) = 0x11;
     M2C_FIELD(arg0, s32 *, 0x3A0) = 0x10;
@@ -107,6 +131,18 @@ void TBoss4Type3__vt25(u8 *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x52C) = 0;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
+}
+
+void TBoss4Type3__vt24(u8 *arg0) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) (TBoss4Type3__data_805D8C34 - ((f32) M2C_FIELD(arg0, s32 *, 0x398) / lbl_805D8C50));
+    M2C_FIELD(arg0, f32 *, 0x39C) = TBoss4Type3__sub_800524E8(M2C_FIELD(arg0, f32 *, 0x39C));
+    TBoss4Type3__sub_80059C20(arg0);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;
+    M2C_FIELD(arg0, s32 *, 0x398) = temp_r0;
+    if (temp_r0 < 0) {
+        TBoss4Type3__sub_8005A398((void *)(arg0), (M2C_UNK)(1));
+    }
 }
 
 void TBoss4Type3__vt22(u8 *arg0) {

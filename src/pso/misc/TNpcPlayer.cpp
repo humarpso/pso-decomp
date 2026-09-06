@@ -27,6 +27,16 @@ u8 *get_target_ptr__11TCameraCtrlFPv(s32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
 extern const f32 lbl_805DB230;
 s32 TNpcPlayer__sub_8014FEAC(u8 *arg0);
+s16 obj_getS16_32E(void *);
+s16 obj_getS16_2BA(void *);
+s16 obj_getS16_32C(void *);
+s16 get_field_2b8__14TItemProShieldFPv(void *);
+extern f32 TNpcPlayer__data_805DB1F0;
+extern f32 TNpcPlayer__data_805DB218;
+extern const f32 lbl_805DB224;
+extern const f32 lbl_805DB228;
+extern f32 TNpcPlayer__data_805DB22C;
+s32 TNpcPlayer__sub_8014FAB0(u8 *arg0);
 }
 
 extern "C" {
@@ -69,6 +79,51 @@ s32 TNpcPlayer__sub_8014F7F0(void *arg0) {
     return (u32) __cntlzw(all_parents_unqueued_for_destruction__7TObjectFv((void *)v)) >> 5;
 }
 #pragma pop
+
+s32 TNpcPlayer__sub_8014FAB0(u8 *arg0) {
+    f32 temp_f1;
+    f32 temp_f2;
+    f32 temp_f31;
+    f32 temp_f31_2;
+    s32 temp_r3;
+    s32 var_r31;
+    var_r31 = 0;
+    temp_f31 = (f32) obj_getS16_32C(M2C_FIELD(arg0, u8 **, 0x94));
+    temp_f1 = temp_f31 / (f32) get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, u8 **, 0x94));
+    if (M2C_FIELD(arg0, s32 *, 0x8C) & 2) {
+        if (temp_f1 <= lbl_805DB224) {
+            var_r31 = 1;
+            M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 8);
+            M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 4);
+        }
+        if (temp_f1 <= lbl_805DB228) {
+            var_r31 = 1;
+            M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 0x1000);
+        }
+    } else if (temp_f1 <= lbl_805DB228) {
+        var_r31 = 1;
+        M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 8);
+        M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 4);
+    }
+    if (temp_f1 <= TNpcPlayer__data_805DB22C) {
+        var_r31 = 1;
+        M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 0x800);
+        M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 4);
+    }
+    temp_r3 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x94), s32 *, 0x30);
+    if ((temp_r3 & 1) || (temp_r3 & 2) || (temp_r3 & 0x10)) {
+        var_r31 = 1;
+        M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 2);
+        M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 4);
+    }
+    temp_f31_2 = (f32) obj_getS16_32E(M2C_FIELD(arg0, u8 **, 0x94));
+    temp_f2 = (f32) obj_getS16_2BA(M2C_FIELD(arg0, u8 **, 0x94));
+    if (((temp_f31_2 / temp_f2) <= TNpcPlayer__data_805DB218) && (TNpcPlayer__data_805DB1F0 != temp_f2)) {
+        M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 4);
+        M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 0x10);
+    }
+    return var_r31;
+}
 
 s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
     s32 temp_r6;

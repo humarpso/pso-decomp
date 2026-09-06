@@ -45,6 +45,37 @@ struct VObj_80216784_802163AC : Base_80216784_802163AC {
     virtual int m8();
 };
 
+struct VBase_18_a93f07
+{
+  char pad[0x18];
+};
+
+struct VObj_18_a93f07 : VBase_18_a93f07 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+};
+
+struct Stack_80216830
+{
+  f32 sp8;
+  f32 spC;
+};
+
+extern "C" {
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+u32 TShopSequence__sub_80223600(void *, s32, s32);
+s32 get_child_field1c__15TShopWindowBaseFPv(void *);
+s32 fn_8026934C(unsigned short);
+s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
+s32 TWindowSubComCard__sub_8026CBB8(int, f32);
+extern const f32 lbl_805DC688;
+extern const f32 lbl_805DC68C;
+void TMedicalCenterSequence__sub_80216830(u8 *arg0);
+}
+
 extern "C" {
 
 void TMedicalCenterSequence__vt10(void* p);
@@ -143,6 +174,21 @@ void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0) {
         }
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(6));
     }
+}
+
+typedef struct Stack_80216830 Stack_80216830;
+typedef struct VBase_18_a93f07 VBase_18_a93f07;
+typedef struct VObj_18_a93f07 VObj_18_a93f07;
+#define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
+void TMedicalCenterSequence__sub_80216830(u8 *arg0) {
+  Stack_80216830 stack;
+  stack.sp8 = lbl_805DC688;
+  stack.spC = lbl_805DC68C;
+  TShopSequence__sub_80223600(arg0, TWindowSubComCard__sub_8026CBB8((int) 0x2C, (f32) lbl_805DC688), (s32) (&stack.sp8));
+  PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x1F, 1);
+  *((s32 *) (((s8 *) arg0) + 0x2C)) = fn_8026934C((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
+  set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(2));
+  *((s32 *) (((s8 *) arg0) + 0x34)) = THunterGuildSeqOffline__sub_8022350C((void *) arg0, (int) 0);
 }
 
 void TMedicalCenterSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }

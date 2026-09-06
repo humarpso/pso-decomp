@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int get_selected_slot__22TAdMultiPlyChrSelectGCFv(void);
+s32 TAdPlyPltAnimCtrlGC__sub_80355148();
+extern const f32 lbl_805DE89C;
+void TAdMultiPlyChrSelectGC__sub_802DCD90(u8 *arg0);
+}
+
+extern "C" {
 
 void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DD010(void *arg0);
@@ -68,6 +75,15 @@ void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
     case 2:
         begin_change_game_mode__21TAdMultiChgGameModeGCFv();
         return;
+    }
+}
+
+void TAdMultiPlyChrSelectGC__sub_802DCD90(u8 *arg0) {
+    s32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
+    M2C_FIELD(arg0, s32 *, 0x1C) = temp_r4;
+    if (((f32) temp_r4 > lbl_805DE89C) && (get_selected_slot__22TAdMultiPlyChrSelectGCFv() != 0U) && (TAdPlyPltAnimCtrlGC__sub_80355148() == 0)) {
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg0, s32 *, 0x28);
     }
 }
 

@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TCameraCtrl__sub_800689E8(void);
+void update_position__11TCameraCtrlFPv(u8 *arg0);
+s32 get_camera_no__11TCameraCtrlFv();
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 is_split_screen();
+M2C_UNK TCameraCtrl__sub_8006BEA4(void *, void *, f32);
+extern int TCameraCtrl__data_805D4E00;
+void TCameraCtrl__sub_80069BD8(u8 *arg0);
+}
+
+extern "C" {
 
 void TCameraCtrl__sub_800687BC(void);
 void TCameraCtrl__sub_800689E8(void);
@@ -103,6 +114,32 @@ void update_position__11TCameraCtrlFPv(u8 *arg0) {
         M2C_FIELD(temp_r3, f32 *, 0x138) = (f32) M2C_FIELD(arg0, f32 *, 0x17C);
         M2C_FIELD(temp_r3, f32 *, 0x13C) = (f32) M2C_FIELD(arg0, f32 *, 0x180);
     }
+}
+void TCameraCtrl__sub_80069BD8(u8 *arg0) {
+  u8 *new_var;
+  u8 *temp_r30;
+  u8 *temp_r30_2;
+  u8 *temp_r31;
+  if ((*(s32 *)&TCameraCtrl__data_805D4E00) & 1)
+  {
+    update_position__11TCameraCtrlFPv((u8 *)(arg0));
+    TCameraCtrl__sub_800689E8();
+    return;
+  }
+  if (is_split_screen() != 0)
+  {
+    temp_r30 = (u8 *) (arg0 + (get_camera_no__11TCameraCtrlFv() * 0xC));
+    new_var = (u8 *) (temp_r30 + 0xD4);
+    temp_r31 = new_var;
+    TCameraCtrl__sub_8006BEA4((void *) temp_r31, (void *) (arg0 + 0x1A0), (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x178), (int) temp_r31);
+    temp_r30_2 = (u8 *) (temp_r30 + 0x104);
+    TCameraCtrl__sub_8006BEA4((void *) temp_r30_2, (void *) (arg0 + 0x1AC), (f32) (*((f32 *) (((s8 *) arg0) + 0x1BC))));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x184), (int) temp_r30_2);
+    return;
+  }
+  TCameraCtrl__sub_8006BEA4((void *) (arg0 + 0x178), (void *) (arg0 + 0x1A0), (f32) (*((f32 *) (((s8 *) arg0) + 0x1B8))));
+  TCameraCtrl__sub_8006BEA4((void *) (arg0 + 0x184), (void *) (arg0 + 0x1AC), (f32) (*((f32 *) (((s8 *) arg0) + 0x1BC))));
 }
 
 }

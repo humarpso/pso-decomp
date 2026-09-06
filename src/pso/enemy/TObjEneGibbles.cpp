@@ -9,6 +9,13 @@ struct Stack_802D7BE0 {
     f32 spC;
 };
 
+struct Stack_802D8140
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 *csnVectorUnder(M2C_UNK *, s32, M2C_UNK, f32);
@@ -17,6 +24,20 @@ M2C_UNK TObjEneGibbles__sub_802D7ACC(void *, void *, f32);
 extern const f32 TObjEneGibbles__data_805DE7E8;
 extern const f32 TObjEneGibbles__data_805DE7F4;
 s32 TObjEneGibbles__sub_802D7BE0(s32 arg0);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+M2C_UNK queue_destruction__7TObjectFv();
+M2C_UNK TObjBoss2Tunnel__sub_8007E7D8(f32 *, f32 *, s32, f32);
+M2C_UNK spawn_effect_at_ground__10TObjPlayerFPvi(f32 *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_800D93C4(f32 *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504();
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+int TObjEneGibbles__sub_802D7F94(void *, int);
+M2C_UNK TBoss4Zako__sub_803D8910(f32 *, void *);
+extern const f32 lbl_805DE7E0;
+extern const f32 TObjEneGibbles__data_805DE7E4;
+extern const f32 lbl_805DE810;
+extern const f32 lbl_805DE814;
+void TObjEneGibbles__sub_802D8140(u8 *arg0);
 }
 
 extern "C" {
@@ -131,6 +152,50 @@ void update_move_state__14TObjEneGibblesFPv(void *arg0) {
         return;
     }
     M2C_FIELD(arg0, s32 *, 0x380) = 0;
+}
+
+typedef struct Stack_802D8140 Stack_802D8140;
+void TObjEneGibbles__sub_802D8140(u8 *arg0) {
+  Stack_802D8140 stack;
+  s16 temp_r0;
+  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x328));
+  switch (temp_r0)
+  {
+    case 0:
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 1;
+      *((f32 *) (((s8 *) arg0) + 0x3A0)) = (f32) TObjEneGibbles__data_805DE7E4;
+      TObjPlayer__sub_80011734((void *)((void *) arg0), (int)(0), TObjEneGibbles__data_805DE7E4);
+      TBoss3Volopt__sub_8022675C((int)((void *) ((M2C_UNK)TObjEneGibbles__sub_802D7F94((void *)(arg0), (int)(0x3A333)))), (void *)(arg0 + 0x38), (int)(0), (int)(0));
+      return;
+    case 1:
+      TBoss1Dragon__sub_80143504();
+      if ((*((s32 *) (((s8 *) arg0) + 0xB0))) & 0x10)
+    {
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 4;
+      stack.sp8 = TObjEneGibbles__data_805DE7E4;
+      stack.spC = TObjEneGibbles__data_805DE7E4;
+      stack.sp10 = lbl_805DE810;
+      TObjBoss2Tunnel__sub_8007E7D8(&stack.sp8, &stack.sp10, *((s32 *) (((s8 *) arg0) + 0x60)), TObjEneGibbles__data_805DE7E4);
+      TBoss4Zako__sub_803D8910(&stack.sp8, arg0 + 0x38);
+      TObjPlayer__sub_800D93C4(&stack.sp8, 0xA);
+      spawn_effect_at_ground__10TObjPlayerFPvi(&stack.sp8, 0x46);
+    }
+    case 2:
+      return;
+    case 4:
+      *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x3C))) - lbl_805DE7E0);
+      *((f32 *) (((s8 *) arg0) + 0x3A0)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x3A0))) + lbl_805DE7E0);
+      if ((*((f32 *) (((s8 *) arg0) + 0x3A0))) > lbl_805DE814)
+    {
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 3;
+      return;
+    }
+      break;
+    case 3:
+      queue_destruction__7TObjectFv();
+      break;
+    return;
+  }
 }
 
 void set_motion__14TObjEneGibblesFPv(void *arg0) {

@@ -8,6 +8,12 @@ struct Elt80364258_80364258 { s32 f0; };
 
 extern "C" {
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
+void queue_destruction__7TObjectFv(void *);
+void TWindow__close(void *);
+extern u8 *lbl_805D6CA0;
+extern s32 lbl_805D6CA4;
+extern const f32 lbl_805DF780;
+void TAdEnterPasswordGC__sub_8032B5B0(u8 *arg0);
 }
 
 extern "C" {
@@ -21,6 +27,31 @@ void __dt__14TAdEnterBaseGCFv(void *, int);
 s32 get_confirm_state__20TAdSnAkPassConfirmGCFPv(u32);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int set_mode_0x14__21TAdMultiChgGameModeGCFv(void*);
+
+void TAdEnterPasswordGC__sub_8032B5B0(u8 *arg0) {
+    s32 temp_r4;
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
+    if (temp_r3 != NULL) {
+        TWindow__close(temp_r3);
+        M2C_FIELD(arg0, u8 **, 0x30) = NULL;
+    }
+    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
+    if (temp_r3_2 != NULL) {
+        TWindow__close(temp_r3_2);
+        M2C_FIELD(arg0, u8 **, 0x34) = NULL;
+    }
+    if ((void *) lbl_805D6CA0 != NULL) {
+        queue_destruction__7TObjectFv(lbl_805D6CA0);
+        lbl_805D6CA0 = NULL;
+    }
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x24) + 1;
+    M2C_FIELD(arg0, s32 *, 0x24) = temp_r4;
+    if ((f32) temp_r4 > lbl_805DF780) {
+        lbl_805D6CA4 = M2C_FIELD(arg0, s32 *, 0x20);
+    }
+}
 
 int set_multi_chg_game_mode_0x14__18TAdEnterPasswordGCFPv(void* p) { return set_mode_0x14__21TAdMultiChgGameModeGCFv(p); }
 int request_transition__18TAdEnterPasswordGCFPv(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }

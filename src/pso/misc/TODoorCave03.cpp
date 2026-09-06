@@ -13,6 +13,10 @@ s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
 void TODoorCave03__vt16(u8 *arg0);
+s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
+extern const f32 TODoorCave03__data_805DB4D4;
+extern const f32 lbl_805DB4DC;
+void TODoorCave03__vt14(u8 *arg0);
 }
 
 extern "C" {
@@ -57,6 +61,23 @@ void TODoorCave03__vt15(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8U);
     }
+}
+
+void TODoorCave03__vt14(u8 *arg0) {
+  f32 temp_f1;
+  f32 temp_f3;
+  temp_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));
+  temp_f3 = *((f32 *) (((s8 *) arg0) + 0x54));
+  if (lbl_805DB4DC <= ((*((f32 *) (((s8 *) arg0) + 0x3C))) - temp_f3))
+  {
+    *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (lbl_805DB4DC + temp_f3);
+    *((s32 *) (((s8 *) arg0) + 0xAC)) = 2;
+  }
+  else
+  {
+    *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (temp_f1 + TODoorCave03__data_805DB4D4);
+  }
+  TOTrapAncient01__sub_80226578(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
 }
 
 void *create__12TODoorCave03FPv(void *arg0) {

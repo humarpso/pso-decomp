@@ -17,6 +17,14 @@ struct VObj_801A0070 : VObjBase_801A0070 {
 };
 
 extern "C" {
+void TObjAreaWarp__sub_8019CAB0(void *);
+extern void *lbl_805D5CAC;
+extern const f32 lbl_805DC048;
+extern const f32 lbl_805DC04C;
+void run_task__12TObjWarpJungFv(u8 *arg0);
+}
+
+extern "C" {
 
 int TObjWarpJung__vt17(void* p);
 void *__dt__12TObjWarpJungFv(void *arg0, s16 arg1);
@@ -72,6 +80,15 @@ void render__12TObjWarpJungFv(u8 *arg0) {
 int TObjWarpJung__vt17(void* p) { return TObjAreaWarp__sub_8019CA24(p); }
 
 extern M2C_UNK __vt__12TObjWarpJung[];
+
+void run_task__12TObjWarpJungFv(u8 *arg0) {
+  *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DC048);
+  if ((*((f32 *) (((s8 *) arg0) + 0xC4))) > ((f32) (((*((s32 *) (((s8 *) (*(u8 * *)&lbl_805D5CAC)) + 4))) - 1) & 0xFFFFFFFF)))
+  {
+    *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
+  }
+  TObjAreaWarp__sub_8019CAB0(arg0);
+}
 
 void *__dt__12TObjWarpJungFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

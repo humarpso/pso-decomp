@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 lbl_805DA3D8;
+s32 TObjPlayer__sub_800D9560(f32 *arg0);
+}
+
+extern "C" {
 
 void clear_flag_and_notify__10TObjPlayerFv(void);
 void destroy_static_lobby__10TObjPlayerFv(void);
@@ -22,6 +27,10 @@ void destroy_static_lobby__10TObjPlayerFv(void) {
 }
 
 extern s32 some_id_805c6f74;
+
+s32 TObjPlayer__sub_800D9560(f32 *arg0) {
+    return *arg0 > lbl_805DA3D8;
+}
 
 void clear_flag_and_notify__10TObjPlayerFv(void) {
     some_id_805c6f74 &= 0xFFFF77DF;

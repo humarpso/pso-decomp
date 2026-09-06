@@ -11,6 +11,16 @@ struct CityMainWarpChalVObj_80187824 : CityMainWarpChalBase_80187824 {
 };
 
 extern "C" {
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK TObjPlayer__sub_80187438(void *);
+void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
+extern const f32 lbl_805DBCC4;
+extern const f32 lbl_805DBCC8;
+extern const f32 lbl_805DBCCC;
+void run_task__25TObjCityMainWarpChallengeFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
 void render__25TObjCityMainWarpChallengeFv(u8 *arg0);
@@ -87,6 +97,27 @@ block_4:
 }
 
 extern M2C_UNK __vt__25TObjCityMainWarpChallenge[];
+
+void run_task__25TObjCityMainWarpChallengeFv(u8 *arg0) {
+    if (check_demo_mode__10TObjPlayerFv() != 1) {
+        if (!(M2C_FIELD(arg0, s16 *, 0xE2) & 1) && ((s16) M2C_FIELD(arg0, s16 *, 0xDE) != (s16) M2C_FIELD(arg0, s16 *, 0xDC))) {
+            if ((s16) M2C_FIELD(arg0, s16 *, 0xE0) != -1) {
+                M2C_FIELD(arg0, s16 *, 0xE0) = -1;
+                update_state__25TObjCityMainWarpChallengeFPv((void *) (arg0));
+            }
+            M2C_FIELD(arg0, s16 *, 0xDE) = (s16) M2C_FIELD(arg0, s16 *, 0xDC);
+            M2C_FIELD(arg0, s16 *, 0xE0) = 0;
+        }
+        TObjPlayer__sub_80187438((void *) (arg0));
+        update_state__25TObjCityMainWarpChallengeFPv((void *) (arg0));
+        if ((void *) M2C_FIELD(arg0, u8 **, 0xD4) != NULL) {
+            M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) + lbl_805DBCC4);
+            if ((lbl_805DBCC8 + M2C_FIELD(arg0, f32 *, 0xC4)) >= (f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xD4), u32 *, 4)) {
+                M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBCCC;
+            }
+        }
+    }
+}
 
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

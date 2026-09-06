@@ -10,7 +10,7 @@ void check_flags_and_proceed__6TLobbyFv(void);
 void clear_flag400__6TLobbyFv(void);
 void handle_6xA7(void);
 void handle_reset_choice__6TLobbyFi(s32 arg0);
-M2C_UNK TLobby__sub_801DA2A4(s32);
+M2C_UNK send_cancel_trade__9TProtocolFv(s32);
 M2C_UNK TLobby__sub_802D2D64();
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK reset__6TLobbyFi();
@@ -39,7 +39,7 @@ extern u16 lbl_805D6888;
 
 void clear_flag400__6TLobbyFv(void) {
     if (lbl_805D6888 & 0x400) {
-        TLobby__sub_801DA2A4(TLobby__data_805D5580);
+        send_cancel_trade__9TProtocolFv(TLobby__data_805D5580);
         lbl_805D6888 &= 0xFFFFFBFF;
     }
 }

@@ -12,6 +12,12 @@ void TBoss6Type2__sub_802BF834(u8 *arg0);
 int TBoss6Type2__sub_802BDC5C(void*);
 int TBoss6Type2__sub_802BDDF8(void*, void*);
 void TBoss6Type2__sub_802BF65C(u8 *arg0);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+extern s32 lbl_805D6750;
+extern u8 lbl_805D6754;
+extern const f32 lbl_805DE3F4;
+extern const f32 lbl_805DE4DC;
+void TBoss6Type2__sub_802BF9A8(u8 *arg0);
 }
 
 extern "C" {
@@ -197,6 +203,16 @@ void pick_next_zako__11TBoss6Type2FPv(void *arg0) {
 
 #include "types.h"
 extern "C" {
+
+void TBoss6Type2__sub_802BF9A8(u8 *arg0) {
+  if (((s8) lbl_805D6754) == 0)
+  {
+    lbl_805D6754 = 1;
+    lbl_805D6750 = (s32) (lbl_805DE4DC / lbl_805DE3F4);
+  }
+  *((0, (s32 *) (((s8 *) arg0) + 0x460))) = (*((s32 *) (((s8 *) arg0) + 0x45C)) = (s32) lbl_805D6750);
+  TBoss3Volopt__sub_8022675C((int) 0x69126, (void *) (arg0 + 0x38), (int) 0, (int) 1);
+}
 
 void TBoss6Type2__sub_802BFA1C(u8 *arg0) {
     s32 temp_r0;

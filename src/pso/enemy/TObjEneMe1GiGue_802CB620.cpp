@@ -5,8 +5,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
+M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, s32);
+void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0);
 }
 
 extern "C" {
@@ -81,6 +82,36 @@ void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x380) = (s32) M2C_FIELD(arg0, s32 *, 0x378);
     M2C_FIELD(arg0, s32 *, 0x378) = 5;
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 1);
+}
+void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0) {
+  s16 temp_r0;
+  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
+  if (temp_r0 != 0xC)
+  {
+    if (temp_r0 < 0xC)
+    {
+      if (temp_r0 < 0xA)
+      {
+        arg0++;
+        arg0--;
+        goto block_6;
+      }
+      goto block_5;
+    }
+    if (temp_r0 < 0xE)
+    {
+      block_5:
+      *((s16 *) (((s8 *) arg0) + 0x33E)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x32C)));
+      *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) & 0xFFFFFDFF);
+      return;
+    }
+    goto block_6;
+  }
+  block_6:
+  set_state__15TObjEneMe1GiGueFPvi((void *)((void *) arg0), (s32)((int) 4));
+  *((s32 *) (((s8 *) arg0) + 0x380)) = (s32) (*((s32 *) (((s8 *) arg0) + 0x378)));
+  *((s32 *) (((s8 *) arg0) + 0x378)) = 4;
+  *((s32 *) (((s8 *) arg0) + 0x388)) = (s32) (((*((s32 *) (((s8 *) arg0) + 0x388))) | 0x10000) | 1);
 }
 
 }

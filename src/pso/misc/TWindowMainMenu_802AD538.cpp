@@ -13,6 +13,8 @@ extern f32 lbl_805DE1A8;
 void TWindowMainMenu__sub_802AE380(void *arg0);
 void TWindowMainMenu__sub_802AD538(void *, void *);
 void TWindowMainMenu__sub_802ADED4(s32 arg0, u8 *arg1);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void TWindowMainMenu__sub_802AE44C(u8 *arg0);
 }
 
 extern "C" {
@@ -73,6 +75,27 @@ void TWindowMainMenu__sub_802AE380(void *arg0) {
 void TWindowMainMenu__sub_802AE400(void *arg0) {
     TBoss3Volopt__sub_8022675C(0x52F16, 0, 0, 0);
     M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
+}
+void TWindowMainMenu__sub_802AE44C(u8 *arg0) {
+  char new_var;
+  u8 *new_var2;
+  int new_var3;
+  u8 *temp_r3;
+  new_var2 = arg0;
+  new_var2 = new_var2 + (((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))) * 4);
+  temp_r3 = (unsigned char *) (*((void **) (((s8 *) new_var2) + 0x124)));
+  if (temp_r3 != 0)
+  {
+    new_var = (int) 0;
+    if ((*((u8 *) (((s8 *) temp_r3) + 0x13))) & 2)
+    {
+      TBoss3Volopt__sub_8022675C((M2C_UNK)((int) 0x53F06), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
+      return;
+    }
+    new_var3 = (int) 0x52D01;
+    TBoss3Volopt__sub_8022675C((M2C_UNK)(new_var3), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0), (M2C_UNK)(new_var));
+    *((u8 *) (((s8 *) arg0) + 0x60)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x60))) | 1);
+  }
 }
 
 }

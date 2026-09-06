@@ -10,6 +10,8 @@ s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
 void TObjPlayer__sub_800113E4(u8 *arg0, s16 arg1);
 s32 TItemProShield__sub_8001140C(u8 *arg0, s16 arg1);
+int TObjPlayer__sub_80011350(u8 *arg0);
+s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -17,7 +19,22 @@ extern "C" {
 s32 obj_isState2_324();
 s32 TObjPlayer__sub_8001119C(void* p);
 
-int TObjPlayer__sub_80011350(void) { return 0; }
+int TObjPlayer__sub_80011350(u8 *arg0) {
+  s16 temp_r0;
+  int new_var;
+  new_var = *((s16 *) (((s8 *) arg0) + 0x2BC));
+  temp_r0 = new_var;
+  if (temp_r0 < 0)
+  {
+    return 0U;
+  }
+  if (temp_r0 <= 0xFA)
+  {
+    return (u8) temp_r0;
+  }
+  return 0xFAU;
+}
+
 int TObjPlayer__sub_80011378(void) { return 0; }
 
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1) {
@@ -58,6 +75,18 @@ s32 TItemProShield__sub_8001140C(u8 *arg0, s16 arg1) {
 }
 #pragma pop
 
-int TObjectV8047c128_subtract_hp(void* a0 = 0, void* a1 = 0) { return 0; }
+s32 TObjectV8047c128_subtract_hp(u8 *arg0, s16 arg1) {
+  if (arg1 < 0)
+  {
+    return 0;
+  }
+  *((s16 *) (((s8 *) arg0) + 0x32C)) = (s16) ((*((s16 *) (((s8 *) arg0) + 0x32C))) - arg1);
+  if ((*((s16 *) (((s8 *) arg0) + 0x32C))) < 0)
+  {
+    *((s16 *) (((s8 *) arg0) + 0x32C)) = 0;
+    return 0;
+  }
+  return 1;
+}
 
 }

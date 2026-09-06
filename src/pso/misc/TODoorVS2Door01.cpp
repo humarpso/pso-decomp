@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 lbl_805DB550;
+void TODoorVS2Door01__vt14(u8 *arg0);
+}
+
+extern "C" {
 
 void TODoorVS2Door01__vt13(u8 *arg0);
 void TODoorVS2Door01__vt15(u8 *arg0);
@@ -41,6 +46,18 @@ void TODoorVS2Door01__vt15(u8 *arg0) {
 }
 
 extern const f32 lbl_805DB554;
+
+void TODoorVS2Door01__vt14(u8 *arg0) {
+  s8 *new_var;
+  const f32 *new_var2;
+  new_var = (s8 *) arg0;
+  *((f32 *) (new_var + 0xD4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xD4))) + (*((f32 *) (((s8 *) arg0) + 0xB8))));
+  if ((*(new_var2 = &lbl_805DB550)) <= (*((f32 *) (((s8 *) arg0) + 0xD4))))
+  {
+    *((f32 *) (((s8 *) arg0) + 0xD4)) = (f32) (*new_var2);
+    *((s32 *) (((s8 *) arg0) + 0xAC)) = 2;
+  }
+}
 
 void TODoorVS2Door01__vt13(u8 *arg0) {
     if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (TODragonfly__sub_80158360(lbl_805DB554) != 0)) {

@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 lbl_805DCF90;
+f32 TWindowHelpItem__sub_8025A60C(u8 *arg0);
+}
+
+extern "C" {
 
 int TWindowHelpItem__sub_8025A600(void* p);
 void TWindowHelpItem__sub_8025A900(void);
@@ -115,6 +120,15 @@ void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
 }
 
 int TWindowHelpItem__sub_8025A600(void* p) { return *(u16*)((char*)p + 0x0) & 0x20; }
+
+f32 TWindowHelpItem__sub_8025A60C(u8 *arg0) {
+    s32 var_r0;
+    var_r0 = M2C_FIELD(arg0, s32 *, 0x10);
+    if (var_r0 < 0xA) {
+        var_r0 = 0xA;
+    }
+    return lbl_805DCF90 * (f32) var_r0;
+}
 
 void TWindowHelpItem__sub_8025A900(void) {  }
 

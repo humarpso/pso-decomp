@@ -110,9 +110,12 @@ struct VObj_18 : VBase_18 {
     virtual void m77();
     virtual M2C_UNK m78();
 };
+
 extern "C" {
 M2C_UNK fn_80156CA0(void *);
 void TObjPlayer__sub_80189FEC(u8 *arg0);
+f32 fn_801315A0(void *, void *);
+s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -137,6 +140,9 @@ f32 TObjPlayer__sub_8018A0B4(void *arg0, s32 arg1, s32 *arg2) {
         o->m20(0, lbl_805DBCF0);
     }
     return lbl_805DBCF4;
+}
+s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1) {
+    return fn_801315A0((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x33C);
 }
 
 }

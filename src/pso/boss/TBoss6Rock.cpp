@@ -11,6 +11,11 @@ void TBoss6Rock__sub_80353FF0(void *);
 void TBoss6Rock__sub_803542E8(void *, s32);
 void TBoss6Rock__sub_8035A460(void *, s32);
 void TBoss6Rock__sub_80354494(u8 *arg0);
+extern const f32 TBoss6Rock__data_805DFF48;
+extern const f32 TBoss6Rock__data_805DFF4C;
+extern const f32 lbl_805DFF98;
+extern const f32 lbl_805DFFA4;
+void TBoss6Rock__sub_8035461C(void *arg0);
 }
 
 extern "C" {
@@ -140,6 +145,23 @@ void TBoss6Rock__sub_80354494(u8 *arg0) {
         TBoss6Rock__sub_80353FF0(arg0);
         M2C_FIELD(arg0, s32 *, 0xC4) = 0;
     }
+}
+#pragma fp_contract on
+void TBoss6Rock__sub_8035461C(void *arg0) {
+  s32 temp_r4;
+  if (((s32) (*((s32 *) (((s8 *) arg0) + 0xC8)))) != 0)
+  {
+    f32 k = TBoss6Rock__data_805DFF4C;
+    f32 s = lbl_805DFF98;
+    if ((TBoss6Rock__data_805DFF4C && TBoss6Rock__data_805DFF4C) && TBoss6Rock__data_805DFF4C)
+    {
+    }
+    temp_r4 = *((s32 *) (((s8 *) arg0) + 0xAC));
+    *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) (s * ((k * (((f32) (temp_r4 & 3)) / TBoss6Rock__data_805DFF48)) + (k * (((f32) temp_r4) * lbl_805DFFA4))));
+    *((s32 *) (((s8 *) arg0) + 0xC4)) = 1;
+    *((s32 *) (((s8 *) arg0) + 0xB4)) = (s32) (*((s32 *) (((s8 *) arg0) + 0xB8)));
+    *((s32 *) (((s8 *) arg0) + 0xBC)) = (s32) (*((s32 *) (((s8 *) arg0) + 0xC0)));
+  }
 }
 
 }

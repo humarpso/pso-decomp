@@ -52,6 +52,12 @@ struct VObjB_80044498 : BaseB_80044498 {
     virtual M2C_UNK n7();
 };
 
+struct Stack_80045A04 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
@@ -105,6 +111,20 @@ void __dt__15TObjEnemyCustomFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 extern M2C_UNK lbl_80484610[];
 void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
+s32 TObjEneDellBiter__sub_80087350(s32, s32);
+s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
+s32 rand__11TOBoss4RockFv(void);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern s32 lbl_805D53A4;
+extern const f32 lbl_805D87BC;
+extern const f32 lbl_805D87C8;
+extern const f32 lbl_805D87CC;
+extern const f32 lbl_805D87D0;
+extern const f32 lbl_805D87D4;
+extern const f32 TBoss3Volopt__data_805D87D8;
+extern const f32 lbl_805D87DC;
+void TBoss3Volopt__sub_80045A04(u8 *arg0);
 }
 
 extern "C" {
@@ -158,6 +178,25 @@ void create_cage__12TBoss3VoloptFPvUs(void *arg0, u16 arg1) {
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x200000);
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss3Volopt__sub_80045A04(u8 *arg0) {
+    Stack_80045A04 stack;
+    f32 temp_f31;
+    s32 temp_r31;
+    if (lbl_805D53A4 & 1) {
+        temp_f31 = (lbl_805D87CC * (lbl_805D87BC * (f32) rand__11TOBoss4RockFv())) + lbl_805D87C8;
+        temp_r31 = (s32) (lbl_805D87D0 * (lbl_805D87D4 * (lbl_805D87BC * (f32) rand__11TOBoss4RockFv())));
+        stack.sp8 = (temp_f31 * TBoss8Dragon__sub_803D64DC(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x38);
+        stack.spC = (lbl_805D87DC * (lbl_805D87BC * (f32) rand__11TOBoss4RockFv())) + TBoss3Volopt__data_805D87D8;
+        stack.sp10 = (temp_f31 * TBoss8Dragon__sub_803D64C0(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x40);
+        TObjEneDellBiter__sub_80087350((s32) &stack.sp8, 0xFB);
+    }
+    TOTrapAncient01__sub_80226578(0x4003AD21, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
+}
+#pragma pop
+
 void check_and_notify__12TBoss3VoloptFv(s32 _w0) {
     if (TPhotonMylla__sub_80154CB4(TBoss3Volopt__data_805D2710) != 0U) {
         fn_80048C04();

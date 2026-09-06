@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+int set_display_mode__15TObjEneSlimeOneFPvi(void*, int);
+int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
+extern f32 lbl_805DA678;
+extern const f32 lbl_805DA730;
+void TObjPlayer__sub_800EA120(u8 *arg0);
+}
+
+extern "C" {
 
 void enter_appear_state__10TObjPlayerFPv(u8 *arg0);
 void enter_slime_state__10TObjPlayerFPv(u8 *arg0);
@@ -32,6 +41,21 @@ void init_slime_state__10TObjPlayerFPv(void *arg0) {
     }
     TObjEneSlimeOne__sub_800EC7F4((void*)(M2C_FIELD(arg0, s32 *, 0x388)), (void*)(1));
     set_display_mode__15TObjEneSlimeOneFPvi((void*)(arg0), (int)(2));
+}
+
+void TObjPlayer__sub_800EA120(u8 *arg0) {
+  unsigned int new_var;
+  *((s32 *) (((s8 *) arg0) + 0x3CC)) = 0xFFFF;
+  *((s32 *) (((s8 *) arg0) + 0x39C)) = (s32) ((((s32) (lbl_805DA730 * calc_boss4_scale__10TObjPlayerFi((void *)((s32) arg0)))) + 4) << 0x10);
+  *((s32 *) (((s8 *) arg0) + 0x390)) = 0x7FFFFFFF;
+  *((s32 *) (((s8 *) arg0) + 0x3C4)) = 0x400;
+  new_var = 1;
+  if (calc_boss4_scale__10TObjPlayerFi((void *)((s32) arg0)) > (*(const f32 *)&lbl_805DA678))
+  {
+    *((s32 *) (((s8 *) arg0) + 0x3C4)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x3C4))) * (-new_var));
+  }
+  TObjEneSlimeOne__sub_800EC7F4((void*)((int) (*((s32 *) (((s8 *) arg0) + 0x388)))), (void*)((int) new_var));
+  set_display_mode__15TObjEneSlimeOneFPvi((void*)(arg0), (int)(2));
 }
 
 void update_dive_timer__10TObjPlayerFPv(u8 *arg0) {

@@ -9,12 +9,21 @@ struct Stack_80265500 {
     f32 spC;
 };
 
+struct Stack_80265484 {
+    f32 sp8;
+    f32 spC;
+};
+
 extern "C" {
 M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
 extern const f32 lbl_805DD150;
 extern const f32 lbl_805DD154;
 extern const f32 lbl_805DD158;
 void TWindowSubComCard__sub_80265500(u8 *arg0);
+void copy_position__11TWindowMenuFPvPv(void *, void *);
+extern const f32 lbl_805DD148;
+extern const f32 lbl_805DD14C;
+void TWindowSubComCard__sub_80265484(u8 *arg0);
 }
 
 extern "C" {
@@ -33,6 +42,17 @@ void clear_flag_and_release2__17TWindowSubComCardFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) & 0xFFFFFFFD);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {
         set_entry_state__20TWindowSubStatusDispFPvc(M2C_FIELD(arg0, s32 *, 0x78), 1);
+    }
+}
+
+void TWindowSubComCard__sub_80265484(u8 *arg0) {
+    Stack_80265484 stack;
+    u8 *temp_r5;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x84));
+    if (temp_r5 != NULL) {
+        stack.sp8 = (M2C_FIELD(arg0, f32 *, 0x48) - lbl_805DD148) - lbl_805DD14C;
+        stack.spC = (f32) ((M2C_FIELD(arg0, s16 *, 0x72) * 0x14) - 2);
+        copy_position__11TWindowMenuFPvPv(temp_r5, &stack.sp8);
     }
 }
 

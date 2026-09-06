@@ -17,6 +17,7 @@ s32 TObjPlayer__sub_801BF60C(u8 *arg0);
 extern const f32 TObjPlayer__data_805DC278;
 void TObjPlayer__sub_801BF690(u8 *arg0);
 s32 TObjPlayer__sub_801BF5F8(void *arg0, s32 arg1);
+s32 TObjPlayer__sub_801BF560(s16 *arg0);
 }
 
 extern "C" {
@@ -35,7 +36,13 @@ u8 TObjPlayer__sub_801BF548(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 4) != -1);
 }
 
-int TObjPlayer__sub_801BF560(void) { return 0; }
+s32 TObjPlayer__sub_801BF560(s16 *arg0) {
+  s16 temp_r4;
+  unsigned int new_var;
+  temp_r4 = (*arg0 = (*arg0) - 1);
+  new_var = (u32) temp_r4;
+  return (new_var >> 0x1FU) ^ 1;
+}
 
 s16 TObjPlayer__sub_801BF57C(void* p) { return *(s16*)((char*)p + 0x0); }
 

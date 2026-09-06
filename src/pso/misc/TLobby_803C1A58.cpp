@@ -17,6 +17,7 @@ void TLobby__sub_803CEFC8(void *);
 void TLobby__sub_803CF250(void *);
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C8B38(u8 *arg0);
+short TLobby__sub_803C8B2C(u8 *arg0);
 }
 
 extern "C" {
@@ -191,6 +192,14 @@ s32 TLobby__sub_803C8A98(u8 *arg0) {
 s32 set_scroll_offset__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     TLobby__sub_803CF100((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10) + arg1), (int) (0));
     return TLobby__sub_803CF1A8((int)((int) (M2C_FIELD(arg0, s32 *, 8)))) - M2C_FIELD(arg0, s32 *, 0x10);
+}
+
+short TLobby__sub_803C8B2C(u8 *arg0) {
+  u8 *new_var;
+  s8 *new_var2;
+  new_var = arg0;
+  new_var2 = ((s8 *) new_var) + 1;
+  return *new_var2;
 }
 
 void TLobby__sub_803C8B38(u8 *arg0) {

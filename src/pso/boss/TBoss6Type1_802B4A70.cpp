@@ -13,6 +13,12 @@ extern const f32 lbl_805DE314;
 extern const f32 TBoss6Type1__data_805DE318;
 extern const f32 lbl_805DE31C;
 void TBoss6Type1__sub_802B5598(void *arg0, void *arg1);
+extern const f32 lbl_805DE354;
+s32 TBoss6Type1__sub_802B5FDC(u8 *arg0);
+extern const f32 lbl_805DE358;
+s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
+extern const f32 TBoss6Type1__data_805DE318;
+s32 TBoss6Type1__sub_802B6060(u8 *arg0);
 }
 
 extern "C" {
@@ -140,6 +146,19 @@ void set_flag_on_threshold__11TBoss6Type1FPv(void *arg0) {
 }
 
     extern const float TBoss6Type1__data_805DE344;
+
+s32 TBoss6Type1__sub_802B5FDC(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805DE354;
+}
+
+s32 TBoss6Type1__sub_802B5FF4(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x3C) > lbl_805DE358;
+}
+
+s32 TBoss6Type1__sub_802B6060(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x3C) > TBoss6Type1__data_805DE318;
+}
+
 void set_part_default_value__11TBoss6Type1FiPv(int a0, void* a1) { *(float*)((char*)a1 + 0x4) = TBoss6Type1__data_805DE344; }
 
 void init_parts__11TBoss6Type1FPv(void* p) { set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5d8)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5e4)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5f0)); TBoss6Type1__sub_802B60E8(p); }

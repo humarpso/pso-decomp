@@ -28,6 +28,7 @@ M2C_UNK DVDReadAbsAsyncPrio(int);
 void TLobby__sub_803C9CBC(u8 *arg0);
 M2C_UNK TLobby__sub_803C4A7C(void *, void *, void *, void *);
 void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2);
+s8 TLobby__sub_803C9CB0(u8 *arg0);
 }
 
 extern "C" {
@@ -139,6 +140,14 @@ void set_rate_mode__6TLobbyFi(s32 arg0) {
 }
 
 extern s32 lbl_805D7588;
+
+s8 TLobby__sub_803C9CB0(u8 *arg0) {
+  u8 new_var2;
+  u8 new_var;
+  new_var = (((((((*((u8 *) (((s8 *) arg0) + 1))) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu;
+  new_var2 = new_var;
+  return (s8) new_var2;
+}
 
 #pragma push
 #pragma fp_contract on

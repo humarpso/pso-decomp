@@ -51,6 +51,9 @@ extern const f32 lbl_805DBD50;
 extern const f32 lbl_805DBD54;
 extern const f32 lbl_805DBD58;
 void run_task__19TContainerAncient01Fv(u8 *arg0);
+f32 fn_801315A0(void *, void *, void *);
+extern const f32 TContainerAncient01__data_805DBD44;
+s32 TContainerAncient01__vt18(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -106,6 +109,10 @@ int TContainerAncient01__vt19(void) { return 1; }
 
 extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD4C;
+
+s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
+    return fn_801315A0((void *) (arg1 + 0x38), (void *) (arg0 + 0x38), (void *) (arg0)) < TContainerAncient01__data_805DBD44;
+}
 
 void render__19TContainerAncient01Fv(u8 *arg0) {
     if (((VObj8018B8BC_8018B79C *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {

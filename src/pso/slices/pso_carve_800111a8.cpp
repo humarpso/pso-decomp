@@ -9,6 +9,8 @@ extern "C" {
 s32 TObjPlayer__sub_800111A8(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_800112A4(u8 *arg0, s32 arg1);
+int TObjPlayer__sub_8001124C(u8 *arg0);
+s32 TObjPlayer__sub_80011210(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -38,8 +40,38 @@ s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1) {
     return 1;
 }
 
-int TObjPlayer__sub_80011210(void) { return 0; }
-int TObjPlayer__sub_8001124C(void) { return 0; }
+s32 TObjPlayer__sub_80011210(u8 *arg0, s32 arg1) {
+  u8 *temp_r3;
+  int new_var;
+  u8 *temp_r6;
+  temp_r6 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x2B0)));
+  *((s32 *) (((s8 *) temp_r6) + 0x1C)) = (s32) ((*((s32 *) (((s8 *) temp_r6) + 0x1C))) + arg1);
+  temp_r3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x2B0)));
+  new_var = 0x05F5E0FF;
+  if (new_var < ((s32) (*((s32 *) (((s8 *) temp_r3) + 0x1C)))))
+  {
+    *((s32 *) (((s8 *) temp_r3) + 0x1C)) = new_var;
+    return 0;
+  }
+  return 1;
+}
+
+int TObjPlayer__sub_8001124C(u8 *arg0) {
+  int new_var;
+  s16 temp_r0;
+  new_var = 0xFFFFu;
+  temp_r0 = (unsigned long) (*((s16 *) (((s8 *) arg0) + (((((0x2BE & new_var) & new_var) & new_var) & new_var) & new_var))));
+  if (temp_r0 < 0)
+  {
+    return 0U;
+  }
+  if (temp_r0 <= 0xFA)
+  {
+    return (u8) temp_r0;
+  }
+  return 0xFAU;
+}
+
 int TObjPlayer__sub_80011274(void) { return 0; }
 
 s32 TObjPlayer__sub_800112A4(u8 *arg0, s32 arg1) {

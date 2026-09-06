@@ -24,6 +24,9 @@ force_active:
   - TMainCursor__sub_8013E694
   - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801BBBD0
+  - TObjPlayer__sub_801BF5F0
+  - TObjPlayer__sub_801BF5F8
+  - TObjPlayer__sub_801BF60C
   - TObjPlayer__sub_801BF7B8
   - TObjPlayer__sub_801BF8CC
   - TPlyDispConfig__sub_801E0A68

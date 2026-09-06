@@ -1,47 +1,72 @@
-#include "pso/TItemMagGrowEff.h"
+#include "pso/item/TItemMagGrowEff.h"
 
-extern "C" void request_destroy__11TBoss4Type2FUi(void*);
 extern "C" void clear_flag_64__11TItemMagSubFPv(void*);
 
-void TItemMagGrowEff::run_task() {}
-
-TItemMagGrowEff::~TItemMagGrowEff() {
-    request_destroy__11TBoss4Type2FUi(m_20);
-    if (m_24 != nullptr) clear_flag_64__11TItemMagSubFPv(m_24);
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+void request_destroy__11TBoss4Type2FUi(void *);
+s32 TBoss4Type2__sub_800874F4(s32, s32);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 TItemMagSub__sub_80114DB8(void *, u32);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 }
 
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+void TItemMagGrowEff::run_task() {
+    f32 position[3];
+    s32 ticks;
+    u8 *effect_object;
+    u8 *mag_object;
+    u8 *active_mag;
+    effect_object = effect;
+    if ((effect_object != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv(effect_object) == 0)) {
+        effect = NULL;
+    }
+    mag_object = mag;
+    if ((mag_object != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv(mag_object) == 0)) {
+        mag = NULL;
+    }
+    if ((effect != NULL) && (active_mag = mag, (active_mag != NULL))) {
+        if (TItemMagSub__sub_80114DB8(active_mag, (u32) position) != 0) {
+            if (progress_ticks == 0xA) {
+                request_destroy__11TBoss4Type2FUi(effect);
+                effect = (u8 *) (TBoss4Type2__sub_800874F4((s32) position, 0x9E));
+            }
+            copy_pos__11TNowLoadingFPvPv(effect, position);
+            ticks = progress_ticks;
+            if (ticks == 0x14) {
+                queue_destruction__7TObjectFv(this);
+                return;
+            }
+            progress_ticks = ticks + 1;
+        }
+    } else {
+        queue_destruction__7TObjectFv(this);
+    }
+}
+
+TItemMagGrowEff::~TItemMagGrowEff() {
+    request_destroy__11TBoss4Type2FUi(effect);
+    if (mag != nullptr) clear_flag_64__11TItemMagSubFPv(mag);
+}
 
 extern "C" {
 
-void *TItemMagGrowEff__ct(void *arg0, void *arg1, u32 arg2);
-s32 TBoss4Type2__sub_800874F4(s32, M2C_UNK);
-M2C_UNK __ct__7TObjectFP7TObject();
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_grow_flag__15TItemMagGrowEffFPv(u32);
+s32 set_grow_flag__15TItemMagGrowEffFPv(u32);
 
-extern M2C_UNK __vt__15TItemMagGrowEff[];
-extern s32 lbl_805D2C14;
+extern const char *lbl_805D2C14;
 
-void *TItemMagGrowEff__ct(void *arg0, void *arg1, u32 arg2) {
-    __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TItemMagGrowEff;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C14;
-    if (arg2 != 0U) {
-        M2C_FIELD(arg0, u32 *, 0x24) = arg2;
-        M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-        M2C_FIELD(arg0, s32 *, 0x20) = TBoss4Type2__sub_800874F4(M2C_FIELD(arg0, u32 *, 0x24) + 0xDC, 0x9D);
-        set_grow_flag__15TItemMagGrowEffFPv(M2C_FIELD(arg0, u32 *, 0x24));
-    } else {
-        M2C_FIELD(arg0, u32 *, 0x24) = 0U;
-        M2C_FIELD(arg0, s32 *, 0x20) = 0;
-        queue_destruction__7TObjectFv(arg0);
-    }
-    return arg0;
 }
 
+TItemMagGrowEff::TItemMagGrowEff(TObject *parent, void *mag_object) : TObject(parent) {
+    m_name = lbl_805D2C14;
+    if (mag_object != NULL) {
+        mag = (u8*)mag_object;
+        progress_ticks = 0;
+        effect = (u8*)TBoss4Type2__sub_800874F4((s32)(mag + 0xDC), 0x9D);
+        set_grow_flag__15TItemMagGrowEffFPv((u32)mag);
+    } else {
+        mag = NULL;
+        effect = NULL;
+        queue_destruction__7TObjectFv(this);
+    }
 }

@@ -37,6 +37,16 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 extern s32 lbl_805D50C4;
 void update_particle_by_phase__10TObjPlayerFv(void);
+void queue_destruction__7TObjectFv(void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
+M2C_UNK TObjPlayer__sub_800AB0EC(void *, int);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805D9B5C;
+extern const f32 lbl_805D9B60;
+void TObjPlayer__sub_800AB1C8(u8 *arg0);
 }
 
 extern "C" {
@@ -81,6 +91,47 @@ void TObjPlayer__sub_800AB034(u8 *arg0) {
     temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
     M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 0x0A000000);
     obj_setFlags30(arg0, 0x04000000U);
+}
+
+void TObjPlayer__sub_800AB1C8(u8 *arg0) {
+  s32 var_r31;
+  u8 *temp_r3;
+  s32 new_var;
+  TBoss4Zako__sub_803D8910((void *) (arg0 + 0x1C), (void *) (arg0 + 0x34));
+  *((s32 *) (((s8 *) arg0) + 0x60)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x60))) + 1);
+  if (!((*((s32 *) (((s8 *) arg0) + 0x60))) & 3))
+  {
+    if (TObjButterflyLobby__sub_8007A5D8((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C), (int) (-1)) != 0U)
+    {
+      queue_destruction__7TObjectFv(arg0);
+      return;
+    }
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
+    goto block_4;
+  }
+  block_4:
+  temp_r3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x5C)));
+  if (temp_r3 != 0)
+  {
+    copy_pos__11TNowLoadingFPvPv(temp_r3, arg0 + 0x1C);
+  }
+  *((f32 *) (((s8 *) arg0) + 0x58)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x58))) + lbl_805D9B5C);
+  if ((*((f32 *) (((s8 *) arg0) + 0x58))) >= lbl_805D9B60)
+  {
+    queue_destruction__7TObjectFv(arg0);
+    return;
+  }
+  var_r31 = 0;
+  do
+  {
+    if (!arg0)
+    {
+    }
+    new_var = TPlayerBattleCtrl4P__sub_801BA74C((int) var_r31);
+    TObjPlayer__sub_800AB0EC((void *) arg0, (int) new_var);
+    var_r31 += 1;
+  }
+  while (var_r31 < 0xC);
 }
 
 void *dt__10TObjPlayerFPvs(void *arg0, s16 arg1) {

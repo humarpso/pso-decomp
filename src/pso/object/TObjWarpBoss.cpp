@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK TObjPlayer__sub_8019EE14(void *);
+void update__12TObjWarpBossFPv(void *arg0);
+extern const f32 lbl_805DC000;
+extern const f32 lbl_805DC004;
+extern const f32 lbl_805DC02C;
+void run_task__12TObjWarpBossFv(u8 *arg0);
+}
+
+extern "C" {
 
 struct Base2_8019f358_8019F22C { char pad[0x18]; };
 struct VObj2_8019f358_8019F22C : Base2_8019f358_8019F22C { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
@@ -81,6 +91,26 @@ block_4:
             end_effect_render__13TParticleCtrlFv();
         }
         TObjPlayer__sub_803D9B78();
+    }
+}
+void run_task__12TObjWarpBossFv(u8 *arg0) {
+    if (check_demo_mode__10TObjPlayerFv() != 1) {
+        if (!(M2C_FIELD(arg0, s16 *, 0xE2) & 1) && ((s16) M2C_FIELD(arg0, s16 *, 0xDE) != (s16) M2C_FIELD(arg0, s16 *, 0xDC))) {
+            if ((s16) M2C_FIELD(arg0, s16 *, 0xE0) != -1) {
+                M2C_FIELD(arg0, s16 *, 0xE0) = -1;
+                update__12TObjWarpBossFPv((void *) (arg0));
+            }
+            M2C_FIELD(arg0, s16 *, 0xDE) = (s16) M2C_FIELD(arg0, s16 *, 0xDC);
+            M2C_FIELD(arg0, s16 *, 0xE0) = 0;
+        }
+        TObjPlayer__sub_8019EE14((void *) (arg0));
+        update__12TObjWarpBossFPv((void *) (arg0));
+        if ((void *) M2C_FIELD(arg0, u8 **, 0xD4) != NULL) {
+            M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) + lbl_805DC004);
+            if ((lbl_805DC02C + M2C_FIELD(arg0, f32 *, 0xC4)) >= (f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xD4), u32 *, 4)) {
+                M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DC000;
+            }
+        }
     }
 }
 

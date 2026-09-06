@@ -7,13 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 test_flag_2000000__10TObjPlayerFPv();
 int TObjPlayer__sub_801B40D0(void *, int);
-int TObjPlayer__sub_801B4118(void *, f32, f32);
 M2C_UNK TObjPlayer__sub_801BF250(void *);
 M2C_UNK TObjPlayer__sub_801BF288(void *);
 M2C_UNK TObjPlayer__sub_801BF2C0(void *);
 s32 TObjPlayer__sub_801BF548(void *);
 s32 TObjPlayer__sub_801C6E40(void *);
 void TObjPlayer__sub_801B417C(s32 arg0, f32 farg0, f32 farg1);
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 TObjPlayer__sub_801B4118(u8 *arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -58,11 +59,18 @@ s32 classify_action_state__10TObjPlayerFv(void) {
 }
 
 int TObjPlayer__sub_801B40D0(void * _w0, int _w1) { return 0; }
-int TObjPlayer__sub_801B4118(void * _w0, f32 _w1, f32 _w2) { return 0; }
+
+s32 TObjPlayer__sub_801B4118(u8 *arg0, f32 farg0, f32 farg1) {
+    if (objInBand__FP7GameObjf(arg0, farg0) != 0) {
+        return 1;
+    }
+    return (objInBand__FP7GameObjf(arg0, farg1) != 0) ? 2 : 0;
+}
+
 void TObjPlayer__sub_801B417C(s32 arg0, f32 farg0, f32 farg1) {
     s32 temp_r3;
     s32 temp_r3_2;
-    if ((test_flag_2000000__10TObjPlayerFPv() == 0) && (temp_r3 = ((s32)TObjPlayer__sub_801B4118((void *)((void *) (arg0)), (f32) (farg0), (f32) (farg1))), ((temp_r3 == 0) == 0))) {
+    if ((test_flag_2000000__10TObjPlayerFPv() == 0) && (temp_r3 = ((s32)TObjPlayer__sub_801B4118((u8 *)((void *)((void *) (arg0))), (f32) (farg0), (f32) (farg1))), ((temp_r3 == 0) == 0))) {
         temp_r3_2 = TObjPlayer__sub_801C6E40((void *) (arg0 + 0x360));
         switch (temp_r3_2) {
         case 1:

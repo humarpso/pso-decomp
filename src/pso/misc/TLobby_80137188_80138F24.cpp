@@ -25,7 +25,7 @@ M2C_UNK close_all_windows__6TLobbyFv();
 M2C_UNK close_com_card_window__6TLobbyFv();
 M2C_UNK close_menu_windows__6TLobbyFv();
 M2C_UNK destroy_lobby_ui__6TLobbyFv();
-M2C_UNK fn_801DB4E4(s32);
+M2C_UNK send_server_time_accepted__9TProtocolFv(s32);
 s8 get_mode__6TLobbyFPv(u32);
 s32 get_status_flag__17TWindowSubComCardFPv(u32);
 s32 is_enabled__15TWindowMakeTeamFPv(u32);
@@ -79,7 +79,7 @@ void update__6TLobbyFv(void) {
                 TWindow__close(TLobby__data_805D55DC);
                 TLobby__data_805D55DC = 0U;
                 close_all_windows__6TLobbyFv();
-                fn_801DB4E4(TLobby__data_805D5580);
+                send_server_time_accepted__9TProtocolFv(TLobby__data_805D5580);
             }
         }
     } else {

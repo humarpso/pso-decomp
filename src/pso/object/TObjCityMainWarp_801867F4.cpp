@@ -11,6 +11,9 @@ f32 fn_8013157C(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0);
+s32 get_main_phase();
+extern s32 lbl_805D55C0;
+s32 TObjCityMainWarp__sub_80186B00(void);
 }
 
 extern "C" {
@@ -69,6 +72,11 @@ void set_active_bit__16TObjCityMainWarpFv(void) {
 void TObjCityMainWarp__sub_80186AB8(void) {  }
 void reset__16TObjCityMainWarpFv(void) { TObjCityMainWarp__sub_80186634(); TObjCityMainWarp__sub_801868A8(0); }
 void set_flag70_bit10__16TObjCityMainWarpFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x10; }
+
+s32 TObjCityMainWarp__sub_80186B00(void) {
+    return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
+}
+
 #pragma push
 #pragma fp_contract on
 s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0) {

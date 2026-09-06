@@ -20,7 +20,6 @@ s32 TWindowKeyBoardSoft__sub_80076E00(int);
 void TWindowKeyBoardSoft__vt7(u8 *arg0);
 s32 TWindowKeyBoardSoft__sub_80076E00(int);
 void TWindowKeyBoardSoft__vt6(u8 *arg0);
-M2C_UNK process_input__19TWindowKeyBoardSoftFPv();
 void TWindowKeyBoardSoft__vt17(u8 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025D664();
 s32 select_next__19TWindowKeyBoardSoftFPv();
@@ -84,6 +83,9 @@ M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
 extern M2C_UNK lbl_805DD030;
 extern M2C_UNK lbl_805DD034;
 void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1);
+M2C_UNK process_input__19TWindowKeyBoardSoftFPv(void *);
+M2C_UNK TWindowKeyBoardSoft__sub_8025D7FC();
+void TWindowKeyBoardSoft__vt16(u8 *arg0);
 }
 
 extern "C" {
@@ -92,7 +94,6 @@ int TWindowKeyBoardSoft__sub_8025B85C(void);
 void TWindowKeyBoardSoft__sub_8025B928(void);
 int TWindowKeyBoardSoft__sub_8025C24C(void);
 int TWindowKeyBoardSoft__sub_8025CA70(void);
-int TWindowKeyBoardSoft__vt16(void);
 int get_field_6c__19TWindowKeyBoardSoftFPv(void* p);
 s32 get_state__19TWindowKeyBoardSoftFPv(void* p);
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
@@ -343,7 +344,7 @@ void TWindowKeyBoardSoft__vt17(u8 *arg0) {
             update__19TWindowKeyBoardSoftFPv(arg0);
             return;
         }
-        process_input__19TWindowKeyBoardSoftFPv();
+        process_input__19TWindowKeyBoardSoftFPv((void *)(arg0));
     }
 }
 
@@ -357,7 +358,28 @@ void TWindowKeyBoardSoft__vt18(u8 *arg0) {
     }
 }
 
-int TWindowKeyBoardSoft__vt16(void) { return 0; }
+void TWindowKeyBoardSoft__vt16(u8 *arg0) {
+  s8 *new_var;
+  u32 temp_r3;
+  u8 *temp_r4;
+  if ((*((u16 *) (((s8 *) arg0) + 0x60))) & 4)
+  {
+    if (((*((u16 *) (((s8 *) arg0) + 0x62))) & 1) && (!((*((s32 *) (((s8 *) arg0) + 0xB4))) & 0x20)))
+    {
+      process_input__19TWindowKeyBoardSoftFPv((void *)(arg0));
+      return;
+    }
+    TWindowKeyBoardSoft__sub_8025D7FC();
+    return;
+  }
+  temp_r4 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x68)));
+  temp_r3 = *((u32 *) (((s8 *) temp_r4) + 4));
+  new_var = (s8 *) temp_r4;
+  if (temp_r3 != 0U)
+  {
+    *((u32 *) (new_var + 4)) = (u32) (temp_r3 - 1);
+  }
+}
 
 void TWindowKeyBoardSoft__vt15(u8 *arg0) {
     u32 temp_r3;

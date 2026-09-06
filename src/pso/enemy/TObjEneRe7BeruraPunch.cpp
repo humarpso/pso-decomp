@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_80096300
+{
+  M2C_UNK sp8;
+  f32 spC;
+};
+
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, M2C_UNK);
+extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
+extern const f32 lbl_805D97B8;
+void TObjEneRe7BeruraPunch__sub_80096300(u8 *arg0);
+}
+
 extern "C" {
 
 struct BeruraBase_800962F4 { char pad[0x14]; };
@@ -35,6 +49,36 @@ void TObjEneRe7BeruraPunch__sub_800962F4(void* p) { *(s32*)((char*)p + 0xb4) = 0
 
 extern const f32 lbl_805D9794;
 extern const f32 lbl_805D9798;
+
+typedef struct Stack_80096300 Stack_80096300;
+void TObjEneRe7BeruraPunch__sub_80096300(u8 *arg0) {
+  Stack_80096300 stack;
+  f32 new_var;
+  u8 *temp_r3;
+  VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0xDC));
+  stack.spC = lbl_805D97B8;
+  temp_r3 = TBoss8Dragon__sub_8007A544(&stack.sp8, 0x16EF);
+  if (temp_r3 != 0)
+  {
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (*((s32 *) (((s8 *) temp_r3) + 4))));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xE8), (void *) ((*((s32 *) (((s8 *) temp_r3) + 4))) + 0xC));
+  }
+  else
+  {
+    *((f32 *) (((s8 *) arg0) + 0x38)) = (f32) (*((f32 *) (((s8 *) arg0) + 0xDC)));
+    *((f32 *) (((s8 *) arg0) + 0x40)) = (f32) (*((f32 *) (((s8 *) arg0) + 0xE4)));
+  }
+  new_var = *((f32 *) (((s8 *) arg0) + 0xE0));
+  *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) (new_var - (*((f32 *) (((s8 *) arg0) + 0x3C))));
+  if ((*((f32 *) (((s8 *) arg0) + 0xCC))) < TObjEneRe7BeruraPunch__data_805D97A0)
+  {
+    *((f32 *) (((s8 *) arg0) + 0xE0)) = (f32) (TObjEneRe7BeruraPunch__data_805D97A0 + (*((f32 *) (((s8 *) arg0) + 0x3C))));
+    *((f32 *) (((s8 *) arg0) + 0xCC)) = (f32) TObjEneRe7BeruraPunch__data_805D97A0;
+  }
+  if ((new_var && new_var) && new_var)
+  {
+  }
+}
 
 void reset__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
     fn_8002B094(M2C_FIELD(arg0, s32 *, 0xD8));

@@ -6,6 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_split_screen();
+s32 TShopGenerator__sub_80222DAC(s32 arg0);
+}
+
+extern "C" {
 
 void create_named_lobby_object__6TLobbyFv(void);
 
@@ -21,5 +26,11 @@ void create_named_lobby_object__6TLobbyFv(void) {
     }
     lbl_805D6258 = create_named_object(lbl_804CA288[lbl_805D5544]);
 }
+#pragma push
+#pragma scheduling off
+s32 TShopGenerator__sub_80222DAC(s32 arg0) {
+    return ((is_split_screen() - 1) == 0) ? arg0 : 0;
+}
+#pragma pop
 
 }

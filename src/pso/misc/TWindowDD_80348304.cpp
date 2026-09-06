@@ -9,6 +9,7 @@ M2C_UNK TWindowDD__sub_80343BC0(int, void *);
 M2C_UNK reset_selection__9TWindowDDFPv(void *, void *);
 int TWindowDD__sub_80348520(void*);
 void TWindowDD__sub_803484C4(u8 *arg0);
+s32 TWindowDD__sub_80348470(u8 *arg0);
 }
 
 extern "C" {
@@ -16,7 +17,6 @@ extern "C" {
 int TWindowDD__sub_80348398(void);
 int TWindowDD__sub_80348424(void);
 int TWindowDD__sub_80348448(void);
-int TWindowDD__sub_80348470(void);
 int TWindowDD__sub_80348520(void*);
 int TWindowDD__sub_803485F4(void);
 s32 clamp_range_2C9_552__9TWindowDDFs(s16 arg0);
@@ -68,7 +68,15 @@ int TWindowDD__sub_80348398(void) { return 0; }
 int TWindowDD__sub_80348424(void) { return TWindowDD__sub_8034B008((void*)(1)); }
 
 int TWindowDD__sub_80348448(void) { return TWindowDD__sub_8034B008((void*)(0)); }
-int TWindowDD__sub_80348470(void) { return 0; }
+
+s32 TWindowDD__sub_80348470(u8 *arg0) {
+    s32 temp_r3;
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0xA8);
+    if (temp_r3 == 2) {
+        return 1;
+    }
+    return ((temp_r3 - 3) == 0) ? 2 : 0;
+}
 
 void set_state__9TWindowDDFPv(void* p) { *(int*)((char*)p + 0xa8) = 3; TWindowDD__sub_80348520((void*)(p)); }
 

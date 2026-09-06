@@ -12,9 +12,12 @@ struct VObj_18 : VBase_18 {
     virtual void m3();
     virtual M2C_UNK m4();
 };
+
 extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
+void queue_destruction__7TObjectFv(void *);
+void TTecPlayerInfluence__sub_802371FC(u8 *arg0);
 }
 
 extern "C" {
@@ -27,6 +30,13 @@ void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+
+void TTecPlayerInfluence__sub_802371FC(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x68) = (s32) (M2C_FIELD(arg0, s32 *, 0x68) + 1);
+    if ((f32) M2C_FIELD(arg0, s32 *, 0x68) > M2C_FIELD(arg0, f32 *, 0x70)) {
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
 
 void TTecPlayerInfluence__sub_80237258(void* p) { *(f32*)((char*)p + 0xbc) = *(f32*)((char*)p + 0x3c); }
 

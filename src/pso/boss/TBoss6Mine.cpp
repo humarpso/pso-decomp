@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+extern const f32 lbl_805DF58C;
+s32 TBoss6Mine__sub_803240C4(s32 arg0);
+}
+
+extern "C" {
 
 void TBoss6Mine__sub_80323E68(void* a0);
 void TBoss6Mine__vt1(void *arg0);
@@ -78,6 +84,10 @@ void draw__10TBoss6MineFPv(void *arg0) {
 }
 
 void draw_parts__10TBoss6MineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x390)); TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x394)); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x398)); draw__10TBoss6MineFPv((void *)(p)); TObjPlayer__sub_803D9B78(); }
+
+s32 TBoss6Mine__sub_803240C4(s32 arg0) {
+    return TBoss6Kakusan__sub_803D8BD8((void *) (arg0 + 0x38)) > lbl_805DF58C;
+}
 
 void TBoss6Mine__vt7(void* p) { TOSwitchAttack__sub_80087278((void*)((char*)p + 0x38), (void*)((void*)252), (void*)((void*)64)); queue_destruction__7TObjectFv((void*)(p)); }
 

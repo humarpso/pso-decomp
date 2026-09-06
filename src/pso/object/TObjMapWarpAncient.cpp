@@ -17,6 +17,13 @@ struct VObj_8017CED8 : VObjBase_8017CED8 {
 };
 
 extern "C" {
+void TObjPlayer__sub_8019D250(void *);
+extern const f32 lbl_805DBAC0;
+extern const f32 lbl_805DBAC4;
+void run_task__18TObjMapWarpAncientFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *TObjMapWarpAncient__create(void *arg0);
 void render__18TObjMapWarpAncientFv(u8 *arg0);
@@ -62,6 +69,17 @@ void render__18TObjMapWarpAncientFv(u8 *arg0) {
         TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x108));
         TObjPlayer__sub_803D9B78();
     }
+}
+void run_task__18TObjMapWarpAncientFv(u8 *arg0) {
+  if (((s32) (*((s32 *) (((s8 *) arg0) + 0x88)))) >= 0)
+  {
+    *((f32 *) (((s8 *) arg0) + 0xFC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xFC))) + lbl_805DBAC0);
+    if (((f32) (((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x118)))) + 4))) - 1) & 0xFFFFFFFFu)) < (*((f32 *) (((s8 *) arg0) + 0xFC))))
+    {
+      *((f32 *) (((s8 *) arg0) + 0xFC)) = (f32) lbl_805DBAC4;
+    }
+    TObjPlayer__sub_8019D250(arg0);
+  }
 }
 
 }

@@ -64,6 +64,8 @@ extern int TLobby__data_805D5E90;
 void qst_op_call(u16 arg0);
 extern int* TLobby__data_805D5E78;
 void qst_op_addi(int a0, int a1);
+extern int* TLobby__data_805D5E78;
+void qst_op_ori(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -365,6 +367,15 @@ void qst_op_xor(s32 arg0, s32 arg1) {
     temp_r5 = (arg0 * 4) & 0x3FC;
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) = M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) ^ M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC));
 }
+
+void qst_op_ori(s32 arg0, s32 arg1) {
+  s32 temp_r3;
+  M2C_UNK *new_var;
+  temp_r3 = (arg0 * 4) & 0x3FC;
+  new_var = (M2C_UNK *) (((s8 *) (*(s32 *)&TLobby__data_805D5E78)) + temp_r3);
+  *new_var = (*new_var) | arg1;
+}
+
 void qst_op_or(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;

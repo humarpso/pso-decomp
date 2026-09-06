@@ -44,6 +44,8 @@ s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
 s32 TObjEneMe1Canadin__vt106(u8 *arg0);
 s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
 void TObjEneMe1Canadin__vt103(u8 *arg0);
+extern const f32 lbl_805D991C;
+s32 TObjEneMe1Canadin__sub_8009E76C(u8 *arg0);
 }
 
 extern "C" {
@@ -101,6 +103,10 @@ s32 TObjEneMe1Canadin__vt106(u8 *arg0) {
 }
 
 void TObjEneMe1Canadin__vt105(void) {  }
+
+s32 TObjEneMe1Canadin__sub_8009E76C(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x3F4) < lbl_805D991C;
+}
 
 void advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3FC) == 5) {

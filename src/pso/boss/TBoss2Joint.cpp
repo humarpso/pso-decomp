@@ -239,11 +239,11 @@ extern const f32 lbl_805D8258;
 extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
 void TBoss2Joint__vt86(u8 *arg0);
+void TBoss2Joint__sub_8003688C(u8 *arg0);
 }
 
 extern "C" {
 
-int TBoss2Joint__sub_8003688C(void);
 void TBoss2Joint__vt26(void);
 void TBoss2Joint__vt42(void);
 void TBoss2Joint__vt43(void);
@@ -268,7 +268,34 @@ void TObjEneGibbles__sub_80156720(void *);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 
-int TBoss2Joint__sub_8003688C(void) { return 0; }
+void TBoss2Joint__sub_8003688C(u8 *arg0) {
+  u32 temp_r5;
+  s32 *temp_r3;
+  s32 *temp_r4;
+  u32 temp_r5_2;
+  u8 *temp_r6;
+  int new_var;
+  u8 *temp_r6_2;
+  new_var = ~0xFF000000;
+  if ((*((s32 *) (((s8 *) arg0) + 0x38C))) & 1)
+  {
+    temp_r5 = *((u32 *) (((s8 *) arg0) + 0x3A0));
+    temp_r6 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x398)));
+    *((s32 *) (((s8 *) temp_r6) + 0)) = (s32) (((((temp_r5 >> 0x10U) & new_var) | ((temp_r5 << 0x10) & 0xFF000000)) & (~0xFF0000)) | ((temp_r5 << 0x10) & 0xFF0000));
+    *((u16 *) (((s8 *) temp_r6) + 0x10)) = (u16) ((*((u16 *) (((s8 *) temp_r6) + 0x10))) | 0x800);
+    *((s16 *) (((s8 *) temp_r6) + (-4))) = 0x2517;
+    temp_r4 = (s32 *) (*((s32 **) (((s8 *) arg0) + 0x39C)));
+    *temp_r4 = ((*temp_r4) & (~0xFF00)) | ((((u32) (*((u32 *) (((s8 *) arg0) + 0x3A0)))) >> 0x10U) & 0xFF00);
+    return;
+  }
+  temp_r5_2 = *((u32 *) (((s8 *) arg0) + 0x3A0));
+  temp_r6_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x398)));
+  *((s32 *) (((s8 *) temp_r6_2) + 0)) = (s32) (((((temp_r5_2 >> 0x10U) & new_var) | ((temp_r5_2 << 0x10) & 0xFF000000)) & (~0xFF0000)) | ((temp_r5_2 << 0x10) & 0xFF0000));
+  *((u16 *) (((s8 *) temp_r6_2) + 0x10)) = (u16) ((*((u16 *) (((s8 *) temp_r6_2) + 0x10))) & 0xFFFFF7FF);
+  *((s16 *) (((s8 *) temp_r6_2) + (-4))) = 0x2517;
+  temp_r3 = (s32 *) (*((s32 **) (((s8 *) arg0) + 0x39C)));
+  *temp_r3 |= 0xFF00;
+}
 
 int call_36A90_with_1__11TBoss2JointFPv(void* p) { return TBoss2Joint__sub_80036A90((void*)(p), (int)(1)); }
 

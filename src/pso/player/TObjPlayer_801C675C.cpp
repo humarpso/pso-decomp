@@ -6,6 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 fn_801C6F2C(u8 *arg0);
+s32 TObjPlayer__sub_801BF3E8(void *);
+int set_action_flag16__10TObjPlayerFPv(void* p);
+int test_flag_8__10TObjPlayerFPv(void* p);
+int TObjPlayer__sub_801C7098(void* p);
+s32 TObjPlayer__sub_801C6E40(s32 arg0);
 }
 
 extern "C" {
@@ -18,7 +23,6 @@ void TObjPlayer__sub_801C6FBC(void* p, s16 v);
 void TObjPlayer__sub_801C6FCC(void* p, f32 v);
 void TObjPlayer__sub_801C6FDC(void);
 void TObjPlayer__sub_801C6FE0(void* p, f32 a, f32 b, f32 c);
-int TObjPlayer__sub_801C7098(void* p);
 void *__dt__13TForceOperateFv(void *arg0, s16 arg1);
 int clear_target_lock_flag__10TObjPlayerFPv(void* p);
 void free__10TObjPlayerFPv(void* a0);
@@ -56,6 +60,19 @@ void free__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a
 void heap_alloc__10TObjPlayerFPv(void* a0) { heap_alloc__5THeapFUl((void*)(obj_heap), a0); }
 
 extern M2C_UNK __vt__13TForceOperate[];
+
+s32 TObjPlayer__sub_801C6E40(s32 arg0) {
+    if (((s32)TObjPlayer__sub_801C7098((void*)(arg0))) != 0) {
+        return 1;
+    }
+    if (TObjPlayer__sub_801BF3E8((void *) (arg0)) != 0) {
+        return 2;
+    }
+    if (((s32)test_flag_8__10TObjPlayerFPv((void*)((void *) (arg0)))) != 0) {
+        return 3;
+    }
+    return (((s32)set_action_flag16__10TObjPlayerFPv((void*)((void *) (arg0)))) != 0) ? 4 : 0;
+}
 
 void *__dt__13TForceOperateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

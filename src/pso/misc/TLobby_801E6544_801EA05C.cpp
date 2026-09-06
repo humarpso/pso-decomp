@@ -48,6 +48,10 @@ s32 TQuestVmDownLoadServer__sub_8039DABC(void *, void *, int);
 extern int* TLobby__data_805D5E78;
 extern M2C_UNK TLobby__data_805DC4A0;
 void TLobby__sub_801EA1B4(s32 arg0);
+s32 rand__11TOBoss4RockFv(void);
+extern int* TLobby__data_805D5E78;
+extern const f32 lbl_805DC4C8;
+void TLobby__sub_801EA94C(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -204,6 +208,20 @@ void TLobby__sub_801EA8E8(void) {
         return;
     }
     TLobby__sub_80070C50();
+}
+
+void TLobby__sub_801EA94C(s32 arg0, s32 arg1) {
+  s32 temp_r31;
+  s32 var_r4;
+  s32 temp_r30;
+  temp_r31 = *((M2C_UNK *) (((s8 *) (*(s32 *)&TLobby__data_805D5E78)) + ((arg0 * 4) & 0x3FC)));
+  temp_r30 = *((M2C_UNK *) (((s8 *) (*(s32 *)&TLobby__data_805D5E78)) + (((arg0 + 1) * 4) & 0x3FC)));
+  var_r4 = (s32) (((f32) temp_r30) * (lbl_805DC4C8 * ((f32) rand__11TOBoss4RockFv())));
+  if (var_r4 < temp_r31)
+  {
+    var_r4 = temp_r31;
+  }
+  *((M2C_UNK *) (((s8 *) (*(s32 *)&TLobby__data_805D5E78)) + ((arg1 * 4) & 0x3FC))) = var_r4;
 }
 
 void TLobby__sub_801EA9F4(s32 arg0, s32 arg1) {

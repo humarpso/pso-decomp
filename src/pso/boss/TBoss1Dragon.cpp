@@ -87,6 +87,102 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_8 { u8 bytes[0x8]; };
+
+struct VBase_18_be4a70 { char pad[0x18]; };
+
+struct VObj_18_be4a70 : VBase_18_be4a70 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual M2C_UNK m85(s16, M2C_UNK);
+};
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
@@ -110,6 +206,10 @@ s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 TBoss1Dragon__data_805D7F98;
 extern const f32 lbl_805D80B0;
 void TBoss1Dragon__sub_80028BE0(u8 *arg0);
+void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
+M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, s16);
+void TBoss1Dragon__sub_80028598(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -131,7 +231,6 @@ void set_params__12TBoss1DragonFPvPv(void *arg0, void *arg1);
 M2C_UNK TBoss1Dragon__sub_80027B78(f32, f32, f32);
 int TBoss1Dragon__sub_80027F54(void*, int);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
-void TBoss1Dragon__sub_80028598(void *, void *);
 M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -368,6 +467,12 @@ void TBoss1Dragon__sub_80027590(void* object, void* action) {
     TBoss1Dragon__sub_800275BC((s32)object, (s32)((char*)object + 0x38), (u8*)action, 0);
 }
 
+void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1) {
+    *(M2CCopy_8 *)(arg0) = *(const M2CCopy_8 *)(arg1);
+    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
+    *(M2CCopy_8 *)((s32) arg0 + 0xC) = *(const M2CCopy_8 *)((s32) arg1 + 0xC);
+}
+
 void TBoss1Dragon__sub_80027B20(void) {
     TBoss1Dragon__sub_80027B78(TBoss1Dragon__data_805D8010, lbl_805D8098, TBoss1Dragon__data_805D7F84);
 }
@@ -460,12 +565,25 @@ void TBoss1Dragon::restoreTargetPosition() {
 
 extern "C" {
 
+void TBoss1Dragon__sub_80028598(u8 *arg0, u8 *arg1) {
+    s16 temp_r4;
+    TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
+    M2C_FIELD(arg0, s32 *, 0x67C) = (s32) M2C_FIELD(arg1, s16 *, 6);
+    M2C_FIELD(arg0, f32 *, 0x698) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0x69C) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
+    ((VObj_18_be4a70 *)(arg0))->m85(M2C_FIELD(arg1, s16 *, 4), 7);
+    temp_r4 = M2C_FIELD(arg1, s16 *, 4);
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != temp_r4) {
+        TObjEneDD__sub_800BBA18(arg0, temp_r4);
+    }
+}
+
 void handle_6x12_dragon_boss_actions(void *arg0) {
     void *x;
     bswap_6x12_packet__10TObjPlayerFPv(arg0);
     x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
     if (x != NULL) {
-        TBoss1Dragon__sub_80028598(x, arg0);
+        TBoss1Dragon__sub_80028598((u8 *)(x), (u8 *)(arg0));
     }
 }
 

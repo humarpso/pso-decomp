@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void request_scene_change__21TAdMultiChgGameModeGCFv(void);
+void set_game_mode_state__21TAdMultiChgGameModeGCFv(void);
+void TWindow__close(void *);
+int close__17TWindowSubComCardFPv(void *);
+int get_data__23TAdSinglePlyChrSelectGCFv(void);
+extern const f32 lbl_805DE780;
+void TAdSinglePlyChrSelectGC__sub_802D3D5C(u8 *arg0);
+}
+
+extern "C" {
 
 s32 create_chr_warp__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 void handle_card_select2__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -45,6 +55,36 @@ s32 create_chr_warp__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     TWindowSubComCard__sub_80265F60(var_r31);
     TWindowSubComCard__sub_80265C30(var_r31);
     return var_r31;
+}
+
+void TAdSinglePlyChrSelectGC__sub_802D3D5C(u8 *arg0) {
+    s32 temp_r3_3;
+    s32 temp_r4;
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x38));
+    if (temp_r3 != NULL) {
+        TWindow__close(temp_r3);
+        M2C_FIELD(arg0, u8 **, 0x38) = NULL;
+    }
+    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x44));
+    if (temp_r3_2 != NULL) {
+        close__17TWindowSubComCardFPv(temp_r3_2);
+        M2C_FIELD(arg0, u8 **, 0x44) = NULL;
+    }
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
+    M2C_FIELD(arg0, s32 *, 0x1C) = temp_r4;
+    if ((f32) temp_r4 > lbl_805DE780) {
+        temp_r3_3 = get_data__23TAdSinglePlyChrSelectGCFv();
+        switch (temp_r3_3) {
+        case 0:
+            request_scene_change__21TAdMultiChgGameModeGCFv();
+            return;
+        case 1:
+            set_game_mode_state__21TAdMultiChgGameModeGCFv();
+            break;
+        }
+    }
 }
 
 void handle_card_select__23TAdSinglePlyChrSelectGCFPv(void *arg0) {

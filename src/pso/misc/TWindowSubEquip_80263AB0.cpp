@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1);
+}
+
+extern "C" {
 
 void TWindowSubEquip__sub_80263AF4(void);
 void call_if_split_screen(u32 arg0);
@@ -23,6 +27,11 @@ void call_if_split_screen(u32 arg0) {
 void TWindowSubEquip__sub_80263AF4(void) {  }
 
     extern const float lbl_805DD138;
+
+f32 TWindowSubEquip__sub_80263AF8(u8 *arg0, u32 arg1) {
+    return M2C_FIELD(arg0, f32 *, 0x58) - (f32) arg1;
+}
+
 void set_scale_f__15TWindowSubEquipFPv(void* a0) { *(float*)((char*)a0 + 0x58) = lbl_805DD138; }
 
 void open_submenu__15TWindowSubEquipFii(s32 arg0, s32 arg1) {

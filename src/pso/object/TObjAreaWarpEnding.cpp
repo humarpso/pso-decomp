@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjAreaWarp__sub_8019CAB0(void *);
+extern const f32 lbl_805DBFDC;
+extern const f32 lbl_805DBFE4;
+void run_task__18TObjAreaWarpEndingFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1);
 void create_and_init__18TObjAreaWarpEndingFv(void);
@@ -52,6 +59,18 @@ void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__18TObjAreaWarpEnding[];
+
+void run_task__18TObjAreaWarpEndingFv(u8 *arg0) {
+  unsigned int new_var;
+  *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC4))) + lbl_805DBFDC);
+  new_var = *((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0xD4)))) + 4));
+  if (((f32) (new_var - 1)) < (*((f32 *) (((s8 *) arg0) + 0xC4))))
+  {
+    *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DBFE4;
+  }
+  *((s32 *) (((s8 *) arg0) + 0xC8)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0xC8))) + 0x150);
+  TObjAreaWarp__sub_8019CAB0(arg0);
+}
 
 void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

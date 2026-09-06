@@ -4,12 +4,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK TWindowKeyBoardSoft__sub_802616BC(void *, int);
 M2C_UNK TWindowKeyBoardSoft__sub_80261DD8(void *, int);
 M2C_UNK TWindowKeyBoardSoft__sub_8026227C(void *, int);
 void TWindowKeyBoardSoft__sub_802625D4(s32 arg0);
+f32 TWindowKeyBoardSoft__sub_802614DC(void *, f32, f32, f32, f32);
+extern const f32 TWindowKeyBoardSoft__data_805DD078;
+s32 TWindowKeyBoardSoft__sub_80261480(u8 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -19,6 +23,14 @@ int fn_8025CD10(void*);
 int update_focus_flags__19TWindowKeyBoardSoftFPv(void*);
 
 void close__19TWindowKeyBoardSoftFPv(void* p) { if (*(unsigned int*)((char*)p + 0x6c) != 0) { fn_8025CD10(*(void**)((char*)p + 0x6c)); update_focus_flags__19TWindowKeyBoardSoftFPv(p); } }
+
+s32 TWindowKeyBoardSoft__sub_80261480(u8 *arg0, u8 *arg1, u8 *arg2) {
+    f32 temp_f3;
+    f32 temp_f5;
+    temp_f3 = M2C_FIELD(arg2, f32 *, 4);
+    temp_f5 = M2C_FIELD(arg2, f32 *, 0);
+    return TWindowKeyBoardSoft__sub_802614DC(arg0, temp_f5 - M2C_FIELD(arg1, f32 *, 0), temp_f3 - M2C_FIELD(arg1, f32 *, 4), M2C_FIELD(arg2, f32 *, 8) - temp_f5, M2C_FIELD(arg2, f32 *, 0xC) - temp_f3) >= TWindowKeyBoardSoft__data_805DD078;
+}
 
 void TWindowKeyBoardSoft__sub_802625D4(s32 arg0) {
     s32 temp_r3;

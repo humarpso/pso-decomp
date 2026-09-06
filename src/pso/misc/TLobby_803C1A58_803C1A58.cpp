@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
+s8 TLobby__sub_803C3B38(u8 *arg0);
 }
 
 extern "C" {
@@ -138,6 +139,18 @@ s32 TLobby__sub_803C3ABC(u8 *arg0) {
 
 s32 TLobby__sub_803C3AC4(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x10);
+}
+
+s8 TLobby__sub_803C3B38(u8 *arg0) {
+  s8 *new_var3;
+  unsigned int new_var2;
+  s8 *new_var4;
+  u8 new_var;
+  new_var4 = (s8 *) arg0;
+  new_var3 = 0xE + new_var4;
+  new_var = (*((u8 *) new_var3)) & 0xFFFFFFFFFFFFFFFFu;
+  ;
+  return (s8) (new_var & 0xFF);
 }
 
 s32 TLobby__sub_803C3B44(u8 *arg0) {

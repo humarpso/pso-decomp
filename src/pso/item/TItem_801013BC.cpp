@@ -15,6 +15,12 @@ extern M2C_UNK (*lbl_805D53F8)(s32);
 extern M2C_UNK (*lbl_805D53FC)(void *);
 extern u8 *lbl_805D5404;
 void TObjPlayer__sub_801016D0(u8 *arg0);
+u16 obj_getField1c(void *);
+M2C_UNK set_item_count__6TLobbyFPvs(s32, s32);
+M2C_UNK TLobby__sub_80103B04();
+M2C_UNK set_indexed_flags(void *, int, int);
+M2C_UNK TObjPlayer__sub_80154A00(void *);
+void TItem__sub_80101514(s32 arg0);
 }
 
 extern "C" {
@@ -31,7 +37,6 @@ s32 TItemAttacker__sub_80103548(M2C_UNK);
 void TItemData__sub_8010CC68(void *);
 void TItemData__sub_8010DF68(void *);
 M2C_UNK TItemData__sub_8010E59C(M2C_UNK *, s32);
-M2C_UNK TItem__sub_80101514(void *);
 int TItem__sub_80101B20(void*);
 s32 TLobby__sub_80103AD4();
 void calc_display_grade__9TItemDataFPv(void *);
@@ -39,7 +44,6 @@ M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(s32, M2C_UNK, M2C_UNK);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 int disallow_rendering__7TObjectFv(void*);
 void get_item_price_if_valid__24TShopEquipmentSellWindowFUi(void *);
-u16 obj_getField1c();
 int queue_destruction__7TObjectFv(void*);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(s32);
 M2C_UNK set_item_count__6TLobbyFPvs(s32, s32);
@@ -67,8 +71,22 @@ void copy_item_data_and_process__5TItemFPv(void *arg0) {
     get_item_price_if_valid__24TShopEquipmentSellWindowFUi(&sp8);
 }
 
+void TItem__sub_80101514(s32 arg0) {
+  if (obj_getField1c((void *)((void *) arg0)) != ((-1U) & 0xFFFF))
+  {
+    if ((!arg0) && (!arg0))
+    {
+    }
+    TObjPlayer__sub_80154A00((void *) arg0);
+    obj_getField1c((void *)((void *) arg0));
+    TLobby__sub_80103B04();
+    set_item_count__6TLobbyFPvs((s32)((void *) arg0), (s32)((int) 0xFFFF));
+    set_indexed_flags((void *) arg0, (int) 0, (int) 1);
+  }
+}
+
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
-    if ((u16) obj_getField1c() == 0xFFFF) {
+    if ((u16) obj_getField1c((void *)(arg0)) == 0xFFFF) {
         set_item_count__6TLobbyFPvs(arg0, TLobby__sub_80103AD4());
         reset_photon_effect__10TObjPlayerFPv(arg0);
         if (arg1 != 0) {
@@ -85,7 +103,7 @@ void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 0;
         claim_ownership__5TItemFii((s32)(arg0), (s32)(0));
     } else {
-        TItem__sub_80101514(arg0);
+        TItem__sub_80101514((s32)(arg0));
     }
     M2C_FIELD(arg0, s8 *, 0xEB) = arg1;
 }

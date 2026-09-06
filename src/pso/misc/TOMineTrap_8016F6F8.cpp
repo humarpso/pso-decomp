@@ -202,6 +202,35 @@ struct VObj_18_d0f3c0 : VBase_18_d0f3c0 {
     virtual M2C_UNK m79();
 };
 
+struct VBase_18_33b813
+{
+  char pad[0x18];
+};
+
+struct VObj_18_33b813 : VBase_18_33b813 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual M2C_UNK m20(M2C_UNK, f32);
+};
+
 extern "C" {
 void set_indexed_flags(void *, s32, s32);
 void TOMineTrap__sub_8016F87C(u8 *arg0);
@@ -260,6 +289,12 @@ void TOMineTrap__sub_80170CD4(void* p);
 int TObjPlayer__sub_80154E3C(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void sync_position__10TOMineTrapFPv(void* p);
+s32 TObjPlayer__sub_80019248(u32 a0);
+u16 obj_getField1c(void *);
+s32 TOMineTrap__sub_801702C8(void);
+extern f32 lbl_805DB85C;
+extern f32 TOMineTrap__data_805DB868;
+f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2);
 }
 
 extern "C" {
@@ -402,6 +437,54 @@ f32 calc_trigger_range__10TOMineTrapFPvi(void *arg0, s32 arg1) {
     }
     return lbl_805DB85C;
 }
+
+typedef struct VBase_18_33b813 VBase_18_33b813;
+typedef struct VObj_18_33b813 VObj_18_33b813;
+#define PSO_VCALL_VObj_18_33b813_m20(_self, _arg0, _arg1) (((VObj_18_33b813 *)(_self))->m20((_arg0), (_arg1)))
+f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
+  s32 temp_r0;
+  s32 var_r31;
+  if (arg1 == 0)
+  {
+    return (*(const f32 *)&lbl_805DB85C);
+  }
+  if (TOMineTrap__sub_801702C8() == 1)
+  {
+    return (*(const f32 *)&lbl_805DB85C);
+  }
+  var_r31 = 0;
+  if ((obj_getField1c((void *) arg1) < 4U) && (TObjPlayer__sub_80019248((u32)((void *) arg1)) != 0))
+  {
+    var_r31 = 1;
+  }
+  if (var_r31 != 0)
+  {
+    temp_r0 = *arg2;
+    if (temp_r0 != 0x13)
+    {
+      if ((temp_r0 < 0x13) && (temp_r0 < 5))
+      {
+        if (temp_r0 < 0)
+        {
+          if ((temp_r0 && temp_r0) && temp_r0)
+          {
+          }
+        }
+        else
+        {
+          goto block_13;
+        }
+      }
+    }
+    else
+    {
+      block_13:
+      PSO_VCALL_VObj_18_33b813_m20(arg0, 0, (*(const f32 *)&TOMineTrap__data_805DB868));
+    }
+  }
+  return (*(const f32 *)&lbl_805DB85C);
+}
+
 void update_trigger__10TOMineTrapFPv(void *arg0) {
     s16 sp8;
     if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x4000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void*)(arg0), (s16 *)(&sp8), (M2C_UNK)(1)) != 0)) {

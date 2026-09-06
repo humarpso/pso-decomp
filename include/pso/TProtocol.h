@@ -253,6 +253,19 @@ public:
     void recv_pso_regist_connect(packet &pkt);
     void recv_pso_regist_check(packet &pkt);
 
+    void send_quest_barrier();
+    void send_message_box_closed();
+    void send_cancel_trade();
+    void send_trade_ready();
+    void send_info_board_request();
+    void send_disable_auto_reply();
+    void send_lobby_name_request();
+    void send_lobby_arrow(u8 arrow);
+    void send_choice_search_options_request();
+    void send_server_time_request();
+    void send_server_time_accepted();
+    void send_quest_menu_closed();
+
     void send_regist();
     int send_login2(int disable_udp);
     int send_login3();

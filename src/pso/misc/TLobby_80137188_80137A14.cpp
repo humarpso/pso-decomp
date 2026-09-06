@@ -16,7 +16,7 @@ M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
 s32 TWindowSubComCard__sub_80265BF8(void*);
 M2C_UNK clear_lobby_flag__10TObjPlayerFPv();
 M2C_UNK close_all_windows__6TLobbyFv();
-M2C_UNK fn_801DB0AC(s32, s32);
+M2C_UNK send_lobby_arrow__9TProtocolFUc(s32, s32);
 s32 get_status_flag__17TWindowSubComCardFPv(u32);
 M2C_UNK init_effect_5f0__10TObjPlayerFPv();
 s32 is_visible__17TWindowSubComCardFPv(u32);
@@ -113,7 +113,7 @@ void update_com_card_window__6TLobbyFv(void) {
     if ((u32) lbl_805D55E4 != 0U) {
         temp_r31 = TWindowSubComCard__sub_80265BF8((void*)lbl_805D55E4);
         if (is_visible__17TWindowSubComCardFPv(lbl_805D55E4) != 0) {
-            fn_801DB0AC(TLobby__data_805D5580, temp_r31);
+            send_lobby_arrow__9TProtocolFUc(TLobby__data_805D5580, temp_r31);
             close_all_windows__6TLobbyFv();
             return;
         }

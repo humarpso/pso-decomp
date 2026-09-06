@@ -2,6 +2,17 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+void TWindow__close(void *);
+extern u8 *lbl_805D6CA0;
+extern s32 lbl_805D6CA4;
+extern const f32 lbl_805DF9E8;
+void TAdEnterPPPPassGC__sub_80338FC0(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1);
@@ -11,6 +22,31 @@ void __dl__7TObjectFPv(void *);
 void __dt__14TAdEnterBaseGCFv(void *, int);
 int request_transition__21TAdMultiChgGameModeGCFv(void*);
 int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
+
+void TAdEnterPPPPassGC__sub_80338FC0(u8 *arg0) {
+    s32 temp_r4;
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
+    if (temp_r3 != NULL) {
+        TWindow__close(temp_r3);
+        M2C_FIELD(arg0, u8 **, 0x30) = NULL;
+    }
+    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
+    if (temp_r3_2 != NULL) {
+        TWindow__close(temp_r3_2);
+        M2C_FIELD(arg0, u8 **, 0x34) = NULL;
+    }
+    if ((void *) lbl_805D6CA0 != NULL) {
+        queue_destruction__7TObjectFv(lbl_805D6CA0);
+        lbl_805D6CA0 = NULL;
+    }
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x24) + 1;
+    M2C_FIELD(arg0, s32 *, 0x24) = temp_r4;
+    if ((f32) temp_r4 > lbl_805DF9E8) {
+        lbl_805D6CA4 = M2C_FIELD(arg0, s32 *, 0x20);
+    }
+}
 
 int forward_chg_game_mode__17TAdEnterPPPPassGCFPv(void* p) { return reset_mode_state__21TAdMultiChgGameModeGCFv(p); }
 int request_transition__17TAdEnterPPPPassGCFPv(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }

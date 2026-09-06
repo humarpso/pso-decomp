@@ -6,6 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct SRock_80224544_8022448C;
 
 extern "C" {
+extern unsigned char lbl_80513F70[];
+void *TLobby__sub_8022598C(int a0);
+}
+
+extern "C" {
 
 s32 TLobby__sub_80224840(s32 arg0);
 void TLobby__sub_80225238(int a0, int a1);
@@ -255,6 +260,15 @@ s32 level_to_reward__6TLobbyFi(s32 arg0) {
 void TLobby__sub_80225238(int a0, int a1) { lbl_805D626C = a1; TLobby__sub_8022525C(); }
 
 void try_close__6TLobbyFPv(void* p) { if (TLobby__sub_80225B90(p) == 0) { TLobby__sub_80225A08(p); } }
+
+void *TLobby__sub_8022598C(int a0) {
+  unsigned char *new_var;
+  new_var = lbl_80513F70;
+  if ((!new_var) && (!new_var))
+  {
+  }
+  return ((char *) new_var) + (a0 * 0xd0);
+}
 
 int TLobby__sub_80225C44(void* p) { return TLobby__sub_80225B40(p); }
 int TLobby__sub_80225C64(void* p) { return TLobby__sub_80225B40(p); }

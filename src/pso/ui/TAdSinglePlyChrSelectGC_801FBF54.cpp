@@ -5,6 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_8001E8B8(void);
+int TLobby__sub_80132EC8(void);
+void reset_load_state__15TAdPlayerLoadGCFPvPv(void *, void *);
+M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
+M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
+M2C_UNK memmove(void *, void *, int);
+M2C_UNK memset(M2C_UNK, s32, s32);
+extern u8 *lbl_805D5F6C;
+void TAdSinglePlyChrSelectGC__sub_802012AC(void);
+}
+
+extern "C" {
 
 s32 alloc_global_buffer(void);
 s32 buffer_init(void);
@@ -105,6 +117,22 @@ void init_timestamped_data(void) {
 }
 
 extern u32 lbl_805D5F98;
+
+void TAdSinglePlyChrSelectGC__sub_802012AC(void) {
+  volatile unsigned long long sp10;
+  M2C_UNK sp8;
+  memset((M2C_UNK)((void *) lbl_805D5F6C), (s32)((int) 0), (s32)((int) 0x11C));
+  *((s16 *) (((s8 *) lbl_805D5F6C) + 4)) = -0x32;
+  *((s8 *) (((s8 *) lbl_805D5F6C) + 6)) = 0;
+  *((s8 *) (((s8 *) lbl_805D5F6C) + 7)) = TLobby__sub_80132EC8();
+  *((s32 *) (((s8 *) lbl_805D5F6C) + 8)) = TLobby__sub_8001E8B8();
+  *((s16 *) (((s8 *) lbl_805D5F6C) + 0xC)) = 0;
+  *((s16 *) (((s8 *) lbl_805D5F6C) + 0xE)) = 0;
+  reset_load_state__15TAdPlayerLoadGCFPvPv(0, &sp8);
+  memmove((void *) (lbl_805D5F6C + 0x110), (void *) (&sp8), (int) 8);
+  getDateStamp__FP9DateStamp((M2C_UNK *)((void *) (&sp10)));
+  DateToSeconds__FP9DateStampPi((M2C_UNK *)((void *) (&sp10)), (s32 *)((void *) (lbl_805D5F6C + 0x118)));
+}
 
 s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D5F98 != 0U) {

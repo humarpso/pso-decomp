@@ -1,5 +1,17 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+extern const f32 lbl_805DC3DC;
+s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
+f32 fn_801D6AB4(void *, s32, s32);
+s32 TOMineTrap__sub_801D6A44(u8 *arg0, s32 arg1, s32 arg2);
+}
+
 extern "C" {
 
 int TFontSmallLobby__sub_801D65B4(void);
@@ -68,6 +80,10 @@ int update_field_40__15TFontSmallLobbyFPv(void* p) { return clear_flags__11TAdRi
 int TFontSmallLobby__sub_801D677C(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x40, 16); }
 u16 get_type__15TFontSmallLobbyFPv(void* p) { return *(u16*)((char*)p + 0x0); }
 
+s32 TFontSmallLobby__sub_801D67AC(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DC3DC;
+}
+
 void TFontSmallLobby__sub_801D67C8(void* p) { *(s16*)((char*)p + 0x2) = 6; }
 void* init_reset_fields__15TFontSmallLobbyFPv(void* p) { reset_fields__15TFontSmallLobbyFPv((void*)(p)); return p; }
 void* TFontSmallLobby__sub_801D6804(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
@@ -87,5 +103,15 @@ void send_state__15TFontSmallLobbyFPv(void* p) { bswap_fields__15TFontSmallLobby
 void* handle_photon_blast_ready__15TFontSmallLobbyFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
 
 int fn_801D6A18(void) { return 0; }
+s32 TOMineTrap__sub_801D6A44(u8 *arg0, s32 arg1, s32 arg2) {
+  f32 new_var;
+  f32 temp_f1;
+  new_var = (f32) arg2;
+  *((f32 *) (((s8 *) arg0) + 4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 4))) + new_var);
+  new_var = fn_801D6AB4(arg0, arg1, arg2);
+  temp_f1 = new_var;
+  *((f32 *) (((s8 *) arg0) + 0)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0))) + temp_f1);
+  return (s32) temp_f1;
+}
 
 }

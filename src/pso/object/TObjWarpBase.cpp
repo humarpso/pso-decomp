@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int check_flag_100__10TObjPlayerFPv(void *);
+f32 fn_8013157C(void *, void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
+u8 *TObjWarpBase__sub_8019D9CC(s32 arg0, short arg1, f32 farg0);
+}
+
+extern "C" {
 
 struct Base_8019DA54_8019D964 { char pad[0x18]; };
 struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
@@ -42,6 +49,20 @@ void TObjWarpBase__vt12(void *arg0) {
 }
 
 extern M2C_UNK __vt__12TObjWarpBase[];
+
+u8 *TObjWarpBase__sub_8019D9CC(s32 arg0, short arg1, f32 farg0) {
+  u8 *temp_r3;
+  temp_r3 = (u8 *) ((u8 *)TPlayerBattleCtrl4P__sub_801BA74C(arg1));
+  if ((temp_r3 != 0) && (fn_8013157C((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38)) < (farg0 * farg0)))
+  {
+    if (check_flag_100__10TObjPlayerFPv(temp_r3) == 1)
+    {
+      return 0;
+    }
+    return temp_r3;
+  }
+  return 0;
+}
 
 void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

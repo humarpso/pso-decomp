@@ -11,6 +11,9 @@ f32 fn_8013157C(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
+s32 get_main_phase();
+extern s32 lbl_805D55C0;
+s32 TObjWarpBossMulti__sub_8019E4B4(void);
 }
 
 extern "C" {
@@ -32,6 +35,10 @@ s32 is_lobby_active__17TObjWarpBossMultiFv(void) {
 }
 
 extern s32 lbl_805D53A0;
+
+s32 TObjWarpBossMulti__sub_8019E4B4(void) {
+    return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;
+}
 
 #pragma push
 #pragma fp_contract on

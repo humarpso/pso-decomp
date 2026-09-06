@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2);
 void TObjEneBm5Wolf__sub_800B89A4(u8 *arg0, void ***arg1, void **arg2);
+f32 calc_boss4_scale__10TObjPlayerFi(s32);
+s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -95,6 +97,10 @@ s32 destroy__14TObjEneBm5WolfFis(s32 arg0, s16 arg1) {
 }
 
 int TObjEneBm5Wolf__sub_800B8A24(void) { return 0; }
+
+s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1) {
+    return (s32) ((f32) arg1 * calc_boss4_scale__10TObjPlayerFi(arg0));
+}
 
 s32 TObjEneBm5Wolf__sub_800B8AF8(void* p) { return *(s32*)((char*)p + 0x3dc); }
 

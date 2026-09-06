@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_handle_valid__10TObjPlayerFPv();
+s32 TLobby__sub_80328F48(void);
+}
+
+extern "C" {
 
 void close__12TAdDialingGCFv(void);
 void open__12TAdDialingGCFv(void);
@@ -27,6 +32,9 @@ void open__12TAdDialingGCFv(void) {
     TAdDialingGC__data_805D6C78 = 0;
     TLobby__sub_802A0F70();
     TLobby__sub_802A5154();
+}
+s32 TLobby__sub_80328F48(void) {
+    return ((is_handle_valid__10TObjPlayerFPv() - 2) == 0) ? 3 : 0;
 }
 
 }

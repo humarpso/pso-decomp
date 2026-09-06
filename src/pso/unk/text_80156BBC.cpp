@@ -10,12 +10,19 @@ struct VObj_14 : VBase_14 {
     virtual void m2();
     virtual M2C_UNK m3();
 };
+
 extern "C" {
 extern const f32 lbl_805DB2B4;
 void fn_80156CEC(u8 *arg0);
+extern const f32 lbl_805DB2AC;
+s32 fn_80156C88(f32 *arg0);
 }
 
 extern "C" {
+
+s32 fn_80156C88(f32 *arg0) {
+    return *arg0 > lbl_805DB2AC;
+}
 
 void fn_80156CEC(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x18) = 1;

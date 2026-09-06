@@ -26,6 +26,13 @@ struct VObj_PTR18_8030A400 : VBase_PTR18_8030A400 {
     virtual M2C_UNK m63(M2C_UNK, s32);
 };
 
+struct Stack_8030A1E4
+{
+  s32 sp8;
+  s32 spC;
+  s32 sp10;
+};
+
 extern "C" {
 void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 int TObjEneDellBiter__sub_80087350(void*, void*);
@@ -41,6 +48,10 @@ u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
 s32 get_position_ptr__10TObjPlayerFPv(s32);
 extern M2C_UNK __vt__22TPlyPtclObjectLeftHand[];
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
+s32 TBoss7LaserPtcl__sub_80086C6C(s32, s32, s32, s32);
+M2C_UNK TObjPlayer__sub_80087638(s32, s32);
+u32 TPhotonMylla__sub_80154CB4(s32);
+s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2);
 }
 
 extern "C" {
@@ -134,6 +145,27 @@ s32 dt_follow_particle_ctrl__10TObjPlayerFis(s32 arg0, s16 arg1) {
 void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p) { TPlyFollowParticleCtrl__sub_8030A694(p); *(int*)(p) = 0; *(int*)((char*)p + 0x4) = 0; return p; }
 
 int TObjPlayer__sub_8030A150(void) { return 0; }
+
+typedef struct Stack_8030A1E4 Stack_8030A1E4;
+s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2) {
+  Stack_8030A1E4 stack;
+  s32 temp_r3;
+  u8 *temp_r3_2;
+  temp_r3_2 = (u8 *) ((u8 *)TPhotonMylla__sub_80154CB4((s32)(arg1)));
+  if (temp_r3_2 == 0)
+  {
+    return 0;
+  }
+  stack.spC = 0;
+  stack.sp8 = 0;
+  stack.sp10 = -0x8000;
+  temp_r3 = TBoss7LaserPtcl__sub_80086C6C((s32) (temp_r3_2 + 0x74), (s32) (&stack.sp8), arg2, 0x50);
+  if (temp_r3 != 0)
+  {
+    TObjPlayer__sub_80087638((s32)((void *) temp_r3), (s32)(arg1));
+  }
+  return temp_r3;
+}
 
 s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;

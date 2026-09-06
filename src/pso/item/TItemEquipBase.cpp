@@ -124,6 +124,11 @@ void TItemEquipBase__sub_8010B198(u8 *arg0);
 s32 TItemLoad__sub_801100F0(s32);
 s32 TItemLoad__sub_8011038C(s32);
 void TItemEquipBase__sub_8010A78C(u8 *arg0);
+M2C_UNK get_id__13TItemProArmorFPv(void *);
+u8 get_field_ec__12TOSwitchItemFPv();
+M2C_UNK TItemEquipBase__sub_8010B73C(void *);
+M2C_UNK TItemEquipBase__sub_8022C680(void *, void *, void *);
+void TItemEquipBase__sub_8010A82C(s32 arg0);
 }
 
 extern "C" {
@@ -141,7 +146,6 @@ struct VObj_8010B054_8010A710 : Base_8010B054_8010A710 {
 };
 
 void TItemEquipBase__sub_8010A788(void);
-int TItemEquipBase__sub_8010A82C(void);
 int TItemEquipBase__sub_8010A89C(void);
 void TItemEquipBase__sub_8010A938(void);
 void TItemEquipBase__sub_8010A93C(void);
@@ -210,7 +214,19 @@ void TItemEquipBase__sub_8010A78C(u8 *arg0) {
     }
 }
 
-int TItemEquipBase__sub_8010A82C(void) { return 0; }
+void TItemEquipBase__sub_8010A82C(s32 arg0) {
+    M2C_UNK sp8;
+    s32 temp_r31;
+    s32 var_r30;
+    temp_r31 = (get_field_ec__12TOSwitchItemFPv() != 0) ? 3 : 0;
+    TItemEquipBase__sub_8010B73C((void *) (&sp8));
+    var_r30 = 0;
+    do {
+        TItemEquipBase__sub_8022C680((void *) (&sp8), (void *) (((s32)get_id__13TItemProArmorFPv((void *) (arg0)))), (void *) (temp_r31 + var_r30));
+        var_r30 += 1;
+    } while (var_r30 != 3);
+}
+
 int TItemEquipBase__sub_8010A89C(void) { return 0; }
 
 void TItemEquipBase__sub_8010A938(void) {  }

@@ -5,6 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int TBoss6Type1__sub_802B4B64(void*, void*);
+M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
+extern const f32 lbl_805DE2A8;
+void TBoss6Type1__sub_802B2208(u8 *arg0);
+s32 TBoss6Type1__sub_802B5ED8(void *);
+s32 TBoss6Type1__sub_802B6060(void *);
+void do_attack__11TBoss6Type1FPv(void *);
+int TBoss6Type1__sub_802B9204(void*, void*);
+extern const f32 lbl_805DE2B8;
+void TBoss6Type1__sub_802B2F00(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss6Type1__sub_802B245C(void *arg0);
 void TBoss6Type1__sub_802B3178(void* p);
@@ -113,6 +126,18 @@ void init_charge_attack__11TBoss6Type1FPv(u8 *arg0) {
     TBoss3Volopt__sub_8022675C((void*)(0x4003A811), (void*)(arg0 + 0x38), (void*)(0), (void*)(1));
     TBoss6Type1__sub_802B4B64((void*)(arg0), (void*)(0));
     TBoss6Type1__sub_802B4B64((void*)(arg0), (void*)(1));
+}
+
+void TBoss6Type1__sub_802B2208(u8 *arg0) {
+    s32 temp_r0;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x40C) - lbl_805DE2A8)) {
+        TBoss6Type1__sub_802B4B64((void*)((s32) arg0), (void*)(3));
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
+    M2C_FIELD(arg0, s32 *, 0x410) = temp_r0;
+    if (temp_r0 < 0) {
+        TBoss6Type1__sub_802B865C((void *)(arg0), (int)(0x27));
+    }
 }
 
 void update_if_ready__11TBoss6Type1FPv(void *arg0) {
@@ -362,6 +387,20 @@ void tick_trap_countdown__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x410) = temp_r0;
     if (temp_r0 < 0) {
         TBoss6Type1__sub_802B865C((void *)((void *)(arg0)), (int)((int)(0x27)));
+    }
+}
+
+void TBoss6Type1__sub_802B2F00(u8 *arg0) {
+    if ((((f32) M2C_FIELD(arg0, s32 *, 0x410) / (f32) M2C_FIELD(arg0, s32 *, 0x40C)) < lbl_805DE2B8) && (TBoss6Type1__sub_802B5ED8(arg0) != 0)) {
+        do_attack__11TBoss6Type1FPv(arg0);
+        return;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == 0) {
+        if (TBoss6Type1__sub_802B6060(arg0) != 0) {
+            TBoss6Type1__sub_802B9204((void*)(arg0), (void*)(0x1A));
+            return;
+        }
+        TBoss6Type1__sub_802B9204((void*)(arg0), (void*)(0x22));
     }
 }
 

@@ -11,6 +11,21 @@ int bswap_16__FPUs(void*);
 void TItemData__sub_8010CE1C(u8 *arg0, s16 arg1);
 int bswap_16__FPUs(void*);
 void TItemData__sub_8010CE70(u8 *arg0, s16 arg1);
+int test_flag3__9TItemDataFPv(void *);
+int get_item_field_2__9TItemDataFPv(void *);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+extern f32 TItemData__data_805DAB70;
+extern const f32 lbl_805DAB74;
+extern f32 TItemData__data_805DAB78;
+f32 TItemData__sub_8010DB9C(u8 *arg0, u8 *arg1);
+int get_item_field_6__10TObjPlayerFPv(void *);
+u8 get_field_ed__10TObjPlayerFPv(void *);
+int get_item_field_2__9TItemDataFPv(void *);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+extern f32 TItemData__data_805DAB70;
+extern const f32 lbl_805DAB74;
+extern f32 TItemData__data_805DAB78;
+f32 TItemData__sub_8010D6CC(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -107,6 +122,113 @@ s16 get_technique_level__9TItemDataFPv(void *arg0) {
 void bswap_fields__9TItemDataFPv(void* p) { bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); bswap_16__FPUs((void*)((char*)p + 0x8)); bswap_16__FPUs((void*)((char*)p + 0xa)); }
 
 extern s32 lbl_805D53A0;
+
+f32 TItemData__sub_8010D6CC(u8 *arg0, u8 *arg1) {
+  s32 temp_r31;
+  f32 var_f31;
+  s32 temp_r30;
+  s32 temp_r30_2;
+  s32 temp_r30_3;
+  s32 temp_r31_2;
+  s32 temp_r31_3;
+  u8 temp_r0;
+  u8 *temp_r3;
+  temp_r0 = *((u8 *) (((s8 *) arg0) + 2));
+  var_f31 = TItemData__data_805DAB70;
+  switch ((s32) temp_r0)
+  {
+    case 26:
+      temp_r3 = (u8 *) get_item_field_6__10TObjPlayerFPv(arg1);
+      if ((temp_r3 != 0) && (get_field_ed__10TObjPlayerFPv(temp_r3) == 0x1A))
+    {
+      var_f31 = lbl_805DAB74;
+    }
+      break;
+    case 38:
+      temp_r31 = get_item_field_6__10TObjPlayerFPv(arg1);
+      temp_r30 = get_item_field_2__9TItemDataFPv(arg1);
+      if (((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (get_field_ed__10TObjPlayerFPv((void *) temp_r31) == 1)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r31) == 5)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r30) == 0x28))
+    {
+      var_f31 = TItemData__data_805DAB78;
+    }
+      break;
+    case 36:
+      temp_r30_2 = get_item_field_6__10TObjPlayerFPv(arg1);
+      temp_r31_2 = get_item_field_2__9TItemDataFPv(arg1);
+      if (((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (get_field_ed__10TObjPlayerFPv((void *) temp_r30_2) == 2)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r30_2) == 5)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r31_2) == 0x26))
+    {
+      var_f31 = TItemData__data_805DAB78;
+    }
+      break;
+    case 37:
+      temp_r30_3 = get_item_field_6__10TObjPlayerFPv(arg1);
+      temp_r31_3 = get_item_field_2__9TItemDataFPv(arg1);
+      if (((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (get_field_ed__10TObjPlayerFPv((void *) temp_r30_3) == 6)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r30_3) == 6)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r31_3) == 0x27))
+    {
+      var_f31 = TItemData__data_805DAB78;
+    }
+      break;
+  }
+  return var_f31;
+}
+
+f32 TItemData__sub_8010DB9C(u8 *arg0, u8 *arg1) {
+  f32 var_f31;
+  s32 temp_r31;
+  s32 temp_r30;
+  s32 temp_r30_2;
+  s32 temp_r30_3;
+  s32 temp_r31_2;
+  s32 temp_r31_3;
+  u8 temp_r0;
+  u8 *temp_r3;
+  temp_r0 = *((u8 *) (((s8 *) arg0) + 1));
+  var_f31 = TItemData__data_805DAB70;
+  switch ((s32) temp_r0)
+  {
+    case 1:
+      if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 5)
+    {
+      temp_r31 = test_flag3__9TItemDataFPv(arg1);
+      temp_r30 = get_item_field_2__9TItemDataFPv(arg1);
+      if ((((((u32) temp_r31) != 0U) && (((u32) temp_r30) != 0U)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r31) == 0x26)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r30) == 0x28))
+      {
+        var_f31 = TItemData__data_805DAB78;
+      }
+    }
+      break;
+    case 2:
+      if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 5)
+    {
+      temp_r30_2 = test_flag3__9TItemDataFPv(arg1);
+      temp_r31_2 = get_item_field_2__9TItemDataFPv(arg1);
+      if ((((((u32) temp_r30_2) != 0U) && (((u32) temp_r31_2) != 0U)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r30_2) == 0x24)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r31_2) == 0x26))
+      {
+        var_f31 = TItemData__data_805DAB78;
+      }
+    }
+      break;
+    case 6:
+      if (((u8) (*((u8 *) (((s8 *) arg0) + 2)))) == 6)
+    {
+      temp_r30_3 = test_flag3__9TItemDataFPv(arg1);
+      temp_r31_3 = get_item_field_2__9TItemDataFPv(arg1);
+      if ((((((u32) temp_r30_3) != 0U) && (((u32) temp_r31_3) != 0U)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r30_3) == 0x25)) && (get_slot_count__14TItemProShieldFPv((void *) temp_r31_3) == 0x27))
+      {
+        var_f31 = TItemData__data_805DAB78;
+      }
+    }
+      break;
+    case 26:
+      temp_r3 = (u8 *) test_flag3__9TItemDataFPv(arg1);
+      if ((temp_r3 != 0) && (get_slot_count__14TItemProShieldFPv(temp_r3) == 0x1A))
+    {
+      var_f31 = lbl_805DAB74;
+    }
+      break;
+  }
+  return var_f31;
+}
 
 void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     u8 temp_r0;

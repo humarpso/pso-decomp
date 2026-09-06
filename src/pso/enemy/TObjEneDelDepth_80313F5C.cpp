@@ -15,6 +15,13 @@ int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
 extern const float TObjEneDelDepth__data_805DF258;
 extern const f32 TObjEneDelDepth__data_805DF278;
 void TObjEneDelDepth__sub_80315064(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
+int TObjEneDelDepth__sub_80316488(void*, void*);
+extern u8 *TObjEneDelDepth__data_805D6AC0;
+extern f32 TObjEneDelDepth__data_805DF298;
+extern const f32 lbl_805DF2A0;
+void TObjEneDelDepth__sub_80314500(u8 *arg0);
 }
 
 extern "C" {
@@ -53,6 +60,19 @@ void init_depth__15TObjEneDelDepthFPv(void *arg0) {
     }
     TObjEneDelDepth__sub_80316488((void*)(M2C_FIELD(arg0, s32 *, 0x37C)), (void*)(0));
     set_draw_mode__15TObjEneDelDepthFPvi((void*)(arg0), (void*)(2));
+}
+
+void TObjEneDelDepth__sub_80314500(u8 *arg0) {
+  *((s32 *) (((s8 *) arg0) + 0x3C4)) = 0xFFFF;
+  *((s32 *) (((s8 *) arg0) + 0x394)) = (s32) ((((s32) (lbl_805DF2A0 * calc_boss4_scale__10TObjPlayerFi((void *)((s32) arg0)))) + 4) << 0x10);
+  *((s32 *) (((s8 *) arg0) + 0x384)) = 0x7FFFFFFF;
+  *((s32 *) (((s8 *) arg0) + 0x3BC)) = (s32) (*((s32 *) (((s8 *) TObjEneDelDepth__data_805D6AC0) + 0x1C)));
+  if (calc_boss4_scale__10TObjPlayerFi((void *)((s32) arg0)) > TObjEneDelDepth__data_805DF298)
+  {
+    *((s32 *) (((s8 *) arg0) + 0x3BC)) = (s32) (((*((s32 *) (((s8 *) arg0) + 0x3BC))) & 0xFFFFFFFF) * (-1));
+  }
+  TObjEneDelDepth__sub_80316488((void*)((int) (*((s32 *) (((s8 *) arg0) + 0x37C)))), (void*)((int) 0));
+  set_draw_mode__15TObjEneDelDepthFPvi((void*)(arg0), (void*)(2));
 }
 
 void try_enter_appear__15TObjEneDelDepthFPv(u8 *arg0) {

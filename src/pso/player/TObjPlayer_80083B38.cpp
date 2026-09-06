@@ -31,6 +31,9 @@ extern unsigned char lbl_805D4EE4;
 s32 get_camera_flag__10TObjPlayerFv(void);
 extern unsigned char lbl_805D4EE4;
 void TObjPlayer__sub_80084780(void);
+extern u8 lbl_805D2910;
+extern unsigned char lbl_805D4EE4;
+void TObjPlayer__sub_80084790(void);
 }
 
 extern "C" {
@@ -85,5 +88,10 @@ s32 get_camera_flag__10TObjPlayerFv(void) {
     return ((u8) (*(u8 *)&lbl_805D4EE4) >> 4U) & 1;
 }
 void TObjPlayer__sub_80084780(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) | 0x1); }
+void TObjPlayer__sub_80084790(void) {
+  int temp = (*(u8 *)&lbl_805D4EE4);
+  (*(u8 *)&lbl_805D4EE4) = temp & (~2);
+  lbl_805D2910 = 0x8F;
+}
 
 }

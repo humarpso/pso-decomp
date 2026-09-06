@@ -7,6 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 fn_80166E64(u8 *arg0);
 s32 fn_80166EA8(u8 *arg0);
+u8 *TLobby__sub_8001FE7C(void *, s16);
+void free__11TOBoss4RockFUi(u32);
+void free_if_valid__10TObjPlayerFi(s32);
+extern u8 *TOFenceAncient01__data_805D59B0;
+extern u32 TOFenceAncient01__data_805D59B4;
+void TOFenceAncient01__sub_80166BB8(void);
 }
 
 extern "C" {
@@ -36,6 +42,33 @@ void *create__16TOFenceAncient01FPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__16TOFenceAncient01[];
+
+void TOFenceAncient01__sub_80166BB8(void) {
+  s32 var_r31;
+  s32 var_r30;
+  if (((u32) TOFenceAncient01__data_805D59B4) != 0)
+  {
+    var_r30 = 1;
+    var_r31 = 4;
+    do
+    {
+      free_if_valid__10TObjPlayerFi(*((M2C_UNK *) (((s8 *) TOFenceAncient01__data_805D59B4) + var_r31)));
+      var_r30 += 1;
+      var_r31 += 4;
+    }
+    while (var_r30 < 4);
+    if (((u32) TOFenceAncient01__data_805D59B4) != 0)
+    {
+      free__11TOBoss4RockFUi(TOFenceAncient01__data_805D59B4);
+      TOFenceAncient01__data_805D59B4 = 0;
+    }
+  }
+  if (((void *) TOFenceAncient01__data_805D59B0) != 0)
+  {
+    TLobby__sub_8001FE7C(TOFenceAncient01__data_805D59B0, 1);
+    TOFenceAncient01__data_805D59B0 = 0;
+  }
+}
 
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

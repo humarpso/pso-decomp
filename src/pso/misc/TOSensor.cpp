@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TOSensorAncient01__sub_8017585C(s32);
+extern const f32 lbl_805DB994;
+extern const f32 lbl_805DB998;
+void TOSensorAncient01__vt14(u8 *arg0);
+}
+
+extern "C" {
 
 void TOSensorAncient01__vt15(void *arg0);
 void TOSensorAncient01__vt23(void);
@@ -60,6 +67,18 @@ void TOSensorAncient01__vt15(void *arg0) {
     temp_r4 = M2C_FIELD(arg0, s32 *, 0xEC);
     M2C_FIELD(arg0, s32 *, 0xEC) = (s32) (temp_r4 + 0x28F);
     TOSensorAncient01__sub_8017585C((s32) arg0);
+}
+void TOSensorAncient01__vt14(u8 *arg0) {
+    s32 temp_r3;
+    M2C_FIELD(arg0, s32 *, 0xEC) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0xEC) + lbl_805DB994);
+    TOSensorAncient01__sub_8017585C((s32)(arg0));
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0xE8);
+    if (temp_r3 > 0) {
+        M2C_FIELD(arg0, s32 *, 0xE8) = (s32) (temp_r3 - 1);
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0xE8) = 0;
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805DB998);
 }
 
 }

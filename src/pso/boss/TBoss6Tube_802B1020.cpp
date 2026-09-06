@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 lbl_805DE258;
+extern const f32 lbl_805DE25C;
+f32 TBoss6Tube__sub_802B11D8(s32 arg0);
+}
+
+extern "C" {
 
 void reset_state__10TBoss6TubeFv(void);
 f32 scale_by_const__10TBoss6TubeFf(f32 farg0);
@@ -24,6 +30,10 @@ f32 scale_by_const__10TBoss6TubeFf(f32 farg0) {
 extern s32 TBoss6Tube__data_805D6720;
 extern f32 TBoss6Tube__data_805D6724;
 extern f32 TBoss6Tube__data_805DE250;
+
+f32 TBoss6Tube__sub_802B11D8(s32 arg0) {
+    return lbl_805DE258 - ((f32) (arg0 & 0x7FFFF) / lbl_805DE25C);
+}
 
 void reset_state__10TBoss6TubeFv(void) {
     TBoss6Tube__data_805D6720 = 0;

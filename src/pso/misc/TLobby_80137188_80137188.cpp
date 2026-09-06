@@ -12,7 +12,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_80200B28();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200C00();
 s32 TLobby__sub_80146740();
 M2C_UNK close_and_set_state_13__6TLobbyFv(M2C_UNK);
-M2C_UNK fn_801DB474(s32);
+M2C_UNK send_server_time_request__9TProtocolFv(s32);
 M2C_UNK reset_state__6TLobbyFv(M2C_UNK);
 int set_window_flags_off__11TWindowCtrlFPvi(void*, void*);
 
@@ -29,7 +29,7 @@ void handle_state__6TLobbyFi(s32 arg0) {
         temp_r3 = TLobby__sub_80146740();
         switch (temp_r3) {
         case 0:
-            fn_801DB474(TLobby__data_805D5580);
+            send_server_time_request__9TProtocolFv(TLobby__data_805D5580);
             return;
         case 1:
             close_and_set_state_13__6TLobbyFv(0x13);

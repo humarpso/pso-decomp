@@ -273,6 +273,13 @@ struct VObj_800E707C_800E47DC : Base_800E707C_800E47DC {
 };
 
 extern "C" {
+extern const f32 TObjEneMe3ShinowaMirage__data_805DA5DC;
+s32 TObjEneMe3ShinowaMirage__sub_800E6FE0(u8 *arg0);
+extern const f32 TObjEneMe3ShinowaMirage__data_805DA5DC;
+s32 TObjEneMe3ShinowaMirage__sub_800E701C(u8 *arg0);
+}
+
+extern "C" {
 
 struct VBase18b_800e70d4_800E47DC { char pad[0x18]; };
 struct VObj18b_800e70d4_800E47DC : VBase18b_800e70d4_800E47DC {
@@ -389,7 +396,15 @@ void action__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
+s32 TObjEneMe3ShinowaMirage__sub_800E6FE0(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x358) >= TObjEneMe3ShinowaMirage__data_805DA5DC;
+}
+
 int select_and_apply_target__23TObjEneMe3ShinowaMirageFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
+
+s32 TObjEneMe3ShinowaMirage__sub_800E701C(u8 *arg0) {
+    return M2C_FIELD(arg0, f32 *, 0x354) < TObjEneMe3ShinowaMirage__data_805DA5DC;
+}
 
 void update_collision__23TObjEneMe3ShinowaMirageFPv(void *arg0) {
     struct VObj_800E7034_800E47DC *o = (struct VObj_800E7034_800E47DC *)arg0;
