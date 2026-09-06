@@ -7,6 +7,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
+u8 *TTecCtrl__sub_8022DBC4(s16, u8, M2C_UNK);
+M2C_UNK *TLobby__sub_8001DC24();
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+s32 fn_801D9870(void *, int);
+s32 validate_and_clear_slot__10TObjPlayerFPv(void *, int);
+s32 TWindowSubStatusDisp__sub_80228F5C(void *);
+s32 TWindowSubStatusDisp__sub_80229080(int);
+s32 TWindowSubStatusDisp__sub_802290E0();
+s32 TWindowHelpItem__sub_80255DC8(int);
+s32 fn_80263A20(int, int);
+s32 send_and_handle__6TLobbyFPvii(int, void *, int);
+s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
+extern M2C_UNK lbl_805DD83C;
+void TWindowSubTechnique__sub_80286FA4(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -50,6 +64,44 @@ s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD838);
     TWindowSubComCard__sub_80265C30(temp_r31);
     return temp_r31;
+}
+
+void TWindowSubTechnique__sub_80286FA4(u8 *arg0, s32 arg1) {
+  M2C_UNK saved_reg_r30;
+  s32 temp_r3;
+  s32 var_r29;
+  s32 var_r30;
+  var_r29 = arg1;
+  fn_80263A20((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  if (temp_r3 != 0)
+  {
+    if (validate_and_clear_slot__10TObjPlayerFPv((void *) (temp_r3 + 0x428), (int) var_r29) != 0)
+    {
+      var_r29 = 0x13;
+      var_r30 = saved_reg_r30;
+    }
+    if (((s16) var_r29) != ((s16) (*((s16 *) (((s8 *) arg0) + 0x1E)))))
+    {
+      *((s16 *) (((s8 *) arg0) + 0x1E)) = (s16) var_r29;
+      if (((s16) var_r29) == 0x13)
+      {
+        send_and_handle__6TLobbyFPvii((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (void *) (&lbl_805DD83C), (int) 0x82);
+        return;
+      }
+      TWindowSubStatusDisp__sub_802290E0();
+      if ((((s16) var_r29) != 0x11) && (((s16) var_r29) != 0xE))
+      {
+        var_r30 = fn_801D9870((void *) (temp_r3 + 0x428), (int) var_r29);
+        TWindowSubStatusDisp__sub_80229080((int) TWindowSubTechnique__sub_8028753C((s32)((int) 0x13)));
+        TWindowSubStatusDisp__sub_80228F5C((void *) (((u8) var_r30) + 1));
+      }
+      TWindowSubStatusDisp__sub_80229080((int) TWindowHelpItem__sub_80255DC8((int) 0x2E));
+      TWindowSubStatusDisp__sub_80228F5C((void *) ((s32) (*((s16 *) (((s8 *) TTecCtrl__sub_8022DBC4((s16) var_r29, (u8) var_r30, 0xFFFF)) + 0x10)))));
+      TWindowSubStatusDisp__sub_80229080((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) var_r29)))));
+      send_and_handle__6TLobbyFPvii((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (void *) TLobby__sub_8001DC24(), (int) 0x82);
+    }
+  }
 }
 
 void render__19TWindowSubTechniqueFv(void) {  }

@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_main_phase();
+s32 create__17TObjWarpBossMultiFPv(void *);
+s32 TObjWarpBoss__ct(int, int, void *);
+s32 __nw__7TObjectFUl(int);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern s32 tl_05;
+s32 TObjWarpBossMulti__create(s32 arg0);
+}
+
+extern "C" {
 
 void TObjFish__sub_8019F72C(void);
 void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1);
@@ -37,6 +47,23 @@ void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1) {
 }
 
 extern u32 lbl_805D5C88;
+
+s32 TObjWarpBossMulti__create(s32 arg0) {
+    s32 temp_r3;
+    s32 var_r0;
+    if ((is_not_split_screen__13TRaderMapCoreFv() == 0) && (get_main_phase() == 0xE)) {
+        return create__17TObjWarpBossMultiFPv((void *) (arg0));
+    }
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        return create__17TObjWarpBossMultiFPv((void *) (arg0));
+    }
+    temp_r3 = __nw__7TObjectFUl((int) (0x184));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TObjWarpBoss__ct((int) (temp_r3), (int) (tl_05), (void *) (arg0));
+    }
+    return var_r0;
+}
 
 void TObjFish__sub_8019F72C(void) {
     if ((u32) lbl_805D5C88 != 0U) {

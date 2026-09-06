@@ -6,13 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjEnePanarms__sub_800E2DE4(void *arg0, s32 arg1);
+s32 TObjPlayer__sub_800114D8(void *, void *, f32);
+int TObjEnePanarms__sub_800E2F6C(u8 *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
 
 u8 TObjEnePanarms__sub_800E2E54(void *arg0);
 u8 TObjEnePanarms__sub_800E2E68(void *arg0);
-int TObjEnePanarms__sub_800E2F6C(void);
 int TObjEnePanarms__sub_800E2FB4(void);
 u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
 int clear_render_callback__8TObjFishFv(void);
@@ -82,7 +83,14 @@ u8 is_below_half_hp__14TObjEnePanarmsFPv(void *arg0) {
     return var_r31;
 }
 
-int TObjEnePanarms__sub_800E2F6C(void) { return 0; }
+int TObjEnePanarms__sub_800E2F6C(u8 *arg0, s32 arg1, f32 farg0) {
+    u16 temp_r3;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
+    temp_r3 = TObjPlayer__sub_800114D8((void *) (arg0), (void *) (arg1), (f32) (farg0));
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFFFFFF);
+    return temp_r3;
+}
+
 int TObjEnePanarms__sub_800E2FB4(void) { return 0; }
 
 int clear_render_callback__8TObjFishFv(void) { return set_global_state__16TObjEneRe7BeruraFi((void*)(0)); }

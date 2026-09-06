@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 disable_if_single_screen__13TParticleCtrlFv();
+s32 setup_particle_tev(int);
+s32 TOTrapAncient02__sub_800837D4(int);
+f32 TObjPlayer__sub_803D99F8(void *, void *);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+s32 TBoss7Tentacle__sub_803D9BA0(void *);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 TOSignCave03__sub_803DB510(int);
+extern s32 TOTrapSeabed01__data_805D6814;
+void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1);
+}
+
+extern "C" {
 
 void draw__14TOTrapSeabed01FPv(u8 *arg0);
 int render__14TOTrapSeabed01Fv(void);
@@ -12,7 +27,6 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0);
 M2C_UNK PPCSync();
 M2C_UNK TOComputerMachine01__sub_8023DDC8(int, int, int, void *, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-M2C_UNK TOTrapSeabed01__sub_802CA3EC(void *, s32);
 void TOTrapSeabed01__vt82(void);
 M2C_UNK TObjDoor__sub_803DC894(int, int, f32);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
@@ -67,6 +81,45 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0) {
 
 extern s32 TOTrapSeabed01__data_805D6814;
 
+void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1) {
+    s32 temp_r31;
+    u8 *temp_r4;
+    u8 *var_r30;
+    var_r30 = (u8 *)(arg1);
+    do {
+        temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
+        TObjPlayer__sub_803D9B2C();
+        if (!(temp_r31 & 1)) {
+            TOHangerMachine01__sub_803D9C00((void *) (var_r30 + 8));
+        }
+        if (!(temp_r31 & 2)) {
+            TObjPlayer__sub_803D99F8((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
+        }
+        if (!(temp_r31 & 4)) {
+            TBoss7Tentacle__sub_803D9BA0((void *) (var_r30 + 0x20));
+        }
+        if (!(temp_r31 & 8)) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x34C) != 0) {
+                setup_particle_tev((int) (0));
+                set_global_param__8TObjFishFi((void *)((int) (TOTrapSeabed01__data_805D6814)));
+                TOTrapAncient02__sub_800837D4((int) (0x38E));
+                TOSignCave03__sub_803DB510((int) (M2C_FIELD(var_r30, s32 *, 4)));
+                disable_if_single_screen__13TParticleCtrlFv();
+            } else {
+                TOSignCave03__sub_803DB510((int) (M2C_FIELD(var_r30, s32 *, 4)));
+            }
+        }
+        if (!(temp_r31 & 0x10)) {
+            temp_r4 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x2C));
+            if (temp_r4 != NULL) {
+                TOTrapSeabed01__sub_802CA3EC(arg0, temp_r4);
+            }
+        }
+        TObjPlayer__sub_803D9B78();
+        var_r30 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x30));
+    } while (var_r30 != NULL);
+}
+
 void draw__14TOTrapSeabed01FPv(u8 *arg0) {
     if ((is_not_split_screen__13TRaderMapCoreFv() != 1) || ((s32) M2C_FIELD(arg0, s32 *, 0x34C) == 0)) {
         set_depth_buffer_settings_3__Fv();
@@ -76,7 +129,7 @@ void draw__14TOTrapSeabed01FPv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         TObjPlayer__sub_803D9214((int)(0), (int)(M2C_FIELD(arg0, s32 *, 0x60)));
-        TOTrapSeabed01__sub_802CA3EC(arg0, M2C_FIELD(arg0, s32 *, 0x34));
+        TOTrapSeabed01__sub_802CA3EC((u8 *)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x34)));
         TObjPlayer__sub_803D9B78();
         end_effect_render__13TParticleCtrlFv();
         func_80141618__Fv();

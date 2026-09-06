@@ -24,6 +24,13 @@ extern f32 lbl_805DD840;
 extern const f32 lbl_805DD860;
 extern const f32 lbl_805DD864;
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
+f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
+void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
+u32 TWindowSubStatusDisp__sub_80144D68(void *);
+f32 TWindowSubStatusDisp__sub_801A5228(void *);
+extern const f32 lbl_805DD864;
+extern const f32 lbl_805DD874;
+u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -104,6 +111,22 @@ void TWindowSubStatusDisp__sub_802879B0(void *arg0) {
 s32 deleting_destructor__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {
         __dl__FPv();
+    }
+    return arg0;
+}
+
+u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4) {
+    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 0);
+    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 4);
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TWindowSubStatusDisp__sub_80144D68((void *) (arg2));
+    M2C_FIELD(arg0, f32 *, 0xC) = TWindowSubStatusDisp__sub_802877A4(M2C_FIELD(arg0, f32 *, 0x10));
+    M2C_FIELD(arg0, s32 *, 0) = arg2;
+    M2C_FIELD(arg0, s8 *, 0x19) = 0;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DD864;
+    set_entry_state__20TWindowSubStatusDispFPvc(arg0, arg3);
+    M2C_FIELD(arg0, f32 *, 0x20) = TWindowSubStatusDisp__sub_801A5228((void *) (arg4));
+    if (M2C_FIELD(arg0, f32 *, 0x20) <= lbl_805DD864) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DD874;
     }
     return arg0;
 }

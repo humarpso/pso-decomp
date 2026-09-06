@@ -69,9 +69,15 @@ struct VObj_800E1D38_800E158C : Base_800E1D38_800E158C {
     virtual void m61();
 };
 
+#include <dolphin/mtx.h>
+#include <stddef.h>
 extern "C" {
 void TObjEnePanarms__sub_800E1B78(void *, void *, void *);
 void TObjEnePanarms__sub_800E1B50(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+extern const f32 TObjEnePanarms__data_805DA544;
+void TObjEnePanarms__sub_800E15B4(u8 *arg0);
 }
 
 extern "C" {
@@ -89,6 +95,15 @@ void TObjEnePanarms__sub_800E1E64(void* p);
 
     extern const float TObjEnePanarms__data_805DA524;
 void reset_state__14TObjEnePanarmsFPv(void* a0) { *(int*)((char*)*(int*)((char*)a0 + 0x37c) + 0x18) = (*(int*)((char*)*(int*)((char*)a0 + 0x37c) + 0x18) & 0xfffffffe); *(float*)((char*)a0 + 0x3b0) = TObjEnePanarms__data_805DA524; *(int*)((char*)a0 + 0x384) = 0; *(int*)((char*)a0 + 0x388) = 0; }
+
+void TObjEnePanarms__sub_800E15B4(u8 *arg0) {
+    Vec position;
+    if (!(M2C_FIELD(arg0, s32 *, 0x45C) & 7)) {
+        VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x3A4));
+        position.y += TObjEnePanarms__data_805DA544;
+        TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0xF3));
+    }
+}
 
 void TObjEnePanarms__sub_800E1B50(u8 *arg0) {
     TObjEnePanarms__sub_800E1B78(arg0, arg0 + 0x38, arg0 + 0x60);

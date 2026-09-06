@@ -89,9 +89,19 @@ struct VObj_18_8712ff : VBase_18_8712ff {
     virtual M2C_UNK m61();
 };
 
+#include <stddef.h>
+struct Stack_80041BB4 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
 extern "C" {
 void obj_setFlags30(void *, u32);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
+s32 fn_80086D50(void *, void *, int);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
 }
 
 extern "C" {
@@ -180,6 +190,18 @@ void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x40000);
     obj_setFlags30(arg0, 0x800U);
     ((VObj_18_8712ff *)(arg0))->m61();
+}
+
+void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80041BB4, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80041BB4, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80041BB4, sp10) == 0x8) ? 1 : -1];
+    Stack_80041BB4 stack;
+    stack.sp8 = 0;
+    stack.spC = M2C_FIELD(arg0, s32 *, 0x60);
+    stack.sp10 = 0;
+    fn_80086D50((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (((u32)__cntlzw(M2C_FIELD(arg0, s16 *, 0x38C) & 3) >> 5) + 0x61));
+    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0x45));
 }
 
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0) {

@@ -222,6 +222,8 @@ struct VObj_18_ffc433 : VBase_18_ffc433 {
     virtual M2C_UNK m15(void *, s32);
 };
 
+#include <dolphin/mtx.h>
+#include <stddef.h>
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
@@ -259,6 +261,13 @@ M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(int);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_04;
 u8 *TBoss1Dragon__sub_8002A3FC(s32 arg0);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+s32 create__15TObjBoss1CraterFPvPv(int, void *);
+s32 set_shake_preset__11TCameraCtrlFi(int);
+M2C_UNK TOSwitchAttack__sub_80087278(void *, s32, M2C_UNK);
+extern s32 tl_02;
+extern const f32 lbl_805D80A8;
+void TBoss1Dragon__sub_800280C0(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -560,6 +569,23 @@ extern "C" {
 void clear_work__12TBoss1DragonFi(s32 arg0) {
     alloc_effect_node__12TBoss3VoloptFUisi(arg0 + 0x38, 0xE0, arg0);
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss1Dragon__sub_800280C0(u8 *arg0, s32 arg1) {
+    Vec position;
+    s32 temp_r5;
+    VecCopy__FP3VecPC3Vec((s32)((void *) (&position.x)), (s32)((void *) (arg1)));
+    temp_r5 = M2C_FIELD(arg0, s32 *, 0x6A4);
+    if (temp_r5 < 0xC) {
+        position.y += lbl_805D80A8 * (f32) temp_r5;
+        M2C_FIELD(arg0, s32 *, 0x6A4) = (s32) (temp_r5 + 1);
+        create__15TObjBoss1CraterFPvPv((int) (tl_02), (void *) (&position.x));
+    }
+    TOSwitchAttack__sub_80087278((void *)((void *) (&position.x)), (s32)((void *) (*M2C_FIELD(arg0, s32 **, 0x778))), (M2C_UNK)((int) (0x840)));
+    set_shake_preset__11TCameraCtrlFi((int) (1));
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

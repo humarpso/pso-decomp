@@ -478,6 +478,7 @@ pso/boss/TBoss2DeRolLe_800340A0.cpp:
 
 pso/boss/TBoss2DeRolLe_800340EC.cpp:
 	.text       start:0x800340EC end:0x800341A4
+	.rodata     start:0x80435A08 end:0x80435A10
 
 pso/boss/TBoss2DeRolLe_800341A4.cpp:
 	.text       start:0x800341A4 end:0x800343B4
@@ -788,6 +789,7 @@ pso/boss/TBoss4Uro.cpp:
 
 pso/unk/text_8004C1AC.cpp:
 	.text       start:0x8004C1AC end:0x8004C93C
+	.rodata     start:0x80437290 end:0x80437298
 
 pso/boss/TBoss4DarkFalz_8004C93C_8004C93C.cpp:
 	.text       start:0x8004C93C end:0x8004D050
@@ -1843,6 +1845,7 @@ pso/unk/text_8007FE78.cpp:
 
 pso/misc/TDuelEffectNumber.cpp:
 	.text       start:0x80080164 end:0x80080290
+	.rodata     start:0x80438DB8 end:0x80438DC0
 
 pso/misc/TDuelEffectNumber_80080290.cpp:
 	.text       start:0x80080290 end:0x80080460
@@ -1865,6 +1868,7 @@ pso/misc/TWindowKeyBoardSoft_80080798.cpp:
 
 pso/misc/TWindowKeyBoardBase_8008102C.cpp:
 	.text       start:0x8008102C end:0x80081278
+	.rodata     start:0x80438E28 end:0x80438E30
 
 pso/misc/TEF_LensFlare.cpp:
 	.text       start:0x80081278 end:0x8008197C
@@ -3077,6 +3081,7 @@ pso/enemy/TObjEnePanarms_800DFCD8.cpp:
 
 pso/enemy/TObjEnePanarms_800DFD54.cpp:
 	.text       start:0x800DFD54 end:0x800DFF44
+	.rodata     start:0x8043CDC8 end:0x8043CDD0
 
 pso/enemy/TObjEnePanarms_800DFF44.cpp:
 	.text       start:0x800DFF44 end:0x800E158C
@@ -4417,6 +4422,7 @@ pso/item/TItemShootGun_dtor.cpp:
 
 pso/player/TObjPlayer_8011C000.cpp:
 	.text       start:0x8011C000 end:0x8011CC58
+	.rodata     start:0x8043E7D0 end:0x8043E7D8
 
 pso/misc/item_param.cpp:
 	.text       start:0x8011CC58 end:0x8011CDC4
@@ -8566,6 +8572,7 @@ pso/player/TObjPlayer_801AA664.cpp:
 
 pso/misc/TPhotonEstlla_801AA710.cpp:
 	.text       start:0x801AA710 end:0x801AAB00
+	.rodata     start:0x80446D08 end:0x80446D10
 
 pso/misc/TPhotonEstlla.cpp:
 	.text       start:0x801AAB00 end:0x801AAB74
@@ -8587,6 +8594,7 @@ pso/unk/text_801AB370.cpp:
 
 pso/player/TObjPlayer_801AB608.cpp:
 	.text       start:0x801AB608 end:0x801ABD90
+	.rodata     start:0x80446DA0 end:0x80446DA8
 
 pso/misc/TPhotonGolla.cpp:
 	.text       start:0x801ABD90 end:0x801ABE14
@@ -8602,6 +8610,7 @@ pso/misc/TPhotonLaser.cpp:
 
 pso/misc/TPhotonLeilla_801AC45C.cpp:
 	.text       start:0x801AC45C end:0x801AC794
+	.rodata     start:0x80446DF0 end:0x80446DF8
 
 pso/misc/TPhotonLeilla.cpp:
 	.text       start:0x801AC794 end:0x801AC808
@@ -10301,7 +10310,7 @@ pso/network/TProtocol_801DB0AC.cpp:
 pso/unk/text_801DB10C.cpp:
 	.text       start:0x801DB10C end:0x801DB1B4
 
-pso/unk/text_801DB1B4.cpp:
+pso/network/TProtocolChoiceSearch.cpp:
 	.text       start:0x801DB1B4 end:0x801DB2D4
 
 pso/unk/text_801DB2D4.cpp:
@@ -11013,6 +11022,7 @@ pso/misc/TLobby_8020A188.cpp:
 
 pso/unk/text_8020A2AC.cpp:
 	.text       start:0x8020A2AC end:0x8020A350
+	.rodata     start:0x8044BBA0 end:0x8044BBA8
 
 pso/misc/TLobby_8020A350.cpp:
 	.text       start:0x8020A350 end:0x8020A508
@@ -13354,6 +13364,7 @@ pso/misc/TWindowSubTechnique.cpp:
 
 pso/misc/TWindowSubStatusDisp_80287570.cpp:
 	.text       start:0x80287570 end:0x80287AD8
+	.rodata     start:0x8044FCB0 end:0x8044FCB8
 
 pso/unk/text_80287AD8.cpp:
 	.text       start:0x80287AD8 end:0x80287C18
@@ -15569,6 +15580,7 @@ pso/ui/TAdGameStartBackGC.cpp:
 
 pso/player/TObjPlayer_80307618.cpp:
 	.text       start:0x80307618 end:0x80307964
+	.rodata     start:0x80475448 end:0x80475450
 
 pso/unk/text_80307964.cpp:
 	.text       start:0x80307964 end:0x80307A34
@@ -15686,6 +15698,7 @@ pso/boss/TBoss4ZakoDraw_8030AD58.cpp:
 
 pso/boss/TObjBoss8Piller_8030ADBC.cpp:
 	.text       start:0x8030ADBC end:0x8030AF08
+	.rodata     start:0x80475718 end:0x80475720
 
 pso/boss/TObjBoss8Piller.cpp:
 	.text       start:0x8030AF08 end:0x8030B098
@@ -17462,6 +17475,7 @@ pso/unk/text_8036D0C0.cpp:
 
 pso/boss/TBoss6RockChase.cpp:
 	.text       start:0x8036D1B4 end:0x8036D774
+	.rodata     start:0x8047ACF8 end:0x8047AD00
 
 pso/misc/TWindowSubStatusDisp_8036D774.cpp:
 	.text       start:0x8036D774 end:0x8036DBC4

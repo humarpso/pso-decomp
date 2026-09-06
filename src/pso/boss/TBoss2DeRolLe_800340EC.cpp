@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK play_sound(M2C_UNK, void *);
+extern const f32 TBoss2DeRolLe__data_805D8288;
+void TBoss2DeRolLe__sub_80034134(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
 
 void set_flags_play_sound__13TBoss2DeRolLeFPv(u8 *arg0);
 M2C_UNK clear_play_flags__13TBoss2DeRolLeFPv();
@@ -15,6 +21,10 @@ void set_flags_play_sound__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x88);
     clear_play_flags__13TBoss2DeRolLeFPv();
     play_sound(0x4003AA06, arg0 + 0x38);
+}
+void TBoss2DeRolLe__sub_80034134(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s32 *, 0x6AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6AC) - (s32) (TBoss2DeRolLe__data_805D8288 * (f32) arg1));
+    play_sound((M2C_UNK)((int) (0x4003A80F)), (void *)((void *) (arg0 + 0x38)));
 }
 
 }

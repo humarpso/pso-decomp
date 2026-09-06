@@ -29,6 +29,23 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 extern const f32 TObjEneIllGill__data_805E02BC;
 void TObjEneIllGill__sub_803669B0(u8 *arg0);
+M2C_UNK TObjPlayer__sub_80011734(void *, int, f32);
+s32 TObjPlayer__sub_80017E6C(void *);
+M2C_UNK obj_setFlags30(void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+s32 request_two_effects__10TObjPlayerFPv(void *);
+s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+extern const f32 TObjEneIllGill__data_805E02BC;
+extern const f32 TObjEneIllGill__data_805E02C0;
+extern const f32 TObjEneIllGill__data_805E02D8;
+extern const f32 TObjEneIllGill__data_805E02DC;
+extern const f32 lbl_805E02E0;
+extern const f32 lbl_805E02E4;
+void TObjEneIllGill__sub_803665B4(u8 *arg0);
 }
 
 extern "C" {
@@ -59,6 +76,59 @@ M2C_UNK minimap_render_dot(void *, int, int, int);
 int obj_clearFlags30(void*, int);
 M2C_UNK obj_setFlags30(void *, int);
 s32 request_destroy__11TBoss4Type2FUi(void *);
+
+void TObjEneIllGill__sub_803665B4(u8 *arg0) {
+  s16 temp_r0;
+  s32 temp_r0_2;
+  obj_setFlags30((void *) arg0, (int) 0x04040000);
+  TBoss1Dragon__sub_80143504((void *) arg0);
+  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x328));
+  switch (temp_r0)
+  {
+    default:
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 0;
+    case 0:
+      ((s32)TObjPlayer__sub_80011734((void *) arg0, (int) 0, (f32) TObjEneIllGill__data_805E02BC));
+      if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjEneIllGill__data_805E02D8) != 0)
+    {
+      TBoss3Volopt__sub_8022675C((int) 0x4003A351, (void *) (arg0 + 0x38), (int) 0, (int) 0);
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 2;
+    }
+      return;
+    return;
+    case 2:
+      *((f32 *) (((s8 *) arg0) + 0x300)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x300))) + TObjEneIllGill__data_805E02DC);
+      TObjPlayer__sub_80017E6C((void *) arg0);
+      *((f32 *) (((s8 *) arg0) + 0x308)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x308))) * lbl_805E02E0);
+      *((f32 *) (((s8 *) arg0) + 0x310)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x310))) * lbl_805E02E0);
+      if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjEneIllGill__data_805E02C0) != 0)
+    {
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 3;
+      TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) 0xF0);
+      return;
+    }
+      break;
+    case 3:
+      if (objInBand__FP7GameObjf((void *) arg0, (f32) lbl_805E02E4) != 0)
+    {
+      TBoss3Volopt__sub_8022675C((int) 0x4003A358, (void *) (arg0 + 0x38), (int) 0, (int) 0);
+      apply_effect_variant_b__10TObjPlayerFii((void *) (arg0 + 0x38), (int) 0xA);
+      request_two_effects__10TObjPlayerFPv((void *) (arg0 + 0x38));
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 4;
+      *((s32 *) (((s8 *) arg0) + 0x3A0)) = 0xA;
+      return;
+    }
+      break;
+    case 4:
+      temp_r0_2 = (*((s32 *) (((s8 *) arg0) + 0x3A0))) - 1;
+      *((s32 *) (((s8 *) arg0) + 0x3A0)) = temp_r0_2;
+      if (temp_r0_2 < 0)
+    {
+      queue_destruction__7TObjectFv((void *) arg0);
+    }
+      break;
+  }
+}
 
 void TObjEneIllGill__vt61(u8 *arg0) {
     u8 *temp_r5;

@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TObjBgmColCtrl__ct(int, int);
+s32 TObjBgmColCtrl__sub_8017E550();
+u32 __nw__7TObjectFUl(int);
+u32 __ct__7TObjectFP7TObject(int, int);
+extern u32 TObjBgmColCtrl__data_805D5B08;
+extern s32 tl_05;
+void TObjBgmColCtrl__sub_8017E3B8(void);
+}
+
+extern "C" {
 
 void run_task__14TObjBgmColCtrlFv(void *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -47,6 +57,22 @@ void run_task__14TObjBgmColCtrlFv(void *arg0) {
             }
         }
     }
+}
+void TObjBgmColCtrl__sub_8017E3B8(void) {
+    u32 temp_r3;
+    u32 temp_r3_2;
+    u32 var_r0;
+    temp_r3 = __nw__7TObjectFUl((int) (0x1C));
+    var_r0 = temp_r3;
+    if (var_r0 != 0U) {
+        var_r0 = __ct__7TObjectFP7TObject((int) (temp_r3), (int) (0));
+    }
+    TObjBgmColCtrl__data_805D5B08 = var_r0;
+    temp_r3_2 = __nw__7TObjectFUl((int) (0x20));
+    if (temp_r3_2 != 0U) {
+        TObjBgmColCtrl__ct((int) (temp_r3_2), (int) (tl_05));
+    }
+    TObjBgmColCtrl__sub_8017E550();
 }
 
 }

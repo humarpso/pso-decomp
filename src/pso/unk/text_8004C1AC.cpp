@@ -56,6 +56,11 @@ void TBoss4DarkFalz__sub_8004B20C(void*, M2C_UNK);
 extern M2C_UNK lbl_80437298[];
 extern s32 lbl_805D5550;
 void update_timer__14TBoss4DarkFalzFPv(void *arg0);
+void TBoss4DarkFalz__sub_8004B20C(void*, M2C_UNK);
+s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
+extern const f32 TBoss4DarkFalz__data_805D893C;
+extern const f32 lbl_805D8944;
+void TBoss4DarkFalz__sub_8004C704(u8 *arg0);
 }
 
 extern "C" {
@@ -150,6 +155,19 @@ void request_action_e__14TBoss4DarkFalzFi(s32 arg0) {
 }
 void start_phase__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004BA18(p); TBoss4DarkFalz__sub_8004B77C(p); }
 void enter_state_126__14TBoss4DarkFalzFPv(void* a0) { *(int*)((char*)a0 + 0x380) = 126; lbl_805D4D68 = 2; TBoss4DarkFalz__sub_8004B7DC(); TBoss4DarkFalz__sub_8004AB90(a0, (void*)2); }
+
+void TBoss4DarkFalz__sub_8004C704(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+    temp_f1 = TBoss4DarkFalz__data_805D893C - ((f32) M2C_FIELD(arg0, s32 *, 0x380) / lbl_805D8944);
+    TBoss4DarkFalz__sub_8004B730((void *) (arg0), (f32) (temp_f1 * (temp_f1 * (temp_f1 * temp_f1))), (int) (0xFFFFFF));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x380) - 1;
+    M2C_FIELD(arg0, s32 *, 0x380) = temp_r0;
+    if (temp_r0 <= 0) {
+        TBoss4DarkFalz__sub_8004B20C((void*)((void *) (arg0)), (M2C_UNK)((int) (0xC)));
+    }
+}
+
 void init_state__14TBoss4DarkFalzFPv(void *arg0) {
     TBoss4DarkFalz__sub_8004BA70((void*)(arg0));
     create__11TObjDFDemo4FPvPvPv(arg0, (void *)((char *)arg0 + 924), M2C_FIELD(arg0, void **, 0x3A8));

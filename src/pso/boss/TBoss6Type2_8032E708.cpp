@@ -4,6 +4,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_8032EAE4
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+};
+
+extern "C" {
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
+f32 TBoss4Zako__sub_803D8910(void *, int);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 TBoss6Type1__sub_803D9370(void *, int);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern const f32 lbl_805DF7F0;
+extern const f32 lbl_805DF7F4;
+extern const f32 lbl_805DF7F8;
+extern const f32 lbl_805DF7FC;
+void TBoss6Type2__sub_8032EAE4(u8 *arg0);
+}
+
 extern "C" {
 
 void TBoss6Type2__sub_8032E708(void* p, s32 v);
@@ -53,6 +74,31 @@ f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0) {
 }
 
 extern const f32 lbl_805DF7F4;
+
+typedef struct Stack_8032EAE4 Stack_8032EAE4;
+void TBoss6Type2__sub_8032EAE4(u8 *arg0) {
+  Stack_8032EAE4 stack;
+  f32 temp_f1;
+  if (((u32) (*((u32 *) (((s8 *) arg0) + 0x37C)))) != 0U)
+  {
+    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (int) ((*((u32 *) (((s8 *) arg0) + 0x37C))) + 0x38));
+    temp_f1 = TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8));
+    if (!(temp_f1 >= lbl_805DF7F0))
+    {
+      if (temp_f1 <= lbl_805DF7F8)
+      {
+        stack.sp8 = apply_direction_sign__11TBoss6Type2FPvf((void *) arg0, (f32) lbl_805DF7F4);
+      }
+      TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+      stack.sp8 *= lbl_805DF7F0;
+      stack.spC = lbl_805DF7FC;
+      stack.sp10 *= lbl_805DF7F0;
+      TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (int) ((*((u32 *) (((s8 *) arg0) + 0x37C))) + 0x38));
+      VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+    }
+  }
+}
 
 void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s32 arg3) {
     f32 temp_f31;

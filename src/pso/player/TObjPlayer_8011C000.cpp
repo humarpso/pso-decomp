@@ -24,6 +24,11 @@ s32 TObjPlayer__sub_8011C940(s32 arg0, s32 arg1);
 s32 TItemData__sub_8010EEDC(s32);
 extern s32 lbl_805D2B10;
 s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0);
+s32 TItemDrop__sub_801065F8(int, void *, void *);
+f32 TObjPlayer__sub_8011C2C4(void *);
+s32 __cvt_fp2unsigned(f32);
+extern void *item_mgr;
+void TObjPlayer__sub_8011C328(u32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -65,6 +70,15 @@ void register_item_drop__10TObjPlayerFPv(void *arg0) {
         set_drop_index__9TItemDropFPvPv(item_mgr, p);
     }
 }
+
+void TObjPlayer__sub_8011C328(u32 arg0, s32 arg1) {
+    if ((u32) (*(u32 *)&item_mgr) != 0U) {
+        TItemDrop__sub_801065F8((int) ((*(u32 *)&item_mgr)), (void *) (arg0), (void *) (arg1));
+        return;
+    }
+    __cvt_fp2unsigned((f32) arg0 * TObjPlayer__sub_8011C2C4((void *) (arg1)));
+}
+
 void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 sp8;
     s32 temp_r5;

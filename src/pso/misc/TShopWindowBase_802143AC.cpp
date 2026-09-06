@@ -35,6 +35,37 @@ struct V_A_80214544_802143AC : Base_A_80214544_802143AC {
     virtual s32 m8();
 };
 
+#include <stddef.h>
+struct VBase_18_97738d { char pad[0x18]; };
+
+struct VObj_18_97738d : VBase_18_97738d {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual M2C_UNK m7(M2C_UNK, M2C_UNK);
+};
+
+struct Stack_8021488C {
+    f32 sp8;
+    f32 spC;
+};
+
+extern "C" {
+s32 TCameraCtrl__sub_8006B368();
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 __ct__12TMemberCheckFP7TObject(int, void *);
+s32 TShopSequence__sub_80223600(void *, int, void *);
+u32 __nw__7TObjectFUl(int);
+s32 TWindowSubComCard__sub_8026CBB8(s32);
+extern const f32 lbl_805DC658;
+extern const f32 lbl_805DC65C;
+void THunterGuildSeqOffline__sub_8021488C(u8 *arg0);
+}
+
 extern "C" {
 
 void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0);
@@ -102,6 +133,25 @@ block_3:
             set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(0xC));
         }
     }
+}
+
+void THunterGuildSeqOffline__sub_8021488C(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8021488C, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8021488C, spC) == 0x4) ? 1 : -1];
+    Stack_8021488C stack;
+    u32 temp_r3;
+    stack.sp8 = lbl_805DC658;
+    stack.spC = lbl_805DC65C;
+    TShopSequence__sub_80223600((void *) (arg0), (int) (TWindowSubComCard__sub_8026CBB8((s32)((int) (0x2C)))), (void *) (&stack.sp8));
+    if (TCameraCtrl__sub_8006B368() == 0) {
+        temp_r3 = __nw__7TObjectFUl((int) (0x80));
+        if (temp_r3 != 0U) {
+            __ct__12TMemberCheckFP7TObject((int) (temp_r3), (void *) (arg0));
+        }
+    }
+    ((VObj_18_97738d *)(arg0))->m7(1, 1);
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (3)));
 }
 
 void restore_shop_and_init_quest_state(void *arg0) {

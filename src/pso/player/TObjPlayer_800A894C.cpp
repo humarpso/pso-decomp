@@ -83,7 +83,6 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TBoss3Volopt__sub_800D8D88(void *);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
@@ -114,6 +113,8 @@ void *TObjEneDubchik__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 extern void *tl_04;
 void * create_dubchik__10TObjPlayerFPv(void *arg0);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
+void TObjPlayer__sub_800A89B0(u8 *arg0);
 }
 
 extern "C" {
@@ -123,7 +124,6 @@ void set_flag_start_effect__10TObjPlayerFPv(u8 *arg0);
 s32 try_apply_800a89b0__10TObjPlayerFi(s32 arg0);
 s32 TObjPlayer__sub_80016C54();
 s32 TObjPlayer__sub_80016D78();
-M2C_UNK TObjPlayer__sub_800A89B0(s32);
 M2C_UNK create_dead_spot__10TObjPlayerFiif(void *, s16, f32);
 
 extern const f32 lbl_805D9ADC;
@@ -141,9 +141,16 @@ void set_flag_start_effect__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
+void TObjPlayer__sub_800A89B0(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 7) {
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
+    }
+}
+
 s32 try_apply_800a89b0__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_80016D78() != 0) {
-        TObjPlayer__sub_800A89B0(arg0);
+        TObjPlayer__sub_800A89B0((u8 *)arg0);
         return 1;
     }
     return 0;
@@ -151,7 +158,7 @@ s32 try_apply_800a89b0__10TObjPlayerFi(s32 arg0) {
 
 s32 TObjPlayer__sub_800A8A34(s32 arg0) {
     if (TObjPlayer__sub_80016C54() != 0) {
-        TObjPlayer__sub_800A89B0(arg0);
+        TObjPlayer__sub_800A89B0((u8 *)arg0);
         return 1;
     }
     return 0;
@@ -193,7 +200,7 @@ void TObjPlayer__sub_800A8E04(u8 *arg0) {
         temp_r5 = M2C_FIELD(arg0, s32 *, 0x388);
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r5 & ~5);
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFFFFFF);
-        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0, temp_r5);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
         break;
     }
 }

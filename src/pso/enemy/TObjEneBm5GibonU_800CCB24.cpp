@@ -258,6 +258,108 @@ struct VObj_18_7b3d65 : VBase_18_7b3d65 {
     virtual M2C_UNK m100();
 };
 
+struct VBase_18_599a64
+{
+  char pad[0x18];
+};
+
+struct VObj_18_599a64 : VBase_18_599a64 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual M2C_UNK m93();
+};
+
 extern "C" {
 void TObjEneEpsilon__sub_800B96A4(void *);
 void fn_800B98C0(void *);
@@ -290,6 +392,26 @@ int get_attack_state__16TObjEneBm5GibonUFPv(void* p, void * _w1);
 extern const f32 TObjEneBm5GibonU__data_805DA174;
 extern const f32 lbl_805DA17C;
 void TObjEneBm5GibonU__sub_800CCE28(u8 *arg0);
+s32 TObjEneEpsilon__sub_800B95E0(void *);
+void TObjEneEpsilon__sub_800B96A4(void *);
+s32 update_velocity__9TObjEneDDFPv(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+void play_sound_variant__16TObjEneBm5GibonUFPv(void *);
+s32 TObjEneBm5GibonU__sub_800D0F44(void *);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, M2C_UNK, M2C_UNK);
+extern const f32 TObjEneBm5GibonU__data_805DA184;
+void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_getField1c(int);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK TObjEneBm5GibonU__sub_800D17E8(s32);
+u8 *TObjEneBm5GibonU__sub_800D1D78(u32);
+void TObjEneBm5GibonU__sub_800D062C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -420,6 +542,50 @@ typedef struct VObj_18_7b3d65 VObj_18_7b3d65;
 #define PSO_VCALL_VObj_18_7b3d65_m93(_self) (((VObj_18_7b3d65 *)(_self))->m93())
 #define PSO_VCALL_VObj_18_7b3d65_m100(_self) (((VObj_18_7b3d65 *)(_self))->m100())
 #define PSO_VCALL_VObj_18_7b3d65_m86(_self) (((VObj_18_7b3d65 *)(_self))->m86())
+
+#define PSO_VCALL_VObj_18_7b3d65_m93(_self) (((VObj_18_7b3d65 *)(_self))->m93())
+#define PSO_VCALL_VObj_18_7b3d65_m100(_self) (((VObj_18_7b3d65 *)(_self))->m100())
+#define PSO_VCALL_VObj_18_7b3d65_m86(_self) (((VObj_18_7b3d65 *)(_self))->m86())
+void TObjEneBm5GibonU__sub_800CFFBC(u8 *arg0, s32 arg1) {
+  switch (arg1)
+  {
+    case 4:
+      *((s16 *) (((s8 *) arg0) + 0xB8)) = 5;
+      set_field_378__9TObjEneDDFPvi((void *)((void *) arg0), (M2C_UNK)((int) 8));
+      PSO_VCALL_VObj_18_7b3d65_m93(arg0);
+      *((s32 *) (((s8 *) arg0) + 0x518)) = 0;
+      return;
+    case 3:
+      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x518)))) > 0x3C)
+    {
+      TObjEneDD__sub_800BBA18((void *)((void *) arg0), (M2C_UNK)((int) 8));
+    }
+    case 5:
+      return;
+      return;
+    case 0:
+      *((s32 *) (((s8 *) arg0) + 0x518)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x518))) + 1);
+      TBoss1Dragon__sub_80143504((void *) arg0);
+      if (objInBand__FP7GameObjf((void *) arg0, (f32) TObjEneBm5GibonU__data_805DA184) != 0)
+    {
+      TBoss3Volopt__sub_8022675C((void *)((void *) ((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) arg0), (M2C_UNK)((int) 0x3A523)))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) 0), (M2C_UNK)((int) 0));
+    }
+      if (TObjEneEpsilon__sub_800B95E0((void *) arg0) != 0)
+    {
+      TObjEneEpsilon__sub_800B96A4((void *) arg0);
+      update_velocity__9TObjEneDDFPv((void *) arg0);
+      TObjEneBm5GibonU__sub_800D0F44((void *) arg0);
+    }
+    else
+    {
+      play_sound_variant__16TObjEneBm5GibonUFPv((void *) arg0);
+    }
+      PSO_VCALL_VObj_18_7b3d65_m100(arg0);
+      PSO_VCALL_VObj_18_7b3d65_m86(arg0);
+      break;
+  }
+}
+
 void TObjEneBm5GibonU__sub_800D00F0(u8 *arg0, s32 arg1) {
   switch (arg1)
   {
@@ -486,6 +652,53 @@ void TObjEneBm5GibonU__sub_800D01DC(u8 *arg0, s32 arg1) {
       return;
     case 5:
       *((s32 *) (((s8 *) arg0) + 0x4AC)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x4AC))) & 0xFFFFFFFE);
+      break;
+  }
+}
+
+typedef struct VBase_18_599a64 VBase_18_599a64;
+typedef struct VObj_18_599a64 VObj_18_599a64;
+#define PSO_VCALL_VObj_18_599a64_m93(_self) (((VObj_18_599a64 *)(_self))->m93())
+void TObjEneBm5GibonU__sub_800D062C(u8 *arg0, s32 arg1) {
+  int new_var;
+  switch (arg1)
+  {
+    case 4:
+      *((s32 *) (((s8 *) arg0) + 0x51C)) = 0;
+      set_field_378__9TObjEneDDFPvi((void *)((void *) arg0), (M2C_UNK)((int) 0));
+      PSO_VCALL_VObj_18_599a64_m93(arg0);
+      *((s32 *) (((s8 *) arg0) + 0x4AC)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x4AC))) | 2);
+      return;
+    case 3:
+      u32 temp_r3;
+      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x51C)))) > 0)
+    {
+      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x470)))) < 1)
+      {
+        TObjEneDD__sub_800BBA18((void *)((void *) arg0), (M2C_UNK)((int) 1));
+        return;
+      }
+      TObjEneDD__sub_800BBA18((void *)((void *) arg0), (M2C_UNK)((int) 2));
+    }
+    case 5:
+      return;
+      return;
+    case 0:
+      new_var = 0x51C;
+      temp_r3 = ((u32)TObjEneBm5GibonU__sub_800D17E8((s32)((int) (*((s32 *) (((s8 *) arg0) + 0x46C))))));
+      if (temp_r3)
+    {
+      *((s16 *) (((s8 *) arg0) + 0x474)) = obj_getField1c((int) temp_r3);
+    }
+      if ((((s32) (*((s32 *) (((s8 *) arg0) + 0x464)))) != 0) || (temp_r3 == 0U))
+    {
+      VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x488), (void *) (arg0 + 0x47C));
+    }
+    else
+    {
+      VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x488), (void *) TObjEneBm5GibonU__sub_800D1D78(temp_r3));
+    }
+      *((s32 *) (((s8 *) arg0) + new_var)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x51C))) + 1);
       break;
   }
 }

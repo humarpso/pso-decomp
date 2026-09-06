@@ -16,6 +16,13 @@ struct Stack_802B7D74
   f32 sp10;
 };
 
+#include <stddef.h>
+struct Stack_802B9204 {
+    M2C_UNK sp8;
+    s8 spC;
+    u8 trailing_storage[0xF];
+};
+
 extern "C" {
 u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1);
 M2C_UNK TObjPlayer__sub_800F5E08();
@@ -29,6 +36,11 @@ extern const f64 TBoss6Type1__data_80471038;
 extern f32 TBoss6Type1__data_805DE2D0;
 extern const f32 TBoss6Type1__data_805DE310;
 void TBoss6Type1__sub_802B7D74(u8 *arg0);
+void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1);
+int is_idle__11TBoss6Type1FPv(void* p);
+void step_and_send_60__11TBoss6Type1FPv(void* p);
+void build_6xA4_olga_flow_boss_actions(void* p);
+void TBoss6Type1__sub_802B9204(u8 *arg0, s8 arg1);
 }
 
 extern "C" {
@@ -215,6 +227,18 @@ void do_attack__11TBoss6Type1FPv(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x438) = 1;
     TBoss6Type1__sub_802B9178(arg0, 2, &sp8);
+}
+
+void TBoss6Type1__sub_802B9204(u8 *arg0, s8 arg1) {
+    typedef char sp8_offset[(offsetof(Stack_802B9204, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_802B9204, spC) == 0x4) ? 1 : -1];
+    Stack_802B9204 stack;
+    if (((s32)is_idle__11TBoss6Type1FPv((void*)((int) (M2C_FIELD(arg0, s32 *, 0x3F8))))) != 0) {
+        build_6xA4_olga_flow_boss_actions((void*)((void *) (&stack.sp8)));
+        set_sync_data__11TBoss6Type1FPvPv((void *) (arg0), (void *) (&stack.sp8));
+        stack.spC = arg1;
+        step_and_send_60__11TBoss6Type1FPv((void*)((void *) (&stack.sp8)));
+    }
 }
 
 void load_params__11TBoss6Type1FPvPv(void *arg0, void *arg1) {

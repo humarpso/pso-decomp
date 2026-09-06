@@ -29,6 +29,11 @@ u8 * TObjPlayer__sub_80307784(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80307800(s32 arg0);
+s32 TObjPlayer__sub_80100EB4(void *, int);
+s32 setup_particle_once__10TObjPlayerFPv(void *);
+s32 get_player_list__10TObjPlayerFv();
+extern const f32 lbl_805DF0AC;
+void TObjPlayer__sub_803076F8(u8 *arg0);
 }
 
 extern "C" {
@@ -91,6 +96,15 @@ void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void TObjPlayer__sub_803076F8(u8 *arg0) {
+    s32 temp_r31;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) == 0) {
+        temp_r31 = get_player_list__10TObjPlayerFv();
+        setup_particle_once__10TObjPlayerFPv((void *) (arg0));
+        TObjPlayer__sub_80100EB4((void *) (arg0), (int) ((s32) (lbl_805DF0AC * (f32) (M2C_FIELD(arg0, s32 *, 0x1FC) + (temp_r31 * 3)))));
+    }
 }
 
 u8 *TObjPlayer__sub_80307800(s32 arg0) {

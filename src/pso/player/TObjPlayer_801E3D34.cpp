@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TLobby__sub_800F8FB8();
+s32 run_frame__6TLobbyFv();
+s32 TLobby__sub_803382E4();
+s32 TLobby__sub_803CD5C4(void *);
+s32 TLobby__sub_803CD840(void *, void *, int, void *);
+s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 void render_tick__Fv(void);
 void render_tree__10TObjPlayerFPv(void *arg0);
@@ -62,6 +71,20 @@ void render_tick__Fv(void) {
     fn_803DCEC8();
     fn_803DCF0C();
     TKeyBoardControl__sub_8000F7FC();
+}
+s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2) {
+    s32 temp_r3;
+    temp_r3 = TLobby__sub_803CD840((void *) (arg0), (void *) (arg1), (int) (0), (void *) (arg2));
+    if (temp_r3 >= 0) {
+loop_1:
+        if (TLobby__sub_803CD5C4((void *) (arg0)) != 3) {
+            TLobby__sub_800F8FB8();
+            TLobby__sub_803382E4();
+            run_frame__6TLobbyFv();
+            goto loop_1;
+        }
+    }
+    return temp_r3;
 }
 
 }

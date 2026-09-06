@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_80267B18 {
+    f32 sp8;
+    f32 spC;
+};
+
+extern "C" {
+u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+u32 reset_selection__20TWindowSubStatusDispFPv(int, void *);
+extern const f32 lbl_805DD180;
+extern const f32 lbl_805DD188;
+void TWindowSubStatusDisp__sub_80267B18(u8 *arg0);
+}
+
 extern "C" {
 
 void ensure_status_display__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
@@ -14,7 +28,6 @@ void set_flag4__20TWindowSubStatusDispFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
-u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 s32 get_status_flag__6TLobbyFPv();
 s32 is_flag80_set__20TWindowSubStatusDispFPv(s32);
@@ -89,6 +102,29 @@ block_4:
                 goto loop_1;
             }
         }
+    }
+}
+
+void TWindowSubStatusDisp__sub_80267B18(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80267B18, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80267B18, spC) == 0x4) ? 1 : -1];
+    Stack_80267B18 stack;
+    f32 temp_f1;
+    f32 temp_f2;
+    u32 temp_r3;
+    u32 var_r0;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x84) == 0U) {
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0x38);
+        temp_f1 = temp_f2 - lbl_805DD180;
+        stack.spC = lbl_805DD188;
+        stack.sp8 = temp_f1;
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0xC);
+        var_r0 = temp_r3;
+        if (var_r0 != 0U) {
+            var_r0 = reset_selection__20TWindowSubStatusDispFPv((int) (temp_r3), (void *) (&stack.sp8));
+        }
+        M2C_FIELD(arg0, u32 *, 0x84) = var_r0;
+        M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x80);
     }
 }
 

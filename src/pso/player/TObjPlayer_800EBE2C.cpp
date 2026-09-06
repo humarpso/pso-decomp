@@ -25,11 +25,12 @@ extern int lbl_805D7784;
 extern int some_id_805c6f74;
 extern const f32 lbl_805DA6F8;
 void TObjPlayer__sub_800EBE74(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
+s32 TObjPlayer__sub_800114D8(void *, int, f32);
+int TObjPlayer__sub_800EC348(u8 *arg0, f32 farg0);
 }
 
 extern "C" {
 
-int TObjPlayer__sub_800EC348(void);
 void init_render_globals__10TObjPlayerFv(void);
 s32 get_attack_target__15TObjEneSlimeOneFPv(void* p);
 
@@ -58,7 +59,12 @@ void TObjPlayer__sub_800EBE74(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     stack.sp14 = farg3;
     TObjPlayer__sub_803DED84((void *) (&stack.sp8));
 }
-
-int TObjPlayer__sub_800EC348(void) { return 0; }
+int TObjPlayer__sub_800EC348(u8 *arg0, f32 farg0) {
+    u16 temp_r3;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
+    temp_r3 = TObjPlayer__sub_800114D8((void *) (arg0), (int) (0), (f32) (farg0));
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFFFFFF);
+    return temp_r3;
+}
 
 }

@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_8011AED8 {
+    s8 sp8;
+    u8 pad_9[0x3];
+    f32 spC;
+    f32 sp10;
+    s16 sp14;
+    u8 pad_16[0x2];
+    M2C_UNK sp18;
+    u8 trailing_storage[0x10];
+};
+
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
@@ -16,11 +28,15 @@ M2C_UNK TLobby__sub_8011A868(void *);
 M2C_UNK TLobby__sub_8011AA68(s16, int, s16, int, f32, f32);
 M2C_UNK TLobby__sub_8011AB64(s8, s16, int, s16, int, f32, f32);
 void handle_6xA2_specializable_item_drop_request(void *arg0);
+s32 copy_item_data__6TLobbyFPvPv(void *, void *);
+s32 drop_stacked_item_passthrough__6TLobbyFi(void *);
+s32 TLobby__sub_80103DD8(void *);
+s32 TLobby__sub_8011A7F8(int);
+void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1);
 }
 
 extern "C" {
 
-int TLobby__sub_8011AED8(void);
 void handle_6x5C_destroy_floor_item(void *arg0);
 void handle_6x62(void);
 M2C_UNK bswap_packet__6TLobbyFPv();
@@ -52,7 +68,23 @@ void handle_6xA2_specializable_item_drop_request(void *arg0) {
 }
 #pragma pop
 
-int TLobby__sub_8011AED8(void) { return 0; }
+void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
+    typedef char sp8_offset[(offsetof(Stack_8011AED8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8011AED8, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8011AED8, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_8011AED8, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_8011AED8, sp18) == 0x10) ? 1 : -1];
+    Stack_8011AED8 stack;
+    drop_stacked_item_passthrough__6TLobbyFi((void *) (&stack.sp8));
+    stack.sp8 = arg0;
+    stack.spC = farg0;
+    stack.sp10 = farg1;
+    stack.sp14 = arg1;
+    copy_item_data__6TLobbyFPvPv((void *) (&stack.sp18), (void *) (arg2));
+    TLobby__sub_8011A7F8((int) (M2C_FIELD(arg2, s32 *, 0xC)));
+    TLobby__sub_80103DD8((void *) (&stack.sp8));
+}
+
 void handle_6x62(void) {  }
 void TLobby__sub_8011AF58(s32 arg0) {
     s32 temp_r4;

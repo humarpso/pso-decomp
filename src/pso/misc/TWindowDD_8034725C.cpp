@@ -8,18 +8,23 @@ extern "C" {
 void TWindowDD__sub_80348688(s32, void *);
 void TWindowDD__sub_8034886C(s32, s32, void *);
 void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2);
-s16 TWindowDD__sub_80342158(void *);
-s16 TWindowDD__sub_80347EF4(u8 *arg0);
+s32 TWindowDD__sub_80347EF4(u8 *arg0);
 M2C_UNK TWindowDD__sub_803474CC(int, int, int, int, int);
 s32 TWindowDD__sub_80348B70(s32);
 void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 TWindowDD__sub_80342158(void *);
+s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0);
+s32 TWindowDD__sub_80347CC8(void *, void *);
+s32 TWindowDD__sub_80347FA0(void *, int);
+s32 TWindowDD__sub_80348DD8(void *, int);
+void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 s32 classify_id__9TWindowDDFs(s16 arg0);
 s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0);
-s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s16 arg0);
+s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0);
 s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1);
 void *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK TWindowDD__sub_803412A0(u32);
@@ -109,14 +114,29 @@ void TWindowDD__sub_80347474(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
   TWindowDD__sub_803474CC((int) var_r3, var_r30, (int) var_r5, (int) var_r6, (int) var_r7);
 }
 
-s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s16 arg0) {
-    if (arg0 == 0x2C8) {
+s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0) {
+    if ((s16)arg0 == 0x2C8) {
         return 0;
     }
     return (u32) __cntlzw((u32) TWindowDD__sub_80347858()) >> 5;
 }
 
 extern s32 TWindowDD__data_805DFB50;
+
+void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
+    s32 temp_r3;
+    temp_r3 = TWindowDD__sub_80342158((void *) (arg1));
+    if (is_state_zero_unless_0x2C8__9TWindowDDFs(temp_r3) != 0) {
+        TWindowDD__sub_80348DD8((void *) (arg0 + 0xC4), (int) (temp_r3));
+        TWindowDD__sub_80347CC8((void *) (arg0), (void *) (arg0 + 0xC4));
+        M2C_FIELD(arg0, s32 *, 0x98) = 1;
+        M2C_FIELD(arg0, s32 *, 0x9C) = (s32) (s16) temp_r3;
+        return;
+    }
+    TWindowDD__sub_80347FA0((void *) (arg0), (int) (3));
+    M2C_FIELD(arg0, s32 *, 0x98) = 0;
+    M2C_FIELD(arg0, s32 *, 0x9C) = (s32) (s16) temp_r3;
+}
 
 s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1) {
     s32 var_r31;
@@ -133,7 +153,7 @@ s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1) {
     }
     return var_r31;
 }
-s16 TWindowDD__sub_80347EF4(u8 *arg0) {
+s32 TWindowDD__sub_80347EF4(u8 *arg0) {
     u8 *var_r3;
     var_r3 = (u8 *)(arg0 + (M2C_FIELD(arg0, s32 *, 0x20) * 4));
     var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x24));

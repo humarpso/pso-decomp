@@ -21,6 +21,17 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK
 s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 s32 TWindowSubComCard__sub_8027353C(void);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
+s32 get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
+s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+extern const f32 lbl_805DD52C;
+s32 TWindowSubComCard__sub_8027346C(void);
 }
 
 extern "C" {
@@ -99,6 +110,27 @@ s32 TWindowSubComCard__sub_80273308(void) {
     set_flag_40__16TAdChrSelASlotGCFPv((int) (temp_r31));
     set_scroll_target__17TWindowSubComCardFPvff((int) (temp_r31), (f32) (TWindowSubComCard__data_805DD520), (f32) (lbl_805DD528));
     return temp_r31;
+}
+
+s32 TWindowSubComCard__sub_8027346C(void) {
+  s32 temp_r31;
+  s32 temp_r31_2;
+  temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) 0x1D)));
+  temp_r31 = draw_card_icon__17TWindowSubComCardFiii((s32)((int) TWindowSubComCard__sub_8026CBB8((M2C_UNK)((int) 0x8B))), (M2C_UNK)((int) 2), (s32)((int) temp_r31_2));
+  forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) temp_r31), (s32)((int) get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) 0x57))), (M2C_UNK)((int) 6), (M2C_UNK)((int) 0x21));
+  if (get_global_state__14TOKeyMachine01Fv() == 0xF)
+  {
+    forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) temp_r31), (s32)((int) get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) 0x58))), (M2C_UNK)((int) 6), (M2C_UNK)((int) 0x25));
+  }
+  else
+  {
+    draw_text_gray__17TWindowSubComCardFiiii((s32)((int) temp_r31), (s32)((int) get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) 0x58))), (M2C_UNK)((int) 6), (M2C_UNK)((int) 0x25));
+  }
+  set_flag70_bit10__16TObjCityMainWarpFPv((s32)((int) temp_r31));
+  temp_r31_2 = temp_r31;
+  TWindowSubComCard__sub_80265E60((s32)((int) temp_r31_2), (f32) lbl_805DD52C);
+  TWindowSubComCard__sub_80265C30((s32)((int) temp_r31_2));
+  return temp_r31_2;
 }
 
 s32 TWindowSubComCard__sub_8027353C(void) {

@@ -5,13 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TWindowKeyBoardBase__sub_8008102C(void *, u32, u32);
 s32 *TWindowKeyBoardBase__sub_8008116C(s32 *arg0);
 s32 is_split_screen(void);
 u8 * TEF_LensFlare__ct(void *, M2C_UNK, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_05;
 u8 *TEF_LensFlare__create(s32 arg0);
+f32 TWindowSubStatusDisp__sub_803D647C(f32);
+M2C_UNK free__11TOBoss4RockFUi(u32);
+s16 *alloc_buffer__11TOBoss4RockFPv(s32);
+u32 __cvt_fp2unsigned(f32);
+void TWindowKeyBoardBase__sub_8008102C(u8 *arg0, u32 arg1, u32 arg2);
 }
 
 extern "C" {
@@ -22,6 +26,31 @@ f32 TObjPlayer__sub_80141CF8(s32, s32);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK __dl__FPv(u32 *);
 M2C_UNK free__11TOBoss4RockFUi(u32);
+
+void TWindowKeyBoardBase__sub_8008102C(u8 *arg0, u32 arg1, u32 arg2) {
+    s16 *temp_r3;
+    u32 temp_r3_2;
+    temp_r3 = (s16 *)(M2C_FIELD(arg0, s16 **, 0));
+    if (temp_r3 != NULL) {
+        free__11TOBoss4RockFUi((u32)((int) (temp_r3)));
+    }
+    if (arg2 == 0) {
+        M2C_FIELD(arg0, u32 *, 0x14) = arg1;
+    } else {
+        M2C_FIELD(arg0, u32 *, 0x14) = __cvt_fp2unsigned((f32) arg2 * TWindowSubStatusDisp__sub_803D647C((f32) (arg1 / 6U)));
+    }
+    temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x14);
+    if (temp_r3_2 != 0) {
+        M2C_FIELD(arg0, s16 **, 0) = alloc_buffer__11TOBoss4RockFPv((temp_r3_2 + 1) * 2);
+        *M2C_FIELD(arg0, s16 **, 0) = 0;
+    } else {
+        M2C_FIELD(arg0, s16 **, 0) = NULL;
+    }
+    M2C_FIELD(arg0, s32 *, 4) = 0;
+    M2C_FIELD(arg0, s32 *, 0x10) = 0;
+    M2C_FIELD(arg0, u32 *, 8) = arg1;
+    M2C_FIELD(arg0, s32 *, 0xC) = (s32) (arg2 * 0x14);
+}
 
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -39,7 +68,7 @@ extern s32 lbl_805D53A0;
 
 s32 *TWindowKeyBoardBase__sub_8008116C(s32 *arg0) {
     *arg0 = 0;
-    TWindowKeyBoardBase__sub_8008102C(arg0, 0U, 0U);
+    TWindowKeyBoardBase__sub_8008102C((u8 *)(arg0), (u32)(0U), (u32)(0U));
     return arg0;
 }
 

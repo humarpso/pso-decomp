@@ -9,6 +9,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 obj_getField1c(void *);
+s32 TShopGenerator__sub_80222DAC(int);
+u16 TShopWindowBase__sub_8022397C(u8 *arg0);
+}
+
+extern "C" {
 
 struct Base_80223AA4_80223938 { char pad[0x18]; };
 struct VObj_80223AA4_80223938 : Base_80223AA4_80223938 {
@@ -44,6 +50,15 @@ f32 get_scale__15TShopWindowBaseFv(void) {
         return lbl_805DC728;
     }
     return lbl_805DC72C;
+}
+
+u16 TShopWindowBase__sub_8022397C(u8 *arg0) {
+    u32 temp_r3;
+    temp_r3 = M2C_FIELD(arg0, u32 *, 0x24);
+    if (temp_r3 != 0U) {
+        return TShopGenerator__sub_80222DAC((int) (obj_getField1c((void *)((int) (temp_r3)))));
+    }
+    return 0U;
 }
 
 s32 get_child_field1c__15TShopWindowBaseFPv(void *arg0) {

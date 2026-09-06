@@ -112,7 +112,6 @@ struct Stack_80305B60 {
 };
 
 extern "C" {
-s32 objInBand__FP7GameObjf(f32);
 extern const f32 lbl_805DF008;
 void TObjEneDellBiter__sub_803058DC(s32 arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -133,6 +132,15 @@ extern const f32 TObjEneDellBiter__data_805DEFF4;
 extern const f32 lbl_805DF004;
 extern const f32 lbl_805DF024;
 void TObjEneDellBiter__sub_80305B60(u8 *arg0);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+s32 fn_800D8830(void *, void *);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+s32 TObjEneDellBiter__sub_803059BC(void *, void *);
+extern const f32 TObjEneDellBiter__data_805DEFF4;
+extern const f32 lbl_805DF01C;
+void TObjEneDellBiter__sub_8030591C(s32 arg0);
 }
 
 extern "C" {
@@ -224,10 +232,22 @@ void clear_active_flag__16TObjEneDellBiterFPv(void *arg0) {
 }
 
 void TObjEneDellBiter__sub_803058DC(s32 arg0) {
-    if (objInBand__FP7GameObjf((f32) (lbl_805DF008)) != 0) {
+    if (objInBand__FP7GameObjf((void *)arg0, lbl_805DF008) != 0) {
         TObjEneDellBiter__sub_80305B60((u8 *)((void *) (arg0)));
     }
 }
+
+void TObjEneDellBiter__sub_8030591C(s32 arg0) {
+    if ((objInBand__FP7GameObjf((void *)((void *) (arg0)), (f32) (TObjEneDellBiter__data_805DEFF4)) != 0) || (objInBand__FP7GameObjf((void *)((void *) (arg0)), (f32) (lbl_805DF01C)) != 0)) {
+        if (TObjEneDellBiter__sub_803059BC((void *) (arg0), (void *) (arg0 + 0x38)) != 0) {
+            fn_800D8830((void *) (arg0), (void *) (arg0 + 0x38));
+            return;
+        }
+        TOTrapAncient01__sub_80226578((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x40039E13))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0xF0));
+    }
+}
+
 void TObjEneDellBiter__sub_80305B60(u8 *arg0) {
     Stack_80305B60 stack;
     stack.sp8 = lbl_805DF024;

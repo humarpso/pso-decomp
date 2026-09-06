@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 queue_destruction__7TObjectFv(void *);
+u32 get_enemy_entity(int);
+s32 TBoss8Dragon__sub_802FB1B0(int, f32, void *);
+extern const f32 lbl_805DF150;
+extern const f32 lbl_805DF154;
+void run_task__15TObjBoss8PillerFv(u8 *arg0);
+}
+
+extern "C" {
 
 void render__15TObjBoss8PillerFv(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -36,6 +45,20 @@ void render__15TObjBoss8PillerFv(u8 *arg0) {
         TObjEneSlimeOne__sub_803E4AF4((int) (var_r31), (int) (M2C_FIELD(arg0, s32 *, 0x2C)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
         TObjPlayer__sub_803D9B78();
         reset_transform_state__10TObjPlayerFv();
+    }
+}
+void run_task__15TObjBoss8PillerFv(u8 *arg0) {
+    u32 temp_r3;
+    u32 temp_r3_2;
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) + lbl_805DF150);
+    temp_r3 = get_enemy_entity((int) (M2C_FIELD(arg0, u16 *, 0x30)));
+    if (temp_r3 != 0U) {
+        TBoss8Dragon__sub_802FB1B0((int) (temp_r3), (f32) (lbl_805DF154), (void *) (arg0 + 0x1C));
+    }
+    temp_r3_2 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2C), s32 *, 4) - 1;
+    if (M2C_FIELD(arg0, f32 *, 0x28) >= (f32) temp_r3_2) {
+        M2C_FIELD(arg0, f32 *, 0x28) = (f32) temp_r3_2;
+        queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
 

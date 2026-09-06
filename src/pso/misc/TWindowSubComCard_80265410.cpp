@@ -14,6 +14,12 @@ struct Stack_80265484 {
     f32 spC;
 };
 
+#include <stddef.h>
+struct Stack_8026556C {
+    f32 sp8;
+    f32 spC;
+};
+
 extern "C" {
 M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
 extern const f32 lbl_805DD150;
@@ -24,6 +30,11 @@ void copy_position__11TWindowMenuFPvPv(void *, void *);
 extern const f32 lbl_805DD148;
 extern const f32 lbl_805DD14C;
 void TWindowSubComCard__sub_80265484(u8 *arg0);
+u32 alloc__23TAdSinglePlyChrSelectGCFPv(int, f32, f32);
+u32 reset_selection__20TWindowSubStatusDispFPv(int, void *);
+extern const f32 lbl_805DD150;
+extern const f32 lbl_805DD15C;
+void TWindowSubComCard__sub_8026556C(u8 *arg0);
 }
 
 extern "C" {
@@ -67,6 +78,29 @@ void TWindowSubComCard__sub_80265500(u8 *arg0) {
             stack.spC = temp_f1 - lbl_805DD158;
         }
         TWindowSubComCard__sub_8026D740((int) (M2C_FIELD(arg0, u32 *, 0x84)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
+    }
+}
+
+void TWindowSubComCard__sub_8026556C(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8026556C, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8026556C, spC) == 0x4) ? 1 : -1];
+    Stack_8026556C stack;
+    f32 temp_f1;
+    f32 temp_f2;
+    u32 temp_r3;
+    u32 var_r0;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x84) == 0U) {
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0x38);
+        temp_f1 = temp_f2 - lbl_805DD15C;
+        stack.spC = lbl_805DD150;
+        stack.sp8 = temp_f1;
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0xC), (f32) (temp_f1), (f32) (temp_f2));
+        var_r0 = temp_r3;
+        if (var_r0 != 0U) {
+            var_r0 = reset_selection__20TWindowSubStatusDispFPv((int) (temp_r3), (void *) (&stack.sp8));
+        }
+        M2C_FIELD(arg0, u32 *, 0x84) = var_r0;
+        M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x80);
     }
 }
 

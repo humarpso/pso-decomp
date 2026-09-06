@@ -26,6 +26,10 @@ s32 check_hit_by_id__10TObjPlayerFiii(s32, s32, s32);
 void TObjPlayer__sub_801D2DDC(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801D2DDC(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801D2DB4(u16 *arg0);
+int clear_flags__11TAdRicoRingFPvUi(void*, int);
+void TObjPlayer__sub_801D3424(void* p, s16 v);
+extern const f32 lbl_805DC3B8;
+void TObjPlayer__sub_801D31A8(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -273,6 +277,22 @@ void apply_anim_action__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
 extern const f32 lbl_805DC3BC;
 extern const f32 lbl_805DC3C0;
 extern const f32 lbl_805DC3C4;
+
+void TObjPlayer__sub_801D31A8(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3) {
+  s8 *new_var;
+  TObjPlayer__sub_801D3424((void*)((void *) arg0), (s16)((void *) arg2));
+  *((s32 *) (((s8 *) arg0) + 0x14)) = arg3;
+  *((s16 *) (((s8 *) arg0) + 0x12)) = 0;
+  new_var = (s8 *) arg0;
+  *((s32 *) (((s8 *) arg0) + 0x18)) = 0;
+  clear_flags__11TAdRicoRingFPvUi((void*)((void *) (arg0 + 0xC)), (int)((int) 0x1F));
+  *((s32 *) (new_var + 0x1C)) = 6;
+  *((f32 *) (new_var + 4)) = (f32) (*((f32 *) (((s8 *) arg0) + 8)));
+  if ((s16) (*((s16 *) (((s8 *) arg0) + 0))))
+  {
+    *((f32 *) (((s8 *) arg0) + 4)) = (f32) ((*((f32 *) (new_var + 4))) * lbl_805DC3B8);
+  }
+}
 
 void reset_movement_state__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 2) = 0;

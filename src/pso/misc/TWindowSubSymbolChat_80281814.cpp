@@ -14,6 +14,13 @@ s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0);
 u8 *TWindowSubSymbolChat__sub_802826E4(void *, s32);
 s32 TWindowSubSymbolChat__sub_8028379C();
 void TWindowSubSymbolChat__sub_802819BC(u8 *arg0);
+s32 add__20TWindowSubSymbolChatFPviiiii(int, int, int, int, int, int);
+s32 get_cursor_pos__20TWindowSubSymbolChatFPv(int);
+s32 get_cursor_x__20TWindowSubSymbolChatFPv(int);
+extern M2C_UNK TWindowSubSymbolChat__data_805D6498;
+extern M2C_UNK TWindowSubSymbolChat__data_805D649C;
+extern s32 TWindowSubSymbolChat__data_805D64A0;
+void TWindowSubSymbolChat__sub_80281CC4(u8 *arg0);
 }
 
 extern "C" {
@@ -128,6 +135,20 @@ void update_state__20TWindowSubSymbolChatFPv(void *arg0) {
 }
 
 extern s32 lbl_805D53A0;
+
+void TWindowSubSymbolChat__sub_80281CC4(u8 *arg0) {
+  s16 temp_r31;
+  s16 temp_r3;
+  s32 new_var;
+  temp_r31 = get_cursor_x__20TWindowSubSymbolChatFPv((int) (*((s32 *) (((s8 *) arg0) + 0x50))));
+  temp_r3 = get_cursor_pos__20TWindowSubSymbolChatFPv((int) (*((s32 *) (((s8 *) arg0) + 0x50))));
+  add__20TWindowSubSymbolChatFPviiiii((int) (*((s32 *) (((s8 *) arg0) + 0x28))), (int) ((s32) (*((s16 *) (((s8 *) arg0) + 0x1E)))), (int) ((s32) temp_r31), (int) ((s32) temp_r3), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D6498), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
+  new_var = (s32) temp_r3;
+  if (((s32) TWindowSubSymbolChat__data_805D64A0) != 0)
+  {
+    add__20TWindowSubSymbolChatFPviiiii((int) (*((s32 *) (((s8 *) arg0) + 0x28))), (int) ((s32) (*((s16 *) (((s8 *) arg0) + 0x1E)))), (int) (0x40 - temp_r31), (int) new_var, (int) ((s32) ((u8) ((*(s32 *)&TWindowSubSymbolChat__data_805D6498) == 0))), (int) (*(s32 *)&TWindowSubSymbolChat__data_805D649C));
+  }
+}
 
 s32 create_keyboard_control__20TWindowSubSymbolChatFPv(void *arg0) {
     s32 var_r31;

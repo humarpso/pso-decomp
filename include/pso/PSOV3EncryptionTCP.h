@@ -12,7 +12,7 @@
 #include "pso/protocol.h"
 #include "pso/PSOV3Encryption.h"
 
-class PSOV3EncryptionTCP : public PSOV3Encryption {
+class PSOV3EncryptionTCP {
 public:
 	PSOV3EncryptionTCP();
 	~PSOV3EncryptionTCP();
@@ -20,6 +20,7 @@ public:
 	void reset(u32 seed);
 	void encrypt(void *void_data, int size);
 public:
+	PSOV3Encryption m_encryption;
 	u32 m_seed;
 };
 

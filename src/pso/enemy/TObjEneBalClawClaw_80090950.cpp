@@ -79,6 +79,9 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjEneBalClawClaw__sub_80090798(void *);
 void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
+s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
+extern const f32 lbl_805D9694;
+void TObjEneBalClawClaw__sub_8009097C(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -108,6 +111,16 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 void clear_flag__18TObjEneBalClawClawFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xDFFFFFFF);
     reset_active_state__18TObjEneBalClawClawFPv();
+}
+
+void TObjEneBalClawClaw__sub_8009097C(u8 *arg0, s16 arg1) {
+    M2C_FIELD(arg0, s16 *, 0x3C6) = arg1;
+    M2C_FIELD(arg0, s16 *, 0x338) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x20000000);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+    M2C_FIELD(arg0, f32 *, 0x3C0) = (f32) lbl_805D9694;
+    update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (0xA));
+    ((VObj_18_4841bb *)(arg0))->m53();
 }
 
 s32 check_active__18TObjEneBalClawClawFPv(void *arg0) {

@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 __nw__7TObjectFUl(int);
+s32 TObjBoss5PillarDemo__ct(int, int, void *);
+extern void *lbl_805D4DD8;
+extern s32 tl_02;
+s32 TObjBoss5PillarDemo__sub_8028AC8C(void);
+}
+
+extern "C" {
 
 void TObjBoss5PillarDemo__sub_8028AB38(void);
 void TObjBoss5PillarDemo__sub_8028ACE0(void);
@@ -53,6 +61,19 @@ void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+s32 TObjBoss5PillarDemo__sub_8028AC8C(void) {
+    s32 temp_r31;
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r31 = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D4DD8), u8 **, 0x42C), s32 *, 0x38);
+    temp_r3 = __nw__7TObjectFUl((int) (0x4C));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TObjBoss5PillarDemo__ct((int) (temp_r3), (int) (tl_02), (void *) (temp_r31 + 8));
+    }
+    return var_r0;
 }
 
 void TObjBoss5PillarDemo__sub_8028ACE0(void) {  }

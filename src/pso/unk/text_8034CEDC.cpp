@@ -1,3 +1,38 @@
+#include "types.h"
 extern "C" {
+s32 get_main_phase();
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 set_flag70_bit10__16TObjCityMainWarpFPv(int);
+s32 TWindowSubComCard__sub_80265C30(int);
+s32 TWindowSubComCard__sub_80265E60(int, f32);
+s32 draw_text_gray__17TWindowSubComCardFiiii(int, int, int, int);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
+s32 draw_card_icon__17TWindowSubComCardFiii(int, int, int);
+s32 TWindowSubComCard__sub_8026CBB8(int);
+extern const f32 lbl_805DFDE0;
+s32 fn_8034CEDC(void);
+}
+
+extern "C" {
+
+s32 fn_8034CEDC(void) {
+  s32 temp_r31;
+  s32 temp_r31_2;
+  temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((int) 0x1D));
+  temp_r31 = draw_card_icon__17TWindowSubComCardFiii((int) TWindowSubComCard__sub_8026CBB8((int) 0xA4), (int) 2, (int) temp_r31_2);
+  if (get_main_phase() == 0xF)
+  {
+    forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x117), (int) 6, (int) 3);
+  }
+  else
+  {
+    draw_text_gray__17TWindowSubComCardFiiii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x117), (int) 6, (int) 3);
+  }
+  forward_trade_action_default__16TObjCityMainWarpFPviii((int) temp_r31, (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x118), (int) 6, (int) 9);
+  set_flag70_bit10__16TObjCityMainWarpFPv((int) temp_r31);
+  TWindowSubComCard__sub_80265E60((int) temp_r31, (f32) lbl_805DFDE0);
+  TWindowSubComCard__sub_80265C30((int) temp_r31);
+  return temp_r31;
+}
 
 }

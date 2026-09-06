@@ -12,6 +12,7 @@
 #include "pso/forward.h"
 #include "pso/packet_classes.h"
 #include "pso/protocol.h"
+#include "pso/protocol/choice_search.h"
 #include "pso/PSOV3EncryptionTCP.h"
 #include "pso/THeap.h"
 #include "pso/TMainTask.h"
@@ -262,6 +263,8 @@ public:
     void send_lobby_name_request();
     void send_lobby_arrow(u8 arrow);
     void send_choice_search_options_request();
+    void send_choice_search(ChoiceSearchParameters &parameters);
+    void send_choice_search_parameters(ChoiceSearchParameters &parameters);
     void send_server_time_request();
     void send_server_time_accepted();
     void send_quest_menu_closed();

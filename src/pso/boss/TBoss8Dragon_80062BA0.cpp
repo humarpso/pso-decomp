@@ -150,6 +150,11 @@ extern const f32 lbl_805D8D54;
 extern const f32 lbl_805D8DF8;
 extern const f32 lbl_805D8EC0;
 void TBoss8Dragon__sub_80064E3C(u8 *arg0);
+int VecCopy__FP3VecPC3Vec(void*, void*);
+void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
+s32 TObjEneDD__sub_800BBA18(void *, int);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -185,7 +190,6 @@ void update_epsilon_position__12TBoss8DragonFv(void);
 int update_state_3__12TBoss8DragonFPv(void* p);
 M2C_UNK TBoss3Volopt__sub_8022675C(s32, s32, M2C_UNK, M2C_UNK);
 int TBoss8Dragon__sub_80064968(void*, int);
-void TBoss8Dragon__sub_80064B08(void *, void *);
 int TBoss8Dragon__sub_80065F4C(void*);
 void TBoss8Dragon__sub_80065F80(void *);
 M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
@@ -396,6 +400,20 @@ void TBoss8Dragon__sub_800648C8(u8 *arg0) {
 
 void copy_spawn_params__12TBoss8DragonFPvPv(void* p, void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short*)((char*)p + 0x1c); VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)p + 0x38)); *(void**)((char*)a1 + 0x10) = *(void**)((char*)p + 0x60); TBoss8Dragon__sub_80065F4C(a1); }
 
+void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1) {
+    s16 temp_r4;
+    VecCopy__FP3VecPC3Vec((void*)((void *) (arg0 + 0x484)), (void*)((void *) (arg1 + 4)));
+    TBoss6Type1__sub_803D9370((void *) (arg0 + 0x484), (void *) (arg0 + 0x38));
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
+    TBoss8Dragon__sub_80064B90((u8 *)((void *) (arg0 + 0x494)), (u8 *)((void *) (arg1 + 0x14)));
+    M2C_FIELD(arg0, s16 **, 0x4BC) = (s16 *) (arg0 + 0x494);
+    temp_r4 = *M2C_FIELD(arg0, s16 **, 0x4BC);
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != temp_r4) {
+        TObjEneDD__sub_800BBA18((void *) (arg0), (int) (temp_r4));
+    }
+    M2C_FIELD(arg0, s32 *, 0x4C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x4C0) | 2);
+}
+
 void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
     M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
@@ -407,7 +425,7 @@ void handle_6xA0_gal_gryphon_boss_actions(void *arg0) {
     TBoss8Dragon__sub_80065F80(arg0);
     x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
     if (x != NULL) {
-        TBoss8Dragon__sub_80064B08(x, arg0);
+        TBoss8Dragon__sub_80064B08((u8 *)(x), (u8 *)(arg0));
     }
 }
 

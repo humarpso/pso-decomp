@@ -9,6 +9,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void queue_destruction__7TObjectFv(void *);
+extern const f32 lbl_805D9304;
+void run_task__17TDuelEffectNumberFv(u8 *arg0);
+}
+
+extern "C" {
 
 void render__17TDuelEffectNumberFv(void *arg0);
 M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
@@ -35,6 +41,12 @@ void render__17TDuelEffectNumberFv(void *arg0) {
     fn_8007FF28(arg0, (M2C_UNK *)&sp8);
     get_player__20TWindowSubStatusDispFv();
     reset_transform_state__10TObjPlayerFv();
+}
+void run_task__17TDuelEffectNumberFv(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + 1);
+    if ((f32) M2C_FIELD(arg0, s32 *, 0x28) >= lbl_805D9304) {
+        queue_destruction__7TObjectFv(arg0);
+    }
 }
 
 }

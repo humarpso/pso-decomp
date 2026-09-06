@@ -33,6 +33,22 @@ struct VObj_800163F8 : Base_800163F8 {
     virtual s32 m25();
 };
 
+struct Stack_80018780
+{
+  M2C_UNK sp8;
+  u8 trailing_storage[0x8];
+};
+
+extern "C" {
+f32 TObjPlayer__sub_800186E8(s32, u32, void *);
+s32 TObjPlayer__sub_800196EC(void);
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+extern const f32 lbl_805D7DC8;
+f32 TObjPlayer__sub_80018780(s32 arg0, u16 arg1, u32 arg2);
+}
+
 extern "C" {
 
 s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -120,6 +136,31 @@ void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2) {
     temp_r31 = (s32) (TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 8)));
     M2C_FIELD(arg0, s32 *, 0x60) = TObjPlayer__sub_801423A4(M2C_FIELD(arg0, s32 *, 0x60), temp_r31, arg1);
     TObjPlayer__sub_80141F84(M2C_FIELD(arg0, s32 *, 0x60), temp_r31);
+}
+typedef struct Stack_80018780 Stack_80018780;
+f32 TObjPlayer__sub_80018780(s32 arg0, u16 arg1, u32 arg2) {
+  Stack_80018780 stack;
+  f32 var_f31;
+  s32 temp_r31;
+  s32 temp_r3;
+  var_f31 = lbl_805D7DC8;
+  if (arg1 < 0x1000U)
+  {
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((u32) arg1);
+    if ((temp_r3 != 0) && (!((*((s32 *) (((s8 *) temp_r3) + 0x30))) & 0x800)))
+    {
+      ;
+      if (get_field_3e4__10TObjPlayerFPv((void *) temp_r3) == TObjPlayer__sub_800196EC())
+      {
+        var_f31 = TObjPlayer__sub_800186E8(arg0, (u32) temp_r3, &stack.sp8);
+        if (arg2 != 0U)
+        {
+          VecCopy__FP3VecPC3Vec((s32)((void *) arg2), (s32)((void *) (&stack.sp8)));
+        }
+      }
+    }
+  }
+  return var_f31;
 }
 
 }

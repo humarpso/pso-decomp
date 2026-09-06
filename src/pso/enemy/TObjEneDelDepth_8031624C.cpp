@@ -13,11 +13,12 @@ M2C_UNK TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 void TObjEneDelDepth__sub_803162A8(u8 *arg0);
+s32 TObjPlayer__sub_800114D8(void *, void *, f32);
+int TObjEneDelDepth__sub_80316258(u8 *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
 
-int TObjEneDelDepth__sub_80316258(void);
 s32 conditional_delete__15TObjEneDelDepthFis(s32 arg0, s16 arg1);
 void fn_80316680(void *arg0, s32 arg1);
 int get_flag_bit4__15TObjEneDelDepthFPv(void* p);
@@ -28,7 +29,13 @@ f32 get_depth_radius__19TObjEneDelDepthBombFPv(void* p);
 
 int get_flag_bit4__15TObjEneDelDepthFPv(void* p) { return (*(u32*)((char*)p + 0x30) >> 4) & 0x1; }
 
-int TObjEneDelDepth__sub_80316258(void) { return 0; }
+int TObjEneDelDepth__sub_80316258(u8 *arg0, s32 arg1, f32 farg0) {
+    u16 temp_r3;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
+    temp_r3 = TObjPlayer__sub_800114D8((void *) (arg0), (void *) (arg1), (f32) (farg0));
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFFFFFF);
+    return temp_r3;
+}
 
 s32 get_type__15TObjEneDelDepthFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 

@@ -5,9 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 __nw__7TObjectFUl(int);
+int TWindowSubComCard__sub_80249220(void *, void *);
+s32 TWindowChoiceSetting__ct(int, void *, void *);
+s32 TWindowSubComCard__sub_802491C4(s32 arg0, s32 arg1, s32 arg2);
+}
 
-int TWindowSubComCard__sub_802491C4(void);
-int TWindowSubComCard__sub_80249220(void* p);
+extern "C" {
+
 void begin_scroll__17TWindowSubComCardFPvf(void *arg0, f32 farg0);
 int fn_80268C5C(void*);
 
@@ -22,8 +27,18 @@ void begin_scroll__17TWindowSubComCardFPvf(void *arg0, f32 farg0) {
     }
 }
 
-int TWindowSubComCard__sub_802491C4(void) { return 0; }
+s32 TWindowSubComCard__sub_802491C4(s32 arg0, s32 arg1, s32 arg2) {
+    s32 temp_r3;
+    s32 var_r0;
+    TWindowSubComCard__sub_80249220((void *)((void *) (arg1)), (void *)((void *) (arg2)));
+    temp_r3 = __nw__7TObjectFUl((int) (0x84));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TWindowChoiceSetting__ct((int) (temp_r3), (void *) (arg0), (void *) (arg2));
+    }
+    return var_r0;
+}
 
-int TWindowSubComCard__sub_80249220(void* p) { return fn_80268C5C(p); }
+int TWindowSubComCard__sub_80249220(void* p, void * _w1) { return fn_80268C5C(p); }
 
 }

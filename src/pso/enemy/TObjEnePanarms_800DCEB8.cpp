@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <dolphin/mtx.h>
+#include <stddef.h>
+
+struct Stack_800DDFDC
+{
+  M2C_UNK sp8;
+  f32 spC;
+};
+
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEnePanarms__sub_800DD738(u8 *arg0);
@@ -14,7 +23,6 @@ void TObjEnePanarms__sub_800DCF14(u8 *arg0);
 void obj_clearFlags30(void *, u32);
 M2C_UNK obj_setFlags30(void *, int);
 int TObjEnePanarms__sub_800E1D94(void *);
-M2C_UNK TObjEnePanarms__sub_800DE430(void *, int, int);
 void TObjEnePanarms__sub_800DD124(u8 *arg0);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
 int TObjEnePanarms__sub_800DED30(void*, void*);
@@ -63,10 +71,28 @@ void TObjEnePanarms__sub_800DCFE0(u8 *arg0);
 void obj_clearFlags30(void *, u32);
 M2C_UNK obj_setFlags30(void *, int);
 void set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-M2C_UNK TObjEnePanarms__sub_800DE430(void *, int, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void TObjEnePanarms__sub_800DD488(u8 *arg0);
+void obj_clearFlags30(void *, u32);
+M2C_UNK obj_setFlags30(void *, int);
+s32 TObjEnePanarms__sub_800DFB44(s32);
+s32 TObjEnePanarms__sub_800E1E14(int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+void TObjEnePanarms__sub_800DD368(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 fn_80086B64(void *, void *, int, void *, void *);
+extern const f32 TObjEnePanarms__data_805DA4A4;
+void TObjEnePanarms__sub_800DE430(s32 arg0, s32 arg1, s32 arg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+int TObjEnePanarms__sub_800DED30(void*, void*);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 TObjEnePanarms__data_805DA49C;
+extern const f32 TObjEnePanarms__data_805DA4A0;
+extern const f32 lbl_805DA4D8;
+void TObjEnePanarms__sub_800DDFDC(u8 *arg0);
 }
 
 extern "C" {
@@ -174,11 +200,29 @@ void TObjEnePanarms__sub_800DD124(u8 *arg0) {
     M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFFFFFFFE);
     obj_clearFlags30(arg0, 0x40000U);
     obj_setFlags30((void *)(arg0), (int)(0x04000000U));
-    TObjEnePanarms__sub_800DE430((void *) (arg0), (int) (0x2D), (int) (0x25));
+    TObjEnePanarms__sub_800DE430((s32)((void *) (arg0)), (s32)((int) (0x2D)), (s32)((int) (0x25)));
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x3E4), s16 *, 0x32C) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x3E8), s16 *, 0x32C));
     TObjEnePanarms__sub_800E1D94(M2C_FIELD(arg0, u8 **, 0x3E4));
     TObjEnePanarms__sub_800E1D94(M2C_FIELD(arg0, u8 **, 0x3E8));
     M2C_FIELD(arg0, s32 *, 0x388) = 0x40;
+}
+
+void TObjEnePanarms__sub_800DD368(u8 *arg0) {
+    u8 *temp_r5;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFFFFFFFE);
+    obj_clearFlags30((void *)((void *) (arg0)), (u32)((int) (0x40000)));
+    obj_setFlags30((void *) (arg0), (int) (0x04000000));
+    M2C_FIELD(arg0, s32 *, 0x3DC) = 0;
+    M2C_FIELD(arg0, s32 *, 0x388) = 0x384;
+    M2C_FIELD(arg0, s32 *, 0x3F8) = 1;
+    TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003BC2E)))))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    if (TObjEnePanarms__sub_800DFB44((s32)((int) (M2C_FIELD(arg0, s32 *, 0x3E4)))) == 0) {
+        TObjEnePanarms__sub_800E1E14((int) (M2C_FIELD(arg0, s32 *, 0x3E4)));
+    }
+    if (TObjEnePanarms__sub_800DFB44((s32)((int) (M2C_FIELD(arg0, s32 *, 0x3E8)))) == 0) {
+        TObjEnePanarms__sub_800E1E14((int) (M2C_FIELD(arg0, s32 *, 0x3E8)));
+    }
 }
 
 void TObjEnePanarms__sub_800DD41C(u8 *arg0) {
@@ -198,7 +242,7 @@ void TObjEnePanarms__sub_800DD488(u8 *arg0) {
     M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFFFFFFFE);
     obj_clearFlags30((void *)((void *) (arg0)), (u32)((int) (0x40000)));
     obj_setFlags30((void *) (arg0), (int) (0x04000000));
-    TObjEnePanarms__sub_800DE430((void *) (arg0), (int) (0x22), (int) (0x3C));
+    TObjEnePanarms__sub_800DE430((s32)((void *) (arg0)), (s32)((int) (0x22)), (s32)((int) (0x3C)));
     TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003BC2D)))))), (void *)((void *) (arg0 + 0x3AC)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
     TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003BC2C)))))), (void *)((void *) (arg0 + 0x3C4)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xA));
@@ -301,6 +345,32 @@ void TObjEnePanarms__sub_800DD954(u8 *arg0) {
     set_field_b8__14TObjEnePanarmsFPvs(arg0, 6);
 }
 
+typedef struct Stack_800DDFDC Stack_800DDFDC;
+void TObjEnePanarms__sub_800DDFDC(u8 *arg0) {
+  Stack_800DDFDC stack;
+  f32 temp_f1;
+  *((f32 *) (((s8 *) arg0) + 0x37C)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x37C))) + lbl_805DA4D8);
+  TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (arg0 + 0x378));
+  if ((*((f32 *) (((s8 *) arg0) + 0x37C))) <= TObjEnePanarms__data_805DA4A0)
+  {
+    ;
+    if ((*((f32 *) (((s8 *) arg0) + 0x3C))) <= (*((f32 *) (((s8 *) arg0) + 0x384))))
+    {
+      *((f32 *) (((s8 *) arg0) + 0x3C)) = *((f32 *) (((s8 *) arg0) + 0x384));
+      TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) 0xF0);
+      TObjEnePanarms__sub_800DED30((void*)((void *) arg0), (void*)((int) 3));
+      return;
+    }
+  }
+  *((s32 *) (((s8 *) arg0) + 0x388)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x388))) + 1);
+  if ((!((*((s32 *) (((s8 *) arg0) + 0x388))) & 7)) && ((*((f32 *) (((s8 *) arg0) + 0x37C))) > TObjEnePanarms__data_805DA4A0))
+  {
+    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x2FC));
+    stack.spC = TObjEnePanarms__data_805DA49C + (*((f32 *) (((s8 *) arg0) + 0x384)));
+    TObjEneDellBiter__sub_80087350((void *) (&stack.sp8), (int) 0xF0);
+  }
+}
+
 void TObjEnePanarms__sub_800DE0B8(u8 *arg0) {
     u8 *temp_r5;
     M2C_FIELD(arg0, f32 *, 0x378) = (f32) TObjEnePanarms__data_805DA4A0;
@@ -340,6 +410,13 @@ int TObjEnePanarms__sub_800DE2D0(void) { return 0; }
 void set_state__14TObjEnePanarmsFPv(void* p) { if (*(int*)((char*)p + 0x374) != 4) { TObjEnePanarms__sub_800DED30((void*)(p), (void*)((void*)4)); } }
 
 int TObjEnePanarms__sub_800DE390(void) { return 0; }
+
+void TObjEnePanarms__sub_800DE430(s32 arg0, s32 arg1, s32 arg2) {
+    Vec position;
+    VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x2FC));
+    position.y += TObjEnePanarms__data_805DA4A4;
+    fn_80086B64((void *) (&position.x), (void *) (arg0 + 0x5C), (int) (0x106), (void *) (arg1), (void *) (arg2));
+}
 
 void TObjEnePanarms__sub_800DEEF8(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x60)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjFish__sub_800E3074(*(void**)((char*)p + 0x39c)); draw__16TObjEneRe7BeruraFPv(p); clear_render_callback__8TObjFishFv(*(void**)((char*)p + 0x39c)); TObjPlayer__sub_803D9B78(); }
 

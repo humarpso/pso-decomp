@@ -4,12 +4,42 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_8030C0C4 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+    f32 sp20;
+    f32 sp24;
+};
+
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowPartyStatus__sub_8030C0C4(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__18TWindowPartyStatusFv(s32 arg0);
+s32 TWindowSubComCard__sub_802452DC(int);
+s32 TWindowSubComCard__sub_80245320(void *, void *);
+s32 TWindowSubComCard__sub_802454E4(int);
+s32 TWindowSubComCard__sub_80245558(void *, void *, void *);
+s32 TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 TWindowSubStatusDisp__sub_803DF160(int, int);
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DF1EC;
+extern const f32 lbl_805DF1F0;
+extern const f32 lbl_805DF1F4;
+extern const f32 lbl_805DF1F8;
+extern const f32 lbl_805DF1FC;
+extern const f32 lbl_805DF200;
+extern const f32 lbl_805DF204;
+void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -34,10 +64,48 @@ void draw__18TWindowPartyStatusFPv(void* p) { fn_8026F8CC(p); update_status_entr
 
 }
 extern "C" {
+
+void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1) {
+    typedef char sp8_offset[(offsetof(Stack_8030C0C4, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8030C0C4, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8030C0C4, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_8030C0C4, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_8030C0C4, sp18) == 0x10) ? 1 : -1];
+    typedef char sp1C_offset[(offsetof(Stack_8030C0C4, sp1C) == 0x14) ? 1 : -1];
+    typedef char sp20_offset[(offsetof(Stack_8030C0C4, sp20) == 0x18) ? 1 : -1];
+    typedef char sp24_offset[(offsetof(Stack_8030C0C4, sp24) == 0x1C) ? 1 : -1];
+    Stack_8030C0C4 stack;
+    f32 temp_f2;
+    f32 temp_f31;
+    f32 temp_f6;
+    temp_f31 = lbl_805DF1EC / M2C_FIELD(arg0, f32 *, 0x54);
+    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    set_global_param__8TObjFishFi((void *) (lbl_805D63F0));
+    TWindowSubStatusDisp__sub_803DF160((int) (0xB), (int) (M2C_FIELD(arg1, s32 *, 0x34)));
+    temp_f2 = M2C_FIELD(arg1, f32 *, 0x10);
+    stack.sp8 = temp_f2;
+    temp_f6 = M2C_FIELD(arg1, f32 *, 0x14);
+    stack.spC = temp_f6;
+    stack.sp10 = lbl_805DF1F0 + temp_f2;
+    stack.sp14 = lbl_805DF1F4 + temp_f6;
+    stack.sp18 = lbl_805DF1F8;
+    stack.sp1C = lbl_805DF1FC;
+    stack.sp20 = lbl_805DF200;
+    stack.sp24 = lbl_805DF204;
+    TWindowKeyBoardSoft__sub_8024E6D8((void *) (arg1), (void *) (&stack.sp8));
+    TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) (temp_f31));
+    get_player__20TWindowSubStatusDispFv();
+    if (TWindowSubComCard__sub_80245558((void *) (arg1), (void *) (arg1 + 0x10), (void *) (arg1 + 0x18)) != 0) {
+        TWindowSubComCard__sub_802454E4((int) (0xB));
+        TWindowSubComCard__sub_80245320((void *) (&stack.sp8), (void *) (arg1));
+        TWindowSubComCard__sub_802452DC((int) (0xB));
+    }
+}
+
 void render__18TWindowPartyStatusFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowPartyStatus__sub_8030C0C4((void *) (arg0), (int) (temp_r3));
+    TWindowPartyStatus__sub_8030C0C4((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 

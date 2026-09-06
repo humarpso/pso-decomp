@@ -4,6 +4,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_f8ef8c { char pad[0x18]; };
+
+struct VObj_18_f8ef8c : VBase_18_f8ef8c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5();
+};
+
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+s32 disallow_rendering__7TObjectFv(void *);
+s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 copy_position__15TEffStarLight2DFPv(int, void *);
+s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+f32 TObjPlayer__sub_8014241C(void *, void *);
+void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
+s32 has_game_join_id(void *);
+s32 TItemAttackCol__sub_802E4918(void *);
+void run_task__14TItemAttackColFv(u8 *arg0);
+}
+
 extern "C" {
 
 void TItemAttackCol__vt5(s32 arg0);
@@ -41,6 +65,45 @@ void TItemAttackCol__vt5(s32 arg0) {
 }
 
 extern M2C_UNK __vt__14TItemAttackCol[];
+
+void run_task__14TItemAttackColFv(u8 *arg0) {
+    u32 temp_r3;
+    u32 temp_r3_2;
+    u32 temp_r3_3;
+    u32 temp_r3_4;
+    if (has_game_join_id((void *) (arg0)) == 0) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        disallow_rendering__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xE4) & 4) {
+        shift_collision_bounds__14TItemAttackColFPv((void *) (arg0));
+    }
+    if (M2C_FIELD(arg0, s32 *, 0xE4) & 0x20) {
+        M2C_FIELD(arg0, s32 *, 0x100) = (s32) (M2C_FIELD(arg0, s32 *, 0x100) + 0x888);
+    }
+    ((VObj_18_f8ef8c *)(arg0))->m5();
+    temp_r3 = M2C_FIELD(arg0, u32 *, 0x12C);
+    if (temp_r3 != 0U) {
+        copy_position__15TEffStarLight2DFPv((int) (temp_r3), (void *) (arg0 + 0x24));
+    }
+    temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x130);
+    if (temp_r3_2 != 0U) {
+        copy_pos__11TNowLoadingFPvPv((int) (temp_r3_2), (void *) (arg0 + 0x24));
+    }
+    temp_r3_3 = M2C_FIELD(arg0, u32 *, 0x134);
+    if (temp_r3_3 != 0U) {
+        copy_pos__11TNowLoadingFPvPv((int) (temp_r3_3), (void *) (arg0 + 0x24));
+    }
+    temp_r3_4 = M2C_FIELD(arg0, u32 *, 0x140);
+    if (temp_r3_4 != 0U) {
+        copy_pos__11TNowLoadingFPvPv((int) (temp_r3_4), (void *) (arg0 + 0x24));
+    }
+    TItemAttackCol__sub_802E4918((void *) (arg0));
+    if ((M2C_FIELD(arg0, f32 *, 0xDC) <= TObjPlayer__sub_8014241C((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+}
 
 void *__dt__14TItemAttackColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

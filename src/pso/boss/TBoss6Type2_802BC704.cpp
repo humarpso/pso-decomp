@@ -9,6 +9,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+#include <stddef.h>
+struct Stack_802BDDF8 {
+    M2C_UNK sp8;
+    s8 spC;
+    u8 trailing_storage[0xF];
+};
+
 extern "C" {
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 add_damage__11TBoss6Type2FPvi(void *, int);
@@ -23,6 +30,11 @@ s32 rand__11TOBoss4RockFv(void);
 extern const f32 TBoss6Type2__data_805DE468;
 extern const f32 lbl_805DE4D0;
 void TBoss6Type2__sub_802BDF50(u8 *arg0, u8 *arg1);
+s32 update_and_send__11TBoss6Type2FPv(void *);
+s32 init_packet__11TBoss6Type2FPv(void *);
+s32 is_idle__11TBoss6Type1FPv(int);
+void TBoss6Type2__sub_802BDF50(u8 *arg0, u8 *arg1);
+void TBoss6Type2__sub_802BDDF8(u8 *arg0, s8 arg1);
 }
 
 extern "C" {
@@ -63,7 +75,6 @@ M2C_UNK TBoss6Type2__sub_802BC62C(void *);
 int TBoss6Type2__sub_802BD014(void*, void*);
 M2C_UNK TBoss6Type2__sub_802BD938(void *, M2C_UNK *);
 M2C_UNK TBoss6Type2__sub_802BDD6C(void *, s32, M2C_UNK *);
-s32 TBoss6Type2__sub_802BDDF8(void * a0 = 0, s32 a1 = 0);
 s32 TObjControl__ct(s32, s32);
 f32 TObjPlayer__sub_80014108(void *, u32, f32);
 u8 *TObjPlayer__sub_80015DC4(u32, s32);
@@ -260,6 +271,18 @@ void update_action_state__11TBoss6Type2FPv(void *arg0) {
         var_r4 = 5;
     }
     TBoss6Type2__sub_802BDD6C((void *)(arg0), (s32)(var_r4), (M2C_UNK *)(&sp8));
+}
+
+void TBoss6Type2__sub_802BDDF8(u8 *arg0, s8 arg1) {
+    typedef char sp8_offset[(offsetof(Stack_802BDDF8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_802BDDF8, spC) == 0x4) ? 1 : -1];
+    Stack_802BDDF8 stack;
+    if (is_idle__11TBoss6Type1FPv((int) (M2C_FIELD(arg0, s32 *, 0x3F8))) != 0) {
+        init_packet__11TBoss6Type2FPv((void *) (&stack.sp8));
+        TBoss6Type2__sub_802BDF50((u8 *)((void *) (arg0)), (u8 *)((void *) (&stack.sp8)));
+        stack.spC = arg1;
+        update_and_send__11TBoss6Type2FPv((void *) (&stack.sp8));
+    }
 }
 
 void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1) {

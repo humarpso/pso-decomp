@@ -8,6 +8,14 @@ extern "C" {
 s32 set_global_param__8TObjFishFi(s32);
 extern u32 TRaderMapCore__data_805D5F4C;
 s32 TRaderMapCore__sub_801FB874(void);
+s32 TObjPlayer__sub_800196EC();
+s32 TLobby__sub_800F957C(int);
+s32 TRaderMapCore__sub_801F9418(int, int);
+s32 free_statics__13TRaderMapCoreFv();
+s32 TLobby__sub_803DA16C(int);
+extern u8 *TRaderMapCore__data_805D5F28;
+extern s32 TRaderMapCore__data_805D5F44;
+void TRaderMapCore__sub_801FB71C(void);
 }
 
 extern "C" {
@@ -33,6 +41,28 @@ void create__13TRaderMapCoreFv(void) {
         }
     }
 }
+
+void TRaderMapCore__sub_801FB71C(void) {
+    u32 temp_r3;
+    u8 *temp_r31;
+    temp_r31 = (u8 *)(TRaderMapCore__data_805D5F28);
+    if (temp_r31 != NULL) {
+        TRaderMapCore__sub_801F9418((int) (TObjPlayer__sub_800196EC()), (int) (temp_r31));
+    }
+    free_statics__13TRaderMapCoreFv();
+    if ((void *) TRaderMapCore__data_805D5F28 != NULL) {
+        temp_r3 = M2C_FIELD(TRaderMapCore__data_805D5F28, u32 *, 4);
+        if (temp_r3 != 0U) {
+            TLobby__sub_803DA16C((int) (temp_r3));
+        }
+    }
+    if ((void *) TRaderMapCore__data_805D5F28 != NULL) {
+        TLobby__sub_800F957C((int) (TRaderMapCore__data_805D5F28));
+        TRaderMapCore__data_805D5F28 = NULL;
+    }
+    TRaderMapCore__data_805D5F44 = 0;
+}
+
 s32 TRaderMapCore__sub_801FB874(void) {
     if ((u32) TRaderMapCore__data_805D5F4C != 0U) {
         set_global_param__8TObjFishFi((s32) TRaderMapCore__data_805D5F4C);

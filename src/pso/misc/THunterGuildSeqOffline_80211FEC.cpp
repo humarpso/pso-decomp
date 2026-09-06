@@ -4,6 +4,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 f32 fn_8013157C(void *, void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
@@ -11,6 +12,13 @@ M2C_UNK THunterGuildSeqOffline__sub_80248A14(int, int, int);
 extern s32 TLobby__data_805D53AC;
 extern f32 THunterGuildSeqOffline__data_805DC648;
 void THunterGuildSeqOffline__sub_80212230(u8 *arg0);
+s32 get_field_3e0__12TBoss3VoloptFPv(int);
+f32 fn_8013157C(void *, void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+extern s32 lbl_805D53A0;
+extern s32 TLobby__data_805D53AC;
+extern f32 THunterGuildSeqOffline__data_805DC648;
+s32 THunterGuildSeqOffline__sub_80212074(void);
 }
 
 extern "C" {
@@ -40,6 +48,29 @@ void *create__22THunterGuildSeqOfflineFPv(void *arg0) {
 
     extern int THunterGuildSeqOffline__data_80513DD8[];
 int THunterGuildSeqOffline__sub_80212060(int a0) {  return THunterGuildSeqOffline__data_80513DD8[a0]; }
+
+s32 THunterGuildSeqOffline__sub_80212074(void) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 temp_r3_3;
+    if ((s32) TLobby__data_805D53AC == (s32) lbl_805D53A0) {
+        return 0;
+    }
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int)((void *) (lbl_805D53A0)));
+    if (temp_r3 == 0) {
+        return 0;
+    }
+    temp_r3_3 = get_field_3e0__12TBoss3VoloptFPv((int) (temp_r3));
+    if ((temp_r3_3 != 0x12) && ((temp_r3_3 >= 0x12) || (temp_r3_3 != 0))) {
+        return 0;
+    }
+    temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((int)((void *) (TLobby__data_805D53AC)));
+    if (temp_r3_2 == 0) {
+        return 0;
+    }
+    return (u32)__cntlzw((u32)((fn_8013157C((void *) (temp_r3 + 0x38), (void *) (temp_r3_2 + 0x38)) > (*(const f32 *)&THunterGuildSeqOffline__data_805DC648)))) >> 5;
+}
+
 void THunterGuildSeqOffline__sub_80212230(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;

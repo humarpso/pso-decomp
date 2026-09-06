@@ -3,6 +3,18 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct Stack_80335E7C
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+  f32 sp14;
+  f32 sp18;
+  f32 sp1C;
+  f32 sp20;
+  f32 sp24;
+};
+
 extern "C" {
 void TLobby__sub_80335F40(void);
 void __dl__7TObjectFPv(void *);
@@ -18,6 +30,24 @@ void TLobby__sub_80335FE4(void);
 void* get_record__6TLobbyFi(int a0);
 int TAdTrialAgreementGC__sub_8033596C(void*);
 int TLobby__sub_80336030(void* p);
+s32 TCameraCtrl__sub_80068EF0();
+s32 TCameraCtrl__sub_80069024();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 TLobby__sub_80336008();
+s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 TWindowSubStatusDisp__sub_803DF160(int, int);
+extern const f32 lbl_805DF8C8;
+extern const f32 lbl_805DF8CC;
+extern const f32 lbl_805DF8D0;
+extern const f32 lbl_805DF8D4;
+extern const f32 lbl_805DF8D8;
+extern const f32 lbl_805DF8DC;
+extern const f32 lbl_805DF8E0;
+extern const f32 lbl_805DF8E4;
+void TLobby__sub_80335E7C(void);
 }
 
 extern "C" {
@@ -33,6 +63,33 @@ void* init_camera_state__6TLobbyFPvi(void* a0, int a1) { __ct__7TObjectFP7TObjec
 
 void TLobby__sub_80335E74(void) {  }
 void TLobby__sub_80335E78(void) {  }
+
+typedef struct Stack_80335E7C Stack_80335E7C;
+void TLobby__sub_80335E7C(void) {
+  Stack_80335E7C stack;
+  begin_effect_render__13TParticleCtrlFv();
+  TCameraCtrl__sub_80069024();
+  TWindowSubStatusDisp__sub_803DEE6C((int) 1);
+  TLobby__sub_80336008();
+  TWindowSubStatusDisp__sub_803DF160((int) 1, (int) (-1));
+  stack.sp8 = lbl_805DF8C8;
+  stack.spC = lbl_805DF8CC;
+  stack.sp10 = lbl_805DF8D0;
+  stack.sp14 = lbl_805DF8D4;
+  stack.sp1C = (stack.sp18 = lbl_805DF8D8);
+  stack.sp24 = (stack.sp20 = lbl_805DF8DC);
+  TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) lbl_805DF8E0);
+  TWindowSubStatusDisp__sub_803DF160((int) 2, (int) (-1));
+  stack.sp8 = lbl_805DF8D0;
+  stack.spC = lbl_805DF8CC;
+  stack.sp10 = lbl_805DF8E4;
+  stack.sp14 = lbl_805DF8D4;
+  TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) lbl_805DF8E0);
+  get_player__20TWindowSubStatusDispFv();
+  TCameraCtrl__sub_80068EF0();
+  end_effect_render__13TParticleCtrlFv();
+}
+
 void TLobby__sub_80335F40(void) {  }
 void *dt__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
