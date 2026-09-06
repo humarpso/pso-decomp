@@ -18,6 +18,13 @@ struct VObj_803357EC_8033573C : Base_803357EC_8033573C {
 };
 
 extern "C" {
+s32 draw_with_camera__6TLobbyFiiif(void *, void *, int, f32);
+s32 get_record__6TLobbyFi(void *);
+extern const f32 lbl_805DF8B0;
+void TAdTrialAgreementGC__sub_80335918(M2C_UNK arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1);
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
@@ -69,6 +76,9 @@ void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+void TAdTrialAgreementGC__sub_80335918(M2C_UNK arg0, s32 arg1, s32 arg2) {
+    draw_with_camera__6TLobbyFiiif((void *) (get_record__6TLobbyFi((void *) (arg1))), (void *) (arg2), (int) (0x20), (f32) (lbl_805DF8B0));
 }
 
 }

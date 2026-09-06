@@ -60,6 +60,9 @@ void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_8030A180(M2C_UNK, M2C_UNK, M2C_UNK, s32);
 void TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
 void TObjPlayer__sub_80309FD4(s32 arg0, s32 arg1);
+void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 TObjPlayer__sub_8030A180(M2C_UNK, M2C_UNK, M2C_UNK, s32);
+void TObjPlayer__sub_80309F30(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -67,7 +70,6 @@ extern "C" {
 struct VOff_80309DD0_arg0_80309dd0_80309D80 { char pad_0[0x4]; char f_4[1]; };
 
 s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1);
-int TObjPlayer__sub_80309F30(void);
 s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1);
 s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void clear_foot_stamp__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -116,7 +118,10 @@ s32 TObjPlayer__sub_80309E4C(s32 arg0, s16 arg1) {
 
 s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii((s32)(p), (s32)(a1), (s32)(431)); }
 
-int TObjPlayer__sub_80309F30(void) { return 0; }
+void TObjPlayer__sub_80309F30(s32 arg0, s32 arg1) {
+    TObjPlayer__sub_8030A150((M2C_UNK)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (0xA2)));
+    TObjPlayer__sub_8030A180((M2C_UNK)((void *) (arg0)), (M2C_UNK)((void *) (arg1)), (M2C_UNK)((int) (0xA6)), (s32)((int) (2)));
+}
 
 void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1) {
     TObjPlayer__sub_8030A180(arg0, arg1, 0x23D, 2);

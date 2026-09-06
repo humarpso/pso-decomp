@@ -21,6 +21,11 @@ void TObjEnePanarms__sub_800DFFE0(u8 *arg0);
 int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
 extern const float TObjEnePanarms__data_805DA524;
 void TObjEnePanarms__sub_800E01AC(u8 *arg0);
+int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern const float TObjEnePanarms__data_805DA524;
+void TObjEnePanarms__sub_800E0344(u8 *arg0);
 }
 
 extern "C" {
@@ -91,6 +96,22 @@ void TObjEnePanarms__sub_800E01AC(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x3B4) = 0x96;
         M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
         set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(2));
+    }
+}
+
+void TObjEnePanarms__sub_800E0344(u8 *arg0) {
+    u8 *temp_r7;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x380) != 1) {
+        temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
+        M2C_FIELD(temp_r7, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r7, s32 *, 0x18) | 1);
+        M2C_FIELD(arg0, s32 *, 0x384) = 1;
+        M2C_FIELD(arg0, s32 *, 0x388) = 1;
+        M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) (*(const f32 *)&TObjEnePanarms__data_805DA524);
+        M2C_FIELD(arg0, s32 *, 0x3B4) = 0x96;
+        M2C_FIELD(arg0, s32 *, 0x3C0) = 1;
+        TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003BC2D)))))), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+        M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
+        set_field_b8__14TObjEnePanarmsFPvs((void*)((void *) (arg0)), (int)((int) (2)));
     }
 }
 

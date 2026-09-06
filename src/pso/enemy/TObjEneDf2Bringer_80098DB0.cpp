@@ -29,6 +29,9 @@ s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 TObjEneDf2Bringer__data_805D97E0;
 extern const f32 lbl_805D97E8;
 void TObjEneDf2Bringer__sub_80099188(u8 *arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+void TObjEneDf2Bringer__sub_80098EB4(s32 arg0);
 }
 
 extern "C" {
@@ -175,6 +178,10 @@ void TObjEneDf2Bringer__vt102(void *arg0, f32 farg0) {
 }
 
 extern f32 TObjEneDf2Bringer__data_805D9820;
+
+void TObjEneDf2Bringer__sub_80098EB4(s32 arg0) {
+    TOTrapAncient01__sub_80226578((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003B708))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
 
 void update_flag_0x3C0__17TObjEneDf2BringerFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 8)) {

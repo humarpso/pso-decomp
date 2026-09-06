@@ -20,6 +20,12 @@ void run_task__9TBoss6DPBFv(u8 *arg0);
 u8 * __ct__9TBoss6DPBFv(void *, s32, s32, f32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6Type2__sub_8035DC60(s32 arg0, s32 arg1, f32 farg0);
+s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
+extern const f32 TObjEneEpsilonGuard__data_805E01D8;
+f32 TObjEneEpsilonGuard__vt22(s32 arg0);
+s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
+extern const f32 TObjEneEpsilonGuard__data_805E01D8;
+f32 TObjEneEpsilonGuard__vt20(s32 arg0);
 }
 
 extern "C" {
@@ -51,5 +57,14 @@ u8 *TBoss6Type2__sub_8035DC60(s32 arg0, s32 arg1, f32 farg0) {
     return var_r0;
 }
 #pragma pop
+
+f32 TObjEneEpsilonGuard__vt22(s32 arg0) {
+    try_apply_damage__19TObjEneEpsilonGuardFPvUii((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
+    return TObjEneEpsilonGuard__data_805E01D8;
+}
+f32 TObjEneEpsilonGuard__vt20(s32 arg0) {
+    try_apply_damage__19TObjEneEpsilonGuardFPvUii((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
+    return TObjEneEpsilonGuard__data_805E01D8;
+}
 
 }

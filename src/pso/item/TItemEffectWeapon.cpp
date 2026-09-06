@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u32 get_mode__11TCameraCtrlFPv(void*);
+void begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+void set_depth_buffer_settings_1__Fv();
+void fn_80141A30();
+void init_xyz_limits__10TObjPlayerFv();
+void reset_transform_state__10TObjPlayerFv();
+void reset_player_transform();
+void TObjPlayer__sub_803DF5E4(TItemEffectWeapon::TrailVertex*, s32);
+void TObjPlayer__sub_803DF768(s32);
+void set_flag_9__7TObjectFv(void*);
+void* alloc_buffer__11TOBoss4RockFPv(size_t);
+extern u8 main_task[];
+extern u32 lbl_805D5660;
+extern u32 some_id_805c6f74;
 
 void *TItemEffectWeapon__sub_803633B4(void *arg0, s16 arg1);
 void TItemEffectWeapon__sub_8036340C(void);
@@ -58,10 +73,6 @@ void TItemEffectWeapon::step() {
     }
 }
 
-extern "C" {
-
-}
-
 void TItemEffectWeapon::push_trail_entry(const f32* first, const f32* second) {
     if (vertices != NULL && first != NULL && second != NULL) {
         if (vertex_count == 0x20) {
@@ -81,6 +92,29 @@ void TItemEffectWeapon::push_trail_entry(const f32* first, const f32* second) {
         vertices[1].z = first[2];
         vertices[1].color = color & 0x4FFFFFFF;
         vertex_count += 2;
+    }
+}
+
+void TItemEffectWeapon::render_trail() {
+    if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
+        if (vertex_count != 0 && vertices != NULL) {
+            begin_effect_render__13TParticleCtrlFv();
+            lbl_805D5660 = some_id_805c6f74;
+            set_depth_buffer_settings_1__Fv();
+            some_id_805c6f74 |= 0x8000;
+            init_xyz_limits__10TObjPlayerFv();
+            if (vertex_count > 2) {
+                TObjPlayer__sub_803DF768(1);
+                TObjPlayer__sub_803DF5E4(vertices, vertex_count);
+                reset_player_transform();
+            }
+            reset_transform_state__10TObjPlayerFv();
+            some_id_805c6f74 = lbl_805D5660;
+            fn_80141A30();
+            end_effect_render__13TParticleCtrlFv();
+        }
+    } else {
+        set_flag_9__7TObjectFv(this);
     }
 }
 
@@ -142,4 +176,12 @@ void TItemEffectWeapon::free_static_effects() {
     free__11TOBoss4RockFUi(lbl_805D6FB0);
     lbl_805D6FB4 = NULL;
     lbl_805D6FB0 = NULL;
+}
+
+void TItemEffectWeapon::initialize_static_effects() {
+    lbl_805D6FB0 = (TrailVertex*)alloc_buffer__11TOBoss4RockFPv(16 * 32 * sizeof(TrailVertex));
+    lbl_805D6FB4 = (s32*)alloc_buffer__11TOBoss4RockFPv(16 * sizeof(s32));
+    for (s32 i = 0; i < 16; i++) {
+        lbl_805D6FB4[i] = 0;
+    }
 }

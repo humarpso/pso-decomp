@@ -14,6 +14,9 @@ extern "C" {
 void fn_80290F10(s32, void *, void *, void *, f32);
 extern const f32 lbl_805DD960;
 void TChCrTagName__sub_80290FEC(s32 arg0, u8 *arg1, u8 *arg2, f32 farg0, f32 farg1, f32 farg2);
+extern const f32 lbl_805DD960;
+extern const f32 lbl_805DD964;
+void TObjCMAssignMenu__sub_80291030(s32 arg0, u8* arg1, u8* arg2, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -26,6 +29,11 @@ void TChCrTagName__sub_80290FEC(s32 arg0, u8 *arg1, u8 *arg2, f32 farg0, f32 far
         stack.sp10 = farg2;
         stack.spC = farg2;
         fn_80290F10(arg0, arg1, arg2, &stack.sp8, farg0);
+    }
+}
+void TObjCMAssignMenu__sub_80291030(s32 arg0, u8* arg1, u8* arg2, f32 farg0, f32 farg1) {
+    if (!(farg1 <= lbl_805DD960)) {
+        TChCrTagName__sub_80290FEC(arg0, arg1, arg2, farg0, farg1, lbl_805DD964);
     }
 }
 

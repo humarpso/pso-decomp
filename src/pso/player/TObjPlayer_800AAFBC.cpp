@@ -27,10 +27,6 @@ void queue_destruction__7TObjectFv(void *);
 extern M2C_UNK lbl_80491478[];
 void *destroy_with_particle_cleanup__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void TObjPlayer__sub_800AB970(void);
-int TObjPlayer__sub_800AB974(void);
-int TObjPlayer__sub_800AB9C0(void);
-int TObjPlayer__sub_800ABA0C(void);
-int TObjPlayer__sub_800ABA50(void);
 void set_param__12TObjEneLappyFPvi(void *, s32);
 void TObjPlayer__sub_800ABC24(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -51,6 +47,21 @@ f32 get_random_float__8TObjFishFv(f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9B10;
 s32 TObjPlayer__sub_800AB068(u8 *arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjPlayer__sub_800ABA0C(s32 arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 play_effect_if_v2__10TObjPlayerFi(int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjPlayer__sub_800AB974(s32 arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 play_effect_if_v2__10TObjPlayerFi(int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjPlayer__sub_800AB9C0(s32 arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 play_effect_if_v2__10TObjPlayerFi(int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjPlayer__sub_800ABA50(s32 arg0);
 }
 
 extern "C" {
@@ -196,10 +207,26 @@ void *destroy_with_particle_cleanup__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 void TObjPlayer__sub_800AB970(void) {  }
-int TObjPlayer__sub_800AB974(void) { return 0; }
-int TObjPlayer__sub_800AB9C0(void) { return 0; }
-int TObjPlayer__sub_800ABA0C(void) { return 0; }
-int TObjPlayer__sub_800ABA50(void) { return 0; }
+
+void TObjPlayer__sub_800AB974(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A60C))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_effect_if_v2__10TObjPlayerFi((int) (-0x300));
+}
+
+void TObjPlayer__sub_800AB9C0(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A60B))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_effect_if_v2__10TObjPlayerFi((int) (-0x300));
+}
+
+void TObjPlayer__sub_800ABA0C(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A60D))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
+
+void TObjPlayer__sub_800ABA50(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A60B))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_effect_if_v2__10TObjPlayerFi((int) (-0x300));
+}
+
 void TObjPlayer__sub_800ABC24(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;

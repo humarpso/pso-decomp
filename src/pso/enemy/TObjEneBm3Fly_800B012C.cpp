@@ -33,6 +33,17 @@ struct VObjB0_800b07d0 : VBaseB0_800b07d0 {
 };
 
 extern "C" {
+void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
+s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+void TObjEneBm3Fly__sub_800B1574(s32 arg0);
+void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
+s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
+}
+
+extern "C" {
 
 struct Base_800B150C_800B07D0 { char pad[0x18]; };
 struct VObj_800B150C_800B07D0 : Base_800B150C_800B07D0 {
@@ -69,7 +80,6 @@ M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
-M2C_UNK TObjEneBm3Fly__sub_800B15C4(void *);
 s32 TObjEneBm3Fly__sub_800B177C(void *);
 M2C_UNK TObjEneBm3Fly__sub_800B1978(void *);
 M2C_UNK TObjEneDD__sub_800BA3D8(void *, void *);
@@ -194,7 +204,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
             break;
         }
         ((VObjB0_800b07d0 *)arg0)->v87();
-        TObjEneBm3Fly__sub_800B15C4((void *) (arg0));
+        TObjEneBm3Fly__sub_800B15C4((s32)((void *) (arg0)));
         return;
     case 5:
         M2C_FIELD(arg0, s32 *, 0x454) = 0;
@@ -208,6 +218,14 @@ void TObjEneBm3Fly__vt102(void *arg0, f32 farg0) {
         return;
     }
     spawn_part__14TObjEneEpsilonFi(arg0, farg0);
+}
+void TObjEneBm3Fly__sub_800B1574(s32 arg0) {
+    TOTrapAncient01__sub_80226578((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AB23)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
+}
+void TObjEneBm3Fly__sub_800B15C4(s32 arg0) {
+    TOTrapAncient01__sub_80226578((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x40039E22)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
 }
 
 }

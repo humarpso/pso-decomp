@@ -6,7 +6,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
-s32 TODragonfly__sub_80158360(f32);
 extern const f32 lbl_805DB4D8;
 void TODoorCave03__vt15(u8 *arg0);
 s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
@@ -17,6 +16,13 @@ s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
 extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4DC;
 void TODoorCave03__vt14(u8 *arg0);
+s32 set_indexed_flags(void *, int, int);
+s32 TODragonfly__sub_80158360(void *, f32);
+extern const f32 lbl_805DB4D0;
+extern const f32 TODoorCave03__data_805DB4D4;
+extern const f32 lbl_805DB4E0;
+extern const f32 lbl_805DB4E4;
+void TODoorCave03__vt13(u8 *arg0);
 }
 
 extern "C" {
@@ -53,7 +59,7 @@ void TODoorCave03__vt16(u8 *arg0) {
 
 void TODoorCave03__vt15(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        if (TODragonfly__sub_80158360((f32) (lbl_805DB4D8)) != 1) {
+        if (TODragonfly__sub_80158360(arg0, lbl_805DB4D8) != 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8U);
         }
@@ -78,6 +84,27 @@ void TODoorCave03__vt14(u8 *arg0) {
     *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) (temp_f1 + TODoorCave03__data_805DB4D4);
   }
   TOTrapAncient01__sub_80226578(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
+}
+
+void TODoorCave03__vt13(u8 *arg0) {
+    s32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0xD0);
+    if (temp_r4 & 1) {
+        if (TODragonfly__sub_80158360((void *)((void *) (arg0)), (f32) (lbl_805DB4E0)) == 1) {
+            M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+            set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
+        }
+    } else if (temp_r4 & 0x10000) {
+        M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD8) + lbl_805DB4E4);
+        if (TODoorCave03__data_805DB4D4 <= M2C_FIELD(arg0, f32 *, 0xD8)) {
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFEFFFF);
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD8) - lbl_805DB4E4);
+        if (M2C_FIELD(arg0, f32 *, 0xD8) <= lbl_805DB4D0) {
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 0x10000);
+        }
+    }
 }
 
 void *create__12TODoorCave03FPv(void *arg0) {

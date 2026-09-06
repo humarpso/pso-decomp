@@ -8,6 +8,8 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805D9FF8;
 void TObjEneRe2Flower__sub_800C3DC4(u8 *arg0);
+s32 TObjEneDD__sub_800BAAE4(void *, void *, int);
+void TObjEneRe2Flower__sub_800C3D88(u8 *arg0);
 }
 
 extern "C" {
@@ -55,6 +57,12 @@ void set_child_flags__16TObjEneRe2FlowerFPv(void *arg0) {
     temp_r3_2 = M2C_FIELD(arg0, void **, 0xA4);
     M2C_FIELD(temp_r3_2, s32 *, 0x44) = (s32) (M2C_FIELD(temp_r3_2, s32 *, 0x44) | 1);
 }
+
+void TObjEneRe2Flower__sub_800C3D88(u8 *arg0) {
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0x30) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));
+    TObjEneDD__sub_800BAAE4((void *) (arg0), (void *) (arg0 + 0x3DC), (int) (0));
+}
+
 void TObjEneRe2Flower__sub_800C3DC4(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805D9FF8);

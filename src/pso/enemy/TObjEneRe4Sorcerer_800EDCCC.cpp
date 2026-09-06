@@ -104,6 +104,12 @@ struct V_A_800EDCCC : Base_A_800EDCCC {
 };
 
 extern "C" {
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
+}
+
+extern "C" {
 
 s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0);
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0);
@@ -177,6 +183,10 @@ void handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x4E4) = (s32) (M2C_FIELD(arg0, s32 *, 0x4E4) + 1);
         break;
     }
+}
+
+void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0) {
+    TOTrapAncient01__sub_80226578((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003A81D)))))), (void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
 }
 
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0) {

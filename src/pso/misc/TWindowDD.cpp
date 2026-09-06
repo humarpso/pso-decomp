@@ -11,6 +11,10 @@ M2C_UNK spawn_window__9TWindowDDFv();
 void TWindowDD__sub_80340828(u8 *arg0);
 void TWindowDD__sub_8034091C(u8 *arg0, s32 arg1);
 void TWindowDD__sub_80340E20(u8 *arg0, s32 arg1);
+extern const f32 lbl_805DFC34;
+extern const f32 lbl_805DFC38;
+extern const f32 lbl_805DFC3C;
+void TWindowDD__sub_8034042C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 }
 
 extern "C" {
@@ -28,6 +32,50 @@ void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 int initialize_subwindow__9TWindowDDFPv(void*);
 int update_fade__17TWindowSubComCardFPv(void*);
+
+void TWindowDD__sub_8034042C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+  f32 temp_f0;
+  f32 temp_f1;
+  f32 temp_f1_2;
+  s8 *new_var;
+  f32 temp_f2;
+  f32 temp_f4;
+  float new_var4;
+  f32 temp_f5;
+  int new_var3;
+  f32 temp_f7;
+  f32 temp_f8;
+  s8 *new_var2;
+  temp_f4 = farg0 + farg2;
+  temp_f8 = lbl_805DFC34 * farg0;
+  temp_f7 = lbl_805DFC34 * farg1;
+  *((f32 *) (((s8 *) arg0) + 0)) = temp_f8;
+  temp_f5 = lbl_805DFC34 * (lbl_805DFC38 + farg1);
+  new_var4 = lbl_805DFC34 * temp_f4;
+  *((f32 *) (((s8 *) arg0) + 4)) = temp_f7;
+  temp_f1 = lbl_805DFC3C + farg0;
+  temp_f2 = new_var4;
+  *((f32 *) (((s8 *) arg0) + 8)) = temp_f8;
+  temp_f1_2 = lbl_805DFC34 * temp_f1;
+  *((f32 *) (((s8 *) arg0) + 0xC)) = temp_f5;
+  temp_f0 = temp_f1;
+  temp_f0 = lbl_805DFC34 * (temp_f0 - farg2);
+  new_var2 = ((s8 *) arg0) + 0x28;
+  *((f32 *) (((s8 *) arg0) + 0x10)) = temp_f2;
+  *((f32 *) (((s8 *) arg0) + 0x14)) = temp_f7;
+  *((f32 *) (((s8 *) arg0) + 0x18)) = temp_f2;
+  *((f32 *) (((s8 *) arg0) + 0x1C)) = temp_f5;
+  *((f32 *) (((s8 *) arg0) + 0x20)) = temp_f0;
+  *((f32 *) (((s8 *) arg0) + 0x24)) = temp_f7;
+  new_var3 = 0x30;
+  *((f32 *) new_var2) = temp_f0;
+  *((f32 *) (((s8 *) arg0) + 0x2C)) = temp_f5;
+  *((f32 *) (((s8 *) arg0) + new_var3)) = temp_f1_2;
+  *((f32 *) (((s8 *) arg0) + 0x34)) = temp_f7;
+  new_var = ((s8 *) arg0) + 0x38;
+  *((f32 *) new_var) = temp_f1_2;
+  *((f32 *) (((s8 *) arg0) + 0x3C)) = temp_f5;
+}
 
 void update_draw__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
 

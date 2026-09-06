@@ -126,11 +126,13 @@ M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
 void TObjEneBm9Mericarol__sub_802D095C(u8 *arg0);
 void TObjEneBm9Mericarol__sub_802D0B04(u8 *arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TOTrapAncient01__sub_80226578(void *, void *, void *, int, int);
+void TObjEneBm9Mericarol__sub_802D073C(s32 arg0);
 }
 
 extern "C" {
 
-int TObjEneBm9Mericarol__sub_802D073C(void);
 void TObjEneBm9Mericarol__sub_802D093C(void);
 void TObjEneBm9Mericarol__sub_802D0940(void);
 void TObjEneBm9Mericarol__sub_802D09AC(void);
@@ -152,7 +154,9 @@ void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK fn_802D1C84();
 
-int TObjEneBm9Mericarol__sub_802D073C(void) { return 0; }
+void TObjEneBm9Mericarol__sub_802D073C(s32 arg0) {
+    TOTrapAncient01__sub_80226578((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3A810))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
 
 s32 get_phase__19TObjEneBm9MericarolFPv(void* p) { return *(s32*)((char*)p + 0x45c); }
 

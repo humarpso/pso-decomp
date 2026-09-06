@@ -11,6 +11,24 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 void init_attack_state__16TObjEneMerillLiaFPv(void *arg0);
 void reset_action_state__16TObjEneMerillLiaFPv(void *arg0);
 void TObjEneMerillLia__sub_800D6A44(u8 *arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjEneMerillLia__sub_800D4EC8(s32 arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjEneMerillLia__sub_800D4F0C(s32 arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjEneMerillLia__sub_800D4F50(s32 arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjEneMerillLia__sub_800D4F94(s32 arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjEneMerillLia__sub_800D4FD8(s32 arg0);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+void TObjEneMerillLia__sub_800D501C(s32 arg0);
 }
 
 extern "C" {
@@ -39,6 +57,30 @@ M2C_UNK obj_setFlags30(void *, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
 void TObjEneMerillLia__sub_800D4D70(void) {  }
+
+void TObjEneMerillLia__sub_800D4EC8(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3AD04))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
+
+void TObjEneMerillLia__sub_800D4F0C(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3B205))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
+
+void TObjEneMerillLia__sub_800D4F50(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3AD00))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
+
+void TObjEneMerillLia__sub_800D4F94(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3B201))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
+
+void TObjEneMerillLia__sub_800D4FD8(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3AB02))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
+
+void TObjEneMerillLia__sub_800D501C(s32 arg0) {
+    TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3B206))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
 
 void TObjEneMerillLia__sub_800D50FC(void) {  }
 

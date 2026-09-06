@@ -28,6 +28,9 @@ extern void *TWindowCtrl__data_805D63F8;
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
 M2C_UNK TWindow__close(void *);
 void TWindowCtrl__sub_8024A4EC(void);
+s32 TWindowTimer__sub_80287D20(int, void *);
+extern void *TWindowCtrl__data_805D63F8;
+void TWindowCtrl__sub_8024A4B0(s32 arg0);
 }
 
 extern "C" {
@@ -132,6 +135,16 @@ void create_timer__11TWindowCtrlFv(void) {
 }
 
 extern void *TWindowCtrl__data_805D63F8;
+
+void TWindowCtrl__sub_8024A4B0(s32 arg0) {
+    u32 temp_r3;
+    if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) != NULL) {
+        temp_r3 = M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), u32 *, 0x30);
+        if (temp_r3 != 0U) {
+            TWindowTimer__sub_80287D20((int) (temp_r3), (void *) (arg0));
+        }
+    }
+}
 
 void TWindowCtrl__sub_8024A4EC(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) != 0U)) {

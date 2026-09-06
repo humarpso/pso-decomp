@@ -8,6 +8,9 @@ struct SRock_80224544_8022448C;
 extern "C" {
 extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
+s32 strncpy(void *, void *, int);
+extern s32 lbl_805D6270;
+void TLobby__sub_80225BC8(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -268,6 +271,19 @@ void *TLobby__sub_8022598C(int a0) {
   {
   }
   return ((char *) new_var) + (a0 * 0xd0);
+}
+
+void TLobby__sub_80225BC8(u8 *arg0, u8 *arg1) {
+    s32 temp_r7;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    temp_r7 = lbl_805D6270;
+    lbl_805D6270 = temp_r7 + 1;
+    M2C_FIELD(arg0, s32 *, 4) = temp_r7;
+    M2C_FIELD(arg0, s8 *, 0xCC) = 0xB;
+    strncpy((void *) (arg0 + 8), (void *) (arg1 + 0xC), (int) (0x17));
+    M2C_FIELD(arg0, s8 *, 0x1F) = 0;
+    strncpy((void *) (arg0 + 0x20), (void *) (arg1 + 0x20), (int) (0xAB));
+    M2C_FIELD(arg0, s8 *, 0xCB) = 0;
 }
 
 int TLobby__sub_80225C44(void* p) { return TLobby__sub_80225B40(p); }

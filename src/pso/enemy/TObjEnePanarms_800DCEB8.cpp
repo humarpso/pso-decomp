@@ -6,13 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void obj_clearFlags30(void *, u32);
-void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 void TObjEnePanarms__sub_800DD738(u8 *arg0);
 void obj_clearFlags30(void *, u32);
-void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 void TObjEnePanarms__sub_800DD954(u8 *arg0);
 void obj_clearFlags30(void *, u32);
-void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 void TObjEnePanarms__sub_800DCF14(u8 *arg0);
 void obj_clearFlags30(void *, u32);
 M2C_UNK obj_setFlags30(void *, int);
@@ -43,7 +40,6 @@ extern const f32 TObjEnePanarms__data_805DA4A0;
 extern const f32 lbl_805DA4DC;
 void TObjEnePanarms__sub_800DE0B8(u8 *arg0);
 void obj_clearFlags30(void *, u32);
-void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 u8 * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *, void *, void *, void *);
 s32 fn_800871A0(void *, void *, int, int);
 f32 TBoss8Dragon__sub_803D64C0(int);
@@ -51,7 +47,6 @@ f32 TBoss8Dragon__sub_803D64DC(int);
 extern const f32 TObjEnePanarms__data_805DA4A0;
 void TObjEnePanarms__sub_800DD7F4(u8 *arg0);
 void obj_clearFlags30(void *, u32);
-void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 u8 * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *, void *, void *, void *);
 M2C_UNK fn_80086D50(void *, void *, int);
 s32 fn_800871A0(void *, void *, int, int);
@@ -59,6 +54,19 @@ f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
 extern const f32 TObjEnePanarms__data_805DA4A0;
 void TObjEnePanarms__sub_800DD5C8(u8 *arg0);
+void obj_clearFlags30(void *, u32);
+M2C_UNK obj_setFlags30(void *, int);
+s32 init__14TObjEnePanarmsFPvPv(void *, int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+void TObjEnePanarms__sub_800DCFE0(u8 *arg0);
+void obj_clearFlags30(void *, u32);
+M2C_UNK obj_setFlags30(void *, int);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+M2C_UNK TObjEnePanarms__sub_800DE430(void *, int, int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+void TObjEnePanarms__sub_800DD488(u8 *arg0);
 }
 
 extern "C" {
@@ -127,6 +135,18 @@ void TObjEnePanarms__sub_800DCF74(u8 *arg0) {
     }
 }
 
+void TObjEnePanarms__sub_800DCFE0(u8 *arg0) {
+    u8 *temp_r5;
+    M2C_FIELD(arg0, s32 *, 0x3DC) = 1;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFFFFFFFE);
+    obj_clearFlags30((void *)((void *) (arg0)), (u32)((int) (0x40000)));
+    obj_setFlags30((void *) (arg0), (int) (0x04000000));
+    TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003BC31)))))), (void *)((void *) (arg0 + 0x3AC)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003BC30)))))), (void *)((void *) (arg0 + 0x3C4)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    init__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0xA));
+}
+
 void update_timed_action__14TObjEnePanarmsFPv(u8 *arg0) {
     s32 temp_r0;
 
@@ -170,6 +190,18 @@ void TObjEnePanarms__sub_800DD41C(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         TObjEnePanarms__sub_800DED30((void*)((void *) (arg0)), (void*)((int) (0xA)));
     }
+}
+
+void TObjEnePanarms__sub_800DD488(u8 *arg0) {
+    u8 *temp_r5;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) & 0xFFFFFFFE);
+    obj_clearFlags30((void *)((void *) (arg0)), (u32)((int) (0x40000)));
+    obj_setFlags30((void *) (arg0), (int) (0x04000000));
+    TObjEnePanarms__sub_800DE430((void *) (arg0), (int) (0x22), (int) (0x3C));
+    TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003BC2D)))))), (void *)((void *) (arg0 + 0x3AC)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    TBoss3Volopt__sub_8022675C((M2C_UNK)((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003BC2C)))))), (void *)((void *) (arg0 + 0x3C4)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xA));
 }
 
 void TObjEnePanarms__sub_800DD530(u8 *arg0) {

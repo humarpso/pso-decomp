@@ -15,6 +15,14 @@ struct M2CCopy_C { u8 bytes[0xc]; };
 #pragma dont_inline off
 struct M2CCopy_60 { u8 bytes[0x60]; };
 
+#include <stddef.h>
+struct Stack_80155050 {
+    M2C_UNK sp8;
+    f32 spC;
+    u8 pad_10[0x4];
+    f32 sp14;
+};
+
 extern "C" {
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
@@ -23,6 +31,10 @@ extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 TObjPlayer__data_805D5874;
 void TObjPlayer__sub_8015431C(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
+extern const f32 TObjPlayer__data_805DB270;
+s32 TObjPlayer__sub_80155050(M2C_UNK arg0, u8 *arg1, u32 arg2);
 }
 
 extern "C" {
@@ -124,6 +136,21 @@ loop_1:
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1) {
     *(M2CCopy_60 *)(arg0) = *(const M2CCopy_60 *)(arg1);
     return (u8 *)arg0;
+}
+
+s32 TObjPlayer__sub_80155050(M2C_UNK arg0, u8 *arg1, u32 arg2) {
+    typedef char sp8_offset[(offsetof(Stack_80155050, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80155050, spC) == 0x4) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_80155050, sp14) == 0xC) ? 1 : -1];
+    Stack_80155050 stack;
+    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg1 + 0x1C));
+    stack.spC = TObjPlayer__data_805DB270;
+    stack.sp14 = M2C_FIELD(arg1, f32 *, 0xC);
+    if (arg2 != 0U) {
+        TObjPlayer__sub_801550B8((u8 *)((void *) (arg2)), (u8 *)((void *) (&stack.sp8)));
+        return 1;
+    }
+    return 0;
 }
 
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1) {

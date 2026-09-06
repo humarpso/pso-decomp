@@ -5,6 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
+s32 TWindow__close(int);
+M2C_UNK TWindowSubSymbolChat__sub_802484C0(s32);
+s32 set_selection__20TWindowSubSymbolChatFPvUi(void *, int);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0);
+u8 *TWindowSubSymbolChat__sub_802826E4(void *, s32);
+s32 TWindowSubSymbolChat__sub_8028379C();
+void TWindowSubSymbolChat__sub_802819BC(u8 *arg0);
+}
+
+extern "C" {
 
 void close_child__20TWindowSubSymbolChatFv(void);
 s32 create_confirm_window__20TWindowSubSymbolChatFPv(void *arg0);
@@ -71,6 +83,28 @@ s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0) {
     temp = get_cursor_pos__20TWindowShortListCtrlFPv(M2C_FIELD(arg0, s32 *, 0x38));
     ret = TWindowSubComCard__sub_80265660(M2C_FIELD(arg0, s32 *, 0x38), temp);
     return ret ? 1 : 0;
+}
+
+void TWindowSubSymbolChat__sub_802819BC(u8 *arg0) {
+    u8 *temp_r3;
+    if (is_card_confirmed__20TWindowSubSymbolChatFPv((void *) (arg0)) == 0) {
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
+        if (temp_r3 != NULL) {
+            TWindow__close((int) (temp_r3));
+            M2C_FIELD(arg0, u8 **, 0x34) = NULL;
+            copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (M2C_FIELD(arg0, u8 **, 0x30) + 0x30), (int) (TWindowSubComCard__sub_8026CBB8((M2C_UNK)((int) (0x7B)))));
+            M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x30), s32 *, 0x50) = 6;
+        }
+    } else {
+        if ((void *) M2C_FIELD(arg0, u8 **, 0x34) == NULL) {
+            M2C_FIELD(arg0, u8 **, 0x34) = TWindowSubSymbolChat__sub_802826E4(arg0, 0);
+            set_selection__20TWindowSubSymbolChatFPvUi((void *) (M2C_FIELD(arg0, u8 **, 0x34)), (int) (TWindowSubSymbolChat__sub_8028379C()));
+            M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x64) = 1;
+            copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (M2C_FIELD(arg0, u8 **, 0x30) + 0x30), (int) (TWindowSubComCard__sub_8026CBB8((M2C_UNK)((int) (0x7C)))));
+            M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x30), s32 *, 0x50) = 6;
+        }
+        TWindowSubSymbolChat__sub_802484C0((s32)((void *) (M2C_FIELD(arg0, u8 **, 0x34))));
+    }
 }
 
 void update_state__20TWindowSubSymbolChatFPv(void *arg0) {

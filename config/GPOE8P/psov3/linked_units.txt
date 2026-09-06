@@ -306,6 +306,7 @@ pso/enemy/TObjEnePanarms_800DFCD8.cpp
 pso/enemy/TObjEnePanarms_800E1E14.cpp
 pso/enemy/TObjEnePanarms_800E1F98.cpp
 pso/enemy/TObjEnePanarms_800F5E90.cpp
+pso/enemy/TObjEneRe2Flower.cpp
 pso/enemy/TObjEneRe4Bit.cpp
 pso/enemy/TObjEneRe4Bit_800EDB98.cpp
 pso/enemy/TObjEneRe4Bit_800EDC90.cpp
@@ -1196,6 +1197,7 @@ pso/misc/TTecReverser_8034DED4.cpp
 pso/misc/TUdpSocket.cpp
 pso/misc/TUserAns.cpp
 pso/misc/TWindowActionPalette_8013DF4C.cpp
+pso/misc/TWindowAddition.cpp
 pso/misc/TWindowChat.cpp
 pso/misc/TWindowChatSymbol.cpp
 pso/misc/TWindowChat_80247D50.cpp
@@ -1347,6 +1349,7 @@ pso/misc/TWindowSubComCard_802495FC.cpp
 pso/misc/TWindowSubComCard_8025B7F0.cpp
 pso/misc/TWindowSubComCard_8026659C.cpp
 pso/misc/TWindowSubComCard_80266BC4.cpp
+pso/misc/TWindowSubComCard_80269064.cpp
 pso/misc/TWindowSubComCard_80271E7C_8027239C.cpp
 pso/misc/TWindowSubComCard_80271E7C_80274FF0.cpp
 pso/misc/TWindowSubComCard_80271E7C_8027515C.cpp
@@ -2387,6 +2390,7 @@ pso/unk/text_800B9194.cpp
 pso/unk/text_800B9254.cpp
 pso/unk/text_800C3A60.cpp
 pso/unk/text_800C3B80.cpp
+pso/unk/text_800C9318.cpp
 pso/unk/text_800D7950.cpp
 pso/unk/text_800D9BBC.cpp
 pso/unk/text_800F7D30.cpp
