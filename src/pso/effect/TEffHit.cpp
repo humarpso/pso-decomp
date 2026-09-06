@@ -1,29 +1,46 @@
-#include "pso/TEffHit.h"
+#include "pso/effect/TEffHit.h"
+extern "C" {
+void queue_destruction__7TObjectFv(void*);
+s32 TObjEneDellBiter__sub_80087350(const Vec*, s32);
+void VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
+extern const f32 lbl_805D9448;
+extern const char* lbl_805D2920;
+}
 
-void TEffHit::run_task() {}
+void TEffHit::run_task() {
+    Vec shifted_position;
+    s32 particle;
+    switch (state) {
+    case 0:
+        particle = 0;
+        state = 1;
+        do {
+            if (particle == 2) {
+                shifted_position.x = position.x;
+                shifted_position.y = position.y - lbl_805D9448;
+                shifted_position.z = position.z;
+                TObjEneDellBiter__sub_80087350(&shifted_position, particle + 4);
+            } else if (particle == 3) {
+                TObjEneDellBiter__sub_80087350(&position, 0xD);
+            } else {
+                TObjEneDellBiter__sub_80087350(&position, particle + 4);
+            }
+            particle++;
+        } while (particle < 4);
+        return;
+    case 1:
+        age++;
+        if (age > 60) {
+            queue_destruction__7TObjectFv(this);
+        }
+        return;
+    }
+}
 
 TEffHit::~TEffHit() {}
 
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-extern "C" {
-
-void *TEffHit__ct(void *arg0, void *arg1);
-void TEffect__ct(void *);
-void VecCopy__FP3VecPC3Vec(void *, void *);
-
-extern M2C_UNK __vt__7TEffHit[];
-extern void *lbl_805D2920;
-
-void *TEffHit__ct(void *arg0, void *arg1) {
-    TEffect__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__7TEffHit;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2920;
-    VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32), arg1);
-    M2C_FIELD(arg0, u32 *, 0x70) = 0;
-    return arg0;
-}
-
+TEffHit::TEffHit(const Vec* initial_position) : TEffect() {
+    m_name = lbl_805D2920;
+    VecCopy__FP3VecPC3Vec(&position, initial_position);
+    state = 0;
 }

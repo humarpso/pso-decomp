@@ -4,10 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_800F5D80 {
+    s32 sp8;
+    u8 pad_C[0x2];
+    s16 spE;
+};
+
+extern "C" {
+s32 TLobby__sub_8002AFD4(void *, void *, int);
+void fn_800F5D80(s32 arg0);
+}
+
 extern "C" {
 
 void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
-int fn_800F5D80(void);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK fn_800F58A4(void *, s32, s32, s32);
 M2C_UNK fn_800F5A50();
@@ -36,7 +47,15 @@ void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     fn_800F58A4(arg0, arg1, arg2, temp_r6);
     return arg0;
 }
-
-int fn_800F5D80(void) { return 0; }
+void fn_800F5D80(s32 arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800F5D80, sp8) == 0x0) ? 1 : -1];
+    typedef char spE_offset[(offsetof(Stack_800F5D80, spE) == 0x6) ? 1 : -1];
+    Stack_800F5D80 stack;
+    if (TLobby__sub_8002AFD4((void *) (arg0), (void *) (&stack.sp8), (int) (1)) != 0) {
+        stack.sp8 = 0;
+        stack.spE = 0;
+        TLobby__sub_8002AFD4((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+    }
+}
 
 }

@@ -149,6 +149,8 @@ pso/boss/TObjBoss7RaftSplash_802F1848.cpp
 pso/boss/TObjBoss7RaftSplash_802F18E8.cpp
 pso/boss/TObjBoss7TunnelCol.cpp
 pso/boss/TObjDFRecoverFactory.cpp
+pso/effect/TEffGuard.cpp
+pso/effect/TEffHit.cpp
 pso/enemy/TObjEneBalClawBody.cpp
 pso/enemy/TObjEneBalClawClaw_80090D3C.cpp
 pso/enemy/TObjEneBm3FlyNest_800B2E8C.cpp
@@ -165,6 +167,7 @@ pso/enemy/TObjEneDD_800B9AF8.cpp
 pso/enemy/TObjEneDD_800B9B84.cpp
 pso/enemy/TObjEneDD_800B9F64.cpp
 pso/enemy/TObjEneDD_800B9F98.cpp
+pso/enemy/TObjEneDD_800BB158.cpp
 pso/enemy/TObjEneDD_800BB804_800BBD18.cpp
 pso/enemy/TObjEneDD_800BB804_800BBDD4.cpp
 pso/enemy/TObjEneDD_800BB804_800BBE1C.cpp
@@ -677,6 +680,7 @@ pso/misc/TLobby_80077B60_80077BAC.cpp
 pso/misc/TLobby_8007B858_8007BB2C.cpp
 pso/misc/TLobby_8008350C.cpp
 pso/misc/TLobby_800C80FC.cpp
+pso/misc/TLobby_800F5CF0.cpp
 pso/misc/TLobby_800F7744.cpp
 pso/misc/TLobby_800F7F5C_800F85C0.cpp
 pso/misc/TLobby_800F8AA8_800F8AA8.cpp
@@ -2569,6 +2573,7 @@ pso/unk/text_80286AA8.cpp
 pso/unk/text_8028A714.cpp
 pso/unk/text_8028AA14.cpp
 pso/unk/text_80290BE0.cpp
+pso/unk/text_80290FEC.cpp
 pso/unk/text_802910A4.cpp
 pso/unk/text_802910C8.cpp
 pso/unk/text_80291268.cpp

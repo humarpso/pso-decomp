@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void use_current_item__10TObjPlayerFPv(void *arg0);
-M2C_UNK create__9TEffGuardFi(M2C_UNK *);
+M2C_UNK create__9TEffGuardFPC3Vec(M2C_UNK *);
 void *test_flag3__9TItemDataFPv();
 
 }
@@ -70,7 +70,7 @@ void use_current_item__10TObjPlayerFPv(void *arg0) {
         return;
     }
     ((VObj_801B95C8*)arg0)->m63(0x24, &sp8);
-    create__9TEffGuardFi(&sp8);
+    create__9TEffGuardFPC3Vec(&sp8);
 }
 
 }

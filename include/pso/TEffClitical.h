@@ -1,6 +1,6 @@
 #ifndef PSO_TEFFCLITICAL_H
 #define PSO_TEFFCLITICAL_H
-#include "pso/TEffect.h"
+#include "pso/effect/TEffect.h"
 #include "types.h"
 
 class TEffClitical : public TEffect {

@@ -11,7 +11,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TCameraCtrl__sub_80069DA8();
-u8 *TCameraCtrl__sub_8006C1F0();
+u8 *get_scripted_camera_playback();
 void run_task__16TBoss8DragonDemoFv(u8 *arg0);
 }
 
@@ -30,7 +30,7 @@ f32 TBoss8DragonDemo__sub_802F2CBC(void* p) { return *(f32*)((char*)p + 0x54); }
 void render__16TBoss8DragonDemoFv(void) {  }
 
 void run_task__16TBoss8DragonDemoFv(u8 *arg0) {
-    if ((M2C_FIELD(TCameraCtrl__sub_8006C1F0(), u16 *, 2) & 1) || ((s32) *M2C_FIELD(arg0, s32 **, 0x24) == 0)) {
+    if ((M2C_FIELD(get_scripted_camera_playback(), u16 *, 2) & 1) || ((s32) *M2C_FIELD(arg0, s32 **, 0x24) == 0)) {
         TCameraCtrl__sub_80069DA8();
         queue_destruction__7TObjectFv((void *) (arg0));
     }

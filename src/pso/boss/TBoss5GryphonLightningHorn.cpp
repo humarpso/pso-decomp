@@ -1,3 +1,4 @@
+#include <dolphin/mtx.h>
 #include "pso/TBoss5GryphonLightningHorn.h"
 
 TBoss5GryphonLightningHorn::~TBoss5GryphonLightningHorn() {}
@@ -8,6 +9,8 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+#include <stddef.h>
+
 extern "C" {
 M2C_UNK TBoss5GryphonLightning__ct(f32);
 f32 TBoss8Dragon__sub_803D64C0(int);
@@ -19,6 +22,13 @@ extern const f32 lbl_805DF634;
 extern const f32 lbl_805DF644;
 extern const f32 lbl_805DF650;
 u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, s32);
+s32 __nw__7TObjectFUl(int);
+u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+extern const f32 lbl_805D8D48;
+extern const f32 lbl_805DF654;
+s32 TBoss8Dragon__sub_803263A4(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -48,6 +58,32 @@ u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3)
     M2C_FIELD(arg0, f32 *, 0x8C) = (f32) lbl_805DF634;
     M2C_FIELD(arg0, s32 *, 0x90) = 4;
     return arg0;
+}
+s32 TBoss8Dragon__sub_803263A4(s32 arg0, s32 arg1, s32 arg2) {
+    Vec position;
+    f32 ground_height;
+    s32 allocation;
+    s32 effect;
+    u8* collision;
+    VecCopy__FP3VecPC3Vec(&position, (void*)arg1);
+    collision = TBoss8Dragon__sub_8007A544((M2C_UNK*)&position, 0x16EF);
+    if (collision == NULL) {
+        position.y = lbl_805D8D48;
+    } else {
+        ground_height = M2C_FIELD(M2C_FIELD(collision, u8**, 4), f32*, 4);
+        if (ground_height > lbl_805D8D48) {
+            position.y = lbl_805D8D48;
+        } else {
+            position.y = ground_height;
+        }
+    }
+    position.y += lbl_805DF654;
+    allocation = __nw__7TObjectFUl(0xA8);
+    effect = allocation;
+    if (effect != 0) {
+        effect = (s32)__ct__26TBoss5GryphonLightningHornFv((u8*)allocation, arg0, (s32)&position, arg2);
+    }
+    return effect;
 }
 
 extern M2C_UNK lbl_804ECDC0[];

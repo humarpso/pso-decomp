@@ -25,7 +25,7 @@ extern "C" {
 void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *__ct__12TEffCliticalFv(void *arg0, void *arg1);
 void create__12TEffCliticalFPv(void *arg0);
-void TEffect__ct(void *);
+void __ct__7TEffectFv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 
@@ -34,7 +34,7 @@ extern void *lbl_805D2904;
 extern const f32 lbl_805D93B0;
 
 void *__ct__12TEffCliticalFv(void *arg0, void *arg1) {
-    TEffect__ct(arg0);
+    __ct__7TEffectFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TEffClitical;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2904;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32), arg1);

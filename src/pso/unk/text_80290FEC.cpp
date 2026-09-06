@@ -1,40 +1,33 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct Stack_80290FEC {
-    f32 sp8;
-    f32 spC;
-    f32 sp10;
-    f32 sp14;
-};
-
+#include "pso/ui/UISprite.h"
 extern "C" {
-void fn_80290F10(s32, void *, void *, void *, f32);
-extern const f32 lbl_805DD960;
-void TChCrTagName__sub_80290FEC(s32 arg0, u8 *arg1, u8 *arg2, f32 farg0, f32 farg1, f32 farg2);
 extern const f32 lbl_805DD960;
 extern const f32 lbl_805DD964;
-void TObjCMAssignMenu__sub_80291030(s32 arg0, u8* arg1, u8* arg2, f32 farg0, f32 farg1);
 }
 
-extern "C" {
-
-void TChCrTagName__sub_80290FEC(s32 arg0, u8 *arg1, u8 *arg2, f32 farg0, f32 farg1, f32 farg2) {
-    Stack_80290FEC stack;
-    if (!(farg1 <= lbl_805DD960)) {
-        stack.sp8 = farg1;
-        stack.sp14 = farg2;
-        stack.sp10 = farg2;
-        stack.spC = farg2;
-        fn_80290F10(arg0, arg1, arg2, &stack.sp8, farg0);
-    }
-}
-void TObjCMAssignMenu__sub_80291030(s32 arg0, u8* arg1, u8* arg2, f32 farg0, f32 farg1) {
-    if (!(farg1 <= lbl_805DD960)) {
-        TChCrTagName__sub_80290FEC(arg0, arg1, arg2, farg0, farg1, lbl_805DD964);
+void draw_ui_sprite_shaded(s32 sprite_id, const vec2f* position, const vec2f* scale,
+                          f32 depth, f32 alpha, f32 brightness) {
+    UISpriteTint tint;
+    if (!(alpha <= lbl_805DD960)) {
+        tint.alpha = alpha;
+        tint.channels[2] = brightness;
+        tint.channels[1] = brightness;
+        tint.channels[0] = brightness;
+        draw_ui_sprite_tinted(sprite_id, position, scale, &tint, depth);
     }
 }
 
+void draw_ui_sprite_scaled(s32 sprite_id, const vec2f* position, const vec2f* scale,
+                          f32 depth, f32 alpha) {
+    if (!(alpha <= lbl_805DD960)) {
+        draw_ui_sprite_shaded(sprite_id, position, scale, depth, alpha, lbl_805DD964);
+    }
+}
+
+void draw_ui_sprite(s32 sprite_id, const vec2f* position, f32 depth, f32 alpha) {
+    vec2f scale;
+    if (!(alpha <= lbl_805DD960)) {
+        scale.y = lbl_805DD964;
+        scale.x = lbl_805DD964;
+        draw_ui_sprite_scaled(sprite_id, position, &scale, depth, alpha);
+    }
 }

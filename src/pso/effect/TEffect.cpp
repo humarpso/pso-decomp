@@ -1,55 +1,45 @@
-#include "pso/TEffect.h"
-
-TEffect::~TEffect() {
-    m_1c = nullptr;
-}
-
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#include "pso/effect/TEffect.h"
 
 extern "C" {
-
-void *TEffect__ct(void *arg0);
-void TObjPlayer__sub_80082CBC(void* p);
-void TObjPlayer__sub_80082CCC(void* p);
-void __ct__7TObjectFP7TObject(void *, void *);
-
-extern void *tl_particle;
+extern TObject* tl_particle;
+extern const char* lbl_805D2908;
 extern const f32 lbl_805D93B8;
-extern M2C_UNK __vt__7TEffect[];
 extern const f32 lbl_805D93BC;
-extern void *lbl_805D2908;
-
-void *TEffect__ct(void *arg0) {
-    __ct__7TObjectFP7TObject(arg0, tl_particle);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__7TEffect;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2908;
-    M2C_FIELD(arg0, f32 *, 0x20) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x24) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x28) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x30) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x34) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805D93BC;
-    M2C_FIELD(arg0, f32 *, 0x40) = lbl_805D93BC;
-    M2C_FIELD(arg0, f32 *, 0x44) = lbl_805D93BC;
-    M2C_FIELD(arg0, f32 *, 0x48) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x4C) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x50) = lbl_805D93B8;
-    M2C_FIELD(arg0, u32 *, 0x54) = 0;
-    M2C_FIELD(arg0, u32 *, 0x58) = 0;
-    M2C_FIELD(arg0, u32 *, 0x5C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x60) = lbl_805D93B8;
-    M2C_FIELD(arg0, f32 *, 0x64) = lbl_805D93B8;
-    M2C_FIELD(arg0, u32 *, 0x68) = 0;
-    M2C_FIELD(arg0, u32 *, 0x6C) = 0;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    return arg0;
 }
 
-void TObjPlayer__sub_80082CBC(void* p) { *(u8*)((char*)p + 0x1c) |= 0x4; }
-void TObjPlayer__sub_80082CCC(void* p) { *(u8*)((char*)p + 0x1c) &= 0xfffffffb; }
+TEffect::~TEffect() {
+    field_1c = 0;
+}
 
+TEffect::TEffect() : TObject(tl_particle) {
+    m_name = lbl_805D2908;
+    position.x = lbl_805D93B8;
+    position.y = lbl_805D93B8;
+    position.z = lbl_805D93B8;
+    field_2c[0] = lbl_805D93B8;
+    field_2c[1] = lbl_805D93B8;
+    field_2c[2] = lbl_805D93B8;
+    field_2c[3] = lbl_805D93B8;
+    scale.x = lbl_805D93BC;
+    scale.y = lbl_805D93BC;
+    scale.z = lbl_805D93BC;
+    field_48[0] = lbl_805D93B8;
+    field_48[1] = lbl_805D93B8;
+    field_48[2] = lbl_805D93B8;
+    field_54[0] = 0;
+    field_54[1] = 0;
+    field_54[2] = 0;
+    field_60[0] = lbl_805D93B8;
+    field_60[1] = lbl_805D93B8;
+    age = 0;
+    field_6c = 0;
+    field_1c = 0;
+}
+
+extern "C" void TObjPlayer__sub_80082CBC(void* effect) {
+    *(reinterpret_cast<u8*>(effect) + 0x1C) |= 0x4;
+}
+
+extern "C" void TObjPlayer__sub_80082CCC(void* effect) {
+    *(reinterpret_cast<u8*>(effect) + 0x1C) &= ~0x4;
 }

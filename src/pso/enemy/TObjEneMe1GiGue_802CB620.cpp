@@ -1,13 +1,27 @@
+#include <dolphin/mtx.h>
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+
 extern "C" {
 void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
 M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEneMe1GiGue__sub_802CCE9C(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+s32 create_breakup_mdl__12TBoss3VoloptFiiiii(int, int, int, void *, int);
+s32 refresh_lobby_state__10TObjPlayerFPv(void *);
+s32 send_entity_set_flags__6TLobbyFPv(void *);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+s32 TObjEneMe1GiGue__sub_802CB5A0(void *, int);
+extern s32 TObjEneMe1GiGue__data_805D683C;
+extern const f32 TObjEneMe1GiGue__data_805DE674;
+void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0);
 }
 
 extern "C" {
@@ -44,6 +58,19 @@ void init_move__15TObjEneMe1GiGueFPv(u8 *arg0) {
 
 extern const f32 TObjEneMe1GiGue__data_805DE660;
 extern const f32 TObjEneMe1GiGue__data_805DE694;
+
+void TObjEneMe1GiGue__sub_802CB9E4(u8 *arg0) {
+    Vec position;
+    VecCopy__FP3VecPC3Vec((void *) (&position.x), (void *) (arg0 + 0x38));
+    position.y += TObjEneMe1GiGue__data_805DE674 + M2C_FIELD(arg0, f32 *, 0x3EC);
+    create_breakup_mdl__12TBoss3VoloptFiiiii((int) (TObjEneMe1GiGue__data_805D683C), (int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (&position.x), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    refresh_lobby_state__10TObjPlayerFPv((void *) (arg0));
+    send_entity_set_flags__6TLobbyFPv((void *) (arg0));
+    TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0x205));
+    TObjEneDellBiter__sub_80087350((void *) (&position.x), (int) (0x206));
+    TBoss3Volopt__sub_8022675C((void *) (TObjEneMe1GiGue__sub_802CB5A0((void *) (arg0), (int) (0x3AF1C))), (void *) (&position.x), (int) (0), (int) (0));
+    queue_destruction__7TObjectFv((void *) (arg0));
+}
 
 void action__15TObjEneMe1GiGueFPv(void *arg0) {
     s32 temp_r0;

@@ -12,7 +12,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_active_player__10TObjPlayerFi(int);
 M2C_UNK TCameraCtrl__sub_80069DA8();
-u8 *TCameraCtrl__sub_8006C1F0();
+u8 *get_scripted_camera_playback();
 void run_task__17TBoss5GryphonDemoFv(u8 *arg0);
 }
 
@@ -63,7 +63,7 @@ void render__17TBoss5GryphonDemoFv(void) {  }
 
 void run_task__17TBoss5GryphonDemoFv(u8 *arg0) {
     u8 *temp_r31;
-    temp_r31 = TCameraCtrl__sub_8006C1F0();
+    temp_r31 = get_scripted_camera_playback();
     set_active_player__10TObjPlayerFi((int) (0x8F));
     if ((M2C_FIELD(temp_r31, u16 *, 2) & 1) || ((s32) *M2C_FIELD(arg0, s32 **, 0x24) == 0)) {
         TCameraCtrl__sub_80069DA8();

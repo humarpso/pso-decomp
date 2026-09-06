@@ -10,7 +10,7 @@ void reset_state__10TSceneSoraFv(void);
 void update__10TSceneSoraFv(void);
 void update_state__10TSceneSoraFPv(void *arg0);
 u16 TCameraCtrl__sub_8006A5DC();
-void *TCameraCtrl__sub_8006C1F0();
+void *get_scripted_camera_playback();
 M2C_UNK fn_801A73B0(f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_counter__6TSceneFv();
@@ -47,7 +47,7 @@ void update_state__10TSceneSoraFPv(void *arg0) {
         fn_801A73B0(lbl_805DC0D4);
         return;
     case 1:
-        if ((M2C_FIELD(TCameraCtrl__sub_8006C1F0(), u16 *, 2) & 1) || (TCameraCtrl__sub_8006A5DC() != 5)) {
+        if ((M2C_FIELD(get_scripted_camera_playback(), u16 *, 2) & 1) || (TCameraCtrl__sub_8006A5DC() != 5)) {
             queue_destruction__7TObjectFv(arg0);
         }
         return;

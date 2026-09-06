@@ -1,3 +1,4 @@
+#include <dolphin/mtx.h>
 #include "pso/TBoss5GryphonLightningWing.h"
 
 TBoss5GryphonLightningWing::~TBoss5GryphonLightningWing() {}
@@ -14,9 +15,16 @@ struct Stack_80351DA8 {
     f32 sp10;
 };
 
+#include <stddef.h>
+
 extern "C" {
-s32 TBoss8Dragon__sub_80351CF0(s32, s32, s32, s32, s32, s32);
 void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, s32);
+s32 __nw__7TObjectFUl(int);
+s32 __ct__26TBoss5GryphonLightningWingFv(int, void *, void *, void *, void *, void *, void *);
+extern const f32 lbl_805D8D48;
+s32 TBoss8Dragon__sub_80351CF0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 }
 
 extern "C" {
@@ -45,12 +53,38 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
 
 void render__26TBoss5GryphonLightningWingFv(void) {  }
 
+s32 TBoss8Dragon__sub_80351CF0(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+    Vec position;
+    f32 ground_height;
+    s32 allocation;
+    s32 effect;
+    u8* collision;
+    VecCopy__FP3VecPC3Vec(&position, (void*)arg3);
+    collision = TBoss8Dragon__sub_8007A544((M2C_UNK*)&position, 0x16EF);
+    if (collision == NULL) {
+        position.y = lbl_805D8D48;
+    } else {
+        ground_height = M2C_FIELD(M2C_FIELD(collision, u8**, 4), f32*, 4);
+        if (ground_height > lbl_805D8D48) {
+            position.y = lbl_805D8D48;
+        } else {
+            position.y = ground_height;
+        }
+    }
+    allocation = __nw__7TObjectFUl(0xA0);
+    effect = allocation;
+    if (effect != 0) {
+        effect = __ct__26TBoss5GryphonLightningWingFv(allocation, (void*)arg0, (void*)arg1, (void*)arg2, &position, (void*)arg4, (void*)arg5);
+    }
+    return effect;
+}
+
 void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
     Stack_80351DA8 stack;
     stack.sp8 = M2C_FIELD(arg2, f32 *, 0);
     stack.spC = M2C_FIELD(arg1, f32 *, 4);
     stack.sp10 = M2C_FIELD(arg2, f32 *, 8);
-    TBoss8Dragon__sub_80351CF0(arg0, (s32) arg1, (s32) &stack.sp8, (s32) arg2, arg3, arg4);
+    TBoss8Dragon__sub_80351CF0((s32)(arg0), (s32)((s32) arg1), (s32)((s32) &stack.sp8), (s32)((s32) arg2), (s32)(arg3), (s32)(arg4));
 }
 
 void TLobby__sub_80351DF8(void) {  }
