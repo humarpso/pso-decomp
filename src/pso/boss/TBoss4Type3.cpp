@@ -18,6 +18,10 @@ M2C_UNK reset_timer__11TBoss4Type3FPv(int);
 void TBoss4Type3__vt7(u8 *arg0);
 M2C_UNK TBoss4Type3__sub_8005A398(void *, M2C_UNK);
 void TBoss4Type3__vt6(u8 *arg0);
+s32 get_random_scaled__11TBoss4Type3Fv(void);
+M2C_UNK spawn_random_effect__11TBoss4Type3Fi(void *);
+void TBoss4Type3__sub_80059F04(void *, s32, s32, s32);
+void TBoss4Type3__vt8(u8 *arg0);
 }
 
 extern "C" {
@@ -34,7 +38,6 @@ void TBoss4Type3__vt37(void *arg0);
 void TBoss4Type3__vt38(void *arg0);
 void TBoss4Type3__vt4(void *arg0);
 void TBoss4Type3__vt5(void);
-int TBoss4Type3__vt8(void);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 TBoss4Type3__sub_8005254C(u16);
 int TBoss4Type3__sub_800599F4(void*, void*, void*);
@@ -115,7 +118,18 @@ void TBoss4Type3__vt22(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
 }
 
-int TBoss4Type3__vt8(void) { return 0; }
+void TBoss4Type3__vt8(u8 *arg0) {
+    s32 temp_r3;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0) {
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 4) {
+            M2C_FIELD(arg0, s32 *, 0x3BC) = 0;
+            spawn_random_effect__11TBoss4Type3Fi((void *)((s32) arg0));
+            return;
+        }
+        temp_r3 = get_random_scaled__11TBoss4Type3Fv();
+        TBoss4Type3__sub_80059F04(arg0, M2C_FIELD(arg0, s32 *, 0x374) - 1, temp_r3, temp_r3);
+    }
+}
 
 void TBoss4Type3__vt7(u8 *arg0) {
     reset_timer__11TBoss4Type3FPv((int) (M2C_FIELD(arg0, s32 *, 0x524)));

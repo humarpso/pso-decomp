@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdSinglePlyChrSelectGC__sub_801FCCDC(s32, s32);
+extern s32 lbl_805D5F5C;
+s32 TAdSinglePlyChrSelectGC__sub_801FE800(u32 arg0);
+}
+
+extern "C" {
 
 struct Ent_801FE468_801FBF54 { char pad4[4]; char body[0x2798 - 4]; };
 
@@ -42,6 +48,16 @@ int TAdSinglePlyChrSelectGC__sub_801FE7D4(int a0) {  return lbl_805137D8[a0 + 4]
 int get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int a0) {  return lbl_805137D8[a0]; }
 
 extern u32 lbl_805D5F58;
+
+s32 TAdSinglePlyChrSelectGC__sub_801FE800(u32 arg0) {
+    if (arg0 >= 7U) {
+        return 0;
+    }
+    if (((u32) (*(u32 *)&lbl_805D5F5C) != 0U) && (TAdSinglePlyChrSelectGC__sub_801FCCDC((s32) (*(u32 *)&lbl_805D5F5C), (s32) arg0) != 0)) {
+        return 1;
+    }
+    return 0;
+}
 
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
     u32 var_r4 = arg0;

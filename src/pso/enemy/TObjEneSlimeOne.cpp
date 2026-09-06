@@ -12,11 +12,12 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern s32 lbl_805D586C;
 void TObjEneSlimeOne__vt60(u8 *arg0);
+int TObjEneSlimeOne__sub_800EAE78(void*, void*);
+void TObjEneSlimeOne__vt59(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjEneSlimeOne__vt59(void);
 void TObjEneSlimeOne__vt61(void* p);
 void *__dt__15TObjEneSlimeOneFv(void *arg0, s16 arg1);
 void clear_child_flag__15TObjEneSlimeOneFPv(void *arg0);
@@ -78,7 +79,12 @@ void init_state__15TObjEneSlimeOneFPv(void* a0) { TObjEneSlimeOne__sub_800EAD84(
 
 void set_random_timer_15__15TObjEneSlimeOneFPv(void* p) { set_random_timer__15TObjEneSlimeOneFPvii((void *)(p), (s32)(15), (s32)(15)); }
 
-int TObjEneSlimeOne__vt59(void) { return 0; }
+void TObjEneSlimeOne__vt59(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x384) != 0xB) {
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFEFF);
+        TObjEneSlimeOne__sub_800EAE78((void*)(arg0), (void*)(0xB));
+    }
+}
 
 void TObjEneSlimeOne__vt60(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x384) != 0xC) {

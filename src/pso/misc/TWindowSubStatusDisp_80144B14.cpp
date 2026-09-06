@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TWindowSubStatusDisp__sub_80145190(u16, void *);
+extern u8 lbl_805D56C0;
+s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2);
+}
+
+extern "C" {
 
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
 int end_render_forward__20TWindowSubStatusDispFPv(void* p);
@@ -40,6 +46,22 @@ void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1) {
 extern M2C_UNK lbl_8043F3D0;
 extern u8 lbl_805D56C0;
 extern const f32 lbl_805DB194;
+
+s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2) {
+    u8 temp_r7;
+    temp_r7 = M2C_FIELD(arg1, u8 *, 3);
+    if (temp_r7 == (u8) lbl_805D56C0) {
+        return 0;
+    }
+    if (temp_r7 != (u8) (lbl_805D56C0 - 1)) {
+        TWindowSubStatusDisp__sub_80145190(arg0, arg1);
+        return 1;
+    }
+    if ((void *) *arg2 == NULL) {
+        *arg2 = arg1;
+    }
+    return 0;
+}
 
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2) {
     void *temp_r3;

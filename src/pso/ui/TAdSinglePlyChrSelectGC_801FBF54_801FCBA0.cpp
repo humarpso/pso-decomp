@@ -7,6 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
+s32 TAdSinglePlyChrSelectGC__sub_801FC4F4(void *, s32);
+extern u8 *lbl_805D5F60;
+s32 TAdSinglePlyChrSelectGC__sub_801FCE2C(s32 arg0);
 }
 
 extern "C" {
@@ -51,6 +54,15 @@ int TAdSinglePlyChrSelectGC__sub_801FCD3C(void) { return 0; }
     extern int lbl_805D5F80;
     extern int lbl_805D5F88;
     extern int lbl_805D5F98;
+
+s32 TAdSinglePlyChrSelectGC__sub_801FCE2C(s32 arg0) {
+    if ((void *) lbl_805D5F60 != NULL) {
+        TAdSinglePlyChrSelectGC__sub_801FC4F4(lbl_805D5F60, arg0);
+        return 1;
+    }
+    return 0;
+}
+
 void setup__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5F80 = a0; set_quest_download_server__23TAdSinglePlyChrSelectGCFi(); lbl_805D49B4 = 1; draw_window_bg__23TAdSinglePlyChrSelectGCFiiii((void*)(lbl_805D5F80), lbl_804C89BC, (void*)(lbl_805D5F98), (void*)(lbl_805D5F88)); }
 
 extern M2C_UNK lbl_804C8914[];

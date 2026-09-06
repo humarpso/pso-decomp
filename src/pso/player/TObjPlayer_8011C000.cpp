@@ -5,85 +5,111 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-extern u8 *item_pmt_tbl;
+M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
+M2C_UNK TLobby__sub_801044B8(s32 *);
+extern void *item_mgr;
+void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
+M2C_UNK TItemDrop__sub_80106818(u32, s32, s32);
+M2C_UNK TLobby__sub_801044B8(s32 *);
+extern void *item_mgr;
+void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
+M2C_UNK TItemDrop__sub_80106930(u32, s32, s32);
+M2C_UNK TLobby__sub_801044B8(s32 *);
+extern void *item_mgr;
+void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1);
+s32 TObjPlayer__sub_8011C914(s32);
+s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
+extern void *item_pmt_tbl;
 s32 TObjPlayer__sub_8011C940(s32 arg0, s32 arg1);
+s32 TItemData__sub_8010EEDC(s32);
+extern s32 lbl_805D2B10;
+s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0);
 }
 
 extern "C" {
 
-void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
-void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1);
-s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0);
-s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
-s32 TItemData__sub_8010EEDC(s32);
-M2C_UNK TItemDrop__sub_8010663C(u32, s32, s32, s32);
-M2C_UNK TItemDrop__sub_80106818(u32, s32, s32);
-M2C_UNK TItemDrop__sub_80106930(u32, s32, s32);
-M2C_UNK TLobby__sub_801044B8(s32 *);
-s32 TObjPlayer__sub_8011C914(s32);
+typedef struct Thing__8011c1e8_8011C000 { u8 a; u8 b; } Thing;
 
-extern u32 item_mgr;
+s32 get_item_pmt_entry__10TObjPlayerFUc(u8 arg0);
+s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0);
+void register_item_drop__10TObjPlayerFPv(void *arg0);
+M2C_UNK set_drop_index__9TItemDropFPvPv(void *, void *);
 
+extern void *item_pmt_tbl;
+
+s32 get_item_pmt_entry__10TObjPlayerFUc(u8 arg0) {
+    void *temp_r5;
+
+    temp_r5 = M2C_FIELD(item_pmt_tbl, void **, 0x50);
+    if ((s32) M2C_FIELD(temp_r5, s32 *, 0) > (s32) arg0) {
+        return M2C_FIELD(temp_r5, s32 *, 4) + ((arg0 * 8) & 0x7F8);
+    }
+    return 0;
+}
+
+extern void *item_pmt_tbl;
+
+s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0) {
+    if (arg0 == 0) {
+        return 0;
+    }
+    return M2C_FIELD(item_pmt_tbl, s32 *, 0x4C) + (arg0 * 0x18);
+}
+
+extern void *item_mgr;
+
+void register_item_drop__10TObjPlayerFPv(void *arg0) {
+    Thing *p = (Thing *) arg0;
+
+    if (p != 0 && item_mgr != 0 && p->a == 1 && p->b == 1) {
+        set_drop_index__9TItemDropFPvPv(item_mgr, p);
+    }
+}
 void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 sp8;
     s32 temp_r5;
-
     sp8 = arg1;
-    if ((u32) item_mgr != 0U) {
+    if ((u32) (*(u32 *)&item_mgr) != 0U) {
         TLobby__sub_801044B8(&sp8);
         temp_r5 = sp8 - 1;
         sp8 = temp_r5;
-        TItemDrop__sub_8010663C(item_mgr, arg0, temp_r5, arg2);
+        TItemDrop__sub_8010663C((*(u32 *)&item_mgr), arg0, temp_r5, arg2);
     }
 }
-
-extern u32 item_mgr;
-
 void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 sp8;
     s32 temp_r4;
-
     sp8 = arg0;
-    if ((u32) item_mgr != 0U) {
+    if ((u32) (*(u32 *)&item_mgr) != 0U) {
         TLobby__sub_801044B8(&sp8);
         temp_r4 = sp8 - 1;
         sp8 = temp_r4;
-        TItemDrop__sub_80106818(item_mgr, temp_r4, arg1);
+        TItemDrop__sub_80106818((*(u32 *)&item_mgr), temp_r4, arg1);
     }
 }
-
-extern u32 item_mgr;
-
 void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 sp8;
     s32 temp_r4;
-
     sp8 = arg0;
-    if ((u32) item_mgr != 0U) {
+    if ((u32) (*(u32 *)&item_mgr) != 0U) {
         TLobby__sub_801044B8(&sp8);
         temp_r4 = sp8 - 1;
         sp8 = temp_r4;
-        TItemDrop__sub_80106930(item_mgr, temp_r4, arg1);
+        TItemDrop__sub_80106930((*(u32 *)&item_mgr), temp_r4, arg1);
     }
 }
-
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
     if ((arg0 & 0x3F) && !(arg0 & 0x80)) {
         return TObjPlayer__sub_8011C914(arg0 + 0x1CB);
     }
     return 0;
 }
-
-extern s32 lbl_805D2B10;
-
 s32 TObjPlayer__sub_8011C940(s32 arg0, s32 arg1) {
     if ((arg0 >= 0) && (arg0 < 8)) {
-        return M2C_FIELD(M2C_FIELD(item_pmt_tbl, s32 *, 0x28), M2C_UNK *, (arg0 * 4)) + (arg1 * 8);
+        return M2C_FIELD(M2C_FIELD((*(u8 * *)&item_pmt_tbl), s32 *, 0x28), M2C_UNK *, (arg0 * 4)) + (arg1 * 8);
     }
     return 0;
 }
-
 s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0) {
     if (arg0 & 0x3F) {
         if (arg0 & 0x80) {

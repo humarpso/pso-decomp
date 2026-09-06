@@ -10,6 +10,10 @@ void set_param__12TObjEneLappyFPvi(void *, s32);
 M2C_UNK TObjPlayer__sub_800AFB30(void *, int);
 extern const f32 lbl_805D9BE0;
 void TObjPlayer__sub_800ACAA8(u8 *arg0);
+s32 TObjEneDellBiter__sub_80087350(s32, s32);
+void refresh_lobby_state__10TObjPlayerFPv(void *);
+s32 send_entity_set_flags__6TLobbyFPv(void *);
+void TObjPlayer__sub_800ACD00(u8 *arg0);
 }
 
 extern "C" {
@@ -47,6 +51,19 @@ void TObjPlayer__sub_800ACAA8(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x368) = 0;
         set_param__12TObjEneLappyFPvi(arg0, 1);
         TObjPlayer__sub_800AFB30((void *) (arg0), (int) (1));
+    }
+}
+void TObjPlayer__sub_800ACD00(u8 *arg0) {
+    u8 *temp_r6;
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9) {
+        M2C_FIELD(arg0, s16 *, 0x326) = 9;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 7;
+        temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r6, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r6, s32 *, 0x18) & 0xFFFF7FFE);
+        TObjEneDellBiter__sub_80087350((s32) (arg0 + 0x2FC), 0xF1);
+        refresh_lobby_state__10TObjPlayerFPv(arg0);
+        send_entity_set_flags__6TLobbyFPv(arg0);
+        M2C_FIELD(arg0, s32 *, 0x374) = 0;
     }
 }
 

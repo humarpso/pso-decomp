@@ -7,7 +7,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TLobby__sub_8020C1F0(int, int, void *);
 void qst_op_if_zone_clear(s32 arg0, s32 arg1);
-M2C_UNK push_op_arg__6TLobbyFi(int, void *);
 void qst_op_nop_42_stack_push(s32 arg0);
 void qst_op_jmpi_le(s32 arg0, s32 arg1, s32 arg2);
 void qst_op_jmp_le(s32 arg0, s32 arg1, s32 arg2);
@@ -55,6 +54,16 @@ M2C_UNK TLobby__sub_8024AC20(void *);
 extern s32 lbl_805D53A0;
 extern u8 *TLobby__data_805D5E7C;
 void qst_op_winend(void);
+M2C_UNK DateToSeconds__FP9DateStampPi(void *, void *);
+M2C_UNK getDateStamp__FP9DateStamp(void *);
+extern int* TLobby__data_805D5E78;
+void qst_op_gettime(u8 arg0);
+M2C_UNK push_op_arg__6TLobbyFi(int);
+extern int* TLobby__data_805D5E74;
+extern int TLobby__data_805D5E90;
+void qst_op_call(u16 arg0);
+extern int* TLobby__data_805D5E78;
+void qst_op_addi(int a0, int a1);
 }
 
 extern "C" {
@@ -107,6 +116,18 @@ int TLobby__sub_801EF768(void* p) { return update_4p_battle_ctrls__10TObjPlayerF
 int TLobby__sub_801EF788(void* p) { return fn_8019608C(p); }
 
     extern int* TLobby__data_805D5E78;
+
+#pragma push
+#pragma fp_contract on
+void qst_op_gettime(u8 arg0) {
+    M2C_UNK spC;
+    s32 sp8;
+    getDateStamp__FP9DateStamp((void *) (&spC));
+    DateToSeconds__FP9DateStampPi((void *) (&spC), (void *) (&sp8));
+    ((s32 *) (*(s32 *)&TLobby__data_805D5E78))[arg0] = sp8;
+}
+#pragma pop
+
 void qst_op_chk_ene_num(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_8020C118(); }
 
 extern s32 lbl_805D53A0;
@@ -188,7 +209,7 @@ void set_slot__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = 
     extern int TLobby__data_805D5E90;
 
 void qst_op_nop_42_stack_push(s32 arg0) {
-    push_op_arg__6TLobbyFi((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
+    push_op_arg__6TLobbyFi((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))));
 }
 
 void qst_op_jmpi_le(s32 arg0, s32 arg1, s32 arg2) {
@@ -311,6 +332,14 @@ void qst_op_jmp_eq(s32 arg0, s32 arg1, s32 arg2) {
     }
 }
 
+#pragma push
+#pragma fp_contract on
+void qst_op_call(u16 arg0) {
+    push_op_arg__6TLobbyFi((int)((void *) ((*(s32 *)&TLobby__data_805D5E90))));
+    (*(s32 *)&TLobby__data_805D5E90) = ((s32 *) (*(s32 *)&TLobby__data_805D5E74))[arg0];
+}
+#pragma pop
+
 void TLobby__sub_801F2214(s32 arg0, u32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
@@ -380,6 +409,12 @@ void qst_op_subi(s32 arg0, s32 arg1) {
     temp_r3 = (arg0 * 4) & 0x3FC;
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) = M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r3) - arg1;
 }
+
+#pragma push
+#pragma scheduling off
+void qst_op_addi(int a0, int a1) { TLobby__data_805D5E78[(unsigned char)(a0)] += a1; }
+#pragma pop
+
 void qst_op_add(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;

@@ -9,6 +9,7 @@ extern "C" {
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
 s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
 void TObjPlayer__sub_800113E4(u8 *arg0, s16 arg1);
+s32 TItemProShield__sub_8001140C(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -40,7 +41,23 @@ void TObjPlayer__sub_800113E4(u8 *arg0, s16 arg1) {
     TObjPlayer__sub_800113A8((u8 *)(arg0), (s16 *)(arg0 + 0x32C));
 }
 
-int TItemProShield__sub_8001140C(void) { return 0; }
+#pragma push
+#pragma scheduling off
+s32 TItemProShield__sub_8001140C(u8 *arg0, s16 arg1) {
+    s16 temp_r4;
+    s16 temp_r0;
+    if (arg1 < 0) {
+        return 0;
+    }
+    M2C_FIELD(arg0, s16 *, 0x32C) = (s16) (M2C_FIELD(arg0, s16 *, 0x32C) + arg1);
+    if (M2C_FIELD(arg0, s16 *, 0x32C) > M2C_FIELD(arg0, s16 *, 0x2B8)) {
+        M2C_FIELD(arg0, s16 *, 0x32C) = M2C_FIELD(arg0, s16 *, 0x2B8);
+        return 0;
+    }
+    return 1;
+}
+#pragma pop
+
 int TObjectV8047c128_subtract_hp(void* a0 = 0, void* a1 = 0) { return 0; }
 
 }

@@ -8,8 +8,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss2Tentacle__sub_80039DB0(void* p);
+void TBoss2Tentacle__sub_80039E88(u8 *arg0, u8 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -28,7 +32,6 @@ void TBoss2Tentacle__sub_80039DC8(void* p);
 void TBoss2Tentacle__sub_80039DD4(void* p);
 void TBoss2Tentacle__sub_80039E54(void* a0);
 void TBoss2Tentacle__sub_80039E68(void* p);
-int TBoss2Tentacle__sub_80039E88(void);
 void TBoss2Tentacle__sub_8003A0A8(void);
 void forward_80039DC8__14TBoss2TentacleFPv(void* p);
 void init_motion_from_table__14TBoss2TentacleFPv(void* a0);
@@ -70,7 +73,16 @@ void TBoss2Tentacle__sub_80039E54(void* a0) { *(float*)((char*)a0 + 0x118) = lbl
 
 void TBoss2Tentacle__sub_80039E68(void* p) { TBoss2Tentacle__sub_80039D98((void*)(p)); }
 
-int TBoss2Tentacle__sub_80039E88(void) { return 0; }
+void TBoss2Tentacle__sub_80039E88(u8 *arg0, u8 *arg1, s32 arg2) {
+    s32 var_r5;
+    var_r5 = arg2;
+    if ((var_r5 <= 0) || (var_r5 >= 0x258)) {
+        var_r5 = 0x78;
+    }
+    M2C_FIELD(arg0, s32 *, 0x154) = var_r5;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x12C, arg1);
+    TBoss2Tentacle__sub_80039DB0((void*)(arg0));
+}
 
 void forward_80039DC8__14TBoss2TentacleFPv(void* p) { TBoss2Tentacle__sub_80039DC8((void*)(p)); }
 

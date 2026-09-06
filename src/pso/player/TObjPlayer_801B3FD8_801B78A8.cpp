@@ -25,6 +25,11 @@ struct VObj_801B7AC8_801B3FD8 : Base_801B7AC8_801B3FD8 {
 };
 
 extern "C" {
+f32 TObjPlayer__sub_803D89C0();
+void TObjPlayer__sub_801B7930(void *arg0, void *arg1, void *arg2);
+}
+
+extern "C" {
 
 int TObjPlayer__sub_801B7B58(void);
 void TObjPlayer__vt15(void *arg0);
@@ -58,6 +63,17 @@ void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0) {
     M2C_FIELD(arg1, f32 *, 4) = (f32) TObjPlayer__data_805DC278;
     M2C_FIELD(arg1, f32 *, 8) = (f32) (farg0 * TBoss8Dragon__sub_803D64DC(temp_r31, temp_f1));
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_801B7930(void *arg0, void *arg1, void *arg2) {
+    f32 temp_f2;
+    temp_f2 = -TObjPlayer__sub_803D89C0();
+    M2C_FIELD(arg2, f32 *, 0) = (f32) ((temp_f2 * M2C_FIELD(arg1, f32 *, 0)) + M2C_FIELD(arg0, f32 *, 0));
+    M2C_FIELD(arg2, f32 *, 4) = (f32) ((temp_f2 * M2C_FIELD(arg1, f32 *, 4)) + M2C_FIELD(arg0, f32 *, 4));
+    M2C_FIELD(arg2, f32 *, 8) = (f32) ((temp_f2 * M2C_FIELD(arg1, f32 *, 8)) + M2C_FIELD(arg0, f32 *, 8));
+}
+#pragma pop
 
 void TObjPlayer__vt15(void *arg0) {
     struct VObj_801B7AC8_801B3FD8 *o = (struct VObj_801B7AC8_801B3FD8 *)arg0;

@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802012AC();
+M2C_UNK memcpy(void *, s32, M2C_UNK);
+extern s32 *lbl_805D5F6C;
+extern s32 lbl_805D5F9C;
+s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0);
+}
+
+extern "C" {
 
 void create_instance__23TAdSinglePlyChrSelectGCFv(void);
 void game_state_load(void);
@@ -29,6 +38,25 @@ s32 init_windows__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 }
 
 extern s32 *lbl_805D5F6C;
+
+#pragma push
+#pragma fp_contract on
+s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0) {
+    u32 temp_r31;
+    u32 temp_r3;
+    memcpy((void *)((*(u32 * *)&lbl_805D5F6C)), (s32)(lbl_805D5F9C + 0x2048), (M2C_UNK)(0x11C));
+    temp_r31 = *(*(u32 * *)&lbl_805D5F6C);
+    *(*(u32 * *)&lbl_805D5F6C) = 0U;
+    temp_r3 = ((u32)TAdSinglePlyChrSelectGC__sub_80201204((s32 *)((*(u32 * *)&lbl_805D5F6C)), (M2C_UNK)(0x11C)));
+    if (temp_r3 != temp_r31) {
+        if (arg0 == 0) {
+            TAdSinglePlyChrSelectGC__sub_802012AC();
+        }
+        return 0;
+    }
+    return 1;
+}
+#pragma pop
 
 void create_instance__23TAdSinglePlyChrSelectGCFv(void) {
     *lbl_805D5F6C = 0;

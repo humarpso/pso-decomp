@@ -5,12 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_80156844(void *, void *, M2C_UNK);
+void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0);
+}
+
+extern "C" {
 
 s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
 s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1);
 int get_barrier_count__15TObjEneMe1GiGueFv(void);
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0);
-M2C_UNK TObjEneMe1GiGue__sub_802CACD8(s32);
 s32 TObjPlayer__sub_80016FF8();
 s32 *csnVectorUnder(s32, s32, M2C_UNK, s32);
 s32 get_field_0c__10TObjPlayerFPv(s32);
@@ -29,9 +35,27 @@ s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1) {
     return (u32)__cntlzw(*temp_r3 & 4) >> 5;
 }
 
+#pragma push
+#pragma fp_contract on
+void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0) {
+    s32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x388);
+    if (temp_r4 & 0x40000) {
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r4 & 0xFFFBFFFF);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
+        TObjPlayer__sub_80156844(arg0, arg0 + 0x38, 0);
+        return;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 7) {
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r4 & 0xFFFFFFFE);
+        update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
+    }
+}
+#pragma pop
+
 s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0) {
     if (TObjPlayer__sub_80016FF8() != 0) {
-        TObjEneMe1GiGue__sub_802CACD8(arg0);
+        TObjEneMe1GiGue__sub_802CACD8((u8 *)(arg0));
         return 1;
     }
     return 0;

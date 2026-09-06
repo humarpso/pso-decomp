@@ -1,11 +1,10 @@
-#include "types.h"
+#include "pso/item/TItemEffectWeapon.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TItemEffectWeapon__sub_803639F0(u32 arg0);
 }
 
 extern "C" {
@@ -17,7 +16,6 @@ void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param);
 void *__dt__17TItemEffectWeaponFv(void *self, s32 flag);
 void free_static_effects__17TItemEffectWeaponFv(void);
 void push_trail_entry__17TItemEffectWeaponFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
-void step__17TItemEffectWeaponFv(void *self);
 s32   TItemEffectWeapon__sub_80363A1C(void);
 void decrement_timer__17TItemEffectWeaponFPv(void *, s32);
 void *destroy__11TItemMagSubFPvs(void *, s32);
@@ -44,24 +42,28 @@ void *TItemEffectWeapon__sub_803633B4(void *arg0, s16 arg1) {
 void TItemEffectWeapon__sub_8036340C(void) {  }
 void TItemEffectWeapon__sub_80363410(void) {  }
 
-void step__17TItemEffectWeaponFv(void *self) {
-    s32 off;
-    s8 *elem;
+}
+
+void TItemEffectWeapon::step() {
+    s32 offset;
+    TrailVertex* segment;
     s32 i;
     i = 0;
-    off = 0;
-    while (i != M2C_FIELD(self, s32 *, 0x20) / 2) {
-        elem = M2C_FIELD(self, s8 **, 0x1C) + off;
-        decrement_timer__17TItemEffectWeaponFPv(elem + 0xC, 0x3F);
-        if ((*(u32 *)(elem + 0xC) & 0xFF000000) == 0) {
-            M2C_FIELD(self, s32 *, 0x20) = i << 1;
+    offset = 0;
+    while (i != vertex_count / 2) {
+        segment = (TrailVertex*)((u8*)vertices + offset);
+        decrement_timer__17TItemEffectWeaponFPv(&segment[0].color, 0x3F);
+        if ((segment[0].color & 0xFF000000) == 0) {
+            vertex_count = i << 1;
             return;
         }
-        decrement_timer__17TItemEffectWeaponFPv(M2C_FIELD(self, s8 **, 0x1C) + off + 0x1C, 0x3F);
+        decrement_timer__17TItemEffectWeaponFPv((u8*)vertices + offset + 0x1C, 0x3F);
         i++;
-        off += 0x20;
+        offset += 0x20;
     }
 }
+
+extern "C" {
 
 void push_trail_entry__17TItemEffectWeaponFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     s32 temp_r0;
@@ -95,7 +97,7 @@ extern void *__vt__17TItemEffectWeapon[];
 void *__dt__17TItemEffectWeaponFv(void *self, s32 flag) {
     if (self) {
         M2C_FIELD(self, void **, 0x18) = __vt__17TItemEffectWeapon;
-        TItemEffectWeapon__sub_803639F0((u32)(M2C_FIELD(self, s32 *, 0x1C)));
+        TItemEffectWeapon::release_trail_buffer((void*)M2C_FIELD(self, s32 *, 0x1C));
         destroy__11TItemMagSubFPvs(self, 0);
         if ((s16)flag > 0) {
             free_to_heap__11TItemMagSubFPv(self);
@@ -121,11 +123,16 @@ void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
     extern int lbl_805D6FB0;
     extern int lbl_805D6FB4;
 
-void TItemEffectWeapon__sub_803639F0(u32 arg0) {
+}
+
+void TItemEffectWeapon::release_trail_buffer(void* buffer) {
+    u32 arg0 = (u32)buffer;
     if (arg0 != 0U) {
         M2C_FIELD((*(s32 *)&lbl_805D6FB4), M2C_UNK *, ((((u32) ((s32) (arg0 - (*(s32 *)&lbl_805D6FB0)) / 16)) >> 3) & 0x1FFFFFFC)) = 0;
     }
 }
+
+extern "C" {
 
 void free_static_effects__17TItemEffectWeaponFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D6FB4)); free__11TOBoss4RockFUi((void*)(lbl_805D6FB0)); lbl_805D6FB4 = 0; lbl_805D6FB0 = 0; }
 

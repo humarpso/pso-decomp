@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEneDelDepth__sub_80315D60(f32, f32, f32, f32);
+extern const f32 TObjEneDelDepth__data_805DF258;
+void TObjEneDelDepth__sub_80315D34(f32 farg0);
+}
+
+extern "C" {
 
 int get_data__15TObjEneDelDepthFv(void);
 void reset_globals__15TObjEneDelDepthFv(void);
@@ -29,6 +35,11 @@ void reset_globals__15TObjEneDelDepthFv(void) {
 }
 
     extern int TObjEneDelDepth__data_805D6AC4;
+
+void TObjEneDelDepth__sub_80315D34(f32 farg0) {
+    TObjEneDelDepth__sub_80315D60(farg0, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258, TObjEneDelDepth__data_805DF258);
+}
+
 int get_data__15TObjEneDelDepthFv(void) {  return TObjEneDelDepth__data_805D6AC4; }
 
 }

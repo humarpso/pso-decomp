@@ -9,11 +9,13 @@ M2C_UNK TOSwitchAttack__sub_80087278(void *, int, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 TBoss6Type2__sub_802BD014(void * a0, s32 a1);
 void TBoss6Type2__sub_802BF834(u8 *arg0);
+int TBoss6Type2__sub_802BDC5C(void*);
+int TBoss6Type2__sub_802BDDF8(void*, void*);
+void TBoss6Type2__sub_802BF65C(u8 *arg0);
 }
 
 extern "C" {
 
-int TBoss6Type2__sub_802BF65C(void);
 int TBoss6Type2__sub_802BF6CC(void);
 void TBoss6Type2__sub_802BF904(void* p);
 void TBoss6Type2__sub_802BFA1C(u8 *arg0);
@@ -96,7 +98,26 @@ void update_zako_spawn_timer__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
-int TBoss6Type2__sub_802BF65C(void) { return 0; }
+void TBoss6Type2__sub_802BF65C(u8 *arg0) {
+    s32 temp_r0;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x374);
+        switch (temp_r0) {
+        case 6:
+            M2C_FIELD(arg0, s32 *, 0x46C) = 0;
+            TBoss6Type2__sub_802BDDF8((void*)(arg0), (void*)(0xC));
+            return;
+        case 9:
+            M2C_FIELD(arg0, s32 *, 0x46C) = 1;
+            TBoss6Type2__sub_802BDDF8((void*)(arg0), (void*)(0xC));
+            return;
+        default:
+            TBoss6Type2__sub_802BDC5C((void*)(arg0));
+            break;
+        }
+    }
+}
+
 int TBoss6Type2__sub_802BF6CC(void) { return 0; }
 
 void update_zako_phase__11TBoss6Type2FPv(void *arg0) {

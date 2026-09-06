@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void TWindowSubStatusDisp__sub_8025AC50(void *, u32, s32);
+void TWindowDD__sub_803412F0(u8 *arg0, u32 arg1);
+}
+
+extern "C" {
 
 void init_and_set_field50__9TWindowDDFPvPv(void *arg0, void *arg1);
 void update_position__9TWindowDDFPvi(u8 *arg0, s32 arg1);
@@ -25,6 +31,13 @@ void update_position__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
     }
     if (M2C_FIELD(arg0, f32 *, 0x70) < lbl_805DFC94) {
         M2C_FIELD(arg0, f32 *, 0x34) = (f32) (M2C_FIELD(arg0, f32 *, 0x34) - M2C_FIELD(arg0, f32 *, 0x3C));
+    }
+}
+void TWindowDD__sub_803412F0(u8 *arg0, u32 arg1) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0));
+    if (temp_r3 != NULL) {
+        TWindowSubStatusDisp__sub_8025AC50(temp_r3, arg1, 0x80);
     }
 }
 

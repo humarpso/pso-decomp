@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(s32);
+f32 fn_8013157C(s32, s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern s32 lbl_805D53A0;
+s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0);
+}
+
+extern "C" {
 
 void TObjCityMainWarp__sub_80186AB8(void);
 void reset__16TObjCityMainWarpFv(void);
@@ -60,5 +69,22 @@ void set_active_bit__16TObjCityMainWarpFv(void) {
 void TObjCityMainWarp__sub_80186AB8(void) {  }
 void reset__16TObjCityMainWarpFv(void) { TObjCityMainWarp__sub_80186634(); TObjCityMainWarp__sub_801868A8(0); }
 void set_flag70_bit10__16TObjCityMainWarpFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x10; }
+#pragma push
+#pragma fp_contract on
+s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0) {
+    s32 temp_r3;
+    s32 temp_r31;
+    s32 temp_r3b;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (temp_r3 != 0) {
+        temp_r31 = TObjPlayer__sub_800196EC();
+        temp_r3b = get_field_3e4__10TObjPlayerFPv(temp_r3);
+        if ((temp_r3b == temp_r31) && (fn_8013157C(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
+            return temp_r3;
+        }
+    }
+    return 0;
+}
+#pragma pop
 
 }

@@ -12,6 +12,17 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 s32 TWindowSubShortMail__sub_8027E9FC(void);
+s32 get_main_phase();
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
+M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
+M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
+s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
+s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
+extern const f32 TWindowSubShortMail__data_805DD6C8;
+s32 TWindowSubShortMail__sub_8027EB90(void);
 }
 
 extern "C" {
@@ -199,6 +210,27 @@ s32 create_keyboard__19TWindowSubShortMailFv(void) {
 }
 
 extern const f32 lbl_805DD6D4;
+
+#pragma push
+#pragma fp_contract on
+s32 TWindowSubShortMail__sub_8027EB90(void) {
+    s32 temp_r31;
+    s32 msg;
+    temp_r31 = draw_card_icon__17TWindowSubComCardFiii((s32)(TWindowSubComCard__sub_8026CBB8((M2C_UNK)(0x9D))), (M2C_UNK)(3), (s32)(get_message_10__20TWindowSubStatusDispFPv(0x1E)));
+    if (get_main_phase() == 0xF) {
+        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x7F), 6, 0xB);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x59), 6, 0xF);
+    } else {
+        draw_text_gray__17TWindowSubComCardFiiii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x7F), 6, 0xB);
+        draw_text_gray__17TWindowSubComCardFiiii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x59), 6, 0xF);
+    }
+    forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x5A), 6, 0x11);
+    set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
+    TWindowSubComCard__sub_80265E60(temp_r31, TWindowSubShortMail__data_805DD6C8);
+    TWindowSubComCard__sub_80265C30(temp_r31);
+    return temp_r31;
+}
+#pragma pop
 
 s32 create_menu__19TWindowSubShortMailFv(void) {
     s32 temp_r31;

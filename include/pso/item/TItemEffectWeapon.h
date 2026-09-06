@@ -3,12 +3,29 @@
 
 #include "types.h"
 
-struct TItemEffectWeapon
-{
-    u32 m_1c;
-    u32 m_20;
-    u32 m_24;
-    u32 m_28;
+class TItemEffectWeapon {
+public:
+    struct TrailVertex {
+        f32 x, y, z;
+        u32 color;
+    };
+
+    void step();
+    static void release_trail_buffer(void* buffer);
+
+    u8 object_state[0x1C];
+    TrailVertex* vertices;
+    s32 vertex_count;
+    u32 color;
+    s32 field_28;
 };
+
+#include <stddef.h>
+typedef char WeaponTrailVertexSize[(sizeof(TItemEffectWeapon::TrailVertex) == 0x10) ? 1 : -1];
+typedef char WeaponTrailVertexColor[(offsetof(TItemEffectWeapon::TrailVertex, color) == 0xC) ? 1 : -1];
+typedef char WeaponTrailBufferOffset[(offsetof(TItemEffectWeapon, vertices) == 0x1C) ? 1 : -1];
+typedef char WeaponTrailCountOffset[(offsetof(TItemEffectWeapon, vertex_count) == 0x20) ? 1 : -1];
+typedef char WeaponTrailColorOffset[(offsetof(TItemEffectWeapon, color) == 0x24) ? 1 : -1];
+typedef char WeaponTrailSize[(sizeof(TItemEffectWeapon) == 0x2C) ? 1 : -1];
 
 #endif

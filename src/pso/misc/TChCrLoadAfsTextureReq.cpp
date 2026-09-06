@@ -5,6 +5,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *, int, int);
+s32 TLobby__sub_8001ED88(int);
+s32 fn_8001ED90(int);
+u32 TObjFish__sub_8001EDC4(int, int);
+M2C_UNK TLobby__sub_8001FE7C(int, int);
+u32 TLobby__sub_8002058C(int, int, void *, void *, int, int, int);
+u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+M2C_UNK fn_8028C8A8(void *);
+M2C_UNK TLobby__sub_8028D628(int, int);
+s32 start_load_default__6TLobbyFPv(int);
+void TLobby__sub_8028C530(u8 *arg0);
+}
+
+extern "C" {
 
 f32 TLobby__sub_8028C50C(void);
 void * create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1);
@@ -88,5 +102,45 @@ void * create__22TChCrLoadAfsTextureReqFPvPv(void *arg0, void *arg1) {
 f32 TLobby__sub_8028C50C(void) {
     return (f32) cancel_dvd_async();
 }
+#pragma push
+#pragma fp_contract on
+void TLobby__sub_8028C530(u8 *arg0) {
+    s32 *temp_r5;
+    s32 temp_r0;
+    s32 temp_r4;
+    u32 temp_r3;
+    u32 var_r31;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x74) - 1;
+    M2C_FIELD(arg0, s32 *, 0x74) = temp_r0;
+    if (temp_r0 < 0) {
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
+            TLobby__sub_8001FE7C((int) M2C_FIELD(arg0, u32 *, 0x68), (int) (1));
+        } else {
+            return;
+        }
+        var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
+        if (var_r31 != 0U) {
+            var_r31 = TLobby__sub_8002058C((int) (var_r31), (int) (6), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64), (int) (0), (int) (0), (int) (start_load_default__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 0x24)))));
+        }
+        M2C_FIELD(arg0, u32 *, 0x68) = var_r31;
+        if (var_r31 != 0U) {
+            M2C_FIELD(arg0, s32 *, 0x74) = 0x12C;
+        }
+    } else if (fn_8001ED90((int) (M2C_FIELD(arg0, u32 *, 0x68))) != 0) {
+        temp_r3 = TObjFish__sub_8001EDC4((int) (M2C_FIELD(arg0, u32 *, 0x68)), (int) (0));
+        *M2C_FIELD(arg0, u32 **, 0x1C) = temp_r3;
+        if (temp_r3 != 0U) {
+            TLobby__sub_8028D628((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (TLobby__sub_8001ED88((int) (M2C_FIELD(arg0, u32 *, 0x68)))));
+            TLobby__sub_8001FE7C((int) (M2C_FIELD(arg0, u32 *, 0x68)), (int) (1));
+            M2C_FIELD(arg0, u32 *, 0x68) = 0U;
+            fn_8028C8A8((void *) (arg0));
+            temp_r5 = M2C_FIELD(arg0, s32 **, 0x28);
+            temp_r4 = *temp_r5;
+            *temp_r5 = temp_r4 & ~M2C_FIELD(arg0, s32 *, 0x20);
+            queue_destruction__7TObjectFv((void *) (arg0), (int) (temp_r4), (int) (temp_r5));
+        }
+    }
+}
+#pragma pop
 
 }

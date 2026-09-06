@@ -5,6 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TObjBoss2Tunnel__sub_8007E764(void *arg0, void *arg1, s32 arg2);
+s32 TCameraCtrl__sub_80069258();
+M2C_UNK TCameraCtrl__sub_803D8934(M2C_UNK, s32, s32);
+M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0);
@@ -92,5 +104,30 @@ extern f32 TObjBoss2Tunnel__data_805D926C;
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0) {
     return (TObjBoss2Tunnel__data_805D926C * farg0) / TBoss8Dragon__sub_803D64C0(arg0 / 2);
 }
+#pragma push
+#pragma fp_contract on
+void TObjBoss2Tunnel__sub_8007E764(void *arg0, void *arg1, s32 arg2) {
+    f32 temp_f0;
+    f32 temp_f1;
+    f32 temp_f31;
+    f32 temp_f3;
+    temp_f31 = TBoss8Dragon__sub_803D64DC(arg2);
+    temp_f1 = TBoss8Dragon__sub_803D64C0(arg2);
+    temp_f0 = M2C_FIELD(arg0, f32 *, 0);
+    temp_f3 = M2C_FIELD(arg0, f32 *, 8);
+    M2C_FIELD(arg1, f32 *, 8) = (f32) ((temp_f31 * temp_f3) - (temp_f1 * temp_f0));
+    M2C_FIELD(arg1, f32 *, 0) = (f32) ((temp_f1 * temp_f3) + (temp_f31 * temp_f0));
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2) {
+    TObjPlayer__sub_803D9B2C();
+    TCameraCtrl__sub_803D976C(0, TCameraCtrl__sub_80069258());
+    TCameraCtrl__sub_803D8934(0, arg1, arg2);
+    TObjPlayer__sub_803D9B78();
+}
+#pragma pop
 
 }

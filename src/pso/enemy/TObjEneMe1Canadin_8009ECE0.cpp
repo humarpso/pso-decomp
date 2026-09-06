@@ -106,6 +106,135 @@ struct VBase_8009ED5C_8009ECE0 {
     virtual void m98();
 };
 
+struct VBase_18_7dcedb { char pad[0x18]; };
+
+struct VObj_18_7dcedb : VBase_18_7dcedb {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual s32 m81();
+    virtual void m82();
+    virtual M2C_UNK m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual M2C_UNK m98();
+    virtual void m99();
+    virtual void m100();
+    virtual void m101();
+    virtual void m102();
+    virtual void m103();
+    virtual void m104();
+    virtual void m105();
+    virtual void m106();
+    virtual void m107();
+    virtual void m108();
+    virtual void m109();
+    virtual void m110();
+    virtual void m111();
+    virtual M2C_UNK m112();
+};
+
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+s32 check_demo_mode__10TObjPlayerFv(void);
+void TObjEneMe1CanadinLeader__sub_8009E504(void *);
+void copy_pos__17TObjEneMe1CanadinFPv(u8 *arg0);
+int set_player_state_default__12TBoss8DragonFPv(void *);
+u8 * TPhotonMylla__sub_80154CB4(u16);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+void run_task__17TObjEneMe1CanadinFv(u8 *arg0);
+}
+
 extern "C" {
 
 void TObjEneMe1Canadin__sub_8009EE18(void);
@@ -186,6 +315,25 @@ void set_mode0xD_unless_0xBor0xD__17TObjEneMe1CanadinFPv(void *arg0) {
 void TObjEneMe1Canadin__sub_8009EE84(void) {  }
 
 extern M2C_UNK __vt__17TObjEneMe1Canadin[];
+
+void run_task__17TObjEneMe1CanadinFv(u8 *arg0) {
+    u8 *temp_r3;
+    if (check_demo_mode__10TObjPlayerFv() != 0) {
+        ((VObj_18_7dcedb *)(arg0))->m112();
+        return;
+    }
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x3C4) == 1) && ((M2C_FIELD(arg0, u8 **, 0x3C0) = TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0x4C8)), temp_r3 = M2C_FIELD(arg0, u8 **, 0x3C0), ((temp_r3 == NULL) != 0)) || (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0))) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    if (((VObj_18_7dcedb *)(arg0))->m81() != 4) {
+        ((VObj_18_7dcedb *)(arg0))->m83();
+        TObjEneMe1CanadinLeader__sub_8009E504(arg0);
+    }
+    copy_pos__17TObjEneMe1CanadinFPv((u8 *)(arg0));
+    set_player_state_default__12TBoss8DragonFPv(arg0);
+    ((VObj_18_7dcedb *)(arg0))->m98();
+}
 
 void *__dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

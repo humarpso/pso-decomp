@@ -13,6 +13,12 @@ s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 extern const f32 lbl_805DF214;
 s32 TAdChrSelASlotGC__sub_8030CA84(s32 arg0, s32 arg1);
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
+M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(s32, s32, s32, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, M2C_UNK, M2C_UNK);
+extern const f32 lbl_805DF20C;
+s32 TAdChrSelASlotGC__sub_8030C978(void *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -67,6 +73,17 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_all_slots__15TAdChrSelSlotGCFPv(s32);
 
 extern f32 lbl_805DF210;
+
+#pragma push
+#pragma fp_contract on
+s32 TAdChrSelASlotGC__sub_8030C978(void *arg0, s32 arg1, s32 arg2) {
+    s32 temp_r31;
+    temp_r31 = TWindowMessageYesNo__sub_802A59D8((s32)(arg0), (s32)((void *) (arg2)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((s32)((int) (temp_r31)), (s32)((int) (TAdSinglePlyChrSelectGC__sub_80132F2C((M2C_UNK)((int) (0x16)), (M2C_UNK)((int) (0x1D))))), (s32)((void *) (arg1)), (f32) (lbl_805DF20C));
+    free_member__17TWindowSubComCardFPv((s32)((int) (temp_r31)), (M2C_UNK)((int) (1)));
+    return temp_r31;
+}
+#pragma pop
 
 s32 open_yes_no_window__16TAdChrSelASlotGCFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;

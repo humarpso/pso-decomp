@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TObjEneDellBiter__sub_80087350(s32, s32);
+void refresh_lobby_state__10TObjPlayerFPv(void *);
+s32 send_entity_set_flags__6TLobbyFPv(void *);
+void TObjGrass__vt61(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjGrass__sub_800BCA2C(void);
 s32 TObjGrass__vt34(void *arg0);
@@ -35,6 +42,20 @@ M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 
 void TObjGrass__sub_800BCA2C(void) {  }
+
+void TObjGrass__vt61(u8 *arg0) {
+    u8 *temp_r6;
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 8) {
+        M2C_FIELD(arg0, s16 *, 0x326) = 8;
+        M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 6;
+        temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r6, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r6, s32 *, 0x18) & 0xFFFF7FFE);
+        TObjEneDellBiter__sub_80087350((s32) (arg0 + 0x2FC), 0xF2);
+        refresh_lobby_state__10TObjPlayerFPv(arg0);
+        send_entity_set_flags__6TLobbyFPv(arg0);
+    }
+}
 
 void TObjGrass__vt60(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 7) {

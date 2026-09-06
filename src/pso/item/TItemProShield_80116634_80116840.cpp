@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK obj_getField1c(void *);
+int get_type_id__10TObjPlayerFPv();
+M2C_UNK TObjPlayer__sub_80116620(s32, M2C_UNK);
+s32 find_by_pos__11TMainCursorFiss(M2C_UNK, M2C_UNK, M2C_UNK);
+s32 is_current_room__10TObjRoomIdFPv(void *);
+M2C_UNK TObjPlayer__sub_801CCB58(M2C_UNK, M2C_UNK);
+void TItemProShield__sub_801168D4(void *arg0);
+}
+
+extern "C" {
 
 struct Base_80116A5C_80116634 { char pad[0x18]; };
 struct VObj_80116A5C_80116634 : Base_80116A5C_80116634 {
@@ -42,6 +52,29 @@ void *init__14TItemProShieldFPv(void *arg0) {
 }
 
 extern M2C_UNK lbl_8049F8E0[];
+
+#pragma push
+#pragma scheduling off
+void TItemProShield__sub_801168D4(void *arg0) {
+    s32 temp_r3;
+    u32 temp_r424;
+    int temp_r31;
+    if (is_current_room__10TObjRoomIdFPv(M2C_FIELD(arg0, void **, 0xF0)) != 0) {
+        temp_r424 = (u32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), u32 *, 0x424);
+        if (temp_r424 != 0U) {
+            temp_r3 = find_by_pos__11TMainCursorFiss(temp_r424, 4, 9);
+            if (temp_r3 != 0) {
+                TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
+                if ((u16) get_type_id__10TObjPlayerFPv() != 0xffffU) {
+                    TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
+                    temp_r31 = get_type_id__10TObjPlayerFPv();
+                    TObjPlayer__sub_801CCB58(obj_getField1c(M2C_FIELD(arg0, void **, 0xF0)), temp_r31);
+                }
+            }
+        }
+    }
+}
+#pragma pop
 
 void *TItemProShield__sub_80116970(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -325,6 +325,11 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 s32 TObjEneMorfos__sub_80334884(void *);
 s32 TObjEneMorfos__sub_803348F0(void *);
 void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+extern const f32 lbl_805DF898;
+extern const f32 TObjEneMorfos__data_805DF89C;
+void TObjEneMorfos__sub_80334524(u8 *arg0);
 }
 
 extern "C" {
@@ -508,6 +513,13 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
     extern int TObjEneMorfos__data_805D6D10;
     extern float lbl_805D6D30;
     extern float lbl_805D6D34;
+
+void TObjEneMorfos__sub_80334524(u8 *arg0) {
+    if ((objInBand__FP7GameObjf(arg0, lbl_805DF898) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneMorfos__data_805DF89C) != 0)) {
+        TBoss3Volopt__sub_8022675C(0x4003A823, (u32) (arg0 + 0x38), 0, 0);
+    }
+}
+
 int TObjEneMorfos__sub_80334704(void) { lbl_805D6D30 = *(float*)((char*)TObjEneMorfos__data_805D6D10 + 0x0); lbl_805D6D34 = *(float*)((char*)TObjEneMorfos__data_805D6D10 + 0x4); return TObjEneMorfos__data_805D6D10; }
 
 void TObjEneMorfos__vt86(void *arg0) {

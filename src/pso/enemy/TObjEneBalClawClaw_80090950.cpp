@@ -16,6 +16,71 @@ struct VB_80090950 : VBaseB_80090950 {
     virtual M2C_UNK m8();
 };
 
+struct VBase_18_4841bb { char pad[0x18]; };
+
+struct VObj_18_4841bb : VBase_18_4841bb {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual M2C_UNK m53();
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TObjEneBalClawClaw__sub_80090798(void *);
+void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
+}
+
 extern "C" {
 
 s32 check_active__18TObjEneBalClawClawFPv(void *arg0);
@@ -57,6 +122,15 @@ extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D9698;
 extern const f32 lbl_805D969C;
 extern const f32 lbl_805D96A0;
+
+void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
+    M2C_FIELD(arg0, s32 *, 0x60) = arg2;
+    M2C_FIELD(arg0, s16 *, 0x33E) = arg3;
+    M2C_FIELD(arg0, s16 *, 0x32C) = arg3;
+    TObjEneBalClawClaw__sub_80090798(arg0);
+    ((VObj_18_4841bb *)(arg0))->m53();
+}
 
 void render__18TObjEneBalClawClawFPv(u8 *arg0) {
     M2C_UNK var_r30;

@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s32, f32, f32, f32);
+extern const f32 lbl_805DF7B8;
+extern const f32 lbl_805DF7BC;
+void TAdWarningBaseGC__sub_8032D514(void *arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 void *TAdWarningBaseGC__ct(void *arg0);
 void TAdWarningBaseGC__sub_8032D1E4(void);
@@ -66,6 +73,13 @@ void *TAdWarningBaseGC__ct(void *arg0) {
 
 extern u32 lbl_805D6D00;
 extern f32 lbl_805DF7C0;
+
+#pragma push
+#pragma fp_contract on
+void TAdWarningBaseGC__sub_8032D514(void *arg0, s32 arg1, s32 arg2) {
+    render_status_disp__23TAdSinglePlyChrSelectGCFPvff(arg2, lbl_805DF7B8 + M2C_FIELD(arg0, f32 *, 0x1C), lbl_805DF7BC + M2C_FIELD(arg0, f32 *, 0x20), lbl_805DF7B8);
+}
+#pragma pop
 
 void render__16TAdWarningBaseGCFi(s32 arg0) {
     if ((u32) lbl_805D6D00 != 0U) {

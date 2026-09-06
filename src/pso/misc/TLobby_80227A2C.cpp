@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_instance__6TLobbyFv();
+s32 get_player_floor__6TLobbyFi(s32);
+s32 TLobby__sub_80228578(void *arg0);
+}
+
+extern "C" {
 
 void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0);
 void clear_work_buffer(u8 *arg0);
@@ -35,6 +41,35 @@ void set_area__6TLobbyFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xC) = arg1;
     M2C_FIELD(arg0, s32 *, 0x18) = TLobby__sub_80207770(M2C_FIELD(arg0, s32 *, 0xC));
 }
+
+#pragma push
+#pragma fp_contract on
+s32 TLobby__sub_80228578(void *arg0) {
+    s32 temp_r0;
+    s32 temp_r3;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0) > 0x11) {
+        return 4;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x20) & 1) {
+        return 2;
+    }
+    if ((get_instance__6TLobbyFv() == 0) && (get_player_floor__6TLobbyFi(M2C_FIELD(arg0, s32 *, 0)) == 0xD)) {
+        switch (get_player_floor__6TLobbyFi(M2C_FIELD(arg0, s32 *, 4))) {
+        case 8:
+        case 9:
+        case 10:
+            return 1;
+        default:
+            return 0;
+        }
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 4) - M2C_FIELD(arg0, s32 *, 0);
+    if (temp_r0 >= 0) {
+        return 1;
+    }
+    return (temp_r0 < 0) ? 0 : 4;
+}
+#pragma pop
 
 s32 init_range_zero__6TLobbyFPv(void* arg0) {
     init_range__6TLobbyFPvi(arg0, 0);

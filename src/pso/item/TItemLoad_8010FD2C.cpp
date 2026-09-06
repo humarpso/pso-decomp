@@ -2,6 +2,14 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 TLobby__sub_800F7DAC(s32, s32);
+extern int lbl_805D5494;
+s32 TItemLoad__sub_8010FD80(u32 arg0);
+}
+
 extern "C" {
 
 struct VOff_8010FD2C_arg0_8010fd2c { char pad_0[0x1C]; char f_1C[1]; };
@@ -26,6 +34,14 @@ void *init__9TItemLoadFPv(void *arg0) {
 }
 
     extern int lbl_805D5494;
+
+s32 TItemLoad__sub_8010FD80(u32 arg0) {
+    if (((u32) (*(u32 *)&lbl_805D5494) != 0U) && (arg0 != 0U)) {
+        return TLobby__sub_800F7DAC((s32) (*(u32 *)&lbl_805D5494), (s32) arg0);
+    }
+    return 0;
+}
+
 void free_boss4_rock__9TItemLoadFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5494)); lbl_805D5494 = 0; }
 
 }

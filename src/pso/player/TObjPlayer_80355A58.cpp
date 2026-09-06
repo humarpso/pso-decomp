@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjPlayer__sub_801012DC(void *, s32);
+s32 get_sub_value__8TItemMagFi(s32);
+s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
+void update_active_game_effect__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_80355AE0(u8 *arg0);
+}
+
+extern "C" {
 
 void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1);
 void apply_mag_effect_if_active__10TObjPlayerFPvi(void *arg0, s32 arg1);
@@ -29,6 +37,19 @@ void apply_mag_effect_if_active__10TObjPlayerFPvi(void *arg0, s32 arg1) {
         }
         }
     }
+}
+void TObjPlayer__sub_80355AE0(u8 *arg0) {
+    s32 temp_r3;
+    if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
+        temp_r3 = get_sub_value__8TItemMagFi(M2C_FIELD(arg0, s32 *, 0xF0));
+        if (temp_r3 >= 0x14) {
+            TObjPlayer__sub_801012DC(arg0, temp_r3);
+            return;
+        }
+        update_active_game_effect__10TObjPlayerFPv(arg0);
+        return;
+    }
+    update_active_game_effect__10TObjPlayerFPv(arg0);
 }
 
 extern M2C_UNK lbl_804F1320[];

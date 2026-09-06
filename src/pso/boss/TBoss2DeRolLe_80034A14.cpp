@@ -15,6 +15,8 @@ struct VObj18 : VBase18 {
     virtual void m20(void *, f32);
 };
 
+typedef struct Vec { float x, y, z; } Vec;
+
 extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
@@ -23,11 +25,20 @@ void TBoss2DeRolLe__sub_80034DCC(s32 arg0);
 void TBoss2DeRolLe__sub_80034E00(void *, int);
 extern f32 TBoss2DeRolLe__data_805D82BC;
 void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+M2C_UNK TObjEneDD__sub_800BAA2C(s32, Vec *);
+void TBoss2DeRolLe__sub_80034F40(s32 arg0);
+int play_sound(void *, int);
+void TBoss2DeRolLe__sub_800339BC(s32, f32, f32);
+void set_flags_play_sound__13TBoss2DeRolLeFPv(void *);
+void TBoss8Dragon__sub_800BB780(void *);
+extern const f32 TBoss2DeRolLe__data_805D82A0;
+extern const f32 lbl_805D8448;
+void TBoss2DeRolLe__sub_80034FDC(u8 *arg0);
 }
 
 extern "C" {
 
-int TBoss2DeRolLe__sub_80034F40(void);
 void TBoss2DeRolLe__sub_80034FD8(void);
 s32 TBoss2Joint_get_shell_max_hp(void);
 void backup_pos__13TBoss2DeRolLeFi(s32 arg0);
@@ -127,12 +138,40 @@ void TBoss2DeRolLe__sub_80034DCC(s32 arg0) {
     }
 }
 
-int TBoss2DeRolLe__sub_80034F40(void) { return 0; }
+#pragma push
+#pragma fp_contract on
+void TBoss2DeRolLe__sub_80034F40(s32 arg0) {
+    Vec sp20;
+    Vec sp14;
+    Vec sp8;
+    VecCopy__FP3VecPC3Vec((s32)(&sp8), (s32)(arg0 + 0x440));
+    VecCopy__FP3VecPC3Vec((s32)(&sp14), (s32)(arg0 + 0x500));
+    VecCopy__FP3VecPC3Vec((s32)(&sp20), (s32)(arg0 + 0x50C));
+    TObjEneDD__sub_800BAA2C(arg0, &sp8);
+}
+#pragma pop
 
 void backup_pos__13TBoss2DeRolLeFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
 void TBoss2DeRolLe__sub_80034FD8(void) {  }
+void TBoss2DeRolLe__sub_80034FDC(u8 *arg0) {
+    s32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s16 *, 0x2B8) - M2C_FIELD(arg0, s16 *, 0x32C);
+    if (M2C_FIELD(arg0, s32 *, 0x3C0) & 8) {
+        M2C_FIELD(arg0, s32 *, 0x6AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6AC) - temp_r4);
+        TBoss2DeRolLe__sub_800339BC(M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
+        play_sound((void *)0x4003A80F, (s32) (arg0 + 0x518));
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x6B0) = (s32) (M2C_FIELD(arg0, s32 *, 0x6B0) - temp_r4);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x6B0) < 0) {
+            M2C_FIELD(arg0, s32 *, 0x6B0) = 0;
+            set_flags_play_sound__13TBoss2DeRolLeFPv(arg0);
+        }
+    }
+    M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
+    TBoss8Dragon__sub_800BB780(arg0);
+}
 
 }

@@ -15,6 +15,15 @@ M2C_UNK TItemDrop__sub_80106D0C(s32, void *);
 void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
 M2C_UNK TItemDrop__sub_80106FC8(void *, void *, void *);
 s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2);
+void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
+void handle_type3__9TItemDropFPvPv(void* p, void* a1);
+s8 TItemDrop__sub_80107640(s32, s32, u8, s32, M2C_UNK);
+M2C_UNK TItemDrop__sub_801076CC(s32, s32, s32, M2C_UNK, M2C_UNK);
+s8 TItemDrop__sub_80107790(s32, s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK init__9TItemDataFv(void *);
+M2C_UNK TObjPlayer__sub_8011C234(u8, void *);
+extern void *TItemDrop__data_805D5460;
+void TItemDrop__sub_8010738C(s32 arg0, s32 arg1, void *arg2);
 }
 
 extern "C" {
@@ -136,6 +145,27 @@ void calc_drop_item__9TItemDropFiPvi(s32 arg0, void *arg1, s32 arg2) {
         M2C_FIELD(arg1, s8 *, 3) = TItemDrop__sub_80107790((s32)(arg0), (s32)(M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0xC)), (s32)(clamp_s32__10TObjPlayerFiii(arg2, 0, 3)), (M2C_UNK)(9), (M2C_UNK)(4));
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TItemDrop__sub_8010738C(s32 arg0, s32 arg1, void *arg2) {
+    u8 var_r3;
+    init__9TItemDataFv(arg2);
+    var_r3 = TItemDrop__sub_801076CC(arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x3C), arg1, 0x1C, 0xA);
+    switch (var_r3) {
+    case 0x1A:
+        var_r3 = 0x73;
+        break;
+    }
+    TObjPlayer__sub_8011C234(var_r3, arg2);
+    if ((u8) M2C_FIELD(arg2, u8 *, 1) == 2) {
+        M2C_FIELD(arg2, u8 *, 4) = ((u8)TItemDrop__sub_80107790(arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x40), arg1, 0x13, 0xA));
+        M2C_FIELD(arg2, s8 *, 2) = TItemDrop__sub_80107640(arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x44), M2C_FIELD(arg2, u8 *, 4), arg1, 0xA);
+        init_rare_item_data__9TItemDropFPvPv((void *)(arg0), (void *)(arg2));
+    }
+    handle_type3__9TItemDropFPvPv((void*)(arg0), (void*)(arg2));
+}
+#pragma pop
 
 s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2) {
     s32 var_r5;

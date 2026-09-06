@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 * TLobby__sub_8001FE7C(void *, s16);
+extern s32 TSceneSora__data_805D3620;
+extern s32 TSceneSora__data_805D6050;
+extern u32 TSceneSora__data_805D6054;
+void TSceneSora__sub_80207430(void);
+}
+
+extern "C" {
 
 void TLobby__sub_802075F4(void);
 void create_instance__10TSceneSoraFv(void);
@@ -25,6 +33,15 @@ void create_instance__10TSceneSoraFv(void) {
         }
         TSceneSora__data_805D6050 = var_r3;
         return;
+    }
+    TSceneSora__data_805D6050 = 0;
+}
+
+void TSceneSora__sub_80207430(void) {
+    TSceneSora__data_805D3620 = 1;
+    if ((void *) (*(u8 * *)&TSceneSora__data_805D6054) != NULL) {
+        TLobby__sub_8001FE7C((*(u8 * *)&TSceneSora__data_805D6054), 1);
+        (*(u8 * *)&TSceneSora__data_805D6054) = NULL;
     }
     TSceneSora__data_805D6050 = 0;
 }

@@ -117,6 +117,9 @@ s32 TObjEneDellBiter__sub_803054FC(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 s32 TObjEneDellBiter__sub_80305550(u8 *arg0);
+void TBoss2DeRolLe__sub_800B98D8(void *, u32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void TObjEneDellBiter__sub_803055C8(u8 *arg0);
 }
 
 extern "C" {
@@ -170,6 +173,19 @@ s32 TObjEneDellBiter__sub_80305550(u8 *arg0) {
         return 1;
     }
     return 0;
+}
+
+void TObjEneDellBiter__sub_803055C8(u8 *arg0) {
+    s32 temp_r3_2;
+    u16 temp_r3;
+    temp_r3 = M2C_FIELD(arg0, u16 *, 0x2D4);
+    if (temp_r3 < 0x1000U) {
+        temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((u32) temp_r3);
+        if (temp_r3_2 != 0) {
+            TBoss2DeRolLe__sub_800B98D8(arg0, (u32) temp_r3_2);
+        }
+        M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 8);
+    }
 }
 
 void TObjEneDellBiter__vt102(void *arg0, f32 farg0) {

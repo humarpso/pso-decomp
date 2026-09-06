@@ -6,6 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct VObj0 { virtual void m0(); virtual void m1(); };
 
+struct VBase { char pad[0]; };
+
+struct VObj { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
+
 extern "C" {
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK release_ref__6TLobbyFv();
@@ -13,6 +17,17 @@ M2C_UNK init_once__6TLobbyFv();
 M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
 void TLobby__sub_803C9DB4(u8 *arg0);
+M2C_UNK reset_flag__6TLobbyFPv(int);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK TLobby__sub_803C89C4(void *);
+M2C_UNK TLobby__sub_803C8B38(int);
+M2C_UNK TLobby__sub_803CC030(int, int);
+M2C_UNK dispatch_packet__6TLobbyFv(int, int);
+M2C_UNK DVDReadAbsAsyncPrio(int);
+void TLobby__sub_803C9CBC(u8 *arg0);
+M2C_UNK TLobby__sub_803C4A7C(void *, void *, void *, void *);
+void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -125,6 +140,52 @@ void set_rate_mode__6TLobbyFi(s32 arg0) {
 
 extern s32 lbl_805D7588;
 
+#pragma push
+#pragma fp_contract on
+void TLobby__sub_803C9CBC(u8 *arg0) {
+    void **temp_r3;
+    void **temp_r3_2;
+    void **temp_r3_3;
+    u8 *temp_r4;
+    u8 *temp_r4_2;
+    u8 *temp_r4_3;
+    if (M2C_FIELD(arg0, void **, 8) != NULL) {
+        TLobby__sub_803C89C4(M2C_FIELD(arg0, void **, 8));
+        TLobby__sub_803C8B38((int) (M2C_FIELD(arg0, u32 *, 8)));
+        temp_r3 = M2C_FIELD(arg0, void ***, 0x14);
+        if (temp_r3 != NULL) {
+            temp_r4 = (u8 *)(*temp_r3);
+            M2C_FIELD(temp_r4, M2C_UNK (**)(void *, void *), 0x14)(temp_r3, temp_r4);
+        }
+        M2C_FIELD(arg0, u32 *, 8) = 0U;
+    }
+    init_once__6TLobbyFv();
+    if ((s32) M2C_FIELD(arg0, u8 *, 2) == 4) {
+        DVDReadAbsAsyncPrio((int) (M2C_FIELD(arg0, s32 *, 0x94)));
+        temp_r3_2 = M2C_FIELD(arg0, void ***, 0x14);
+        if (temp_r3_2 != NULL) {
+            temp_r4_2 = (u8 *)(*temp_r3_2);
+            M2C_FIELD(temp_r4_2, M2C_UNK (**)(void *, void *), 0x14)(temp_r3_2, temp_r4_2);
+        }
+    }
+    init_once__6TLobbyFv();
+    dispatch_packet__6TLobbyFv((int) (M2C_FIELD(arg0, s32 *, 0xC)), (int) (0));
+    TLobby__sub_803CC030((int) (M2C_FIELD(arg0, s32 *, 0xC)), (int) (0));
+    reset_flag__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
+    if ((s32) M2C_FIELD(arg0, u8 *, 2) == 2) {
+        temp_r3_3 = M2C_FIELD(arg0, void ***, 0x14);
+        if (temp_r3_3 != NULL) {
+            temp_r4_3 = (u8 *)(*temp_r3_3);
+            M2C_FIELD(temp_r4_3, M2C_UNK (**)(void *, void *), 0xC)(temp_r3_3, temp_r4_3);
+        }
+    }
+    M2C_FIELD(arg0, void ***, 0x14) = NULL;
+    M2C_FIELD(arg0, s8 *, 1) = 0;
+    release_ref__6TLobbyFv();
+    release_ref__6TLobbyFv();
+}
+#pragma pop
+
 void TLobby__sub_803C9DB4(u8 *arg0) {
     void **temp_r3;
     u8 *temp_r4;
@@ -229,6 +290,13 @@ void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2) {
     M2C_FIELD(arg0, s16 *, 0x2C) = (s16) M2C_FIELD(arg1, s16 *, 2);
     M2C_FIELD(arg0, s16 *, 0x2C) = (s16) M2C_FIELD(arg1, s16 *, 2);
 }
+
+#pragma push
+#pragma fp_contract on
+void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2) {
+    TLobby__sub_803C4A7C((void *) (arg2), arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
+}
+#pragma pop
 
 void TLobby__sub_803CBA18(void) {
     TLobby__sub_803D33F4();

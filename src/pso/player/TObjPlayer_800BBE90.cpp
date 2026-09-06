@@ -19,6 +19,15 @@ struct VObj800BC220_800bc220_800BBE90 : VPad800BC220_800bc220_800BBE90 {
     virtual void m12(void*, void*, s32);
 };
 
+struct VBase { char pad[0x18]; };
+
+struct VObj : VBase { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15(); virtual void m16(f32); };
+
+extern "C" {
+extern const f32 lbl_805D9EB4;
+void TObjPlayer__sub_800BC1F0(u8 *arg0);
+}
+
 extern "C" {
 
 struct Base_800bbe90 { char pad[0x18]; };
@@ -63,6 +72,13 @@ void apply_hit_if_active__10TObjPlayerFPvPvPv(void *arg0, void *arg1, f32 *arg2)
 void dispatch_vt15__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     ((VObj800BC050_800bc050_800BBE90*)arg0)->m15(arg1, 0);
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_800BC1F0(u8 *arg0) {
+    ((VObj *)arg0)->m16(lbl_805D9EB4);
+}
+#pragma pop
 
 void TObjPlayer__sub_800BC220(void *arg0, void *arg1, void *arg2) {
     ((VObj800BC220_800bc220_800BBE90*)arg0)->m12(arg1, arg2, 0);

@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TBoss6Type2__sub_802BC4CC(void *);
+void TBoss6Type2__sub_802BC62C(u8 *arg0);
+void TBoss6Type2__sub_802BC4CC(void *);
+void TBoss6Type2__sub_802BC65C(u8 *arg0);
+}
+
+extern "C" {
 
 u8 is_active__11TBoss6Type2FPv(void *arg0);
 
@@ -16,6 +23,16 @@ u8 is_active__11TBoss6Type2FPv(void *arg0) {
         var_r4 = 1;
     }
     return (u8) var_r4;
+}
+void TBoss6Type2__sub_802BC62C(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x518) = 0x34;
+    M2C_FIELD(arg0, s32 *, 0x51C) = 1;
+    TBoss6Type2__sub_802BC4CC(arg0);
+}
+void TBoss6Type2__sub_802BC65C(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x518) = 0x34;
+    M2C_FIELD(arg0, s32 *, 0x51C) = 0;
+    TBoss6Type2__sub_802BC4CC(arg0);
 }
 
 }

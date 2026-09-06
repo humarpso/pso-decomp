@@ -331,6 +331,8 @@ void TWindowActionPalette__sub_801C1CFC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
 s32 TWindowActionPalette__sub_801C1C68();
 void TWindowActionPalette__sub_801C1D3C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void TWindowActionPalette__sub_801C1C30(s32 arg0, s32 arg1, s32 arg2);
+void TWindowActionPalette__sub_801C1C80(s32 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -432,6 +434,10 @@ int TWindowActionPalette__sub_801C1C20(void* p) { return *(u32*)((char*)p + 0x0)
 void TWindowActionPalette__sub_801C1C30(s32 arg0, s32 arg1, s32 arg2) {
     s32 *p = (s32 *)TWindowActionPalette__sub_801C1C68();
     TMainCursor__sub_8013DF08((s32)(p + arg2));
+}
+
+void TWindowActionPalette__sub_801C1C80(s32 *arg0, s32 arg1) {
+    TWindowActionPalette__sub_801C1C30((s32) arg0, *arg0, arg1);
 }
 
 void TWindowActionPalette__sub_801C1CA8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {

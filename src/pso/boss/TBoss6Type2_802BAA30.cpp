@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TBoss6Type2__sub_8032E748(void *);
+s32 TBoss6Type2__sub_8035DC60(s32, s32, f32);
+extern const f32 TBoss6Type2__data_805DE45C;
+extern const f32 TBoss6Type2__data_805DE460;
+void TBoss6Type2__sub_802BAD04(s32 arg0);
+}
+
+extern "C" {
 
 int TBoss6Type2__sub_802BB498(void);
 int TBoss6Type2__sub_802BB4DC(void* p);
@@ -39,6 +47,20 @@ void trigger_screen_pos__11TBoss6Type2FPv(void *arg0) {
 
 extern const f32 TBoss6Type2__data_805DE460;
 extern const f32 lbl_805DE47C;
+
+void TBoss6Type2__sub_802BAD04(s32 arg0) {
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    TBoss6Type2__sub_8035DC60(arg0, arg0 + 0x38, TBoss6Type2__data_805DE45C);
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x410));
+    if ((temp_r3 != NULL) && (TBoss6Type2__sub_8032E748(temp_r3) != 0)) {
+        TBoss6Type2__sub_8035DC60(arg0, (s32) (M2C_FIELD(arg0, u8 **, 0x410) + 0x38), TBoss6Type2__data_805DE460);
+    }
+    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x414));
+    if ((temp_r3_2 != NULL) && (TBoss6Type2__sub_8032E748(temp_r3_2) != 0)) {
+        TBoss6Type2__sub_8035DC60(arg0, (s32) (M2C_FIELD(arg0, u8 **, 0x414) + 0x38), TBoss6Type2__data_805DE460);
+    }
+}
 
 void init_range__11TBoss6Type2Fv(void) {
     TBoss6Type2__sub_802BB1E0(TBoss6Type2__data_805DE460, lbl_805DE47C);

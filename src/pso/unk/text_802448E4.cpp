@@ -16,6 +16,8 @@ s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 void TWindowSubTradeMain__sub_80244A4C(u8 *arg0);
 void disallow_rendering__7TObjectFv(void *);
 void fn_802449E0(u8 *arg0);
+s32 TWindowSubAreaMapDisp__sub_80246948();
+s32 fn_80244994(void *arg0);
 }
 
 extern "C" {
@@ -50,6 +52,16 @@ void fn_80244958(void *arg0) {
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void*)(self->f_30));
     ((void (*)(void *, void *))copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv)((void *)((char *)arg0 + 64), self->f_30);
 }
+
+#pragma push
+#pragma fp_contract on
+s32 fn_80244994(void *arg0) {
+    if (TWindowSubAreaMapDisp__sub_80246948() != 0) {
+        return 0;
+    }
+    return (s32) ((u32) __cntlzw(M2C_FIELD(arg0, s32 *, 0x2C) & 4) >> 5);
+}
+#pragma pop
 
 void fn_802449E0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) & 0xFFFFFFF8);

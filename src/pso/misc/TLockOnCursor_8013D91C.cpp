@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 * TLobby__sub_8001FE7C(void *, s16);
+extern u8 *lbl_805D5640;
+extern s32 lbl_805D5644;
+extern s32 TLockOnCursor__data_805D5648;
+void TLockOnCursor__sub_8013DBF4(void);
+}
+
+extern "C" {
 
 struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
@@ -35,6 +43,15 @@ void run_task__13TLockOnCursorFv(s32 arg0) {
         return;
     }
     TLockOnCursor__sub_8013EB80(arg0 + 0x520);
+}
+
+void TLockOnCursor__sub_8013DBF4(void) {
+    if ((void *) lbl_805D5640 != NULL) {
+        TLobby__sub_8001FE7C(lbl_805D5640, 1);
+        lbl_805D5640 = NULL;
+    }
+    lbl_805D5644 = 0;
+    TLockOnCursor__data_805D5648 = 0;
 }
 
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {

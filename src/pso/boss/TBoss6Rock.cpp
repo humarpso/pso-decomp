@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+void release_object__10TBoss6RockFPv(void* p);
+void TBoss6Rock__sub_80353FF0(void *);
+void TBoss6Rock__sub_803542E8(void *, s32);
+void TBoss6Rock__sub_8035A460(void *, s32);
+void TBoss6Rock__sub_80354494(u8 *arg0);
+}
+
+extern "C" {
 
 int TBoss6Rock__sub_80353A04(void);
 int TBoss6Rock__sub_80353A0C(void);
@@ -119,5 +128,18 @@ s32 get_point__10TBoss6RockFiPvPv(s32 arg0, void *arg1, f32 *arg2) {
 }
 
 void release_object__10TBoss6RockFPv(void* p) { if (*(unsigned int*)((char*)p + 0xb0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0xb0)); *(int*)((char*)p + 0xb0) = 0; } }
+void TBoss6Rock__sub_80354494(u8 *arg0) {
+    TBoss6Rock__sub_803542E8(arg0, 0);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 1) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 2) {
+        TBoss6Rock__sub_8035A460(arg0 + 0xD4, M2C_FIELD(arg0, s32 *, 0xB4));
+        TBoss3Volopt__sub_8022675C(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
+        release_object__10TBoss6RockFPv((void*)(arg0));
+        TBoss6Rock__sub_80353FF0(arg0);
+        M2C_FIELD(arg0, s32 *, 0xC4) = 0;
+    }
+}
 
 }

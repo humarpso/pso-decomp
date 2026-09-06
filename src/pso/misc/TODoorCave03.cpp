@@ -9,6 +9,10 @@ void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 s32 TODragonfly__sub_80158360(f32);
 extern const f32 lbl_805DB4D8;
 void TODoorCave03__vt15(u8 *arg0);
+s32 TOTrapAncient01__sub_80226578(s32, s32, u32, s16, s32);
+extern const f32 lbl_805DB4D0;
+extern const f32 TODoorCave03__data_805DB4D4;
+void TODoorCave03__vt16(u8 *arg0);
 }
 
 extern "C" {
@@ -28,6 +32,20 @@ M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
 void TODoorCave03__vt18(void) {  }
 
 extern void *tl_05;
+
+void TODoorCave03__vt16(u8 *arg0) {
+    f32 temp_f2;
+    f32 temp_f3;
+    temp_f2 = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_f3 = M2C_FIELD(arg0, f32 *, 0x54);
+    if ((temp_f2 - temp_f3) <= lbl_805DB4D0) {
+        M2C_FIELD(arg0, f32 *, 0x3C) = temp_f3;
+        M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (temp_f2 - TODoorCave03__data_805DB4D4);
+    }
+    TOTrapAncient01__sub_80226578(0x42807, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
+}
 
 void TODoorCave03__vt15(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {

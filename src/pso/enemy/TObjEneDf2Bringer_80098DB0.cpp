@@ -9,6 +9,9 @@ M2C_UNK TObjEneDf2Bringer__sub_800991E0(void *);
 s32 objInBand__FP7GameObjf(f32);
 extern const f32 lbl_805D9810;
 void TObjEneDf2Bringer__sub_80099148(s32 arg0);
+void TBoss2DeRolLe__sub_800B98D8(void *, u32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void TObjEneDf2Bringer__sub_80098DEC(u8 *arg0);
 }
 
 extern "C" {
@@ -130,6 +133,20 @@ s32 check_stage_advance__17TObjEneDf2BringerFPv(void *arg0) {
         return 1;
     }
     return 0;
+}
+
+void TObjEneDf2Bringer__sub_80098DEC(u8 *arg0) {
+    s32 temp_r3_2;
+    u16 temp_r3;
+    temp_r3 = M2C_FIELD(arg0, u16 *, 0x2D4);
+    if (temp_r3 < 0x1000U) {
+        temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((u32) temp_r3);
+        if (temp_r3_2 != 0) {
+            TBoss2DeRolLe__sub_800B98D8(arg0, (u32) temp_r3_2);
+        }
+        M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 8);
+    }
+    M2C_FIELD(arg0, s32 *, 0x494) = (s32) (M2C_FIELD(arg0, s32 *, 0x494) + 1);
 }
 
 void TObjEneDf2Bringer__vt102(void *arg0, f32 farg0) {

@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TOSparkMachine01__sub_80177088(void *, s32);
+extern const f32 TOSparkMachine01__data_805DB9EC;
+void run_task__16TOSparkMachine01Fv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1);
 void *create__16TOSparkMachine01FPv(void *arg0);
@@ -14,6 +20,22 @@ void *TOSparkMachine01__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
+
+void run_task__16TOSparkMachine01Fv(u8 *arg0) {
+    s32 var_r31;
+    if (TOSparkMachine01__data_805DB9EC < M2C_FIELD(arg0, f32 *, 0x6C)) {
+        var_r31 = 0;
+        do {
+            TOSparkMachine01__sub_80177088(arg0, var_r31);
+            var_r31 += 1;
+        } while (var_r31 < 4);
+        return;
+    }
+    M2C_FIELD(arg0, s8 *, 0xA3) = 0;
+    M2C_FIELD(arg0, s8 *, 0xA2) = 0;
+    M2C_FIELD(arg0, s8 *, 0xA0) = 0;
+    TOSparkMachine01__sub_80177088(arg0, 1);
+}
 
 void *create__16TOSparkMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB0);

@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 get_random_float__8TObjFishFv(f32, f32);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, int, int, int);
+void TWindowSubStatusDisp__sub_80259F74(u8 *arg0);
+}
+
+extern "C" {
 
 void TWindowSubStatusDisp__sub_80259CE0(void);
 void *TWindowSubStatusDisp__sub_80259CE4(void *arg0, s16 arg1);
@@ -72,6 +78,29 @@ void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 
 }
 
 extern M2C_UNK lbl_804CF9E0[];
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubStatusDisp__sub_80259F74(u8 *arg0) {
+    f32 temp_f2;
+    f32 temp_f30;
+    f32 temp_f31;
+    if (M2C_FIELD(arg0, f32 *, 0x28) != M2C_FIELD(arg0, f32 *, 0x24)) {
+        if (M2C_FIELD(arg0, u16 *, 0) & 8) {
+            TOTrapAncient01__sub_80226578((int) (0x44E03), (void *) (arg0), (int) (0), (int) (0), (int) (0));
+        }
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0x28);
+        temp_f30 = temp_f2 - M2C_FIELD(arg0, f32 *, 0x24);
+        temp_f31 = get_random_float__8TObjFishFv((f32) (M2C_FIELD(arg0, f32 *, 0x2C)), (f32) (temp_f2));
+        if (((f32 (*)(f32)) get_random_float__8TObjFishFv)(temp_f30) < temp_f31) {
+            M2C_FIELD(arg0, f32 *, 0x24) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
+        } else {
+            M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) + M2C_FIELD(arg0, f32 *, 0x2C));
+        }
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg0, f32 *, 0x24);
+    }
+}
+#pragma pop
 
 void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

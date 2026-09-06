@@ -83,6 +83,15 @@ M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
 extern const f32 lbl_805DE640;
 extern const f32 lbl_805DE64C;
 void TOTrapSeabed01__vt80(u8 *arg0);
+u16 TObjPlayer__sub_800115C4(void *, int, f32);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+f32 TObjPlayer__sub_8017A1A4(int, int);
+M2C_UNK TObjPlayer__sub_801B5328(int, void *, int, int, f32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+M2C_UNK fn_802C9C18(void *, int);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern s32 lbl_805D53A0;
+void TOTrapSeabed01__sub_802CA038(u8 *arg0);
 }
 
 extern "C" {
@@ -100,6 +109,36 @@ void TOTrapSeabed01__vt20(s32 arg0, s32 arg1, f32 farg0) {
 }
 
 extern u32 lbl_805D6818;
+
+#pragma push
+#pragma fp_contract on
+void TOTrapSeabed01__sub_802CA038(u8 *arg0) {
+    f32 temp_f0;
+    f32 temp_f31;
+    u32 temp_r3;
+    u32 temp_r3_2;
+    u32 id;
+    M2C_FIELD(arg0, u32 *, 0x2A8) = 0U;
+    M2C_FIELD(arg0, u16 *, 0x33C) = TObjPlayer__sub_800115C4((void *) (arg0), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x334)));
+    id = M2C_FIELD(arg0, u16 *, 0x33C);
+    if ((id != 0xFFFF) && (temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(id), M2C_FIELD(arg0, u32 *, 0x2A8) = temp_r3, temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x2A8), ((temp_r3_2 == 0U) == 0))) {
+        temp_f31 = TObjPlayer__sub_80141CF8((void *) (temp_r3_2 + 0x38), (void *) (arg0 + 0x38));
+        M2C_FIELD(arg0, f32 *, 0x338) = (f32) (M2C_FIELD(arg0, f32 *, 0x338) - TObjPlayer__sub_8017A1A4((int) (temp_r3), (int) (0)));
+        temp_f0 = M2C_FIELD(arg0, f32 *, 0x338);
+        if (temp_f31 < (temp_f0 * temp_f0)) {
+            if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+                TObjPlayer__sub_801B5328((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x338)));
+            } else if ((s32) M2C_FIELD(arg0, u16 *, 0x33C) == (s32) lbl_805D53A0) {
+                TObjPlayer__sub_801B5328((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x338)));
+            }
+            fn_802C9C18((void *) (arg0), (int) (0));
+            return;
+        }
+        M2C_FIELD(arg0, u16 *, 0x33C) = 0xFFFFU;
+        M2C_FIELD(arg0, u32 *, 0x2A8) = 0U;
+    }
+}
+#pragma pop
 
 void TOTrapSeabed01__vt80(u8 *arg0) {
     s32 temp_r0;

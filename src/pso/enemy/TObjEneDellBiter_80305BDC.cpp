@@ -153,6 +153,7 @@ struct VObj_18 : VBase_18 {
     virtual void m102();
     virtual M2C_UNK m103();
 };
+
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -163,11 +164,13 @@ M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK TObjPlayer__sub_8023DEE0(void *, int, int, int);
 M2C_UNK set_active__12TObjEneReconFv();
 M2C_UNK TObjEneDellBiter__sub_80305FDC(void *);
-M2C_UNK TObjEneDellBiter__sub_80306110(void *);
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D6A40;
 extern s32 lbl_805D6A44;
 void run_task__16TObjEneDellBiterFv(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern const f32 lbl_805DF028;
+void TObjEneDellBiter__sub_80306110(u8 *arg0);
 }
 
 extern "C" {
@@ -211,6 +214,12 @@ void update_attack_effect__16TObjEneDellBiterFi(s32 arg0) {
 
 void TObjEneDellBiter__vt86(void) {  }
 
+void TObjEneDellBiter__sub_80306110(u8 *arg0) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805DF028);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
+}
+
 void TObjEneDellBiter__vt59(void) {  }
 
 void TObjEneDellBiter__vt60(u8 *arg0) {
@@ -248,7 +257,7 @@ void run_task__16TObjEneDellBiterFv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x3C4) & 0x4000) {
         set_active__12TObjEneReconFv();
     }
-    TObjEneDellBiter__sub_80306110((void *) (arg0));
+    TObjEneDellBiter__sub_80306110((u8 *)((void *) (arg0)));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
 }

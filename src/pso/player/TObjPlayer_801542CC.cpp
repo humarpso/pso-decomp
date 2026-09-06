@@ -18,6 +18,11 @@ struct M2CCopy_60 { u8 bytes[0x60]; };
 extern "C" {
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
+M2C_UNK TObjPlayer__sub_8015434C(s32, s32, s32);
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern s32 TObjPlayer__data_805D5874;
+void TObjPlayer__sub_8015431C(u8 *arg0);
 }
 
 extern "C" {
@@ -56,6 +61,11 @@ void TObjPlayer__sub_801542F4(s32 a) {
 
     extern unsigned char lbl_8050DAD0[];
     extern int lbl_805D5878;
+
+void TObjPlayer__sub_8015431C(u8 *arg0) {
+    TObjPlayer__sub_8015434C((s32)(arg0), (s32)(lbl_805D586C + lbl_805D5870), (s32)(TObjPlayer__data_805D5874));
+}
+
 void reset_global_table(void) { memset(lbl_8050DAD0, (void*)0, (void*)128); lbl_805D5878 = 0; }
 
 void clear_player_status_flag__10TObjPlayerFPviUi(void *arg0, s32 arg1, u32 arg2) {

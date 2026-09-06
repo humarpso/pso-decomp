@@ -12,6 +12,19 @@ extern "C" {
 extern f32 lbl_805D4B90;
 extern const f32 lbl_805D8258;
 void TObjPlayer__sub_8002EF80(void);
+void TObjPlayer__sub_8002ECC4(void *, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+u8 * TBreakUpMdl__sub_8009705C(void *, s32);
+extern void *lbl_805D4B8C;
+extern u8 *lbl_805D4BA4;
+void TObjPlayer__sub_8002E7C8(void);
+void TObjPlayer__sub_8002ECC4(void *, s32);
+void TObjPlayer__sub_8002ED48(void *, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+u8 * TBreakUpMdl__sub_8009705C(void *, s32);
+extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
+extern u8 *lbl_805D4BA4;
+void TObjPlayer__sub_8002EBCC(void);
 }
 
 extern "C" {
@@ -45,6 +58,18 @@ void clear_target_ref__10TObjPlayerFv(void) {
 
 extern M2C_UNK lbl_804820A8[];
 
+void TObjPlayer__sub_8002E7C8(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x10);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TBreakUpMdl__sub_8009705C((void *) temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x58)));
+    }
+    (*(u8 * *)&lbl_805D4B8C) = (unsigned char *) ((void *) var_r0);
+    TObjPlayer__sub_8002ECC4((void *) var_r0, 0x1C);
+}
+
 void *TObjPlayer__sub_8002EA0C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804820A8;
@@ -66,6 +91,19 @@ void TObjPlayer__sub_8002EB88(void) {
 }
 
 extern M2C_UNK lbl_804820C0[];
+
+void TObjPlayer__sub_8002EBCC(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x10);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TBreakUpMdl__sub_8009705C((void *) temp_r3, M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x68)));
+    }
+    (*(u8 * *)&lbl_805D4B88) = (unsigned char *) ((void *) var_r0);
+    TObjPlayer__sub_8002ED48((void *) var_r0, 0x13);
+    TObjPlayer__sub_8002ECC4((*(u8 * *)&lbl_805D4B88), 0x13);
+}
 
 void *deleting_dtor__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

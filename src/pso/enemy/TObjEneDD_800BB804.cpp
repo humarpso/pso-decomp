@@ -271,11 +271,13 @@ struct VObj_18_62ee2d : VBase_18_62ee2d {
 
 extern "C" {
 void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1);
-int TObjEneDD__sub_800BB9AC(void * = 0);
 void TObjEneDD__sub_800BB940(s32 arg0, s32 arg1);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
 void TObjEneDD__vt83(void *arg0);
 s32 TObjEneDD__vt81(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 TObjEneDD__sub_800BB9AC(u8 *arg0);
 }
 
 extern "C" {
@@ -329,7 +331,7 @@ void TObjEneDD__sub_800BB940(s32 arg0, s32 arg1) {
     s32 sp8;
     TObjEneDD__sub_800BB980((u8 *)((void *) (&sp8)), (u8 *)((void *) (arg0)));
     sp8 = arg1;
-    TObjEneDD__sub_800BB9AC((void *)((void *) (&sp8)));
+    TObjEneDD__sub_800BB9AC((u8 *)((void *)((void *) (&sp8))));
 }
 
 void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1) {
@@ -340,7 +342,16 @@ void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 0xE) = (s16) M2C_FIELD(arg1, s16 *, 0xE);
 }
 
-int TObjEneDD__sub_800BB9AC(void * _w0) { return 0; }
+s32 TObjEneDD__sub_800BB9AC(u8 *arg0) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, arg0, 0, 0, 0));
+    }
+    return var_r0;
+}
 
 void set_field_378__9TObjEneDDFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x378) = v; }
 

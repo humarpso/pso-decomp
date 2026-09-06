@@ -7,6 +7,23 @@ struct GLE_80138D3C_80137188 { char pad[0x1c]; };
 struct GBig_80138D3C_80137188 { char pad[0x1da8]; GLE_80138D3C_80137188 arr[1]; };
 
 extern "C" {
+int is_visible__17TWindowSubComCardFPv(void *);
+int get_status_flag__17TWindowSubComCardFPv(void *);
+void open_make_team_window__6TLobbyFi(s32);
+M2C_UNK close_all_windows__6TLobbyFv();
+void close_com_card_window__6TLobbyFv(void);
+void TLobby__sub_8013990C(s32);
+M2C_UNK TWindow__close(s32);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+extern u8 *lbl_805D55E0;
+extern u8 *lbl_805D55E4;
+extern u8 *lbl_805D55E8;
+extern s32 lbl_805D560C;
+extern u8 lbl_805D5610;
+void TLobby__sub_80138DFC(void);
+}
+
+extern "C" {
 
 s32 __ct__13GameListEntryFv(s32 arg0);
 void handle_comcard_window__6TLobbyFv(void);
@@ -51,6 +68,50 @@ void handle_comcard_window__6TLobbyFv(void) {
             TWindow__close(lbl_805D55F0);
             lbl_805D55F0 = 0;
             destroy_lobby_ui__6TLobbyFv();
+        }
+    }
+}
+void TLobby__sub_80138DFC(void) {
+    s32 temp_r3;
+    if ((s8) lbl_805D5610 == 0) {
+        lbl_805D560C = 0;
+        lbl_805D5610 = 1;
+    }
+    if ((void *) lbl_805D55E8 != NULL) {
+        temp_r3 = TWindowSubComCard__sub_80265BF8(lbl_805D55E8);
+        if ((s32) lbl_805D560C != temp_r3) {
+            lbl_805D560C = temp_r3;
+            switch (temp_r3) {
+            case 0:
+                TLobby__sub_8013990C(0x11);
+                break;
+            case 1:
+                TLobby__sub_8013990C(0x12);
+                break;
+            }
+        }
+        if (is_visible__17TWindowSubComCardFPv(lbl_805D55E8) != 0) {
+            TWindow__close((s32)(lbl_805D55E8));
+            lbl_805D55E8 = NULL;
+            close_com_card_window__6TLobbyFv();
+            if ((void *) lbl_805D55E0 != NULL) {
+                TWindow__close((s32)(lbl_805D55E0));
+                lbl_805D55E0 = NULL;
+            }
+            if ((void *) lbl_805D55E4 != NULL) {
+                TWindow__close((s32)(lbl_805D55E4));
+                lbl_805D55E4 = NULL;
+            }
+            switch (temp_r3) {
+            case 0:
+                open_make_team_window__6TLobbyFi(1);
+                return;
+            case 1:
+                open_make_team_window__6TLobbyFi(2);
+                return;
+            }
+        } else if (get_status_flag__17TWindowSubComCardFPv(lbl_805D55E8) != 0) {
+            close_all_windows__6TLobbyFv();
         }
     }
 }

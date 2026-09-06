@@ -9,17 +9,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
+
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q);
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
+s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
+int TWindowKeyBoardSoft__sub_80076E2C(s32);
+s32 fn_80076D68(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
 int TWindowKeyBoardSoft__sub_80076E00(void);
-int TWindowKeyBoardSoft__sub_80076E2C(void);
 int fn_80076D40(void);
-int fn_80076D68(void);
 s32 TLobby__sub_80076BC8(void *);
 s32 TWindowDD__sub_80348C78(void *);
 void TWindowShortListCtrl__sub_80076D1C(void);
@@ -27,7 +29,8 @@ s32 TWindowSubSymbolChat__sub_80076F88(void *);
 int fn_80076CD0(void);
 
 int fn_80076D40(void) { return 0; }
-int fn_80076D68(void) { return 0; }
+
+s32 fn_80076D68(s32 arg0, s32 arg1) { return TAdSinglePlyChrSelectGC__sub_80076D9C(((s32)TWindowKeyBoardSoft__sub_80076E2C((s32)(arg0))), arg1); }
 
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1) {
     TAdSinglePlyChrSelectGC__sub_80076DF4((void*)(arg0), (void*)(arg1));
@@ -38,6 +41,6 @@ s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1) {
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 
 int TWindowKeyBoardSoft__sub_80076E00(void) { return 0; }
-int TWindowKeyBoardSoft__sub_80076E2C(void) { return 0; }
+int TWindowKeyBoardSoft__sub_80076E2C(s32 _w0) { return 0; }
 
 }

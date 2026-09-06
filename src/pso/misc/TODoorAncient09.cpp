@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK fn_80160838(void *, void *);
+M2C_UNK TODoorAncient09__sub_80160968(void *);
+u8 TODoorAncient08__sub_80229220(int);
+void TODoorAncient09__vt12(u8 *arg0);
+}
+
+extern "C" {
 
 struct TODoor9Base_801608B4 { char pad[0x14]; void **vtbl; };
 struct TODoor9VObj_801608B4 : TODoor9Base_801608B4 {
@@ -67,6 +75,45 @@ extern const f32 lbl_805DB480;
 extern const f32 lbl_805DB484;
 
 #define VCALL_m8(obj) (((TODoor9VObj_801608B4*)(obj))->m8(M2C_FIELD(obj, f32 *, 0xC0), M2C_FIELD(obj, f32 *, 0xC4)))
+
+#pragma push
+#pragma fp_contract on
+void TODoorAncient09__vt12(u8 *arg0) {
+    s16 sp8;
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xCC);
+    switch (temp_r0) {
+    case 1:
+        TODoorAncient09__sub_80160968((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
+        return;
+    case 2:
+        if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
+            TODoorAncient09__sub_80160968((void *) (arg0));
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
+            M2C_FIELD(arg0, s32 *, 0xD8) = 1;
+            return;
+        }
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFFFFFE);
+        M2C_FIELD(arg0, s32 *, 0xD8) = 0;
+        return;
+    case 3:
+        if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
+            TODoorAncient09__sub_80160968((void *) (arg0));
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
+            if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+                sp8 = 1;
+                fn_80160838((void *) (arg0), (void *) (&sp8));
+                TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
+            }
+        }
+        return;
+    default:
+        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFFFFFE);
+        break;
+    }
+}
+#pragma pop
 
 void render__15TODoorAncient09Fv(u8 *arg0) {
     s32 temp_r0;

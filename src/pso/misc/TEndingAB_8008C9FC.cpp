@@ -5,6 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK set_depth_buffer_settings_2__Fv();
+M2C_UNK fn_80141A30();
+M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(M2C_UNK);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(s32, M2C_UNK);
+extern s32 TEndingAB__data_805D4F10;
+extern const f32 lbl_805D9580;
+void TEndingAB__sub_8008CB54(u8 *arg0);
+}
+
+extern "C" {
 
 void advance_fade_sequence__9TEndingABFPv(void *arg0);
 M2C_UNK update_flag890_state__10TObjPlayerFi(s32);
@@ -71,5 +83,40 @@ void advance_fade_sequence__9TEndingABFPv(void *arg0) {
         break;
     }
 }
+#pragma push
+#pragma fp_contract on
+void TEndingAB__sub_8008CB54(u8 *arg0) {
+    switch ((s32) TEndingAB__data_805D4F10) {
+    case 1:
+    case 3:
+        break;
+    case 2:
+        TWindowSubStatusDisp__sub_803DEE6C(1);
+        TWindowSubStatusDisp__sub_803DF160((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 2, -1);
+        get_player__20TWindowSubStatusDispFv();
+        set_depth_buffer_settings_2__Fv();
+        TWindowSubStatusDisp__sub_803DEE6C(1);
+        TWindowSubStatusDisp__sub_803DF160(0, -1);
+        TWindowSubComCard__sub_803DEECC(arg0 + 0x2C, lbl_805D9580);
+        TWindowSubComCard__sub_803DEECC(arg0 + 0x4C, lbl_805D9580);
+        get_player__20TWindowSubStatusDispFv();
+        fn_80141A30();
+        break;
+    case 4:
+    case 5:
+        TWindowSubStatusDisp__sub_803DEE6C(1);
+        TWindowSubStatusDisp__sub_803DF160((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 3, -1);
+        get_player__20TWindowSubStatusDispFv();
+        set_depth_buffer_settings_2__Fv();
+        TWindowSubStatusDisp__sub_803DEE6C(1);
+        TWindowSubStatusDisp__sub_803DF160(1, -1);
+        TWindowSubComCard__sub_803DEECC(arg0 + 0x6C, lbl_805D9580);
+        TWindowSubComCard__sub_803DEECC(arg0 + 0x8C, lbl_805D9580);
+        get_player__20TWindowSubStatusDispFv();
+        fn_80141A30();
+        break;
+    }
+}
+#pragma pop
 
 }

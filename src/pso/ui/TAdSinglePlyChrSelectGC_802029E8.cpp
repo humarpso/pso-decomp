@@ -16,6 +16,8 @@ extern s32 lbl_805D5F60;
 extern s32 *lbl_805D5F64;
 extern int lbl_805D5F74;
 s32 TAdSinglePlyChrSelectGC__sub_80202A74(s32 arg0, s16 arg1);
+void init__9TItemDataFv(void *);
+void TAdSinglePlyChrSelectGC__sub_80203220(u8 *arg0);
 }
 
 extern "C" {
@@ -28,7 +30,6 @@ int TAdSinglePlyChrSelectGC__sub_8020310C(void);
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
 int TAdSinglePlyChrSelectGC__sub_80203190(void*);
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p);
-int TAdSinglePlyChrSelectGC__sub_80203220(void);
 u8 check_flag__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void clear_flags__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
@@ -147,7 +148,13 @@ int TAdSinglePlyChrSelectGC__sub_80203190(void*) { return 0; }
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p) { init_guild_card_tag__17TWindowSubComCardFi(p); return p; }
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p) { *(u32*)((char*)p + 0x4) &= 0xfffffff7; }
 
-int TAdSinglePlyChrSelectGC__sub_80203220(void) { return 0; }
+void TAdSinglePlyChrSelectGC__sub_80203220(u8 *arg0) {
+    M2C_FIELD(arg0, s8 *, 0) = 0;
+    M2C_FIELD(arg0, s8 *, 1) = -1;
+    M2C_FIELD(arg0, s32 *, 4) = 0;
+    init__9TItemDataFv(arg0 + 8);
+}
+
 int fn_8020325C(void *arg0) {
     int var_r4;
     var_r4 = 0;

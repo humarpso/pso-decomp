@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEneDD__sub_800BA934(void *);
+extern const f32 lbl_805DE9F0;
+extern const f32 lbl_805DEBA8;
+extern const f32 lbl_805DEBAC;
+void TBoss7Joint__vt86(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss7Joint__sub_802EE6E8(void);
 void TBoss7Joint__sub_802EE6EC(void);
@@ -57,6 +65,30 @@ void TBoss7Joint__vt91(void *arg0) {
         return;
     }
     TObjEneDD__vt91(arg0);
+}
+void TBoss7Joint__vt86(u8 *arg0) {
+    f32 temp_f2;
+    u8 *temp_r4;
+    u8 *temp_r4_2;
+    u8 *temp_r4_3;
+    u8 *temp_r4_4;
+    u8 *temp_r4_5;
+    temp_f2 = M2C_FIELD(arg0, f32 *, 0x3C);
+    if (temp_f2 < (lbl_805DE9F0 - lbl_805DEBA8)) {
+        temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFF8);
+    } else if (temp_f2 >= lbl_805DEBAC) {
+        temp_r4_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r4_2, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4_2, s32 *, 0x18) | 5);
+        temp_r4_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r4_3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4_3, s32 *, 0x18) & 0xFFFFFFFD);
+    } else {
+        temp_r4_4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r4_4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4_4, s32 *, 0x18) | 3);
+        temp_r4_5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r4_5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4_5, s32 *, 0x18) & 0xFFFFFFFB);
+    }
+    TObjEneDD__sub_800BA934(arg0);
 }
 
 }

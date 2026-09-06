@@ -11,6 +11,11 @@ extern s32 lbl_805D54EC;
 void TLobby__sub_8011AF58(s32 arg0);
 M2C_UNK TLobby__sub_80103BFC(s32, s32);
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
+M2C_UNK bswap_6xa2_fields__6TLobbyFPv();
+M2C_UNK TLobby__sub_8011A868(void *);
+M2C_UNK TLobby__sub_8011AA68(s16, int, s16, int, f32, f32);
+M2C_UNK TLobby__sub_8011AB64(s8, s16, int, s16, int, f32, f32);
+void handle_6xA2_specializable_item_drop_request(void *arg0);
 }
 
 extern "C" {
@@ -28,6 +33,24 @@ void handle_6x5C_destroy_floor_item(void *arg0) {
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1) {
     TLobby__sub_80103BFC((s32)((void *) (arg0)), (s32)(_w1));
 }
+
+#pragma push
+#pragma fp_contract on
+void handle_6xA2_specializable_item_drop_request(void *arg0) {
+    s8 temp_b;
+    bswap_6xa2_fields__6TLobbyFPv();
+    temp_b = M2C_FIELD(arg0, u8 *, 5);
+    if (temp_b == 0x30) {
+        if (M2C_FIELD(arg0, s16 *, 0x12) != 0) {
+            TLobby__sub_8011AA68(M2C_FIELD(arg0, s16 *, 6), M2C_FIELD(arg0, s8 *, 4), M2C_FIELD(arg0, s16 *, 0x10), M2C_FIELD(arg0, s8 *, 0x14), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
+            return;
+        }
+        TLobby__sub_8011A868(arg0);
+        return;
+    }
+    TLobby__sub_8011AB64(temp_b, M2C_FIELD(arg0, s16 *, 6), M2C_FIELD(arg0, s8 *, 4), M2C_FIELD(arg0, s16 *, 0x10), M2C_FIELD(arg0, s8 *, 0x14), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
+}
+#pragma pop
 
 int TLobby__sub_8011AED8(void) { return 0; }
 void handle_6x62(void) {  }

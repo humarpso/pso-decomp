@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int bswap_32__FPUl(void*);
+void TLobby__sub_801F3640(s32 arg0);
+}
+
+extern "C" {
 
 void TLobby__sub_801F3314(s32 arg0);
 int TLobby__sub_801F3384(void* p);
@@ -17,7 +22,6 @@ int TLobby__sub_801F34F8(void);
 int TLobby__sub_801F3500(void* p);
 void TLobby__sub_801F3568(void);
 void TLobby__sub_801F3614(void);
-int TLobby__sub_801F3640(void);
 int TLobby__sub_801F3694(void* p);
 void TLobby__sub_801F36BC(void);
 void TLobby__sub_801F36D8(void);
@@ -203,7 +207,23 @@ void TLobby__sub_801F3614(void) { lbl_805D6CF0 = 0; }
 
 int copy_position__6TLobbyFPv(void* p) { return VecCopy__FP3VecPC3Vec(p); }
 
-int TLobby__sub_801F3640(void) { return 0; }
+#pragma push
+#pragma fp_contract on
+void TLobby__sub_801F3640(s32 arg0) {
+    s32 var_r31;
+    s32 temp_r30;
+    s32 var_r29;
+    var_r29 = 0;
+    var_r31 = 0;
+    do {
+        temp_r30 = arg0 + var_r31;
+        bswap_32__FPUl((void*)((void *) (temp_r30)));
+        bswap_32__FPUl((void*)((void *) (temp_r30 + 0x18)));
+        var_r29 += 1;
+        var_r31 += 4;
+    } while (var_r29 < 6);
+}
+#pragma pop
 
 int TLobby__sub_801F3694(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x10, 2); }
 

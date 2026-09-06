@@ -7,12 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TObjEneDelDepth__sub_803152A0(u8 *arg0);
 void TObjEneDelDepth__sub_803152C0(u8 *arg0);
+int TObjEneDelDepth__sub_803154A8(void*, void*);
+void TObjEneDelDepth__vt59(u8 *arg0);
+int TObjEneDelDepth__sub_803154A8(void*, void*);
+void TObjEneDelDepth__vt60(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjEneDelDepth__vt59(void);
-int TObjEneDelDepth__vt60(void);
 void TObjEneDelDepth__vt61(void* p);
 void init_params__15TObjEneDelDepthFPv(void* a0);
 int set_default_depth_offset__15TObjEneDelDepthFPv(void* p);
@@ -28,8 +30,19 @@ void init_params__15TObjEneDelDepthFPv(void* a0) { TObjEneDelDepth__sub_80315380
 
 int set_default_depth_offset__15TObjEneDelDepthFPv(void* p) { return set_depth_offset__15TObjEneDelDepthFPvii(p, 15, 15); }
 
-int TObjEneDelDepth__vt59(void) { return 0; }
-int TObjEneDelDepth__vt60(void) { return 0; }
+void TObjEneDelDepth__vt59(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x374) != 0xB) {
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFEFF);
+        TObjEneDelDepth__sub_803154A8((void*)(arg0), (void*)(0xB));
+    }
+}
+
+void TObjEneDelDepth__vt60(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x374) != 0xC) {
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
+        TObjEneDelDepth__sub_803154A8((void*)(arg0), (void*)(0xC));
+    }
+}
 
 void TObjEneDelDepth__vt61(void* p) { if (*(int*)((char*)p + 0x374) != 13) { TObjEneDelDepth__sub_803154A8(p, (void*)13); } }
 

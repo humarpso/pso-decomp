@@ -4,6 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct S217 { char pad[0x38]; void *f38; };
+
+extern "C" {
+s32 select_cursor_entry__6TLobbyFPv(void *);
+extern u32 TQuestListOnline__data_805D6190;
+extern void *TQuestListOnline__data_805D61E0;
+s32 TQuestListOnline__sub_80217504(void);
+s32 TLobby__sub_800F7DAC(s32, s32);
+extern s32 TQuestListOnline__data_805D61E4;
+extern u32 lbl_805D61EC;
+extern s32 lbl_805D61F4;
+void TQuestListOnline__sub_802176DC(s32 arg0);
+s32 TLobby__sub_800F7DAC(s32, s32);
+extern s32 TQuestListOnline__data_805D61E4;
+extern u32 lbl_805D61E8;
+extern s32 lbl_805D61F0;
+void TQuestListOnline__sub_80217714(s32 arg0);
+}
+
 extern "C" {
 
 void close_windows__16TQuestListOnlineFPv(void *arg0);
@@ -23,6 +42,21 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern void *TQuestListOnline__data_805D6194;
 extern void *TQuestListOnline__data_805D61E0;
+
+#pragma push
+#pragma fp_contract on
+s32 TQuestListOnline__sub_80217504(void) {
+    struct S217 *p = (*(struct S217 * *)&TQuestListOnline__data_805D61E0);
+    if (p != NULL) {
+        void *q = p->f38;
+        if (q != NULL && TQuestListOnline__data_805D6190 != 0U) {
+            u32 idx = select_cursor_entry__6TLobbyFPv(q) * 0x98 + 0xC;
+            return TQuestListOnline__data_805D6190 + idx;
+        }
+    }
+    return 0;
+}
+#pragma pop
 
 int get_selected_quest_id__16TQuestListOnlineFv(void) {
     if (((void *) TQuestListOnline__data_805D61E0 != NULL) && ((u32) M2C_FIELD(TQuestListOnline__data_805D61E0, u32 *, 0x40) != 0U)) {
@@ -78,6 +112,23 @@ void close_windows__16TQuestListOnlineFPv(void *arg0) {
 
 extern M2C_UNK lbl_8044BEB0[];
 extern s32 TQuestListOnline__data_805D61E4;
+
+void TQuestListOnline__sub_802176DC(s32 arg0) {
+    if ((u32) (*(u32 *)&TQuestListOnline__data_805D61E4) != 0U) {
+        lbl_805D61F4 = TLobby__sub_800F7DAC(arg0, (s32) (*(u32 *)&TQuestListOnline__data_805D61E4));
+        lbl_805D61EC = (*(u32 *)&TQuestListOnline__data_805D61E4);
+    }
+}
+
+void TQuestListOnline__sub_80217714(s32 arg0) {
+    s32 temp_r3;
+    if ((u32) (*(u32 *)&TQuestListOnline__data_805D61E4) != 0U) {
+        temp_r3 = TLobby__sub_800F7DAC(arg0, (s32) (*(u32 *)&TQuestListOnline__data_805D61E4));
+        lbl_805D61F0 = temp_r3;
+        lbl_805D61E8 = (*(u32 *)&TQuestListOnline__data_805D61E4);
+        (*(u32 *)&TQuestListOnline__data_805D61E4) += temp_r3;
+    }
+}
 
 s32 init__16TQuestListOnlineFv(void) {
     TQuestListOnline__data_805D61E4 = 0;

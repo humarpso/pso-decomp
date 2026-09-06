@@ -92,6 +92,7 @@ struct VObj_80065370_80062BA0 : Base_80065370_80062BA0 {
     virtual void v84();
     virtual void vcall(s16 a, int b);
 };
+
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_802FB0DC(void *);
 s32 objInBand__FP7GameObjf(f32);
@@ -111,6 +112,15 @@ extern f32 lbl_805D8D88;
     extern const float lbl_805D8D84;
 extern const f32 lbl_805D8EC8;
 void TBoss8Dragon__sub_802FB09C(s32 arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(int);
+M2C_UNK set_type__10TObjPlayerFPvi(void *, int);
+M2C_UNK start_freeze__10TObjPlayerFPv(int);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
+M2C_UNK TBoss8Dragon__sub_802FD9D0();
+extern const f32 lbl_805DEEB8;
+void TBoss8Dragon__sub_802FAE74(u8 *arg0);
 }
 
 extern "C" {
@@ -216,6 +226,28 @@ struct VObj_80098E4C_80098DB0 : Base_80098E4C_80098DB0 {
     virtual void m96();
     virtual int m97();
 };
+
+#pragma push
+#pragma fp_contract on
+void TBoss8Dragon__sub_802FAE74(u8 *arg0) {
+    s32 temp_r31;
+    u8 *temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x750));
+    if (temp_r3 != NULL) {
+        if (get_field_3e4__10TObjPlayerFPv((int) (temp_r3)) == TObjPlayer__sub_800196EC()) {
+            start_freeze__10TObjPlayerFPv((int) (temp_r3));
+            set_type__10TObjPlayerFPvi((void *) (temp_r3 + 0x644), (int) (0x14));
+            M2C_FIELD(temp_r3, s32 *, 0x30) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x30) & 0xFFEFFFDF);
+            VecCopy__FP3VecPC3Vec((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
+            M2C_FIELD(temp_r3, f32 *, 0x3C) = (f32) (M2C_FIELD(temp_r3, f32 *, 0x3C) - lbl_805DEEB8);
+            M2C_FIELD(temp_r3, s32 *, 0x60) = (s32) M2C_FIELD(arg0, s32 *, 0x60);
+            return;
+        }
+    }
+    TBoss8Dragon__sub_802FD9D0();
+}
+#pragma pop
+
 void TBoss8Dragon__sub_802FB09C(s32 arg0) {
     if (objInBand__FP7GameObjf((f32) (TBoss8Dragon__data_805DEE38)) != 0) {
         TBoss8Dragon__sub_802FB0DC((void *) (arg0));

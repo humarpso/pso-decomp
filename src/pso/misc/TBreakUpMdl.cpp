@@ -5,6 +5,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TObjPlayer__sub_803D7CA4(int);
+M2C_UNK TCameraCtrl__sub_803D8934(int, int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TCameraCtrl__sub_803D8934(int, int, int);
+M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+s32 TBreakUpMdl__sub_80096D94(u8 *arg0, u8 *arg1, s32 arg2);
+}
+
+extern "C" {
 
 void TObjEneDf2Bringer__vt103(void* p);
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1);
@@ -33,6 +52,74 @@ void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK TBreakUpMdl__data_8048FA00[];
+
+#pragma push
+#pragma fp_contract on
+s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2) {
+    u8 *temp_r31;
+    s32 temp_r30;
+    s32 temp_r4;
+    s32 var_r29;
+    u8 *var_r28;
+    var_r28 = (u8 *)(arg1);
+    var_r29 = arg2;
+    do {
+        TObjPlayer__sub_803D9B2C();
+        TObjPlayer__sub_803D7CA4((int) (var_r28));
+        temp_r30 = M2C_FIELD(var_r28, s32 *, 0);
+        if (!(temp_r30 & 8)) {
+            temp_r31 = (u8 *)(M2C_FIELD(arg0, s32 *, 4) + (var_r29 * 0x1C));
+            temp_r4 = (long) (temp_r31 + 4);
+            TCameraCtrl__sub_803D8934((int) (0), (int) (temp_r4), (int) (temp_r4));
+            VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
+            clamp_velocity__15TObjBoss2TunnelFPv(temp_r31 + 0x10);
+            var_r29 += 1;
+            *(s32 *)temp_r31 = M2C_FIELD(var_r28, s32 *, 4);
+        }
+        if (!(temp_r30 & 0x10)) {
+            var_r29 = TBreakUpMdl__sub_80096CE0(arg0, M2C_FIELD(var_r28, u8 **, 0x2C), var_r29);
+        }
+        TObjPlayer__sub_803D9B78();
+        var_r28 = (u8 *)(M2C_FIELD(var_r28, u8 **, 0x30));
+    } while (var_r28 != NULL);
+    return var_r29;
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+s32 TBreakUpMdl__sub_80096D94(u8 *arg0, u8 *arg1, s32 arg2) {
+    u8 *temp_r31;
+    s32 temp_r30;
+    s32 temp_r4;
+    s32 var_r29;
+    u8 *var_r28;
+    var_r28 = (u8 *)(arg1);
+    var_r29 = arg2;
+    do {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (var_r28 + 8));
+        TObjPlayer__sub_803D99F8((void *) (var_r28 + 0x14), (int) (0));
+        TBoss7Tentacle__sub_803D9BA0((void *) (var_r28 + 0x20));
+        temp_r30 = M2C_FIELD(var_r28, s32 *, 0);
+        if (!(temp_r30 & 8)) {
+            temp_r31 = (u8 *)(M2C_FIELD(arg0, s32 *, 4) + (var_r29 * 0x1C));
+            temp_r4 = (long) (temp_r31 + 4);
+            TCameraCtrl__sub_803D8934((int) (0), (int) (temp_r4), (int) (temp_r4));
+            VecCopy__FP3VecPC3Vec((void *) (temp_r31 + 0x10), (void *) (temp_r31 + 4));
+            clamp_velocity__15TObjBoss2TunnelFPv(temp_r31 + 0x10);
+            var_r29 += 1;
+            *(s32 *)temp_r31 = M2C_FIELD(var_r28, s32 *, 4);
+        }
+        if (!(temp_r30 & 0x10)) {
+            var_r29 = TBreakUpMdl__sub_80096D94(arg0, M2C_FIELD(var_r28, u8 **, 0x2C), var_r29);
+        }
+        TObjPlayer__sub_803D9B78();
+        var_r28 = (u8 *)(M2C_FIELD(var_r28, u8 **, 0x30));
+    } while (var_r28 != NULL);
+    return var_r29;
+}
+#pragma pop
 
 void *__dt_deleting__11TBreakUpMdlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

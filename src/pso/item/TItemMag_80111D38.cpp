@@ -65,6 +65,9 @@ M2C_UNK TItemMag__sub_80110E7C(void *);
 M2C_UNK TItemMag__sub_80113F64(void *, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
 void TItemMag__sub_801123F8(u8 *arg0);
+s32 TItemMag__sub_80105348(void *, M2C_UNK);
+M2C_UNK try_add_action__8TItemMagFii(void *, M2C_UNK);
+void TItemMag__sub_80112360(u8 *arg0);
 }
 
 extern "C" {
@@ -308,6 +311,24 @@ void do_action_by_class__8TItemMagFi(s32 arg0) {
             try_add_action__8TItemMagFii((void *)(arg0), (M2C_UNK)(0x14));
         }
         break;
+    }
+}
+
+void TItemMag__sub_80112360(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+    if (temp_r3 != NULL) {
+        if (TItemMag__sub_80105348((void *)(temp_r3), (M2C_UNK)(0xF9)) != 0) {
+            try_add_action__8TItemMagFii((void *)((s32) arg0), (M2C_UNK)(1));
+            return;
+        }
+        if (TItemMag__sub_80105348((void *)(M2C_FIELD(arg0, u8 **, 0xF0)), (M2C_UNK)(0xFA)) != 0) {
+            try_add_action__8TItemMagFii((void *)((s32) arg0), (M2C_UNK)(0xD));
+            return;
+        }
+        if (TItemMag__sub_80105348((void *)(M2C_FIELD(arg0, u8 **, 0xF0)), (M2C_UNK)(0xFC)) != 0) {
+            try_add_action__8TItemMagFii((void *)((s32) arg0), (M2C_UNK)(0x19));
+        }
     }
 }
 

@@ -8,6 +8,9 @@ extern "C" {
 s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_803AA0E0(int, int, int);
 void TLobby__sub_80241AD8(u8 *arg0);
+int TLobby__sub_80240E8C(void);
+extern const f32 lbl_805DC9E4;
+s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -90,5 +93,55 @@ void clamp_params__6TLobbyFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x38) = 0x7F;
     }
 }
+#pragma push
+#pragma fp_contract on
+s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    M2C_FIELD(arg0, s32 *, 4) = 0;
+    M2C_FIELD(arg0, s32 *, 8) = arg4;
+    M2C_FIELD(arg0, s32 *, 0xC) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x10) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x14) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x28) = 0x7F;
+    M2C_FIELD(arg0, s32 *, 0x24) = 0x88888888;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0x40;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0x88888888;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0x88888888;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x44) = 0;
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    M2C_FIELD(arg0, s32 *, 0x54) = 0;
+    M2C_FIELD(arg0, s32 *, 0x58) = 0;
+    M2C_FIELD(arg0, s32 *, 0x60) = 0;
+    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+    M2C_FIELD(arg0, s32 *, 0x68) = 0x88888888;
+    M2C_FIELD(arg0, s32 *, 0x6C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x70) = 0;
+    M2C_FIELD(arg0, s32 *, 0x74) = 0;
+    M2C_FIELD(arg0, s32 *, 0x78) = 0;
+    M2C_FIELD(arg0, s32 *, 0x7C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x80) = 0;
+    M2C_FIELD(arg0, s32 *, 0x84) = 0;
+    M2C_FIELD(arg0, s16 *, 0x8C) = 0x3F00;
+    M2C_FIELD(arg0, s32 *, 0x98) = 0;
+    M2C_FIELD(arg0, s16 *, 0x90) = 0;
+    M2C_FIELD(arg0, s16 *, 0x92) = 0;
+    M2C_FIELD(arg0, s32 *, 0x94) = 0;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DC9E4;
+    M2C_FIELD(arg0, s32 *, 0x88) = 0;
+    switch (M2C_FIELD(arg0, s32 *, 0xC)) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 4) = -1;
+        TLobby__sub_80240E8C();
+        break;
+    }
+    return 0;
+}
+#pragma pop
 
 }

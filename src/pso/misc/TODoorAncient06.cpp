@@ -29,6 +29,12 @@ extern const f32 lbl_805DB434;
 extern const f32 lbl_805DB438;
 extern const f32 lbl_805DB43C;
 void render__15TODoorAncient06Fv(u8 *arg0);
+void set_indexed_flags(void *, s32, s32);
+s32 TODragonfly__sub_80158360(void *, f32);
+M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern u8 *TODoorAncient06__data_805D592C;
+extern const f32 lbl_805DB444;
+void TODoorAncient06__vt13(u8 *arg0);
 }
 
 extern "C" {
@@ -81,6 +87,19 @@ void TODoorAncient06__vt15(u8 *arg0) {
 }
 
 extern void *tl_05;
+
+void TODoorAncient06__vt13(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorAncient06__data_805D592C, s32 *, 4);
+        if (TODragonfly__sub_80158360((void *)((s32) arg0), lbl_805DB444) == 1) {
+            M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+            set_indexed_flags(arg0, 0, 8);
+            TBoss3Volopt__sub_8022675C((M2C_UNK)(0x4004B708), (void *)((u32) (arg0 + 0x38)), (M2C_UNK)(0), (M2C_UNK)(0));
+        }
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorAncient06__data_805D592C, s32 *, 0);
+    }
+}
 
 void *create__15TODoorAncient06FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);

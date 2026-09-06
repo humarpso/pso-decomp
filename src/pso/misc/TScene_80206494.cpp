@@ -5,6 +5,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK free_singleton_805D4E6C__18TObjButterflyLobbyFv();
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+M2C_UNK fn_800F8A0C();
+M2C_UNK copy_name(M2C_UNK *);
+s32 TQuestVmDownLoadServer__sub_8039DABC(M2C_UNK, s32, M2C_UNK);
+M2C_UNK TLobby__sub_803DA16C(u32);
+extern s32 TScene__data_805D3610;
+extern s32 *lbl_805D4E68;
+extern void *TScene__data_805D5FCC;
+extern u32 TScene__data_805D5FFC;
+extern u32 TScene__data_805D6000;
+extern u32 TScene__data_805D6004;
+extern u32 TScene__data_805D6008;
+extern u32 TScene__data_805D6020;
+extern u32 TScene__data_805D6028;
+extern M2C_UNK lbl_805DC604;
+void TScene__sub_80206984(void);
+}
+
+extern "C" {
 
 struct Sp8Buf20_80206494 {
     s32 f0; s32 f4; s32 f8; s32 fc;
@@ -73,6 +93,56 @@ void TScene__sub_802065EC(void) {  }
 extern M2C_UNK lbl_8044A98C[];
 extern u32 TScene__data_805D6028;
 extern s32 lbl_805D602C;
+
+#pragma push
+#pragma fp_contract on
+void TScene__sub_80206984(void) {
+    u32 temp_r3;
+    temp_r3 = TScene__data_805D6028;
+    if (temp_r3 != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
+        TScene__data_805D6028 = 0U;
+    }
+    temp_r3 = TScene__data_805D6020;
+    if (temp_r3 != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
+        TScene__data_805D6020 = 0U;
+    }
+    temp_r3 = TScene__data_805D6004;
+    if (temp_r3 != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
+        TScene__data_805D6004 = 0U;
+    }
+    temp_r3 = TScene__data_805D6008;
+    if (temp_r3 != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
+        TScene__data_805D6008 = 0U;
+    }
+    temp_r3 = (u32)TScene__data_805D5FCC;
+    if (temp_r3 != 0U) {
+        if ((temp_r3 = *(u32*)((u8*)TScene__data_805D5FCC + 0x14)) != 0U) {
+            TLobby__sub_803DA16C(temp_r3);
+            M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) = 0U;
+        }
+    }
+    temp_r3 = TScene__data_805D6000;
+    if (temp_r3 != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
+        TScene__data_805D6000 = 0U;
+    }
+    free_singleton_805D4E6C__18TObjButterflyLobbyFv();
+    temp_r3 = TScene__data_805D5FFC;
+    if (temp_r3 != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi(temp_r3);
+        TScene__data_805D5FFC = 0U;
+    }
+    (*(s32 *)&lbl_805D4E68) = 0;
+    TScene__data_805D5FCC = NULL;
+    if (TQuestVmDownLoadServer__sub_8039DABC(fn_800F8A0C(), TScene__data_805D3610, 0x10) == 0) {
+        copy_name(&lbl_805DC604);
+    }
+}
+#pragma pop
 
 void load_file_to_buffer__6TSceneFi(s32 arg0) {
     M2C_UNK sp8[8];

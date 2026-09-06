@@ -29,6 +29,11 @@ extern "C" {
 s32 TObjEneBm3Fly__sub_800BB774();
 int TObjEneDD__sub_800BBA18(void*, void*);
 void TObjEneBm3Fly__vt61(u8 *arg0);
+s32 TObjEneEpsilon__sub_800B96A4();
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32, f32, f32);
+extern const f32 lbl_805D9CEC;
+void TObjEneBm3Fly__sub_800B1AEC(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -91,6 +96,18 @@ void update_collide_flag__13TObjEneBm3FlyFPv(void *arg0) {
     }
     M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) & 0xFFFFFFFD);
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEneBm3Fly__sub_800B1AEC(void *arg0, s32 arg1) {
+    f32 temp_f1;
+    TObjEneEpsilon__sub_800B96A4();
+    M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((lbl_805D9CEC * TBoss8Dragon__sub_803D64C0(arg1)) + M2C_FIELD(arg0, f32 *, 0x394));
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
+    M2C_FIELD(arg0, f32 *, 0x398) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x44C));
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((lbl_805D9CEC * TBoss8Dragon__sub_803D64DC(arg1, temp_f1, lbl_805D9CEC)) + M2C_FIELD(arg0, f32 *, 0x39C));
+}
+#pragma pop
 
 void update_height_offset__13TObjEneBm3FlyFPv(void *arg0) {
     TObjEneEpsilon__sub_800B96A4();

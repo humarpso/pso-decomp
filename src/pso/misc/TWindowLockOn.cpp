@@ -5,9 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void TWindowHelpItem__sub_80270060(s32, u32);
+void TWindowLockOn__sub_80262FDC(u8 *arg0);
+}
+
+extern "C" {
 
 void TWindowLockOn__sub_80262FD8(void);
-int TWindowLockOn__sub_80262FDC(void);
 void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1);
 void render__13TWindowLockOnFv(u8 *arg0);
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
@@ -24,7 +29,9 @@ s32 obj_testFlags30(s32, M2C_UNK);
 
 void TWindowLockOn__sub_80262FD8(void) {  }
 
-int TWindowLockOn__sub_80262FDC(void) { return 0; }
+void TWindowLockOn__sub_80262FDC(u8 *arg0) {
+    TWindowHelpItem__sub_80270060(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
+}
 
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
     TWindowSubStatusDisp__sub_80257CB8(arg0 + 0x24);

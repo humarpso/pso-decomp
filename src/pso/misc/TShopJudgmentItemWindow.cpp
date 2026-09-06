@@ -45,6 +45,32 @@ struct VObj_80221344_802205E4 : Base_80221344_802205E4 {
     virtual void m6(M2C_UNK, M2C_UNK);
 };
 
+struct Base_18 { char pad[0x18]; };
+
+struct VObj_18 : Base_18 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual M2C_UNK m6(int, int); virtual void m7();
+    virtual M2C_UNK m8();
+};
+
+extern "C" {
+s32 obj_getPtr2B0_20(int);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 copy_to_item_data__5TItemFPvPv(int, void *);
+s32 has_flag_128__10TObjPlayerFPv(int);
+M2C_UNK copy_item_data__6TLobbyFPvPv(void *, void *);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(int);
+M2C_UNK update_all__6TLobbyFi(void *);
+M2C_UNK TLobby__sub_8022727C(void *);
+void TWindow__close(void *);
+s32 TWindowSubComCard__sub_80265BF8(int);
+s32 select_cursor_entry__6TLobbyFPv(int);
+extern M2C_UNK lbl_8044C1D4[];
+void TShopJudgmentItemWindow__sub_80221134(u8 *arg0);
+}
+
 extern "C" {
 
 void *TShopJudgmentItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -129,6 +155,62 @@ void update__23TShopJudgmentItemWindowFPv(void *arg0) {
         set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(0));
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TShopJudgmentItemWindow__sub_80221134(u8 *arg0) {
+    s32 temp_r3;
+    u8 *temp_r31;
+    if (((VObj_18 *) arg0)->m8() != 0) {
+        if ((M2C_FIELD(arg0, void **, 0x158) != NULL) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x158)) != 0)) {
+            temp_r3 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x158)));
+            if ((temp_r3 == 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x154) != 0U)) {
+                if (obj_getPtr2B0_20((int) (M2C_FIELD(arg0, s32 *, 0x24))) < 0x64) {
+                    TWindow__close(M2C_FIELD(arg0, void **, 0x158));
+                    M2C_FIELD(arg0, u32 *, 0x158) = 0U;
+                    ((VObj_18 *) arg0)->m6(5, 1);
+                    set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (0xB)));
+                    return;
+                }
+                temp_r31 = arg0 + (select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, u32 *, 0x154))) * 8);
+                if (copy_to_item_data__5TItemFPvPv((int) (M2C_FIELD(temp_r31, s32 *, 0x54)), (void *) (arg0 + 0x3C)) != 0) {
+                    M2C_FIELD(arg0, s32 *, 0x168) = has_flag_128__10TObjPlayerFPv((int) (M2C_FIELD(temp_r31, s32 *, 0x54)));
+                    copy_item_data__6TLobbyFPvPv((void *) (arg0 + 0x28), (void *) (arg0 + 0x3C));
+                    update_all__6TLobbyFi((void *) (arg0 + 0x28));
+                    M2C_FIELD(arg0, s32 *, 0x14C) = 0x5F;
+                    if (M2C_FIELD(arg0, void **, 0x154) != NULL) {
+                        TWindow__close(M2C_FIELD(arg0, void **, 0x154));
+                        M2C_FIELD(arg0, u32 *, 0x154) = 0U;
+                    }
+                    TLobby__sub_8022727C((void *) (lbl_8044C1D4));
+                }
+                TWindow__close(M2C_FIELD(arg0, void **, 0x158));
+                M2C_FIELD(arg0, u32 *, 0x158) = 0U;
+                ((VObj_18 *) arg0)->m6(6, 1);
+                set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (3)));
+                return;
+            }
+            if (temp_r3 == 1) {
+                TWindow__close(M2C_FIELD(arg0, void **, 0x158));
+                M2C_FIELD(arg0, u32 *, 0x158) = 0U;
+                ((VObj_18 *) arg0)->m6(4, 1);
+                set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (1)));
+                clear_selected_and_update_entry__14TWindowSubItemFPv((int) (M2C_FIELD(arg0, u32 *, 0x154)));
+                return;
+            }
+            goto block_14;
+        }
+block_14:
+        if ((M2C_FIELD(arg0, void **, 0x158) != NULL) && (get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x158)) != 0)) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x158));
+            M2C_FIELD(arg0, u32 *, 0x158) = 0U;
+            ((VObj_18 *) arg0)->m6(4, 1);
+            set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (1)));
+            clear_selected_and_update_entry__14TWindowSubItemFPv((int) (M2C_FIELD(arg0, u32 *, 0x154)));
+        }
+    }
+}
+#pragma pop
 
 void handle_input__23TShopJudgmentItemWindowFPv(void *arg0) {
     f32 temp_f31;

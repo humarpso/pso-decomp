@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TLobby__sub_8020D94C(void);
+M2C_UNK TLobby__sub_8020DEE4(int);
+extern s16 TLobby__data_805D6134;
+void TLobby__sub_8020DB08(void);
+}
+
+extern "C" {
 
 void TLobby__sub_8020D94C(void);
 void create__11TSetManagerFv(void);
@@ -38,5 +45,16 @@ void TLobby__sub_8020D94C(void) {
         TLobby__data_805D6128 = 0;
     }
 }
+#pragma push
+#pragma scheduling off
+void TLobby__sub_8020DB08(void) {
+    s32 temp_r3;
+    TLobby__sub_8020D94C();
+    temp_r3 = TLobby__data_805D6134 & ~8;
+    TLobby__data_805D6134 = temp_r3;
+    TLobby__data_805D6134 &= ~16;
+    TLobby__sub_8020DEE4(temp_r3);
+}
+#pragma pop
 
 }

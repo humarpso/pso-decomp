@@ -140,6 +140,69 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m60();
     virtual M2C_UNK m61();
 };
+
+struct VBase_18_62ff9d { char pad[0x18]; };
+
+struct VObj_18_62ff9d : VBase_18_62ff9d {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual M2C_UNK m56();
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
@@ -152,6 +215,23 @@ M2C_UNK TBoss3VoloptP01__sub_80043CAC(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 extern const f32 lbl_805D878C;
 void run_task__15TBoss3VoloptP01Fv(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+void set_flags_30__19TBoss3VoloptMonitorFPv(void *);
+void TBoss3VoloptMonitor__sub_8004292C(void *);
+void reset_state__15TBoss3VoloptP01FPv(void *arg0);
+void reset_look_state__11TCameraCtrlFPv(void *);
+void set_mode__11TCameraCtrlFPv(void *);
+void set_flags__11TBoss4Type2FPvUi(void *, u32);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK TObjPlayer__sub_80042DE8(void *);
+s32 TBoss3VoloptP01__sub_80042FCC(void *);
+s32 TBoss3VoloptP01__sub_8004301C(void *);
+u8 *TBoss4Type2__sub_800874F4(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
+M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+extern const f32 lbl_805D8764;
+void TBoss3VoloptP01__sub_8004354C(u8 *arg0);
 }
 
 extern "C" {
@@ -161,7 +241,6 @@ void reset_state__15TBoss3VoloptP01FPv(void *arg0);
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3VoloptP01__sub_80042F84(void *);
-s32 TBoss3VoloptP01__sub_80042FCC();
 s32 TBoss3Volopt__sub_8003F398();
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss8Dragon__sub_803D64C0(s32);
@@ -197,6 +276,82 @@ void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
 }
 
 extern s32 lbl_805D4C28;
+
+#pragma push
+#pragma fp_contract on
+void TBoss3VoloptP01__sub_8004354C(u8 *arg0) {
+    s32 temp_r0;
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    u8 *temp_r3_3;
+    TBoss3VoloptMonitor__sub_8004292C(arg0);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        M2C_FIELD(arg0, u8 **, 0x3B0) = NULL;
+        if (!(M2C_FIELD(arg0, s32 *, 0x388) & 0x20000)) {
+            M2C_FIELD(arg0, s16 *, 0x39A) = 0x96;
+            M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x20000);
+        }
+        if (M2C_FIELD(arg0, f32 *, 0x38C) >= lbl_805D8764) {
+            M2C_FIELD(arg0, s32 *, 0x37C) = 2;
+        } else {
+            reset_state__15TBoss3VoloptP01FPv(arg0);
+            set_mode__11TCameraCtrlFPv(M2C_FIELD(arg0, u8 **, 0x3B8));
+            TObjPlayer__sub_80042DE8((void *) (arg0));
+            M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        }
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFF7FFFF);
+        break;
+    case 1:
+        set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
+        if (TBoss3VoloptP01__sub_8004301C((void *) (arg0)) == 1) {
+            M2C_FIELD(arg0, s32 *, 0x37C) = 2;
+        }
+        break;
+    case 2:
+        if ((void *) M2C_FIELD(arg0, u8 **, 0x3B0) == NULL) {
+            M2C_FIELD(arg0, u8 **, 0x3B0) = TBoss4Type2__sub_800874F4(arg0 + 0x2FC, 0x21);
+            set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, u8 **, 0x3B0), 0x40U);
+        }
+        M2C_FIELD(arg0, s32 *, 0x37C) = 3;
+    case 3:
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x3B0));
+        if (temp_r3 != NULL) {
+            copy_pos__11TNowLoadingFPvPv(temp_r3, arg0 + 0x2FC);
+        }
+        M2C_FIELD(arg0, s16 *, 0x39A) = (s16) (M2C_FIELD(arg0, s16 *, 0x39A) - 1);
+        if ((s32) M2C_FIELD(arg0, s16 *, 0x39A) <= 0) {
+            temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x3B0));
+            if (temp_r3_2 != NULL) {
+                queue_destruction__7TObjectFv(temp_r3_2);
+                M2C_FIELD(arg0, u8 **, 0x3B0) = NULL;
+            }
+            M2C_FIELD(arg0, s32 *, 0x37C) = 4;
+            M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFDFFFF);
+        }
+        break;
+    case 4:
+        set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
+        if (TBoss3VoloptP01__sub_80042FCC((void *)((void *) (arg0))) == 1) {
+            reset_look_state__11TCameraCtrlFPv(M2C_FIELD(arg0, u8 **, 0x3B8));
+            ((VObj_18_62ff9d *)(arg0))->m56();
+        }
+        break;
+    case -1:
+        temp_r3_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x3B0));
+        if (temp_r3_3 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_3);
+            M2C_FIELD(arg0, u8 **, 0x3B0) = NULL;
+        }
+        break;
+    }
+    TObjPlayer__sub_801B4A18((void *)((void *) (arg0)), (M2C_UNK)((int) (-1)));
+    minimap_render_dot((void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (-0x5DB4)), (M2C_UNK)((int) (1)), (M2C_UNK)((int) (0)));
+}
+#pragma pop
 
 void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
     s32 temp_r0;
@@ -248,7 +403,7 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
         }
         break;
     case 2:
-        if (TBoss3VoloptP01__sub_80042FCC() == 1) {
+        if (TBoss3VoloptP01__sub_80042FCC((void *)(arg0)) == 1) {
             M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
             ((VObj_8004394c_800430AC*)arg0)->m56();
         }

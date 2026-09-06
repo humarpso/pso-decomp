@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+extern const f32 lbl_805DEA94;
+extern const f32 lbl_805DEB64;
+extern const f32 lbl_805DEB68;
+u8 TObjFish__sub_802ED068(u8 *arg0);
+}
+
+extern "C" {
 
 s32 TBoss7Joint_get_shell_max_hp(void);
 s32 is_all_parts_done__8TObjFishFPv(u8 *arg0);
@@ -12,6 +20,40 @@ void set_swim_direction__8TObjFishFPv(void *arg0);
 void update_wobble_angle__8TObjFishFPv(void *arg0);
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
 void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
+
+#pragma push
+#pragma fp_contract on
+u8 TObjFish__sub_802ED068(u8 *arg0) {
+    s32 temp_r0;
+    s32 var_r3;
+    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670);
+    if (((s32)TBoss2DeRolLe__sub_80035FCC(arg0 + 0x650)) == 3) {
+        M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6C8);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB68;
+        if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEA94) {
+            M2C_FIELD(arg0, s32 *, 0x6C8) = 1;
+        }
+        break;
+    case 1:
+        if (((s32)TBoss2DeRolLe__sub_80035FCC(arg0 + 0x630)) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x6C8) = 2;
+        }
+        break;
+    }
+    if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEA94) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB64;
+    }
+    var_r3 = 0;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x6C8) == 2) && ((s32) M2C_FIELD(arg0, s32 *, 0x6CC) == 1)) {
+        var_r3 = 1;
+    }
+    return (u8) var_r3;
+}
+#pragma pop
 
 s32 is_all_parts_done__8TObjFishFPv(u8 *arg0) {
     TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670);

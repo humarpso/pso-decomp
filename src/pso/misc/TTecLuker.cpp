@@ -33,6 +33,12 @@ s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 void TTecLuker__sub_80234FC4(void *arg0);
 int fn_80235078(void *arg0);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+void TTecLuker__sub_80233E3C(u16 arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 }
 
 extern "C" {
@@ -136,10 +142,32 @@ void create_for_player__9TTecLukerFii(int arg0, s32 arg1) {
     }
 }
 
+void TTecLuker__sub_80233E3C(u16 arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((u32) arg0))));
+    if (temp_r3 != NULL) {
+        create__9TTecLukerFPvPvPvPv(temp_r3, temp_r3 + 0x38, temp_r3 + 0x2FC, NULL);
+    }
+}
+
 void init_fields__9TTecLukerFPvs(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 0) = arg1;
     M2C_FIELD(arg0, s16 *, 2) = 0;
     M2C_FIELD(arg0, s32 *, 4) = 0;
+}
+
+void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
+    u8 *temp_r3;
+    M2C_FIELD(arg0, u16 *, 0) = arg1;
+    M2C_FIELD(arg0, s16 *, 2) = arg2;
+    VecCopy__FP3VecPC3Vec(arg0 + 8, arg3);
+    M2C_FIELD(arg0, s32 *, 4) = arg4;
+    if (arg1 <= 4U) {
+        temp_r3 = (u8 *)(((s32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((u32) arg1))));
+        if (temp_r3 != NULL) {
+            M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
+        }
+    }
 }
 
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {

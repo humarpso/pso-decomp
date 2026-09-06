@@ -2,15 +2,20 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void set_damage__20TOTrapChainSawDamageFPvi(void *, void *);
+M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, int, int);
+M2C_UNK TOTrapChainSawKey__sub_802C8F68(void *, int);
+M2C_UNK TOTrapChainSawDamage__sub_802C9C00(void *, int);
+void TOTrapChainSawDamage__vt25(u8 *arg0);
 }
 
 extern "C" {
 
 void TOTrapChainSawDamage__vt23(void *arg0);
 void TOTrapChainSawDamage__vt24(void* p);
-int TOTrapChainSawDamage__vt25(void);
 int TOTrapChainSawKey__vt13(void* p);
 void *__dt__17TOTrapChainSawKeyFv(void *arg0, s16 arg1);
 void *create__17TOTrapChainSawKeyFPv(void *arg0);
@@ -64,7 +69,20 @@ void TOTrapChainSawDamage__vt26(void *arg0) {
     }
 }
 
-int TOTrapChainSawDamage__vt25(void) { return 0; }
+#pragma push
+#pragma fp_contract on
+void TOTrapChainSawDamage__vt25(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x100) = (s32) (M2C_FIELD(arg0, s32 *, 0x100) + 1);
+    void *p;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x100) == 5) && ((p = M2C_FIELD(arg0, void **, 0x104)) != NULL)) {
+        TOTrapChainSawDamage__sub_802C9C00(p, (int) (1));
+    }
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x100) == 0xA) && ((p = M2C_FIELD(arg0, void **, 0x108)) != NULL)) {
+        TOTrapChainSawDamage__sub_802C9C00(p, (int) (1));
+    }
+    TOTrapAncient01__sub_80226578(TOTrapChainSawKey__sub_802C8F68((void *) (arg0), (int) (0)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
+#pragma pop
 
 void TOTrapChainSawDamage__vt24(void* p) { *(s32*)((char*)p + 0x100) = 0; }
 

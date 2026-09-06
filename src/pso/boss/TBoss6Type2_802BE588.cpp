@@ -9,11 +9,12 @@ s32 update_attack_target__11TBoss6Type2FPv(void* a0);
 s32 TBoss6Type2__sub_802BC23C();
 int TBoss6Type2__sub_802BDDF8(void*, void*);
 void TBoss6Type2__sub_802BE648(u8 *arg0);
+M2C_UNK TBoss6Type2__sub_802BB768(void *);
+void TBoss6Type2__sub_802BE6A0(u8 *arg0);
 }
 
 extern "C" {
 
-int TBoss6Type2__sub_802BE6A0(void);
 int TBoss6Type2__sub_802BE6D4(void);
 void TBoss6Type2__sub_802BF3F4(void* p);
 void check_state_0x460_eq4__11TBoss6Type2FPv(void* p);
@@ -102,7 +103,13 @@ void TBoss6Type2__sub_802BE648(u8 *arg0) {
     }
 }
 
-int TBoss6Type2__sub_802BE6A0(void) { return 0; }
+void TBoss6Type2__sub_802BE6A0(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x45C) = 0x4B;
+    M2C_FIELD(arg0, s32 *, 0x460) = 0x4B;
+    M2C_FIELD(arg0, s32 *, 0x504) = 0;
+    TBoss6Type2__sub_802BB768(arg0);
+}
+
 int TBoss6Type2__sub_802BE6D4(void) { return 0; }
 
 void tick_timer_0x460__11TBoss6Type2FPv(void *arg0) {

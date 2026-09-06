@@ -29,21 +29,18 @@ void TObjPlayer__sub_801BEF44(void* p, void* q);
 void TObjPlayer__sub_801BEF44(void* p, void* q);
 void TObjPlayer__sub_801BEF60(void* p, s32 v);
 void TObjPlayer__sub_801BEF60(void* p, s32 v);
-int TObjPlayer__sub_801BEF68(void* p);
-int TObjPlayer__sub_801BEF8C(void*);
-int TObjPlayer__sub_801BEF68(void* p);
+void TObjPlayer__sub_801BEF68(void* p);
+void TObjPlayer__sub_801BEF68(void* p);
 int TObjPlayer__sub_801BF014(void* p, int a1);
 int TObjPlayer__sub_8030A1E4(void*, int, int);
 int TObjPlayer__sub_801BF014(void* p, int a1);
 int TObjPlayer__sub_801BF060(void* p, int a1);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 int TObjPlayer__sub_801BF060(void* p, int a1);
-int TObjPlayer__sub_801BF084(void* p);
-int TObjPlayer__sub_801BF0A8(void*);
-int TObjPlayer__sub_801BF084(void* p);
-int TObjPlayer__sub_801BF110(void* p);
-int TObjPlayer__sub_801BF134(void*);
-int TObjPlayer__sub_801BF110(void* p);
+void TObjPlayer__sub_801BF084(void* p);
+void TObjPlayer__sub_801BF084(void* p);
+void TObjPlayer__sub_801BF110(void* p);
+void TObjPlayer__sub_801BF110(void* p);
 void* TObjPlayer__sub_801BF1D4(void* p);
 void* TObjPlayer__sub_801BF1D4(void* p);
 int TObjPlayer__sub_801BF204(void* p, int a1);
@@ -95,6 +92,15 @@ M2C_UNK check_hit_by_id_431__10TObjPlayerFPvi(void *, u16);
 void TObjPlayer__sub_801BF228(u16 *arg0);
 void TObjPlayer__sub_801BF34C(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801BF324(u16 *arg0);
+s32 obj_getField1c(int);
+int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
+void TObjPlayer__sub_801BEF8C(u8 *arg0);
+s32 obj_getField1c(int);
+int TObjPlayer__sub_8030A1E4(void*, int, int);
+void TObjPlayer__sub_801BF0A8(u8 *arg0);
+s32 obj_getField1c(int);
+int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
+void TObjPlayer__sub_801BF134(u8 *arg0);
 }
 
 extern "C" {
@@ -214,7 +220,17 @@ void TObjPlayer__sub_801BEF44(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u3
 
 void TObjPlayer__sub_801BEF60(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }
 
-int TObjPlayer__sub_801BEF68(void* p) { return TObjPlayer__sub_801BEF8C((char*)p + 0x4); }
+void TObjPlayer__sub_801BEF68(void* p) { TObjPlayer__sub_801BEF8C((u8 *)((char*)p + 0x4)); }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_801BEF8C(u8 *arg0) {
+    if (M2C_FIELD(arg0, u32 *, 4) != 0U) {
+        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x11)));
+        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x12)));
+    }
+}
+#pragma pop
 
 int TObjPlayer__sub_801BEFEC(u16 *arg0) { return TObjPlayer__sub_801BF014((void*)((s8 *)arg0 + 4), (int)(*arg0)); }
 
@@ -224,9 +240,33 @@ int TObjPlayer__sub_801BF038(u16 *arg0) { return TObjPlayer__sub_801BF060((void*
 
 int TObjPlayer__sub_801BF060(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii(p, a1, 508); }
 
-int TObjPlayer__sub_801BF084(void* p) { return TObjPlayer__sub_801BF0A8((char*)p + 0x4); }
+void TObjPlayer__sub_801BF084(void* p) { TObjPlayer__sub_801BF0A8((u8 *)((char*)p + 0x4)); }
 
-int TObjPlayer__sub_801BF110(void* p) { return TObjPlayer__sub_801BF134((char*)p + 0x4); }
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_801BF0A8(u8 *arg0) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) {
+        TObjPlayer__sub_8030A1E4((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 0)))), (int)((int) (0x1C)));
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 4) != 0U) {
+        TObjPlayer__sub_8030A1E4((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x1C)));
+    }
+}
+#pragma pop
+
+void TObjPlayer__sub_801BF110(void* p) { TObjPlayer__sub_801BF134((u8 *)((char*)p + 0x4)); }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_801BF134(u8 *arg0) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) {
+        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 0)))), (int)((int) (0x1C)));
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 4) != 0U) {
+        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x1C)));
+    }
+}
+#pragma pop
 
 void TObjPlayer__sub_801BF19C(s32 arg0) {
     TObjPlayer__sub_80309F30((void *) (arg0 + 4), (int) (TObjPlayer__sub_801BF1D4((void*)arg0)));

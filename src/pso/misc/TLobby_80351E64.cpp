@@ -5,6 +5,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+extern const M2C_UNK lbl_804F0EA8[];
+extern void *lbl_805D6EC0;
+void *destroy_and_clear_instance__6TLobbyFPvs(void *arg0, s16 arg1);
+M2C_UNK TLobby__sub_803DA16C(void*);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+extern int lbl_805D6EC4;
+void TLobby__sub_8035202C(void);
+int TLanguage__sub_801E4874(void*);
+    extern unsigned char lbl_80478E20[];
+extern int lbl_805D6EC4;
+void load_obj_lobby_main(void);
+int fn_80352094(void);
+}
+
+extern "C" {
 
 void TLobby__sub_80351F3C(void);
 int get_lobby_type__6TLobbyFv(void);
@@ -44,5 +62,26 @@ void TLobby__sub_80351F3C(void) {
     }
     lbl_805D6EC0 = o;
 }
+void *destroy_and_clear_instance__6TLobbyFPvs(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, const M2C_UNK **, 0x18) = lbl_804F0EA8;
+        queue_destruction__7TObjectFv(arg0);
+        (*(s32 *)&lbl_805D6EC0) = 0;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+void TLobby__sub_8035202C(void) {
+    if ((u32) (*(u32 *)&lbl_805D6EC4) != 0U) {
+        TLobby__sub_803DA16C((void*)(*(u32 *)&lbl_805D6EC4));
+        safe_free__23TAdSinglePlyChrSelectGCFUi((*(u32 *)&lbl_805D6EC4));
+        (*(u32 *)&lbl_805D6EC4) = 0U;
+    }
+}
+void load_obj_lobby_main(void) { lbl_805D6EC4 = TLanguage__sub_801E4874(lbl_80478E20); }
+int fn_80352094(void) { return 0; }
 
 }

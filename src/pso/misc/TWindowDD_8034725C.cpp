@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TWindowDD__sub_80347474(s32, s32, s32, s32);
+void TWindowDD__sub_80348688(s32, void *);
+void TWindowDD__sub_8034886C(s32, s32, void *);
+void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
 
 s32 classify_id__9TWindowDDFs(s16 arg0);
 s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0);
@@ -61,6 +68,14 @@ s32 get_player_battle_flag_state__9TWindowDDFUs(u16 arg0) {
     }
 block_5:
     return 0;
+}
+
+void TWindowDD__sub_8034740C(u8 *arg0, s32 arg1, s32 arg2) {
+    TWindowDD__sub_80347474((s32) arg0, (s32) M2C_FIELD(arg0, s16 *, 4), arg1, arg2);
+    if ((s16) M2C_FIELD(arg0, s16 *, 0) > 1) {
+        TWindowDD__sub_80348688(arg1, (void *) arg2);
+        TWindowDD__sub_8034886C((s32) M2C_FIELD(arg0, s16 *, 6), arg1, (void *) arg2);
+    }
 }
 
 s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s16 arg0) {

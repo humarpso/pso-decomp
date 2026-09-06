@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 * TLobby__sub_8001FE7C(void *, s16);
+extern u8 *TOCapsuleMachine01__data_805D58C0;
+extern s32 lbl_805D58C4;
+extern s32 TOCapsuleMachine01__data_805D58C8;
+void TOCapsuleMachine01__sub_8015A6F0(void);
+}
+
+extern "C" {
 
 struct Base_8015A5E8 { char pad[0x18]; };
 struct VObj_8015A5E8 : Base_8015A5E8 {
@@ -70,6 +78,15 @@ void *create__18TOCapsuleMachine01FPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__18TOCapsuleMachine01[];
+
+void TOCapsuleMachine01__sub_8015A6F0(void) {
+    TOCapsuleMachine01__data_805D58C8 = 0;
+    lbl_805D58C4 = 0;
+    if ((void *) TOCapsuleMachine01__data_805D58C0 != NULL) {
+        TLobby__sub_8001FE7C(TOCapsuleMachine01__data_805D58C0, 1);
+        TOCapsuleMachine01__data_805D58C0 = NULL;
+    }
+}
 
 void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

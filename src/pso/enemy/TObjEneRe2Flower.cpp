@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern const f32 lbl_805D9FF8;
+void TObjEneRe2Flower__sub_800C3DC4(u8 *arg0);
+}
+
+extern "C" {
 
 void begin_state_242__16TObjEneRe2FlowerFPv(void* p);
 s32 check_hit_flag__16TObjEneRe2FlowerFPv(void *arg0);
@@ -48,6 +54,11 @@ void set_child_flags__16TObjEneRe2FlowerFPv(void *arg0) {
     }
     temp_r3_2 = M2C_FIELD(arg0, void **, 0xA4);
     M2C_FIELD(temp_r3_2, s32 *, 0x44) = (s32) (M2C_FIELD(temp_r3_2, s32 *, 0x44) | 1);
+}
+void TObjEneRe2Flower__sub_800C3DC4(u8 *arg0) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805D9FF8);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
 
 }

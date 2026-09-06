@@ -11,6 +11,8 @@ void update_scaled_position__15TWindowMainMenuFi(s32 arg0);
 extern f32 lbl_805DE158;
 extern f32 lbl_805DE1A8;
 void TWindowMainMenu__sub_802AE380(void *arg0);
+void TWindowMainMenu__sub_802AD538(void *, void *);
+void TWindowMainMenu__sub_802ADED4(s32 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -43,6 +45,18 @@ extern f32 lbl_805DE150;
 
 void update_scaled_position__15TWindowMainMenuFi(s32 arg0) {
     set_target_y__15TWindowMainMenuFPvf((void *)((void *)(arg0)), lbl_805DE150 * (f32) count_active_items__15TWindowMainMenuFi());
+}
+
+void TWindowMainMenu__sub_802ADED4(s32 arg0, u8 *arg1) {
+    s32 var_r31;
+    u8 *var_r30;
+    var_r30 = (u8 *)(arg0 + 0x10C);
+    var_r31 = 0;
+    do {
+        TWindowMainMenu__sub_802AD538(var_r30, arg1);
+        var_r31 += 1;
+        var_r30 -= 0x18;
+    } while (var_r31 < 8);
 }
 
 void TWindowMainMenu__sub_802AE380(void *arg0) {

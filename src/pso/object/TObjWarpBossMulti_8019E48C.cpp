@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(s32);
+f32 fn_8013157C(s32, s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern s32 lbl_805D53A0;
+s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0);
+}
+
+extern "C" {
 
 void close_windows__17TObjWarpBossMultiFPv(void *arg0);
 void handle_6x6A_set_boss_warp_flags(void *arg0);
@@ -23,6 +32,24 @@ s32 is_lobby_active__17TObjWarpBossMultiFv(void) {
 }
 
 extern s32 lbl_805D53A0;
+
+#pragma push
+#pragma fp_contract on
+s32 TObjWarpBossMulti__sub_8019E570(s32 arg0, f32 farg0) {
+    s32 temp_r31;
+    s32 temp_r3b;
+    s32 temp_r3;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (temp_r3 != 0) {
+        temp_r31 = TObjPlayer__sub_800196EC();
+        temp_r3b = get_field_3e4__10TObjPlayerFPv(temp_r3);
+        if ((temp_r3b == temp_r31) && (fn_8013157C(arg0 + 0x38, temp_r3 + 0x38) < (farg0 * farg0))) {
+            return temp_r3;
+        }
+    }
+    return 0;
+}
+#pragma pop
 
 void close_windows__17TObjWarpBossMultiFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x168) != 0U) {

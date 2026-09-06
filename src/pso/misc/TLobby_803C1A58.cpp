@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void release_ref__6TLobbyFv(void);
+void init_once__6TLobbyFv(void);
+void TLobby__sub_803CEFC8(void *);
+void TLobby__sub_803C89C4(u8 *arg0);
+s32 TLobby__sub_803CF1A8(int);
+s32 TLobby__sub_803C8A98(u8 *arg0);
+void release_ref__6TLobbyFv(void);
+void init_once__6TLobbyFv(void);
+void TLobby__sub_803CEFC8(void *);
+void TLobby__sub_803CF250(void *);
+M2C_UNK memset(void *, int, int);
+void TLobby__sub_803C8B38(u8 *arg0);
+}
+
+extern "C" {
 
 void TLobby__sub_803C5D00(u8 *arg0);
 void TLobby__sub_803C5E58(void);
@@ -152,9 +167,50 @@ void set_coords__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x3C) = arg2;
 }
 
+void TLobby__sub_803C89C4(u8 *arg0) {
+    u8 *temp_r3;
+    M2C_FIELD(arg0, s8 *, 1) = 1;
+    init_once__6TLobbyFv();
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+    if (temp_r3 != NULL) {
+        TLobby__sub_803CEFC8(temp_r3);
+        M2C_FIELD(arg0, s8 *, 2) = 0;
+    }
+    release_ref__6TLobbyFv();
+}
+
+s32 TLobby__sub_803C8A98(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+    if (temp_r3 != NULL) {
+        return TLobby__sub_803CF1A8((int)(temp_r3)) - M2C_FIELD(arg0, s32 *, 0x10);
+    }
+    return 0;
+}
+
 s32 set_scroll_offset__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     TLobby__sub_803CF100((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10) + arg1), (int) (0));
     return TLobby__sub_803CF1A8((int)((int) (M2C_FIELD(arg0, s32 *, 8)))) - M2C_FIELD(arg0, s32 *, 0x10);
+}
+
+void TLobby__sub_803C8B38(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, s8 *, 1) = 1;
+        init_once__6TLobbyFv();
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+        if (temp_r3 != NULL) {
+            TLobby__sub_803CEFC8(temp_r3);
+            M2C_FIELD(arg0, s8 *, 2) = 0;
+        }
+        release_ref__6TLobbyFv();
+        temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+        if (temp_r3_2 != NULL) {
+            TLobby__sub_803CF250(temp_r3_2);
+        }
+        memset((void *) (arg0), (int) (0), (int) (0x40));
+    }
 }
 
 void si_get_type_async__6TLobbyFv(void) {

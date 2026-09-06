@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TLobby__sub_803DA16C(void *, M2C_UNK);
+extern int TAdMcSelectCursorGC__data_805D6C90;
+void TAdMcSelectCursorGC__sub_8032A668(void);
+}
+
+extern "C" {
 
 s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p);
 int get_cursor_type__19TAdMcSelectCursorGCFi(int a0);
@@ -32,6 +38,17 @@ u32 get_instance__19TAdMcSelectCursorGCFi(s32 arg0) {
     extern unsigned char lbl_80477118[];
     extern unsigned char lbl_804ED99C[];
     extern int TAdMcSelectCursorGC__data_805D6C90;
+
+void TAdMcSelectCursorGC__sub_8032A668(void) {
+    u8 *temp_r4;
+    if ((void **) (*(void ** *)&TAdMcSelectCursorGC__data_805D6C90) != NULL) {
+        temp_r4 = (u8 *)(*(*(void ** *)&TAdMcSelectCursorGC__data_805D6C90));
+        if ((u32) M2C_FIELD(temp_r4, u32 *, 8) != 0U) {
+            TLobby__sub_803DA16C((*(void ** *)&TAdMcSelectCursorGC__data_805D6C90), (s32) temp_r4);
+        }
+    }
+}
+
 void init_resource__19TAdMcSelectCursorGCFv(void) { TAdMcSelectCursorGC__data_805D6C90 = (int)lbl_804ED99C; TLobby__sub_8023E4B4(lbl_80477118, lbl_804ED99C); }
 
 s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p) { return *(s32*)((char*)p + 0x1c); }

@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TWindowKeyBoardBase__sub_8008102C(void *, u32, u32);
+s32 *TWindowKeyBoardBase__sub_8008116C(s32 *arg0);
+}
+
+extern "C" {
 
 u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1);
 int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0);
@@ -26,6 +31,12 @@ u32 *destroy__19TWindowKeyBoardBaseFPvs(u32 *arg0, s16 arg1) {
 }
 
 extern s32 lbl_805D53A0;
+
+s32 *TWindowKeyBoardBase__sub_8008116C(s32 *arg0) {
+    *arg0 = 0;
+    TWindowKeyBoardBase__sub_8008102C(arg0, 0U, 0U);
+    return arg0;
+}
 
 int is_player_near__13TEF_LensFlareFif(s32 arg0, f32 farg0) {
     u32 temp_r3;

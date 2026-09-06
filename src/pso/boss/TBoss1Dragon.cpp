@@ -94,6 +94,17 @@ extern const f32 TBoss1Dragon__data_805D7FF8;
 void TBoss1Dragon__sub_80028B98(s32 arg0);
 extern const f32 TBoss1Dragon__data_805D8040;
 void TBoss1Dragon__sub_80028B28(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+M2C_UNK clearControlOverride__12TBoss1DragonFv();
+M2C_UNK set_type__10TObjPlayerFPvi(void *, M2C_UNK);
+M2C_UNK start_freeze__10TObjPlayerFPv(void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern const f32 lbl_805D8090;
+void TBoss1Dragon__sub_8002727C(u8 *arg0);
+extern const f32 TBoss1Dragon__data_805D7F98;
+f32 TBoss1Dragon__sub_8002815C(void *arg0);
 }
 
 extern "C" {
@@ -318,6 +329,30 @@ u8 check_attack_ready__12TBoss1DragonFPv(void *arg0) {
     return (u8) var_r31;
 }
 
+#pragma push
+#pragma fp_contract on
+void TBoss1Dragon__sub_8002727C(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r3b;
+    u8 *temp_r3;
+    temp_r3 = ((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((s32)(M2C_FIELD(arg0, u16 *, 0x764))));
+    if (temp_r3 != NULL) {
+        temp_r31 = TObjPlayer__sub_800196EC();
+        temp_r3b = get_field_3e4__10TObjPlayerFPv(temp_r3);
+        if (temp_r3b == temp_r31) {
+            start_freeze__10TObjPlayerFPv(temp_r3);
+            set_type__10TObjPlayerFPvi(temp_r3 + 0x644, 0x14);
+            M2C_FIELD(temp_r3, s32 *, 0x30) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x30) & 0xFFEFFFDF);
+            VecCopy__FP3VecPC3Vec((s32)(temp_r3 + 0x38), (s32)(arg0 + 0x38));
+            M2C_FIELD(temp_r3, f32 *, 0x3C) = (f32) (M2C_FIELD(temp_r3, f32 *, 0x3C) - lbl_805D8090);
+            M2C_FIELD(temp_r3, s32 *, 0x60) = (s32) M2C_FIELD(arg0, s32 *, 0x60);
+            return;
+        }
+    }
+    clearControlOverride__12TBoss1DragonFv();
+}
+#pragma pop
+
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0) {
     TOSwitchAttack__sub_80087278(arg0 + 0x38, M2C_FIELD(M2C_FIELD(arg0, void **, 0x778), s32 *, 4), 0x40);
 }
@@ -351,6 +386,13 @@ extern "C" {
 void clear_work__12TBoss1DragonFi(s32 arg0) {
     alloc_effect_node__12TBoss3VoloptFUisi(arg0 + 0x38, 0xE0, arg0);
 }
+
+#pragma push
+#pragma fp_contract on
+f32 TBoss1Dragon__sub_8002815C(void *arg0) {
+    return (TBoss1Dragon__data_805D7F98 * (f32) M2C_FIELD(arg0, s32 *, 0x6DC)) + TBoss1Dragon__data_805D7F98;
+}
+#pragma pop
 
 s32 check_phase_advance__12TBoss1DragonFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s16) M2C_FIELD(arg0, s16 *, 0x680)) {

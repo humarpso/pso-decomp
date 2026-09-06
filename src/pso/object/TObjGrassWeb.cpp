@@ -9,6 +9,13 @@ int queue_destruction__12TObjGrassWebFPv(void* p);
 M2C_UNK TObjGrassWeb__sub_800BC798();
 void apply_to_player__12TObjGrassWebFPv(void *arg0);
 void run_task__12TObjGrassWebFv(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
+s16 obj_getField1c(u32);
+int queue_destruction__7TObjectFv(void*);
+M2C_UNK TPhotonMagicSquare__sub_801A2640();
+extern M2C_UNK __vt__12TObjGrassWeb[];
+extern s32 lbl_805D2A3C;
+u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2);
 }
 
 extern "C" {
@@ -72,5 +79,22 @@ void *__dt__12TObjGrassWebFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma fp_contract on
+u8 *TObjGrassWeb__ct(u8 *arg0, s32 arg1, u32 arg2) {
+    TPhotonMagicSquare__sub_801A2640();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjGrassWeb;
+    if (arg2 != 0U) {
+        M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2A3C;
+        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x38);
+        M2C_FIELD(arg0, s32 *, 0x90) = 0;
+        M2C_FIELD(arg0, s16 *, 0xA4) = obj_getField1c(arg2);
+        M2C_FIELD(arg0, s32 *, 0x84) = 0xB4;
+    } else {
+        queue_destruction__7TObjectFv((void*)(arg0));
+    }
+    return arg0;
+}
+#pragma pop
 
 }

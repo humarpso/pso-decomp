@@ -6,6 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 fn_8010319C(u8 *arg0);
+void init__9TItemDataFv(void *);
+extern const f32 lbl_805DAA88;
+void TLobby__sub_8010314C(u8 *arg0);
 }
 
 extern "C" {
@@ -15,7 +18,6 @@ void TLobby__sub_801030EC(u8 *arg0);
 void bswap_pick_up_item_request__6TLobbyFi(s32 arg0);
 s32 drop_stacked_item_passthrough__6TLobbyFi(s32 arg0);
 void set_item_count__6TLobbyFPvs(void* p, s16 v);
-s32 TLobby__sub_8010314C();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
@@ -37,8 +39,19 @@ void TLobby__sub_801030EC(u8 *arg0) {
 
 void set_item_count__6TLobbyFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x1c) = v; }
 s32 drop_stacked_item_passthrough__6TLobbyFi(s32 arg0) {
-    TLobby__sub_8010314C();
+    TLobby__sub_8010314C((u8 *)(arg0));
     return arg0;
+}
+
+void TLobby__sub_8010314C(u8 *arg0) {
+    M2C_FIELD(arg0, s8 *, 1) = 0;
+    M2C_FIELD(arg0, s8 *, 0) = -1;
+    M2C_FIELD(arg0, s16 *, 2) = -1;
+    M2C_FIELD(arg0, f32 *, 4) = (f32) lbl_805DAA88;
+    M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DAA88;
+    M2C_FIELD(arg0, s16 *, 0xC) = -1;
+    M2C_FIELD(arg0, s16 *, 0xE) = 0;
+    init__9TItemDataFv(arg0 + 0x10);
 }
 
 u8 fn_8010319C(u8 *arg0) {
