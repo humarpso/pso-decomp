@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
+extern const f32 lbl_805DD388;
+extern const f32 lbl_805DD38C;
+void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0);
+}
+
+extern "C" {
 
 void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
@@ -12,15 +20,22 @@ void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
 void *TPlayerBattleCtrl4P__sub_801BA74C();
 M2C_UNK get_width__11TWindowCtrlFPv();
 M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
-M2C_UNK TWindowSubStatusDisp__sub_8026F6DC(s32);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 s16 obj_getS16_2BA(void *);
 
 struct VtBase4_8026f71c { void *vtable; };
 struct VObj3_8026f71c : VtBase4_8026f71c { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
 
-extern f32 lbl_805DD388;
-extern f32 lbl_805DD38C;
+extern const f32 lbl_805DD388;
+extern const f32 lbl_805DD38C;
+
+void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(((s32)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(4))));
+    M2C_FIELD(temp_r3, f32 *, 0x20) = (f32) (*(const f32 *)&lbl_805DD388);
+    M2C_FIELD(temp_r3, f32 *, 0x24) = (f32) (*(const f32 *)&lbl_805DD388);
+    TWindowSubStatusDisp__sub_802575C0((void *)(temp_r3), (M2C_UNK)(0xFF008CFCU), (*(const f32 *)&lbl_805DD38C));
+}
 
 void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0) {
     VObj3_8026f71c *temp_r3;
@@ -68,7 +83,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
     get_width__11TWindowCtrlFPv();
     temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C();
     if (temp_r3 == NULL) {
-        TWindowSubStatusDisp__sub_8026F6DC(arg0);
+        TWindowSubStatusDisp__sub_8026F6DC((u8 *)(arg0));
         return 0xFF008CFC;
     }
     temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(4));

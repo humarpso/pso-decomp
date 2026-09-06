@@ -5,11 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void* set_mode_floats__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_80326F44(u8 *arg0);
+}
+
+extern "C" {
 
 void *item_equip_variant_deleting_dtor_8032704C(void *arg0, s16 arg1);
 void approach_orgaflow_shot__10TObjPlayerFi(s32 arg0);
 void approach_position_x__10TObjPlayerFi(s32 arg0);
-void* set_mode_floats__10TObjPlayerFPv(void* a0);
 int TObjPlayer__sub_80120D50(void);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(s32, f32, f32);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -19,10 +25,24 @@ void *item_equip_variant_deleting_dtor_8032704C(void *arg0, s16 arg1);
     extern unsigned char lbl_804ED298[];
     extern const float lbl_805DF660;
     extern const float lbl_805DF678;
-void* set_mode_floats__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED298; *(float*)((char*)a0 + 0x1f8) = lbl_805DF660; *(float*)((char*)a0 + 0x1fc) = lbl_805DF678; return a0; }
+void* set_mode_floats__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED298; *(float*)((char*)a0 + 0x1f8) = lbl_805DF660; *(float*)((char*)a0 + 0x1fc) = lbl_805DF678; return a0; }
 
 extern const f32 lbl_805DF684;
 extern const f32 lbl_805DF688;
+
+u8 *TObjPlayer__sub_80326F44(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)set_mode_floats__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
 
 void approach_orgaflow_shot__10TObjPlayerFi(s32 arg0) {
     approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x1F8, lbl_805DF684, lbl_805DF688);

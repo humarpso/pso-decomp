@@ -6,6 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjPlayer__sub_8032DDD8(u8 *arg0);
+void * init_variant_2_dc28__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_8032DB8C(u8 *arg0);
 }
 
 extern "C" {
@@ -14,7 +18,6 @@ void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1);
 void TObjPlayer__sub_8032DDE8(void* p);
 void fire_projectiles__10TObjPlayerFPv(void *arg0);
-void *init_variant_2_dc28__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8011EB84(void *, M2C_UNK *, s32, M2C_UNK);
 s32 TObjPlayer__sub_8011F63C(void *);
 void TObjPlayer__sub_80120D50(void *);
@@ -48,7 +51,7 @@ void fire_projectiles__10TObjPlayerFPv(void *arg0) {
 
 extern M2C_UNK lbl_804EDC28[];
 
-void *init_variant_2_dc28__10TObjPlayerFPv(void *arg0) {
+void *init_variant_2_dc28__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDC28;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
@@ -69,6 +72,20 @@ void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK lbl_804EDD20[];
+
+u8 *TObjPlayer__sub_8032DB8C(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)init_variant_2_dc28__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
 
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

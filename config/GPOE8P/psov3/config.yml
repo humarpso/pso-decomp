@@ -31,6 +31,7 @@ force_active:
   - TObjPlayer__sub_801BF8CC
   - TPlyDispConfig__sub_801E0A68
   - TRecvGenerateID__sub_801DFBC4
+  - __dt__12TItemEffCaneFv
   - create_icon__10TObjPlayerFiii
   - draw_value__13TWindowMesetaFPvi
   - fn_80076C68
@@ -41,6 +42,7 @@ force_active:
   - init_default_fields__6TLobbyFPv
   - load_item_pmt
   - reset_and_invoke__6TLobbyFv
+  - run_task__12TItemEffCaneFv
   - setup_state_helper__10TObjPlayerFPv
   - spawn_effect__10TObjPlayerFiUiii
   - update_and_destroy__10TObjPlayerFPv

@@ -4,11 +4,20 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_50 { u8 bytes[0x50]; };
+
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 extern int lbl_805D5E10;
 s32 TObjPlayer__sub_801D9250(s8 arg0, s32 arg1);
+s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
+s8 TObjPlayer__sub_801AFDB0(s32);
+s8 TObjPlayer__sub_801AFDB0(s32 _w0);
+s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -76,6 +85,8 @@ s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1) {
 }
 
     extern int lbl_805D5E10;
+
+s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1) { return get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), arg1); }
 
 s32 TObjPlayer__sub_801D9250(s8 arg0, s32 arg1) {
   s32 temp_r30;

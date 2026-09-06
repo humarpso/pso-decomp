@@ -12,13 +12,16 @@ void TObjPlayer__sub_80362C28(u8 *arg0);
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E025C;
 void TObjPlayer__sub_80362C54(u8 *arg0);
+void * TObjPlayer__sub_80362CFC(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_80362D38(u8 *arg0);
 }
 
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
 void *TObjEneEpsilon__ct(void *arg0);
-void *TObjPlayer__sub_80362CFC(void *arg0);
 void TObjPlayer__sub_8012A884(void *);
 void __construct_array(void *, void *, void *, int, int);
 void check_state_flag_4__9TObjEneDDFPv(void *);
@@ -51,10 +54,23 @@ void TObjPlayer__sub_80362C54(u8 *arg0) {
     set_evp__12TItemProUnitFPvf((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (f32) (lbl_805E025C));
 }
 
-void *TObjPlayer__sub_80362CFC(void *arg0) {
+void *TObjPlayer__sub_80362CFC(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_8012A884(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F26E0;
     return arg0;
+}
+u8 *TObjPlayer__sub_80362D38(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)TObjPlayer__sub_80362CFC((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
 }
 
 extern M2C_UNK lbl_804F26E0[];

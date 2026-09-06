@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 extern const f32 lbl_805DF58C;
@@ -14,6 +19,9 @@ extern const f32 lbl_805DF5BC;
 extern const f32 lbl_805DF5C0;
 extern const f32 lbl_805DF5C4;
 void TBoss6Mine__vt0(u8 *arg0);
+M2C_UNK TObjPlayer__sub_800F5E08();
+extern const f32 TBoss6Mine__data_805DF580;
+void TBoss6Mine__sub_80323E1C(u8 *arg0);
 }
 
 extern "C" {
@@ -58,6 +66,12 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
 
+void TBoss6Mine__sub_80323E1C(u8 *arg0) {
+    if (M2C_FIELD(arg0, f32 *, 0x3C) >= (*(const f32 *)&TBoss6Mine__data_805DF580)) {
+        TObjPlayer__sub_800F5E08();
+    }
+}
+
 void set_state7__10TBoss6MineFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x380) != 7) {
         M2C_FIELD(arg0, s32 *, 0x380) = 7;
@@ -71,7 +85,7 @@ void copy_pos__10TBoss6MineFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
 }
 
-extern f32 TBoss6Mine__data_805DF580;
+extern const f32 TBoss6Mine__data_805DF580;
 
 void draw__10TBoss6MineFPv(void *arg0) {
     s32 temp_r31;

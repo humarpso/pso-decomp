@@ -90,6 +90,10 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 int TObjPlayer__sub_80357EFC(void *);
 extern const f32 lbl_805E006C;
 void TObjPlayer__sub_80357F60(u8 *arg0);
+void * init_state_34_alt__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_80357AD4(u8 *arg0);
 }
 
 extern "C" {
@@ -134,7 +138,6 @@ void handle_action_event__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32
 void handle_hit_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void handle_stage_event__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void handle_symbol_chat_action__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-void *init_state_34_alt__10TObjPlayerFPv(void *arg0);
 void play_action_sound__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void play_action_sounds__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void *reset_field28__10TObjPlayerFPv(void *arg0);
@@ -196,13 +199,27 @@ void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804F14A8[];
 extern M2C_UNK spawn_shoot_particle__10TItemShootFv[];
 
-void *init_state_34_alt__10TObjPlayerFPv(void *arg0) {
+void *init_state_34_alt__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F14A8;
     set_status_flags__10TObjPlayerFPvUi(arg0, 34);
     M2C_FIELD(arg0, u32 *, 0x1F8) = 0;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = spawn_shoot_particle__10TItemShootFv;
     return arg0;
+}
+
+u8 *TObjPlayer__sub_80357AD4(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)init_state_34_alt__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
 }
 
 int TObjPlayer__sub_80357EFC(void * _w0) { return 0; }

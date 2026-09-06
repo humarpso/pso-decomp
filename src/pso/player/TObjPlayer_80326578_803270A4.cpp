@@ -5,10 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void* init_vtable_1f8__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_803270E8(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjPlayer__sub_80327140(int a0, void* a1);
 void fire_spread_attack__10TObjPlayerFPv(void *arg0);
-void* init_vtable_1f8__10TObjPlayerFPv(void* a0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011EB84(void *, s32, M2C_UNK, M2C_UNK);
 int TObjPlayer__sub_80120D50(void);
@@ -19,9 +25,24 @@ M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 
     extern unsigned char lbl_804ED390[];
     extern const float lbl_805DF680;
-void* init_vtable_1f8__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED390; *(float*)((char*)a0 + 0x1f8) = lbl_805DF680; return a0; }
+void* init_vtable_1f8__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED390; *(float*)((char*)a0 + 0x1f8) = lbl_805DF680; return a0; }
 
     extern const float lbl_805DF690;
+
+u8 *TObjPlayer__sub_803270E8(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)init_vtable_1f8__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
+
 void TObjPlayer__sub_80327140(int a0, void* a1) { *(float*)((char*)a1 + 0x3c) = lbl_805DF690; *(int*)((char*)a1 + 0x78) = 474; }
 
 void fire_spread_attack__10TObjPlayerFPv(void *arg0) {

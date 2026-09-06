@@ -11,6 +11,10 @@ M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
 void TItemEffPG__sub_8034FBA4(u8 *arg0);
+void * init_fields__10TItemEffPGFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TItemEffPG__sub_8034F9F8(u8 *arg0);
 }
 
 extern "C" {
@@ -19,7 +23,6 @@ void TItemEffPG__sub_8034FA50(void* p);
 void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1);
 s32 countdown_timer__10TItemEffPGFPv(void *arg0);
 void *destroy__10TItemEffPGFPvs(void *arg0, s16 arg1);
-void *init_fields__10TItemEffPGFPv(void *arg0);
 void TObjPlayer__sub_80120D50(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TItemEffPGFv(void *, int);
@@ -29,13 +32,27 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern M2C_UNK lbl_804F0AF8[];
 
-void *init_fields__10TItemEffPGFPv(void *arg0) {
+void *init_fields__10TItemEffPGFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0AF8;
     set_status_flags__10TObjPlayerFPvUi(arg0, 1);
     M2C_FIELD(arg0, u32 *, 0x1F8) = -30947;
     M2C_FIELD(arg0, u32 *, 0x1FC) = -7281;
     return arg0;
+}
+
+u8 *TItemEffPG__sub_8034F9F8(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)init_fields__10TItemEffPGFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
 }
 
 void TItemEffPG__sub_8034FA50(void* p) { *(s32*)((char*)p + 0x58) = 1; }

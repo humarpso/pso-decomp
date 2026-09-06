@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TBoss4Type2__sub_80055300();
+extern const f32 TBoss4Type2__data_805D8BAC;
+void TBoss4Type2__vt19(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss4Type2__vt14(void);
 void TBoss4Type2__vt20(void);
@@ -42,28 +48,28 @@ void TBoss4Type2__vt23(void *arg0) {
     }
 }
 
-extern f32 TBoss4Type2__data_805D8BAC;
+extern const f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt31(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x12C;
 }
 
-extern f32 TBoss4Type2__data_805D8BAC;
+extern const f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt28(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
     M2C_FIELD(arg0, s32 *, 0x398) = 0xE1;
 }
 
-extern f32 TBoss4Type2__data_805D8BAC;
+extern const f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt25(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x96;
 }
 
-extern f32 TBoss4Type2__data_805D8BAC;
+extern const f32 TBoss4Type2__data_805D8BAC;
 
 void TBoss4Type2__vt22(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) TBoss4Type2__data_805D8BAC;
@@ -71,6 +77,12 @@ void TBoss4Type2__vt22(void *arg0) {
 }
 
 void TBoss4Type2__vt20(void) {  }
+
+void TBoss4Type2__vt19(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) (*(const f32 *)&TBoss4Type2__data_805D8BAC);
+    TBoss4Type2__sub_80055300();
+    M2C_FIELD(arg0, s32 *, 0x398) = 0x96;
+}
 
 void TBoss4Type2__vt14(void) {  }
 

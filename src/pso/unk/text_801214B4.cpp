@@ -56,14 +56,33 @@ struct VObj_18 : VBase_18 {
     virtual void m48();
     virtual M2C_UNK m49(M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
 };
+
 extern "C" {
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
 void TObjPlayer__sub_8012150C(u8 *arg0);
+u8 * init_vtable_804A08B8__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_801214B4(u8 *arg0);
 }
 
 extern "C" {
+
+u8 *TObjPlayer__sub_801214B4(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(init_vtable_804A08B8__10TObjPlayerFPv(temp_r3, tl_05, arg0));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
 
 void TObjPlayer__sub_8012150C(u8 *arg0) {
     M2C_UNK sp8;

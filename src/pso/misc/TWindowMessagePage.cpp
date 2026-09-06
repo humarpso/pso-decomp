@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 * TWindowMessagePage__ct(void *, s32, s32, s32);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+M2C_UNK TLobby__sub_80269DA4(void *, void *);
+u8 *TWindowMessagePage__sub_8026AE7C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+}
+
+extern "C" {
 
 void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1);
 s32 is_ready__18TWindowMessagePageFPv(void *arg0);
@@ -13,7 +20,6 @@ void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c);
 void update_message__18TWindowMessagePageFPv(void *arg0);
 s32 TLobby__sub_8001DC24();
 s32 TMCFormatSequence__sub_802693B4();
-M2C_UNK TWindowMessagePage__sub_8026AE7C(s32, s32, s32, s32);
 u32 TWindowSubStatusDisp__sub_80228F84(u32);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 void __dl__7TObjectFPv(void *);
@@ -38,8 +44,20 @@ void update_message__18TWindowMessagePageFPv(void *arg0) {
 
 extern s32 lbl_805D53A0;
 
+u8 *TWindowMessagePage__sub_8026AE7C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    TLobby__sub_80269DA4((void *) (arg1), (void *) (arg2));
+    temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TWindowMessagePage__ct(temp_r3, arg0, arg2, arg3));
+    }
+    return var_r0;
+}
+
 void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c) {
-    TWindowMessagePage__sub_8026AE7C(a, b, c, lbl_805D53A0);
+    TWindowMessagePage__sub_8026AE7C((s32)(a), (s32)(b), (s32)(c), lbl_805D53A0);
 }
 
 int render__18TWindowMessagePageFv(void* p) { return render__14TWindowMessageFv(p); }

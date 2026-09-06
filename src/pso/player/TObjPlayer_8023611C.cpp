@@ -9,6 +9,10 @@ s32 TObjPlayer__sub_80236378(void *, int, void *, void *);
 void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_802364D8(void *, int, void *, void *);
 void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1);
+s32 TObjPlayer__sub_80236154(void *, int, void *, void *);
+void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1);
+s32 TObjPlayer__sub_80236290(void *, int, void *, void *);
+void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -33,6 +37,14 @@ void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1) {
 
 void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1) {
     TObjPlayer__sub_802364D8((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xE8)), (void *) (arg0 + 0xBC), (void *) (arg1));
+}
+
+void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1) {
+    TObjPlayer__sub_80236154((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xdc)), (void *) (arg0 + 0xb0), (void *) (arg1));
+}
+
+void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1) {
+    TObjPlayer__sub_80236290((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xdc)), (void *) (arg0 + 0xb0), (void *) (arg1));
 }
 
 void* get_pos_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x78; }

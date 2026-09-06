@@ -11,7 +11,10 @@ public:
     };
 
     void step();
+    void push_trail_entry(const f32* first, const f32* second);
+    static TrailVertex* allocate_trail_buffer();
     static void release_trail_buffer(void* buffer);
+    static void free_static_effects();
 
     u8 object_state[0x1C];
     TrailVertex* vertices;

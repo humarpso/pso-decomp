@@ -1,73 +1,50 @@
-#include "pso/TItemEffCane.h"
+#include "pso/item/TItemEffCane.h"
 
-extern "C" void request_destroy__11TBoss4Type2FUi(void*);
+extern "C" {
+void request_destroy__11TBoss4Type2FUi(void*);
+void queue_destruction__7TObjectFv(void*);
+void disallow_rendering__7TObjectFv(void*);
+TItem* TLobby__sub_80101AB0(s32 item_id);
+s8 TObjPlayer__sub_80102C30(TItem* item);
+u32 test_flags_1b8__10TObjPlayerFPvUi(TItem* item, u32 flags);
+s32 draw_icon__10TObjPlayerFPvii(TItem* item, s32 attachment, f32* position);
+void copy_pos__11TNowLoadingFPvPv(void* effect, const f32* position);
+s32 get_field_d8__10TObjPlayerFPv(TItem* item);
+void* TBoss4Type2__sub_800874F4(const f32* position, s32 effect_id);
+extern const char* lbl_805D2B98;
+}
 
-void TItemEffCane::run_task() {}
+void TItemEffCane::run_task() {
+    f32 position[3];
+    TItem* item = TLobby__sub_80101AB0(item_id);
+    if (item == NULL) {
+        queue_destruction__7TObjectFv(this);
+        return;
+    }
+    if (TObjPlayer__sub_80102C30(item) != 2 ||
+        test_flags_1b8__10TObjPlayerFPvUi(item, 0x10) == 0 || effect == NULL) {
+        queue_destruction__7TObjectFv(this);
+        return;
+    }
+    draw_icon__10TObjPlayerFPvii(item, attachment_index, position);
+    copy_pos__11TNowLoadingFPvPv(effect, position);
+}
 
 TItemEffCane::~TItemEffCane() {
-    request_destroy__11TBoss4Type2FUi(this->m_20);
+    request_destroy__11TBoss4Type2FUi(effect);
 }
 
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(int, void *);
-s32 TLobby__sub_80101AB0(int);
-s8 TObjPlayer__sub_80102C30();
-u32 test_flags_1b8__10TObjPlayerFPvUi(int, int);
-M2C_UNK draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
-void run_task__12TItemEffCaneFv(u8 *arg0);
-}
-
-extern "C" {
-
-void *TItemEffCane__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 TBoss4Type2__sub_800874F4(M2C_UNK *, s32);
-M2C_UNK __ct__7TObjectFP7TObject();
-M2C_UNK disallow_rendering__7TObjectFv(void *);
-M2C_UNK draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
-s32 get_field_d8__10TObjPlayerFPv(s32);
-
-extern M2C_UNK __vt__12TItemEffCane[];
-extern s32 lbl_805D2B98;
-
-void run_task__12TItemEffCaneFv(u8 *arg0) {
-    M2C_UNK sp8;
-    s32 temp_r3;
-    temp_r3 = TLobby__sub_80101AB0((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-    if (temp_r3 == 0) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        return;
-    }
-    if ((TObjPlayer__sub_80102C30() != 2) || (test_flags_1b8__10TObjPlayerFPvUi((int) (temp_r3), (int) (0x10)) == 0U) || ((u32) M2C_FIELD(arg0, u32 *, 0x20) == 0U)) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-        return;
-    }
-    draw_icon__10TObjPlayerFPvii((s32)((int) (temp_r3)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x1C))), (M2C_UNK *)((void *) (&sp8)));
-    copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x20)), (void *) (&sp8));
-}
-
-void *TItemEffCane__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    M2C_UNK sp8[4];
-
-    __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TItemEffCane;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2B98;
-    M2C_FIELD(arg0, s32 *, 0x24) = get_field_d8__10TObjPlayerFPv(arg2);
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg3;
-    draw_icon__10TObjPlayerFPvii(arg2, M2C_FIELD(arg0, s32 *, 0x1C), sp8);
-    if (arg4 != -1) {
-        M2C_FIELD(arg0, s32 *, 0x20) = TBoss4Type2__sub_800874F4(sp8, arg4);
+TItemEffCane::TItemEffCane(TObject* parent, TItem* item, s32 attachment, s32 effect_id)
+    : TObject(parent) {
+    f32 position[3];
+    m_name = lbl_805D2B98;
+    item_id = get_field_d8__10TObjPlayerFPv(item);
+    attachment_index = attachment;
+    draw_icon__10TObjPlayerFPvii(item, attachment_index, position);
+    if (effect_id != -1) {
+        effect = TBoss4Type2__sub_800874F4(position, effect_id);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x20) = 0;
+        effect = NULL;
     }
-    disallow_rendering__7TObjectFv(arg0);
-    return arg0;
-}
-
+    disallow_rendering__7TObjectFv(this);
 }

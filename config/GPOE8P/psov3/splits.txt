@@ -3971,6 +3971,7 @@ pso/player/TObjPlayer_8010853C.cpp:
 
 pso/item/TItemEffCane.cpp:
 	.text       start:0x801086B8 end:0x80108854
+	.data       start:0x8049F008 end:0x8049F020
 
 pso/player/TObjPlayer_80108854.cpp:
 	.text       start:0x80108854 end:0x80108860

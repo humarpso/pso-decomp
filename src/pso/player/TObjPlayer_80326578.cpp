@@ -5,6 +5,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void * set_vtable_mode2_alt__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_803265C0(u8 *arg0);
+void * init_vtable_variant__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_803266B8(u8 *arg0);
+u8 * TObjPlayer__sub_803268D8(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_80326924(u8 *arg0);
+void * init_state_1536__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_80326B7C(u8 *arg0);
+void * init_variant_b__10TObjPlayerFPv(void *, M2C_UNK, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+extern s32 tl_05;
+u8 *TObjPlayer__sub_80326CA4(u8 *arg0);
+}
+
+extern "C" {
 
 void *item_equip_variant_deleting_dtor_80326618(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_80326880(void *arg0, s16 arg1);
@@ -15,10 +38,6 @@ int TObjPlayer__sub_80326BD4(void* p);
 void apply_container_item__10TObjPlayerFPv(void *arg0);
 void approach_target_angle__10TObjPlayerFPv(u8 *arg0);
 void init_item_slots__10TObjPlayerFPv(void* p);
-void *init_state_1536__10TObjPlayerFPv(void *arg0);
-void *init_variant_b__10TObjPlayerFPv(void *arg0);
-void *init_vtable_variant__10TObjPlayerFPv(void *arg0);
-void *set_vtable_mode2_alt__10TObjPlayerFPv(void *arg0);
 void spawn_armor_effects__10TObjPlayerFPv(void *arg0);
 void step_angles__10TObjPlayerFPv(u8 *arg0);
 void sync_hp_from_target__10TObjPlayerFPv(void *arg0);
@@ -49,7 +68,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern M2C_UNK lbl_804ECDC0[];
 
-void *set_vtable_mode2_alt__10TObjPlayerFPv(void *arg0) {
+void *set_vtable_mode2_alt__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ECDC0;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
@@ -72,11 +91,39 @@ void *item_equip_variant_deleting_dtor_80326618(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804ECEB8[];
 extern M2C_UNK create__13TItemShootGunFiiif[];
 
-void *init_vtable_variant__10TObjPlayerFPv(void *arg0) {
+u8 *TObjPlayer__sub_803265C0(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)set_vtable_mode2_alt__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
+
+void *init_vtable_variant__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ECEB8;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = create__13TItemShootGunFiiif;
     return arg0;
+}
+
+u8 *TObjPlayer__sub_803266B8(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)init_vtable_variant__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
 }
 
 void sync_hp_from_target__10TObjPlayerFPv(void *arg0) {
@@ -138,6 +185,20 @@ void *item_equip_variant_deleting_dtor_80326880(void *arg0, s16 arg1) {
     return arg0;
 }
 
+u8 *TObjPlayer__sub_80326924(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(TObjPlayer__sub_803268D8(temp_r3, tl_05, arg0));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
+
 void apply_container_item__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
@@ -181,7 +242,7 @@ void *item_equip_variant_deleting_dtor_80326AD0(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804ED0A8[];
 
-void *init_state_1536__10TObjPlayerFPv(void *arg0) {
+void *init_state_1536__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED0A8;
     set_status_flags__10TObjPlayerFPvUi(arg0, 1536);
@@ -190,17 +251,44 @@ void *init_state_1536__10TObjPlayerFPv(void *arg0) {
     return arg0;
 }
 
+u8 *TObjPlayer__sub_80326B7C(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)init_state_1536__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
+}
+
 int TObjPlayer__sub_80326BD4(void* p) { return TObjPlayer__sub_8010069C(p); }
 void init_item_slots__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)48); TObjPlayer__sub_8011E87C(p, (void*)0); TObjPlayer__sub_8011E87C(p, (void*)1); TObjPlayer__sub_8011E87C(p, (void*)2); }
 
 extern M2C_UNK lbl_804ED1A0[];
 
-void *init_variant_b__10TObjPlayerFPv(void *arg0) {
+void *init_variant_b__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TObjPlayer__sub_80120D50(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED1A0;
     TObjPlayer__sub_801210B0(arg0, 2, 6, 5);
     set_status_flags__10TObjPlayerFPvUi(arg0, 1);
     return arg0;
+}
+u8 *TObjPlayer__sub_80326CA4(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r0;
+    if (arg0 != NULL) {
+        temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
+        var_r0 = (u8 *)(temp_r3);
+        if (var_r0 != NULL) {
+            var_r0 = (u8 *)(((u8 *)init_variant_b__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+        }
+        return var_r0;
+    }
+    return NULL;
 }
 
 extern M2C_UNK lbl_804ED1A0[];
