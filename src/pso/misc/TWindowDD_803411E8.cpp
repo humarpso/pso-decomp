@@ -8,6 +8,11 @@ extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void TWindowSubStatusDisp__sub_8025AC50(void *, u32, s32);
 void TWindowDD__sub_803412F0(u8 *arg0, u32 arg1);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void refresh_status_display__9TWindowDDFv(void);
+extern const f32 TWindowDD__data_805DFB58;
+extern const f32 lbl_805DFC98;
+void TWindowDD__sub_803412A0(u8 *arg0);
 }
 
 extern "C" {
@@ -33,6 +38,19 @@ void update_position__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x34) = (f32) (M2C_FIELD(arg0, f32 *, 0x34) - M2C_FIELD(arg0, f32 *, 0x3C));
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TWindowDD__sub_803412A0(u8 *arg0) {
+    s32 temp_r3;
+    temp_r3 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (int)(0));
+    if (temp_r3 != 0) {
+        refresh_status_display__9TWindowDDFv();
+        M2C_FIELD(arg0, f32 *, 0x38) = (f32) ((lbl_805DFC98 * TWindowDD__data_805DFB58) + M2C_FIELD(temp_r3, f32 *, 0x10));
+    }
+}
+#pragma pop
+
 void TWindowDD__sub_803412F0(u8 *arg0, u32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0));

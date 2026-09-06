@@ -8,6 +8,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_F8 { u8 bytes[0xf8]; };
 
+struct Stack_802D23E0
+{
+  M2C_UNK sp8;
+  s8 spC;
+  s8 spD;
+  u8 pad_E[0x6];
+  s32 sp14;
+};
+
 extern "C" {
 u8 * TLobby__sub_802D27E0(s32 arg0, s32 arg1);
 M2C_UNK TLobby__sub_8001DC24();
@@ -17,9 +26,44 @@ M2C_UNK TWindowSubStatusDisp__sub_80229080();
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 extern s8 TLobby__data_805D688A;
 void TLobby__sub_802D268C(void);
+s32 get_quest_id__12TQuestListVMFPv(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void prepare_and_send_trade_packet__6TLobbyFPvPv(s32, s32);
+void build_6xA6_modify_trade_proposal(void *);
+extern u32 lbl_805D53A0;
+extern s8 TLobby__data_805D688A;
+extern u8 TLobby__data_805D688B;
+void TLobby__sub_802D23E0(void);
 }
 
 extern "C" {
+
+typedef struct Stack_802D23E0 Stack_802D23E0;
+void TLobby__sub_802D23E0(void) {
+  Stack_802D23E0 stack;
+  u8 *temp_r3;
+  u8 *temp_r3_2;
+  build_6xA6_modify_trade_proposal(&stack.sp8);
+  if (((s32) TLobby__data_805D688B) == 2)
+  {
+    temp_r3 = (u8 *) TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
+    if (temp_r3)
+    {
+      temp_r3_2 = (u8 *) get_quest_id__12TQuestListVMFPv(temp_r3);
+      if (temp_r3_2 != 0)
+      {
+        stack.spC = 0;
+        stack.spD = 2;
+        stack.sp14 = *((s32 *) (((s8 *) temp_r3_2) - -0x20));
+        if (((*(u8 *)&TLobby__data_805D688A) && (*(u8 *)&TLobby__data_805D688A)) && (*(u8 *)&TLobby__data_805D688A))
+        {
+        }
+        prepare_and_send_trade_packet__6TLobbyFPvPv((s32) (&stack.sp8), (s32) ((s8) (*(u8 *)&TLobby__data_805D688A)));
+        TLobby__data_805D688B = 3;
+      }
+    }
+  }
+}
 
 #pragma push
 #pragma scheduling off

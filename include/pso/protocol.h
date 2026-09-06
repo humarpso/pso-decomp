@@ -15,7 +15,7 @@ struct packet_header {
     u8 command;
     u8 flags;
     u16 size;
-    void bswap() { bswap_16(&size); };
+    void bswap();
 };
 
 /* Shared wire formats, derived from newserv (MIT; see reference/newserv-LICENSE).

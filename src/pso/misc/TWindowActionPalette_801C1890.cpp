@@ -337,6 +337,8 @@ void TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2);
 void TWindowActionPalette__sub_801C1DB8(s32 *arg0, s32 arg1);
 void TWindowActionPalette__sub_801C1DE0(s32 arg0, s32 arg1, s32 arg2);
 void TWindowActionPalette__sub_801C1E1C(s32 *arg0, s32 arg1);
+s32 test_item_flags__10TObjPlayerFPvUi(void *, s32);
+u8 TObjPlayer__sub_801C1A70(u8 *arg0);
 }
 
 extern "C" {
@@ -413,6 +415,16 @@ void TObjPlayer__sub_801C1A30(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((c
 void *TObjPlayer__sub_801C1A40(void *arg0) {
     reset_settings_to_default__6TLobbyFPv(arg0);
     return arg0;
+}
+
+u8 TObjPlayer__sub_801C1A70(u8 *arg0) {
+  unsigned int var_r31;
+  var_r31 = 0;
+  if ((test_item_flags__10TObjPlayerFPvUi(arg0, 4) != 0U) && (test_item_flags__10TObjPlayerFPvUi(arg0, 8) != 0U))
+  {
+    var_r31 = 1;
+  }
+  return var_r31;
 }
 
 void TObjPlayer__sub_801C1B0C(void) {  }

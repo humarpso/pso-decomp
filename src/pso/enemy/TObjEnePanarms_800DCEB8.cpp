@@ -42,6 +42,23 @@ M2C_UNK obj_setFlags30(void *, int);
 extern const f32 TObjEnePanarms__data_805DA4A0;
 extern const f32 lbl_805DA4DC;
 void TObjEnePanarms__sub_800DE0B8(u8 *arg0);
+void obj_clearFlags30(void *, u32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+u8 * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *, void *, void *, void *);
+s32 fn_800871A0(void *, void *, int, int);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern const f32 TObjEnePanarms__data_805DA4A0;
+void TObjEnePanarms__sub_800DD7F4(u8 *arg0);
+void obj_clearFlags30(void *, u32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+u8 * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *, void *, void *, void *);
+M2C_UNK fn_80086D50(void *, void *, int);
+s32 fn_800871A0(void *, void *, int, int);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern const f32 TObjEnePanarms__data_805DA4A0;
+void TObjEnePanarms__sub_800DD5C8(u8 *arg0);
 }
 
 extern "C" {
@@ -176,6 +193,28 @@ void TObjEnePanarms__sub_800DD530(u8 *arg0) {
     }
 }
 
+void TObjEnePanarms__sub_800DD5C8(u8 *arg0) {
+    s32 buffer_14[3];
+    f32 buffer_8[3];
+    s32 temp_r6;
+    u8 *temp_r5;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
+    obj_clearFlags30(arg0, 0x04040000U);
+    fn_80086D50((void *) (arg0 + 0x3D0), (void *) (arg0 + 0x5C), (int) (0x109));
+    temp_r6 = M2C_FIELD(arg0, s32 *, 0x60) - 0x4000;
+    buffer_14[1] = 0;
+    buffer_14[0] = temp_r6;
+    buffer_14[2] = 0x4000;
+    M2C_FIELD(arg0, s32 *, 0x394) = fn_800871A0((void *) (arg0 + 0x3D0), (void *) (&buffer_14[0]), (int) (0x108), (int) (temp_r6));
+    buffer_8[1] = TObjEnePanarms__data_805DA4A0;
+    buffer_8[0] = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    buffer_8[2] = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    create__22TObjEnePanarmsAtkColliFPvPvPvPv(arg0, arg0 + 0x3D0, &buffer_8[0], (void *)1);
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, 9);
+    M2C_FIELD(arg0, s32 *, 0x388) = 0x5A;
+}
+
 void TObjEnePanarms__sub_800DD738(u8 *arg0) {
     u8 *temp_r5;
     temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
@@ -199,6 +238,27 @@ void TObjEnePanarms__sub_800DD784(u8 *arg0) {
     if (temp_r0 <= 0) {
         TObjEnePanarms__sub_800DED30((void*)((void *) (arg0)), (void*)((int) (3)));
     }
+}
+
+void TObjEnePanarms__sub_800DD7F4(u8 *arg0) {
+    s32 buffer_14[3];
+    f32 buffer_8[3];
+    s32 temp_r6;
+    u8 *temp_r5;
+    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x390));
+    M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 1);
+    obj_clearFlags30(arg0, 0x04040000U);
+    temp_r6 = M2C_FIELD(arg0, s32 *, 0x60) + 0x4000;
+    buffer_14[1] = 0;
+    buffer_14[0] = temp_r6;
+    buffer_14[2] = 0x4000;
+    M2C_FIELD(arg0, s32 *, 0x394) = fn_800871A0((void *) (arg0 + 0x3B8), (void *) (&buffer_14[0]), (int) (0x105), (int) (temp_r6));
+    buffer_8[1] = TObjEnePanarms__data_805DA4A0;
+    buffer_8[0] = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    buffer_8[2] = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    create__22TObjEnePanarmsAtkColliFPvPvPvPv(arg0, arg0 + 0x3B8, &buffer_8[0], NULL);
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, 7);
+    M2C_FIELD(arg0, s32 *, 0x388) = 0x5A;
 }
 
 void TObjEnePanarms__sub_800DD954(u8 *arg0) {

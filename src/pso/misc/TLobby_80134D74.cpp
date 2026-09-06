@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void disconnect_protocol__6TLobbyFv(void);
-M2C_UNK TProtocol__sub_801DCAD4(void *);
+M2C_UNK send_logout__9TProtocolFv(void *);
 
 extern void *TLobby__data_805D5580;
 
@@ -15,7 +15,7 @@ void disconnect_protocol__6TLobbyFv(void) {
     void *temp_r3;
     temp_r3 = TLobby__data_805D5580;
     if (temp_r3 != NULL) {
-        TProtocol__sub_801DCAD4(temp_r3);
+        send_logout__9TProtocolFv(temp_r3);
     }
 }
 

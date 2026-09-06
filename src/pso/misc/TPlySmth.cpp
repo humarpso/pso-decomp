@@ -1,4 +1,4 @@
-#include "types.h"
+#include "pso/packet_classes.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -17,7 +17,6 @@ extern "C" {
 
 void __ct__8TPlySmthFv(void*);
 void* construct__8TPlySmthFPv(void* p);
-s32 init_ply_guild_card_tag(s32 arg0);
 int __ct__16TPlyGuildCardTagFv(void*);
 int fn_80077AA4(void*);
 
@@ -31,9 +30,14 @@ void __ct__8TPlySmthFv(void*) {
 
 }
 
-s32 init_ply_guild_card_tag(s32 arg0) {
-    __ct__16TPlyGuildCardTagFv((void*)(arg0 + 4));
-    return arg0;
 }
+
+#pragma push
+#pragma auto_inline off
+#pragma dont_inline on
+TCreateGame::TCreateGame() {}
+#pragma pop
+
+extern "C" {
 
 }

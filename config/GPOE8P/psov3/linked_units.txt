@@ -139,6 +139,7 @@ pso/boss/TObjBoss5FloorStone_802898AC.cpp
 pso/boss/TObjBoss5PillarSmoke.cpp
 pso/boss/TObjBoss5Pillar_8028B6C0.cpp
 pso/boss/TObjBoss5Pillar_8028B714.cpp
+pso/boss/TObjBoss5Pillar_8028B810.cpp
 pso/boss/TObjBoss7DustCtrl_802F13D8.cpp
 pso/boss/TObjBoss7DustCtrl_802F141C.cpp
 pso/boss/TObjBoss7RaftSplash_802F17B0.cpp
@@ -183,6 +184,7 @@ pso/enemy/TObjEneHoldEffect_800FD814.cpp
 pso/enemy/TObjEneHoldEffect_80142478.cpp
 pso/enemy/TObjEneHoldEffect_8036D070.cpp
 pso/enemy/TObjEneLappy_800C16E0.cpp
+pso/enemy/TObjEneLappy_800F5DE0.cpp
 pso/enemy/TObjEneMe1CanadinLeader.cpp
 pso/enemy/TObjEneMe1CanadinLeader_8009E238.cpp
 pso/enemy/TObjEneMe1CanadinLeader_8009F4A0.cpp
@@ -317,6 +319,7 @@ pso/enemy/TObjEneRecon_8029E89C_8029EB40.cpp
 pso/enemy/TObjEneRecon_8029E89C_8029EB90.cpp
 pso/enemy/TObjEneRecon_80302DB0.cpp
 pso/enemy/TObjEneRecon_8031BC38.cpp
+pso/enemy/TObjEneRecon_8031BCB8.cpp
 pso/enemy/TObjEneRecon_8031BD64.cpp
 pso/enemy/TObjEneRecon_8031BDF4.cpp
 pso/enemy/TObjEneRecon_8031C124.cpp
@@ -1226,6 +1229,7 @@ pso/misc/TWindowDD_801E32E8.cpp
 pso/misc/TWindowDD_8020C2DC.cpp
 pso/misc/TWindowDD_80244CF4.cpp
 pso/misc/TWindowDD_80246F8C.cpp
+pso/misc/TWindowDD_803411E8.cpp
 pso/misc/TWindowDD_80341A08.cpp
 pso/misc/TWindowDD_80341AC0.cpp
 pso/misc/TWindowDD_803424EC.cpp
@@ -2124,9 +2128,11 @@ pso/protocol/subcommand_validation_photon_blast.cpp
 pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
 pso/slices/pso_carve_8000ff5c.cpp
+pso/slices/pso_carve_8001000c.cpp
 pso/slices/pso_carve_80010a84.cpp
 pso/slices/pso_carve_80010b44.cpp
 pso/slices/pso_carve_8001489c.cpp
+pso/slices/pso_carve_80015c68.cpp
 pso/slices/pso_carve_80015f90.cpp
 pso/slices/pso_carve_800160a8.cpp
 pso/slices/pso_carve_80016124.cpp
@@ -2154,9 +2160,11 @@ pso/slices/pso_carve_801b9ce0.cpp
 pso/slices/pso_carve_801b9d50.cpp
 pso/slices/pso_carve_801ba168.cpp
 pso/slices/pso_carve_801ba2f4.cpp
+pso/slices/pso_carve_801bbb98.cpp
 pso/slices/pso_carve_801bcb70.cpp
 pso/slices/pso_carve_801bea38.cpp
 pso/slices/pso_carve_801c8418.cpp
+pso/slices/pso_carve_801c95a0.cpp
 pso/slices/pso_carve_801caeb0.cpp
 pso/slices/pso_carve_801cb2f4.cpp
 pso/slices/pso_carve_801cbb14.cpp
@@ -2348,6 +2356,7 @@ pso/unk/text_80115D68.cpp
 pso/unk/text_80118164.cpp
 pso/unk/text_8011BE50.cpp
 pso/unk/text_8011BEF0.cpp
+pso/unk/text_80121E94.cpp
 pso/unk/text_80122070.cpp
 pso/unk/text_8012654C.cpp
 pso/unk/text_80126D78.cpp
@@ -2421,6 +2430,7 @@ pso/unk/text_80253630.cpp
 pso/unk/text_8026934C.cpp
 pso/unk/text_8026A328.cpp
 pso/unk/text_80270014.cpp
+pso/unk/text_802752D8.cpp
 pso/unk/text_80277DF8.cpp
 pso/unk/text_80278964.cpp
 pso/unk/text_8027ACF8.cpp
@@ -2433,6 +2443,7 @@ pso/unk/text_802910C8.cpp
 pso/unk/text_80291268.cpp
 pso/unk/text_802948A8.cpp
 pso/unk/text_80299420.cpp
+pso/unk/text_8029BA3C.cpp
 pso/unk/text_8029EE2C.cpp
 pso/unk/text_802A1144.cpp
 pso/unk/text_802A4D74.cpp

@@ -14,6 +14,9 @@ M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
 void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+void TObjBoss2Tunnel__sub_8007E7D8(f32 *arg0, f32 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -22,12 +25,11 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0);
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0);
 s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1);
-void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1);
+void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2);
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2);
 int TBoss4Zako__sub_803D8910(void*, void*);
 void *TBoss8Dragon__sub_8007A544(void *, M2C_UNK, f32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
-int TObjBoss2Tunnel__sub_8007E7D8(void*, void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 
 s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1) {
@@ -79,7 +81,7 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
     return 0;
 }
 
-void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1) { TObjBoss2Tunnel__sub_8007E7D8(p, (char*)p + 0x8); TBoss4Zako__sub_803D8910(p, a1); }
+void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2) { TObjBoss2Tunnel__sub_8007E7D8((f32 *)(p), (f32 *)((char*)p + 0x8), (s32)(_w2)); TBoss4Zako__sub_803D8910(p, a1); }
 
 s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0) {
     s32 temp_r3;
@@ -117,6 +119,22 @@ void TObjBoss2Tunnel__sub_8007E764(void *arg0, void *arg1, s32 arg2) {
     temp_f3 = M2C_FIELD(arg0, f32 *, 8);
     M2C_FIELD(arg1, f32 *, 8) = (f32) ((temp_f31 * temp_f3) - (temp_f1 * temp_f0));
     M2C_FIELD(arg1, f32 *, 0) = (f32) ((temp_f1 * temp_f3) + (temp_f31 * temp_f0));
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TObjBoss2Tunnel__sub_8007E7D8(f32 *arg0, f32 *arg1, s32 arg2) {
+    f32 temp_f0;
+    f32 temp_f1;
+    f32 temp_f31;
+    f32 temp_f3;
+    temp_f31 = TBoss8Dragon__sub_803D64DC(arg2);
+    temp_f1 = TBoss8Dragon__sub_803D64C0(arg2);
+    temp_f0 = *arg0;
+    temp_f3 = *arg1;
+    *arg1 = (temp_f31 * temp_f3) - (temp_f1 * temp_f0);
+    *arg0 = (temp_f1 * temp_f3) + (temp_f31 * temp_f0);
 }
 #pragma pop
 

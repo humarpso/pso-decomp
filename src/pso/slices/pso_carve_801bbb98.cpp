@@ -6,8 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjPlayer__sub_8013A748(void *);
-int TObjPlayer__sub_801BBBD0(void * = 0);
 void TObjPlayer__sub_801BBB98(void *arg0);
+void TObjPlayer__sub_801B59F8(s32, s32, s32, s32, s32, s32);
+void TObjPlayer__sub_801BBBD0(s32 arg0);
 }
 
 extern "C" {
@@ -31,9 +32,11 @@ int TObjPlayer__sub_801B35AC(void*);
 
 void TObjPlayer__sub_801BBB98(void *arg0) {
     TObjPlayer__sub_8013A748((void *)((char *)arg0 + 1280));
-    TObjPlayer__sub_801BBBD0((void *)(arg0));
+    TObjPlayer__sub_801BBBD0((s32)((void *)(arg0)));
 }
-
-int TObjPlayer__sub_801BBBD0(void * _w0) { return 0; }
+void TObjPlayer__sub_801BBBD0(s32 arg0) {
+    TObjPlayer__sub_801B59F8(arg0, 0, 0, 0, 1, 0);
+    TObjPlayer__sub_801B59F8(arg0, 0, 1, 0, 1, 0);
+}
 
 }

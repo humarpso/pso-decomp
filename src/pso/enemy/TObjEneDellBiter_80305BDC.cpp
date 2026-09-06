@@ -182,6 +182,11 @@ u8 *TBoss4Type2__sub_800874F4(M2C_UNK *, M2C_UNK);
 extern s32 lbl_805D5550;
 extern const f32 TObjEneDellBiter__data_805DEFE0;
 void TObjEneDellBiter__sub_80305FDC(u8 *arg0);
+extern const f32 TObjEneDellBiter__data_805DEFE0;
+extern const f32 TObjEneDellBiter__data_805DEFE8;
+extern const f32 lbl_805DF030;
+extern const f32 lbl_805DF034;
+void TObjEneDellBiter__sub_80305F58(u8 *arg0);
 }
 
 extern "C" {
@@ -202,7 +207,6 @@ void TItemObject__ct(void *);
 void TLobby__sub_8001FE7C(void*, int);
 int TObjEneDD__sub_800BBA18(void*, void*);
 s32 TObjEneDellBiter__sub_803059BC(s32, s32);
-void TObjEneDellBiter__sub_80305F58(void *);
 void TObjEneDellBiter__sub_80306468(void *);
 M2C_UNK TObjEneGibbles__sub_800D8988(s32);
 void __construct_array(void *, void *, void *, int, int);
@@ -221,6 +225,25 @@ void update_attack_effect__16TObjEneDellBiterFi(s32 arg0) {
         return;
     }
     TBoss3Volopt__sub_8022675C((s32)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x40039E11), arg0 + 0x38, 0, 0);
+}
+
+void TObjEneDellBiter__sub_80305F58(u8 *arg0) {
+  const f32 *new_var;
+  *((f32 *) (((s8 *) arg0) + 0x4A8)) = (f32) (lbl_805DF030 + (*((f32 *) (((s8 *) arg0) + 0x354))));
+  *((f32 *) (((s8 *) arg0) + 0x4AC)) = (f32) (lbl_805DF030 + (*((f32 *) (((s8 *) arg0) + 0x358))));
+  *((f32 *) (((s8 *) arg0) + 0x4B0)) = (f32) (TObjEneDellBiter__data_805DEFE8 + (*((f32 *) (((s8 *) arg0) + 0x35C))));
+  if ((*((f32 *) (((s8 *) arg0) + 0x4B0))) < (*(new_var = &TObjEneDellBiter__data_805DEFE0)))
+  {
+    *((f32 *) (((s8 *) arg0) + 0x4B0)) = (f32) (*new_var);
+  }
+  *((f32 *) (((s8 *) arg0) + 0x4B4)) = (f32) (lbl_805DF030 + (*((f32 *) (((s8 *) arg0) + 0x360))));
+  *((f32 *) (((s8 *) arg0) + 0x4B8)) = (f32) (lbl_805DF034 + (*((f32 *) (((s8 *) arg0) + 0x364))));
+  if (((s32) (*((s32 *) (((s8 *) arg0) + 0x368)))) >= 1)
+  {
+    *((s32 *) (((s8 *) arg0) + 0x4BC)) = 1;
+    return;
+  }
+  *((s32 *) (((s8 *) arg0) + 0x4BC)) = 0;
 }
 
 void TObjEneDellBiter__sub_80305FDC(u8 *arg0) {
@@ -332,7 +355,7 @@ void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {
     __construct_array((void *)((char *)arg0 + 1008), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4078;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
-    TObjEneDellBiter__sub_80305F58(arg0);
+    TObjEneDellBiter__sub_80305F58((u8 *)(arg0));
     TObjEneDellBiter__sub_80306468(arg0);
     return arg0;
 }

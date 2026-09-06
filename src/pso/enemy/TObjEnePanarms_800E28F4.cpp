@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TObjEnePanarms__sub_800E2DE4(void *arg0, s32 arg1);
+}
+
+extern "C" {
 
 u8 TObjEnePanarms__sub_800E2E54(void *arg0);
 u8 TObjEnePanarms__sub_800E2E68(void *arg0);
@@ -36,6 +40,14 @@ s32 create_bara__14TObjEnePanarmsFii(s32 arg0, s32 arg1) {
         var_r31 = TObjEnePanBARA__ct(var_r31, var_r4, arg0, arg1);
     }
     return var_r31;
+}
+
+void TObjEnePanarms__sub_800E2DE4(void *arg0, s32 arg1) {
+  s32 *new_var;
+  int new_var2;
+  new_var2 = ~arg1;
+  new_var = (s32 *) (((s8 *) arg0) + 0xB0);
+  *new_var = (s32) ((*((s32 *) (((s8 *) arg0) + 0xB0))) & new_var2);
 }
 
 u8 is_phase_12__14TObjEnePanarmsFPv(void *arg0) {

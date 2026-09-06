@@ -355,6 +355,7 @@ public:
 
 class TCreateGame {
 public:
+    TCreateGame();
 	packet_header header;
 	TPlyGuildCardTag tag;
 	char name[16];
@@ -364,34 +365,26 @@ public:
 	u8 challenge_mode;
 	u8 episode;
 public:
-	void bswap() {
-		header.bswap();
-		tag.bswap();
-	};
+	void bswap();
 };
 
 class TFindUser {
 public:
-	packet_header header;
-	TPlyGuildCardTag tag;
-	u32 target_gc;
-public:
-	void bswap() {
-		header.bswap();
-		tag.bswap();
-		bswap_32(&target_gc);
-	};
+    packet_header header;
+    TPlyGuildCardTag tag;
+    u32 target_gc;
+
+    TFindUser();
+    void bswap();
 };
 
 class TRoomChange {
 public:
+    TRoomChange();
 	packet_header header;
 	TPlyGuildCardTag tag;
 public:
-	void bswap() {
-		header.bswap();
-		tag.bswap();
-	};
+	void bswap();
 };
 
 class TPsoDataBuf {
@@ -486,6 +479,7 @@ public:
 
 class TMessageBox {
 public:
+    TMessageBox();
 	packet_header header;
 	TPlyGuildCardTag tag;
 	char mesg[512];

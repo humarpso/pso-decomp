@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TItemMag__sub_80113EC8(void *);
+s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
+M2C_UNK TBoss7Tentacle__sub_803D8A6C(int, int, int, int, int);
+M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9214(int, void *);
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+void TItemMagSub__sub_80114E4C(u8 *arg0);
+}
+
+extern "C" {
 
 void *TItemMagSub__vt0(void *arg0, s16 arg1);
 void accumulate_stat__11TItemMagSubFPvPvPv(f32 *arg0, s32 *arg1, void *arg2);
@@ -39,6 +49,38 @@ void reset_stats__11TItemMagSubFPv(u8 *arg0) {
 void accumulate_stat__11TItemMagSubFPvPvPv(f32 *arg0, s32 *arg1, void *arg2) {
     *arg1 = *arg1 + M2C_FIELD(arg2, s32 *, 0xC);
     *arg0 = M2C_FIELD(arg2, f32 *, 0) * TBoss8Dragon__sub_803D64C0(*arg1 + M2C_FIELD(arg2, s32 *, 8));
+}
+
+void TItemMagSub__sub_80114E4C(u8 *arg0) {
+  f32 temp_f1;
+  s32 temp_r7;
+  u8 *temp_r6;
+  void *feed;
+  s32 a2;
+  s32 a3;
+  s32 a4;
+  TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0xA0));
+  if (TItemMag__sub_80113EC8((void *) (*((void **) (((s8 *) arg0) + 0x20)))) != 0)
+  {
+    feed = (void *) calc_feed_level__11TItemMagSubFPv((void *) arg0);
+    TObjPlayer__sub_803D9214((int) 0, feed);
+  }
+  else
+  {
+    TObjPlayer__sub_803D9214((int) 0, (void *) (*((s32 *) (((s8 *) (*((void **) (((s8 *) arg0) + 0x20)))) + 0x60))));
+  }
+  TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0xAC));
+  temp_r6 = (unsigned char *) (*((void **) (((s8 *) arg0) + 0x30)));
+  if (temp_r6 != 0)
+  {
+    a2 = *((s32 *) (((s8 *) temp_r6) + 0x1C));
+    a2 = a2 + (*((s32 *) (((s8 *) arg0) + 0x34)));
+    a3 = (*((s32 *) (((s8 *) temp_r6) + 0x20))) + (*((s32 *) (((s8 *) arg0) + 0x38)));
+    a4 = (*((s32 *) (((s8 *) temp_r6) + 0x24))) + (*((s32 *) (((s8 *) arg0) + 0x3C)));
+    TBoss7Tentacle__sub_803D8A6C((int) 0, (int) a2, (int) a3, (int) a4, (int) (*((s32 *) (((s8 *) temp_r6) + 0x20))));
+  }
+  temp_f1 = *((f32 *) (((s8 *) arg0) + 0xC8));
+  TOMonitorMachine01__sub_803D8B5C((int) 0, (f32) temp_f1, (f32) temp_f1, (f32) temp_f1);
 }
 
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0) {

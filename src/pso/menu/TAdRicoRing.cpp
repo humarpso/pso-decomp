@@ -9,6 +9,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void queue_destruction__7TObjectFv(void *);
+void update_position__11TAdRicoRingFPv(void *arg0);
+void set_flags__10TObjPlayerFPvUi(void *, s32);
+void clear_flags__11TAdRicoRingFPvUi(void *, s32);
+volatile int TObjPlayer__sub_8001BEF8(void *, s32);
+extern const f32 lbl_805D7E4C;
+extern const f32 lbl_805D7E54;
+void run_task__11TAdRicoRingFv(u8 *arg0);
+}
+
+extern "C" {
 
 void render__11TAdRicoRingFv(void* p);
 void set_scale4__15TAdRicoRingCtrlFPvf(void *arg0, f32 farg0);
@@ -36,6 +47,48 @@ void update_position__11TAdRicoRingFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + M2C_FIELD(arg0, f32 *, 0x3C));
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
+}
+void run_task__11TAdRicoRingFv(u8 *arg0) {
+  f32 temp_f1;
+  if (TObjPlayer__sub_8001BEF8(arg0 + 0x2C, 1) != 0)
+  {
+    update_position__11TAdRicoRingFPv(arg0);
+    if ((*((f32 *) (((s8 *) arg0) + 0x1C))) <= lbl_805D7E54)
+    {
+      queue_destruction__7TObjectFv(arg0);
+      return;
+    }
+  }
+  if (TObjPlayer__sub_8001BEF8(arg0 + 0x2C, 2) != 0)
+  {
+    update_position__11TAdRicoRingFPv(arg0);
+    temp_f1 = *((f32 *) (((s8 *) arg0) + 0x34));
+    if (temp_f1 <= (*((f32 *) (((s8 *) arg0) + 0x1C))))
+    {
+      *((f32 *) (((s8 *) arg0) + 0x1C)) = temp_f1;
+      *((f32 *) (((s8 *) arg0) + 0x28)) = (f32) lbl_805D7E4C;
+      *((f32 *) (((s8 *) arg0) + 0x24)) = (f32) lbl_805D7E4C;
+      *((f32 *) (((s8 *) arg0) + 0x20)) = (f32) lbl_805D7E4C;
+      clear_flags__11TAdRicoRingFPvUi(arg0 + 0x2C, 2);
+    }
+  }
+  *((s32 *) (((s8 *) arg0) + 0x68)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x68))) + (*((s32 *) (((s8 *) arg0) + 0x30))));
+  if (TObjPlayer__sub_8001BEF8(arg0 + 0x2C, 4) != 0)
+  {
+    *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) + (*((s32 *) (((s8 *) arg0) + 0x48))));
+    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x30)))) >= 0xCCC)
+    {
+      clear_flags__11TAdRicoRingFPvUi(arg0 + 0x2C, 4);
+    }
+  }
+  else
+  {
+    *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) - (*((s32 *) (((s8 *) arg0) + 0x48))));
+    if (((s32) (*((s32 *) (((s8 *) arg0) + 0x30)))) <= 0x5B0)
+    {
+      set_flags__10TObjPlayerFPvUi(arg0 + 0x2C, 4);
+    }
+  }
 }
 
 }

@@ -68,6 +68,9 @@ public:
     void render_particle_effects();
     void render_effects();
     void render_geometry();
+    void render_task_layer_02();
+    void render_object_layers(int mode);
+    void render_scene_passes();
     void render_clipout_and_fade();
     void init_main_task();
 

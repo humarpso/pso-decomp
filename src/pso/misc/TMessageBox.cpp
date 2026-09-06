@@ -1,4 +1,4 @@
-#include "types.h"
+#include "pso/packet_classes.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -6,7 +6,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TProtocol__sub_801DFF04(s32 arg0);
 void bswap__11TMessageBoxFv(s32 arg0);
 M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
 M2C_UNK bswap__13packet_headerFv();
@@ -17,9 +16,10 @@ void bswap__11TMessageBoxFv(s32 arg0) {
     bswap__16TPlyGuildCardTagFv(arg0 + 4);
 }
 
-s32 TProtocol__sub_801DFF04(s32 arg0) {
-    __ct__16TPlyGuildCardTagFv(arg0 + 4);
-    return arg0;
 }
+
+TMessageBox::TMessageBox() {}
+
+extern "C" {
 
 }

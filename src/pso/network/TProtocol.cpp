@@ -445,6 +445,7 @@ void TProtocol::send_logout() {
 	tmp.bswap();
 
 	send(as(u8 *, &tmp), sizeof(tmp));
+	m_connected = 0;
 }
 
 int TProtocol::send_login3() {
@@ -1123,6 +1124,10 @@ TProtocol::TProtocol(TObject *parent, u16 sub_version, int language, char *seria
 
 #undef fill_with
 #undef copy
+
+void packet_header::bswap() {
+    bswap_16(&size);
+}
 
 extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {
 	((packet_header *)p)->bswap();

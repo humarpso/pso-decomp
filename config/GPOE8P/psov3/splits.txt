@@ -9228,17 +9228,8 @@ pso/misc/TLobby_801C25B4_801C29A0.cpp:
 pso/misc/TLobby_801C25B4_801C2BCC.cpp:
 	.text       start:0x801C2BCC end:0x801C3130
 
-pso/misc/TLobby_801C25B4_801C3130.cpp:
-	.text       start:0x801C3130 end:0x801C3748
-
-pso/misc/TLobby_801C25B4_801C3748.cpp:
-	.text       start:0x801C3748 end:0x801C39C8
-
-pso/misc/TLobby_801C25B4_801C39C8.cpp:
-	.text       start:0x801C39C8 end:0x801C40C8
-
 pso/misc/TLobby_801C25B4.cpp:
-	.text       start:0x801C40C8 end:0x801C4CE0
+	.text       start:0x801C3130 end:0x801C4CE0
 
 pso/unk/text_801C4CE0.cpp:
 	.text       start:0x801C4CE0 end:0x801C4D9C
@@ -10092,11 +10083,8 @@ pso/unk/text_801D5DDC_801D6230.cpp:
 pso/misc/TFontSmallLobby_801D62D0_801D62D0.cpp:
 	.text       start:0x801D62D0 end:0x801D65B4
 
-pso/misc/TFontSmallLobby_801D62D0_801D65B4.cpp:
-	.text       start:0x801D65B4 end:0x801D67C8
-
 pso/misc/TFontSmallLobby_801D62D0.cpp:
-	.text       start:0x801D67C8 end:0x801D6AB4
+	.text       start:0x801D65B4 end:0x801D6AB4
 
 pso/unk/text_801D6AB4.cpp:
 	.text       start:0x801D6AB4 end:0x801D6B3C
@@ -11542,14 +11530,8 @@ pso/unk/text_802264B8.cpp:
 pso/misc/TOTrapAncient01_80226534.cpp:
 	.text       start:0x80226534 end:0x802268F4
 
-pso/misc/TLobby_802268F4_802268F4.cpp:
-	.text       start:0x802268F4 end:0x80226B64
-
-pso/misc/TLobby_802268F4_80226B64.cpp:
-	.text       start:0x80226B64 end:0x80226C68
-
 pso/misc/TLobby_802268F4.cpp:
-	.text       start:0x80226C68 end:0x80227390
+	.text       start:0x802268F4 end:0x80227390
 
 pso/misc/TLoadCtrl_80227390.cpp:
 	.text       start:0x80227390 end:0x80227A2C
@@ -13566,10 +13548,7 @@ pso/unk/text_802918B8.cpp:
 	.text       start:0x802918B8 end:0x80291B80
 
 pso/misc/TCameraCtrl_80291B80.cpp:
-	.text       start:0x80291B80 end:0x80291CBC
-
-pso/misc/TCameraCtrl_80291B80_80291CBC.cpp:
-	.text       start:0x80291CBC end:0x80291D94
+	.text       start:0x80291B80 end:0x80291D94
 
 pso/misc/TLobby_80291D94_80291D94.cpp:
 	.text       start:0x80291D94 end:0x80291E54
@@ -13843,11 +13822,8 @@ pso/misc/TOGrassJungle.cpp:
 pso/misc/TOGrassJungle_8029CD90.cpp:
 	.text       start:0x8029CD90 end:0x8029CF68
 
-pso/misc/TOKeyJungleMain_8029CF68_8029CF68.cpp:
-	.text       start:0x8029CF68 end:0x8029D0D8
-
 pso/misc/TOKeyJungleMain_8029CF68.cpp:
-	.text       start:0x8029D0D8 end:0x8029E3EC
+	.text       start:0x8029CF68 end:0x8029E3EC
 
 pso/object/TObjFish.cpp:
 	.text       start:0x8029E3EC end:0x8029E764
@@ -17187,17 +17163,8 @@ pso/enemy/TObjEneEpsilonGuard_8035DD68_8035EF78.cpp:
 pso/enemy/TObjEneEpsilon.cpp:
 	.text       start:0x8035F5B8 end:0x8035F5C8
 
-pso/enemy/TObjEneEpsilonGuard_8035F5C8_8035F5C8.cpp:
-	.text       start:0x8035F5C8 end:0x80360110
-
-pso/enemy/TObjEneEpsilonGuard_8035F5C8_80360110.cpp:
-	.text       start:0x80360110 end:0x8036029C
-
 pso/enemy/TObjEneEpsilonGuard_8035F5C8.cpp:
-	.text       start:0x8036029C end:0x80361384
-
-pso/enemy/TObjEneEpsilonGuard_8035F5C8_80361384.cpp:
-	.text       start:0x80361384 end:0x80361D4C
+	.text       start:0x8035F5C8 end:0x80361D4C
 
 pso/enemy/TObjEneEpsilonGuard_8035F5C8_80361D4C.cpp:
 	.text       start:0x80361D4C end:0x80361FB4

@@ -118,6 +118,8 @@ extern const f32 lbl_805DA038;
 extern const f32 lbl_805DA03C;
 extern const f32 lbl_805DA040;
 void TObjPlayer__sub_800C4FD4(u8 *arg0);
+s32 obj_testFlags30(void *, int);
+void TObjPlayer__sub_800C4E08(u8 *arg0);
 }
 
 extern "C" {
@@ -183,6 +185,16 @@ void *init_target_ref__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0x24) = TBoss8Dragon__sub_8008741C(M2C_FIELD(arg0, s32 *, 0x20) + 0x38, 0xDE, 0x40);
     }
     return arg0;
+}
+
+void TObjPlayer__sub_800C4E08(u8 *arg0) {
+    if (obj_testFlags30((void *)(arg0), (int)(0x100000)) != 0) {
+        M2C_FIELD(arg0, f32 *, 0x394) = (f32) M2C_FIELD(arg0, f32 *, 0x39C);
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) M2C_FIELD(arg0, f32 *, 0x3A4);
+        return;
+    }
+    M2C_FIELD(arg0, f32 *, 0x394) = (f32) M2C_FIELD(arg0, f32 *, 0x398);
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) M2C_FIELD(arg0, f32 *, 0x3A0);
 }
 
 int TObjPlayer__sub_800C4FB4(void* p) { return queue_destruction__7TObjectFv((void*)(p)); }

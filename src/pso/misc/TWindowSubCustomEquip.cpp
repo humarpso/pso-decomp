@@ -11,6 +11,23 @@ M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 M2C_UNK TWindowSubCustomEquip__sub_80275F90(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__21TWindowSubCustomEquipFv(u8 *arg0);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern f32 lbl_805D6470;
+extern u8 lbl_805D6474;
+extern f32 lbl_805D6478;
+extern u8 lbl_805D647C;
+extern const f32 lbl_805DD578;
+extern const f32 lbl_805DD584;
+extern const f32 lbl_805DD588;
+extern const f32 lbl_805DD58C;
+extern const f32 lbl_805DD590;
+extern const f32 lbl_805DD594;
+extern const f32 lbl_805DD598;
+extern const f32 lbl_805DD59C;
+extern const f32 lbl_805DD5A0;
+void TWindowSubCustomEquip__sub_80276A38(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -25,7 +42,6 @@ void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 int TWindowSubCustomEquip__sub_8027654C(void*, void*);
 int TWindowSubCustomEquip__sub_802766C8(void*, void*);
-M2C_UNK TWindowSubCustomEquip__sub_80276A38(void *, s32, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -41,6 +57,39 @@ void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
 }
 
 void reset_selection__21TWindowSubCustomEquipFPv(void* p) { TWindowSubCustomEquip__sub_802766C8(p, (void*)9); TWindowSubCustomEquip__sub_802766C8(p, (void*)0); TWindowSubCustomEquip__sub_8027654C(p, (void*)9); }
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubCustomEquip__sub_80276A38(u8 *arg0, s32 arg1, s32 arg2) {
+    f32 temp_f1;
+    f32 temp_f30;
+    f32 temp_f31;
+    s32 temp_r4;
+    u8 *temp_r3;
+    if ((s8) lbl_805D6474 == 0) {
+        lbl_805D6474 = 1;
+        lbl_805D6470 = lbl_805DD584;
+    }
+    if ((s8) lbl_805D647C == 0) {
+        lbl_805D647C = 1;
+        lbl_805D6478 = lbl_805DD588;
+    }
+    temp_f30 = TBoss8Dragon__sub_803D64C0(arg1);
+    temp_f31 = TBoss8Dragon__sub_803D64DC(arg1);
+    temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg2));
+    M2C_FIELD(temp_r3, f32 *, 8) = (f32) ((lbl_805D6470 * temp_f31) + lbl_805DD58C);
+    M2C_FIELD(temp_r3, f32 *, 0xC) = (f32) ((lbl_805D6478 * temp_f30) + lbl_805DD590);
+    if ((arg1 - 0x7200) & 0x8000) {
+        temp_f1 = (lbl_805DD598 * TBoss8Dragon__sub_803D64DC(arg1 + 0xFFFF4E00)) + lbl_805DD594;
+        M2C_FIELD(temp_r3, f32 *, 0x18) = (f32) lbl_805DD578;
+        temp_r4 = (s32) (lbl_805DD59C * temp_f1);
+        M2C_FIELD(temp_r3, s32 *, 0x2C) = (s32) ((u8) temp_r4 | (((temp_r4 << 0x10) & 0xFF0000) | 0xFF000000 | ((temp_r4 << 8) & 0xFF00)));
+        return;
+    }
+    M2C_FIELD(temp_r3, f32 *, 0x18) = (f32) lbl_805DD5A0;
+    M2C_FIELD(temp_r3, s32 *, 0x2C) = -1;
+}
+#pragma pop
 
 void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0) {
     s32 temp_r3;
@@ -61,14 +110,14 @@ void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x68) & 0x8000) {
         M2C_FIELD(arg0, s8 *, 0x64) = 0;
         M2C_FIELD(arg0, s8 *, 0x65) = 1;
-        TWindowSubCustomEquip__sub_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68), 9);
-        TWindowSubCustomEquip__sub_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68) + 0x8000, 0);
+        TWindowSubCustomEquip__sub_80276A38((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68)), (s32)(9));
+        TWindowSubCustomEquip__sub_80276A38((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68) + 0x8000), (s32)(0));
         return;
     }
     M2C_FIELD(arg0, s8 *, 0x64) = 1;
     M2C_FIELD(arg0, s8 *, 0x65) = 0;
-    TWindowSubCustomEquip__sub_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68) + 0x8000, 9);
-    TWindowSubCustomEquip__sub_80276A38(arg0, M2C_FIELD(arg0, s32 *, 0x68), 0);
+    TWindowSubCustomEquip__sub_80276A38((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68) + 0x8000), (s32)(9));
+    TWindowSubCustomEquip__sub_80276A38((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68)), (s32)(0));
 }
 
 void handle_cancel__21TWindowSubCustomEquipFPv(void *arg0) {

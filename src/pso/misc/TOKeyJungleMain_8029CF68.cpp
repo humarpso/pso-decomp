@@ -1,9 +1,11 @@
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8029D3A4_8029CF68 { char pad[0x18]; };
+
 struct VObj_8029D3A4_8029CF68 : Base_8029D3A4_8029CF68 {
     virtual void m0();
     virtual void m1();
@@ -26,9 +28,8 @@ struct VObj_8029D3A4_8029CF68 : Base_8029D3A4_8029CF68 {
     virtual void m18();
 };
 
-extern "C" {
-
 struct Base_8029CF68 { char pad[0x18]; };
+
 struct VObj_8029CF68 : Base_8029CF68 {
     virtual void m0();
     virtual void m1();
@@ -41,66 +42,91 @@ struct VObj_8029CF68 : Base_8029CF68 {
     virtual s32 m8(f32, f32);
 };
 
-void TOKeyJungleMain__vt15(void *arg0);
-void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1);
-void render__15TOKeyJungleMainFv(u8 *arg0);
-u8 update_state__8TObjFishFPv(void *arg0);
+extern "C" {
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
-void TObjEneGibbles__sub_80156720(void *);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
-void TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK TObjPlayer__sub_803D9B78();
-void __dl__7TObjectFPv(void *);
-void __dt__5TOKeyFv(void *, int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 is_lobby_event_active();
 M2C_UNK set_global_param__8TObjFishFi();
+extern u32 TOKeyJungleMain__data_805D65E0;
+void render__15TOKeyJungleMainFv(u8 *arg0);
+void TOKeyJungleMain__vt15(void *arg0);
+void TObjEneGibbles__sub_80156720(void *);
+void TObjPlayer__sub_80154A00(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__5TOKeyFv(void *, int);
+extern M2C_UNK __vt__15TOKeyJungleMain[];
+void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1);
+s32 is_lobby_event_active();
+extern s32 TObjFish__data_805D65EC;
+u8 update_state__8TObjFishFPv(void *arg0);
+}
 
-extern s32 TOKeyJungleMain__data_805D65E0;
+extern "C" {
 
+void *create__15TOKeyJungleMainFPv(void *arg0);
+void release_static_resource__15TOKeyJungleMainFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+void *TOKeyJungleMain__ct(void *, void *, void *);
+void *__nw__7TObjectFUl(int);
+
+extern void *tl_05;
+
+void *create__15TOKeyJungleMainFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xF0);
+    if (o != NULL) {
+        o = TOKeyJungleMain__ct(o, tl_05, arg0);
+    }
+    return o;
+}
+
+extern u32 TOKeyJungleMain__data_805D65E0;
+
+void release_static_resource__15TOKeyJungleMainFv(void) {
+    if ((u32) TOKeyJungleMain__data_805D65E0 != 0U) {
+        TLobby__sub_8001FE7C((void*)TOKeyJungleMain__data_805D65E0, 1);
+        TOKeyJungleMain__data_805D65E0 = 0U;
+    }
+}
 void render__15TOKeyJungleMainFv(u8 *arg0) {
     if (((VObj_8029CF68 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) == 1) {
         switch (M2C_FIELD(arg0, s32 *, 0xD4)) {
         case 0:
-            TObjFish__sub_8001EDB0(TOKeyJungleMain__data_805D65E0, 1);
+            TObjFish__sub_8001EDB0((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1);
             set_global_param__8TObjFishFi();
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-            TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 1);
+            TObjFish__sub_8001EDC4((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1);
             TObjBoss2Tunnel__sub_803DB470();
             TObjPlayer__sub_803D9B78();
             return;
         case 1:
-            TObjFish__sub_8001EDB0(TOKeyJungleMain__data_805D65E0, 1);
+            TObjFish__sub_8001EDB0((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1);
             set_global_param__8TObjFishFi();
             TObjPlayer__sub_803D9B2C();
             TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
             TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
-            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 1), TObjFish__sub_8001ED9C(TOKeyJungleMain__data_805D65E0, 1), M2C_FIELD(arg0, f32 *, 0xE8));
+            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), TObjFish__sub_8001ED9C((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), M2C_FIELD(arg0, f32 *, 0xE8));
             begin_effect_render__13TParticleCtrlFv();
-            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4(TOKeyJungleMain__data_805D65E0, 0), TObjFish__sub_8001ED9C(TOKeyJungleMain__data_805D65E0, 0), M2C_FIELD(arg0, f32 *, 0xEC));
+            TObjDoor__sub_803DC894(TObjFish__sub_8001EDC4((*(s32 *)&TOKeyJungleMain__data_805D65E0), 0), TObjFish__sub_8001ED9C((*(s32 *)&TOKeyJungleMain__data_805D65E0), 0), M2C_FIELD(arg0, f32 *, 0xEC));
             end_effect_render__13TParticleCtrlFv();
             TObjPlayer__sub_803D9B78();
             break;
         }
     }
 }
-
 void TOKeyJungleMain__vt15(void *arg0) {
     struct VObj_8029D3A4_8029CF68 *o = (struct VObj_8029D3A4_8029CF68 *)arg0;
     o->m18();
 }
-
-extern M2C_UNK __vt__15TOKeyJungleMain[];
-
 void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TOKeyJungleMain;
@@ -113,12 +139,8 @@ void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-extern s32 TObjFish__data_805D65EC;
-
 u8 update_state__8TObjFishFPv(void *arg0) {
     s16 temp_r0;
-
     if ((s32) TObjFish__data_805D65EC == 0) {
         temp_r0 = M2C_FIELD(arg0, s16 *, 0x90);
         switch (temp_r0) {

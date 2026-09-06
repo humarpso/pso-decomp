@@ -31,7 +31,7 @@ struct gc_tag {
 
 class TPlyGuildCardTag {
 public:
-    TPlyGuildCardTag() {};
+    TPlyGuildCardTag();
 
     TPlyGuildCardTag(u16 tag2, u32 guildcard_number) {
         m_tag0 = 0;
@@ -46,10 +46,7 @@ public:
                (m_guildcard_number == other.m_guildcard_number);
     };
 
-    void bswap() {
-        bswap_32(&m_guildcard_number);
-        bswap_16(&m_tag2);
-    };
+    void bswap();
 
 public:
     u8 m_tag0;

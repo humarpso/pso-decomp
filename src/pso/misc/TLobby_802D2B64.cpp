@@ -10,10 +10,35 @@ struct Stack_802D30E8 {
     s8 spD;
 };
 
+struct Stack_802D3284
+{
+  M2C_UNK sp8;
+  s8 spC;
+  s8 spD;
+};
+
+struct Stack_802D3228
+{
+  M2C_UNK sp8;
+  s8 spC;
+  s8 spD;
+  u8 pad_E[0x2];
+  s32 sp10;
+  s32 sp14;
+};
+
 extern "C" {
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
 void TLobby__sub_802D30E8(s32 arg0);
+M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
+M2C_UNK build_6xA6_modify_trade_proposal(void *);
+extern s8 TLobby__data_805D688A;
+void TLobby__sub_802D3284(s8 arg0, s8 arg1);
+M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
+M2C_UNK build_6xA6_modify_trade_proposal(void *);
+extern s8 TLobby__data_805D688A;
+char TLobby__sub_802D3228(s8 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -54,6 +79,34 @@ void TLobby__sub_802D30E8(s32 arg0) {
     stack.spC = 6;
     stack.spD = 0;
     prepare_and_send_trade_packet__6TLobbyFPvPv((void *) (&stack.sp8), (void *) (arg0));
+}
+
+typedef struct Stack_802D3284 Stack_802D3284;
+
+typedef struct Stack_802D3228 Stack_802D3228;
+char TLobby__sub_802D3228(s8 arg0, s32 arg1, s32 arg2) {
+  Stack_802D3228 stack;
+  build_6xA6_modify_trade_proposal(&stack.sp8);
+  stack.spC = arg0;
+  stack.spD = 0;
+  stack.sp10 = arg1;
+  stack.sp14 = arg2;
+  if (((!(*(u8 *)&TLobby__data_805D688A)) && (!(*(u8 *)&TLobby__data_805D688A))) && (!(*(u8 *)&TLobby__data_805D688A)))
+  {
+  }
+  prepare_and_send_trade_packet__6TLobbyFPvPv((void *)((s32) (&stack.sp8)), (void *)((s32) ((s8) (*(u8 *)&TLobby__data_805D688A))));
+}
+
+void TLobby__sub_802D3284(s8 arg0, s8 arg1) {
+  Stack_802D3284 stack;
+  s8 new_var;
+  arg1++;
+  arg1--;
+  build_6xA6_modify_trade_proposal(&stack.sp8);
+  new_var = (s8) ((*(u8 *)&TLobby__data_805D688A) & 0xFFFFFFFFFFFFFFFFu);
+  stack.spC = arg0;
+  stack.spD = arg1;
+  prepare_and_send_trade_packet__6TLobbyFPvPv((void *)((s32) (&stack.sp8)), (void *)((s32) new_var));
 }
 
 void TLobby__sub_802D3380(void) {  }

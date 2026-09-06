@@ -1,3 +1,36 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
+M2C_UNK set_global_param__8TObjFishFi(void *);
+M2C_UNK TWindowSubStatusDisp__sub_803DEE6C(int);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK TWindowSubComCard__sub_803DEECC(void *, f32, f32, f32);
+M2C_UNK TWindowSubStatusDisp__sub_803DF160(void *, void *);
+extern s32 lbl_805D65C0;
+extern const f32 lbl_805DDCF8;
+extern const f32 lbl_805DDCFC;
+extern const f32 lbl_805DDD00;
+extern const f32 lbl_805DDD04;
+void fn_8029BA3C(u8 *arg0, s32 arg1, s32 arg2);
+}
+
+extern "C" {
+
+void fn_8029BA3C(u8 *arg0, s32 arg1, s32 arg2) {
+  f32 buffer_8[8];
+  TWindowSubStatusDisp__sub_803DEE6C((int) 1);
+  set_global_param__8TObjFishFi((void *) lbl_805D65C0);
+  TWindowSubStatusDisp__sub_803DF160((void *) arg1, (void *) arg2);
+  buffer_8[0] = lbl_805DDCF8;
+  buffer_8[1] = lbl_805DDCF8;
+  buffer_8[2] = lbl_805DDCFC;
+  buffer_8[3] = lbl_805DDD00;
+  buffer_8[4] = lbl_805DDCF8;
+  buffer_8[5] = lbl_805DDCF8;
+  buffer_8[7] = (buffer_8[6] = lbl_805DDD04);
+  TWindowSubComCard__sub_803DEECC((void *) (&buffer_8[0]), (f32) (*((f32 *) (((s8 *) arg0) + 0x20))), (f32) lbl_805DDCFC, (f32) lbl_805DDCF8);
+  get_player__20TWindowSubStatusDispFv();
+}
 
 }

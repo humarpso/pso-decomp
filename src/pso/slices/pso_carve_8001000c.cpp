@@ -36,6 +36,10 @@ s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
 s32 TObjPlayer__sub_80087638(s32, s32);
 s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
 void TObjPlayer__sub_800102C0(s32 arg0, s32 arg1);
+int obj_testFlags30(void*, int);
+void create__10TObjPlayerFUiii(u32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, s32, s32, s32);
+void TObjPlayer__sub_8001000C(u8 *arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -53,7 +57,22 @@ void TObjPlayer__sub_8000FF4C(void* p, s16 v);
 u16 get_field_2d4__10TObjPlayerFPv(void* p);
 int obj_testFlags30(void*, int);
 
-int TObjPlayer__sub_8001000C(void) { return 0; }
+void TObjPlayer__sub_8001000C(u8 *arg0, u32 arg1, s32 arg2) {
+    u32 temp_r4;
+    if (((s32)obj_testFlags30((void*)(arg0), (int)(0x02000000))) == 0) {
+        if (arg1 != 0U) {
+            create__10TObjPlayerFUiii((u32) arg0, (s32) arg1, 0x96);
+        } else {
+            temp_r4 = M2C_FIELD(arg0, u32 *, 0xA4);
+            if (temp_r4 != 0U) {
+                create__10TObjPlayerFUiii((u32) arg0, (s32) temp_r4, 0x96);
+            }
+        }
+        if (arg2 != 0) {
+            TBoss3Volopt__sub_8022675C((s32)(0xB20F), (s32)((u32) (arg0 + 0x38)), (s32)(0), (s32)(0));
+        }
+    }
+}
 
 void TObjPlayer__sub_800100A0(s32 arg0, s32 arg1) {
     s32 temp_r3;
