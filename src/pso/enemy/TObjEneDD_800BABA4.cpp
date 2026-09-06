@@ -247,6 +247,16 @@ void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BAD1C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BAC5C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void TObjEneDD__sub_800BAF1C(void *, void *, f32, f32, f32);
+void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void TObjEneDD__sub_800BB000(void *, void *, f32, f32, f32);
+void TObjEneDD__sub_800BAC14(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+u8 *TObjEneDD__sub_800BAE74(u8 *arg0, u8 *arg1);
+void TObjEneDD__sub_800BAF1C(void *, void *, f32, f32, f32);
+void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+u8 *TObjEneDD__sub_800BAE74(u8 *arg0, u8 *arg1);
+void TObjEneDD__sub_800BB000(void *, void *, f32, f32, f32);
+void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 }
 
 extern "C" {
@@ -260,10 +270,34 @@ void set_active__9TObjEneDDFPv(void* p);
 
 int TObjEneDD__sub_800BABA4(void) { return 0; }
 
+void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+    M2C_UNK sp8;
+    TObjEneDD__sub_800BAF1C(arg0, &sp8, farg0, farg1, farg2);
+    ((VObj_18_807e53 *)(arg0))->m99(&sp8);
+}
+
+void TObjEneDD__sub_800BAC14(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+    M2C_UNK sp8;
+    TObjEneDD__sub_800BB000(arg0, &sp8, farg0, farg1, farg2);
+    ((VObj_18_807e53 *)(arg0))->m99(&sp8);
+}
+
 void TObjEneDD__sub_800BAC5C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
     calc_shot_position__9TObjEneDDFPvPvfff(arg0, &sp8, farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
+}
+
+void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+    M2C_UNK sp8;
+    TObjEneDD__sub_800BAF1C(arg0, &sp8, farg0, farg1, farg2);
+    TObjEneDD__sub_800BAE74((u8 *)(arg0), (u8 *)(&sp8));
+}
+
+void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+    M2C_UNK sp8;
+    TObjEneDD__sub_800BB000(arg0, &sp8, farg0, farg1, farg2);
+    TObjEneDD__sub_800BAE74((u8 *)(arg0), (u8 *)(&sp8));
 }
 
 void TObjEneDD__sub_800BAD1C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {

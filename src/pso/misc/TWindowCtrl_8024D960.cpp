@@ -5,11 +5,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
+M2C_UNK window_request_show(u32);
+s32 is_flag_2_set__11TWindowCtrlFPv(void *);
+s32 is_enabled__11TWindowCtrlFPv(void *);
+s32 is_visible__11TWindowCtrlFPv(void *);
+s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
+void TWindowCtrl__sub_8024DF5C(u8 *arg0);
+s32 is_split_screen();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
+M2C_UNK window_request_show(u32);
+s32 is_flag_2_set__11TWindowCtrlFPv(void *);
+s32 TWindowCtrl__sub_8024C7F8(void *);
+s32 is_visible__11TWindowCtrlFPv(void *);
+s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
+void TWindowCtrl__sub_8024DFF4(u8 *arg0);
+}
+
+extern "C" {
 
 void TWindowCtrl__sub_8024DAAC(void *arg0);
 int TWindowCtrl__sub_8024DE60(void*);
-int TWindowCtrl__sub_8024DF5C(void*);
-int TWindowCtrl__sub_8024DFF4(void*);
 int fn_8024E0F0(void*);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 void run_all_updates__11TWindowCtrlFPv(void* p);
@@ -26,7 +44,6 @@ s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 int fn_802437C4(void*);
 void free_member__15TWindowCtrlMainFPv(void* p);
-s32 is_visible__11TWindowCtrlFPv();
 int open_submenu__15TWindowSubEquipFii(void*);
 void render__17TWindowCtrlPlayerFv(void);
 void run_task__17TWindowCtrlPlayerFv(void* p);
@@ -56,7 +73,7 @@ void TWindowCtrl__sub_8024DAAC(void *arg0) {
 
 void show_active_window__11TWindowCtrlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-        if (is_visible__11TWindowCtrlFPv() != 0) {
+        if (is_visible__11TWindowCtrlFPv((void *)(arg0)) != 0) {
             TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x2C));
             return;
         }
@@ -70,10 +87,30 @@ void show_active_window__11TWindowCtrlFPv(void *arg0) {
 }
 
 int TWindowCtrl__sub_8024DE60(void*) { return 0; }
-int TWindowCtrl__sub_8024DF5C(void*) { return 0; }
-int TWindowCtrl__sub_8024DFF4(void*) { return 0; }
 
-void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4((void*)(p)); TWindowCtrl__sub_8024DF5C((void*)(p)); TWindowCtrl__sub_8024DE60((void*)(p)); TWindowCtrl__sub_8024DCE8(p); show_active_window__11TWindowCtrlFPv((void *)(p)); TWindowCtrl__sub_8024DAC4(p); TWindowCtrl__sub_8024DAAC((void *)(p)); }
+void TWindowCtrl__sub_8024DF5C(u8 *arg0) {
+    u32 temp_r31;
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) M2C_FIELD(arg0, u32 *, 0x34)) == 0)) {
+        temp_r31 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        if ((get_active_menu__11TWindowCtrlFPv((void *) (arg0)) != 0) || (is_visible__11TWindowCtrlFPv((void *)((void *) (arg0))) != 0) || (is_enabled__11TWindowCtrlFPv((void *) (arg0)) != 0) || (temp_r31 == 0U)) {
+            TWindowSubTradeMain__sub_80244A4C((u32)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
+            return;
+        }
+        window_request_show((u32)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
+    }
+}
+
+void TWindowCtrl__sub_8024DFF4(u8 *arg0) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (is_flag_2_set__11TWindowCtrlFPv((void *) M2C_FIELD(arg0, u32 *, 0x30)) == 0)) {
+        if ((TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD(arg0, s32 *, 0x24))) == 0U) || (is_visible__11TWindowCtrlFPv((void *) (arg0)) != 0) || (TWindowCtrl__sub_8024C7F8((void *) (arg0)) != 0) || ((is_split_screen() != 0) && (get_active_menu__11TWindowCtrlFPv((void *) (arg0)) != 0))) {
+            TWindowSubTradeMain__sub_80244A4C((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))));
+            return;
+        }
+        window_request_show((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))));
+    }
+}
+
+void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4((u8 *)((void*)(p))); TWindowCtrl__sub_8024DF5C((u8 *)((void*)(p))); TWindowCtrl__sub_8024DE60((void*)(p)); TWindowCtrl__sub_8024DCE8(p); show_active_window__11TWindowCtrlFPv((void *)(p)); TWindowCtrl__sub_8024DAC4(p); TWindowCtrl__sub_8024DAAC((void *)(p)); }
 
 int fn_8024E0F0(void*) { return 0; }
 

@@ -4,13 +4,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void TMainCursor__sub_8013DFC4(u8 *arg0);
+u8 get_enabled__11TMainCursorFPv(void* p);
+u8 get_type__11TMainCursorFPv(void* p);
+int TMainCursor__sub_8013DF5C(s32 arg0, u8 arg1, u8 arg2);
 }
 
 extern "C" {
 
-int TMainCursor__sub_8013DF5C(void);
 u16 TMainCursor__sub_8013E03C(void* p);
 s32 destroy__13TForceOperateFis(s32 arg0, s16 arg1);
 void *destroy_cursor__11TMainCursorFPvs(void *arg0, s16 arg1);
@@ -25,11 +28,17 @@ void __dt__7TObjectFv(void *, int);
 int check_visible__11TMainCursorFPv(void* p);
 int find_action_slot_for_target__11TMainCursorFiiii(void*);
 u8 get_enabled__11TMainCursorFPv(void* p);
-u8 get_type__11TMainCursorFPv(void* p);
 void set_mode__20TWindowActionPaletteFPvUc(void* p, u8 v);
 void set_slot__20TWindowActionPaletteFPvUc(void* p, u8 v);
 
-int TMainCursor__sub_8013DF5C(void) { return 0; }
+int TMainCursor__sub_8013DF5C(s32 arg0, u8 arg1, u8 arg2) {
+    s32 var_r31;
+    var_r31 = 0;
+    if ((arg1 == get_type__11TMainCursorFPv((void*)(arg0))) && (arg2 == get_enabled__11TMainCursorFPv((void*)(arg0)))) {
+        var_r31 = 1;
+    }
+    return (u8)var_r31;
+}
 
 void TMainCursor__sub_8013DFC4(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) & 0xFFFFFFFE);

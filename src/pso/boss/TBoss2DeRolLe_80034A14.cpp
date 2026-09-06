@@ -4,9 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase18 { char pad[0x18]; };
+
+struct VObj18 : VBase18 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(void *, f32);
+};
+
 extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
+extern u8 *TBoss2DeRolLe__data_805D4BC4;
+void TBoss2DeRolLe__sub_80034DCC(s32 arg0);
+void TBoss2DeRolLe__sub_80034E00(void *, int);
+extern f32 TBoss2DeRolLe__data_805D82BC;
+void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -92,6 +108,23 @@ void emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     TBoss2DeRolLe__sub_80034E00(arg0, 2);
     emit_effect__9TObjEneDDFPvii(arg0, arg1, lbl_804356AC);
     ((void (*)(void *, void *))TBoss2DeRolLe__sub_80034E00)(arg0, M2C_FIELD(arg0, void **, 0x3C4));
+}
+
+void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1) {
+    u8 *temp_r5;
+    temp_r5 = M2C_FIELD(arg1, u8 **, 0xA4);
+    if (temp_r5 != NULL) {
+        M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 0x04000000);
+        TBoss2DeRolLe__sub_80034E00((void *)arg0, 1);
+        ((VObj18 *)arg1)->m20(arg0, TBoss2DeRolLe__data_805D82BC);
+        TBoss2DeRolLe__sub_80034E00((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x3C4)));
+    }
+}
+
+void TBoss2DeRolLe__sub_80034DCC(s32 arg0) {
+    if ((void *) TBoss2DeRolLe__data_805D4BC4 != NULL) {
+        TBoss2DeRolLe__sub_80034D58((u8 *)(TBoss2DeRolLe__data_805D4BC4), (u8 *)(arg0));
+    }
 }
 
 int TBoss2DeRolLe__sub_80034F40(void) { return 0; }

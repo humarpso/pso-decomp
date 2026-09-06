@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u8 * TObjFish__sub_8001EDC4(void *, int);
+extern u32 lbl_805D65D0;
+u8 *TORockJungleS01__sub_8029CAFC(s32 arg0);
+}
+
+extern "C" {
 
 void TORockJungleS01__vt16(s32 arg0);
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1);
@@ -52,6 +58,13 @@ void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1) {
 
 extern u32 lbl_805D65D0;
 extern u32 lbl_805D65D4;
+
+u8 *TORockJungleS01__sub_8029CAFC(s32 arg0) {
+    if ((void *) (*(u8 * *)&lbl_805D65D0) != NULL) {
+        return TObjFish__sub_8001EDC4((*(u8 * *)&lbl_805D65D0), arg0);
+    }
+    return NULL;
+}
 
 void free_globals__15TORockJungleS01Fv(void) {
     if ((u32) lbl_805D65D4 != 0U) {

@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowSubAreaMapDisp__sub_80246948();
+void set_target_y__15TWindowMainMenuFPvf(void *arg0, f32 farg0);
+void update_scaled_position__15TWindowMainMenuFi(s32 arg0);
+extern f32 lbl_805DE158;
+extern f32 lbl_805DE1A8;
+void TWindowMainMenu__sub_802AE380(void *arg0);
+}
+
+extern "C" {
 
 void TWindowMainMenu__sub_802AE400(void *arg0);
 void set_target_y__15TWindowMainMenuFPvf(void *arg0, f32 farg0);
@@ -34,6 +43,17 @@ extern f32 lbl_805DE150;
 
 void update_scaled_position__15TWindowMainMenuFi(s32 arg0) {
     set_target_y__15TWindowMainMenuFPvf((void *)((void *)(arg0)), lbl_805DE150 * (f32) count_active_items__15TWindowMainMenuFi());
+}
+
+void TWindowMainMenu__sub_802AE380(void *arg0) {
+    s16 temp_r4;
+    if (TWindowSubAreaMapDisp__sub_80246948() != 0) {
+        set_target_y__15TWindowMainMenuFPvf(arg0, lbl_805DE158);
+        temp_r4 = M2C_FIELD(arg0, s16 *, 0x22);
+        M2C_FIELD(arg0, u32 *, 0x50) = (u32) (lbl_805DE1A8 - (f32) temp_r4);
+        return;
+    }
+    update_scaled_position__15TWindowMainMenuFi((s32)(arg0));
 }
 
 void TWindowMainMenu__sub_802AE400(void *arg0) {

@@ -5,10 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 calc_boss4_scale__10TObjPlayerFi(s32);
+int TObjEneDD__sub_800BBA18(void*, void*);
+s32 TObjEneMorfos__sub_80334884(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(s32);
+s32 TObjEneMorfos__sub_803348F0(u8 *arg0);
+}
+
+extern "C" {
 
 void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2);
-int TObjEneMorfos__sub_80334884(void);
-int TObjEneMorfos__sub_803348F0(void);
 void TObjEneMorfos__vt26(void);
 void TObjEneMorfos__vt59(void);
 void TObjEneMorfos__vt61(void* p);
@@ -45,8 +51,21 @@ s32 approach_value__13TObjEneMorfosFPvii(void *arg0, s32 arg1, s32 arg2) {
     return var_r31;
 }
 
-int TObjEneMorfos__sub_80334884(void) { return 0; }
-int TObjEneMorfos__sub_803348F0(void) { return 0; }
+s32 TObjEneMorfos__sub_80334884(u8 *arg0) {
+    if (((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2)) && (calc_boss4_scale__10TObjPlayerFi((s32) arg0) <= M2C_FIELD(arg0, f32 *, 0x3E4))) {
+        TObjEneDD__sub_800BBA18((void*)((void *) (arg0)), (void*)((int) (9)));
+        return 1;
+    }
+    return 0;
+}
+
+s32 TObjEneMorfos__sub_803348F0(u8 *arg0) {
+    if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x10) && ((s16) M2C_FIELD(arg0, s16 *, 0x32C) <= (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2)) && (calc_boss4_scale__10TObjPlayerFi((s32) arg0) <= M2C_FIELD(arg0, f32 *, 0x3E0))) {
+        M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x10);
+        return 1;
+    }
+    return 0;
+}
 
 void TObjEneMorfos__vt59(void) {  }
 

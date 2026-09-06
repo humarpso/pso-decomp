@@ -10,6 +10,9 @@ M2C_UNK TObjLobbyMain__sub_80352240(void *);
 extern const f32 lbl_805DFEE4;
 extern const f32 lbl_805DFEE8;
 void TObjLobbyMain__sub_80352624(u8 *arg0);
+extern const f32 TObjLobbyMain__data_805DFEE0;
+extern const f32 lbl_805DFEE4;
+void TObjLobbyMain__sub_803525F0(u8 *arg0);
 }
 
 extern "C" {
@@ -71,6 +74,14 @@ void update_computer_machines__13TObjLobbyMainFv(void) {
 }
 
 extern const f32 TObjLobbyMain__data_805DFEE0;
+
+void TObjLobbyMain__sub_803525F0(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (M2C_FIELD(arg0, f32 *, 0xD4) + lbl_805DFEE4);
+    if (M2C_FIELD(arg0, f32 *, 0xD4) >= TObjLobbyMain__data_805DFEE0) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 2;
+        M2C_FIELD(arg0, f32 *, 0xD4) = (f32) TObjLobbyMain__data_805DFEE0;
+    }
+}
 
 void TObjLobbyMain__sub_80352624(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (M2C_FIELD(arg0, f32 *, 0xD4) - lbl_805DFEE4);

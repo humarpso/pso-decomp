@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_C { u8 bytes[0xc]; };
+
 extern "C" {
 void render__19TWindowMessageYesNoFv(void);
 void *TParticleCtrl__sub_8008673C(int);
@@ -19,6 +24,13 @@ void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2);
 void *TParticleCtrl__sub_8008C21C(void *, void *, void *, void *);
 void *TParticleCtrl__sub_8008673C(int);
 void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2);
+extern const f32 TParticleCtrl__data_805D9528;
+void TParticleCtrl__sub_8008A04C(u8 *arg0);
+int queue_destruction__7TObjectFv(void *);
+f32 TCameraCtrl__sub_803D8D00(void *);
+extern const f32 TParticleCtrl__data_805D9558;
+extern const f32 TParticleCtrl__data_805D955C;
+void TParticleCtrl__sub_8008B538(u8 *arg0);
 }
 
 extern "C" {
@@ -26,7 +38,7 @@ extern "C" {
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
 void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1);
-void destroy_keyboard_objects(void);
+void destroy_keyboard_objects(void * _w0);
 void free_all__13TParticleCtrlFv(void);
 s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
 void init_particle_buffer__13TParticleCtrlFv(void);
@@ -41,7 +53,6 @@ void TParticleCtrl__sub_8008655C(void *, int);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 void free_from_heap__13TParticleCtrlFPv(void *);
-int queue_destruction__7TObjectFv(void);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern s32 lbl_805D4EFC;
@@ -119,6 +130,12 @@ void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg
     return o;
 }
 
+void TParticleCtrl__sub_8008A04C(u8 *arg0) {
+    if (M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D9528) {
+        queue_destruction__7TObjectFv((void *)(arg0));
+    }
+}
+
 void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E790;
@@ -141,6 +158,12 @@ void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2) {
     return o;
 }
 
+void TParticleCtrl__sub_8008B538(u8 *arg0) {
+    if ((M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == TCameraCtrl__sub_803D8D00((void *) (arg0 + 0x3C)))) {
+        queue_destruction__7TObjectFv((void *)(arg0));
+    }
+}
+
 void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E7A8;
@@ -152,6 +175,6 @@ void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void destroy_keyboard_objects(void) { queue_destruction__7TObjectFv(); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby__sub_8022743C(); TLobby__sub_80227248(); }
+void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((void *)(_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby__sub_8022743C(); TLobby__sub_80227248(); }
 
 }

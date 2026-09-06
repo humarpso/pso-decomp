@@ -70,6 +70,11 @@ struct VObj_800E1D38_800E158C : Base_800E1D38_800E158C {
 };
 
 extern "C" {
+void TObjEnePanarms__sub_800E1B78(void *, void *, void *);
+void TObjEnePanarms__sub_800E1B50(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2);
 void TObjEnePanarms__sub_800E1D38(void *arg0);
@@ -84,6 +89,10 @@ void TObjEnePanarms__sub_800E1E64(void* p);
 
     extern const float TObjEnePanarms__data_805DA524;
 void reset_state__14TObjEnePanarmsFPv(void* a0) { *(int*)((char*)*(int*)((char*)a0 + 0x37c) + 0x18) = (*(int*)((char*)*(int*)((char*)a0 + 0x37c) + 0x18) & 0xfffffffe); *(float*)((char*)a0 + 0x3b0) = TObjEnePanarms__data_805DA524; *(int*)((char*)a0 + 0x384) = 0; *(int*)((char*)a0 + 0x388) = 0; }
+
+void TObjEnePanarms__sub_800E1B50(u8 *arg0) {
+    TObjEnePanarms__sub_800E1B78(arg0, arg0 + 0x38, arg0 + 0x60);
+}
 
 void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x39C) = arg1;

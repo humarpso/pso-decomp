@@ -11,6 +11,10 @@ extern f32 lbl_805DA678;
     extern const float TObjEneDelDepth__data_805DF260;
     extern const float TObjEneDelDepth__data_805DF258;
 void TObjEneDelDepth__sub_80314E78(void* a0);
+int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
+extern const float TObjEneDelDepth__data_805DF258;
+extern const f32 TObjEneDelDepth__data_805DF278;
+void TObjEneDelDepth__sub_80315064(u8 *arg0);
 }
 
 extern "C" {
@@ -89,6 +93,13 @@ void enter_state8__15TObjEneDelDepthFPv(u8 *arg0) {
 extern const f32 TObjEneDelDepth__data_805DF26C;
 
 void TObjEneDelDepth__sub_80314E78(void* a0) { *(float*)((char*)a0 + 0x38c) = TObjEneDelDepth__data_805DF260; *(float*)((char*)a0 + 0x39c) = TObjEneDelDepth__data_805DF258; set_draw_mode__15TObjEneDelDepthFPvi((void*)((void*)(a0)), (void*)((int)(0))); TObjEneDelDepth__sub_80316488((void*)((void*)(*(int*)((char*)a0 + 0x37c))), (void*)((void*)0x6)); }
+
+void TObjEneDelDepth__sub_80315064(u8 *arg0) {
+    set_draw_mode__15TObjEneDelDepthFPvi((void*)(arg0), (void*)(0));
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFBFFFF);
+    M2C_FIELD(arg0, f32 *, 0x38C) = (f32) (*(const f32 *)&TObjEneDelDepth__data_805DF258);
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) TObjEneDelDepth__data_805DF278;
+}
 
 void try_relocate_on_timer__15TObjEneDelDepthFPv(u8 *arg0) {
     s32 temp_r0;

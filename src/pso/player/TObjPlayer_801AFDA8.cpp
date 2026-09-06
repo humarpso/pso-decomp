@@ -34,6 +34,9 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D5678;
     extern int lbl_805D5680;
 int TObjPlayer__sub_801AFFB0(void* p);
+s32 TObjPlayer__sub_800196EC();
+s32 get_field_3e4__10TObjPlayerFPv(s32);
+u8 TObjPlayer__sub_801AFF0C(s32 arg0);
 }
 
 extern "C" {
@@ -104,6 +107,14 @@ u8 is_volopt_phase_final__10TObjPlayerFv(void) {
 
 u8 TFontSmallLobby__sub_801AFEE0(void) {
     return (u8) (get_global_state__14TOKeyMachine01Fv() == 0xF);
+}
+
+u8 TObjPlayer__sub_801AFF0C(s32 arg0) {
+    s32 temp_r31;
+    s32 temp_r3;
+    temp_r31 = TObjPlayer__sub_800196EC();
+    temp_r3 = get_field_3e4__10TObjPlayerFPv(arg0);
+    return (u8) (temp_r3 == temp_r31);
 }
 
 void TObjPlayer__sub_801AFF50(u8 *arg0) {

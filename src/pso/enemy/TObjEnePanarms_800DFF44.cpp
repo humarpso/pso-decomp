@@ -15,6 +15,12 @@ int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
 void TObjEnePanarms__sub_800E0E88(u8 *arg0);
 int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
 void TObjEnePanarms__sub_800E08D8(u8 *arg0);
+int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
+extern const float TObjEnePanarms__data_805DA524;
+void TObjEnePanarms__sub_800DFFE0(u8 *arg0);
+int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
+extern const float TObjEnePanarms__data_805DA524;
+void TObjEnePanarms__sub_800E01AC(u8 *arg0);
 }
 
 extern "C" {
@@ -59,6 +65,34 @@ void update_move_timer__14TObjEnePanarmsFPv(u8 *arg0) {
 extern s32 lbl_8043CDA0[];
 extern const f64 TObjEnePanarms__data_8043CDD0;
 extern const f32 TObjEnePanarms__data_805DA544;
+
+void TObjEnePanarms__sub_800DFFE0(u8 *arg0) {
+    u8 *temp_r7;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x380) != 0) {
+        temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
+        M2C_FIELD(temp_r7, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r7, s32 *, 0x18) | 1);
+        M2C_FIELD(arg0, s32 *, 0x384) = 1;
+        M2C_FIELD(arg0, s32 *, 0x388) = 1;
+        M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) (*(const f32 *)&TObjEnePanarms__data_805DA524);
+        M2C_FIELD(arg0, s32 *, 0x3B4) = 0xC;
+        M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
+        set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(3));
+    }
+}
+
+void TObjEnePanarms__sub_800E01AC(u8 *arg0) {
+    u8 *temp_r7;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x380) != 0) {
+        temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));
+        M2C_FIELD(temp_r7, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r7, s32 *, 0x18) | 1);
+        M2C_FIELD(arg0, s32 *, 0x384) = 1;
+        M2C_FIELD(arg0, s32 *, 0x388) = 1;
+        M2C_FIELD(arg0, f32 *, 0x3B0) = (f32) (*(const f32 *)&TObjEnePanarms__data_805DA524);
+        M2C_FIELD(arg0, s32 *, 0x3B4) = 0x96;
+        M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
+        set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(2));
+    }
+}
 
 void update_attack__14TObjEnePanarmsFPv(u8 *arg0) {
     f32 temp_f3;

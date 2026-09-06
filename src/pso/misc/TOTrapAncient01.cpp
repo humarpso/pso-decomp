@@ -92,9 +92,16 @@ struct VObj_801793A8_8017939C : Base_801793A8_8017939C {
 };
 
 extern "C" {
-M2C_UNK TOTrapAncient01__sub_8017940C(void *);
 void TOTrap__sub_80178F54(void *, void *, f32);
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
+u16 obj_getField1c(void *);
+M2C_UNK obj_clear_flag30_20000(int);
+s32 check_player_flag1__6TLobbyFPv();
+M2C_UNK send_code_45_1__10TObjPlayerFi(int);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern s32 lbl_805D53A0;
+void TOTrapAncient01__sub_8017940C(u8 *arg0);
 }
 
 extern "C" {
@@ -109,7 +116,6 @@ void *create__15TOTrapAncient01FPv(void *arg0);
 void release_static_resource__15TOTrapAncient01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void *TOTrapAncient01__ct(void *, void *, void *);
-M2C_UNK TOTrapAncient01__sub_8017940C(void *);
 void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
 void TOTrapAncient02R__sub_80154D78(void *);
 void *__nw__7TObjectFUl(int);
@@ -126,14 +132,38 @@ void TOTrapAncient01__vt4(void *arg0, s16 *arg1, s32 arg2) {
         if (arg2 == 1) {
             ((VObj_801793A8_8017939C *)arg0)->m83();
         }
-        TOTrapAncient01__sub_8017940C(arg0);
+        TOTrapAncient01__sub_8017940C((u8 *)(arg0));
         set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }
 
+void TOTrapAncient01__sub_8017940C(u8 *arg0) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        if (M2C_FIELD(arg0, void **, 0x2A8) != NULL) {
+            temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((void *) (obj_getField1c(M2C_FIELD(arg0, void **, 0x2A8))));
+            if (temp_r3 != 0) {
+                if (check_player_flag1__6TLobbyFPv() != 0) {
+                    send_code_45_1__10TObjPlayerFi((int) (temp_r3));
+                }
+                obj_clear_flag30_20000((int) (temp_r3));
+            }
+        }
+    } else if ((M2C_FIELD(arg0, void **, 0x2A8) != NULL) && ((s32) lbl_805D53A0 == (s32) obj_getField1c(M2C_FIELD(arg0, void **, 0x2A8)))) {
+        temp_r3_2 = TPlayerBattleCtrl4P__sub_801BA74C((void *) lbl_805D53A0);
+        if (temp_r3_2 != 0) {
+            if (check_player_flag1__6TLobbyFPv() != 0) {
+                send_code_45_1__10TObjPlayerFi((int) (temp_r3_2));
+            }
+            obj_clear_flag30_20000((int) (temp_r3_2));
+        }
+    }
+}
+
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0) {
-    TOTrapAncient01__sub_8017940C(arg0);
+    TOTrapAncient01__sub_8017940C((u8 *)(arg0));
     TOTrap__sub_80178F54(arg0, arg1, farg0);
 }
 

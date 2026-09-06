@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int TObjEneSlimeOne__sub_800EAE78(void*, void*);
+M2C_UNK TObjEneSlimeOne__sub_800EB654(int, void *);
+s16 check_player_field_7cc__15TObjEneSlimeOneFPv();
+u32 TPlayerBattleCtrl4P__sub_801BA74C();
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+extern s32 lbl_805D586C;
+void TObjEneSlimeOne__vt60(u8 *arg0);
+}
+
+extern "C" {
 
 int TObjEneSlimeOne__vt59(void);
 void TObjEneSlimeOne__vt61(void* p);
@@ -69,6 +79,16 @@ void init_state__15TObjEneSlimeOneFPv(void* a0) { TObjEneSlimeOne__sub_800EAD84(
 void set_random_timer_15__15TObjEneSlimeOneFPv(void* p) { set_random_timer__15TObjEneSlimeOneFPvii((void *)(p), (s32)(15), (s32)(15)); }
 
 int TObjEneSlimeOne__vt59(void) { return 0; }
+
+void TObjEneSlimeOne__vt60(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x384) != 0xC) {
+        if (((s32) M2C_FIELD(arg0, u16 *, 0x2D4) < (s32) lbl_805D586C) && (TPlayerBattleCtrl4P__sub_801BA74C() != 0U) && (check_player_field_7cc__15TObjEneSlimeOneFPv() == 2) && ((u32) M2C_FIELD(arg0, u32 *, 0x3F0) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((void *) M2C_FIELD(arg0, u32 *, 0x3F0)) != 0)) {
+            TObjEneSlimeOne__sub_800EB654((int) (M2C_FIELD(arg0, u32 *, 0x3F0)), (void *) (arg0 + 0x38));
+        }
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
+        TObjEneSlimeOne__sub_800EAE78((void*)((void *) (arg0)), (void*)((int) (0xC)));
+    }
+}
 
 void TObjEneSlimeOne__vt61(void* p) { if (*(int*)((char*)p + 0x384) != 13) { TObjEneSlimeOne__sub_800EAE78((void*)(p), (void*)((void*)13)); } }
 

@@ -5,13 +5,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int TItemData__sub_8010CBAC(void *, s8 *);
+M2C_UNK init__9TItemDataFv();
+M2C_UNK strncpy(s8 *, u32, M2C_UNK);
+M2C_UNK memset(s8 *, M2C_UNK, M2C_UNK);
+void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
+}
+
+extern "C" {
 
 int TItemData__sub_8010C940(void);
-int TItemData__sub_8010CA08(void);
 int TItemData__sub_8010CAB0(void);
 int TItemData__sub_8010CACC(void);
 int TItemData__sub_8010CB10(void);
-int TItemData__sub_8010CBAC(void);
 int TItemData__sub_8010CC68(void);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
@@ -26,11 +32,25 @@ s32 lookup_item_def__9TItemDataFPv();
 int register_item_drop__10TObjPlayerFPv(void*);
 
 int TItemData__sub_8010C940(void) { return 0; }
-int TItemData__sub_8010CA08(void) { return 0; }
+
+void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
+    s8 sp8[10];
+    init__9TItemDataFv();
+    if ((arg1 != 0U) && (((arg2 >= 0x70U) && (arg2 <= 0x88U)) || ((arg2 >= 0xA5U) && (arg2 <= 0xA9U)))) {
+        M2C_FIELD(arg0, s8 *, 0) = 0;
+        M2C_FIELD(arg0, u8 *, 1) = arg2;
+        M2C_FIELD(arg0, s8 *, 2) = 0;
+        memset(sp8, 0, 0xA);
+        sp8[0] = 0x41;
+        strncpy(&sp8[1], arg1, 8);
+        TItemData__sub_8010CBAC((void *)(arg0), (s8 *)(sp8));
+    }
+}
+
 int TItemData__sub_8010CAB0(void) { return 0; }
 int TItemData__sub_8010CACC(void) { return 0; }
 int TItemData__sub_8010CB10(void) { return 0; }
-int TItemData__sub_8010CBAC(void) { return 0; }
+int TItemData__sub_8010CBAC(void * _w0, s8 * _w1) { return 0; }
 int TItemData__sub_8010CC68(void) { return 0; }
 
 void TItemData__sub_8010CCB0(void) {  }

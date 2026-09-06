@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(u32);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470();
+extern u32 lbl_805D5C68;
+extern u32 lbl_805D5C6C;
+extern const f32 lbl_805DBFA0;
+extern const f32 lbl_805DBFA4;
+void render__8TObjTankFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *TObjTank__create(void *arg0);
 void *__dt__8TObjTankFv(void *arg0, s16 arg1);
@@ -19,6 +34,31 @@ M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+
+struct Base { char pad[0x18]; };
+struct VObj : Base {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+void render__8TObjTankFv(u8 *arg0) {
+    void *p;
+    if ((((VObj *)arg0)->m8(lbl_805DBFA0, lbl_805DBFA4) != 0) && (p = (*(void * *)&lbl_805D5C6C))) {
+        set_global_param__8TObjFishFi((u32)p);
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        TObjFish__sub_8001EDC4((*(s32 *)&lbl_805D5C68), 0);
+        TObjBoss2Tunnel__sub_803DB470();
+        TObjPlayer__sub_803D9B78();
+    }
+}
 
 void run_task__8TObjTankFv(void) {  }
 

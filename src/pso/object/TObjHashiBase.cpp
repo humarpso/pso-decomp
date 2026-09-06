@@ -9,6 +9,25 @@ struct VObj_80191BEC_80191B94 : Base_80191BEC_80191B94 {
     virtual void m4(); virtual void m5(s32);
 };
 
+struct VBase { char pad[0x18]; };
+
+struct VDisp : VBase {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+extern "C" {
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, void *, f32);
+void TObjHashiBase__sub_80191A38(u8 *arg0);
+}
+
 extern "C" {
 
 void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2);
@@ -24,6 +43,23 @@ M2C_UNK fn_80191D5C(u16);
 M2C_UNK init_map_object_base();
 
 extern M2C_UNK __vt__13TObjHashiBase[];
+
+void TObjHashiBase__sub_80191A38(u8 *arg0) {
+    void *p;
+    if (((VDisp *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        TObjPlayer__sub_803D9214(0, M2C_FIELD(arg0, s32 *, 0x60));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
+        p = M2C_FIELD(arg0, void **, 0xBC);
+        if (p != NULL) {
+            TObjEneSlimeOne__sub_803E4AF4(M2C_FIELD(arg0, s32 *, 0x34), p, M2C_FIELD(arg0, f32 *, 0xB0));
+        } else {
+            TObjBoss2Tunnel__sub_803DB470(M2C_FIELD(arg0, s32 *, 0x34));
+        }
+        TObjPlayer__sub_803D9B78();
+    }
+}
 
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

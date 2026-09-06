@@ -23,6 +23,9 @@ M2C_UNK TLobby__sub_8010567C(void *, void *, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+u8 * TObjFish__sub_8001EDC4(void *, int);
+extern s32 TObjContainerJung__data_805D5BA0;
+u8 *TObjContainerJung__sub_8018D3C0(s32 arg0);
 }
 
 extern "C" {
@@ -48,6 +51,13 @@ s32 TObjContainerJung__sub_8018D3B8(void) {
 }
 
 extern void *tl_05;
+
+u8 *TObjContainerJung__sub_8018D3C0(s32 arg0) {
+    if ((void *) (*(u8 * *)&TObjContainerJung__data_805D5BA0) != NULL) {
+        return TObjFish__sub_8001EDC4((*(u8 * *)&TObjContainerJung__data_805D5BA0), arg0);
+    }
+    return NULL;
+}
 
 void *create__17TObjContainerJungFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);

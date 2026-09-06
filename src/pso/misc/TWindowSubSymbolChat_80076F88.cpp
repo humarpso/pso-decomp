@@ -59,16 +59,16 @@ void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
-int TWindowSubSymbolChat__sub_80076FEC(void);
 void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
-int TWindowSubSymbolChat__sub_80076FEC(void);
 void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1);
 void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
+M2C_UNK strncpy(void *, void *, int);
+void TWindowSubSymbolChat__sub_80076FEC(u8 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -131,7 +131,11 @@ extern "C" {
 extern "C" {
 int TWindowSubSymbolChat__sub_80076FE0(void* p) { return (*(u32*)((char*)p + 0x1c) >> 9) & 0x1; }
 
-int TWindowSubSymbolChat__sub_80076FEC(void) { return 0; }
+void TWindowSubSymbolChat__sub_80076FEC(u8 *arg0, void *arg1) {
+    strncpy((void *) (arg0 + 4), arg1, (int) (0x16));
+    M2C_FIELD(arg0, s8 *, 0x1A) = 0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 1);
+}
 
 void TWindowSubSymbolChat__sub_80077034(u8 *arg0, s32 arg1) {
     s32 var_r4;

@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
+u8 TODoorAncient08__sub_80229220(int);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
+void run_task__12TOChatSensorFv(u8 *arg0);
+}
+
+extern "C" {
 
 void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
 void init_params__12TOChatSensorFPv(void *arg0);
@@ -56,6 +63,30 @@ void init_params__12TOChatSensorFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xCC) = 0;
     }
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+}
+void run_task__12TOChatSensorFv(u8 *arg0) {
+    s32 temp_r0;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x90) == 0U) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+        switch (temp_r0) {
+        case 0:
+            check_player_proximity__12TOChatSensorFPv((u8 *)((void *) (arg0)));
+            return;
+        case 1:
+            if (((u32) M2C_FIELD(arg0, u32 *, 0xC4) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xC4)) == 0)) {
+                M2C_FIELD(arg0, u32 *, 0xC4) = 0U;
+                M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+                return;
+            }
+            break;
+        }
+    } else {
+        if (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0x94))) == 0) {
+            check_player_proximity__12TOChatSensorFPv((u8 *)((void *) (arg0)));
+            return;
+        }
+        M2C_FIELD(arg0, s32 *, 0xA0) = 0;
+    }
 }
 
 }

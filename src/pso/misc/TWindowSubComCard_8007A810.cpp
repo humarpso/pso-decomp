@@ -4,8 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 u32 TWindowSubComCard__sub_8007B070(u8 *arg0);
+M2C_UNK strncpy(void *, void *, int);
+void TWindowSubComCard__sub_8007B230(u8 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -37,7 +40,12 @@ u32 TWindowSubComCard__sub_8007B070(u8 *arg0) {
 
 int TWindowSubComCard__sub_8007B0D0(void) { return 0; }
 int TWindowSubComCard__sub_8007B1AC(void) { return 0; }
-int TWindowSubComCard__sub_8007B230(void) { return 0; }
+
+void TWindowSubComCard__sub_8007B230(u8 *arg0, void *arg1) {
+    strncpy((void *) (arg0 + 0x20), arg1, (int) (0x6B));
+    M2C_FIELD(arg0, s8 *, 0x8B) = 0;
+}
+
 int TWindowSubComCard__sub_8007B26C(void) { return 0; }
 int clear(void* p) { return memset(p, 0, 144); }
 
