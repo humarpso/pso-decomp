@@ -238,8 +238,8 @@ u16 fn_801C1B98(void* p);
 u16 fn_801C1B98(void* p);
 s32 fn_801C1BA0(void* p);
 s32 fn_801C1BA0(void* p);
-void fn_801C1E44(void);
-void fn_801C1E44(void);
+void* fn_801C1E44(void* p);
+void* fn_801C1E44(void* p);
 void* fn_801C1E48(void* p);
 void* fn_801C1E48(void* p);
 int fn_801C1E50(void* p);
@@ -333,6 +333,10 @@ s32 TWindowActionPalette__sub_801C1C68();
 void TWindowActionPalette__sub_801C1D3C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TWindowActionPalette__sub_801C1C30(s32 arg0, s32 arg1, s32 arg2);
 void TWindowActionPalette__sub_801C1C80(s32 *arg0, s32 arg1);
+void TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2);
+void TWindowActionPalette__sub_801C1DB8(s32 *arg0, s32 arg1);
+void TWindowActionPalette__sub_801C1DE0(s32 arg0, s32 arg1, s32 arg2);
+void TWindowActionPalette__sub_801C1E1C(s32 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -457,7 +461,15 @@ void TWindowActionPalette__sub_801C1D3C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) 
     set_mode__20TWindowActionPaletteFPvUc((s32)(p + arg2), (u8)arg3);
 }
 
-void fn_801C1E44(void) {  }
+void TWindowActionPalette__sub_801C1DB8(s32 *arg0, s32 arg1) {
+    TWindowActionPalette__sub_801C1D7C((s32) arg0, *arg0, arg1);
+}
+
+void TWindowActionPalette__sub_801C1E1C(s32 *arg0, s32 arg1) {
+    TWindowActionPalette__sub_801C1DE0((s32) arg0, *arg0, arg1);
+}
+
+void* fn_801C1E44(void* p) { return p; }
 
 void* fn_801C1E48(void* p) { return (char*)p + 0x24; }
 

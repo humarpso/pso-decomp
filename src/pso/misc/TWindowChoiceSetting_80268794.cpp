@@ -4,6 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_80268A6C {
+    f32 sp8;
+    f32 spC;
+};
+
+extern "C" {
+M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
+extern const f32 lbl_805DD1D8;
+extern const f32 lbl_805DD1DC;
+extern const f32 lbl_805DD1E0;
+void TWindowChoiceSetting__sub_80268A6C(u8 *arg0);
+}
+
 extern "C" {
 
 s32 set_text__20TWindowSubStatusDispFPvUiii(s32, s32, s32, s32);
@@ -97,6 +110,19 @@ void create_sub_window__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
         }
         M2C_FIELD(arg0, u32 *, 0x78) = var_r0;
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x40);
+    }
+}
+void TWindowChoiceSetting__sub_80268A6C(u8 *arg0) {
+    Stack_80268A6C stack;
+    f32 temp_f1;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
+        stack.sp8 = lbl_805DD1D8;
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x4C) - lbl_805DD1DC;
+        stack.spC = temp_f1;
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {
+            stack.spC = temp_f1 - lbl_805DD1E0;
+        }
+        TWindowSubComCard__sub_8026D740((int) (M2C_FIELD(arg0, u32 *, 0x7C)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
     }
 }
 

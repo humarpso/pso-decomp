@@ -88,7 +88,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 objInBand__FP7GameObjf(f32);
+s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
 extern const f32 TBoss1Dragon__data_805D7FF8;
 void TBoss1Dragon__sub_80028B98(s32 arg0);
@@ -105,6 +105,11 @@ extern const f32 lbl_805D8090;
 void TBoss1Dragon__sub_8002727C(u8 *arg0);
 extern const f32 TBoss1Dragon__data_805D7F98;
 f32 TBoss1Dragon__sub_8002815C(void *arg0);
+void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
+s32 objInBand__FP7GameObjf(void *, f32);
+extern const f32 TBoss1Dragon__data_805D7F98;
+extern const f32 lbl_805D80B0;
+void TBoss1Dragon__sub_80028BE0(u8 *arg0);
 }
 
 extern "C" {
@@ -533,8 +538,14 @@ void TBoss1Dragon__sub_80028B28(u8 *arg0) {
 }
 
 void TBoss1Dragon__sub_80028B98(s32 arg0) {
-    if (objInBand__FP7GameObjf((f32) (TBoss1Dragon__data_805D7FF8)) != 0) {
+    if (objInBand__FP7GameObjf((void *)arg0, (f32) (TBoss1Dragon__data_805D7FF8)) != 0) {
         play_se_at_pos__12TBoss1DragonFii((s32)((void *) (arg0)), (s32)((int) (0x4003A804)));
+    }
+}
+
+void TBoss1Dragon__sub_80028BE0(u8 *arg0) {
+    if ((objInBand__FP7GameObjf(arg0, TBoss1Dragon__data_805D7F98) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D80B0) != 0)) {
+        play_se_at_pos__12TBoss1DragonFii((s32) arg0, 0x4003A801);
     }
 }
 
@@ -708,7 +719,6 @@ struct VObj_18 : VBase_18 {
 #pragma dont_inline off
 extern "C" {
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
-s32 objInBand__FP7GameObjf(f32);
 extern const f32 TBoss1Dragon__data_805D8018;
 void TBoss1Dragon__sub_800274A4(s32 arg0);
 extern f32 TObjEneDf2Bringer__data_805D9820;
@@ -828,7 +838,7 @@ struct VObj_80098E4C_80098DB0 : Base_80098E4C_80098DB0 {
     virtual int m97();
 };
 void TBoss1Dragon__sub_800274A4(s32 arg0) {
-    if (objInBand__FP7GameObjf((f32) (TBoss1Dragon__data_805D8018)) != 0) {
+    if (objInBand__FP7GameObjf((void *)arg0, (f32) (TBoss1Dragon__data_805D8018)) != 0) {
         update_switch_attack__12TBoss1DragonFPv((u8 *)((void *) (arg0)));
     }
 }

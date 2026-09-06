@@ -8,11 +8,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_80351DA8 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+extern "C" {
+s32 TBoss8Dragon__sub_80351CF0(s32, s32, s32, s32, s32, s32);
+void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
+}
+
 extern "C" {
 
 void TLobby__sub_80351DF8(void);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
-int fn_80351DA8(void);
 u8 is_lobby_event_active(void);
 void render__26TBoss5GryphonLightningWingFv(void);
 M2C_UNK TBoss8Dragon__sub_80063FB8(s32, M2C_UNK *, f32);
@@ -35,7 +45,13 @@ void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
 
 void render__26TBoss5GryphonLightningWingFv(void) {  }
 
-int fn_80351DA8(void) { return 0; }
+void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
+    Stack_80351DA8 stack;
+    stack.sp8 = M2C_FIELD(arg2, f32 *, 0);
+    stack.spC = M2C_FIELD(arg1, f32 *, 4);
+    stack.sp10 = M2C_FIELD(arg2, f32 *, 8);
+    TBoss8Dragon__sub_80351CF0(arg0, (s32) arg1, (s32) &stack.sp8, (s32) arg2, arg3, arg4);
+}
 
 void TLobby__sub_80351DF8(void) {  }
 

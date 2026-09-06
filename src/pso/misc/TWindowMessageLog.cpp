@@ -4,6 +4,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_8026A434 {
+    f32 sp8;
+    f32 spC;
+};
+
+struct Stack_8026A494 {
+    f32 sp8;
+    f32 spC;
+};
+
+extern "C" {
+s32 TWindowSubComCard__sub_8026D740(int, void *, void *, f32);
+extern const f32 lbl_805DD240;
+extern const f32 lbl_805DD244;
+void TWindowMessageLog__sub_8026A434(u8 *arg0);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void copy_position__11TWindowMenuFPvPv(void *, void *);
+void TWindowMessageLog__sub_8026A434(u8 *arg0);
+extern const f32 lbl_805DD248;
+extern const f32 lbl_805DD24C;
+void TWindowMessageLog__sub_8026A494(u8 *arg0);
+}
+
 extern "C" {
 
 s32 get_active_photon_object__17TWindowMessageLogFv(void);
@@ -27,6 +50,34 @@ s32 get_active_photon_object__17TWindowMessageLogFv(void) {
         var_r3 = 0;
     }
     return var_r3;
+}
+void TWindowMessageLog__sub_8026A434(u8 *arg0) {
+    Stack_8026A434 stack;
+    f32 temp_f1;
+    stack.sp8 = lbl_805DD240;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x4C);
+    stack.spC = temp_f1 - lbl_805DD244;
+    if (TWindowSubComCard__sub_8026D740((int) (M2C_FIELD(arg0, s32 *, 0x90)), (void *) (arg0 + 0x68), (void *) (&stack.sp8), (f32) (temp_f1)) != 0) {
+        M2C_FIELD(arg0, f32 *, 0x84) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
+    }
+}
+void TWindowMessageLog__sub_8026A494(u8 *arg0) {
+    Stack_8026A494 stack;
+    s32 temp_r31;
+    s32 temp_r3;
+    s32 temp_r4;
+    s32 var_r30;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x88);
+    var_r30 = temp_r4 - 1;
+    if (var_r30 < 0) {
+        var_r30 = M2C_FIELD(arg0, s32 *, 0x8C) - 1;
+    }
+    temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4);
+    temp_r3 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, var_r30);
+    stack.sp8 = (M2C_FIELD(arg0, f32 *, 0x48) - lbl_805DD248) - lbl_805DD24C;
+    stack.spC = (M2C_FIELD(temp_r3, f32 *, 0xC) + M2C_FIELD(temp_r3, f32 *, 0x14)) - M2C_FIELD(temp_r31, f32 *, 0xC);
+    copy_position__11TWindowMenuFPvPv(M2C_FIELD(arg0, u8 **, 0x90), &stack.sp8);
+    TWindowMessageLog__sub_8026A434((u8 *)((void *) (arg0)));
 }
 
 }

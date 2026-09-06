@@ -3,13 +3,26 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Stack_801F37CC {
+    M2C_UNK sp8;
+    s16 spC;
+    s16 spE;
+    s16 sp10;
+    s16 sp12;
+};
+
 extern "C" {
 void read_be16_field2__10TObjPlayerFPv(void *);
 s32 bswap_16__FPUs(s32);
 void TLobby__sub_801F39C4(void *arg0);
 void TLobby__sub_801F39C4(void *arg0);
 s32 TLobby__send_and_handle_60(s32);
-void TLobby__sub_801F3990(void *arg0);
+void TLobby__sub_801F3990(void *, void *);
+void build_6x75_update_quest_flag_dc(void* p);
+extern s32 lbl_805D5550;
+void TLobby__sub_801F37CC(s16 arg0, s16 arg1);
 }
 
 extern "C" {
@@ -29,7 +42,17 @@ void TLobby__sub_801F3774(void) {  }
 
 int TLobby__sub_801F3778(void) { return 0; }
 
-void TLobby__sub_801F3990(void *arg0) {
+void TLobby__sub_801F37CC(s16 arg0, s16 arg1) {
+    Stack_801F37CC stack;
+    build_6x75_update_quest_flag_dc((void*)((void *) (&stack.sp8)));
+    stack.spC = arg0;
+    stack.spE = arg1;
+    stack.sp10 = (s16) lbl_805D5550;
+    stack.sp12 = 0;
+    TLobby__sub_801F3990((void *)((void *) (&stack.sp8)), (void *)((void *) (lbl_805D5550)));
+}
+
+void TLobby__sub_801F3990(void *arg0, void * _w1) {
     TLobby__sub_801F39C4(arg0);
     TLobby__send_and_handle_60((s32)(arg0));
 }

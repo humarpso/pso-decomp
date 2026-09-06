@@ -4,6 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_80265A38 {
+    f32 sp8;
+    f32 spC;
+};
+
+extern "C" {
+M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
+extern const f32 lbl_805DD150;
+extern const f32 lbl_805DD154;
+extern const f32 lbl_805DD158;
+void TWindowSubComCard__sub_80265A38(u8 *arg0);
+}
+
 extern "C" {
 
 void clear_transition_flag__17TWindowSubComCardFPv(void *arg0);
@@ -13,6 +26,20 @@ M2C_UNK TWindowSubComCard__sub_80265484(void *);
 M2C_UNK TWindowSubComCard__sub_8026556C(void *);
 M2C_UNK TWindowSubComCard__sub_80265E60();
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
+
+void TWindowSubComCard__sub_80265A38(u8 *arg0) {
+    Stack_80265A38 stack;
+    f32 temp_f1;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
+        stack.sp8 = lbl_805DD150;
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x4C) - lbl_805DD154;
+        stack.spC = temp_f1;
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
+            stack.spC = temp_f1 - lbl_805DD158;
+        }
+        TWindowSubComCard__sub_8026D740((int) (M2C_FIELD(arg0, u32 *, 0x84)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
+    }
+}
 
 void set_selected_index__17TWindowSubComCardFPvs(void *arg0, s16 arg1) {
     if ((arg1 >= 0) && (arg1 < (s16) M2C_FIELD(arg0, s16 *, 0x76))) {

@@ -4,6 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_80178830 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+    f32 sp14;
+};
+
+extern "C" {
+M2C_UNK TObjPlayer__sub_8001978C(f32);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
+extern const f32 lbl_805DBA2C;
+extern const f32 lbl_805DBA30;
+void render__17TOSymbolchatColliFv(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1);
@@ -30,6 +46,18 @@ s32 get_state__17TOSymbolchatColliFPv(void *arg0) {
 }
 
 extern void *tl_05;
+
+void render__17TOSymbolchatColliFv(u8 *arg0) {
+    Stack_80178830 stack;
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        stack.sp8 = lbl_805DBA2C;
+        stack.spC = lbl_805DBA30;
+        stack.sp10 = lbl_805DBA2C;
+        stack.sp14 = lbl_805DBA2C;
+        TObjPlayer__sub_8001978C((f32) (M2C_FIELD(arg0, f32 *, 0x334)));
+        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+    }
+}
 
 void *create__17TOSymbolchatColliFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x384);

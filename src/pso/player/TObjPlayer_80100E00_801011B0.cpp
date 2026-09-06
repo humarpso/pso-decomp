@@ -23,6 +23,21 @@ struct VObj_80101350_80100E00 : Base_80101350_80100E00 {
     virtual void m17(s32);
 };
 
+struct Stack_801012DC {
+    M2C_UNK sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+extern "C" {
+s32 obj_isState2_324(int);
+s32 get_field_d8__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_80102D14(void *);
+M2C_UNK TObjPlayer__sub_80102D84(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+void TObjPlayer__sub_801012DC(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0);
@@ -85,6 +100,16 @@ s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0) {
         return (s16) (get_stat__10TObjPlayerFPv(temp_r3) - var_acc);
     }
     return 0;
+}
+
+void TObjPlayer__sub_801012DC(u8 *arg0, s32 arg1) {
+    Stack_801012DC stack;
+    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (get_global_state__14TOKeyMachine01Fv() != 0xF) && (obj_isState2_324((int) (M2C_FIELD(arg0, u32 *, 0xF0))) == 0)) {
+        TObjPlayer__sub_80102D84((void *) (&stack.sp8));
+        stack.spC = get_field_d8__10TObjPlayerFPv((void *) (arg0));
+        stack.sp10 = arg1;
+        TObjPlayer__sub_80102D14((void *) (&stack.sp8));
+    }
 }
 
 void handle_6x61_activate_mag_effect(void *arg0) {

@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_801C2C34 {
+    M2C_UNK sp8;
+    s8 spC;
+    u8 pad_D[0x3];
+    s32 sp10;
+};
+
+extern "C" {
+M2C_UNK send_set_battle_mode_data__6TLobbyFPv(void *);
+M2C_UNK build_6x7D_set_battle_mode_data(void *);
+extern s32 lbl_805D53A0;
+void TLobby__sub_801C2C34(void);
+}
+
 extern "C" {
 
 s32 check_all_players_ready__6TLobbyFv(void);
@@ -48,6 +62,14 @@ loop_1:
 extern s32 lbl_805D53A0;
 extern s32 tl_00;
 extern s32 tl_01;
+
+void TLobby__sub_801C2C34(void) {
+    Stack_801C2C34 stack;
+    build_6x7D_set_battle_mode_data((void *) (&stack.sp8));
+    stack.spC = 4;
+    stack.sp10 = lbl_805D53A0;
+    send_set_battle_mode_data__6TLobbyFPv((void *) (&stack.sp8));
+}
 
 void init__6TLobbyFPv(void *arg0) {
     s32 temp_r3;

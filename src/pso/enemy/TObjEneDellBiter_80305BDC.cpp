@@ -154,6 +154,11 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m103();
 };
 
+struct Stack_80305FDC {
+    M2C_UNK sp8;
+    f32 spC;
+};
+
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -163,7 +168,6 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK TObjPlayer__sub_8023DEE0(void *, int, int, int);
 M2C_UNK set_active__12TObjEneReconFv();
-M2C_UNK TObjEneDellBiter__sub_80305FDC(void *);
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D6A40;
 extern s32 lbl_805D6A44;
@@ -171,6 +175,13 @@ void run_task__16TObjEneDellBiterFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DF028;
 void TObjEneDellBiter__sub_80306110(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *TBoss4Type2__sub_800874F4(M2C_UNK *, M2C_UNK);
+extern s32 lbl_805D5550;
+extern const f32 TObjEneDellBiter__data_805DEFE0;
+void TObjEneDellBiter__sub_80305FDC(u8 *arg0);
 }
 
 extern "C" {
@@ -210,6 +221,58 @@ void update_attack_effect__16TObjEneDellBiterFi(s32 arg0) {
         return;
     }
     TBoss3Volopt__sub_8022675C((s32)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x40039E11), arg0 + 0x38, 0, 0);
+}
+
+void TObjEneDellBiter__sub_80305FDC(u8 *arg0) {
+    Stack_80305FDC stack;
+    s32 temp_r3;
+    u8 *temp_r3_2;
+    u8 *temp_r3_3;
+    u8 *temp_r3_4;
+    u8 *temp_r3_5;
+    u8 *temp_r3_6;
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x3C0);
+    if (temp_r3 & 0x10) {
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x490) <= 0) {
+            M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (temp_r3 & 0xFFFFFFEF);
+        } else {
+            VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+            stack.spC += TObjEneDellBiter__data_805DEFE0;
+            if ((s32) lbl_805D5550 == 3) {
+                temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x4C4));
+                if (temp_r3_2 == NULL) {
+                    M2C_FIELD(arg0, u8 **, 0x4C4) = TBoss4Type2__sub_800874F4(&stack.sp8, 0x216);
+                } else {
+                    copy_pos__11TNowLoadingFPvPv(temp_r3_2, &stack.sp8);
+                }
+            } else {
+                temp_r3_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x4C4));
+                if (temp_r3_3 == NULL) {
+                    M2C_FIELD(arg0, u8 **, 0x4C4) = TBoss4Type2__sub_800874F4(&stack.sp8, 0x215);
+                } else {
+                    copy_pos__11TNowLoadingFPvPv(temp_r3_3, &stack.sp8);
+                }
+                temp_r3_4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x4C8));
+                if (temp_r3_4 == NULL) {
+                    M2C_FIELD(arg0, u8 **, 0x4C8) = TBoss4Type2__sub_800874F4(&stack.sp8, 0x219);
+                } else {
+                    copy_pos__11TNowLoadingFPvPv(temp_r3_4, &stack.sp8);
+                }
+            }
+        }
+        M2C_FIELD(arg0, s32 *, 0x490) = (s32) (M2C_FIELD(arg0, s32 *, 0x490) - 1);
+        return;
+    }
+    temp_r3_5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x4C4));
+    if (temp_r3_5 != NULL) {
+        queue_destruction__7TObjectFv(temp_r3_5);
+        M2C_FIELD(arg0, u8 **, 0x4C4) = NULL;
+    }
+    temp_r3_6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x4C8));
+    if (temp_r3_6 != NULL) {
+        queue_destruction__7TObjectFv(temp_r3_6);
+        M2C_FIELD(arg0, u8 **, 0x4C8) = NULL;
+    }
 }
 
 void TObjEneDellBiter__vt86(void) {  }
@@ -253,7 +316,7 @@ void run_task__16TObjEneDellBiterFv(u8 *arg0) {
             TObjPlayer__sub_8023DEE0((void *) (lbl_805D6A40), (int) (0xC), (int) (0), (int) (0));
         }
     }
-    TObjEneDellBiter__sub_80305FDC((void *) (arg0));
+    TObjEneDellBiter__sub_80305FDC((u8 *)((void *) (arg0)));
     if (M2C_FIELD(arg0, s32 *, 0x3C4) & 0x4000) {
         set_active__12TObjEneReconFv();
     }

@@ -6,6 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct BaseM_80234C90_80233B38 { char pad[0x24]; };
 struct VM_80234C90_80233B38 : BaseM_80234C90_80233B38 { virtual void m0(int); };
 
+struct Stack_802340E4 {
+    M2C_UNK sp8;
+    u16 spC;
+    s16 spE;
+    s32 sp10;
+    M2C_UNK sp14;
+    u8 pad_18[0x8];
+    s32 sp20;
+};
+
 extern "C" {
 void TTecLuker__sub_80234F7C(void* p);
 void TTecLuker__sub_80234F7C(void* p);
@@ -39,6 +49,10 @@ void TTecLuker__sub_80233E3C(u16 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void TTecLuker__sub_80234F90(void* p);
+void TTecLuker__sub_80235028(void* p);
+void TTecLuker__sub_802340E4(u8 *arg0);
 }
 
 extern "C" {
@@ -154,6 +168,17 @@ void init_fields__9TTecLukerFPvs(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 0) = arg1;
     M2C_FIELD(arg0, s16 *, 2) = 0;
     M2C_FIELD(arg0, s32 *, 4) = 0;
+}
+
+void TTecLuker__sub_802340E4(u8 *arg0) {
+    Stack_802340E4 stack;
+    TTecLuker__sub_80235028((void*)((void *) (&stack.sp8)));
+    stack.spC = M2C_FIELD(arg0, u16 *, 0);
+    stack.sp10 = M2C_FIELD(arg0, s32 *, 4);
+    stack.spE = M2C_FIELD(arg0, s16 *, 2);
+    VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (arg0 + 8));
+    stack.sp20 = M2C_FIELD(arg0, s32 *, 0x14);
+    TTecLuker__sub_80234F90((void*)((void *) (&stack.sp8)));
 }
 
 void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {

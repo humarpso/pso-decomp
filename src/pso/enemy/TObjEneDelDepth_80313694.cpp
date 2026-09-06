@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_80313694 {
+    M2C_UNK sp8;
+    f32 spC;
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u8 * csnVectorUnder(s32, void *, s32);
+void set_active__12TObjEneReconFv(void);
+extern s32 lbl_805D53A4;
+extern const f32 TObjEneDelDepth__data_805DF270;
+void TObjEneDelDepth__sub_80313694(u8 *arg0);
+}
+
 extern "C" {
 
 void TObjEneDelDepth__sub_803138F8(void* a0);
@@ -21,6 +35,26 @@ int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
 
     extern const float TObjEneDelDepth__data_805DF258;
     extern const float TObjEneDelDepth__data_805DF278;
+
+void TObjEneDelDepth__sub_80313694(u8 *arg0) {
+    Stack_80313694 stack;
+    u8 *temp_r3;
+    if ((lbl_805D53A4 % 5) == 0) {
+        VecCopy__FP3VecPC3Vec(&stack.sp8, arg0 + 0x38);
+        stack.spC += TObjEneDelDepth__data_805DF270;
+        temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 0x4000));
+        if (temp_r3 != NULL) {
+            M2C_FIELD(arg0, s32 *, 0x3E0) = (s32) M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 4), s32 *, 0x18);
+            VecCopy__FP3VecPC3Vec(arg0 + 0x3E4, M2C_FIELD(temp_r3, u8 **, 4));
+        } else {
+            VecCopy__FP3VecPC3Vec(arg0 + 0x3E4, arg0 + 0x38);
+        }
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x3E0) & 0x4000) {
+        set_active__12TObjEneReconFv();
+    }
+}
+
 void TObjEneDelDepth__sub_803138F8(void* a0) { *(float*)((char*)a0 + 0x39c) = TObjEneDelDepth__data_805DF278; *(float*)((char*)a0 + 0x3a8) = TObjEneDelDepth__data_805DF258; *(float*)((char*)a0 + 0x3a4) = TObjEneDelDepth__data_805DF258; *(float*)((char*)a0 + 0x3a0) = TObjEneDelDepth__data_805DF258; *(float*)((char*)a0 + 0x398) = TObjEneDelDepth__data_805DF258; TObjEneDelDepth__sub_80316488((void*)((void*)(*(int*)((char*)a0 + 0x37c))), (void*)((void*)6)); set_draw_mode__15TObjEneDelDepthFPvi((void*)(a0), (void*)((void*)0)); }
 
 extern const f32 TObjEneDelDepth__data_805DF260;

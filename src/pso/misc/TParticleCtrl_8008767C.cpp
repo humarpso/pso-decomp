@@ -9,6 +9,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct Stack_80088844 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 void render__19TWindowMessageYesNoFv(void);
 void *TParticleCtrl__sub_8008673C(int);
@@ -27,10 +33,14 @@ void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2);
 extern const f32 TParticleCtrl__data_805D9528;
 void TParticleCtrl__sub_8008A04C(u8 *arg0);
 int queue_destruction__7TObjectFv(void *);
-f32 TCameraCtrl__sub_803D8D00(void *);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 void TParticleCtrl__sub_8008B538(u8 *arg0);
+int queue_destruction__7TObjectFv(void *);
+f32 TCameraCtrl__sub_803D8D00(void *);
+extern const f32 TParticleCtrl__data_805D94F8;
+extern const f32 TParticleCtrl__data_805D94FC;
+void TParticleCtrl__sub_80088844(u8 *arg0);
 }
 
 extern "C" {
@@ -106,6 +116,24 @@ void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2) {
         o = TParticleCtrl__sub_80089B50(o, arg0, arg1, arg2);
     }
     return o;
+}
+
+void TParticleCtrl__sub_80088844(u8 *arg0) {
+    Stack_80088844 stack;
+    f32 temp_f1;
+    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 8) {
+        stack.sp8 = M2C_FIELD(arg0, f32 *, 0x70) - M2C_FIELD(arg0, f32 *, 0x30);
+        stack.spC = M2C_FIELD(arg0, f32 *, 0x74) - M2C_FIELD(arg0, f32 *, 0x34);
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x78);
+        stack.sp10 = temp_f1 - M2C_FIELD(arg0, f32 *, 0x38);
+        if (TParticleCtrl__data_805D94F8 == TCameraCtrl__sub_803D8D00((void *)((void *) (&stack.sp8)))) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+            return;
+        }
+    }
+    if (M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D94FC) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
 }
 
 void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1) {

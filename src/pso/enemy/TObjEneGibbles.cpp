@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_802D7BE0 {
+    M2C_UNK sp8;
+    f32 spC;
+};
+
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 *csnVectorUnder(M2C_UNK *, s32, M2C_UNK, f32);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK TObjEneGibbles__sub_802D7ACC(void *, void *, f32);
+extern const f32 TObjEneGibbles__data_805DE7E8;
+extern const f32 TObjEneGibbles__data_805DE7F4;
+s32 TObjEneGibbles__sub_802D7BE0(s32 arg0);
+}
+
 extern "C" {
 
 void TObjEneGibbles__sub_802D7E3C(void);
@@ -28,6 +43,25 @@ M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
+
+s32 TObjEneGibbles__sub_802D7BE0(s32 arg0) {
+    Stack_802D7BE0 stack;
+    f32 temp_f1;
+    s32 *temp_r3;
+    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    temp_f1 = stack.spC;
+    stack.spC = temp_f1 + TObjEneGibbles__data_805DE7E8;
+    temp_r3 = (s32 *)(csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15, temp_f1));
+    if (temp_r3 != NULL) {
+        if (*temp_r3 & 4) {
+            TObjEneGibbles__sub_802D7ACC((void *) (arg0), (void *) (arg0 + 0x38), (f32) (TObjEneGibbles__data_805DE7F4));
+            return 0;
+        }
+        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x20E));
+        return 1;
+    }
+    return 2;
+}
 
 void TObjEneGibbles__sub_802D7E3C(void) {  }
 void update_shadow_height__14TObjEneGibblesFPv(void *arg0) {

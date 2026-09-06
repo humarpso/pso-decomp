@@ -5,6 +5,14 @@
 
 struct TObjPlayer
 {
+    struct ActionPalette {
+        s32 bank_index;
+        u8 bindings[2][4][4];
+    };
+
+    ActionPalette* select_action_palette(int secondary);
+
+    u8 _object_header[0x1C];
     u16 m_1c;
     u8 _pad1E[0x1A];
     void* m_38;
@@ -37,8 +45,8 @@ struct TObjPlayer
     u8 _pad42C[0x80];
     void* m_4ac;
     u8 _pad4B0[0x50];
-    void* m_500;
-    u8 _pad504[0x4C];
+    ActionPalette action_palettes[2];
+    u8 _pad548[0x8];
     void* m_550;
     u8 _pad554[0x5C];
     void* m_5b0;
@@ -90,5 +98,13 @@ struct TObjPlayer
     u8 _padD08[0xA4];
     void* m_dac;
 };
+
+#include <stddef.h>
+typedef char PlayerActionPaletteSize[(sizeof(TObjPlayer::ActionPalette) == 0x24) ? 1 : -1];
+typedef char PlayerActionPaletteBanks[(offsetof(TObjPlayer::ActionPalette, bindings) == 4) ? 1 : -1];
+typedef char PlayerHeaderSize[(offsetof(TObjPlayer, m_1c) == 0x1C) ? 1 : -1];
+typedef char PlayerPaletteModifierOffset[(offsetof(TObjPlayer, m_4ac) == 0x4AC) ? 1 : -1];
+typedef char PlayerActionPalettesOffset[(offsetof(TObjPlayer, action_palettes) == 0x500) ? 1 : -1];
+typedef char PlayerStateAfterPalettes[(offsetof(TObjPlayer, m_550) == 0x550) ? 1 : -1];
 
 #endif

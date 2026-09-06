@@ -4,6 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_803286AC {
+    s32 sp8;
+    f32 spC;
+    f32 sp10;
+    f32 sp14;
+    f32 sp18;
+    u8 pad_1C[0xC];
+    s32 sp28;
+};
+
+extern "C" {
+s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
+M2C_UNK fn_8032D9BC(void *, void *, f32);
+M2C_UNK fn_8032DA28(void *);
+extern const f32 lbl_805DF6E4;
+extern const f32 lbl_805DF6E8;
+void TAdDialingGC__sub_803286AC(u8 *arg0);
+}
+
 extern "C" {
 
 void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32);
@@ -14,7 +33,6 @@ void update_selection__12TAdDialingGCFPv(u8 *arg0);
 void update_state__12TAdDialingGCFPv(void *arg0);
 s32 TAdDialingGC__sub_803284F8(void *);
 M2C_UNK TAdDialingGC__sub_803285C0();
-M2C_UNK TAdDialingGC__sub_803286AC(void *);
 M2C_UNK TAdDialingGC__sub_80328874();
 M2C_UNK TAdMcSelectGC__sub_80019DA8(void *, M2C_UNK, f32);
 M2C_UNK TLobby__sub_803FB184(void *);
@@ -102,7 +120,7 @@ void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0xA0) = temp_r4 + 1;
         if ((s32) M2C_FIELD(arg0, s32 *, 0xA0) > 0x5A) {
             spawn_title_screen__12TAdDialingGCFPvi((void *)((void *)(arg0)), (s32)((s32)(temp_r4)));
-            TAdDialingGC__sub_803286AC(arg0);
+            TAdDialingGC__sub_803286AC((u8 *)(arg0));
             M2C_FIELD(arg0, s32 *, 0xA0) = 0;
             M2C_FIELD(arg0, s32 *, 0x20) = 1;
         }
@@ -126,7 +144,7 @@ void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1) {
             M2C_FIELD(arg0, s32 *, 0x20) = 3;
             return;
         default:
-            TAdDialingGC__sub_803286AC(arg0);
+            TAdDialingGC__sub_803286AC((u8 *)(arg0));
             if (TAdDialingGC__sub_803284F8(arg0) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = 3;
                 return;
@@ -164,6 +182,21 @@ void update_selection__12TAdDialingGCFPv(u8 *arg0) {
     TLobby__sub_803FB184(arg0 + 0x2C);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x68) != (s16) M2C_FIELD(arg0, s16 *, 0x30)) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    }
+}
+
+void TAdDialingGC__sub_803286AC(u8 *arg0) {
+    Stack_803286AC stack;
+    if (!(M2C_FIELD(arg0, s32 *, 0xA4) & 2)) {
+        fn_8032DA28((void *) (&stack.sp8));
+        stack.sp8 = 1;
+        stack.sp28 = TAdSinglePlyChrSelectGC__sub_80132F2C((int) (0xF), (int) (0x13));
+        stack.spC = lbl_805DF6E4;
+        stack.sp14 = lbl_805DF6E4;
+        stack.sp10 = lbl_805DF6E8;
+        stack.sp18 = lbl_805DF6E8;
+        fn_8032D9BC((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805DF6E4));
+        M2C_FIELD(arg0, s32 *, 0xA4) = (s32) (M2C_FIELD(arg0, s32 *, 0xA4) | 2);
     }
 }
 

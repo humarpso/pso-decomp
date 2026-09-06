@@ -355,11 +355,8 @@ pso/ui/TAdSinglePlyChrSelectGC_8001ED80.cpp:
 pso/object/TObjFish_8001ED90.cpp:
 	.text       start:0x8001ED90 end:0x8001EF5C
 
-pso/misc/TLobby_8001EF5C_8001EF5C.cpp:
-	.text       start:0x8001EF5C end:0x8001F88C
-
 pso/misc/TLobby_8001EF5C.cpp:
-	.text       start:0x8001F88C end:0x80020898
+	.text       start:0x8001EF5C end:0x80020898
 
 pso/player/TObjPlayer_80020898.cpp:
 	.text       start:0x80020898 end:0x800208B4
@@ -709,13 +706,7 @@ pso/misc/TCameraCtrl_80044420.cpp:
 	.text       start:0x80044420 end:0x80044498
 
 pso/boss/TBoss3Volopt_80044498.cpp:
-	.text       start:0x80044498 end:0x80046580
-
-pso/boss/TBoss3Volopt_80044498_80046580.cpp:
-	.text       start:0x80046580 end:0x80047448
-
-pso/boss/TBoss3Volopt_80044498_80047448.cpp:
-	.text       start:0x80047448 end:0x800480B0
+	.text       start:0x80044498 end:0x800480B0
 
 pso/unk/text_800480B0.cpp:
 	.text       start:0x800480B0 end:0x80048118
@@ -2324,20 +2315,8 @@ pso/enemy/TObjEneDarkGunCenter.cpp:
 pso/unk/text_800A0EDC.cpp:
 	.text       start:0x800A0EDC end:0x800A13D4
 
-pso/player/TObjPlayer_800A13D4_800A13D4.cpp:
-	.text       start:0x800A13D4 end:0x800A1808
-
-pso/player/TObjPlayer_800A13D4_800A1808.cpp:
-	.text       start:0x800A1808 end:0x800A1F80
-
-pso/player/TObjPlayer_800A13D4_800A1F80.cpp:
-	.text       start:0x800A1F80 end:0x800A2850
-
 pso/player/TObjPlayer_800A13D4.cpp:
-	.text       start:0x800A2850 end:0x800A3224
-
-pso/player/TObjPlayer_800A13D4_800A3224.cpp:
-	.text       start:0x800A3224 end:0x800A36A8
+	.text       start:0x800A13D4 end:0x800A36A8
 
 pso/misc/TEneEffHamon.cpp:
 	.text       start:0x800A36A8 end:0x800A4288
@@ -2373,17 +2352,8 @@ pso/unk/text_800A884C.cpp:
 pso/unk/text_800A887C.cpp:
 	.text       start:0x800A887C end:0x800A894C
 
-pso/player/TObjPlayer_800A894C_800A894C.cpp:
-	.text       start:0x800A894C end:0x800A8EDC
-
 pso/player/TObjPlayer_800A894C.cpp:
-	.text       start:0x800A8EDC end:0x800AA330
-
-pso/player/TObjPlayer_800A894C_800AA330.cpp:
-	.text       start:0x800AA330 end:0x800AA5A4
-
-pso/player/TObjPlayer_800A894C_800AA5A4.cpp:
-	.text       start:0x800AA5A4 end:0x800AAC5C
+	.text       start:0x800A894C end:0x800AAC5C
 
 pso/unk/text_800AAC5C.cpp:
 	.text       start:0x800AAC5C end:0x800AAD28
@@ -2581,14 +2551,8 @@ pso/object/TObjGrassWeb.cpp:
 pso/object/TObjGrass.cpp:
 	.text       start:0x800BCA2C end:0x800BFBBC
 
-pso/player/TObjPlayer_800BFBBC_800BFBBC.cpp:
-	.text       start:0x800BFBBC end:0x800BFF54
-
-pso/player/TObjPlayer_800BFBBC_800BFF54.cpp:
-	.text       start:0x800BFF54 end:0x800C0418
-
 pso/player/TObjPlayer_800BFBBC.cpp:
-	.text       start:0x800C0418 end:0x800C16E0
+	.text       start:0x800BFBBC end:0x800C16E0
 
 pso/enemy/TObjEneLappy_800C16E0.cpp:
 	.text       start:0x800C16E0 end:0x800C1748
@@ -10474,14 +10438,8 @@ pso/unk/text_801E0C08.cpp:
 	.text       start:0x801E0C08 end:0x801E0C30
 	.ctors      start:0x80433F94 end:0x80433F98
 
-pso/ui/TAdPlayerLoadGC_801E0C30_801E0C30.cpp:
-	.text       start:0x801E0C30 end:0x801E1530
-
 pso/ui/TAdPlayerLoadGC_801E0C30.cpp:
-	.text       start:0x801E1530 end:0x801E2404
-
-pso/ui/TAdPlayerLoadGC_801E0C30_801E2404.cpp:
-	.text       start:0x801E2404 end:0x801E283C
+	.text       start:0x801E0C30 end:0x801E283C
 
 pso/unk/text_801E283C.cpp:
 	.text       start:0x801E283C end:0x801E2B24

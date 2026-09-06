@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_801515E0 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(int, f32, f32, f32);
@@ -20,6 +26,11 @@ s32 get_condition__10TNpcPlayerFPv(s32);
 s32 get_action_state__10TNpcPlayerFPv(void *);
 extern const f64 lbl_8043FFD8;
 void TNpcPlayer__sub_801506DC(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *, int, f32, f32);
+M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+extern const f32 TNpcPlayer__data_805DB1F0;
+s32 TNpcPlayer__sub_801515E0(u8 *arg0);
 }
 
 extern "C" {
@@ -141,5 +152,41 @@ void init_state__10TNpcPlayerFPv(void *arg0) {
         return;
     }
 }
+#pragma push
+#pragma fp_contract on
+s32 TNpcPlayer__sub_801515E0(u8 *arg0) {
+    Stack_801515E0 stack;
+    f32 temp_f0;
+    f32 temp_f1;
+    f32 temp_f2;
+    u8 *temp_r4;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x84) != 0) {
+        if (M2C_FIELD(arg0, s32 *, 0x34) & 0x80) {
+            temp_f0 = M2C_FIELD(arg0, f32 *, 0x54);
+            if (M2C_FIELD(arg0, f32 *, 0x88) <= (temp_f0 * temp_f0)) {
+                temp_r4 = (u8 *)(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94));
+                stack.sp8 = M2C_FIELD(arg0, f32 *, 0xDC) - M2C_FIELD(temp_r4, f32 *, 0x38);
+                temp_f2 = M2C_FIELD(arg0, f32 *, 0xE4);
+                temp_f1 = temp_f2 - M2C_FIELD(temp_r4, f32 *, 0x40);
+                stack.spC = TNpcPlayer__data_805DB1F0;
+                stack.sp10 = temp_f1;
+                if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8), (int) (temp_r4), (f32) (temp_f1), (f32) (temp_f2))) {
+                    TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+                }
+                M2C_FIELD(arg0, f32 *, 0xDC) = (f32) -((M2C_FIELD(arg0, f32 *, 0x54) * stack.sp8) - M2C_FIELD(arg0, f32 *, 0xDC));
+                M2C_FIELD(arg0, f32 *, 0xE4) = (f32) -((M2C_FIELD(arg0, f32 *, 0x54) * stack.sp10) - M2C_FIELD(arg0, f32 *, 0xE4));
+                M2C_FIELD(arg0, f32 *, 0xE0) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94), f32 *, 0x300);
+            } else {
+                VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x74), s32 *, 0x94) + 0x2FC));
+            }
+        } else {
+            VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x74), s32 *, 0x94) + 0x2FC));
+        }
+    } else {
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x74), s32 *, 0x94) + 0x2FC));
+    }
+    return 1;
+}
+#pragma pop
 
 }

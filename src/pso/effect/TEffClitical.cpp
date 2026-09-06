@@ -8,6 +8,18 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_80082688 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+extern "C" {
+f32 TEffStarLightChild__sub_80141FBC(void *, void *, void *, f32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TTecRaFoie__sub_80082688(u8 *arg0, u8 *arg1, f32 farg0);
+}
+
 extern "C" {
 
 void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -51,6 +63,17 @@ void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     M2C_FIELD(arg0, s32 *, 4) = arg1;
     M2C_FIELD(arg0, s32 *, 8) = arg4;
     M2C_FIELD(arg0, s32 *, 0xC) = arg3;
+}
+void TTecRaFoie__sub_80082688(u8 *arg0, u8 *arg1, f32 farg0) {
+    Stack_80082688 stack;
+    f32 temp_f1;
+    stack.sp8 = M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg1, f32 *, 0);
+    stack.spC = M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(arg1, f32 *, 4);
+    stack.sp10 = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8);
+    temp_f1 = TBoss6Kakusan__sub_803D8BD8(&stack.sp8);
+    if (temp_f1 > farg0) {
+        TEffStarLightChild__sub_80141FBC(arg0, arg1, arg0, temp_f1 * farg0);
+    }
 }
 
 }

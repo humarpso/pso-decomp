@@ -105,9 +105,14 @@ struct VObj_8030561C_8030535C : Base_8030561C_8030535C {
     virtual s32 m97();
 };
 
+struct Stack_80305B60 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 s32 objInBand__FP7GameObjf(f32);
-M2C_UNK TObjEneDellBiter__sub_80305B60(void *);
 extern const f32 lbl_805DF008;
 void TObjEneDellBiter__sub_803058DC(s32 arg0);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -120,6 +125,14 @@ s32 TObjEneDellBiter__sub_80305550(u8 *arg0);
 void TBoss2DeRolLe__sub_800B98D8(void *, u32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void TObjEneDellBiter__sub_803055C8(u8 *arg0);
+M2C_UNK TObjBoss2Tunnel__sub_8007E7D8(void *, void *, int, f32, f32);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+s32 TObjEneDellBiter__sub_803059BC(void *, void *);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 TObjEneDellBiter__data_805DEFF4;
+extern const f32 lbl_805DF004;
+extern const f32 lbl_805DF024;
+void TObjEneDellBiter__sub_80305B60(u8 *arg0);
 }
 
 extern "C" {
@@ -212,7 +225,18 @@ void clear_active_flag__16TObjEneDellBiterFPv(void *arg0) {
 
 void TObjEneDellBiter__sub_803058DC(s32 arg0) {
     if (objInBand__FP7GameObjf((f32) (lbl_805DF008)) != 0) {
-        TObjEneDellBiter__sub_80305B60((void *) (arg0));
+        TObjEneDellBiter__sub_80305B60((u8 *)((void *) (arg0)));
+    }
+}
+void TObjEneDellBiter__sub_80305B60(u8 *arg0) {
+    Stack_80305B60 stack;
+    stack.sp8 = lbl_805DF024;
+    stack.spC = TObjEneDellBiter__data_805DEFF4;
+    stack.sp10 = lbl_805DF004;
+    TObjBoss2Tunnel__sub_8007E7D8((void *) (&stack.sp8), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (f32) (TObjEneDellBiter__data_805DEFF4), (f32) (lbl_805DF024));
+    TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    if (TObjEneDellBiter__sub_803059BC((void *) (arg0), (void *) (&stack.sp8)) == 0) {
+        TObjEneDellBiter__sub_80087350((void *) (&stack.sp8), (int) (0xF3));
     }
 }
 

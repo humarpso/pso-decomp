@@ -4,10 +4,27 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Stack_800EBE74 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+    f32 sp14;
+};
+
 extern "C" {
-void TObjPlayer__sub_800EBE74(f32, f32, f32, f32);
 extern const f32 lbl_805DA6B4;
 void TObjPlayer__sub_800EBE48(f32 farg0);
+void set_global_pair__10TObjPlayerFii(s32, s32);
+M2C_UNK TObjPlayer__sub_803DED84(void *);
+extern int lbl_805D5660;
+extern int lbl_805D5664;
+extern int lbl_805D5668;
+extern int lbl_805D7780;
+extern int lbl_805D7784;
+extern int some_id_805c6f74;
+extern const f32 lbl_805DA6F8;
+void TObjPlayer__sub_800EBE74(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 }
 
 extern "C" {
@@ -26,6 +43,20 @@ void init_render_globals__10TObjPlayerFv(void) { lbl_805D7784 = lbl_805D5664; lb
 
 void TObjPlayer__sub_800EBE48(f32 farg0) {
     TObjPlayer__sub_800EBE74(farg0, lbl_805DA6B4, lbl_805DA6B4, lbl_805DA6B4);
+}
+
+void TObjPlayer__sub_800EBE74(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+    Stack_800EBE74 stack;
+    (*(s32 *)&lbl_805D5660) = (*(s32 *)&some_id_805c6f74);
+    (*(s32 *)&lbl_805D5664) = (*(s32 *)&lbl_805D7784);
+    (*(s32 *)&lbl_805D5668) = (*(s32 *)&lbl_805D7780);
+    (*(s32 *)&some_id_805c6f74) |= 0x20;
+    set_global_pair__10TObjPlayerFii(0xFF00, 0x800);
+    stack.spC = farg1;
+    stack.sp10 = farg2;
+    stack.sp8 = lbl_805DA6F8 + farg0;
+    stack.sp14 = farg3;
+    TObjPlayer__sub_803DED84((void *) (&stack.sp8));
 }
 
 int TObjPlayer__sub_800EC348(void) { return 0; }

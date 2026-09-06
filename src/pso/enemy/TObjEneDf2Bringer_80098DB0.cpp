@@ -4,14 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_800991E0 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
-M2C_UNK TObjEneDf2Bringer__sub_800991E0(void *);
 s32 objInBand__FP7GameObjf(f32);
 extern const f32 lbl_805D9810;
 void TObjEneDf2Bringer__sub_80099148(s32 arg0);
 void TBoss2DeRolLe__sub_800B98D8(void *, u32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 void TObjEneDf2Bringer__sub_80098DEC(u8 *arg0);
+M2C_UNK TObjBoss2Tunnel__sub_8007E7D8(f32 *, f32 *, s32, f32, f32);
+M2C_UNK TObjEneDellBiter__sub_80087350(f32 *, M2C_UNK);
+M2C_UNK TBoss4Zako__sub_803D8910(f32 *, void *);
+extern const f32 TObjEneDf2Bringer__data_805D97E0;
+extern const f32 TObjEneDf2Bringer__data_805D9808;
+extern const f32 lbl_805D9830;
+void TObjEneDf2Bringer__sub_800991E0(u8 *arg0);
 }
 
 extern "C" {
@@ -171,8 +183,17 @@ void update_flag_0x3C0__17TObjEneDf2BringerFPv(void *arg0) {
 
 void TObjEneDf2Bringer__sub_80099148(s32 arg0) {
     if (objInBand__FP7GameObjf((f32) (lbl_805D9810)) != 0) {
-        TObjEneDf2Bringer__sub_800991E0((void *) (arg0));
+        TObjEneDf2Bringer__sub_800991E0((u8 *)((void *) (arg0)));
     }
+}
+void TObjEneDf2Bringer__sub_800991E0(u8 *arg0) {
+    Stack_800991E0 stack;
+    stack.sp8 = lbl_805D9830;
+    stack.spC = TObjEneDf2Bringer__data_805D97E0;
+    stack.sp10 = TObjEneDf2Bringer__data_805D9808;
+    TObjBoss2Tunnel__sub_8007E7D8(&stack.sp8, &stack.sp10, M2C_FIELD(arg0, s32 *, 0x60), TObjEneDf2Bringer__data_805D97E0, lbl_805D9830);
+    TBoss4Zako__sub_803D8910(&stack.sp8, arg0 + 0x38);
+    TObjEneDellBiter__sub_80087350(&stack.sp8, 0xF3);
 }
 
 }

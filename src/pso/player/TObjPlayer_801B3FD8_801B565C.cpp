@@ -1,35 +1,58 @@
-#include "types.h"
+#include "pso/player/TObjPlayer.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_801B6024 {
+    M2C_UNK sp8;
+    f32 spC;
+    M2C_UNK sp10;
+};
+
 extern "C" {
-int TObjPlayer__sub_801B5AC4(void *, int);
 s32 TObjPlayer__sub_801B58DC(u8 *arg0);
+s32 is_flag_400_set__10TObjPlayerFPv();
+s32 TObjPlayer__sub_801B58DC(u8 *arg0);
+s32 refresh_effect__10TObjPlayerFi(s32 arg0);
+s32 TWindowActionPalette__sub_801C1C80(s32, s32);
+s32 TObjPlayer__sub_801B5920(s32 arg0, s32 arg1);
+s32 refresh_effect__10TObjPlayerFi(s32 arg0);
+s32 TWindowActionPalette__sub_801C1C80(s32, s32);
+void TObjPlayer__sub_801B5990(s32 arg0, s32 arg1);
+s32 refresh_effect__10TObjPlayerFi(s32 arg0);
+M2C_UNK update_party_cursors__10TObjPlayerFii(s32, s32);
+void TObjPlayer__sub_801B59C4(s32 arg0);
+M2C_UNK TWindowActionPalette__sub_801C1CA8(s32, s32, s32, s32, s32);
+void TObjPlayer__sub_801B59F8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+M2C_UNK TWindowActionPalette__sub_801C1CFC(s32, s32, s32, s32);
+void TObjPlayer__sub_801B5A44(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+M2C_UNK TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
+void TObjPlayer__sub_801B5A88(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 refresh_effect__10TObjPlayerFi(s32 arg0);
+M2C_UNK TWindowActionPalette__sub_801C1DB8(s32, s32);
+s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1);
+s32 refresh_effect__10TObjPlayerFi(s32 arg0);
+M2C_UNK TWindowActionPalette__sub_801C1E1C(s32, s32);
+void TObjPlayer__sub_801B5AF8(s32 arg0, s32 arg1);
+u8 *csnVectorUnder(M2C_UNK *, void *, M2C_UNK);
+M2C_UNK TObjPlayer__sub_801BE918(void *, s32, M2C_UNK *, M2C_UNK *);
+void TObjPlayer__sub_801B6024(u8 *arg0);
 }
 
 extern "C" {
 
 int TObjPlayer__sub_801B57E8(void);
 int TObjPlayer__sub_801B5874(void);
-int TObjPlayer__sub_801B5920(void);
-int TObjPlayer__sub_801B5990(void);
-int TObjPlayer__sub_801B59C4(s32);
-int TObjPlayer__sub_801B59F8(void);
-int TObjPlayer__sub_801B5A44(void);
-int TObjPlayer__sub_801B5A88(void);
-int TObjPlayer__sub_801B5AF8(void);
 void action_enable_if_present__10TObjPlayerFPv(void* p);
 int check_flag_100__10TObjPlayerFPv(void* p);
 s32 get_camera_field__10TObjPlayerFPv(void *arg0);
 int has_valid_handle__10TObjPlayerFPv(void* p);
 void init_parts__10TObjPlayerFPv(void* p);
 s32 is_matching_id__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void refresh_effect__10TObjPlayerFi(s32 arg0);
+s32 refresh_effect__10TObjPlayerFi(s32 arg0);
 void release_attached_resource__10TObjPlayerFPv(void* p);
 void reset_equip_slots__10TObjPlayerFPv(void* p);
-void set_effect_enabled__10TObjPlayerFii(s32 arg0, s32 arg1);
 void update_ground_contact__10TObjPlayerFi(s32 arg0);
 s32 TObjPlayer__sub_80019248();
 int TObjPlayer__sub_8011E204(void*, void*);
@@ -74,38 +97,96 @@ int TObjPlayer__sub_801B57E8(void) { return 0; }
 int TObjPlayer__sub_801B5874(void) { return 0; }
 
 s32 TObjPlayer__sub_801B58DC(u8 *arg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) && (((u16)TObjPlayer__sub_801B5AC4((void *)((void *)(arg0)), (int)((int) (0)))) != 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) && (((u16)TObjPlayer__sub_801B5AC4((s32)((void *)((void *)(arg0))), (s32)((int)((int) (0))))) != 0)) {
         return 1;
     }
     return 0;
 }
 
-int TObjPlayer__sub_801B5920(void) { return 0; }
-int TObjPlayer__sub_801B5990(void) { return 0; }
-int TObjPlayer__sub_801B59C4(s32) { return 0; }
-int TObjPlayer__sub_801B59F8(void) { return 0; }
-int TObjPlayer__sub_801B5A44(void) { return 0; }
-int TObjPlayer__sub_801B5A88(void) { return 0; }
-int TObjPlayer__sub_801B5AC4(void * _w0, int _w1) { return 0; }
-int TObjPlayer__sub_801B5AF8(void) { return 0; }
-
-void set_effect_enabled__10TObjPlayerFii(s32 arg0, s32 arg1) {
+#pragma push
+#pragma fp_contract on
+s32 TObjPlayer__sub_801B5920(s32 arg0, s32 arg1) {
     if (arg1 == 1) {
-        fn_801C1E48(arg0 + 0x500);
-        return;
+        if (is_flag_400_set__10TObjPlayerFPv() != 0) {
+            return 1;
+        }
+        if (TObjPlayer__sub_801B58DC((u8 *)(arg0)) != 0) {
+            return 1;
+        }
+        goto block_5;
     }
-    fn_801C1E44(arg0 + 0x500);
+block_5:
+    return TWindowActionPalette__sub_801C1C80(refresh_effect__10TObjPlayerFi(arg0), arg1);
 }
-void refresh_effect__10TObjPlayerFi(s32 arg0) {
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_801B5990(s32 arg0, s32 arg1) {
+    TWindowActionPalette__sub_801C1C80(refresh_effect__10TObjPlayerFi(arg0), arg1);
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_801B59C4(s32 arg0) {
+    update_party_cursors__10TObjPlayerFii(refresh_effect__10TObjPlayerFi(arg0), arg0);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_801B59F8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+    TWindowActionPalette__sub_801C1CA8((s32)((TObjPlayer*)arg0)->select_action_palette(arg1), arg2, arg3, arg4, arg5);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_801B5A44(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    TWindowActionPalette__sub_801C1CFC((s32)((TObjPlayer*)arg0)->select_action_palette(arg1), arg2, arg3, arg4);
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+void TObjPlayer__sub_801B5A88(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    TWindowActionPalette__sub_801C1D7C((s32)((TObjPlayer*)arg0)->select_action_palette(arg1), arg2, arg3);
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1) {
+    return TWindowActionPalette__sub_801C1DB8(refresh_effect__10TObjPlayerFi(arg0), arg1);
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_801B5AF8(s32 arg0, s32 arg1) {
+    TWindowActionPalette__sub_801C1E1C(refresh_effect__10TObjPlayerFi(arg0), arg1);
+}
+#pragma pop
+
+}
+
+TObjPlayer::ActionPalette* TObjPlayer::select_action_palette(int secondary) {
+    if (secondary == 1) {
+        return (ActionPalette*)fn_801C1E48((s32)action_palettes);
+    }
+    return (ActionPalette*)fn_801C1E44((s32)action_palettes);
+}
+
+extern "C" {
+s32 refresh_effect__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) != 0) {
         if (fn_801C1E50(arg0 + 0x500) != 0) {
-            fn_801C1E44(arg0 + 0x500);
-            return;
+            return fn_801C1E44(arg0 + 0x500);
         }
-        fn_801C1E48(arg0 + 0x500);
-        return;
+        return fn_801C1E48(arg0 + 0x500);
     }
-    fn_801C1E44(arg0 + 0x500);
+    return fn_801C1E44(arg0 + 0x500);
 }
 
 void update_ground_contact__10TObjPlayerFi(s32 arg0) {
@@ -121,7 +202,26 @@ void update_ground_contact__10TObjPlayerFi(s32 arg0) {
                 fn_801C1E74(arg0 + 0x500);
             }
         }
-        TObjPlayer__sub_801B59C4((s32)(arg0));
+        TObjPlayer__sub_801B59C4((s32)((s32)(arg0)));
+    }
+}
+
+void TObjPlayer__sub_801B6024(u8 *arg0) {
+    Stack_801B6024 stack;
+    s32 temp_r0;
+    u8 *temp_r3;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6AC) - 1;
+    M2C_FIELD(arg0, s32 *, 0x6AC) = temp_r0;
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x6AC) = 0xF;
+    }
+    TObjPlayer__sub_801BE918(arg0, M2C_FIELD(arg0, s32 *, 0x6AC), &stack.sp8, &stack.sp10);
+    stack.spC = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_r3 = csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x41);
+    if (temp_r3 != NULL) {
+        M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(M2C_FIELD(temp_r3, void **, 4), f32 *, 0);
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(M2C_FIELD(temp_r3, void **, 4), f32 *, 4);
+        M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(M2C_FIELD(temp_r3, void **, 4), f32 *, 8);
     }
 }
 

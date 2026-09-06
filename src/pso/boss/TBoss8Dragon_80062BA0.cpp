@@ -98,14 +98,58 @@ struct VObj_80065370_80062BA0 : Base_80065370_80062BA0 {
 #pragma dont_inline off
 struct M2CCopy_10 { u8 bytes[0x10]; };
 
+struct Stack_80063F34 {
+    M2C_UNK sp8;
+    f32 spC;
+};
+
 extern "C" {
-M2C_UNK TBoss8Dragon__sub_80063F34(void *);
-s32 objInBand__FP7GameObjf(f32);
+s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 lbl_805D8EBC;
 void TBoss8Dragon__sub_80063EF4(s32 arg0);
 extern f32 TObjEneDf2Bringer__data_805D9820;
 void TBoss8Dragon__sub_80063EF4(s32 arg0);
 void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
+int VecCopy__FP3VecPC3Vec(void*, void*);
+void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1);
+u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, M2C_UNK);
+s32 TOSwitchAttack__sub_80087278(void *, M2C_UNK, M2C_UNK);
+extern const f32 lbl_805D8D70;
+void TBoss8Dragon__sub_80063F34(u8 *arg0);
+int update_state_3__12TBoss8DragonFPv(void* p);
+int set_state_2__12TBoss8DragonFPv(void* p);
+int attack_default__12TBoss8DragonFPv(void* p);
+int query_default__12TBoss8DragonFPv(void* p);
+s32 objInBand__FP7GameObjf(void *, f32);
+extern const f32 lbl_805D8D54;
+extern const f32 lbl_805D8D80;
+extern const f32 lbl_805D8E00;
+extern const f32 lbl_805D8E0C;
+void TBoss8Dragon__sub_80064828(u8 *arg0);
+int update_state_3__12TBoss8DragonFPv(void* p);
+int set_state_2__12TBoss8DragonFPv(void* p);
+int attack_default__12TBoss8DragonFPv(void* p);
+int query_default__12TBoss8DragonFPv(void* p);
+s32 objInBand__FP7GameObjf(void *, f32);
+extern const f32 lbl_805D8D50;
+extern const f32 lbl_805D8D54;
+extern const f32 lbl_805D8DF8;
+extern const f32 lbl_805D8EC0;
+void TBoss8Dragon__sub_800648C8(u8 *arg0);
+void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1);
+s32 objInBand__FP7GameObjf(void *, f32);
+extern const f32 lbl_805D8D54;
+extern const f32 lbl_805D8D80;
+extern const f32 lbl_805D8E00;
+extern const f32 lbl_805D8E0C;
+void TBoss8Dragon__sub_80064DB8(u8 *arg0);
+void play_se__12TBoss8DragonFii(s32 arg0, s32 arg1);
+s32 objInBand__FP7GameObjf(void *, f32);
+extern const f32 lbl_805D8D50;
+extern const f32 lbl_805D8D54;
+extern const f32 lbl_805D8DF8;
+extern const f32 lbl_805D8EC0;
+void TBoss8Dragon__sub_80064E3C(u8 *arg0);
 }
 
 extern "C" {
@@ -287,8 +331,24 @@ struct VObj_80098E4C_80098DB0 : Base_80098E4C_80098DB0 {
     virtual int m97();
 };
 void TBoss8Dragon__sub_80063EF4(s32 arg0) {
-    if (objInBand__FP7GameObjf((f32) (lbl_805D8EBC)) != 0) {
-        TBoss8Dragon__sub_80063F34((void *) (arg0));
+    if (objInBand__FP7GameObjf((void *)arg0, (f32) (lbl_805D8EBC)) != 0) {
+        TBoss8Dragon__sub_80063F34((u8 *)((void *) (arg0)));
+    }
+}
+
+void TBoss8Dragon__sub_80063F34(u8 *arg0) {
+    Stack_80063F34 stack;
+    f32 temp_f1;
+    u8 *temp_r3;
+    VecCopy__FP3VecPC3Vec((void*)((void *) (&stack.sp8)), (void*)((void *) (arg0 + 0x38)));
+    temp_r3 = TBoss8Dragon__sub_8007A544(&stack.sp8, 0x16EF);
+    if (temp_r3 != NULL) {
+        temp_f1 = M2C_FIELD(M2C_FIELD(temp_r3, void **, 4), f32 *, 4);
+        if (!(temp_f1 > lbl_805D8D70)) {
+            stack.spC = temp_f1;
+            TOSwitchAttack__sub_80087278((void *)((void *) (&stack.sp8)), (M2C_UNK)((void *) (*M2C_FIELD(arg0, s32 **, 0x5F0))), (M2C_UNK)((int) (0x40)));
+            play_se__12TBoss8DragonFii((s32)((void *) (arg0)), (s32)((int) (0x40032D01)));
+        }
     }
 }
 
@@ -297,6 +357,42 @@ int update_state_3__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_800649
 int set_state_2__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 2); }
 int attack_default__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 1); }
 int query_default__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 0); }
+
+void TBoss8Dragon__sub_80064828(u8 *arg0) {
+    if (objInBand__FP7GameObjf(arg0, lbl_805D8D80) != 0) {
+        query_default__12TBoss8DragonFPv((void*)(arg0));
+        return;
+    }
+    if (objInBand__FP7GameObjf(arg0, lbl_805D8D54) != 0) {
+        attack_default__12TBoss8DragonFPv((void*)(arg0));
+        return;
+    }
+    if (objInBand__FP7GameObjf(arg0, lbl_805D8E00) != 0) {
+        set_state_2__12TBoss8DragonFPv((void*)(arg0));
+        return;
+    }
+    if (objInBand__FP7GameObjf(arg0, lbl_805D8E0C) != 0) {
+        update_state_3__12TBoss8DragonFPv((void*)(arg0));
+    }
+}
+
+void TBoss8Dragon__sub_800648C8(u8 *arg0) {
+    if (objInBand__FP7GameObjf(arg0, lbl_805D8EC0) != 0) {
+        query_default__12TBoss8DragonFPv((void*)(arg0));
+        return;
+    }
+    if (objInBand__FP7GameObjf(arg0, lbl_805D8DF8) != 0) {
+        attack_default__12TBoss8DragonFPv((void*)(arg0));
+        return;
+    }
+    if (objInBand__FP7GameObjf(arg0, lbl_805D8D50) != 0) {
+        set_state_2__12TBoss8DragonFPv((void*)(arg0));
+        return;
+    }
+    if (objInBand__FP7GameObjf(arg0, lbl_805D8D54) != 0) {
+        update_state_3__12TBoss8DragonFPv((void*)(arg0));
+    }
+}
 
 void copy_spawn_params__12TBoss8DragonFPvPv(void* p, void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short*)((char*)p + 0x1c); VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)p + 0x38)); *(void**)((char*)a1 + 0x10) = *(void**)((char*)p + 0x60); TBoss8Dragon__sub_80065F4C(a1); }
 
@@ -346,6 +442,18 @@ void set_phase__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x4e4) = 3; }
 void set_attack_phase__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x4e4) = 2; }
 void set_flag_4e4__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x4e4) = 1; }
 void clear_timer__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x4e4) = 0; }
+
+void TBoss8Dragon__sub_80064DB8(u8 *arg0) {
+    if ((objInBand__FP7GameObjf(arg0, lbl_805D8D80) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8D54) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8E00) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8E0C) != 0)) {
+        play_se__12TBoss8DragonFii((s32) arg0, 0x40032D08);
+    }
+}
+
+void TBoss8Dragon__sub_80064E3C(u8 *arg0) {
+    if ((objInBand__FP7GameObjf(arg0, lbl_805D8EC0) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8DF8) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8D50) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805D8D54) != 0)) {
+        play_se__12TBoss8DragonFii((s32) arg0, 0x40032D08);
+    }
+}
 
 void spawn_ancient_trap__12TBoss8DragonFii(s32 arg0, s32 arg1) {
     TOTrapAncient01__sub_80226578(arg1, arg0, arg0 + 0x560, 0, 0);

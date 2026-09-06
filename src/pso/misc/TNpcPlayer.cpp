@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_8014FEAC {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -16,6 +22,11 @@ s16 TNpcPlayer__sub_801528F4(void *, int);
 M2C_UNK TNpcPlayer__sub_80152900(void *, int, int);
 extern const f32 lbl_805DB234;
 s32 TNpcPlayer__sub_8014FF5C(u8 *arg0);
+u8 *get_position_ptr__10TObjPlayerFPv(s32);
+u8 *get_target_ptr__11TCameraCtrlFPv(s32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+extern const f32 lbl_805DB230;
+s32 TNpcPlayer__sub_8014FEAC(u8 *arg0);
 }
 
 extern "C" {
@@ -112,6 +123,28 @@ s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     }
     return 0;
 }
+
+s32 TNpcPlayer__sub_8014FEAC(u8 *arg0) {
+    Stack_8014FEAC stack;
+    f32 temp_f1;
+    u8 *temp_r31;
+    u8 *temp_r3;
+    temp_r31 = (u8 *)(get_target_ptr__11TCameraCtrlFPv(M2C_FIELD(arg0, s32 *, 0x94)));
+    temp_r3 = (u8 *)(get_position_ptr__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x94)));
+    if ((temp_r31 == NULL) || (temp_r3 == NULL)) {
+        return 0;
+    }
+    stack.sp8 = M2C_FIELD(temp_r3, f32 *, 0) - M2C_FIELD(temp_r31, f32 *, 0);
+    stack.spC = M2C_FIELD(temp_r3, f32 *, 4) - M2C_FIELD(temp_r31, f32 *, 4);
+    temp_f1 = M2C_FIELD(temp_r3, f32 *, 8);
+    stack.sp10 = temp_f1 - M2C_FIELD(temp_r31, f32 *, 8);
+    if (TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8), (f32) (temp_f1)) > lbl_805DB230) {
+        M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 1);
+        return 1;
+    }
+    return 0;
+}
+
 #pragma push
 #pragma fp_contract on
 s32 TNpcPlayer__sub_8014FF5C(u8 *arg0) {

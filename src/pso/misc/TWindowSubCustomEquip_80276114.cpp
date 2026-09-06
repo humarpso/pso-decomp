@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void get_cursor_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1);
-s32 set_effect_enabled__10TObjPlayerFii(M2C_UNK, M2C_UNK);
+s32 select_action_palette__10TObjPlayerFi(M2C_UNK, M2C_UNK);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(s16);
 s16 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
 s16 TWindowActionPalette__sub_801C1DE0(s32, s32, s32);
@@ -20,7 +20,7 @@ void get_cursor_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
     s32 temp_r3_2;
     s32 temp_r29;
 
-    if ((temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20)), (temp_r3 == 0U)) || (temp_r29 = set_effect_enabled__10TObjPlayerFii(temp_r3, 0), ((temp_r29 == 0) != 0))) {
+    if ((temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s16 *, 0x20)), (temp_r3 == 0U)) || (temp_r29 = select_action_palette__10TObjPlayerFi(temp_r3, 0), ((temp_r29 == 0) != 0))) {
         M2C_FIELD(arg1, s16 *, 0) = 0;
         M2C_FIELD(arg1, s16 *, 2) = 0;
         return;

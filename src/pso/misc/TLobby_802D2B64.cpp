@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_802D30E8 {
+    M2C_UNK sp8;
+    s8 spC;
+    s8 spD;
+};
+
+extern "C" {
+M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
+M2C_UNK build_6xA6_modify_trade_proposal(void *);
+void TLobby__sub_802D30E8(s32 arg0);
+}
+
 extern "C" {
 
 void TLobby__sub_802D3380(void);
@@ -34,6 +46,14 @@ void reset__6TLobbyFi(s32 arg0) {
             TLobby_802D2F7C__sub_80339910(temp_r3, arg0);
         }
     }
+}
+
+void TLobby__sub_802D30E8(s32 arg0) {
+    Stack_802D30E8 stack;
+    build_6xA6_modify_trade_proposal((void *) (&stack.sp8));
+    stack.spC = 6;
+    stack.spD = 0;
+    prepare_and_send_trade_packet__6TLobbyFPvPv((void *) (&stack.sp8), (void *) (arg0));
 }
 
 void TLobby__sub_802D3380(void) {  }

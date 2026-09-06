@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void xfree__FPv(void *);
+M2C_UNK TObjPlayer__sub_80084694();
+extern u8 *lbl_805D4E8C;
+extern u8 *TObjBoss2Tunnel__data_805D4E90;
+extern s32 TObjBoss2Tunnel__data_805D4E94;
+void TObjBoss2Tunnel__sub_8007CEB4(void);
+}
+
+extern "C" {
 
 s32 save_snapshot__15TObjBoss2TunnelFv(void);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
@@ -41,6 +50,18 @@ loop_4:
 block_9:
     TObjBoss2Tunnel__data_805D4E94 = 0;
     return sp8;
+}
+void TObjBoss2Tunnel__sub_8007CEB4(void) {
+    TObjBoss2Tunnel__data_805D4E94 = 0;
+    if ((void *) lbl_805D4E8C != NULL) {
+        xfree__FPv(lbl_805D4E8C);
+        lbl_805D4E8C = NULL;
+    }
+    TObjPlayer__sub_80084694();
+    if ((void *) TObjBoss2Tunnel__data_805D4E90 != NULL) {
+        xfree__FPv(TObjBoss2Tunnel__data_805D4E90);
+        TObjBoss2Tunnel__data_805D4E90 = NULL;
+    }
 }
 
 }

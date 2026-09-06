@@ -43,6 +43,33 @@ struct VObj_802138F0_80213788 : Base_802138F0_80213788 {
     virtual s32 m8();
 };
 
+struct VBase_18_97738d { char pad[0x18]; };
+
+struct VObj_18_97738d : VBase_18_97738d {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual M2C_UNK m7(M2C_UNK, M2C_UNK);
+};
+
+struct Stack_80213B18 {
+    f32 sp8;
+    f32 spC;
+};
+
+extern "C" {
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+u32 TShopSequence__sub_80223600(void *, s32, s32);
+s32 TWindowSubComCard__sub_8026CBB8(int, f32);
+extern const f32 lbl_805DC658;
+extern const f32 lbl_805DC65C;
+void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
+}
+
 extern "C" {
 
 void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);
@@ -101,6 +128,16 @@ void handle_close__22THunterGuildSeqOfflineFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x34) = 0;
         set_field_20__12TQuestListVMFPvi(arg0, 0xC);
     }
+}
+
+void THunterGuildSeqOffline__sub_80213B18(u8 *arg0) {
+    Stack_80213B18 stack;
+    stack.sp8 = lbl_805DC658;
+    stack.spC = lbl_805DC65C;
+    TShopSequence__sub_80223600(arg0, TWindowSubComCard__sub_8026CBB8((int) (0x2C), (f32) (lbl_805DC658)), (s32) &stack.sp8);
+    ((VObj_18_97738d *)(arg0))->m7(1, 1);
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    set_field_20__12TQuestListVMFPvi((void *)(arg0), (M2C_UNK)(2));
 }
 
 void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0) {
