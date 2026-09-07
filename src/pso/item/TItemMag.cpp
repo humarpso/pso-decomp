@@ -4,12 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredFields_80113244_arg0 {
+    u8 unknown_0[0x1CC];
+    s32 field_1CC;
+};
+
 extern "C" {
 M2C_UNK TItemMag__sub_801112B8(void *, int);
 M2C_UNK TItemMag__sub_80111758(void *, int);
 void apply_feed_delta__8TItemMagFPv(u8 *arg0);
 extern const f32 lbl_805DABB4;
 void TItemMag__sub_80112DB4(u8 *arg0, s32 arg1);
+int TItemMag__sub_80112E20(void*, void*);
+M2C_UNK TItemMag__sub_80112BC4(void *, M2C_UNK);
+void TItemMag__sub_80113244(struct RecoveredFields_80113244_arg0 *arg0);
 }
 
 extern "C" {
@@ -165,6 +173,18 @@ void check_level_evolve__8TItemMagFPv(void *arg0) {
             TItemMag__sub_80112BC4(arg0, 0xF);
         }
     } else if (temp_r0 > 0x5A) {
+        TItemMag__sub_80112E20((void*)(arg0), (void*)(1));
+    }
+}
+void TItemMag__sub_80113244(struct RecoveredFields_80113244_arg0 *arg0) {
+    s32 temp_r0;
+    temp_r0 = arg0->field_1CC;
+    if (temp_r0 == 0x5A) {
+        TItemMag__sub_80112BC4((void *)(arg0), (M2C_UNK)(0xD));
+        TItemMag__sub_80112BC4((void *)(arg0), (M2C_UNK)(0xA));
+        return;
+    }
+    if (temp_r0 > 0x5A) {
         TItemMag__sub_80112E20((void*)(arg0), (void*)(1));
     }
 }

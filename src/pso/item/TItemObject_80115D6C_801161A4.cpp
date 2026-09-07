@@ -1,4 +1,4 @@
-#include "types.h"
+#include "pso/item/TItemObject.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -102,7 +102,6 @@ s32 TItemObject__vt35(void *arg0, s32 arg1);
 s32 TItemObject__vt36(void *arg0, s32 arg1);
 void TItemObject__vt42(void *arg0);
 void *TItemData__sub_8010EA38(void *);
-M2C_UNK TItemObject__sub_80115D6C(void *, s32);
 M2C_UNK TItem__ct();
 M2C_UNK TItem__sub_80100824();
 M2C_UNK TObjPlayer__sub_8010043C(void *, u8);
@@ -123,7 +122,7 @@ s32 TItemObject__vt36(void *arg0, s32 arg1) {
 
     temp_r31 = arg1 + ((VObj_801161A4_80115D6C *)arg0)->m34();
     if (temp_r31 <= copy_and_register_item_data__11TItemObjectFPv(arg0)) {
-        TItemObject__sub_80115D6C(arg0, temp_r31);
+        ((TItemObject *)arg0)->store_encoded_value(temp_r31);
         return 1;
     }
     return 0;
@@ -134,7 +133,7 @@ s32 TItemObject__vt35(void *arg0, s32 arg1) {
 
     temp_r3 = ((VObj_8011620C_80115D6C *)arg0)->m36();
     if (arg1 <= temp_r3) {
-        TItemObject__sub_80115D6C(arg0, temp_r3 - arg1);
+        ((TItemObject *)arg0)->store_encoded_value(temp_r3 - arg1);
         return 1;
     }
     return 0;
@@ -183,7 +182,7 @@ void *TItemObject__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C28;
     M2C_FIELD(arg0, void **, 0xF8) = TItemData__sub_8010EA38(arg2);
     M2C_FIELD(arg0, u8 *, 0x100) = (u8) M2C_FIELD(arg2, u8 *, 4);
-    TItemObject__sub_80115D6C(arg0, get_item_type_or_default__9TItemListFPv(arg2));
+    ((TItemObject *)arg0)->store_encoded_value(get_item_type_or_default__9TItemListFPv(arg2));
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s32 *, 0x10) & 1) {
         add_item_flags__10TObjPlayerFPvUi(arg0, 0x10);
     } else {

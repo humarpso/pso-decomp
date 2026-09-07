@@ -14,11 +14,30 @@ struct RecoveredGlobal_8025ED80_lbl_8049E278 {
     u8 remaining[0xFC];
 };
 
+struct RecoveredFields_8025FC60_arg0 {
+    u8 unknown_0[0x60];
+    s32 field_60;
+    u8 unknown_64[0xC];
+    u8 * field_70;
+};
+
+struct RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
 extern "C" {
 void TKeyBoardControl__sub_8025EC04(u8 *arg0);
 extern RecoveredGlobal_8025ED80_lbl_8049E178 lbl_8049E178;
 extern RecoveredGlobal_8025ED80_lbl_8049E278 lbl_8049E278;
 u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1);
+s32 TKeyBoardControl__sub_801321B4(void *);
+s32 TKeyBoardControl__sub_80132274(void *);
+s32 TKeyBoardControl__sub_801322E4(void *);
+s32 TKeyBoardControl__sub_801323C8(void *, int);
+u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
+extern M2C_UNK TKeyBoardControl__data_80506270[];
+void TKeyBoardControl__sub_8025FC60(struct RecoveredFields_8025FC60_arg0 *arg0);
 }
 
 extern "C" {
@@ -111,6 +130,65 @@ block_7:
         set_input_mode__20TWindowSubStatusDispFPvUc(M2C_FIELD(arg0, s32 *, 0x70), temp_r31);
         TWindowKeyBoardSoft__sub_8025C618(M2C_FIELD(arg0, s32 *, 0x70), sp8);
     }
+}
+
+typedef char RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+void TKeyBoardControl__sub_8025FC60(struct RecoveredFields_8025FC60_arg0 *arg0) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    u32 temp_r4;
+    u8 *temp_r3_3;
+    u8 *temp_r3_4;
+    if (get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)) != 0) {
+        if ((TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value, 0x56) != 0) || (TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value, 0x5B) != 0)) {
+            arg0->field_60 |= 2;
+        } else {
+            arg0->field_60 &= 0xFFFFFFFD;
+        }
+    }
+    if (TKeyBoardControl__sub_801321B4(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) != 0) {
+        arg0->field_60 |= 2;
+    } else {
+        arg0->field_60 &= 0xFFFFFFFD;
+    }
+    if (TKeyBoardControl__sub_801322E4(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) != 0) {
+        arg0->field_60 |= 4;
+    } else {
+        arg0->field_60 &= 0xFFFFFFFB;
+    }
+    if (TKeyBoardControl__sub_80132274(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) != 0) {
+        arg0->field_60 |= 8;
+    } else {
+        arg0->field_60 &= 0xFFFFFFF7;
+    }
+    if ((get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)) == 2) || (get_key_state__16TKeyBoardControlFPv((M2C_UNK *)(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)) == 3)) {
+        arg0->field_60 |= 1;
+    } else {
+        arg0->field_60 &= 0xFFFFFFFE;
+    }
+    if ((TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value, 0x54) != 0) || (TKeyBoardControl__sub_801323C8(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value, 0x55) != 0)) {
+        arg0->field_60 |= 0x80;
+    } else {
+        arg0->field_60 &= 0xFFFFFF7F;
+    }
+    temp_r3 = arg0->field_60;
+    if ((temp_r3 & 0x80) && (temp_r3 & 1)) {
+        arg0->field_60 = temp_r3 & 0xFFFFFFEF;
+    }
+    temp_r3_2 = arg0->field_60;
+    temp_r4 = temp_r3_2 & 0x80;
+    if (((temp_r4 != 0) && !(temp_r3_2 & 0x10)) || ((temp_r3_2 & 0x10) && (temp_r4 == 0))) {
+        arg0->field_60 |= 0x20;
+    } else {
+        arg0->field_60 &= 0xFFFFFFDF;
+    }
+    if (arg0->field_60 & 0x80) {
+        temp_r3_3 = (u8 *)(arg0->field_70);
+        M2C_FIELD(temp_r3_3, s32 *, 0xB4) = (s32) (M2C_FIELD(temp_r3_3, s32 *, 0xB4) | 0x20);
+        return;
+    }
+    temp_r3_4 = (u8 *)(arg0->field_70);
+    M2C_FIELD(temp_r3_4, s32 *, 0xB4) = (s32) (M2C_FIELD(temp_r3_4, s32 *, 0xB4) & 0xFFFFFFDF);
 }
 
 void enable_keyboard_led__16TKeyBoardControlFPv(void *arg0) {

@@ -65,6 +65,16 @@ struct RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628 {
     u8 remaining[0xB];
 };
 
+struct RecoveredFields_8006DCD4_arg0 {
+    u8 unknown_0[0x3C];
+    f32 field_3C;
+    f32 field_40;
+    f32 field_44;
+    f32 field_48;
+    f32 field_4C;
+    f32 field_50;
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
@@ -91,6 +101,10 @@ void TCameraCtrl__sub_8006D494(void);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_8006D460(void);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u8 * TObjButterflyLobby__sub_8007A5D8(s32, void *, M2C_UNK, f32);
+extern const f32 TCameraCtrl__data_805D9050;
+void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -199,6 +213,24 @@ void TCameraCtrl__sub_8006D494(void) {
 }
 
 void TCameraCtrl__sub_8006DCC8(void* p) { *(s32*)((char*)p + 0xfc) = 0; }
+
+void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2) {
+    f32 temp_f1;
+    u8 *temp_r3;
+    if (arg1 != NULL) {
+        arg0->field_48 = M2C_FIELD(arg1, f32 *, 0x38);
+        arg0->field_4C = TCameraCtrl__data_805D9050 + M2C_FIELD(arg1, f32 *, 0x3C);
+        arg0->field_50 = M2C_FIELD(arg1, f32 *, 0x40);
+        arg0->field_3C = arg0->field_48 + M2C_FIELD(arg2, f32 *, 0);
+        arg0->field_40 = arg0->field_4C + M2C_FIELD(arg2, f32 *, 4);
+        temp_f1 = arg0->field_50;
+        arg0->field_44 = temp_f1 + M2C_FIELD(arg2, f32 *, 8);
+        temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8((s32) &arg0->field_48, &arg0->field_3C, 0x100, temp_f1));
+        if (temp_r3 != NULL) {
+            VecCopy__FP3VecPC3Vec((void *)(&arg0->field_3C), (void *)(M2C_FIELD(temp_r3, s32 *, 4)));
+        }
+    }
+}
 
 void TCameraCtrl__sub_8006DEF4(void) {  }
 

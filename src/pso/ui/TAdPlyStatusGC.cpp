@@ -11,6 +11,23 @@ struct RecoveredGlobal_8033F93C_lbl_8050E3B8 {
 
 struct RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC { M2C_UNK value; u8 remaining[0x14]; };
 
+struct RecoveredFields_8033F9DC_arg0 {
+    u8 unknown_0[0x1C];
+    s32 field_1C;
+    u8 unknown_20[0x4C];
+    u32 field_6C;
+};
+
+struct RecoveredGlobal_8033F9DC_lbl_804783E0 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8033F9DC_lbl_8050E3B8 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 M2C_UNK allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
@@ -28,6 +45,17 @@ void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
 extern u32 lbl_805D6DA8;
 u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1);
+M2C_UNK allow_rendering__7TObjectFv();
+s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
+s32 get_status__22TAdMultiPlyChrSelectGCFv();
+M2C_UNK TAdGuideButtonGC__sub_8032D600(int, void *);
+u32 TAdPlyStatusGC__sub_8033F8B0(void *, int);
+u32 get_player_index__14TAdPlyStatusGCFv();
+extern RecoveredGlobal_8033F9DC_lbl_804783E0 lbl_804783E0;
+extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
+extern s32 TAdPlyStatusGC__data_805D6DB0;
+extern s32 TAdPlyStatusGC__data_805D6DB8;
+void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0);
 }
 
 extern "C" {
@@ -60,6 +88,28 @@ void TAdPlyStatusGC__sub_8033F93C(u8 *arg0) {
         temp_r5 = get_status__22TAdMultiPlyChrSelectGCFv() * 0x50;
         if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E3B8.value + temp_r5 + 0x20), (int) (0x400), (int) (temp_r5)) != 0) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+        }
+    }
+}
+
+typedef char RecoveredGlobal_8033F9DC_lbl_804783E0_size[sizeof(RecoveredGlobal_8033F9DC_lbl_804783E0) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8033F9DC_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F9DC_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0) {
+    s32 temp_r3;
+    s32 temp_r5;
+    TAdPlyStatusGC__data_805D6DB8 = 1;
+    if ((s32) TAdPlyStatusGC__data_805D6DB0 < 3) {
+        if ((u32) arg0->field_6C == 0) {
+            arg0->field_6C = TAdPlyStatusGC__sub_8033F8B0(arg0, (s32) ((u8 *)(&lbl_804783E0.value) + (TAdPlyStatusGC__data_805D6DB0 * 8)));
+        }
+        temp_r3 = ((s32)get_player_index__14TAdPlyStatusGCFv());
+        if (temp_r3 != 0) {
+            allow_rendering__7TObjectFv();
+            TAdGuideButtonGC__sub_8032D600(temp_r3, &arg0->unknown_20[4]);
+        }
+        temp_r5 = get_status__22TAdMultiPlyChrSelectGCFv() * 0x50;
+        if (TWindowShortListCtrl__check_controller_button((u8 *)(((u8 *)(&(*(RecoveredGlobal_8033F9DC_lbl_8050E3B8 *)&lbl_8050E3B8).value) + temp_r5)) + 0x20, 0x400, temp_r5) != 0) {
+            arg0->field_1C = 2;
         }
     }
 }

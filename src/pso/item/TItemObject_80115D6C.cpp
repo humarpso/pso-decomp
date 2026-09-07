@@ -1,4 +1,4 @@
-#include "types.h"
+#include "pso/item/TItemObject.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -6,6 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 TItemObject__sub_80115D84(u8 *arg0);
+}
+
+void TItemObject::store_encoded_value(s32 value) {
+    encoded_value = value ^ (s32)&encoded_value;
 }
 
 extern "C" {
@@ -27,15 +31,12 @@ struct VObj_80115D94_80115D6C : Base_80115D94_80115D6C {
     virtual s32 m34();
 };
 
-int TItemObject__sub_80115D6C(void);
 u8 TItemObject__sub_80115D7C(void* p);
 void TItemObject__vt12(void *arg0);
 u8 *TItemObject__vt7(u8 *arg0);
 void TItem__sub_80115D68(void);
 s32 copy_and_register_item_data__11TItemObjectFPv();
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
-
-int TItemObject__sub_80115D6C(void) { return 0; }
 
 u8 TItemObject__sub_80115D7C(void* p) { return *(u8*)((char*)p + 0x100); }
 

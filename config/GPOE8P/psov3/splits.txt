@@ -16761,6 +16761,7 @@ pso/unk/text_80355C1C.cpp:
 
 pso/ui/TAdPlyPltAnimGC_80355C74.cpp:
 	.text       start:0x80355C74 end:0x80355D20
+	.rodata     start:0x80479368 end:0x80479370
 
 pso/ui/TAdPlyPltAnimCtrlGC_80355D20.cpp:
 	.text       start:0x80355D20 end:0x80355DE0

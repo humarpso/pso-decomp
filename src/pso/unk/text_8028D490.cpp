@@ -1,3 +1,66 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct RecoveredFields_8028D490_arg0 {
+    s32 field_0;
+    u32 field_4;
+    u8 unknown_8[0x24];
+    u32 field_2C;
+    u32 field_30;
+};
+
 extern "C" {
+extern u32 lbl_805D64F0;
+extern u8 lbl_805D64F4;
+extern u32 lbl_805D64F8;
+extern u8 lbl_805D64FC;
+extern u32 lbl_805D6500;
+extern u8 lbl_805D6504;
+extern u32 lbl_805D6508;
+extern u8 lbl_805D650C;
+s32 fn_8028D490(struct RecoveredFields_8028D490_arg0 *arg0);
+}
+
+extern "C" {
+
+s32 fn_8028D490(struct RecoveredFields_8028D490_arg0 *arg0) {
+    u32 temp_r3;
+    u32 temp_r3_2;
+    u32 temp_r4;
+    u32 temp_r5;
+    if (arg0->field_0 & 0xFFFFE000) {
+        return 0;
+    }
+    if ((s8) lbl_805D64F4 == 0) {
+        lbl_805D64F0 = 0U;
+        lbl_805D64F4 = 1;
+    }
+    if ((s8) lbl_805D64FC == 0) {
+        lbl_805D64F8 = 0x200000U;
+        lbl_805D64FC = 1;
+    }
+    if ((s8) lbl_805D6504 == 0) {
+        lbl_805D6500 = 0U;
+        lbl_805D6504 = 1;
+    }
+    if ((s8) lbl_805D650C == 0) {
+        lbl_805D6508 = 0x200000U;
+        lbl_805D650C = 1;
+    }
+    temp_r3 = arg0->field_2C;
+    if (((temp_r3 > (u32) lbl_805D64F0) && (temp_r3 < (u32) lbl_805D64F8)) || ((temp_r5 = arg0->field_30, ((temp_r5 > (u32) lbl_805D64F0) != 0)) && (temp_r5 < (u32) lbl_805D64F8)) || ((temp_r4 = arg0->field_4, ((temp_r4 > (u32) lbl_805D6500) != 0)) && (temp_r4 < (u32) lbl_805D6508))) {
+        return 0;
+    }
+    if ((temp_r3 != 0) && (fn_8028D490((struct RecoveredFields_8028D490_arg0 *) temp_r3) == 0)) {
+        return 0;
+    }
+    temp_r3_2 = arg0->field_30;
+    if ((temp_r3_2 != 0) && (fn_8028D490((struct RecoveredFields_8028D490_arg0 *) temp_r3_2) == 0)) {
+        return 0;
+    }
+    return 1;
+}
 
 }
