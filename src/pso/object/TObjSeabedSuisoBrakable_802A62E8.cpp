@@ -16,14 +16,43 @@ struct RecoveredGlobal_802A6438_lbl_804DD388 {
     u8 remaining[0x35C];
 };
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_802A6668_lbl_804DD6E8 {
+    M2C_UNK value;
+    u8 remaining[0x80];
+};
+
+struct RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable {
+    M2C_UNK value;
+    u8 remaining[0x4C];
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void *TObjSeabedSuisoBrakable__ct(void *, void *);
 s32 get_instance__23TObjSeabedSuisoBrakableFv(int);
 s32 TObjSeabedSuisoBrakable__sub_802A6F04(int);
 extern RecoveredGlobal_802A6438_lbl_804DD388 lbl_804DD388;
 extern const f32 lbl_805DDFFC;
 void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
+f32 get_random_float__8TObjFishFv(f32);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+u8 * TORockCaveBrakable__ct(void *);
+M2C_UNK TObjEneGibbles__sub_80156780(void *, int, int);
+void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
+extern RecoveredGlobal_802A6668_lbl_804DD6E8 lbl_804DD6E8;
+extern M2C_UNK __vt__23TObjSeabedSuisoBrakable[];
+extern s32 lbl_805D3E04;
+u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -118,7 +147,7 @@ void * TObjSeabedSuisoBrakable__sub_802A65B8(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjSeabedSuisoBrakable__ct(o, arg0);
+        o = TObjSeabedSuisoBrakable__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
@@ -133,6 +162,29 @@ void *__dt__23TObjSeabedSuisoBrakableFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_802A6668_lbl_804DD6E8_size[sizeof(RecoveredGlobal_802A6668_lbl_804DD6E8) == 0x84 ? 1 : -1];
+typedef char RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable_size[sizeof(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable) == 0x50 ? 1 : -1];
+u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1) {
+    s32 temp_r0;
+    TORockCaveBrakable__ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable *)&__vt__23TObjSeabedSuisoBrakable).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E04;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) get_random_float__8TObjFishFv((f32) M2C_FIELD(arg0, s32 *, 0x88));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) > 2) {
+        M2C_FIELD(arg0, s32 *, 0xBC) = 2;
+    }
+    TObjSeabedSuisoBrakable__sub_802A6438((u8 *)((void *) (arg0)));
+    M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
+    if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
+        M2C_FIELD(arg0, s32 *, 0xB8) = -1;
+    }
+    TObjEneGibbles__sub_80156780((void *) (arg0), (int) ((u8 *)&lbl_804DD6E8.value + (M2C_FIELD(arg0, s32 *, 0xBC) * 0x2C)), (int) (1));
+    reset_photon_effect__10TObjPlayerFPv(arg0);
     return arg0;
 }
 

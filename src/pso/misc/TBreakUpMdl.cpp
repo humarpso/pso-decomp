@@ -66,6 +66,8 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 extern M2C_UNK TBreakUpMdl__data_8048FA00[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
 u8 *TBreakUpMdl__sub_8009705C(u8 *arg0, s32 arg1);
+extern const f32 lbl_805D97C8;
+void TBreakUpMdl__sub_80096A34(u8 *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -82,6 +84,13 @@ void free__11TOBoss4RockFUi(void *);
 int get_target_info__9TObjEneDDFPv(void*);
 
 extern M2C_UNK __vt__11TBreakUpMdl[];
+
+#pragma push
+#pragma fp_contract on
+void TBreakUpMdl__sub_80096A34(u8 *arg0, s32 arg1, f32 farg0) {
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) ((farg0 * (f32) arg1) + lbl_805D97C8);
+}
+#pragma pop
 
 void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

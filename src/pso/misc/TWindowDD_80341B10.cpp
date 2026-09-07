@@ -27,6 +27,8 @@ int TWindowDD__sub_80342158(u8 *arg0);
 M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
 extern RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
 void TWindowDD__sub_80341F9C(u8 *arg0);
+extern const f32 TWindowDD__data_805DFB20;
+void TWindowDD__sub_803421D0(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -207,6 +209,14 @@ s32 update_if_field28_set__9TWindowDDFPv(void *arg0) {
     }
     return 0;
 }
+
+#pragma push
+#pragma fp_contract on
+void TWindowDD__sub_803421D0(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg1, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
+    M2C_FIELD(arg1, f32 *, 4) = (f32) (((f32) M2C_FIELD(arg0, s32 *, 0x6C) * TWindowDD__data_805DFB20) + M2C_FIELD(arg0, f32 *, 0x44));
+}
+#pragma pop
 
 s32 get_field_68__9TWindowDDFPv(void* p) { return *(s32*)((char*)p + 0x68); }
 void add_scroll_offset__9TWindowDDFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x68) = (*(int*)((char*)a0 + 0x68) + a1); *(int*)((char*)a0 + 0x8c) = 1; spawn_window__9TWindowDDFv(); }

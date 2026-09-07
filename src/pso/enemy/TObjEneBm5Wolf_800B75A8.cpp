@@ -13,7 +13,6 @@ struct Stack_800B7808 {
 
 extern "C" {
 s32 TObjEneDellBiter__sub_80087350(s32, s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *);
 extern const f32 TObjEneBm5Wolf__data_805D9DE0;
 void TObjEneBm5Wolf__sub_800B7808(s32 arg0, u8 *arg1);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -23,6 +22,21 @@ M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 extern const f32 TObjEneBm5Wolf__data_805D9DE8;
 extern const f32 TObjEneBm5Wolf__data_805D9DEC;
 void TObjEneBm5Wolf__sub_800B7794(u8 *arg0);
+f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+int get_flag_bit0__14TObjEneBm5WolfFPv(void* p);
+s32 TObjEneEpsilon__sub_800B96A4(void *);
+s32 update_velocity__9TObjEneDDFPv(void *);
+s32 transform_relative_position__9TObjEneDDFPvPv(void *, int);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern const f64 TObjEneBm5Wolf__data_8043B5B0;
+extern const f32 TObjEneBm5Wolf__data_805D9D78;
+extern const f32 TObjEneBm5Wolf__data_805D9DBC;
+extern const f32 TObjEneBm5Wolf__data_805D9DEC;
+extern const f32 TObjEneBm5Wolf__data_805D9DF0;
+extern const f32 lbl_805D9E44;
+s32 TObjEneBm5Wolf__sub_800B75B4(u8 *arg0);
 }
 
 extern "C" {
@@ -48,6 +62,38 @@ void TObjEneBm5Wolf__sub_800B75A8(void *arg0, s32 arg1, s16 arg2) {
     M2C_FIELD(arg0, s32 *, 0x414) = arg1;
     M2C_FIELD(arg0, s16 *, 0x418) = arg2;
 }
+
+#pragma push
+#pragma fp_contract on
+s32 TObjEneBm5Wolf__sub_800B75B4(u8 *arg0) {
+    f32 temp_f4;
+    f32 temp_f5;
+    f32 var_f0;
+    if (transform_relative_position__9TObjEneDDFPvPv((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x390))) != 0) {
+        TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+        update_velocity__9TObjEneDDFPv((void *) (arg0));
+        if (((s32)get_flag_bit0__14TObjEneBm5WolfFPv((void*)((void *) (arg0)))) != 0) {
+            var_f0 = TObjEneBm5Wolf__data_805D9DEC;
+        } else {
+            var_f0 = lbl_805D9E44;
+        }
+        temp_f5 = M2C_FIELD(arg0, f32 *, 0x3A8);
+        temp_f4 = M2C_FIELD(arg0, f32 *, 0x3A0);
+        M2C_FIELD(arg0, f32 *, 0x394) = (f32) (M2C_FIELD(arg0, f32 *, 0x394) + ((TObjEneBm5Wolf__data_805D9DBC * temp_f4) + (temp_f5 * var_f0)));
+        M2C_FIELD(arg0, f32 *, 0x39C) = (f32) (M2C_FIELD(arg0, f32 *, 0x39C) + ((TObjEneBm5Wolf__data_805D9DBC * temp_f5) - (temp_f4 * var_f0)));
+        update_velocity__9TObjEneDDFPv((void *) (arg0));
+        return (s32) (TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv((f64) M2C_FIELD(arg0, f32 *, 0x3A0), (f64) M2C_FIELD(arg0, f32 *, 0x3A8)));
+    }
+    M2C_FIELD(arg0, f32 *, 0x3A0) = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) TObjEneBm5Wolf__data_805D9D78;
+    M2C_FIELD(arg0, f32 *, 0x3A8) = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x394)), (void *)((void *) (arg0 + 0x38)));
+    M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((TObjEneBm5Wolf__data_805D9DF0 * M2C_FIELD(arg0, f32 *, 0x3A0)) + M2C_FIELD(arg0, f32 *, 0x394));
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((TObjEneBm5Wolf__data_805D9DF0 * M2C_FIELD(arg0, f32 *, 0x3A8)) + M2C_FIELD(arg0, f32 *, 0x39C));
+    M2C_FIELD(arg0, f32 *, 0x3AC) = (f32) TObjEneBm5Wolf__data_805D9DF0;
+    return M2C_FIELD(arg0, s32 *, 0x60);
+}
+#pragma pop
 
 int get_flag_bit0__14TObjEneBm5WolfFPv(void* p) { return *(u16*)((char*)p + 0x1c) & 0x1; }
 
@@ -76,7 +122,7 @@ void TObjEneBm5Wolf__sub_800B7808(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800B7808, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800B7808, sp10) == 0x8) ? 1 : -1];
     Stack_800B7808 stack;
-    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38), (void *) (arg0));
+    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     stack.sp8 += TObjEneBm5Wolf__data_805D9DE0 * M2C_FIELD(arg1, f32 *, 0);
     stack.sp10 += TObjEneBm5Wolf__data_805D9DE0 * M2C_FIELD(arg1, f32 *, 8);
     TObjEneDellBiter__sub_80087350((s32) &stack.sp8, 0xF3);

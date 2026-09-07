@@ -17,7 +17,6 @@ struct RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 {
 extern "C" {
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void release_object__10TBoss6RockFPv(void* p);
-void TBoss6Rock__sub_80353FF0(void *);
 void TBoss6Rock__sub_803542E8(void *, s32);
 void TBoss6Rock__sub_8035A460(void *, s32);
 void TBoss6Rock__sub_80354494(u8 *arg0);
@@ -30,6 +29,15 @@ extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543
 s32 TBoss6Rock__sub_80353E10(s32 arg0);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 u8 TBoss6Rock__sub_80353DC4(s32 arg0);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+s32 rand__11TOBoss4RockFv();
+extern const f32 TBoss6Rock__data_805DFF4C;
+extern const f32 lbl_805DFF68;
+extern const f32 lbl_805DFF6C;
+extern const f32 lbl_805DFF70;
+extern const f32 lbl_805DFF74;
+extern const f32 lbl_805DFF78;
+void TBoss6Rock__sub_80353FF0(u8 *arg0);
 }
 
 extern "C" {
@@ -173,6 +181,19 @@ s32 TBoss6Rock__sub_80353E10(s32 arg0) {
 }
 
 void release_object__10TBoss6RockFPv(void* p) { if (*(unsigned int*)((char*)p + 0xb0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0xb0)); *(int*)((char*)p + 0xb0) = 0; } }
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Rock__sub_80353FF0(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand__11TOBoss4RockFv()) - TBoss6Rock__data_805DFF4C));
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(arg0, s32 *, 0x64) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand__11TOBoss4RockFv()) - TBoss6Rock__data_805DFF4C));
+    M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand__11TOBoss4RockFv()) - TBoss6Rock__data_805DFF4C));
+    VecCopy__FP3VecPC3Vec((void *)((void *) ((u8 *)(arg0) + 0x38)), (const void *)((void *) ((u8 *)(arg0) + 0xD4)));
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DFF78;
+}
+#pragma pop
+
 void TBoss6Rock__sub_80354494(u8 *arg0) {
     TBoss6Rock__sub_803542E8(arg0, 0);
     if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 1) {
@@ -182,7 +203,7 @@ void TBoss6Rock__sub_80354494(u8 *arg0) {
         TBoss6Rock__sub_8035A460(arg0 + 0xD4, M2C_FIELD(arg0, s32 *, 0xB4));
         TBoss3Volopt__sub_8022675C(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
         release_object__10TBoss6RockFPv((void*)(arg0));
-        TBoss6Rock__sub_80353FF0(arg0);
+        TBoss6Rock__sub_80353FF0((u8 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0xC4) = 0;
     }
 }

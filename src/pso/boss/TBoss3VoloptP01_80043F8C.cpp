@@ -91,6 +91,16 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
 
 struct RecoveredGlobal_800442A0___vt__15TBoss3VoloptP01 { M2C_UNK value; u8 remaining[0x148]; };
 
+struct RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 {
+    M2C_UNK value;
+    u8 remaining[0x148];
+};
+
+struct RecoveredGlobal_80044174_lbl_804FEE68 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 int TObjPlayer__sub_8004433C(s32);
 u8 * __ct__17TObjVoloptShutterFv(void *, s32);
@@ -100,6 +110,20 @@ void *__nw__7TObjectFUl(int);
 extern M2C_UNK __vt__15TBoss3VoloptP01[];
 extern s32 lbl_805D2748;
 u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK TBoss3VoloptP01__sub_80044038(void *);
+int TObjPlayer__sub_8004433C(s32 _w0);
+u8 * __ct__17TObjVoloptShutterFv(void *, s32);
+u8 * TObjEnemyCustom__ct(void *);
+void *__nw__7TObjectFUl(int);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern M2C_UNK __vt__15TBoss3VoloptP01[];
+extern RecoveredGlobal_80044174_lbl_804FEE68 lbl_804FEE68;
+extern s32 lbl_805D2748;
+extern const f32 lbl_805D8764;
+extern const f32 lbl_805D8794;
+extern const f32 lbl_805D8798;
+u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4);
 }
 
 extern "C" {
@@ -137,6 +161,39 @@ void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_80044174___vt__15TBoss3VoloptP01_size[sizeof(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01) == 0x14C ? 1 : -1];
+typedef char RecoveredGlobal_80044174_lbl_804FEE68_size[sizeof(RecoveredGlobal_80044174_lbl_804FEE68) == 0xC ? 1 : -1];
+u8 *TBoss3VoloptP01__ct(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3, s16 arg4) {
+    s32 temp_r29;
+    s32 temp_r3;
+    s32 var_r0;
+    TObjEnemyCustom__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80044174___vt__15TBoss3VoloptP01 *)&__vt__15TBoss3VoloptP01).value;
+    TObjPlayer__sub_8004433C((s32)((void *) (arg0 + 0x3BC)));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2748;
+    M2C_FIELD(arg0, s16 *, 0x1C) = arg3;
+    M2C_FIELD(arg0, s16 *, 0x2C) = arg4;
+    M2C_FIELD(arg0, s32 *, 0x80) = 0;
+    M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
+    M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
+    TBoss3VoloptP01__sub_80044038((void *) (arg0));
+    temp_r29 = (s32) (lbl_805D8794 * (f32) (arg2 * 0x3C));
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) ((lbl_805D8798 * TBoss8Dragon__sub_803D64DC((int) (temp_r29))) + M2C_FIELD(&lbl_804FEE68.value, f32 *, 0));
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) ((lbl_805D8798 * TBoss8Dragon__sub_803D64C0((int) (temp_r29))) + M2C_FIELD(&lbl_804FEE68.value, f32 *, 8));
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D8764;
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (-0x4000 - temp_r29);
+    temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x34)));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = ((s32)__ct__17TObjVoloptShutterFv((void *)((int) (temp_r3)), (s32)((void *) (arg2))));
+    }
+    M2C_FIELD(arg0, s32 *, 0x3B8) = var_r0;
+    return arg0;
+}
+#pragma pop
 
 u8 *TBoss3VoloptP01__sub_800442A0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     u8 *temp_r3;

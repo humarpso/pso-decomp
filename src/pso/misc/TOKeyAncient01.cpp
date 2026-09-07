@@ -52,6 +52,21 @@ struct VBase18 { char pad[0x18]; };
 
 struct VObj18 : VBase18 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual M2C_UNK m8(f32, f32); };
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8016B0A0_lbl_804B29D0 { M2C_UNK value; u8 remaining[0x28]; };
+
+struct RecoveredGlobal_8016B0A0___vt__14TOKeyAncient01 { M2C_UNK value; u8 remaining[0x70]; };
+
 extern "C" {
 M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
 void TOKeyAncient01__vt15(u8 *arg0);
@@ -71,6 +86,22 @@ void free_if_valid__10TObjPlayerFi(s32);
 extern u8 *TOKeyAncient01__data_805D59F8;
 extern u32 TOKeyAncient01__data_805D59FC;
 void TOKeyAncient01__sub_8016AEFC(void);
+u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u8 * TOKey__ct(void *);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK init_switch_id__5TOKeyFPv(void *);
+extern RecoveredGlobal_8016B0A0_lbl_804B29D0 lbl_804B29D0;
+extern M2C_UNK __vt__14TOKeyAncient01[];
+extern s32 lbl_805D3018;
+extern u8 *TOKeyAncient01__data_805D59F8;
+extern u32 TOKeyAncient01__data_805D59FC;
+extern const f32 lbl_805DB6E8;
+extern const f32 lbl_805DB6EC;
+extern const f32 lbl_805DB6F0;
+extern const f32 lbl_805DB6F4;
+extern const f32 lbl_805DB6F8;
+u8 *TOKeyAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -81,7 +112,6 @@ void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1);
 void *create__14TOKeyAncient01FPv(void *arg0);
 void set_type__14TOKeyAncient01FPv(void* p);
 int TLobby__send_and_handle_60(void*);
-void *TOKeyAncient01__ct(void *, void *, void *);
 void TOKey__sub_8016AC88(void);
 void TOKey__sub_8016AC8C(void);
 void TOKey__sub_8016AC90(void);
@@ -135,7 +165,7 @@ extern void *tl_05;
 void *create__14TOKeyAncient01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOKeyAncient01__ct(o, tl_05, arg0);
+        o = TOKeyAncient01__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -178,6 +208,41 @@ void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TOKeyAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    s32 temp_r0;
+    TOKey__ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016B0A0___vt__14TOKeyAncient01 *)&__vt__14TOKeyAncient01).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3018;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    init_switch_id__5TOKeyFPv((void *) (arg0));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x88);
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x88) = 0;
+    } else if (temp_r0 > 3) {
+        M2C_FIELD(arg0, s32 *, 0x88) = 3;
+    }
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD((*(s32 *)&TOKeyAncient01__data_805D59FC), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x88) * 4));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TOKeyAncient01__data_805D59F8, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD(TOKeyAncient01__data_805D59F8, u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB6E8);
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB6EC;
+    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B29D0.value, 1);
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB6F0;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB6F4;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
+        if (M2C_FIELD(arg0, f32 *, 0x68) < lbl_805DB6F8) {
+            M2C_FIELD(arg0, s32 *, 0xD0) = 1;
+        } else {
+            goto block_7;
+        }
+    } else {
+block_7:
+        M2C_FIELD(arg0, s32 *, 0xD0) = 0;
     }
     return arg0;
 }

@@ -4,6 +4,52 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8018BD00_lbl_804B6DEC {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct RecoveredGlobal_8018BD00___vt__19TContainerAncient01 {
+    M2C_UNK value;
+    u8 remaining[0x13C];
+};
+
+extern "C" {
+s32 TObjPlayer__sub_80019038(void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjFish__sub_8001EDB0(int, int);
+s32 TObjFish__sub_8001EDC4(int, int);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
+s32 set_animation__10TObjPlayerFPvs(void *, int);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 TContainerAncient01__sub_8018B5D0(void *);
+extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__data_804B6DC0;
+extern RecoveredGlobal_8018BD00_lbl_804B6DEC lbl_804B6DEC;
+extern M2C_UNK __vt__19TContainerAncient01[];
+extern s32 lbl_805D3300;
+extern s32 TContainerAncient01__data_805D5B90;
+extern const f32 lbl_805DBD5C;
+u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+}
+
 extern "C" {
 
 void TContainerAncient01__sub_8018BE68(void);
@@ -34,6 +80,36 @@ void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0_size[sizeof(RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8018BD00_lbl_804B6DEC_size[sizeof(RecoveredGlobal_8018BD00_lbl_804B6DEC) == 0x30 ? 1 : -1];
+typedef char RecoveredGlobal_8018BD00___vt__19TContainerAncient01_size[sizeof(RecoveredGlobal_8018BD00___vt__19TContainerAncient01) == 0x140 ? 1 : -1];
+u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TObjPlayer__sub_80019038((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018BD00___vt__19TContainerAncient01 *)&__vt__19TContainerAncient01).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3300;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((int) ((*(u8 * *)&TContainerAncient01__data_805D5B90)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__data_805D5B90)), (int) (0));
+    M2C_FIELD(arg0, M2C_UNK **, 0xD8) = &lbl_804B6DEC.value;
+    set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (M2C_FIELD(arg0, M2C_UNK **, 0xD8)));
+    M2C_FIELD(arg0, s32 *, 0xDC) = (s32) M2C_FIELD((*(u8 * *)&TContainerAncient01__data_805D5B90), s32 *, 0x430);
+    M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+    set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
+    set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&TContainerAncient01__data_804B6DC0.value), (int) (1));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
+    M2C_FIELD(arg0, f32 *, 0x78) = (f32) ((M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4) * lbl_805DBD5C) + M2C_FIELD(arg0, f32 *, 0x78));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x74));
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    TContainerAncient01__sub_8018B5D0((void *) (arg0));
+    return arg0;
+}
+#pragma pop
 
 void TContainerAncient01__sub_8018BE68(void) {  }
 int TContainerAncient01__sub_8018BE6C(void) { return 1; }

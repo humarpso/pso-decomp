@@ -51,6 +51,10 @@ s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2);
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804A74E8;
 void TWindowSubStatusDisp__sub_801454E0(s32 _w0);
+extern const f32 lbl_805DB190;
+extern const f32 lbl_805DB194;
+extern const f32 lbl_805DB198;
+void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -64,6 +68,16 @@ void *TWindowSubStatusDisp__sub_801452DC();
 int TWindowSubStatusDisp__sub_803DEE6C(void*);
 int TWindowSubStatusDisp__sub_803DF160(void*, void*);
 int get_player__20TWindowSubStatusDispFv(void*);
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1) {
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (M2C_FIELD(arg1, f32 *, 0) + (f32) arg0);
+    M2C_FIELD(arg1, f32 *, 0xC) = (f32) (lbl_805DB190 + M2C_FIELD(arg1, f32 *, 4));
+    M2C_FIELD(arg1, f32 *, 0x18) = (f32) (((f32) arg0 * lbl_805DB194) + M2C_FIELD(arg1, f32 *, 0x10));
+    M2C_FIELD(arg1, f32 *, 0x1C) = (f32) (lbl_805DB198 + M2C_FIELD(arg1, f32 *, 0x14));
+}
+#pragma pop
 
 s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0) {
     if (arg0 < 0x41U) {

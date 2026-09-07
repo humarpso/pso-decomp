@@ -139,8 +139,8 @@ struct packet : public flex_packet<0x7c00> {};
     o(handle_DA_lobby_event_packet, void) \
     o(handle_AB_quest_stats_response_packet, void) \
     o(handle_D3_execute_trade_packet, void) \
-    o(handle_D4_trade_result_packet, void) \
-    o(handle_D1_advance_trade_state_packet, void)
+    o(handle_D4_trade_result_packet, u8 state) \
+    o(handle_D1_advance_trade_state_packet, u8 state)
 
 #define recv_packet_handler(name) recv_packet_handler_##name
 
@@ -253,6 +253,8 @@ public:
     void recv_exit_lobby(packet &pkt);
     void recv_pso_regist_connect(packet &pkt);
     void recv_pso_regist_check(packet &pkt);
+    void recv_trade_result(packet &pkt);
+    void recv_advance_trade_state(packet &pkt);
 
     void send_quest_barrier();
     void send_message_box_closed();

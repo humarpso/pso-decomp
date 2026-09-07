@@ -12,6 +12,9 @@ extern const f32 TBoss2DeRolLe__data_805D8334;
 extern const f32 lbl_805D8438;
 extern const f32 lbl_805D843C;
 u8 TBoss2DeRolLe__sub_80034800(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern const f32 TBoss2DeRolLe__data_805D82DC;
+void TBoss2DeRolLe__sub_8003443C(u8 *arg0);
 }
 
 extern "C" {
@@ -48,6 +51,16 @@ extern const f32 TBoss2DeRolLe__data_805D82F0;
 extern const f32 TBoss2DeRolLe__data_805D8330;
 extern const f32 TBoss2DeRolLe__data_805D8358;
 extern const f32 TBoss2DeRolLe__data_805D83DC;
+
+#pragma push
+#pragma fp_contract on
+void TBoss2DeRolLe__sub_8003443C(u8 *arg0) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x6BC, arg0 + 0x4E8);
+    M2C_FIELD(arg0, f32 *, 0x6BC) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4F4)) + M2C_FIELD(arg0, f32 *, 0x6BC));
+    M2C_FIELD(arg0, f32 *, 0x6C0) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4F8)) + M2C_FIELD(arg0, f32 *, 0x6C0));
+    M2C_FIELD(arg0, f32 *, 0x6C4) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4FC)) + M2C_FIELD(arg0, f32 *, 0x6C4));
+}
+#pragma pop
 
 void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x660) = 1;

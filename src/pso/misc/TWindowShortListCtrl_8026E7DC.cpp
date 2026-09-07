@@ -4,6 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8026EA60_lbl_8050E208
+{
+  M2C_UNK value;
+  u8 remaining[0x1AC];
+};
+
+struct RecoveredFields_8026EA60_arg0
+{
+  u8 unknown_0[0x1C];
+  u8 field_1C;
+  u8 unknown_1D[0x7];
+  s32 field_24;
+  u8 unknown_28[0xC];
+  u32 field_34;
+};
+
+struct RecoveredFields_8026EA60_temp_r29
+{
+  u8 unknown_0[0x34];
+  s32 field_34;
+};
+
 extern "C" {
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void TWindowShortListCtrl__sub_8026F66C(u8 *arg0);
@@ -18,6 +40,16 @@ M2C_UNK TMainCursor__sub_8013DFC4(int);
 void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1);
 extern M2C_UNK lbl_805DD380;
 void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
+s32 fn_8002AE08(int);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 is_player_input_active(int);
+s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0);
+void destroy_children__20TWindowShortListCtrlFPv(void *arg0);
+void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
+void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
+extern RecoveredGlobal_8026EA60_lbl_8050E208 lbl_8050E208;
+void TWindowShortListCtrl__sub_8026EA60(u8 *arg0);
 }
 
 extern "C" {
@@ -129,6 +161,69 @@ void destroy_children__20TWindowShortListCtrlFPv(void *arg0) {
 
 void TWindowShortListCtrl__sub_8026EA48(u8 *arg0) {
     M2C_FIELD(arg0, u8 *, 0x1D) = (u8) M2C_FIELD(((u8 *)(&lbl_805DD380) + (s8) M2C_FIELD(arg0, u8 *, 0x1C)), u8 *, 0);
+}
+
+typedef struct RecoveredFields_8026EA60_arg0 RecoveredFields_8026EA60_arg0;
+typedef struct RecoveredFields_8026EA60_temp_r29 RecoveredFields_8026EA60_temp_r29;
+typedef struct RecoveredGlobal_8026EA60_lbl_8050E208 RecoveredGlobal_8026EA60_lbl_8050E208;
+void TWindowShortListCtrl__sub_8026EA60(u8 *arg0) {
+  s32 temp_r31;
+  u32 temp_r3;
+  u8 temp_r31_2;
+  u8 temp_r3_2;
+  u8 temp_r3_3;
+  u8 temp_r3_4;
+  u8 temp_r3_5;
+  u8 temp_r3_6;
+  u8 *temp_r29;
+  temp_r31 = is_player_input_active((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24);
+  if (TWindowShortListCtrl__check_controller_button((void *) ((((u8 *) (&lbl_8050E208.value)) + (temp_r31 * 0x50)) + 0x20), (int) fn_8002AE08((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24)) != 0)
+  {
+    temp_r31_2 = ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C;
+    temp_r3 = ((u32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24)));
+    if (temp_r3 != 0U)
+    {
+      temp_r29 = (u8 *) (temp_r3 + 0x85C);
+      if ((temp_r29 != 0) && (((u32) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_34) == 0U))
+      {
+        ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C = (u8) (((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C + 1);
+        temp_r3_2 = ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C;
+        if (((s8) temp_r3_2) >= 4)
+        {
+          ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C = (u8) (temp_r3_2 - 4);
+        }
+        if ((((s32) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C) == 2) && (is_technique_usable__20TWindowShortListCtrlFPv((u8 *)((void *) arg0)) == 0))
+        {
+          ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C = (u8) (((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C + 1);
+          temp_r3_3 = ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C;
+          if (((s8) temp_r3_3) >= 4)
+          {
+            ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C = (u8) (temp_r3_3 - 4);
+          }
+        }
+        if (((RecoveredFields_8026EA60_temp_r29 *) temp_r29)->field_34 & 0x10)
+        {
+          temp_r3_4 = ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C;
+          if (((s32) temp_r3_4) == 3)
+          {
+            ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C = (u8) (temp_r3_4 + 1);
+            temp_r3_5 = ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C;
+            if (((s8) temp_r3_5) >= 4)
+            {
+              ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C = (u8) (temp_r3_5 - 4);
+            }
+          }
+        }
+        temp_r3_6 = ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C;
+        if (((s8) temp_r31_2) != ((s8) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C))
+        {
+          set_card_window_flags__20TWindowShortListCtrlFii((s32)((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24), (s32)((int) ((s32) ((s8) temp_r3_6))));
+          destroy_children__20TWindowShortListCtrlFPv((void *) arg0);
+          TWindowShortListCtrl__sub_8026EA48((u8 *)((void *) arg0));
+        }
+      }
+    }
+  }
 }
 
 int TWindowShortListCtrl__sub_8026EBB0(void* a0, void* a1, void* a2) { return 0; }

@@ -26,6 +26,8 @@ struct RecoveredGlobal_80164764_lbl_8058D490 {
     u8 remaining[0x2C];
 };
 
+struct RecoveredGlobal_80164DEC___vt__11TODragonfly { M2C_UNK value; u8 remaining[0x38]; };
+
 extern "C" {
 s32 TODragonfly__sub_80158360(s32, f32);
 s32 rand__11TOBoss4RockFv(void);
@@ -62,6 +64,22 @@ extern const f32 lbl_805DB574;
 extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB580;
 s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 init_map_object_base(void *, int);
+s32 rand__11TOBoss4RockFv(void);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern M2C_UNK __vt__11TODragonfly[];
+extern s32 lbl_805D2F98;
+extern s32 tl_05;
+extern const f32 lbl_805DB560;
+extern const f32 lbl_805DB56C;
+extern const f32 lbl_805DB570;
+extern const f32 lbl_805DB574;
+extern const f32 lbl_805DB578;
+extern const f32 lbl_805DB57C;
+extern const f32 lbl_805DB580;
+extern const f32 lbl_805DB594;
+u8 *TODragonfly__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -220,5 +238,25 @@ void *__dt__11TODragonflyFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma fp_contract on
+u8 *TODragonfly__ct(u8 *arg0) {
+    init_map_object_base((void *) (arg0), (int) (tl_05));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80164DEC___vt__11TODragonfly *)&__vt__11TODragonfly).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F98;
+    M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+    M2C_FIELD(arg0, f32 *, 0xD0) = (f32) (lbl_805DB594 + M2C_FIELD(arg0, f32 *, 0x68));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (arg0 + 0x38));
+    M2C_FIELD(arg0, f32 *, 0xE8) = (f32) lbl_805DB580;
+    M2C_FIELD(arg0, f32 *, 0xE4) = (f32) lbl_805DB580;
+    M2C_FIELD(arg0, f32 *, 0xE0) = (f32) lbl_805DB580;
+    M2C_FIELD(arg0, f32 *, 0xF4) = (f32) ((lbl_805DB56C * (f32) M2C_FIELD(arg0, s32 *, 0x84)) + lbl_805DB560);
+    M2C_FIELD(arg0, s32 *, 0xF8) = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / M2C_FIELD(arg0, f32 *, 0xF4))));
+    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())));
+    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) ((lbl_805DB56C * (f32) M2C_FIELD(arg0, s32 *, 0x88)) + lbl_805DB560);
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0xFC)))));
+    return arg0;
+}
+#pragma pop
 
 }

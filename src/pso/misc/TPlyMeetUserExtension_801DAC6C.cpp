@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK bswap__13packet_headerFv(void *);
+void handle_cmd_9A(u8 *arg0, s32 *arg1);
+}
+
+extern "C" {
 
 M2C_UNK set_port__7TSocketFUl(void *, s16);
 s32 resolve_domain__7TSocketFPc(void *, s32);
@@ -21,6 +26,18 @@ struct VObjDA : BaseDA {
     virtual M2C_UNK m5();
     virtual M2C_UNK m6();
 };
+
+void handle_cmd_9A(u8 *arg0, s32 *arg1) {
+    s32 sp8;
+    M2C_UNK (*temp_r12)(u8);
+    sp8 = M2C_FIELD(arg1, s32 *, 0);
+    bswap__13packet_headerFv((void *) (&sp8));
+    M2C_FIELD(arg0, s32 *, 0x190C) = (s32) M2C_FIELD(&sp8, u8 *, 0x1);
+    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(u8), 0xBC28);
+    if (temp_r12 != NULL) {
+        temp_r12(M2C_FIELD(&sp8, u8 *, 0x1));
+    }
+}
 
 s32 socket_set_server_info(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
     s32 temp_r31;

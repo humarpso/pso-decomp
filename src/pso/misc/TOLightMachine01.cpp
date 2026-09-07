@@ -13,6 +13,19 @@ struct VObj_8016E9F4_8016E998 : Base_8016E9F4_8016E998 {
 struct RecoveredGlobal_8016EB3C_lbl_804B2EC4 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8016EB3C_lbl_804B2EC4_size[sizeof(RecoveredGlobal_8016EB3C_lbl_804B2EC4) == 0x10 ? 1 : -1];
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8016EC04___vt__16TOLightMachine01 { M2C_UNK value; u8 remaining[0x30]; };
+
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 TObjFish__sub_8001EDC4(void *, s32);
@@ -23,6 +36,24 @@ extern u32 TOLightMachine01__data_805D5A40;
 extern s32 lbl_805D5A44;
 extern s32 lbl_805D5A48;
 void TOLightMachine01__sub_8016EB3C(void);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 TPhotonMagicSquare__sub_801A2640(void *, int);
+s32 rand__11TOBoss4RockFv();
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern M2C_UNK __vt__16TOLightMachine01[];
+extern s32 lbl_805D306C;
+extern u32 TOLightMachine01__data_805D5A40;
+extern s32 tl_05;
+extern const f32 lbl_805DB82C;
+extern const f32 lbl_805DB830;
+extern const f32 lbl_805DB834;
+extern const f32 lbl_805DB838;
+extern const f32 lbl_805DB83C;
+extern const f32 lbl_805DB840;
+extern const f32 lbl_805DB844;
+extern const f32 lbl_805DB848;
+u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -35,7 +66,6 @@ void run_task__16TOLightMachine01Fv(void *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
-void *TOLightMachine01__ct(void *, void *);
 M2C_UNK TOSignCave03__sub_803DB510(s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -82,7 +112,7 @@ void render__16TOLightMachine01Fv(u8 *arg0) {
 void *create__16TOLightMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB0);
     if (o != NULL) {
-        o = TOLightMachine01__ct(o, arg0);
+        o = TOLightMachine01__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
@@ -121,5 +151,26 @@ void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma fp_contract on
+u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (int) (tl_05));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D306C;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)TObjFish__sub_8001EDC4((void *)((*(s32 *)&TOLightMachine01__data_805D5A40)), (s32)(1)));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__data_805D5A40))), (s32)((int) (1)));
+    M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DB82C;
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    M2C_FIELD(arg0, f32 *, 0xA0) = (f32) ((lbl_805DB834 * (f32) M2C_FIELD(arg0, s32 *, 0x84)) + lbl_805DB830);
+    M2C_FIELD(arg0, s32 *, 0xA4) = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / M2C_FIELD(arg0, f32 *, 0xA0))));
+    M2C_FIELD(arg0, s32 *, 0xA8) = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand__11TOBoss4RockFv())));
+    M2C_FIELD(arg0, f32 *, 0x98) = (f32) ((lbl_805DB834 * (f32) M2C_FIELD(arg0, s32 *, 0x88)) + lbl_805DB848);
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x98) * TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0xA8)))));
+    M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+    return arg0;
+}
+#pragma pop
 
 }

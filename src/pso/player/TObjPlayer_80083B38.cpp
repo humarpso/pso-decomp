@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80083CEC_lbl_8048E5D0 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 extern int lbl_805D4EE0;
 void TObjPlayer__sub_80083FB0(void);
@@ -37,6 +42,11 @@ void TObjPlayer__sub_80084790(void);
 void **TLobby__sub_803DA16C();
 extern M2C_UNK lbl_8048E5C8[];
 void **TObjPlayer__sub_80083F04(void);
+f32 TObjPlayer__sub_80141CF8(void *, void *);
+extern RecoveredGlobal_80083CEC_lbl_8048E5D0 lbl_8048E5D0;
+extern u32 lbl_805D4DF0;
+extern const f32 lbl_805D9434;
+s32 TObjPlayer__sub_80083CEC(u8 *arg0, f32 farg0);
 }
 
 extern "C" {
@@ -58,6 +68,17 @@ void draw_if_all_ready__10TObjPlayerFv(void) {
 }
 
     extern int lbl_805D4EE0;
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_80083CEC_lbl_8048E5D0_size[sizeof(RecoveredGlobal_80083CEC_lbl_8048E5D0) == 0xC ? 1 : -1];
+s32 TObjPlayer__sub_80083CEC(u8 *arg0, f32 farg0) {
+    if (((u32) lbl_805D4DF0 != 0U) && (((farg0 * farg0) + TObjPlayer__sub_80141CF8(arg0, &lbl_8048E5D0.value)) <= lbl_805D9434)) {
+        return 1;
+    }
+    return 0;
+}
+#pragma pop
 
 void **TObjPlayer__sub_80083F04(void) {
     void **var_r3;

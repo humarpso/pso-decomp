@@ -113,6 +113,17 @@ struct VObj_18_f9c8ca : VBase_18_f9c8ca {
     virtual M2C_UNK m100();
 };
 
+struct VBase_14_c143b1 { char pad[0x14]; };
+
+struct VObj_14_c143b1 : VBase_14_c143b1 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4();
+    virtual s32 m5();
+};
+
 extern "C" {
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK set_state_flags__18TObjEneRe4SorcererFPv(void *);
@@ -127,6 +138,7 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 TBoss8Dragon__sub_800BB780(void *);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
+void TObjEneRe4Bit__sub_800ED150(u8 *arg0);
 }
 
 extern "C" {
@@ -238,6 +250,21 @@ void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
 }
 
 extern const f32 TObjEneRe4Bit__data_805DA770;
+
+void TObjEneRe4Bit__sub_800ED150(u8 *arg0) {
+    s32 temp_r3;
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x3CC);
+    if (temp_r3 & 4) {
+        if (((VObj_14_c143b1 *)((u8 *)(arg0) + (988)))->m4() != 0) {
+            M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFFB);
+            M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFDFF);
+            M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFEFF);
+        }
+    } else if ((temp_r3 & 8) && (((VObj_14_c143b1 *)((u8 *)(arg0) + (988)))->m5() != 0)) {
+        M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFF7);
+        M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFDFF);
+    }
+}
 
 void reset_transform__13TObjEneRe4BitFPv(void *arg0) {
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 764), M2C_FIELD(arg0, void **, 0x3C0));

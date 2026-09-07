@@ -9,6 +9,9 @@ extern f32 lbl_805DFB1C;
 extern f32 TWindowDD__data_805DFCD8;
 extern f32 lbl_805DFCDC;
 void TWindowDD__sub_80348A2C(void *arg0, void *arg1);
+extern const f32 lbl_805DFCE0;
+extern const f32 lbl_805DFCE4;
+f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -23,7 +26,6 @@ M2C_UNK TWindowDD__sub_803403F8(Buf *, M2C_UNK);
 s32 TWindowDD__sub_803485F4(s32, s32 *);
 M2C_UNK TWindowDD__sub_803489B8(s32, Buf *, M2C_UNK);
 M2C_UNK TWindowDD__sub_80348A9C(Buf *, s32);
-M2C_UNK TWindowDD__sub_80348AD4(f32, f32);
 M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(Buf *, M2C_UNK, s32, M2C_UNK);
 s32 strlen();
 M2C_UNK strncpy(s32, s32, s32);
@@ -92,6 +94,13 @@ void TWindowDD__sub_80348A2C(void *arg0, void *arg1) {
   *((f32 *) (new_var + 0xA8)) = temp_f4;
   *((f32 *) new_var2) = temp_f4;
 }
+
+#pragma push
+#pragma fp_contract on
+f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1) {
+    return lbl_805DFCE0 / ((lbl_805DFCE4 * farg1) + farg0);
+}
+#pragma pop
 
 s32 get_draw_count__9TWindowDDFPv(void **arg0) {
     return *M2C_FIELD(M2C_FIELD(*arg0, void **, 0x20), s32 **, 0xC);

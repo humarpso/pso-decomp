@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 TCameraCtrl__sub_803D8D00(u8 *arg0);
+}
+
+extern "C" {
 
 void set_monitor_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void set_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
@@ -18,5 +22,17 @@ void set_monitor_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
 void set_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     TObjPlayer__sub_803D9624((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
 }
+#pragma push
+#pragma fp_contract on
+f32 TCameraCtrl__sub_803D8D00(u8 *arg0) {
+    f32 temp_f0;
+    f32 temp_f1;
+    f32 temp_f2;
+    temp_f0 = M2C_FIELD(arg0, f32 *, 0);
+    temp_f1 = M2C_FIELD(arg0, f32 *, 4);
+    temp_f2 = M2C_FIELD(arg0, f32 *, 8);
+    return (temp_f2 * temp_f2) + ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
+}
+#pragma pop
 
 }

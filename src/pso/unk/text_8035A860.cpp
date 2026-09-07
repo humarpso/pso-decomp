@@ -15,6 +15,9 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8035A860_lbl_804F1C58 lbl_804F1C58;
 extern const f32 lbl_805E00E8;
 u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2);
+extern const f32 lbl_805DE9F0;
+extern const f32 lbl_805E00F0;
+void fn_8035A8E0(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -33,5 +36,19 @@ u8 *fn_8035A860(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     return arg0;
 }
+#pragma push
+#pragma fp_contract on
+void fn_8035A8E0(u8 *arg0, u8 *arg1) {
+    f32 temp_f2;
+    f32 temp_f2_2;
+    if (arg1 != NULL) {
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0x24);
+        temp_f2_2 = (lbl_805E00F0 - temp_f2) / (lbl_805DE9F0 - temp_f2);
+        M2C_FIELD(arg1, f32 *, 0) = (f32) ((M2C_FIELD(arg0, f32 *, 0x38) * temp_f2_2) + M2C_FIELD(arg0, f32 *, 0x20));
+        M2C_FIELD(arg1, f32 *, 4) = (f32) ((M2C_FIELD(arg0, f32 *, 0x3C) * temp_f2_2) + M2C_FIELD(arg0, f32 *, 0x24));
+        M2C_FIELD(arg1, f32 *, 8) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * temp_f2_2) + M2C_FIELD(arg0, f32 *, 0x28));
+    }
+}
+#pragma pop
 
 }

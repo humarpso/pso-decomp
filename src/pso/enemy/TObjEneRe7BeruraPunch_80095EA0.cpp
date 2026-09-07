@@ -4,6 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_14_c1c33b { char pad[0x14]; };
+
+struct VObj_14_c1c33b : VBase_14_c1c33b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4();
+};
+
+extern "C" {
+M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
+extern const f32 lbl_805D979C;
+extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
+void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0);
+}
+
 extern "C" {
 
 struct VObjHang_80095EA0 {
@@ -77,6 +94,18 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
 
 extern const f32 lbl_805D9794;
 extern const f32 lbl_805D97B4;
+
+#pragma push
+#pragma fp_contract on
+void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0) {
+    if (((VObj_14_c1c33b *)((u8 *)(arg0) + (248)))->m4() != 0) {
+        M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+    }
+    M2C_FIELD(arg0, f32 *, 0xDC) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xBC))) + M2C_FIELD(arg0, f32 *, 0xDC));
+    M2C_FIELD(arg0, f32 *, 0xE4) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xC4))) + M2C_FIELD(arg0, f32 *, 0xE4));
+    TObjEneRe7BeruraPunch__sub_80096300((void *) (arg0));
+}
+#pragma pop
 
 void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r3;

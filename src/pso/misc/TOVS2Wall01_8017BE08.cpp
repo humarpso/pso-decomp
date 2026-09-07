@@ -4,12 +4,56 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct VBase_14_1eb8da { char pad[0x14]; };
+
+struct VObj_14_1eb8da : VBase_14_1eb8da {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual M2C_UNK m6(s32, s32);
+    virtual M2C_UNK m7();
+};
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TOVS2Wall01__sub_8017B9AC(void *);
 void release__11TOVS2Wall01FPv(void* p);
 int interact_player_neg1__11TOVS2Wall01FPv(void* p);
 void run_task__11TOVS2Wall01Fv(u8 *arg0);
+s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
+M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TObjBoss2Tunnel__sub_803DB470(int);
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+void render__11TOVS2Wall01Fv(u8 *arg0);
 }
 
 extern "C" {
@@ -48,6 +92,37 @@ void run_task__11TOVS2Wall01Fv(u8 *arg0) {
     case 1:
         release__11TOVS2Wall01FPv((void*)((void *) (arg0)));
         return;
+    }
+}
+
+void render__11TOVS2Wall01Fv(u8 *arg0) {
+    s32 var_r31;
+    TObjPlayer__sub_800D7BB0((void *) (arg0 + 0x340));
+    M2C_FIELD(arg0, s32 *, 0x35C) = ((VObj_18_26a62c *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0x334), M2C_FIELD(arg0, f32 *, 0x338));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x35C) == 1) {
+        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+            var_r31 = 0;
+        } else {
+            var_r31 = updateFromCamera__15RenderFadeStateFPCf((void *) (arg0 + 0x340), (void *) (arg0 + 0x38));
+        }
+        if (var_r31 != 0) {
+            lbl_805D5660 = some_id_805c6f74;
+            lbl_805D5664 = lbl_805D7784;
+            lbl_805D5668 = lbl_805D7780;
+            ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m6(lbl_805D7784, some_id_805c6f74);
+        }
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+        TObjBoss2Tunnel__sub_803DB470((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        TObjPlayer__sub_803D9B78();
+        if (var_r31 != 0) {
+            ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m7();
+            lbl_805D7784 = lbl_805D5664;
+            lbl_805D7780 = lbl_805D5668;
+            some_id_805c6f74 = lbl_805D5660;
+        }
     }
 }
 

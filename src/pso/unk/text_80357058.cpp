@@ -10,7 +10,6 @@ typedef char RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot_size[sizeof(R
 extern "C" {
 u8 * fn_802E4A4C(void *, M2C_UNK, void *);
 int TItemEffOrgaFlowShot__sub_80357284(void *);
-void TItemEffOrgaFlowShot__sub_80357358(void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 f32 TNpcPlayer__sub_803D97B4(void *);
@@ -21,6 +20,9 @@ extern const f32 lbl_805E003C;
 extern const f32 lbl_805E0040;
 extern const f32 lbl_805E0044;
 u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2);
+extern const f32 lbl_805E0028;
+extern const f32 lbl_805E002C;
+void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0);
 }
 
 extern "C" {
@@ -72,6 +74,19 @@ int TItemEffOrgaFlowShot__sub_80357284(void * _w0) { return 0; }
 
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
+
+#pragma push
+#pragma fp_contract on
+void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0) {
+    f32 temp_f2;
+    temp_f2 = lbl_805E0028 * M2C_FIELD(arg0, f32 *, 0x190);
+    M2C_FIELD(arg0, f32 *, 0x40) = temp_f2;
+    M2C_FIELD(arg0, f32 *, 0x44) = (f32) (lbl_805E002C + M2C_FIELD(arg0, f32 *, 0x194));
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) ((M2C_FIELD(arg0, f32 *, 0x17C) * temp_f2) + M2C_FIELD(arg0, f32 *, 0x114));
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg0, f32 *, 0x118);
+    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x184) * temp_f2) + M2C_FIELD(arg0, f32 *, 0x11C));
+}
+#pragma pop
 
 void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     begin_effect_render__13TParticleCtrlFv();
@@ -139,7 +154,7 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0xE0) = 0x408840;
     M2C_FIELD(arg0, s32 *, 0x160) = 0x408840;
     TItemEffOrgaFlowShot__sub_80357284((void *)(arg0));
-    TItemEffOrgaFlowShot__sub_80357358(arg0);
+    TItemEffOrgaFlowShot__sub_80357358((u8 *)(arg0));
     return arg0;
 }
 

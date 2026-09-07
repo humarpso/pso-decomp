@@ -4,9 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_800339BC {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_800339BC_lbl_804FF5E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
 extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8003B1D8(void *);
 void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 TOSwitchAttack__sub_80087278(void *, int, int);
+extern RecoveredGlobal_800339BC_lbl_804FF5E8 lbl_804FF5E8;
+void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -62,6 +78,22 @@ void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x53C) = (s32) (M2C_FIELD(arg0, s32 *, 0x53C) + 1);
     }
 }
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_800339BC_lbl_804FF5E8_size[sizeof(RecoveredGlobal_800339BC_lbl_804FF5E8) == 0x28 ? 1 : -1];
+void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1) {
+    typedef char sp8_offset[(offsetof(Stack_800339BC, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800339BC, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800339BC, sp10) == 0x8) ? 1 : -1];
+    Stack_800339BC stack;
+    VecCopy__FP3VecPC3Vec((int)((void *) (&stack.sp8)), (void *)((void *) (arg0)));
+    stack.sp8 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC) * farg1) - stack.sp8);
+    stack.spC -= (M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10) * farg1) - farg0;
+    stack.sp10 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14) * farg1) - stack.sp10);
+    TOSwitchAttack__sub_80087278((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
+}
+#pragma pop
 
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2) {
     create_particle__17TObjBoss2CeilJunkFv(arg2, 0x121);

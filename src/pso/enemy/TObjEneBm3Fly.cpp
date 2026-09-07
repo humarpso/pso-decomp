@@ -118,6 +118,11 @@ extern s32 TObjEneBm3Fly__data_805D50E4;
 extern f32 TObjEneBm3Fly__data_805D9C88;
 extern f32 TObjEneBm3Fly__data_805D9CC8;
 s32 TObjEneBm3Fly__sub_800B177C(u8 *arg0);
+s32 get_random_scaled__9TObjEneDDFv(void *);
+f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
+extern const f32 TObjEneBm3Fly__data_805D9C94;
+extern const f32 lbl_805D9CD8;
+void TObjEneBm3Fly__sub_800B1634(u8 *arg0);
 }
 
 extern "C" {
@@ -140,6 +145,14 @@ extern const f32 TObjEneBm3Fly__data_805D9C78;
 extern const f32 lbl_805D9CE0;
 extern const f32 lbl_805D9CE4;
 extern const f32 lbl_805D9CE8;
+
+#pragma push
+#pragma fp_contract on
+void TObjEneBm3Fly__sub_800B1634(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x444) = (f32) ((TObjEneBm3Fly__data_805D9C94 * calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0))) + (lbl_805D9CD8 + M2C_FIELD(arg0, f32 *, 0x420)));
+    M2C_FIELD(arg0, s32 *, 0x448) = get_random_scaled__9TObjEneDDFv((void *) (arg0));
+}
+#pragma pop
 
 s32 TObjEneBm3Fly__sub_800B177C(u8 *arg0) {
     f32 temp_f31;

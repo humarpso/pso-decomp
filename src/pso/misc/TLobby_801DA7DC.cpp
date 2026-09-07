@@ -17,6 +17,11 @@ struct VObj_801DA7DC : Base_801DA7DC {
 };
 
 extern "C" {
+M2C_UNK bswap__13packet_headerFv(void *);
+void handle_cmd_9C(u8 *arg0, s32 *arg1);
+}
+
+extern "C" {
 
 void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1);
 M2C_UNK bswap_c6_packet__6TLobbyFPv(void *);
@@ -27,6 +32,17 @@ void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1) {
         M2C_FIELD(arg1, s16 *, 2) = 0x7C;
         bswap_c6_packet__6TLobbyFPv(arg1);
         ((VObj_801DA7DC *)arg0)->m_call(arg1, 0x7C);
+    }
+}
+void handle_cmd_9C(u8 *arg0, s32 *arg1) {
+    s32 sp8;
+    M2C_UNK (*temp_r12)(u8);
+    sp8 = M2C_FIELD(arg1, s32 *, 0);
+    bswap__13packet_headerFv((void *) (&sp8));
+    M2C_FIELD(arg0, s32 *, 0x190C) = (s32) M2C_FIELD(&sp8, u8 *, 0x1);
+    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(u8), 0xBC2C);
+    if (temp_r12 != NULL) {
+        temp_r12(M2C_FIELD(&sp8, u8 *, 0x1));
     }
 }
 

@@ -205,6 +205,16 @@ struct VObj_18_aab587 : VBase_18_aab587 {
     virtual M2C_UNK m93();
 };
 
+struct VBase_14_c1c33b { char pad[0x14]; };
+
+struct VObj_14_c1c33b : VBase_14_c1c33b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4();
+};
+
 extern "C" {
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
@@ -222,6 +232,16 @@ extern const f32 lbl_805DA7C0;
 extern const f32 lbl_805DA7D8;
 extern const f32 lbl_805DA7DC;
 void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1);
+s32 queue_destruction__7TObjectFv(void *);
+s32 TObjPlayer__sub_800A04F0(void *);
+s32 refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
+s32 request_two_effects__10TObjPlayerFPv(void *);
+s32 apply_effect_variant_b__10TObjPlayerFii(void *, int);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+s32 TBoss1Dragon__sub_80143504(void *);
+s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
+extern const f32 TObjEneRe4Sorcerer__data_805DA790;
+void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -249,6 +269,30 @@ M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 extern const f32 lbl_805DA7C0;
 extern const f32 lbl_805DA7C4;
 extern const f32 lbl_805DA7C8;
+
+void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1) {
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 6;
+        M2C_FIELD(arg0, s32 *, 0x3C8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C8) | 6);
+        refresh_and_send_entity_flags__12TBoss8DragonFPv((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0x4E4) = 0;
+        request_two_effects__10TObjPlayerFPv((void *) (arg0 + 0x2FC));
+        TObjPlayer__sub_800A04F0((void *) (arg0 + 0x3FC));
+        M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) TObjEneRe4Sorcerer__data_805DA790;
+        TBoss3Volopt__sub_8022675C((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *)((void *) (arg0)), (M2C_UNK)((int) (0x4003AD19))))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 0:
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        if (((VObj_14_c1c33b *)((u8 *)(arg0) + (1020)))->m4() != 0) {
+            apply_effect_variant_b__10TObjPlayerFii((void *) (arg0 + 0x38), (int) (0));
+            queue_destruction__7TObjectFv((void *) (arg0));
+        }
+    case 3:
+    case 5:
+        return;
+    }
+}
 
 void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
     switch (arg1) {

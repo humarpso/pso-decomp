@@ -69,6 +69,10 @@ u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 extern RecoveredGlobal_802B7E88_lbl_80470CEC lbl_80470CEC;
 extern const f32 TBoss6Type1__data_805DE2D0;
 void TBoss6Type1__sub_802B7E88(u8 *arg0);
+extern const f32 TBoss6Type1__data_805DE2D0;
+extern const s32 lbl_805DE3A8;
+extern const s32 lbl_805DE3B0;
+void TBoss6Type1__sub_802B7D50(u8 *arg0);
 }
 
 extern "C" {
@@ -417,6 +421,14 @@ void update_position__11TBoss6Type1FPv(u8 *arg0) {
 }
 
 typedef struct Stack_802B7D74_boss6_1 Stack_802B7D74_boss6_1;
+
+void TBoss6Type1__sub_802B7D50(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x4E8) = (f32) TBoss6Type1__data_805DE2D0;
+    M2C_FIELD(arg0, s32 *, 0x4EC) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4F0) = (s32) lbl_805DE3A8;
+    M2C_FIELD(arg0, s32 *, 0x4F4) = (s32) lbl_805DE3B0;
+}
+
 void TBoss6Type1__sub_802B7D74(u8 *arg0) {
   Stack_802B7D74_boss6_1 stack;
   M2C_UNK var_r5;

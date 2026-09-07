@@ -4,9 +4,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_80157AD8_lbl_804AF9A8 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_80157AD8___vt__15TOAttackableCol {
+    M2C_UNK value;
+    u8 remaining[0x138];
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void *TOAttackableCol__ct(void *, void *);
 int TOAttackableCol__vt24(void);
 int TOAttackableCol__vt25(void);
 int TOAttackableCol__vt18(void);
@@ -44,6 +64,20 @@ extern u32 lbl_805D5EEC;
 extern s32 tl_00;
 extern const f32 lbl_805DB2C8;
 f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1);
+s32 TObjPlayer__sub_80019038(void *, int);
+s32 calc_attach_pos__10TObjPlayerFPv(void *);
+s32 obj_setFlags30(void *, int);
+M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+void init_params__15TOAttackableColFPv(void *arg0);
+extern RecoveredGlobal_80157AD8_lbl_804AF9A8 lbl_804AF9A8;
+extern M2C_UNK __vt__15TOAttackableCol[];
+extern s32 lbl_805D2E98;
+extern s32 tl_05;
+extern const f32 lbl_805DB2CC;
+extern const f32 lbl_805DB2D0;
+u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -253,7 +287,7 @@ void * TOAttackableCol__sub_80157A28(void *arg0) {
     void *o;
     o = __nw__7TObjectFUl(0x350);
     if (o != NULL) {
-        o = TOAttackableCol__ct(o, arg0);
+        o = TOAttackableCol__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
@@ -268,6 +302,25 @@ void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_80157AD8_lbl_804AF9A8_size[sizeof(RecoveredGlobal_80157AD8_lbl_804AF9A8) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_80157AD8___vt__15TOAttackableCol_size[sizeof(RecoveredGlobal_80157AD8___vt__15TOAttackableCol) == 0x13C ? 1 : -1];
+u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
+    TObjPlayer__sub_80019038((void *) (arg0), (int) (tl_05));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E98;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    calc_attach_pos__10TObjPlayerFPv((void *) (arg0));
+    obj_setFlags30((void *) (arg0), (int) (0x60000000));
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804AF9A8.value), (int) (1));
+    set_indexed_flags((void *)((void *) (arg0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0x718)));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, f32 *, 0x334) = (f32) lbl_805DB2CC;
+    M2C_FIELD(arg0, f32 *, 0x338) = (f32) lbl_805DB2D0;
+    init_params__15TOAttackableColFPv((void *) (arg0));
     return arg0;
 }
 

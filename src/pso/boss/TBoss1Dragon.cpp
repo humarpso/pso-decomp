@@ -531,6 +531,28 @@ struct RecoveredGlobal_8002885C_TBoss1Dragon__data_804FE168 {
     u8 remaining[0x10];
 };
 
+struct RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C {
+    u8 * value;
+    u8 remaining[0x8];
+};
+
+struct Stack_80027E78 {
+    M2C_UNK sp8;
+    u8 pad_C[0x4];
+    f32 sp10;
+    u8 trailing_storage[0x8];
+};
+
+struct RecoveredGlobal_80027E78_lbl_80434E8C {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C {
+    u8 * value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
@@ -641,6 +663,22 @@ void TBoss1Dragon__sub_8002AA0C(u8 *arg0, u8 *arg1);
 s32 reset_hp__9TObjEneDDFPv(void *, int, int, int);
 extern RecoveredGlobal_8006435C_lbl_804FF5A0 TBoss1Dragon__data_804FE168;
 void TBoss1Dragon__sub_8002885C(s32 arg0);
+extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
+extern const f32 lbl_805D8094;
+f32 TBoss1Dragon__sub_80027634(void);
+s32 isV2Mode__12TBoss1DragonFv(void);
+M2C_UNK TBoss1Dragon__sub_80027590(void* object, void* action);
+void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
+M2C_UNK TBoss1Dragon__sub_800287F4(void *, int);
+void TBoss1Dragon__sub_80028890(s32 arg0);
+M2C_UNK TObjEneDD__sub_800BA498(void *, void *);
+extern RecoveredGlobal_80027E78_lbl_80434E8C lbl_80434E8C;
+extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
+void TBoss1Dragon__sub_80027E78(s32 arg0);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 lbl_805D80BC;
+void TBoss1Dragon__sub_80029328(u8 *arg0, f32 *arg1, f32 *arg2);
 }
 
 extern "C" {
@@ -939,6 +977,11 @@ void TBoss1Dragon__sub_800275BC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3) {
     ((VObj_18_ffc433 *)(temp_r3))->m15(arg2 + 0xC, arg3);
 }
 
+typedef char RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C_size[sizeof(RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C) == 0xC ? 1 : -1];
+f32 TBoss1Dragon__sub_80027634(void) {
+    return lbl_805D8094 * M2C_FIELD(TBoss1Dragon__data_804FE17C.value, f32 *, 4);
+}
+
 void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1) {
     *(M2CCopy_8 *)(arg0) = *(const M2CCopy_8 *)(arg1);
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
@@ -980,6 +1023,28 @@ int TBoss1Dragon::initDefault() {
 }
 
 extern "C" {
+
+typedef char RecoveredGlobal_80027E78_lbl_80434E8C_size[sizeof(RecoveredGlobal_80027E78_lbl_80434E8C) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C_size[sizeof(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C) == 0xC ? 1 : -1];
+void TBoss1Dragon__sub_80027E78(s32 arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80027E78, sp8) == 0x0) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80027E78, sp10) == 0x8) ? 1 : -1];
+    Stack_80027E78 stack;
+    s32 temp_r3;
+    TBoss1Dragon__sub_80027A80((u8 *)((void *) (&stack.sp8)), (u8 *)((void *) (&lbl_80434E8C.value)));
+    stack.sp10 = M2C_FIELD((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value, f32 *, 0xC);
+    TBoss1Dragon__sub_800287F4((void *) (arg0), (int) ((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value));
+    temp_r3 = isV2Mode__12TBoss1DragonFv();
+    switch (temp_r3) {
+    case 0:
+        TObjEneDD__sub_800BA498((void *) (arg0), (void *) (&stack.sp8));
+        break;
+    case 1:
+        TBoss1Dragon__sub_80027590((void*)((void *) (arg0)), (void*)((void *) (&stack.sp8)));
+        break;
+    }
+    TBoss1Dragon__sub_80028890((s32)((void *) (arg0)));
+}
 
 void clear_work__12TBoss1DragonFi(s32 arg0) {
     alloc_effect_node__12TBoss3VoloptFUisi(arg0 + 0x38, 0xE0, arg0);
@@ -1243,6 +1308,14 @@ void TBoss1Dragon::resetHpPhase() {
 }
 
 extern "C" {
+
+#pragma push
+#pragma fp_contract on
+void TBoss1Dragon__sub_80029328(u8 *arg0, f32 *arg1, f32 *arg2) {
+    *arg1 = (lbl_805D80BC * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60))) + M2C_FIELD(arg0, f32 *, 0x38);
+    *arg2 = (lbl_805D80BC * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60))) + M2C_FIELD(arg0, f32 *, 0x40);
+}
+#pragma pop
 
 void calc_target_vector__12TBoss1DragonFPv(u8 *arg0) {
     f32 temp_f1;

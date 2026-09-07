@@ -4,6 +4,27 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_801674E0_lbl_804B1DB8 {
+    M2C_UNK value;
+    u8 remaining[0x15C];
+};
+
+struct RecoveredGlobal_801674E0___vt__16TOFenceAncient03 {
+    M2C_UNK value;
+    u8 remaining[0x44];
+};
+
 extern "C" {
 u8 *TLobby__sub_8001FE7C(void *, s16);
 void free__11TOBoss4RockFUi(u32);
@@ -11,6 +32,21 @@ void free_if_valid__10TObjPlayerFi(s32);
 extern u8 *TOFenceAncient03__data_805D59C0;
 extern u32 TOFenceAncient03__data_805D59C4;
 void TOFenceAncient03__sub_8016733C(void);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_80154E3C(void *);
+M2C_UNK TObjEneGibbles__sub_80156780(void *, void *, int, int, f32);
+M2C_UNK init_fields__16TOFenceAncient01FPv();
+M2C_UNK fn_80166E64(void *);
+s32 fn_80166EA8(void *, int);
+extern RecoveredGlobal_801674E0_lbl_804B1DB8 lbl_804B1DB8;
+extern M2C_UNK __vt__16TOFenceAncient03[];
+extern s32 lbl_805D2FD8;
+extern u8 *TOFenceAncient03__data_805D59C0;
+extern u32 TOFenceAncient03__data_805D59C4;
+extern const f32 lbl_805DB630;
+extern const f32 lbl_805DB634;
+extern const f32 lbl_805DB638;
+u8 *TOFenceAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -20,7 +56,6 @@ void TOFenceAncient03__vt13(void* p);
 void TOFenceAncient03__vt14(void);
 void *__dt__16TOFenceAncient03Fv(void *arg0, s16 arg1);
 void *create__16TOFenceAncient03FPv(void *arg0);
-void *TOFenceAncient03__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -38,7 +73,7 @@ extern void *tl_05;
 void *create__16TOFenceAncient03FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TOFenceAncient03__ct(o, tl_05, arg0);
+        o = TOFenceAncient03__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -82,6 +117,31 @@ void *__dt__16TOFenceAncient03Fv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_801674E0_lbl_804B1DB8_size[sizeof(RecoveredGlobal_801674E0_lbl_804B1DB8) == 0x160 ? 1 : -1];
+typedef char RecoveredGlobal_801674E0___vt__16TOFenceAncient03_size[sizeof(RecoveredGlobal_801674E0___vt__16TOFenceAncient03) == 0x48 ? 1 : -1];
+u8 *TOFenceAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    f32 temp_f1;
+    u8 *temp_r4;
+    u8 *temp_r6;
+    init_fields__16TOFenceAncient01FPv();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801674E0___vt__16TOFenceAncient03 *)&__vt__16TOFenceAncient03).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FD8;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    temp_r4 = (u8 *)(M2C_FIELD(TOFenceAncient03__data_805D59C0, u8 **, 0x42C));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(temp_r4, s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(((*(s32 *)&TOFenceAncient03__data_805D59C4) + (fn_80166EA8((void *) (arg0), (int) (temp_r4)) * 4)), s32 *, 0);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD(TOFenceAncient03__data_805D59C0, u8 **, 0x430), void **, 4));
+    temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xBC));
+    temp_f1 = (f32) M2C_FIELD(temp_r6, u32 *, 4);
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) (temp_f1 - lbl_805DB630);
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B1DB8.value), (int) (8), (int) (temp_r6), (f32) (temp_f1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    fn_80166E64((void *) (arg0));
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB634;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB638;
     return arg0;
 }
 

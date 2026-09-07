@@ -18,6 +18,10 @@ M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C24C(int);
 extern RecoveredGlobal_80260808_lbl_8050E208 lbl_8050E208;
 void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1);
+extern u8 *TWindowKeyBoardSoft__data_805D5548;
+extern const f32 TWindowKeyBoardSoft__data_805DD080;
+extern const f32 lbl_805DD084;
+f32 TWindowKeyBoardSoft__sub_802606E0(void);
 }
 
 extern "C" {
@@ -81,6 +85,13 @@ s32 calc_key_index__19TWindowKeyBoardSoftFiii(s32 arg1, s32 arg2, s32 arg3) {
 }
 
 extern s32 lbl_805D5544;
+
+#pragma push
+#pragma fp_contract on
+f32 TWindowKeyBoardSoft__sub_802606E0(void) {
+    return -((TWindowKeyBoardSoft__data_805DD080 * (f32) (M2C_FIELD(TWindowKeyBoardSoft__data_805D5548, u8 *, 0) * M2C_FIELD(TWindowKeyBoardSoft__data_805D5548, u8 *, 1))) - lbl_805DD084);
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

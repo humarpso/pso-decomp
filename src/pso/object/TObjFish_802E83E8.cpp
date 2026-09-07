@@ -4,6 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_802EC468 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_802EC468_lbl_804FF5E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 TOSwitchAttack__sub_80087278(void *, int, int);
+extern RecoveredGlobal_802EC468_lbl_804FF5E8 lbl_804FF5E8;
+void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1);
+}
+
 extern "C" {
 
 void TObjFish__sub_802EC32C(void);
@@ -56,6 +75,22 @@ void update_projectile_spawns__8TObjFishFPv(u8 *arg0) {
         spawn_via_trap__8TObjFishFiii((s32)((void *) (arg0)), (s32)((int) (0x39F08)), (s32)((void *) (arg0 + 0x50C)));
     }
 }
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_802EC468_lbl_804FF5E8_size[sizeof(RecoveredGlobal_802EC468_lbl_804FF5E8) == 0x28 ? 1 : -1];
+void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1) {
+    typedef char sp8_offset[(offsetof(Stack_802EC468, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_802EC468, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_802EC468, sp10) == 0x8) ? 1 : -1];
+    Stack_802EC468 stack;
+    VecCopy__FP3VecPC3Vec((int)((void *) (&stack.sp8)), (void *)((void *) (arg0)));
+    stack.sp8 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC) * farg1) - stack.sp8);
+    stack.spC -= (M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10) * farg1) - farg0;
+    stack.sp10 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14) * farg1) - stack.sp10);
+    TOSwitchAttack__sub_80087278((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
+}
+#pragma pop
 
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2) {
     spawn_default_particle__8TObjFishFv(arg2, 0x201);

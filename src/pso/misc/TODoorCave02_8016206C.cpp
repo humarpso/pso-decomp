@@ -4,13 +4,59 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_4a4f5b { char pad[0x18]; };
+
+struct VObj_18_4a4f5b : VBase_18_4a4f5b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual M2C_UNK m17();
+};
+
+struct RecoveredGlobal_8016226C_lbl_804B1488 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8016226C___vt__12TODoorCave02 {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
+extern "C" {
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_door_base(void *);
+extern RecoveredGlobal_8016226C_lbl_804B1488 lbl_804B1488;
+extern M2C_UNK __vt__12TODoorCave02[];
+extern s32 lbl_805D2F68;
+extern u32 lbl_805D5960;
+extern const f32 lbl_805DB4B8;
+extern const f32 lbl_805DB4C8;
+u8 *TODoorCave02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+}
+
 extern "C" {
 
 void *__dt__12TODoorCave02Fv(void *arg0, s16 arg1);
 void *create__12TODoorCave02FPv(void *arg0);
 void free_globals__12TODoorCave02Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void *TODoorCave02__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -24,7 +70,7 @@ extern void *tl_05;
 void *create__12TODoorCave02FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);
     if (o != NULL) {
-        o = TODoorCave02__ct(o, tl_05, arg0);
+        o = TODoorCave02__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -58,6 +104,28 @@ void *__dt__12TODoorCave02Fv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8016226C_lbl_804B1488_size[sizeof(RecoveredGlobal_8016226C_lbl_804B1488) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8016226C___vt__12TODoorCave02_size[sizeof(RecoveredGlobal_8016226C___vt__12TODoorCave02) == 0x54 ? 1 : -1];
+u8 *TODoorCave02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    init_door_base((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016226C___vt__12TODoorCave02 *)&__vt__12TODoorCave02).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F68;
+    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5960), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5960), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5960), u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB4B8);
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB4C8;
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B1488.value), (int) (1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    ((VObj_18_4a4f5b *)(arg0))->m17();
+    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DB4B8;
+    M2C_FIELD(arg0, f32 *, 0xD8) = (f32) lbl_805DB4B8;
+    M2C_FIELD(arg0, f32 *, 0xDC) = (f32) lbl_805DB4B8;
+    M2C_FIELD(arg0, f32 *, 0xE0) = (f32) lbl_805DB4B8;
     return arg0;
 }
 

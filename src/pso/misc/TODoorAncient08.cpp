@@ -47,6 +47,39 @@ struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
     u8 remaining[0xC];
 };
 
+struct VBase_18_4a4f5b { char pad[0x18]; };
+
+struct VObj_18_4a4f5b : VBase_18_4a4f5b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual M2C_UNK m17();
+};
+
+struct RecoveredGlobal_8016069C_lbl_804B10E8 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8016069C___vt__15TODoorAncient08 {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
 extern "C" {
 s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK fn_8015FC40(void *, void *);
@@ -62,6 +95,18 @@ extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B10D8;
 extern u32 lbl_805D5948;
 extern void *TODoorAncient08__data_805D594C;
 void TODoorAncient08__sub_801605B0(void);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_door_base(void *);
+extern RecoveredGlobal_8016069C_lbl_804B10E8 lbl_804B10E8;
+extern M2C_UNK __vt__15TODoorAncient08[];
+extern s32 lbl_805D2F50;
+extern u32 lbl_805D5948;
+extern void *TODoorAncient08__data_805D594C;
+extern const f32 lbl_805DB470;
+extern const f32 lbl_805DB474;
+u8 *TODoorAncient08__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -81,7 +126,6 @@ void *create__15TODoorAncient08FPv(void *arg0);
 void free_objects__15TODoorAncient08Fv(void);
 void render__15TODoorAncient08Fv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-void *TODoorAncient08__ct(void *, void *, void *);
 M2C_UNK TODoorAncient08__sub_80160000(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjDoor__sub_803DC894(s32, s32, f32);
@@ -201,7 +245,7 @@ extern void *tl_05;
 void *create__15TODoorAncient08FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xEC);
     if (o != NULL) {
-        o = TODoorAncient08__ct(o, tl_05, arg0);
+        o = TODoorAncient08__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -255,6 +299,38 @@ void *__dt__15TODoorAncient08Fv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8016069C_lbl_804B10E8_size[sizeof(RecoveredGlobal_8016069C_lbl_804B10E8) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8016069C___vt__15TODoorAncient08_size[sizeof(RecoveredGlobal_8016069C___vt__15TODoorAncient08) == 0x54 ? 1 : -1];
+u8 *TODoorAncient08__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    s32 temp_r0;
+    init_door_base((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016069C___vt__15TODoorAncient08 *)&__vt__15TODoorAncient08).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F50;
+    ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *(*(s32 * *)&TODoorAncient08__data_805D594C);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5948), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5948), u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB474);
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (M2C_FIELD(arg0, f32 *, 0xB4) / lbl_805DB470);
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B10E8.value), (int) (1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);
+    if (temp_r0 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x84) = 0;
+    } else if (temp_r0 > 0xFC) {
+        M2C_FIELD(arg0, s32 *, 0x84) = 0xFC;
+    }
+    ((VObj_18_4a4f5b *)(arg0))->m17();
+    M2C_FIELD(arg0, s16 *, 0xD4) = (s16) (M2C_FIELD(arg0, s32 *, 0x84) + 1);
+    M2C_FIELD(arg0, s16 *, 0xD6) = (s16) (M2C_FIELD(arg0, s32 *, 0x84) + 2);
+    M2C_FIELD(arg0, s16 *, 0xD8) = (s16) (M2C_FIELD(arg0, s32 *, 0x84) + 3);
+    M2C_FIELD(arg0, s32 *, 0xDC) = 0;
+    M2C_FIELD(arg0, s32 *, 0xE0) = 0;
+    M2C_FIELD(arg0, s32 *, 0xE4) = 0;
+    M2C_FIELD(arg0, s32 *, 0xE8) = 0;
     return arg0;
 }
 

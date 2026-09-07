@@ -87,10 +87,26 @@ struct VObj_80358824_80357734 : Base_80358824_80357734 {
 struct RecoveredGlobal_803589F8_lbl_804F15C8 { M2C_UNK value; u8 remaining[0xA0]; };
 typedef char RecoveredGlobal_803589F8_lbl_804F15C8_size[sizeof(RecoveredGlobal_803589F8_lbl_804F15C8) == 0xA4 ? 1 : -1];
 
+#include <stddef.h>
+struct Stack_80358048 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_80358048_lbl_804793E4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_80358048_lbl_804F166C {
+    M2C_UNK value;
+    u8 remaining[0x18];
+};
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-int TObjPlayer__sub_80357EFC(void *);
 extern const f32 lbl_805E006C;
 void TObjPlayer__sub_80357F60(u8 *arg0);
 void * init_state_34_alt__10TObjPlayerFPv(void *, M2C_UNK, void *);
@@ -106,6 +122,19 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 extern RecoveredGlobal_803589F8_lbl_804F15C8 lbl_804F15C8;
 void TObjPlayer__sub_803589F8(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 fn_800871A0(void *, void *, int);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+f32 TBoss8Dragon__sub_803D64C0(void *);
+f32 TBoss8Dragon__sub_803D64DC(void *);
+extern RecoveredGlobal_80358048_lbl_804793E4 lbl_804793E4;
+extern M2C_UNK lbl_804F166C[];
+extern const f32 lbl_805E0068;
+extern const f32 lbl_805E0070;
+u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
+f32 TBoss8Dragon__sub_803D64C0(void *);
+f32 TBoss8Dragon__sub_803D64DC(void *);
+void TObjPlayer__sub_80357EFC(u8 *arg0);
 }
 
 extern "C" {
@@ -169,7 +198,6 @@ int TObjPlayer__sub_80115BC0(void*, int, int);
 void TObjPlayer__sub_80120D50(void *);
 M2C_UNK TObjPlayer__sub_802E451C();
 M2C_UNK TObjPlayer__sub_80357B2C(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_80358048(u32, s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -234,7 +262,14 @@ u8 *TObjPlayer__sub_80357AD4(u8 *arg0) {
     return NULL;
 }
 
-int TObjPlayer__sub_80357EFC(void * _w0) { return 0; }
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_80357EFC(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * TBoss8Dragon__sub_803D64C0((void *)(M2C_FIELD(arg0, s32 *, 0x44)))) + M2C_FIELD(arg0, f32 *, 0x1C));
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * TBoss8Dragon__sub_803D64DC((void *)(M2C_FIELD(arg0, s32 *, 0x44)))) + M2C_FIELD(arg0, f32 *, 0x24));
+}
+#pragma pop
 
 void TObjPlayer__sub_80357F5C(void) {  }
 
@@ -245,7 +280,7 @@ void TObjPlayer__sub_80357F60(u8 *arg0) {
     u8 *temp_r3;
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) (M2C_FIELD(arg0, s32 *, 0x44) - 0x1999);
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x40) - lbl_805E006C);
-    TObjPlayer__sub_80357EFC((void *)(arg0));
+    TObjPlayer__sub_80357EFC((u8 *)((void *)(arg0)));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x4C));
     if (temp_r3 != NULL) {
         copy_pos__11TNowLoadingFPvPv(temp_r3, arg0 + 0x34);
@@ -269,6 +304,33 @@ void *dt_with_child_queue__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_80358048_lbl_804793E4_size[sizeof(RecoveredGlobal_80358048_lbl_804793E4) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_80358048_lbl_804F166C_size[sizeof(RecoveredGlobal_80358048_lbl_804F166C) == 0x1C ? 1 : -1];
+u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
+    typedef char sp8_offset[(offsetof(Stack_80358048, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80358048, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80358048, sp10) == 0x8) ? 1 : -1];
+    Stack_80358048 stack;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80358048_lbl_804F166C *)&lbl_804F166C).value;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg2));
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) ((lbl_805E0068 * TBoss8Dragon__sub_803D64C0((void *) (arg3))) + M2C_FIELD(arg2, f32 *, 0));
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg2, f32 *, 4);
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) ((lbl_805E0068 * TBoss8Dragon__sub_803D64DC((void *) (arg3))) + M2C_FIELD(arg2, f32 *, 8));
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805E0070;
+    M2C_FIELD(arg0, s32 *, 0x44) = (s32) (arg3 - 0x4000);
+    M2C_FIELD(arg0, s32 *, 0x48) = 0xA;
+    TObjPlayer__sub_80357EFC((u8 *)((void *) (arg0)));
+    stack.sp8 = M2C_FIELD(&lbl_804793E4.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_804793E4.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_804793E4.value, s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x4C) = fn_800871A0((void *) (arg0 + 0x34), (void *) (&stack.sp8), (int) (0xA));
+    return arg0;
+}
+#pragma pop
 
 void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3) {
     if (arg3 == 0) {
@@ -481,11 +543,11 @@ void spawn_mirror_pair__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 a
     if (arg3 == 1) {
         obj = __nw__7TObjectFUl(0x50);
         if (obj != 0U) {
-            TObjPlayer__sub_80358048(obj, tl_05, arg2, M2C_FIELD(arg1, s32 *, 0x60));
+            TObjPlayer__sub_80358048((u8 *)(obj), (s32)(tl_05), (u8 *)(arg2), (s32)(M2C_FIELD(arg1, s32 *, 0x60)));
         }
         obj = __nw__7TObjectFUl(0x50);
         if (obj != 0U) {
-            TObjPlayer__sub_80358048(obj, tl_05, arg2, M2C_FIELD(arg1, s32 *, 0x60) - 0x8000);
+            TObjPlayer__sub_80358048((u8 *)(obj), (s32)(tl_05), (u8 *)(arg2), (s32)(M2C_FIELD(arg1, s32 *, 0x60) - 0x8000));
         }
     }
 }
