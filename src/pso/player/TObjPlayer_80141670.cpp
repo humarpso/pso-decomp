@@ -39,6 +39,11 @@ struct RecoveredGlobal_801417E8_lbl_8050C028 {
     u8 remaining[0x14];
 };
 
+struct RecoveredGlobal_8014175C_lbl_8050C000 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
 extern "C" {
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
@@ -60,6 +65,9 @@ void set_current_scene__6TSceneFi(s32);
 extern RecoveredGlobal_80141730_lbl_8050C028 lbl_8050C028;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_801417E8(void);
+s32 set_depth_buffer_id__16TObjEneMe3StelthFi(int);
+extern RecoveredGlobal_80141860_lbl_8050C000 lbl_8050C000;
+void set_depth_buffer_settings_id__FUl(s32 arg0);
 }
 
 extern "C" {
@@ -76,6 +84,13 @@ void func_80141618__Fv(void) {
 
 typedef char RecoveredGlobal_80141788_lbl_8050C000_size[sizeof(RecoveredGlobal_80141788_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_80141788_lbl_8050C028_size[sizeof(RecoveredGlobal_80141788_lbl_8050C028) == 0x18 ? 1 : -1];
+
+typedef char RecoveredGlobal_8014175C_lbl_8050C000_size[sizeof(RecoveredGlobal_8014175C_lbl_8050C000) == 0x28 ? 1 : -1];
+void set_depth_buffer_settings_id__FUl(s32 arg0) {
+    M2C_FIELD(&(*(RecoveredGlobal_8014175C_lbl_8050C000 *)&lbl_8050C000).value, s32 *, 0x10) = arg0;
+    set_depth_buffer_id__16TObjEneMe3StelthFi((int)((void *) (arg0)));
+}
+
 void restore_depth_buffer_settings__Fv(void) {
     copy_config__10TObjPlayerFPvPv((void*)((void *) (&(*(RecoveredGlobal_80141788_lbl_8050C000 *)&lbl_8050C000).value)), (void*)((void *) (&(*(RecoveredGlobal_80141788_lbl_8050C028 *)&lbl_8050C028).value)));
 }

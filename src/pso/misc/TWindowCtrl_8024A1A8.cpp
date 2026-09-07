@@ -4,6 +4,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_8024A228 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_8024A228_lbl_804CEA88 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct Stack_8024A1CC {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_8024A1CC_lbl_804CEA94 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 s32 TWindowCtrl__sub_8024A314(void);
 s32 TWindowCtrl__sub_8024701C(u32);
@@ -31,6 +54,12 @@ void TWindowCtrl__sub_8024A4EC(void);
 s32 TWindowTimer__sub_80287D20(int, void *);
 extern void *TWindowCtrl__data_805D63F8;
 void TWindowCtrl__sub_8024A4B0(s32 arg0);
+s32 TWindowCtrl__sub_8024B098(void *, void *);
+extern RecoveredGlobal_8024A228_lbl_804CEA88 lbl_804CEA88;
+void TWindowCtrl__sub_8024A228(s32 arg0);
+s32 TWindowCtrl__sub_8024AF34(void *, void *);
+extern RecoveredGlobal_8024A1CC_lbl_804CEA94 lbl_804CEA94;
+void TWindowCtrl__sub_8024A1CC(s32 arg0);
 }
 
 extern "C" {
@@ -55,6 +84,18 @@ M2C_UNK update__11TWindowChatFPv(u32);
 
 extern void *TWindowCtrl__data_805D63F8;
 
+typedef char RecoveredGlobal_8024A1CC_lbl_804CEA94_size[sizeof(RecoveredGlobal_8024A1CC_lbl_804CEA94) == 0xC ? 1 : -1];
+void TWindowCtrl__sub_8024A1CC(s32 arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8024A1CC, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8024A1CC, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8024A1CC, sp10) == 0x8) ? 1 : -1];
+    Stack_8024A1CC stack;
+    stack.sp8 = M2C_FIELD(&lbl_804CEA94.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_804CEA94.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_804CEA94.value, s32 *, 8);
+    TWindowCtrl__sub_8024AF34((void *) (arg0), (void *) (&stack.sp8));
+}
+
 void set_field22__11TWindowCtrlFv(void) {
     if ((void *) TWindowCtrl__data_805D63F8 != NULL) {
         M2C_FIELD(TWindowCtrl__data_805D63F8, s16 *, 0x22) = 0x2D;
@@ -62,6 +103,18 @@ void set_field22__11TWindowCtrlFv(void) {
 }
 
 extern void *TWindowCtrl__data_805D63F8;
+
+typedef char RecoveredGlobal_8024A228_lbl_804CEA88_size[sizeof(RecoveredGlobal_8024A228_lbl_804CEA88) == 0xC ? 1 : -1];
+void TWindowCtrl__sub_8024A228(s32 arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8024A228, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8024A228, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8024A228, sp10) == 0x8) ? 1 : -1];
+    Stack_8024A228 stack;
+    stack.sp8 = M2C_FIELD(&lbl_804CEA88.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_804CEA88.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_804CEA88.value, s32 *, 8);
+    TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
+}
 
 void update_focused__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x38) != 0U)) {

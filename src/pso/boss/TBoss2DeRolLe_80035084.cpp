@@ -205,6 +205,18 @@ struct VObj_18_bd2ad6 : VBase_18_bd2ad6 {
     virtual M2C_UNK m103();
 };
 
+#include <stddef.h>
+struct Stack_800365C8 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_800365C8_lbl_80435A44 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 void TBoss2DeRolLe__sub_800361E8(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -238,6 +250,10 @@ void *__nw__7TObjectFUl(int);
 s32 run_tasks__7TObjectFv(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 void TBoss2DeRolLe__sub_800350E8(u8 *arg0);
+void TBoss2Fin__sub_80036620(u8 *arg0);
+s32 fn_800FF788(void *, void *);
+extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
+void run_task__9TBoss2FinFv(s32 arg0);
 }
 
 extern "C" {
@@ -538,6 +554,20 @@ void send_6x13__13TBoss2DeRolLeFPv(void* p) { swap_6x13_fields__13TBoss2DeRolLeF
 void TBoss2DeRolLe__sub_80036358(void* p) { *(u8*)((char*)p + 0x0) = 19; *(u8*)((char*)p + 0x1) = 2; }
 void update_and_send__13TBoss2DeRolLeFPv(void* p) { swap_endian__13TBoss2DeRolLeFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void TBoss2DeRolLe__sub_800363A0(void* p) { *(u8*)((char*)p + 0x0) = 20; *(u8*)((char*)p + 0x1) = 3; }
+
+typedef char RecoveredGlobal_800365C8_lbl_80435A44_size[sizeof(RecoveredGlobal_800365C8_lbl_80435A44) == 0xC ? 1 : -1];
+void run_task__9TBoss2FinFv(s32 arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800365C8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800365C8, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800365C8, sp10) == 0x8) ? 1 : -1];
+    Stack_800365C8 stack;
+    TBoss2Fin__sub_80036620((u8 *)((void *) (arg0)));
+    stack.sp8 = M2C_FIELD(&lbl_80435A44.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_80435A44.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_80435A44.value, s32 *, 8);
+    fn_800FF788((void *) (arg0), (void *) (&stack.sp8));
+}
+
 void TBoss2Fin__sub_80036620(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x34, M2C_FIELD(arg0, u8 **, 0x80));

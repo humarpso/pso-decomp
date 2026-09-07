@@ -55,6 +55,12 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 extern RecoveredGlobal_802E1868_lbl_8050E208 lbl_8050E208;
 extern RecoveredGlobal_802E1868_lbl_8050E3B8 lbl_8050E3B8;
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
+extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C8914;
+s32 TAdSinglePlyChrSelectGC__sub_802E1528(void);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
+extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C8914;
+s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void);
 }
 
 extern "C" {
@@ -78,8 +84,6 @@ M2C_UNK TAdPlyStatusGC__sub_802E11BC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FF310();
 s32 TAdSinglePlyChrSelectGC__sub_801FF384();
 s32 TAdSinglePlyChrSelectGC__sub_801FF3F4();
-s32 TAdSinglePlyChrSelectGC__sub_802E1528();
-s32 TAdSinglePlyChrSelectGC__sub_802E15C8();
 int TAdSinglePlyChrSelectGC__sub_802E1A8C(void*, void*, void*, void*, void*);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(s32 a0 = 0, s32 a1 = 0);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802E1F14(void *);
@@ -150,6 +154,11 @@ s32 TAdSinglePlyChrSelectGC__sub_802E14F0(void) {
 }
 
 typedef char RecoveredGlobal_802E1560_lbl_804C89BC_size[sizeof(RecoveredGlobal_802E1560_lbl_804C89BC) == 0x78 ? 1 : -1];
+
+s32 TAdSinglePlyChrSelectGC__sub_802E1528(void) {
+    return (u8) (TAdPlayerLoadGC__sub_801E2048(0, (s32) &lbl_804C8914.value) == -0xBF);
+}
+
 s32 TAdSinglePlyChrSelectGC__sub_802E1560(void) {
     return (u8) (TAdPlayerLoadGC__sub_801E2048(0, (s32) &(*(RecoveredGlobal_802E1560_lbl_804C89BC *)&lbl_804C89BC).value) == 0);
 }
@@ -157,6 +166,10 @@ s32 TAdSinglePlyChrSelectGC__sub_802E1560(void) {
 typedef char RecoveredGlobal_802E1594_lbl_804C88C0_size[sizeof(RecoveredGlobal_802E1594_lbl_804C88C0) == 0x54 ? 1 : -1];
 s32 TAdSinglePlyChrSelectGC__sub_802E1594(void) {
     return (u8) (TAdPlayerLoadGC__sub_801E2048(0, (s32) &(*(RecoveredGlobal_802E1594_lbl_804C88C0 *)&lbl_804C88C0).value) == 0);
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void) {
+    return (u8) (TAdPlayerLoadGC__sub_801E2048(0, (s32) &(*(RecoveredGlobal_802E1560_lbl_804C89BC *)&lbl_804C8914).value) == 0);
 }
 
 s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void) {

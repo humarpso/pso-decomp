@@ -10,12 +10,30 @@ struct Stack_80096300
   f32 spC;
 };
 
+struct RecoveredGlobal_80096750_lbl_8048F930 {
+    M2C_UNK value;
+    u8 remaining[0x54];
+};
+
+struct RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch {
+    M2C_UNK value;
+    u8 remaining[0x5C];
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, M2C_UNK);
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 extern const f32 lbl_805D97B8;
 void TObjEneRe7BeruraPunch__sub_80096300(u8 *arg0);
+u16 obj_getField1c(void *);
+void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
+s32 init_vtable_and_field18__10TObjPlayerFPv(void *);
+s32 init_instance__16TObjEneDellBiterFPvPvPvPvPv(void *, void *, void *, void *, int);
+extern RecoveredGlobal_80096750_lbl_8048F930 lbl_8048F930;
+extern M2C_UNK __vt__21TObjEneRe7BeruraPunch[];
+extern s32 lbl_805D2990;
+u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -128,6 +146,17 @@ void init__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xD8) = var_r0;
     ((EneBVObj_800962F4*)(arg0 + 0xF8))->m1(0);
     reset__21TObjEneRe7BeruraPunchFPv((u8 *)(arg0));
+}
+typedef char RecoveredGlobal_80096750_lbl_8048F930_size[sizeof(RecoveredGlobal_80096750_lbl_8048F930) == 0x58 ? 1 : -1];
+typedef char RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch_size[sizeof(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch) == 0x60 ? 1 : -1];
+u8 *TObjEneRe7BeruraPunch__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    init_instance__16TObjEneDellBiterFPvPvPvPvPv((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (&lbl_8048F930.value), (int) (2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80096750___vt__21TObjEneRe7BeruraPunch *)&__vt__21TObjEneRe7BeruraPunch).value;
+    init_vtable_and_field18__10TObjPlayerFPv((void *) (arg0 + 0xF8));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2990;
+    M2C_FIELD(arg0, u16 *, 0xB0) = obj_getField1c((void *) (arg2));
+    init__21TObjEneRe7BeruraPunchFPv((u8 *)((void *) (arg0)));
+    return arg0;
 }
 
 }

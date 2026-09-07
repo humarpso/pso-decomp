@@ -27,9 +27,24 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+#include "types.h"
+struct RecoveredFields_801DD33C_arg0 {
+    u8 field_0;
+    u8 field_1;
+    u16 field_2;
+    s32 field_4;
+};
+
+struct RecoveredFields_801DD33C_arg1 {
+    u8 field_0;
+    u8 field_1;
+    u16 field_2;
+    s32 field_4;
+};
+
 extern "C" {
-void __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(void *, void *);
 u8 *__ct__15TRecvGenerateIDFRC15TRecvGenerateID(u8 *arg0, u8 *arg1);
+void __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(u8 *arg0, u8 *arg1);
 }
 
 void copy_packet(struct packet *pkt) {
@@ -1141,8 +1156,23 @@ void packet_header::bswap() {
 u8 *__ct__15TRecvGenerateIDFRC15TRecvGenerateID(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(arg0 + 8, arg1 + 8);
+    __ct__16TGenGuildCardTagFRC16TGenGuildCardTag((u8 *)(arg0 + 8), (u8 *)(arg1 + 8));
     return arg0;
+}
+
+typedef char RecoveredFields_801DD33C_arg0_0_offset[offsetof(RecoveredFields_801DD33C_arg0, field_0) == 0x0 ? 1 : -1];
+typedef char RecoveredFields_801DD33C_arg0_1_offset[offsetof(RecoveredFields_801DD33C_arg0, field_1) == 0x1 ? 1 : -1];
+typedef char RecoveredFields_801DD33C_arg0_2_offset[offsetof(RecoveredFields_801DD33C_arg0, field_2) == 0x2 ? 1 : -1];
+typedef char RecoveredFields_801DD33C_arg0_4_offset[offsetof(RecoveredFields_801DD33C_arg0, field_4) == 0x4 ? 1 : -1];
+typedef char RecoveredFields_801DD33C_arg1_0_offset[offsetof(RecoveredFields_801DD33C_arg1, field_0) == 0x0 ? 1 : -1];
+typedef char RecoveredFields_801DD33C_arg1_1_offset[offsetof(RecoveredFields_801DD33C_arg1, field_1) == 0x1 ? 1 : -1];
+typedef char RecoveredFields_801DD33C_arg1_2_offset[offsetof(RecoveredFields_801DD33C_arg1, field_2) == 0x2 ? 1 : -1];
+typedef char RecoveredFields_801DD33C_arg1_4_offset[offsetof(RecoveredFields_801DD33C_arg1, field_4) == 0x4 ? 1 : -1];
+void __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(u8 *arg0, u8 *arg1) {
+    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_0 = (u8) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_0;
+    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_1 = (u8) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_1;
+    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_2 = (u16) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_2;
+    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_4 = (s32) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_4;
 }
 
 extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {

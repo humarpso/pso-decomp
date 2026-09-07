@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const s32 TWindowDD__data_805DFB50;
+extern const f32 TWindowDD__data_805DFC10;
+void TWindowDD__sub_80347F48(u8 *arg0);
+}
+
+extern "C" {
 
 void apply_input__9TWindowDDFPvPv(void* p, void* a1);
 void* get_entry__9TWindowDDFii(int a0, int a1);
@@ -22,6 +28,15 @@ M2C_UNK set_scale__9TWindowDDFPvii(u32, s32, s32);
 
     extern unsigned char lbl_804EFCA8[];
 void* get_entry__9TWindowDDFii(int a0, int a1) {  return (char*)lbl_804EFCA8 + a1 * 8; }
+
+void TWindowDD__sub_80347F48(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x68));
+    if (temp_r3 != NULL) {
+        M2C_FIELD(temp_r3, f32 *, 0x30) = (f32) TWindowDD__data_805DFC10;
+        M2C_FIELD(temp_r3, s32 *, 0x50) = (s32) TWindowDD__data_805DFB50;
+    }
+}
 
 void refresh_sub__9TWindowDDFPvPv(void* p, void* a1) { TWindowDD__sub_80341AE0(a1); set_mode_2__9TWindowDDFPv(a1); }
 

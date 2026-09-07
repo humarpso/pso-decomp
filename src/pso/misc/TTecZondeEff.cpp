@@ -18,6 +18,11 @@ struct RecoveredGlobal_8023DADC___vt__12TTecZondeEff {
     u8 remaining[0x14];
 };
 
+struct RecoveredGlobal_8023DA10___vt__12TTecZondeEff {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
@@ -31,6 +36,13 @@ extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
 extern s32 lbl_805D3840;
 extern const f32 TTecZondeEff__data_805DC994;
 u8 *TTecZondeEff__sub_8023DADC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+void TTecZondeEff__sub_8023D4A8(void *);
+void TTecZondeEff__sub_8023D568(void *);
+extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
+extern s32 lbl_805D3840;
+u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -79,6 +91,29 @@ u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
 }
 
 typedef char RecoveredGlobal_8023DADC___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023DADC___vt__12TTecZondeEff) == 0x18 ? 1 : -1];
+
+typedef char RecoveredGlobal_8023DA10___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023DA10___vt__12TTecZondeEff) == 0x18 ? 1 : -1];
+u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023DA10___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3840;
+    M2C_FIELD(arg0, f32 *, 0x244) = farg1;
+    M2C_FIELD(arg0, s32 *, 0x254) = arg4;
+    M2C_FIELD(arg0, s32 *, 0x258) = arg5;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
+    M2C_FIELD(arg0, f32 *, 0x34) = farg0;
+    M2C_FIELD(arg0, s32 *, 0x250) = 0;
+    M2C_FIELD(arg0, s16 *, 0x25C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0xD;
+    TTecZondeEff__sub_8023D568(arg0);
+    TTecZondeEff__sub_8023D4A8(arg0);
+    M2C_FIELD(arg0, s32 *, 0x248) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24C) = 0xFF000000;
+    M2C_FIELD(arg0, s16 *, 0x25E) = 0;
+    return arg0;
+}
+
 u8 *TTecZondeEff__sub_8023DADC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023DADC___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;

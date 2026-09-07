@@ -9,6 +9,11 @@ struct RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 {
     u8 remaining[0x7C];
 };
 
+struct RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 {
+    M2C_UNK value;
+    u8 remaining[0x7C];
+};
+
 extern "C" {
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void release_object__10TBoss6RockFPv(void* p);
@@ -23,6 +28,8 @@ extern const f32 lbl_805DFFA4;
 void TBoss6Rock__sub_8035461C(void *arg0);
 extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
 s32 TBoss6Rock__sub_80353E10(s32 arg0);
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+u8 TBoss6Rock__sub_80353DC4(s32 arg0);
 }
 
 extern "C" {
@@ -139,6 +146,20 @@ s32 get_point__10TBoss6RockFiPvPv(s32 arg0, void *arg1, f32 *arg2) {
 }
 
 typedef char RecoveredGlobal_80353E10_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353E10_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
+
+typedef char RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
+u8 TBoss6Rock__sub_80353DC4(s32 arg0) {
+    u8 *temp_r3;
+    if ((arg0 < 0) || (arg0 >= 0x20)) {
+        return 0U;
+    }
+    temp_r3 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 *)&TBoss6Rock__data_80543778).value, M2C_UNK *, (arg0 * 4)));
+    if (temp_r3 == NULL) {
+        return 0U;
+    }
+    return (u8) (M2C_FIELD(temp_r3, s32 *, 0xC8) == 2);
+}
+
 s32 TBoss6Rock__sub_80353E10(s32 arg0) {
     u8 *temp_r3;
     if ((arg0 < 0) || (arg0 >= 0x20)) {

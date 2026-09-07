@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_8004C5E8 {
+    u8 * sp8;
+    s16 spC;
+    u8 pad_E[0x4];
+    s16 sp12;
+    s16 sp14;
+    u8 trailing_storage[0x36];
+};
+
+struct RecoveredGlobal_8004C5E8_TBoss4DarkFalz__data_804FF1E8 {
+    M2C_UNK value;
+    u8 remaining[0x3C];
+};
+
 extern "C" {
 int VecCopy__FP3VecPC3Vec(void*, void* a1);
 extern f32 lbl_805D9AA0;
@@ -61,6 +76,15 @@ s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
 extern const f32 TBoss4DarkFalz__data_805D893C;
 extern const f32 lbl_805D8944;
 void TBoss4DarkFalz__sub_8004C704(u8 *arg0);
+void TBoss4DarkFalz__sub_8004B20C(void*, M2C_UNK);
+s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
+s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
+s32 create__11TBoss4Type3Fi(void *);
+M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
+extern RecoveredGlobal_8004C5E8_TBoss4DarkFalz__data_804FF1E8 TBoss4DarkFalz__data_804FF1E8;
+extern int TBoss4DarkFalz__data_805D4D64;
+extern const f32 lbl_805D8940;
+void TBoss4DarkFalz__sub_8004C5E8(u8 *arg0);
 }
 
 extern "C" {
@@ -154,6 +178,35 @@ void request_action_e__14TBoss4DarkFalzFi(s32 arg0) {
     }
 }
 void start_phase__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004BA18(p); TBoss4DarkFalz__sub_8004B77C(p); }
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_8004C5E8_TBoss4DarkFalz__data_804FF1E8_size[sizeof(RecoveredGlobal_8004C5E8_TBoss4DarkFalz__data_804FF1E8) == 0x40 ? 1 : -1];
+void TBoss4DarkFalz__sub_8004C5E8(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8004C5E8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8004C5E8, spC) == 0x4) ? 1 : -1];
+    typedef char sp12_offset[(offsetof(Stack_8004C5E8, sp12) == 0xA) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_8004C5E8, sp14) == 0xC) ? 1 : -1];
+    Stack_8004C5E8 stack;
+    f32 temp_f1;
+    s32 temp_r0;
+    temp_f1 = (f32) M2C_FIELD(arg0, s32 *, 0x380) / lbl_805D8940;
+    TBoss4DarkFalz__sub_8004B730((void *) (arg0), (f32) (temp_f1 * (temp_f1 * (temp_f1 * temp_f1))), (int) (0xFFFFFF));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x380) - 1;
+    M2C_FIELD(arg0, s32 *, 0x380) = temp_r0;
+    if (temp_r0 <= 0) {
+        dispatch_by_main_phase__14TBoss4DarkFalzFUs((M2C_UNK)((int) (0x36U)));
+        stack.sp8 = (u8 *)(arg0);
+        TBoss4DarkFalz__sub_8004B4F0((void *) (&stack.spC), (void *) (&TBoss4DarkFalz__data_804FF1E8.value));
+        stack.sp14 = 2;
+        stack.spC = M2C_FIELD(arg0, s16 *, 0x2C) + 0x1FE;
+        stack.sp12 = M2C_FIELD(arg0, u16 *, 0x1C) + 0x1FE;
+        (*(s32 *)&TBoss4DarkFalz__data_805D4D64) = create__11TBoss4Type3Fi((void *) (&stack.sp8));
+        TBoss4DarkFalz__sub_8004B20C((void*)((void *) (arg0)), (M2C_UNK)((int) (0xD)));
+    }
+}
+#pragma pop
+
 void enter_state_126__14TBoss4DarkFalzFPv(void* a0) { *(int*)((char*)a0 + 0x380) = 126; lbl_805D4D68 = 2; TBoss4DarkFalz__sub_8004B7DC(); TBoss4DarkFalz__sub_8004AB90(a0, (void*)2); }
 
 void TBoss4DarkFalz__sub_8004C704(u8 *arg0) {

@@ -7,6 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog_size[sizeof(RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog) == 0x18 ? 1 : -1];
 
+#include <stddef.h>
+struct Stack_8026ABA8 {
+    f32 sp8;
+    f32 spC;
+};
+
+struct RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -27,6 +38,16 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TWindowCtrl__sub_8026AD60();
 extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int, f32, f32);
+s32 TWindowMessage__ct(void *, void *, int, void *);
+s32 fn_8026A360(void *);
+s32 TWindowCtrl__sub_8026AD78(void *);
+s32 reset_selection__20TWindowSubStatusDispFPv(int, void *);
+extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
+extern s32 lbl_805D3990;
+extern const f32 lbl_805DD240;
+extern const f32 lbl_805DD258;
+u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -61,6 +82,34 @@ u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv((void *) (arg0));
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog_size[sizeof(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog) == 0x18 ? 1 : -1];
+u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    typedef char sp8_offset[(offsetof(Stack_8026ABA8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8026ABA8, spC) == 0x4) ? 1 : -1];
+    Stack_8026ABA8 stack;
+    f32 temp_f1;
+    f32 temp_f2;
+    s32 temp_r3;
+    s32 var_r0;
+    TWindowMessage__ct((void *) (arg0), (void *) (arg1), (int) (0x1E), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog *)&__vt__17TWindowMessageLog).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3990;
+    TWindowCtrl__sub_8026AD78((void *) (arg0));
+    temp_f2 = M2C_FIELD(arg0, f32 *, 0x38);
+    temp_f1 = temp_f2 - lbl_805DD258;
+    stack.spC = lbl_805DD240;
+    stack.sp8 = temp_f1;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0xC), (f32) (temp_f1), (f32) (temp_f2));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = reset_selection__20TWindowSubStatusDispFPv((int) (temp_r3), (void *) (&stack.sp8));
+    }
+    M2C_FIELD(arg0, s32 *, 0x90) = var_r0;
+    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x80);
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DD240;
+    fn_8026A360((void *) (arg0));
     return arg0;
 }
 

@@ -3590,6 +3590,7 @@ pso/misc/TWindowSubStatusDisp_800FC3E0.cpp:
 
 pso/misc/TFontSmallHelp.cpp:
 	.text       start:0x800FC760 end:0x800FC91C
+	.data       start:0x8049CA28 end:0x8049CA40
 
 pso/misc/TWindowCtrlMain_800FC91C.cpp:
 	.text       start:0x800FC91C end:0x800FCB04

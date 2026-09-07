@@ -4,13 +4,34 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8018CEDC_lbl_804B7168 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy {
+    M2C_UNK value;
+    u8 remaining[0x148];
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void reset_photon_effect__10TObjPlayerFPv(s32);
+u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u8 * fn_8018A150(void *, s32);
+void load_models__22TObjContainerJungEnemyFPv(void *arg0);
+extern RecoveredGlobal_8018CEDC_lbl_804B7168 lbl_804B7168;
+extern M2C_UNK __vt__22TObjContainerJungEnemy[];
+extern s32 lbl_805D3320;
+u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2);
+}
+
 extern "C" {
 
 void TObjContainerJungEnemy__vt78(void *arg0);
 void *__dt__22TObjContainerJungEnemyFv(void *arg0, s16 arg1);
 void *create__22TObjContainerJungEnemyFPv(void *arg0);
 void load_models__22TObjContainerJungEnemyFPv(void *arg0);
-void *TObjContainerJungEnemy__ct(void *, void *, void *);
 s32 TObjContainerJungEx__sub_8018D900(M2C_UNK);
 s32 TObjContainerJungEx__sub_8018D93C(M2C_UNK);
 s32 TObjContainerJung__sub_8018D3B8(M2C_UNK);
@@ -71,7 +92,7 @@ extern void *tl_05;
 void *create__22TObjContainerJungEnemyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x378);
     if (o != NULL) {
-        o = TObjContainerJungEnemy__ct(o, tl_05, arg0);
+        o = TObjContainerJungEnemy__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -88,6 +109,22 @@ void *__dt__22TObjContainerJungEnemyFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8018CEDC_lbl_804B7168_size[sizeof(RecoveredGlobal_8018CEDC_lbl_804B7168) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy_size[sizeof(RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy) == 0x14C ? 1 : -1];
+u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2) {
+    fn_8018A150(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy *)&__vt__22TObjContainerJungEnemy).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3320;
+    load_models__22TObjContainerJungEnemyFPv(arg0);
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
+    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B7168.value, 1);
+    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&lbl_804B7168.value, f32 *, 4));
     return arg0;
 }
 

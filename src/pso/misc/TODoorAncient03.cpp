@@ -8,6 +8,49 @@ struct VBase { char pad[0x18]; };
 
 struct VObj : VBase { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual M2C_UNK m8(f32, f32); };
 
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual M2C_UNK m12();
+    virtual s32 m13();
+    virtual M2C_UNK m14();
+    virtual M2C_UNK m15();
+    virtual M2C_UNK m16();
+    virtual M2C_UNK m17();
+};
+
+struct RecoveredGlobal_8016BF68_lbl_80441B4C {
+    M2C_UNK value;
+    u8 remaining[0x8C];
+};
+
+struct RecoveredGlobal_8016C010_lbl_80441B4C {
+    M2C_UNK value;
+    u8 remaining[0x8C];
+};
+
+struct RecoveredGlobal_8016BC84_lbl_80441ACC {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 fn_801582C4(void *, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -22,6 +65,15 @@ M2C_UNK TObjDoor__sub_803DC894(void *, int, f32);
 extern void *TODoorAncient03__data_805D590C;
 extern const f32 lbl_805DB3F8;
 void render__15TODoorAncient03Fv(u8 *arg0);
+u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440A64;
+extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B0DF8;
+extern u32 lbl_805D5908;
+extern void *TODoorAncient03__data_805D590C;
+void TODoorAncient03__sub_8015E548(void);
 }
 
 extern "C" {
@@ -134,6 +186,26 @@ void free_resources__15TODoorAncient03Fv(void) {
 }
 
 extern M2C_UNK __vt__15TODoorAncient03[];
+
+typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
+void TODoorAncient03__sub_8015E548(void) {
+    s32 *temp_r3_2;
+    u8 *temp_r3;
+    u8 *var_r0;
+    temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_804B0DF8.value, 0, 0, 0));
+    }
+    (*(u8 * *)&lbl_805D5908) = var_r0;
+    temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
+    (*(s32 * *)&TODoorAncient03__data_805D590C) = temp_r3_2;
+    *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5908), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD((*(s32 * *)&TODoorAncient03__data_805D590C), s32 *, 4) = TLanguage__sub_801E4874((void *) (&lbl_80440A64.value));
+}
+typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
+typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016C010_lbl_80441B4C) == 0x90 ? 1 : -1];
 
 void *__dt__15TODoorAncient03Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

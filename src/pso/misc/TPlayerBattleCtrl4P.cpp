@@ -19,7 +19,7 @@ void TPlayerBattleCtrl4P__vt15(void* p);
 void TPlayerBattleCtrl4P__vt18(void *arg0);
 void TPlayerBattleCtrl4P__vt19(void *arg0);
 void TPlayerBattleCtrl4P__vt8(void *arg0);
-M2C_UNK TDuelEffectCtrl__ct(void *, void *, M2C_UNK);
+M2C_UNK __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, M2C_UNK);
 u8 TLobby__sub_801D7064(M2C_UNK *);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
 int TPlayerBattleCtrl4P__sub_80311618(void*);
@@ -83,7 +83,7 @@ void TPlayerBattleCtrl4P__vt12(void *arg0) {
         {
             void *temp = __nw__7TObjectFUl(0x28);
             if (temp != 0) {
-                TDuelEffectCtrl__ct(temp, arg0, 0);
+                __ct__15TDuelEffectCtrlFP7TObjectUc(temp, arg0, 0);
             }
         }
         M2C_FIELD(arg0, s32 *, 0x240) = 0x96;

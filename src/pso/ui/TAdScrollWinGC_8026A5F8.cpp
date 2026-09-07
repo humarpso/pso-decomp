@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8026A6DC_lbl_805187D8 {
+    M2C_UNK value;
+    u8 remaining[0x74];
+};
+
 extern "C" {
 void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0);
 int send_and_handle__6TLobbyFPvii(void *, int, int);
@@ -13,13 +18,17 @@ void fn_8026A62C(u8 *arg0, s32 arg1);
 M2C_UNK heap_free__5THeapFPv(s32, void *);
 u8 *heap_alloc__5THeapFUl(s32, s32);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
-M2C_UNK TLobby__sub_8026A6DC(int);
 s32 TLobby__sub_8026A76C(void *);
 M2C_UNK strncpy(int, void *, int);
 extern s32 lbl_805D5544;
 extern s32 lbl_805D6460;
 extern u8 *lbl_805D6464;
 void TLobby__sub_8026A7B0(u32 arg0);
+M2C_UNK heap_free__5THeapFPv(s32, void *);
+s32 TLobby__sub_803DE7BC(int, void *, void *);
+extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
+extern s32 lbl_805D6460;
+void TLobby__sub_8026A6DC(s32 arg0);
 }
 
 extern "C" {
@@ -46,6 +55,23 @@ void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0) {
         M2C_FIELD(arg0, s32 *, 0x50) = 3;
     }
 }
+
+typedef char RecoveredGlobal_8026A6DC_lbl_805187D8_size[sizeof(RecoveredGlobal_8026A6DC_lbl_805187D8) == 0x78 ? 1 : -1];
+void TLobby__sub_8026A6DC(s32 arg0) {
+    u32 *temp_r31;
+    u32 temp_r4;
+    temp_r31 = (u32 *)((u8 *)&lbl_805187D8.value + (arg0 * 4));
+    temp_r4 = *temp_r31;
+    if (temp_r4 != 0U) {
+        heap_free__5THeapFPv((s32)((void *) (lbl_805D6460)), (void *)((int) (temp_r4)));
+        *temp_r31 = 0U;
+        if (arg0 < 0x1D) {
+            TLobby__sub_803DE7BC((int) (temp_r31), (void *) ((u8 *)&lbl_805187D8.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
+        }
+        M2C_FIELD(&lbl_805187D8.value, s32 *, 0x74) = 0;
+    }
+}
+
 void TLobby__sub_8026A7B0(u32 arg0) {
     s32 temp_r31;
     s32 var_r30;
@@ -63,7 +89,7 @@ void TLobby__sub_8026A7B0(u32 arg0) {
         var_r3 = heap_alloc__5THeapFUl(lbl_805D6460, var_r30);
         if (var_r3 == NULL) {
             do {
-                TLobby__sub_8026A6DC((int) (0));
+                TLobby__sub_8026A6DC((s32)((int) (0)));
                 var_r3 = heap_alloc__5THeapFUl(lbl_805D6460, var_r30);
             } while (var_r3 == NULL);
         }

@@ -4,11 +4,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80131C5C_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+struct RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+struct RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+struct RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
 extern "C" {
 void render__16TKeyBoardControlFv(void);
 void render__16TKeyBoardControlFv(void);
 int TKeyBoardControl__sub_80131FC8(void);
-int TKeyBoardControl__sub_8013206C(void);
 M2C_UNK TKeyBoardControl__sub_803F0E90(s32, M2C_UNK);
 s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
 void disable_disconnected_ports__16TKeyBoardControlFv(void);
@@ -27,11 +46,29 @@ void reset_keys__16TKeyBoardControlFPv(void *arg0);
 M2C_UNK TKeyBoardControl__sub_80132824(s32);
 M2C_UNK TKeyBoardControl__sub_803F0C50();
 M2C_UNK fn_803F1864(M2C_UNK *);
-extern M2C_UNK TKeyBoardControl__sub_801320CC[];
 void reset_input__16TKeyBoardControlFi(s32 arg0);
 M2C_UNK TKeyBoardControl__sub_803F0E90(s32, M2C_UNK);
 s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
 void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1);
+int is_key_held__16TKeyBoardControlFPv(void* p);
+s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
+M2C_UNK TWindowSubTradeMain__sub_80244A4C(void *);
+M2C_UNK window_request_show(void *);
+s32 is_player_input_active(int);
+M2C_UNK TKeyBoardControl__sub_8025EC04(int);
+extern RecoveredGlobal_80131C5C_lbl_8050E208 lbl_8050E208;
+void run_task__16TKeyBoardControlFv(u8 *arg0);
+int TKeyBoardControl__sub_8013206C(void *);
+extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+int TKeyBoardControl__sub_801320CC(void);
+void reset_keys__16TKeyBoardControlFPv(void *arg0);
+M2C_UNK TKeyBoardControl__sub_8013276C(void *);
+extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+void TKeyBoardControl__sub_801328C4(void);
+void reset_keys__16TKeyBoardControlFPv(void *arg0);
+M2C_UNK TKeyBoardControl__sub_8013276C(void *);
+extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+void TKeyBoardControl__sub_801328F8(void);
 }
 
 extern "C" {
@@ -61,6 +98,28 @@ extern M2C_UNK __vt__16TKeyBoardControl[];
 
 void render__16TKeyBoardControlFv(void) {  }
 
+typedef char RecoveredGlobal_80131C5C_lbl_8050E208_size[sizeof(RecoveredGlobal_80131C5C_lbl_8050E208) == 0x1B0 ? 1 : -1];
+void run_task__16TKeyBoardControlFv(u8 *arg0) {
+    s32 temp_r3;
+    s32 temp_r5;
+    temp_r3 = is_player_input_active((int) (M2C_FIELD(arg0, s16 *, 0x1E)));
+    if (M2C_FIELD(arg0, u16 *, 0x1C) & 1) {
+        temp_r5 = temp_r3 * 0x50;
+        if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + temp_r5 + 0x20), (int) (0x200), (int) (temp_r5)) != 0) {
+            M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) & 0xFFFE);
+            TKeyBoardControl__sub_8025EC04((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
+                window_request_show(M2C_FIELD(arg0, void **, 0x28));
+            }
+        }
+    } else if (((s32)is_key_held__16TKeyBoardControlFPv((void*)((int) (M2C_FIELD(arg0, s32 *, 0x24))))) == 0) {
+        M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) | 1);
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
+            TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, void **, 0x28));
+        }
+    }
+}
+
 void *__dt__16TKeyBoardControlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TKeyBoardControl;
@@ -85,7 +144,11 @@ int is_active__16TKeyBoardControlFPv(void* p) { return (*(u16*)((char*)p + 0x60)
 int is_key_active__16TKeyBoardControlFPv(void* p) { return *(u16*)((char*)p + 0x60) & 0x1; }
 void set_flag62_bit8__16TKeyBoardControlFPv(void* p) { *(u16*)((char*)p + 0x62) |= 0x8; }
 int TKeyBoardControl__sub_80131FC8(void) { return 0; }
-int TKeyBoardControl__sub_8013206C(void) { return 0; }
+int TKeyBoardControl__sub_8013206C(void * _w0) { return 0; }
+
+typedef char RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+int TKeyBoardControl__sub_801320CC(void) { return TKeyBoardControl__sub_8013206C((void *)((void *) (&TKeyBoardControl__data_80506270.value))); }
+
 void disable_disconnected_ports__16TKeyBoardControlFv(void) {
     M2C_UNK sp8;
     s32 temp_r3;
@@ -156,7 +219,17 @@ void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1) {
 void reset_input__16TKeyBoardControlFi(s32 arg0) {
     TKeyBoardControl__sub_803F0C50();
     TKeyBoardControl__sub_80132824(arg0);
-    fn_803F1864(TKeyBoardControl__sub_801320CC);
+    fn_803F1864(((M2C_UNK *)TKeyBoardControl__sub_801320CC));
+}
+typedef char RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+void TKeyBoardControl__sub_801328C4(void) {
+    TKeyBoardControl__sub_8013276C((void *) (&(*(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value));
+    reset_keys__16TKeyBoardControlFPv((void *) (&(*(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value));
+}
+typedef char RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+void TKeyBoardControl__sub_801328F8(void) {
+    TKeyBoardControl__sub_8013276C((void *) (&(*(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value));
+    reset_keys__16TKeyBoardControlFPv((void *) (&(*(RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value));
 }
 
 }

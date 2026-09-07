@@ -34,6 +34,18 @@ struct VObj_18_c44252 : VBase_18_c44252 {
     virtual M2C_UNK m23(void *, f32);
 };
 
+#include <stddef.h>
+struct Stack_800E7324 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_800E7324_lbl_8043CF94 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 fn_800B91F4(void *);
@@ -47,6 +59,9 @@ extern const f32 lbl_805DA640;
 extern const f32 lbl_805DA644;
 extern const f32 lbl_805DA648;
 void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0);
+s32 update_player_state__9TObjEneDDFPv(void *, void *, int);
+extern RecoveredGlobal_800E7324_lbl_8043CF94 lbl_8043CF94;
+void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0);
 }
 
 extern "C" {
@@ -56,6 +71,20 @@ f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5E4;
+
+typedef char RecoveredGlobal_800E7324_lbl_8043CF94_size[sizeof(RecoveredGlobal_800E7324_lbl_8043CF94) == 0xC ? 1 : -1];
+void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800E7324, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800E7324, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800E7324, sp10) == 0x8) ? 1 : -1];
+    Stack_800E7324 stack;
+    if (!(M2C_FIELD(arg0, s32 *, 0x3C4) & 0x80000)) {
+        stack.sp8 = M2C_FIELD(&lbl_8043CF94.value, s32 *, 0);
+        stack.spC = M2C_FIELD(&lbl_8043CF94.value, s32 *, 4);
+        stack.sp10 = M2C_FIELD(&lbl_8043CF94.value, s32 *, 8);
+        update_player_state__9TObjEneDDFPv((void *) (arg0), (void *) (&stack.sp8), (int) (0));
+    }
+}
 
 #pragma push
 #pragma fp_contract on

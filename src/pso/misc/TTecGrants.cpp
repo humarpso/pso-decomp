@@ -14,6 +14,11 @@ struct VObj_18_4560ce : VBase_18_4560ce {
     virtual M2C_UNK m4(u32);
 };
 
+struct RecoveredGlobal_80233350___vt__10TTecGrants {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
 extern "C" {
 u8 * TPhotonMylla__sub_80154CB4(u16);
 u8 * TBoss3Volopt__sub_80232EC0(void *, s32, s32, s32);
@@ -23,6 +28,14 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(int);
 extern s32 tl_07;
 void run_task__10TTecGrantsFv(u8 *arg0);
+s32 obj_getField1c(int);
+s32 TObjPlayer__sub_8004433C(void *);
+s32 TTecAnti__sub_8022B3E8(void *, void *);
+s32 fn_8022C10C(void *, void *, void *, void *);
+s32 fn_80232830(void *);
+extern M2C_UNK __vt__10TTecGrants[];
+extern s32 lbl_805D37D0;
+u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -30,7 +43,6 @@ extern "C" {
 void *__dt__10TTecGrantsFv(void *arg0, s16 arg1);
 void create__10TTecGrantsFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__10TTecGrantsFv(void);
-void *TTecGrants__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
@@ -41,7 +53,7 @@ void create__10TTecGrantsFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg
     void *o;
     o = __nw__7TObjectFUl(0x14C);
     if (o != NULL) {
-        TTecGrants__ct(o, arg0, arg1, arg2, arg3);
+        TTecGrants__ct((u8 *)(o), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3));
     }
 }
 
@@ -82,6 +94,22 @@ void *__dt__10TTecGrantsFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+typedef char RecoveredGlobal_80233350___vt__10TTecGrants_size[sizeof(RecoveredGlobal_80233350___vt__10TTecGrants) == 0x28 ? 1 : -1];
+u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    u32 temp_r3;
+    fn_8022C10C((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233350___vt__10TTecGrants *)&__vt__10TTecGrants).value;
+    TObjPlayer__sub_8004433C((void *) (arg0 + 0xEC));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D37D0;
+    fn_80232830((void *) (arg0));
+    TTecAnti__sub_8022B3E8((void *) (arg0 + 0xEC), (void *) (arg3));
+    M2C_FIELD(arg0, s32 *, 0x148) = 0;
+    temp_r3 = M2C_FIELD(arg0, u32 *, 0x1C);
+    if (temp_r3 != 0U) {
+        M2C_FIELD(arg0, s16 *, 0xB4) = obj_getField1c((int) (temp_r3));
     }
     return arg0;
 }

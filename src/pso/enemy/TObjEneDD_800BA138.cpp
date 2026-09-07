@@ -24,6 +24,49 @@ struct VObj_800BA138 : Base_800BA138 {
     virtual void m92();
 };
 
+#include <stddef.h>
+struct VBase_18_0c879f { char pad[0x18]; };
+
+struct VObj_18_0c879f : VBase_18_0c879f {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual M2C_UNK m21(s32, s32 *, M2C_UNK, M2C_UNK, M2C_UNK);
+};
+
+struct Stack_800BA318 {
+    s32 sp8;
+    s32 spC;
+};
+
+struct RecoveredGlobal_800BA318_lbl_8043B68C {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+extern "C" {
+extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B68C;
+void TObjEneDD__sub_800BA318(s32 arg0, u8 *arg1);
+}
+
 extern "C" {
 
 struct EneDDBase2_800BA138 { char pad[0x18]; };
@@ -105,6 +148,16 @@ int set_state_8__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvU
 int check_state_flag_4__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 4); }
 int check_state_flag_2__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 2); }
 int check_state_flag_1__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 1); }
+
+typedef char RecoveredGlobal_800BA318_lbl_8043B68C_size[sizeof(RecoveredGlobal_800BA318_lbl_8043B68C) == 0xC ? 1 : -1];
+void TObjEneDD__sub_800BA318(s32 arg0, u8 *arg1) {
+    typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
+    Stack_800BA318 stack;
+    stack.sp8 = M2C_FIELD(&lbl_8043B68C.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_8043B68C.value, s32 *, 4);
+    ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
+}
 
 void TObjEneDD__sub_800BA498(void* p, void* a1) { emit_enemy_effect__9TObjEneDDFiiPvi((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
 

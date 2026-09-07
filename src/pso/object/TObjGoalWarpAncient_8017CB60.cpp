@@ -28,12 +28,32 @@ struct RecoveredFields_8017CCA4_arg0 {
     u8 * field_E8;
 };
 
+struct RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
 extern "C" {
 void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBAC0;
 extern const f32 lbl_805DBAC4;
 extern const f32 lbl_805DBAC8;
 void run_task__19TObjGoalWarpAncientFv(u8 *arg0);
+s32 is_split_screen();
+s32 queue_destruction__7TObjectFv(void *);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 register_warp_object__19TObjGoalWarpAncientFPv(int);
+s32 get_instance__19TObjGoalWarpAncientFv();
+s32 register_warp__19TObjGoalWarpAncientFPv(int);
+s32 TObjGoalWarpAncient__sub_8017D2D4(int);
+s32 TObjAreaWarp__ct(void *, void *, void *);
+s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
+s32 TLobby__sub_8030A7B0();
+extern M2C_UNK __vt__19TObjGoalWarpAncient[];
+extern s32 lbl_805D31EC;
+extern const f32 lbl_805DBABC;
+extern const f32 lbl_805DBAC4;
+u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -149,6 +169,43 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern void *tl_05;
+
+typedef char RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient_size[sizeof(RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient) == 0x54 ? 1 : -1];
+u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 temp_r3;
+    s32 var_r0;
+    TObjAreaWarp__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient *)&__vt__19TObjGoalWarpAncient).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31EC;
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DBAC4;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBAC4;
+    M2C_FIELD(arg0, s32 *, 0xCC) = TObjGoalWarpAncient__sub_8017D2D4((int) (1));
+    M2C_FIELD(arg0, s32 *, 0xD0) = TObjGoalWarpAncient__sub_8017D2D4((int) (3));
+    M2C_FIELD(arg0, s32 *, 0xD4) = TObjGoalWarpAncient__sub_8017D2D4((int) (5));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
+        M2C_FIELD(arg0, s32 *, 0xD8) = get_instance__19TObjGoalWarpAncientFv();
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xD8) = register_warp_object__19TObjGoalWarpAncientFPv((int) (1));
+    }
+    M2C_FIELD(arg0, s32 *, 0xDC) = register_warp_object__19TObjGoalWarpAncientFPv((int) (3));
+    M2C_FIELD(arg0, s32 *, 0xE0) = register_warp_object__19TObjGoalWarpAncientFPv((int) (5));
+    M2C_FIELD(arg0, s32 *, 0xE4) = register_warp__19TObjGoalWarpAncientFPv((int) (0));
+    M2C_FIELD(arg0, s32 *, 0xE8) = register_warp__19TObjGoalWarpAncientFPv((int) (2));
+    if ((TLobby__sub_8030A7B0() == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) >= 0)) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+    if (is_split_screen() == 1) {
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x88));
+        var_r0 = temp_r3;
+        if (var_r0 != 0) {
+            var_r0 = init__13TAdVIConfigGCFPvf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBABC));
+        }
+        M2C_FIELD(arg0, s32 *, 0xC0) = var_r0;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xC0) = 0;
+    }
+    return arg0;
+}
 
 void *TObjMapWarpAncient__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x11C);

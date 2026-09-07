@@ -4,8 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_800FA95C_lbl_8049C700 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_800FA95C_lbl_80515F48 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
 extern "C" {
-void *TQuestVmDownLoadServer__sub_800FA95C(void *);
 void *__nw__7TObjectFUl(int);
 extern u32 lbl_805D5390;
 void create_instance__8TFogCtrlFv(void);
@@ -18,6 +27,11 @@ s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1);
 M2C_UNK TFogCtrl__sub_800FAF3C(M2C_UNK, s32);
 extern M2C_UNK TFogCtrl__data_80501188[];
 s32 update_all__8TFogCtrlFi(s32 arg0);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_8049C700[];
+extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
+extern s32 lbl_805D2B1C;
+u8 *TQuestVmDownLoadServer__sub_800FA95C(u8 *arg0);
 }
 
 extern "C" {
@@ -52,6 +66,15 @@ void *TQuestVmDownLoadServer__sub_800FA904(void *arg0, s16 arg1) {
 
 extern u32 lbl_805D5390;
 
+typedef char RecoveredGlobal_800FA95C_lbl_8049C700_size[sizeof(RecoveredGlobal_800FA95C_lbl_8049C700) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_800FA95C_lbl_80515F48_size[sizeof(RecoveredGlobal_800FA95C_lbl_80515F48) == 0x28 ? 1 : -1];
+u8 *TQuestVmDownLoadServer__sub_800FA95C(u8 *arg0) {
+    __ct__7TObjectFP7TObject(arg0, &lbl_80515F48.value);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800FA95C_lbl_8049C700 *)&lbl_8049C700).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2B1C;
+    return arg0;
+}
+
 void destroy_instance__22TQuestVmDownLoadServerFv(void) {
     if ((u32) lbl_805D5390 != 0U) {
         queue_destruction__7TObjectFv((void*)lbl_805D5390);
@@ -62,7 +85,7 @@ void create_instance__8TFogCtrlFv(void) {
     void *o;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
-        o = TQuestVmDownLoadServer__sub_800FA95C(o);
+        o = TQuestVmDownLoadServer__sub_800FA95C((u8 *)(o));
     }
     (*(void * *)&lbl_805D5390) = o;
 }

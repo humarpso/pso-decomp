@@ -29,6 +29,11 @@ struct VObj_18_a70a39 : VBase_18_a70a39 {
 struct RecoveredGlobal_80219A9C_TQuestListVM__data_8044BF20 { char value[0xE]; };
 typedef char RecoveredGlobal_80219A9C_TQuestListVM__data_8044BF20_size[sizeof(RecoveredGlobal_80219A9C_TQuestListVM__data_8044BF20) == 0xE ? 1 : -1];
 
+struct RecoveredGlobal_8033B9C4_lbl_80513910 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
@@ -38,6 +43,8 @@ extern M2C_UNK TQuestListVM__data_8044BF20[];
 extern s32 TQuestListVM__data_805D6200;
 extern s32 TQuestListVM__data_805D6204;
 void TQuestListVM__sub_80219A9C(u8 *arg0);
+extern RecoveredGlobal_8033B9C4_lbl_80513910 lbl_80512D00;
+void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0);
 }
 
 extern "C" {
@@ -258,5 +265,10 @@ void *__dt__12TQuestListVMFv(void *arg0, s16 arg1) {
 }
 
 void TQuestVmDownLoadServer__sub_80219EC4(void* p) { *(u16*)((char*)p + 0x70) |= 0x8; }
+typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
+void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0) {
+    M2C_FIELD(&lbl_80512D00.value, s32 *, 4) = arg0;
+    M2C_FIELD(&lbl_80512D00.value, s32 *, 0) = arg0;
+}
 
 }

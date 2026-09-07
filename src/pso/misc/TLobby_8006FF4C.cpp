@@ -4,9 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80070358_lbl_8048C9D8 {
+    M2C_UNK value;
+    u8 remaining[0x744];
+};
+
+extern "C" {
+s32 get_card_window__17TWindowSubComCardFUi(u32);
+M2C_UNK TLobby__sub_8007032C();
+int TLobby__sub_800703D0(void *, void *);
+extern M2C_UNK lbl_8048C9D8[];
+extern s32 lbl_805D53A0;
+void TLobby__sub_80070358(void);
+}
+
 extern "C" {
 
-int TLobby__sub_800703D0(void);
 int TLobby__sub_800704CC(void*);
 void TLobby__sub_80070550(void);
 void TLobby__sub_80070598(u8 *arg0);
@@ -60,7 +73,18 @@ void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
     }
 }
 
-int TLobby__sub_800703D0(void) { return 0; }
+typedef char RecoveredGlobal_80070358_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070358_lbl_8048C9D8) == 0x748 ? 1 : -1];
+void TLobby__sub_80070358(void) {
+    s32 *temp_r31;
+    TLobby__sub_8007032C();
+    temp_r31 = (s32 *)((u8 *)(((u8 *)(&(*(RecoveredGlobal_80070358_lbl_8048C9D8 *)&lbl_8048C9D8).value) + (lbl_805D53A0 * 0x104))) + 0x270);
+    if (get_card_window__17TWindowSubComCardFUi(0xFFFFU) != 0U) {
+        M2C_FIELD(temp_r31, s32 *, 0) = 1;
+        TLobby__sub_800703D0((void *)((void *) ((u8 *)(temp_r31) + 4)), (void *)((void *) (get_card_window__17TWindowSubComCardFUi(0xFFFFU) + 0x21C4)));
+    }
+}
+
+int TLobby__sub_800703D0(void * _w0, void * _w1) { return 0; }
 int TLobby__sub_800704CC(void*) { return 0; }
 
 void TLobby__sub_80070550(void) {  }

@@ -4,10 +4,53 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F90C_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F9CC_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F8FC_lbl_804FE120 {
+    s32 value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F8EC_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F91C_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 void TWindowSubStatusDisp__sub_80145190(u16, void *);
 extern u8 lbl_805D56C0;
 s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2);
+M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804A74E8;
+void TWindowSubStatusDisp__sub_801454E0(s32 _w0);
 }
 
 extern "C" {
@@ -18,7 +61,6 @@ s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0);
 void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
 void reset_gauge__20TWindowSubStatusDispFPv(void* p);
 void *TWindowSubStatusDisp__sub_801452DC();
-int TWindowSubStatusDisp__sub_801454E0(void*);
 int TWindowSubStatusDisp__sub_803DEE6C(void*);
 int TWindowSubStatusDisp__sub_803DF160(void*, void*);
 int get_player__20TWindowSubStatusDispFv(void*);
@@ -74,7 +116,19 @@ u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 ar
     return M2C_FIELD(temp_r3, u8 *, 2);
 }
 
+typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
+void TWindowSubStatusDisp__sub_801454E0(s32 _w0) {
+    set_global_param__8TObjFishFi((M2C_UNK *)(&lbl_804A74E8.value));
+}
+typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
+
 int end_render_forward__20TWindowSubStatusDispFPv(void* p) { return get_player__20TWindowSubStatusDispFv(p); }
-void reset_gauge__20TWindowSubStatusDispFPv(void* p) { TWindowSubStatusDisp__sub_803DEE6C((void*)1); TWindowSubStatusDisp__sub_801454E0(p); TWindowSubStatusDisp__sub_803DF160((void*)((void*)0), (void*)((void*)-1)); }
+void reset_gauge__20TWindowSubStatusDispFPv(void* p) { TWindowSubStatusDisp__sub_803DEE6C((void*)1); TWindowSubStatusDisp__sub_801454E0((s32)(p)); TWindowSubStatusDisp__sub_803DF160((void*)((void*)0), (void*)((void*)-1)); }
 
 }

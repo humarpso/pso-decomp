@@ -6,6 +6,7 @@
 
 class TDuelEffectCtrl : public TObject {
 public:
+    TDuelEffectCtrl(TObject* parent, u8 state);
     virtual ~TDuelEffectCtrl();
     virtual void run_task();
     virtual void render();

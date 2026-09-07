@@ -2,10 +2,31 @@
 #define PSO_TFONTSMALLHELP_H
 #include "pso/TObject.h"
 #include "types.h"
+#include <dolphin/mtx.h>
 
 class TFontSmallHelp : public TObject {
 public:
+    Vec position;
+    u32 owner_identity;
+    u8 unresolved_2c[0x24];
+    u32 color;
+    s32 age_ticks;
+    s32 lifetime_ticks;
+    u32 player_id;
+
+    TFontSmallHelp(u32 player, u32 text_color, s32 lifetime, u32 text_id);
     virtual ~TFontSmallHelp();
+    virtual void run_task();
+    virtual void render();
 };
+
+#include <stddef.h>
+typedef char TFontSmallHelpSize[sizeof(TFontSmallHelp) == 0x60 ? 1 : -1];
+typedef char TFontSmallHelpPosition[offsetof(TFontSmallHelp, position) == 0x1C ? 1 : -1];
+typedef char TFontSmallHelpOwner[offsetof(TFontSmallHelp, owner_identity) == 0x28 ? 1 : -1];
+typedef char TFontSmallHelpColor[offsetof(TFontSmallHelp, color) == 0x50 ? 1 : -1];
+typedef char TFontSmallHelpAge[offsetof(TFontSmallHelp, age_ticks) == 0x54 ? 1 : -1];
+typedef char TFontSmallHelpLifetime[offsetof(TFontSmallHelp, lifetime_ticks) == 0x58 ? 1 : -1];
+typedef char TFontSmallHelpPlayer[offsetof(TFontSmallHelp, player_id) == 0x5C ? 1 : -1];
 
 #endif

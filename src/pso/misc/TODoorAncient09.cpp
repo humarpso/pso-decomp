@@ -4,12 +4,64 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual M2C_UNK m12();
+    virtual s32 m13();
+    virtual M2C_UNK m14();
+    virtual M2C_UNK m15();
+    virtual M2C_UNK m16();
+    virtual M2C_UNK m17();
+};
+
+struct RecoveredGlobal_8016BF68_lbl_80441B4C {
+    M2C_UNK value;
+    u8 remaining[0x8C];
+};
+
+struct RecoveredGlobal_8016C010_lbl_80441B4C {
+    M2C_UNK value;
+    u8 remaining[0x8C];
+};
+
+struct RecoveredGlobal_8016BC84_lbl_80441ACC {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK fn_80160838(void *, void *);
 M2C_UNK TODoorAncient09__sub_80160968(void *);
 u8 TODoorAncient08__sub_80229220(int);
 void TODoorAncient09__vt12(u8 *arg0);
+u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440CEC;
+extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B1238;
+extern u32 lbl_805D5950;
+extern void *TODoorAncient09__data_805D5954;
+void TODoorAncient09__sub_801610E0(void);
 }
 
 extern "C" {
@@ -175,6 +227,26 @@ void free_rocks__15TODoorAncient09Fv(void) {
 }
 
 extern M2C_UNK __vt__15TODoorAncient09[];
+
+typedef char RecoveredGlobal_8016BC84_lbl_80441ACC_size[sizeof(RecoveredGlobal_8016BC84_lbl_80441ACC) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8016BC84_lbl_804B2B30_size[sizeof(RecoveredGlobal_8016BC84_lbl_804B2B30) == 0x10 ? 1 : -1];
+void TODoorAncient09__sub_801610E0(void) {
+    s32 *temp_r3_2;
+    u8 *temp_r3;
+    u8 *var_r0;
+    temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_804B1238.value, 0, 0, 0));
+    }
+    (*(u8 * *)&lbl_805D5950) = var_r0;
+    temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
+    (*(s32 * *)&TODoorAncient09__data_805D5954) = temp_r3_2;
+    *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5950), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD((*(s32 * *)&TODoorAncient09__data_805D5954), s32 *, 4) = TLanguage__sub_801E4874((void *) (&lbl_80440CEC.value));
+}
+typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
+typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016C010_lbl_80441B4C) == 0x90 ? 1 : -1];
 
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

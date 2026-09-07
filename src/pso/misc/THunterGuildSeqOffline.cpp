@@ -96,6 +96,11 @@ struct RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 {
     u8 remaining[0xC];
 };
 
+struct RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 TWindowSubComCard__sub_8026CBB8(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -130,6 +135,14 @@ extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGui
 extern s32 lbl_805D3658;
 extern s32 THunterGuildSeqOffline__data_805D6188;
 u8 *THunterGuildSeqOffline__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+s32 TQuestThread__sub_801F5C50(s32);
+s32 TWindow__close(int);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+extern s32 THunterGuildSeqOffline__data_80513DC8[];
+void THunterGuildSeqOffline__sub_8021354C(u8 *arg0);
 }
 
 extern "C" {
@@ -302,6 +315,44 @@ s32 THunterGuildSeqOffline__sub_80213458(void) {
         return M2C_FIELD(lbl_805D61BC, s32 *, 0x20);
     }
     return -1;
+}
+
+typedef char RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
+void THunterGuildSeqOffline__sub_8021354C(u8 *arg0) {
+    s32 temp_r3_2;
+    u8 *temp_r3;
+    u8 *temp_r3_3;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x3C));
+    if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
+        temp_r3_2 = TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u8 **, 0x3C));
+        switch (temp_r3_2) {
+        case 0:
+            TWindow__close((int)(M2C_FIELD(arg0, u8 **, 0x3C)));
+            M2C_FIELD(arg0, u8 **, 0x3C) = NULL;
+            ((VObj_18_97738d *)(arg0))->m7(9, 1);
+            M2C_FIELD(arg0, s32 *, 0x34) = 1;
+            if ((s32) M2C_FIELD(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 8) != -1) {
+                M2C_FIELD(arg0, s32 *, 0x38) = TQuestThread__sub_801F5C50(M2C_FIELD(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 8));
+            }
+            set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xC));
+            break;
+        case 1:
+            TWindow__close((int)(M2C_FIELD(arg0, u8 **, 0x3C)));
+            M2C_FIELD(arg0, u8 **, 0x3C) = NULL;
+            ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
+            M2C_FIELD(arg0, s32 *, 0x34) = 0;
+            set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xC));
+            break;
+        }
+    }
+    temp_r3_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x3C));
+    if ((temp_r3_3 != NULL) && (get_status_flag__17TWindowSubComCardFPv(temp_r3_3) != 0)) {
+        TWindow__close((int)(M2C_FIELD(arg0, u8 **, 0x3C)));
+        M2C_FIELD(arg0, u8 **, 0x3C) = NULL;
+        ((VObj_18_97738d *)(arg0))->m7(0xA, 1);
+        M2C_FIELD(arg0, s32 *, 0x34) = 0;
+        set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xC));
+    }
 }
 
 void open_judgment_item_window__22THunterGuildSeqOfflineFPv(void *arg0) {

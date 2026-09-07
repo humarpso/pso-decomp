@@ -63,6 +63,46 @@ struct RecoveredGlobal_801F196C_TLobby__data_80512220 {
     u8 remaining[0x1C];
 };
 
+struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F90C_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F9CC_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F8FC_lbl_804FE120 {
+    s32 value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F8EC_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F91C_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 s32 TLobby__sub_8020C1F0(int, int, void *);
 void qst_op_if_zone_clear(s32 arg0, s32 arg1);
@@ -183,6 +223,9 @@ M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
 extern RecoveredGlobal_801F196C_lbl_804499A8 lbl_804499A8;
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 void qst_op_se(void);
+M2C_UNK foreach_player__10TObjPlayerFv(M2C_UNK *);
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 fn_801F3480;
+void qst_op_p_enablewarp(void);
 }
 
 extern "C" {
@@ -285,6 +328,18 @@ typedef char RecoveredGlobal_801F00E4_TLobby__data_80512220_size[sizeof(Recovere
 void qst_op_create_pipe(void) {
     TTecLuker__sub_80233E3C((int) ((u16) (*(RecoveredGlobal_801F00E4_TLobby__data_80512220 *)&TLobby__data_80512220).value));
 }
+
+typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
+void qst_op_p_enablewarp(void) {
+    foreach_player__10TObjPlayerFv((M2C_UNK *)(&fn_801F3480.value));
+}
+typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 void qst_op_p_dead(void) {
     s32 temp_r31;

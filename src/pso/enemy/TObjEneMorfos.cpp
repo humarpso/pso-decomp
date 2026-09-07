@@ -113,6 +113,11 @@ struct VObj_18_6eb1ad : VBase_18_6eb1ad {
     virtual M2C_UNK m103();
 };
 
+struct RecoveredGlobal_80334CC8___vt__13TObjEneMorfos {
+    M2C_UNK value;
+    u8 remaining[0x1A8];
+};
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -131,6 +136,16 @@ extern s32 lbl_805D6D28;
 extern s32 lbl_805D6D2C;
 extern const f32 lbl_805DF894;
 void run_task__13TObjEneMorfosFv(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjPlayer__sub_800A05B8(void *, int);
+M2C_UNK __dt__9TObjEneDDFv(void *, int);
+M2C_UNK __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK TObjPlayer__sub_803966F8(void *, void *, int, int);
+extern M2C_UNK TObjPlayer__sub_800D7C58[];
+extern M2C_UNK __vt__13TObjEneMorfos[];
+u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -218,6 +233,26 @@ void run_task__13TObjEneMorfosFv(u8 *arg0) {
     set_player_state_default__12TBoss8DragonFPv(arg0);
     ((VObj_18_6eb1ad *)(arg0))->m98();
     TObjEneMorfos__sub_80332594(arg0);
+}
+
+typedef char RecoveredGlobal_80334CC8___vt__13TObjEneMorfos_size[sizeof(RecoveredGlobal_80334CC8___vt__13TObjEneMorfos) == 0x1AC ? 1 : -1];
+u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80334CC8___vt__13TObjEneMorfos *)&__vt__13TObjEneMorfos).value;
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x494) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x494));
+            M2C_FIELD(arg0, u32 *, 0x494) = 0U;
+        }
+        TObjEneGibbles__sub_80156720((void *) (arg0));
+        TObjPlayer__sub_803966F8((void *) (arg0 + 0x424), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
+        __dt__18TObjEneMe3SinowZoaFPvs((void *) (arg0 + 0x408), (int) (-1));
+        TObjPlayer__sub_800A05B8((void *) (arg0 + 0x3EC), (int) (-1));
+        __dt__9TObjEneDDFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
 }
 
 void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2) {

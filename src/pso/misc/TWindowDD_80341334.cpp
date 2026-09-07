@@ -24,6 +24,11 @@ struct RecoveredGlobal_803414DC_TWindowDD__data_804EFC24 {
     u8 remaining[0x10];
 };
 
+struct RecoveredGlobal_8034146C_TWindowDD__data_804EFC24 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
 extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
@@ -42,6 +47,11 @@ extern RecoveredGlobal_8034138C_TWindowDD__data_804EFC24 TWindowDD__data_804EFC2
 extern s32 TWindowDD__data_805DFC14;
 extern const f32 lbl_805DFC20;
 void TWindowDD__sub_803414DC(void);
+s32 __nw__7TObjectFUl(int);
+u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+extern RecoveredGlobal_8034138C_TWindowDD__data_804EFC24 TWindowDD__data_804EFC24;
+extern const f32 TWindowDD__data_805DFB20;
+s32 TWindowDD__sub_8034146C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 }
 
 extern "C" {
@@ -90,6 +100,21 @@ u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
 }
 typedef char RecoveredGlobal_803414DC_lbl_804EFC00_size[sizeof(RecoveredGlobal_803414DC_lbl_804EFC00) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_803414DC_TWindowDD__data_804EFC24_size[sizeof(RecoveredGlobal_803414DC_TWindowDD__data_804EFC24) == 0x14 ? 1 : -1];
+
+typedef char RecoveredGlobal_8034146C_TWindowDD__data_804EFC24_size[sizeof(RecoveredGlobal_8034146C_TWindowDD__data_804EFC24) == 0x14 ? 1 : -1];
+s32 TWindowDD__sub_8034146C(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
+    s32 temp_r3;
+    s32 var_r0;
+    M2C_FIELD(&(*(RecoveredGlobal_8034146C_TWindowDD__data_804EFC24 *)&TWindowDD__data_804EFC24).value, f32 *, 0) = farg0;
+    M2C_FIELD(&(*(RecoveredGlobal_8034146C_TWindowDD__data_804EFC24 *)&TWindowDD__data_804EFC24).value, f32 *, 4) = (f32) TWindowDD__data_805DFB20;
+    temp_r3 = __nw__7TObjectFUl((int) (0x74));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = ((s32)TWindowDD__sub_8034138C((u8 *)((int) (temp_r3)), (s32)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((void *) (arg2)), (s32)((void *) (arg3))));
+    }
+    return var_r0;
+}
+
 void TWindowDD__sub_803414DC(void) {
     M2C_FIELD(&lbl_804EFC00.value, s32 *, 0x18) = (s32) TWindowDD__data_805DFC14;
     M2C_FIELD(&(*(RecoveredGlobal_803414DC_TWindowDD__data_804EFC24 *)&TWindowDD__data_804EFC24).value, f32 *, 8) = (f32) lbl_805DFC20;

@@ -1,41 +1,60 @@
 #include "pso/TFontSmallHelp.h"
 
-TFontSmallHelp::~TFontSmallHelp() {}
-
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+struct HelpTextPlayerState {
+    u8 unresolved_00[0x84C];
+    Vec position;
+    u8 unresolved_858[0x558];
+    u32 identity;
+};
+typedef char HelpTextPlayerPosition[offsetof(HelpTextPlayerState, position) == 0x84C ? 1 : -1];
+typedef char HelpTextPlayerIdentity[offsetof(HelpTextPlayerState, identity) == 0xDB0 ? 1 : -1];
 
 extern "C" {
+void queue_destruction__7TObjectFv(TObject *);
+void disallow_rendering__7TObjectFv(TObject *);
+TObject *get_instance__15TWindowCtrlMainFv();
+HelpTextPlayerState *TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void VecCopy__FP3VecPC3Vec(Vec *, const Vec *);
+void TFontSmallHelp__sub_800FC424(TFontSmallHelp *, u32);
+void set_help_text__14TFontSmallHelpFPvUi(TFontSmallHelp *, u32);
+extern const char *lbl_805D2B20;
+}
 
-void run_task__14TFontSmallHelpFv(u8 *arg0);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK disallow_rendering__7TObjectFv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-
-void run_task__14TFontSmallHelpFv(u8 *arg0) {
-    s32 temp_r3_2;
-    u8 *temp_r3;
-
-    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, s32 *, 0x5C));
-    if (temp_r3 == NULL) {
-        queue_destruction__7TObjectFv(arg0);
+void TFontSmallHelp::run_task() {
+    HelpTextPlayerState *player = TPlayerBattleCtrl4P__sub_801BA74C(player_id);
+    if (player == NULL) {
+        queue_destruction__7TObjectFv(this);
         return;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != (u32) M2C_FIELD(temp_r3, u32 *, 0xDB0)) {
-        queue_destruction__7TObjectFv(arg0);
+    if (owner_identity != player->identity) {
+        queue_destruction__7TObjectFv(this);
         return;
     }
-    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, temp_r3 + 0x84C);
-    M2C_FIELD(arg0, s32 *, 0x54) = (s32) (M2C_FIELD(arg0, s32 *, 0x54) + 1);
-    temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x58);
-    if ((temp_r3_2 > 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x54) >= temp_r3_2)) {
-        disallow_rendering__7TObjectFv(arg0);
-        queue_destruction__7TObjectFv(arg0);
+    VecCopy__FP3VecPC3Vec(&position, &player->position);
+    age_ticks += 1;
+    s32 lifetime = lifetime_ticks;
+    if (lifetime > 0 && age_ticks >= lifetime) {
+        disallow_rendering__7TObjectFv(this);
+        queue_destruction__7TObjectFv(this);
     }
 }
 
+TFontSmallHelp::~TFontSmallHelp() {}
+
+TFontSmallHelp::TFontSmallHelp(u32 player, u32 text_color, s32 lifetime, u32 text_id)
+    : TObject(get_instance__15TWindowCtrlMainFv()) {
+    m_name = lbl_805D2B20;
+    HelpTextPlayerState *owner = TPlayerBattleCtrl4P__sub_801BA74C(player);
+    if (owner == NULL) {
+        disallow_rendering__7TObjectFv(this);
+        queue_destruction__7TObjectFv(this);
+        return;
+    }
+    player_id = player;
+    VecCopy__FP3VecPC3Vec(&position, &owner->position);
+    owner_identity = owner->identity;
+    TFontSmallHelp__sub_800FC424(this, text_color);
+    age_ticks = 0;
+    lifetime_ticks = lifetime;
+    set_help_text__14TFontSmallHelpFPvUi(this, text_id);
 }

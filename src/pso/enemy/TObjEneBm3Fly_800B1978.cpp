@@ -139,6 +139,24 @@ struct VObj_18_6eb1ad : VBase_18_6eb1ad {
     virtual M2C_UNK m103();
 };
 
+#include <stddef.h>
+struct Stack_800B22C8 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+    s32 sp14;
+};
+
+struct RecoveredGlobal_800B22C8_lbl_8043B0FC {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_800B22C8_lbl_80491B4C {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
 extern "C" {
 s32 TObjEneBm3Fly__sub_800BB774();
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -162,6 +180,24 @@ extern const f32 lbl_805D9CB4;
 extern const f32 lbl_805D9CE8;
 extern const f32 lbl_805D9CF0;
 
+s32 dispatch_shared_handler_a__6TLobbyFPv(int);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TBreakUpMdl__sub_8009705C(int, void *);
+u8 *TObjEneBm3FlyNest__sub_800B4158();
+s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
+extern RecoveredGlobal_800B22C8_lbl_8043B0FC lbl_8043B0FC;
+extern RecoveredGlobal_800B22C8_lbl_80491B4C lbl_80491B4C;
+extern s32 lbl_805D50E0;
+extern s32 TObjEneBm3Fly__data_805D50E4;
+extern s32 lbl_805D50E8;
+extern f32 *lbl_805D50EC;
+extern u8 *lbl_805D50F0;
+extern void *TObjEneBm3Fly__data_805D50F4;
+extern const f32 TObjEneBm3Fly__data_805D9C6C;
+void TObjEneBm3Fly__sub_800B22C8(void);
 }
 
 extern "C" {
@@ -386,6 +422,36 @@ void * create__13TObjEneBm3FlyFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, vo
         o = TObjEneBm3Fly__ct(o, tl_04, arg0, arg1, arg2, arg3, arg4);
     }
     return o;
+}
+typedef char RecoveredGlobal_800B22C8_lbl_8043B0FC_size[sizeof(RecoveredGlobal_800B22C8_lbl_8043B0FC) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_800B22C8_lbl_80491B4C_size[sizeof(RecoveredGlobal_800B22C8_lbl_80491B4C) == 0x2C ? 1 : -1];
+void TObjEneBm3Fly__sub_800B22C8(void) {
+    typedef char sp8_offset[(offsetof(Stack_800B22C8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800B22C8, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800B22C8, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_800B22C8, sp14) == 0xC) ? 1 : -1];
+    Stack_800B22C8 stack;
+    s32 temp_r3;
+    s32 var_r0;
+    u8 *temp_r5;
+    lbl_805D50F0 = TObjEneBm3FlyNest__sub_800B4158();
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x10));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TBreakUpMdl__sub_8009705C((int) (temp_r3), (void *) (M2C_FIELD(M2C_FIELD(lbl_805D50F0, u8 **, 0x42C), s32 *, 8)));
+    }
+    (*(s32 *)&TObjEneBm3Fly__data_805D50F4) = var_r0;
+    lbl_805D50E0 = register_boss__6TLobbyFPv((int) (0));
+    TObjEneBm3Fly__data_805D50E4 = dispatch_shared_handler_b__6TLobbyFPv((int) (0));
+    lbl_805D50E8 = register_object__6TLobbyFPv((int) (0));
+    (*(s32 *)&lbl_805D50EC) = dispatch_shared_handler_a__6TLobbyFPv((int) (0));
+    stack.sp8 = M2C_FIELD(&lbl_8043B0FC.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_8043B0FC.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_8043B0FC.value, s32 *, 8);
+    stack.sp14 = M2C_FIELD(&lbl_8043B0FC.value, s32 *, 0xC);
+    stack.sp8 = M2C_FIELD(lbl_805D50F0, s32 *, 0x430);
+    temp_r5 = (u8 *)(M2C_FIELD(lbl_805D50F0, u8 **, 0x42C));
+    spawn_npc_enemy__6TLobbyFsiiiff((int) (7), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (M2C_FIELD(&lbl_80491B4C.value, f32 *, 0xC)), (f32) (TObjEneBm3Fly__data_805D9C6C));
 }
 
 }

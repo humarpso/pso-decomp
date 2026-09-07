@@ -11,9 +11,23 @@ struct DfV_80164cc4_80164760 : DfBase_80164cc4_80164760 {
     virtual void vf12();
 };
 
+struct RecoveredGlobal_80164764_lbl_8050BEE0 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_80164764_lbl_8050BFA0 {
+    M2C_UNK value;
+    u8 remaining[0x3C];
+};
+
+struct RecoveredGlobal_80164764_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
 extern "C" {
 s32 TODragonfly__sub_80158360(s32, f32);
-s32 TODragonfly__sub_80164764(void *, f32);
 s32 rand__11TOBoss4RockFv(void);
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB578;
@@ -22,7 +36,6 @@ extern const f32 lbl_805DB588;
 extern const f32 lbl_805DB58C;
 void TODragonfly__sub_80164990(u8 *arg0);
 s32 TODragonfly__sub_80158360(s32, f32);
-s32 TODragonfly__sub_80164764(void *, f32);
 s32 rand__11TOBoss4RockFv(void);
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB578;
@@ -30,6 +43,25 @@ extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB58C;
 extern const f32 lbl_805DB590;
 void TODragonfly__sub_80164B34(s32 arg0);
+f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 check_camera_distance__10TObjPlayerFi(void *);
+s32 rand__11TOBoss4RockFv(void);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern const f64 lbl_804411B0;
+extern RecoveredGlobal_80164764_lbl_8050BEE0 lbl_8050BEE0;
+extern RecoveredGlobal_80164764_lbl_8050BFA0 lbl_8050BFA0;
+extern RecoveredGlobal_80164764_lbl_8058D490 lbl_8058D490;
+extern const f32 lbl_805DB570;
+extern const f32 lbl_805DB574;
+extern const f32 lbl_805DB57C;
+extern const f32 lbl_805DB580;
+s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
 }
 
 extern "C" {
@@ -70,6 +102,33 @@ void TODragonfly__sub_80164760(void) {  }
 
 extern const f32 lbl_805DB580;
 
+typedef char RecoveredGlobal_80164764_lbl_8050BEE0_size[sizeof(RecoveredGlobal_80164764_lbl_8050BEE0) == 0x20 ? 1 : -1];
+typedef char RecoveredGlobal_80164764_lbl_8050BFA0_size[sizeof(RecoveredGlobal_80164764_lbl_8050BFA0) == 0x40 ? 1 : -1];
+typedef char RecoveredGlobal_80164764_lbl_8058D490_size[sizeof(RecoveredGlobal_80164764_lbl_8058D490) == 0x30 ? 1 : -1];
+s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0) {
+    M2C_FIELD(&lbl_8050BEE0.value, f32 *, 0) = (f32) lbl_805DB580;
+    M2C_FIELD(&lbl_8050BEE0.value, f32 *, 4) = farg0;
+    M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 0xD0) * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv()));
+    M2C_FIELD(&lbl_8050BFA0.value, s32 *, 4) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())));
+    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    TObjPlayer__sub_803D9214((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(&lbl_8050BFA0.value, s32 *, 4))));
+    TScene__sub_803D8DB4((int) (0), (void *) (&lbl_8050BEE0.value), (void *) (&lbl_8050BEE0.value));
+    TObjPlayer__sub_803D9B78();
+    TBoss4Zako__sub_803D8910((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x50));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (&lbl_8050BEE0.value));
+    TBoss6Type1__sub_803D9370((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
+    if (check_camera_distance__10TObjPlayerFi((void *) (&lbl_8050BEE0.value)) == 1) {
+        M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+        M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (lbl_804411B0 * get_ad_end_text_start__10TObjPlayerFv((f64) M2C_FIELD(&lbl_8050BEE0.value, f32 *, 0), (f64) M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8)));
+        M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (M2C_FIELD(&lbl_8050BEE0.value, f32 *, 0) * M2C_FIELD(arg0, f32 *, 0x70));
+        M2C_FIELD(arg0, f32 *, 0xE4) = (f32) (M2C_FIELD(&lbl_8050BEE0.value, f32 *, 4) * M2C_FIELD(arg0, f32 *, 0x70));
+        M2C_FIELD(arg0, f32 *, 0xE8) = (f32) (M2C_FIELD(&lbl_8050BEE0.value, f32 *, 8) * M2C_FIELD(arg0, f32 *, 0x70));
+        return 1;
+    }
+    return 0;
+}
+
 #pragma push
 #pragma fp_contract on
 void TODragonfly__sub_80164990(u8 *arg0) {
@@ -78,11 +137,11 @@ void TODragonfly__sub_80164990(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (temp_r5 + 1);
     if (lbl_805DB578 < (f32) temp_r5) {
         if (TODragonfly__sub_80158360((s32) arg0, lbl_805DB588) == 1) {
-            if (TODragonfly__sub_80164764(arg0, lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
+            if (TODragonfly__sub_80164764((u8 *)(arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
                 M2C_FIELD(arg0, s32 *, 0xAC) = 3;
                 M2C_FIELD(arg0, s32 *, 0xCC) = 0;
             }
-        } else if (TODragonfly__sub_80164764(arg0, M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())) - lbl_805DB560)) == 1) {
+        } else if (TODragonfly__sub_80164764((u8 *)(arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())) - lbl_805DB560)) == 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 1;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;
         }
@@ -95,14 +154,14 @@ void TODragonfly__sub_80164990(u8 *arg0) {
 void TODragonfly__sub_80164B34(s32 arg0) {
     s32 temp_r4;
     if (TODragonfly__sub_80158360(arg0, lbl_805DB590) == 1) {
-        if (TODragonfly__sub_80164764((void *) arg0, lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
+        if (TODragonfly__sub_80164764((u8 *)((void *) arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;
         }
     } else {
         temp_r4 = M2C_FIELD(arg0, s32 *, 0xCC);
         M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (temp_r4 + 1);
-        if ((lbl_805DB578 < (f32) temp_r4) && (TODragonfly__sub_80164764((void *) arg0, M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())) - lbl_805DB560)) == 1)) {
+        if ((lbl_805DB578 < (f32) temp_r4) && (TODragonfly__sub_80164764((u8 *)((void *) arg0), M2C_FIELD(arg0, f32 *, 0x6C) * ((lbl_805DB58C * (lbl_805DB57C * (f32) rand__11TOBoss4RockFv())) - lbl_805DB560)) == 1)) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 1;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;
         }
