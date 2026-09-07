@@ -4,6 +4,30 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_023f9f { char pad[0x18]; };
+
+struct VObj_18_023f9f : VBase_18_023f9f {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(u32);
+};
+
+struct RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
+extern "C" {
+s32 TBoss8Dragon__sub_8008741C(void *, int, int);
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern M2C_UNK __vt__12TObjMistCtrl[];
+extern s32 lbl_805D3E80;
+u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2);
+}
+
 extern "C" {
 
 void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
@@ -42,6 +66,18 @@ extern s32 lbl_805D5660;
 extern s32 lbl_805D6710;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DE1F8;
+
+typedef char RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl_size[sizeof(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl) == 0x38 ? 1 : -1];
+u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E80;
+    if (arg2 != 0U) {
+        ((VObj_18_023f9f *)(arg0))->m5(arg2);
+    }
+    M2C_FIELD(arg0, s32 *, 0x90) = TBoss8Dragon__sub_8008741C((void *) (arg0 + 0x38), (int) (0x200), (int) (0x800));
+    return arg0;
+}
 
 void render__16TPlayerFootStampFv(u8 *arg0) {
     if (TObjPlayer__sub_80141CF8((void *) (arg0 + 0x7C), (void *) (lbl_805D4DF0 + 0x178)) < lbl_805DE1F8) {

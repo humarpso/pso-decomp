@@ -16,6 +16,7 @@ mw_comment_version: 10
 force_active:
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TItemEquipBase__sub_8022F1F4
+  - TKeyBoardControl__sub_80290D10
   - TLobby__sub_803CBE40
   - TMainCursor__sub_8013E1C0
   - TMainCursor__sub_8013E290
@@ -36,6 +37,7 @@ force_active:
   - __dt__7TEffHitFv
   - __dt__7TEndingFv
   - __dt__9TEffGuardFv
+  - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - create__13TItemProArmorFiUi
   - create_icon__10TObjPlayerFiii
   - draw_value__13TWindowMesetaFPvi
@@ -46,6 +48,7 @@ force_active:
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
+  - is_target_in_range__11TObjInfoColFf
   - load_item_pmt
   - open_windows__22TAdMultiPlyChrSelectGCFPv
   - reset_and_invoke__6TLobbyFv

@@ -10,6 +10,11 @@ struct VBase { char pad[0]; };
 
 struct VObj { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
 
+struct RecoveredGlobal_800F8A78_lbl_80501178 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK release_ref__6TLobbyFv();
@@ -31,6 +36,9 @@ void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
 M2C_UNK TLobby__sub_803C57C8(void *);
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_800F8A78_lbl_80501178 lbl_80575B40;
+void TLobby__sub_803CB71C(void);
 }
 
 extern "C" {
@@ -308,6 +316,11 @@ void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2) {
     TLobby__sub_803C4A7C((void *) (arg2), arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
 }
 #pragma pop
+
+typedef char RecoveredGlobal_800F8A78_lbl_80501178_size[sizeof(RecoveredGlobal_800F8A78_lbl_80501178) == 0x10 ? 1 : -1];
+void TLobby__sub_803CB71C(void) {
+    memset((void *) (&lbl_80575B40.value), (int) (0), (int) (0x340));
+}
 
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1) {
     TLobby__sub_803C57C8((void *) (arg1));

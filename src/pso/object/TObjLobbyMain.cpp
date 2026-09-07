@@ -7,6 +7,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_803527F0_lbl_804F0F24 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_803527F0_lbl_804F0F24_size[sizeof(RecoveredGlobal_803527F0_lbl_804F0F24) == 0x10 ? 1 : -1];
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_80352940_lbl_804F0F34 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_80352940___vt__13TObjLobbyMain {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
 extern "C" {
 s32 TObjFish__sub_8001EDC4(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
@@ -19,6 +40,23 @@ extern s32 lbl_805D6ED0;
 extern s32 lbl_805D6ED4;
 extern s32 lbl_805D6ED8;
 void TObjLobbyMain__sub_803527F0(void);
+M2C_UNK TObjLobbyMain__sub_803520DC(void *);
+M2C_UNK TObjLobbyMain__sub_803521A4(void *);
+u32 TBoss4Type2__sub_800874F4(void *, int);
+s32 set_flags__11TBoss4Type2FPvUi(int, int);
+s32 enable__13TParticleCtrlFPv(int);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_map_object_base(void *);
+s32 TObjLobbyMain__sub_80352240(void *);
+extern RecoveredGlobal_80352940_lbl_804F0F34 lbl_804F0F34;
+extern M2C_UNK __vt__13TObjLobbyMain[];
+extern s32 lbl_805D4370;
+extern const f32 TObjLobbyMain__data_805DFEE0;
+extern const f32 lbl_805DFEE8;
+extern const f32 lbl_805DFEEC;
+u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -29,7 +67,6 @@ void release_static_instance__13TObjLobbyMainFv(void);
 void run_task__13TObjLobbyMainFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void TObjEneGibbles__sub_80156720(void *);
-void *TObjLobbyMain__ct(void *, void *, void *);
 M2C_UNK TObjLobbyMain__sub_803520D8(void *);
 M2C_UNK TObjLobbyMain__sub_8035255C(void *);
 M2C_UNK TObjLobbyMain__sub_803525F0(void *);
@@ -73,7 +110,7 @@ extern void *tl_05;
 void *create__13TObjLobbyMainFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = TObjLobbyMain__ct(o, tl_05, arg0);
+        o = TObjLobbyMain__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -116,6 +153,39 @@ void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_80352940_lbl_804F0F34_size[sizeof(RecoveredGlobal_80352940_lbl_804F0F34) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_80352940___vt__13TObjLobbyMain_size[sizeof(RecoveredGlobal_80352940___vt__13TObjLobbyMain) == 0x38 ? 1 : -1];
+u8 *TObjLobbyMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    u32 temp_r3;
+    u32 temp_r3_2;
+    init_map_object_base((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80352940___vt__13TObjLobbyMain *)&__vt__13TObjLobbyMain).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4370;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, u32 *, 0xD8) = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x38), (int) (0x222));
+    temp_r3 = M2C_FIELD(arg0, u32 *, 0xD8);
+    if (temp_r3 != 0U) {
+        set_flags__11TBoss4Type2FPvUi((int) (temp_r3), (int) (0x40));
+        enable__13TParticleCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0xD8)));
+    }
+    M2C_FIELD(arg0, u32 *, 0xDC) = TBoss4Type2__sub_800874F4((void *) (arg0 + 0x38), (int) (0x222));
+    temp_r3_2 = M2C_FIELD(arg0, u32 *, 0xDC);
+    if (temp_r3_2 != 0U) {
+        set_flags__11TBoss4Type2FPvUi((int) (temp_r3_2), (int) (0x40));
+        enable__13TParticleCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0xDC)));
+    }
+    TObjLobbyMain__sub_803521A4((void *) (arg0));
+    TObjLobbyMain__sub_803520DC((void *) (arg0));
+    TObjLobbyMain__sub_80352240((void *) (arg0));
+    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) TObjLobbyMain__data_805DFEE0;
+    M2C_FIELD(arg0, s32 *, 0xC8) = 2;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DFEEC;
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DFEE8;
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804F0F34.value), (int) (1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;
 }
 

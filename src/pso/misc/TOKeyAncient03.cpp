@@ -46,6 +46,19 @@ struct RecoveredGlobal_8016BC84_lbl_804B2B30 {
     u8 remaining[0xC];
 };
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 { M2C_UNK value; u8 remaining[0x6C]; };
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -82,6 +95,19 @@ extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B2B30;
 extern u32 lbl_805D5A10;
 extern void *TOKeyAncient03__data_805D5A14;
 void TOKeyAncient03__sub_8016BC84(void);
+s32 get_main_phase(void);
+s32 is_split_screen();
+u8 * TOKey__ct(void *);
+M2C_UNK init_switch_id__5TOKeyFPv(void *);
+extern M2C_UNK __vt__14TOKeyAncient03[];
+extern s32 lbl_805D302C;
+extern u32 lbl_805D5A10;
+extern void *TOKeyAncient03__data_805D5A14;
+extern const f32 lbl_805DB71C;
+extern const f32 lbl_805DB720;
+extern const f32 lbl_805DB72C;
+extern const f32 lbl_805DB730;
+u8 *TOKeyAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -94,7 +120,6 @@ void cleanup_refs__14TOKeyAncient03Fv(void);
 void *create__14TOKeyAncient03FPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void TLobby__sub_8001FE7C(void*, int);
-void *TOKeyAncient03__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -152,7 +177,7 @@ void run_task__14TOKeyAncient03Fv(u8 *arg0) {
 void *create__14TOKeyAncient03FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xFC);
     if (o != NULL) {
-        o = TOKeyAncient03__ct(o, tl_05, arg0);
+        o = TOKeyAncient03__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -202,6 +227,45 @@ void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+u8 *TOKeyAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TOKey__ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016BD60___vt__14TOKeyAncient03 *)&__vt__14TOKeyAncient03).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D302C;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    init_switch_id__5TOKeyFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *(*(s32 * *)&TOKeyAncient03__data_805D5A14);
+    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A10), u8 **, 0x42C), void **, 8));
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB72C;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805DB730;
+    if (get_main_phase() != 0xF) {
+        if (is_split_screen() == 1) {
+            goto block_2;
+        }
+    } else {
+block_2:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x88) < 0) {
+                M2C_FIELD(arg0, s32 *, 0xD0) = 1;
+            } else {
+                goto block_5;
+            }
+        } else {
+block_5:
+            M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+        }
+    }
+    M2C_FIELD(arg0, f32 *, 0xE8) = (f32) lbl_805DB71C;
+    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) lbl_805DB71C;
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB71C;
+    M2C_FIELD(arg0, f32 *, 0xF4) = (f32) lbl_805DB71C;
+    M2C_FIELD(arg0, s32 *, 0xF8) = 0;
+    M2C_FIELD(arg0, f32 *, 0x70) = (f32) lbl_805DB720;
+    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DB720;
+    M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DB720;
     return arg0;
 }
 

@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8024259C_TLobby__data_8050AAAC {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+extern "C" {
+M2C_UNK seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension(int, void *, void *);
+M2C_UNK strncpy(void *, void *, int);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_8024259C_TLobby__data_8050AAAC TLobby__data_8050AAAC;
+extern u32 TLobby__data_805D5580;
+void TLobby__sub_8024259C(s32 arg0);
+}
+
 extern "C" {
 
 void *TLobby__sub_80242148(void *arg0, s16 arg1);
@@ -36,5 +50,14 @@ void TLobby__sub_802422EC(void *arg0, void *arg1) {
 
     extern unsigned char lbl_80517F9C[];
 void* get_com_card_entry__6TLobbyFi(int a0) {  return (char*)lbl_80517F9C + a0 * 188; }
+typedef char RecoveredGlobal_8024259C_TLobby__data_8050AAAC_size[sizeof(RecoveredGlobal_8024259C_TLobby__data_8050AAAC) == 0x28 ? 1 : -1];
+void TLobby__sub_8024259C(s32 arg0) {
+    if ((u32) TLobby__data_805D5580 != 0U) {
+        memset((void *) (&TLobby__data_8050AAAC.value), (int) (0), (int) (0x11));
+        strncpy((void *) (&TLobby__data_8050AAAC.value), (void *) (arg0 + 0x19), (int) (0x10));
+        M2C_FIELD(&TLobby__data_8050AAAC.value, s8 *, 0x10) = 0;
+        seq_jump__9TProtocolFPUcR21TPlyMeetUserExtension((int) (TLobby__data_805D5580), (void *) (arg0 + 0x4C), (void *) (arg0 + 0x58));
+    }
+}
 
 }

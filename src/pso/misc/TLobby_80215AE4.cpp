@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+    int create_named_object(void*);
+    extern unsigned char lbl_8044BD3C[];
+extern u32 lbl_805D61C0;
+void load_judge_item(void);
+}
+
+extern "C" {
 
 void update_all__6TLobbyFi(s32 arg0);
 void free_window__6TLobbyFv(void);
@@ -36,5 +43,6 @@ void free_window__6TLobbyFv(void) {
         lbl_805D61C0 = 0U;
     }
 }
+void load_judge_item(void) { (*(int *)&lbl_805D61C0) = create_named_object(lbl_8044BD3C); }
 
 }

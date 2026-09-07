@@ -4,6 +4,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8029CE64___vt__13TOGrassJungle {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+extern "C" {
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern M2C_UNK __vt__13TOGrassJungle[];
+extern s32 lbl_805D3D4C;
+u8 *TOGrassJungle__ct(u8 *arg0, s32 arg1, s32 arg2);
+}
+
 extern "C" {
 
 struct Base_8029CD90 { char pad[0x18]; };
@@ -60,6 +83,22 @@ void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_8029CE64___vt__13TOGrassJungle_size[sizeof(RecoveredGlobal_8029CE64___vt__13TOGrassJungle) == 0x34 ? 1 : -1];
+u8 *TOGrassJungle__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029CE64___vt__13TOGrassJungle *)&__vt__13TOGrassJungle).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D4C;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, s32 *, 0x90) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x90) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x90) = 0;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x90) > 1) {
+        M2C_FIELD(arg0, s32 *, 0x90) = 1;
     }
     return arg0;
 }

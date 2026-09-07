@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowDD__sub_80347238(s16 arg0);
+}
+
+extern "C" {
 
 void open__9TWindowDDFii(s32 arg0, s32 arg1);
 M2C_UNK open__11TWindowCtrlFiii(s32, s32, M2C_UNK);
@@ -15,6 +19,14 @@ extern s32 lbl_805D6E10;
 void open__9TWindowDDFii(s32 arg0, s32 arg1) {
     update_state__9TWindowDDFv(arg0, lbl_805D6E10, arg1);
     open__11TWindowCtrlFiii(arg1, lbl_805D6E10, 0x4F);
+}
+s32 TWindowDD__sub_80347238(s16 arg0) {
+    u8 var_r3;
+    var_r3 = 0;
+    if ((arg0 >= 0x300) && (arg0 <= 0x395)) {
+        var_r3 = 1;
+    }
+    return var_r3;
 }
 
 }

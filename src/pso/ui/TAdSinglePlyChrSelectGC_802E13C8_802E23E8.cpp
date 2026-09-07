@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802E2A88_lbl_804C89BC {
+    M2C_UNK value;
+    u8 remaining[0x74];
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 s32 TAdPlyStatusGC__sub_802E11C8(void *);
@@ -25,6 +30,10 @@ int create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void*);
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 s32 TAdSinglePlyChrSelectGC__sub_8039DCE0(s32, s32);
 void TAdSinglePlyChrSelectGC__sub_802E2520(u8 *arg0);
+s32 poll_load_status__15TAdPlayerLoadGCFi(int, void *);
+s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(void *, s32);
+extern RecoveredGlobal_802E2A88_lbl_804C89BC lbl_804C89BC;
+void TAdSinglePlyChrSelectGC__sub_802E2A88(s32 arg0);
 }
 
 extern "C" {
@@ -180,5 +189,11 @@ void update_char_timer__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     }
 }
 void TAdSinglePlyChrSelectGC__sub_802E2A7C(void* p) { *(s32*)((char*)p + 0x64) = 30; }
+typedef char RecoveredGlobal_802E2A88_lbl_804C89BC_size[sizeof(RecoveredGlobal_802E2A88_lbl_804C89BC) == 0x78 ? 1 : -1];
+void TAdSinglePlyChrSelectGC__sub_802E2A88(s32 arg0) {
+    if (poll_load_status__15TAdPlayerLoadGCFi((int) (0), (void *) (&lbl_804C89BC.value)) == 0) {
+        TAdSinglePlyChrSelectGC__sub_802E1DF8((void *)((void *) (arg0)), (s32)((int) (0xB)));
+    }
+}
 
 }

@@ -23,6 +23,27 @@ struct RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 {
     u8 remaining[0xC];
 };
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8015B644_lbl_804AFFF8 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8015B644___vt__19TOComputerMachine01 {
+    M2C_UNK value;
+    u8 remaining[0x40];
+};
+
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -37,13 +58,25 @@ extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMac
 extern s32 lbl_805D53A4;
 extern s32 TOComputerMachine01__data_805D58E4;
 void render__19TOComputerMachine01Fv(u8 *arg0);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
+s32 init__5TOKeyFPv(void *, int);
+extern RecoveredGlobal_8015B644_lbl_804AFFF8 lbl_804AFFF8;
+extern M2C_UNK __vt__19TOComputerMachine01[];
+extern s32 lbl_805D2EEC;
+extern u8 *TOComputerMachine01__data_805D58E0;
+extern s32 tl_05;
+extern const f32 lbl_805DB390;
+extern const f32 lbl_805DB394;
+u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1);
 void *create__19TOComputerMachine01FPv(void *arg0);
-void *TOComputerMachine01__ct(void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -87,7 +120,7 @@ void render__19TOComputerMachine01Fv(u8 *arg0) {
 void *create__19TOComputerMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE8);
     if (o != NULL) {
-        o = TOComputerMachine01__ct(o, arg0);
+        o = TOComputerMachine01__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
@@ -104,6 +137,24 @@ void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8015B644_lbl_804AFFF8_size[sizeof(RecoveredGlobal_8015B644_lbl_804AFFF8) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8015B644___vt__19TOComputerMachine01_size[sizeof(RecoveredGlobal_8015B644___vt__19TOComputerMachine01) == 0x44 ? 1 : -1];
+u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
+    init__5TOKeyFPv((void *) (arg0), (int) (tl_05));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015B644___vt__19TOComputerMachine01 *)&__vt__19TOComputerMachine01).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EEC;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TOComputerMachine01__data_805D58E0, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TOComputerMachine01__data_805D58E0, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB390;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB394;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804AFFF8.value), (int) (1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    update_heal_gauge_state__13TOHealGeneralFPv((void *) (arg0));
     return arg0;
 }
 

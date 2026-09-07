@@ -4,6 +4,36 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8019118C_lbl_804B7BD8 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8019118C_lbl_804B7C1C {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
+extern "C" {
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 TObjPlayer__sub_801569F4(void *);
+extern RecoveredGlobal_8019118C_lbl_804B7BD8 lbl_804B7BD8;
+extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
+u8 *TLobby__sub_8019118C(u8 *arg0, M2C_UNK arg1, s32 arg2);
+}
+
 extern "C" {
 
 void TLobby__sub_80190FD0(int a0);
@@ -49,5 +79,18 @@ u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
 void TLobby__sub_80190FD0(int a0) { lbl_805D3360 = a0; }
 
 void TLobby__sub_80190FD8(void) {  }
+typedef char RecoveredGlobal_8019118C_lbl_804B7BD8_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7BD8) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8019118C_lbl_804B7C1C_size[sizeof(RecoveredGlobal_8019118C_lbl_804B7C1C) == 0x3C ? 1 : -1];
+u8 *TLobby__sub_8019118C(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TObjPlayer__sub_801569F4((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B7C1C.value;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, s16 *, 0xAC) = 3;
+    M2C_FIELD(arg0, s32 *, 0xB0) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B7BD8.value), (int) (1));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    return arg0;
+}
 
 }

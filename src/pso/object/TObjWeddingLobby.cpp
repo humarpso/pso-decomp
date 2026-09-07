@@ -7,6 +7,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8035BEB8_lbl_804F1DF4 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8035BEB8_lbl_804F1DF4_size[sizeof(RecoveredGlobal_8035BEB8_lbl_804F1DF4) == 0x10 ? 1 : -1];
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, int);
 s32 TObjFish__sub_8001EDC4(void *, int);
@@ -31,6 +47,13 @@ extern RecoveredGlobal_8035BEB8_lbl_804F1DF4 lbl_804F1DF4;
 extern u32 TObjWeddingLobby__data_805D6F60;
 extern u32 lbl_805D6F64;
 void TObjWeddingLobby__sub_8035BEB8(void);
+s32 init_map_object_base(void *, void *);
+s32 TLobby__sub_80351DFC();
+extern M2C_UNK __vt__16TObjWeddingLobby[];
+extern s32 lbl_805D4428;
+extern const f32 TObjWeddingLobby__data_805E0158;
+extern const f32 lbl_805E0160;
+u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -40,7 +63,6 @@ void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1);
 void *create__16TObjWeddingLobbyFPv(void *arg0);
 void release__16TObjWeddingLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void *TObjWeddingLobby__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -74,7 +96,7 @@ void render__16TObjWeddingLobbyFv(u8 *arg0) {
 void *create__16TObjWeddingLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TObjWeddingLobby__ct(o, tl_05, arg0);
+        o = TObjWeddingLobby__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -110,6 +132,21 @@ void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby_size[sizeof(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby) == 0x3C ? 1 : -1];
+u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    init_map_object_base((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035BF68___vt__16TObjWeddingLobby *)&__vt__16TObjWeddingLobby).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4428;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    if (TLobby__sub_80351DFC() == 0xA) {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 3;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    }
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TObjWeddingLobby__data_805E0158;
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805E0160;
     return arg0;
 }
 

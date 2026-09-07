@@ -35,9 +35,32 @@ struct VObj_18 : VBase_18 {
     virtual void m11();
     virtual M2C_UNK m12();
 };
+
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_802C320C___vt__11TObjPathObj {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
 void render__11TObjPathObjFv(u8 *arg0);
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern M2C_UNK __vt__11TObjPathObj[];
+extern s32 lbl_805D3EC0;
+extern const f32 lbl_805DE500;
+extern const f32 lbl_805DE524;
+u8 *TObjPathObj__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -71,6 +94,17 @@ void *__dt__11TObjPathObjFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_802C320C___vt__11TObjPathObj_size[sizeof(RecoveredGlobal_802C320C___vt__11TObjPathObj) == 0x3C ? 1 : -1];
+u8 *TObjPathObj__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802C320C___vt__11TObjPathObj *)&__vt__11TObjPathObj).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3EC0;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DE524;
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DE500;
     return arg0;
 }
 

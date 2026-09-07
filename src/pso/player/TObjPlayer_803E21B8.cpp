@@ -10,7 +10,6 @@ M2C_UNK TObjPlayer__sub_803892B4(int, int);
 M2C_UNK TObjPlayer__sub_803897D8(int, int, int, int, int);
 M2C_UNK TObjPlayer__sub_803E2468(int);
 M2C_UNK TObjPlayer__sub_803E2528();
-M2C_UNK TObjPlayer__sub_803E2640();
 void setup_vertex_format__10TObjPlayerFv(void);
 M2C_UNK GXClearVtxDesc();
 M2C_UNK TObjPlayer__sub_803892B4(int, int);
@@ -24,6 +23,12 @@ M2C_UNK GXSetTevColorOp(int, int, int, int, int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK GXSetNumTevStages(void *);
 void TObjPlayer__sub_803E256C(s32 arg0);
+s32 TObjPlayer__sub_803DCD38(s32 arg0);
+s32 TObjPlayer__sub_803E24E0(void);
+s32 TObjPlayer__sub_803DCD38(s32 arg0);
+s32 TObjPlayer__sub_803E2504(void);
+s32 GXSetNumTexGens(s32 arg0);
+s32 TObjPlayer__sub_803E2640(void);
 }
 
 extern "C" {
@@ -33,8 +38,6 @@ void TObjPlayer__sub_803E21DC(void);
 void setup_render__10TObjPlayerFv(void);
 void TObjPlayer__sub_803E2224(void);
 void TObjPlayer__sub_803E2248(void);
-M2C_UNK TObjPlayer__sub_803E24E0();
-M2C_UNK TObjPlayer__sub_803E2504();
 
 void TObjPlayer__sub_803E21B8(void) {
     TObjPlayer__sub_803E24E0();
@@ -81,6 +84,17 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
     TObjPlayer__sub_803E256C((s32)((int) (1)));
     TObjPlayer__sub_803E2664();
 }
+
+#pragma push
+#pragma scheduling off
+s32 TObjPlayer__sub_803E24E0(void) { return TObjPlayer__sub_803DCD38(0x0); }
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+s32 TObjPlayer__sub_803E2504(void) { return TObjPlayer__sub_803DCD38(0x1); }
+#pragma pop
+
 #pragma push
 #pragma peephole off
 #pragma scheduling off
@@ -101,6 +115,11 @@ void TObjPlayer__sub_803E256C(s32 arg0) {
         return;
     }
 }
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+s32 TObjPlayer__sub_803E2640(void) { return GXSetNumTexGens(0x0); }
 #pragma pop
 
 }

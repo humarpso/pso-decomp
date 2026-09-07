@@ -4,10 +4,30 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct RecoveredGlobal_801E6D18_TLobby__data_80512220 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_801E6E20_TLobby__data_80512220 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
 extern "C" {
 s32 is_phase_reached__14TBoss6PlotFalzFv();
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E6C4C(s32 arg0);
+u32 TLobby__sub_80101AB0(int);
+s32 TObjPlayer__sub_801C1AC8();
+extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E6D18(void);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E6E20(void);
 }
 
 extern "C" {
@@ -30,6 +50,33 @@ void TLobby__sub_801E6C4C(s32 arg0) {
     M2C_FIELD(TLobby__data_805D5E78, M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 0;
 }
 
+typedef char RecoveredGlobal_801E6D18_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6D18_TLobby__data_80512220) == 0x20 ? 1 : -1];
+void TLobby__sub_801E6D18(void) {
+    u8 temp_r31;
+    temp_r31 = (u8) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4);
+    if (TLobby__sub_80101AB0((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0))) != 0U) {
+        if (TObjPlayer__sub_801C1AC8() != 0) {
+            M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = 1;
+            return;
+        }
+        M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = 0;
+        return;
+    }
+    M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = -1;
+}
+
 void create_singleton__6TLobbyFv(void) { create_singleton__6TLobbyFPv((void*)(tl_01)); }
+typedef char RecoveredGlobal_801E6E20_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6E20_TLobby__data_80512220) == 0x20 ? 1 : -1];
+void TLobby__sub_801E6E20(void) {
+    u8 temp_r31;
+    u8 *temp_r3;
+    temp_r31 = (u8) M2C_FIELD(&(*(RecoveredGlobal_801E6E20_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4);
+    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((s32) (u16) M2C_FIELD(&(*(RecoveredGlobal_801E6E20_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)));
+    if (temp_r3 != NULL) {
+        M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = M2C_FIELD(temp_r3, s32 *, 0xDB0);
+        return;
+    }
+    M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = -1;
+}
 
 }

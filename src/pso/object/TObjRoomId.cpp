@@ -4,6 +4,30 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_801A1CD8___vt__10TObjRoomId {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
+extern "C" {
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern M2C_UNK __vt__10TObjRoomId[];
+extern s32 lbl_805D34B0;
+extern const f32 lbl_805DC094;
+u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2);
+}
+
 extern "C" {
 
 int TObjRoomId__sub_801A1888(void);
@@ -17,7 +41,6 @@ s32 TContainerAncient01__sub_8020335C(void);
 void TLobby__sub_801A1FD8(void);
 u16 TLobby__sub_801A2078(s32);
 u16 TLobby__sub_801A20C8(s32);
-void *TObjRoomId__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -44,10 +67,22 @@ void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
+typedef char RecoveredGlobal_801A1CD8___vt__10TObjRoomId_size[sizeof(RecoveredGlobal_801A1CD8___vt__10TObjRoomId) == 0x38 ? 1 : -1];
+u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801A1CD8___vt__10TObjRoomId *)&__vt__10TObjRoomId).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D34B0;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DC094;
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DC094;
+    M2C_FIELD(arg0, f32 *, 0x98) = (f32) lbl_805DC094;
+    return arg0;
+}
+
 void *create__10TObjRoomIdFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x9C);
     if (o != NULL) {
-        o = TObjRoomId__ct(o, tl_05, arg0);
+        o = TObjRoomId__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }

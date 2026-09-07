@@ -1,5 +1,26 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct RecoveredGlobal_80207E88_lbl_804C8FC0 {
+    M2C_UNK value;
+    u8 remaining[0x11C];
+};
+
+struct RecoveredGlobal_80207E88_lbl_804C9270 {
+    M2C_UNK value;
+    u8 remaining[0x11C];
+};
+
+extern "C" {
+s32 is_online_ready__6TLobbyFv();
+extern RecoveredGlobal_80207E88_lbl_804C8FC0 lbl_804C8FC0;
+extern RecoveredGlobal_80207E88_lbl_804C9270 lbl_804C9270;
+s32 TLobby__sub_80207E88(s32 arg0);
+}
+
 extern "C" {
 
 void reset_story_select__6TLobbyFv(void);
@@ -34,5 +55,16 @@ int TLobby__sub_80207E24(void* p) { return TLobby__sub_8020780C(p); }
 void TLobby__sub_80207E44(void) {  }
 int TLobby__sub_80207E48(void* p) { return TOBoss4Rock__sub_802078A4(p); }
 int lookup_scene_object__6TLobbyFPv(void* p) { return TLobby__sub_802077CC(p); }
+typedef char RecoveredGlobal_80207E88_lbl_804C8FC0_size[sizeof(RecoveredGlobal_80207E88_lbl_804C8FC0) == 0x120 ? 1 : -1];
+typedef char RecoveredGlobal_80207E88_lbl_804C9270_size[sizeof(RecoveredGlobal_80207E88_lbl_804C9270) == 0x120 ? 1 : -1];
+s32 TLobby__sub_80207E88(s32 arg0) {
+    if (arg0 > 0x23) {
+        return 0;
+    }
+    if (is_online_ready__6TLobbyFv() != 0) {
+        return M2C_FIELD(((u8 *)(&lbl_804C9270.value) + (arg0 * 8)), s32 *, 0);
+    }
+    return M2C_FIELD(((u8 *)(&lbl_804C8FC0.value) + (arg0 * 8)), s32 *, 0);
+}
 
 }

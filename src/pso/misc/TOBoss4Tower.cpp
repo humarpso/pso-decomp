@@ -4,6 +4,33 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_80159514___vt__12TOBoss4Tower {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+extern "C" {
+s32 TObjFish__sub_8001EDB0(void *, int);
+s32 TObjFish__sub_8001EDC4(void *, int);
+M2C_UNK TOBoss4__ct();
+extern M2C_UNK __vt__12TOBoss4Tower[];
+extern s32 lbl_805D2EB8;
+extern s32 lbl_805D58A8;
+extern const f32 lbl_805DB334;
+u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 struct Base_80159400 { char pad[0x18]; };
@@ -22,7 +49,6 @@ struct VObj_80159400 : Base_80159400 {
 void *TOBoss4Tower__create(void *arg0);
 void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1);
 void render__12TOBoss4TowerFv(u8 *arg0);
-void *TOBoss4Tower__ct(void *, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -36,7 +62,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 void *TOBoss4Tower__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x98);
     if (o != NULL) {
-        o = TOBoss4Tower__ct(o, arg0);
+        o = TOBoss4Tower__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
@@ -62,6 +88,17 @@ void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_80159514___vt__12TOBoss4Tower_size[sizeof(RecoveredGlobal_80159514___vt__12TOBoss4Tower) == 0x34 ? 1 : -1];
+u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
+    TOBoss4__ct();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80159514___vt__12TOBoss4Tower *)&__vt__12TOBoss4Tower).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EB8;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *) (lbl_805D58A8), (int) (5));
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DB334;
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) (lbl_805D58A8), (int) (5));
     return arg0;
 }
 

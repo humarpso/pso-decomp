@@ -5,13 +5,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void set_state__15TObjEneMe1GiGueFPvi(void *arg0, s32 arg1);
+}
 
-void update_if_active__15TObjEneMe1GiGueFPv(void *arg0);
-M2C_UNK set_state__15TObjEneMe1GiGueFPvi();
+extern "C" {
 
-void update_if_active__15TObjEneMe1GiGueFPv(void *arg0) {
+void update_if_active__15TObjEneMe1GiGueFPv(void *arg0, s32 _w1);
+
+void update_if_active__15TObjEneMe1GiGueFPv(void *arg0, s32 _w1) {
     if (!(M2C_FIELD(arg0, s32 *, 0x388) & 1)) {
-        set_state__15TObjEneMe1GiGueFPvi();
+        set_state__15TObjEneMe1GiGueFPvi((void *)(arg0), (s32)(_w1));
+    }
+}
+void set_state__15TObjEneMe1GiGueFPvi(void *arg0, s32 arg1) {
+    s16 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    if (temp_r0 != arg1) {
+        M2C_FIELD(arg0, s32 *, 0x380) = (s32) temp_r0;
+        M2C_FIELD(arg0, s32 *, 0x374) = arg1;
     }
 }
 

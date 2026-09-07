@@ -1,22 +1,38 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+#include "pso/misc/TWindowActionPalette.h"
+#include <stddef.h>
+
+typedef char palette_children_offset[offsetof(TWindowActionPalette, children) == 0x24 ? 1 : -1];
+typedef char palette_resources_offset[offsetof(TWindowActionPalette, resources) == 0x60 ? 1 : -1];
+typedef char palette_state_offset[offsetof(TWindowActionPalette, state) == 0x6C ? 1 : -1];
+typedef char palette_scale_offset[offsetof(TWindowActionPalette, scale) == 0x70 ? 1 : -1];
+typedef char palette_size[sizeof(TWindowActionPalette) == 0x78 ? 1 : -1];
+
 extern "C" {
-M2C_UNK TWindowActionPalette__sub_80243B6C(void *, int);
+void TWindowActionPalette__sub_80243B6C(void *, int);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
-void render__20TWindowActionPaletteFv(s32 arg0);
+void TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+u8 *destroy_window_base__9TWindowDDFPvs(void *, s16);
+void __dl__7TObjectFPv(void *);
+void TObjPlayer__sub_803966F8(void *, void *, int, int);
+void free_if_valid__14TPlyDispConfigFis(void *, s16);
+extern u32 __vt__20TWindowActionPalette[6];
 }
 
-extern "C" {
-
-void render__20TWindowActionPaletteFv(s32 arg0) {
-    s32 temp_r3;
-    temp_r3 = TWindowSubComCard__sub_80244C0C((void *)(arg0), (void *) (arg0 + 0x70));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    TWindowActionPalette__sub_80243B6C((void *) (arg0), (int) (temp_r3));
+void TWindowActionPalette::render() {
+    s32 context = TWindowSubComCard__sub_80244C0C(this, &scale);
+    TWindowSubStatusDisp__sub_80257BC0(this, &children, context);
+    TWindowActionPalette__sub_80243B6C(this, context);
 }
 
+extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {
+    if (self != NULL) {
+        *(u32 **)(self + 0x18) = __vt__20TWindowActionPalette;
+        TObjPlayer__sub_803966F8(self + 0x60,
+                               (void *)free_if_valid__14TPlyDispConfigFis, 4, 3);
+        destroy_window_base__9TWindowDDFPvs(self, 0);
+        if (delete_flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
 }

@@ -14,14 +14,33 @@ struct RecoveredGlobal_8008655C_lbl_8048E728 {
     u8 remaining[0x14];
 };
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_800858D0_lbl_8048E6A8 {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+struct RecoveredGlobal_80085E78_lbl_8048E6DC {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
 extern "C" {
 s32 is_split_screen(void);
-u8 * TParticleCtrl__sub_800858D0(void *, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_particle;
 u8 *TParticleCtrl__sub_8008592C(s32 arg0);
 s32 is_split_screen(void);
-u8 * TParticleCtrl__sub_80085E78(void *, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_particle;
 u8 *TParticleCtrl__sub_8008598C(s32 arg0);
@@ -31,6 +50,14 @@ u8 * __dt__7TObjectFv(void *, s16);
 void free_from_heap__13TParticleCtrlFPv(void *);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1);
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern M2C_UNK lbl_8048E6A8[];
+u8 *TParticleCtrl__sub_800858D0(u8 *arg0, s32 arg1, s32 arg2);
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern M2C_UNK lbl_8048E6DC[];
+extern s32 lbl_805D2930;
+extern const f32 lbl_805D9484;
+u8 *TParticleCtrl__sub_80085E78(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -78,6 +105,14 @@ void *TParticleCtrl__sub_80085878(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_8048E6DC[];
 
+typedef char RecoveredGlobal_800858D0_lbl_8048E6A8_size[sizeof(RecoveredGlobal_800858D0_lbl_8048E6A8) == 0x34 ? 1 : -1];
+u8 *TParticleCtrl__sub_800858D0(u8 *arg0, s32 arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800858D0_lbl_8048E6A8 *)&lbl_8048E6A8).value;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    return arg0;
+}
+
 u8 *TParticleCtrl__sub_8008592C(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -87,7 +122,7 @@ u8 *TParticleCtrl__sub_8008592C(s32 arg0) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x90));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TParticleCtrl__sub_800858D0(temp_r3, arg0, tl_particle));
+        var_r0 = (u8 *)(TParticleCtrl__sub_800858D0((u8 *)(temp_r3), (s32)(arg0), (s32)(tl_particle)));
     }
     return var_r0;
 }
@@ -101,7 +136,7 @@ u8 *TParticleCtrl__sub_8008598C(s32 arg0) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0xAC));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TParticleCtrl__sub_80085E78(temp_r3, arg0, tl_particle));
+        var_r0 = (u8 *)(TParticleCtrl__sub_80085E78((u8 *)(temp_r3), (s32)(arg0), (s32)(tl_particle)));
     }
     return var_r0;
 }
@@ -118,6 +153,17 @@ void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70_size[sizeof(RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70) == 0x1B0 ? 1 : -1];
+
+typedef char RecoveredGlobal_80085E78_lbl_8048E6DC_size[sizeof(RecoveredGlobal_80085E78_lbl_8048E6DC) == 0x34 ? 1 : -1];
+u8 *TParticleCtrl__sub_80085E78(u8 *arg0, s32 arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80085E78_lbl_8048E6DC *)&lbl_8048E6DC).value;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, f32 *, 0xA4) = (f32) lbl_805D9484;
+    lbl_805D2930 = 1;
+    return arg0;
+}
+
 s32 TParticleCtrl__sub_800861F4(u8 *arg0) {
     return *M2C_FIELD(M2C_FIELD(&TParticleCtrl__data_80511F70.value, M2C_UNK *, (M2C_FIELD(arg0, u16 *, 0x1C) * 4)), s32 **, 0x28) & 1;
 }

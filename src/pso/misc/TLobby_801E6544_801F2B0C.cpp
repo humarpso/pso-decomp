@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801F2BCC_TLobby__data_80512240 {
+    M2C_UNK value;
+    u8 remaining[0xFC];
+};
+
+extern "C" {
+extern int TLobby__data_80512240[];
+extern int TLobby__data_805D5E8C;
+s32 TLobby__sub_801F2BCC(void);
+}
+
 extern "C" {
 
 typedef struct {
@@ -39,6 +50,18 @@ void push_op_arg__6TLobbyFi(int a0)
 
     extern int* TLobby__data_805D5E74;
     extern int TLobby__data_805D5E70;
+
+typedef char RecoveredGlobal_801F2BCC_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F2BCC_TLobby__data_80512240) == 0x100 ? 1 : -1];
+s32 TLobby__sub_801F2BCC(void) {
+    s32 temp_r4;
+    if ((s32) (*(s32 *)&TLobby__data_805D5E8C) > 0) {
+        temp_r4 = (*(s32 *)&TLobby__data_805D5E8C) - 1;
+        (*(s32 *)&TLobby__data_805D5E8C) = temp_r4;
+        return M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_801F2BCC_TLobby__data_80512240 *)&TLobby__data_80512240).value) + (temp_r4 * 4)), s32 *, 0);
+    }
+    return 0;
+}
+
 int get_indexed_offset__6TLobbyFi(int a0) {  return (TLobby__data_805D5E70 + TLobby__data_805D5E74[(unsigned short)(a0)]); }
 
 }

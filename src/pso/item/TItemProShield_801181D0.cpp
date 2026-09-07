@@ -21,6 +21,31 @@ struct VObj_80118334_801181D0 : Base_80118334_801181D0 {
     virtual void m51();
 };
 
+struct VBase_18_1a8f71 { char pad[0x18]; };
+
+struct VObj_18_1a8f71 : VBase_18_1a8f71 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual M2C_UNK m17(M2C_UNK);
+};
+
+struct RecoveredGlobal_801186EC___vt__14TItemProShield { M2C_UNK value; u8 remaining[0xCC]; };
+
 extern "C" {
 void TItemProShield__vt12(u8 *arg0);
 s32 TItemData__sub_8010CE70(s32 a0, int a1);
@@ -51,10 +76,20 @@ void __dt__14TItemEquipBaseFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__14TItemProShield[];
 void *__dt__14TItemProShieldFv(void *arg0, s16 arg1);
-u8 * TItemProShield__ct(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TItemProShield__sub_801187D0(s32 arg0);
+u8 * TItemEquipBase__ct(void *);
+s16 get_bswap16_field8__9TItemDataFPv(void *);
+s16 getS16_06__9TItemDataFPv(void *);
+s32 TItemData__sub_8010EA38(void *);
+s32 get_shield_pmt_entry__10TObjPlayerFUc(u8);
+M2C_UNK set_equip_flag__14TItemEquipBaseFPvUc(void *, int);
+M2C_UNK fn_80117FEC(void *);
+extern M2C_UNK __vt__14TItemProShield[];
+extern s32 lbl_805D2C38;
+extern int lbl_805D54C8;
+u8 *TItemProShield__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -178,6 +213,24 @@ void TItemProShield__vt42(u8 *arg0) {
     }
 }
 
+u8 *TItemProShield__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
+    TItemEquipBase__ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801186EC___vt__14TItemProShield *)&__vt__14TItemProShield).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C38;
+    ((VObj_18_1a8f71 *)(arg0))->m17(3);
+    M2C_FIELD(arg0, s32 *, 0x18C) = TItemData__sub_8010EA38(arg2);
+    M2C_FIELD(arg0, s32 *, 0x190) = (s32) ((*(s32 *)&lbl_805D54C8) + ((s8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0xD) * 0x2C));
+    M2C_FIELD(arg0, s32 *, 0x194) = get_shield_pmt_entry__10TObjPlayerFUc(M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x19));
+    M2C_FIELD(arg0, u8 *, 0x19A) = (u8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x17);
+    M2C_FIELD(arg0, u8 *, 0x19B) = (u8) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x18C), u8 *, 0x16);
+    M2C_FIELD(arg0, s8 *, 0x198) = getS16_06__9TItemDataFPv(arg2);
+    M2C_FIELD(arg0, s8 *, 0x199) = get_bswap16_field8__9TItemDataFPv(arg2);
+    M2C_FIELD(arg0, s32 *, 0x19C) = 0;
+    set_equip_flag__14TItemEquipBaseFPvUc((void *) (arg0), (int) (0x24));
+    fn_80117FEC((void *) (arg0));
+    return arg0;
+}
+
 u8 *TItemProShield__sub_801187D0(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -185,7 +238,7 @@ u8 *TItemProShield__sub_801187D0(s32 arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1A0));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TItemProShield__ct(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(TItemProShield__ct((u8 *)(temp_r3), (M2C_UNK)(tl_05), (u8 *)(arg0)));
         }
         return var_r0;
     }

@@ -4,6 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801FC564_lbl_804C89BC {
+    M2C_UNK value;
+    u8 remaining[0x74];
+};
+
+extern "C" {
+s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
+int load_player_slot__23TAdSinglePlyChrSelectGCFPvii(void *, int, int);
+void set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int);
+extern RecoveredGlobal_801FC564_lbl_804C89BC lbl_804C89BC;
+extern s32 lbl_805D49B4;
+extern s32 lbl_805D5F80;
+extern s32 lbl_805D5F98;
+s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32 arg0);
+}
+
 extern "C" {
 
 u16 TAdSinglePlyChrSelectGC__sub_801FC36C(int arg0);
@@ -199,6 +215,22 @@ u16 get_card_field_21a8__23TAdSinglePlyChrSelectGCFi(int arg0) {
         return M2C_FIELD(temp_r3, u16 *, 0x21A8);
     }
     return 0U;
+}
+
+typedef char RecoveredGlobal_801FC564_lbl_804C89BC_size[sizeof(RecoveredGlobal_801FC564_lbl_804C89BC) == 0x78 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32 arg0) {
+    s32 var_r0;
+    var_r0 = -1;
+    lbl_805D5F80 = arg0;
+    if ((arg0 >= 0) && (arg0 <= 7)) {
+        var_r0 = TAdPlayerLoadGC__sub_801E2048(arg0, (s32) &lbl_804C89BC.value);
+        if (var_r0 == 0) {
+            set_quest_download_server__23TAdSinglePlyChrSelectGCFi(lbl_805D5F80);
+            lbl_805D49B4 = 1;
+            var_r0 = load_player_slot__23TAdSinglePlyChrSelectGCFPvii((void *) lbl_805D5F80, (s32) &lbl_804C89BC.value, lbl_805D5F98);
+        }
+    }
+    return var_r0;
 }
 
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {

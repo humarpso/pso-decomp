@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8004CBC0_lbl_80485448 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+u8 * create_demo1__14TBoss4DarkFalzFPvPvPv(void *, void *, void *);
+void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16);
+s32 TBoss4DarkFalz__sub_8004BA70();
+extern RecoveredGlobal_8004CBC0_lbl_80485448 lbl_80485448;
+extern u32 TBoss4DarkFalz__data_805D4D5C;
+void TBoss4DarkFalz__sub_8004CBC0(u8 *arg0);
+}
+
 extern "C" {
 
 void TBoss4DarkFalz__sub_8004C93C(void);
@@ -47,6 +62,22 @@ void request_action_9__14TBoss4DarkFalzFi(s32 arg0) {
 void update_parts__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004BA18((void*)(p)); TBoss4DarkFalz__sub_8004B77C((void*)(p)); }
 
 void TBoss4DarkFalz__sub_8004CBBC(void) {  }
+
+typedef char RecoveredGlobal_8004CBC0_lbl_80485448_size[sizeof(RecoveredGlobal_8004CBC0_lbl_80485448) == 0xC ? 1 : -1];
+void TBoss4DarkFalz__sub_8004CBC0(u8 *arg0) {
+    TBoss4DarkFalz__sub_8004BA70();
+    if ((void *) (*(u8 * *)&TBoss4DarkFalz__data_805D4D5C) != NULL) {
+        create_demo1__14TBoss4DarkFalzFPvPvPv(arg0, (u8 *)((*(u8 * *)&TBoss4DarkFalz__data_805D4D5C)) + 0x38, M2C_FIELD((*(u8 * *)&TBoss4DarkFalz__data_805D4D5C), u8 **, 0x60));
+    } else {
+        create_demo1__14TBoss4DarkFalzFPvPvPv(arg0, &lbl_80485448.value, NULL);
+    }
+    dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x33U);
+    if ((void *) (*(u8 * *)&TBoss4DarkFalz__data_805D4D5C) != NULL) {
+        queue_destruction__7TObjectFv((*(u8 * *)&TBoss4DarkFalz__data_805D4D5C));
+        (*(u8 * *)&TBoss4DarkFalz__data_805D4D5C) = NULL;
+    }
+    M2C_FIELD(arg0, s32 *, 0x380) = 0x12C;
+}
 
 void spawn_ancient_trap__14TBoss4DarkFalzFi(s32 arg0) {
     if (TBoss4DarkFalz__sub_8004D990() > 0) {

@@ -28,6 +28,12 @@ M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_802A1180_main_task main_task;
 extern s8 lbl_805D6638;
 void TKeyBoardControl__sub_802A1180(void);
+extern s8 lbl_805D6638;
+void TKeyBoardControl__sub_802A12C0(void);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+extern M2C_UNK lbl_804DCB64[];
+void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -107,5 +113,16 @@ void update_menu_scene__16TKeyBoardControlFv(void) {
 
 void TKeyBoardControl__sub_802A12B8(void) {  }
 void TKeyBoardControl__sub_802A12BC(void) {  }
+void TKeyBoardControl__sub_802A12C0(void) { (*(unsigned char *)&lbl_805D6638) = 1; }
+void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DCB64;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 }

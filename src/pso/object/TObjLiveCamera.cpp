@@ -7,12 +7,32 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8030B658_lbl_804E76C0 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8030B658_lbl_804E76C0_size[sizeof(RecoveredGlobal_8030B658_lbl_804E76C0) == 0x10 ? 1 : -1];
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8030B708___vt__14TObjLiveCamera {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8030B658_lbl_804E76C0 lbl_804E76C0;
 extern int lbl_805D6A80;
 void TObjLiveCamera__sub_8030B658(void);
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern M2C_UNK __vt__14TObjLiveCamera[];
+extern s32 lbl_805D40E8;
+u8 *TObjLiveCamera__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -23,7 +43,6 @@ void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1);
 void render__14TObjLiveCameraFv(void);
 void run_task__14TObjLiveCameraFv(void);
 int TLobby__sub_8001FE7C(void*, void*);
-void *TObjLiveCamera__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -60,10 +79,19 @@ void *__dt__14TObjLiveCameraFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
+typedef char RecoveredGlobal_8030B708___vt__14TObjLiveCamera_size[sizeof(RecoveredGlobal_8030B708___vt__14TObjLiveCamera) == 0x34 ? 1 : -1];
+u8 *TObjLiveCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8030B708___vt__14TObjLiveCamera *)&__vt__14TObjLiveCamera).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D40E8;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    return arg0;
+}
+
 void *TObjLiveCamera__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TObjLiveCamera__ct(o, tl_05, arg0);
+        o = TObjLiveCamera__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }

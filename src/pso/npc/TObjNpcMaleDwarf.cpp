@@ -10,6 +10,96 @@ typedef char RecoveredGlobal_8014BD54_lbl_804AA3F0_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_8014BF2C_lbl_804AA580 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8014BF2C_lbl_804AA580_size[sizeof(RecoveredGlobal_8014BF2C_lbl_804AA580) == 0x10 ? 1 : -1];
 
+struct VBase_18_aa4667 { char pad[0x18]; };
+
+struct VObj_18_aa4667 : VBase_18_aa4667 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(s32);
+};
+
+struct RecoveredGlobal_8014BDFC___vt__16TObjNpcMaleDwarf {
+    M2C_UNK value;
+    u8 remaining[0x174];
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -21,6 +111,13 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014BF2C_lbl_804AA580 lbl_804AA580;
 extern u32 TObjNpcMaleFat__data_805D57F0;
 void TObjNpcMaleFat__sub_8014BF2C(void);
+s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 fn_80148274(void *);
+s32 fn_8014B8A4(void *);
+extern M2C_UNK __vt__16TObjNpcMaleDwarf[];
+extern s32 lbl_805D2DF4;
+extern u32 TObjNpcMaleDwarf__data_805D57E8;
+u8 *TObjNpcMaleDwarf__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -70,6 +167,19 @@ void *__dt__16TObjNpcMaleDwarfFv(void *arg0, s16 arg1) {
 }
 
 extern void *tl_04;
+
+typedef char RecoveredGlobal_8014BDFC___vt__16TObjNpcMaleDwarf_size[sizeof(RecoveredGlobal_8014BDFC___vt__16TObjNpcMaleDwarf) == 0x178 ? 1 : -1];
+u8 *TObjNpcMaleDwarf__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    fn_8014B8A4((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8014BDFC___vt__16TObjNpcMaleDwarf *)&__vt__16TObjNpcMaleDwarf).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2DF4;
+    ((VObj_18_aa4667 *)(arg0))->m79(arg2);
+    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcMaleDwarf__data_805D57E8), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcMaleDwarf__data_805D57E8), u8 **, 0x42C), s32 *, 0xC);
+    fn_80148274((void *) (arg0));
+    return arg0;
+}
 
 void * TObjNpcMaleFat__create(void *arg0) {
     void *o;

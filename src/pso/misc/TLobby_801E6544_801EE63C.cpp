@@ -4,11 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801EEFB4_TLobby__data_80512220 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
 extern "C" {
 M2C_UNK TWindowCtrl__sub_8024A4B0(int, void *);
 void TLobby__sub_801EE674(s32 arg0);
 M2C_UNK TQuestColCtrl__sub_80195DE0(int, void *);
 void qst_op_del_obj_param(s32 arg0);
+M2C_UNK TObjPlayer__sub_80011160(s32, s32);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern s32 TLobby__data_80512220[];
+void qst_op_pl_add_meseta(void);
 }
 
 extern "C" {
@@ -56,6 +65,16 @@ void notify_battle_ctrl_player__6TLobbyFv(void) {
     ret = TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0);
     if (ret != 0U) {
         TObjPlayer__sub_80011160(ret, temp_r31);
+    }
+}
+typedef char RecoveredGlobal_801EEFB4_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801EEFB4_TLobby__data_80512220) == 0x20 ? 1 : -1];
+void qst_op_pl_add_meseta(void) {
+    s32 temp_r31;
+    u32 temp_r3;
+    temp_r31 = M2C_FIELD(&(*(RecoveredGlobal_801EEFB4_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4);
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_801EEFB4_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0))));
+    if (temp_r3 != 0U) {
+        TObjPlayer__sub_80011160((s32)((int) (temp_r3)), (s32)((int) (temp_r31)));
     }
 }
 

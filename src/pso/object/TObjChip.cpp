@@ -41,10 +41,55 @@ struct VObj_18 : VBase_18 {
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct VBase_18_6eb662 { char pad[0x18]; };
+
+struct VObj_18_6eb662 : VBase_18_6eb662 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual s32 m5(void *, f32);
+};
+
+struct RecoveredGlobal_80180AA4___vt__8TObjChip {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
+struct VBase_18_2a3247 { char pad[0x18]; };
+
+struct VObj_18_2a3247 : VBase_18_2a3247 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual s32 m4(f32);
+};
+
+struct RecoveredGlobal_80180BD4___vt__8TObjChip {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(int);
 void TObjChip__sub_80180134(u8 *arg0);
 void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
+void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_80180AA4___vt__8TObjChip __vt__8TObjChip;
+extern s32 lbl_805D3240;
+extern const f32 lbl_805DBB94;
+extern const f32 lbl_805DBB98;
+u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2);
+void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_80180AA4___vt__8TObjChip __vt__8TObjChip;
+extern s32 lbl_805D3240;
+extern const f32 lbl_805DBB94;
+extern const f32 lbl_805DBB98;
+u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -87,6 +132,21 @@ void update__8TObjChipFPv(void *arg0) {
     }
 }
 
+typedef char RecoveredGlobal_80180AA4___vt__8TObjChip_size[sizeof(RecoveredGlobal_80180AA4___vt__8TObjChip) == 0x38 ? 1 : -1];
+u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TObjChip.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3240;
+    TObjChip__sub_80180B38((u8 *)(arg0 + 0x24), (u8 *)(arg2));
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DBB94;
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805DBB98;
+    M2C_FIELD(arg0, s32 *, 0x230) = 1;
+    if (((VObj_18_6eb662 *)(arg0))->m5(arg2 + 0x4C, lbl_805DBB94) == 0) {
+        M2C_FIELD(arg0, s32 *, 0x230) = 0;
+    }
+    return arg0;
+}
+
 void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
     M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
@@ -101,6 +161,21 @@ void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0x40) = (s32) M2C_FIELD(arg1, s32 *, 0x40);
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) M2C_FIELD(arg1, s32 *, 0x44);
     M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(arg1, s32 *, 0x48);
+}
+
+typedef char RecoveredGlobal_80180BD4___vt__8TObjChip_size[sizeof(RecoveredGlobal_80180BD4___vt__8TObjChip) == 0x38 ? 1 : -1];
+u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80180BD4___vt__8TObjChip *)&__vt__8TObjChip).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3240;
+    TObjChip__sub_80180B38((u8 *)(arg0 + 0x24), (u8 *)(arg2));
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DBB94;
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805DBB98;
+    M2C_FIELD(arg0, s32 *, 0x230) = 1;
+    if (((VObj_18_2a3247 *)(arg0))->m4(lbl_805DBB94) == 0) {
+        M2C_FIELD(arg0, s32 *, 0x230) = 0;
+    }
+    return arg0;
 }
 
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {

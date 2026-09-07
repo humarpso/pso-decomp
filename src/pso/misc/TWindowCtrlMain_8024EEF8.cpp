@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern u32 lbl_805D6420;
+void TWindowCtrlMain__sub_8024EF30(void);
+}
+
+extern "C" {
 
 void free_keyboard_soft__15TWindowCtrlMainFv(void);
 void free_singleton__19TWindowKeyBoardSoftFUis(void*, int);
@@ -17,5 +22,6 @@ void free_keyboard_soft__15TWindowCtrlMainFv(void) {
         lbl_805D6420 = 0U;
     }
 }
+void TWindowCtrlMain__sub_8024EF30(void) { (*(int *)&lbl_805D6420) = 0; }
 
 }

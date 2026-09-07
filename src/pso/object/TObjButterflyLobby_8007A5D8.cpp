@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int alloc_buffer__11TOBoss4RockFPv(void*);
+extern u32 lbl_805D4E6C;
+void alloc_scene_buffer__18TObjButterflyLobbyFv(void);
+}
+
+extern "C" {
 
 void free_singleton_805D4E6C__18TObjButterflyLobbyFv(void);
 void free__11TOBoss4RockFUi(void*);
@@ -17,5 +23,6 @@ void free_singleton_805D4E6C__18TObjButterflyLobbyFv(void) {
         lbl_805D4E6C = 0U;
     }
 }
+void alloc_scene_buffer__18TObjButterflyLobbyFv(void) { (*(int *)&lbl_805D4E6C) = alloc_buffer__11TOBoss4RockFPv((void*)20480); }
 
 }

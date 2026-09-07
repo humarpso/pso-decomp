@@ -23,6 +23,26 @@ typedef char RecoveredGlobal_802E8274_lbl_80472CB0_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_802E8274_lbl_804E3BFC { M2C_UNK value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_802E8274_lbl_804E3BFC_size[sizeof(RecoveredGlobal_802E8274_lbl_804E3BFC) == 0x30 ? 1 : -1];
 
+struct RecoveredGlobal_802E80F4_lbl_8050BEC0 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_802E80F4_main_task {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+struct RecoveredGlobal_802E80F4_lbl_805412C0 {
+    M2C_UNK value;
+    u8 remaining[0x264];
+};
+
+struct RecoveredGlobal_802E80F4_lbl_8058D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 TObjPlayer__sub_803D8960(int, void *, void *, int);
 s32 TObjPlayer__sub_803D898C(void *);
@@ -42,6 +62,33 @@ extern s32 lbl_805D6934;
 extern s32 lbl_805D6944;
 extern const f32 lbl_805DEA10;
 void TObjPlayer__sub_802E8274(void);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 get_mode__11TCameraCtrlFPv(void *);
+s32 clear_global_flag_400__9TObjEneDDFv();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 render_nodes__7TObjectFv(void *);
+s32 TObjPlayer__sub_802E7F30(void *, int);
+s32 TObjPlayer__sub_802E7FC0(void *);
+void draw_effect__10TObjPlayerFv(void);
+u32 is_part_active__11TBoss7JointFPv(int);
+s32 draw_node_tree_if_visible__10TObjPlayerFPv(int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+extern RecoveredGlobal_802E80F4_lbl_8050BEC0 lbl_8050BEC0;
+extern RecoveredGlobal_802E80F4_main_task main_task;
+extern RecoveredGlobal_802E80F4_lbl_805412C0 lbl_805412C0;
+extern RecoveredGlobal_802E80F4_lbl_8058D4C0 lbl_8058D4C0;
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern u8 *lbl_805D693C;
+extern M2C_UNK *lbl_805D6940;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805DEA1C;
+void TObjPlayer__sub_802E80F4(u8 *arg0);
 }
 
 extern "C" {
@@ -76,6 +123,50 @@ extern s32 lbl_805D692C;
 extern s32 lbl_805D6930;
 extern s32 lbl_805D6934;
 extern s32 lbl_805D6944;
+
+typedef char RecoveredGlobal_802E80F4_lbl_8050BEC0_size[sizeof(RecoveredGlobal_802E80F4_lbl_8050BEC0) == 0x20 ? 1 : -1];
+typedef char RecoveredGlobal_802E80F4_main_task_size[sizeof(RecoveredGlobal_802E80F4_main_task) == 0x34 ? 1 : -1];
+typedef char RecoveredGlobal_802E80F4_lbl_805412C0_size[sizeof(RecoveredGlobal_802E80F4_lbl_805412C0) == 0x268 ? 1 : -1];
+typedef char RecoveredGlobal_802E80F4_lbl_8058D4C0_size[sizeof(RecoveredGlobal_802E80F4_lbl_8058D4C0) == 0x10 ? 1 : -1];
+void TObjPlayer__sub_802E80F4(u8 *arg0) {
+    s32 *var_r30;
+    s32 var_r29;
+    if (!(get_mode__11TCameraCtrlFPv((void *) (&main_task.value)) & 0x20) || !(M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805DEA1C)) {
+        var_r30 = (s32 *)((u8 *)(arg0 + 0x5F8));
+        var_r29 = 0;
+        do {
+            if (is_part_active__11TBoss7JointFPv((int) (*var_r30)) != 0U) {
+                TObjPlayer__sub_802E7F30((void *) (arg0), (int) (var_r29));
+            }
+            var_r29 += 1;
+            var_r30 = (s32 *)((u8 *)var_r30 + (4));
+        } while (var_r29 != 0xA);
+        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5664 = lbl_805D7784;
+        lbl_805D5668 = lbl_805D7780;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8050BEC0.value), (void *) (&lbl_8058D4C0.value));
+        clear_global_flag_400__9TObjEneDDFv();
+        begin_effect_render__13TParticleCtrlFv();
+        TObjPlayer__sub_803D9B2C();
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x7AC) != 0U) {
+            if (M2C_FIELD(arg0, s32 *, 0x628) & 0x40) {
+                M2C_FIELD(lbl_805D693C, M2C_UNK **, 0x2C) = &lbl_805412C0.value;
+            } else {
+                M2C_FIELD(lbl_805D693C, M2C_UNK **, 0x2C) = (M2C_UNK *) lbl_805D6940;
+            }
+            draw_effect__10TObjPlayerFv();
+            draw_node_tree_if_visible__10TObjPlayerFPv((int) (M2C_FIELD(arg0, u32 *, 0x7AC)));
+        }
+        TObjPlayer__sub_803D9B78();
+        end_effect_render__13TParticleCtrlFv();
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BEC0.value));
+        lbl_805D7784 = lbl_805D5664;
+        lbl_805D7780 = lbl_805D5668;
+        some_id_805c6f74 = lbl_805D5660;
+        TObjPlayer__sub_802E7FC0((void *) (arg0));
+        render_nodes__7TObjectFv((void *) (arg0 + 0x690));
+    }
+}
 
 void TObjPlayer__sub_802E8234(u8 *arg0) {
     lbl_805D691C = 0;

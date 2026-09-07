@@ -4,6 +4,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803C5850_lbl_80572020 {
+    M2C_UNK value;
+    u8 remaining[0xFC];
+};
+
+struct RecoveredGlobal_803C588C_lbl_80572020 {
+    M2C_UNK value;
+    u8 remaining[0xFC];
+};
+
+extern "C" {
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
+extern s32 lbl_805D7528;
+extern s32 lbl_805D752C;
+void TLobby__sub_803C5850(void);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_803C5850_lbl_80572020 lbl_80572020;
+extern s32 lbl_805D7528;
+extern s32 lbl_805D752C;
+void TLobby__sub_803C588C(void);
+}
+
 extern "C" {
 
 void ARAlloc(void);
@@ -15,7 +38,6 @@ void set_params__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK TLobby__sub_803C0AD8();
 M2C_UNK TLobby__sub_803C4C78();
 M2C_UNK TLobby__sub_803C4F14();
-M2C_UNK TLobby__sub_803C5850();
 M2C_UNK TLobby__sub_803C8610();
 M2C_UNK TLobby__sub_803CC134();
 M2C_UNK TLobby__sub_803CC884();
@@ -64,6 +86,20 @@ void set_params__6TLobbyFii(s32 arg0, s32 arg1) {
 }
 
 extern s32 lbl_805D7530;
+
+typedef char RecoveredGlobal_803C5850_lbl_80572020_size[sizeof(RecoveredGlobal_803C5850_lbl_80572020) == 0x100 ? 1 : -1];
+void TLobby__sub_803C5850(void) {
+    memset((void *) (&lbl_80572020.value), (int) (0), (int) (0x100));
+    lbl_805D7528 = 0;
+    lbl_805D752C = 0;
+}
+
+typedef char RecoveredGlobal_803C588C_lbl_80572020_size[sizeof(RecoveredGlobal_803C588C_lbl_80572020) == 0x100 ? 1 : -1];
+void TLobby__sub_803C588C(void) {
+    memset((void *) (&(*(RecoveredGlobal_803C588C_lbl_80572020 *)&lbl_80572020).value), (int) (0), (int) (0x100));
+    lbl_805D7528 = 0;
+    lbl_805D752C = 0;
+}
 
 void ARAlloc(void) {
     if ((s32) lbl_805D7530 == 0) {

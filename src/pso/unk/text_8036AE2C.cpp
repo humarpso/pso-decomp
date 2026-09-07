@@ -8,12 +8,26 @@ struct RecoveredGlobal_8036AE2C_lbl_804F3628 {
     u8 remaining[0x14];
 };
 
+struct VObj_0_c5c48e {
+    virtual void m0();
+    virtual void m1();
+    virtual M2C_UNK m2(M2C_UNK);
+};
+
+struct RecoveredGlobal_8036AEA4_lbl_804F3628 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 u8 * TBoss8Dragon__sub_8036AEF8(void *, s16);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8036AE2C_lbl_804F3628 lbl_804F3628;
 u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1);
+s32 TBoss8Dragon__sub_8036AF40(void *);
+extern RecoveredGlobal_8036AE2C_lbl_804F3628 lbl_804F3628;
+M2C_UNK **__ct__15PSOV3EncryptionFv(M2C_UNK **arg0);
 }
 
 extern "C" {
@@ -30,6 +44,13 @@ u8 *__dt__15PSOV3EncryptionFv(u8 *arg0, s16 arg1) {
             __dl__FPv((void *) (arg0));
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8036AEA4_lbl_804F3628_size[sizeof(RecoveredGlobal_8036AEA4_lbl_804F3628) == 0x18 ? 1 : -1];
+M2C_UNK **__ct__15PSOV3EncryptionFv(M2C_UNK **arg0) {
+    TBoss8Dragon__sub_8036AF40((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0) = &(*(RecoveredGlobal_8036AEA4_lbl_804F3628 *)&lbl_804F3628).value;
+    ((VObj_0_c5c48e *)(arg0))->m2(0);
     return arg0;
 }
 

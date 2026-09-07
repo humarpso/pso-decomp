@@ -96,12 +96,107 @@ struct Stack_80041BB4 {
     s32 sp10;
 };
 
+struct VBase_18_aa4667 { char pad[0x18]; };
+
+struct VObj_18_aa4667 : VBase_18_aa4667 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(s32);
+};
+
+struct RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin {
+    M2C_UNK value;
+    u8 remaining[0x148];
+};
+
 extern "C" {
 void obj_setFlags30(void *, u32);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
 s32 fn_80086D50(void *, void *, int);
 s32 TObjEneDellBiter__sub_80087350(void *, int);
 void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
+s32 TBoss3VoloptHiraisin__sub_800418C8(void *);
+s32 TObjEnemyCustom__ct(void *);
+extern M2C_UNK __vt__20TBoss3VoloptHiraisin[];
+extern s32 lbl_805D2738;
+u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -112,7 +207,6 @@ void *create__20TBoss3VoloptHiraisinFPv(void *arg0);
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
 void init_models__20TBoss3VoloptHiraisinFv(void);
 void update_state__20TBoss3VoloptHiraisinFPv(void *arg0);
-void *TBoss3VoloptHiraisin__sub_80041AA0(void *, void *, void *);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
 void TObjEneGibbles__sub_80156720(void *);
 s32 TObjFish__sub_8001EDC4(s32, M2C_UNK);
@@ -161,7 +255,7 @@ extern void *tl_04;
 void *create__20TBoss3VoloptHiraisinFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x390);
     if (o != NULL) {
-        o = TBoss3VoloptHiraisin__sub_80041AA0(o, tl_04, arg0);
+        o = TBoss3VoloptHiraisin__sub_80041AA0((u8 *)(o), (M2C_UNK)(tl_04), (s32)(arg0));
     }
     return o;
 }
@@ -177,6 +271,16 @@ void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin_size[sizeof(RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin) == 0x14C ? 1 : -1];
+u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TObjEnemyCustom__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin *)&__vt__20TBoss3VoloptHiraisin).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2738;
+    ((VObj_18_aa4667 *)(arg0))->m79(arg2);
+    TBoss3VoloptHiraisin__sub_800418C8((void *) (arg0));
     return arg0;
 }
 

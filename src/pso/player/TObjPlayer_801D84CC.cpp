@@ -109,6 +109,24 @@ struct RecoveredGlobal_801D9004_lbl_80447970 {
     u8 remaining[0x38];
 };
 
+struct RecoveredGlobal_801D8DCC_lbl_804C4998
+{
+  M2C_UNK value;
+  u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_801D8E1C_lbl_804C498C
+{
+  M2C_UNK value;
+  u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_801D8FB4_lbl_804C495C
+{
+  M2C_UNK value;
+  u8 remaining[0x14];
+};
+
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
@@ -119,7 +137,6 @@ s8 TObjPlayer__sub_801AFDB0(s32);
 s8 TObjPlayer__sub_801AFDB0(s32 _w0);
 s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1);
 s16 get_tech_level__10TObjPlayerFPv(void *);
-s16 get_handle_value__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 f32 TObjPlayer__sub_801D90DC(s32, s16, s16, s32);
 void TObjPlayer__sub_801D9078(u8 *arg0);
@@ -177,10 +194,19 @@ f32 TObjPlayer__sub_801D93F8(u8 *arg0);
 s32 get_clamped_index__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801D93F8_lbl_804471A8 lbl_804471A8;
 f32 TObjPlayer__sub_801D9440(void * _w0);
-s16 get_handle_value__10TObjPlayerFPv(void *);
 s32 get_falz_phase__10TObjPlayerFPv(void* p);
 extern RecoveredGlobal_801D9004_lbl_80447970 lbl_80447970;
 f32 TObjPlayer__sub_801D9004(s32 arg0);
+int has_valid_handle__10TObjPlayerFPv(void *);
+extern RecoveredGlobal_801D8DCC_lbl_804C4998 lbl_804C4998;
+s32 TObjPlayer__sub_801D8DCC(u8 *arg0);
+s32 get_clamped_index__10TObjPlayerFPv(void *);
+extern RecoveredGlobal_801D8E1C_lbl_804C498C lbl_804C498C;
+long TObjPlayer__sub_801D8E1C(u8 *arg0, s32 arg1);
+s16 get_handle_value__10TObjPlayerFPv(void *);
+int has_valid_handle__10TObjPlayerFPv(void *);
+extern RecoveredGlobal_801D8FB4_lbl_804C495C lbl_804C495C;
+f32 TObjPlayer__sub_801D8FB4(s32 arg0);
 }
 
 extern "C" {
@@ -337,15 +363,45 @@ s32 TObjPlayer__sub_801D8D8C(s8 arg0) {
 }
 
 typedef char RecoveredGlobal_801D8E60_lbl_804C4980_size[sizeof(RecoveredGlobal_801D8E60_lbl_804C4980) == 0xC ? 1 : -1];
+
+typedef struct RecoveredGlobal_801D8DCC_lbl_804C4998 RecoveredGlobal_801D8DCC_lbl_804C4998;
+typedef char RecoveredGlobal_801D8DCC_lbl_804C4998_size[((sizeof(RecoveredGlobal_801D8DCC_lbl_804C4998)) == 0x18) ? (1) : (-1)];
+s32 TObjPlayer__sub_801D8DCC(u8 *arg0) {
+  s32 temp_r31;
+  s8 *new_var;
+  temp_r31 = get_handle_value__10TObjPlayerFPv((void *)(arg0)) * 0x14;
+  new_var = ((s8 *) (&lbl_804C4998.value)) + (has_valid_handle__10TObjPlayerFPv(arg0) * 4);
+  return (*((M2C_UNK *) new_var)) + temp_r31;
+}
+
+typedef struct RecoveredGlobal_801D8E1C_lbl_804C498C RecoveredGlobal_801D8E1C_lbl_804C498C;
+typedef char RecoveredGlobal_801D8E1C_lbl_804C498C_size[((sizeof(RecoveredGlobal_801D8E1C_lbl_804C498C)) == 0xC) ? (1) : (-1)];
+long TObjPlayer__sub_801D8E1C(u8 *arg0, s32 arg1) {
+  int new_var;
+  new_var = get_clamped_index__10TObjPlayerFPv(arg0) * 4;
+  return (*((M2C_UNK *) (((s8 *) (&lbl_804C498C.value)) + new_var))) + (arg1 * 4);
+}
+
 s32 TObjPlayer__sub_801D8E60(u8 *arg0) {
     return M2C_FIELD(&lbl_804C4980.value, M2C_UNK *, (get_clamped_index__10TObjPlayerFPv((void *)(arg0)) * 4));
 }
 
 typedef char RecoveredGlobal_801D9004_lbl_80447970_size[sizeof(RecoveredGlobal_801D9004_lbl_80447970) == 0x3C ? 1 : -1];
+
+typedef struct RecoveredGlobal_801D8FB4_lbl_804C495C RecoveredGlobal_801D8FB4_lbl_804C495C;
+typedef char RecoveredGlobal_801D8FB4_lbl_804C495C_size[((sizeof(RecoveredGlobal_801D8FB4_lbl_804C495C)) == 0x18) ? (1) : (-1)];
+f32 TObjPlayer__sub_801D8FB4(s32 arg0) {
+  s32 temp_r31;
+  s32 *new_var;
+  temp_r31 = get_handle_value__10TObjPlayerFPv((void *)(arg0)) * 0xC;
+  new_var = (s32 *) (((s8 *) (((u8 *) (&lbl_804C495C.value)) + (((s32)has_valid_handle__10TObjPlayerFPv((void *) arg0)) * 4))) + 0);
+  return *((f32 *) (((s8 *) ((*new_var) + temp_r31)) + 0));
+}
+
 f32 TObjPlayer__sub_801D9004(s32 arg0) {
     s32 temp_r31;
     temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)(arg0));
-    return (f32) (s8) M2C_FIELD(((u8 *)(((u8 *)(&lbl_80447970.value) + (get_handle_value__10TObjPlayerFPv((void *) (arg0)) * 3))) + temp_r31), u8 *, 0);
+    return (f32) (s8) M2C_FIELD(((u8 *)(((u8 *)(&lbl_80447970.value) + (get_handle_value__10TObjPlayerFPv((void *)((void *) (arg0))) * 3))) + temp_r31), u8 *, 0);
 }
 
 #pragma push
@@ -359,7 +415,7 @@ void TObjPlayer__sub_801D9078(u8 *arg0) {
   new_var = get_tech_level__10TObjPlayerFPv(arg0 + 0x7CC);
   temp_r30 = new_var;
   temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)((void*)(arg0)));
-  TObjPlayer__sub_801D90DC((s32) get_handle_value__10TObjPlayerFPv(arg0), temp_r31, temp_r30, temp_r29);
+  TObjPlayer__sub_801D90DC((s32) get_handle_value__10TObjPlayerFPv((void *)(arg0)), temp_r31, temp_r30, temp_r29);
 }
 
 #pragma pop

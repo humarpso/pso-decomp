@@ -17,29 +17,57 @@ struct RecoveredGlobal_80084C10_lbl_804393AC {
     u8 remaining[0x10];
 };
 
+struct Stack_80084DD4 {
+    f32 sp8;
+    f32 spC;
+    s8 sp10;
+    s8 sp11;
+    s8 sp12;
+    s8 sp13;
+    s32 sp14;
+    u8 trailing_storage[0x4];
+};
+
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_80084DD4_lbl_8048E640 { M2C_UNK value; u8 remaining[0x30]; };
+
 extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, int, int, int, void *, f32);
 extern RecoveredGlobal_80084C10_lbl_804393AC lbl_804393AC;
 extern const f32 lbl_805D9450;
 void TEffStarLight2D_Base__sub_80084C10(s32 arg0);
+u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
+u8 * TPhotonMagicSquare__sub_801A2640(void *);
+void * __nw__7TObjectFUl(M2C_UNK, s32);
+extern M2C_UNK lbl_8048E640[];
+extern void *tl_particle;
+u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
 
-void *TEffStarLight2D_Base__create(void *arg0);
+void *TEffStarLight2D_Base__create(void *arg0, s32 _w1);
 void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1);
-void *TEffStarLight2D_Base__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
-void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 extern void *tl_particle;
 
-void *TEffStarLight2D_Base__create(void *arg0) {
-    void *o = __nw__7TObjectFUl(0x94);
+void *TEffStarLight2D_Base__create(void *arg0, s32 _w1) {
+    void *o = __nw__7TObjectFUl((M2C_UNK)(0x94), (s32)(_w1));
     if (o != NULL) {
-        o = TEffStarLight2D_Base__ct(o, tl_particle, arg0);
+        o = TEffStarLight2D_Base__ct((u8 *)(o), (M2C_UNK)(tl_particle), (s32)(arg0));
     }
     return o;
 }
@@ -69,6 +97,37 @@ void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    typedef char sp8_offset[(offsetof(Stack_80084DD4, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80084DD4, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80084DD4, sp10) == 0x8) ? 1 : -1];
+    typedef char sp11_offset[(offsetof(Stack_80084DD4, sp11) == 0x9) ? 1 : -1];
+    typedef char sp12_offset[(offsetof(Stack_80084DD4, sp12) == 0xA) ? 1 : -1];
+    typedef char sp13_offset[(offsetof(Stack_80084DD4, sp13) == 0xB) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_80084DD4, sp14) == 0xC) ? 1 : -1];
+    Stack_80084DD4 stack;
+    s32 temp_r4;
+    u8 *temp_r3;
+    u8 *var_r0;
+    TPhotonMagicSquare__sub_801A2640(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80084DD4_lbl_8048E640 *)&lbl_8048E640).value;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    stack.sp8 = M2C_FIELD(arg0, f32 *, 0x68);
+    stack.spC = M2C_FIELD(arg0, f32 *, 0x6C);
+    stack.sp10 = (s8) M2C_FIELD(arg0, f32 *, 0x70);
+    stack.sp11 = (s8) M2C_FIELD(arg0, s32 *, 0x84);
+    stack.sp12 = (s8) M2C_FIELD(arg0, s32 *, 0x88);
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x8C);
+    stack.sp13 = (s8) temp_r4;
+    stack.sp14 = 0;
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((M2C_UNK)(0x4C), (s32)(temp_r4))));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(__ct__15TEffStarLight2DFv(temp_r3, (s32) (arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
+    }
+    M2C_FIELD(arg0, u8 **, 0x90) = var_r0;
     return arg0;
 }
 

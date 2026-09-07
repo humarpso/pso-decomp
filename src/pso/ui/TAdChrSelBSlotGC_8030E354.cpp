@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8030EBD0_lbl_8050E3B8
+{
+  M2C_UNK value;
+  u8 remaining[0x1AC];
+};
+
+struct RecoveredGlobal_8030ECB8_lbl_8050E3B8
+{
+  M2C_UNK value;
+  u8 remaining[0x1AC];
+};
+
 extern "C" {
 M2C_UNK TWindow__close(void *);
 u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
@@ -35,6 +47,21 @@ u32 TAdChrSelASlotGC__sub_8030CB08(void *, int, int);
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 M2C_UNK get_global_slot_data__16TAdChrSelBSlotGCFv();
 void TAdChrSelBSlotGC__sub_8030EB14(u8 *arg0);
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+M2C_UNK TWindow__close(void *);
+s32 close__17TWindowSubComCardFPv(int);
+s32 get_state__22TAdMultiPlyChrSelectGCFv();
+s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(int);
+s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
+extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 lbl_8050E3B8;
+void TAdChrSelBSlotGC__sub_8030EBD0(u8 *arg0);
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+M2C_UNK TWindow__close(void *);
+s32 get_state__22TAdMultiPlyChrSelectGCFv();
+s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(int);
+s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
+extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 lbl_8050E3B8;
+void TAdChrSelBSlotGC__sub_8030ECB8(u8 *arg0);
 }
 
 extern "C" {
@@ -234,6 +261,60 @@ void TAdChrSelBSlotGC__sub_8030EB14(u8 *arg0) {
         get_global_slot_data__16TAdChrSelBSlotGCFv();
         M2C_FIELD(arg0, u32 *, 0x54) = TAdChrSelASlotGC__sub_8030CB08((void *)(get_global_slot_data__16TAdChrSelBSlotGCFv()), (int) (1), (int) (0xB));
     }
+}
+typedef struct RecoveredGlobal_8030EBD0_lbl_8050E3B8 RecoveredGlobal_8030EBD0_lbl_8050E3B8;
+typedef char RecoveredGlobal_8030EBD0_lbl_8050E3B8_size[((sizeof(RecoveredGlobal_8030EBD0_lbl_8050E3B8)) == 0x1B0) ? (1) : (-1)];
+void TAdChrSelBSlotGC__sub_8030EBD0(u8 *arg0) {
+  u32 temp_r3;
+  u32 temp_r3_2;
+  u8 *temp_r31;
+  temp_r3 = *((u32 *) (((s8 *) arg0) + 0x70));
+  if (temp_r3 != 0U)
+  {
+    close__17TWindowSubComCardFPv((int) temp_r3);
+    *((u32 *) (((s8 *) arg0) + 0x70)) = 0U;
+  }
+  temp_r31 = ((u8 *) (&lbl_8050E3B8.value)) + (get_state_result__22TAdMultiPlyChrSelectGCFPv((int) get_state__22TAdMultiPlyChrSelectGCFv()) * 0x50);
+  temp_r31 = temp_r31 + 0x20;
+  if ((((TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 4) != 0) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 2) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x400) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x200) != 0))
+  {
+    *((s32 *) (((s8 *) arg0) + 0x1C)) = 1;
+    return;
+  }
+  if (get_global_state__16TAdChrSelBSlotGCFv((void *) arg0) < 0xC)
+  {
+    temp_r3_2 = *((u32 *) (((s8 *) arg0) + 0x40));
+    if (temp_r3_2 != 0U)
+    {
+      TWindow__close((void *)((int) temp_r3_2));
+      *((u32 *) (((s8 *) arg0) + 0x40)) = 0U;
+    }
+    *((s32 *) (((s8 *) arg0) + 0x1C)) = 1;
+  }
+}
+typedef struct RecoveredGlobal_8030ECB8_lbl_8050E3B8 RecoveredGlobal_8030ECB8_lbl_8050E3B8;
+typedef char RecoveredGlobal_8030ECB8_lbl_8050E3B8_size[((sizeof(RecoveredGlobal_8030ECB8_lbl_8050E3B8)) == 0x1B0) ? (1) : (-1)];
+void TAdChrSelBSlotGC__sub_8030ECB8(u8 *arg0) {
+  u32 temp_r3;
+  s32 new_var;
+  u8 *temp_r31;
+  new_var = get_state_result__22TAdMultiPlyChrSelectGCFPv((int) get_state__22TAdMultiPlyChrSelectGCFv());
+  temp_r31 = (((u8 *) (&(*(RecoveredGlobal_8030ECB8_lbl_8050E3B8 *)&lbl_8050E3B8).value)) + (new_var * 0x50)) + 0x20;
+  if ((((TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 4) != 0) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 2) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x400) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x200) != 0))
+  {
+    *((s32 *) (((s8 *) arg0) + 0x1C)) = 1;
+    return;
+  }
+  if (get_global_state__16TAdChrSelBSlotGCFv((void *) arg0) < 0xC)
+  {
+    temp_r3 = *((u32 *) (((s8 *) arg0) + 0x40));
+    if (temp_r3 != 0U)
+    {
+      TWindow__close((void *)((int) temp_r3));
+      *((u32 *) (((s8 *) arg0) + 0x40)) = 0U;
+    }
+    *((s32 *) (((s8 *) arg0) + 0x1C)) = 1;
+  }
 }
 
 }

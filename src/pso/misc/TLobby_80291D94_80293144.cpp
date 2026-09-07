@@ -9,8 +9,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_690 { u8 bytes[0x690]; };
+
+struct RecoveredGlobal_8029379C_lbl_804DAB60 {
+    M2C_UNK value;
+    u8 remaining[0x68C];
+};
+
+struct RecoveredGlobal_8029379C_lbl_804DB1F0 {
+    M2C_UNK value;
+    u8 remaining[0x6AC];
+};
+
 extern "C" {
 void TLobby__sub_802932B0(u8 *arg0, u8 *arg1);
+extern RecoveredGlobal_8029379C_lbl_804DAB60 lbl_804DAB60;
+extern M2C_UNK lbl_804DB1F0[];
+void TLobby__sub_8029379C(void);
 }
 
 extern "C" {
@@ -101,6 +119,11 @@ void update_destruction_countdown__6TLobbyFPv(void *arg0) {
         maybe_handle_destruction__6TLobbyFPv((void*)((void*)(arg0)));
         M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
     }
+}
+typedef char RecoveredGlobal_8029379C_lbl_804DAB60_size[sizeof(RecoveredGlobal_8029379C_lbl_804DAB60) == 0x690 ? 1 : -1];
+typedef char RecoveredGlobal_8029379C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8029379C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
+void TLobby__sub_8029379C(void) {
+    *(M2CCopy_690 *)(&(*(RecoveredGlobal_8029379C_lbl_804DB1F0 *)&lbl_804DB1F0).value) = *(const M2CCopy_690 *)(&lbl_804DAB60.value);
 }
 
 }

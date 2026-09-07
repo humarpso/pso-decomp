@@ -5,6 +5,26 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredFields_801DF394_arg0
+{
+  s32 field_0;
+};
+
+struct RecoveredFields_801DF394_arg1
+{
+  s32 field_0;
+};
+
+struct RecoveredFields_801DF4FC_arg0
+{
+  s32 field_0;
+};
+
+struct RecoveredFields_801DF4FC_arg1
+{
+  s32 field_0;
+};
+
 extern "C" {
 s32 fn_801E0900(s32);
 int bswap_32__FPUl(void* a0);
@@ -66,6 +86,10 @@ void fn_801DF838(s32 arg0);
 int bswap_32__FPUl(void* a0);
 int bswap__13packet_headerFv(void* a0);
 void fn_801DF838(s32 arg0);
+void* fn_801DF3F0(void* p, void* a1);
+s32 *fn_801DF394(s32 *arg0, s32 *arg1);
+int fn_801DF558(int, int);
+s32 *fn_801DF4FC(s32 *arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -101,7 +125,24 @@ void bswap_cmd_88_body(void* p) { bswap__13packet_headerFv(p); { int i; for (i =
 
 void fn_801DF360(void* p) { bswap__16TPlyGuildCardTagFv((s32)(p)); bswap_32__FPUl((char*)p + 0x8); }
 
-int fn_801DF394(void) { return 0; }
+typedef struct RecoveredFields_801DF394_arg0 RecoveredFields_801DF394_arg0;
+typedef struct RecoveredFields_801DF394_arg1 RecoveredFields_801DF394_arg1;
+s32 *fn_801DF394(s32 *arg0, s32 *arg1) {
+  u32 var_r30;
+  s32 var_r29;
+  var_r30 = (unsigned long) (((u8 *) arg0) + 4);
+  var_r29 = (long) (((u8 *) arg1) + 4);
+  ((RecoveredFields_801DF394_arg0 *) arg0)->field_0 = ((RecoveredFields_801DF394_arg1 *) arg1)->field_0;
+  do
+  {
+    fn_801DF3F0((void*)((int) var_r30), (void*)((int) var_r29));
+    var_r30 += 0xC;
+    var_r29 += 0xC;
+  }
+  while (var_r30 < ((u32) (((u8 *) arg0) + 0xC4)));
+  return arg0;
+}
+
 void* fn_801DF3F0(void* p, void* a1) { __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(p); *(void**)((char*)p + 0x8) = *(void**)((char*)a1 + 0x8); return p; }
 void fn_801DF42C(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 32; i++) { fn_801DF47C((void *)((char*)p + 0x4 + i * 212)); } } }
 
@@ -118,8 +159,25 @@ void fn_801DF4B8(s32 arg0) {
     bswap_16__FPUs(arg0 + 0xA);
 }
 
-int fn_801DF4FC(void) { return 0; }
-int fn_801DF558(void) { return 0; }
+typedef struct RecoveredFields_801DF4FC_arg0 RecoveredFields_801DF4FC_arg0;
+typedef struct RecoveredFields_801DF4FC_arg1 RecoveredFields_801DF4FC_arg1;
+s32 *fn_801DF4FC(s32 *arg0, s32 *arg1) {
+  u32 var_r30;
+  s32 var_r29;
+  var_r30 = (unsigned long) (((u8 *) arg0) + 4);
+  var_r29 = (long) (((u8 *) arg1) + 4);
+  ((RecoveredFields_801DF4FC_arg0 *) arg0)->field_0 = ((RecoveredFields_801DF4FC_arg1 *) arg1)->field_0;
+  do
+  {
+    fn_801DF558((int)((int) var_r30), (int)((int) var_r29));
+    var_r30 += 0xD4;
+    var_r29 += 0xD4;
+  }
+  while (var_r30 < ((u32) (((u8 *) arg0) + 0x1A84)));
+  return arg0;
+}
+
+int fn_801DF558(int _w0, int _w1) { return 0; }
 int fn_801DF61C(void) { return 0; }
 void fn_801DF6BC(void* p) { bswap__13packet_headerFv(p); fn_801DF6F0((char*)p + 0x4); }
 void fn_801DF6F0(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 5; i++) { fn_801DF740((void*)((char*)p + 0x4 + i * 4)); } } }

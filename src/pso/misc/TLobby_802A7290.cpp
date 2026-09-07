@@ -36,6 +36,24 @@ struct RecoveredGlobal_802A74B8_lbl_804DD9F8 {
     u8 remaining[0x14];
 };
 
+struct Base_802A752C_802A7290 { char pad[0x8]; };
+
+struct VObj_802A752C_802A7290 : Base_802A752C_802A7290 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+};
+
 extern "C" {
 int TLobby__sub_802A7260(void* a0);
 int TLobby__sub_802A7278(void* a0);
@@ -45,6 +63,34 @@ int TLobby__sub_802A7260(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A74B8_lbl_804DD9F8 lbl_804DD9F8;
 s32 TLobby__sub_802A74B8(M2C_UNK arg0, s32 arg1, s32 arg2);
+M2C_UNK TLobby__sub_802A7848(void *, s32);
+s32 TLobby__sub_802A7868(void *, s32, s32);
+s32 TLobby__sub_802A7994(void *, s32, s32, s32);
+M2C_UNK forward_801C210C__10TObjPlayerFPv(void *, s32);
+s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void free__11TOBoss4RockFUi(void*);
+extern s32 lbl_805D6680;
+void TLobby__sub_802A7640(void);
+s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
+extern s32 lbl_805D6680;
+void alloc_boss4rock_buffer__6TLobbyFv(void);
+void TLobby__sub_802A7640(void);
+int set_photon_chair_flag__6TLobbyFi(int);
+void TLobby__sub_802A769C(void);
+void alloc_boss4rock_buffer__6TLobbyFv(void);
+int set_photon_chair_flag__6TLobbyFi(int);
+void enable_and_refresh__6TLobbyFv(void);
+M2C_UNK TLobby__sub_802A7AF8(M2C_UNK, M2C_UNK *);
+M2C_UNK free__10TObjPlayerFPv(void *);
+extern M2C_UNK lbl_804DDBF0[];
+void *__dt__6TLobbyFPvs(void *arg0, s16 arg1);
+void TLobby__sub_802A7B50(void *);
+extern M2C_UNK lbl_804DDBF0[];
+void *ct_variant__6TLobbyFPv(void *arg0);
+void* TLobby__sub_802A7780(void* p);
+void* TLobby__sub_802A7788(void* p);
+extern s32 lbl_805D6680;
+int TLobby__sub_802A7790(void);
 }
 
 extern "C" {
@@ -97,5 +143,47 @@ s32 TLobby__sub_802A74B8(M2C_UNK arg0, s32 arg1, s32 arg2) {
     }
     return 0;
 }
+s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    s32 temp_r3;
+    if (TLobby__sub_802A7868(arg0, arg2, arg3) != 0) {
+        return 1;
+    }
+    forward_801C210C__10TObjPlayerFPv(arg0, arg2);
+    TLobby__sub_802A7848(arg0, arg3);
+    temp_r3 = TLobby__sub_802A7994(arg0, arg1, arg2, arg3);
+    if (temp_r3 != 0) {
+        ((VObj_802A752C_802A7290 *)arg0)->m12();
+    }
+    return temp_r3;
+}
+void TLobby__sub_802A7640(void) {
+    if ((u32) (*(u32 *)&lbl_805D6680) != 0U) {
+        free__11TOBoss4RockFUi((void*)(*(u32 *)&lbl_805D6680));
+        (*(u32 *)&lbl_805D6680) = 0U;
+    }
+}
+void alloc_boss4rock_buffer__6TLobbyFv(void) {
+    lbl_805D6680 = alloc_buffer__11TOBoss4RockFPv(0x100000);
+}
+void TLobby__sub_802A769C(void) { TLobby__sub_802A7640(); set_photon_chair_flag__6TLobbyFi(0); }
+void enable_and_refresh__6TLobbyFv(void) { set_photon_chair_flag__6TLobbyFi(1); alloc_boss4rock_buffer__6TLobbyFv(); }
+void *__dt__6TLobbyFPvs(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 8) = lbl_804DDBF0;
+        TLobby__sub_802A7AF8((M2C_UNK)arg0, 0);
+        if (arg1 > 0) {
+            free__10TObjPlayerFPv(arg0);
+        }
+    }
+    return arg0;
+}
+void *ct_variant__6TLobbyFPv(void *arg0) {
+    TLobby__sub_802A7B50(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x8) = lbl_804DDBF0;
+    return arg0;
+}
+void* TLobby__sub_802A7780(void* p) { return (char*)p + 0xc; }
+void* TLobby__sub_802A7788(void* p) { return (char*)p + 0xc; }
+int TLobby__sub_802A7790(void) {  return (*(int *)&lbl_805D6680); }
 
 }

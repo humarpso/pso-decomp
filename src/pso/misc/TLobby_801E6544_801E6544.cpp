@@ -4,6 +4,55 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F90C_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F9CC_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F8FC_lbl_804FE120 {
+    s32 value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F8EC_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F91C_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+M2C_UNK append_string(void *);
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80512350;
+void TLobby__sub_801E6818(void);
+M2C_UNK append_string(void *);
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80512340;
+void TLobby__sub_801E6840(void);
+}
+
 extern "C" {
 
 void append_card_window_text__6TLobbyFv(void);
@@ -36,6 +85,22 @@ void append_card_window_text__6TLobbyFv(void) {
 }
 
 extern M2C_UNK lbl_805DC4A4;
+
+typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
+void TLobby__sub_801E6818(void) {
+    append_string((void *)((M2C_UNK *)(&lbl_80512350.value)));
+}
+typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
+
+void TLobby__sub_801E6840(void) {
+    append_string((void *)((M2C_UNK *)(&lbl_80512340.value)));
+}
 
 s32 parse_f_index(s32 a0) {
     s32 sp8;

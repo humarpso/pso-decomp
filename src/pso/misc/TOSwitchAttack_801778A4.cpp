@@ -2,6 +2,32 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_80177C80___vt__14TOSwitchAttack {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
+extern "C" {
+s32 init_params__14TOSwitchAttackFPv(void *);
+s32 TPhotonMagicSquare__sub_801A2640(void *);
+extern M2C_UNK __vt__14TOSwitchAttack[];
+extern s32 lbl_805D3178;
+u8 *TOSwitchAttack__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+}
+
 extern "C" {
 
 void TOSwitchAttack__sub_80177C20(void);
@@ -9,7 +35,6 @@ void TOSwitchAttack__sub_80177C24(void);
 void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1);
 void *create__14TOSwitchAttackFPv(void *arg0);
 void render__14TOSwitchAttackFv(void);
-void *TOSwitchAttack__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -21,7 +46,7 @@ extern void *tl_05;
 void *create__14TOSwitchAttackFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = TOSwitchAttack__ct(o, tl_05, arg0);
+        o = TOSwitchAttack__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -39,6 +64,17 @@ void *__dt__14TOSwitchAttackFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_80177C80___vt__14TOSwitchAttack_size[sizeof(RecoveredGlobal_80177C80___vt__14TOSwitchAttack) == 0x38 ? 1 : -1];
+u8 *TOSwitchAttack__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80177C80___vt__14TOSwitchAttack *)&__vt__14TOSwitchAttack).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3178;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    init_params__14TOSwitchAttackFPv((void *) (arg0));
+    M2C_FIELD(arg0, s8 *, 0xA6) = 0;
+    M2C_FIELD(arg0, s32 *, 0xA8) = 0;
     return arg0;
 }
 

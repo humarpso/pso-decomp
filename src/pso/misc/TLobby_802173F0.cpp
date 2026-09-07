@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern u32 lbl_805D61D8;
+void clear_flag_if_not_split_screen__6TLobbyFv(void);
+}
+
+extern "C" {
 
 void free_global__6TLobbyFv(void);
 void TLobby__sub_800F957C(void*);
@@ -15,6 +21,11 @@ void free_global__6TLobbyFv(void) {
     if ((u32) lbl_805D61D8 != 0U) {
         TLobby__sub_800F957C((void*)lbl_805D61D8);
         lbl_805D61D8 = 0U;
+    }
+}
+void clear_flag_if_not_split_screen__6TLobbyFv(void) {
+    if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
+        (*(s32 *)&lbl_805D61D8) = 0;
     }
 }
 

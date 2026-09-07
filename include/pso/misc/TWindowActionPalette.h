@@ -3,21 +3,25 @@
 
 #include "types.h"
 
-struct TWindowActionPalette
-{
-    u8 _pad1C[0x4];
-    s16 m_20;
-    u8 _pad22[0x2];
-    void* m_24;
-    u8 _pad28[0x4];
-    u32 m_2c;
-    u8 _pad30[0x2C];
-    u32 m_5c;
-    void* m_60;
-    u8 _pad64[0x8];
-    u8 m_6c;
-    u8 _pad6D[0x3];
-    void* m_70;
+struct TWindowActionPalette {
+    struct ChildList {
+        u32 count;
+        void **entries;
+    };
+    struct Scale {
+        f32 x;
+        f32 y;
+    };
+
+    void render();
+
+    u8 unknown_00[0x24];
+    ChildList children;
+    u8 unknown_2c[0x34];
+    u8 resources[3][4];
+    u8 state;
+    u8 unknown_6d[3];
+    Scale scale;
 };
 
 #endif

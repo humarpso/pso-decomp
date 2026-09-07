@@ -4,6 +4,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8033B264_lbl_804EF728 {
+    M2C_UNK value;
+    u8 remaining[0x194];
+};
+
+struct RecoveredGlobal_8033B264_main_task {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+extern "C" {
+M2C_UNK TLobby__sub_800FD6A0(void *, int);
+M2C_UNK render_tick__Fv();
+M2C_UNK set_and_notify__6TLobbyFi(int);
+M2C_UNK TLobby__sub_8022743C();
+M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
+extern RecoveredGlobal_8033B264_lbl_804EF728 lbl_804EF728;
+extern RecoveredGlobal_8033B264_main_task main_task;
+void TAdSinglePlyChrSelectGC__sub_8033B264(void);
+}
+
 extern "C" {
 
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
@@ -22,6 +43,16 @@ void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 ar
     }
 }
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return TKeyBoardControl__sub_8000F9B0(p); }
+
+typedef char RecoveredGlobal_8033B264_lbl_804EF728_size[sizeof(RecoveredGlobal_8033B264_lbl_804EF728) == 0x198 ? 1 : -1];
+typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033B264_main_task) == 0x34 ? 1 : -1];
+void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
+    delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
+    TLobby__sub_8022743C();
+    set_and_notify__6TLobbyFi((int) (0));
+    TLobby__sub_800FD6A0((void *) (&lbl_804EF728.value), (int) (0x30));
+    render_tick__Fv();
+}
 
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x3C);

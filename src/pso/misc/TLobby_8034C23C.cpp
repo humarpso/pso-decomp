@@ -11,6 +11,9 @@ M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
 M2C_UNK strncpy(int, int, int);
 extern s32 lbl_805D6E98;
 void TLobby__sub_8034C304(s32 arg0);
+extern s32 lbl_805D6E98;
+extern u32 lbl_805D6E9C;
+void reset_info_board__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -59,5 +62,6 @@ void TLobby__sub_8034C304(s32 arg0) {
     M2C_FIELD(temp_r31, s8 *, 0xAB) = 0;
     lbl_805D6E98 |= 1;
 }
+void reset_info_board__6TLobbyFv(void) { (*(int *)&lbl_805D6E98) = 0; (*(int *)&lbl_805D6E9C) = 0; }
 
 }

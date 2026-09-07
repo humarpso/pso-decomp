@@ -27,6 +27,22 @@ struct RecoveredGlobal_8018417C_lbl_8050DC50 {
     u8 remaining[0x14];
 };
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8018411C_lbl_804B5D38 {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -39,12 +55,26 @@ extern RecoveredGlobal_8018417C_lbl_8050DC50 lbl_8050DC50;
 extern const f32 lbl_805DBC4C;
 extern const f32 lbl_805DBC6C;
 void TLobby__sub_8018417C(u8 *arg0);
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern RecoveredGlobal_8018411C_lbl_804B5D38 lbl_804B5D38;
+extern s32 lbl_805D3278;
+u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8018417C_lbl_8050DC38_size[sizeof(RecoveredGlobal_8018417C_lbl_8050DC38) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8018417C_lbl_8050DC50_size[sizeof(RecoveredGlobal_8018417C_lbl_8050DC50) == 0x18 ? 1 : -1];
+
+typedef char RecoveredGlobal_8018411C_lbl_804B5D38_size[sizeof(RecoveredGlobal_8018411C_lbl_804B5D38) == 0x34 ? 1 : -1];
+u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B5D38.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3278;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    return arg0;
+}
+
 void TLobby__sub_8018417C(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(M2C_FIELD(&lbl_8050DC38.value, u8 **, 8));

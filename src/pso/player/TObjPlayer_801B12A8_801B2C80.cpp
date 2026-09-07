@@ -4,12 +4,36 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_eecf68 { char pad[0x18]; };
+
+struct VObj_18_eecf68 : VBase_18_eecf68 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual s32 m14();
+};
+
 extern "C" {
 M2C_UNK set_params__10TObjPlayerFPvPvPviPv(void *, void *, void *, int, int);
 s32 TObjPlayer__sub_801D92F4(void *);
 s32 TObjPlayer__sub_801D9328();
 s32 TObjPlayer__sub_801D93C4(void *);
 s32 fn_801B2FC8(s32 arg0, s32 arg1);
+int get_max_level__10TObjPlayerFv(void);
+s8 TObjPlayer__sub_801AFDB0(void *);
+s32 get_current_state_field__10TObjPlayerFv(s8, s32);
+s32 TObjPlayer__sub_801B2E68(u8 *arg0);
 }
 
 extern "C" {
@@ -68,6 +92,17 @@ extern M2C_UNK TObjPlayer__data_80446F48;
 extern f32 lbl_805DC280;
 extern f32 lbl_805DC284;
 extern f32 lbl_805DC288;
+
+s32 TObjPlayer__sub_801B2E68(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r31_2;
+    temp_r31_2 = get_max_level__10TObjPlayerFv();
+    if (((VObj_18_eecf68 *)(arg0))->m14() >= temp_r31_2) {
+        return 0;
+    }
+    temp_r31 = ((VObj_18_eecf68 *)(arg0))->m14();
+    return get_current_state_field__10TObjPlayerFv(TObjPlayer__sub_801AFDB0(arg0), temp_r31 + 1);
+}
 
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (is_flag30_10_set__10TObjPlayerFi() != 0) {

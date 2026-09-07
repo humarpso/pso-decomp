@@ -4,9 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803C0B08_lbl_80570AC0 {
+    M2C_UNK value;
+    u8 remaining[0x9BC];
+};
+
+struct RecoveredGlobal_803C0AD8_lbl_80570AC0 {
+    M2C_UNK value;
+    u8 remaining[0x9BC];
+};
+
 extern "C" {
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
 s8 TLobby__sub_803C3B38(u8 *arg0);
+M2C_UNK memset(void *, int, int);
+void TLobby__sub_803CB71C(void);
+extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80571480;
+void TLobby__sub_803C406C(void);
 }
 
 extern "C" {
@@ -188,6 +202,12 @@ s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg
     *arg2 = M2C_FIELD(arg0, s32 *, 0x40) - M2C_FIELD(arg0, s32 *, 0x9C);
     *arg3 = M2C_FIELD(arg0, s32 *, 0x18) - M2C_FIELD(arg0, s32 *, 0x98);
     return M2C_FIELD(arg0, s32 *, 0x3C);
+}
+typedef char RecoveredGlobal_803C0B08_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0B08_lbl_80570AC0) == 0x9C0 ? 1 : -1];
+typedef char RecoveredGlobal_803C0AD8_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0AD8_lbl_80570AC0) == 0x9C0 ? 1 : -1];
+void TLobby__sub_803C406C(void) {
+    TLobby__sub_803CB71C();
+    memset((void *) (&lbl_80571480.value), (int) (0), (int) (0xb80));
 }
 
 }

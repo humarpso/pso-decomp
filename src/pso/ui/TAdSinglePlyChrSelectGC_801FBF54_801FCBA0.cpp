@@ -4,6 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_4a87b2 { char pad[0x18]; };
+
+struct VObj_18_4a87b2 : VBase_18_4a87b2 {
+    virtual void m0();
+    virtual M2C_UNK m1();
+};
+
+struct RecoveredGlobal_801FCD74_main_task {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+struct RecoveredGlobal_801FDA4C_lbl_804C88C0 {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
+struct RecoveredGlobal_801FDAAC_lbl_804C88C0 {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
@@ -15,6 +37,38 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FC984(s32);
 M2C_UNK memset(int, int, int);
 void TAdSinglePlyChrSelectGC__sub_801FCC18(s32 arg0);
+M2C_UNK get_fog_ctrl__16TKeyBoardControlFPv();
+s32 is_split_screen();
+M2C_UNK TCameraCtrl__sub_80068A68();
+M2C_UNK TCameraCtrl__sub_80068B34(int, int);
+M2C_UNK set_mode__11TCameraCtrlFi(int);
+M2C_UNK controller_stuff__Fv();
+M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
+M2C_UNK some_empty_func__9TMainTaskFv(void *);
+M2C_UNK run_tl_camera_tasks__9TMainTaskFv(void *);
+M2C_UNK render__9TMainTaskFv(void *);
+extern RecoveredGlobal_801FCD74_main_task main_task;
+extern u8 *lbl_805D4DF0;
+void TAdSinglePlyChrSelectGC__sub_801FCD74(void);
+u8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
+int draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(void*, void*, void*, void*);
+int set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int);
+extern RecoveredGlobal_801FDA4C_lbl_804C88C0 lbl_804C88C0;
+extern int lbl_805D49B4;
+extern s32 lbl_805D5F7C;
+extern s32 lbl_805D5F84;
+extern s32 lbl_805D5F94;
+s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void);
+u8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
+int draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(void*, void*, void*, void*);
+int set_quest_download_server__23TAdSinglePlyChrSelectGCFi(int);
+extern RecoveredGlobal_801FDA4C_lbl_804C88C0 lbl_804C88C0;
+extern int lbl_805D49B4;
+extern s32 lbl_805D5F78;
+extern s32 lbl_805D5F7C;
+extern s32 lbl_805D5F84;
+extern s32 lbl_805D5F94;
+s32 TAdSinglePlyChrSelectGC__sub_801FDAAC(void);
 }
 
 extern "C" {
@@ -32,7 +86,6 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD990(s32);
 int draw_window_bg__23TAdSinglePlyChrSelectGCFiiii(void*, void*, void*, void*);
 s32 get_instance__15TAdPlayerLoadGCFv();
 M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
-int set_quest_download_server__23TAdSinglePlyChrSelectGCFi(void);
 s32 try_confirm_selection__23TAdSinglePlyChrSelectGCFv();
 
 int TAdSinglePlyChrSelectGC__sub_801FCBA0(void) { return 0; }
@@ -94,6 +147,29 @@ int TAdSinglePlyChrSelectGC__sub_801FCD3C(void) { return 0; }
     extern int lbl_805D5F88;
     extern int lbl_805D5F98;
 
+typedef char RecoveredGlobal_801FCD74_main_task_size[sizeof(RecoveredGlobal_801FCD74_main_task) == 0x34 ? 1 : -1];
+void TAdSinglePlyChrSelectGC__sub_801FCD74(void) {
+    if ((void *) lbl_805D4DF0 != NULL) {
+        some_empty_func__9TMainTaskFv((void *) (&main_task.value));
+        if (is_split_screen() != 0) {
+            set_mode__11TCameraCtrlFi((int) (0));
+            get_fog_ctrl__16TKeyBoardControlFPv();
+            if ((void *) lbl_805D4DF0 != NULL) {
+                ((VObj_18_4a87b2 *)(lbl_805D4DF0))->m1();
+            }
+            TCameraCtrl__sub_80068B34((int) (1), (int) (0));
+            render__9TMainTaskFv((void *) (&main_task.value));
+            set_mode__11TCameraCtrlFi((int) (0x64));
+            TCameraCtrl__sub_80068A68();
+        } else {
+            controller_stuff__Fv();
+            run_tl_camera_tasks__9TMainTaskFv((void *) (&main_task.value));
+            render__9TMainTaskFv((void *) (&main_task.value));
+        }
+        render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
+    }
+}
+
 s32 TAdSinglePlyChrSelectGC__sub_801FCE2C(s32 arg0) {
     if ((void *) lbl_805D5F60 != NULL) {
         TAdSinglePlyChrSelectGC__sub_801FC4F4(lbl_805D5F60, arg0);
@@ -102,7 +178,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE2C(s32 arg0) {
     return 0;
 }
 
-void setup__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5F80 = a0; set_quest_download_server__23TAdSinglePlyChrSelectGCFi(); lbl_805D49B4 = 1; draw_window_bg__23TAdSinglePlyChrSelectGCFiiii((void*)(lbl_805D5F80), lbl_804C89BC, (void*)(lbl_805D5F98), (void*)(lbl_805D5F88)); }
+void setup__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5F80 = a0; set_quest_download_server__23TAdSinglePlyChrSelectGCFi((int)(a0)); lbl_805D49B4 = 1; draw_window_bg__23TAdSinglePlyChrSelectGCFiiii((void*)(lbl_805D5F80), lbl_804C89BC, (void*)(lbl_805D5F98), (void*)(lbl_805D5F88)); }
 
 extern M2C_UNK lbl_804C8914[];
 extern u32 lbl_805D5F6C;
@@ -124,6 +200,35 @@ s32 pso_system_load_gc(void) {
         }
     }
     return var_r31;
+}
+typedef char RecoveredGlobal_801FDA4C_lbl_804C88C0_size[sizeof(RecoveredGlobal_801FDA4C_lbl_804C88C0) == 0x54 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void) {
+    s32 var_r0;
+    s8 temp_r3;
+    temp_r3 = get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+    var_r0 = -1;
+    lbl_805D5F7C = (s32) temp_r3;
+    if (temp_r3 < 2) {
+        set_quest_download_server__23TAdSinglePlyChrSelectGCFi((int)((int) ((s32) temp_r3)));
+        (*(s32 *)&lbl_805D49B4) = 1;
+        var_r0 = ((s32)draw_window_bg__23TAdSinglePlyChrSelectGCFiiii((void*)((void *) (lbl_805D5F7C)), (void*)((void *) (&lbl_804C88C0.value)), (void*)((void *) (lbl_805D5F94)), (void*)((void *) (lbl_805D5F84))));
+    }
+    return var_r0;
+}
+typedef char RecoveredGlobal_801FDAAC_lbl_804C88C0_size[sizeof(RecoveredGlobal_801FDAAC_lbl_804C88C0) == 0x54 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_801FDAAC(void) {
+    s32 var_r4;
+    s8 temp_r3;
+    temp_r3 = get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+    var_r4 = -1;
+    lbl_805D5F7C = (s32) temp_r3;
+    if (temp_r3 < 2) {
+        set_quest_download_server__23TAdSinglePlyChrSelectGCFi((int) ((s32) temp_r3));
+        (*(s32 *)&lbl_805D49B4) = 1;
+        var_r4 = ((s32)draw_window_bg__23TAdSinglePlyChrSelectGCFiiii((void*)((void *) (lbl_805D5F7C)), (void*)((void *) (&(*(RecoveredGlobal_801FDAAC_lbl_804C88C0 *)&lbl_804C88C0).value)), (void*)((void *) (lbl_805D5F94)), (void*)((void *) (lbl_805D5F84))));
+    }
+    lbl_805D5F78 = 0x13;
+    return var_r4;
 }
 
 }

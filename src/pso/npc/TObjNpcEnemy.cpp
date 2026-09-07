@@ -9,9 +9,135 @@ struct RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 {
     u8 remaining[0x23C];
 };
 
+struct VBase_18_cff70e { char pad[0x18]; };
+
+struct VObj_18_cff70e : VBase_18_cff70e {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(s32);
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual M2C_UNK m85(M2C_UNK, M2C_UNK);
+};
+
+struct RecoveredGlobal_802D78A0_lbl_804A7CB8 {
+    M2C_UNK value;
+    u8 remaining[0x20];
+};
+
+struct RecoveredGlobal_802D78A0_lbl_804A7CDC {
+    M2C_UNK value;
+    u8 remaining[0x44];
+};
+
+struct RecoveredGlobal_802D78A0_lbl_804E2680 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy {
+    M2C_UNK value;
+    u8 remaining[0x178];
+};
+
 extern "C" {
 extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__data_80540FF0;
 s16 *TObjNpcEnemy__sub_802D72E4(s16 arg0);
+s32 TObjPlayer__sub_8001882C(void *, void *);
+s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
+s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 update_prev_position__10TObjPlayerFPv(void *);
+s32 TObjNpcBase__ct(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s16 *TObjNpcEnemy__sub_802D72E4(s16 arg0);
+void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
+extern RecoveredGlobal_802D78A0_lbl_804A7CB8 lbl_804A7CB8;
+extern RecoveredGlobal_802D78A0_lbl_804A7CDC lbl_804A7CDC;
+extern RecoveredGlobal_802D78A0_lbl_804E2680 lbl_804E2680;
+extern M2C_UNK __vt__12TObjNpcEnemy[];
+extern s32 lbl_805D3F58;
+u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -35,7 +161,6 @@ void *TObjControl__ct(void *, void *);
 M2C_UNK TObjFish__sub_803E46BC(s32);
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
-void *TObjNpcEnemy__ct(void *, void *, void *);
 s32 TObjNpcEnemy__sub_802D7444(void *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9624(int, int, f32, f32, f32);
@@ -186,6 +311,27 @@ void *__dt__12TObjNpcEnemyFv(void *arg0, s16 arg1) {
 
 extern void *tl_04;
 
+typedef char RecoveredGlobal_802D78A0_lbl_804A7CB8_size[sizeof(RecoveredGlobal_802D78A0_lbl_804A7CB8) == 0x24 ? 1 : -1];
+typedef char RecoveredGlobal_802D78A0_lbl_804A7CDC_size[sizeof(RecoveredGlobal_802D78A0_lbl_804A7CDC) == 0x48 ? 1 : -1];
+typedef char RecoveredGlobal_802D78A0_lbl_804E2680_size[sizeof(RecoveredGlobal_802D78A0_lbl_804E2680) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy_size[sizeof(RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy) == 0x17C ? 1 : -1];
+u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TObjNpcBase__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802D78A0___vt__12TObjNpcEnemy *)&__vt__12TObjNpcEnemy).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F58;
+    ((VObj_18_cff70e *)(arg0))->m79(arg2);
+    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    ((VObj_18_cff70e *)(arg0))->m85(0, 1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x350) = &lbl_804A7CDC.value;
+    TObjPlayer__sub_8001882C((void *) (arg0), (void *) (&lbl_804A7CB8.value));
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804E2680.value), (int) (1));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    update_prev_position__10TObjPlayerFPv((void *) (arg0));
+    copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
+    set_npc_data__12TObjNpcEnemyFPvPv((void *)((void *) (arg0)), (void *)((int) (((s32)TObjNpcEnemy__sub_802D72E4((s16)((int) ((s16) M2C_FIELD(arg0, s32 *, 0x5C))))))));
+    return arg0;
+}
+
 void * TObjNpcEnemy__create(void *arg0) {
     void *o;
     void *o2;
@@ -195,7 +341,7 @@ void * TObjNpcEnemy__create(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3BC);
     if (o2 != NULL) {
-        o2 = TObjNpcEnemy__ct(o2, o, arg0);
+        o2 = TObjNpcEnemy__ct((u8 *)(o2), (M2C_UNK)(o), (s32)(arg0));
     }
     return o2;
 }

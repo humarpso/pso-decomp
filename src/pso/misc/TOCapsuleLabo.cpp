@@ -19,6 +19,27 @@ struct VObj802AF370_802af370_802AF2C8 : VBase802AF370_802af370_802AF2C8 {
 struct RecoveredGlobal_802AF300_lbl_804DE440 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802AF300_lbl_804DE440_size[sizeof(RecoveredGlobal_802AF300_lbl_804DE440) == 0x10 ? 1 : -1];
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_802AF4F4_lbl_804DE450 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo {
+    M2C_UNK value;
+    u8 remaining[0x40];
+};
+
 extern "C" {
 s32 TObjFish__sub_8001EDC4(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
@@ -28,6 +49,25 @@ extern RecoveredGlobal_802AF300_lbl_804DE440 lbl_804DE440;
 extern u32 TOCapsuleLabo__data_805D6708;
 extern s32 *lbl_805D670C;
 void TOCapsuleLabo__sub_802AF300(void);
+s32 is_split_screen();
+s32 queue_destruction__7TObjectFv(void *);
+s32 TObjFish__sub_8001EDB0(int, int);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+s32 set_indexed_flags(void *, int, int);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
+s32 init__5TOKeyFPv(void *);
+s32 TLobby__sub_8030A7B0();
+extern RecoveredGlobal_802AF4F4_lbl_804DE450 lbl_804DE450;
+extern M2C_UNK __vt__13TOCapsuleLabo[];
+extern s32 enable_v2_features;
+extern s32 lbl_805D3E7C;
+extern u32 TOCapsuleLabo__data_805D6708;
+extern const f32 lbl_805DE1E8;
+extern const f32 lbl_805DE1EC;
+u8 *TOCapsuleLabo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -129,6 +169,31 @@ void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+typedef char RecoveredGlobal_802AF4F4_lbl_804DE450_size[sizeof(RecoveredGlobal_802AF4F4_lbl_804DE450) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo_size[sizeof(RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo) == 0x44 ? 1 : -1];
+u8 *TOCapsuleLabo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    init__5TOKeyFPv((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo *)&__vt__13TOCapsuleLabo).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E7C;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *)((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708))), (s32)((int) (0)));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708)), (int) (0));
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804DE450.value), (int) (1));
+    set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    update_heal_gauge_state__13TOHealGeneralFPv((void *) (arg0));
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DE1E8;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DE1EC;
+    M2C_FIELD(arg0, s32 *, 0xE4) = 0;
+    if (((s32) enable_v2_features == 1) && (TLobby__sub_8030A7B0() == 1)) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+    if (is_split_screen() == 1) {
+        queue_destruction__7TObjectFv((void *) (arg0));
     }
     return arg0;
 }

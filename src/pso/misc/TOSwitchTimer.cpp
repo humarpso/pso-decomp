@@ -14,6 +14,22 @@ struct Stack_801783BC {
 struct RecoveredGlobal_8017858C___vt__13TOSwitchTimer { M2C_UNK value; u8 remaining[0x34]; };
 typedef char RecoveredGlobal_8017858C___vt__13TOSwitchTimer_size[sizeof(RecoveredGlobal_8017858C___vt__13TOSwitchTimer) == 0x38 ? 1 : -1];
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_80178604___vt__13TOSwitchTimer {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjRoomId__sub_80141CF4(s32, f32 *, f32, f32, f32);
@@ -27,6 +43,11 @@ void TSwitch__sub_80229258(u16, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1);
+s32 fn_801782A0(void *);
+s32 TPhotonMagicSquare__sub_801A2640(void *);
+extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
+extern s32 lbl_805D3188;
+u8 *TOSwitchTimer__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -38,7 +59,6 @@ void run_task__13TOSwitchTimerFv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TOChatSensor__sub_801781D8(void *);
 u8 TODoorAncient08__sub_80229220(u16);
-void *TOSwitchTimer__ct(void *, void *, void *);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 
@@ -98,7 +118,7 @@ extern void *tl_05;
 void *create__13TOSwitchTimerFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
-        o = TOSwitchTimer__ct(o, tl_05, arg0);
+        o = TOSwitchTimer__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -116,6 +136,15 @@ u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv((s32) arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_80178604___vt__13TOSwitchTimer_size[sizeof(RecoveredGlobal_80178604___vt__13TOSwitchTimer) == 0x38 ? 1 : -1];
+u8 *TOSwitchTimer__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80178604___vt__13TOSwitchTimer *)&__vt__13TOSwitchTimer).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3188;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    fn_801782A0((void *) (arg0));
     return arg0;
 }
 

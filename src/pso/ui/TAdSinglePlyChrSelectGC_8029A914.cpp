@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+    int TLobby__sub_8023E4B4(void*, void*);
+    extern unsigned char lbl_80465284[];
+    extern unsigned char lbl_804DBF20[];
+extern u32 lbl_805D65B0;
+void register_texture_f256_ad_pic_2(void);
+}
+
+extern "C" {
 
 void free_global__23TAdSinglePlyChrSelectGCFv(void);
 void TLobby__sub_803DA16C(void*);
@@ -17,5 +25,6 @@ void free_global__23TAdSinglePlyChrSelectGCFv(void) {
         lbl_805D65B0 = 0U;
     }
 }
+void register_texture_f256_ad_pic_2(void) { (*(int *)&lbl_805D65B0) = (int)lbl_804DBF20; TLobby__sub_8023E4B4(lbl_80465284, lbl_804DBF20); }
 
 }

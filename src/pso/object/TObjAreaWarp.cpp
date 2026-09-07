@@ -18,6 +18,29 @@ struct RecoveredGlobal_8019CA24_lbl_80515BA0 {
     u8 remaining[0x24];
 };
 
+struct VBase_18_26c409 { char pad[0x18]; };
+
+struct VObj_18_26c409 : VBase_18_26c409 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual M2C_UNK m12();
+};
+
+struct RecoveredGlobal_8019CE40___vt__12TObjAreaWarp {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
 extern "C" {
 s32 TObjMapWarp__ct(void *);
 s32 get_story_select__16TAdStorySelectGCFv();
@@ -36,6 +59,11 @@ M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK TNpcPlayer__sub_8034E7A0();
 extern RecoveredGlobal_8019CA24_lbl_80515BA0 lbl_80515BA0;
 void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1);
+u8 * TObjWarpBase__vt0(void *, s16);
+u8 * destroy__13TAdVIConfigGCFPvs(void *, s16);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern M2C_UNK __vt__12TObjAreaWarp[];
+u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -127,6 +155,25 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
 extern M2C_UNK __vt__12TObjAreaWarp[];
 extern s32 lbl_805D3468;
 extern s32 lbl_805D5C80;
+
+typedef char RecoveredGlobal_8019CE40___vt__12TObjAreaWarp_size[sizeof(RecoveredGlobal_8019CE40___vt__12TObjAreaWarp) == 0x54 ? 1 : -1];
+u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1) {
+    u8 *temp_r3;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019CE40___vt__12TObjAreaWarp *)&__vt__12TObjAreaWarp).value;
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xC0));
+        if (temp_r3 != NULL) {
+            destroy__13TAdVIConfigGCFPvs(temp_r3, 1);
+            M2C_FIELD(arg0, u8 **, 0xC0) = NULL;
+        }
+        ((VObj_18_26c409 *)(arg0))->m12();
+        TObjWarpBase__vt0(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
+}
 
 void *TObjAreaWarp__ct(void *arg0) {
     TObjWarpBase__ct();

@@ -4,6 +4,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8017C8EC_lbl_804B4ECC {
+    M2C_UNK value;
+    u8 remaining[0x130];
+};
+
+struct RecoveredGlobal_8017C8EC_lbl_804B528C {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
 extern "C" {
 int TOVS2Wall01__vt24(void);
 int TOVS2Wall01__vt25(void);
@@ -15,6 +36,19 @@ int TOVS2Wall01__vt21(void* p);
 int take_hit__11TOVS2Wall01FPvUi(void*);
 int TOVS2Wall01__vt22(void* p);
 int take_hit__11TOVS2Wall01FPvUi(void*);
+s32 TObjFish__sub_8001EDB0(int, void *);
+u8 *TObjFish__sub_8001EDC4(s32, s32);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_map_object_base(void *, int);
+s32 create__10TObjMapCsnFi(void *);
+extern RecoveredGlobal_8017C8EC_lbl_804B4ECC lbl_804B4ECC;
+extern M2C_UNK lbl_804B528C[];
+extern s32 lbl_805D31C4;
+extern u32 TOVS2Wall01__data_805D5AE8;
+extern void *tl_05;
+extern const f32 lbl_805DBAB0;
+u8 *TOVS2Wall01__sub_8017C8EC(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -63,6 +97,23 @@ void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_8017C8EC_lbl_804B4ECC_size[sizeof(RecoveredGlobal_8017C8EC_lbl_804B4ECC) == 0x134 ? 1 : -1];
+typedef char RecoveredGlobal_8017C8EC_lbl_804B528C_size[sizeof(RecoveredGlobal_8017C8EC_lbl_804B528C) == 0x3C ? 1 : -1];
+u8 *TOVS2Wall01__sub_8017C8EC(u8 *arg0, s32 arg1, s32 arg2) {
+    init_map_object_base((void *) (arg0), (int) ((*(s32 *)&tl_05)));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017C8EC_lbl_804B528C *)&lbl_804B528C).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31C4;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, u8 **, 0x34) = TObjFish__sub_8001EDC4((*(s32 *)&TOVS2Wall01__data_805D5AE8), arg2);
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (lbl_805DBAB0 + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOVS2Wall01__data_805D5AE8)), (void *) (arg2));
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) ((u8 *)&lbl_804B4ECC.value + (arg2 * 0x2C)), (int) (1));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0xC8) = create__10TObjMapCsnFi((void *) (arg1));
+    M2C_FIELD(arg0, s32 *, 0xCC) = 1;
     return arg0;
 }
 

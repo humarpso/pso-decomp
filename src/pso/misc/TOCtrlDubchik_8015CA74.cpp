@@ -90,6 +90,101 @@ struct VObj_18_65b835 : VBase_18_65b835 {
 struct RecoveredGlobal_8015D314_lbl_804B0A10 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8015D314_lbl_804B0A10_size[sizeof(RecoveredGlobal_8015D314_lbl_804B0A10) == 0x10 ? 1 : -1];
 
+struct VBase_18_aa4667 { char pad[0x18]; };
+
+struct VObj_18_aa4667 : VBase_18_aa4667 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(s32);
+};
+
+struct RecoveredGlobal_8015D3CC_lbl_804B0A20 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik {
+    M2C_UNK value;
+    u8 remaining[0x148];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
@@ -115,6 +210,21 @@ s32 try_start_action__10TObjPlayerFPvii(void *, void *, void *);
 s32 TOCtrlDubchik__vt24(u8 *arg0, s32 arg1, s32 arg2);
 s32 TObjPlayer__sub_800162E0(void *, void *, void *, f32);
 s32 TOCtrlDubchik__vt25(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 init_position_vectors__10TObjPlayerFi(void *);
+s32 TObjEnemy__ct(void *);
+void set_indexed_flags(void *, s32, s32);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+extern RecoveredGlobal_8015D3CC_lbl_804B0A20 lbl_804B0A20;
+extern M2C_UNK __vt__13TOCtrlDubchik[];
+extern s32 lbl_805D2F1C;
+extern u32 TOCtrlDubchik__data_805D58F0;
+extern const f32 TOCtrlDubchik__data_805DB3A8;
+extern const f32 lbl_805DB3BC;
+extern const f32 lbl_805DB3C8;
+u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -126,7 +236,6 @@ void *create__13TOCtrlDubchikFPv(void *arg0);
 void destroy_instance__13TOCtrlDubchikFv(void);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-void *TOCtrlDubchik__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, void *, f32);
 s32 TObjPlayer__sub_80016454();
@@ -193,7 +302,7 @@ void TOCtrlDubchik__sub_8015CCF4(u8 *arg0) {
 void *create__13TOCtrlDubchikFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);
     if (o != NULL) {
-        o = TOCtrlDubchik__ct(o, tl_05, arg0);
+        o = TOCtrlDubchik__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -230,6 +339,35 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_8015D3CC_lbl_804B0A20_size[sizeof(RecoveredGlobal_8015D3CC_lbl_804B0A20) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik_size[sizeof(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik) == 0x14C ? 1 : -1];
+u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TObjEnemy__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F1C;
+    ((VObj_18_aa4667 *)(arg0))->m79(arg2);
+    init_position_vectors__10TObjPlayerFi((void *) (arg0));
+    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__data_805D58F0), u8 **, 0x42C), void **, 8));
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__data_805D58F0), u8 **, 0x42C), s32 *, 0xC);
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B0A20.value), (int) (1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, s16 *, 0x32C) = 0x12C;
+    M2C_FIELD(arg0, s16 *, 0x2B8) = 0x12C;
+    M2C_FIELD(arg0, f32 *, 0x374) = (f32) lbl_805DB3C8;
+    M2C_FIELD(arg0, f32 *, 0x378) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
+    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) lbl_805DB3BC;
+    M2C_FIELD(arg0, s32 *, 0x380) = 0;
+    M2C_FIELD(arg0, f32 *, 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
+    M2C_FIELD(arg0, f32 *, 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
+    M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x390), (void *) (arg0 + 0x50));
+    M2C_FIELD(arg0, s32 *, 0x39C) = 1;
     return arg0;
 }
 

@@ -10,6 +10,96 @@ typedef char RecoveredGlobal_8003DC34_lbl_80436318_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_8003DC34_lbl_804FEE68 { M2C_UNK value; u8 remaining[0x8]; };
 typedef char RecoveredGlobal_8003DC34_lbl_804FEE68_size[sizeof(RecoveredGlobal_8003DC34_lbl_804FEE68) == 0xC ? 1 : -1];
 
+struct VBase_18_c99286 { char pad[0x18]; };
+
+struct VObj_18_c99286 : VBase_18_c99286 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(s32);
+    virtual M2C_UNK m80();
+};
+
+struct RecoveredGlobal_8003EFF0___vt__12TBoss3Volopt { M2C_UNK value; u8 remaining[0x148]; };
+
+struct RecoveredGlobal_8003EFF0_lbl_804FEE68 { M2C_UNK value; u8 remaining[0x8]; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_800192DC(void *);
 s32 TObjPlayer__sub_800194AC(void *, int, int);
@@ -28,6 +118,22 @@ extern RecoveredGlobal_8003DC34_lbl_80436318 lbl_80436318;
 extern RecoveredGlobal_8003DC34_lbl_804FEE68 lbl_804FEE68;
 extern u16 lbl_805D2718;
 void TBoss3Volopt__sub_8003DC34(u8 *arg0);
+M2C_UNK *VecCopy__FP3VecPC3Vec(void *, M2C_UNK *);
+int TBoss3Volopt__sub_8003EA2C(void*);
+int reset_photon_effect__12TBoss3VoloptFPv(void* p);
+s32 get_adjusted_angle__11TCameraCtrlFPvi(void *, int);
+u16 get_param_offset__11TCameraCtrlFPvi(void *, int);
+s32 TObjEnemyCustom__ct(void *, int);
+s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(int);
+extern RecoveredGlobal_8003EFF0___vt__12TBoss3Volopt __vt__12TBoss3Volopt;
+extern RecoveredGlobal_8003DC34_lbl_804FEE68 lbl_804FEE68;
+extern u16 TBoss3Volopt__data_805D2710;
+extern s32 lbl_805D2714;
+extern s32 lbl_805D2720;
+extern s32 lbl_805D4C20;
+extern s32 lbl_805D4C44;
+extern s32 tl_04;
+u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -53,7 +159,6 @@ void swap_6x15_fields__12TBoss3VoloptFPv(void* p);
 void swap_6x16_fields__12TBoss3VoloptFPv(void* p);
 void swap_6x85_fields__12TBoss3VoloptFPv(void* p);
 M2C_UNK TBoss3VoloptCore__sub_80040788();
-void *TBoss3Volopt__ct(void *, void *);
 int TBoss3Volopt__sub_8003EA2C(void*);
 M2C_UNK TBoss3Volopt__sub_800479D0();
 int TLobby__send_and_handle_60(void*);
@@ -135,7 +240,7 @@ void run_task__12TBoss3VoloptFv(u8 *arg0) {
 void *create__12TBoss3VoloptFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x408);
     if (o != NULL) {
-        o = TBoss3Volopt__ct(o, arg0);
+        o = TBoss3Volopt__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
@@ -153,6 +258,27 @@ void free_parts__12TBoss3VoloptFv(void) {
     TBoss3Volopt__sub_800479D0();
     destroy__20TBoss3VoloptHiraisinFv();
     release__19TBoss3VoloptMonitorFv();
+}
+
+u8 *TBoss3Volopt__ct(u8 *arg0, s32 arg1) {
+    TObjEnemyCustom__ct((void *) (arg0), (int) (tl_04));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TBoss3Volopt.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2720;
+    ((VObj_18_c99286 *)(arg0))->m79(arg1);
+    reset_photon_effect__12TBoss3VoloptFPv((void*)((void *) (arg0)));
+    TBoss3Volopt__sub_8003EA2C((void*)((int) (0)));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, &(*(RecoveredGlobal_8003EFF0_lbl_804FEE68 *)&lbl_804FEE68).value));
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x06040000);
+    TBoss3Volopt__data_805D2710 = get_param_offset__11TCameraCtrlFPvi((void *) (arg0), (int) (0x20));
+    lbl_805D2714 = get_adjusted_angle__11TCameraCtrlFPvi((void *) (arg0), (int) (0x20));
+    M2C_FIELD(arg0, s32 *, 0x374) = 0;
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3BC) = 0;
+    dispatch_by_main_phase__14TBoss4DarkFalzFUs((int) (0x29U));
+    lbl_805D4C20 = 0;
+    lbl_805D4C44 = -1;
+    ((VObj_18_c99286 *)(arg0))->m80();
+    return arg0;
 }
 
 int reset_photon_effect__12TBoss3VoloptFPv(void* p) { return reset_photon_effect__10TObjPlayerFPv(p); }

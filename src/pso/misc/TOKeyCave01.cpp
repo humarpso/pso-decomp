@@ -38,6 +38,19 @@ typedef char RecoveredGlobal_8016C474_lbl_804B2BB8_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_8016C474_lbl_804B2BD0 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8016C474_lbl_804B2BD0_size[sizeof(RecoveredGlobal_8016C474_lbl_804B2BD0) == 0x10 ? 1 : -1];
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8016C5F8___vt__11TOKeyCave01 { M2C_UNK value; u8 remaining[0x6C]; };
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -59,6 +72,20 @@ extern u32 lbl_805D5A18;
 extern s32 *TOKeyCave01__data_805D5A1C;
 extern s32 lbl_805D5A20;
 void TOKeyCave01__sub_8016C474(void);
+s32 get_main_phase(void);
+u8 * TOKey__ct(void *);
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+M2C_UNK init_switch_id__5TOKeyFPv(void *);
+extern M2C_UNK __vt__11TOKeyCave01[];
+extern s32 lbl_805D3038;
+extern u32 lbl_805D5A18;
+extern s32 *TOKeyCave01__data_805D5A1C;
+extern const f32 lbl_805DB73C;
+extern const f32 lbl_805DB740;
+extern const f32 lbl_805DB74C;
+extern const f32 lbl_805DB750;
+extern const f32 lbl_805DB754;
+u8 *TOKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -69,7 +96,6 @@ void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1);
 void *create__11TOKeyCave01FPv(void *arg0);
 void free_objects__11TOKeyCave01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void *TOKeyCave01__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -115,7 +141,7 @@ void run_task__11TOKeyCave01Fv(u8 *arg0) {
 void *create__11TOKeyCave01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x100);
     if (o != NULL) {
-        o = TOKeyCave01__ct(o, tl_05, arg0);
+        o = TOKeyCave01__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -179,6 +205,46 @@ void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+u8 *TOKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TOKey__ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016C5F8___vt__11TOKeyCave01 *)&__vt__11TOKeyCave01).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3038;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    init_switch_id__5TOKeyFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOKeyCave01__data_805D5A1C;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A18), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB74C;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB750;
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805DB754;
+    if (get_main_phase() != 0xF) {
+        if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+            goto block_2;
+        }
+    } else {
+block_2:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x88) < 0) {
+                M2C_FIELD(arg0, s32 *, 0xD0) = 1;
+            } else {
+                goto block_5;
+            }
+        } else {
+block_5:
+            M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+        }
+    }
+    M2C_FIELD(arg0, f32 *, 0xE8) = (f32) lbl_805DB73C;
+    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) lbl_805DB73C;
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB73C;
+    M2C_FIELD(arg0, f32 *, 0xF4) = (f32) lbl_805DB73C;
+    M2C_FIELD(arg0, s32 *, 0xF8) = 0;
+    M2C_FIELD(arg0, f32 *, 0x70) = (f32) lbl_805DB740;
+    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DB740;
+    M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DB740;
+    M2C_FIELD(arg0, s32 *, 0xFC) = 0;
     return arg0;
 }
 

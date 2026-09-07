@@ -7,6 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern s32 lbl_805D553C;
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32 arg0, s32 arg1);
+int free_instance__19TWindowKeyBoardSoftFv(void);
+int free_resources__19TWindowKeyBoardSoftFv(void);
+void free_keyboard_soft_resources__6TLobbyFv(void);
+int TLanguage__ct(void*);
+int TWindowKeyBoardSoft__sub_80132DA0(void*);
+void update_menu_cursor__6TLobbyFv(void);
+extern s32 lbl_805D5544;
+void update_keyboard_menu__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -33,5 +41,7 @@ void update_menu_cursor__6TLobbyFv(void) {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32 arg0, s32 arg1) {
     return M2C_FIELD((M2C_FIELD((lbl_805D553C + (arg0 * 4)), s32 *, 0) + (arg1 * 4)), s32 *, 0);
 }
+void free_keyboard_soft_resources__6TLobbyFv(void) { free_instance__19TWindowKeyBoardSoftFv(); free_resources__19TWindowKeyBoardSoftFv(); }
+void update_keyboard_menu__6TLobbyFv(void) { update_menu_cursor__6TLobbyFv(); TWindowKeyBoardSoft__sub_80132DA0((void*)((*(int *)&lbl_805D5544))); TLanguage__ct((void*)((*(int *)&lbl_805D5544))); }
 
 }

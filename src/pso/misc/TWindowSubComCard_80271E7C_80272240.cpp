@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8034CC68_lbl_80478C3C {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+extern "C" {
+s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
+int get_message_10__20TWindowSubStatusDispFPv(void*);
+extern const RecoveredGlobal_8034CC68_lbl_80478C3C lbl_8044F6D4;
+void TWindowSubComCard__sub_80272340(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 s32 create_card_list__17TWindowSubComCardFiiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
@@ -25,6 +37,13 @@ void set_card_index__17TWindowSubComCardFPvi(void *arg0, s32 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x6C), TWindowSubComCard__sub_8007A860(arg1), 0x82);
+    }
+}
+typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8034CC68_lbl_80478C3C) == 0xC ? 1 : -1];
+void TWindowSubComCard__sub_80272340(u8 *arg0, s32 arg1) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != arg1) {
+        M2C_FIELD(arg0, s32 *, 0x28) = arg1;
+        send_and_handle__6TLobbyFPvii((s32)((s32)(M2C_FIELD(arg0, u8 **, 0x6c))), (s32)((s32)(((s32)get_message_10__20TWindowSubStatusDispFPv((void*)((int) (M2C_FIELD(&lbl_8044F6D4.value, M2C_UNK *, (arg1 * 4)))))))), (s32)((M2C_UNK)(0x80)));
     }
 }
 

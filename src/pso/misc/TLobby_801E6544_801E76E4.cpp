@@ -4,6 +4,46 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801E7CCC_TLobby__data_80512220 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct VBase_18_eecf68 { char pad[0x18]; };
+
+struct VObj_18_eecf68 : VBase_18_eecf68 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual s32 m14();
+};
+
+struct RecoveredGlobal_801E7CFC_TLobby__data_80512220 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+extern "C" {
+M2C_UNK TLobby__sub_801F34E8(int, int);
+extern struct Glob_80512220 TLobby__data_80512220;
+void TLobby__sub_801E7CCC(void);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern struct Glob_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E7CFC(void);
+}
+
 extern "C" {
 
 void create_help_window__6TLobbyFv(void);
@@ -48,6 +88,22 @@ void send_data__6TLobbyFv(void) {
     send_data__6TLobbyFi(temp_r31);
     TLobby__sub_8032CD7C(TLobby__data_805D6CC0, TLobby__data_805D6CC8);
     clear_quest_vm_flag__6TLobbyFv();
+}
+typedef char RecoveredGlobal_801E7CCC_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E7CCC_TLobby__data_80512220) == 0x20 ? 1 : -1];
+void TLobby__sub_801E7CCC(void) {
+    TLobby__sub_801F34E8((int) (M2C_FIELD(&(*(RecoveredGlobal_801E7CCC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)), (int) (M2C_FIELD(&(*(RecoveredGlobal_801E7CCC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4)));
+}
+typedef char RecoveredGlobal_801E7CFC_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E7CFC_TLobby__data_80512220) == 0x20 ? 1 : -1];
+void TLobby__sub_801E7CFC(void) {
+    u8 temp_r31;
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(&(*(RecoveredGlobal_801E7CFC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)));
+    temp_r31 = (u8) M2C_FIELD(&(*(RecoveredGlobal_801E7CFC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4);
+    if (temp_r3 != NULL) {
+        M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = ((VObj_18_eecf68 *)(temp_r3))->m14() + 1;
+        return;
+    }
+    M2C_FIELD((TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = -1;
 }
 
 }

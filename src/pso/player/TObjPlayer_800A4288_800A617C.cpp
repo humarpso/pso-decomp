@@ -10,6 +10,27 @@ struct VObj800A64E8_800a64e8_800A4288 : VBase800A64E8_800a64e8_800A4288 {
     virtual M2C_UNK m8();
 };
 
+struct RecoveredGlobal_800A6BE0_lbl_804FF5E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_800A6BE0_lbl_80500978 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+extern "C" {
+M2C_UNK TObjBoss2Tunnel__sub_8007E884(void *, void *, void *);
+M2C_UNK TObjContainerIdo__sub_803D96A8(int, void *);
+extern RecoveredGlobal_800A6BE0_lbl_804FF5E8 lbl_804FF5E8;
+extern RecoveredGlobal_800A6BE0_lbl_80500978 lbl_80500978;
+extern s32 lbl_805D505C;
+extern s32 lbl_805D5060;
+extern const f32 lbl_805D9A14;
+void TObjPlayer__sub_800A6BE0(void);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_800A617C(void *arg0);
@@ -145,6 +166,21 @@ void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1) {
 }
 
 extern void *tl_04;
+
+typedef char RecoveredGlobal_800A6BE0_lbl_804FF5E8_size[sizeof(RecoveredGlobal_800A6BE0_lbl_804FF5E8) == 0x28 ? 1 : -1];
+typedef char RecoveredGlobal_800A6BE0_lbl_80500978_size[sizeof(RecoveredGlobal_800A6BE0_lbl_80500978) == 0x10 ? 1 : -1];
+void TObjPlayer__sub_800A6BE0(void) {
+    if ((s32) lbl_805D505C == 0x15) {
+        TObjContainerIdo__sub_803D96A8((int) (0), (void *) (lbl_805D5060));
+    }
+    if ((s32) lbl_805D505C == 0x1A) {
+        M2C_FIELD(&lbl_80500978.value, f32 *, 0) = (f32) lbl_805D9A14;
+        M2C_FIELD(&lbl_80500978.value, f32 *, 4) = (f32) lbl_805D9A14;
+        M2C_FIELD(&lbl_80500978.value, f32 *, 8) = (f32) lbl_805D9A14;
+        TObjBoss2Tunnel__sub_8007E884((void *) (&lbl_804FF5E8.value), (void *) (&lbl_80500978.value), (void *) (&lbl_80500978.value));
+    }
+    lbl_805D505C += 1;
+}
 
 void * create_ene_saver__10TObjPlayerFPv(void *arg0) {
     void *o;

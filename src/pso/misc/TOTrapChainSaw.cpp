@@ -77,11 +77,45 @@ struct VObj_18_52534d : VBase_18_52534d {
     virtual M2C_UNK m23();
 };
 
+struct VBase_18_fd30ee { char pad[0x18]; };
+
+struct VObj_18_fd30ee : VBase_18_fd30ee {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual M2C_UNK m19();
+};
+
+struct RecoveredGlobal_802C9890___vt__14TOTrapChainSaw {
+    M2C_UNK value;
+    u8 remaining[0x78];
+};
+
 extern "C" {
 void update_demo__14TOTrapChainSawFPv(void *arg0);
 extern const f32 lbl_805DE62C;
 extern const f32 lbl_805DE630;
 void TOTrapChainSaw__sub_802C9094(u8 *arg0);
+s32 init_map_object_base(void *, void *);
+extern M2C_UNK __vt__14TOTrapChainSaw[];
+extern s32 lbl_805D3F00;
+u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -198,6 +232,22 @@ void *__dt__14TOTrapChainSawFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_802C9890___vt__14TOTrapChainSaw_size[sizeof(RecoveredGlobal_802C9890___vt__14TOTrapChainSaw) == 0x7C ? 1 : -1];
+u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    init_map_object_base((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802C9890___vt__14TOTrapChainSaw *)&__vt__14TOTrapChainSaw).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F00;
+    ((VObj_18_fd30ee *)(arg0))->m5(arg2);
+    ((VObj_18_fd30ee *)(arg0))->m19();
+    M2C_FIELD(arg0, s32 *, 0xD4) = 0;
+    M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+    M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+    M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    M2C_FIELD(arg0, s32 *, 0xF4) = 0;
+    M2C_FIELD(arg0, s32 *, 0xE8) = 0;
+    M2C_FIELD(arg0, s32 *, 0xEC) = 0;
     return arg0;
 }
 

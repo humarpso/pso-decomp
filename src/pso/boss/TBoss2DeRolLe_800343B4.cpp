@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TBoss2DeRolLe__sub_80035FCC(void *);
+extern const f32 TBoss2DeRolLe__data_805D8280;
+extern const f32 TBoss2DeRolLe__data_805D8328;
+extern const f32 TBoss2DeRolLe__data_805D8334;
+extern const f32 lbl_805D8438;
+extern const f32 lbl_805D843C;
+u8 TBoss2DeRolLe__sub_80034800(u8 *arg0);
+}
+
+extern "C" {
 
 void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0);
 void free_laser__13TBoss2DeRolLeFPv(void *arg0);
@@ -93,6 +103,41 @@ extern const f32 TBoss2DeRolLe__data_805D8348;
 extern const f32 TBoss2DeRolLe__data_805D8358;
 extern const f32 TBoss2DeRolLe__data_805D83AC;
 extern const f32 TBoss2DeRolLe__data_805D83DC;
+
+u8 TBoss2DeRolLe__sub_80034800(u8 *arg0) {
+  const f32 *new_var;
+  s32 temp_r0;
+  TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x664));
+  temp_r0 = *((s32 *) (((s8 *) arg0) + 0x660));
+  switch (temp_r0)
+  {
+    case 0:
+      if ((*((f32 *) (((s8 *) arg0) + 0x67C))) > lbl_805D8438)
+    {
+      *((s32 *) (((s8 *) arg0) + 0x660)) = 2;
+    }
+      break;
+    case 2:
+      *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) TBoss2DeRolLe__data_805D8280;
+      *((s32 *) (((s8 *) arg0) + 0x660)) = 3;
+      break;
+    case 3:
+      if (TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x684)) == 3)
+    {
+      *((s32 *) (((s8 *) arg0) + 0x660)) = 4;
+    }
+      if ((*((f32 *) (((s8 *) arg0) + 0x69C))) > lbl_805D843C)
+    {
+      *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC8))) + TBoss2DeRolLe__data_805D8334);
+      if ((*((f32 *) (((s8 *) arg0) + 0xC8))) > (*(new_var = &TBoss2DeRolLe__data_805D8328)))
+      {
+        *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) (*new_var);
+      }
+    }
+      break;
+  }
+  return (u8) ((*((s32 *) (((s8 *) arg0) + 0x660))) == 4);
+}
 
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x660) = 0;

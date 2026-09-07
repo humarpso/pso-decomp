@@ -8,6 +8,12 @@ extern "C" {
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFC10;
 void TWindowDD__sub_80347F48(u8 *arg0);
+s32 init_and_set_field50__9TWindowDDFPvPv(int, int);
+extern const s32 TWindowDD__data_805DFB50;
+void TWindowDD__sub_80347F68(s32 arg0, s32 arg1);
+extern const s32 TWindowDD__data_805DFB50;
+s32 update_position__9TWindowDDFPvi(int, int);
+void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -35,6 +41,28 @@ void TWindowDD__sub_80347F48(u8 *arg0) {
     if (temp_r3 != NULL) {
         M2C_FIELD(temp_r3, f32 *, 0x30) = (f32) TWindowDD__data_805DFC10;
         M2C_FIELD(temp_r3, s32 *, 0x50) = (s32) TWindowDD__data_805DFB50;
+    }
+}
+
+void TWindowDD__sub_80347F68(s32 arg0, s32 arg1) {
+    s32 var_r4;
+    u8 *var_r3;
+    var_r3 = (u8 *)(arg0 + (arg1 * 4));
+    var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x64));
+    if (var_r3 != NULL) {
+        var_r4 = (*(s32 *)&TWindowDD__data_805DFB50);
+        init_and_set_field50__9TWindowDDFPvPv((int) (var_r3), (int) (var_r4));
+    }
+}
+
+void TWindowDD__sub_80347FA0(s32 arg0, s32 arg1) {
+    s32 var_r4;
+    u8 *var_r3;
+    var_r3 = (u8 *)(arg0 + (arg1 * 4));
+    var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x64));
+    if (var_r3 != NULL) {
+        var_r4 = (*(s32 *)&TWindowDD__data_805DFB50);
+        update_position__9TWindowDDFPvi((int) (var_r3), (int) (var_r4));
     }
 }
 

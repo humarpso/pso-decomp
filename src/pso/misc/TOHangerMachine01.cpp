@@ -15,6 +15,27 @@ struct VObj : Base {
 struct RecoveredGlobal_80168F94_lbl_804B26C8 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80168F94_lbl_804B26C8_size[sizeof(RecoveredGlobal_80168F94_lbl_804B26C8) == 0x10 ? 1 : -1];
 
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct RecoveredGlobal_8016904C_lbl_804B26D8 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8016904C___vt__17TOHangerMachine01 {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
 extern "C" {
 void run_task__17TOHangerMachine01Fv(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -34,6 +55,18 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80168F94_lbl_804B26C8 lbl_804B26C8;
 extern u32 TOHangerMachine01__data_805D59E8;
 void TOHangerMachine01__sub_80168F94(void);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 init_map_object_base(void *, int);
+extern RecoveredGlobal_8016904C_lbl_804B26D8 lbl_804B26D8;
+extern M2C_UNK __vt__17TOHangerMachine01[];
+extern s32 lbl_805D2FFC;
+extern u32 TOHangerMachine01__data_805D59E8;
+extern s32 tl_05;
+extern const f32 lbl_805DB6AC;
+extern const f32 lbl_805DB6B0;
+u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -45,7 +78,6 @@ void free_static_model__17TOHangerMachine01Fv(void);
 s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void TOHangceilingCave01KeyQuick__sub_80168D30(void);
-void *TOHangerMachine01__ct(void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -117,7 +149,7 @@ void render__17TOHangerMachine01Fv(u8 *arg0) {
 void *create__17TOHangerMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xCC);
     if (o != NULL) {
-        o = TOHangerMachine01__ct(o, arg0);
+        o = TOHangerMachine01__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
@@ -158,6 +190,25 @@ void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1) {
 }
 
 extern s32 lbl_805D53A0;
+
+typedef char RecoveredGlobal_8016904C_lbl_804B26D8_size[sizeof(RecoveredGlobal_8016904C_lbl_804B26D8) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8016904C___vt__17TOHangerMachine01_size[sizeof(RecoveredGlobal_8016904C___vt__17TOHangerMachine01) == 0x3C ? 1 : -1];
+u8 *TOHangerMachine01__ct(u8 *arg0, s32 arg1) {
+    init_map_object_base((void *) (arg0), (int) (tl_05));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016904C___vt__17TOHangerMachine01 *)&__vt__17TOHangerMachine01).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FFC;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOHangerMachine01__data_805D59E8), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOHangerMachine01__data_805D59E8), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB6AC;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB6B0;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B26D8.value), (int) (1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    return arg0;
+}
 
 s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {

@@ -5,15 +5,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK fn_80284C04(void *);
+void open__20TWindowSubSymbolChatFPvi(void *arg0, s32 arg1);
+}
+
+extern "C" {
 
 void update_height__20TWindowSubSymbolChatFPv(void *arg0);
 s16 compute_total_height__20TWindowSubSymbolChatFv();
-M2C_UNK fn_80284C04(void *);
 
 void update_height__20TWindowSubSymbolChatFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x76) = compute_total_height__20TWindowSubSymbolChatFv();
-    fn_80284C04(arg0);
+    fn_80284C04((void *)(arg0));
     M2C_FIELD(arg0, s8 *, 0x71) = 2;
+}
+void open__20TWindowSubSymbolChatFPvi(void *arg0, s32 arg1) {
+    M2C_FIELD(arg0, s32 *, 0x78) = arg1;
+    M2C_FIELD(arg0, s16 *, 0x76) = 0xC0;
+    fn_80284C04((void *)(arg0));
+    M2C_FIELD(arg0, s8 *, 0x71) = 1;
 }
 
 }

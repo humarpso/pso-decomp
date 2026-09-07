@@ -4,6 +4,41 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80137B50___vt__6TLobby {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+s32 __dt__7TObjectFv(void *, int);
+void destroy_all_objects__6TLobbyFv(void);
+s32 __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_80137B50___vt__6TLobby __vt__6TLobby;
+extern s32 TLobby__data_805D4E30;
+extern s32 TLobby__data_805D5580;
+extern s32 TLobby__data_805D5584;
+extern s32 TLobby__data_805D5588;
+extern s16 TLobby__data_805D558C;
+extern s16 TLobby__data_805D558E;
+extern s32 TLobby__data_805D5590;
+extern s32 TLobby__data_805D5594;
+extern s32 TLobby__data_805D5598;
+extern s32 TLobby__data_805D559C;
+extern s32 lbl_805D55A0;
+extern s32 TLobby__data_805D55A4;
+extern s32 TLobby__data_805D55A8;
+extern s32 TLobby__data_805D55AC;
+extern s32 TLobby__data_805D55B0;
+extern s32 TLobby__data_805D55B4;
+extern s32 TLobby__data_805D55B8;
+extern s32 TLobby__data_805D55BC;
+extern s32 lbl_805D55C0;
+extern s32 TLobby__data_805D55FC;
+extern s32 lbl_805D5600;
+extern s32 TLobby__data_805D5604;
+u8 *__dt__6TLobbyFv(u8 *arg0, s16 arg1);
+}
+
 extern "C" {
 
 void destroy_all_objects__6TLobbyFv(void);
@@ -87,6 +122,41 @@ void destroy_all_objects__6TLobbyFv(void) {
 }
 
 extern s32 lbl_805D53A0;
+
+typedef char RecoveredGlobal_80137B50___vt__6TLobby_size[sizeof(RecoveredGlobal_80137B50___vt__6TLobby) == 0x18 ? 1 : -1];
+u8 *__dt__6TLobbyFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__6TLobby.value;
+        destroy_all_objects__6TLobbyFv();
+        TLobby__data_805D5580 = 0;
+        TLobby__data_805D5584 = 0;
+        TLobby__data_805D5588 = 0;
+        TLobby__data_805D558C = 0;
+        TLobby__data_805D558E = 0;
+        TLobby__data_805D5590 = 0;
+        TLobby__data_805D5594 = 0;
+        TLobby__data_805D5598 = 1;
+        TLobby__data_805D559C = 0;
+        lbl_805D55A0 = 0;
+        TLobby__data_805D55A4 = 0;
+        TLobby__data_805D55A8 = 0;
+        TLobby__data_805D55AC = 0;
+        TLobby__data_805D55B0 = 0;
+        TLobby__data_805D55B4 = 0;
+        TLobby__data_805D55B8 = 0;
+        TLobby__data_805D55BC = 1;
+        lbl_805D55C0 = 0;
+        TLobby__data_805D55FC = 0;
+        lbl_805D5600 = 0;
+        TLobby__data_805D5604 = 0;
+        TLobby__data_805D4E30 = 0;
+        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
+}
 
 void update_player_window__6TLobbyFv(void) {
     if (TPlayerBattleCtrl4P__sub_801BA74C(lbl_805D53A0) != 0U) {

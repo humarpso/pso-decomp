@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801FFF14_lbl_80513910 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_802004D8_lbl_80513910 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_8020051C_lbl_80513910 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802012AC();
@@ -11,6 +26,25 @@ M2C_UNK memcpy(void *, s32, M2C_UNK);
 extern s32 *lbl_805D5F6C;
 extern s32 lbl_805D5F9C;
 s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFF98(void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802000C8(void *, void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802008E8();
+s32 get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv();
+extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
+extern s32 lbl_805D5F68;
+void TAdSinglePlyChrSelectGC__sub_801FFF14(void);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200778(void *, void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200A44(int);
+s32 get_serial_result__22TAdEnterSerialAccessGCFv();
+extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
+extern s32 lbl_805D5F5C;
+s32 TAdSinglePlyChrSelectGC__sub_802004D8(void);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200778(void *, void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200A44(int);
+s32 get_field_118__22TAdEnterSerialAccessGCFv();
+extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
+extern s32 lbl_805D5F58;
+s32 TAdSinglePlyChrSelectGC__sub_8020051C(void);
 }
 
 extern "C" {
@@ -58,6 +92,17 @@ s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0) {
 }
 #pragma pop
 
+typedef char RecoveredGlobal_801FFF14_lbl_80513910_size[sizeof(RecoveredGlobal_801FFF14_lbl_80513910) == 0x10 ? 1 : -1];
+void TAdSinglePlyChrSelectGC__sub_801FFF14(void) {
+    s32 temp_r3;
+    temp_r3 = get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv();
+    M2C_FIELD(&lbl_80513910.value, s32 *, 4) = temp_r3;
+    M2C_FIELD(&lbl_80513910.value, s32 *, 0) = temp_r3;
+    TAdSinglePlyChrSelectGC__sub_802000C8((void *) (lbl_805D5F68), (void *) (&lbl_80513910.value));
+    TAdSinglePlyChrSelectGC__sub_802008E8();
+    TAdSinglePlyChrSelectGC__sub_801FFF98((void *) (lbl_805D5F68));
+}
+
 void create_instance__23TAdSinglePlyChrSelectGCFv(void) {
     *lbl_805D5F6C = 0;
     *lbl_805D5F6C = TAdSinglePlyChrSelectGC__sub_80201204(lbl_805D5F6C, 0x11C);
@@ -85,6 +130,26 @@ void game_state_load(void) {
         }
     }
     M2C_FIELD(lbl_805D5F60, s8 *, 3) = (s8) lbl_805D5544;
+}
+typedef char RecoveredGlobal_802004D8_lbl_80513910_size[sizeof(RecoveredGlobal_802004D8_lbl_80513910) == 0x10 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_802004D8(void) {
+    s32 temp_r3;
+    temp_r3 = get_serial_result__22TAdEnterSerialAccessGCFv();
+    M2C_FIELD(&(*(RecoveredGlobal_802004D8_lbl_80513910 *)&lbl_80513910).value, s32 *, 4) = temp_r3;
+    M2C_FIELD(&(*(RecoveredGlobal_802004D8_lbl_80513910 *)&lbl_80513910).value, s32 *, 0) = temp_r3;
+    TAdSinglePlyChrSelectGC__sub_80200778((void *) (lbl_805D5F5C), (void *) (&(*(RecoveredGlobal_802004D8_lbl_80513910 *)&lbl_80513910).value));
+    TAdSinglePlyChrSelectGC__sub_80200A44((int) (0));
+    return 1;
+}
+typedef char RecoveredGlobal_8020051C_lbl_80513910_size[sizeof(RecoveredGlobal_8020051C_lbl_80513910) == 0x10 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_8020051C(void) {
+    s32 temp_r3;
+    temp_r3 = get_field_118__22TAdEnterSerialAccessGCFv();
+    M2C_FIELD(&(*(RecoveredGlobal_8020051C_lbl_80513910 *)&lbl_80513910).value, s32 *, 4) = temp_r3;
+    M2C_FIELD(&(*(RecoveredGlobal_8020051C_lbl_80513910 *)&lbl_80513910).value, s32 *, 0) = temp_r3;
+    TAdSinglePlyChrSelectGC__sub_80200778((void *) (lbl_805D5F58), (void *) (&(*(RecoveredGlobal_8020051C_lbl_80513910 *)&lbl_80513910).value));
+    TAdSinglePlyChrSelectGC__sub_80200A44((int) (1));
+    return 1;
 }
 
 }

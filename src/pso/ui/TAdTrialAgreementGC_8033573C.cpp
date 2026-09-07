@@ -17,11 +17,35 @@ struct VObj_803357EC_8033573C : Base_803357EC_8033573C {
     virtual void m9();
 };
 
+struct VBase_18_f8ef8c { char pad[0x18]; };
+
+struct VObj_18_f8ef8c : VBase_18_f8ef8c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5();
+};
+
+struct RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
 extern "C" {
 s32 draw_with_camera__6TLobbyFiiif(void *, void *, int, f32);
 s32 get_record__6TLobbyFi(void *);
 extern const f32 lbl_805DF8B0;
 void TAdTrialAgreementGC__sub_80335918(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 queue_destruction__7TObjectFv(void *);
+s32 __nw__7TObjectFUl(int);
+s32 TAdScrollWinGC__ct(int, void *, int, int);
+s32 TAdAgreementBaseGC__ct(void *);
+s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
+extern M2C_UNK __vt__19TAdTrialAgreementGC[];
+extern s32 lbl_805D4248;
+u8 *TAdTrialAgreementGC__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -77,6 +101,29 @@ void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+typedef char RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC_size[sizeof(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC) == 0x38 ? 1 : -1];
+u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
+    s32 temp_r3;
+    s32 var_r0;
+    TAdAgreementBaseGC__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC *)&__vt__19TAdTrialAgreementGC).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4248;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    if (check_card_file__19TAdTrialAgreementGCFi((s32)((void *) (arg0))) != 0) {
+        ((VObj_18_f8ef8c *)(arg0))->m5();
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return arg0;
+    }
+    temp_r3 = __nw__7TObjectFUl((int) (0x54));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TAdScrollWinGC__ct((int) (temp_r3), (void *) (arg0), (int) (1), (int) (0));
+    }
+    M2C_FIELD(arg0, s32 *, 0x38) = var_r0;
+    return arg0;
+}
+
 void TAdTrialAgreementGC__sub_80335918(M2C_UNK arg0, s32 arg1, s32 arg2) {
     draw_with_camera__6TLobbyFiiif((void *) (get_record__6TLobbyFi((void *) (arg1))), (void *) (arg2), (int) (0x20), (f32) (lbl_805DF8B0));
 }

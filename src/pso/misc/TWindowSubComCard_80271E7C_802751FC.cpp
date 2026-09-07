@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80275228_lbl_80517EE0 {
+    M2C_UNK value;
+    u8 remaining[0xB8];
+};
+
+extern "C" {
+extern RecoveredGlobal_80275228_lbl_80517EE0 lbl_80517EE0;
+M2C_UNK *TWindowSubComCard__sub_80275228(void);
+}
+
 extern "C" {
 
 void* TWindowSubComCard__sub_8027523C(void* p);
@@ -22,6 +32,11 @@ M2C_UNK set_card_window_flags__19TWindowKeyBoardHardFPvii(s32, s32, s32);
 
 void set_com_param__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     set_card_window_flags__19TWindowKeyBoardHardFPvii(arg0, arg1 << 0x12, 0xFFFBFFFF);
+}
+
+typedef char RecoveredGlobal_80275228_lbl_80517EE0_size[sizeof(RecoveredGlobal_80275228_lbl_80517EE0) == 0xBC ? 1 : -1];
+M2C_UNK *TWindowSubComCard__sub_80275228(void) {
+    return &lbl_80517EE0.value;
 }
 
 void* get_card_data_ptr__17TWindowSubComCardFPv(void* p) { return (char*)p + 0x3b; }

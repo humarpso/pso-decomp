@@ -1,23 +1,79 @@
 #include "types.h"
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-
-s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void);
+extern int lbl_805D5F64;
+u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv(void);
+extern int lbl_805D5F64;
+void TAdSinglePlyChrSelectGC__sub_801C50C0(int a0);
+extern int lbl_805D5F64;
+u16 TAdSinglePlyChrSelectGC__sub_801C50CC(void);
+extern int lbl_805D5F64;
+void TAdSinglePlyChrSelectGC__sub_801C50D8(int a0);
+extern int lbl_805D5F64;
+u16 TAdSinglePlyChrSelectGC__sub_801C50E4(void);
+extern int lbl_805D5F64;
+void TAdSinglePlyChrSelectGC__sub_801C50F0(int a0);
+extern int lbl_805D5F64;
+u16 TAdSinglePlyChrSelectGC__sub_801C50FC(void);
+extern int lbl_805D5F64;
+void TAdSinglePlyChrSelectGC__sub_801C5108(int a0);
+extern int lbl_805D5F64;
+u16 TAdSinglePlyChrSelectGC__sub_801C5114(void);
+    extern int lbl_805D5D90;
+void TAdSinglePlyChrSelectGC__sub_801C5120(void);
+M2C_UNK queue_destruction__7TObjectFv(void*);
+extern u32 lbl_805D5DD0;
+void destroy__23TAdSinglePlyChrSelectGCFv(void);
+extern u32 lbl_805D5DD0;
+void TAdSinglePlyChrSelectGC__sub_801C5158(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 u32 __nw__7TObjectFUl(M2C_UNK);
 u32 fn_801C5380(void *, s32);
-
 extern u32 lbl_805D5DD0;
 extern s32 tl_00;
+s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void);
+}
 
+extern "C" {
+
+void set_slot__23TAdSinglePlyChrSelectGCFi(int a0);
+
+    extern int lbl_805D5F64;
+void set_slot__23TAdSinglePlyChrSelectGCFi(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21b0) = a0; }
+u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv(void) {
+    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21B0);
+}
+void TAdSinglePlyChrSelectGC__sub_801C50C0(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21ae) = a0; }
+u16 TAdSinglePlyChrSelectGC__sub_801C50CC(void) {
+    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21AE);
+}
+void TAdSinglePlyChrSelectGC__sub_801C50D8(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21ac) = a0; }
+u16 TAdSinglePlyChrSelectGC__sub_801C50E4(void) {
+    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21AC);
+}
+void TAdSinglePlyChrSelectGC__sub_801C50F0(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21aa) = a0; }
+u16 TAdSinglePlyChrSelectGC__sub_801C50FC(void) {
+    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21AA);
+}
+void TAdSinglePlyChrSelectGC__sub_801C5108(int a0) { *(short*)((char*)lbl_805D5F64 + 0x21a8) = a0; }
+u16 TAdSinglePlyChrSelectGC__sub_801C5114(void) {
+    return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21A8);
+}
+void TAdSinglePlyChrSelectGC__sub_801C5120(void) { lbl_805D5D90 = 0; }
+void destroy__23TAdSinglePlyChrSelectGCFv(void) {
+    if ((u32) lbl_805D5DD0 != 0U) {
+        queue_destruction__7TObjectFv((void*)lbl_805D5DD0);
+    }
+}
+void TAdSinglePlyChrSelectGC__sub_801C5158(void) { (*(int *)&lbl_805D5DD0) = 0; }
 s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     u32 var_r0;
-
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     if ((temp_r3 != 0x10) && (temp_r3 != 0x11)) {
         return 0;

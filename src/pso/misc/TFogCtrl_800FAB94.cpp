@@ -9,6 +9,13 @@ struct RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 {
     u8 remaining[0xC];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_8 { u8 bytes[0x8]; };
+
+struct M2CCopy_20 { u8 bytes[0x20]; };
+
 extern "C" {
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
@@ -31,12 +38,12 @@ s32 TCameraCtrl__sub_80068958(int);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
 extern M2C_UNK TFogCtrl__data_80501188[];
 void TFogCtrl__sub_800FAD08(void);
+void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
 
 s32 TFogCtrl__sub_800FAC84(void* p);
-int TFogCtrl__sub_800FAC90(void);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
 void* get_entry__8TFogCtrlFi(int a0);
 void update_all__8TFogCtrlFv(void);
@@ -69,9 +76,29 @@ s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0) {
 
 s32 TFogCtrl__sub_800FAC84(void* p) { return *(s32*)((char*)*(void**)((char*)p + 0x174) + 0x40); }
 
-int TFogCtrl__sub_800FAC90(void) { return 0; }
-
     extern int lbl_805D5388;
+
+void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1) {
+    s32 var_r5;
+    s32 var_r7;
+    u8 *var_r6;
+    var_r5 = M2C_FIELD(arg1, s32 *, 0);
+    var_r6 = (u8 *)(arg1) + 0x14;
+    var_r7 = (long) ((u8 *)(arg0) + 0x14);
+    M2C_FIELD(arg0, s32 *, 0) = var_r5;
+    var_r5 = M2C_FIELD(arg1, s32 *, 4);
+    M2C_FIELD(arg0, s32 *, 4) = var_r5;
+    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
+    var_r5 = M2C_FIELD(arg1, s32 *, 0x14);
+    M2C_FIELD(arg0, s32 *, 0x14) = var_r5;
+    *(M2CCopy_20 *)(var_r7 + 4) = *(const M2CCopy_20 *)((s32) var_r6 + 4);
+    var_r7 += 0x20;
+    var_r6 += 0x20;
+    *(M2CCopy_8 *)((s32) arg0 + 0x38) = *(const M2CCopy_8 *)((s32) arg1 + 0x38);
+}
+
 void* get_entry__8TFogCtrlFi(int a0) {  return (char*)(lbl_805D5388) + a0 * 64; }
 
 extern M2C_UNK TFogCtrl__data_80501188[];
