@@ -20,12 +20,21 @@ struct VObj_801A0070 : VObjBase_801A0070 {
     virtual s32 m8(f32, f32);
 };
 
+struct RecoveredGlobal_8019FCFC_lbl_804B9658 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 void TObjAreaWarp__sub_8019CAB0(void *);
 extern void *lbl_805D5CAC;
 extern const f32 lbl_805DC048;
 extern const f32 lbl_805DC04C;
 void run_task__16TObjWarpJungMainFv(u8 *arg0);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+extern RecoveredGlobal_8019FCFC_lbl_804B9658 lbl_804B9658;
+s32 TObjWarpJungMain__vt16(u8 *arg0);
 }
 
 extern "C" {
@@ -41,6 +50,17 @@ void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 void *__nw__7TObjectFUl(int);
 int clear_flag__11TWindowCtrlFv(void);
+
+typedef char RecoveredGlobal_8019FCFC_lbl_804B9658_size[sizeof(RecoveredGlobal_8019FCFC_lbl_804B9658) == 0xC ? 1 : -1];
+s32 TObjWarpJungMain__vt16(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xB0));
+    if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_804B9658.value, M2C_UNK *, (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u8 **, 0xB0)) * 4));
+        return 1;
+    }
+    return 0;
+}
 
 int TObjWarpJungMain__vt17(void* p) { return TObjAreaWarp__sub_8019CA24(p); }
 void TObjWarpJungMain__vt12(void* p) { TObjWarpBase__vt12(p); clear_flag__11TWindowCtrlFv(); }

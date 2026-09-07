@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803C90B0_lbl_80575140 {
+    M2C_UNK value;
+    u8 remaining[0x9FC];
+};
+
+struct RecoveredGlobal_803C6830_lbl_80573AC0 {
+    M2C_UNK value;
+    u8 remaining[0x167C];
+};
+
+struct RecoveredGlobal_803C6800_lbl_80573AC0 {
+    M2C_UNK value;
+    u8 remaining[0x167C];
+};
+
 extern "C" {
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
@@ -20,6 +35,15 @@ void TLobby__sub_803C8B38(u8 *arg0);
 short TLobby__sub_803C8B2C(u8 *arg0);
 M2C_UNK TLobby__sub_803C57C8(void *);
 void TLobby__sub_803C5B2C(M2C_UNK arg0, s32 arg1);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_803C90B0_lbl_80575140 lbl_80575140;
+s32 TLobby__sub_803C90B0(void);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_803C6830_lbl_80573AC0 lbl_80573AC0;
+void TLobby__sub_803C6830(void);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_803C6830_lbl_80573AC0 lbl_80573AC0;
+void TLobby__sub_803C6800(void);
 }
 
 extern "C" {
@@ -117,6 +141,17 @@ void TLobby__sub_803C6118(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     M2C_FIELD(arg0, s8 *, 3) = 0;
     M2C_FIELD(arg0, s8 *, 1) = 1;
+}
+
+typedef char RecoveredGlobal_803C6830_lbl_80573AC0_size[sizeof(RecoveredGlobal_803C6830_lbl_80573AC0) == 0x1680 ? 1 : -1];
+
+typedef char RecoveredGlobal_803C6800_lbl_80573AC0_size[sizeof(RecoveredGlobal_803C6800_lbl_80573AC0) == 0x1680 ? 1 : -1];
+void TLobby__sub_803C6800(void) {
+    memset((void *) (&(*(RecoveredGlobal_803C6800_lbl_80573AC0 *)&lbl_80573AC0).value), (int) (0), (int) (0x1680));
+}
+
+void TLobby__sub_803C6830(void) {
+    memset((void *) (&lbl_80573AC0.value), (int) (0), (int) (0x1680));
 }
 
 void set_field_10_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1) {
@@ -230,6 +265,12 @@ void TLobby__sub_803C8B38(u8 *arg0) {
 
 void si_get_type_async__6TLobbyFv(void) {
     SIGetTypeAsync();
+}
+
+typedef char RecoveredGlobal_803C90B0_lbl_80575140_size[sizeof(RecoveredGlobal_803C90B0_lbl_80575140) == 0xA00 ? 1 : -1];
+s32 TLobby__sub_803C90B0(void) {
+    memset((void *) (&lbl_80575140.value), (int) (0), (int) (0xA00));
+    return 1;
 }
 
 void on_set_mode__6TLobbyFv(void) {

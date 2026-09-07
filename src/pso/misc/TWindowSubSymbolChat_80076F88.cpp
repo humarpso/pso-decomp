@@ -6,6 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>
+
+struct RecoveredGlobal_800773BC_lbl_80438830 {
+    M2C_UNK value;
+    u8 remaining[0x20];
+};
+
 extern "C" {
 u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
 s32 TWindowSubSymbolChat__sub_80077464();
@@ -13,7 +19,6 @@ u8 *get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
     extern int lbl_805D4E50;
 u8 *get_symbol_chat_data__20TWindowSubSymbolChatFPv(u8 *arg0);
 void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0);
-M2C_UNK TWindowSubSymbolChat__sub_800773BC(s32);
 s32 is_initialized__20TWindowSubSymbolChatFPv();
     extern int lbl_805D4E50;
 void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0);
@@ -76,6 +81,9 @@ s32 send_symbol_chat__20TWindowSubSymbolChatFPv(void *);
 s32 TWindowSubSymbolChat__sub_80077704(void *);
 extern s32 lbl_805D53A0;
 void TWindowSubSymbolChat__sub_80076F88(s32 *arg0);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+extern RecoveredGlobal_800773BC_lbl_80438830 lbl_80438830;
+void TWindowSubSymbolChat__sub_800773BC(s32 arg0);
 }
 
 extern "C" {
@@ -212,7 +220,14 @@ void update_symbol_chat_result__20TWindowSubSymbolChatFv(void * _w0) { lbl_805D4
 
 void update_selected_symbol__20TWindowSubSymbolChatFPv(void *arg0) {
     if (is_initialized__20TWindowSubSymbolChatFPv() != 0) {
-        TWindowSubSymbolChat__sub_800773BC(((u32) M2C_FIELD(arg0, u32 *, 0x1C) >> 5U) & 0xF);
+        TWindowSubSymbolChat__sub_800773BC((s32)(((u32) M2C_FIELD(arg0, u32 *, 0x1C) >> 5U) & 0xF));
+    }
+}
+
+typedef char RecoveredGlobal_800773BC_lbl_80438830_size[sizeof(RecoveredGlobal_800773BC_lbl_80438830) == 0x24 ? 1 : -1];
+void TWindowSubSymbolChat__sub_800773BC(s32 arg0) {
+    if ((arg0 >= 0) && (arg0 < 9)) {
+        TBoss3Volopt__sub_8022675C(M2C_FIELD(&lbl_80438830.value, M2C_UNK *, (arg0 * 4)), 0U, 0, 0);
     }
 }
 

@@ -9,6 +9,16 @@ struct Elt80364258_80364258 { s32 f0; };
 struct RecoveredGlobal_8032B904_lbl_80477278 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8032B904_lbl_80477278_size[sizeof(RecoveredGlobal_8032B904_lbl_80477278) == 0x10 ? 1 : -1];
 
+struct RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 {
+    M2C_UNK value;
+    u8 remaining[0x80];
+};
+
+struct RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC {
+    M2C_UNK value;
+    u8 remaining[0x18];
+};
+
 extern "C" {
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
@@ -27,6 +37,23 @@ extern RecoveredGlobal_8032B904_lbl_80477278 lbl_80477278;
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
 void TAdEnterPasswordGC__sub_8032B904(s32 arg0);
+void strncpy(s32, s32, s32);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
+void TAdEnterPasswordGC__sub_8032BA8C(s32 arg0);
+s32 TKeyBoardControl__sub_8000F9CC(int);
+void queue_destruction__7TObjectFv(void *);
+u8 *get_instance__23TAdSinglePlyChrSelectGCFv();
+u32 __nw__7TObjectFUl(int);
+s32 __ct__10TAdTitleGCFv(int, void *, int);
+s32 TAdEnterBaseGC__sub_8032B390(void *);
+s32 reset__14TAdEnterBaseGCFPvi(void *, int);
+s32 TAdEnterBaseGC__ct(void *);
+void TAdEnterPasswordGC__sub_8032BA8C(s32 arg0);
+extern M2C_UNK __vt__18TAdEnterPasswordGC[];
+extern s32 lbl_805D41E8;
+extern s32 lbl_805D6CA4;
+u8 *TAdEnterPasswordGC__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -83,6 +110,12 @@ void TAdEnterPasswordGC__sub_8032B904(s32 arg0) {
     lbl_805D6CA4 = 1;
 }
 
+typedef char RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20_size[sizeof(RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20) == 0x84 ? 1 : -1];
+void TAdEnterPasswordGC__sub_8032BA8C(s32 arg0) {
+    memset((void *) (&TAdEnterPasswordGC__data_804EDA20.value), (int) (0), (int) (9));
+    strncpy((s32) &TAdEnterPasswordGC__data_804EDA20.value, arg0, 9);
+}
+
 void *__dt__18TAdEnterPasswordGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TAdEnterPasswordGC;
@@ -95,6 +128,29 @@ void *__dt__18TAdEnterPasswordGCFv(void *arg0, s16 arg1) {
 }
 
 extern u32 lbl_805D6CB8;
+
+typedef char RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC_size[sizeof(RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC) == 0x1C ? 1 : -1];
+u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
+    u32 temp_r3;
+    TAdEnterBaseGC__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC *)&__vt__18TAdEnterPasswordGC).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D41E8;
+    reset__14TAdEnterBaseGCFPvi((void *) (arg0), (int) (2));
+    lbl_805D6CA4 = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    if ((s8) M2C_FIELD(get_instance__23TAdSinglePlyChrSelectGCFv(), u8 *, 0x1154C) != 0) {
+        TAdEnterPasswordGC__sub_8032BA8C((s32)((void *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1154C)));
+        TKeyBoardControl__sub_8000F9CC((int) (0xF));
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return arg0;
+    }
+    TAdEnterBaseGC__sub_8032B390((void *) (arg0));
+    temp_r3 = __nw__7TObjectFUl((int) (0x138));
+    if (temp_r3 != 0U) {
+        __ct__10TAdTitleGCFv((int) (temp_r3), (void *) (arg0), (int) (0xC));
+    }
+    return arg0;
+}
 
 void TAdEnterPasswordGC__sub_8032BC94(u8 *arg0, s32 arg1) {
     s32 temp_r0;

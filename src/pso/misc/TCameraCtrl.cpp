@@ -9,8 +9,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_30 { u8 bytes[0x30]; };
 
+struct RecoveredGlobal_8006B324_lbl_805137F8 {
+    M2C_UNK value;
+    u8 remaining[0x20];
+};
+
 extern "C" {
 u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1);
+extern RecoveredGlobal_8006B324_lbl_805137F8 lbl_805137F8;
+M2C_UNK *TCameraCtrl__sub_8006B324(void);
 }
 
 extern "C" {
@@ -46,6 +53,11 @@ void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
 u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1) {
     *(M2CCopy_30 *)(arg0) = *(const M2CCopy_30 *)(arg1);
     return (u8 *)arg0;
+}
+
+typedef char RecoveredGlobal_8006B324_lbl_805137F8_size[sizeof(RecoveredGlobal_8006B324_lbl_805137F8) == 0x24 ? 1 : -1];
+M2C_UNK *TCameraCtrl__sub_8006B324(void) {
+    return &lbl_805137F8.value;
 }
 
 int get_instance__11TCameraCtrlFv(void) {  return lbl_805D34B8; }

@@ -7,6 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8006F5B0_lbl_8048C9D8 { s32 value; u8 remaining[0x744]; };
 typedef char RecoveredGlobal_8006F5B0_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006F5B0_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
+struct RecoveredGlobal_8006F848_lbl_804FF800 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
 extern "C" {
 s32 get_layout_id__20TWindowSubStatusDispFv(int);
 s32 TWindowSubStatusDisp__sub_8006F0D8(void *, int);
@@ -18,6 +23,9 @@ s32 mix_seed_checked__6TLobbyFi(void *);
 u32 get_card_window__17TWindowSubComCardFUi(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
 s32 TLobby__sub_8006F5B0(s32 arg0);
+M2C_UNK strncpy(void *, void *, int);
+extern RecoveredGlobal_8006F848_lbl_804FF800 lbl_804FF800;
+void TLobby__sub_8006F848(s32 arg0);
 }
 
 extern "C" {
@@ -77,6 +85,11 @@ block_12:
     }
     M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30) = mix_seed_checked__6TLobbyFi((void *) (arg0));
     return 1;
+}
+typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
+void TLobby__sub_8006F848(s32 arg0) {
+    strncpy((void *) (&lbl_804FF800.value), (void *) (arg0), (int) (0x1F));
+    M2C_FIELD(&lbl_804FF800.value, s8 *, 0x1F) = 0;
 }
 
 }

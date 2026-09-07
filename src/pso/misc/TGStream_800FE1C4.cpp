@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0 {
+    s8 value;
+    u8 remaining[0x1F];
+};
+
+extern "C" {
+extern RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0 TItemDrop__data_805041E0;
+extern s32 lbl_805D53C0;
+extern s32 TItemDrop__data_805D53C4;
+extern s32 TItemDrop__data_805D53C8;
+extern s32 TItemDrop__data_805D53CC;
+extern s32 TItemDrop__data_805D53D0;
+void TItemDrop__sub_800FE2DC(void);
+}
+
 extern "C" {
 
 void TItemDrop__sub_800FE2D8(void);
@@ -57,5 +72,14 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
 }
 
 void TItemDrop__sub_800FE2D8(void) {  }
+typedef char RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0_size[sizeof(RecoveredGlobal_800FE2DC_TItemDrop__data_805041E0) == 0x20 ? 1 : -1];
+void TItemDrop__sub_800FE2DC(void) {
+    lbl_805D53C0 = 0;
+    TItemDrop__data_805D53C4 = 0;
+    TItemDrop__data_805041E0.value = 0;
+    TItemDrop__data_805D53CC = 0;
+    TItemDrop__data_805D53D0 = 0;
+    TItemDrop__data_805D53C8 = 0;
+}
 
 }

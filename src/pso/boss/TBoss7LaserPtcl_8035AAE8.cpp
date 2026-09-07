@@ -7,6 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl_size[sizeof(RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl) == 0x18 ? 1 : -1];
 
+struct RecoveredGlobal_8035AE54_lbl_804F1C88 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss8Dragon__sub_8008741C(s32, s32, s32);
@@ -16,6 +21,13 @@ extern M2C_UNK __vt__15TBoss7LaserPtcl[];
 extern s32 lbl_805D4410;
 extern const f32 lbl_805E010C;
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TLobby__sub_800869A4(void *, int, int, int);
+s32 TObjEneDellBiter__sub_80087350(void *, int);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_804F1C88[];
+extern const f32 lbl_805E0118;
+u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -74,6 +86,29 @@ void *TBoss7LaserPtcl__sub_8035ADFC(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_8035AE54_lbl_804F1C88_size[sizeof(RecoveredGlobal_8035AE54_lbl_804F1C88) == 0x18 ? 1 : -1];
+u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035AE54_lbl_804F1C88 *)&lbl_804F1C88).value;
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0x11F07;
+    M2C_FIELD(arg0, f32 *, 0x50) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, f32 *, 0x54) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, f32 *, 0x58) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) lbl_805E0118;
+    M2C_FIELD(arg0, u8 **, 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
+    M2C_FIELD(arg0, s32 *, 0x20) = 1;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
+    TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x24), (int) (0x211));
+    TLobby__sub_800869A4((void *) (arg0 + 0x24), (int) (0x213), (int) (0), (int) (0x1E));
     return arg0;
 }
 

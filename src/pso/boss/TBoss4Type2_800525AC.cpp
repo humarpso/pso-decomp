@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80052C58_lbl_80486218 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 void request_destroy__11TBoss4Type2FUi(u32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
@@ -39,6 +44,9 @@ void update_flag800_state__11TBoss4Type2FPv(void *arg0);
 int check_state_transition__11TBoss4Type2FPv(void*);
 void check_state_if_idle__11TBoss4Type2FPv(void* p);
 void TBoss4Type2__sub_800531BC(void* p);
+void TBoss4Type2__sub_80054530(void *, s32);
+extern RecoveredGlobal_80052C58_lbl_80486218 lbl_80486218;
+void TBoss4Type2__sub_80052C58(u8 *arg0);
 }
 
 extern "C" {
@@ -271,6 +279,13 @@ void update_state__11TBoss4Type2FPv(void *arg0) {
         TBoss4Type2__sub_80053504((void *)((void *)(arg0)));
     }
 }
+
+typedef char RecoveredGlobal_80052C58_lbl_80486218_size[sizeof(RecoveredGlobal_80052C58_lbl_80486218) == 0xC ? 1 : -1];
+void TBoss4Type2__sub_80052C58(u8 *arg0) {
+    TBoss4Type2__sub_80054530(arg0, M2C_FIELD(&lbl_80486218.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3A8) * 4)));
+    M2C_FIELD(arg0, s32 *, 0x398) = 0x3C;
+}
+
 void TBoss4Type2__sub_80052CA0(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x398) - 1;

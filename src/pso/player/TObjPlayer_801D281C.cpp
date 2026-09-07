@@ -14,6 +14,16 @@ struct M2CCopy_8 { u8 bytes[0x8]; };
 #pragma dont_inline off
 struct M2CCopy_2C { u8 bytes[0x2C]; };
 
+struct RecoveredGlobal_801D2CF4_lbl_804C43CC {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_801D2CF4_lbl_804C43D8 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
 s16 TObjPlayer__sub_801D2F0C(void *arg0);
@@ -21,7 +31,6 @@ void TObjPlayer__sub_801D2860(u8 *arg0);
 void TObjPlayer__sub_801D2A88(u8 *arg0);
 void TObjPlayer__sub_801D2CAC(u8 *arg0);
 void TObjPlayer__sub_801D2D94(u8 *arg0);
-s16 TObjPlayer__sub_801D2EA8(u8 *arg0);
 s32 TObjPlayer__sub_801D2EE8(s16 arg0);
 s16 TObjPlayer__sub_801D2F4C(s16 *arg0);
 s32 TObjPlayer__sub_801D2F8C(s16 arg0);
@@ -36,6 +45,10 @@ extern const f32 lbl_805DC3B8;
 void TObjPlayer__sub_801D31A8(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3);
 int TFontSmallLobby__sub_801C0228(void*);
 s32 TObjPlayer__sub_801D2BB8(s32 arg0, s32 arg1);
+s16 TObjPlayer__sub_801D2EA8(u8 *arg0);
+extern RecoveredGlobal_801D2CF4_lbl_804C43CC lbl_804C43CC;
+extern RecoveredGlobal_801D2CF4_lbl_804C43D8 lbl_804C43D8;
+f32 TObjPlayer__sub_801D2CF4(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -193,6 +206,12 @@ void set_tech_override__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x1
 f32 TObjPlayer__sub_801D2CDC(void* p) { return *(f32*)((char*)p + 0x4); }
 void set_attack_target__10TObjPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 void* get_anim_field_c__10TObjPlayerFPv(void* p) { return (char*)p + 0xc; }
+
+typedef char RecoveredGlobal_801D2CF4_lbl_804C43CC_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43CC) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_801D2CF4_lbl_804C43D8_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43D8) == 0x10 ? 1 : -1];
+f32 TObjPlayer__sub_801D2CF4(M2C_UNK arg0, s32 arg1) {
+    return M2C_FIELD(((u8 *)(&lbl_804C43CC.value) + (arg1 * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&lbl_804C43D8.value) + (TObjPlayer__sub_801D2EA8((u8 *)(arg0)) * 4)), f32 *, 0);
+}
 
 int on_attack_finished__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8012ADD4((char*)p + 0x30); }
 int set_flag_1_at_c__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi((void*)((char*)p + 0xc), (int)(1)); }

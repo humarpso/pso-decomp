@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 {
+    M2C_UNK value;
+    u8 remaining[0x7C];
+};
+
 extern "C" {
 s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void release_object__10TBoss6RockFPv(void* p);
@@ -16,6 +21,8 @@ extern const f32 TBoss6Rock__data_805DFF4C;
 extern const f32 lbl_805DFF98;
 extern const f32 lbl_805DFFA4;
 void TBoss6Rock__sub_8035461C(void *arg0);
+extern RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 TBoss6Rock__data_80543778;
+s32 TBoss6Rock__sub_80353E10(s32 arg0);
 }
 
 extern "C" {
@@ -32,7 +39,6 @@ void render_if_active__10TBoss6RockFPv(u8 *arg0);
 void set_target__10TBoss6RockFPviiiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
 s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
-s32 TBoss6Rock__sub_80353E10();
 void *TBoss6Rock__sub_80354148(s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
@@ -124,12 +130,25 @@ int TBoss6Rock__sub_80353A0C(void) {  return TBoss6Rock__data_805D6EF0; }
 extern u8 TBoss6Rock__data_805437F8[];
 
 s32 get_point__10TBoss6RockFiPvPv(s32 arg0, void *arg1, f32 *arg2) {
-    if (TBoss6Rock__sub_80353E10() == 0) {
+    if (TBoss6Rock__sub_80353E10((s32)(arg0)) == 0) {
         return 0;
     }
     VecCopy__FP3VecPC3Vec((void *)(arg1), (const void *)(&TBoss6Rock__data_805437F8[arg0 * 0xC]));
     *arg2 = M2C_FIELD(TBoss6Rock__sub_80354148(arg0), f32 *, 4);
     return 1;
+}
+
+typedef char RecoveredGlobal_80353E10_TBoss6Rock__data_80543778_size[sizeof(RecoveredGlobal_80353E10_TBoss6Rock__data_80543778) == 0x80 ? 1 : -1];
+s32 TBoss6Rock__sub_80353E10(s32 arg0) {
+    u8 *temp_r3;
+    if ((arg0 < 0) || (arg0 >= 0x20)) {
+        return 0U;
+    }
+    temp_r3 = (u8 *)(M2C_FIELD(&TBoss6Rock__data_80543778.value, M2C_UNK *, (arg0 * 4)));
+    if (temp_r3 == NULL) {
+        return 0U;
+    }
+    return (u8) (M2C_FIELD(temp_r3, s32 *, 0xC4) == 2);
 }
 
 void release_object__10TBoss6RockFPv(void* p) { if (*(unsigned int*)((char*)p + 0xb0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0xb0)); *(int*)((char*)p + 0xb0) = 0; } }

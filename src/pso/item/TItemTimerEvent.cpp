@@ -18,6 +18,11 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m5();
 };
 
+struct RecoveredGlobal_8011DC90___vt__15TItemTimerEvent {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
@@ -28,6 +33,11 @@ void TItemTimerEvent__sub_8011E068(u16 arg0);
 void fn_801108C8(void *, s32);
 extern struct VObj_8011E140_8011DA9C *lbl_805D5508;
 void TItemTimerEvent__sub_8011E0A4(u16 arg0);
+s32 disallow_rendering__7TObjectFv(void *);
+s32 init_object__21TItemEffArmorParticleFPv(void *);
+extern M2C_UNK __vt__15TItemTimerEvent[];
+extern s32 lbl_805D2C90;
+u8 *TItemTimerEvent__ct(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -113,6 +123,19 @@ void *TItemTimerEvent__vt0(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK lbl_804A0568[];
+
+typedef char RecoveredGlobal_8011DC90___vt__15TItemTimerEvent_size[sizeof(RecoveredGlobal_8011DC90___vt__15TItemTimerEvent) == 0x20 ? 1 : -1];
+u8 *TItemTimerEvent__ct(u8 *arg0, M2C_UNK arg1, s16 arg2, s32 arg3) {
+    init_object__21TItemEffArmorParticleFPv((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8011DC90___vt__15TItemTimerEvent *)&__vt__15TItemTimerEvent).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C90;
+    M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    disallow_rendering__7TObjectFv((void *) (arg0));
+    return arg0;
+}
 
 void *TItemTimerEvent__sub_8011DCF8(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -74,6 +74,11 @@ typedef char RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8_size[sizeof
 struct RecoveredGlobal_8029CFEC_lbl_804DC590 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8029CFEC_lbl_804DC590_size[sizeof(RecoveredGlobal_8029CFEC_lbl_804DC590) == 0x10 ? 1 : -1];
 
+struct RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
@@ -113,6 +118,10 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8029CFEC_lbl_804DC590 lbl_804DC590;
 extern u32 TOKeyJungleMain__data_805D65E0;
 void TOKeyJungleMain__sub_8029CFEC(void);
+s32 dispatch_by_phase__15TOKeyJungleMainFiUs(void *, int);
+extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
+extern s32 lbl_805D5550;
+void TOKeyJungleMain__vt19(u8 *arg0);
 }
 
 extern "C" {
@@ -180,6 +189,11 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
             break;
         }
     }
+}
+
+typedef char RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
+void TOKeyJungleMain__vt19(u8 *arg0) {
+    dispatch_by_phase__15TOKeyJungleMainFiUs((void *) (lbl_805D5550), (int) (M2C_FIELD(&(*(RecoveredGlobal_8029D200_TOKeyJungleMain__data_804653C8 *)&TOKeyJungleMain__data_804653C8).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xC8) * 4))));
 }
 
 void TOKeyJungleMain__vt12(u8 *arg0) {

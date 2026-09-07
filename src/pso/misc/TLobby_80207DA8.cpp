@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80208D28_lbl_805139F8 {
+    M2C_UNK value;
+    u8 remaining[0x44];
+};
+
+extern "C" {
+u8 * heap_alloc__5THeapFUl(void *, s32);
+extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
+extern u8 *lbl_805D6094;
+u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TLobby__sub_80208884(void* a0);
@@ -38,5 +50,23 @@ void spawn_destroy_event__6TLobbyFPv(void *arg0) {
 }
 
 void TLobby__sub_80208900(void) {  }
+typedef char RecoveredGlobal_80208D28_lbl_805139F8_size[sizeof(RecoveredGlobal_80208D28_lbl_805139F8) == 0x48 ? 1 : -1];
+u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1) {
+    s32 temp_r30;
+    u8 *temp_r3;
+    if (arg0 > 0x11) {
+        return NULL;
+    }
+    temp_r30 = arg0 * 4;
+    if ((u32) M2C_FIELD(&lbl_805139F8.value, M2C_UNK *, temp_r30) != 0U) {
+        return NULL;
+    }
+    temp_r3 = (u8 *)(heap_alloc__5THeapFUl(lbl_805D6094, arg1));
+    if (temp_r3 != NULL) {
+        M2C_FIELD(&lbl_805139F8.value, M2C_UNK *, temp_r30) = (long) (temp_r3);
+        return temp_r3;
+    }
+    return NULL;
+}
 
 }

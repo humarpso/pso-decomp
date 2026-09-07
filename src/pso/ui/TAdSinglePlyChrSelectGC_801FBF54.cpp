@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802010E8_lbl_80513904 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 s32 TLobby__sub_8001E8B8(void);
 int TLobby__sub_80132EC8(void);
@@ -20,6 +25,11 @@ s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32 allocation);
 extern u32 lbl_805D5F5C;
 extern u32 lbl_805D5F70;
 void TAdSinglePlyChrSelectGC__sub_802028EC(void);
+M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
+M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
+extern M2C_UNK lbl_80513904[];
+extern void *lbl_805D5F64;
+s32 TAdSinglePlyChrSelectGC__sub_802010E8(void);
 }
 
 extern "C" {
@@ -86,6 +96,20 @@ s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         DateToSeconds__FP9DateStampPi((M2C_UNK *)(sp10), (s32 *)(&sp8));
         M2C_FIELD(arg0, s32 *, 0xC) = (s32) (M2C_FIELD(arg0, s32 *, 0xC) + (sp8 - spC));
         return M2C_FIELD(arg0, s32 *, 0xC);
+    }
+    return 0;
+}
+
+typedef char RecoveredGlobal_802010E8_lbl_80513904_size[sizeof(RecoveredGlobal_802010E8_lbl_80513904) == 0xC ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_802010E8(void) {
+    s32 spC;
+    s32 sp8;
+    if ((void *) (*(u8 * *)&lbl_805D5F64) != NULL) {
+        DateToSeconds__FP9DateStampPi((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&lbl_80513904).value), (s32 *)(&spC));
+        getDateStamp__FP9DateStamp((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&lbl_80513904).value));
+        DateToSeconds__FP9DateStampPi((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&lbl_80513904).value), (s32 *)(&sp8));
+        M2C_FIELD((*(u8 * *)&lbl_805D5F64), s32 *, 0xC) = (s32) (M2C_FIELD((*(u8 * *)&lbl_805D5F64), s32 *, 0xC) + (sp8 - spC));
+        return M2C_FIELD((*(u8 * *)&lbl_805D5F64), s32 *, 0xC);
     }
     return 0;
 }

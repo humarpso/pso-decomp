@@ -8,6 +8,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802F119C___vt__13TObjBoss7Dust {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 TObjBoss7DustCtrl__sub_802F125C();
+extern RecoveredGlobal_802F119C___vt__13TObjBoss7Dust __vt__13TObjBoss7Dust;
+extern s32 lbl_805D3FE4;
+u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2);
+}
+
 extern "C" {
 
 void fn_802F105C(void);
@@ -40,6 +54,16 @@ void run_task__13TObjBoss7DustFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) >= 0x5A) {
         queue_destruction__7TObjectFv();
     }
+}
+typedef char RecoveredGlobal_802F119C___vt__13TObjBoss7Dust_size[sizeof(RecoveredGlobal_802F119C___vt__13TObjBoss7Dust) == 0x18 ? 1 : -1];
+u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TObjBoss7Dust.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3FE4;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = TObjBoss7DustCtrl__sub_802F125C();
+    return arg0;
 }
 
 }

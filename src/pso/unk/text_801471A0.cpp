@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80147A74_lbl_804EF500 {
+    M2C_UNK value;
+    u8 remaining[0x94];
+};
+
+extern "C" {
+extern RecoveredGlobal_80147A74_lbl_804EF500 lbl_804EF500;
+M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void);
+}
+
 extern "C" {
 
 s32 TLobby__sub_80147284(void);
@@ -44,5 +54,9 @@ void fn_80147A60(int a0) { lbl_805D56D0 = a0; }
 
     extern int lbl_805D56D0;
 void fn_80147A68(void) { lbl_805D56D0 = 0; }
+typedef char RecoveredGlobal_80147A74_lbl_804EF500_size[sizeof(RecoveredGlobal_80147A74_lbl_804EF500) == 0x98 ? 1 : -1];
+M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void) {
+    return &lbl_804EF500.value;
+}
 
 }

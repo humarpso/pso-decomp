@@ -4,6 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+struct RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+extern "C" {
+s32 TKeyBoardControl__sub_801321B4(s32);
+extern M2C_UNK TKeyBoardControl__data_80506270[];
+void TKeyBoardControl__sub_801A58B0(void);
+s32 TKeyBoardControl__sub_80132310(s32);
+extern M2C_UNK TKeyBoardControl__data_80506270[];
+void TKeyBoardControl__sub_801A58D8(void);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_801A5AC8(void *arg0, void *arg1);
@@ -37,6 +56,16 @@ s32 check_reset_button__16TKeyBoardControlFv(void) {
 }
 
 extern M2C_UNK TKeyBoardControl__data_80506270[];
+
+typedef char RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+void TKeyBoardControl__sub_801A58B0(void) {
+    TKeyBoardControl__sub_801321B4((s32) &(*(RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value);
+}
+
+typedef char RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+void TKeyBoardControl__sub_801A58D8(void) {
+    TKeyBoardControl__sub_80132310((s32) &(*(RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value);
+}
 
 s32 check_and_read__16TKeyBoardControlFi(s32 arg0) {
     if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__data_80506270) != 0) {

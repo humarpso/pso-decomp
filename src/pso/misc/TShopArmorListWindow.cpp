@@ -45,6 +45,21 @@ struct VObj_8021AABC_8021A394 : Base_8021AABC_8021A394 {
     virtual s32 m8();
 };
 
+struct RecoveredGlobal_8021B1CC___vt__20TShopArmorListWindow {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+extern "C" {
+s32 set_shop_armor_list_flag__6TLobbyFii(void *, int);
+s32 calc_item_count__18TShopGetItemWindowFPvPv(int, void *);
+s32 TShopWindowBase__sub_8022397C(void *);
+s32 __ct__15TShopWindowBaseFv(void *);
+extern M2C_UNK __vt__20TShopArmorListWindow[];
+extern s32 lbl_805D3698;
+u8 *TShopArmorListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+}
+
 extern "C" {
 
 int TShopArmorListWindow__sub_8021AA08(void* p);
@@ -148,6 +163,28 @@ void *__dt__20TShopArmorListWindowFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8021B1CC___vt__20TShopArmorListWindow_size[sizeof(RecoveredGlobal_8021B1CC___vt__20TShopArmorListWindow) == 0x30 ? 1 : -1];
+u8 *TShopArmorListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+    s32 sp8;
+    __ct__15TShopWindowBaseFv((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8021B1CC___vt__20TShopArmorListWindow *)&__vt__20TShopArmorListWindow).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3698;
+    M2C_FIELD(arg0, s32 *, 0x24) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x28) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1F4) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1F0) = 0;
+    calc_item_count__18TShopGetItemWindowFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (&sp8));
+    set_shop_armor_list_flag__6TLobbyFii((void *) (TShopWindowBase__sub_8022397C((void *) (arg0))), (int) (sp8));
     return arg0;
 }
 

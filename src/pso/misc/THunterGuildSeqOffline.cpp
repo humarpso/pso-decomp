@@ -86,6 +86,16 @@ struct VObj_18_b54460 : VBase_18_b54460 {
 struct RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 
+struct RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
+struct RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 TWindowSubComCard__sub_8026CBB8(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -113,6 +123,13 @@ s32 TShopWindowBase__sub_80223A48(void *);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 extern u8 *lbl_805D5EE8;
 void THunterGuildSeqOffline__sub_80212F34(u8 *arg0);
+s32 TShopSequence__ct(void *);
+s32 TShopWindowBase__sub_8022397C(void *);
+extern RecoveredGlobal_80213220___vt__22THunterGuildSeqOffline __vt__22THunterGuildSeqOffline;
+extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__data_80513DD8;
+extern s32 lbl_805D3658;
+extern s32 THunterGuildSeqOffline__data_805D6188;
+u8 *THunterGuildSeqOffline__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -246,6 +263,23 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv((void *) (arg0));
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline_size[sizeof(RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline) == 0x38 ? 1 : -1];
+typedef char RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8_size[sizeof(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8) == 0x10 ? 1 : -1];
+u8 *THunterGuildSeqOffline__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TShopSequence__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802132F0___vt__22THunterGuildSeqOffline *)&__vt__22THunterGuildSeqOffline).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3658;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    (*(u8 * *)&THunterGuildSeqOffline__data_805D6188) = arg0;
+    M2C_FIELD(&(*(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 *)&THunterGuildSeqOffline__data_80513DD8).value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;
 }
 

@@ -4,12 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802BB180_lbl_804DFAC4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_802BB180_lbl_804DFAD0 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 s32 TBoss6Type2__sub_8032E748(void *);
 s32 TBoss6Type2__sub_8035DC60(s32, s32, f32);
 extern const f32 TBoss6Type2__data_805DE45C;
 extern const f32 TBoss6Type2__data_805DE460;
 void TBoss6Type2__sub_802BAD04(s32 arg0);
+void TCameraCtrl__sub_8006D2B0(s32, s32, u16);
+extern RecoveredGlobal_802BB180_lbl_804DFAC4 lbl_804DFAC4;
+extern RecoveredGlobal_802BB180_lbl_804DFAD0 lbl_804DFAD0;
+void TBoss6Type2__sub_802BB180(void);
 }
 
 extern "C" {
@@ -60,6 +74,12 @@ void TBoss6Type2__sub_802BAD04(s32 arg0) {
     if ((temp_r3_2 != NULL) && (TBoss6Type2__sub_8032E748(temp_r3_2) != 0)) {
         TBoss6Type2__sub_8035DC60(arg0, (s32) (M2C_FIELD(arg0, u8 **, 0x414) + 0x38), TBoss6Type2__data_805DE460);
     }
+}
+
+typedef char RecoveredGlobal_802BB180_lbl_804DFAC4_size[sizeof(RecoveredGlobal_802BB180_lbl_804DFAC4) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_802BB180_lbl_804DFAD0_size[sizeof(RecoveredGlobal_802BB180_lbl_804DFAD0) == 0xC ? 1 : -1];
+void TBoss6Type2__sub_802BB180(void) {
+    TCameraCtrl__sub_8006D2B0((s32) &lbl_804DFAC4.value, (s32) &lbl_804DFAD0.value, 0xFFFFU);
 }
 
 void init_range__11TBoss6Type2Fv(void) {

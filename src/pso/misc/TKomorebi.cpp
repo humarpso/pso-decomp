@@ -16,6 +16,23 @@ struct VObj_80192174 : VObjBase_80192174 {
     virtual s32 m8(f32, f32);
 };
 
+struct RecoveredGlobal_801922C4___vt__9TKomorebi {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
+extern "C" {
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjFish__sub_8001EDB0(void *, int);
+s32 TObjFish__sub_8001EDC4(void *, int);
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 TPhotonMagicSquare__sub_801A2640(void *);
+extern M2C_UNK __vt__9TKomorebi[];
+extern s32 lbl_805D339C;
+extern u32 lbl_805D5C20;
+u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+}
+
 extern "C" {
 
 void *TKomorebi__create(void *arg0);
@@ -23,7 +40,6 @@ void *__dt__9TKomorebiFv(void *arg0, s16 arg1);
 void free_static__9TKomorebiFv(void);
 void render__9TKomorebiFv(u8 *arg0);
 void run_task__9TKomorebiFv(void);
-void *TKomorebi__ct(void *, void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TOComputerMachine01__sub_8023DDC8(s32, M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -85,10 +101,23 @@ void *__dt__9TKomorebiFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
+typedef char RecoveredGlobal_801922C4___vt__9TKomorebi_size[sizeof(RecoveredGlobal_801922C4___vt__9TKomorebi) == 0x38 ? 1 : -1];
+u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801922C4___vt__9TKomorebi *)&__vt__9TKomorebi).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D339C;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
+    copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
+    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4((void *) ((*(s32 *)&lbl_805D5C20)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&lbl_805D5C20)), (int) (0));
+    return arg0;
+}
+
 void *TKomorebi__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TKomorebi__ct(o, tl_05, arg0);
+        o = TKomorebi__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }

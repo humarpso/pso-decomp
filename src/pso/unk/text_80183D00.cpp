@@ -21,6 +21,11 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 struct RecoveredGlobal_80183D4C_lbl_8050DC50 { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80183D4C_lbl_8050DC50_size[sizeof(RecoveredGlobal_80183D4C_lbl_8050DC50) == 0x18 ? 1 : -1];
 
+struct RecoveredGlobal_80183D00_lbl_804B5CC4 {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
 extern "C" {
 s32 TObjCity_Season_EasterEgg__sub_80184A08(void *, s32, f32);
 extern const f32 lbl_805DBC5C;
@@ -39,9 +44,22 @@ extern s32 lbl_805D5B34;
 extern const f32 lbl_805DBC44;
 extern const f32 lbl_805DBC60;
 void fn_80183D4C(u8 *arg0);
+s32 fn_80184B44(void *, void *, void *, int, f32);
+extern RecoveredGlobal_80183D00_lbl_804B5CC4 lbl_804B5CC4;
+extern s32 lbl_805D3280;
+extern const f32 lbl_805DBC38;
+u8 *TObjCity_Season_SonicAdv2__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
+
+typedef char RecoveredGlobal_80183D00_lbl_804B5CC4_size[sizeof(RecoveredGlobal_80183D00_lbl_804B5CC4) == 0x3C ? 1 : -1];
+u8 *TObjCity_Season_SonicAdv2__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    fn_80184B44((void *) (arg0), (void *) (arg1), (void *) (arg2), (int) (5), (f32) (lbl_805DBC38));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B5CC4.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3280;
+    return arg0;
+}
 
 void fn_80183D4C(u8 *arg0) {
     u8 *temp_r3;

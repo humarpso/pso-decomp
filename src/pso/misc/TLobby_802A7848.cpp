@@ -8,6 +8,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_802A7AF8_lbl_804DDD28 { M2C_UNK value; u8 remaining[0x134]; };
 typedef char RecoveredGlobal_802A7AF8_lbl_804DDD28_size[sizeof(RecoveredGlobal_802A7AF8_lbl_804DDD28) == 0x138 ? 1 : -1];
 
+struct RecoveredGlobal_802A7B50_lbl_804DDD28 {
+    M2C_UNK value;
+    u8 remaining[0x134];
+};
+
 extern "C" {
 void set_field_4__6TLobbyFPvi(void* p, s32 v);
 s32 get_hold_effect_count__10TObjPlayerFv(void);
@@ -57,6 +62,9 @@ s32 free_if_positive__6TLobbyFis(s32, s16);
 M2C_UNK free__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1);
+s32 TLobby__sub_802A7318(void *);
+extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
+u8 *TLobby__sub_802A7B50(u8 *arg0);
 }
 
 extern "C" {
@@ -112,6 +120,13 @@ u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1) {
             free__10TObjPlayerFPv((void *) (arg0));
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_802A7B50_lbl_804DDD28_size[sizeof(RecoveredGlobal_802A7B50_lbl_804DDD28) == 0x138 ? 1 : -1];
+u8 *TLobby__sub_802A7B50(u8 *arg0) {
+    M2C_FIELD(arg0, M2C_UNK **, 8) = &(*(RecoveredGlobal_802A7B50_lbl_804DDD28 *)&lbl_804DDD28).value;
+    TLobby__sub_802A7318((void *) (arg0));
     return arg0;
 }
 

@@ -4,8 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8025ED80_lbl_8049E178 {
+    M2C_UNK value;
+    u8 remaining[0xFC];
+};
+
+struct RecoveredGlobal_8025ED80_lbl_8049E278 {
+    M2C_UNK value;
+    u8 remaining[0xFC];
+};
+
 extern "C" {
 void TKeyBoardControl__sub_8025EC04(u8 *arg0);
+extern RecoveredGlobal_8025ED80_lbl_8049E178 lbl_8049E178;
+extern RecoveredGlobal_8025ED80_lbl_8049E278 lbl_8049E278;
+u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -43,6 +56,15 @@ void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
 int TKeyBoardControl__sub_8025EC1C(void) { return 0; }
 
 extern M2C_UNK TKeyBoardControl__data_80506270[];
+
+typedef char RecoveredGlobal_8025ED80_lbl_8049E178_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E178) == 0x100 ? 1 : -1];
+typedef char RecoveredGlobal_8025ED80_lbl_8049E278_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E278) == 0x100 ? 1 : -1];
+u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1) {
+    if (M2C_FIELD(arg0, s32 *, 0x60) & 0x80) {
+        return M2C_FIELD(((u8 *)(&lbl_8049E278.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
+    }
+    return M2C_FIELD(((u8 *)(&lbl_8049E178.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
+}
 
 s32 poll_input__16TKeyBoardControlFPv(void *arg0) {
     u8 temp_r3;

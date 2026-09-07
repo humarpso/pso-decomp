@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801336E0_TObjLight__data_80506320 {
+    M2C_UNK value;
+    u8 remaining[0x4C];
+};
+
+extern "C" {
+M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
+extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
+void TObjLight__sub_801336E0(void);
+}
+
 extern "C" {
 
 void *TLobby__sub_801349C8(void *arg0, s16 arg1);
@@ -50,6 +61,11 @@ void* init_light__9TObjLightFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x0) = 
 void TObjLight__sub_801335EC(void) {  }
 
 void TObjLight__sub_801336DC(void) {  }
+
+typedef char RecoveredGlobal_801336E0_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_801336E0_TObjLight__data_80506320) == 0x50 ? 1 : -1];
+void TObjLight__sub_801336E0(void) {
+    TObjLight__sub_803DF268(M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 0x38), M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 0x3C), M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 0x40));
+}
 
 void TObjLight__sub_80133714(void) {  }
 

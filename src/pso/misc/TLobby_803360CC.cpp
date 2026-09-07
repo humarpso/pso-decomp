@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8033670C_lbl_804EE58C {
+    M2C_UNK value;
+    u8 remaining[0x4C];
+};
+
 extern "C" {
 int TKeyBoardControl__sub_8000F9CC(void*);
     extern int lbl_805D6D44;
@@ -31,6 +36,11 @@ extern u32 lbl_805D6D40;
 void *destroy__6TLobbyFPvs(void *arg0, s16 arg1);
     extern int lbl_805D68C8;
 void TAdMultiPlyChrSelectGC__sub_803367E8(void);
+s32 TLobby__sub_803DA16C(void *, M2C_UNK);
+u64 TLobby__sub_800FD6A0(void *, int);
+extern RecoveredGlobal_8033670C_lbl_804EE58C lbl_804EE58C;
+extern u8 *lbl_805D6D48;
+void TLobby__sub_8033670C(void);
 }
 
 extern "C" {
@@ -93,6 +103,17 @@ void *destroy__6TLobbyFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+typedef char RecoveredGlobal_8033670C_lbl_804EE58C_size[sizeof(RecoveredGlobal_8033670C_lbl_804EE58C) == 0x50 ? 1 : -1];
+void TLobby__sub_8033670C(void) {
+    u32 temp_r4;
+    temp_r4 = (u32) TLobby__sub_800FD6A0((void *) (&lbl_804EE58C.value), (int) (0x20));
+    if ((void *) lbl_805D6D48 != NULL) {
+        TLobby__sub_803DA16C(lbl_805D6D48, (s32) temp_r4);
+        lbl_805D6D48 = NULL;
+    }
+}
+
 void TAdMultiPlyChrSelectGC__sub_803367E8(void) { lbl_805D68C8 = 0; }
 
 }

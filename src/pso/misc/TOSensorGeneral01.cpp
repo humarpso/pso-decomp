@@ -4,6 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80176308_lbl_80442A80 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80176308_lbl_804B4278 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+extern "C" {
+u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+s32 TLanguage__sub_801E4874(void *);
+extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
+extern RecoveredGlobal_80176308_lbl_804B4278 lbl_804B4278;
+extern u32 lbl_805D5AA0;
+extern s32 *TOSensorGeneral01__data_805D5AA4;
+void TOSensorGeneral01__sub_80176308(void);
+}
+
 extern "C" {
 
 void TOSensorGeneral01__vt14(void *arg0);
@@ -87,6 +109,24 @@ void free_rocks__17TOSensorGeneral01Fv(void) {
 }
 
 extern M2C_UNK __vt__17TOSensorGeneral01[];
+
+typedef char RecoveredGlobal_80176308_lbl_80442A80_size[sizeof(RecoveredGlobal_80176308_lbl_80442A80) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_80176308_lbl_804B4278_size[sizeof(RecoveredGlobal_80176308_lbl_804B4278) == 0x10 ? 1 : -1];
+void TOSensorGeneral01__sub_80176308(void) {
+    s32 *temp_r3_2;
+    u8 *temp_r3;
+    u8 *var_r0;
+    temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
+    var_r0 = (u8 *)(temp_r3);
+    if (var_r0 != NULL) {
+        var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_804B4278.value, 0, 0, 0));
+    }
+    (*(u8 * *)&lbl_805D5AA0) = var_r0;
+    temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
+    TOSensorGeneral01__data_805D5AA4 = temp_r3_2;
+    M2C_FIELD(temp_r3_2, s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5AA0), u8 **, 0x42C), s32 *, 0xC);
+    *TOSensorGeneral01__data_805D5AA4 = TLanguage__sub_801E4874((void *) (&lbl_80442A80.value));
+}
 
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

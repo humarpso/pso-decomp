@@ -4,9 +4,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8025A95C_lbl_804CFA10 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8025A594_lbl_804CF9F8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 extern const f32 lbl_805DCF90;
 f32 TWindowHelpItem__sub_8025A60C(u8 *arg0);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
+extern M2C_UNK lbl_804CFA10[];
+u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
+extern M2C_UNK lbl_804CF9F8[];
+u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -119,6 +137,19 @@ void *destroy__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
+typedef char RecoveredGlobal_8025A594_lbl_804CF9F8_size[sizeof(RecoveredGlobal_8025A594_lbl_804CF9F8) == 0x18 ? 1 : -1];
+u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2) {
+    TWindowSubStatusDisp__sub_80256BDC((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_8025A594_lbl_804CF9F8 *)&lbl_804CF9F8).value;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
+    M2C_FIELD(arg0, s32 *, 0x10) = -1;
+    M2C_FIELD(arg0, s32 *, 0x14) = 0;
+    M2C_FIELD(arg0, s32 *, 0x18) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    return arg0;
+}
+
 int TWindowHelpItem__sub_8025A600(void* p) { return *(u16*)((char*)p + 0x0) & 0x20; }
 
 f32 TWindowHelpItem__sub_8025A60C(u8 *arg0) {
@@ -146,6 +177,15 @@ void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1) {
 }
 
 extern f32 lbl_805DCFA8;
+
+typedef char RecoveredGlobal_8025A95C_lbl_804CFA10_size[sizeof(RecoveredGlobal_8025A95C_lbl_804CFA10) == 0x18 ? 1 : -1];
+u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
+    TWindowSubStatusDisp__sub_80256BDC((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_8025A95C_lbl_804CFA10 *)&lbl_804CFA10).value;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
+    M2C_FIELD(arg0, s32 *, 0x10) = 0;
+    return arg0;
+}
 
 void reset_float_field__15TWindowHelpItemFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DCFA8;

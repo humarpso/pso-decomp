@@ -17,6 +17,11 @@ struct VObj18 : VBase18 {
 
 typedef struct Vec { float x, y, z; } Vec;
 
+struct RecoveredGlobal_80034C90_lbl_8043567C {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
 extern "C" {
 f32 TBoss2DeRolLe__sub_80034CEC(void);
 f32 TBoss2DeRolLe__sub_80034CF8(void);
@@ -35,6 +40,10 @@ void TBoss8Dragon__sub_800BB780(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 lbl_805D8448;
 void TBoss2DeRolLe__sub_80034FDC(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+extern RecoveredGlobal_80034C90_lbl_8043567C lbl_8043567C;
+extern f32 TBoss2DeRolLe__data_805D827C;
+void TBoss2DeRolLe__sub_80034C90(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -100,6 +109,13 @@ void set_move_direction__13TBoss2DeRolLeFPv(void *arg0) {
 }
 
 extern u8 *TBoss2DeRolLe__data_805D4BA0;
+
+typedef char RecoveredGlobal_80034C90_lbl_8043567C_size[sizeof(RecoveredGlobal_80034C90_lbl_8043567C) == 0x30 ? 1 : -1];
+void TBoss2DeRolLe__sub_80034C90(u8 *arg0, s32 arg1) {
+    VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x38), (s32)((u8 *)&lbl_8043567C.value + (arg1 * 0xC)));
+    M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
+    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+}
 
 s32 TBoss2Joint_get_shell_max_hp(void) {
     return M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, s32 *, 0x1C);

@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8028379C_lbl_804FF968 {
+    M2C_UNK value;
+    u8 remaining[0x54];
+};
+
+extern "C" {
+extern RecoveredGlobal_8028379C_lbl_804FF968 lbl_804FF968;
+M2C_UNK *TWindowSubSymbolChat__sub_8028379C(void);
+}
+
 extern "C" {
 
 void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2);
@@ -108,6 +118,10 @@ void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x5C) = update_display__20TWindowSubSymbolChatFi(close_child__20TWindowSubSymbolChatFv);
     M2C_FIELD(arg0, s8 *, 0x1C) = 0;
     return arg0;
+}
+typedef char RecoveredGlobal_8028379C_lbl_804FF968_size[sizeof(RecoveredGlobal_8028379C_lbl_804FF968) == 0x58 ? 1 : -1];
+M2C_UNK *TWindowSubSymbolChat__sub_8028379C(void) {
+    return &lbl_804FF968.value;
 }
 
 }

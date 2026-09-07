@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80327F88_lbl_804ED598 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -32,6 +37,13 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern M2C_UNK lbl_804ED5B0[];
 void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 __nw__7TObjectFUl(int);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 fn_803281B8(int, int, int, int);
+extern M2C_UNK lbl_804ED598[];
+extern s32 tl_05;
+u8 *TParticleCtrl__sub_80327F88(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -67,6 +79,30 @@ void *__dt__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+typedef char RecoveredGlobal_80327F88_lbl_804ED598_size[sizeof(RecoveredGlobal_80327F88_lbl_804ED598) == 0x18 ? 1 : -1];
+u8 *TParticleCtrl__sub_80327F88(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1) {
+    s32 temp_r3;
+    s32 var_r0;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg4));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80327F88_lbl_804ED598 *)&lbl_804ED598).value;
+    M2C_FIELD(arg0, f32 *, 0x1C) = farg0;
+    M2C_FIELD(arg0, f32 *, 0x20) = farg1;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg1));
+    M2C_FIELD(arg0, s8 *, 0x30) = arg2;
+    M2C_FIELD(arg0, s8 *, 0x31) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x34) = arg5;
+    temp_r3 = __nw__7TObjectFUl((int) (0x20));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = fn_803281B8((int) (temp_r3), (int) (0x1F), (int) (0), (int) (tl_05));
+    }
+    M2C_FIELD(arg0, s32 *, 0x40) = var_r0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 1;
+    M2C_FIELD(arg0, s32 *, 0x3C) = arg6;
+    return arg0;
+}
+
 void set_tev_direct__13TParticleCtrlFi(s32 arg0) {
     if (arg0 != 0) {
         GXSetTevDirect(1);

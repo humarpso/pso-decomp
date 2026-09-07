@@ -9,8 +9,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct RecoveredGlobal_800790F0_lbl_804F5800 {
+    M2C_UNK value;
+    u8 remaining[0xFC];
+};
+
 extern "C" {
 void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1);
+extern RecoveredGlobal_800790F0_lbl_804F5800 lbl_804F5800;
+s32 TAdEndText__sub_800790F0(u8 arg0);
 }
 
 extern "C" {
@@ -23,6 +30,11 @@ void TObjPlayer__sub_80079118(void);
 void TObjPlayer__sub_8007911C(void);
 void TObjPlayer__sub_80079120(void);
 void TObjPlayer__sub_80079124(void);
+
+typedef char RecoveredGlobal_800790F0_lbl_804F5800_size[sizeof(RecoveredGlobal_800790F0_lbl_804F5800) == 0x100 ? 1 : -1];
+s32 TAdEndText__sub_800790F0(u8 arg0) {
+    return M2C_FIELD(((u8 *)(&lbl_804F5800.value) + arg0), u8 *, 0) & 0xC0;
+}
 
 void TObjPlayer__sub_80079108(void) {  }
 void TObjPlayer__sub_8007910C(void) {  }

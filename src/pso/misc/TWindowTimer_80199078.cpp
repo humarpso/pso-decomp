@@ -12,6 +12,11 @@ struct M2CCopy_C { u8 bytes[0xc]; };
 struct RecoveredGlobal_80199410_lbl_804B8E00 { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80199410_lbl_804B8E00_size[sizeof(RecoveredGlobal_80199410_lbl_804B8E00) == 0x18 ? 1 : -1];
 
+struct RecoveredGlobal_80199470_lbl_8050DDAC {
+    M2C_UNK value;
+    u8 remaining[0x18];
+};
+
 extern "C" {
 void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1);
 s32 get_minutes__6TLobbyFv(void);
@@ -20,6 +25,10 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void create_timer__11TWindowCtrlFv(void);
 extern M2C_UNK lbl_804B8E00[];
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1);
+M2C_UNK bswap_6x79_gogo_ball__12TWindowTimerFi();
+extern RecoveredGlobal_80199470_lbl_8050DDAC lbl_8050DDAC;
+extern const f32 lbl_805DBF58;
+void handle_6x79_gogo_ball(u8 *arg0);
 }
 
 extern "C" {
@@ -71,6 +80,17 @@ u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
     set_timer_value__12TWindowTimerFii(1, 0);
     set_timer_value__12TWindowTimerFii(0, 0);
     return arg0;
+}
+typedef char RecoveredGlobal_80199470_lbl_8050DDAC_size[sizeof(RecoveredGlobal_80199470_lbl_8050DDAC) == 0x1C ? 1 : -1];
+void handle_6x79_gogo_ball(u8 *arg0) {
+    bswap_6x79_gogo_ball__12TWindowTimerFi();
+    M2C_FIELD(&lbl_8050DDAC.value, s16 *, 0x12) = 0;
+    M2C_FIELD(&lbl_8050DDAC.value, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
+    M2C_FIELD(&lbl_8050DDAC.value, f32 *, 4) = (f32) lbl_805DBF58;
+    M2C_FIELD(&lbl_8050DDAC.value, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
+    M2C_FIELD(&lbl_8050DDAC.value, s32 *, 0xC) = (s32) M2C_FIELD(arg0, s32 *, 8);
+    M2C_FIELD(&lbl_8050DDAC.value, u8 *, 0x18) = (u8) M2C_FIELD(arg0, u8 *, 0x14);
+    M2C_FIELD(&lbl_8050DDAC.value, s32 *, 0x14) = (s32) M2C_FIELD(arg0, s32 *, 4);
 }
 
 }

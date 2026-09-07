@@ -1,3 +1,73 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#include <stddef.h>
+struct Stack_8001CAD4 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_8001CAD4_lbl_804349FC {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8001CAD4_lbl_804FF5E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_8001CAD4_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
 extern "C" {
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+s32 TObjPlayer__sub_801422A8(void *, void *, void *);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjContainerIdo__sub_803D96A8(int, int);
+s32 TObjPlayer__sub_803D97F0(void *);
+s32 TCameraCtrl__sub_803D9858(int);
+extern RecoveredGlobal_8001CAD4_lbl_804349FC lbl_804349FC;
+extern RecoveredGlobal_8001CAD4_lbl_804FF5E8 lbl_804FF5E8;
+extern RecoveredGlobal_8001CAD4_lbl_8058D490 lbl_8058D490;
+void fn_8001CAD4(u8 *arg0);
+}
+
+extern "C" {
+
+typedef char RecoveredGlobal_8001CAD4_lbl_804349FC_size[sizeof(RecoveredGlobal_8001CAD4_lbl_804349FC) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8001CAD4_lbl_804FF5E8_size[sizeof(RecoveredGlobal_8001CAD4_lbl_804FF5E8) == 0x28 ? 1 : -1];
+typedef char RecoveredGlobal_8001CAD4_lbl_8058D490_size[sizeof(RecoveredGlobal_8001CAD4_lbl_8058D490) == 0x30 ? 1 : -1];
+void fn_8001CAD4(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8001CAD4, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8001CAD4, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8001CAD4, sp10) == 0x8) ? 1 : -1];
+    Stack_8001CAD4 stack;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2C), (void *) (arg0 + 0x20));
+        stack.sp8 = M2C_FIELD(&lbl_804349FC.value, s32 *, 0);
+        stack.spC = M2C_FIELD(&lbl_804349FC.value, s32 *, 4);
+        stack.sp10 = M2C_FIELD(&lbl_804349FC.value, s32 *, 8);
+        M2C_FIELD(arg0, f32 *, 0x50) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC);
+        M2C_FIELD(arg0, f32 *, 0x54) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10);
+        M2C_FIELD(arg0, f32 *, 0x58) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14);
+        TObjPlayer__sub_801422A8((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.spC));
+        TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+        TObjPlayer__sub_803D9214((int) (0), (int) (stack.spC));
+        TObjContainerIdo__sub_803D96A8((int) (0), (int) (stack.sp8));
+        TScene__sub_803D8DB4((int) (0), (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));
+        TCameraCtrl__sub_803D9858((int) (1));
+        TBoss4Zako__sub_803D8910((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));
+        copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (void *) (arg0 + 0x2C));
+    }
+}
 
 }

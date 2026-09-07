@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 #pragma fp_contract on
 
+struct RecoveredGlobal_801FB430___vt__13TRaderMapCore {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
 extern "C" {
 u16 obj_getField1c(void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
@@ -18,6 +23,11 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u32 TRaderMapCore__data_805D5F28;
 extern s32 TRaderMapCore__data_805D5F3C;
 void run_task__13TRaderMapCoreFv(u8 *arg0);
+u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
+extern s32 TRaderMapCore__data_805D5F40;
+u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -73,6 +83,18 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
         }
         advance_scroll__13TRaderMapCoreFPv((void *) (arg0));
     }
+}
+typedef char RecoveredGlobal_801FB430___vt__13TRaderMapCore_size[sizeof(RecoveredGlobal_801FB430___vt__13TRaderMapCore) == 0x34 ? 1 : -1];
+u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TRaderMapCore.value;
+        TRaderMapCore__data_805D5F40 = 0;
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
 }
 
 }

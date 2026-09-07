@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8019A574_lbl_804B8E18 {
+    M2C_UNK value;
+    u8 remaining[0x13C];
+};
+
+struct RecoveredGlobal_8019A574_lbl_8050DD58 {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
+struct RecoveredGlobal_8019A574_lbl_8050DDAC {
+    M2C_UNK value;
+    u8 remaining[0x18];
+};
+
 extern "C" {
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
@@ -13,6 +28,16 @@ void TWindowTimer__sub_8019A6F8(void* p);
 int set_timer_value__12TWindowTimerFii(int a0, int a1);
 int TWindowCtrl__sub_8024A4EC(void*);
 int TWindowTimer__sub_8019A770(void* p);
+u8 * TObjPlayer__sub_80019038(void *);
+void reset_photon_effect__10TObjPlayerFPv(s32);
+s32 initialize_linked_object_reference(void *, s32);
+extern M2C_UNK lbl_804B8E18[];
+extern RecoveredGlobal_8019A574_lbl_8050DD58 lbl_8050DD58;
+extern M2C_UNK lbl_8050DDAC[];
+extern const f32 lbl_805DBF58;
+extern const f32 lbl_805DBF64;
+extern const f32 lbl_805DBF74;
+u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 }
 
 extern "C" {
@@ -63,6 +88,45 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
+
+typedef char RecoveredGlobal_8019A574_lbl_804B8E18_size[sizeof(RecoveredGlobal_8019A574_lbl_804B8E18) == 0x140 ? 1 : -1];
+typedef char RecoveredGlobal_8019A574_lbl_8050DD58_size[sizeof(RecoveredGlobal_8019A574_lbl_8050DD58) == 0x54 ? 1 : -1];
+typedef char RecoveredGlobal_8019A574_lbl_8050DDAC_size[sizeof(RecoveredGlobal_8019A574_lbl_8050DDAC) == 0x1C ? 1 : -1];
+u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
+    TObjPlayer__sub_80019038(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019A574_lbl_804B8E18 *)&lbl_804B8E18).value;
+    M2C_FIELD(arg0, f32 *, 0x390) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x394) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x398) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x344) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x348) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x34C) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 0x20);
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 0x24);
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 0x28);
+    M2C_FIELD(arg0, s32 *, 0x350) = 0;
+    M2C_FIELD(arg0, s32 *, 0x354) = 0;
+    M2C_FIELD(arg0, s32 *, 0x334) = 0;
+    M2C_FIELD(arg0, s32 *, 0x338) = 0;
+    M2C_FIELD(arg0, f32 *, 0x33C) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 0);
+    M2C_FIELD(arg0, f32 *, 0x340) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 4);
+    M2C_FIELD(arg0, s32 *, 0x358) = 0;
+    M2C_FIELD(arg0, f32 *, 0x364) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x368) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x36C) = (f32) lbl_805DBF58;
+    M2C_FIELD(arg0, f32 *, 0x370) = (f32) lbl_805DBF74;
+    M2C_FIELD(arg0, f32 *, 0x374) = (f32) lbl_805DBF64;
+    M2C_FIELD(arg0, s32 *, 0x378) = 1;
+    M2C_FIELD(arg0, s32 *, 0x37C) = 0x40107;
+    initialize_linked_object_reference(arg0, (s32) (arg0 + 0x364));
+    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    M2C_FIELD(arg0, s32 *, 0x35C) = 0;
+    M2C_FIELD(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&lbl_8050DDAC).value, s16 *, 0x10) = 0;
+    M2C_FIELD(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&lbl_8050DDAC).value, s8 *, 0x18) = 0;
+    M2C_FIELD(arg0, s32 *, 0x360) = 0;
+    return arg0;
+}
 
 void send_gogo_ball__12TWindowTimerFi(s32 arg0) {
     bswap_6x79_gogo_ball__12TWindowTimerFi((s32)(arg0));

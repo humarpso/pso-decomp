@@ -1,6 +1,35 @@
 #include "pso/TChallenge4PItemSelect.h"
 
-extern "C" void TWindow__close(void*);
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#include <stddef.h>
+struct Stack_8034B158 {
+    s8 sp8;
+    s8 sp9;
+    s8 spA;
+    u8 trailing_storage[0x11];
+};
+
+struct RecoveredGlobal_8034B158_lbl_804F00C8 {
+    M2C_UNK value;
+    u8 remaining[0x5C];
+};
+
+extern "C" {
+int is_visible__17TWindowSubComCardFPv(void *);
+void init__9TItemDataFv(void *);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+void TChallenge4PResult__sub_8034B694(s32, M2C_UNK, s32);
+extern RecoveredGlobal_8034B158_lbl_804F00C8 lbl_804F00C8;
+void TChallenge4PItemSelect__sub_8034B158(u8 *arg0);
+}
+
+extern "C" {
+void TWindow__close(void*);
+}
 
 void TChallenge4PItemSelect::run_task() {}
 
@@ -16,7 +45,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void queue_destruction_with_callback__22TChallenge4PItemSelectFPv(void *arg0);
-M2C_UNK TChallenge4PItemSelect__sub_8034B158();
 void challenge4p_item_select_open_menu(void *arg0);
 void run_task__22TChallenge4PItemSelectFv(u8 *arg0);
 }
@@ -54,6 +82,30 @@ extern const f32 lbl_805DFD98;
 extern const f32 lbl_805DFD9C;
 extern const f32 lbl_805DFDA0;
 extern const f32 lbl_805DFDA4;
+
+typedef char RecoveredGlobal_8034B158_lbl_804F00C8_size[sizeof(RecoveredGlobal_8034B158_lbl_804F00C8) == 0x60 ? 1 : -1];
+void TChallenge4PItemSelect__sub_8034B158(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8034B158, sp8) == 0x0) ? 1 : -1];
+    typedef char sp9_offset[(offsetof(Stack_8034B158, sp9) == 0x1) ? 1 : -1];
+    typedef char spA_offset[(offsetof(Stack_8034B158, spA) == 0x2) ? 1 : -1];
+    Stack_8034B158 stack;
+    u32 temp_r3_2;
+    u8 *temp_r31;
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2C));
+    if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
+        temp_r31 = (u8 *)&lbl_804F00C8.value + (TWindowSubComCard__sub_80265BF8(M2C_FIELD(arg0, u8 **, 0x2C)) * 0xC);
+        init__9TItemDataFv(&stack.sp8);
+        stack.sp8 = (s8) M2C_FIELD(temp_r31, s32 *, 0);
+        stack.sp9 = (s8) M2C_FIELD(temp_r31, s32 *, 4);
+        stack.spA = (s8) M2C_FIELD(temp_r31, s32 *, 8);
+        temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x28);
+        if (temp_r3_2 != 0U) {
+            TChallenge4PResult__sub_8034B694((s32) temp_r3_2, (s32) &stack.sp8, 2);
+        }
+        M2C_FIELD(arg0, s32 *, 0x20) = 2;
+    }
+}
 
 void challenge4p_item_select_open_menu(void *arg0) {
     s32 temp_r0;
@@ -93,7 +145,7 @@ void run_task__22TChallenge4PItemSelectFv(u8 *arg0) {
         challenge4p_item_select_open_menu((void *)arg0);
         return;
     case 1:
-        TChallenge4PItemSelect__sub_8034B158();
+        TChallenge4PItemSelect__sub_8034B158((u8 *)(arg0));
         return;
     case 2:
         queue_destruction_with_callback__22TChallenge4PItemSelectFPv((void *)arg0);

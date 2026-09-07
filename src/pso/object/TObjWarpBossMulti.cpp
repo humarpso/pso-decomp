@@ -47,6 +47,19 @@ struct P_V_8019DD34 : P_A_8019DD34 {
     virtual s32 m31();
 };
 
+struct RecoveredGlobal_8019E418_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+extern "C" {
+s32 is_lobby_active__17TObjWarpBossMultiFv(void);
+s32 TObjWarpBossMulti__sub_8019E570(s32, f32);
+extern RecoveredGlobal_8019E418_lbl_8050E208 lbl_8050E208;
+extern const f32 lbl_805DC01C;
+s32 TObjWarpBossMulti__sub_8019E418(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__17TObjWarpBossMultiFv(void *arg0, s16 arg1);
@@ -211,6 +224,16 @@ void update_warp_boss_visibility(void *arg0) {
             allow_rendering__7TObjectFv(M2C_FIELD(arg0, u32 *, 0x164));
         }
     }
+}
+typedef char RecoveredGlobal_8019E418_lbl_8050E208_size[sizeof(RecoveredGlobal_8019E418_lbl_8050E208) == 0x1B0 ? 1 : -1];
+s32 TObjWarpBossMulti__sub_8019E418(u8 *arg0) {
+    if (is_lobby_active__17TObjWarpBossMultiFv() == 0) {
+        return 0;
+    }
+    if ((M2C_FIELD(&lbl_8050E208.value, f32 *, 0x44) > lbl_805DC01C) || (TObjWarpBossMulti__sub_8019E570((s32) arg0, M2C_FIELD(arg0, f32 *, 0xAC)) == 0U)) {
+        return 1;
+    }
+    return 0;
 }
 
 }

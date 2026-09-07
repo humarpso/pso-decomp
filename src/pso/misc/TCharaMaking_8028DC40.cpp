@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8028DE78_lbl_804D9164 {
+    M2C_UNK value;
+    u8 remaining[0x410];
+};
+
+extern "C" {
+extern RecoveredGlobal_8028DE78_lbl_804D9164 lbl_804D9164;
+u8 *TCharaMaking__sub_8028DE78(s32 arg0);
+}
+
 extern "C" {
 
 void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0);
@@ -31,6 +41,16 @@ extern const f32 TCharaMaking__data_805DD92C;
 
 void setup_from_data__12TCharaMakingFii(M2C_UNK arg0, M2C_UNK arg1) {
     TCharaMaking__sub_8028DD18(arg0, arg1, TCharaMaking__data_805DD92C, 0);
+}
+
+typedef char RecoveredGlobal_8028DE78_lbl_804D9164_size[sizeof(RecoveredGlobal_8028DE78_lbl_804D9164) == 0x414 ? 1 : -1];
+u8 *TCharaMaking__sub_8028DE78(s32 arg0) {
+    s32 var_r3;
+    var_r3 = arg0;
+    if ((var_r3 < 0) || (var_r3 >= 0xD)) {
+        var_r3 = 0;
+    }
+    return (u8 *)&lbl_804D9164.value + (var_r3 * 0x50);
 }
 
 void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {

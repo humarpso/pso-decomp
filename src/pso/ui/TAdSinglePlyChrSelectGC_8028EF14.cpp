@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8029057C_lbl_804D3F74 {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
 extern "C" {
 extern const f32 lbl_805DD944;
 extern const f32 lbl_805DD948;
@@ -11,6 +16,9 @@ extern const f32 lbl_805DD94C;
 extern const f32 lbl_805DD950;
 extern const f32 lbl_805DD954;
 s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
+void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q);
+extern RecoveredGlobal_8029057C_lbl_804D3F74 lbl_804D3F74;
+void TAdSinglePlyChrSelectGC__sub_8029057C(s32 arg0);
 }
 
 extern "C" {
@@ -102,6 +110,11 @@ void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p) { TObjPlayer__sub_
 void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, s32 *, 0xFC));
     M2C_FIELD(arg0, s32 *, 0xFC) = 0;
+}
+
+typedef char RecoveredGlobal_8029057C_lbl_804D3F74_size[sizeof(RecoveredGlobal_8029057C_lbl_804D3F74) == 0x38 ? 1 : -1];
+void TAdSinglePlyChrSelectGC__sub_8029057C(s32 arg0) {
+    TAdSinglePlyChrSelectGC__sub_802905A4((void*)((void *) (arg0)), (void*)((void *) (&lbl_804D3F74.value)));
 }
 
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }

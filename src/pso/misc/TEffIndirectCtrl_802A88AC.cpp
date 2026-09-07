@@ -4,6 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+extern "C" {
+extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
+s32 TEffIndirectCtrl__sub_802A9234(u8 arg0);
+extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
+s32 TEffIndirectCtrl__sub_802A925C(u8 arg0);
+}
+
 extern "C" {
 
 void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1);
@@ -12,7 +29,6 @@ void render__16TEffIndirectCtrlFv(void);
 s32 DCFlushRange(s32, s32);
 s32 TEffIndirectCtrl__sub_802A8CC0(s32, s32, s32, s32, s32, u8);
 s32 TEffIndirectCtrl__sub_802A8E4C(s32, s32, s32, s32, s32, u8);
-s32 TEffIndirectCtrl__sub_802A9234(u8);
 void TLobby__sub_803DA16C(void *);
 void __dl__7TObjectFPv(void *);
 void __dl__FPv(void *);
@@ -39,6 +55,24 @@ void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+typedef char RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
+s32 TEffIndirectCtrl__sub_802A9234(u8 arg0) {
+    u8 var_r3;
+    var_r3 = arg0;
+    if (var_r3 >= 8U) {
+        var_r3 = 0;
+    }
+    return M2C_FIELD(&TEffIndirectCtrl__data_80540AF0.value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)) + 0x20;
+}
+typedef char RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
+s32 TEffIndirectCtrl__sub_802A925C(u8 arg0) {
+    u8 var_r3;
+    var_r3 = arg0;
+    if (var_r3 >= 8U) {
+        var_r3 = 0;
+    }
+    return M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 *)&TEffIndirectCtrl__data_80540AF0).value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)), s32 *, 8);
 }
 
 }

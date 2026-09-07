@@ -4,6 +4,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_800B2948_lbl_8043B2A4 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_800B2948_lbl_80500B00 {
+    M2C_UNK value;
+    u8 remaining[0x3C];
+};
+
+extern "C" {
+void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
+M2C_UNK TObjEneBm3FlyNest__sub_800B29B8(void *);
+extern RecoveredGlobal_800B2948_lbl_8043B2A4 lbl_8043B2A4;
+extern RecoveredGlobal_800B2948_lbl_80500B00 lbl_80500B00;
+extern s32 lbl_805D510C;
+extern s32 lbl_805D5114;
+extern s32 lbl_805D5118;
+void TObjEneBm3FlyNest__sub_800B2948(s32 arg0);
+}
+
 extern "C" {
 
 struct Base_800B2BAC_800B2A14 { char pad[0x18]; };
@@ -45,6 +66,19 @@ int copy_target_state__14TObjEnePanarmsFPvPv(void*);
 int init_params__17TObjEneBm3FlyNestFPv(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv();
+
+typedef char RecoveredGlobal_800B2948_lbl_8043B2A4_size[sizeof(RecoveredGlobal_800B2948_lbl_8043B2A4) == 0x20 ? 1 : -1];
+typedef char RecoveredGlobal_800B2948_lbl_80500B00_size[sizeof(RecoveredGlobal_800B2948_lbl_80500B00) == 0x40 ? 1 : -1];
+void TObjEneBm3FlyNest__sub_800B2948(s32 arg0) {
+    s32 temp_r4;
+    if ((s32) lbl_805D510C == (s32) M2C_FIELD(&lbl_8043B2A4.value, M2C_UNK *, (lbl_805D5118 * 4))) {
+        temp_r4 = lbl_805D5114;
+        lbl_805D5118 += 1;
+        lbl_805D5114 = temp_r4 + 0xC;
+        get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_80500B00.value, temp_r4);
+    }
+    TObjEneBm3FlyNest__sub_800B29B8((void *) (arg0));
+}
 
 int init__17TObjEneBm3FlyNestFPv(void* p) { return init_params__17TObjEneBm3FlyNestFPv(p); }
 int copy_target_state__17TObjEneBm3FlyNestFPv(void* p) { return copy_target_state__14TObjEnePanarmsFPvPv(p); }

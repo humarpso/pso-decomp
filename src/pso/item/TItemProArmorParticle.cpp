@@ -4,6 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803646F0_lbl_8047A020 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct RecoveredGlobal_803646F0___vt__21TItemProArmorParticle {
+    M2C_UNK value;
+    u8 remaining[0xCC];
+};
+
+extern "C" {
+u8 get_slot_count__14TItemProShieldFPv(void *);
+u8 * TItemProArmor__ct(void *, void *);
+extern RecoveredGlobal_803646F0_lbl_8047A020 lbl_8047A020;
+extern M2C_UNK __vt__21TItemProArmorParticle[];
+extern s32 lbl_805D4478;
+u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 void TItemProArmorParticle__vt14(void *arg0);
@@ -69,6 +88,29 @@ void TItemProArmorParticle__vt42(void *arg0) {
 }
 
 extern M2C_UNK lbl_804A05C8[];
+
+typedef char RecoveredGlobal_803646F0_lbl_8047A020_size[sizeof(RecoveredGlobal_803646F0_lbl_8047A020) == 0x30 ? 1 : -1];
+typedef char RecoveredGlobal_803646F0___vt__21TItemProArmorParticle_size[sizeof(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle) == 0xD0 ? 1 : -1];
+u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
+    u8 temp_r0;
+    TItemProArmor__ct(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803646F0___vt__21TItemProArmorParticle *)&__vt__21TItemProArmorParticle).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4478;
+    M2C_FIELD(arg0, s32 *, 0x198) = -1;
+    temp_r0 = get_slot_count__14TItemProShieldFPv(arg0) - 0x29;
+    if (temp_r0 < 0xCU) {
+        M2C_FIELD(arg0, s32 *, 0x19C) = (s32) M2C_FIELD(&lbl_8047A020.value, M2C_UNK *, ((temp_r0 * 4) & 0x3FC));
+        if (temp_r0 < 5U) {
+            M2C_FIELD(arg0, s32 *, 0x1A0) = 1;
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x1A0) = 2;
+        }
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x19C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x1A0) = 0;
+    }
+    return arg0;
+}
 
 void *initialize__21TItemProArmorParticleFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     TItemTimerEvent__ct(arg0);

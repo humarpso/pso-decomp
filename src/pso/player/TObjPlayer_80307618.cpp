@@ -24,8 +24,12 @@ struct VObj_18 : VBase_18 {
     virtual s16 m14();
 };
 
+struct RecoveredGlobal_80307784_lbl_804E70A8 {
+    M2C_UNK value;
+    u8 remaining[0xF4];
+};
+
 extern "C" {
-u8 * TObjPlayer__sub_80307784(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80307800(s32 arg0);
@@ -34,6 +38,11 @@ s32 setup_particle_once__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
 extern const f32 lbl_805DF0AC;
 void TObjPlayer__sub_803076F8(u8 *arg0);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+u8 * TObjPlayer__sub_80120D50(void *, void *);
+M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
+extern M2C_UNK lbl_804E70A8[];
+u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2);
 }
 
 extern "C" {
@@ -53,7 +62,6 @@ M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
-u8 get_slot_count__14TItemProShieldFPv();
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80307858(void *arg0, s16 arg1);
 M2C_UNK queue_destruction__7TObjectFv();
@@ -73,7 +81,7 @@ extern f32 lbl_805DF0A8;
 
 void update_invincible_blink__10TObjPlayerFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) > 0) {
-        if (get_slot_count__14TItemProShieldFPv() == 1) {
+        if (get_slot_count__14TItemProShieldFPv((void *)(arg0)) == 1) {
             M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) - 1);
             if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) == 0) {
                 set_status_flags__10TObjPlayerFPvUi(arg0, 0x800);
@@ -107,6 +115,20 @@ void TObjPlayer__sub_803076F8(u8 *arg0) {
     }
 }
 
+typedef char RecoveredGlobal_80307784_lbl_804E70A8_size[sizeof(RecoveredGlobal_80307784_lbl_804E70A8) == 0xF8 ? 1 : -1];
+u8 *TObjPlayer__sub_80307784(u8 *arg0, u8 *arg1, s32 _w2) {
+    TObjPlayer__sub_80120D50(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80307784_lbl_804E70A8 *)&lbl_804E70A8).value;
+    set_status_flags__10TObjPlayerFPvUi((void *)(arg0), (M2C_UNK)(1));
+    if (get_slot_count__14TItemProShieldFPv((void *)(arg0)) == 1) {
+        set_status_flags__10TObjPlayerFPvUi((void *)(arg0), (M2C_UNK)(0x800));
+    }
+    M2C_FIELD(arg0, s32 *, 0x1F8) = 5;
+    M2C_FIELD(arg0, s32 *, 0x1FC) = 0;
+    M2C_FIELD(arg0, s32 *, 0x200) = 0;
+    return arg0;
+}
+
 u8 *TObjPlayer__sub_80307800(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -114,7 +136,7 @@ u8 *TObjPlayer__sub_80307800(s32 arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_80307784(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(TObjPlayer__sub_80307784((u8 *)(temp_r3), (u8 *)(tl_05), (s32)(arg0)));
         }
         return var_r0;
     }

@@ -4,10 +4,57 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802E14B8_lbl_804C89BC {
+    M2C_UNK value;
+    u8 remaining[0x74];
+};
+
+struct RecoveredGlobal_802E14F0_lbl_804C88C0 {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
+struct RecoveredGlobal_802E1560_lbl_804C89BC {
+    M2C_UNK value;
+    u8 remaining[0x74];
+};
+
+struct RecoveredGlobal_802E1594_lbl_804C88C0 {
+    M2C_UNK value;
+    u8 remaining[0x50];
+};
+
+struct RecoveredGlobal_802E1868_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+struct RecoveredGlobal_802E1868_lbl_8050E3B8 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 int TAdSinglePlyChrSelectGC__sub_802E1A8C(void*, void*, void*, void*, void*);
 void TAdSinglePlyChrSelectGC__sub_802E1A04(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
+extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C89BC;
+s32 TAdSinglePlyChrSelectGC__sub_802E14B8(void);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
+extern RecoveredGlobal_802E14F0_lbl_804C88C0 lbl_804C88C0;
+s32 TAdSinglePlyChrSelectGC__sub_802E14F0(void);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
+extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C89BC;
+s32 TAdSinglePlyChrSelectGC__sub_802E1560(void);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, s32);
+extern RecoveredGlobal_802E14F0_lbl_804C88C0 lbl_804C88C0;
+s32 TAdSinglePlyChrSelectGC__sub_802E1594(void);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+extern RecoveredGlobal_802E1868_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_802E1868_lbl_8050E3B8 lbl_8050E3B8;
+s32 TAdSinglePlyChrSelectGC__sub_802E1868(void);
 }
 
 extern "C" {
@@ -31,11 +78,7 @@ M2C_UNK TAdPlyStatusGC__sub_802E11BC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FF310();
 s32 TAdSinglePlyChrSelectGC__sub_801FF384();
 s32 TAdSinglePlyChrSelectGC__sub_801FF3F4();
-s32 TAdSinglePlyChrSelectGC__sub_802E14B8();
-s32 TAdSinglePlyChrSelectGC__sub_802E14F0();
 s32 TAdSinglePlyChrSelectGC__sub_802E1528();
-s32 TAdSinglePlyChrSelectGC__sub_802E1560();
-s32 TAdSinglePlyChrSelectGC__sub_802E1594();
 s32 TAdSinglePlyChrSelectGC__sub_802E15C8();
 int TAdSinglePlyChrSelectGC__sub_802E1A8C(void*, void*, void*, void*, void*);
 s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(s32 a0 = 0, s32 a1 = 0);
@@ -94,6 +137,26 @@ void *create__23TAdSinglePlyChrSelectGCFv(void) {
         o = init_object__23TAdSinglePlyChrSelectGCFPvPv((void *)((void *)(o)), (void *)((void *)(tl_clipout)));
     }
     return o;
+}
+
+typedef char RecoveredGlobal_802E14B8_lbl_804C89BC_size[sizeof(RecoveredGlobal_802E14B8_lbl_804C89BC) == 0x78 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_802E14B8(void) {
+    return (u8) (TAdPlayerLoadGC__sub_801E2048(0, (s32) &lbl_804C89BC.value) == -0xBF);
+}
+
+typedef char RecoveredGlobal_802E14F0_lbl_804C88C0_size[sizeof(RecoveredGlobal_802E14F0_lbl_804C88C0) == 0x54 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_802E14F0(void) {
+    return (u8) (TAdPlayerLoadGC__sub_801E2048(0, (s32) &lbl_804C88C0.value) == -0xBF);
+}
+
+typedef char RecoveredGlobal_802E1560_lbl_804C89BC_size[sizeof(RecoveredGlobal_802E1560_lbl_804C89BC) == 0x78 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_802E1560(void) {
+    return (u8) (TAdPlayerLoadGC__sub_801E2048(0, (s32) &(*(RecoveredGlobal_802E1560_lbl_804C89BC *)&lbl_804C89BC).value) == 0);
+}
+
+typedef char RecoveredGlobal_802E1594_lbl_804C88C0_size[sizeof(RecoveredGlobal_802E1594_lbl_804C88C0) == 0x54 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_802E1594(void) {
+    return (u8) (TAdPlayerLoadGC__sub_801E2048(0, (s32) &(*(RecoveredGlobal_802E1594_lbl_804C88C0 *)&lbl_804C88C0).value) == 0);
 }
 
 s32 is_load_complete__23TAdSinglePlyChrSelectGCFv(void) {
@@ -191,6 +254,15 @@ block_43:
         }
         return var_r31;
     }
+}
+
+typedef char RecoveredGlobal_802E1868_lbl_8050E208_size[sizeof(RecoveredGlobal_802E1868_lbl_8050E208) == 0x1B0 ? 1 : -1];
+typedef char RecoveredGlobal_802E1868_lbl_8050E3B8_size[sizeof(RecoveredGlobal_802E1868_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+s32 TAdSinglePlyChrSelectGC__sub_802E1868(void) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E3B8.value + 0x20), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
+        return 1;
+    }
+    return 0;
 }
 
 int TAdSinglePlyChrSelectGC__sub_802E18C8(void) { return TKeyBoardControl__sub_8000F9CC((void*)(0)); }

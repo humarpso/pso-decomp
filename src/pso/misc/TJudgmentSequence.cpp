@@ -59,6 +59,16 @@ struct Stack_80215DA0
   f32 spC;
 };
 
+struct RecoveredGlobal_80215EF8___vt__17TJudgmentSequence {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
+struct RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -69,6 +79,16 @@ s32 TWindowSubComCard__sub_8026CBB8(int, f32);
 extern const f32 lbl_805DC680;
 extern const f32 lbl_805DC684;
 void TJudgmentSequence__sub_80215DA0(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK close_message_window__13TShopSequenceFPv(void *);
+M2C_UNK __dt__13TShopSequenceFv(void *, int);
+s32 TShopWindowBase__sub_8022397C(void *);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK TWindow__close(void *);
+extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSequence;
+extern RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 TJudgmentSequence__data_80513E80;
+extern s32 lbl_805D61D0;
+u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -137,5 +157,28 @@ void TJudgmentSequence__sub_80215DA0(u8 *arg0) {
 }
 
 void TJudgmentSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
+typedef char RecoveredGlobal_80215EF8___vt__17TJudgmentSequence_size[sizeof(RecoveredGlobal_80215EF8___vt__17TJudgmentSequence) == 0x38 ? 1 : -1];
+typedef char RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80_size[sizeof(RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80) == 0x10 ? 1 : -1];
+u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TJudgmentSequence.value;
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x30));
+            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        }
+        close_message_window__13TShopSequenceFPv((void *) (arg0));
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x2C));
+            M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+        }
+        lbl_805D61D0 = 0;
+        M2C_FIELD(&TJudgmentSequence__data_80513E80.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
+        __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
+}
 
 }

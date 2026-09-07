@@ -4,6 +4,31 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_801A7310 {
+    s8 sp8;
+    s8 sp9;
+    s16 spA;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+extern "C" {
+s32 TCameraCtrl__sub_8006A5EC(int);
+s32 set_scripted_camera_pose(int, int, void *);
+s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+extern const f32 lbl_805DC0D0;
+extern const f32 lbl_805DC0D4;
+void TCameraCtrl__sub_801A7310(u8 *arg0, s8 arg1);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_801A72C8(void);
@@ -25,6 +50,28 @@ extern const f32 lbl_805DC0D4;
 
 void TObjPlayer__sub_801A72EC(void) {
     TObjPlayer__sub_801A720C(lbl_805DC0D4);
+}
+typedef char RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
+void TCameraCtrl__sub_801A7310(u8 *arg0, s8 arg1) {
+    typedef char sp8_offset[(offsetof(Stack_801A7310, sp8) == 0x0) ? 1 : -1];
+    typedef char sp9_offset[(offsetof(Stack_801A7310, sp9) == 0x1) ? 1 : -1];
+    typedef char spA_offset[(offsetof(Stack_801A7310, spA) == 0x2) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_801A7310, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_801A7310, sp10) == 0x8) ? 1 : -1];
+    Stack_801A7310 stack;
+    s32 temp_r3;
+    stack.sp9 = arg1;
+    stack.sp8 = get_global_state__14TOKeyMachine01Fv() == 0xE;
+    stack.spA = 0;
+    stack.spC = lbl_805DC0D0;
+    stack.sp10 = lbl_805DC0D4;
+    if ((M2C_FIELD(&TCameraCtrl__data_804FF628.value, s32 *, 8) & 4) || (M2C_FIELD(&TCameraCtrl__data_804FF628.value, s32 *, 8) & 8)) {
+        TCameraCtrl__sub_8006A5EC((int) (5));
+    }
+    cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x4222));
+    temp_r3 = (long) (arg0 + 0x38);
+    set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
+    M2C_FIELD(arg0, s32 *, 0xFC) = 1;
 }
 
 }

@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801FA964_lbl_804C8784 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 {
+    M2C_UNK value;
+    u8 remaining[0x74];
+};
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
@@ -11,7 +21,6 @@ M2C_UNK TRaderMapCore__sub_801FA1E0(void *);
 M2C_UNK TRaderMapCore__sub_801FA350(void *);
 M2C_UNK TRaderMapCore__sub_801FA6CC(void *, void *);
 M2C_UNK TRaderMapCore__sub_801FA880(void *, void *);
-M2C_UNK TRaderMapCore__sub_801FA964(void *, void *);
 M2C_UNK TRaderMapCore__sub_801FA9D8(void *, void *);
 M2C_UNK TRaderMapCore__sub_801FAAEC(void *, void *);
 s32 TRaderMapCore__sub_801FADF0(void *, void *);
@@ -31,6 +40,22 @@ void TRaderMapCore__sub_801F9144(void);
 s32 TRaderMapCore__sub_801FADF0(void *, void *);
 extern s32 TRaderMapCore__data_805D5F3C;
 s32 TRaderMapCore__sub_801F9058(u8 *arg0);
+M2C_UNK TCameraCtrl__sub_8006AF9C(void *, int);
+M2C_UNK TObjLight__sub_80133F6C();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TCameraCtrl__sub_801E32D8(f32, f32);
+M2C_UNK TRaderMapCore__sub_801F9228(void *, int, void *);
+M2C_UNK GXSetScissorBoxOffset(int, int);
+extern RecoveredGlobal_801FA964_lbl_804C8784 lbl_804C8784;
+extern s32 lbl_805D4DF0;
+extern const f32 TRaderMapCore__data_805DC538;
+extern const f32 TRaderMapCore__data_805DC53C;
+void TRaderMapCore__sub_801FA964(s32 arg0, s32 arg1);
+extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data_80513708;
+extern const f32 lbl_805D35F4;
+extern const f32 lbl_805D35F8;
+extern s32 TRaderMapCore__data_805D5F3C;
+void TRaderMapCore__sub_801F9720(f32 farg0);
 }
 
 extern "C" {
@@ -91,10 +116,35 @@ void TRaderMapCore__sub_801F9144(void) {
 
 void free_heap__13TRaderMapCoreFv(void) { __dt__5THeapFv((void*)(TRaderMapCore__data_805D5F50), (void*)1); TRaderMapCore__data_805D5F50 = 0; }
 
+typedef char RecoveredGlobal_801F9720_TRaderMapCore__data_80513708_size[sizeof(RecoveredGlobal_801F9720_TRaderMapCore__data_80513708) == 0x78 ? 1 : -1];
+void TRaderMapCore__sub_801F9720(f32 farg0) {
+    f32 temp_f0;
+    if (((s32) TRaderMapCore__data_805D5F3C == 1) || ((s32) TRaderMapCore__data_805D5F3C == 2)) {
+        temp_f0 = M2C_FIELD(&TRaderMapCore__data_80513708.value, f32 *, 0x2C) + farg0;
+        M2C_FIELD(&TRaderMapCore__data_80513708.value, f32 *, 0x2C) = temp_f0;
+        if (temp_f0 < lbl_805D35F4) {
+            M2C_FIELD(&TRaderMapCore__data_80513708.value, f32 *, 0x2C) = (f32) lbl_805D35F4;
+        }
+        if (M2C_FIELD(&TRaderMapCore__data_80513708.value, f32 *, 0x2C) > lbl_805D35F8) {
+            M2C_FIELD(&TRaderMapCore__data_80513708.value, f32 *, 0x2C) = (f32) lbl_805D35F8;
+        }
+    }
+}
+
 void copy_transform__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(u32*)((char*)p + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)p + 0x1c) = *(u32*)((char*)q + 0x1c); *(f32*)((char*)p + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }
 
 extern s32 lbl_805D53A0;
 extern s32 lbl_805DC56C;
+
+typedef char RecoveredGlobal_801FA964_lbl_804C8784_size[sizeof(RecoveredGlobal_801FA964_lbl_804C8784) == 0x30 ? 1 : -1];
+void TRaderMapCore__sub_801FA964(s32 arg0, s32 arg1) {
+    GXSetScissorBoxOffset((int) (0), (int) (0));
+    TCameraCtrl__sub_801E32D8((f32) (TRaderMapCore__data_805DC538), (f32) (TRaderMapCore__data_805DC53C));
+    TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
+    TRaderMapCore__sub_801F9228((void *) (arg0), (int) (0), (void *) ((u8 *)&lbl_804C8784.value + (arg1 * 0x10)));
+    TObjLight__sub_80133F6C();
+    end_effect_render__13TParticleCtrlFv();
+}
 
 void render__13TRaderMapCoreFv(u8 *arg0) {
     if ((u32) TRaderMapCore__data_805D5F28 != 0U) {
@@ -110,7 +160,7 @@ void render__13TRaderMapCoreFv(u8 *arg0) {
             TRaderMapCore__sub_801FAAEC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
             TRaderMapCore__sub_801FA1E0((void *) (arg0));
             TRaderMapCore__sub_801FA350((void *) (arg0));
-            TRaderMapCore__sub_801FA964((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA964((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
             TRaderMapCore__sub_801FA6CC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
             break;
         case 1:
@@ -121,7 +171,7 @@ void render__13TRaderMapCoreFv(u8 *arg0) {
             TRaderMapCore__sub_801FAAEC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
             TRaderMapCore__sub_801FA1E0((void *) (arg0));
             TRaderMapCore__sub_801FA350((void *) (arg0));
-            TRaderMapCore__sub_801FA964((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA964((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
             TCameraCtrl__sub_80069024();
             M2C_FIELD(arg0, s32 *, 0x174) = 0;
             TRaderMapCore__sub_801FA6CC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
@@ -133,7 +183,7 @@ void render__13TRaderMapCoreFv(u8 *arg0) {
             TRaderMapCore__sub_801FAAEC((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
             TRaderMapCore__sub_801FA1E0((void *) (arg0));
             TRaderMapCore__sub_801FA350((void *) (arg0));
-            TRaderMapCore__sub_801FA964((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+            TRaderMapCore__sub_801FA964((s32)((void *) (arg0)), (s32)((void *) (TRaderMapCore__data_805D5F3C)));
             break;
         }
         lbl_805D5F2C = 0;

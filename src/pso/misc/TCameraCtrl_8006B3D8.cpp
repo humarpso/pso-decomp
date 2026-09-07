@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8006BA08_lbl_80488B08 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct RecoveredGlobal_8006B4A0_lbl_804381E0 {
+    M2C_UNK value;
+    u8 remaining[0x1DC];
+};
+
 extern "C" {
 s32 is_split_screen(void);
 u8 * TCameraCtrl__sub_8006B588(void *, s32, s32, s32);
@@ -11,6 +21,17 @@ void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D53A0;
 extern s32 tl_07;
 u8 *TCameraCtrl__sub_8006B438(s32 arg0);
+u8 * TCameraCtrl__sub_800686BC(void *, s16);
+void __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_8006BA08_lbl_80488B08 lbl_80488B08;
+extern s32 TCameraCtrl__data_805D4E10;
+u8 *TCameraCtrl__sub_8006BA08(u8 *arg0, s16 arg1);
+void TCameraCtrl__sub_80069C94(void *, void *);
+s32 approach_camera_vector(void *, void *, f32);
+extern RecoveredGlobal_8006B4A0_lbl_804381E0 lbl_804381E0;
+extern s32 TCameraCtrl__data_805D4E10;
+extern const f32 lbl_805D8FF8;
+void TCameraCtrl__sub_8006B4A0(u8 *arg0);
 }
 
 extern "C" {
@@ -68,6 +89,14 @@ u8 *TCameraCtrl__sub_8006B438(s32 arg0) {
         var_r0 = (u8 *)(TCameraCtrl__sub_8006B588(temp_r3, temp_r31, arg0, tl_07));
     }
     return var_r0;
+}
+
+typedef char RecoveredGlobal_8006B4A0_lbl_804381E0_size[sizeof(RecoveredGlobal_8006B4A0_lbl_804381E0) == 0x1E0 ? 1 : -1];
+void TCameraCtrl__sub_8006B4A0(u8 *arg0) {
+    approach_camera_vector(arg0 + 0x1C, (u8 *)&lbl_804381E0.value + (M2C_FIELD(arg0, s32 *, 0x34) * 0x18), lbl_805D8FF8);
+    approach_camera_vector(arg0 + 0x28, (u8 *)&lbl_804381E0.value + (M2C_FIELD(arg0, s32 *, 0x34) * 0x18) + 0xC, lbl_805D8FF8);
+    TCameraCtrl__data_805D4E10 = 1;
+    TCameraCtrl__sub_80069C94(arg0 + 0x1C, arg0 + 0x28);
 }
 
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1) {
@@ -135,5 +164,17 @@ void copy_camera_params__11TCameraCtrlFPv(void *arg0) {
 }
 
 void TCameraCtrl__sub_8006BA04(void) {  }
+typedef char RecoveredGlobal_8006BA08_lbl_80488B08_size[sizeof(RecoveredGlobal_8006BA08_lbl_80488B08) == 0x30 ? 1 : -1];
+u8 *TCameraCtrl__sub_8006BA08(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80488B08.value;
+        TCameraCtrl__data_805D4E10 = 0;
+        TCameraCtrl__sub_800686BC(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
+}
 
 }

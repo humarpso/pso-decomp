@@ -4,6 +4,43 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_800D4668_lbl_80494400 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_800D4668_lbl_8049442C {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
+struct RecoveredGlobal_800D4668_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+extern "C" {
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u16 obj_getField1c(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 TObjPlayer__sub_801569F4(void *, int);
+s32 TScene__sub_803D8DB4(int, int, int);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern RecoveredGlobal_800D4668_lbl_80494400 lbl_80494400;
+extern M2C_UNK lbl_8049442C[];
+extern RecoveredGlobal_800D4668_lbl_8058D490 lbl_8058D490;
+extern s32 lbl_805D51FC;
+extern s32 tl_04;
+extern const f32 lbl_805DA2A4;
+extern const f32 lbl_805DA2A8;
+extern const f32 lbl_805DA2B4;
+extern const f32 lbl_805DA2B8;
+u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
+}
+
 extern "C" {
 
 void *__dt__19TObjGyaranzoMissileFv(void *arg0, s16 arg1);
@@ -43,6 +80,42 @@ void *destroy__19TObjGyaranzoMissileFPvs(void *arg0, s16 arg1) {
 extern s32 lbl_805D51FC;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DA2C4;
+
+typedef char RecoveredGlobal_800D4668_lbl_80494400_size[sizeof(RecoveredGlobal_800D4668_lbl_80494400) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_800D4668_lbl_8049442C_size[sizeof(RecoveredGlobal_800D4668_lbl_8049442C) == 0x3C ? 1 : -1];
+typedef char RecoveredGlobal_800D4668_lbl_8058D490_size[sizeof(RecoveredGlobal_800D4668_lbl_8058D490) == 0x30 ? 1 : -1];
+u8 *TObjGyaranzoMissile__sub_800D4668(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
+    u8 *temp_r4;
+    TObjPlayer__sub_801569F4((void *) (arg0), (int) (tl_04));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800D4668_lbl_8049442C *)&lbl_8049442C).value;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xE0), (void *) (arg0 + 0x38));
+    M2C_FIELD(arg0, f32 *, 0xE4) = (f32) (M2C_FIELD(arg0, f32 *, 0xE4) + lbl_805DA2A8);
+    M2C_FIELD(arg0, s32 *, 0xDC) = arg4;
+    M2C_FIELD(arg0, s32 *, 0xC4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D51FC), u8 **, 0x42C), s32 *, 0x58);
+    M2C_FIELD(arg0, s32 *, 0xC8) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D51FC), u8 **, 0x42C), s32 *, 0x5C);
+    M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0x28);
+    M2C_FIELD(arg0, u16 *, 0xD8) = obj_getField1c((void *) (arg1));
+    M2C_FIELD(arg0, s32 *, 0xB8) = 0;
+    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (arg3 + 0x8000);
+    M2C_FIELD(arg0, s32 *, 0xC0) = -0x4000;
+    M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+    M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    M2C_FIELD(arg0, f32 *, 0xAC) = (f32) lbl_805DA2A4;
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DA2A4;
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805DA2B4;
+    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xBC)));
+    temp_r4 = (u8 *)(arg0 + 0xAC);
+    TScene__sub_803D8DB4((int) (0), (int) (temp_r4), (int) (temp_r4));
+    TObjPlayer__sub_803D9B78();
+    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DA2A4;
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_80494400.value), (int) (1));
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = (f32) lbl_805DA2B8;
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0xEC) = 0xF;
+    return arg0;
+}
 
 void render__19TObjGyaranzoMissileFv(u8 *arg0) {
     TObjFish__sub_8001EDB0((void *) (lbl_805D51FC), (int) (6));

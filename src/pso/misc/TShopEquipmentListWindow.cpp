@@ -45,6 +45,21 @@ struct VObj_8021C0D0_8021B974 : Base_8021C0D0_8021B974 {
     virtual int  m8();
 };
 
+struct RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+extern "C" {
+s32 calc_item_count__18TShopGetItemWindowFPvPv(int, void *);
+s32 TShopWindowBase__sub_8022397C(void *);
+s32 __ct__15TShopWindowBaseFv(void *);
+s32 TLobby__sub_80225238(void *, int);
+extern M2C_UNK __vt__24TShopEquipmentListWindow[];
+extern s32 lbl_805D36A8;
+u8 *TShopEquipmentListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+}
+
 extern "C" {
 
 int TShopEquipmentListWindow__sub_8021C85C(int a0);
@@ -155,6 +170,30 @@ void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1) {
 }
 
     extern int lbl_80513F40[];
+
+typedef char RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow_size[sizeof(RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow) == 0x30 ? 1 : -1];
+u8 *TShopEquipmentListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+    s32 sp8;
+    __ct__15TShopWindowBaseFv((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8021C7C0___vt__24TShopEquipmentListWindow *)&__vt__24TShopEquipmentListWindow).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36A8;
+    M2C_FIELD(arg0, s32 *, 0x24) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x28) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x190) = 0;
+    calc_item_count__18TShopGetItemWindowFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (&sp8));
+    TLobby__sub_80225238((void *) (TShopWindowBase__sub_8022397C((void *) (arg0))), (int) (sp8));
+    return arg0;
+}
+
 int TShopEquipmentListWindow__sub_8021C85C(int a0) {  return lbl_80513F40[a0]; }
 
 }

@@ -7,6 +7,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8035B2DC_lbl_804F1CB8 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8035B2DC_lbl_804F1CB8_size[sizeof(RecoveredGlobal_8035B2DC_lbl_804F1CB8) == 0x10 ? 1 : -1];
 
+struct RecoveredGlobal_8035B630_lbl_804A7488 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TPlyPhotonChair__sub_801427D0(void *);
@@ -25,6 +30,9 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8035B2DC_lbl_804F1CB8 lbl_804F1CB8;
 extern u32 TPlyPhotonChair__data_805D6F40;
 s32 TPlyPhotonChair__sub_8035B2DC(void);
+void TPlyPhotonChair__sub_8035B66C(void* p);
+extern RecoveredGlobal_8035B630_lbl_804A7488 lbl_804A7488;
+u8 *TPlyPhotonChair__sub_8035B630(u8 *arg0);
 }
 
 extern "C" {
@@ -44,7 +52,6 @@ void set_state_ready__15TPlyPhotonChairFPv(void* p);
 void set_type__15TPlyPhotonChairFPvi(void* p, s32 v);
 void sync_field10_from_child__15TPlyPhotonChairFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-void TPlyPhotonChair__sub_8035B630(void *);
 void __dl__7TObjectFPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
 void destroy__11TMainCursorFPvs(void *, int);
@@ -144,7 +151,7 @@ void set_type__15TPlyPhotonChairFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x0) =
 extern M2C_UNK lbl_804A7478[];
 
 void *init__15TPlyPhotonChairFPv(void *arg0) {
-    TPlyPhotonChair__sub_8035B630(arg0);
+    TPlyPhotonChair__sub_8035B630((u8 *)(arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x4) = lbl_804A7478;
     TPlyPhotonChair__sub_8035B610((void*)(arg0));
     return arg0;
@@ -152,6 +159,13 @@ void *init__15TPlyPhotonChairFPv(void *arg0) {
 
     extern const float lbl_805E012C;
 void TPlyPhotonChair__sub_8035B610(void* a0) { *(int*)((char*)a0 + 0x8) = 0; *(float*)((char*)a0 + 0xc) = lbl_805E012C; *(float*)((char*)a0 + 0x10) = lbl_805E012C; *(float*)((char*)a0 + 0x14) = lbl_805E012C; *(int*)((char*)a0 + 0x18) = 0; }
+
+typedef char RecoveredGlobal_8035B630_lbl_804A7488_size[sizeof(RecoveredGlobal_8035B630_lbl_804A7488) == 0x10 ? 1 : -1];
+u8 *TPlyPhotonChair__sub_8035B630(u8 *arg0) {
+    M2C_FIELD(arg0, M2C_UNK **, 4) = &lbl_804A7488.value;
+    TPlyPhotonChair__sub_8035B66C((void*)((void *) (arg0)));
+    return arg0;
+}
 
 void TPlyPhotonChair__sub_8035B66C(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 

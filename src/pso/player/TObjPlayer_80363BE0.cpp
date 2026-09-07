@@ -4,11 +4,55 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803640C8_lbl_8058D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_8036414C_lbl_8058D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_80364198_lbl_8058D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_803640F8_lbl_8058D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+extern "C" {
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+extern RecoveredGlobal_803640C8_lbl_8058D4C0 lbl_8058D4C0;
+extern void *lbl_805D6FB8;
+void TObjPlayer__sub_803640C8(void);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+extern RecoveredGlobal_803640C8_lbl_8058D4C0 lbl_8058D4C0;
+extern void *lbl_805D6FB8;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+void TObjPlayer__sub_8036414C(void);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+extern RecoveredGlobal_803640C8_lbl_8058D4C0 lbl_8058D4C0;
+extern void *lbl_805D6FB8;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+void TObjPlayer__sub_80364198(void);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+extern RecoveredGlobal_803640C8_lbl_8058D4C0 lbl_8058D4C0;
+extern void *lbl_805D6FB8;
+void TObjPlayer__sub_803640F8(M2C_UNK *arg0);
+}
+
 extern "C" {
 
 void spawn_cleanup_helper__10TObjPlayerFPv(void *arg0);
 void warn_if_gauge_low__10TObjPlayerFv(void);
-M2C_UNK TObjPlayer__sub_803640C8();
 M2C_UNK TObjPlayer__sub_803E38FC(M2C_UNK);
 void *__nw__7TObjectFUl(int);
 void *init_vtable_804F2A10__10TObjPlayerFPv(void *, void *);
@@ -29,6 +73,33 @@ void warn_if_gauge_low__10TObjPlayerFv(void) {
         TObjPlayer__sub_803E38FC(0x2500);
         TObjPlayer__sub_803640C8();
     }
+}
+typedef char RecoveredGlobal_803640C8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640C8_lbl_8058D4C0) == 0x10 ? 1 : -1];
+void TObjPlayer__sub_803640C8(void) {
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C));
+}
+typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8036414C_lbl_8058D4C0) == 0x10 ? 1 : -1];
+
+typedef char RecoveredGlobal_803640F8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640F8_lbl_8058D4C0) == 0x10 ? 1 : -1];
+void TObjPlayer__sub_803640F8(M2C_UNK *arg0) {
+    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C), (void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&lbl_8058D4C0).value));
+    if (arg0 != NULL) {
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&lbl_8058D4C0).value), (void *) (arg0));
+    }
+}
+
+void TObjPlayer__sub_8036414C(void) {
+    some_id_805c6f74 = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 0);
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&lbl_8058D4C0).value), (void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC));
+    lbl_805D7784 = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 4);
+    lbl_805D7780 = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 8);
+}
+typedef char RecoveredGlobal_80364198_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80364198_lbl_8058D4C0) == 0x10 ? 1 : -1];
+void TObjPlayer__sub_80364198(void) {
+    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 0) = (s32) some_id_805c6f74;
+    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC), (void *) (&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&lbl_8058D4C0).value));
+    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 4) = (s32) lbl_805D7784;
+    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 8) = (s32) lbl_805D7780;
 }
 
 }

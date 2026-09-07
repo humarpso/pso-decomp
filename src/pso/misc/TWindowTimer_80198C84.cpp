@@ -18,6 +18,11 @@ struct Stack_80198DCC {
 struct RecoveredGlobal_80198DCC_lbl_8050E208 { M2C_UNK value; u8 remaining[0x1AC]; };
 typedef char RecoveredGlobal_80198DCC_lbl_8050E208_size[sizeof(RecoveredGlobal_80198DCC_lbl_8050E208) == 0x1B0 ? 1 : -1];
 
+struct RecoveredGlobal_80198CF8_lbl_804B8DE8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 M2C_UNK send_gogo_ball__12TWindowTimerFi(void *);
 M2C_UNK TWindowTimer__sub_8019A6F8(void *);
@@ -25,6 +30,11 @@ s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
 M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 extern RecoveredGlobal_80198DCC_lbl_8050E208 lbl_8050E208;
 void TWindowTimer__sub_80198DCC(u8 *arg0, s32 arg1, s32 arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_804B8DE8[];
+extern const f32 lbl_805DBF50;
+u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, u8 *arg5);
 }
 
 extern "C" {
@@ -52,6 +62,25 @@ void *TWindowTimer__sub_80198C84(void *arg0, s16 arg1) {
 }
 
 extern s32 tl_03;
+
+typedef char RecoveredGlobal_80198CF8_lbl_804B8DE8_size[sizeof(RecoveredGlobal_80198CF8_lbl_804B8DE8) == 0x18 ? 1 : -1];
+u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, u8 *arg5) {
+    __ct__7TObjectFP7TObject(arg0, arg5);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80198CF8_lbl_804B8DE8 *)&lbl_804B8DE8).value;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg1);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg0 + 0x1C);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) - lbl_805DBF50);
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x48) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x44) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x50) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x54) = arg4;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    return arg0;
+}
 
 void TWindowTimer__sub_80198D98(void) {
     void *obj = __nw__7TObjectFUl(0x20);

@@ -37,6 +37,11 @@ struct VObj_8009E7C4_8009E474 : Base_8009E7C4_8009E474 {
     virtual s32 m114(s32);
 };
 
+struct RecoveredGlobal_8009E4AC_lbl_8043A2A0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 void TObjEneMe1Canadin__sub_8009E930(u8 *arg0);
 void TObjEneMe1Canadin__sub_8009E948(u8 *arg0);
@@ -46,6 +51,9 @@ s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
 void TObjEneMe1Canadin__vt103(u8 *arg0);
 extern const f32 lbl_805D991C;
 s32 TObjEneMe1Canadin__sub_8009E76C(u8 *arg0);
+void reset_map_core__17TObjEneMe1CanadinFPv(void *, void *);
+extern RecoveredGlobal_8009E4AC_lbl_8043A2A0 lbl_8043A2A0;
+void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -56,7 +64,6 @@ void advance_state_5_to_4__17TObjEneMe1CanadinFPv(void *arg0);
 int call_dd_vt86__17TObjEneMe1CanadinFPv(void* p);
 s32 check_target__17TObjEneMe1CanadinFPv(void *arg0);
 void noop__17TObjEneMe1CanadinFv(void);
-void reset_map_core__17TObjEneMe1CanadinFPv(void* p);
 int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p);
 s32 try_trigger_action__17TObjEneMe1CanadinFPv(void *arg0);
 void update_move__17TObjEneMe1CanadinFPv(void* p);
@@ -72,7 +79,16 @@ int select_and_apply_target__14TObjEneEpsilonFPvf(void*);
 int update_angle__17TObjEneMe1CanadinFPv(void*);
 int update_velocity__9TObjEneDDFPv(void*);
 
-void reset_map_core__17TObjEneMe1CanadinFPv(void* p) { copy_vec4__13TRaderMapCoreFPvPv((char*)p + 0x4a4); TObjEneMe1Canadin__sub_8009E3E4(p); }
+void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1) { copy_vec4__13TRaderMapCoreFPvPv((char*)p + 0x4a4); TObjEneMe1Canadin__sub_8009E3E4(p); }
+
+typedef char RecoveredGlobal_8009E4AC_lbl_8043A2A0_size[sizeof(RecoveredGlobal_8009E4AC_lbl_8043A2A0) == 0x10 ? 1 : -1];
+void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1) {
+    reset_map_core__17TObjEneMe1CanadinFPv((void *)((void *) (arg0)), (void *)((void *) (&lbl_8043A2A0.value)));
+    M2C_FIELD(arg0, s32 *, 0x4B8) = 3;
+    M2C_FIELD(arg0, s32 *, 0x4BC) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x4C0) = 2;
+    M2C_FIELD(arg0, s32 *, 0x4C4) = 0;
+}
 
 int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
 

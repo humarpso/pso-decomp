@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
@@ -20,6 +25,12 @@ s32 get_param__8TFogCtrlFPv(void* p);
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TFogCtrl__sub_800FB424(int, int, int);
 s32 TFogCtrl__sub_800FB06C(u8 *arg0, s32 arg1, s32 arg2);
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+s32 TCameraCtrl__sub_80068958(int);
+void clear_active_flag__8TFogCtrlFPv(void *arg0);
+extern M2C_UNK TFogCtrl__data_80501188[];
+void TFogCtrl__sub_800FAD08(void);
 }
 
 extern "C" {
@@ -64,6 +75,17 @@ int TFogCtrl__sub_800FAC90(void) { return 0; }
 void* get_entry__8TFogCtrlFi(int a0) {  return (char*)(lbl_805D5388) + a0 * 64; }
 
 extern M2C_UNK TFogCtrl__data_80501188[];
+
+typedef char RecoveredGlobal_800FAD08_TFogCtrl__data_80501188_size[sizeof(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188) == 0x10 ? 1 : -1];
+void TFogCtrl__sub_800FAD08(void) {
+    u32 temp_r3;
+    if (is_split_screen() == 1) {
+        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 *)&TFogCtrl__data_80501188).value, M2C_UNK *, ((TCameraCtrl__sub_80068958((int) (get_camera_mode__11TCameraCtrlFv())) * 4) & 0x3FFFC));
+        if (temp_r3 != 0U) {
+            clear_active_flag__8TFogCtrlFPv((void *)((int) (temp_r3)));
+        }
+    }
+}
 
 void update_all__8TFogCtrlFv(void) {
     s32 var_r29;

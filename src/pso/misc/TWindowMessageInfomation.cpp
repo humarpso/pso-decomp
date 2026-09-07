@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8026A100___vt__24TWindowMessageInfomation {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+u8 * TWindowMessage__ct(void *, s32, u32, s16);
+extern M2C_UNK __vt__24TWindowMessageInfomation[];
+extern s32 lbl_805D3988;
+u8 *TWindowMessageInfomation__ct(u8 *arg0, s32 arg1, s16 arg2);
+}
+
 extern "C" {
 
 void *__dt__24TWindowMessageInfomationFv(void *arg0, s16 arg1);
@@ -28,6 +40,13 @@ void *__dt__24TWindowMessageInfomationFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8026A100___vt__24TWindowMessageInfomation_size[sizeof(RecoveredGlobal_8026A100___vt__24TWindowMessageInfomation) == 0x18 ? 1 : -1];
+u8 *TWindowMessageInfomation__ct(u8 *arg0, s32 arg1, s16 arg2) {
+    TWindowMessage__ct(arg0, arg1, 0x10U, arg2);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026A100___vt__24TWindowMessageInfomation *)&__vt__24TWindowMessageInfomation).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3988;
     return arg0;
 }
 

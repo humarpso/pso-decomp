@@ -4,6 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK __vt__15TObjBoss5Pillar[];
+extern s32 lbl_805D3B40;
+extern u8 *lbl_805D4DD8;
+extern const f32 lbl_805DD918;
+extern const f32 lbl_805DD91C;
+u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2);
+}
+
 extern "C" {
 
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
@@ -48,6 +64,23 @@ void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar_size[sizeof(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar) == 0x18 ? 1 : -1];
+u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar *)&__vt__15TObjBoss5Pillar).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B40;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg2);
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805DD918;
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DD91C;
+    M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    M2C_FIELD(arg0, s32 *, 0x48) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4DD8, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4DD8, u8 **, 0x42C), s32 *, 0x18);
+    M2C_FIELD(arg0, s32 *, 0x40) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4DD8, u8 **, 0x430), s32 *, 0x14);
+    M2C_FIELD(arg0, s32 *, 0x44) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4DD8, u8 **, 0x430), s32 *, 0x1C);
     return arg0;
 }
 

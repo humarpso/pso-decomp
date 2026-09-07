@@ -11,9 +11,19 @@ struct VObj_802A63F8_802A62E8 : Base_802A63F8_802A62E8 {
     virtual void m12();
 };
 
+struct RecoveredGlobal_802A6438_lbl_804DD388 {
+    M2C_UNK value;
+    u8 remaining[0x35C];
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *TObjSeabedSuisoBrakable__ct(void *, void *);
+s32 get_instance__23TObjSeabedSuisoBrakableFv(int);
+s32 TObjSeabedSuisoBrakable__sub_802A6F04(int);
+extern RecoveredGlobal_802A6438_lbl_804DD388 lbl_804DD388;
+extern const f32 lbl_805DDFFC;
+void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
 }
 
 extern "C" {
@@ -82,6 +92,22 @@ void render__23TObjSeabedSuisoBrakableFv(void *arg0) {
     struct VObj_802A63F8_802A62E8 *o = (struct VObj_802A63F8_802A62E8 *)arg0;
     o->m12();
     TORockCave__sub_80175134(arg0);
+}
+
+typedef char RecoveredGlobal_802A6438_lbl_804DD388_size[sizeof(RecoveredGlobal_802A6438_lbl_804DD388) == 0x360 ? 1 : -1];
+void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0) {
+    M2C_UNK *var_r3;
+    f32 var_f0;
+    u8 *var_r31;
+    var_r31 = (u8 *)(arg0);
+    var_r3 = (M2C_UNK *)(&lbl_804DD388.value);
+    var_r3 = (M2C_UNK *)(&lbl_804DD388.value);
+    var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804DD388.value, M2C_UNK *, (M2C_FIELD(var_r31, s32 *, 0xBC) * 0x120)));
+    M2C_FIELD(var_r31, s32 *, 0x34) = TObjSeabedSuisoBrakable__sub_802A6F04((int) (var_r3));
+    var_r3 = (M2C_UNK *)((u8 *)(NULL));
+    M2C_FIELD(var_r31, s32 *, 0x24) = get_instance__23TObjSeabedSuisoBrakableFv((int) (0));
+    var_f0 = lbl_805DDFFC;
+    M2C_FIELD(var_r31, f32 *, 0xB0) = var_f0;
 }
 
 void TObjSeabedSuisoBrakable__vt15(void) {  }

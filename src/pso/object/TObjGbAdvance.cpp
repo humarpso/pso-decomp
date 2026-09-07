@@ -4,6 +4,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80187F78_lbl_804B6280 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_80187F78___vt__13TObjGbAdvance {
+    M2C_UNK value;
+    u8 remaining[0x40];
+};
+
+extern "C" {
+void reset_photon_effect__10TObjPlayerFPv(s32);
+u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+void set_type__14TOKeyAncient01FPv(void *);
+u8 * TObjMesBase__ct(void *, s32);
+extern RecoveredGlobal_80187F78_lbl_804B6280 lbl_804B6280;
+extern M2C_UNK __vt__13TObjGbAdvance[];
+extern s32 lbl_805D32D0;
+u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TObjGbAdvance__vt12(void *arg0);
@@ -34,6 +55,18 @@ void *__dt__13TObjGbAdvanceFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_80187F78_lbl_804B6280_size[sizeof(RecoveredGlobal_80187F78_lbl_804B6280) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_80187F78___vt__13TObjGbAdvance_size[sizeof(RecoveredGlobal_80187F78___vt__13TObjGbAdvance) == 0x44 ? 1 : -1];
+u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1) {
+    TObjMesBase__ct(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80187F78___vt__13TObjGbAdvance *)&__vt__13TObjGbAdvance).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32D0;
+    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B6280.value, 1);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    set_type__14TOKeyAncient01FPv(arg0 + 0x98);
     return arg0;
 }
 

@@ -4,6 +4,46 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F90C_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F9CC_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F8FC_lbl_804FE120 {
+    s32 value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F8EC_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_8000F91C_lbl_804FE120 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
@@ -17,6 +57,28 @@ extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F998(void);
 extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F9A4(void);
+s32 flush_input__16TKeyBoardControlFv(void);
+M2C_UNK reset_state_byte__6TLobbyFv();
+M2C_UNK disable_disconnected_ports__16TKeyBoardControlFv(void *);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802430F4();
+M2C_UNK TKeyBoardControl__sub_803DEA18();
+extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+void TKeyBoardControl__sub_8000F764(void);
+M2C_UNK run_tasks__7TObjectFv(M2C_UNK *);
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80515F48;
+void TKeyBoardControl__sub_8000F7FC(void);
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+void TKeyBoardControl__sub_8000F9E4(void);
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+void TKeyBoardControl__sub_8000F90C(s32 arg0);
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+void TKeyBoardControl__sub_8000F9CC(s32 arg0);
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+s32 get_main_phase(void);
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+s32 TKeyBoardControl__sub_8000F8EC(void);
+extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
+void TKeyBoardControl__sub_8000F91C(s32 arg0);
 }
 
 extern "C" {
@@ -62,6 +124,15 @@ int xfree__FPv(void*);
 extern M2C_UNK lbl_80515F70[];
 extern s32 lbl_805D62B0;
 
+typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+void TKeyBoardControl__sub_8000F764(void) {
+    TKeyBoardControl__sub_803DEA18();
+    disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__data_80506270.value));
+    flush_input__16TKeyBoardControlFv();
+    TAdSinglePlyChrSelectGC__sub_802430F4();
+    reset_state_byte__6TLobbyFv();
+}
+
 void run_tasks__16TKeyBoardControlFv(void) {
     TObjPlayer__sub_80083FB0();
     TLobby__sub_80228074();
@@ -72,6 +143,11 @@ void run_tasks__16TKeyBoardControlFv(void) {
 }
 
 int get_fog_ctrl__16TKeyBoardControlFPv(void* p) { return TFogCtrl__sub_800FAD08(p); }
+
+typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
+void TKeyBoardControl__sub_8000F7FC(void) {
+    run_tasks__7TObjectFv((M2C_UNK *)(&lbl_80515F48.value));
+}
 
 void update__16TKeyBoardControlFv(void) {  }
 int TKeyBoardControl__sub_8000F828(void) { return 0; }
@@ -85,6 +161,28 @@ int TKeyBoardControl__sub_8000F828(void) { return 0; }
 void shutdown_and_reset_system(void) { TLobby__sub_802433A8(); TObjTailsTailsMove__sub_800FFE0C(); TObjPlayer__sub_80141604(); destroy_resources__16TObjEneMe3StelthFv(); TAdPlayerLoadGC__sub_801E1350(); free_system__13TParticleCtrlFv(); TParticleCtrl__sub_801E5330(); fn_80082A6C(); free_resources__23TAdSinglePlyChrSelectGCFv(); TObjPlayer__sub_801D92A4(); TLobby__sub_8020E3BC(); TWindowSnapShot__sub_802A7DA0(); TAdWarningBaseGC__sub_8032D188(); destroy_game_heap__6TLobbyFv(); TLobby__sub_8022809C(); TLobby__sub_80227794(); TAdSinglePlyChrSelectGC__sub_80201970(); TWindowSubStatusDisp__sub_803386F0(); TObjBoss2Tunnel__sub_8036EF4C(); TLobby__sub_80147978(); xfree__FPv((void*)(lbl_805D49A0)); xfree__FPv((void*)(lbl_805D49A4)); xfree__FPv((void*)(lbl_805D49B0)); xfree__FPv((void*)(lbl_805D5680)); xfree__FPv((void*)(lbl_805D5678)); xfree__FPv((void*)(lbl_805D49A8)); fn_8037CA40((void*)1); fn_8037C8B8(); fn_8037BC54(); OSResetSystem((void*)1, (void*)0, (void*)1); }
 
 extern s32 lbl_805D49C0;
+
+typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
+
+typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];
+
+typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
+s32 TKeyBoardControl__sub_8000F8EC(void) {
+    return M2C_FIELD(&(*(RecoveredGlobal_8000F8EC_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 0x14);
+}
+
+s32 get_main_phase(void) {
+    return (*(RecoveredGlobal_8000F8FC_lbl_804FE120 *)&lbl_804FE120).value;
+}
+
+void TKeyBoardControl__sub_8000F90C(s32 arg0) {
+    M2C_FIELD(&(*(RecoveredGlobal_8000F90C_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 0xC) = arg0;
+}
+
+typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
+void TKeyBoardControl__sub_8000F91C(s32 arg0) {
+    M2C_FIELD(&(*(RecoveredGlobal_8000F91C_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 8) = arg0;
+}
 
 s32 get_input__16TKeyBoardControlFv(void) {
     return lbl_805D49C0;
@@ -118,6 +216,20 @@ void TKeyBoardControl__sub_8000F998(void) {
 
 void TKeyBoardControl__sub_8000F9A4(void) {
     lbl_805D49B8 = 0;
+}
+typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9E4_lbl_804FE120) == 0x18 ? 1 : -1];
+
+typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
+void TKeyBoardControl__sub_8000F9CC(s32 arg0) {
+    M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 4) = arg0;
+    M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&lbl_804FE120).value, s32 *, 0x10) = 1;
+}
+
+void TKeyBoardControl__sub_8000F9E4(void) {
+    M2C_FIELD(&lbl_804FE120.value, s32 *, 0) = 1;
+    M2C_FIELD(&lbl_804FE120.value, s32 *, 8) = 1;
+    M2C_FIELD(&lbl_804FE120.value, s32 *, 0xC) = 1;
+    M2C_FIELD(&lbl_804FE120.value, s32 *, 0x14) = 1;
 }
 
 }

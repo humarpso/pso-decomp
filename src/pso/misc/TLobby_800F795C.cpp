@@ -4,8 +4,23 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct RecoveredGlobal_800F7A6C_lbl_804DB1F0 {
+    M2C_UNK value;
+    u8 remaining[0x6AC];
+};
+
+struct RecoveredGlobal_800F7A7C_lbl_8048C9D8 {
+    M2C_UNK value;
+    u8 remaining[0x744];
+};
+
 extern "C" {
 void TLobby__sub_800F79C4(u8 *arg0);
+extern RecoveredGlobal_800F7A6C_lbl_804DB1F0 lbl_804DB1F0;
+f32 TLobby__sub_800F7A6C(void);
+extern RecoveredGlobal_800F7A7C_lbl_8048C9D8 lbl_8048C9D8;
+f32 TLobby__sub_800F7A7C(void);
 }
 
 extern "C" {
@@ -39,6 +54,16 @@ void bswap_enemy_state__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(
 void TLobby__sub_800F7A1C(void* p) { bswap_enemy_state__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void TLobby__sub_800F7A50(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
 int TLobby__sub_800F7A64(void) { return 4; }
+
+typedef char RecoveredGlobal_800F7A6C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_800F7A6C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
+f32 TLobby__sub_800F7A6C(void) {
+    return M2C_FIELD(&lbl_804DB1F0.value, f32 *, 4);
+}
+
+typedef char RecoveredGlobal_800F7A7C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800F7A7C_lbl_8048C9D8) == 0x748 ? 1 : -1];
+f32 TLobby__sub_800F7A7C(void) {
+    return M2C_FIELD(&lbl_8048C9D8.value, f32 *, 4);
+}
 
 void reset_keyboard_control__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); TLobby__sub_800F7A8C(); }
 

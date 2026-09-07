@@ -18,6 +18,16 @@ VV(61)
     virtual void v64();
 };
 
+struct RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+extern "C" {
+extern RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90 TPlayerBattleCtrl4P__data_80542E90;
+M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void);
+}
+
 extern "C" {
 
 int TPlayerBattleCtrl4P__sub_8031058C(void* p);
@@ -36,6 +46,11 @@ int TPlayerBattleCtrl4P__sub_803104CC(void*);
 int TPlayerBattleCtrl4P__sub_803112AC(void*, int);
 int fn_801C23A8(void*, void*);
 M2C_UNK inc_player_count__10TObjPlayerFv();
+
+typedef char RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90_size[sizeof(RecoveredGlobal_80310300_TPlayerBattleCtrl4P__data_80542E90) == 0x20 ? 1 : -1];
+M2C_UNK *TPlayerBattleCtrl4P__sub_80310300(void) {
+    return &TPlayerBattleCtrl4P__data_80542E90.value;
+}
 
 int TPlayerBattleCtrl4P__sub_8031058C(void* p) { return TPlayerBattleCtrl4P__sub_803104CC(p); }
 

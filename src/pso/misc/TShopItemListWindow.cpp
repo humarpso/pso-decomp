@@ -45,6 +45,21 @@ struct VObj_8021F708_8021F134 : Base_8021F708_8021F134 {
     virtual int  m8();
 };
 
+struct RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+extern "C" {
+s32 calc_item_count__18TShopGetItemWindowFPvPv(int, void *);
+s32 TShopWindowBase__sub_8022397C(void *);
+s32 __ct__15TShopWindowBaseFv(void *);
+s32 set_6264_and_call_2244B0__6TLobbyFii(void *, int);
+extern M2C_UNK __vt__19TShopItemListWindow[];
+extern s32 lbl_805D36D0;
+u8 *TShopItemListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+}
+
 extern "C" {
 
 void TShopItemListWindow__vt4(void *arg0);
@@ -112,6 +127,30 @@ void *__dt__19TShopItemListWindowFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow_size[sizeof(RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow) == 0x30 ? 1 : -1];
+u8 *TShopItemListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+    s32 sp8;
+    __ct__15TShopWindowBaseFv((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8021FDC8___vt__19TShopItemListWindow *)&__vt__19TShopItemListWindow).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36D0;
+    M2C_FIELD(arg0, s32 *, 0x24) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x2C) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x44) = 0;
+    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1C0) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x54) = 0;
+    calc_item_count__18TShopGetItemWindowFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (&sp8));
+    set_6264_and_call_2244B0__6TLobbyFii((void *) (TShopWindowBase__sub_8022397C((void *) (arg0))), (int) (sp8));
     return arg0;
 }
 

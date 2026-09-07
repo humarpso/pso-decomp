@@ -10,6 +10,16 @@ typedef char RecoveredGlobal_80335BD4_lbl_8050BEC0_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_80335BD4_lbl_8058D4C0 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80335BD4_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80335BD4_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
+struct RecoveredGlobal_80335A58_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+struct RecoveredGlobal_80335A58_lbl_8050E3B8 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
@@ -32,6 +42,15 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DF8B0;
 void TAdTrialAgreementGC__sub_80335BD4(u8 *arg0);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
+s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+extern RecoveredGlobal_80335A58_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80335A58_lbl_8050E3B8 lbl_8050E3B8;
+extern const f32 lbl_805DF8B4;
+void TAdTrialAgreementGC__sub_80335A58(u8 *arg0);
 }
 
 extern "C" {
@@ -40,7 +59,6 @@ void *destroy_object_804EE458(void *arg0, s16 arg1);
 s32 TAdTrialAgreementGC__sub_8033596C(void* p);
 void run_state__19TAdTrialAgreementGCFPv(void *arg0);
 M2C_UNK TAdTrialAgreementGC__sub_80335974();
-M2C_UNK TAdTrialAgreementGC__sub_80335A58();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -49,6 +67,32 @@ u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0) {
 }
 
 s32 TAdTrialAgreementGC__sub_8033596C(void* p) { return *(s32*)((char*)p + 0x20); }
+
+typedef char RecoveredGlobal_80335A58_lbl_8050E208_size[sizeof(RecoveredGlobal_80335A58_lbl_8050E208) == 0x1B0 ? 1 : -1];
+typedef char RecoveredGlobal_80335A58_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80335A58_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+void TAdTrialAgreementGC__sub_80335A58(u8 *arg0) {
+    u8 *temp_r30;
+    temp_r30 = (u8 *)&lbl_8050E3B8.value + 0x20;
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DF8B4;
+    if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) - 1);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x20) < 0) {
+            M2C_FIELD(arg0, s32 *, 0x20) = 3;
+        }
+        TBoss3Volopt__sub_8022675C((int) (0x54100), (int) (0), (int) (0), (int) (0));
+    }
+    if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + 1);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x20) >= 4) {
+            M2C_FIELD(arg0, s32 *, 0x20) = 0;
+        }
+        TBoss3Volopt__sub_8022675C((int) (0x54100), (int) (0), (int) (0), (int) (0));
+    }
+    if ((TWindowShortListCtrl__check_controller_button((int) (temp_r30), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
+        M2C_FIELD(arg0, s32 *, 0x24) = 2;
+        TBoss3Volopt__sub_8022675C((int) (0x40042309), (int) (0), (int) (0), (int) (0));
+    }
+}
 
 void TAdTrialAgreementGC__sub_80335BD4(u8 *arg0) {
     s32 temp_r0;
@@ -103,7 +147,7 @@ void run_state__19TAdTrialAgreementGCFPv(void *arg0) {
         TAdTrialAgreementGC__sub_80335974();
         break;
     case 1:
-        TAdTrialAgreementGC__sub_80335A58();
+        TAdTrialAgreementGC__sub_80335A58((u8 *)(arg0));
         break;
     case 2:
         break;

@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801F6548_lbl_80512790 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
@@ -15,6 +20,8 @@ s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 TMCFormatSequence__sub_802693B4();
 extern s8 lbl_8050E208[];
 void TMCFormatSequence__sub_801F6640(void *arg0);
+extern RecoveredGlobal_801F6548_lbl_80512790 lbl_80512790;
+M2C_UNK *TQuestThread__sub_801F6548(void);
 }
 
 extern "C" {
@@ -34,6 +41,11 @@ s32 check_memcard_status__15TAdPlayerLoadGCFi(s32);
 s32 get_status_flag__17TWindowSubComCardFPv(u32);
 s32 is_visible__17TWindowSubComCardFPv(u32);
 M2C_UNK send_and_handle__6TLobbyFPvii(s32, s32, s32);
+
+typedef char RecoveredGlobal_801F6548_lbl_80512790_size[sizeof(RecoveredGlobal_801F6548_lbl_80512790) == 0x20 ? 1 : -1];
+M2C_UNK *TQuestThread__sub_801F6548(void) {
+    return &lbl_80512790.value;
+}
 
 void close_window__17TMCFormatSequenceFPv(void* p) { if (*(unsigned int*)((char*)p + 0x34) != 0) { TWindow__close((void*)(*(void**)((char*)p + 0x34))); *(int*)((char*)p + 0x34) = 0; } }
 

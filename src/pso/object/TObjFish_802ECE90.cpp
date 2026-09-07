@@ -4,12 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802ED4AC_lbl_80472D04 {
+    M2C_UNK value;
+    u8 remaining[0x74];
+};
+
 extern "C" {
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
 extern const f32 lbl_805DEA94;
 extern const f32 lbl_805DEB64;
 extern const f32 lbl_805DEB68;
 u8 TObjFish__sub_802ED068(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern RecoveredGlobal_802ED4AC_lbl_80472D04 lbl_80472D04;
+extern f32 lbl_805DEA10;
+void TObjFish__sub_802ED4AC(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -99,6 +108,13 @@ void set_swim_direction__8TObjFishFPv(void *arg0) {
     }
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805DEA50;
     M2C_FIELD(arg0, f32 *, 0x6F0) = (f32) lbl_805DEA6C;
+}
+
+typedef char RecoveredGlobal_802ED4AC_lbl_80472D04_size[sizeof(RecoveredGlobal_802ED4AC_lbl_80472D04) == 0x78 ? 1 : -1];
+void TObjFish__sub_802ED4AC(u8 *arg0, s32 arg1) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, (u8 *)&lbl_80472D04.value + (arg1 * 0xC));
+    M2C_FIELD(arg0, f32 *, 0x6F0) = (f32) (*(const f32 *)&lbl_805DEA10);
+    M2C_FIELD(arg0, s32 *, 0x64) = 0;
 }
 
 s32 TBoss7Joint_get_shell_max_hp(void) {

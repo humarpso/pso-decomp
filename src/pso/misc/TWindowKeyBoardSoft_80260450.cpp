@@ -4,10 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80260808_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 extern const f32 TWindowKeyBoardSoft__data_805DD078;
 extern const f32 TWindowKeyBoardSoft__data_805DD07C;
 f32 TWindowKeyBoardSoft__sub_80260728(M2C_UNK arg0, s32 arg1);
+s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+M2C_UNK TWindowKeyBoardSoft__sub_8025C24C(int);
+extern RecoveredGlobal_80260808_lbl_8050E208 lbl_8050E208;
+void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -78,6 +88,17 @@ f32 TWindowKeyBoardSoft__sub_80260728(M2C_UNK arg0, s32 arg1) {
     return (TWindowKeyBoardSoft__data_805DD07C * (f32) arg1) + TWindowKeyBoardSoft__data_805DD078;
 }
 #pragma pop
+
+typedef char RecoveredGlobal_80260808_lbl_8050E208_size[sizeof(RecoveredGlobal_80260808_lbl_8050E208) == 0x1B0 ? 1 : -1];
+void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1) {
+    s32 temp_r5;
+    temp_r5 = arg1 * 0x50;
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + temp_r5 + 0x20), (int) (2), (int) (temp_r5)) != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U)) {
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) & 0xFFFFFFEF);
+        TBoss3Volopt__sub_8022675C((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+        TWindowKeyBoardSoft__sub_8025C24C((int) (M2C_FIELD(arg0, u32 *, 0x6C)));
+    }
+}
 
 void update_focus_flags__19TWindowKeyBoardSoftFPv(void *arg0) {
     void *temp_r3;

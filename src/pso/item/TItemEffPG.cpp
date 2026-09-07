@@ -4,6 +4,11 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8034FCF0_lbl_804F0BF0 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
@@ -15,6 +20,12 @@ void * init_fields__10TItemEffPGFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TItemEffPG__sub_8034F9F8(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TBoss4Type2__sub_800874F4(s32, s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_804F0BF0[];
+extern const f32 lbl_805DFE10;
+u8 *TItemEffPG__sub_8034FCF0(u8 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -99,6 +110,32 @@ void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_8034FCF0_lbl_804F0BF0_size[sizeof(RecoveredGlobal_8034FCF0_lbl_804F0BF0) == 0x18 ? 1 : -1];
+u8 *TItemEffPG__sub_8034FCF0(u8 *arg0, u8 *arg1, u8 *arg2) {
+    f32 temp_f1;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8034FCF0_lbl_804F0BF0 *)&lbl_804F0BF0).value;
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg2, s32 *, 0x18);
+    M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg2, s32 *, 0x34);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(arg2, s32 *, 0x38);
+    M2C_FIELD(arg0, f32 *, 0x54) = (f32) M2C_FIELD(arg2, f32 *, 0x30);
+    M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg2, f32 *, 0x28);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x5C, arg2);
+    temp_f1 = M2C_FIELD(arg2, f32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0x50) = temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x4C) = temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x48) = temp_f1;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DFE10;
+    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DFE10;
+    M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805DFE10;
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DFE10;
+    M2C_FIELD(arg0, s32 *, 0x38) = TBoss4Type2__sub_800874F4((s32) (arg0 + 0x5C), 0x83);
+    M2C_FIELD(arg0, s32 *, 0x58) = 0;
     return arg0;
 }
 

@@ -14,6 +14,11 @@ struct M2CCopy_8 { u8 bytes[0x8]; };
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct RecoveredGlobal_801BF414_lbl_804C3FA8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 void TObjPlayer__sub_801BEE24(void* p, s16 v);
 void TObjPlayer__sub_801BEE24(void* p, s16 v);
@@ -101,6 +106,9 @@ void TObjPlayer__sub_801BF0A8(u8 *arg0);
 s32 obj_getField1c(int);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 void TObjPlayer__sub_801BF134(u8 *arg0);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_801BF414_lbl_804C3FA8 lbl_804C3FA8;
+u8 *TObjPlayer__sub_801BF414(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -315,6 +323,15 @@ int TObjPlayer__sub_801BF3C4(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 
 int TObjPlayer__sub_801BF3E8(void* p) { return TObjPlayer__sub_8001BEF8(p, 4); }
 
 void TObjPlayer__sub_801BF40C(void* p, u8 v) { *(u8*)((char*)p + 0x1c) = v; }
+
+typedef char RecoveredGlobal_801BF414_lbl_804C3FA8_size[sizeof(RecoveredGlobal_801BF414_lbl_804C3FA8) == 0x18 ? 1 : -1];
+u8 *TObjPlayer__sub_801BF414(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804C3FA8.value;
+    M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x20) = arg3;
+    return arg0;
+}
 
 u8 TObjPlayer__sub_801BF460(s32 *arg0, s32 arg1) {
     return (u8) ((*arg0 & (1 << arg1)) == 0);

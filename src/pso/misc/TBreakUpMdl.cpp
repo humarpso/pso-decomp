@@ -16,6 +16,16 @@ typedef char RecoveredGlobal_80096FD8_TBreakUpMdl__data_8048FA00_size[sizeof(Rec
 struct RecoveredGlobal_80096FD8_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_80096FD8_lbl_8058D490_size[sizeof(RecoveredGlobal_80096FD8_lbl_8058D490) == 0x30 ? 1 : -1];
 
+struct RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_8009705C_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
 extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -49,6 +59,13 @@ M2C_UNK TObjPlayer__sub_803D9B78();
 extern M2C_UNK TBreakUpMdl__data_8048FA00[];
 extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
 u8 *TBreakUpMdl__sub_80096FD8(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
+s32 TBreakUpMdl__sub_80096D94(u8 *arg0, u8 *arg1, s32 arg2);
+void TBreakUpMdl__sub_80096EBC(void *, s32);
+s32 TObjPlayer__sub_803D97F0(u32);
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern M2C_UNK TBreakUpMdl__data_8048FA00[];
+extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
+u8 *TBreakUpMdl__sub_8009705C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -180,6 +197,18 @@ u8 *TBreakUpMdl__sub_80096FD8(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     TObjPlayer__sub_803D97F0((u32) &(*(RecoveredGlobal_80096FD8_lbl_8058D490 *)&lbl_8058D490).value);
     TBreakUpMdl__sub_80096CE0((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
     TObjPlayer__sub_803D9B78();
+    return arg0;
+}
+
+typedef char RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00_size[sizeof(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_8009705C_lbl_8058D490_size[sizeof(RecoveredGlobal_8009705C_lbl_8058D490) == 0x30 ? 1 : -1];
+u8 *TBreakUpMdl__sub_8009705C(u8 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, M2C_UNK **, 0xC) = &(*(RecoveredGlobal_8009705C_TBreakUpMdl__data_8048FA00 *)&TBreakUpMdl__data_8048FA00).value;
+    TBreakUpMdl__sub_80096EBC(arg0, arg1);
+    TObjPlayer__sub_803D97F0((u32) &(*(RecoveredGlobal_8009705C_lbl_8058D490 *)&lbl_8058D490).value);
+    TBreakUpMdl__sub_80096D94((u8 *)(arg0), (u8 *)((void *) arg1), (s32)(0));
+    TObjPlayer__sub_803D9B78();
+    M2C_FIELD(arg0, s32 *, 8) = 0;
     return arg0;
 }
 

@@ -5,12 +5,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 struct SRock_80224544_8022448C;
 
+struct RecoveredGlobal_8022559C_lbl_80513F50 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
 s32 strncpy(void *, void *, int);
 extern s32 lbl_805D6270;
 void TLobby__sub_80225BC8(u8 *arg0, u8 *arg1);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_8022559C_lbl_80513F50 lbl_80513F50;
+void TLobby__sub_8022559C(void);
 }
 
 extern "C" {
@@ -261,6 +269,11 @@ s32 level_to_reward__6TLobbyFi(s32 arg0) {
 
     extern int lbl_805D626C;
 void TLobby__sub_80225238(int a0, int a1) { lbl_805D626C = a1; TLobby__sub_8022525C(); }
+
+typedef char RecoveredGlobal_8022559C_lbl_80513F50_size[sizeof(RecoveredGlobal_8022559C_lbl_80513F50) == 0x10 ? 1 : -1];
+void TLobby__sub_8022559C(void) {
+    memset((void *) (&lbl_80513F50.value), (int) (0), (int) (0x10));
+}
 
 void try_close__6TLobbyFPv(void* p) { if (TLobby__sub_80225B90(p) == 0) { TLobby__sub_80225A08(p); } }
 

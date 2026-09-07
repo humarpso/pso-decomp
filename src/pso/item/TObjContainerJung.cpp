@@ -20,6 +20,16 @@ struct VObj : VBase {
 struct RecoveredGlobal_8018D47C_lbl_804B7134 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8018D47C_lbl_804B7134_size[sizeof(RecoveredGlobal_8018D47C_lbl_804B7134) == 0x10 ? 1 : -1];
 
+struct RecoveredGlobal_8018D85C_lbl_804B7168 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8018D85C___vt__17TObjContainerJung {
+    M2C_UNK value;
+    u8 remaining[0x148];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_8010567C(void *, void *, int);
@@ -36,6 +46,14 @@ extern RecoveredGlobal_8018D47C_lbl_804B7134 lbl_804B7134;
 extern s32 TObjContainerJung__data_805D5BA0;
 extern s32 TObjContainerJung__data_805D5BA4;
 void TObjContainerJung__sub_8018D47C(void);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void reset_photon_effect__10TObjPlayerFPv(s32);
+u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u8 * fn_8018A150(void *, s32);
+extern RecoveredGlobal_8018D85C_lbl_804B7168 lbl_804B7168;
+extern M2C_UNK __vt__17TObjContainerJung[];
+extern s32 lbl_805D3318;
+u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2);
 }
 
 extern "C" {
@@ -46,7 +64,6 @@ void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1);
 void *create__17TObjContainerJungFPv(void *arg0);
 void release__17TObjContainerJungFv(void);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
-void *TObjContainerJung__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
@@ -72,7 +89,7 @@ u8 *TObjContainerJung__sub_8018D3C0(s32 arg0) {
 void *create__17TObjContainerJungFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);
     if (o != NULL) {
-        o = TObjContainerJung__ct(o, tl_05, arg0);
+        o = TObjContainerJung__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -142,6 +159,21 @@ void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8018D85C_lbl_804B7168_size[sizeof(RecoveredGlobal_8018D85C_lbl_804B7168) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8018D85C___vt__17TObjContainerJung_size[sizeof(RecoveredGlobal_8018D85C___vt__17TObjContainerJung) == 0x14C ? 1 : -1];
+u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2) {
+    fn_8018A150(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018D85C___vt__17TObjContainerJung *)&__vt__17TObjContainerJung).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3318;
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
+    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B7168.value, 1);
+    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&lbl_804B7168.value, f32 *, 4));
     return arg0;
 }
 

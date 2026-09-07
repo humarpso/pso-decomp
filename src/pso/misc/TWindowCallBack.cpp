@@ -2,6 +2,29 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct RecoveredGlobal_802ACE84_lbl_804DE360 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_802ACE84___vt__15TWindowCallBack {
+    M2C_UNK value;
+    u8 remaining[0x18];
+};
+
+extern "C" {
+void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+void save_position__17TWindowSubComCardFPv(void *);
+u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
+void set_field_60__15TWindowCallBackFPvi(void* p, s32 v);
+extern RecoveredGlobal_802ACE84_lbl_804DE360 lbl_804DE360;
+extern M2C_UNK __vt__15TWindowCallBack[];
+extern s32 lbl_805D3E58;
+u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
+}
+
 extern "C" {
 
 void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1);
@@ -44,6 +67,17 @@ void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_802ACE84_lbl_804DE360_size[sizeof(RecoveredGlobal_802ACE84_lbl_804DE360) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_802ACE84___vt__15TWindowCallBack_size[sizeof(RecoveredGlobal_802ACE84___vt__15TWindowCallBack) == 0x1C ? 1 : -1];
+u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
+    TWindowDD__sub_802466E0(arg0, (s32) &lbl_804DE360.value, 4, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802ACE84___vt__15TWindowCallBack *)&__vt__15TWindowCallBack).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E58;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x38, arg2);
+    save_position__17TWindowSubComCardFPv(arg0);
+    set_field_60__15TWindowCallBackFPvi((void*)(arg0), (s32)(arg3));
     return arg0;
 }
 

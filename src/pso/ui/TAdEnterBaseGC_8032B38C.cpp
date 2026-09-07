@@ -4,6 +4,28 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8032B390_lbl_80477198 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_8032B390_lbl_804771B8 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+extern "C" {
+u32 __nw__7TObjectFUl(int);
+s32 __ct__9TAdBackGCFv(int, void *);
+s32 __ct__12TAdBackTxtGCFv(int, void *);
+u32 __ct__14TAdSelectCurGCFv(int, int, void *, void *);
+extern RecoveredGlobal_8032B390_lbl_80477198 lbl_80477198;
+extern RecoveredGlobal_8032B390_lbl_804771B8 lbl_804771B8;
+extern s32 tl_clipout;
+extern int lbl_805D6CA8;
+void TAdEnterBaseGC__sub_8032B390(u8 *arg0);
+}
+
 extern "C" {
 
 void *TAdEnterBaseGC__ct(void *arg0);
@@ -20,6 +42,41 @@ void run_task__14TAdEnterBaseGCFv(void) {  }
 
     extern int lbl_805D6CA0;
     extern int lbl_805D6CA8;
+
+typedef char RecoveredGlobal_8032B390_lbl_80477198_size[sizeof(RecoveredGlobal_8032B390_lbl_80477198) == 0x20 ? 1 : -1];
+typedef char RecoveredGlobal_8032B390_lbl_804771B8_size[sizeof(RecoveredGlobal_8032B390_lbl_804771B8) == 0x10 ? 1 : -1];
+void TAdEnterBaseGC__sub_8032B390(u8 *arg0) {
+    u32 temp_r3;
+    u32 temp_r3_2;
+    u32 temp_r3_3;
+    u32 temp_r3_4;
+    u32 var_r0;
+    u32 var_r0_2;
+    temp_r3 = __nw__7TObjectFUl((int) (0x24));
+    if (temp_r3 != 0U) {
+        __ct__9TAdBackGCFv((int) (temp_r3), (void *) (arg0));
+    }
+    temp_r3_2 = __nw__7TObjectFUl((int) (0x28));
+    if (temp_r3_2 != 0U) {
+        __ct__12TAdBackTxtGCFv((int) (temp_r3_2), (void *) (arg0));
+    }
+    if ((s32) (*(s32 *)&lbl_805D6CA8) == 3) {
+        temp_r3_3 = __nw__7TObjectFUl((int) (0x708));
+        var_r0 = temp_r3_3;
+        if (var_r0 != 0U) {
+            var_r0 = __ct__14TAdSelectCurGCFv((int) (temp_r3_3), (int) (tl_clipout), (void *) ((u8 *)&lbl_80477198.value + 0x10), (void *) ((u8 *)&lbl_804771B8.value + 8));
+        }
+        M2C_FIELD(arg0, u32 *, 0x2C) = var_r0;
+        return;
+    }
+    temp_r3_4 = __nw__7TObjectFUl((int) (0x708));
+    var_r0_2 = temp_r3_4;
+    if (var_r0_2 != 0U) {
+        var_r0_2 = __ct__14TAdSelectCurGCFv((int) (temp_r3_4), (int) (tl_clipout), (void *) (&lbl_80477198.value), (void *) (&lbl_804771B8.value));
+    }
+    M2C_FIELD(arg0, u32 *, 0x2C) = var_r0_2;
+}
+
 void reset__14TAdEnterBaseGCFPvi(void* a0, int a1) { *(int*)((char*)a0 + 0x24) = 0; *(int*)((char*)a0 + 0x20) = 0; lbl_805D6CA8 = a1; *(int*)((char*)a0 + 0x38) = 0; *(int*)((char*)a0 + 0x3c) = 0; *(int*)((char*)a0 + 0x28) = 0; *(int*)((char*)a0 + 0x2c) = 0; *(int*)((char*)a0 + 0x30) = 0; *(int*)((char*)a0 + 0x34) = 0; lbl_805D6CA0 = 0; }
 
 extern M2C_UNK __vt__14TAdEnterBaseGC[];

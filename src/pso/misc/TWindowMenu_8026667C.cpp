@@ -4,8 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80266B30_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 s32 TWindowMenu__sub_80266B18(u8 *arg0, s32 arg1);
+u8 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *);
+extern s8 lbl_8050E208[];
+u8 TWindowMenu__sub_80266B30(u8 *arg0);
 }
 
 extern "C" {
@@ -70,6 +78,14 @@ extern s8 lbl_8050E208[];
 
 s32 TWindowMenu__sub_80266B18(u8 *arg0, s32 arg1) {
     return M2C_FIELD(M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x28) + (arg1 * 4)), u16 **, 0), u16 *, 0) & 1;
+}
+
+typedef char RecoveredGlobal_80266B30_lbl_8050E208_size[sizeof(RecoveredGlobal_80266B30_lbl_8050E208) == 0x1B0 ? 1 : -1];
+u8 TWindowMenu__sub_80266B30(u8 *arg0) {
+    if (M2C_FIELD(arg0, u16 *, 0x70) & 0x200) {
+        return 0U;
+    }
+    return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((u8 *)&(*(RecoveredGlobal_80266B30_lbl_8050E208 *)&lbl_8050E208).value + 0x160);
 }
 
 s32 is_locked__11TWindowMenuFPvi(void *arg0, s32 arg1) {

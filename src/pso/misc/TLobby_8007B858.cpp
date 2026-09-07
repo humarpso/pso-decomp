@@ -4,6 +4,45 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8007BA98_lbl_8048D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xE4];
+};
+
+struct RecoveredGlobal_8007BA98_lbl_8048D5A8 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_8007BA20_lbl_8048D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xE4];
+};
+
+struct RecoveredGlobal_8007BA20_lbl_8048D5A8 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+extern "C" {
+void TLanguage__sub_80198F14(void);
+s32 get_global_state__14TOKeyMachine01Fv();
+void TLobby__sub_802A5154(void);
+void load_obj_lobby_main(void);
+s32 TLobby__sub_800FD6F8(void *, int);
+extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
+extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
+s32 TLobby__sub_8007BA98(void);
+void TLobby__sub_800FD6A0(s32, u32);
+void fn_80198E84(void);
+s32 get_global_state__14TOKeyMachine01Fv();
+void free_dialing_gc__6TLobbyFv(void);
+void TLobby__sub_8035202C(void);
+extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
+extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
+void TLobby__sub_8007BA20(void);
+}
+
 extern "C" {
 
 void create_tasks__6TLobbyFv(void);
@@ -112,6 +151,43 @@ void create_tasks__6TLobbyFv(void) {
     if (tmp != 0U) {
         __ct__8TTecCtrlFv(tmp, tl_01);
     }
+}
+typedef char RecoveredGlobal_8007BA98_lbl_8048D4C0_size[sizeof(RecoveredGlobal_8007BA98_lbl_8048D4C0) == 0xE8 ? 1 : -1];
+typedef char RecoveredGlobal_8007BA98_lbl_8048D5A8_size[sizeof(RecoveredGlobal_8007BA98_lbl_8048D5A8) == 0x20 ? 1 : -1];
+
+typedef char RecoveredGlobal_8007BA20_lbl_8048D4C0_size[sizeof(RecoveredGlobal_8007BA20_lbl_8048D4C0) == 0xE8 ? 1 : -1];
+typedef char RecoveredGlobal_8007BA20_lbl_8048D5A8_size[sizeof(RecoveredGlobal_8007BA20_lbl_8048D5A8) == 0x20 ? 1 : -1];
+void TLobby__sub_8007BA20(void) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+        free_dialing_gc__6TLobbyFv();
+        fn_80198E84();
+        TLobby__sub_8035202C();
+    }
+    if ((get_global_state__14TOKeyMachine01Fv() != 0) && (get_global_state__14TOKeyMachine01Fv() != 0xF) && (get_global_state__14TOKeyMachine01Fv() != 0x12)) {
+        TLobby__sub_800FD6A0((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D5A8 *)&lbl_8048D5A8).value, 0x20U);
+    }
+    TLobby__sub_800FD6A0((s32) &(*(RecoveredGlobal_8007BA20_lbl_8048D4C0 *)&lbl_8048D4C0).value, 0xE8U);
+}
+
+s32 TLobby__sub_8007BA98(void) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    temp_r3_2 = TLobby__sub_800FD6F8((void *) (&lbl_8048D4C0.value), (int) (0xE8));
+    if (temp_r3_2 == 0) {
+        return temp_r3_2;
+    }
+    if ((get_global_state__14TOKeyMachine01Fv() != 0) && (get_global_state__14TOKeyMachine01Fv() != 0xF) && (get_global_state__14TOKeyMachine01Fv() != 0x12)) {
+        temp_r3 = TLobby__sub_800FD6F8((void *) (&lbl_8048D5A8.value), (int) (0x20));
+        if (temp_r3 == 0) {
+            return temp_r3;
+        }
+    }
+    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+        load_obj_lobby_main();
+        TLanguage__sub_80198F14();
+        TLobby__sub_802A5154();
+    }
+    return 1;
 }
 
 }

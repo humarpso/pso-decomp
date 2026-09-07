@@ -103,6 +103,51 @@ struct Stack_80063F34 {
     f32 spC;
 };
 
+#include <stddef.h>
+struct Stack_800646F0 {
+    M2C_UNK sp8;
+    u8 pad_C[0x4];
+    f32 sp10;
+    u8 trailing_storage[0x8];
+};
+
+struct RecoveredGlobal_800646F0_lbl_80437944 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_800646F0_lbl_804FF5B4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct Stack_8006435C {
+    M2C_UNK sp8;
+    u8 pad_C[0x4];
+    f32 sp10;
+    u8 trailing_storage[0x8];
+};
+
+struct RecoveredGlobal_8006435C_lbl_80437D2C {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_8006435C_lbl_804FF5A0 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80064CFC_lbl_80487848 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_80064CFC_lbl_804FF5A0 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 lbl_805D8EBC;
@@ -155,6 +200,29 @@ void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
 s32 TObjEneDD__sub_800BBA18(void *, int);
 f32 TBoss6Type1__sub_803D9370(void *, void *);
 void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1);
+M2C_UNK TBoss1Dragon__sub_80027A80(void *, void *);
+M2C_UNK TBoss8Dragon__sub_80064C94(void *, void *);
+M2C_UNK TBoss8Dragon__sub_80067074(void *, void *);
+M2C_UNK TObjEneDD__sub_800BA498(void *, void *);
+extern RecoveredGlobal_800646F0_lbl_80437944 lbl_80437944;
+extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
+void TBoss8Dragon__sub_800646F0(s32 arg0);
+M2C_UNK TBoss1Dragon__sub_80027A80(void *, void *);
+M2C_UNK fn_8002B094(int);
+M2C_UNK TBoss8Dragon__sub_800670E0(int, void *);
+M2C_UNK reset_hp__9TObjEneDDFPv(void *, int, int, int);
+M2C_UNK emit_enemy_effect__9TObjEneDDFiiPvi(void *, int, void *, int);
+extern RecoveredGlobal_8006435C_lbl_80437D2C lbl_80437D2C;
+extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
+extern const f32 lbl_805D8DD0;
+extern const f32 lbl_805D8EAC;
+void TBoss8Dragon__sub_8006435C(u8 *arg0);
+s32 TObjEneDD__sub_800B9E84(void *, int, int, int);
+extern RecoveredGlobal_80064CFC_lbl_80487848 lbl_80487848;
+extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
+extern M2C_UNK lbl_805D4D98;
+extern M2C_UNK lbl_805D4D9C;
+void TBoss8Dragon__sub_80064CFC(s32 arg0);
 }
 
 extern "C" {
@@ -356,6 +424,43 @@ void TBoss8Dragon__sub_80063F34(u8 *arg0) {
     }
 }
 
+typedef char RecoveredGlobal_800646F0_lbl_80437944_size[sizeof(RecoveredGlobal_800646F0_lbl_80437944) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_800646F0_lbl_804FF5B4_size[sizeof(RecoveredGlobal_800646F0_lbl_804FF5B4) == 0xC ? 1 : -1];
+
+typedef char RecoveredGlobal_8006435C_lbl_80437D2C_size[sizeof(RecoveredGlobal_8006435C_lbl_80437D2C) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_8006435C_lbl_804FF5A0_size[sizeof(RecoveredGlobal_8006435C_lbl_804FF5A0) == 0x14 ? 1 : -1];
+void TBoss8Dragon__sub_8006435C(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8006435C, sp8) == 0x0) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8006435C, sp10) == 0x8) ? 1 : -1];
+    Stack_8006435C stack;
+    u8 *temp_r31;
+    u8 *temp_r31_2;
+    TBoss1Dragon__sub_80027A80((void *) (&stack.sp8), (void *) (&lbl_80437D2C.value));
+    fn_8002B094((int) (M2C_FIELD(arg0, s32 *, 0x578)));
+    reset_hp__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (M2C_FIELD(&lbl_804FF5A0.value, s32 *, 0xC)), (int) (0));
+    temp_r31 = (u8 *)(arg0 + 0x444);
+    stack.sp10 = lbl_805D8EAC;
+    TBoss8Dragon__sub_800670E0((int) (temp_r31), (void *) (&stack.sp8));
+    emit_enemy_effect__9TObjEneDDFiiPvi((void *) (arg0), (int) (temp_r31), (void *) (&stack.sp8), (int) (M2C_FIELD(arg0, s32 *, 0x578)));
+    temp_r31_2 = (u8 *)(arg0 + 0x3C0);
+    stack.sp10 = lbl_805D8DD0;
+    TBoss8Dragon__sub_800670E0((int) (temp_r31_2), (void *) (&stack.sp8));
+    emit_enemy_effect__9TObjEneDDFiiPvi((void *) (arg0), (int) (temp_r31_2), (void *) (&stack.sp8), (int) (M2C_FIELD(arg0, s32 *, 0x578)));
+    reset_hp__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (M2C_FIELD(&lbl_804FF5A0.value, s32 *, 0)), (int) (0));
+}
+
+void TBoss8Dragon__sub_800646F0(s32 arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800646F0, sp8) == 0x0) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800646F0, sp10) == 0x8) ? 1 : -1];
+    Stack_800646F0 stack;
+    TBoss1Dragon__sub_80027A80((void *) (&stack.sp8), (void *) (&lbl_80437944.value));
+    stack.sp10 = M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 8), f32 *, 0x10);
+    TBoss8Dragon__sub_80064C94((void *) (arg0), (void *) (M2C_FIELD(&lbl_804FF5B4.value, u8 **, 8)));
+    TBoss8Dragon__sub_80067074((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+    TObjEneDD__sub_800BA498((void *) (arg0), (void *) (&stack.sp8));
+    TBoss8Dragon__sub_80064CFC((s32)((void *) (arg0)));
+}
+
 void run_default_state__12TBoss8DragonFPv(void* p) { query_default__12TBoss8DragonFPv((void*)((void*)(p))); attack_default__12TBoss8DragonFPv((void*)((void*)(p))); }
 int update_state_3__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 3); }
 int set_state_2__12TBoss8DragonFPv(void* p) { return TBoss8Dragon__sub_80064968(p, 2); }
@@ -445,6 +550,13 @@ void handle_6x9F_gal_gryphon_boss_actions(void *arg0) {
 }
 
     extern const float lbl_805D8EC4;
+
+typedef char RecoveredGlobal_80064CFC_lbl_80487848_size[sizeof(RecoveredGlobal_80064CFC_lbl_80487848) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_80064CFC_lbl_804FF5A0_size[sizeof(RecoveredGlobal_80064CFC_lbl_804FF5A0) == 0x14 ? 1 : -1];
+void TBoss8Dragon__sub_80064CFC(s32 arg0) {
+    TObjEneDD__sub_800B9E84((void *) (arg0), (int) (M2C_FIELD(&lbl_805D4D98, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x48) * 4))), (int) (M2C_FIELD(&(*(RecoveredGlobal_80064CFC_lbl_804FF5A0 *)&lbl_804FF5A0).value, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x54) * 4))), (int) (M2C_FIELD(&lbl_805D4D9C, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x60) * 4))));
+}
+
 void reset_radius__12TBoss8DragonFPv(void* a0) { *(float*)((char*)a0 + 0x3c) = lbl_805D8EC4; }
 
     extern const float lbl_805D8E20;

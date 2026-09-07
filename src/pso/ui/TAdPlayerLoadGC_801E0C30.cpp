@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
@@ -34,6 +39,9 @@ s32 TAdPlayerLoadGC__sub_80384B30(s32, M2C_UNK *, s32 *);
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0);
+extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__data_80511ED0;
+extern s32 TAdPlayerLoadGC__data_805D5E38;
+void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -155,6 +163,15 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0) {
 void TAdPlayerLoadGC__sub_801E14E4(void) {  }
 
     extern int lbl_805D5E44;
+
+typedef char RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0_size[sizeof(RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0) == 0x18 ? 1 : -1];
+void TAdPlayerLoadGC__sub_801E14E8(u8 *arg0, s32 arg1) {
+    if (arg1 < 6) {
+        M2C_FIELD(arg0, s32 *, 0x44) = (s32) TAdPlayerLoadGC__data_805D5E38;
+        M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(((u8 *)(&TAdPlayerLoadGC__data_80511ED0.value) + (arg1 * 4)), s32 *, 0);
+    }
+}
+
 int TAdPlayerLoadGC__sub_801E1510(void) {  return lbl_805D5E44; }
 s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2) {
     return (s32) (((arg2 >> 0xDU) + 3) << 0xD) / 8192;

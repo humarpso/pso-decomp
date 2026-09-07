@@ -14,6 +14,11 @@ struct Stack_803286AC {
     s32 sp28;
 };
 
+struct RecoveredGlobal_803284F8_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(int, int);
 M2C_UNK fn_8032D9BC(void *, void *, f32);
@@ -21,6 +26,10 @@ M2C_UNK fn_8032DA28(void *);
 extern const f32 lbl_805DF6E4;
 extern const f32 lbl_805DF6E8;
 void TAdDialingGC__sub_803286AC(u8 *arg0);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+extern RecoveredGlobal_803284F8_lbl_8050E208 lbl_8050E208;
+s32 TAdDialingGC__sub_803284F8(s32 _w0);
 }
 
 extern "C" {
@@ -31,7 +40,6 @@ void update_dial_state__12TAdDialingGCFPv(void *arg0);
 void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1);
 void update_selection__12TAdDialingGCFPv(u8 *arg0);
 void update_state__12TAdDialingGCFPv(void *arg0);
-s32 TAdDialingGC__sub_803284F8(void *);
 M2C_UNK TAdDialingGC__sub_803285C0();
 M2C_UNK TAdDialingGC__sub_80328874();
 M2C_UNK TAdMcSelectGC__sub_80019DA8(void *, M2C_UNK, f32);
@@ -65,7 +73,7 @@ block_11:
             return;
         }
 block_12:
-        if (TAdDialingGC__sub_803284F8(arg0) != 0) {
+        if (TAdDialingGC__sub_803284F8((s32)(arg0)) != 0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 3;
         }
         break;
@@ -98,7 +106,7 @@ block_11:
             return;
         }
 block_12:
-        if (TAdDialingGC__sub_803284F8(arg0) != 0) {
+        if (TAdDialingGC__sub_803284F8((s32)(arg0)) != 0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 3;
         }
         break;
@@ -145,7 +153,7 @@ void update_dial_state__12TAdDialingGCFPvi(void *arg0, s32 arg1) {
             return;
         default:
             TAdDialingGC__sub_803286AC((u8 *)(arg0));
-            if (TAdDialingGC__sub_803284F8(arg0) != 0) {
+            if (TAdDialingGC__sub_803284F8((s32)(arg0)) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x20) = 3;
                 return;
             }
@@ -172,6 +180,14 @@ void spawn_title_screen__12TAdDialingGCFPvi(void *arg0, s32) {
 }
 
 extern s32 lbl_805D5704;
+
+typedef char RecoveredGlobal_803284F8_lbl_8050E208_size[sizeof(RecoveredGlobal_803284F8_lbl_8050E208) == 0x1B0 ? 1 : -1];
+s32 TAdDialingGC__sub_803284F8(s32 _w0) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + 0x20), (int) (0x706)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x606)) != 0)) {
+        return 1;
+    }
+    return 0;
+}
 
 void update_selection__12TAdDialingGCFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x68) = (s16) M2C_FIELD(arg0, s16 *, 0x30);

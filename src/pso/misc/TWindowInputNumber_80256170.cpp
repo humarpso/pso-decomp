@@ -4,10 +4,37 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80256A60_lbl_804CF8EC {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80256A60___vt__18TWindowInputNumber {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_80256B0C_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void TWindowSubStatusDisp__sub_8025995C(void *);
 void TWindowInputNumber__sub_802562F0(u8 *arg0);
+u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
+void TWindowInputNumber__sub_802561E8(void *);
+void TWindowInputNumber__sub_802562F0(u8 *arg0);
+void TWindowInputNumber__sub_80256354(void *);
+extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
+extern M2C_UNK __vt__18TWindowInputNumber[];
+extern s32 lbl_805D3918;
+extern const f32 lbl_805DCE2C;
+u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5);
+u8 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *);
+extern s8 lbl_8050E208[];
+u8 TWindowInputNumber__sub_80256B0C(u8 *arg0);
 }
 
 extern "C" {
@@ -98,6 +125,35 @@ void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1) {
 }
 
 extern s8 lbl_8050E208[];
+
+typedef char RecoveredGlobal_80256A60_lbl_804CF8EC_size[sizeof(RecoveredGlobal_80256A60_lbl_804CF8EC) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_80256A60___vt__18TWindowInputNumber_size[sizeof(RecoveredGlobal_80256A60___vt__18TWindowInputNumber) == 0x18 ? 1 : -1];
+u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5) {
+    TWindowDD__sub_802466E0(arg0, (s32) &lbl_804CF8EC.value, arg5, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80256A60___vt__18TWindowInputNumber *)&__vt__18TWindowInputNumber).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3918;
+    M2C_FIELD(arg0, s16 *, 0x20) = arg5;
+    M2C_FIELD(arg0, s16 *, 0x60) = 0;
+    M2C_FIELD(arg0, s8 *, 0x63) = 0;
+    M2C_FIELD(arg0, s32 *, 0x64) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x68) = arg3;
+    M2C_FIELD(arg0, s32 *, 0x6C) = arg4;
+    M2C_FIELD(arg0, s32 *, 0x70) = 0;
+    M2C_FIELD(arg0, f32 *, 0x74) = (f32) lbl_805DCE2C;
+    M2C_FIELD(arg0, f32 *, 0x78) = (f32) lbl_805DCE2C;
+    TWindowInputNumber__sub_80256354(arg0);
+    TWindowInputNumber__sub_802562F0((u8 *)(arg0));
+    TWindowInputNumber__sub_802561E8(arg0);
+    return arg0;
+}
+
+typedef char RecoveredGlobal_80256B0C_lbl_8050E208_size[sizeof(RecoveredGlobal_80256B0C_lbl_8050E208) == 0x1B0 ? 1 : -1];
+u8 TWindowInputNumber__sub_80256B0C(u8 *arg0) {
+    if (M2C_FIELD(arg0, u16 *, 0x60) & 0x20) {
+        return 0U;
+    }
+    return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((u8 *)&(*(RecoveredGlobal_80256B0C_lbl_8050E208 *)&lbl_8050E208).value + 0x160);
+}
 
 s32 is_locked__18TWindowInputNumberFPvi(void *arg0, s32 arg1) {
     if (M2C_FIELD(arg0, u16 *, 0x60) & 0x20) {

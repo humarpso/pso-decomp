@@ -7,16 +7,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8028E9A4___vt__12TCharaMaking { M2C_UNK value; u8 remaining[0x18]; };
 typedef char RecoveredGlobal_8028E9A4___vt__12TCharaMaking_size[sizeof(RecoveredGlobal_8028E9A4___vt__12TCharaMaking) == 0x1C ? 1 : -1];
 
+struct RecoveredGlobal_8028E794_TObjLight__data_80506320 {
+    M2C_UNK value;
+    u8 remaining[0x4C];
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 TCharaMaking__sub_8028E794(void *);
 s32 TCMCharacter__ct(int, void *);
 s32 create__14TObjCMMainMenuFPv(void *);
 extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
 extern s32 lbl_805D3B6C;
 extern s32 lbl_805D6524;
 u8 *TCharaMaking__ct(u8 *arg0, s32 arg1);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern RecoveredGlobal_8028E794_TObjLight__data_80506320 TObjLight__data_80506320;
+extern const f32 lbl_805DD938;
+void TCharaMaking__sub_8028E794(u8 *arg0);
 }
 
 extern "C" {
@@ -38,6 +47,15 @@ void TCharaMaking__sub_8028E790(void) {  }
 extern s32 tl_03;
 extern s32 lbl_805D6524;
 extern s32 lbl_805D652C;
+
+typedef char RecoveredGlobal_8028E794_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_8028E794_TObjLight__data_80506320) == 0x50 ? 1 : -1];
+void TCharaMaking__sub_8028E794(u8 *arg0) {
+    f32 temp_f31;
+    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 4) = (f32) (lbl_805DD938 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x1C)));
+    temp_f31 = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x1C));
+    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 0) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x20)));
+    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 8) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x20)));
+}
 
 s32 update_main_menu__12TCharaMakingFi(s32 arg0) {
     M2C_UNK var_r3;
@@ -84,7 +102,7 @@ u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     lbl_805D6524 = create__14TObjCMMainMenuFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x1555;
     M2C_FIELD(arg0, s32 *, 0x20) = 0x9000;
-    TCharaMaking__sub_8028E794((void *) (arg0));
+    TCharaMaking__sub_8028E794((u8 *)((void *) (arg0)));
     return arg0;
 }
 

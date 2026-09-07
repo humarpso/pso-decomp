@@ -27,6 +27,25 @@ struct VObj_18_551843 : VBase_18_551843 {
 struct RecoveredGlobal_80196D50___vt__16TObjQuestColBase { M2C_UNK value; u8 remaining[0x44]; };
 typedef char RecoveredGlobal_80196D50___vt__16TObjQuestColBase_size[sizeof(RecoveredGlobal_80196D50___vt__16TObjQuestColBase) == 0x48 ? 1 : -1];
 
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct RecoveredGlobal_80196C60_lbl_804A7438 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void TObjQuestColBase__sub_80196CC8(u8 *arg0);
@@ -35,6 +54,12 @@ M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 lbl_805D5C54;
 u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
+M2C_UNK TObjRoomId__sub_80141CF4(void *, void *, f32);
+extern RecoveredGlobal_80196C60_lbl_804A7438 lbl_804A7438;
+extern const f32 lbl_805DBEF8;
+extern const f32 lbl_805DBEFC;
+extern const f32 lbl_805DBF00;
+void TObjQuestColBase__sub_80196C60(u8 *arg0);
 }
 
 extern "C" {
@@ -54,6 +79,13 @@ s32 is_within_range__16TObjQuestColBaseFif(s32 arg0, f32 farg0) {
         return 1;
     }
     return 0;
+}
+
+typedef char RecoveredGlobal_80196C60_lbl_804A7438_size[sizeof(RecoveredGlobal_80196C60_lbl_804A7438) == 0x10 ? 1 : -1];
+void TObjQuestColBase__sub_80196C60(u8 *arg0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
+        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * M2C_FIELD(arg0, f32 *, 0xAC)));
+    }
 }
 
 void TObjQuestColBase__sub_80196CC4(void) {  }

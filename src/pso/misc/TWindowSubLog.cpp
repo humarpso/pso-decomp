@@ -2,6 +2,50 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct VBase_18_204a81 { char pad[0x18]; };
+
+struct VObj_18_204a81 : VBase_18_204a81 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual M2C_UNK m7();
+};
+
+struct RecoveredGlobal_8027AF58_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+extern "C" {
+s32 fn_80076CD0(void *);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+s32 is_flag_set__11TLoadingCurFPv(void *, int);
+s32 is_on_current_screen__11TCameraCtrlFPv(int, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, int, int, int);
+s32 TWindowCtrl__sub_8024701C(int);
+M2C_UNK TWindowChat__sub_80247DFC(int);
+s32 is_visible__11TWindowChatFPv(int);
+M2C_UNK TWindowChat__sub_80247E50(int);
+s32 is_mode_bit4__11TWindowChatFPv(int);
+M2C_UNK advance_scroll__14TAdScrollWinGCFPvf(void *, f32);
+M2C_UNK fn_8026A61C(void *, f32);
+M2C_UNK TWindowSubLog__sub_8026A664(void *, f32);
+void clear_flag4c_bit8__13TWindowSubLogFPv(void* p);
+extern RecoveredGlobal_8027AF58_lbl_8050E208 lbl_8050E208;
+extern const f32 lbl_805DD638;
+extern const f32 lbl_805DD63C;
+extern const f32 lbl_805DD640;
+extern const f32 lbl_805DD644;
+void run_task__13TWindowSubLogFv(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1);
@@ -22,6 +66,38 @@ int update_trade_submenu__15TWindowMainMenuFPv(void*);
 void render__13TWindowSubLogFv(void) {  }
 
 extern M2C_UNK __vt__13TWindowSubLog[];
+
+typedef char RecoveredGlobal_8027AF58_lbl_8050E208_size[sizeof(RecoveredGlobal_8027AF58_lbl_8050E208) == 0x1B0 ? 1 : -1];
+void run_task__13TWindowSubLogFv(u8 *arg0) {
+    u8 *temp_r31;
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    if ((is_mode_bit4__11TWindowChatFPv((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) && (fn_80076CD0((void *) (arg0 + 0x2C)) != 0)) {
+        TWindowChat__sub_80247E50((int) (M2C_FIELD(arg0, s32 *, 0x28)));
+    }
+    if (is_visible__11TWindowChatFPv((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) {
+        TWindowChat__sub_80247DFC((int) (M2C_FIELD(arg0, s32 *, 0x28)));
+    }
+    if (TWindowCtrl__sub_8024701C((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) {
+        TWindowSubLog__sub_8026A664((void *) (M2C_FIELD(arg0, u8 **, 0x24)), (f32) (lbl_805DD638));
+        return;
+    }
+    TWindowSubLog__sub_8026A664((void *) (M2C_FIELD(arg0, u8 **, 0x24)), (f32) (lbl_805DD63C));
+    temp_r31 = (u8 *)&lbl_8050E208.value + 0x20;
+    if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x10)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x10)) != 0)) {
+        fn_8026A61C((void *) (M2C_FIELD(arg0, u8 **, 0x24)), (f32) (lbl_805DD640));
+    }
+    if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x20)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x20)) != 0)) {
+        advance_scroll__14TAdScrollWinGCFPvf((void *) (M2C_FIELD(arg0, u8 **, 0x24)), (f32) (lbl_805DD644));
+    }
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
+    if ((M2C_FIELD(temp_r3, f32 *, 0x3C) == M2C_FIELD(temp_r3, f32 *, 0x4C)) && ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0))) {
+        TBoss3Volopt__sub_8022675C((int) (0x52F16), (int) (0), (int) (0), (int) (0));
+        temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x20));
+        ((VObj_18_204a81 *)(temp_r3_2))->m7();
+        clear_flag4c_bit8__13TWindowSubLogFPv((void*)((void *) (M2C_FIELD(arg0, u8 **, 0x20))));
+    }
+}
 
 void *__dt__13TWindowSubLogFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

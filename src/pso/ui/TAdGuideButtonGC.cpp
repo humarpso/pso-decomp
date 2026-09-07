@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8032D958___vt__16TAdGuideButtonGC {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
+extern M2C_UNK __vt__16TAdGuideButtonGC[];
+extern s32 lbl_805D4210;
+extern s32 lbl_805D6D00;
+u8 *TAdGuideButtonGC__ct(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 void *__dt__16TAdGuideButtonGCFv(void *arg0, s16 arg1);
@@ -30,6 +44,17 @@ void *__dt__16TAdGuideButtonGCFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8032D958___vt__16TAdGuideButtonGC_size[sizeof(RecoveredGlobal_8032D958___vt__16TAdGuideButtonGC) == 0x18 ? 1 : -1];
+u8 *TAdGuideButtonGC__ct(u8 *arg0, u8 *arg1) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8032D958___vt__16TAdGuideButtonGC *)&__vt__16TAdGuideButtonGC).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4210;
+    M2C_FIELD(arg0, s32 *, 0x13C) = -1;
+    M2C_FIELD(arg0, s32 *, 0x140) = 0;
+    lbl_805D6D00 = TAdMultiPlyChrSelectGC__sub_802C6FA8();
+    M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
     return arg0;
 }
 

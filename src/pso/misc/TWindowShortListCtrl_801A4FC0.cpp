@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801A51C0_lbl_80446980 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+s32 fn_801A51F0(void);
+extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80446980;
+s32 TLobby__sub_801A51C0(void);
+}
+
 extern "C" {
 
 void *construct_option_scene(void *arg0);
@@ -98,6 +109,11 @@ s32 get_card_status_bits__20TWindowShortListCtrlFv(void) {
         return 0;
     }
     return ((u32) M2C_FIELD(temp_r3, u32 *, 0x10) >> 0xDU) & 7;
+}
+
+typedef char RecoveredGlobal_801A51C0_lbl_80446980_size[sizeof(RecoveredGlobal_801A51C0_lbl_80446980) == 0x18 ? 1 : -1];
+s32 TLobby__sub_801A51C0(void) {
+    return M2C_FIELD(&lbl_80446980.value, M2C_UNK *, (fn_801A51F0() * 4));
 }
 
 s32 fn_801A51F0(void) {

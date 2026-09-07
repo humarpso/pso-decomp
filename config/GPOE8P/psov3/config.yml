@@ -35,6 +35,7 @@ force_active:
   - __dt__12TItemEffCaneFv
   - __dt__7TEffHitFv
   - __dt__9TEffGuardFv
+  - create__13TItemProArmorFiUi
   - create_icon__10TObjPlayerFiii
   - draw_value__13TWindowMesetaFPvi
   - fn_80076C68
@@ -43,6 +44,7 @@ force_active:
   - free_item_pmt
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
+  - initialize__21TItemProArmorParticleFPvPvPvPvPv
   - load_item_pmt
   - open_windows__22TAdMultiPlyChrSelectGCFPv
   - reset_and_invoke__6TLobbyFv

@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80256BDC_lbl_804CF918 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+extern M2C_UNK lbl_804CF918[];
+void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1);
+}
+
 extern "C" {
 
 void TWindowSubStatusDisp__sub_80256BF8(void);
@@ -21,6 +31,13 @@ void *destroy__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+typedef char RecoveredGlobal_80256BDC_lbl_804CF918_size[sizeof(RecoveredGlobal_80256BDC_lbl_804CF918) == 0x18 ? 1 : -1];
+void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1) {
+    M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_80256BDC_lbl_804CF918 *)&lbl_804CF918).value;
+    M2C_FIELD(arg0, s16 *, 0) = 0;
+    M2C_FIELD(arg0, s16 *, 2) = arg1;
 }
 
 void TWindowSubStatusDisp__sub_80256BF8(void) {  }

@@ -13,11 +13,28 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m4();
 };
 
+#include <stddef.h>
+struct Stack_80237194 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_80237194_lbl_8044D8EC {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 void TTecPlayerInfluence__sub_802371FC(u8 *arg0);
+s32 fn_8008271C(void *, void *, f32);
+s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
+extern RecoveredGlobal_80237194_lbl_8044D8EC lbl_8044D8EC;
+extern const f32 lbl_805DC8A0;
+void render__19TTecPlayerInfluenceFv(u8 *arg0);
 }
 
 extern "C" {
@@ -30,6 +47,19 @@ void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+
+typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
+void render__19TTecPlayerInfluenceFv(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80237194, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80237194, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80237194, sp10) == 0x8) ? 1 : -1];
+    Stack_80237194 stack;
+    stack.sp8 = M2C_FIELD(&lbl_8044D8EC.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_8044D8EC.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_8044D8EC.value, s32 *, 8);
+    fn_8008271C((void *) (arg0 + 0x3C), (void *) (&stack.sp8), (f32) (lbl_805DC8A0));
+    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)));
+}
 
 void TTecPlayerInfluence__sub_802371FC(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x68) = (s32) (M2C_FIELD(arg0, s32 *, 0x68) + 1);

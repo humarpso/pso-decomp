@@ -8,6 +8,16 @@ struct VBase18 { char pad[0x18]; };
 
 struct VObj18 : VBase18 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual M2C_UNK m8(f32, f32); };
 
+struct RecoveredGlobal_8016B5A4_lbl_80441A74 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_8016B5A4_lbl_804B2A7C {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 is_split_screen();
 s32 TOKey__sub_8016A280(void *);
@@ -25,6 +35,18 @@ M2C_UNK TOSignCave03__sub_803DB510(int);
 extern s32 lbl_805D5A04;
 extern void *lbl_805D5A08;
 void render__14TOKeyAncient02Fv(u8 *arg0);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc_buffer__11TOBoss4RockFPv(void *);
+u8 * TLanguage__sub_801E4874(s32);
+extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
+extern RecoveredGlobal_8016B5A4_lbl_804B2A7C lbl_804B2A7C;
+extern u32 lbl_805D5A00;
+extern s32 lbl_805D5A04;
+extern void *lbl_805D5A08;
+void TOKeyAncient02__sub_8016B5A4(void);
 }
 
 extern "C" {
@@ -123,6 +145,23 @@ void free_static__14TOKeyAncient02Fv(void) {
 }
 
 extern M2C_UNK __vt__14TOKeyAncient02[];
+
+typedef char RecoveredGlobal_8016B5A4_lbl_80441A74_size[sizeof(RecoveredGlobal_8016B5A4_lbl_80441A74) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_8016B5A4_lbl_804B2A7C_size[sizeof(RecoveredGlobal_8016B5A4_lbl_804B2A7C) == 0x10 ? 1 : -1];
+void TOKeyAncient02__sub_8016B5A4(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B2A7C.value, 0, 0, 0));
+    }
+    (*(u8 * *)&lbl_805D5A00) = (unsigned char *) ((void *) var_r0);
+    (*(s32 *)&lbl_805D5A08) = alloc_buffer__11TOBoss4RockFPv((void *)8);
+    M2C_FIELD((*(s32 *)&lbl_805D5A08), s32 *, 0) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5A00), 0);
+    M2C_FIELD((*(s32 *)&lbl_805D5A08), u8 **, 4) = TLanguage__sub_801E4874((s32) &lbl_80441A74.value);
+    lbl_805D5A04 = TObjFish__sub_8001EDC4((*(u8 * *)&lbl_805D5A00), 0);
+}
 
 void *__dt__14TOKeyAncient02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

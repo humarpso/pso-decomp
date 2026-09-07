@@ -19,6 +19,16 @@ struct Stack_802340E4 {
 struct RecoveredGlobal_80233B9C_lbl_804CC990 { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80233B9C_lbl_804CC990_size[sizeof(RecoveredGlobal_80233B9C_lbl_804CC990) == 0x18 ? 1 : -1];
 
+struct RecoveredGlobal_80233D18_lbl_804CC9A8 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_80233D18_lbl_804CC9D4 {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
 extern "C" {
 void TTecLuker__sub_80234F7C(void* p);
 void TTecLuker__sub_80234F7C(void* p);
@@ -61,6 +71,15 @@ s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804CC990[];
 u8 *TTecLuker__sub_80233B9C(u8 *arg0, s32 arg1, s32 arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_setFlags30(void *, int);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 TObjPlayer__sub_801569F4(void *, void *);
+void TTecLuker__sub_80234F68(void* p);
+extern RecoveredGlobal_80233D18_lbl_804CC9A8 lbl_804CC9A8;
+extern M2C_UNK lbl_804CC9D4[];
+u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -150,6 +169,21 @@ void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv((void *)(arg0));
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_80233D18_lbl_804CC9A8_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9A8) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_80233D18_lbl_804CC9D4_size[sizeof(RecoveredGlobal_80233D18_lbl_804CC9D4) == 0x38 ? 1 : -1];
+u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    TObjPlayer__sub_801569F4((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233D18_lbl_804CC9D4 *)&lbl_804CC9D4).value;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg1));
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804CC9A8.value), (int) (1));
+    obj_setFlags30((void *) (arg0), (int) (0x40000000));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    TTecLuker__sub_80234F68((void*)((void *) (arg0 + 0x98)));
+    M2C_FIELD(arg0, s32 *, 0xB0) = 0;
+    M2C_FIELD(arg0, s32 *, 0xAC) = arg3;
     return arg0;
 }
 

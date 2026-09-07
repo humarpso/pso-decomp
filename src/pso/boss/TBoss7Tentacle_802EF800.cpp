@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802EFB1C_lbl_80541918 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
 M2C_UNK TObjFish__sub_800660D4(int, int, int, int, int, f32);
@@ -12,7 +17,14 @@ M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
 s32 queue_boss_effect__10TObjPlayerFPv(int);
 s32 TObjPlayer__sub_802E80A0();
 extern const f32 TBoss7Tentacle__data_805DEC00;
+s32 advance_toward_limit__14TBoss7TentacleFPvf(void *arg0, f32 farg0);
 void TBoss7Tentacle__sub_802EF800(u8 *arg0);
+extern RecoveredGlobal_802EFB1C_lbl_80541918 lbl_80541918;
+extern const f32 TBoss7Tentacle__data_805DEC00;
+extern const f32 TBoss7Tentacle__data_805DEC04;
+extern const f32 lbl_805DEC14;
+extern const f32 lbl_805DEC18;
+void TBoss7Tentacle__sub_802EFB1C(u8 *arg0);
 }
 
 extern "C" {
@@ -59,5 +71,19 @@ s32 advance_toward_limit__14TBoss7TentacleFPvf(void *arg0, f32 farg0) {
 extern const f32 TBoss7Tentacle__data_805DEC00;
 
 void TBoss7Tentacle__sub_802EF954(void* p) { if (advance_toward_limit__14TBoss7TentacleFPvf((void *)(p), TBoss7Tentacle__data_805DEC00) != 0) { queue_destruction__7TObjectFv(p); disallow_rendering__7TObjectFv(p); } }
+typedef char RecoveredGlobal_802EFB1C_lbl_80541918_size[sizeof(RecoveredGlobal_802EFB1C_lbl_80541918) == 0x10 ? 1 : -1];
+void TBoss7Tentacle__sub_802EFB1C(u8 *arg0) {
+    f32 temp_f1;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x74);
+    if ((lbl_805DEC14 < temp_f1) && (temp_f1 <= lbl_805DEC18)) {
+        TBoss7Tentacle__sub_802EF800((u8 *)(arg0));
+    }
+    if (advance_toward_limit__14TBoss7TentacleFPvf(arg0, TBoss7Tentacle__data_805DEC00) != 0) {
+        M2C_FIELD(arg0, s32 *, 0x38) = 2;
+        M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x78) = (s32) M2C_FIELD(&lbl_80541918.value, s32 *, 4);
+        M2C_FIELD(arg0, f32 *, 0x74) = (f32) TBoss7Tentacle__data_805DEC04;
+    }
+}
 
 }

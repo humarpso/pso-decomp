@@ -13,6 +13,17 @@ struct VObj_8021E068_8021E010 : Base_8021E068_8021E010 {
     virtual void m5(s32);
 };
 
+struct RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+extern "C" {
+s32 TShopGenerator__sub_80222DAC(s32);
+extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
+u8 TShopGenerator__sub_8021E110(s32 arg0);
+}
+
 extern "C" {
 
 void *TShopGenerator__create(void *arg0);
@@ -60,6 +71,11 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
         return arg0;
     }
     return arg0;
+}
+
+typedef char RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0_size[sizeof(RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0) == 0x10 ? 1 : -1];
+u8 TShopGenerator__sub_8021E110(s32 arg0) {
+    return (u8) (M2C_FIELD(&TShopGenerator__data_80513ED0.value, M2C_UNK *, ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC)) == 1);
 }
 
 void *TShopGenerator__create(void *arg0) {

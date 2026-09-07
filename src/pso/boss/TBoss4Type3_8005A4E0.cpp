@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 {
+    M2C_UNK value;
+    u8 remaining[0xC4];
+};
+
+extern "C" {
+extern RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 TBoss4Type3__data_80486FC8;
+extern const f32 TBoss4Type3__data_805D8C40;
+void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TBoss4Type3__sub_8005A86C(void* p);
@@ -27,6 +38,15 @@ void end_effect_render__13TParticleCtrlFv(void);
 void toggle_particle_effect__10TObjPlayerFv(void *);
 
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
+
+typedef char RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8_size[sizeof(RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8) == 0xC8 ? 1 : -1];
+void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1) {
+    if (arg1 != -1) {
+        M2C_FIELD(arg0, s32 *, 0x3F0) = arg1;
+        M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) TBoss4Type3__data_805D8C40;
+        M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(((u8 *)(&TBoss4Type3__data_80486FC8.value) + (arg1 * 0x14)), s32 *, 0);
+    }
+}
 
 void draw__11TBoss4Type3FPv(void *arg0) {
     toggle_particle_effect__10TObjPlayerFv(arg0);

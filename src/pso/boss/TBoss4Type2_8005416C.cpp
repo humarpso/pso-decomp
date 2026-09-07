@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80054530_lbl_80485EC8 {
+    M2C_UNK value;
+    u8 remaining[0x1DC];
+};
+
+extern "C" {
+extern RecoveredGlobal_80054530_lbl_80485EC8 lbl_80485EC8;
+extern const f32 lbl_805D8B20;
+void TBoss4Type2__sub_80054530(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2);
@@ -23,6 +34,14 @@ extern M2C_UNK lbl_80437628;
 
 void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (arg1 + (s32) (M2C_FIELD(arg0, f32 *, 0x39C) * (f32) TBoss4Type2__sub_80141FA8(arg1, arg2)));
+}
+typedef char RecoveredGlobal_80054530_lbl_80485EC8_size[sizeof(RecoveredGlobal_80054530_lbl_80485EC8) == 0x1E0 ? 1 : -1];
+void TBoss4Type2__sub_80054530(u8 *arg0, s32 arg1) {
+    if (arg1 != -1) {
+        M2C_FIELD(arg0, s32 *, 0x3E4) = arg1;
+        M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8B20;
+        M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(((u8 *)(&lbl_80485EC8.value) + (arg1 << 5)), s32 *, 0);
+    }
 }
 
 }

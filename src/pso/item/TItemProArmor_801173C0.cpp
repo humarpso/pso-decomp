@@ -90,11 +90,21 @@ struct VObj_801161A4_80115D6C : Base_801161A4_80115D6C {
     virtual void m32(); virtual void m33(); virtual int m34();
 };
 
+struct RecoveredGlobal_8011751C_lbl_8049FEB8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 void * construct__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern int tl_05;
 u8 *TItemProArmor__sub_801173FC(u8 *arg0);
+u16 obj_getField1c(void *);
+void TItemTimerEvent__sub_8011E0A4(u16);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_8049FEB8[];
+u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -105,7 +115,6 @@ void create_armor__13TItemProArmorFPv(void* a0);
 void *dt__13TItemProArmorFPvs(void *arg0, s16 arg1);
 void tick_lifetime__13TItemProArmorFPv(void *arg0);
 void TItemObject__ct(void *);
-M2C_UNK TItemProArmor__sub_8011751C(void *, s32, u32);
 M2C_UNK TItemTimerEvent__sub_8011E068(u16);
 u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -166,12 +175,22 @@ void *dt__13TItemProArmorFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
+typedef char RecoveredGlobal_8011751C_lbl_8049FEB8_size[sizeof(RecoveredGlobal_8011751C_lbl_8049FEB8) == 0x18 ? 1 : -1];
+u8 *TItemProArmor__sub_8011751C(u8 *arg0, u8 *arg1, u8 *arg2) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8011751C_lbl_8049FEB8 *)&lbl_8049FEB8).value;
+    M2C_FIELD(arg0, u16 *, 0x1C) = obj_getField1c(arg2);
+    TItemTimerEvent__sub_8011E0A4(M2C_FIELD(arg0, u16 *, 0x1C));
+    M2C_FIELD(arg0, s16 *, 0x1E) = 3;
+    return arg0;
+}
+
 void create__13TItemProArmorFiUi(s32 arg0, u32 arg1) {
     void *temp_r3;
     if ((arg0 != 0) && (arg1 != 0U)) {
         temp_r3 = __nw__7TObjectFUl(0x20);
         if (temp_r3 != NULL) {
-            TItemProArmor__sub_8011751C(temp_r3, arg0, arg1);
+            TItemProArmor__sub_8011751C((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg1));
         }
     }
 }

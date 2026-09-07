@@ -5,6 +5,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801426DC_lbl_8050BFF0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_801426DC_lbl_8058D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_80142734_lbl_8050BFF0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_80142734_lbl_8058D4C0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 extern s32 some_id_805c6f74;
 void TPlyPhotonChair__sub_801426C0(s32 arg0, s32 arg1);
@@ -38,6 +58,14 @@ int TObjFish__sub_803E46BC(void);
 int get_id__15TPlyPhotonChairFPv(void);
 void TLobby__sub_80142920(void);
 int TLobby__sub_80142944(void* p);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
+extern RecoveredGlobal_801426DC_lbl_8058D4C0 lbl_8058D4C0;
+void TPlyPhotonChair__sub_801426DC(s32 _w0);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
+extern RecoveredGlobal_801426DC_lbl_8058D4C0 lbl_8058D4C0;
+void TPlyPhotonChair__sub_80142734(s32 _w0);
 }
 
 extern "C" {
@@ -47,17 +75,15 @@ void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1);
 void update_parts2__15TPlyPhotonChairFPv(void* p);
 void update_parts__15TPlyPhotonChairFPv(void* p);
 int TObjPlayer__sub_803DED84(void*);
-int TPlyPhotonChair__sub_801426DC(void*);
-int TPlyPhotonChair__sub_80142734(void*);
 int set_global_pair__10TObjPlayerFii(void*, void*);
 
 void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1) { TPlyPhotonChair__sub_801426C0((s32)(p), (s32)((void*)2064)); set_global_pair__10TObjPlayerFii((void*)-1, (void*)2048); TObjPlayer__sub_803DED84(a1); }
 
 void play_sound__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_801426C0((s32)(p), (s32)((void*)2064)); set_global_pair__10TObjPlayerFii((void*)-1, (void*)2048); TObjPlayer__sub_803DED84(p); }
 
-void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); TPlyPhotonChair__sub_801426DC(p); restore_state__15TPlyPhotonChairFv((s32)(p)); }
+void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); TPlyPhotonChair__sub_801426DC((s32)(p)); restore_state__15TPlyPhotonChairFv((s32)(p)); }
 
-void update_parts2__15TPlyPhotonChairFPv(void* p) { save_state__15TPlyPhotonChairFv((s32)(p)); TPlyPhotonChair__sub_80142734(p); TPlyPhotonChair__sub_80142720((s32)(p)); }
+void update_parts2__15TPlyPhotonChairFPv(void* p) { save_state__15TPlyPhotonChairFv((s32)(p)); TPlyPhotonChair__sub_80142734((s32)(p)); TPlyPhotonChair__sub_80142720((s32)(p)); }
 #pragma push
 #pragma scheduling off
 void TPlyPhotonChair__sub_801426C0(s32 arg0, s32 arg1) {
@@ -66,8 +92,22 @@ void TPlyPhotonChair__sub_801426C0(s32 arg0, s32 arg1) {
 #pragma pop
 
 void restore_state__15TPlyPhotonChairFv(s32 _w0) { (*(int *)&some_id_805c6f74) = lbl_805D566C; }
+
+typedef char RecoveredGlobal_801426DC_lbl_8050BFF0_size[sizeof(RecoveredGlobal_801426DC_lbl_8050BFF0) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_801426DC_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801426DC_lbl_8058D4C0) == 0x10 ? 1 : -1];
+void TPlyPhotonChair__sub_801426DC(s32 _w0) {
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BFF0.value));
+}
+
 int TPlyPhotonChair__sub_8014270C(s32 _w0) { lbl_805D7784 = lbl_805D5670; lbl_805D7780 = lbl_805D5674; return lbl_805D5670; }
 int TPlyPhotonChair__sub_80142720(s32 _w0) { lbl_805D5670 = lbl_805D7784; lbl_805D5674 = lbl_805D7780; return lbl_805D7784; }
+
+typedef char RecoveredGlobal_80142734_lbl_8050BFF0_size[sizeof(RecoveredGlobal_80142734_lbl_8050BFF0) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_80142734_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80142734_lbl_8058D4C0) == 0x10 ? 1 : -1];
+void TPlyPhotonChair__sub_80142734(s32 _w0) {
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&lbl_8050BFF0).value), (void *) (&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&lbl_8058D4C0).value));
+}
+
 void save_state__15TPlyPhotonChairFv(s32 _w0) { lbl_805D566C = (*(int *)&some_id_805c6f74); }
 void TPlyPhotonChair__sub_80142770(void) {  }
 void TPlyPhotonChair__sub_80142774(void) {  }

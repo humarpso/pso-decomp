@@ -4,13 +4,37 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 {
+    s32 value;
+    u8 remaining[0xA4];
+};
+
+struct RecoveredGlobal_8024CE24_TWindowCtrlMain__data_80518730 {
+    M2C_UNK value;
+    u8 remaining[0xA4];
+};
+
+struct RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730 {
+    M2C_UNK value;
+    u8 remaining[0xA4];
+};
+
+extern "C" {
+s32 is_split_screen(void);
+extern RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 TWindowCtrlMain__data_80518730;
+s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0);
+extern RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 TWindowCtrlMain__data_80518730;
+s32 TWindowCtrlMain__sub_8024CE24(void);
+extern RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 TWindowCtrlMain__data_80518730;
+s32 TWindowCtrlMain__sub_8024CE34(void);
+}
+
 extern "C" {
 
 s32 TWindowCtrlMain__sub_8024CD5C(void);
 void set_value__15TWindowCtrlMainFii(s32 arg0, s32 arg1);
-int TWindowCtrlMain__sub_8024CDB0(void* p);
+s32 TWindowCtrlMain__sub_8024CDB0(void* p);
 void * TWindowCtrlMain__sub_8024CC8C(void);
-int TWindowCtrlMain__sub_8024CDD0(void*);
 
 s32 TWindowCtrlMain__sub_8024CD5C(void) {
     return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), s32 *, 4);
@@ -18,6 +42,21 @@ s32 TWindowCtrlMain__sub_8024CD5C(void) {
 void set_value__15TWindowCtrlMainFii(s32 arg0, s32 arg1) {
     M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), s32 *, 4) = arg1;
 }
-int TWindowCtrlMain__sub_8024CDB0(void* p) { return TWindowCtrlMain__sub_8024CDD0(p); }
+s32 TWindowCtrlMain__sub_8024CDB0(void* p) { return TWindowCtrlMain__sub_8024CDD0((s32)(p)); }
+typedef char RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730_size[sizeof(RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730) == 0xA8 ? 1 : -1];
+s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0) {
+    if (is_split_screen() != 0) {
+        return M2C_FIELD(&TWindowCtrlMain__data_80518730.value, s32 *, (arg0 * 0x1C));
+    }
+    return TWindowCtrlMain__data_80518730.value;
+}
+typedef char RecoveredGlobal_8024CE24_TWindowCtrlMain__data_80518730_size[sizeof(RecoveredGlobal_8024CE24_TWindowCtrlMain__data_80518730) == 0xA8 ? 1 : -1];
+s32 TWindowCtrlMain__sub_8024CE24(void) {
+    return M2C_FIELD(&(*(RecoveredGlobal_8024CE24_TWindowCtrlMain__data_80518730 *)&TWindowCtrlMain__data_80518730).value, s32 *, 0x8C);
+}
+typedef char RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730_size[sizeof(RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730) == 0xA8 ? 1 : -1];
+s32 TWindowCtrlMain__sub_8024CE34(void) {
+    return M2C_FIELD(&(*(RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730 *)&TWindowCtrlMain__data_80518730).value, s32 *, 0x70);
+}
 
 }

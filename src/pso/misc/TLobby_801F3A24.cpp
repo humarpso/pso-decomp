@@ -1,5 +1,20 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+extern "C" {
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
+void TLobby__sub_801F3DEC(void);
+}
+
 extern "C" {
 
 void rebuild_all__6TLobbyFi(int a0);
@@ -14,5 +29,9 @@ int init_sub_state__6TLobbyFPv(void);
     extern int TLobby__data_805D5EE0;
     extern short TLobby__data_805D6134;
 void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; TLobby__sub_801F3BC4(); init_sub_state__6TLobbyFPv(); TLobby__sub_8020A2AC(); TLobby__sub_801F3B30(); free_boss4rock__6TLobbyFv(); rebuild_entry__6TLobbyFPv(); TLobby__sub_801F4340(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
+typedef char RecoveredGlobal_801F3DEC_TLobby__data_805127D0_size[sizeof(RecoveredGlobal_801F3DEC_TLobby__data_805127D0) == 0x28 ? 1 : -1];
+void TLobby__sub_801F3DEC(void) {
+    memset((void *) (&TLobby__data_805127D0.value), (int) (0), (int) (0x24));
+}
 
 }

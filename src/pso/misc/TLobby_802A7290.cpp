@@ -26,6 +26,27 @@ struct VObj_802A7328_802A7290 : Base_802A7328_802A7290 {
     virtual void m72();  virtual s32 m73();
 };
 
+struct RecoveredGlobal_802A7444_lbl_804DDBD8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_802A74B8_lbl_804DD9F8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+int TLobby__sub_802A7260(void* a0);
+int TLobby__sub_802A7278(void* a0);
+extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804DDBD8;
+s32 TLobby__sub_802A7444(M2C_UNK arg0, s32 arg1, s32 arg2);
+int TLobby__sub_802A7260(void* a0);
+int TLobby__sub_802A7278(void* a0);
+extern RecoveredGlobal_802A74B8_lbl_804DD9F8 lbl_804DD9F8;
+s32 TLobby__sub_802A74B8(M2C_UNK arg0, s32 arg1, s32 arg2);
+}
+
 extern "C" {
 
 void TLobby__sub_802A7318(void* p);
@@ -55,6 +76,26 @@ extern s32 lbl_805D6680;
 s32 calc_cell_offset__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     struct VObj_802A7328_802A7290 *o = (struct VObj_802A7328_802A7290 *)arg0;
     return lbl_805D6680 + ((arg2 + (arg1 * o->m73())) << 0xE);
+}
+typedef char RecoveredGlobal_802A7444_lbl_804DDBD8_size[sizeof(RecoveredGlobal_802A7444_lbl_804DDBD8) == 0x18 ? 1 : -1];
+s32 TLobby__sub_802A7444(M2C_UNK arg0, s32 arg1, s32 arg2) {
+    if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
+        return 0;
+    }
+    if (((s32)TLobby__sub_802A7260((void*)((void *) (arg2)))) != 0) {
+        return M2C_FIELD(M2C_FIELD(&lbl_804DDBD8.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
+    }
+    return 0;
+}
+typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_802A74B8_lbl_804DD9F8) == 0x18 ? 1 : -1];
+s32 TLobby__sub_802A74B8(M2C_UNK arg0, s32 arg1, s32 arg2) {
+    if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
+        return 0;
+    }
+    if (((s32)TLobby__sub_802A7260((void*)((void *) (arg2)))) != 0) {
+        return M2C_FIELD(M2C_FIELD(&lbl_804DD9F8.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
+    }
+    return 0;
 }
 
 }

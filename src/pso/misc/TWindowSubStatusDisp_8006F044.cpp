@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8006F23C_lbl_8048C9D8 {
+    M2C_UNK value;
+    u8 remaining[0x744];
+};
+
+extern "C" {
+s32 is_flag_set__6TLobbyFv();
+extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_8048C9D8;
+s32 TLobby__sub_8006F23C(void);
+}
+
 extern "C" {
 
 s32 get_layout_id__20TWindowSubStatusDispFv(void);
@@ -17,6 +28,13 @@ s32 get_layout_id__20TWindowSubStatusDispFv(void) {
         return lbl_8043859C[TWindowSubStatusDisp__sub_8006F190()];
     }
     return 5;
+}
+typedef char RecoveredGlobal_8006F23C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006F23C_lbl_8048C9D8) == 0x748 ? 1 : -1];
+s32 TLobby__sub_8006F23C(void) {
+    if (is_flag_set__6TLobbyFv() != 0) {
+        return M2C_FIELD(&lbl_8048C9D8.value, s32 *, 0x34);
+    }
+    return 0;
 }
 
 }

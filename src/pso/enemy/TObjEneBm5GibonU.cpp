@@ -113,6 +113,26 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m103();
 };
 
+struct RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_800D187C_TObjEneBm5GibonU__data_80500EC4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
 extern "C" {
 void TObjEneBm5GibonU__sub_800D1C40(u8 *arg0, void **arg1, void **arg2);
 void TObjEneBm5GibonU__sub_800D1C78(u8 *arg0, void ***arg1, void **arg2);
@@ -126,6 +146,18 @@ M2C_UNK all_parents_unqueued_for_destruction__7TObjectFv();
 void TObjEneBm5GibonU__sub_800D1268(u8 *arg0);
 s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 void TObjEneBm5GibonU__sub_800D1D80(u8 *arg0);
+void forward_hit__16TObjEneBm5GibonUFPvPv(void* p, void* a1);
+extern RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4 TObjEneBm5GibonU__data_80500EC4;
+void TObjEneBm5GibonU__sub_800D184C(s32 arg0);
+void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1);
+extern RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4 TObjEneBm5GibonU__data_80500EC4;
+void TObjEneBm5GibonU__sub_800D187C(s32 arg0);
+void forward_hit__16TObjEneBm5GibonUFPvPv(void* p, void* a1);
+extern RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0 TObjEneBm5GibonU__data_80500EB0;
+void TObjEneBm5GibonU__sub_800D18AC(s32 arg0);
+void init_child__16TObjEneBm5GibonUFPvPv(void* p, void* a1);
+extern RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0 TObjEneBm5GibonU__data_80500EB0;
+void TObjEneBm5GibonU__sub_800D18DC(s32 arg0);
 }
 
 extern "C" {
@@ -225,6 +257,26 @@ void TObjEneBm5GibonU__sub_800D1268(u8 *arg0) {
     update_center_position__16TObjEneBm5GibonUFPv((u8 *)((void *) (arg0)));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
+}
+
+typedef char RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4_size[sizeof(RecoveredGlobal_800D184C_TObjEneBm5GibonU__data_80500EC4) == 0xC ? 1 : -1];
+void TObjEneBm5GibonU__sub_800D184C(s32 arg0) {
+    forward_hit__16TObjEneBm5GibonUFPvPv((void*)((s32) &TObjEneBm5GibonU__data_80500EC4.value), (void*)(arg0 + 0x3CC));
+}
+
+typedef char RecoveredGlobal_800D187C_TObjEneBm5GibonU__data_80500EC4_size[sizeof(RecoveredGlobal_800D187C_TObjEneBm5GibonU__data_80500EC4) == 0xC ? 1 : -1];
+void TObjEneBm5GibonU__sub_800D187C(s32 arg0) {
+    init_child__16TObjEneBm5GibonUFPvPv((void*)((s32) &(*(RecoveredGlobal_800D187C_TObjEneBm5GibonU__data_80500EC4 *)&TObjEneBm5GibonU__data_80500EC4).value), (void*)(arg0 + 0x3CC));
+}
+
+typedef char RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0_size[sizeof(RecoveredGlobal_800D18AC_TObjEneBm5GibonU__data_80500EB0) == 0x14 ? 1 : -1];
+void TObjEneBm5GibonU__sub_800D18AC(s32 arg0) {
+    forward_hit__16TObjEneBm5GibonUFPvPv((void*)((s32) &TObjEneBm5GibonU__data_80500EB0.value), (void*)(arg0 + 0x3C0));
+}
+
+typedef char RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0_size[sizeof(RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0) == 0x14 ? 1 : -1];
+void TObjEneBm5GibonU__sub_800D18DC(s32 arg0) {
+    init_child__16TObjEneBm5GibonUFPvPv((void*)((s32) &(*(RecoveredGlobal_800D18DC_TObjEneBm5GibonU__data_80500EB0 *)&TObjEneBm5GibonU__data_80500EB0).value), (void*)(arg0 + 0x3C0));
 }
 
 void release_static_resource__16TObjEneBm5GibonUFv(void) {

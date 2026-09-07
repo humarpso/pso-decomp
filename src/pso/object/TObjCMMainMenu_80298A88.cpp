@@ -6,6 +6,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Base_80298AD0_80298A88 { char pad[0x18]; };
 struct VObj_80298AD0_80298A88 : Base_80298AD0_80298A88 { virtual void m0(int); };
 
+struct RecoveredGlobal_80298F08_lbl_8050E3B8 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+struct RecoveredGlobal_80298DD4_lbl_8051C07C {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+s32 get_clamped_player_index__14TChCrEffCtrlPlFv(void);
+extern RecoveredGlobal_80298F08_lbl_8050E3B8 lbl_8050E3B8;
+s32 TObjCMProportion__sub_80298F08(void);
+extern RecoveredGlobal_80298DD4_lbl_8051C07C lbl_8051C07C;
+M2C_UNK *TObjCMMainMenu__sub_80298DD4(void);
+}
+
 extern "C" {
 
 void TObjCMMainMenu__sub_80298DA0(int a0);
@@ -89,6 +107,16 @@ extern s32 lbl_805D652C;
 
 u8 TObjCMMainMenu__sub_80298DC4(void) {
     return (u8) (lbl_805D652C == 0);
+}
+typedef char RecoveredGlobal_80298F08_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80298F08_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+
+typedef char RecoveredGlobal_80298DD4_lbl_8051C07C_size[sizeof(RecoveredGlobal_80298DD4_lbl_8051C07C) == 0x18 ? 1 : -1];
+M2C_UNK *TObjCMMainMenu__sub_80298DD4(void) {
+    return &lbl_8051C07C.value;
+}
+
+s32 TObjCMProportion__sub_80298F08(void) {
+    return M2C_FIELD(&lbl_8050E3B8.value, M2C_UNK *, (get_clamped_player_index__14TChCrEffCtrlPlFv() * 4));
 }
 
 }

@@ -85,11 +85,30 @@ struct VObj_18 : VBase_18 {
     virtual void m76();
     virtual M2C_UNK m77();
 };
+
+struct RecoveredGlobal_801889B8_lbl_804B63BC {
+    M2C_UNK value;
+    u8 remaining[0x158];
+};
+
+struct RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy {
+    M2C_UNK value;
+    u8 remaining[0x148];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void reset_photon_effect__10TObjPlayerFPv(s32);
+u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u8 * fn_8018A150(void *, s32);
+extern RecoveredGlobal_801889B8_lbl_804B63BC lbl_804B63BC;
+extern M2C_UNK __vt__21TObjContainerAbeEnemy[];
+extern s32 lbl_805D32F8;
+u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -135,6 +154,22 @@ void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1) {
 }
 
 extern void *tl_05;
+
+typedef char RecoveredGlobal_801889B8_lbl_804B63BC_size[sizeof(RecoveredGlobal_801889B8_lbl_804B63BC) == 0x15C ? 1 : -1];
+typedef char RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy_size[sizeof(RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy) == 0x14C ? 1 : -1];
+u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1) {
+    fn_8018A150(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy *)&__vt__21TObjContainerAbeEnemy).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32F8;
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
+    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804B63BC.value, 1);
+    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&lbl_804B63BC.value, f32 *, 4));
+    return arg0;
+}
 
 void *TObjContainerBase__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x368);

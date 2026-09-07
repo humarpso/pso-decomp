@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803EE2E4_lbl_8058DC98 {
+    s8 value;
+    u8 remaining[0x4F];
+};
+
+extern "C" {
+extern RecoveredGlobal_803EE2E4_lbl_8058DC98 lbl_8058DC98;
+void TQuestVmDownLoadServer__sub_803EE2E4(void);
+}
+
 extern "C" {
 
 s32 TQuestVmDownLoadServer__sub_803E719C(u8 arg0, s32 arg1);
@@ -72,6 +82,11 @@ void push_download_entry__22TQuestVmDownLoadServerFPv(M2C_UNK *arg0) {
 }
 
 extern s32 lbl_805D7900;
+
+typedef char RecoveredGlobal_803EE2E4_lbl_8058DC98_size[sizeof(RecoveredGlobal_803EE2E4_lbl_8058DC98) == 0x50 ? 1 : -1];
+void TQuestVmDownLoadServer__sub_803EE2E4(void) {
+    lbl_8058DC98.value = 0;
+}
 
 s32 get_download_state__22TQuestVmDownLoadServerFv(void) {
     return lbl_805D7900;

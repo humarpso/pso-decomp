@@ -8,6 +8,23 @@ struct VObj_8001C8B8_8001C61C : Base_8001C8B8_8001C61C {
     virtual void m0(s32);
 };
 
+struct RecoveredGlobal_8001C828___vt__9TLoadCtrl {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+s32 __nw__7TObjectFUl(int);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 __ct__9TAdFadeGCFv(int, int, int);
+extern RecoveredGlobal_8001C828___vt__9TLoadCtrl __vt__9TLoadCtrl;
+extern s32 lbl_805D2630;
+extern s32 TLoadCtrl__data_805D4A84;
+extern s32 TLoadCtrl__data_805D4A88;
+extern s32 tl_fade;
+u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void cleanup_scene__9TLoadCtrlFv(void);
@@ -30,6 +47,27 @@ void render__9TLoadCtrlFv(void) {  }
 extern u32 TLoadCtrl__data_805D4A80;
 extern s32 TLoadCtrl__data_805D4A84;
 extern void *lbl_805D4DF0;
+
+typedef char RecoveredGlobal_8001C828___vt__9TLoadCtrl_size[sizeof(RecoveredGlobal_8001C828___vt__9TLoadCtrl) == 0x18 ? 1 : -1];
+u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
+    s32 temp_r3;
+    s32 var_r0;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__9TLoadCtrl.value;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+    TLoadCtrl__data_805D4A88 = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2630;
+    if (((u32) (*(u32 *)&TLoadCtrl__data_805D4A84) == 0U) || ((u32) (*(u32 *)&TLoadCtrl__data_805D4A84) == 1U)) {
+        temp_r3 = __nw__7TObjectFUl((int) (0x38));
+        var_r0 = temp_r3;
+        if (var_r0 != 0) {
+            var_r0 = __ct__9TAdFadeGCFv((int) (temp_r3), (int) (tl_fade), (int) (2));
+        }
+        TLoadCtrl__data_805D4A88 = var_r0;
+    }
+    return arg0;
+}
 
 void cleanup_scene__9TLoadCtrlFv(void) {
     u32 t;

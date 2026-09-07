@@ -13,6 +13,11 @@ struct VObj8019CF38_8019CCF0 : VBase8019CF38_8019CCF0 {
 struct RecoveredGlobal_8019D030___vt__17TObjMapWarpForest { M2C_UNK value; u8 remaining[0x50]; };
 typedef char RecoveredGlobal_8019D030___vt__17TObjMapWarpForest_size[sizeof(RecoveredGlobal_8019D030___vt__17TObjMapWarpForest) == 0x54 ? 1 : -1];
 
+struct RecoveredGlobal_8019CA24_lbl_80515BA0 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
 extern "C" {
 s32 TObjMapWarp__ct(void *);
 s32 get_story_select__16TAdStorySelectGCFv();
@@ -22,6 +27,15 @@ extern RecoveredGlobal_8019D030___vt__17TObjMapWarpForest __vt__17TObjMapWarpFor
 extern s32 lbl_805D3464;
 extern const f32 lbl_805DBFE4;
 u8 *TObjMapWarpForest__ct(u8 *arg0);
+s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
+s32 TLobby__sub_80207770(s32);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+M2C_UNK TKeyBoardControl__sub_8000F998();
+M2C_UNK TTecLuker__sub_801BAB1C(void *, void *);
+M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
+M2C_UNK TNpcPlayer__sub_8034E7A0();
+extern RecoveredGlobal_8019CA24_lbl_80515BA0 lbl_80515BA0;
+void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -57,6 +71,16 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
+
+typedef char RecoveredGlobal_8019CA24_lbl_80515BA0_size[sizeof(RecoveredGlobal_8019CA24_lbl_80515BA0) == 0x28 ? 1 : -1];
+void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1) {
+    set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (int) (TLobby__sub_80207770(M2C_FIELD(arg0, s32 *, 0xBC))));
+    TKeyBoardControl__sub_8000F998();
+    get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
+    TNpcPlayer__sub_8034E7A0();
+    TTecLuker__sub_801BAB1C((void *) (arg1), (void *) (get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value)));
+    TBoss3Volopt__sub_8022675C(0x40003205, 0U, 0, 0);
+}
 
 s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0) {
     s32 var_r31;

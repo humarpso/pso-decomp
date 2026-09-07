@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80186AF4_lbl_804FF800 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
 extern "C" {
 s32 TObjPlayer__sub_800196EC();
 s32 get_field_3e4__10TObjPlayerFPv(s32);
@@ -14,6 +19,8 @@ s32 TObjCityMainWarp__sub_80186BBC(s32 arg0, f32 farg0);
 s32 get_main_phase();
 extern s32 lbl_805D55C0;
 s32 TObjCityMainWarp__sub_80186B00(void);
+extern RecoveredGlobal_80186AF4_lbl_804FF800 lbl_804FF800;
+M2C_UNK *TObjCityMainWarp__sub_80186AF4(void);
 }
 
 extern "C" {
@@ -72,6 +79,11 @@ void set_active_bit__16TObjCityMainWarpFv(void) {
 void TObjCityMainWarp__sub_80186AB8(void) {  }
 void reset__16TObjCityMainWarpFv(void) { TObjCityMainWarp__sub_80186634(); TObjCityMainWarp__sub_801868A8(0); }
 void set_flag70_bit10__16TObjCityMainWarpFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x10; }
+
+typedef char RecoveredGlobal_80186AF4_lbl_804FF800_size[sizeof(RecoveredGlobal_80186AF4_lbl_804FF800) == 0x20 ? 1 : -1];
+M2C_UNK *TObjCityMainWarp__sub_80186AF4(void) {
+    return &lbl_804FF800.value;
+}
 
 s32 TObjCityMainWarp__sub_80186B00(void) {
     return ((get_main_phase() - 0xF) == 0) ? lbl_805D55C0 : 0;

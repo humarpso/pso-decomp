@@ -4,6 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8019A9B8_lbl_80446184 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_8019A9B8_lbl_804B8F60 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_8019A880_lbl_804B8F70 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8019A880___vt__8TObjTank {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
 extern "C" {
 M2C_UNK TObjFish__sub_8001EDC4(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -17,6 +37,23 @@ extern u32 lbl_805D5C6C;
 extern const f32 lbl_805DBFA0;
 extern const f32 lbl_805DBFA4;
 void render__8TObjTankFv(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+u8 * TLanguage__sub_801E4874(s32);
+extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80446184;
+extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804B8F60;
+extern u32 lbl_805D5C68;
+extern u32 lbl_805D5C6C;
+void TObjTank__sub_8019A9B8(void);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 TObjPlayer__sub_801569F4(void *);
+extern RecoveredGlobal_8019A880_lbl_804B8F70 lbl_804B8F70;
+extern M2C_UNK __vt__8TObjTank[];
+extern s32 lbl_805D3444;
+u8 *TObjTank__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -29,7 +66,6 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-void *TObjTank__ct(void *, void *, void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -79,10 +115,25 @@ void *__dt__8TObjTankFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
+typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8019A880_lbl_804B8F70) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGlobal_8019A880___vt__8TObjTank) == 0x3C ? 1 : -1];
+u8 *TObjTank__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TObjPlayer__sub_801569F4((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019A880___vt__8TObjTank *)&__vt__8TObjTank).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3444;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
+    copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) (&lbl_804B8F70.value), (int) (1));
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    return arg0;
+}
+
 void *TObjTank__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xAC);
     if (o != NULL) {
-        o = TObjTank__ct(o, tl_05, arg0);
+        o = TObjTank__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -100,6 +151,19 @@ void free_globals__8TObjTankFv(void) {
         TLobby__sub_8001FE7C((void*)lbl_805D5C68, 1);
         lbl_805D5C68 = 0U;
     }
+}
+typedef char RecoveredGlobal_8019A9B8_lbl_80446184_size[sizeof(RecoveredGlobal_8019A9B8_lbl_80446184) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8019A9B8_lbl_804B8F60) == 0x10 ? 1 : -1];
+void TObjTank__sub_8019A9B8(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B8F60.value, 0, 0, 0));
+    }
+    (*(s32 *)&lbl_805D5C68) = var_r0;
+    (*(u8 * *)&lbl_805D5C6C) = TLanguage__sub_801E4874((s32) &lbl_80446184.value);
 }
 
 }

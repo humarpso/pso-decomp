@@ -4,6 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8010FCB4_lbl_8049F42C {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+extern "C" {
+s32 TObjPlayer__sub_8001BEF8(void *, int);
+M2C_UNK __dl__FPv(void *);
+M2C_UNK TItemLoad__sub_80110010(void *, int);
+extern RecoveredGlobal_8010FCB4_lbl_8049F42C lbl_8049F42C;
+extern s32 lbl_805D5498;
+u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1);
+}
+
 extern "C" {
 
 void advance_load_state__9TItemLoadFPv(u8 *arg0);
@@ -31,6 +45,20 @@ block_3:
             M2C_FIELD(arg0, s32 *, 0x18) = 2;
         }
     }
+}
+typedef char RecoveredGlobal_8010FCB4_lbl_8049F42C_size[sizeof(RecoveredGlobal_8010FCB4_lbl_8049F42C) == 0x10 ? 1 : -1];
+u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x14) = &lbl_8049F42C.value;
+        if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x1C), (int) (4)) != 0) {
+            lbl_805D5498 = 0;
+        }
+        TItemLoad__sub_80110010((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__FPv((void *) (arg0));
+        }
+    }
+    return arg0;
 }
 
 }

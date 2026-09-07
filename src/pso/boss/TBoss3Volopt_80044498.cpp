@@ -125,6 +125,120 @@ struct VObj_18_b8f5cb : VBase_18_b8f5cb {
     virtual M2C_UNK m61();
 };
 
+struct VBase_18_f1aa6a { char pad[0x18]; };
+
+struct VObj_18_f1aa6a : VBase_18_f1aa6a {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual M2C_UNK m63(M2C_UNK, M2C_UNK *);
+};
+
+struct RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80045628_lbl_804FF14C {
+    M2C_UNK value;
+    u8 remaining[0x3C];
+};
+
+struct RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_800456E4_lbl_804FF10C {
+    M2C_UNK value;
+    u8 remaining[0x3C];
+};
+
+struct RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_800457A0_lbl_804FF0CC {
+    M2C_UNK value;
+    u8 remaining[0x3C];
+};
+
 extern "C" {
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
@@ -209,6 +323,30 @@ M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
 extern u8 *TBoss3Volopt__data_805D4D00;
 extern const f32 TBoss3Volopt__data_805D87E4;
 void TBoss3Volopt__sub_800477A0(u8 *arg0);
+void set_flag8_list__12TBoss3VoloptFPv(void *);
+void TBoss3Volopt__sub_800C7698(void *);
+void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
+extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
+extern RecoveredGlobal_80045628_lbl_804FF14C lbl_804FF14C;
+void TBoss3Volopt__sub_80045628(u8 *arg0);
+void set_flag8_list__12TBoss3VoloptFPv(void *);
+void TBoss3Volopt__sub_800C7698(void *);
+void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
+extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
+extern RecoveredGlobal_800456E4_lbl_804FF10C lbl_804FF10C;
+void TBoss3Volopt__sub_800456E4(u8 *arg0);
+void set_flag8_list__12TBoss3VoloptFPv(void *);
+void TBoss3Volopt__sub_800C7698(void *);
+void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
+extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
+extern RecoveredGlobal_800457A0_lbl_804FF0CC lbl_804FF0CC;
+void TBoss3Volopt__sub_800457A0(u8 *arg0);
 }
 
 extern "C" {
@@ -249,6 +387,66 @@ void TBoss3Volopt__sub_80045234(void) {  }
 
 extern u16 TBoss3Volopt__data_805D2710;
 extern s32 lbl_805D2714;
+
+typedef char RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8_size[sizeof(RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8) == 0x28 ? 1 : -1];
+typedef char RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038_size[sizeof(RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_80045628_lbl_804FF14C_size[sizeof(RecoveredGlobal_80045628_lbl_804FF14C) == 0x40 ? 1 : -1];
+void TBoss3Volopt__sub_80045628(u8 *arg0) {
+    M2C_UNK sp8;
+    s32 temp_r4;
+    u8 *temp_r5;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x388);
+    if (!(temp_r4 & 0x80000)) {
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r4 | 0x80000);
+        temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r5, s32 *, 0x9C) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x9C) & 0xEFFFFFFE);
+        TBoss3Volopt__sub_800C7698(arg0);
+        ((VObj_18_f1aa6a *)(arg0))->m63(0x29, &sp8);
+        create_breakup_mdl__12TBoss3VoloptFiiiii(M2C_FIELD(&TBoss3Volopt__data_804FF038.value, s32 *, 0x10), (s32) &TBoss3Volopt__data_804845E8.value, M2C_FIELD(arg0, s32 *, 0x24), (s32) (arg0 + 0x2FC), M2C_FIELD(arg0, s32 *, 0x60));
+        set_flag8_list__12TBoss3VoloptFPv(&lbl_804FF14C.value);
+        TBoss3Volopt__sub_8022675C(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
+    }
+}
+
+typedef char RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8_size[sizeof(RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8) == 0x28 ? 1 : -1];
+typedef char RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038_size[sizeof(RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_800456E4_lbl_804FF10C_size[sizeof(RecoveredGlobal_800456E4_lbl_804FF10C) == 0x40 ? 1 : -1];
+void TBoss3Volopt__sub_800456E4(u8 *arg0) {
+    M2C_UNK sp8;
+    s32 temp_r4;
+    u8 *temp_r5;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x388);
+    if (!(temp_r4 & 0x40000)) {
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r4 | 0x40000);
+        temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r5, s32 *, 0x70) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x70) & 0xEFFFFFFE);
+        TBoss3Volopt__sub_800C7698(arg0);
+        ((VObj_18_f1aa6a *)(arg0))->m63(0x22, &sp8);
+        create_breakup_mdl__12TBoss3VoloptFiiiii(M2C_FIELD(&(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__data_804FF038).value, s32 *, 0xC), (s32) &(*(RecoveredGlobal_800456E4_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, M2C_FIELD(arg0, s32 *, 0x24), (s32) &sp8, M2C_FIELD(arg0, s32 *, 0x60));
+        set_flag8_list__12TBoss3VoloptFPv(&lbl_804FF10C.value);
+        TBoss3Volopt__sub_8022675C(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
+    }
+}
+
+typedef char RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8_size[sizeof(RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8) == 0x28 ? 1 : -1];
+typedef char RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038_size[sizeof(RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_800457A0_lbl_804FF0CC_size[sizeof(RecoveredGlobal_800457A0_lbl_804FF0CC) == 0x40 ? 1 : -1];
+void TBoss3Volopt__sub_800457A0(u8 *arg0) {
+    M2C_UNK sp8;
+    s32 temp_r4;
+    u8 *temp_r5;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x388);
+    if (!(temp_r4 & 0x20000)) {
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (temp_r4 | 0x20000);
+        temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r5, s32 *, 0x44) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x44) & 0xEFFFFFFE);
+        TBoss3Volopt__sub_800C7698(arg0);
+        ((VObj_18_f1aa6a *)(arg0))->m63(0x32, &sp8);
+        create_breakup_mdl__12TBoss3VoloptFiiiii(M2C_FIELD(&(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804FF038 *)&TBoss3Volopt__data_804FF038).value, s32 *, 8), (s32) &(*(RecoveredGlobal_800457A0_TBoss3Volopt__data_804845E8 *)&TBoss3Volopt__data_804845E8).value, M2C_FIELD(arg0, s32 *, 0x24), (s32) &sp8, M2C_FIELD(arg0, s32 *, 0x60));
+        set_flag8_list__12TBoss3VoloptFPv(&lbl_804FF0CC.value);
+        TBoss3Volopt__sub_8022675C(0x4003A80F, (u32) (arg0 + 0x38), 0, 1);
+    }
+}
 
 void create_cage__12TBoss3VoloptFPvUs(void *arg0, u16 arg1) {
     void *temp_r3;

@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80202A40_lbl_8051381C {
+    M2C_UNK value;
+    u8 remaining[0xE4];
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
 int fn_8020325C(void *arg0);
@@ -18,6 +23,9 @@ extern int lbl_805D5F74;
 s32 TAdSinglePlyChrSelectGC__sub_80202A74(s32 arg0, s16 arg1);
 void init__9TItemDataFv(void *);
 void TAdSinglePlyChrSelectGC__sub_80203220(u8 *arg0);
+s32 init_single_player_chr_select__6TLobbyFPv(s32);
+extern RecoveredGlobal_80202A40_lbl_8051381C lbl_8051381C;
+void TAdSinglePlyChrSelectGC__sub_80202A40(void);
 }
 
 extern "C" {
@@ -61,6 +69,11 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
         return get_char_table_entry__23TAdSinglePlyChrSelectGCFi(arg0);
     }
     return lbl_805D5F60;
+}
+
+typedef char RecoveredGlobal_80202A40_lbl_8051381C_size[sizeof(RecoveredGlobal_80202A40_lbl_8051381C) == 0xE8 ? 1 : -1];
+void TAdSinglePlyChrSelectGC__sub_80202A40(void) {
+    init_single_player_chr_select__6TLobbyFPv((s32) &lbl_8051381C.value);
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {

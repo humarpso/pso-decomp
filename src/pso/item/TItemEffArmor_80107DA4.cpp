@@ -3,6 +3,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct RecoveredGlobal_80107DA4_lbl_8049EFB8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
@@ -13,9 +19,21 @@ extern const f32 TItemEffArmor__data_805DAAEC;
 extern const f32 lbl_805DAAF0;
 extern const f32 lbl_805DAAF4;
 void run_task__13TItemEffArmorFv(u8 *arg0);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_80107DA4_lbl_8049EFB8 lbl_8049EFB8;
+u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2);
 }
 
 extern "C" {
+
+typedef char RecoveredGlobal_80107DA4_lbl_8049EFB8_size[sizeof(RecoveredGlobal_80107DA4_lbl_8049EFB8) == 0x18 ? 1 : -1];
+u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_8049EFB8.value;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s16 *, 0x20) = arg2;
+    return arg0;
+}
 
 void run_task__13TItemEffArmorFv(u8 *arg0) {
     u8 *temp_r3;

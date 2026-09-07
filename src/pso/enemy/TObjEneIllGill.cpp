@@ -13,6 +13,16 @@ struct IllGillVObj_80367984_8036690C : IllGillBase_80367984_8036690C {
     virtual M2C_UNK m5();
 };
 
+struct RecoveredGlobal_80367DC8_lbl_8050BF00 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_80367DC8_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
 extern "C" {
 int obj_clearFlags30(void*, int);
 void free_resources__14TObjEneIllGillFPv(void *arg0);
@@ -46,6 +56,16 @@ extern const f32 TObjEneIllGill__data_805E02DC;
 extern const f32 lbl_805E02E0;
 extern const f32 lbl_805E02E4;
 void TObjEneIllGill__sub_803665B4(u8 *arg0);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 TObjPlayer__sub_803D9214(int, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+s32 TCameraCtrl__sub_803D9858(int);
+extern RecoveredGlobal_80367DC8_lbl_8050BF00 lbl_8050BF00;
+extern RecoveredGlobal_80367DC8_lbl_8058D490 lbl_8058D490;
+extern const f32 TObjEneIllGill__data_805E02BC;
+void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -265,6 +285,20 @@ void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0) {
 }
 
 extern void *tl_04;
+
+typedef char RecoveredGlobal_80367DC8_lbl_8050BF00_size[sizeof(RecoveredGlobal_80367DC8_lbl_8050BF00) == 0x20 ? 1 : -1];
+typedef char RecoveredGlobal_80367DC8_lbl_8058D490_size[sizeof(RecoveredGlobal_80367DC8_lbl_8058D490) == 0x30 ? 1 : -1];
+void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
+    M2C_FIELD(&lbl_8050BF00.value, f32 *, 4) = (f32) TObjEneIllGill__data_805E02BC;
+    M2C_FIELD(&lbl_8050BF00.value, f32 *, 0) = (f32) TObjEneIllGill__data_805E02BC;
+    M2C_FIELD(&lbl_8050BF00.value, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4);
+    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    TObjPlayer__sub_803D9214((int) (0), (void *) (arg1));
+    TScene__sub_803D8DB4((int) (0), (void *) (&lbl_8050BF00.value), (void *) (&lbl_8050BF00.value));
+    TCameraCtrl__sub_803D9858((int) (1));
+    TBoss4Zako__sub_803D8910((void *) (&lbl_8050BF00.value), (void *) (arg0 + 0x38));
+    TObjPlayer__sub_80156844((void *) (arg0), (void *) (&lbl_8050BF00.value), (int) (0));
+}
 
 void * create__14TObjEneIllGillFPv(void *arg0) {
     void *o;

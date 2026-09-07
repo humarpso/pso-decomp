@@ -8,6 +8,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80229100_TSwitch__data_80515CC8 {
+    M2C_UNK value;
+    u8 remaining[0x23C];
+};
+
+struct RecoveredGlobal_8022942C_TSwitch__data_80515CC8 {
+    M2C_UNK value;
+    u8 remaining[0x23C];
+};
+
+struct RecoveredGlobal_8022945C_TSwitch__data_80515CC8 {
+    M2C_UNK value;
+    u8 remaining[0x23C];
+};
+
 extern "C" {
 void TSwitch__sub_802292E0(s32 arg0);
 void TSwitch__sub_80229258(void* p, s16 v);
@@ -23,6 +38,15 @@ void TODoorAncient08__sub_80229220(s32 arg0);
 u8 TSwitch__sub_802291F4(void* p = 0, s16 v = 0);
 s16 TObjPlayer__sub_800196EC();
 void TODoorAncient08__sub_80229220(s32 arg0);
+M2C_UNK memcpy(void *, void *, void *);
+extern RecoveredGlobal_80229100_TSwitch__data_80515CC8 TSwitch__data_80515CC8;
+void TSwitch__sub_80229100(s32 arg0, s32 arg1);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_80229100_TSwitch__data_80515CC8 TSwitch__data_80515CC8;
+void TSwitch__sub_8022942C(void);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_80229100_TSwitch__data_80515CC8 TSwitch__data_80515CC8;
+void TSwitch__sub_8022945C(void);
 }
 
 extern "C" {
@@ -35,6 +59,11 @@ void __ct__7TObjectFP7TObject(void *);
 
 void render__7TSwitchFv(void) {  }
 void run_task__7TSwitchFv(void) {  }
+
+typedef char RecoveredGlobal_80229100_TSwitch__data_80515CC8_size[sizeof(RecoveredGlobal_80229100_TSwitch__data_80515CC8) == 0x240 ? 1 : -1];
+void TSwitch__sub_80229100(s32 arg0, s32 arg1) {
+    memcpy((void *) (&TSwitch__data_80515CC8.value), (void *) (arg0), (void *) (arg1));
+}
 
 u8 TSwitch__sub_802291F4(void* _w0, s16 _w1) {
     return (u8) (TSwitch__sub_80229164() != 0);
@@ -71,6 +100,14 @@ void *__ct__7TSwitchFv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
     return arg0;
+}
+typedef char RecoveredGlobal_8022942C_TSwitch__data_80515CC8_size[sizeof(RecoveredGlobal_8022942C_TSwitch__data_80515CC8) == 0x240 ? 1 : -1];
+void TSwitch__sub_8022942C(void) {
+    memset((void *) (&(*(RecoveredGlobal_8022942C_TSwitch__data_80515CC8 *)&TSwitch__data_80515CC8).value), (int) (0), (int) (0x240));
+}
+typedef char RecoveredGlobal_8022945C_TSwitch__data_80515CC8_size[sizeof(RecoveredGlobal_8022945C_TSwitch__data_80515CC8) == 0x240 ? 1 : -1];
+void TSwitch__sub_8022945C(void) {
+    memset((void *) (&(*(RecoveredGlobal_8022945C_TSwitch__data_80515CC8 *)&TSwitch__data_80515CC8).value), (int) (0), (int) (0x240));
 }
 
 }

@@ -4,12 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80284B84_lbl_804D2D10 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp {
+    M2C_UNK value;
+    u8 remaining[0x18];
+};
+
 extern "C" {
 void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1);
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
 s32 draw_default_entry__9TWindowDDFi();
 extern M2C_UNK __vt__19TWindowMenuMainMenu[];
 void render__24TWindowSubSymbolChatHelpFv(s32 arg0);
+u8 * TWindowSubComCard__sub_8026CBB8(s32);
+M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
+extern RecoveredGlobal_80284B84_lbl_804D2D10 lbl_804D2D10;
+extern M2C_UNK __vt__24TWindowSubSymbolChatHelp[];
+extern s32 lbl_805D3AB8;
+u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -135,6 +151,19 @@ void *__dt__24TWindowSubSymbolChatHelpFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_80284B84_lbl_804D2D10_size[sizeof(RecoveredGlobal_80284B84_lbl_804D2D10) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp_size[sizeof(RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp) == 0x1C ? 1 : -1];
+u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804D2D10.value), (int) (4), (int) (TWindowSubComCard__sub_8026CBB8(0x7E)));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp *)&__vt__24TWindowSubSymbolChatHelp).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AB8;
+    M2C_FIELD(arg0, s8 *, 0x60) = 0;
+    M2C_FIELD(arg0, s32 *, 0x64) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x68) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x6C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x70) = 0;
     return arg0;
 }
 

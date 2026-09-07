@@ -11,6 +11,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 { M2C_UNK value; u8 remaining[0x44]; };
 typedef char RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0_size[sizeof(RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0) == 0x48 ? 1 : -1];
 
+struct RecoveredGlobal_801F5E7C_lbl_805129F8 {
+    M2C_UNK value;
+    u8 remaining[0xD4];
+};
+
 extern "C" {
 s32 TQuestThread__sub_801F5EAC(u8 *arg0, s32 arg1);
 u32 __ct__12TQuestThreadFv(u32, u32, s32);
@@ -26,6 +31,9 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
 extern u32 lbl_805D5EE8;
 u8 *TQuestThread__sub_801F5B5C(void);
+int memset(void*, void*, void*);
+extern RecoveredGlobal_801F5E7C_lbl_805129F8 lbl_805129F8;
+void TQuestThread__sub_801F5E7C(void);
 }
 
 extern "C" {
@@ -110,6 +118,11 @@ void handle_6x77_sync_quest_register(u8 *arg0) {
             M2C_FIELD(var_r4, M2C_UNK *, ((temp_r0 * 4) & 0x3FFFC)) = (long) (var_r3);
         }
     }
+}
+
+typedef char RecoveredGlobal_801F5E7C_lbl_805129F8_size[sizeof(RecoveredGlobal_801F5E7C_lbl_805129F8) == 0xD8 ? 1 : -1];
+void TQuestThread__sub_801F5E7C(void) {
+    memset((void*)((void *) (&lbl_805129F8.value)), (void*)((int) (0)), (void*)((int) (0xD8)));
 }
 
 s32 TQuestThread__sub_801F5EAC(u8 *arg0, s32 arg1) {

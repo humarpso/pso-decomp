@@ -4,6 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8019677C_lbl_80445E84 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8019677C___vt__17TObjQuestColALock {
+    M2C_UNK value;
+    u8 remaining[0x40];
+};
+
+extern "C" {
+void set_indexed_flags(void *, s32, s32);
+void reset_photon_effect__10TObjPlayerFPv(s32);
+void TObjPlayer__sub_80154E3C(void *);
+u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u8 * TObjQuestColBase__ct(void *, s32);
+extern RecoveredGlobal_8019677C_lbl_80445E84 lbl_80445E84;
+extern M2C_UNK __vt__17TObjQuestColALock[];
+extern s32 lbl_805D33F4;
+u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 s32 TObjQuestColALock__vt13(void *arg0);
@@ -75,6 +97,22 @@ void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8019677C_lbl_80445E84_size[sizeof(RecoveredGlobal_8019677C_lbl_80445E84) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8019677C___vt__17TObjQuestColALock_size[sizeof(RecoveredGlobal_8019677C___vt__17TObjQuestColALock) == 0x44 ? 1 : -1];
+u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1) {
+    u8 *temp_r4;
+    TObjQuestColBase__ct(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019677C___vt__17TObjQuestColALock *)&__vt__17TObjQuestColALock).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33F4;
+    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_80445E84.value, 1);
+    set_indexed_flags(arg0, 0, 0xF0);
+    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+    M2C_FIELD(temp_r4, f32 *, 4) = (f32) (M2C_FIELD(temp_r4, f32 *, 4) + M2C_FIELD(arg0, f32 *, 0x6C));
+    TObjPlayer__sub_80154E3C(arg0);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     return arg0;
 }
 

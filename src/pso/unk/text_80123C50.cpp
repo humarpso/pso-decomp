@@ -24,6 +24,16 @@ struct VObj_18 : VBase_18 {
     virtual s16 m14();
 };
 
+struct RecoveredGlobal_80123CA8_lbl_8043E878 {
+    M2C_UNK value;
+    u8 remaining[0x5C];
+};
+
+struct RecoveredGlobal_80123CA8_lbl_8043E8D8 {
+    M2C_UNK value;
+    u8 remaining[0x5C];
+};
+
 extern "C" {
 s32 TObjPlayer__sub_800112A4(void *, s32);
 s16 obj_getS16_32E(void *);
@@ -33,6 +43,12 @@ u8 * init_state__10TObjPlayerFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80123C50(s32 arg0);
+s32 get_player_list__10TObjPlayerFv(void);
+M2C_UNK play_particle_effect_once__10TObjPlayerFv();
+M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *, int);
+extern RecoveredGlobal_80123CA8_lbl_8043E878 lbl_8043E878;
+extern RecoveredGlobal_80123CA8_lbl_8043E8D8 lbl_8043E8D8;
+void TObjPlayer__sub_80123CA8(u8 *arg0);
 }
 
 extern "C" {
@@ -56,6 +72,30 @@ u8 *TObjPlayer__sub_80123C50(s32 arg0) {
 #include "types.h"
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+typedef char RecoveredGlobal_80123CA8_lbl_8043E878_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E878) == 0x60 ? 1 : -1];
+typedef char RecoveredGlobal_80123CA8_lbl_8043E8D8_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E8D8) == 0x60 ? 1 : -1];
+void TObjPlayer__sub_80123CA8(u8 *arg0) {
+    s32 temp_r3;
+    s32 temp_r4;
+    s32 temp_r4_2;
+    temp_r3 = get_player_list__10TObjPlayerFv();
+    switch (temp_r3) {
+    case 1:
+        play_particle_effect_once__10TObjPlayerFv();
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0x1F8);
+        TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)&lbl_8043E878.value + (temp_r4 * 0xC)), (int) (temp_r4));
+        return;
+    case 4:
+        play_particle_effect_once__10TObjPlayerFv();
+        temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x1F8);
+        TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)&lbl_8043E8D8.value + (temp_r4_2 * 0xC)), (int) (temp_r4_2));
+        return;
+    case 7:
+        play_particle_effect_once__10TObjPlayerFv();
+        return;
+    }
+}
 
 void TObjPlayer__sub_80123D3C(u8 *arg0) {
     s16 temp_r0;

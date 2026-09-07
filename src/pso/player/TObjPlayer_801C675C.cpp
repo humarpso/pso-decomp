@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801C6FF8_lbl_804C4008 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 u8 fn_801C6F2C(u8 *arg0);
 s32 TObjPlayer__sub_801BF3E8(void *);
@@ -11,6 +16,9 @@ int set_action_flag16__10TObjPlayerFPv(void* p);
 int test_flag_8__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C7098(void* p);
 s32 TObjPlayer__sub_801C6E40(s32 arg0);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_801C6FF8_lbl_804C4008 lbl_804C4008;
+u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 }
 
 extern "C" {
@@ -104,6 +112,17 @@ void set_ring_action__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4)
 void TObjPlayer__sub_801C6FDC(void) {  }
 void TObjPlayer__sub_801C6FE0(void* p, f32 a, f32 b, f32 c) { *(f32*)((char*)p + 0x0) = a; *(f32*)((char*)p + 0x4) = b; *(f32*)((char*)p + 0x8) = c; }
 u16 get_obj_type__10TObjPlayerFPv(void* p) { return *(u16*)((char*)p + 0x0); }
+
+typedef char RecoveredGlobal_801C6FF8_lbl_804C4008_size[sizeof(RecoveredGlobal_801C6FF8_lbl_804C4008) == 0x18 ? 1 : -1];
+u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804C4008.value;
+    M2C_FIELD(arg0, s8 *, 0x1C) = arg3;
+    M2C_FIELD(arg0, s8 *, 0x1D) = 0;
+    M2C_FIELD(arg0, s16 *, 0x1E) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    return arg0;
+}
 
 int set_action_flag16__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BEF8(p, 16); }
 int test_flag_8__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BEF8(p, 8); }

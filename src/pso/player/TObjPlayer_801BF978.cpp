@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801BF9F0_lbl_804C3E50 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+extern "C" {
+M2C_UNK __dl__FPv(s32);
+s32 free_if_valid__14TPlyDispConfigFis(void *, int);
+extern RecoveredGlobal_801BF9F0_lbl_804C3E50 lbl_804C3E50;
+u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1);
+}
+
 extern "C" {
 
 void TObjPlayer__sub_801BF9E0(void* p, s16 v);
@@ -32,6 +44,18 @@ void set_vec3_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x0) = TO
 
 void TObjPlayer__sub_801BF9E0(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 void set_pos_z__10TObjPlayerFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; }
+
+typedef char RecoveredGlobal_801BF9F0_lbl_804C3E50_size[sizeof(RecoveredGlobal_801BF9F0_lbl_804C3E50) == 0x10 ? 1 : -1];
+u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 8) = &lbl_804C3E50.value;
+        free_if_valid__14TPlyDispConfigFis((void *) (arg0 + 4), (int) (-1));
+        if (arg1 > 0) {
+            __dl__FPv((s32)((void *) (arg0)));
+        }
+    }
+    return arg0;
+}
 
 s32 TObjPlayer__sub_801BFA4C(s32 arg0, s16 arg1) {
     if (arg0 != 0) {

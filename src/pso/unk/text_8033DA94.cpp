@@ -4,6 +4,23 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8033DCA8_lbl_80477F2C {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8033DCA8_lbl_804EFA08 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+extern "C" {
+extern RecoveredGlobal_8033DCA8_lbl_80477F2C lbl_80477F2C;
+extern RecoveredGlobal_8033DCA8_lbl_804EFA08 lbl_804EFA08;
+extern const f32 lbl_805DFA90;
+void TObjFish__sub_8033DCA8(void);
+}
+
 extern "C" {
 
 void *create_variant__8TObjFishFPv(void *arg0);
@@ -26,6 +43,14 @@ void *create_variant__8TObjFishFPv(void *arg0) {
         o = TObjFish__sub_8033DA94(o, arg0);
     }
     return o;
+}
+
+typedef char RecoveredGlobal_8033DCA8_lbl_80477F2C_size[sizeof(RecoveredGlobal_8033DCA8_lbl_80477F2C) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8033DCA8_lbl_804EFA08_size[sizeof(RecoveredGlobal_8033DCA8_lbl_804EFA08) == 0xC ? 1 : -1];
+void TObjFish__sub_8033DCA8(void) {
+    M2C_FIELD(&lbl_804EFA08.value, f32 *, 0) = (f32) M2C_FIELD(&lbl_80477F2C.value, f32 *, 0);
+    M2C_FIELD(&lbl_804EFA08.value, f32 *, 4) = (f32) (lbl_805DFA90 + M2C_FIELD(&lbl_80477F2C.value, f32 *, 4));
+    M2C_FIELD(&lbl_804EFA08.value, f32 *, 8) = (f32) M2C_FIELD(&lbl_80477F2C.value, f32 *, 8);
 }
 
 void render_effect__8TObjFishFPv(u8 *arg0) {

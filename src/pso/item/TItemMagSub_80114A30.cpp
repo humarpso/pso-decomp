@@ -4,6 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_80114DB8 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+struct RecoveredGlobal_80114DB8_lbl_8043E5A8 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_80114DB8_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
 extern "C" {
 s32 TItemMag__sub_80113EC8(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
@@ -12,6 +29,14 @@ M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9214(int, void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void TItemMagSub__sub_80114E4C(u8 *arg0);
+s32 is_mag_active__11TItemMagSubFPv(int);
+void TItemMagSub__sub_80114E4C(u8 *arg0);
+s32 TObjPlayer__sub_803D97F0(void *);
+f32 TObjPlayer__sub_803D9884(void *, void *);
+s32 TObjPlayer__sub_803D9B78();
+extern RecoveredGlobal_80114DB8_lbl_8043E5A8 lbl_8043E5A8;
+extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
+s32 TItemMagSub__sub_80114DB8(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -49,6 +74,26 @@ void reset_stats__11TItemMagSubFPv(u8 *arg0) {
 void accumulate_stat__11TItemMagSubFPvPvPv(f32 *arg0, s32 *arg1, void *arg2) {
     *arg1 = *arg1 + M2C_FIELD(arg2, s32 *, 0xC);
     *arg0 = M2C_FIELD(arg2, f32 *, 0) * TBoss8Dragon__sub_803D64C0(*arg1 + M2C_FIELD(arg2, s32 *, 8));
+}
+
+typedef char RecoveredGlobal_80114DB8_lbl_8043E5A8_size[sizeof(RecoveredGlobal_80114DB8_lbl_8043E5A8) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_80114DB8_lbl_8058D490_size[sizeof(RecoveredGlobal_80114DB8_lbl_8058D490) == 0x30 ? 1 : -1];
+s32 TItemMagSub__sub_80114DB8(u8 *arg0, u32 arg1) {
+    typedef char sp8_offset[(offsetof(Stack_80114DB8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80114DB8, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80114DB8, sp10) == 0x8) ? 1 : -1];
+    Stack_80114DB8 stack;
+    if ((is_mag_active__11TItemMagSubFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C))) == 0) && (arg1 != 0U)) {
+        TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+        TItemMagSub__sub_80114E4C((u8 *)((void *) (arg0)));
+        stack.sp8 = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 0);
+        stack.spC = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 4);
+        stack.sp10 = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 8);
+        TObjPlayer__sub_803D9884((void *) (&stack.sp8), (void *) (arg1));
+        TObjPlayer__sub_803D9B78();
+        return 1;
+    }
+    return 0;
 }
 
 void TItemMagSub__sub_80114E4C(u8 *arg0) {

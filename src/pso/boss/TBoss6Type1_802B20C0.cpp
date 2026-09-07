@@ -13,6 +13,26 @@ typedef char RecoveredGlobal_802B2724_lbl_804DF4C4_size[sizeof(RecoveredGlobal_8
 struct RecoveredGlobal_802B2724_lbl_804DF4D0 { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802B2724_lbl_804DF4D0_size[sizeof(RecoveredGlobal_802B2724_lbl_804DF4D0) == 0x10 ? 1 : -1];
 
+struct RecoveredGlobal_802B2400_lbl_80470CA4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_802B2CB4_lbl_80470C74 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_802B24B4_lbl_80470CB0 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_802B2D68_lbl_80470C80 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 int TBoss6Type1__sub_802B4B64(void*, void*);
 M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
@@ -40,6 +60,24 @@ M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
 extern RecoveredGlobal_802B2724_lbl_804DF4C4 lbl_804DF4C4;
 extern RecoveredGlobal_802B2724_lbl_804DF4D0 lbl_804DF4D0;
 void TBoss6Type1__sub_802B2724(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+int TBoss6Type1__sub_802B4B64(void*, void*);
+extern M2C_UNK lbl_80470CA4[];
+void TBoss6Type1__sub_802B2400(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+int TBoss6Type1__sub_802B4B64(void*, void*);
+int TBoss6Type1__sub_802B4BA8(void*, void*);
+extern M2C_UNK lbl_80470C74[];
+void TBoss6Type1__sub_802B2CB4(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+int TBoss6Type1__sub_802B4B64(void*, void*);
+extern RecoveredGlobal_802B24B4_lbl_80470CB0 lbl_80470CB0;
+void TBoss6Type1__sub_802B24B4(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+int TBoss6Type1__sub_802B4B64(void*, void*);
+int TBoss6Type1__sub_802B4BA8(void*, void*);
+extern RecoveredGlobal_802B2D68_lbl_80470C80 lbl_80470C80;
+void TBoss6Type1__sub_802B2D68(u8 *arg0);
 }
 
 extern "C" {
@@ -198,6 +236,15 @@ void update_state__11TBoss6Type1FPv(void *arg0) {
     }
 }
 
+typedef char RecoveredGlobal_802B2400_lbl_80470CA4_size[sizeof(RecoveredGlobal_802B2400_lbl_80470CA4) == 0xC ? 1 : -1];
+void TBoss6Type1__sub_802B2400(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x40C) = 0x1E;
+    M2C_FIELD(arg0, s32 *, 0x410) = 0x1E;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &(*(RecoveredGlobal_802B2400_lbl_80470CA4 *)&lbl_80470CA4).value);
+    TBoss6Type1__sub_802B4B64((void*)((s32) arg0), (void*)(0));
+    TBoss6Type1__sub_802B4B64((void*)((s32) arg0), (void*)(1));
+}
+
 void TBoss6Type1__sub_802B245C(void *arg0) {
     s32 temp_r0;
 
@@ -207,6 +254,15 @@ void TBoss6Type1__sub_802B245C(void *arg0) {
     if (temp_r0 < 0) {
         TBoss6Type1__sub_802B865C((void *)(arg0), (int)(0x14 - (M2C_FIELD(arg0, u8 *, 0x41C) & 1)));
     }
+}
+
+typedef char RecoveredGlobal_802B24B4_lbl_80470CB0_size[sizeof(RecoveredGlobal_802B24B4_lbl_80470CB0) == 0x10 ? 1 : -1];
+void TBoss6Type1__sub_802B24B4(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x40C) = 0x1E;
+    M2C_FIELD(arg0, s32 *, 0x410) = 0x1E;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470CB0.value);
+    TBoss6Type1__sub_802B4B64((void*)((s32) arg0), (void*)(0));
+    TBoss6Type1__sub_802B4B64((void*)((s32) arg0), (void*)(1));
 }
 
 void update_attack_timer__11TBoss6Type1FPv(void *arg0) {
@@ -422,6 +478,15 @@ void trigger_falz_phase__11TBoss6Type1FPv(void *arg0) {
     }
 }
 
+typedef char RecoveredGlobal_802B2CB4_lbl_80470C74_size[sizeof(RecoveredGlobal_802B2CB4_lbl_80470C74) == 0xC ? 1 : -1];
+void TBoss6Type1__sub_802B2CB4(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x40C) = 0x1E;
+    M2C_FIELD(arg0, s32 *, 0x410) = 0x1E;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &(*(RecoveredGlobal_802B2CB4_lbl_80470C74 *)&lbl_80470C74).value);
+    TBoss6Type1__sub_802B4BA8((void*)(arg0), (void*)(0));
+    TBoss6Type1__sub_802B4B64((void*)((s32) arg0), (void*)(1));
+}
+
 void tick_flee_countdown__11TBoss6Type1FPv(void *arg0) {
     s32 temp_r0;
 
@@ -431,6 +496,15 @@ void tick_flee_countdown__11TBoss6Type1FPv(void *arg0) {
     if (temp_r0 < 0) {
         TBoss6Type1__sub_802B865C((void *)(arg0), (int)(0xF - (M2C_FIELD(arg0, u8 *, 0x41C) & 1)));
     }
+}
+
+typedef char RecoveredGlobal_802B2D68_lbl_80470C80_size[sizeof(RecoveredGlobal_802B2D68_lbl_80470C80) == 0xC ? 1 : -1];
+void TBoss6Type1__sub_802B2D68(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x40C) = 0x1E;
+    M2C_FIELD(arg0, s32 *, 0x410) = 0x1E;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470C80.value);
+    TBoss6Type1__sub_802B4BA8((void*)(arg0), (void*)(0));
+    TBoss6Type1__sub_802B4B64((void*)((s32) arg0), (void*)(1));
 }
 
 void update_timer_transition__11TBoss6Type1FPv(void *arg0) {

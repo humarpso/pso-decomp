@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 s32 is_split_screen(void);
 u8 * TParticleCtrl__sub_800858D0(void *, s32, s32);
@@ -15,6 +20,8 @@ u8 * TParticleCtrl__sub_80085E78(void *, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_particle;
 u8 *TParticleCtrl__sub_8008598C(s32 arg0);
+extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
+s32 TParticleCtrl__sub_800861F4(u8 *arg0);
 }
 
 extern "C" {
@@ -99,6 +106,11 @@ void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+typedef char RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70_size[sizeof(RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70) == 0x1B0 ? 1 : -1];
+s32 TParticleCtrl__sub_800861F4(u8 *arg0) {
+    return *M2C_FIELD(M2C_FIELD(&TParticleCtrl__data_80511F70.value, M2C_UNK *, (M2C_FIELD(arg0, u16 *, 0x1C) * 4)), s32 **, 0x28) & 1;
 }
 
 void mark_active__13TParticleCtrlFPv(void *arg0) {

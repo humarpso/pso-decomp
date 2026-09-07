@@ -4,8 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8013F1F0_lbl_804A7254 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 void TMainCursor__sub_8013F13C(s32 *arg0);
+void TMainCursor__sub_8013F22C(void* a0);
+extern M2C_UNK lbl_804A7254[];
+u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
 }
 
 extern "C" {
@@ -75,6 +83,14 @@ void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1) {
 }
 
     extern const float TMainCursor__data_805DB0C0;
+
+typedef char RecoveredGlobal_8013F1F0_lbl_804A7254_size[sizeof(RecoveredGlobal_8013F1F0_lbl_804A7254) == 0xC ? 1 : -1];
+u8 *TMainCursor__sub_8013F1F0(u8 *arg0) {
+    M2C_FIELD(arg0, M2C_UNK **, 0x10) = &(*(RecoveredGlobal_8013F1F0_lbl_804A7254 *)&lbl_804A7254).value;
+    TMainCursor__sub_8013F22C((void*)((void *) (arg0)));
+    return arg0;
+}
+
 void TMainCursor__sub_8013F22C(void* a0) { *(float*)((char*)a0 + 0xc) = TMainCursor__data_805DB0C0; *(float*)((char*)a0 + 0x8) = TMainCursor__data_805DB0C0; *(float*)((char*)a0 + 0x4) = TMainCursor__data_805DB0C0; *(float*)((char*)a0 + 0x0) = TMainCursor__data_805DB0C0; }
 
 int TMainCursor__sub_8013F244(void) { return -1; }

@@ -105,10 +105,26 @@ struct VObj_80329044 : Base_80329044 {
     virtual void m75(s32);
 };
 
+struct RecoveredGlobal_80329088_lbl_805430E8 {
+    M2C_UNK value;
+    u8 remaining[0x1BC];
+};
+
+struct RecoveredGlobal_80329088_lbl_805432A8 {
+    M2C_UNK value;
+    u8 remaining[0x1BC];
+};
+
+extern "C" {
+s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
+extern RecoveredGlobal_80329088_lbl_805430E8 lbl_805430E8;
+extern RecoveredGlobal_80329088_lbl_805432A8 lbl_805432A8;
+M2C_UNK *TLobby__sub_80329088(s32 arg0, s32 _w1);
+}
+
 extern "C" {
 
 s32 get_cell_address__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
 void check_valid_state__6TLobbyFi(s32 arg0);
 void set_player_handle_valid__6TLobbyFPv(void *arg0);
 s32 is_handle_valid__10TObjPlayerFPv();
@@ -136,12 +152,32 @@ s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1) {
 }
 
 void check_valid_state__6TLobbyFi(s32 arg0) {
-    is_valid_state__6TLobbyFPvi((void *)(arg0), (s32)(is_handle_valid__10TObjPlayerFPv()));
+    is_valid_state__6TLobbyFPvi((void *)((void *)(arg0)), (s32)((s32)(is_handle_valid__10TObjPlayerFPv())));
 }
 
 void set_player_handle_valid__6TLobbyFPv(void *arg0) {
     struct VObj_80329044 *o = (struct VObj_80329044 *)arg0;
     o->m75(is_handle_valid__10TObjPlayerFPv());
+}
+typedef char RecoveredGlobal_80329088_lbl_805430E8_size[sizeof(RecoveredGlobal_80329088_lbl_805430E8) == 0x1C0 ? 1 : -1];
+typedef char RecoveredGlobal_80329088_lbl_805432A8_size[sizeof(RecoveredGlobal_80329088_lbl_805432A8) == 0x1C0 ? 1 : -1];
+M2C_UNK *TLobby__sub_80329088(s32 arg0, s32 _w1) {
+    M2C_UNK *var_r3;
+    s32 temp_r3;
+    temp_r3 = is_valid_state__6TLobbyFPvi((void *)(arg0), (s32)(_w1));
+    switch (temp_r3) {
+    case 0:
+        var_r3 = (M2C_UNK *)(&lbl_805430E8.value);
+        var_r3 = (M2C_UNK *)(&lbl_805430E8.value);
+        return &lbl_805430E8.value;
+    case 1:
+        var_r3 = (M2C_UNK *)(&lbl_805432A8.value);
+        var_r3 = (M2C_UNK *)(&lbl_805432A8.value);
+        return &lbl_805432A8.value;
+    default:
+        var_r3 = (M2C_UNK *)((u8 *)(NULL));
+        return NULL;
+    }
 }
 
 }

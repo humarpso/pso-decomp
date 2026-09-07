@@ -11,6 +11,26 @@ typedef char RecoveredGlobal_801A4820_main_task_size[sizeof(RecoveredGlobal_801A
 struct RecoveredGlobal_801A46D8_main_task { M2C_UNK value; u8 remaining[0x30]; };
 typedef char RecoveredGlobal_801A46D8_main_task_size[sizeof(RecoveredGlobal_801A46D8_main_task) == 0x34 ? 1 : -1];
 
+struct RecoveredGlobal_801A4610_lbl_804C20E8 {
+    M2C_UNK value;
+    u8 remaining[0x154];
+};
+
+struct RecoveredGlobal_801A4610_lbl_804C2240 {
+    M2C_UNK value;
+    u8 remaining[0x44];
+};
+
+struct RecoveredGlobal_801A4610_lbl_80515BA0 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
+struct RecoveredGlobal_801A4610_main_task {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
 extern "C" {
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
 M2C_UNK TLobby__sub_80103F68();
@@ -118,6 +138,31 @@ extern s32 TLobby__data_805D55A8;
 extern s32 lbl_805D55C0;
 extern s32 TLobby__data_805D5CF4;
 void TLobby__sub_801A46D8(void);
+M2C_UNK update__16TKeyBoardControlFv();
+M2C_UNK TLobby__sub_800F9B84();
+M2C_UNK TLobby__sub_800FD6A0(void *, int);
+int TLobby__sub_8013998C(void);
+M2C_UNK cleanup__6TLobbyFv();
+void free_objects__6TLobbyFv(void);
+M2C_UNK render_tick__Fv();
+M2C_UNK update_lobby_subsystems__6TLobbyFv();
+M2C_UNK TLobby__sub_8022743C();
+M2C_UNK TLobby__sub_80228634(void *);
+M2C_UNK clear_flag3_all_tasks__9TMainTaskFv(void *);
+M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
+M2C_UNK delete_children__7TObjectFv(int);
+M2C_UNK free_single_player_chr_select__6TLobbyFv();
+M2C_UNK update_photon_chairs__6TLobbyFv();
+M2C_UNK PPCSync();
+extern RecoveredGlobal_801A4610_lbl_804C20E8 lbl_804C20E8;
+extern RecoveredGlobal_801A4610_lbl_804C2240 lbl_804C2240;
+extern unsigned char lbl_80515BA0[];
+extern RecoveredGlobal_801A4820_main_task main_task;
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D5CF0;
+extern s32 TLobby__data_805D5E24;
+extern M2C_UNK *tl_su;
+void TLobby__sub_801A4610(void);
 }
 
 extern "C" {
@@ -173,6 +218,55 @@ void free_objects__6TLobbyFv(void) {
     set_cleanup_flag__6TLobbyFv();
     reset_quest_counter__6TLobbyFv();
     clear_quest_state__6TLobbyFv();
+}
+
+typedef char RecoveredGlobal_801A4610_lbl_804C20E8_size[sizeof(RecoveredGlobal_801A4610_lbl_804C20E8) == 0x158 ? 1 : -1];
+typedef char RecoveredGlobal_801A4610_lbl_804C2240_size[sizeof(RecoveredGlobal_801A4610_lbl_804C2240) == 0x48 ? 1 : -1];
+typedef char RecoveredGlobal_801A4610_lbl_80515BA0_size[sizeof(RecoveredGlobal_801A4610_lbl_80515BA0) == 0x28 ? 1 : -1];
+typedef char RecoveredGlobal_801A4610_main_task_size[sizeof(RecoveredGlobal_801A4610_main_task) == 0x34 ? 1 : -1];
+void TLobby__sub_801A4610(void) {
+    M2C_UNK *var_r3;
+    s32 var_r31;
+    s32 var_r4;
+    TLobby__sub_8022743C();
+    update_lobby_subsystems__6TLobbyFv();
+    TLobby__sub_8013998C();
+    free_objects__6TLobbyFv();
+    var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
+    var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
+    delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value));
+    var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
+    var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value);
+    clear_flag3_all_tasks__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A4610_main_task *)&main_task).value));
+    var_r3 = (M2C_UNK *)((u8 *)(tl_su));
+    delete_children__7TObjectFv((int) (var_r3));
+    PPCSync();
+    var_r31 = 0;
+    do {
+        render_tick__Fv();
+        var_r31 += 1;
+    } while (var_r31 < 0x1E);
+    cleanup__6TLobbyFv();
+    if ((s32) lbl_805D5CF0 == 0) {
+        var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_lbl_80515BA0 *)&lbl_80515BA0).value);
+        var_r3 = (M2C_UNK *)(&(*(RecoveredGlobal_801A4610_lbl_80515BA0 *)&lbl_80515BA0).value);
+        TLobby__sub_80228634((void *) (&(*(RecoveredGlobal_801A4610_lbl_80515BA0 *)&lbl_80515BA0).value));
+    }
+    free_single_player_chr_select__6TLobbyFv();
+    update_photon_chairs__6TLobbyFv();
+    var_r3 = (M2C_UNK *)(&lbl_804C2240.value);
+    var_r4 = 0x48;
+    var_r3 = (M2C_UNK *)(&lbl_804C2240.value);
+    TLobby__sub_800FD6A0((void *) (&lbl_804C2240.value), (int) (0x48));
+    var_r3 = (M2C_UNK *)(&lbl_804C20E8.value);
+    var_r4 = 0x158;
+    var_r3 = (M2C_UNK *)(&lbl_804C20E8.value);
+    TLobby__sub_800FD6A0((void *) (&lbl_804C20E8.value), (int) (0x158));
+    lbl_805D53A0 = 0;
+    TLobby__data_805D5E24 = 0;
+    TLobby__sub_800F9B84();
+    update__16TKeyBoardControlFv();
+    render_tick__Fv();
 }
 
 void TLobby__sub_801A46D8(void) {

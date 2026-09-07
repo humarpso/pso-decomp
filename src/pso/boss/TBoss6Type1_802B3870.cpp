@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802B3BEC_lbl_80470CE0 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+int TBoss6Type1__sub_802B4BA8(void*, void*);
+extern RecoveredGlobal_802B3BEC_lbl_80470CE0 lbl_80470CE0;
+void TBoss6Type1__sub_802B3BEC(u8 *arg0);
+}
+
 extern "C" {
 
 void TBoss6Type1__sub_802B3B94(void *arg0);
@@ -97,6 +109,14 @@ void TBoss6Type1__sub_802B3B94(void *arg0) {
     if (temp_r0 < 0) {
         TBoss6Type1__sub_802B865C(arg0, 1);
     }
+}
+
+typedef char RecoveredGlobal_802B3BEC_lbl_80470CE0_size[sizeof(RecoveredGlobal_802B3BEC_lbl_80470CE0) == 0xC ? 1 : -1];
+void TBoss6Type1__sub_802B3BEC(u8 *arg0) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470CE0.value);
+    M2C_FIELD(arg0, s32 *, 0x40C) = 0x5A;
+    M2C_FIELD(arg0, s32 *, 0x410) = 0x5A;
+    TBoss6Type1__sub_802B4BA8((void*)(arg0), (void*)(1));
 }
 
 void render__11TBoss6Type1Fv(void* p) { TBoss6Type1__sub_802B4898(p); TBoss6Type1__sub_802B626C(p); }

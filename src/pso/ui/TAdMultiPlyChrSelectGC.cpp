@@ -4,11 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
-u8 * TAdMultiPlyChrSelectGC__ct(void *, M2C_UNK, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern u8 *lbl_805D68D0;
 u8 *TAdMultiPlyChrSelectGC__sub_802DFF78(s32 arg0, s32 arg1);
+void __ct__7TObjectFP7TObject(void *, void *);
+void TAdMultiPlyChrSelectGC__sub_802DF9B4(void *);
+void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
+void TAdMultiPlyChrSelectGC__sub_802DFCCC(void *, s32);
+s32 get_select_flag__22TAdMultiPlyChrSelectGCFv(void);
+extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
+extern s32 lbl_805D3F68;
+u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -63,6 +75,17 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
 
     extern int TAdMultiPlyChrSelectGC__data_805D67E0;
 
+typedef char RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC_size[sizeof(RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC) == 0x18 ? 1 : -1];
+u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__22TAdMultiPlyChrSelectGC.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F68;
+    TAdMultiPlyChrSelectGC__sub_802DFCCC(arg0, arg2);
+    TAdMultiPlyChrSelectGC__sub_802DF9B4(arg0);
+    handle_event__22TAdMultiPlyChrSelectGCFPvi(arg0, get_select_flag__22TAdMultiPlyChrSelectGCFv());
+    return arg0;
+}
+
 u8 *TAdMultiPlyChrSelectGC__sub_802DFF78(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -72,7 +95,7 @@ u8 *TAdMultiPlyChrSelectGC__sub_802DFF78(s32 arg0, s32 arg1) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0xA0));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TAdMultiPlyChrSelectGC__ct(temp_r3, arg0, arg1));
+        var_r0 = (u8 *)(TAdMultiPlyChrSelectGC__ct((u8 *)(temp_r3), (u8 *)(arg0), (s32)(arg1)));
     }
     lbl_805D68D0 = var_r0;
     return var_r0;

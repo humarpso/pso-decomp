@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802A5F24_lbl_804DD098 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 M2C_UNK strncpy(void *, void *, int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DCE0(void *, void *);
@@ -50,6 +55,9 @@ int fn_802A5B50(s32 arg0);
 s32 fn_802A5BD8(s32 arg0);
 void set_mode__15TWindowSnapShotFPvi(void* p, s32 v);
 s32 fn_802A5C3C(u32 *arg0);
+void reset__15TWindowSnapShotFPv(u8 *arg0);
+extern M2C_UNK lbl_804DD098[];
+u8 *TWindowSnapShot__sub_802A5F24(u8 *arg0);
 }
 
 extern "C" {
@@ -159,6 +167,14 @@ void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+typedef char RecoveredGlobal_802A5F24_lbl_804DD098_size[sizeof(RecoveredGlobal_802A5F24_lbl_804DD098) == 0x10 ? 1 : -1];
+u8 *TWindowSnapShot__sub_802A5F24(u8 *arg0) {
+    M2C_FIELD(arg0, M2C_UNK **, 0x3C) = &(*(RecoveredGlobal_802A5F24_lbl_804DD098 *)&lbl_804DD098).value;
+    reset__15TWindowSnapShotFPv((u8 *)((void *) (arg0)));
+    return arg0;
+}
+
 void update_both__15TWindowSnapShotFPv(void* p) { TWindowSnapShot__sub_802A5D28((void *)(p)); reset__15TWindowSnapShotFPv((u8 *)(p)); }
 s32 start_capture__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     if (arg1 == 0) {

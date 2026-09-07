@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801BFBEC_lbl_804C3E38 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+extern "C" {
+s32 reset_type__10TObjPlayerFPv(void *);
+extern RecoveredGlobal_801BFBEC_lbl_804C3E38 lbl_804C3E38;
+u8 *TObjPlayer__sub_801BFBEC(u8 *arg0);
+}
+
 extern "C" {
 
 int TObjPlayer__sub_801BFC90(void*);
@@ -32,6 +43,13 @@ void reset_scale_vector__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) TObjPlayer__data_805DC278;
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, s32 *, 0) = 0;
+}
+
+typedef char RecoveredGlobal_801BFBEC_lbl_804C3E38_size[sizeof(RecoveredGlobal_801BFBEC_lbl_804C3E38) == 0xC ? 1 : -1];
+u8 *TObjPlayer__sub_801BFBEC(u8 *arg0) {
+    M2C_FIELD(arg0, M2C_UNK **, 4) = &lbl_804C3E38.value;
+    reset_type__10TObjPlayerFPv((void *) (arg0));
+    return arg0;
 }
 
 void* reset_and_clear__10TObjPlayerFPv(void* p) { init_forward__10TObjPlayerFPv(p); reset_counter_field4__10TObjPlayerFPv(p); return p; }
