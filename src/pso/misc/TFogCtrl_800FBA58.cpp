@@ -16,6 +16,9 @@ struct Stack_800FBD74 {
     f32 sp24;
 };
 
+struct RecoveredGlobal_800FBB68_lbl_8049C670 { M2C_UNK value; u8 remaining[0x8C]; };
+typedef char RecoveredGlobal_800FBB68_lbl_8049C670_size[sizeof(RecoveredGlobal_800FBB68_lbl_8049C670) == 0x90 ? 1 : -1];
+
 extern "C" {
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
@@ -38,6 +41,15 @@ extern const f32 lbl_805DA9A4;
 extern const f32 lbl_805DA9A8;
 extern const f32 lbl_805DA9AC;
 void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
+M2C_UNK create__22TObjFogCollisionPoisonFv();
+u32 __nw__7TObjectFUl(int);
+s32 is_split_screen();
+s32 update_all__8TFogCtrlFii(int, int);
+s32 TFogCtrl__ct(int, int, int);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern RecoveredGlobal_800FBB68_lbl_8049C670 lbl_8049C670;
+extern M2C_UNK *tl_02;
+void TFogCtrl__sub_800FBB68(void);
 }
 
 extern "C" {
@@ -80,6 +92,42 @@ void TFogCtrl__sub_800FBAAC(void) {  }
 extern u32 lbl_805D5388;
 extern f32 lbl_805DA964;
 extern f32 lbl_805DA968;
+
+void TFogCtrl__sub_800FBB68(void) {
+    M2C_UNK *var_r3;
+    M2C_UNK *var_r4;
+    s32 var_r31;
+    s32 var_r5;
+    u32 temp_r3;
+    u32 temp_r3_2;
+    if (is_split_screen() != 0) {
+        var_r31 = 0;
+        do {
+            var_r3 = (M2C_UNK *)((u8 *)((M2C_UNK *)0x1C8));
+            temp_r3 = __nw__7TObjectFUl((int) (0x1C8));
+            if (temp_r3 != 0U) {
+                var_r4 = (M2C_UNK *)((u8 *)(tl_02));
+                var_r5 = var_r31;
+                TFogCtrl__ct((int) (temp_r3), (int) (var_r4), (int) (var_r5));
+            }
+            var_r31 += 1;
+        } while (var_r31 != 4);
+    } else {
+        var_r3 = (M2C_UNK *)((u8 *)((M2C_UNK *)0x1C8));
+        temp_r3_2 = __nw__7TObjectFUl((int) (0x1C8));
+        if (temp_r3_2 != 0U) {
+            var_r4 = (M2C_UNK *)((u8 *)(tl_02));
+            var_r5 = 0;
+            TFogCtrl__ct((int) (temp_r3_2), (int) (var_r4), (int) (0));
+        }
+    }
+    create__22TObjFogCollisionPoisonFv();
+    var_r4 = (M2C_UNK *)(&lbl_8049C670.value);
+    var_r3 = (M2C_UNK *)(&lbl_8049C670.value);
+    var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_8049C670.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4)));
+    var_r4 = (M2C_UNK *)((u8 *)((M2C_UNK *)1));
+    update_all__8TFogCtrlFii((int) (var_r3), (int) (1));
+}
 
 void reset__8TFogCtrlFv(void) {
     TObjFogCollisionPoison__sub_801533BC();

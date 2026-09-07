@@ -8,6 +8,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8001BD0C___vt__11TAdRicoRing { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_8001BD0C___vt__11TAdRicoRing_size[sizeof(RecoveredGlobal_8001BD0C___vt__11TAdRicoRing) == 0x18 ? 1 : -1];
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void update_position__11TAdRicoRingFPv(void *arg0);
@@ -17,6 +20,17 @@ volatile int TObjPlayer__sub_8001BEF8(void *, s32);
 extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
 void run_task__11TAdRicoRingFv(u8 *arg0);
+int TKeyBoardControl__sub_8000F828(void);
+void set_flags__10TObjPlayerFPvUi(void *, s32);
+u8 * init_forward__10TObjPlayerFPv(void *);
+s32 TObjFish__sub_8001EDB0(void *, int);
+s32 TObjFish__sub_8001EDC4(void *, int);
+M2C_UNK __ct__7TObjectFP7TObject();
+extern RecoveredGlobal_8001BD0C___vt__11TAdRicoRing __vt__11TAdRicoRing;
+extern s32 lbl_805D2618;
+extern s32 lbl_805D4A00;
+extern const f32 lbl_805D7E4C;
+u8 *__ct__11TAdRicoRingFv(u8 *arg0);
 }
 
 extern "C" {
@@ -89,6 +103,42 @@ void run_task__11TAdRicoRingFv(u8 *arg0) {
       set_flags__10TObjPlayerFPvUi(arg0 + 0x2C, 4);
     }
   }
+}
+u8 *__ct__11TAdRicoRingFv(u8 *arg0) {
+    s32 temp_r3;
+    __ct__7TObjectFP7TObject();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__11TAdRicoRing.value;
+    init_forward__10TObjPlayerFPv(arg0 + 0x2C);
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2618;
+    M2C_FIELD(arg0, s32 *, 0x4C) = TObjFish__sub_8001EDC4((void *) (lbl_805D4A00), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x50) = TObjFish__sub_8001EDB0((void *) (lbl_805D4A00), (int) (0));
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x60) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, f32 *, 0x58) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, s32 *, 0x6C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x68) = 0;
+    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805D7E4C;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0x5B0;
+    set_flags__10TObjPlayerFPvUi((void *)(arg0 + 0x2C), (s32)(4U));
+    temp_r3 = TKeyBoardControl__sub_8000F828();
+    switch (temp_r3) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x48) = 0x12;
+        break;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0x48) = 0x15;
+        break;
+    }
+    return arg0;
 }
 
 }

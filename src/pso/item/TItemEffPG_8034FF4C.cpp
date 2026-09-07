@@ -9,6 +9,20 @@ struct PgV_8034FF4C : PgBase_8034FF4C {
     virtual void vf04(); virtual s32 vf05();
 };
 
+struct RecoveredGlobal_8035007C___vt__10TItemEffPG { M2C_UNK value; u8 remaining[0x1C]; };
+typedef char RecoveredGlobal_8035007C___vt__10TItemEffPG_size[sizeof(RecoveredGlobal_8035007C___vt__10TItemEffPG) == 0x20 ? 1 : -1];
+
+extern "C" {
+void *__nw__7TObjectFUl(int);
+s32 fn_802E4A4C(void *, void *, void *);
+s32 TItemEffPG__sub_8034FCF0(int, void *, void *);
+extern M2C_UNK __vt__10TItemEffPG[];
+extern s32 lbl_805D4350;
+extern const float lbl_805DFE14;
+extern const f32 lbl_805DFE18;
+u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2);
+}
+
 extern "C" {
 
 void *__dt__10TItemEffPGFv(void *arg0, s16 arg1);
@@ -16,7 +30,6 @@ void create__10TItemEffPGFPvPv(void *arg0, void *arg1);
 void* init_params__10TItemEffPGFPv(void* a0);
 void run_task__10TItemEffPGFv(void *arg0);
 M2C_UNK TItemAttackCol__sub_802E4918(void *);
-void *TItemEffPG__ct(void *, void *, void *);
 M2C_UNK TItemEffPG__sub_8034FA50(void *);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
@@ -74,11 +87,33 @@ void *__dt__10TItemEffPGFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
+    s32 temp_r3;
+    s32 var_r0;
+    fn_802E4A4C((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035007C___vt__10TItemEffPG *)&__vt__10TItemEffPG).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4350;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(arg2, f32 *, 0x28);
+    if ((*(const f32 *)&lbl_805DFE14) < M2C_FIELD(arg0, f32 *, 0xC4)) {
+        M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (*(const f32 *)&lbl_805DFE14);
+    }
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) M2C_FIELD(arg2, f32 *, 0x30);
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) M2C_FIELD(arg2, f32 *, 0x2C);
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) * lbl_805DFE18);
+    temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x68)));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TItemEffPG__sub_8034FCF0((int) (temp_r3), (void *) (arg0), (void *) (arg2));
+    }
+    M2C_FIELD(arg0, s32 *, 0xD0) = var_r0;
+    return arg0;
+}
+
 void create__10TItemEffPGFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        TItemEffPG__ct(o, arg0, arg1);
+        TItemEffPG__ct((u8 *)(o), (s32)(arg0), (u8 *)(arg1));
     }
 }
 

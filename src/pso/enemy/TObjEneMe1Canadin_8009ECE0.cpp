@@ -224,6 +224,9 @@ struct VObj_18_7dcedb : VBase_18_7dcedb {
     virtual M2C_UNK m112();
 };
 
+struct RecoveredGlobal_8009F2E0___vt__17TObjEneMe1Canadin { M2C_UNK value; u8 remaining[0x1D4]; };
+typedef char RecoveredGlobal_8009F2E0___vt__17TObjEneMe1Canadin_size[sizeof(RecoveredGlobal_8009F2E0___vt__17TObjEneMe1Canadin) == 0x1D8 ? 1 : -1];
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv(void);
@@ -233,6 +236,15 @@ int set_player_state_default__12TBoss8DragonFPv(void *);
 u8 * TPhotonMylla__sub_80154CB4(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void run_task__17TObjEneMe1CanadinFv(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 calc_move_vector__17TObjEneMe1CanadinFiPv(void *, void *);
+void TObjEneMe1Canadin__sub_8009F004(void *);
+void init_object__9TObjEneDDFPv(void *);
+s32 init_common_from__9TObjEneDDFPvPv(void *, void *);
+void init_common__18TObjEneMe3SinowZoaFPv(void *);
+extern M2C_UNK __vt__17TObjEneMe1Canadin[];
+extern void *lbl_805D29B0;
+u8 *TObjEneMe1Canadin__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
 }
 
 extern "C" {
@@ -252,7 +264,6 @@ void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E334(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E350(void *);
 void TObjEneMe1Canadin__sub_8009F004(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void __dt__9TObjEneDDFv(void *, int);
@@ -297,7 +308,7 @@ void copy_pos__17TObjEneMe1CanadinFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) M2C_FIELD(arg0, f32 *, 0x3F8);
     M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
-    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC), (void *) (arg0));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x2FC));
 }
 
 }
@@ -353,6 +364,24 @@ void *__dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1) {
 
 extern M2C_UNK __vt__17TObjEneMe1Canadin[];
 extern void *lbl_805D29B0;
+
+u8 *TObjEneMe1Canadin__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5) {
+    init_object__9TObjEneDDFPv((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8009F2E0___vt__17TObjEneMe1Canadin *)&__vt__17TObjEneMe1Canadin).value;
+    init_common__18TObjEneMe3SinowZoaFPv((void *) (arg0 + 0x3CC));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) (*(s32 *)&lbl_805D29B0);
+    M2C_FIELD(arg0, u8 **, 0x3C0) = arg2;
+    init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (M2C_FIELD(arg0, u8 **, 0x3C0)));
+    M2C_FIELD(arg0, s16 *, 0x1C) = arg4;
+    M2C_FIELD(arg0, s16 *, 0x2C) = arg5;
+    calc_move_vector__17TObjEneMe1CanadinFiPv((void *) (M2C_FIELD(arg0, u8 **, 0x3C0)), (void *) (arg0 + 0x38));
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((void *) (arg3)));
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x3C0), s32 *, 0x60);
+    M2C_FIELD(arg0, s32 *, 0x3C8) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3C4) = 1;
+    TObjEneMe1Canadin__sub_8009F004((void *) (arg0));
+    return arg0;
+}
 
 void *init__17TObjEneMe1CanadinFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     init_object__9TObjEneDDFPv(arg0);

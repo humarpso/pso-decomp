@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80173330_lbl_804B3A18 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_80173330_lbl_804B3A18_size[sizeof(RecoveredGlobal_80173330_lbl_804B3A18) == 0x10 ? 1 : -1];
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DB940;
@@ -11,6 +14,11 @@ extern const f32 lbl_805DB944;
 extern const f32 lbl_805DB948;
 extern const f32 lbl_805DB94C;
 void TORainbowCave01__sub_8017307C(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_80173330_lbl_804B3A18 lbl_804B3A18;
+extern u32 TORainbowCave01__data_805D5A70;
+void TORainbowCave01__sub_80173330(void);
 }
 
 extern "C" {
@@ -68,6 +76,17 @@ void free_static_data__15TORainbowCave01Fv(void) {
 }
 
 extern M2C_UNK __vt__15TORainbowCave01[];
+
+void TORainbowCave01__sub_80173330(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B3A18.value, 0, 0, 0));
+    }
+    (*(s32 *)&TORainbowCave01__data_805D5A70) = var_r0;
+}
 
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

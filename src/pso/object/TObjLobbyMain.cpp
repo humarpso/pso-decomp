@@ -4,6 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803527F0_lbl_804F0F24 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_803527F0_lbl_804F0F24_size[sizeof(RecoveredGlobal_803527F0_lbl_804F0F24) == 0x10 ? 1 : -1];
+
+extern "C" {
+s32 TObjFish__sub_8001EDC4(void *, s32);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int get_lobby_type__6TLobbyFv(void);
+extern RecoveredGlobal_803527F0_lbl_804F0F24 lbl_804F0F24;
+extern u32 TObjLobbyMain__data_805D6EC8;
+extern s32 lbl_805D6ECC;
+extern s32 lbl_805D6ED0;
+extern s32 lbl_805D6ED4;
+extern s32 lbl_805D6ED8;
+void TObjLobbyMain__sub_803527F0(void);
+}
+
 extern "C" {
 
 void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1);
@@ -71,6 +88,21 @@ void release_static_instance__13TObjLobbyMainFv(void) {
 }
 
 extern M2C_UNK __vt__13TObjLobbyMain[];
+
+void TObjLobbyMain__sub_803527F0(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804F0F24.value, 0, 0, 0));
+    }
+    (*(u8 * *)&TObjLobbyMain__data_805D6EC8) = (unsigned char *) ((void *) var_r0);
+    lbl_805D6ECC = get_lobby_type__6TLobbyFv();
+    lbl_805D6ED0 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(TObjFish__sub_8001EDC4((*(u8 * *)&TObjLobbyMain__data_805D6EC8), 6), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
+    lbl_805D6ED4 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(TObjFish__sub_8001EDC4((*(u8 * *)&TObjLobbyMain__data_805D6EC8), 2), void **, 0x2C), void **, 0x30), void **, 0x30), void **, 0x30), s32 *, 4);
+    lbl_805D6ED8 = 0;
+}
 
 void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

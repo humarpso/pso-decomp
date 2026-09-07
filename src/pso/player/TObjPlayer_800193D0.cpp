@@ -5,9 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Word12 { int w; u8 _[8]; };
+
+struct ObjArr254 { u8 _pad[0x25c]; Word12 arr[1]; };
+
+struct ObjArrFC  { u8 _pad[0xfc];  u16 arr[1];     };
+
 extern "C" {
 s16 TObjPlayer__sub_8001942C(u8 *arg0, s32 arg1);
 u8 TObjPlayer__sub_80019570(u8 *arg0);
+int TObjPlayer__sub_8001943C(ObjArr254* p, int i);
 }
 
 extern "C" {
@@ -15,7 +22,6 @@ extern "C" {
 int TObjPlayer__sub_800193FC(void);
 int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
-int TObjPlayer__sub_8001943C(void);
 s16 TObjPlayer__sub_8001944C(void* p);
 int TObjPlayer__sub_800194AC(void);
 s16 TObjPlayer__sub_800194C4(void* p);
@@ -46,7 +52,14 @@ s16 TObjPlayer__sub_8001942C(u8 *arg0, s32 arg1) {
     return (s16) (M2C_FIELD(arg0, s16 *, 0x11C) & arg1);
 }
 
-int TObjPlayer__sub_8001943C(void) { return 0; }
+#pragma push
+#pragma scheduling off
+int TObjPlayer__sub_8001943C(ObjArr254* p, int i) {
+    return p->arr[i].w;
+}
+#pragma scheduling on
+#pragma scheduling off
+#pragma pop
 
 s16 TObjPlayer__sub_8001944C(void* p) { return *(s16*)((char*)p + 0x2d0); }
 s32 update_field_318__10TObjPlayerFPv(void* p) { return get_field_0c__10TObjPlayerFPv((void*)(*(void**)((char*)p + 0x318))); }

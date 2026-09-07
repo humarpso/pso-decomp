@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80069094_camera_controller_registry { M2C_UNK value; u8 remaining[0x64]; };
+typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(RecoveredGlobal_80069094_camera_controller_registry) == 0x68 ? 1 : -1];
+
 extern "C" {
 void TCameraCtrl__sub_800689E8(void);
 void update_position__11TCameraCtrlFPv(u8 *arg0);
@@ -13,6 +16,25 @@ s32 is_split_screen();
 M2C_UNK approach_camera_vector(void *, void *, f32);
 extern int TCameraCtrl__data_805D4E00;
 void TCameraCtrl__sub_80069BD8(u8 *arg0);
+s32 set_target__11TCameraCtrlFii(int, int);
+s32 set_target_coords__11TCameraCtrlFii(int, int);
+s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
+s32 GXSetScissor(int, int, int, int);
+s32 GXSetScissorBoxOffset(int, int);
+extern s16 TCameraCtrl__data_805D2838;
+extern s16 TCameraCtrl__data_805D283A;
+extern s16 TCameraCtrl__data_805D4DFA;
+extern s16 TCameraCtrl__data_805D4DFC;
+extern f32 TCameraCtrl__data_805D8FA8;
+extern f32 TCameraCtrl__data_805D8FAC;
+void TCameraCtrl__sub_80068A68(void);
+s32 obj_getField1c(int);
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+s32 TCameraCtrl__sub_8006B358(int);
+extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
+extern u8 *lbl_805D4DF0;
+s32 TCameraCtrl__sub_80069094(s32 arg0);
 }
 
 extern "C" {
@@ -62,6 +84,14 @@ f32 get_split_offset__11TCameraCtrlFi(s32 arg0) {
 extern f32 TCameraCtrl__data_805D8FAC;
 extern f32 lbl_805D8FC8;
 
+void TCameraCtrl__sub_80068A68(void) {
+    set_target_coords__11TCameraCtrlFii((int) (0), (int) (0));
+    set_target__11TCameraCtrlFii((int) (0x280), (int) (0x1E0));
+    GXSetViewport((f32) TCameraCtrl__data_805D4DFA, (f32) TCameraCtrl__data_805D4DFC, (f32) TCameraCtrl__data_805D2838, (f32) TCameraCtrl__data_805D283A, (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)), (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FAC)));
+    GXSetScissor((int) ((s32) TCameraCtrl__data_805D4DFA), (int) ((s32) TCameraCtrl__data_805D4DFC), (int) ((s32) TCameraCtrl__data_805D2838), (int) ((s32) TCameraCtrl__data_805D283A));
+    GXSetScissorBoxOffset((int) (0), (int) (0));
+}
+
 f32 get_fov__11TCameraCtrlFv(void) {
     if (is_split_screen() != 0) {
         if (get_camera_id__11TCameraCtrlFv() == 2) {
@@ -86,6 +116,36 @@ f32 get_view_scale__11TCameraCtrlFv(void) {
 }
 
 extern s32 tl_camera;
+
+s32 TCameraCtrl__sub_80069094(s32 arg0) {
+    s32 var_r31;
+    s32 var_r3;
+    u32 temp_r3;
+    u32 temp_r3_2;
+    if (is_split_screen() != 0) {
+        var_r31 = 0xFFFF;
+        if (arg0 < 0) {
+            var_r3 = arg0;
+        } else {
+            var_r3 = get_camera_mode__11TCameraCtrlFv();
+        }
+        if (var_r3 >= 4) {
+            return 0xFFFF;
+        }
+        temp_r3_2 = M2C_FIELD(&camera_controller_registry.value, M2C_UNK *, (var_r3 * 4));
+        if (temp_r3_2 != 0U) {
+            var_r31 = TCameraCtrl__sub_8006B358((int) (temp_r3_2));
+        }
+        return var_r31;
+    }
+    if ((void *) lbl_805D4DF0 != NULL) {
+        temp_r3 = M2C_FIELD(lbl_805D4DF0, u32 *, 0x90);
+        if (temp_r3 != 0U) {
+            return obj_getField1c((int) (temp_r3));
+        }
+    }
+    return 0xFFFF;
+}
 
 void create__11TCameraCtrlFv(void) {
     void *obj = __nw__7TObjectFUl(0x1D4);

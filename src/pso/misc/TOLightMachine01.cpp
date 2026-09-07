@@ -10,6 +10,21 @@ struct VObj_8016E9F4_8016E998 : Base_8016E9F4_8016E998 {
     virtual s32 m8(f32, f32);
 };
 
+struct RecoveredGlobal_8016EB3C_lbl_804B2EC4 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8016EB3C_lbl_804B2EC4_size[sizeof(RecoveredGlobal_8016EB3C_lbl_804B2EC4) == 0x10 ? 1 : -1];
+
+extern "C" {
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8016EB3C_lbl_804B2EC4 lbl_804B2EC4;
+extern u32 TOLightMachine01__data_805D5A40;
+extern s32 lbl_805D5A44;
+extern s32 lbl_805D5A48;
+void TOLightMachine01__sub_8016EB3C(void);
+}
+
 extern "C" {
 
 void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1);
@@ -82,6 +97,19 @@ void destroy_instance__16TOLightMachine01Fv(void) {
 }
 
 extern M2C_UNK __vt__16TOLightMachine01[];
+
+void TOLightMachine01__sub_8016EB3C(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B2EC4.value, 0, 0, 0));
+    }
+    (*(u8 * *)&TOLightMachine01__data_805D5A40) = (unsigned char *) ((void *) var_r0);
+    lbl_805D5A44 = TObjFish__sub_8001EDC4((void *) var_r0, 0);
+    lbl_805D5A48 = TObjFish__sub_8001EDB0((*(u8 * *)&TOLightMachine01__data_805D5A40), 0);
+}
 
 void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

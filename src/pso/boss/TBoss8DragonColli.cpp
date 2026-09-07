@@ -6,6 +6,33 @@ TBoss8DragonColli::~TBoss8DragonColli() {}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#include <stddef.h>
+struct Stack_802F2F68 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_802F2F68___vt__17TBoss8DragonColli { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_802F2F68___vt__17TBoss8DragonColli_size[sizeof(RecoveredGlobal_802F2F68___vt__17TBoss8DragonColli) == 0x18 ? 1 : -1];
+
+extern "C" {
+s32 __nw__7TObjectFUl(int);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 TBoss8DragonColli__sub_802F31E4(int, void *, int, void *, f32);
+extern RecoveredGlobal_802F2F68___vt__17TBoss8DragonColli __vt__17TBoss8DragonColli;
+extern s32 lbl_805D4004;
+extern const f32 lbl_805DED20;
+extern const f32 lbl_805DED24;
+extern const f32 lbl_805DED28;
+extern const f32 lbl_805DED2C;
+extern const f32 lbl_805DED30;
+extern const f32 lbl_805DED34;
+u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TBoss8DragonColli__sub_802F3070(void);
@@ -25,6 +52,50 @@ int TObjPlayer__sub_803D9B2C(void*);
 int TObjPlayer__sub_803D9B78(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
+
+u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
+    typedef char sp8_offset[(offsetof(Stack_802F2F68, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_802F2F68, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_802F2F68, sp10) == 0x8) ? 1 : -1];
+    Stack_802F2F68 stack;
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 temp_r3_3;
+    s32 var_r0;
+    s32 var_r0_2;
+    s32 var_r0_3;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TBoss8DragonColli.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4004;
+    stack.sp8 = lbl_805DED20;
+    stack.spC = lbl_805DED20;
+    stack.sp10 = lbl_805DED20;
+    temp_r3 = __nw__7TObjectFUl((int) (0xB8));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TBoss8DragonColli__sub_802F31E4((int) (temp_r3), (void *) (arg0), (int) (1), (void *) (&stack.sp8), (f32) (lbl_805DED24));
+    }
+    M2C_FIELD(arg0, s32 *, 0x1C) = var_r0;
+    stack.sp8 = lbl_805DED28;
+    stack.spC = lbl_805DED20;
+    stack.sp10 = lbl_805DED2C;
+    temp_r3_2 = __nw__7TObjectFUl((int) (0xB8));
+    var_r0_2 = temp_r3_2;
+    if (var_r0_2 != 0) {
+        var_r0_2 = TBoss8DragonColli__sub_802F31E4((int) (temp_r3_2), (void *) (arg0), (int) (3), (void *) (&stack.sp8), (f32) (lbl_805DED30));
+    }
+    M2C_FIELD(arg0, s32 *, 0x20) = var_r0_2;
+    stack.sp8 = lbl_805DED28;
+    stack.spC = lbl_805DED20;
+    stack.sp10 = lbl_805DED34;
+    temp_r3_3 = __nw__7TObjectFUl((int) (0xB8));
+    var_r0_3 = temp_r3_3;
+    if (var_r0_3 != 0) {
+        var_r0_3 = TBoss8DragonColli__sub_802F31E4((int) (temp_r3_3), (void *) (arg0), (int) (5), (void *) (&stack.sp8), (f32) (lbl_805DED30));
+    }
+    M2C_FIELD(arg0, s32 *, 0x24) = var_r0_3;
+    return arg0;
+}
 
 void TBoss8DragonColli__sub_802F3070(void) {  }
 void TBoss8DragonColli__sub_802F3074(void* p) { TBoss8DragonColli__sub_802F310C((void*)(p)); }

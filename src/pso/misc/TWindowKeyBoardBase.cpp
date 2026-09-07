@@ -4,6 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8025E9E4_lbl_804CFA70 { M2C_UNK value; u8 remaining[0x10]; };
+typedef char RecoveredGlobal_8025E9E4_lbl_804CFA70_size[sizeof(RecoveredGlobal_8025E9E4_lbl_804CFA70) == 0x14 ? 1 : -1];
+
+struct RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase_size[sizeof(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase) == 0x18 ? 1 : -1];
+
+extern "C" {
+u8 * TWindowKeyBoardBase__sub_8008116C(void *);
+int alloc_buffer__11TOBoss4RockFPv(void *);
+u8 * TWindowSubComCard__sub_8026CBB8(s32);
+M2C_UNK TWindowKeyBoardBase__sub_8008102C(void *, int, int);
+M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
+M2C_UNK TWindowSubStatusDisp__sub_8025CD44(void *, int, int);
+extern RecoveredGlobal_8025E9E4_lbl_804CFA70 lbl_804CFA70;
+extern M2C_UNK __vt__19TWindowKeyBoardBase[];
+extern s32 lbl_805D3920;
+extern s32 lbl_805D5544;
+u8 *TWindowKeyBoardBase__ct(u8 *arg0);
+}
+
 extern "C" {
 
 void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1);
@@ -47,6 +67,32 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
+    s32 temp_r31;
+    TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804CFA70.value), (int) (4), (int) (TWindowSubComCard__sub_8026CBB8(0xB7)));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase *)&__vt__19TWindowKeyBoardBase).value;
+    TWindowKeyBoardBase__sub_8008116C(arg0 + 0x6C);
+    TWindowKeyBoardBase__sub_8008116C(arg0 + 0x84);
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3920;
+    temp_r31 = lbl_805D5544;
+    TWindowSubStatusDisp__sub_8025CD44((void *) (arg0), (int) (0), (int) (0));
+    TWindowKeyBoardBase__sub_8008102C((void *) (arg0 + 0x84), (int) (0), (int) (0));
+    M2C_FIELD(arg0, u8 **, 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
+    M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+    M2C_FIELD(arg0, s16 *, 0x62) = 0;
+    M2C_FIELD(arg0, s8 *, 0x65) = -1;
+    M2C_FIELD(arg0, s32 *, 0x9C) = 0;
+    M2C_FIELD(arg0, s32 *, 0xA0) = 0;
+    M2C_FIELD(arg0, s32 *, 0xA4) = 0;
+    M2C_FIELD(arg0, s32 *, 0xA8) = 0;
+    M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+    if (temp_r31 == 0) {
+        TWindowKeyBoardBase__sub_8008102C((void *) (arg0 + 0x84), (int) (0x24), (int) (0));
+        M2C_FIELD(arg0, s32 *, 0x9C) = alloc_buffer__11TOBoss4RockFPv((void *)0x194);
+        M2C_FIELD(arg0, s32 *, 0xB0) = 0x94;
     }
     return arg0;
 }

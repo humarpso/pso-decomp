@@ -21,6 +21,12 @@ struct Stack_802ABC64 {
     u8 sp4C;
 };
 
+struct RecoveredGlobal_802ABBC4_lbl_804705CC { M2C_UNK value; u8 remaining[0x8]; };
+typedef char RecoveredGlobal_802ABBC4_lbl_804705CC_size[sizeof(RecoveredGlobal_802ABBC4_lbl_804705CC) == 0xC ? 1 : -1];
+
+struct RecoveredGlobal_802ABC14_lbl_804705C0 { M2C_UNK value; u8 remaining[0x8]; };
+typedef char RecoveredGlobal_802ABC14_lbl_804705C0_size[sizeof(RecoveredGlobal_802ABC14_lbl_804705C0) == 0xC ? 1 : -1];
+
 extern "C" {
 M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 u32 create__11TBoss6Type1Fi(void *, int);
@@ -33,6 +39,14 @@ void TBoss6PlotFalz__sub_802ABC64(u8 *arg0);
 s32 TBoss6Type1__sub_802ABDEC(void *);
 extern const f32 lbl_805DE0B4;
 f32 TBoss6Mine__sub_802ABD88(s32 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+extern RecoveredGlobal_802ABBC4_lbl_804705CC lbl_804705CC;
+extern u32 TBoss6PlotFalz__data_805D66F4;
+s32 TBoss6PlotFalz__sub_802ABBC4(M2C_UNK arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+extern RecoveredGlobal_802ABC14_lbl_804705C0 lbl_804705C0;
+extern u32 TBoss6PlotFalz__data_805D66F0;
+s32 TBoss6PlotFalz__sub_802ABC14(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -44,6 +58,24 @@ u32 create__10TBoss6TubeFPv();
 int queue_destruction__7TObjectFv(void*);
 
 void release_object__14TBoss6PlotFalzFPv(void* p) { if (*(unsigned int*)((char*)p + 0x384) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x384)); *(int*)((char*)p + 0x384) = 0; } }
+
+s32 TBoss6PlotFalz__sub_802ABBC4(M2C_UNK arg0, s32 arg1) {
+    if ((u32) TBoss6PlotFalz__data_805D66F4 == 0U) {
+        VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&lbl_804705CC.value));
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (TBoss6PlotFalz__data_805D66F4 + 0x38));
+    return 1;
+}
+
+s32 TBoss6PlotFalz__sub_802ABC14(M2C_UNK arg0, s32 arg1) {
+    if ((u32) TBoss6PlotFalz__data_805D66F0 == 0U) {
+        VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&lbl_804705C0.value));
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (TBoss6PlotFalz__data_805D66F0 + 0x38));
+    return 1;
+}
 
 void TBoss6PlotFalz__sub_802ABC64(u8 *arg0) {
     Stack_802ABC64 stack;

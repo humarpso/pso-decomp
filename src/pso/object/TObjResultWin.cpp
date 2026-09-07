@@ -8,6 +8,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8007445C_lbl_8050E208 { M2C_UNK value; u8 remaining[0x1AC]; };
+typedef char RecoveredGlobal_8007445C_lbl_8050E208_size[sizeof(RecoveredGlobal_8007445C_lbl_8050E208) == 0x1B0 ? 1 : -1];
+
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void create_window__13TObjResultWinFPv(u8 *arg0);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+M2C_UNK TWindow__close(int);
+s32 TWindowCtrlMain__sub_8024CE58();
+extern RecoveredGlobal_8007445C_lbl_8050E208 lbl_8050E208;
+void run_task__13TObjResultWinFv(u8 *arg0);
+}
+
 extern "C" {
 
 void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2);
@@ -27,6 +40,29 @@ u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, void *, M2C_UNK);
 extern M2C_UNK lbl_8048D1A0[];
 extern const f32 lbl_805D915C;
 extern const f32 lbl_805D9160;
+
+void run_task__13TObjResultWinFv(u8 *arg0) {
+    s32 temp_r0;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+        if (TWindowCtrlMain__sub_8024CE58() != 0) {
+            create_window__13TObjResultWinFPv((u8 *)((void *) (arg0)));
+        }
+    } else {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x24) - 1;
+        M2C_FIELD(arg0, s32 *, 0x24) = temp_r0;
+        if (temp_r0 < 0) {
+            M2C_FIELD(arg0, s32 *, 0x24) = 0;
+        }
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x20) != 0) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
+                TWindow__close((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
+                queue_destruction__7TObjectFv((void *) (arg0));
+            }
+        } else if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + 0x20), (int) (4)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x20) = 1;
+        }
+    }
+}
 
 void create_window__13TObjResultWinFPv(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(TWindowSubComCard__sub_8026CBB8(0x41), lbl_8048D1A0, 1);

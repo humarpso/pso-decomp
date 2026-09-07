@@ -4,11 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8026B014___vt__18TWindowMessagePage { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_8026B014___vt__18TWindowMessagePage_size[sizeof(RecoveredGlobal_8026B014___vt__18TWindowMessagePage) == 0x18 ? 1 : -1];
+
 extern "C" {
-u8 * TWindowMessagePage__ct(void *, s32, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TLobby__sub_80269DA4(void *, void *);
 u8 *TWindowMessagePage__sub_8026AE7C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 TWindowMessage__ct(void *, void *, void *, void *);
+extern M2C_UNK __vt__18TWindowMessagePage[];
+extern s32 lbl_805D3998;
+u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -51,7 +57,7 @@ u8 *TWindowMessagePage__sub_8026AE7C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TWindowMessagePage__ct(temp_r3, arg0, arg2, arg3));
+        var_r0 = (u8 *)(TWindowMessagePage__ct((u8 *)(temp_r3), (s32)(arg0), (s32)(arg2), (s32)(arg3)));
     }
     return var_r0;
 }
@@ -72,6 +78,15 @@ void *__dt__18TWindowMessagePageFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    TWindowMessage__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026B014___vt__18TWindowMessagePage *)&__vt__18TWindowMessagePage).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3998;
+    M2C_FIELD(arg0, s32 *, 0x90) = 0;
+    M2C_FIELD(arg0, s16 *, 0x20) = (s16) arg3;
+    M2C_FIELD(arg0, s32 *, 0x94) = 0;
     return arg0;
 }
 

@@ -4,6 +4,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802B2A94_lbl_80470C98 { M2C_UNK value; u8 remaining[0x8]; };
+typedef char RecoveredGlobal_802B2A94_lbl_80470C98_size[sizeof(RecoveredGlobal_802B2A94_lbl_80470C98) == 0xC ? 1 : -1];
+
+struct RecoveredGlobal_802B2724_lbl_804DF4C4 { M2C_UNK value; u8 remaining[0x8]; };
+typedef char RecoveredGlobal_802B2724_lbl_804DF4C4_size[sizeof(RecoveredGlobal_802B2724_lbl_804DF4C4) == 0xC ? 1 : -1];
+
+struct RecoveredGlobal_802B2724_lbl_804DF4D0 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_802B2724_lbl_804DF4D0_size[sizeof(RecoveredGlobal_802B2724_lbl_804DF4D0) == 0x10 ? 1 : -1];
+
 extern "C" {
 int TBoss6Type1__sub_802B4B64(void*, void*);
 M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
@@ -15,6 +24,22 @@ void do_attack__11TBoss6Type1FPv(void *);
 int TBoss6Type1__sub_802B9204(void*, void*);
 extern const f32 lbl_805DE2B8;
 void TBoss6Type1__sub_802B2F00(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
+M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
+M2C_UNK TBoss6Type1__sub_802B82B8(void *, M2C_UNK);
+M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
+extern RecoveredGlobal_802B2A94_lbl_80470C98 lbl_80470C98;
+extern const f32 lbl_805DE2AC;
+extern const f32 lbl_805DE2B0;
+extern const f32 lbl_805DE2B4;
+void TBoss6Type1__sub_802B2A94(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TBoss6Type1__sub_802B4EAC(void *, s32, s32);
+M2C_UNK TBoss6Type1__sub_802B865C(void *, int);
+extern RecoveredGlobal_802B2724_lbl_804DF4C4 lbl_804DF4C4;
+extern RecoveredGlobal_802B2724_lbl_804DF4D0 lbl_804DF4D0;
+void TBoss6Type1__sub_802B2724(u8 *arg0);
 }
 
 extern "C" {
@@ -247,6 +272,31 @@ void init_charge__11TBoss6Type1FPv(u8 *arg0) {
     TBoss6Type1__sub_802B4BA8((void*)((void *)(arg0)), (void*)((int)(1)));
 }
 
+void TBoss6Type1__sub_802B2724(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r4;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x410);
+    if (temp_r0 == 0x4A) {
+        VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_804DF4C4.value);
+    } else if (temp_r0 == 0x3B) {
+        VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_804DF4D0.value);
+    }
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x410);
+    if (temp_r4 <= 0x4A) {
+        if (temp_r4 > 0x3B) {
+            TBoss6Type1__sub_802B4EAC(arg0, temp_r4 - 0x3B, 0xF);
+        } else {
+            TBoss6Type1__sub_802B4EAC(arg0, temp_r4, M2C_FIELD(arg0, s32 *, 0x40C));
+        }
+    }
+    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
+    M2C_FIELD(arg0, s32 *, 0x410) = temp_r0_2;
+    if (temp_r0_2 < 0) {
+        TBoss6Type1__sub_802B865C((void *)(arg0), (int)(0x27));
+    }
+}
+
 void update_if_idle__11TBoss6Type1FPv(void* p) { if (*(int*)((char*)p + 0x410) == 0) { TBoss6Type1__sub_802B8E1C((void*)(p)); } }
 
 void enter_release_state__11TBoss6Type1FPv(u8 *arg0) {
@@ -318,6 +368,33 @@ void advance_plot_to_state2__11TBoss6Type1FPv(u8 *arg0) {
 }
 
 extern M2C_UNK lbl_80470C8C[];
+
+void TBoss6Type1__sub_802B2A94(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+    s32 temp_r0_2;
+    TBoss6Type1__sub_802B4EAC(arg0, M2C_FIELD(arg0, s32 *, 0x410), M2C_FIELD(arg0, s32 *, 0x40C));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x40C) - lbl_805DE2AC)) {
+        M2C_FIELD(arg0, s32 *, 0x438) = 0;
+    }
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
+    if ((temp_f1 <= lbl_805DE2B0) && (temp_f1 > lbl_805DE2B4)) {
+        TBoss6Type1__sub_802B82B8((void *)(arg0), (M2C_UNK)(1));
+    } else {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x410);
+        if (temp_r0 == 0x46) {
+            TBoss6Type1__sub_802B82B8((void *)(arg0), (M2C_UNK)(7));
+        } else if (temp_r0 == 0xF) {
+            VecCopy__FP3VecPC3Vec(arg0 + 0x420, &lbl_80470C98.value);
+        }
+    }
+    TOTrapAncient01__sub_80226578((int)(0x4003B012), (void *)((s32) arg0), (void *)((u32) (arg0 + 0x38)), (int)(0), (int)(0));
+    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x410) - 1;
+    M2C_FIELD(arg0, s32 *, 0x410) = temp_r0_2;
+    if (temp_r0_2 < 0) {
+        TBoss6Type1__sub_802B865C((void *)(arg0), (int)(0x1E));
+    }
+}
 
 void init_params__11TBoss6Type1FPv(void *arg0) {
     TBoss6Type1__sub_802B683C(arg0);

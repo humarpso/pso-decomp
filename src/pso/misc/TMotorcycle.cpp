@@ -18,6 +18,12 @@ struct VObj_18_26a62c : VBase_18_26a62c {
     virtual s32 m8(f32, f32);
 };
 
+struct RecoveredGlobal_801950B8_lbl_80445E18 { char value[0x13]; };
+typedef char RecoveredGlobal_801950B8_lbl_80445E18_size[sizeof(RecoveredGlobal_801950B8_lbl_80445E18) == 0x13 ? 1 : -1];
+
+struct RecoveredGlobal_801950B8_lbl_804B8564 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_801950B8_lbl_804B8564_size[sizeof(RecoveredGlobal_801950B8_lbl_804B8564) == 0x10 ? 1 : -1];
+
 extern "C" {
 s32 get_state_flag__9TMainTaskFv(void);
 s32 set_global_param__8TObjFishFi(s32);
@@ -34,6 +40,18 @@ extern u32 lbl_805D5C44;
 extern const f32 lbl_805DBED0;
 extern const f32 lbl_805DBED4;
 void render__11TMotorcycleFv(u8 *arg0);
+M2C_UNK TObjFish__sub_8001EDC4(void *, int);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+u8 * TLanguage__sub_801E4874(s32);
+M2C_UNK add_entry__11TMotorcycleFsiiff(int, void *, void *, f32, f32);
+extern RecoveredGlobal_801950B8_lbl_80445E18 lbl_80445E18;
+extern RecoveredGlobal_801950B8_lbl_804B8564 lbl_804B8564;
+extern u32 lbl_805D5C40;
+extern u32 lbl_805D5C44;
+extern const f32 lbl_805DBED8;
+extern const f32 lbl_805DBEDC;
+void TMotorcycle__sub_801950B8(void);
 }
 
 extern "C" {
@@ -96,6 +114,20 @@ void free_statics__11TMotorcycleFv(void) {
 }
 
 extern M2C_UNK __vt__11TMotorcycle[];
+
+void TMotorcycle__sub_801950B8(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B8564.value, 0, 0, 0));
+    }
+    (*(u8 * *)&lbl_805D5C40) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&lbl_805D5C44) = TLanguage__sub_801E4874((s32) &lbl_80445E18.value);
+    add_entry__11TMotorcycleFsiiff((int) (0x3C), (void *) (((s32)TObjFish__sub_8001EDC4((void *)((*(u8 * *)&lbl_805D5C40)), (int)(0)))), (void *) ((*(u8 * *)&lbl_805D5C44)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
+    add_entry__11TMotorcycleFsiiff((int) (0x3D), (void *) (((s32)TObjFish__sub_8001EDC4((void *)((*(u8 * *)&lbl_805D5C40)), (int)(1)))), (void *) ((*(u8 * *)&lbl_805D5C44)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
+}
 
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

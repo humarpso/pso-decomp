@@ -20,6 +20,17 @@ struct V_A_801668cc_80166568 : Base_A_801668cc_80166568 {
     virtual void m14();
 };
 
+struct RecoveredGlobal_80166614_lbl_804B1AA0 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_80166614_lbl_804B1AA0_size[sizeof(RecoveredGlobal_80166614_lbl_804B1AA0) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_80166614_lbl_804B1AA0 lbl_804B1AA0;
+extern u32 lbl_805D59A8;
+void TOExplosiveMachine__sub_80166614(void);
+}
+
 extern "C" {
 
 void destroy_static_lobby__18TOExplosiveMachineFv(void);
@@ -58,6 +69,17 @@ void destroy_static_lobby__18TOExplosiveMachineFv(void) {
 }
 
 extern const f32 lbl_805DB608;
+
+void TOExplosiveMachine__sub_80166614(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B1AA0.value, 0, 0, 0));
+    }
+    (*(s32 *)&lbl_805D59A8) = var_r0;
+}
 
 void update__18TOExplosiveMachineFPv(void *arg0) {
     f32 temp_f0;

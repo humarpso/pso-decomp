@@ -11,6 +11,9 @@ struct Stack_801783BC {
     f32 sp14;
 };
 
+struct RecoveredGlobal_8017858C___vt__13TOSwitchTimer { M2C_UNK value; u8 remaining[0x34]; };
+typedef char RecoveredGlobal_8017858C___vt__13TOSwitchTimer_size[sizeof(RecoveredGlobal_8017858C___vt__13TOSwitchTimer) == 0x38 ? 1 : -1];
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjRoomId__sub_80141CF4(s32, f32 *, f32, f32, f32);
@@ -19,6 +22,11 @@ extern const f32 lbl_805DBA1C;
 extern const f32 lbl_805DBA20;
 extern const f32 lbl_805DBA24;
 void render__13TOSwitchTimerFv(s32 arg0);
+u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
+void TSwitch__sub_80229258(u16, s16);
+void __dl__7TObjectFPv(s32);
+extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
+u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -97,5 +105,18 @@ void *create__13TOSwitchTimerFPv(void *arg0) {
 
 void TOSwitchTimer__sub_80178584(void) {  }
 void TOSwitchTimer__sub_80178588(void) {  }
+u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TOSwitchTimer.value;
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x98) == 0U) {
+            TSwitch__sub_80229258(M2C_FIELD(arg0, u16 *, 0xA8), (s16) M2C_FIELD(arg0, s32 *, 0xB4));
+        }
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
+}
 
 }

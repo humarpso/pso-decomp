@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_800ABA9C {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_800ABA9C_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
+typedef char RecoveredGlobal_800ABA9C_lbl_8058D490_size[sizeof(RecoveredGlobal_800ABA9C_lbl_8058D490) == 0x30 ? 1 : -1];
+
 extern "C" {
 void obj_setFlags30(void *, u32);
 void TObjPlayer__sub_800AB034(u8 *arg0);
@@ -62,6 +72,18 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 void TObjPlayer__sub_800ABA50(s32 arg0);
+s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
+s32 TObjPlayer__sub_800D92BC(void *, int);
+M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
+s32 TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern RecoveredGlobal_800ABA9C_lbl_8058D490 lbl_8058D490;
+extern const f32 lbl_805D9BA0;
+extern const f32 lbl_805D9BA4;
+extern const f32 lbl_805D9BA8;
+void TObjPlayer__sub_800ABA9C(u8 *arg0);
 }
 
 extern "C" {
@@ -225,6 +247,23 @@ void TObjPlayer__sub_800ABA0C(s32 arg0) {
 void TObjPlayer__sub_800ABA50(s32 arg0) {
     TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A60B))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     play_effect_if_v2__10TObjPlayerFi((int) (-0x300));
+}
+
+void TObjPlayer__sub_800ABA9C(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800ABA9C, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800ABA9C, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800ABA9C, sp10) == 0x8) ? 1 : -1];
+    Stack_800ABA9C stack;
+    stack.sp8 = lbl_805D9BA0;
+    stack.spC = lbl_805D9BA4;
+    stack.sp10 = lbl_805D9BA8 * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
+    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    TObjPlayer__sub_803D9214((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
+    TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    TObjPlayer__sub_803D9B78();
+    TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
+    TObjPlayer__sub_800D92BC((void *) (&stack.sp8), (int) (0xF));
 }
 
 void TObjPlayer__sub_800ABC24(u8 *arg0) {

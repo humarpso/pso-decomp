@@ -10,6 +10,22 @@ struct VObj1_8017dce0 : Base1_8017dce0 {
     virtual s32 m8(f32, f32);
 };
 
+struct RecoveredGlobal_8017DDA8_lbl_804B53D0 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8017DDA8_lbl_804B53D0_size[sizeof(RecoveredGlobal_8017DDA8_lbl_804B53D0) == 0x10 ? 1 : -1];
+
+struct RecoveredGlobal_8017DDA8_lbl_804B5408 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8017DDA8_lbl_804B5408_size[sizeof(RecoveredGlobal_8017DDA8_lbl_804B5408) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8017DDA8_lbl_804B53D0 lbl_804B53D0;
+extern RecoveredGlobal_8017DDA8_lbl_804B5408 lbl_804B5408;
+extern u32 lbl_805D5AF8;
+extern u32 lbl_805D5AFC;
+void TOWreckAncient__sub_8017DDA8(void);
+}
+
 extern "C" {
 
 void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
@@ -54,6 +70,25 @@ void free_statics__14TOWreckAncientFv(void) {
 }
 
 extern M2C_UNK __vt__14TOWreckAncient[];
+
+void TOWreckAncient__sub_8017DDA8(void) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 var_r0;
+    s32 var_r0_2;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B53D0.value, 0, 0, 0));
+    }
+    (*(s32 *)&lbl_805D5AF8) = var_r0;
+    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0_2 = temp_r3_2;
+    if (var_r0_2 != 0) {
+        var_r0_2 = (long) (TLobby__sub_80020004((void *) temp_r3_2, 1, &lbl_804B5408.value, 0, 0, 0));
+    }
+    (*(s32 *)&lbl_805D5AFC) = var_r0_2;
+}
 
 void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -4,6 +4,9 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80172758_lbl_804B38E0 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_80172758_lbl_804B38E0_size[sizeof(RecoveredGlobal_80172758_lbl_804B38E0) == 0x10 ? 1 : -1];
+
 extern "C" {
 s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_80154954(void *, void *);
@@ -11,6 +14,11 @@ s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK start_camera_pan__10TObjPlayerFPvs(int, int, void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_80172758_lbl_804B38E0 lbl_804B38E0;
+extern u32 TOMonumentAncient01__data_805D5A60;
+void TOMonumentAncient01__sub_80172758(void);
 }
 
 extern "C" {
@@ -46,6 +54,17 @@ void release_static_resource__19TOMonumentAncient01Fv(void) {
 }
 
 extern M2C_UNK __vt__19TOMonumentAncient01[];
+
+void TOMonumentAncient01__sub_80172758(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B38E0.value, 0, 0, 0));
+    }
+    (*(s32 *)&TOMonumentAncient01__data_805D5A60) = var_r0;
+}
 
 void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

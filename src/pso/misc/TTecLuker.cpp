@@ -16,6 +16,9 @@ struct Stack_802340E4 {
     s32 sp20;
 };
 
+struct RecoveredGlobal_80233B9C_lbl_804CC990 { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_80233B9C_lbl_804CC990_size[sizeof(RecoveredGlobal_80233B9C_lbl_804CC990) == 0x18 ? 1 : -1];
+
 extern "C" {
 void TTecLuker__sub_80234F7C(void* p);
 void TTecLuker__sub_80234F7C(void* p);
@@ -53,6 +56,11 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void TTecLuker__sub_80234F90(void* p);
 void TTecLuker__sub_80235028(void* p);
 void TTecLuker__sub_802340E4(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_804CC990[];
+u8 *TTecLuker__sub_80233B9C(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -98,6 +106,16 @@ void *destroy__9TTecLukerFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv((void *)(arg0));
         }
     }
+    return arg0;
+}
+
+u8 *TTecLuker__sub_80233B9C(u8 *arg0, s32 arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233B9C_lbl_804CC990 *)&lbl_804CC990).value;
+    M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x20)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC)));
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = TBoss3Volopt__sub_8022675C((int) (0x4002BC20), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }
 

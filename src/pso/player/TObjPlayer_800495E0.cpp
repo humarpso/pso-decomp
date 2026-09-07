@@ -18,7 +18,6 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjPlayer__sub_800495F8(void *);
-f32 TObjPlayer__sub_800499FC(int);
 u32 TObjButterflyLobby__sub_8007A5D8(void *, void *, int);
 M2C_UNK TObjPlayer__sub_80142170(void *, void *, void *);
 u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -27,6 +26,8 @@ M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
 M2C_UNK TBoss6Type1__sub_803D9370(void *, void *, int);
 extern const f32 lbl_805D8890;
 void TObjPlayer__sub_800496D8(u8 *arg0);
+extern s32 lbl_805D4D1C;
+f32 TObjPlayer__sub_800499FC(s32 arg0);
 }
 
 extern "C" {
@@ -74,9 +75,9 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
     stack.spC = new_var;
     stack.sp10 = *((s32 *) (((s8 *) temp_r3) + 0x304));
     TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (arg0 + 0x38), (int) temp_r5);
-    scale_velocity__19TObjGyaranzoMissileFPvf(&stack.sp8, TObjPlayer__sub_800499FC((int) 1));
+    scale_velocity__19TObjGyaranzoMissileFPvf(&stack.sp8, TObjPlayer__sub_800499FC((s32)((int) 1)));
     TBoss4Zako__sub_803D8910((void *) (arg0 + 0xB4), (void *) (&stack.sp8));
-    scale_velocity__19TObjGyaranzoMissileFPvf(arg0 + 0xB4, TObjPlayer__sub_800499FC((int) 0));
+    scale_velocity__19TObjGyaranzoMissileFPvf(arg0 + 0xB4, TObjPlayer__sub_800499FC((s32)((int) 0)));
   }
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
   TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (arg0 + 0xB4));
@@ -126,6 +127,10 @@ void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+f32 TObjPlayer__sub_800499FC(s32 arg0) {
+    return M2C_FIELD((lbl_805D4D1C + (arg0 * 4)), f32 *, 0);
 }
 
 void TObjPlayer__sub_80049A0C(void* p) { *(u32*)((char*)p + 0x388) &= 0xffefffff; }

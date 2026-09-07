@@ -3,13 +3,62 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct RecoveredGlobal_80183D4C_lbl_8050DC50 { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_80183D4C_lbl_8050DC50_size[sizeof(RecoveredGlobal_80183D4C_lbl_8050DC50) == 0x18 ? 1 : -1];
+
 extern "C" {
 s32 TObjCity_Season_EasterEgg__sub_80184A08(void *, s32, f32);
 extern const f32 lbl_805DBC5C;
 void fn_80183E08(u8 *arg0);
+M2C_UNK TObjPlayer__sub_800F5BC0(void *, int, int);
+u8 *get_anim_frame__25TObjCity_Season_EasterEggFPv();
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK TObjFish__sub_803E46BC(void *);
+M2C_UNK TObjEneSlimeOne__sub_803E4AF4(void *, void *, f32);
+extern RecoveredGlobal_80183D4C_lbl_8050DC50 lbl_8050DC50;
+extern s32 lbl_805D5B34;
+extern const f32 lbl_805DBC44;
+extern const f32 lbl_805DBC60;
+void fn_80183D4C(u8 *arg0);
 }
 
 extern "C" {
+
+void fn_80183D4C(u8 *arg0) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(get_anim_frame__25TObjCity_Season_EasterEggFPv());
+    if (temp_r3 != NULL) {
+        if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC44, lbl_805DBC60) != 0) {
+            set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_8050DC50.value, s32 *, 0x10)));
+            TObjPlayer__sub_800F5BC0((void *) (lbl_805D5B34), (int) (0), (int) ((s16) M2C_FIELD(arg0, s32 *, 0xB4)));
+            TObjPlayer__sub_803D9B2C();
+            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+            TObjFish__sub_803E46BC((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x42C), s32 *, 0x18)));
+            TObjEneSlimeOne__sub_803E4AF4((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x42C), s32 *, 8)), (void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x430), s32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+            TObjPlayer__sub_803D9B78();
+        }
+    }
+}
 
 void fn_80183E08(u8 *arg0) {
     s32 temp_r3;

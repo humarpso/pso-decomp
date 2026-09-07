@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8030DE58_lbl_80475808 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8030DE58_lbl_80475808_size[sizeof(RecoveredGlobal_8030DE58_lbl_80475808) == 0x10 ? 1 : -1];
+
+struct RecoveredGlobal_8030DE58_lbl_80475848 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8030DE58_lbl_80475848_size[sizeof(RecoveredGlobal_8030DE58_lbl_80475848) == 0x10 ? 1 : -1];
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
 M2C_UNK free_windows__17TWindowSubComCardFPv(s32);
@@ -23,6 +29,15 @@ void *TAdChrSelASlotGC__ct(void *arg0, void *arg1, void *arg2);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern u32 lbl_805D6A98;
 u8 *TAdMultiPlyChrSelectGC__sub_8030E2E4(s32 arg0, s32 arg1);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+s32 __ct__19TAdPlyChrSelPlateGCFv(int, void *, void *);
+s32 __ct__15TAdChrSelSlotGCFv(int, void *);
+s32 __ct__15TAdPlayerLoadGCFv(int, void *, int);
+s32 __ct__15TAdSubPlyItemGCFv(int, void *);
+s32 __ct__20TAdChrSelMovePlateGCFv(int, void *);
+extern RecoveredGlobal_8030DE58_lbl_80475808 lbl_80475808;
+extern RecoveredGlobal_8030DE58_lbl_80475848 lbl_80475848;
+void TAdChrSelASlotGC__sub_8030DE58(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -52,7 +67,6 @@ void update_window_74__16TAdChrSelASlotGCFPv(void *arg0);
 void update_window_78__16TAdChrSelASlotGCFPv(void *arg0);
 void update_window_7c__16TAdChrSelASlotGCFPv(void *arg0);
 u32 TAdChrSelASlotGC__sub_8030CB08(void *, M2C_UNK, M2C_UNK);
-void TAdChrSelASlotGC__sub_8030DE58(void *, void *);
 M2C_UNK TAdChrSelMovePlateGC__sub_8032572C(s32);
 M2C_UNK TAdChrSelSlotGC__sub_802C7498(s32, M2C_UNK);
 u32 TAdMcSelectGC__sub_80019DA8(void *, M2C_UNK, f32);
@@ -465,6 +479,129 @@ void close_windows__16TAdChrSelASlotGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24) = 1;
 }
 
+void TAdChrSelASlotGC__sub_8030DE58(u8 *arg0, s32 arg1) {
+    s32 temp_r3;
+    s32 temp_r3_10;
+    s32 temp_r3_11;
+    s32 temp_r3_12;
+    s32 temp_r3_13;
+    s32 temp_r3_14;
+    s32 temp_r3_2;
+    s32 temp_r3_3;
+    s32 temp_r3_4;
+    s32 temp_r3_5;
+    s32 temp_r3_6;
+    s32 temp_r3_7;
+    s32 temp_r3_8;
+    s32 temp_r3_9;
+    s32 var_r0;
+    s32 var_r0_10;
+    s32 var_r0_11;
+    s32 var_r0_12;
+    s32 var_r0_13;
+    s32 var_r0_14;
+    s32 var_r0_2;
+    s32 var_r0_3;
+    s32 var_r0_4;
+    s32 var_r0_5;
+    s32 var_r0_6;
+    s32 var_r0_7;
+    s32 var_r0_8;
+    s32 var_r0_9;
+    temp_r3 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x128))));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = __ct__15TAdChrSelSlotGCFv((int) (temp_r3), (void *) (arg0));
+    }
+    M2C_FIELD(arg0, s32 *, 0x2C) = var_r0;
+    switch (arg1) {
+    case 0:
+        temp_r3_2 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x24))));
+        var_r0_2 = temp_r3_2;
+        if (var_r0_2 != 0) {
+            var_r0_2 = __ct__15TAdPlayerLoadGCFv((int) (temp_r3_2), (void *) (arg0), (int) (0));
+        }
+        M2C_FIELD(arg0, s32 *, 0x30) = var_r0_2;
+        temp_r3_3 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x3B4))));
+        var_r0_3 = temp_r3_3;
+        if (var_r0_3 != 0) {
+            var_r0_3 = __ct__19TAdPlyChrSelPlateGCFv((int) (temp_r3_3), (void *) (arg0), (void *) (&lbl_80475808.value));
+        }
+        M2C_FIELD(arg0, s32 *, 0x34) = var_r0_3;
+        temp_r3_4 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x48C))));
+        var_r0_4 = temp_r3_4;
+        if (var_r0_4 != 0) {
+            var_r0_4 = __ct__15TAdSubPlyItemGCFv((int) (temp_r3_4), (void *) (arg0));
+        }
+        M2C_FIELD(arg0, s32 *, 0x3C) = var_r0_4;
+        temp_r3_5 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x208))));
+        var_r0_5 = temp_r3_5;
+        if (var_r0_5 != 0) {
+            var_r0_5 = __ct__20TAdChrSelMovePlateGCFv((int) (temp_r3_5), (void *) (arg0));
+        }
+        M2C_FIELD(arg0, s32 *, 0x44) = var_r0_5;
+        return;
+    case 1:
+        temp_r3_6 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x24))));
+        var_r0_6 = temp_r3_6;
+        if (var_r0_6 != 0) {
+            var_r0_6 = __ct__15TAdPlayerLoadGCFv((int) (temp_r3_6), (void *) (arg0), (int) (1));
+        }
+        M2C_FIELD(arg0, s32 *, 0x30) = var_r0_6;
+        temp_r3_7 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x3B4))));
+        var_r0_7 = temp_r3_7;
+        if (var_r0_7 != 0) {
+            var_r0_7 = __ct__19TAdPlyChrSelPlateGCFv((int) (temp_r3_7), (void *) (arg0), (void *) (&lbl_80475808.value));
+        }
+        M2C_FIELD(arg0, s32 *, 0x34) = var_r0_7;
+        temp_r3_8 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x3B4))));
+        var_r0_8 = temp_r3_8;
+        if (var_r0_8 != 0) {
+            var_r0_8 = __ct__19TAdPlyChrSelPlateGCFv((int) (temp_r3_8), (void *) (arg0), (void *) (&lbl_80475848.value));
+        }
+        M2C_FIELD(arg0, s32 *, 0x38) = var_r0_8;
+        temp_r3_9 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x48C))));
+        var_r0_9 = temp_r3_9;
+        if (var_r0_9 != 0) {
+            var_r0_9 = __ct__15TAdSubPlyItemGCFv((int) (temp_r3_9), (void *) (arg0));
+        }
+        M2C_FIELD(arg0, s32 *, 0x3C) = var_r0_9;
+        temp_r3_10 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x48C))));
+        var_r0_10 = temp_r3_10;
+        if (var_r0_10 != 0) {
+            var_r0_10 = __ct__15TAdSubPlyItemGCFv((int) (temp_r3_10), (void *) (arg0));
+        }
+        M2C_FIELD(arg0, s32 *, 0x40) = var_r0_10;
+        temp_r3_11 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x208))));
+        var_r0_11 = temp_r3_11;
+        if (var_r0_11 != 0) {
+            var_r0_11 = __ct__20TAdChrSelMovePlateGCFv((int) (temp_r3_11), (void *) (arg0));
+        }
+        M2C_FIELD(arg0, s32 *, 0x44) = var_r0_11;
+        return;
+    case 2:
+        temp_r3_12 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x24))));
+        var_r0_12 = temp_r3_12;
+        if (var_r0_12 != 0) {
+            var_r0_12 = __ct__15TAdPlayerLoadGCFv((int) (temp_r3_12), (void *) (arg0), (int) (1));
+        }
+        M2C_FIELD(arg0, s32 *, 0x30) = var_r0_12;
+        temp_r3_13 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x3B4))));
+        var_r0_13 = temp_r3_13;
+        if (var_r0_13 != 0) {
+            var_r0_13 = __ct__19TAdPlyChrSelPlateGCFv((int) (temp_r3_13), (void *) (arg0), (void *) (&lbl_80475848.value));
+        }
+        M2C_FIELD(arg0, s32 *, 0x38) = var_r0_13;
+        temp_r3_14 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x48C))));
+        var_r0_14 = temp_r3_14;
+        if (var_r0_14 != 0) {
+            var_r0_14 = __ct__15TAdSubPlyItemGCFv((int) (temp_r3_14), (void *) (arg0));
+        }
+        M2C_FIELD(arg0, s32 *, 0x40) = var_r0_14;
+        return;
+    }
+}
+
 void init__16TAdChrSelASlotGCFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;
@@ -562,7 +699,7 @@ void *TAdChrSelASlotGC__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TAdChrSelASlotGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4100;
     init__16TAdChrSelASlotGCFPvi((void *)(arg0), (s32)(arg2));
-    TAdChrSelASlotGC__sub_8030DE58(arg0, arg2);
+    TAdChrSelASlotGC__sub_8030DE58((u8 *)(arg0), (s32)(arg2));
     return arg0;
 }
 

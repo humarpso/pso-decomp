@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8004C0D4_lbl_80484D74 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8004C0D4_lbl_80484D74_size[sizeof(RecoveredGlobal_8004C0D4_lbl_80484D74) == 0x10 ? 1 : -1];
+
 extern "C" {
 M2C_UNK TBoss4DarkFalz__sub_8004B084(void *);
 M2C_UNK TBoss4DarkFalz__sub_8004B0F8(void *);
@@ -13,6 +16,13 @@ M2C_UNK TBoss4DarkFalz__sub_8004BAC4(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 query_teammate_state__9TObjEneDDFPv();
 void run_task__14TBoss4DarkFalzFv(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+M2C_UNK fn_802E52AC();
+M2C_UNK init_uro_link__14TBoss4DarkFalzFv();
+extern RecoveredGlobal_8004C0D4_lbl_80484D74 lbl_80484D74;
+extern int lbl_805D4D58;
+void TBoss4DarkFalz__sub_8004C0D4(void);
 }
 
 extern "C" {
@@ -50,6 +60,21 @@ void TBoss4DarkFalz__vt61(void) {  }
 void cleanup_global__14TBoss4DarkFalzFv(void) { free_global_instance__14TBoss4DarkFalzFv(); TBoss4DarkFalz__sub_8030AD38(); TLobby__sub_8001FE7C((void*)(lbl_805D4D58), (void*)1); lbl_805D4D58 = 0; }
 
 extern s32 tl_04;
+
+void TBoss4DarkFalz__sub_8004C0D4(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_80484D74.value, 0, 0, 0));
+    }
+    (*(u8 * *)&lbl_805D4D58) = (unsigned char *) ((void *) var_r0);
+    if ((u32) var_r0 != 0U) {
+        init_uro_link__14TBoss4DarkFalzFv();
+        fn_802E52AC();
+    }
+}
 
 s32 create__14TBoss4DarkFalzFi(s32 arg0) {
     s32 var_r31;

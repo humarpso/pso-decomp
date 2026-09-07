@@ -8,6 +8,12 @@ extern "C" {
 f32 get_random_float__8TObjFishFv(f32, f32);
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, int, int, int);
 void TWindowSubStatusDisp__sub_80259F74(u8 *arg0);
+f32 get_random_float__8TObjFishFv(f32, f32);
+extern const f32 lbl_805DCF58;
+extern const f32 lbl_805DCF5C;
+extern const f32 lbl_805DCF60;
+extern const f32 lbl_805DCF64;
+void TWindowSubStatusDisp__sub_80259EB8(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -78,6 +84,30 @@ void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 
 }
 
 extern M2C_UNK lbl_804CF9E0[];
+
+void TWindowSubStatusDisp__sub_80259EB8(void *arg0, s32 arg1) {
+  f32 temp_f2;
+  f32 var_f31;
+  if ((*((f32 *) (((s8 *) arg0) + 0x28))) != ((f32) arg1))
+  {
+    *((f32 *) (((s8 *) arg0) + 0x28)) = (f32) arg1;
+    temp_f2 = *((f32 *) (((s8 *) arg0) + 0x28));
+    var_f31 = temp_f2 - (*((f32 *) (((s8 *) arg0) + 0x24)));
+    var_f31 = var_f31 * lbl_805DCF64;
+    if (get_random_float__8TObjFishFv(var_f31, temp_f2) < lbl_805DCF5C)
+    {
+      if (var_f31 > lbl_805DCF58)
+      {
+        var_f31 = lbl_805DCF5C;
+      }
+      else
+      {
+        var_f31 = lbl_805DCF60;
+      }
+    }
+    *((f32 *) (((s8 *) arg0) + 0x2C)) = var_f31;
+  }
+}
 
 #pragma push
 #pragma fp_contract on

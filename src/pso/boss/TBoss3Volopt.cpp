@@ -4,6 +4,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8003DC34_lbl_80436318 { char value[0xD]; };
+typedef char RecoveredGlobal_8003DC34_lbl_80436318_size[sizeof(RecoveredGlobal_8003DC34_lbl_80436318) == 0xD ? 1 : -1];
+
+struct RecoveredGlobal_8003DC34_lbl_804FEE68 { M2C_UNK value; u8 remaining[0x8]; };
+typedef char RecoveredGlobal_8003DC34_lbl_804FEE68_size[sizeof(RecoveredGlobal_8003DC34_lbl_804FEE68) == 0xC ? 1 : -1];
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_800192DC(void *);
 s32 TObjPlayer__sub_800194AC(void *, int, int);
@@ -12,6 +18,16 @@ M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TBoss3Volopt__sub_8003EB34(void *);
 void run_task__12TBoss3VoloptFv(u8 *arg0);
+u8 * TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK *VecCopy__FP3VecPC3Vec(void *, M2C_UNK *);
+int TBoss3Volopt__sub_8003EA2C(void*);
+M2C_UNK fn_8003F3BC();
+M2C_UNK TObjEnemyCustom__sub_800C7860();
+int TObjBgmColCtrl__sub_802274B8(void*);
+extern RecoveredGlobal_8003DC34_lbl_80436318 lbl_80436318;
+extern RecoveredGlobal_8003DC34_lbl_804FEE68 lbl_804FEE68;
+extern u16 lbl_805D2718;
+void TBoss3Volopt__sub_8003DC34(u8 *arg0);
 }
 
 extern "C" {
@@ -58,6 +74,21 @@ int reset_photon_effect__10TObjPlayerFPv(void*);
     extern int lbl_805D4C1C;
     extern int lbl_805D4C24;
     extern int lbl_805D4C2C;
+
+void TBoss3Volopt__sub_8003DC34(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x3A8) = 1;
+    if (TPhotonMylla__sub_80154CB4(lbl_805D2718) != NULL) {
+        TObjEnemyCustom__sub_800C7860();
+    }
+    TBoss3Volopt__sub_8003EA2C((void*)((int) (1)));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, &lbl_804FEE68.value));
+    M2C_FIELD(arg0, s16 *, 0x3F0) = 0;
+    M2C_FIELD(arg0, s16 *, 0x3F2) = 0;
+    fn_8003F3BC();
+    TObjBgmColCtrl__sub_802274B8((void*)((void *) (&lbl_80436318.value)));
+    M2C_FIELD(arg0, s32 *, 0x404) = 0;
+}
+
 void reset_vol_opt_state(void* a0) {
     *(int*)((char*)a0 + 0x3a8) = 0;
     lbl_805D4C14 = -1;

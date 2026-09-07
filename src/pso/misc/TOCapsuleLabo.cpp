@@ -16,6 +16,20 @@ struct VObj802AF370_802af370_802AF2C8 : VBase802AF370_802af370_802AF2C8 {
     virtual M2C_UNK m8(f32, f32);
 };
 
+struct RecoveredGlobal_802AF300_lbl_804DE440 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_802AF300_lbl_804DE440_size[sizeof(RecoveredGlobal_802AF300_lbl_804DE440) == 0x10 ? 1 : -1];
+
+extern "C" {
+s32 TObjFish__sub_8001EDC4(void *, s32);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
+extern RecoveredGlobal_802AF300_lbl_804DE440 lbl_804DE440;
+extern u32 TOCapsuleLabo__data_805D6708;
+extern s32 *lbl_805D670C;
+void TOCapsuleLabo__sub_802AF300(void);
+}
+
 extern "C" {
 
 void TOCapsuleLabo__vt13(void *arg0);
@@ -47,6 +61,22 @@ void unload_static_data__13TOCapsuleLaboFv(void) {
 }
 
 extern s32 *lbl_805D670C;
+
+void TOCapsuleLabo__sub_802AF300(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    u32 temp_r3_2;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804DE440.value, 0, 0, 0));
+    }
+    (*(u8 * *)&TOCapsuleLabo__data_805D6708) = (unsigned char *) ((void *) var_r0);
+    temp_r3_2 = TObjFish__sub_8001EDC4((void *) var_r0, 0);
+    if (temp_r3_2 != 0) {
+        (*(s32 *)&lbl_805D670C) = count_linked_switches__23TObjSeabedSuisoBrakableFUii(temp_r3_2, 3);
+    }
+}
 
 void render__13TOCapsuleLaboFv(u8 *arg0) {
     s32 temp_r31_3;

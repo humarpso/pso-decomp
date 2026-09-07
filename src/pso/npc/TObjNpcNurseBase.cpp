@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8014D41C_lbl_804AB658 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8014D41C_lbl_804AB658_size[sizeof(RecoveredGlobal_8014D41C_lbl_804AB658) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8014D41C_lbl_804AB658 lbl_804AB658;
+extern u32 TObjNpcNurseBase__data_805D5840;
+void TObjNpcNurseBase__sub_8014D41C(void);
+}
+
 extern "C" {
 
 void * TObjNpcSecretaryBase__create(void *arg0);
@@ -26,6 +37,17 @@ void free_shared_data__16TObjNpcNurseBaseFv(void) {
 }
 
 extern M2C_UNK __vt__16TObjNpcNurseBase[];
+
+void TObjNpcNurseBase__sub_8014D41C(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AB658.value, 0, 0, 0));
+    }
+    (*(s32 *)&TObjNpcNurseBase__data_805D5840) = var_r0;
+}
 
 void *__dt__16TObjNpcNurseBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

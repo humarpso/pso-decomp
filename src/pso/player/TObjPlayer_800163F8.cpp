@@ -39,6 +39,16 @@ struct Stack_80018780
   u8 trailing_storage[0x8];
 };
 
+#include <stddef.h>
+struct Stack_8001806C {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_8001806C_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
+typedef char RecoveredGlobal_8001806C_lbl_8058D490_size[sizeof(RecoveredGlobal_8001806C_lbl_8058D490) == 0x30 ? 1 : -1];
+
 extern "C" {
 f32 TObjPlayer__sub_800186E8(s32, u32, void *);
 s32 TObjPlayer__sub_800196EC(void);
@@ -47,6 +57,13 @@ s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 extern const f32 lbl_805D7DC8;
 f32 TObjPlayer__sub_80018780(s32 arg0, u16 arg1, u32 arg2);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+s32 TObjPlayer__sub_803D9214(int, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+s32 TObjPlayer__sub_803D9B78();
+extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
+extern const f32 TObjPlayer__data_805D7D24;
+void TObjPlayer__sub_8001806C(u8 *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -118,6 +135,22 @@ s32 update_action_timer__10TObjPlayerFPv(u8 *arg0) {
     }
 block_7:
     return 0;
+}
+
+void TObjPlayer__sub_8001806C(u8 *arg0, s32 arg1, f32 farg0) {
+    typedef char sp8_offset[(offsetof(Stack_8001806C, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8001806C, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8001806C, sp10) == 0x8) ? 1 : -1];
+    Stack_8001806C stack;
+    stack.sp10 = farg0;
+    stack.spC = TObjPlayer__data_805D7D24;
+    stack.sp8 = TObjPlayer__data_805D7D24;
+    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    TObjPlayer__sub_803D9214((int) (0), (void *) (arg1));
+    TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    TObjPlayer__sub_803D9B78();
+    M2C_FIELD(arg0, f32 *, 0x308) = stack.sp8;
+    M2C_FIELD(arg0, f32 *, 0x310) = stack.sp10;
 }
 
 s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1) {

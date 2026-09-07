@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 { M2C_UNK value; u8 remaining[0xAC]; };
+typedef char RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+
 extern "C" {
 M2C_UNK TLobby__sub_800F8FB8();
 s32 run_frame__6TLobbyFv();
@@ -11,6 +14,16 @@ s32 TLobby__sub_803382E4();
 s32 TLobby__sub_803CD5C4(void *);
 s32 TLobby__sub_803CD840(void *, void *, int, void *);
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
+M2C_UNK TLobby__sub_800F8FB8();
+s32 reset_state_byte__6TLobbyFv();
+s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
+s32 TLobby__sub_80228074();
+s32 flush_input__16TKeyBoardControlFv();
+s32 TLobby__sub_803CD5C4(void *);
+s32 TLobby__sub_803CD840(void *, void *, int, void *);
+s32 TKeyBoardControl__sub_803DEA18();
+extern RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -72,6 +85,25 @@ void render_tick__Fv(void) {
     fn_803DCF0C();
     TKeyBoardControl__sub_8000F7FC();
 }
+
+s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2) {
+    s32 temp_r3;
+    temp_r3 = TLobby__sub_803CD840((void *) (arg0), (void *) (arg1), (int) (0), (void *) (arg2));
+    if (temp_r3 >= 0) {
+loop_2:
+        if (TLobby__sub_803CD5C4((void *) (arg0)) != 3) {
+            TLobby__sub_800F8FB8();
+            flush_input__16TKeyBoardControlFv();
+            TLobby__sub_80228074();
+            TKeyBoardControl__sub_803DEA18();
+            disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__data_80506270.value));
+            reset_state_byte__6TLobbyFv();
+            goto loop_2;
+        }
+    }
+    return temp_r3;
+}
+
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     temp_r3 = TLobby__sub_803CD840((void *) (arg0), (void *) (arg1), (int) (0), (void *) (arg2));

@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_803655F8___vt__15TObjIllGillKage { M2C_UNK value; u8 remaining[0x30]; };
+typedef char RecoveredGlobal_803655F8___vt__15TObjIllGillKage_size[sizeof(RecoveredGlobal_803655F8___vt__15TObjIllGillKage) == 0x34 ? 1 : -1];
+
 extern "C" {
 M2C_UNK TOTrapAncient01__sub_80226578(int, void *, void *, int, int);
 void TObjIllGillKage__sub_80365470(u8 *arg0);
@@ -11,6 +14,13 @@ int queue_destruction__15TObjIllGillKageFPv(void* p);
 void TObjIllGillKage__sub_80365470(u8 *arg0);
 void attack_target__15TObjIllGillKageFPv(void *arg0);
 void run_task__15TObjIllGillKageFv(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u16 obj_getField1c(void *);
+int queue_destruction__7TObjectFv(void*);
+s32 TPhotonMagicSquare__sub_801A2640(void *);
+extern M2C_UNK __vt__15TObjIllGillKage[];
+extern s32 lbl_805D44AC;
+u8 *TObjIllGillKage__ct(u8 *arg0, M2C_UNK arg1, u32 arg2);
 }
 
 extern "C" {
@@ -77,6 +87,21 @@ void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TObjIllGillKage__ct(u8 *arg0, M2C_UNK arg1, u32 arg2) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803655F8___vt__15TObjIllGillKage *)&__vt__15TObjIllGillKage).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44AC;
+    if (arg2 != 0U) {
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0x38));
+        M2C_FIELD(arg0, u16 *, 0x98) = obj_getField1c((void *) (arg2));
+        M2C_FIELD(arg0, s32 *, 0x94) = 0xB4;
+        M2C_FIELD(arg0, s32 *, 0x90) = 0;
+    } else {
+        M2C_FIELD(arg0, u16 *, 0x98) = 0xFFFFU;
+        queue_destruction__7TObjectFv((void*)((void *) (arg0)));
     }
     return arg0;
 }

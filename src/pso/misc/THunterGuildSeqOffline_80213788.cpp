@@ -61,6 +61,12 @@ struct Stack_80213B18 {
     f32 spC;
 };
 
+struct RecoveredGlobal_80213CCC_lbl_804C9740 { M2C_UNK value; u8 remaining[0x34]; };
+typedef char RecoveredGlobal_80213CCC_lbl_804C9740_size[sizeof(RecoveredGlobal_80213CCC_lbl_804C9740) == 0x38 ? 1 : -1];
+
+struct RecoveredGlobal_80213CCC_lbl_80513E70 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_80213CCC_lbl_80513E70_size[sizeof(RecoveredGlobal_80213CCC_lbl_80513E70) == 0x10 ? 1 : -1];
+
 extern "C" {
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -68,6 +74,16 @@ s32 TWindowSubComCard__sub_8026CBB8(int, f32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
 void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
+s32 queue_destruction__7TObjectFv(int);
+s32 close_message_window__13TShopSequenceFPv(void *);
+s32 __dt__13TShopSequenceFv(void *, int);
+s32 TShopWindowBase__sub_8022397C(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 TWindow__close(int);
+extern RecoveredGlobal_80213CCC_lbl_804C9740 lbl_804C9740;
+extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
+extern s32 lbl_805D61BC;
+u8 *THunterGuildSeqOffline__sub_80213CCC(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -147,6 +163,33 @@ void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0) {
 }
 
     extern int evt2_random_enemies_mode;
+
+u8 *THunterGuildSeqOffline__sub_80213CCC(u8 *arg0, s16 arg1) {
+    u32 temp_r3;
+    u32 temp_r3_2;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804C9740.value;
+        temp_r3 = M2C_FIELD(arg0, u32 *, 0x2C);
+        if (temp_r3 != 0U) {
+            queue_destruction__7TObjectFv((int) (temp_r3));
+            M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+        }
+        close_message_window__13TShopSequenceFPv((void *) (arg0));
+        temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x3C);
+        if (temp_r3_2 != 0U) {
+            TWindow__close((int) (temp_r3_2));
+            M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+        }
+        M2C_FIELD(&lbl_80513E70.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
+        lbl_805D61BC = 0;
+        __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
+}
+
 void reset_random_enemies_mode(void) { clear_counter__6TLobbyFv(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
 
 }

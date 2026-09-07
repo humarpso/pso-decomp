@@ -4,6 +4,36 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_a93f07
+{
+  char pad[0x18];
+};
+
+struct VObj_18_a93f07 : VBase_18_a93f07 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+};
+
+struct Stack_8021E5D8
+{
+  M2C_UNK sp8;
+  u8 pad_C[0x8];
+  s32 sp14;
+};
+
+struct RecoveredFields_8021E5D8_arg0
+{
+  u8 unknown_0[0x24];
+  s32 field_24;
+  s32 field_28;
+  u32 field_2C;
+  u8 unknown_30[0x24];
+  s32 field_54;
+};
+
 extern "C" {
 s32 obj_getField1c(s32);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
@@ -17,6 +47,22 @@ void TWindow__close(void *);
 u32 TShopJudgmentItemWindow__sub_80266388(M2C_UNK, u16, M2C_UNK, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 void TShopGetItemWindow__sub_8021E76C(void *arg0);
+s32 is_visible__17TWindowSubComCardFPv(int);
+s32 get_status_flag__17TWindowSubComCardFPv(int);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 set_stack_count__24TShopEquipmentListWindowFPvc(void *, int);
+s32 fn_801B849C(int, void *);
+s32 TObjPlayer__sub_801B91F0(int, void *);
+s32 TCheckRoomSequence__sub_80210904(int);
+s32 TCheckRoomSequence__sub_80210E28(int, int, int);
+s32 TCheckRoomSequence__sub_80211034(int, void *, int);
+s32 TCheckRoomSequence__sub_8021118C(int);
+s32 get_item_def__18TCheckRoomSequenceFUi(void *);
+s32 TShopWindowBase__sub_8022397C(void *);
+void TWindow__close(void *);
+s32 TWindowSubComCard__sub_80265BF8(int);
+s32 select_cursor_entry__6TLobbyFPv(int);
+void TShopGetItemWindow__sub_8021E5D8(u8 *arg0);
 }
 
 extern "C" {
@@ -40,6 +86,70 @@ void close__18TShopGetItemWindowFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__18TShopGetItemWindow[];
+
+typedef struct RecoveredFields_8021E5D8_arg0 RecoveredFields_8021E5D8_arg0;
+typedef struct Stack_8021E5D8 Stack_8021E5D8;
+typedef struct VBase_18_a93f07 VBase_18_a93f07;
+typedef struct VObj_18_a93f07 VObj_18_a93f07;
+#define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
+void TShopGetItemWindow__sub_8021E5D8(u8 *arg0) {
+  Stack_8021E5D8 stack;
+  s32 temp_r30;
+  s32 temp_r3_2;
+  s32 temp_r3_3;
+  u32 temp_r3;
+  u32 temp_r3_4;
+  temp_r3 = ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C;
+  if ((temp_r3 != 0U) && (is_visible__17TWindowSubComCardFPv((int) temp_r3) != 0))
+  {
+    temp_r30 = TShopWindowBase__sub_8022397C((void *) arg0);
+    temp_r3_2 = TWindowSubComCard__sub_80265BF8((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C);
+    if (temp_r3_2 == 0)
+    {
+      temp_r3_3 = select_cursor_entry__6TLobbyFPv((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_28);
+      if (TCheckRoomSequence__sub_80211034((int) temp_r3_3, (void *) (&stack.sp8), (int) (temp_r30 & 0xFFFFFFFFFFFFFFFFu)) != 0)
+      {
+        stack.sp14 = -1;
+        if (get_item_def__18TCheckRoomSequenceFUi((void *) (&stack.sp8)) != 0)
+        {
+          set_stack_count__24TShopEquipmentListWindowFPvc((void *) (&stack.sp8), (int) ((s32) ((u8) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_54)));
+        }
+        if (TObjPlayer__sub_801B91F0((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_24, (void *) (&stack.sp8)) == 0)
+        {
+          PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x4B, 1);
+          set_field_20__12TQuestListVMFPvi((void *)((void *) arg0), (M2C_UNK)((int) 6));
+        }
+        else
+        {
+          fn_801B849C((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_24, (void *) (&stack.sp8));
+          TCheckRoomSequence__sub_80210E28((int) temp_r3_3, (int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_54, (int) temp_r30);
+          TCheckRoomSequence__sub_80210904((int) temp_r30);
+          TCheckRoomSequence__sub_8021118C((int) temp_r30);
+          set_field_20__12TQuestListVMFPvi((void *)((void *) arg0), (M2C_UNK)((int) 0));
+        }
+      }
+      TWindow__close((void *)((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C));
+      ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C = 0U;
+      return;
+    }
+    if (temp_r3_2 == 1)
+    {
+      TWindow__close((void *)((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C));
+      ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C = 0U;
+      set_field_20__12TQuestListVMFPvi((void *)((void *) arg0), (M2C_UNK)((int) 4));
+      return;
+    }
+    goto block_12;
+  }
+  block_12:
+  temp_r3_4 = ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C;
+  if ((temp_r3_4 != 0U) && (get_status_flag__17TWindowSubComCardFPv((int) temp_r3_4) != 0))
+  {
+    TWindow__close((void *)((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C));
+    ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_2C = 0U;
+    set_field_20__12TQuestListVMFPvi((void *)((void *) arg0), (M2C_UNK)((int) 4));
+  }
+}
 
 void TShopGetItemWindow__sub_8021E76C(void *arg0) {
     f32 temp_f31;

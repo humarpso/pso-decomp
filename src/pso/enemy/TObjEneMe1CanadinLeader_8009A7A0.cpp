@@ -121,6 +121,16 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m112();
 };
 
+#include <stddef.h>
+struct Stack_8009AA64 {
+    M2C_UNK sp8;
+    f32 spC;
+    u8 trailing_storage[0x4];
+};
+
+struct RecoveredGlobal_8009AA64_lbl_8048FE94 { M2C_UNK value; u8 remaining[0x18]; };
+typedef char RecoveredGlobal_8009AA64_lbl_8048FE94_size[sizeof(RecoveredGlobal_8009AA64_lbl_8048FE94) == 0x1C ? 1 : -1];
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009AF54(void *);
@@ -136,6 +146,17 @@ s32 TObjEneDD__sub_800BA828();
 extern const f32 lbl_805D9880;
 extern const f32 lbl_805D9884;
 void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjBoss2Tunnel__sub_8007E7D8(void *, void *, int);
+s32 TObjBoss2Tunnel__sub_8007E84C(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+extern M2C_UNK lbl_8048FE94[];
+extern s32 lbl_805D29A8;
+extern const f32 lbl_805D9860;
+u8 *TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 }
 
 extern "C" {
@@ -192,6 +213,30 @@ void *TObjEneMe1CanadinLeader__sub_8009AA0C(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+
+u8 *TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {
+    typedef char sp8_offset[(offsetof(Stack_8009AA64, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8009AA64, spC) == 0x4) ? 1 : -1];
+    Stack_8009AA64 stack;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8009AA64_lbl_8048FE94 *)&lbl_8048FE94).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29A8;
+    M2C_FIELD(arg0, s32 *, 0x1C) = arg3;
+    M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg3 + 0x38));
+    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (arg2 + 0x38));
+    stack.spC = lbl_805D9860;
+    M2C_FIELD(arg0, f32 *, 0x20) = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg2, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D9860;
+    M2C_FIELD(arg0, f32 *, 0x28) = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg2, s32 *, 0x60)));
+    if (TObjBoss2Tunnel__sub_8007E84C((void *) (arg0 + 0x20), (void *) (&stack.sp8)) != 0) {
+        TObjBoss2Tunnel__sub_8007E7D8((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (-0x1800));
+    } else {
+        TObjBoss2Tunnel__sub_8007E7D8((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (0x1800));
     }
     return arg0;
 }

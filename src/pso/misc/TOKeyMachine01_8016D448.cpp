@@ -25,9 +25,25 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m16();
     virtual M2C_UNK m17();
 };
+
+struct RecoveredGlobal_8016D714_lbl_80441E24 { char value[0x1A]; };
+typedef char RecoveredGlobal_8016D714_lbl_80441E24_size[sizeof(RecoveredGlobal_8016D714_lbl_80441E24) == 0x1A ? 1 : -1];
+
+struct RecoveredGlobal_8016D714_lbl_804B2DD8 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8016D714_lbl_804B2DD8_size[sizeof(RecoveredGlobal_8016D714_lbl_804B2DD8) == 0x10 ? 1 : -1];
+
 extern "C" {
 M2C_UNK TOKeyMachine01__sub_8016D148(void *, int);
 void run_task__14TOKeyMachine01Fv(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+int alloc_buffer__11TOBoss4RockFPv(void *);
+u8 * TLanguage__sub_801E4874(s32);
+extern RecoveredGlobal_8016D714_lbl_80441E24 lbl_80441E24;
+extern RecoveredGlobal_8016D714_lbl_804B2DD8 lbl_804B2DD8;
+extern u32 lbl_805D5A30;
+extern s32 *TOKeyMachine01__data_805D5A34;
+void TOKeyMachine01__sub_8016D714(void);
 }
 
 extern "C" {
@@ -91,6 +107,20 @@ void free_statics__14TOKeyMachine01Fv(void) {
 }
 
 extern M2C_UNK __vt__14TOKeyMachine01[];
+
+void TOKeyMachine01__sub_8016D714(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B2DD8.value, 0, 0, 0));
+    }
+    (*(u8 * *)&lbl_805D5A30) = (unsigned char *) ((void *) var_r0);
+    (*(s32 *)&TOKeyMachine01__data_805D5A34) = alloc_buffer__11TOBoss4RockFPv((void *)8);
+    M2C_FIELD((*(s32 *)&TOKeyMachine01__data_805D5A34), u8 **, 0) = TLanguage__sub_801E4874((s32) &lbl_80441E24.value);
+    M2C_FIELD((*(s32 *)&TOKeyMachine01__data_805D5A34), s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A30), u8 **, 0x42C), s32 *, 0xC);
+}
 
 void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

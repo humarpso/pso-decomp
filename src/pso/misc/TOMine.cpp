@@ -27,6 +27,17 @@ struct VObj_80170f64_80170EEC : Base18_80170f64_80170EEC {
     virtual void m76(); virtual void m77();
 };
 
+struct RecoveredGlobal_801711D0_lbl_804B2F2C { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_801711D0_lbl_804B2F2C_size[sizeof(RecoveredGlobal_801711D0_lbl_804B2F2C) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_801711D0_lbl_804B2F2C lbl_804B2F2C;
+extern u32 lbl_805D5A50;
+void TOMine__sub_801711D0(void);
+}
+
 extern "C" {
 
 int TOMine__sub_80170F0C(void *);
@@ -112,6 +123,17 @@ void free_instance__6TOMineFv(void) {
 }
 
 extern M2C_UNK __vt__6TOMine[];
+
+void TOMine__sub_801711D0(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B2F2C.value, 0, 0, 0));
+    }
+    (*(s32 *)&lbl_805D5A50) = var_r0;
+}
 
 void *__dt__6TOMineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

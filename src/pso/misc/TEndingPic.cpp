@@ -23,6 +23,21 @@ struct VObj_803530C4_80352BB8 : Base_803530C4_80352BB8 {
     virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
 };
 
+struct RecoveredGlobal_80352F6C___vt__10TEndingPic { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_80352F6C___vt__10TEndingPic_size[sizeof(RecoveredGlobal_80352F6C___vt__10TEndingPic) == 0x18 ? 1 : -1];
+
+extern "C" {
+s32 TKeyBoardControl__sub_8000F828(void);
+void __ct__7TObjectFP7TObject(void *, void *);
+void init_positions__10TEndingPicFPv(void* a0);
+int TEndingPic__sub_80353010(void);
+extern RecoveredGlobal_80352F6C___vt__10TEndingPic __vt__10TEndingPic;
+extern s32 lbl_805D4378;
+extern s32 TEndingPic__data_805D6EE0;
+extern s32 lbl_805D6EE4;
+u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 int TEndingPic__sub_80353010(void);
@@ -169,6 +184,31 @@ void render__10TEndingPicFv(s32 arg0) {
 void run_task__10TEndingPicFv(void* p) { advance_animation_state__10TEndingPicFPv((void *)(p)); }
 
     extern int lbl_805D4F14;
+
+u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
+    s32 temp_r3;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TEndingPic.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4378;
+    M2C_FIELD(arg0, s32 *, 0x1C) = -1;
+    TEndingPic__data_805D6EE0 = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0xFF;
+    M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    lbl_805D6EE4 = ((s32)TEndingPic__sub_80353010());
+    init_positions__10TEndingPicFPv((void*)(arg0));
+    temp_r3 = TKeyBoardControl__sub_8000F828();
+    switch (temp_r3) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0xEC) = 0x1E;
+        break;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0xEC) = 0x19;
+        break;
+    }
+    return arg0;
+}
+
 int TEndingPic__sub_80353010(void) {  return lbl_805D4F14; }
 
 int set_phase_18__10TEndingPicFPv(void* p) { return TEndingPic__sub_80353018(p, 18); }

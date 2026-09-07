@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TObjPlayer__sub_80104A94(void *, void *, s32);
+s32 TObjPlayer__sub_801049C8(u8 *arg0, u8 *arg1);
+}
+
+extern "C" {
 
 s32 is_active_battle_player__10TObjPlayerFv(void);
 u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0);
@@ -47,6 +52,42 @@ u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0) {
         return arg0;
     }
     return arg0;
+}
+s32 TObjPlayer__sub_801049C8(u8 *arg0, u8 *arg1) {
+  s32 var_r3;
+  u8 var_r5;
+  u8 var_r6;
+  if ((((((u32) arg0) != 0) && (((u32) arg1) != 0)) && ((var_r5 = *((u8 *) (((s8 *) arg0) + 0)), (var_r5 == ((u8) (*((u8 *) (((s8 *) arg1) + 0))))) != 0))) && ((var_r6 = *((u8 *) (((s8 *) arg0) + 1)), (var_r6 == ((u8) (*((u8 *) (((s8 *) arg1) + 1))))) != 0)))
+  {
+    switch ((s32) var_r5)
+    {
+      case 0:
+        var_r5 = 0x41;
+        return TObjPlayer__sub_80104A94(arg0, arg1, 0x41);
+      case 1:
+        var_r5 = 1;
+        return TObjPlayer__sub_80104A94(arg0, arg1, 1);
+      case 2:
+        var_r5 = 0;
+        return TObjPlayer__sub_80104A94(arg0, arg1, 0);
+      case 3:
+        if (var_r6 == 2)
+      {
+        var_r5 = 0x41;
+        return TObjPlayer__sub_80104A94(arg0, arg1, 0x41);
+      }
+        var_r5 = 1;
+        return TObjPlayer__sub_80104A94(arg0, arg1, 1);
+      case 4:
+        var_r5 = 0;
+        return TObjPlayer__sub_80104A94(arg0, arg1, 0);
+    }
+  }
+  else
+  {
+    var_r3 = 0;
+  }
+  return 0;
 }
 
 }

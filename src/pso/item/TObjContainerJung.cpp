@@ -17,6 +17,9 @@ struct VObj : VBase {
     virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75(); virtual void m76(); virtual void m77();
 };
 
+struct RecoveredGlobal_8018D47C_lbl_804B7134 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8018D47C_lbl_804B7134_size[sizeof(RecoveredGlobal_8018D47C_lbl_804B7134) == 0x10 ? 1 : -1];
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_8010567C(void *, void *, int);
@@ -26,6 +29,13 @@ void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 * TObjFish__sub_8001EDC4(void *, int);
 extern s32 TObjContainerJung__data_805D5BA0;
 u8 *TObjContainerJung__sub_8018D3C0(s32 arg0);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8018D47C_lbl_804B7134 lbl_804B7134;
+extern s32 TObjContainerJung__data_805D5BA0;
+extern s32 TObjContainerJung__data_805D5BA4;
+void TObjContainerJung__sub_8018D47C(void);
 }
 
 extern "C" {
@@ -74,6 +84,18 @@ void release__17TObjContainerJungFv(void) {
     TLobby__sub_8001FE7C(TObjContainerJung__data_805D5BA0, 1);
     TObjContainerJung__data_805D5BA0 = 0;
     TObjContainerJung__data_805D5BA4 = 0;
+}
+
+void TObjContainerJung__sub_8018D47C(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B7134.value, 0, 0, 0));
+    }
+    (*(u8 * *)&TObjContainerJung__data_805D5BA0) = (unsigned char *) ((void *) var_r0);
+    TObjContainerJung__data_805D5BA4 = TObjFish__sub_8001EDB0((void *) var_r0, 0);
 }
 
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2) {

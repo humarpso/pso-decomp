@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8014A368_lbl_804A8C70 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8014A368_lbl_804A8C70_size[sizeof(RecoveredGlobal_8014A368_lbl_804A8C70) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8014A368_lbl_804A8C70 lbl_804A8C70;
+extern u32 TObjNpcFemaleFat__data_805D5778;
+void TObjNpcFemaleFat__sub_8014A368(void);
+}
+
 extern "C" {
 
 void * TObjNpcFemaleFat__create(void *arg0);
@@ -52,6 +63,16 @@ void free_static_model__16TObjNpcFemaleFatFv(void) {
         TLobby__sub_8001FE7C((void*)TObjNpcFemaleFat__data_805D5778, 1);
         TObjNpcFemaleFat__data_805D5778 = 0U;
     }
+}
+void TObjNpcFemaleFat__sub_8014A368(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804A8C70.value, 0, 0, 0));
+    }
+    (*(s32 *)&TObjNpcFemaleFat__data_805D5778) = var_r0;
 }
 
 }

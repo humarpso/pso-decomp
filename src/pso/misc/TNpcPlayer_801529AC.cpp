@@ -1,8 +1,16 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 TNpcPlayer__sub_80152950();
+s32 TNpcPlayer__sub_801529E0(s32 arg0, s32 arg1, s16 arg2);
+}
+
 extern "C" {
 
-int TNpcPlayer__sub_801529E0(void);
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q);
 s32 get_action_state__10TNpcPlayerFPv(void* p);
 void reset_fields_8c__10TNpcPlayerFPv(void* p);
@@ -30,7 +38,12 @@ int update_players__6TLobbyFi(void*);
 void copy_transform__10TNpcPlayerFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
 s32 get_action_state__10TNpcPlayerFPv(void* p) { return *(s32*)((char*)p + 0x8c); }
 void reset_fields_8c__10TNpcPlayerFPv(void* p) { *(s32*)((char*)p + 0x8c) = 0; *(s32*)((char*)p + 0x90) = 0; }
-
-int TNpcPlayer__sub_801529E0(void) { return 0; }
+s32 TNpcPlayer__sub_801529E0(s32 arg0, s32 arg1, s16 arg2) {
+    if (TNpcPlayer__sub_80152950() != 0) {
+        M2C_FIELD((arg0 + (arg1 * 2)), s16 *, 0) = arg2;
+        return 1;
+    }
+    return 0;
+}
 
 }

@@ -4,6 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80364A1C_lbl_804F2B18 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_80364A1C_lbl_804F2B18_size[sizeof(RecoveredGlobal_80364A1C_lbl_804F2B18) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 get_lobby_type__6TLobbyFv(void);
+extern RecoveredGlobal_80364A1C_lbl_804F2B18 lbl_804F2B18;
+extern u32 TObjTreeLobby__data_805D6FC0;
+extern s32 lbl_805D6FC4;
+void TObjTreeLobby__sub_80364A1C(void);
+}
+
 extern "C" {
 
 void *create__13TObjTreeLobbyFPv(void *arg0);
@@ -60,6 +73,17 @@ void destroy_static_instance__13TObjTreeLobbyFv(void) {
         TLobby__sub_8001FE7C((void*)TObjTreeLobby__data_805D6FC0, 1);
         TObjTreeLobby__data_805D6FC0 = 0U;
     }
+}
+void TObjTreeLobby__sub_80364A1C(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804F2B18.value, 0, 0, 0));
+    }
+    (*(s32 *)&TObjTreeLobby__data_805D6FC0) = var_r0;
+    lbl_805D6FC4 = get_lobby_type__6TLobbyFv();
 }
 
 }

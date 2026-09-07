@@ -87,6 +87,9 @@ struct VObj_18_65b835 : VBase_18_65b835 {
     virtual M2C_UNK m77(s32 *);
 };
 
+struct RecoveredGlobal_8015D314_lbl_804B0A10 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8015D314_lbl_804B0A10_size[sizeof(RecoveredGlobal_8015D314_lbl_804B0A10) == 0x10 ? 1 : -1];
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
@@ -94,6 +97,20 @@ M2C_UNK TOCtrlDubchik__sub_8015CA74(void *);
 s32 TLobby__sub_8002AFD4(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void TOCtrlDubchik__sub_8015CB4C(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8015D314_lbl_804B0A10 lbl_804B0A10;
+extern u32 TOCtrlDubchik__data_805D58F0;
+void TOCtrlDubchik__sub_8015D314(void);
+M2C_UNK TObjPlayer__sub_80011734(void *, void *, f32);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
+void set_indexed_flags(void *, s32, s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern const f32 TOCtrlDubchik__data_805DB3AC;
+extern const f32 TOCtrlDubchik__data_805DB3B0;
+extern const f32 TOCtrlDubchik__data_805DB3B4;
+extern const f32 TOCtrlDubchik__data_805DB3B8;
+void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
 }
 
 extern "C" {
@@ -106,7 +123,6 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1);
 void *create__13TOCtrlDubchikFPv(void *arg0);
 void destroy_instance__13TOCtrlDubchikFv(void);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32, s32, f32);
 void TLobby__sub_8001FE7C(void*, int);
 void *TOCtrlDubchik__ct(void *, void *, void *);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
@@ -141,12 +157,36 @@ void update_spin__13TOCtrlDubchikFPv(u8 *arg0) {
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x380);
     temp_f1 = (f32) temp_r4;
     M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
-    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x380), temp_r4, temp_f1));
+    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x380)));
     TObjPlayer__sub_80011734(arg0, arg0 + 0x390, M2C_FIELD(arg0, f32 *, 0x37C));
     M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) + 0x147);
 }
 
 extern void *tl_05;
+
+#pragma fp_contract on
+void TOCtrlDubchik__sub_8015CCF4(u8 *arg0) {
+  f32 new_var2;
+  f32 new_var4;
+  f32 *new_var;
+  s8 *new_var3;
+  *((s32 *) (((s8 *) arg0) + 0x380)) = (s32) (((f32) (*((s32 *) (((s8 *) arg0) + 0x380)))) + TOCtrlDubchik__data_805DB3B4);
+  new_var3 = ((s8 *) arg0) + 0x380;
+  *((f32 *) (((s8 *) arg0) + 0x37C)) = (f32) (TOCtrlDubchik__data_805DB3B8 + TBoss8Dragon__sub_803D64C0((s32)(*((s32 *) new_var3))));
+  new_var = &(*((f32 *) (((s8 *) arg0) + 0x37C)));
+  TObjPlayer__sub_80011734(arg0, arg0 + 0x390, *new_var);
+  new_var4 = *((f32 *) (((s8 *) arg0) + 0x388));
+  *((f32 *) (((s8 *) arg0) + 0x388)) = (f32) (new_var4 + TOCtrlDubchik__data_805DB3B0);
+  if (TOCtrlDubchik__data_805DB3AC < (*((f32 *) (((s8 *) arg0) + 0x388))))
+  {
+    new_var2 = (f32) TOCtrlDubchik__data_805DB3AC;
+    *((f32 *) (((s8 *) arg0) + 0x388)) = new_var2;
+    *((s16 *) (((s8 *) arg0) + 0x326)) = 3;
+    clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x08000004);
+ do { set_indexed_flags(arg0, 0, 2); } while (0 != 0U);
+  }
+  new_var4 = new_var4;
+}
 
 void *create__13TOCtrlDubchikFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);
@@ -166,6 +206,17 @@ void destroy_instance__13TOCtrlDubchikFv(void) {
 }
 
 extern M2C_UNK __vt__13TOCtrlDubchik[];
+
+void TOCtrlDubchik__sub_8015D314(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B0A10.value, 0, 0, 0));
+    }
+    (*(s32 *)&TOCtrlDubchik__data_805D58F0) = var_r0;
+}
 
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

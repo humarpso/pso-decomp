@@ -5,6 +5,9 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802793E4___vt__19TWindowSubEquipList { M2C_UNK value; u8 remaining[0x1C]; };
+typedef char RecoveredGlobal_802793E4___vt__19TWindowSubEquipList_size[sizeof(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList) == 0x20 ? 1 : -1];
+
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
@@ -12,10 +15,15 @@ M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 M2C_UNK draw_selected_list_entry(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(void *, int);
 void render__19TWindowSubEquipListFv(u8 *arg0);
-u8 * TWindowSubEquipList__ct(void *, M2C_UNK, s16);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *fn_8027929C(s32 arg0, s32 arg1, s16 arg2);
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 ensure_status_display__20TWindowSubStatusDispFPvi(void *, int);
+s32 fn_802683F4(void *, void *, int, void *);
+extern M2C_UNK __vt__19TWindowSubEquipList[];
+extern s32 lbl_805D3A40;
+u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2);
 }
 
 extern "C" {
@@ -33,7 +41,7 @@ u8 *fn_8027929C(s32 arg0, s32 arg1, s16 arg2) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x88));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TWindowSubEquipList__ct(temp_r3, arg0, arg2));
+        var_r0 = (u8 *)(TWindowSubEquipList__ct((u8 *)(temp_r3), (s32)(arg0), arg2));
     }
     return var_r0;
 }
@@ -64,6 +72,13 @@ void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2) {
+    fn_802683F4((void *) (arg0), (void *) (arg1), (int) (8), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList *)&__vt__19TWindowSubEquipList).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A40;
+    ensure_status_display__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x25))));
     return arg0;
 }
 

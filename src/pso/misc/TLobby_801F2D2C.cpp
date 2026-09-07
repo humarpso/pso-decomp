@@ -4,9 +4,75 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801F301C_TLobby__data_80512220 { M2C_UNK value; u8 remaining[0x1C]; };
+typedef char RecoveredGlobal_801F301C_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F301C_TLobby__data_80512220) == 0x20 ? 1 : -1];
+
+struct RecoveredGlobal_801F301C_TLobby__data_80512240 { M2C_UNK value; u8 remaining[0xFC]; };
+typedef char RecoveredGlobal_801F301C_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F301C_TLobby__data_80512240) == 0x100 ? 1 : -1];
+
+struct RecoveredGlobal_801F2EF4_TLobby__data_80512220 { M2C_UNK value; u8 remaining[0x1C]; };
+typedef char RecoveredGlobal_801F2EF4_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F2EF4_TLobby__data_80512220) == 0x20 ? 1 : -1];
+
+struct RecoveredGlobal_801F2EF4_TLobby__data_80512240 { M2C_UNK value; u8 remaining[0xFC]; };
+typedef char RecoveredGlobal_801F2EF4_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F2EF4_TLobby__data_80512240) == 0x100 ? 1 : -1];
+
 extern "C" {
 int bswap_32__FPUl(void*);
 void TLobby__sub_801F3640(s32 arg0);
+M2C_UNK memcpy(void *, void *, int);
+extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__data_80512220;
+extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__data_80512240;
+extern unsigned char* TLobby__data_805D5E70;
+extern s32 TLobby__data_805D5E74;
+extern s32 TLobby__data_805D5E78;
+extern u32 TLobby__data_805D5E7C;
+extern u32 TLobby__data_805D5E84;
+extern u8 TLobby__data_805D5E88;
+extern s32 TLobby__data_805D5E8C;
+extern int TLobby__data_805D5E90;
+extern s32 lbl_805D5E94;
+extern s32 lbl_805D5E9C;
+extern s32 lbl_805D5EA0;
+extern s32 TLobby__data_805D5EA4;
+extern u8 TLobby__data_805D5EA8;
+extern u8 TLobby__data_805D5EA9;
+extern u16 TLobby__data_805D5EAA;
+extern u16 TLobby__data_805D5EAC;
+extern u32 TLobby__data_805D5EB0;
+extern u32 TLobby__data_805D5EB4;
+extern u32 TLobby__data_805D5EB8;
+extern u32 TLobby__data_805D5EBC;
+extern u32 TLobby__data_805D5EC0;
+extern u16 TLobby__data_805D5EC8;
+extern u16 TLobby__data_805D5ECA;
+void TLobby__sub_801F301C(u8 *arg0);
+M2C_UNK memcpy(void *, void *, int);
+extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__data_80512220;
+extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__data_80512240;
+extern unsigned char* TLobby__data_805D5E70;
+extern s32 TLobby__data_805D5E74;
+extern s32 TLobby__data_805D5E78;
+extern u32 TLobby__data_805D5E7C;
+extern u32 TLobby__data_805D5E84;
+extern u8 TLobby__data_805D5E88;
+extern s32 TLobby__data_805D5E8C;
+extern int TLobby__data_805D5E90;
+extern s32 lbl_805D5E94;
+extern s32 lbl_805D5E9C;
+extern s32 lbl_805D5EA0;
+extern s32 TLobby__data_805D5EA4;
+extern u8 TLobby__data_805D5EA8;
+extern u8 TLobby__data_805D5EA9;
+extern u16 TLobby__data_805D5EAA;
+extern u16 TLobby__data_805D5EAC;
+extern u32 TLobby__data_805D5EB0;
+extern u32 TLobby__data_805D5EB4;
+extern u32 TLobby__data_805D5EB8;
+extern u32 TLobby__data_805D5EBC;
+extern u32 TLobby__data_805D5EC0;
+extern u16 TLobby__data_805D5EC8;
+extern u16 TLobby__data_805D5ECA;
+void TLobby__sub_801F2EF4(u8 *arg0);
 }
 
 extern "C" {
@@ -58,8 +124,6 @@ void sync_quest_register_and_send__6TLobbyFPv(void* p);
 int test_flag_16__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int TLobby__sub_800822E8(void*, int);
-M2C_UNK TLobby__sub_801F2EF4(s32);
-M2C_UNK TLobby__sub_801F301C();
 M2C_UNK TWindow__close(s32);
 int VecCopy__FP3VecPC3Vec(void*);
 int bswap_16__FPUs(void*);
@@ -80,9 +144,9 @@ unsigned char read_packet_byte__6TLobbyFv(void) { return TLobby__data_805D5E70[T
 s32 dispatch_quest__6TLobbyFi(s32 arg0) {
     s32 temp_r31;
 
-    TLobby__sub_801F301C();
+    TLobby__sub_801F301C((u8 *)(arg0));
     temp_r31 = dispatch_quest_opcode();
-    TLobby__sub_801F2EF4(arg0);
+    TLobby__sub_801F2EF4((u8 *)(arg0));
     return temp_r31;
 }
 
@@ -131,6 +195,69 @@ void close_windows__6TLobbyFv(void) {
 }
 
 extern u32 lbl_805D5EE8;
+
+void TLobby__sub_801F2EF4(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0) = (s32) (*(s32 *)&TLobby__data_805D5E70);
+    M2C_FIELD(arg0, s32 *, 4) = (s32) TLobby__data_805D5E74;
+    M2C_FIELD(arg0, s32 *, 8) = (s32) TLobby__data_805D5E78;
+    M2C_FIELD(arg0, s32 *, 0xC) = (s32) (*(s32 *)&TLobby__data_805D5E7C);
+    M2C_FIELD(arg0, s32 *, 0x10) = (s32) (*(s32 *)&TLobby__data_805D5E84);
+    M2C_FIELD(arg0, u8 *, 0x14) = (u8) TLobby__data_805D5E88;
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) TLobby__data_805D5E8C;
+    M2C_FIELD(arg0, s32 *, 0x20) = (s32) (*(s32 *)&TLobby__data_805D5E90);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D5E94;
+    M2C_FIELD(arg0, s32 *, 0x28) = (s32) lbl_805D5E9C;
+    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) lbl_805D5EA0;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) TLobby__data_805D5EA4;
+    memcpy((void *) (arg0 + 0x34), (void *) (&TLobby__data_80512220.value), (int) (0x20));
+    memcpy((void *) (arg0 + 0x54), (void *) (&TLobby__data_80512240.value), (int) (0x100));
+    (*(s32 *)&TLobby__data_805D5E7C) = 0;
+    (*(s32 *)&TLobby__data_805D5E84) = 0;
+    M2C_FIELD(arg0, u8 *, 0x154) = (u8) TLobby__data_805D5EA8;
+    M2C_FIELD(arg0, u8 *, 0x155) = (u8) TLobby__data_805D5EA9;
+    M2C_FIELD(arg0, u16 *, 0x156) = (u16) TLobby__data_805D5EAA;
+    M2C_FIELD(arg0, u16 *, 0x158) = (u16) TLobby__data_805D5EAC;
+    M2C_FIELD(arg0, s32 *, 0x15C) = (s32) (*(s32 *)&TLobby__data_805D5EB0);
+    (*(s32 *)&TLobby__data_805D5EB0) = 0;
+    M2C_FIELD(arg0, s32 *, 0x160) = (s32) (*(s32 *)&TLobby__data_805D5EB4);
+    (*(s32 *)&TLobby__data_805D5EB4) = 0;
+    M2C_FIELD(arg0, s32 *, 0x164) = (s32) (*(s32 *)&TLobby__data_805D5EB8);
+    (*(s32 *)&TLobby__data_805D5EB8) = 0;
+    M2C_FIELD(arg0, s32 *, 0x168) = (s32) (*(s32 *)&TLobby__data_805D5EBC);
+    (*(s32 *)&TLobby__data_805D5EBC) = 0;
+    M2C_FIELD(arg0, s32 *, 0x16C) = (s32) (*(s32 *)&TLobby__data_805D5EC0);
+    (*(s32 *)&TLobby__data_805D5EC0) = 0;
+    M2C_FIELD(arg0, u16 *, 0x170) = (u16) TLobby__data_805D5EC8;
+    M2C_FIELD(arg0, u16 *, 0x172) = (u16) TLobby__data_805D5ECA;
+}
+
+void TLobby__sub_801F301C(u8 *arg0) {
+    (*(s32 *)&TLobby__data_805D5E70) = M2C_FIELD(arg0, s32 *, 0);
+    TLobby__data_805D5E74 = M2C_FIELD(arg0, s32 *, 4);
+    TLobby__data_805D5E78 = M2C_FIELD(arg0, s32 *, 8);
+    (*(s32 *)&TLobby__data_805D5E7C) = M2C_FIELD(arg0, s32 *, 0xC);
+    (*(s32 *)&TLobby__data_805D5E84) = M2C_FIELD(arg0, s32 *, 0x10);
+    TLobby__data_805D5E88 = M2C_FIELD(arg0, u8 *, 0x14);
+    TLobby__data_805D5E8C = M2C_FIELD(arg0, s32 *, 0x1C);
+    (*(s32 *)&TLobby__data_805D5E90) = M2C_FIELD(arg0, s32 *, 0x20);
+    lbl_805D5E94 = M2C_FIELD(arg0, s32 *, 0x24);
+    lbl_805D5E9C = M2C_FIELD(arg0, s32 *, 0x28);
+    lbl_805D5EA0 = M2C_FIELD(arg0, s32 *, 0x2C);
+    TLobby__data_805D5EA4 = M2C_FIELD(arg0, s32 *, 0x30);
+    memcpy((void *) (&TLobby__data_80512220.value), (void *) (arg0 + 0x34), (int) (0x20));
+    memcpy((void *) (&TLobby__data_80512240.value), (void *) (arg0 + 0x54), (int) (0x100));
+    TLobby__data_805D5EA8 = M2C_FIELD(arg0, u8 *, 0x154);
+    TLobby__data_805D5EA9 = M2C_FIELD(arg0, u8 *, 0x155);
+    TLobby__data_805D5EAA = M2C_FIELD(arg0, u16 *, 0x156);
+    TLobby__data_805D5EAC = M2C_FIELD(arg0, u16 *, 0x158);
+    (*(s32 *)&TLobby__data_805D5EB0) = M2C_FIELD(arg0, s32 *, 0x15C);
+    (*(s32 *)&TLobby__data_805D5EB4) = M2C_FIELD(arg0, s32 *, 0x160);
+    (*(s32 *)&TLobby__data_805D5EB8) = M2C_FIELD(arg0, s32 *, 0x164);
+    (*(s32 *)&TLobby__data_805D5EBC) = M2C_FIELD(arg0, s32 *, 0x168);
+    (*(s32 *)&TLobby__data_805D5EC0) = M2C_FIELD(arg0, s32 *, 0x16C);
+    TLobby__data_805D5EC8 = M2C_FIELD(arg0, u16 *, 0x170);
+    TLobby__data_805D5ECA = M2C_FIELD(arg0, u16 *, 0x172);
+}
 
 void clear_quest_vm_flag__6TLobbyFv(void) {
     if ((u32) lbl_805D5EE8 != 0U) {

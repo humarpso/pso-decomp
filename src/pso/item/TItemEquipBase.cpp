@@ -216,6 +216,99 @@ struct VObj_18_24abda : VBase_18_24abda {
 };
 
 #include "pso/item/TItemData.h"
+
+struct VBase_18_8e31a0
+{
+  char pad[0x18];
+};
+
+struct VObj_18_8e31a0 : VBase_18_8e31a0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual M2C_UNK m23(s32, s32, s32);
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual M2C_UNK m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual M2C_UNK m71();
+};
+
+struct RecoveredFields_8010B0A8_arg0
+{
+  u8 unknown_0[0xF0];
+  u8 *field_F0;
+  u8 unknown_F4[0x78];
+  s16 field_16C;
+  s16 field_16E;
+};
+
+struct RecoveredGlobal_8010B684___vt__14TItemEquipBase { M2C_UNK value; u8 remaining[0xCC]; };
+typedef char RecoveredGlobal_8010B684___vt__14TItemEquipBase_size[sizeof(RecoveredGlobal_8010B684___vt__14TItemEquipBase) == 0xD0 ? 1 : -1];
+
 extern "C" {
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 s8 TObjPlayer__sub_8010A770(u8 *arg0);
@@ -261,6 +354,25 @@ u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 init__9TItemDataFv(void *);
 s32 TItemLoad__sub_8011029C(void *);
 void TItemEquipBase__sub_8010B58C(u8 *arg0, s32 arg1);
+s16 clamp_field_32E__10TObjPlayerFPv(void *);
+s16 clamp_value__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80011274(void *, int);
+s32 TObjPlayer__sub_80011378(void *, int);
+s32 get_quest_id__12TQuestListVMFPv(void *);
+void reset__14TItemEquipBaseFPv(void* p);
+s32 TItemData__sub_8010B808(void *);
+s32 TItemData__sub_8010B810(int);
+void TItemEquipBase__sub_8010B0A8(u8 *arg0, s32 arg1);
+s32 init_forward__10TObjPlayerFPv(void *);
+s32 clear_id__10TObjPlayerFPv(void *);
+s32 TItem__ct(void *, void *, void *);
+s32 add_item_flags__10TObjPlayerFPvUi(void *, int);
+void reset__14TItemEquipBaseFPv(void* p);
+s32 alloc__13TItemProArmorFi(int);
+s32 init_object__21TItemEffArmorParticleFPv(int, void *);
+extern M2C_UNK __vt__14TItemEquipBase[];
+extern s32 lbl_805D2BE0;
+u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -501,6 +613,39 @@ void update_equip__14TItemEquipBaseFPv(void *arg0) {
     destroy__5TItemFPv(arg0);
 }
 
+typedef struct RecoveredFields_8010B0A8_arg0 RecoveredFields_8010B0A8_arg0;
+typedef struct VBase_18_8e31a0 VBase_18_8e31a0;
+typedef struct VObj_18_8e31a0 VObj_18_8e31a0;
+#define PSO_VCALL_VObj_18_8e31a0_m23(_self, _arg0, _arg1, _arg2) (((VObj_18_8e31a0 *)(_self))->m23((_arg0), (_arg1), (_arg2)))
+#define PSO_VCALL_VObj_18_8e31a0_m47(_self) (((VObj_18_8e31a0 *)(_self))->m47())
+#define PSO_VCALL_VObj_18_8e31a0_m71(_self) (((VObj_18_8e31a0 *)(_self))->m71())
+void TItemEquipBase__sub_8010B0A8(u8 *arg0, s32 arg1) {
+  u8 *temp_r3;
+  s32 temp_r31;
+  s32 temp_r30;
+  int new_var;
+  u8 *temp_r3_2;
+  temp_r3 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0;
+  if (temp_r3 != 0)
+  {
+    temp_r31 = TItemData__sub_8010B810((int) temp_r3);
+    temp_r30 = TItemData__sub_8010B808((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0);
+    new_var = get_quest_id__12TQuestListVMFPv((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0);
+    PSO_VCALL_VObj_18_8e31a0_m23(arg0, temp_r31, temp_r30, new_var);
+    if (arg1 != 0)
+    {
+      TObjPlayer__sub_80011378((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) arg0)->field_16C))));
+      TObjPlayer__sub_80011274((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0, (int) ((s32) ((s16) (-((RecoveredFields_8010B0A8_arg0 *) arg0)->field_16E))));
+      PSO_VCALL_VObj_18_8e31a0_m47(arg0);
+      temp_r3_2 = (u8 *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0;
+      PSO_VCALL_VObj_18_8e31a0_m71(temp_r3_2);
+      clamp_value__10TObjPlayerFPv((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0);
+      clamp_field_32E__10TObjPlayerFPv((void *) ((RecoveredFields_8010B0A8_arg0 *) arg0)->field_F0);
+    }
+    reset__14TItemEquipBaseFPv((void*)((void *) arg0));
+  }
+}
+
 void TItemEquipBase__sub_8010B198(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
         set_mode__5TItemFPvc((void *)(arg0), (int) (1));
@@ -568,6 +713,31 @@ void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1) {
             free_obj_heap__10TObjPlayerFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 temp_r3;
+    s32 var_r0;
+    TItem__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8010B684___vt__14TItemEquipBase *)&__vt__14TItemEquipBase).value;
+    init_forward__10TObjPlayerFPv((void *) (arg0 + 0x178));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2BE0;
+    M2C_FIELD(arg0, s8 *, 0x170) = 0;
+    M2C_FIELD(arg0, s8 *, 0x171) = 0;
+    reset__14TItemEquipBaseFPv((void*)((void *) (arg0)));
+    M2C_FIELD(arg0, s16 *, 0x172) = -1;
+    clear_id__10TObjPlayerFPv((void *) (arg0 + 0x178));
+    add_item_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (4));
+    temp_r3 = alloc__13TItemProArmorFi((int) (0x1C));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = init_object__21TItemEffArmorParticleFPv((int) (temp_r3), (void *) (arg0));
+    }
+    M2C_FIELD(arg0, s32 *, 0x174) = var_r0;
+    M2C_FIELD(arg0, s32 *, 0x17C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x188) = 0;
+    M2C_FIELD(arg0, s32 *, 0x180) = 0;
+    M2C_FIELD(arg0, s32 *, 0x184) = 0;
     return arg0;
 }
 

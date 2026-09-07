@@ -69,6 +69,10 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m60();
     virtual M2C_UNK m61();
 };
+
+struct RecoveredGlobal_8004938C___vt__14TObjVoloptCage { M2C_UNK value; u8 remaining[0x14C]; };
+typedef char RecoveredGlobal_8004938C___vt__14TObjVoloptCage_size[sizeof(RecoveredGlobal_8004938C___vt__14TObjVoloptCage) == 0x150 ? 1 : -1];
+
 extern "C" {
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 void update_state__14TObjVoloptCageFPv(void *arg0);
@@ -77,6 +81,17 @@ M2C_UNK TObjVoloptCage__sub_800C76F0(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
 void run_task__14TObjVoloptCageFv(u8 *arg0);
+s32 TObjPlayer__sub_80019248();
+M2C_UNK fn_8003F3BC();
+void obj_clear_flag30_20000(void *arg0);
+s32 check_player_flag1__6TLobbyFPv(int);
+M2C_UNK __dt__15TObjEnemyCustomFv(void *, int);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK send_code_45_1__10TObjPlayerFi(int);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
+u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -138,6 +153,27 @@ void run_task__14TObjVoloptCageFv(u8 *arg0) {
     update_prev_position__10TObjPlayerFPv((void *) (arg0));
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));
     TObjPlayer__sub_801B4A18((void *) (arg0), (int) (-1));
+}
+
+u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
+    s32 temp_r3;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TObjVoloptCage.value;
+        temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (M2C_FIELD(arg0, u16 *, 0x338)));
+        if ((temp_r3 != 0) && (TObjPlayer__sub_80019248() != 0)) {
+            if (check_player_flag1__6TLobbyFPv((int) (temp_r3)) != 0) {
+                send_code_45_1__10TObjPlayerFi((int) (temp_r3));
+            }
+            obj_clear_flag30_20000((void *)((int) (temp_r3)));
+        }
+        fn_8003F3BC();
+        TObjEneGibbles__sub_80156720((void *) (arg0));
+        __dt__15TObjEnemyCustomFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
 }
 
 void TLobby__sub_80049568(void) { lbl_805D4C3C = 1; }

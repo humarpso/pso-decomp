@@ -64,6 +64,8 @@ M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern M2C_UNK lbl_804909C4[];
 void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1);
+extern s32 lbl_805D5004;
+f32 TObjPlayer__sub_800A3200(s32 arg0);
 }
 
 extern "C" {
@@ -191,6 +193,11 @@ void cleanup_effects__10TObjPlayerFv(void) {
 void TObjPlayer__sub_800A31F4(void) {  }
 void TObjPlayer__sub_800A31F8(void) {  }
 void TObjPlayer__sub_800A31FC(void) {  }
+
+f32 TObjPlayer__sub_800A3200(s32 arg0) {
+    return M2C_FIELD((lbl_805D5004 + (arg0 * 4)), f32 *, 0);
+}
+
 int is_flag_set_388_bit26__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x388) >> 26) & 0x1; }
 void set_fields_24_34_from_global__10TObjPlayerFPvPv(void* a0, void* a1) { *(int*)((char*)a0 + 0x34) = TObjFish__sub_8001EDC4((void*)((*(int *)&lbl_805D500C))); *(int*)((char*)a0 + 0x24) = TObjFish__sub_8001EDB0((void*)((*(int *)&lbl_805D500C)), a1); }
 void clear_counter__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x340) = 0; }

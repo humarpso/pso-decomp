@@ -16,6 +16,8 @@ M2C_UNK set_slot__20TWindowActionPaletteFPvUc(int, int);
 M2C_UNK set_mode__20TWindowActionPaletteFPvUc(int, int);
 M2C_UNK TMainCursor__sub_8013DFC4(int);
 void TWindowShortListCtrl__sub_8026E93C(u32 arg0, u32 arg1);
+extern M2C_UNK lbl_805DD380;
+void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
 }
 
 extern "C" {
@@ -123,6 +125,10 @@ void destroy_children__20TWindowShortListCtrlFPv(void *arg0) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x2C));
         M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
     }
+}
+
+void TWindowShortListCtrl__sub_8026EA48(u8 *arg0) {
+    M2C_FIELD(arg0, u8 *, 0x1D) = (u8) M2C_FIELD(((u8 *)(&lbl_805DD380) + (s8) M2C_FIELD(arg0, u8 *, 0x1C)), u8 *, 0);
 }
 
 int TWindowShortListCtrl__sub_8026EBB0(void* a0, void* a1, void* a2) { return 0; }

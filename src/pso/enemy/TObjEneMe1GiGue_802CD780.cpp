@@ -2,6 +2,13 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+extern s32 TObjEneMe1GiGue__data_805D6834;
+f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TObjEneMe1GiGue__sub_802CDAB4(void);
@@ -39,6 +46,10 @@ void TObjEneMe1GiGue__sub_802CDAB4(void) {  }
 void TObjEneMe1GiGue__sub_802CDAB8(void) {  }
 void TObjEneMe1GiGue__sub_802CDABC(void) {  }
 void TObjEneMe1GiGue__sub_802CDAC0(void) {  }
+
+f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1) {
+    return M2C_FIELD((TObjEneMe1GiGue__data_805D6834 + (arg1 * 4)), f32 *, 0);
+}
 
 void TObjEneMe1GiGue__sub_802CDAE8(void) {  }
 

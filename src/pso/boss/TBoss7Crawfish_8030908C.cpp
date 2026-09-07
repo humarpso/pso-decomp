@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8030946C_lbl_804E7370 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8030946C_lbl_804E7370_size[sizeof(RecoveredGlobal_8030946C_lbl_804E7370) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8030946C_lbl_804E7370 lbl_804E7370;
+extern u32 TBoss7Crawfish__data_805D6A60;
+void TBoss7Crawfish__sub_8030946C(void);
+}
+
 extern "C" {
 
 void TBoss7Crawfish__vt42(void);
@@ -101,6 +112,17 @@ void destroy_instance__14TBoss7CrawfishFv(void) {
         TLobby__sub_8001FE7C((void*)TBoss7Crawfish__data_805D6A60, 1);
         TBoss7Crawfish__data_805D6A60 = 0U;
     }
+}
+
+void TBoss7Crawfish__sub_8030946C(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804E7370.value, 0, 0, 0));
+    }
+    (*(s32 *)&TBoss7Crawfish__data_805D6A60) = var_r0;
 }
 
 void TBoss7Crawfish__vt42(void) {  }

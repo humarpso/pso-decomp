@@ -99,12 +99,20 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m53();
 };
 
+struct RecoveredGlobal_8035E374_lbl_805439E0 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8035E374_lbl_805439E0_size[sizeof(RecoveredGlobal_8035E374_lbl_805439E0) == 0x10 ? 1 : -1];
+
 extern "C" {
 s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0);
 s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0);
 void TObjEneEpsilonGuard__sub_8035DE48(u8 *arg0);
 void TObjEneEpsilonGuard__sub_8035DE88(u8 *arg0);
 void TObjEneEpsilonGuard__sub_8035DEC0(u8 *arg0);
+void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
+extern RecoveredGlobal_8035E374_lbl_805439E0 lbl_805439E0;
+extern s32 lbl_805D6F78;
+extern s32 lbl_805D6F7C;
+void TObjEneEpsilonGuard__sub_8035E374(void);
 }
 
 extern "C" {
@@ -257,6 +265,13 @@ void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
         clear_global_state__10TObjPlayerFv();
         TObjPlayer__sub_803D9B78();
     }
+}
+
+void TObjEneEpsilonGuard__sub_8035E374(void) {
+    if ((s32) lbl_805D6F78 == 0) {
+        get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_805439E0.value, lbl_805D6F7C);
+    }
+    lbl_805D6F78 += 1;
 }
 
 void handle_message__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {

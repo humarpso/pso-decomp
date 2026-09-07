@@ -32,6 +32,8 @@ s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DAAD8;
 M2C_UNK TItemDrop__sub_80107B0C(s32 arg0, u32 arg1);
 u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2);
+M2C_UNK calc_random_ratio__10TObjPlayerFv(void *);
+void TItemDrop__sub_801065B4(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -85,6 +87,14 @@ void __dt__9TItemDropFv(void) {
 void TItemDrop__vt1(void) {  }
 
 extern s32 *TItemDrop__data_805D5464;
+
+void TItemDrop__sub_801065B4(u8 *arg0, u32 arg1) {
+    if (arg1 < 0x10U) {
+        calc_random_ratio__10TObjPlayerFv((void *) (M2C_FIELD(((u8 *)(M2C_FIELD(arg0, u8 **, 0x20)) + (arg1 * 4)), s32 *, 0)));
+        return;
+    }
+    calc_random_ratio__10TObjPlayerFv((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), s32 *, 0x40)));
+}
 
 u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     u8 *var_r3;

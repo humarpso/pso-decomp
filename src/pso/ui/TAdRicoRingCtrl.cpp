@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8001BE80_lbl_804809C0 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8001BE80_lbl_804809C0_size[sizeof(RecoveredGlobal_8001BE80_lbl_804809C0) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8001BE80_lbl_804809C0 lbl_804809C0;
+extern u32 lbl_805D4A00;
+void TAdRicoRingCtrl__sub_8001BE80(void);
+}
+
 extern "C" {
 
 void TAdRicoRingCtrl__sub_8001BED0(void* p, f32 v);
@@ -31,6 +42,17 @@ void release_global_805D4A00__15TAdRicoRingCtrlFv(void) {
         TLobby__sub_8001FE7C((void*)lbl_805D4A00, 1);
         lbl_805D4A00 = 0U;
     }
+}
+
+void TAdRicoRingCtrl__sub_8001BE80(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804809C0.value, 0, 0, 0));
+    }
+    (*(s32 *)&lbl_805D4A00) = var_r0;
 }
 
 void TAdRicoRingCtrl__sub_8001BED0(void* p, f32 v) { *(f32*)((char*)p + 0x34) = v; }

@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8020650C___vt__6TScene { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_8020650C___vt__6TScene_size[sizeof(RecoveredGlobal_8020650C___vt__6TScene) == 0x18 ? 1 : -1];
+
 extern "C" {
 M2C_UNK free_singleton_805D4E6C__18TObjButterflyLobbyFv();
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -22,6 +25,16 @@ extern u32 TScene__data_805D6020;
 extern u32 TScene__data_805D6028;
 extern M2C_UNK lbl_805DC604;
 void TScene__sub_80206984(void);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 TScene__sub_80205AEC(void *);
+s32 TScene__sub_80205CC4(void *);
+s32 TScene__sub_80206410(void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK __vt__6TScene[];
+extern s32 lbl_805D3618;
+extern void *TScene__data_805D5FCC;
+extern u32 TScene__data_805D5FD0;
+u8 *TScene__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -41,7 +54,6 @@ void load_scene_data__6TSceneFi(s32 arg0);
 s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
 M2C_UNK TLobby__sub_800F9DF4(char *, u32);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
-void *TScene__ct(void *, void *);
 M2C_UNK TScene__sub_80205AE8(M2C_UNK *);
 M2C_UNK TScene__sub_80205FD4(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -79,11 +91,28 @@ void *__dt__6TSceneFv(void *arg0, s16 arg1) {
 
 extern void *tl_02;
 
+u8 *TScene__ct(u8 *arg0, s32 arg1) {
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8020650C___vt__6TScene *)&__vt__6TScene).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3618;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0x32;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    TScene__sub_80206410((void *) (arg0));
+    if ((get_global_state__14TOKeyMachine01Fv() == 1) && ((u32) TScene__data_805D5FD0 != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) M2C_FIELD((*(u8 * *)&TScene__data_805D5FCC), u32 *, 0x14) != 0U)) {
+        TScene__sub_80205CC4((void *) (arg0));
+    }
+    TScene__sub_80205AEC((void *) (arg0));
+    return arg0;
+}
+
 void create__6TSceneFv(void) {
     void *o;
     o = __nw__7TObjectFUl(0x40);
     if (o != NULL) {
-        TScene__ct(o, tl_02);
+        TScene__ct((u8 *)(o), (s32)(tl_02));
     }
 }
 

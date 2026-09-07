@@ -4,6 +4,9 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8035BEB8_lbl_804F1DF4 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8035BEB8_lbl_804F1DF4_size[sizeof(RecoveredGlobal_8035BEB8_lbl_804F1DF4) == 0x10 ? 1 : -1];
+
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, int);
 s32 TObjFish__sub_8001EDC4(void *, int);
@@ -21,6 +24,13 @@ extern u32 TObjWeddingLobby__data_805D6F60;
 extern u32 lbl_805D6F64;
 extern const f32 TObjWeddingLobby__data_805E0158;
 void render__16TObjWeddingLobbyFv(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 get_lobby_type__6TLobbyFv(void);
+extern RecoveredGlobal_8035BEB8_lbl_804F1DF4 lbl_804F1DF4;
+extern u32 TObjWeddingLobby__data_805D6F60;
+extern u32 lbl_805D6F64;
+void TObjWeddingLobby__sub_8035BEB8(void);
 }
 
 extern "C" {
@@ -79,6 +89,18 @@ void release__16TObjWeddingLobbyFv(void) {
 }
 
 extern M2C_UNK __vt__16TObjWeddingLobby[];
+
+void TObjWeddingLobby__sub_8035BEB8(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804F1DF4.value, 0, 0, 0));
+    }
+    (*(s32 *)&TObjWeddingLobby__data_805D6F60) = var_r0;
+    (*(s32 *)&lbl_805D6F64) = get_lobby_type__6TLobbyFv();
+}
 
 void *__dt__16TObjWeddingLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

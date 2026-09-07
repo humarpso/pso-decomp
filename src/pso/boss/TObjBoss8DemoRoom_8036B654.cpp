@@ -5,6 +5,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8036B6D0_lbl_804F3660 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8036B6D0_lbl_804F3660_size[sizeof(RecoveredGlobal_8036B6D0_lbl_804F3660) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8036B6D0_lbl_804F3660 lbl_804F3660;
+extern u32 TObjBoss8DemoRoom__data_805D7010;
+void TObjBoss8DemoRoom__sub_8036B6D0(void);
+}
+
 extern "C" {
 
 void *__ct__17TObjBoss8DemoRoomFv(void *arg0);
@@ -29,6 +40,17 @@ void free_static_instance__17TObjBoss8DemoRoomFv(void) {
         TLobby__sub_8001FE7C((void*)TObjBoss8DemoRoom__data_805D7010, 1);
         TObjBoss8DemoRoom__data_805D7010 = 0U;
     }
+}
+
+void TObjBoss8DemoRoom__sub_8036B6D0(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804F3660.value, 0, 0, 0));
+    }
+    (*(s32 *)&TObjBoss8DemoRoom__data_805D7010) = var_r0;
 }
 
 s32 validate_6x0E_clear_negative_status_effects(G_ClientIDHeader *packet) {

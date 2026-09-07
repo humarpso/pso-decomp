@@ -9,12 +9,49 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 sync_player_globals__10TObjPlayerFv();
+s32 TObjPlayer__sub_80052390(f32);
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+f32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+extern const f32 lbl_805D8BA0;
+void render__11TBoss4ZanzoFv(u8 *arg0);
+}
+
+extern "C" {
 
 void *__ct__11TBoss4ZanzoFv(void *arg0, void *arg1, void *arg2);
 void run_task__11TBoss4ZanzoFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void fn_8005586C(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv();
+
+#pragma push
+#pragma fp_contract on
+void render__11TBoss4ZanzoFv(u8 *arg0) {
+    f32 temp_f31;
+    f32 temp_f5;
+    temp_f5 = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_f31 = (((f32) M2C_FIELD(arg0, s32 *, 0x48) / (f32) M2C_FIELD(arg0, s32 *, 0x44)) * (M2C_FIELD(arg0, f32 *, 0x40) - temp_f5)) + temp_f5;
+    if (!(temp_f31 <= lbl_805D8BA0)) {
+        TObjPlayer__sub_803D9B2C();
+        set_global_flag__10TObjPlayerFv();
+        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
+        TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x28)));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x2C)));
+        TObjPlayer__sub_80052390((f32) (temp_f31));
+        TObjEneSlimeOne__sub_803E4AF4((int) (M2C_FIELD(arg0, s32 *, 0x30)), (int) (M2C_FIELD(arg0, s32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x38)));
+        sync_player_globals__10TObjPlayerFv();
+        clear_global_state__10TObjPlayerFv();
+        TObjPlayer__sub_803D9B78();
+    }
+}
+#pragma pop
 
 void run_task__11TBoss4ZanzoFv(void *arg0) {
     s32 temp_r4;

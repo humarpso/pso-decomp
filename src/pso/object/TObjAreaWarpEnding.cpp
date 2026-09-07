@@ -6,6 +6,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8019C828___vt__18TObjAreaWarpForest { M2C_UNK value; u8 remaining[0x50]; };
+typedef char RecoveredGlobal_8019C828___vt__18TObjAreaWarpForest_size[sizeof(RecoveredGlobal_8019C828___vt__18TObjAreaWarpForest) == 0x54 ? 1 : -1];
+
+struct RecoveredGlobal_8019BF88___vt__18TObjAreaWarpEnding { M2C_UNK value; u8 remaining[0x50]; };
+typedef char RecoveredGlobal_8019BF88___vt__18TObjAreaWarpEnding_size[sizeof(RecoveredGlobal_8019BF88___vt__18TObjAreaWarpEnding) == 0x54 ? 1 : -1];
+
+struct RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest { M2C_UNK value; u8 remaining[0x50]; };
+typedef char RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest_size[sizeof(RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest) == 0x54 ? 1 : -1];
+
 extern "C" {
 void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBFDC;
@@ -19,6 +28,44 @@ void TObjAreaWarp__sub_8019CAB0(void *);
 extern const f32 lbl_805DBFDC;
 extern const f32 lbl_805DBFE4;
 void run_task__17TObjAreaWarpQuestFv(u8 *arg0);
+s32 queue_destruction__7TObjectFv(void *);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TObjAreaWarp__ct(void *, void *, void *);
+s32 get_story_select__16TAdStorySelectGCFv();
+s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
+s32 register_warp__16TObjMapForceWarpFPv(int);
+s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
+s32 TLobby__sub_8030A7B0(int);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern M2C_UNK __vt__18TObjAreaWarpForest[];
+extern s32 lbl_805D346C;
+extern const f32 lbl_805DBFD8;
+extern const f32 lbl_805DBFE4;
+u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TObjAreaWarp__ct(void *, void *, void *);
+s32 get_story_select__16TAdStorySelectGCFv();
+s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
+s32 register_warp__16TObjMapForceWarpFPv(int);
+s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern M2C_UNK __vt__18TObjAreaWarpEnding[];
+extern s32 lbl_805D3474;
+extern const f32 lbl_805DBFD8;
+extern const f32 lbl_805DBFE4;
+u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 TObjAreaWarp__ct(void *, void *, void *);
+s32 get_story_select__16TAdStorySelectGCFv();
+s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
+s32 register_warp__16TObjMapForceWarpFPv(int);
+s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
+s32 is_not_split_screen__13TRaderMapCoreFv();
+extern M2C_UNK __vt__17TObjAreaWarpQuest[];
+extern s32 lbl_805D3470;
+extern const f32 lbl_805DBFD8;
+extern const f32 lbl_805DBFE4;
+u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -111,6 +158,36 @@ void __dt__12TObjAreaWarpFv(void *, int);
 
 extern M2C_UNK __vt__17TObjAreaWarpQuest[];
 
+u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 temp_r3;
+    s32 var_r0;
+    u32 temp_r0;
+    u32 temp_r4;
+    TObjAreaWarp__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019BF88___vt__18TObjAreaWarpEnding *)&__vt__18TObjAreaWarpEnding).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3474;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBFE4;
+    M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x8C);
+    temp_r4 = temp_r0 >> 0x1FU;
+    M2C_FIELD(arg0, u32 *, 0x8C) = (u32) (((temp_r0 & 1) ^ temp_r4) - temp_r4);
+    M2C_FIELD(arg0, s32 *, 0xCC) = register_warp__16TObjMapForceWarpFPv((int) (0));
+    M2C_FIELD(arg0, s32 *, 0xD0) = register_warp__16TObjMapForceWarpFPv((int) (1));
+    M2C_FIELD(arg0, s32 *, 0xD4) = register_area_warp_object__16TAdStorySelectGCFPv((int) (0));
+    M2C_FIELD(arg0, s32 *, 0xD8) = get_story_select__16TAdStorySelectGCFv();
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x88));
+        var_r0 = temp_r3;
+        if (var_r0 != 0) {
+            var_r0 = init__13TAdVIConfigGCFPvf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBFD8));
+        }
+        M2C_FIELD(arg0, s32 *, 0xC0) = var_r0;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xC0) = 0;
+    }
+    return arg0;
+}
+
 void run_task__17TObjAreaWarpQuestFv(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC8))) + lbl_805DBFDC);
   if (((f32) ((unsigned long) ((*((s32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0xD8)))) + 4))) - 1))) < (*((f32 *) (((s8 *) arg0) + 0xC8))))
@@ -150,6 +227,37 @@ int TObjAreaWarp__sub_8019CA24(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 
+u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 temp_r3;
+    s32 var_r0;
+    u32 temp_r0;
+    u32 temp_r4;
+    TObjAreaWarp__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest *)&__vt__17TObjAreaWarpQuest).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3470;
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DBFE4;
+    M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x8C);
+    temp_r4 = temp_r0 >> 0x1FU;
+    M2C_FIELD(arg0, u32 *, 0x8C) = (u32) (((temp_r0 & 1) ^ temp_r4) - temp_r4);
+    M2C_FIELD(arg0, s32 *, 0xC4) = (s32) M2C_FIELD(arg0, f32 *, 0x68);
+    M2C_FIELD(arg0, s32 *, 0xD0) = register_warp__16TObjMapForceWarpFPv((int) (0));
+    M2C_FIELD(arg0, s32 *, 0xD4) = register_warp__16TObjMapForceWarpFPv((int) (1));
+    M2C_FIELD(arg0, s32 *, 0xD8) = register_area_warp_object__16TAdStorySelectGCFPv((int) (0));
+    M2C_FIELD(arg0, s32 *, 0xDC) = get_story_select__16TAdStorySelectGCFv();
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x88));
+        var_r0 = temp_r3;
+        if (var_r0 != 0) {
+            var_r0 = init__13TAdVIConfigGCFPvf((int) (temp_r3), (void *) (arg0 + 0x38), (f32) (lbl_805DBFD8));
+        }
+        M2C_FIELD(arg0, s32 *, 0xC0) = var_r0;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xC0) = 0;
+    }
+    return arg0;
+}
+
 int TObjAreaWarpForest__vt17(void* p) { return TObjAreaWarp__sub_8019CA24(p); }
 
 extern M2C_UNK __vt__18TObjAreaWarpForest[];
@@ -171,6 +279,39 @@ void *__dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 temp_r3_2;
+    s32 var_r0;
+    u32 temp_r0;
+    u32 temp_r3;
+    TObjAreaWarp__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019C828___vt__18TObjAreaWarpForest *)&__vt__18TObjAreaWarpForest).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D346C;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBFE4;
+    M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x8C);
+    temp_r3 = temp_r0 >> 0x1FU;
+    M2C_FIELD(arg0, u32 *, 0x8C) = (u32) (((temp_r0 & 1) ^ temp_r3) - temp_r3);
+    if ((TLobby__sub_8030A7B0((int) (temp_r3)) == 1) && ((s32) M2C_FIELD(arg0, u32 *, 0x8C) == 0)) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return arg0;
+    }
+    M2C_FIELD(arg0, s32 *, 0xCC) = register_warp__16TObjMapForceWarpFPv((int) (0));
+    M2C_FIELD(arg0, s32 *, 0xD0) = register_warp__16TObjMapForceWarpFPv((int) (1));
+    M2C_FIELD(arg0, s32 *, 0xD4) = register_area_warp_object__16TAdStorySelectGCFPv((int) (0));
+    M2C_FIELD(arg0, s32 *, 0xD8) = get_story_select__16TAdStorySelectGCFv();
+    if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
+        temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x88));
+        var_r0 = temp_r3_2;
+        if (var_r0 != 0) {
+            var_r0 = init__13TAdVIConfigGCFPvf((int) (temp_r3_2), (void *) (arg0 + 0x38), (f32) (lbl_805DBFD8));
+        }
+        M2C_FIELD(arg0, s32 *, 0xC0) = var_r0;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     }
     return arg0;
 }

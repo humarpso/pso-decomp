@@ -4,6 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8035C83C___vt__12TBoss4Thanks { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_8035C83C___vt__12TBoss4Thanks_size[sizeof(RecoveredGlobal_8035C83C___vt__12TBoss4Thanks) == 0x18 ? 1 : -1];
+
+extern "C" {
+s32 TObjFish__sub_8001ED9C(void *, s32);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+int get_instance_count__9TBoss4UroFv(void);
+void __ct__7TObjectFP7TObject(void *, void *);
+void TBoss4Thanks__sub_8035C480(s32);
+extern RecoveredGlobal_8035C83C___vt__12TBoss4Thanks __vt__12TBoss4Thanks;
+extern s32 lbl_805D4438;
+extern const f32 lbl_805E0184;
+extern const f32 lbl_805E0188;
+u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 void advance_thanks_state__12TBoss4ThanksFPv(void *arg0);
@@ -61,5 +78,24 @@ void advance_thanks_state__12TBoss4ThanksFPv(void *arg0) {
 }
 
 void mark_done__12TBoss4ThanksFPv(void* p) { if (TBoss4Thanks__sub_8035C4A4(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1) {
+    u8 *temp_r3;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TBoss4Thanks.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4438;
+    temp_r3 = (u8 *)(get_instance_count__9TBoss4UroFv());
+    M2C_FIELD(arg0, s32 *, 0x34) = TObjFish__sub_8001EDC4(temp_r3, 1);
+    M2C_FIELD(arg0, s32 *, 0x38) = TObjFish__sub_8001EDB0(temp_r3, 1);
+    M2C_FIELD(arg0, s32 *, 0x3C) = TObjFish__sub_8001ED9C(temp_r3, 0x46);
+    M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001ED9C(temp_r3, 0x47);
+    TBoss4Thanks__sub_8035C480((s32) arg0);
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805E0184;
+    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805E0188;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    return arg0;
+}
 
 }

@@ -29,6 +29,21 @@ struct VObj_80186030_80185EC8 : Base_80186030_80185EC8 {
     virtual void m15();
 };
 
+struct RecoveredGlobal_8018605C_lbl_804447F4 { M2C_UNK value; u8 remaining[0x3C]; };
+typedef char RecoveredGlobal_8018605C_lbl_804447F4_size[sizeof(RecoveredGlobal_8018605C_lbl_804447F4) == 0x40 ? 1 : -1];
+
+struct RecoveredGlobal_8018605C_lbl_80444834 { M2C_UNK value; u8 remaining[0x40]; };
+typedef char RecoveredGlobal_8018605C_lbl_80444834_size[sizeof(RecoveredGlobal_8018605C_lbl_80444834) == 0x44 ? 1 : -1];
+
+extern "C" {
+s32 get_instance__6TLobbyFv(void);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+extern RecoveredGlobal_8018605C_lbl_804447F4 lbl_804447F4;
+extern RecoveredGlobal_8018605C_lbl_80444834 lbl_80444834;
+s32 TObjCityMainWarp__vt15(u8 *arg0);
+}
+
 extern "C" {
 
 void TObjCityMainWarp__sub_80186634(void);
@@ -88,6 +103,40 @@ s32 TObjCityMainWarp__vt14(s32 arg0) {
 void TObjCityMainWarp__vt16(void *arg0) {
     struct VObj_80186030_80185EC8 *o = (struct VObj_80186030_80185EC8 *)arg0;
     o->m15();
+}
+
+s32 TObjCityMainWarp__vt15(u8 *arg0) {
+    M2C_UNK *var_r4;
+    u8 *var_r31;
+    u8 *var_r3;
+    u8 *var_r5;
+    var_r31 = (u8 *)(arg0);
+    if (get_instance__6TLobbyFv() == 0) {
+        var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
+        if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(var_r3) != 0)) {
+            var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
+            var_r4 = (M2C_UNK *)(&lbl_804447F4.value);
+            var_r5 = (u8 *)(var_r31 + (TWindowSubComCard__sub_80265BF8(var_r3) * 4));
+            var_r3 = (u8 *)((void *)1U);
+            var_r4 = (M2C_UNK *)(&lbl_804447F4.value);
+            M2C_FIELD(var_r31, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_804447F4.value, M2C_UNK *, (M2C_FIELD(var_r5, s32 *, 0xC8) * 4));
+            return 1;
+        }
+        var_r3 = (u8 *)(NULL);
+        return 0;
+    }
+    var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
+    if ((var_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(var_r3) != 0)) {
+        var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
+        var_r4 = (M2C_UNK *)(&lbl_80444834.value);
+        var_r5 = (u8 *)(var_r31 + (TWindowSubComCard__sub_80265BF8(var_r3) * 4));
+        var_r3 = (u8 *)((void *)1U);
+        var_r4 = (M2C_UNK *)(&lbl_80444834.value);
+        M2C_FIELD(var_r31, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_80444834.value, M2C_UNK *, (M2C_FIELD(var_r5, s32 *, 0x10C) * 4));
+        return 1;
+    }
+    var_r3 = (u8 *)(NULL);
+    return 0;
 }
 
 void TObjCityMainWarp__vt12(void* p) { if (*(unsigned int*)((char*)p + 0xb0) != 0) { TObjWarpBase__vt12(p); clear_flag__11TWindowCtrlFv(); } }

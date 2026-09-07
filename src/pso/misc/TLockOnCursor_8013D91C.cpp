@@ -4,12 +4,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8013DC38_lbl_804A7140 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8013DC38_lbl_804A7140_size[sizeof(RecoveredGlobal_8013DC38_lbl_804A7140) == 0x10 ? 1 : -1];
+
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern u8 *lbl_805D5640;
 extern s32 lbl_805D5644;
 extern s32 TLockOnCursor__data_805D5648;
 void TLockOnCursor__sub_8013DBF4(void);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8013DC38_lbl_804A7140 lbl_804A7140;
+extern u8 *lbl_805D5640;
+extern s32 lbl_805D5644;
+extern s32 TLockOnCursor__data_805D5648;
+extern s32 lbl_805D564C;
+void TLockOnCursor__sub_8013DC38(void);
 }
 
 extern "C" {
@@ -52,6 +64,24 @@ void TLockOnCursor__sub_8013DBF4(void) {
     }
     lbl_805D5644 = 0;
     TLockOnCursor__data_805D5648 = 0;
+}
+
+void TLockOnCursor__sub_8013DC38(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    if ((void *) lbl_805D5640 == NULL) {
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+        var_r0 = temp_r3;
+        if (var_r0 != 0) {
+            var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804A7140.value, 0, 0, 0));
+        }
+        lbl_805D5640 = (unsigned char *) ((void *) var_r0);
+        if ((u32) var_r0 != 0U) {
+            lbl_805D5644 = TObjFish__sub_8001EDC4((void *) var_r0, 0);
+            TLockOnCursor__data_805D5648 = TObjFish__sub_8001EDC4(lbl_805D5640, 0);
+            lbl_805D564C = TObjFish__sub_8001EDC4(lbl_805D5640, 2);
+        }
+    }
 }
 
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {

@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8035B2DC_lbl_804F1CB8 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8035B2DC_lbl_804F1CB8_size[sizeof(RecoveredGlobal_8035B2DC_lbl_804F1CB8) == 0x10 ? 1 : -1];
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TPlyPhotonChair__sub_801427D0(void *);
@@ -17,6 +20,11 @@ void set_state_ready__15TPlyPhotonChairFPv(void* p);
 extern const f32 lbl_805E0128;
 extern const float lbl_805E012C;
 void run_task__15TPlyPhotonChairFv(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8035B2DC_lbl_804F1CB8 lbl_804F1CB8;
+extern u32 TPlyPhotonChair__data_805D6F40;
+s32 TPlyPhotonChair__sub_8035B2DC(void);
 }
 
 extern "C" {
@@ -82,6 +90,21 @@ void free_static_model__15TPlyPhotonChairFv(void) {
 }
 
 extern M2C_UNK __vt__15TPlyPhotonChair[];
+
+s32 TPlyPhotonChair__sub_8035B2DC(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804F1CB8.value, 0, 0, 0));
+    }
+    (*(u8 * *)&TPlyPhotonChair__data_805D6F40) = (unsigned char *) ((void *) var_r0);
+    if ((u32) var_r0 == 0U) {
+        return 0;
+    }
+    return 1;
+}
 
 void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

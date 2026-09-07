@@ -28,6 +28,10 @@ void TBoss6Type1__sub_802B570C(u8 *arg0, u8 *arg1);
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
 extern const f32 lbl_805DE34C;
 s32 TBoss6Type1__sub_802B5ED8(u8 *arg0);
+s32 rand__11TOBoss4RockFv();
+extern f32 TBoss6Type1__data_805DE304;
+extern const f32 lbl_805DE308;
+int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2);
 }
 
 extern "C" {
@@ -75,6 +79,16 @@ s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2) {
     }
     return M2C_FIELD(arg1, M2C_UNK *, (var_r0 * 4));
 }
+
+#pragma push
+#pragma fp_contract on
+int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2) {
+    if (arg1 >= arg2) {
+        return arg1;
+    }
+    return (int) (((lbl_805DE308 + ((f32) arg2 - (f32) arg1)) * ((*(const f32 *)&TBoss6Type1__data_805DE304) * (f32) rand__11TOBoss4RockFv())) + (f32) arg1);
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

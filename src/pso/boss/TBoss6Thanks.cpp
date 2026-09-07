@@ -4,6 +4,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8035D10C___vt__12TBoss6Thanks { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_8035D10C___vt__12TBoss6Thanks_size[sizeof(RecoveredGlobal_8035D10C___vt__12TBoss6Thanks) == 0x18 ? 1 : -1];
+
+extern "C" {
+s32 TObjFish__sub_8001ED9C(void *, s32);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 TObjFish__sub_8001EDC4(void *, s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+int get_fish_count__8TObjFishFv(void);
+void TBoss6Thanks__sub_8035CCAC(s32);
+extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
+extern s32 lbl_805D4440;
+extern const f32 lbl_805E019C;
+extern const f32 lbl_805E01A4;
+u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 int TBoss6Thanks__sub_8035CB40(void);
@@ -61,5 +78,28 @@ void advance_thanks_state__12TBoss6ThanksFPv(void *arg0) {
 }
 
 void mark_done__12TBoss6ThanksFPv(void* p) { if (TBoss6Thanks__sub_8035CCD0(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
+    u8 *temp_r3;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TBoss6Thanks.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4440;
+    temp_r3 = (u8 *)(get_fish_count__8TObjFishFv());
+    M2C_FIELD(arg0, s32 *, 0x38) = TObjFish__sub_8001EDC4(temp_r3, 7);
+    M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001EDB0(temp_r3, 7);
+    M2C_FIELD(arg0, s32 *, 0x48) = TObjFish__sub_8001ED9C(temp_r3, 9);
+    M2C_FIELD(arg0, s32 *, 0x4C) = TObjFish__sub_8001ED9C(temp_r3, 0xB);
+    M2C_FIELD(arg0, s32 *, 0x3C) = TObjFish__sub_8001EDC4(temp_r3, 9);
+    M2C_FIELD(arg0, s32 *, 0x44) = TObjFish__sub_8001EDB0(temp_r3, 9);
+    M2C_FIELD(arg0, s32 *, 0x50) = TObjFish__sub_8001ED9C(temp_r3, 0xA);
+    TBoss6Thanks__sub_8035CCAC((s32) arg0);
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805E019C;
+    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805E019C;
+    M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805E01A4;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    return arg0;
+}
 
 }

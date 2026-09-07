@@ -10,6 +10,20 @@ struct VObj8019CF38_8019CCF0 : VBase8019CF38_8019CCF0 {
     virtual s32 m8(f32, f32);
 };
 
+struct RecoveredGlobal_8019D030___vt__17TObjMapWarpForest { M2C_UNK value; u8 remaining[0x50]; };
+typedef char RecoveredGlobal_8019D030___vt__17TObjMapWarpForest_size[sizeof(RecoveredGlobal_8019D030___vt__17TObjMapWarpForest) == 0x54 ? 1 : -1];
+
+extern "C" {
+s32 TObjMapWarp__ct(void *);
+s32 get_story_select__16TAdStorySelectGCFv();
+s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
+s32 register_warp__16TObjMapForceWarpFPv(int);
+extern RecoveredGlobal_8019D030___vt__17TObjMapWarpForest __vt__17TObjMapWarpForest;
+extern s32 lbl_805D3464;
+extern const f32 lbl_805DBFE4;
+u8 *TObjMapWarpForest__ct(u8 *arg0);
+}
+
 extern "C" {
 
 void *TObjAreaWarp__ct(void *arg0);
@@ -117,6 +131,17 @@ void render__17TObjMapWarpForestFv(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
         TObjPlayer__sub_803D9B78();
     }
+}
+u8 *TObjMapWarpForest__ct(u8 *arg0) {
+    TObjMapWarp__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TObjMapWarpForest.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3464;
+    M2C_FIELD(arg0, s32 *, 0x100) = register_warp__16TObjMapForceWarpFPv((int) (4));
+    M2C_FIELD(arg0, s32 *, 0x104) = register_warp__16TObjMapForceWarpFPv((int) (5));
+    M2C_FIELD(arg0, s32 *, 0x108) = register_area_warp_object__16TAdStorySelectGCFPv((int) (2));
+    M2C_FIELD(arg0, s32 *, 0x10C) = get_story_select__16TAdStorySelectGCFv();
+    M2C_FIELD(arg0, f32 *, 0xFC) = (f32) lbl_805DBFE4;
+    return arg0;
 }
 
 }

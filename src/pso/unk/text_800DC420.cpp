@@ -10,6 +10,8 @@ s32 TObjPlayer__sub_800DC478(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TBoss8Dragon__sub_8007A544(s32, M2C_UNK);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
+extern s32 lbl_805D5254;
+f32 TObjPlayer__sub_800DC434(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -19,6 +21,10 @@ void *TObjPlayer__sub_800DC7B0(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
+
+f32 TObjPlayer__sub_800DC434(M2C_UNK arg0, s32 arg1) {
+    return M2C_FIELD((lbl_805D5254 + (arg1 * 4)), f32 *, 0);
+}
 
 void TObjPlayer__sub_800DC444(void) {  }
 

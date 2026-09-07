@@ -4,12 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8028E9A4___vt__12TCharaMaking { M2C_UNK value; u8 remaining[0x18]; };
+typedef char RecoveredGlobal_8028E9A4___vt__12TCharaMaking_size[sizeof(RecoveredGlobal_8028E9A4___vt__12TCharaMaking) == 0x1C ? 1 : -1];
+
+extern "C" {
+void *__nw__7TObjectFUl(int);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 TCharaMaking__sub_8028E794(void *);
+s32 TCMCharacter__ct(int, void *);
+s32 create__14TObjCMMainMenuFPv(void *);
+extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
+extern s32 lbl_805D3B6C;
+extern s32 lbl_805D6524;
+u8 *TCharaMaking__ct(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TCharaMaking__sub_8028E790(void);
 void *create__12TCharaMakingFPvPv(void *arg0, void *arg1);
 s32 update_main_menu__12TCharaMakingFi(s32 arg0);
-void *TCharaMaking__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK create__15TChCrCharSelectFPv(s32);
 M2C_UNK create__9TSaveChCrFPv(M2C_UNK);
@@ -54,9 +68,24 @@ void *create__12TCharaMakingFPvPv(void *arg0, void *arg1) {
     lbl_805D6520 = arg1;
     o = __nw__7TObjectFUl(0x24);
     if (o != NULL) {
-        o = TCharaMaking__ct(o, arg0);
+        o = TCharaMaking__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
+}
+u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
+    u32 temp_r3;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TCharaMaking.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B6C;
+    temp_r3 = ((u32)__nw__7TObjectFUl((int) (0x10C)));
+    if (temp_r3 != 0U) {
+        TCMCharacter__ct((int) (temp_r3), (void *) (arg0));
+    }
+    lbl_805D6524 = create__14TObjCMMainMenuFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0x1555;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0x9000;
+    TCharaMaking__sub_8028E794((void *) (arg0));
+    return arg0;
 }
 
 }

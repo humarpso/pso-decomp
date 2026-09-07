@@ -84,6 +84,9 @@ struct VObj_80358824_80357734 : Base_80358824_80357734 {
     virtual void m63(M2C_UNK, void *);
 };
 
+struct RecoveredGlobal_803589F8_lbl_804F15C8 { M2C_UNK value; u8 remaining[0xA0]; };
+typedef char RecoveredGlobal_803589F8_lbl_804F15C8_size[sizeof(RecoveredGlobal_803589F8_lbl_804F15C8) == 0xA4 ? 1 : -1];
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -94,6 +97,15 @@ void * init_state_34_alt__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80357AD4(u8 *arg0);
+u16 obj_getField1c(void *);
+s32 get_item_field_6__10TObjPlayerFPv(void *);
+u8 get_field_ec__12TOSwitchItemFPv();
+u32 test_flags_1b8__10TObjPlayerFPvUi(int, int);
+u8 TObjPlayer__sub_8011E29C(int);
+s32 reset_key_machine_state__10TObjPlayerFv();
+void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
+extern RecoveredGlobal_803589F8_lbl_804F15C8 lbl_804F15C8;
+void TObjPlayer__sub_803589F8(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -487,6 +499,24 @@ void handle_hit_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 a
     }
     if (arg3 == 1) {
         TObjPlayer__sub_800868C4(arg2, 0x18, 0, 5, 0x40);
+    }
+}
+void TObjPlayer__sub_803589F8(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
+    M2C_UNK (*temp_r12)(s32, u32, s32, s32);
+    s32 temp_r3;
+    u8 temp_r3_2;
+    if (((arg0 != 0) || (arg1 != 0U)) && ((s32) obj_getField1c((void *) (arg0)) < 0xC) && (reset_key_machine_state__10TObjPlayerFv() != 0) && (temp_r3 = get_item_field_6__10TObjPlayerFPv((void *) (arg0)), ((temp_r3 == 0) == 0)) && (get_field_ec__12TOSwitchItemFPv() == 0)) {
+        if (test_flags_1b8__10TObjPlayerFPvUi((int) (temp_r3), (int) (0x400020)) != 0U) {
+            update_battle_control_on_unlock__10TObjPlayerFPvPvPvi((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)), (s32)((void *) (arg3)));
+            return;
+        }
+        temp_r3_2 = TObjPlayer__sub_8011E29C((int) (temp_r3));
+        if (temp_r3_2 < 0x29U) {
+            temp_r12 = M2C_FIELD(((u8 *)(&lbl_804F15C8.value) + ((temp_r3_2 * 4) & 0x3FC)), M2C_UNK (**)(s32, u32, s32, s32), 0);
+            if (temp_r12 != NULL) {
+                temp_r12(arg0, arg1, arg2, arg3);
+            }
+        }
     }
 }
 

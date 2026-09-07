@@ -4,6 +4,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80162740_lbl_804B1518 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_80162740_lbl_804B1518_size[sizeof(RecoveredGlobal_80162740_lbl_804B1518) == 0x10 ? 1 : -1];
+
+struct RecoveredGlobal_80162740_lbl_804B1538 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_80162740_lbl_804B1538_size[sizeof(RecoveredGlobal_80162740_lbl_804B1538) == 0x10 ? 1 : -1];
+
 extern "C" {
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 extern const f32 lbl_805DB4D8;
@@ -23,6 +29,14 @@ extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4E0;
 extern const f32 lbl_805DB4E4;
 void TODoorCave03__vt13(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 is_online_ready__6TLobbyFv(void);
+extern RecoveredGlobal_80162740_lbl_804B1518 lbl_804B1518;
+extern RecoveredGlobal_80162740_lbl_804B1538 lbl_804B1538;
+extern s32 enable_v2_features;
+extern u32 TODoorCave03__data_805D5968;
+void TODoorCave03__sub_80162740(void);
 }
 
 extern "C" {
@@ -125,6 +139,28 @@ void free_shared_data__12TODoorCave03Fv(void) {
 }
 
 extern M2C_UNK __vt__12TODoorCave03[];
+
+void TODoorCave03__sub_80162740(void) {
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 var_r0;
+    s32 var_r0_2;
+    if (((s32) enable_v2_features == 1) && (is_online_ready__6TLobbyFv() != 0)) {
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+        var_r0 = temp_r3;
+        if (var_r0 != 0) {
+            var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B1538.value, 0, 0, 0));
+        }
+        (*(s32 *)&TODoorCave03__data_805D5968) = var_r0;
+        return;
+    }
+    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0_2 = temp_r3_2;
+    if (var_r0_2 != 0) {
+        var_r0_2 = (long) (TLobby__sub_80020004((void *) temp_r3_2, 1, &lbl_804B1518.value, 0, 0, 0));
+    }
+    (*(s32 *)&TODoorCave03__data_805D5968) = var_r0_2;
+}
 
 void *__dt__12TODoorCave03Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -8,6 +8,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8010355C_lbl_8043E038 { char value[0xA]; };
+typedef char RecoveredGlobal_8010355C_lbl_8043E038_size[sizeof(RecoveredGlobal_8010355C_lbl_8043E038) == 0xA ? 1 : -1];
+
+extern "C" {
+s32 TLobby__sub_8001EE48(s32);
+void free__11TOBoss4RockFUi(u32);
+extern M2C_UNK lbl_8043E038[];
+extern s32 lbl_805D5410;
+extern s32 lbl_805D5414;
+void TItemBuff__ct(void);
+}
+
 extern "C" {
 
 void TItemAttacker__sub_8010349C(u32 arg0);
@@ -16,7 +28,6 @@ void copy_from__13TItemAttackerFPvPv(void *arg0, void *arg1);
 s32 create_item_buff(s32 arg0);
 void run_task__13TItemAttackerFv(void* p);
 void spawn_item_timer__13TItemAttackerFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK TItemBuff__ct();
 M2C_UNK TItemTimer__ct(void *, s32, s32, s32);
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
@@ -59,6 +70,17 @@ int TItemAttacker__sub_80103548(int a0) {  return lbl_80506200[a0]; }
 extern M2C_UNK lbl_8043E038[];
 extern s32 lbl_805D5410;
 extern s32 lbl_805D5414;
+
+void TItemBuff__ct(void) {
+    if ((u32) (*(u32 *)&lbl_805D5414) != 0) {
+        if ((s32) lbl_805D5410 != 0) {
+            TLobby__sub_8001EE48((s32) &(*(RecoveredGlobal_8010355C_lbl_8043E038 *)&lbl_8043E038).value);
+        } else {
+            free__11TOBoss4RockFUi((*(u32 *)&lbl_805D5414));
+        }
+        (*(u32 *)&lbl_805D5414) = 0;
+    }
+}
 
 s32 create_item_buff(s32 arg0) {
     s32 temp_r3;

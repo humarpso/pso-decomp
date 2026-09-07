@@ -7,11 +7,20 @@ struct VObj_802235A0_8022356C {
     virtual void m0(int);
 };
 
+struct RecoveredGlobal_802238D8___vt__13TShopSequence { M2C_UNK value; u8 remaining[0x34]; };
+typedef char RecoveredGlobal_802238D8___vt__13TShopSequence_size[sizeof(RecoveredGlobal_802238D8___vt__13TShopSequence) == 0x38 ? 1 : -1];
+
 extern "C" {
 s32 obj_getField1c(u32);
 u32 create_message_window__17TMedicalCenterMesFPviii(void *, s32, s32, s32);
 u32 create_window__17TMedicalCenterMesFPvii(void *, s32, s32);
 u32 TShopSequence__sub_80223600(u8 *arg0, s32 arg1, s32 arg2);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+u8 * fn_80222BCC(void *);
+u8 * __ct__15TShopWindowBaseFv(void *);
+extern RecoveredGlobal_802238D8___vt__13TShopSequence __vt__13TShopSequence;
+extern s32 lbl_805D36F8;
+u8 *TShopSequence__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -121,6 +130,20 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
         }
         TWindowCtrl__sub_8024AEAC(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
     }
+}
+u8 *TShopSequence__ct(u8 *arg0) {
+    s32 temp_r3;
+    s32 var_r0;
+    __ct__15TShopWindowBaseFv(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TShopSequence.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36F8;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x210);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (fn_80222BCC((void *) temp_r3));
+    }
+    M2C_FIELD(arg0, s32 *, 0x28) = var_r0;
+    return arg0;
 }
 
 }

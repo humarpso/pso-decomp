@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_800765B4_lbl_8048D240 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_800765B4_lbl_8048D240_size[sizeof(RecoveredGlobal_800765B4_lbl_8048D240) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+M2C_UNK TObjTombstone__sub_80074FAC();
+extern RecoveredGlobal_800765B4_lbl_8048D240 lbl_8048D240;
+extern u32 TObjTombstone__data_805D4E48;
+void TObjTombstone__sub_800765B4(void);
+}
+
 extern "C" {
 
 void destroy__13TObjTombstoneFv(void);
@@ -42,6 +54,19 @@ void destroy__13TObjTombstoneFv(void) {
     if ((u32) TObjTombstone__data_805D4E48 != 0U) {
         TLobby__sub_8001FE7C((void*)TObjTombstone__data_805D4E48, 1);
         TObjTombstone__data_805D4E48 = 0U;
+        TObjTombstone__sub_80074FAC();
+    }
+}
+void TObjTombstone__sub_800765B4(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    if ((void *) (*(u8 * *)&TObjTombstone__data_805D4E48) == NULL) {
+        temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+        var_r0 = temp_r3;
+        if (var_r0 != 0) {
+            var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_8048D240.value, 0, 0, 0));
+        }
+        (*(u8 * *)&TObjTombstone__data_805D4E48) = (unsigned char *) ((void *) var_r0);
         TObjTombstone__sub_80074FAC();
     }
 }

@@ -48,6 +48,42 @@ struct VObj_802C96EC_802C9040 : Base_802C96EC_802C9040 {
     virtual void m24();
 };
 
+struct VBase_18_52534d { char pad[0x18]; };
+
+struct VObj_18_52534d : VBase_18_52534d {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual M2C_UNK m23();
+};
+
+extern "C" {
+void update_demo__14TOTrapChainSawFPv(void *arg0);
+extern const f32 lbl_805DE62C;
+extern const f32 lbl_805DE630;
+void TOTrapChainSaw__sub_802C9094(u8 *arg0);
+}
+
 extern "C" {
 
 void TOTrapChainSaw__sub_802C9090(void);
@@ -77,6 +113,13 @@ void update_demo__14TOTrapChainSawFPv(void *arg0) {
     }
 }
 void TOTrapChainSaw__sub_802C9090(void) {  }
+
+void TOTrapChainSaw__sub_802C9094(u8 *arg0) {
+    if (((VObj_18_52534d *)(arg0))->m8(lbl_805DE62C, lbl_805DE630) == 1) {
+        ((VObj_18_52534d *)(arg0))->m23();
+        update_demo__14TOTrapChainSawFPv(arg0);
+    }
+}
 
 int clear_field_d8__14TOTrapChainSawFPv(void* p) { return memset((char*)p + 0xd8, 0, 16); }
 

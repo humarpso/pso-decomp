@@ -3,6 +3,10 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct RecoveredGlobal_80342384_TWindowDD__data_804EFC50 { M2C_UNK value; u8 remaining[0x3C]; };
+typedef char RecoveredGlobal_80342384_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80342384_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
+
 extern "C" {
 s16 TWindowDD__sub_80342158(int);
 M2C_UNK TWindowDD__sub_8034330C(void *);
@@ -15,6 +19,10 @@ s32 TWindowDD__sub_803482B0(void *);
 s32 test_input_flag_4__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803484C4(void *);
 void TWindowDD__sub_80342428(u8 *arg0);
+s32 __nw__7TObjectFUl(int);
+s32 TWindowDD__sub_803422F0(int, void *, void *);
+extern RecoveredGlobal_80342384_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
+s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -44,6 +52,19 @@ void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1) {
+    s32 temp_r3;
+    s32 var_r0;
+    M2C_FIELD(&TWindowDD__data_804EFC50.value, s32 *, 4) = arg1;
+    temp_r3 = __nw__7TObjectFUl((int) (0x90));
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = TWindowDD__sub_803422F0((int) (temp_r3), (void *) (arg0), (void *) (arg1));
+    }
+    return var_r0;
+}
+
 void TWindowDD__sub_80342428(u8 *arg0) {
   u8 *new_var;
   TWindowDD__sub_80347C50();

@@ -16,6 +16,17 @@ struct VObj_8015a2b8 : VBase_8015a2b8 {
     virtual M2C_UNK m8(f32, f32);
 };
 
+struct RecoveredGlobal_8015A418_lbl_804AFE78 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8015A418_lbl_804AFE78_size[sizeof(RecoveredGlobal_8015A418_lbl_804AFE78) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8015A418_lbl_804AFE78 lbl_804AFE78;
+extern u32 TOCapsuleAncient01__data_805D58B8;
+void TOCapsuleAncient01__sub_8015A418(void);
+}
+
 extern "C" {
 
 void TOCapsuleAncient01__vt13(void *arg0);
@@ -87,6 +98,17 @@ void destroy_static_instance__18TOCapsuleAncient01Fv(void) {
 }
 
 extern M2C_UNK __vt__18TOCapsuleAncient01[];
+
+void TOCapsuleAncient01__sub_8015A418(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AFE78.value, 0, 0, 0));
+    }
+    (*(s32 *)&TOCapsuleAncient01__data_805D58B8) = var_r0;
+}
 
 void *__dt__18TOCapsuleAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -29,6 +29,8 @@ f32 TObjPlayer__sub_8011C2C4(void *);
 s32 __cvt_fp2unsigned(f32);
 extern void *item_mgr;
 void TObjPlayer__sub_8011C328(u32 arg0, s32 arg1);
+extern void *item_pmt_tbl;
+u8 TObjPlayer__sub_8011CA98(u8 arg0);
 }
 
 extern "C" {
@@ -124,6 +126,14 @@ s32 TObjPlayer__sub_8011C940(s32 arg0, s32 arg1) {
     }
     return 0;
 }
+
+u8 TObjPlayer__sub_8011CA98(u8 arg0) {
+    if (arg0 < 0xAAU) {
+        return M2C_FIELD((M2C_FIELD((*(u8 * *)&item_pmt_tbl), s32 *, 0x14) + arg0), u8 *, 0);
+    }
+    return 0U;
+}
+
 s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0) {
     if (arg0 & 0x3F) {
         if (arg0 & 0x80) {

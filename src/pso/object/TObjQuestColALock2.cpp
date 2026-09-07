@@ -4,6 +4,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80195BEC_lbl_80445E84 { M2C_UNK value; u8 remaining[0x28]; };
+typedef char RecoveredGlobal_80195BEC_lbl_80445E84_size[sizeof(RecoveredGlobal_80195BEC_lbl_80445E84) == 0x2C ? 1 : -1];
+
+struct RecoveredGlobal_80195BEC___vt__18TObjQuestColALock2 { M2C_UNK value; u8 remaining[0x40]; };
+typedef char RecoveredGlobal_80195BEC___vt__18TObjQuestColALock2_size[sizeof(RecoveredGlobal_80195BEC___vt__18TObjQuestColALock2) == 0x44 ? 1 : -1];
+
 extern "C" {
 u8 * __ct__12TQuestThreadFv(void *, s32, s32);
 M2C_UNK destroy_board__17TQuestThreadBoardFv();
@@ -11,6 +17,17 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK set_parent__7TObjectFP7TObject(int, int);
 extern s32 tl_00;
 u8 *TObjQuestColALock2__vt14(u8 *arg0);
+void set_indexed_flags(void *, s32, s32);
+void reset_photon_effect__10TObjPlayerFPv(s32);
+void TObjPlayer__sub_80154E3C(void *);
+u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u8 * TObjQuestColBase__ct(void *, s32);
+extern RecoveredGlobal_80195BEC_lbl_80445E84 lbl_80445E84;
+extern M2C_UNK __vt__18TObjQuestColALock2[];
+extern s32 lbl_805D3408;
+extern s32 lbl_805D5EE8;
+extern s32 lbl_805D5EEC;
+u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2);
 }
 
 extern "C" {
@@ -24,7 +41,6 @@ M2C_UNK TObjPlayer__sub_801B35AC(s32);
 M2C_UNK TObjPlayer__sub_801B35E4(s32);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, M2C_UNK);
 s32 TObjPlayer__sub_801B5874(s32);
-void *TObjQuestColALock2__ct(void *, void *, void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -38,7 +54,7 @@ extern void *lbl_805D5C50;
 void *TObjQuestColALock2__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC4);
     if (o != NULL) {
-        o = TObjQuestColALock2__ct(o, lbl_805D5C50, arg0);
+        o = TObjQuestColALock2__ct((u8 *)(o), (s32)(lbl_805D5C50), (s32)(arg0));
     }
     return o;
 }
@@ -111,6 +127,40 @@ void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1) {
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
         }
+    }
+    return arg0;
+}
+u8 *TObjQuestColALock2__ct(u8 *arg0, s32 arg1, s32 _w2) {
+    s32 temp_r0;
+    u8 *temp_r4;
+    TObjQuestColBase__ct(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80195BEC___vt__18TObjQuestColALock2 *)&__vt__18TObjQuestColALock2).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3408;
+    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_80445E84.value, 1);
+    set_indexed_flags(arg0, 0, 0xF0);
+    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+    M2C_FIELD(temp_r4, f32 *, 4) = (f32) (M2C_FIELD(temp_r4, f32 *, 4) + M2C_FIELD(arg0, f32 *, 0x6C));
+    TObjPlayer__sub_80154E3C(arg0);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    reset_photon_effect__10TObjPlayerFPv((s32) arg0);
+    M2C_FIELD(arg0, s32 *, 0xC0) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xC0) < 0) {
+        M2C_FIELD(arg0, s32 *, 0xC0) = 0;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xC0) > 1) {
+        M2C_FIELD(arg0, s32 *, 0xC0) = 1;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC0);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5EE8;
+        break;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5EEC;
+        break;
+    default:
+        M2C_FIELD(arg0, s32 *, 0xBC) = 0;
+        break;
     }
     return arg0;
 }

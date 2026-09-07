@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80163B8C_lbl_804B1760 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_80163B8C_lbl_804B1760_size[sizeof(RecoveredGlobal_80163B8C_lbl_804B1760) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_80163B8C_lbl_804B1760 lbl_804B1760;
+extern u32 TODoorVoShip__data_805D5980;
+void TODoorVoShip__sub_80163B8C(void);
+}
+
 extern "C" {
 
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1);
@@ -37,6 +48,17 @@ void free_static_data__12TODoorVoShipFv(void) {
 }
 
 extern M2C_UNK __vt__12TODoorVoShip[];
+
+void TODoorVoShip__sub_80163B8C(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B1760.value, 0, 0, 0));
+    }
+    (*(s32 *)&TODoorVoShip__data_805D5980) = var_r0;
+}
 
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

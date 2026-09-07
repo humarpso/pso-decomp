@@ -14,12 +14,25 @@ struct Stack_80356C80 {
     s32 spC;
 };
 
+struct RecoveredGlobal_80356B18___vt__15TBoss6SwordWave { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_80356B18___vt__15TBoss6SwordWave_size[sizeof(RecoveredGlobal_80356B18___vt__15TBoss6SwordWave) == 0x18 ? 1 : -1];
+
 extern "C" {
-u8 * __ct__15TBoss6SwordWaveFv(void *, s32, s32, s32, s32, f32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 void TBoss6SwordWave__sub_80356CDC(M2C_UNK, u8, void *, void *);
 u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
+void TBoss6SwordWave__sub_80356CDC(M2C_UNK, u8, void *, void *);
+void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 TBoss6SwordWave__sub_80356D64(void *, void *, void *);
+extern RecoveredGlobal_80356B18___vt__15TBoss6SwordWave __vt__15TBoss6SwordWave;
+extern s32 lbl_805D43A8;
+extern const f32 lbl_805DFFE8;
+extern const f32 lbl_805DFFF0;
+u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 }
 
 extern "C" {
@@ -29,6 +42,33 @@ void render__15TBoss6SwordWaveFv(void);
 
 void render__15TBoss6SwordWaveFv(void) {  }
 
+u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
+    f32 temp_f1;
+    f32 temp_f2;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TBoss6SwordWave.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D43A8;
+    M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x20), (void *) (arg2));
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DFFE8;
+    M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
+    TBoss6SwordWave__sub_80356D64((void *) (arg0 + 0x30), (void *) (arg3), (void *) (arg4));
+    M2C_FIELD(arg0, f32 *, 0x50) = (f32) lbl_805DFFE8;
+    M2C_FIELD(arg0, f32 *, 0x54) = (f32) lbl_805DFFE8;
+    M2C_FIELD(arg0, f32 *, 0x58) = (f32) lbl_805DFFE8;
+    temp_f2 = *dispatch_shared_handler_a__6TLobbyFPv(0x2C);
+    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) temp_f2;
+    if (lbl_805DFFE8 == temp_f2) {
+        M2C_FIELD(arg0, s32 *, 0x5C) = 0x14;
+    }
+    temp_f1 = M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0x2F), f32 *, 8);
+    M2C_FIELD(arg0, f32 *, 0x60) = temp_f1;
+    if (lbl_805DFFE8 == temp_f1) {
+        M2C_FIELD(arg0, f32 *, 0x60) = (f32) lbl_805DFFF0;
+    }
+    return arg0;
+}
+
 #pragma push
 #pragma fp_contract on
 u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
@@ -37,7 +77,7 @@ u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 fa
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x64));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(__ct__15TBoss6SwordWaveFv(temp_r3, arg0, arg1, arg2, arg3, farg0));
+        var_r0 = (u8 *)(__ct__15TBoss6SwordWaveFv((u8 *)(temp_r3), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3), farg0));
     }
     return var_r0;
 }
@@ -53,6 +93,16 @@ u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1) {
 
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2) {
     return (u8) (arg2 >> 8U);
+}
+void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1) {
+  s32 spC;
+  s32 sp8;
+  s32 temp_r5;
+  s8 *new_var;
+  TBoss6SwordWave__sub_80356CDC(arg0, arg1, &spC, &sp8);
+  temp_r5 = spC * 4;
+  new_var = ((s8 *) arg0) + temp_r5;
+  *((M2C_UNK *) (((s8 *) arg0) + temp_r5)) = (*((M2C_UNK *) new_var)) | (1 << sp8);
 }
 
 }

@@ -5,6 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801A4820_main_task { M2C_UNK value; u8 remaining[0x30]; };
+typedef char RecoveredGlobal_801A4820_main_task_size[sizeof(RecoveredGlobal_801A4820_main_task) == 0x34 ? 1 : -1];
+
+struct RecoveredGlobal_801A46D8_main_task { M2C_UNK value; u8 remaining[0x30]; };
+typedef char RecoveredGlobal_801A46D8_main_task_size[sizeof(RecoveredGlobal_801A46D8_main_task) == 0x34 ? 1 : -1];
+
 extern "C" {
 M2C_UNK THunterGuildSeqOffline__sub_80213430();
 M2C_UNK TLobby__sub_80103F68();
@@ -23,8 +29,6 @@ M2C_UNK set_cleanup_flag__6TLobbyFv();
 extern u32 lbl_805D5EE8;
 void free_objects__6TLobbyFv(void);
 s32 TCameraCtrl__sub_8006B368();
-M2C_UNK TLobby__sub_801A46D8();
-M2C_UNK TLobby__sub_801A4820();
 void update_camera_state__6TLobbyFv(void);
 M2C_UNK fn_801D9E50(void*);
 extern s32 lbl_805D53A4;
@@ -35,6 +39,85 @@ void TLobby__sub_801A4C6C(void* p);
 void set_value__6TLobbyFPvi(void* p, s32 v);
     extern int lbl_805D4E2C;
 void reset_counter__6TLobbyFv(void);
+s32 get_input__16TKeyBoardControlFv();
+int TKeyBoardControl__sub_8000F95C(void);
+s32 TKeyBoardControl__sub_8000F968();
+M2C_UNK TKeyBoardControl__sub_8000F984();
+s32 get_key_state__16TKeyBoardControlFv();
+M2C_UNK TKeyBoardControl__sub_8000F9A4();
+int TKeyBoardControl__sub_8000F9CC(int);
+s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK TLobby__sub_8006EF90();
+M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
+s32 is_ready__22TQuestVmDownLoadServerFv();
+M2C_UNK TLobby__sub_800FA464();
+M2C_UNK disconnect_protocol__6TLobbyFv();
+int TLobby__sub_8013998C(void);
+void init_chr_select__6TLobbyFv(void);
+M2C_UNK TLobby__sub_801A3E98();
+M2C_UNK TLobby__sub_801A40D8();
+M2C_UNK TLobby__sub_801A4268();
+M2C_UNK TLobby__sub_801A441C();
+void update_periodic_tick__6TLobbyFv(void);
+s8 func_801A5E54__Fv();
+M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK controller_stuff__Fv();
+s32 TAdPlayerLoadGC__sub_801E1B50(int);
+s32 TAdPlayerLoadGC__sub_801E1E38(int);
+M2C_UNK render_tick__Fv();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
+M2C_UNK TLobby__sub_802269B4();
+M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
+M2C_UNK some_empty_func__9TMainTaskFv(void *);
+M2C_UNK render__9TMainTaskFv(void *);
+M2C_UNK run_task__9TMainTaskFv(void *);
+M2C_UNK render_shadows__9TMainTaskFv(void *);
+M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK func_803DCDFC__Fv();
+extern RecoveredGlobal_801A4820_main_task main_task;
+extern s32 TLobby__data_805D55A8;
+extern s32 lbl_805D55C0;
+extern s16 TLobby__data_805D5CE8;
+extern s32 TLobby__data_805D5CF4;
+void TLobby__sub_801A4820(void);
+s32 get_input__16TKeyBoardControlFv();
+int TKeyBoardControl__sub_8000F95C(void);
+s32 TKeyBoardControl__sub_8000F968();
+M2C_UNK TKeyBoardControl__sub_8000F984();
+s32 get_key_state__16TKeyBoardControlFv();
+M2C_UNK TKeyBoardControl__sub_8000F9A4();
+int TKeyBoardControl__sub_8000F9CC(int);
+s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK TObjBoss2Tunnel__sub_8007D1D0();
+s32 is_ready__22TQuestVmDownLoadServerFv();
+M2C_UNK TLobby__sub_800FA464();
+M2C_UNK disconnect_protocol__6TLobbyFv();
+int TLobby__sub_8013998C(void);
+void reset_to_chr_select__6TLobbyFv(void);
+M2C_UNK TLobby__sub_801A3E98();
+M2C_UNK TLobby__sub_801A40D8();
+M2C_UNK TLobby__sub_801A441C();
+void update_periodic_tick__6TLobbyFv(void);
+s8 func_801A5E54__Fv();
+M2C_UNK TKeyBoardControl__sub_801A5EC4();
+M2C_UNK controller_stuff__Fv();
+s32 TAdPlayerLoadGC__sub_801E1B50(int);
+s32 TAdPlayerLoadGC__sub_801E1E38(int);
+M2C_UNK render_tick__Fv();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
+M2C_UNK TLobby__sub_802269B4();
+M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
+M2C_UNK some_empty_func__9TMainTaskFv(void *);
+M2C_UNK render__9TMainTaskFv(void *);
+M2C_UNK run_task__9TMainTaskFv(void *);
+M2C_UNK render_shadows__9TMainTaskFv(void *);
+M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK func_803DCDFC__Fv();
+extern RecoveredGlobal_801A4820_main_task main_task;
+extern s32 TLobby__data_805D55A8;
+extern s32 lbl_805D55C0;
+extern s32 TLobby__data_805D5CF4;
+void TLobby__sub_801A46D8(void);
 }
 
 extern "C" {
@@ -91,6 +174,109 @@ void free_objects__6TLobbyFv(void) {
     reset_quest_counter__6TLobbyFv();
     clear_quest_state__6TLobbyFv();
 }
+
+void TLobby__sub_801A46D8(void) {
+    s32 temp_r0;
+    func_803DCDFC__Fv();
+    controller_stuff__Fv();
+    TKeyBoardControl__sub_801A5EC4();
+    some_empty_func__9TMainTaskFv((void *) (&main_task.value));
+    run_task__9TMainTaskFv((void *) (&main_task.value));
+    render_shadows__9TMainTaskFv((void *) (&main_task.value));
+    render__9TMainTaskFv((void *) (&main_task.value));
+    render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
+    TLobby__sub_800FA464();
+    TLobby__sub_802269B4();
+    TAdSinglePlyChrSelectGC__sub_80201650();
+    noop__23TAdSinglePlyChrSelectGCFv();
+    TObjBoss2Tunnel__sub_8007D1D0();
+    if (((s32) lbl_805D55C0 == 0) && (TAdPlayerLoadGC__sub_801E1B50((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) != -1)) {
+        if (TAdPlayerLoadGC__sub_801E1E38((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) != 0) {
+            TLobby__data_805D5CF4 = 0;
+        } else {
+            temp_r0 = TLobby__data_805D5CF4 + 1;
+            TLobby__data_805D5CF4 = temp_r0;
+            if (temp_r0 > 0xC) {
+                disconnect_protocol__6TLobbyFv();
+            }
+        }
+    }
+    update_periodic_tick__6TLobbyFv();
+    if ((func_801A5E54__Fv() != 0) || ((s32) TLobby__data_805D55A8 == 1)) {
+        reset_to_chr_select__6TLobbyFv();
+    }
+    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+        TLobby__sub_8013998C();
+        TKeyBoardControl__sub_8000F9CC((int) (0));
+    }
+    if (get_key_state__16TKeyBoardControlFv() != 0) {
+        TLobby__sub_801A441C();
+        TKeyBoardControl__sub_8000F9A4();
+    }
+    if (TKeyBoardControl__sub_8000F968() != 0) {
+        TLobby__sub_801A40D8();
+        TKeyBoardControl__sub_8000F984();
+    }
+    if (get_input__16TKeyBoardControlFv() != 0) {
+        TLobby__sub_801A3E98();
+        TKeyBoardControl__sub_8000F95C();
+    }
+    render_tick__Fv();
+}
+
+void TLobby__sub_801A4820(void) {
+    s32 temp_r0;
+    func_803DCDFC__Fv();
+    controller_stuff__Fv();
+    TKeyBoardControl__sub_801A5EC4();
+    some_empty_func__9TMainTaskFv((void *) (&main_task.value));
+    run_task__9TMainTaskFv((void *) (&main_task.value));
+    render_shadows__9TMainTaskFv((void *) (&main_task.value));
+    render__9TMainTaskFv((void *) (&main_task.value));
+    render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
+    TLobby__sub_800FA464();
+    TLobby__sub_802269B4();
+    TAdSinglePlyChrSelectGC__sub_80201650();
+    noop__23TAdSinglePlyChrSelectGCFv();
+    TObjBoss2Tunnel__sub_8007D1D0();
+    TLobby__sub_8006EF90();
+    if (((s32) lbl_805D55C0 == 0) && (TAdPlayerLoadGC__sub_801E1B50((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) != -1)) {
+        if (TAdPlayerLoadGC__sub_801E1E38((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) != 0) {
+            TLobby__data_805D5CF4 = 0;
+        } else {
+            temp_r0 = TLobby__data_805D5CF4 + 1;
+            TLobby__data_805D5CF4 = temp_r0;
+            if (temp_r0 > 0xC) {
+                disconnect_protocol__6TLobbyFv();
+            }
+        }
+    }
+    update_periodic_tick__6TLobbyFv();
+    if (get_input__16TKeyBoardControlFv() != 0) {
+        TLobby__sub_801A4268();
+        TKeyBoardControl__sub_8000F95C();
+    }
+    if (get_key_state__16TKeyBoardControlFv() != 0) {
+        TLobby__sub_801A441C();
+        TKeyBoardControl__sub_8000F9A4();
+    }
+    if (TKeyBoardControl__sub_8000F968() != 0) {
+        TLobby__sub_801A40D8();
+        TKeyBoardControl__sub_8000F984();
+    }
+    if ((s16) TLobby__data_805D5CE8 == 1) {
+        TLobby__sub_801A3E98();
+    }
+    if ((func_801A5E54__Fv() != 0) || ((s32) TLobby__data_805D55A8 == 1)) {
+        init_chr_select__6TLobbyFv();
+    }
+    if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
+        TLobby__sub_8013998C();
+        TKeyBoardControl__sub_8000F9CC((int) (0));
+    }
+    render_tick__Fv();
+}
+
 void update_camera_state__6TLobbyFv(void) {
     if (TCameraCtrl__sub_8006B368() != 0) {
         TLobby__sub_801A46D8();

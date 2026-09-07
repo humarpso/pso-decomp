@@ -4,9 +4,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw { M2C_UNK value; u8 remaining[0x148]; };
+typedef char RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw_size[sizeof(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw) == 0x14C ? 1 : -1];
+
 extern "C" {
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjEneBalClaw__vt60(u8 *arg0);
+void add_flags_2e4__10TObjPlayerFPvUi(void *, s32);
+void clear_attack_flag__18TObjEneBalClawClawFPv(void* p);
+u8 * init_vtable_and_field18__10TObjPlayerFPv(void *);
+u8 * TObjEnemyCustom__ct(void *);
+extern M2C_UNK __vt__14TObjEneBalClaw[];
+extern s32 lbl_805D2968;
+extern const f32 lbl_805D960C;
+u8 *TObjEneBalClaw__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -87,6 +98,20 @@ void *__dt__14TObjEneBalClawFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+u8 *TObjEneBalClaw__ct(u8 *arg0) {
+    TObjEnemyCustom__ct(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8008DB6C___vt__14TObjEneBalClaw *)&__vt__14TObjEneBalClaw).value;
+    init_vtable_and_field18__10TObjPlayerFPv(arg0 + 0x390);
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2968;
+    add_flags_2e4__10TObjPlayerFPvUi(arg0, 8);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000);
+    M2C_FIELD(arg0, s32 *, 0x3B8) = 0;
+    M2C_FIELD(arg0, f32 *, 0x3BC) = (f32) lbl_805D960C;
+    clear_attack_flag__18TObjEneBalClawClawFPv((void*)(arg0));
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x20000);
     return arg0;
 }
 

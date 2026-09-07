@@ -4,6 +4,17 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8015A108_lbl_804AFDF8 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8015A108_lbl_804AFDF8_size[sizeof(RecoveredGlobal_8015A108_lbl_804AFDF8) == 0x10 ? 1 : -1];
+
+extern "C" {
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8015A108_lbl_804AFDF8 lbl_804AFDF8;
+extern u32 TOCakeshopCave01__data_805D58B0;
+void TOCakeshopCave01__sub_8015A108(void);
+}
+
 extern "C" {
 
 void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1);
@@ -39,6 +50,17 @@ void close_dialog_window__16TOCakeshopCave01Fv(void) {
 }
 
 extern M2C_UNK __vt__16TOCakeshopCave01[];
+
+void TOCakeshopCave01__sub_8015A108(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AFDF8.value, 0, 0, 0));
+    }
+    (*(s32 *)&TOCakeshopCave01__data_805D58B0) = var_r0;
+}
 
 void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

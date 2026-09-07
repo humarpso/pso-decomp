@@ -54,6 +54,16 @@ struct V_A_802cf040_802CECE0 : Base_A_802cf040_802CECE0 {
     virtual void m100();
 };
 
+#include <stddef.h>
+struct Stack_80300FC0 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_80300FC0_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
+typedef char RecoveredGlobal_80300FC0_lbl_8058D490_size[sizeof(RecoveredGlobal_80300FC0_lbl_8058D490) == 0x30 ? 1 : -1];
+
 extern "C" {
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -73,6 +83,18 @@ void TObjEneDolmOlm__sub_80300F38(s32 arg0);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 void TObjEneDolmOlm__sub_80300F7C(s32 arg0);
+s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
+s32 TObjPlayer__sub_800D92BC(void *, int);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 TScene__sub_803D8DB4(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D97F0(void *);
+M2C_UNK TObjPlayer__sub_803D9B78();
+extern RecoveredGlobal_80300FC0_lbl_8058D490 lbl_8058D490;
+extern const f32 TObjEneDolmOlm__data_805DEF54;
+extern const f32 lbl_805DEF58;
+extern const f32 TObjEneDolmOlm__data_805DEF5C;
+void TObjEneDolmOlm__sub_80300FC0(u8 *arg0);
 }
 
 extern "C" {
@@ -135,6 +157,23 @@ void TObjEneDolmOlm__sub_80300F38(s32 arg0) {
 
 void TObjEneDolmOlm__sub_80300F7C(s32 arg0) {
     TBoss3Volopt__sub_8022675C((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AD00))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+}
+
+void TObjEneDolmOlm__sub_80300FC0(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80300FC0, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80300FC0, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80300FC0, sp10) == 0x8) ? 1 : -1];
+    Stack_80300FC0 stack;
+    stack.sp8 = TObjEneDolmOlm__data_805DEF54;
+    stack.spC = lbl_805DEF58;
+    stack.sp10 = TObjEneDolmOlm__data_805DEF5C * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
+    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    TObjPlayer__sub_803D9214((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    TScene__sub_803D8DB4((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
+    TObjPlayer__sub_803D9B78();
+    TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
+    TObjPlayer__sub_800D92BC((void *) (&stack.sp8), (int) (0xF));
 }
 
 void TObjEneDolmOlm__sub_803012F8(void* p) { *(s16*)((char*)p + 0xb8) = 1; }

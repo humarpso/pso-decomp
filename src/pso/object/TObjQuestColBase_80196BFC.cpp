@@ -24,9 +24,17 @@ struct VObj_18_551843 : VBase_18_551843 {
     virtual u8 * m14();
 };
 
+struct RecoveredGlobal_80196D50___vt__16TObjQuestColBase { M2C_UNK value; u8 remaining[0x44]; };
+typedef char RecoveredGlobal_80196D50___vt__16TObjQuestColBase_size[sizeof(RecoveredGlobal_80196D50___vt__16TObjQuestColBase) == 0x48 ? 1 : -1];
+
 extern "C" {
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void TObjQuestColBase__sub_80196CC8(u8 *arg0);
+u8 * destroy_particle_controller__10TObjPlayerFPvs(void *, s16);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
+extern s32 lbl_805D5C54;
+u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -58,6 +66,17 @@ void TObjQuestColBase__sub_80196CC8(u8 *arg0) {
     if (((void *) M2C_FIELD(arg0, u8 **, 0xB8) == NULL) && (((VObj_18_551843 *)(arg0))->m13() != 0)) {
         M2C_FIELD(arg0, u8 **, 0xB8) = ((VObj_18_551843 *)(arg0))->m14();
     }
+}
+u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__16TObjQuestColBase.value;
+        lbl_805D5C54 -= 1;
+        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
 }
 
 }

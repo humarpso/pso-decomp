@@ -42,6 +42,38 @@ struct VObj_8029CF68 : Base_8029CF68 {
     virtual s32 m8(f32, f32);
 };
 
+struct VBase_18_076902 { char pad[0x18]; };
+
+struct VObj_18_076902 : VBase_18_076902 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual M2C_UNK m20();
+};
+
+struct RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 { M2C_UNK value; u8 remaining[0x8]; };
+typedef char RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8_size[sizeof(RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8) == 0xC ? 1 : -1];
+
+struct RecoveredGlobal_8029CFEC_lbl_804DC590 { M2C_UNK value; u8 remaining[0xC]; };
+typedef char RecoveredGlobal_8029CFEC_lbl_804DC590_size[sizeof(RecoveredGlobal_8029CFEC_lbl_804DC590) == 0x10 ? 1 : -1];
+
 extern "C" {
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470();
@@ -72,6 +104,15 @@ extern u32 TOKeyJungleMain__data_805D65E0;
 extern const f32 lbl_805DDD38;
 extern const f32 lbl_805DDD3C;
 void TOKeyJungleMain__vt14(u8 *arg0);
+s32 TLevelSelect__sub_801F441C(s32, s32);
+extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
+extern s32 lbl_805D5550;
+void TOKeyJungleMain__vt12(u8 *arg0);
+u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+extern RecoveredGlobal_8029CFEC_lbl_804DC590 lbl_804DC590;
+extern u32 TOKeyJungleMain__data_805D65E0;
+void TOKeyJungleMain__sub_8029CFEC(void);
 }
 
 extern "C" {
@@ -100,6 +141,18 @@ void release_static_resource__15TOKeyJungleMainFv(void) {
         TOKeyJungleMain__data_805D65E0 = 0U;
     }
 }
+
+void TOKeyJungleMain__sub_8029CFEC(void) {
+    s32 temp_r3;
+    s32 var_r0;
+    temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
+    var_r0 = temp_r3;
+    if (var_r0 != 0) {
+        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804DC590.value, 0, 0, 0));
+    }
+    (*(s32 *)&TOKeyJungleMain__data_805D65E0) = var_r0;
+}
+
 void render__15TOKeyJungleMainFv(u8 *arg0) {
     if (((VObj_8029CF68 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) == 1) {
         switch (M2C_FIELD(arg0, s32 *, 0xD4)) {
@@ -125,6 +178,21 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
             end_effect_render__13TParticleCtrlFv();
             TObjPlayer__sub_803D9B78();
             break;
+        }
+    }
+}
+
+void TOKeyJungleMain__vt12(u8 *arg0) {
+    s32 temp_r31;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
+        temp_r31 = M2C_FIELD(arg0, s32 *, 0xD4);
+        if (TLevelSelect__sub_801F441C(lbl_805D5550, M2C_FIELD(&TOKeyJungleMain__data_804653C8.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xC8) * 4))) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xD4) = 1;
+        } else {
+            M2C_FIELD(arg0, s32 *, 0xD4) = 0;
+        }
+        if (temp_r31 != (s32) M2C_FIELD(arg0, s32 *, 0xD4)) {
+            ((VObj_18_076902 *)(arg0))->m20();
         }
     }
 }

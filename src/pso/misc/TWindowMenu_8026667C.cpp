@@ -5,8 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowMenu__sub_80266B18(u8 *arg0, s32 arg1);
+}
 
-int TWindowMenu__sub_80266B18(void);
+extern "C" {
+
 int TWindowMenu__sub_80266BB8(void* p);
 void *__dt__11TWindowMenuFv(void *arg0, s16 arg1);
 void copy_position__11TWindowMenuFPvPv(void* p, void* q);
@@ -63,9 +66,11 @@ void *__dt__11TWindowMenuFv(void *arg0, s16 arg1) {
 
 void copy_position__11TWindowMenuFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 
-int TWindowMenu__sub_80266B18(void) { return 0; }
-
 extern s8 lbl_8050E208[];
+
+s32 TWindowMenu__sub_80266B18(u8 *arg0, s32 arg1) {
+    return M2C_FIELD(M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x28) + (arg1 * 4)), u16 **, 0), u16 *, 0) & 1;
+}
 
 s32 is_locked__11TWindowMenuFPvi(void *arg0, s32 arg1) {
     if (M2C_FIELD(arg0, u16 *, 0x70) & 0x200) {

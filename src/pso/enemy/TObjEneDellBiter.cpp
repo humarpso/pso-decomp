@@ -4,6 +4,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_80303204 {
+    M2C_UNK sp8;
+    f32 spC;
+    u8 trailing_storage[0x4];
+};
+
+struct RecoveredGlobal_80303204_lbl_804E6B54 { M2C_UNK value; u8 remaining[0x18]; };
+typedef char RecoveredGlobal_80303204_lbl_804E6B54_size[sizeof(RecoveredGlobal_80303204_lbl_804E6B54) == 0x1C ? 1 : -1];
+
 extern "C" {
 s32 obj_isState2_324(void *);
 M2C_UNK obj_getField1c(void *);
@@ -13,6 +23,17 @@ s32 TObjEneDD__sub_800BA828();
 extern const f32 lbl_805DEFB0;
 extern const f32 lbl_805DEFB4;
 void TObjEneDellBiter__sub_803030D8(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjBoss2Tunnel__sub_8007E7D8(void *, void *, int);
+s32 TObjBoss2Tunnel__sub_8007E84C(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+extern M2C_UNK lbl_804E6B54[];
+extern s32 lbl_805D4070;
+extern const f32 lbl_805DEFAC;
+u8 *TObjEneDellBiter__sub_80303204(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 }
 
 extern "C" {
@@ -99,6 +120,30 @@ void *TObjEneDellBiter__sub_803031AC(void *arg0, s16 arg1) {
 
 extern M2C_UNK main_task[];
 extern const f32 TObjEneDellBiter__data_805DEFB8;
+
+u8 *TObjEneDellBiter__sub_80303204(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {
+    typedef char sp8_offset[(offsetof(Stack_80303204, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80303204, spC) == 0x4) ? 1 : -1];
+    Stack_80303204 stack;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80303204_lbl_804E6B54 *)&lbl_804E6B54).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4070;
+    M2C_FIELD(arg0, s32 *, 0x1C) = arg3;
+    M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg3 + 0x38));
+    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (arg2 + 0x38));
+    stack.spC = lbl_805DEFAC;
+    M2C_FIELD(arg0, f32 *, 0x20) = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg2, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DEFAC;
+    M2C_FIELD(arg0, f32 *, 0x28) = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg2, s32 *, 0x60)));
+    if (TObjBoss2Tunnel__sub_8007E84C((void *) (arg0 + 0x20), (void *) (&stack.sp8)) != 0) {
+        TObjBoss2Tunnel__sub_8007E7D8((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (-0x1800));
+    } else {
+        TObjBoss2Tunnel__sub_8007E7D8((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (0x1800));
+    }
+    return arg0;
+}
 
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0) {
     if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {

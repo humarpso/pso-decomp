@@ -18,11 +18,11 @@ s32 TWindowDD__sub_80342268();
 extern const f32 TWindowDD__data_805DFB20;
 extern const float TWindowDD__data_805DFCA8;
 void TWindowDD__sub_80341B28(u8 *arg0);
+int TWindowDD__sub_80342158(u8 *arg0);
 }
 
 extern "C" {
 
-int TWindowDD__sub_80342158(void);
 void add_scroll_offset__9TWindowDDFPvi(void* a0, int a1);
 void free_child__9TWindowDDFPv(void *arg0);
 s32 get_cursor_index__9TWindowDDFPv(void* p);
@@ -172,7 +172,14 @@ s16 TWindowDD__sub_8034214C(u8 *arg0) {
     return (s16) M2C_FIELD(arg0, s32 *, 0x70);
 }
 
-int TWindowDD__sub_80342158(void) { return 0; }
+int TWindowDD__sub_80342158(u8 *arg0) {
+    u32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, u32 *, 0x80);
+    if (temp_r4 != 0U) {
+        return M2C_FIELD((temp_r4 + (M2C_FIELD(arg0, s32 *, 0x68) * 2)), s16 *, 0);
+    }
+    return 0x685;
+}
 
 s32 TWindowDD__sub_8034217C(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x68) - M2C_FIELD(arg0, s32 *, 0x6C);

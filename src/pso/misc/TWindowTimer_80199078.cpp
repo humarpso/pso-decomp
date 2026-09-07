@@ -9,8 +9,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+struct RecoveredGlobal_80199410_lbl_804B8E00 { M2C_UNK value; u8 remaining[0x14]; };
+typedef char RecoveredGlobal_80199410_lbl_804B8E00_size[sizeof(RecoveredGlobal_80199410_lbl_804B8E00) == 0x18 ? 1 : -1];
+
 extern "C" {
 void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1);
+s32 get_minutes__6TLobbyFv(void);
+void set_timer_value__12TWindowTimerFii(s32, s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+void create_timer__11TWindowCtrlFv(void);
+extern M2C_UNK lbl_804B8E00[];
+u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -52,6 +61,15 @@ void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80199410_lbl_804B8E00 *)&lbl_804B8E00).value;
+    M2C_FIELD(arg0, s32 *, 0x1C) = get_minutes__6TLobbyFv();
+    create_timer__11TWindowCtrlFv();
+    set_timer_value__12TWindowTimerFii(1, 0);
+    set_timer_value__12TWindowTimerFii(0, 0);
     return arg0;
 }
 

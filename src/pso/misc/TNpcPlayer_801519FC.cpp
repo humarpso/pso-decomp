@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TNpcPlayer__sub_801528C8(s32 arg0, s32 arg1);
+void TNpcPlayer__sub_801528B8(s32 arg0, s32 arg1);
+}
+
+extern "C" {
 
 int TNpcPlayer__sub_801528A8(void);
-int TNpcPlayer__sub_801528B8(void);
-int TNpcPlayer__sub_801528C8(void);
 s32 TNpcPlayer__sub_801528DC(void* p);
 void copy__10TNpcPlayerFPvPv(void* p, void* q);
 void ensure_rock_singleton__10TNpcPlayerFv(void);
@@ -72,8 +75,16 @@ void ensure_rock_singleton__10TNpcPlayerFv(void) {
 }
 
 int TNpcPlayer__sub_801528A8(void) { return 0; }
-int TNpcPlayer__sub_801528B8(void) { return 0; }
-int TNpcPlayer__sub_801528C8(void) { return 0; }
+
+void TNpcPlayer__sub_801528B8(s32 arg0, s32 arg1) {
+    M2C_FIELD((arg0 + (arg1 * 2)), s16 *, 0) = 0;
+}
+
+void TNpcPlayer__sub_801528C8(s32 arg0, s32 arg1) {
+    s32 temp_r5;
+    temp_r5 = arg1 * 2;
+    M2C_FIELD((arg0 + temp_r5), s16 *, 0) = M2C_FIELD((arg0 + temp_r5), s16 *, 0) + 1;
+}
 
 s32 TNpcPlayer__sub_801528DC(void* p) { return *(s32*)((char*)p + 0x84); }
 s32 get_npc_state__10TNpcPlayerFPv(void* p) { return *(s32*)((char*)p + 0x7c); }
