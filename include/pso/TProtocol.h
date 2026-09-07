@@ -53,9 +53,7 @@ public:
     char access_key[17];
     u16 padding;
 public:
-    void bswap() {
-        header.bswap();
-    };
+    void bswap();
 };
 
 class TRecvPsoRegistConnect {

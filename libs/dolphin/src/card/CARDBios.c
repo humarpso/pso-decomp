@@ -1,8 +1,6 @@
 
 
 #define DSPInit TLobby__sub_80380178
-#define EXIProbe TAdPlayerLoadGC__sub_8042FA88
-#define EXISetExiCallback TAdPlayerLoadGC__sub_8042F898
 #define OnReset CARDBios_OnReset
 #define ResetFunctionInfo lbl_804F4C50
 #define Retry CARDBios_Retry

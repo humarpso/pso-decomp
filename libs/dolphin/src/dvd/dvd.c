@@ -47,7 +47,6 @@ static struct DVDCommandBlock DummyCommandBlock;
 static int autoInvalidation = 1;
 
 static struct DVDCommandBlock *executing;
-static void * tmp;
 static struct DVDDiskID * currID;
 static struct OSBootInfo_s * bootInfo;
 static volatile int PauseFlag;
@@ -56,17 +55,13 @@ static int AutoFinishing;
 static BOOL FatalErrorFlag;
 static volatile unsigned long CurrCommand;
 static volatile unsigned long Canceling;
-static struct DVDCommandBlock * CancelingCommandBlock;
 static void (* CancelCallback)(long, struct DVDCommandBlock *);
 static volatile unsigned long ResumeFromHere;
 static volatile unsigned long CancelLastError;
 static unsigned long LastError;
 static volatile long NumInternalRetry;
 static int ResetRequired;
-static int CancelAllSyncComplete;
-static volatile unsigned long ResetCount;
 static int FirstTimeInBootrom;
-static long ResultForSyncCommand;
 static int DVDInitialized;
 static OSAlarm ResetAlarm;
 void (* LastState)(struct DVDCommandBlock *);
@@ -257,8 +252,7 @@ static BOOL CheckCancel(u32 resume) {
 	return FALSE;
 }
 
-static void cbForStateGettingError(u32 intType)
-{
+static void cbForStateGettingError(u32 intType) {
 	u32 error;
 	u32 status;
 	u32 errorCategory;
@@ -339,8 +333,7 @@ static void cbForStateGettingError(u32 intType)
 	}
 }
 
-static void cbForUnrecoveredError(u32 intType)
-{
+static void cbForUnrecoveredError(u32 intType) {
 	if (intType == 16) {
 		executing->state = -1;
 		stateTimeout();
@@ -356,8 +349,7 @@ static void cbForUnrecoveredError(u32 intType)
 	DVDLowRequestError(cbForUnrecoveredErrorRetry);
 }
 
-static void cbForUnrecoveredErrorRetry(u32 intType)
-{
+static void cbForUnrecoveredErrorRetry(u32 intType) {
 	if (intType == 0x10) {
 		executing->state = -1;
 #if DEBUG
@@ -384,8 +376,7 @@ static void stateGoToRetry() {
     DVDLowStopMotor(cbForStateGoToRetry);
 }
 
-static void cbForStateGoToRetry(u32 intType)
-{
+static void cbForStateGoToRetry(u32 intType) {
 	if (intType == 16) {
 		executing->state = -1;
 		stateTimeout();
@@ -896,18 +887,7 @@ int DVDReadAbsAsyncPrio(struct DVDCommandBlock * block, void * addr, long length
     return idle;
 }
 
-int DVDSeekAbsAsyncPrio(struct DVDCommandBlock * block, long offset, void (* callback)(long, struct DVDCommandBlock *), long prio) {
-    int idle;
 
-    ASSERTMSGLINE(0x7D3, block, "DVDSeekAbs(): null pointer is specified to command block address.");
-    ASSERTMSGLINE(0x7D5, !(offset & (4-1)), "DVDSeekAbs(): offset must be a multiple of 4.");
-    block->command = DVD_COMMAND_SEEK;
-    block->offset = offset;
-    block->callback = callback;
-    idle = issueCommand(prio, block);
-    ASSERTMSGLINE(0x7DC, idle, "DVDSeekAbs(): command block is used for processing previous request.");
-    return idle;
-}
 
 int DVDReadAbsAsyncForBS(struct DVDCommandBlock * block, void * addr, long length, long offset, void (* callback)(long, struct DVDCommandBlock *)) {
     int idle;
@@ -946,319 +926,53 @@ int DVDReadDiskID(struct DVDCommandBlock * block, struct DVDDiskID * diskID, voi
     return idle;
 }
 
-int DVDPrepareStreamAbsAsync(struct DVDCommandBlock * block, unsigned long length, unsigned long offset, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
 
-    block->command = DVD_COMMAND_INITSTREAM;
-    block->length = length;
-    block->offset = offset;
-    block->callback = callback;
-    idle = issueCommand(1, block);
-    return idle;
-}
 
-int DVDCancelStreamAsync(struct DVDCommandBlock * block, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
 
-    block->command = DVD_COMMAND_CANCELSTREAM;
-    block->callback = callback;
-    idle = issueCommand(1, block);
-    return idle;
-}
 
-long DVDCancelStream(struct DVDCommandBlock * block) {
-    int result;
-    long state;
-    int enabled;
-    long retVal;
 
-    result = DVDCancelStreamAsync(block, cbForCancelStreamSync);
-    if (result == 0) {
-        return -1;
-    }
-    enabled = OSDisableInterrupts();
 
-    while(1) {
-        state = block->state;
-        if (state == DVD_STATE_END || state == DVD_STATE_FATAL_ERROR || state == DVD_STATE_CANCELED) {
-            retVal = block->transferredSize;
-            break;
-        }
 
-        OSSleepThread(&__DVDThreadQueue);
-    }
 
-    OSRestoreInterrupts(enabled);
-    return retVal;
-}
 
-static void cbForCancelStreamSync(long result, struct DVDCommandBlock * block) {
-    block->transferredSize = (u32)result;
-    OSWakeupThread(&__DVDThreadQueue);
-}
 
-int DVDStopStreamAtEndAsync(struct DVDCommandBlock * block, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
 
-    block->command = DVD_COMMAND_STOP_STREAM_AT_END;
-    block->callback = callback;
-    idle = issueCommand(1, block);
-    return idle;
-}
 
-long DVDStopStreamAtEnd(struct DVDCommandBlock * block) {
-    int result;
-    long state;
-    int enabled;
-    long retVal;
 
-    result = DVDStopStreamAtEndAsync(block, cbForStopStreamAtEndSync);
-    if (result == 0) {
-        return -1;
-    }
-    enabled = OSDisableInterrupts();
 
-    while(1) {
-        state = block->state;
-        if (state == DVD_STATE_END || state == DVD_STATE_FATAL_ERROR || state == DVD_STATE_CANCELED) {
-            retVal = block->transferredSize;
-            break;
-        }
 
-        OSSleepThread(&__DVDThreadQueue);
-    }
-    OSRestoreInterrupts(enabled);
-    return retVal;
-}
 
-static void cbForStopStreamAtEndSync(long result, struct DVDCommandBlock *block) {
-    block->transferredSize = (u32)result;
-    OSWakeupThread(&__DVDThreadQueue);
-}
 
-int DVDGetStreamErrorStatusAsync(struct DVDCommandBlock * block, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
 
-    block->command = DVD_COMMAND_REQUEST_AUDIO_ERROR;
-    block->callback = callback;
-    idle = issueCommand(1, block);
-    return idle;
-}
 
-long DVDGetStreamErrorStatus(struct DVDCommandBlock * block) {
-    int result;
-    long state;
-    int enabled;
-    long retVal;
 
-    result = DVDGetStreamErrorStatusAsync(block, cbForGetStreamErrorStatusSync);
-    if (result == 0) {
-        return -1;
-    }
-    enabled = OSDisableInterrupts();
 
-    while(1) {
-        state = block->state;
-        if (state == DVD_STATE_END || state == DVD_STATE_FATAL_ERROR || state == DVD_STATE_CANCELED) {
-            retVal = block->transferredSize;
-            break;
-        }
 
-        OSSleepThread(&__DVDThreadQueue);
-    }
-    OSRestoreInterrupts(enabled);
-    return retVal;
-}
 
-static void cbForGetStreamErrorStatusSync(long result, struct DVDCommandBlock *block) {
-    block->transferredSize = (u32)result;
-    OSWakeupThread(&__DVDThreadQueue);
-}
 
-int DVDGetStreamPlayAddrAsync(struct DVDCommandBlock * block, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
 
-    block->command = DVD_COMMAND_REQUEST_PLAY_ADDR;
-    block->callback = callback;
-    idle = issueCommand(1, block);
-    return idle;
-}
 
-long DVDGetStreamPlayAddr(struct DVDCommandBlock * block) {
-    int result;
-    long state;
-    int enabled;
-    long retVal;
 
-    result = DVDGetStreamPlayAddrAsync(block, cbForGetStreamPlayAddrSync);
-    if (result == 0) {
-        return -1;
-    }
-    enabled = OSDisableInterrupts();
 
-    while(1) {
-        state = block->state;
-        if (state == DVD_STATE_END || state == DVD_STATE_FATAL_ERROR || state == DVD_STATE_CANCELED) {
-            retVal = block->transferredSize;
-            break;
-        }
 
-        OSSleepThread(&__DVDThreadQueue);
-    }
-    OSRestoreInterrupts(enabled);
-    return retVal;
-}
 
-static void cbForGetStreamPlayAddrSync(long result, struct DVDCommandBlock *block) {
-    block->transferredSize = (u32)result;
-    OSWakeupThread(&__DVDThreadQueue);
-}
 
-int DVDGetStreamStartAddrAsync(struct DVDCommandBlock * block, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
 
-    block->command = DVD_COMMAND_REQUEST_START_ADDR;
-    block->callback = callback;
-    idle = issueCommand(1, block);
-    return idle;
-}
 
-long DVDGetStreamStartAddr(struct DVDCommandBlock * block) {
-    int result;
-    long state;
-    int enabled;
-    long retVal;
 
-    result = DVDGetStreamStartAddrAsync(block, cbForGetStreamStartAddrSync);
-    if (result == 0) {
-        return -1;
-    }
-    enabled = OSDisableInterrupts();
 
-    while(1) {
-        state = block->state;
-        if (state == DVD_STATE_END || state == DVD_STATE_FATAL_ERROR || state == DVD_STATE_CANCELED) {
-            retVal = block->transferredSize;
-            break;
-        }
 
-        OSSleepThread(&__DVDThreadQueue);
-    }
-    OSRestoreInterrupts(enabled);
-    return retVal;
-}
 
-static void cbForGetStreamStartAddrSync(long result, struct DVDCommandBlock *block) {
-    block->transferredSize = (u32)result;
-    OSWakeupThread(&__DVDThreadQueue);
-}
 
-int DVDGetStreamLengthAsync(struct DVDCommandBlock * block, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
 
-    block->command = DVD_COMMAND_REQUEST_LENGTH;
-    block->callback = callback;
-    idle = issueCommand(1, block);
-    return idle;
-}
 
-long DVDGetStreamLength(struct DVDCommandBlock * block) {
-    int result;
-    long state;
-    int enabled;
-    long retVal;
 
-    result = DVDGetStreamLengthAsync(block, cbForGetStreamLengthSync);
-    if (result == 0) {
-        return -1;
-    }
-    enabled = OSDisableInterrupts();
 
-    while(1) {
-        state = block->state;
-        if (state == DVD_STATE_END || state == DVD_STATE_FATAL_ERROR || state == DVD_STATE_CANCELED) {
-            retVal = block->transferredSize;
-            break;
-        }
 
-        OSSleepThread(&__DVDThreadQueue);
-    }
-    OSRestoreInterrupts(enabled);
-    return retVal;
-}
 
-static void cbForGetStreamLengthSync(long result, struct DVDCommandBlock *block) {
-    block->transferredSize = (u32)result;
-    OSWakeupThread(&__DVDThreadQueue);
-}
 
-void __DVDAudioBufferConfig(struct DVDCommandBlock * block, unsigned long enable, unsigned long size, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
 
-    block->command = DVD_COMMAND_AUDIO_BUFFER_CONFIG;
-    block->offset = enable;
-    block->length = size;
-    block->callback = callback;
-    idle = issueCommand(2, block);
-}
 
-int DVDChangeDiskAsyncForBS(struct DVDCommandBlock * block, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
-
-    ASSERTMSGLINE(0xA4F, block, "DVDChangeDiskAsyncForBS(): null pointer is specified to command block address.");
-    block->command = DVD_COMMAND_BS_CHANGE_DISK;
-    block->callback = callback;
-    idle = issueCommand(2, block);
-    ASSERTMSGLINE(0xA55, idle, "DVDChangeDiskAsyncForBS(): command block is used for processing previous request.");
-    return idle;
-}
-
-int DVDChangeDiskAsync(struct DVDCommandBlock * block, struct DVDDiskID * id, void (* callback)(long, struct DVDCommandBlock *)) {
-    int idle;
-
-    ASSERTMSGLINE(0xA6A, block, "DVDChangeDisk(): null pointer is specified to command block address.");
-    ASSERTMSGLINE(0xA6B, id, "DVDChangeDisk(): null pointer is specified to id address.");
-    block->command = DVD_COMMAND_CHANGE_DISK;
-    block->id = id;
-    block->callback = callback;
-    DCInvalidateRange(bootInfo->FSTLocation, bootInfo->FSTMaxLength);
-    idle = issueCommand(2, block);
-    ASSERTMSGLINE(0xA74, idle, "DVDChangeDisk(): command block is used for processing previous request.");
-    return idle;
-}
-
-long DVDChangeDisk(struct DVDCommandBlock * block, struct DVDDiskID * id) {
-    int result;
-    long state;
-    int enabled;
-    long retVal;
-
-    result = DVDChangeDiskAsync(block, id, cbForChangeDiskSync);
-    if (result == 0) {
-        return -1;
-    }
-    enabled = OSDisableInterrupts();
-    while(1) {
-        state = block->state;
-        if (state == DVD_STATE_END) {
-            retVal = 0;
-            break;
-        } else if (state == DVD_STATE_FATAL_ERROR) {
-            retVal = -1;
-            break;
-        } else if (state == DVD_STATE_CANCELED) {
-            retVal = -3;
-            break;
-        }
-        OSSleepThread(&__DVDThreadQueue);
-    }
-    OSRestoreInterrupts(enabled);
-    return retVal;
-}
-
-static void cbForChangeDiskSync() {
-    OSWakeupThread(&__DVDThreadQueue);
-}
 
 int DVDInquiryAsync(struct DVDCommandBlock * block, struct DVDDriveInfo * info, void (* callback)(long, struct DVDCommandBlock *)) {
     int idle;
@@ -1276,38 +990,9 @@ int DVDInquiryAsync(struct DVDCommandBlock * block, struct DVDDriveInfo * info, 
     return idle;
 }
 
-long DVDInquiry(struct DVDCommandBlock * block, struct DVDDriveInfo * info) {
-    int result;
-    long state;
-    int enabled;
-    long retVal;
 
-    result = DVDInquiryAsync(block, info, cbForInquirySync);
-    if (result == 0) {
-        return -1;
-    }
-    enabled = OSDisableInterrupts();
-    while(1) {
-        state = block->state;
-        if (state == DVD_STATE_END) {
-            retVal = (u32)block->transferredSize;
-            break;
-        } else if (state == DVD_STATE_FATAL_ERROR) {
-            retVal = -1;
-            break;
-        } else if (state == DVD_STATE_CANCELED) {
-            retVal = -3;
-            break;
-        }
-        OSSleepThread(&__DVDThreadQueue);
-    }
-    OSRestoreInterrupts(enabled);
-    return retVal;
-}
 
-static void cbForInquirySync(long result, struct DVDCommandBlock *block) {
-    OSWakeupThread(&__DVDThreadQueue);
-}
+
 
 void DVDReset() {
     DVDLowReset();
@@ -1317,9 +1002,7 @@ void DVDReset() {
     ResumeFromHere = 0;
 }
 
-int DVDResetRequired() {
-    return ResetRequired;
-}
+
 
 long DVDGetCommandBlockStatus(const struct DVDCommandBlock * block) {
     BOOL enabled;
@@ -1542,39 +1225,15 @@ int DVDCancelAllAsync(void (* callback)(long, struct DVDCommandBlock *)) {
     return retVal;
 }
 
-long DVDCancelAll() {
-    int result;
-    int enabled;
 
-    enabled = OSDisableInterrupts();
-    CancelAllSyncComplete = 0;
-    result = DVDCancelAllAsync(cbForCancelAllSync);
-    if (result == 0) {
-        OSRestoreInterrupts(enabled);
-        return -1;
-    }
-    while(1) {
-        if (CancelAllSyncComplete == 0) {
-            OSSleepThread(&__DVDThreadQueue);
-        } else {
-            break;
-        }
-    }
-    OSRestoreInterrupts(enabled);
-    return 0;
-}
 
-static void cbForCancelAllSync() {
-    CancelAllSyncComplete = 1;
-    OSWakeupThread(&__DVDThreadQueue);
-}
+
 
 struct DVDDiskID * DVDGetCurrentDiskID() {
     return (void*)OSPhysicalToCached(0);
 }
 
-BOOL DVDCheckDisk()
-{
+BOOL DVDCheckDisk() {
 	BOOL enabled;
 	s32 retVal;
 	s32 state;
@@ -1629,8 +1288,7 @@ BOOL DVDCheckDisk()
 	return retVal;
 }
 
-void __DVDPrepareResetAsync(DVDCBCallback callback)
-{
+void __DVDPrepareResetAsync(DVDCBCallback callback) {
 	BOOL enabled;
 
 	enabled = OSDisableInterrupts();

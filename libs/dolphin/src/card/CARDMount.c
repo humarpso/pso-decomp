@@ -2,13 +2,7 @@
 
 #define DoMount CARDMount_DoMount
 #define DoUnmount CARDMount_DoUnmount
-#define EXIAttach TAdPlayerLoadGC__sub_8042FBBC
-#define EXIDetach TAdPlayerLoadGC__sub_8042FCC8
-#define EXIGetID TAdPlayerLoadGC__sub_80430694
-#define EXIGetState TAdPlayerLoadGC__sub_80430654
-#define EXIProbe TAdPlayerLoadGC__sub_8042FA88
-#define EXIProbeEx TAdPlayerLoadGC__sub_8042FB08
-#define EXISetExiCallback TAdPlayerLoadGC__sub_8042F898
+#define EXIGetID Dolphin_EXIGetID
 #define IsCard CARDMount_IsCard
 #define LatencyTable lbl_804F4DE0
 #define SectorSizeTable lbl_804F4DC0

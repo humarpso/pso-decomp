@@ -53,7 +53,7 @@ s32 TCheckRoomSequence__sub_80211574(int);
 s32 TLobby__sub_8030A770();
 s32 TLobby__sub_8030A7B0();
 s32 TObjPlayer__sub_801049C8(s32, s32);
-M2C_UNK TObjPlayer__sub_803966F8(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
+M2C_UNK __destroy_arr(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
 int __ct__12TPlyCharDataFv(void*);
 M2C_UNK __dl__FPv(s32);
 M2C_UNK __dt__12TPlyCharDataFv(M2C_UNK, M2C_UNK);
@@ -235,7 +235,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FC564(s32 arg0) {
 
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        TObjPlayer__sub_803966F8(arg0 + 4, (M2C_UNK *)TAdSinglePlyChrSelectGC__sub_801FC8B4, 0x2798, 7);
+        __destroy_arr(arg0 + 4, (M2C_UNK *)TAdSinglePlyChrSelectGC__sub_801FC8B4, 0x2798, 7);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

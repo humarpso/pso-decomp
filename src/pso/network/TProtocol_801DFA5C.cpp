@@ -1,14 +1,23 @@
 #include "pso/packet_classes.h"
+#include <stddef.h>
+
+typedef char LobbyExitSize[(sizeof(TRecvExit<true>) == 8) ? 1 : -1];
+typedef char GameExitSize[(sizeof(TRecvExit<false>) == 8) ? 1 : -1];
+typedef char GameExitClientOffset[(offsetof(TRecvExit<false>, client_id) == 4) ? 1 : -1];
+typedef char GameExitLeaderOffset[(offsetof(TRecvExit<false>, leader_id) == 5) ? 1 : -1];
+typedef char GameExitUdpOffset[(offsetof(TRecvExit<false>, disable_udp) == 6) ? 1 : -1];
 
 extern "C" {
 
-int bswap_exit_game_header__9TProtocolFPv(void* p);
 int __ct__16TPlyGuildCardTagFv(void*);
 int bswap_32__FPUl(void*);
 int bswap__13packet_headerFv(void*);
 int bswap__16TPlyGuildCardTagFv(void*);
 
-int bswap_exit_game_header__9TProtocolFPv(void* p) { return bswap__13packet_headerFv(p); }
+}
+
+template<> void TRecvExit<false>::bswap() {
+    header.bswap();
 }
 
 void TCreateGame::bswap() {

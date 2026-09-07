@@ -10,7 +10,7 @@ struct RecoveredGlobal_8001EDF4_lbl_804FE148 {
 };
 
 extern "C" {
-s32 TLobby__sub_8039DAFC(void *, void *);
+s32 strcmp(void *, void *);
 extern RecoveredGlobal_8001EDF4_lbl_804FE148 lbl_804FE148;
 extern s32 lbl_805D4AD4;
 void TLobby__sub_8001EDF4(u8 *arg0);
@@ -36,7 +36,7 @@ extern s32 lbl_805D4AD4;
 
 typedef char RecoveredGlobal_8001EDF4_lbl_804FE148_size[sizeof(RecoveredGlobal_8001EDF4_lbl_804FE148) == 0x20 ? 1 : -1];
 void TLobby__sub_8001EDF4(u8 *arg0) {
-    if (((s32) lbl_805D4AD4 == 0) && (TLobby__sub_8039DAFC(&lbl_804FE148.value, arg0) == 0)) {
+    if (((s32) lbl_805D4AD4 == 0) && (strcmp(&lbl_804FE148.value, arg0) == 0)) {
         lbl_805D4AD4 = 1;
         lbl_804FE148.value = 0;
     }

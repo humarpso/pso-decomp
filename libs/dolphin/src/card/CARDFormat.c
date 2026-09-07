@@ -4,8 +4,6 @@
 #define OSGetFontEncode fn_803721C0
 #define __CARDBlock lbl_80544980
 #define __CARDDefaultApiCallback fn_80380B74
-#define __shr2i TKeyBoardControl__sub_80397060
-
 #include <dolphin.h>
 #include <dolphin/card.h>
 

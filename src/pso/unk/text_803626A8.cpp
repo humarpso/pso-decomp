@@ -50,7 +50,7 @@ extern s32 lbl_805D5678;
 void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2);
 u8 * __dt__9TObjEneDDFv(void *, s16);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TObjPlayer__sub_803966F8(void *, void *, int, int);
+M2C_UNK __destroy_arr(void *, void *, int, int);
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK __vt__14TObjEneEpsilon[];
 u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1);
@@ -97,7 +97,7 @@ typedef char RecoveredGlobal_80362B48___vt__14TObjEneEpsilon_size[sizeof(Recover
 u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon *)&__vt__14TObjEneEpsilon).value;
-        TObjPlayer__sub_803966F8((void *) (arg0 + 0x3C0), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
+        __destroy_arr((void *) (arg0 + 0x3C0), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
         __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));

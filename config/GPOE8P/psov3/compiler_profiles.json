@@ -1,0 +1,63 @@
+{
+  "pso/misc/TKeyBoardControl_803F0C50.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off"
+  },
+  "pso/misc/TLobby_803C1A58.cpp": {
+    "mw_version": "GC/1.3",
+    "optimization": "-O4,p",
+    "inline": "auto",
+    "use_lmw_stmw": "off"
+  },
+  "pso/misc/TLobby_803F8794.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off",
+    "opt": "nocse"
+  },
+  "pso/misc/TLobby_804245DC.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off"
+  },
+  "pso/misc/TQuestVmDownLoadServer_803E5668.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off"
+  },
+  "pso/misc/TQuestVmDownLoadServer_803E6970.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off"
+  },
+  "pso/misc/TWindowKeyBoardSoft_803E6610.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off"
+  },
+  "pso/unk/text_803A3858.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off"
+  },
+  "pso/unk/text_803F7678.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off"
+  },
+  "pso/unk/text_80421620.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off"
+  }
+}

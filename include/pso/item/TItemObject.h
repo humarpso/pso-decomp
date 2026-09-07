@@ -7,6 +7,7 @@
 struct TItemObject
 {
     void store_encoded_value(s32 value);
+    s32 load_encoded_value();
 
     u8 unknown_0[0xF0];
     u32 m_f0;

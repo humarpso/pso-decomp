@@ -1,4 +1,6 @@
 # Units linked into the DOL from compiled source
+PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
+PowerPC_EABI_Support/Runtime/Src/ptmf.c
 pso/boss/TBoss1DragonEffBullet.cpp
 pso/boss/TBoss2DeRolLe_800340A0.cpp
 pso/boss/TBoss2Mine.cpp
@@ -2911,9 +2913,9 @@ pso/unk/text_8036A894.cpp
 pso/unk/text_8036AE2C.cpp
 pso/unk/text_8036B748.cpp
 pso/unk/text_8036F764.cpp
-pso/unk/text_80394670.cpp
 pso/unk/text_80396328.cpp
 pso/unk/text_8039A298.cpp
 pso/unk/text_803DCF0C.cpp
 pso/unk/text_803DE838.cpp
 pso/unk/text_803DE890.cpp
+pso/unk/text_8042EE4C.cpp

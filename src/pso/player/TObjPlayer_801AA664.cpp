@@ -13,7 +13,7 @@ u16 get_entity_type__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_801AA584(s32 arg0, s16 arg1);
 void* TObjPlayer__sub_801AA61C(void* p);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
-s32 TObjPlayer__sub_803966F8(s32, s32 *, s32, s32);
+s32 __destroy_arr(s32, s32 *, s32, s32);
 int __dl__FPv(void* a0 = 0);
 s16 get_hp__10TObjPlayerFPv(void* p);
 u16 get_section_id__10TObjPlayerFPv(void* p);

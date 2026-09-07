@@ -17245,6 +17245,8 @@ db/db.c:
 
 os/OS.c:
 	.text       start:0x8036FA44 end:0x803703A0
+	.data       start:0x804F3A70 end:0x804F3C30
+	.bss        start:0x80543AA0 end:0x80543AF0
 
 os/OSAlarm.c:
 	.text       start:0x803703A0 end:0x80370A4C
@@ -17257,7 +17259,7 @@ os/OSAlloc.c:
 
 os/OSArena.c:
 	.text       start:0x80370D5C end:0x80370D7C
-	.sdata      start:0x805D4510 end:0x805D4514
+	.sdata      start:0x805D4510 end:0x805D4518
 	.sbss       start:0x805D7078 end:0x805D707C
 
 os/OSAudioSystem.c:
@@ -17266,12 +17268,17 @@ os/OSAudioSystem.c:
 
 os/OSCache.c:
 	.text       start:0x80371010 end:0x80371590
+	.data       start:0x804F3CB0 end:0x804F3EE0
 
 os/OSContext.c:
 	.text       start:0x80371590 end:0x80371DF8
+	.data       start:0x804F3EE0 end:0x804F40B8
 
 os/OSError.c:
 	.text       start:0x80371DF8 end:0x803721C0
+	.data       start:0x804F40B8 end:0x804F43D8
+	.bss        start:0x80543AF0 end:0x80543B30
+	.sdata      start:0x805D4518 end:0x805D4520
 
 os/OSInterrupt.c:
 	.text       start:0x80372218 end:0x80372A84
@@ -17319,15 +17326,18 @@ os/__ppc_eabi_init.cpp:
 mtx/mtx.c:
 	.text       start:0x803763C0 end:0x80376C3C
 	.sdata      start:0x805D4528 end:0x805D4530
+	.sdata2     start:0x805E0450 end:0x805E0468
 
 mtx/mtxvec.c:
 	.text       start:0x80376C3C end:0x80376DF8
 
 mtx/mtx44.c:
 	.text       start:0x80376DF8 end:0x80376FFC
+	.sdata2     start:0x805E0468 end:0x805E0480
 
 mtx/vec.c:
 	.text       start:0x80376FFC end:0x803770C8
+	.sdata2     start:0x805E0480 end:0x805E0488
 
 dvd/dvdlow.c:
 	.text       start:0x803770C8 end:0x80377F1C
@@ -17337,6 +17347,7 @@ dvd/dvdlow.c:
 
 dvd/dvdfs.c:
 	.text       start:0x80377F1C end:0x80378850
+	.data       start:0x804F44C8 end:0x804F4630
 	.sdata      start:0x805D4538 end:0x805D4540
 	.sbss       start:0x805D7128 end:0x805D7148
 
@@ -17345,6 +17356,7 @@ dvd/dvd.c:
 	.data       start:0x804F4630 end:0x804F4748
 	.bss        start:0x80544680 end:0x80544758
 	.sdata      start:0x805D4540 end:0x805D4544
+	.sbss       start:0x805D7148 end:0x805D7190
 
 dvd/dvdqueue.c:
 	.text       start:0x8037ACD4 end:0x8037AECC
@@ -17368,6 +17380,7 @@ pad/Pad.c:
 	.data       start:0x804F4AC8 end:0x804F4AD8
 	.bss        start:0x80544930 end:0x80544980
 	.sdata      start:0x805D4558 end:0x805D4574
+	.sbss       start:0x805D71F0 end:0x805D7218
 
 ai/ai.c:
 	.text       start:0x8037E7EC end:0x8037F094
@@ -17443,6 +17456,10 @@ card/CARDNet.c:
 
 gx/GXInit.c:
 	.text       start:0x80387A4C end:0x80388B3C
+	.bss        start:0x80544BC0 end:0x80545138
+	.sdata      start:0x805D4588 end:0x805D4590
+	.sbss       start:0x805D72C8 end:0x805D72D8
+	.sdata2     start:0x805E0488 end:0x805E04A8
 
 gx/GXFifo.c:
 	.text       start:0x80388B3C end:0x8038915C
@@ -17450,6 +17467,7 @@ gx/GXFifo.c:
 
 gx/GXAttr.c:
 	.text       start:0x8038915C end:0x80389F84
+	.data       start:0x804F4E00 end:0x804F4F1C
 	.sdata      start:0x805D4590 end:0x805D45A0
 
 gx/GXMisc.c:
@@ -17461,13 +17479,17 @@ gx/GXGeometry.c:
 
 gx/GXFrameBuf.c:
 	.text       start:0x8038A7A8 end:0x8038B594
+	.sdata2     start:0x805E04A8 end:0x805E04B8
 
 gx/GXLight.c:
 	.text       start:0x8038B594 end:0x8038BE90
 	.data       start:0x804F5088 end:0x804F50A4
+	.sdata2     start:0x805E04B8 end:0x805E04F0
 
 gx/GXTexture.c:
 	.text       start:0x8038BE90 end:0x8038CE4C
+	.sdata      start:0x805D45A0 end:0x805D45E0
+	.sdata2     start:0x805E04F0 end:0x805E0518
 
 gx/GXBump.c:
 	.text       start:0x8038CE4C end:0x8038D51C
@@ -17479,15 +17501,18 @@ gx/GXTev.c:
 gx/GXPixel.c:
 	.text       start:0x8038DDF8 end:0x8038E708
 	.data       start:0x804F52F8 end:0x804F5318
+	.sdata2     start:0x805E0520 end:0x805E0578
 
 gx/GXDisplayList.c:
 	.text       start:0x8038E70C end:0x8038E77C
 
 gx/GXTransform.c:
 	.text       start:0x8038E77C end:0x8038EF30
+	.sdata2     start:0x805E0578 end:0x805E0598
 
 gx/GXPerf.c:
 	.text       start:0x8038EF30 end:0x8038F7D8
+	.data       start:0x804F5318 end:0x804F5408
 
 TRK_MINNOW_DOLPHIN/mainloop.c:
 	.text       start:0x8038F7D8 end:0x8038F8D0
@@ -17522,23 +17547,28 @@ TRK_MINNOW_DOLPHIN/msghndlr.c:
 	.data       start:0x804F5490 end:0x804F54C8
 	.bss        start:0x80546B38 end:0x80546B40
 
+TRK_MINNOW_DOLPHIN/support.c:
+	.text       start:0x803935D4 end:0x80393E94
+
 TRK_MINNOW_DOLPHIN/mutex_TRK.c:
 	.text       start:0x80393E94 end:0x80393EAC
 
-pso/unk/text_8039441C.cpp:
-	.text       start:0x8039441C end:0x80394650
+TRK_MINNOW_DOLPHIN/notify.c:
+	.text       start:0x80393EAC end:0x80393F84
 
-pso/unk/text_80394670.cpp:
-	.text       start:0x80394670 end:0x803946AC
+TRK_MINNOW_DOLPHIN/flush_cache.c:
+	.text       start:0x80393F84 end:0x80393FBC
 
-pso/unk/text_803948B4.cpp:
-	.text       start:0x803948B4 end:0x803949AC
+TRK_MINNOW_DOLPHIN/mem_TRK.c:
+	.text       start:0x80393FBC end:0x80394088
 
-pso/unk/text_80394D98.cpp:
-	.text       start:0x80394D98 end:0x803957E4
+TRK_MINNOW_DOLPHIN/targimpl.c:
+	.text       start:0x80394088 end:0x80395930
+	.rodata     start:0x8047B928 end:0x8047B9B0
+	.data       start:0x804F54C8 end:0x804F54F8
 
-pso/unk/text_80395910.cpp:
-	.text       start:0x80395910 end:0x80395918
+TRK_MINNOW_DOLPHIN/dolphin_trk.c:
+	.text       start:0x80395930 end:0x80395A70
 
 TRK_MINNOW_DOLPHIN/mpc_7xx_603e.c:
 	.text       start:0x80395A70 end:0x80395DE8
@@ -17569,24 +17599,26 @@ PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c:
 	.text       start:0x803965EC end:0x8039664C
 	.dtors      start:0x80434028 end:0x8043402C
 
-pso/unk/text_8039664C.cpp:
+PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp:
 	.text       start:0x8039664C end:0x8039667C
 
-pso/unk/text_803966F8.cpp:
-	extab       start:0x8000E528 end:0x8000E548
-	extabindex  start:0x8000EC6C end:0x8000EC84
-	.text       start:0x803966F8 end:0x80396868
+PowerPC_EABI_Support/Runtime/Src/NMWException.cp:
+	extab       start:0x8000E520 end:0x8000E568
+	extabindex  start:0x8000EC60 end:0x8000EC9C
+	.text       start:0x8039667C end:0x80396A20
 
-pso/unk/text_80396920.cpp:
-	extab       start:0x8000E550 end:0x8000E568
-	extabindex  start:0x8000EC90 end:0x8000EC9C
-	.text       start:0x80396920 end:0x80396A78
+PowerPC_EABI_Support/Runtime/Src/ptmf.c:
+	.text       start:0x80396A20 end:0x80396A78
 
-pso/unk/text_80396CF0.cpp:
-	.text       start:0x80396CF0 end:0x80396E28
+PowerPC_EABI_Support/Runtime/Src/runtime.c:
+	.text       start:0x80396A78 end:0x803972C0
+	.rodata     start:0x8047BA08 end:0x8047BA20
 
-pso/unk/text_80397060.cpp:
-	.text       start:0x80397060 end:0x803972C0
+PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp:
+	.text       start:0x803972C0 end:0x80397334
+	.ctors      start:0x80433F20 end:0x80433F24
+	.dtors      start:0x80434020 end:0x80434028
+	.sdata      start:0x805D45E0 end:0x805D45E4
 
 PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp:
 	.text       start:0x80397334 end:0x8039739C
@@ -17608,8 +17640,9 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c:
 	.data       start:0x804F5558 end:0x804F5698
 	.bss        start:0x80549448 end:0x80549748
 
-pso/menu/TAdEndText_80397B90.cpp:
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c:
 	.text       start:0x80397B90 end:0x8039980C
+	.sdata2     start:0x805E0598 end:0x805E05A0
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c:
 	.text       start:0x8039980C end:0x80399904
@@ -17645,29 +17678,25 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c:
 pso/unk/text_8039A924.cpp:
 	.text       start:0x8039A924 end:0x8039AA7C
 
-pso/unk/text_8039AAF8.cpp:
-	.text       start:0x8039AAF8 end:0x8039AB64
-
-pso/unk/text_8039ABBC.cpp:
-	.text       start:0x8039ABBC end:0x8039BA1C
-
-pso/unk/text_8039BB48.cpp:
-	.text       start:0x8039BB48 end:0x8039C880
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c:
+	.text       start:0x8039AA7C end:0x8039C880
 
 pso/misc/TOBoss4Rock_8039C880.cpp:
 	.text       start:0x8039C880 end:0x8039C964
 
-pso/unk/text_8039C9F4.cpp:
-	.text       start:0x8039C9F4 end:0x8039D8E8
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c:
+	.text       start:0x8039C964 end:0x8039D8E8
 
-pso/unk/text_8039DABC.cpp:
-	.text       start:0x8039DABC end:0x8039DC9C
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c:
+	.text       start:0x8039D8E8 end:0x8039DDB4
 
-pso/unk/text_8039DCE0.cpp:
-	.text       start:0x8039DCE0 end:0x8039DD98
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c:
+	.text       start:0x8039DDB4 end:0x8039F6B0
+	.data       start:0x804F5E7C end:0x804F5EC0
 
-pso/unk/text_8039DDB4.cpp:
-	.text       start:0x8039DDB4 end:0x8039F774
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/uart_console_io.c:
+	.text       start:0x8039F6B0 end:0x8039F774
+	.sbss       start:0x805D7338 end:0x805D733C
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/wchar_io.c:
 	.text       start:0x8039F774 end:0x8039F7FC
@@ -18016,40 +18045,26 @@ pso/unk/text_8042E9FC.cpp:
 	.text       start:0x8042E9FC end:0x8042EAD4
 
 pso/unk/text_8042EE4C.cpp:
-	.text       start:0x8042EE4C end:0x8042F230
+	.text       start:0x8042EE4C end:0x8042F13C
 
-pso/unk/text_8042F48C.cpp:
-	.text       start:0x8042F48C end:0x8042F52C
+exi/EXIBios.c:
+	.text       start:0x8042F13C end:0x80430A10
+	.bss        start:0x805D1E40 end:0x805D1F00
 
-pso/unk/text_8042F850.cpp:
-	.text       start:0x8042F850 end:0x8042FA88
+exi/EXIUart.c:
+	.text       start:0x80430A10 end:0x80430D30
+	.sbss       start:0x805D7CD0 end:0x805D7CE0
 
-pso/ui/TAdPlayerLoadGC_8042FA88.cpp:
-	.text       start:0x8042FA88 end:0x8042FD84
-
-pso/unk/text_8042FFC0.cpp:
-	.text       start:0x8042FFC0 end:0x80430370
-
-pso/ui/TAdPlayerLoadGC_80430654.cpp:
-	.text       start:0x80430654 end:0x80430A10
-
-pso/misc/TKeyBoardControl_80430D30.cpp:
-	.text       start:0x80430D30 end:0x80431624
-
-pso/misc/TKeyBoardControl_804316C8.cpp:
-	.text       start:0x804316C8 end:0x80431974
-
-pso/misc/TKeyBoardControl_804319E0.cpp:
-	.text       start:0x804319E0 end:0x80431D0C
-
-pso/unk/text_80431E78.cpp:
-	.text       start:0x80431E78 end:0x80432110
-
-pso/unk/text_804322D4.cpp:
-	.text       start:0x804322D4 end:0x80432410
+si/SIBios.c:
+	.text       start:0x80430D30 end:0x80432580
+	.data       start:0x804FDAD0 end:0x804FDBA0
+	.bss        start:0x805D1F00 end:0x805D2100
+	.sbss       start:0x805D7CE0 end:0x805D7CF0
 
 si/SISamplingRate.c:
 	.text       start:0x80432580 end:0x80432688
+	.data       start:0x804FDBA0 end:0x804FDC38
+	.sbss       start:0x805D7CF0 end:0x805D7CF4
 
 pso/unk/text_80432688.cpp:
 	.text       start:0x80432688 end:0x80433F20

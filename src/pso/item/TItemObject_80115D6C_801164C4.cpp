@@ -1,12 +1,8 @@
-#include "types.h"
+#include "pso/item/TItemObject.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-s32 TItemObject__vt34(u8 *arg0);
-}
 
 extern "C" {
 
@@ -45,8 +41,8 @@ void *__dt__11TItemObjectFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-s32 TItemObject__vt34(u8 *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0xFC) ^ (s32) (arg0 + 0xFC);
 }
 
+s32 TItemObject::load_encoded_value() {
+    return encoded_value ^ (s32)&encoded_value;
 }

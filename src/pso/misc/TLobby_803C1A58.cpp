@@ -44,6 +44,18 @@ void TLobby__sub_803C6830(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C6830_lbl_80573AC0 lbl_80573AC0;
 void TLobby__sub_803C6800(void);
+void release_ref__6TLobbyFv(void);
+void init_once__6TLobbyFv(void);
+void TLobby__sub_803C9DB4(void *);
+void TLobby__sub_803CA0C8(void *, s32);
+void TLobby__sub_803D0FD0(void *, s32);
+void TLobby__sub_803D158C(void *);
+void TLobby__sub_803C5D24(u8 *arg0);
+s32 TLobby__sub_803C7748(void *);
+s32 DVDLowRead(void *);
+void TLobby__sub_803C6064(u8 *arg0);
+s32 TLobby__sub_803CF1A8(int);
+s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -113,6 +125,25 @@ void TLobby__sub_803C5D00(u8 *arg0) {
 
 extern s32 lbl_805D7548;
 
+void TLobby__sub_803C5D24(u8 *arg0) {
+    struct Fields_arg0 { u8 pad_0[2]; s8 field_2; u8 pad_3[13]; s32 field_10; void ** field_14; u8 pad_18[38]; s16 field_3E; u8 pad_40[84]; u8 * field_94; s8 field_98; };
+    void **temp_r3;
+    u8 *temp_r31;
+    u8 *temp_r4;
+    temp_r31 = (u8 *)(((Fields_arg0*)arg0)->field_94);
+    TLobby__sub_803C9DB4(arg0);
+    init_once__6TLobbyFv();
+    TLobby__sub_803CA0C8(arg0, ((Fields_arg0*)arg0)->field_10);
+    temp_r3 = (void **)(((Fields_arg0*)arg0)->field_14);
+    temp_r4 = (u8 *)(*temp_r3);
+    M2C_FIELD(temp_r4, M2C_UNK (**)(void **, void *), 0x14)(temp_r3, temp_r4);
+    ((Fields_arg0*)arg0)->field_2 = 4;
+    TLobby__sub_803D0FD0(temp_r31, ((Fields_arg0*)arg0)->field_3E << 0xB);
+    TLobby__sub_803D158C(temp_r31);
+    ((Fields_arg0*)arg0)->field_98 = 1;
+    release_ref__6TLobbyFv();
+}
+
 void TLobby__sub_803C5E58(void) {
     lbl_805D7548 -= 1;
 }
@@ -121,6 +152,26 @@ extern s32 lbl_805D7548;
 
 void TLobby__sub_803C5E68(void) {
     lbl_805D7548 += 1;
+}
+
+void TLobby__sub_803C6064(u8 *arg0) {
+    struct Fields_arg0 { u8 pad_0[1]; s8 field_1; u8 pad_2[1]; u8 field_3; u8 pad_4[40]; s32 field_2C; s32 field_30; u8 pad_34[8]; s32 field_3C; };
+    s32 temp_r3;
+loop_1:
+    if ((s8) ((Fields_arg0*)arg0)->field_3 == 0) {
+loop_2:
+        temp_r3 = DVDLowRead(arg0);
+        if (temp_r3 != 0) {
+            ((Fields_arg0*)arg0)->field_2C = (s32) (((Fields_arg0*)arg0)->field_2C + temp_r3);
+            if ((s32) ((Fields_arg0*)arg0)->field_30 >= (s32) ((Fields_arg0*)arg0)->field_3C) {
+                ((Fields_arg0*)arg0)->field_3 = 1U;
+                goto loop_1;
+            }
+            goto loop_2;
+        }
+    } else if (TLobby__sub_803C7748(arg0) > 0) {
+        ((Fields_arg0*)arg0)->field_1 = 3;
+    }
 }
 
 void TLobby__sub_803C60F0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -193,6 +244,20 @@ s32 set_range__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
 s32 TLobby__sub_803C8594(u8 *arg0, s32 *arg1, s32 *arg2) {
     *arg1 = M2C_FIELD(arg0, s32 *, 0x1C);
     *arg2 = M2C_FIELD(arg0, s32 *, 0x18);
+    return 1;
+}
+
+s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1) {
+    struct Fields_arg0 { u8 pad_0[8]; u8 * field_8; s32 field_C; s32 field_10; };
+    s32 var_r4;
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(((Fields_arg0*)arg0)->field_8);
+    if (temp_r3 != NULL) {
+        var_r4 = TLobby__sub_803CF1A8((int)(temp_r3)) - ((Fields_arg0*)arg0)->field_10;
+    } else {
+        var_r4 = 0;
+    }
+    *arg1 = var_r4 - ((Fields_arg0*)arg0)->field_C;
     return 1;
 }
 

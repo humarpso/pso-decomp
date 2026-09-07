@@ -142,7 +142,7 @@ M2C_UNK __dt__9TObjEneDDFv(void *, int);
 M2C_UNK __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TObjPlayer__sub_803966F8(void *, void *, int, int);
+M2C_UNK __destroy_arr(void *, void *, int, int);
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK __vt__13TObjEneMorfos[];
 u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1);
@@ -244,7 +244,7 @@ u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x494) = 0U;
         }
         TObjEneGibbles__sub_80156720((void *) (arg0));
-        TObjPlayer__sub_803966F8((void *) (arg0 + 0x424), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
+        __destroy_arr((void *) (arg0 + 0x424), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
         __dt__18TObjEneMe3SinowZoaFPvs((void *) (arg0 + 0x408), (int) (-1));
         TObjPlayer__sub_800A05B8((void *) (arg0 + 0x3EC), (int) (-1));
         __dt__9TObjEneDDFv((void *) (arg0), (int) (0));

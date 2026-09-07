@@ -6,8 +6,6 @@
 #define PostCB lbl_805D71B4
 #define PreCB lbl_805D71B0
 #define __VIRetraceHandler vi___VIRetraceHandler
-#define __shl2i fn_80397018
-#define __shr2u fn_8039703C
 #define changeMode lbl_805D71C0
 #define changed lbl_805D71C8
 #define flushFlag lbl_805D71A4

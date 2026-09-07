@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 process_keyboard_input__17TWindowSubComCardFPv(void *arg0);
-s32 TLobby__sub_8039DAFC(s32, M2C_UNK *);
+s32 strcmp(s32, M2C_UNK *);
 M2C_UNK fn_801F4F20(s32);
 M2C_UNK free_menu_object(u32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
@@ -24,7 +24,7 @@ s32 process_keyboard_input__17TWindowSubComCardFPv(void *arg0) {
     temp_field = M2C_FIELD(arg0, u32 *, 0x1C);
     if ((temp_field != 0U) && (update_keyboard__17TWindowSubComCardFPv(temp_field) != 0)) {
         temp_r31 = realloc_buffer__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x1C));
-        if (TLobby__sub_8039DAFC(temp_r31, &lbl_805DC4FC) == 0) {
+        if (strcmp(temp_r31, &lbl_805DC4FC) == 0) {
             free__11TOBoss4RockFUi(temp_r31);
             free_menu_object(M2C_FIELD(arg0, u32 *, 0x1C));
             return 0;

@@ -8,7 +8,7 @@ extern "C" {
 
 void build_selection_summary__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_80132F2C(M2C_UNK, M2C_UNK);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DC70(void *, void *);
+M2C_UNK strcat(void *, void *);
 M2C_UNK close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void *, void *, int, int, int);
 M2C_UNK create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
 
@@ -18,16 +18,16 @@ void build_selection_summary__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     create_backgrounds__23TAdSinglePlyChrSelectGCFPv();
     M2C_FIELD(arg0, s8 *, 0x68) = 0;
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x80) {
-        TAdSinglePlyChrSelectGC__sub_8039DC70((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1D)));
-        TAdSinglePlyChrSelectGC__sub_8039DC70((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
+        strcat((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1D)));
+        strcat((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
     }
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x100) {
-        TAdSinglePlyChrSelectGC__sub_8039DC70((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1E)));
-        TAdSinglePlyChrSelectGC__sub_8039DC70((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
+        strcat((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1E)));
+        strcat((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
     }
     if (M2C_FIELD(arg0, s32 *, 0x44) & 0x200) {
-        TAdSinglePlyChrSelectGC__sub_8039DC70((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1F)));
-        TAdSinglePlyChrSelectGC__sub_8039DC70((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
+        strcat((void *) (arg0 + 0x68), (void *) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x1F)));
+        strcat((void *) (arg0 + 0x68), (void *) (&lbl_805DE8F8));
     }
     close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv((void *) (arg0), (void *) (arg0 + 0x68), (int) (1), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x2A)), (int) (TAdSinglePlyChrSelectGC__sub_80132F2C(0x1C, 0x2B)));
 }

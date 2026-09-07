@@ -5,8 +5,6 @@
 #define VerifyFAT CARDCheck_VerifyFAT
 #define VerifyID CARDCheck_VerifyID
 #define __CARDBlock lbl_80544980
-#define __shr2i TKeyBoardControl__sub_80397060
-
 #include <dolphin.h>
 #include <dolphin/card.h>
 

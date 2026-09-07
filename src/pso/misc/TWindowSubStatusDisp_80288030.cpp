@@ -17,7 +17,7 @@ u8 *get_card_data_ptr__17TWindowSubComCardFPv(s32);
 u8 *TWindowSubComCard__sub_8027523C(s32);
 u8 *get_name__17TWindowSubComCardFPv(s32);
 u8 *get_sub_obj__17TWindowSubComCardFPv(s32);
-s32 TLobby__sub_8039DAFC(void *, int);
+s32 strcmp(void *, int);
 extern u8 lbl_805DD898;
 void TWindowSubStatusDisp__sub_80288104(u8 *arg0, s32 arg1);
 }
@@ -85,7 +85,7 @@ void TWindowSubStatusDisp__sub_80288104(u8 *arg0, s32 arg1) {
         set_flag0_bit2__15TWindowHelpItemFPv((int) (temp_r28));
     }
     temp_r31_2 = (u8 *)(get_sub_disp_ptr__20TWindowSubStatusDispFPv(arg1));
-    if (TLobby__sub_8039DAFC((void *) (get_sub_obj__17TWindowSubComCardFPv(arg1)), (int) (temp_r31_2)) != 0) {
+    if (strcmp((void *) (get_sub_obj__17TWindowSubComCardFPv(arg1)), (int) (temp_r31_2)) != 0) {
         TWindowSubStatusDisp__sub_802290E0();
         TWindowSubStatusDisp__sub_80229080((void *) (get_sub_obj__17TWindowSubComCardFPv(arg1)));
         TWindowSubStatusDisp__sub_80229080((void *) (get_message_10__20TWindowSubStatusDispFPv(0x45)));

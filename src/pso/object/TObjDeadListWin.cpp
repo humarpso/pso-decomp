@@ -24,7 +24,7 @@ extern "C" {
 void build_dead_list_window__15TObjDeadListWinFPv(u8 *arg0);
 void *create__15TObjDeadListWinFPv(void *arg0);
 void update_countdown__15TObjDeadListWinFPv(void *arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DC70(void *, void *);
+M2C_UNK strcat(void *, void *);
 void *TObjDeadListWin__ct(void *, void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(M2C_UNK);
@@ -49,15 +49,15 @@ void build_dead_list_window__15TObjDeadListWinFPv(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x20) = set_window_mode_4__6TLobbyFPvii((void *) TWindowSubComCard__sub_8026CBB8(0x3C), lbl_8048D168, 1);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
         sp8[0] = 0;
-        TAdSinglePlyChrSelectGC__sub_8039DC70(sp8, &lbl_805D9140);
+        strcat(sp8, &lbl_805D9140);
         var_r30 = 0;
         var_r31 = 0;
         do {
             temp_r4 = arg0 + var_r31;
             if ((s8) M2C_FIELD(temp_r4, u8 *, 0x28) != 0) {
-                TAdSinglePlyChrSelectGC__sub_8039DC70(sp8, temp_r4 + 0x28);
+                strcat(sp8, temp_r4 + 0x28);
                 if (var_r30 != 3) {
-                    TAdSinglePlyChrSelectGC__sub_8039DC70(sp8, &lbl_805D9144);
+                    strcat(sp8, &lbl_805D9144);
                 }
             }
             var_r30 += 1;

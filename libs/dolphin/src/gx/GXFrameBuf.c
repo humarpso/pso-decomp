@@ -75,8 +75,7 @@ GXRenderModeObj GXEurgb60Hz480Int = {20, 640, 480, 480, 40, 0, 640, 480, 1, 0, 0
 GXRenderModeObj GXEurgb60Hz480IntAa = {20, 640, 242, 480, 40, 0, 640, 480, 1, 0, 1, {{3, 2}, {9, 6}, {3, 10}, {3, 2}, {9, 6}, {3, 10}, {9, 2}, {3, 6}, {9, 10}, {9, 2}, {3, 6}, {9, 10}}, {4, 8, 12, 16, 12, 8, 4}};
 GXRenderModeObj GXRmHW = {1, 320, 240, 240, 40, 0, 640, 480, 0, 0, 0, { 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 }, { 0, 0, 21, 22, 21, 0, 0 } };
 
-void GXAdjustForOverscan(GXRenderModeObj *rmin, GXRenderModeObj *rmout, u16 hor, u16 ver)
-{
+void GXAdjustForOverscan(GXRenderModeObj *rmin, GXRenderModeObj *rmout, u16 hor, u16 ver) {
     unsigned short hor2 = hor * 2;
     unsigned short ver2 = ver * 2;
     unsigned long verf;
@@ -99,8 +98,7 @@ void GXAdjustForOverscan(GXRenderModeObj *rmin, GXRenderModeObj *rmout, u16 hor,
     rmout->viYOrigin = rmin->viYOrigin + ver;
 }
 
-void GXSetDispCopySrc(u16 left, u16 top, u16 wd, u16 ht)
-{
+void GXSetDispCopySrc(u16 left, u16 top, u16 wd, u16 ht) {
     CHECK_GXBEGIN(1181, "GXSetDispCopySrc");
 
     gx->cpDispSrc = 0;
@@ -115,8 +113,7 @@ void GXSetDispCopySrc(u16 left, u16 top, u16 wd, u16 ht)
 }
 
 
-void GXSetTexCopySrc(u16 left, u16 top, u16 wd, u16 ht)
-{
+void GXSetTexCopySrc(u16 left, u16 top, u16 wd, u16 ht) {
     CHECK_GXBEGIN(1209, "GXSetTexCopySrc");
 
     gx->cpTexSrc = 0;
@@ -130,8 +127,7 @@ void GXSetTexCopySrc(u16 left, u16 top, u16 wd, u16 ht)
     SET_REG_FIELD(1219, gx->cpTexSize,  8, 24, 0x4A);
 }
 
-void GXSetDispCopyDst(u16 wd, u16 ht)
-{
+void GXSetDispCopyDst(u16 wd, u16 ht) {
     u16 stride;
 
     ASSERTMSGLINE(1239, (wd & 0xF) == 0, "GXSetDispCopyDst: Width must be a multiple of 16");
@@ -143,8 +139,7 @@ void GXSetDispCopyDst(u16 wd, u16 ht)
     SET_REG_FIELD(1247, gx->cpDispStride,  8, 24, 0x4D);
 }
 
-void GXSetTexCopyDst(u16 wd, u16 ht, GXTexFmt fmt, GXBool mipmap)
-{
+void GXSetTexCopyDst(u16 wd, u16 ht, GXTexFmt fmt, GXBool mipmap) {
     u32 rowTiles;
     u32 colTiles;
     u32 cmpTiles;
@@ -187,15 +182,13 @@ void GXSetTexCopyDst(u16 wd, u16 ht, GXTexFmt fmt, GXBool mipmap)
     SET_REG_FIELD(1339, gx->cpTex, 3, 4, peTexFmt);
 }
 
-void GXSetDispCopyFrame2Field(GXCopyMode mode)
-{
+void GXSetDispCopyFrame2Field(GXCopyMode mode) {
     CHECK_GXBEGIN(1356, "GXSetDispCopyFrame2Field");
     SET_REG_FIELD(1357, gx->cpDisp, 2, 12, mode);
     SET_REG_FIELD(1358, gx->cpTex, 2, 12, 0);
 }
 
-void GXSetCopyClamp(GXFBClamp clamp)
-{
+void GXSetCopyClamp(GXFBClamp clamp) {
     u8 clmpB;
     u8 clmpT;
 
@@ -235,13 +228,7 @@ static u32 __GXGetNumXfbLines(u32 efbHt, u32 iScale) {
     return realHt;
 }
 
-u16 GXGetNumXfbLines(u16 efbHeight, f32 yScale) {
-    u32 iScale;
 
-    ASSERTMSGLINE(1432, yScale >= 1.0f, "GXGetNumXfbLines: Vertical scale must be >= 1.0");
-    iScale = (u32)(256.0f / yScale) & 0x1FF;
-    return __GXGetNumXfbLines(efbHeight, iScale);
-}
 
 f32 GXGetYScaleFactor(u16 efbHeight, u16 xfbHeight) {
     f32 fScale;
@@ -277,8 +264,7 @@ f32 GXGetYScaleFactor(u16 efbHeight, u16 xfbHeight) {
     return fScale;
 }
 
-u32 GXSetDispCopyYScale(f32 vscale)
-{
+u32 GXSetDispCopyYScale(f32 vscale) {
     u8 enable;
     u32 iScale;
     u32 ht;
@@ -301,8 +287,7 @@ u32 GXSetDispCopyYScale(f32 vscale)
     return __GXGetNumXfbLines(ht, iScale);
 }
 
-void GXSetCopyClear(GXColor clear_clr, u32 clear_z)
-{
+void GXSetCopyClear(GXColor clear_clr, u32 clear_z) {
     u32 reg;
 
     CHECK_GXBEGIN(1542, "GXSetCopyClear");
@@ -407,15 +392,13 @@ void GXSetCopyFilter(GXBool aa, const u8 sample_pattern[12][2], GXBool vf, const
     gx->bpSentNot = GX_FALSE;
 }
 
-void GXSetDispCopyGamma(GXGamma gamma)
-{
+void GXSetDispCopyGamma(GXGamma gamma) {
     CHECK_GXBEGIN(1687, "GXSetDispCopyGamma");
     SET_REG_FIELD(1688, gx->cpDisp, 2, 7, gamma);
 }
 
 #if DEBUG
-static void __GXVerifCopy(void *dest, u8 clear)
-{
+static void __GXVerifCopy(void *dest, u8 clear) {
     u8 clmpT;
     u8 clmpB;
     u32 x0;
@@ -451,8 +434,7 @@ static void __GXVerifCopy(void *dest, u8 clear)
 }
 #endif
 
-void GXCopyDisp(void *dest, GXBool clear)
-{
+void GXCopyDisp(void *dest, GXBool clear) {
     u32 reg;
     u32 tempPeCtrl;
     u32 phyAddr;
@@ -507,8 +489,7 @@ void GXCopyDisp(void *dest, GXBool clear)
     gx->bpSentNot = GX_FALSE;
 }
 
-void GXCopyTex(void *dest, GXBool clear)
-{
+void GXCopyTex(void *dest, GXBool clear) {
     u32 reg;
     u32 tempPeCtrl;
     u32 phyAddr;
@@ -568,8 +549,7 @@ void GXCopyTex(void *dest, GXBool clear)
     gx->bpSentNot = GX_FALSE;
 }
 
-void GXClearBoundingBox(void)
-{
+void GXClearBoundingBox(void) {
     u32 reg;
 
     CHECK_GXBEGIN(1949, "GXClearBoundingBox");
@@ -578,13 +558,4 @@ void GXClearBoundingBox(void)
     reg = 0x560003FF;
     GX_WRITE_RAS_REG(reg);
     gx->bpSentNot = GX_FALSE;
-}
-
-void GXReadBoundingBox(u16 *left, u16 *top, u16 *right, u16 *bottom)
-{
-
-    *left = __peReg[8];
-    *top = __peReg[10];
-    *right = __peReg[9];
-    *bottom = __peReg[11];
 }

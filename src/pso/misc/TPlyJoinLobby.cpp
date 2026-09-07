@@ -9,7 +9,7 @@ extern "C" {
 u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1);
 s32 __dt__13TPlyJoinLobbyFv(s32 arg0, s16 arg1);
 M2C_UNK TLobby__sub_8013AA64(int, int);
-M2C_UNK TObjPlayer__sub_803966F8(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
+M2C_UNK __destroy_arr(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
 M2C_UNK __dl__FPv(s32);
 
 u8 *__ct__13TPlyJoinLobbyFRC13TPlyJoinLobby(u8 *arg0, u8 *arg1) {
@@ -43,7 +43,7 @@ extern M2C_UNK __dt__18TPlyJoinLobbyEntryFv[];
 
 s32 __dt__13TPlyJoinLobbyFv(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        TObjPlayer__sub_803966F8(arg0 + 0x10, __dt__18TPlyJoinLobbyEntryFv, 0x43C, 0xC);
+        __destroy_arr(arg0 + 0x10, __dt__18TPlyJoinLobbyEntryFv, 0x43C, 0xC);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

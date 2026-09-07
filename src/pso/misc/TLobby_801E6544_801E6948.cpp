@@ -11,7 +11,7 @@ void append_string(s32 arg0);
 s32 parse_r_index(s32 arg0);
 u8 read_byte_advance__6TLobbyFv(void);
 M2C_UNK TAdEnterSerialAccessGC__sub_8039C8A0(M2C_UNK, M2C_UNK *, s32 *, ...);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DCE0(s32, s32);
+M2C_UNK strcpy(s32, s32);
 s32 strlen();
 
 extern M2C_UNK lbl_805DC4A8;
@@ -49,7 +49,7 @@ void append_string(s32 arg0) {
     s32 temp_r31;
 
     temp_r31 = strlen();
-    TAdSinglePlyChrSelectGC__sub_8039DCE0(lbl_805D5ED4, arg0);
+    strcpy(lbl_805D5ED4, arg0);
     lbl_805D5ED4 += temp_r31;
 }
 

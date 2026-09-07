@@ -11,7 +11,7 @@ struct RecoveredGlobal_802A5F24_lbl_804DD098 {
 
 extern "C" {
 M2C_UNK strncpy(void *, void *, int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DCE0(void *, void *);
+M2C_UNK strcpy(void *, void *);
 s32 strlen(void *);
 void fn_802A5CC4(u8 *arg0, s32 arg1);
 void free__11TOBoss4RockFUi(void *);
@@ -109,7 +109,7 @@ void fn_802A5CC4(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s8 *, 0x3B) = 0;
         return;
     }
-    TAdSinglePlyChrSelectGC__sub_8039DCE0((void *) (arg0 + 0x1C), (void *) (arg1));
+    strcpy((void *) (arg0 + 0x1C), (void *) (arg1));
 }
 
 void TWindowSnapShot__sub_802A5D28(void *arg0) {

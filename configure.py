@@ -20,6 +20,7 @@ import argparse
 import sys
 from pathlib import Path
 from typing import Any, Dict, List
+from tools.compiler_profiles import load_profiles, object_options
 
 from tools.project import (
     Object,
@@ -325,6 +326,11 @@ cflags_dolphin = [
     "-D__GEKKO__",  # donor SDK sources guard asm functions with this
 ]
 
+# Recovered SDK owners omit unused inline-math constants from their pools.
+cflags_dolphin_recovered = [
+    f for f in cflags_dolphin if f != "-char unsigned"
+] + ["-char signed", "-DPSO_SDK_COMPACT_MATH"]
+
 # PowerPC EABI runtime flags
 cflags_runtime = [
     *cflags_base,
@@ -361,6 +367,39 @@ cflags_trk = [
     "-rostr",
     "-char signed",
     "-use_lmw_stmw on",
+]
+
+# Native donor profiles verified against complete owning translation units.
+cflags_native_recovered = [
+    '-nodefaults',
+    '-proc gekko',
+    '-align powerpc',
+    '-enum int',
+    '-fp hardware',
+    '-Cpp_exceptions off',
+    '-RTTI off',
+    '-O4,p',
+    '-str reuse,pool,readonly',
+    '-maxerrors 1',
+    '-nosyspath',
+    '-fp_contract off',
+    '-char signed',
+    '-use_lmw_stmw on',
+    '-common off',
+    '-D__GEKKO__',
+    '-DDEBUG=0',
+    '-DNDEBUG',
+    '-DVERSION=0',
+    '-inline deferred,auto',
+    '-i libs',
+    '-i libs/PowerPC_EABI_Support/include',
+    '-i libs/PowerPC_EABI_Support/include/libc',
+    '-i libs/dolphin/include',
+    '-i libs/dolphin/include/dolphin',
+]
+cflags_native_recovered_auto = [
+    "-inline auto" if f == "-inline deferred,auto" else f
+    for f in cflags_native_recovered
 ]
 
 # ===================================================================
@@ -428,6 +467,8 @@ def TRKLib(lib_name: str, objects: list) -> dict:
 # ===================================================================
 
 if args.target == "psov3":
+    _pso_profiles = load_profiles()
+    config.reconfig_deps = [Path('config/GPOE8P/psov3/compiler_profiles.json'), Path('tools/compiler_profiles.py')]
     config.libs = [
         # ------------------------------------------------------------------
         # PsoV3.dol — Game code.
@@ -446,7 +487,8 @@ if args.target == "psov3":
                 # unit is an Object (dtk requires unit name == source path), and
                 # it is LINKED iff linked_units.txt lists it. Add a unit by
                 # adding its splits.txt block; never edit this list by hand.
-                *[NonMatching(_u) for _u in _psov3_units_from_splits()],
+                *[NonMatching(_u, **object_options(_u, cflags_pso, _pso_profiles))
+                  for _u in _psov3_units_from_splits()],
             ],
         },
         DolphinLib(
@@ -492,7 +534,59 @@ if args.target == "psov3":
                 NonMatching('gx/GXTransform.c'),
                 NonMatching('gx/GXPerf.c'),
             ],
-        ) | {"cflags": [f for f in cflags_dolphin if f != "-char unsigned"] + ["-char signed"]},
+        ) | {"cflags": cflags_dolphin_recovered},
+        TRKLib(
+            "recovered_trk",
+            [
+                NonMatching("TRK_MINNOW_DOLPHIN/support.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("TRK_MINNOW_DOLPHIN/notify.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("TRK_MINNOW_DOLPHIN/flush_cache.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("TRK_MINNOW_DOLPHIN/mem_TRK.c",
+                            mw_version="GC/1.3", cflags=cflags_native_recovered_auto),
+                NonMatching("TRK_MINNOW_DOLPHIN/targimpl.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("TRK_MINNOW_DOLPHIN/dolphin_trk.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+            ],
+        ),
+        RuntimeLib(
+            "recovered_runtime",
+            [
+                NonMatching("PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/Runtime/Src/NMWException.cp",
+                            mw_version="GC/1.3", cflags=cflags_native_recovered_auto),
+                NonMatching("PowerPC_EABI_Support/Runtime/Src/ptmf.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/Runtime/Src/runtime.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c",
+                            mw_version="GC/1.3", cflags=cflags_native_recovered_auto),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/uart_console_io.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
+            ],
+        ),
+        DolphinLib(
+            "recovered_sdk_io",
+            [
+                NonMatching('exi/EXIBios.c', cflags=cflags_dolphin_recovered),
+                NonMatching('exi/EXIUart.c', cflags=cflags_dolphin_recovered),
+                NonMatching('si/SIBios.c', cflags=cflags_dolphin_recovered),
+            ],
+        ),
         # ------------------------------------------------------------------
         # PsoV3.dol — Embedded Dolphin SDK copy.
         # TU boundaries transferred from the tp and ac-decomp donors
@@ -513,14 +607,14 @@ if args.target == "psov3":
         DolphinLib(
             "os",
             [
-                NonMatching("os/OS.c"),
+                NonMatching("os/OS.c", cflags=cflags_dolphin_recovered),
                 Matching("os/OSAlarm.c"),
                 Matching("os/OSAlloc.c"),
                 Matching("os/OSArena.c"),
                 Matching("os/OSAudioSystem.c"),
-                NonMatching("os/OSCache.c"),
-                NonMatching("os/OSContext.c"),
-                NonMatching("os/OSError.c"),
+                NonMatching("os/OSCache.c", cflags=cflags_dolphin_recovered),
+                NonMatching("os/OSContext.c", cflags=cflags_dolphin_recovered),
+                NonMatching("os/OSError.c", cflags=cflags_dolphin_recovered),
                 Matching("os/OSInterrupt.c"),
                 NonMatching("os/OSLink.c"),
                 Matching("os/OSMessage.c"),
@@ -547,7 +641,7 @@ if args.target == "psov3":
         DolphinLib(
             "gx",
             [
-                NonMatching("gx/GXInit.c"),
+                NonMatching("gx/GXInit.c", cflags=cflags_dolphin_recovered),
                 Matching("gx/GXGeometry.c"),
                 Matching("gx/GXTev.c"),
             ],
@@ -555,7 +649,7 @@ if args.target == "psov3":
         DolphinLib(
             "si",
             [
-                NonMatching("si/SISamplingRate.c"),
+                NonMatching("si/SISamplingRate.c", cflags=cflags_dolphin_recovered),
             ],
         ),
         DolphinLib(

@@ -10,7 +10,7 @@ extern s32 lbl_805D3848;
 extern s32 lbl_805D63C8;
 void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK TLobby__sub_80226C3C();
-s32 TLobby__sub_8039DAFC(M2C_UNK, s32);
+s32 strcmp(M2C_UNK, s32);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(s32);
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
@@ -58,7 +58,7 @@ void set_mode_change_state__21TAdMultiChgGameModeGCFv(void) {
 }
 void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void) { sync_mode_state__21TAdMultiChgGameModeGCFv(); (*(int *)&lbl_805D3848) = 1; (*(int *)&lbl_805D63C8) = 1; }
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0) {
-    if (TLobby__sub_8039DAFC(TLobby__sub_80226C3C(), arg0) != 0) {
+    if (strcmp(TLobby__sub_80226C3C(), arg0) != 0) {
         TObjBgmColCtrl__sub_802274B8(arg0);
     }
 }

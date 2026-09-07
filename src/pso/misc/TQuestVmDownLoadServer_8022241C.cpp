@@ -15,7 +15,7 @@ u8 is_idle__22TQuestVmDownLoadServerFPv(void *arg0);
 s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *arg0);
 u8 read_byte__22TQuestVmDownLoadServerFPv(void *arg0);
 void send_message__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DCE0(s32, s32);
+M2C_UNK strcpy(s32, s32);
 s32 TLobby__sub_80222C54(s32);
 s32 TLobby__sub_80222CBC(s32);
 M2C_UNK TQuestVmDownLoadServer__sub_80222774(void *, s32, void *);
@@ -40,7 +40,7 @@ void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1) {
     s32 temp_r31;
 
     temp_r31 = strlen(arg1);
-    TAdSinglePlyChrSelectGC__sub_8039DCE0(M2C_FIELD(arg0, s32 *, 0x208), arg1);
+    strcpy(M2C_FIELD(arg0, s32 *, 0x208), arg1);
     M2C_FIELD(arg0, s32 *, 0x208) = (s32) (M2C_FIELD(arg0, s32 *, 0x208) + temp_r31);
 }
 

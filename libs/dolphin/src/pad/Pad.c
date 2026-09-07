@@ -20,17 +20,8 @@
 #define ResetFunctionInfo lbl_804F4AC8
 #define ResettingBits lbl_805D71F8
 #define ResettingChan lbl_805D4558
-#define SIBusy TKeyBoardControl__sub_80430D30
-#define SIDisablePolling TKeyBoardControl__sub_80431A7C
-#define SIEnablePolling TKeyBoardControl__sub_804319E0
-#define SIGetResponse TKeyBoardControl__sub_80431BBC
-#define SIGetStatus TKeyBoardControl__sub_804318D4
-#define SIGetTypeAsync TKeyBoardControl__sub_804322D4
-#define SIIsChanBusy TKeyBoardControl__sub_80430D50
-#define SIRegisterPollingHandler TKeyBoardControl__sub_80431464
-#define SISetCommand TKeyBoardControl__sub_80431950
-#define SITransferCommands TKeyBoardControl__sub_80431964
-#define SIUnregisterPollingHandler TKeyBoardControl__sub_80431530
+#define SIGetTypeAsync Dolphin_SIGetTypeAsync
+#define SIUnregisterPollingHandler Dolphin_SIUnregisterPollingHandler
 #define SPEC0_MakeStatus Pad_SPEC0_MakeStatus
 #define SPEC1_MakeStatus Pad_SPEC1_MakeStatus
 #define SPEC2_MakeStatus Pad_SPEC2_MakeStatus
@@ -41,8 +32,6 @@
 #define WaitingBits lbl_805D7200
 #define XPatchBits lbl_805D455C
 #define __PADFixBits lbl_805D7CE8
-#define __shr2i TKeyBoardControl__sub_80397060
-
 #include <dolphin.h>
 #include <dolphin/pad.h>
 #include <dolphin/si.h>
@@ -104,7 +93,6 @@ static void (* MakeStatus)(long, struct PADStatus *, u32 *) = SPEC2_MakeStatus;
 
 static u32 Type[PAD_MAX_CONTROLLERS];
 static PADStatus Origin[PAD_MAX_CONTROLLERS];
-static u32 CmdTypeAndStatus;
 static u32 CmdReadOrigin = 0x41000000;
 static u32 CmdCalibrate = 0x42000000;
 static u32 CmdProbeDevice[PAD_MAX_CONTROLLERS];
@@ -166,8 +154,7 @@ static void UpdateOrigin(s32 chan) {
 
     chanBit = 0x80000000 >> chan;
     origin = &Origin[chan];
-    switch (AnalogMode & 0x00000700u)
-    {
+    switch (AnalogMode & 0x00000700u) {
     case 0x00000000u:
     case 0x00000500u:
     case 0x00000600u:
@@ -206,16 +193,14 @@ static void UpdateOrigin(s32 chan) {
 static void PADOriginCallback(s32 chan, u32 error, OSContext *context) {
     ASSERTLINE(602, 0 <= ResettingChan && ResettingChan < SI_MAX_CHAN);
     ASSERTLINE(603, chan == ResettingChan);
-    if (!(error & (SI_ERROR_UNDER_RUN | SI_ERROR_OVER_RUN | SI_ERROR_NO_RESPONSE | SI_ERROR_COLLISION)))
-    {
+    if (!(error & (SI_ERROR_UNDER_RUN | SI_ERROR_OVER_RUN | SI_ERROR_NO_RESPONSE | SI_ERROR_COLLISION))) {
         UpdateOrigin(ResettingChan);
         PADEnable(ResettingChan);
     }
     DoReset();
 }
 
-static void PADOriginUpdateCallback(s32 chan, u32 error, OSContext *context)
-{
+static void PADOriginUpdateCallback(s32 chan, u32 error, OSContext *context) {
     ASSERTLINE(632, 0 <= chan && chan < SI_MAX_CHAN);
     if (!(EnabledBits & (PAD_CHAN0_BIT >> chan)))
         return;
@@ -476,43 +461,13 @@ u32 PADRead(PADStatus* status) {
     return motor;
 }
 
-void PADSetSamplingRate(u32 msec) {
-    SISetSamplingRate(msec);
-}
+
 
 #if DEBUG
-void __PADTestSamplingRate(u32 tvmode) {
-    __SITestSamplingRate(tvmode);
-}
+
 #endif
 
-void PADControlAllMotors(const u32 *commandArray) {
-    BOOL enabled;
-    int chan;
-    u32 command;
-    BOOL commit;
-    u32 chanBit;
 
-    enabled = OSDisableInterrupts();
-    commit = FALSE;
-
-    for (chan = 0; chan < SI_MAX_CHAN; chan++, commandArray++)
-    {
-        chanBit = PAD_CHAN0_BIT >> chan;
-        if ((EnabledBits & chanBit) && !(SIGetType(chan) & SI_GC_NOMOTOR))
-        {
-            command = *commandArray;
-            ASSERTMSGLINE(1162, !(command & 0xFFFFFFFC), "PADControlAllMotors(): invalid command");
-            if (Spec < PAD_SPEC_2 && command == PAD_MOTOR_STOP_HARD)
-                command = PAD_MOTOR_STOP;
-            SISetCommand(chan, (0x40 << 16) | AnalogMode | (command & (0x00000001 | 0x00000002)));
-            commit = TRUE;
-        }
-    }
-    if (commit)
-        SITransferCommands();
-    OSRestoreInterrupts(enabled);
-}
 
 void PADControlMotor(s32 chan, u32 command) {
     BOOL enabled;
@@ -522,8 +477,7 @@ void PADControlMotor(s32 chan, u32 command) {
 
     enabled = OSDisableInterrupts();
     chanBit = PAD_CHAN0_BIT >> chan;
-    if ((EnabledBits & chanBit) && !(SIGetType(chan) & SI_GC_NOMOTOR))
-    {
+    if ((EnabledBits & chanBit) && !(SIGetType(chan) & SI_GC_NOMOTOR)) {
         if (Spec < PAD_SPEC_2 && command == PAD_MOTOR_STOP_HARD)
             command = PAD_MOTOR_STOP;
         SISetCommand(chan, (0x40 << 16) | AnalogMode | (command & (0x00000001 | 0x00000002)));
@@ -535,8 +489,7 @@ void PADControlMotor(s32 chan, u32 command) {
 void PADSetSpec(u32 spec) {
     ASSERTLINE(1231, !Initialized);
     __PADSpec = 0;
-    switch (spec)
-    {
+    switch (spec) {
     case PAD_SPEC_0:
         MakeStatus = SPEC0_MakeStatus;
         break;
@@ -553,9 +506,7 @@ void PADSetSpec(u32 spec) {
     Spec = spec;
 }
 
-u32 PADGetSpec(void) {
-    return Spec;
-}
+
 
 static void SPEC0_MakeStatus(s32 chan, PADStatus *status, u32 data[2]) {
     status->button = 0;
@@ -613,14 +564,12 @@ static void SPEC1_MakeStatus(s32 chan, PADStatus *status, u32 data[2]) {
 }
 
 static s8 ClampS8(s8 var, s8 org) {
-    if (0 < org)
-    {
+    if (0 < org) {
         s8 min = (s8)(-128 + org);
         if (var < min)
             var = min;
     }
-    else if (org < 0)
-    {
+    else if (org < 0) {
         s8 max = (s8)(127 + org);
         if (max < var)
             var = max;
@@ -641,8 +590,7 @@ static void SPEC2_MakeStatus(s32 chan, PADStatus *status, u32 data[2]) {
     status->stickX = (s8)(data[0] >> 8);
     status->stickY = (s8)(data[0]);
 
-    switch (AnalogMode & 0x00000700)
-    {
+    switch (AnalogMode & 0x00000700) {
     case 0x00000000:
     case 0x00000500:
     case 0x00000600:
@@ -702,38 +650,13 @@ static void SPEC2_MakeStatus(s32 chan, PADStatus *status, u32 data[2]) {
     status->triggerRight = ClampU8(status->triggerRight, origin->triggerRight);
 }
 
-BOOL PADGetType(s32 chan, u32 * type) {
-    u32 chanBit;
 
-    *type = SIGetType(chan);
-    chanBit = 0x80000000 >> chan;
-    if (ResettingBits & chanBit || ResettingChan == chan || !(EnabledBits & chanBit)) {
-        return FALSE;
-    }
-    return TRUE;
-}
 
 BOOL PADSync(void) {
     return ResettingBits == 0 && (s32)ResettingChan == 32 && !SIBusy();
 }
 
-void PADSetAnalogMode(u32 mode) {
-    BOOL enabled;
-    u32 mask;
 
-    ASSERTMSGLINE(1547, (mode < 8), "PADSetAnalogMode(): invalid mode");
-
-    enabled = OSDisableInterrupts();
-    AnalogMode = mode << 8;
-    mask = EnabledBits;
-
-    EnabledBits &= ~mask;
-    WaitingBits &= ~mask;
-    CheckingBits &= ~mask;
-
-    SIDisablePolling(mask);
-    OSRestoreInterrupts(enabled);
-}
 
 static BOOL OnReset(BOOL final) {
     BOOL sync;
@@ -743,11 +666,9 @@ static BOOL OnReset(BOOL final) {
         PADSetSamplingCallback(NULL);
     }
 
-    if (!final)
-    {
+    if (!final) {
         sync = PADSync();
-        if (!recalibrated && sync)
-        {
+        if (!recalibrated && sync) {
             recalibrated = PADRecalibrate(PAD_CHAN0_BIT | PAD_CHAN1_BIT | PAD_CHAN2_BIT | PAD_CHAN3_BIT);
             return FALSE;
         }
@@ -759,9 +680,7 @@ static BOOL OnReset(BOOL final) {
     return TRUE;
 }
 
-void __PADDisableXPatch(void) {
-    XPatchBits = 0;
-}
+
 
 static void SamplingHandler(s16 interrupt, OSContext* context) {
     OSContext exceptionContext;

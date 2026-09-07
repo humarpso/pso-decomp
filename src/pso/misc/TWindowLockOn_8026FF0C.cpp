@@ -43,7 +43,7 @@ struct VObj_8026ff0c {
 extern "C" {
 
 void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
-s32 TLobby__sub_8039DAFC(s32, s32);
+s32 strcmp(s32, s32);
 s32 is_inactive__10TObjPlayerFPv(void *);
 struct VObj_8026ff0c *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
@@ -76,7 +76,7 @@ void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
         return;
     }
     clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
-    if ((get_field_20__17TWindowSubComCardFPv(arg0) == 0U) || (TLobby__sub_8039DAFC(get_field_20__17TWindowSubComCardFPv(arg0), temp_r31) != 0)) {
+    if ((get_field_20__17TWindowSubComCardFPv(arg0) == 0U) || (strcmp(get_field_20__17TWindowSubComCardFPv(arg0), temp_r31) != 0)) {
         TWindowSubStatusDisp__sub_8025AC50(arg0, temp_r31, 0x20);
     }
     if (temp_r30->m31() != 0) {

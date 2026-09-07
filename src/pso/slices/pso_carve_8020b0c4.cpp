@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK fn_800F8A0C();
 M2C_UNK copy_name(M2C_UNK *);
-s32 TQuestVmDownLoadServer__sub_8039DABC(M2C_UNK, M2C_UNK *, M2C_UNK);
+s32 strncmp(M2C_UNK, M2C_UNK *, M2C_UNK);
 extern s32 TLobby__data_805D60E0;
 extern s32 TLobby__data_805D60E4;
 extern s32 TLobby__data_805D60E8;
@@ -24,7 +24,7 @@ void clear_map_set_data(void) {
     TLobby__data_805D60EC = 0;
     TLobby__data_805D60F4 = 0;
     M2C_UNK temp_r3 = fn_800F8A0C();
-    if (TQuestVmDownLoadServer__sub_8039DABC(temp_r3, &lbl_805DC620, 0x10) == 0) {
+    if (strncmp(temp_r3, &lbl_805DC620, 0x10) == 0) {
         copy_name(&lbl_805DC624);
     }
 }

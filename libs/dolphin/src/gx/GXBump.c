@@ -24,8 +24,7 @@ do { \
 } while (0)
 #endif
 
-void GXSetTevIndirect(GXTevStageID tev_stage, GXIndTexStageID ind_stage, GXIndTexFormat format, GXIndTexBiasSel bias_sel, GXIndTexMtxID matrix_sel, GXIndTexWrap wrap_s, GXIndTexWrap wrap_t, GXBool add_prev, GXBool utc_lod, GXIndTexAlphaSel alpha_sel)
-{
+void GXSetTevIndirect(GXTevStageID tev_stage, GXIndTexStageID ind_stage, GXIndTexFormat format, GXIndTexBiasSel bias_sel, GXIndTexMtxID matrix_sel, GXIndTexWrap wrap_s, GXIndTexWrap wrap_t, GXBool add_prev, GXBool utc_lod, GXIndTexAlphaSel alpha_sel) {
     u32 reg;
 
     CHECK_GXBEGIN(0x7F, "GXInitIndTexture");
@@ -44,8 +43,7 @@ void GXSetTevIndirect(GXTevStageID tev_stage, GXIndTexStageID ind_stage, GXIndTe
     gx->bpSentNot = GX_FALSE;
 }
 
-void GXSetIndTexMtx(GXIndTexMtxID mtx_id, f32 offset[2][3], s8 scale_exp)
-{
+void GXSetIndTexMtx(GXIndTexMtxID mtx_id, f32 offset[2][3], s8 scale_exp) {
     s32 mtx[6];
     u32 reg;
     u32 id;
@@ -104,8 +102,7 @@ void GXSetIndTexMtx(GXIndTexMtxID mtx_id, f32 offset[2][3], s8 scale_exp)
     gx->bpSentNot = GX_FALSE;
 }
 
-void GXSetIndTexCoordScale(GXIndTexStageID ind_state, GXIndTexScale scale_s, GXIndTexScale scale_t)
-{
+void GXSetIndTexCoordScale(GXIndTexStageID ind_state, GXIndTexScale scale_s, GXIndTexScale scale_t) {
     CHECK_GXBEGIN(0xE6, "GXSetIndTexScale");
 
     switch (ind_state) {
@@ -140,8 +137,7 @@ void GXSetIndTexCoordScale(GXIndTexStageID ind_state, GXIndTexScale scale_s, GXI
     gx->bpSentNot = GX_FALSE;
 }
 
-void GXSetIndTexOrder(GXIndTexStageID ind_stage, GXTexCoordID tex_coord, GXTexMapID tex_map)
-{
+void GXSetIndTexOrder(GXIndTexStageID ind_stage, GXTexCoordID tex_coord, GXTexMapID tex_map) {
     CHECK_GXBEGIN(0x11B, "GXSetIndTexOrder");
 
     ASSERTMSGLINE(0x11D, tex_map < 8, "GXSetIndTexOrder: Invalid direct texture Id");
@@ -173,22 +169,19 @@ void GXSetIndTexOrder(GXIndTexStageID ind_stage, GXTexCoordID tex_coord, GXTexMa
     gx->bpSentNot = GX_FALSE;
 }
 
-void GXSetNumIndStages(u8 nIndStages)
-{
+void GXSetNumIndStages(u8 nIndStages) {
     CHECK_GXBEGIN(0x144, "GXSetNumIndStages");
     ASSERTMSGLINE(0x146, nIndStages <= 4, "GXSetNumIndStages: Exceeds max. number of indirect texture stages");
     SET_REG_FIELD(0x147, gx->genMode, 3, 16, nIndStages);
     gx->dirtyState |= 6;
 }
 
-void GXSetTevDirect(GXTevStageID tev_stage)
-{
+void GXSetTevDirect(GXTevStageID tev_stage) {
     CHECK_GXBEGIN(0x158, "GXSetTevDirect");
     GXSetTevIndirect(tev_stage, GX_INDTEXSTAGE0, GX_ITF_8, GX_ITB_NONE, GX_ITM_OFF, GX_ITW_OFF, GX_ITW_OFF, 0U, 0, 0);
 }
 
-void GXSetTevIndWarp(GXTevStageID tev_stage, GXIndTexStageID ind_stage, u8 signed_offset, u8 replace_mode, GXIndTexMtxID matrix_sel)
-{
+void GXSetTevIndWarp(GXTevStageID tev_stage, GXIndTexStageID ind_stage, u8 signed_offset, u8 replace_mode, GXIndTexMtxID matrix_sel) {
     GXIndTexWrap wrap = (replace_mode != 0) ? GX_ITW_0 : GX_ITW_OFF;
 
     CHECK_GXBEGIN(0x16E, "GXSetTevIndWarp");
@@ -197,8 +190,7 @@ void GXSetTevIndWarp(GXTevStageID tev_stage, GXIndTexStageID ind_stage, u8 signe
 
 void GXSetTevIndTile(GXTevStageID tev_stage, GXIndTexStageID ind_stage, u16 tilesize_s,
     u16 tilesize_t, u16 tilespacing_s, u16 tilespacing_t, GXIndTexFormat format,
-    GXIndTexMtxID matrix_sel, GXIndTexBiasSel bias_sel, GXIndTexAlphaSel alpha_sel)
-{
+    GXIndTexMtxID matrix_sel, GXIndTexBiasSel bias_sel, GXIndTexAlphaSel alpha_sel) {
     GXIndTexWrap wrap_s;
     GXIndTexWrap wrap_t;
     f32 mtx[2][3];
@@ -256,48 +248,13 @@ void GXSetTevIndTile(GXTevStageID tev_stage, GXIndTexStageID ind_stage, u16 tile
     GXSetTevIndirect(tev_stage, ind_stage, format, bias_sel, matrix_sel, wrap_s, wrap_t, 0U, 1, alpha_sel);
 }
 
-void GXSetTevIndBumpST(GXTevStageID tev_stage, GXIndTexStageID ind_stage, GXIndTexMtxID matrix_sel)
-{
-    GXIndTexMtxID sm;
-    GXIndTexMtxID tm;
 
-    CHECK_GXBEGIN(0x1CF, "GXSetTevIndBumpST");
-    switch (matrix_sel) {
-    case GX_ITM_0:
-        sm = GX_ITM_S0;
-        tm = GX_ITM_T0;
-        break;
-    case GX_ITM_1:
-        sm = GX_ITM_S1;
-        tm = GX_ITM_T1;
-        break;
-    case GX_ITM_2:
-        sm = GX_ITM_S2;
-        tm = GX_ITM_T2;
-        break;
-    default:
-        ASSERTMSGLINE(0x1E0, 0, "GXSetTevIndBumpST: Invalid matrix selection");
-        break;
-    }
-    GXSetTevIndirect(tev_stage, ind_stage, GX_ITF_8, GX_ITB_ST, sm, GX_ITW_0, GX_ITW_0, 0U, 0, 0);
-    GXSetTevIndirect(tev_stage + 1, ind_stage, GX_ITF_8, GX_ITB_ST, tm, GX_ITW_0, GX_ITW_0, 1U, 0, 0);
-    GXSetTevIndirect(tev_stage + 2, ind_stage, GX_ITF_8, GX_ITB_NONE, GX_ITM_OFF, GX_ITW_OFF, GX_ITW_OFF, 1U, 0, 0);
-}
 
-void GXSetTevIndBumpXYZ(GXTevStageID tev_stage, GXIndTexStageID ind_stage, GXIndTexMtxID matrix_sel)
-{
-    CHECK_GXBEGIN(0x214, "GXSetTevIndBumpXYZ");
-    GXSetTevIndirect(tev_stage, ind_stage, GX_ITF_8, GX_ITB_STU, matrix_sel, GX_ITW_OFF, GX_ITW_OFF, 0U, 0, 0);
-}
 
-void GXSetTevIndRepeat(GXTevStageID tev_stage)
-{
-    CHECK_GXBEGIN(0x231, "GXSetTevIndRepeat");
-    GXSetTevIndirect(tev_stage, GX_INDTEXSTAGE0, GX_ITF_8, GX_ITB_NONE, GX_ITM_OFF, GX_ITW_0, GX_ITW_0, 1U, 0, 0);
-}
 
-void __GXUpdateBPMask(void)
-{
+
+
+void __GXUpdateBPMask(void) {
     u32 nIndStages;
     u32 i;
     u32 tmap;
@@ -336,8 +293,7 @@ void __GXUpdateBPMask(void)
     }
 }
 
-void __GXFlushTextureState(void)
-{
+void __GXFlushTextureState(void) {
     GX_WRITE_SOME_REG5(0x61, gx->bpMask);
     gx->bpSentNot = GX_FALSE;
 }

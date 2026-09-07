@@ -13,7 +13,7 @@ s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 void TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 u8 *destroy_window_base__9TWindowDDFPvs(void *, s16);
 void __dl__7TObjectFPv(void *);
-void TObjPlayer__sub_803966F8(void *, void *, int, int);
+void __destroy_arr(void *, void *, int, int);
 void free_if_valid__14TPlyDispConfigFis(void *, s16);
 extern u32 __vt__20TWindowActionPalette[6];
 }
@@ -27,7 +27,7 @@ void TWindowActionPalette::render() {
 extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {
     if (self != NULL) {
         *(u32 **)(self + 0x18) = __vt__20TWindowActionPalette;
-        TObjPlayer__sub_803966F8(self + 0x60,
+        __destroy_arr(self + 0x60,
                                (void *)free_if_valid__14TPlyDispConfigFis, 4, 3);
         destroy_window_base__9TWindowDDFPvs(self, 0);
         if (delete_flag > 0) {

@@ -12,7 +12,7 @@ M2C_UNK free_singleton_805D4E6C__18TObjButterflyLobbyFv();
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK fn_800F8A0C();
 M2C_UNK copy_name(M2C_UNK *);
-s32 TQuestVmDownLoadServer__sub_8039DABC(M2C_UNK, s32, M2C_UNK);
+s32 strncmp(M2C_UNK, s32, M2C_UNK);
 M2C_UNK TLobby__sub_803DA16C(u32);
 extern s32 TScene__data_805D3610;
 extern s32 *lbl_805D4E68;
@@ -167,7 +167,7 @@ void TScene__sub_80206984(void) {
     }
     (*(s32 *)&lbl_805D4E68) = 0;
     TScene__data_805D5FCC = NULL;
-    if (TQuestVmDownLoadServer__sub_8039DABC(fn_800F8A0C(), TScene__data_805D3610, 0x10) == 0) {
+    if (strncmp(fn_800F8A0C(), TScene__data_805D3610, 0x10) == 0) {
         copy_name(&lbl_805DC604);
     }
 }

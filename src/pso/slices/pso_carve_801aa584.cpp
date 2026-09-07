@@ -20,7 +20,7 @@ extern "C" {
 M2C_UNK init_forward__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_80313138(void *);
 M2C_UNK __construct_array(void *, void *, void *, int, int);
-s32 TObjPlayer__sub_803966F8(s32, s32 *, s32, s32);
+s32 __destroy_arr(s32, s32 *, s32, s32);
 int TObjPlayer__sub_801AA6E4(void* a0 = 0, void* a1 = 0);
 void* TObjPlayer__sub_801AA66C(void* p, void* a1);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);

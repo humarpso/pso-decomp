@@ -13,7 +13,7 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
 int fn_8020325C(void *arg0);
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
-M2C_UNK TObjPlayer__sub_803966F8(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
+M2C_UNK __destroy_arr(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
 s32 __dl__FPv(s32);
 extern M2C_UNK lbl_805D5FB0;
 extern int lbl_805D5F58;
@@ -82,7 +82,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
 
 s32 TAdSinglePlyChrSelectGC__sub_80202A74(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        TObjPlayer__sub_803966F8(arg0 + 4, (M2C_UNK *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39b4, 7);
+        __destroy_arr(arg0 + 4, (M2C_UNK *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39b4, 7);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }

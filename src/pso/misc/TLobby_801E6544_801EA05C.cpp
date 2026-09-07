@@ -94,7 +94,7 @@ s32 set_flag_4__6TLobbyFPv(int);
 s32 TLobby__sub_801F345C();
 void TLobby__sub_801EB25C(s32 arg0, s32 arg1);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
-s32 TQuestVmDownLoadServer__sub_8039DABC(void *, void *, int);
+s32 strncmp(void *, void *, int);
 extern int* TLobby__data_805D5E78;
 extern M2C_UNK TLobby__data_805DC4A0;
 void TLobby__sub_801EA1B4(s32 arg0);
@@ -149,7 +149,7 @@ void TLobby__sub_801EA1B4(s32 arg0) {
     u32 temp_r3;
     temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
     if (temp_r3 != 0U) {
-        if (TQuestVmDownLoadServer__sub_8039DABC((void *) (temp_r3 + 0x2254), (void *) (&TLobby__data_805DC4A0), (int) (0x20)) == 0) {
+        if (strncmp((void *) (temp_r3 + 0x2254), (void *) (&TLobby__data_805DC4A0), (int) (0x20)) == 0) {
             M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 0;
             return;
         }

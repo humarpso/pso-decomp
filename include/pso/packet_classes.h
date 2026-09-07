@@ -348,10 +348,11 @@ public:
 	char leader_id;
 	char disable_udp;
 public:
-	void bswap() {
-		header.bswap();
-	};
+	void bswap();
 };
+
+template<> void TRecvExit<true>::bswap();
+template<> void TRecvExit<false>::bswap();
 
 class TCreateGame {
 public:
@@ -445,10 +446,8 @@ public:
 	TPlyGuildCardTag tag;
 	char name[16];
 public:
-	void bswap() {
-		header.bswap();
-		tag.bswap();
-	};
+	TSendAction();
+	void bswap();
 };
 
 template<>
@@ -458,10 +457,8 @@ public:
 	TPlyGuildCardTag tag;
 	char password[16];
 public:
-	void bswap() {
-		header.bswap();
-		tag.bswap();
-	};
+	TSendAction();
+	void bswap();
 };
 
 template<>
@@ -472,10 +469,8 @@ public:
 	char name[16];
 	char password[16];
 public:
-	void bswap() {
-		header.bswap();
-		tag.bswap();
-	};
+	TSendAction();
+	void bswap();
 };
 
 class TMessageBox {
