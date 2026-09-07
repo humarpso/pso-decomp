@@ -12,7 +12,7 @@ M2C_UNK TObjPlayer__sub_803DC600();
 M2C_UNK TObjPlayer__sub_803DC6F4();
 M2C_UNK TObjPlayer__sub_803DC76C(int);
 void TOSignCave03__sub_803DB510(s32 arg0);
-M2C_UNK TObjPlayer__sub_803892B4(int, void *);
+M2C_UNK Dolphin_GXSetVtxDesc(int, void *);
 M2C_UNK GXClearVtxDesc();
 s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1);
 void TObjPlayer__sub_803DB59C(s32 arg0);
@@ -34,10 +34,10 @@ s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1) {
 }
 void TObjPlayer__sub_803DB59C(s32 arg0) {
     GXClearVtxDesc();
-    TObjPlayer__sub_803892B4((int) (9), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (1)))));
-    TObjPlayer__sub_803892B4((int) (0xA), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (2)))));
-    TObjPlayer__sub_803892B4((int) (0xB), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (3)))));
-    TObjPlayer__sub_803892B4((int) (0xD), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (5)))));
+    Dolphin_GXSetVtxDesc((int) (9), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (1)))));
+    Dolphin_GXSetVtxDesc((int) (0xA), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (2)))));
+    Dolphin_GXSetVtxDesc((int) (0xB), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (3)))));
+    Dolphin_GXSetVtxDesc((int) (0xD), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (5)))));
 }
 
 }

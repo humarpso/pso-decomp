@@ -239,6 +239,68 @@ struct RecoveredGlobal_800457A0_lbl_804FF0CC {
     u8 remaining[0x3C];
 };
 
+struct VBase_18_62ff9d { char pad[0x18]; };
+
+struct VObj_18_62ff9d : VBase_18_62ff9d {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual M2C_UNK m56();
+};
+
 extern "C" {
 u32 TPhotonMylla__sub_80154CB4(u16);
 M2C_UNK fn_80048C04();
@@ -347,6 +409,17 @@ extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_8
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
 extern RecoveredGlobal_800457A0_lbl_804FF0CC lbl_804FF0CC;
 void TBoss3Volopt__sub_800457A0(u8 *arg0);
+void TBoss1Dragon__sub_80143504(void *);
+extern u8 *TBoss3Volopt__data_805D4D00;
+extern u8 *TBoss3Volopt__data_805D4D08;
+extern const f32 lbl_805D87B0;
+extern const f32 TBoss3Volopt__data_805D87D8;
+extern const f32 TBoss3Volopt__data_805D87E4;
+extern const f32 TBoss3Volopt__data_805D87E8;
+extern const f32 lbl_805D87F4;
+extern const f32 lbl_805D87F8;
+extern const f32 lbl_805D87FC;
+void TBoss3Volopt__sub_80045DC4(u8 *arg0);
 }
 
 extern "C" {
@@ -476,6 +549,44 @@ void TBoss3Volopt__sub_80045A04(u8 *arg0) {
         TObjEneDellBiter__sub_80087350((s32) &stack.sp8, 0xFB);
     }
     TOTrapAncient01__sub_80226578(0x4003AD21, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TBoss3Volopt__sub_80045DC4(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+    s8 var_r4;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000);
+        M2C_FIELD(arg0, s16 *, 0xB8) = 8;
+        M2C_FIELD(arg0, s32 *, 0x37C) = 2;
+    case 2:
+        TBoss1Dragon__sub_80143504(arg0);
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0xC0);
+        var_r4 = 0;
+        if (temp_f1 >= TBoss3Volopt__data_805D87D8) {
+            var_r4 = (s8) (lbl_805D87F4 * (temp_f1 - TBoss3Volopt__data_805D87D8));
+        }
+        M2C_FIELD(TBoss3Volopt__data_805D4D00, s8 *, 7) = var_r4;
+        M2C_FIELD(TBoss3Volopt__data_805D4D08, s8 *, 7) = var_r4;
+        M2C_FIELD(arg0, s32 *, 0x47C) = 0x4000;
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805D87B0 * -((lbl_805D87F8 * M2C_FIELD(arg0, f32 *, 0xC0)) - TBoss3Volopt__data_805D87E8));
+        if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805D87FC) {
+            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss3Volopt__data_805D87E4;
+            M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
+            ((VObj_18_62ff9d *)(arg0))->m56();
+            break;
+        }
+    case 1:
+        break;
+    case -1:
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+        break;
+    }
 }
 #pragma pop
 

@@ -3,6 +3,11 @@
 
 #include "types.h"
 
+extern "C" {
+s32 TWindowDD_check_input_mask(void *input_context, s32 mask);
+s32 TWindowDD_is_id_in_range_5AC_5F9(s16 id);
+}
+
 struct TWindowDD
 {
     u16 m_1c;

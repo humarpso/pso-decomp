@@ -39,17 +39,17 @@ extern "C" {
 
 void flush_cache__6TMovieFv(void);
 M2C_UNK DCStoreRangeNoSync(s32, s32);
-M2C_UNK fn_8037C8B8();
-u32 fn_8037CB2C();
+M2C_UNK VIFlush();
+u32 VIGetNextField();
 
 extern s32 lbl_805D5688;
 extern s32 lbl_805D5694;
 extern s32 lbl_805D569C;
 
 void flush_cache__6TMovieFv(void) {
-    if (fn_8037CB2C() == 0U) {
+    if (VIGetNextField() == 0U) {
         DCStoreRangeNoSync(lbl_805D5688, lbl_805D5694);
-        fn_8037C8B8();
+        VIFlush();
         lbl_805D569C += 1;
     }
 }
@@ -78,7 +78,7 @@ extern "C" {
 void flush_and_reset__6TMovieFv(void);
 int TMovie__sub_80143CC8(void);
 int flush_cache__6TMovieFv(void);
-int fn_8037BC54(void*);
+int VIWaitForRetrace(void*);
 
 void flush_and_reset__6TMovieFv(void) { flush_cache__6TMovieFv(); TMovie__sub_80143CC8(); }
 
@@ -90,9 +90,9 @@ void flush_and_reset__6TMovieFv(void) { flush_cache__6TMovieFv(); TMovie__sub_80
 extern "C" {
 
 int TMovie__sub_80143CC8(void* p);
-int fn_8037BC54(void*);
+int VIWaitForRetrace(void*);
 
-int TMovie__sub_80143CC8(void* p) { return fn_8037BC54(p); }
+int TMovie__sub_80143CC8(void* p) { return VIWaitForRetrace(p); }
 
 }
 #endif
@@ -310,11 +310,11 @@ void render_until_finished__6TMovieFv(void);
 
 s32 TLobby__sub_800F8FB8();
 M2C_UNK render_tick__Fv();
-s32 fn_8037AAD4();
+s32 DVDCheckDisk();
 
 void render_until_finished__6TMovieFv(void) {
 loop_1:
-    if ((fn_8037AAD4() == 0) && (TLobby__sub_800F8FB8() == 0)) {
+    if ((DVDCheckDisk() == 0) && (TLobby__sub_800F8FB8() == 0)) {
         render_tick__Fv();
         goto loop_1;
     }

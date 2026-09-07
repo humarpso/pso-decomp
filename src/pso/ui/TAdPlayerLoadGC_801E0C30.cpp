@@ -13,18 +13,18 @@ extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
-s32 TAdPlayerLoadGC__sub_80381C68(void *);
-s32 TAdPlayerLoadGC__sub_80384B30(s32, M2C_UNK *, s32 *);
+s32 CARDGetResultCode(void *);
+s32 CARDProbeEx(s32, M2C_UNK *, s32 *);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 s32 TAdPlayerLoadGC__sub_801E1E38(s32 arg0);
 M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32 arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
-s32 fn_803849D8(s32);
+s32 CARDCheck(s32);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 extern s32 TAdPlayerLoadGC__data_805D5E30;
-s32 PADInit(s32, s32 *, M2C_UNK *);
+s32 CARDFreeBlocks(s32, s32 *, M2C_UNK *);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0);
@@ -33,9 +33,9 @@ extern s32 TAdPlayerLoadGC__data_805D5E40;
 s32 poll_load_status__15TAdPlayerLoadGCFi(s32 arg0);
 M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
 s32 get_load_result__15TAdPlayerLoadGCFv(void *);
-s32 TAdPlayerLoadGC__sub_80381C68(void *);
-s32 TAdPlayerLoadGC__sub_803849B0(void *, int);
-s32 TAdPlayerLoadGC__sub_80384B30(s32, M2C_UNK *, s32 *);
+s32 CARDGetResultCode(void *);
+s32 CARDCheckAsync(void *, int);
+s32 CARDProbeEx(s32, M2C_UNK *, s32 *);
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0);
@@ -51,13 +51,13 @@ int TAdPlayerLoadGC__sub_801E1510(void);
 void poll_card_load__15TAdPlayerLoadGCFi(s32 arg0);
 void reset_load_state__15TAdPlayerLoadGCFPvPv(void *arg0, void *arg1);
 M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
-s32 TAdPlayerLoadGC__sub_80384B30(s32, M2C_UNK *, s32 *);
-M2C_UNK TAdPlayerLoadGC__sub_803877F8();
+s32 CARDProbeEx(s32, M2C_UNK *, s32 *);
+M2C_UNK CARDGetSerialNo();
 
 void reset_load_state__15TAdPlayerLoadGCFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg1, s32 *, 4) = 0;
     M2C_FIELD(arg1, s32 *, 0) = 0;
-    TAdPlayerLoadGC__sub_803877F8();
+    CARDGetSerialNo();
 }
 
 extern s32 TAdPlayerLoadGC__data_805D5E30;
@@ -70,7 +70,7 @@ void poll_card_load__15TAdPlayerLoadGCFi(s32 arg0) {
 
     TAdPlayerLoadGC__data_805D5E30 &= ~(0x400 << arg0);
     do {
-        temp_r3 = TAdPlayerLoadGC__sub_80384B30(arg0, &spC, &sp8);
+        temp_r3 = CARDProbeEx(arg0, &spC, &sp8);
     } while (temp_r3 == -1);
     if (sp8 == 0x2000) {
         if ((temp_r3 == -3) || (temp_r3 == -2)) {
@@ -91,7 +91,7 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0) {
     s32 temp_r3_3;
     s32 temp_r3_4;
     s32 var_r0;
-    if ((TAdPlayerLoadGC__data_805D5E30 & (0x400 << arg0)) && ((temp_r3 = TAdPlayerLoadGC__sub_80381C68((void *) (arg0)), ((temp_r3 == -5) != 0)) || (temp_r3 == -2))) {
+    if ((TAdPlayerLoadGC__data_805D5E30 & (0x400 << arg0)) && ((temp_r3 = CARDGetResultCode((void *) (arg0)), ((temp_r3 == -5) != 0)) || (temp_r3 == -2))) {
         var_r0 = -0x7F;
         if (temp_r3 == -2) {
             var_r0 = -0x7D;
@@ -100,7 +100,7 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0) {
         return 0;
     }
     do {
-        temp_r3_2 = TAdPlayerLoadGC__sub_80384B30(arg0, &spC, &sp8);
+        temp_r3_2 = CARDProbeEx(arg0, &spC, &sp8);
     } while (temp_r3_2 == -1);
     if (temp_r3_2 == -2) {
         TAdPlayerLoadGC__data_805D5E40 = -0x7D;
@@ -114,10 +114,10 @@ s32 TAdPlayerLoadGC__sub_801E0D8C(s32 arg0) {
                 return 0;
             }
         }
-        temp_r3_3 = TAdPlayerLoadGC__sub_803849B0((void *) (arg0), (int) (0));
+        temp_r3_3 = CARDCheckAsync((void *) (arg0), (int) (0));
         if (temp_r3_3 == 0) {
             for (;;) {
-                temp_r3_4 = TAdPlayerLoadGC__sub_80381C68((void *) (arg0));
+                temp_r3_4 = CARDGetResultCode((void *) (arg0));
                 if (temp_r3_4 == -1) {
                     continue;
                 }
@@ -186,12 +186,12 @@ s32 TAdPlayerLoadGC__sub_801E1E38(s32 arg0) {
     if (arg0 >= 2) {
         return 0;
     }
-    if ((TAdPlayerLoadGC__data_805D5E30 & (0x400 << arg0)) && (TAdPlayerLoadGC__sub_80381C68((void *)(arg0)) == -5)) {
+    if ((TAdPlayerLoadGC__data_805D5E30 & (0x400 << arg0)) && (CARDGetResultCode((void *)(arg0)) == -5)) {
         TAdPlayerLoadGC__data_805D5E40 = -0x7D;
         return 1;
     }
     do {
-        temp_r3 = TAdPlayerLoadGC__sub_80384B30(arg0, &spC, &sp8);
+        temp_r3 = CARDProbeEx(arg0, &spC, &sp8);
     } while (temp_r3 == -1);
     if (temp_r3 == -3) {
         TAdPlayerLoadGC__data_805D5E40 = -0xFF;
@@ -230,7 +230,7 @@ s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0) {
         TAdPlayerLoadGC__data_805D5E40 = -0xFF;
         return -0xFF;
     }
-    temp_r3 = fn_803849D8(arg0);
+    temp_r3 = CARDCheck(arg0);
     switch (temp_r3) {
     case -6:
     case -13:
@@ -255,7 +255,7 @@ s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32 arg0) {
         TAdPlayerLoadGC__data_805D5E40 = -0xFD;
         return -0xFD;
     }
-    temp_r3 = PADInit(arg0, &spC, &sp8);
+    temp_r3 = CARDFreeBlocks(arg0, &spC, &sp8);
     switch (temp_r3) {
     case -3:
         TAdPlayerLoadGC__data_805D5E40 = -0xFF;

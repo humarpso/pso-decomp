@@ -14,7 +14,7 @@ s32 TCameraCtrl__sub_800689F4();
 M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
 f64 TObjPlayer__sub_80083A50();
 M2C_UNK set_tex_coord_gen2(int, int, int, int);
-M2C_UNK TObjPlayer__sub_80376420(void *, void *, void *);
+M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK TObjPlayer__sub_80376B70(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
@@ -66,7 +66,7 @@ void TObjPlayer__sub_8033E988(void) {
         } else {
             TObjPlayer__sub_80376B70((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC), (f32) (lbl_805DFACC));
         }
-        TObjPlayer__sub_80376420((void *) (&sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
+        PSMTXConcat((void *) (&sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
         TObjPlayer__sub_803E1D54((int) (2));
         TObjPlayer__sub_803D9B78();
         TObjPlayer__sub_803E1D1C((int) (2));

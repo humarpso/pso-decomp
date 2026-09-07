@@ -14,7 +14,7 @@ void fn_803CBE00(void);
 M2C_UNK TLobby__sub_803CBEC8(int);
 M2C_UNK TLobby__sub_803D32B4();
 M2C_UNK apply_field__6TLobbyFv(int);
-M2C_UNK fn_8037BC54();
+M2C_UNK VIWaitForRetrace();
 M2C_UNK run_step_60c8__6TLobbyFv();
 
 void flush_input__16TKeyBoardControlFv(void) {
@@ -22,7 +22,7 @@ void flush_input__16TKeyBoardControlFv(void) {
 }
 
 void fn_803CBE00(void) {
-    fn_8037BC54();
+    VIWaitForRetrace();
 }
 
 void TLobby__sub_803CBE20(void) {

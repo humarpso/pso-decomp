@@ -51,13 +51,13 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_80100070(u8 *arg0);
+void TObjPlayer__sub_8010043C(u8 *arg0, u8 arg1);
 }
 
 extern "C" {
 
 void TObjPlayer__sub_80100068(void);
 void TObjPlayer__sub_8010006C(void);
-int TObjPlayer__sub_8010043C(void);
 u16 TObjPlayer__sub_80100474(void* p);
 void apply_item_flags__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void draw_item_model__10TObjPlayerFPv(u8 *arg0);
@@ -158,7 +158,19 @@ void draw_item_model__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-int TObjPlayer__sub_8010043C(void) { return 0; }
+void TObjPlayer__sub_8010043C(u8 *arg0, u8 arg1) {
+    u8 temp_r0;
+    M2C_FIELD(arg0, u8 *, 0xEF) = arg1;
+    temp_r0 = M2C_FIELD(arg0, u8 *, 0xEF);
+    if (temp_r0 < 0xBU) {
+        if (temp_r0 == 7) {
+            M2C_FIELD(arg0, s8 *, 0xEA) = 5;
+        }
+        return;
+    }
+    M2C_FIELD(arg0, u8 *, 0xEF) = 2U;
+    M2C_FIELD(arg0, s8 *, 0xEA) = 0;
+}
 
 u16 TObjPlayer__sub_80100474(void* p) { return *(u16*)((char*)p + 0xe8); }
 

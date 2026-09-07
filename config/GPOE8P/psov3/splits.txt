@@ -17316,44 +17316,35 @@ os/OSTime.c:
 os/__ppc_eabi_init.cpp:
 	.text       start:0x8037632C end:0x803763C0
 
-pso/unk/text_803763C0.cpp:
-	.text       start:0x803763C0 end:0x80376D1C
+mtx/mtx.c:
+	.text       start:0x803763C0 end:0x80376C3C
+	.sdata      start:0x805D4528 end:0x805D4530
 
-pso/unk/text_80376D70.cpp:
-	.text       start:0x80376D70 end:0x80376DF8
+mtx/mtxvec.c:
+	.text       start:0x80376C3C end:0x80376DF8
 
-pso/unk/text_80377040.cpp:
-	.text       start:0x80377040 end:0x8037707C
+mtx/mtx44.c:
+	.text       start:0x80376DF8 end:0x80376FFC
 
-pso/unk/text_80377480.cpp:
-	.text       start:0x80377480 end:0x80377600
+mtx/vec.c:
+	.text       start:0x80376FFC end:0x803770C8
 
-pso/unk/text_80377F54.cpp:
-	.text       start:0x80377F54 end:0x80378334
+dvd/dvdlow.c:
+	.text       start:0x803770C8 end:0x80377F1C
+	.bss        start:0x805445A0 end:0x80544670
+	.sdata      start:0x805D4530 end:0x805D4538
+	.sbss       start:0x805D70E0 end:0x805D7128
 
-pso/unk/text_803786A8.cpp:
-	.text       start:0x803786A8 end:0x803787C0
+dvd/dvdfs.c:
+	.text       start:0x80377F1C end:0x80378850
+	.sdata      start:0x805D4538 end:0x805D4540
+	.sbss       start:0x805D7128 end:0x805D7148
 
-pso/unk/text_803787E4.cpp:
-	.text       start:0x803787E4 end:0x80378850
-
-pso/unk/text_80378A20.cpp:
-	.text       start:0x80378A20 end:0x80378AC8
-
-pso/unk/text_80379558.cpp:
-	.text       start:0x80379558 end:0x8037959C
-
-pso/unk/text_80379730.cpp:
-	.text       start:0x80379730 end:0x80379D1C
-
-pso/unk/text_8037A3CC.cpp:
-	.text       start:0x8037A3CC end:0x8037A49C
-
-pso/unk/text_8037A684.cpp:
-	.text       start:0x8037A684 end:0x8037A6D0
-
-pso/unk/text_8037A9FC.cpp:
-	.text       start:0x8037A9FC end:0x8037AAA8
+dvd/dvd.c:
+	.text       start:0x80378850 end:0x8037ACD4
+	.data       start:0x804F4630 end:0x804F4748
+	.bss        start:0x80544680 end:0x80544758
+	.sdata      start:0x805D4540 end:0x805D4544
 
 dvd/dvdqueue.c:
 	.text       start:0x8037ACD4 end:0x8037AECC
@@ -17366,126 +17357,137 @@ dvd/dvderror.c:
 dvd/fstload.c:
 	.text       start:0x8037B064 end:0x8037B2A4
 
-pso/unk/text_8037B4CC.cpp:
-	.text       start:0x8037B4CC end:0x8037B510
+vi/vi.c:
+	.text       start:0x8037B2A4 end:0x8037CD24
+	.data       start:0x804F4800 end:0x804F4AC8
+	.bss        start:0x805447E8 end:0x80544930
+	.sbss       start:0x805D71A0 end:0x805D71F0
 
-pso/unk/text_8037CD24.cpp:
-	.text       start:0x8037CD24 end:0x8037CEC8
+pad/Pad.c:
+	.text       start:0x8037CD24 end:0x8037E7EC
+	.data       start:0x804F4AC8 end:0x804F4AD8
+	.bss        start:0x80544930 end:0x80544980
+	.sdata      start:0x805D4558 end:0x805D4574
 
-pso/misc/TKeyBoardControl_8037CEC8.cpp:
-	.text       start:0x8037CEC8 end:0x8037DFBC
+ai/ai.c:
+	.text       start:0x8037E7EC end:0x8037F094
+	.sbss       start:0x805D7218 end:0x805D7258
 
-pso/misc/TKeyBoardControl_8037E130.cpp:
-	.text       start:0x8037E130 end:0x8037E770
+ar/ar.c:
+	.text       start:0x8037F094 end:0x8037FC88
+	.sbss       start:0x805D7258 end:0x805D7278
 
-pso/unk/text_8037E830.cpp:
-	.text       start:0x8037E830 end:0x8037E8B8
-
-pso/unk/text_8037EBE8.cpp:
-	.text       start:0x8037EBE8 end:0x8037ED4C
-
-pso/unk/text_8037EEB0.cpp:
-	.text       start:0x8037EEB0 end:0x8037F094
-
-pso/unk/text_8037F0D8.cpp:
-	.text       start:0x8037F0D8 end:0x8037F230
-
-pso/unk/text_8037F2EC.cpp:
-	.text       start:0x8037F2EC end:0x8037F2FC
-
-pso/unk/text_8037FC88.cpp:
-	.text       start:0x8037FC88 end:0x8037FD88
+ar/arq.c:
+	.text       start:0x8037FC88 end:0x8038001C
 
 pso/unk/text_8037FD8C.cpp:
-	.text       start:0x8037FD8C end:0x80380B74
+	.text       start:0x8038001C end:0x80380B74
 
-pso/ui/TAdPlayerLoadGC_80380B78.cpp:
-	.text       start:0x80380B78 end:0x80380EC8
-
-pso/ui/TAdPlayerLoadGC_80380F88.cpp:
-	.text       start:0x80380F88 end:0x80381F54
+card/CARDBios.c:
+	.text       start:0x80380B78 end:0x80381F54
+	.data       start:0x804F4C50 end:0x804F4C60
+	.bss        start:0x80544980 end:0x80544BC0
 
 pso/unk/text_803820C0.cpp:
 	.text       start:0x803820C0 end:0x80382E20
 
 pso/ui/TAdPlayerLoadGC_80382E90.cpp:
-	.text       start:0x80382E90 end:0x803849D8
+	.text       start:0x80382E90 end:0x803831B4
 
-pso/ui/TAdPlayerLoadGC_80384A2C.cpp:
-	.text       start:0x80384A2C end:0x80385C78
+card/CARDRdwr.c:
+	.text       start:0x803831B4 end:0x80383434
 
-pso/ui/TAdPlayerLoadGC_80385CC0.cpp:
-	.text       start:0x80385CC0 end:0x8038610C
+card/CARDBlock.c:
+	.text       start:0x80383434 end:0x80383838
 
-pso/ui/TAdPlayerLoadGC_80386114.cpp:
-	.text       start:0x80386114 end:0x80387A4C
+card/CARDDir.c:
+	.text       start:0x80383838 end:0x80383A9C
+
+card/CARDCheck.c:
+	.text       start:0x80383A9C end:0x80384A2C
+
+card/CARDMount.c:
+	.text       start:0x80384A2C end:0x803854DC
+	.data       start:0x804F4DC0 end:0x804F4E00
+
+card/CARDFormat.c:
+	.text       start:0x803854DC end:0x80385CC0
+
+card/CARDOpen.c:
+	.text       start:0x80385CC0 end:0x80386114
+
+card/CARDCreate.c:
+	.text       start:0x80386114 end:0x803864AC
+
+card/CARDRead.c:
+	.text       start:0x803864AC end:0x803868DC
+
+card/CARDWrite.c:
+	.text       start:0x803868DC end:0x80386C10
+
+card/CARDDelete.c:
+	.text       start:0x80386C10 end:0x80386E0C
+
+card/CARDStat.c:
+	.text       start:0x80386E0C end:0x803872EC
+
+card/CARDRename.c:
+	.text       start:0x803872EC end:0x803874E8
+
+card/CARDStatEx.c:
+	.text       start:0x803874E8 end:0x803877F8
+
+card/CARDNet.c:
+	.text       start:0x803877F8 end:0x80387A4C
+	.sdata      start:0x805D4580 end:0x805D4588
 
 gx/GXInit.c:
 	.text       start:0x80387A4C end:0x80388B3C
 
-pso/unk/text_80388B3C.cpp:
-	.text       start:0x80388B3C end:0x80388C78
+gx/GXFifo.c:
+	.text       start:0x80388B3C end:0x8038915C
+	.sbss       start:0x805D72D8 end:0x805D72F8
 
-pso/unk/text_80389034.cpp:
-	.text       start:0x80389034 end:0x80389F84
+gx/GXAttr.c:
+	.text       start:0x8038915C end:0x80389F84
+	.sdata      start:0x805D4590 end:0x805D45A0
 
-pso/unk/text_80389FFC.cpp:
-	.text       start:0x80389FFC end:0x8038A058
-
-pso/unk/text_8038A0D8.cpp:
-	.text       start:0x8038A0D8 end:0x8038A23C
+gx/GXMisc.c:
+	.text       start:0x80389F84 end:0x8038A3C8
+	.sbss       start:0x805D72F8 end:0x805D7310
 
 gx/GXGeometry.c:
 	.text       start:0x8038A3C8 end:0x8038A7A8
 
-pso/unk/text_8038A8C8.cpp:
-	.text       start:0x8038A8C8 end:0x8038B018
+gx/GXFrameBuf.c:
+	.text       start:0x8038A7A8 end:0x8038B594
 
-pso/unk/text_8038B240.cpp:
-	.text       start:0x8038B240 end:0x8038B25C
+gx/GXLight.c:
+	.text       start:0x8038B594 end:0x8038BE90
+	.data       start:0x804F5088 end:0x804F50A4
 
-pso/unk/text_8038B3CC.cpp:
-	.text       start:0x8038B3CC end:0x8038B594
+gx/GXTexture.c:
+	.text       start:0x8038BE90 end:0x8038CE4C
 
-pso/unk/text_8038B804.cpp:
-	.text       start:0x8038B804 end:0x8038B820
-
-pso/unk/text_8038B990.cpp:
-	.text       start:0x8038B990 end:0x8038BE90
-
-pso/unk/text_8038C0B4.cpp:
-	.text       start:0x8038C0B4 end:0x8038C370
-
-pso/unk/text_8038C504.cpp:
-	.text       start:0x8038C504 end:0x8038C708
-
-pso/unk/text_8038C750.cpp:
-	.text       start:0x8038C750 end:0x8038C7EC
-
-pso/unk/text_8038C954.cpp:
-	.text       start:0x8038C954 end:0x8038CC0C
-
-pso/unk/text_8038CE4C.cpp:
-	.text       start:0x8038CE4C end:0x8038D4F8
+gx/GXBump.c:
+	.text       start:0x8038CE4C end:0x8038D51C
 
 gx/GXTev.c:
 	.text       start:0x8038D51C end:0x8038DDF8
 	.data       start:0x804F52D0 end:0x804F52F8
 
-pso/unk/text_8038DFA8.cpp:
-	.text       start:0x8038DFA8 end:0x8038E708
+gx/GXPixel.c:
+	.text       start:0x8038DDF8 end:0x8038E708
+	.data       start:0x804F52F8 end:0x804F5318
 
-pso/unk/text_8038E70C.cpp:
+gx/GXDisplayList.c:
 	.text       start:0x8038E70C end:0x8038E77C
 
-pso/unk/text_8038E8F0.cpp:
-	.text       start:0x8038E8F0 end:0x8038E9C4
+gx/GXTransform.c:
+	.text       start:0x8038E77C end:0x8038EF30
 
-pso/unk/text_8038EAC8.cpp:
-	.text       start:0x8038EAC8 end:0x8038ED44
-
-pso/unk/text_8038ED90.cpp:
-	.text       start:0x8038ED90 end:0x8038F7D8
+gx/GXPerf.c:
+	.text       start:0x8038EF30 end:0x8038F7D8
 
 TRK_MINNOW_DOLPHIN/mainloop.c:
 	.text       start:0x8038F7D8 end:0x8038F8D0

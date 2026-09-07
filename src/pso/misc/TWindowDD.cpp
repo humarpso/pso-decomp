@@ -1,8 +1,16 @@
+#include "pso/misc/TWindowDD.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct RecoveredGlobal_80340508_lbl_8050E208
+{
+  M2C_UNK value;
+  u8 remaining[0x1AC];
+};
 
 extern "C" {
 void TWindowDD__sub_803407F0(u8 *arg0, s32 arg1);
@@ -15,6 +23,9 @@ extern const f32 lbl_805DFC34;
 extern const f32 lbl_805DFC38;
 extern const f32 lbl_805DFC3C;
 void TWindowDD__sub_8034042C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, void *);
+s32 TWindowShortListCtrl__check_controller_button(void *, void *);
+extern RecoveredGlobal_80340508_lbl_8050E208 lbl_8050E208;
 }
 
 extern "C" {
@@ -75,6 +86,12 @@ void TWindowDD__sub_8034042C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
   new_var = ((s8 *) arg0) + 0x38;
   *((f32 *) new_var) = temp_f1_2;
   *((f32 *) (((s8 *) arg0) + 0x3C)) = temp_f5;
+}
+
+typedef struct RecoveredGlobal_80340508_lbl_8050E208 RecoveredGlobal_80340508_lbl_8050E208;
+typedef char RecoveredGlobal_80340508_lbl_8050E208_size[((sizeof(RecoveredGlobal_80340508_lbl_8050E208)) == 0x1B0) ? (1) : (-1)];
+s32 TWindowDD_check_input_mask(void *input_context, s32 arg1) {
+  return TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E208.value)) + 0x20), (void *) arg1) | test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&lbl_8050E208.value)) + 0x160), (void *) arg1);
 }
 
 void update_draw__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }

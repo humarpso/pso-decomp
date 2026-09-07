@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK GXClearVtxDesc();
-M2C_UNK TObjPlayer__sub_803892B4(int, int);
-M2C_UNK TObjPlayer__sub_803897D8(int, int, int, int, int);
+M2C_UNK Dolphin_GXSetVtxDesc(int, int);
+M2C_UNK GXSetVtxAttrFmt(int, int, int, int, int);
 M2C_UNK TObjPlayer__sub_803E2468(int);
 M2C_UNK TObjPlayer__sub_803E2528();
 void setup_vertex_format__10TObjPlayerFv(void);
 M2C_UNK GXClearVtxDesc();
-M2C_UNK TObjPlayer__sub_803892B4(int, int);
-M2C_UNK TObjPlayer__sub_803897D8(int, int, int, int, int);
+M2C_UNK Dolphin_GXSetVtxDesc(int, int);
+M2C_UNK GXSetVtxAttrFmt(int, int, int, int, int);
 M2C_UNK TObjPlayer__sub_803E2468(int);
 M2C_UNK TObjPlayer__sub_803E2664();
 void setup_vtx_desc__10TObjPlayerFv(void);
@@ -64,22 +64,22 @@ void TObjPlayer__sub_803E2248(void) {
 }
 void setup_vertex_format__10TObjPlayerFv(void) {
     GXClearVtxDesc();
-    TObjPlayer__sub_803892B4((int) (9), (int) (1));
-    TObjPlayer__sub_803892B4((int) (0xB), (int) (1));
-    TObjPlayer__sub_803897D8((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
-    TObjPlayer__sub_803897D8((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
+    Dolphin_GXSetVtxDesc((int) (9), (int) (1));
+    Dolphin_GXSetVtxDesc((int) (0xB), (int) (1));
+    GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
+    GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
     TObjPlayer__sub_803E2468((int) (1));
     TObjPlayer__sub_803E2528();
     TObjPlayer__sub_803E2640();
 }
 void setup_vtx_desc__10TObjPlayerFv(void) {
     GXClearVtxDesc();
-    TObjPlayer__sub_803892B4((int) (9), (int) (1));
-    TObjPlayer__sub_803892B4((int) (0xB), (int) (1));
-    TObjPlayer__sub_803892B4((int) (0xD), (int) (1));
-    TObjPlayer__sub_803897D8((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
-    TObjPlayer__sub_803897D8((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
-    TObjPlayer__sub_803897D8((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
+    Dolphin_GXSetVtxDesc((int) (9), (int) (1));
+    Dolphin_GXSetVtxDesc((int) (0xB), (int) (1));
+    Dolphin_GXSetVtxDesc((int) (0xD), (int) (1));
+    GXSetVtxAttrFmt((int) (4), (int) (9), (int) (1), (int) (4), (int) (0));
+    GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
+    GXSetVtxAttrFmt((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
     TObjPlayer__sub_803E2468((int) (1));
     TObjPlayer__sub_803E256C((s32)((int) (1)));
     TObjPlayer__sub_803E2664();

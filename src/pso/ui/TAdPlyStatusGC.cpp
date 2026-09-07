@@ -56,6 +56,8 @@ extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
 extern s32 TAdPlyStatusGC__data_805D6DB0;
 extern s32 TAdPlyStatusGC__data_805D6DB8;
 void TAdPlyStatusGC__sub_8033F9DC(struct RecoveredFields_8033F9DC_arg0 *arg0);
+extern s32 TAdPlyStatusGC__data_805D6DB8;
+void TAdPlyStatusGC__sub_8033F900(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -71,6 +73,22 @@ int get_state_flag__9TMainTaskFv(void*);
 void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+
+void TAdPlyStatusGC__sub_8033F900(u8 *arg0, s32 arg1) {
+    s32 var_r4;
+    if (arg1 > 0) {
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
+            var_r4 = 2;
+            if ((s32) TAdPlyStatusGC__data_805D6DB8 != 0) {
+                var_r4 = 1;
+            }
+            M2C_FIELD(arg0, s32 *, 0x1C) = var_r4;
+        }
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+}
+
 void TAdPlyStatusGC__sub_8033F93C(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r5;

@@ -43,7 +43,7 @@ void load_tables(int a0);
 int poll_memcard_status__23TAdSinglePlyChrSelectGCFPv(void* p);
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 s32 register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1);
-u32 TAdPlayerLoadGC__sub_80381ABC();
+u32 CARDGetDiskID();
 int TAdSinglePlyChrSelectGC__sub_801FC5D8(void*);
 int TAdSinglePlyChrSelectGC__sub_801FC984(void*);
 int TAdSinglePlyChrSelectGC__sub_801FCD04(void*);
@@ -68,7 +68,7 @@ extern M2C_UNK lbl_805D5FB0;
 void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     u32 var_r3;
     if (arg0 >= 0) {
-        var_r3 = TAdPlayerLoadGC__sub_80381ABC();
+        var_r3 = CARDGetDiskID();
         if (var_r3 != 0U) {
             strncpy((M2C_UNK *)var_r3, &lbl_805D5FB0, 4);
         }

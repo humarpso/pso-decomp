@@ -11,6 +11,7 @@ M2C_UNK strncpy(s8 *, u32, M2C_UNK);
 M2C_UNK memset(s8 *, M2C_UNK, M2C_UNK);
 void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
 s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
+s32 TItemData__sub_8010CC68(u8 *arg0);
 }
 
 extern "C" {
@@ -18,7 +19,6 @@ extern "C" {
 int TItemData__sub_8010C940(void);
 int TItemData__sub_8010CACC(void);
 int TItemData__sub_8010CB10(void);
-int TItemData__sub_8010CC68(void);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
 u8 get_entry_field16__9TItemDataFv(void);
@@ -54,7 +54,20 @@ s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1) {
 int TItemData__sub_8010CACC(void) { return 0; }
 int TItemData__sub_8010CB10(void) { return 0; }
 int TItemData__sub_8010CBAC(void * _w0, s8 * _w1) { return 0; }
-int TItemData__sub_8010CC68(void) { return 0; }
+
+s32 TItemData__sub_8010CC68(u8 *arg0) {
+    u8 temp_r0;
+    if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
+        temp_r0 = M2C_FIELD(arg0, u8 *, 1);
+        if ((temp_r0 >= 0x70U) && (temp_r0 <= 0x88U)) {
+            return 1;
+        }
+        if ((temp_r0 >= 0xA5U) && (temp_r0 <= 0xA9U)) {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void TItemData__sub_8010CCB0(void) {  }
 void TItemData__sub_8010CCB4(void) {  }

@@ -7,7 +7,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TBoss4Type2__sub_80141FA8(int);
 extern const f32 lbl_805DF17C;
-void TBoss8Dragon__sub_8030B818(u8 *arg0);
+u8 *get_enemy_entity(u16);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+u32 TBoss8Dragon__sub_802F3348(int);
+s32 TBoss8Dragon__sub_802FCCBC(int);
+void TBoss8Dragon__sub_8030B818(u8 *arg0, int);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+extern const f32 lbl_805DF1A8;
+extern const f32 lbl_805DF1B4;
+extern const f32 lbl_805DF1B8;
+extern const f32 lbl_805DF1BC;
+extern const f32 lbl_805DF1C0;
+extern const f32 lbl_805DF1C4;
+extern const f32 lbl_805DF1C8;
+extern const f32 lbl_805DF1CC;
+extern const f32 lbl_805DF1D0;
+extern const f32 lbl_805DF1D4;
+void TBoss8Dragon__sub_8030BB24(u8 *arg0);
 }
 
 extern "C" {
@@ -21,7 +38,7 @@ M2C_UNK TObjPlayer__sub_80082CCC(void *);
     extern int lbl_805D53A0;
 int TBoss8Dragon__sub_8030B80C(void) {  return (lbl_805D53A0 & 0xffff); }
 
-void TBoss8Dragon__sub_8030B818(u8 *arg0) {
+void TBoss8Dragon__sub_8030B818(u8 *arg0, int _w1) {
   s32 temp_r0;
   s32 var_r3;
   s32 new_var;
@@ -41,6 +58,64 @@ void TBoss8Dragon__sub_8030B818(u8 *arg0) {
   }
   *((s32 *) (((s8 *) arg0) + 0x28)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x28))) + var_r3);
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss8Dragon__sub_8030BB24(u8 *arg0) {
+    s16 temp_r0;
+    u32 temp_r3_4;
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    u8 *temp_r3_3;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x1C);
+    switch (temp_r0) {
+    case 1:
+        temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((s32) M2C_FIELD(arg0, u16 *, 0x24)));
+        if (temp_r3 != NULL) {
+            M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((lbl_805DF1B8 * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3, f32 *, 0x38));
+            M2C_FIELD(arg0, f32 *, 0x38) = (f32) (M2C_FIELD(temp_r3, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x30));
+            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((lbl_805DF1B8 * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3, f32 *, 0x40));
+            M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(temp_r3, f32 *, 0x38);
+            M2C_FIELD(arg0, f32 *, 0x44) = (f32) (M2C_FIELD(temp_r3, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x30));
+            M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(temp_r3, f32 *, 0x40);
+            M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + M2C_FIELD(arg0, s32 *, 0x2C));
+        }
+        return;
+    case 2:
+        temp_r3_2 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((s32) M2C_FIELD(arg0, u16 *, 0x24)));
+        if (temp_r3_2 != NULL) {
+            M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((lbl_805DF1BC * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_2, f32 *, 0x38));
+            M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805DF1C0 + M2C_FIELD(temp_r3_2, f32 *, 0x3C));
+            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((lbl_805DF1BC * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_2, f32 *, 0x40));
+            M2C_FIELD(arg0, f32 *, 0x40) = (f32) ((lbl_805DF1C4 * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_2, f32 *, 0x38));
+            M2C_FIELD(arg0, f32 *, 0x44) = (f32) (lbl_805DF1C8 + M2C_FIELD(temp_r3_2, f32 *, 0x3C));
+            M2C_FIELD(arg0, f32 *, 0x48) = (f32) ((lbl_805DF1C4 * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_2, f32 *, 0x40));
+            TBoss8Dragon__sub_8030B818((u8 *)((void *) (arg0)), (int)((int) (M2C_FIELD(temp_r3_2, s32 *, 0x60) - 0x8000)));
+            return;
+        }
+        break;
+    case 3:
+        temp_r3_3 = (u8 *)(get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x24)));
+        if ((temp_r3_3 != NULL) && (M2C_FIELD(temp_r3_3, f32 *, 0x3C) >= lbl_805DF1B4)) {
+            M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((lbl_805DF1CC * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_3, f32 *, 0x38));
+            M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805DF1A8 + M2C_FIELD(temp_r3_3, f32 *, 0x3C));
+            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((lbl_805DF1CC * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_3, f32 *, 0x40));
+            M2C_FIELD(arg0, f32 *, 0x40) = (f32) ((lbl_805DF1D0 * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_3, f32 *, 0x38));
+            M2C_FIELD(arg0, f32 *, 0x44) = (f32) (lbl_805DF1D4 + M2C_FIELD(temp_r3_3, f32 *, 0x3C));
+            M2C_FIELD(arg0, f32 *, 0x48) = (f32) ((lbl_805DF1D0 * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x28)))) + M2C_FIELD(temp_r3_3, f32 *, 0x40));
+            TBoss8Dragon__sub_8030B818((u8 *)((void *) (arg0)), (int)((int) (M2C_FIELD(temp_r3_3, s32 *, 0x60) - 0x8000)));
+            return;
+        }
+        break;
+    case 5:
+        temp_r3_4 = TBoss8Dragon__sub_802F3348((int) (0));
+        if ((temp_r3_4 != 0U) && (TBoss8Dragon__sub_802FCCBC((int) (temp_r3_4)) != 0)) {
+            M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        }
+        break;
+    }
+}
+#pragma pop
 
 void update_toggle_state__12TBoss8DragonFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x4C) >= TBoss8Dragon__sub_802F3638()) {

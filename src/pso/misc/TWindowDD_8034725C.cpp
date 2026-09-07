@@ -1,3 +1,5 @@
+#include "pso/misc/TWindowDD.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -122,6 +124,15 @@ s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0) {
 }
 
 extern s32 TWindowDD__data_805DFB50;
+
+s32 TWindowDD_is_id_in_range_5AC_5F9(s16 arg0) {
+    u8 var_r3;
+    var_r3 = 0;
+    if ((arg0 >= 0x5ac) && (arg0 <= 0x5f9)) {
+        var_r3 = 1;
+    }
+    return var_r3;
+}
 
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
     s32 temp_r3;

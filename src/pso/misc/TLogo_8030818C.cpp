@@ -13,14 +13,14 @@ u32 OSGetProgressiveMode();
 u32 TLobby__sub_80101AB0(void);
 M2C_UNK disable_progressive_mode__13TAdVIConfigGCFv();
 s32 fn_80308294(u32 a0 = 0, s32 a1 = 0);
-u32 fn_8037CCE8();
+u32 VIGetDTVStatus();
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, M2C_UNK);
 void set_field_2c__13TAdVIConfigGCFPvi(void* p, s32 v);
 
 extern s8 lbl_8050E3B8[];
 
 s32 check_progressive_ready__5TLogoFv(void) {
-    if (fn_8037CCE8() == 0U) {
+    if (VIGetDTVStatus() == 0U) {
         disable_progressive_mode__13TAdVIConfigGCFv();
         return 0;
     }

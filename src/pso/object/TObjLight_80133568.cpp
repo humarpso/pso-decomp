@@ -98,14 +98,14 @@ extern "C" {
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 void TObjLight__sub_801336E0(void);
-M2C_UNK TObjLight__sub_8038B804(M2C_UNK *, f32, f32, f32);
+M2C_UNK GXInitLightDir(M2C_UNK *, f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF464(M2C_UNK, f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 extern M2C_UNK TObjLight__data_8058D528[];
 void TObjLight__sub_801337A0(void);
 M2C_UNK TObjLight__sub_803DF394(M2C_UNK, f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
-M2C_UNK TObjLight__sub_8038B804(M2C_UNK *, f32, f32, f32);
+M2C_UNK GXInitLightDir(M2C_UNK *, f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF464(M2C_UNK, f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 extern M2C_UNK TObjLight__data_8058D528[];
@@ -119,7 +119,7 @@ extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_8050632
 extern u8 *lbl_805D5558;
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 void TObjBoss2Tunnel__sub_801339EC(f32 farg0, f32 farg1, f32 farg2);
-M2C_UNK TObjLight__sub_8038B804(M2C_UNK *, f32, f32, f32);
+M2C_UNK GXInitLightDir(M2C_UNK *, f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF394(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF464(M2C_UNK, f32, f32, f32);
@@ -128,7 +128,7 @@ extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_8050632
 extern M2C_UNK TObjLight__data_8058D528[];
 void TObjLight__sub_80133F6C(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-M2C_UNK TObjLight__sub_8038B804(M2C_UNK *, f32, f32, f32);
+M2C_UNK GXInitLightDir(M2C_UNK *, f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF394(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF464(M2C_UNK, f32, f32, f32);
@@ -185,7 +185,7 @@ void set_light__9TObjLightFPvPvf(void *arg0, void *arg1, f32 farg0);
 int TAdSinglePlyChrSelectGC__sub_801334E4(void*);
 int TAdSinglePlyChrSelectGC__sub_80133544(void*);
 int TAdSinglePlyChrSelectGC__sub_80133548(void);
-M2C_UNK TObjLight__sub_8038B804(M2C_UNK *, f32, f32, f32);
+M2C_UNK GXInitLightDir(M2C_UNK *, f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF394(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF464(M2C_UNK, f32, f32, f32);
@@ -221,7 +221,7 @@ typedef char RecoveredGlobal_801337A0_TObjLight__data_80506320_size[sizeof(Recov
 typedef char RecoveredGlobal_801337A0_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_801337A0_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
 void TObjLight__sub_801337A0(void) {
     TObjLight__sub_803DF464((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
-    TObjLight__sub_8038B804((M2C_UNK *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
+    GXInitLightDir((M2C_UNK *)(&(*(RecoveredGlobal_801337A0_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_801337A0_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
 }
 
 void TObjLight__sub_801337F8(void) {  }
@@ -236,7 +236,7 @@ typedef char RecoveredGlobal_80133924_TObjLight__data_80506320_size[sizeof(Recov
 typedef char RecoveredGlobal_80133924_TObjLight__data_8058D528_size[sizeof(RecoveredGlobal_80133924_TObjLight__data_8058D528) == 0x140 ? 1 : -1];
 void TObjLight__sub_80133924(void * _w0) {
     TObjLight__sub_803DF464((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
-    TObjLight__sub_8038B804((M2C_UNK *)(&(*(RecoveredGlobal_80133924_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
+    GXInitLightDir((M2C_UNK *)(&(*(RecoveredGlobal_80133924_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80133924_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
 }
 
 void TObjLight__sub_8013397C(void * _w0) {  }
@@ -399,14 +399,14 @@ typedef char RecoveredGlobal_80133F6C_TObjLight__data_8058D528_size[sizeof(Recov
 void TObjLight__sub_80133F6C(void) {
     TObjLight__sub_803DF268(M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x20), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x20), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x20));
     TObjLight__sub_803DF464((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
-    TObjLight__sub_8038B804((M2C_UNK *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
+    GXInitLightDir((M2C_UNK *)(&(*(RecoveredGlobal_80133F6C_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
     TObjLight__sub_803DF394((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x28), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x2C), M2C_FIELD(&(*(RecoveredGlobal_80133F6C_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x30));
     TObjLight__sub_803DF528((M2C_UNK)(0));
 }
 
 void set_light__9TObjLightFPvPvf(void *arg0, void *arg1, f32 farg0) {
     TObjLight__sub_803DF464(0, M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, f32 *, 8));
-    TObjLight__sub_8038B804(TObjLight__data_8058D528, M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, f32 *, 8));
+    GXInitLightDir(TObjLight__data_8058D528, M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, f32 *, 8));
     TObjLight__sub_803DF394(0, M2C_FIELD(arg1, f32 *, 4), M2C_FIELD(arg1, f32 *, 8), M2C_FIELD(arg1, f32 *, 0xC));
     TObjLight__sub_803DF268(farg0, farg0, farg0);
     TObjLight__sub_803DF528(0);
@@ -419,12 +419,12 @@ typedef char RecoveredGlobal_80134098_TObjLight__data_8058D528_size[sizeof(Recov
 void TObjLight__sub_80134098(void) {
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         TObjLight__sub_803DF464((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
-        TObjLight__sub_8038B804((M2C_UNK *)(&(*(RecoveredGlobal_80134098_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
+        GXInitLightDir((M2C_UNK *)(&(*(RecoveredGlobal_80134098_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
         TObjLight__sub_803DF394((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x28), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x2C), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x30));
         TObjLight__sub_803DF528((M2C_UNK)(0));
     } else {
         TObjLight__sub_803DF464((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
-        TObjLight__sub_8038B804((M2C_UNK *)(&(*(RecoveredGlobal_80134098_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
+        GXInitLightDir((M2C_UNK *)(&(*(RecoveredGlobal_80134098_TObjLight__data_8058D528 *)&TObjLight__data_8058D528).value), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14));
         TObjLight__sub_803DF394((M2C_UNK)(0), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x28), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x2C), M2C_FIELD(&(*(RecoveredGlobal_80134098_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x30));
         TObjLight__sub_803DF528((M2C_UNK)(0));
     }

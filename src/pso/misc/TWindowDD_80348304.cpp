@@ -1,3 +1,5 @@
+#include "pso/misc/TWindowDD.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -27,7 +29,6 @@ void set_state__9TWindowDDFPv(void* p);
 int test_input_flag_4__9TWindowDDFPv(void* p);
 void update_state__9TWindowDDFv(void);
 int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
-int TWindowDD__sub_80340508(void*, int);
 M2C_UNK TWindowDD__sub_8034435C();
 M2C_UNK TWindowDD__sub_80344568();
 M2C_UNK TWindowDD__sub_80344774();
@@ -39,7 +40,7 @@ M2C_UNK TWindowDD__sub_803461CC();
 M2C_UNK TWindowDD__sub_80346434();
 M2C_UNK TWindowDD__sub_80346640();
 
-int test_input_flag_4__9TWindowDDFPv(void* p) { return TWindowDD__sub_80340508((char*)p + 0x1c, 4); }
+int test_input_flag_4__9TWindowDDFPv(void* p) { return TWindowDD_check_input_mask((char*)p + 0x1c, 4); }
 
 extern s32 TWindowDD__data_805D6E08;
 

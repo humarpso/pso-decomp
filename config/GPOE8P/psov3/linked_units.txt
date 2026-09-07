@@ -1,4 +1,5 @@
 # Units linked into the DOL from compiled source
+pso/boss/TBoss1DragonEffBullet.cpp
 pso/boss/TBoss2DeRolLe_800340A0.cpp
 pso/boss/TBoss2Mine.cpp
 pso/boss/TBoss2Mine_80037C8C.cpp
@@ -65,6 +66,7 @@ pso/boss/TBoss7LaserPtcl_8035A934.cpp
 pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
 pso/boss/TBoss7TentacleNeedle_802EFBA4.cpp
 pso/boss/TBoss8Dragon.cpp
+pso/boss/TBoss8DragonEffBullet.cpp
 pso/boss/TBoss8Dragon_8002AE38.cpp
 pso/boss/TBoss8Dragon_8002CC48_8002DDB4.cpp
 pso/boss/TBoss8Dragon_8002CC48_8002DDDC.cpp
@@ -227,6 +229,7 @@ pso/enemy/TObjEneMe1Gee_800C9964.cpp
 pso/enemy/TObjEneMe1Gee_800CA970.cpp
 pso/enemy/TObjEneMe1Gee_800CAB78.cpp
 pso/enemy/TObjEneMe1Gee_800CAE70.cpp
+pso/enemy/TObjEneMe1Gee_800CAFD8.cpp
 pso/enemy/TObjEneMe1Gee_800CB17C.cpp
 pso/enemy/TObjEneMe1Gee_800CB290.cpp
 pso/enemy/TObjEneMe1Gee_800CB4CC.cpp
@@ -2908,8 +2911,6 @@ pso/unk/text_8036A894.cpp
 pso/unk/text_8036AE2C.cpp
 pso/unk/text_8036B748.cpp
 pso/unk/text_8036F764.cpp
-pso/unk/text_8037F2EC.cpp
-pso/unk/text_8038B804.cpp
 pso/unk/text_80394670.cpp
 pso/unk/text_80396328.cpp
 pso/unk/text_8039A298.cpp

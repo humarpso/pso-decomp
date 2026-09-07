@@ -45,7 +45,7 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 };
 
 extern "C" {
-M2C_UNK TLobby__sub_8037B4CC(M2C_UNK *);
+M2C_UNK VISetPreRetraceCallback(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__sub_80227A6C;
 void TLobby__sub_8022776C(void);
 }
@@ -60,7 +60,7 @@ void step__9TLoadCtrlFv(void) { TLobby__sub_8022743C(); TLobby__sub_80227248(); 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void TLobby__sub_8022776C(void) {
-    TLobby__sub_8037B4CC((M2C_UNK *)(&TLobby__sub_80227A6C.value));
+    VISetPreRetraceCallback((M2C_UNK *)(&TLobby__sub_80227A6C.value));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];

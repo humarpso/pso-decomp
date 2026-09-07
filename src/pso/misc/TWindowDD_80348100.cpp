@@ -1,3 +1,5 @@
+#include "pso/misc/TWindowDD.h"
+
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -5,7 +7,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-int TWindowDD__sub_80340508(void*, int);
 u8 TWindowDD__sub_803482B0(u8 *arg0);
 }
 
@@ -18,7 +19,6 @@ void set_default_coords__9TWindowDDFiPv(int a0, void* a1);
 void set_default_positions__9TWindowDDFiPv(int a0, void* a1);
 void spawn_window__9TWindowDDFv(void);
 int TBoss3Volopt__sub_8022675C(void*, void*, void*, void*);
-int TWindowDD__sub_80340508(void*, int);
 int refresh_sub__9TWindowDDFPvPv(void);
 int test_input_flag_4__9TWindowDDFPv(void* p);
 int update__9TWindowDDFPvPv(void);
@@ -48,7 +48,7 @@ void play_sound__9TWindowDDFv(void) { TBoss3Volopt__sub_8022675C((void*)339201, 
 u8 TWindowDD__sub_803482B0(u8 *arg0) {
     s32 var_r31;
     var_r31 = 0;
-    if ((((s32)TWindowDD__sub_80340508((void*)((void *) (arg0 + 0x1C)), (int)((int) (2)))) != 0) || (M2C_FIELD(arg0, s32 *, 0x94) & 2)) {
+    if ((((s32)TWindowDD_check_input_mask((void*)((void *) (arg0 + 0x1C)), (int)((int) (2)))) != 0) || (M2C_FIELD(arg0, s32 *, 0x94) & 2)) {
         var_r31 = 1;
     }
     return (u8) var_r31;
