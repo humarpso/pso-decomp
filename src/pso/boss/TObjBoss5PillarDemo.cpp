@@ -4,12 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 s32 __nw__7TObjectFUl(int);
-s32 TObjBoss5PillarDemo__ct(int, int, void *);
 extern void *lbl_805D4DD8;
 extern s32 tl_02;
 s32 TObjBoss5PillarDemo__sub_8028AC8C(void);
+s32 TObjBoss5Pillar__ct(void *, void *, void *);
+extern M2C_UNK __vt__19TObjBoss5PillarDemo[];
+extern s32 lbl_805D3B28;
+extern void *lbl_805D4DD8;
+extern const f32 lbl_805DD908;
+u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -63,6 +73,19 @@ void *__dt__19TObjBoss5PillarDemoFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+typedef char RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo_size[sizeof(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo) == 0x18 ? 1 : -1];
+u8 *TObjBoss5PillarDemo__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    TObjBoss5Pillar__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8028AC00___vt__19TObjBoss5PillarDemo *)&__vt__19TObjBoss5PillarDemo).value;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3B28;
+    M2C_FIELD(arg0, f32 *, 0x24) = lbl_805DD908;
+    M2C_FIELD(arg0, s32 *, 0x38) = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D4DD8), u8 **, 0x42C), s32 *, 0x38);
+    M2C_FIELD(arg0, s32 *, 0x3C) = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D4DD8), u8 **, 0x42C), s32 *, 0x48);
+    M2C_FIELD(arg0, s32 *, 0x40) = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D4DD8), u8 **, 0x430), s32 *, 4);
+    M2C_FIELD(arg0, s32 *, 0x44) = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D4DD8), u8 **, 0x430), s32 *, 0xC);
+    return arg0;
+}
+
 s32 TObjBoss5PillarDemo__sub_8028AC8C(void) {
     s32 temp_r31;
     s32 temp_r3;
@@ -71,7 +94,7 @@ s32 TObjBoss5PillarDemo__sub_8028AC8C(void) {
     temp_r3 = __nw__7TObjectFUl((int) (0x4C));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TObjBoss5PillarDemo__ct((int) (temp_r3), (int) (tl_02), (void *) (temp_r31 + 8));
+        var_r0 = ((s32)TObjBoss5PillarDemo__ct((u8 *)((int) (temp_r3)), (s32)((int) (tl_02)), (s32)((void *) (temp_r31 + 8))));
     }
     return var_r0;
 }

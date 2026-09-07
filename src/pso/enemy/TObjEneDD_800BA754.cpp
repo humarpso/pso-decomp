@@ -37,11 +37,11 @@ s32 TObjEneDD__sub_800BA754(s32 arg0, s32 arg1);
 void TObjEneDD__sub_800BA870(u8 *arg0);
 void TObjEneDD__sub_800BA88C(u8 *arg0);
 void TObjEneDD__sub_800BA838(u8 *arg0, f32 farg0);
+int TObjEneDD__sub_800BA804(u16 arg0);
 }
 
 extern "C" {
 
-int TObjEneDD__sub_800BA804(void);
 void TObjEneDD__vt85(void);
 void TObjEneDD__vt86(void *arg0);
 int TObjEneDD__vt87(void);
@@ -75,7 +75,14 @@ u8 is_valid_target__9TObjEneDDFPv(void *arg0) {
     return (u8)var_r31;
 }
 
-int TObjEneDD__sub_800BA804(void) { return 0; }
+int TObjEneDD__sub_800BA804(u16 arg0) {
+    u8 var_r3;
+    var_r3 = 0;
+    if ((arg0 >= 0x1000U) && (arg0 < 0x4000U)) {
+        var_r3 = 1;
+    }
+    return var_r3;
+}
 
 u32 TObjEneDD__sub_800BA828(u16 arg0) {
     return (u32) (arg0 - 0x1000) >> 0x1FU;

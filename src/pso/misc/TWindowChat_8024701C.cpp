@@ -27,6 +27,10 @@ M2C_UNK open_symbol_chat__11TWindowChatFPv(void *);
 M2C_UNK set_active_flag__11TWindowChatFPv(void *);
 M2C_UNK set_input_active__11TWindowChatFPv(void *);
 s32 TWindowChat__sub_80247080(u8 *arg0);
+M2C_UNK set_active_flag__11TWindowChatFPv(void *);
+M2C_UNK set_input_active__11TWindowChatFPv(void *);
+s32 TWindowDD__sub_80348470(int);
+s32 TWindowChat__sub_80247128(u8 *arg0);
 }
 
 extern "C" {
@@ -62,7 +66,28 @@ s32 TWindowChat__sub_80247080(u8 *arg0) {
     return 1;
 }
 
-int TWindowChat__sub_80247128(void) { return 0; }
+s32 TWindowChat__sub_80247128(u8 *arg0) {
+    s32 temp_r3_2;
+    u32 temp_r3;
+    temp_r3 = M2C_FIELD(arg0, u32 *, 0x34);
+    if (temp_r3 == 0U) {
+        return 0;
+    }
+    temp_r3_2 = TWindowDD__sub_80348470((int) (temp_r3));
+    if (temp_r3_2 == 0) {
+        return 0;
+    }
+    if (temp_r3_2 == 2) {
+        set_input_active__11TWindowChatFPv((void *) (arg0));
+        return 1;
+    }
+    if (temp_r3_2 != 1) {
+        return 0;
+    }
+    set_active_flag__11TWindowChatFPv((void *) (arg0));
+    return 1;
+}
+
 s32 TWindowChat__sub_802471AC(u8 *arg0) {
     u32 kb = M2C_FIELD(arg0, u32 *, 0x20);
     if (kb == 0U) {

@@ -9,6 +9,11 @@ struct RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 {
     u8 remaining[0x1AC];
 };
 
+struct RecoveredGlobal_8008655C_lbl_8048E728 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 s32 is_split_screen(void);
 u8 * TParticleCtrl__sub_800858D0(void *, s32, s32);
@@ -22,6 +27,10 @@ extern s32 tl_particle;
 u8 *TParticleCtrl__sub_8008598C(s32 arg0);
 extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 s32 TParticleCtrl__sub_800861F4(u8 *arg0);
+u8 * __dt__7TObjectFv(void *, s16);
+void free_from_heap__13TParticleCtrlFPv(void *);
+extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
+u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -116,6 +125,18 @@ s32 TParticleCtrl__sub_800861F4(u8 *arg0) {
 void mark_active__13TParticleCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x24) = (u16) (M2C_FIELD(arg0, u16 *, 0x24) | 0x2000);
     get_object__13TParticleCtrlFPv(0x1F);
+}
+typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8008655C_lbl_8048E728) == 0x18 ? 1 : -1];
+u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_8048E728.value;
+        M2C_FIELD(arg0, s32 *, 0x20) = 0;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            free_from_heap__13TParticleCtrlFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 }

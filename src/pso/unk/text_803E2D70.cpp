@@ -6,6 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 #pragma scheduling off
 #pragma scheduling off
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
@@ -14,8 +15,29 @@ M2C_UNK TObjPlayer__sub_803E224C();
 void TLobby__sub_803E2EE4(s32 arg0);
 void TObjPlayer__sub_803E4354(void *);
 void TObjPlayer__sub_803E44D4(void *);
-void TObjPlayer__sub_803E4468(void);
 void TObjPlayer__sub_803E4684(void *arg0);
+void GXSetNumTexGens(u8);
+M2C_UNK GXSetTevOp(int, int);
+M2C_UNK GXSetTevOrder(int, int, int, int);
+M2C_UNK GXSetNumTevStages(int);
+void TObjPlayer__sub_803E39A0(void);
+void GXSetNumTexGens(u8);
+M2C_UNK GXSetTevOp(int, int);
+M2C_UNK GXSetTevOrder(int, int, int, int);
+M2C_UNK GXSetNumTevStages(int);
+extern s32 some_id_805c6f74;
+extern u8 lbl_805D77D8;
+extern u8 lbl_805D77D9;
+void TObjPlayer__sub_803E39EC(void);
+M2C_UNK GXSetZMode(int, int, int);
+M2C_UNK GXSetZCompLoc(int);
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK set_effect_active__10TObjPlayerFv();
+M2C_UNK TParticleCtrl__sub_803E2010();
+M2C_UNK TObjPlayer__sub_803E3B38(int);
+extern s32 lbl_805D7788;
+extern M2C_UNK (*lbl_805D77DC)();
+void TObjPlayer__sub_803E4468(void);
 }
 
 extern "C" {
@@ -34,6 +56,45 @@ void TLobby__sub_803E2EE4(s32 arg0) {
     }
     TObjPlayer__sub_803E224C();
 }
+
+void TObjPlayer__sub_803E39A0(void) {
+    GXSetNumTevStages((int) (1));
+    GXSetNumTexGens(0U);
+    GXSetTevOp((int) (0), (int) (4));
+    GXSetTevOrder((int) (0), (int) (0xFF), (int) (0xFF), (int) (4));
+}
+
+#pragma push
+#pragma peephole off
+void TObjPlayer__sub_803E39EC(void) {
+    if ((u32) (some_id_805c6f74 & 0x80000) != 0) {
+        GXSetNumTevStages((int)((void *) ((u8) (lbl_805D77D8 + 1))));
+        GXSetNumTexGens((u8)((void *) ((u8) (lbl_805D77D9 + 1))));
+    } else {
+        GXSetNumTevStages((int)((void *) (1U)));
+        GXSetNumTexGens((u8)((void *) (1U)));
+    }
+    GXSetTevOp((int) (0), (int) (0));
+    GXSetTevOrder((int) (0), (int) (0), (int) (0), (int) (4));
+}
+#pragma pop
+
+#pragma push
+#pragma peephole off
+void TObjPlayer__sub_803E4468(void) {
+    if ((u32) (lbl_805D7788 & 2) != 0) {
+        set_effect_active__10TObjPlayerFv();
+        TParticleCtrl__sub_803E2010();
+    }
+    TObjPlayer__sub_803D9B78();
+    GXSetZCompLoc((int) (1));
+    GXSetZMode((int) (1), (int) (1), (int) (1));
+    TObjPlayer__sub_803E3B38((int) (0));
+    if (((M2C_UNK (*)()) lbl_805D77DC) != NULL) {
+        lbl_805D77DC();
+    }
+}
+#pragma pop
 
 void TObjPlayer__sub_803E4684(void *arg0) {
     TObjPlayer__sub_803E4354(arg0);

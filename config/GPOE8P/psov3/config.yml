@@ -34,6 +34,7 @@ force_active:
   - __ct__9TEffGuardFPC3Vec
   - __dt__12TItemEffCaneFv
   - __dt__7TEffHitFv
+  - __dt__7TEndingFv
   - __dt__9TEffGuardFv
   - create__13TItemProArmorFiUi
   - create_icon__10TObjPlayerFiii
@@ -50,6 +51,7 @@ force_active:
   - reset_and_invoke__6TLobbyFv
   - run_task__12TItemEffCaneFv
   - run_task__7TEffHitFv
+  - run_task__7TEndingFv
   - run_task__9TEffGuardFv
   - setup_state_helper__10TObjPlayerFPv
   - spawn_effect__10TObjPlayerFiUiii

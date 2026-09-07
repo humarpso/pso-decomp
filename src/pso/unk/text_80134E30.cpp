@@ -28,6 +28,11 @@ struct Stack_80135974 {
 struct RecoveredGlobal_80135974_lbl_805127F8 { M2C_UNK value; u8 remaining[0x1FC]; };
 typedef char RecoveredGlobal_80135974_lbl_805127F8_size[sizeof(RecoveredGlobal_80135974_lbl_805127F8) == 0x200 ? 1 : -1];
 
+struct RecoveredGlobal_8013561C_lbl_805127F8 {
+    M2C_UNK value;
+    u8 remaining[0x1FC];
+};
+
 extern "C" {
 int bswap_packet_header__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_801E44D8(void *, void *);
@@ -53,6 +58,11 @@ M2C_UNK TLobby__sub_8013A578(void *);
 M2C_UNK memcpy(void *, void *, int);
 extern RecoveredGlobal_80135974_lbl_805127F8 lbl_805127F8;
 void TLobby__sub_80135974(s32 arg0);
+M2C_UNK memcpy(void *, void *, int);
+extern RecoveredGlobal_80135974_lbl_805127F8 lbl_805127F8;
+extern s32 TLobby__data_805D5594;
+extern s16 TLobby__data_805D5CE8;
+void handle_6x6F_set_quest_flags_v2(s32 arg0);
 }
 
 extern "C" {
@@ -96,6 +106,16 @@ void TLobby__sub_80135598(s32 arg0) {
         free__11TOBoss4RockFUi((int) (temp_r3));
     }
 }
+
+#pragma push
+#pragma peephole off
+typedef char RecoveredGlobal_8013561C_lbl_805127F8_size[sizeof(RecoveredGlobal_8013561C_lbl_805127F8) == 0x200 ? 1 : -1];
+void handle_6x6F_set_quest_flags_v2(s32 arg0) {
+    if (((s16) TLobby__data_805D5CE8 == 0) && (((s32) TLobby__data_805D5594 == 0xE) || ((s32) TLobby__data_805D5594 == 0xF))) {
+        memcpy((void *) (&(*(RecoveredGlobal_8013561C_lbl_805127F8 *)&lbl_805127F8).value), (void *) (arg0 + 4), (int) (0x200));
+    }
+}
+#pragma pop
 
 void TLobby__sub_80135974(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_80135974, sp8) == 0x0) ? 1 : -1];

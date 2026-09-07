@@ -24,6 +24,16 @@ struct RecoveredGlobal_801531EC_TObjFogCollisionPoison__data_8050D430 {
     u8 remaining[0x2C];
 };
 
+struct RecoveredGlobal_80153258_lbl_804AF7C8 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
 extern "C" {
 void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1);
 s32 TFogCtrl__sub_800FAB94(s32, s32, s32);
@@ -41,6 +51,11 @@ u8 *TObjFogCollisionPoison__sub_801532C8(u8 *arg0, u8 *arg1, s32 arg2);
 void record_hit__22TObjFogCollisionPoisonFPvii(void *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
 void TObjFogCollisionPoison__sub_801531EC(s32 arg0, s32 arg1, s32 arg2);
+void __dt__7TObjectFv(void *, int);
+void __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
+extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
+u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -148,6 +163,21 @@ extern s32 lbl_805D53A0;
 
 typedef char RecoveredGlobal_801532C8_lbl_804AF7C8_size[sizeof(RecoveredGlobal_801532C8_lbl_804AF7C8) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430_size[sizeof(RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430) == 0x30 ? 1 : -1];
+
+typedef char RecoveredGlobal_80153258_lbl_804AF7C8_size[sizeof(RecoveredGlobal_80153258_lbl_804AF7C8) == 0x18 ? 1 : -1];
+typedef char RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430_size[sizeof(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430) == 0x30 ? 1 : -1];
+u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80153258_lbl_804AF7C8 *)&lbl_804AF7C8).value;
+        M2C_FIELD(&(*(RecoveredGlobal_80153258_TObjFogCollisionPoison__data_8050D430 *)&TObjFogCollisionPoison__data_8050D430).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x28) * 4)) = 0;
+        __dt__7TObjectFv((void *)(arg0), (int)(0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *)((s32) arg0));
+        }
+    }
+    return arg0;
+}
+
 u8 *TObjFogCollisionPoison__sub_801532C8(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804AF7C8.value;

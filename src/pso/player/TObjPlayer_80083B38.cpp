@@ -34,6 +34,9 @@ void TObjPlayer__sub_80084780(void);
 extern u8 lbl_805D2910;
 extern unsigned char lbl_805D4EE4;
 void TObjPlayer__sub_80084790(void);
+void **TLobby__sub_803DA16C();
+extern M2C_UNK lbl_8048E5C8[];
+void **TObjPlayer__sub_80083F04(void);
 }
 
 extern "C" {
@@ -55,6 +58,23 @@ void draw_if_all_ready__10TObjPlayerFv(void) {
 }
 
     extern int lbl_805D4EE0;
+
+void **TObjPlayer__sub_80083F04(void) {
+    void **var_r3;
+    void **var_r3_2;
+    u8 *var_r4;
+    void **phi_r3;
+    var_r3 = (void **)(&lbl_8048E5C8);
+    var_r4 = (u8 *)((*(u8 * *)&lbl_8048E5C8));
+    var_r3 = (void **)(&lbl_8048E5C8);
+    phi_r3 = (void **)(&lbl_8048E5C8);
+    if ((u32) M2C_FIELD(var_r4, u32 *, 8) != 0U) {
+        var_r3_2 = (void **)(TLobby__sub_803DA16C());
+        phi_r3 = (void **)(var_r3_2);
+    }
+    return phi_r3;
+}
+
 int TObjPlayer__sub_80083F9C(void) {  return lbl_805D4EE0; }
 
     extern int lbl_805D4EE0;

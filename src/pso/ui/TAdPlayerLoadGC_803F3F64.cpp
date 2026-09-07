@@ -5,10 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma scheduling off
+
 extern "C" {
 M2C_UNK TAdSinglePlyChrSelectGC__sub_803F47BC();
-s32 TLobby__sub_803F4AB4();
 void TLobby__sub_803F4B2C(s32 arg0);
+s32 TLobby__sub_803F4AD8(s32 arg0);
+s32 TLobby__sub_803F4AB4(void);
+s32 TLobby__sub_803F4B10(s32 arg0);
+s32 TLobby__sub_803F4AEC(void);
 }
 
 extern "C" {
@@ -20,6 +24,8 @@ s32 TLobby__sub_803F4B10(s32 arg0);
 
 extern s32 lbl_805D79A4;
 
+s32 TLobby__sub_803F4AB4(void) { return TLobby__sub_803F4AD8(4); }
+
 s32 TLobby__sub_803F4AD8(s32 arg0) {
     if (arg0 < 4) {
         lbl_805D79A4 = arg0;
@@ -28,6 +34,8 @@ s32 TLobby__sub_803F4AD8(s32 arg0) {
 }
 
 extern s32 lbl_805D79A8;
+
+s32 TLobby__sub_803F4AEC(void) { return TLobby__sub_803F4B10(2); }
 
 s32 TLobby__sub_803F4B10(s32 arg0) {
     if (arg0 < 2) {

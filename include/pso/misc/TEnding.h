@@ -1,16 +1,29 @@
 #ifndef PSO_MISC_TENDING_H
 #define PSO_MISC_TENDING_H
 
-#include "types.h"
+#include "pso/TObject.h"
 
-struct TEnding
-{
-    u32 m_1c;
-    u8 _pad20[0x4];
-    u32 m_24;
-    u32 m_28;
-    u8 _pad2C[0x6E0];
-    u32 m_70c;
+class TAdRicoRingCtrl;
+
+class TEnding : public TObject {
+public:
+    TEnding();
+    virtual ~TEnding();
+    virtual void run_task();
+    virtual void render();
+
+    s32 phase;
+    u8 unresolved_20[4];
+    s32 timing_rate;
+    s32 elapsed_ticks;
+    u8 unresolved_2c[0x6E0];
+    TAdRicoRingCtrl *ring_controller;
 };
 
+#include <stddef.h>
+typedef char TEndingSize[sizeof(TEnding) == 0x710 ? 1 : -1];
+typedef char TEndingPhase[offsetof(TEnding, phase) == 0x1C ? 1 : -1];
+typedef char TEndingRate[offsetof(TEnding, timing_rate) == 0x24 ? 1 : -1];
+typedef char TEndingTicks[offsetof(TEnding, elapsed_ticks) == 0x28 ? 1 : -1];
+typedef char TEndingRing[offsetof(TEnding, ring_controller) == 0x70C ? 1 : -1];
 #endif

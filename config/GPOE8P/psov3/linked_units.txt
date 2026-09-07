@@ -117,6 +117,7 @@ pso/boss/TBoss8Dragon_802FCCD0.cpp
 pso/boss/TBoss8Dragon_802FCD10.cpp
 pso/boss/TBoss8Dragon_802FD9D0.cpp
 pso/boss/TBoss8Dragon_80324D3C.cpp
+pso/boss/TBoss8Dragon_80359A7C.cpp
 pso/boss/TObjBoss1Floor.cpp
 pso/boss/TObjBoss2CeilJunk_8003B07C.cpp
 pso/boss/TObjBoss2DustCtrl_8003ACD8.cpp
@@ -315,6 +316,7 @@ pso/enemy/TObjEneMorfosArm_80335218.cpp
 pso/enemy/TObjEneNanoDrago.cpp
 pso/enemy/TObjEneNanoDrago_800DBF88.cpp
 pso/enemy/TObjEnePanarms_8002AE74.cpp
+pso/enemy/TObjEnePanarms_800DFB74.cpp
 pso/enemy/TObjEnePanarms_800DFCD8.cpp
 pso/enemy/TObjEnePanarms_800E1E14.cpp
 pso/enemy/TObjEnePanarms_800E1F98.cpp
@@ -325,6 +327,7 @@ pso/enemy/TObjEneRe4Bit_800EDB98.cpp
 pso/enemy/TObjEneRe4Bit_800EDC90.cpp
 pso/enemy/TObjEneRe4Sorcerer.cpp
 pso/enemy/TObjEneRe4Sorcerer_800ED34C.cpp
+pso/enemy/TObjEneRe4Sorcerer_800ED3D0.cpp
 pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFE30.cpp
 pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFE44.cpp
 pso/enemy/TObjEneRe4Sorcerer_801E3F14.cpp
@@ -575,6 +578,7 @@ pso/item/TObjItemNameSelect.cpp
 pso/item/TObjItemOKWindow.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80307A34_80307AF8.cpp
+pso/menu/TAdEndText_80399904.cpp
 pso/menu/TAdEndText_803A2C8C.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
@@ -625,6 +629,7 @@ pso/misc/TCheckRoomSequence_80211614.cpp
 pso/misc/TCheckRoomSequence_8021E464.cpp
 pso/misc/TContainerAncient01_8018B79C.cpp
 pso/misc/TDLGraph_8007F7DC.cpp
+pso/misc/TEnding.cpp
 pso/misc/TEndingAB.cpp
 pso/misc/TEndingAB_8008CCC4.cpp
 pso/misc/TEndingC.cpp
@@ -1255,12 +1260,14 @@ pso/misc/TWindowComCard.cpp
 pso/misc/TWindowComCard_80249D34.cpp
 pso/misc/TWindowCost.cpp
 pso/misc/TWindowCtrl.cpp
+pso/misc/TWindowCtrlClipOut.cpp
 pso/misc/TWindowCtrlMain_800FC91C_800FCB04.cpp
 pso/misc/TWindowCtrlMain_8024C820.cpp
 pso/misc/TWindowCtrlMain_8024CB74.cpp
 pso/misc/TWindowCtrlMain_8024EEF8.cpp
 pso/misc/TWindowCtrlMain_8024EEF8_8024EF30.cpp
 pso/misc/TWindowCtrlScreen.cpp
+pso/misc/TWindowCtrlScreen_8024CA5C.cpp
 pso/misc/TWindowCtrl_8006E85C.cpp
 pso/misc/TWindowCtrl_800FD868.cpp
 pso/misc/TWindowCtrl_80145A28.cpp
@@ -2356,6 +2363,7 @@ pso/ui/TAdChrSelBSlotGC_8030FE74.cpp
 pso/ui/TAdChrSelBSlotGC_80310050.cpp
 pso/ui/TAdChrSelPlayerGC.cpp
 pso/ui/TAdChrSelPlyPlateGC.cpp
+pso/ui/TAdDialingGC.cpp
 pso/ui/TAdDialingGC_801A4C90.cpp
 pso/ui/TAdDialingGC_80328A4C.cpp
 pso/ui/TAdDialingGC_80328DB0.cpp
@@ -2549,11 +2557,13 @@ pso/unk/text_801214B4.cpp
 pso/unk/text_80121630.cpp
 pso/unk/text_8012175C.cpp
 pso/unk/text_801218D4.cpp
+pso/unk/text_80121AEC.cpp
 pso/unk/text_80121C50.cpp
 pso/unk/text_80121E94.cpp
 pso/unk/text_80121FBC.cpp
 pso/unk/text_80122070.cpp
 pso/unk/text_801224D4.cpp
+pso/unk/text_80122768.cpp
 pso/unk/text_801228CC.cpp
 pso/unk/text_801229EC.cpp
 pso/unk/text_80122B1C.cpp
@@ -2730,6 +2740,7 @@ pso/unk/text_80222BCC.cpp
 pso/unk/text_8022350C.cpp
 pso/unk/text_80232AA4.cpp
 pso/unk/text_80232B24.cpp
+pso/unk/text_80235A20.cpp
 pso/unk/text_80235A8C.cpp
 pso/unk/text_80235BDC.cpp
 pso/unk/text_8023601C.cpp
@@ -2766,6 +2777,7 @@ pso/unk/text_80278964.cpp
 pso/unk/text_80278E48.cpp
 pso/unk/text_8027ACF8.cpp
 pso/unk/text_8027D230.cpp
+pso/unk/text_8027FCE4.cpp
 pso/unk/text_802841FC.cpp
 pso/unk/text_80286AA8.cpp
 pso/unk/text_8028A714.cpp
@@ -2824,6 +2836,7 @@ pso/unk/text_803098DC.cpp
 pso/unk/text_80324E10.cpp
 pso/unk/text_80327338.cpp
 pso/unk/text_80327844.cpp
+pso/unk/text_803281B8.cpp
 pso/unk/text_8032D9BC.cpp
 pso/unk/text_803374F0.cpp
 pso/unk/text_80338F3C.cpp

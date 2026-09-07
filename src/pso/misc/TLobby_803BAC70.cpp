@@ -29,6 +29,10 @@ void TLobby__sub_803C0B08(void);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void TLobby__sub_803C0AD8(void);
+s32 EXIGetID(void *);
+s32 TLobby__sub_803C0F98(void *);
+s32 TLobby__sub_803C133C(void *);
+void TLobby__sub_803C0B3C(u8 *arg0);
 }
 
 extern "C" {
@@ -240,6 +244,21 @@ void TLobby__sub_803C0AD8(void) {
 void TLobby__sub_803C0B08(void) {
     TLobby__sub_803C406C();
     memset((void *) (&lbl_80570AC0.value), (int) (0), (int) (0x9C0));
+}
+void TLobby__sub_803C0B3C(u8 *arg0) {
+    s16 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0xAA);
+    if (temp_r0 == 2) {
+        EXIGetID((void *) (arg0));
+        return;
+    }
+    if (temp_r0 == 1) {
+        TLobby__sub_803C0F98((void *) (arg0));
+        return;
+    }
+    if (temp_r0 == 0) {
+        TLobby__sub_803C133C((void *) (arg0));
+    }
 }
 
 }

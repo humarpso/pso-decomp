@@ -12,6 +12,11 @@ struct RecoveredGlobal_8028E794_TObjLight__data_80506320 {
     u8 remaining[0x4C];
 };
 
+struct RecoveredGlobal_8028E940___vt__12TCharaMaking {
+    M2C_UNK value;
+    u8 remaining[0x18];
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -26,6 +31,12 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 extern RecoveredGlobal_8028E794_TObjLight__data_80506320 TObjLight__data_80506320;
 extern const f32 lbl_805DD938;
 void TCharaMaking__sub_8028E794(u8 *arg0);
+u8 * __dt__7TObjectFv(void *, s16);
+void __dl__7TObjectFPv(s32);
+extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
+extern void *lbl_805D6520;
+extern s32 lbl_805D6524;
+u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -90,6 +101,21 @@ void *create__12TCharaMakingFPvPv(void *arg0, void *arg1) {
     }
     return o;
 }
+
+typedef char RecoveredGlobal_8028E940___vt__12TCharaMaking_size[sizeof(RecoveredGlobal_8028E940___vt__12TCharaMaking) == 0x1C ? 1 : -1];
+u8 *__dt__12TCharaMakingFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8028E940___vt__12TCharaMaking *)&__vt__12TCharaMaking).value;
+        (*(s32 *)&lbl_805D6520) = 0;
+        lbl_805D6524 = 0;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
+}
+
 u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     u32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));

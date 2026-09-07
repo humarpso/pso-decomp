@@ -8,18 +8,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 TObjEnePanarms__sub_800DFB9C(u8 *arg0);
 u8 TObjEnePanarms__sub_800DFBB0(u8 *arg0);
+int TObjEnePanarms__sub_800DFB74(u8 *arg0);
 }
 
 extern "C" {
 
-int TObjEnePanarms__sub_800DFB74(void);
 int TObjEnePanarms__sub_800DFBC4(void* p);
 int TObjPlayer__sub_80143198(void*, void*);
 int fn_8002AE64(void*);
 int fn_800660B8(void*);
 int get_state_flag__14TObjEnePanarmsFPv(void* p);
 
-int TObjEnePanarms__sub_800DFB74(void) { return 0; }
+int TObjEnePanarms__sub_800DFB74(u8 *arg0) {
+    u8 var_r4;
+    var_r4 = 0;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x378) == 4) && ((s32) M2C_FIELD(arg0, s32 *, 0x3B4) < 0)) {
+        var_r4 = 1;
+    }
+    return var_r4;
+}
 
 u8 TObjEnePanarms__sub_800DFB9C(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x378) == 0xB);

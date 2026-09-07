@@ -9,6 +9,8 @@ struct RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC {
     u8 remaining[0x14];
 };
 
+struct RecoveredGlobal_802DFD9C___vt__22TAdMultiPlyChrSelectGC { M2C_UNK value; u8 remaining[0x14]; };
+
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern u8 *lbl_805D68D0;
@@ -21,6 +23,13 @@ s32 get_select_flag__22TAdMultiPlyChrSelectGCFv(void);
 extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
 extern s32 lbl_805D3F68;
 u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2);
+void queue_destruction__7TObjectFv(void *);
+void __dl__7TObjectFPv(s32);
+int get_global_state__22TAdMultiPlyChrSelectGCFv(void);
+M2C_UNK __dt__7TObjectFv(void *, int);
+extern RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC __vt__22TAdMultiPlyChrSelectGC;
+extern u8 *lbl_805D68D0;
+u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -76,6 +85,86 @@ void handle_event__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     extern int TAdMultiPlyChrSelectGC__data_805D67E0;
 
 typedef char RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC_size[sizeof(RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC) == 0x18 ? 1 : -1];
+
+u8 *__dt__22TAdMultiPlyChrSelectGCFv(u8 *arg0, s16 arg1) {
+    u8 *temp_r3;
+    u8 *temp_r3_10;
+    u8 *temp_r3_11;
+    u8 *temp_r3_2;
+    u8 *temp_r3_3;
+    u8 *temp_r3_4;
+    u8 *temp_r3_5;
+    u8 *temp_r3_6;
+    u8 *temp_r3_7;
+    u8 *temp_r3_8;
+    u8 *temp_r3_9;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802DFD9C___vt__22TAdMultiPlyChrSelectGC *)&__vt__22TAdMultiPlyChrSelectGC).value;
+        temp_r3 = (u8 *)(get_global_state__22TAdMultiPlyChrSelectGCFv());
+        if (temp_r3 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3);
+        }
+        temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x5C));
+        if (temp_r3_2 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_2);
+            M2C_FIELD(arg0, u8 **, 0x5C) = NULL;
+        }
+        temp_r3_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x78));
+        if (temp_r3_3 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_3);
+            M2C_FIELD(arg0, u8 **, 0x78) = NULL;
+        }
+        temp_r3_4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x88));
+        if (temp_r3_4 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_4);
+            M2C_FIELD(arg0, u8 **, 0x88) = NULL;
+        }
+        temp_r3_5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x8C));
+        if (temp_r3_5 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_5);
+            M2C_FIELD(arg0, u8 **, 0x8C) = NULL;
+        }
+        temp_r3_6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x90));
+        if (temp_r3_6 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_6);
+            M2C_FIELD(arg0, u8 **, 0x90) = NULL;
+        }
+        temp_r3_7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x94));
+        if (temp_r3_7 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_7);
+            M2C_FIELD(arg0, u8 **, 0x94) = NULL;
+        }
+        temp_r3_8 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x98));
+        if (temp_r3_8 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_8);
+            M2C_FIELD(arg0, u8 **, 0x98) = NULL;
+        }
+        temp_r3_9 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x7C));
+        if (temp_r3_9 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_9);
+            M2C_FIELD(arg0, u8 **, 0x7C) = NULL;
+        }
+        temp_r3_10 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x80));
+        if (temp_r3_10 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_10);
+            M2C_FIELD(arg0, u8 **, 0x80) = NULL;
+        }
+        temp_r3_11 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x84));
+        if (temp_r3_11 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3_11);
+            M2C_FIELD(arg0, u8 **, 0x84) = NULL;
+        }
+        if ((u32) (*(u32 *)&lbl_805D68D0) != 0U) {
+            (*(u32 *)&lbl_805D68D0) = 0U;
+        }
+        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
+}
+
 u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__22TAdMultiPlyChrSelectGC.value;

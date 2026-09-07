@@ -111,14 +111,16 @@ extern const f32 TOCtrlDubchik__data_805DB3B0;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
 extern const f32 TOCtrlDubchik__data_805DB3B8;
 void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
+s32 try_start_action__10TObjPlayerFPvii(void *, void *, void *);
+s32 TOCtrlDubchik__vt24(u8 *arg0, s32 arg1, s32 arg2);
+s32 TObjPlayer__sub_800162E0(void *, void *, void *, f32);
+s32 TOCtrlDubchik__vt25(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 }
 
 extern "C" {
 
 s32 TOCtrlDubchik__vt18(void *arg0);
 void TOCtrlDubchik__vt23(void);
-int TOCtrlDubchik__vt24(void);
-int TOCtrlDubchik__vt25(void);
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1);
 void *create__13TOCtrlDubchikFPv(void *arg0);
 void destroy_instance__13TOCtrlDubchikFv(void);
@@ -238,8 +240,19 @@ s32 TOCtrlDubchik__vt18(void *arg0) {
     return 0;
 }
 
-int TOCtrlDubchik__vt24(void) { return 0; }
-int TOCtrlDubchik__vt25(void) { return 0; }
+s32 TOCtrlDubchik__vt24(u8 *arg0, s32 arg1, s32 arg2) {
+    if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
+        return try_start_action__10TObjPlayerFPvii((void *) (arg0), (void *) (arg1), (void *) (arg2));
+    }
+    return 0;
+}
+
+s32 TOCtrlDubchik__vt25(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
+    if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
+        return TObjPlayer__sub_800162E0((void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
+    }
+    return 0;
+}
 
 void TOCtrlDubchik__vt23(void) {  }
 

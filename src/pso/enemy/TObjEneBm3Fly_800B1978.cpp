@@ -157,6 +157,11 @@ struct RecoveredGlobal_800B22C8_lbl_80491B4C {
     u8 remaining[0x28];
 };
 
+struct RecoveredGlobal_800B2168___vt__13TObjEneBm3Fly {
+    M2C_UNK value;
+    u8 remaining[0x1A8];
+};
+
 extern "C" {
 s32 TObjEneBm3Fly__sub_800BB774();
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -198,6 +203,14 @@ extern u8 *lbl_805D50F0;
 extern void *TObjEneBm3Fly__data_805D50F4;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
 void TObjEneBm3Fly__sub_800B22C8(void);
+u16 obj_getField1c(void *);
+u8 * init_object__9TObjEneDDFPv(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TObjEneBm3Fly__sub_800B1F80(void *);
+M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
+extern M2C_UNK __vt__13TObjEneBm3Fly[];
+extern s32 lbl_805D2A10;
+u8 *TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6);
 }
 
 extern "C" {
@@ -214,13 +227,11 @@ void update_collide_flag__13TObjEneBm3FlyFPv(void *arg0);
 void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
 void update_height_offset__13TObjEneBm3FlyFPv(void *arg0);
 void update_state_flag__13TObjEneBm3FlyFPv(void *arg0);
-void *TObjEneBm3Fly__ct(void *, void *, void *, void *, void *, void *, void *);
 u32 TObjEneDD__sub_800BAC14();
 int TObjEneDD__sub_800BBA18(void*, void*);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 TObjEneEpsilon__sub_800B96A4();
 void TObjEneGibbles__sub_80156720(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEneDDFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -229,7 +240,7 @@ void queue_destruction__7TObjectFv(void *);
 void store_position__13TObjEneBm3FlyFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
     M2C_FIELD(arg0, f32 *, 0x304) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
-    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC, arg0);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x2FC);
 }
 
 extern f32 *lbl_805D50EC;
@@ -403,6 +414,23 @@ void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1) {
 
 extern void *TObjEneBm3Fly__data_805D50F4;
 
+typedef char RecoveredGlobal_800B2168___vt__13TObjEneBm3Fly_size[sizeof(RecoveredGlobal_800B2168___vt__13TObjEneBm3Fly) == 0x1AC ? 1 : -1];
+u8 *TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6) {
+    init_object__9TObjEneDDFPv(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800B2168___vt__13TObjEneBm3Fly *)&__vt__13TObjEneBm3Fly).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2A10;
+    M2C_FIELD(arg0, u16 *, 0x418) = obj_getField1c(arg2);
+    init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, s16 *, 0x1C) = arg3;
+    M2C_FIELD(arg0, s16 *, 0x2C) = arg4;
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((void *) (arg5)));
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x41C)), (void *)((void *) (arg2 + 0x38)));
+    VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x40C)), (void *)((void *) (arg6)));
+    TObjEneBm3Fly__sub_800B1F80((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x80) = 0;
+    return arg0;
+}
+
 void release_shared_data__13TObjEneBm3FlyFv(void) {
     void *obj = TObjEneBm3Fly__data_805D50F4;
     if (obj != NULL) {
@@ -419,7 +447,7 @@ void * create__13TObjEneBm3FlyFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, vo
     void *o;
     o = __nw__7TObjectFUl(0x4A8);
     if (o != NULL) {
-        o = TObjEneBm3Fly__ct(o, tl_04, arg0, arg1, arg2, arg3, arg4);
+        o = TObjEneBm3Fly__ct((u8 *)(o), (M2C_UNK)(tl_04), (u8 *)(arg0), (s32)(arg1), (s32)(arg2), (u8 *)(arg3), (u8 *)(arg4));
     }
     return o;
 }

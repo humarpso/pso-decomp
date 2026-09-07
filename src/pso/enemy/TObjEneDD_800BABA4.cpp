@@ -257,6 +257,7 @@ void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *TObjEneDD__sub_800BAE74(u8 *arg0, u8 *arg1);
 void TObjEneDD__sub_800BB000(void *, void *, f32, f32, f32);
 void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+int TObjEneDD__sub_800BABA4(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -268,7 +269,14 @@ void TObjEneDD__vt85(void);
 void clear_field_388__9TObjEneDDFPv(void* p);
 void set_active__9TObjEneDDFPv(void* p);
 
-int TObjEneDD__sub_800BABA4(void) { return 0; }
+int TObjEneDD__sub_800BABA4(u8 *arg0, s32 arg1) {
+    u8 var_r5;
+    var_r5 = 0;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x380) >= arg1) || ((s32) M2C_FIELD(arg0, s32 *, 0x384) >= arg1)) {
+        var_r5 = 1;
+    }
+    return var_r5;
+}
 
 void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;

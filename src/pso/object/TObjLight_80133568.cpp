@@ -74,6 +74,26 @@ struct RecoveredGlobal_80134724_TObjLight__data_8050637C {
     u8 remaining[0x57C];
 };
 
+#include <stddef.h>
+struct Stack_80133A04 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_80133A04_TObjLight__data_80506320 {
+    M2C_UNK value;
+    u8 remaining[0x4C];
+};
+
+struct Stack_80133B10 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+struct RecoveredGlobal_80133B10_TObjLight__data_80506320 { M2C_UNK value; u8 remaining[0x4C]; };
+
 extern "C" {
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
@@ -97,7 +117,6 @@ M2C_UNK TScene__sub_803D8DB4(int, void *, void *);
 extern M2C_UNK lbl_804A6F90[];
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 extern u8 *lbl_805D5558;
-u8 *TObjLight__sub_80133980(u8 *arg0);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 void TObjBoss2Tunnel__sub_801339EC(f32 farg0, f32 farg1, f32 farg2);
 M2C_UNK TObjLight__sub_8038B804(M2C_UNK *, f32, f32, f32);
@@ -122,6 +141,26 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_80134724_TObjLight__data_8050637C TObjLight__data_8050637C;
 extern s32 TObjLight__data_805D556C;
 void TObjLight__sub_80134724(s32 arg0, s32 arg1);
+u8 * TObjLight__sub_80133980(u8 *arg0, int);
+void * init__9TObjLightFPv(void *arg0, int);
+u32 __nw__7TObjectFUl(int);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
+extern s32 tl_02;
+extern const float TObjLight__data_805DB088;
+void TObjLight__sub_80133A04(u8 *arg0);
+s32 TObjLight__sub_80133718(int, int);
+u8 *TObjLight__sub_80133980(u8 *arg0, int _w1);
+void *init__9TObjLightFPv(void *arg0, int _w1);
+s32 TObjLight__sub_801347A4();
+u32 __nw__7TObjectFUl(int);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
+extern s32 tl_02;
+extern const float TObjLight__data_805DB088;
+void TObjLight__sub_80133B10(u8 *arg0);
 }
 
 extern "C" {
@@ -140,7 +179,6 @@ void bswap_data__9TObjLightFPv(void* p);
 void *dt2__9TObjLightFPvs(void *arg0, s16 arg1);
 void *dt__9TObjLightFPvs(void *arg0, s16 arg1);
 void free_shared_data__9TObjLightFv(void);
-void *init__9TObjLightFPv(void *arg0);
 void* init_light__9TObjLightFPvi(void* a0, int a1);
 void *init_object__9TObjLightFPv(void *arg0);
 void set_light__9TObjLightFPvPvf(void *arg0, void *arg1, f32 farg0);
@@ -207,7 +245,7 @@ extern M2C_UNK lbl_804A6FA8[];
 
 typedef char RecoveredGlobal_80133980_lbl_804A6F90_size[sizeof(RecoveredGlobal_80133980_lbl_804A6F90) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_80133980_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80133980_TObjLight__data_80506320) == 0x50 ? 1 : -1];
-u8 *TObjLight__sub_80133980(u8 *arg0) {
+u8 *TObjLight__sub_80133980(u8 *arg0, int _w1) {
     init_object__9TObjLightFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80133980_lbl_804A6F90 *)&lbl_804A6F90).value;
     TScene__sub_803D8DB4((int) (0), (void *) (&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__data_80506320).value), (void *) ((u8 *)&(*(RecoveredGlobal_80133980_TObjLight__data_80506320 *)&TObjLight__data_80506320).value + 0xC));
@@ -225,6 +263,86 @@ void TObjBoss2Tunnel__sub_801339EC(f32 farg0, f32 farg1, f32 farg2) {
     M2C_FIELD(&(*(RecoveredGlobal_801339EC_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x30) = farg2;
 }
 
+typedef char RecoveredGlobal_80133A04_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80133A04_TObjLight__data_80506320) == 0x50 ? 1 : -1];
+void TObjLight__sub_80133A04(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80133A04, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80133A04, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80133A04, sp10) == 0x8) ? 1 : -1];
+    Stack_80133A04 stack;
+    u32 temp_r3;
+    u32 temp_r3_2;
+    stack.sp8 = M2C_FIELD(arg0, f32 *, 0);
+    stack.spC = M2C_FIELD(arg0, f32 *, 4);
+    stack.sp10 = M2C_FIELD(arg0, f32 *, 8);
+    if ((*(const f32 *)&TObjLight__data_805DB088) != TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8))) {
+        TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+    }
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0) = stack.sp8;
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 4) = stack.spC;
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 8) = stack.sp10;
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x18) = (f32) M2C_FIELD(arg0, f32 *, 0x18);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x1C) = (f32) M2C_FIELD(arg0, f32 *, 0x1C);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x20) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x28) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x2C) = (f32) M2C_FIELD(arg0, f32 *, 0x2C);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x30) = (f32) M2C_FIELD(arg0, f32 *, 0x30);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x3C) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x40) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0xC) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x10) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
+    M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x14) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
+    temp_r3 = __nw__7TObjectFUl((int) (0x1C));
+    if (temp_r3 != 0U) {
+        TObjLight__sub_80133980((u8 *)((int) (temp_r3)), (int)((int) (tl_02)));
+    }
+    temp_r3_2 = __nw__7TObjectFUl((int) (0x1C));
+    if (temp_r3_2 != 0U) {
+        init__9TObjLightFPv((void *)((int) (temp_r3_2)), (int)((int) (tl_02)));
+    }
+}
+
+void TObjLight__sub_80133B10(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80133B10, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80133B10, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80133B10, sp10) == 0x8) ? 1 : -1];
+    Stack_80133B10 stack;
+    u32 temp_r3;
+    u32 temp_r3_2;
+    u32 temp_r3_3;
+    stack.sp8 = M2C_FIELD(arg0, f32 *, 0);
+    stack.spC = M2C_FIELD(arg0, f32 *, 4);
+    stack.sp10 = M2C_FIELD(arg0, f32 *, 8);
+    if ((*(const f32 *)&TObjLight__data_805DB088) != TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8))) {
+        TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+    }
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0) = stack.sp8;
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 4) = stack.spC;
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 8) = stack.sp10;
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x18) = (f32) M2C_FIELD(arg0, f32 *, 0x18);
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x1C) = (f32) M2C_FIELD(arg0, f32 *, 0x1C);
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x20) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x28) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x2C) = (f32) M2C_FIELD(arg0, f32 *, 0x2C);
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x30) = (f32) M2C_FIELD(arg0, f32 *, 0x30);
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x3C) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
+    M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0x40) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
+    TObjLight__sub_801347A4();
+    temp_r3 = __nw__7TObjectFUl((int) (0x1C));
+    if (temp_r3 != 0U) {
+        TObjLight__sub_80133980((u8 *)((int) (temp_r3)), (int)((int) (tl_02)));
+    }
+    temp_r3_2 = __nw__7TObjectFUl((int) (0x1C));
+    if (temp_r3_2 != 0U) {
+        init__9TObjLightFPv((void *)((int) (temp_r3_2)), (int)((int) (tl_02)));
+    }
+    temp_r3_3 = __nw__7TObjectFUl((int) (0x1C));
+    if (temp_r3_3 != 0U) {
+        TObjLight__sub_80133718((int) (temp_r3_3), (int) (tl_02));
+    }
+}
+
 void *dt__9TObjLightFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A6FA8;
@@ -238,7 +356,7 @@ void *dt__9TObjLightFPvs(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804A6FA8[];
 
-void *init__9TObjLightFPv(void *arg0) {
+void *init__9TObjLightFPv(void *arg0, int _w1) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A6FA8;
     return arg0;

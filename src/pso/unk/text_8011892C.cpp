@@ -26,6 +26,10 @@ struct VObj_80118A48_8011892C : Base_80118A48_8011892C {
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TItemProUnit__vt12(u8 *arg0);
+}
+
+extern "C" {
 
 struct VItemProUnit_8011892C {
     char pad[0x18];
@@ -50,7 +54,6 @@ struct VItemProUnit_8011892C {
 };
 
 u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
-int TItemProUnit__vt12(void);
 void TItemProUnit__vt43(void *arg0);
 void TItem__sub_8011892C(void);
 u8 *TItemData__sub_8010EA38(void *);
@@ -61,7 +64,15 @@ M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 
 void TItem__sub_8011892C(void) {  }
 
-int TItemProUnit__vt12(void) { return 0; }
+void TItemProUnit__vt12(u8 *arg0) {
+    s16 temp_r0;
+    s16 temp_r4;
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x1BE);
+    temp_r4 = M2C_FIELD(arg0, s16 *, 0x1BC);
+    if ((temp_r0 < temp_r4) || (temp_r4 < -temp_r0)) {
+        M2C_FIELD(arg0, s16 *, 0x1BC) = 0;
+    }
+}
 
 void TItemProUnit__vt43(void *arg0) {
     struct VObj_80118A48_8011892C *o = (struct VObj_80118A48_8011892C *)arg0;

@@ -6,6 +6,15 @@ TLogo::~TLogo() {}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+#include "pso/TMainTask.h"
+extern "C" {
+s32 TLobby__sub_800FD6A0(void *, int);
+s32 render_tick__Fv();
+s32 delete_all_task_children__9TMainTaskFv(void *);
+extern u8 lbl_804A72D8[0x48];
+void TLogo__sub_8013F5AC();
+}
+
 extern "C" {
 
 int TLogo__sub_8013F7E8(void);
@@ -40,6 +49,13 @@ void *__ct__5TLogoFv(void *arg0) {
 }
 
     extern int lbl_805D49D0;
+
+void TLogo__sub_8013F5AC() {
+    delete_all_task_children__9TMainTaskFv(&main_task);
+    TLobby__sub_800FD6A0(lbl_804A72D8, sizeof(lbl_804A72D8));
+    render_tick__Fv();
+}
+
 int TLogo__sub_8013F7E8(void) {  return lbl_805D49D0; }
 
     extern int lbl_805D4A50;

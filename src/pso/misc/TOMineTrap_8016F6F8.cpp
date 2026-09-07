@@ -321,6 +321,15 @@ extern const f32 lbl_805DB870;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
 void TOMineTrap__sub_80170AC8(u8 *arg0);
+void calc_attach_pos__10TObjPlayerFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
+void set_indexed_flags(void *, s32, s32);
+int TObjPlayer__sub_80154E3C(void*);
+s32 TLobby__sub_80156A80(void*, s16 *, M2C_UNK);
+void TOMineTrap__sub_8017070C(u8 *arg0);
+s32 set_flag8__6TLobbyFPv(void *);
+s32 queue_destruction_for_each_node__7TObjectFv(void *);
+void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -445,6 +454,31 @@ void TOMineTrap__sub_8017070C(u8 *arg0) {
     ((VObj_18 *)(arg0))->m80();
     ((VObj_18 *)(arg0))->m78();
 }
+
+void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
+    s16 temp_r0;
+    temp_r0 = M2C_FIELD(arg1, s16 *, 0);
+    if (temp_r0 == 5) {
+        if (arg2 == 1) {
+            TOMineTrap__sub_8017070C((u8 *)((void *) (arg0)));
+        }
+        set_flag8__6TLobbyFPv((void *) (arg0));
+        queue_destruction__7TObjectFv((void *) (arg0));
+        TLobby__sub_80156A80((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (M2C_UNK)((int) (0)));
+        return;
+    }
+    if (temp_r0 == 3) {
+        M2C_FIELD(arg0, s16 *, 0x326) = temp_r0;
+        set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (1)));
+        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+        calc_attach_pos__10TObjPlayerFPv((void *) (arg0));
+        TObjPlayer__sub_80154E3C((void*)((void *) (arg0)));
+        ((VObj_18_d0f3c0 *)(arg0))->m79();
+        TLobby__sub_80156A80((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (M2C_UNK)((int) (0)));
+        queue_destruction_for_each_node__7TObjectFv((void *) (arg0));
+    }
+}
+
 f32 trigger_explosion__10TOMineTrapFPv(void *arg0) {
     s16 sp8;
     if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x4000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void*)(arg0), (s16 *)(&sp8), (M2C_UNK)(1)) != 0)) {

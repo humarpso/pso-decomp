@@ -4,6 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80328D50___vt__12TAdDialingGC {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+u8 * __dt__7TObjectFv(void *, s16);
+void __dl__7TObjectFPv(s32);
+extern RecoveredGlobal_80328D50___vt__12TAdDialingGC __vt__12TAdDialingGC;
+extern s32 TAdDialingGC__data_805D6C78;
+u8 *__dt__12TAdDialingGCFv(u8 *arg0, s16 arg1);
+}
+
 extern "C" {
 
 void run_task__12TAdDialingGCFv(void *arg0);
@@ -38,6 +51,18 @@ void run_task__12TAdDialingGCFv(void *arg0) {
     }
     update_selection__12TAdDialingGCFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
+}
+typedef char RecoveredGlobal_80328D50___vt__12TAdDialingGC_size[sizeof(RecoveredGlobal_80328D50___vt__12TAdDialingGC) == 0x18 ? 1 : -1];
+u8 *__dt__12TAdDialingGCFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TAdDialingGC.value;
+        TAdDialingGC__data_805D6C78 = 0;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
 }
 
 }

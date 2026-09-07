@@ -10,12 +10,12 @@ extern const f32 lbl_805DC3DC;
 s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
 f32 fn_801D6AB4(void *, s32, s32);
 s32 TOMineTrap__sub_801D6A44(u8 *arg0, s32 arg1, s32 arg2);
+int TFontSmallLobby__sub_801D6614(s16 arg0);
 }
 
 extern "C" {
 
 int TFontSmallLobby__sub_801D65B4(void);
-int TFontSmallLobby__sub_801D6614(void);
 void TFontSmallLobby__sub_801D671C(void* a0, int a1);
 int TFontSmallLobby__sub_801D677C(void* p);
 void TFontSmallLobby__sub_801D67C8(void* p);
@@ -62,7 +62,15 @@ void set_target_index__11TMainCursorFPvs(void* p, s16 v);
 void update_cursor_pos__11TMainCursorFPv(void* p);
 
 int TFontSmallLobby__sub_801D65B4(void) { return 0; }
-int TFontSmallLobby__sub_801D6614(void) { return 0; }
+
+int TFontSmallLobby__sub_801D6614(s16 arg0) {
+    u8 var_r4;
+    var_r4 = 0;
+    if (((arg0 >= 0) && (arg0 < 6)) || (arg0 == -1)) {
+        var_r4 = 1;
+    }
+    return var_r4;
+}
 
 void reset_fields__15TFontSmallLobbyFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 int set_bit1_at_40__15TFontSmallLobbyFPv(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0x40, 2); }

@@ -4,6 +4,16 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80193A84_lbl_8050DCF0 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+extern "C" {
+extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
+void TLazerFenceSw__vt14(u8 *arg0);
+}
+
 extern "C" {
 
 void TLazerFenceSw__sub_80193C5C(void);
@@ -72,6 +82,22 @@ void TLazerFenceSw__vt17(void *arg0) {
 }
 
 extern const f32 lbl_805DBE88;
+
+typedef char RecoveredGlobal_80193A84_lbl_8050DCF0_size[sizeof(RecoveredGlobal_80193A84_lbl_8050DCF0) == 0x18 ? 1 : -1];
+void TLazerFenceSw__vt14(u8 *arg0) {
+    u32 temp_r4;
+    u32 temp_r4_2;
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8));
+    temp_r4 = M2C_FIELD(M2C_FIELD(&lbl_8050DCF0.value, u8 **, 0), s32 *, 4) - 1;
+    if (M2C_FIELD(arg0, f32 *, 0xB0) > (f32) temp_r4) {
+        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) temp_r4;
+    }
+    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) + M2C_FIELD(arg0, f32 *, 0xB8));
+    temp_r4_2 = M2C_FIELD(M2C_FIELD(&lbl_8050DCF0.value, u8 **, 4), s32 *, 4) - 1;
+    if (M2C_FIELD(arg0, f32 *, 0xEC) > (f32) temp_r4_2) {
+        M2C_FIELD(arg0, f32 *, 0xEC) = (f32) temp_r4_2;
+    }
+}
 
 void run_task__13TLazerFenceSwFv(u8 *arg0) {
     fn_80156CA0(arg0 + 0xF0);

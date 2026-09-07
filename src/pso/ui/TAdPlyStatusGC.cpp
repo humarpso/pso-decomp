@@ -9,6 +9,8 @@ struct RecoveredGlobal_8033F93C_lbl_8050E3B8 {
     u8 remaining[0x1AC];
 };
 
+struct RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC { M2C_UNK value; u8 remaining[0x14]; };
+
 extern "C" {
 M2C_UNK allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
@@ -20,6 +22,12 @@ extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
 extern s32 TAdPlyStatusGC__data_805D6DB0;
 extern s32 TAdPlyStatusGC__data_805D6DB8;
 void TAdPlyStatusGC__sub_8033F93C(u8 *arg0);
+u8 * __dt__7TObjectFv(void *, s16);
+void queue_destruction__7TObjectFv(void *);
+void __dl__7TObjectFPv(s32);
+extern RecoveredGlobal_8033FB8C___vt__14TAdPlyStatusGC __vt__14TAdPlyStatusGC;
+extern u32 lbl_805D6DA8;
+u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -65,6 +73,25 @@ void close_window__14TAdPlyStatusGCFPv(void *arg0) {
     if (get_player_index__14TAdPlyStatusGCFv() != 0U) {
         disallow_rendering__7TObjectFv();
     }
+}
+u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1) {
+    u8 *temp_r3;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TAdPlyStatusGC.value;
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x6C));
+        if (temp_r3 != NULL) {
+            queue_destruction__7TObjectFv(temp_r3);
+            M2C_FIELD(arg0, u8 **, 0x6C) = NULL;
+        }
+        if ((u32) lbl_805D6DA8 != 0U) {
+            lbl_805D6DA8 = 0U;
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
 }
 
 }

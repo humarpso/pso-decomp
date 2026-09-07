@@ -4,11 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 M2C_UNK TAdPlyPltAnimCtrlGC__sub_80355D38();
 void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0);
 u8 fn_8035510C(s32 *arg0, s32 arg1);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 TAdPlyPltAnimGC__sub_803560F0(void *, int);
+extern M2C_UNK __vt__19TAdPlyPltAnimCtrlGC[];
+extern s32 lbl_805D4390;
+u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -19,7 +29,6 @@ u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0);
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1);
 int render__19TAdPlyPltAnimCtrlGCFv(void);
-u32 TAdPlyPltAnimCtrlGC__ct(u32, s32);
 int TObjPlayer__sub_8001BEF8(void*, int);
 void TObjPlayer__sub_80354F8C(void* p);
 int TObjPlayer__sub_80354FB0(void* p);
@@ -83,13 +92,29 @@ void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1) {
 
 extern u32 lbl_805D6F08;
 
+typedef char RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC_size[sizeof(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC) == 0x18 ? 1 : -1];
+u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1) {
+    s32 var_r31;
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC *)&__vt__19TAdPlyPltAnimCtrlGC).value;
+    var_r31 = 0;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D4390;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = -1;
+    do {
+        TAdPlyPltAnimGC__sub_803560F0((void *) (arg0), (int) (var_r31));
+        var_r31 += 1;
+    } while (var_r31 < 5);
+    return arg0;
+}
+
 u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0) {
     u32 var_r0;
 
     if ((u32) lbl_805D6F08 == 0U) {
         var_r0 = __nw__7TObjectFUl(0x2C);
         if (var_r0 != 0U) {
-            var_r0 = TAdPlyPltAnimCtrlGC__ct(var_r0, arg0);
+            var_r0 = ((u32)TAdPlyPltAnimCtrlGC__ct((u8 *)(var_r0), (s32)(arg0)));
         }
         lbl_805D6F08 = var_r0;
     }

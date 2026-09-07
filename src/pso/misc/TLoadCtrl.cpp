@@ -13,6 +13,8 @@ struct RecoveredGlobal_8001C828___vt__9TLoadCtrl {
     u8 remaining[0x14];
 };
 
+struct RecoveredGlobal_8001C7A0___vt__9TLoadCtrl { M2C_UNK value; u8 remaining[0x14]; };
+
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -23,6 +25,13 @@ extern s32 TLoadCtrl__data_805D4A84;
 extern s32 TLoadCtrl__data_805D4A88;
 extern s32 tl_fade;
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
+u8 * __dt__7TObjectFv(void *, s16);
+M2C_UNK queue_destruction__7TObjectFv(u32);
+void __dl__7TObjectFPv(s32);
+extern RecoveredGlobal_8001C828___vt__9TLoadCtrl __vt__9TLoadCtrl;
+extern u32 TLoadCtrl__data_805D4A80;
+extern s32 TLoadCtrl__data_805D4A88;
+u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -49,6 +58,25 @@ extern s32 TLoadCtrl__data_805D4A84;
 extern void *lbl_805D4DF0;
 
 typedef char RecoveredGlobal_8001C828___vt__9TLoadCtrl_size[sizeof(RecoveredGlobal_8001C828___vt__9TLoadCtrl) == 0x18 ? 1 : -1];
+
+u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8001C7A0___vt__9TLoadCtrl *)&__vt__9TLoadCtrl).value;
+        if ((void *) (*(u8 * *)&TLoadCtrl__data_805D4A88) != NULL) {
+            queue_destruction__7TObjectFv((u32)((*(u8 * *)&TLoadCtrl__data_805D4A88)));
+            (*(u8 * *)&TLoadCtrl__data_805D4A88) = NULL;
+        }
+        if ((u32) TLoadCtrl__data_805D4A80 != 0U) {
+            TLoadCtrl__data_805D4A80 = 0U;
+        }
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
+}
+
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;

@@ -19,6 +19,16 @@ struct RecoveredGlobal_802925C4_lbl_80540968 {
     u8 remaining[0x1C];
 };
 
+struct RecoveredGlobal_80292200_lbl_804DB1F0 {
+    M2C_UNK value;
+    u8 remaining[0x6AC];
+};
+
+struct RecoveredGlobal_80292604_lbl_804DB1F0 {
+    M2C_UNK value;
+    u8 remaining[0x6AC];
+};
+
 extern "C" {
 void TLobby__sub_8006F910(void *, void *, s32);
 extern M2C_UNK lbl_804DB1F0[];
@@ -28,6 +38,16 @@ s32 TLobby__sub_80291F9C(void);
 M2C_UNK strncpy(void *, void *, int);
 extern RecoveredGlobal_802925C4_lbl_80540968 lbl_80540968;
 void TLobby__sub_802925C4(s32 arg0);
+f32 get_random_float__8TObjFishFv(f32);
+s32 is_value_out_of_range__6TLobbyFi(s32);
+M2C_UNK TLobby__sub_80292164(void *);
+extern M2C_UNK lbl_804DB1F0[];
+void TLobby__sub_80292200(s32 arg0);
+f32 get_random_float__8TObjFishFv(f32);
+void TObjCHTimeWin__sub_80071DF4(int);
+s32 TLobby__sub_80293080();
+extern M2C_UNK lbl_804DB1F0[];
+void TLobby__sub_80292604(s32 arg0);
 }
 
 extern "C" {
@@ -70,6 +90,13 @@ s32 TLobby__sub_80291F9C(void) {
     return 0;
 }
 
+typedef char RecoveredGlobal_80292200_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292200_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
+void TLobby__sub_80292200(s32 arg0) {
+    is_value_out_of_range__6TLobbyFi(arg0);
+    get_random_float__8TObjFishFv((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80292200_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0xC)));
+    TLobby__sub_80292164((void *) (arg0));
+}
+
 int TLobby__sub_80292268(void) { return 1; }
 typedef char RecoveredGlobal_80292574_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292574_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void TLobby__sub_80292574(u8 *arg0, s32 arg1) {
@@ -80,6 +107,14 @@ typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_8
 void TLobby__sub_802925C4(s32 arg0) {
     strncpy((void *) (&lbl_80540968.value), (void *) (arg0), (int) (0x20));
     M2C_FIELD(&lbl_80540968.value, s8 *, 0x1F) = 0;
+}
+typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292604_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
+void TLobby__sub_80292604(s32 arg0) {
+    if (TLobby__sub_80293080() != 0) {
+        get_random_float__8TObjFishFv((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80292604_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0xC)));
+        M2C_FIELD(&(*(RecoveredGlobal_80292604_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0xC) = arg0;
+        TObjCHTimeWin__sub_80071DF4(arg0);
+    }
 }
 
 }

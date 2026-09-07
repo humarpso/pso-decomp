@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8035C83C___vt__12TBoss4Thanks { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8035C83C___vt__12TBoss4Thanks_size[sizeof(RecoveredGlobal_8035C83C___vt__12TBoss4Thanks) == 0x18 ? 1 : -1];
 
+struct RecoveredGlobal_8035C7D4___vt__12TBoss4Thanks { M2C_UNK value; u8 remaining[0x14]; };
+
 extern "C" {
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -19,6 +21,12 @@ extern s32 lbl_805D4438;
 extern const f32 lbl_805E0184;
 extern const f32 lbl_805E0188;
 u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1);
+u8 * __dt__7TObjectFv(void *, s16);
+void __dl__7TObjectFPv(s32);
+int dispatch_main_phase_153__12TBoss4ThanksFv(void);
+void TBoss4Thanks__sub_8035C424(s32);
+extern RecoveredGlobal_8035C83C___vt__12TBoss4Thanks __vt__12TBoss4Thanks;
+u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -78,6 +86,20 @@ void advance_thanks_state__12TBoss4ThanksFPv(void *arg0) {
 }
 
 void mark_done__12TBoss4ThanksFPv(void* p) { if (TBoss4Thanks__sub_8035C4A4(p) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
+
+u8 *__dt__12TBoss4ThanksFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035C7D4___vt__12TBoss4Thanks *)&__vt__12TBoss4Thanks).value;
+        dispatch_main_phase_153__12TBoss4ThanksFv();
+        TBoss4Thanks__sub_8035C424((s32) arg0);
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
+}
+
 u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1) {
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);

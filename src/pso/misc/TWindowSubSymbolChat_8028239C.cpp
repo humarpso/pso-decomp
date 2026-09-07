@@ -9,9 +9,23 @@ struct RecoveredGlobal_8028379C_lbl_804FF968 {
     u8 remaining[0x54];
 };
 
+struct RecoveredGlobal_8028351C___vt__20TWindowSubSymbolChat { M2C_UNK value; u8 remaining[0x14]; };
+
 extern "C" {
 extern RecoveredGlobal_8028379C_lbl_804FF968 lbl_804FF968;
 M2C_UNK *TWindowSubSymbolChat__sub_8028379C(void);
+s32 __dt__7TObjectFv(void *, int);
+s32 queue_destruction__7TObjectFv(int);
+s32 TWindowSubSymbolChat__sub_80077034(int, int);
+s32 __dl__7TObjectFPv(void *);
+s32 TWindow__close(int);
+s32 update_selected_item__17TWindowOptionCtrlFPv(int);
+s32 TWindowCtrlMain__sub_8024CE58();
+s32 clear_flag_bit2__20TWindowSubSymbolChatFPv(int);
+s32 close__17TWindowSubComCardFPv(int);
+extern M2C_UNK __vt__20TWindowSubSymbolChat[];
+extern void *lbl_805D6490;
+u8 *__dt__20TWindowSubSymbolChatFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -91,6 +105,97 @@ extern void *lbl_805D6490;
 extern s8 TWindowSubSymbolChat__data_805D6494;
 extern s32 TWindowSubSymbolChat__data_805D6498;
 extern s32 TWindowSubSymbolChat__data_805D649C;
+
+u8 *__dt__20TWindowSubSymbolChatFv(u8 *arg0, s16 arg1) {
+    u32 temp_r3;
+    u32 temp_r3_10;
+    u32 temp_r3_11;
+    u32 temp_r3_12;
+    u32 temp_r3_2;
+    u32 temp_r3_3;
+    u32 temp_r3_4;
+    u32 temp_r3_5;
+    u32 temp_r3_6;
+    u32 temp_r3_7;
+    u32 temp_r3_8;
+    u32 temp_r3_9;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8028351C___vt__20TWindowSubSymbolChat *)&__vt__20TWindowSubSymbolChat).value;
+        temp_r3 = M2C_FIELD(arg0, u32 *, 0x58);
+        if (temp_r3 != 0U) {
+            queue_destruction__7TObjectFv((int) (temp_r3));
+            M2C_FIELD(arg0, u32 *, 0x58) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
+            if ((TWindowCtrlMain__sub_8024CE58() != 0) && ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0x27)) {
+                TWindowSubSymbolChat__sub_80077034((int) (M2C_FIELD(arg0, u32 *, 0x28)), (int) (update_selected_item__17TWindowOptionCtrlFPv((int) (M2C_FIELD(arg0, u32 *, 0x44)))));
+            }
+            TWindow__close((int) (M2C_FIELD(arg0, u32 *, 0x44)));
+            M2C_FIELD(arg0, u32 *, 0x44) = 0U;
+        }
+        temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x40);
+        if (temp_r3_2 != 0U) {
+            close__17TWindowSubComCardFPv((int) (temp_r3_2));
+            M2C_FIELD(arg0, u32 *, 0x40) = 0U;
+        }
+        temp_r3_3 = M2C_FIELD(arg0, u32 *, 0x54);
+        if (temp_r3_3 != 0U) {
+            TWindow__close((int) (temp_r3_3));
+            M2C_FIELD(arg0, u32 *, 0x54) = 0U;
+        }
+        temp_r3_4 = M2C_FIELD(arg0, u32 *, 0x48);
+        if (temp_r3_4 != 0U) {
+            TWindow__close((int) (temp_r3_4));
+            M2C_FIELD(arg0, u32 *, 0x48) = 0U;
+        }
+        temp_r3_5 = M2C_FIELD(arg0, u32 *, 0x50);
+        if (temp_r3_5 != 0U) {
+            TWindow__close((int) (temp_r3_5));
+            M2C_FIELD(arg0, u32 *, 0x50) = 0U;
+        }
+        temp_r3_6 = M2C_FIELD(arg0, u32 *, 0x4C);
+        if (temp_r3_6 != 0U) {
+            TWindow__close((int) (temp_r3_6));
+            M2C_FIELD(arg0, u32 *, 0x4C) = 0U;
+        }
+        temp_r3_7 = M2C_FIELD(arg0, u32 *, 0x3C);
+        if (temp_r3_7 != 0U) {
+            TWindow__close((int) (temp_r3_7));
+            M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+        }
+        temp_r3_8 = M2C_FIELD(arg0, u32 *, 0x38);
+        if (temp_r3_8 != 0U) {
+            TWindow__close((int) (temp_r3_8));
+            M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+        }
+        temp_r3_9 = M2C_FIELD(arg0, u32 *, 0x34);
+        if (temp_r3_9 != 0U) {
+            TWindow__close((int) (temp_r3_9));
+            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
+        }
+        temp_r3_10 = M2C_FIELD(arg0, u32 *, 0x30);
+        if (temp_r3_10 != 0U) {
+            TWindow__close((int) (temp_r3_10));
+            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        }
+        temp_r3_11 = M2C_FIELD(arg0, u32 *, 0x28);
+        if (temp_r3_11 != 0U) {
+            clear_flag_bit2__20TWindowSubSymbolChatFPv((int) (temp_r3_11));
+            M2C_FIELD(arg0, u32 *, 0x28) = 0U;
+        }
+        temp_r3_12 = M2C_FIELD(arg0, u32 *, 0x5C);
+        if (temp_r3_12 != 0U) {
+            TWindow__close((int) (temp_r3_12));
+            M2C_FIELD(arg0, u32 *, 0x5C) = 0U;
+        }
+        (*(s32 *)&lbl_805D6490) = 0;
+        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((void *) (arg0));
+        }
+    }
+    return arg0;
+}
 
 void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();

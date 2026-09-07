@@ -104,6 +104,11 @@ struct RecoveredGlobal_801D9440_lbl_804471A8 {
     u8 remaining[0x14];
 };
 
+struct RecoveredGlobal_801D9004_lbl_80447970 {
+    M2C_UNK value;
+    u8 remaining[0x38];
+};
+
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
@@ -117,7 +122,6 @@ s16 get_tech_level__10TObjPlayerFPv(void *);
 s16 get_handle_value__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 f32 TObjPlayer__sub_801D90DC(s32, s16, s16, s32);
-s32 get_falz_phase__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D9078(u8 *arg0);
 s32 get_main_phase();
 s32 obj_isState3_324(int);
@@ -173,6 +177,10 @@ f32 TObjPlayer__sub_801D93F8(u8 *arg0);
 s32 get_clamped_index__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_801D93F8_lbl_804471A8 lbl_804471A8;
 f32 TObjPlayer__sub_801D9440(void * _w0);
+s16 get_handle_value__10TObjPlayerFPv(void *);
+s32 get_falz_phase__10TObjPlayerFPv(void* p);
+extern RecoveredGlobal_801D9004_lbl_80447970 lbl_80447970;
+f32 TObjPlayer__sub_801D9004(s32 arg0);
 }
 
 extern "C" {
@@ -184,7 +192,6 @@ void TObjPlayer__sub_801D92A4(void);
 int TObjPlayer__sub_801D9470(void* p);
 void create_player_ending_motion(void);
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
-s32 get_falz_phase__10TObjPlayerFPv(void* p);
 int get_instance_count__14TBoss4DarkFalzFv(void);
 void* init_inventory__10TObjPlayerFPv(void* p);
 s32 init_inventory_items__10TObjPlayerFi(s32 arg0);
@@ -334,6 +341,13 @@ s32 TObjPlayer__sub_801D8E60(u8 *arg0) {
     return M2C_FIELD(&lbl_804C4980.value, M2C_UNK *, (get_clamped_index__10TObjPlayerFPv((void *)(arg0)) * 4));
 }
 
+typedef char RecoveredGlobal_801D9004_lbl_80447970_size[sizeof(RecoveredGlobal_801D9004_lbl_80447970) == 0x3C ? 1 : -1];
+f32 TObjPlayer__sub_801D9004(s32 arg0) {
+    s32 temp_r31;
+    temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)(arg0));
+    return (f32) (s8) M2C_FIELD(((u8 *)(((u8 *)(&lbl_80447970.value) + (get_handle_value__10TObjPlayerFPv((void *) (arg0)) * 3))) + temp_r31), u8 *, 0);
+}
+
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_801D9078(u8 *arg0) {
@@ -344,7 +358,7 @@ void TObjPlayer__sub_801D9078(u8 *arg0) {
   temp_r29 = get_move_mode__10TObjPlayerFPv(arg0);
   new_var = get_tech_level__10TObjPlayerFPv(arg0 + 0x7CC);
   temp_r30 = new_var;
-  temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)(arg0));
+  temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)((void*)(arg0)));
   TObjPlayer__sub_801D90DC((s32) get_handle_value__10TObjPlayerFPv(arg0), temp_r31, temp_r30, temp_r29);
 }
 

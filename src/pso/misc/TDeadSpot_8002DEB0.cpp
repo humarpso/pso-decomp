@@ -6,6 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 rand__11TOBoss4RockFv();
+extern const f32 lbl_805D817C;
+extern const f32 lbl_805D8184;
+extern const f32 lbl_805D818C;
+f32 TTecZondeEff__sub_8002DF28(void);
+}
+
+extern "C" {
 
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 s32 rand__11TOBoss4RockFv();
@@ -15,6 +23,9 @@ extern const f32 lbl_805D818C;
 
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1) {
     return ((farg1 - farg0) * (lbl_805D818C * (f32) rand__11TOBoss4RockFv())) + farg0;
+}
+f32 TTecZondeEff__sub_8002DF28(void) {
+    return lbl_805D8184 * ((lbl_805D818C * (f32) rand__11TOBoss4RockFv()) - lbl_805D817C);
 }
 
 }

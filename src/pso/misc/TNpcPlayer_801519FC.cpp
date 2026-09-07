@@ -4,9 +4,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_801520B8___vt__10TNpcPlayer { M2C_UNK value; u8 remaining[0x14]; };
+
 extern "C" {
 void TNpcPlayer__sub_801528C8(s32 arg0, s32 arg1);
 void TNpcPlayer__sub_801528B8(s32 arg0, s32 arg1);
+u8 * dt__10TNpcPlayerFPvs(void *, s16);
+u16 get_npc_type__10TNpcPlayerFPv(void* p);
+void send_item_pickup_request__10TObjPlayerFi(s32);
+void __dl__7TObjectFPv(s32);
+M2C_UNK __dt__7TObjectFv(void *, int);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+extern RecoveredGlobal_801520B8___vt__10TNpcPlayer __vt__10TNpcPlayer;
+u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -62,6 +72,34 @@ s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0) {
         TNpcPlayer__sub_8014E090((void *) (arg0), (int) (0));
     }
     return 0;
+}
+
+u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {
+    u32 temp_r3_3;
+    u8 *temp_r3;
+    u8 *temp_r3_2;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TNpcPlayer.value;
+        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x74));
+        if (temp_r3 != NULL) {
+            dt__10TNpcPlayerFPvs(temp_r3, 1);
+            M2C_FIELD(arg0, u8 **, 0x74) = NULL;
+        }
+        temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x78));
+        if (temp_r3_2 != NULL) {
+            temp_r3_3 = TPlayerBattleCtrl4P__sub_801BA74C((int) (get_npc_type__10TNpcPlayerFPv((void*)(temp_r3_2))));
+            if (temp_r3_3 != 0U) {
+                send_item_pickup_request__10TObjPlayerFi((s32) temp_r3_3);
+            }
+            dt__10TNpcPlayerFPvs(M2C_FIELD(arg0, u8 **, 0x78), 1);
+            M2C_FIELD(arg0, u8 **, 0x78) = NULL;
+        }
+        __dt__7TObjectFv((void *) (arg0), (int) (0));
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
 }
 
 void copy__10TNpcPlayerFPvPv(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); *(f32*)((char*)p + 0x1c) = *(f32*)((char*)q + 0x1c); *(u8*)((char*)p + 0x20) = *(u8*)((char*)q + 0x20); *(u8*)((char*)p + 0x21) = *(u8*)((char*)q + 0x21); *(u8*)((char*)p + 0x22) = *(u8*)((char*)q + 0x22); *(u8*)((char*)p + 0x23) = *(u8*)((char*)q + 0x23); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }

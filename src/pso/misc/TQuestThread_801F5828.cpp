@@ -16,9 +16,13 @@ struct RecoveredGlobal_801F5E7C_lbl_805129F8 {
     u8 remaining[0xD4];
 };
 
+struct RecoveredGlobal_801F5CB0___vt__12TQuestThread {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 s32 TQuestThread__sub_801F5EAC(u8 *arg0, s32 arg1);
-u32 __ct__12TQuestThreadFv(u32, u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 extern u32 lbl_805D5EE8;
 u8 *TQuestThread__sub_801F5C50(s32 arg0);
@@ -26,7 +30,6 @@ M2C_UNK bswap_header__6TLobbyFPv();
 extern u32 lbl_805D5EE8;
 void handle_6x77_sync_quest_register(u8 *arg0);
 s32 TObjPlayer__sub_800196EC(void);
-u32 __ct__12TQuestThreadFv(u32, u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
 extern u32 lbl_805D5EE8;
@@ -34,6 +37,12 @@ u8 *TQuestThread__sub_801F5B5C(void);
 int memset(void*, void*, void*);
 extern RecoveredGlobal_801F5E7C_lbl_805129F8 lbl_805129F8;
 void TQuestThread__sub_801F5E7C(void);
+s32 queue_destruction__7TObjectFv(void *);
+s32 fn_801F56A8(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_801F5CB0___vt__12TQuestThread __vt__12TQuestThread;
+extern s32 lbl_805D35D0;
+u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -43,7 +52,6 @@ void clear_buffer__12TQuestThreadFPv(void* p);
 u32 create__12TQuestThreadFi(s32 arg0);
 int TQuestThread__sub_801F5DA8(void*);
 void TQuestThread__sub_801F5ECC(void);
-u32 __ct__12TQuestThreadFv(u32, u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 int memset(void*, void*, void*);
 M2C_UNK set_parent__7TObjectFP7TObject(u32, s32);
@@ -60,7 +68,7 @@ u8 *TQuestThread__sub_801F5B5C(void) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)__ct__12TQuestThreadFv((u32)(temp_r3), (u32)((s32) lbl_805D5EE8), (s32)(M2C_FIELD(&TQuestThread__data_80512AD0.value, M2C_UNK *, temp_r30)))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)((u32)(temp_r3)), (s32)((u32)((s32) lbl_805D5EE8)), (s32)((s32)(M2C_FIELD(&TQuestThread__data_80512AD0.value, M2C_UNK *, temp_r30)))))));
         }
         return var_r0;
     }
@@ -73,7 +81,7 @@ u32 create__12TQuestThreadFi(s32 arg0) {
     if ((u32) lbl_805D5EE8 != 0U) {
         var_r31 = __nw__7TObjectFUl(0x194);
         if (var_r31 != 0U) {
-            var_r31 = __ct__12TQuestThreadFv(var_r31, lbl_805D5EE8, arg0);
+            var_r31 = ((u32)__ct__12TQuestThreadFv((u8 *)(var_r31), (s32)(lbl_805D5EE8), (s32)(arg0)));
         }
         if (var_r31 != 0U) {
             set_parent__7TObjectFP7TObject(var_r31, tl_00);
@@ -91,11 +99,25 @@ u8 *TQuestThread__sub_801F5C50(s32 arg0) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl(0x194)));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)__ct__12TQuestThreadFv((u32)(temp_r3), (u32)((s32) lbl_805D5EE8), (s32)(arg0))));
+            var_r0 = (u8 *)(((u8 *)((u32)__ct__12TQuestThreadFv((u8 *)((u32)(temp_r3)), (s32)((u32)((s32) lbl_805D5EE8)), (s32)((s32)(arg0))))));
         }
         return var_r0;
     }
     return NULL;
+}
+
+typedef char RecoveredGlobal_801F5CB0___vt__12TQuestThread_size[sizeof(RecoveredGlobal_801F5CB0___vt__12TQuestThread) == 0x18 ? 1 : -1];
+u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
+    __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TQuestThread.value;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D35D0;
+    fn_801F56A8((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
+    M2C_FIELD(arg0, s32 *, 0x3C) = M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x20) + (arg2 * 4)), s32 *, 0);
+    M2C_FIELD(arg0, s32 *, 0x190) = 0;
+    if (M2C_FIELD(arg0, s32 *, 0x3C) == -1) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+    }
+    return arg0;
 }
 
 int TQuestThread__sub_801F5D88(void* p) { return TQuestThread__sub_801F5DA8(p); }

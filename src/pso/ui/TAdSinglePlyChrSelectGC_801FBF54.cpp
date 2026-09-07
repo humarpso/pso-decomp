@@ -9,6 +9,16 @@ struct RecoveredGlobal_802010E8_lbl_80513904 {
     u8 remaining[0x8];
 };
 
+struct RecoveredGlobal_80201970_lbl_805137D8 {
+    M2C_UNK value;
+    u8 remaining[0x1C];
+};
+
+struct RecoveredGlobal_80201970_lbl_805137F8 {
+    M2C_UNK value;
+    u8 remaining[0x20];
+};
+
 extern "C" {
 s32 TLobby__sub_8001E8B8(void);
 int TLobby__sub_80132EC8(void);
@@ -30,6 +40,21 @@ M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
 extern M2C_UNK lbl_80513904[];
 extern void *lbl_805D5F64;
 s32 TAdSinglePlyChrSelectGC__sub_802010E8(void);
+u8 * __dt__12TPlyCharDataFv(void *, short);
+void __dl__FPv(void*);
+void register_callback__23TAdSinglePlyChrSelectGCFis(void*, int);
+s32 TAdSinglePlyChrSelectGC__sub_801FCBA0(void *);
+s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void);
+s32 free_data__23TAdSinglePlyChrSelectGCFv(void);
+s32 free__23TAdSinglePlyChrSelectGCFv(void);
+s32 TAdSinglePlyChrSelectGC__sub_80202C08(void *);
+extern RecoveredGlobal_80201970_lbl_805137D8 lbl_805137D8;
+extern RecoveredGlobal_80201970_lbl_805137F8 lbl_805137F8;
+extern u32 lbl_805D5F58;
+extern u8 *lbl_805D5F60;
+extern void *lbl_805D5F64;
+extern s32 lbl_805D5F68;
+void TAdSinglePlyChrSelectGC__sub_80201970(void);
 }
 
 extern "C" {
@@ -242,6 +267,28 @@ s32 init_buffer(void) {
 
 extern u32 lbl_805D5F5C;
 extern u32 lbl_805D5F70;
+
+typedef char RecoveredGlobal_80201970_lbl_805137D8_size[sizeof(RecoveredGlobal_80201970_lbl_805137D8) == 0x20 ? 1 : -1];
+typedef char RecoveredGlobal_80201970_lbl_805137F8_size[sizeof(RecoveredGlobal_80201970_lbl_805137F8) == 0x24 ? 1 : -1];
+void TAdSinglePlyChrSelectGC__sub_80201970(void) {
+    TAdSinglePlyChrSelectGC__sub_801FCBA0((void *) (&lbl_805137D8.value));
+    TAdSinglePlyChrSelectGC__sub_80202C08((void *) (&lbl_805137F8.value));
+    if ((void *) lbl_805D5F60 != NULL) {
+        __dt__12TPlyCharDataFv(lbl_805D5F60, 1);
+    }
+    if ((void *) (*(u8 * *)&lbl_805D5F64) != NULL) {
+        __dl__FPv((void*)((void *) ((*(u8 * *)&lbl_805D5F64))));
+    }
+    if ((void *) (*(u8 * *)&lbl_805D5F68) != NULL) {
+        __dl__FPv((void*)((void *) ((*(u8 * *)&lbl_805D5F68))));
+    }
+    if ((u32) lbl_805D5F58 != 0U) {
+        register_callback__23TAdSinglePlyChrSelectGCFis((void*)((void *) ((s32) lbl_805D5F58)), (int)((int) (1)));
+    }
+    free__23TAdSinglePlyChrSelectGCFv();
+    free_buffer__23TAdSinglePlyChrSelectGCFv();
+    free_data__23TAdSinglePlyChrSelectGCFv();
+}
 
 void free_callbacks__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D5F5C != 0U) {

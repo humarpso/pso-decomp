@@ -33,6 +33,10 @@ void TLobby__sub_801F37CC(s16 arg0, s16 arg1);
 void TLobby__sub_801F3990(void *arg0);
 void build_6x75_update_quest_flag_dc(void* p);
 void TLobby__sub_801F3778(s16 arg0, s16 arg1, s16 arg2);
+void TLobby__sub_801F39C4(void *arg0);
+s32 fn_801F4560(int, int);
+s32 fn_801F469C(int, int);
+void handle_6x75_update_quest_flag_dc(u8 *arg0);
 }
 
 extern "C" {
@@ -67,6 +71,19 @@ void TLobby__sub_801F37CC(s16 arg0, s16 arg1) {
     stack.sp10 = (s16) lbl_805D5550;
     stack.sp12 = 0;
     TLobby__sub_801F3990(&stack.sp8);
+}
+
+void handle_6x75_update_quest_flag_dc(u8 *arg0) {
+    u16 temp_r0;
+    TLobby__sub_801F39C4((void *) (arg0));
+    temp_r0 = M2C_FIELD(arg0, u16 *, 6);
+    if (temp_r0 == 0) {
+        fn_801F469C((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
+        return;
+    }
+    if (temp_r0 == 1) {
+        fn_801F4560((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
+    }
 }
 
 void TLobby__sub_801F3990(void *arg0) {

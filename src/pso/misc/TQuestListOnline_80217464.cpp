@@ -21,6 +21,10 @@ extern s32 TQuestListOnline__data_805D61E4;
 extern u32 lbl_805D61E8;
 extern s32 lbl_805D61F0;
 void TQuestListOnline__sub_80217714(s32 arg0);
+void TLobby__sub_8001EDF4(s32);
+s32 TLobby__sub_8001EEF4();
+extern M2C_UNK lbl_8044BEB0[];
+void TQuestListOnline__sub_8021786C(void);
 }
 
 extern "C" {
@@ -167,6 +171,11 @@ void invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(void *arg0)
         temp_r12();
     }
     queue_destruction__7TObjectFv(arg0);
+}
+void TQuestListOnline__sub_8021786C(void) {
+    if (TLobby__sub_8001EEF4() == 0) {
+        TLobby__sub_8001EDF4((s32) &lbl_8044BEB0);
+    }
 }
 
 }

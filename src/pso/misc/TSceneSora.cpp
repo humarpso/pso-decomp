@@ -14,6 +14,11 @@ struct RecoveredGlobal_802075F8_lbl_80515BA0 {
     u8 remaining[0x24];
 };
 
+struct RecoveredGlobal_80207340___vt__10TSceneSora {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 extern s32 TSceneSora__data_805D3620;
@@ -31,13 +36,23 @@ void TOBoss4Rock__sub_802078A4(void);
 extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D2CD8;
 void TLobby__sub_802075F8(void);
+s32 TObjFish__sub_8001ED9C(int, int);
+s32 TObjFish__sub_8001EDB0(int, int);
+s32 TObjFish__sub_8001EDC4(int, int);
+s32 TPhotonMagicSquare__sub_801A2640(void *);
+extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
+extern s32 lbl_805D3624;
+extern u32 TSceneSora__data_805D6054;
+extern s32 lbl_805D6058;
+extern const f32 lbl_805DC608;
+extern const f32 lbl_805DC60C;
+u8 *TSceneSora__ct(u8 *arg0, s32 _w1);
 }
 
 extern "C" {
 
 void TLobby__sub_802075F4(void);
 void create_instance__10TSceneSoraFv(void);
-s32 TSceneSora__ct(s32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 
 extern s32 TSceneSora__data_805D6050;
@@ -57,13 +72,30 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
+typedef char RecoveredGlobal_80207340___vt__10TSceneSora_size[sizeof(RecoveredGlobal_80207340___vt__10TSceneSora) == 0x38 ? 1 : -1];
+u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3624;
+    M2C_FIELD(arg0, s32 *, 0x90) = TObjFish__sub_8001EDC4((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+    if (lbl_805D6058 != 0) {
+        M2C_FIELD(arg0, s32 *, 0x94) = TObjFish__sub_8001ED9C((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x94) = 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0x98) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+    M2C_FIELD(arg0, f32 *, 0x9C) = lbl_805DC60C;
+    M2C_FIELD(arg0, f32 *, 0xA0) = lbl_805DC608;
+    return arg0;
+}
+
 void create_instance__10TSceneSoraFv(void) {
     s32 var_r3;
 
     if ((u32) TSceneSora__data_805D6054 != 0U) {
         var_r3 = __nw__7TObjectFUl(0xA4);
         if (var_r3 != 0) {
-            var_r3 = TSceneSora__ct(var_r3, tl_05);
+            var_r3 = ((s32)TSceneSora__ct((u8 *)(var_r3), (s32)(tl_05)));
         }
         TSceneSora__data_805D6050 = var_r3;
         return;

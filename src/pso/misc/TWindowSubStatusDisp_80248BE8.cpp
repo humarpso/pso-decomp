@@ -4,11 +4,37 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80248CF4_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 u8 * fn_80249004(void *, M2C_UNK, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *TWindowSubStatusDisp__sub_80248BE8(s32 arg0, s32 arg1, s32 arg2);
+s32 get_status_flag__6TLobbyFPv(void *);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
+s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
+s32 fn_80244994(void *);
+s32 update_fade__17TWindowSubComCardFPv(void *);
+s32 initialize_subwindow__9TWindowDDFPv(void *);
+s32 sync_level_field__20TWindowSubStatusDispFPv(void *);
+s32 get_flag__20TWindowSubStatusDispFPv(void *);
+s32 is_player_input_active(int);
+s32 TWindowSubStatusDisp__sub_80257C28(void *, void *);
+s32 set_flag4__20TWindowSubStatusDispFPv(void *);
+s32 move_cursor_next__20TWindowSubStatusDispFPv(void *);
+s32 move_cursor__20TWindowSubStatusDispFPv(void *);
+s32 TWindowSubStatusDisp__sub_80267C94(void *);
+s32 increment_counter__20TWindowSubStatusDispFPv(int);
+s32 update_subwindow__20TWindowSubStatusDispFPv(int);
+extern RecoveredGlobal_80248CF4_lbl_8050E208 lbl_8050E208;
+extern const f32 lbl_805DCBA8;
+void TWindowSubStatusDisp__sub_80248CF4(u8 *arg0);
 }
 
 extern "C" {
@@ -59,6 +85,57 @@ void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0) {
 }
 
 extern M2C_UNK lbl_804CE7E8[];
+
+typedef char RecoveredGlobal_80248CF4_lbl_8050E208_size[sizeof(RecoveredGlobal_80248CF4_lbl_8050E208) == 0x1B0 ? 1 : -1];
+void TWindowSubStatusDisp__sub_80248CF4(u8 *arg0) {
+    s32 temp_r31;
+    u32 temp_r3;
+    u32 temp_r3_2;
+    u8 *temp_r29;
+    u8 *temp_r29_2;
+    u8 *temp_r29_3;
+    temp_r31 = is_player_input_active((int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
+    if ((get_flag__20TWindowSubStatusDispFPv((void *) (arg0)) == 0) && (get_status_flag__6TLobbyFPv((void *) (arg0)) == 0) && (fn_80244994((void *) (arg0)) != 0)) {
+        if (M2C_FIELD(arg0, u16 *, 0x70) & 0x10) {
+            temp_r29 = (u8 *)&lbl_8050E208.value + (temp_r31 * 0x50) + 0x20;
+            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+                move_cursor__20TWindowSubStatusDispFPv((void *) (arg0));
+            }
+            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+                move_cursor_next__20TWindowSubStatusDispFPv((void *) (arg0));
+            }
+        } else {
+            temp_r29_2 = (u8 *)&lbl_8050E208.value + (temp_r31 * 0x50) + 0x20;
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+                move_cursor__20TWindowSubStatusDispFPv((void *) (arg0));
+            }
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+                move_cursor_next__20TWindowSubStatusDispFPv((void *) (arg0));
+            }
+        }
+        temp_r29_3 = (u8 *)&lbl_8050E208.value + (temp_r31 * 0x50) + 0x20;
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
+            sync_level_field__20TWindowSubStatusDispFPv((void *) (arg0));
+        }
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0)) {
+            set_flag4__20TWindowSubStatusDispFPv((void *) (arg0));
+        }
+    }
+    TWindowSubStatusDisp__sub_80267C94((void *) (arg0));
+    if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DCBA8) {
+        temp_r3 = M2C_FIELD(arg0, u32 *, 0x80);
+        if (temp_r3 != 0U) {
+            update_subwindow__20TWindowSubStatusDispFPv((int) (temp_r3));
+        }
+        temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x84);
+        if (temp_r3_2 != 0U) {
+            increment_counter__20TWindowSubStatusDispFPv((int) (temp_r3_2));
+        }
+    }
+    initialize_subwindow__9TWindowDDFPv((void *) (arg0));
+    update_fade__17TWindowSubComCardFPv((void *) (arg0));
+    TWindowSubStatusDisp__sub_80257C28((void *) (arg0), (void *) (arg0 + 0x24));
+}
 
 void *TWindowSubStatusDisp__sub_80248FAC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

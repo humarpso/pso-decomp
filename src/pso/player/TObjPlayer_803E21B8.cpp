@@ -16,9 +16,14 @@ M2C_UNK GXClearVtxDesc();
 M2C_UNK TObjPlayer__sub_803892B4(int, int);
 M2C_UNK TObjPlayer__sub_803897D8(int, int, int, int, int);
 M2C_UNK TObjPlayer__sub_803E2468(int);
-M2C_UNK TObjPlayer__sub_803E256C(int);
 M2C_UNK TObjPlayer__sub_803E2664();
 void setup_vtx_desc__10TObjPlayerFv(void);
+M2C_UNK GXSetTevOp(int, int);
+M2C_UNK GXSetTevColorIn(int, int, int, int, int);
+M2C_UNK GXSetTevColorOp(int, int, int, int, int, int);
+M2C_UNK GXSetTevOrder(int, int, int, int);
+M2C_UNK GXSetNumTevStages(void *);
+void TObjPlayer__sub_803E256C(s32 arg0);
 }
 
 extern "C" {
@@ -73,8 +78,29 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
     TObjPlayer__sub_803897D8((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
     TObjPlayer__sub_803897D8((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
     TObjPlayer__sub_803E2468((int) (1));
-    TObjPlayer__sub_803E256C((int) (1));
+    TObjPlayer__sub_803E256C((s32)((int) (1)));
     TObjPlayer__sub_803E2664();
 }
+#pragma push
+#pragma peephole off
+#pragma scheduling off
+void TObjPlayer__sub_803E256C(s32 arg0) {
+    s32 temp_r31 = arg0;
+    GXSetNumTevStages((void *) ((u8) temp_r31));
+    switch (temp_r31) {
+    case 1:
+        GXSetTevOrder((int) (0), (int) (0), (int) (0), (int) (4));
+        GXSetTevOp((int) (0), (int) (0));
+        return;
+    case 2:
+        GXSetTevOrder((int) (0), (int) (0), (int) (0), (int) (4));
+        GXSetTevOrder((int) (1), (int) (0xFF), (int) (0xFF), (int) (5));
+        GXSetTevOp((int) (0), (int) (0));
+        GXSetTevColorOp((int) (1), (int) (0), (int) (0), (int) (0), (int) (1), (int) (0));
+        GXSetTevColorIn((int) (1), (int) (0xF), (int) (0xA), (int) (0xC), (int) (0));
+        return;
+    }
+}
+#pragma pop
 
 }

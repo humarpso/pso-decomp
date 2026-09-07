@@ -29,6 +29,11 @@ struct RecoveredGlobal_804050DC_lbl_805C18A0 {
     u8 remaining[0xC];
 };
 
+struct RecoveredGlobal_803FD520_lbl_805C0310 {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 s32 TLobby__sub_803FA150(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -41,6 +46,10 @@ extern RecoveredGlobal_803FB110_lbl_805BFF68 lbl_805BFF68;
 u8 *TLobby__sub_803FB110(void);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 void TLobby__sub_804050DC(s16 arg0);
+extern RecoveredGlobal_803FD520_lbl_805C0310 lbl_805C0310;
+extern s16 lbl_805D7A7A;
+s16 TLobby__sub_803FD520(s16 arg0);
+void TLobby__sub_804189AC(u8 *arg0);
 }
 
 extern "C" {
@@ -270,6 +279,17 @@ s32 TLobby__sub_803FD4FC(s16 arg0) {
     return 0;
 }
 
+typedef char RecoveredGlobal_803FD520_lbl_805C0310_size[sizeof(RecoveredGlobal_803FD520_lbl_805C0310) == 0x18 ? 1 : -1];
+s16 TLobby__sub_803FD520(s16 arg0) {
+    if ((arg0 != 0) && (arg0 != 1)) {
+        return -0x112;
+    }
+    if (lbl_805D7A7A != 0) {
+        return 0x5AE;
+    }
+    return M2C_FIELD(&lbl_805C0310.value, s16 *, 0x14);
+}
+
 s32 TLobby__sub_803FE844(void) {
     return 0;
 }
@@ -442,6 +462,39 @@ s16 TLobby__sub_8041552C(s16 arg0) {
         return -0x110;
     }
     return M2C_FIELD(&lbl_805C1BE0.value, s16 *, 0xA);
+}
+
+void TLobby__sub_804189AC(u8 *arg0) {
+    if (M2C_FIELD(arg0, s16 *, 0x14) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x14) = 0x5DC;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x1C) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x1C) = 3;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x1E) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 3;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x20) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x20) = 1;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x22) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x22) = 3;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x24) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x24) = 0x1900;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x26) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x26) = 0x1E;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x28) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x28) = 1;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x2A) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x2A) = M2C_FIELD(arg0, s16 *, 0x28) + 1;
+    }
+    if (M2C_FIELD(arg0, s16 *, 0x2C) == 0) {
+        M2C_FIELD(arg0, s16 *, 0x2C) = 6;
+    }
 }
 
 void clear_position__6TLobbyFPv(u8 *arg0) {

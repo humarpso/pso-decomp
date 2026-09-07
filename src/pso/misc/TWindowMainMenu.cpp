@@ -4,6 +4,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8026492C___vt__15TWindowMainMenu { M2C_UNK value; u8 remaining[0x24]; };
+
 extern "C" {
 void update_submenu__15TWindowMainMenuFPv(void *arg0);
 M2C_UNK TWindowSubComCard__sub_8026CBB8(int);
@@ -11,6 +13,15 @@ M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
 M2C_UNK TWindowMainMenu__sub_802ADD38(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 void TWindowMainMenu__sub_80264674(u8 *arg0, s16 arg1);
+u8 * __dt__7TObjectFv(void *, s16);
+void init_parts__10TObjPlayerFPv(s32);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+void __dl__7TObjectFPv(s32);
+void close_child_window__15TWindowMainMenuFPv(void *);
+void destroy_submenu__15TWindowMainMenuFPv(void *);
+void close__15TWindowMainMenuFPv(void* p);
+extern RecoveredGlobal_8026492C___vt__15TWindowMainMenu __vt__15TWindowMainMenu;
+u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -70,6 +81,27 @@ int TWindowMainMenu__sub_802646E4(void*, void*) { return 0; }
 
 void render__15TWindowMainMenuFv(void) {  }
 void run_task__15TWindowMainMenuFv(void) {  }
+
+u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1) {
+    u32 temp_r3;
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TWindowMainMenu.value;
+        if (M2C_FIELD(arg0, s32 *, 0x4C) & 1) {
+            temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u32 *, 0x54));
+            if (temp_r3 != 0U) {
+                init_parts__10TObjPlayerFPv((s32) temp_r3);
+            }
+        }
+        close_child_window__15TWindowMainMenuFPv(arg0);
+        destroy_submenu__15TWindowMainMenuFPv(arg0);
+        close__15TWindowMainMenuFPv((void*)(arg0));
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
+}
 
 void TWindowMainMenu__sub_80264A64(void) {  }
 void TWindowMainMenu__vt7(void) {  }

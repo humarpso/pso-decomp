@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 {
+    M2C_UNK value;
+    u8 remaining[0x23C];
+};
+
+extern "C" {
+extern RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0 TObjNpcEnemy__data_80540FF0;
+s16 *TObjNpcEnemy__sub_802D72E4(s16 arg0);
+}
+
 extern "C" {
 
 struct NpcBase_802d7748_802D745C { char pad[0x18]; };
@@ -43,6 +53,22 @@ M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_global_flag__10TObjPlayerFv(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+
+typedef char RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0_size[sizeof(RecoveredGlobal_802D72E4_TObjNpcEnemy__data_80540FF0) == 0x240 ? 1 : -1];
+s16 *TObjNpcEnemy__sub_802D72E4(s16 arg0) {
+    s16 *temp_r3;
+    if (arg0 < 0) {
+        return NULL;
+    }
+    if (arg0 >= 0x10) {
+        return NULL;
+    }
+    temp_r3 = (s16 *)((u8 *)(&TObjNpcEnemy__data_80540FF0.value) + (arg0 * 0x24));
+    if (M2C_FIELD(temp_r3, s16 *, 0) == 0) {
+        return NULL;
+    }
+    return temp_r3;
+}
 
 void TObjNpcEnemy__vt86(void *arg0) {
     void *temp_r4;

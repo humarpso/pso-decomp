@@ -1,76 +1,98 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+#include "pso/misc/TEnding.h"
 
 extern "C" {
-
-void TEnding__sub_8008C9F8(void);
-void run_task__7TEndingFv(void *arg0);
+void TEnding__sub_8008C9F8();
+void TAdMultiChgGameModeGC__sub_8023E834();
+void TObjPlayer__sub_8001A8F0(void *, TEnding *);
+void TAdRicoRingCtrl__sub_8001B4A0(TAdRicoRingCtrl *, f32);
 s32 TAdEndText__sub_8001A990();
-M2C_UNK TAdMultiChgGameModeGC__sub_8023E834();
-M2C_UNK TAdRicoRingCtrl__sub_8001B4A0(s32, f32);
-M2C_UNK TObjPlayer__sub_8001A8F0(u32, void *);
 u32 __cvt_fp2unsigned(f32);
-u32 __nw__7TObjectFUl(M2C_UNK);
-extern void destroy_keyboard_objects();
-M2C_UNK init__22THunterGuildSeqOfflineFPvPvPv(u32, s32, M2C_UNK *);
-
-extern const f64 lbl_80439598;
+void destroy_keyboard_objects();
+void init__22THunterGuildSeqOfflineFPvPvPv(void *, TObject *, void *);
+void TLobby__sub_8022743C();
+void cleanup_game_objects__9TMainTaskFv();
+void TLobby__sub_80203470(s32);
+s32 TKeyBoardControl__sub_8000F828();
+void __ct__10TEndingPicFv(void *, TObject *);
+void __ct__9TEndingABFv(void *, TObject *);
+void __ct__8TEndingCFv(void *, TObject *);
+TAdRicoRingCtrl *TAdRicoRingCtrl__ct(void *, TObject *);
+void TAdRicoRingCtrl__sub_8001B534(TAdRicoRingCtrl *, f32);
+void __ct__10TAdEndTextFv(void *, TObject *);
 extern u32 lbl_805D4F08;
-extern s32 tl_fade;
+extern s32 lbl_805D4F0C;
+extern TObject *tl_fade;
+extern TObject *tl_window;
+extern TObject *tl_01;
+extern const char *lbl_805D2950;
 extern const f32 lbl_805D9578;
+}
 
-void run_task__7TEndingFv(void *arg0) {
-    f32 temp_f31;
-    s32 temp_r0;
-    s32 temp_r30;
-    s32 temp_r3_2;
-    u32 temp_r3;
-
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
-    switch (temp_r0) {
-    case 0:
+void TEnding::run_task() {
+    switch (phase) {
+    case 0: {
         TAdMultiChgGameModeGC__sub_8023E834();
-        temp_r3 = lbl_805D4F08 + 1;
-        lbl_805D4F08 = temp_r3;
-        temp_r30 = M2C_FIELD(arg0, s32 *, 0x24);
-        if (temp_r3 > (u32) (temp_r30 * 0x8C)) {
-            {
-                u32 alloc = __nw__7TObjectFUl(0x1C);
-                if (alloc != 0U) {
-                    TObjPlayer__sub_8001A8F0(alloc, arg0);
-                }
-            }
-            M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+        u32 ticks = lbl_805D4F08 + 1;
+        lbl_805D4F08 = ticks;
+        s32 rate = timing_rate;
+        if (ticks > (u32)(rate * 140)) {
+            void *child = TObject::operator new(0x1C);
+            if (child != NULL) TObjPlayer__sub_8001A8F0(child, this);
+            phase = 1;
             return;
         }
-        temp_f31 = lbl_805D9578 * (f32) temp_r30;
-        if ((u32) lbl_805D4F08 > (u32) ((temp_r30 * 0x8B) - __cvt_fp2unsigned(temp_f31))) {
-            TAdRicoRingCtrl__sub_8001B4A0(M2C_FIELD(arg0, s32 *, 0x70C), temp_f31);
-        }
+        f32 duration = lbl_805D9578 * (f32)rate;
+        if (lbl_805D4F08 > (u32)((rate * 139) - __cvt_fp2unsigned(duration)))
+            TAdRicoRingCtrl__sub_8001B4A0(ring_controller, duration);
         return;
+    }
     case 2:
         break;
     case 1:
         if (TAdEndText__sub_8001A990() != 0) {
-            temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x28) + 1;
-            M2C_FIELD(arg0, s32 *, 0x28) = temp_r3_2;
-            if (temp_r3_2 > (s32) (M2C_FIELD(arg0, s32 *, 0x24) * 0xA)) {
-                {
-                    u32 alloc2 = __nw__7TObjectFUl(0x28);
-                    if (alloc2 != 0U) {
-                        init__22THunterGuildSeqOfflineFPvPvPv(alloc2, tl_fade, (M2C_UNK *)destroy_keyboard_objects);
-                    }
-                }
-                M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+            s32 ticks = elapsed_ticks + 1;
+            elapsed_ticks = ticks;
+            if (ticks > timing_rate * 10) {
+                void *child = TObject::operator new(0x28);
+                if (child != NULL)
+                    init__22THunterGuildSeqOfflineFPvPvPv(child, tl_fade, (void *)destroy_keyboard_objects);
+                phase = 2;
             }
         }
         break;
     }
 }
 
-void TEnding__sub_8008C9F8(void) {  }
-
+TEnding::~TEnding() {
+    lbl_805D4F0C = 0;
+    TLobby__sub_8022743C();
 }
+
+TEnding::TEnding() : TObject(tl_window) {
+    m_name = lbl_805D2950;
+    TEnding__sub_8008C9F8();
+    cleanup_game_objects__9TMainTaskFv();
+    TLobby__sub_80203470(1);
+    switch (TKeyBoardControl__sub_8000F828()) {
+    case 0: timing_rate = 30; break;
+    case 1: timing_rate = 25; break;
+    }
+    void *picture = TObject::operator new(0xF0);
+    if (picture != NULL) __ct__10TEndingPicFv(picture, tl_01);
+    void *first = TObject::operator new(0xF0);
+    if (first != NULL) __ct__9TEndingABFv(first, this);
+    void *second = TObject::operator new(0x9C);
+    if (second != NULL) __ct__8TEndingCFv(second, this);
+    lbl_805D4F08 = 0;
+    phase = 0;
+    elapsed_ticks = 0;
+    TAdRicoRingCtrl *ring = (TAdRicoRingCtrl *)TObject::operator new(0x2C);
+    if (ring != NULL) ring = TAdRicoRingCtrl__ct(ring, this);
+    ring_controller = ring;
+    if (ring_controller != NULL)
+        TAdRicoRingCtrl__sub_8001B534(ring_controller, lbl_805D9578 * (f32)timing_rate);
+    void *text = TObject::operator new(0x197C);
+    if (text != NULL) __ct__10TAdEndTextFv(text, this);
+}
+
+extern "C" void TEnding__sub_8008C9F8() {}
