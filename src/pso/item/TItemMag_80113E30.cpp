@@ -7,6 +7,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1);
 u8 TItemMag__sub_80113EC8(u8 *arg0);
+s16 TItemMagSub__sub_8011455C(void *);
+s16 TItemData__sub_801146A4(void *);
+void TItemMag__sub_801140F4(u8 *arg0, s16 arg1);
+s16 TItemMagSub__sub_8011455C(void *);
+s16 TItemData__sub_801146C0(void *);
+void TItemMag__sub_80114198(u8 *arg0, s16 arg1);
+s16 TItemMagSub__sub_8011455C(void *);
+s16 TItemData__sub_801146DC(void *);
+void TItemMag__sub_8011423C(u8 *arg0, s16 arg1);
+s16 TItemMagSub__sub_8011455C(void *);
+s16 TItemData__sub_801146F8(void *);
+void TItemMag__sub_801142E0(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -105,6 +117,112 @@ void add_stat_clamped__8TItemMagFPvi(s16 *arg0, s32 arg1) {
         *arg0 = 0xC8;
     }
 }
+
+#pragma push
+#pragma opt_propagation off
+void TItemMag__sub_801140F4(u8 *arg0, s16 arg1) {
+    s16 temp_r31;
+    s16 temp_r3;
+    s16 temp_r3_2;
+    s16 var_r30;
+    var_r30 = arg1;
+    temp_r31 = TItemData__sub_801146A4((void *) (arg0));
+    if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
+        temp_r3 = TItemMagSub__sub_8011455C((void *) (arg0));
+        if (temp_r3 < 0xC8) {
+            M2C_FIELD(arg0, s16 *, 0xA) = M2C_FIELD(arg0, s16 *, 0xA) + var_r30;
+            return;
+        }
+        if (temp_r3 == 0xC8) {
+            temp_r3_2 = 0x63 - temp_r31;
+            if (temp_r3_2 < var_r30) {
+                var_r30 = temp_r3_2;
+            }
+            M2C_FIELD(arg0, s16 *, 0xA) = M2C_FIELD(arg0, s16 *, 0xA) + var_r30;
+        }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TItemMag__sub_80114198(u8 *arg0, s16 arg1) {
+    s16 temp_r31;
+    s16 temp_r3;
+    s16 temp_r3_2;
+    s16 var_r30;
+    var_r30 = arg1;
+    temp_r31 = TItemData__sub_801146C0((void *) (arg0));
+    if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
+        temp_r3 = TItemMagSub__sub_8011455C((void *) (arg0));
+        if (temp_r3 < 0xC8) {
+            M2C_FIELD(arg0, s16 *, 8) = M2C_FIELD(arg0, s16 *, 8) + var_r30;
+            return;
+        }
+        if (temp_r3 == 0xC8) {
+            temp_r3_2 = 0x63 - temp_r31;
+            if (temp_r3_2 < var_r30) {
+                var_r30 = temp_r3_2;
+            }
+            M2C_FIELD(arg0, s16 *, 8) = M2C_FIELD(arg0, s16 *, 8) + var_r30;
+        }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_propagation off
+void TItemMag__sub_8011423C(u8 *arg0, s16 arg1) {
+    s16 temp_r31;
+    s16 temp_r3;
+    s16 temp_r3_2;
+    s16 var_r30;
+    var_r30 = arg1;
+    temp_r31 = TItemData__sub_801146DC((void *) (arg0));
+    if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
+        temp_r3 = TItemMagSub__sub_8011455C((void *) (arg0));
+        if (temp_r3 < 0xC8) {
+            M2C_FIELD(arg0, s16 *, 6) = M2C_FIELD(arg0, s16 *, 6) + var_r30;
+            return;
+        }
+        if (temp_r3 == 0xC8) {
+            temp_r3_2 = 0x63 - temp_r31;
+            if (temp_r3_2 < var_r30) {
+                var_r30 = temp_r3_2;
+            }
+            M2C_FIELD(arg0, s16 *, 6) = M2C_FIELD(arg0, s16 *, 6) + var_r30;
+        }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TItemMag__sub_801142E0(u8 *arg0, s16 arg1) {
+    s16 temp_r31;
+    s16 temp_r3;
+    s16 temp_r3_2;
+    s16 var_r30;
+    var_r30 = arg1;
+    temp_r31 = TItemData__sub_801146F8((void *) (arg0));
+    if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
+        temp_r3 = TItemMagSub__sub_8011455C((void *) (arg0));
+        if (temp_r3 < 0xC8) {
+            M2C_FIELD(arg0, s16 *, 4) = M2C_FIELD(arg0, s16 *, 4) + var_r30;
+            return;
+        }
+        if (temp_r3 == 0xC8) {
+            temp_r3_2 = 0x63 - temp_r31;
+            if (temp_r3_2 < var_r30) {
+                var_r30 = temp_r3_2;
+            }
+            M2C_FIELD(arg0, s16 *, 4) = M2C_FIELD(arg0, s16 *, 4) + var_r30;
+        }
+    }
+}
+#pragma pop
 
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1) {
     s32 var_r30;

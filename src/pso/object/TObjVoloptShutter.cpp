@@ -9,6 +9,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern const f32 lbl_805D88F0;
+extern const f32 lbl_805D88F8;
+extern const f32 lbl_805D88FC;
+extern const f32 lbl_805D8900;
+void TObjVoloptShutter__sub_8004A6B4(u8 *arg0);
+}
+
+extern "C" {
 
 void render__17TObjVoloptShutterFv(void *arg0);
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
@@ -25,6 +33,32 @@ extern s32 lbl_805D4D4C;
 extern s32 lbl_805D4D50;
 extern s32 some_id_805c6f74;
 extern f32 TObjVoloptShutter__data_805D88F4;
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TObjVoloptShutter__sub_8004A6B4(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
+    if (temp_r0 != 1) {
+        if (temp_r0 < 1) {
+            if (temp_r0 >= 0) {
+                M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) + lbl_805D88F8);
+                if (M2C_FIELD(arg0, f32 *, 0x28) <= lbl_805D88FC) {
+                    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D88FC;
+                    M2C_FIELD(arg0, s32 *, 0x24) = 1;
+                }
+            }
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) + lbl_805D88F0);
+        if (M2C_FIELD(arg0, f32 *, 0x2C) <= lbl_805D8900) {
+            M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805D8900;
+            M2C_FIELD(arg0, s32 *, 0x20) = 0;
+        }
+    }
+}
+#pragma pop
 
 void render__17TObjVoloptShutterFv(void *arg0) {
     toggle_particle_effect__10TObjPlayerFv();

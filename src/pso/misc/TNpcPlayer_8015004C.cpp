@@ -13,7 +13,6 @@ struct Stack_801515E0 {
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(int, f32, f32, f32);
-f32 TObjPlayer__sub_80141CF8(void *, void *, int);
 M2C_UNK TNpcPlayer__sub_8014E33C(void *, M2C_UNK);
 M2C_UNK TNpcPlayer__sub_8014F140(void *);
 s32 TNpcPlayer__sub_8014F950(void *);
@@ -31,6 +30,10 @@ f32 TBoss6Kakusan__sub_803D8BD8(void *, int, f32, f32);
 M2C_UNK TNpcPlayer__sub_803D97B4(void *);
 extern const f32 TNpcPlayer__data_805DB1F0;
 s32 TNpcPlayer__sub_801515E0(u8 *arg0);
+f32 TObjPlayer__sub_80141CF8(void *, void *, int);
+extern const f32 lbl_805DB1FC;
+extern const f32 lbl_805DB238;
+s32 TNpcPlayer__sub_801500F4(u8 *arg0, void * _w1, int _w2);
 }
 
 extern "C" {
@@ -53,6 +56,29 @@ M2C_UNK reset_fields_8c__10TNpcPlayerFPv(s32);
 void render__10TNpcPlayerFv(void) {  }
 
 extern const f32 lbl_805DB240;
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+s32 TNpcPlayer__sub_801500F4(u8 *arg0, void * _w1, int _w2) {
+    f32 temp_f1;
+    f32 var_f31;
+    if (M2C_FIELD(arg0, s32 *, 0x80) & 0x10) {
+        return 1;
+    }
+    var_f31 = lbl_805DB1FC + M2C_FIELD(arg0, f32 *, 0x40);
+    if (var_f31 >= lbl_805DB238) {
+        var_f31 = lbl_805DB238;
+    }
+    temp_f1 = TObjPlayer__sub_80141CF8((void *)((void *) ((u8 *)(arg0) + 0xDC)), (void *)((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), s32 *, 0x94) + 0x38)), (int)(_w2));
+    M2C_FIELD(arg0, f32 *, 0x88) = temp_f1;
+    if (temp_f1 >= (var_f31 * var_f31)) {
+        return 1;
+    }
+    M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) & 0xFFFFFEFF);
+    return 0;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

@@ -9,9 +9,46 @@ struct RecoveredGlobal_80193A84_lbl_8050DCF0 {
     u8 remaining[0x14];
 };
 
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct VBase_14_aa9368 { char pad[0x14]; };
+
+struct VObj_14_aa9368 : VBase_14_aa9368 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual M2C_UNK m6();
+    virtual M2C_UNK m7();
+};
+
 extern "C" {
 extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt14(u8 *arg0);
+s32 get_state_flag__9TMainTaskFv();
+M2C_UNK func_80141618__Fv();
+M2C_UNK set_depth_buffer_settings_id__FUl(int);
+s32 fn_80156BBC(void *, void *);
+s32 fn_80156C38(void *);
+M2C_UNK TLazerFenceSw__sub_801936E0(void *);
+M2C_UNK set_current_scene__6TSceneFi(int);
+extern const f32 lbl_805DBE7C;
+extern const f32 lbl_805DBE80;
+void render__13TLazerFenceSwFv(u8 *arg0);
 }
 
 extern "C" {
@@ -66,6 +103,29 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
 }
 
 extern const f32 TLazerFenceSw__data_805DBE84;
+
+#pragma push
+#pragma opt_common_subs off
+void render__13TLazerFenceSwFv(u8 *arg0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBE7C, lbl_805DBE80) != 0) {
+        if (get_state_flag__9TMainTaskFv() != 1) {
+            set_depth_buffer_settings_id__FUl((int) (3));
+            set_current_scene__6TSceneFi((int) (0x80));
+            if (fn_80156BBC((void *) (arg0 + 0xF0), (void *) (arg0 + 0x38)) != 0) {
+                if (fn_80156C38((void *) (arg0 + 0xF0)) != 0) {
+                    ((VObj_14_aa9368 *)((u8 *)(arg0) + (240)))->m6();
+                    TLazerFenceSw__sub_801936E0((void *) (arg0));
+                    ((VObj_14_aa9368 *)((u8 *)(arg0) + (240)))->m7();
+                } else {
+                    TLazerFenceSw__sub_801936E0((void *) (arg0));
+                }
+            }
+            set_current_scene__6TSceneFi((int) (0x8F));
+            func_80141618__Fv();
+        }
+    }
+}
+#pragma pop
 
 void TLazerFenceSw__vt16(void *arg0) {
     TOKey__sub_8016A8D0(arg0);

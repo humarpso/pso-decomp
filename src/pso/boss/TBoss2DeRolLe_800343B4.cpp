@@ -15,6 +15,11 @@ u8 TBoss2DeRolLe__sub_80034800(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 TBoss2DeRolLe__data_805D82DC;
 void TBoss2DeRolLe__sub_8003443C(u8 *arg0);
+s32 TBoss2DeRolLe__sub_80035FCC(void *);
+extern const f32 TBoss2DeRolLe__data_805D8328;
+extern const f32 TBoss2DeRolLe__data_805D8334;
+extern const f32 lbl_805D8440;
+u8 TBoss2DeRolLe__sub_80034960(u8 *arg0);
 }
 
 extern "C" {
@@ -157,5 +162,30 @@ void init_movement__13TBoss2DeRolLeFPv(u8 *arg0) {
     init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
     set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
 }
+#pragma push
+#pragma opt_common_subs off
+u8 TBoss2DeRolLe__sub_80034960(u8 *arg0) {
+    s32 temp_r0;
+    TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x684));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x65C);
+    switch (temp_r0) {
+    case 0:
+        if (M2C_FIELD(arg0, f32 *, 0x69C) > lbl_805D8440) {
+            M2C_FIELD(arg0, s32 *, 0x65C) = 1;
+        }
+        break;
+    case 1:
+        if (TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x664)) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x65C) = 2;
+        }
+        break;
+    }
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) + TBoss2DeRolLe__data_805D8334);
+    if (M2C_FIELD(arg0, f32 *, 0xC8) > TBoss2DeRolLe__data_805D8328) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TBoss2DeRolLe__data_805D8328;
+    }
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x65C) == 2);
+}
+#pragma pop
 
 }

@@ -10,6 +10,10 @@ void * init_variant_2_dc28__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8032DB8C(u8 *arg0);
+extern const f32 lbl_805DF7D8;
+extern const f32 lbl_805DF7DC;
+extern const f32 lbl_805DF7E0;
+void TObjPlayer__sub_8032DD7C(u8 *arg0);
 }
 
 extern "C" {
@@ -97,6 +101,23 @@ void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TObjPlayer__sub_8032DD7C(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0x70) & 1) {
+        M2C_FIELD(arg0, f32 *, 0x80) = (f32) (M2C_FIELD(arg0, f32 *, 0x80) + lbl_805DF7DC);
+        if (M2C_FIELD(arg0, f32 *, 0x80) > lbl_805DF7E0) {
+            M2C_FIELD(arg0, f32 *, 0x80) = (f32) lbl_805DF7E0;
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x80) = (f32) (M2C_FIELD(arg0, f32 *, 0x80) - lbl_805DF7DC);
+        if (M2C_FIELD(arg0, f32 *, 0x80) < lbl_805DF7D8) {
+            M2C_FIELD(arg0, f32 *, 0x80) = (f32) lbl_805DF7D8;
+        }
+    }
+}
+#pragma pop
 
 void TObjPlayer__sub_8032DDD8(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x70) = (s32) (M2C_FIELD(arg0, s32 *, 0x70) & 0xFFFFFFFE);

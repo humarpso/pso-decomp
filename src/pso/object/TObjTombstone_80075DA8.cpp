@@ -5,6 +5,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TObjTombstone__sub_80075070();
+extern const f32 TObjTombstone__data_805D9174;
+extern const f32 TObjTombstone__data_805D9178;
+extern const f32 TObjTombstone__data_805D917C;
+extern const f32 lbl_805D91B4;
+extern const f32 lbl_805D91B8;
+void TObjTombstone__sub_80076190(u8 *arg0);
+}
+
+extern "C" {
 
 void *__dt__13TObjTombstoneFv(void *arg0, s16 arg1);
 void init_parts__13TObjTombstoneFPv(void* p);
@@ -18,7 +28,6 @@ int TObjTombstone__sub_80075C60(void*);
 int TObjTombstone__sub_80075CB4(void*);
 M2C_UNK TObjTombstone__sub_80075DFC(void *);
 s32 TObjTombstone__sub_80076098(void *);
-M2C_UNK TObjTombstone__sub_80076190(void *);
 void __dl__7TObjectFPv(void *);
 s32 check_owner__13TObjTombstoneFPv();
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -28,13 +37,34 @@ void init_parts__13TObjTombstoneFPv(void* p) { TObjTombstone__sub_80075CB4(p); T
 
 extern s32 lbl_805D4E4C;
 
+#pragma push
+#pragma opt_common_subs off
+void TObjTombstone__sub_80076190(u8 *arg0) {
+    f32 temp_f1;
+    f32 temp_f1_2;
+    if ((TObjTombstone__sub_80075070() == 0) && (M2C_FIELD(arg0, f32 *, 0xB0) < TObjTombstone__data_805D917C)) {
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0xB4) + lbl_805D91B4;
+        M2C_FIELD(arg0, f32 *, 0xB4) = temp_f1;
+        if (temp_f1 > TObjTombstone__data_805D9178) {
+            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9178;
+        }
+    } else {
+        temp_f1_2 = M2C_FIELD(arg0, f32 *, 0xB4) + lbl_805D91B8;
+        M2C_FIELD(arg0, f32 *, 0xB4) = temp_f1_2;
+        if (temp_f1_2 < TObjTombstone__data_805D9174) {
+            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9174;
+        }
+    }
+}
+#pragma pop
+
 void run_task__13TObjTombstoneFv(void *arg0) {
     if (check_owner__13TObjTombstoneFPv() != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
     M2C_FIELD(arg0, f32 *, 0xB0) = TObjTombstone__sub_8007598C(arg0);
-    TObjTombstone__sub_80076190(arg0);
+    TObjTombstone__sub_80076190((u8 *)(arg0));
     if (TObjTombstone__sub_80076098(arg0) != 0) {
         TObjTombstone__sub_80075DFC(arg0);
     }

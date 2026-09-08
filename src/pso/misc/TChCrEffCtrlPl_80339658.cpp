@@ -20,6 +20,16 @@ struct VObj803398CC_803398cc_80339658 : VBase803398CC_803398cc_80339658 {
 };
 
 extern "C" {
+M2C_UNK set_depth_buffer_settings_1__Fv();
+M2C_UNK fn_80141A30();
+M2C_UNK draw_ui_sprite(int, void *, f32, f32);
+extern const f32 lbl_805DF9F0;
+extern const f32 lbl_805DF9F4;
+extern const f32 lbl_805DF9F8;
+void render__14TChCrEffCtrlPlFv(u8 *arg0);
+}
+
+extern "C" {
 
 void TLobby_802D2F7C__sub_80339910(void *arg0);
 void *create__14TChCrEffCtrlPlFPv(void *arg0);
@@ -27,6 +37,21 @@ void reset_impl__15TLobby_802D2F7CFPv(u8 *arg0);
 void *__ct__14TChCrEffCtrlPlFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 u32 fn_80339954();
+
+#pragma push
+#pragma opt_common_subs off
+void render__14TChCrEffCtrlPlFv(u8 *arg0) {
+    f32 var_f2;
+    set_depth_buffer_settings_1__Fv();
+    var_f2 = lbl_805DF9F0 * M2C_FIELD(arg0, f32 *, 0x2C);
+    if (var_f2 > lbl_805DF9F4) {
+        var_f2 = lbl_805DF9F4;
+    }
+    draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (void *) (arg0 + 0x24), (f32) (lbl_805DF9F8), (f32) (var_f2));
+    draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x24), (f32) (lbl_805DF9F8), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
+    fn_80141A30();
+}
+#pragma pop
 
 void *create__14TChCrEffCtrlPlFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x38);

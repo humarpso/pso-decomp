@@ -1,49 +1,46 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+#include "pso/misc/WindowControlState.h"
 
 extern "C" {
+s32 is_split_screen();
+extern s32 TWindowCtrlMain__data_805D6400;
+extern WindowControlState TWindowCtrlMain__data_80518730[6];
 
-void TWindowCtrlMain__sub_8024CB7C(void);
-void TWindowCtrlMain__sub_8024CB8C(void);
-f32 get_field_18__15TWindowCtrlMainFv(void);
-f32 get_ctrl_field14__15TWindowCtrlMainFv(void);
-f32 get_field10__15TWindowCtrlMainFv(void);
-f32 get_position_z__15TWindowCtrlMainFv(void);
-void set_field18__15TWindowCtrlMainFf(f32 farg0);
-void set_depth__15TWindowCtrlMainFf(f32 farg0);
-void *TWindowCtrlMain__sub_8024CC8C();
-
-    extern int TWindowCtrlMain__data_805D6400;
-void TWindowCtrlMain__sub_8024CB7C(void) { TWindowCtrlMain__data_805D6400 = (TWindowCtrlMain__data_805D6400 | 0x1); }
-
-    extern int TWindowCtrlMain__data_805D6400;
-void TWindowCtrlMain__sub_8024CB8C(void) { TWindowCtrlMain__data_805D6400 = (TWindowCtrlMain__data_805D6400 & 0xfffffffe); }
-
-f32 get_field_18__15TWindowCtrlMainFv(void) {
-    return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x18);
+void TWindowCtrlMain__sub_8024CB7C() {
+    TWindowCtrlMain__data_805D6400 |= 1;
 }
 
-f32 get_ctrl_field14__15TWindowCtrlMainFv(void) {
-    return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x14);
+void TWindowCtrlMain__sub_8024CB8C() {
+    TWindowCtrlMain__data_805D6400 &= ~1;
 }
 
-f32 get_field10__15TWindowCtrlMainFv(void) {
-    return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x10);
+f32 get_field_18__15TWindowCtrlMainFv(s32 viewport_index) {
+    return get_window_control_state(viewport_index)->field18;
 }
 
-f32 get_position_z__15TWindowCtrlMainFv(void) {
-    return M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0xC);
+f32 get_ctrl_field14__15TWindowCtrlMainFv(s32 viewport_index) {
+    return get_window_control_state(viewport_index)->field14;
 }
 
-void set_field18__15TWindowCtrlMainFf(f32 farg0) {
-    M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0x18) = farg0;
+f32 get_field10__15TWindowCtrlMainFv(s32 viewport_index) {
+    return get_window_control_state(viewport_index)->field10;
 }
 
-void set_depth__15TWindowCtrlMainFf(f32 farg0) {
-    M2C_FIELD(TWindowCtrlMain__sub_8024CC8C(), f32 *, 0xC) = farg0;
+f32 get_position_z__15TWindowCtrlMainFv(s32 viewport_index) {
+    return get_window_control_state(viewport_index)->field0C;
 }
 
+void set_field18__15TWindowCtrlMainFf(f32 value, s32 viewport_index) {
+    get_window_control_state(viewport_index)->field18 = value;
+}
+
+void set_depth__15TWindowCtrlMainFf(f32 value, s32 viewport_index) {
+    get_window_control_state(viewport_index)->field0C = value;
+}
+
+WindowControlState* get_window_control_state(s32 viewport_index) {
+    if (is_split_screen()) {
+        return &TWindowCtrlMain__data_80518730[viewport_index];
+    }
+    return TWindowCtrlMain__data_80518730;
+}
 }

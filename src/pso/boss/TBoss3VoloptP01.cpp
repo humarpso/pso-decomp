@@ -224,7 +224,6 @@ void set_mode__11TCameraCtrlFPv(void *);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK TObjPlayer__sub_80042DE8(void *);
-s32 TBoss3VoloptP01__sub_80042FCC(void *);
 s32 TBoss3VoloptP01__sub_8004301C(void *);
 u8 *TBoss4Type2__sub_800874F4(void *, M2C_UNK);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
@@ -235,6 +234,9 @@ void TBoss3VoloptP01__sub_8004354C(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 void TBoss3VoloptP01__sub_80042F84(u8 *arg0);
+extern const f32 lbl_805D876C;
+extern const f32 lbl_805D8770;
+s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0);
 }
 
 extern "C" {
@@ -273,6 +275,22 @@ void TBoss3VoloptP01__sub_80042F84(u8 *arg0) {
         update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (9));
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0) {
+    u8 *temp_r4;
+    M2C_FIELD(arg0, f32 *, 0x38C) = (f32) (M2C_FIELD(arg0, f32 *, 0x38C) - lbl_805D876C);
+    if (M2C_FIELD(arg0, f32 *, 0x38C) <= lbl_805D8770) {
+        M2C_FIELD(arg0, f32 *, 0x38C) = (f32) lbl_805D8770;
+        M2C_FIELD(arg0, s8 *, 0x390) = 0;
+        temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
+        M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
+        return 1;
+    }
+    return 0;
+}
+#pragma pop
 
 void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
     void *temp_r3;
@@ -343,7 +361,7 @@ void TBoss3VoloptP01__sub_8004354C(u8 *arg0) {
         break;
     case 4:
         set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
-        if (TBoss3VoloptP01__sub_80042FCC((void *)((void *) (arg0))) == 1) {
+        if (TBoss3VoloptP01__sub_80042FCC((u8 *)((void *)((void *) (arg0)))) == 1) {
             reset_look_state__11TCameraCtrlFPv(M2C_FIELD(arg0, u8 **, 0x3B8));
             ((VObj_18_62ff9d *)(arg0))->m56();
         }
@@ -411,7 +429,7 @@ void update_state__15TBoss3VoloptP01FPv(u8 *arg0) {
         }
         break;
     case 2:
-        if (TBoss3VoloptP01__sub_80042FCC((void *)(arg0)) == 1) {
+        if (TBoss3VoloptP01__sub_80042FCC((u8 *)((void *)(arg0))) == 1) {
             M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
             ((VObj_8004394c_800430AC*)arg0)->m56();
         }

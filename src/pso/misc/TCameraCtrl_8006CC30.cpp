@@ -75,6 +75,16 @@ struct RecoveredFields_8006DCD4_arg0 {
     f32 field_50;
 };
 
+struct RecoveredGlobal_8006D610_camera_controller_registry {
+    M2C_UNK value;
+    u8 remaining[0x64];
+};
+
+struct RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 {
+    u8 value;
+    u8 remaining[0xB];
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
@@ -94,7 +104,6 @@ extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_804
 extern u16 TCameraCtrl__data_805D2840;
 extern u8 TCameraCtrl__data_805D4E20;
 void TCameraCtrl__sub_8006CD2C(u8 *arg0, s16 arg1);
-void set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 void TCameraCtrl__sub_8006D494(void);
@@ -105,6 +114,12 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * TObjButterflyLobby__sub_8007A5D8(s32, void *, M2C_UNK, f32);
 extern const f32 TCameraCtrl__data_805D9050;
 void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2);
+s32 TCameraCtrl__sub_8006D4E0(int, int);
+M2C_UNK set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
+s32 TObjPlayer__sub_80141F84(int, void *);
+extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
+extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
+void TCameraCtrl__sub_8006D610(void);
 }
 
 extern "C" {
@@ -117,7 +132,6 @@ void TCameraCtrl__sub_8006E804(void* a0);
 void *TCameraCtrl__vt0(void);
 void *deleting_dtor__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 s32 is_flag_set__11TCameraCtrlFv(void);
-void set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
 void set_pos_target__11TCameraCtrlFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 void TCameraCtrl__sub_800686BC(void *, int);
 int TCameraCtrl__sub_80068714(void);
@@ -212,6 +226,38 @@ void TCameraCtrl__sub_8006D494(void) {
     }
 }
 
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredGlobal_8006D610_camera_controller_registry_size[sizeof(RecoveredGlobal_8006D610_camera_controller_registry) == 0x68 ? 1 : -1];
+typedef char RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
+void TCameraCtrl__sub_8006D610(void) {
+    s32 temp_r30;
+    s32 temp_r31;
+    s32 var_r30;
+    s32 var_r31;
+    u8 *temp_r29;
+    u8 *temp_r3;
+    if (((u8) (*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value == 0) && (temp_r29 = M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_8006D610_camera_controller_registry *)&camera_controller_registry).value) + (((*(RecoveredGlobal_8006D610_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value * 4) & 0x3FC)), u8 **, 0), set_field_100__11TCameraCtrlFPvi((void*)((int) (temp_r29)), (s32)((int) (1))), temp_r3 = M2C_FIELD(temp_r29, u8 **, 0x1C), ((temp_r3 == NULL) == 0))) {
+        temp_r30 = M2C_FIELD(temp_r3, s32 *, 0x60);
+        temp_r31 = TObjPlayer__sub_80141F84((int) (M2C_FIELD(temp_r29, s32 *, 0x30)), (void *) (temp_r30 + 0x6000));
+        if (temp_r31 > TObjPlayer__sub_80141F84((int) (M2C_FIELD(temp_r29, s32 *, 0x30)), (void *) (temp_r30 - 0x6000))) {
+            var_r31 = temp_r30 - 0x6000;
+            var_r30 = temp_r30 + 0x6000;
+        } else {
+            var_r31 = temp_r30 + 0x6000;
+            var_r30 = temp_r30 - 0x6000;
+        }
+        if (TCameraCtrl__sub_8006D4E0((int) (temp_r29), (int) (var_r31)) != 0) {
+            if (TCameraCtrl__sub_8006D4E0((int) (temp_r29), (int) (var_r30)) == 0) {
+                M2C_FIELD(temp_r29, s32 *, 0x30) = var_r30;
+            }
+        } else {
+            M2C_FIELD(temp_r29, s32 *, 0x30) = var_r31;
+        }
+    }
+}
+#pragma pop
+
 void TCameraCtrl__sub_8006DCC8(void* p) { *(s32*)((char*)p + 0xfc) = 0; }
 
 void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2) {
@@ -257,7 +303,7 @@ void *deleting_dtor__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void set_field_100__11TCameraCtrlFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x100) = v; }
+M2C_UNK set_field_100__11TCameraCtrlFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x100) = v; }
 s32 TCameraCtrl__sub_8006E7FC(void* p) { return *(s32*)((char*)p + 0x10c); }
 
     extern const float TCameraCtrl__data_805D905C;

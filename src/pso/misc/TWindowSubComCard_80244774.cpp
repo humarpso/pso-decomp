@@ -27,6 +27,9 @@ extern const f32 lbl_805DCAD0;
 s32 TWindowSubComCard__sub_80244AD8(u8 *arg0);
 extern const f32 lbl_805DCAD0;
 void TWindowSubComCard__sub_80244B1C(u8 *arg0);
+extern f32 lbl_805DCAC8;
+extern const f32 lbl_805DCAD0;
+f32 TWindowSubComCard__sub_80244818(u8 *arg0);
 }
 
 extern "C" {
@@ -71,6 +74,22 @@ struct VObj_8010B054_8010A710_card_0 : Base_8010B054_8010A710_card_0 {
     virtual void m16(); virtual void m17(); virtual void m18();
     virtual void m19();
 };
+
+#pragma push
+#pragma opt_common_subs off
+f32 TWindowSubComCard__sub_80244818(u8 *arg0) {
+    s32 temp_r3;
+    if (M2C_FIELD(arg0, s32 *, 0x2C) & 0x2000) {
+        return (*(const f32 *)&lbl_805DCAC8);
+    }
+    temp_r3 = M2C_FIELD(arg0, s32 *, 0x5C);
+    if ((f32) temp_r3 >= lbl_805DCAD0) {
+        return (*(const f32 *)&lbl_805DCAC8);
+    }
+    return (f32) temp_r3 / lbl_805DCAD0;
+}
+#pragma pop
+
 void TWindowSubComCard__sub_80244888(s32 arg0) {
     set_parent__7TObjectFP7TObject((s32)((void*)((void*)(arg0))), (s32)((void*)((void*)(TWindowCtrlMain__sub_8024CE24()))));
 }

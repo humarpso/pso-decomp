@@ -42,6 +42,7 @@ force_active:
   - create_icon__10TObjPlayerFiii
   - draw_value__13TWindowMesetaFPvi
   - fn_80076C68
+  - fn_801692AC
   - fn_8016AD3C
   - fn_803CBE00
   - free_item_pmt

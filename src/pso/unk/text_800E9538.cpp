@@ -20,6 +20,10 @@ void TObjEneSlimeOne__sub_800EC7F4(void *, s32);
 extern const f32 lbl_805DA6B4;
 extern const f32 lbl_805DA708;
 void fn_800E9538(u8 *arg0);
+void queue_destruction__7TObjectFv(void *);
+extern const f32 lbl_805DA6B4;
+extern const f32 lbl_805DA70C;
+void fn_800E95A4(u8 *arg0);
 }
 
 extern "C" {
@@ -34,6 +38,25 @@ void fn_800E9538(u8 *arg0) {
     TObjEneSlimeOne__sub_800EC7F4((void *)((int) (M2C_FIELD(arg0, s32 *, 0x388))), (s32)((int) (7)));
     set_display_mode__15TObjEneSlimeOneFPvi((void *)((void *) (arg0)), (s32)((int) (0)));
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void fn_800E95A4(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r0;
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x3A0) + lbl_805DA70C;
+    M2C_FIELD(arg0, f32 *, 0x3A0) = temp_f1;
+    if (temp_f1 < lbl_805DA6B4) {
+        M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) lbl_805DA6B4;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x390) - 1;
+    M2C_FIELD(arg0, s32 *, 0x390) = temp_r0;
+    if (temp_r0 <= 0) {
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
+#pragma pop
 
 void fn_800E95F4(u8 *arg0) {
     u8 *temp_r3;

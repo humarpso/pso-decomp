@@ -46,6 +46,18 @@ extern const f32 lbl_805E03D8;
 extern const f32 lbl_805E03DC;
 extern const f32 lbl_805E03E0;
 u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void queue_destruction__7TObjectFv(void *);
+s32 query_teammate_state__9TObjEneDDFPv(void);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+M2C_UNK TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
+M2C_UNK TBoss6Rock__sub_8035A460(void *, int);
+M2C_UNK TBoss6RockChase__sub_8036D1B4(void *);
+extern const f32 TBoss6RockChase__data_805E03B8;
+extern const f32 lbl_805E03C0;
+extern const f32 lbl_805E03C4;
+extern const f32 lbl_805E03C8;
+void run_task__15TBoss6RockChaseFv(u8 *arg0);
 }
 
 extern "C" {
@@ -66,6 +78,38 @@ int set_global_param__8TObjFishFi(void*);
 void render__15TBoss6RockChaseFv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); TObjPlayer__sub_803D9214((void*)0, *(void**)((char*)p + 0x60)); TObjContainerIdo__sub_803D96A8((void*)0, *(void**)((char*)p + 0x5c)); TObjBoss2Tunnel__sub_803D929C((void*)0, *(void**)((char*)p + 0x64)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0xc4)); TObjBoss2Tunnel__sub_803DB470(*(void**)((char*)p + 0xc0)); TObjPlayer__sub_803D9B78(); }
 
 extern M2C_UNK __vt__15TBoss6RockChase[];
+
+#pragma push
+#pragma opt_common_subs off
+void run_task__15TBoss6RockChaseFv(u8 *arg0) {
+    s32 temp_r3;
+    if (query_teammate_state__9TObjEneDDFPv() == 0) {
+        temp_r3 = M2C_FIELD(arg0, s32 *, 0xB4);
+        if (temp_r3 > 0) {
+            M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (temp_r3 - 1);
+            return;
+        }
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + M2C_FIELD(arg0, s32 *, 0xBC));
+        M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (M2C_FIELD(arg0, f32 *, 0xB8) + lbl_805E03C0);
+        if (M2C_FIELD(arg0, f32 *, 0xB8) < lbl_805E03C4) {
+            M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805E03C4;
+        }
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0xB8));
+        if (M2C_FIELD(arg0, f32 *, 0x3C) <= TBoss6RockChase__data_805E03B8) {
+            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss6RockChase__data_805E03B8;
+            M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
+            TBoss6RockChase__sub_8036D1B4((void *) (arg0));
+            TBoss3Volopt__sub_8022675C((int) (0x4006B51E), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x220));
+            TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x222));
+            TBoss6PlotFalz__sub_802ABE3C((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805E03C8));
+            TBoss6Rock__sub_8035A460((void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0xB0)));
+            TBoss3Volopt__sub_8022675C((int) (0x4006AB1F), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            queue_destruction__7TObjectFv(arg0);
+        }
+    }
+}
+#pragma pop
 
 void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

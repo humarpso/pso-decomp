@@ -9,10 +9,20 @@ struct RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 {
     u8 remaining[0xC4];
 };
 
+struct RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 {
+    M2C_UNK value;
+    u8 remaining[0xC4];
+};
+
 extern "C" {
 extern RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 TBoss4Type3__data_80486FC8;
 extern const f32 TBoss4Type3__data_805D8C40;
 void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1);
+extern RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 TBoss4Type3__data_80486FC8;
+extern const f32 TBoss4Type3__data_805D8C40;
+extern const f32 lbl_805D8C9C;
+extern const f32 lbl_805D8CA0;
+void TBoss4Type3__sub_8005A6A4(u8 *arg0);
 }
 
 extern "C" {
@@ -47,6 +57,46 @@ void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(((u8 *)(&TBoss4Type3__data_80486FC8.value) + (arg1 * 0x14)), s32 *, 0);
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8_size[sizeof(RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8) == 0xC8 ? 1 : -1];
+void TBoss4Type3__sub_8005A6A4(u8 *arg0) {
+    f32 temp_f1;
+    f32 temp_f1_2;
+    s32 temp_r0;
+    M2C_FIELD(arg0, s32 *, 0x3FC) = 0;
+    M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3F4) + M2C_FIELD(arg0, f32 *, 0x3F8));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x400);
+    switch (temp_r0) {
+    case 0:
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x3F4);
+        if (temp_f1 >= lbl_805D8C9C) {
+            M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) (temp_f1 - lbl_805D8C9C);
+            M2C_FIELD(arg0, s32 *, 0x3FC) = 1;
+        }
+        break;
+    case 1:
+        if (M2C_FIELD(arg0, f32 *, 0x3F4) >= lbl_805D8CA0) {
+            M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) lbl_805D8CA0;
+            M2C_FIELD(arg0, s32 *, 0x3FC) = 1;
+        }
+        break;
+    case 2:
+        if (M2C_FIELD(arg0, f32 *, 0x3F4) >= lbl_805D8CA0) {
+            M2C_FIELD(arg0, s32 *, 0x3F0) = (s32) M2C_FIELD(((u8 *)&(*(RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 *)&TBoss4Type3__data_80486FC8).value + (M2C_FIELD(arg0, s32 *, 0x3F0) * 0x14)), s32 *, 4);
+            M2C_FIELD(arg0, s32 *, 0x400) = (s32) M2C_FIELD(&(*(RecoveredGlobal_8005A6A4_TBoss4Type3__data_80486FC8 *)&TBoss4Type3__data_80486FC8).value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3F0) * 0x14));
+            M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) TBoss4Type3__data_805D8C40;
+            M2C_FIELD(arg0, s32 *, 0x3FC) = 1;
+        }
+        break;
+    }
+    temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x3F4);
+    if ((temp_f1_2 < TBoss4Type3__data_805D8C40) || (temp_f1_2 >= lbl_805D8C9C)) {
+        M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) TBoss4Type3__data_805D8C40;
+    }
+}
+#pragma pop
 
 void draw__11TBoss4Type3FPv(void *arg0) {
     toggle_particle_effect__10TObjPlayerFv(arg0);

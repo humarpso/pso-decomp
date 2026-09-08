@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK TOSensorAncient01__sub_8017585C(s32);
 extern const f32 lbl_805DB994;
 extern const f32 lbl_805DB998;
 void TOSensorAncient01__vt14(u8 *arg0);
+extern const f32 lbl_805DB988;
+extern const f32 lbl_805DB98C;
+extern const f32 lbl_805DB990;
+void TOSensorAncient01__sub_8017585C(u8 *arg0);
 }
 
 extern "C" {
@@ -24,7 +27,6 @@ void render__8TOSensorFv(void);
 void TOKey__ct(void *);
 void TORockCave__sub_80175460(void);
 void TORockCave__sub_80175464(void);
-M2C_UNK TOSensorAncient01__sub_8017585C(s32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
@@ -61,17 +63,36 @@ void render__8TOSensorFv(void) {  }
 
 void TOSensorAncient01__vt23(void) {  }
 
+#pragma push
+#pragma opt_common_subs off
+void TOSensorAncient01__sub_8017585C(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0xF4) & 1) {
+        M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xF0) + lbl_805DB988);
+        if (lbl_805DB98C < M2C_FIELD(arg0, f32 *, 0xF0)) {
+            M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB98C;
+            M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) & 0xFFFFFFFE);
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xF0) - lbl_805DB988);
+        if (M2C_FIELD(arg0, f32 *, 0xF0) < lbl_805DB990) {
+            M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB990;
+            M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) | 1);
+        }
+    }
+}
+#pragma pop
+
 void TOSensorAncient01__vt15(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0xEC);
     M2C_FIELD(arg0, s32 *, 0xEC) = (s32) (temp_r4 + 0x28F);
-    TOSensorAncient01__sub_8017585C((s32) arg0);
+    TOSensorAncient01__sub_8017585C((u8 *)((s32) arg0));
 }
 void TOSensorAncient01__vt14(u8 *arg0) {
     s32 temp_r3;
     M2C_FIELD(arg0, s32 *, 0xEC) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0xEC) + lbl_805DB994);
-    TOSensorAncient01__sub_8017585C((s32)(arg0));
+    TOSensorAncient01__sub_8017585C((u8 *)((s32)(arg0)));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0xE8);
     if (temp_r3 > 0) {
         M2C_FIELD(arg0, s32 *, 0xE8) = (s32) (temp_r3 - 1);

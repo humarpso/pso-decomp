@@ -42,11 +42,32 @@
     "inline": "off",
     "use_lmw_stmw": "off"
   },
+  "pso/player/TObjPlayer_803DA204.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off",
+    "opt": "nocse"
+  },
   "pso/unk/text_803A3858.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",
+    "use_lmw_stmw": "off",
+    "opt": "nocse"
+  },
+  "pso/unk/text_803C1780.cpp": {
+    "mw_version": "GC/1.3",
+    "optimization": "-O4,p",
+    "inline": "off",
     "use_lmw_stmw": "off"
+  },
+  "pso/unk/text_803DD5E0.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "off",
+    "opt": "nocse"
   },
   "pso/unk/text_803F7678.cpp": {
     "mw_version": "GC/1.2.5n",

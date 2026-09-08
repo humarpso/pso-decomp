@@ -5,6 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void TBoss6Type2__sub_8032F5C4(void *);
+s32 TBoss6Type2__sub_803301B8(void * a0, s32 a1);
+extern const f32 lbl_805DF978;
+extern const f32 lbl_805DF97C;
+void TBoss6Type2__sub_80336E6C(u8 *arg0);
+s32 TBoss6Type2__sub_803301B8(void * a0, s32 a1);
+extern const f32 lbl_805DF980;
+extern const f32 lbl_805DF984;
+void TBoss6Type2__sub_80336F54(u8 *arg0);
+}
+
+extern "C" {
 
 void TBoss6Type2__sub_80336F00(void* p);
 void TBoss6Type2__sub_80336FB8(void* p);
@@ -28,7 +40,41 @@ s32 TBoss6Type2__sub_8032F824();
 s32 TBoss6Type2__sub_8032FB84();
 s32 TBoss6Type2__sub_803301B8(void * a0 = 0, s32 a1 = 0);
 
+#pragma push
+#pragma opt_common_subs off
+void TBoss6Type2__sub_80336E6C(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x400) = (f32) (M2C_FIELD(arg0, f32 *, 0x400) + lbl_805DF978);
+    if (M2C_FIELD(arg0, f32 *, 0x400) < lbl_805DF97C) {
+        M2C_FIELD(arg0, f32 *, 0x400) = (f32) lbl_805DF97C;
+    }
+    M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) + 1);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) >= 0x5A) {
+        TBoss6Type2__sub_8032F5C4(arg0);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x40C) != 0) {
+            TBoss6Type2__sub_803301B8((void *)((void *) (arg0)), (s32)((int) (1)));
+            return;
+        }
+        TBoss6Type2__sub_803301B8((void *)((void *) (arg0)), (s32)((int) (2)));
+    }
+}
+#pragma pop
+
 void TBoss6Type2__sub_80336F00(void* p) { *(int*)((char*)p + 0x3cc) = 0; TBoss3Volopt__sub_8022675C((void*)438292, (char*)p + 0x38, (void*)0, (void*)0); TBoss6Type2__sub_8032E770((void*)(p), (void*)((void*)0)); }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TBoss6Type2__sub_80336F54(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x400) = (f32) (M2C_FIELD(arg0, f32 *, 0x400) + lbl_805DF980);
+    if (M2C_FIELD(arg0, f32 *, 0x400) > lbl_805DF984) {
+        M2C_FIELD(arg0, f32 *, 0x400) = (f32) lbl_805DF984;
+    }
+    M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) + 1);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) >= (s32) M2C_FIELD(arg0, s32 *, 0x3C0)) {
+        TBoss6Type2__sub_803301B8(arg0, 5);
+    }
+}
+#pragma pop
 
 void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; TBoss6Type2__sub_8032E7B4(p, (void*)0); }
 void tick_attack_timer__11TBoss6Type2FPv(void *arg0) {

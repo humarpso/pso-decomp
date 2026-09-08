@@ -17735,6 +17735,9 @@ pso/misc/TLobby_803BAC70.cpp:
 	extabindex  start:0x8000F3D4 end:0x8000F704
 	.text       start:0x803BAC70 end:0x803C1668
 
+pso/unk/text_803C1668.cpp:
+	.text       start:0x803C1668 end:0x803C1780
+
 pso/unk/text_803C1780.cpp:
 	.text       start:0x803C1780 end:0x803C1A58
 
@@ -17755,6 +17758,9 @@ pso/misc/TLobby_803C1A58.cpp:
 
 pso/misc/TLobby_803C1A58_803C9348.cpp:
 	.text       start:0x803C9348 end:0x803CBCA0
+
+pso/unk/text_803CBCA0.cpp:
+	.text       start:0x803CBCA0 end:0x803CBCF8
 
 pso/unk/text_803CBCF8.cpp:
 	.text       start:0x803CBCF8 end:0x803CBDE0
@@ -17786,95 +17792,188 @@ pso/misc/TLobby_803CBF30.cpp:
 pso/misc/TLobby_803CBF50.cpp:
 	.text       start:0x803CBF50 end:0x803CC070
 
+pso/unk/text_803CC070.cpp:
+	.text       start:0x803CC070 end:0x803CC0B4
+
 pso/misc/TLobby_803CC0B4.cpp:
 	.text       start:0x803CC0B4 end:0x803CC134
+
+pso/unk/text_803CC134.cpp:
+	.text       start:0x803CC134 end:0x803CC274
 
 pso/misc/TLobby_803CC274.cpp:
 	.text       start:0x803CC274 end:0x803CC294
 
+pso/unk/text_803CC294.cpp:
+	.text       start:0x803CC294 end:0x803CD804
+
 pso/misc/TLobby_803CD804.cpp:
 	.text       start:0x803CD804 end:0x803CD840
+
+pso/unk/text_803CD840.cpp:
+	.text       start:0x803CD840 end:0x803CE1D0
 
 pso/misc/TLobby_803CE1D0.cpp:
 	.text       start:0x803CE1D0 end:0x803CE1D8
 
+pso/unk/text_803CE1D8.cpp:
+	.text       start:0x803CE1D8 end:0x803CE1E4
+
 pso/misc/TLobby_803CE1E4.cpp:
 	.text       start:0x803CE1E4 end:0x803CE1F4
+
+pso/unk/text_803CE1F4.cpp:
+	.text       start:0x803CE1F4 end:0x803CE200
 
 pso/misc/TLobby_803CE200.cpp:
 	.text       start:0x803CE200 end:0x803CE240
 
+pso/unk/text_803CE240.cpp:
+	.text       start:0x803CE240 end:0x803CE478
+
 pso/misc/TLobby_803CE478.cpp:
 	.text       start:0x803CE478 end:0x803CE568
+
+pso/unk/text_803CE568.cpp:
+	.text       start:0x803CE568 end:0x803CFE68
 
 pso/misc/TLobby_803CFE68.cpp:
 	.text       start:0x803CFE68 end:0x803CFEA0
 
+pso/unk/text_803CFEA0.cpp:
+	.text       start:0x803CFEA0 end:0x803D0C28
+
 pso/misc/TLobby_803D0C28.cpp:
 	.text       start:0x803D0C28 end:0x803D0C34
+
+pso/unk/text_803D0C34.cpp:
+	.text       start:0x803D0C34 end:0x803D0EB8
 
 pso/misc/TLobby_803D0EB8.cpp:
 	.text       start:0x803D0EB8 end:0x803D0F1C
 
+pso/unk/text_803D0F1C.cpp:
+	.text       start:0x803D0F1C end:0x803D0F58
+
 pso/misc/TLobby_803D0F58.cpp:
 	.text       start:0x803D0F58 end:0x803D0F90
+
+pso/unk/text_803D0F90.cpp:
+	.text       start:0x803D0F90 end:0x803D2010
 
 pso/misc/TLobby_803D2010.cpp:
 	.text       start:0x803D2010 end:0x803D204C
 
+pso/unk/text_803D204C.cpp:
+	.text       start:0x803D204C end:0x803D23B0
+
 pso/misc/TLobby_803D23B0.cpp:
 	.text       start:0x803D23B0 end:0x803D2434
+
+pso/unk/text_803D2434.cpp:
+	.text       start:0x803D2434 end:0x803D25DC
 
 pso/misc/TLobby_803D25DC.cpp:
 	.text       start:0x803D25DC end:0x803D2624
 
+pso/unk/text_803D2624.cpp:
+	.text       start:0x803D2624 end:0x803D2628
+
 pso/misc/TLobby_803D2628.cpp:
 	.text       start:0x803D2628 end:0x803D2640
+
+pso/unk/text_803D2640.cpp:
+	.text       start:0x803D2640 end:0x803D2BA8
 
 pso/misc/TLobby_803D2BA8.cpp:
 	.text       start:0x803D2BA8 end:0x803D2C84
 
+pso/unk/text_803D2C84.cpp:
+	.text       start:0x803D2C84 end:0x803D2ED4
+
 pso/misc/TLobby_803D2ED4.cpp:
 	.text       start:0x803D2ED4 end:0x803D2F1C
+
+pso/unk/text_803D2F1C.cpp:
+	.text       start:0x803D2F1C end:0x803D3194
 
 pso/misc/TLobby_803D3194.cpp:
 	.text       start:0x803D3194 end:0x803D31A4
 
+pso/unk/text_803D31A4.cpp:
+	.text       start:0x803D31A4 end:0x803D3988
+
 pso/misc/TLobby_803D3988.cpp:
 	.text       start:0x803D3988 end:0x803D39F8
+
+pso/unk/text_803D39F8.cpp:
+	.text       start:0x803D39F8 end:0x803D3B84
 
 pso/misc/TLobby_803D3B84.cpp:
 	.text       start:0x803D3B84 end:0x803D3BE8
 
+pso/unk/text_803D3BE8.cpp:
+	.text       start:0x803D3BE8 end:0x803D439C
+
 pso/misc/TLobby_803D439C.cpp:
 	.text       start:0x803D439C end:0x803D43A8
+
+pso/unk/text_803D43A8.cpp:
+	.text       start:0x803D43A8 end:0x803D43C8
 
 pso/misc/TLobby_803D43C8.cpp:
 	.text       start:0x803D43C8 end:0x803D4418
 
+pso/unk/text_803D4418.cpp:
+	.text       start:0x803D4418 end:0x803D4428
+
 pso/misc/TLobby_803D4428.cpp:
 	.text       start:0x803D4428 end:0x803D4448
+
+pso/unk/text_803D4448.cpp:
+	.text       start:0x803D4448 end:0x803D4704
 
 pso/misc/TLobby_803D4704.cpp:
 	.text       start:0x803D4704 end:0x803D4714
 
+pso/unk/text_803D4714.cpp:
+	.text       start:0x803D4714 end:0x803D4B68
+
 pso/misc/TLobby_803D4B68.cpp:
 	.text       start:0x803D4B68 end:0x803D4CA0
+
+pso/unk/text_803D4CA0.cpp:
+	.text       start:0x803D4CA0 end:0x803D60A8
 
 pso/misc/TLobby_803D60A8.cpp:
 	.text       start:0x803D60A8 end:0x803D60C8
 
+pso/unk/text_803D60C8.cpp:
+	.text       start:0x803D60C8 end:0x803D6190
+
 pso/misc/TLobby_803D6190.cpp:
 	.text       start:0x803D6190 end:0x803D619C
+
+pso/unk/text_803D619C.cpp:
+	.text       start:0x803D619C end:0x803D6438
 
 pso/unk/text_803D6438.cpp:
 	.text       start:0x803D6438 end:0x803D64F8
 
+pso/unk/text_803D64F8.cpp:
+	.text       start:0x803D64F8 end:0x803D6538
+
 pso/misc/TCameraCtrl_803D6538.cpp:
 	.text       start:0x803D6538 end:0x803D8030
 
+pso/unk/text_803D8030.cpp:
+	.text       start:0x803D8030 end:0x803D8090
+
 pso/npc/TObjNpcEnemy_803D8090.cpp:
 	.text       start:0x803D8090 end:0x803D81D0
+
+pso/unk/text_803D81D0.cpp:
+	.text       start:0x803D81D0 end:0x803D853C
 
 pso/unk/text_803D853C.cpp:
 	.text       start:0x803D853C end:0x803D8BAC
@@ -17882,14 +17981,26 @@ pso/unk/text_803D853C.cpp:
 pso/player/TObjPlayer_803D8BAC.cpp:
 	.text       start:0x803D8BAC end:0x803D8DE0
 
+pso/unk/text_803D8DE0.cpp:
+	.text       start:0x803D8DE0 end:0x803D8F74
+
 pso/unk/text_803D8F74.cpp:
 	.text       start:0x803D8F74 end:0x803D9650
+
+pso/unk/text_803D9650.cpp:
+	.text       start:0x803D9650 end:0x803D96A8
 
 pso/unk/text_803D96A8.cpp:
 	.text       start:0x803D96A8 end:0x803D9FF0
 
+pso/unk/text_803D9FF0.cpp:
+	.text       start:0x803D9FF0 end:0x803DA038
+
 pso/unk/text_803DA038.cpp:
 	.text       start:0x803DA038 end:0x803DA12C
+
+pso/unk/text_803DA12C.cpp:
+	.text       start:0x803DA12C end:0x803DA16C
 
 pso/unk/text_803DA16C.cpp:
 	.text       start:0x803DA16C end:0x803DA204
@@ -17897,14 +18008,26 @@ pso/unk/text_803DA16C.cpp:
 pso/player/TObjPlayer_803DA204.cpp:
 	.text       start:0x803DA204 end:0x803DA754
 
+pso/unk/text_803DA754.cpp:
+	.text       start:0x803DA754 end:0x803DA798
+
 pso/unk/text_803DA798.cpp:
 	.text       start:0x803DA798 end:0x803DAF30
+
+pso/unk/text_803DAF30.cpp:
+	.text       start:0x803DAF30 end:0x803DAF68
 
 pso/misc/TLanguage_803DAF68.cpp:
 	.text       start:0x803DAF68 end:0x803DAFA8
 
+pso/unk/text_803DAFA8.cpp:
+	.text       start:0x803DAFA8 end:0x803DB23C
+
 pso/unk/text_803DB23C.cpp:
 	.text       start:0x803DB23C end:0x803DB390
+
+pso/unk/text_803DB390.cpp:
+	.text       start:0x803DB390 end:0x803DB470
 
 pso/unk/text_803DB470.cpp:
 	.text       start:0x803DB470 end:0x803DC82C
@@ -17915,26 +18038,47 @@ pso/enemy/TObjEneMe3Stelth_803DC82C.cpp:
 pso/player/TObjPlayer_803DC834.cpp:
 	.text       start:0x803DC834 end:0x803DC86C
 
+pso/unk/text_803DC86C.cpp:
+	.text       start:0x803DC86C end:0x803DC88C
+
 pso/unk/text_803DC88C.cpp:
 	.text       start:0x803DC88C end:0x803DCDA8
 
 pso/misc/TScene_803DCDA8.cpp:
 	.text       start:0x803DCDA8 end:0x803DCDB0
 
+pso/unk/text_803DCDB0.cpp:
+	.text       start:0x803DCDB0 end:0x803DCDFC
+
 pso/unk/text_803DCDFC.cpp:
 	.text       start:0x803DCDFC end:0x803DCEC8
+
+pso/unk/text_803DCEC8.cpp:
+	.text       start:0x803DCEC8 end:0x803DCF0C
 
 pso/unk/text_803DCF0C.cpp:
 	.text       start:0x803DCF0C end:0x803DCF2C
 
+pso/unk/text_803DCF2C.cpp:
+	.text       start:0x803DCF2C end:0x803DCFE4
+
 pso/misc/TMovie_803DCFE4.cpp:
 	.text       start:0x803DCFE4 end:0x803DD080
+
+pso/unk/text_803DD080.cpp:
+	.text       start:0x803DD080 end:0x803DD2E0
 
 pso/misc/TKeyBoardControl_803DD2E0.cpp:
 	.text       start:0x803DD2E0 end:0x803DD3C8
 
+pso/unk/text_803DD3C8.cpp:
+	.text       start:0x803DD3C8 end:0x803DD428
+
 pso/misc/TKeyBoardControl_803DD428.cpp:
 	.text       start:0x803DD428 end:0x803DD430
+
+pso/unk/text_803DD430.cpp:
+	.text       start:0x803DD430 end:0x803DD5E0
 
 pso/unk/text_803DD5E0.cpp:
 	.text       start:0x803DD5E0 end:0x803DE778
@@ -17942,11 +18086,20 @@ pso/unk/text_803DD5E0.cpp:
 pso/misc/TLobby_803DE778.cpp:
 	.text       start:0x803DE778 end:0x803DE7E0
 
+pso/unk/text_803DE7E0.cpp:
+	.text       start:0x803DE7E0 end:0x803DE838
+
 pso/unk/text_803DE838.cpp:
 	.text       start:0x803DE838 end:0x803DE864
 
+pso/unk/text_803DE864.cpp:
+	.text       start:0x803DE864 end:0x803DE890
+
 pso/unk/text_803DE890.cpp:
 	.text       start:0x803DE890 end:0x803DE8BC
+
+pso/unk/text_803DE8BC.cpp:
+	.text       start:0x803DE8BC end:0x803DE9C4
 
 pso/misc/TKeyBoardControl_803DE9C4.cpp:
 	.text       start:0x803DE9C4 end:0x803DED78
@@ -17954,11 +18107,17 @@ pso/misc/TKeyBoardControl_803DE9C4.cpp:
 pso/player/TObjPlayer_803DED78.cpp:
 	.text       start:0x803DED78 end:0x803DEE48
 
+pso/unk/text_803DEE48.cpp:
+	.text       start:0x803DEE48 end:0x803DEE6C
+
 pso/misc/TWindowSubStatusDisp_803DEE6C.cpp:
 	.text       start:0x803DEE6C end:0x803DF1FC
 
 pso/misc/TLobby_803DF1FC.cpp:
 	.text       start:0x803DF1FC end:0x803DF204
+
+pso/unk/text_803DF204.cpp:
+	.text       start:0x803DF204 end:0x803DF220
 
 pso/object/TObjLight_803DF220.cpp:
 	.text       start:0x803DF220 end:0x803DF7A8
@@ -17966,14 +18125,23 @@ pso/object/TObjLight_803DF220.cpp:
 pso/player/TObjPlayer_803DF7A8.cpp:
 	.text       start:0x803DF7A8 end:0x803E1FC8
 
+pso/unk/text_803E1FC8.cpp:
+	.text       start:0x803E1FC8 end:0x803E2008
+
 pso/unk/text_803E2008.cpp:
 	.text       start:0x803E2008 end:0x803E2070
+
+pso/unk/text_803E2070.cpp:
+	.text       start:0x803E2070 end:0x803E20B0
 
 pso/unk/text_803E20B0.cpp:
 	.text       start:0x803E20B0 end:0x803E21B8
 
 pso/player/TObjPlayer_803E21B8.cpp:
 	.text       start:0x803E21B8 end:0x803E29B0
+
+pso/unk/text_803E29B0.cpp:
+	.text       start:0x803E29B0 end:0x803E29FC
 
 pso/misc/TParticleCtrl_803E29FC.cpp:
 	.text       start:0x803E29FC end:0x803E2BAC
@@ -17993,6 +18161,9 @@ pso/player/TObjPlayer_803E4954.cpp:
 pso/enemy/TObjEneRe7Berura_803E4CE0.cpp:
 	.text       start:0x803E4CE0 end:0x803E4CE8
 
+pso/unk/text_803E4CE8.cpp:
+	.text       start:0x803E4CE8 end:0x803E4D8C
+
 pso/unk/text_803E4D8C.cpp:
 	.text       start:0x803E4D8C end:0x803E5470
 
@@ -18011,17 +18182,32 @@ pso/misc/TQuestVmDownLoadServer_803E6970.cpp:
 pso/misc/TKeyBoardControl_803F0C50.cpp:
 	.text       start:0x803F0C50 end:0x803F1804
 
+pso/unk/text_803F1804.cpp:
+	.text       start:0x803F1804 end:0x803F18B8
+
 pso/ui/TAdPlayerLoadGC_803F18B8.cpp:
 	.text       start:0x803F18B8 end:0x803F3DD4
+
+pso/unk/text_803F3DD4.cpp:
+	.text       start:0x803F3DD4 end:0x803F3F64
 
 pso/ui/TAdPlayerLoadGC_803F3F64.cpp:
 	.text       start:0x803F3F64 end:0x803F4D10
 
+pso/unk/text_803F4D10.cpp:
+	.text       start:0x803F4D10 end:0x803F4D84
+
 pso/unk/text_803F4D84.cpp:
 	.text       start:0x803F4D84 end:0x803F632C
 
+pso/unk/text_803F632C.cpp:
+	.text       start:0x803F632C end:0x803F63F0
+
 pso/misc/TQuestVmDownLoadServer_803F63F0.cpp:
 	.text       start:0x803F63F0 end:0x803F71BC
+
+pso/unk/text_803F71BC.cpp:
+	.text       start:0x803F71BC end:0x803F7678
 
 pso/unk/text_803F7678.cpp:
 	.text       start:0x803F7678 end:0x803F8794
@@ -18035,14 +18221,23 @@ pso/unk/text_8041ED8C.cpp:
 pso/misc/TUdpSocket_80421178.cpp:
 	.text       start:0x80421178 end:0x80421518
 
+pso/unk/text_80421518.cpp:
+	.text       start:0x80421518 end:0x80421620
+
 pso/unk/text_80421620.cpp:
 	.text       start:0x80421620 end:0x804245DC
 
 pso/misc/TLobby_804245DC.cpp:
 	.text       start:0x804245DC end:0x8042E8C4
 
+pso/unk/text_8042E8C4.cpp:
+	.text       start:0x8042E8C4 end:0x8042E9FC
+
 pso/unk/text_8042E9FC.cpp:
 	.text       start:0x8042E9FC end:0x8042EAD4
+
+pso/unk/text_8042EAD4.cpp:
+	.text       start:0x8042EAD4 end:0x8042EE4C
 
 pso/unk/text_8042EE4C.cpp:
 	.text       start:0x8042EE4C end:0x8042F13C

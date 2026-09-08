@@ -72,6 +72,8 @@ extern const f32 TODoorVS2Door01__data_805DB548;
 extern const f32 lbl_805DB550;
 extern const f32 lbl_805DB558;
 u8 *TODoorVS2Door01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+extern const f32 TODoorVS2Door01__data_805DB548;
+void TODoorVS2Door01__vt16(u8 *arg0);
 }
 
 extern "C" {
@@ -100,6 +102,17 @@ M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 void TODoorVS2Door01__vt18(void) {  }
 
 extern const f32 lbl_805DB54C;
+
+#pragma push
+#pragma opt_common_subs off
+void TODoorVS2Door01__vt16(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (M2C_FIELD(arg0, f32 *, 0xD4) - M2C_FIELD(arg0, f32 *, 0xB8));
+    if (M2C_FIELD(arg0, f32 *, 0xD4) <= TODoorVS2Door01__data_805DB548) {
+        M2C_FIELD(arg0, f32 *, 0xD4) = (f32) TODoorVS2Door01__data_805DB548;
+        M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+    }
+}
+#pragma pop
 
 void TODoorVS2Door01__vt15(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1) || (TODragonfly__sub_80158360(lbl_805DB54C) == 0)) {

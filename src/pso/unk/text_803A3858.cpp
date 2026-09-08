@@ -9,6 +9,11 @@ struct RecoveredGlobal_803AA0C0_lbl_80556E88 {
     u8 remaining[0xFC];
 };
 
+struct RecoveredGlobal_803A98F0_lbl_80556F88 {
+    M2C_UNK value;
+    u8 remaining[0x3BC];
+};
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -66,6 +71,13 @@ extern s8 lbl_805D74B0;
 extern s8 lbl_805D74B1;
 extern s8 lbl_805D74B2;
 void TLobby__sub_803BAB10(s32 arg0);
+s32 TLobby__sub_803A8B0C(void *, int, int, void *, void *, void *, void *);
+void TLobby__sub_803A8D04(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6);
+extern RecoveredGlobal_803A98F0_lbl_80556F88 lbl_80556F88;
+extern s32 lbl_805D73A8;
+s32 TLobby__sub_803A98F0(u8 arg0);
+s32 TLobby__sub_803B5398(u16, u16, s32, s32, u8, s32);
+void TLobby__sub_803B54D8(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -79,6 +91,10 @@ s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1);
 s32 TLobby__sub_803B2920(u8 *arg0);
 void TLobby__sub_803B4CEC(void);
+
+void TLobby__sub_803A8D04(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
+    TLobby__sub_803A8B0C((void *) (arg0), (int) (2), (int) (0), (void *) (arg3), (void *) (arg4), (void *) (arg5), (void *) (arg6));
+}
 
 void TLobby__sub_803A8DC0(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[40]; s32 field_28; u8 field_2C; };
@@ -103,6 +119,16 @@ void TLobby__sub_803A93D0(u8 *arg0, u8 *arg1) {
     TLobby__sub_803BB98C(0x5BU, arg0, arg1);
     TLobby__sub_803BB98C(0x80U, arg0, arg1);
     TLobby__sub_803BB98C(0x84U, arg0, arg1);
+}
+
+typedef char RecoveredGlobal_803A98F0_lbl_80556F88_size[sizeof(RecoveredGlobal_803A98F0_lbl_80556F88) == 0x3C0 ? 1 : -1];
+s32 TLobby__sub_803A98F0(u8 arg0) {
+    u8 *temp_r4;
+    temp_r4 = (u8 *)&lbl_80556F88.value + (arg0 * 0x30);
+    if (((u8) M2C_FIELD(temp_r4, u8 *, 0x601) != 4) && (lbl_805D73A8 & (1 << arg0)) && (M2C_FIELD(temp_r4, f32 *, 0x5DC) > M2C_FIELD(temp_r4, f32 *, 0x5D8))) {
+        return 1;
+    }
+    return 0;
 }
 
 void TLobby__sub_803A9F80(s32 arg0, s16 arg1) {
@@ -215,6 +241,11 @@ void TLobby__sub_803B41A0(u8 *arg0) {
 void TLobby__sub_803B4CEC(void) {
     lbl_805D7450 = 0;
 }
+
+void TLobby__sub_803B54D8(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    TLobby__sub_803B5398(arg0, arg1, arg2, arg3, 0U, arg4);
+}
+
 void TLobby__sub_803B58A4(void) {
     memset((void *) (lbl_805D7480), (int) (0), (int) (0x100));
     DCFlushRangeNoSync((void *) (lbl_805D7480), (int) (0x100));

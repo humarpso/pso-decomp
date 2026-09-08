@@ -19,6 +19,11 @@ void TBoss7Tentacle__sub_802F0B58(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss7Tentacle__sub_802F0A14(u8 *arg0);
 void TBoss7Tentacle__sub_802F0B08(u8 *arg0, u8 *arg1, s32 arg2);
+extern const float TBoss7Tentacle__data_805DEC00;
+extern const float TBoss7Tentacle__data_805DEC04;
+extern const f32 lbl_805DEC34;
+extern const f32 lbl_805DEC38;
+void TBoss7Tentacle__sub_802F00D4(u8 *arg0);
 }
 
 extern "C" {
@@ -35,6 +40,23 @@ void reset_state__14TBoss7TentacleFPv(void* a0);
 void setup_state__14TBoss7TentacleFPv(void* a0);
 void switch_state__14TBoss7TentacleFPv(void *arg0);
 int TBoss7Tentacle__sub_802F0A5C(void);
+
+#pragma push
+#pragma opt_common_subs off
+void TBoss7Tentacle__sub_802F00D4(u8 *arg0) {
+    if (M2C_FIELD(arg0, s32 *, 0x3C) & 2) {
+        M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) - lbl_805DEC34);
+        if (M2C_FIELD(arg0, f32 *, 0x2C) < (*(const f32 *)&TBoss7Tentacle__data_805DEC04)) {
+            M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (*(const f32 *)&TBoss7Tentacle__data_805DEC04);
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) + lbl_805DEC38);
+        if (M2C_FIELD(arg0, f32 *, 0x2C) > (*(const f32 *)&TBoss7Tentacle__data_805DEC00)) {
+            M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (*(const f32 *)&TBoss7Tentacle__data_805DEC00);
+        }
+    }
+}
+#pragma pop
 
 void switch_state__14TBoss7TentacleFPv(void *arg0) {
     s32 state = M2C_FIELD(arg0, s32 *, 0x34);

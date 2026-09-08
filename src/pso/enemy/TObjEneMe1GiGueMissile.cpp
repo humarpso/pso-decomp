@@ -33,6 +33,14 @@ extern M2C_UNK __vt__22TObjEneMe1GiGueMissile[];
 extern s32 lbl_805D3F20;
 extern const f32 lbl_805DE6DC;
 u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
+int queue_destruction__7TObjectFv(void*);
+u32 TPhotonMylla__sub_80154CB4(int);
+M2C_UNK TObjPlayer__sub_802A445C(void *, int);
+M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
+M2C_UNK TNeedleShoot__sub_802A4694(void *);
+extern const f32 lbl_805DE6DC;
+extern const f32 lbl_805DE6E0;
+void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0);
 }
 
 extern "C" {
@@ -98,6 +106,27 @@ void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile_size[sizeof(RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile) == 0x28 ? 1 : -1];
+
+#pragma push
+#pragma opt_common_subs off
+void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
+    f32 temp_f1;
+    M2C_FIELD(arg0, u32 *, 0x1C) = TPhotonMylla__sub_80154CB4((int) (M2C_FIELD(arg0, u16 *, 0x34)));
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+        queue_destruction__7TObjectFv((void*)((void *) (arg0)));
+        return;
+    }
+    M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (M2C_FIELD(arg0, f32 *, 0xBC) + lbl_805DE6DC);
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0xBC);
+    if (temp_f1 >= lbl_805DE6E0) {
+        M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (temp_f1 - lbl_805DE6E0);
+    }
+    TNeedleShoot__sub_802A4694((void *) (arg0));
+    update_lifetime__22TObjEneMe1GiGueMissileFPv((void *) (arg0));
+    TObjPlayer__sub_802A445C((void *) (arg0), (int) (1));
+}
+#pragma pop
+
 u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1) {
     u8 *temp_r3;
     u8 *temp_r3_2;

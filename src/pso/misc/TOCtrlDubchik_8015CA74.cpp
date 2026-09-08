@@ -200,7 +200,6 @@ void TOCtrlDubchik__sub_8015D314(void);
 M2C_UNK TObjPlayer__sub_80011734(void *, void *, f32);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
 extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
@@ -225,6 +224,20 @@ extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 lbl_805DB3BC;
 extern const f32 lbl_805DB3C8;
 u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK TObjPlayer__sub_80011734(void *, void *, f32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern const f32 TOCtrlDubchik__data_805DB3AC;
+extern const f32 TOCtrlDubchik__data_805DB3B0;
+extern const f32 TOCtrlDubchik__data_805DB3B4;
+extern const f32 TOCtrlDubchik__data_805DB3B8;
+void TOCtrlDubchik__sub_8015CDCC(u8 *arg0);
+void set_indexed_flags(void *, s32, s32);
+extern const f32 TOCtrlDubchik__data_805DB3A8;
+extern const f32 TOCtrlDubchik__data_805DB3B0;
+void TOCtrlDubchik__sub_8015CBDC(u8 *arg0);
+extern const f32 TOCtrlDubchik__data_805DB3A8;
+extern const f32 TOCtrlDubchik__data_805DB3B0;
+void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
 }
 
 extern "C" {
@@ -260,6 +273,30 @@ void TOCtrlDubchik__sub_8015CB4C(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TOCtrlDubchik__sub_8015CBDC(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x384) = (f32) (M2C_FIELD(arg0, f32 *, 0x384) - TOCtrlDubchik__data_805DB3B0);
+    if (M2C_FIELD(arg0, f32 *, 0x384) < TOCtrlDubchik__data_805DB3A8) {
+        M2C_FIELD(arg0, f32 *, 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
+        M2C_FIELD(arg0, s16 *, 0x326) = 0;
+        set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TOCtrlDubchik__sub_8015CC30(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x388) = (f32) (M2C_FIELD(arg0, f32 *, 0x388) - TOCtrlDubchik__data_805DB3B0);
+    if (M2C_FIELD(arg0, f32 *, 0x388) < TOCtrlDubchik__data_805DB3A8) {
+        M2C_FIELD(arg0, f32 *, 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
+        M2C_FIELD(arg0, s16 *, 0x326) = 5;
+    }
+}
+#pragma pop
 
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0) {
     f32 temp_f1;
@@ -298,6 +335,24 @@ void TOCtrlDubchik__sub_8015CCF4(u8 *arg0) {
   }
   new_var4 = new_var4;
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TOCtrlDubchik__sub_8015CDCC(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x380);
+    temp_f1 = (f32) temp_r4;
+    M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
+    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0x380)))));
+    TObjPlayer__sub_80011734((void *) (arg0), (void *) (arg0 + 0x390), (f32) (M2C_FIELD(arg0, f32 *, 0x37C)));
+    M2C_FIELD(arg0, f32 *, 0x384) = (f32) (M2C_FIELD(arg0, f32 *, 0x384) + TOCtrlDubchik__data_805DB3B0);
+    if (TOCtrlDubchik__data_805DB3AC < M2C_FIELD(arg0, f32 *, 0x384)) {
+        M2C_FIELD(arg0, f32 *, 0x384) = (f32) TOCtrlDubchik__data_805DB3AC;
+        M2C_FIELD(arg0, s16 *, 0x326) = 2;
+    }
+}
+#pragma pop
 
 void *create__13TOCtrlDubchikFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);

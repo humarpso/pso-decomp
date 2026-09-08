@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D77A0;
+s32 TLobby__sub_803DDD2C(s32 arg0);
+}
+
+extern "C" {
 
 void TLobby__sub_803DDD20(s32 arg0);
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
@@ -26,6 +31,13 @@ void TLobby__sub_803DDD20(s32 arg0) {
 
 extern s32 lbl_805D77A0;
 extern s32 lbl_805D77A4;
+
+s32 TLobby__sub_803DDD2C(s32 arg0) {
+    s32 temp_r4;
+    temp_r4 = lbl_805D77A0;
+    lbl_805D77A0 = temp_r4 + arg0;
+    return temp_r4;
+}
 
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1) {
     switch (arg1) {

@@ -1,5 +1,40 @@
 #include "pso/effect/TEffect.h"
 
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#include <stddef.h>
+struct Stack_80082C30 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+    f32 sp20;
+    f32 sp24;
+};
+
+extern "C" {
+s32 set_global_param__8TObjFishFi(void *);
+s32 TWindowSubStatusDisp__sub_803DEE6C(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 TWindowSubComCard__sub_803DEECC(void *, f32);
+s32 TWindowSubStatusDisp__sub_803DF160(int, int);
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805D93C0;
+extern const f32 lbl_805D93C4;
+extern const f32 lbl_805D93C8;
+extern const f32 lbl_805D93CC;
+extern const f32 lbl_805D93D0;
+extern const f32 lbl_805D93D4;
+extern const f32 lbl_805D93D8;
+extern const f32 lbl_805D93DC;
+void TObjPlayer__sub_80082C30(void);
+}
+
 extern "C" {
 extern TObject* tl_particle;
 extern const char* lbl_805D2908;
@@ -35,6 +70,35 @@ TEffect::TEffect() : TObject(tl_particle) {
     field_6c = 0;
     field_1c = 0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TObjPlayer__sub_80082C30(void) {
+    typedef char sp8_offset[(offsetof(Stack_80082C30, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80082C30, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80082C30, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_80082C30, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_80082C30, sp18) == 0x10) ? 1 : -1];
+    typedef char sp1C_offset[(offsetof(Stack_80082C30, sp1C) == 0x14) ? 1 : -1];
+    typedef char sp20_offset[(offsetof(Stack_80082C30, sp20) == 0x18) ? 1 : -1];
+    typedef char sp24_offset[(offsetof(Stack_80082C30, sp24) == 0x1C) ? 1 : -1];
+    Stack_80082C30 stack;
+    set_global_param__8TObjFishFi((void *) (lbl_805D63F0));
+    TWindowSubStatusDisp__sub_803DF160((int) (0), (int) (-1));
+    TWindowSubStatusDisp__sub_803DEE6C((int) (1));
+    stack.sp8 = lbl_805D93C0;
+    stack.spC = lbl_805D93C4;
+    stack.sp10 = lbl_805D93C8 + lbl_805D93C0;
+    stack.sp14 = lbl_805D93CC + lbl_805D93C4;
+    stack.sp18 = lbl_805D93D0;
+    stack.sp1C = lbl_805D93D4;
+    stack.sp20 = lbl_805D93D8;
+    stack.sp24 = lbl_805D93D8;
+    TWindowSubComCard__sub_803DEECC((void *) (&stack.sp8), (f32) (lbl_805D93DC));
+    get_player__20TWindowSubStatusDispFv();
+}
+#pragma pop
 
 extern "C" void TObjPlayer__sub_80082CBC(void* effect) {
     *(reinterpret_cast<u8*>(effect) + 0x1C) |= 0x4;

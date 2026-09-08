@@ -46,6 +46,9 @@ extern const f32 TObjEnePanarms__data_805DA544;
 extern const f32 lbl_805DA558;
 extern const f32 lbl_805DA55C;
 void TObjEnePanarms__sub_800E0950(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+extern const f32 lbl_805DA580;
+void TObjEnePanarms__sub_800E152C(u8 *arg0);
 }
 
 extern "C" {
@@ -318,5 +321,15 @@ void init_split__14TObjEnePanarmsFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) | 1);
     set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(9));
 }
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TObjEnePanarms__sub_800E152C(u8 *arg0) {
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (M2C_FIELD(arg0, s32 *, 0x39C) + 0x38));
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (M2C_FIELD(arg0, f32 *, 0x38) + lbl_805DA580);
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805DA580);
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
+}
+#pragma pop
 
 }

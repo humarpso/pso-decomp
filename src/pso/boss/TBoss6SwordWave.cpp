@@ -33,6 +33,14 @@ extern s32 lbl_805D43A8;
 extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805DFFF0;
 u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 query_teammate_state__9TObjEneDDFPv();
+M2C_UNK TBoss6SwordWave__sub_803564F4(void *);
+M2C_UNK TBoss6SwordWave__sub_8035663C(void *);
+M2C_UNK TBoss6SwordWave__sub_803567D0(void *);
+extern const f32 lbl_805E0010;
+extern const f32 lbl_805E0014;
+void run_task__15TBoss6SwordWaveFv(u8 *arg0);
 }
 
 extern "C" {
@@ -41,6 +49,30 @@ u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 void render__15TBoss6SwordWaveFv(void);
 
 void render__15TBoss6SwordWaveFv(void) {  }
+
+#pragma push
+#pragma opt_common_subs off
+void run_task__15TBoss6SwordWaveFv(u8 *arg0) {
+    f32 temp_f1;
+    if (query_teammate_state__9TObjEneDDFPv() == 0) {
+        TBoss6SwordWave__sub_803567D0((void *) (arg0));
+        TBoss6SwordWave__sub_8035663C((void *) (arg0));
+        if (M2C_FIELD(arg0, f32 *, 0x58) < lbl_805E0010) {
+            TBoss6SwordWave__sub_803564F4((void *) (arg0));
+        }
+        M2C_FIELD(arg0, f32 *, 0x58) = (f32) (M2C_FIELD(arg0, f32 *, 0x58) + lbl_805E0010);
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x58);
+        if (temp_f1 > lbl_805E0014) {
+            M2C_FIELD(arg0, f32 *, 0x58) = (f32) (temp_f1 - lbl_805E0014);
+        }
+        M2C_FIELD(arg0, f32 *, 0x50) = (f32) M2C_FIELD(arg0, f32 *, 0x54);
+        M2C_FIELD(arg0, f32 *, 0x54) = (f32) (M2C_FIELD(arg0, f32 *, 0x54) + lbl_805E0010);
+        if (M2C_FIELD(arg0, f32 *, 0x54) > M2C_FIELD(arg0, f32 *, 0x2C)) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+        }
+    }
+}
+#pragma pop
 
 u8 *__ct__15TBoss6SwordWaveFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     f32 temp_f1;

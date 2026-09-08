@@ -9,6 +9,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma dont_inline off
 struct M2CCopy_C { u8 bytes[0xc]; };
 
+#include <stddef.h>
+struct Stack_803242C0 {
+    f32 sp8;
+    f32 spC;
+    u8 pad_10[0x4];
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+};
+
 extern "C" {
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 extern const f32 lbl_805DF58C;
@@ -22,6 +32,15 @@ void TBoss6Mine__vt0(u8 *arg0);
 M2C_UNK TObjPlayer__sub_800F5E08();
 extern const f32 TBoss6Mine__data_805DF580;
 void TBoss6Mine__sub_80323E1C(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 TObjPlayer__sub_80156844(void *, void *, int);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 TNpcPlayer__sub_803D97B4(void *);
+extern const f32 lbl_805DF59C;
+extern const f32 lbl_805DF5A0;
+void TBoss6Mine__vt5(u8 *arg0);
 }
 
 extern "C" {
@@ -120,6 +139,40 @@ void TBoss6Mine__vt6(s32 arg0) {
     TBoss6PlotFalz__sub_802ABE3C(arg0 + 0x38, 0xC0, 0xF, lbl_805DF598);
     queue_destruction__7TObjectFv((void*)(arg0));
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TBoss6Mine__vt5(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_803242C0, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_803242C0, spC) == 0x4) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_803242C0, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_803242C0, sp18) == 0x10) ? 1 : -1];
+    typedef char sp1C_offset[(offsetof(Stack_803242C0, sp1C) == 0x14) ? 1 : -1];
+    Stack_803242C0 stack;
+    f32 temp_f31;
+    VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp14)), (s32)((void *) (arg0 + 0x3BC)));
+    TBoss6Type1__sub_803D9370((void *) (&stack.sp14), (void *) (arg0 + 0x38));
+    if (TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp14)) <= lbl_805DF59C) {
+        M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x380) = 6;
+        return;
+    }
+    TNpcPlayer__sub_803D97B4((void *) (&stack.sp14));
+    stack.sp14 *= lbl_805DF59C;
+    stack.sp18 *= lbl_805DF59C;
+    stack.sp1C *= lbl_805DF59C;
+    TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (&stack.sp14));
+    VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp8)), (s32)((void *) (arg0 + 0x38)));
+    temp_f31 = stack.spC - lbl_805DF5A0;
+    stack.spC = temp_f31;
+    if ((TObjPlayer__sub_80156844((void *) (arg0), (void *) (&stack.sp8), (int) (0)) != 0) && (temp_f31 < stack.spC)) {
+        stack.spC += lbl_805DF5A0;
+        VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((void *) (&stack.sp8)));
+        M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x380) = 6;
+    }
+}
+#pragma pop
 
 void TBoss6Mine__vt4(u8 *arg0) {
     s32 temp_r3;

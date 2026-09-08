@@ -23,6 +23,18 @@ struct Stack_800D7E94
   f32 sp10;
 };
 
+struct RecoveredGlobal_800D7F60_lbl_804949F4 {
+    M2C_UNK value;
+    u8 remaining[0x18];
+};
+
+#include <stddef.h>
+struct Stack_800D7CF4 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
@@ -31,6 +43,18 @@ f32 TBoss8Dragon__sub_803D64DC(int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 lbl_805DA380;
 void TDeadSpot__sub_800D7E94(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK lbl_804949F4[];
+u8 *TDeadSpot__sub_800D7F60(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
+s32 calc_random_scaled__10TObjPlayerFv();
+s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, void *);
+s32 copy_pos__11TNowLoadingFPvPv(int, void *);
+f32 TBoss8Dragon__sub_803D64C0(int);
+f32 TBoss8Dragon__sub_803D64DC(int);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805DA380;
+void TDeadSpot__sub_800D7CF4(u8 *arg0);
 }
 
 extern "C" {
@@ -38,10 +62,9 @@ extern "C" {
 void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1);
 void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1);
 void *TDeadSpot__sub_800D808C(void *arg0, s16 arg1);
-void *init__9TDeadSpotFPv(void *arg0);
+void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4);
 void render__9TDeadSpotFv(u8 *arg0);
 void update_lifetime__9TDeadSpotFPv(void *arg0);
-void TDeadSpot__sub_800D7F60(void *);
 f32 TObjPlayer__sub_80141CF8(void *, s32);
 M2C_UNK TParticleCtrl__sub_803DA7A8(s32);
 void __dl__7TObjectFPv(void *);
@@ -58,6 +81,26 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern M2C_UNK lbl_804949D8[];
 
+#pragma push
+#pragma opt_common_subs off
+void TDeadSpot__sub_800D7CF4(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800D7CF4, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800D7CF4, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800D7CF4, sp10) == 0x8) ? 1 : -1];
+    Stack_800D7CF4 stack;
+    f32 temp_f1;
+    s32 temp_r3;
+    temp_r3 = calc_random_scaled__10TObjPlayerFv();
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x28) * TBoss8Dragon__sub_803D64C0((int) (temp_r3));
+    stack.spC = lbl_805DA380;
+    stack.sp8 = temp_f1;
+    stack.sp10 = M2C_FIELD(arg0, f32 *, 0x28) * TBoss8Dragon__sub_803D64DC((int) (temp_r3));
+    TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
+    adjust_to_ground__15TObjBoss2TunnelFiPv((void *) (&stack.sp8), (void *) (&stack.sp8));
+    copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x34)), (void *) (&stack.sp8));
+}
+#pragma pop
+
 void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804949D8;
@@ -71,8 +114,8 @@ void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804949D8[];
 
-void *init__9TDeadSpotFPv(void *arg0) {
-    TDeadSpot__sub_800D7F60(arg0);
+void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4) {
+    TDeadSpot__sub_800D7F60((u8 *)(arg0), (u8 *)(_w1), (u8 *)(_w2), (s32)(_w3), _w4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804949D8;
     M2C_FIELD(arg0, u32 *, 0x30) = 8;
     return arg0;
@@ -119,6 +162,21 @@ void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK lbl_80494A10[];
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_800D7F60_lbl_804949F4_size[sizeof(RecoveredGlobal_800D7F60_lbl_804949F4) == 0x1C ? 1 : -1];
+u8 *TDeadSpot__sub_800D7F60(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0) {
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800D7F60_lbl_804949F4 *)&lbl_804949F4).value;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
+    M2C_FIELD(arg0, f32 *, 0x28) = farg0;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 2;
+    M2C_FIELD(arg0, s32 *, 0x34) = arg3;
+    return arg0;
+}
+#pragma pop
 
 void *TDeadSpot__sub_800D808C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

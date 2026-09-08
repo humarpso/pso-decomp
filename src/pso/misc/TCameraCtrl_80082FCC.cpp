@@ -4,6 +4,64 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_800830B0 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+    f32 sp14;
+    f32 sp18;
+    f32 sp1C;
+    s32 sp20;
+    s32 sp24;
+    s32 sp28;
+};
+
+struct RecoveredGlobal_800830B0_lbl_80439348 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_800830B0_main_task {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+extern "C" {
+s32 is_split_screen();
+s32 TCameraCtrl__sub_80068EF0();
+s32 TCameraCtrl__sub_80069024();
+s32 TCameraCtrl__sub_8006ABAC(void *, int, int);
+s32 TCameraCtrl__sub_8006AC70(void *);
+s32 TCameraCtrl__sub_8006AF9C(void *, int);
+s32 TCameraCtrl__sub_8006BE00(void *, void *, void *);
+s32 TObjPlayer__sub_80084744();
+s32 TObjPlayer__sub_80084754();
+s32 render_scene_passes__9TMainTaskFv(void *);
+s32 GXPixModeSync();
+s32 GXSetTexCopySrc(int, int, int, int);
+s32 GXSetTexCopyDst(int, int, int, int);
+s32 GXSetCopyClear(void *, int);
+s32 GXCopyTex(void *, int);
+s32 GXSetZMode(int, int, int);
+s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
+s32 GXSetScissor(int, int, int, int);
+s32 TCameraCtrl__sub_803D65FC(void *, void *, void *);
+s32 TCameraCtrl__sub_803D676C(int, f32, f32, f32);
+extern RecoveredGlobal_800830B0_lbl_80439348 lbl_80439348;
+extern RecoveredGlobal_800830B0_main_task main_task;
+extern u8 *lbl_805D4DF0;
+extern u32 lbl_805D4EE8;
+extern const f32 lbl_805D93D0;
+extern const f32 lbl_805D93D8;
+extern const f32 lbl_805D9404;
+extern const f32 lbl_805D9408;
+extern const f32 lbl_805D940C;
+extern const f32 lbl_805D9410;
+extern s32 lbl_805E1210;
+void TCameraCtrl__sub_800830B0(u8 *arg0);
+}
+
 extern "C" {
 
 void TCameraCtrl__sub_800830A8(void);
@@ -36,6 +94,58 @@ void TCameraCtrl__sub_800830A8(void) {  }
 void TCameraCtrl__sub_800830AC(void) {  }
 
 extern M2C_UNK lbl_8048E5DC[];
+
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredGlobal_800830B0_lbl_80439348_size[sizeof(RecoveredGlobal_800830B0_lbl_80439348) == 0x10 ? 1 : -1];
+typedef char RecoveredGlobal_800830B0_main_task_size[sizeof(RecoveredGlobal_800830B0_main_task) == 0x34 ? 1 : -1];
+void TCameraCtrl__sub_800830B0(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800830B0, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800830B0, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800830B0, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_800830B0, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_800830B0, sp18) == 0x10) ? 1 : -1];
+    typedef char sp1C_offset[(offsetof(Stack_800830B0, sp1C) == 0x14) ? 1 : -1];
+    typedef char sp20_offset[(offsetof(Stack_800830B0, sp20) == 0x18) ? 1 : -1];
+    typedef char sp24_offset[(offsetof(Stack_800830B0, sp24) == 0x1C) ? 1 : -1];
+    typedef char sp28_offset[(offsetof(Stack_800830B0, sp28) == 0x20) ? 1 : -1];
+    Stack_800830B0 stack;
+    if (is_split_screen() == 0) {
+        TCameraCtrl__sub_80069024();
+        GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
+        GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
+        stack.sp20 = M2C_FIELD(&lbl_80439348.value, s32 *, 0);
+        stack.sp24 = M2C_FIELD(&lbl_80439348.value, s32 *, 4);
+        stack.sp28 = M2C_FIELD(&lbl_80439348.value, s32 *, 8);
+        TCameraCtrl__sub_803D676C((int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x19C)), (f32) (lbl_805D940C), (f32) (lbl_805D93D8), (f32) (lbl_805D9410));
+        TCameraCtrl__sub_803D65FC((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (void *) (&stack.sp20));
+        if ((void *) lbl_805D4DF0 != NULL) {
+            stack.sp14 = M2C_FIELD(arg0, f32 *, 0x2C) - M2C_FIELD(arg0, f32 *, 0x20);
+            stack.sp18 = M2C_FIELD(arg0, f32 *, 0x30) - M2C_FIELD(arg0, f32 *, 0x24);
+            stack.sp1C = M2C_FIELD(arg0, f32 *, 0x34) - M2C_FIELD(arg0, f32 *, 0x28);
+            TCameraCtrl__sub_8006BE00((void *) (&stack.sp14), (void *) (&stack.sp10), (void *) (&stack.spC));
+            TCameraCtrl__sub_8006ABAC((void *) (lbl_805D4DF0), (int) (stack.sp10), (int) (stack.spC));
+        }
+        TObjPlayer__sub_80084754();
+        render_scene_passes__9TMainTaskFv((void *) (&main_task.value));
+        TObjPlayer__sub_80084744();
+        if ((void *) (*(u8 * *)&lbl_805D4EE8) != NULL) {
+            stack.sp8 = lbl_805E1210;
+            GXSetCopyClear((void *) (&stack.sp8), (int) (0xFFFFFF));
+            GXSetZMode((int) (1U), (int) (7), (int) (1));
+            GXSetTexCopySrc((int) (0U), (int) (0), (int) (0x280U), (int) (0x1E0U));
+            GXSetTexCopyDst((int) (0x280), (int) (0x1E0), (int) (4), (int) (0));
+            GXCopyTex((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D4EE8), u8 **, 0x1C), void **, 8), void **, 0xC), s32 *, 0x20)), (int) (1U));
+            GXPixModeSync();
+        }
+        GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
+        GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
+        TCameraCtrl__sub_80068EF0();
+        TCameraCtrl__sub_8006AC70((void *) (lbl_805D4DF0));
+        TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
+    }
+}
+#pragma pop
 
 void *dt__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

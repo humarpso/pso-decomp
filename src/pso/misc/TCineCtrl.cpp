@@ -15,6 +15,15 @@ void __dl__7TObjectFPv(s32);
 extern M2C_UNK __vt__9TCineCtrl[];
 extern void * lbl_805D4E60;
 u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1);
+extern const f32 lbl_805D91E0;
+extern const f32 lbl_805D91E4;
+extern const f32 lbl_805D91E8;
+extern const f32 lbl_805D91EC;
+void TCineCtrl__sub_80077E70(u8 *arg0);
+extern const f32 TCineCtrl__data_805D91D0;
+extern const f32 lbl_805D91E0;
+extern const f32 lbl_805D91E4;
+void TCineCtrl__sub_80077D84(u8 *arg0);
 }
 
 extern "C" {
@@ -27,6 +36,26 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern void *lbl_805D4E60;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
+
+#pragma push
+#pragma opt_common_subs off
+void TCineCtrl__sub_80077D84(u8 *arg0) {
+    M2C_UNK (*temp_r12)(void *);
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - lbl_805D91E0);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) - lbl_805D91E4);
+    if (M2C_FIELD(arg0, f32 *, 0x1C) <= TCineCtrl__data_805D91D0) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) TCineCtrl__data_805D91D0;
+    }
+    if (M2C_FIELD(arg0, f32 *, 0x20) <= TCineCtrl__data_805D91D0) {
+        M2C_FIELD(arg0, f32 *, 0x20) = (f32) TCineCtrl__data_805D91D0;
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(void *), 0x2C);
+        if (temp_r12 != NULL) {
+            temp_r12(arg0);
+        }
+        M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    }
+}
+#pragma pop
 
 void reset_state__9TCineCtrlFi(s32 arg0) {
     if ((void *) lbl_805D4E60 != NULL) {
@@ -42,6 +71,26 @@ void reset_state__9TCineCtrlFi(s32 arg0) {
 
 extern void *lbl_805D4E60;
 extern const f32 TCineCtrl__data_805D91D0;
+
+#pragma push
+#pragma opt_common_subs off
+void TCineCtrl__sub_80077E70(u8 *arg0) {
+    M2C_UNK (*temp_r12)(void *);
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805D91E0);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805D91E4);
+    if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805D91E8) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805D91E8;
+    }
+    if (M2C_FIELD(arg0, f32 *, 0x20) >= lbl_805D91EC) {
+        M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805D91EC;
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(void *), 0x2C);
+        if (temp_r12 != NULL) {
+            temp_r12(arg0);
+        }
+        M2C_FIELD(arg0, s32 *, 0x28) = 0;
+    }
+}
+#pragma pop
 
 void reset__9TCineCtrlFi(s32 arg0) {
     if ((void *) lbl_805D4E60 != NULL) {

@@ -23,6 +23,8 @@ M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 s32 TOSwitchAttack__sub_80087278(void *, int, int);
 extern RecoveredGlobal_800339BC_lbl_804FF5E8 lbl_804FF5E8;
 void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1);
+extern const f32 TBoss2DeRolLe__data_805D82A0;
+void TBoss2DeRolLe__sub_8003383C(u8 *arg0);
 }
 
 extern "C" {
@@ -49,6 +51,18 @@ void *get_enemy_entity(int);
 s32 objInBand__FP7GameObjf(void *, f32);
 void swap_6x13_fields__13TBoss2DeRolLeFPv(void *);
 void swap_endian__13TBoss2DeRolLeFPv(void *);
+
+#pragma push
+#pragma opt_common_subs off
+void TBoss2DeRolLe__sub_8003383C(u8 *arg0) {
+    f32 temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x6D4) = (f32) (M2C_FIELD(arg0, f32 *, 0x6D4) + M2C_FIELD(arg0, f32 *, 0x6D8));
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x6D4);
+    if (temp_f1 >= TBoss2DeRolLe__data_805D82A0) {
+        M2C_FIELD(arg0, f32 *, 0x6D4) = (f32) (temp_f1 - TBoss2DeRolLe__data_805D82A0);
+    }
+}
+#pragma pop
 
 int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2) { return TOTrapAncient01__sub_80226578((int)(p), (void *)(a1), (void *)(a2), (int)(0), (int)(0)); }
 int play_sound(void* p, int a1) { return TBoss3Volopt__sub_8022675C(p, a1, 0, 0); }

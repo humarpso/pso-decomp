@@ -14,11 +14,27 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
     virtual s32 m4();
 };
 
+#include <stddef.h>
+struct Stack_80096030 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 extern const f32 lbl_805D979C;
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
 void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0);
+u8 * TObjButterflyLobby__sub_8007A5D8(s32, s32, s32);
+s32 TObjEneRe7BeruraPunch__sub_80096150(void *);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+M2C_UNK TObjEneRe7Berura__sub_80094D98();
+M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
+extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
+extern const f32 lbl_805D97A4;
+extern const f32 lbl_805D97A8;
+void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0);
 }
 
 extern "C" {
@@ -104,6 +120,45 @@ void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xDC) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xBC))) + M2C_FIELD(arg0, f32 *, 0xDC));
     M2C_FIELD(arg0, f32 *, 0xE4) = (f32) ((lbl_805D979C * (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xC4))) + M2C_FIELD(arg0, f32 *, 0xE4));
     TObjEneRe7BeruraPunch__sub_80096300((void *) (arg0));
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#pragma fp_contract on
+void TObjEneRe7BeruraPunch__sub_80096030(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_80096030, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80096030, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80096030, sp10) == 0x8) ? 1 : -1];
+    Stack_80096030 stack;
+    s32 var_r31;
+    u8 *temp_r3;
+    M2C_FIELD(arg0, f32 *, 0xF4) = (f32) (M2C_FIELD(arg0, f32 *, 0xF4) + lbl_805D97A4);
+    if (M2C_FIELD(arg0, f32 *, 0xF4) > lbl_805D97A8) {
+        M2C_FIELD(arg0, f32 *, 0xF4) = (f32) lbl_805D97A8;
+    }
+    var_r31 = 0;
+    M2C_FIELD(arg0, f32 *, 0x114) = (f32) (M2C_FIELD(arg0, f32 *, 0x114) + TObjEneRe7BeruraPunch__data_805D97A0);
+    stack.sp8 = (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xBC)) + M2C_FIELD(arg0, f32 *, 0x38);
+    stack.spC = M2C_FIELD(arg0, f32 *, 0xE0);
+    stack.sp10 = (TObjEneRe7BeruraPunch__data_805D97A0 * M2C_FIELD(arg0, f32 *, 0xC4)) + M2C_FIELD(arg0, f32 *, 0x40);
+    temp_r3 = (u8 *)(TObjButterflyLobby__sub_8007A5D8((s32) (arg0 + 0xDC), (s32) &stack.sp8, 0x88E0));
+    if (temp_r3 != NULL) {
+        var_r31 = 1;
+        M2C_FIELD(arg0, f32 *, 0xDC) = (f32) *M2C_FIELD(temp_r3, f32 **, 4);
+        M2C_FIELD(arg0, f32 *, 0xDC) = (f32) *M2C_FIELD(temp_r3, f32 **, 4);
+    } else {
+        M2C_FIELD(arg0, f32 *, 0xDC) = stack.sp8;
+        M2C_FIELD(arg0, f32 *, 0xE4) = stack.sp10;
+    }
+    TObjEneRe7BeruraPunch__sub_80096300((void *) (arg0));
+    if ((var_r31 != 0) || (TObjEneRe7BeruraPunch__sub_80096150(arg0) != 0) || (M2C_FIELD(arg0, f32 *, 0x114) > M2C_FIELD(arg0, f32 *, 0xC8))) {
+        M2C_FIELD(arg0, s32 *, 0xB4) = 2;
+        if (TPhotonMylla__sub_80154CB4(M2C_FIELD(arg0, u16 *, 0xB0)) != NULL) {
+            TObjEneRe7Berura__sub_80094D98();
+        }
+    }
 }
 #pragma pop
 

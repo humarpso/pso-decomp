@@ -444,6 +444,116 @@ struct VObj_18_4225ac : VBase_18_4225ac {
     virtual M2C_UNK m94();
 };
 
+struct VBase_18_1fdb47 { char pad[0x18]; };
+
+struct VObj_18_1fdb47 : VBase_18_1fdb47 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    virtual s32 m9(f32, f32, f32);
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual void m100();
+    virtual void m101();
+    virtual void m102();
+    virtual void m103();
+    virtual M2C_UNK m104();
+};
+
 extern "C" {
 f32 TObjPlayer__sub_80014108(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
@@ -507,6 +617,20 @@ void TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 void TObjEneEpsilonGuard__sub_80361C70(u8 *arg0, s32 arg1);
+s32 is_split_screen();
+M2C_UNK get_camera_mode__11TCameraCtrlFv();
+s32 check_demo_mode__10TObjPlayerFv();
+s32 is_main_phase_15__9TObjEneDDFv();
+M2C_UNK update_player_state__9TObjEneDDFPv(void *, int, int);
+M2C_UNK toggle_flag_9__10TObjPlayerFPv(void *);
+void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
+M2C_UNK TObjEneEpsilonGuard__sub_8036033C(void *, int);
+void TObjEneEpsilonGuard__sub_80360638(s32 arg0);
+M2C_UNK TObjEneEpsilonGuard__sub_803606A0(void *, int);
+extern const f32 lbl_805E021C;
+extern const f32 lbl_805E0220;
+extern const f32 lbl_805E0224;
+void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0);
 }
 
 extern "C" {
@@ -607,6 +731,54 @@ void TObjEneEpsilonGuard__sub_80360638(s32 arg0) {
     TObjPlayer__sub_801E341C((void *) (&lbl_804F22CC.value), (int) (1), (int) (5));
     reset_transform_state__10TObjPlayerFv();
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0) {
+    s32 var_r31;
+    s32 var_r31_2;
+    if (check_demo_mode__10TObjPlayerFv() != 0) {
+        ((VObj_18_1fdb47 *)(arg0))->m104();
+        return;
+    }
+    if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000)) {
+        if (is_split_screen() != 0) {
+            get_camera_mode__11TCameraCtrlFv();
+        }
+        if (M2C_FIELD(arg0, s32 *, 0x438) & 1) {
+            var_r31 = 0;
+        } else if (is_main_phase_15__9TObjEneDDFv() != 0) {
+            var_r31 = ((VObj_18_1fdb47 *)(arg0))->m9(lbl_805E021C, lbl_805E021C, lbl_805E0220);
+        } else if (((VObj_18_1fdb47 *)(arg0))->m8(lbl_805E0224, lbl_805E0220) != 0) {
+            var_r31 = 1;
+        } else {
+            var_r31 = 0;
+        }
+        if (var_r31 != 0) {
+            update_player_state__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (0));
+            toggle_flag_9__10TObjPlayerFPv((void *) (arg0));
+            TObjEneEpsilonGuard__sub_8036033C((void *) (arg0), (int) (var_r31));
+            if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 6) {
+                if (M2C_FIELD(arg0, s32 *, 0x438) & 0x200) {
+                    render_body_effect__19TObjEneEpsilonGuardFPv((u8 *)((void *) (arg0)));
+                }
+            }
+        } else {
+            var_r31_2 = 0;
+            do {
+                TObjEneEpsilonGuard__sub_803606A0((void *) (arg0), (int) (var_r31_2));
+                var_r31_2 += 1;
+            } while (var_r31_2 < 4);
+        }
+        if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 2) {
+            if (M2C_FIELD(arg0, s32 *, 0x438) & 0x100) {
+                TObjEneEpsilonGuard__sub_80360638((s32)((void *) (arg0)));
+            }
+        }
+    }
+}
+#pragma pop
 
 void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;

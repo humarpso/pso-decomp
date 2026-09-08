@@ -9,6 +9,9 @@ void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DBFE4;
 extern const f32 lbl_805DBFEC;
 void TObjWarpString__sub_8019B6E4(u8 *arg0);
+extern const f32 lbl_805DBFEC;
+extern const f32 lbl_805DBFF0;
+void TObjWarpString__sub_8019B744(u8 *arg0);
 }
 
 extern "C" {
@@ -35,6 +38,18 @@ void TObjWarpString__sub_8019B728(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x4C) = 3;
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TObjWarpString__sub_8019B744(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x44) = (f32) (M2C_FIELD(arg0, f32 *, 0x44) + lbl_805DBFEC);
+    if (M2C_FIELD(arg0, f32 *, 0x44) > lbl_805DBFF0) {
+        M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805DBFF0;
+        M2C_FIELD(arg0, s32 *, 0x4C) = 2;
+        M2C_FIELD(arg0, s32 *, 0x40) = 0x5A;
+    }
+}
+#pragma pop
 
 void TObjWarpString__sub_8019B77C(void *arg0) {
     s32 temp_r0;

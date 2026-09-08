@@ -54,7 +54,11 @@ def compile_rules(ninja_text):
 def rules_from_file(path):
     stat = path.stat()
     key = (path.resolve(), stat.st_mtime_ns, stat.st_size)
-    if key not in _RULE_CACHE:
+    rules = _RULE_CACHE.get(key)
+    if rules is None:
+        rules = compile_rules(path.read_text())
         _RULE_CACHE.clear()
-        _RULE_CACHE[key] = compile_rules(path.read_text())
-    return _RULE_CACHE[key]
+        _RULE_CACHE[key] = rules
+    # Another probe may refresh the cache after a build-file regeneration.
+    # Return this call's snapshot even if that refresh evicts its key.
+    return rules

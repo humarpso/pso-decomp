@@ -539,6 +539,38 @@ struct VObj_18_7b3d65 : VBase_18_7b3d65 {
     virtual M2C_UNK m100();
 };
 
+#include <stddef.h>
+struct VBase_14_fddec9 { char pad[0x14]; };
+
+struct VObj_14_fddec9 : VBase_14_fddec9 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual M2C_UNK m6();
+    virtual M2C_UNK m7();
+    virtual s32 m8();
+};
+
+struct RecoveredGlobal_803326CC_main_task {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+struct RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 {
+    u8 unknown_0[0x42C];
+    u8 * field_42C;
+};
+
+struct RecoveredFields_803326CC_arg0 {
+    u8 unknown_0[0x60];
+    s32 field_60;
+    u8 unknown_64[0x35C];
+    s32 field_3C0;
+};
+
 extern "C" {
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
@@ -567,6 +599,21 @@ void TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 void TObjEneMorfos__sub_803342B8(u8 *arg0, s32 arg1);
+extern const f32 lbl_805DF888;
+extern const f32 TObjEneMorfos__data_805DF89C;
+extern const f32 lbl_805DF8A0;
+extern const f32 lbl_805DF8A4;
+void TObjEneMorfos__sub_8033471C(u8 *arg0);
+s32 get_mode__11TCameraCtrlFPv(void *);
+M2C_UNK TObjPlayer__sub_803D9214(int, int);
+M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK TObjPlayer__sub_803D9B78();
+M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+s32 TObjPlayer__sub_803E4684(void *);
+extern M2C_UNK main_task[];
+extern int TObjEneMorfos__data_805D6D14;
+void TObjEneMorfos__sub_803326CC(u8 *arg0);
 }
 
 extern "C" {
@@ -581,7 +628,6 @@ void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
-M2C_UNK TObjEneMorfos__sub_803326CC(void *);
 s32 TObjEneMorfos__sub_803344F0();
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
@@ -603,6 +649,32 @@ int get_instance__13TObjEneMorfosFv(void) {  return TObjEneMorfos__data_805D6D14
 
 extern M2C_UNK main_task[];
 
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredGlobal_803326CC_main_task_size[sizeof(RecoveredGlobal_803326CC_main_task) == 0x34 ? 1 : -1];
+typedef char RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14_42C_offset[offsetof(RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14, field_42C) == 0x42C ? 1 : -1];
+typedef char RecoveredFields_803326CC_arg0_60_offset[offsetof(RecoveredFields_803326CC_arg0, field_60) == 0x60 ? 1 : -1];
+typedef char RecoveredFields_803326CC_arg0_3C0_offset[offsetof(RecoveredFields_803326CC_arg0, field_3C0) == 0x3C0 ? 1 : -1];
+void TObjEneMorfos__sub_803326CC(u8 *arg0) {
+    if (get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_803326CC_main_task *)&main_task).value)) & 0x200) {
+        set_global_param__8TObjFishFi((int)((void *) (M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, s32 *, 0x2C))));
+        TObjPlayer__sub_803D9B2C();
+        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x498));
+        TObjPlayer__sub_803D9214((int) (0), (int) (((RecoveredFields_803326CC_arg0 *)arg0)->field_60));
+        if (((RecoveredFields_803326CC_arg0 *)arg0)->field_3C0 & 2) {
+            if (((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m8() != 0) {
+                ((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m6();
+                TObjPlayer__sub_803E4684((void *) (M2C_FIELD(M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, void **, 0x28), s32 *, 4)));
+                ((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m7();
+            }
+        } else {
+            TObjPlayer__sub_803E4684((void *) (M2C_FIELD(M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, void **, 0x28), s32 *, 4)));
+        }
+        TObjPlayer__sub_803D9B78();
+    }
+}
+#pragma pop
+
 s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0) {
     if (get_mode__11TCameraCtrlFPv((void *) (main_task)) & 0x20) {
         if (TObjEneRecon__sub_8029E960((void *) (arg0 + 0x3C8)) != 0) {
@@ -613,7 +685,7 @@ s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0) {
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             TObjPlayer__sub_803D9B78();
             if (M2C_FIELD(arg0, s32 *, 0x3C0) & 0x10) {
-                TObjEneMorfos__sub_803326CC((void *) (arg0));
+                TObjEneMorfos__sub_803326CC((u8 *)((void *) (arg0)));
             }
             restore_render_scissor((int) (1));
         }
@@ -811,6 +883,28 @@ void TObjEneMorfos__sub_80334524(u8 *arg0) {
 }
 
 int TObjEneMorfos__sub_80334704(void) { lbl_805D6D30 = *(float*)((char*)TObjEneMorfos__data_805D6D10 + 0x0); lbl_805D6D34 = *(float*)((char*)TObjEneMorfos__data_805D6D10 + 0x4); return TObjEneMorfos__data_805D6D10; }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TObjEneMorfos__sub_8033471C(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x368) <= 0) {
+        M2C_FIELD(arg0, s32 *, 0x3E8) = 1;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x3E8) = 0;
+    }
+    M2C_FIELD(arg0, f32 *, 0x3D8) = (f32) (lbl_805DF8A0 + M2C_FIELD(arg0, f32 *, 0x354));
+    if (M2C_FIELD(arg0, f32 *, 0x3D8) < lbl_805DF8A4) {
+        M2C_FIELD(arg0, f32 *, 0x3D8) = (f32) lbl_805DF8A4;
+    }
+    M2C_FIELD(arg0, f32 *, 0x3DC) = (f32) (TObjEneMorfos__data_805DF89C + M2C_FIELD(arg0, f32 *, 0x358));
+    if (M2C_FIELD(arg0, f32 *, 0x3DC) < lbl_805DF888) {
+        M2C_FIELD(arg0, f32 *, 0x3DC) = (f32) lbl_805DF888;
+    }
+    M2C_FIELD(arg0, f32 *, 0x3E0) = (f32) (lbl_805DF8A4 + M2C_FIELD(arg0, f32 *, 0x35C));
+    M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) (lbl_805DF8A4 + M2C_FIELD(arg0, f32 *, 0x360));
+}
+#pragma pop
 
 void TObjEneMorfos__vt86(void *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) - M2C_FIELD(arg0, f32 *, 0x3C));

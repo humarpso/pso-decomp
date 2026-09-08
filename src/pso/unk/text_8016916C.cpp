@@ -15,9 +15,44 @@ f32 TObjPlayer__sub_80141CF8(s32, void *);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
 extern const f32 lbl_805DB6C4;
 void fn_801692AC(u8 *arg0);
+s16 obj_getS16_32C(void *);
+s32 is_valid_slot__17TOHangerMachine01FiUs(int, u16);
+void fn_801692AC(u8 *arg0);
+void TObjPlayer__sub_801B1E54(u16, u16, s16);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(u32);
+extern const f32 lbl_805DB6B8;
+extern const f32 lbl_805DB6BC;
+extern const f32 lbl_805DB6C0;
+void fn_8016916C(u8 *arg0);
 }
 
 extern "C" {
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void fn_8016916C(u8 *arg0) {
+    s16 temp_r3_2;
+    u8 *temp_r3;
+    fn_801692AC((u8 *)(arg0));
+    M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (M2C_FIELD(arg0, s32 *, 0xCC) + 0x147);
+    M2C_FIELD(arg0, f32 *, 0xD0) = (f32) (M2C_FIELD(arg0, f32 *, 0xD0) - lbl_805DB6B8);
+    M2C_FIELD(arg0, f32 *, 0xE4) = (f32) ((lbl_805DB6BC + M2C_FIELD(arg0, f32 *, 0x3C)) - M2C_FIELD(arg0, f32 *, 0xD0));
+    if (M2C_FIELD(arg0, f32 *, 0xD0) <= lbl_805DB6C0) {
+        M2C_FIELD(arg0, f32 *, 0xD0) = (f32) lbl_805DB6C0;
+        M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+        if (is_valid_slot__17TOHangerMachine01FiUs((s32) arg0, M2C_FIELD(arg0, u16 *, 0xF4)) != 0) {
+            temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((u32) M2C_FIELD(arg0, u16 *, 0xF4)));
+            if (temp_r3 != NULL) {
+                temp_r3_2 = obj_getS16_32C(temp_r3);
+                if (temp_r3_2 > 0) {
+                    TObjPlayer__sub_801B1E54(0xFFFFU, M2C_FIELD(arg0, u16 *, 0xF4), temp_r3_2);
+                }
+            }
+        }
+    }
+}
+#pragma pop
 
 void fn_80169230(u8 *arg0) {
     fn_801692AC((u8 *)(arg0));

@@ -19,6 +19,18 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_802ED4AC_lbl_80472D04 lbl_80472D04;
 extern f32 lbl_805DEA10;
 void TObjFish__sub_802ED4AC(u8 *arg0, s32 arg1);
+M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+extern const f32 lbl_805DEA7C;
+extern const f32 lbl_805DEB64;
+extern const f32 lbl_805DEB68;
+extern const f32 lbl_805DEB8C;
+extern const f32 lbl_805DEB90;
+u32 TObjFish__sub_802ED144(u8 *arg0);
+M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+extern const f32 lbl_805DEA7C;
+extern const f32 lbl_805DEB64;
+extern const f32 lbl_805DEB94;
+u32 TObjFish__sub_802ED254(u8 *arg0);
 }
 
 extern "C" {
@@ -61,6 +73,81 @@ u8 TObjFish__sub_802ED068(u8 *arg0) {
         var_r3 = 1;
     }
     return (u8) var_r3;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+u32 TObjFish__sub_802ED144(u8 *arg0) {
+    s32 temp_r0;
+    u8 var_r3;
+    TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x630));
+    if (((s32)TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x650))) == 3) {
+        M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6D0);
+    switch (temp_r0) {
+    case 0:
+        if (M2C_FIELD(arg0, f32 *, 0x648) > lbl_805DEB8C) {
+            M2C_FIELD(arg0, s32 *, 0x6D0) = 2;
+        }
+        break;
+    case 2:
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB68;
+        M2C_FIELD(arg0, s32 *, 0x6D0) = 3;
+        break;
+    case 3:
+        if (((s32)TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x670))) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x6D0) = 4;
+        }
+        if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEB90) {
+            M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) + lbl_805DEA7C);
+            if (M2C_FIELD(arg0, f32 *, 0xC8) > lbl_805DEB64) {
+                M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB64;
+            }
+        }
+        break;
+    }
+    var_r3 = 0;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x6D0) == 4) && ((s32) M2C_FIELD(arg0, s32 *, 0x6CC) == 1)) {
+        var_r3 = 1;
+    }
+    return var_r3;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+u32 TObjFish__sub_802ED254(u8 *arg0) {
+    s32 temp_r0;
+    u8 var_r3;
+    TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x670));
+    if (((s32)TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x650))) == 3) {
+        M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6C8);
+    switch (temp_r0) {
+    case 0:
+        if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEB94) {
+            M2C_FIELD(arg0, s32 *, 0x6C8) = 1;
+        }
+        break;
+    case 1:
+        if (((s32)TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x630))) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x6C8) = 2;
+        }
+        break;
+    }
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) + lbl_805DEA7C);
+    if (M2C_FIELD(arg0, f32 *, 0xC8) > lbl_805DEB64) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB64;
+    }
+    var_r3 = 0;
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x6C8) == 2) && ((s32) M2C_FIELD(arg0, s32 *, 0x6CC) == 1)) {
+        var_r3 = 1;
+    }
+    return var_r3;
 }
 #pragma pop
 

@@ -30,9 +30,20 @@ extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
 extern u8 *lbl_805D4BA4;
 void TObjPlayer__sub_8002EBCC(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TObjPlayer__sub_8002EDCC(void *);
 M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, M2C_UNK);
 void TObjPlayer__sub_8002E974(u8 *arg0);
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805D822C;
+extern const f32 lbl_805D8230;
+extern const f32 lbl_805D8250;
+extern const f32 lbl_805D8254;
+extern const f32 lbl_805D8258;
+extern const f32 lbl_805D8264;
+extern const f32 lbl_805D8268;
+extern const f32 lbl_805D826C;
+extern const f32 lbl_805D8270;
+extern const f32 lbl_805D8274;
+s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 }
 
 extern "C" {
@@ -90,7 +101,7 @@ void TObjPlayer__sub_8002E974(u8 *arg0) {
     var_r29 = 0;
     do {
         temp_r30 = (u8 *)&((Boss2 *)arg0)->units[var_r29];
-        if (TObjPlayer__sub_8002EDCC(temp_r30) != 0) {
+        if (TObjPlayer__sub_8002EDCC((u8 *)(temp_r30)) != 0) {
             if ((var_r29 % 2) == 0) {
                 create_particle__17TObjBoss2CeilJunkFv(temp_r30, 0x171);
             }
@@ -157,6 +168,62 @@ void *init_base__10TObjPlayerFPv(void *arg0) {
 extern M2C_UNK lbl_80435620;
 extern const f32 lbl_805D8244;
 extern const f32 lbl_805D8248;
+
+#pragma push
+#pragma opt_common_subs off
+#pragma fp_contract on
+s32 TObjPlayer__sub_8002EDCC(u8 *arg0) {
+    f32 temp_f1;
+    f32 temp_f2;
+    f32 temp_f3;
+    f32 temp_f4;
+    s32 temp_r0;
+    s32 temp_r31;
+    s32 var_r30;
+    var_r30 = 0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x28);
+    temp_r31 = M2C_FIELD(arg0, s32 *, 0x1C);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - lbl_805D8250);
+        TBoss4Zako__sub_803D8910((void *) (arg0), (void *) (arg0 + 0xC));
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x10);
+        if (temp_f1 < lbl_805D822C) {
+            temp_f2 = M2C_FIELD(arg0, f32 *, 4);
+            if (temp_f2 < lbl_805D8264) {
+                temp_f3 = M2C_FIELD(arg0, f32 *, 0);
+                temp_f4 = M2C_FIELD(arg0, f32 *, 8);
+                if ((temp_f3 <= lbl_805D8268) && (temp_f3 >= lbl_805D826C) && (temp_f4 <= lbl_805D8270) && (temp_f4 >= lbl_805D8274)) {
+                    M2C_FIELD(arg0, f32 *, 0x10) = (f32) (temp_f1 * lbl_805D8230);
+                    M2C_FIELD(arg0, s32 *, 0x28) = 2;
+                } else if (temp_f2 < lbl_805D8258) {
+                    var_r30 = 1;
+                    M2C_FIELD(arg0, s32 *, 0x28) = 1;
+                }
+            }
+        }
+        M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) + temp_r31);
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + (temp_r31 * 2));
+        break;
+    case 2:
+        M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - lbl_805D8250);
+        TBoss4Zako__sub_803D8910((void *) (arg0), (void *) (arg0 + 0xC));
+        M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) - lbl_805D8254);
+        if (M2C_FIELD(arg0, f32 *, 0x24) < lbl_805D822C) {
+            M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D822C;
+            M2C_FIELD(arg0, s32 *, 0x28) = 3;
+        }
+        M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) + temp_r31);
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + (temp_r31 * 2));
+        break;
+    case 1:
+        M2C_FIELD(arg0, f32 *, 4) = (f32) ((lbl_805D8250 * M2C_FIELD(arg0, f32 *, 0x10)) + M2C_FIELD(arg0, f32 *, 4));
+        M2C_FIELD(arg0, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) + M2C_FIELD(arg0, f32 *, 0x14));
+        break;
+    }
+    return var_r30;
+}
+#pragma pop
 
 void TObjPlayer__sub_8002EF80(void) {
     lbl_805D4B90 = lbl_805D8258;

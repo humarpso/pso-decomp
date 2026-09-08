@@ -14,10 +14,101 @@ struct RecoveredGlobal_8006B324_lbl_805137F8 {
     u8 remaining[0x20];
 };
 
+#include <stddef.h>
+struct Stack_8006ABAC {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+    s32 sp14;
+    s32 sp18;
+    s32 sp1C;
+};
+
+struct RecoveredGlobal_8006ABAC_lbl_804381A4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8006ABAC_lbl_804381B0 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8006ABAC_lbl_804FF610 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8006ABAC_lbl_804FF61C {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8006ABAC_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
+struct Stack_8006AC70 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+    s32 sp14;
+    s32 sp18;
+    s32 sp1C;
+};
+
+struct RecoveredGlobal_8006AC70_lbl_8043818C {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8006AC70_lbl_80438198 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8006AC70_lbl_804FF610 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8006AC70_lbl_804FF61C {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_8006AC70_lbl_8058D490 {
+    M2C_UNK value;
+    u8 remaining[0x2C];
+};
+
 extern "C" {
 u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1);
 extern RecoveredGlobal_8006B324_lbl_805137F8 lbl_805137F8;
 M2C_UNK *TCameraCtrl__sub_8006B324(void);
+s32 TObjPlayer__sub_803D9214(int, void *);
+s32 TObjContainerIdo__sub_803D96A8(int, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+f32 TObjPlayer__sub_803D9990(void *, void *);
+s32 TObjPlayer__sub_803D9B78();
+extern RecoveredGlobal_8006ABAC_lbl_804381A4 lbl_804381A4;
+extern RecoveredGlobal_8006ABAC_lbl_804381B0 lbl_804381B0;
+extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
+extern RecoveredGlobal_8006ABAC_lbl_804FF61C lbl_804FF61C;
+extern RecoveredGlobal_8006ABAC_lbl_8058D490 lbl_8058D490;
+void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 TObjPlayer__sub_803D9214(int, void *);
+s32 TObjContainerIdo__sub_803D96A8(int, void *);
+s32 TObjPlayer__sub_803D97F0(void *);
+f32 TObjPlayer__sub_803D9990(void *, void *);
+s32 TObjPlayer__sub_803D9B78();
+extern RecoveredGlobal_8006AC70_lbl_8043818C lbl_8043818C;
+extern RecoveredGlobal_8006AC70_lbl_80438198 lbl_80438198;
+extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
+extern RecoveredGlobal_8006ABAC_lbl_804FF61C lbl_804FF61C;
+extern RecoveredGlobal_8006ABAC_lbl_8058D490 lbl_8058D490;
+void TCameraCtrl__sub_8006AC70(u8 *arg0);
 }
 
 extern "C" {
@@ -49,6 +140,71 @@ void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
 }
 
     extern int lbl_805D34B8;
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+typedef char RecoveredGlobal_8006ABAC_lbl_804381A4_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804381A4) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8006ABAC_lbl_804381B0_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804381B0) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8006ABAC_lbl_804FF610_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804FF610) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8006ABAC_lbl_804FF61C_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804FF61C) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8006ABAC_lbl_8058D490_size[sizeof(RecoveredGlobal_8006ABAC_lbl_8058D490) == 0x30 ? 1 : -1];
+void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2) {
+    typedef char sp8_offset[(offsetof(Stack_8006ABAC, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8006ABAC, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8006ABAC, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_8006ABAC, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_8006ABAC, sp18) == 0x10) ? 1 : -1];
+    typedef char sp1C_offset[(offsetof(Stack_8006ABAC, sp1C) == 0x14) ? 1 : -1];
+    Stack_8006ABAC stack;
+    stack.sp14 = M2C_FIELD(&lbl_804381A4.value, s32 *, 0);
+    stack.sp18 = M2C_FIELD(&lbl_804381A4.value, s32 *, 4);
+    stack.sp1C = M2C_FIELD(&lbl_804381A4.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&lbl_804381B0.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_804381B0.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_804381B0.value, s32 *, 8);
+    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    TObjPlayer__sub_803D9214((int) (0), (void *) (arg2));
+    TObjPlayer__sub_803D9990((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
+    TObjPlayer__sub_803D9B78();
+    TObjPlayer__sub_803D97F0((void *) (&lbl_8058D490.value));
+    TObjContainerIdo__sub_803D96A8((int) (0), (void *) (arg1));
+    TObjPlayer__sub_803D9990((void *) (&stack.sp8), (void *) (&lbl_804FF61C.value));
+    TObjPlayer__sub_803D9B78();
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredGlobal_8006AC70_lbl_8043818C_size[sizeof(RecoveredGlobal_8006AC70_lbl_8043818C) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8006AC70_lbl_80438198_size[sizeof(RecoveredGlobal_8006AC70_lbl_80438198) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8006AC70_lbl_804FF610_size[sizeof(RecoveredGlobal_8006AC70_lbl_804FF610) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8006AC70_lbl_804FF61C_size[sizeof(RecoveredGlobal_8006AC70_lbl_804FF61C) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_8006AC70_lbl_8058D490_size[sizeof(RecoveredGlobal_8006AC70_lbl_8058D490) == 0x30 ? 1 : -1];
+void TCameraCtrl__sub_8006AC70(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_8006AC70, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8006AC70, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8006AC70, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_8006AC70, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_8006AC70, sp18) == 0x10) ? 1 : -1];
+    typedef char sp1C_offset[(offsetof(Stack_8006AC70, sp1C) == 0x14) ? 1 : -1];
+    Stack_8006AC70 stack;
+    stack.sp14 = M2C_FIELD(&lbl_8043818C.value, s32 *, 0);
+    stack.sp18 = M2C_FIELD(&lbl_8043818C.value, s32 *, 4);
+    stack.sp1C = M2C_FIELD(&lbl_8043818C.value, s32 *, 8);
+    stack.sp8 = M2C_FIELD(&lbl_80438198.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_80438198.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_80438198.value, s32 *, 8);
+    TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&lbl_8058D490).value));
+    TObjPlayer__sub_803D9214((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x194))));
+    TObjPlayer__sub_803D9990((void *) (&stack.sp14), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
+    TObjPlayer__sub_803D9B78();
+    TObjPlayer__sub_803D97F0((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&lbl_8058D490).value));
+    TObjContainerIdo__sub_803D96A8((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x190))));
+    TObjPlayer__sub_803D9990((void *) (&stack.sp8), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&lbl_804FF61C).value));
+    TObjPlayer__sub_803D9B78();
+}
+#pragma pop
 
 u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1) {
     *(M2CCopy_30 *)(arg0) = *(const M2CCopy_30 *)(arg1);

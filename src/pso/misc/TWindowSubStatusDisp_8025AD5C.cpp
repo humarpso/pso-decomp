@@ -19,6 +19,8 @@ extern const f32 lbl_805DCFA8;
 extern const f32 lbl_805DCFAC;
 extern const f32 lbl_805DCFC4;
 u8 *TWindowSubStatusDisp__sub_8025AF90(u8 *arg0, u8 *arg1, s32 arg2);
+extern const f32 lbl_805DCFA8;
+void TWindowSubStatusDisp__sub_8025AED8(u8 *arg0);
 }
 
 extern "C" {
@@ -34,6 +36,18 @@ M2C_UNK destroy__20TWindowSubStatusDispFPvs(void *, s16);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
 extern M2C_UNK lbl_804CFA28[];
+
+#pragma push
+#pragma opt_common_subs off
+void TWindowSubStatusDisp__sub_8025AED8(u8 *arg0) {
+    if (!(M2C_FIELD(arg0, u16 *, 0) & 8)) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + M2C_FIELD(arg0, f32 *, 0x28));
+        if (M2C_FIELD(arg0, f32 *, 0x1C) > lbl_805DCFA8) {
+            M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DCFA8;
+        }
+    }
+}
+#pragma pop
 
 void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1) {
     u16 temp_r3;

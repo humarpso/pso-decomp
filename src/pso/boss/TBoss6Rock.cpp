@@ -15,7 +15,6 @@ struct RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 {
 };
 
 extern "C" {
-s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
 void TBoss6Rock__sub_8035A460(void *, s32);
@@ -38,6 +37,18 @@ extern const f32 lbl_805DFF70;
 extern const f32 lbl_805DFF74;
 extern const f32 lbl_805DFF78;
 void TBoss6Rock__sub_80353FF0(u8 *arg0);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, int, s32);
+M2C_UNK TBoss6PlotFalz__sub_802ABE3C(void *, int, int, f32);
+M2C_UNK TBoss6Rock__sub_80353F5C(void *);
+void TBoss6Rock__sub_803542E8(void *, s32);
+extern const f32 TBoss6Rock__data_805DFF50;
+extern const f32 lbl_805DFF54;
+extern const f32 lbl_805DFF94;
+extern const f32 lbl_805DFF98;
+extern const f32 lbl_805DFF9C;
+extern const f32 lbl_805DFFA0;
+void TBoss6Rock__sub_80354520(u8 *arg0);
 }
 
 extern "C" {
@@ -208,6 +219,39 @@ void TBoss6Rock__sub_80354494(u8 *arg0) {
     }
 }
 #pragma fp_contract on
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TBoss6Rock__sub_80354520(u8 *arg0) {
+    f32 var_f1;
+    f32 var_f2;
+    var_f1 = lbl_805DFF94;
+    var_f2 = lbl_805DFF98;
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + M2C_FIELD(arg0, s32 *, 0xD0));
+    if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 1) {
+        var_f1 = lbl_805DFF9C;
+        var_f2 = lbl_805DFFA0;
+    }
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (M2C_FIELD(arg0, f32 *, 0xCC) + var_f1);
+    if (M2C_FIELD(arg0, f32 *, 0xCC) < var_f2) {
+        M2C_FIELD(arg0, f32 *, 0xCC) = var_f2;
+    }
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0xCC));
+    if (M2C_FIELD(arg0, f32 *, 0x3C) <= TBoss6Rock__data_805DFF50) {
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss6Rock__data_805DFF50;
+        M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TBoss6Rock__data_805DFF50;
+        TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
+        TBoss6Rock__sub_80353F5C((void *) (arg0));
+        TBoss3Volopt__sub_8022675C((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
+        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x220));
+        TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x38), (int) (0x222));
+        TBoss6PlotFalz__sub_802ABE3C((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));
+        M2C_FIELD(arg0, s32 *, 0xC4) = 2;
+    }
+}
+#pragma pop
+
 void TBoss6Rock__sub_8035461C(void *arg0) {
   s32 temp_r4;
   if (((s32) (*((s32 *) (((s8 *) arg0) + 0xC8)))) != 0)

@@ -34,6 +34,9 @@ void *TObjDoorJung__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 void *TObjDoorJung__create(void *arg0);
+extern const f32 lbl_805DBDC0;
+extern const f32 TObjDoor__data_805DBDC4;
+void TObjDoor__sub_8018E894(u8 *arg0);
 }
 
 extern "C" {
@@ -52,6 +55,17 @@ void update_timer__8TObjDoorFPv(void *arg0) {
 }
 
 void TObjDoor__sub_8018E890(void) {  }
+
+#pragma push
+#pragma opt_common_subs off
+void TObjDoor__sub_8018E894(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805DBDC0);
+    if (M2C_FIELD(arg0, f32 *, 0xC4) < TObjDoor__data_805DBDC4) {
+        M2C_FIELD(arg0, f32 *, 0xC4) = (f32) TObjDoor__data_805DBDC4;
+    }
+}
+#pragma pop
+
 void TObjDoor__sub_8018E8BC(void) {  }
 #pragma push
 #pragma fp_contract on

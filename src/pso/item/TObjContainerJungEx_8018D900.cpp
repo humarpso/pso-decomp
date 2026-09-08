@@ -19,6 +19,9 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018D9B0_lbl_804B7158 lbl_804B7158;
 extern u32 TObjContainerJungEx__data_805D5BA8;
 void TObjContainerJungEx__sub_8018D9B0(void);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
+extern const f32 TObjDoaEx01__data_805DBDA0;
+void TObjDoaEx01__vt16(u8 *arg0);
 }
 
 extern "C" {
@@ -58,5 +61,17 @@ void TObjContainerJungEx__sub_8018D9B0(void) {
     }
     (*(s32 *)&TObjContainerJungEx__data_805D5BA8) = var_r0;
 }
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TObjDoaEx01__vt16(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) - M2C_FIELD(arg0, f32 *, 0xB8));
+    if (M2C_FIELD(arg0, f32 *, 0xB0) < TObjDoaEx01__data_805DBDA0) {
+        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
+        M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
+    }
+}
+#pragma pop
 
 }

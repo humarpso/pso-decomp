@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+f32 TBoss4Zako__sub_803D8910(void *, void *);
+extern const f32 lbl_805DE9CC;
+extern const f32 lbl_805DE9D0;
+extern const f32 lbl_805DE9E8;
+extern const f32 lbl_805DE9EC;
+extern const float lbl_805DE9F0;
+extern const f32 lbl_805DE9FC;
+extern const f32 lbl_805DEA00;
+extern const f32 lbl_805DEA04;
+extern const f32 lbl_805DEA08;
+extern const f32 lbl_805DEA0C;
+s32 TObjPlayer__sub_802E76C8(u8 *arg0);
+}
+
+extern "C" {
 
 void TObjFish__sub_802E787C(void);
 void *TObjPlayer__sub_802E6EB8(void *arg0, s16 arg1);
@@ -89,6 +104,64 @@ void *init_zeroed_object__10TObjPlayerFPv(void *arg0) {
 
     extern float lbl_805D6910;
     extern const float lbl_805DE9F0;
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#pragma fp_contract on
+s32 TObjPlayer__sub_802E76C8(u8 *arg0) {
+    f32 temp_f1;
+    f32 temp_f2;
+    f32 temp_f3;
+    f32 temp_f4;
+    s32 temp_r0;
+    s32 temp_r31;
+    s32 var_r30;
+    var_r30 = 0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x28);
+    temp_r31 = M2C_FIELD(arg0, s32 *, 0x1C);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - lbl_805DE9E8);
+        TBoss4Zako__sub_803D8910((void *) (arg0), (void *) (arg0 + 0xC));
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x10);
+        if (temp_f1 < lbl_805DE9CC) {
+            temp_f2 = M2C_FIELD(arg0, f32 *, 4);
+            if (temp_f2 < lbl_805DE9FC) {
+                temp_f3 = M2C_FIELD(arg0, f32 *, 0);
+                temp_f4 = M2C_FIELD(arg0, f32 *, 8);
+                if ((temp_f3 <= lbl_805DEA00) && (temp_f3 >= lbl_805DEA04) && (temp_f4 <= lbl_805DEA08) && (temp_f4 >= lbl_805DEA0C)) {
+                    M2C_FIELD(arg0, f32 *, 0x10) = (f32) (temp_f1 * lbl_805DE9D0);
+                    M2C_FIELD(arg0, s32 *, 0x28) = 2;
+                } else if (temp_f2 < (*(const f32 *)&lbl_805DE9F0)) {
+                    var_r30 = 1;
+                    M2C_FIELD(arg0, s32 *, 0x28) = 1;
+                }
+            }
+        }
+        M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) + temp_r31);
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + (temp_r31 * 2));
+        break;
+    case 2:
+        M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - lbl_805DE9E8);
+        TBoss4Zako__sub_803D8910((void *) (arg0), (void *) (arg0 + 0xC));
+        M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) - lbl_805DE9EC);
+        if (M2C_FIELD(arg0, f32 *, 0x24) < lbl_805DE9CC) {
+            M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DE9CC;
+            M2C_FIELD(arg0, s32 *, 0x28) = 3;
+        }
+        M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) + temp_r31);
+        M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + (temp_r31 * 2));
+        break;
+    case 1:
+        M2C_FIELD(arg0, f32 *, 4) = (f32) ((lbl_805DE9E8 * M2C_FIELD(arg0, f32 *, 0x10)) + M2C_FIELD(arg0, f32 *, 4));
+        M2C_FIELD(arg0, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) + M2C_FIELD(arg0, f32 *, 0x14));
+        break;
+    }
+    return var_r30;
+}
+#pragma pop
+
 void TObjFish__sub_802E787C(void) { lbl_805D6910 = lbl_805DE9F0; }
 
 void destroy_child__8TObjFishFPv(void* p) { if (*(unsigned int*)((char*)p + 0x7b0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0x7b0)); *(int*)((char*)p + 0x7b0) = 0; } }

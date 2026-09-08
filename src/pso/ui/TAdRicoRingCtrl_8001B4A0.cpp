@@ -34,6 +34,9 @@ extern s32 tl_04;
 extern const f32 lbl_805D7E4C;
 extern const f32 TAdRicoRingCtrl__data_805D7E50;
 u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1);
+extern const f32 lbl_805D7E4C;
+extern const f32 TAdRicoRingCtrl__data_805D7E50;
+void run_task__15TAdRicoRingCtrlFv(u8 *arg0);
 }
 
 extern "C" {
@@ -48,6 +51,23 @@ extern const f32 lbl_805D7E4C;
 
 typedef char RecoveredGlobal_8001B8AC_lbl_8043481C_size[sizeof(RecoveredGlobal_8001B8AC_lbl_8043481C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl_size[sizeof(RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl) == 0x18 ? 1 : -1];
+
+#pragma push
+#pragma opt_common_subs off
+void run_task__15TAdRicoRingCtrlFv(u8 *arg0) {
+    f32 temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) + M2C_FIELD(arg0, f32 *, 0x28));
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x24);
+    if (temp_f1 < lbl_805D7E4C) {
+        M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D7E4C;
+        return;
+    }
+    if (temp_f1 > (*(f32 *)&TAdRicoRingCtrl__data_805D7E50)) {
+        M2C_FIELD(arg0, f32 *, 0x24) = (f32) (*(f32 *)&TAdRicoRingCtrl__data_805D7E50);
+    }
+}
+#pragma pop
+
 u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8001B8AC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8001B8AC, spC) == 0x4) ? 1 : -1];

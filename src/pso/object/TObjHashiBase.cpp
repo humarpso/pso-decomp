@@ -17,6 +17,20 @@ struct VDisp : VBase {
     virtual s32 m8(f32, f32);
 };
 
+#include <stddef.h>
+struct Stack_80191874 {
+    f32 sp8;
+    u8 pad_C[0x4];
+    f32 sp10;
+    f32 sp14;
+    f32 sp18;
+};
+
+struct RecoveredGlobal_80191874_lbl_804FF610 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803D9214(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -26,6 +40,15 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjBoss2Tunnel__sub_803DB470(s32);
 M2C_UNK TObjEneSlimeOne__sub_803E4AF4(s32, void *, f32);
 void TObjHashiBase__sub_80191A38(u8 *arg0);
+s32 get_state_flag__9TMainTaskFv();
+f32 fn_8013157C(void *, void *);
+s32 TCameraCtrl__sub_803D8934(int, void *, void *);
+s32 TParticleCtrl__sub_803D8D1C(int, void *, void *);
+extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
+extern s32 lbl_805D4DF0;
+extern const f32 lbl_805DBE2C;
+extern const f32 lbl_805DBE30;
+s16 TObjHashiBase__sub_80191874(u8 *arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -43,6 +66,57 @@ M2C_UNK fn_80191D5C(u16);
 M2C_UNK init_map_object_base();
 
 extern M2C_UNK __vt__13TObjHashiBase[];
+
+#pragma push
+#pragma opt_common_subs off
+#pragma fp_contract on
+typedef char RecoveredGlobal_80191874_lbl_804FF610_size[sizeof(RecoveredGlobal_80191874_lbl_804FF610) == 0xC ? 1 : -1];
+s16 TObjHashiBase__sub_80191874(u8 *arg0, f32 farg0, f32 farg1) {
+    typedef char sp8_offset[(offsetof(Stack_80191874, sp8) == 0x0) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_80191874, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_80191874, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_80191874, sp18) == 0x10) ? 1 : -1];
+    Stack_80191874 stack;
+    if (get_state_flag__9TMainTaskFv() == 1) {
+        return M2C_FIELD(arg0, s16 *, 0x1E);
+    }
+    if (fn_8013157C((void *) (lbl_805D4DF0 + 0x178), (void *) (arg0 + 0x38)) < (farg1 * farg1)) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+        return 1;
+    }
+    TCameraCtrl__sub_803D8934((int) (0), (void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    if (stack.sp18 > lbl_805DBE2C) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        return 0;
+    }
+    if (stack.sp18 < -farg0) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        return 0;
+    }
+    if (stack.sp10 < lbl_805DBE2C) {
+        stack.sp10 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg1) + M2C_FIELD(arg0, f32 *, 0x38);
+        stack.sp14 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg1) + M2C_FIELD(arg0, f32 *, 0x3C);
+        stack.sp18 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg1) + M2C_FIELD(arg0, f32 *, 0x40);
+        TParticleCtrl__sub_803D8D1C((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
+        if (stack.sp8 < lbl_805DBE2C) {
+            M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+            return 0;
+        }
+        goto block_13;
+    }
+    stack.sp10 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg1) - M2C_FIELD(arg0, f32 *, 0x38));
+    stack.sp14 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg1) - M2C_FIELD(arg0, f32 *, 0x3C));
+    stack.sp18 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg1) - M2C_FIELD(arg0, f32 *, 0x40));
+    TParticleCtrl__sub_803D8D1C((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
+    if (stack.sp8 > lbl_805DBE30) {
+        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        return 0;
+    }
+block_13:
+    M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+    return 1;
+}
+#pragma pop
 
 void TObjHashiBase__sub_80191A38(u8 *arg0) {
     void *p;

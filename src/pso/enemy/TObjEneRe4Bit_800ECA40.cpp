@@ -139,6 +139,13 @@ s32 TBoss8Dragon__sub_800BB780(void *);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ED150(u8 *arg0);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK TObjEneRe4Bit__sub_800ED4BC(void *);
+void update_position_flag__13TObjEneRe4BitFPv(void *);
+extern const f32 lbl_805DA76C;
+extern const f32 lbl_805DA778;
+void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -147,7 +154,6 @@ void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1);
 void reset_transform__13TObjEneRe4BitFPv(void *arg0);
 void TObjEneDD__sub_800BA934(void *);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
-M2C_UNK TObjEneRe4Bit__sub_800ED4BC();
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 void update_position_flag__13TObjEneRe4BitFPv(void *);
@@ -220,6 +226,52 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
   }
 }
 
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
+    s32 temp_r0;
+    s32 temp_r4;
+    switch (arg1) {
+    case 4:
+        set_field_378__9TObjEneDDFPvi(arg0, 3);
+        M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 0x1000);
+        M2C_FIELD(arg0, s32 *, 0x408) = 0;
+        M2C_FIELD(arg0, s32 *, 0x404) = 1;
+        M2C_FIELD(arg0, s32 *, 0x3D0) = (s32) M2C_FIELD(arg0, s32 *, 0x3D4);
+        return;
+    case 3:
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0x3CC);
+        if (temp_r4 & 2) {
+            M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (temp_r4 & 0xFFFFFFFD);
+            TObjEneDD__sub_800BBA18(arg0, 3);
+        }
+        return;
+    case 0:
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x408);
+        switch (temp_r0) {
+        case 1:
+            break;
+        case 0:
+            M2C_FIELD(arg0, f32 *, 0x3D8) = M2C_FIELD(arg0, f32 *, 0x3D8) + lbl_805DA778;
+            if (M2C_FIELD(arg0, f32 *, 0x3D8) > lbl_805DA76C) {
+                M2C_FIELD(arg0, f32 *, 0x3D8) = lbl_805DA76C;
+                M2C_FIELD(arg0, s32 *, 0x408) = 1;
+                M2C_FIELD(arg0, s32 *, 0x404) = 2;
+            }
+            M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + 0x1800);
+            break;
+        }
+        TObjEneRe4Bit__sub_800ED4BC((void *)(arg0));
+        update_position_flag__13TObjEneRe4BitFPv(arg0);
+        return;
+    case 5:
+        M2C_FIELD(arg0, s32 *, 0x404) = 0;
+        break;
+    }
+}
+#pragma pop
+
 void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
     s32 temp_r4;
 
@@ -243,7 +295,7 @@ void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
     case 5:
         break;
     case 0:
-        TObjEneRe4Bit__sub_800ED4BC();
+        TObjEneRe4Bit__sub_800ED4BC((void *)(arg0));
         update_position_flag__13TObjEneRe4BitFPv((void *)(arg0));
         break;
     }

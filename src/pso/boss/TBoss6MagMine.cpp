@@ -7,6 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 TBoss6MagMine__data_805E0310;
 void TBoss6MagMine__sub_80368994(u8 *arg0);
+s32 TBoss6MagMine__sub_80368CE4(void *);
+extern const f32 lbl_805E0324;
+extern const f32 TBoss6MagMine__data_805E0328;
+void TBoss6MagMine__vt2(u8 *arg0);
+extern const f32 TBoss6MagMine__data_805E0310;
+extern const f32 TBoss6MagMine__data_805E0328;
+void TBoss6MagMine__vt1(u8 *arg0);
 }
 
 extern "C" {
@@ -96,6 +103,40 @@ void TBoss6MagMine__vt3(s32 arg0) {
 }
 
 extern M2C_UNK lbl_804F322C[];
+
+#pragma push
+#pragma opt_common_subs off
+void TBoss6MagMine__vt2(u8 *arg0) {
+    f32 temp_f1;
+    if (TBoss6MagMine__sub_80368CE4((void *) (arg0)) != 0) {
+        M2C_FIELD(arg0, s32 *, 0x394) = 0x96;
+    }
+    M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x398) + lbl_805E0324);
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x398);
+    if (temp_f1 >= TBoss6MagMine__data_805E0328) {
+        M2C_FIELD(arg0, f32 *, 0x398) = (f32) (temp_f1 - TBoss6MagMine__data_805E0328);
+    }
+    M2C_FIELD(arg0, s32 *, 0x394) = (s32) (M2C_FIELD(arg0, s32 *, 0x394) + 1);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x394) >= 0x96) {
+        M2C_FIELD(arg0, s32 *, 0x390) = 3;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TBoss6MagMine__vt1(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x384);
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(arg0, f32 *, 0x38C);
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + TBoss6MagMine__data_805E0310);
+    if (M2C_FIELD(arg0, f32 *, 0x3C) >= TBoss6MagMine__data_805E0328) {
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss6MagMine__data_805E0328;
+        M2C_FIELD(arg0, s32 *, 0x394) = 0;
+        M2C_FIELD(arg0, s32 *, 0x390) = 2;
+    }
+}
+#pragma pop
 
 void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -25,6 +25,12 @@ s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
 extern M2C_UNK lbl_804CF9F8[];
 u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2);
+M2C_UNK free__11TOBoss4RockFUi(s32);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, int);
+M2C_UNK strncpy(s32, u32, s32);
+extern const f32 lbl_805DCFAC;
+void TWindowSubStatusDisp__sub_8025AC50(u8 *arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -190,5 +196,33 @@ u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
 void reset_float_field__15TWindowHelpItemFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DCFA8;
 }
+#pragma push
+#pragma opt_common_subs off
+void TWindowSubStatusDisp__sub_8025AC50(u8 *arg0, u32 arg1, s32 arg2) {
+    s32 temp_r3_2;
+    u16 temp_r3;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
+        temp_r3 = M2C_FIELD(arg0, u16 *, 0);
+        if (temp_r3 & 0x20) {
+            M2C_FIELD(arg0, u16 *, 0) = (u16) (temp_r3 & 0xFFFFFFDF);
+            free__11TOBoss4RockFUi((s32)((int) (M2C_FIELD(arg0, u32 *, 0x20))));
+        }
+    }
+    if ((arg1 != 0U) && (arg2 & 0x20)) {
+        temp_r3_2 = strnlen__19TWindowKeyBoardSoftFPvUi((void *) (arg1), (int) (0x400));
+        M2C_FIELD(arg0, u32 *, 0x20) = ((u32)alloc_buffer__11TOBoss4RockFPv((s32)((void *) (temp_r3_2 + 1))));
+        strncpy((s32)((int) (M2C_FIELD(arg0, u32 *, 0x20))), (u32)((void *) (arg1)), (s32)((int) (temp_r3_2)));
+        M2C_FIELD((temp_r3_2 + M2C_FIELD(arg0, u32 *, 0x20)), s8 *, 0) = 0;
+        M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x20);
+    } else {
+        M2C_FIELD(arg0, u32 *, 0x20) = arg1;
+    }
+    if (M2C_FIELD(arg0, f32 *, 0x28) > lbl_805DCFAC) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DCFAC;
+    }
+    M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) & ~0x2D1);
+    M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | (arg2 & 0x2C1));
+}
+#pragma pop
 
 }

@@ -13,6 +13,19 @@ struct Stack_800DDFDC
   f32 spC;
 };
 
+struct Stack_800DD9A0 {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+    M2C_UNK sp14;
+    f32 sp18;
+};
+
+struct RecoveredGlobal_800DD9A0_lbl_80494F4C {
+    M2C_UNK value;
+    u8 remaining[0x20C];
+};
+
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEnePanarms__sub_800DD738(u8 *arg0);
@@ -106,6 +119,19 @@ M2C_UNK init_state__14TObjEnePanarmsFi(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 extern const f32 lbl_805DA498;
 void TObjEnePanarms__sub_800DD1B8(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK TObjEneDellBiter__sub_80087350(void *, int);
+s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
+s32 spawn_dead_spot_default__10TObjPlayerFii(void *, int);
+extern RecoveredGlobal_800DD9A0_lbl_80494F4C lbl_80494F4C;
+extern f32 lbl_805D527C;
+extern u8 lbl_805D5280;
+extern const f32 TObjEnePanarms__data_805DA49C;
+extern const f32 lbl_805DA4A8;
+extern const f32 lbl_805DA4AC;
+extern const f32 lbl_805DA4B0;
+void TObjEnePanarms__sub_800DD9A0(u8 *arg0);
 }
 
 extern "C" {
@@ -404,6 +430,52 @@ void TObjEnePanarms__sub_800DD954(u8 *arg0) {
 }
 
 typedef struct Stack_800DDFDC Stack_800DDFDC;
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#pragma fp_contract on
+typedef char RecoveredGlobal_800DD9A0_lbl_80494F4C_size[sizeof(RecoveredGlobal_800DD9A0_lbl_80494F4C) == 0x210 ? 1 : -1];
+void TObjEnePanarms__sub_800DD9A0(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800DD9A0, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800DD9A0, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800DD9A0, sp10) == 0x8) ? 1 : -1];
+    typedef char sp14_offset[(offsetof(Stack_800DD9A0, sp14) == 0xC) ? 1 : -1];
+    typedef char sp18_offset[(offsetof(Stack_800DD9A0, sp18) == 0x10) ? 1 : -1];
+    Stack_800DD9A0 stack;
+    f32 temp_f2;
+    s32 temp_r0;
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) - 1);
+    if ((s8) lbl_805D5280 == 0) {
+        lbl_805D5280 = 1;
+        lbl_805D527C = M2C_FIELD(&lbl_80494F4C.value, f32 *, 0x48);
+    }
+    temp_f2 = M2C_FIELD(arg0, f32 *, 0xC0);
+    if ((temp_f2 >= lbl_805DA4A8) && (temp_f2 < (lbl_805DA4A8 + lbl_805D527C))) {
+        VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (arg0 + 0x2FC));
+        stack.sp18 += TObjEnePanarms__data_805DA49C;
+        TObjEneDellBiter__sub_80087350((void *) (&stack.sp14), (int) (0xF0));
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x388);
+    if (temp_r0 <= 0x78) {
+        if (temp_r0 == 0x78) {
+            stack.sp8 = (lbl_805DA4AC * M2C_FIELD(arg0, f32 *, 0x38)) + (lbl_805DA4AC * M2C_FIELD(arg0, f32 *, 0x3A0));
+            stack.spC = M2C_FIELD(arg0, f32 *, 0x3C);
+            stack.sp10 = (lbl_805DA4AC * M2C_FIELD(arg0, f32 *, 0x40)) + (lbl_805DA4AC * M2C_FIELD(arg0, f32 *, 0x3A8));
+            spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x78));
+            spawn_dead_spot_default__10TObjPlayerFii((void *) (&stack.sp8), (int) (6));
+        }
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x388) == 0x5A) {
+            M2C_FIELD(arg0, s32 *, 0x3E0) = 0;
+        }
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) - lbl_805DA4B0);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x388) <= 0) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+        }
+    }
+}
+#pragma pop
+
 void TObjEnePanarms__sub_800DDFDC(u8 *arg0) {
   Stack_800DDFDC stack;
   f32 temp_f1;
