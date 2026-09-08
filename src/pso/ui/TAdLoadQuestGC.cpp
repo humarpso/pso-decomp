@@ -1,9 +1,9 @@
+#include "pso/ui/TAdLoadQuestGC.h"
+
 #include "types.h"
 
 extern "C" {
 
-void run_task__14TAdLoadQuestGCFv(void);
-void render__14TAdLoadQuestGCFv(void);
 s32 create_cost_window(s32 arg0);
 s32 TWindowCost__ct(s32, s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
@@ -23,7 +23,37 @@ s32 create_cost_window(s32 arg0) {
     }
     return var_r30;
 }
-void render__14TAdLoadQuestGCFv(void) {  }
-void run_task__14TAdLoadQuestGCFv(void) {  }
 
+}
+
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+TObject *TAdLoadQuestGC__sub_80309854(s32);
+TObject *TAdLoadQuestGC__sub_80309868(s32);
+TObject *TAdLoadQuestGC__sub_8030987C(s32);
+}
+
+void TAdLoadQuestGC::render() {}
+void TAdLoadQuestGC::run_task() {}
+
+TAdLoadQuestGC::~TAdLoadQuestGC() {
+    TObject *arrows[3];
+    TObject *cells[3];
+    TObject *lines[2];
+    if (quest_display != NULL) {
+        queue_destruction__7TObjectFv(quest_display);
+        quest_display = NULL;
+    }
+    for (u32 i = 0; i < 3; ++i) {
+        arrows[i] = TAdLoadQuestGC__sub_8030987C(2 - i);
+        if (arrows[i] != NULL) queue_destruction__7TObjectFv(arrows[i]);
+    }
+    for (u32 i = 0; i < 2; ++i) {
+        lines[i] = TAdLoadQuestGC__sub_80309868(1 - i);
+        if (lines[i] != NULL) queue_destruction__7TObjectFv(lines[i]);
+    }
+    for (u32 i = 0; i < 3; ++i) {
+        cells[i] = TAdLoadQuestGC__sub_80309854(2 - i);
+        if (cells[i] != NULL) queue_destruction__7TObjectFv(cells[i]);
+    }
 }

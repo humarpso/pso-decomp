@@ -148,11 +148,17 @@ extern const f32 lbl_805DA778;
 void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
 void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
-s32 TObjEneRe4Bit__sub_800ECE04(void *, void *);
 void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
 s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1);
 s32 TObjEneRe4Bit__sub_800ED090(void *, void *);
 void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK TObjEneRe4Bit__sub_800ED4BC(void *);
+void update_position_flag__13TObjEneRe4BitFPv(void *);
+extern const f32 TObjEneRe4Bit__data_805DA770;
+extern const f32 lbl_805DA778;
+void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -231,6 +237,35 @@ void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1) {
       break;
   }
 }
+
+#pragma push
+#pragma opt_common_subs off
+void TObjEneRe4Bit__sub_800ECE04(u8 *arg0, s32 arg1) {
+    switch (arg1) {
+    case 4:
+        set_field_378__9TObjEneDDFPvi((void *)(arg0), (M2C_UNK)(3));
+        M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFEFFF);
+        M2C_FIELD(arg0, s32 *, 0x3D0) = 3;
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, f32 *, 0x3D8) <= TObjEneRe4Bit__data_805DA770) {
+            TObjEneDD__sub_800BBA18((void *)(arg0), (M2C_UNK)(1));
+            break;
+        }
+    case 5:
+        break;
+    case 0:
+        M2C_FIELD(arg0, f32 *, 0x3D8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3D8) - lbl_805DA778);
+        if (M2C_FIELD(arg0, f32 *, 0x3D8) < TObjEneRe4Bit__data_805DA770) {
+            M2C_FIELD(arg0, f32 *, 0x3D8) = (f32) TObjEneRe4Bit__data_805DA770;
+        }
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) - 0x1800);
+        TObjEneRe4Bit__sub_800ED4BC(arg0);
+        update_position_flag__13TObjEneRe4BitFPv(arg0);
+        break;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma opt_common_subs off
@@ -321,7 +356,7 @@ void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneRe4Bit__sub_800ECED0((void *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 3:
-        TObjEneRe4Bit__sub_800ECE04((void *) (arg0), (void *) (arg2));
+        TObjEneRe4Bit__sub_800ECE04((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 5:
         TObjEneRe4Bit__sub_800ECD28((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));

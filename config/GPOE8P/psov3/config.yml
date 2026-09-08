@@ -43,6 +43,9 @@ force_active:
   - TRecvGenerateID__sub_801DFBC4
   - __ct__9TEffGuardFPC3Vec
   - __dt__12TItemEffCaneFv
+  - __dt__14TAdLoadQuestGCFv
+  - __dt__15TAdDrawLineCtrlFv
+  - __dt__18TAdLoadQuestLineGCFv
   - __dt__7TEffHitFv
   - __dt__7TEndingFv
   - __dt__9TEffGuardFv
@@ -61,8 +64,14 @@ force_active:
   - is_target_in_range__11TObjInfoColFf
   - load_item_pmt
   - open_windows__22TAdMultiPlyChrSelectGCFPv
+  - render__14TAdLoadQuestGCFv
+  - render__15TAdDrawLineCtrlFv
+  - render__18TAdLoadQuestLineGCFv
   - reset_and_invoke__6TLobbyFv
   - run_task__12TItemEffCaneFv
+  - run_task__14TAdLoadQuestGCFv
+  - run_task__15TAdDrawLineCtrlFv
+  - run_task__18TAdLoadQuestLineGCFv
   - run_task__7TEffHitFv
   - run_task__7TEndingFv
   - run_task__9TEffGuardFv

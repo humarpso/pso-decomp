@@ -122,6 +122,62 @@ struct VObj_18_477421 : VBase_18_477421 {
     virtual M2C_UNK m99();
 };
 
+struct Stack_800D6810
+{
+  f32 sp8;
+  f32 spC;
+  f32 sp10;
+};
+
+struct VBase_18_ca64a0
+{
+  char pad[0x18];
+};
+
+struct VObj_18_ca64a0 : VBase_18_ca64a0 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual s32 m9(f32, f32, f32);
+};
+
+struct VBase_14_fddec9
+{
+  char pad[0x14];
+};
+
+struct VObj_14_fddec9 : VBase_14_fddec9 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual M2C_UNK m6();
+    virtual M2C_UNK m7();
+    virtual s32 m8();
+};
+
+struct RecoveredFields_800D6810_arg0
+{
+  u8 unknown_0[0x24];
+  s32 field_24;
+  u8 unknown_28[0xC];
+  s32 field_34;
+  u8 unknown_38[0x28];
+  s32 field_60;
+  u8 unknown_64[0x2C2];
+  s16 field_326;
+  u8 unknown_328[0x58];
+  f32 field_380;
+};
+
 extern "C" {
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 void TObjEneMerillLia__sub_800D5480(u8 *arg0);
@@ -174,6 +230,34 @@ M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
 extern const f32 TObjEneMerillLia__data_805DA2F4;
 void TObjEneMerillLia__sub_800D6AAC(u8 *arg0);
+s32 render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
+s32 check_demo_mode__10TObjPlayerFv();
+s32 toggle_particle_effect__10TObjPlayerFv();
+s32 TObjLight__sub_80134098();
+s32 TObjLight__sub_80134194(void *);
+s32 render_world_model__10TObjPlayerFPv(void *);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_803D9214(int, int);
+s32 TObjPlayer__sub_803D9624(int, f32, f32, f32);
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+f32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 TObjFish__sub_803E46BC(int);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 TObjEneMerillLia__data_805DA2F4;
+extern const f32 TObjEneMerillLia__data_805DA300;
+extern const f32 lbl_805DA314;
+extern const f32 lbl_805DA324;
+extern const f32 lbl_805DA328;
+extern const f32 lbl_805DA32C;
+extern const f32 lbl_805DA330;
+void TObjEneMerillLia__sub_800D6810(u8 *arg0);
 }
 
 extern "C" {
@@ -300,6 +384,88 @@ void reset_action_state__16TObjEneMerillLiaFPv(void *arg0) {
 }
 
 extern void *tl_04;
+
+typedef struct RecoveredFields_800D6810_arg0 RecoveredFields_800D6810_arg0;
+typedef struct Stack_800D6810 Stack_800D6810;
+typedef struct VBase_14_fddec9 VBase_14_fddec9;
+typedef struct VBase_18_ca64a0 VBase_18_ca64a0;
+typedef struct VObj_14_fddec9 VObj_14_fddec9;
+typedef struct VObj_18_ca64a0 VObj_18_ca64a0;
+#define PSO_VCALL_VObj_18_ca64a0_m9(_self, _arg0, _arg1, _arg2) (((VObj_18_ca64a0 *)(_self))->m9((_arg0), (_arg1), (_arg2)))
+#define PSO_VCALL_VObj_14_fddec9_m8(_self) (((VObj_14_fddec9 *)(_self))->m8())
+#define PSO_VCALL_VObj_14_fddec9_m6(_self) (((VObj_14_fddec9 *)(_self))->m6())
+#define PSO_VCALL_VObj_14_fddec9_m7(_self) (((VObj_14_fddec9 *)(_self))->m7())
+void TObjEneMerillLia__sub_800D6810(u8 *arg0) {
+  Stack_800D6810 stack;
+  s32 var_r30;
+  s16 temp_r0;
+  s32 temp_r3;
+  s32 var_r29;
+  temp_r3 = PSO_VCALL_VObj_18_ca64a0_m9(arg0, lbl_805DA324, lbl_805DA328, lbl_805DA314);
+  if (temp_r3 != 0)
+  {
+    lbl_805D5660 = some_id_805c6f74;
+    TObjLight__sub_80134194((void *) arg0);
+    set_global_param__8TObjFishFi((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_24);
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D9624((int) 0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) arg0)->field_380, (f32) TObjEneMerillLia__data_805DA300);
+    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    TObjPlayer__sub_803D9214((int) 0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
+    if (check_demo_mode__10TObjPlayerFv() == 1)
+    {
+      TObjFish__sub_803E46BC((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_34);
+    }
+    else
+    {
+      toggle_particle_effect__10TObjPlayerFv();
+      var_r30 = 1;
+      var_r29 = 0;
+      if (((s16) ((RecoveredFields_800D6810_arg0 *) arg0)->field_326) == 0xD)
+      {
+        var_r29 = 1;
+        var_r30 = PSO_VCALL_VObj_14_fddec9_m8(((u8 *) arg0) + 936);
+      }
+      if (var_r29 != 0)
+      {
+        PSO_VCALL_VObj_14_fddec9_m6(((u8 *) arg0) + 936);
+        if (toggle_flag_9__10TObjPlayerFPv((void *) arg0) != 0)
+        {
+          var_r30 = 0;
+        }
+      }
+      if (var_r30 != 0)
+      {
+        if (temp_r3 == 1)
+        {
+          set_global_flag__10TObjPlayerFv();
+          draw__16TObjEneRe7BeruraFPv((void *) arg0);
+          clear_global_state__10TObjPlayerFv();
+        }
+        else
+        {
+          set_global_flag__10TObjPlayerFv();
+          render_world_model__10TObjPlayerFPv((void *) arg0);
+          clear_global_state__10TObjPlayerFv();
+        }
+      }
+      end_effect_render__13TParticleCtrlFv();
+      if (var_r29 != 0)
+      {
+        PSO_VCALL_VObj_14_fddec9_m7(((u8 *) arg0) + 936);
+      }
+    }
+    TObjPlayer__sub_803D9B78();
+    TObjLight__sub_80134098();
+    temp_r0 = ((RecoveredFields_800D6810_arg0 *) arg0)->field_326;
+    if ((temp_r0 >= 0xA) || (temp_r0 < 8))
+    {
+      stack.sp8 = lbl_805DA32C;
+      stack.spC = TObjEneMerillLia__data_805DA2F4;
+      stack.sp10 = lbl_805DA330;
+      render_with_position_override__10TObjPlayerFPvPvi((void *) arg0, (void *) (&stack.sp8), (int) 0);
+    }
+  }
+}
 
 #pragma push
 #pragma opt_common_subs off

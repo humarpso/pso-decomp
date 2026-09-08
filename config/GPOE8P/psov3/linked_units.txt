@@ -8,6 +8,7 @@ pso/boss/TBoss2Mine.cpp
 pso/boss/TBoss2Mine_80037C8C.cpp
 pso/boss/TBoss2Mine_800389E4.cpp
 pso/boss/TBoss2PhotonBullet.cpp
+pso/boss/TBoss3VoloptCtrl.cpp
 pso/boss/TBoss3VoloptHiraisin_8004155C.cpp
 pso/boss/TBoss3VoloptP01_80043EA4.cpp
 pso/boss/TBoss3VoloptP01_80043EE8.cpp
@@ -328,6 +329,7 @@ pso/enemy/TObjEneNanoDrago.cpp
 pso/enemy/TObjEneNanoDrago_800DBF88.cpp
 pso/enemy/TObjEnePanarms_8002AE74.cpp
 pso/enemy/TObjEnePanarms_800DFB74.cpp
+pso/enemy/TObjEnePanarms_800DFBD0.cpp
 pso/enemy/TObjEnePanarms_800DFCD8.cpp
 pso/enemy/TObjEnePanarms_800E1E14.cpp
 pso/enemy/TObjEnePanarms_800E1F98.cpp
@@ -368,6 +370,7 @@ pso/enemy/TObjEneRecon_8031C7BC.cpp
 pso/enemy/TObjEneRecon_8031D780.cpp
 pso/enemy/TObjEneRecon_8031DB34.cpp
 pso/enemy/TObjEneRecon_8031DCCC.cpp
+pso/enemy/TObjEneRecon_8031DD14.cpp
 pso/enemy/TObjEneRecon_8031DD40.cpp
 pso/enemy/TObjEneRecon_8031DD7C.cpp
 pso/enemy/TObjEneRecon_8031DEF0.cpp
@@ -776,7 +779,6 @@ pso/misc/TLobby_8018A20C_8018A388.cpp
 pso/misc/TLobby_80191218.cpp
 pso/misc/TLobby_80191F80.cpp
 pso/misc/TLobby_801A253C.cpp
-pso/misc/TLobby_801A2D90.cpp
 pso/misc/TLobby_801A3B84.cpp
 pso/misc/TLobby_801A3BF4.cpp
 pso/misc/TLobby_801A3C18.cpp
@@ -1583,8 +1585,6 @@ pso/object/TObjCHTimeWin_80074C94_80074D70.cpp
 pso/object/TObjCHTimeWin_80074C94_80074DBC.cpp
 pso/object/TObjCMAutoMkData_80295948.cpp
 pso/object/TObjCMIcon.cpp
-pso/object/TObjCMMainMenu_8028D9A8_8028DB88.cpp
-pso/object/TObjCMMainMenu_8028D9A8_8028DBC4.cpp
 pso/object/TObjCMMainMenu_8029427C.cpp
 pso/object/TObjCMProportion_802951EC.cpp
 pso/object/TObjCamera.cpp
@@ -2394,6 +2394,7 @@ pso/ui/TAdDialingGC_80328A4C.cpp
 pso/ui/TAdDialingGC_80328DB0.cpp
 pso/ui/TAdDialingGC_80328E50.cpp
 pso/ui/TAdDialingMessageWindow_8036A064.cpp
+pso/ui/TAdDrawLineCtrl.cpp
 pso/ui/TAdEnterBaseGC.cpp
 pso/ui/TAdEnterBaseGC_8032B38C.cpp
 pso/ui/TAdEnterSerialAccessGC_80202978.cpp
@@ -2408,8 +2409,10 @@ pso/ui/TAdGameStartBackGC_803072CC.cpp
 pso/ui/TAdGameStartSubGC_802E67FC.cpp
 pso/ui/TAdLicAgreementGC.cpp
 pso/ui/TAdLoadNetworkGC.cpp
+pso/ui/TAdLoadQuestGC.cpp
 pso/ui/TAdLoadQuestGC_80309788.cpp
 pso/ui/TAdLoadQuestGC_80309854.cpp
+pso/ui/TAdLoadQuestLineGC.cpp
 pso/ui/TAdLoadQuestPrtTxtGC.cpp
 pso/ui/TAdMcSelectCursorGC_8032A610.cpp
 pso/ui/TAdMcSelectGC_8032A0A4.cpp
@@ -2761,6 +2764,7 @@ pso/unk/text_801C53D4.cpp
 pso/unk/text_801C543C.cpp
 pso/unk/text_801C5454.cpp
 pso/unk/text_801C75A4.cpp
+pso/unk/text_801C88CC.cpp
 pso/unk/text_801C8A28.cpp
 pso/unk/text_801C9130.cpp
 pso/unk/text_801C9ACC.cpp

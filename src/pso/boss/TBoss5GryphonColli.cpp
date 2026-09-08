@@ -3,5 +3,10 @@
 extern "C" void queue_destruction__7TObjectFv(void*);
 
 TBoss5GryphonColli::~TBoss5GryphonColli() {
-    if (m_1c != nullptr) { queue_destruction__7TObjectFv(m_1c); m_1c = nullptr; }
+    for (s32 index = 0; index < 1; ++index) {
+        if (objects[index] != NULL) {
+            queue_destruction__7TObjectFv(objects[index]);
+            objects[index] = NULL;
+        }
+    }
 }

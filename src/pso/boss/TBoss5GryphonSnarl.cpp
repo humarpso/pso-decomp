@@ -1,3 +1,5 @@
+#include "pso/boss/TBoss5GryphonSnarl.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -5,6 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void queue_destruction__7TObjectFv(void *);
 
 void TBoss5GryphonSnarl__sub_80066E84(void);
 void TLobby__sub_80066EC0(void);
@@ -15,6 +18,22 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void render__18TBoss5GryphonSnarlFv(void) {  }
 
+}
+
+TBoss5GryphonSnarl::~TBoss5GryphonSnarl() {
+    for (s32 index = 31; index >= 0; --index) {
+        if (children_a0[index] != NULL) {
+            queue_destruction__7TObjectFv(children_a0[index]);
+            children_a0[index] = NULL;
+        }
+        if (children_20[index] != NULL) {
+            queue_destruction__7TObjectFv(children_20[index]);
+            children_20[index] = NULL;
+        }
+    }
+}
+
+extern "C" {
 void TBoss5GryphonSnarl__sub_80066E84(void) {  }
 
 extern s32 lbl_805D4DD8;

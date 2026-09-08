@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8023F880_lbl_805162EC
+{
+  M2C_UNK value;
+  u8 remaining[0x1B54];
+};
+
+extern "C" {
+extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
+s32 TLobby__sub_8023F880(s32 arg0);
+}
+
 extern "C" {
 
 s32 advance_rng__6TLobbyFPv(void *arg0);
@@ -53,6 +64,22 @@ void set_clamped_field27c__6TLobbyFPvf(void *arg0, f32 farg0) {
         var_f1 = lbl_805DC9C4;
     }
     M2C_FIELD(arg0, f32 *, 0x27C) = var_f1;
+}
+typedef struct RecoveredGlobal_8023F880_lbl_805162EC RecoveredGlobal_8023F880_lbl_805162EC;
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#pragma opt_dead_assignments off
+typedef char RecoveredGlobal_8023F880_lbl_805162EC_size[((sizeof(RecoveredGlobal_8023F880_lbl_805162EC)) == 0x1B58) ? (1) : (-1)];
+s32 TLobby__sub_8023F880(s32 arg0) {
+  u8 *new_var;
+  s8 *new_var2;
+  if ((arg0 >= 0) && (arg0 < 0x28))
+  {
+    new_var = (u8 *) (&lbl_805162EC.value);
+    new_var2 = (s8 *) (new_var + (arg0 * 0xA0));
+    return *((s32 *) (new_var2 + 4));
+  }
+  return -9;
 }
 
 }

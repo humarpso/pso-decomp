@@ -1,14 +1,20 @@
 #ifndef PSO_UI_TADDRAWLINECTRL_H
 #define PSO_UI_TADDRAWLINECTRL_H
+#include "pso/TObject.h"
+#include <stddef.h>
 
-#include "types.h"
-
-struct TAdDrawLineCtrl
-{
-    u32 m_1c;
-    u32 m_20;
-    u8 _pad24[0x4];
-    u32 m_28;
+class TAdDrawLineCtrl : public TObject {
+public:
+    virtual ~TAdDrawLineCtrl();
+    virtual void run_task();
+    virtual void render();
+    void *line_data;
+    TObject *child_root;
+    u8 unknown_24[4];
+    s32 render_mode;
 };
-
+typedef char TAdDrawLineCtrlSize[sizeof(TAdDrawLineCtrl) == 0x2C ? 1 : -1];
+typedef char TAdDrawLineCtrlDataOffset[offsetof(TAdDrawLineCtrl, line_data) == 0x1C ? 1 : -1];
+typedef char TAdDrawLineCtrlRootOffset[offsetof(TAdDrawLineCtrl, child_root) == 0x20 ? 1 : -1];
+typedef char TAdDrawLineCtrlModeOffset[offsetof(TAdDrawLineCtrl, render_mode) == 0x28 ? 1 : -1];
 #endif

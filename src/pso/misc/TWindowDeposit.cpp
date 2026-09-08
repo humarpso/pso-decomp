@@ -4,11 +4,42 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8024E548_lbl_804CEB70
+{
+  M2C_UNK value;
+  u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_8024E548___vt__14TWindowDeposit
+{
+  M2C_UNK value;
+  u8 remaining[0x18];
+};
+
 extern "C" {
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 void render__14TWindowDepositFv(s32 arg0);
+f32 get_base_y__20TWindowSubStatusDispFf(f32);
+f32 TWindowSubStatusDisp__sub_802877A4(f32);
+s32 get_camera_id__11TCameraCtrlFv();
+s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
+u32 TWindowSubStatusDisp__sub_80144D68(int);
+void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0, s32 a1);
+s32 save_position__17TWindowSubComCardFPv(void *);
+s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
+s32 TWindowSubStatusDisp__sub_8025AC50(int, int, int);
+s32 TWindowSubComCard__sub_8026CBB8(int);
+extern RecoveredGlobal_8024E548_lbl_804CEB70 lbl_804CEB70;
+extern M2C_UNK __vt__14TWindowDeposit[];
+extern s32 lbl_805D38E8;
+extern const f32 lbl_805DCC60;
+extern const f32 lbl_805DCC64;
+extern const f32 lbl_805DCC68;
+extern const f32 lbl_805DCC6C;
+extern const f32 lbl_805DCC70;
+u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -54,6 +85,46 @@ void *__dt__14TWindowDepositFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+typedef struct RecoveredGlobal_8024E548___vt__14TWindowDeposit RecoveredGlobal_8024E548___vt__14TWindowDeposit;
+typedef struct RecoveredGlobal_8024E548_lbl_804CEB70 RecoveredGlobal_8024E548_lbl_804CEB70;
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#pragma opt_dead_assignments off
+u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
+  u8 *temp_r30;
+  u32 spC;
+  s32 sp8;
+  f32 temp_f31;
+  s32 temp_r3;
+  u32 temp_r3_2;
+  u8 *temp_r31;
+  TWindowDD__sub_802466E0((void *) arg0, (void *) (&lbl_804CEB70.value), (void *) arg1, (int) TWindowSubComCard__sub_8026CBB8((int) 0x29));
+  *((M2C_UNK **) (((s8 *) arg0) + (((((0x18 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))) = &(*(RecoveredGlobal_8024E548___vt__14TWindowDeposit *)&__vt__14TWindowDeposit).value;
+  *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D38E8;
+  temp_r3 = TQuestVmDownLoadServer__sub_8006EF6C((int) 2);
+  temp_r3_2 = TWindowSubStatusDisp__sub_80144D68((int) temp_r3);
+  spC = temp_r3_2;
+  sp8 = 0x43300000;
+  temp_f31 = (f32) temp_r3_2;
+  *((f32 *) (((s8 *) arg0) + 0x60)) = TWindowSubStatusDisp__sub_802877A4(lbl_805DCC60 + (lbl_805DCC64 + temp_f31));
+  temp_r30 = (u8 *) ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi((s32)(arg0), (s32)(0)));
+  temp_r31 = (u8 *) ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi((s32)(arg0), (s32)(1)));
+  TWindowSubStatusDisp__sub_8025AC50((int) temp_r30, (int) temp_r3, (int) 0);
+  *((f32 *) (((s8 *) temp_r31) + 8)) = (f32) (lbl_805DCC60 + (lbl_805DCC64 + (lbl_805DCC68 + temp_f31)));
+  *((f32 *) (((s8 *) arg0) + 0x38)) = get_base_y__20TWindowSubStatusDispFf(*((f32 *) (((s8 *) arg0) + 0x60)));
+  save_position__17TWindowSubComCardFPv((void *) arg0);
+  if (get_camera_id__11TCameraCtrlFv() > 2)
+  {
+    *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) lbl_805DCC6C;
+    *((f32 *) (((s8 *) arg0) + 0x68)) = (f32) lbl_805DCC6C;
+  }
+  else
+  {
+    *((f32 *) (((s8 *) arg0) + 0x64)) = (f32) lbl_805DCC70;
+    *((f32 *) (((s8 *) arg0) + 0x68)) = (f32) lbl_805DCC70;
+  }
+  return arg0;
 }
 
 }

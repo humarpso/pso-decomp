@@ -4,6 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802D2870_TLobby__data_80540BD0
+{
+  M2C_UNK value;
+  u8 remaining[0x3DC];
+};
+
+extern "C" {
+void set_trade_field_4__6TLobbyFii(s32, s32);
+M2C_UNK TLobby__sub_802D1F30(void *, void *);
+extern M2C_UNK TLobby__data_80540BD0[];
+extern s32 lbl_805D53A0;
+extern u8 TLobby__data_805D688A;
+extern s32 TLobby__data_805D688C;
+void TWindowSubTradeMain__sub_802D2870(void);
+}
+
 extern "C" {
 
 void TWindowSubTradeMain__sub_802D2824(void);
@@ -50,6 +66,16 @@ void TWindowSubTradeMain__sub_802D2860(void) {
 
 extern M2C_UNK TLobby__data_80540BD0[];
 extern void *TLobby__data_805D6898;
+
+typedef struct RecoveredGlobal_802D2870_TLobby__data_80540BD0 RecoveredGlobal_802D2870_TLobby__data_80540BD0;
+typedef char RecoveredGlobal_802D2870_TLobby__data_80540BD0_size[((sizeof(RecoveredGlobal_802D2870_TLobby__data_80540BD0)) == 0x3E0) ? (1) : (-1)];
+void TWindowSubTradeMain__sub_802D2870(void) {
+  M2C_UNK *temp_r31;
+  TLobby__sub_802D1F30((void *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__data_80540BD0).value), (void *) lbl_805D53A0);
+  temp_r31 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) (((u8 *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__data_80540BD0).value)) + 0x1F0)));
+  TLobby__sub_802D1F30((void *) temp_r31, (void *) ((s32) ((s8) (TLobby__data_805D688A & 0xFFFFFFFFFFFFFFFFu))));
+  set_trade_field_4__6TLobbyFii((s32) temp_r31, TLobby__data_805D688C);
+}
 
 void draw_offer__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1) {
     TLobby__sub_802D3228(2, arg0, arg1);

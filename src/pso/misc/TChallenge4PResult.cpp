@@ -6,6 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8034BA68_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80132F2C(s32, s32);
 M2C_UNK TLobby__sub_802924B4(void *, int);
@@ -20,10 +25,14 @@ s32 is_active__11TBoss4Type2Fv();
 s32 get_global_state__14TOKeyMachine01Fv();
 void TChallenge4PResult__sub_8034BA2C(u8 *arg0);
 int queue_destruction__18TChallenge4PResultFPv(void* p);
-M2C_UNK TChallenge4PResult__sub_8034BA68(void *);
 M2C_UNK TChallenge4PResult__sub_8034BADC(void *);
 void update_input__18TChallenge4PResultFPv(void *arg0);
 
+s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
+s32 get_map_id__13TRaderMapCoreFPv();
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+extern u8 lbl_8050E208[];
+void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0);
 }
 
 extern "C" {
@@ -44,7 +53,6 @@ M2C_UNK TChallenge4PResult__ct(void *, s32, int, s32);
 M2C_UNK TChallenge4PResult__sub_8034B694(s32, s32, s32);
 s32 TChallenge4PResult__sub_8034B720(void *, s32);
 s32 TMCFormatSequence__sub_802693B4(u32);
-u32 TPlayerBattleCtrl4P__sub_801BA74C(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 int TWindow__close(void*);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -78,7 +86,7 @@ extern s32 tl_01;
 void create__18TChallenge4PResultFii(int arg0, s32 arg1) {
     void *temp;
 
-    if (TPlayerBattleCtrl4P__sub_801BA74C(arg0) != 0U) {
+    if (TPlayerBattleCtrl4P__sub_801BA74C((u16)(arg0)) != 0U) {
         temp = (void *) __nw__7TObjectFUl(0x7C);
         if (temp != NULL) {
             TChallenge4PResult__ct(temp, tl_01, arg0, arg1);
@@ -134,6 +142,19 @@ int queue_destruction__18TChallenge4PResultFPv(void* p) { return queue_destructi
 
 extern u8 lbl_8050E208[];
 
+typedef char RecoveredGlobal_8034BA68_lbl_8050E208_size[sizeof(RecoveredGlobal_8034BA68_lbl_8050E208) == 0x1B0 ? 1 : -1];
+void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0) {
+    s32 temp_r5;
+    if (TPlayerBattleCtrl4P__sub_801BA74C((int) (arg0->slot_index)) != 0U) {
+        temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
+        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&lbl_8050E208).value + temp_r5 + 0x20)), (M2C_UNK)((int) (4)), (s32)((int) (temp_r5))) != 0) {
+            arg0->state_1c = 3;
+        }
+    } else {
+        arg0->state_1c = 3;
+    }
+}
+
 void update_input__18TChallenge4PResultFPv(void *arg0) {
     s32 temp_r3;
     s32 temp_r5;
@@ -149,7 +170,7 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (temp_r3 - 1);
             return;
         }
-        if (TPlayerBattleCtrl4P__sub_801BA74C(M2C_FIELD(arg0, u16 *, 0x24)) != 0U) {
+        if (TPlayerBattleCtrl4P__sub_801BA74C((u16)(M2C_FIELD(arg0, u16 *, 0x24))) != 0U) {
             temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
             if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + temp_r5 + 0x20, 4, temp_r5) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 1;
@@ -174,7 +195,7 @@ void TChallenge4PResult::run_task() {
             TChallenge4PResult__sub_8034BADC((void *) (this));
             return;
         case 2:
-            TChallenge4PResult__sub_8034BA68((void *) (this));
+            TChallenge4PResult__sub_8034BA68((TChallenge4PResult *)((void *) (this)));
             return;
         case 3:
             queue_destruction__18TChallenge4PResultFPv((void*)((void *) (this)));

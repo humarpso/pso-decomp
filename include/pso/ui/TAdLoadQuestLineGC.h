@@ -6,10 +6,14 @@
 
 class TAdLoadQuestLineGC : public TObject {
 public:
+    virtual ~TAdLoadQuestLineGC();
+    virtual void run_task();
     virtual void render();
     s32 m_state;
     s32 m_frameCount;
 };
 
 typedef char TAdLoadQuestLineGCFrameOffset[(offsetof(TAdLoadQuestLineGC, m_frameCount) == 0x20) ? 1 : -1];
+typedef char TAdLoadQuestLineGCSize[sizeof(TAdLoadQuestLineGC) == 0x24 ? 1 : -1];
+typedef char TAdLoadQuestLineGCStateOffset[offsetof(TAdLoadQuestLineGC, m_state) == 0x1C ? 1 : -1];
 #endif

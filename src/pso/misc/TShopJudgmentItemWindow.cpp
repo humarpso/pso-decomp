@@ -69,6 +69,19 @@ s32 TWindowSubComCard__sub_80265BF8(int);
 s32 select_cursor_entry__6TLobbyFPv(int);
 extern M2C_UNK lbl_8044C1D4[];
 void TShopJudgmentItemWindow__sub_80221134(u8 *arg0);
+void invoke_callback_174_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
+void invoke_callback_16C_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
+void invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0);
+void update__23TShopJudgmentItemWindowFPv(void *arg0);
+void TShopJudgmentItemWindow__sub_80221134(u8 *arg0);
+void handle_input__23TShopJudgmentItemWindowFPv(void *arg0);
+void close__23TShopJudgmentItemWindowFPv(void* p);
+M2C_UNK TShopJudgmentItemWindow__sub_8022072C();
+M2C_UNK TShopJudgmentItemWindow__sub_802209D8();
+M2C_UNK TShopJudgmentItemWindow__sub_80220CE4();
+M2C_UNK TShopJudgmentItemWindow__sub_80220F68();
+M2C_UNK TShopJudgmentItemWindow__sub_80221440(void *);
+void TShopJudgmentItemWindow__vt9(u8 *arg0);
 }
 
 extern "C" {
@@ -235,6 +248,48 @@ void handle_input__23TShopJudgmentItemWindowFPv(void *arg0) {
 void close__23TShopJudgmentItemWindowFPv(void* p) { if (*(unsigned int*)((char*)p + 0x50) != 0) { queue_destruction__7TObjectFv((void*)(*(void**)((char*)p + 0x50))); *(int*)((char*)p + 0x50) = 0; } }
 
 extern M2C_UNK __vt__23TShopJudgmentItemWindow[];
+
+void TShopJudgmentItemWindow__vt9(u8 *arg0) {
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        close__23TShopJudgmentItemWindowFPv((void*)(arg0));
+        TShopJudgmentItemWindow__sub_80221440((void *) (arg0));
+        return;
+    case 1:
+        handle_input__23TShopJudgmentItemWindowFPv(arg0);
+        return;
+    case 2:
+        TShopJudgmentItemWindow__sub_80221134((u8 *)(arg0));
+        return;
+    case 3:
+        TShopJudgmentItemWindow__sub_80220F68();
+        return;
+    case 4:
+        TShopJudgmentItemWindow__sub_80220CE4();
+        return;
+    case 5:
+        update__23TShopJudgmentItemWindowFPv(arg0);
+        return;
+    case 6:
+        TShopJudgmentItemWindow__sub_8022072C();
+        return;
+    case 7:
+        TShopJudgmentItemWindow__sub_802209D8();
+        return;
+    case 10:
+        invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(arg0);
+        return;
+    case 8:
+        invoke_callback_16C_and_destroy__23TShopJudgmentItemWindowFPv(arg0);
+        return;
+    case 11:
+        invoke_callback_174_and_destroy__23TShopJudgmentItemWindowFPv(arg0);
+    default:
+        return;
+    }
+}
 
 void *__dt__23TShopJudgmentItemWindowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

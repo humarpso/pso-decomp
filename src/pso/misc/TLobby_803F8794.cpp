@@ -331,7 +331,6 @@ s32 TLobby__sub_803FC1A0(void);
 void TLobby__sub_803FE820(s32 arg0);
 s32 TLobby__sub_803FF138(s16 arg0, u8 *arg1);
 s32 set_flags_and_state__6TLobbyFPv(u8 *arg0);
-void TLobby__sub_803FD958(void *);
 s32 TLobby__sub_803FF304(u8 *arg0);
 void TLobby__sub_80405000(u32);
 void TLobby__sub_803FF34C(u8 *arg0);
@@ -526,6 +525,15 @@ extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
 s16 TLobby__sub_80409A3C(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_803F895C_lbl_805AEEB0 lbl_805AEEB0;
 void TLobby__sub_803F88E4(RecoveredFields_803F88E4_arg0 *arg0);
+void init_msg__6TLobbyFPvi(u8 *arg0, s32 arg1);
+void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
+s16 TLobby__sub_80415954(void *, int, int);
+s32 TLobby__sub_8041ECA4(u8 *arg0);
+s32 TLobby__sub_80405304(void *);
+void TLobby__sub_803FA248(s8 *arg0);
+s32 TLobby__sub_803FE6CC(void *, int, int, void *);
+void TLobby__sub_80405328(u8 *arg0);
+void TLobby__sub_803FD958(u8 *arg0);
 }
 
 extern "C" {
@@ -909,6 +917,13 @@ void TLobby__sub_803FA238(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0xB) = 0;
 }
 
+void TLobby__sub_803FA248(s8 *arg0) {
+  s8 *new_var;
+  new_var = (s8 *) (((s8 *) arg0) + ((0, 0)));
+  TLobby__sub_80405304((void *) (((u8 *) arg0) + 0x10));
+  *new_var = 5;
+}
+
 void TLobby__sub_803FA280(void) {
 
 }
@@ -1009,6 +1024,66 @@ s16 TLobby__sub_803FD520(s16 arg0) {
         return 0x5AE;
     }
     return M2C_FIELD(&lbl_805C0310.value, s16 *, 0x14);
+}
+
+void TLobby__sub_803FD958(u8 *arg0) {
+  u8 temp_r0;
+  u8 temp_r3;
+  u8 var_r0;
+  int new_var;
+  u8 *temp_r4;
+  u8 *temp_r4_2;
+  u8 *temp_r4_3;
+  if ((((u32) (*((u32 *) (((s8 *) arg0) + 0x30)))) != 0U) && ((*((u8 *) (((s8 *) arg0) + 2))) & 0xC0))
+  {
+    temp_r0 = *((u8 *) (((s8 *) arg0) + 0));
+    if (((s32) temp_r0) != 6)
+    {
+      if ((((s32) temp_r0) < 6) && (((s32) temp_r0) < 2))
+      {
+        if (((s32) temp_r0) < 0)
+        {
+          return;
+          if (((!temp_r0) && (!temp_r0)) && (!temp_r0))
+          {
+          }
+        }
+        goto block_7;
+      }
+    }
+    else
+    {
+      new_var = 0x18;
+      block_7:
+      temp_r4 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x2C)));
+      (*((M2C_UNK (**)(void *, void *)) (((s8 *) temp_r4) + new_var)))(arg0, temp_r4);
+      if ((*((u8 *) (((s8 *) arg0) + 2))) & 0xC0)
+      {
+        var_r0 = 1;
+      }
+      else
+      {
+        var_r0 = 0;
+      }
+      *((u8 *) (((s8 *) arg0) + 0)) = var_r0;
+      *((u8 *) (((s8 *) arg0) + 3)) = (u8) (*((u8 *) (((s8 *) arg0) + 4)));
+      *((u8 *) (((s8 *) arg0) + 6)) = (u8) (*((u8 *) (((s8 *) arg0) + 7)));
+      temp_r4_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x2C)));
+      (*((M2C_UNK (**)(void *, void *)) (((s8 *) temp_r4_2) + 0x14)))(arg0, temp_r4_2);
+      if ((*((u8 *) (((s8 *) arg0) + 2))) & 0x80)
+      {
+        temp_r3 = *((u8 *) (((s8 *) arg0) + 3));
+        if (temp_r3 != 0)
+        {
+          *((u8 *) (((s8 *) arg0) + 3)) = (u8) (temp_r3 - 1);
+          TLobby__sub_80405328((u8 *)((void *) (((u8 *) arg0) + 0x10)));
+          temp_r4_3 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x2C)));
+          TLobby__sub_803FE6CC((void *) arg0, (int) 1, (int) 0, (void *) (*((s32 (**)(void *, void *)) (((s8 *) temp_r4_3) + 0x28)))(arg0, temp_r4_3));
+        }
+        *((u8 *) (((s8 *) arg0) + 0)) = 2U;
+      }
+    }
+  }
 }
 
 s32 TLobby__sub_803FE658(u8 *arg0) {
@@ -1124,7 +1199,7 @@ s32 TLobby__sub_803FF304(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[12]; u8 * field_C; };
     set_flags_and_state__6TLobbyFPv((u8 *)(arg0));
     if ((u8) *((Fields_arg0*)arg0)->field_C == 3) {
-        TLobby__sub_803FD958(arg0);
+        TLobby__sub_803FD958((u8 *)(arg0));
     }
     return 0;
 }
@@ -2161,6 +2236,27 @@ s32 TLobby__sub_8041EBC4(u8 *arg0) {
     TLobby__sub_8041579C((void *) (arg0 + 0x18));
     M2C_FIELD(arg0, u8 *, 0x14) = 0U;
     return 0;
+}
+
+s32 TLobby__sub_8041ECA4(u8 *arg0) {
+  unsigned char new_var;
+  s32 spC;
+  if (((u8) (*((u8 *) (((s8 *) arg0) + 0x14)))) == 0)
+  {
+    if (TLobby__sub_80415954((void *) (&spC), (int) (*((s32 *) (((s8 *) arg0) + 0x530))), (int) 1) < 0)
+    {
+      return -0x102;
+    }
+    init_msg__6TLobbyFPvi((u8 *)((void *) (((u8 *) arg0) + 0x18)), (s32)((int) spC));
+    set_value_and_enable__6TLobbyFPvi((u8 *)((void *) (((u8 *) arg0) + 0x10)), (s32)((int) spC));
+    goto block_4;
+  }
+  block_4:
+  *((s32 *) (((s8 *) arg0) + 0x20)) = 0;
+  new_var = 0x24;
+  *((s32 *) (((s8 *) arg0) + new_var)) = 0;
+  *((s32 *) (((s8 *) arg0) + 0x28)) = 0;
+  return 0;
 }
 
 s32 get_field_534__6TLobbyFPv(u8 *arg0) {

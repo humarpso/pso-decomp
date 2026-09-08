@@ -44,6 +44,12 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
     u8 remaining[0x14];
 };
 
+struct RecoveredGlobal_80144FCC_lbl_804A74F0
+{
+  M2C_UNK value;
+  u8 remaining[0x2F8];
+};
+
 extern "C" {
 void TWindowSubStatusDisp__sub_80145190(u16, void *);
 extern u8 lbl_805D56C0;
@@ -55,6 +61,8 @@ extern const f32 lbl_805DB190;
 extern const f32 lbl_805DB194;
 extern const f32 lbl_805DB198;
 void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1);
+extern RecoveredGlobal_80144FCC_lbl_804A74F0 lbl_804A74F0;
+u32 TWindowSubStatusDisp__sub_80144FCC(u16 arg0);
 }
 
 extern "C" {
@@ -78,6 +86,24 @@ void TWindowSubStatusDisp__sub_80144BF4(u8 arg0, u8 *arg1) {
     M2C_FIELD(arg1, f32 *, 0x1C) = (f32) (lbl_805DB198 + M2C_FIELD(arg1, f32 *, 0x14));
 }
 #pragma pop
+
+typedef struct RecoveredGlobal_80144FCC_lbl_804A74F0 RecoveredGlobal_80144FCC_lbl_804A74F0;
+typedef char RecoveredGlobal_80144FCC_lbl_804A74F0_size[((sizeof(RecoveredGlobal_80144FCC_lbl_804A74F0)) == 0x2FC) ? (1) : (-1)];
+u32 TWindowSubStatusDisp__sub_80144FCC(u16 arg0) {
+  volatile unsigned long pad;
+  unsigned short new_var;
+  if (arg0 < 0x21U)
+  {
+    new_var = (0, 9U);
+    return new_var;
+  }
+  if (arg0 > 0xDFU)
+  {
+    return 0x12U;
+  }
+  new_var = arg0 - 0x21;
+  return (u8) (*((s32 *) (0 + ((s8 *) (((u8 *) (&lbl_804A74F0.value)) + ((new_var * 4) & 0x3FFFC))))));
+}
 
 s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0) {
     if (arg0 < 0x41U) {

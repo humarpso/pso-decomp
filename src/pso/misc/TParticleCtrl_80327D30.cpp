@@ -21,7 +21,6 @@ int TObjPlayer__sub_803DC83C(int);
 extern M2C_UNK lbl_804ED598[];
 void set_tev_direct__13TParticleCtrlFi(s32 arg0);
 extern M2C_UNK lbl_804ED5B0[];
-int TParticleCtrl__sub_80328090(void);
 int fn_802A8260(void*);
 extern M2C_UNK lbl_804ED5B0[];
 int get_object__13TParticleCtrlFPv(void* p);
@@ -30,7 +29,6 @@ int GXSetTevDirect(int);
 int TObjPlayer__sub_803DC83C(int);
 extern M2C_UNK lbl_804ED5B0[];
 void reset_ind_tev_stages__13TParticleCtrlFv(void);
-s32 play_particle_at_active_slot__10TObjPlayerFiiiiii(u8, u8, s32, s32, s32, s32);
 extern M2C_UNK lbl_804ED5B0[];
 void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2);
 void __dl__7TObjectFPv(void *);
@@ -44,6 +42,8 @@ s32 fn_803281B8(int, int, int, int);
 extern M2C_UNK lbl_804ED598[];
 extern s32 tl_05;
 u8 *TParticleCtrl__sub_80327F88(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
+s32 play_particle_at_active_slot__10TObjPlayerFiiiiii(s32, s32, s32, s32, s32, s32);
+void TParticleCtrl__sub_80328090(u8 arg0, u16 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -112,14 +112,18 @@ void set_tev_direct__13TParticleCtrlFi(s32 arg0) {
     GXSetNumIndStages(0);
     TObjPlayer__sub_803DC83C(0);
 }
-int TParticleCtrl__sub_80328090(void) { return 0; }
+
+void TParticleCtrl__sub_80328090(u8 arg0, u16 arg1, s32 arg2) {
+    play_particle_at_active_slot__10TObjPlayerFiiiiii((s32) arg0, (s32) arg1, 0, 0, 0, arg2);
+}
+
 int get_object__13TParticleCtrlFPv(void* p) { return fn_802A8260(p); }
 void reset_ind_tev_stages__13TParticleCtrlFv(void) { GXSetTevDirect(1); GXSetNumIndStages(0); TObjPlayer__sub_803DC83C(0); }
 void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2) {
     if (arg2 < 0) {
         arg2 = (s16) M2C_FIELD(arg0, u8 *, 0x1C);
     }
-    play_particle_at_active_slot__10TObjPlayerFiiiiii((u8) arg2, M2C_FIELD(arg0, u8 *, 0x1D), 0, 0, 0, 1);
+    play_particle_at_active_slot__10TObjPlayerFiiiiii((u8)((u8) arg2), (u8)(M2C_FIELD(arg0, u8 *, 0x1D)), (s32)(0), (s32)(0), (s32)(0), (s32)(1));
 }
 void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

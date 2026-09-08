@@ -6,17 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8034A5D0_lbl_804EFF80 {
-    M2C_UNK value;
-    u8 remaining[0x8];
-};
-
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
 void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
-extern RecoveredGlobal_8034A5D0_lbl_804EFF80 lbl_804EFF60;
+extern TAdLoadQuestLineGC *lbl_804EFF60[3];
 s32 TAdLoadQuestGC__sub_8034A020(s32 arg0, s32 arg1);
 }
 
@@ -24,7 +19,7 @@ extern "C" {
 
 void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2);
 void render_by_state__18TAdLoadQuestLineGCFPv(void *arg0);
-void run_task__18TAdLoadQuestLineGCFv(void);
+
 void __ct__7TObjectFP7TObject(void *);
 s32 fn_80349DC8();
 s32 fn_80349E5C();
@@ -54,9 +49,15 @@ void TAdLoadQuestLineGC::render() {
     }
 }
 
-extern "C" {
+void TAdLoadQuestLineGC::run_task() {}
 
-void run_task__18TAdLoadQuestLineGCFv(void) {  }
+TAdLoadQuestLineGC::~TAdLoadQuestLineGC() {
+    if (lbl_804EFF60[m_state] != NULL) {
+        lbl_804EFF60[m_state] = NULL;
+    }
+}
+
+extern "C" {
 
 extern M2C_UNK __vt__18TAdLoadQuestLineGC[];
 extern void *lbl_805D4300;
@@ -69,21 +70,20 @@ void *TAdLoadQuestLineGC__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u32 *, 0x20) = -1;
     return arg0;
 }
-typedef char RecoveredGlobal_8034A5D0_lbl_804EFF80_size[sizeof(RecoveredGlobal_8034A5D0_lbl_804EFF80) == 0xC ? 1 : -1];
 s32 TAdLoadQuestGC__sub_8034A020(s32 arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
     s32 var_r0;
     temp_r30 = arg1 * 4;
-    if ((u32) M2C_FIELD(&lbl_804EFF60.value, M2C_UNK *, temp_r30) == 0U) {
+    if ((u32) M2C_FIELD((s32 *)lbl_804EFF60, M2C_UNK *, temp_r30) == 0U) {
         temp_r3 = __nw__7TObjectFUl((int) (0x24));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = ((s32)TAdLoadQuestLineGC__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));
         }
-        M2C_FIELD(&lbl_804EFF60.value, M2C_UNK *, temp_r30) = var_r0;
+        M2C_FIELD((s32 *)lbl_804EFF60, M2C_UNK *, temp_r30) = var_r0;
     }
-    return M2C_FIELD(&lbl_804EFF60.value, M2C_UNK *, temp_r30);
+    return M2C_FIELD((s32 *)lbl_804EFF60, M2C_UNK *, temp_r30);
 }
 
 }

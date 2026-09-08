@@ -298,6 +298,9 @@ extern s32 TLobby__data_80512220[];
 extern RecoveredGlobal_801EC64C_TLobby__data_80512360 TLobby__data_80512360;
 extern RecoveredGlobal_801EC90C_lbl_80449AFC lbl_80449B08;
 void TLobby__sub_801EC664(void);
+u8 TSwitch__sub_802291F4(int, int);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_801ED25C(s32 arg0);
 }
 
 extern "C" {
@@ -699,6 +702,27 @@ void TLobby__sub_801ED20C(s32 arg0) {
         TObjPlayer__sub_801C6B60((void *) (temp_r3 + 0x5B0));
     }
 }
+
+#pragma push
+#pragma opt_common_subs on
+#pragma opt_propagation on
+#pragma opt_dead_assignments off
+void TLobby__sub_801ED25C(s32 arg0) {
+    s32 var_r31;
+    s32 var_r4;
+    u8 *var_r3;
+    var_r31 = (arg0 * 4) & 0x3FC;
+    var_r4 = (*(s32 *)&TLobby__data_805D5E78);
+    var_r3 = (u8 *)(var_r4 + var_r31);
+    var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 4));
+    var_r4 = (s32) (s16) M2C_FIELD(var_r4, M2C_UNK *, var_r31);
+    var_r3 = (u8 *)((void *) (u16) var_r3);
+    var_r4 = (s32) TSwitch__sub_802291F4((int) (var_r3), (int) (var_r4));
+    var_r3 = (u8 *)((*(s32 *)&TLobby__data_805D5E78) + var_r31);
+    M2C_FIELD(var_r3, s32 *, 8) = var_r4;
+}
+#pragma pop
+
 void TLobby__sub_801ED3C4(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((int)((int)((int)(M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))))), (int)((int)((int)((*(s32 *)&TLobby__data_805D5E78)))))));

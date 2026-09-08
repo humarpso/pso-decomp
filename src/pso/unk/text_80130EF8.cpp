@@ -9,6 +9,15 @@ extern const f32 lbl_805DB038;
 void fn_80130EF8(u8 *arg0);
 extern const f32 lbl_805DB03C;
 void fn_80130F24(u8 *arg0);
+void TObjPlayer__sub_8012E284(s32, u32, s32, u32, u32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern s32 tl_05;
+extern const f32 lbl_805DB03C;
+extern const f32 lbl_805DB040;
+extern const f32 lbl_805DB044;
+extern const f32 lbl_805DB048;
+void fn_80130F50(u8 *arg0);
 }
 
 extern "C" {
@@ -33,5 +42,44 @@ void fn_80130F24(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x1FC) = (f32) lbl_805DB03C;
     }
 }
+#pragma push
+#pragma opt_common_subs off
+void fn_80130F50(u8 *arg0) {
+    f32 buffer_14[3];
+    s32 buffer_8[3];
+    s32 temp_r0;
+    s32 temp_r31;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x208);
+    switch (temp_r0) {
+    case 1:
+        M2C_FIELD(arg0, f32 *, 0x210) = (f32) (M2C_FIELD(arg0, f32 *, 0x210) - lbl_805DB040);
+        if (M2C_FIELD(arg0, f32 *, 0x210) <= lbl_805DB044) {
+            M2C_FIELD(arg0, f32 *, 0x210) = (f32) lbl_805DB044;
+            M2C_FIELD(arg0, s32 *, 0x208) = 0;
+            break;
+        }
+        break;
+    case 2:
+        M2C_FIELD(arg0, f32 *, 0x210) = (f32) (M2C_FIELD(arg0, f32 *, 0x210) + lbl_805DB040);
+        if (lbl_805DB048 <= M2C_FIELD(arg0, f32 *, 0x210)) {
+            M2C_FIELD(arg0, f32 *, 0x210) = (f32) lbl_805DB048;
+            M2C_FIELD(arg0, s32 *, 0x208) = 3;
+            break;
+        }
+        break;
+    case 3:
+        M2C_FIELD(arg0, s32 *, 0x208) = 1;
+        temp_r31 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60) - 0x4000;
+        buffer_14[0] = TBoss8Dragon__sub_803D64C0(temp_r31);
+        buffer_14[1] = lbl_805DB03C;
+        buffer_14[2] = TBoss8Dragon__sub_803D64DC(temp_r31);
+        buffer_8[0] = 0x4000;
+        buffer_8[1] = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60);
+        buffer_8[2] = 0;
+        TObjPlayer__sub_8012E284(tl_05, (u32) arg0, 3, (u32) &buffer_14[0], (u32) &buffer_8[0]);
+        break;
+    }
+}
+#pragma pop
 
 }

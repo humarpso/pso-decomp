@@ -137,6 +137,12 @@ int TItemProArmor__sub_8011781C(void *);
 extern M2C_UNK __vt__13TItemProArmor[];
 extern s32 lbl_805D2C30;
 u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+s32 TItemData__sub_8010EA38(void *);
+u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
+s32 TItemProArmorParticle__ct(int, int, void *);
+extern s32 tl_05;
+s32 TItemProArmor__sub_80117C60(s32 arg0);
 }
 
 extern "C" {
@@ -290,6 +296,54 @@ u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     TItemProArmor__sub_8011781C((void *)((void *) (arg0)));
     return arg0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#pragma opt_dead_assignments off
+#pragma optimize_for_size off
+s32 TItemProArmor__sub_80117C60(s32 arg0) {
+  s32 temp_r3;
+  s32 temp_r3_2;
+  s32 var_r0;
+  s32 var_r0_2;
+  u8 temp_r0;
+  if (arg0 != 0)
+  {
+    temp_r0 = *((u8 *) (((s8 *) ((u8 *)TItemData__sub_8010EA38((void *)(arg0)))) + 0x1A));
+    if (((s32) temp_r0) != 2)
+    {
+      if (((s32) temp_r0) < 2)
+      {
+        if (((s32) temp_r0) < 0)
+        {
+          if ((temp_r3 && temp_r3) && temp_r3)
+          {
+          }
+          goto block_11;
+        }
+        temp_r3 = ((s32)alloc_from_obj_heap__10TObjPlayerFPv((M2C_UNK)((int) 0x198)));
+        var_r0_2 = temp_r3;
+        if (var_r0_2 != 0)
+        {
+          var_r0_2 = ((s32)TItemProArmor__ct((u8 *)((int) temp_r3), (M2C_UNK)((int) tl_05), (u8 *)((void *) arg0)));
+        }
+        return var_r0_2;
+      }
+      goto block_11;
+    }
+    temp_r3_2 = ((s32)alloc_from_obj_heap__10TObjPlayerFPv((M2C_UNK)((int) 0x1A4)));
+    var_r0 = temp_r3_2;
+    if (var_r0 != 0)
+    {
+      var_r0 = TItemProArmorParticle__ct((int) temp_r3_2, (int) tl_05, (void *) arg0);
+    }
+    return var_r0;
+  }
+  block_11:
+  return 0;
+}
+#pragma pop
 
 void TItemProArmor__sub_80117D00(void) {  }
 void TItemProArmor__sub_80117D04(void) {  }

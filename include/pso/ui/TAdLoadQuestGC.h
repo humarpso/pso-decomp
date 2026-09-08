@@ -1,11 +1,14 @@
 #ifndef PSO_UI_TADLOADQUESTGC_H
 #define PSO_UI_TADLOADQUESTGC_H
+#include "pso/TObject.h"
+#include <stddef.h>
 
-#include "types.h"
-
-struct TAdLoadQuestGC
-{
-    u32 m_1c;
+class TAdLoadQuestGC : public TObject {
+public:
+    virtual ~TAdLoadQuestGC();
+    virtual void run_task();
+    virtual void render();
+    TObject *quest_display;
 };
-
+typedef char TAdLoadQuestGCDisplayOffset[offsetof(TAdLoadQuestGC, quest_display) == 0x1C ? 1 : -1];
 #endif

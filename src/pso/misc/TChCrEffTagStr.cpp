@@ -21,6 +21,12 @@ extern const f32 lbl_805DDCB8;
 extern const f32 lbl_805DDCBC;
 extern const f32 lbl_805DDCC0;
 void render__14TChCrEffTagStrFv(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv();
+extern const f32 lbl_805DDCB8;
+extern const f32 lbl_805DDCC4;
+extern const f32 lbl_805DDCC8;
+extern const f32 lbl_805DDCCC;
+void run_task__14TChCrEffTagStrFv(u8 *arg0);
 }
 
 extern "C" {
@@ -49,6 +55,38 @@ void render__14TChCrEffTagStrFv(u8 *arg0) {
     stack.sp8 = (lbl_805DDCBC * temp_f3) + lbl_805DDCB8;
     fn_80290E28(M2C_FIELD(arg0, s32 *, 0x20), arg0 + 0x28, &stack.sp8, lbl_805DDCC0, temp_f2, temp_f3, lbl_805DDCB8, lbl_805DDCBC);
     fn_80141A30();
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs off
+void run_task__14TChCrEffTagStrFv(u8 *arg0) {
+    f32 temp_f0;
+    f32 temp_f1;
+    f32 temp_f2;
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    switch (temp_r0) {
+    case 0:
+        temp_f2 = M2C_FIELD(arg0, f32 *, 0x24);
+        if (!(temp_f2 >= lbl_805DDCB8)) {
+            temp_f0 = temp_f2 + lbl_805DDCC4;
+            M2C_FIELD(arg0, f32 *, 0x24) = temp_f0;
+            if (temp_f0 >= lbl_805DDCB8) {
+                M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DDCB8;
+                break;
+            }
+        }
+        break;
+    case 1:
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x24) + lbl_805DDCC8;
+        M2C_FIELD(arg0, f32 *, 0x24) = temp_f1;
+        if (temp_f1 <= lbl_805DDCCC) {
+            M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DDCCC;
+            queue_destruction__7TObjectFv();
+        }
+        break;
+    }
 }
 #pragma pop
 

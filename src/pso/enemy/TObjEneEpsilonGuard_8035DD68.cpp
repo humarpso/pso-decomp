@@ -117,6 +117,124 @@ struct VObj_18_6ff2a2 : VBase_18_6ff2a2 {
     virtual s32 m9(f32, f32, f32);
 };
 
+#include <stddef.h>
+struct VBase_18_7f4864 { char pad[0x18]; };
+
+struct VObj_18_7f4864 : VBase_18_7f4864 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual M2C_UNK m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual M2C_UNK m93();
+    virtual M2C_UNK m94(s32);
+};
+
+struct VBase_14_87d649 { char pad[0x14]; };
+
+struct VObj_14_87d649 : VBase_14_87d649 {
+    virtual void m0();
+    virtual M2C_UNK m1(M2C_UNK);
+    virtual M2C_UNK m2();
+    virtual void m3();
+    virtual s32 m4();
+};
+
+struct RecoveredFields_8035E578_arg0 {
+    u8 unknown_0[0xB8];
+    s16 field_B8;
+    u8 unknown_BA[0x3B2];
+    s32 field_46C;
+};
+
 extern "C" {
 s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0);
 s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0);
@@ -139,6 +257,10 @@ extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 lbl_805E01E0;
 extern const f32 lbl_805E01E4;
 void render__19TObjEneEpsilonGuardFv(u8 *arg0);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+M2C_UNK TBoss1Dragon__sub_80143504(void *);
+void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -197,7 +319,6 @@ void handle_message__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 void render_guard_effect__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void set_target__19TObjEneEpsilonGuardFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
-M2C_UNK TBoss1Dragon__sub_80143504();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK TOMonitorMachine01__sub_803D8B5C(int, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, void *, f32, f32, f32);
@@ -350,6 +471,39 @@ extern const f32 lbl_805E01E8;
 extern const f32 lbl_805E01EC;
 extern const f32 lbl_805E01F0;
 
+#pragma push
+#pragma opt_common_subs off
+typedef char RecoveredFields_8035E578_arg0_B8_offset[offsetof(RecoveredFields_8035E578_arg0, field_B8) == 0xB8 ? 1 : -1];
+typedef char RecoveredFields_8035E578_arg0_46C_offset[offsetof(RecoveredFields_8035E578_arg0, field_46C) == 0x46C ? 1 : -1];
+void TObjEneEpsilonGuard__sub_8035E578(u8 *arg0, s32 arg1) {
+    s32 temp_r4;
+    switch (arg1) {
+    case 4:
+        ((RecoveredFields_8035E578_arg0 *)arg0)->field_B8 = 0;
+        set_field_378__9TObjEneDDFPvi((void *)(arg0), (M2C_UNK)(3));
+        ((VObj_14_87d649 *)((u8 *)(arg0) + (1212)))->m1(0x14);
+        ((VObj_14_87d649 *)((u8 *)(arg0) + (1212)))->m2();
+        temp_r4 = ((RecoveredFields_8035E578_arg0 *)arg0)->field_46C;
+        ((RecoveredFields_8035E578_arg0 *)arg0)->field_46C = (s32) (temp_r4 & ~0x14);
+        ((VObj_18_7f4864 *)(arg0))->m94(temp_r4);
+        break;
+    case 3:
+        if (((VObj_14_87d649 *)((u8 *)(arg0) + (1212)))->m4() != 0) {
+            TObjEneDD__sub_800BBA18((void *)(arg0), (M2C_UNK)(0));
+            ((RecoveredFields_8035E578_arg0 *)arg0)->field_46C = (s32) (((RecoveredFields_8035E578_arg0 *)arg0)->field_46C | 0x10);
+            ((VObj_18_7f4864 *)(arg0))->m93();
+            break;
+        }
+    case 5:
+        break;
+    case 0:
+        TBoss1Dragon__sub_80143504((void *)(arg0));
+        ((VObj_18_7f4864 *)(arg0))->m87();
+        break;
+    }
+}
+#pragma pop
+
 void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
     u32 temp_r3;
@@ -372,7 +526,7 @@ void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     case 5:
         return;
     case 0:
-        TBoss1Dragon__sub_80143504();
+        TBoss1Dragon__sub_80143504((void *)(arg0));
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x430);
         switch (temp_r0) {
         case 0:
