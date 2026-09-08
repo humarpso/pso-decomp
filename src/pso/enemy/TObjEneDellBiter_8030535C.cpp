@@ -141,6 +141,20 @@ s32 TObjEneDellBiter__sub_803059BC(void *, void *);
 extern const f32 TObjEneDellBiter__data_805DEFF4;
 extern const f32 lbl_805DF01C;
 void TObjEneDellBiter__sub_8030591C(s32 arg0);
+s32 TObjEneDellBiter__sub_8030390C(void *, void *);
+s32 TObjEneDellBiter__sub_80303AA0(void *, void *);
+s32 TObjEneDellBiter__sub_80303BC0(void *, void *);
+s32 TObjEneDellBiter__sub_80303F04(void *, void *);
+s32 TObjEneDellBiter__sub_803040D0(void *, void *);
+s32 handle_attack_event__16TObjEneDellBiterFPvi(void *, void *);
+s32 TObjEneDellBiter__sub_803044AC(void *, void *);
+s32 TObjEneDellBiter__sub_8030492C(void *, void *);
+s32 TObjEneDellBiter__sub_80304B88(void *, void *);
+s32 TObjEneDellBiter__sub_80304D10(void *, void *);
+s32 run_task__16TObjEneDellBiterFPvi(void *, void *);
+s32 handle_movement_event__16TObjEneDellBiterFPvi(void *, void *);
+void update_state__16TObjEneDellBiterFPvi(void *arg0, s32 arg1);
+void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -168,6 +182,51 @@ void update_state__16TObjEneDellBiterFPvi(void *arg0, s32 arg1) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x4CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x4CC) + 1);
     case 5:
+        return;
+    }
+}
+
+void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        update_state__16TObjEneDellBiterFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 1:
+        handle_movement_event__16TObjEneDellBiterFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        run_task__16TObjEneDellBiterFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        TObjEneDellBiter__sub_80304D10((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        TObjEneDellBiter__sub_80304B88((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TObjEneDellBiter__sub_8030492C((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TObjEneDellBiter__sub_803044AC((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        handle_attack_event__16TObjEneDellBiterFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        TObjEneDellBiter__sub_803040D0((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        TObjEneDellBiter__sub_80303BC0((void *) (arg0), (void *) (arg2));
+        return;
+    case 12:
+        TObjEneDellBiter__sub_80303F04((void *) (arg0), (void *) (arg2));
+        return;
+    case 10:
+        TObjEneDellBiter__sub_80303AA0((void *) (arg0), (void *) (arg2));
+        return;
+    case 11:
+        TObjEneDellBiter__sub_8030390C((void *) (arg0), (void *) (arg2));
+    default:
         return;
     }
 }

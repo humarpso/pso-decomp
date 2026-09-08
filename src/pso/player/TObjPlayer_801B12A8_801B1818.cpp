@@ -5,6 +5,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s16 get_model_field_m25__10TObjPlayerFPv(void *);
+s16 get_action_animation__10TObjPlayerFPv(void *);
+s16 call_model_m24__10TObjPlayerFPv(void *);
+s16 get_weapon_stat_c__10TObjPlayerFPv(void *);
+s16 call_obj_vt26__10TObjPlayerFPv(void *);
+s16 query_child_state__10TObjPlayerFPv(void *);
+s16 query_equip__10TObjPlayerFPv(void *);
+s16 get_status__10TObjPlayerFPv(void *);
+s16 get_model_state__10TObjPlayerFPv(void *);
+s16 get_state__10TObjPlayerFPv(void *);
+s16 call_subobject_m15__10TObjPlayerFPv(void *);
+s16 get_vobj_state_28__10TObjPlayerFPv(void *);
+s16 TObjPlayer__sub_801CFBFC(void *);
+s16 TObjPlayer__sub_801D0458(void *);
+void TObjPlayer__sub_801B18C0(s32 arg0, u32 arg1);
+}
+
+extern "C" {
 
 void* draw_font__10TObjPlayerFPv(void* p);
 void foreach_player__10TObjPlayerFv(M2C_UNK (*arg0)(u32));
@@ -17,7 +35,6 @@ s32 TFontSmallLobby__sub_801AFEE0();
 int TFontSmallLobby__sub_801C0228(void*);
 s32 TObjFish__sub_803E46BC(s32);
 s32 TObjPlayer__sub_80019248(u32);
-s32 TObjPlayer__sub_801B18C0(void * a0 = 0, s16 a1 = 0);
 int TObjPlayer__sub_802034B0(void);
 M2C_UNK fn_801C05A0(M2C_UNK *);
 M2C_UNK fn_801C05B4(M2C_UNK *);
@@ -39,8 +56,56 @@ void notify_field1c__10TObjPlayerFi(s32 arg0) {
 }
 int get_field_828__10TObjPlayerFPv(void* p) { return get_type__10TObjPlayerFPv((char*)p + 0x828); }
 
+void TObjPlayer__sub_801B18C0(s32 arg0, u32 arg1) {
+    switch (arg1) {
+    default:
+        TObjPlayer__sub_801D0458((void *) (arg0));
+        return;
+    case 2:
+    case 3:
+        TObjPlayer__sub_801CFBFC((void *) (arg0));
+        return;
+    case 4:
+        get_vobj_state_28__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 5:
+        call_subobject_m15__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 6:
+        get_state__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 7:
+        get_model_state__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 8:
+        get_status__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 9:
+        query_equip__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 10:
+        query_child_state__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 11:
+        call_obj_vt26__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 12:
+        get_weapon_stat_c__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 13:
+        call_model_m24__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 14:
+        get_action_animation__10TObjPlayerFPv((void *) (arg0));
+        return;
+    case 15:
+        get_model_field_m25__10TObjPlayerFPv((void *) (arg0));
+        return;
+    }
+}
+
 void unequip_by_field326__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_801B18C0(arg0, M2C_FIELD(arg0, s16 *, 0x326));
+    TObjPlayer__sub_801B18C0((s32)(arg0), (u32)(M2C_FIELD(arg0, s16 *, 0x326)));
 }
 void play_phase_transition_sound__10TObjPlayerFi(s32 arg0) {
     if (((get_main_phase() == 0xE) || (get_main_phase() == 0xF)) && (TFontSmallLobby__sub_801AFEE0() != 0)) {

@@ -84,7 +84,6 @@ s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
 s32 TWindowSubComCard__sub_8026CBB8(int, f32);
 extern const f32 lbl_805DC700;
 extern const f32 lbl_805DC704;
-void TShopItemTecSequence__sub_802202BC(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK close_message_window__13TShopSequenceFPv(void *);
 M2C_UNK __dt__13TShopSequenceFv(void *, int);
@@ -104,6 +103,15 @@ extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
 extern s32 lbl_805D6250;
 u8 *TShopItemTecSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 handle_select__20TShopItemTecSequenceFPv(void *arg0);
+s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0);
+s32 TShopItemTecSequence__sub_80220030(void *);
+s32 TShopItemTecSequence__sub_802200A8(void *);
+s32 TShopItemTecSequence__sub_80220110(void *);
+s32 TShopItemTecSequence__sub_802202BC(u8 *arg0);
+s32 restore_player_state__13TShopSequenceFPv(void *);
+void TShopItemTecSequence__vt9(u8 *arg0);
 }
 
 extern "C" {
@@ -119,8 +127,6 @@ struct VObj_8021FE80_8021FE6C : Base_8021FE80_8021FE6C {
 
 int TShopItemTecSequence__sub_8021FE6C(int a0);
 void close__20TShopItemTecSequenceFPv(void *arg0);
-void close_if_done__20TShopItemTecSequenceFPv(void *arg0);
-void handle_select__20TShopItemTecSequenceFPv(void *arg0);
 void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
 void set_judgment_target_flag(void *arg0, void *arg1);
 u32 TLobby__sub_80101AB0(s32);
@@ -159,14 +165,14 @@ void close__20TShopItemTecSequenceFPv(void *arg0) {
 extern s32 lbl_805D6248;
 extern s32 lbl_805D624C;
 
-void handle_select__20TShopItemTecSequenceFPv(void *arg0) {
+s32 handle_select__20TShopItemTecSequenceFPv(void *arg0) {
     if ((((VObj_8021FF30_8021FE6C*)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_8021FF30_8021FE6C*)arg0)->m4(lbl_805D6248, 1);
         set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(lbl_805D624C));
     }
 }
 
-void close_if_done__20TShopItemTecSequenceFPv(void *arg0) {
+s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0) {
     if ((((VObj_8021FFB8_8021FE6C *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         close_if_single_screen__13TShopSequenceFv(arg0);
         close_window__13TShopSequenceFPv(arg0);
@@ -178,7 +184,7 @@ typedef struct Stack_802202BC Stack_802202BC;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
-void TShopItemTecSequence__sub_802202BC(u8 *arg0) {
+s32 TShopItemTecSequence__sub_802202BC(u8 *arg0) {
   Stack_802202BC stack;
   stack.sp8 = lbl_805DC700;
   stack.spC = lbl_805DC704;
@@ -191,6 +197,37 @@ void TShopItemTecSequence__sub_802202BC(u8 *arg0) {
 
 typedef char RecoveredGlobal_802203E4___vt__20TShopItemTecSequence_size[sizeof(RecoveredGlobal_802203E4___vt__20TShopItemTecSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0_size[sizeof(RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0) == 0x10 ? 1 : -1];
+
+void TShopItemTecSequence__vt9(u8 *arg0) {
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        restore_player_state__13TShopSequenceFPv((void *) (arg0));
+        set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (1)));
+        return;
+    case 1:
+        TShopItemTecSequence__sub_802202BC((u8 *)((void *) (arg0)));
+        return;
+    case 2:
+        TShopItemTecSequence__sub_80220110((void *) (arg0));
+        return;
+    case 3:
+        TShopItemTecSequence__sub_802200A8((void *) (arg0));
+        return;
+    case 4:
+        TShopItemTecSequence__sub_80220030((void *) (arg0));
+        return;
+    case 7:
+        close_if_done__20TShopItemTecSequenceFPv((void *) (arg0));
+        return;
+    case 6:
+        handle_select__20TShopItemTecSequenceFPv((void *) (arg0));
+    default:
+        return;
+    }
+}
+
 u8 *__dt__20TShopItemTecSequenceFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__20TShopItemTecSequence.value;

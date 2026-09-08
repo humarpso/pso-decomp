@@ -58,17 +58,24 @@ s32 __ct__15TShopWindowBaseFv(void *);
 extern M2C_UNK __vt__20TShopArmorListWindow[];
 extern s32 lbl_805D3698;
 u8 *TShopArmorListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+s32 queue_destruction__7TObjectFv(void *);
+int set_field_20__12TQuestListVMFPvi(void*, int);
+s32 TShopArmorListWindow__sub_8021A43C(void *);
+s32 TShopArmorListWindow__sub_8021A634(void *);
+s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0);
+int TShopArmorListWindow__sub_8021AA08(void* p);
+s32 update__20TShopArmorListWindowFPv(void *arg0);
+s32 handle_select__20TShopArmorListWindowFPv(void *arg0);
+s32 TShopArmorListWindow__sub_8021AB4C(void *);
+s32 TShopArmorListWindow__sub_8021AE18(void *);
+void TShopArmorListWindow__vt9(u8 *arg0);
 }
 
 extern "C" {
 
-int TShopArmorListWindow__sub_8021AA08(void* p);
 void TShopArmorListWindow__vt4(void *arg0);
 void TShopArmorListWindow__vt5(void *arg0);
 void *__dt__20TShopArmorListWindowFv(void *arg0, s16 arg1);
-void handle_select__20TShopArmorListWindowFPv(void *arg0);
-void open_menu_window__20TShopArmorListWindowFPv(void *arg0);
-void update__20TShopArmorListWindowFPv(void *arg0);
 void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
 u32 TCheckRoomSequence__sub_802664A8(s32, s32, u16);
 s32 TLobby__sub_80222CFC(s32);
@@ -113,7 +120,7 @@ void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1) {
     }
 }
 
-void open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
+s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
 
@@ -132,7 +139,7 @@ void open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
 }
 int TShopArmorListWindow__sub_8021AA08(void* p) { return set_field_20__12TQuestListVMFPvi((void*)(p), (int)(8)); }
 
-void update__20TShopArmorListWindowFPv(void *arg0) {
+s32 update__20TShopArmorListWindowFPv(void *arg0) {
     if ((((VObj_8021AA2C_8021A394 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_8021AA2C_8021A394 *)arg0)->m4(0xB, 1);
         clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, s32 *, 0x2C));
@@ -140,7 +147,7 @@ void update__20TShopArmorListWindowFPv(void *arg0) {
     }
 }
 
-void handle_select__20TShopArmorListWindowFPv(void *arg0) {
+s32 handle_select__20TShopArmorListWindowFPv(void *arg0) {
     if ((((VObj_8021AABC_8021A394 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         ((VObj_8021AABC_8021A394 *)arg0)->m4(0xB, 1);
         clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, s32 *, 0x2C));
@@ -149,6 +156,48 @@ void handle_select__20TShopArmorListWindowFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__20TShopArmorListWindow[];
+
+void TShopArmorListWindow__vt9(u8 *arg0) {
+    M2C_UNK (*temp_r12)(s32);
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        TShopArmorListWindow__sub_8021AE18((void *) (arg0));
+        set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (int)((int) (1)));
+        return;
+    case 1:
+        TShopArmorListWindow__sub_8021AB4C((void *) (arg0));
+        return;
+    case 2:
+        TShopArmorListWindow__sub_8021A43C((void *) (arg0));
+        return;
+    case 3:
+    case 10:
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x1F4);
+        if (temp_r12 != NULL) {
+            temp_r12(M2C_FIELD(arg0, s32 *, 0x28));
+        }
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    case 5:
+        handle_select__20TShopArmorListWindowFPv((void *) (arg0));
+        return;
+    case 6:
+        update__20TShopArmorListWindowFPv((void *) (arg0));
+        return;
+    case 7:
+        ((s32)TShopArmorListWindow__sub_8021AA08((void*)(arg0)));
+        return;
+    case 8:
+        open_menu_window__20TShopArmorListWindowFPv((void *) (arg0));
+        return;
+    case 9:
+        TShopArmorListWindow__sub_8021A634((void *) (arg0));
+    default:
+        return;
+    }
+}
 
 void *__dt__20TShopArmorListWindowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

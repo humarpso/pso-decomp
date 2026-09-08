@@ -99,7 +99,6 @@ s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
 s32 TWindowSubComCard__sub_8026CBB8(int, f32);
 extern const f32 lbl_805DC6C8;
 extern const f32 lbl_805DC6CC;
-void TShopEquipmentGearSequence__sub_8021B6A8(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK close_message_window__13TShopSequenceFPv(void *);
 M2C_UNK __dt__13TShopSequenceFv(void *, int);
@@ -119,6 +118,15 @@ extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;
 extern s32 lbl_805D6220;
 u8 *TShopEquipmentGearSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 handle_confirm__26TShopEquipmentGearSequenceFPv(void *);
+s32 try_close__26TShopEquipmentGearSequenceFPv(void *);
+s32 TShopEquipmentGearSequence__sub_8021B438(void *);
+s32 TShopEquipmentGearSequence__sub_8021B4B0(void *);
+s32 TShopEquipmentGearSequence__sub_8021B518(void *);
+s32 TShopEquipmentGearSequence__sub_8021B6A8(u8 *arg0);
+s32 restore_player_state__13TShopSequenceFPv(void *);
+void TShopEquipmentGearSequence__vt9(u8 *arg0);
 }
 
 extern "C" {
@@ -127,7 +135,7 @@ typedef struct Stack_8021D948 Stack_8021D948;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
-void TShopEquipmentGearSequence__sub_8021B6A8(u8 *arg0) {
+s32 TShopEquipmentGearSequence__sub_8021B6A8(u8 *arg0) {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6C8;
   stack.spC = lbl_805DC6CC;
@@ -139,6 +147,37 @@ void TShopEquipmentGearSequence__sub_8021B6A8(u8 *arg0) {
 }
 typedef char RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence_size[sizeof(RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0_size[sizeof(RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0) == 0x10 ? 1 : -1];
+
+void TShopEquipmentGearSequence__vt9(u8 *arg0) {
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        restore_player_state__13TShopSequenceFPv((void *) (arg0));
+        set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (1)));
+        return;
+    case 1:
+        TShopEquipmentGearSequence__sub_8021B6A8((u8 *)((void *) (arg0)));
+        return;
+    case 2:
+        TShopEquipmentGearSequence__sub_8021B518((void *) (arg0));
+        return;
+    case 3:
+        TShopEquipmentGearSequence__sub_8021B4B0((void *) (arg0));
+        return;
+    case 4:
+        TShopEquipmentGearSequence__sub_8021B438((void *) (arg0));
+        return;
+    case 6:
+        try_close__26TShopEquipmentGearSequenceFPv((void *) (arg0));
+        return;
+    case 7:
+        handle_confirm__26TShopEquipmentGearSequenceFPv((void *) (arg0));
+    default:
+        return;
+    }
+}
+
 u8 *__dt__26TShopEquipmentGearSequenceFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__26TShopEquipmentGearSequence.value;

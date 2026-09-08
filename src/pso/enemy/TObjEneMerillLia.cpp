@@ -14,6 +14,114 @@ struct Stack_800D5060 {
 struct RecoveredGlobal_800D5060_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_800D5060_lbl_8058D490_size[sizeof(RecoveredGlobal_800D5060_lbl_8058D490) == 0x30 ? 1 : -1];
 
+struct VBase_18_477421
+{
+  char pad[0x18];
+};
+
+struct VObj_18_477421 : VBase_18_477421 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual M2C_UNK m81();
+    virtual M2C_UNK m82();
+    virtual M2C_UNK m83();
+    virtual M2C_UNK m84();
+    virtual M2C_UNK m85();
+    virtual M2C_UNK m86();
+    virtual M2C_UNK m87();
+    virtual M2C_UNK m88();
+    virtual M2C_UNK m89();
+    virtual M2C_UNK m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual M2C_UNK m99();
+};
+
 extern "C" {
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 void TObjEneMerillLia__sub_800D5480(u8 *arg0);
@@ -56,6 +164,16 @@ extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA334;
 extern const f32 lbl_805DA338;
 void TObjEneMerillLia__sub_800D69B4(u8 *arg0);
+M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK TObjEneMerillLia__sub_800D5570(void *);
+M2C_UNK TObjEneMerillLia__sub_800D5614(void *);
+M2C_UNK TObjEneMerillLia__sub_800D56B4(void *);
+M2C_UNK TObjEneMerillLia__sub_800D57C8(void *);
+M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
+M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
+extern const f32 TObjEneMerillLia__data_805DA2F4;
+void TObjEneMerillLia__sub_800D6AAC(u8 *arg0);
 }
 
 extern "C" {
@@ -210,6 +328,80 @@ void TObjEneMerillLia__sub_800D6A44(u8 *arg0) {
     if (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) <= M2C_FIELD(arg0, f32 *, 0x3C8)) {
         reset_action_state__16TObjEneMerillLiaFPv((void *) (arg0));
     }
+}
+
+typedef struct VBase_18_477421 VBase_18_477421;
+typedef struct VObj_18_477421 VObj_18_477421;
+#define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())
+#define PSO_VCALL_VObj_18_477421_m81(_self) (((VObj_18_477421 *)(_self))->m81())
+#define PSO_VCALL_VObj_18_477421_m82(_self) (((VObj_18_477421 *)(_self))->m82())
+#define PSO_VCALL_VObj_18_477421_m83(_self) (((VObj_18_477421 *)(_self))->m83())
+#define PSO_VCALL_VObj_18_477421_m84(_self) (((VObj_18_477421 *)(_self))->m84())
+#define PSO_VCALL_VObj_18_477421_m85(_self) (((VObj_18_477421 *)(_self))->m85())
+#define PSO_VCALL_VObj_18_477421_m86(_self) (((VObj_18_477421 *)(_self))->m86())
+#define PSO_VCALL_VObj_18_477421_m87(_self) (((VObj_18_477421 *)(_self))->m87())
+#define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
+#define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
+#define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
+void TObjEneMerillLia__sub_800D6AAC(u8 *arg0) {
+  s16 temp_r0;
+  if (check_demo_mode__10TObjPlayerFv() == 1)
+  {
+    PSO_VCALL_VObj_18_477421_m99(arg0);
+    return;
+  }
+  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
+  {
+    switch (temp_r0)
+    {
+      case 0:
+        PSO_VCALL_VObj_18_477421_m81(arg0);
+        break;
+      case 1:
+        PSO_VCALL_VObj_18_477421_m82(arg0);
+        break;
+      case 2:
+        PSO_VCALL_VObj_18_477421_m83(arg0);
+        break;
+      case 3:
+        PSO_VCALL_VObj_18_477421_m84(arg0);
+        break;
+      case 4:
+        PSO_VCALL_VObj_18_477421_m85(arg0);
+        break;
+      case 5:
+        PSO_VCALL_VObj_18_477421_m86(arg0);
+        break;
+      case 6:
+        PSO_VCALL_VObj_18_477421_m87(arg0);
+        break;
+      case 7:
+        PSO_VCALL_VObj_18_477421_m88(arg0);
+        break;
+      case 8:
+        PSO_VCALL_VObj_18_477421_m89(arg0);
+        break;
+      case 9:
+        PSO_VCALL_VObj_18_477421_m90(arg0);
+        break;
+      case 10:
+        TObjEneMerillLia__sub_800D57C8((void *) arg0);
+        break;
+      case 11:
+        TObjEneMerillLia__sub_800D56B4((void *) arg0);
+        break;
+      case 12:
+        TObjEneMerillLia__sub_800D5614((void *) arg0);
+        break;
+      case 13:
+        TObjEneMerillLia__sub_800D5570((void *) arg0);
+        break;
+    }
+  }
+  update_prev_position__10TObjPlayerFPv((void *) arg0);
+  copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
+  TObjPlayer__sub_801B4A18((void *) arg0, (int) (-1));
+  *((f32 *) (((s8 *) arg0) + 0x2B4)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x2B4))) + TObjEneMerillLia__data_805DA2F4);
 }
 
 void * TObjEneMerillLia__create(void *arg0) {

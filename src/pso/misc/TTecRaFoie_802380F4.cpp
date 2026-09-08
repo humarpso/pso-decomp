@@ -19,6 +19,28 @@ struct RecoveredGlobal_80238388_lbl_8044DAF0 {
     u8 remaining[0xC];
 };
 
+struct RecoveredGlobal_80230D9C_lbl_804CC510
+{
+  M2C_UNK value;
+  u8 remaining[0x48];
+};
+
+struct RecoveredGlobal_80230D9C_lbl_804CC55C
+{
+  M2C_UNK value;
+  u8 remaining[0x94];
+};
+
+struct RecoveredFields_80230D9C_arg0
+{
+  u8 unknown_0[0x78];
+  s16 field_78;
+  u8 unknown_7A[0xE];
+  f32 field_88;
+  u8 unknown_8C[0x20];
+  s16 field_AC;
+};
+
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 TTecRaFoie__sub_80082688(void *, void *, f32);
@@ -29,6 +51,12 @@ extern const f32 lbl_805DC8D8;
 extern const f32 lbl_805DC8DC;
 extern const f32 lbl_805DC8E0;
 void TTecRaFoie__sub_80238388(u8 *arg0);
+s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 is_technique_ready__8TTecCtrlFv();
+s32 TTecAnti__sub_8022B35C(void *, int);
+extern RecoveredGlobal_80230D9C_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
+void TTecRaFoie__sub_802380F4(u8 *arg0);
 }
 
 extern "C" {
@@ -36,6 +64,22 @@ extern "C" {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80238388_lbl_8044DAF0_size[sizeof(RecoveredGlobal_80238388_lbl_8044DAF0) == 0x10 ? 1 : -1];
+
+typedef struct RecoveredFields_80230D9C_arg0 RecoveredFields_80230D9C_arg0;
+typedef struct RecoveredGlobal_80230D9C_lbl_804CC510 RecoveredGlobal_80230D9C_lbl_804CC510;
+typedef struct RecoveredGlobal_80230D9C_lbl_804CC55C RecoveredGlobal_80230D9C_lbl_804CC55C;
+typedef char RecoveredGlobal_80230D9C_lbl_804CC510_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
+typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+void TTecRaFoie__sub_802380F4(u8 *arg0) {
+  int new_var;
+ new_var = (int) TTecCtrl__sub_8022DBC4((int) 0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { TTecAnti__sub_8022B35C((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
+  ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
+  if (is_technique_ready__8TTecCtrlFv())
+  {
+    ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x10))));
+  }
+}
+
 void TTecRaFoie__sub_80238388(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80238388, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80238388, spC) == 0x4) ? 1 : -1];

@@ -66,12 +66,20 @@ extern M2C_UNK lbl_804909C4[];
 void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1);
 extern s32 lbl_805D5004;
 f32 TObjPlayer__sub_800A3200(s32 arg0);
+s32 TObjPlayer__sub_800A12C0(void *);
+s32 update_hide_sequence__10TObjPlayerFPv(u8 *arg0);
+s32 TObjPlayer__sub_800A16C4(void *);
+s32 TObjPlayer__sub_800A1C84(void *);
+s32 TObjPlayer__sub_800A1D70(void *);
+s32 TObjPlayer__sub_800A1FEC(void *);
+s32 TObjPlayer__sub_800A2390(void *);
+s32 TObjPlayer__sub_800A27CC(void *);
+void TObjPlayer__sub_800A1520(u8 *arg0);
 }
 
 extern "C" {
 
 void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0);
-void update_hide_sequence__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 M2C_UNK TObjPlayer__sub_80011734(void *, M2C_UNK, f32);
 s16 TObjPlayer__sub_800A3210(M2C_UNK, s32, s32);
@@ -83,7 +91,7 @@ M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 
 extern const f32 lbl_805D9984;
 
-void update_hide_sequence__10TObjPlayerFPv(u8 *arg0) {
+s32 update_hide_sequence__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r0;
     s32 temp_r4;
@@ -125,6 +133,41 @@ void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0) {
         update_if_active__15TObjEneMe1GiGueFPv(arg0, 6);
     }
 }
+
+void TObjPlayer__sub_800A1520(u8 *arg0) {
+  s16 temp_r0;
+  temp_r0 = *((s16 *) (((0, (s8 *) arg0)) + 0x326));
+  {
+    switch (temp_r0)
+    {
+      case 0:
+        TObjPlayer__sub_800A27CC((void *) arg0);
+        return;
+      case 1:
+        TObjPlayer__sub_800A2390(arg0);
+        return;
+      case 2:
+        TObjPlayer__sub_800A1FEC((void *) arg0);
+        return;
+      case 4:
+        TObjPlayer__sub_800A1D70((void *) arg0);
+        return;
+      case 3:
+        TObjPlayer__sub_800A16C4((void *) arg0);
+        return;
+      case 5:
+        TObjPlayer__sub_800A1C84((void *) arg0);
+        return;
+      case 6:
+        update_hide_sequence__10TObjPlayerFPv((u8 *)((void *) arg0));
+        return;
+      case 8:
+        TObjPlayer__sub_800A12C0((void *) arg0);
+        break;
+    }
+  }
+}
+
 void TObjPlayer__sub_800A17B4(u8 *arg0) {
     obj_clearFlags30((void *)(arg0), (s32)(0x100U));
     TObjEneDellBiter__sub_80087350((void *) (arg0 + 0x2FC), (int) (0xD7));

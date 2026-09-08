@@ -242,6 +242,11 @@ struct RecoveredFields_8030390C_arg0 {
     s32 field_4CC;
 };
 
+struct RecoveredGlobal_80303894_lbl_80541E48 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 s32 obj_isState2_324(void *);
 M2C_UNK obj_getField1c(void *);
@@ -287,6 +292,13 @@ M2C_UNK apply_effect_variant_b__10TObjPlayerFii(void *, int);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, void *);
 M2C_UNK TBoss1Dragon__sub_80143504(void *);
 void TObjEneDellBiter__sub_8030390C(u8 *arg0, s32 arg1);
+M2C_UNK get_camera_ctrl__9TObjEneDDFPv(void *, int);
+M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+extern RecoveredGlobal_80303894_lbl_80541E48 lbl_80541E48;
+extern s32 TObjEneDellBiter__data_805D6A34;
+extern s32 TObjEneDellBiter__data_805D6A38;
+extern s32 TObjEneDellBiter__data_805D6A3C;
+void TObjEneDellBiter__sub_80303894(void);
 }
 
 extern "C" {
@@ -423,6 +435,47 @@ extern const f32 lbl_805DEFF0;
 typedef char RecoveredFields_8030390C_arg0_B8_offset[offsetof(RecoveredFields_8030390C_arg0, field_B8) == 0xB8 ? 1 : -1];
 typedef char RecoveredFields_8030390C_arg0_3C0_offset[offsetof(RecoveredFields_8030390C_arg0, field_3C0) == 0x3C0 ? 1 : -1];
 typedef char RecoveredFields_8030390C_arg0_4CC_offset[offsetof(RecoveredFields_8030390C_arg0, field_4CC) == 0x4CC ? 1 : -1];
+
+typedef char RecoveredGlobal_80303894_lbl_80541E48_size[sizeof(RecoveredGlobal_80303894_lbl_80541E48) == 0x10 ? 1 : -1];
+void TObjEneDellBiter__sub_80303894(void) {
+    s32 temp_r4;
+    switch (TObjEneDellBiter__data_805D6A34) {
+    case 9:
+    case 10:
+    case 11:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 21:
+    case 23:
+    case 24:
+    case 25:
+    case 26:
+    case 27:
+    case 28:
+    case 29:
+    case 30:
+    case 31:
+        break;
+    case 8:
+        TObjContainerIdo__sub_803D96A8((int) (0), (int) (TObjEneDellBiter__data_805D6A38));
+        break;
+    case 12:
+    case 22:
+    case 32:
+        temp_r4 = TObjEneDellBiter__data_805D6A3C;
+        TObjEneDellBiter__data_805D6A3C = temp_r4 + 0xC;
+        get_camera_ctrl__9TObjEneDDFPv((void *) (&lbl_80541E48.value), (int) (temp_r4));
+        break;
+    }
+    TObjEneDellBiter__data_805D6A34 += 1;
+}
+
 void TObjEneDellBiter__sub_8030390C(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     switch (arg1) {

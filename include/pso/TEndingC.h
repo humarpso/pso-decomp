@@ -1,11 +1,4 @@
-#ifndef PSO_TENDINGC_H
-#define PSO_TENDINGC_H
-#include "pso/TObject.h"
-#include "types.h"
-
-class TEndingC : public TObject {
-public:
-    virtual ~TEndingC();
-};
-
+#ifndef PSO_TENDINGC_COMPAT_H
+#define PSO_TENDINGC_COMPAT_H
+#include "pso/misc/TEndingC.h"
 #endif

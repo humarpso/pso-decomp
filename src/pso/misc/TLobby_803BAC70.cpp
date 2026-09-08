@@ -99,6 +99,7 @@ s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
 extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
 void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 TLobby__sub_803BC774(u8 arg0);
 }
 
 extern "C" {
@@ -112,6 +113,34 @@ void transform_vec3__6TLobbyFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg2, f32 *, 4) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) + ((M2C_FIELD(arg0, f32 *, 0x14) * M2C_FIELD(arg1, f32 *, 8)) + ((M2C_FIELD(arg0, f32 *, 0xC) * M2C_FIELD(arg1, f32 *, 0)) + (M2C_FIELD(arg0, f32 *, 0x10) * M2C_FIELD(arg1, f32 *, 4)))));
     M2C_FIELD(arg2, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) + ((M2C_FIELD(arg0, f32 *, 0x20) * M2C_FIELD(arg1, f32 *, 8)) + ((M2C_FIELD(arg0, f32 *, 0x18) * M2C_FIELD(arg1, f32 *, 0)) + (M2C_FIELD(arg0, f32 *, 0x1C) * M2C_FIELD(arg1, f32 *, 4)))));
 }
+
+#pragma push
+#pragma scheduling off
+u8 TLobby__sub_803BC774(u8 arg0) {
+    switch (arg0) {
+    case 0x80:
+        return 0x80U;
+    case 0x81:
+        return 0x82U;
+    case 0x82:
+        return 0xA0U;
+    case 0x83:
+        return 0xA1U;
+    case 0x84:
+        return 0x83U;
+    case 0x85:
+        return 0x84U;
+    case 0x86:
+        return 0xA2U;
+    case 0x87:
+        return 0xA3U;
+    case 0x88:
+        return 0xA4U;
+    default:
+        return arg0;
+    }
+}
+#pragma pop
 
 void shift_left_8__6TLobbyFPv(s32 *arg0) {
     *arg0 <<= 8;

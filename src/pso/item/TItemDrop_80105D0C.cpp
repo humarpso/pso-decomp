@@ -4,6 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80107840_lbl_8049EF88
+{
+  M2C_UNK value;
+  u8 remaining[0x14];
+};
+
 extern "C" {
 M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
 M2C_UNK TItemDrop__sub_80105EA4(void *, void *);
@@ -34,6 +40,16 @@ M2C_UNK TItemDrop__sub_80107B0C(s32 arg0, u32 arg1);
 u32 TItemDrop__sub_801065F8(u8 *arg0, M2C_UNK arg1, u32 arg2);
 M2C_UNK calc_random_ratio__10TObjPlayerFv(void *);
 void TItemDrop__sub_801065B4(u8 *arg0, u32 arg1);
+M2C_UNK __dt__7TObjectFv(void *, int);
+M2C_UNK __dl__FPv(int);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(int);
+M2C_UNK TItemDrop__sub_8010F168(int, int);
+M2C_UNK free__11TOBoss4RockFUi(s32);
+M2C_UNK __dl__7TObjectFPv(void *);
+extern RecoveredGlobal_80107840_lbl_8049EF88 lbl_8049EF88;
+extern s32 TItemDrop__data_805D5458;
+extern s32 TItemDrop__data_805D545C;
+u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -241,6 +257,40 @@ s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2) {
     }
 block_18:
     return 0;
+}
+
+typedef struct RecoveredGlobal_80107840_lbl_8049EF88 RecoveredGlobal_80107840_lbl_8049EF88;
+u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1) {
+  s32 var_r30;
+  s32 var_r31;
+  if (arg0 != 0)
+  {
+    *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &lbl_8049EF88.value;
+    var_r31 = (int) (*((s32 *) (((s8 *) arg0) + 0x1C)));
+    TItemDrop__sub_8010F168(var_r31, (int) 1);
+    *((s32 *) (((s8 *) arg0) + 0x1C)) = 0;
+    safe_free__23TAdSinglePlyChrSelectGCFUi((int) TItemDrop__data_805D5458);
+    TItemDrop__data_805D5458 = 0;
+    safe_free__23TAdSinglePlyChrSelectGCFUi((int) TItemDrop__data_805D545C);
+    var_r31 = 0;
+    var_r30 = 0;
+    TItemDrop__data_805D545C = 0;
+    do
+    {
+      __dl__FPv((int) (*((M2C_UNK *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x20)))) + var_r31))));
+      var_r30 += 1;
+      var_r31 += 4;
+    }
+    while (var_r30 != 0x11);
+    free__11TOBoss4RockFUi((s32)((int) (*((s32 *) (((s8 *) arg0) + 0x20)))));
+    *((s32 *) (((s8 *) arg0) + 0x20)) = 0;
+    __dt__7TObjectFv((void *) arg0, (int) 0);
+    if (arg1 > 0)
+    {
+      __dl__7TObjectFPv((void *) arg0);
+    }
+  }
+  return arg0;
 }
 
 u8 *TItemDrop__sub_80107A68(s32 arg0) {

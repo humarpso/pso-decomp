@@ -8,6 +8,9 @@ extern "C" {
 M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801B5450(u8 *arg0);
+s8 TObjPlayer__sub_801AFDB0(void *);
+s32 forward_801C210C__10TObjPlayerFPv(int, int);
+void TObjPlayer__sub_801B55B0(u8 *arg0);
 }
 
 extern "C" {
@@ -77,6 +80,39 @@ void apply_input_mode__10TObjPlayerFi(s32 arg0) {
         return;
     }
     set_input_mode__10TObjPlayerFPvi(arg0, 2);
+}
+void TObjPlayer__sub_801B55B0(u8 *arg0) {
+  s8 temp_r3;
+  temp_r3 = TObjPlayer__sub_801AFDB0((void *) arg0);
+  {
+    switch (temp_r3)
+    {
+      case 0:
+      case 2:
+      case 3:
+      case 4:
+      case 7:
+        forward_801C210C__10TObjPlayerFPv((int) (*((s32 *) (((s8 *) arg0) + 0x380))), (int) 0);
+        return;
+      case 1:
+      case 5:
+      case 8:
+        forward_801C210C__10TObjPlayerFPv((int) (*((s32 *) (((s8 *) arg0) + 0x380))), (int) 1);
+        return;
+      case 6:
+        forward_801C210C__10TObjPlayerFPv((int) (*((s32 *) (((s8 *) arg0) + 0x380))), (int) 2);
+        return;
+      case 9:
+        forward_801C210C__10TObjPlayerFPv((int) (*((s32 *) (((s8 *) arg0) + 0x380))), (int) 4);
+        return;
+      case 10:
+        forward_801C210C__10TObjPlayerFPv((int) (*((s32 *) (((s8 *) arg0) + 0x380))), (int) 3);
+        return;
+      case 11:
+        forward_801C210C__10TObjPlayerFPv((int) (*((s32 *) (((s8 *) arg0) + 0x380))), (int) 5);
+        break;
+    }
+  }
 }
 
 }

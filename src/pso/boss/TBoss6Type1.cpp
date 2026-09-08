@@ -113,6 +113,14 @@ s32 request_destroy__11TBoss4Type2FUi(int);
 void TBoss6Type1__sub_802B4B64(s32 arg0, s32 arg1);
 void TBoss6Type1__sub_802B4B64(s32 arg0, s32 arg1);
 void TBoss6Type1__sub_802B4CF4(s32 arg0);
+s32 TBoss6Type1__sub_802B57D4(void *, void *, void *, int);
+void TBoss6Type1__sub_802B5938(s32 arg0);
+void TBoss6Type1__sub_802B5970(s32 arg0);
+void TBoss6Type1__sub_802B59A8(void);
+void TBoss6Type1__sub_802B59CC(void *);
+void TBoss6Type1__sub_802B5AB0(void);
+extern const f32 lbl_805DE348;
+void TBoss6Type1__sub_802B5CB4(u8 *arg0);
 }
 
 extern "C" {
@@ -295,6 +303,65 @@ extern const f32 TBoss6Type1__data_805DE32C;
 
 void TBoss6Type1__sub_802B5AB0(void) {
     TBoss6Type1__sub_802B5AD4(TBoss6Type1__data_805DE32C);
+}
+
+void TBoss6Type1__sub_802B5CB4(u8 *arg0) {
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x374);
+    switch (temp_r0) {
+    case 1:
+    case 2:
+    case 4:
+    case 24:
+    case 25:
+        TBoss6Type1__sub_802B5AB0();
+        break;
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+        TBoss6Type1__sub_802B5970((s32) arg0);
+        break;
+    case 22:
+        TBoss6Type1__sub_802B59CC(arg0);
+        break;
+    case 21:
+        TBoss6Type1__sub_802B59A8();
+        break;
+    case 26:
+        TBoss6Type1__sub_802B5AB0();
+        break;
+    case 30:
+    case 31:
+        TBoss6Type1__sub_802B5970((s32) arg0);
+        break;
+    case 27:
+        TBoss6Type1__sub_802B5970((s32) arg0);
+        break;
+    case 32:
+        TBoss6Type1__sub_802B5970((s32) arg0);
+        break;
+    case 16:
+    case 17:
+    case 18:
+    case 19:
+    case 20:
+    case 34:
+    case 35:
+    case 36:
+        TBoss6Type1__sub_802B5938((s32) arg0);
+        break;
+    case 37:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x410) > (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x40C) - lbl_805DE348)) {
+            TBoss6Type1__sub_802B5938((s32) arg0);
+            break;
+        }
+        break;
+    default:
+        TBoss6Type1__sub_802B57D4((void *)((s32) arg0), (void *)(NULL), (void *)(NULL), (int)(0xFFFF));
+        break;
+    }
 }
 
 u8 TBoss6Type1__sub_802B5D9C(u8 *arg0) {

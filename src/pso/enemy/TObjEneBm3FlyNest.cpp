@@ -120,6 +120,17 @@ void copy_pos__17TObjEneBm3FlyNestFPv(void* p);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
 void TObjEneBm3FlyNest__sub_800B3D70(u8 *arg0);
+s32 handle_state__17TObjEneBm3FlyNestFPvi(void *, void *);
+s32 TObjEneBm3FlyNest__sub_800B2C24(void *, void *);
+s32 handle_motion_event__17TObjEneBm3FlyNestFPvi(void *, void *);
+s32 state_spawn__17TObjEneBm3FlyNestFPvi(void *, void *);
+s32 update_state__17TObjEneBm3FlyNestFPvi(void *, void *);
+s32 TObjEneBm3FlyNest__sub_800B318C(void *, void *);
+s32 handle_event__17TObjEneBm3FlyNestFPvi(void *, void *);
+s32 state_wait__17TObjEneBm3FlyNestFPvi(void *, void *);
+s32 TObjEneBm3FlyNest__sub_800B34F0(void *, void *);
+s32 TObjEneBm3FlyNest__sub_800B36F8(void *, void *);
+void TObjEneBm3FlyNest__sub_800B3CC0(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -234,6 +245,42 @@ void update_state_action__17TObjEneBm3FlyNestFPv(void *arg0) {
 void TObjEneBm3FlyNest__sub_800B3CBC(void) {  }
 
     extern int lbl_805D5108;
+
+void TObjEneBm3FlyNest__sub_800B3CC0(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 1:
+        TObjEneBm3FlyNest__sub_800B34F0((void *) (arg0), (void *) (arg2));
+        return;
+    case 0:
+        TObjEneBm3FlyNest__sub_800B36F8((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        state_wait__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        handle_event__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        TObjEneBm3FlyNest__sub_800B318C((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        update_state__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        state_spawn__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        handle_motion_event__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        TObjEneBm3FlyNest__sub_800B2C24((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        handle_state__17TObjEneBm3FlyNestFPvi((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
 
 #pragma push
 #pragma fp_contract on

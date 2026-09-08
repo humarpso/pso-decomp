@@ -75,6 +75,7 @@ extern RecoveredGlobal_80146D44_lbl_8050CE14 lbl_8050CE14;
 M2C_UNK *TLobby__sub_80146D44(void);
 extern unsigned char lbl_8050C784[];
 u8 *TLobby__sub_80146D50(s32 arg0);
+s32 TLobby__sub_801466F4(u32 arg0);
 }
 
 extern "C" {
@@ -154,6 +155,23 @@ s32 TLobby__sub_80146588(s32 *arg0) {
     lbl_805D56DC = M2C_FIELD(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value, s32 *, 0x10);
     lbl_805D56E0 = M2C_FIELD(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value, s32 *, 0x14);
     return 0;
+}
+
+s32 TLobby__sub_801466F4(u32 arg0) {
+    switch (arg0) {
+    case 0:
+    case 1:
+    case 2:
+    case 5:
+    case 6:
+    case 8:
+    case 11:
+    case 16:
+    case 17:
+        return 0;
+    default:
+        return 1;
+    }
 }
 
 int TLobby__sub_80146724(void) { return 3; }

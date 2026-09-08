@@ -63,13 +63,19 @@ void TWindow__close(void *);
 s32 TWindowSubComCard__sub_80265BF8(int);
 s32 select_cursor_entry__6TLobbyFPv(int);
 void TShopGetItemWindow__sub_8021E5D8(u8 *arg0);
+s32 queue_destruction__7TObjectFv(void *);
+s32 close__18TShopGetItemWindowFPv(void *arg0);
+void TShopGetItemWindow__sub_8021E5D8(u8 *arg0);
+void TShopGetItemWindow__sub_8021E76C(void *arg0);
+s32 TShopGetItemWindow__sub_8021E870(void *);
+s32 TShopGetItemWindow__sub_8021EA48(void *);
+void TShopGetItemWindow__vt9(u8 *arg0);
 }
 
 extern "C" {
 
 void *TShopGetItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void *__dt__18TShopGetItemWindowFv(void *arg0, s16 arg1);
-void close__18TShopGetItemWindowFPv(void *arg0);
 void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
@@ -78,7 +84,7 @@ M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 void init__9TItemDataFv(void *);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 
-void close__18TShopGetItemWindowFPv(void *arg0) {
+s32 close__18TShopGetItemWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
         clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x28));
     }
@@ -175,6 +181,45 @@ void TShopGetItemWindow__sub_8021E76C(void *arg0) {
         TWindow__close((void *)(M2C_FIELD(arg0, u32 *, 0x30)));
         M2C_FIELD(arg0, u32 *, 0x30) = 0U;
         set_field_20__12TQuestListVMFPvi(arg0, 4);
+    }
+}
+
+void TShopGetItemWindow__vt9(u8 *arg0) {
+    M2C_UNK (*temp_r12)(s32);
+    M2C_UNK (*temp_r12_2)(s32);
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        TShopGetItemWindow__sub_8021EA48((void *) (arg0));
+        return;
+    case 1:
+        TShopGetItemWindow__sub_8021E870((void *) (arg0));
+        return;
+    case 2:
+        TShopGetItemWindow__sub_8021E76C((void *) (arg0));
+        return;
+    case 3:
+        TShopGetItemWindow__sub_8021E5D8((u8 *)((void *) (arg0)));
+        return;
+    case 4:
+        close__18TShopGetItemWindowFPv((void *) (arg0));
+        return;
+    case 6:
+        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x64);
+        if (temp_r12 != NULL) {
+            temp_r12(M2C_FIELD(arg0, s32 *, 0x5C));
+        }
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    case 7:
+        temp_r12_2 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x60);
+        if (temp_r12_2 != NULL) {
+            temp_r12_2(M2C_FIELD(arg0, s32 *, 0x5C));
+        }
+        queue_destruction__7TObjectFv((void *) (arg0));
+    default:
+        return;
     }
 }
 

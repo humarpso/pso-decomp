@@ -24,6 +24,9 @@ extern RecoveredGlobal_80189BE0_lbl_804B63BC lbl_804B63BC;
 extern M2C_UNK __vt__17TObjContainerItem[];
 extern s32 lbl_805D32EC;
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2);
+u32 get_global_state__14TOKeyMachine01Fv();
+M2C_UNK TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void TBoss3Volopt__sub_80189CC0(s32 arg0);
 }
 
 extern "C" {
@@ -98,6 +101,60 @@ u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
 
 void spawn_item__17TObjContainerItemFPvi(u8 *arg0, s32 arg1) {
     TLobby__sub_8010567C(arg1, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x360), arg0);
+}
+void TBoss3Volopt__sub_80189CC0(s32 arg0) {
+    u32 temp_r3;
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    switch (temp_r3) {
+    case 1:
+    case 2:
+        TBoss3Volopt__sub_8022675C((int) (0x4BC10), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 3:
+    case 4:
+    case 5:
+        TBoss3Volopt__sub_8022675C((int) (0x43C0F), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 6:
+    case 7:
+        TBoss3Volopt__sub_8022675C((int) (0x4004BC09), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 8:
+    case 9:
+    case 10:
+        TBoss3Volopt__sub_8022675C((int) (0x4004BC10), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 16:
+    case 17:
+        TBoss3Volopt__sub_8022675C((int) (0x4004BC05), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 19:
+    case 20:
+        TBoss3Volopt__sub_8022675C((int) (0x4BC05), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 21:
+    case 22:
+        TBoss3Volopt__sub_8022675C((int) (0x4004BC05), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 23:
+    case 24:
+    case 25:
+    case 26:
+    case 27:
+        TBoss3Volopt__sub_8022675C((int) (0x4BC16), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 28:
+    case 29:
+        TBoss3Volopt__sub_8022675C((int) (0x4004BC16), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 34:
+        TBoss3Volopt__sub_8022675C((int) (0x4004BC16), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        return;
+    case 35:
+        TBoss3Volopt__sub_8022675C((int) (0x4004BC16), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    default:
+        return;
+    }
 }
 
 }

@@ -32,9 +32,52 @@ struct VObj_8_e57d67 : VBase_8_e57d67 {
 
 extern "C" {
 s32 TObjPlayer__sub_801D0458(u8 *arg0);
+s32 reset_and_flag__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801CFDF8(void *);
+s32 set_attack_state__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801D00B0(void *);
+s32 handle_ring_hit__10TObjPlayerFi(void *);
+s32 check_ring_action__10TObjPlayerFi(void *);
+s32 TObjPlayer__sub_801D023C(void *);
+s32 TObjPlayer__sub_801D03BC(void *);
+void TObjPlayer__sub_801D03DC(s32 arg0, s16 arg1);
 }
 
 extern "C" {
+
+void TObjPlayer__sub_801D03DC(s32 arg0, s16 arg1) {
+  int new_var;
+  new_var = ((u32) arg1) <= 8U;
+  {
+    switch (arg1)
+    {
+      case 7:
+        TObjPlayer__sub_801D03BC((void *) arg0);
+        return;
+      case 2:
+        TObjPlayer__sub_801D023C((void *) arg0);
+        return;
+      case 3:
+        check_ring_action__10TObjPlayerFi((void *) arg0);
+        return;
+      case 8:
+        handle_ring_hit__10TObjPlayerFi((void *) arg0);
+        return;
+      case 5:
+        TObjPlayer__sub_801D00B0((void *) arg0);
+        return;
+      case 0:
+        set_attack_state__10TObjPlayerFPv((void *) arg0);
+        return;
+      case 1:
+        TObjPlayer__sub_801CFDF8((void *) arg0);
+        return;
+      case 6:
+        reset_and_flag__10TObjPlayerFPv((void *) arg0);
+        break;
+    }
+  }
+}
 
 s32 TObjPlayer__sub_801D0458(u8 *arg0) {
     u8 *temp_r3;

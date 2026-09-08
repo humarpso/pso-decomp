@@ -43,6 +43,9 @@ s32 TLobby__sub_80103B44(s32 arg0);
 extern s32 lbl_805D5424;
 extern s32 lbl_805D5428;
 u16 TLobby__sub_80103AD4(void);
+extern s32 lbl_805D5424;
+extern s32 lbl_805D5428;
+s32 TLobby__sub_80103B04(u16 arg0);
 }
 
 extern "C" {
@@ -76,6 +79,16 @@ u16 TLobby__sub_80103AD4(void) {
         return M2C_FIELD((lbl_805D5424 + (temp_r0 * 2)), u16 *, 0);
     }
     return 0xFFFFU;
+}
+
+s32 TLobby__sub_80103B04(u16 arg0) {
+  if ((lbl_805D5428 < 0x20) && (arg0 != (((((((((-1) & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF) & 0xFFFF)))
+  {
+    *((u16 *) (((s8 *) (lbl_805D5424 + (lbl_805D5428 * 2))) + 0)) = arg0;
+    lbl_805D5428 += 1;
+    return 1;
+  }
+  return 0;
 }
 
 s32 TLobby__sub_80103B44(s32 arg0) {

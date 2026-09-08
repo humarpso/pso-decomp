@@ -84,6 +84,23 @@ struct RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 {
     u8 remaining[0xC];
 };
 
+struct VBase_18_0e2b36 { char pad[0x18]; };
+
+struct VObj_18_0e2b36 : VBase_18_0e2b36 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual M2C_UNK m10();
+    virtual M2C_UNK m11();
+};
+
 extern "C" {
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -93,7 +110,6 @@ s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
 s32 TWindowSubComCard__sub_8026CBB8(int, f32);
 extern const f32 lbl_805DC688;
 extern const f32 lbl_805DC68C;
-void TMedicalCenterSequence__sub_80216830(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK close_message_window__13TShopSequenceFPv(void *);
 M2C_UNK __dt__13TShopSequenceFv(void *, int);
@@ -109,16 +125,21 @@ extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalC
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 extern s32 lbl_805D3678;
 u8 *TMedicalCenterSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
+M2C_UNK TMedicalCenterSequence__sub_802164A4();
+M2C_UNK TMedicalCenterSequence__sub_80216540();
+M2C_UNK TMedicalCenterSequence__sub_8021658C();
+void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
+void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
+void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
+M2C_UNK TMedicalCenterSequence__sub_80216830(u8 *arg0);
+void TMedicalCenterSequence__vt9(u8 *arg0);
 }
 
 extern "C" {
 
 void TMedicalCenterSequence__vt10(void* p);
 void TMedicalCenterSequence__vt11(void *arg0);
-void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
-void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
-void handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
-void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjPlayer__sub_80011138(s32, M2C_UNK);
 s32 TObjPlayer__sub_801AF734(s32);
@@ -147,7 +168,7 @@ void TMedicalCenterSequence__vt11(void *arg0) {
     }
 }
 
-void handle_window_input__22TMedicalCenterSequenceFPv(void *arg0) {
+M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0) {
     VObj_8021641C_802163AC *o = (VObj_8021641C_802163AC *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48((void *)((void *)(arg0))) != 0 || TShopWindowBase__sub_802239EC((void *)((void *)(arg0))) != 0)) {
         o->m4(0x22, 1);
@@ -215,7 +236,7 @@ typedef struct Stack_80216830 Stack_80216830;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
-void TMedicalCenterSequence__sub_80216830(u8 *arg0) {
+M2C_UNK TMedicalCenterSequence__sub_80216830(u8 *arg0) {
   Stack_80216830 stack;
   stack.sp8 = lbl_805DC688;
   stack.spC = lbl_805DC68C;
@@ -229,6 +250,45 @@ void TMedicalCenterSequence__sub_80216830(u8 *arg0) {
 void TMedicalCenterSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
 typedef char RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence_size[sizeof(RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90_size[sizeof(RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90) == 0x10 ? 1 : -1];
+
+void TMedicalCenterSequence__vt9(u8 *arg0) {
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        ((VObj_18_0e2b36 *)(arg0))->m10();
+        return;
+    case 1:
+        TMedicalCenterSequence__sub_80216830((u8 *)(arg0));
+        return;
+    case 2:
+        handle_confirm__22TMedicalCenterSequenceFPv((void *)(arg0));
+        return;
+    case 6:
+        TMedicalCenterSequence__sub_80216540();
+        return;
+    case 7:
+        TMedicalCenterSequence__sub_802164A4();
+        return;
+    case 3:
+        handle_window_result__22TMedicalCenterSequenceFPv((void *)(arg0));
+        return;
+    case 4:
+        exec_heal__22TMedicalCenterSequenceFPv((void *)(arg0));
+        return;
+    case 5:
+        TMedicalCenterSequence__sub_8021658C();
+        return;
+    case 8:
+        handle_window_input__22TMedicalCenterSequenceFPv((void *)(arg0));
+        return;
+    case 10:
+        ((VObj_18_0e2b36 *)(arg0))->m11();
+    default:
+        return;
+    }
+}
+
 u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__22TMedicalCenterSequence.value;

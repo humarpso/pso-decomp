@@ -113,6 +113,18 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
 extern const f64 TObjEneDf2Bringer__data_8043A0F8;
 extern const f32 TObjEneDf2Bringer__data_805D9820;
 void TObjEneDf2Bringer__sub_80098BAC(u8 *arg0, s32 arg1);
+s32 TObjEneDf2Bringer__sub_80097620(void *, void *);
+s32 TObjEneDf2Bringer__sub_80097714(void *, void *);
+s32 TObjEneDf2Bringer__sub_80097820(void *, void *);
+s32 action__17TObjEneDf2BringerFPvi(void *, void *);
+s32 TObjEneDf2Bringer__sub_80097E9C(void *, void *);
+s32 TObjEneDf2Bringer__sub_8009813C(void *, void *);
+s32 TObjEneDf2Bringer__sub_8009859C(void *, void *);
+s32 TObjEneDf2Bringer__sub_800987E8(void *, void *);
+void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
+void TObjEneDf2Bringer__sub_80098BAC(u8 *arg0, s32 arg1);
+void handle_state__17TObjEneDf2BringerFPvi(void *arg0, s32 arg1);
+void TObjEneDf2Bringer__vt85(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -338,6 +350,44 @@ void handle_state__17TObjEneDf2BringerFPvi(void *arg0, s32 arg1) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x4AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x4AC) + 1);
     case 5:
+        return;
+    }
+}
+void TObjEneDf2Bringer__vt85(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        handle_state__17TObjEneDf2BringerFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 1:
+        TObjEneDf2Bringer__sub_80098BAC((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 2:
+        exec__17TObjEneDf2BringerFPvi((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 3:
+        TObjEneDf2Bringer__sub_800987E8((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        TObjEneDf2Bringer__sub_8009859C((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TObjEneDf2Bringer__sub_8009813C((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TObjEneDf2Bringer__sub_80097E9C((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        action__17TObjEneDf2BringerFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        TObjEneDf2Bringer__sub_80097820((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        TObjEneDf2Bringer__sub_80097714((void *) (arg0), (void *) (arg2));
+        return;
+    case 10:
+        TObjEneDf2Bringer__sub_80097620((void *) (arg0), (void *) (arg2));
+    default:
         return;
     }
 }

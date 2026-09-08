@@ -183,6 +183,8 @@ extern s32 lbl_805D790C;
 extern M2C_UNK lbl_805E10D8;
 extern M2C_UNK lbl_805E10E0;
 s32 TQuestVmDownLoadServer__sub_803F09A4(void);
+extern s32 lbl_805D7888;
+s32 TQuestVmDownLoadServer__sub_803E9A24(u8 arg0);
 }
 
 extern "C" {
@@ -333,6 +335,31 @@ void TQuestVmDownLoadServer__sub_803E9764(void) {
 }
 
 typedef char RecoveredGlobal_803E9F20_lbl_80595998_size[sizeof(RecoveredGlobal_803E9F20_lbl_80595998) == 0x8C0 ? 1 : -1];
+
+s32 TQuestVmDownLoadServer__sub_803E9A24(u8 arg0) {
+    if ((u32) (lbl_805D7888 - 1) <= 1U) {
+        return 0;
+    }
+    switch (arg0) {
+    case 0x9D:
+    case 0xA1:
+    case 0xA3:
+    case 0xA5:
+    case 0xA7:
+    case 0xA9:
+    case 0xC3:
+    case 0xE3:
+    case 0xE5:
+    case 0xE7:
+    case 0xEE:
+    case 0xF2:
+    case 0xF3:
+        return 1;
+    default:
+        return 0;
+    }
+}
+
 void TQuestVmDownLoadServer__sub_803E9F20(s32 arg0) {
     struct Fields_temp_r3 { u8 pad_0[20]; u8 field_14; u8 field_15; u8 field_16; };
     u8 *temp_r3;

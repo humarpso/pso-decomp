@@ -15,6 +15,14 @@ s32 fn_800D2A68(void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 void TObjPlayer__sub_800D31EC(u8 *arg0);
+s32 update_state__15TObjEnemyCustomFPv(void *);
+s32 TObjPlayer__sub_800D1E4C(void *);
+s32 update__19TObjGyaranzoMissileFPv(void *);
+s32 TObjPlayer__sub_800D2CE4(void *);
+s32 TObjPlayer__sub_800D2F6C(void *);
+s32 TObjPlayer__sub_800D30A8(void *);
+s32 TObjPlayer__sub_800D3314(void *);
+void TObjPlayer__sub_800D39EC(u8 *arg0);
 }
 
 extern "C" {
@@ -64,5 +72,38 @@ void TObjPlayer__sub_800D31EC(u8 *arg0) {
 }
 
 void TObjPlayer__sub_800D35D4(void) {  }
+void TObjPlayer__sub_800D39EC(u8 *arg0) {
+  s16 temp_r0;
+  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
+  {
+    switch (temp_r0)
+    {
+      case 0:
+        update_state__15TObjEnemyCustomFPv((void *) arg0);
+        return;
+      case 1:
+        TObjPlayer__sub_800D3314((void *) arg0);
+        return;
+      case 2:
+        TObjPlayer__sub_800D2CE4((void *) arg0);
+        return;
+      case 4:
+        TObjPlayer__sub_800D30A8((void *) arg0);
+        return;
+      case 5:
+        TObjPlayer__sub_800D2F6C((void *) arg0);
+        return;
+      case 7:
+        update__19TObjGyaranzoMissileFPv((void *) arg0);
+        return;
+      case 9:
+        TObjPlayer__sub_800D3314((void *) arg0);
+        return;
+      case 8:
+        TObjPlayer__sub_800D1E4C((void *) arg0);
+        break;
+    }
+  }
+}
 
 }

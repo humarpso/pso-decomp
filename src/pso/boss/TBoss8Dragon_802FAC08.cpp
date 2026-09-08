@@ -121,7 +121,6 @@ s32 TObjPlayer__sub_800196EC();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 M2C_UNK set_type__10TObjPlayerFPvi(void *, int);
 M2C_UNK start_freeze__10TObjPlayerFPv(int);
-u8 *TPlayerBattleCtrl4P__sub_801BA74C(u16);
 M2C_UNK TBoss8Dragon__sub_802FD9D0();
 extern const f32 lbl_805DEEB8;
 void TBoss8Dragon__sub_802FAE74(u8 *arg0);
@@ -130,6 +129,15 @@ u8 *TBoss8Dragon__sub_8007A544(M2C_UNK *, M2C_UNK);
 M2C_UNK TOSwitchAttack__sub_80087278(void *, void *, int);
 extern const f32 TBoss8Dragon__data_805DED9C;
 void TBoss8Dragon__sub_802FB0DC(u8 *arg0);
+s32 reset_lobby_model__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801B1E54(int, int, int);
+s32 end_camera_pan__10TObjPlayerFPv(int);
+u8 * TPlayerBattleCtrl4P__sub_801BA74C(s32);
+s32 TBoss8Dragon__sub_802FBA84(void *);
+s32 is_health_low__12TBoss8DragonFPv(void *);
+extern s32 lbl_805D53A0;
+extern const f32 TBoss8Dragon__data_805DED50;
+void TBoss8Dragon__sub_802FAC78(u8 *arg0);
 }
 
 extern "C" {
@@ -235,6 +243,107 @@ struct VObj_80098E4C_80098DB0 : Base_80098E4C_80098DB0 {
     virtual void m96();
     virtual int m97();
 };
+
+void TBoss8Dragon__sub_802FAC78(u8 *arg0) {
+    s16 temp_r3_2;
+    s16 temp_r3_3;
+    s32 var_r31;
+    u16 temp_r4;
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(TPlayerBattleCtrl4P__sub_801BA74C((s32) M2C_FIELD(arg0, u16 *, 0x750)));
+    if (temp_r3 != NULL) {
+        end_camera_pan__10TObjPlayerFPv((int) (temp_r3));
+        M2C_FIELD(temp_r3, s32 *, 0x30) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x30) & 0xFDFFFFFF);
+        reset_lobby_model__10TObjPlayerFPv((void *) ((u8 *)(temp_r3) + 0x644));
+        M2C_FIELD(temp_r3, f32 *, 0x3C) = (f32) TBoss8Dragon__data_805DED50;
+        temp_r4 = M2C_FIELD(arg0, u16 *, 0x750);
+        if (((s32) temp_r4 == (s32) lbl_805D53A0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 0x15)) {
+            TObjPlayer__sub_801B1E54((int) (0xFFFFU), (int) (temp_r4), (int) (0));
+        }
+    }
+    M2C_FIELD(arg0, s32 *, 0x74C) = 0;
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0x15) {
+        var_r31 = 0;
+        if (is_health_low__12TBoss8DragonFPv((void *) (arg0)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x674) = 0;
+            temp_r3_2 = M2C_FIELD(arg0, s16 *, 0x326);
+            switch (temp_r3_2) {
+            case 24:
+            case 25:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x674) = 0;
+                break;
+            case 3:
+                M2C_FIELD(arg0, s32 *, 0x674) = 2;
+                break;
+            case 4:
+                M2C_FIELD(arg0, s32 *, 0x674) = 3;
+                break;
+            case 5:
+                M2C_FIELD(arg0, s32 *, 0x674) = 4;
+                break;
+            case 26:
+            case 27:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x674) = 6;
+                break;
+            case 7:
+                M2C_FIELD(arg0, s32 *, 0x674) = 6;
+                break;
+            case 8:
+                M2C_FIELD(arg0, s32 *, 0x674) = 7;
+                break;
+            case 9:
+                M2C_FIELD(arg0, s32 *, 0x674) = 0;
+                break;
+            }
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x674) = 0;
+            temp_r3_3 = M2C_FIELD(arg0, s16 *, 0x326);
+            switch (temp_r3_3) {
+            case 24:
+            case 25:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x674) = 0;
+                break;
+            case 3:
+            case 4:
+                M2C_FIELD(arg0, s32 *, 0x674) = 0;
+                break;
+            case 5:
+                M2C_FIELD(arg0, s32 *, 0x674) = 1;
+                break;
+            case 26:
+            case 27:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x674) = 0xA;
+                break;
+            case 7:
+                M2C_FIELD(arg0, s32 *, 0x674) = 0xA;
+                break;
+            case 8:
+            case 19:
+                M2C_FIELD(arg0, s32 *, 0x674) = 0xB;
+                break;
+            case 15:
+                M2C_FIELD(arg0, s32 *, 0x674) = 2;
+                break;
+            case 37:
+            case 38:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x674) = 9;
+                break;
+            case 9:
+                M2C_FIELD(arg0, s32 *, 0x674) = 0;
+                break;
+            }
+            M2C_FIELD(arg0, s32 *, 0x674) = (s32) (M2C_FIELD(arg0, s32 *, 0x674) + 0x32);
+        }
+        if (var_r31 != 0) {
+            TBoss8Dragon__sub_802FBA84((void *) (arg0));
+        }
+    }
+}
 
 #pragma push
 #pragma fp_contract on

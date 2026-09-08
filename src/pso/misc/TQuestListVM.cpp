@@ -47,7 +47,6 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 extern s32 TQuestListVM__data_805D6200;
 extern s32 TQuestListVM__data_805D6204;
-void TQuestListVM__sub_80219A9C(u8 *arg0);
 extern RecoveredGlobal_8033B9C4_lbl_80513910 lbl_80512D00;
 void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0);
 M2C_UNK TLobby__sub_8001EE48(M2C_UNK *);
@@ -58,7 +57,6 @@ void TQuestListVM__sub_802186A8(void);
 u8 * __ct__15TShopWindowBaseFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
-s32 update_load_status__12TQuestListVMFPv(void *arg0);
 extern M2C_UNK __vt__12TQuestListVM[];
 extern s32 lbl_805D3690;
 extern s32 TQuestListVM__data_805D6200;
@@ -67,6 +65,30 @@ extern s32 TQuestListVM__data_805D6208;
 extern s32 TQuestListVM__data_805D620C;
 extern s32 lbl_805D6210;
 u8 *TQuestListVM__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+s32 update_load_status__12TQuestListVMFPv(void *arg0);
+M2C_UNK handle_click__12TQuestListVMFPv(void *arg0);
+M2C_UNK invoke_callback_and_queue_destruction__12TQuestListVMFPv(void *arg0);
+M2C_UNK close_and_destroy__12TQuestListVMFPv(void *arg0);
+M2C_UNK close__12TQuestListVMFPv(void *arg0);
+M2C_UNK TQuestListVM__sub_8021884C(void *);
+void update_close__12TQuestListVMFPv(void *arg0);
+M2C_UNK TQuestListVM__sub_80218918(void *);
+M2C_UNK TQuestListVM__sub_80218AD4(void *);
+M2C_UNK TQuestListVM__sub_80218BBC(void *);
+M2C_UNK TQuestListVM__sub_80218D40(void *);
+M2C_UNK TQuestListVM__sub_80218E94(void *);
+M2C_UNK TQuestListVM__sub_80219064(void *);
+M2C_UNK quest_vm_load(void *arg0);
+M2C_UNK TQuestListVM__sub_8021916C(void *);
+M2C_UNK TQuestListVM__sub_8021924C(void *);
+M2C_UNK TQuestListVM__sub_802194BC(void *);
+M2C_UNK TQuestListVM__sub_8021969C(void *);
+M2C_UNK TQuestListVM__sub_80219748(void *);
+M2C_UNK TQuestListVM__sub_80219A9C(u8 *arg0);
+M2C_UNK init__12TQuestListVMFPv(void* p);
+void TQuestListVM__vt9(u8 *arg0);
 }
 
 extern "C" {
@@ -79,19 +101,11 @@ struct VObj_802186E4_80218570 : Base_802186E4_80218570 {
     virtual int m8();
 };
 
-void TQuestListVM__sub_8021884C(void);
 void TQuestVmDownLoadServer__sub_80219EC4(void* p);
 void *__dt__12TQuestListVMFv(void *arg0, s16 arg1);
-void close__12TQuestListVMFPv(void *arg0);
-void close_and_destroy__12TQuestListVMFPv(void *arg0);
 void close_windows__12TQuestListVMFPv(void *arg0);
-void handle_click__12TQuestListVMFPv(void *arg0);
-void init__12TQuestListVMFPv(void* p);
-void invoke_callback_and_queue_destruction__12TQuestListVMFPv(void *arg0);
-void quest_vm_load(void *arg0);
 void set_enemy_mode_3__12TQuestListVMFv(void);
 void update_close__12TQuestListVMFPv(void *arg0);
-s32 update_load_status__12TQuestListVMFPv(void *arg0);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 int TKeyBoardControl__sub_8000F950(void);
 M2C_UNK TLobby__sub_8001EDF4(M2C_UNK *);
@@ -160,7 +174,7 @@ void TQuestListVM__sub_802186A8(void) {
     (*(s32 *)&evt2_random_enemies_mode) = 0;
 }
 
-void handle_click__12TQuestListVMFPv(void *arg0) {
+M2C_UNK handle_click__12TQuestListVMFPv(void *arg0) {
     VObj_802186E4_80218570 *obj = (VObj_802186E4_80218570 *) arg0;
     if (obj->m8() != 0) {
         obj->m7(0x19, 1);
@@ -168,7 +182,7 @@ void handle_click__12TQuestListVMFPv(void *arg0) {
     }
 }
 
-void invoke_callback_and_queue_destruction__12TQuestListVMFPv(void *arg0) {
+M2C_UNK invoke_callback_and_queue_destruction__12TQuestListVMFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x23C0);
@@ -180,7 +194,7 @@ void invoke_callback_and_queue_destruction__12TQuestListVMFPv(void *arg0) {
 
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 
-void close_and_destroy__12TQuestListVMFPv(void *arg0) {
+M2C_UNK close_and_destroy__12TQuestListVMFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x23BC);
@@ -195,7 +209,7 @@ void close_and_destroy__12TQuestListVMFPv(void *arg0) {
 
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 
-void close__12TQuestListVMFPv(void *arg0) {
+M2C_UNK close__12TQuestListVMFPv(void *arg0) {
     M2C_UNK (*temp_r12)();
 
     temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x23B8);
@@ -209,7 +223,7 @@ void close__12TQuestListVMFPv(void *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void TQuestListVM__sub_8021884C(void) {  }
+M2C_UNK TQuestListVM__sub_8021884C(void * _w0) {  }
 
 void update_close__12TQuestListVMFPv(void *arg0) {
     void *p;
@@ -237,14 +251,14 @@ void update_close__12TQuestListVMFPv(void *arg0) {
 
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 
-void quest_vm_load(void *arg0) {
+M2C_UNK quest_vm_load(void *arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
         M2C_FIELD(arg0, s32 *, 0x2384) = TLobby__sub_8001EEFC(TQuestListVM__data_8044BF20);
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(M2C_FIELD(arg0, s32 *, 0x2370)));
     }
 }
 
-void TQuestListVM__sub_80219A9C(u8 *arg0) {
+M2C_UNK TQuestListVM__sub_80219A9C(u8 *arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
         M2C_FIELD(arg0, s32 *, 0x2384) = TLobby__sub_8001EEFC((M2C_UNK *)((s32) &(*(RecoveredGlobal_80219A9C_TQuestListVM__data_8044BF20 *)&TQuestListVM__data_8044BF20).value));
         TQuestListVM__data_805D6200 = M2C_FIELD(arg0, s32 *, 0x2384);
@@ -254,11 +268,83 @@ void TQuestListVM__sub_80219A9C(u8 *arg0) {
     }
 }
 
-void init__12TQuestListVMFPv(void* p) { memset((char*)p + 0x28, (void*)0, (void*)9024); *(int*)((char*)p + 0x2398) = 4; *(int*)((char*)p + 0x2368) = 0; *(int*)((char*)p + 0x239c) = 0; *(int*)((char*)p + 0x236c) = 0; *(int*)((char*)p + 0x23ac) = 0; *(int*)((char*)p + 0x23b0) = 0; set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
+M2C_UNK init__12TQuestListVMFPv(void* p) { memset((char*)p + 0x28, (void*)0, (void*)9024); *(int*)((char*)p + 0x2398) = 4; *(int*)((char*)p + 0x2368) = 0; *(int*)((char*)p + 0x239c) = 0; *(int*)((char*)p + 0x236c) = 0; *(int*)((char*)p + 0x23ac) = 0; *(int*)((char*)p + 0x23b0) = 0; set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
 
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 extern M2C_UNK __vt__12TQuestListVM[];
 extern s32 lbl_805D6210;
+
+void TQuestListVM__vt9(u8 *arg0) {
+    u32 temp_r0;
+    if (update_load_status__12TQuestListVMFPv((void *)(arg0)) != 0) {
+        ((VObj_18_a70a39 *)(arg0))->m5(TQuestVmDownLoadServer__sub_8006EF6C((s32)((int) (0x44))), 1);
+        set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (void*)((int) (0x12)));
+    }
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    switch (temp_r0) {
+    case 0:
+        init__12TQuestListVMFPv((void*)((void *) (arg0)));
+        return;
+    case 1:
+        TQuestListVM__sub_80219A9C((u8 *)((void *) (arg0)));
+        return;
+    case 2:
+        TQuestListVM__sub_80219748((void *) (arg0));
+        return;
+    case 3:
+        TQuestListVM__sub_8021969C((void *) (arg0));
+        return;
+    case 4:
+        TQuestListVM__sub_802194BC((void *) (arg0));
+        return;
+    case 5:
+        TQuestListVM__sub_8021924C((void *) (arg0));
+        return;
+    case 6:
+        TQuestListVM__sub_8021916C((void *) (arg0));
+        return;
+    case 7:
+        quest_vm_load((void *) (arg0));
+        return;
+    case 8:
+        TQuestListVM__sub_80219064((void *) (arg0));
+        return;
+    case 9:
+        TQuestListVM__sub_80218E94((void *) (arg0));
+        return;
+    case 15:
+        TQuestListVM__sub_80218D40((void *) (arg0));
+        return;
+    case 10:
+        TQuestListVM__sub_80218BBC((void *) (arg0));
+        return;
+    case 11:
+        TQuestListVM__sub_80218AD4((void *) (arg0));
+        return;
+    case 12:
+        TQuestListVM__sub_80218918((void *) (arg0));
+        return;
+    case 13:
+        update_close__12TQuestListVMFPv((void *) (arg0));
+        return;
+    case 14:
+        TQuestListVM__sub_8021884C((void *)((void *) (arg0)));
+        return;
+    case 16:
+        close__12TQuestListVMFPv((void *) (arg0));
+        return;
+    case 18:
+        close_and_destroy__12TQuestListVMFPv((void *) (arg0));
+        return;
+    case 17:
+        invoke_callback_and_queue_destruction__12TQuestListVMFPv((void *) (arg0));
+        return;
+    case 20:
+        handle_click__12TQuestListVMFPv((void *) (arg0));
+    default:
+        return;
+    }
+}
 
 void *__dt__12TQuestListVMFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

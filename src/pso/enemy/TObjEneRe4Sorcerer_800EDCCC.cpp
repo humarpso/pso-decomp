@@ -242,13 +242,23 @@ s32 TBoss1Dragon__sub_80143504(void *);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 extern const f32 TObjEneRe4Sorcerer__data_805DA790;
 void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
+void TObjEneRe4Sorcerer__sub_800EE01C(u8 *arg0, s32 arg1);
+s32 TObjEneRe4Sorcerer__sub_800EE0F8(void *, void *);
+s32 TObjEneRe4Sorcerer__sub_800EE1CC(void *, void *);
+s32 TObjEneRe4Sorcerer__sub_800EE598(void *, void *);
+s32 TObjEneRe4Sorcerer__sub_800EE7DC(void *, void *);
+void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
+s32 TObjEneRe4Sorcerer__sub_800EEC00(void *, void *);
+s32 TObjEneRe4Sorcerer__sub_800EEDE4(void *, void *);
+void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1);
+s32 handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
+void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 s32 cast_resta__18TObjEneRe4SorcererFPv(u8 *arg0);
 void create_effect__18TObjEneRe4SorcererFPv(u8 *arg0);
-void handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 void state_wait__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1);
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0);
 M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
@@ -356,7 +366,7 @@ void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
   }
 }
 
-void handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
+s32 handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s32 *, 0x4E4) = 0;
@@ -371,6 +381,42 @@ void handle_state__18TObjEneRe4SorcererFPvi(void *arg0, s32 arg1) {
     case 0:
         M2C_FIELD(arg0, s32 *, 0x4E4) = (s32) (M2C_FIELD(arg0, s32 *, 0x4E4) + 1);
         break;
+    }
+}
+
+void TObjEneRe4Sorcerer__vt85(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        handle_state__18TObjEneRe4SorcererFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 1:
+        TObjEneRe4Sorcerer__sub_800EEFE4((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 2:
+        TObjEneRe4Sorcerer__sub_800EEDE4((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        TObjEneRe4Sorcerer__sub_800EEC00((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        state_wait__18TObjEneRe4SorcererFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 5:
+        TObjEneRe4Sorcerer__sub_800EE7DC((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TObjEneRe4Sorcerer__sub_800EE598((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        TObjEneRe4Sorcerer__sub_800EE1CC((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        TObjEneRe4Sorcerer__sub_800EE0F8((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        TObjEneRe4Sorcerer__sub_800EE01C((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+    default:
+        return;
     }
 }
 

@@ -14,9 +14,22 @@ struct RecoveredGlobal_8006B4A0_lbl_804381E0 {
     u8 remaining[0x1DC];
 };
 
+struct RecoveredGlobal_8006B588_lbl_80488AD8
+{
+  M2C_UNK value;
+  u8 remaining[0x14];
+};
+
+struct RecoveredFields_8006B588_arg0
+{
+  u8 unknown_0[0x18];
+  M2C_UNK *field_18;
+  u8 unknown_1C[0x18];
+  s32 field_34;
+};
+
 extern "C" {
 s32 is_split_screen(void);
-u8 * TCameraCtrl__sub_8006B588(void *, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D53A0;
 extern s32 tl_07;
@@ -32,6 +45,17 @@ extern RecoveredGlobal_8006B4A0_lbl_804381E0 lbl_804381E0;
 extern s32 TCameraCtrl__data_805D4E10;
 extern const f32 lbl_805D8FF8;
 void TCameraCtrl__sub_8006B4A0(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 is_split_screen(void);
+void TCameraCtrl__sub_80069C94(void *, void *);
+s32 TCameraCtrl__sub_80069E7C(int);
+s32 TCameraCtrl__sub_8006BAB4(void *, void *);
+s32 TCameraCtrl__sub_8006BAC8(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+extern const M2C_UNK lbl_80488AD8[];
+extern u32 lbl_805D4DF0;
+extern s32 TCameraCtrl__data_805D4E10;
+u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -86,7 +110,7 @@ u8 *TCameraCtrl__sub_8006B438(s32 arg0) {
     temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x38))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TCameraCtrl__sub_8006B588(temp_r3, temp_r31, arg0, tl_07));
+        var_r0 = (u8 *)(TCameraCtrl__sub_8006B588((u8 *)(temp_r3), (s32)(temp_r31), (s32)(arg0), (s32)(tl_07)));
     }
     return var_r0;
 }
@@ -113,6 +137,30 @@ void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1) {
 }
 
 extern s32 tl_07;
+
+typedef struct RecoveredFields_8006B588_arg0 RecoveredFields_8006B588_arg0;
+typedef struct RecoveredGlobal_8006B588_lbl_80488AD8 RecoveredGlobal_8006B588_lbl_80488AD8;
+u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+  void *new_var;
+  __ct__7TObjectFP7TObject((void *) arg0, (void *) arg3);
+  ((RecoveredFields_8006B588_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;
+  ((RecoveredFields_8006B588_arg0 *) arg0)->field_34 = arg2;
+  TCameraCtrl__sub_80069E7C((int) 9);
+  if (is_split_screen() != 0)
+  {
+    new_var = (void *) TCameraCtrl__sub_8006BAC8((void *) (*(s32 *)&lbl_805D4DF0), (void *) arg1);
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), new_var);
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) TCameraCtrl__sub_8006BAB4((void *) (*(s32 *)&lbl_805D4DF0), (void *) arg1));
+  }
+  else
+  {
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) ((*(s32 *)&lbl_805D4DF0) + 0x178));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) ((*(s32 *)&lbl_805D4DF0) + 0x184));
+  }
+  TCameraCtrl__sub_80069C94((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
+  TCameraCtrl__data_805D4E10 = 0;
+  return arg0;
+}
 
 void create__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     void *obj = __nw__7TObjectFUl((int)(0x40));

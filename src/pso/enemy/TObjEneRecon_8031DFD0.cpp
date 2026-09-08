@@ -132,9 +132,52 @@ extern const f32 lbl_805DF400;
 extern const f32 lbl_805DF424;
 extern const f32 lbl_805DF428;
 void run_task__12TObjEneReconFv(u8 *arg0);
+s32 handle_message__12TObjEneReconFPvi(void *, void *);
+s32 TObjEneRecon__sub_8031C364(void *, void *);
+s32 TObjEneRecon__sub_8031C624(void *, void *);
+s32 run_task__12TObjEneReconFPvi(void *, void *);
+s32 TObjEneRecon__sub_8031C920(void *, void *);
+s32 TObjEneRecon__sub_8031CCFC(void *, void *);
+s32 TObjEneRecon__sub_8031CF30(void *, void *);
+s32 TObjEneRecon__sub_8031D380(void *, void *);
+s32 TObjEneRecon__sub_8031D4B0(void *, void *);
+void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
+
+void TObjEneRecon__vt85(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        TObjEneRecon__sub_8031D4B0((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        TObjEneRecon__sub_8031D380((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        TObjEneRecon__sub_8031CF30((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        TObjEneRecon__sub_8031CCFC((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        TObjEneRecon__sub_8031C920((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TObjEneRecon__sub_8031C624((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        TObjEneRecon__sub_8031C364((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        run_task__12TObjEneReconFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        handle_message__12TObjEneReconFPvi((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
 
 void run_task__12TObjEneReconFv(u8 *arg0) {
     f32 temp_f2;

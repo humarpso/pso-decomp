@@ -30,17 +30,30 @@ struct VObj_80170f64_80170EEC : Base18_80170f64_80170EEC {
 struct RecoveredGlobal_801711D0_lbl_804B2F2C { M2C_UNK value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_801711D0_lbl_804B2F2C_size[sizeof(RecoveredGlobal_801711D0_lbl_804B2F2C) == 0x10 ? 1 : -1];
 
+struct RecoveredFields_80170F0C_arg0
+{
+  u8 unknown_0[0x2A8];
+  s32 field_2A8;
+  u8 unknown_2AC[0xA0];
+  f32 field_34C;
+  u8 unknown_350[0xC];
+  u16 field_35C;
+};
+
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801711D0_lbl_804B2F2C lbl_804B2F2C;
 extern u32 lbl_805D5A50;
 void TOMine__sub_801711D0(void);
+u16 TObjPlayer__sub_800115C4(void *, int, f32);
+s32 update_trigger__10TOMineTrapFPv(void *);
+s32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+int TOMine__sub_80170F0C(u8 *arg0);
 }
 
 extern "C" {
 
-int TOMine__sub_80170F0C(void *);
 void *__dt__6TOMineFv(void *arg0, s16 arg1);
 void free_instance__6TOMineFv(void);
 void free_parts__6TOMineFPv(void* p);
@@ -64,7 +77,20 @@ int set_global_param__8TObjFishFi(void*);
 
 int get_player_state__6TOMineFPv(void* p) { return TObjPlayer__sub_801B4AC8(p); }
 
-int TOMine__sub_80170F0C(void *) { return 0; }
+typedef struct RecoveredFields_80170F0C_arg0 RecoveredFields_80170F0C_arg0;
+int TOMine__sub_80170F0C(u8 *arg0) {
+  u16 temp_r3;
+  unsigned short new_var;
+  ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C = TObjPlayer__sub_800115C4((void *) arg0, (int) 0, (f32) ((RecoveredFields_80170F0C_arg0 *) arg0)->field_34C);
+  temp_r3 = ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;
+  new_var = -1;
+  if (temp_r3 != new_var)
+  {
+    ((RecoveredFields_80170F0C_arg0 *) arg0)->field_2A8 = TPlayerBattleCtrl4P__sub_801BA74C((int) temp_r3);
+    update_trigger__10TOMineTrapFPv((void *) arg0);
+  }
+  return ((RecoveredFields_80170F0C_arg0 *) arg0)->field_35C;
+}
 
 void run_task__6TOMineFPv(u8 *arg0) {
     s16 temp_r0;
@@ -78,7 +104,7 @@ void run_task__6TOMineFPv(u8 *arg0) {
         switch (temp_r0) {
         case 2:
         case 0:
-            TOMine__sub_80170F0C((void *)((void *) (arg0)));
+            TOMine__sub_80170F0C((u8 *)((void *)((void *) (arg0))));
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x334));
             VecCopy__FP3VecPC3Vec((void *) (M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C), (void *) (arg0 + 0x334));
             return;

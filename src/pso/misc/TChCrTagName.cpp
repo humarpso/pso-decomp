@@ -15,7 +15,6 @@ struct RecoveredGlobal_802A28C0___vt__12TChCrTagName {
 
 extern "C" {
 u8 * __ct__8TChCrTagFv(void *, s32);
-M2C_UNK TChCrTagName__sub_802A26E0(void *);
 extern RecoveredGlobal_802A28C0___vt__12TChCrTagName __vt__12TChCrTagName;
 extern s32 lbl_805D3DA0;
 extern const f32 lbl_805DDE48;
@@ -26,6 +25,16 @@ extern const f32 lbl_805DDE98;
 extern const f32 lbl_805DDE9C;
 extern const f32 lbl_805DDEA0;
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern const f32 lbl_805DDE28;
+extern const f32 lbl_805DDE70;
+extern const f32 lbl_805DDE74;
+extern const f32 lbl_805DDE78;
+extern const f32 lbl_805DDE7C;
+extern const f32 lbl_805DDE80;
+extern const f32 lbl_805DDE84;
+extern const f32 lbl_805DDE88;
+void TChCrTagName__sub_802A26E0(u8 *arg0);
 }
 
 extern "C" {
@@ -37,15 +46,37 @@ void run_task__12TChCrTagNameFv(void *arg0);
 int TChCrTagName__sub_802A208C(void*);
 int TChCrTagName__sub_802A226C(void*);
 int TChCrTagName__sub_802A2500(void*);
-M2C_UNK TChCrTagName__sub_802A26E0(void *);
 M2C_UNK TChCrTag__sub_802A1A00();
 void *__nw__7TObjectFUl(int);
 
 void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500(p); TChCrTagName__sub_802A226C(p); TChCrTagName__sub_802A208C(p); }
 
+#pragma fp_contract on
+void TChCrTagName__sub_802A26E0(u8 *arg0) {
+  f32 temp_f1;
+  f32 temp_f2;
+  f32 var_f4;
+  f32 temp_f3;
+  var_f4 = lbl_805DDE28;
+  *((f32 *) (((s8 *) arg0) + 0x48)) = (f32) lbl_805DDE70;
+  *((f32 *) (((s8 *) arg0) + 0x4C)) = (f32) ((lbl_805DDE78 * ((f32) (*((s32 *) (((s8 *) arg0) + 0x20))))) + lbl_805DDE74);
+  temp_f2 = *((f32 *) (((s8 *) arg0) + 0x24));
+  temp_f1 = *((f32 *) (((s8 *) arg0) + 0x40));
+  if (temp_f2 < temp_f1)
+  {
+    if (1)
+    {
+      temp_f3 = *((f32 *) (((s8 *) arg0) + 0x3C));
+      temp_f1 = (temp_f2 - temp_f3) / (temp_f1 - temp_f3);
+      var_f4 = lbl_805DDE7C * (lbl_805DDE28 - TBoss8Dragon__sub_803D64DC((s32) (lbl_805DDE80 * temp_f1)));
+    }
+  }
+  *((f32 *) (((s8 *) arg0) + 0x48)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x48))) + ((lbl_805DDE88 * var_f4) + lbl_805DDE84));
+}
+
 void run_task__12TChCrTagNameFv(void *arg0) {
     TChCrTag__sub_802A1A00();
-    TChCrTagName__sub_802A26E0(arg0);
+    TChCrTagName__sub_802A26E0((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) (M2C_FIELD(arg0, s32 *, 0x44) + 1);
 }
 
@@ -64,7 +95,7 @@ u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DDE98;
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DDE48;
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) -((lbl_805DDEA0 * (f32) (0xC - M2C_FIELD(arg0, s32 *, 0x20))) - lbl_805DDE9C);
-    TChCrTagName__sub_802A26E0(arg0);
+    TChCrTagName__sub_802A26E0((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
     return arg0;
 }

@@ -33,6 +33,12 @@ struct RecoveredGlobal_802D7ED4_lbl_8058D490 {
     u8 remaining[0x2C];
 };
 
+struct RecoveredGlobal_802D7A2C_lbl_804E28B0
+{
+  M2C_UNK value;
+  u8 remaining[0x13C];
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 *csnVectorUnder(M2C_UNK *, s32, M2C_UNK, f32);
@@ -87,6 +93,9 @@ extern RecoveredGlobal_802D7ED4_lbl_80472780 lbl_80472780;
 extern RecoveredGlobal_802D7ED4_lbl_8058D490 lbl_8058D490;
 extern s32 lbl_805D5678;
 void TObjEneGibbles__sub_802D7ED4(u8 *arg0, s32 arg1, s32 arg2);
+extern RecoveredGlobal_802D7A2C_lbl_804E28B0 lbl_804E28B0;
+extern const f32 lbl_805DE7E0;
+void TObjEneGibbles__sub_802D7A2C(M2C_UNK arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -113,6 +122,21 @@ M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
+
+typedef struct RecoveredGlobal_802D7A2C_lbl_804E28B0 RecoveredGlobal_802D7A2C_lbl_804E28B0;
+typedef char RecoveredGlobal_802D7A2C_lbl_804E28B0_size[((sizeof(RecoveredGlobal_802D7A2C_lbl_804E28B0)) == 0x140) ? (1) : (-1)];
+void TObjEneGibbles__sub_802D7A2C(M2C_UNK arg0, s32 arg1, f32 farg0) {
+  f32 var_f1;
+  u8 *new_var;
+  var_f1 = farg0;
+  if (var_f1 < lbl_805DE7E0)
+  {
+    var_f1 = lbl_805DE7E0;
+  }
+  new_var = (u8 *) (&lbl_804E28B0.value);
+  new_var = new_var + (arg1 * 0x10);
+  *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
+}
 
 s32 TObjEneGibbles__sub_802D7BE0(s32 arg0) {
     Stack_802D7BE0 stack;

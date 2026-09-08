@@ -127,6 +127,19 @@ M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 s32 TObjEneDD__sub_800BBA18(void * a0, s32 a1);
 M2C_UNK TObjEneRe2Flower__sub_800C3DC4(void *);
 void TObjEneRe2Flower__sub_800C3F70(u8 *arg0);
+s32 TObjEneDD__sub_800C2628(void *, void *);
+s32 handle_event__16TObjEneRe2FlowerFPvi(void *, void *);
+s32 fn_800C2A88(void *, void *);
+s32 fn_800C2AC4(void *, void *);
+s32 TObjEneDD__sub_800C2CE0(void *, void *);
+s32 TObjEneRe2Flower__sub_800C2E64(void *, void *);
+s32 fn_800C3088(void *, void *);
+s32 fn_800C32DC(void *, void *);
+s32 TObjEneDD__sub_800C34FC(void *, void *);
+s32 handle_flower_state_change(void *, void *);
+s32 handle_state__9TObjEneDDFPvi(void *, void *);
+s32 dispatch_action__9TObjEneDDFPvi(void *, void *);
+void TObjEneRe2Flower__sub_800C3EA8(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -176,6 +189,48 @@ void set_mode0xA_unless_0xAor0xB__16TObjEneRe2FlowerFPv(void *arg0) {
 void TObjEneRe2Flower__sub_800C3EA4(void) {  }
 
 extern M2C_UNK lbl_804931FC[];
+
+void TObjEneRe2Flower__sub_800C3EA8(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        dispatch_action__9TObjEneDDFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        handle_state__9TObjEneDDFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        handle_flower_state_change((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        TObjEneDD__sub_800C34FC((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        fn_800C32DC((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        fn_800C3088((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        TObjEneDD__sub_800C2CE0((void *) (arg0), (void *) (arg2));
+        return;
+    case 10:
+        fn_800C2AC4((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TObjEneRe2Flower__sub_800C2E64((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        handle_event__16TObjEneRe2FlowerFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        TObjEneDD__sub_800C2628((void *) (arg0), (void *) (arg2));
+        return;
+    case 11:
+        fn_800C2A88((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
 
 void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
     s16 temp_r3;

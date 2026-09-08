@@ -132,6 +132,18 @@ M2C_UNK TObjEneBalClawClaw__ct(void *);
 s32 TObjEnemyCustom__sub_800C7860(void *);
 extern M2C_UNK lbl_8048F148[];
 u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, M2C_UNK arg1, u8 *arg2);
+s32 TObjEneBalClawClaw__sub_80090504(void *);
+s32 TObjEneBalClawClaw__sub_8009060C(void *);
+s32 TObjEneBalClawClaw__sub_800906C8(void *);
+s32 TObjEneBalClawClaw__sub_80090850(void *);
+s32 TObjEneBalClawClaw__sub_80090A70(void *);
+s32 TObjEneBalClawClaw__sub_80090D3C(void *);
+s32 action__18TObjEneBalClawClawFPv(void *);
+s32 TObjEneBalClawClaw__sub_80090ECC(void *);
+s32 TObjEneBalClawClaw__sub_80091134(void *);
+s32 TObjEneBalClawClaw__sub_80091200(void *);
+s32 TObjEneBalClawClaw__sub_80091354(void *);
+void TObjEneBalClawClaw__sub_800916A8(u8 *arg0);
 }
 
 extern "C" {
@@ -251,6 +263,54 @@ void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0) {
 }
 
 extern void *tl_04;
+
+void TObjEneBalClawClaw__sub_800916A8(u8 *arg0) {
+  s16 temp_r0;
+  void *new_var;
+  void *new_var2;
+  new_var = (void *) arg0;
+  temp_r0 = *((s16 *) (((s8 *) arg0) + 0x326));
+  {
+    switch (temp_r0)
+    {
+      case 0:
+        new_var2 = new_var;
+        TObjEneBalClawClaw__sub_80090D3C(new_var2);
+        return;
+      case 1:
+        TObjEneBalClawClaw__sub_80091354(new_var);
+        return;
+      case 2:
+        TObjEneBalClawClaw__sub_80090ECC(new_var);
+        return;
+      case 4:
+        TObjEneBalClawClaw__sub_80091200(new_var);
+        return;
+      case 5:
+        TObjEneBalClawClaw__sub_80091134(new_var);
+        return;
+      case 7:
+        new_var = arg0;
+        action__18TObjEneBalClawClawFPv((void *) new_var);
+        return;
+      case 9:
+        TObjEneBalClawClaw__sub_800906C8(new_var = new_var);
+        return;
+      case 10:
+        TObjEneBalClawClaw__sub_80090A70(new_var);
+        return;
+      case 11:
+        TObjEneBalClawClaw__sub_8009060C(new_var);
+        return;
+      case 8:
+        TObjEneBalClawClaw__sub_80090850(new_var);
+        return;
+      case 12:
+        TObjEneBalClawClaw__sub_80090504(new_var);
+        break;
+    }
+  }
+}
 
 void * create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
     void *o;

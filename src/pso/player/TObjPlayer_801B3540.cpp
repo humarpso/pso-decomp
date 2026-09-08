@@ -5,11 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+int TObjPlayer__sub_801B3674(void *, int, int, int);
+s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2);
+s32 TObjPlayer__sub_801B89B0(void *, int);
+s32 reset_slots__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801B3A18(s32 arg0, u32 arg1);
+}
+
+extern "C" {
 
 void TObjPlayer__sub_801B35AC(void* p);
 void TObjPlayer__sub_801B35E4(void* p);
 void TObjPlayer__sub_801B3620(void* p);
-int TObjPlayer__sub_801B3674(void);
 s32 can_use_camera_field__10TObjPlayerFi(s32 arg0);
 s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2);
 int check_technique_flag__10TObjPlayerFPv(void* p);
@@ -40,7 +47,7 @@ void TObjPlayer__sub_801B35AC(void* p) { TObjPlayer__sub_8011E204((void*)(p), (v
 void TObjPlayer__sub_801B35E4(void* p) { set_state_flags__10TObjPlayerFPvUi((void*)(p), (void*)((void*)1024)); get_player_result__18TChallenge4PResultFPv(p, (void*)1); }
 void TObjPlayer__sub_801B3620(void* p) { set_state_flags__10TObjPlayerFPvUi((void*)(p), (void*)((void*)1024)); get_player_result__18TChallenge4PResultFPv(p, (void*)1); get_player_result__18TChallenge4PResultFPv(p, (void*)2); get_player_result__18TChallenge4PResultFPv(p, (void*)3); }
 
-int TObjPlayer__sub_801B3674(void) { return 0; }
+int TObjPlayer__sub_801B3674(void * _w0, int _w1, int _w2, int _w3) { return 0; }
 
 s32 check_can_add_item__10TObjPlayerFPvcc(void *arg0, s8 arg1, s8 arg2) {
     s8 sp8[24];
@@ -71,6 +78,47 @@ s32 can_use_camera_field__10TObjPlayerFi(s32 arg0) {
         return 0;
     }
     return 1;
+}
+s32 TObjPlayer__sub_801B3A18(s32 arg0, u32 arg1) {
+    switch (arg1) {
+    case 0:
+        return ((s32)TObjPlayer__sub_801B3674((void *)((void *) (arg0)), (int)((int) (3)), (int)((int) (0)), (int)((int) (0))));
+    case 1:
+        return ((s32)TObjPlayer__sub_801B3674((void *)((void *) (arg0)), (int)((int) (3)), (int)((int) (0)), (int)((int) (1))));
+    case 2:
+        return ((s32)TObjPlayer__sub_801B3674((void *)((void *) (arg0)), (int)((int) (3)), (int)((int) (0)), (int)((int) (2))));
+    case 3:
+        return ((s32)TObjPlayer__sub_801B3674((void *)((void *) (arg0)), (int)((int) (3)), (int)((int) (1)), (int)((int) (0))));
+    case 4:
+        return ((s32)TObjPlayer__sub_801B3674((void *)((void *) (arg0)), (int)((int) (3)), (int)((int) (1)), (int)((int) (1))));
+    case 5:
+        return ((s32)TObjPlayer__sub_801B3674((void *)((void *) (arg0)), (int)((int) (3)), (int)((int) (1)), (int)((int) (2))));
+    case 6:
+        return ((s32)TObjPlayer__sub_801B3674((void *)((void *) (arg0)), (int)((int) (3)), (int)((int) (6)), (int)((int) (0))));
+    case 7:
+        return ((s32)TObjPlayer__sub_801B3674((void *)((void *) (arg0)), (int)((int) (3)), (int)((int) (6)), (int)((int) (1))));
+    case 8:
+        return check_can_add_item__10TObjPlayerFPvcc((void *)((void *) (arg0)), (s8)((int) (3)), (s8)((int) (3)));
+    case 9:
+        return check_can_add_item__10TObjPlayerFPvcc((void *)((void *) (arg0)), (s8)((int) (3)), (s8)((int) (4)));
+    case 10:
+        reset_slots__10TObjPlayerFPv((void *) (arg0 + 0x428));
+        return check_can_add_item__10TObjPlayerFPvcc((void *)((void *) (arg0)), (s8)((int) (3)), (s8)((int) (5)));
+    case 11:
+        return check_can_add_item__10TObjPlayerFPvcc((void *)((void *) (arg0)), (s8)((int) (3)), (s8)((int) (7)));
+    case 12:
+        return check_can_add_item__10TObjPlayerFPvcc((void *)((void *) (arg0)), (s8)((int) (3)), (s8)((int) (8)));
+    case 13:
+        return TObjPlayer__sub_801B89B0((void *) (arg0), (int) (0));
+    case 14:
+        return TObjPlayer__sub_801B89B0((void *) (arg0), (int) (1));
+    case 15:
+        return TObjPlayer__sub_801B89B0((void *) (arg0), (int) (2));
+    case 16:
+        return TObjPlayer__sub_801B89B0((void *) (arg0), (int) (3));
+    default:
+        return 0;
+    }
 }
 
 }

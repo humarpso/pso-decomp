@@ -15,6 +15,10 @@ M2C_UNK TLobby__sub_800869A4(void *, int, int, int);
 M2C_UNK TObjEneDellBiter__sub_80087350(void *, int, f32);
 extern const f32 lbl_805DA3C0;
 void TBoss3Volopt__sub_800D8F78(s32 arg0);
+s32 TObjPlayer__sub_800F06B4(int, int);
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 TBoss3Volopt__sub_8022675C(int, void *, int, int);
+void TBoss3Volopt__sub_800D8B30(s32 arg0);
 }
 
 extern "C" {
@@ -31,6 +35,42 @@ void create_breakup_mdl__12TBoss3VoloptFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 
         TBreakUpMdl__ct(obj, tl_05, arg0, arg1, arg2, arg3, arg4);
     }
 }
+
+void TBoss3Volopt__sub_800D8B30(s32 arg0) {
+    s32 temp_r3;
+    temp_r3 = get_global_state__14TOKeyMachine01Fv();
+    switch (temp_r3) {
+    case 23:
+    case 24:
+    case 25:
+    case 26:
+    case 27:
+        TBoss3Volopt__sub_8022675C((int) (0x3AB3C), (void *) (arg0), (int) (0), (int) (0));
+        return;
+    case 28:
+    case 29:
+        TBoss3Volopt__sub_8022675C((int) (0x4003AD32), (void *) (arg0), (int) (0), (int) (0));
+        return;
+    case 34:
+        TBoss3Volopt__sub_8022675C((int) (0x4003B22A), (void *) (arg0), (int) (0), (int) (0));
+        return;
+    case 35:
+        TBoss3Volopt__sub_8022675C((int) (0x4003A35A), (void *) (arg0), (int) (0), (int) (0));
+        return;
+    case 19:
+    case 20:
+        TBoss3Volopt__sub_8022675C((int) (0x3AD43), (void *) (arg0), (int) (0), (int) (0));
+        return;
+    case 21:
+    case 22:
+        TBoss3Volopt__sub_8022675C((int) (0x4003AD3F), (void *) (arg0), (int) (0), (int) (0));
+        return;
+    default:
+        TBoss3Volopt__sub_8022675C((int) (TObjPlayer__sub_800F06B4((int) (0x4003AD06), (int) (0x1E))), (void *) (arg0), (int) (0), (int) (0));
+        return;
+    }
+}
+
 void TBoss3Volopt__sub_800D8F78(s32 arg0) {
     Stack_800D8F78 stack;
     f32 temp_f1;

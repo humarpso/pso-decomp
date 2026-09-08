@@ -5,6 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 get_instance__15TAdPlayerLoadGCFv();
+M2C_UNK TLobby__sub_80338534();
+M2C_UNK TLobby__sub_80338608(int);
+void TLobby__sub_803384D4(void);
+}
+
+extern "C" {
 
 void TWindowSubStatusDisp__sub_803386F0(void);
 void handle_flag2_request__6TLobbyFv(void);
@@ -24,6 +31,28 @@ void handle_flag2_request__6TLobbyFv(void) {
 }
 
     extern int lbl_805D6D5C;
+
+void TLobby__sub_803384D4(void) {
+    s32 temp_r3;
+    temp_r3 = get_instance__15TAdPlayerLoadGCFv();
+    switch (temp_r3) {
+    case 5:
+    case 6:
+    case 11:
+    case 12:
+    case 15:
+    case 19:
+        TLobby__sub_80338608((int) (0));
+        TLobby__sub_80338534();
+        return;
+    case 18:
+        TLobby__sub_80338608((int) (1));
+        TLobby__sub_80338534();
+    default:
+        return;
+    }
+}
+
 void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFi((void*)(lbl_805D6D5C)); }
 
     extern unsigned char lbl_80477BD4[];

@@ -10,6 +10,8 @@ void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
 s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+void TNpcPlayer__sub_8014E090(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -55,6 +57,33 @@ void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
         }
         TNpcPlayer__sub_80150A34(arg0, 0x11);
         break;
+    }
+}
+
+void TNpcPlayer__sub_8014E090(u8 *arg0, u32 arg1) {
+    M2C_FIELD(arg0, u32 *, 0x7C) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) & 0xFFFFEFFF);
+    switch (arg1) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) & 0xFFFFFFCF);
+        VecCopy__FP3VecPC3Vec((void *)((void *) ((u8 *)(arg0) + 0xDC)), (int)((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), s32 *, 0x94) + 0x2FC)));
+        return;
+    case 1:
+        M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) & 0xFFFFFFEF);
+        M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) | 0x20);
+        return;
+    case 2:
+        M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) & 0xFFFFFFDF);
+        M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) | 0x10);
+        return;
+    case 8:
+        VecCopy__FP3VecPC3Vec((void *)((void *) ((u8 *)(arg0) + 0xDC)), (int)((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), s32 *, 0x94) + 0x2FC)));
+        return;
+    case 16:
+        M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) & 0xFFFFFFEF);
+        M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) | 0x20);
+    default:
+        return;
     }
 }
 

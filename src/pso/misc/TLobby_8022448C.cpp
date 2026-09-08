@@ -16,6 +16,12 @@ struct RecoveredGlobal_802259A0_lbl_80513F70
   u8 remaining[0x67C];
 };
 
+struct RecoveredGlobal_802258C8_lbl_80513F70
+{
+  M2C_UNK value;
+  u8 remaining[0x67C];
+};
+
 extern "C" {
 extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
@@ -29,6 +35,10 @@ void TLobby__sub_80225AD8(s32);
 int is_flag_set__6TLobbyFPv(void* p);
 extern unsigned char lbl_80513F70[];
 s32 TLobby__sub_802259A0(void);
+int is_flag_set__6TLobbyFPv(void* p);
+void TLobby__sub_80225C8C(void* p);
+extern unsigned char lbl_80513F70[];
+void TLobby__sub_802258C8(void);
 }
 
 extern "C" {
@@ -286,6 +296,25 @@ void TLobby__sub_8022559C(void) {
 }
 
 void try_close__6TLobbyFPv(void* p) { if (TLobby__sub_80225B90(p) == 0) { TLobby__sub_80225A08(p); } }
+
+typedef struct RecoveredGlobal_802258C8_lbl_80513F70 RecoveredGlobal_802258C8_lbl_80513F70;
+typedef char RecoveredGlobal_802258C8_lbl_80513F70_size[((sizeof(RecoveredGlobal_802258C8_lbl_80513F70)) == 0x680) ? (1) : (-1)];
+void TLobby__sub_802258C8(void) {
+  s32 var_r31;
+  M2C_UNK *var_r30;
+  var_r31 = 0;
+  var_r30 = (M2C_UNK *) (&(*(RecoveredGlobal_802258C8_lbl_80513F70 *)&lbl_80513F70).value);
+  do
+  {
+    if (((s32)is_flag_set__6TLobbyFPv((void*)(var_r30))) != 0)
+    {
+      TLobby__sub_80225C8C((void*)((int) var_r30));
+    }
+    var_r31 += 1;
+    var_r30 = (M2C_UNK *) (((u8 *) var_r30) + 0xD0);
+  }
+  while (var_r31 < 8);
+}
 
 void *TLobby__sub_8022598C(int a0) {
   unsigned char *new_var;

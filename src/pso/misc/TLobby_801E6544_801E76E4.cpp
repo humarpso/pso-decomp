@@ -34,6 +34,12 @@ struct RecoveredGlobal_801E7CFC_TLobby__data_80512220 {
     u8 remaining[0x1C];
 };
 
+struct RecoveredGlobal_801E7C5C_TLobby__data_80512220
+{
+  M2C_UNK value;
+  u8 remaining[0x1C];
+};
+
 extern "C" {
 M2C_UNK TLobby__sub_801F34E8(int, int);
 extern struct Glob_80512220 TLobby__data_80512220;
@@ -42,6 +48,11 @@ u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern struct Glob_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E7CFC(void);
+volatile unsigned long TLobby__sub_8007B844(int);
+u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern struct Glob_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E7C5C(void);
 }
 
 extern "C" {
@@ -90,6 +101,22 @@ void send_data__6TLobbyFv(void) {
     clear_quest_vm_flag__6TLobbyFv();
 }
 typedef char RecoveredGlobal_801E7CCC_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E7CCC_TLobby__data_80512220) == 0x20 ? 1 : -1];
+
+typedef struct RecoveredGlobal_801E7C5C_TLobby__data_80512220 RecoveredGlobal_801E7C5C_TLobby__data_80512220;
+typedef char RecoveredGlobal_801E7C5C_TLobby__data_80512220_size[((sizeof(RecoveredGlobal_801E7C5C_TLobby__data_80512220)) == 0x20) ? (1) : (-1)];
+void TLobby__sub_801E7C5C(void) {
+  u32 temp_r3;
+  u8 temp_r31;
+  temp_r3 = ((u32)TPlayerBattleCtrl4P__sub_801BA74C((s32)((int) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7C5C_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0))))));
+  temp_r31 = (u8) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7C5C_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 4)));
+  if (temp_r3 != 0U)
+  {
+    *((s32 *) (((s8 *) (TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC))) + 0)) = TLobby__sub_8007B844((int) temp_r3);
+    return;
+  }
+  *((s32 *) (((s8 *) (TLobby__data_805D5E78 + ((temp_r31 * 4) & 0x3FC))) + 0)) = -1;
+}
+
 void TLobby__sub_801E7CCC(void) {
     TLobby__sub_801F34E8((int) (M2C_FIELD(&(*(RecoveredGlobal_801E7CCC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)), (int) (M2C_FIELD(&(*(RecoveredGlobal_801E7CCC_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4)));
 }

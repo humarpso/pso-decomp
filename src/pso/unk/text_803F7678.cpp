@@ -76,6 +76,8 @@ extern s32 lbl_805D480C;
 extern s32 lbl_805D7A48;
 extern s32 lbl_805D7A4C;
 s32 TLobby__sub_803F8564(u8 *arg0);
+extern s32 lbl_805D7A2C;
+s32 TLobby__sub_803F7D6C(void);
 }
 
 extern "C" {
@@ -218,6 +220,29 @@ extern s32 lbl_805D7A30;
 
 void TLobby__sub_803F7D5C(s32 arg0) {
     lbl_805D7A30 -= arg0;
+}
+
+s32 TLobby__sub_803F7D6C(void) {
+    switch ((*(u32 *)&lbl_805D7A2C)) {
+    case 3:
+        return 0;
+    case 2:
+        return 2;
+    case 0:
+        return 3;
+    case 4:
+        return -1;
+    case 1:
+        return 8;
+    case 5:
+        return 9;
+    case 6:
+        return 0xA;
+    case 7:
+        return 0xB;
+    default:
+        return 1;
+    }
 }
 
 s32 TLobby__sub_803F8044(s32 arg0) {

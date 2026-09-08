@@ -55,6 +55,29 @@ extern u8 *lbl_805D5F60;
 extern void *lbl_805D5F64;
 extern s32 lbl_805D5F68;
 void TAdSinglePlyChrSelectGC__sub_80201970(void);
+s32 TAdPlayerLoadGC__sub_801E1B50(void *);
+s32 TAdSinglePlyChrSelectGC__sub_801FDA4C();
+s32 TAdSinglePlyChrSelectGC__sub_801FE75C();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FEBBC();
+M2C_UNK load_selected_char__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK load_and_verify_data(int);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFE44(int);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFEBC();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_802002E8(int);
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200418();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80200470();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_80201354();
+M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK TAdSinglePlyChrSelectGC__sub_8028DC14();
+M2C_UNK init_battle_selection__10TObjPlayerFv();
+M2C_UNK reset_quest_id__23TAdSinglePlyChrSelectGCFv();
+extern s32 lbl_805D49B4;
+extern u32 lbl_805D5F78;
+extern s32 lbl_805D5F7C;
+extern s32 lbl_805D5F80;
+extern s32 lbl_805D5F8C;
+extern s32 lbl_805D5FA8;
+void TAdSinglePlyChrSelectGC__sub_80201650(void);
 }
 
 extern "C" {
@@ -270,6 +293,170 @@ extern u32 lbl_805D5F70;
 
 typedef char RecoveredGlobal_80201970_lbl_805137D8_size[sizeof(RecoveredGlobal_80201970_lbl_805137D8) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80201970_lbl_805137F8_size[sizeof(RecoveredGlobal_80201970_lbl_805137F8) == 0x24 ? 1 : -1];
+
+void TAdSinglePlyChrSelectGC__sub_80201650(void) {
+    switch (lbl_805D5F78) {
+    case 2:
+        TAdSinglePlyChrSelectGC__sub_80201354();
+        lbl_805D5F78 = 4;
+        break;
+    case 3:
+        init_battle_selection__10TObjPlayerFv();
+        TAdSinglePlyChrSelectGC__sub_8028DC14();
+        lbl_805D5F78 = 4;
+        break;
+    case 4:
+        TAdSinglePlyChrSelectGC__sub_80200470();
+        lbl_805D5F78 = 5;
+        break;
+    case 5:
+        if (TAdSinglePlyChrSelectGC__sub_801FDA4C() == 0) {
+            lbl_805D5F78 = 6;
+            break;
+        }
+    default:
+        break;
+    case 6:
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F7C)) == 0) {
+            lbl_805D5F78 = 0;
+            reset_quest_id__23TAdSinglePlyChrSelectGCFv();
+            lbl_805D49B4 = 0;
+            break;
+        }
+        break;
+    case 7:
+        if (TAdSinglePlyChrSelectGC__sub_801FE75C() == 0) {
+            lbl_805D5F78 = 8;
+            break;
+        }
+        break;
+    case 8:
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F7C)) == 0) {
+            lbl_805D5F78 = 9;
+            break;
+        }
+        break;
+    case 9:
+        TAdSinglePlyChrSelectGC__sub_802002E8((int) (0));
+        lbl_805D5F78 = 0;
+        reset_quest_id__23TAdSinglePlyChrSelectGCFv();
+        lbl_805D49B4 = 0;
+        break;
+    case 10:
+        if (TAdSinglePlyChrSelectGC__sub_801FDA4C() == 0) {
+            lbl_805D5F78 = 6;
+            break;
+        }
+        break;
+    case 11:
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F7C)) == 0) {
+            lbl_805D5F78 = 0;
+            reset_quest_id__23TAdSinglePlyChrSelectGCFv();
+            lbl_805D49B4 = 0;
+            break;
+        }
+        break;
+    case 13:
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F80)) == 0) {
+            lbl_805D5F78 = 0xE;
+            break;
+        }
+        break;
+    case 14:
+        load_and_verify_data((int) (0));
+        lbl_805D5F78 = 0;
+        reset_quest_id__23TAdSinglePlyChrSelectGCFv();
+        lbl_805D49B4 = 0;
+        break;
+    case 12:
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F80)) == 0) {
+            lbl_805D5F78 = 0;
+            reset_quest_id__23TAdSinglePlyChrSelectGCFv();
+            lbl_805D49B4 = 0;
+            break;
+        }
+        break;
+    case 15:
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F8C)) == 0) {
+            lbl_805D5F78 = 0;
+            lbl_805D49B4 = 0;
+            break;
+        }
+        break;
+    case 17:
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F8C)) == 0) {
+            TAdSinglePlyChrSelectGC__sub_801FFE44((int) (1));
+            if ((s32) lbl_805D5FA8 != 0) {
+                lbl_805D5FA8 = 0;
+                load_selected_char__23TAdSinglePlyChrSelectGCFv();
+                break;
+            }
+            lbl_805D5F78 = 0;
+            lbl_805D49B4 = 0;
+            break;
+        }
+        break;
+    case 16:
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F8C)) == 0) {
+            TAdSinglePlyChrSelectGC__sub_801FFE44((int) (0));
+            if ((s32) lbl_805D5FA8 != 0) {
+                lbl_805D5FA8 = 0;
+                load_selected_char__23TAdSinglePlyChrSelectGCFv();
+                break;
+            }
+            lbl_805D5F78 = 0;
+            lbl_805D49B4 = 0;
+            break;
+        }
+        break;
+    case 18:
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (1)) == 0) {
+            lbl_805D5F78 = 0;
+            lbl_805D49B4 = 0;
+            break;
+        }
+        break;
+    case 19:
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (0)) == 0) {
+            lbl_805D5F78 = 0;
+            lbl_805D49B4 = 0;
+            break;
+        }
+        break;
+    case 20:
+        init_slots__23TAdSinglePlyChrSelectGCFv();
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (1)) == 0) {
+            lbl_805D5F78 = 0x15;
+            break;
+        }
+        break;
+    case 21:
+        TAdSinglePlyChrSelectGC__sub_80200418();
+        lbl_805D5F78 = 0;
+        lbl_805D49B4 = 0;
+        break;
+    case 22:
+        if (TAdPlayerLoadGC__sub_801E1B50((void *) (1)) == 0) {
+            TAdSinglePlyChrSelectGC__sub_801FFEBC();
+            if ((s32) lbl_805D5FA8 != 0) {
+                lbl_805D5FA8 = 0;
+                TAdSinglePlyChrSelectGC__sub_801FEBBC();
+                break;
+            }
+            lbl_805D5F78 = 0;
+            lbl_805D49B4 = 0;
+        }
+        break;
+    }
+}
+
 void TAdSinglePlyChrSelectGC__sub_80201970(void) {
     TAdSinglePlyChrSelectGC__sub_801FCBA0((void *) (&lbl_805137D8.value));
     TAdSinglePlyChrSelectGC__sub_80202C08((void *) (&lbl_805137F8.value));

@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TWindowComCard__sub_80249CBC(u32 arg0);
+}
+
+extern "C" {
 
 void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1);
 void* get_card_name_ptr__14TWindowComCardFPv(void* p);
@@ -30,5 +34,31 @@ void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1) {
 }
 
 void* get_card_name_ptr__14TWindowComCardFPv(void* p) { return (char*)p + 0xa; }
+s32 TWindowComCard__sub_80249CBC(u32 arg0) {
+    switch (arg0) {
+    case 3:
+        return 1;
+    case 9:
+        return 6;
+    case 10:
+        return 8;
+    case 11:
+        return 7;
+    case 12:
+        return 9;
+    case 15:
+        return 3;
+    case 16:
+        return 4;
+    case 17:
+        return 5;
+    case 18:
+        return 0;
+    case 2:
+        return 2;
+    default:
+        return 0xE;
+    }
+}
 
 }

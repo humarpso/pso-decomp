@@ -23,6 +23,28 @@ struct Stack_802385EC {
 struct RecoveredGlobal_802385EC_lbl_804CCB28 { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_802385EC_lbl_804CCB28_size[sizeof(RecoveredGlobal_802385EC_lbl_804CCB28) == 0x18 ? 1 : -1];
 
+struct RecoveredGlobal_80238D10_lbl_804CC510
+{
+  M2C_UNK value;
+  u8 remaining[0x48];
+};
+
+struct RecoveredGlobal_80238D10_lbl_804CC55C
+{
+  M2C_UNK value;
+  u8 remaining[0x94];
+};
+
+struct RecoveredFields_80238D10_arg0
+{
+  u8 unknown_0[0x78];
+  s16 field_78;
+  u8 unknown_7A[0xE];
+  f32 field_88;
+  u8 unknown_8C[0x20];
+  s16 field_AC;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 TPhotonMylla__sub_80154CB4(int);
@@ -52,6 +74,12 @@ extern const f32 lbl_805DC8E4;
 extern const f32 lbl_805DC8E8;
 extern const f32 lbl_805DC8EC;
 u8 *TTecRaFoie__sub_802385EC(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0);
+s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 is_technique_ready__8TTecCtrlFv();
+s32 TTecAnti__sub_8022B35C(void *, int);
+extern RecoveredGlobal_80238D10_lbl_804CC510 lbl_804CC510;
+extern RecoveredGlobal_80238D10_lbl_804CC55C lbl_804CC55C;
+void TTecRaZonde__sub_80238D10(u8 *arg0);
 }
 
 extern "C" {
@@ -192,6 +220,26 @@ void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+typedef struct RecoveredFields_80238D10_arg0 RecoveredFields_80238D10_arg0;
+typedef struct RecoveredGlobal_80238D10_lbl_804CC510 RecoveredGlobal_80238D10_lbl_804CC510;
+typedef struct RecoveredGlobal_80238D10_lbl_804CC55C RecoveredGlobal_80238D10_lbl_804CC55C;
+typedef char RecoveredGlobal_80238D10_lbl_804CC510_size[((sizeof(RecoveredGlobal_80238D10_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
+typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80238D10_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
+void TTecRaZonde__sub_80238D10(u8 *arg0) {
+  s32 new_var;
+  new_var = TTecCtrl__sub_8022DBC4((int) 8, (int) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78, (int) 0xFFFF);
+  TTecAnti__sub_8022B35C((void *) (arg0 + 0x88), (int) new_var);
+  if ((((s16) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
+  {
+    ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x20))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x22))) * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78));
+    return;
+  }
+  ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_AC * ((RecoveredFields_80238D10_arg0 *) arg0)->field_78)));
+  if (is_technique_ready__8TTecCtrlFv() != 0)
+  {
+    ((RecoveredFields_80238D10_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80238D10_arg0 *) arg0)->field_88 * (*((f32 *) (((s8 *) (&lbl_804CC55C.value)) + 0x40))));
+  }
 }
 
 }

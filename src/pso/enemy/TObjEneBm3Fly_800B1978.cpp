@@ -211,6 +211,17 @@ M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
 extern M2C_UNK __vt__13TObjEneBm3Fly[];
 extern s32 lbl_805D2A10;
 u8 *TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6);
+s32 handle_message__13TObjEneBm3FlyFPvi(void *, void *);
+s32 TObjEneBm3Fly__sub_800AFDC8(void *, void *);
+s32 action__13TObjEneBm3FlyFPvi(void *, void *);
+s32 TObjEneBm3Fly__sub_800B012C(void *, void *);
+s32 TObjEneBm3Fly__sub_800B02C8(void *, void *);
+s32 TObjEneBm3Fly__sub_800B044C(void *, void *);
+s32 execute_action__13TObjEneBm3FlyFPvi(void *, void *);
+s32 TObjEneBm3Fly__sub_800B0B20(void *, void *);
+s32 TObjEneBm3Fly__sub_800B0F70(void *, void *);
+s32 TObjEneBm3Fly__sub_800B1214(void *, void *);
+void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -398,6 +409,42 @@ void TObjEneBm3Fly::run_task() {
 }
 
 extern "C" {
+
+void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        TObjEneBm3Fly__sub_800B1214((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        TObjEneBm3Fly__sub_800B0F70((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        TObjEneBm3Fly__sub_800B0B20((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        execute_action__13TObjEneBm3FlyFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        TObjEneBm3Fly__sub_800B044C((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TObjEneBm3Fly__sub_800B012C((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        TObjEneBm3Fly__sub_800AFDC8((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TObjEneBm3Fly__sub_800B02C8((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        action__13TObjEneBm3FlyFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        handle_message__13TObjEneBm3FlyFPvi((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
 
 void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

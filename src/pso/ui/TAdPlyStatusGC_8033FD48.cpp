@@ -4,6 +4,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_8033FDB0_lbl_80478430
+{
+  M2C_UNK value;
+  u8 remaining[0x8];
+};
+
+extern "C" {
+s32 TObjPlayer__sub_803D9B2C();
+s32 TObjPlayer__sub_803D9B78();
+f32 TOHangerMachine01__sub_803D9C00(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 TObjEneSlimeOne__sub_803E4AF4(int, int, f32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+extern RecoveredGlobal_8033FDB0_lbl_80478430 lbl_80478430;
+extern const f32 lbl_805DFAF8;
+void TObjPlayer__sub_8033FDB0(s32 arg0);
+}
+
 extern "C" {
 
 u32 get_instance__14TAdPlyStatusGCFii(s32 arg0, s32 arg1);
@@ -28,5 +47,28 @@ u32 get_instance__14TAdPlyStatusGCFii(s32 arg0, s32 arg1) {
 
     extern int lbl_805D6D04;
 int get_player_index__14TAdPlyStatusGCFv(void) {  return lbl_805D6D04; }
+typedef struct RecoveredGlobal_8033FDB0_lbl_80478430 RecoveredGlobal_8033FDB0_lbl_80478430;
+typedef char RecoveredGlobal_8033FDB0_lbl_80478430_size[((sizeof(RecoveredGlobal_8033FDB0_lbl_80478430)) == 0xC) ? (1) : (-1)];
+void TObjPlayer__sub_8033FDB0(s32 arg0) {
+  s32 var_r31;
+  u8 *temp_r30;
+  s32 var_r29;
+  TObjPlayer__sub_803D9B2C();
+  set_global_flag__10TObjPlayerFv();
+  TOHangerMachine01__sub_803D9C00((void *) (&lbl_80478430.value));
+  var_r29 = 0;
+  var_r31 = 0;
+  do
+  {
+    temp_r30 = (u8 *) (arg0 + (var_r31 & 0xFFFFFFFFFFFFFFFF));
+    set_global_param__8TObjFishFi((int) (*((s32 *) (((s8 *) temp_r30) + 0x2C))));
+    TObjEneSlimeOne__sub_803E4AF4((int) (*((s32 *) (((s8 *) temp_r30) + 0x28))), (int) (*((s32 *) (((s8 *) temp_r30) + 0x30))), (f32) lbl_805DFAF8);
+    var_r29 += 1;
+    var_r31 += 0xC;
+  }
+  while (var_r29 < 2);
+  clear_global_state__10TObjPlayerFv();
+  TObjPlayer__sub_803D9B78();
+}
 
 }

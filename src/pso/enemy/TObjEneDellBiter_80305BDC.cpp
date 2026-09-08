@@ -159,6 +159,12 @@ struct Stack_80305FDC {
     f32 spC;
 };
 
+struct RecoveredGlobal_8031B170_lbl_804E8880
+{
+  M2C_UNK value;
+  u8 remaining[0xCC];
+};
+
 extern "C" {
 M2C_UNK TBoss8Dragon__sub_800BB780(void *);
 int TObjEneDD__sub_800BBA18(void*, void*);
@@ -187,6 +193,9 @@ extern const f32 TObjEneDellBiter__data_805DEFE8;
 extern const f32 lbl_805DF030;
 extern const f32 lbl_805DF034;
 void TObjEneDellBiter__sub_80305F58(u8 *arg0);
+extern RecoveredGlobal_8031B170_lbl_804E8880 lbl_804E6CC4;
+extern const f32 lbl_805DF03C;
+void TObjEneDellBiter__sub_803067AC(s32 arg0, f32 farg0);
 }
 
 extern "C" {
@@ -361,6 +370,21 @@ void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {
 }
 
 extern u32 TObjEneDellBiter__data_805D6A30;
+
+typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;
+typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal_8031B170_lbl_804E8880)) == 0xD0) ? (1) : (-1)];
+void TObjEneDellBiter__sub_803067AC(s32 arg0, f32 farg0) {
+  u8 *new_var;
+  f32 var_f1;
+  var_f1 = farg0;
+  if (var_f1 < lbl_805DF03C)
+  {
+    var_f1 = lbl_805DF03C;
+  }
+  new_var = (u8 *) (&lbl_804E6CC4.value);
+  new_var = new_var + (arg0 * 0x10);
+  *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
+}
 
 void destroy_static_instance__16TObjEneDellBiterFv(void) {
     if ((u32) TObjEneDellBiter__data_805D6A30 != 0U) {

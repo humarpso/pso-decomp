@@ -164,6 +164,19 @@ extern const f32 TObjEneRe7Berura__data_805D9764;
 extern const f32 lbl_805D9770;
 void TObjEneRe7Berura__sub_80094BFC(u8 *arg0);
 void TObjEneRe7Berura__sub_80094D98(u8 *arg0);
+s32 TObjEneRe7Berura__sub_8009331C(void *, void *);
+s32 TObjEneRe7Berura__sub_80093470(void *, void *);
+s32 state_patrol__16TObjEneRe7BeruraFPvi(void *, void *);
+s32 TObjEneRe7Berura__sub_800936A8(void *, void *);
+s32 TObjEneRe7Berura__sub_80093888(void *, void *);
+s32 TObjEneRe7Berura__sub_80093C80(void *, void *);
+s32 TObjEneRe7Berura__sub_800940E8(void *, void *);
+s32 TObjEneRe7Berura__sub_80094470(void *, void *);
+s32 TObjEneRe7Berura__sub_80094624(void *, void *);
+s32 TObjEneRe7Berura__sub_8009472C(void *, void *);
+void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
+s32 TObjEneRe7Berura__sub_80094A9C(void *, void *);
+void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -203,6 +216,48 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1) {
     case 5:
         M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFFD);
         break;
+    }
+}
+
+void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        TObjEneRe7Berura__sub_80094A9C((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        state_attack__16TObjEneRe7BeruraFPvi((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 3:
+        TObjEneRe7Berura__sub_8009472C((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        TObjEneRe7Berura__sub_80094624((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        TObjEneRe7Berura__sub_80094470((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        TObjEneRe7Berura__sub_800940E8((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TObjEneRe7Berura__sub_80093C80((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TObjEneRe7Berura__sub_80093888((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        TObjEneRe7Berura__sub_800936A8((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        state_patrol__16TObjEneRe7BeruraFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 10:
+        TObjEneRe7Berura__sub_80093470((void *) (arg0), (void *) (arg2));
+        return;
+    case 11:
+        TObjEneRe7Berura__sub_8009331C((void *) (arg0), (void *) (arg2));
+    default:
+        return;
     }
 }
 

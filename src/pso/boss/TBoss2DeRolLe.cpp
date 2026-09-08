@@ -25,6 +25,25 @@ extern RecoveredGlobal_800339BC_lbl_804FF5E8 lbl_804FF5E8;
 void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 void TBoss2DeRolLe__sub_8003383C(u8 *arg0);
+s32 TBoss2DeRolLe__sub_8002F73C(void *, void *);
+s32 TBoss2DeRolLe__sub_8002F7C4(void *, void *);
+s32 TBoss2DeRolLe__sub_8002FCE4(void *, void *);
+s32 TBoss2DeRolLe__sub_8002FD9C(void *, void *, int);
+s32 TBoss2DeRolLe__sub_8002FE60(void *, void *);
+s32 TBoss2DeRolLe__sub_80030588(void *, void *);
+s32 TBoss2DeRolLe__sub_80030720(void *, void *, int);
+s32 TBoss2DeRolLe__sub_80030898(void *, void *, int);
+s32 TBoss2DeRolLe__sub_80030A38(void *, void *);
+s32 TBoss2DeRolLe__sub_80030DFC(void *, void *, int);
+s32 TBoss2DeRolLe__sub_800310F8(void *, void *, int);
+s32 TBoss2DeRolLe__sub_800313F8(void *, void *, int);
+s32 TBoss2DeRolLe__sub_80031AD4(void *, void *);
+s32 TBoss2DeRolLe__sub_800320B4(void *, void *, int, int);
+s32 TBoss2DeRolLe__sub_800327C8(void *, void *, int, int);
+s32 TBoss2DeRolLe__sub_80032B28(void *, void *);
+s32 TBoss2DeRolLe__sub_80032E38(void *, void *);
+s32 TBoss2DeRolLe__sub_800333F4(void *, void *);
+void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -51,6 +70,108 @@ void *get_enemy_entity(int);
 s32 objInBand__FP7GameObjf(void *, f32);
 void swap_6x13_fields__13TBoss2DeRolLeFPv(void *);
 void swap_endian__13TBoss2DeRolLeFPv(void *);
+
+void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        TBoss2DeRolLe__sub_800333F4((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        TBoss2DeRolLe__sub_80032E38((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        TBoss2DeRolLe__sub_80032B28((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (0), (int) (1));
+        return;
+    case 4:
+        TBoss2DeRolLe__sub_800320B4((void *) (arg0), (void *) (arg2), (int) (0), (int) (2));
+        return;
+    case 5:
+        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (0), (int) (3));
+        return;
+    case 6:
+        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (1), (int) (2));
+        return;
+    case 8:
+        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (1), (int) (0));
+        return;
+    case 9:
+        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (2), (int) (3));
+        return;
+    case 10:
+        TBoss2DeRolLe__sub_800320B4((void *) (arg0), (void *) (arg2), (int) (2), (int) (0));
+        return;
+    case 11:
+        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (2), (int) (1));
+        return;
+    case 12:
+        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (3), (int) (0));
+        return;
+    case 13:
+        TBoss2DeRolLe__sub_80031AD4((void *) (arg0), (void *) (arg2));
+        return;
+    case 14:
+        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (3), (int) (2));
+        return;
+    case 18:
+        TBoss2DeRolLe__sub_800313F8((void *) (arg0), (void *) (arg2), (int) (0));
+        return;
+    case 19:
+        TBoss2DeRolLe__sub_800313F8((void *) (arg0), (void *) (arg2), (int) (2));
+        return;
+    case 20:
+        TBoss2DeRolLe__sub_800310F8((void *) (arg0), (void *) (arg2), (int) (0));
+        return;
+    case 21:
+        TBoss2DeRolLe__sub_800310F8((void *) (arg0), (void *) (arg2), (int) (2));
+        return;
+    case 22:
+        TBoss2DeRolLe__sub_80030DFC((void *) (arg0), (void *) (arg2), (int) (0));
+        return;
+    case 23:
+        TBoss2DeRolLe__sub_80030DFC((void *) (arg0), (void *) (arg2), (int) (2));
+        return;
+    case 16:
+        TBoss2DeRolLe__sub_80030898((void *) (arg0), (void *) (arg2), (int) (0));
+        return;
+    case 17:
+        TBoss2DeRolLe__sub_80030898((void *) (arg0), (void *) (arg2), (int) (2));
+        return;
+    case 15:
+        TBoss2DeRolLe__sub_80030A38((void *) (arg0), (void *) (arg2));
+        return;
+    case 24:
+        TBoss2DeRolLe__sub_80030720((void *) (arg0), (void *) (arg2), (int) (0x18));
+        return;
+    case 25:
+        TBoss2DeRolLe__sub_80030720((void *) (arg0), (void *) (arg2), (int) (0x19));
+        return;
+    case 26:
+        TBoss2DeRolLe__sub_80030588((void *) (arg0), (void *) (arg2));
+        return;
+    case 27:
+        TBoss2DeRolLe__sub_8002FE60((void *) (arg0), (void *) (arg2));
+        return;
+    case 28:
+        TBoss2DeRolLe__sub_8002FD9C((void *) (arg0), (void *) (arg2), (int) (0));
+        return;
+    case 29:
+        TBoss2DeRolLe__sub_8002FD9C((void *) (arg0), (void *) (arg2), (int) (1));
+        return;
+    case 30:
+        TBoss2DeRolLe__sub_8002FCE4((void *) (arg0), (void *) (arg2));
+        return;
+    case 31:
+        TBoss2DeRolLe__sub_8002F7C4((void *) (arg0), (void *) (arg2));
+        return;
+    case 32:
+        TBoss2DeRolLe__sub_8002F73C((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
 
 #pragma push
 #pragma opt_common_subs off

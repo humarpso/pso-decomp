@@ -25,6 +25,12 @@ struct RecoveredGlobal_8017C8EC_lbl_804B528C {
     u8 remaining[0x38];
 };
 
+struct RecoveredGlobal_8017C7DC_lbl_804B4EBC
+{
+  M2C_UNK value;
+  u8 remaining[0xC];
+};
+
 extern "C" {
 int TOVS2Wall01__vt24(void);
 int TOVS2Wall01__vt25(void);
@@ -49,6 +55,16 @@ extern u32 TOVS2Wall01__data_805D5AE8;
 extern void *tl_05;
 extern const f32 lbl_805DBAB0;
 u8 *TOVS2Wall01__sub_8017C8EC(u8 *arg0, s32 arg1, s32 arg2);
+M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
+s32 TObjFish__sub_8001EDB0(int, void *);
+u8 *TObjFish__sub_8001EDC4(s32, s32);
+s32 TLobby__sub_80020004(int, int, void *, int, int, int);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
+extern RecoveredGlobal_8017C7DC_lbl_804B4EBC lbl_804B4EBC;
+extern u32 TOVS2Wall01__data_805D5AE8;
+extern const f32 lbl_805DBAA8;
+extern const f32 lbl_805DBAB4;
+void TOVS2Wall01__sub_8017C7DC(void);
 }
 
 extern "C" {
@@ -85,6 +101,22 @@ void release_model__11TOVS2Wall01Fv(void) {
 }
 
 extern M2C_UNK lbl_804B528C[];
+
+typedef struct RecoveredGlobal_8017C7DC_lbl_804B4EBC RecoveredGlobal_8017C7DC_lbl_804B4EBC;
+void TOVS2Wall01__sub_8017C7DC(void) {
+  s32 temp_r31;
+  s32 temp_r3;
+  s32 var_r0;
+  temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((int) 0x440);
+  var_r0 = temp_r3;
+  if (var_r0 != 0)
+  {
+    var_r0 = TLobby__sub_80020004((int) temp_r3, (int) 1, (void *) (&lbl_804B4EBC.value), (int) 0, (int) 0, (int) 0);
+  }
+  (*(s32 *)&TOVS2Wall01__data_805D5AE8) = var_r0;
+  ;
+  add_entry__11TMotorcycleFsiiff((int) 0x3A, (int) ((s32)TObjFish__sub_8001EDC4((s32)((int) (*(s32 *)&TOVS2Wall01__data_805D5AE8)), (s32)((int) 5))), (int) TObjFish__sub_8001EDB0((int)((int) var_r0), (void *)((int) 5)), (f32) lbl_805DBAB4, (f32) lbl_805DBAA8);
+}
 
 void *destroy__11TOVS2Wall01FPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

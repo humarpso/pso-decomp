@@ -135,6 +135,10 @@ u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 f32 TBoss8Dragon__sub_803D64C0(void *);
 f32 TBoss8Dragon__sub_803D64DC(void *);
 void TObjPlayer__sub_80357EFC(u8 *arg0);
+M2C_UNK play_particle_effect_once__10TObjPlayerFv();
+u32 get_player_list__10TObjPlayerFv();
+M2C_UNK TObjBoss2Tunnel__sub_803D929C(int, int);
+void TObjPlayer__sub_80357954(u8 *arg0);
 }
 
 extern "C" {
@@ -218,6 +222,25 @@ void *reset_field28__10TObjPlayerFPv(void *arg0) {
 void TObjPlayer__sub_8035776C(void *arg0, void *arg1) {
     M2C_FIELD(arg1, s32 *, 0x40) = (s32) (M2C_FIELD(arg1, s32 *, 0x40) | 0x400);
     M2C_FIELD(arg1, s32 *, 0x78) = 0x12;
+}
+
+void TObjPlayer__sub_80357954(u8 *arg0) {
+    u32 temp_r3;
+    temp_r3 = get_player_list__10TObjPlayerFv();
+    switch (temp_r3) {
+    case 2:
+    case 5:
+    case 8:
+        play_particle_effect_once__10TObjPlayerFv();
+        return;
+    case 1:
+        TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x1F8)));
+        return;
+    case 7:
+        TObjBoss2Tunnel__sub_803D929C((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0x1F8)));
+    default:
+        return;
+    }
 }
 
 int clear_field1f8_flag8192__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((char*)p + 0x1f8, 1820, 8192); }

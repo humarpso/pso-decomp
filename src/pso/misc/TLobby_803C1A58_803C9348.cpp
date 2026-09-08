@@ -44,6 +44,8 @@ s32 send_with_offset4_alt__6TLobbyFPv(int);
 M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
 M2C_UNK set_scroll_position__6TLobbyFPvi(void *, int);
 void TLobby__sub_803CB194(u8 *arg0);
+extern s32 lbl_805D7590;
+s32 TLobby__sub_803CB844(void);
 }
 
 extern "C" {
@@ -342,6 +344,10 @@ void TLobby__sub_803CB71C(void) {
 
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1) {
     TLobby__sub_803C57C8((void *) (arg1));
+}
+
+s32 TLobby__sub_803CB844(void) {
+    return lbl_805D7590 != 0;
 }
 
 void TLobby__sub_803CBA18(void) {

@@ -110,6 +110,7 @@ struct VObj_18 : VBase_18 {
     virtual void m102();
     virtual M2C_UNK m103();
 };
+
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
@@ -117,9 +118,44 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, int);
 M2C_UNK TObjEneRecon__sub_8031EE54(void *);
 M2C_UNK restore_position__12TObjEneReconFPv(void *);
 void fn_8031FD3C(u8 *arg0);
+s32 handle_death_state__12TObjEneReconFPvi(void *, void *);
+s32 TObjEneRecon__sub_8031F408(void *, void *);
+s32 handle_action_state__12TObjEneReconFPvi(void *, void *);
+s32 update_state__12TObjEneReconFPvi(void *, void *);
+s32 TObjEneRecon__sub_8031F600(void *, void *);
+s32 TObjEneRecon__sub_8031F6C0(void *, void *);
+s32 handle_state__12TObjEneReconFPvi(void *, void *);
+void TObjEneRecon__sub_8031FCB0(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
+
+void TObjEneRecon__sub_8031FCB0(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        TObjEneRecon__sub_8031F6C0((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        handle_state__12TObjEneReconFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        TObjEneRecon__sub_8031F600((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        update_state__12TObjEneReconFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        handle_action_state__12TObjEneReconFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TObjEneRecon__sub_8031F408((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        handle_death_state__12TObjEneReconFPvi((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
 
 void fn_8031FD3C(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() != 0) {

@@ -146,11 +146,17 @@ void update_position_flag__13TObjEneRe4BitFPv(void *);
 extern const f32 lbl_805DA76C;
 extern const f32 lbl_805DA778;
 void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
+void TObjEneRe4Bit__sub_800ECC14(u8 *arg0, s32 arg1);
+void TObjEneRe4Bit__sub_800ECD28(u8 *arg0, s32 arg1);
+s32 TObjEneRe4Bit__sub_800ECE04(void *, void *);
+void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1);
+s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1);
+s32 TObjEneRe4Bit__sub_800ED090(void *, void *);
+void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1);
 void reset_transform__13TObjEneRe4BitFPv(void *arg0);
 void TObjEneDD__sub_800BA934(void *);
 M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
@@ -272,7 +278,7 @@ void TObjEneRe4Bit__sub_800ECED0(void *arg0, s32 arg1) {
 }
 #pragma pop
 
-void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
+s32 handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {
@@ -302,6 +308,30 @@ void handle_event__13TObjEneRe4BitFPvi(void *arg0, s32 arg1) {
 }
 
 extern const f32 TObjEneRe4Bit__data_805DA770;
+
+void TObjEneRe4Bit__vt85(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        TObjEneRe4Bit__sub_800ED090((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        handle_event__13TObjEneRe4BitFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 2:
+        TObjEneRe4Bit__sub_800ECED0((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 3:
+        TObjEneRe4Bit__sub_800ECE04((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TObjEneRe4Bit__sub_800ECD28((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 6:
+        TObjEneRe4Bit__sub_800ECC14((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
+    default:
+        return;
+    }
+}
 
 void TObjEneRe4Bit__sub_800ED150(u8 *arg0) {
     s32 temp_r3;

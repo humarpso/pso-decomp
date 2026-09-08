@@ -599,7 +599,6 @@ extern const f32 lbl_805D80A8;
 void TBoss1Dragon__sub_800280C0(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TBoss1Dragon__sub_80027080(void *);
 void TBoss1Dragon__sub_8002727C(u8 *arg0);
 s32 isHpPhasePending__12TBoss1DragonFv(void *);
 void update_position_history__12TBoss1DragonFi(s32 arg0);
@@ -679,6 +678,51 @@ f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 lbl_805D80BC;
 void TBoss1Dragon__sub_80029328(u8 *arg0, f32 *arg1, f32 *arg2);
+s32 TBoss1Dragon__sub_80027320(void *);
+void TBoss1Dragon__sub_8002830C(void *);
+M2C_UNK TBoss1Dragon__sub_800284B4(void *, M2C_UNK);
+void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1);
+void action__12TBoss1DragonFPvi(void *arg0, s32 arg1);
+s32 TBoss1Dragon__sub_80021490(void *, void *);
+void update_wander_state__12TBoss1DragonFPvi(void *arg0, s32 arg1);
+s32 TBoss1Dragon__sub_80021DE4(void *, void *);
+s32 TBoss1Dragon__sub_80021F98(void *, void *);
+s32 TBoss1Dragon__sub_80022158(void *, void *);
+s32 TBoss1Dragon__sub_8002237C(void *, void *);
+s32 TBoss1Dragon__sub_800224A4(void *, void *);
+s32 TBoss1Dragon__sub_80022740(void *, void *);
+s32 TBoss1Dragon__sub_800228E8(void *, void *);
+s32 TBoss1Dragon__sub_80022C38(void *, void *);
+s32 TBoss1Dragon__sub_80022DF4(void *, void *);
+s32 TBoss1Dragon__sub_80022EE0(void *, void *);
+s32 TBoss1Dragon__sub_80023450(void *, void *);
+s32 TBoss1Dragon__sub_80023A2C(void *, void *);
+s32 TBoss1Dragon__sub_80023D60(void *, void *);
+s32 TBoss1Dragon__sub_80023FE8(void *, void *, void *);
+s32 TBoss1Dragon__sub_80024314(void *, void *);
+s32 TBoss1Dragon__sub_80024914(void *, void *);
+s32 TBoss1Dragon__sub_80024A24(void *, void *);
+s32 TBoss1Dragon__sub_80024B48(void *, void *);
+s32 TBoss1Dragon__sub_80024E50(void *, void *);
+s32 TBoss1Dragon__sub_80025168(void *, void *);
+s32 TBoss1DragonEffBullet__sub_80025710(void *, void *);
+s32 TBoss1Dragon__sub_80025C68(void *, void *);
+s32 TBoss1Dragon__sub_80025FFC(void *, void *);
+s32 TBoss1Dragon__sub_8002624C(void *, void *);
+s32 TBoss1Dragon__sub_800263C8(void *, void *);
+s32 TBoss1Dragon__sub_800267B8(void *, void *);
+s32 TBoss1Dragon__sub_80026B98(void *, void *);
+void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1);
+void TBoss1Dragon__sub_80026D04(s32 arg0, u32 arg1, s32 arg2);
+void TBoss1Dragon__sub_8002830C(void *);
+s32 isHpPhasePending__12TBoss1DragonFv(void *);
+s32 reset_lobby_model__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_801B1E54(int, int, int);
+s32 end_camera_pan__10TObjPlayerFPv(int);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
+extern s32 lbl_805D53A0;
+extern const f32 TBoss1Dragon__data_805D7F28;
+void TBoss1Dragon__sub_80027080(u8 *arg0);
 }
 
 extern "C" {
@@ -888,6 +932,129 @@ void update_wander_state__12TBoss1DragonFPvi(void *arg0, s32 arg1) {
     }
 }
 
+void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1) {
+    switch (arg1) {
+    case 4:
+        TBoss1Dragon__sub_80027320((void *) (arg0));
+        return;
+    case 2:
+    case 11:
+        ((s32)TBoss1Dragon__sub_800284B4((void *)((void *) (arg0)), (M2C_UNK)((int) (0x17))));
+        return;
+    case 9:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x760) != 0) {
+            TBoss1Dragon__sub_800284B4((void *)((void *) (arg0)), (M2C_UNK)((int) (0x17)));
+            return;
+        }
+        TBoss1Dragon__sub_8002830C((void *) (arg0));
+    default:
+        return;
+    }
+}
+
+void TBoss1Dragon__sub_80026D04(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        TBoss1Dragon__sub_80026C98((u8 *)((void *) (arg0)), (u32)((void *) (arg2)));
+        return;
+    case 1:
+        TBoss1Dragon__sub_80026B98((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        TBoss1Dragon__sub_800267B8((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        TBoss1Dragon__sub_800263C8((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        TBoss1Dragon__sub_8002624C((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TBoss1Dragon__sub_80025FFC((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TBoss1Dragon__sub_80025C68((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        TBoss1DragonEffBullet__sub_80025710((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+    case 10:
+    case 11:
+    case 12:
+        TBoss1Dragon__sub_80024E50((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        TBoss1Dragon__sub_80024B48((void *) (arg0), (void *) (arg2));
+        return;
+    case 13:
+        TBoss1Dragon__sub_80024A24((void *) (arg0), (void *) (arg2));
+        return;
+    case 14:
+        TBoss1Dragon__sub_80024914((void *) (arg0), (void *) (arg2));
+        return;
+    case 15:
+        TBoss1Dragon__sub_80024314((void *) (arg0), (void *) (arg2));
+        return;
+    case 16:
+    case 17:
+        TBoss1Dragon__sub_80023FE8((void *) (arg0), (void *) (arg2), (void *) (arg1));
+        return;
+    case 18:
+        TBoss1Dragon__sub_80023D60((void *) (arg0), (void *) (arg2));
+        return;
+    case 19:
+        TBoss1Dragon__sub_80023450((void *) (arg0), (void *) (arg2));
+        return;
+    case 21:
+        TBoss1Dragon__sub_80022EE0((void *) (arg0), (void *) (arg2));
+        return;
+    case 22:
+        TBoss1Dragon__sub_80022DF4((void *) (arg0), (void *) (arg2));
+        return;
+    case 23:
+        TBoss1Dragon__sub_80022C38((void *) (arg0), (void *) (arg2));
+        return;
+    case 24:
+        TBoss1Dragon__sub_800228E8((void *) (arg0), (void *) (arg2));
+        return;
+    case 25:
+        TBoss1Dragon__sub_80022740((void *) (arg0), (void *) (arg2));
+        return;
+    case 26:
+        TBoss1Dragon__sub_800224A4((void *) (arg0), (void *) (arg2));
+        return;
+    case 27:
+        TBoss1Dragon__sub_8002237C((void *) (arg0), (void *) (arg2));
+        return;
+    case 28:
+        TBoss1Dragon__sub_80022158((void *) (arg0), (void *) (arg2));
+        return;
+    case 29:
+        TBoss1Dragon__sub_80021490((void *) (arg0), (void *) (arg2));
+        return;
+    case 30:
+        action__12TBoss1DragonFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 31:
+        update_wander_state__12TBoss1DragonFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));
+        return;
+    case 34:
+        TBoss1Dragon__sub_80025168((void *) (arg0), (void *) (arg2));
+        return;
+    case 35:
+        TBoss1Dragon__sub_80023A2C((void *) (arg0), (void *) (arg2));
+        return;
+    case 36:
+        TBoss1Dragon__sub_80021F98((void *) (arg0), (void *) (arg2));
+        return;
+    case 37:
+        TBoss1Dragon__sub_80021DE4((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
+
 s32 filter_input_flags__12TBoss1DragonFiii(s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
@@ -925,6 +1092,107 @@ u8 check_attack_ready__12TBoss1DragonFPv(void *arg0) {
         var_r31 = 1;
     }
     return (u8) var_r31;
+}
+
+void TBoss1Dragon__sub_80027080(u8 *arg0) {
+    s16 temp_r3_2;
+    s16 temp_r3_3;
+    s32 var_r31;
+    u16 temp_r4;
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(((u8 *)TPlayerBattleCtrl4P__sub_801BA74C((s32) M2C_FIELD(arg0, u16 *, 0x764))));
+    if (temp_r3 != NULL) {
+        end_camera_pan__10TObjPlayerFPv((int) (temp_r3));
+        M2C_FIELD(temp_r3, s32 *, 0x30) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x30) & 0xFDFFFFFF);
+        reset_lobby_model__10TObjPlayerFPv((void *) ((u8 *)(temp_r3) + 0x644));
+        M2C_FIELD(temp_r3, f32 *, 0x3C) = (f32) TBoss1Dragon__data_805D7F28;
+        temp_r4 = M2C_FIELD(arg0, u16 *, 0x764);
+        if (((s32) temp_r4 == (s32) lbl_805D53A0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 0x15)) {
+            TObjPlayer__sub_801B1E54((int) (0xFFFFU), (int) (temp_r4), (int) (0));
+        }
+    }
+    M2C_FIELD(arg0, s32 *, 0x760) = 0;
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0x15) {
+        var_r31 = 0;
+        if (isHpPhasePending__12TBoss1DragonFv((void *) (arg0)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x67C) = 0;
+            temp_r3_2 = M2C_FIELD(arg0, s16 *, 0x326);
+            switch (temp_r3_2) {
+            case 23:
+            case 24:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x67C) = 0;
+                break;
+            case 3:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 2;
+                break;
+            case 4:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 3;
+                break;
+            case 5:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 4;
+                break;
+            case 25:
+            case 26:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x67C) = 6;
+                break;
+            case 7:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 6;
+                break;
+            case 8:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 7;
+                break;
+            case 9:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 0;
+                break;
+            }
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x67C) = 0;
+            temp_r3_3 = M2C_FIELD(arg0, s16 *, 0x326);
+            switch (temp_r3_3) {
+            case 23:
+            case 24:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x67C) = 0;
+                break;
+            case 3:
+            case 4:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 0;
+                break;
+            case 5:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 1;
+                break;
+            case 25:
+            case 26:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x67C) = 0xA;
+                break;
+            case 7:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 0xA;
+                break;
+            case 8:
+            case 19:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 0xB;
+                break;
+            case 15:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 2;
+                break;
+            case 36:
+            case 37:
+                var_r31 = 1;
+                M2C_FIELD(arg0, s32 *, 0x67C) = 9;
+                break;
+            case 9:
+                M2C_FIELD(arg0, s32 *, 0x67C) = 0;
+                break;
+            }
+            M2C_FIELD(arg0, s32 *, 0x67C) = (s32) (M2C_FIELD(arg0, s32 *, 0x67C) + 0x32);
+        }
+        if (var_r31 != 0) {
+            TBoss1Dragon__sub_8002830C((void *) (arg0));
+        }
+    }
 }
 
 #pragma push
@@ -1639,7 +1907,7 @@ void TBoss1Dragon__sub_8002985C(u8 *arg0) {
                     TBoss8Dragon__sub_800BB780((void *) (arg0));
                 }
                 if ((s32) TBoss1Dragon__data_805D4B38 == 0) {
-                    TBoss1Dragon__sub_80027080((void *) (arg0));
+                    TBoss1Dragon__sub_80027080((u8 *)((void *) (arg0)));
                 } else {
                     check_death__12TBoss1DragonFPv((void *) (arg0));
                 }
@@ -1654,7 +1922,7 @@ void TBoss1Dragon__sub_8002985C(u8 *arg0) {
                     TBoss8Dragon__sub_800BB780((void *) (arg0));
                 }
                 if ((s32) TBoss1Dragon__data_805D4B38 == 0) {
-                    TBoss1Dragon__sub_80027080((void *) (arg0));
+                    TBoss1Dragon__sub_80027080((u8 *)((void *) (arg0)));
                 }
                 ((VObj_18_8002985C *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0);
             }

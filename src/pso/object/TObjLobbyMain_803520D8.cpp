@@ -5,7 +5,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK TObjLobbyMain__sub_803520DC();
 M2C_UNK TObjLobbyMain__sub_80352240(void *);
 extern const f32 lbl_805DFEE4;
 extern const f32 lbl_805DFEE8;
@@ -13,6 +12,9 @@ void TObjLobbyMain__sub_80352624(u8 *arg0);
 extern const f32 TObjLobbyMain__data_805DFEE0;
 extern const f32 lbl_805DFEE4;
 void TObjLobbyMain__sub_803525F0(u8 *arg0);
+s32 fn_80352094();
+void TObjLobbyMain__sub_803520DC(u8 *arg0);
+void TObjLobbyMain__sub_803521A4(u8 *arg0);
 }
 
 extern "C" {
@@ -28,6 +30,81 @@ M2C_UNK enable__13TParticleCtrlFPv(void *);
 s32 fn_80352094();
 
 void TObjLobbyMain__sub_803520D8(void) {  }
+
+void TObjLobbyMain__sub_803520DC(u8 *arg0) {
+    u32 temp_r0;
+    M2C_FIELD(arg0, u32 *, 0xCC) = ((u32)fn_80352094());
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0xCC);
+    switch (temp_r0) {
+    case 1:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 0xC;
+        return;
+    case 5:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 0xF;
+        return;
+    case 7:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 0xA;
+        return;
+    case 3:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 0x10;
+        return;
+    case 9:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 0x11;
+        return;
+    case 8:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 0xB;
+        return;
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 0xE;
+        return;
+    case 10:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 1;
+        return;
+    case 11:
+        M2C_FIELD(arg0, s16 *, 0xD0) = 0xD;
+        return;
+    default:
+        M2C_FIELD(arg0, s16 *, 0xD0) = (s16) M2C_FIELD(arg0, s16 *, 0xD2);
+        return;
+    }
+}
+
+void TObjLobbyMain__sub_803521A4(u8 *arg0) {
+    u32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, u32 *, 0x84);
+    switch (temp_r0) {
+    case 1:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 1;
+        return;
+    case 2:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 2;
+        return;
+    case 3:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 3;
+        return;
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 4;
+        return;
+    case 5:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 5;
+        return;
+    case 6:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 6;
+        return;
+    case 7:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 7;
+        return;
+    case 8:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 8;
+        return;
+    case 9:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 9;
+        return;
+    default:
+        M2C_FIELD(arg0, s16 *, 0xD2) = 0;
+        return;
+    }
+}
 
 void update_particles__13TObjLobbyMainFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) == 2) {
@@ -88,7 +165,7 @@ void TObjLobbyMain__sub_80352624(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0xD4) <= lbl_805DFEE8) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 1;
         M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DFEE8;
-        TObjLobbyMain__sub_803520DC();
+        TObjLobbyMain__sub_803520DC((u8 *)(arg0));
         TObjLobbyMain__sub_80352240((void *) (arg0));
         M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DFEE8;
     }

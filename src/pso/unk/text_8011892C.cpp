@@ -34,6 +34,10 @@ s32 init_timer_event__12TItemProUnitFPv(int, int, void *, int);
 s32 alloc__13TItemProArmorFi(int);
 extern const f32 lbl_805DABFC;
 void TItemProUnit__vt42(u8 *arg0);
+M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
+extern const f32 TItemProUnit__data_805DABF8;
+extern const f32 lbl_805DAC00;
+void TItemProUnit__sub_80118D58(u8 *arg0);
 }
 
 extern "C" {
@@ -65,7 +69,6 @@ void TItemProUnit__vt43(void *arg0);
 void TItem__sub_8011892C(void);
 u8 *TItemData__sub_8010EA38(void *);
 M2C_UNK TItemEquipBase__ct();
-M2C_UNK TItemProUnit__sub_80118D58(void *);
 s16 get_field6_bswap__9TItemDataFPv(void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 
@@ -133,6 +136,44 @@ void TItemProUnit__vt42(u8 *arg0) {
   }
 }
 
+void TItemProUnit__sub_80118D58(u8 *arg0) {
+    s16 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s16 *, 0x18C);
+    switch (temp_r4) {
+    case 18:
+        M2C_FIELD(arg0, s16 *, 0x190) = (s16) M2C_FIELD(arg0, s16 *, 0x18E);
+        return;
+    case 20:
+        set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (8));
+        return;
+    case 21:
+        set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (2));
+        return;
+    case 19:
+        M2C_FIELD(arg0, f32 *, 0x1B8) = (f32) (TItemProUnit__data_805DABF8 + ((f32) M2C_FIELD(arg0, s16 *, 0x18E) / lbl_805DAC00));
+        return;
+    case 22:
+        set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (0x80));
+        return;
+    case 23:
+        set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (0x200));
+        return;
+    case 24:
+        set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (0x800));
+        return;
+    case 25:
+        set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (0x2000));
+        return;
+    case 26:
+        set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (0x8000));
+        return;
+    case 27:
+        set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (0x20000));
+    default:
+        return;
+    }
+}
+
 u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     s16 temp_r0;
     u8 *temp_r3;
@@ -159,7 +200,7 @@ u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
         M2C_FIELD(arg0, s16 *, 0x1BC) = 0;
     }
     memset(arg0 + 0x192, 0, 0x26);
-    TItemProUnit__sub_80118D58(arg0);
+    TItemProUnit__sub_80118D58((u8 *)(arg0));
     return arg0;
 }
 

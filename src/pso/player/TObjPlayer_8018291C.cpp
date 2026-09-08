@@ -37,6 +37,21 @@ struct VObj_80182A58_8018291C : Base_80182A58_8018291C {
 };
 
 extern "C" {
+s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
+s32 check_player_in_range__10TObjPlayerFPv(void *arg0, s32 _w1, f32 _w2);
+M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK __dl__7TObjectFPv(void *);
+M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
+extern M2C_UNK lbl_804B5BA8[];
+void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1);
+extern void *lbl_805D4E28;
+s32 TLobby__sub_80182E60(void);
+    extern const float lbl_805DBC00;
+void fn_80182E7C(void* a0);
+}
+
+extern "C" {
 
 struct Vec_8018291C { char pad14[0x14]; f32 x; f32 y; };
 struct Base_8018291C { char pad[0x18]; };
@@ -70,7 +85,6 @@ void TObjPlayer__sub_80182A20(s32 arg0);
 void begin_state_1__10TObjPlayerFPv(void *arg0);
 void check_ground_or_fall__10TObjPlayerFPv(void *arg0);
 void dispatch_state__10TObjPlayerFPv(void *arg0);
-s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 f32 TObjPlayer__sub_80141CF8(s32, s32);
 s32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
@@ -149,5 +163,25 @@ loop_1:
     }
     goto loop_1;
 }
+s32 check_player_in_range__10TObjPlayerFPv(void *arg0, s32 _w1, f32 _w2) { return is_player_in_range__10TObjPlayerFiif((s32)(arg0), (s32)((s8 *)arg0 + 0x38), _w2); }
+void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5BA8;
+        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
+        TObjEneGibbles__sub_80156720(arg0);
+        destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+s32 TLobby__sub_80182E60(void) {
+    if ((void *) lbl_805D4E28 == NULL) {
+        return -1;
+    }
+    return M2C_FIELD(lbl_805D4E28, s32 *, 0x1C);
+}
+void fn_80182E7C(void* a0) { *(float*)((char*)a0 + 0x9c) = lbl_805DBC00; *(int*)((char*)a0 + 0x90) = 1; }
 
 }

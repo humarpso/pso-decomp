@@ -137,6 +137,20 @@ extern const f32 lbl_805DE740;
 extern const f32 lbl_805DE744;
 extern const f32 lbl_805DE748;
 void TObjEneBm9Mericarol__sub_802D078C(u8 *arg0);
+s32 TObjEneBm9Mericarol__sub_802CEDA0(void *, void *);
+s32 handle_motion_event__19TObjEneBm9MericarolFPvi(void *, void *);
+s32 TObjEneBm9Mericarol__sub_802CF178(void *, void *);
+s32 TObjEneBm9Mericarol__sub_802CF1B4(void *, void *);
+s32 TObjEneBm9Mericarol__sub_802CF368(void *, void *);
+s32 TObjEneBm9Mericarol__sub_802CF4F8(void *, void *);
+s32 TObjEneDD__sub_802CF7B4(void *, void *);
+s32 TObjPlayer__sub_802CFB64(void *, void *);
+s32 TObjEneBm9Mericarol__sub_802CFF40(void *, void *);
+s32 TObjEneBm9Mericarol__sub_802D01D8(void *, void *);
+s32 handle_event__19TObjEneBm9MericarolFPvi(void *, void *);
+s32 TObjEneBm9Mericarol__sub_802D05BC(void *, void *);
+s32 handle_action__19TObjEneBm9MericarolFPvi(void *, void *);
+void TObjEneBm9Mericarol__sub_802D0A30(s32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -236,6 +250,51 @@ void TObjEneBm9Mericarol__sub_802D0A2C(void) {  }
 extern u32 lbl_805D6860;
 extern u32 lbl_805D6864;
 extern u32 lbl_805D6868;
+
+void TObjEneBm9Mericarol__sub_802D0A30(s32 arg0, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 0:
+        handle_action__19TObjEneBm9MericarolFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 1:
+        TObjEneBm9Mericarol__sub_802D05BC((void *) (arg0), (void *) (arg2));
+        return;
+    case 2:
+        handle_event__19TObjEneBm9MericarolFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 3:
+        TObjEneBm9Mericarol__sub_802D01D8((void *) (arg0), (void *) (arg2));
+        return;
+    case 4:
+        TObjEneBm9Mericarol__sub_802CFF40((void *) (arg0), (void *) (arg2));
+        return;
+    case 5:
+        TObjPlayer__sub_802CFB64((void *) (arg0), (void *) (arg2));
+        return;
+    case 6:
+        TObjEneDD__sub_802CF7B4((void *) (arg0), (void *) (arg2));
+        return;
+    case 10:
+        TObjEneBm9Mericarol__sub_802CF368((void *) (arg0), (void *) (arg2));
+        return;
+    case 11:
+        TObjEneBm9Mericarol__sub_802CF1B4((void *) (arg0), (void *) (arg2));
+        return;
+    case 7:
+        TObjEneBm9Mericarol__sub_802CF4F8((void *) (arg0), (void *) (arg2));
+        return;
+    case 8:
+        handle_motion_event__19TObjEneBm9MericarolFPvi((void *) (arg0), (void *) (arg2));
+        return;
+    case 9:
+        TObjEneBm9Mericarol__sub_802CEDA0((void *) (arg0), (void *) (arg2));
+        return;
+    case 12:
+        TObjEneBm9Mericarol__sub_802CF178((void *) (arg0), (void *) (arg2));
+    default:
+        return;
+    }
+}
 
 #pragma push
 #pragma fp_contract on

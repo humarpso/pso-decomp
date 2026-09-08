@@ -21,6 +21,16 @@ M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 s32 TOSwitchAttack__sub_80087278(void *, int, int);
 extern RecoveredGlobal_802EC468_lbl_804FF5E8 lbl_804FF5E8;
 void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 TBoss1Dragon__sub_80143504(void *);
+void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
+s32 TObjFish__sub_802EC7F0(void *);
+s32 TObjFish__sub_802ECBDC(void *);
+s32 TObjFish__sub_802ED4AC(void *, int);
+s32 TObjFish__sub_802ED62C(void *, int);
+extern const f32 lbl_805DEA48;
+void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -37,6 +47,38 @@ M2C_UNK TObjEneDD__sub_800B9BEC(void *, void *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK spawn_default_particle__8TObjFishFv(s32, M2C_UNK);
+
+void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1) {
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFFFB);
+        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) | 0x100);
+        set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xE));
+        TObjFish__sub_802ECBDC((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0x6C0) = 3;
+        TObjFish__sub_802ED4AC((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6C0)));
+        break;
+    case 2:
+        if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1) {
+            TObjFish__sub_802ED62C((void *) (arg0), (int) (2));
+            break;
+        }
+    default:
+        break;
+    case 9:
+        if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1) {
+            TObjFish__sub_802EC7F0((void *) (arg0));
+            break;
+        }
+        break;
+    case 0:
+        TBoss1Dragon__sub_80143504((void *) (arg0));
+        if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEA48)) != 0) {
+            set_effect_target_position__8TObjFishFPvPvPv((void*)((void *) (arg0)), (void*)((int) (0x39906)), (void*)((void *) ((u8 *)(arg0) + 0x50C)));
+        }
+        break;
+    }
+}
 
 void spawn_via_trap__8TObjFishFiii(s32 arg0, s32 arg1, s32 arg2) {
     TOTrapAncient01__sub_80226578(arg1, arg0, arg2, 0, 0);

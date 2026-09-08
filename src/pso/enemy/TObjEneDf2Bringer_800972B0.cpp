@@ -112,6 +112,11 @@ struct VObj_14_c1c33b : VBase_14_c1c33b {
     virtual s32 m4();
 };
 
+struct RecoveredGlobal_800975A8_lbl_805008A8 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_800A04F0(void *);
@@ -123,6 +128,13 @@ M2C_UNK TBoss1Dragon__sub_80143504(void *);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
 s32 TBoss3Volopt__sub_8022675C(void *, void *, int, int);
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
+M2C_UNK get_camera_ctrl__9TObjEneDDFPv(void *, int);
+M2C_UNK TObjContainerIdo__sub_803D96A8(int, int);
+extern RecoveredGlobal_800975A8_lbl_805008A8 lbl_805008A8;
+extern s32 TObjEneDf2Bringer__data_805D4FBC;
+extern s32 TObjEneDf2Bringer__data_805D4FC0;
+extern s32 TObjEneDf2Bringer__data_805D4FC4;
+void TObjEneDf2Bringer__sub_800975A8(void);
 }
 
 extern "C" {
@@ -241,6 +253,25 @@ struct TObj : TBase {
     virtual void v99();
     virtual M2C_UNK v100();
 };
+
+typedef char RecoveredGlobal_800975A8_lbl_805008A8_size[sizeof(RecoveredGlobal_800975A8_lbl_805008A8) == 0x10 ? 1 : -1];
+void TObjEneDf2Bringer__sub_800975A8(void) {
+    s32 temp_r4;
+    switch (TObjEneDf2Bringer__data_805D4FBC) {
+    case 8:
+        TObjContainerIdo__sub_803D96A8((int) (0), (int) (TObjEneDf2Bringer__data_805D4FC0));
+        break;
+    case 11:
+    case 16:
+    case 26:
+    case 41:
+        temp_r4 = TObjEneDf2Bringer__data_805D4FC4;
+        TObjEneDf2Bringer__data_805D4FC4 = temp_r4 + 0xC;
+        get_camera_ctrl__9TObjEneDDFPv((void *) (&lbl_805008A8.value), (int) (temp_r4));
+        break;
+    }
+    TObjEneDf2Bringer__data_805D4FBC += 1;
+}
 
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1) {
     switch (arg1) {

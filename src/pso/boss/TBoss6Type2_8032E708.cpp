@@ -38,6 +38,16 @@ struct RecoveredGlobal_8032FF24_lbl_804EDD94 {
     u8 remaining[0x4C];
 };
 
+struct RecoveredFields_8032F174_arg0
+{
+  u8 unknown_0[0x3C];
+  f32 field_3C;
+  u8 unknown_40[0x340];
+  s32 field_380;
+  u8 unknown_384[0x84];
+  u16 field_408;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -86,6 +96,8 @@ s32 request_destroy__11TBoss4Type2FUi(int);
 void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1);
 void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1);
 void update_all_parts__11TBoss6Type2FPv(s32 arg0);
+extern const f32 lbl_805DF818;
+s32 TBoss6Type2__sub_8032F174(u8 *arg0);
 }
 
 extern "C" {
@@ -101,7 +113,6 @@ void set_anim_frame__11TBoss6Type2FPvi(void* p, s32 v);
 void set_target_nodes__11TBoss6Type2FPvPvPv(void* p, void* a1, void* a2);
 void update_rotation_ramp__11TBoss6Type2FPv(void *arg0);
 s32 TBoss6Type2__sub_8032F034(void *);
-s32 TBoss6Type2__sub_8032F174();
 M2C_UNK TBoss6Type2__sub_8032F418(void *);
 f32 TBoss8Dragon__sub_803D64C0(void *);
 f32 TBoss8Dragon__sub_803D64DC(void *);
@@ -197,8 +208,17 @@ extern const f32 lbl_805DF81C;
 extern const f32 lbl_805DF820;
 extern const f32 lbl_805DF824;
 
+typedef struct RecoveredFields_8032F174_arg0 RecoveredFields_8032F174_arg0;
+s32 TBoss6Type2__sub_8032F174(u8 *arg0) {
+  if (((((RecoveredFields_8032F174_arg0 *) arg0)->field_380 == 2) && (((RecoveredFields_8032F174_arg0 *) arg0)->field_408 != ((-1) & 0xFFFF))) && (((RecoveredFields_8032F174_arg0 *) arg0)->field_3C <= lbl_805DF818))
+  {
+    return 1;
+  }
+  return 0;
+}
+
 void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
-    if ((TBoss6Type2__sub_8032F174() == 0) || (TBoss6Type2__sub_8032F034(arg0) == 0)) {
+    if ((TBoss6Type2__sub_8032F174((u8 *)(arg0)) == 0) || (TBoss6Type2__sub_8032F034(arg0) == 0)) {
         M2C_FIELD(arg0, f32 *, 0x3BC) = (f32) lbl_805DF7FC;
         M2C_FIELD(arg0, f32 *, 0x3B8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3B8) + lbl_805DF81C);
         if (M2C_FIELD(arg0, f32 *, 0x3B8) < lbl_805DF7FC) {
