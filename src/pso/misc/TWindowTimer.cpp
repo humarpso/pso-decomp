@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80287FBC_lbl_804D2E74 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80287FBC___vt__12TWindowTimer {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
@@ -19,6 +29,14 @@ void run_task__12TWindowTimerFv(u8 *arg0);
 M2C_UNK TWindowSubStatusDisp__sub_80287580(void *, void *, int, f32);
 extern const f32 lbl_805DD890;
 void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1);
+void save_position__17TWindowSubComCardFPv(void *);
+u8 * TWindowDD__sub_802466E0(void *, void *, s16, void *);
+u8 * fn_8026CB74(void);
+void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
+extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
+extern M2C_UNK __vt__12TWindowTimer[];
+extern s32 lbl_805D3AD8;
+u8 *TWindowTimer__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -34,7 +52,6 @@ s32 TWindowSubComCard__sub_8026CBB8(M2C_UNK);
 M2C_UNK TWindowSubStatusDisp__sub_80229080(M2C_UNK *);
 M2C_UNK TWindowSubStatusDisp__sub_802290E0();
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
-s32 TWindowTimer__ct();
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
@@ -85,7 +102,7 @@ s32 create__12TWindowTimerFv(void) {
 
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != 0) {
-        var_r31 = TWindowTimer__ct();
+        var_r31 = ((s32)TWindowTimer__ct((u8 *)((void *)var_r31)));
     }
     fn_80287AD8(var_r31);
     return var_r31;
@@ -96,7 +113,7 @@ s32 create_alt__12TWindowTimerFv(void) {
 
     var_r31 = __nw__7TObjectFUl(0x64);
     if (var_r31 != 0) {
-        var_r31 = TWindowTimer__ct();
+        var_r31 = ((s32)TWindowTimer__ct((u8 *)((void *)var_r31)));
     }
     fn_80287B60(var_r31);
     return var_r31;
@@ -131,6 +148,17 @@ void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_80287FBC_lbl_804D2E74_size[sizeof(RecoveredGlobal_80287FBC_lbl_804D2E74) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_80287FBC___vt__12TWindowTimer_size[sizeof(RecoveredGlobal_80287FBC___vt__12TWindowTimer) == 0x18 ? 1 : -1];
+u8 *TWindowTimer__ct(u8 *arg0) {
+    TWindowDD__sub_802466E0(arg0, &lbl_804D2E74.value, 4, fn_8026CB74());
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AD8;
+    M2C_FIELD(arg0, s32 *, 0x60) = 0;
+    update_chat_parts__12TWindowTimerFPv((u8 *)(arg0));
+    save_position__17TWindowSubComCardFPv(arg0);
     return arg0;
 }
 

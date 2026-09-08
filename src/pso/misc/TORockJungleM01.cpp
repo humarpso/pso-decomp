@@ -15,6 +15,58 @@ struct VObj_8029C320 : Base_8029C320 {
     virtual void m7();
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_38 { u8 bytes[0x38]; };
+
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct M2CCopy_3C { u8 bytes[0x3C]; };
+
+struct RecoveredGlobal_8029C588_lbl_804DC3A0 {
+    M2C_UNK value;
+    u8 remaining[0x80];
+};
+
+struct RecoveredGlobal_8029C588_lbl_804DC424 {
+    M2C_UNK value;
+    u8 remaining[0x20];
+};
+
+struct RecoveredGlobal_8029C588___vt__15TORockJungleM01 {
+    M2C_UNK value;
+    u8 remaining[0x4C];
+};
+
+extern "C" {
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 activate_and_dispatch__10TObjPlayerFPv(void *);
+s32 init_and_activate__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 TObjPlayer__sub_80154E3C(void *);
+s32 TObjEneGibbles__sub_80156780(void *, void *, int);
+s32 TORockCaveBrakable__ct(void *);
+s32 create__10TObjMapCsnFi(void *);
+s32 TORockJungleS01__sub_8029CAE8(int);
+u8 *TORockJungleS01__sub_8029CAFC(s32);
+extern RecoveredGlobal_8029C588_lbl_804DC3A0 lbl_804DC3A0;
+extern RecoveredGlobal_8029C588_lbl_804DC424 lbl_804DC424;
+extern M2C_UNK __vt__15TORockJungleM01[];
+extern s32 lbl_805D3D40;
+extern const f32 lbl_805DDD1C;
+u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TORockJungleM01__vt13(u8 *arg0);
@@ -23,7 +75,6 @@ void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1);
 void *create__15TORockJungleM01FPv(void *arg0);
 void run_task__15TORockJungleM01Fv(void* p);
 M2C_UNK TBoss3Volopt__sub_8022675C(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-void *TORockJungleM01__ct(void *, void *);
 void TObjEneGibbles__sub_80156720(void *);
 int TObjPlayer__sub_800D7BB0(void*);
 void TObjPlayer__sub_800D7C58(void *, int);
@@ -44,7 +95,7 @@ void TORockJungleM01__vt16(s32 arg0) {
 void *create__15TORockJungleM01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = TORockJungleM01__ct(o, arg0);
+        o = TORockJungleM01__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }
@@ -63,6 +114,38 @@ void *__dt__15TORockJungleM01Fv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+typedef char RecoveredGlobal_8029C588_lbl_804DC3A0_size[sizeof(RecoveredGlobal_8029C588_lbl_804DC3A0) == 0x84 ? 1 : -1];
+typedef char RecoveredGlobal_8029C588_lbl_804DC424_size[sizeof(RecoveredGlobal_8029C588_lbl_804DC424) == 0x24 ? 1 : -1];
+typedef char RecoveredGlobal_8029C588___vt__15TORockJungleM01_size[sizeof(RecoveredGlobal_8029C588___vt__15TORockJungleM01) == 0x50 ? 1 : -1];
+u8 *TORockJungleM01__ct(u8 *arg0, s32 arg1) {
+    struct CopyStack_8029C588 { u8 bytes[0x3C]; };
+    CopyStack_8029C588 copy_storage_8029C588;
+    s32 temp_r0;
+    s32 temp_r4;
+    TORockCaveBrakable__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029C588___vt__15TORockJungleM01 *)&__vt__15TORockJungleM01).value;
+    init_and_activate__10TObjPlayerFPv((void *) (arg0 + 0xBC));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D40;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, u8 **, 0x34) = TORockJungleS01__sub_8029CAFC(2);
+    M2C_FIELD(arg0, s32 *, 0x24) = TORockJungleS01__sub_8029CAE8((int) (2));
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
+    TObjEneGibbles__sub_80156780((void *) (arg0), (void *) ((u8 *)&lbl_804DC3A0.value + 0x2C), (int) (1));
+    TObjPlayer__sub_80154E3C((void *) (arg0));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
+    if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
+        M2C_FIELD(arg0, s32 *, 0xB8) = -1;
+    }
+    temp_r4 = arg1 - 4;
+    *(M2CCopy_3C *)(copy_storage_8029C588.bytes) = *(const M2CCopy_3C *)(temp_r4 + 4);
+    VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C588.bytes + 0x24)), (void *) (&lbl_804DC424.value));
+    M2C_FIELD(arg0, s32 *, 0xDC) = create__10TObjMapCsnFi((void *) ((copy_storage_8029C588.bytes)));
+    activate_and_dispatch__10TObjPlayerFPv((void *) (arg0 + 0xBC));
     return arg0;
 }
 

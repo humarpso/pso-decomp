@@ -148,6 +148,29 @@ struct RecoveredGlobal_80064CFC_lbl_804FF5A0 {
     u8 remaining[0x10];
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_14 { u8 bytes[0x14]; };
+
+struct RecoveredGlobal_80064694_lbl_80437CF0 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct RecoveredGlobal_80064114_lbl_80437D68 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80064114_lbl_804FF5B4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 extern const f32 lbl_805D8EBC;
@@ -223,6 +246,14 @@ extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
 extern M2C_UNK lbl_805D4D98;
 extern M2C_UNK lbl_805D4D9C;
 void TBoss8Dragon__sub_80064CFC(s32 arg0);
+M2C_UNK TBoss8Dragon__sub_800670E0(int, void *);
+extern RecoveredGlobal_80064694_lbl_80437CF0 lbl_80437CF0;
+void TBoss8Dragon__sub_80064694(s32 arg0);
+M2C_UNK TBoss8Dragon__sub_80067074(void *, void *);
+void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
+extern RecoveredGlobal_80064114_lbl_80437D68 lbl_80437D68;
+extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
+void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -429,6 +460,20 @@ typedef char RecoveredGlobal_800646F0_lbl_804FF5B4_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8006435C_lbl_80437D2C_size[sizeof(RecoveredGlobal_8006435C_lbl_80437D2C) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8006435C_lbl_804FF5A0_size[sizeof(RecoveredGlobal_8006435C_lbl_804FF5A0) == 0x14 ? 1 : -1];
+
+typedef char RecoveredGlobal_80064114_lbl_80437D68_size[sizeof(RecoveredGlobal_80064114_lbl_80437D68) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_80064114_lbl_804FF5B4_size[sizeof(RecoveredGlobal_80064114_lbl_804FF5B4) == 0xC ? 1 : -1];
+void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1) {
+    struct CopyStack_80064114 { u8 bytes[0x14]; };
+    CopyStack_80064114 copy_storage_80064114;
+    u8 *temp_r4;
+    temp_r4 = (u8 *)&lbl_80437D68.value - 4;
+    *(M2CCopy_14 *)(copy_storage_80064114.bytes) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
+    (*(f32 *)(copy_storage_80064114.bytes + 0x4)) = M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_80064114_lbl_804FF5B4 *)&lbl_804FF5B4).value, u8 **, 8), f32 *, 4);
+    TBoss8Dragon__sub_80067074((void *)(arg1), (void *)((s32) (copy_storage_80064114.bytes)));
+    setup_instance__9TObjEneDDFiiPvi(arg0, arg1, (copy_storage_80064114.bytes), 0);
+}
+
 void TBoss8Dragon__sub_8006435C(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8006435C, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8006435C, sp10) == 0x8) ? 1 : -1];
@@ -447,6 +492,16 @@ void TBoss8Dragon__sub_8006435C(u8 *arg0) {
     TBoss8Dragon__sub_800670E0((int) (temp_r31_2), (void *) (&stack.sp8));
     emit_enemy_effect__9TObjEneDDFiiPvi((void *) (arg0), (int) (temp_r31_2), (void *) (&stack.sp8), (int) (M2C_FIELD(arg0, s32 *, 0x578)));
     reset_hp__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (M2C_FIELD(&lbl_804FF5A0.value, s32 *, 0)), (int) (0));
+}
+
+typedef char RecoveredGlobal_80064694_lbl_80437CF0_size[sizeof(RecoveredGlobal_80064694_lbl_80437CF0) == 0x14 ? 1 : -1];
+void TBoss8Dragon__sub_80064694(s32 arg0) {
+    struct CopyStack_80064694 { u8 bytes[0x14]; };
+    CopyStack_80064694 copy_storage_80064694;
+    u8 *temp_r5;
+    temp_r5 = (u8 *)&lbl_80437CF0.value - 4;
+    *(M2CCopy_14 *)(copy_storage_80064694.bytes) = *(const M2CCopy_14 *)((s32) temp_r5 + 4);
+    TBoss8Dragon__sub_800670E0((int)((void *) (arg0 + 0x3C0)), (void *)((void *) ((copy_storage_80064694.bytes))));
 }
 
 void TBoss8Dragon__sub_800646F0(s32 arg0) {

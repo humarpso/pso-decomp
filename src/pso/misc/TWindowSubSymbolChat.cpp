@@ -4,6 +4,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_38 { u8 bytes[0x38]; };
+
+struct M2CCopy_3C { u8 bytes[0x3C]; };
+
+extern "C" {
+s32 __copy(void *, void *, int);
+s32 *TWindowSubSymbolChat__sub_80283850(s32 *arg0, s32 *arg1);
+}
+
 extern "C" {
 
 s32 compute_total_height__20TWindowSubSymbolChatFv(void);
@@ -11,9 +23,8 @@ s32 calc_remaining_slots__20TWindowSubSymbolChatFv(void);
 void* get_keyboard_ptr__20TWindowSubSymbolChatFPv(void* p);
 unsigned char get_global_4e54__20TWindowSubSymbolChatFv(void);
 void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0);
-s32 commit__20TWindowSubSymbolChatFi(s32 arg0);
+s32 commit__20TWindowSubSymbolChatFi(s32 arg0, s32 * _w1);
 s32 refresh_parts__20TWindowSubSymbolChatFPv();
-M2C_UNK TWindowSubSymbolChat__sub_80283850();
 s32 update_layout__20TWindowSubSymbolChatFPv(void);
 
 s32 compute_total_height__20TWindowSubSymbolChatFv(void) {
@@ -36,8 +47,18 @@ void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0) {
     *arg0 |= 1;
 }
 
-s32 commit__20TWindowSubSymbolChatFi(s32 arg0) {
-    TWindowSubSymbolChat__sub_80283850();
+s32 commit__20TWindowSubSymbolChatFi(s32 arg0, s32 * _w1) {
+    TWindowSubSymbolChat__sub_80283850((s32 *)(arg0), (s32 *)(_w1));
+    return arg0;
+}
+s32 *TWindowSubSymbolChat__sub_80283850(s32 *arg0, s32 *arg1) {
+    u8 *temp_r4;
+    u8 *temp_r5;
+    M2C_FIELD(arg0, s32 *, 0) = M2C_FIELD(arg1, s32 *, 0);
+    __copy((void *) ((u8 *)(arg0) + 4), (void *) ((u8 *)(arg1) + 4), (int) (0x17));
+    temp_r5 = (u8 *)(arg0) + 0x18;
+    temp_r4 = (u8 *)(arg1) + 0x18;
+    *(M2CCopy_3C *)((s32) temp_r5 + 4) = *(const M2CCopy_3C *)((s32) temp_r4 + 4);
     return arg0;
 }
 

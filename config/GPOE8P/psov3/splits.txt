@@ -5928,6 +5928,7 @@ pso/ui/TAdSinglePlyChrSelectGC_801334D4.cpp:
 
 pso/object/TObjLight_80133568.cpp:
 	.text       start:0x80133568 end:0x80134A40
+	.rodata     start:0x8043ED90 end:0x8043ED98
 
 pso/misc/TLobby.cpp:
 	.text       start:0x80134A40 end:0x80134D54
@@ -9077,11 +9078,8 @@ pso/player/TObjPlayer_801C0808_801C0970.cpp:
 pso/player/TObjPlayer_801C0B50.cpp:
 	.text       start:0x801C0B50 end:0x801C0E90
 
-pso/player/TObjPlayer_801C0808_801C0E90.cpp:
-	.text       start:0x801C0E90 end:0x801C1108
-
 pso/player/TObjPlayer_801C0808.cpp:
-	.text       start:0x801C1108 end:0x801C16F0
+	.text       start:0x801C0E90 end:0x801C16F0
 
 pso/player/TObjPlayer_801C0808_801C16F0.cpp:
 	.text       start:0x801C16F0 end:0x801C1890

@@ -4,18 +4,26 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_10 { u8 bytes[0x10]; };
+
+struct M2CCopy_14 { u8 bytes[0x14]; };
+
 extern "C" {
 int TItemList__sub_801D3B00(void*, void*, void*, void*);
 int TItemList__sub_801D5868(void*, void*);
 int TItemList__sub_801D5804(void*);
 int TItemList__sub_801D5838(void* a0);
 void TTecLuker__sub_801D3728(s32 arg0, s32 arg1, s32 arg2);
+void fn_801D371C(void* p, void* q);
+u8 *fn_801D36B4(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
 
 int TItemList__sub_801D35FC(void);
-int fn_801D36B4(void);
 void fn_801D371C(void* p, void* q);
 void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 int TItemList__sub_801D3B00(void*, void*, void*, void*);
@@ -46,7 +54,18 @@ void insert_item_node__10TObjPlayerFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3
 }
 
 int TItemList__sub_801D35FC(void) { return 0; }
-int fn_801D36B4(void) { return 0; }
+
+u8 *fn_801D36B4(u8 *arg0, u8 *arg1) {
+    u8 *temp_r4;
+    u8 *temp_r5;
+    fn_801D371C((void*)((void *) (arg0)), (void*)((void *) (arg1)));
+    temp_r5 = (u8 *)(arg0 + 4);
+    temp_r4 = (u8 *)(arg1 + 4);
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    *(M2CCopy_14 *)((s32) temp_r5 + 4) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
+    return arg0;
+}
+
 void fn_801D371C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 void TTecLuker__sub_801D3728(s32 arg0, s32 arg1, s32 arg2) {
     TItemList__sub_801D5838((void*)((void *)((s32)TItemList__sub_801D5868((void*)(arg0), (void*)(0)))));

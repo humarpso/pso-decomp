@@ -1431,6 +1431,7 @@ pso/misc/TWindowSubComCard.cpp
 pso/misc/TWindowSubComCardList_8026CB08.cpp
 pso/misc/TWindowSubComCard_80073DB8.cpp
 pso/misc/TWindowSubComCard_8007A810_8007A894.cpp
+pso/misc/TWindowSubComCard_8007A810_8007A94C.cpp
 pso/misc/TWindowSubComCard_8007A810_8007AAF4.cpp
 pso/misc/TWindowSubComCard_8007A810_8007AB24.cpp
 pso/misc/TWindowSubComCard_8007A810_8007AE38.cpp
@@ -1504,6 +1505,7 @@ pso/misc/TWindowSubStatusDisp_80249060.cpp
 pso/misc/TWindowSubStatusDisp_8024F688.cpp
 pso/misc/TWindowSubStatusDisp_80255DF4.cpp
 pso/misc/TWindowSubStatusDisp_80256B94_80257298.cpp
+pso/misc/TWindowSubStatusDisp_80257784_802580B0.cpp
 pso/misc/TWindowSubStatusDisp_80257784_80258194.cpp
 pso/misc/TWindowSubStatusDisp_80257784_8025823C.cpp
 pso/misc/TWindowSubStatusDisp_80257784_8025829C.cpp
@@ -1523,6 +1525,7 @@ pso/misc/TWindowSubStatusDisp_802A35B4.cpp
 pso/misc/TWindowSubStatusDisp_802A4DE8.cpp
 pso/misc/TWindowSubStatusDisp_80327390.cpp
 pso/misc/TWindowSubStatusDisp_8034A938.cpp
+pso/misc/TWindowSubSymbolChat.cpp
 pso/misc/TWindowSubSymbolChatFaceType.cpp
 pso/misc/TWindowSubSymbolChatParts.cpp
 pso/misc/TWindowSubSymbolChat_8007763C.cpp
@@ -2573,6 +2576,7 @@ pso/unk/text_8009048C.cpp
 pso/unk/text_8009A398.cpp
 pso/unk/text_8009A6AC.cpp
 pso/unk/text_8009A704.cpp
+pso/unk/text_8009E1D4.cpp
 pso/unk/text_800A01C0.cpp
 pso/unk/text_800A02AC.cpp
 pso/unk/text_800A0320.cpp
@@ -2726,6 +2730,7 @@ pso/unk/text_80130EA0.cpp
 pso/unk/text_801310A8.cpp
 pso/unk/text_8013157C.cpp
 pso/unk/text_80131ADC.cpp
+pso/unk/text_8013AAD4.cpp
 pso/unk/text_8013ADD0.cpp
 pso/unk/text_8013ADE4.cpp
 pso/unk/text_801418C4.cpp
@@ -2781,6 +2786,7 @@ pso/unk/text_80183BFC.cpp
 pso/unk/text_80183D00.cpp
 pso/unk/text_80183F24.cpp
 pso/unk/text_8018411C.cpp
+pso/unk/text_80184B44.cpp
 pso/unk/text_8018A150.cpp
 pso/unk/text_80190940.cpp
 pso/unk/text_80191D14.cpp

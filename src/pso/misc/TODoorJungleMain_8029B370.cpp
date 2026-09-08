@@ -38,6 +38,34 @@ struct VObj : Base {
     virtual s32 m8(f32, f32);
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct M2CCopy_38 { u8 bytes[0x38]; };
+
+struct M2CCopy_3C { u8 bytes[0x3c]; };
+
+struct RecoveredGlobal_8029B924_lbl_804DC014 {
+    M2C_UNK value;
+    u8 remaining[0x28];
+};
+
+struct RecoveredGlobal_8029B924___vt__16TODoorJungleMain {
+    M2C_UNK value;
+    u8 remaining[0x54];
+};
+
 extern "C" {
 extern u32 TODoorJungleMain__data_805D65B8;
 extern u32 lbl_805D65BC;
@@ -47,6 +75,24 @@ u8 * TLanguage__sub_801E4874(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80465418;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804DC004;
 void TODoorJungleMain__sub_8029B3C8(void);
+s32 TObjFish__sub_8001ED9C(void *, s32);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_80154E3C(void *);
+u32 TObjEneGibbles__sub_80156780(void *, s32, s32);
+u8 * init_door_base(void *);
+s32 create__10TObjMapCsnFi(s32);
+extern RecoveredGlobal_8029B924_lbl_804DC014 lbl_804DC014;
+extern M2C_UNK __vt__16TODoorJungleMain[];
+extern s32 lbl_805D3D20;
+extern u32 TODoorJungleMain__data_805D65B8;
+extern const f32 lbl_805DDCD8;
+extern const f32 lbl_805DDCDC;
+extern const f32 lbl_805DDCE0;
+extern const f32 lbl_805DDCE4;
+extern const f32 lbl_805DDCE8;
+extern const f32 lbl_805DDCEC;
+extern const f32 lbl_805DDCF0;
+u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -106,6 +152,35 @@ void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+typedef char RecoveredGlobal_8029B924_lbl_804DC014_size[sizeof(RecoveredGlobal_8029B924_lbl_804DC014) == 0x2C ? 1 : -1];
+typedef char RecoveredGlobal_8029B924___vt__16TODoorJungleMain_size[sizeof(RecoveredGlobal_8029B924___vt__16TODoorJungleMain) == 0x58 ? 1 : -1];
+u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    struct CopyStack_8029B924 { u8 bytes[0x3C]; };
+    CopyStack_8029B924 copy_storage_8029B924;
+    s32 temp_r4;
+    init_door_base(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029B924___vt__16TODoorJungleMain *)&__vt__16TODoorJungleMain).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D20;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, s32 *, 0xBC) = TObjFish__sub_8001ED9C((*(u8 * *)&TODoorJungleMain__data_805D65B8), 0);
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DDCD8;
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805DDCDC;
+    TObjEneGibbles__sub_80156780(arg0, (s32) &lbl_804DC014.value, 1);
+    TObjPlayer__sub_80154E3C(arg0);
+    reset_photon_effect__10TObjPlayerFPv(arg0);
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DDCE0;
+    temp_r4 = arg2 - 4;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DDCE4;
+    M2C_FIELD(arg0, s32 *, 0xD4) = 0;
+    M2C_FIELD(arg0, s32 *, 0xD8) = 0;
+    *(M2CCopy_3C *)(copy_storage_8029B924.bytes) = *(const M2CCopy_3C *)(temp_r4 + 4);
+    (*(f32 *)(copy_storage_8029B924.bytes + 0x24)) = lbl_805DDCE8;
+    (*(f32 *)(copy_storage_8029B924.bytes + 0x28)) = lbl_805DDCEC;
+    (*(f32 *)(copy_storage_8029B924.bytes + 0x2C)) = lbl_805DDCF0;
+    (*(s32 *)(copy_storage_8029B924.bytes + 0x30)) = 2;
+    M2C_FIELD(arg0, s32 *, 0xDC) = create__10TObjMapCsnFi((s32) (copy_storage_8029B924.bytes));
     return arg0;
 }
 

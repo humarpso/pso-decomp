@@ -11,6 +11,29 @@ struct LazerFence4VObj_801930E8 : LazerFence4Base_801930E8 {
     virtual s32 m8(f32, f32);
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_38 { u8 bytes[0x38]; };
+
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct M2CCopy_3C { u8 bytes[0x3C]; };
+
+struct RecoveredGlobal_80365210___vt__18TObjLaboDesignBase {
+    M2C_UNK value;
+    u8 remaining[0x34];
+};
+
 extern "C" {
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 f32 fn_8013157C(void *, s32);
@@ -30,6 +53,20 @@ s32 TBoss7Tentacle__sub_803D9BA0(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 s32 TOSignCave03__sub_803DB510(int);
 void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK TObjEneGibbles__sub_80156780(void *, int, int);
+M2C_UNK TObjPlayer__sub_801569F4();
+s32 create__10TObjMapCsnFi(void *, f32, f32);
+void* fn_80365320(int a0);
+int fn_80365334(int a0);
+extern M2C_UNK __vt__18TObjLaboDesignBase[];
+extern s32 lbl_805D44A0;
+extern const f32 lbl_805E02A0;
+extern const f32 lbl_805E02A4;
+extern const f32 lbl_805E02A8;
+extern const f32 lbl_805E02AC;
+extern const f32 lbl_805E02B0;
+u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -49,7 +86,6 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjFish__sub_8001EDB0(int, int);
 s32 TObjFish__sub_8001EDC4(int, int);
-void *TObjLaboDesignBase__ct(void *, void *, void *, int);
 void TObjPlayer__sub_80154A00(void *);
 M2C_UNK TObjPlayer__sub_803D9214(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -66,7 +102,7 @@ extern void *tl_05;
 void *create_instance__18TObjLaboDesignBaseFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct(o, tl_05, arg0, 5);
+        o = TObjLaboDesignBase__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0), (s32)(5));
     }
     return o;
 }
@@ -76,7 +112,7 @@ extern void *tl_05;
 void *create_obj_labo_design_base(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct(o, tl_05, arg0, 4);
+        o = TObjLaboDesignBase__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0), (s32)(4));
     }
     return o;
 }
@@ -86,7 +122,7 @@ extern void *tl_05;
 void *TObjLaboDesignBase__sub_80364D38(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct(o, tl_05, arg0, 3);
+        o = TObjLaboDesignBase__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0), (s32)(3));
     }
     return o;
 }
@@ -96,7 +132,7 @@ extern void *tl_05;
 void *create_labo_design_base(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct(o, tl_05, arg0, 2);
+        o = TObjLaboDesignBase__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0), (s32)(2));
     }
     return o;
 }
@@ -106,7 +142,7 @@ extern void *tl_05;
 void *alloc_and_construct__18TObjLaboDesignBaseFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct(o, tl_05, arg0, 1);
+        o = TObjLaboDesignBase__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0), (s32)(1));
     }
     return o;
 }
@@ -116,7 +152,7 @@ extern void *tl_05;
 void *TObjLaboDesignBase__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
     if (o != NULL) {
-        o = TObjLaboDesignBase__ct(o, tl_05, arg0, 0);
+        o = TObjLaboDesignBase__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0), (s32)(0));
     }
     return o;
 }
@@ -198,6 +234,36 @@ void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1) {
 }
 
     extern unsigned char lbl_804F2C40[];
+
+typedef char RecoveredGlobal_80365210___vt__18TObjLaboDesignBase_size[sizeof(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase) == 0x38 ? 1 : -1];
+u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+    struct CopyStack_80365210 { u8 bytes[0x3C]; };
+    CopyStack_80365210 copy_storage_80365210;
+    s32 temp_r0;
+    s32 temp_r4;
+    TObjPlayer__sub_801569F4();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase *)&__vt__18TObjLaboDesignBase).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44A0;
+    ((VObj_18_1a504b *)(arg0))->m5(arg2);
+    M2C_FIELD(arg0, s32 *, 0xB0) = arg3;
+    M2C_FIELD(arg0, s32 *, 0xAC) = ((s32)fn_80365334((int) (M2C_FIELD(arg0, s32 *, 0xB0))));
+    TObjEneGibbles__sub_80156780((void *) (arg0), (int) (((s32)fn_80365320((int) (M2C_FIELD(arg0, s32 *, 0xB0))))), (int) (1));
+    reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805E02A0;
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805E02A4;
+    M2C_FIELD(arg0, s32 *, 0xBC) = 0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB0);
+    if ((temp_r0 == 3) || (temp_r0 == 4)) {
+        temp_r4 = arg2 - 4;
+        *(M2CCopy_3C *)(copy_storage_80365210.bytes) = *(const M2CCopy_3C *)(temp_r4 + 4);
+        (*(f32 *)(copy_storage_80365210.bytes + 0x24)) = lbl_805E02A8;
+        (*(f32 *)(copy_storage_80365210.bytes + 0x28)) = lbl_805E02AC;
+        (*(f32 *)(copy_storage_80365210.bytes + 0x2C)) = lbl_805E02B0;
+        M2C_FIELD(arg0, s32 *, 0xBC) = create__10TObjMapCsnFi((void *) ((copy_storage_80365210.bytes)), (f32) (lbl_805E02AC), (f32) (lbl_805E02A8));
+    }
+    return arg0;
+}
+
 void* fn_80365320(int a0) {  return (char*)lbl_804F2C40 + a0 * 44; }
 
     extern int lbl_80543A48[];

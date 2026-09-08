@@ -553,6 +553,49 @@ struct RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C {
     u8 remaining[0x8];
 };
 
+struct M2CCopy_14
+{
+  u8 bytes[0x14];
+};
+
+struct RecoveredGlobal_80027650_lbl_80435338
+{
+  M2C_UNK value;
+  u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80027650_TBoss1Dragon__data_804FE17C
+{
+  u8 *value;
+  u8 remaining[0x8];
+};
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct RecoveredGlobal_80027710_lbl_80435324 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_80027710_TBoss1Dragon__data_804FE17C {
+    f32 * value;
+    u8 remaining[0x8];
+};
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct RecoveredGlobal_800277D8_lbl_80435310 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
+struct RecoveredGlobal_800277D8_TBoss1Dragon__data_804FE17C {
+    u8 * value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 s32 objInBand__FP7GameObjf(void *, f32);
 void play_se_at_pos__12TBoss1DragonFii(s32 arg0, s32 arg1);
@@ -582,7 +625,6 @@ M2C_UNK TObjEneDD__sub_800BBA18(void *, s16);
 void TBoss1Dragon__sub_80028598(u8 *arg0, u8 *arg1);
 s32 TBoss1Dragon__sub_8002AD54(u8 *arg0);
 M2C_UNK get_position__12TBoss1DragonFPv(void *);
-void TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
 M2C_UNK get_position__12TBoss1DragonFPv(void *);
 void TBoss1Dragon__sub_800275BC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
 u8 * TBoss1Dragon__ct(void *, M2C_UNK, s32);
@@ -723,6 +765,25 @@ u32 TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern s32 lbl_805D53A0;
 extern const f32 TBoss1Dragon__data_805D7F28;
 void TBoss1Dragon__sub_80027080(u8 *arg0);
+s32 isV2Mode__12TBoss1DragonFv(void);
+M2C_UNK TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
+M2C_UNK setup__9TObjEneDDFPvii(void *, void *, void *);
+extern const RecoveredGlobal_80027650_lbl_80435338 lbl_80435338;
+extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
+void TBoss1Dragon__sub_80027650(u8 *arg0, s32 arg1);
+s32 isV2Mode__12TBoss1DragonFv(void);
+M2C_UNK TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
+void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
+extern RecoveredGlobal_80027710_lbl_80435324 lbl_80435324;
+extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
+void TBoss1Dragon__sub_80027710(u8 *arg0, s32 arg1, s32 arg2);
+s32 isV2Mode__12TBoss1DragonFv(void);
+M2C_UNK TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
+s32 TBoss8Dragon__sub_8002D308(void *);
+void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
+extern RecoveredGlobal_800277D8_lbl_80435310 lbl_80435310;
+extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
+void TBoss1Dragon__sub_800277D8(u8 *arg0);
 }
 
 extern "C" {
@@ -1223,7 +1284,7 @@ void update_switch_attack__12TBoss1DragonFPv(u8 *arg0) {
     TOSwitchAttack__sub_80087278(arg0 + 0x38, M2C_FIELD(M2C_FIELD(arg0, void **, 0x778), s32 *, 4), 0x40);
 }
 
-void TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3) {
+M2C_UNK TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3) {
     u8 *temp_r3;
     get_position__12TBoss1DragonFPv((void *) (M2C_FIELD(arg0, u8 **, 0x774)));
     M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x774), void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);
@@ -1248,6 +1309,87 @@ void TBoss1Dragon__sub_800275BC(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3) {
 typedef char RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C_size[sizeof(RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C) == 0xC ? 1 : -1];
 f32 TBoss1Dragon__sub_80027634(void) {
     return lbl_805D8094 * M2C_FIELD(TBoss1Dragon__data_804FE17C.value, f32 *, 4);
+}
+
+typedef struct CopyStack_80027650 CopyStack_80027650;
+typedef struct M2CCopy_10 M2CCopy_10;
+typedef struct M2CCopy_14 M2CCopy_14;
+typedef struct RecoveredGlobal_80027650_TBoss1Dragon__data_804FE17C RecoveredGlobal_80027650_TBoss1Dragon__data_804FE17C;
+typedef struct RecoveredGlobal_80027650_lbl_80435338 RecoveredGlobal_80027650_lbl_80435338;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+typedef char RecoveredGlobal_80027650_lbl_80435338_size[((sizeof(RecoveredGlobal_80027650_lbl_80435338)) == 0x14) ? (1) : (-1)];
+typedef char RecoveredGlobal_80027650_TBoss1Dragon__data_804FE17C_size[((sizeof(RecoveredGlobal_80027650_TBoss1Dragon__data_804FE17C)) == 0xC) ? (1) : (-1)];
+void TBoss1Dragon__sub_80027650(u8 *arg0, s32 arg1) {
+  struct CopyStack_80027650
+  {
+    u8 bytes[0x14];
+  };
+  CopyStack_80027650 copy_storage_80027650;
+  s32 temp_r3;
+  u8 *temp_r4;
+  temp_r4 = ((u8 *) (&lbl_80435338.value)) - 4;
+  *((M2CCopy_14 *) (((s32) (copy_storage_80027650.bytes - 0x4)) + 4)) = *((const M2CCopy_14 *) (temp_r4 + 4));
+  *((f32 *) (copy_storage_80027650.bytes + 0x4)) = *((f32 *) (((s8 *) (*(RecoveredGlobal_80027650_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value) + 4));
+  *((s32 *) copy_storage_80027650.bytes) = *((s32 *) (((s8 *) arg0) + 0x770));
+  temp_r3 = isV2Mode__12TBoss1DragonFv();
+  switch (temp_r3)
+  {
+    case 0:
+      setup__9TObjEneDDFPvii((void *) arg0, (void *) arg1, (void *) copy_storage_80027650.bytes);
+      return;
+    case 1:
+      TBoss1Dragon__sub_80027514((u8 *)((void *) arg0), (M2C_UNK)((void *) arg1), (u8 *)((void *) copy_storage_80027650.bytes), (s32)((int) 0));
+      return;
+  }
+}
+
+typedef char RecoveredGlobal_80027710_lbl_80435324_size[sizeof(RecoveredGlobal_80027710_lbl_80435324) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_80027710_TBoss1Dragon__data_804FE17C_size[sizeof(RecoveredGlobal_80027710_TBoss1Dragon__data_804FE17C) == 0xC ? 1 : -1];
+void TBoss1Dragon__sub_80027710(u8 *arg0, s32 arg1, s32 arg2) {
+    struct CopyStack_80027710 { u8 bytes[0x14]; };
+    CopyStack_80027710 copy_storage_80027710;
+    s32 temp_r3;
+    u8 *temp_r4;
+    temp_r4 = (u8 *)((void *)((u8 *)(&lbl_80435324.value) + -4));
+    *(M2CCopy_14 *)(copy_storage_80027710.bytes) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
+    (*(f32 *)(copy_storage_80027710.bytes + 0x4)) = M2C_FIELD((*(RecoveredGlobal_80027710_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value, f32 *, 0);
+    (*(s32 *)(copy_storage_80027710.bytes)) = M2C_FIELD(arg0, s32 *, 0x770);
+    temp_r3 = isV2Mode__12TBoss1DragonFv();
+    switch (temp_r3) {
+    case 0:
+        setup_instance__9TObjEneDDFiiPvi((s32) arg0, arg1, (copy_storage_80027710.bytes), arg2);
+        return;
+    case 1:
+        TBoss1Dragon__sub_80027514((u8 *)(arg0), (M2C_UNK)(arg1), (u8 *)((copy_storage_80027710.bytes)), (s32)(arg2));
+        return;
+    }
+}
+
+typedef char RecoveredGlobal_800277D8_lbl_80435310_size[sizeof(RecoveredGlobal_800277D8_lbl_80435310) == 0x14 ? 1 : -1];
+typedef char RecoveredGlobal_800277D8_TBoss1Dragon__data_804FE17C_size[sizeof(RecoveredGlobal_800277D8_TBoss1Dragon__data_804FE17C) == 0xC ? 1 : -1];
+void TBoss1Dragon__sub_800277D8(u8 *arg0) {
+    struct CopyStack_800277D8 { u8 bytes[0x14]; };
+    CopyStack_800277D8 copy_storage_800277D8;
+    s32 temp_r3_2;
+    u8 *temp_r3;
+    u8 *temp_r4;
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x6D8));
+    if ((temp_r3 != NULL) && (TBoss8Dragon__sub_8002D308(temp_r3) != 0)) {
+        temp_r4 = (u8 *)((void *)((u8 *)(&lbl_80435310.value) + -4));
+        *(M2CCopy_14 *)(copy_storage_800277D8.bytes) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
+        (*(f32 *)(copy_storage_800277D8.bytes + 0x4)) = M2C_FIELD((*(RecoveredGlobal_800277D8_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value, f32 *, 8);
+        temp_r3_2 = isV2Mode__12TBoss1DragonFv();
+        switch (temp_r3_2) {
+        case 0:
+            setup_instance__9TObjEneDDFiiPvi((s32) arg0, (s32) ((u8 *)(arg0) + 0x38), (copy_storage_800277D8.bytes), M2C_FIELD(arg0, s32 *, 0x688));
+            return;
+        case 1:
+            TBoss1Dragon__sub_80027514((u8 *)(arg0), (M2C_UNK)((s32) ((u8 *)(arg0) + 0x38)), (u8 *)((copy_storage_800277D8.bytes)), (s32)(M2C_FIELD(arg0, s32 *, 0x688)));
+            break;
+        }
+    }
 }
 
 void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1) {

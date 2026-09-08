@@ -94,6 +94,18 @@ struct Stack_80133B10 {
 
 struct RecoveredGlobal_80133B10_TObjLight__data_80506320 { M2C_UNK value; u8 remaining[0x4C]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_40 { u8 bytes[0x40]; };
+
+struct M2CCopy_44 { u8 bytes[0x44]; };
+
+struct RecoveredGlobal_80133D78_lbl_804A6F34 {
+    M2C_UNK value;
+    u8 remaining[0x40];
+};
+
 extern "C" {
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
@@ -161,6 +173,14 @@ extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_8050632
 extern s32 tl_02;
 extern const float TObjLight__data_805DB088;
 void TObjLight__sub_80133B10(u8 *arg0);
+void TObjLight__sub_80133B10(u8 *arg0);
+void bswap_data__9TObjLightFPv(void* p);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 is_online_ready__6TLobbyFv();
+extern RecoveredGlobal_80133D78_lbl_804A6F34 lbl_804A6F34;
+extern u32 TObjLight__data_805D5574;
+extern const f32 lbl_805DB0A4;
+void TObjLight__sub_80133D78(void);
 }
 
 extern "C" {
@@ -363,6 +383,26 @@ void *init__9TObjLightFPv(void *arg0, int _w1) {
 }
 
 extern u32 TObjLight__data_805D5574;
+
+typedef char RecoveredGlobal_80133D78_lbl_804A6F34_size[sizeof(RecoveredGlobal_80133D78_lbl_804A6F34) == 0x44 ? 1 : -1];
+void TObjLight__sub_80133D78(void) {
+    struct CopyStack_80133D78 { u8 bytes[0x44]; };
+    CopyStack_80133D78 copy_storage_80133D78;
+    s32 temp_r4;
+    s32 var_r31;
+    if ((u32) TObjLight__data_805D5574 != 0U) {
+        var_r31 = get_global_state__14TOKeyMachine01Fv();
+        if (is_online_ready__6TLobbyFv() != 0) {
+            var_r31 = (s32) ((f32) var_r31 + lbl_805DB0A4);
+        }
+        temp_r4 = (TObjLight__data_805D5574 + (var_r31 * 0x44)) - 4;
+        *(M2CCopy_44 *)(copy_storage_80133D78.bytes) = *(const M2CCopy_44 *)(temp_r4 + 4);
+        bswap_data__9TObjLightFPv((void*)((void *) ((copy_storage_80133D78.bytes))));
+        TObjLight__sub_80133B10((u8 *)((void *) ((copy_storage_80133D78.bytes))));
+        return;
+    }
+    TObjLight__sub_80133B10((u8 *)((void *) (&lbl_804A6F34.value)));
+}
 
 void free_shared_data__9TObjLightFv(void) {
     if ((u32) TObjLight__data_805D5574 != 0U) {

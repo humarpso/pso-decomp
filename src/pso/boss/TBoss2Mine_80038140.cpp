@@ -20,6 +20,136 @@ struct VObj_8003843C_80038140 : Base_8003843C_80038140 {
     virtual void m94();
 };
 
+struct VBase_18_444bc5
+{
+  char pad[0x18];
+};
+
+struct VObj_18_444bc5 : VBase_18_444bc5 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual M2C_UNK m94();
+};
+
+struct M2CCopy_10
+{
+  u8 bytes[0x10];
+};
+
+struct M2CCopy_14
+{
+  u8 bytes[0x14];
+};
+
+struct RecoveredGlobal_800384C8_lbl_80435AB0
+{
+  M2C_UNK value;
+  u8 remaining[0x10];
+};
+
+extern "C" {
+f32 TBoss2DeRolLe__sub_80034CEC(void);
+s32 TLobby__sub_800869A4(s32, s32, s32, s32);
+s32 TOSwitchAttack__sub_80087278(s32, s32, s32);
+void TObjEneDD__sub_800BA5A4(s32, s32);
+M2C_UNK TObjEneDD__sub_800BBA18(void *, M2C_UNK);
+s32 TBoss3Volopt__sub_8022675C(s32, u32, s16, s32);
+extern RecoveredGlobal_800384C8_lbl_80435AB0 lbl_80435AB0;
+void TBoss2Mine__vt105(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 
 void TBoss2Mine__sub_80038140(void *arg0);
@@ -80,6 +210,58 @@ void TBoss2Mine__vt106(void *arg0, s32 arg1) {
     case 0:
         return;
     }
+}
+
+typedef struct CopyStack_800384C8 CopyStack_800384C8;
+typedef struct M2CCopy_10 M2CCopy_10;
+typedef struct M2CCopy_14 M2CCopy_14;
+typedef struct RecoveredGlobal_800384C8_lbl_80435AB0 RecoveredGlobal_800384C8_lbl_80435AB0;
+typedef struct VBase_18_444bc5 VBase_18_444bc5;
+typedef struct VObj_18_444bc5 VObj_18_444bc5;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+typedef char RecoveredGlobal_800384C8_lbl_80435AB0_size[((sizeof(RecoveredGlobal_800384C8_lbl_80435AB0)) == 0x14) ? (1) : (-1)];
+#define PSO_VCALL_VObj_18_444bc5_m94(_self) (((VObj_18_444bc5 *)(_self))->m94())
+void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
+  struct CopyStack_800384C8
+  {
+    u8 bytes[0x14];
+  };
+  u8 *temp_r4;
+  CopyStack_800384C8 copy_storage_800384C8;
+  switch (arg1)
+  {
+    case 4:
+      PSO_VCALL_VObj_18_444bc5_m94(arg0);
+      *((s32 *) (((s8 *) arg0) + 0x38C)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x38C))) & 0xFFFFFFF8);
+      *((s32 *) (((s8 *) arg0) + 0x3B0)) = 0;
+      *((s32 *) (((s8 *) arg0) + 0x3C8)) = 0;
+      *((s32 *) (((s8 *) arg0) + 0x3CC)) = 0;
+      TLobby__sub_800869A4((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16A, 0, 6);
+      return;
+    case 3:
+      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3CC)))) == 2)
+    {
+      TObjEneDD__sub_800BBA18((void *)(arg0), (M2C_UNK)(0));
+    }
+    case 5:
+      return;
+      return;
+    case 0:
+      *((s32 *) (((s8 *) arg0) + 0x3C8)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x3C8))) + 1);
+      if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3C8)))) > 0x1E)
+    {
+      temp_r4 = ((u8 *) (&lbl_80435AB0.value)) - 4;
+      *((M2CCopy_14 *) (((s32) (copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const M2CCopy_14 *) (((s32) temp_r4) + 4));
+      *((f32 *) (copy_storage_800384C8.bytes + 0x4)) = TBoss2DeRolLe__sub_80034CEC();
+      TObjEneDD__sub_800BA5A4((s32) arg0, (s32) copy_storage_800384C8.bytes);
+      TOSwitchAttack__sub_80087278((*((s32 *) (((s8 *) arg0) + 0xA4))) + 0x1C, 0x16B, 0x40);
+      *((s32 *) (((s8 *) arg0) + 0x3CC)) = 2;
+      TBoss3Volopt__sub_8022675C(0x4003AD05, (u32) (arg0 + 0x2FC), 0, 0);
+    }
+      break;
+  }
 }
 
 void TBoss2Mine__vt104(void) {  }
