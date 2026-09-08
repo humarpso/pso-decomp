@@ -23,12 +23,39 @@ struct RecoveredGlobal_8036DE10_lbl_804F37D4 {
     u8 remaining[0x130];
 };
 
+#include <stddef.h>
+#include "pso/TAdMultiChgGameModeGC.h"
+struct Stack_8036EA24 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+union MemberActionStorage_8036EA24 { s32 words[3]; void (TAdMultiChgGameModeGC::*action)(); };
+
+struct RecoveredGlobal_8036EA24_lbl_804F3908 {
+    M2C_UNK value;
+    u8 remaining[0x104];
+};
+
+struct Stack_8036E858 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+union MemberActionStorage_8036E858 { s32 words[3]; void (TAdMultiChgGameModeGC::*action)(); };
+
+struct RecoveredGlobal_8036E858_lbl_804F3908 {
+    M2C_UNK value;
+    u8 remaining[0x104];
+};
+
 extern "C" {
 M2C_UNK TWindow__close(void *);
 void close_window_30__21TAdMultiChgGameModeGCFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 void close_window__21TAdMultiChgGameModeGCFPv(void* p);
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 void close_window_30__21TAdMultiChgGameModeGCFPv(void *arg0);
 void close_window__21TAdMultiChgGameModeGCFPv(void* p);
@@ -45,22 +72,18 @@ M2C_UNK TAdMultiChgGameModeGC__sub_8036E19C(void *, M2C_UNK);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E2AC(void *, M2C_UNK);
 void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0);
 s32 get_instance__15TAdPlayerLoadGCFv();
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
 s32 get_instance__15TAdPlayerLoadGCFv();
 void TAdMultiChgGameModeGC__sub_8036E5A8(s32 arg0);
 int load_system_file(void* a0 = 0);
 void load_system_on_mode_default__21TAdMultiChgGameModeGCFPv(void* p);
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 s32 get_instance__15TAdPlayerLoadGCFv();
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036E6A0(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E6EC(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FD6B4();
 s32 TAdSinglePlyChrSelectGC__sub_801FF200();
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
 void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E750(void);
 int TAdMultiChgGameModeGC__sub_8036E754(void);
@@ -72,7 +95,6 @@ int init_change_mode__21TAdMultiChgGameModeGCFv(void*);
 int init_change_mode__21TAdMultiChgGameModeGCFPv(void* p);
 void TAdMultiChgGameModeGC__sub_8036E854(void);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
 void confirm_mode_selection__21TAdMultiChgGameModeGCFPv(void* p);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E19C(void *, M2C_UNK);
 void close_window_30__21TAdMultiChgGameModeGCFPv(void *arg0);
@@ -95,6 +117,11 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(void *);
 extern RecoveredGlobal_8036DE10_lbl_804F37A8 lbl_804F37A8;
 extern RecoveredGlobal_8036DE10_lbl_804F37D4 lbl_804F37D4;
 s32 TAdMultiChgGameModeGC__sub_8036DE10(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 TAdSinglePlyChrSelectGC__sub_8036E8DC(void);
+extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
+void TAdMultiChgGameModeGC__sub_8036EA24(u8 *arg0);
+extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
+void TAdMultiChgGameModeGC__sub_8036E858(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -106,7 +133,6 @@ void update_card_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E19C(void *, M2C_UNK);
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E2AC(void *, M2C_UNK);
-M2C_UNK TAdMultiChgGameModeGC__sub_8036E858(void *, M2C_UNK);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 M2C_UNK TWindow__close(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
@@ -138,7 +164,7 @@ void close_windows_on_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
             queue_destruction__7TObjectFv(temp_r3);
             M2C_FIELD(arg0, u32 *, 0x34) = 0U;
         }
-        TAdMultiChgGameModeGC__sub_8036E858(arg0, 3);
+        TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(3));
     }
 }
 
@@ -153,18 +179,18 @@ void update_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
                 temp_r3 = TWindowSubComCard__sub_80265BF8((void *)(M2C_FIELD(arg0, u32 *, 0x34)));
                 switch (temp_r3) {
                 case 0:
-                    TAdMultiChgGameModeGC__sub_8036E858(arg0, 6);
+                    TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(6));
                     close_window_30__21TAdMultiChgGameModeGCFPv((void *)(arg0));
                     TAdMultiChgGameModeGC__sub_8036E19C(arg0, 8);
                     return;
                 case 1:
                     close_window__21TAdMultiChgGameModeGCFPv((void*)(arg0));
-                    TAdMultiChgGameModeGC__sub_8036E858(arg0, 3);
+                    TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(3));
                     return;
                 }
             }
         } else {
-            TAdMultiChgGameModeGC__sub_8036E858(arg0, 8);
+            TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(8));
         }
     }
 }
@@ -196,16 +222,16 @@ void update_card_confirm_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
                 case 0:
                     close_window_30__21TAdMultiChgGameModeGCFPv((void *)(arg0));
                     close_window__21TAdMultiChgGameModeGCFPv((void*)(arg0));
-                    TAdMultiChgGameModeGC__sub_8036E858(arg0, 5);
+                    TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(5));
                     return;
                 case 1:
                     close_window__21TAdMultiChgGameModeGCFPv((void*)(arg0));
-                    TAdMultiChgGameModeGC__sub_8036E858(arg0, 3);
+                    TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(3));
                     return;
                 }
             }
         } else {
-            TAdMultiChgGameModeGC__sub_8036E858(arg0, 8);
+            TAdMultiChgGameModeGC__sub_8036E858((u8 *)(arg0), (s32)(8));
         }
     }
 }
@@ -246,7 +272,7 @@ void TAdMultiChgGameModeGC__sub_8036E3D4(u8 *arg0) {
                 case 0:
                     close_window_30__21TAdMultiChgGameModeGCFPv(arg0);
                     close_window__21TAdMultiChgGameModeGCFPv((void*)(arg0));
-                    TAdMultiChgGameModeGC__sub_8036E858((void *)((void *)((void *) (arg0))), (M2C_UNK)((s32)((int) (4))));
+                    TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void *)((void *) (arg0)))), (s32)((M2C_UNK)((s32)((int) (4)))));
                     return;
                 case 1:
                     if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
@@ -254,12 +280,12 @@ void TAdMultiChgGameModeGC__sub_8036E3D4(u8 *arg0) {
                     } else {
                         M2C_FIELD(arg0, s32 *, 0x24) = 0;
                     }
-                    TAdMultiChgGameModeGC__sub_8036E858((void *)((void *)((void *) (arg0))), (M2C_UNK)((s32)((int) (0xA))));
+                    TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void *)((void *) (arg0)))), (s32)((M2C_UNK)((s32)((int) (0xA)))));
                     return;
                 }
             }
         } else {
-            TAdMultiChgGameModeGC__sub_8036E858((void *)((void *)((void *) (arg0))), (M2C_UNK)((s32)((int) (8))));
+            TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void *)((void *) (arg0)))), (s32)((M2C_UNK)((s32)((int) (8)))));
         }
     }
 }
@@ -295,7 +321,7 @@ void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0) {
 }
 void TAdMultiChgGameModeGC__sub_8036E5A8(s32 arg0) {
     if ((handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)(arg0))) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
-        ((M2C_UNK)((s32)TAdMultiChgGameModeGC__sub_8036E858((void *)((void *)((void *) (arg0))), (M2C_UNK)((s32)((int) (2))))));
+        TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void *)((void *) (arg0)))), (s32)((M2C_UNK)((s32)((int) (2)))));
     }
 }
 void load_system_on_mode_default__21TAdMultiChgGameModeGCFPv(void* p) { if (handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)(p))) == 0) { load_system_file((void*)0); } }
@@ -303,25 +329,25 @@ s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0) {
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x20);
     if (temp_r4 & 1) {
-        TAdMultiChgGameModeGC__sub_8036E858((void *)(arg0), (M2C_UNK)(9));
+        TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)(arg0)), (s32)((M2C_UNK)(9)));
         return 1;
     }
     if (temp_r4 & 2) {
         return 0;
     }
     if (temp_r4 & 4) {
-        TAdMultiChgGameModeGC__sub_8036E858((void *)(arg0), (M2C_UNK)(9));
+        TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)(arg0)), (s32)((M2C_UNK)(9)));
         return 1;
     }
     if (temp_r4 & 8) {
-        TAdMultiChgGameModeGC__sub_8036E858((void *)(arg0), (M2C_UNK)(9));
+        TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)(arg0)), (s32)((M2C_UNK)(9)));
         return 1;
     }
     return 0;
 }
 void TAdMultiChgGameModeGC__sub_8036E6A0(s32 arg0) {
     if ((handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)(arg0)) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
-        ((M2C_UNK)((s32)TAdMultiChgGameModeGC__sub_8036E858((void *)((void *)((void *) (arg0))), (M2C_UNK)((s32)((int) (8))))));
+        TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void *)((void *) (arg0)))), (s32)((M2C_UNK)((s32)((int) (8)))));
     }
 }
 void TAdMultiChgGameModeGC__sub_8036E6EC(void) {  }
@@ -329,10 +355,10 @@ void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0) {
     if (((int)handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void*)arg0))) == 0) {
         TAdSinglePlyChrSelectGC__sub_801FD6B4();
         if (TAdSinglePlyChrSelectGC__sub_801FF200() != 0) {
-            TAdMultiChgGameModeGC__sub_8036E858((void *)((void*)((void *) (arg0))), (M2C_UNK)((void*)((int) (7))));
+            TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void*)((void *) (arg0)))), (s32)((M2C_UNK)((void*)((int) (7)))));
             return;
         }
-        TAdMultiChgGameModeGC__sub_8036E858((void *)((void*)((void *) (arg0))), (M2C_UNK)((void*)((int) (8))));
+        TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void*)((void *) (arg0)))), (s32)((M2C_UNK)((void*)((int) (8)))));
     }
 }
 void TAdMultiChgGameModeGC__sub_8036E750(void) {  }
@@ -342,6 +368,27 @@ int request_scene_change_vt__21TAdMultiChgGameModeGCFPv(void* p) { return reques
 void TAdMultiChgGameModeGC__sub_8036E830(void) {  }
 int init_change_mode__21TAdMultiChgGameModeGCFPv(void* p) { return init_change_mode__21TAdMultiChgGameModeGCFv(p); }
 void TAdMultiChgGameModeGC__sub_8036E854(void) {  }
+
+typedef char MemberActionStorage_8036E858_size[sizeof(MemberActionStorage_8036E858) == 12 ? 1 : -1];
+typedef char RecoveredGlobal_8036E858_lbl_804F3908_size[sizeof(RecoveredGlobal_8036E858_lbl_804F3908) == 0x108 ? 1 : -1];
+void TAdMultiChgGameModeGC__sub_8036E858(u8 *arg0, s32 arg1) {
+    MemberActionStorage_8036E858 member_action;
+    typedef char sp8_offset[(offsetof(Stack_8036E858, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8036E858, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8036E858, sp10) == 0x8) ? 1 : -1];
+    Stack_8036E858 stack;
+    u8 *temp_r6;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != arg1) {
+        M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
+        temp_r6 = (u8 *)&(*(RecoveredGlobal_8036E858_lbl_804F3908 *)&lbl_804F3908).value + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x18);
+        member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0);
+        member_action.words[1] = M2C_FIELD(temp_r6, s32 *, 4);
+        member_action.words[2] = M2C_FIELD(temp_r6, s32 *, 8);
+        if (member_action.action != 0) {
+            (((TAdMultiChgGameModeGC *)((void *) (arg0)))->*member_action.action)();
+        }
+    }
+}
 
 s32 TAdSinglePlyChrSelectGC__sub_8036E8DC(void) {
     if (TAdPlayerLoadGC__sub_801E1E38(0) == 0) {
@@ -362,8 +409,31 @@ s32 TAdSinglePlyChrSelectGC__sub_8036E8DC(void) {
     return 0;
 }
 
-void confirm_mode_selection__21TAdMultiChgGameModeGCFPv(void* p) { if (((int)handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void*)(p)))) == 0) { TAdMultiChgGameModeGC__sub_8036E858((void *)((void*)(p)), (M2C_UNK)((void*)((void*)1))); } }
+void confirm_mode_selection__21TAdMultiChgGameModeGCFPv(void* p) { if (((int)handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void*)(p)))) == 0) { TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void*)(p))), (s32)((M2C_UNK)((void*)((void*)1)))); } }
 void TAdMultiChgGameModeGC__sub_8036E9EC(void* p) { close_window_30__21TAdMultiChgGameModeGCFPv((void *)(p)); TAdMultiChgGameModeGC__sub_8036E19C((void *)(p), (M2C_UNK)((void*)4)); }
+
+typedef char MemberActionStorage_8036EA24_size[sizeof(MemberActionStorage_8036EA24) == 12 ? 1 : -1];
+typedef char RecoveredGlobal_8036EA24_lbl_804F3908_size[sizeof(RecoveredGlobal_8036EA24_lbl_804F3908) == 0x108 ? 1 : -1];
+void TAdMultiChgGameModeGC__sub_8036EA24(u8 *arg0) {
+    MemberActionStorage_8036EA24 member_action;
+    typedef char sp8_offset[(offsetof(Stack_8036EA24, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8036EA24, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8036EA24, sp10) == 0x8) ? 1 : -1];
+    Stack_8036EA24 stack;
+    u8 *temp_r6;
+    M2C_FIELD(arg0, s32 *, 0x20) = TAdSinglePlyChrSelectGC__sub_8036E8DC();
+    if (M2C_FIELD(arg0, s32 *, 0x20) & 1) {
+        TAdMultiChgGameModeGC__sub_8036E858((u8 *)((void *)((void *) (arg0))), (s32)((M2C_UNK)((int) (9))));
+    }
+    temp_r6 = (u8 *)&lbl_804F3908.value + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x18);
+    member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0xC);
+    member_action.words[1] = M2C_FIELD(temp_r6, s32 *, 0x10);
+    member_action.words[2] = M2C_FIELD(temp_r6, s32 *, 0x14);
+    if (member_action.action != 0) {
+        (((TAdMultiChgGameModeGC *)((void *) (arg0)))->*member_action.action)();
+    }
+}
+
 void *__dt__21TAdMultiChgGameModeGCFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3A20;

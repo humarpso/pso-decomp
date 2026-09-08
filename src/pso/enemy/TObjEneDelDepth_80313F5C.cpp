@@ -4,6 +4,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80314D1C_lbl_80475D6C {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_80314D1C_lbl_80475D78 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
 extern "C" {
 int TObjEneDelDepth__sub_80316488(void*, void*);
 int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
@@ -19,9 +29,23 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
 int TObjEneDelDepth__sub_80316488(void*, void*);
 extern u8 *TObjEneDelDepth__data_805D6AC0;
-extern f32 TObjEneDelDepth__data_805DF298;
+extern const f32 TObjEneDelDepth__data_805DF298;
 extern const f32 lbl_805DF2A0;
 void TObjEneDelDepth__sub_80314500(u8 *arg0);
+M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+extern const RecoveredGlobal_80314D1C_lbl_80475D6C lbl_80475D6C;
+extern const RecoveredGlobal_80314D1C_lbl_80475D78 lbl_80475D78;
+extern const float TObjEneDelDepth__data_805DF258;
+extern const float TObjEneDelDepth__data_805DF260;
+extern const f32 TObjEneDelDepth__data_805DF278;
+extern const f32 TObjEneDelDepth__data_805DF298;
+extern const f32 lbl_805DF2BC;
+extern const f32 lbl_805DF2C0;
+extern const f32 lbl_805DF2C4;
+extern const f32 lbl_805DF2C8;
+extern const f32 lbl_805DF2CC;
+void TObjEneDelDepth__sub_80314D1C(u8 *arg0);
 }
 
 extern "C" {
@@ -50,7 +74,7 @@ void init_draw_state__15TObjEneDelDepthFPv(void* p) { *(int*)((char*)p + 0x384) 
 
 void setup_depth_draw__15TObjEneDelDepthFPv(void* p) { set_depth_offset__15TObjEneDelDepthFPvii((void*)(p), (void*)((void*)30), (void*)((void*)30)); TObjEneDelDepth__sub_80316488((void*)(*(void**)((char*)p + 0x37c)), (void*)((void*)0)); set_draw_mode__15TObjEneDelDepthFPvi((void*)(p), (void*)((void*)2)); }
 
-extern f32 TObjEneDelDepth__data_805DF298;
+extern const f32 TObjEneDelDepth__data_805DF298;
 
 void init_depth__15TObjEneDelDepthFPv(void *arg0) {
     set_depth_offset__15TObjEneDelDepthFPvii((void*)(arg0), (void*)(0x1E), (void*)(0x1E));
@@ -111,6 +135,43 @@ void enter_state8__15TObjEneDelDepthFPv(u8 *arg0) {
 }
 
 extern const f32 TObjEneDelDepth__data_805DF26C;
+
+#pragma push
+#pragma fp_contract on
+typedef char RecoveredGlobal_80314D1C_lbl_80475D6C_size[sizeof(RecoveredGlobal_80314D1C_lbl_80475D6C) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_80314D1C_lbl_80475D78_size[sizeof(RecoveredGlobal_80314D1C_lbl_80475D78) == 0xC ? 1 : -1];
+void TObjEneDelDepth__sub_80314D1C(u8 *arg0) {
+    f32 temp_f1;
+    f32 temp_f1_2;
+    f32 temp_f1_3;
+    f32 temp_f1_4;
+    f32 var_f31;
+    var_f31 = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
+    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) (TObjEneDelDepth__data_805DF278 * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - M2C_FIELD(arg0, f32 *, 0x38C)));
+    M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) ((M2C_FIELD(arg0, f32 *, 0x38C) * (M2C_FIELD(&lbl_80475D78.value, f32 *, 0) - M2C_FIELD(&lbl_80475D6C.value, f32 *, 0))) + M2C_FIELD(&lbl_80475D6C.value, f32 *, 0));
+    M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) ((M2C_FIELD(arg0, f32 *, 0x38C) * (M2C_FIELD(&lbl_80475D78.value, f32 *, 4) - M2C_FIELD(&lbl_80475D6C.value, f32 *, 4))) + M2C_FIELD(&lbl_80475D6C.value, f32 *, 4));
+    M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) ((M2C_FIELD(arg0, f32 *, 0x38C) * (M2C_FIELD(&lbl_80475D78.value, f32 *, 8) - M2C_FIELD(&lbl_80475D6C.value, f32 *, 8))) + M2C_FIELD(&lbl_80475D6C.value, f32 *, 8));
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x38C);
+    if (temp_f1 > lbl_805DF2C0) {
+        var_f31 = ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1) / lbl_805DF2BC;
+    }
+    temp_f1_2 = var_f31 * (lbl_805DF2C4 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x384) << 0xA));
+    M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A0) * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) + temp_f1_2));
+    M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A8) * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1_2));
+    M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) + 1);
+    temp_f1_3 = M2C_FIELD(arg0, f32 *, 0x38C);
+    if (temp_f1_3 >= (*(const f32 *)&TObjEneDelDepth__data_805DF298)) {
+        M2C_FIELD(arg0, f32 *, 0x398) = (f32) (*(const f32 *)&TObjEneDelDepth__data_805DF260);
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x398) = (f32) (lbl_805DF2C8 * temp_f1_3);
+    }
+    temp_f1_4 = M2C_FIELD(arg0, f32 *, 0x38C) + lbl_805DF2CC;
+    M2C_FIELD(arg0, f32 *, 0x38C) = temp_f1_4;
+    if (temp_f1_4 < (*(const f32 *)&TObjEneDelDepth__data_805DF258)) {
+        TObjEneDelDepth__sub_803154A8((void *)(arg0), (int)(0));
+    }
+}
+#pragma pop
 
 void TObjEneDelDepth__sub_80314E78(void* a0) { *(float*)((char*)a0 + 0x38c) = TObjEneDelDepth__data_805DF260; *(float*)((char*)a0 + 0x39c) = TObjEneDelDepth__data_805DF258; set_draw_mode__15TObjEneDelDepthFPvi((void*)((void*)(a0)), (void*)((int)(0))); TObjEneDelDepth__sub_80316488((void*)((void*)(*(int*)((char*)a0 + 0x37c))), (void*)((void*)0x6)); }
 

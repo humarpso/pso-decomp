@@ -14,11 +14,39 @@ struct RecoveredGlobal_802077CC_lbl_80513920 {
     u8 remaining[0xD4];
 };
 
+struct RecoveredGlobal_802078A4_lbl_8044B658
+{
+  M2C_UNK value;
+  u8 remaining[0x11C];
+};
+
+struct RecoveredGlobal_802078A4_lbl_8044B778
+{
+  M2C_UNK value;
+  u8 remaining[0x11C];
+};
+
+struct RecoveredGlobal_802078A4_lbl_80513920
+{
+  M2C_UNK value;
+  u8 remaining[0xD4];
+};
+
 extern "C" {
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 s32 TLobby__sub_80207798(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 s32 TLobby__sub_802077CC(s32 arg0, u8 *arg1);
+s32 get_main_phase(void);
+M2C_UNK set_state__16TAdStorySelectGCFi(void*);
+s32 is_not_split_screen__13TRaderMapCoreFv(void);
+s32 rand__11TOBoss4RockFv(void);
+extern RecoveredGlobal_802078A4_lbl_8044B658 lbl_8044B658;
+extern RecoveredGlobal_802078A4_lbl_8044B778 lbl_8044B778;
+extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern int lbl_805D6060;
+extern const f32 lbl_805DC610;
+void TOBoss4Rock__sub_802078A4(void);
 }
 
 extern "C" {
@@ -85,6 +113,50 @@ s32 TLobby__sub_802077CC(s32 arg0, u8 *arg1) {
     return 1;
 }
 #pragma pop
+
+typedef struct RecoveredGlobal_802078A4_lbl_8044B658 RecoveredGlobal_802078A4_lbl_8044B658;
+typedef struct RecoveredGlobal_802078A4_lbl_8044B778 RecoveredGlobal_802078A4_lbl_8044B778;
+typedef struct RecoveredGlobal_802078A4_lbl_80513920 RecoveredGlobal_802078A4_lbl_80513920;
+typedef char RecoveredGlobal_802078A4_lbl_8044B658_size[((sizeof(RecoveredGlobal_802078A4_lbl_8044B658)) == 0x120) ? (1) : (-1)];
+typedef char RecoveredGlobal_802078A4_lbl_8044B778_size[((sizeof(RecoveredGlobal_802078A4_lbl_8044B778)) == 0x120) ? (1) : (-1)];
+typedef char RecoveredGlobal_802078A4_lbl_80513920_size[((sizeof(RecoveredGlobal_802078A4_lbl_80513920)) == 0xD8) ? (1) : (-1)];
+void TOBoss4Rock__sub_802078A4(void) {
+  M2C_UNK *var_r31;
+  s32 var_r30;
+  s32 var_r29;
+  var_r31 = (M2C_UNK *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&lbl_80513920).value);
+  set_state__16TAdStorySelectGCFi((void*)((*(s32 *)&lbl_805D6060)));
+  var_r30 = get_main_phase();
+  if (is_not_split_screen__13TRaderMapCoreFv() == 1)
+  {
+    var_r30 = 0xF;
+  }
+  var_r29 = 0;
+  do
+  {
+    if (((s32) (*((s32 *) (((s8 *) var_r31) + 0)))) >= 0)
+    {
+      switch (var_r30)
+      {
+        case 14:
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          break;
+        case 15:
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B778.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B778.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          break;
+        default:
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand__11TOBoss4RockFv())));
+          break;
+      }
+    }
+    var_r29 += 1;
+    var_r31 = (M2C_UNK *) (((u8 *) var_r31) + 0xC);
+  }
+  while (var_r29 < 0x12);
+}
 
 void reset_story_select_state__6TLobbyFv(void) {
     if ((s32) lbl_805D3628 != -1) {

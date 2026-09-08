@@ -16,8 +16,27 @@ struct VObj_801695a8_80169520 : Base_801695a8_80169520 {
     virtual M2C_UNK m8(f32, f32);
 };
 
+struct RecoveredGlobal_80169710_lbl_804B2748
+{
+  M2C_UNK value;
+  u8 remaining[0xC];
+};
+
+struct RecoveredGlobal_80169710_lbl_804B2760
+{
+  M2C_UNK value;
+  u8 remaining[0xC];
+};
+
 extern "C" {
 void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1);
+u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern RecoveredGlobal_80169710_lbl_804B2748 lbl_804B2748;
+extern RecoveredGlobal_80169710_lbl_804B2760 lbl_804B2760;
+extern u32 TOHealGeneral__data_805D59F0;
+void TOHealGeneral__sub_80169710(void);
 }
 
 extern "C" {
@@ -115,6 +134,52 @@ void close_dialog_window__13TOHealGeneralFv(void) {
         TLobby__sub_8001FE7C((void*)TOHealGeneral__data_805D59F0, 1);
         TOHealGeneral__data_805D59F0 = 0U;
     }
+}
+
+typedef struct RecoveredGlobal_80169710_lbl_804B2748 RecoveredGlobal_80169710_lbl_804B2748;
+typedef struct RecoveredGlobal_80169710_lbl_804B2760 RecoveredGlobal_80169710_lbl_804B2760;
+void TOHealGeneral__sub_80169710(void) {
+  s32 temp_r3;
+  s32 temp_r3_2;
+  s32 temp_r3_3;
+  s32 var_r0;
+  s32 var_r0_2;
+  int new_var;
+  temp_r3 = get_global_state__14TOKeyMachine01Fv();
+  if (temp_r3 < 0x22)
+  {
+    if (temp_r3 < 0x1E)
+    {
+      if (temp_r3 < 0x17)
+      {
+        temp_r3_2++;
+        temp_r3_2--;
+        goto block_8;
+      }
+      goto block_5;
+    }
+    goto block_8;
+  }
+  if (temp_r3 < 0x24)
+  {
+    block_5:
+    temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *) 0x440);
+    var_r0 = temp_r3_2;
+    if (var_r0 != 0)
+    {
+      var_r0 = (long) TLobby__sub_80020004((void *) temp_r3_2, 1, &lbl_804B2760.value, 0, 0, 0);
+    }
+    (*(s32 *)&TOHealGeneral__data_805D59F0) = var_r0;
+    return;
+  }
+  block_8:
+  temp_r3_3 = (new_var = alloc__23TAdSinglePlyChrSelectGCFPv((void *) 0x440));
+  var_r0_2 = temp_r3_3;
+  if (var_r0_2 != 0)
+  {
+    var_r0_2 = (long) TLobby__sub_80020004((void *) temp_r3_3, 1, &lbl_804B2748.value, 0, 0, 0);
+  }
+  (*(s32 *)&TOHealGeneral__data_805D59F0) = var_r0_2;
 }
 
 void* TOHealGeneral__vt7(void* p) { return (char*)p + 0xe0; }

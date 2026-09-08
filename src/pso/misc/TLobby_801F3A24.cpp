@@ -13,6 +13,10 @@ extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 void TLobby__sub_801F3DEC(void);
+s32 add_player__6TLobbyFiii(s32, s32, s32);
+M2C_UNK bswap_32__FPUl(void *);
+extern int TLobby__data_805D5EE0;
+bool TLobby__sub_801F3F40(s32 arg0);
 }
 
 extern "C" {
@@ -32,6 +36,35 @@ void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; TLobby__sub_80
 typedef char RecoveredGlobal_801F3DEC_TLobby__data_805127D0_size[sizeof(RecoveredGlobal_801F3DEC_TLobby__data_805127D0) == 0x28 ? 1 : -1];
 void TLobby__sub_801F3DEC(void) {
     memset((void *) (&TLobby__data_805127D0.value), (int) (0), (int) (0x24));
+}
+bool TLobby__sub_801F3F40(s32 arg0) {
+    s32 sp14;
+    s32 sp10;
+    s32 spC;
+    s32 sp8;
+    u8 *var_r31;
+    var_r31 = (u8 *)((*(u8 * *)&TLobby__data_805D5EE0));
+    if (var_r31 != NULL) {
+loop_1:
+        sp14 = M2C_FIELD(var_r31, s32 *, 0);
+        sp10 = M2C_FIELD(var_r31, s32 *, 4);
+        spC = M2C_FIELD(var_r31, s32 *, 8);
+        sp8 = M2C_FIELD(var_r31, s32 *, 0xC);
+        bswap_32__FPUl((void *) (&sp14));
+        bswap_32__FPUl((void *) (&sp10));
+        bswap_32__FPUl((void *) (&spC));
+        bswap_32__FPUl((void *) (&sp8));
+        if ((sp14 == 3) && (spC == arg0)) {
+            return add_player__6TLobbyFiii(spC, (s32) (var_r31 + 0x10), sp8) != 0;
+        }
+        if (sp14 != 0) {
+            var_r31 += sp10;
+            goto loop_1;
+        }
+        goto block_6;
+    }
+block_6:
+    return 0;
 }
 
 }

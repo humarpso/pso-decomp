@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_80248494_lbl_804CE2E8 {
+    M2C_UNK value;
+    u8 remaining[0x4B4];
+};
+
 extern "C" {
 M2C_UNK allow_rendering__7TObjectFv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
@@ -11,6 +16,9 @@ s32 TWindowSubSymbolChat__sub_80077464(void *);
 s32 get_data_ptr__20TWindowSubSymbolChatFPv(u32);
 void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1);
 void TWindowSubSymbolChat__sub_802484C0(u8 *arg0);
+s32 TWindowSubStatusDisp__sub_80257D44(void *, void *, void *);
+extern RecoveredGlobal_80248494_lbl_804CE2E8 lbl_804CE2E8;
+void TWindowSubSymbolChat__sub_80248494(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -44,6 +52,11 @@ void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1) {
         off += 4;
         j += 1;
     } while (j < 0xC);
+}
+
+typedef char RecoveredGlobal_80248494_lbl_804CE2E8_size[sizeof(RecoveredGlobal_80248494_lbl_804CE2E8) == 0x4B8 ? 1 : -1];
+void TWindowSubSymbolChat__sub_80248494(s32 arg0, s32 arg1) {
+    TWindowSubStatusDisp__sub_80257D44((void *) (arg0), (void *) (&lbl_804CE2E8.value), (void *) (arg1));
 }
 
 void TWindowSubSymbolChat__sub_802484C0(u8 *arg0) {

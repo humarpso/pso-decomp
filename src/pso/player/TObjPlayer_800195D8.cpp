@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D34B8;
+bool is_split_screen(void);
+}
+
+extern "C" {
 
 int TObjPlayer__sub_80019664(void);
 s32 TObjPlayer__sub_800196EC(void);
@@ -32,6 +37,10 @@ int TObjPlayer__sub_80019664(void) { return 0; }
 
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
+
+bool is_split_screen(void) {
+    return lbl_805D34B8 != 1;
+}
 
 f32 calc_random_ratio__10TObjPlayerFv(void) {
     return (f32) (TAdSinglePlyChrSelectGC__sub_8007C3E0() >> 0x10U) / lbl_805D7D3C;

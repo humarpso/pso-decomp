@@ -61,6 +61,8 @@ extern RecoveredGlobal_8030CEEC_lbl_80475858 lbl_80475858;
 extern RecoveredGlobal_8030CEEC_lbl_80475878 lbl_80475878;
 extern const f32 lbl_805DF218;
 void TAdChrSelASlotGC__sub_8030CEEC(u8 *arg0);
+u8 * TAdSinglePlyChrSelectGC__sub_801FE4BC(u32);
+bool TAdChrSelASlotGC__sub_8030C3C0(M2C_UNK arg0, u32 arg1);
 }
 
 extern "C" {
@@ -114,6 +116,15 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_all_slots__15TAdChrSelSlotGCFPv(s32);
 
 extern f32 lbl_805DF210;
+
+bool TAdChrSelASlotGC__sub_8030C3C0(M2C_UNK arg0, u32 arg1) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(TAdSinglePlyChrSelectGC__sub_801FE4BC(arg1));
+    if ((u32)(temp_r3) == 0) {
+        return 0;
+    }
+    return M2C_FIELD(temp_r3, s32 *, 8) == 1;
+}
 
 #pragma push
 #pragma fp_contract on

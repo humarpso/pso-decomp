@@ -27,6 +27,22 @@ struct RecoveredGlobal_8024A1CC_lbl_804CEA94 {
     u8 remaining[0x8];
 };
 
+struct RecoveredFields_8024A688_arg1
+{
+  u8 unknown_0[0x38];
+  f32 field_38;
+  f32 field_3C;
+  f32 field_40;
+};
+
+struct RecoveredFields_8024A688_temp_r3
+{
+  u8 unknown_0[0x38];
+  f32 field_38;
+  f32 field_3C;
+  f32 field_40;
+};
+
 extern "C" {
 s32 TWindowCtrl__sub_8024A314(void);
 s32 TWindowCtrl__sub_8024701C(u32);
@@ -60,6 +76,13 @@ void TWindowCtrl__sub_8024A228(s32 arg0);
 s32 TWindowCtrl__sub_8024AF34(void *, void *);
 extern RecoveredGlobal_8024A1CC_lbl_804CEA94 lbl_804CEA94;
 void TWindowCtrl__sub_8024A1CC(s32 arg0);
+extern void *TWindowCtrl__data_805D63F8;
+bool TWindowCtrl__sub_8024A1A8(void);
+extern void *TWindowCtrl__data_805D63F8;
+bool TWindowCtrl__sub_8024A26C(void);
+u8 *TPhotonMylla__sub_80154CB4(u16);
+extern const f32 lbl_805DCBE0;
+f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
 }
 
 extern "C" {
@@ -85,6 +108,14 @@ M2C_UNK update__11TWindowChatFPv(u32);
 extern void *TWindowCtrl__data_805D63F8;
 
 typedef char RecoveredGlobal_8024A1CC_lbl_804CEA94_size[sizeof(RecoveredGlobal_8024A1CC_lbl_804CEA94) == 0xC ? 1 : -1];
+
+bool TWindowCtrl__sub_8024A1A8(void) {
+    if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) == NULL) {
+        return 0;
+    }
+    return M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), s32 *, 0x3C) != 0;
+}
+
 void TWindowCtrl__sub_8024A1CC(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024A1CC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024A1CC, spC) == 0x4) ? 1 : -1];
@@ -114,6 +145,13 @@ void TWindowCtrl__sub_8024A228(s32 arg0) {
     stack.spC = M2C_FIELD(&lbl_804CEA88.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804CEA88.value, s32 *, 8);
     TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
+}
+
+bool TWindowCtrl__sub_8024A26C(void) {
+    if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) == NULL) {
+        return 0;
+    }
+    return M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), s16 *, 0x22) <= 0;
 }
 
 void update_focused__11TWindowCtrlFv(void) {
@@ -210,6 +248,28 @@ void create_alt_timer__11TWindowCtrlFv(void) {
     if (((void *) TWindowCtrl__data_805D63F8 != NULL) && ((u32) M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) == 0U)) {
         M2C_FIELD(TWindowCtrl__data_805D63F8, u32 *, 0x30) = create_alt__12TWindowTimerFv();
     }
+}
+
+typedef struct RecoveredFields_8024A688_arg1 RecoveredFields_8024A688_arg1;
+typedef struct RecoveredFields_8024A688_temp_r3 RecoveredFields_8024A688_temp_r3;
+f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2) {
+  f32 temp_f2;
+  f32 temp_f3;
+  f32 temp_f4;
+  u8 *temp_r3;
+  if (arg2 == ((-1) & 0xFFFF))
+  {
+    return lbl_805DCBE0;
+  }
+  temp_r3 = (u8 *) TPhotonMylla__sub_80154CB4(arg2);
+  if (temp_r3 == 0)
+  {
+    return lbl_805DCBE0;
+  }
+  temp_f4 = arg1->field_38 - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_38;
+  temp_f3 = arg1->field_3C - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_3C;
+  temp_f2 = arg1->field_40 - ((RecoveredFields_8024A688_temp_r3 *) temp_r3)->field_40;
+  return (temp_f2 * temp_f2) + ((temp_f4 * temp_f4) + (temp_f3 * temp_f3));
 }
 
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1) {

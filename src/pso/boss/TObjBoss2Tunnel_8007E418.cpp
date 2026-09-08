@@ -18,6 +18,8 @@ f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 void TObjBoss2Tunnel__sub_8007E7D8(f32 *arg0, f32 *arg1, s32 arg2);
 s32 TObjBoss2Tunnel__sub_8007E6C4(u8 *arg0);
+extern const f32 TObjBoss2Tunnel__data_805D9234;
+bool TObjBoss2Tunnel__sub_8007E84C(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -152,6 +154,13 @@ void TObjBoss2Tunnel__sub_8007E7D8(f32 *arg0, f32 *arg1, s32 arg2) {
     temp_f3 = *arg1;
     *arg1 = (temp_f31 * temp_f3) - (temp_f1 * temp_f0);
     *arg0 = (temp_f1 * temp_f3) + (temp_f31 * temp_f0);
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+bool TObjBoss2Tunnel__sub_8007E84C(u8 *arg0, u8 *arg1) {
+    return (((M2C_FIELD(arg0, f32 *, 8) * M2C_FIELD(arg1, f32 *, 0)) - (M2C_FIELD(arg0, f32 *, 0) * M2C_FIELD(arg1, f32 *, 8))) >= TObjBoss2Tunnel__data_805D9234) == 0;
 }
 #pragma pop
 

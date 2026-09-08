@@ -270,6 +270,10 @@ M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, int);
 extern const f32 lbl_805DA048;
 void TObjPlayer__sub_800C6774(u8 *arg0);
+int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
+s32 obj_clearFlags30(void * a0, s32 a1);
+s32 TObjPlayer__sub_80016FF8(void *);
+s32 TObjPlayer__sub_800C576C(u8 *arg0);
 }
 
 extern "C" {
@@ -402,6 +406,40 @@ s32 TObjPlayer__sub_800C56E8(u8 *arg0) {
   }
   return 0;
 }
+
+s32 TObjPlayer__sub_800C576C(u8 *arg0) {
+  if (TObjPlayer__sub_80016FF8((void *) arg0) != 0)
+  {
+    if ((*((s16 *) (((s8 *) arg0) + 0x326))) != 0)
+    {
+      if (((!arg0) && (!arg0)) && (!arg0))
+      {
+      }
+    }
+    else
+    {
+      *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
+      *((s16 *) (((s8 *) arg0) + 0x326)) = 1;
+      *((s16 *) (((s8 *) arg0) + 0x328)) = 0;
+      *((s16 *) (((s8 *) arg0) + 0xB8)) = 0;
+      obj_clearFlags30((void *)((void *) arg0), (s32)((int) 0x04040000));
+      clear_player_status_flag__10TObjPlayerFPviUi((void*)((void *) arg0), (void*)((int) 0), (void*)((int) 0x0A000000));
+    }
+    return 1;
+  }
+  return 0;
+}
+#define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())
+#define PSO_VCALL_VObj_18_477421_m81(_self) (((VObj_18_477421 *)(_self))->m81())
+#define PSO_VCALL_VObj_18_477421_m82(_self) (((VObj_18_477421 *)(_self))->m82())
+#define PSO_VCALL_VObj_18_477421_m83(_self) (((VObj_18_477421 *)(_self))->m83())
+#define PSO_VCALL_VObj_18_477421_m84(_self) (((VObj_18_477421 *)(_self))->m84())
+#define PSO_VCALL_VObj_18_477421_m85(_self) (((VObj_18_477421 *)(_self))->m85())
+#define PSO_VCALL_VObj_18_477421_m86(_self) (((VObj_18_477421 *)(_self))->m86())
+#define PSO_VCALL_VObj_18_477421_m87(_self) (((VObj_18_477421 *)(_self))->m87())
+#define PSO_VCALL_VObj_18_477421_m88(_self) (((VObj_18_477421 *)(_self))->m88())
+#define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
+#define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
 
 void tick_freeze_state__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;

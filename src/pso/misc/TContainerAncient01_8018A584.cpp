@@ -34,6 +34,8 @@ struct VObj8018AD04_8018A584 : VBase8018AD04_8018A584 {
     virtual s32 m8(f32, f32);
 };
 
+struct RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 { M2C_UNK value; u8 remaining[0x28]; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -44,7 +46,7 @@ M2C_UNK TContainerAncient01__sub_8018A914(void *);
 M2C_UNK TObjPlayer__sub_801B4A18(void *, int, f32);
 M2C_UNK run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01R__data_805D5B94;
-extern f32 TContainerAncient01__data_805DBD10;
+extern const f32 TContainerAncient01__data_805DBD10;
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 lbl_805DBD50;
 extern const f32 lbl_805DBD54;
@@ -63,6 +65,14 @@ M2C_UNK TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
 extern f32 TContainerAncient01__data_805DBD14;
 f32 TContainerAncient01__sub_8018ABE0(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 TContainerAncient01__data_804B6DC0;
+extern const f32 TContainerAncient01__data_805DBD10;
+extern const f32 TContainerAncient01__data_805DBD3C;
+extern const f32 lbl_805DBD40;
+extern const f32 TContainerAncient01__data_805DBD44;
+extern const f32 lbl_805DBD48;
+void TContainerAncient01__sub_8018A9D8(u8 *arg0);
 }
 
 extern "C" {
@@ -100,6 +110,29 @@ void TContainerAncient01__sub_8018A890(u8 *arg0) {
   }
 }
 
+#pragma push
+#pragma fp_contract on
+void TContainerAncient01__sub_8018A9D8(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x33C) = (f32) (TContainerAncient01__data_805DBD3C + (M2C_FIELD(arg0, f32 *, 0x68) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
+    M2C_FIELD(arg0, f32 *, 0x340) = (f32) (lbl_805DBD40 + (M2C_FIELD(arg0, f32 *, 0x6C) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
+    M2C_FIELD(arg0, f32 *, 0x344) = (f32) (TContainerAncient01__data_805DBD44 + (M2C_FIELD(arg0, f32 *, 0x70) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
+    M2C_FIELD(arg0, s32 *, 0x370) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) + 4);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x348, arg0 + 0x38);
+    M2C_FIELD(arg0, f32 *, 0x34C) = (f32) (M2C_FIELD(arg0, f32 *, 0x34C) + M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x354, arg0 + 0x348);
+    M2C_FIELD(arg0, f32 *, 0x358) = (f32) ((lbl_805DBD48 * M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4)) + M2C_FIELD(arg0, f32 *, 0x358));
+    M2C_FIELD(arg0, s32 *, 0x360) = 0;
+    M2C_FIELD(arg0, f32 *, 0x364) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
+    M2C_FIELD(arg0, f32 *, 0x368) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
+    M2C_FIELD(arg0, f32 *, 0x36C) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD10);
+    M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s32 *, 0x64);
+    if ((s16) M2C_FIELD(arg0, s16 *, 0x32C) < 1) {
+        M2C_FIELD(arg0, s16 *, 0x32C) = 1;
+    }
+    M2C_FIELD(arg0, s16 *, 0x338) = 0;
+}
+#pragma pop
+
 void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 arg2) {
     s16 temp_r4;
     M2C_FIELD(arg0, s16 *, 0x338) = (s16) *arg1;
@@ -115,7 +148,7 @@ void set_target_value__19TContainerAncient01FPvPvi(void *arg0, s16 *arg1, s32 ar
     }
 }
 
-extern f32 TContainerAncient01__data_805DBD10;
+extern const f32 TContainerAncient01__data_805DBD10;
 extern f32 TContainerAncient01__data_805DBD14;
 
 f32 TContainerAncient01__sub_8018ABE0(u8 *arg0) {

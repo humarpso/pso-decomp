@@ -1,9 +1,5 @@
 #include "pso/TChallenge4PResult.h"
 
-void TChallenge4PResult::run_task() {}
-
-TChallenge4PResult::~TChallenge4PResult() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -27,7 +23,7 @@ int queue_destruction__18TChallenge4PResultFPv(void* p);
 M2C_UNK TChallenge4PResult__sub_8034BA68(void *);
 M2C_UNK TChallenge4PResult__sub_8034BADC(void *);
 void update_input__18TChallenge4PResultFPv(void *arg0);
-void run_task__18TChallenge4PResultFv(u8 *arg0);
+
 }
 
 extern "C" {
@@ -164,28 +160,37 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
     }
 }
 
-void run_task__18TChallenge4PResultFv(u8 *arg0) {
+}
+
+void TChallenge4PResult::run_task() {
     s32 temp_r0;
     if ((get_global_state__14TOKeyMachine01Fv() != 0xE) || (is_active__11TBoss4Type2Fv() != 1)) {
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+        temp_r0 = state_1c;
         switch (temp_r0) {
         case 0:
-            update_input__18TChallenge4PResultFPv((void *) (arg0));
+            update_input__18TChallenge4PResultFPv((void *) (this));
             return;
         case 1:
-            TChallenge4PResult__sub_8034BADC((void *) (arg0));
+            TChallenge4PResult__sub_8034BADC((void *) (this));
             return;
         case 2:
-            TChallenge4PResult__sub_8034BA68((void *) (arg0));
+            TChallenge4PResult__sub_8034BA68((void *) (this));
             return;
         case 3:
-            queue_destruction__18TChallenge4PResultFPv((void*)((void *) (arg0)));
+            queue_destruction__18TChallenge4PResultFPv((void*)((void *) (this)));
             return;
         case 5:
-            TChallenge4PResult__sub_8034BA2C((u8 *)((void *) (arg0)));
+            TChallenge4PResult__sub_8034BA2C((u8 *)((void *) (this)));
             break;
         }
     }
 }
+
+TChallenge4PResult::~TChallenge4PResult() {
+    close_window__18TChallenge4PResultFPv(this);
+    TChallenge4PResult__data_805436A8[slot_index] = 0;
+}
+
+extern "C" {
 
 }

@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s32 lbl_805D4C24;
+bool TBoss3Volopt__sub_8003CB94(void);
+}
+
+extern "C" {
 
 int TBoss3Volopt__sub_8003CB48(void);
 void alloc_idle_event__12TBoss3VoloptFv(void);
@@ -47,6 +52,10 @@ int TBoss3Volopt__sub_8003CB48(void) { return update_if_active__12TBoss3VoloptFv
 void alloc_idle_event__12TBoss3VoloptFv(void) { alloc_event__12TBoss3VoloptFsi((void*)160, (void*)0); }
 
 extern s32 lbl_805D53A0;
+
+bool TBoss3Volopt__sub_8003CB94(void) {
+    return lbl_805D4C24 != 0;
+}
 
 void handle_6x17_set_entity_position_and_angle(u8 *arg0) {
     u8 *temp_r3;

@@ -32,6 +32,8 @@ extern const f32 TBoss6PlotFalz__data_805DE09C;
 extern f32 TBoss6PlotFalz__data_805DE0BC;
 extern s32 lbl_805DE0C8;
 void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
+extern s32 lbl_805D5550;
+bool TBoss6PlotFalz__sub_802AC17C(void);
 }
 
 extern "C" {
@@ -105,5 +107,9 @@ void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     }
 }
 #pragma pop
+
+bool TBoss6PlotFalz__sub_802AC17C(void) {
+    return lbl_805D5550 == 0;
+}
 
 }

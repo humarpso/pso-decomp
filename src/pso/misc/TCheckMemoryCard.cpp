@@ -6,6 +6,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Base_8033C4E0_8033C420 { char pad[0x18]; };
 struct VObj_8033C4E0_8033C420 : Base_8033C4E0_8033C420 { virtual void m0(int); };
 
+#include <stddef.h>
+#include "pso/misc/TCheckMemoryCard.h"
+struct Stack_8033C424 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+union MemberActionStorage_8033C424 { s32 words[3]; void (TCheckMemoryCard::*action)(); };
+
+struct RecoveredGlobal_8033C424_lbl_804EF940 {
+    M2C_UNK value;
+    u8 remaining[0x5C];
+};
+
+extern "C" {
+s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *);
+s32 TWindowSubComCard__sub_8033C024(void *, s32);
+extern RecoveredGlobal_8033C424_lbl_804EF940 lbl_804EF940;
+void run_task__16TCheckMemoryCardFv(u8 *arg0);
+}
+
 extern "C" {
 
 void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
@@ -25,13 +47,39 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
-s32 poll_memcard_status__15TAdPlayerLoadGCFPv();
 void reset__17TWindowSubComCardFPv(void *);
 int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
 
 void render__16TCheckMemoryCardFv(void) {  }
 
 extern M2C_UNK __vt__16TCheckMemoryCard[];
+
+typedef char MemberActionStorage_8033C424_size[sizeof(MemberActionStorage_8033C424) == 12 ? 1 : -1];
+typedef char RecoveredGlobal_8033C424_lbl_804EF940_size[sizeof(RecoveredGlobal_8033C424_lbl_804EF940) == 0x60 ? 1 : -1];
+void run_task__16TCheckMemoryCardFv(u8 *arg0) {
+    MemberActionStorage_8033C424 member_action;
+    typedef char sp8_offset[(offsetof(Stack_8033C424, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8033C424, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8033C424, sp10) == 0x8) ? 1 : -1];
+    Stack_8033C424 stack;
+    u8 *temp_r6;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x28) = poll_memcard_status__15TAdPlayerLoadGCFPv((void *) (arg0));
+    if (M2C_FIELD(arg0, s32 *, 0x28) & 1) {
+        TWindowSubComCard__sub_8033C024((void *)((void *) (arg0)), (s32)((int) (0)));
+    }
+    temp_r6 = (u8 *)&lbl_804EF940.value + (M2C_FIELD(arg0, s32 *, 0x20) * 0x18);
+    member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0xC);
+    member_action.words[1] = M2C_FIELD(temp_r6, s32 *, 0x10);
+    member_action.words[2] = M2C_FIELD(temp_r6, s32 *, 0x14);
+    if (member_action.action != 0) {
+        (((TCheckMemoryCard *)((void *) (arg0)))->*member_action.action)();
+    }
+    M2C_FIELD(arg0, s32 *, 0x38) = (s32) (M2C_FIELD(arg0, s32 *, 0x38) - 1);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x38) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    }
+}
 
 void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
     void *temp_r3;

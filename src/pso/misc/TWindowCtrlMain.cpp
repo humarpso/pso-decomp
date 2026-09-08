@@ -5,10 +5,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+bool TWindowCtrlMain__sub_8024D868(u8 *arg0);
+}
+
+extern "C" {
 
 int TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
-int TWindowCtrlMain__sub_8024D868(void);
 void TWindowCtrlMain__sub_8024D8A8(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);
 s32 get_main_menu_message__15TWindowCtrlMainFPv(void *arg0);
@@ -38,7 +41,9 @@ int run_task__15TWindowCtrlMainFv(void* p) { return update_com_card__9TWindowDDF
 int TWindowCtrlMain__sub_8024D838(void) { return TWindowCtrlMain__sub_8024D7C0((void*)(0)); }
 void TWindowCtrlMain__sub_8024D85C(void* p) { *(s16*)((char*)p + 0x20) = 60; }
 
-int TWindowCtrlMain__sub_8024D868(void) { return 0; }
+bool TWindowCtrlMain__sub_8024D868(u8 *arg0) {
+    return M2C_FIELD(arg0, s16 *, 0x20) <= 0;
+}
 
 void update_child_2c__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) send_and_handle__6TLobbyFPvii(m); }
 void TWindowCtrlMain__sub_8024D8A8(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) fn_802437C4(m); }

@@ -387,6 +387,8 @@ s32 TCameraCtrl__sub_80069D7C(void);
 extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 s32 TCameraCtrl__sub_80069E7C(s32 arg0);
+extern s16 TCameraCtrl__data_805D4E0A;
+bool TCameraCtrl__sub_800689F4(void);
 }
 
 extern "C" {
@@ -428,6 +430,10 @@ void TCameraCtrl__sub_800687E4(u8 *arg0) {
 void TCameraCtrl__sub_800689E8(void) { TCameraCtrl__data_805D4E00 = 0; }
 
 extern f32 TCameraCtrl__data_805D8FA8;
+
+bool TCameraCtrl__sub_800689F4(void) {
+    return TCameraCtrl__data_805D4E0A != 0;
+}
 
 f32 TCameraCtrl__sub_80068A04(void) {
     return TCameraCtrl__data_805D8FA8;

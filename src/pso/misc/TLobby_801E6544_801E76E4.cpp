@@ -40,6 +40,12 @@ struct RecoveredGlobal_801E7C5C_TLobby__data_80512220
   u8 remaining[0x1C];
 };
 
+struct RecoveredGlobal_801E7934_TLobby__data_80512220
+{
+  M2C_UNK value;
+  u8 remaining[0x1C];
+};
+
 extern "C" {
 M2C_UNK TLobby__sub_801F34E8(int, int);
 extern struct Glob_80512220 TLobby__data_80512220;
@@ -53,6 +59,10 @@ u8 *TPlayerBattleCtrl4P__sub_801BA74C(s32);
 extern struct Glob_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E7C5C(void);
+s32 get_card_window__17TWindowSubComCardFUi(u32);
+extern struct Glob_80512220 TLobby__data_80512220;
+extern s32 TLobby__data_805D5E78;
+void TLobby__sub_801E7934(void);
 }
 
 extern "C" {
@@ -104,6 +114,31 @@ typedef char RecoveredGlobal_801E7CCC_TLobby__data_80512220_size[sizeof(Recovere
 
 typedef struct RecoveredGlobal_801E7C5C_TLobby__data_80512220 RecoveredGlobal_801E7C5C_TLobby__data_80512220;
 typedef char RecoveredGlobal_801E7C5C_TLobby__data_80512220_size[((sizeof(RecoveredGlobal_801E7C5C_TLobby__data_80512220)) == 0x20) ? (1) : (-1)];
+
+typedef struct RecoveredGlobal_801E7934_TLobby__data_80512220 RecoveredGlobal_801E7934_TLobby__data_80512220;
+typedef char RecoveredGlobal_801E7934_TLobby__data_80512220_size[((sizeof(RecoveredGlobal_801E7934_TLobby__data_80512220)) == 0x20) ? (1) : (-1)];
+void TLobby__sub_801E7934(void) {
+  long long new_var;
+  s32 temp_r31;
+  u32 temp_r3;
+  u8 temp_r30;
+  temp_r31 = *((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7934_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 0));
+  temp_r30 = (u8) (*((s32 *) (((s8 *) (&(*(RecoveredGlobal_801E7934_TLobby__data_80512220 *)&TLobby__data_80512220).value)) + 4)));
+  temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
+  if (temp_r3 != 0U)
+  {
+    if ((temp_r31 >= 0) && (temp_r31 < 0x10))
+    {
+      new_var = temp_r3 + (temp_r31 * 4);
+      *((s32 *) (((s8 *) (TLobby__data_805D5E78 + ((temp_r30 * 4) & 0x3FC))) + 0)) = *((s32 *) (((s8 *) new_var) + 0x2314));
+    }
+  }
+  else
+  {
+    *((s32 *) (((s8 *) (TLobby__data_805D5E78 + ((temp_r30 * 4) & 0x3FC))) + 0)) = -1;
+  }
+}
+
 void TLobby__sub_801E7C5C(void) {
   u32 temp_r3;
   u8 temp_r31;

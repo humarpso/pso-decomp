@@ -228,6 +228,26 @@ struct RecoveredGlobal_80409A3C_lbl_805C1C50 {
     u8 remaining[0xF4];
 };
 
+struct RecoveredGlobal_803F88E4_lbl_805AEEB0
+{
+  M2C_UNK value;
+  u8 remaining[0x49C4];
+};
+
+struct RecoveredFields_803F88E4_arg0
+{
+  s16 field_0;
+  s16 field_2;
+  s16 field_4;
+  u8 unknown_6[0x2];
+  u8 *field_8;
+  u8 *field_C;
+  u8 *field_10;
+  s16 field_14;
+  u8 unknown_16[0x2];
+  u8 *field_18;
+};
+
 extern "C" {
 s32 TLobby__sub_803FA150(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -504,6 +524,8 @@ void TLobby__sub_803F95C4(int _w0);
 s16 TLobby__sub_8040A2BC(void *, s16);
 extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
 s16 TLobby__sub_80409A3C(u8 *arg0, s16 arg1);
+extern RecoveredGlobal_803F895C_lbl_805AEEB0 lbl_805AEEB0;
+void TLobby__sub_803F88E4(RecoveredFields_803F88E4_arg0 *arg0);
 }
 
 extern "C" {
@@ -596,6 +618,22 @@ void TLobby__sub_803F8864(void) {
 
 void TLobby__sub_803F88E0(void) {
 
+}
+
+typedef struct RecoveredFields_803F88E4_arg0 RecoveredFields_803F88E4_arg0;
+typedef struct RecoveredGlobal_803F88E4_lbl_805AEEB0 RecoveredGlobal_803F88E4_lbl_805AEEB0;
+typedef char RecoveredGlobal_803F88E4_lbl_805AEEB0_size[((sizeof(RecoveredGlobal_803F88E4_lbl_805AEEB0)) == 0x49C8) ? (1) : (-1)];
+void TLobby__sub_803F88E4(RecoveredFields_803F88E4_arg0 *arg0) {
+  u8 *new_var;
+  arg0->field_0 = 2;
+  new_var = (u8 *) (&(*(RecoveredGlobal_803F88E4_lbl_805AEEB0 *)&lbl_805AEEB0).value);
+  arg0->field_2 = 8;
+  arg0->field_4 = 8;
+  arg0->field_14 = 0x5DC;
+  arg0->field_8 = new_var + 0x6064;
+  arg0->field_C = new_var + 0x5E24;
+  arg0->field_10 = new_var + 0x5D04;
+  arg0->field_18 = ((u8 *) (&(*(RecoveredGlobal_803F88E4_lbl_805AEEB0 *)&lbl_805AEEB0).value)) + 0x514C;
 }
 
 void TLobby__sub_803F892C(void * _w0) {

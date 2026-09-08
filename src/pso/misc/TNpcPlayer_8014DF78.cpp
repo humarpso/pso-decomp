@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_8014F728 {
+    M2C_UNK sp8;
+    f32 spC;
+};
+
 extern "C" {
 void TNpcPlayer__sub_801528B8(s32, s32);
 void TNpcPlayer__sub_8014E33C(u8 *arg0, u32 arg1);
@@ -12,6 +17,10 @@ u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
 s32 TNpcPlayer__sub_8014F0D4(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 void TNpcPlayer__sub_8014E090(u8 *arg0, u32 arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+u8 *TObjButterflyLobby__sub_8007A5D8(s32, s32, M2C_UNK);
+s32 TNpcPlayer__sub_800D87EC(void *);
+bool TNpcPlayer__sub_8014F728(u8 *arg0, u16 arg1);
 }
 
 extern "C" {
@@ -169,6 +178,14 @@ void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         quick_sort__10TNpcPlayerFiiii((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(temp_r3 - 1));
         quick_sort__10TNpcPlayerFiiii((s32)(arg0), (s32)(arg1), (s32)(temp_r3 + 1), (s32)(arg3));
     }
+}
+bool TNpcPlayer__sub_8014F728(u8 *arg0, u16 arg1) {
+    Stack_8014F728 stack;
+    u8 *temp_r3;
+    VecCopy__FP3VecPC3Vec((void *)((void *) (&stack.sp8)), (int)((void *) (TNpcPlayer__sub_800D87EC((void *) (arg1)) + 0x2FC)));
+    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x94));
+    stack.spC = M2C_FIELD(temp_r3, f32 *, 0x300);
+    return ((s32)TObjButterflyLobby__sub_8007A5D8((s32)((void *) (temp_r3 + 0x2FC)), (s32)((void *) (&stack.sp8)), (M2C_UNK)((int) (0x2100)))) == 0;
 }
 
 }

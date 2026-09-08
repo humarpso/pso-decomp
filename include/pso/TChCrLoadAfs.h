@@ -8,6 +8,21 @@ class TChCrLoadAfs : public TObject {
 public:
     virtual ~TChCrLoadAfs();
     virtual void run_task();
+    u32 load_handle;
+    u32 source_20;
+    u32 source_24;
+    u32 buffer_address;
+    s32 load_state;
+    s32 state_30;
+    s32 timer;
+
 };
+
+#include <stddef.h>
+typedef char TChCrLoadAfs_size[sizeof(TChCrLoadAfs) == 0x38 ? 1 : -1];
+typedef char TChCrLoadAfs_load_handle_offset[offsetof(TChCrLoadAfs, load_handle) == 0x1c ? 1 : -1];
+typedef char TChCrLoadAfs_buffer_address_offset[offsetof(TChCrLoadAfs, buffer_address) == 0x28 ? 1 : -1];
+typedef char TChCrLoadAfs_load_state_offset[offsetof(TChCrLoadAfs, load_state) == 0x2c ? 1 : -1];
+typedef char TChCrLoadAfs_timer_offset[offsetof(TChCrLoadAfs, timer) == 0x34 ? 1 : -1];
 
 #endif

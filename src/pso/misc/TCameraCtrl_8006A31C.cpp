@@ -65,6 +65,18 @@ struct RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628
   u8 remaining[0x8];
 };
 
+struct RecoveredGlobal_8006A5EC_camera_controller_registry
+{
+  M2C_UNK value;
+  u8 remaining[0x64];
+};
+
+struct RecoveredGlobal_8006A5EC_TCameraCtrl__data_804FF628
+{
+  s8 value;
+  u8 remaining[0xB];
+};
+
 extern "C" {
 extern s8 TCameraCtrl__data_804FF628[];
 u8 TCameraCtrl__sub_8006A5DC(void);
@@ -87,6 +99,10 @@ extern const f32 TCameraCtrl__data_805D8FAC;
 extern const f32 TCameraCtrl__data_805D8FDC;
 extern const f32 TCameraCtrl__data_805D8FE0;
 void TCameraCtrl__sub_8006A7D8(u8 *arg0);
+extern RecoveredGlobal_8006A788_camera_controller_registry camera_controller_registry;
+extern s8 TCameraCtrl__data_804FF628[];
+extern u8 *lbl_805D4DF0;
+void TCameraCtrl__sub_8006A5EC(s8 arg0);
 }
 
 extern "C" {
@@ -116,6 +132,49 @@ typedef struct VObj_18_f8ef8c VObj_18_f8ef8c;
 typedef char RecoveredGlobal_8006A788_camera_controller_registry_size[((sizeof(RecoveredGlobal_8006A788_camera_controller_registry)) == 0x68) ? (1) : (-1)];
 typedef char RecoveredGlobal_8006A788_TCameraCtrl__data_804FF628_size[((sizeof(RecoveredGlobal_8006A788_TCameraCtrl__data_804FF628)) == 0xC) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_f8ef8c_m5(_self) (((VObj_18_f8ef8c *)(_self))->m5())
+
+typedef struct RecoveredGlobal_8006A5EC_TCameraCtrl__data_804FF628 RecoveredGlobal_8006A5EC_TCameraCtrl__data_804FF628;
+typedef struct RecoveredGlobal_8006A5EC_camera_controller_registry RecoveredGlobal_8006A5EC_camera_controller_registry;
+typedef char RecoveredGlobal_8006A5EC_camera_controller_registry_size[((sizeof(RecoveredGlobal_8006A5EC_camera_controller_registry)) == 0x68) ? (1) : (-1)];
+typedef char RecoveredGlobal_8006A5EC_TCameraCtrl__data_804FF628_size[((sizeof(RecoveredGlobal_8006A5EC_TCameraCtrl__data_804FF628)) == 0xC) ? (1) : (-1)];
+#define PSO_VCALL_VObj_18_f8ef8c_m5(_self) (((VObj_18_f8ef8c *)(_self))->m5())
+void TCameraCtrl__sub_8006A5EC(s8 arg0) {
+  f32 temp_f0;
+  f32 temp_f0_2;
+  f32 temp_f0_3;
+  f32 temp_f0_4;
+  f32 temp_f0_5;
+  f32 temp_f0_6;
+  u8 *temp_r31;
+  (*(RecoveredGlobal_8006A5EC_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value = arg0;
+  temp_r31 = (u8 *) (*((u8 **) (((s8 *) (((u8 *) (&(*(RecoveredGlobal_8006A5EC_camera_controller_registry *)&camera_controller_registry).value)) + ((arg0 * 4) & 0x3FC))) + 0)));
+  if (temp_r31 != 0)
+  {
+    PSO_VCALL_VObj_18_f8ef8c_m5(temp_r31);
+    if (((void *) lbl_805D4DF0) != 0)
+    {
+      temp_f0 = *((f32 *) (((s8 *) temp_r31) + 0x3C));
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x1A0)) = temp_f0;
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x178)) = temp_f0;
+      temp_f0_2 = *((f32 *) (((s8 *) temp_r31) + 0x40));
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x1A4)) = temp_f0_2;
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x17C)) = temp_f0_2;
+      temp_f0_3 = *((f32 *) (((s8 *) temp_r31) + 0x44));
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x1A8)) = temp_f0_3;
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x180)) = temp_f0_3;
+      temp_f0_4 = *((f32 *) (((s8 *) temp_r31) + 0x48));
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x1AC)) = temp_f0_4;
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x184)) = temp_f0_4;
+      temp_f0_5 = *((f32 *) (((s8 *) temp_r31) + 0x4C));
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x1B0)) = temp_f0_5;
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x188)) = temp_f0_5;
+      temp_f0_6 = *((f32 *) (((s8 *) temp_r31) + 0x50));
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x1B4)) = temp_f0_6;
+      *((f32 *) (((s8 *) lbl_805D4DF0) + 0x18C)) = temp_f0_6;
+    }
+  }
+}
+
 void select_camera_controller(s8 arg0) {
   u8 *temp_r0;
   (*(RecoveredGlobal_8006A788_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value = arg0;

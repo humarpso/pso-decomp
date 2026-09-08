@@ -5,6 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+bool TWindowCtrl__sub_8024C7C4(u8 *arg0);
+}
+
+extern "C" {
 
 s32 TRaderMapCore__sub_801F9110();
 s32 TRaderMapCore__sub_801F9144();
@@ -26,6 +30,8 @@ int is_visible__11TWindowCtrlFPv(void* p);
 s16 get_field_20__11TWindowCtrlFPv(void* p);
 s16 get_width__11TWindowCtrlFPv(void* p);
 
-int TWindowCtrl__sub_8024C7C4(void) { return 0; }
+bool TWindowCtrl__sub_8024C7C4(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0x3C) != 0;
+}
 
 }

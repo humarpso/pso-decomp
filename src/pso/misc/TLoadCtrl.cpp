@@ -32,6 +32,8 @@ extern RecoveredGlobal_8001C828___vt__9TLoadCtrl __vt__9TLoadCtrl;
 extern u32 TLoadCtrl__data_805D4A80;
 extern s32 TLoadCtrl__data_805D4A88;
 u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1);
+extern u32 TLoadCtrl__data_805D4A80;
+bool TLoadCtrl__sub_8001C60C(void);
 }
 
 extern "C" {
@@ -50,6 +52,10 @@ M2C_UNK fn_8034AD28();
 M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK release_bgm_resource__6TLobbyFv();
 M2C_UNK reset__11TCameraCtrlFv();
+
+bool TLoadCtrl__sub_8001C60C(void) {
+    return (*(s32 *)&TLoadCtrl__data_805D4A80) != 0;
+}
 
 void render__9TLoadCtrlFv(void) {  }
 

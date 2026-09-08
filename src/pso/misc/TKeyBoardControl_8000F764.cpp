@@ -79,6 +79,8 @@ extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
 s32 TKeyBoardControl__sub_8000F8EC(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
 void TKeyBoardControl__sub_8000F91C(s32 arg0);
+extern s32 lbl_805D49BC;
+bool TKeyBoardControl__sub_8000F968(void);
 }
 
 extern "C" {
@@ -196,6 +198,10 @@ void TKeyBoardControl__sub_8000F950(void) {
 
 void TKeyBoardControl__sub_8000F95C(void) {
     lbl_805D49C0 = 0;
+}
+
+bool TKeyBoardControl__sub_8000F968(void) {
+    return lbl_805D49BC != 0;
 }
 
 void TKeyBoardControl__sub_8000F978(void) {

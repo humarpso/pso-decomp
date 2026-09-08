@@ -24,6 +24,11 @@ struct RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 {
     u8 remaining[0xAC];
 };
 
+struct RecoveredGlobal_80132274_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
 extern "C" {
 void render__16TKeyBoardControlFv(void);
 void render__16TKeyBoardControlFv(void);
@@ -69,6 +74,10 @@ void reset_keys__16TKeyBoardControlFPv(void *arg0);
 M2C_UNK TKeyBoardControl__sub_8013276C(void *);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 void TKeyBoardControl__sub_801328F8(void);
+int TKeyBoardControl__sub_801323C8(void *, int);
+u8 get_key_state__16TKeyBoardControlFPv(void* p);
+extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+bool TKeyBoardControl__sub_80132274(s32 arg0);
 }
 
 extern "C" {
@@ -174,6 +183,15 @@ s32 check_input_ready__16TKeyBoardControlFi(s32 arg0) {
     }
     return 1;
 }
+
+typedef char RecoveredGlobal_80132274_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_80132274_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+bool TKeyBoardControl__sub_80132274(s32 arg0) {
+    if ((get_key_state__16TKeyBoardControlFPv((void*)(&(*(RecoveredGlobal_80132274_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)) == 0) || (get_key_state__16TKeyBoardControlFPv((void*)(&(*(RecoveredGlobal_80132274_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value)) == 1)) {
+        return 0;
+    }
+    return ((s32)TKeyBoardControl__sub_801323C8((void *)(arg0), (int)(0x5BU))) != 0;
+}
+
 int TKeyBoardControl__sub_801322E4(s32 _w0) { return 0; }
 s32 TKeyBoardControl__sub_80132310(s32 arg0) {
     if ((TKeyBoardControl__sub_801323C8((void *)(arg0), (int)(0x54U)) != 0) || (TKeyBoardControl__sub_801323C8((void *)(arg0), (int)(0x55U)) != 0)) {

@@ -8,6 +8,11 @@ extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void TWindowHelpItem__sub_80270060(s32, u32);
 void TWindowLockOn__sub_80262FDC(u8 *arg0);
+s32 obj_isState3_324(void *);
+s32 obj_testFlags30(s32, M2C_UNK);
+s32 get_target_id__13TWindowLockOnFPv(void *);
+s32 TWindowSubComCard__sub_801058F8(void *);
+bool TWindowLockOn__sub_80262DC4(s32 arg0);
 }
 
 extern "C" {
@@ -26,6 +31,25 @@ M2C_UNK TWindowSubStatusDisp__sub_80257CB8(s32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 obj_testFlags30(s32, M2C_UNK);
+
+bool TWindowLockOn__sub_80262DC4(s32 arg0) {
+    if (arg0 == 0) {
+        return 0;
+    }
+    if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x10000000))) != 0) {
+        if ((obj_isState3_324((void *) (arg0)) != 0) || (TWindowSubComCard__sub_801058F8((void *) (arg0)) != 0)) {
+            return 0;
+        }
+        return 1;
+    }
+    if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x20000000))) != 0) {
+        if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x40000000))) != 0) {
+            return 0;
+        }
+        return get_target_id__13TWindowLockOnFPv((void *) (arg0)) != 0;
+    }
+    return obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x80000000))) != 0;
+}
 
 void TWindowLockOn__sub_80262FD8(void) {  }
 

@@ -1,9 +1,5 @@
 #include "pso/TObjLiveCameraCtrl.h"
 
-void TObjLiveCameraCtrl::run_task() {}
-
-TObjLiveCameraCtrl::~TObjLiveCameraCtrl() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -11,6 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+void queue_destruction__7TObjectFv(void *);
 void update_toggle_state__12TBoss8DragonFPv(void *);
 void TBoss8Dragon__sub_8030BB24(void *);
 void TBoss8Dragon__sub_8030B8A8(void *);
@@ -27,15 +24,23 @@ M2C_UNK memset(M2C_UNK *, M2C_UNK, M2C_UNK);
 
 extern M2C_UNK TObjLiveCameraCtrl__data_805D6A88;
 
-void run_task__18TObjLiveCameraCtrlFv(void *arg0) {
-    update_toggle_state__12TBoss8DragonFPv(arg0);
-    TBoss8Dragon__sub_8030BB24(arg0);
-    TBoss8Dragon__sub_8030B8A8(arg0);
-    if (M2C_FIELD(arg0, void **, 0x50) != NULL) {
-        copy_position_vectors__11TCameraCtrlFPvPvPv(M2C_FIELD(arg0, void **, 0x50), (void *)((char *)arg0 + 52), (void *)((char *)arg0 + 64));
+}
+
+void TObjLiveCameraCtrl::run_task() {
+    update_toggle_state__12TBoss8DragonFPv(this);
+    TBoss8Dragon__sub_8030BB24(this);
+    TBoss8Dragon__sub_8030B8A8(this);
+    if (camera_object != NULL) {
+        copy_position_vectors__11TCameraCtrlFPvPvPv(camera_object, vector_34, vector_40);
     }
 }
 
+TObjLiveCameraCtrl::~TObjLiveCameraCtrl() {
+    ((TObject **)&TObjLiveCameraCtrl__data_805D6A88)[slot_index] = NULL;
+    if (camera_object != NULL) queue_destruction__7TObjectFv(camera_object);
+}
+
+extern "C" {
 s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0) {
     if (arg0 < 0) {
         return 0;

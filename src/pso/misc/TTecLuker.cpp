@@ -80,6 +80,7 @@ void TTecLuker__sub_80234F68(void* p);
 extern RecoveredGlobal_80233D18_lbl_804CC9A8 lbl_804CC9A8;
 extern M2C_UNK lbl_804CC9D4[];
 u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+bool TTecLuker__sub_8023401C(u8 *arg0);
 }
 
 extern "C" {
@@ -214,6 +215,10 @@ void TTecLuker__sub_80233E3C(u16 arg0) {
     if (temp_r3 != NULL) {
         create__9TTecLukerFPvPvPvPv(temp_r3, temp_r3 + 0x38, temp_r3 + 0x2FC, NULL);
     }
+}
+
+bool TTecLuker__sub_8023401C(u8 *arg0) {
+    return M2C_FIELD(arg0, s16 *, 2) != 0;
 }
 
 void init_fields__9TTecLukerFPvs(void *arg0, s16 arg1) {

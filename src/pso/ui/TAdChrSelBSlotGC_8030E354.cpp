@@ -63,11 +63,12 @@ M2C_UNK TAdPlyChrSelPlateGC__sub_802C4DD0(int, void *);
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 extern RecoveredGlobal_8030E6E0_lbl_804758E8 lbl_804758E8;
 void TAdChrSelBSlotGC__sub_8030E6E0(u8 *arg0);
+u8 * TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
+bool TAdChrSelBSlotGC__sub_8030E378(M2C_UNK arg0, u32 arg1);
 }
 
 extern "C" {
 
-int TAdChrSelBSlotGC__sub_8030E378(void);
 void TAdChrSelBSlotGC__sub_8030E458(void);
 void TAdChrSelBSlotGC__sub_8030E550(void);
 void TAdChrSelBSlotGC__sub_8030E620(void);
@@ -86,7 +87,15 @@ s32 get_slot_index__16TAdChrSelASlotGCFPv(void* p);
 s32 open_confirm_window__23TAdSinglePlyChrSelectGCFv();
 
 int render__16TAdChrSelBSlotGCFv(void) { return 0; }
-int TAdChrSelBSlotGC__sub_8030E378(void) { return 0; }
+
+bool TAdChrSelBSlotGC__sub_8030E378(M2C_UNK arg0, u32 arg1) {
+    u8 *temp_r3;
+    temp_r3 = (u8 *)(TAdSinglePlyChrSelectGC__sub_801FE3E4(arg1));
+    if ((u32)(temp_r3) == 0) {
+        return 0;
+    }
+    return M2C_FIELD(temp_r3, s32 *, 8) == 1;
+}
 
 void TAdChrSelBSlotGC__sub_8030E458(void) {  }
 void set_load_state__16TAdChrSelBSlotGCFPv(void *arg0) {

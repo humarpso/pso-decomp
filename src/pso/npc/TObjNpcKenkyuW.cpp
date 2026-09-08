@@ -112,6 +112,8 @@ extern M2C_UNK __vt__14TObjNpcKenkyuW[];
 extern s32 lbl_805D3DD4;
 extern u32 TObjNpcKenkyuW__data_805D6658;
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 TObjPlayer__sub_80019570(void *);
+bool TObjPlayer__sub_802A3DAC(M2C_UNK arg0, u32 arg1);
 }
 
 extern "C" {
@@ -165,6 +167,12 @@ u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyuW__data_805D6658)), (int) (0));
     fn_80148274((void *) (arg0));
     return arg0;
+}
+bool TObjPlayer__sub_802A3DAC(M2C_UNK arg0, u32 arg1) {
+    if (arg1 == 0U) {
+        return 0;
+    }
+    return TObjPlayer__sub_80019570((void *) (arg1)) != 0;
 }
 
 }

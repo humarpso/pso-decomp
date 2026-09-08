@@ -1,8 +1,11 @@
 #include "pso/TChCrLoadAfs.h"
-
-void TChCrLoadAfs::run_task() {}
-
-TChCrLoadAfs::~TChCrLoadAfs() {}
+extern "C" {
+int TLobby__sub_803CC4C0(int);
+int TLobby__sub_803CC980(int);
+int TLobby__sub_803CCE9C(int);
+int safe_free__23TAdSinglePlyChrSelectGCFUi(int);
+int release_load_slot__12TChCrLoadAfsFPv(void *);
+}
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -48,6 +51,26 @@ void start_download__12TChCrLoadAfsFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 1;
     }
 }
+}
+
+void TChCrLoadAfs::run_task() {}
+
+TChCrLoadAfs::~TChCrLoadAfs() {
+    u32 handle = load_handle;
+    if (handle != 0) {
+        if (TLobby__sub_803CC4C0((int)handle) == 2) TLobby__sub_803CC980((int)load_handle);
+        TLobby__sub_803CCE9C((int)load_handle);
+        load_handle = 0;
+    }
+    u32 buffer = buffer_address;
+    if (buffer != 0) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi((int)buffer);
+        buffer_address = 0;
+    }
+    release_load_slot__12TChCrLoadAfsFPv(this);
+}
+
+extern "C" {
 
 extern M2C_UNK __vt__12TChCrLoadAfs[];
 extern void *lbl_805D3B48;

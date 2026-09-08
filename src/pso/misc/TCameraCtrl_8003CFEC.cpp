@@ -1,4 +1,5 @@
 #include "types.h"
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -6,7 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
 #define PAD3 virtual void CAT(f,__LINE__)(); virtual void CAT(g,__LINE__)(); virtual void CAT(h,__LINE__)();
+#include <stddef.h>
 struct Base_A_8003d558_8003CFEC { char pad[0x18]; };
+
 struct V_A_8003d558_8003CFEC : Base_A_8003d558_8003CFEC {
     virtual void f0();
     PAD3
@@ -36,7 +39,6 @@ struct V_A_8003d558_8003CFEC : Base_A_8003d558_8003CFEC {
     virtual void m72(s32);
 };
 
-#include <stddef.h>
 struct Stack_8003D648 {
     s8 sp8;
     s8 sp9;
@@ -48,6 +50,25 @@ struct Stack_8003D648 {
 struct RecoveredGlobal_8003D648_lbl_8048377C { M2C_UNK value; u8 remaining[0x2C]; };
 
 extern "C" {
+void *TPhotonMylla__sub_80154CB4(u16);
+s32 is_photon_blast_active__11TCameraCtrlFPv();
+extern u16 lbl_80483770[];
+extern u16 lbl_805D271C;
+s32 is_photon_blast_active__11TCameraCtrlFv(void);
+void *TPhotonMylla__sub_80154CB4(u16);
+extern u16 lbl_805D2718;
+s32 fn_8003F3F8();
+s32 is_photon_ready__11TCameraCtrlFv(void);
+M2C_UNK TBoss3Volopt__sub_8003DD4C(void *);
+int TCameraCtrl__sub_8003D1E8(void *);
+s32 TLobby__sub_800C6C10();
+M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+u32 __nw__7TObjectFUl(M2C_UNK);
+s32 get_main_phase();
+M2C_UNK init_object__16TBoss3VoloptCtrlFPv();
+M2C_UNK obj_setFlags30(void *, M2C_UNK);
+M2C_UNK update_phase__12TBoss3VoloptFv();
+void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
 s32 TBoss3Volopt__sub_8003DC34(void *);
 s32 set_player_view_flag__11TCameraCtrlFi();
 s32 set_flag_08000000__11TCameraCtrlFi();
@@ -57,7 +78,7 @@ s32 TCameraCtrl__sub_80069E7C(int);
 s32 set_scripted_camera_pose(int, int, void *);
 s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 u8 *get_scripted_camera_playback();
-u32 TPhotonMylla__sub_80154CB4(u16);
+void *TPhotonMylla__sub_80154CB4(u16);
 s32 TObjPlayer__sub_801BA42C();
 s32 TObjPlayer__sub_801BA494();
 s32 init_all_slots__11TWindowCtrlFv();
@@ -72,32 +93,40 @@ void TCameraCtrl__sub_8003D648(u8 *arg0);
 
 extern "C" {
 
-s32 is_photon_ready__11TCameraCtrlFv(void);
-void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
-M2C_UNK TBoss3Volopt__sub_8003DD4C(void *);
-s32 TCameraCtrl__sub_8003D1E8(void *);
-s32 TLobby__sub_800C6C10();
-M2C_UNK TOTrapAncient01__sub_80226578(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
-u32 TPhotonMylla__sub_80154CB4(u16);
-u32 __nw__7TObjectFUl(M2C_UNK);
-s32 fn_8003F3F8();
-s32 get_main_phase();
-M2C_UNK init_object__16TBoss3VoloptCtrlFPv();
-M2C_UNK obj_setFlags30(void *, M2C_UNK);
-M2C_UNK update_phase__12TBoss3VoloptFv();
+int TCameraCtrl__sub_8003CFF4(void);
+void fn_8003CFEC(int a0);
 
-extern u16 lbl_805D2718;
+    extern int lbl_805D4C20;
+void fn_8003CFEC(int a0) { lbl_805D4C20 = a0; }
 
+    extern int lbl_805D4C20;
+int TCameraCtrl__sub_8003CFF4(void) {  return lbl_805D4C20; }
+
+    extern int lbl_805D4C24;
+int TCameraCtrl__sub_8003D1E8(void * _w0) {  return lbl_805D4C24; }
+s32 is_photon_blast_active__11TCameraCtrlFv(void) {
+    s32 var_r29;
+    s32 var_r31;
+    void *temp_r3;
+    temp_r3 = TPhotonMylla__sub_80154CB4(lbl_805D271C);
+    if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, s32 *, 0x30) & 0x800)) {
+        return 1;
+    }
+    for (var_r29 = 0; var_r29 < 6; var_r29 += 1) {
+        if ((TPhotonMylla__sub_80154CB4(lbl_80483770[var_r29]) != NULL) && (is_photon_blast_active__11TCameraCtrlFPv() == 0)) {
+            return 0;
+        }
+    }
+    return 1;
+}
 s32 is_photon_ready__11TCameraCtrlFv(void) {
-    if ((TPhotonMylla__sub_80154CB4(lbl_805D2718) != 0U) && (fn_8003F3F8() != 0)) {
+    if ((((u32)TPhotonMylla__sub_80154CB4(lbl_805D2718)) != 0U) && (fn_8003F3F8() != 0)) {
         return 1;
     }
     return 0;
 }
-
 void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
     s32 temp_r0;
-
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
     switch (temp_r0) {
     case 0:
@@ -110,7 +139,7 @@ void update_volopt_seq__11TCameraCtrlFPv(void *arg0) {
         } else {
             TBoss3Volopt__sub_8003DD4C(arg0);
         }
-        if (TCameraCtrl__sub_8003D1E8(arg0) != 0) {
+        if (((s32)TCameraCtrl__sub_8003D1E8((void *)(arg0))) != 0) {
             update_phase__12TBoss3VoloptFv();
             obj_setFlags30(arg0, 0x800);
             ((V_A_8003d558_8003CFEC *)arg0)->m72(0);
@@ -145,7 +174,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
         TCameraCtrl__sub_80069C94((void *) (&lbl_8048377C.value), (void *) ((u8 *)&lbl_8048377C.value + 0xC));
         TObjPlayer__sub_801BA494();
         init_all_slots__11TWindowCtrlFv();
-        if (TPhotonMylla__sub_80154CB4((u16)((void *) (lbl_805D2718))) != 0U) {
+        if (((u32)TPhotonMylla__sub_80154CB4((u16)((void *) (lbl_805D2718)))) != 0U) {
             set_flag_08000000__11TCameraCtrlFi();
         }
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
@@ -185,7 +214,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
         }
         break;
     case -1:
-        if (TPhotonMylla__sub_80154CB4((u16)((void *) (lbl_805D2718))) != 0U) {
+        if (((u32)TPhotonMylla__sub_80154CB4((u16)((void *) (lbl_805D2718)))) != 0U) {
             set_player_view_flag__11TCameraCtrlFi();
         }
         init_all_slots2__11TWindowCtrlFv();

@@ -210,17 +210,18 @@ short TTcpSocket::stat() {
 }
 
 short TTcpSocket::close() {
-	if (m_sock_fd != -1) {
+	short result = m_sock_fd;
+	if (result != -1) {
 		(short)tcp_abort(m_sock_fd);
 		(short)tcp_delete(m_sock_fd);
 		tcp_socket_table[m_sock_fd] = nullptr;
-		m_sock_fd = -1;
+		m_sock_fd = result = -1;
 		m_is_encrypted = 0;
 		m_size = 0;
 		m_buffer_offset = 0;
 		m_buffer_cleared = true;
 	}
-	return m_sock_fd;
+	return result;
 }
 
 int TTcpSocket::open() {

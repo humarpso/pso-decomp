@@ -8,6 +8,29 @@ class TSaveChCr : public TObject {
 public:
     virtual ~TSaveChCr();
     virtual void run_task();
+    s32 state_index;
+    u8 unknown_20[0xC];
+    s32 card_status;
+    u8 unknown_30[8];
+    s32 timer;
+    TObject *owned_window;
+
 };
+
+typedef void (TSaveChCr::*TSaveChCrStateAction)();
+struct TSaveChCrStateActions {
+    TSaveChCrStateAction first;
+    TSaveChCrStateAction task;
+};
+
+#include <stddef.h>
+typedef char SaveChCrSize[sizeof(TSaveChCr) == 0x40 ? 1 : -1];
+typedef char TSaveChCr_owned_window_offset[offsetof(TSaveChCr, owned_window) == 0x3c ? 1 : -1];
+typedef char TSaveChCr_state_index_offset[offsetof(TSaveChCr, state_index) == 0x1c ? 1 : -1];
+typedef char TSaveChCr_card_status_offset[offsetof(TSaveChCr, card_status) == 0x2c ? 1 : -1];
+typedef char TSaveChCr_timer_offset[offsetof(TSaveChCr, timer) == 0x38 ? 1 : -1];
+typedef char TSaveChCrActionSize[sizeof(TSaveChCrStateAction) == 12 ? 1 : -1];
+typedef char TSaveChCrEntrySize[sizeof(TSaveChCrStateActions) == 24 ? 1 : -1];
+typedef char TSaveChCrStateTaskOffset[offsetof(TSaveChCrStateActions, task) == 12 ? 1 : -1];
 
 #endif

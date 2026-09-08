@@ -5,6 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+extern s8 lbl_805D535A;
+bool TLobby__sub_800F8AE8(void);
+}
+
+extern "C" {
 
 void TLobby__sub_800F8AD0(void);
 void clear_callback_and_reset_keyboard__6TLobbyFv(void);
@@ -20,6 +25,10 @@ void TLobby__sub_800F8AD0(void) {
     if ((u32) lbl_805D5350 != 0U) {
         lbl_805D535A = 1;
     }
+}
+
+bool TLobby__sub_800F8AE8(void) {
+    return (*(u8 *)&lbl_805D535A) != 0;
 }
 
 void clear_callback_and_reset_keyboard__6TLobbyFv(void) { set_keyboard_mode__6TLobbyFi(0); reset__16TKeyBoardControlFv(); }

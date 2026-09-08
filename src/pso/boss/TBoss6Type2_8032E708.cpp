@@ -48,6 +48,14 @@ struct RecoveredFields_8032F174_arg0
   u16 field_408;
 };
 
+#include "pso/boss/TBoss6Type2.h"
+union MemberActionStorage_803301B8 { s32 words[3]; void (TBoss6Type2::*action)(); };
+
+struct RecoveredGlobal_803301B8_lbl_804EF028 {
+    M2C_UNK value;
+    u8 remaining[0xD4];
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -98,6 +106,9 @@ void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1);
 void update_all_parts__11TBoss6Type2FPv(s32 arg0);
 extern const f32 lbl_805DF818;
 s32 TBoss6Type2__sub_8032F174(u8 *arg0);
+void TBoss6Type2__sub_8032FF24(u8 *arg0, s32 arg1);
+extern RecoveredGlobal_803301B8_lbl_804EF028 lbl_804EF028;
+void TBoss6Type2__sub_803301B8(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -378,6 +389,22 @@ void TBoss6Type2__sub_803300C8(u8 *arg0) {
 }
 void copy_state__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 int TBoss6Type2__sub_80330178(s32 _w0, s32 _w1) { return 0; }
+typedef char MemberActionStorage_803301B8_size[sizeof(MemberActionStorage_803301B8) == 12 ? 1 : -1];
+typedef char RecoveredGlobal_803301B8_lbl_804EF028_size[sizeof(RecoveredGlobal_803301B8_lbl_804EF028) == 0xD8 ? 1 : -1];
+void TBoss6Type2__sub_803301B8(u8 *arg0, s32 arg1) {
+    MemberActionStorage_803301B8 member_action;
+    u8 *temp_r31;
+    M2C_FIELD(arg0, s32 *, 0x380) = arg1;
+    temp_r31 = (u8 *)((void *)((u8 *)(&lbl_804EF028.value) + (M2C_FIELD(arg0, s32 *, 0x380) * 0x24)));
+    TBoss6Type2__sub_8032FF24((u8 *)((void *) (arg0)), (s32)((int) (M2C_FIELD(temp_r31, s32 *, 4))));
+    M2C_FIELD(arg0, s32 *, 0x388) = (s32) M2C_FIELD(temp_r31, s32 *, 8);
+    member_action.words[0] = M2C_FIELD(temp_r31, s32 *, 0xC);
+    member_action.words[1] = M2C_FIELD(temp_r31, s32 *, 0x10);
+    member_action.words[2] = M2C_FIELD(temp_r31, s32 *, 0x14);
+    if (member_action.action != 0) {
+        (((TBoss6Type2 *)((void *) (arg0)))->*member_action.action)();
+    }
+}
 
 typedef char RecoveredGlobal_803300C8_lbl_80477404_size[sizeof(RecoveredGlobal_803300C8_lbl_80477404) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_803300C8_lbl_80477428_size[sizeof(RecoveredGlobal_803300C8_lbl_80477428) == 0x1C ? 1 : -1];

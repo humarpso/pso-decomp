@@ -4,9 +4,12 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 extern f32 lbl_805D307C;
 void TOMineTrap__sub_80171368(f32 farg0);
+bool TOMineTrap__vt18(u8 *arg0, s32 arg1);
+bool TOMineTrap__vt19(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -18,8 +21,6 @@ int TOMineTrap__sub_80171350(void);
 u16 TOMineTrap__sub_80171358(void* p);
 void TOMineTrap__sub_80171380(void);
 void TOMineTrap__sub_8017141C(void* p);
-int TOMineTrap__vt18(void);
-int TOMineTrap__vt19(void);
 void bswap_6x80_trigger_trap__10TOMineTrapFPv(void* p);
 void fn_80171314(void* p);
 int get_trap_count__10TOMineTrapFv(void);
@@ -58,8 +59,13 @@ void set_trap_count__10TOMineTrapFi(int a0) { lbl_805D5A54 = a0; }
 
 void TOMineTrap__sub_80171380(void) {  }
 
-int TOMineTrap__vt18(void) { return 0; }
-int TOMineTrap__vt19(void) { return 0; }
+bool TOMineTrap__vt18(u8 *arg0, s32 arg1) {
+    return arg1 != M2C_FIELD(arg0, s32 *, 0x2A8);
+}
+
+bool TOMineTrap__vt19(u8 *arg0, s32 arg1) {
+    return arg1 != M2C_FIELD(arg0, s32 *, 0x2A8);
+}
 
 void bswap_6x80_trigger_trap__10TOMineTrapFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 void send_and_handle_60__10TOMineTrapFPv(void* p) { bswap_6x80_trigger_trap__10TOMineTrapFPv((void*)(p)); TLobby__send_and_handle_60(p); }

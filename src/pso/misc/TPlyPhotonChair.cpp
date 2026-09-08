@@ -12,7 +12,12 @@ struct RecoveredGlobal_8035B630_lbl_804A7488 {
     u8 remaining[0xC];
 };
 
+struct RecoveredGlobal_8035B3C0_lbl_8047975C { M2C_UNK value; u8 remaining[0xA0]; };
+
+struct RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair { M2C_UNK value; u8 remaining[0x34]; };
+
 extern "C" {
+void set_field90__15TPlyPhotonChairFPvs(void* p, s32 v);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TPlyPhotonChair__sub_801427D0(void *);
 M2C_UNK TPlyPhotonChair__sub_80142874(void *);
@@ -33,6 +38,28 @@ s32 TPlyPhotonChair__sub_8035B2DC(void);
 void TPlyPhotonChair__sub_8035B66C(void* p);
 extern RecoveredGlobal_8035B630_lbl_804A7488 lbl_804A7488;
 u8 *TPlyPhotonChair__sub_8035B630(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TObjFish__sub_8001ED9C(int, int);
+s32 TObjFish__sub_8001EDB0(int, int);
+s32 TObjFish__sub_8001EDC4(int, int);
+s32 TLobby__sub_8007B844(int);
+s32 get_rader_map__11TMainCursorFPv(void *, void *);
+s32 TMainCursor__sub_8013F1F0(void *);
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(int);
+void set_field90__15TPlyPhotonChairFPvs(void* p, s32 v);
+void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
+void set_state_ready__15TPlyPhotonChairFPv(void* p);
+void sync_field10_from_child__15TPlyPhotonChairFPv(void *arg0);
+void set_field_8__15TPlyPhotonChairFPvi(void* p, s32 v);
+void set_type__15TPlyPhotonChairFPvi(void* p, s32 v);
+void *init__15TPlyPhotonChairFPv(void *arg0);
+extern RecoveredGlobal_8035B3C0_lbl_8047975C lbl_8047975C;
+extern M2C_UNK __vt__15TPlyPhotonChair[];
+extern s32 lbl_805D4418;
+extern u32 TPlyPhotonChair__data_805D6F40;
+extern const f32 lbl_805E0130;
+u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -46,7 +73,6 @@ void free_instance__15TPlyPhotonChairFv(void);
 void free_static_model__15TPlyPhotonChairFv(void);
 void *init__15TPlyPhotonChairFPv(void *arg0);
 void render__15TPlyPhotonChairFPvPv(void* p, void* a1);
-void set_field90__15TPlyPhotonChairFPvs(void* p, s16 v);
 void set_field_8__15TPlyPhotonChairFPvi(void* p, s32 v);
 void set_state_ready__15TPlyPhotonChairFPv(void* p);
 void set_type__15TPlyPhotonChairFPvi(void* p, s32 v);
@@ -127,9 +153,40 @@ void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    u32 temp_r3;
+    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair *)&__vt__15TPlyPhotonChair).value;
+    init__15TPlyPhotonChairFPv((void *) (arg0 + 0x98));
+    init__15TPlyPhotonChairFPv((void *) (arg0 + 0xB4));
+    TMainCursor__sub_8013F1F0((void *) (arg0 + 0xD0));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4418;
+    set_field90__15TPlyPhotonChairFPvs((void*)((void *) (arg0)), (s32)((void *) (arg1)));
+    M2C_FIELD(arg0, s16 *, 0x92) = 0;
+    M2C_FIELD(arg0, s32 *, 0x94) = 0;
+    temp_r3 = TPlayerBattleCtrl4P__sub_801BA74C((int)((void *) ((s32) (u16) arg1)));
+    if (temp_r3 == 0U) {
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return arg0;
+    }
+    get_rader_map__11TMainCursorFPv((void *) (arg0 + 0xD0), (void *) ((u8 *)&lbl_8047975C.value + (TLobby__sub_8007B844((int) (temp_r3)) * 0x10)));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1));
+    set_type__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0x98)), (s32)((int) (TObjFish__sub_8001EDC4((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1)))));
+    set_field_8__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0x98)), (s32)((int) (TObjFish__sub_8001ED9C((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1)))));
+    sync_field10_from_child__15TPlyPhotonChairFPv((void *) (arg0 + 0x98));
+    TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0x98)), (f32) (lbl_805E0130));
+    set_state_ready__15TPlyPhotonChairFPv((void*)((void *) (arg0 + 0x98)));
+    set_type__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0xB4)), (s32)((int) (TObjFish__sub_8001EDC4((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (0)))));
+    set_field_8__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0xB4)), (s32)((int) (TObjFish__sub_8001ED9C((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (0)))));
+    sync_field10_from_child__15TPlyPhotonChairFPv((void *) (arg0 + 0xB4));
+    TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0xB4)), (f32) (lbl_805E0130));
+    set_state_ready__15TPlyPhotonChairFPv((void*)((void *) (arg0 + 0xB4)));
+    return arg0;
+}
+
 int TPlyPhotonChair__sub_8035B520(void* p) { return *(u32*)((char*)p + 0x94) == 0; }
 u16 TPlyPhotonChair__sub_8035B530(void* p) { return *(u16*)((char*)p + 0x90); }
-void set_field90__15TPlyPhotonChairFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x90) = v; }
+void set_field90__15TPlyPhotonChairFPvs(void* p, s32 v) { *(s16*)((char*)p + 0x90) = v; }
 void render__15TPlyPhotonChairFPvPv(void* p, void* a1) { copy_vec4__13TRaderMapCoreFPvPv(a1, p); }
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v) { *(f32*)((char*)p + 0x14) = v; }
 void set_state_ready__15TPlyPhotonChairFPv(void* p) { *(s32*)((char*)p + 0x18) = 2; }

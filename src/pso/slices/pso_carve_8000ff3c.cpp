@@ -1,5 +1,13 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+bool TObjPlayer__sub_8000FF3C(u8 *arg0);
+}
+
 extern "C" {
 
 s32 TObjPlayer__sub_80087638(s32, s32);
@@ -16,6 +24,8 @@ void TObjPlayer__sub_8000FF4C(void* p, s16 v);
 u16 get_field_2d4__10TObjPlayerFPv(void* p);
 int obj_testFlags30(void*, int);
 
-int TObjPlayer__sub_8000FF3C(void) { return 0; }
+bool TObjPlayer__sub_8000FF3C(u8 *arg0) {
+    return M2C_FIELD(arg0, s32 *, 0x2A8) == 0;
+}
 
 }

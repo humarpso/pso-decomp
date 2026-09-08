@@ -1,4 +1,4 @@
-#include "types.h"
+#include "pso/misc/TWindowDD.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -9,13 +9,12 @@ s32 TWindowDD__sub_80346F30(u8 *arg0);
 s32 TWindowDD__sub_80346F30(u8 *arg0);
 s32 TWindowDD__sub_80348398();
 s32 TWindowDD__sub_80346DB8(s32 arg0);
+s32 get_entry__9TWindowDDFi(s32 entry_index);
+s32 get_element_ptr__9TWindowDDFi(s32 arg0);
 }
 
 extern "C" {
 
-int TWindowDD__sub_80346E68(void);
-int TWindowDD__sub_80346ECC(void);
-s32 get_element_ptr__9TWindowDDFi(s32 arg0);
 void render__9TWindowDDFv(void);
 void ws_data_load(void);
 void *fn_800F9990(M2C_UNK *);
@@ -205,8 +204,35 @@ s32 TWindowDD__sub_80346DB8(s32 arg0) {
 
 void render__9TWindowDDFv(void) {  }
 
-int TWindowDD__sub_80346E68(void) { return 0; }
-int TWindowDD__sub_80346ECC(void) { return 0; }
+s16 TWindowDD_read_indexed_value(s32 entry_index, s32 value_index) {
+    s16 result;
+    TWindowDDValueList *entry;
+    result = -1;
+    entry = (TWindowDDValueList *)get_entry__9TWindowDDFi(entry_index);
+    if (entry != NULL) {
+        if ((value_index < 0) || (value_index >= entry->count)) {
+            result = -1;
+        } else {
+            result = entry->values[value_index];
+        }
+    }
+    return result;
+}
+
+s16 TWindowDD_read_resolved_value(s32 entry_id, s32 value_index) {
+    s16 result;
+    TWindowDDValueList *entry;
+    result = -1;
+    entry = (TWindowDDValueList *)get_element_ptr__9TWindowDDFi(entry_id);
+    if (entry != NULL) {
+        if ((value_index < 0) || (value_index >= entry->count)) {
+            result = -1;
+        } else {
+            result = entry->values[value_index];
+        }
+    }
+    return result;
+}
 
 s32 TWindowDD__sub_80346F30(u8 *arg0) {
     return M2C_FIELD(arg0, s16 *, 0x1C) != -1;

@@ -9,6 +9,31 @@ struct RecoveredGlobal_802E0224___vt__19TWindowTradeRequest {
     u8 remaining[0x14];
 };
 
+struct VBase_18_f23ffb
+{
+  char pad[0x18];
+};
+
+struct VObj_18_f23ffb : VBase_18_f23ffb {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual M2C_UNK m10();
+};
+
+struct RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest
+{
+  M2C_UNK value;
+  u8 remaining[0x14];
+};
+
 extern "C" {
 M2C_UNK __dt__7TObjectFv(void *, int);
 M2C_UNK init_parts__10TObjPlayerFPv();
@@ -21,6 +46,25 @@ M2C_UNK close__17TWindowSubComCardFPv(void *);
 extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
 extern s32 lbl_805D53A0;
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1);
+u8 *TLobby__sub_8001DC24(void);
+u32 TPlayerBattleCtrl4P__sub_801BA74C(void *);
+u8 *TWindowSubComCard__sub_8026CBB8(s32);
+s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, s32, s32);
+char get_trade_mode__6TLobbyFv(void);
+M2C_UNK get_message_10__20TWindowSubStatusDispFPv(int);
+M2C_UNK reset_equip_slots__10TObjPlayerFPv();
+M2C_UNK TWindowSubStatusDisp__sub_80229080();
+M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK __ct__7TObjectFP7TObject();
+M2C_UNK TObjPlayer__sub_8024ABDC(void *);
+M2C_UNK fn_8024AC64(void *);
+M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(int);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, int, f32);
+extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
+extern s32 lbl_805D3F70;
+extern s32 lbl_805D53A0;
+extern const f32 lbl_805DE8A0;
+u8 *TWindowTradeRequest__ct(u8 *arg0);
 }
 
 extern "C" {
@@ -53,6 +97,43 @@ u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+typedef struct RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest;
+typedef struct VBase_18_f23ffb VBase_18_f23ffb;
+typedef struct VObj_18_f23ffb VObj_18_f23ffb;
+#pragma fp_contract on
+#define PSO_VCALL_VObj_18_f23ffb_m10(_self) (((VObj_18_f23ffb *)(_self))->m10())
+u8 *TWindowTradeRequest__ct(u8 *arg0) {
+  u32 new_var;
+  s32 temp_r31;
+  s8 *new_var2;
+  u8 *temp_r31_2;
+  __ct__7TObjectFP7TObject();
+  *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
+  *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3F70;
+  temp_r31 = ((s32)TPlayerBattleCtrl4P__sub_801BA74C((void *)((u32) get_trade_mode__6TLobbyFv())));
+  TWindowSubStatusDisp__sub_802290E0();
+  new_var = (u32) temp_r31;
+  if (new_var)
+  {
+    PSO_VCALL_VObj_18_f23ffb_m10(temp_r31);
+    TWindowSubStatusDisp__sub_80229080();
+  }
+  get_message_10__20TWindowSubStatusDispFPv((int) 0xD9);
+  TWindowSubStatusDisp__sub_80229080();
+  *((s32 *) (((s8 *) arg0) + 0x20)) = TWindowMessageYesNo__sub_802A59D8((s32) arg0, lbl_805D53A0, 0, 0);
+  temp_r31_2 = (u8 *) TWindowSubComCard__sub_8026CBB8(0xB2);
+  forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) TLobby__sub_8001DC24(), (int) temp_r31_2, (f32) lbl_805DE8A0);
+  new_var2 = ((s8 *) arg0) + 0x1C;
+  notify_warp_flag70__19TWindowSubShortMailFPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))));
+  if (((s32)TPlayerBattleCtrl4P__sub_801BA74C((void *)((u32) lbl_805D53A0))) != 0U)
+  {
+    reset_equip_slots__10TObjPlayerFPv();
+  }
+  TObjPlayer__sub_8024ABDC((void *) lbl_805D53A0);
+  fn_8024AC64((void *) lbl_805D53A0);
+  *((s32 *) new_var2) = 0;
+  return arg0;
 }
 
 }

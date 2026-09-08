@@ -7,6 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
+extern const f32 lbl_805DD668;
+bool TWindowSubMag__sub_8027C0F4(u8 *arg0);
 }
 
 extern "C" {
@@ -228,6 +230,10 @@ int TWindowSubMag__sub_8027C0C4(s32) { return 0; }
 
 int get_active_flag__13TWindowSubMagFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
 int TWindowSubMag__sub_8027C0E8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
+
+bool TWindowSubMag__sub_8027C0F4(u8 *arg0) {
+    return (M2C_FIELD(arg0, f32 *, 0x194) < lbl_805DD668) == 0;
+}
 
 void set_flag60_bit8__13TWindowSubMagFPv(void* p) { *(u8*)((char*)p + 0x60) |= 0x8; }
 void clear_flag60_bit8__13TWindowSubMagFPv(void* p) { *(u8*)((char*)p + 0x60) &= 0xfffffff7; }

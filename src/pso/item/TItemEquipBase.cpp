@@ -309,7 +309,50 @@ struct RecoveredFields_8010B0A8_arg0
 struct RecoveredGlobal_8010B684___vt__14TItemEquipBase { M2C_UNK value; u8 remaining[0xCC]; };
 typedef char RecoveredGlobal_8010B684___vt__14TItemEquipBase_size[sizeof(RecoveredGlobal_8010B684___vt__14TItemEquipBase) == 0xD0 ? 1 : -1];
 
+struct VBase_18_b34251 { char pad[0x18]; };
+
+struct VObj_18_b34251 : VBase_18_b34251 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual s8 m31();
+};
+
+struct RecoveredGlobal_8010AD24_lbl_804C3BA8 {
+    M2C_UNK value;
+    u8 remaining[0x10];
+};
+
 extern "C" {
+void set_equip_flag__14TItemEquipBaseFPvUc(void* p, s32 v);
 s8 TItemEquipBase__sub_8010A77C(u8 *arg0);
 s8 TObjPlayer__sub_8010A770(u8 *arg0);
 M2C_UNK get_id__13TItemProArmorFPv(void *);
@@ -373,6 +416,9 @@ s32 init_object__21TItemEffArmorParticleFPv(int, void *);
 extern M2C_UNK __vt__14TItemEquipBase[];
 extern s32 lbl_805D2BE0;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
+void set_equip_flag__14TItemEquipBaseFPvUc(void* p, s32 v);
+extern RecoveredGlobal_8010AD24_lbl_804C3BA8 lbl_804C3BA8;
+void TItemEquipBase__sub_8010AD24(u8 *arg0, s8 arg1);
 }
 
 extern "C" {
@@ -402,7 +448,6 @@ s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1);
 void* fn_8010A768(void* p);
 void release__14TItemEquipBaseFPv(void *arg0);
 void reset__14TItemEquipBaseFPv(void* p);
-void set_equip_flag__14TItemEquipBaseFPvUc(void* p, u8 v);
 void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3);
 void update_equip__14TItemEquipBaseFPv(void *arg0);
 void update_with_player__14TItemEquipBaseFi(s32 arg0);
@@ -570,7 +615,13 @@ s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1) {
     }
     return 0;
 }
-void set_equip_flag__14TItemEquipBaseFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x171) = v; }
+void set_equip_flag__14TItemEquipBaseFPvUc(void* p, s32 v) { *(u8*)((char*)p + 0x171) = v; }
+
+typedef char RecoveredGlobal_8010AD24_lbl_804C3BA8_size[sizeof(RecoveredGlobal_8010AD24_lbl_804C3BA8) == 0x14 ? 1 : -1];
+void TItemEquipBase__sub_8010AD24(u8 *arg0, s8 arg1) {
+    M2C_FIELD(arg0, s8 *, 0x170) = arg1;
+    set_equip_flag__14TItemEquipBaseFPvUc((void*)((void *) (arg0)), (s32)((int) ((s8) M2C_FIELD(((u8 *)(&lbl_804C3BA8.value) + (((VObj_18_b34251 *)(arg0))->m31() * 2)), s16 *, 0))));
+}
 
 void TItemEquipBase__sub_8010AD80(s32 unused, s16 *arg1, s16 arg2) {
     if (arg2 > 0) {

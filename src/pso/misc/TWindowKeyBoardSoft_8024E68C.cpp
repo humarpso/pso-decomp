@@ -4,6 +4,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredFields_8024E754_arg0
+{
+  u8 unknown_0[0x28];
+  f32 field_28;
+  f32 field_2C;
+};
+
 extern "C" {
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 init_layout__19TWindowKeyBoardSoftFPv(void* a0);
@@ -13,6 +20,10 @@ s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DCC84;
 extern const f32 lbl_805DCC88;
 void TWindowKeyBoardSoft__sub_8024E7B8(u8 *arg0, s32 arg1);
+extern const float lbl_805DCC78;
+extern const f32 lbl_805DCC7C;
+extern const f32 lbl_805DCC80;
+void TWindowKeyBoardSoft__sub_8024E754(u8 *arg0, int arg1);
 }
 
 extern "C" {
@@ -28,6 +39,21 @@ int TWindowKeyBoardSoft__sub_8024E6D8(s32, s32);
 s32 TWindowKeyBoardSoft__sub_8024E8E8();
 M2C_UNK TWindowKeyBoardSoft__sub_8024EA50(u32, s32, s32, s32, s32);
 M2C_UNK __dl__FPv(u32);
+
+typedef struct RecoveredFields_8024E754_arg0 RecoveredFields_8024E754_arg0;
+#pragma fp_contract on
+void TWindowKeyBoardSoft__sub_8024E754(u8 *arg0, int arg1) {
+  f32 temp_f2;
+  RecoveredFields_8024E754_arg0 *new_var;
+  new_var = (RecoveredFields_8024E754_arg0 *) arg0;
+  if (arg1 != 0)
+  {
+    temp_f2 = lbl_805DCC80;
+    ;
+    new_var->field_28 = (f32) (new_var->field_28 * ((lbl_805DCC7C * (temp_f2 * ((f32) arg1))) + (*(const f32 *)&lbl_805DCC78)));
+    new_var->field_2C = (f32) (new_var->field_2C * ((*(const f32 *)&lbl_805DCC78) - (temp_f2 * ((f32) arg1))));
+  }
+}
 
 #pragma push
 #pragma opt_common_subs off

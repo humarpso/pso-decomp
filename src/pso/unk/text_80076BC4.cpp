@@ -16,11 +16,12 @@ s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1);
 int TWindowKeyBoardSoft__sub_80076E2C(s32);
 s32 fn_80076D68(s32 arg0, s32 arg1);
+int TWindowKeyBoardSoft__sub_80076E2C(s32 _w0);
+bool TWindowKeyBoardSoft__sub_80076E00(s32 arg0);
 }
 
 extern "C" {
 
-int TWindowKeyBoardSoft__sub_80076E00(void);
 int fn_80076D40(void);
 s32 TLobby__sub_80076BC8(void *);
 s32 TWindowDD__sub_80348C78(void *);
@@ -40,7 +41,10 @@ s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1) {
 
 void TAdSinglePlyChrSelectGC__sub_80076DF4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 
-int TWindowKeyBoardSoft__sub_80076E00(void) { return 0; }
+bool TWindowKeyBoardSoft__sub_80076E00(s32 arg0) {
+    return *((s32 *)TWindowKeyBoardSoft__sub_80076E2C(arg0)) != 0;
+}
+
 int TWindowKeyBoardSoft__sub_80076E2C(s32 _w0) { return 0; }
 
 }

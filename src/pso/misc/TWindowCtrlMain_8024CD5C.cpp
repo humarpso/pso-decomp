@@ -19,6 +19,7 @@ struct RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730 {
     u8 remaining[0xA4];
 };
 
+#include "types.h"
 extern "C" {
 s32 is_split_screen(void);
 extern RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 TWindowCtrlMain__data_80518730;
@@ -27,6 +28,8 @@ extern RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 TWindowCtrlMain__
 s32 TWindowCtrlMain__sub_8024CE24(void);
 extern RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 TWindowCtrlMain__data_80518730;
 s32 TWindowCtrlMain__sub_8024CE34(void);
+extern s32 TWindowCtrlMain__data_805D6408;
+bool TWindowCtrlMain__sub_8024CE58(void);
 }
 
 extern "C" {
@@ -56,6 +59,9 @@ s32 TWindowCtrlMain__sub_8024CE24(void) {
 typedef char RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730_size[sizeof(RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730) == 0xA8 ? 1 : -1];
 s32 TWindowCtrlMain__sub_8024CE34(void) {
     return M2C_FIELD(&(*(RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730 *)&TWindowCtrlMain__data_80518730).value, s32 *, 0x70);
+}
+bool TWindowCtrlMain__sub_8024CE58(void) {
+    return TWindowCtrlMain__data_805D6408 != 0;
 }
 
 }

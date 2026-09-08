@@ -1,6 +1,16 @@
 #include "pso/TBoss8DragonColli.h"
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+}
 
-TBoss8DragonColli::~TBoss8DragonColli() {}
+TBoss8DragonColli::~TBoss8DragonColli() {
+    for (s32 index = 0; index < 3; ++index) {
+        if (objects[index] != NULL) {
+            queue_destruction__7TObjectFv(objects[index]);
+            objects[index] = NULL;
+        }
+    }
+}
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;

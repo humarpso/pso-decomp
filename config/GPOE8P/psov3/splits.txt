@@ -613,14 +613,8 @@ pso/unk/text_8003C964.cpp:
 pso/boss/TBoss3Volopt_8003CAD0.cpp:
 	.text       start:0x8003CAD0 end:0x8003CFEC
 
-pso/misc/TCameraCtrl_8003CFEC_8003CFEC.cpp:
-	.text       start:0x8003CFEC end:0x8003D1F0
-
-pso/misc/TCameraCtrl_8003CFEC_8003D1F0.cpp:
-	.text       start:0x8003D1F0 end:0x8003D280
-
 pso/misc/TCameraCtrl_8003CFEC.cpp:
-	.text       start:0x8003D280 end:0x8003D7BC
+	.text       start:0x8003CFEC end:0x8003D7BC
 
 pso/boss/TBoss3Volopt.cpp:
 	.text       start:0x8003D7BC end:0x8003F3A0
@@ -759,6 +753,7 @@ pso/object/TObjVoloptPillar.cpp:
 
 pso/object/TObjVoloptShutter.cpp:
 	.text       start:0x8004A634 end:0x8004A90C
+	.rodata     start:0x804367C0 end:0x804367C8
 
 pso/misc/TLobby_8004A90C.cpp:
 	.text       start:0x8004A90C end:0x8004A978
@@ -2013,6 +2008,7 @@ pso/player/TObjPlayer_8008DCF0.cpp:
 
 pso/player/TObjPlayer_8008DCF0_8008FC0C.cpp:
 	.text       start:0x8008FC0C end:0x8008FFE4
+	.data       start:0x8048F058 end:0x8048F08C
 
 pso/player/TObjPlayer_8008DCF0_8008FFE4.cpp:
 	.text       start:0x8008FFE4 end:0x80090110
@@ -2513,6 +2509,7 @@ pso/object/TObjGrassWeb.cpp:
 
 pso/object/TObjGrass.cpp:
 	.text       start:0x800BCA2C end:0x800BFBBC
+	.rodata     start:0x8043B7B0 end:0x8043B7B8
 
 pso/player/TObjPlayer_800BFBBC.cpp:
 	.text       start:0x800BFBBC end:0x800C16E0
@@ -2987,6 +2984,7 @@ pso/player/TObjPlayer_800DA0B8_800DB920.cpp:
 
 pso/player/TObjPlayer_800DA0B8_800DBAB8.cpp:
 	.text       start:0x800DBAB8 end:0x800DBDCC
+	.data       start:0x80494DDC end:0x80494E10
 
 pso/player/TObjPlayer_800DA0B8_800DBDCC.cpp:
 	.text       start:0x800DBDCC end:0x800DBF88
@@ -3195,14 +3193,8 @@ pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFE44.cpp:
 pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFED8.cpp:
 	.text       start:0x800EFED8 end:0x800F0810
 
-pso/player/TObjPlayer_800F0810_800F0810.cpp:
-	.text       start:0x800F0810 end:0x800F0878
-
-pso/player/TObjPlayer_800F0810_800F0878.cpp:
-	.text       start:0x800F0878 end:0x800F08CC
-
 pso/player/TObjPlayer_800F0810.cpp:
-	.text       start:0x800F08CC end:0x800F0AE4
+	.text       start:0x800F0810 end:0x800F0AE4
 
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp:
 	.text       start:0x800F0AE4 end:0x800F0CE8
@@ -8308,6 +8300,7 @@ pso/misc/TKeyBoardControl_801A57C4.cpp:
 
 pso/player/TObjPlayer_801A5AEC.cpp:
 	.text       start:0x801A5AEC end:0x801A6510
+	.data       start:0x804C237C end:0x804C2438
 
 pso/misc/TKeyBoardControl_801A6510.cpp:
 	.text       start:0x801A6510 end:0x801A69E4
@@ -10757,6 +10750,7 @@ pso/misc/TSceneSora.cpp:
 
 pso/misc/TLobby_80207644.cpp:
 	.text       start:0x80207644 end:0x80207D44
+	.rodata     start:0x8044BA48 end:0x8044BA50
 
 pso/ui/TAdStorySelectGC.cpp:
 	.text       start:0x80207D44 end:0x80207DA8
@@ -12237,6 +12231,7 @@ pso/misc/TWindowFukidasi.cpp:
 
 pso/misc/TWindowFukidasi_80251EC8.cpp:
 	.text       start:0x80251EC8 end:0x80252AE4
+	.data       start:0x804CF0F8 end:0x804CF120
 
 pso/misc/TWindowFukidasi_80252AE4.cpp:
 	.text       start:0x80252AE4 end:0x80252B74
@@ -13195,6 +13190,7 @@ pso/misc/TWindowUserSort.cpp:
 
 pso/misc/TWindowMainMenu1P.cpp:
 	.text       start:0x80288520 end:0x80288940
+	.rodata     start:0x80450788 end:0x80450790
 
 pso/misc/TWindowMainMenu4P.cpp:
 	.text       start:0x80288940 end:0x80288B04
@@ -14067,6 +14063,7 @@ pso/misc/TWindowSubSymbolChat_802ACF5C.cpp:
 pso/misc/TWindowEffectLight.cpp:
 	.text       start:0x802ACF9C end:0x802AD538
 	.rodata     start:0x80470620 end:0x80470628
+	.data       start:0x804DE3A8 end:0x804DE3C4
 
 pso/misc/TWindowMainMenu_802AD538_802AD538.cpp:
 	.text       start:0x802AD538 end:0x802ADB34
@@ -17141,17 +17138,8 @@ pso/unk/text_8036AE2C.cpp:
 pso/boss/TBoss8Dragon_8036AEF8.cpp:
 	.text       start:0x8036AEF8 end:0x8036B204
 
-pso/misc/TLobby_8036B204_8036B204.cpp:
-	.text       start:0x8036B204 end:0x8036B2A0
-
 pso/misc/TLobby_8036B204.cpp:
-	.text       start:0x8036B2A0 end:0x8036B3B8
-
-pso/misc/TLobby_8036B204_8036B3B8.cpp:
-	.text       start:0x8036B3B8 end:0x8036B4C0
-
-pso/misc/TLobby_8036B204_8036B4C0.cpp:
-	.text       start:0x8036B4C0 end:0x8036B514
+	.text       start:0x8036B204 end:0x8036B514
 
 pso/boss/TObjBoss8DemoRoom.cpp:
 	.text       start:0x8036B514 end:0x8036B654

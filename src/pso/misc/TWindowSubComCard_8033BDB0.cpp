@@ -8,12 +8,28 @@ struct VBase { char pad[0x18]; };
 
 struct VObj : VBase { virtual void m0(int); };
 
+#include <stddef.h>
+#include "pso/misc/TWindowSubComCard.h"
+struct Stack_8033C024 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+
+union MemberActionStorage_8033C024 { s32 words[3]; void (TWindowSubComCard::*action)(); };
+
+struct RecoveredGlobal_8033C024_lbl_804EF940 {
+    M2C_UNK value;
+    u8 remaining[0x5C];
+};
+
 extern "C" {
 s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *);
-s32 TWindowSubComCard__sub_8033C024(void *, s32);
 void TWindowSubComCard__sub_8033C10C(u8 *arg0);
 void TWindow__close(void *);
 void TWindowSubComCard__sub_8033BF90(u8 *arg0);
+extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
+void TWindowSubComCard__sub_8033C024(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -25,7 +41,6 @@ int TWindowSubComCard__sub_8033C1CC(void);
 void reset__17TWindowSubComCardFPv(void *arg0);
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 TWindowSubComCard__sub_8033C024(void *, s32);
 s32 init__22TQuestVmDownLoadServerFPvPvPvPvPv(void *, s32, s32, s32, s32);
 void render__16TCheckMemoryCardFv(void);
 int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
@@ -56,6 +71,27 @@ void TWindowSubComCard__sub_8033BF90(u8 *arg0) {
 }
 #pragma pop
 
+typedef char MemberActionStorage_8033C024_size[sizeof(MemberActionStorage_8033C024) == 12 ? 1 : -1];
+typedef char RecoveredGlobal_8033C024_lbl_804EF940_size[sizeof(RecoveredGlobal_8033C024_lbl_804EF940) == 0x60 ? 1 : -1];
+void TWindowSubComCard__sub_8033C024(u8 *arg0, s32 arg1) {
+    MemberActionStorage_8033C024 member_action;
+    typedef char sp8_offset[(offsetof(Stack_8033C024, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_8033C024, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_8033C024, sp10) == 0x8) ? 1 : -1];
+    Stack_8033C024 stack;
+    u8 *temp_r6;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x20) != arg1) {
+        M2C_FIELD(arg0, s32 *, 0x20) = arg1;
+        temp_r6 = (u8 *)&lbl_804EF940.value + (M2C_FIELD(arg0, s32 *, 0x20) * 0x18);
+        member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0);
+        member_action.words[1] = M2C_FIELD(temp_r6, s32 *, 4);
+        member_action.words[2] = M2C_FIELD(temp_r6, s32 *, 8);
+        if (member_action.action != 0) {
+            (((TWindowSubComCard *)((void *) (arg0)))->*member_action.action)();
+        }
+    }
+}
+
 void reset__17TWindowSubComCardFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
@@ -66,7 +102,7 @@ void reset__17TWindowSubComCardFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     M2C_FIELD(arg0, s32 *, 0x40) = 0;
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
-    TWindowSubComCard__sub_8033C024(arg0, 0);
+    TWindowSubComCard__sub_8033C024((u8 *)(arg0), (s32)(0));
 }
 
 void TWindowSubComCard__sub_8033C10C(u8 *arg0) {
@@ -75,7 +111,7 @@ void TWindowSubComCard__sub_8033C10C(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 0;
         M2C_FIELD(arg0, s32 *, 0x28) = poll_memcard_status__15TAdPlayerLoadGCFPv((void *)(arg0));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) {
-            TWindowSubComCard__sub_8033C024((void *)((void *) (arg0)), (s32)((int) (1)));
+            TWindowSubComCard__sub_8033C024((u8 *)((void *)((void *) (arg0))), (s32)((s32)((int) (1))));
             return;
         }
         M2C_FIELD(arg0, s32 *, 0x3C) = 1;

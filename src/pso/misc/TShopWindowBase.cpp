@@ -8,10 +8,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct RecoveredGlobal_802239EC_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
+struct RecoveredGlobal_80223A48_lbl_8050E208 {
+    M2C_UNK value;
+    u8 remaining[0x1AC];
+};
+
 extern "C" {
 s32 obj_getField1c(void *);
 s32 TShopGenerator__sub_80222DAC(int);
 u16 TShopWindowBase__sub_8022397C(u8 *arg0);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 get_map_id__13TRaderMapCoreFPv(int);
+extern RecoveredGlobal_802239EC_lbl_8050E208 lbl_8050E208;
+bool TShopWindowBase__sub_802239EC(u8 *arg0);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
+s32 get_map_id__13TRaderMapCoreFPv(int);
+extern RecoveredGlobal_802239EC_lbl_8050E208 lbl_8050E208;
+bool TShopWindowBase__sub_80223A48(u8 *arg0);
 }
 
 extern "C" {
@@ -70,6 +88,22 @@ s32 get_child_field1c__15TShopWindowBaseFPv(void *arg0) {
 }
 
 extern s32 lbl_805D55C0;
+
+typedef char RecoveredGlobal_802239EC_lbl_8050E208_size[sizeof(RecoveredGlobal_802239EC_lbl_8050E208) == 0x1B0 ? 1 : -1];
+bool TShopWindowBase__sub_802239EC(u8 *arg0) {
+    if (M2C_FIELD(((u8 *)&lbl_8050E208.value + (get_map_id__13TRaderMapCoreFPv((int) (M2C_FIELD(arg0, s32 *, 0x24))) * 0x50)), s32 *, 0x28) & 2) {
+        return 1;
+    }
+    return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0;
+}
+
+typedef char RecoveredGlobal_80223A48_lbl_8050E208_size[sizeof(RecoveredGlobal_80223A48_lbl_8050E208) == 0x1B0 ? 1 : -1];
+bool TShopWindowBase__sub_80223A48(u8 *arg0) {
+    if (M2C_FIELD(((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&lbl_8050E208).value + (get_map_id__13TRaderMapCoreFPv((int) (M2C_FIELD(arg0, s32 *, 0x24))) * 0x50)), s32 *, 0x28) & 4) {
+        return 1;
+    }
+    return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&lbl_8050E208).value + 0x160), (int) (4)) != 0;
+}
 
 void draw_if_ready__15TShopWindowBaseFPv(void *arg0) {
     if ((s32) lbl_805D55C0 == 0) {

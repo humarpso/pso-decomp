@@ -90,11 +90,11 @@ M2C_UNK delete_char__19TWindowKeyBoardSoftFPv(void *);
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 s32 update__19TWindowKeyBoardSoftFPv(void *);
 void TWindowKeyBoardSoft__sub_8025C24C(u8 *arg0);
+bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0);
 }
 
 extern "C" {
 
-int TWindowKeyBoardSoft__sub_8025B85C(void);
 void TWindowKeyBoardSoft__sub_8025B928(void);
 int TWindowKeyBoardSoft__sub_8025CA70(void);
 int get_field_6c__19TWindowKeyBoardSoftFPv(void* p);
@@ -111,7 +111,24 @@ int is_flag_4_set__17TWindowSubComCardFPv(void* p);
 M2C_UNK reset_state__19TWindowKeyBoardSoftFPv(void *);
 s32 select_next__19TWindowKeyBoardSoftFPv();
 
-int TWindowKeyBoardSoft__sub_8025B85C(void) { return 0; }
+bool TWindowKeyBoardSoft__sub_8025B85C(u16 arg0) {
+    if ((s32) arg0 < 0x30) {
+        return 0;
+    }
+    if ((s32) arg0 <= 0x39) {
+        return 1;
+    }
+    if ((s32) arg0 < 0x41) {
+        return 0;
+    }
+    if ((s32) arg0 <= 0x5A) {
+        return 1;
+    }
+    if ((s32) arg0 < 0x61) {
+        return 0;
+    }
+    return (s32) arg0 <= 0x7A;
+}
 
 s32 get_state__19TWindowKeyBoardSoftFPv(void* p) { return *(s32*)((char*)p + 0x70); }
 

@@ -13,6 +13,22 @@ void __dl__7TObjectFPv(s32);
 u8 * __dt__15TWindowMainMenuFv(void *, s16);
 extern M2C_UNK __vt__17TWindowMainMenu1P[];
 u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1);
+void TCameraCtrl__sub_800694A8(void);
+void TCameraCtrl__sub_800695E8(void *);
+void set_field18__15TWindowCtrlMainFf(f32, s32);
+void set_depth__15TWindowCtrlMainFf(f32, s32);
+extern const f32 lbl_805DD8A0;
+extern const f32 lbl_805DD8A4;
+extern const f32 lbl_805DD8A8;
+extern const f32 lbl_805DD8AC;
+extern const f32 lbl_805DD8B0;
+extern const f32 lbl_805DD8B4;
+extern const f32 lbl_805DD8B8;
+extern const f32 lbl_805DD8BC;
+extern const f32 lbl_805DD8C0;
+extern const f32 lbl_805DD8C4;
+extern const f32 lbl_805DD8C8;
+void TWindowMainMenu1P__sub_80288520(u8 *arg0);
 }
 
 extern "C" {
@@ -20,13 +36,85 @@ extern "C" {
 void *TWindowMainMenu1P__ct(void *arg0);
 void render__17TWindowMainMenu1PFv(void);
 void run_task__17TWindowMainMenu1PFv(void* p);
-int TWindowMainMenu1P__sub_80288520(void*);
 void TWindowMainMenu__ct(void *);
 int TWindowMainMenu__sub_80263FE0(void*);
 int TWindowMainMenu__sub_802647CC(void*);
 
+#pragma fp_contract on
+void TWindowMainMenu1P__sub_80288520(u8 *arg0) {
+  f32 temp_f1;
+  s32 temp_r3;
+  s32 temp_r3_2;
+  temp_r3 = *((s32 *) (((s8 *) arg0) + 0x4C));
+  if (!(temp_r3 & 1))
+  {
+    *((u8 *) (((s8 *) arg0) + 0x60)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x60))) - 1);
+    *((u8 *) (((s8 *) arg0) + 0x61)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x61))) + -1);
+    if (((s8) (*((u8 *) (((s8 *) arg0) + 0x60)))) < 0)
+    {
+      *((u8 *) (((s8 *) arg0) + 0x60)) = 0U;
+    }
+    if (((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))) < 0)
+    {
+      *((u8 *) (((s8 *) arg0) + 0x61)) = 0U;
+    }
+    if ((((s8) (*((u8 *) (((s8 *) arg0) + 0x60)))) == 0) && (((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))) == 0))
+    {
+      temp_r3_2 = *((s32 *) (((s8 *) arg0) + 0x4C));
+      if (temp_r3_2 & 2)
+      {
+        *((s32 *) (((s8 *) arg0) + 0x4C)) = (s32) (temp_r3_2 & 0xFFFFFFFD);
+        TCameraCtrl__sub_800694A8();
+      }
+    }
+  }
+  else
+    if (temp_r3 & 8)
+  {
+    *((u8 *) (((s8 *) arg0) + 0x60)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x60))) + 1);
+    *((u8 *) (((s8 *) arg0) + 0x61)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x61))) - 1);
+    if (((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60))))) > lbl_805DD8A0)
+    {
+      *((u8 *) (((s8 *) arg0) + 0x60)) = 6U;
+    }
+    if (((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))) < 0)
+    {
+      *((u8 *) (((s8 *) arg0) + 0x61)) = 0U;
+    }
+  }
+  else
+  {
+    *((u8 *) (((s8 *) arg0) + 0x60)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x60))) + 1);
+    *((u8 *) (((s8 *) arg0) + 0x61)) = (u8) ((*((u8 *) (((s8 *) arg0) + 0x61))) + 1);
+    if (((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60))))) > lbl_805DD8A4)
+    {
+      *((u8 *) (((s8 *) arg0) + 0x60)) = 3U;
+    }
+    if (((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x61))))) > lbl_805DD8A4)
+    {
+      *((u8 *) (((s8 *) arg0) + 0x61)) = 3U;
+    }
+  }
+  *((f32 *) (((s8 *) arg0) + 0x6C)) = (f32) ((lbl_805DD8AC * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60)))))) + lbl_805DD8A8);
+  *((f32 *) (((s8 *) arg0) + 0x70)) = (f32) (-((lbl_805DD8B4 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))))) - lbl_805DD8B0));
+  set_depth__15TWindowCtrlMainFf(lbl_805DD8B8 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x60))))), *((s32 *) (((s8 *) arg0) + 0x54)));
+  set_field18__15TWindowCtrlMainFf(-((lbl_805DD8C0 * ((f32) ((s8) (*((u8 *) (((s8 *) arg0) + 0x61)))))) - lbl_805DD8BC), *((s32 *) (((s8 *) arg0) + 0x54)));
+  *((f32 *) (((s8 *) arg0) + 0xA4)) = (f32) ((lbl_805DD8C4 - (*((f32 *) (((s8 *) arg0) + 0x6C)))) / lbl_805DD8A8);
+  *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x70))) / lbl_805DD8B0);
+  temp_f1 = *((f32 *) (((s8 *) arg0) + 0xA8));
+  if ((*((f32 *) (((s8 *) arg0) + 0xA4))) < (*((f32 *) (((s8 *) arg0) + 0xA8))))
+  {
+    *((f32 *) (((s8 *) arg0) + 0xA4)) = *((f32 *) (((s8 *) arg0) + 0xA8));
+  }
+  *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (lbl_805DD8C8 * (*((f32 *) (((s8 *) arg0) + 0xA4))));
+  if ((*((s32 *) (((s8 *) arg0) + 0x4C))) & 2)
+  {
+    TCameraCtrl__sub_800695E8(((u8 *) arg0) + 0x64);
+  }
+}
+
 void render__17TWindowMainMenu1PFv(void) {  }
-void run_task__17TWindowMainMenu1PFv(void* p) { TWindowMainMenu__sub_802647CC(p); TWindowMainMenu__sub_80263FE0(p); TWindowMainMenu1P__sub_80288520(p); }
+void run_task__17TWindowMainMenu1PFv(void* p) { TWindowMainMenu__sub_802647CC(p); TWindowMainMenu__sub_80263FE0(p); TWindowMainMenu1P__sub_80288520((u8 *)(p)); }
 
 extern M2C_UNK __vt__17TWindowMainMenu1P[];
 extern const f32 lbl_805DD8A8;

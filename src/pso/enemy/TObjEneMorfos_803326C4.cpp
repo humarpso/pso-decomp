@@ -571,6 +571,19 @@ struct RecoveredFields_803326CC_arg0 {
     s32 field_3C0;
 };
 
+struct Stack_80332B7C
+{
+  s32 sp8;
+  s32 spC;
+  s32 sp10;
+};
+
+struct RecoveredGlobal_80332B7C_lbl_804775D8
+{
+  M2C_UNK value;
+  u8 remaining[0x8];
+};
+
 extern "C" {
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
@@ -614,6 +627,11 @@ s32 TObjPlayer__sub_803E4684(void *);
 extern M2C_UNK main_task[];
 extern int TObjEneMorfos__data_805D6D14;
 void TObjEneMorfos__sub_803326CC(u8 *arg0);
+s32 get_camera_ctrl__9TObjEneDDFPv(void *, int);
+extern RecoveredGlobal_80332B7C_lbl_804775D8 lbl_804775D8;
+extern s32 TObjEneMorfos__data_805D6D18;
+extern s32 TObjEneMorfos__data_805D6D1C;
+void TObjEneMorfos__sub_80332B7C(void);
 }
 
 extern "C" {
@@ -695,6 +713,41 @@ s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0) {
 }
 
 extern const f32 lbl_805DF878;
+
+typedef struct RecoveredGlobal_80332B7C_lbl_804775D8 RecoveredGlobal_80332B7C_lbl_804775D8;
+typedef struct Stack_80332B7C Stack_80332B7C;
+typedef char RecoveredGlobal_80332B7C_lbl_804775D8_size[((sizeof(RecoveredGlobal_80332B7C_lbl_804775D8)) == 0xC) ? (1) : (-1)];
+void TObjEneMorfos__sub_80332B7C(void) {
+  int new_var;
+  Stack_80332B7C stack;
+  if (((s32) TObjEneMorfos__data_805D6D18) != 0xA)
+  {
+    if (((s32) TObjEneMorfos__data_805D6D18) < 0xA)
+    {
+      if (((s32) TObjEneMorfos__data_805D6D18) != 6)
+      {
+      }
+      else
+      {
+        goto block_4;
+      }
+    }
+    if (((!TObjEneMorfos__data_805D6D18) && (!TObjEneMorfos__data_805D6D18)) && (!TObjEneMorfos__data_805D6D18))
+    {
+    }
+  }
+  else
+  {
+    new_var = 0;
+    block_4:
+    stack.sp8 = *((s32 *) (((s8 *) (&lbl_804775D8.value)) + new_var));
+    stack.spC = *((s32 *) (((s8 *) (&lbl_804775D8.value)) + 4));
+    stack.sp10 = *((s32 *) (((s8 *) (&lbl_804775D8.value)) + 8));
+    get_camera_ctrl__9TObjEneDDFPv((void *) (&stack.sp8), (int) TObjEneMorfos__data_805D6D1C);
+    TObjEneMorfos__data_805D6D1C += 0xC;
+  }
+  TObjEneMorfos__data_805D6D18 += 1;
+}
 
 void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1) {
     s32 temp_r3;

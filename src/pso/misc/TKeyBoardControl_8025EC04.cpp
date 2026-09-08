@@ -38,11 +38,11 @@ s32 TKeyBoardControl__sub_801323C8(void *, int);
 u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
 void TKeyBoardControl__sub_8025FC60(struct RecoveredFields_8025FC60_arg0 *arg0);
+bool TKeyBoardControl__sub_8025EC1C(M2C_UNK arg0, u8 arg1);
 }
 
 extern "C" {
 
-int TKeyBoardControl__sub_8025EC1C(void);
 void enable_caps_led__16TKeyBoardControlFPv(void *arg0);
 void enable_kana_led__16TKeyBoardControlFPv(void *arg0);
 void enable_keyboard_led__16TKeyBoardControlFPv(void *arg0);
@@ -72,12 +72,21 @@ void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) | 0x100);
 }
 
-int TKeyBoardControl__sub_8025EC1C(void) { return 0; }
-
 extern M2C_UNK TKeyBoardControl__data_80506270[];
 
 typedef char RecoveredGlobal_8025ED80_lbl_8049E178_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E178) == 0x100 ? 1 : -1];
 typedef char RecoveredGlobal_8025ED80_lbl_8049E278_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E278) == 0x100 ? 1 : -1];
+
+bool TKeyBoardControl__sub_8025EC1C(M2C_UNK arg0, u8 arg1) {
+    if (arg1 == 0x52) {
+        return 1;
+    }
+    if (arg1 < 0x10U) {
+        return 0;
+    }
+    return arg1 <= 0x29U;
+}
+
 u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1) {
     if (M2C_FIELD(arg0, s32 *, 0x60) & 0x80) {
         return M2C_FIELD(((u8 *)(&lbl_8049E278.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);

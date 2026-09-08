@@ -1,34 +1,32 @@
 #include "pso/TPlayerBattleCtrl.h"
-
-void TPlayerBattleCtrl::run_task() {}
-
-TPlayerBattleCtrl::~TPlayerBattleCtrl() {}
-
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK fn_801C4D28(void *);
+void fn_801C4D28(void *);
+void TWindow__close(void *);
 extern s32 lbl_805D55C0;
-void run_task__17TPlayerBattleCtrlFv(u8 *arg0);
+extern s32 TLobby__data_805D5D98;
 }
 
-extern "C" {
-
-void run_task__17TPlayerBattleCtrlFv(u8 *arg0) {
-    if ((s32) lbl_805D55C0 == 0) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != (s32) M2C_FIELD(arg0, s32 *, 0x24)) {
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x20) != -1) {
-                M2C_FIELD(arg0, s32 *, 0x20) = -1;
-                fn_801C4D28((void *) (arg0));
+void TPlayerBattleCtrl::run_task() {
+    if (lbl_805D55C0 == 0) {
+        if (state_1c != state_24) {
+            if (state_20 != -1) {
+                state_20 = -1;
+                fn_801C4D28(this);
             }
-            M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg0, s32 *, 0x24);
-            M2C_FIELD(arg0, s32 *, 0x20) = 0;
+            state_1c = state_24;
+            state_20 = 0;
         }
-        fn_801C4D28((void *) (arg0));
+        fn_801C4D28(this);
     }
 }
 
+TPlayerBattleCtrl::~TPlayerBattleCtrl() {
+    if (state_20 != -1) {
+        state_20 = -1;
+        fn_801C4D28(this);
+    }
+    if (window_4c != NULL) TWindow__close(window_4c);
+    if (window_50 != NULL) TWindow__close(window_50);
+    if (window_54 != NULL) TWindow__close(window_54);
+    TLobby__data_805D5D98 = 0;
 }

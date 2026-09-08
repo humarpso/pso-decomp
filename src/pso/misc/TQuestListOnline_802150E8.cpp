@@ -24,6 +24,11 @@ struct RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 {
     u8 remaining[0x38];
 };
 
+struct RecoveredGlobal_80215ABC_lbl_804CA0B8 {
+    M2C_UNK value;
+    u8 remaining[0x24];
+};
+
 extern "C" {
 void TQuestListOnline__sub_8013ACF4(s32);
 M2C_UNK memcpy(int, void *, int);
@@ -59,6 +64,9 @@ extern int TQuestListOnline__data_805D61A8;
 extern int lbl_805D61AC;
 extern s32 TQuestListOnline__data_805D61E0;
 void TQuestListOnline__sub_80215498(void);
+extern RecoveredGlobal_80215ABC_lbl_804CA0B8 lbl_804CA0B8;
+extern s32 lbl_805D6238;
+bool TLobby__sub_80215ABC(u8 *arg0);
 }
 
 extern "C" {
@@ -138,4 +146,9 @@ void TQuestListOnline__sub_802155B4(void) {
 }
 
 void reset_globals(void) { TQuestListOnline__data_805D61A0 = 0; TQuestListOnline__data_805D61A4 = 0; TQuestListOnline__data_805D61A8 = 0; lbl_805D61AC = 0; memset(TQuestListOnline__data_80513DE8, (void*)0, (void*)60); memset(TQuestListOnline__data_80513E24, (void*)0, (void*)60); TQuestListOnline__data_805D6198 = 0; TQuestListOnline__data_805D619C = 0; lbl_805D61B0 = 0; lbl_805D61B4 = 0; }
+typedef char RecoveredGlobal_80215ABC_lbl_804CA0B8_size[sizeof(RecoveredGlobal_80215ABC_lbl_804CA0B8) == 0x28 ? 1 : -1];
+bool TLobby__sub_80215ABC(u8 *arg0) {
+    return M2C_FIELD(arg0, u8 *, 1) == M2C_FIELD(&lbl_804CA0B8.value, M2C_UNK *, (lbl_805D6238 * 4));
+}
+
 }
